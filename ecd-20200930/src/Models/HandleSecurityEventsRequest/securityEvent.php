@@ -11,15 +11,15 @@ class securityEvent extends Model
     /**
      * @var string
      */
-    public $securityEventId;
+    public $desktopId;
 
     /**
      * @var string
      */
-    public $desktopId;
+    public $securityEventId;
     protected $_name = [
-        'securityEventId' => 'SecurityEventId',
         'desktopId'       => 'DesktopId',
+        'securityEventId' => 'SecurityEventId',
     ];
 
     public function validate()
@@ -29,11 +29,11 @@ class securityEvent extends Model
     public function toMap()
     {
         $res = [];
-        if (null !== $this->securityEventId) {
-            $res['SecurityEventId'] = $this->securityEventId;
-        }
         if (null !== $this->desktopId) {
             $res['DesktopId'] = $this->desktopId;
+        }
+        if (null !== $this->securityEventId) {
+            $res['SecurityEventId'] = $this->securityEventId;
         }
 
         return $res;
@@ -47,11 +47,11 @@ class securityEvent extends Model
     public static function fromMap($map = [])
     {
         $model = new self();
-        if (isset($map['SecurityEventId'])) {
-            $model->securityEventId = $map['SecurityEventId'];
-        }
         if (isset($map['DesktopId'])) {
             $model->desktopId = $map['DesktopId'];
+        }
+        if (isset($map['SecurityEventId'])) {
+            $model->securityEventId = $map['SecurityEventId'];
         }
 
         return $model;

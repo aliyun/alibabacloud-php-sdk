@@ -4,38 +4,45 @@
 
 namespace AlibabaCloud\SDK\Ecd\V20200930\Models;
 
+use AlibabaCloud\SDK\Ecd\V20200930\Models\DescribeDesktopIdsByVulNamesResponse\desktopItems;
 use AlibabaCloud\Tea\Model;
 
 class DescribeDesktopIdsByVulNamesResponse extends Model
 {
     /**
-     * @var string[]
+     * @var string
      */
-    public $headers;
+    public $requestId;
 
     /**
-     * @var DescribeDesktopIdsByVulNamesResponseBody
+     * @var desktopItems[]
      */
-    public $body;
+    public $desktopItems;
     protected $_name = [
-        'headers' => 'headers',
-        'body'    => 'body',
+        'requestId'    => 'RequestId',
+        'desktopItems' => 'DesktopItems',
     ];
 
     public function validate()
     {
-        Model::validateRequired('headers', $this->headers, true);
-        Model::validateRequired('body', $this->body, true);
+        Model::validateRequired('requestId', $this->requestId, true);
+        Model::validateRequired('desktopItems', $this->desktopItems, true);
     }
 
     public function toMap()
     {
         $res = [];
-        if (null !== $this->headers) {
-            $res['headers'] = $this->headers;
+        if (null !== $this->requestId) {
+            $res['RequestId'] = $this->requestId;
         }
-        if (null !== $this->body) {
-            $res['body'] = null !== $this->body ? $this->body->toMap() : null;
+        if (null !== $this->desktopItems) {
+            $res['DesktopItems'] = [];
+            if (null !== $this->desktopItems && \is_array($this->desktopItems)) {
+                $n = 0;
+                foreach ($this->desktopItems as $item) {
+                    $res['DesktopItems'][$n++] = null !== $item ? $item->toMap() : $item;
+                }
+            }
         }
 
         return $res;
@@ -49,11 +56,17 @@ class DescribeDesktopIdsByVulNamesResponse extends Model
     public static function fromMap($map = [])
     {
         $model = new self();
-        if (isset($map['headers'])) {
-            $model->headers = $map['headers'];
+        if (isset($map['RequestId'])) {
+            $model->requestId = $map['RequestId'];
         }
-        if (isset($map['body'])) {
-            $model->body = DescribeDesktopIdsByVulNamesResponseBody::fromMap($map['body']);
+        if (isset($map['DesktopItems'])) {
+            if (!empty($map['DesktopItems'])) {
+                $model->desktopItems = [];
+                $n                   = 0;
+                foreach ($map['DesktopItems'] as $item) {
+                    $model->desktopItems[$n++] = null !== $item ? desktopItems::fromMap($item) : $item;
+                }
+            }
         }
 
         return $model;

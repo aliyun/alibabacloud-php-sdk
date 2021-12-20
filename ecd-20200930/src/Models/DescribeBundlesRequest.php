@@ -9,14 +9,49 @@ use AlibabaCloud\Tea\Model;
 class DescribeBundlesRequest extends Model
 {
     /**
+     * @var string[]
+     */
+    public $bundleId;
+
+    /**
      * @var string
      */
-    public $regionId;
+    public $bundleType;
+
+    /**
+     * @var bool
+     */
+    public $checkStock;
+
+    /**
+     * @var int
+     */
+    public $cpuCount;
+
+    /**
+     * @var string
+     */
+    public $desktopTypeFamily;
+
+    /**
+     * @var bool
+     */
+    public $fromDesktopGroup;
+
+    /**
+     * @var float
+     */
+    public $gpuCount;
 
     /**
      * @var int
      */
     public $maxResults;
+
+    /**
+     * @var int
+     */
+    public $memorySize;
 
     /**
      * @var string
@@ -26,104 +61,70 @@ class DescribeBundlesRequest extends Model
     /**
      * @var string
      */
-    public $bundleType;
-
-    /**
-     * @var string
-     */
-    public $desktopTypeFamily;
-
-    /**
-     * @var int
-     */
-    public $cpuCount;
-
-    /**
-     * @var int
-     */
-    public $memorySize;
-
-    /**
-     * @var float
-     */
-    public $gpuCount;
-
-    /**
-     * @var bool
-     */
-    public $checkStock;
-
-    /**
-     * @var bool
-     */
-    public $fromDesktopGroup;
-
-    /**
-     * @var string
-     */
     public $protocolType;
 
     /**
-     * @var string[]
+     * @var string
      */
-    public $bundleId;
+    public $regionId;
     protected $_name = [
-        'regionId'          => 'RegionId',
-        'maxResults'        => 'MaxResults',
-        'nextToken'         => 'NextToken',
-        'bundleType'        => 'BundleType',
-        'desktopTypeFamily' => 'DesktopTypeFamily',
-        'cpuCount'          => 'CpuCount',
-        'memorySize'        => 'MemorySize',
-        'gpuCount'          => 'GpuCount',
-        'checkStock'        => 'CheckStock',
-        'fromDesktopGroup'  => 'FromDesktopGroup',
-        'protocolType'      => 'ProtocolType',
         'bundleId'          => 'BundleId',
+        'bundleType'        => 'BundleType',
+        'checkStock'        => 'CheckStock',
+        'cpuCount'          => 'CpuCount',
+        'desktopTypeFamily' => 'DesktopTypeFamily',
+        'fromDesktopGroup'  => 'FromDesktopGroup',
+        'gpuCount'          => 'GpuCount',
+        'maxResults'        => 'MaxResults',
+        'memorySize'        => 'MemorySize',
+        'nextToken'         => 'NextToken',
+        'protocolType'      => 'ProtocolType',
+        'regionId'          => 'RegionId',
     ];
 
     public function validate()
     {
+        Model::validateRequired('regionId', $this->regionId, true);
     }
 
     public function toMap()
     {
         $res = [];
-        if (null !== $this->regionId) {
-            $res['RegionId'] = $this->regionId;
-        }
-        if (null !== $this->maxResults) {
-            $res['MaxResults'] = $this->maxResults;
-        }
-        if (null !== $this->nextToken) {
-            $res['NextToken'] = $this->nextToken;
+        if (null !== $this->bundleId) {
+            $res['BundleId'] = $this->bundleId;
         }
         if (null !== $this->bundleType) {
             $res['BundleType'] = $this->bundleType;
         }
-        if (null !== $this->desktopTypeFamily) {
-            $res['DesktopTypeFamily'] = $this->desktopTypeFamily;
+        if (null !== $this->checkStock) {
+            $res['CheckStock'] = $this->checkStock;
         }
         if (null !== $this->cpuCount) {
             $res['CpuCount'] = $this->cpuCount;
         }
-        if (null !== $this->memorySize) {
-            $res['MemorySize'] = $this->memorySize;
-        }
-        if (null !== $this->gpuCount) {
-            $res['GpuCount'] = $this->gpuCount;
-        }
-        if (null !== $this->checkStock) {
-            $res['CheckStock'] = $this->checkStock;
+        if (null !== $this->desktopTypeFamily) {
+            $res['DesktopTypeFamily'] = $this->desktopTypeFamily;
         }
         if (null !== $this->fromDesktopGroup) {
             $res['FromDesktopGroup'] = $this->fromDesktopGroup;
         }
+        if (null !== $this->gpuCount) {
+            $res['GpuCount'] = $this->gpuCount;
+        }
+        if (null !== $this->maxResults) {
+            $res['MaxResults'] = $this->maxResults;
+        }
+        if (null !== $this->memorySize) {
+            $res['MemorySize'] = $this->memorySize;
+        }
+        if (null !== $this->nextToken) {
+            $res['NextToken'] = $this->nextToken;
+        }
         if (null !== $this->protocolType) {
             $res['ProtocolType'] = $this->protocolType;
         }
-        if (null !== $this->bundleId) {
-            $res['BundleId'] = $this->bundleId;
+        if (null !== $this->regionId) {
+            $res['RegionId'] = $this->regionId;
         }
 
         return $res;
@@ -137,43 +138,43 @@ class DescribeBundlesRequest extends Model
     public static function fromMap($map = [])
     {
         $model = new self();
-        if (isset($map['RegionId'])) {
-            $model->regionId = $map['RegionId'];
-        }
-        if (isset($map['MaxResults'])) {
-            $model->maxResults = $map['MaxResults'];
-        }
-        if (isset($map['NextToken'])) {
-            $model->nextToken = $map['NextToken'];
-        }
-        if (isset($map['BundleType'])) {
-            $model->bundleType = $map['BundleType'];
-        }
-        if (isset($map['DesktopTypeFamily'])) {
-            $model->desktopTypeFamily = $map['DesktopTypeFamily'];
-        }
-        if (isset($map['CpuCount'])) {
-            $model->cpuCount = $map['CpuCount'];
-        }
-        if (isset($map['MemorySize'])) {
-            $model->memorySize = $map['MemorySize'];
-        }
-        if (isset($map['GpuCount'])) {
-            $model->gpuCount = $map['GpuCount'];
-        }
-        if (isset($map['CheckStock'])) {
-            $model->checkStock = $map['CheckStock'];
-        }
-        if (isset($map['FromDesktopGroup'])) {
-            $model->fromDesktopGroup = $map['FromDesktopGroup'];
-        }
-        if (isset($map['ProtocolType'])) {
-            $model->protocolType = $map['ProtocolType'];
-        }
         if (isset($map['BundleId'])) {
             if (!empty($map['BundleId'])) {
                 $model->bundleId = $map['BundleId'];
             }
+        }
+        if (isset($map['BundleType'])) {
+            $model->bundleType = $map['BundleType'];
+        }
+        if (isset($map['CheckStock'])) {
+            $model->checkStock = $map['CheckStock'];
+        }
+        if (isset($map['CpuCount'])) {
+            $model->cpuCount = $map['CpuCount'];
+        }
+        if (isset($map['DesktopTypeFamily'])) {
+            $model->desktopTypeFamily = $map['DesktopTypeFamily'];
+        }
+        if (isset($map['FromDesktopGroup'])) {
+            $model->fromDesktopGroup = $map['FromDesktopGroup'];
+        }
+        if (isset($map['GpuCount'])) {
+            $model->gpuCount = $map['GpuCount'];
+        }
+        if (isset($map['MaxResults'])) {
+            $model->maxResults = $map['MaxResults'];
+        }
+        if (isset($map['MemorySize'])) {
+            $model->memorySize = $map['MemorySize'];
+        }
+        if (isset($map['NextToken'])) {
+            $model->nextToken = $map['NextToken'];
+        }
+        if (isset($map['ProtocolType'])) {
+            $model->protocolType = $map['ProtocolType'];
+        }
+        if (isset($map['RegionId'])) {
+            $model->regionId = $map['RegionId'];
         }
 
         return $model;

@@ -11,38 +11,40 @@ class ModifyEntitlementRequest extends Model
     /**
      * @var string
      */
-    public $regionId;
-
-    /**
-     * @var string
-     */
     public $desktopId;
 
     /**
      * @var string[]
      */
     public $endUserId;
+
+    /**
+     * @var string
+     */
+    public $regionId;
     protected $_name = [
-        'regionId'  => 'RegionId',
         'desktopId' => 'DesktopId',
         'endUserId' => 'EndUserId',
+        'regionId'  => 'RegionId',
     ];
 
     public function validate()
     {
+        Model::validateRequired('desktopId', $this->desktopId, true);
+        Model::validateRequired('regionId', $this->regionId, true);
     }
 
     public function toMap()
     {
         $res = [];
-        if (null !== $this->regionId) {
-            $res['RegionId'] = $this->regionId;
-        }
         if (null !== $this->desktopId) {
             $res['DesktopId'] = $this->desktopId;
         }
         if (null !== $this->endUserId) {
             $res['EndUserId'] = $this->endUserId;
+        }
+        if (null !== $this->regionId) {
+            $res['RegionId'] = $this->regionId;
         }
 
         return $res;
@@ -56,9 +58,6 @@ class ModifyEntitlementRequest extends Model
     public static function fromMap($map = [])
     {
         $model = new self();
-        if (isset($map['RegionId'])) {
-            $model->regionId = $map['RegionId'];
-        }
         if (isset($map['DesktopId'])) {
             $model->desktopId = $map['DesktopId'];
         }
@@ -66,6 +65,9 @@ class ModifyEntitlementRequest extends Model
             if (!empty($map['EndUserId'])) {
                 $model->endUserId = $map['EndUserId'];
             }
+        }
+        if (isset($map['RegionId'])) {
+            $model->regionId = $map['RegionId'];
         }
 
         return $model;

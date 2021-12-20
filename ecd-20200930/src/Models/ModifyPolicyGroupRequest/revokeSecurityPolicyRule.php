@@ -11,17 +11,7 @@ class revokeSecurityPolicyRule extends Model
     /**
      * @var string
      */
-    public $type;
-
-    /**
-     * @var string
-     */
-    public $policy;
-
-    /**
-     * @var string
-     */
-    public $portRange;
+    public $cidrIp;
 
     /**
      * @var string
@@ -36,20 +26,30 @@ class revokeSecurityPolicyRule extends Model
     /**
      * @var string
      */
+    public $policy;
+
+    /**
+     * @var string
+     */
+    public $portRange;
+
+    /**
+     * @var string
+     */
     public $priority;
 
     /**
      * @var string
      */
-    public $cidrIp;
+    public $type;
     protected $_name = [
-        'type'        => 'Type',
-        'policy'      => 'Policy',
-        'portRange'   => 'PortRange',
+        'cidrIp'      => 'CidrIp',
         'description' => 'Description',
         'ipProtocol'  => 'IpProtocol',
+        'policy'      => 'Policy',
+        'portRange'   => 'PortRange',
         'priority'    => 'Priority',
-        'cidrIp'      => 'CidrIp',
+        'type'        => 'Type',
     ];
 
     public function validate()
@@ -59,14 +59,8 @@ class revokeSecurityPolicyRule extends Model
     public function toMap()
     {
         $res = [];
-        if (null !== $this->type) {
-            $res['Type'] = $this->type;
-        }
-        if (null !== $this->policy) {
-            $res['Policy'] = $this->policy;
-        }
-        if (null !== $this->portRange) {
-            $res['PortRange'] = $this->portRange;
+        if (null !== $this->cidrIp) {
+            $res['CidrIp'] = $this->cidrIp;
         }
         if (null !== $this->description) {
             $res['Description'] = $this->description;
@@ -74,11 +68,17 @@ class revokeSecurityPolicyRule extends Model
         if (null !== $this->ipProtocol) {
             $res['IpProtocol'] = $this->ipProtocol;
         }
+        if (null !== $this->policy) {
+            $res['Policy'] = $this->policy;
+        }
+        if (null !== $this->portRange) {
+            $res['PortRange'] = $this->portRange;
+        }
         if (null !== $this->priority) {
             $res['Priority'] = $this->priority;
         }
-        if (null !== $this->cidrIp) {
-            $res['CidrIp'] = $this->cidrIp;
+        if (null !== $this->type) {
+            $res['Type'] = $this->type;
         }
 
         return $res;
@@ -92,14 +92,8 @@ class revokeSecurityPolicyRule extends Model
     public static function fromMap($map = [])
     {
         $model = new self();
-        if (isset($map['Type'])) {
-            $model->type = $map['Type'];
-        }
-        if (isset($map['Policy'])) {
-            $model->policy = $map['Policy'];
-        }
-        if (isset($map['PortRange'])) {
-            $model->portRange = $map['PortRange'];
+        if (isset($map['CidrIp'])) {
+            $model->cidrIp = $map['CidrIp'];
         }
         if (isset($map['Description'])) {
             $model->description = $map['Description'];
@@ -107,11 +101,17 @@ class revokeSecurityPolicyRule extends Model
         if (isset($map['IpProtocol'])) {
             $model->ipProtocol = $map['IpProtocol'];
         }
+        if (isset($map['Policy'])) {
+            $model->policy = $map['Policy'];
+        }
+        if (isset($map['PortRange'])) {
+            $model->portRange = $map['PortRange'];
+        }
         if (isset($map['Priority'])) {
             $model->priority = $map['Priority'];
         }
-        if (isset($map['CidrIp'])) {
-            $model->cidrIp = $map['CidrIp'];
+        if (isset($map['Type'])) {
+            $model->type = $map['Type'];
         }
 
         return $model;

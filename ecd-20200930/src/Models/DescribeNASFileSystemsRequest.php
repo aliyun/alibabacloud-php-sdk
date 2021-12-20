@@ -9,14 +9,9 @@ use AlibabaCloud\Tea\Model;
 class DescribeNASFileSystemsRequest extends Model
 {
     /**
-     * @var string
+     * @var string[]
      */
-    public $regionId;
-
-    /**
-     * @var string
-     */
-    public $officeSiteId;
+    public $fileSystemId;
 
     /**
      * @var int
@@ -29,29 +24,32 @@ class DescribeNASFileSystemsRequest extends Model
     public $nextToken;
 
     /**
-     * @var string[]
+     * @var string
      */
-    public $fileSystemId;
+    public $officeSiteId;
+
+    /**
+     * @var string
+     */
+    public $regionId;
     protected $_name = [
-        'regionId'     => 'RegionId',
-        'officeSiteId' => 'OfficeSiteId',
+        'fileSystemId' => 'FileSystemId',
         'maxResults'   => 'MaxResults',
         'nextToken'    => 'NextToken',
-        'fileSystemId' => 'FileSystemId',
+        'officeSiteId' => 'OfficeSiteId',
+        'regionId'     => 'RegionId',
     ];
 
     public function validate()
     {
+        Model::validateRequired('regionId', $this->regionId, true);
     }
 
     public function toMap()
     {
         $res = [];
-        if (null !== $this->regionId) {
-            $res['RegionId'] = $this->regionId;
-        }
-        if (null !== $this->officeSiteId) {
-            $res['OfficeSiteId'] = $this->officeSiteId;
+        if (null !== $this->fileSystemId) {
+            $res['FileSystemId'] = $this->fileSystemId;
         }
         if (null !== $this->maxResults) {
             $res['MaxResults'] = $this->maxResults;
@@ -59,8 +57,11 @@ class DescribeNASFileSystemsRequest extends Model
         if (null !== $this->nextToken) {
             $res['NextToken'] = $this->nextToken;
         }
-        if (null !== $this->fileSystemId) {
-            $res['FileSystemId'] = $this->fileSystemId;
+        if (null !== $this->officeSiteId) {
+            $res['OfficeSiteId'] = $this->officeSiteId;
+        }
+        if (null !== $this->regionId) {
+            $res['RegionId'] = $this->regionId;
         }
 
         return $res;
@@ -74,11 +75,10 @@ class DescribeNASFileSystemsRequest extends Model
     public static function fromMap($map = [])
     {
         $model = new self();
-        if (isset($map['RegionId'])) {
-            $model->regionId = $map['RegionId'];
-        }
-        if (isset($map['OfficeSiteId'])) {
-            $model->officeSiteId = $map['OfficeSiteId'];
+        if (isset($map['FileSystemId'])) {
+            if (!empty($map['FileSystemId'])) {
+                $model->fileSystemId = $map['FileSystemId'];
+            }
         }
         if (isset($map['MaxResults'])) {
             $model->maxResults = $map['MaxResults'];
@@ -86,10 +86,11 @@ class DescribeNASFileSystemsRequest extends Model
         if (isset($map['NextToken'])) {
             $model->nextToken = $map['NextToken'];
         }
-        if (isset($map['FileSystemId'])) {
-            if (!empty($map['FileSystemId'])) {
-                $model->fileSystemId = $map['FileSystemId'];
-            }
+        if (isset($map['OfficeSiteId'])) {
+            $model->officeSiteId = $map['OfficeSiteId'];
+        }
+        if (isset($map['RegionId'])) {
+            $model->regionId = $map['RegionId'];
         }
 
         return $model;

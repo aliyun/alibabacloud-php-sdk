@@ -9,16 +9,6 @@ use AlibabaCloud\Tea\Model;
 class DescribeScaleStrategysRequest extends Model
 {
     /**
-     * @var string
-     */
-    public $regionId;
-
-    /**
-     * @var string
-     */
-    public $scaleStrategyName;
-
-    /**
      * @var int
      */
     public $maxResults;
@@ -27,31 +17,42 @@ class DescribeScaleStrategysRequest extends Model
      * @var string
      */
     public $nextToken;
+
+    /**
+     * @var string
+     */
+    public $regionId;
+
+    /**
+     * @var string
+     */
+    public $scaleStrategyName;
     protected $_name = [
-        'regionId'          => 'RegionId',
-        'scaleStrategyName' => 'ScaleStrategyName',
         'maxResults'        => 'MaxResults',
         'nextToken'         => 'NextToken',
+        'regionId'          => 'RegionId',
+        'scaleStrategyName' => 'ScaleStrategyName',
     ];
 
     public function validate()
     {
+        Model::validateRequired('regionId', $this->regionId, true);
     }
 
     public function toMap()
     {
         $res = [];
-        if (null !== $this->regionId) {
-            $res['RegionId'] = $this->regionId;
-        }
-        if (null !== $this->scaleStrategyName) {
-            $res['ScaleStrategyName'] = $this->scaleStrategyName;
-        }
         if (null !== $this->maxResults) {
             $res['MaxResults'] = $this->maxResults;
         }
         if (null !== $this->nextToken) {
             $res['NextToken'] = $this->nextToken;
+        }
+        if (null !== $this->regionId) {
+            $res['RegionId'] = $this->regionId;
+        }
+        if (null !== $this->scaleStrategyName) {
+            $res['ScaleStrategyName'] = $this->scaleStrategyName;
         }
 
         return $res;
@@ -65,17 +66,17 @@ class DescribeScaleStrategysRequest extends Model
     public static function fromMap($map = [])
     {
         $model = new self();
-        if (isset($map['RegionId'])) {
-            $model->regionId = $map['RegionId'];
-        }
-        if (isset($map['ScaleStrategyName'])) {
-            $model->scaleStrategyName = $map['ScaleStrategyName'];
-        }
         if (isset($map['MaxResults'])) {
             $model->maxResults = $map['MaxResults'];
         }
         if (isset($map['NextToken'])) {
             $model->nextToken = $map['NextToken'];
+        }
+        if (isset($map['RegionId'])) {
+            $model->regionId = $map['RegionId'];
+        }
+        if (isset($map['ScaleStrategyName'])) {
+            $model->scaleStrategyName = $map['ScaleStrategyName'];
         }
 
         return $model;

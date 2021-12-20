@@ -9,19 +9,19 @@ use AlibabaCloud\Tea\Model;
 class DescribeDirectoriesRequest extends Model
 {
     /**
-     * @var string
+     * @var string[]
      */
-    public $regionId;
-
-    /**
-     * @var string
-     */
-    public $directoryType;
+    public $directoryId;
 
     /**
      * @var string
      */
     public $directoryStatus;
+
+    /**
+     * @var string
+     */
+    public $directoryType;
 
     /**
      * @var int
@@ -34,33 +34,40 @@ class DescribeDirectoriesRequest extends Model
     public $nextToken;
 
     /**
-     * @var string[]
+     * @var string
      */
-    public $directoryId;
+    public $regionId;
+
+    /**
+     * @var string
+     */
+    public $status;
     protected $_name = [
-        'regionId'        => 'RegionId',
-        'directoryType'   => 'DirectoryType',
+        'directoryId'     => 'DirectoryId',
         'directoryStatus' => 'DirectoryStatus',
+        'directoryType'   => 'DirectoryType',
         'maxResults'      => 'MaxResults',
         'nextToken'       => 'NextToken',
-        'directoryId'     => 'DirectoryId',
+        'regionId'        => 'RegionId',
+        'status'          => 'Status',
     ];
 
     public function validate()
     {
+        Model::validateRequired('regionId', $this->regionId, true);
     }
 
     public function toMap()
     {
         $res = [];
-        if (null !== $this->regionId) {
-            $res['RegionId'] = $this->regionId;
-        }
-        if (null !== $this->directoryType) {
-            $res['DirectoryType'] = $this->directoryType;
+        if (null !== $this->directoryId) {
+            $res['DirectoryId'] = $this->directoryId;
         }
         if (null !== $this->directoryStatus) {
             $res['DirectoryStatus'] = $this->directoryStatus;
+        }
+        if (null !== $this->directoryType) {
+            $res['DirectoryType'] = $this->directoryType;
         }
         if (null !== $this->maxResults) {
             $res['MaxResults'] = $this->maxResults;
@@ -68,8 +75,11 @@ class DescribeDirectoriesRequest extends Model
         if (null !== $this->nextToken) {
             $res['NextToken'] = $this->nextToken;
         }
-        if (null !== $this->directoryId) {
-            $res['DirectoryId'] = $this->directoryId;
+        if (null !== $this->regionId) {
+            $res['RegionId'] = $this->regionId;
+        }
+        if (null !== $this->status) {
+            $res['Status'] = $this->status;
         }
 
         return $res;
@@ -83,14 +93,16 @@ class DescribeDirectoriesRequest extends Model
     public static function fromMap($map = [])
     {
         $model = new self();
-        if (isset($map['RegionId'])) {
-            $model->regionId = $map['RegionId'];
-        }
-        if (isset($map['DirectoryType'])) {
-            $model->directoryType = $map['DirectoryType'];
+        if (isset($map['DirectoryId'])) {
+            if (!empty($map['DirectoryId'])) {
+                $model->directoryId = $map['DirectoryId'];
+            }
         }
         if (isset($map['DirectoryStatus'])) {
             $model->directoryStatus = $map['DirectoryStatus'];
+        }
+        if (isset($map['DirectoryType'])) {
+            $model->directoryType = $map['DirectoryType'];
         }
         if (isset($map['MaxResults'])) {
             $model->maxResults = $map['MaxResults'];
@@ -98,10 +110,11 @@ class DescribeDirectoriesRequest extends Model
         if (isset($map['NextToken'])) {
             $model->nextToken = $map['NextToken'];
         }
-        if (isset($map['DirectoryId'])) {
-            if (!empty($map['DirectoryId'])) {
-                $model->directoryId = $map['DirectoryId'];
-            }
+        if (isset($map['RegionId'])) {
+            $model->regionId = $map['RegionId'];
+        }
+        if (isset($map['Status'])) {
+            $model->status = $map['Status'];
         }
 
         return $model;

@@ -11,22 +11,7 @@ class RunCommandRequest extends Model
     /**
      * @var string
      */
-    public $regionId;
-
-    /**
-     * @var string
-     */
-    public $type;
-
-    /**
-     * @var string
-     */
     public $commandContent;
-
-    /**
-     * @var int
-     */
-    public $timeout;
 
     /**
      * @var string
@@ -37,39 +22,58 @@ class RunCommandRequest extends Model
      * @var string[]
      */
     public $desktopId;
+
+    /**
+     * @var string
+     */
+    public $regionId;
+
+    /**
+     * @var int
+     */
+    public $timeout;
+
+    /**
+     * @var string
+     */
+    public $type;
     protected $_name = [
-        'regionId'        => 'RegionId',
-        'type'            => 'Type',
         'commandContent'  => 'CommandContent',
-        'timeout'         => 'Timeout',
         'contentEncoding' => 'ContentEncoding',
         'desktopId'       => 'DesktopId',
+        'regionId'        => 'RegionId',
+        'timeout'         => 'Timeout',
+        'type'            => 'Type',
     ];
 
     public function validate()
     {
+        Model::validateRequired('commandContent', $this->commandContent, true);
+        Model::validateRequired('desktopId', $this->desktopId, true);
+        Model::validateRequired('regionId', $this->regionId, true);
+        Model::validateRequired('type', $this->type, true);
     }
 
     public function toMap()
     {
         $res = [];
-        if (null !== $this->regionId) {
-            $res['RegionId'] = $this->regionId;
-        }
-        if (null !== $this->type) {
-            $res['Type'] = $this->type;
-        }
         if (null !== $this->commandContent) {
             $res['CommandContent'] = $this->commandContent;
-        }
-        if (null !== $this->timeout) {
-            $res['Timeout'] = $this->timeout;
         }
         if (null !== $this->contentEncoding) {
             $res['ContentEncoding'] = $this->contentEncoding;
         }
         if (null !== $this->desktopId) {
             $res['DesktopId'] = $this->desktopId;
+        }
+        if (null !== $this->regionId) {
+            $res['RegionId'] = $this->regionId;
+        }
+        if (null !== $this->timeout) {
+            $res['Timeout'] = $this->timeout;
+        }
+        if (null !== $this->type) {
+            $res['Type'] = $this->type;
         }
 
         return $res;
@@ -83,17 +87,8 @@ class RunCommandRequest extends Model
     public static function fromMap($map = [])
     {
         $model = new self();
-        if (isset($map['RegionId'])) {
-            $model->regionId = $map['RegionId'];
-        }
-        if (isset($map['Type'])) {
-            $model->type = $map['Type'];
-        }
         if (isset($map['CommandContent'])) {
             $model->commandContent = $map['CommandContent'];
-        }
-        if (isset($map['Timeout'])) {
-            $model->timeout = $map['Timeout'];
         }
         if (isset($map['ContentEncoding'])) {
             $model->contentEncoding = $map['ContentEncoding'];
@@ -102,6 +97,15 @@ class RunCommandRequest extends Model
             if (!empty($map['DesktopId'])) {
                 $model->desktopId = $map['DesktopId'];
             }
+        }
+        if (isset($map['RegionId'])) {
+            $model->regionId = $map['RegionId'];
+        }
+        if (isset($map['Timeout'])) {
+            $model->timeout = $map['Timeout'];
+        }
+        if (isset($map['Type'])) {
+            $model->type = $map['Type'];
         }
 
         return $model;

@@ -9,9 +9,14 @@ use AlibabaCloud\Tea\Model;
 class RenewDesktopsRequest extends Model
 {
     /**
-     * @var string
+     * @var bool
      */
-    public $regionId;
+    public $autoPay;
+
+    /**
+     * @var string[]
+     */
+    public $desktopId;
 
     /**
      * @var int
@@ -24,31 +29,37 @@ class RenewDesktopsRequest extends Model
     public $periodUnit;
 
     /**
-     * @var bool
+     * @var string
      */
-    public $autoPay;
+    public $promotionId;
 
     /**
-     * @var string[]
+     * @var string
      */
-    public $desktopId;
+    public $regionId;
     protected $_name = [
-        'regionId'   => 'RegionId',
-        'period'     => 'Period',
-        'periodUnit' => 'PeriodUnit',
-        'autoPay'    => 'AutoPay',
-        'desktopId'  => 'DesktopId',
+        'autoPay'     => 'AutoPay',
+        'desktopId'   => 'DesktopId',
+        'period'      => 'Period',
+        'periodUnit'  => 'PeriodUnit',
+        'promotionId' => 'PromotionId',
+        'regionId'    => 'RegionId',
     ];
 
     public function validate()
     {
+        Model::validateRequired('desktopId', $this->desktopId, true);
+        Model::validateRequired('regionId', $this->regionId, true);
     }
 
     public function toMap()
     {
         $res = [];
-        if (null !== $this->regionId) {
-            $res['RegionId'] = $this->regionId;
+        if (null !== $this->autoPay) {
+            $res['AutoPay'] = $this->autoPay;
+        }
+        if (null !== $this->desktopId) {
+            $res['DesktopId'] = $this->desktopId;
         }
         if (null !== $this->period) {
             $res['Period'] = $this->period;
@@ -56,11 +67,11 @@ class RenewDesktopsRequest extends Model
         if (null !== $this->periodUnit) {
             $res['PeriodUnit'] = $this->periodUnit;
         }
-        if (null !== $this->autoPay) {
-            $res['AutoPay'] = $this->autoPay;
+        if (null !== $this->promotionId) {
+            $res['PromotionId'] = $this->promotionId;
         }
-        if (null !== $this->desktopId) {
-            $res['DesktopId'] = $this->desktopId;
+        if (null !== $this->regionId) {
+            $res['RegionId'] = $this->regionId;
         }
 
         return $res;
@@ -74,15 +85,6 @@ class RenewDesktopsRequest extends Model
     public static function fromMap($map = [])
     {
         $model = new self();
-        if (isset($map['RegionId'])) {
-            $model->regionId = $map['RegionId'];
-        }
-        if (isset($map['Period'])) {
-            $model->period = $map['Period'];
-        }
-        if (isset($map['PeriodUnit'])) {
-            $model->periodUnit = $map['PeriodUnit'];
-        }
         if (isset($map['AutoPay'])) {
             $model->autoPay = $map['AutoPay'];
         }
@@ -90,6 +92,18 @@ class RenewDesktopsRequest extends Model
             if (!empty($map['DesktopId'])) {
                 $model->desktopId = $map['DesktopId'];
             }
+        }
+        if (isset($map['Period'])) {
+            $model->period = $map['Period'];
+        }
+        if (isset($map['PeriodUnit'])) {
+            $model->periodUnit = $map['PeriodUnit'];
+        }
+        if (isset($map['PromotionId'])) {
+            $model->promotionId = $map['PromotionId'];
+        }
+        if (isset($map['RegionId'])) {
+            $model->regionId = $map['RegionId'];
         }
 
         return $model;

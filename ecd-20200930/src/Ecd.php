@@ -5,6 +5,8 @@
 namespace AlibabaCloud\SDK\Ecd\V20200930;
 
 use AlibabaCloud\Endpoint\Endpoint;
+use AlibabaCloud\SDK\Ecd\V20200930\Models\ActivateOfficeSiteRequest;
+use AlibabaCloud\SDK\Ecd\V20200930\Models\ActivateOfficeSiteResponse;
 use AlibabaCloud\SDK\Ecd\V20200930\Models\AddUserToDesktopGroupRequest;
 use AlibabaCloud\SDK\Ecd\V20200930\Models\AddUserToDesktopGroupResponse;
 use AlibabaCloud\SDK\Ecd\V20200930\Models\AddUserToSecurityCenterWhiteListRequest;
@@ -13,14 +15,24 @@ use AlibabaCloud\SDK\Ecd\V20200930\Models\AttachCenRequest;
 use AlibabaCloud\SDK\Ecd\V20200930\Models\AttachCenResponse;
 use AlibabaCloud\SDK\Ecd\V20200930\Models\CheckUserInSecurityCenterWhiteListRequest;
 use AlibabaCloud\SDK\Ecd\V20200930\Models\CheckUserInSecurityCenterWhiteListResponse;
+use AlibabaCloud\SDK\Ecd\V20200930\Models\CheckUserTagsRequest;
+use AlibabaCloud\SDK\Ecd\V20200930\Models\CheckUserTagsResponse;
 use AlibabaCloud\SDK\Ecd\V20200930\Models\ClonePolicyGroupRequest;
 use AlibabaCloud\SDK\Ecd\V20200930\Models\ClonePolicyGroupResponse;
+use AlibabaCloud\SDK\Ecd\V20200930\Models\ConfigADConnectorTrustRequest;
+use AlibabaCloud\SDK\Ecd\V20200930\Models\ConfigADConnectorTrustResponse;
+use AlibabaCloud\SDK\Ecd\V20200930\Models\ConfigADConnectorUserRequest;
+use AlibabaCloud\SDK\Ecd\V20200930\Models\ConfigADConnectorUserResponse;
 use AlibabaCloud\SDK\Ecd\V20200930\Models\CreateADConnectorDirectoryRequest;
 use AlibabaCloud\SDK\Ecd\V20200930\Models\CreateADConnectorDirectoryResponse;
 use AlibabaCloud\SDK\Ecd\V20200930\Models\CreateADConnectorOfficeSiteRequest;
 use AlibabaCloud\SDK\Ecd\V20200930\Models\CreateADConnectorOfficeSiteResponse;
+use AlibabaCloud\SDK\Ecd\V20200930\Models\CreateBandwidthResourcePackagesRequest;
+use AlibabaCloud\SDK\Ecd\V20200930\Models\CreateBandwidthResourcePackagesResponse;
 use AlibabaCloud\SDK\Ecd\V20200930\Models\CreateBundleRequest;
 use AlibabaCloud\SDK\Ecd\V20200930\Models\CreateBundleResponse;
+use AlibabaCloud\SDK\Ecd\V20200930\Models\CreateCloudDriveServiceRequest;
+use AlibabaCloud\SDK\Ecd\V20200930\Models\CreateCloudDriveServiceResponse;
 use AlibabaCloud\SDK\Ecd\V20200930\Models\CreateDesktopGroupRequest;
 use AlibabaCloud\SDK\Ecd\V20200930\Models\CreateDesktopGroupResponse;
 use AlibabaCloud\SDK\Ecd\V20200930\Models\CreateDesktopsLiteRequest;
@@ -33,6 +45,8 @@ use AlibabaCloud\SDK\Ecd\V20200930\Models\CreateNASFileSystemRequest;
 use AlibabaCloud\SDK\Ecd\V20200930\Models\CreateNASFileSystemResponse;
 use AlibabaCloud\SDK\Ecd\V20200930\Models\CreateNetworkPackageRequest;
 use AlibabaCloud\SDK\Ecd\V20200930\Models\CreateNetworkPackageResponse;
+use AlibabaCloud\SDK\Ecd\V20200930\Models\CreateOrderForHardwareRequest;
+use AlibabaCloud\SDK\Ecd\V20200930\Models\CreateOrderForHardwareResponse;
 use AlibabaCloud\SDK\Ecd\V20200930\Models\CreatePolicyGroupRequest;
 use AlibabaCloud\SDK\Ecd\V20200930\Models\CreatePolicyGroupResponse;
 use AlibabaCloud\SDK\Ecd\V20200930\Models\CreateRAMDirectoryRequest;
@@ -47,6 +61,8 @@ use AlibabaCloud\SDK\Ecd\V20200930\Models\CreateSnapshotRequest;
 use AlibabaCloud\SDK\Ecd\V20200930\Models\CreateSnapshotResponse;
 use AlibabaCloud\SDK\Ecd\V20200930\Models\DeleteBundlesRequest;
 use AlibabaCloud\SDK\Ecd\V20200930\Models\DeleteBundlesResponse;
+use AlibabaCloud\SDK\Ecd\V20200930\Models\DeleteCloudDriveServicesRequest;
+use AlibabaCloud\SDK\Ecd\V20200930\Models\DeleteCloudDriveServicesResponse;
 use AlibabaCloud\SDK\Ecd\V20200930\Models\DeleteDesktopGroupRequest;
 use AlibabaCloud\SDK\Ecd\V20200930\Models\DeleteDesktopGroupResponse;
 use AlibabaCloud\SDK\Ecd\V20200930\Models\DeleteDesktopsRequest;
@@ -77,10 +93,12 @@ use AlibabaCloud\SDK\Ecd\V20200930\Models\DescribeCensRequest;
 use AlibabaCloud\SDK\Ecd\V20200930\Models\DescribeCensResponse;
 use AlibabaCloud\SDK\Ecd\V20200930\Models\DescribeClientEventsRequest;
 use AlibabaCloud\SDK\Ecd\V20200930\Models\DescribeClientEventsResponse;
+use AlibabaCloud\SDK\Ecd\V20200930\Models\DescribeCloudDriveServiceRequest;
+use AlibabaCloud\SDK\Ecd\V20200930\Models\DescribeCloudDriveServiceResponse;
+use AlibabaCloud\SDK\Ecd\V20200930\Models\DescribeDesktopGroupsRequest;
+use AlibabaCloud\SDK\Ecd\V20200930\Models\DescribeDesktopGroupsResponse;
 use AlibabaCloud\SDK\Ecd\V20200930\Models\DescribeDesktopIdsByVulNamesRequest;
 use AlibabaCloud\SDK\Ecd\V20200930\Models\DescribeDesktopIdsByVulNamesResponse;
-use AlibabaCloud\SDK\Ecd\V20200930\Models\DescribeDesktopPolicysRequest;
-use AlibabaCloud\SDK\Ecd\V20200930\Models\DescribeDesktopPolicysResponse;
 use AlibabaCloud\SDK\Ecd\V20200930\Models\DescribeDesktopsInGroupRequest;
 use AlibabaCloud\SDK\Ecd\V20200930\Models\DescribeDesktopsInGroupResponse;
 use AlibabaCloud\SDK\Ecd\V20200930\Models\DescribeDesktopsRequest;
@@ -89,10 +107,14 @@ use AlibabaCloud\SDK\Ecd\V20200930\Models\DescribeDesktopTypesRequest;
 use AlibabaCloud\SDK\Ecd\V20200930\Models\DescribeDesktopTypesResponse;
 use AlibabaCloud\SDK\Ecd\V20200930\Models\DescribeDirectoriesRequest;
 use AlibabaCloud\SDK\Ecd\V20200930\Models\DescribeDirectoriesResponse;
+use AlibabaCloud\SDK\Ecd\V20200930\Models\DescribeFlowMetricRequest;
+use AlibabaCloud\SDK\Ecd\V20200930\Models\DescribeFlowMetricResponse;
 use AlibabaCloud\SDK\Ecd\V20200930\Models\DescribeFrontVulPatchListRequest;
 use AlibabaCloud\SDK\Ecd\V20200930\Models\DescribeFrontVulPatchListResponse;
 use AlibabaCloud\SDK\Ecd\V20200930\Models\DescribeGroupedVulRequest;
 use AlibabaCloud\SDK\Ecd\V20200930\Models\DescribeGroupedVulResponse;
+use AlibabaCloud\SDK\Ecd\V20200930\Models\DescribeHardwareTerminalsRequest;
+use AlibabaCloud\SDK\Ecd\V20200930\Models\DescribeHardwareTerminalsResponse;
 use AlibabaCloud\SDK\Ecd\V20200930\Models\DescribeImagesRequest;
 use AlibabaCloud\SDK\Ecd\V20200930\Models\DescribeImagesResponse;
 use AlibabaCloud\SDK\Ecd\V20200930\Models\DescribeInvocationsRequest;
@@ -113,6 +135,10 @@ use AlibabaCloud\SDK\Ecd\V20200930\Models\DescribePriceRequest;
 use AlibabaCloud\SDK\Ecd\V20200930\Models\DescribePriceResponse;
 use AlibabaCloud\SDK\Ecd\V20200930\Models\DescribeRegionsRequest;
 use AlibabaCloud\SDK\Ecd\V20200930\Models\DescribeRegionsResponse;
+use AlibabaCloud\SDK\Ecd\V20200930\Models\DescribeRenewalPriceRequest;
+use AlibabaCloud\SDK\Ecd\V20200930\Models\DescribeRenewalPriceResponse;
+use AlibabaCloud\SDK\Ecd\V20200930\Models\DescribeResourcePackageQuotaRequest;
+use AlibabaCloud\SDK\Ecd\V20200930\Models\DescribeResourcePackageQuotaResponse;
 use AlibabaCloud\SDK\Ecd\V20200930\Models\DescribeScaleStrategysRequest;
 use AlibabaCloud\SDK\Ecd\V20200930\Models\DescribeScaleStrategysResponse;
 use AlibabaCloud\SDK\Ecd\V20200930\Models\DescribeScanTaskProgressRequest;
@@ -145,18 +171,12 @@ use AlibabaCloud\SDK\Ecd\V20200930\Models\DescribeZonesRequest;
 use AlibabaCloud\SDK\Ecd\V20200930\Models\DescribeZonesResponse;
 use AlibabaCloud\SDK\Ecd\V20200930\Models\DetachCenRequest;
 use AlibabaCloud\SDK\Ecd\V20200930\Models\DetachCenResponse;
-use AlibabaCloud\SDK\Ecd\V20200930\Models\DoCheckResourceRequest;
-use AlibabaCloud\SDK\Ecd\V20200930\Models\DoCheckResourceResponse;
-use AlibabaCloud\SDK\Ecd\V20200930\Models\DoLogicalDeleteResourceRequest;
-use AlibabaCloud\SDK\Ecd\V20200930\Models\DoLogicalDeleteResourceResponse;
-use AlibabaCloud\SDK\Ecd\V20200930\Models\DoPhysicalDeleteResourceRequest;
-use AlibabaCloud\SDK\Ecd\V20200930\Models\DoPhysicalDeleteResourceResponse;
-use AlibabaCloud\SDK\Ecd\V20200930\Models\GetConnectionTicketRequest;
-use AlibabaCloud\SDK\Ecd\V20200930\Models\GetConnectionTicketResponse;
+use AlibabaCloud\SDK\Ecd\V20200930\Models\ExportDesktopGroupInfoRequest;
+use AlibabaCloud\SDK\Ecd\V20200930\Models\ExportDesktopGroupInfoResponse;
+use AlibabaCloud\SDK\Ecd\V20200930\Models\ExportDesktopListInfoRequest;
+use AlibabaCloud\SDK\Ecd\V20200930\Models\ExportDesktopListInfoResponse;
 use AlibabaCloud\SDK\Ecd\V20200930\Models\GetDesktopGroupDetailRequest;
 use AlibabaCloud\SDK\Ecd\V20200930\Models\GetDesktopGroupDetailResponse;
-use AlibabaCloud\SDK\Ecd\V20200930\Models\GetDesktopUsersRequest;
-use AlibabaCloud\SDK\Ecd\V20200930\Models\GetDesktopUsersResponse;
 use AlibabaCloud\SDK\Ecd\V20200930\Models\GetDirectorySsoStatusRequest;
 use AlibabaCloud\SDK\Ecd\V20200930\Models\GetDirectorySsoStatusResponse;
 use AlibabaCloud\SDK\Ecd\V20200930\Models\GetOfficeSiteSsoStatusRequest;
@@ -173,6 +193,8 @@ use AlibabaCloud\SDK\Ecd\V20200930\Models\ListOfficeSiteUsersRequest;
 use AlibabaCloud\SDK\Ecd\V20200930\Models\ListOfficeSiteUsersResponse;
 use AlibabaCloud\SDK\Ecd\V20200930\Models\ListTagResourcesRequest;
 use AlibabaCloud\SDK\Ecd\V20200930\Models\ListTagResourcesResponse;
+use AlibabaCloud\SDK\Ecd\V20200930\Models\ListUserAdOrganizationUnitsRequest;
+use AlibabaCloud\SDK\Ecd\V20200930\Models\ListUserAdOrganizationUnitsResponse;
 use AlibabaCloud\SDK\Ecd\V20200930\Models\LockVirtualMFADeviceRequest;
 use AlibabaCloud\SDK\Ecd\V20200930\Models\LockVirtualMFADeviceResponse;
 use AlibabaCloud\SDK\Ecd\V20200930\Models\ModifyADConnectorDirectoryRequest;
@@ -181,12 +203,16 @@ use AlibabaCloud\SDK\Ecd\V20200930\Models\ModifyADConnectorOfficeSiteRequest;
 use AlibabaCloud\SDK\Ecd\V20200930\Models\ModifyADConnectorOfficeSiteResponse;
 use AlibabaCloud\SDK\Ecd\V20200930\Models\ModifyBundleRequest;
 use AlibabaCloud\SDK\Ecd\V20200930\Models\ModifyBundleResponse;
+use AlibabaCloud\SDK\Ecd\V20200930\Models\ModifyCloudDriveServiceRequest;
+use AlibabaCloud\SDK\Ecd\V20200930\Models\ModifyCloudDriveServiceResponse;
+use AlibabaCloud\SDK\Ecd\V20200930\Models\ModifyDesktopChargeTypeRequest;
+use AlibabaCloud\SDK\Ecd\V20200930\Models\ModifyDesktopChargeTypeResponse;
 use AlibabaCloud\SDK\Ecd\V20200930\Models\ModifyDesktopGroupRequest;
 use AlibabaCloud\SDK\Ecd\V20200930\Models\ModifyDesktopGroupResponse;
+use AlibabaCloud\SDK\Ecd\V20200930\Models\ModifyDesktopHostNameRequest;
+use AlibabaCloud\SDK\Ecd\V20200930\Models\ModifyDesktopHostNameResponse;
 use AlibabaCloud\SDK\Ecd\V20200930\Models\ModifyDesktopNameRequest;
 use AlibabaCloud\SDK\Ecd\V20200930\Models\ModifyDesktopNameResponse;
-use AlibabaCloud\SDK\Ecd\V20200930\Models\ModifyDesktopPolicysRequest;
-use AlibabaCloud\SDK\Ecd\V20200930\Models\ModifyDesktopPolicysResponse;
 use AlibabaCloud\SDK\Ecd\V20200930\Models\ModifyDesktopSpecRequest;
 use AlibabaCloud\SDK\Ecd\V20200930\Models\ModifyDesktopSpecResponse;
 use AlibabaCloud\SDK\Ecd\V20200930\Models\ModifyDesktopsPolicyGroupRequest;
@@ -197,6 +223,8 @@ use AlibabaCloud\SDK\Ecd\V20200930\Models\ModifyImageAttributeRequest;
 use AlibabaCloud\SDK\Ecd\V20200930\Models\ModifyImageAttributeResponse;
 use AlibabaCloud\SDK\Ecd\V20200930\Models\ModifyNASDefaultMountTargetRequest;
 use AlibabaCloud\SDK\Ecd\V20200930\Models\ModifyNASDefaultMountTargetResponse;
+use AlibabaCloud\SDK\Ecd\V20200930\Models\ModifyNetworkPackageBandwidthRequest;
+use AlibabaCloud\SDK\Ecd\V20200930\Models\ModifyNetworkPackageBandwidthResponse;
 use AlibabaCloud\SDK\Ecd\V20200930\Models\ModifyNetworkPackageEnabledRequest;
 use AlibabaCloud\SDK\Ecd\V20200930\Models\ModifyNetworkPackageEnabledResponse;
 use AlibabaCloud\SDK\Ecd\V20200930\Models\ModifyNetworkPackageRequest;
@@ -213,12 +241,12 @@ use AlibabaCloud\SDK\Ecd\V20200930\Models\ModifyPolicyGroupRequest;
 use AlibabaCloud\SDK\Ecd\V20200930\Models\ModifyPolicyGroupResponse;
 use AlibabaCloud\SDK\Ecd\V20200930\Models\ModifyScaleStrategyRequest;
 use AlibabaCloud\SDK\Ecd\V20200930\Models\ModifyScaleStrategyResponse;
+use AlibabaCloud\SDK\Ecd\V20200930\Models\ModifyUserEntitlementRequest;
+use AlibabaCloud\SDK\Ecd\V20200930\Models\ModifyUserEntitlementResponse;
 use AlibabaCloud\SDK\Ecd\V20200930\Models\ModifyUserToDesktopGroupRequest;
 use AlibabaCloud\SDK\Ecd\V20200930\Models\ModifyUserToDesktopGroupResponse;
 use AlibabaCloud\SDK\Ecd\V20200930\Models\OperateVulsRequest;
 use AlibabaCloud\SDK\Ecd\V20200930\Models\OperateVulsResponse;
-use AlibabaCloud\SDK\Ecd\V20200930\Models\PayOrderCallbackRequest;
-use AlibabaCloud\SDK\Ecd\V20200930\Models\PayOrderCallbackResponse;
 use AlibabaCloud\SDK\Ecd\V20200930\Models\RebootDesktopsRequest;
 use AlibabaCloud\SDK\Ecd\V20200930\Models\RebootDesktopsResponse;
 use AlibabaCloud\SDK\Ecd\V20200930\Models\RebuildDesktopsRequest;
@@ -227,8 +255,12 @@ use AlibabaCloud\SDK\Ecd\V20200930\Models\RecreateDesktopGroupRequest;
 use AlibabaCloud\SDK\Ecd\V20200930\Models\RecreateDesktopGroupResponse;
 use AlibabaCloud\SDK\Ecd\V20200930\Models\RemoveUserFromDesktopGroupRequest;
 use AlibabaCloud\SDK\Ecd\V20200930\Models\RemoveUserFromDesktopGroupResponse;
+use AlibabaCloud\SDK\Ecd\V20200930\Models\RenewDesktopGroupRequest;
+use AlibabaCloud\SDK\Ecd\V20200930\Models\RenewDesktopGroupResponse;
 use AlibabaCloud\SDK\Ecd\V20200930\Models\RenewDesktopsRequest;
 use AlibabaCloud\SDK\Ecd\V20200930\Models\RenewDesktopsResponse;
+use AlibabaCloud\SDK\Ecd\V20200930\Models\RenewNetworkPackagesRequest;
+use AlibabaCloud\SDK\Ecd\V20200930\Models\RenewNetworkPackagesResponse;
 use AlibabaCloud\SDK\Ecd\V20200930\Models\ResetNASDefaultMountTargetRequest;
 use AlibabaCloud\SDK\Ecd\V20200930\Models\ResetNASDefaultMountTargetResponse;
 use AlibabaCloud\SDK\Ecd\V20200930\Models\ResetSnapshotRequest;
@@ -237,6 +269,8 @@ use AlibabaCloud\SDK\Ecd\V20200930\Models\RollbackSuspEventQuaraFileRequest;
 use AlibabaCloud\SDK\Ecd\V20200930\Models\RollbackSuspEventQuaraFileResponse;
 use AlibabaCloud\SDK\Ecd\V20200930\Models\RunCommandRequest;
 use AlibabaCloud\SDK\Ecd\V20200930\Models\RunCommandResponse;
+use AlibabaCloud\SDK\Ecd\V20200930\Models\SendVerifyCodeRequest;
+use AlibabaCloud\SDK\Ecd\V20200930\Models\SendVerifyCodeResponse;
 use AlibabaCloud\SDK\Ecd\V20200930\Models\SetDirectorySsoStatusRequest;
 use AlibabaCloud\SDK\Ecd\V20200930\Models\SetDirectorySsoStatusResponse;
 use AlibabaCloud\SDK\Ecd\V20200930\Models\SetIdpMetadataRequest;
@@ -257,12 +291,14 @@ use AlibabaCloud\SDK\Ecd\V20200930\Models\UnlockVirtualMFADeviceRequest;
 use AlibabaCloud\SDK\Ecd\V20200930\Models\UnlockVirtualMFADeviceResponse;
 use AlibabaCloud\SDK\Ecd\V20200930\Models\UntagResourcesRequest;
 use AlibabaCloud\SDK\Ecd\V20200930\Models\UntagResourcesResponse;
+use AlibabaCloud\SDK\Ecd\V20200930\Models\VerifyCenRequest;
+use AlibabaCloud\SDK\Ecd\V20200930\Models\VerifyCenResponse;
+use AlibabaCloud\Tea\Rpc\Rpc;
+use AlibabaCloud\Tea\Tea;
 use AlibabaCloud\Tea\Utils\Utils;
 use AlibabaCloud\Tea\Utils\Utils\RuntimeOptions;
-use Darabonba\OpenApi\Models\OpenApiRequest;
-use Darabonba\OpenApi\OpenApiClient;
 
-class Ecd extends OpenApiClient
+class Ecd extends Rpc
 {
     public function __construct($config)
     {
@@ -273,26 +309,28 @@ class Ecd extends OpenApiClient
     }
 
     /**
-     * @param string   $productId
-     * @param string   $regionId
-     * @param string   $endpointRule
-     * @param string   $network
-     * @param string   $suffix
-     * @param string[] $endpointMap
-     * @param string   $endpoint
+     * @param ActivateOfficeSiteRequest $request
+     * @param RuntimeOptions            $runtime
      *
-     * @return string
+     * @return ActivateOfficeSiteResponse
      */
-    public function getEndpoint($productId, $regionId, $endpointRule, $network, $suffix, $endpointMap, $endpoint)
+    public function activateOfficeSiteWithOptions($request, $runtime)
     {
-        if (!Utils::empty_($endpoint)) {
-            return $endpoint;
-        }
-        if (!Utils::isUnset($endpointMap) && !Utils::empty_(@$endpointMap[$regionId])) {
-            return @$endpointMap[$regionId];
-        }
+        Utils::validateModel($request);
 
-        return Endpoint::getEndpointRules($productId, $regionId, $endpointRule, $network, $suffix);
+        return ActivateOfficeSiteResponse::fromMap($this->doRequest('ActivateOfficeSite', 'HTTPS', 'POST', '2020-09-30', 'AK', null, Tea::merge($request), $runtime));
+    }
+
+    /**
+     * @param ActivateOfficeSiteRequest $request
+     *
+     * @return ActivateOfficeSiteResponse
+     */
+    public function activateOfficeSite($request)
+    {
+        $runtime = new RuntimeOptions([]);
+
+        return $this->activateOfficeSiteWithOptions($request, $runtime);
     }
 
     /**
@@ -304,11 +342,8 @@ class Ecd extends OpenApiClient
     public function addUserToDesktopGroupWithOptions($request, $runtime)
     {
         Utils::validateModel($request);
-        $req = new OpenApiRequest([
-            'body' => Utils::toMap($request),
-        ]);
 
-        return AddUserToDesktopGroupResponse::fromMap($this->doRPCRequest('AddUserToDesktopGroup', '2020-09-30', 'HTTPS', 'POST', 'AK', 'json', $req, $runtime));
+        return AddUserToDesktopGroupResponse::fromMap($this->doRequest('AddUserToDesktopGroup', 'HTTPS', 'POST', '2020-09-30', 'AK', null, Tea::merge($request), $runtime));
     }
 
     /**
@@ -332,11 +367,8 @@ class Ecd extends OpenApiClient
     public function addUserToSecurityCenterWhiteListWithOptions($request, $runtime)
     {
         Utils::validateModel($request);
-        $req = new OpenApiRequest([
-            'body' => Utils::toMap($request),
-        ]);
 
-        return AddUserToSecurityCenterWhiteListResponse::fromMap($this->doRPCRequest('AddUserToSecurityCenterWhiteList', '2020-09-30', 'HTTPS', 'POST', 'AK', 'json', $req, $runtime));
+        return AddUserToSecurityCenterWhiteListResponse::fromMap($this->doRequest('AddUserToSecurityCenterWhiteList', 'HTTPS', 'POST', '2020-09-30', 'AK', null, Tea::merge($request), $runtime));
     }
 
     /**
@@ -360,11 +392,8 @@ class Ecd extends OpenApiClient
     public function attachCenWithOptions($request, $runtime)
     {
         Utils::validateModel($request);
-        $req = new OpenApiRequest([
-            'body' => Utils::toMap($request),
-        ]);
 
-        return AttachCenResponse::fromMap($this->doRPCRequest('AttachCen', '2020-09-30', 'HTTPS', 'POST', 'AK', 'json', $req, $runtime));
+        return AttachCenResponse::fromMap($this->doRequest('AttachCen', 'HTTPS', 'POST', '2020-09-30', 'AK', null, Tea::merge($request), $runtime));
     }
 
     /**
@@ -388,11 +417,8 @@ class Ecd extends OpenApiClient
     public function checkUserInSecurityCenterWhiteListWithOptions($request, $runtime)
     {
         Utils::validateModel($request);
-        $req = new OpenApiRequest([
-            'body' => Utils::toMap($request),
-        ]);
 
-        return CheckUserInSecurityCenterWhiteListResponse::fromMap($this->doRPCRequest('CheckUserInSecurityCenterWhiteList', '2020-09-30', 'HTTPS', 'POST', 'AK', 'json', $req, $runtime));
+        return CheckUserInSecurityCenterWhiteListResponse::fromMap($this->doRequest('CheckUserInSecurityCenterWhiteList', 'HTTPS', 'POST', '2020-09-30', 'AK', null, Tea::merge($request), $runtime));
     }
 
     /**
@@ -408,6 +434,31 @@ class Ecd extends OpenApiClient
     }
 
     /**
+     * @param CheckUserTagsRequest $request
+     * @param RuntimeOptions       $runtime
+     *
+     * @return CheckUserTagsResponse
+     */
+    public function checkUserTagsWithOptions($request, $runtime)
+    {
+        Utils::validateModel($request);
+
+        return CheckUserTagsResponse::fromMap($this->doRequest('CheckUserTags', 'HTTPS', 'POST', '2020-09-30', 'AK', null, Tea::merge($request), $runtime));
+    }
+
+    /**
+     * @param CheckUserTagsRequest $request
+     *
+     * @return CheckUserTagsResponse
+     */
+    public function checkUserTags($request)
+    {
+        $runtime = new RuntimeOptions([]);
+
+        return $this->checkUserTagsWithOptions($request, $runtime);
+    }
+
+    /**
      * @param ClonePolicyGroupRequest $request
      * @param RuntimeOptions          $runtime
      *
@@ -416,11 +467,8 @@ class Ecd extends OpenApiClient
     public function clonePolicyGroupWithOptions($request, $runtime)
     {
         Utils::validateModel($request);
-        $req = new OpenApiRequest([
-            'body' => Utils::toMap($request),
-        ]);
 
-        return ClonePolicyGroupResponse::fromMap($this->doRPCRequest('ClonePolicyGroup', '2020-09-30', 'HTTPS', 'POST', 'AK', 'json', $req, $runtime));
+        return ClonePolicyGroupResponse::fromMap($this->doRequest('ClonePolicyGroup', 'HTTPS', 'POST', '2020-09-30', 'AK', null, Tea::merge($request), $runtime));
     }
 
     /**
@@ -436,6 +484,56 @@ class Ecd extends OpenApiClient
     }
 
     /**
+     * @param ConfigADConnectorTrustRequest $request
+     * @param RuntimeOptions                $runtime
+     *
+     * @return ConfigADConnectorTrustResponse
+     */
+    public function configADConnectorTrustWithOptions($request, $runtime)
+    {
+        Utils::validateModel($request);
+
+        return ConfigADConnectorTrustResponse::fromMap($this->doRequest('ConfigADConnectorTrust', 'HTTPS', 'POST', '2020-09-30', 'AK', null, Tea::merge($request), $runtime));
+    }
+
+    /**
+     * @param ConfigADConnectorTrustRequest $request
+     *
+     * @return ConfigADConnectorTrustResponse
+     */
+    public function configADConnectorTrust($request)
+    {
+        $runtime = new RuntimeOptions([]);
+
+        return $this->configADConnectorTrustWithOptions($request, $runtime);
+    }
+
+    /**
+     * @param ConfigADConnectorUserRequest $request
+     * @param RuntimeOptions               $runtime
+     *
+     * @return ConfigADConnectorUserResponse
+     */
+    public function configADConnectorUserWithOptions($request, $runtime)
+    {
+        Utils::validateModel($request);
+
+        return ConfigADConnectorUserResponse::fromMap($this->doRequest('ConfigADConnectorUser', 'HTTPS', 'POST', '2020-09-30', 'AK', null, Tea::merge($request), $runtime));
+    }
+
+    /**
+     * @param ConfigADConnectorUserRequest $request
+     *
+     * @return ConfigADConnectorUserResponse
+     */
+    public function configADConnectorUser($request)
+    {
+        $runtime = new RuntimeOptions([]);
+
+        return $this->configADConnectorUserWithOptions($request, $runtime);
+    }
+
+    /**
      * @param CreateADConnectorDirectoryRequest $request
      * @param RuntimeOptions                    $runtime
      *
@@ -444,11 +542,8 @@ class Ecd extends OpenApiClient
     public function createADConnectorDirectoryWithOptions($request, $runtime)
     {
         Utils::validateModel($request);
-        $req = new OpenApiRequest([
-            'body' => Utils::toMap($request),
-        ]);
 
-        return CreateADConnectorDirectoryResponse::fromMap($this->doRPCRequest('CreateADConnectorDirectory', '2020-09-30', 'HTTPS', 'POST', 'AK', 'json', $req, $runtime));
+        return CreateADConnectorDirectoryResponse::fromMap($this->doRequest('CreateADConnectorDirectory', 'HTTPS', 'POST', '2020-09-30', 'AK', null, Tea::merge($request), $runtime));
     }
 
     /**
@@ -472,11 +567,8 @@ class Ecd extends OpenApiClient
     public function createADConnectorOfficeSiteWithOptions($request, $runtime)
     {
         Utils::validateModel($request);
-        $req = new OpenApiRequest([
-            'body' => Utils::toMap($request),
-        ]);
 
-        return CreateADConnectorOfficeSiteResponse::fromMap($this->doRPCRequest('CreateADConnectorOfficeSite', '2020-09-30', 'HTTPS', 'POST', 'AK', 'json', $req, $runtime));
+        return CreateADConnectorOfficeSiteResponse::fromMap($this->doRequest('CreateADConnectorOfficeSite', 'HTTPS', 'POST', '2020-09-30', 'AK', null, Tea::merge($request), $runtime));
     }
 
     /**
@@ -492,6 +584,31 @@ class Ecd extends OpenApiClient
     }
 
     /**
+     * @param CreateBandwidthResourcePackagesRequest $request
+     * @param RuntimeOptions                         $runtime
+     *
+     * @return CreateBandwidthResourcePackagesResponse
+     */
+    public function createBandwidthResourcePackagesWithOptions($request, $runtime)
+    {
+        Utils::validateModel($request);
+
+        return CreateBandwidthResourcePackagesResponse::fromMap($this->doRequest('CreateBandwidthResourcePackages', 'HTTPS', 'POST', '2020-09-30', 'AK', null, Tea::merge($request), $runtime));
+    }
+
+    /**
+     * @param CreateBandwidthResourcePackagesRequest $request
+     *
+     * @return CreateBandwidthResourcePackagesResponse
+     */
+    public function createBandwidthResourcePackages($request)
+    {
+        $runtime = new RuntimeOptions([]);
+
+        return $this->createBandwidthResourcePackagesWithOptions($request, $runtime);
+    }
+
+    /**
      * @param CreateBundleRequest $request
      * @param RuntimeOptions      $runtime
      *
@@ -500,11 +617,8 @@ class Ecd extends OpenApiClient
     public function createBundleWithOptions($request, $runtime)
     {
         Utils::validateModel($request);
-        $req = new OpenApiRequest([
-            'body' => Utils::toMap($request),
-        ]);
 
-        return CreateBundleResponse::fromMap($this->doRPCRequest('CreateBundle', '2020-09-30', 'HTTPS', 'POST', 'AK', 'json', $req, $runtime));
+        return CreateBundleResponse::fromMap($this->doRequest('CreateBundle', 'HTTPS', 'POST', '2020-09-30', 'AK', null, Tea::merge($request), $runtime));
     }
 
     /**
@@ -520,6 +634,31 @@ class Ecd extends OpenApiClient
     }
 
     /**
+     * @param CreateCloudDriveServiceRequest $request
+     * @param RuntimeOptions                 $runtime
+     *
+     * @return CreateCloudDriveServiceResponse
+     */
+    public function createCloudDriveServiceWithOptions($request, $runtime)
+    {
+        Utils::validateModel($request);
+
+        return CreateCloudDriveServiceResponse::fromMap($this->doRequest('CreateCloudDriveService', 'HTTPS', 'POST', '2020-09-30', 'AK', null, Tea::merge($request), $runtime));
+    }
+
+    /**
+     * @param CreateCloudDriveServiceRequest $request
+     *
+     * @return CreateCloudDriveServiceResponse
+     */
+    public function createCloudDriveService($request)
+    {
+        $runtime = new RuntimeOptions([]);
+
+        return $this->createCloudDriveServiceWithOptions($request, $runtime);
+    }
+
+    /**
      * @param CreateDesktopGroupRequest $request
      * @param RuntimeOptions            $runtime
      *
@@ -528,11 +667,8 @@ class Ecd extends OpenApiClient
     public function createDesktopGroupWithOptions($request, $runtime)
     {
         Utils::validateModel($request);
-        $req = new OpenApiRequest([
-            'body' => Utils::toMap($request),
-        ]);
 
-        return CreateDesktopGroupResponse::fromMap($this->doRPCRequest('CreateDesktopGroup', '2020-09-30', 'HTTPS', 'POST', 'AK', 'json', $req, $runtime));
+        return CreateDesktopGroupResponse::fromMap($this->doRequest('CreateDesktopGroup', 'HTTPS', 'POST', '2020-09-30', 'AK', null, Tea::merge($request), $runtime));
     }
 
     /**
@@ -556,11 +692,8 @@ class Ecd extends OpenApiClient
     public function createDesktopsWithOptions($request, $runtime)
     {
         Utils::validateModel($request);
-        $req = new OpenApiRequest([
-            'body' => Utils::toMap($request),
-        ]);
 
-        return CreateDesktopsResponse::fromMap($this->doRPCRequest('CreateDesktops', '2020-09-30', 'HTTPS', 'POST', 'AK', 'json', $req, $runtime));
+        return CreateDesktopsResponse::fromMap($this->doRequest('CreateDesktops', 'HTTPS', 'POST', '2020-09-30', 'AK', null, Tea::merge($request), $runtime));
     }
 
     /**
@@ -584,11 +717,8 @@ class Ecd extends OpenApiClient
     public function createDesktopsLiteWithOptions($request, $runtime)
     {
         Utils::validateModel($request);
-        $req = new OpenApiRequest([
-            'body' => Utils::toMap($request),
-        ]);
 
-        return CreateDesktopsLiteResponse::fromMap($this->doRPCRequest('CreateDesktopsLite', '2020-09-30', 'HTTPS', 'POST', 'AK', 'json', $req, $runtime));
+        return CreateDesktopsLiteResponse::fromMap($this->doRequest('CreateDesktopsLite', 'HTTPS', 'POST', '2020-09-30', 'AK', null, Tea::merge($request), $runtime));
     }
 
     /**
@@ -612,11 +742,8 @@ class Ecd extends OpenApiClient
     public function createImageWithOptions($request, $runtime)
     {
         Utils::validateModel($request);
-        $req = new OpenApiRequest([
-            'body' => Utils::toMap($request),
-        ]);
 
-        return CreateImageResponse::fromMap($this->doRPCRequest('CreateImage', '2020-09-30', 'HTTPS', 'POST', 'AK', 'json', $req, $runtime));
+        return CreateImageResponse::fromMap($this->doRequest('CreateImage', 'HTTPS', 'POST', '2020-09-30', 'AK', null, Tea::merge($request), $runtime));
     }
 
     /**
@@ -640,11 +767,8 @@ class Ecd extends OpenApiClient
     public function createNASFileSystemWithOptions($request, $runtime)
     {
         Utils::validateModel($request);
-        $req = new OpenApiRequest([
-            'body' => Utils::toMap($request),
-        ]);
 
-        return CreateNASFileSystemResponse::fromMap($this->doRPCRequest('CreateNASFileSystem', '2020-09-30', 'HTTPS', 'POST', 'AK', 'json', $req, $runtime));
+        return CreateNASFileSystemResponse::fromMap($this->doRequest('CreateNASFileSystem', 'HTTPS', 'POST', '2020-09-30', 'AK', null, Tea::merge($request), $runtime));
     }
 
     /**
@@ -668,11 +792,8 @@ class Ecd extends OpenApiClient
     public function createNetworkPackageWithOptions($request, $runtime)
     {
         Utils::validateModel($request);
-        $req = new OpenApiRequest([
-            'body' => Utils::toMap($request),
-        ]);
 
-        return CreateNetworkPackageResponse::fromMap($this->doRPCRequest('CreateNetworkPackage', '2020-09-30', 'HTTPS', 'POST', 'AK', 'json', $req, $runtime));
+        return CreateNetworkPackageResponse::fromMap($this->doRequest('CreateNetworkPackage', 'HTTPS', 'POST', '2020-09-30', 'AK', null, Tea::merge($request), $runtime));
     }
 
     /**
@@ -688,6 +809,31 @@ class Ecd extends OpenApiClient
     }
 
     /**
+     * @param CreateOrderForHardwareRequest $request
+     * @param RuntimeOptions                $runtime
+     *
+     * @return CreateOrderForHardwareResponse
+     */
+    public function createOrderForHardwareWithOptions($request, $runtime)
+    {
+        Utils::validateModel($request);
+
+        return CreateOrderForHardwareResponse::fromMap($this->doRequest('CreateOrderForHardware', 'HTTPS', 'POST', '2020-09-30', 'AK', null, Tea::merge($request), $runtime));
+    }
+
+    /**
+     * @param CreateOrderForHardwareRequest $request
+     *
+     * @return CreateOrderForHardwareResponse
+     */
+    public function createOrderForHardware($request)
+    {
+        $runtime = new RuntimeOptions([]);
+
+        return $this->createOrderForHardwareWithOptions($request, $runtime);
+    }
+
+    /**
      * @param CreatePolicyGroupRequest $request
      * @param RuntimeOptions           $runtime
      *
@@ -696,11 +842,8 @@ class Ecd extends OpenApiClient
     public function createPolicyGroupWithOptions($request, $runtime)
     {
         Utils::validateModel($request);
-        $req = new OpenApiRequest([
-            'body' => Utils::toMap($request),
-        ]);
 
-        return CreatePolicyGroupResponse::fromMap($this->doRPCRequest('CreatePolicyGroup', '2020-09-30', 'HTTPS', 'POST', 'AK', 'json', $req, $runtime));
+        return CreatePolicyGroupResponse::fromMap($this->doRequest('CreatePolicyGroup', 'HTTPS', 'POST', '2020-09-30', 'AK', null, Tea::merge($request), $runtime));
     }
 
     /**
@@ -724,11 +867,8 @@ class Ecd extends OpenApiClient
     public function createRAMDirectoryWithOptions($request, $runtime)
     {
         Utils::validateModel($request);
-        $req = new OpenApiRequest([
-            'body' => Utils::toMap($request),
-        ]);
 
-        return CreateRAMDirectoryResponse::fromMap($this->doRPCRequest('CreateRAMDirectory', '2020-09-30', 'HTTPS', 'POST', 'AK', 'json', $req, $runtime));
+        return CreateRAMDirectoryResponse::fromMap($this->doRequest('CreateRAMDirectory', 'HTTPS', 'POST', '2020-09-30', 'AK', null, Tea::merge($request), $runtime));
     }
 
     /**
@@ -752,11 +892,8 @@ class Ecd extends OpenApiClient
     public function createScaleStrategyWithOptions($request, $runtime)
     {
         Utils::validateModel($request);
-        $req = new OpenApiRequest([
-            'body' => Utils::toMap($request),
-        ]);
 
-        return CreateScaleStrategyResponse::fromMap($this->doRPCRequest('CreateScaleStrategy', '2020-09-30', 'HTTPS', 'POST', 'AK', 'json', $req, $runtime));
+        return CreateScaleStrategyResponse::fromMap($this->doRequest('CreateScaleStrategy', 'HTTPS', 'POST', '2020-09-30', 'AK', null, Tea::merge($request), $runtime));
     }
 
     /**
@@ -780,11 +917,8 @@ class Ecd extends OpenApiClient
     public function createServiceLinkedRoleWithOptions($request, $runtime)
     {
         Utils::validateModel($request);
-        $req = new OpenApiRequest([
-            'body' => Utils::toMap($request),
-        ]);
 
-        return CreateServiceLinkedRoleResponse::fromMap($this->doRPCRequest('CreateServiceLinkedRole', '2020-09-30', 'HTTPS', 'POST', 'AK', 'json', $req, $runtime));
+        return CreateServiceLinkedRoleResponse::fromMap($this->doRequest('CreateServiceLinkedRole', 'HTTPS', 'POST', '2020-09-30', 'AK', null, Tea::merge($request), $runtime));
     }
 
     /**
@@ -808,11 +942,8 @@ class Ecd extends OpenApiClient
     public function createSimpleOfficeSiteWithOptions($request, $runtime)
     {
         Utils::validateModel($request);
-        $req = new OpenApiRequest([
-            'body' => Utils::toMap($request),
-        ]);
 
-        return CreateSimpleOfficeSiteResponse::fromMap($this->doRPCRequest('CreateSimpleOfficeSite', '2020-09-30', 'HTTPS', 'POST', 'AK', 'json', $req, $runtime));
+        return CreateSimpleOfficeSiteResponse::fromMap($this->doRequest('CreateSimpleOfficeSite', 'HTTPS', 'POST', '2020-09-30', 'AK', null, Tea::merge($request), $runtime));
     }
 
     /**
@@ -836,11 +967,8 @@ class Ecd extends OpenApiClient
     public function createSnapshotWithOptions($request, $runtime)
     {
         Utils::validateModel($request);
-        $req = new OpenApiRequest([
-            'body' => Utils::toMap($request),
-        ]);
 
-        return CreateSnapshotResponse::fromMap($this->doRPCRequest('CreateSnapshot', '2020-09-30', 'HTTPS', 'POST', 'AK', 'json', $req, $runtime));
+        return CreateSnapshotResponse::fromMap($this->doRequest('CreateSnapshot', 'HTTPS', 'POST', '2020-09-30', 'AK', null, Tea::merge($request), $runtime));
     }
 
     /**
@@ -864,11 +992,8 @@ class Ecd extends OpenApiClient
     public function deleteBundlesWithOptions($request, $runtime)
     {
         Utils::validateModel($request);
-        $req = new OpenApiRequest([
-            'body' => Utils::toMap($request),
-        ]);
 
-        return DeleteBundlesResponse::fromMap($this->doRPCRequest('DeleteBundles', '2020-09-30', 'HTTPS', 'POST', 'AK', 'json', $req, $runtime));
+        return DeleteBundlesResponse::fromMap($this->doRequest('DeleteBundles', 'HTTPS', 'POST', '2020-09-30', 'AK', null, Tea::merge($request), $runtime));
     }
 
     /**
@@ -884,6 +1009,31 @@ class Ecd extends OpenApiClient
     }
 
     /**
+     * @param DeleteCloudDriveServicesRequest $request
+     * @param RuntimeOptions                  $runtime
+     *
+     * @return DeleteCloudDriveServicesResponse
+     */
+    public function deleteCloudDriveServicesWithOptions($request, $runtime)
+    {
+        Utils::validateModel($request);
+
+        return DeleteCloudDriveServicesResponse::fromMap($this->doRequest('DeleteCloudDriveServices', 'HTTPS', 'POST', '2020-09-30', 'AK', null, Tea::merge($request), $runtime));
+    }
+
+    /**
+     * @param DeleteCloudDriveServicesRequest $request
+     *
+     * @return DeleteCloudDriveServicesResponse
+     */
+    public function deleteCloudDriveServices($request)
+    {
+        $runtime = new RuntimeOptions([]);
+
+        return $this->deleteCloudDriveServicesWithOptions($request, $runtime);
+    }
+
+    /**
      * @param DeleteDesktopGroupRequest $request
      * @param RuntimeOptions            $runtime
      *
@@ -892,11 +1042,8 @@ class Ecd extends OpenApiClient
     public function deleteDesktopGroupWithOptions($request, $runtime)
     {
         Utils::validateModel($request);
-        $req = new OpenApiRequest([
-            'body' => Utils::toMap($request),
-        ]);
 
-        return DeleteDesktopGroupResponse::fromMap($this->doRPCRequest('DeleteDesktopGroup', '2020-09-30', 'HTTPS', 'POST', 'AK', 'json', $req, $runtime));
+        return DeleteDesktopGroupResponse::fromMap($this->doRequest('DeleteDesktopGroup', 'HTTPS', 'POST', '2020-09-30', 'AK', null, Tea::merge($request), $runtime));
     }
 
     /**
@@ -920,11 +1067,8 @@ class Ecd extends OpenApiClient
     public function deleteDesktopsWithOptions($request, $runtime)
     {
         Utils::validateModel($request);
-        $req = new OpenApiRequest([
-            'body' => Utils::toMap($request),
-        ]);
 
-        return DeleteDesktopsResponse::fromMap($this->doRPCRequest('DeleteDesktops', '2020-09-30', 'HTTPS', 'POST', 'AK', 'json', $req, $runtime));
+        return DeleteDesktopsResponse::fromMap($this->doRequest('DeleteDesktops', 'HTTPS', 'POST', '2020-09-30', 'AK', null, Tea::merge($request), $runtime));
     }
 
     /**
@@ -948,11 +1092,8 @@ class Ecd extends OpenApiClient
     public function deleteDirectoriesWithOptions($request, $runtime)
     {
         Utils::validateModel($request);
-        $req = new OpenApiRequest([
-            'body' => Utils::toMap($request),
-        ]);
 
-        return DeleteDirectoriesResponse::fromMap($this->doRPCRequest('DeleteDirectories', '2020-09-30', 'HTTPS', 'POST', 'AK', 'json', $req, $runtime));
+        return DeleteDirectoriesResponse::fromMap($this->doRequest('DeleteDirectories', 'HTTPS', 'POST', '2020-09-30', 'AK', null, Tea::merge($request), $runtime));
     }
 
     /**
@@ -976,11 +1117,8 @@ class Ecd extends OpenApiClient
     public function deleteImagesWithOptions($request, $runtime)
     {
         Utils::validateModel($request);
-        $req = new OpenApiRequest([
-            'body' => Utils::toMap($request),
-        ]);
 
-        return DeleteImagesResponse::fromMap($this->doRPCRequest('DeleteImages', '2020-09-30', 'HTTPS', 'POST', 'AK', 'json', $req, $runtime));
+        return DeleteImagesResponse::fromMap($this->doRequest('DeleteImages', 'HTTPS', 'POST', '2020-09-30', 'AK', null, Tea::merge($request), $runtime));
     }
 
     /**
@@ -1004,11 +1142,8 @@ class Ecd extends OpenApiClient
     public function deleteNASFileSystemsWithOptions($request, $runtime)
     {
         Utils::validateModel($request);
-        $req = new OpenApiRequest([
-            'body' => Utils::toMap($request),
-        ]);
 
-        return DeleteNASFileSystemsResponse::fromMap($this->doRPCRequest('DeleteNASFileSystems', '2020-09-30', 'HTTPS', 'POST', 'AK', 'json', $req, $runtime));
+        return DeleteNASFileSystemsResponse::fromMap($this->doRequest('DeleteNASFileSystems', 'HTTPS', 'POST', '2020-09-30', 'AK', null, Tea::merge($request), $runtime));
     }
 
     /**
@@ -1032,11 +1167,8 @@ class Ecd extends OpenApiClient
     public function deleteNetworkPackagesWithOptions($request, $runtime)
     {
         Utils::validateModel($request);
-        $req = new OpenApiRequest([
-            'body' => Utils::toMap($request),
-        ]);
 
-        return DeleteNetworkPackagesResponse::fromMap($this->doRPCRequest('DeleteNetworkPackages', '2020-09-30', 'HTTPS', 'POST', 'AK', 'json', $req, $runtime));
+        return DeleteNetworkPackagesResponse::fromMap($this->doRequest('DeleteNetworkPackages', 'HTTPS', 'POST', '2020-09-30', 'AK', null, Tea::merge($request), $runtime));
     }
 
     /**
@@ -1060,11 +1192,8 @@ class Ecd extends OpenApiClient
     public function deleteOfficeSitesWithOptions($request, $runtime)
     {
         Utils::validateModel($request);
-        $req = new OpenApiRequest([
-            'body' => Utils::toMap($request),
-        ]);
 
-        return DeleteOfficeSitesResponse::fromMap($this->doRPCRequest('DeleteOfficeSites', '2020-09-30', 'HTTPS', 'POST', 'AK', 'json', $req, $runtime));
+        return DeleteOfficeSitesResponse::fromMap($this->doRequest('DeleteOfficeSites', 'HTTPS', 'POST', '2020-09-30', 'AK', null, Tea::merge($request), $runtime));
     }
 
     /**
@@ -1088,11 +1217,8 @@ class Ecd extends OpenApiClient
     public function deletePolicyGroupsWithOptions($request, $runtime)
     {
         Utils::validateModel($request);
-        $req = new OpenApiRequest([
-            'body' => Utils::toMap($request),
-        ]);
 
-        return DeletePolicyGroupsResponse::fromMap($this->doRPCRequest('DeletePolicyGroups', '2020-09-30', 'HTTPS', 'POST', 'AK', 'json', $req, $runtime));
+        return DeletePolicyGroupsResponse::fromMap($this->doRequest('DeletePolicyGroups', 'HTTPS', 'POST', '2020-09-30', 'AK', null, Tea::merge($request), $runtime));
     }
 
     /**
@@ -1116,11 +1242,8 @@ class Ecd extends OpenApiClient
     public function deleteScaleStrategyWithOptions($request, $runtime)
     {
         Utils::validateModel($request);
-        $req = new OpenApiRequest([
-            'body' => Utils::toMap($request),
-        ]);
 
-        return DeleteScaleStrategyResponse::fromMap($this->doRPCRequest('DeleteScaleStrategy', '2020-09-30', 'HTTPS', 'POST', 'AK', 'json', $req, $runtime));
+        return DeleteScaleStrategyResponse::fromMap($this->doRequest('DeleteScaleStrategy', 'HTTPS', 'POST', '2020-09-30', 'AK', null, Tea::merge($request), $runtime));
     }
 
     /**
@@ -1144,11 +1267,8 @@ class Ecd extends OpenApiClient
     public function deleteSnapshotWithOptions($request, $runtime)
     {
         Utils::validateModel($request);
-        $req = new OpenApiRequest([
-            'body' => Utils::toMap($request),
-        ]);
 
-        return DeleteSnapshotResponse::fromMap($this->doRPCRequest('DeleteSnapshot', '2020-09-30', 'HTTPS', 'POST', 'AK', 'json', $req, $runtime));
+        return DeleteSnapshotResponse::fromMap($this->doRequest('DeleteSnapshot', 'HTTPS', 'POST', '2020-09-30', 'AK', null, Tea::merge($request), $runtime));
     }
 
     /**
@@ -1172,11 +1292,8 @@ class Ecd extends OpenApiClient
     public function deleteVirtualMFADeviceWithOptions($request, $runtime)
     {
         Utils::validateModel($request);
-        $req = new OpenApiRequest([
-            'body' => Utils::toMap($request),
-        ]);
 
-        return DeleteVirtualMFADeviceResponse::fromMap($this->doRPCRequest('DeleteVirtualMFADevice', '2020-09-30', 'HTTPS', 'POST', 'AK', 'json', $req, $runtime));
+        return DeleteVirtualMFADeviceResponse::fromMap($this->doRequest('DeleteVirtualMFADevice', 'HTTPS', 'POST', '2020-09-30', 'AK', null, Tea::merge($request), $runtime));
     }
 
     /**
@@ -1200,11 +1317,8 @@ class Ecd extends OpenApiClient
     public function describeAlarmEventStackInfoWithOptions($request, $runtime)
     {
         Utils::validateModel($request);
-        $req = new OpenApiRequest([
-            'body' => Utils::toMap($request),
-        ]);
 
-        return DescribeAlarmEventStackInfoResponse::fromMap($this->doRPCRequest('DescribeAlarmEventStackInfo', '2020-09-30', 'HTTPS', 'POST', 'AK', 'json', $req, $runtime));
+        return DescribeAlarmEventStackInfoResponse::fromMap($this->doRequest('DescribeAlarmEventStackInfo', 'HTTPS', 'POST', '2020-09-30', 'AK', null, Tea::merge($request), $runtime));
     }
 
     /**
@@ -1228,11 +1342,8 @@ class Ecd extends OpenApiClient
     public function describeBundlesWithOptions($request, $runtime)
     {
         Utils::validateModel($request);
-        $req = new OpenApiRequest([
-            'body' => Utils::toMap($request),
-        ]);
 
-        return DescribeBundlesResponse::fromMap($this->doRPCRequest('DescribeBundles', '2020-09-30', 'HTTPS', 'POST', 'AK', 'json', $req, $runtime));
+        return DescribeBundlesResponse::fromMap($this->doRequest('DescribeBundles', 'HTTPS', 'POST', '2020-09-30', 'AK', null, Tea::merge($request), $runtime));
     }
 
     /**
@@ -1256,11 +1367,8 @@ class Ecd extends OpenApiClient
     public function describeCensWithOptions($request, $runtime)
     {
         Utils::validateModel($request);
-        $req = new OpenApiRequest([
-            'body' => Utils::toMap($request),
-        ]);
 
-        return DescribeCensResponse::fromMap($this->doRPCRequest('DescribeCens', '2020-09-30', 'HTTPS', 'POST', 'AK', 'json', $req, $runtime));
+        return DescribeCensResponse::fromMap($this->doRequest('DescribeCens', 'HTTPS', 'POST', '2020-09-30', 'AK', null, Tea::merge($request), $runtime));
     }
 
     /**
@@ -1284,11 +1392,8 @@ class Ecd extends OpenApiClient
     public function describeClientEventsWithOptions($request, $runtime)
     {
         Utils::validateModel($request);
-        $req = new OpenApiRequest([
-            'body' => Utils::toMap($request),
-        ]);
 
-        return DescribeClientEventsResponse::fromMap($this->doRPCRequest('DescribeClientEvents', '2020-09-30', 'HTTPS', 'POST', 'AK', 'json', $req, $runtime));
+        return DescribeClientEventsResponse::fromMap($this->doRequest('DescribeClientEvents', 'HTTPS', 'POST', '2020-09-30', 'AK', null, Tea::merge($request), $runtime));
     }
 
     /**
@@ -1304,6 +1409,56 @@ class Ecd extends OpenApiClient
     }
 
     /**
+     * @param DescribeCloudDriveServiceRequest $request
+     * @param RuntimeOptions                   $runtime
+     *
+     * @return DescribeCloudDriveServiceResponse
+     */
+    public function describeCloudDriveServiceWithOptions($request, $runtime)
+    {
+        Utils::validateModel($request);
+
+        return DescribeCloudDriveServiceResponse::fromMap($this->doRequest('DescribeCloudDriveService', 'HTTPS', 'POST', '2020-09-30', 'AK', null, Tea::merge($request), $runtime));
+    }
+
+    /**
+     * @param DescribeCloudDriveServiceRequest $request
+     *
+     * @return DescribeCloudDriveServiceResponse
+     */
+    public function describeCloudDriveService($request)
+    {
+        $runtime = new RuntimeOptions([]);
+
+        return $this->describeCloudDriveServiceWithOptions($request, $runtime);
+    }
+
+    /**
+     * @param DescribeDesktopGroupsRequest $request
+     * @param RuntimeOptions               $runtime
+     *
+     * @return DescribeDesktopGroupsResponse
+     */
+    public function describeDesktopGroupsWithOptions($request, $runtime)
+    {
+        Utils::validateModel($request);
+
+        return DescribeDesktopGroupsResponse::fromMap($this->doRequest('DescribeDesktopGroups', 'HTTPS', 'POST', '2020-09-30', 'AK', null, Tea::merge($request), $runtime));
+    }
+
+    /**
+     * @param DescribeDesktopGroupsRequest $request
+     *
+     * @return DescribeDesktopGroupsResponse
+     */
+    public function describeDesktopGroups($request)
+    {
+        $runtime = new RuntimeOptions([]);
+
+        return $this->describeDesktopGroupsWithOptions($request, $runtime);
+    }
+
+    /**
      * @param DescribeDesktopIdsByVulNamesRequest $request
      * @param RuntimeOptions                      $runtime
      *
@@ -1312,11 +1467,8 @@ class Ecd extends OpenApiClient
     public function describeDesktopIdsByVulNamesWithOptions($request, $runtime)
     {
         Utils::validateModel($request);
-        $req = new OpenApiRequest([
-            'body' => Utils::toMap($request),
-        ]);
 
-        return DescribeDesktopIdsByVulNamesResponse::fromMap($this->doRPCRequest('DescribeDesktopIdsByVulNames', '2020-09-30', 'HTTPS', 'POST', 'AK', 'json', $req, $runtime));
+        return DescribeDesktopIdsByVulNamesResponse::fromMap($this->doRequest('DescribeDesktopIdsByVulNames', 'HTTPS', 'POST', '2020-09-30', 'AK', null, Tea::merge($request), $runtime));
     }
 
     /**
@@ -1332,31 +1484,28 @@ class Ecd extends OpenApiClient
     }
 
     /**
-     * @param DescribeDesktopPolicysRequest $request
-     * @param RuntimeOptions                $runtime
+     * @param DescribeDesktopTypesRequest $request
+     * @param RuntimeOptions              $runtime
      *
-     * @return DescribeDesktopPolicysResponse
+     * @return DescribeDesktopTypesResponse
      */
-    public function describeDesktopPolicysWithOptions($request, $runtime)
+    public function describeDesktopTypesWithOptions($request, $runtime)
     {
         Utils::validateModel($request);
-        $req = new OpenApiRequest([
-            'body' => Utils::toMap($request),
-        ]);
 
-        return DescribeDesktopPolicysResponse::fromMap($this->doRPCRequest('DescribeDesktopPolicys', '2020-09-30', 'HTTPS', 'POST', 'AK', 'json', $req, $runtime));
+        return DescribeDesktopTypesResponse::fromMap($this->doRequest('DescribeDesktopTypes', 'HTTPS', 'POST', '2020-09-30', 'AK', null, Tea::merge($request), $runtime));
     }
 
     /**
-     * @param DescribeDesktopPolicysRequest $request
+     * @param DescribeDesktopTypesRequest $request
      *
-     * @return DescribeDesktopPolicysResponse
+     * @return DescribeDesktopTypesResponse
      */
-    public function describeDesktopPolicys($request)
+    public function describeDesktopTypes($request)
     {
         $runtime = new RuntimeOptions([]);
 
-        return $this->describeDesktopPolicysWithOptions($request, $runtime);
+        return $this->describeDesktopTypesWithOptions($request, $runtime);
     }
 
     /**
@@ -1368,11 +1517,8 @@ class Ecd extends OpenApiClient
     public function describeDesktopsWithOptions($request, $runtime)
     {
         Utils::validateModel($request);
-        $req = new OpenApiRequest([
-            'body' => Utils::toMap($request),
-        ]);
 
-        return DescribeDesktopsResponse::fromMap($this->doRPCRequest('DescribeDesktops', '2020-09-30', 'HTTPS', 'POST', 'AK', 'json', $req, $runtime));
+        return DescribeDesktopsResponse::fromMap($this->doRequest('DescribeDesktops', 'HTTPS', 'POST', '2020-09-30', 'AK', null, Tea::merge($request), $runtime));
     }
 
     /**
@@ -1396,11 +1542,8 @@ class Ecd extends OpenApiClient
     public function describeDesktopsInGroupWithOptions($request, $runtime)
     {
         Utils::validateModel($request);
-        $req = new OpenApiRequest([
-            'body' => Utils::toMap($request),
-        ]);
 
-        return DescribeDesktopsInGroupResponse::fromMap($this->doRPCRequest('DescribeDesktopsInGroup', '2020-09-30', 'HTTPS', 'POST', 'AK', 'json', $req, $runtime));
+        return DescribeDesktopsInGroupResponse::fromMap($this->doRequest('DescribeDesktopsInGroup', 'HTTPS', 'POST', '2020-09-30', 'AK', null, Tea::merge($request), $runtime));
     }
 
     /**
@@ -1416,34 +1559,6 @@ class Ecd extends OpenApiClient
     }
 
     /**
-     * @param DescribeDesktopTypesRequest $request
-     * @param RuntimeOptions              $runtime
-     *
-     * @return DescribeDesktopTypesResponse
-     */
-    public function describeDesktopTypesWithOptions($request, $runtime)
-    {
-        Utils::validateModel($request);
-        $req = new OpenApiRequest([
-            'body' => Utils::toMap($request),
-        ]);
-
-        return DescribeDesktopTypesResponse::fromMap($this->doRPCRequest('DescribeDesktopTypes', '2020-09-30', 'HTTPS', 'POST', 'AK', 'json', $req, $runtime));
-    }
-
-    /**
-     * @param DescribeDesktopTypesRequest $request
-     *
-     * @return DescribeDesktopTypesResponse
-     */
-    public function describeDesktopTypes($request)
-    {
-        $runtime = new RuntimeOptions([]);
-
-        return $this->describeDesktopTypesWithOptions($request, $runtime);
-    }
-
-    /**
      * @param DescribeDirectoriesRequest $request
      * @param RuntimeOptions             $runtime
      *
@@ -1452,11 +1567,8 @@ class Ecd extends OpenApiClient
     public function describeDirectoriesWithOptions($request, $runtime)
     {
         Utils::validateModel($request);
-        $req = new OpenApiRequest([
-            'body' => Utils::toMap($request),
-        ]);
 
-        return DescribeDirectoriesResponse::fromMap($this->doRPCRequest('DescribeDirectories', '2020-09-30', 'HTTPS', 'POST', 'AK', 'json', $req, $runtime));
+        return DescribeDirectoriesResponse::fromMap($this->doRequest('DescribeDirectories', 'HTTPS', 'POST', '2020-09-30', 'AK', null, Tea::merge($request), $runtime));
     }
 
     /**
@@ -1472,6 +1584,31 @@ class Ecd extends OpenApiClient
     }
 
     /**
+     * @param DescribeFlowMetricRequest $request
+     * @param RuntimeOptions            $runtime
+     *
+     * @return DescribeFlowMetricResponse
+     */
+    public function describeFlowMetricWithOptions($request, $runtime)
+    {
+        Utils::validateModel($request);
+
+        return DescribeFlowMetricResponse::fromMap($this->doRequest('DescribeFlowMetric', 'HTTPS', 'POST', '2020-09-30', 'AK', null, Tea::merge($request), $runtime));
+    }
+
+    /**
+     * @param DescribeFlowMetricRequest $request
+     *
+     * @return DescribeFlowMetricResponse
+     */
+    public function describeFlowMetric($request)
+    {
+        $runtime = new RuntimeOptions([]);
+
+        return $this->describeFlowMetricWithOptions($request, $runtime);
+    }
+
+    /**
      * @param DescribeFrontVulPatchListRequest $request
      * @param RuntimeOptions                   $runtime
      *
@@ -1480,11 +1617,8 @@ class Ecd extends OpenApiClient
     public function describeFrontVulPatchListWithOptions($request, $runtime)
     {
         Utils::validateModel($request);
-        $req = new OpenApiRequest([
-            'body' => Utils::toMap($request),
-        ]);
 
-        return DescribeFrontVulPatchListResponse::fromMap($this->doRPCRequest('DescribeFrontVulPatchList', '2020-09-30', 'HTTPS', 'POST', 'AK', 'json', $req, $runtime));
+        return DescribeFrontVulPatchListResponse::fromMap($this->doRequest('DescribeFrontVulPatchList', 'HTTPS', 'POST', '2020-09-30', 'AK', null, Tea::merge($request), $runtime));
     }
 
     /**
@@ -1508,11 +1642,8 @@ class Ecd extends OpenApiClient
     public function describeGroupedVulWithOptions($request, $runtime)
     {
         Utils::validateModel($request);
-        $req = new OpenApiRequest([
-            'body' => Utils::toMap($request),
-        ]);
 
-        return DescribeGroupedVulResponse::fromMap($this->doRPCRequest('DescribeGroupedVul', '2020-09-30', 'HTTPS', 'POST', 'AK', 'json', $req, $runtime));
+        return DescribeGroupedVulResponse::fromMap($this->doRequest('DescribeGroupedVul', 'HTTPS', 'POST', '2020-09-30', 'AK', null, Tea::merge($request), $runtime));
     }
 
     /**
@@ -1528,6 +1659,31 @@ class Ecd extends OpenApiClient
     }
 
     /**
+     * @param DescribeHardwareTerminalsRequest $request
+     * @param RuntimeOptions                   $runtime
+     *
+     * @return DescribeHardwareTerminalsResponse
+     */
+    public function describeHardwareTerminalsWithOptions($request, $runtime)
+    {
+        Utils::validateModel($request);
+
+        return DescribeHardwareTerminalsResponse::fromMap($this->doRequest('DescribeHardwareTerminals', 'HTTPS', 'POST', '2020-09-30', 'AK', null, Tea::merge($request), $runtime));
+    }
+
+    /**
+     * @param DescribeHardwareTerminalsRequest $request
+     *
+     * @return DescribeHardwareTerminalsResponse
+     */
+    public function describeHardwareTerminals($request)
+    {
+        $runtime = new RuntimeOptions([]);
+
+        return $this->describeHardwareTerminalsWithOptions($request, $runtime);
+    }
+
+    /**
      * @param DescribeImagesRequest $request
      * @param RuntimeOptions        $runtime
      *
@@ -1536,11 +1692,8 @@ class Ecd extends OpenApiClient
     public function describeImagesWithOptions($request, $runtime)
     {
         Utils::validateModel($request);
-        $req = new OpenApiRequest([
-            'body' => Utils::toMap($request),
-        ]);
 
-        return DescribeImagesResponse::fromMap($this->doRPCRequest('DescribeImages', '2020-09-30', 'HTTPS', 'POST', 'AK', 'json', $req, $runtime));
+        return DescribeImagesResponse::fromMap($this->doRequest('DescribeImages', 'HTTPS', 'POST', '2020-09-30', 'AK', null, Tea::merge($request), $runtime));
     }
 
     /**
@@ -1564,11 +1717,8 @@ class Ecd extends OpenApiClient
     public function describeInvocationsWithOptions($request, $runtime)
     {
         Utils::validateModel($request);
-        $req = new OpenApiRequest([
-            'body' => Utils::toMap($request),
-        ]);
 
-        return DescribeInvocationsResponse::fromMap($this->doRPCRequest('DescribeInvocations', '2020-09-30', 'HTTPS', 'POST', 'AK', 'json', $req, $runtime));
+        return DescribeInvocationsResponse::fromMap($this->doRequest('DescribeInvocations', 'HTTPS', 'POST', '2020-09-30', 'AK', null, Tea::merge($request), $runtime));
     }
 
     /**
@@ -1592,11 +1742,8 @@ class Ecd extends OpenApiClient
     public function describeModificationPriceWithOptions($request, $runtime)
     {
         Utils::validateModel($request);
-        $req = new OpenApiRequest([
-            'body' => Utils::toMap($request),
-        ]);
 
-        return DescribeModificationPriceResponse::fromMap($this->doRPCRequest('DescribeModificationPrice', '2020-09-30', 'HTTPS', 'POST', 'AK', 'json', $req, $runtime));
+        return DescribeModificationPriceResponse::fromMap($this->doRequest('DescribeModificationPrice', 'HTTPS', 'POST', '2020-09-30', 'AK', null, Tea::merge($request), $runtime));
     }
 
     /**
@@ -1620,11 +1767,8 @@ class Ecd extends OpenApiClient
     public function describeNASFileSystemsWithOptions($request, $runtime)
     {
         Utils::validateModel($request);
-        $req = new OpenApiRequest([
-            'body' => Utils::toMap($request),
-        ]);
 
-        return DescribeNASFileSystemsResponse::fromMap($this->doRPCRequest('DescribeNASFileSystems', '2020-09-30', 'HTTPS', 'POST', 'AK', 'json', $req, $runtime));
+        return DescribeNASFileSystemsResponse::fromMap($this->doRequest('DescribeNASFileSystems', 'HTTPS', 'POST', '2020-09-30', 'AK', null, Tea::merge($request), $runtime));
     }
 
     /**
@@ -1648,11 +1792,8 @@ class Ecd extends OpenApiClient
     public function describeNetworkPackagesWithOptions($request, $runtime)
     {
         Utils::validateModel($request);
-        $req = new OpenApiRequest([
-            'body' => Utils::toMap($request),
-        ]);
 
-        return DescribeNetworkPackagesResponse::fromMap($this->doRPCRequest('DescribeNetworkPackages', '2020-09-30', 'HTTPS', 'POST', 'AK', 'json', $req, $runtime));
+        return DescribeNetworkPackagesResponse::fromMap($this->doRequest('DescribeNetworkPackages', 'HTTPS', 'POST', '2020-09-30', 'AK', null, Tea::merge($request), $runtime));
     }
 
     /**
@@ -1676,11 +1817,8 @@ class Ecd extends OpenApiClient
     public function describeOfficeSitesWithOptions($request, $runtime)
     {
         Utils::validateModel($request);
-        $req = new OpenApiRequest([
-            'body' => Utils::toMap($request),
-        ]);
 
-        return DescribeOfficeSitesResponse::fromMap($this->doRPCRequest('DescribeOfficeSites', '2020-09-30', 'HTTPS', 'POST', 'AK', 'json', $req, $runtime));
+        return DescribeOfficeSitesResponse::fromMap($this->doRequest('DescribeOfficeSites', 'HTTPS', 'POST', '2020-09-30', 'AK', null, Tea::merge($request), $runtime));
     }
 
     /**
@@ -1704,11 +1842,8 @@ class Ecd extends OpenApiClient
     public function describePolicyGroupsWithOptions($request, $runtime)
     {
         Utils::validateModel($request);
-        $req = new OpenApiRequest([
-            'body' => Utils::toMap($request),
-        ]);
 
-        return DescribePolicyGroupsResponse::fromMap($this->doRPCRequest('DescribePolicyGroups', '2020-09-30', 'HTTPS', 'POST', 'AK', 'json', $req, $runtime));
+        return DescribePolicyGroupsResponse::fromMap($this->doRequest('DescribePolicyGroups', 'HTTPS', 'POST', '2020-09-30', 'AK', null, Tea::merge($request), $runtime));
     }
 
     /**
@@ -1732,11 +1867,8 @@ class Ecd extends OpenApiClient
     public function describePostPaidDesktopBillsWithOptions($request, $runtime)
     {
         Utils::validateModel($request);
-        $req = new OpenApiRequest([
-            'body' => Utils::toMap($request),
-        ]);
 
-        return DescribePostPaidDesktopBillsResponse::fromMap($this->doRPCRequest('DescribePostPaidDesktopBills', '2020-09-30', 'HTTPS', 'POST', 'AK', 'json', $req, $runtime));
+        return DescribePostPaidDesktopBillsResponse::fromMap($this->doRequest('DescribePostPaidDesktopBills', 'HTTPS', 'POST', '2020-09-30', 'AK', null, Tea::merge($request), $runtime));
     }
 
     /**
@@ -1760,11 +1892,8 @@ class Ecd extends OpenApiClient
     public function describePriceWithOptions($request, $runtime)
     {
         Utils::validateModel($request);
-        $req = new OpenApiRequest([
-            'body' => Utils::toMap($request),
-        ]);
 
-        return DescribePriceResponse::fromMap($this->doRPCRequest('DescribePrice', '2020-09-30', 'HTTPS', 'POST', 'AK', 'json', $req, $runtime));
+        return DescribePriceResponse::fromMap($this->doRequest('DescribePrice', 'HTTPS', 'POST', '2020-09-30', 'AK', null, Tea::merge($request), $runtime));
     }
 
     /**
@@ -1788,11 +1917,8 @@ class Ecd extends OpenApiClient
     public function describeRegionsWithOptions($request, $runtime)
     {
         Utils::validateModel($request);
-        $req = new OpenApiRequest([
-            'body' => Utils::toMap($request),
-        ]);
 
-        return DescribeRegionsResponse::fromMap($this->doRPCRequest('DescribeRegions', '2020-09-30', 'HTTPS', 'POST', 'AK', 'json', $req, $runtime));
+        return DescribeRegionsResponse::fromMap($this->doRequest('DescribeRegions', 'HTTPS', 'POST', '2020-09-30', 'AK', null, Tea::merge($request), $runtime));
     }
 
     /**
@@ -1808,6 +1934,56 @@ class Ecd extends OpenApiClient
     }
 
     /**
+     * @param DescribeRenewalPriceRequest $request
+     * @param RuntimeOptions              $runtime
+     *
+     * @return DescribeRenewalPriceResponse
+     */
+    public function describeRenewalPriceWithOptions($request, $runtime)
+    {
+        Utils::validateModel($request);
+
+        return DescribeRenewalPriceResponse::fromMap($this->doRequest('DescribeRenewalPrice', 'HTTPS', 'POST', '2020-09-30', 'AK', null, Tea::merge($request), $runtime));
+    }
+
+    /**
+     * @param DescribeRenewalPriceRequest $request
+     *
+     * @return DescribeRenewalPriceResponse
+     */
+    public function describeRenewalPrice($request)
+    {
+        $runtime = new RuntimeOptions([]);
+
+        return $this->describeRenewalPriceWithOptions($request, $runtime);
+    }
+
+    /**
+     * @param DescribeResourcePackageQuotaRequest $request
+     * @param RuntimeOptions                      $runtime
+     *
+     * @return DescribeResourcePackageQuotaResponse
+     */
+    public function describeResourcePackageQuotaWithOptions($request, $runtime)
+    {
+        Utils::validateModel($request);
+
+        return DescribeResourcePackageQuotaResponse::fromMap($this->doRequest('DescribeResourcePackageQuota', 'HTTPS', 'POST', '2020-09-30', 'AK', null, Tea::merge($request), $runtime));
+    }
+
+    /**
+     * @param DescribeResourcePackageQuotaRequest $request
+     *
+     * @return DescribeResourcePackageQuotaResponse
+     */
+    public function describeResourcePackageQuota($request)
+    {
+        $runtime = new RuntimeOptions([]);
+
+        return $this->describeResourcePackageQuotaWithOptions($request, $runtime);
+    }
+
+    /**
      * @param DescribeScaleStrategysRequest $request
      * @param RuntimeOptions                $runtime
      *
@@ -1816,11 +1992,8 @@ class Ecd extends OpenApiClient
     public function describeScaleStrategysWithOptions($request, $runtime)
     {
         Utils::validateModel($request);
-        $req = new OpenApiRequest([
-            'body' => Utils::toMap($request),
-        ]);
 
-        return DescribeScaleStrategysResponse::fromMap($this->doRPCRequest('DescribeScaleStrategys', '2020-09-30', 'HTTPS', 'POST', 'AK', 'json', $req, $runtime));
+        return DescribeScaleStrategysResponse::fromMap($this->doRequest('DescribeScaleStrategys', 'HTTPS', 'POST', '2020-09-30', 'AK', null, Tea::merge($request), $runtime));
     }
 
     /**
@@ -1844,11 +2017,8 @@ class Ecd extends OpenApiClient
     public function describeScanTaskProgressWithOptions($request, $runtime)
     {
         Utils::validateModel($request);
-        $req = new OpenApiRequest([
-            'body' => Utils::toMap($request),
-        ]);
 
-        return DescribeScanTaskProgressResponse::fromMap($this->doRPCRequest('DescribeScanTaskProgress', '2020-09-30', 'HTTPS', 'POST', 'AK', 'json', $req, $runtime));
+        return DescribeScanTaskProgressResponse::fromMap($this->doRequest('DescribeScanTaskProgress', 'HTTPS', 'POST', '2020-09-30', 'AK', null, Tea::merge($request), $runtime));
     }
 
     /**
@@ -1864,34 +2034,6 @@ class Ecd extends OpenApiClient
     }
 
     /**
-     * @param DescribeSecurityEventOperationsRequest $request
-     * @param RuntimeOptions                         $runtime
-     *
-     * @return DescribeSecurityEventOperationsResponse
-     */
-    public function describeSecurityEventOperationsWithOptions($request, $runtime)
-    {
-        Utils::validateModel($request);
-        $req = new OpenApiRequest([
-            'body' => Utils::toMap($request),
-        ]);
-
-        return DescribeSecurityEventOperationsResponse::fromMap($this->doRPCRequest('DescribeSecurityEventOperations', '2020-09-30', 'HTTPS', 'POST', 'AK', 'json', $req, $runtime));
-    }
-
-    /**
-     * @param DescribeSecurityEventOperationsRequest $request
-     *
-     * @return DescribeSecurityEventOperationsResponse
-     */
-    public function describeSecurityEventOperations($request)
-    {
-        $runtime = new RuntimeOptions([]);
-
-        return $this->describeSecurityEventOperationsWithOptions($request, $runtime);
-    }
-
-    /**
      * @param DescribeSecurityEventOperationStatusRequest $request
      * @param RuntimeOptions                              $runtime
      *
@@ -1900,11 +2042,8 @@ class Ecd extends OpenApiClient
     public function describeSecurityEventOperationStatusWithOptions($request, $runtime)
     {
         Utils::validateModel($request);
-        $req = new OpenApiRequest([
-            'body' => Utils::toMap($request),
-        ]);
 
-        return DescribeSecurityEventOperationStatusResponse::fromMap($this->doRPCRequest('DescribeSecurityEventOperationStatus', '2020-09-30', 'HTTPS', 'POST', 'AK', 'json', $req, $runtime));
+        return DescribeSecurityEventOperationStatusResponse::fromMap($this->doRequest('DescribeSecurityEventOperationStatus', 'HTTPS', 'POST', '2020-09-30', 'AK', null, Tea::merge($request), $runtime));
     }
 
     /**
@@ -1920,6 +2059,31 @@ class Ecd extends OpenApiClient
     }
 
     /**
+     * @param DescribeSecurityEventOperationsRequest $request
+     * @param RuntimeOptions                         $runtime
+     *
+     * @return DescribeSecurityEventOperationsResponse
+     */
+    public function describeSecurityEventOperationsWithOptions($request, $runtime)
+    {
+        Utils::validateModel($request);
+
+        return DescribeSecurityEventOperationsResponse::fromMap($this->doRequest('DescribeSecurityEventOperations', 'HTTPS', 'POST', '2020-09-30', 'AK', null, Tea::merge($request), $runtime));
+    }
+
+    /**
+     * @param DescribeSecurityEventOperationsRequest $request
+     *
+     * @return DescribeSecurityEventOperationsResponse
+     */
+    public function describeSecurityEventOperations($request)
+    {
+        $runtime = new RuntimeOptions([]);
+
+        return $this->describeSecurityEventOperationsWithOptions($request, $runtime);
+    }
+
+    /**
      * @param DescribeSnapshotsRequest $request
      * @param RuntimeOptions           $runtime
      *
@@ -1928,11 +2092,8 @@ class Ecd extends OpenApiClient
     public function describeSnapshotsWithOptions($request, $runtime)
     {
         Utils::validateModel($request);
-        $req = new OpenApiRequest([
-            'body' => Utils::toMap($request),
-        ]);
 
-        return DescribeSnapshotsResponse::fromMap($this->doRPCRequest('DescribeSnapshots', '2020-09-30', 'HTTPS', 'POST', 'AK', 'json', $req, $runtime));
+        return DescribeSnapshotsResponse::fromMap($this->doRequest('DescribeSnapshots', 'HTTPS', 'POST', '2020-09-30', 'AK', null, Tea::merge($request), $runtime));
     }
 
     /**
@@ -1956,11 +2117,8 @@ class Ecd extends OpenApiClient
     public function describeSuspEventOverviewWithOptions($request, $runtime)
     {
         Utils::validateModel($request);
-        $req = new OpenApiRequest([
-            'body' => Utils::toMap($request),
-        ]);
 
-        return DescribeSuspEventOverviewResponse::fromMap($this->doRPCRequest('DescribeSuspEventOverview', '2020-09-30', 'HTTPS', 'POST', 'AK', 'json', $req, $runtime));
+        return DescribeSuspEventOverviewResponse::fromMap($this->doRequest('DescribeSuspEventOverview', 'HTTPS', 'POST', '2020-09-30', 'AK', null, Tea::merge($request), $runtime));
     }
 
     /**
@@ -1984,11 +2142,8 @@ class Ecd extends OpenApiClient
     public function describeSuspEventQuaraFilesWithOptions($request, $runtime)
     {
         Utils::validateModel($request);
-        $req = new OpenApiRequest([
-            'body' => Utils::toMap($request),
-        ]);
 
-        return DescribeSuspEventQuaraFilesResponse::fromMap($this->doRPCRequest('DescribeSuspEventQuaraFiles', '2020-09-30', 'HTTPS', 'POST', 'AK', 'json', $req, $runtime));
+        return DescribeSuspEventQuaraFilesResponse::fromMap($this->doRequest('DescribeSuspEventQuaraFiles', 'HTTPS', 'POST', '2020-09-30', 'AK', null, Tea::merge($request), $runtime));
     }
 
     /**
@@ -2012,11 +2167,8 @@ class Ecd extends OpenApiClient
     public function describeSuspEventsWithOptions($request, $runtime)
     {
         Utils::validateModel($request);
-        $req = new OpenApiRequest([
-            'body' => Utils::toMap($request),
-        ]);
 
-        return DescribeSuspEventsResponse::fromMap($this->doRPCRequest('DescribeSuspEvents', '2020-09-30', 'HTTPS', 'POST', 'AK', 'json', $req, $runtime));
+        return DescribeSuspEventsResponse::fromMap($this->doRequest('DescribeSuspEvents', 'HTTPS', 'POST', '2020-09-30', 'AK', null, Tea::merge($request), $runtime));
     }
 
     /**
@@ -2040,11 +2192,8 @@ class Ecd extends OpenApiClient
     public function describeUserConnectionRecordsWithOptions($request, $runtime)
     {
         Utils::validateModel($request);
-        $req = new OpenApiRequest([
-            'body' => Utils::toMap($request),
-        ]);
 
-        return DescribeUserConnectionRecordsResponse::fromMap($this->doRPCRequest('DescribeUserConnectionRecords', '2020-09-30', 'HTTPS', 'POST', 'AK', 'json', $req, $runtime));
+        return DescribeUserConnectionRecordsResponse::fromMap($this->doRequest('DescribeUserConnectionRecords', 'HTTPS', 'POST', '2020-09-30', 'AK', null, Tea::merge($request), $runtime));
     }
 
     /**
@@ -2068,11 +2217,8 @@ class Ecd extends OpenApiClient
     public function describeUsersInGroupWithOptions($request, $runtime)
     {
         Utils::validateModel($request);
-        $req = new OpenApiRequest([
-            'body' => Utils::toMap($request),
-        ]);
 
-        return DescribeUsersInGroupResponse::fromMap($this->doRPCRequest('DescribeUsersInGroup', '2020-09-30', 'HTTPS', 'POST', 'AK', 'json', $req, $runtime));
+        return DescribeUsersInGroupResponse::fromMap($this->doRequest('DescribeUsersInGroup', 'HTTPS', 'POST', '2020-09-30', 'AK', null, Tea::merge($request), $runtime));
     }
 
     /**
@@ -2096,11 +2242,8 @@ class Ecd extends OpenApiClient
     public function describeVirtualMFADevicesWithOptions($request, $runtime)
     {
         Utils::validateModel($request);
-        $req = new OpenApiRequest([
-            'body' => Utils::toMap($request),
-        ]);
 
-        return DescribeVirtualMFADevicesResponse::fromMap($this->doRPCRequest('DescribeVirtualMFADevices', '2020-09-30', 'HTTPS', 'POST', 'AK', 'json', $req, $runtime));
+        return DescribeVirtualMFADevicesResponse::fromMap($this->doRequest('DescribeVirtualMFADevices', 'HTTPS', 'POST', '2020-09-30', 'AK', null, Tea::merge($request), $runtime));
     }
 
     /**
@@ -2124,11 +2267,8 @@ class Ecd extends OpenApiClient
     public function describeVulDetailsWithOptions($request, $runtime)
     {
         Utils::validateModel($request);
-        $req = new OpenApiRequest([
-            'body' => Utils::toMap($request),
-        ]);
 
-        return DescribeVulDetailsResponse::fromMap($this->doRPCRequest('DescribeVulDetails', '2020-09-30', 'HTTPS', 'POST', 'AK', 'json', $req, $runtime));
+        return DescribeVulDetailsResponse::fromMap($this->doRequest('DescribeVulDetails', 'HTTPS', 'POST', '2020-09-30', 'AK', null, Tea::merge($request), $runtime));
     }
 
     /**
@@ -2152,11 +2292,8 @@ class Ecd extends OpenApiClient
     public function describeVulListWithOptions($request, $runtime)
     {
         Utils::validateModel($request);
-        $req = new OpenApiRequest([
-            'body' => Utils::toMap($request),
-        ]);
 
-        return DescribeVulListResponse::fromMap($this->doRPCRequest('DescribeVulList', '2020-09-30', 'HTTPS', 'POST', 'AK', 'json', $req, $runtime));
+        return DescribeVulListResponse::fromMap($this->doRequest('DescribeVulList', 'HTTPS', 'POST', '2020-09-30', 'AK', null, Tea::merge($request), $runtime));
     }
 
     /**
@@ -2180,11 +2317,8 @@ class Ecd extends OpenApiClient
     public function describeVulOverviewWithOptions($request, $runtime)
     {
         Utils::validateModel($request);
-        $req = new OpenApiRequest([
-            'body' => Utils::toMap($request),
-        ]);
 
-        return DescribeVulOverviewResponse::fromMap($this->doRPCRequest('DescribeVulOverview', '2020-09-30', 'HTTPS', 'POST', 'AK', 'json', $req, $runtime));
+        return DescribeVulOverviewResponse::fromMap($this->doRequest('DescribeVulOverview', 'HTTPS', 'POST', '2020-09-30', 'AK', null, Tea::merge($request), $runtime));
     }
 
     /**
@@ -2208,11 +2342,8 @@ class Ecd extends OpenApiClient
     public function describeZonesWithOptions($request, $runtime)
     {
         Utils::validateModel($request);
-        $req = new OpenApiRequest([
-            'body' => Utils::toMap($request),
-        ]);
 
-        return DescribeZonesResponse::fromMap($this->doRPCRequest('DescribeZones', '2020-09-30', 'HTTPS', 'POST', 'AK', 'json', $req, $runtime));
+        return DescribeZonesResponse::fromMap($this->doRequest('DescribeZones', 'HTTPS', 'POST', '2020-09-30', 'AK', null, Tea::merge($request), $runtime));
     }
 
     /**
@@ -2236,11 +2367,8 @@ class Ecd extends OpenApiClient
     public function detachCenWithOptions($request, $runtime)
     {
         Utils::validateModel($request);
-        $req = new OpenApiRequest([
-            'body' => Utils::toMap($request),
-        ]);
 
-        return DetachCenResponse::fromMap($this->doRPCRequest('DetachCen', '2020-09-30', 'HTTPS', 'POST', 'AK', 'json', $req, $runtime));
+        return DetachCenResponse::fromMap($this->doRequest('DetachCen', 'HTTPS', 'POST', '2020-09-30', 'AK', null, Tea::merge($request), $runtime));
     }
 
     /**
@@ -2256,115 +2384,53 @@ class Ecd extends OpenApiClient
     }
 
     /**
-     * @param DoCheckResourceRequest $request
-     * @param RuntimeOptions         $runtime
+     * @param ExportDesktopGroupInfoRequest $request
+     * @param RuntimeOptions                $runtime
      *
-     * @return DoCheckResourceResponse
+     * @return ExportDesktopGroupInfoResponse
      */
-    public function doCheckResourceWithOptions($request, $runtime)
+    public function exportDesktopGroupInfoWithOptions($request, $runtime)
     {
         Utils::validateModel($request);
-        $req = new OpenApiRequest([
-            'body' => Utils::toMap($request),
-        ]);
 
-        return DoCheckResourceResponse::fromMap($this->doRPCRequest('DoCheckResource', '2020-09-30', 'HTTPS', 'POST', 'AK', 'json', $req, $runtime));
+        return ExportDesktopGroupInfoResponse::fromMap($this->doRequest('ExportDesktopGroupInfo', 'HTTPS', 'POST', '2020-09-30', 'AK', null, Tea::merge($request), $runtime));
     }
 
     /**
-     * @param DoCheckResourceRequest $request
+     * @param ExportDesktopGroupInfoRequest $request
      *
-     * @return DoCheckResourceResponse
+     * @return ExportDesktopGroupInfoResponse
      */
-    public function doCheckResource($request)
+    public function exportDesktopGroupInfo($request)
     {
         $runtime = new RuntimeOptions([]);
 
-        return $this->doCheckResourceWithOptions($request, $runtime);
+        return $this->exportDesktopGroupInfoWithOptions($request, $runtime);
     }
 
     /**
-     * @param DoLogicalDeleteResourceRequest $request
-     * @param RuntimeOptions                 $runtime
+     * @param ExportDesktopListInfoRequest $request
+     * @param RuntimeOptions               $runtime
      *
-     * @return DoLogicalDeleteResourceResponse
+     * @return ExportDesktopListInfoResponse
      */
-    public function doLogicalDeleteResourceWithOptions($request, $runtime)
+    public function exportDesktopListInfoWithOptions($request, $runtime)
     {
         Utils::validateModel($request);
-        $req = new OpenApiRequest([
-            'body' => Utils::toMap($request),
-        ]);
 
-        return DoLogicalDeleteResourceResponse::fromMap($this->doRPCRequest('DoLogicalDeleteResource', '2020-09-30', 'HTTPS', 'POST', 'AK', 'json', $req, $runtime));
+        return ExportDesktopListInfoResponse::fromMap($this->doRequest('ExportDesktopListInfo', 'HTTPS', 'POST', '2020-09-30', 'AK', null, Tea::merge($request), $runtime));
     }
 
     /**
-     * @param DoLogicalDeleteResourceRequest $request
+     * @param ExportDesktopListInfoRequest $request
      *
-     * @return DoLogicalDeleteResourceResponse
+     * @return ExportDesktopListInfoResponse
      */
-    public function doLogicalDeleteResource($request)
+    public function exportDesktopListInfo($request)
     {
         $runtime = new RuntimeOptions([]);
 
-        return $this->doLogicalDeleteResourceWithOptions($request, $runtime);
-    }
-
-    /**
-     * @param DoPhysicalDeleteResourceRequest $request
-     * @param RuntimeOptions                  $runtime
-     *
-     * @return DoPhysicalDeleteResourceResponse
-     */
-    public function doPhysicalDeleteResourceWithOptions($request, $runtime)
-    {
-        Utils::validateModel($request);
-        $req = new OpenApiRequest([
-            'body' => Utils::toMap($request),
-        ]);
-
-        return DoPhysicalDeleteResourceResponse::fromMap($this->doRPCRequest('DoPhysicalDeleteResource', '2020-09-30', 'HTTPS', 'POST', 'AK', 'json', $req, $runtime));
-    }
-
-    /**
-     * @param DoPhysicalDeleteResourceRequest $request
-     *
-     * @return DoPhysicalDeleteResourceResponse
-     */
-    public function doPhysicalDeleteResource($request)
-    {
-        $runtime = new RuntimeOptions([]);
-
-        return $this->doPhysicalDeleteResourceWithOptions($request, $runtime);
-    }
-
-    /**
-     * @param GetConnectionTicketRequest $request
-     * @param RuntimeOptions             $runtime
-     *
-     * @return GetConnectionTicketResponse
-     */
-    public function getConnectionTicketWithOptions($request, $runtime)
-    {
-        Utils::validateModel($request);
-        $req = new OpenApiRequest([
-            'body' => Utils::toMap($request),
-        ]);
-
-        return GetConnectionTicketResponse::fromMap($this->doRPCRequest('GetConnectionTicket', '2020-09-30', 'HTTP', 'POST', 'AK', 'json', $req, $runtime));
-    }
-
-    /**
-     * @param GetConnectionTicketRequest $request
-     *
-     * @return GetConnectionTicketResponse
-     */
-    public function getConnectionTicket($request)
-    {
-        $runtime = new RuntimeOptions([]);
-
-        return $this->getConnectionTicketWithOptions($request, $runtime);
+        return $this->exportDesktopListInfoWithOptions($request, $runtime);
     }
 
     /**
@@ -2376,11 +2442,8 @@ class Ecd extends OpenApiClient
     public function getDesktopGroupDetailWithOptions($request, $runtime)
     {
         Utils::validateModel($request);
-        $req = new OpenApiRequest([
-            'body' => Utils::toMap($request),
-        ]);
 
-        return GetDesktopGroupDetailResponse::fromMap($this->doRPCRequest('GetDesktopGroupDetail', '2020-09-30', 'HTTPS', 'POST', 'AK', 'json', $req, $runtime));
+        return GetDesktopGroupDetailResponse::fromMap($this->doRequest('GetDesktopGroupDetail', 'HTTPS', 'POST', '2020-09-30', 'AK', null, Tea::merge($request), $runtime));
     }
 
     /**
@@ -2396,34 +2459,6 @@ class Ecd extends OpenApiClient
     }
 
     /**
-     * @param GetDesktopUsersRequest $request
-     * @param RuntimeOptions         $runtime
-     *
-     * @return GetDesktopUsersResponse
-     */
-    public function getDesktopUsersWithOptions($request, $runtime)
-    {
-        Utils::validateModel($request);
-        $req = new OpenApiRequest([
-            'body' => Utils::toMap($request),
-        ]);
-
-        return GetDesktopUsersResponse::fromMap($this->doRPCRequest('GetDesktopUsers', '2020-09-30', 'HTTPS', 'POST', 'AK', 'json', $req, $runtime));
-    }
-
-    /**
-     * @param GetDesktopUsersRequest $request
-     *
-     * @return GetDesktopUsersResponse
-     */
-    public function getDesktopUsers($request)
-    {
-        $runtime = new RuntimeOptions([]);
-
-        return $this->getDesktopUsersWithOptions($request, $runtime);
-    }
-
-    /**
      * @param GetDirectorySsoStatusRequest $request
      * @param RuntimeOptions               $runtime
      *
@@ -2432,11 +2467,8 @@ class Ecd extends OpenApiClient
     public function getDirectorySsoStatusWithOptions($request, $runtime)
     {
         Utils::validateModel($request);
-        $req = new OpenApiRequest([
-            'body' => Utils::toMap($request),
-        ]);
 
-        return GetDirectorySsoStatusResponse::fromMap($this->doRPCRequest('GetDirectorySsoStatus', '2020-09-30', 'HTTPS', 'POST', 'AK', 'json', $req, $runtime));
+        return GetDirectorySsoStatusResponse::fromMap($this->doRequest('GetDirectorySsoStatus', 'HTTPS', 'POST', '2020-09-30', 'AK', null, Tea::merge($request), $runtime));
     }
 
     /**
@@ -2460,11 +2492,8 @@ class Ecd extends OpenApiClient
     public function getOfficeSiteSsoStatusWithOptions($request, $runtime)
     {
         Utils::validateModel($request);
-        $req = new OpenApiRequest([
-            'body' => Utils::toMap($request),
-        ]);
 
-        return GetOfficeSiteSsoStatusResponse::fromMap($this->doRPCRequest('GetOfficeSiteSsoStatus', '2020-09-30', 'HTTPS', 'POST', 'AK', 'json', $req, $runtime));
+        return GetOfficeSiteSsoStatusResponse::fromMap($this->doRequest('GetOfficeSiteSsoStatus', 'HTTPS', 'POST', '2020-09-30', 'AK', null, Tea::merge($request), $runtime));
     }
 
     /**
@@ -2488,11 +2517,8 @@ class Ecd extends OpenApiClient
     public function getSpMetadataWithOptions($request, $runtime)
     {
         Utils::validateModel($request);
-        $req = new OpenApiRequest([
-            'body' => Utils::toMap($request),
-        ]);
 
-        return GetSpMetadataResponse::fromMap($this->doRPCRequest('GetSpMetadata', '2020-09-30', 'HTTPS', 'POST', 'AK', 'json', $req, $runtime));
+        return GetSpMetadataResponse::fromMap($this->doRequest('GetSpMetadata', 'HTTPS', 'POST', '2020-09-30', 'AK', null, Tea::merge($request), $runtime));
     }
 
     /**
@@ -2516,11 +2542,8 @@ class Ecd extends OpenApiClient
     public function handleSecurityEventsWithOptions($request, $runtime)
     {
         Utils::validateModel($request);
-        $req = new OpenApiRequest([
-            'body' => Utils::toMap($request),
-        ]);
 
-        return HandleSecurityEventsResponse::fromMap($this->doRPCRequest('HandleSecurityEvents', '2020-09-30', 'HTTPS', 'POST', 'AK', 'json', $req, $runtime));
+        return HandleSecurityEventsResponse::fromMap($this->doRequest('HandleSecurityEvents', 'HTTPS', 'POST', '2020-09-30', 'AK', null, Tea::merge($request), $runtime));
     }
 
     /**
@@ -2544,11 +2567,8 @@ class Ecd extends OpenApiClient
     public function listDirectoryUsersWithOptions($request, $runtime)
     {
         Utils::validateModel($request);
-        $req = new OpenApiRequest([
-            'body' => Utils::toMap($request),
-        ]);
 
-        return ListDirectoryUsersResponse::fromMap($this->doRPCRequest('ListDirectoryUsers', '2020-09-30', 'HTTPS', 'POST', 'AK', 'json', $req, $runtime));
+        return ListDirectoryUsersResponse::fromMap($this->doRequest('ListDirectoryUsers', 'HTTPS', 'POST', '2020-09-30', 'AK', null, Tea::merge($request), $runtime));
     }
 
     /**
@@ -2572,11 +2592,8 @@ class Ecd extends OpenApiClient
     public function listOfficeSiteOverviewWithOptions($request, $runtime)
     {
         Utils::validateModel($request);
-        $req = new OpenApiRequest([
-            'body' => Utils::toMap($request),
-        ]);
 
-        return ListOfficeSiteOverviewResponse::fromMap($this->doRPCRequest('ListOfficeSiteOverview', '2020-09-30', 'HTTPS', 'POST', 'AK', 'json', $req, $runtime));
+        return ListOfficeSiteOverviewResponse::fromMap($this->doRequest('ListOfficeSiteOverview', 'HTTPS', 'POST', '2020-09-30', 'AK', null, Tea::merge($request), $runtime));
     }
 
     /**
@@ -2600,11 +2617,8 @@ class Ecd extends OpenApiClient
     public function listOfficeSiteUsersWithOptions($request, $runtime)
     {
         Utils::validateModel($request);
-        $req = new OpenApiRequest([
-            'body' => Utils::toMap($request),
-        ]);
 
-        return ListOfficeSiteUsersResponse::fromMap($this->doRPCRequest('ListOfficeSiteUsers', '2020-09-30', 'HTTPS', 'POST', 'AK', 'json', $req, $runtime));
+        return ListOfficeSiteUsersResponse::fromMap($this->doRequest('ListOfficeSiteUsers', 'HTTPS', 'POST', '2020-09-30', 'AK', null, Tea::merge($request), $runtime));
     }
 
     /**
@@ -2628,11 +2642,8 @@ class Ecd extends OpenApiClient
     public function listTagResourcesWithOptions($request, $runtime)
     {
         Utils::validateModel($request);
-        $req = new OpenApiRequest([
-            'body' => Utils::toMap($request),
-        ]);
 
-        return ListTagResourcesResponse::fromMap($this->doRPCRequest('ListTagResources', '2020-09-30', 'HTTPS', 'POST', 'AK', 'json', $req, $runtime));
+        return ListTagResourcesResponse::fromMap($this->doRequest('ListTagResources', 'HTTPS', 'POST', '2020-09-30', 'AK', null, Tea::merge($request), $runtime));
     }
 
     /**
@@ -2648,6 +2659,31 @@ class Ecd extends OpenApiClient
     }
 
     /**
+     * @param ListUserAdOrganizationUnitsRequest $request
+     * @param RuntimeOptions                     $runtime
+     *
+     * @return ListUserAdOrganizationUnitsResponse
+     */
+    public function listUserAdOrganizationUnitsWithOptions($request, $runtime)
+    {
+        Utils::validateModel($request);
+
+        return ListUserAdOrganizationUnitsResponse::fromMap($this->doRequest('ListUserAdOrganizationUnits', 'HTTPS', 'POST', '2020-09-30', 'AK', null, Tea::merge($request), $runtime));
+    }
+
+    /**
+     * @param ListUserAdOrganizationUnitsRequest $request
+     *
+     * @return ListUserAdOrganizationUnitsResponse
+     */
+    public function listUserAdOrganizationUnits($request)
+    {
+        $runtime = new RuntimeOptions([]);
+
+        return $this->listUserAdOrganizationUnitsWithOptions($request, $runtime);
+    }
+
+    /**
      * @param LockVirtualMFADeviceRequest $request
      * @param RuntimeOptions              $runtime
      *
@@ -2656,11 +2692,8 @@ class Ecd extends OpenApiClient
     public function lockVirtualMFADeviceWithOptions($request, $runtime)
     {
         Utils::validateModel($request);
-        $req = new OpenApiRequest([
-            'body' => Utils::toMap($request),
-        ]);
 
-        return LockVirtualMFADeviceResponse::fromMap($this->doRPCRequest('LockVirtualMFADevice', '2020-09-30', 'HTTPS', 'POST', 'AK', 'json', $req, $runtime));
+        return LockVirtualMFADeviceResponse::fromMap($this->doRequest('LockVirtualMFADevice', 'HTTPS', 'POST', '2020-09-30', 'AK', null, Tea::merge($request), $runtime));
     }
 
     /**
@@ -2684,11 +2717,8 @@ class Ecd extends OpenApiClient
     public function modifyADConnectorDirectoryWithOptions($request, $runtime)
     {
         Utils::validateModel($request);
-        $req = new OpenApiRequest([
-            'body' => Utils::toMap($request),
-        ]);
 
-        return ModifyADConnectorDirectoryResponse::fromMap($this->doRPCRequest('ModifyADConnectorDirectory', '2020-09-30', 'HTTPS', 'POST', 'AK', 'json', $req, $runtime));
+        return ModifyADConnectorDirectoryResponse::fromMap($this->doRequest('ModifyADConnectorDirectory', 'HTTPS', 'POST', '2020-09-30', 'AK', null, Tea::merge($request), $runtime));
     }
 
     /**
@@ -2712,11 +2742,8 @@ class Ecd extends OpenApiClient
     public function modifyADConnectorOfficeSiteWithOptions($request, $runtime)
     {
         Utils::validateModel($request);
-        $req = new OpenApiRequest([
-            'body' => Utils::toMap($request),
-        ]);
 
-        return ModifyADConnectorOfficeSiteResponse::fromMap($this->doRPCRequest('ModifyADConnectorOfficeSite', '2020-09-30', 'HTTPS', 'POST', 'AK', 'json', $req, $runtime));
+        return ModifyADConnectorOfficeSiteResponse::fromMap($this->doRequest('ModifyADConnectorOfficeSite', 'HTTPS', 'POST', '2020-09-30', 'AK', null, Tea::merge($request), $runtime));
     }
 
     /**
@@ -2740,11 +2767,8 @@ class Ecd extends OpenApiClient
     public function modifyBundleWithOptions($request, $runtime)
     {
         Utils::validateModel($request);
-        $req = new OpenApiRequest([
-            'body' => Utils::toMap($request),
-        ]);
 
-        return ModifyBundleResponse::fromMap($this->doRPCRequest('ModifyBundle', '2020-09-30', 'HTTPS', 'POST', 'AK', 'json', $req, $runtime));
+        return ModifyBundleResponse::fromMap($this->doRequest('ModifyBundle', 'HTTPS', 'POST', '2020-09-30', 'AK', null, Tea::merge($request), $runtime));
     }
 
     /**
@@ -2760,6 +2784,56 @@ class Ecd extends OpenApiClient
     }
 
     /**
+     * @param ModifyCloudDriveServiceRequest $request
+     * @param RuntimeOptions                 $runtime
+     *
+     * @return ModifyCloudDriveServiceResponse
+     */
+    public function modifyCloudDriveServiceWithOptions($request, $runtime)
+    {
+        Utils::validateModel($request);
+
+        return ModifyCloudDriveServiceResponse::fromMap($this->doRequest('ModifyCloudDriveService', 'HTTPS', 'POST', '2020-09-30', 'AK', null, Tea::merge($request), $runtime));
+    }
+
+    /**
+     * @param ModifyCloudDriveServiceRequest $request
+     *
+     * @return ModifyCloudDriveServiceResponse
+     */
+    public function modifyCloudDriveService($request)
+    {
+        $runtime = new RuntimeOptions([]);
+
+        return $this->modifyCloudDriveServiceWithOptions($request, $runtime);
+    }
+
+    /**
+     * @param ModifyDesktopChargeTypeRequest $request
+     * @param RuntimeOptions                 $runtime
+     *
+     * @return ModifyDesktopChargeTypeResponse
+     */
+    public function modifyDesktopChargeTypeWithOptions($request, $runtime)
+    {
+        Utils::validateModel($request);
+
+        return ModifyDesktopChargeTypeResponse::fromMap($this->doRequest('ModifyDesktopChargeType', 'HTTPS', 'POST', '2020-09-30', 'AK', null, Tea::merge($request), $runtime));
+    }
+
+    /**
+     * @param ModifyDesktopChargeTypeRequest $request
+     *
+     * @return ModifyDesktopChargeTypeResponse
+     */
+    public function modifyDesktopChargeType($request)
+    {
+        $runtime = new RuntimeOptions([]);
+
+        return $this->modifyDesktopChargeTypeWithOptions($request, $runtime);
+    }
+
+    /**
      * @param ModifyDesktopGroupRequest $request
      * @param RuntimeOptions            $runtime
      *
@@ -2768,11 +2842,8 @@ class Ecd extends OpenApiClient
     public function modifyDesktopGroupWithOptions($request, $runtime)
     {
         Utils::validateModel($request);
-        $req = new OpenApiRequest([
-            'body' => Utils::toMap($request),
-        ]);
 
-        return ModifyDesktopGroupResponse::fromMap($this->doRPCRequest('ModifyDesktopGroup', '2020-09-30', 'HTTPS', 'POST', 'AK', 'json', $req, $runtime));
+        return ModifyDesktopGroupResponse::fromMap($this->doRequest('ModifyDesktopGroup', 'HTTPS', 'POST', '2020-09-30', 'AK', null, Tea::merge($request), $runtime));
     }
 
     /**
@@ -2788,6 +2859,31 @@ class Ecd extends OpenApiClient
     }
 
     /**
+     * @param ModifyDesktopHostNameRequest $request
+     * @param RuntimeOptions               $runtime
+     *
+     * @return ModifyDesktopHostNameResponse
+     */
+    public function modifyDesktopHostNameWithOptions($request, $runtime)
+    {
+        Utils::validateModel($request);
+
+        return ModifyDesktopHostNameResponse::fromMap($this->doRequest('ModifyDesktopHostName', 'HTTPS', 'POST', '2020-09-30', 'AK', null, Tea::merge($request), $runtime));
+    }
+
+    /**
+     * @param ModifyDesktopHostNameRequest $request
+     *
+     * @return ModifyDesktopHostNameResponse
+     */
+    public function modifyDesktopHostName($request)
+    {
+        $runtime = new RuntimeOptions([]);
+
+        return $this->modifyDesktopHostNameWithOptions($request, $runtime);
+    }
+
+    /**
      * @param ModifyDesktopNameRequest $request
      * @param RuntimeOptions           $runtime
      *
@@ -2796,11 +2892,8 @@ class Ecd extends OpenApiClient
     public function modifyDesktopNameWithOptions($request, $runtime)
     {
         Utils::validateModel($request);
-        $req = new OpenApiRequest([
-            'body' => Utils::toMap($request),
-        ]);
 
-        return ModifyDesktopNameResponse::fromMap($this->doRPCRequest('ModifyDesktopName', '2020-09-30', 'HTTPS', 'POST', 'AK', 'json', $req, $runtime));
+        return ModifyDesktopNameResponse::fromMap($this->doRequest('ModifyDesktopName', 'HTTPS', 'POST', '2020-09-30', 'AK', null, Tea::merge($request), $runtime));
     }
 
     /**
@@ -2816,34 +2909,6 @@ class Ecd extends OpenApiClient
     }
 
     /**
-     * @param ModifyDesktopPolicysRequest $request
-     * @param RuntimeOptions              $runtime
-     *
-     * @return ModifyDesktopPolicysResponse
-     */
-    public function modifyDesktopPolicysWithOptions($request, $runtime)
-    {
-        Utils::validateModel($request);
-        $req = new OpenApiRequest([
-            'body' => Utils::toMap($request),
-        ]);
-
-        return ModifyDesktopPolicysResponse::fromMap($this->doRPCRequest('ModifyDesktopPolicys', '2020-09-30', 'HTTPS', 'POST', 'AK', 'json', $req, $runtime));
-    }
-
-    /**
-     * @param ModifyDesktopPolicysRequest $request
-     *
-     * @return ModifyDesktopPolicysResponse
-     */
-    public function modifyDesktopPolicys($request)
-    {
-        $runtime = new RuntimeOptions([]);
-
-        return $this->modifyDesktopPolicysWithOptions($request, $runtime);
-    }
-
-    /**
      * @param ModifyDesktopSpecRequest $request
      * @param RuntimeOptions           $runtime
      *
@@ -2852,11 +2917,8 @@ class Ecd extends OpenApiClient
     public function modifyDesktopSpecWithOptions($request, $runtime)
     {
         Utils::validateModel($request);
-        $req = new OpenApiRequest([
-            'body' => Utils::toMap($request),
-        ]);
 
-        return ModifyDesktopSpecResponse::fromMap($this->doRPCRequest('ModifyDesktopSpec', '2020-09-30', 'HTTPS', 'POST', 'AK', 'json', $req, $runtime));
+        return ModifyDesktopSpecResponse::fromMap($this->doRequest('ModifyDesktopSpec', 'HTTPS', 'POST', '2020-09-30', 'AK', null, Tea::merge($request), $runtime));
     }
 
     /**
@@ -2880,11 +2942,8 @@ class Ecd extends OpenApiClient
     public function modifyDesktopsPolicyGroupWithOptions($request, $runtime)
     {
         Utils::validateModel($request);
-        $req = new OpenApiRequest([
-            'body' => Utils::toMap($request),
-        ]);
 
-        return ModifyDesktopsPolicyGroupResponse::fromMap($this->doRPCRequest('ModifyDesktopsPolicyGroup', '2020-09-30', 'HTTPS', 'POST', 'AK', 'json', $req, $runtime));
+        return ModifyDesktopsPolicyGroupResponse::fromMap($this->doRequest('ModifyDesktopsPolicyGroup', 'HTTPS', 'POST', '2020-09-30', 'AK', null, Tea::merge($request), $runtime));
     }
 
     /**
@@ -2908,11 +2967,8 @@ class Ecd extends OpenApiClient
     public function modifyEntitlementWithOptions($request, $runtime)
     {
         Utils::validateModel($request);
-        $req = new OpenApiRequest([
-            'body' => Utils::toMap($request),
-        ]);
 
-        return ModifyEntitlementResponse::fromMap($this->doRPCRequest('ModifyEntitlement', '2020-09-30', 'HTTPS', 'POST', 'AK', 'json', $req, $runtime));
+        return ModifyEntitlementResponse::fromMap($this->doRequest('ModifyEntitlement', 'HTTPS', 'POST', '2020-09-30', 'AK', null, Tea::merge($request), $runtime));
     }
 
     /**
@@ -2936,11 +2992,8 @@ class Ecd extends OpenApiClient
     public function modifyImageAttributeWithOptions($request, $runtime)
     {
         Utils::validateModel($request);
-        $req = new OpenApiRequest([
-            'body' => Utils::toMap($request),
-        ]);
 
-        return ModifyImageAttributeResponse::fromMap($this->doRPCRequest('ModifyImageAttribute', '2020-09-30', 'HTTPS', 'POST', 'AK', 'json', $req, $runtime));
+        return ModifyImageAttributeResponse::fromMap($this->doRequest('ModifyImageAttribute', 'HTTPS', 'POST', '2020-09-30', 'AK', null, Tea::merge($request), $runtime));
     }
 
     /**
@@ -2964,11 +3017,8 @@ class Ecd extends OpenApiClient
     public function modifyNASDefaultMountTargetWithOptions($request, $runtime)
     {
         Utils::validateModel($request);
-        $req = new OpenApiRequest([
-            'body' => Utils::toMap($request),
-        ]);
 
-        return ModifyNASDefaultMountTargetResponse::fromMap($this->doRPCRequest('ModifyNASDefaultMountTarget', '2020-09-30', 'HTTPS', 'POST', 'AK', 'json', $req, $runtime));
+        return ModifyNASDefaultMountTargetResponse::fromMap($this->doRequest('ModifyNASDefaultMountTarget', 'HTTPS', 'POST', '2020-09-30', 'AK', null, Tea::merge($request), $runtime));
     }
 
     /**
@@ -2992,11 +3042,8 @@ class Ecd extends OpenApiClient
     public function modifyNetworkPackageWithOptions($request, $runtime)
     {
         Utils::validateModel($request);
-        $req = new OpenApiRequest([
-            'body' => Utils::toMap($request),
-        ]);
 
-        return ModifyNetworkPackageResponse::fromMap($this->doRPCRequest('ModifyNetworkPackage', '2020-09-30', 'HTTPS', 'POST', 'AK', 'json', $req, $runtime));
+        return ModifyNetworkPackageResponse::fromMap($this->doRequest('ModifyNetworkPackage', 'HTTPS', 'POST', '2020-09-30', 'AK', null, Tea::merge($request), $runtime));
     }
 
     /**
@@ -3012,6 +3059,31 @@ class Ecd extends OpenApiClient
     }
 
     /**
+     * @param ModifyNetworkPackageBandwidthRequest $request
+     * @param RuntimeOptions                       $runtime
+     *
+     * @return ModifyNetworkPackageBandwidthResponse
+     */
+    public function modifyNetworkPackageBandwidthWithOptions($request, $runtime)
+    {
+        Utils::validateModel($request);
+
+        return ModifyNetworkPackageBandwidthResponse::fromMap($this->doRequest('ModifyNetworkPackageBandwidth', 'HTTPS', 'POST', '2020-09-30', 'AK', null, Tea::merge($request), $runtime));
+    }
+
+    /**
+     * @param ModifyNetworkPackageBandwidthRequest $request
+     *
+     * @return ModifyNetworkPackageBandwidthResponse
+     */
+    public function modifyNetworkPackageBandwidth($request)
+    {
+        $runtime = new RuntimeOptions([]);
+
+        return $this->modifyNetworkPackageBandwidthWithOptions($request, $runtime);
+    }
+
+    /**
      * @param ModifyNetworkPackageEnabledRequest $request
      * @param RuntimeOptions                     $runtime
      *
@@ -3020,11 +3092,8 @@ class Ecd extends OpenApiClient
     public function modifyNetworkPackageEnabledWithOptions($request, $runtime)
     {
         Utils::validateModel($request);
-        $req = new OpenApiRequest([
-            'body' => Utils::toMap($request),
-        ]);
 
-        return ModifyNetworkPackageEnabledResponse::fromMap($this->doRPCRequest('ModifyNetworkPackageEnabled', '2020-09-30', 'HTTPS', 'POST', 'AK', 'json', $req, $runtime));
+        return ModifyNetworkPackageEnabledResponse::fromMap($this->doRequest('ModifyNetworkPackageEnabled', 'HTTPS', 'POST', '2020-09-30', 'AK', null, Tea::merge($request), $runtime));
     }
 
     /**
@@ -3048,11 +3117,8 @@ class Ecd extends OpenApiClient
     public function modifyOfficeSiteAttributeWithOptions($request, $runtime)
     {
         Utils::validateModel($request);
-        $req = new OpenApiRequest([
-            'body' => Utils::toMap($request),
-        ]);
 
-        return ModifyOfficeSiteAttributeResponse::fromMap($this->doRPCRequest('ModifyOfficeSiteAttribute', '2020-09-30', 'HTTPS', 'POST', 'AK', 'json', $req, $runtime));
+        return ModifyOfficeSiteAttributeResponse::fromMap($this->doRequest('ModifyOfficeSiteAttribute', 'HTTPS', 'POST', '2020-09-30', 'AK', null, Tea::merge($request), $runtime));
     }
 
     /**
@@ -3076,11 +3142,8 @@ class Ecd extends OpenApiClient
     public function modifyOfficeSiteCrossDesktopAccessWithOptions($request, $runtime)
     {
         Utils::validateModel($request);
-        $req = new OpenApiRequest([
-            'body' => Utils::toMap($request),
-        ]);
 
-        return ModifyOfficeSiteCrossDesktopAccessResponse::fromMap($this->doRPCRequest('ModifyOfficeSiteCrossDesktopAccess', '2020-09-30', 'HTTPS', 'POST', 'AK', 'json', $req, $runtime));
+        return ModifyOfficeSiteCrossDesktopAccessResponse::fromMap($this->doRequest('ModifyOfficeSiteCrossDesktopAccess', 'HTTPS', 'POST', '2020-09-30', 'AK', null, Tea::merge($request), $runtime));
     }
 
     /**
@@ -3104,11 +3167,8 @@ class Ecd extends OpenApiClient
     public function modifyOfficeSiteMfaEnabledWithOptions($request, $runtime)
     {
         Utils::validateModel($request);
-        $req = new OpenApiRequest([
-            'body' => Utils::toMap($request),
-        ]);
 
-        return ModifyOfficeSiteMfaEnabledResponse::fromMap($this->doRPCRequest('ModifyOfficeSiteMfaEnabled', '2020-09-30', 'HTTPS', 'POST', 'AK', 'json', $req, $runtime));
+        return ModifyOfficeSiteMfaEnabledResponse::fromMap($this->doRequest('ModifyOfficeSiteMfaEnabled', 'HTTPS', 'POST', '2020-09-30', 'AK', null, Tea::merge($request), $runtime));
     }
 
     /**
@@ -3132,11 +3192,8 @@ class Ecd extends OpenApiClient
     public function modifyOperateVulWithOptions($request, $runtime)
     {
         Utils::validateModel($request);
-        $req = new OpenApiRequest([
-            'body' => Utils::toMap($request),
-        ]);
 
-        return ModifyOperateVulResponse::fromMap($this->doRPCRequest('ModifyOperateVul', '2020-09-30', 'HTTPS', 'POST', 'AK', 'json', $req, $runtime));
+        return ModifyOperateVulResponse::fromMap($this->doRequest('ModifyOperateVul', 'HTTPS', 'POST', '2020-09-30', 'AK', null, Tea::merge($request), $runtime));
     }
 
     /**
@@ -3160,11 +3217,8 @@ class Ecd extends OpenApiClient
     public function modifyPolicyGroupWithOptions($request, $runtime)
     {
         Utils::validateModel($request);
-        $req = new OpenApiRequest([
-            'body' => Utils::toMap($request),
-        ]);
 
-        return ModifyPolicyGroupResponse::fromMap($this->doRPCRequest('ModifyPolicyGroup', '2020-09-30', 'HTTPS', 'POST', 'AK', 'json', $req, $runtime));
+        return ModifyPolicyGroupResponse::fromMap($this->doRequest('ModifyPolicyGroup', 'HTTPS', 'POST', '2020-09-30', 'AK', null, Tea::merge($request), $runtime));
     }
 
     /**
@@ -3188,11 +3242,8 @@ class Ecd extends OpenApiClient
     public function modifyScaleStrategyWithOptions($request, $runtime)
     {
         Utils::validateModel($request);
-        $req = new OpenApiRequest([
-            'body' => Utils::toMap($request),
-        ]);
 
-        return ModifyScaleStrategyResponse::fromMap($this->doRPCRequest('ModifyScaleStrategy', '2020-09-30', 'HTTPS', 'POST', 'AK', 'json', $req, $runtime));
+        return ModifyScaleStrategyResponse::fromMap($this->doRequest('ModifyScaleStrategy', 'HTTPS', 'POST', '2020-09-30', 'AK', null, Tea::merge($request), $runtime));
     }
 
     /**
@@ -3208,6 +3259,31 @@ class Ecd extends OpenApiClient
     }
 
     /**
+     * @param ModifyUserEntitlementRequest $request
+     * @param RuntimeOptions               $runtime
+     *
+     * @return ModifyUserEntitlementResponse
+     */
+    public function modifyUserEntitlementWithOptions($request, $runtime)
+    {
+        Utils::validateModel($request);
+
+        return ModifyUserEntitlementResponse::fromMap($this->doRequest('ModifyUserEntitlement', 'HTTPS', 'POST', '2020-09-30', 'AK', null, Tea::merge($request), $runtime));
+    }
+
+    /**
+     * @param ModifyUserEntitlementRequest $request
+     *
+     * @return ModifyUserEntitlementResponse
+     */
+    public function modifyUserEntitlement($request)
+    {
+        $runtime = new RuntimeOptions([]);
+
+        return $this->modifyUserEntitlementWithOptions($request, $runtime);
+    }
+
+    /**
      * @param ModifyUserToDesktopGroupRequest $request
      * @param RuntimeOptions                  $runtime
      *
@@ -3216,11 +3292,8 @@ class Ecd extends OpenApiClient
     public function modifyUserToDesktopGroupWithOptions($request, $runtime)
     {
         Utils::validateModel($request);
-        $req = new OpenApiRequest([
-            'body' => Utils::toMap($request),
-        ]);
 
-        return ModifyUserToDesktopGroupResponse::fromMap($this->doRPCRequest('ModifyUserToDesktopGroup', '2020-09-30', 'HTTPS', 'POST', 'AK', 'json', $req, $runtime));
+        return ModifyUserToDesktopGroupResponse::fromMap($this->doRequest('ModifyUserToDesktopGroup', 'HTTPS', 'POST', '2020-09-30', 'AK', null, Tea::merge($request), $runtime));
     }
 
     /**
@@ -3244,11 +3317,8 @@ class Ecd extends OpenApiClient
     public function operateVulsWithOptions($request, $runtime)
     {
         Utils::validateModel($request);
-        $req = new OpenApiRequest([
-            'body' => Utils::toMap($request),
-        ]);
 
-        return OperateVulsResponse::fromMap($this->doRPCRequest('OperateVuls', '2020-09-30', 'HTTPS', 'POST', 'AK', 'json', $req, $runtime));
+        return OperateVulsResponse::fromMap($this->doRequest('OperateVuls', 'HTTPS', 'POST', '2020-09-30', 'AK', null, Tea::merge($request), $runtime));
     }
 
     /**
@@ -3264,34 +3334,6 @@ class Ecd extends OpenApiClient
     }
 
     /**
-     * @param PayOrderCallbackRequest $request
-     * @param RuntimeOptions          $runtime
-     *
-     * @return PayOrderCallbackResponse
-     */
-    public function payOrderCallbackWithOptions($request, $runtime)
-    {
-        Utils::validateModel($request);
-        $req = new OpenApiRequest([
-            'body' => Utils::toMap($request),
-        ]);
-
-        return PayOrderCallbackResponse::fromMap($this->doRPCRequest('PayOrderCallback', '2020-09-30', 'HTTPS', 'POST', 'AK', 'json', $req, $runtime));
-    }
-
-    /**
-     * @param PayOrderCallbackRequest $request
-     *
-     * @return PayOrderCallbackResponse
-     */
-    public function payOrderCallback($request)
-    {
-        $runtime = new RuntimeOptions([]);
-
-        return $this->payOrderCallbackWithOptions($request, $runtime);
-    }
-
-    /**
      * @param RebootDesktopsRequest $request
      * @param RuntimeOptions        $runtime
      *
@@ -3300,11 +3342,8 @@ class Ecd extends OpenApiClient
     public function rebootDesktopsWithOptions($request, $runtime)
     {
         Utils::validateModel($request);
-        $req = new OpenApiRequest([
-            'body' => Utils::toMap($request),
-        ]);
 
-        return RebootDesktopsResponse::fromMap($this->doRPCRequest('RebootDesktops', '2020-09-30', 'HTTPS', 'POST', 'AK', 'json', $req, $runtime));
+        return RebootDesktopsResponse::fromMap($this->doRequest('RebootDesktops', 'HTTPS', 'POST', '2020-09-30', 'AK', null, Tea::merge($request), $runtime));
     }
 
     /**
@@ -3328,11 +3367,8 @@ class Ecd extends OpenApiClient
     public function rebuildDesktopsWithOptions($request, $runtime)
     {
         Utils::validateModel($request);
-        $req = new OpenApiRequest([
-            'body' => Utils::toMap($request),
-        ]);
 
-        return RebuildDesktopsResponse::fromMap($this->doRPCRequest('RebuildDesktops', '2020-09-30', 'HTTPS', 'POST', 'AK', 'json', $req, $runtime));
+        return RebuildDesktopsResponse::fromMap($this->doRequest('RebuildDesktops', 'HTTPS', 'POST', '2020-09-30', 'AK', null, Tea::merge($request), $runtime));
     }
 
     /**
@@ -3356,11 +3392,8 @@ class Ecd extends OpenApiClient
     public function recreateDesktopGroupWithOptions($request, $runtime)
     {
         Utils::validateModel($request);
-        $req = new OpenApiRequest([
-            'body' => Utils::toMap($request),
-        ]);
 
-        return RecreateDesktopGroupResponse::fromMap($this->doRPCRequest('RecreateDesktopGroup', '2020-09-30', 'HTTPS', 'POST', 'AK', 'json', $req, $runtime));
+        return RecreateDesktopGroupResponse::fromMap($this->doRequest('RecreateDesktopGroup', 'HTTPS', 'POST', '2020-09-30', 'AK', null, Tea::merge($request), $runtime));
     }
 
     /**
@@ -3384,11 +3417,8 @@ class Ecd extends OpenApiClient
     public function removeUserFromDesktopGroupWithOptions($request, $runtime)
     {
         Utils::validateModel($request);
-        $req = new OpenApiRequest([
-            'body' => Utils::toMap($request),
-        ]);
 
-        return RemoveUserFromDesktopGroupResponse::fromMap($this->doRPCRequest('RemoveUserFromDesktopGroup', '2020-09-30', 'HTTPS', 'POST', 'AK', 'json', $req, $runtime));
+        return RemoveUserFromDesktopGroupResponse::fromMap($this->doRequest('RemoveUserFromDesktopGroup', 'HTTPS', 'POST', '2020-09-30', 'AK', null, Tea::merge($request), $runtime));
     }
 
     /**
@@ -3404,6 +3434,31 @@ class Ecd extends OpenApiClient
     }
 
     /**
+     * @param RenewDesktopGroupRequest $request
+     * @param RuntimeOptions           $runtime
+     *
+     * @return RenewDesktopGroupResponse
+     */
+    public function renewDesktopGroupWithOptions($request, $runtime)
+    {
+        Utils::validateModel($request);
+
+        return RenewDesktopGroupResponse::fromMap($this->doRequest('RenewDesktopGroup', 'HTTPS', 'POST', '2020-09-30', 'AK', null, Tea::merge($request), $runtime));
+    }
+
+    /**
+     * @param RenewDesktopGroupRequest $request
+     *
+     * @return RenewDesktopGroupResponse
+     */
+    public function renewDesktopGroup($request)
+    {
+        $runtime = new RuntimeOptions([]);
+
+        return $this->renewDesktopGroupWithOptions($request, $runtime);
+    }
+
+    /**
      * @param RenewDesktopsRequest $request
      * @param RuntimeOptions       $runtime
      *
@@ -3412,11 +3467,8 @@ class Ecd extends OpenApiClient
     public function renewDesktopsWithOptions($request, $runtime)
     {
         Utils::validateModel($request);
-        $req = new OpenApiRequest([
-            'body' => Utils::toMap($request),
-        ]);
 
-        return RenewDesktopsResponse::fromMap($this->doRPCRequest('RenewDesktops', '2020-09-30', 'HTTPS', 'POST', 'AK', 'json', $req, $runtime));
+        return RenewDesktopsResponse::fromMap($this->doRequest('RenewDesktops', 'HTTPS', 'POST', '2020-09-30', 'AK', null, Tea::merge($request), $runtime));
     }
 
     /**
@@ -3432,6 +3484,31 @@ class Ecd extends OpenApiClient
     }
 
     /**
+     * @param RenewNetworkPackagesRequest $request
+     * @param RuntimeOptions              $runtime
+     *
+     * @return RenewNetworkPackagesResponse
+     */
+    public function renewNetworkPackagesWithOptions($request, $runtime)
+    {
+        Utils::validateModel($request);
+
+        return RenewNetworkPackagesResponse::fromMap($this->doRequest('RenewNetworkPackages', 'HTTPS', 'POST', '2020-09-30', 'AK', null, Tea::merge($request), $runtime));
+    }
+
+    /**
+     * @param RenewNetworkPackagesRequest $request
+     *
+     * @return RenewNetworkPackagesResponse
+     */
+    public function renewNetworkPackages($request)
+    {
+        $runtime = new RuntimeOptions([]);
+
+        return $this->renewNetworkPackagesWithOptions($request, $runtime);
+    }
+
+    /**
      * @param ResetNASDefaultMountTargetRequest $request
      * @param RuntimeOptions                    $runtime
      *
@@ -3440,11 +3517,8 @@ class Ecd extends OpenApiClient
     public function resetNASDefaultMountTargetWithOptions($request, $runtime)
     {
         Utils::validateModel($request);
-        $req = new OpenApiRequest([
-            'body' => Utils::toMap($request),
-        ]);
 
-        return ResetNASDefaultMountTargetResponse::fromMap($this->doRPCRequest('ResetNASDefaultMountTarget', '2020-09-30', 'HTTPS', 'POST', 'AK', 'json', $req, $runtime));
+        return ResetNASDefaultMountTargetResponse::fromMap($this->doRequest('ResetNASDefaultMountTarget', 'HTTPS', 'POST', '2020-09-30', 'AK', null, Tea::merge($request), $runtime));
     }
 
     /**
@@ -3468,11 +3542,8 @@ class Ecd extends OpenApiClient
     public function resetSnapshotWithOptions($request, $runtime)
     {
         Utils::validateModel($request);
-        $req = new OpenApiRequest([
-            'body' => Utils::toMap($request),
-        ]);
 
-        return ResetSnapshotResponse::fromMap($this->doRPCRequest('ResetSnapshot', '2020-09-30', 'HTTPS', 'POST', 'AK', 'json', $req, $runtime));
+        return ResetSnapshotResponse::fromMap($this->doRequest('ResetSnapshot', 'HTTPS', 'POST', '2020-09-30', 'AK', null, Tea::merge($request), $runtime));
     }
 
     /**
@@ -3496,11 +3567,8 @@ class Ecd extends OpenApiClient
     public function rollbackSuspEventQuaraFileWithOptions($request, $runtime)
     {
         Utils::validateModel($request);
-        $req = new OpenApiRequest([
-            'body' => Utils::toMap($request),
-        ]);
 
-        return RollbackSuspEventQuaraFileResponse::fromMap($this->doRPCRequest('RollbackSuspEventQuaraFile', '2020-09-30', 'HTTPS', 'POST', 'AK', 'json', $req, $runtime));
+        return RollbackSuspEventQuaraFileResponse::fromMap($this->doRequest('RollbackSuspEventQuaraFile', 'HTTPS', 'POST', '2020-09-30', 'AK', null, Tea::merge($request), $runtime));
     }
 
     /**
@@ -3524,11 +3592,8 @@ class Ecd extends OpenApiClient
     public function runCommandWithOptions($request, $runtime)
     {
         Utils::validateModel($request);
-        $req = new OpenApiRequest([
-            'body' => Utils::toMap($request),
-        ]);
 
-        return RunCommandResponse::fromMap($this->doRPCRequest('RunCommand', '2020-09-30', 'HTTPS', 'POST', 'AK', 'json', $req, $runtime));
+        return RunCommandResponse::fromMap($this->doRequest('RunCommand', 'HTTPS', 'POST', '2020-09-30', 'AK', null, Tea::merge($request), $runtime));
     }
 
     /**
@@ -3544,6 +3609,31 @@ class Ecd extends OpenApiClient
     }
 
     /**
+     * @param SendVerifyCodeRequest $request
+     * @param RuntimeOptions        $runtime
+     *
+     * @return SendVerifyCodeResponse
+     */
+    public function sendVerifyCodeWithOptions($request, $runtime)
+    {
+        Utils::validateModel($request);
+
+        return SendVerifyCodeResponse::fromMap($this->doRequest('SendVerifyCode', 'HTTPS', 'POST', '2020-09-30', 'AK', null, Tea::merge($request), $runtime));
+    }
+
+    /**
+     * @param SendVerifyCodeRequest $request
+     *
+     * @return SendVerifyCodeResponse
+     */
+    public function sendVerifyCode($request)
+    {
+        $runtime = new RuntimeOptions([]);
+
+        return $this->sendVerifyCodeWithOptions($request, $runtime);
+    }
+
+    /**
      * @param SetDirectorySsoStatusRequest $request
      * @param RuntimeOptions               $runtime
      *
@@ -3552,11 +3642,8 @@ class Ecd extends OpenApiClient
     public function setDirectorySsoStatusWithOptions($request, $runtime)
     {
         Utils::validateModel($request);
-        $req = new OpenApiRequest([
-            'body' => Utils::toMap($request),
-        ]);
 
-        return SetDirectorySsoStatusResponse::fromMap($this->doRPCRequest('SetDirectorySsoStatus', '2020-09-30', 'HTTPS', 'POST', 'AK', 'json', $req, $runtime));
+        return SetDirectorySsoStatusResponse::fromMap($this->doRequest('SetDirectorySsoStatus', 'HTTPS', 'POST', '2020-09-30', 'AK', null, Tea::merge($request), $runtime));
     }
 
     /**
@@ -3580,11 +3667,8 @@ class Ecd extends OpenApiClient
     public function setIdpMetadataWithOptions($request, $runtime)
     {
         Utils::validateModel($request);
-        $req = new OpenApiRequest([
-            'body' => Utils::toMap($request),
-        ]);
 
-        return SetIdpMetadataResponse::fromMap($this->doRPCRequest('SetIdpMetadata', '2020-09-30', 'HTTPS', 'POST', 'AK', 'json', $req, $runtime));
+        return SetIdpMetadataResponse::fromMap($this->doRequest('SetIdpMetadata', 'HTTPS', 'POST', '2020-09-30', 'AK', null, Tea::merge($request), $runtime));
     }
 
     /**
@@ -3608,11 +3692,8 @@ class Ecd extends OpenApiClient
     public function setOfficeSiteSsoStatusWithOptions($request, $runtime)
     {
         Utils::validateModel($request);
-        $req = new OpenApiRequest([
-            'body' => Utils::toMap($request),
-        ]);
 
-        return SetOfficeSiteSsoStatusResponse::fromMap($this->doRPCRequest('SetOfficeSiteSsoStatus', '2020-09-30', 'HTTPS', 'POST', 'AK', 'json', $req, $runtime));
+        return SetOfficeSiteSsoStatusResponse::fromMap($this->doRequest('SetOfficeSiteSsoStatus', 'HTTPS', 'POST', '2020-09-30', 'AK', null, Tea::merge($request), $runtime));
     }
 
     /**
@@ -3636,11 +3717,8 @@ class Ecd extends OpenApiClient
     public function startDesktopsWithOptions($request, $runtime)
     {
         Utils::validateModel($request);
-        $req = new OpenApiRequest([
-            'body' => Utils::toMap($request),
-        ]);
 
-        return StartDesktopsResponse::fromMap($this->doRPCRequest('StartDesktops', '2020-09-30', 'HTTPS', 'POST', 'AK', 'json', $req, $runtime));
+        return StartDesktopsResponse::fromMap($this->doRequest('StartDesktops', 'HTTPS', 'POST', '2020-09-30', 'AK', null, Tea::merge($request), $runtime));
     }
 
     /**
@@ -3664,11 +3742,8 @@ class Ecd extends OpenApiClient
     public function startVirusScanTaskWithOptions($request, $runtime)
     {
         Utils::validateModel($request);
-        $req = new OpenApiRequest([
-            'body' => Utils::toMap($request),
-        ]);
 
-        return StartVirusScanTaskResponse::fromMap($this->doRPCRequest('StartVirusScanTask', '2020-09-30', 'HTTPS', 'POST', 'AK', 'json', $req, $runtime));
+        return StartVirusScanTaskResponse::fromMap($this->doRequest('StartVirusScanTask', 'HTTPS', 'POST', '2020-09-30', 'AK', null, Tea::merge($request), $runtime));
     }
 
     /**
@@ -3692,11 +3767,8 @@ class Ecd extends OpenApiClient
     public function stopDesktopsWithOptions($request, $runtime)
     {
         Utils::validateModel($request);
-        $req = new OpenApiRequest([
-            'body' => Utils::toMap($request),
-        ]);
 
-        return StopDesktopsResponse::fromMap($this->doRPCRequest('StopDesktops', '2020-09-30', 'HTTPS', 'POST', 'AK', 'json', $req, $runtime));
+        return StopDesktopsResponse::fromMap($this->doRequest('StopDesktops', 'HTTPS', 'POST', '2020-09-30', 'AK', null, Tea::merge($request), $runtime));
     }
 
     /**
@@ -3720,11 +3792,8 @@ class Ecd extends OpenApiClient
     public function stopInvocationWithOptions($request, $runtime)
     {
         Utils::validateModel($request);
-        $req = new OpenApiRequest([
-            'body' => Utils::toMap($request),
-        ]);
 
-        return StopInvocationResponse::fromMap($this->doRPCRequest('StopInvocation', '2020-09-30', 'HTTPS', 'POST', 'AK', 'json', $req, $runtime));
+        return StopInvocationResponse::fromMap($this->doRequest('StopInvocation', 'HTTPS', 'POST', '2020-09-30', 'AK', null, Tea::merge($request), $runtime));
     }
 
     /**
@@ -3748,11 +3817,8 @@ class Ecd extends OpenApiClient
     public function tagResourcesWithOptions($request, $runtime)
     {
         Utils::validateModel($request);
-        $req = new OpenApiRequest([
-            'body' => Utils::toMap($request),
-        ]);
 
-        return TagResourcesResponse::fromMap($this->doRPCRequest('TagResources', '2020-09-30', 'HTTPS', 'POST', 'AK', 'json', $req, $runtime));
+        return TagResourcesResponse::fromMap($this->doRequest('TagResources', 'HTTPS', 'POST', '2020-09-30', 'AK', null, Tea::merge($request), $runtime));
     }
 
     /**
@@ -3776,11 +3842,8 @@ class Ecd extends OpenApiClient
     public function unlockVirtualMFADeviceWithOptions($request, $runtime)
     {
         Utils::validateModel($request);
-        $req = new OpenApiRequest([
-            'body' => Utils::toMap($request),
-        ]);
 
-        return UnlockVirtualMFADeviceResponse::fromMap($this->doRPCRequest('UnlockVirtualMFADevice', '2020-09-30', 'HTTPS', 'POST', 'AK', 'json', $req, $runtime));
+        return UnlockVirtualMFADeviceResponse::fromMap($this->doRequest('UnlockVirtualMFADevice', 'HTTPS', 'POST', '2020-09-30', 'AK', null, Tea::merge($request), $runtime));
     }
 
     /**
@@ -3804,11 +3867,8 @@ class Ecd extends OpenApiClient
     public function untagResourcesWithOptions($request, $runtime)
     {
         Utils::validateModel($request);
-        $req = new OpenApiRequest([
-            'body' => Utils::toMap($request),
-        ]);
 
-        return UntagResourcesResponse::fromMap($this->doRPCRequest('UntagResources', '2020-09-30', 'HTTPS', 'POST', 'AK', 'json', $req, $runtime));
+        return UntagResourcesResponse::fromMap($this->doRequest('UntagResources', 'HTTPS', 'POST', '2020-09-30', 'AK', null, Tea::merge($request), $runtime));
     }
 
     /**
@@ -3821,5 +3881,53 @@ class Ecd extends OpenApiClient
         $runtime = new RuntimeOptions([]);
 
         return $this->untagResourcesWithOptions($request, $runtime);
+    }
+
+    /**
+     * @param VerifyCenRequest $request
+     * @param RuntimeOptions   $runtime
+     *
+     * @return VerifyCenResponse
+     */
+    public function verifyCenWithOptions($request, $runtime)
+    {
+        Utils::validateModel($request);
+
+        return VerifyCenResponse::fromMap($this->doRequest('VerifyCen', 'HTTPS', 'POST', '2020-09-30', 'AK', null, Tea::merge($request), $runtime));
+    }
+
+    /**
+     * @param VerifyCenRequest $request
+     *
+     * @return VerifyCenResponse
+     */
+    public function verifyCen($request)
+    {
+        $runtime = new RuntimeOptions([]);
+
+        return $this->verifyCenWithOptions($request, $runtime);
+    }
+
+    /**
+     * @param string   $productId
+     * @param string   $regionId
+     * @param string   $endpointRule
+     * @param string   $network
+     * @param string   $suffix
+     * @param string[] $endpointMap
+     * @param string   $endpoint
+     *
+     * @return string
+     */
+    public function getEndpoint($productId, $regionId, $endpointRule, $network, $suffix, $endpointMap, $endpoint)
+    {
+        if (!Utils::empty_($endpoint)) {
+            return $endpoint;
+        }
+        if (!Utils::isUnset($endpointMap) && !Utils::empty_(@$endpointMap[$regionId])) {
+            return @$endpointMap[$regionId];
+        }
+
+        return Endpoint::getEndpointRules($productId, $regionId, $endpointRule, $network, $suffix);
     }
 }

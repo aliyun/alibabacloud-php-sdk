@@ -9,9 +9,9 @@ use AlibabaCloud\Tea\Model;
 class ModifyNetworkPackageEnabledRequest extends Model
 {
     /**
-     * @var string
+     * @var bool
      */
-    public $regionId;
+    public $enabled;
 
     /**
      * @var string
@@ -19,30 +19,32 @@ class ModifyNetworkPackageEnabledRequest extends Model
     public $networkPackageId;
 
     /**
-     * @var bool
+     * @var string
      */
-    public $enabled;
+    public $regionId;
     protected $_name = [
-        'regionId'         => 'RegionId',
-        'networkPackageId' => 'NetworkPackageId',
         'enabled'          => 'Enabled',
+        'networkPackageId' => 'NetworkPackageId',
+        'regionId'         => 'RegionId',
     ];
 
     public function validate()
     {
+        Model::validateRequired('networkPackageId', $this->networkPackageId, true);
+        Model::validateRequired('regionId', $this->regionId, true);
     }
 
     public function toMap()
     {
         $res = [];
-        if (null !== $this->regionId) {
-            $res['RegionId'] = $this->regionId;
+        if (null !== $this->enabled) {
+            $res['Enabled'] = $this->enabled;
         }
         if (null !== $this->networkPackageId) {
             $res['NetworkPackageId'] = $this->networkPackageId;
         }
-        if (null !== $this->enabled) {
-            $res['Enabled'] = $this->enabled;
+        if (null !== $this->regionId) {
+            $res['RegionId'] = $this->regionId;
         }
 
         return $res;
@@ -56,14 +58,14 @@ class ModifyNetworkPackageEnabledRequest extends Model
     public static function fromMap($map = [])
     {
         $model = new self();
-        if (isset($map['RegionId'])) {
-            $model->regionId = $map['RegionId'];
+        if (isset($map['Enabled'])) {
+            $model->enabled = $map['Enabled'];
         }
         if (isset($map['NetworkPackageId'])) {
             $model->networkPackageId = $map['NetworkPackageId'];
         }
-        if (isset($map['Enabled'])) {
-            $model->enabled = $map['Enabled'];
+        if (isset($map['RegionId'])) {
+            $model->regionId = $map['RegionId'];
         }
 
         return $model;

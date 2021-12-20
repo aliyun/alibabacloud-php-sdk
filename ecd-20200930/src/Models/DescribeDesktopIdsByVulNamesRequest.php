@@ -11,12 +11,7 @@ class DescribeDesktopIdsByVulNamesRequest extends Model
     /**
      * @var string
      */
-    public $regionId;
-
-    /**
-     * @var string
-     */
-    public $type;
+    public $necessity;
 
     /**
      * @var string
@@ -26,38 +21,47 @@ class DescribeDesktopIdsByVulNamesRequest extends Model
     /**
      * @var string
      */
-    public $necessity;
+    public $regionId;
+
+    /**
+     * @var string
+     */
+    public $type;
 
     /**
      * @var string[]
      */
     public $vulName;
     protected $_name = [
+        'necessity'    => 'Necessity',
+        'officeSiteId' => 'OfficeSiteId',
         'regionId'     => 'RegionId',
         'type'         => 'Type',
-        'officeSiteId' => 'OfficeSiteId',
-        'necessity'    => 'Necessity',
         'vulName'      => 'VulName',
     ];
 
     public function validate()
     {
+        Model::validateRequired('officeSiteId', $this->officeSiteId, true);
+        Model::validateRequired('regionId', $this->regionId, true);
+        Model::validateRequired('type', $this->type, true);
+        Model::validateRequired('vulName', $this->vulName, true);
     }
 
     public function toMap()
     {
         $res = [];
+        if (null !== $this->necessity) {
+            $res['Necessity'] = $this->necessity;
+        }
+        if (null !== $this->officeSiteId) {
+            $res['OfficeSiteId'] = $this->officeSiteId;
+        }
         if (null !== $this->regionId) {
             $res['RegionId'] = $this->regionId;
         }
         if (null !== $this->type) {
             $res['Type'] = $this->type;
-        }
-        if (null !== $this->officeSiteId) {
-            $res['OfficeSiteId'] = $this->officeSiteId;
-        }
-        if (null !== $this->necessity) {
-            $res['Necessity'] = $this->necessity;
         }
         if (null !== $this->vulName) {
             $res['VulName'] = $this->vulName;
@@ -74,17 +78,17 @@ class DescribeDesktopIdsByVulNamesRequest extends Model
     public static function fromMap($map = [])
     {
         $model = new self();
+        if (isset($map['Necessity'])) {
+            $model->necessity = $map['Necessity'];
+        }
+        if (isset($map['OfficeSiteId'])) {
+            $model->officeSiteId = $map['OfficeSiteId'];
+        }
         if (isset($map['RegionId'])) {
             $model->regionId = $map['RegionId'];
         }
         if (isset($map['Type'])) {
             $model->type = $map['Type'];
-        }
-        if (isset($map['OfficeSiteId'])) {
-            $model->officeSiteId = $map['OfficeSiteId'];
-        }
-        if (isset($map['Necessity'])) {
-            $model->necessity = $map['Necessity'];
         }
         if (isset($map['VulName'])) {
             if (!empty($map['VulName'])) {

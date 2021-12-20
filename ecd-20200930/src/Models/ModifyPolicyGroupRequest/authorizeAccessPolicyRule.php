@@ -11,29 +11,30 @@ class authorizeAccessPolicyRule extends Model
     /**
      * @var string
      */
-    public $description;
+    public $cidrIp;
 
     /**
      * @var string
      */
-    public $cidrIp;
+    public $description;
     protected $_name = [
-        'description' => 'Description',
         'cidrIp'      => 'CidrIp',
+        'description' => 'Description',
     ];
 
     public function validate()
     {
+        Model::validateRequired('cidrIp', $this->cidrIp, true);
     }
 
     public function toMap()
     {
         $res = [];
-        if (null !== $this->description) {
-            $res['Description'] = $this->description;
-        }
         if (null !== $this->cidrIp) {
             $res['CidrIp'] = $this->cidrIp;
+        }
+        if (null !== $this->description) {
+            $res['Description'] = $this->description;
         }
 
         return $res;
@@ -47,11 +48,11 @@ class authorizeAccessPolicyRule extends Model
     public static function fromMap($map = [])
     {
         $model = new self();
-        if (isset($map['Description'])) {
-            $model->description = $map['Description'];
-        }
         if (isset($map['CidrIp'])) {
             $model->cidrIp = $map['CidrIp'];
+        }
+        if (isset($map['Description'])) {
+            $model->description = $map['Description'];
         }
 
         return $model;

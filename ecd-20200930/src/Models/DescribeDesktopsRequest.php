@@ -11,17 +11,52 @@ class DescribeDesktopsRequest extends Model
     /**
      * @var string
      */
-    public $regionId;
+    public $chargeType;
+
+    /**
+     * @var string[]
+     */
+    public $desktopId;
 
     /**
      * @var string
      */
-    public $groupId;
+    public $desktopName;
 
     /**
      * @var string
      */
     public $desktopStatus;
+
+    /**
+     * @var string
+     */
+    public $directoryId;
+
+    /**
+     * @var string[]
+     */
+    public $endUserId;
+
+    /**
+     * @var string[]
+     */
+    public $excludedEndUserId;
+
+    /**
+     * @var string
+     */
+    public $expiredTime;
+
+    /**
+     * @var bool
+     */
+    public $filterDesktopGroup;
+
+    /**
+     * @var string
+     */
+    public $groupId;
 
     /**
      * @var int
@@ -36,21 +71,6 @@ class DescribeDesktopsRequest extends Model
     /**
      * @var string
      */
-    public $userName;
-
-    /**
-     * @var string
-     */
-    public $desktopName;
-
-    /**
-     * @var string
-     */
-    public $directoryId;
-
-    /**
-     * @var string
-     */
     public $officeSiteId;
 
     /**
@@ -61,54 +81,74 @@ class DescribeDesktopsRequest extends Model
     /**
      * @var string
      */
-    public $chargeType;
+    public $protocolType;
 
     /**
      * @var string
      */
-    public $expiredTime;
+    public $regionId;
 
     /**
-     * @var string[]
+     * @var string
      */
-    public $desktopId;
-
-    /**
-     * @var string[]
-     */
-    public $endUserId;
+    public $userName;
     protected $_name = [
-        'regionId'      => 'RegionId',
-        'groupId'       => 'GroupId',
-        'desktopStatus' => 'DesktopStatus',
-        'maxResults'    => 'MaxResults',
-        'nextToken'     => 'NextToken',
-        'userName'      => 'UserName',
-        'desktopName'   => 'DesktopName',
-        'directoryId'   => 'DirectoryId',
-        'officeSiteId'  => 'OfficeSiteId',
-        'policyGroupId' => 'PolicyGroupId',
-        'chargeType'    => 'ChargeType',
-        'expiredTime'   => 'ExpiredTime',
-        'desktopId'     => 'DesktopId',
-        'endUserId'     => 'EndUserId',
+        'chargeType'         => 'ChargeType',
+        'desktopId'          => 'DesktopId',
+        'desktopName'        => 'DesktopName',
+        'desktopStatus'      => 'DesktopStatus',
+        'directoryId'        => 'DirectoryId',
+        'endUserId'          => 'EndUserId',
+        'excludedEndUserId'  => 'ExcludedEndUserId',
+        'expiredTime'        => 'ExpiredTime',
+        'filterDesktopGroup' => 'FilterDesktopGroup',
+        'groupId'            => 'GroupId',
+        'maxResults'         => 'MaxResults',
+        'nextToken'          => 'NextToken',
+        'officeSiteId'       => 'OfficeSiteId',
+        'policyGroupId'      => 'PolicyGroupId',
+        'protocolType'       => 'ProtocolType',
+        'regionId'           => 'RegionId',
+        'userName'           => 'UserName',
     ];
 
     public function validate()
     {
+        Model::validateRequired('regionId', $this->regionId, true);
     }
 
     public function toMap()
     {
         $res = [];
-        if (null !== $this->regionId) {
-            $res['RegionId'] = $this->regionId;
+        if (null !== $this->chargeType) {
+            $res['ChargeType'] = $this->chargeType;
         }
-        if (null !== $this->groupId) {
-            $res['GroupId'] = $this->groupId;
+        if (null !== $this->desktopId) {
+            $res['DesktopId'] = $this->desktopId;
+        }
+        if (null !== $this->desktopName) {
+            $res['DesktopName'] = $this->desktopName;
         }
         if (null !== $this->desktopStatus) {
             $res['DesktopStatus'] = $this->desktopStatus;
+        }
+        if (null !== $this->directoryId) {
+            $res['DirectoryId'] = $this->directoryId;
+        }
+        if (null !== $this->endUserId) {
+            $res['EndUserId'] = $this->endUserId;
+        }
+        if (null !== $this->excludedEndUserId) {
+            $res['ExcludedEndUserId'] = $this->excludedEndUserId;
+        }
+        if (null !== $this->expiredTime) {
+            $res['ExpiredTime'] = $this->expiredTime;
+        }
+        if (null !== $this->filterDesktopGroup) {
+            $res['FilterDesktopGroup'] = $this->filterDesktopGroup;
+        }
+        if (null !== $this->groupId) {
+            $res['GroupId'] = $this->groupId;
         }
         if (null !== $this->maxResults) {
             $res['MaxResults'] = $this->maxResults;
@@ -116,32 +156,20 @@ class DescribeDesktopsRequest extends Model
         if (null !== $this->nextToken) {
             $res['NextToken'] = $this->nextToken;
         }
-        if (null !== $this->userName) {
-            $res['UserName'] = $this->userName;
-        }
-        if (null !== $this->desktopName) {
-            $res['DesktopName'] = $this->desktopName;
-        }
-        if (null !== $this->directoryId) {
-            $res['DirectoryId'] = $this->directoryId;
-        }
         if (null !== $this->officeSiteId) {
             $res['OfficeSiteId'] = $this->officeSiteId;
         }
         if (null !== $this->policyGroupId) {
             $res['PolicyGroupId'] = $this->policyGroupId;
         }
-        if (null !== $this->chargeType) {
-            $res['ChargeType'] = $this->chargeType;
+        if (null !== $this->protocolType) {
+            $res['ProtocolType'] = $this->protocolType;
         }
-        if (null !== $this->expiredTime) {
-            $res['ExpiredTime'] = $this->expiredTime;
+        if (null !== $this->regionId) {
+            $res['RegionId'] = $this->regionId;
         }
-        if (null !== $this->desktopId) {
-            $res['DesktopId'] = $this->desktopId;
-        }
-        if (null !== $this->endUserId) {
-            $res['EndUserId'] = $this->endUserId;
+        if (null !== $this->userName) {
+            $res['UserName'] = $this->userName;
         }
 
         return $res;
@@ -155,14 +183,41 @@ class DescribeDesktopsRequest extends Model
     public static function fromMap($map = [])
     {
         $model = new self();
-        if (isset($map['RegionId'])) {
-            $model->regionId = $map['RegionId'];
+        if (isset($map['ChargeType'])) {
+            $model->chargeType = $map['ChargeType'];
         }
-        if (isset($map['GroupId'])) {
-            $model->groupId = $map['GroupId'];
+        if (isset($map['DesktopId'])) {
+            if (!empty($map['DesktopId'])) {
+                $model->desktopId = $map['DesktopId'];
+            }
+        }
+        if (isset($map['DesktopName'])) {
+            $model->desktopName = $map['DesktopName'];
         }
         if (isset($map['DesktopStatus'])) {
             $model->desktopStatus = $map['DesktopStatus'];
+        }
+        if (isset($map['DirectoryId'])) {
+            $model->directoryId = $map['DirectoryId'];
+        }
+        if (isset($map['EndUserId'])) {
+            if (!empty($map['EndUserId'])) {
+                $model->endUserId = $map['EndUserId'];
+            }
+        }
+        if (isset($map['ExcludedEndUserId'])) {
+            if (!empty($map['ExcludedEndUserId'])) {
+                $model->excludedEndUserId = $map['ExcludedEndUserId'];
+            }
+        }
+        if (isset($map['ExpiredTime'])) {
+            $model->expiredTime = $map['ExpiredTime'];
+        }
+        if (isset($map['FilterDesktopGroup'])) {
+            $model->filterDesktopGroup = $map['FilterDesktopGroup'];
+        }
+        if (isset($map['GroupId'])) {
+            $model->groupId = $map['GroupId'];
         }
         if (isset($map['MaxResults'])) {
             $model->maxResults = $map['MaxResults'];
@@ -170,36 +225,20 @@ class DescribeDesktopsRequest extends Model
         if (isset($map['NextToken'])) {
             $model->nextToken = $map['NextToken'];
         }
-        if (isset($map['UserName'])) {
-            $model->userName = $map['UserName'];
-        }
-        if (isset($map['DesktopName'])) {
-            $model->desktopName = $map['DesktopName'];
-        }
-        if (isset($map['DirectoryId'])) {
-            $model->directoryId = $map['DirectoryId'];
-        }
         if (isset($map['OfficeSiteId'])) {
             $model->officeSiteId = $map['OfficeSiteId'];
         }
         if (isset($map['PolicyGroupId'])) {
             $model->policyGroupId = $map['PolicyGroupId'];
         }
-        if (isset($map['ChargeType'])) {
-            $model->chargeType = $map['ChargeType'];
+        if (isset($map['ProtocolType'])) {
+            $model->protocolType = $map['ProtocolType'];
         }
-        if (isset($map['ExpiredTime'])) {
-            $model->expiredTime = $map['ExpiredTime'];
+        if (isset($map['RegionId'])) {
+            $model->regionId = $map['RegionId'];
         }
-        if (isset($map['DesktopId'])) {
-            if (!empty($map['DesktopId'])) {
-                $model->desktopId = $map['DesktopId'];
-            }
-        }
-        if (isset($map['EndUserId'])) {
-            if (!empty($map['EndUserId'])) {
-                $model->endUserId = $map['EndUserId'];
-            }
+        if (isset($map['UserName'])) {
+            $model->userName = $map['UserName'];
         }
 
         return $model;

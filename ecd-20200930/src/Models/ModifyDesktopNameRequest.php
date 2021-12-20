@@ -11,7 +11,7 @@ class ModifyDesktopNameRequest extends Model
     /**
      * @var string
      */
-    public $regionId;
+    public $desktopId;
 
     /**
      * @var string
@@ -21,28 +21,31 @@ class ModifyDesktopNameRequest extends Model
     /**
      * @var string
      */
-    public $desktopId;
+    public $regionId;
     protected $_name = [
-        'regionId'       => 'RegionId',
-        'newDesktopName' => 'NewDesktopName',
         'desktopId'      => 'DesktopId',
+        'newDesktopName' => 'NewDesktopName',
+        'regionId'       => 'RegionId',
     ];
 
     public function validate()
     {
+        Model::validateRequired('desktopId', $this->desktopId, true);
+        Model::validateRequired('newDesktopName', $this->newDesktopName, true);
+        Model::validateRequired('regionId', $this->regionId, true);
     }
 
     public function toMap()
     {
         $res = [];
-        if (null !== $this->regionId) {
-            $res['RegionId'] = $this->regionId;
+        if (null !== $this->desktopId) {
+            $res['DesktopId'] = $this->desktopId;
         }
         if (null !== $this->newDesktopName) {
             $res['NewDesktopName'] = $this->newDesktopName;
         }
-        if (null !== $this->desktopId) {
-            $res['DesktopId'] = $this->desktopId;
+        if (null !== $this->regionId) {
+            $res['RegionId'] = $this->regionId;
         }
 
         return $res;
@@ -56,14 +59,14 @@ class ModifyDesktopNameRequest extends Model
     public static function fromMap($map = [])
     {
         $model = new self();
-        if (isset($map['RegionId'])) {
-            $model->regionId = $map['RegionId'];
+        if (isset($map['DesktopId'])) {
+            $model->desktopId = $map['DesktopId'];
         }
         if (isset($map['NewDesktopName'])) {
             $model->newDesktopName = $map['NewDesktopName'];
         }
-        if (isset($map['DesktopId'])) {
-            $model->desktopId = $map['DesktopId'];
+        if (isset($map['RegionId'])) {
+            $model->regionId = $map['RegionId'];
         }
 
         return $model;

@@ -11,29 +11,31 @@ class ResetNASDefaultMountTargetRequest extends Model
     /**
      * @var string
      */
-    public $regionId;
+    public $fileSystemId;
 
     /**
      * @var string
      */
-    public $fileSystemId;
+    public $regionId;
     protected $_name = [
-        'regionId'     => 'RegionId',
         'fileSystemId' => 'FileSystemId',
+        'regionId'     => 'RegionId',
     ];
 
     public function validate()
     {
+        Model::validateRequired('fileSystemId', $this->fileSystemId, true);
+        Model::validateRequired('regionId', $this->regionId, true);
     }
 
     public function toMap()
     {
         $res = [];
-        if (null !== $this->regionId) {
-            $res['RegionId'] = $this->regionId;
-        }
         if (null !== $this->fileSystemId) {
             $res['FileSystemId'] = $this->fileSystemId;
+        }
+        if (null !== $this->regionId) {
+            $res['RegionId'] = $this->regionId;
         }
 
         return $res;
@@ -47,11 +49,11 @@ class ResetNASDefaultMountTargetRequest extends Model
     public static function fromMap($map = [])
     {
         $model = new self();
-        if (isset($map['RegionId'])) {
-            $model->regionId = $map['RegionId'];
-        }
         if (isset($map['FileSystemId'])) {
             $model->fileSystemId = $map['FileSystemId'];
+        }
+        if (isset($map['RegionId'])) {
+            $model->regionId = $map['RegionId'];
         }
 
         return $model;

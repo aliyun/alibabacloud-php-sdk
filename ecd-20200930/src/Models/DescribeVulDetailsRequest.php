@@ -11,7 +11,7 @@ class DescribeVulDetailsRequest extends Model
     /**
      * @var string
      */
-    public $regionId;
+    public $aliasName;
 
     /**
      * @var string
@@ -21,46 +21,49 @@ class DescribeVulDetailsRequest extends Model
     /**
      * @var string
      */
-    public $type;
-
-    /**
-     * @var string
-     */
     public $name;
 
     /**
      * @var string
      */
-    public $aliasName;
+    public $regionId;
+
+    /**
+     * @var string
+     */
+    public $type;
     protected $_name = [
-        'regionId'  => 'RegionId',
-        'lang'      => 'Lang',
-        'type'      => 'Type',
-        'name'      => 'Name',
         'aliasName' => 'AliasName',
+        'lang'      => 'Lang',
+        'name'      => 'Name',
+        'regionId'  => 'RegionId',
+        'type'      => 'Type',
     ];
 
     public function validate()
     {
+        Model::validateRequired('name', $this->name, true);
+        Model::validateRequired('regionId', $this->regionId, true);
+        Model::validateRequired('type', $this->type, true);
     }
 
     public function toMap()
     {
         $res = [];
-        if (null !== $this->regionId) {
-            $res['RegionId'] = $this->regionId;
+        if (null !== $this->aliasName) {
+            $res['AliasName'] = $this->aliasName;
         }
         if (null !== $this->lang) {
             $res['Lang'] = $this->lang;
         }
-        if (null !== $this->type) {
-            $res['Type'] = $this->type;
-        }
         if (null !== $this->name) {
             $res['Name'] = $this->name;
         }
-        if (null !== $this->aliasName) {
-            $res['AliasName'] = $this->aliasName;
+        if (null !== $this->regionId) {
+            $res['RegionId'] = $this->regionId;
+        }
+        if (null !== $this->type) {
+            $res['Type'] = $this->type;
         }
 
         return $res;
@@ -74,20 +77,20 @@ class DescribeVulDetailsRequest extends Model
     public static function fromMap($map = [])
     {
         $model = new self();
-        if (isset($map['RegionId'])) {
-            $model->regionId = $map['RegionId'];
+        if (isset($map['AliasName'])) {
+            $model->aliasName = $map['AliasName'];
         }
         if (isset($map['Lang'])) {
             $model->lang = $map['Lang'];
         }
-        if (isset($map['Type'])) {
-            $model->type = $map['Type'];
-        }
         if (isset($map['Name'])) {
             $model->name = $map['Name'];
         }
-        if (isset($map['AliasName'])) {
-            $model->aliasName = $map['AliasName'];
+        if (isset($map['RegionId'])) {
+            $model->regionId = $map['RegionId'];
+        }
+        if (isset($map['Type'])) {
+            $model->type = $map['Type'];
         }
 
         return $model;

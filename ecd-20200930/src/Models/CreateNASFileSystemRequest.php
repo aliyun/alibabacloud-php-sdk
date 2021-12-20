@@ -11,12 +11,7 @@ class CreateNASFileSystemRequest extends Model
     /**
      * @var string
      */
-    public $regionId;
-
-    /**
-     * @var string
-     */
-    public $officeSiteId;
+    public $description;
 
     /**
      * @var string
@@ -26,32 +21,48 @@ class CreateNASFileSystemRequest extends Model
     /**
      * @var string
      */
-    public $description;
+    public $officeSiteId;
+
+    /**
+     * @var string
+     */
+    public $regionId;
+
+    /**
+     * @var string
+     */
+    public $storageType;
     protected $_name = [
-        'regionId'     => 'RegionId',
-        'officeSiteId' => 'OfficeSiteId',
-        'name'         => 'Name',
         'description'  => 'Description',
+        'name'         => 'Name',
+        'officeSiteId' => 'OfficeSiteId',
+        'regionId'     => 'RegionId',
+        'storageType'  => 'StorageType',
     ];
 
     public function validate()
     {
+        Model::validateRequired('officeSiteId', $this->officeSiteId, true);
+        Model::validateRequired('regionId', $this->regionId, true);
     }
 
     public function toMap()
     {
         $res = [];
-        if (null !== $this->regionId) {
-            $res['RegionId'] = $this->regionId;
-        }
-        if (null !== $this->officeSiteId) {
-            $res['OfficeSiteId'] = $this->officeSiteId;
+        if (null !== $this->description) {
+            $res['Description'] = $this->description;
         }
         if (null !== $this->name) {
             $res['Name'] = $this->name;
         }
-        if (null !== $this->description) {
-            $res['Description'] = $this->description;
+        if (null !== $this->officeSiteId) {
+            $res['OfficeSiteId'] = $this->officeSiteId;
+        }
+        if (null !== $this->regionId) {
+            $res['RegionId'] = $this->regionId;
+        }
+        if (null !== $this->storageType) {
+            $res['StorageType'] = $this->storageType;
         }
 
         return $res;
@@ -65,17 +76,20 @@ class CreateNASFileSystemRequest extends Model
     public static function fromMap($map = [])
     {
         $model = new self();
-        if (isset($map['RegionId'])) {
-            $model->regionId = $map['RegionId'];
-        }
-        if (isset($map['OfficeSiteId'])) {
-            $model->officeSiteId = $map['OfficeSiteId'];
+        if (isset($map['Description'])) {
+            $model->description = $map['Description'];
         }
         if (isset($map['Name'])) {
             $model->name = $map['Name'];
         }
-        if (isset($map['Description'])) {
-            $model->description = $map['Description'];
+        if (isset($map['OfficeSiteId'])) {
+            $model->officeSiteId = $map['OfficeSiteId'];
+        }
+        if (isset($map['RegionId'])) {
+            $model->regionId = $map['RegionId'];
+        }
+        if (isset($map['StorageType'])) {
+            $model->storageType = $map['StorageType'];
         }
 
         return $model;

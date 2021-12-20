@@ -9,14 +9,9 @@ use AlibabaCloud\Tea\Model;
 class CreateSimpleOfficeSiteRequest extends Model
 {
     /**
-     * @var string
+     * @var int
      */
-    public $regionId;
-
-    /**
-     * @var string
-     */
-    public $cidrBlock;
+    public $bandwidth;
 
     /**
      * @var string
@@ -26,17 +21,17 @@ class CreateSimpleOfficeSiteRequest extends Model
     /**
      * @var int
      */
-    public $bandwidth;
+    public $cenOwnerId;
 
     /**
      * @var string
      */
-    public $officeSiteName;
+    public $cidrBlock;
 
     /**
-     * @var bool
+     * @var string
      */
-    public $enableInternetAccess;
+    public $desktopAccessType;
 
     /**
      * @var bool
@@ -44,50 +39,75 @@ class CreateSimpleOfficeSiteRequest extends Model
     public $enableAdminAccess;
 
     /**
+     * @var bool
+     */
+    public $enableInternetAccess;
+
+    /**
      * @var string
      */
-    public $desktopAccessType;
+    public $officeSiteName;
+
+    /**
+     * @var string
+     */
+    public $regionId;
+
+    /**
+     * @var string
+     */
+    public $verifyCode;
     protected $_name = [
-        'regionId'             => 'RegionId',
-        'cidrBlock'            => 'CidrBlock',
-        'cenId'                => 'CenId',
         'bandwidth'            => 'Bandwidth',
-        'officeSiteName'       => 'OfficeSiteName',
-        'enableInternetAccess' => 'EnableInternetAccess',
-        'enableAdminAccess'    => 'EnableAdminAccess',
+        'cenId'                => 'CenId',
+        'cenOwnerId'           => 'CenOwnerId',
+        'cidrBlock'            => 'CidrBlock',
         'desktopAccessType'    => 'DesktopAccessType',
+        'enableAdminAccess'    => 'EnableAdminAccess',
+        'enableInternetAccess' => 'EnableInternetAccess',
+        'officeSiteName'       => 'OfficeSiteName',
+        'regionId'             => 'RegionId',
+        'verifyCode'           => 'VerifyCode',
     ];
 
     public function validate()
     {
+        Model::validateRequired('cidrBlock', $this->cidrBlock, true);
+        Model::validateRequired('regionId', $this->regionId, true);
     }
 
     public function toMap()
     {
         $res = [];
-        if (null !== $this->regionId) {
-            $res['RegionId'] = $this->regionId;
-        }
-        if (null !== $this->cidrBlock) {
-            $res['CidrBlock'] = $this->cidrBlock;
+        if (null !== $this->bandwidth) {
+            $res['Bandwidth'] = $this->bandwidth;
         }
         if (null !== $this->cenId) {
             $res['CenId'] = $this->cenId;
         }
-        if (null !== $this->bandwidth) {
-            $res['Bandwidth'] = $this->bandwidth;
+        if (null !== $this->cenOwnerId) {
+            $res['CenOwnerId'] = $this->cenOwnerId;
         }
-        if (null !== $this->officeSiteName) {
-            $res['OfficeSiteName'] = $this->officeSiteName;
+        if (null !== $this->cidrBlock) {
+            $res['CidrBlock'] = $this->cidrBlock;
         }
-        if (null !== $this->enableInternetAccess) {
-            $res['EnableInternetAccess'] = $this->enableInternetAccess;
+        if (null !== $this->desktopAccessType) {
+            $res['DesktopAccessType'] = $this->desktopAccessType;
         }
         if (null !== $this->enableAdminAccess) {
             $res['EnableAdminAccess'] = $this->enableAdminAccess;
         }
-        if (null !== $this->desktopAccessType) {
-            $res['DesktopAccessType'] = $this->desktopAccessType;
+        if (null !== $this->enableInternetAccess) {
+            $res['EnableInternetAccess'] = $this->enableInternetAccess;
+        }
+        if (null !== $this->officeSiteName) {
+            $res['OfficeSiteName'] = $this->officeSiteName;
+        }
+        if (null !== $this->regionId) {
+            $res['RegionId'] = $this->regionId;
+        }
+        if (null !== $this->verifyCode) {
+            $res['VerifyCode'] = $this->verifyCode;
         }
 
         return $res;
@@ -101,29 +121,35 @@ class CreateSimpleOfficeSiteRequest extends Model
     public static function fromMap($map = [])
     {
         $model = new self();
-        if (isset($map['RegionId'])) {
-            $model->regionId = $map['RegionId'];
-        }
-        if (isset($map['CidrBlock'])) {
-            $model->cidrBlock = $map['CidrBlock'];
+        if (isset($map['Bandwidth'])) {
+            $model->bandwidth = $map['Bandwidth'];
         }
         if (isset($map['CenId'])) {
             $model->cenId = $map['CenId'];
         }
-        if (isset($map['Bandwidth'])) {
-            $model->bandwidth = $map['Bandwidth'];
+        if (isset($map['CenOwnerId'])) {
+            $model->cenOwnerId = $map['CenOwnerId'];
         }
-        if (isset($map['OfficeSiteName'])) {
-            $model->officeSiteName = $map['OfficeSiteName'];
+        if (isset($map['CidrBlock'])) {
+            $model->cidrBlock = $map['CidrBlock'];
         }
-        if (isset($map['EnableInternetAccess'])) {
-            $model->enableInternetAccess = $map['EnableInternetAccess'];
+        if (isset($map['DesktopAccessType'])) {
+            $model->desktopAccessType = $map['DesktopAccessType'];
         }
         if (isset($map['EnableAdminAccess'])) {
             $model->enableAdminAccess = $map['EnableAdminAccess'];
         }
-        if (isset($map['DesktopAccessType'])) {
-            $model->desktopAccessType = $map['DesktopAccessType'];
+        if (isset($map['EnableInternetAccess'])) {
+            $model->enableInternetAccess = $map['EnableInternetAccess'];
+        }
+        if (isset($map['OfficeSiteName'])) {
+            $model->officeSiteName = $map['OfficeSiteName'];
+        }
+        if (isset($map['RegionId'])) {
+            $model->regionId = $map['RegionId'];
+        }
+        if (isset($map['VerifyCode'])) {
+            $model->verifyCode = $map['VerifyCode'];
         }
 
         return $model;

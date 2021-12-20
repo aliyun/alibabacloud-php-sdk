@@ -11,7 +11,7 @@ class CreateSnapshotRequest extends Model
     /**
      * @var string
      */
-    public $regionId;
+    public $description;
 
     /**
      * @var string
@@ -21,43 +21,47 @@ class CreateSnapshotRequest extends Model
     /**
      * @var string
      */
-    public $snapshotName;
+    public $regionId;
 
     /**
      * @var string
      */
-    public $description;
+    public $snapshotName;
 
     /**
      * @var string
      */
     public $sourceDiskType;
     protected $_name = [
-        'regionId'       => 'RegionId',
-        'desktopId'      => 'DesktopId',
-        'snapshotName'   => 'SnapshotName',
         'description'    => 'Description',
+        'desktopId'      => 'DesktopId',
+        'regionId'       => 'RegionId',
+        'snapshotName'   => 'SnapshotName',
         'sourceDiskType' => 'SourceDiskType',
     ];
 
     public function validate()
     {
+        Model::validateRequired('desktopId', $this->desktopId, true);
+        Model::validateRequired('regionId', $this->regionId, true);
+        Model::validateRequired('snapshotName', $this->snapshotName, true);
+        Model::validateRequired('sourceDiskType', $this->sourceDiskType, true);
     }
 
     public function toMap()
     {
         $res = [];
-        if (null !== $this->regionId) {
-            $res['RegionId'] = $this->regionId;
+        if (null !== $this->description) {
+            $res['Description'] = $this->description;
         }
         if (null !== $this->desktopId) {
             $res['DesktopId'] = $this->desktopId;
         }
+        if (null !== $this->regionId) {
+            $res['RegionId'] = $this->regionId;
+        }
         if (null !== $this->snapshotName) {
             $res['SnapshotName'] = $this->snapshotName;
-        }
-        if (null !== $this->description) {
-            $res['Description'] = $this->description;
         }
         if (null !== $this->sourceDiskType) {
             $res['SourceDiskType'] = $this->sourceDiskType;
@@ -74,17 +78,17 @@ class CreateSnapshotRequest extends Model
     public static function fromMap($map = [])
     {
         $model = new self();
-        if (isset($map['RegionId'])) {
-            $model->regionId = $map['RegionId'];
+        if (isset($map['Description'])) {
+            $model->description = $map['Description'];
         }
         if (isset($map['DesktopId'])) {
             $model->desktopId = $map['DesktopId'];
         }
+        if (isset($map['RegionId'])) {
+            $model->regionId = $map['RegionId'];
+        }
         if (isset($map['SnapshotName'])) {
             $model->snapshotName = $map['SnapshotName'];
-        }
-        if (isset($map['Description'])) {
-            $model->description = $map['Description'];
         }
         if (isset($map['SourceDiskType'])) {
             $model->sourceDiskType = $map['SourceDiskType'];

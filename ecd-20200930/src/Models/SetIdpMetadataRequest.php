@@ -11,12 +11,12 @@ class SetIdpMetadataRequest extends Model
     /**
      * @var string
      */
-    public $regionId;
+    public $directoryId;
 
     /**
      * @var string
      */
-    public $directoryId;
+    public $idpMetadata;
 
     /**
      * @var string
@@ -26,32 +26,34 @@ class SetIdpMetadataRequest extends Model
     /**
      * @var string
      */
-    public $idpMetadata;
+    public $regionId;
     protected $_name = [
-        'regionId'     => 'RegionId',
         'directoryId'  => 'DirectoryId',
-        'officeSiteId' => 'OfficeSiteId',
         'idpMetadata'  => 'IdpMetadata',
+        'officeSiteId' => 'OfficeSiteId',
+        'regionId'     => 'RegionId',
     ];
 
     public function validate()
     {
+        Model::validateRequired('idpMetadata', $this->idpMetadata, true);
+        Model::validateRequired('regionId', $this->regionId, true);
     }
 
     public function toMap()
     {
         $res = [];
-        if (null !== $this->regionId) {
-            $res['RegionId'] = $this->regionId;
-        }
         if (null !== $this->directoryId) {
             $res['DirectoryId'] = $this->directoryId;
+        }
+        if (null !== $this->idpMetadata) {
+            $res['IdpMetadata'] = $this->idpMetadata;
         }
         if (null !== $this->officeSiteId) {
             $res['OfficeSiteId'] = $this->officeSiteId;
         }
-        if (null !== $this->idpMetadata) {
-            $res['IdpMetadata'] = $this->idpMetadata;
+        if (null !== $this->regionId) {
+            $res['RegionId'] = $this->regionId;
         }
 
         return $res;
@@ -65,17 +67,17 @@ class SetIdpMetadataRequest extends Model
     public static function fromMap($map = [])
     {
         $model = new self();
-        if (isset($map['RegionId'])) {
-            $model->regionId = $map['RegionId'];
-        }
         if (isset($map['DirectoryId'])) {
             $model->directoryId = $map['DirectoryId'];
+        }
+        if (isset($map['IdpMetadata'])) {
+            $model->idpMetadata = $map['IdpMetadata'];
         }
         if (isset($map['OfficeSiteId'])) {
             $model->officeSiteId = $map['OfficeSiteId'];
         }
-        if (isset($map['IdpMetadata'])) {
-            $model->idpMetadata = $map['IdpMetadata'];
+        if (isset($map['RegionId'])) {
+            $model->regionId = $map['RegionId'];
         }
 
         return $model;

@@ -9,14 +9,24 @@ use AlibabaCloud\Tea\Model;
 class DescribeDesktopTypesRequest extends Model
 {
     /**
+     * @var int
+     */
+    public $cpuCount;
+
+    /**
      * @var string
      */
-    public $regionId;
+    public $desktopIdForModify;
 
     /**
      * @var string
      */
     public $desktopTypeId;
+
+    /**
+     * @var float
+     */
+    public $gpuCount;
 
     /**
      * @var string
@@ -26,50 +36,50 @@ class DescribeDesktopTypesRequest extends Model
     /**
      * @var int
      */
-    public $cpuCount;
-
-    /**
-     * @var int
-     */
     public $memorySize;
 
     /**
-     * @var float
+     * @var string
      */
-    public $gpuCount;
+    public $regionId;
     protected $_name = [
-        'regionId'           => 'RegionId',
-        'desktopTypeId'      => 'DesktopTypeId',
-        'instanceTypeFamily' => 'InstanceTypeFamily',
         'cpuCount'           => 'CpuCount',
-        'memorySize'         => 'MemorySize',
+        'desktopIdForModify' => 'DesktopIdForModify',
+        'desktopTypeId'      => 'DesktopTypeId',
         'gpuCount'           => 'GpuCount',
+        'instanceTypeFamily' => 'InstanceTypeFamily',
+        'memorySize'         => 'MemorySize',
+        'regionId'           => 'RegionId',
     ];
 
     public function validate()
     {
+        Model::validateRequired('regionId', $this->regionId, true);
     }
 
     public function toMap()
     {
         $res = [];
-        if (null !== $this->regionId) {
-            $res['RegionId'] = $this->regionId;
+        if (null !== $this->cpuCount) {
+            $res['CpuCount'] = $this->cpuCount;
+        }
+        if (null !== $this->desktopIdForModify) {
+            $res['DesktopIdForModify'] = $this->desktopIdForModify;
         }
         if (null !== $this->desktopTypeId) {
             $res['DesktopTypeId'] = $this->desktopTypeId;
         }
+        if (null !== $this->gpuCount) {
+            $res['GpuCount'] = $this->gpuCount;
+        }
         if (null !== $this->instanceTypeFamily) {
             $res['InstanceTypeFamily'] = $this->instanceTypeFamily;
-        }
-        if (null !== $this->cpuCount) {
-            $res['CpuCount'] = $this->cpuCount;
         }
         if (null !== $this->memorySize) {
             $res['MemorySize'] = $this->memorySize;
         }
-        if (null !== $this->gpuCount) {
-            $res['GpuCount'] = $this->gpuCount;
+        if (null !== $this->regionId) {
+            $res['RegionId'] = $this->regionId;
         }
 
         return $res;
@@ -83,23 +93,26 @@ class DescribeDesktopTypesRequest extends Model
     public static function fromMap($map = [])
     {
         $model = new self();
-        if (isset($map['RegionId'])) {
-            $model->regionId = $map['RegionId'];
+        if (isset($map['CpuCount'])) {
+            $model->cpuCount = $map['CpuCount'];
+        }
+        if (isset($map['DesktopIdForModify'])) {
+            $model->desktopIdForModify = $map['DesktopIdForModify'];
         }
         if (isset($map['DesktopTypeId'])) {
             $model->desktopTypeId = $map['DesktopTypeId'];
         }
+        if (isset($map['GpuCount'])) {
+            $model->gpuCount = $map['GpuCount'];
+        }
         if (isset($map['InstanceTypeFamily'])) {
             $model->instanceTypeFamily = $map['InstanceTypeFamily'];
-        }
-        if (isset($map['CpuCount'])) {
-            $model->cpuCount = $map['CpuCount'];
         }
         if (isset($map['MemorySize'])) {
             $model->memorySize = $map['MemorySize'];
         }
-        if (isset($map['GpuCount'])) {
-            $model->gpuCount = $map['GpuCount'];
+        if (isset($map['RegionId'])) {
+            $model->regionId = $map['RegionId'];
         }
 
         return $model;

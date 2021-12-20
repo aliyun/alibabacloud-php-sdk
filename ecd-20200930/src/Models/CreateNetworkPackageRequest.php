@@ -9,9 +9,14 @@ use AlibabaCloud\Tea\Model;
 class CreateNetworkPackageRequest extends Model
 {
     /**
-     * @var string
+     * @var bool
      */
-    public $regionId;
+    public $autoPay;
+
+    /**
+     * @var bool
+     */
+    public $autoRenew;
 
     /**
      * @var int
@@ -21,12 +26,12 @@ class CreateNetworkPackageRequest extends Model
     /**
      * @var string
      */
-    public $officeSiteId;
+    public $internetChargeType;
 
     /**
      * @var string
      */
-    public $internetChargeType;
+    public $officeSiteId;
 
     /**
      * @var int
@@ -39,43 +44,50 @@ class CreateNetworkPackageRequest extends Model
     public $periodUnit;
 
     /**
-     * @var bool
+     * @var string
      */
-    public $autoPay;
+    public $promotionId;
 
     /**
-     * @var bool
+     * @var string
      */
-    public $autoRenew;
+    public $regionId;
     protected $_name = [
-        'regionId'           => 'RegionId',
-        'bandwidth'          => 'Bandwidth',
-        'officeSiteId'       => 'OfficeSiteId',
-        'internetChargeType' => 'InternetChargeType',
-        'period'             => 'Period',
-        'periodUnit'         => 'PeriodUnit',
         'autoPay'            => 'AutoPay',
         'autoRenew'          => 'AutoRenew',
+        'bandwidth'          => 'Bandwidth',
+        'internetChargeType' => 'InternetChargeType',
+        'officeSiteId'       => 'OfficeSiteId',
+        'period'             => 'Period',
+        'periodUnit'         => 'PeriodUnit',
+        'promotionId'        => 'PromotionId',
+        'regionId'           => 'RegionId',
     ];
 
     public function validate()
     {
+        Model::validateRequired('bandwidth', $this->bandwidth, true);
+        Model::validateRequired('officeSiteId', $this->officeSiteId, true);
+        Model::validateRequired('regionId', $this->regionId, true);
     }
 
     public function toMap()
     {
         $res = [];
-        if (null !== $this->regionId) {
-            $res['RegionId'] = $this->regionId;
+        if (null !== $this->autoPay) {
+            $res['AutoPay'] = $this->autoPay;
+        }
+        if (null !== $this->autoRenew) {
+            $res['AutoRenew'] = $this->autoRenew;
         }
         if (null !== $this->bandwidth) {
             $res['Bandwidth'] = $this->bandwidth;
         }
-        if (null !== $this->officeSiteId) {
-            $res['OfficeSiteId'] = $this->officeSiteId;
-        }
         if (null !== $this->internetChargeType) {
             $res['InternetChargeType'] = $this->internetChargeType;
+        }
+        if (null !== $this->officeSiteId) {
+            $res['OfficeSiteId'] = $this->officeSiteId;
         }
         if (null !== $this->period) {
             $res['Period'] = $this->period;
@@ -83,11 +95,11 @@ class CreateNetworkPackageRequest extends Model
         if (null !== $this->periodUnit) {
             $res['PeriodUnit'] = $this->periodUnit;
         }
-        if (null !== $this->autoPay) {
-            $res['AutoPay'] = $this->autoPay;
+        if (null !== $this->promotionId) {
+            $res['PromotionId'] = $this->promotionId;
         }
-        if (null !== $this->autoRenew) {
-            $res['AutoRenew'] = $this->autoRenew;
+        if (null !== $this->regionId) {
+            $res['RegionId'] = $this->regionId;
         }
 
         return $res;
@@ -101,17 +113,20 @@ class CreateNetworkPackageRequest extends Model
     public static function fromMap($map = [])
     {
         $model = new self();
-        if (isset($map['RegionId'])) {
-            $model->regionId = $map['RegionId'];
+        if (isset($map['AutoPay'])) {
+            $model->autoPay = $map['AutoPay'];
+        }
+        if (isset($map['AutoRenew'])) {
+            $model->autoRenew = $map['AutoRenew'];
         }
         if (isset($map['Bandwidth'])) {
             $model->bandwidth = $map['Bandwidth'];
         }
-        if (isset($map['OfficeSiteId'])) {
-            $model->officeSiteId = $map['OfficeSiteId'];
-        }
         if (isset($map['InternetChargeType'])) {
             $model->internetChargeType = $map['InternetChargeType'];
+        }
+        if (isset($map['OfficeSiteId'])) {
+            $model->officeSiteId = $map['OfficeSiteId'];
         }
         if (isset($map['Period'])) {
             $model->period = $map['Period'];
@@ -119,11 +134,11 @@ class CreateNetworkPackageRequest extends Model
         if (isset($map['PeriodUnit'])) {
             $model->periodUnit = $map['PeriodUnit'];
         }
-        if (isset($map['AutoPay'])) {
-            $model->autoPay = $map['AutoPay'];
+        if (isset($map['PromotionId'])) {
+            $model->promotionId = $map['PromotionId'];
         }
-        if (isset($map['AutoRenew'])) {
-            $model->autoRenew = $map['AutoRenew'];
+        if (isset($map['RegionId'])) {
+            $model->regionId = $map['RegionId'];
         }
 
         return $model;

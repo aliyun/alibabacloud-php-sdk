@@ -24,6 +24,8 @@ class DescribeSecurityEventOperationsRequest extends Model
 
     public function validate()
     {
+        Model::validateRequired('regionId', $this->regionId, true);
+        Model::validateRequired('securityEventId', $this->securityEventId, true);
     }
 
     public function toMap()

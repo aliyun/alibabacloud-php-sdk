@@ -12,12 +12,12 @@ class DescribeFrontVulPatchListRequest extends Model
     /**
      * @var string
      */
-    public $regionId;
+    public $operateType;
 
     /**
      * @var string
      */
-    public $operateType;
+    public $regionId;
 
     /**
      * @var string
@@ -29,24 +29,26 @@ class DescribeFrontVulPatchListRequest extends Model
      */
     public $vulInfo;
     protected $_name = [
-        'regionId'    => 'RegionId',
         'operateType' => 'OperateType',
+        'regionId'    => 'RegionId',
         'type'        => 'Type',
         'vulInfo'     => 'VulInfo',
     ];
 
     public function validate()
     {
+        Model::validateRequired('regionId', $this->regionId, true);
+        Model::validateRequired('type', $this->type, true);
     }
 
     public function toMap()
     {
         $res = [];
-        if (null !== $this->regionId) {
-            $res['RegionId'] = $this->regionId;
-        }
         if (null !== $this->operateType) {
             $res['OperateType'] = $this->operateType;
+        }
+        if (null !== $this->regionId) {
+            $res['RegionId'] = $this->regionId;
         }
         if (null !== $this->type) {
             $res['Type'] = $this->type;
@@ -72,11 +74,11 @@ class DescribeFrontVulPatchListRequest extends Model
     public static function fromMap($map = [])
     {
         $model = new self();
-        if (isset($map['RegionId'])) {
-            $model->regionId = $map['RegionId'];
-        }
         if (isset($map['OperateType'])) {
             $model->operateType = $map['OperateType'];
+        }
+        if (isset($map['RegionId'])) {
+            $model->regionId = $map['RegionId'];
         }
         if (isset($map['Type'])) {
             $model->type = $map['Type'];

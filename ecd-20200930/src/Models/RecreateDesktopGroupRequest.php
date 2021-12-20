@@ -11,38 +11,40 @@ class RecreateDesktopGroupRequest extends Model
     /**
      * @var string
      */
-    public $regionId;
-
-    /**
-     * @var string
-     */
     public $desktopGroupId;
 
     /**
      * @var string
      */
     public $ownBundleId;
+
+    /**
+     * @var string
+     */
+    public $regionId;
     protected $_name = [
-        'regionId'       => 'RegionId',
         'desktopGroupId' => 'DesktopGroupId',
         'ownBundleId'    => 'OwnBundleId',
+        'regionId'       => 'RegionId',
     ];
 
     public function validate()
     {
+        Model::validateRequired('desktopGroupId', $this->desktopGroupId, true);
+        Model::validateRequired('regionId', $this->regionId, true);
     }
 
     public function toMap()
     {
         $res = [];
-        if (null !== $this->regionId) {
-            $res['RegionId'] = $this->regionId;
-        }
         if (null !== $this->desktopGroupId) {
             $res['DesktopGroupId'] = $this->desktopGroupId;
         }
         if (null !== $this->ownBundleId) {
             $res['OwnBundleId'] = $this->ownBundleId;
+        }
+        if (null !== $this->regionId) {
+            $res['RegionId'] = $this->regionId;
         }
 
         return $res;
@@ -56,14 +58,14 @@ class RecreateDesktopGroupRequest extends Model
     public static function fromMap($map = [])
     {
         $model = new self();
-        if (isset($map['RegionId'])) {
-            $model->regionId = $map['RegionId'];
-        }
         if (isset($map['DesktopGroupId'])) {
             $model->desktopGroupId = $map['DesktopGroupId'];
         }
         if (isset($map['OwnBundleId'])) {
             $model->ownBundleId = $map['OwnBundleId'];
+        }
+        if (isset($map['RegionId'])) {
+            $model->regionId = $map['RegionId'];
         }
 
         return $model;

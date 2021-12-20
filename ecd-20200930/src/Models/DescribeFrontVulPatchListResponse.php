@@ -4,38 +4,45 @@
 
 namespace AlibabaCloud\SDK\Ecd\V20200930\Models;
 
+use AlibabaCloud\SDK\Ecd\V20200930\Models\DescribeFrontVulPatchListResponse\frontPatchList;
 use AlibabaCloud\Tea\Model;
 
 class DescribeFrontVulPatchListResponse extends Model
 {
     /**
-     * @var string[]
+     * @var string
      */
-    public $headers;
+    public $requestId;
 
     /**
-     * @var DescribeFrontVulPatchListResponseBody
+     * @var frontPatchList[]
      */
-    public $body;
+    public $frontPatchList;
     protected $_name = [
-        'headers' => 'headers',
-        'body'    => 'body',
+        'requestId'      => 'RequestId',
+        'frontPatchList' => 'FrontPatchList',
     ];
 
     public function validate()
     {
-        Model::validateRequired('headers', $this->headers, true);
-        Model::validateRequired('body', $this->body, true);
+        Model::validateRequired('requestId', $this->requestId, true);
+        Model::validateRequired('frontPatchList', $this->frontPatchList, true);
     }
 
     public function toMap()
     {
         $res = [];
-        if (null !== $this->headers) {
-            $res['headers'] = $this->headers;
+        if (null !== $this->requestId) {
+            $res['RequestId'] = $this->requestId;
         }
-        if (null !== $this->body) {
-            $res['body'] = null !== $this->body ? $this->body->toMap() : null;
+        if (null !== $this->frontPatchList) {
+            $res['FrontPatchList'] = [];
+            if (null !== $this->frontPatchList && \is_array($this->frontPatchList)) {
+                $n = 0;
+                foreach ($this->frontPatchList as $item) {
+                    $res['FrontPatchList'][$n++] = null !== $item ? $item->toMap() : $item;
+                }
+            }
         }
 
         return $res;
@@ -49,11 +56,17 @@ class DescribeFrontVulPatchListResponse extends Model
     public static function fromMap($map = [])
     {
         $model = new self();
-        if (isset($map['headers'])) {
-            $model->headers = $map['headers'];
+        if (isset($map['RequestId'])) {
+            $model->requestId = $map['RequestId'];
         }
-        if (isset($map['body'])) {
-            $model->body = DescribeFrontVulPatchListResponseBody::fromMap($map['body']);
+        if (isset($map['FrontPatchList'])) {
+            if (!empty($map['FrontPatchList'])) {
+                $model->frontPatchList = [];
+                $n                     = 0;
+                foreach ($map['FrontPatchList'] as $item) {
+                    $model->frontPatchList[$n++] = null !== $item ? frontPatchList::fromMap($item) : $item;
+                }
+            }
         }
 
         return $model;

@@ -9,33 +9,63 @@ use AlibabaCloud\Tea\Model;
 class CreateNASFileSystemResponse extends Model
 {
     /**
-     * @var string[]
+     * @var string
      */
-    public $headers;
+    public $fileSystemId;
 
     /**
-     * @var CreateNASFileSystemResponseBody
+     * @var string
      */
-    public $body;
+    public $fileSystemName;
+
+    /**
+     * @var string
+     */
+    public $mountTargetDomain;
+
+    /**
+     * @var string
+     */
+    public $officeSiteId;
+
+    /**
+     * @var string
+     */
+    public $requestId;
     protected $_name = [
-        'headers' => 'headers',
-        'body'    => 'body',
+        'fileSystemId'      => 'FileSystemId',
+        'fileSystemName'    => 'FileSystemName',
+        'mountTargetDomain' => 'MountTargetDomain',
+        'officeSiteId'      => 'OfficeSiteId',
+        'requestId'         => 'RequestId',
     ];
 
     public function validate()
     {
-        Model::validateRequired('headers', $this->headers, true);
-        Model::validateRequired('body', $this->body, true);
+        Model::validateRequired('fileSystemId', $this->fileSystemId, true);
+        Model::validateRequired('fileSystemName', $this->fileSystemName, true);
+        Model::validateRequired('mountTargetDomain', $this->mountTargetDomain, true);
+        Model::validateRequired('officeSiteId', $this->officeSiteId, true);
+        Model::validateRequired('requestId', $this->requestId, true);
     }
 
     public function toMap()
     {
         $res = [];
-        if (null !== $this->headers) {
-            $res['headers'] = $this->headers;
+        if (null !== $this->fileSystemId) {
+            $res['FileSystemId'] = $this->fileSystemId;
         }
-        if (null !== $this->body) {
-            $res['body'] = null !== $this->body ? $this->body->toMap() : null;
+        if (null !== $this->fileSystemName) {
+            $res['FileSystemName'] = $this->fileSystemName;
+        }
+        if (null !== $this->mountTargetDomain) {
+            $res['MountTargetDomain'] = $this->mountTargetDomain;
+        }
+        if (null !== $this->officeSiteId) {
+            $res['OfficeSiteId'] = $this->officeSiteId;
+        }
+        if (null !== $this->requestId) {
+            $res['RequestId'] = $this->requestId;
         }
 
         return $res;
@@ -49,11 +79,20 @@ class CreateNASFileSystemResponse extends Model
     public static function fromMap($map = [])
     {
         $model = new self();
-        if (isset($map['headers'])) {
-            $model->headers = $map['headers'];
+        if (isset($map['FileSystemId'])) {
+            $model->fileSystemId = $map['FileSystemId'];
         }
-        if (isset($map['body'])) {
-            $model->body = CreateNASFileSystemResponseBody::fromMap($map['body']);
+        if (isset($map['FileSystemName'])) {
+            $model->fileSystemName = $map['FileSystemName'];
+        }
+        if (isset($map['MountTargetDomain'])) {
+            $model->mountTargetDomain = $map['MountTargetDomain'];
+        }
+        if (isset($map['OfficeSiteId'])) {
+            $model->officeSiteId = $map['OfficeSiteId'];
+        }
+        if (isset($map['RequestId'])) {
+            $model->requestId = $map['RequestId'];
         }
 
         return $model;

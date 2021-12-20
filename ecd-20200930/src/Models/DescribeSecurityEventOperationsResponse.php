@@ -4,38 +4,45 @@
 
 namespace AlibabaCloud\SDK\Ecd\V20200930\Models;
 
+use AlibabaCloud\SDK\Ecd\V20200930\Models\DescribeSecurityEventOperationsResponse\securityEventOperations;
 use AlibabaCloud\Tea\Model;
 
 class DescribeSecurityEventOperationsResponse extends Model
 {
     /**
-     * @var string[]
+     * @var string
      */
-    public $headers;
+    public $requestId;
 
     /**
-     * @var DescribeSecurityEventOperationsResponseBody
+     * @var securityEventOperations[]
      */
-    public $body;
+    public $securityEventOperations;
     protected $_name = [
-        'headers' => 'headers',
-        'body'    => 'body',
+        'requestId'               => 'RequestId',
+        'securityEventOperations' => 'SecurityEventOperations',
     ];
 
     public function validate()
     {
-        Model::validateRequired('headers', $this->headers, true);
-        Model::validateRequired('body', $this->body, true);
+        Model::validateRequired('requestId', $this->requestId, true);
+        Model::validateRequired('securityEventOperations', $this->securityEventOperations, true);
     }
 
     public function toMap()
     {
         $res = [];
-        if (null !== $this->headers) {
-            $res['headers'] = $this->headers;
+        if (null !== $this->requestId) {
+            $res['RequestId'] = $this->requestId;
         }
-        if (null !== $this->body) {
-            $res['body'] = null !== $this->body ? $this->body->toMap() : null;
+        if (null !== $this->securityEventOperations) {
+            $res['SecurityEventOperations'] = [];
+            if (null !== $this->securityEventOperations && \is_array($this->securityEventOperations)) {
+                $n = 0;
+                foreach ($this->securityEventOperations as $item) {
+                    $res['SecurityEventOperations'][$n++] = null !== $item ? $item->toMap() : $item;
+                }
+            }
         }
 
         return $res;
@@ -49,11 +56,17 @@ class DescribeSecurityEventOperationsResponse extends Model
     public static function fromMap($map = [])
     {
         $model = new self();
-        if (isset($map['headers'])) {
-            $model->headers = $map['headers'];
+        if (isset($map['RequestId'])) {
+            $model->requestId = $map['RequestId'];
         }
-        if (isset($map['body'])) {
-            $model->body = DescribeSecurityEventOperationsResponseBody::fromMap($map['body']);
+        if (isset($map['SecurityEventOperations'])) {
+            if (!empty($map['SecurityEventOperations'])) {
+                $model->securityEventOperations = [];
+                $n                              = 0;
+                foreach ($map['SecurityEventOperations'] as $item) {
+                    $model->securityEventOperations[$n++] = null !== $item ? securityEventOperations::fromMap($item) : $item;
+                }
+            }
         }
 
         return $model;

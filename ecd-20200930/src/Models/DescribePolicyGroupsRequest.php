@@ -9,11 +9,6 @@ use AlibabaCloud\Tea\Model;
 class DescribePolicyGroupsRequest extends Model
 {
     /**
-     * @var string
-     */
-    public $regionId;
-
-    /**
      * @var int
      */
     public $maxResults;
@@ -27,23 +22,26 @@ class DescribePolicyGroupsRequest extends Model
      * @var string[]
      */
     public $policyGroupId;
+
+    /**
+     * @var string
+     */
+    public $regionId;
     protected $_name = [
-        'regionId'      => 'RegionId',
         'maxResults'    => 'MaxResults',
         'nextToken'     => 'NextToken',
         'policyGroupId' => 'PolicyGroupId',
+        'regionId'      => 'RegionId',
     ];
 
     public function validate()
     {
+        Model::validateRequired('regionId', $this->regionId, true);
     }
 
     public function toMap()
     {
         $res = [];
-        if (null !== $this->regionId) {
-            $res['RegionId'] = $this->regionId;
-        }
         if (null !== $this->maxResults) {
             $res['MaxResults'] = $this->maxResults;
         }
@@ -52,6 +50,9 @@ class DescribePolicyGroupsRequest extends Model
         }
         if (null !== $this->policyGroupId) {
             $res['PolicyGroupId'] = $this->policyGroupId;
+        }
+        if (null !== $this->regionId) {
+            $res['RegionId'] = $this->regionId;
         }
 
         return $res;
@@ -65,9 +66,6 @@ class DescribePolicyGroupsRequest extends Model
     public static function fromMap($map = [])
     {
         $model = new self();
-        if (isset($map['RegionId'])) {
-            $model->regionId = $map['RegionId'];
-        }
         if (isset($map['MaxResults'])) {
             $model->maxResults = $map['MaxResults'];
         }
@@ -78,6 +76,9 @@ class DescribePolicyGroupsRequest extends Model
             if (!empty($map['PolicyGroupId'])) {
                 $model->policyGroupId = $map['PolicyGroupId'];
             }
+        }
+        if (isset($map['RegionId'])) {
+            $model->regionId = $map['RegionId'];
         }
 
         return $model;

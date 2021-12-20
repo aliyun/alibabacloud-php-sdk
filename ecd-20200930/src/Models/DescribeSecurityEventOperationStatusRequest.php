@@ -14,22 +14,25 @@ class DescribeSecurityEventOperationStatusRequest extends Model
     public $regionId;
 
     /**
-     * @var int
-     */
-    public $taskId;
-
-    /**
      * @var string[]
      */
     public $securityEventId;
+
+    /**
+     * @var int
+     */
+    public $taskId;
     protected $_name = [
         'regionId'        => 'RegionId',
-        'taskId'          => 'TaskId',
         'securityEventId' => 'SecurityEventId',
+        'taskId'          => 'TaskId',
     ];
 
     public function validate()
     {
+        Model::validateRequired('regionId', $this->regionId, true);
+        Model::validateRequired('securityEventId', $this->securityEventId, true);
+        Model::validateRequired('taskId', $this->taskId, true);
     }
 
     public function toMap()
@@ -38,11 +41,11 @@ class DescribeSecurityEventOperationStatusRequest extends Model
         if (null !== $this->regionId) {
             $res['RegionId'] = $this->regionId;
         }
-        if (null !== $this->taskId) {
-            $res['TaskId'] = $this->taskId;
-        }
         if (null !== $this->securityEventId) {
             $res['SecurityEventId'] = $this->securityEventId;
+        }
+        if (null !== $this->taskId) {
+            $res['TaskId'] = $this->taskId;
         }
 
         return $res;
@@ -59,13 +62,13 @@ class DescribeSecurityEventOperationStatusRequest extends Model
         if (isset($map['RegionId'])) {
             $model->regionId = $map['RegionId'];
         }
-        if (isset($map['TaskId'])) {
-            $model->taskId = $map['TaskId'];
-        }
         if (isset($map['SecurityEventId'])) {
             if (!empty($map['SecurityEventId'])) {
                 $model->securityEventId = $map['SecurityEventId'];
             }
+        }
+        if (isset($map['TaskId'])) {
+            $model->taskId = $map['TaskId'];
         }
 
         return $model;

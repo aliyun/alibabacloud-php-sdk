@@ -9,33 +9,33 @@ use AlibabaCloud\Tea\Model;
 class GetOfficeSiteSsoStatusResponse extends Model
 {
     /**
-     * @var string[]
+     * @var string
      */
-    public $headers;
+    public $requestId;
 
     /**
-     * @var GetOfficeSiteSsoStatusResponseBody
+     * @var bool
      */
-    public $body;
+    public $ssoStatus;
     protected $_name = [
-        'headers' => 'headers',
-        'body'    => 'body',
+        'requestId' => 'RequestId',
+        'ssoStatus' => 'SsoStatus',
     ];
 
     public function validate()
     {
-        Model::validateRequired('headers', $this->headers, true);
-        Model::validateRequired('body', $this->body, true);
+        Model::validateRequired('requestId', $this->requestId, true);
+        Model::validateRequired('ssoStatus', $this->ssoStatus, true);
     }
 
     public function toMap()
     {
         $res = [];
-        if (null !== $this->headers) {
-            $res['headers'] = $this->headers;
+        if (null !== $this->requestId) {
+            $res['RequestId'] = $this->requestId;
         }
-        if (null !== $this->body) {
-            $res['body'] = null !== $this->body ? $this->body->toMap() : null;
+        if (null !== $this->ssoStatus) {
+            $res['SsoStatus'] = $this->ssoStatus;
         }
 
         return $res;
@@ -49,11 +49,11 @@ class GetOfficeSiteSsoStatusResponse extends Model
     public static function fromMap($map = [])
     {
         $model = new self();
-        if (isset($map['headers'])) {
-            $model->headers = $map['headers'];
+        if (isset($map['RequestId'])) {
+            $model->requestId = $map['RequestId'];
         }
-        if (isset($map['body'])) {
-            $model->body = GetOfficeSiteSsoStatusResponseBody::fromMap($map['body']);
+        if (isset($map['SsoStatus'])) {
+            $model->ssoStatus = $map['SsoStatus'];
         }
 
         return $model;

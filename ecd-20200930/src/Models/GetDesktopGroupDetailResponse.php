@@ -4,38 +4,45 @@
 
 namespace AlibabaCloud\SDK\Ecd\V20200930\Models;
 
+use AlibabaCloud\SDK\Ecd\V20200930\Models\GetDesktopGroupDetailResponse\desktops;
 use AlibabaCloud\Tea\Model;
 
 class GetDesktopGroupDetailResponse extends Model
 {
     /**
-     * @var string[]
+     * @var string
      */
-    public $headers;
+    public $requestId;
 
     /**
-     * @var GetDesktopGroupDetailResponseBody
+     * @var desktops[]
      */
-    public $body;
+    public $desktops;
     protected $_name = [
-        'headers' => 'headers',
-        'body'    => 'body',
+        'requestId' => 'RequestId',
+        'desktops'  => 'Desktops',
     ];
 
     public function validate()
     {
-        Model::validateRequired('headers', $this->headers, true);
-        Model::validateRequired('body', $this->body, true);
+        Model::validateRequired('requestId', $this->requestId, true);
+        Model::validateRequired('desktops', $this->desktops, true);
     }
 
     public function toMap()
     {
         $res = [];
-        if (null !== $this->headers) {
-            $res['headers'] = $this->headers;
+        if (null !== $this->requestId) {
+            $res['RequestId'] = $this->requestId;
         }
-        if (null !== $this->body) {
-            $res['body'] = null !== $this->body ? $this->body->toMap() : null;
+        if (null !== $this->desktops) {
+            $res['Desktops'] = [];
+            if (null !== $this->desktops && \is_array($this->desktops)) {
+                $n = 0;
+                foreach ($this->desktops as $item) {
+                    $res['Desktops'][$n++] = null !== $item ? $item->toMap() : $item;
+                }
+            }
         }
 
         return $res;
@@ -49,11 +56,17 @@ class GetDesktopGroupDetailResponse extends Model
     public static function fromMap($map = [])
     {
         $model = new self();
-        if (isset($map['headers'])) {
-            $model->headers = $map['headers'];
+        if (isset($map['RequestId'])) {
+            $model->requestId = $map['RequestId'];
         }
-        if (isset($map['body'])) {
-            $model->body = GetDesktopGroupDetailResponseBody::fromMap($map['body']);
+        if (isset($map['Desktops'])) {
+            if (!empty($map['Desktops'])) {
+                $model->desktops = [];
+                $n               = 0;
+                foreach ($map['Desktops'] as $item) {
+                    $model->desktops[$n++] = null !== $item ? desktops::fromMap($item) : $item;
+                }
+            }
         }
 
         return $model;

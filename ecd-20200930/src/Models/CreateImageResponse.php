@@ -9,33 +9,33 @@ use AlibabaCloud\Tea\Model;
 class CreateImageResponse extends Model
 {
     /**
-     * @var string[]
+     * @var string
      */
-    public $headers;
+    public $imageId;
 
     /**
-     * @var CreateImageResponseBody
+     * @var string
      */
-    public $body;
+    public $requestId;
     protected $_name = [
-        'headers' => 'headers',
-        'body'    => 'body',
+        'imageId'   => 'ImageId',
+        'requestId' => 'RequestId',
     ];
 
     public function validate()
     {
-        Model::validateRequired('headers', $this->headers, true);
-        Model::validateRequired('body', $this->body, true);
+        Model::validateRequired('imageId', $this->imageId, true);
+        Model::validateRequired('requestId', $this->requestId, true);
     }
 
     public function toMap()
     {
         $res = [];
-        if (null !== $this->headers) {
-            $res['headers'] = $this->headers;
+        if (null !== $this->imageId) {
+            $res['ImageId'] = $this->imageId;
         }
-        if (null !== $this->body) {
-            $res['body'] = null !== $this->body ? $this->body->toMap() : null;
+        if (null !== $this->requestId) {
+            $res['RequestId'] = $this->requestId;
         }
 
         return $res;
@@ -49,11 +49,11 @@ class CreateImageResponse extends Model
     public static function fromMap($map = [])
     {
         $model = new self();
-        if (isset($map['headers'])) {
-            $model->headers = $map['headers'];
+        if (isset($map['ImageId'])) {
+            $model->imageId = $map['ImageId'];
         }
-        if (isset($map['body'])) {
-            $model->body = CreateImageResponseBody::fromMap($map['body']);
+        if (isset($map['RequestId'])) {
+            $model->requestId = $map['RequestId'];
         }
 
         return $model;

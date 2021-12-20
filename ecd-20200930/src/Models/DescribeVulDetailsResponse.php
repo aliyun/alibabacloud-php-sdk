@@ -4,38 +4,45 @@
 
 namespace AlibabaCloud\SDK\Ecd\V20200930\Models;
 
+use AlibabaCloud\SDK\Ecd\V20200930\Models\DescribeVulDetailsResponse\cves;
 use AlibabaCloud\Tea\Model;
 
 class DescribeVulDetailsResponse extends Model
 {
     /**
-     * @var string[]
+     * @var string
      */
-    public $headers;
+    public $requestId;
 
     /**
-     * @var DescribeVulDetailsResponseBody
+     * @var cves[]
      */
-    public $body;
+    public $cves;
     protected $_name = [
-        'headers' => 'headers',
-        'body'    => 'body',
+        'requestId' => 'RequestId',
+        'cves'      => 'Cves',
     ];
 
     public function validate()
     {
-        Model::validateRequired('headers', $this->headers, true);
-        Model::validateRequired('body', $this->body, true);
+        Model::validateRequired('requestId', $this->requestId, true);
+        Model::validateRequired('cves', $this->cves, true);
     }
 
     public function toMap()
     {
         $res = [];
-        if (null !== $this->headers) {
-            $res['headers'] = $this->headers;
+        if (null !== $this->requestId) {
+            $res['RequestId'] = $this->requestId;
         }
-        if (null !== $this->body) {
-            $res['body'] = null !== $this->body ? $this->body->toMap() : null;
+        if (null !== $this->cves) {
+            $res['Cves'] = [];
+            if (null !== $this->cves && \is_array($this->cves)) {
+                $n = 0;
+                foreach ($this->cves as $item) {
+                    $res['Cves'][$n++] = null !== $item ? $item->toMap() : $item;
+                }
+            }
         }
 
         return $res;
@@ -49,11 +56,17 @@ class DescribeVulDetailsResponse extends Model
     public static function fromMap($map = [])
     {
         $model = new self();
-        if (isset($map['headers'])) {
-            $model->headers = $map['headers'];
+        if (isset($map['RequestId'])) {
+            $model->requestId = $map['RequestId'];
         }
-        if (isset($map['body'])) {
-            $model->body = DescribeVulDetailsResponseBody::fromMap($map['body']);
+        if (isset($map['Cves'])) {
+            if (!empty($map['Cves'])) {
+                $model->cves = [];
+                $n           = 0;
+                foreach ($map['Cves'] as $item) {
+                    $model->cves[$n++] = null !== $item ? cves::fromMap($item) : $item;
+                }
+            }
         }
 
         return $model;

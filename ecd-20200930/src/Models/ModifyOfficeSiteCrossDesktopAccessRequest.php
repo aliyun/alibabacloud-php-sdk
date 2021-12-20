@@ -9,9 +9,9 @@ use AlibabaCloud\Tea\Model;
 class ModifyOfficeSiteCrossDesktopAccessRequest extends Model
 {
     /**
-     * @var string
+     * @var bool
      */
-    public $regionId;
+    public $enableCrossDesktopAccess;
 
     /**
      * @var string
@@ -19,30 +19,33 @@ class ModifyOfficeSiteCrossDesktopAccessRequest extends Model
     public $officeSiteId;
 
     /**
-     * @var bool
+     * @var string
      */
-    public $enableCrossDesktopAccess;
+    public $regionId;
     protected $_name = [
-        'regionId'                 => 'RegionId',
-        'officeSiteId'             => 'OfficeSiteId',
         'enableCrossDesktopAccess' => 'EnableCrossDesktopAccess',
+        'officeSiteId'             => 'OfficeSiteId',
+        'regionId'                 => 'RegionId',
     ];
 
     public function validate()
     {
+        Model::validateRequired('enableCrossDesktopAccess', $this->enableCrossDesktopAccess, true);
+        Model::validateRequired('officeSiteId', $this->officeSiteId, true);
+        Model::validateRequired('regionId', $this->regionId, true);
     }
 
     public function toMap()
     {
         $res = [];
-        if (null !== $this->regionId) {
-            $res['RegionId'] = $this->regionId;
+        if (null !== $this->enableCrossDesktopAccess) {
+            $res['EnableCrossDesktopAccess'] = $this->enableCrossDesktopAccess;
         }
         if (null !== $this->officeSiteId) {
             $res['OfficeSiteId'] = $this->officeSiteId;
         }
-        if (null !== $this->enableCrossDesktopAccess) {
-            $res['EnableCrossDesktopAccess'] = $this->enableCrossDesktopAccess;
+        if (null !== $this->regionId) {
+            $res['RegionId'] = $this->regionId;
         }
 
         return $res;
@@ -56,14 +59,14 @@ class ModifyOfficeSiteCrossDesktopAccessRequest extends Model
     public static function fromMap($map = [])
     {
         $model = new self();
-        if (isset($map['RegionId'])) {
-            $model->regionId = $map['RegionId'];
+        if (isset($map['EnableCrossDesktopAccess'])) {
+            $model->enableCrossDesktopAccess = $map['EnableCrossDesktopAccess'];
         }
         if (isset($map['OfficeSiteId'])) {
             $model->officeSiteId = $map['OfficeSiteId'];
         }
-        if (isset($map['EnableCrossDesktopAccess'])) {
-            $model->enableCrossDesktopAccess = $map['EnableCrossDesktopAccess'];
+        if (isset($map['RegionId'])) {
+            $model->regionId = $map['RegionId'];
         }
 
         return $model;

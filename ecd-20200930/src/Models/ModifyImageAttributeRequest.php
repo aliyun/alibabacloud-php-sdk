@@ -11,7 +11,7 @@ class ModifyImageAttributeRequest extends Model
     /**
      * @var string
      */
-    public $regionId;
+    public $description;
 
     /**
      * @var string
@@ -26,23 +26,25 @@ class ModifyImageAttributeRequest extends Model
     /**
      * @var string
      */
-    public $description;
+    public $regionId;
     protected $_name = [
-        'regionId'    => 'RegionId',
+        'description' => 'Description',
         'imageId'     => 'ImageId',
         'name'        => 'Name',
-        'description' => 'Description',
+        'regionId'    => 'RegionId',
     ];
 
     public function validate()
     {
+        Model::validateRequired('imageId', $this->imageId, true);
+        Model::validateRequired('regionId', $this->regionId, true);
     }
 
     public function toMap()
     {
         $res = [];
-        if (null !== $this->regionId) {
-            $res['RegionId'] = $this->regionId;
+        if (null !== $this->description) {
+            $res['Description'] = $this->description;
         }
         if (null !== $this->imageId) {
             $res['ImageId'] = $this->imageId;
@@ -50,8 +52,8 @@ class ModifyImageAttributeRequest extends Model
         if (null !== $this->name) {
             $res['Name'] = $this->name;
         }
-        if (null !== $this->description) {
-            $res['Description'] = $this->description;
+        if (null !== $this->regionId) {
+            $res['RegionId'] = $this->regionId;
         }
 
         return $res;
@@ -65,8 +67,8 @@ class ModifyImageAttributeRequest extends Model
     public static function fromMap($map = [])
     {
         $model = new self();
-        if (isset($map['RegionId'])) {
-            $model->regionId = $map['RegionId'];
+        if (isset($map['Description'])) {
+            $model->description = $map['Description'];
         }
         if (isset($map['ImageId'])) {
             $model->imageId = $map['ImageId'];
@@ -74,8 +76,8 @@ class ModifyImageAttributeRequest extends Model
         if (isset($map['Name'])) {
             $model->name = $map['Name'];
         }
-        if (isset($map['Description'])) {
-            $model->description = $map['Description'];
+        if (isset($map['RegionId'])) {
+            $model->regionId = $map['RegionId'];
         }
 
         return $model;

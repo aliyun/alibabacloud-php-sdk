@@ -10,69 +10,9 @@ use AlibabaCloud\Tea\Model;
 class CreateDesktopsRequest extends Model
 {
     /**
-     * @var string
-     */
-    public $regionId;
-
-    /**
-     * @var string
-     */
-    public $groupId;
-
-    /**
-     * @var string
-     */
-    public $bundleId;
-
-    /**
-     * @var string
-     */
-    public $desktopName;
-
-    /**
-     * @var string
-     */
-    public $userName;
-
-    /**
-     * @var string
-     */
-    public $vpcId;
-
-    /**
      * @var int
      */
     public $amount;
-
-    /**
-     * @var string
-     */
-    public $directoryId;
-
-    /**
-     * @var string
-     */
-    public $officeSiteId;
-
-    /**
-     * @var string
-     */
-    public $policyGroupId;
-
-    /**
-     * @var string
-     */
-    public $chargeType;
-
-    /**
-     * @var int
-     */
-    public $period;
-
-    /**
-     * @var string
-     */
-    public $periodUnit;
 
     /**
      * @var bool
@@ -87,12 +27,22 @@ class CreateDesktopsRequest extends Model
     /**
      * @var string
      */
-    public $promotionId;
+    public $bundleId;
 
     /**
      * @var string
      */
-    public $userAssignMode;
+    public $chargeType;
+
+    /**
+     * @var string
+     */
+    public $desktopName;
+
+    /**
+     * @var string
+     */
+    public $directoryId;
 
     /**
      * @var string[]
@@ -100,76 +50,99 @@ class CreateDesktopsRequest extends Model
     public $endUserId;
 
     /**
+     * @var string
+     */
+    public $groupId;
+
+    /**
+     * @var string
+     */
+    public $hostname;
+
+    /**
+     * @var string
+     */
+    public $officeSiteId;
+
+    /**
+     * @var int
+     */
+    public $period;
+
+    /**
+     * @var string
+     */
+    public $periodUnit;
+
+    /**
+     * @var string
+     */
+    public $policyGroupId;
+
+    /**
+     * @var string
+     */
+    public $promotionId;
+
+    /**
+     * @var string
+     */
+    public $regionId;
+
+    /**
      * @var tag[]
      */
     public $tag;
+
+    /**
+     * @var string
+     */
+    public $userAssignMode;
+
+    /**
+     * @var string
+     */
+    public $userName;
+
+    /**
+     * @var string
+     */
+    public $vpcId;
     protected $_name = [
-        'regionId'       => 'RegionId',
-        'groupId'        => 'GroupId',
-        'bundleId'       => 'BundleId',
-        'desktopName'    => 'DesktopName',
-        'userName'       => 'UserName',
-        'vpcId'          => 'VpcId',
         'amount'         => 'Amount',
-        'directoryId'    => 'DirectoryId',
-        'officeSiteId'   => 'OfficeSiteId',
-        'policyGroupId'  => 'PolicyGroupId',
-        'chargeType'     => 'ChargeType',
-        'period'         => 'Period',
-        'periodUnit'     => 'PeriodUnit',
         'autoPay'        => 'AutoPay',
         'autoRenew'      => 'AutoRenew',
-        'promotionId'    => 'PromotionId',
-        'userAssignMode' => 'UserAssignMode',
+        'bundleId'       => 'BundleId',
+        'chargeType'     => 'ChargeType',
+        'desktopName'    => 'DesktopName',
+        'directoryId'    => 'DirectoryId',
         'endUserId'      => 'EndUserId',
+        'groupId'        => 'GroupId',
+        'hostname'       => 'Hostname',
+        'officeSiteId'   => 'OfficeSiteId',
+        'period'         => 'Period',
+        'periodUnit'     => 'PeriodUnit',
+        'policyGroupId'  => 'PolicyGroupId',
+        'promotionId'    => 'PromotionId',
+        'regionId'       => 'RegionId',
         'tag'            => 'Tag',
+        'userAssignMode' => 'UserAssignMode',
+        'userName'       => 'UserName',
+        'vpcId'          => 'VpcId',
     ];
 
     public function validate()
     {
+        Model::validateRequired('bundleId', $this->bundleId, true);
+        Model::validateRequired('policyGroupId', $this->policyGroupId, true);
+        Model::validateRequired('regionId', $this->regionId, true);
     }
 
     public function toMap()
     {
         $res = [];
-        if (null !== $this->regionId) {
-            $res['RegionId'] = $this->regionId;
-        }
-        if (null !== $this->groupId) {
-            $res['GroupId'] = $this->groupId;
-        }
-        if (null !== $this->bundleId) {
-            $res['BundleId'] = $this->bundleId;
-        }
-        if (null !== $this->desktopName) {
-            $res['DesktopName'] = $this->desktopName;
-        }
-        if (null !== $this->userName) {
-            $res['UserName'] = $this->userName;
-        }
-        if (null !== $this->vpcId) {
-            $res['VpcId'] = $this->vpcId;
-        }
         if (null !== $this->amount) {
             $res['Amount'] = $this->amount;
-        }
-        if (null !== $this->directoryId) {
-            $res['DirectoryId'] = $this->directoryId;
-        }
-        if (null !== $this->officeSiteId) {
-            $res['OfficeSiteId'] = $this->officeSiteId;
-        }
-        if (null !== $this->policyGroupId) {
-            $res['PolicyGroupId'] = $this->policyGroupId;
-        }
-        if (null !== $this->chargeType) {
-            $res['ChargeType'] = $this->chargeType;
-        }
-        if (null !== $this->period) {
-            $res['Period'] = $this->period;
-        }
-        if (null !== $this->periodUnit) {
-            $res['PeriodUnit'] = $this->periodUnit;
         }
         if (null !== $this->autoPay) {
             $res['AutoPay'] = $this->autoPay;
@@ -177,14 +150,44 @@ class CreateDesktopsRequest extends Model
         if (null !== $this->autoRenew) {
             $res['AutoRenew'] = $this->autoRenew;
         }
-        if (null !== $this->promotionId) {
-            $res['PromotionId'] = $this->promotionId;
+        if (null !== $this->bundleId) {
+            $res['BundleId'] = $this->bundleId;
         }
-        if (null !== $this->userAssignMode) {
-            $res['UserAssignMode'] = $this->userAssignMode;
+        if (null !== $this->chargeType) {
+            $res['ChargeType'] = $this->chargeType;
+        }
+        if (null !== $this->desktopName) {
+            $res['DesktopName'] = $this->desktopName;
+        }
+        if (null !== $this->directoryId) {
+            $res['DirectoryId'] = $this->directoryId;
         }
         if (null !== $this->endUserId) {
             $res['EndUserId'] = $this->endUserId;
+        }
+        if (null !== $this->groupId) {
+            $res['GroupId'] = $this->groupId;
+        }
+        if (null !== $this->hostname) {
+            $res['Hostname'] = $this->hostname;
+        }
+        if (null !== $this->officeSiteId) {
+            $res['OfficeSiteId'] = $this->officeSiteId;
+        }
+        if (null !== $this->period) {
+            $res['Period'] = $this->period;
+        }
+        if (null !== $this->periodUnit) {
+            $res['PeriodUnit'] = $this->periodUnit;
+        }
+        if (null !== $this->policyGroupId) {
+            $res['PolicyGroupId'] = $this->policyGroupId;
+        }
+        if (null !== $this->promotionId) {
+            $res['PromotionId'] = $this->promotionId;
+        }
+        if (null !== $this->regionId) {
+            $res['RegionId'] = $this->regionId;
         }
         if (null !== $this->tag) {
             $res['Tag'] = [];
@@ -194,6 +197,15 @@ class CreateDesktopsRequest extends Model
                     $res['Tag'][$n++] = null !== $item ? $item->toMap() : $item;
                 }
             }
+        }
+        if (null !== $this->userAssignMode) {
+            $res['UserAssignMode'] = $this->userAssignMode;
+        }
+        if (null !== $this->userName) {
+            $res['UserName'] = $this->userName;
+        }
+        if (null !== $this->vpcId) {
+            $res['VpcId'] = $this->vpcId;
         }
 
         return $res;
@@ -207,44 +219,8 @@ class CreateDesktopsRequest extends Model
     public static function fromMap($map = [])
     {
         $model = new self();
-        if (isset($map['RegionId'])) {
-            $model->regionId = $map['RegionId'];
-        }
-        if (isset($map['GroupId'])) {
-            $model->groupId = $map['GroupId'];
-        }
-        if (isset($map['BundleId'])) {
-            $model->bundleId = $map['BundleId'];
-        }
-        if (isset($map['DesktopName'])) {
-            $model->desktopName = $map['DesktopName'];
-        }
-        if (isset($map['UserName'])) {
-            $model->userName = $map['UserName'];
-        }
-        if (isset($map['VpcId'])) {
-            $model->vpcId = $map['VpcId'];
-        }
         if (isset($map['Amount'])) {
             $model->amount = $map['Amount'];
-        }
-        if (isset($map['DirectoryId'])) {
-            $model->directoryId = $map['DirectoryId'];
-        }
-        if (isset($map['OfficeSiteId'])) {
-            $model->officeSiteId = $map['OfficeSiteId'];
-        }
-        if (isset($map['PolicyGroupId'])) {
-            $model->policyGroupId = $map['PolicyGroupId'];
-        }
-        if (isset($map['ChargeType'])) {
-            $model->chargeType = $map['ChargeType'];
-        }
-        if (isset($map['Period'])) {
-            $model->period = $map['Period'];
-        }
-        if (isset($map['PeriodUnit'])) {
-            $model->periodUnit = $map['PeriodUnit'];
         }
         if (isset($map['AutoPay'])) {
             $model->autoPay = $map['AutoPay'];
@@ -252,16 +228,46 @@ class CreateDesktopsRequest extends Model
         if (isset($map['AutoRenew'])) {
             $model->autoRenew = $map['AutoRenew'];
         }
-        if (isset($map['PromotionId'])) {
-            $model->promotionId = $map['PromotionId'];
+        if (isset($map['BundleId'])) {
+            $model->bundleId = $map['BundleId'];
         }
-        if (isset($map['UserAssignMode'])) {
-            $model->userAssignMode = $map['UserAssignMode'];
+        if (isset($map['ChargeType'])) {
+            $model->chargeType = $map['ChargeType'];
+        }
+        if (isset($map['DesktopName'])) {
+            $model->desktopName = $map['DesktopName'];
+        }
+        if (isset($map['DirectoryId'])) {
+            $model->directoryId = $map['DirectoryId'];
         }
         if (isset($map['EndUserId'])) {
             if (!empty($map['EndUserId'])) {
                 $model->endUserId = $map['EndUserId'];
             }
+        }
+        if (isset($map['GroupId'])) {
+            $model->groupId = $map['GroupId'];
+        }
+        if (isset($map['Hostname'])) {
+            $model->hostname = $map['Hostname'];
+        }
+        if (isset($map['OfficeSiteId'])) {
+            $model->officeSiteId = $map['OfficeSiteId'];
+        }
+        if (isset($map['Period'])) {
+            $model->period = $map['Period'];
+        }
+        if (isset($map['PeriodUnit'])) {
+            $model->periodUnit = $map['PeriodUnit'];
+        }
+        if (isset($map['PolicyGroupId'])) {
+            $model->policyGroupId = $map['PolicyGroupId'];
+        }
+        if (isset($map['PromotionId'])) {
+            $model->promotionId = $map['PromotionId'];
+        }
+        if (isset($map['RegionId'])) {
+            $model->regionId = $map['RegionId'];
         }
         if (isset($map['Tag'])) {
             if (!empty($map['Tag'])) {
@@ -271,6 +277,15 @@ class CreateDesktopsRequest extends Model
                     $model->tag[$n++] = null !== $item ? tag::fromMap($item) : $item;
                 }
             }
+        }
+        if (isset($map['UserAssignMode'])) {
+            $model->userAssignMode = $map['UserAssignMode'];
+        }
+        if (isset($map['UserName'])) {
+            $model->userName = $map['UserName'];
+        }
+        if (isset($map['VpcId'])) {
+            $model->vpcId = $map['VpcId'];
         }
 
         return $model;

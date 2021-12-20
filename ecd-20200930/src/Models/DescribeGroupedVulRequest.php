@@ -9,9 +9,14 @@ use AlibabaCloud\Tea\Model;
 class DescribeGroupedVulRequest extends Model
 {
     /**
+     * @var int
+     */
+    public $currentPage;
+
+    /**
      * @var string
      */
-    public $regionId;
+    public $dealed;
 
     /**
      * @var string
@@ -21,7 +26,7 @@ class DescribeGroupedVulRequest extends Model
     /**
      * @var string
      */
-    public $type;
+    public $necessity;
 
     /**
      * @var string
@@ -29,65 +34,63 @@ class DescribeGroupedVulRequest extends Model
     public $officeSiteId;
 
     /**
-     * @var string
-     */
-    public $necessity;
-
-    /**
-     * @var string
-     */
-    public $dealed;
-
-    /**
-     * @var int
-     */
-    public $currentPage;
-
-    /**
      * @var int
      */
     public $pageSize;
+
+    /**
+     * @var string
+     */
+    public $regionId;
+
+    /**
+     * @var string
+     */
+    public $type;
     protected $_name = [
-        'regionId'     => 'RegionId',
-        'lang'         => 'Lang',
-        'type'         => 'Type',
-        'officeSiteId' => 'OfficeSiteId',
-        'necessity'    => 'Necessity',
-        'dealed'       => 'Dealed',
         'currentPage'  => 'CurrentPage',
+        'dealed'       => 'Dealed',
+        'lang'         => 'Lang',
+        'necessity'    => 'Necessity',
+        'officeSiteId' => 'OfficeSiteId',
         'pageSize'     => 'PageSize',
+        'regionId'     => 'RegionId',
+        'type'         => 'Type',
     ];
 
     public function validate()
     {
+        Model::validateRequired('officeSiteId', $this->officeSiteId, true);
+        Model::validateRequired('regionId', $this->regionId, true);
+        Model::validateRequired('type', $this->type, true);
     }
 
     public function toMap()
     {
         $res = [];
-        if (null !== $this->regionId) {
-            $res['RegionId'] = $this->regionId;
-        }
-        if (null !== $this->lang) {
-            $res['Lang'] = $this->lang;
-        }
-        if (null !== $this->type) {
-            $res['Type'] = $this->type;
-        }
-        if (null !== $this->officeSiteId) {
-            $res['OfficeSiteId'] = $this->officeSiteId;
-        }
-        if (null !== $this->necessity) {
-            $res['Necessity'] = $this->necessity;
+        if (null !== $this->currentPage) {
+            $res['CurrentPage'] = $this->currentPage;
         }
         if (null !== $this->dealed) {
             $res['Dealed'] = $this->dealed;
         }
-        if (null !== $this->currentPage) {
-            $res['CurrentPage'] = $this->currentPage;
+        if (null !== $this->lang) {
+            $res['Lang'] = $this->lang;
+        }
+        if (null !== $this->necessity) {
+            $res['Necessity'] = $this->necessity;
+        }
+        if (null !== $this->officeSiteId) {
+            $res['OfficeSiteId'] = $this->officeSiteId;
         }
         if (null !== $this->pageSize) {
             $res['PageSize'] = $this->pageSize;
+        }
+        if (null !== $this->regionId) {
+            $res['RegionId'] = $this->regionId;
+        }
+        if (null !== $this->type) {
+            $res['Type'] = $this->type;
         }
 
         return $res;
@@ -101,29 +104,29 @@ class DescribeGroupedVulRequest extends Model
     public static function fromMap($map = [])
     {
         $model = new self();
-        if (isset($map['RegionId'])) {
-            $model->regionId = $map['RegionId'];
-        }
-        if (isset($map['Lang'])) {
-            $model->lang = $map['Lang'];
-        }
-        if (isset($map['Type'])) {
-            $model->type = $map['Type'];
-        }
-        if (isset($map['OfficeSiteId'])) {
-            $model->officeSiteId = $map['OfficeSiteId'];
-        }
-        if (isset($map['Necessity'])) {
-            $model->necessity = $map['Necessity'];
+        if (isset($map['CurrentPage'])) {
+            $model->currentPage = $map['CurrentPage'];
         }
         if (isset($map['Dealed'])) {
             $model->dealed = $map['Dealed'];
         }
-        if (isset($map['CurrentPage'])) {
-            $model->currentPage = $map['CurrentPage'];
+        if (isset($map['Lang'])) {
+            $model->lang = $map['Lang'];
+        }
+        if (isset($map['Necessity'])) {
+            $model->necessity = $map['Necessity'];
+        }
+        if (isset($map['OfficeSiteId'])) {
+            $model->officeSiteId = $map['OfficeSiteId'];
         }
         if (isset($map['PageSize'])) {
             $model->pageSize = $map['PageSize'];
+        }
+        if (isset($map['RegionId'])) {
+            $model->regionId = $map['RegionId'];
+        }
+        if (isset($map['Type'])) {
+            $model->type = $map['Type'];
         }
 
         return $model;

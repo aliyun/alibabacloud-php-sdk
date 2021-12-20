@@ -11,29 +11,31 @@ class GetDirectorySsoStatusRequest extends Model
     /**
      * @var string
      */
-    public $regionId;
+    public $directoryId;
 
     /**
      * @var string
      */
-    public $directoryId;
+    public $regionId;
     protected $_name = [
-        'regionId'    => 'RegionId',
         'directoryId' => 'DirectoryId',
+        'regionId'    => 'RegionId',
     ];
 
     public function validate()
     {
+        Model::validateRequired('directoryId', $this->directoryId, true);
+        Model::validateRequired('regionId', $this->regionId, true);
     }
 
     public function toMap()
     {
         $res = [];
-        if (null !== $this->regionId) {
-            $res['RegionId'] = $this->regionId;
-        }
         if (null !== $this->directoryId) {
             $res['DirectoryId'] = $this->directoryId;
+        }
+        if (null !== $this->regionId) {
+            $res['RegionId'] = $this->regionId;
         }
 
         return $res;
@@ -47,11 +49,11 @@ class GetDirectorySsoStatusRequest extends Model
     public static function fromMap($map = [])
     {
         $model = new self();
-        if (isset($map['RegionId'])) {
-            $model->regionId = $map['RegionId'];
-        }
         if (isset($map['DirectoryId'])) {
             $model->directoryId = $map['DirectoryId'];
+        }
+        if (isset($map['RegionId'])) {
+            $model->regionId = $map['RegionId'];
         }
 
         return $model;

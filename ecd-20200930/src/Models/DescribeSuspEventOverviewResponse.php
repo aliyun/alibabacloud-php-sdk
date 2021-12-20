@@ -9,33 +9,53 @@ use AlibabaCloud\Tea\Model;
 class DescribeSuspEventOverviewResponse extends Model
 {
     /**
-     * @var string[]
+     * @var int
      */
-    public $headers;
+    public $remindCount;
 
     /**
-     * @var DescribeSuspEventOverviewResponseBody
+     * @var string
      */
-    public $body;
+    public $requestId;
+
+    /**
+     * @var int
+     */
+    public $seriousCount;
+
+    /**
+     * @var int
+     */
+    public $suspiciousCount;
     protected $_name = [
-        'headers' => 'headers',
-        'body'    => 'body',
+        'remindCount'     => 'RemindCount',
+        'requestId'       => 'RequestId',
+        'seriousCount'    => 'SeriousCount',
+        'suspiciousCount' => 'SuspiciousCount',
     ];
 
     public function validate()
     {
-        Model::validateRequired('headers', $this->headers, true);
-        Model::validateRequired('body', $this->body, true);
+        Model::validateRequired('remindCount', $this->remindCount, true);
+        Model::validateRequired('requestId', $this->requestId, true);
+        Model::validateRequired('seriousCount', $this->seriousCount, true);
+        Model::validateRequired('suspiciousCount', $this->suspiciousCount, true);
     }
 
     public function toMap()
     {
         $res = [];
-        if (null !== $this->headers) {
-            $res['headers'] = $this->headers;
+        if (null !== $this->remindCount) {
+            $res['RemindCount'] = $this->remindCount;
         }
-        if (null !== $this->body) {
-            $res['body'] = null !== $this->body ? $this->body->toMap() : null;
+        if (null !== $this->requestId) {
+            $res['RequestId'] = $this->requestId;
+        }
+        if (null !== $this->seriousCount) {
+            $res['SeriousCount'] = $this->seriousCount;
+        }
+        if (null !== $this->suspiciousCount) {
+            $res['SuspiciousCount'] = $this->suspiciousCount;
         }
 
         return $res;
@@ -49,11 +69,17 @@ class DescribeSuspEventOverviewResponse extends Model
     public static function fromMap($map = [])
     {
         $model = new self();
-        if (isset($map['headers'])) {
-            $model->headers = $map['headers'];
+        if (isset($map['RemindCount'])) {
+            $model->remindCount = $map['RemindCount'];
         }
-        if (isset($map['body'])) {
-            $model->body = DescribeSuspEventOverviewResponseBody::fromMap($map['body']);
+        if (isset($map['RequestId'])) {
+            $model->requestId = $map['RequestId'];
+        }
+        if (isset($map['SeriousCount'])) {
+            $model->seriousCount = $map['SeriousCount'];
+        }
+        if (isset($map['SuspiciousCount'])) {
+            $model->suspiciousCount = $map['SuspiciousCount'];
         }
 
         return $model;

@@ -12,16 +12,6 @@ class ModifyOperateVulRequest extends Model
     /**
      * @var string
      */
-    public $regionId;
-
-    /**
-     * @var string
-     */
-    public $type;
-
-    /**
-     * @var string
-     */
     public $operateType;
 
     /**
@@ -30,35 +20,48 @@ class ModifyOperateVulRequest extends Model
     public $reason;
 
     /**
+     * @var string
+     */
+    public $regionId;
+
+    /**
+     * @var string
+     */
+    public $type;
+
+    /**
      * @var vulInfo[]
      */
     public $vulInfo;
     protected $_name = [
-        'regionId'    => 'RegionId',
-        'type'        => 'Type',
         'operateType' => 'OperateType',
         'reason'      => 'Reason',
+        'regionId'    => 'RegionId',
+        'type'        => 'Type',
         'vulInfo'     => 'VulInfo',
     ];
 
     public function validate()
     {
+        Model::validateRequired('operateType', $this->operateType, true);
+        Model::validateRequired('regionId', $this->regionId, true);
+        Model::validateRequired('type', $this->type, true);
     }
 
     public function toMap()
     {
         $res = [];
-        if (null !== $this->regionId) {
-            $res['RegionId'] = $this->regionId;
-        }
-        if (null !== $this->type) {
-            $res['Type'] = $this->type;
-        }
         if (null !== $this->operateType) {
             $res['OperateType'] = $this->operateType;
         }
         if (null !== $this->reason) {
             $res['Reason'] = $this->reason;
+        }
+        if (null !== $this->regionId) {
+            $res['RegionId'] = $this->regionId;
+        }
+        if (null !== $this->type) {
+            $res['Type'] = $this->type;
         }
         if (null !== $this->vulInfo) {
             $res['VulInfo'] = [];
@@ -81,17 +84,17 @@ class ModifyOperateVulRequest extends Model
     public static function fromMap($map = [])
     {
         $model = new self();
-        if (isset($map['RegionId'])) {
-            $model->regionId = $map['RegionId'];
-        }
-        if (isset($map['Type'])) {
-            $model->type = $map['Type'];
-        }
         if (isset($map['OperateType'])) {
             $model->operateType = $map['OperateType'];
         }
         if (isset($map['Reason'])) {
             $model->reason = $map['Reason'];
+        }
+        if (isset($map['RegionId'])) {
+            $model->regionId = $map['RegionId'];
+        }
+        if (isset($map['Type'])) {
+            $model->type = $map['Type'];
         }
         if (isset($map['VulInfo'])) {
             if (!empty($map['VulInfo'])) {

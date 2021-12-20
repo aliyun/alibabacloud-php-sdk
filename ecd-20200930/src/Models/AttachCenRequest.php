@@ -11,38 +11,59 @@ class AttachCenRequest extends Model
     /**
      * @var string
      */
-    public $regionId;
+    public $cenId;
 
     /**
-     * @var string
+     * @var int
      */
-    public $cenId;
+    public $cenOwnerId;
 
     /**
      * @var string
      */
     public $officeSiteId;
+
+    /**
+     * @var string
+     */
+    public $regionId;
+
+    /**
+     * @var string
+     */
+    public $verifyCode;
     protected $_name = [
-        'regionId'     => 'RegionId',
         'cenId'        => 'CenId',
+        'cenOwnerId'   => 'CenOwnerId',
         'officeSiteId' => 'OfficeSiteId',
+        'regionId'     => 'RegionId',
+        'verifyCode'   => 'VerifyCode',
     ];
 
     public function validate()
     {
+        Model::validateRequired('cenId', $this->cenId, true);
+        Model::validateRequired('officeSiteId', $this->officeSiteId, true);
+        Model::validateRequired('regionId', $this->regionId, true);
     }
 
     public function toMap()
     {
         $res = [];
-        if (null !== $this->regionId) {
-            $res['RegionId'] = $this->regionId;
-        }
         if (null !== $this->cenId) {
             $res['CenId'] = $this->cenId;
         }
+        if (null !== $this->cenOwnerId) {
+            $res['CenOwnerId'] = $this->cenOwnerId;
+        }
         if (null !== $this->officeSiteId) {
             $res['OfficeSiteId'] = $this->officeSiteId;
+        }
+        if (null !== $this->regionId) {
+            $res['RegionId'] = $this->regionId;
+        }
+        if (null !== $this->verifyCode) {
+            $res['VerifyCode'] = $this->verifyCode;
         }
 
         return $res;
@@ -56,14 +77,20 @@ class AttachCenRequest extends Model
     public static function fromMap($map = [])
     {
         $model = new self();
-        if (isset($map['RegionId'])) {
-            $model->regionId = $map['RegionId'];
-        }
         if (isset($map['CenId'])) {
             $model->cenId = $map['CenId'];
         }
+        if (isset($map['CenOwnerId'])) {
+            $model->cenOwnerId = $map['CenOwnerId'];
+        }
         if (isset($map['OfficeSiteId'])) {
             $model->officeSiteId = $map['OfficeSiteId'];
+        }
+        if (isset($map['RegionId'])) {
+            $model->regionId = $map['RegionId'];
+        }
+        if (isset($map['VerifyCode'])) {
+            $model->verifyCode = $map['VerifyCode'];
         }
 
         return $model;

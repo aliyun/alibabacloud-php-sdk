@@ -9,9 +9,9 @@ use AlibabaCloud\Tea\Model;
 class ModifyDesktopsPolicyGroupRequest extends Model
 {
     /**
-     * @var string
+     * @var string[]
      */
-    public $regionId;
+    public $desktopId;
 
     /**
      * @var string
@@ -19,30 +19,33 @@ class ModifyDesktopsPolicyGroupRequest extends Model
     public $policyGroupId;
 
     /**
-     * @var string[]
+     * @var string
      */
-    public $desktopId;
+    public $regionId;
     protected $_name = [
-        'regionId'      => 'RegionId',
-        'policyGroupId' => 'PolicyGroupId',
         'desktopId'     => 'DesktopId',
+        'policyGroupId' => 'PolicyGroupId',
+        'regionId'      => 'RegionId',
     ];
 
     public function validate()
     {
+        Model::validateRequired('desktopId', $this->desktopId, true);
+        Model::validateRequired('policyGroupId', $this->policyGroupId, true);
+        Model::validateRequired('regionId', $this->regionId, true);
     }
 
     public function toMap()
     {
         $res = [];
-        if (null !== $this->regionId) {
-            $res['RegionId'] = $this->regionId;
+        if (null !== $this->desktopId) {
+            $res['DesktopId'] = $this->desktopId;
         }
         if (null !== $this->policyGroupId) {
             $res['PolicyGroupId'] = $this->policyGroupId;
         }
-        if (null !== $this->desktopId) {
-            $res['DesktopId'] = $this->desktopId;
+        if (null !== $this->regionId) {
+            $res['RegionId'] = $this->regionId;
         }
 
         return $res;
@@ -56,16 +59,16 @@ class ModifyDesktopsPolicyGroupRequest extends Model
     public static function fromMap($map = [])
     {
         $model = new self();
-        if (isset($map['RegionId'])) {
-            $model->regionId = $map['RegionId'];
-        }
-        if (isset($map['PolicyGroupId'])) {
-            $model->policyGroupId = $map['PolicyGroupId'];
-        }
         if (isset($map['DesktopId'])) {
             if (!empty($map['DesktopId'])) {
                 $model->desktopId = $map['DesktopId'];
             }
+        }
+        if (isset($map['PolicyGroupId'])) {
+            $model->policyGroupId = $map['PolicyGroupId'];
+        }
+        if (isset($map['RegionId'])) {
+            $model->regionId = $map['RegionId'];
         }
 
         return $model;

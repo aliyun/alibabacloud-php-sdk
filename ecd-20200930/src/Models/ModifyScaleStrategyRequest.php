@@ -9,9 +9,34 @@ use AlibabaCloud\Tea\Model;
 class ModifyScaleStrategyRequest extends Model
 {
     /**
+     * @var int
+     */
+    public $maxAvailableDesktopsCount;
+
+    /**
+     * @var int
+     */
+    public $maxDesktopsCount;
+
+    /**
+     * @var int
+     */
+    public $minAvailableDesktopsCount;
+
+    /**
+     * @var int
+     */
+    public $minDesktopsCount;
+
+    /**
      * @var string
      */
     public $regionId;
+
+    /**
+     * @var int
+     */
+    public $scaleStep;
 
     /**
      * @var string
@@ -27,52 +52,44 @@ class ModifyScaleStrategyRequest extends Model
      * @var string
      */
     public $scaleStrategyType;
-
-    /**
-     * @var int
-     */
-    public $minDesktopsCount;
-
-    /**
-     * @var int
-     */
-    public $maxDesktopsCount;
-
-    /**
-     * @var int
-     */
-    public $minAvailableDesktopsCount;
-
-    /**
-     * @var int
-     */
-    public $maxAvailableDesktopsCount;
-
-    /**
-     * @var int
-     */
-    public $scaleStep;
     protected $_name = [
+        'maxAvailableDesktopsCount' => 'MaxAvailableDesktopsCount',
+        'maxDesktopsCount'          => 'MaxDesktopsCount',
+        'minAvailableDesktopsCount' => 'MinAvailableDesktopsCount',
+        'minDesktopsCount'          => 'MinDesktopsCount',
         'regionId'                  => 'RegionId',
+        'scaleStep'                 => 'ScaleStep',
         'scaleStrategyId'           => 'ScaleStrategyId',
         'scaleStrategyName'         => 'ScaleStrategyName',
         'scaleStrategyType'         => 'ScaleStrategyType',
-        'minDesktopsCount'          => 'MinDesktopsCount',
-        'maxDesktopsCount'          => 'MaxDesktopsCount',
-        'minAvailableDesktopsCount' => 'MinAvailableDesktopsCount',
-        'maxAvailableDesktopsCount' => 'MaxAvailableDesktopsCount',
-        'scaleStep'                 => 'ScaleStep',
     ];
 
     public function validate()
     {
+        Model::validateRequired('regionId', $this->regionId, true);
+        Model::validateRequired('scaleStrategyId', $this->scaleStrategyId, true);
     }
 
     public function toMap()
     {
         $res = [];
+        if (null !== $this->maxAvailableDesktopsCount) {
+            $res['MaxAvailableDesktopsCount'] = $this->maxAvailableDesktopsCount;
+        }
+        if (null !== $this->maxDesktopsCount) {
+            $res['MaxDesktopsCount'] = $this->maxDesktopsCount;
+        }
+        if (null !== $this->minAvailableDesktopsCount) {
+            $res['MinAvailableDesktopsCount'] = $this->minAvailableDesktopsCount;
+        }
+        if (null !== $this->minDesktopsCount) {
+            $res['MinDesktopsCount'] = $this->minDesktopsCount;
+        }
         if (null !== $this->regionId) {
             $res['RegionId'] = $this->regionId;
+        }
+        if (null !== $this->scaleStep) {
+            $res['ScaleStep'] = $this->scaleStep;
         }
         if (null !== $this->scaleStrategyId) {
             $res['ScaleStrategyId'] = $this->scaleStrategyId;
@@ -82,21 +99,6 @@ class ModifyScaleStrategyRequest extends Model
         }
         if (null !== $this->scaleStrategyType) {
             $res['ScaleStrategyType'] = $this->scaleStrategyType;
-        }
-        if (null !== $this->minDesktopsCount) {
-            $res['MinDesktopsCount'] = $this->minDesktopsCount;
-        }
-        if (null !== $this->maxDesktopsCount) {
-            $res['MaxDesktopsCount'] = $this->maxDesktopsCount;
-        }
-        if (null !== $this->minAvailableDesktopsCount) {
-            $res['MinAvailableDesktopsCount'] = $this->minAvailableDesktopsCount;
-        }
-        if (null !== $this->maxAvailableDesktopsCount) {
-            $res['MaxAvailableDesktopsCount'] = $this->maxAvailableDesktopsCount;
-        }
-        if (null !== $this->scaleStep) {
-            $res['ScaleStep'] = $this->scaleStep;
         }
 
         return $res;
@@ -110,8 +112,23 @@ class ModifyScaleStrategyRequest extends Model
     public static function fromMap($map = [])
     {
         $model = new self();
+        if (isset($map['MaxAvailableDesktopsCount'])) {
+            $model->maxAvailableDesktopsCount = $map['MaxAvailableDesktopsCount'];
+        }
+        if (isset($map['MaxDesktopsCount'])) {
+            $model->maxDesktopsCount = $map['MaxDesktopsCount'];
+        }
+        if (isset($map['MinAvailableDesktopsCount'])) {
+            $model->minAvailableDesktopsCount = $map['MinAvailableDesktopsCount'];
+        }
+        if (isset($map['MinDesktopsCount'])) {
+            $model->minDesktopsCount = $map['MinDesktopsCount'];
+        }
         if (isset($map['RegionId'])) {
             $model->regionId = $map['RegionId'];
+        }
+        if (isset($map['ScaleStep'])) {
+            $model->scaleStep = $map['ScaleStep'];
         }
         if (isset($map['ScaleStrategyId'])) {
             $model->scaleStrategyId = $map['ScaleStrategyId'];
@@ -121,21 +138,6 @@ class ModifyScaleStrategyRequest extends Model
         }
         if (isset($map['ScaleStrategyType'])) {
             $model->scaleStrategyType = $map['ScaleStrategyType'];
-        }
-        if (isset($map['MinDesktopsCount'])) {
-            $model->minDesktopsCount = $map['MinDesktopsCount'];
-        }
-        if (isset($map['MaxDesktopsCount'])) {
-            $model->maxDesktopsCount = $map['MaxDesktopsCount'];
-        }
-        if (isset($map['MinAvailableDesktopsCount'])) {
-            $model->minAvailableDesktopsCount = $map['MinAvailableDesktopsCount'];
-        }
-        if (isset($map['MaxAvailableDesktopsCount'])) {
-            $model->maxAvailableDesktopsCount = $map['MaxAvailableDesktopsCount'];
-        }
-        if (isset($map['ScaleStep'])) {
-            $model->scaleStep = $map['ScaleStep'];
         }
 
         return $model;

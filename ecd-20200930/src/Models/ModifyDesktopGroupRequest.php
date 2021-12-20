@@ -9,14 +9,44 @@ use AlibabaCloud\Tea\Model;
 class ModifyDesktopGroupRequest extends Model
 {
     /**
+     * @var int
+     */
+    public $allowAutoSetup;
+
+    /**
+     * @var int
+     */
+    public $allowBufferCount;
+
+    /**
      * @var string
      */
-    public $regionId;
+    public $comments;
 
     /**
      * @var string
      */
     public $desktopGroupId;
+
+    /**
+     * @var string
+     */
+    public $desktopGroupName;
+
+    /**
+     * @var int
+     */
+    public $keepDuration;
+
+    /**
+     * @var int
+     */
+    public $maxDesktopsCount;
+
+    /**
+     * @var int
+     */
+    public $minDesktopsCount;
 
     /**
      * @var string
@@ -31,69 +61,65 @@ class ModifyDesktopGroupRequest extends Model
     /**
      * @var string
      */
-    public $desktopGroupName;
+    public $regionId;
+
+    /**
+     * @var int
+     */
+    public $resetType;
 
     /**
      * @var string
      */
     public $scaleStrategyId;
-
-    /**
-     * @var int
-     */
-    public $keepDuration;
-
-    /**
-     * @var string
-     */
-    public $comments;
-
-    /**
-     * @var int
-     */
-    public $minDesktopsCount;
-
-    /**
-     * @var int
-     */
-    public $maxDesktopsCount;
-
-    /**
-     * @var int
-     */
-    public $allowAutoSetup;
-
-    /**
-     * @var int
-     */
-    public $allowBufferCount;
     protected $_name = [
-        'regionId'         => 'RegionId',
-        'desktopGroupId'   => 'DesktopGroupId',
-        'ownBundleId'      => 'OwnBundleId',
-        'policyGroupId'    => 'PolicyGroupId',
-        'desktopGroupName' => 'DesktopGroupName',
-        'scaleStrategyId'  => 'ScaleStrategyId',
-        'keepDuration'     => 'KeepDuration',
-        'comments'         => 'Comments',
-        'minDesktopsCount' => 'MinDesktopsCount',
-        'maxDesktopsCount' => 'MaxDesktopsCount',
         'allowAutoSetup'   => 'AllowAutoSetup',
         'allowBufferCount' => 'AllowBufferCount',
+        'comments'         => 'Comments',
+        'desktopGroupId'   => 'DesktopGroupId',
+        'desktopGroupName' => 'DesktopGroupName',
+        'keepDuration'     => 'KeepDuration',
+        'maxDesktopsCount' => 'MaxDesktopsCount',
+        'minDesktopsCount' => 'MinDesktopsCount',
+        'ownBundleId'      => 'OwnBundleId',
+        'policyGroupId'    => 'PolicyGroupId',
+        'regionId'         => 'RegionId',
+        'resetType'        => 'ResetType',
+        'scaleStrategyId'  => 'ScaleStrategyId',
     ];
 
     public function validate()
     {
+        Model::validateRequired('desktopGroupId', $this->desktopGroupId, true);
+        Model::validateRequired('regionId', $this->regionId, true);
     }
 
     public function toMap()
     {
         $res = [];
-        if (null !== $this->regionId) {
-            $res['RegionId'] = $this->regionId;
+        if (null !== $this->allowAutoSetup) {
+            $res['AllowAutoSetup'] = $this->allowAutoSetup;
+        }
+        if (null !== $this->allowBufferCount) {
+            $res['AllowBufferCount'] = $this->allowBufferCount;
+        }
+        if (null !== $this->comments) {
+            $res['Comments'] = $this->comments;
         }
         if (null !== $this->desktopGroupId) {
             $res['DesktopGroupId'] = $this->desktopGroupId;
+        }
+        if (null !== $this->desktopGroupName) {
+            $res['DesktopGroupName'] = $this->desktopGroupName;
+        }
+        if (null !== $this->keepDuration) {
+            $res['KeepDuration'] = $this->keepDuration;
+        }
+        if (null !== $this->maxDesktopsCount) {
+            $res['MaxDesktopsCount'] = $this->maxDesktopsCount;
+        }
+        if (null !== $this->minDesktopsCount) {
+            $res['MinDesktopsCount'] = $this->minDesktopsCount;
         }
         if (null !== $this->ownBundleId) {
             $res['OwnBundleId'] = $this->ownBundleId;
@@ -101,29 +127,14 @@ class ModifyDesktopGroupRequest extends Model
         if (null !== $this->policyGroupId) {
             $res['PolicyGroupId'] = $this->policyGroupId;
         }
-        if (null !== $this->desktopGroupName) {
-            $res['DesktopGroupName'] = $this->desktopGroupName;
+        if (null !== $this->regionId) {
+            $res['RegionId'] = $this->regionId;
+        }
+        if (null !== $this->resetType) {
+            $res['ResetType'] = $this->resetType;
         }
         if (null !== $this->scaleStrategyId) {
             $res['ScaleStrategyId'] = $this->scaleStrategyId;
-        }
-        if (null !== $this->keepDuration) {
-            $res['KeepDuration'] = $this->keepDuration;
-        }
-        if (null !== $this->comments) {
-            $res['Comments'] = $this->comments;
-        }
-        if (null !== $this->minDesktopsCount) {
-            $res['MinDesktopsCount'] = $this->minDesktopsCount;
-        }
-        if (null !== $this->maxDesktopsCount) {
-            $res['MaxDesktopsCount'] = $this->maxDesktopsCount;
-        }
-        if (null !== $this->allowAutoSetup) {
-            $res['AllowAutoSetup'] = $this->allowAutoSetup;
-        }
-        if (null !== $this->allowBufferCount) {
-            $res['AllowBufferCount'] = $this->allowBufferCount;
         }
 
         return $res;
@@ -137,11 +148,29 @@ class ModifyDesktopGroupRequest extends Model
     public static function fromMap($map = [])
     {
         $model = new self();
-        if (isset($map['RegionId'])) {
-            $model->regionId = $map['RegionId'];
+        if (isset($map['AllowAutoSetup'])) {
+            $model->allowAutoSetup = $map['AllowAutoSetup'];
+        }
+        if (isset($map['AllowBufferCount'])) {
+            $model->allowBufferCount = $map['AllowBufferCount'];
+        }
+        if (isset($map['Comments'])) {
+            $model->comments = $map['Comments'];
         }
         if (isset($map['DesktopGroupId'])) {
             $model->desktopGroupId = $map['DesktopGroupId'];
+        }
+        if (isset($map['DesktopGroupName'])) {
+            $model->desktopGroupName = $map['DesktopGroupName'];
+        }
+        if (isset($map['KeepDuration'])) {
+            $model->keepDuration = $map['KeepDuration'];
+        }
+        if (isset($map['MaxDesktopsCount'])) {
+            $model->maxDesktopsCount = $map['MaxDesktopsCount'];
+        }
+        if (isset($map['MinDesktopsCount'])) {
+            $model->minDesktopsCount = $map['MinDesktopsCount'];
         }
         if (isset($map['OwnBundleId'])) {
             $model->ownBundleId = $map['OwnBundleId'];
@@ -149,29 +178,14 @@ class ModifyDesktopGroupRequest extends Model
         if (isset($map['PolicyGroupId'])) {
             $model->policyGroupId = $map['PolicyGroupId'];
         }
-        if (isset($map['DesktopGroupName'])) {
-            $model->desktopGroupName = $map['DesktopGroupName'];
+        if (isset($map['RegionId'])) {
+            $model->regionId = $map['RegionId'];
+        }
+        if (isset($map['ResetType'])) {
+            $model->resetType = $map['ResetType'];
         }
         if (isset($map['ScaleStrategyId'])) {
             $model->scaleStrategyId = $map['ScaleStrategyId'];
-        }
-        if (isset($map['KeepDuration'])) {
-            $model->keepDuration = $map['KeepDuration'];
-        }
-        if (isset($map['Comments'])) {
-            $model->comments = $map['Comments'];
-        }
-        if (isset($map['MinDesktopsCount'])) {
-            $model->minDesktopsCount = $map['MinDesktopsCount'];
-        }
-        if (isset($map['MaxDesktopsCount'])) {
-            $model->maxDesktopsCount = $map['MaxDesktopsCount'];
-        }
-        if (isset($map['AllowAutoSetup'])) {
-            $model->allowAutoSetup = $map['AllowAutoSetup'];
-        }
-        if (isset($map['AllowBufferCount'])) {
-            $model->allowBufferCount = $map['AllowBufferCount'];
         }
 
         return $model;

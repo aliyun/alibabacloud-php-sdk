@@ -9,33 +9,33 @@ use AlibabaCloud\Tea\Model;
 class CheckUserInSecurityCenterWhiteListResponse extends Model
 {
     /**
-     * @var string[]
+     * @var bool
      */
-    public $headers;
+    public $inWhiteList;
 
     /**
-     * @var CheckUserInSecurityCenterWhiteListResponseBody
+     * @var string
      */
-    public $body;
+    public $requestId;
     protected $_name = [
-        'headers' => 'headers',
-        'body'    => 'body',
+        'inWhiteList' => 'InWhiteList',
+        'requestId'   => 'RequestId',
     ];
 
     public function validate()
     {
-        Model::validateRequired('headers', $this->headers, true);
-        Model::validateRequired('body', $this->body, true);
+        Model::validateRequired('inWhiteList', $this->inWhiteList, true);
+        Model::validateRequired('requestId', $this->requestId, true);
     }
 
     public function toMap()
     {
         $res = [];
-        if (null !== $this->headers) {
-            $res['headers'] = $this->headers;
+        if (null !== $this->inWhiteList) {
+            $res['InWhiteList'] = $this->inWhiteList;
         }
-        if (null !== $this->body) {
-            $res['body'] = null !== $this->body ? $this->body->toMap() : null;
+        if (null !== $this->requestId) {
+            $res['RequestId'] = $this->requestId;
         }
 
         return $res;
@@ -49,11 +49,11 @@ class CheckUserInSecurityCenterWhiteListResponse extends Model
     public static function fromMap($map = [])
     {
         $model = new self();
-        if (isset($map['headers'])) {
-            $model->headers = $map['headers'];
+        if (isset($map['InWhiteList'])) {
+            $model->inWhiteList = $map['InWhiteList'];
         }
-        if (isset($map['body'])) {
-            $model->body = CheckUserInSecurityCenterWhiteListResponseBody::fromMap($map['body']);
+        if (isset($map['RequestId'])) {
+            $model->requestId = $map['RequestId'];
         }
 
         return $model;

@@ -4,38 +4,55 @@
 
 namespace AlibabaCloud\SDK\Ecd\V20200930\Models;
 
+use AlibabaCloud\SDK\Ecd\V20200930\Models\DescribeSecurityEventOperationStatusResponse\securityEventOperationStatuses;
 use AlibabaCloud\Tea\Model;
 
 class DescribeSecurityEventOperationStatusResponse extends Model
 {
     /**
-     * @var string[]
+     * @var string
      */
-    public $headers;
+    public $requestId;
 
     /**
-     * @var DescribeSecurityEventOperationStatusResponseBody
+     * @var string
      */
-    public $body;
+    public $taskStatus;
+
+    /**
+     * @var securityEventOperationStatuses[]
+     */
+    public $securityEventOperationStatuses;
     protected $_name = [
-        'headers' => 'headers',
-        'body'    => 'body',
+        'requestId'                      => 'RequestId',
+        'taskStatus'                     => 'TaskStatus',
+        'securityEventOperationStatuses' => 'SecurityEventOperationStatuses',
     ];
 
     public function validate()
     {
-        Model::validateRequired('headers', $this->headers, true);
-        Model::validateRequired('body', $this->body, true);
+        Model::validateRequired('requestId', $this->requestId, true);
+        Model::validateRequired('taskStatus', $this->taskStatus, true);
+        Model::validateRequired('securityEventOperationStatuses', $this->securityEventOperationStatuses, true);
     }
 
     public function toMap()
     {
         $res = [];
-        if (null !== $this->headers) {
-            $res['headers'] = $this->headers;
+        if (null !== $this->requestId) {
+            $res['RequestId'] = $this->requestId;
         }
-        if (null !== $this->body) {
-            $res['body'] = null !== $this->body ? $this->body->toMap() : null;
+        if (null !== $this->taskStatus) {
+            $res['TaskStatus'] = $this->taskStatus;
+        }
+        if (null !== $this->securityEventOperationStatuses) {
+            $res['SecurityEventOperationStatuses'] = [];
+            if (null !== $this->securityEventOperationStatuses && \is_array($this->securityEventOperationStatuses)) {
+                $n = 0;
+                foreach ($this->securityEventOperationStatuses as $item) {
+                    $res['SecurityEventOperationStatuses'][$n++] = null !== $item ? $item->toMap() : $item;
+                }
+            }
         }
 
         return $res;
@@ -49,11 +66,20 @@ class DescribeSecurityEventOperationStatusResponse extends Model
     public static function fromMap($map = [])
     {
         $model = new self();
-        if (isset($map['headers'])) {
-            $model->headers = $map['headers'];
+        if (isset($map['RequestId'])) {
+            $model->requestId = $map['RequestId'];
         }
-        if (isset($map['body'])) {
-            $model->body = DescribeSecurityEventOperationStatusResponseBody::fromMap($map['body']);
+        if (isset($map['TaskStatus'])) {
+            $model->taskStatus = $map['TaskStatus'];
+        }
+        if (isset($map['SecurityEventOperationStatuses'])) {
+            if (!empty($map['SecurityEventOperationStatuses'])) {
+                $model->securityEventOperationStatuses = [];
+                $n                                     = 0;
+                foreach ($map['SecurityEventOperationStatuses'] as $item) {
+                    $model->securityEventOperationStatuses[$n++] = null !== $item ? securityEventOperationStatuses::fromMap($item) : $item;
+                }
+            }
         }
 
         return $model;

@@ -11,7 +11,37 @@ class DescribeImagesRequest extends Model
     /**
      * @var string
      */
-    public $regionId;
+    public $desktopInstanceType;
+
+    /**
+     * @var bool
+     */
+    public $gpuCategory;
+
+    /**
+     * @var string
+     */
+    public $gpuDriverVersion;
+
+    /**
+     * @var string[]
+     */
+    public $imageId;
+
+    /**
+     * @var string
+     */
+    public $imageStatus;
+
+    /**
+     * @var string
+     */
+    public $imageType;
+
+    /**
+     * @var string
+     */
+    public $languageType;
 
     /**
      * @var int
@@ -26,17 +56,7 @@ class DescribeImagesRequest extends Model
     /**
      * @var string
      */
-    public $imageType;
-
-    /**
-     * @var string
-     */
-    public $imageStatus;
-
-    /**
-     * @var bool
-     */
-    public $gpuCategory;
+    public $osType;
 
     /**
      * @var string
@@ -44,29 +64,52 @@ class DescribeImagesRequest extends Model
     public $protocolType;
 
     /**
-     * @var string[]
+     * @var string
      */
-    public $imageId;
+    public $regionId;
     protected $_name = [
-        'regionId'     => 'RegionId',
-        'maxResults'   => 'MaxResults',
-        'nextToken'    => 'NextToken',
-        'imageType'    => 'ImageType',
-        'imageStatus'  => 'ImageStatus',
-        'gpuCategory'  => 'GpuCategory',
-        'protocolType' => 'ProtocolType',
-        'imageId'      => 'ImageId',
+        'desktopInstanceType' => 'DesktopInstanceType',
+        'gpuCategory'         => 'GpuCategory',
+        'gpuDriverVersion'    => 'GpuDriverVersion',
+        'imageId'             => 'ImageId',
+        'imageStatus'         => 'ImageStatus',
+        'imageType'           => 'ImageType',
+        'languageType'        => 'LanguageType',
+        'maxResults'          => 'MaxResults',
+        'nextToken'           => 'NextToken',
+        'osType'              => 'OsType',
+        'protocolType'        => 'ProtocolType',
+        'regionId'            => 'RegionId',
     ];
 
     public function validate()
     {
+        Model::validateRequired('regionId', $this->regionId, true);
     }
 
     public function toMap()
     {
         $res = [];
-        if (null !== $this->regionId) {
-            $res['RegionId'] = $this->regionId;
+        if (null !== $this->desktopInstanceType) {
+            $res['DesktopInstanceType'] = $this->desktopInstanceType;
+        }
+        if (null !== $this->gpuCategory) {
+            $res['GpuCategory'] = $this->gpuCategory;
+        }
+        if (null !== $this->gpuDriverVersion) {
+            $res['GpuDriverVersion'] = $this->gpuDriverVersion;
+        }
+        if (null !== $this->imageId) {
+            $res['ImageId'] = $this->imageId;
+        }
+        if (null !== $this->imageStatus) {
+            $res['ImageStatus'] = $this->imageStatus;
+        }
+        if (null !== $this->imageType) {
+            $res['ImageType'] = $this->imageType;
+        }
+        if (null !== $this->languageType) {
+            $res['LanguageType'] = $this->languageType;
         }
         if (null !== $this->maxResults) {
             $res['MaxResults'] = $this->maxResults;
@@ -74,20 +117,14 @@ class DescribeImagesRequest extends Model
         if (null !== $this->nextToken) {
             $res['NextToken'] = $this->nextToken;
         }
-        if (null !== $this->imageType) {
-            $res['ImageType'] = $this->imageType;
-        }
-        if (null !== $this->imageStatus) {
-            $res['ImageStatus'] = $this->imageStatus;
-        }
-        if (null !== $this->gpuCategory) {
-            $res['GpuCategory'] = $this->gpuCategory;
+        if (null !== $this->osType) {
+            $res['OsType'] = $this->osType;
         }
         if (null !== $this->protocolType) {
             $res['ProtocolType'] = $this->protocolType;
         }
-        if (null !== $this->imageId) {
-            $res['ImageId'] = $this->imageId;
+        if (null !== $this->regionId) {
+            $res['RegionId'] = $this->regionId;
         }
 
         return $res;
@@ -101,8 +138,28 @@ class DescribeImagesRequest extends Model
     public static function fromMap($map = [])
     {
         $model = new self();
-        if (isset($map['RegionId'])) {
-            $model->regionId = $map['RegionId'];
+        if (isset($map['DesktopInstanceType'])) {
+            $model->desktopInstanceType = $map['DesktopInstanceType'];
+        }
+        if (isset($map['GpuCategory'])) {
+            $model->gpuCategory = $map['GpuCategory'];
+        }
+        if (isset($map['GpuDriverVersion'])) {
+            $model->gpuDriverVersion = $map['GpuDriverVersion'];
+        }
+        if (isset($map['ImageId'])) {
+            if (!empty($map['ImageId'])) {
+                $model->imageId = $map['ImageId'];
+            }
+        }
+        if (isset($map['ImageStatus'])) {
+            $model->imageStatus = $map['ImageStatus'];
+        }
+        if (isset($map['ImageType'])) {
+            $model->imageType = $map['ImageType'];
+        }
+        if (isset($map['LanguageType'])) {
+            $model->languageType = $map['LanguageType'];
         }
         if (isset($map['MaxResults'])) {
             $model->maxResults = $map['MaxResults'];
@@ -110,22 +167,14 @@ class DescribeImagesRequest extends Model
         if (isset($map['NextToken'])) {
             $model->nextToken = $map['NextToken'];
         }
-        if (isset($map['ImageType'])) {
-            $model->imageType = $map['ImageType'];
-        }
-        if (isset($map['ImageStatus'])) {
-            $model->imageStatus = $map['ImageStatus'];
-        }
-        if (isset($map['GpuCategory'])) {
-            $model->gpuCategory = $map['GpuCategory'];
+        if (isset($map['OsType'])) {
+            $model->osType = $map['OsType'];
         }
         if (isset($map['ProtocolType'])) {
             $model->protocolType = $map['ProtocolType'];
         }
-        if (isset($map['ImageId'])) {
-            if (!empty($map['ImageId'])) {
-                $model->imageId = $map['ImageId'];
-            }
+        if (isset($map['RegionId'])) {
+            $model->regionId = $map['RegionId'];
         }
 
         return $model;

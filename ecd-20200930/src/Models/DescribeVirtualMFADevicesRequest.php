@@ -11,7 +11,12 @@ class DescribeVirtualMFADevicesRequest extends Model
     /**
      * @var string
      */
-    public $regionId;
+    public $directoryId;
+
+    /**
+     * @var string[]
+     */
+    public $endUserId;
 
     /**
      * @var int
@@ -26,35 +31,34 @@ class DescribeVirtualMFADevicesRequest extends Model
     /**
      * @var string
      */
-    public $directoryId;
+    public $officeSiteId;
 
     /**
      * @var string
      */
-    public $officeSiteId;
-
-    /**
-     * @var string[]
-     */
-    public $endUserId;
+    public $regionId;
     protected $_name = [
-        'regionId'     => 'RegionId',
+        'directoryId'  => 'DirectoryId',
+        'endUserId'    => 'EndUserId',
         'maxResults'   => 'MaxResults',
         'nextToken'    => 'NextToken',
-        'directoryId'  => 'DirectoryId',
         'officeSiteId' => 'OfficeSiteId',
-        'endUserId'    => 'EndUserId',
+        'regionId'     => 'RegionId',
     ];
 
     public function validate()
     {
+        Model::validateRequired('regionId', $this->regionId, true);
     }
 
     public function toMap()
     {
         $res = [];
-        if (null !== $this->regionId) {
-            $res['RegionId'] = $this->regionId;
+        if (null !== $this->directoryId) {
+            $res['DirectoryId'] = $this->directoryId;
+        }
+        if (null !== $this->endUserId) {
+            $res['EndUserId'] = $this->endUserId;
         }
         if (null !== $this->maxResults) {
             $res['MaxResults'] = $this->maxResults;
@@ -62,14 +66,11 @@ class DescribeVirtualMFADevicesRequest extends Model
         if (null !== $this->nextToken) {
             $res['NextToken'] = $this->nextToken;
         }
-        if (null !== $this->directoryId) {
-            $res['DirectoryId'] = $this->directoryId;
-        }
         if (null !== $this->officeSiteId) {
             $res['OfficeSiteId'] = $this->officeSiteId;
         }
-        if (null !== $this->endUserId) {
-            $res['EndUserId'] = $this->endUserId;
+        if (null !== $this->regionId) {
+            $res['RegionId'] = $this->regionId;
         }
 
         return $res;
@@ -83,8 +84,13 @@ class DescribeVirtualMFADevicesRequest extends Model
     public static function fromMap($map = [])
     {
         $model = new self();
-        if (isset($map['RegionId'])) {
-            $model->regionId = $map['RegionId'];
+        if (isset($map['DirectoryId'])) {
+            $model->directoryId = $map['DirectoryId'];
+        }
+        if (isset($map['EndUserId'])) {
+            if (!empty($map['EndUserId'])) {
+                $model->endUserId = $map['EndUserId'];
+            }
         }
         if (isset($map['MaxResults'])) {
             $model->maxResults = $map['MaxResults'];
@@ -92,16 +98,11 @@ class DescribeVirtualMFADevicesRequest extends Model
         if (isset($map['NextToken'])) {
             $model->nextToken = $map['NextToken'];
         }
-        if (isset($map['DirectoryId'])) {
-            $model->directoryId = $map['DirectoryId'];
-        }
         if (isset($map['OfficeSiteId'])) {
             $model->officeSiteId = $map['OfficeSiteId'];
         }
-        if (isset($map['EndUserId'])) {
-            if (!empty($map['EndUserId'])) {
-                $model->endUserId = $map['EndUserId'];
-            }
+        if (isset($map['RegionId'])) {
+            $model->regionId = $map['RegionId'];
         }
 
         return $model;

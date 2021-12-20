@@ -11,7 +11,7 @@ class ClonePolicyGroupRequest extends Model
     /**
      * @var string
      */
-    public $regionId;
+    public $name;
 
     /**
      * @var string
@@ -21,28 +21,31 @@ class ClonePolicyGroupRequest extends Model
     /**
      * @var string
      */
-    public $name;
+    public $regionId;
     protected $_name = [
-        'regionId'      => 'RegionId',
-        'policyGroupId' => 'PolicyGroupId',
         'name'          => 'Name',
+        'policyGroupId' => 'PolicyGroupId',
+        'regionId'      => 'RegionId',
     ];
 
     public function validate()
     {
+        Model::validateRequired('name', $this->name, true);
+        Model::validateRequired('policyGroupId', $this->policyGroupId, true);
+        Model::validateRequired('regionId', $this->regionId, true);
     }
 
     public function toMap()
     {
         $res = [];
-        if (null !== $this->regionId) {
-            $res['RegionId'] = $this->regionId;
+        if (null !== $this->name) {
+            $res['Name'] = $this->name;
         }
         if (null !== $this->policyGroupId) {
             $res['PolicyGroupId'] = $this->policyGroupId;
         }
-        if (null !== $this->name) {
-            $res['Name'] = $this->name;
+        if (null !== $this->regionId) {
+            $res['RegionId'] = $this->regionId;
         }
 
         return $res;
@@ -56,14 +59,14 @@ class ClonePolicyGroupRequest extends Model
     public static function fromMap($map = [])
     {
         $model = new self();
-        if (isset($map['RegionId'])) {
-            $model->regionId = $map['RegionId'];
+        if (isset($map['Name'])) {
+            $model->name = $map['Name'];
         }
         if (isset($map['PolicyGroupId'])) {
             $model->policyGroupId = $map['PolicyGroupId'];
         }
-        if (isset($map['Name'])) {
-            $model->name = $map['Name'];
+        if (isset($map['RegionId'])) {
+            $model->regionId = $map['RegionId'];
         }
 
         return $model;

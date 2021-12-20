@@ -11,17 +11,7 @@ class ModifyBundleRequest extends Model
     /**
      * @var string
      */
-    public $regionId;
-
-    /**
-     * @var string
-     */
     public $bundleId;
-
-    /**
-     * @var string
-     */
-    public $imageId;
 
     /**
      * @var string
@@ -32,35 +22,56 @@ class ModifyBundleRequest extends Model
      * @var string
      */
     public $description;
+
+    /**
+     * @var string
+     */
+    public $imageId;
+
+    /**
+     * @var string
+     */
+    public $language;
+
+    /**
+     * @var string
+     */
+    public $regionId;
     protected $_name = [
-        'regionId'    => 'RegionId',
         'bundleId'    => 'BundleId',
-        'imageId'     => 'ImageId',
         'bundleName'  => 'BundleName',
         'description' => 'Description',
+        'imageId'     => 'ImageId',
+        'language'    => 'Language',
+        'regionId'    => 'RegionId',
     ];
 
     public function validate()
     {
+        Model::validateRequired('bundleId', $this->bundleId, true);
+        Model::validateRequired('regionId', $this->regionId, true);
     }
 
     public function toMap()
     {
         $res = [];
-        if (null !== $this->regionId) {
-            $res['RegionId'] = $this->regionId;
-        }
         if (null !== $this->bundleId) {
             $res['BundleId'] = $this->bundleId;
-        }
-        if (null !== $this->imageId) {
-            $res['ImageId'] = $this->imageId;
         }
         if (null !== $this->bundleName) {
             $res['BundleName'] = $this->bundleName;
         }
         if (null !== $this->description) {
             $res['Description'] = $this->description;
+        }
+        if (null !== $this->imageId) {
+            $res['ImageId'] = $this->imageId;
+        }
+        if (null !== $this->language) {
+            $res['Language'] = $this->language;
+        }
+        if (null !== $this->regionId) {
+            $res['RegionId'] = $this->regionId;
         }
 
         return $res;
@@ -74,20 +85,23 @@ class ModifyBundleRequest extends Model
     public static function fromMap($map = [])
     {
         $model = new self();
-        if (isset($map['RegionId'])) {
-            $model->regionId = $map['RegionId'];
-        }
         if (isset($map['BundleId'])) {
             $model->bundleId = $map['BundleId'];
-        }
-        if (isset($map['ImageId'])) {
-            $model->imageId = $map['ImageId'];
         }
         if (isset($map['BundleName'])) {
             $model->bundleName = $map['BundleName'];
         }
         if (isset($map['Description'])) {
             $model->description = $map['Description'];
+        }
+        if (isset($map['ImageId'])) {
+            $model->imageId = $map['ImageId'];
+        }
+        if (isset($map['Language'])) {
+            $model->language = $map['Language'];
+        }
+        if (isset($map['RegionId'])) {
+            $model->regionId = $map['RegionId'];
         }
 
         return $model;

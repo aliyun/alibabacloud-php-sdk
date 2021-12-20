@@ -9,33 +9,43 @@ use AlibabaCloud\Tea\Model;
 class CreateNetworkPackageResponse extends Model
 {
     /**
-     * @var string[]
+     * @var string
      */
-    public $headers;
+    public $networkPackageId;
 
     /**
-     * @var CreateNetworkPackageResponseBody
+     * @var string
      */
-    public $body;
+    public $orderId;
+
+    /**
+     * @var string
+     */
+    public $requestId;
     protected $_name = [
-        'headers' => 'headers',
-        'body'    => 'body',
+        'networkPackageId' => 'NetworkPackageId',
+        'orderId'          => 'OrderId',
+        'requestId'        => 'RequestId',
     ];
 
     public function validate()
     {
-        Model::validateRequired('headers', $this->headers, true);
-        Model::validateRequired('body', $this->body, true);
+        Model::validateRequired('networkPackageId', $this->networkPackageId, true);
+        Model::validateRequired('orderId', $this->orderId, true);
+        Model::validateRequired('requestId', $this->requestId, true);
     }
 
     public function toMap()
     {
         $res = [];
-        if (null !== $this->headers) {
-            $res['headers'] = $this->headers;
+        if (null !== $this->networkPackageId) {
+            $res['NetworkPackageId'] = $this->networkPackageId;
         }
-        if (null !== $this->body) {
-            $res['body'] = null !== $this->body ? $this->body->toMap() : null;
+        if (null !== $this->orderId) {
+            $res['OrderId'] = $this->orderId;
+        }
+        if (null !== $this->requestId) {
+            $res['RequestId'] = $this->requestId;
         }
 
         return $res;
@@ -49,11 +59,14 @@ class CreateNetworkPackageResponse extends Model
     public static function fromMap($map = [])
     {
         $model = new self();
-        if (isset($map['headers'])) {
-            $model->headers = $map['headers'];
+        if (isset($map['NetworkPackageId'])) {
+            $model->networkPackageId = $map['NetworkPackageId'];
         }
-        if (isset($map['body'])) {
-            $model->body = CreateNetworkPackageResponseBody::fromMap($map['body']);
+        if (isset($map['OrderId'])) {
+            $model->orderId = $map['OrderId'];
+        }
+        if (isset($map['RequestId'])) {
+            $model->requestId = $map['RequestId'];
         }
 
         return $model;

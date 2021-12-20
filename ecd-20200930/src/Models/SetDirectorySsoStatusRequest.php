@@ -11,38 +11,41 @@ class SetDirectorySsoStatusRequest extends Model
     /**
      * @var string
      */
-    public $regionId;
-
-    /**
-     * @var string
-     */
     public $directoryId;
 
     /**
      * @var bool
      */
     public $enableSso;
+
+    /**
+     * @var string
+     */
+    public $regionId;
     protected $_name = [
-        'regionId'    => 'RegionId',
         'directoryId' => 'DirectoryId',
         'enableSso'   => 'EnableSso',
+        'regionId'    => 'RegionId',
     ];
 
     public function validate()
     {
+        Model::validateRequired('directoryId', $this->directoryId, true);
+        Model::validateRequired('enableSso', $this->enableSso, true);
+        Model::validateRequired('regionId', $this->regionId, true);
     }
 
     public function toMap()
     {
         $res = [];
-        if (null !== $this->regionId) {
-            $res['RegionId'] = $this->regionId;
-        }
         if (null !== $this->directoryId) {
             $res['DirectoryId'] = $this->directoryId;
         }
         if (null !== $this->enableSso) {
             $res['EnableSso'] = $this->enableSso;
+        }
+        if (null !== $this->regionId) {
+            $res['RegionId'] = $this->regionId;
         }
 
         return $res;
@@ -56,14 +59,14 @@ class SetDirectorySsoStatusRequest extends Model
     public static function fromMap($map = [])
     {
         $model = new self();
-        if (isset($map['RegionId'])) {
-            $model->regionId = $map['RegionId'];
-        }
         if (isset($map['DirectoryId'])) {
             $model->directoryId = $map['DirectoryId'];
         }
         if (isset($map['EnableSso'])) {
             $model->enableSso = $map['EnableSso'];
+        }
+        if (isset($map['RegionId'])) {
+            $model->regionId = $map['RegionId'];
         }
 
         return $model;

@@ -11,12 +11,12 @@ class ModifyUserToDesktopGroupRequest extends Model
     /**
      * @var string
      */
-    public $regionId;
+    public $desktopGroupId;
 
     /**
-     * @var string
+     * @var string[]
      */
-    public $desktopGroupId;
+    public $newEndUserIds;
 
     /**
      * @var string[]
@@ -24,34 +24,38 @@ class ModifyUserToDesktopGroupRequest extends Model
     public $oldEndUserIds;
 
     /**
-     * @var string[]
+     * @var string
      */
-    public $newEndUserIds;
+    public $regionId;
     protected $_name = [
-        'regionId'       => 'RegionId',
         'desktopGroupId' => 'DesktopGroupId',
-        'oldEndUserIds'  => 'OldEndUserIds',
         'newEndUserIds'  => 'NewEndUserIds',
+        'oldEndUserIds'  => 'OldEndUserIds',
+        'regionId'       => 'RegionId',
     ];
 
     public function validate()
     {
+        Model::validateRequired('desktopGroupId', $this->desktopGroupId, true);
+        Model::validateRequired('newEndUserIds', $this->newEndUserIds, true);
+        Model::validateRequired('oldEndUserIds', $this->oldEndUserIds, true);
+        Model::validateRequired('regionId', $this->regionId, true);
     }
 
     public function toMap()
     {
         $res = [];
-        if (null !== $this->regionId) {
-            $res['RegionId'] = $this->regionId;
-        }
         if (null !== $this->desktopGroupId) {
             $res['DesktopGroupId'] = $this->desktopGroupId;
+        }
+        if (null !== $this->newEndUserIds) {
+            $res['NewEndUserIds'] = $this->newEndUserIds;
         }
         if (null !== $this->oldEndUserIds) {
             $res['OldEndUserIds'] = $this->oldEndUserIds;
         }
-        if (null !== $this->newEndUserIds) {
-            $res['NewEndUserIds'] = $this->newEndUserIds;
+        if (null !== $this->regionId) {
+            $res['RegionId'] = $this->regionId;
         }
 
         return $res;
@@ -65,21 +69,21 @@ class ModifyUserToDesktopGroupRequest extends Model
     public static function fromMap($map = [])
     {
         $model = new self();
-        if (isset($map['RegionId'])) {
-            $model->regionId = $map['RegionId'];
-        }
         if (isset($map['DesktopGroupId'])) {
             $model->desktopGroupId = $map['DesktopGroupId'];
+        }
+        if (isset($map['NewEndUserIds'])) {
+            if (!empty($map['NewEndUserIds'])) {
+                $model->newEndUserIds = $map['NewEndUserIds'];
+            }
         }
         if (isset($map['OldEndUserIds'])) {
             if (!empty($map['OldEndUserIds'])) {
                 $model->oldEndUserIds = $map['OldEndUserIds'];
             }
         }
-        if (isset($map['NewEndUserIds'])) {
-            if (!empty($map['NewEndUserIds'])) {
-                $model->newEndUserIds = $map['NewEndUserIds'];
-            }
+        if (isset($map['RegionId'])) {
+            $model->regionId = $map['RegionId'];
         }
 
         return $model;

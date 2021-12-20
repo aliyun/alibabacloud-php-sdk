@@ -11,7 +11,7 @@ class DescribeNetworkPackagesRequest extends Model
     /**
      * @var string
      */
-    public $regionId;
+    public $internetChargeType;
 
     /**
      * @var int
@@ -19,39 +19,49 @@ class DescribeNetworkPackagesRequest extends Model
     public $maxResults;
 
     /**
+     * @var string[]
+     */
+    public $networkPackageId;
+
+    /**
      * @var string
      */
     public $nextToken;
 
     /**
-     * @var string[]
+     * @var string
      */
-    public $networkPackageId;
+    public $regionId;
     protected $_name = [
-        'regionId'         => 'RegionId',
-        'maxResults'       => 'MaxResults',
-        'nextToken'        => 'NextToken',
-        'networkPackageId' => 'NetworkPackageId',
+        'internetChargeType' => 'InternetChargeType',
+        'maxResults'         => 'MaxResults',
+        'networkPackageId'   => 'NetworkPackageId',
+        'nextToken'          => 'NextToken',
+        'regionId'           => 'RegionId',
     ];
 
     public function validate()
     {
+        Model::validateRequired('regionId', $this->regionId, true);
     }
 
     public function toMap()
     {
         $res = [];
-        if (null !== $this->regionId) {
-            $res['RegionId'] = $this->regionId;
+        if (null !== $this->internetChargeType) {
+            $res['InternetChargeType'] = $this->internetChargeType;
         }
         if (null !== $this->maxResults) {
             $res['MaxResults'] = $this->maxResults;
         }
+        if (null !== $this->networkPackageId) {
+            $res['NetworkPackageId'] = $this->networkPackageId;
+        }
         if (null !== $this->nextToken) {
             $res['NextToken'] = $this->nextToken;
         }
-        if (null !== $this->networkPackageId) {
-            $res['NetworkPackageId'] = $this->networkPackageId;
+        if (null !== $this->regionId) {
+            $res['RegionId'] = $this->regionId;
         }
 
         return $res;
@@ -65,19 +75,22 @@ class DescribeNetworkPackagesRequest extends Model
     public static function fromMap($map = [])
     {
         $model = new self();
-        if (isset($map['RegionId'])) {
-            $model->regionId = $map['RegionId'];
+        if (isset($map['InternetChargeType'])) {
+            $model->internetChargeType = $map['InternetChargeType'];
         }
         if (isset($map['MaxResults'])) {
             $model->maxResults = $map['MaxResults'];
-        }
-        if (isset($map['NextToken'])) {
-            $model->nextToken = $map['NextToken'];
         }
         if (isset($map['NetworkPackageId'])) {
             if (!empty($map['NetworkPackageId'])) {
                 $model->networkPackageId = $map['NetworkPackageId'];
             }
+        }
+        if (isset($map['NextToken'])) {
+            $model->nextToken = $map['NextToken'];
+        }
+        if (isset($map['RegionId'])) {
+            $model->regionId = $map['RegionId'];
         }
 
         return $model;

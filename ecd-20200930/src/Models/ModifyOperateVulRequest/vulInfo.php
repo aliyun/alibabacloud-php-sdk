@@ -16,16 +16,16 @@ class vulInfo extends Model
     /**
      * @var string
      */
-    public $tag;
+    public $name;
 
     /**
      * @var string
      */
-    public $name;
+    public $tag;
     protected $_name = [
         'desktopId' => 'DesktopId',
-        'tag'       => 'Tag',
         'name'      => 'Name',
+        'tag'       => 'Tag',
     ];
 
     public function validate()
@@ -38,11 +38,11 @@ class vulInfo extends Model
         if (null !== $this->desktopId) {
             $res['DesktopId'] = $this->desktopId;
         }
-        if (null !== $this->tag) {
-            $res['Tag'] = $this->tag;
-        }
         if (null !== $this->name) {
             $res['Name'] = $this->name;
+        }
+        if (null !== $this->tag) {
+            $res['Tag'] = $this->tag;
         }
 
         return $res;
@@ -59,11 +59,11 @@ class vulInfo extends Model
         if (isset($map['DesktopId'])) {
             $model->desktopId = $map['DesktopId'];
         }
-        if (isset($map['Tag'])) {
-            $model->tag = $map['Tag'];
-        }
         if (isset($map['Name'])) {
             $model->name = $map['Name'];
+        }
+        if (isset($map['Tag'])) {
+            $model->tag = $map['Tag'];
         }
 
         return $model;

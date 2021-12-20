@@ -11,7 +11,7 @@ class RollbackSuspEventQuaraFileRequest extends Model
     /**
      * @var string
      */
-    public $regionId;
+    public $desktopId;
 
     /**
      * @var int
@@ -21,28 +21,30 @@ class RollbackSuspEventQuaraFileRequest extends Model
     /**
      * @var string
      */
-    public $desktopId;
+    public $regionId;
     protected $_name = [
-        'regionId'     => 'RegionId',
-        'quaraFieldId' => 'QuaraFieldId',
         'desktopId'    => 'DesktopId',
+        'quaraFieldId' => 'QuaraFieldId',
+        'regionId'     => 'RegionId',
     ];
 
     public function validate()
     {
+        Model::validateRequired('quaraFieldId', $this->quaraFieldId, true);
+        Model::validateRequired('regionId', $this->regionId, true);
     }
 
     public function toMap()
     {
         $res = [];
-        if (null !== $this->regionId) {
-            $res['RegionId'] = $this->regionId;
+        if (null !== $this->desktopId) {
+            $res['DesktopId'] = $this->desktopId;
         }
         if (null !== $this->quaraFieldId) {
             $res['QuaraFieldId'] = $this->quaraFieldId;
         }
-        if (null !== $this->desktopId) {
-            $res['DesktopId'] = $this->desktopId;
+        if (null !== $this->regionId) {
+            $res['RegionId'] = $this->regionId;
         }
 
         return $res;
@@ -56,14 +58,14 @@ class RollbackSuspEventQuaraFileRequest extends Model
     public static function fromMap($map = [])
     {
         $model = new self();
-        if (isset($map['RegionId'])) {
-            $model->regionId = $map['RegionId'];
+        if (isset($map['DesktopId'])) {
+            $model->desktopId = $map['DesktopId'];
         }
         if (isset($map['QuaraFieldId'])) {
             $model->quaraFieldId = $map['QuaraFieldId'];
         }
-        if (isset($map['DesktopId'])) {
-            $model->desktopId = $map['DesktopId'];
+        if (isset($map['RegionId'])) {
+            $model->regionId = $map['RegionId'];
         }
 
         return $model;

@@ -4,38 +4,55 @@
 
 namespace AlibabaCloud\SDK\Ecd\V20200930\Models;
 
+use AlibabaCloud\SDK\Ecd\V20200930\Models\DescribeOfficeSitesResponse\officeSites;
 use AlibabaCloud\Tea\Model;
 
 class DescribeOfficeSitesResponse extends Model
 {
     /**
-     * @var string[]
+     * @var string
      */
-    public $headers;
+    public $nextToken;
 
     /**
-     * @var DescribeOfficeSitesResponseBody
+     * @var string
      */
-    public $body;
+    public $requestId;
+
+    /**
+     * @var officeSites[]
+     */
+    public $officeSites;
     protected $_name = [
-        'headers' => 'headers',
-        'body'    => 'body',
+        'nextToken'   => 'NextToken',
+        'requestId'   => 'RequestId',
+        'officeSites' => 'OfficeSites',
     ];
 
     public function validate()
     {
-        Model::validateRequired('headers', $this->headers, true);
-        Model::validateRequired('body', $this->body, true);
+        Model::validateRequired('nextToken', $this->nextToken, true);
+        Model::validateRequired('requestId', $this->requestId, true);
+        Model::validateRequired('officeSites', $this->officeSites, true);
     }
 
     public function toMap()
     {
         $res = [];
-        if (null !== $this->headers) {
-            $res['headers'] = $this->headers;
+        if (null !== $this->nextToken) {
+            $res['NextToken'] = $this->nextToken;
         }
-        if (null !== $this->body) {
-            $res['body'] = null !== $this->body ? $this->body->toMap() : null;
+        if (null !== $this->requestId) {
+            $res['RequestId'] = $this->requestId;
+        }
+        if (null !== $this->officeSites) {
+            $res['OfficeSites'] = [];
+            if (null !== $this->officeSites && \is_array($this->officeSites)) {
+                $n = 0;
+                foreach ($this->officeSites as $item) {
+                    $res['OfficeSites'][$n++] = null !== $item ? $item->toMap() : $item;
+                }
+            }
         }
 
         return $res;
@@ -49,11 +66,20 @@ class DescribeOfficeSitesResponse extends Model
     public static function fromMap($map = [])
     {
         $model = new self();
-        if (isset($map['headers'])) {
-            $model->headers = $map['headers'];
+        if (isset($map['NextToken'])) {
+            $model->nextToken = $map['NextToken'];
         }
-        if (isset($map['body'])) {
-            $model->body = DescribeOfficeSitesResponseBody::fromMap($map['body']);
+        if (isset($map['RequestId'])) {
+            $model->requestId = $map['RequestId'];
+        }
+        if (isset($map['OfficeSites'])) {
+            if (!empty($map['OfficeSites'])) {
+                $model->officeSites = [];
+                $n                  = 0;
+                foreach ($map['OfficeSites'] as $item) {
+                    $model->officeSites[$n++] = null !== $item ? officeSites::fromMap($item) : $item;
+                }
+            }
         }
 
         return $model;

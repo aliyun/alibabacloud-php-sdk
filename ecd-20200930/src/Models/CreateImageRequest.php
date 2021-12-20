@@ -11,7 +11,7 @@ class CreateImageRequest extends Model
     /**
      * @var string
      */
-    public $regionId;
+    public $description;
 
     /**
      * @var string
@@ -26,7 +26,12 @@ class CreateImageRequest extends Model
     /**
      * @var string
      */
-    public $description;
+    public $imageResourceType;
+
+    /**
+     * @var string
+     */
+    public $regionId;
 
     /**
      * @var string
@@ -34,33 +39,30 @@ class CreateImageRequest extends Model
     public $snapshotId;
 
     /**
-     * @var string
-     */
-    public $imageResourceType;
-
-    /**
      * @var string[]
      */
     public $snapshotIds;
     protected $_name = [
-        'regionId'          => 'RegionId',
+        'description'       => 'Description',
         'desktopId'         => 'DesktopId',
         'imageName'         => 'ImageName',
-        'description'       => 'Description',
-        'snapshotId'        => 'SnapshotId',
         'imageResourceType' => 'ImageResourceType',
+        'regionId'          => 'RegionId',
+        'snapshotId'        => 'SnapshotId',
         'snapshotIds'       => 'SnapshotIds',
     ];
 
     public function validate()
     {
+        Model::validateRequired('desktopId', $this->desktopId, true);
+        Model::validateRequired('regionId', $this->regionId, true);
     }
 
     public function toMap()
     {
         $res = [];
-        if (null !== $this->regionId) {
-            $res['RegionId'] = $this->regionId;
+        if (null !== $this->description) {
+            $res['Description'] = $this->description;
         }
         if (null !== $this->desktopId) {
             $res['DesktopId'] = $this->desktopId;
@@ -68,14 +70,14 @@ class CreateImageRequest extends Model
         if (null !== $this->imageName) {
             $res['ImageName'] = $this->imageName;
         }
-        if (null !== $this->description) {
-            $res['Description'] = $this->description;
+        if (null !== $this->imageResourceType) {
+            $res['ImageResourceType'] = $this->imageResourceType;
+        }
+        if (null !== $this->regionId) {
+            $res['RegionId'] = $this->regionId;
         }
         if (null !== $this->snapshotId) {
             $res['SnapshotId'] = $this->snapshotId;
-        }
-        if (null !== $this->imageResourceType) {
-            $res['ImageResourceType'] = $this->imageResourceType;
         }
         if (null !== $this->snapshotIds) {
             $res['SnapshotIds'] = $this->snapshotIds;
@@ -92,8 +94,8 @@ class CreateImageRequest extends Model
     public static function fromMap($map = [])
     {
         $model = new self();
-        if (isset($map['RegionId'])) {
-            $model->regionId = $map['RegionId'];
+        if (isset($map['Description'])) {
+            $model->description = $map['Description'];
         }
         if (isset($map['DesktopId'])) {
             $model->desktopId = $map['DesktopId'];
@@ -101,14 +103,14 @@ class CreateImageRequest extends Model
         if (isset($map['ImageName'])) {
             $model->imageName = $map['ImageName'];
         }
-        if (isset($map['Description'])) {
-            $model->description = $map['Description'];
+        if (isset($map['ImageResourceType'])) {
+            $model->imageResourceType = $map['ImageResourceType'];
+        }
+        if (isset($map['RegionId'])) {
+            $model->regionId = $map['RegionId'];
         }
         if (isset($map['SnapshotId'])) {
             $model->snapshotId = $map['SnapshotId'];
-        }
-        if (isset($map['ImageResourceType'])) {
-            $model->imageResourceType = $map['ImageResourceType'];
         }
         if (isset($map['SnapshotIds'])) {
             if (!empty($map['SnapshotIds'])) {

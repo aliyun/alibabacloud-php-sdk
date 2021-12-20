@@ -9,9 +9,9 @@ use AlibabaCloud\Tea\Model;
 class SetOfficeSiteSsoStatusRequest extends Model
 {
     /**
-     * @var string
+     * @var bool
      */
-    public $regionId;
+    public $enableSso;
 
     /**
      * @var string
@@ -19,30 +19,33 @@ class SetOfficeSiteSsoStatusRequest extends Model
     public $officeSiteId;
 
     /**
-     * @var bool
+     * @var string
      */
-    public $enableSso;
+    public $regionId;
     protected $_name = [
-        'regionId'     => 'RegionId',
-        'officeSiteId' => 'OfficeSiteId',
         'enableSso'    => 'EnableSso',
+        'officeSiteId' => 'OfficeSiteId',
+        'regionId'     => 'RegionId',
     ];
 
     public function validate()
     {
+        Model::validateRequired('enableSso', $this->enableSso, true);
+        Model::validateRequired('officeSiteId', $this->officeSiteId, true);
+        Model::validateRequired('regionId', $this->regionId, true);
     }
 
     public function toMap()
     {
         $res = [];
-        if (null !== $this->regionId) {
-            $res['RegionId'] = $this->regionId;
+        if (null !== $this->enableSso) {
+            $res['EnableSso'] = $this->enableSso;
         }
         if (null !== $this->officeSiteId) {
             $res['OfficeSiteId'] = $this->officeSiteId;
         }
-        if (null !== $this->enableSso) {
-            $res['EnableSso'] = $this->enableSso;
+        if (null !== $this->regionId) {
+            $res['RegionId'] = $this->regionId;
         }
 
         return $res;
@@ -56,14 +59,14 @@ class SetOfficeSiteSsoStatusRequest extends Model
     public static function fromMap($map = [])
     {
         $model = new self();
-        if (isset($map['RegionId'])) {
-            $model->regionId = $map['RegionId'];
+        if (isset($map['EnableSso'])) {
+            $model->enableSso = $map['EnableSso'];
         }
         if (isset($map['OfficeSiteId'])) {
             $model->officeSiteId = $map['OfficeSiteId'];
         }
-        if (isset($map['EnableSso'])) {
-            $model->enableSso = $map['EnableSso'];
+        if (isset($map['RegionId'])) {
+            $model->regionId = $map['RegionId'];
         }
 
         return $model;

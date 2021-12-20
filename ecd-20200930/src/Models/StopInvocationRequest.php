@@ -9,9 +9,9 @@ use AlibabaCloud\Tea\Model;
 class StopInvocationRequest extends Model
 {
     /**
-     * @var string
+     * @var string[]
      */
-    public $regionId;
+    public $desktopId;
 
     /**
      * @var string
@@ -19,30 +19,32 @@ class StopInvocationRequest extends Model
     public $invokeId;
 
     /**
-     * @var string[]
+     * @var string
      */
-    public $desktopId;
+    public $regionId;
     protected $_name = [
-        'regionId'  => 'RegionId',
-        'invokeId'  => 'InvokeId',
         'desktopId' => 'DesktopId',
+        'invokeId'  => 'InvokeId',
+        'regionId'  => 'RegionId',
     ];
 
     public function validate()
     {
+        Model::validateRequired('invokeId', $this->invokeId, true);
+        Model::validateRequired('regionId', $this->regionId, true);
     }
 
     public function toMap()
     {
         $res = [];
-        if (null !== $this->regionId) {
-            $res['RegionId'] = $this->regionId;
+        if (null !== $this->desktopId) {
+            $res['DesktopId'] = $this->desktopId;
         }
         if (null !== $this->invokeId) {
             $res['InvokeId'] = $this->invokeId;
         }
-        if (null !== $this->desktopId) {
-            $res['DesktopId'] = $this->desktopId;
+        if (null !== $this->regionId) {
+            $res['RegionId'] = $this->regionId;
         }
 
         return $res;
@@ -56,16 +58,16 @@ class StopInvocationRequest extends Model
     public static function fromMap($map = [])
     {
         $model = new self();
-        if (isset($map['RegionId'])) {
-            $model->regionId = $map['RegionId'];
-        }
-        if (isset($map['InvokeId'])) {
-            $model->invokeId = $map['InvokeId'];
-        }
         if (isset($map['DesktopId'])) {
             if (!empty($map['DesktopId'])) {
                 $model->desktopId = $map['DesktopId'];
             }
+        }
+        if (isset($map['InvokeId'])) {
+            $model->invokeId = $map['InvokeId'];
+        }
+        if (isset($map['RegionId'])) {
+            $model->regionId = $map['RegionId'];
         }
 
         return $model;

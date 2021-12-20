@@ -9,33 +9,43 @@ use AlibabaCloud\Tea\Model;
 class DescribeScanTaskProgressResponse extends Model
 {
     /**
-     * @var string[]
+     * @var string
      */
-    public $headers;
+    public $createTime;
 
     /**
-     * @var DescribeScanTaskProgressResponseBody
+     * @var string
      */
-    public $body;
+    public $requestId;
+
+    /**
+     * @var string
+     */
+    public $taskStatus;
     protected $_name = [
-        'headers' => 'headers',
-        'body'    => 'body',
+        'createTime' => 'CreateTime',
+        'requestId'  => 'RequestId',
+        'taskStatus' => 'TaskStatus',
     ];
 
     public function validate()
     {
-        Model::validateRequired('headers', $this->headers, true);
-        Model::validateRequired('body', $this->body, true);
+        Model::validateRequired('createTime', $this->createTime, true);
+        Model::validateRequired('requestId', $this->requestId, true);
+        Model::validateRequired('taskStatus', $this->taskStatus, true);
     }
 
     public function toMap()
     {
         $res = [];
-        if (null !== $this->headers) {
-            $res['headers'] = $this->headers;
+        if (null !== $this->createTime) {
+            $res['CreateTime'] = $this->createTime;
         }
-        if (null !== $this->body) {
-            $res['body'] = null !== $this->body ? $this->body->toMap() : null;
+        if (null !== $this->requestId) {
+            $res['RequestId'] = $this->requestId;
+        }
+        if (null !== $this->taskStatus) {
+            $res['TaskStatus'] = $this->taskStatus;
         }
 
         return $res;
@@ -49,11 +59,14 @@ class DescribeScanTaskProgressResponse extends Model
     public static function fromMap($map = [])
     {
         $model = new self();
-        if (isset($map['headers'])) {
-            $model->headers = $map['headers'];
+        if (isset($map['CreateTime'])) {
+            $model->createTime = $map['CreateTime'];
         }
-        if (isset($map['body'])) {
-            $model->body = DescribeScanTaskProgressResponseBody::fromMap($map['body']);
+        if (isset($map['RequestId'])) {
+            $model->requestId = $map['RequestId'];
+        }
+        if (isset($map['TaskStatus'])) {
+            $model->taskStatus = $map['TaskStatus'];
         }
 
         return $model;

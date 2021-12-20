@@ -11,7 +11,17 @@ class CreateBundleRequest extends Model
     /**
      * @var string
      */
-    public $regionId;
+    public $bundleName;
+
+    /**
+     * @var string
+     */
+    public $description;
+
+    /**
+     * @var string
+     */
+    public $desktopType;
 
     /**
      * @var string
@@ -21,7 +31,17 @@ class CreateBundleRequest extends Model
     /**
      * @var string
      */
-    public $desktopType;
+    public $language;
+
+    /**
+     * @var string
+     */
+    public $regionId;
+
+    /**
+     * @var string
+     */
+    public $rootDiskPerformanceLevel;
 
     /**
      * @var int
@@ -31,51 +51,63 @@ class CreateBundleRequest extends Model
     /**
      * @var string
      */
-    public $bundleName;
-
-    /**
-     * @var string
-     */
-    public $description;
+    public $userDiskPerformanceLevel;
 
     /**
      * @var int[]
      */
     public $userDiskSizeGib;
     protected $_name = [
-        'regionId'        => 'RegionId',
-        'imageId'         => 'ImageId',
-        'desktopType'     => 'DesktopType',
-        'rootDiskSizeGib' => 'RootDiskSizeGib',
-        'bundleName'      => 'BundleName',
-        'description'     => 'Description',
-        'userDiskSizeGib' => 'UserDiskSizeGib',
+        'bundleName'               => 'BundleName',
+        'description'              => 'Description',
+        'desktopType'              => 'DesktopType',
+        'imageId'                  => 'ImageId',
+        'language'                 => 'Language',
+        'regionId'                 => 'RegionId',
+        'rootDiskPerformanceLevel' => 'RootDiskPerformanceLevel',
+        'rootDiskSizeGib'          => 'RootDiskSizeGib',
+        'userDiskPerformanceLevel' => 'UserDiskPerformanceLevel',
+        'userDiskSizeGib'          => 'UserDiskSizeGib',
     ];
 
     public function validate()
     {
+        Model::validateRequired('desktopType', $this->desktopType, true);
+        Model::validateRequired('imageId', $this->imageId, true);
+        Model::validateRequired('regionId', $this->regionId, true);
+        Model::validateRequired('rootDiskSizeGib', $this->rootDiskSizeGib, true);
+        Model::validateRequired('userDiskSizeGib', $this->userDiskSizeGib, true);
     }
 
     public function toMap()
     {
         $res = [];
-        if (null !== $this->regionId) {
-            $res['RegionId'] = $this->regionId;
-        }
-        if (null !== $this->imageId) {
-            $res['ImageId'] = $this->imageId;
-        }
-        if (null !== $this->desktopType) {
-            $res['DesktopType'] = $this->desktopType;
-        }
-        if (null !== $this->rootDiskSizeGib) {
-            $res['RootDiskSizeGib'] = $this->rootDiskSizeGib;
-        }
         if (null !== $this->bundleName) {
             $res['BundleName'] = $this->bundleName;
         }
         if (null !== $this->description) {
             $res['Description'] = $this->description;
+        }
+        if (null !== $this->desktopType) {
+            $res['DesktopType'] = $this->desktopType;
+        }
+        if (null !== $this->imageId) {
+            $res['ImageId'] = $this->imageId;
+        }
+        if (null !== $this->language) {
+            $res['Language'] = $this->language;
+        }
+        if (null !== $this->regionId) {
+            $res['RegionId'] = $this->regionId;
+        }
+        if (null !== $this->rootDiskPerformanceLevel) {
+            $res['RootDiskPerformanceLevel'] = $this->rootDiskPerformanceLevel;
+        }
+        if (null !== $this->rootDiskSizeGib) {
+            $res['RootDiskSizeGib'] = $this->rootDiskSizeGib;
+        }
+        if (null !== $this->userDiskPerformanceLevel) {
+            $res['UserDiskPerformanceLevel'] = $this->userDiskPerformanceLevel;
         }
         if (null !== $this->userDiskSizeGib) {
             $res['UserDiskSizeGib'] = $this->userDiskSizeGib;
@@ -92,23 +124,32 @@ class CreateBundleRequest extends Model
     public static function fromMap($map = [])
     {
         $model = new self();
-        if (isset($map['RegionId'])) {
-            $model->regionId = $map['RegionId'];
-        }
-        if (isset($map['ImageId'])) {
-            $model->imageId = $map['ImageId'];
-        }
-        if (isset($map['DesktopType'])) {
-            $model->desktopType = $map['DesktopType'];
-        }
-        if (isset($map['RootDiskSizeGib'])) {
-            $model->rootDiskSizeGib = $map['RootDiskSizeGib'];
-        }
         if (isset($map['BundleName'])) {
             $model->bundleName = $map['BundleName'];
         }
         if (isset($map['Description'])) {
             $model->description = $map['Description'];
+        }
+        if (isset($map['DesktopType'])) {
+            $model->desktopType = $map['DesktopType'];
+        }
+        if (isset($map['ImageId'])) {
+            $model->imageId = $map['ImageId'];
+        }
+        if (isset($map['Language'])) {
+            $model->language = $map['Language'];
+        }
+        if (isset($map['RegionId'])) {
+            $model->regionId = $map['RegionId'];
+        }
+        if (isset($map['RootDiskPerformanceLevel'])) {
+            $model->rootDiskPerformanceLevel = $map['RootDiskPerformanceLevel'];
+        }
+        if (isset($map['RootDiskSizeGib'])) {
+            $model->rootDiskSizeGib = $map['RootDiskSizeGib'];
+        }
+        if (isset($map['UserDiskPerformanceLevel'])) {
+            $model->userDiskPerformanceLevel = $map['UserDiskPerformanceLevel'];
         }
         if (isset($map['UserDiskSizeGib'])) {
             if (!empty($map['UserDiskSizeGib'])) {

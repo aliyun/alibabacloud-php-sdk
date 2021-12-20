@@ -9,6 +9,11 @@ use AlibabaCloud\Tea\Model;
 class StopDesktopsRequest extends Model
 {
     /**
+     * @var string[]
+     */
+    public $desktopId;
+
+    /**
      * @var string
      */
     public $regionId;
@@ -17,32 +22,29 @@ class StopDesktopsRequest extends Model
      * @var string
      */
     public $stoppedMode;
-
-    /**
-     * @var string[]
-     */
-    public $desktopId;
     protected $_name = [
+        'desktopId'   => 'DesktopId',
         'regionId'    => 'RegionId',
         'stoppedMode' => 'StoppedMode',
-        'desktopId'   => 'DesktopId',
     ];
 
     public function validate()
     {
+        Model::validateRequired('desktopId', $this->desktopId, true);
+        Model::validateRequired('regionId', $this->regionId, true);
     }
 
     public function toMap()
     {
         $res = [];
+        if (null !== $this->desktopId) {
+            $res['DesktopId'] = $this->desktopId;
+        }
         if (null !== $this->regionId) {
             $res['RegionId'] = $this->regionId;
         }
         if (null !== $this->stoppedMode) {
             $res['StoppedMode'] = $this->stoppedMode;
-        }
-        if (null !== $this->desktopId) {
-            $res['DesktopId'] = $this->desktopId;
         }
 
         return $res;
@@ -56,16 +58,16 @@ class StopDesktopsRequest extends Model
     public static function fromMap($map = [])
     {
         $model = new self();
+        if (isset($map['DesktopId'])) {
+            if (!empty($map['DesktopId'])) {
+                $model->desktopId = $map['DesktopId'];
+            }
+        }
         if (isset($map['RegionId'])) {
             $model->regionId = $map['RegionId'];
         }
         if (isset($map['StoppedMode'])) {
             $model->stoppedMode = $map['StoppedMode'];
-        }
-        if (isset($map['DesktopId'])) {
-            if (!empty($map['DesktopId'])) {
-                $model->desktopId = $map['DesktopId'];
-            }
         }
 
         return $model;

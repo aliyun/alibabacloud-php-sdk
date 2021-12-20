@@ -1,3 +1,6 @@
+2021-12-20 Version: 1.0.2
+- Rebuild desktop using image id.
+
 2021-08-03 Version: 2.0.1
 - Generated php 2020-09-30 for ecd.
 

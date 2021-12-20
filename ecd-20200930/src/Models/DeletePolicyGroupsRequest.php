@@ -9,31 +9,33 @@ use AlibabaCloud\Tea\Model;
 class DeletePolicyGroupsRequest extends Model
 {
     /**
-     * @var string
-     */
-    public $regionId;
-
-    /**
      * @var string[]
      */
     public $policyGroupId;
+
+    /**
+     * @var string
+     */
+    public $regionId;
     protected $_name = [
-        'regionId'      => 'RegionId',
         'policyGroupId' => 'PolicyGroupId',
+        'regionId'      => 'RegionId',
     ];
 
     public function validate()
     {
+        Model::validateRequired('policyGroupId', $this->policyGroupId, true);
+        Model::validateRequired('regionId', $this->regionId, true);
     }
 
     public function toMap()
     {
         $res = [];
-        if (null !== $this->regionId) {
-            $res['RegionId'] = $this->regionId;
-        }
         if (null !== $this->policyGroupId) {
             $res['PolicyGroupId'] = $this->policyGroupId;
+        }
+        if (null !== $this->regionId) {
+            $res['RegionId'] = $this->regionId;
         }
 
         return $res;
@@ -47,13 +49,13 @@ class DeletePolicyGroupsRequest extends Model
     public static function fromMap($map = [])
     {
         $model = new self();
-        if (isset($map['RegionId'])) {
-            $model->regionId = $map['RegionId'];
-        }
         if (isset($map['PolicyGroupId'])) {
             if (!empty($map['PolicyGroupId'])) {
                 $model->policyGroupId = $map['PolicyGroupId'];
             }
+        }
+        if (isset($map['RegionId'])) {
+            $model->regionId = $map['RegionId'];
         }
 
         return $model;

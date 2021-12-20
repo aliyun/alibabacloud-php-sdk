@@ -11,22 +11,12 @@ class DescribeInvocationsRequest extends Model
     /**
      * @var string
      */
-    public $regionId;
-
-    /**
-     * @var string
-     */
-    public $invokeId;
-
-    /**
-     * @var string
-     */
     public $commandType;
 
     /**
      * @var string
      */
-    public $invokeStatus;
+    public $contentEncoding;
 
     /**
      * @var string
@@ -41,7 +31,12 @@ class DescribeInvocationsRequest extends Model
     /**
      * @var string
      */
-    public $contentEncoding;
+    public $invokeId;
+
+    /**
+     * @var string
+     */
+    public $invokeStatus;
 
     /**
      * @var int
@@ -52,36 +47,36 @@ class DescribeInvocationsRequest extends Model
      * @var string
      */
     public $nextToken;
+
+    /**
+     * @var string
+     */
+    public $regionId;
     protected $_name = [
-        'regionId'        => 'RegionId',
-        'invokeId'        => 'InvokeId',
         'commandType'     => 'CommandType',
-        'invokeStatus'    => 'InvokeStatus',
+        'contentEncoding' => 'ContentEncoding',
         'desktopId'       => 'DesktopId',
         'includeOutput'   => 'IncludeOutput',
-        'contentEncoding' => 'ContentEncoding',
+        'invokeId'        => 'InvokeId',
+        'invokeStatus'    => 'InvokeStatus',
         'maxResults'      => 'MaxResults',
         'nextToken'       => 'NextToken',
+        'regionId'        => 'RegionId',
     ];
 
     public function validate()
     {
+        Model::validateRequired('regionId', $this->regionId, true);
     }
 
     public function toMap()
     {
         $res = [];
-        if (null !== $this->regionId) {
-            $res['RegionId'] = $this->regionId;
-        }
-        if (null !== $this->invokeId) {
-            $res['InvokeId'] = $this->invokeId;
-        }
         if (null !== $this->commandType) {
             $res['CommandType'] = $this->commandType;
         }
-        if (null !== $this->invokeStatus) {
-            $res['InvokeStatus'] = $this->invokeStatus;
+        if (null !== $this->contentEncoding) {
+            $res['ContentEncoding'] = $this->contentEncoding;
         }
         if (null !== $this->desktopId) {
             $res['DesktopId'] = $this->desktopId;
@@ -89,14 +84,20 @@ class DescribeInvocationsRequest extends Model
         if (null !== $this->includeOutput) {
             $res['IncludeOutput'] = $this->includeOutput;
         }
-        if (null !== $this->contentEncoding) {
-            $res['ContentEncoding'] = $this->contentEncoding;
+        if (null !== $this->invokeId) {
+            $res['InvokeId'] = $this->invokeId;
+        }
+        if (null !== $this->invokeStatus) {
+            $res['InvokeStatus'] = $this->invokeStatus;
         }
         if (null !== $this->maxResults) {
             $res['MaxResults'] = $this->maxResults;
         }
         if (null !== $this->nextToken) {
             $res['NextToken'] = $this->nextToken;
+        }
+        if (null !== $this->regionId) {
+            $res['RegionId'] = $this->regionId;
         }
 
         return $res;
@@ -110,17 +111,11 @@ class DescribeInvocationsRequest extends Model
     public static function fromMap($map = [])
     {
         $model = new self();
-        if (isset($map['RegionId'])) {
-            $model->regionId = $map['RegionId'];
-        }
-        if (isset($map['InvokeId'])) {
-            $model->invokeId = $map['InvokeId'];
-        }
         if (isset($map['CommandType'])) {
             $model->commandType = $map['CommandType'];
         }
-        if (isset($map['InvokeStatus'])) {
-            $model->invokeStatus = $map['InvokeStatus'];
+        if (isset($map['ContentEncoding'])) {
+            $model->contentEncoding = $map['ContentEncoding'];
         }
         if (isset($map['DesktopId'])) {
             $model->desktopId = $map['DesktopId'];
@@ -128,14 +123,20 @@ class DescribeInvocationsRequest extends Model
         if (isset($map['IncludeOutput'])) {
             $model->includeOutput = $map['IncludeOutput'];
         }
-        if (isset($map['ContentEncoding'])) {
-            $model->contentEncoding = $map['ContentEncoding'];
+        if (isset($map['InvokeId'])) {
+            $model->invokeId = $map['InvokeId'];
+        }
+        if (isset($map['InvokeStatus'])) {
+            $model->invokeStatus = $map['InvokeStatus'];
         }
         if (isset($map['MaxResults'])) {
             $model->maxResults = $map['MaxResults'];
         }
         if (isset($map['NextToken'])) {
             $model->nextToken = $map['NextToken'];
+        }
+        if (isset($map['RegionId'])) {
+            $model->regionId = $map['RegionId'];
         }
 
         return $model;

@@ -11,12 +11,7 @@ class DescribePostPaidDesktopBillsRequest extends Model
     /**
      * @var string
      */
-    public $regionId;
-
-    /**
-     * @var string
-     */
-    public $desktopGroupId;
+    public $billEndTime;
 
     /**
      * @var string
@@ -26,7 +21,7 @@ class DescribePostPaidDesktopBillsRequest extends Model
     /**
      * @var string
      */
-    public $billEndTime;
+    public $desktopGroupId;
 
     /**
      * @var int
@@ -37,39 +32,48 @@ class DescribePostPaidDesktopBillsRequest extends Model
      * @var string
      */
     public $nextToken;
+
+    /**
+     * @var string
+     */
+    public $regionId;
     protected $_name = [
-        'regionId'       => 'RegionId',
-        'desktopGroupId' => 'DesktopGroupId',
-        'billStartTime'  => 'BillStartTime',
         'billEndTime'    => 'BillEndTime',
+        'billStartTime'  => 'BillStartTime',
+        'desktopGroupId' => 'DesktopGroupId',
         'maxResults'     => 'MaxResults',
         'nextToken'      => 'NextToken',
+        'regionId'       => 'RegionId',
     ];
 
     public function validate()
     {
+        Model::validateRequired('billEndTime', $this->billEndTime, true);
+        Model::validateRequired('billStartTime', $this->billStartTime, true);
+        Model::validateRequired('desktopGroupId', $this->desktopGroupId, true);
+        Model::validateRequired('regionId', $this->regionId, true);
     }
 
     public function toMap()
     {
         $res = [];
-        if (null !== $this->regionId) {
-            $res['RegionId'] = $this->regionId;
-        }
-        if (null !== $this->desktopGroupId) {
-            $res['DesktopGroupId'] = $this->desktopGroupId;
+        if (null !== $this->billEndTime) {
+            $res['BillEndTime'] = $this->billEndTime;
         }
         if (null !== $this->billStartTime) {
             $res['BillStartTime'] = $this->billStartTime;
         }
-        if (null !== $this->billEndTime) {
-            $res['BillEndTime'] = $this->billEndTime;
+        if (null !== $this->desktopGroupId) {
+            $res['DesktopGroupId'] = $this->desktopGroupId;
         }
         if (null !== $this->maxResults) {
             $res['MaxResults'] = $this->maxResults;
         }
         if (null !== $this->nextToken) {
             $res['NextToken'] = $this->nextToken;
+        }
+        if (null !== $this->regionId) {
+            $res['RegionId'] = $this->regionId;
         }
 
         return $res;
@@ -83,23 +87,23 @@ class DescribePostPaidDesktopBillsRequest extends Model
     public static function fromMap($map = [])
     {
         $model = new self();
-        if (isset($map['RegionId'])) {
-            $model->regionId = $map['RegionId'];
-        }
-        if (isset($map['DesktopGroupId'])) {
-            $model->desktopGroupId = $map['DesktopGroupId'];
+        if (isset($map['BillEndTime'])) {
+            $model->billEndTime = $map['BillEndTime'];
         }
         if (isset($map['BillStartTime'])) {
             $model->billStartTime = $map['BillStartTime'];
         }
-        if (isset($map['BillEndTime'])) {
-            $model->billEndTime = $map['BillEndTime'];
+        if (isset($map['DesktopGroupId'])) {
+            $model->desktopGroupId = $map['DesktopGroupId'];
         }
         if (isset($map['MaxResults'])) {
             $model->maxResults = $map['MaxResults'];
         }
         if (isset($map['NextToken'])) {
             $model->nextToken = $map['NextToken'];
+        }
+        if (isset($map['RegionId'])) {
+            $model->regionId = $map['RegionId'];
         }
 
         return $model;

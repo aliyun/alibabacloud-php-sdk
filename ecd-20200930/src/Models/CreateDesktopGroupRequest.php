@@ -9,9 +9,19 @@ use AlibabaCloud\Tea\Model;
 class CreateDesktopGroupRequest extends Model
 {
     /**
-     * @var string
+     * @var int
      */
-    public $regionId;
+    public $allowAutoSetup;
+
+    /**
+     * @var int
+     */
+    public $allowBufferCount;
+
+    /**
+     * @var bool
+     */
+    public $autoPay;
 
     /**
      * @var string
@@ -21,12 +31,22 @@ class CreateDesktopGroupRequest extends Model
     /**
      * @var string
      */
-    public $officeSiteId;
+    public $chargeType;
 
     /**
      * @var string
      */
-    public $policyGroupId;
+    public $clientToken;
+
+    /**
+     * @var string
+     */
+    public $comments;
+
+    /**
+     * @var int
+     */
+    public $defaultInitDesktopCount;
 
     /**
      * @var string
@@ -39,19 +59,9 @@ class CreateDesktopGroupRequest extends Model
     public $directoryId;
 
     /**
-     * @var string
+     * @var string[]
      */
-    public $scaleStrategyId;
-
-    /**
-     * @var string
-     */
-    public $vpcId;
-
-    /**
-     * @var int
-     */
-    public $defaultInitDesktopCount;
+    public $endUserIds;
 
     /**
      * @var int
@@ -59,9 +69,24 @@ class CreateDesktopGroupRequest extends Model
     public $keepDuration;
 
     /**
+     * @var int
+     */
+    public $maxDesktopsCount;
+
+    /**
+     * @var int
+     */
+    public $minDesktopsCount;
+
+    /**
      * @var string
      */
-    public $chargeType;
+    public $officeSiteId;
+
+    /**
+     * @var int
+     */
+    public $ownType;
 
     /**
      * @var int
@@ -74,92 +99,89 @@ class CreateDesktopGroupRequest extends Model
     public $periodUnit;
 
     /**
-     * @var int
+     * @var string
      */
-    public $ownType;
-
-    /**
-     * @var bool
-     */
-    public $autoPay;
+    public $policyGroupId;
 
     /**
      * @var string
      */
-    public $comments;
+    public $regionId;
 
     /**
      * @var int
      */
-    public $minDesktopsCount;
-
-    /**
-     * @var int
-     */
-    public $maxDesktopsCount;
-
-    /**
-     * @var int
-     */
-    public $allowAutoSetup;
-
-    /**
-     * @var int
-     */
-    public $allowBufferCount;
+    public $resetType;
 
     /**
      * @var string
      */
-    public $clientToken;
+    public $scaleStrategyId;
 
     /**
-     * @var string[]
+     * @var string
      */
-    public $endUserIds;
+    public $vpcId;
     protected $_name = [
-        'regionId'                => 'RegionId',
-        'bundleId'                => 'BundleId',
-        'officeSiteId'            => 'OfficeSiteId',
-        'policyGroupId'           => 'PolicyGroupId',
-        'desktopGroupName'        => 'DesktopGroupName',
-        'directoryId'             => 'DirectoryId',
-        'scaleStrategyId'         => 'ScaleStrategyId',
-        'vpcId'                   => 'VpcId',
-        'defaultInitDesktopCount' => 'DefaultInitDesktopCount',
-        'keepDuration'            => 'KeepDuration',
-        'chargeType'              => 'ChargeType',
-        'period'                  => 'Period',
-        'periodUnit'              => 'PeriodUnit',
-        'ownType'                 => 'OwnType',
-        'autoPay'                 => 'AutoPay',
-        'comments'                => 'Comments',
-        'minDesktopsCount'        => 'MinDesktopsCount',
-        'maxDesktopsCount'        => 'MaxDesktopsCount',
         'allowAutoSetup'          => 'AllowAutoSetup',
         'allowBufferCount'        => 'AllowBufferCount',
+        'autoPay'                 => 'AutoPay',
+        'bundleId'                => 'BundleId',
+        'chargeType'              => 'ChargeType',
         'clientToken'             => 'ClientToken',
+        'comments'                => 'Comments',
+        'defaultInitDesktopCount' => 'DefaultInitDesktopCount',
+        'desktopGroupName'        => 'DesktopGroupName',
+        'directoryId'             => 'DirectoryId',
         'endUserIds'              => 'EndUserIds',
+        'keepDuration'            => 'KeepDuration',
+        'maxDesktopsCount'        => 'MaxDesktopsCount',
+        'minDesktopsCount'        => 'MinDesktopsCount',
+        'officeSiteId'            => 'OfficeSiteId',
+        'ownType'                 => 'OwnType',
+        'period'                  => 'Period',
+        'periodUnit'              => 'PeriodUnit',
+        'policyGroupId'           => 'PolicyGroupId',
+        'regionId'                => 'RegionId',
+        'resetType'               => 'ResetType',
+        'scaleStrategyId'         => 'ScaleStrategyId',
+        'vpcId'                   => 'VpcId',
     ];
 
     public function validate()
     {
+        Model::validateRequired('bundleId', $this->bundleId, true);
+        Model::validateRequired('endUserIds', $this->endUserIds, true);
+        Model::validateRequired('officeSiteId', $this->officeSiteId, true);
+        Model::validateRequired('regionId', $this->regionId, true);
     }
 
     public function toMap()
     {
         $res = [];
-        if (null !== $this->regionId) {
-            $res['RegionId'] = $this->regionId;
+        if (null !== $this->allowAutoSetup) {
+            $res['AllowAutoSetup'] = $this->allowAutoSetup;
+        }
+        if (null !== $this->allowBufferCount) {
+            $res['AllowBufferCount'] = $this->allowBufferCount;
+        }
+        if (null !== $this->autoPay) {
+            $res['AutoPay'] = $this->autoPay;
         }
         if (null !== $this->bundleId) {
             $res['BundleId'] = $this->bundleId;
         }
-        if (null !== $this->officeSiteId) {
-            $res['OfficeSiteId'] = $this->officeSiteId;
+        if (null !== $this->chargeType) {
+            $res['ChargeType'] = $this->chargeType;
         }
-        if (null !== $this->policyGroupId) {
-            $res['PolicyGroupId'] = $this->policyGroupId;
+        if (null !== $this->clientToken) {
+            $res['ClientToken'] = $this->clientToken;
+        }
+        if (null !== $this->comments) {
+            $res['Comments'] = $this->comments;
+        }
+        if (null !== $this->defaultInitDesktopCount) {
+            $res['DefaultInitDesktopCount'] = $this->defaultInitDesktopCount;
         }
         if (null !== $this->desktopGroupName) {
             $res['DesktopGroupName'] = $this->desktopGroupName;
@@ -167,20 +189,23 @@ class CreateDesktopGroupRequest extends Model
         if (null !== $this->directoryId) {
             $res['DirectoryId'] = $this->directoryId;
         }
-        if (null !== $this->scaleStrategyId) {
-            $res['ScaleStrategyId'] = $this->scaleStrategyId;
-        }
-        if (null !== $this->vpcId) {
-            $res['VpcId'] = $this->vpcId;
-        }
-        if (null !== $this->defaultInitDesktopCount) {
-            $res['DefaultInitDesktopCount'] = $this->defaultInitDesktopCount;
+        if (null !== $this->endUserIds) {
+            $res['EndUserIds'] = $this->endUserIds;
         }
         if (null !== $this->keepDuration) {
             $res['KeepDuration'] = $this->keepDuration;
         }
-        if (null !== $this->chargeType) {
-            $res['ChargeType'] = $this->chargeType;
+        if (null !== $this->maxDesktopsCount) {
+            $res['MaxDesktopsCount'] = $this->maxDesktopsCount;
+        }
+        if (null !== $this->minDesktopsCount) {
+            $res['MinDesktopsCount'] = $this->minDesktopsCount;
+        }
+        if (null !== $this->officeSiteId) {
+            $res['OfficeSiteId'] = $this->officeSiteId;
+        }
+        if (null !== $this->ownType) {
+            $res['OwnType'] = $this->ownType;
         }
         if (null !== $this->period) {
             $res['Period'] = $this->period;
@@ -188,32 +213,20 @@ class CreateDesktopGroupRequest extends Model
         if (null !== $this->periodUnit) {
             $res['PeriodUnit'] = $this->periodUnit;
         }
-        if (null !== $this->ownType) {
-            $res['OwnType'] = $this->ownType;
+        if (null !== $this->policyGroupId) {
+            $res['PolicyGroupId'] = $this->policyGroupId;
         }
-        if (null !== $this->autoPay) {
-            $res['AutoPay'] = $this->autoPay;
+        if (null !== $this->regionId) {
+            $res['RegionId'] = $this->regionId;
         }
-        if (null !== $this->comments) {
-            $res['Comments'] = $this->comments;
+        if (null !== $this->resetType) {
+            $res['ResetType'] = $this->resetType;
         }
-        if (null !== $this->minDesktopsCount) {
-            $res['MinDesktopsCount'] = $this->minDesktopsCount;
+        if (null !== $this->scaleStrategyId) {
+            $res['ScaleStrategyId'] = $this->scaleStrategyId;
         }
-        if (null !== $this->maxDesktopsCount) {
-            $res['MaxDesktopsCount'] = $this->maxDesktopsCount;
-        }
-        if (null !== $this->allowAutoSetup) {
-            $res['AllowAutoSetup'] = $this->allowAutoSetup;
-        }
-        if (null !== $this->allowBufferCount) {
-            $res['AllowBufferCount'] = $this->allowBufferCount;
-        }
-        if (null !== $this->clientToken) {
-            $res['ClientToken'] = $this->clientToken;
-        }
-        if (null !== $this->endUserIds) {
-            $res['EndUserIds'] = $this->endUserIds;
+        if (null !== $this->vpcId) {
+            $res['VpcId'] = $this->vpcId;
         }
 
         return $res;
@@ -227,17 +240,29 @@ class CreateDesktopGroupRequest extends Model
     public static function fromMap($map = [])
     {
         $model = new self();
-        if (isset($map['RegionId'])) {
-            $model->regionId = $map['RegionId'];
+        if (isset($map['AllowAutoSetup'])) {
+            $model->allowAutoSetup = $map['AllowAutoSetup'];
+        }
+        if (isset($map['AllowBufferCount'])) {
+            $model->allowBufferCount = $map['AllowBufferCount'];
+        }
+        if (isset($map['AutoPay'])) {
+            $model->autoPay = $map['AutoPay'];
         }
         if (isset($map['BundleId'])) {
             $model->bundleId = $map['BundleId'];
         }
-        if (isset($map['OfficeSiteId'])) {
-            $model->officeSiteId = $map['OfficeSiteId'];
+        if (isset($map['ChargeType'])) {
+            $model->chargeType = $map['ChargeType'];
         }
-        if (isset($map['PolicyGroupId'])) {
-            $model->policyGroupId = $map['PolicyGroupId'];
+        if (isset($map['ClientToken'])) {
+            $model->clientToken = $map['ClientToken'];
+        }
+        if (isset($map['Comments'])) {
+            $model->comments = $map['Comments'];
+        }
+        if (isset($map['DefaultInitDesktopCount'])) {
+            $model->defaultInitDesktopCount = $map['DefaultInitDesktopCount'];
         }
         if (isset($map['DesktopGroupName'])) {
             $model->desktopGroupName = $map['DesktopGroupName'];
@@ -245,20 +270,25 @@ class CreateDesktopGroupRequest extends Model
         if (isset($map['DirectoryId'])) {
             $model->directoryId = $map['DirectoryId'];
         }
-        if (isset($map['ScaleStrategyId'])) {
-            $model->scaleStrategyId = $map['ScaleStrategyId'];
-        }
-        if (isset($map['VpcId'])) {
-            $model->vpcId = $map['VpcId'];
-        }
-        if (isset($map['DefaultInitDesktopCount'])) {
-            $model->defaultInitDesktopCount = $map['DefaultInitDesktopCount'];
+        if (isset($map['EndUserIds'])) {
+            if (!empty($map['EndUserIds'])) {
+                $model->endUserIds = $map['EndUserIds'];
+            }
         }
         if (isset($map['KeepDuration'])) {
             $model->keepDuration = $map['KeepDuration'];
         }
-        if (isset($map['ChargeType'])) {
-            $model->chargeType = $map['ChargeType'];
+        if (isset($map['MaxDesktopsCount'])) {
+            $model->maxDesktopsCount = $map['MaxDesktopsCount'];
+        }
+        if (isset($map['MinDesktopsCount'])) {
+            $model->minDesktopsCount = $map['MinDesktopsCount'];
+        }
+        if (isset($map['OfficeSiteId'])) {
+            $model->officeSiteId = $map['OfficeSiteId'];
+        }
+        if (isset($map['OwnType'])) {
+            $model->ownType = $map['OwnType'];
         }
         if (isset($map['Period'])) {
             $model->period = $map['Period'];
@@ -266,34 +296,20 @@ class CreateDesktopGroupRequest extends Model
         if (isset($map['PeriodUnit'])) {
             $model->periodUnit = $map['PeriodUnit'];
         }
-        if (isset($map['OwnType'])) {
-            $model->ownType = $map['OwnType'];
+        if (isset($map['PolicyGroupId'])) {
+            $model->policyGroupId = $map['PolicyGroupId'];
         }
-        if (isset($map['AutoPay'])) {
-            $model->autoPay = $map['AutoPay'];
+        if (isset($map['RegionId'])) {
+            $model->regionId = $map['RegionId'];
         }
-        if (isset($map['Comments'])) {
-            $model->comments = $map['Comments'];
+        if (isset($map['ResetType'])) {
+            $model->resetType = $map['ResetType'];
         }
-        if (isset($map['MinDesktopsCount'])) {
-            $model->minDesktopsCount = $map['MinDesktopsCount'];
+        if (isset($map['ScaleStrategyId'])) {
+            $model->scaleStrategyId = $map['ScaleStrategyId'];
         }
-        if (isset($map['MaxDesktopsCount'])) {
-            $model->maxDesktopsCount = $map['MaxDesktopsCount'];
-        }
-        if (isset($map['AllowAutoSetup'])) {
-            $model->allowAutoSetup = $map['AllowAutoSetup'];
-        }
-        if (isset($map['AllowBufferCount'])) {
-            $model->allowBufferCount = $map['AllowBufferCount'];
-        }
-        if (isset($map['ClientToken'])) {
-            $model->clientToken = $map['ClientToken'];
-        }
-        if (isset($map['EndUserIds'])) {
-            if (!empty($map['EndUserIds'])) {
-                $model->endUserIds = $map['EndUserIds'];
-            }
+        if (isset($map['VpcId'])) {
+            $model->vpcId = $map['VpcId'];
         }
 
         return $model;

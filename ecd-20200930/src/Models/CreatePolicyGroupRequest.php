@@ -6,14 +6,25 @@ namespace AlibabaCloud\SDK\Ecd\V20200930\Models;
 
 use AlibabaCloud\SDK\Ecd\V20200930\Models\CreatePolicyGroupRequest\authorizeAccessPolicyRule;
 use AlibabaCloud\SDK\Ecd\V20200930\Models\CreatePolicyGroupRequest\authorizeSecurityPolicyRule;
+use AlibabaCloud\SDK\Ecd\V20200930\Models\CreatePolicyGroupRequest\clientType;
 use AlibabaCloud\Tea\Model;
 
 class CreatePolicyGroupRequest extends Model
 {
     /**
-     * @var string
+     * @var authorizeAccessPolicyRule[]
      */
-    public $regionId;
+    public $authorizeAccessPolicyRule;
+
+    /**
+     * @var authorizeSecurityPolicyRule[]
+     */
+    public $authorizeSecurityPolicyRule;
+
+    /**
+     * @var clientType[]
+     */
+    public $clientType;
 
     /**
      * @var string
@@ -23,17 +34,12 @@ class CreatePolicyGroupRequest extends Model
     /**
      * @var string
      */
-    public $localDrive;
+    public $domainList;
 
     /**
      * @var string
      */
-    public $usbRedirect;
-
-    /**
-     * @var string
-     */
-    public $visualQuality;
+    public $gpuAcceleration;
 
     /**
      * @var string
@@ -48,7 +54,7 @@ class CreatePolicyGroupRequest extends Model
     /**
      * @var string
      */
-    public $watermark;
+    public $localDrive;
 
     /**
      * @var string
@@ -58,7 +64,37 @@ class CreatePolicyGroupRequest extends Model
     /**
      * @var string
      */
-    public $watermarkType;
+    public $preemptLogin;
+
+    /**
+     * @var string[]
+     */
+    public $preemptLoginUser;
+
+    /**
+     * @var string
+     */
+    public $printerRedirection;
+
+    /**
+     * @var string
+     */
+    public $regionId;
+
+    /**
+     * @var string
+     */
+    public $usbRedirect;
+
+    /**
+     * @var string
+     */
+    public $visualQuality;
+
+    /**
+     * @var string
+     */
+    public $watermark;
 
     /**
      * @var string
@@ -73,98 +109,46 @@ class CreatePolicyGroupRequest extends Model
     /**
      * @var string
      */
-    public $preemptLogin;
-
-    /**
-     * @var string
-     */
-    public $domainList;
-
-    /**
-     * @var string[]
-     */
-    public $preemptLoginUser;
-
-    /**
-     * @var authorizeSecurityPolicyRule[]
-     */
-    public $authorizeSecurityPolicyRule;
-
-    /**
-     * @var authorizeAccessPolicyRule[]
-     */
-    public $authorizeAccessPolicyRule;
+    public $watermarkType;
     protected $_name = [
-        'regionId'                    => 'RegionId',
+        'authorizeAccessPolicyRule'   => 'AuthorizeAccessPolicyRule',
+        'authorizeSecurityPolicyRule' => 'AuthorizeSecurityPolicyRule',
+        'clientType'                  => 'ClientType',
         'clipboard'                   => 'Clipboard',
-        'localDrive'                  => 'LocalDrive',
-        'usbRedirect'                 => 'UsbRedirect',
-        'visualQuality'               => 'VisualQuality',
+        'domainList'                  => 'DomainList',
+        'gpuAcceleration'             => 'GpuAcceleration',
         'html5Access'                 => 'Html5Access',
         'html5FileTransfer'           => 'Html5FileTransfer',
-        'watermark'                   => 'Watermark',
+        'localDrive'                  => 'LocalDrive',
         'name'                        => 'Name',
-        'watermarkType'               => 'WatermarkType',
+        'preemptLogin'                => 'PreemptLogin',
+        'preemptLoginUser'            => 'PreemptLoginUser',
+        'printerRedirection'          => 'PrinterRedirection',
+        'regionId'                    => 'RegionId',
+        'usbRedirect'                 => 'UsbRedirect',
+        'visualQuality'               => 'VisualQuality',
+        'watermark'                   => 'Watermark',
         'watermarkCustomText'         => 'WatermarkCustomText',
         'watermarkTransparency'       => 'WatermarkTransparency',
-        'preemptLogin'                => 'PreemptLogin',
-        'domainList'                  => 'DomainList',
-        'preemptLoginUser'            => 'PreemptLoginUser',
-        'authorizeSecurityPolicyRule' => 'AuthorizeSecurityPolicyRule',
-        'authorizeAccessPolicyRule'   => 'AuthorizeAccessPolicyRule',
+        'watermarkType'               => 'WatermarkType',
     ];
 
     public function validate()
     {
+        Model::validateRequired('regionId', $this->regionId, true);
     }
 
     public function toMap()
     {
         $res = [];
-        if (null !== $this->regionId) {
-            $res['RegionId'] = $this->regionId;
-        }
-        if (null !== $this->clipboard) {
-            $res['Clipboard'] = $this->clipboard;
-        }
-        if (null !== $this->localDrive) {
-            $res['LocalDrive'] = $this->localDrive;
-        }
-        if (null !== $this->usbRedirect) {
-            $res['UsbRedirect'] = $this->usbRedirect;
-        }
-        if (null !== $this->visualQuality) {
-            $res['VisualQuality'] = $this->visualQuality;
-        }
-        if (null !== $this->html5Access) {
-            $res['Html5Access'] = $this->html5Access;
-        }
-        if (null !== $this->html5FileTransfer) {
-            $res['Html5FileTransfer'] = $this->html5FileTransfer;
-        }
-        if (null !== $this->watermark) {
-            $res['Watermark'] = $this->watermark;
-        }
-        if (null !== $this->name) {
-            $res['Name'] = $this->name;
-        }
-        if (null !== $this->watermarkType) {
-            $res['WatermarkType'] = $this->watermarkType;
-        }
-        if (null !== $this->watermarkCustomText) {
-            $res['WatermarkCustomText'] = $this->watermarkCustomText;
-        }
-        if (null !== $this->watermarkTransparency) {
-            $res['WatermarkTransparency'] = $this->watermarkTransparency;
-        }
-        if (null !== $this->preemptLogin) {
-            $res['PreemptLogin'] = $this->preemptLogin;
-        }
-        if (null !== $this->domainList) {
-            $res['DomainList'] = $this->domainList;
-        }
-        if (null !== $this->preemptLoginUser) {
-            $res['PreemptLoginUser'] = $this->preemptLoginUser;
+        if (null !== $this->authorizeAccessPolicyRule) {
+            $res['AuthorizeAccessPolicyRule'] = [];
+            if (null !== $this->authorizeAccessPolicyRule && \is_array($this->authorizeAccessPolicyRule)) {
+                $n = 0;
+                foreach ($this->authorizeAccessPolicyRule as $item) {
+                    $res['AuthorizeAccessPolicyRule'][$n++] = null !== $item ? $item->toMap() : $item;
+                }
+            }
         }
         if (null !== $this->authorizeSecurityPolicyRule) {
             $res['AuthorizeSecurityPolicyRule'] = [];
@@ -175,14 +159,65 @@ class CreatePolicyGroupRequest extends Model
                 }
             }
         }
-        if (null !== $this->authorizeAccessPolicyRule) {
-            $res['AuthorizeAccessPolicyRule'] = [];
-            if (null !== $this->authorizeAccessPolicyRule && \is_array($this->authorizeAccessPolicyRule)) {
+        if (null !== $this->clientType) {
+            $res['ClientType'] = [];
+            if (null !== $this->clientType && \is_array($this->clientType)) {
                 $n = 0;
-                foreach ($this->authorizeAccessPolicyRule as $item) {
-                    $res['AuthorizeAccessPolicyRule'][$n++] = null !== $item ? $item->toMap() : $item;
+                foreach ($this->clientType as $item) {
+                    $res['ClientType'][$n++] = null !== $item ? $item->toMap() : $item;
                 }
             }
+        }
+        if (null !== $this->clipboard) {
+            $res['Clipboard'] = $this->clipboard;
+        }
+        if (null !== $this->domainList) {
+            $res['DomainList'] = $this->domainList;
+        }
+        if (null !== $this->gpuAcceleration) {
+            $res['GpuAcceleration'] = $this->gpuAcceleration;
+        }
+        if (null !== $this->html5Access) {
+            $res['Html5Access'] = $this->html5Access;
+        }
+        if (null !== $this->html5FileTransfer) {
+            $res['Html5FileTransfer'] = $this->html5FileTransfer;
+        }
+        if (null !== $this->localDrive) {
+            $res['LocalDrive'] = $this->localDrive;
+        }
+        if (null !== $this->name) {
+            $res['Name'] = $this->name;
+        }
+        if (null !== $this->preemptLogin) {
+            $res['PreemptLogin'] = $this->preemptLogin;
+        }
+        if (null !== $this->preemptLoginUser) {
+            $res['PreemptLoginUser'] = $this->preemptLoginUser;
+        }
+        if (null !== $this->printerRedirection) {
+            $res['PrinterRedirection'] = $this->printerRedirection;
+        }
+        if (null !== $this->regionId) {
+            $res['RegionId'] = $this->regionId;
+        }
+        if (null !== $this->usbRedirect) {
+            $res['UsbRedirect'] = $this->usbRedirect;
+        }
+        if (null !== $this->visualQuality) {
+            $res['VisualQuality'] = $this->visualQuality;
+        }
+        if (null !== $this->watermark) {
+            $res['Watermark'] = $this->watermark;
+        }
+        if (null !== $this->watermarkCustomText) {
+            $res['WatermarkCustomText'] = $this->watermarkCustomText;
+        }
+        if (null !== $this->watermarkTransparency) {
+            $res['WatermarkTransparency'] = $this->watermarkTransparency;
+        }
+        if (null !== $this->watermarkType) {
+            $res['WatermarkType'] = $this->watermarkType;
         }
 
         return $res;
@@ -196,51 +231,13 @@ class CreatePolicyGroupRequest extends Model
     public static function fromMap($map = [])
     {
         $model = new self();
-        if (isset($map['RegionId'])) {
-            $model->regionId = $map['RegionId'];
-        }
-        if (isset($map['Clipboard'])) {
-            $model->clipboard = $map['Clipboard'];
-        }
-        if (isset($map['LocalDrive'])) {
-            $model->localDrive = $map['LocalDrive'];
-        }
-        if (isset($map['UsbRedirect'])) {
-            $model->usbRedirect = $map['UsbRedirect'];
-        }
-        if (isset($map['VisualQuality'])) {
-            $model->visualQuality = $map['VisualQuality'];
-        }
-        if (isset($map['Html5Access'])) {
-            $model->html5Access = $map['Html5Access'];
-        }
-        if (isset($map['Html5FileTransfer'])) {
-            $model->html5FileTransfer = $map['Html5FileTransfer'];
-        }
-        if (isset($map['Watermark'])) {
-            $model->watermark = $map['Watermark'];
-        }
-        if (isset($map['Name'])) {
-            $model->name = $map['Name'];
-        }
-        if (isset($map['WatermarkType'])) {
-            $model->watermarkType = $map['WatermarkType'];
-        }
-        if (isset($map['WatermarkCustomText'])) {
-            $model->watermarkCustomText = $map['WatermarkCustomText'];
-        }
-        if (isset($map['WatermarkTransparency'])) {
-            $model->watermarkTransparency = $map['WatermarkTransparency'];
-        }
-        if (isset($map['PreemptLogin'])) {
-            $model->preemptLogin = $map['PreemptLogin'];
-        }
-        if (isset($map['DomainList'])) {
-            $model->domainList = $map['DomainList'];
-        }
-        if (isset($map['PreemptLoginUser'])) {
-            if (!empty($map['PreemptLoginUser'])) {
-                $model->preemptLoginUser = $map['PreemptLoginUser'];
+        if (isset($map['AuthorizeAccessPolicyRule'])) {
+            if (!empty($map['AuthorizeAccessPolicyRule'])) {
+                $model->authorizeAccessPolicyRule = [];
+                $n                                = 0;
+                foreach ($map['AuthorizeAccessPolicyRule'] as $item) {
+                    $model->authorizeAccessPolicyRule[$n++] = null !== $item ? authorizeAccessPolicyRule::fromMap($item) : $item;
+                }
             }
         }
         if (isset($map['AuthorizeSecurityPolicyRule'])) {
@@ -252,14 +249,67 @@ class CreatePolicyGroupRequest extends Model
                 }
             }
         }
-        if (isset($map['AuthorizeAccessPolicyRule'])) {
-            if (!empty($map['AuthorizeAccessPolicyRule'])) {
-                $model->authorizeAccessPolicyRule = [];
-                $n                                = 0;
-                foreach ($map['AuthorizeAccessPolicyRule'] as $item) {
-                    $model->authorizeAccessPolicyRule[$n++] = null !== $item ? authorizeAccessPolicyRule::fromMap($item) : $item;
+        if (isset($map['ClientType'])) {
+            if (!empty($map['ClientType'])) {
+                $model->clientType = [];
+                $n                 = 0;
+                foreach ($map['ClientType'] as $item) {
+                    $model->clientType[$n++] = null !== $item ? clientType::fromMap($item) : $item;
                 }
             }
+        }
+        if (isset($map['Clipboard'])) {
+            $model->clipboard = $map['Clipboard'];
+        }
+        if (isset($map['DomainList'])) {
+            $model->domainList = $map['DomainList'];
+        }
+        if (isset($map['GpuAcceleration'])) {
+            $model->gpuAcceleration = $map['GpuAcceleration'];
+        }
+        if (isset($map['Html5Access'])) {
+            $model->html5Access = $map['Html5Access'];
+        }
+        if (isset($map['Html5FileTransfer'])) {
+            $model->html5FileTransfer = $map['Html5FileTransfer'];
+        }
+        if (isset($map['LocalDrive'])) {
+            $model->localDrive = $map['LocalDrive'];
+        }
+        if (isset($map['Name'])) {
+            $model->name = $map['Name'];
+        }
+        if (isset($map['PreemptLogin'])) {
+            $model->preemptLogin = $map['PreemptLogin'];
+        }
+        if (isset($map['PreemptLoginUser'])) {
+            if (!empty($map['PreemptLoginUser'])) {
+                $model->preemptLoginUser = $map['PreemptLoginUser'];
+            }
+        }
+        if (isset($map['PrinterRedirection'])) {
+            $model->printerRedirection = $map['PrinterRedirection'];
+        }
+        if (isset($map['RegionId'])) {
+            $model->regionId = $map['RegionId'];
+        }
+        if (isset($map['UsbRedirect'])) {
+            $model->usbRedirect = $map['UsbRedirect'];
+        }
+        if (isset($map['VisualQuality'])) {
+            $model->visualQuality = $map['VisualQuality'];
+        }
+        if (isset($map['Watermark'])) {
+            $model->watermark = $map['Watermark'];
+        }
+        if (isset($map['WatermarkCustomText'])) {
+            $model->watermarkCustomText = $map['WatermarkCustomText'];
+        }
+        if (isset($map['WatermarkTransparency'])) {
+            $model->watermarkTransparency = $map['WatermarkTransparency'];
+        }
+        if (isset($map['WatermarkType'])) {
+            $model->watermarkType = $map['WatermarkType'];
         }
 
         return $model;

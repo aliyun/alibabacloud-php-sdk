@@ -11,7 +11,12 @@ class ModifyOfficeSiteAttributeRequest extends Model
     /**
      * @var string
      */
-    public $regionId;
+    public $desktopAccessType;
+
+    /**
+     * @var bool
+     */
+    public $needVerifyLoginRisk;
 
     /**
      * @var string
@@ -21,37 +26,43 @@ class ModifyOfficeSiteAttributeRequest extends Model
     /**
      * @var string
      */
-    public $desktopAccessType;
+    public $officeSiteName;
 
     /**
      * @var string
      */
-    public $officeSiteName;
+    public $regionId;
     protected $_name = [
-        'regionId'          => 'RegionId',
-        'officeSiteId'      => 'OfficeSiteId',
-        'desktopAccessType' => 'DesktopAccessType',
-        'officeSiteName'    => 'OfficeSiteName',
+        'desktopAccessType'   => 'DesktopAccessType',
+        'needVerifyLoginRisk' => 'NeedVerifyLoginRisk',
+        'officeSiteId'        => 'OfficeSiteId',
+        'officeSiteName'      => 'OfficeSiteName',
+        'regionId'            => 'RegionId',
     ];
 
     public function validate()
     {
+        Model::validateRequired('officeSiteId', $this->officeSiteId, true);
+        Model::validateRequired('regionId', $this->regionId, true);
     }
 
     public function toMap()
     {
         $res = [];
-        if (null !== $this->regionId) {
-            $res['RegionId'] = $this->regionId;
+        if (null !== $this->desktopAccessType) {
+            $res['DesktopAccessType'] = $this->desktopAccessType;
+        }
+        if (null !== $this->needVerifyLoginRisk) {
+            $res['NeedVerifyLoginRisk'] = $this->needVerifyLoginRisk;
         }
         if (null !== $this->officeSiteId) {
             $res['OfficeSiteId'] = $this->officeSiteId;
         }
-        if (null !== $this->desktopAccessType) {
-            $res['DesktopAccessType'] = $this->desktopAccessType;
-        }
         if (null !== $this->officeSiteName) {
             $res['OfficeSiteName'] = $this->officeSiteName;
+        }
+        if (null !== $this->regionId) {
+            $res['RegionId'] = $this->regionId;
         }
 
         return $res;
@@ -65,17 +76,20 @@ class ModifyOfficeSiteAttributeRequest extends Model
     public static function fromMap($map = [])
     {
         $model = new self();
-        if (isset($map['RegionId'])) {
-            $model->regionId = $map['RegionId'];
+        if (isset($map['DesktopAccessType'])) {
+            $model->desktopAccessType = $map['DesktopAccessType'];
+        }
+        if (isset($map['NeedVerifyLoginRisk'])) {
+            $model->needVerifyLoginRisk = $map['NeedVerifyLoginRisk'];
         }
         if (isset($map['OfficeSiteId'])) {
             $model->officeSiteId = $map['OfficeSiteId'];
         }
-        if (isset($map['DesktopAccessType'])) {
-            $model->desktopAccessType = $map['DesktopAccessType'];
-        }
         if (isset($map['OfficeSiteName'])) {
             $model->officeSiteName = $map['OfficeSiteName'];
+        }
+        if (isset($map['RegionId'])) {
+            $model->regionId = $map['RegionId'];
         }
 
         return $model;

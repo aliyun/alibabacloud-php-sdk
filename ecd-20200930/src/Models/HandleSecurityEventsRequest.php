@@ -12,11 +12,6 @@ class HandleSecurityEventsRequest extends Model
     /**
      * @var string
      */
-    public $regionId;
-
-    /**
-     * @var string
-     */
     public $operationCode;
 
     /**
@@ -25,31 +20,38 @@ class HandleSecurityEventsRequest extends Model
     public $operationParams;
 
     /**
+     * @var string
+     */
+    public $regionId;
+
+    /**
      * @var securityEvent[]
      */
     public $securityEvent;
     protected $_name = [
-        'regionId'        => 'RegionId',
         'operationCode'   => 'OperationCode',
         'operationParams' => 'OperationParams',
+        'regionId'        => 'RegionId',
         'securityEvent'   => 'SecurityEvent',
     ];
 
     public function validate()
     {
+        Model::validateRequired('operationCode', $this->operationCode, true);
+        Model::validateRequired('regionId', $this->regionId, true);
     }
 
     public function toMap()
     {
         $res = [];
-        if (null !== $this->regionId) {
-            $res['RegionId'] = $this->regionId;
-        }
         if (null !== $this->operationCode) {
             $res['OperationCode'] = $this->operationCode;
         }
         if (null !== $this->operationParams) {
             $res['OperationParams'] = $this->operationParams;
+        }
+        if (null !== $this->regionId) {
+            $res['RegionId'] = $this->regionId;
         }
         if (null !== $this->securityEvent) {
             $res['SecurityEvent'] = [];
@@ -72,14 +74,14 @@ class HandleSecurityEventsRequest extends Model
     public static function fromMap($map = [])
     {
         $model = new self();
-        if (isset($map['RegionId'])) {
-            $model->regionId = $map['RegionId'];
-        }
         if (isset($map['OperationCode'])) {
             $model->operationCode = $map['OperationCode'];
         }
         if (isset($map['OperationParams'])) {
             $model->operationParams = $map['OperationParams'];
+        }
+        if (isset($map['RegionId'])) {
+            $model->regionId = $map['RegionId'];
         }
         if (isset($map['SecurityEvent'])) {
             if (!empty($map['SecurityEvent'])) {

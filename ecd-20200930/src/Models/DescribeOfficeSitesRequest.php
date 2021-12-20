@@ -9,16 +9,6 @@ use AlibabaCloud\Tea\Model;
 class DescribeOfficeSitesRequest extends Model
 {
     /**
-     * @var string
-     */
-    public $regionId;
-
-    /**
-     * @var string
-     */
-    public $officeSiteType;
-
-    /**
      * @var int
      */
     public $maxResults;
@@ -32,27 +22,38 @@ class DescribeOfficeSitesRequest extends Model
      * @var string[]
      */
     public $officeSiteId;
+
+    /**
+     * @var string
+     */
+    public $officeSiteType;
+
+    /**
+     * @var string
+     */
+    public $regionId;
+
+    /**
+     * @var string
+     */
+    public $status;
     protected $_name = [
-        'regionId'       => 'RegionId',
-        'officeSiteType' => 'OfficeSiteType',
         'maxResults'     => 'MaxResults',
         'nextToken'      => 'NextToken',
         'officeSiteId'   => 'OfficeSiteId',
+        'officeSiteType' => 'OfficeSiteType',
+        'regionId'       => 'RegionId',
+        'status'         => 'Status',
     ];
 
     public function validate()
     {
+        Model::validateRequired('regionId', $this->regionId, true);
     }
 
     public function toMap()
     {
         $res = [];
-        if (null !== $this->regionId) {
-            $res['RegionId'] = $this->regionId;
-        }
-        if (null !== $this->officeSiteType) {
-            $res['OfficeSiteType'] = $this->officeSiteType;
-        }
         if (null !== $this->maxResults) {
             $res['MaxResults'] = $this->maxResults;
         }
@@ -61,6 +62,15 @@ class DescribeOfficeSitesRequest extends Model
         }
         if (null !== $this->officeSiteId) {
             $res['OfficeSiteId'] = $this->officeSiteId;
+        }
+        if (null !== $this->officeSiteType) {
+            $res['OfficeSiteType'] = $this->officeSiteType;
+        }
+        if (null !== $this->regionId) {
+            $res['RegionId'] = $this->regionId;
+        }
+        if (null !== $this->status) {
+            $res['Status'] = $this->status;
         }
 
         return $res;
@@ -74,12 +84,6 @@ class DescribeOfficeSitesRequest extends Model
     public static function fromMap($map = [])
     {
         $model = new self();
-        if (isset($map['RegionId'])) {
-            $model->regionId = $map['RegionId'];
-        }
-        if (isset($map['OfficeSiteType'])) {
-            $model->officeSiteType = $map['OfficeSiteType'];
-        }
         if (isset($map['MaxResults'])) {
             $model->maxResults = $map['MaxResults'];
         }
@@ -90,6 +94,15 @@ class DescribeOfficeSitesRequest extends Model
             if (!empty($map['OfficeSiteId'])) {
                 $model->officeSiteId = $map['OfficeSiteId'];
             }
+        }
+        if (isset($map['OfficeSiteType'])) {
+            $model->officeSiteType = $map['OfficeSiteType'];
+        }
+        if (isset($map['RegionId'])) {
+            $model->regionId = $map['RegionId'];
+        }
+        if (isset($map['Status'])) {
+            $model->status = $map['Status'];
         }
 
         return $model;

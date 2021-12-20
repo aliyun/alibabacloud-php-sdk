@@ -11,11 +11,6 @@ class DescribeUserConnectionRecordsRequest extends Model
     /**
      * @var string
      */
-    public $regionId;
-
-    /**
-     * @var string
-     */
     public $desktopGroupId;
 
     /**
@@ -37,25 +32,30 @@ class DescribeUserConnectionRecordsRequest extends Model
      * @var string
      */
     public $nextToken;
+
+    /**
+     * @var string
+     */
+    public $regionId;
     protected $_name = [
-        'regionId'       => 'RegionId',
         'desktopGroupId' => 'DesktopGroupId',
         'endUserId'      => 'EndUserId',
         'endUserType'    => 'EndUserType',
         'maxResults'     => 'MaxResults',
         'nextToken'      => 'NextToken',
+        'regionId'       => 'RegionId',
     ];
 
     public function validate()
     {
+        Model::validateRequired('desktopGroupId', $this->desktopGroupId, true);
+        Model::validateRequired('endUserId', $this->endUserId, true);
+        Model::validateRequired('regionId', $this->regionId, true);
     }
 
     public function toMap()
     {
         $res = [];
-        if (null !== $this->regionId) {
-            $res['RegionId'] = $this->regionId;
-        }
         if (null !== $this->desktopGroupId) {
             $res['DesktopGroupId'] = $this->desktopGroupId;
         }
@@ -71,6 +71,9 @@ class DescribeUserConnectionRecordsRequest extends Model
         if (null !== $this->nextToken) {
             $res['NextToken'] = $this->nextToken;
         }
+        if (null !== $this->regionId) {
+            $res['RegionId'] = $this->regionId;
+        }
 
         return $res;
     }
@@ -83,9 +86,6 @@ class DescribeUserConnectionRecordsRequest extends Model
     public static function fromMap($map = [])
     {
         $model = new self();
-        if (isset($map['RegionId'])) {
-            $model->regionId = $map['RegionId'];
-        }
         if (isset($map['DesktopGroupId'])) {
             $model->desktopGroupId = $map['DesktopGroupId'];
         }
@@ -100,6 +100,9 @@ class DescribeUserConnectionRecordsRequest extends Model
         }
         if (isset($map['NextToken'])) {
             $model->nextToken = $map['NextToken'];
+        }
+        if (isset($map['RegionId'])) {
+            $model->regionId = $map['RegionId'];
         }
 
         return $model;

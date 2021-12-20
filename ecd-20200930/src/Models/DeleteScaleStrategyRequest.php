@@ -24,6 +24,8 @@ class DeleteScaleStrategyRequest extends Model
 
     public function validate()
     {
+        Model::validateRequired('regionId', $this->regionId, true);
+        Model::validateRequired('scaleStrategyId', $this->scaleStrategyId, true);
     }
 
     public function toMap()

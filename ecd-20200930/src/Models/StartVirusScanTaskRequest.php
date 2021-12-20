@@ -9,9 +9,9 @@ use AlibabaCloud\Tea\Model;
 class StartVirusScanTaskRequest extends Model
 {
     /**
-     * @var string
+     * @var string[]
      */
-    public $regionId;
+    public $desktopId;
 
     /**
      * @var string[]
@@ -19,30 +19,31 @@ class StartVirusScanTaskRequest extends Model
     public $officeSiteId;
 
     /**
-     * @var string[]
+     * @var string
      */
-    public $desktopId;
+    public $regionId;
     protected $_name = [
-        'regionId'     => 'RegionId',
-        'officeSiteId' => 'OfficeSiteId',
         'desktopId'    => 'DesktopId',
+        'officeSiteId' => 'OfficeSiteId',
+        'regionId'     => 'RegionId',
     ];
 
     public function validate()
     {
+        Model::validateRequired('regionId', $this->regionId, true);
     }
 
     public function toMap()
     {
         $res = [];
-        if (null !== $this->regionId) {
-            $res['RegionId'] = $this->regionId;
+        if (null !== $this->desktopId) {
+            $res['DesktopId'] = $this->desktopId;
         }
         if (null !== $this->officeSiteId) {
             $res['OfficeSiteId'] = $this->officeSiteId;
         }
-        if (null !== $this->desktopId) {
-            $res['DesktopId'] = $this->desktopId;
+        if (null !== $this->regionId) {
+            $res['RegionId'] = $this->regionId;
         }
 
         return $res;
@@ -56,18 +57,18 @@ class StartVirusScanTaskRequest extends Model
     public static function fromMap($map = [])
     {
         $model = new self();
-        if (isset($map['RegionId'])) {
-            $model->regionId = $map['RegionId'];
+        if (isset($map['DesktopId'])) {
+            if (!empty($map['DesktopId'])) {
+                $model->desktopId = $map['DesktopId'];
+            }
         }
         if (isset($map['OfficeSiteId'])) {
             if (!empty($map['OfficeSiteId'])) {
                 $model->officeSiteId = $map['OfficeSiteId'];
             }
         }
-        if (isset($map['DesktopId'])) {
-            if (!empty($map['DesktopId'])) {
-                $model->desktopId = $map['DesktopId'];
-            }
+        if (isset($map['RegionId'])) {
+            $model->regionId = $map['RegionId'];
         }
 
         return $model;
