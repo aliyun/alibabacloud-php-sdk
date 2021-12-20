@@ -420,7 +420,6 @@ class Vod extends OpenApiClient
         $query['TemplateType']   = $request->templateType;
         $req                     = new OpenApiRequest([
             'query' => OpenApiUtilClient::query($query),
-            'body'  => Utils::toMap($request),
         ]);
         $params = new Params([
             'action'      => 'AddAITemplate',
@@ -430,7 +429,7 @@ class Vod extends OpenApiClient
             'method'      => 'POST',
             'authType'    => 'AK',
             'style'       => 'RPC',
-            'reqBodyType' => 'json',
+            'reqBodyType' => 'formData',
             'bodyType'    => 'json',
         ]);
 
@@ -464,7 +463,6 @@ class Vod extends OpenApiClient
         $query['Type']     = $request->type;
         $req               = new OpenApiRequest([
             'query' => OpenApiUtilClient::query($query),
-            'body'  => Utils::toMap($request),
         ]);
         $params = new Params([
             'action'      => 'AddCategory',
@@ -474,7 +472,7 @@ class Vod extends OpenApiClient
             'method'      => 'POST',
             'authType'    => 'AK',
             'style'       => 'RPC',
-            'reqBodyType' => 'json',
+            'reqBodyType' => 'formData',
             'bodyType'    => 'json',
         ]);
 
@@ -514,7 +512,6 @@ class Vod extends OpenApiClient
         $query['Title']                = $request->title;
         $req                           = new OpenApiRequest([
             'query' => OpenApiUtilClient::query($query),
-            'body'  => Utils::toMap($request),
         ]);
         $params = new Params([
             'action'      => 'AddEditingProject',
@@ -524,7 +521,7 @@ class Vod extends OpenApiClient
             'method'      => 'POST',
             'authType'    => 'AK',
             'style'       => 'RPC',
-            'reqBodyType' => 'json',
+            'reqBodyType' => 'formData',
             'bodyType'    => 'json',
         ]);
 
@@ -559,7 +556,6 @@ class Vod extends OpenApiClient
         $query['TranscodeTemplateList']    = $request->transcodeTemplateList;
         $req                               = new OpenApiRequest([
             'query' => OpenApiUtilClient::query($query),
-            'body'  => Utils::toMap($request),
         ]);
         $params = new Params([
             'action'      => 'AddTranscodeTemplateGroup',
@@ -569,7 +565,7 @@ class Vod extends OpenApiClient
             'method'      => 'POST',
             'authType'    => 'AK',
             'style'       => 'RPC',
-            'reqBodyType' => 'json',
+            'reqBodyType' => 'formData',
             'bodyType'    => 'json',
         ]);
 
@@ -608,7 +604,6 @@ class Vod extends OpenApiClient
         $query['TopLevelDomain'] = $request->topLevelDomain;
         $req                     = new OpenApiRequest([
             'query' => OpenApiUtilClient::query($query),
-            'body'  => Utils::toMap($request),
         ]);
         $params = new Params([
             'action'      => 'AddVodDomain',
@@ -618,7 +613,7 @@ class Vod extends OpenApiClient
             'method'      => 'POST',
             'authType'    => 'AK',
             'style'       => 'RPC',
-            'reqBodyType' => 'json',
+            'reqBodyType' => 'formData',
             'bodyType'    => 'json',
         ]);
 
@@ -653,7 +648,6 @@ class Vod extends OpenApiClient
         $query['TemplateType']   = $request->templateType;
         $req                     = new OpenApiRequest([
             'query' => OpenApiUtilClient::query($query),
-            'body'  => Utils::toMap($request),
         ]);
         $params = new Params([
             'action'      => 'AddVodTemplate',
@@ -663,7 +657,7 @@ class Vod extends OpenApiClient
             'method'      => 'POST',
             'authType'    => 'AK',
             'style'       => 'RPC',
-            'reqBodyType' => 'json',
+            'reqBodyType' => 'formData',
             'bodyType'    => 'json',
         ]);
 
@@ -699,7 +693,6 @@ class Vod extends OpenApiClient
         $query['WatermarkConfig'] = $request->watermarkConfig;
         $req                      = new OpenApiRequest([
             'query' => OpenApiUtilClient::query($query),
-            'body'  => Utils::toMap($request),
         ]);
         $params = new Params([
             'action'      => 'AddWatermark',
@@ -709,7 +702,7 @@ class Vod extends OpenApiClient
             'method'      => 'POST',
             'authType'    => 'AK',
             'style'       => 'RPC',
-            'reqBodyType' => 'json',
+            'reqBodyType' => 'formData',
             'bodyType'    => 'json',
         ]);
 
@@ -744,7 +737,6 @@ class Vod extends OpenApiClient
         $query['PolicyNames']  = $request->policyNames;
         $req                   = new OpenApiRequest([
             'query' => OpenApiUtilClient::query($query),
-            'body'  => Utils::toMap($request),
         ]);
         $params = new Params([
             'action'      => 'AttachAppPolicyToIdentity',
@@ -754,7 +746,7 @@ class Vod extends OpenApiClient
             'method'      => 'POST',
             'authType'    => 'AK',
             'style'       => 'RPC',
-            'reqBodyType' => 'json',
+            'reqBodyType' => 'formData',
             'bodyType'    => 'json',
         ]);
 
@@ -790,7 +782,6 @@ class Vod extends OpenApiClient
         $query['SecurityToken'] = $request->securityToken;
         $req                    = new OpenApiRequest([
             'query' => OpenApiUtilClient::query($query),
-            'body'  => Utils::toMap($request),
         ]);
         $params = new Params([
             'action'      => 'BatchSetVodDomainConfigs',
@@ -800,7 +791,7 @@ class Vod extends OpenApiClient
             'method'      => 'POST',
             'authType'    => 'AK',
             'style'       => 'RPC',
-            'reqBodyType' => 'json',
+            'reqBodyType' => 'formData',
             'bodyType'    => 'json',
         ]);
 
@@ -834,7 +825,6 @@ class Vod extends OpenApiClient
         $query['SecurityToken'] = $request->securityToken;
         $req                    = new OpenApiRequest([
             'query' => OpenApiUtilClient::query($query),
-            'body'  => Utils::toMap($request),
         ]);
         $params = new Params([
             'action'      => 'BatchStartVodDomain',
@@ -844,7 +834,7 @@ class Vod extends OpenApiClient
             'method'      => 'POST',
             'authType'    => 'AK',
             'style'       => 'RPC',
-            'reqBodyType' => 'json',
+            'reqBodyType' => 'formData',
             'bodyType'    => 'json',
         ]);
 
@@ -878,7 +868,6 @@ class Vod extends OpenApiClient
         $query['SecurityToken'] = $request->securityToken;
         $req                    = new OpenApiRequest([
             'query' => OpenApiUtilClient::query($query),
-            'body'  => Utils::toMap($request),
         ]);
         $params = new Params([
             'action'      => 'BatchStopVodDomain',
@@ -888,7 +877,7 @@ class Vod extends OpenApiClient
             'method'      => 'POST',
             'authType'    => 'AK',
             'style'       => 'RPC',
-            'reqBodyType' => 'json',
+            'reqBodyType' => 'formData',
             'bodyType'    => 'json',
         ]);
 
@@ -921,7 +910,6 @@ class Vod extends OpenApiClient
         $query['UploadUrls'] = $request->uploadUrls;
         $req                 = new OpenApiRequest([
             'query' => OpenApiUtilClient::query($query),
-            'body'  => Utils::toMap($request),
         ]);
         $params = new Params([
             'action'      => 'CancelUrlUploadJobs',
@@ -931,7 +919,7 @@ class Vod extends OpenApiClient
             'method'      => 'POST',
             'authType'    => 'AK',
             'style'       => 'RPC',
-            'reqBodyType' => 'json',
+            'reqBodyType' => 'formData',
             'bodyType'    => 'json',
         ]);
 
@@ -964,7 +952,6 @@ class Vod extends OpenApiClient
         $query['Description'] = $request->description;
         $req                  = new OpenApiRequest([
             'query' => OpenApiUtilClient::query($query),
-            'body'  => Utils::toMap($request),
         ]);
         $params = new Params([
             'action'      => 'CreateAppInfo',
@@ -974,7 +961,7 @@ class Vod extends OpenApiClient
             'method'      => 'POST',
             'authType'    => 'AK',
             'style'       => 'RPC',
-            'reqBodyType' => 'json',
+            'reqBodyType' => 'formData',
             'bodyType'    => 'json',
         ]);
 
@@ -1006,7 +993,6 @@ class Vod extends OpenApiClient
         $query['AuditContent'] = $request->auditContent;
         $req                   = new OpenApiRequest([
             'query' => OpenApiUtilClient::query($query),
-            'body'  => Utils::toMap($request),
         ]);
         $params = new Params([
             'action'      => 'CreateAudit',
@@ -1016,7 +1002,7 @@ class Vod extends OpenApiClient
             'method'      => 'POST',
             'authType'    => 'AK',
             'style'       => 'RPC',
-            'reqBodyType' => 'json',
+            'reqBodyType' => 'formData',
             'bodyType'    => 'json',
         ]);
 
@@ -1058,7 +1044,6 @@ class Vod extends OpenApiClient
         $query['UserData']        = $request->userData;
         $req                      = new OpenApiRequest([
             'query' => OpenApiUtilClient::query($query),
-            'body'  => Utils::toMap($request),
         ]);
         $params = new Params([
             'action'      => 'CreateUploadAttachedMedia',
@@ -1068,7 +1053,7 @@ class Vod extends OpenApiClient
             'method'      => 'POST',
             'authType'    => 'AK',
             'style'       => 'RPC',
-            'reqBodyType' => 'json',
+            'reqBodyType' => 'formData',
             'bodyType'    => 'json',
         ]);
 
@@ -1108,7 +1093,6 @@ class Vod extends OpenApiClient
         $query['UserData']        = $request->userData;
         $req                      = new OpenApiRequest([
             'query' => OpenApiUtilClient::query($query),
-            'body'  => Utils::toMap($request),
         ]);
         $params = new Params([
             'action'      => 'CreateUploadImage',
@@ -1118,7 +1102,7 @@ class Vod extends OpenApiClient
             'method'      => 'POST',
             'authType'    => 'AK',
             'style'       => 'RPC',
-            'reqBodyType' => 'json',
+            'reqBodyType' => 'formData',
             'bodyType'    => 'json',
         ]);
 
@@ -1161,7 +1145,6 @@ class Vod extends OpenApiClient
         $query['WorkflowId']      = $request->workflowId;
         $req                      = new OpenApiRequest([
             'query' => OpenApiUtilClient::query($query),
-            'body'  => Utils::toMap($request),
         ]);
         $params = new Params([
             'action'      => 'CreateUploadVideo',
@@ -1171,7 +1154,7 @@ class Vod extends OpenApiClient
             'method'      => 'POST',
             'authType'    => 'AK',
             'style'       => 'RPC',
-            'reqBodyType' => 'json',
+            'reqBodyType' => 'formData',
             'bodyType'    => 'json',
         ]);
 
@@ -1211,7 +1194,7 @@ class Vod extends OpenApiClient
             'method'      => 'GET',
             'authType'    => 'AK',
             'style'       => 'RPC',
-            'reqBodyType' => 'json',
+            'reqBodyType' => 'formData',
             'bodyType'    => 'json',
         ]);
 
@@ -1243,7 +1226,6 @@ class Vod extends OpenApiClient
         $query['AIImageInfoIds'] = $request->AIImageInfoIds;
         $req                     = new OpenApiRequest([
             'query' => OpenApiUtilClient::query($query),
-            'body'  => Utils::toMap($request),
         ]);
         $params = new Params([
             'action'      => 'DeleteAIImageInfos',
@@ -1253,7 +1235,7 @@ class Vod extends OpenApiClient
             'method'      => 'POST',
             'authType'    => 'AK',
             'style'       => 'RPC',
-            'reqBodyType' => 'json',
+            'reqBodyType' => 'formData',
             'bodyType'    => 'json',
         ]);
 
@@ -1285,7 +1267,6 @@ class Vod extends OpenApiClient
         $query['TemplateId'] = $request->templateId;
         $req                 = new OpenApiRequest([
             'query' => OpenApiUtilClient::query($query),
-            'body'  => Utils::toMap($request),
         ]);
         $params = new Params([
             'action'      => 'DeleteAITemplate',
@@ -1295,7 +1276,7 @@ class Vod extends OpenApiClient
             'method'      => 'POST',
             'authType'    => 'AK',
             'style'       => 'RPC',
-            'reqBodyType' => 'json',
+            'reqBodyType' => 'formData',
             'bodyType'    => 'json',
         ]);
 
@@ -1327,7 +1308,6 @@ class Vod extends OpenApiClient
         $query['AppId'] = $request->appId;
         $req            = new OpenApiRequest([
             'query' => OpenApiUtilClient::query($query),
-            'body'  => Utils::toMap($request),
         ]);
         $params = new Params([
             'action'      => 'DeleteAppInfo',
@@ -1337,7 +1317,7 @@ class Vod extends OpenApiClient
             'method'      => 'POST',
             'authType'    => 'AK',
             'style'       => 'RPC',
-            'reqBodyType' => 'json',
+            'reqBodyType' => 'formData',
             'bodyType'    => 'json',
         ]);
 
@@ -1369,7 +1349,6 @@ class Vod extends OpenApiClient
         $query['MediaIds'] = $request->mediaIds;
         $req               = new OpenApiRequest([
             'query' => OpenApiUtilClient::query($query),
-            'body'  => Utils::toMap($request),
         ]);
         $params = new Params([
             'action'      => 'DeleteAttachedMedia',
@@ -1379,7 +1358,7 @@ class Vod extends OpenApiClient
             'method'      => 'POST',
             'authType'    => 'AK',
             'style'       => 'RPC',
-            'reqBodyType' => 'json',
+            'reqBodyType' => 'formData',
             'bodyType'    => 'json',
         ]);
 
@@ -1411,7 +1390,6 @@ class Vod extends OpenApiClient
         $query['CateId'] = $request->cateId;
         $req             = new OpenApiRequest([
             'query' => OpenApiUtilClient::query($query),
-            'body'  => Utils::toMap($request),
         ]);
         $params = new Params([
             'action'      => 'DeleteCategory',
@@ -1421,7 +1399,7 @@ class Vod extends OpenApiClient
             'method'      => 'POST',
             'authType'    => 'AK',
             'style'       => 'RPC',
-            'reqBodyType' => 'json',
+            'reqBodyType' => 'formData',
             'bodyType'    => 'json',
         ]);
 
@@ -1454,7 +1432,6 @@ class Vod extends OpenApiClient
         $query['VideoId']         = $request->videoId;
         $req                      = new OpenApiRequest([
             'query' => OpenApiUtilClient::query($query),
-            'body'  => Utils::toMap($request),
         ]);
         $params = new Params([
             'action'      => 'DeleteDynamicImage',
@@ -1464,7 +1441,7 @@ class Vod extends OpenApiClient
             'method'      => 'POST',
             'authType'    => 'AK',
             'style'       => 'RPC',
-            'reqBodyType' => 'json',
+            'reqBodyType' => 'formData',
             'bodyType'    => 'json',
         ]);
 
@@ -1500,7 +1477,6 @@ class Vod extends OpenApiClient
         $query['ResourceOwnerId']      = $request->resourceOwnerId;
         $req                           = new OpenApiRequest([
             'query' => OpenApiUtilClient::query($query),
-            'body'  => Utils::toMap($request),
         ]);
         $params = new Params([
             'action'      => 'DeleteEditingProject',
@@ -1510,7 +1486,7 @@ class Vod extends OpenApiClient
             'method'      => 'POST',
             'authType'    => 'AK',
             'style'       => 'RPC',
-            'reqBodyType' => 'json',
+            'reqBodyType' => 'formData',
             'bodyType'    => 'json',
         ]);
 
@@ -1546,7 +1522,6 @@ class Vod extends OpenApiClient
         $query['VideoId']         = $request->videoId;
         $req                      = new OpenApiRequest([
             'query' => OpenApiUtilClient::query($query),
-            'body'  => Utils::toMap($request),
         ]);
         $params = new Params([
             'action'      => 'DeleteImage',
@@ -1556,7 +1531,7 @@ class Vod extends OpenApiClient
             'method'      => 'POST',
             'authType'    => 'AK',
             'style'       => 'RPC',
-            'reqBodyType' => 'json',
+            'reqBodyType' => 'formData',
             'bodyType'    => 'json',
         ]);
 
@@ -1589,7 +1564,6 @@ class Vod extends OpenApiClient
         $query['OwnerAccount'] = $request->ownerAccount;
         $req                   = new OpenApiRequest([
             'query' => OpenApiUtilClient::query($query),
-            'body'  => Utils::toMap($request),
         ]);
         $params = new Params([
             'action'      => 'DeleteMessageCallback',
@@ -1599,7 +1573,7 @@ class Vod extends OpenApiClient
             'method'      => 'POST',
             'authType'    => 'AK',
             'style'       => 'RPC',
-            'reqBodyType' => 'json',
+            'reqBodyType' => 'formData',
             'bodyType'    => 'json',
         ]);
 
@@ -1632,7 +1606,6 @@ class Vod extends OpenApiClient
         $query['VideoIds'] = $request->videoIds;
         $req               = new OpenApiRequest([
             'query' => OpenApiUtilClient::query($query),
-            'body'  => Utils::toMap($request),
         ]);
         $params = new Params([
             'action'      => 'DeleteMezzanines',
@@ -1642,7 +1615,7 @@ class Vod extends OpenApiClient
             'method'      => 'POST',
             'authType'    => 'AK',
             'style'       => 'RPC',
-            'reqBodyType' => 'json',
+            'reqBodyType' => 'formData',
             'bodyType'    => 'json',
         ]);
 
@@ -1676,7 +1649,6 @@ class Vod extends OpenApiClient
         $query['OwnerAccount'] = $request->ownerAccount;
         $req                   = new OpenApiRequest([
             'query' => OpenApiUtilClient::query($query),
-            'body'  => Utils::toMap($request),
         ]);
         $params = new Params([
             'action'      => 'DeleteMultipartUpload',
@@ -1686,7 +1658,7 @@ class Vod extends OpenApiClient
             'method'      => 'POST',
             'authType'    => 'AK',
             'style'       => 'RPC',
-            'reqBodyType' => 'json',
+            'reqBodyType' => 'formData',
             'bodyType'    => 'json',
         ]);
 
@@ -1719,7 +1691,6 @@ class Vod extends OpenApiClient
         $query['VideoId'] = $request->videoId;
         $req              = new OpenApiRequest([
             'query' => OpenApiUtilClient::query($query),
-            'body'  => Utils::toMap($request),
         ]);
         $params = new Params([
             'action'      => 'DeleteStream',
@@ -1729,7 +1700,7 @@ class Vod extends OpenApiClient
             'method'      => 'POST',
             'authType'    => 'AK',
             'style'       => 'RPC',
-            'reqBodyType' => 'json',
+            'reqBodyType' => 'formData',
             'bodyType'    => 'json',
         ]);
 
@@ -1763,7 +1734,6 @@ class Vod extends OpenApiClient
         $query['TranscodeTemplateIds']     = $request->transcodeTemplateIds;
         $req                               = new OpenApiRequest([
             'query' => OpenApiUtilClient::query($query),
-            'body'  => Utils::toMap($request),
         ]);
         $params = new Params([
             'action'      => 'DeleteTranscodeTemplateGroup',
@@ -1773,7 +1743,7 @@ class Vod extends OpenApiClient
             'method'      => 'POST',
             'authType'    => 'AK',
             'style'       => 'RPC',
-            'reqBodyType' => 'json',
+            'reqBodyType' => 'formData',
             'bodyType'    => 'json',
         ]);
 
@@ -1805,7 +1775,6 @@ class Vod extends OpenApiClient
         $query['VideoIds'] = $request->videoIds;
         $req               = new OpenApiRequest([
             'query' => OpenApiUtilClient::query($query),
-            'body'  => Utils::toMap($request),
         ]);
         $params = new Params([
             'action'      => 'DeleteVideo',
@@ -1815,7 +1784,7 @@ class Vod extends OpenApiClient
             'method'      => 'POST',
             'authType'    => 'AK',
             'style'       => 'RPC',
-            'reqBodyType' => 'json',
+            'reqBodyType' => 'formData',
             'bodyType'    => 'json',
         ]);
 
@@ -1850,7 +1819,6 @@ class Vod extends OpenApiClient
         $query['SecurityToken'] = $request->securityToken;
         $req                    = new OpenApiRequest([
             'query' => OpenApiUtilClient::query($query),
-            'body'  => Utils::toMap($request),
         ]);
         $params = new Params([
             'action'      => 'DeleteVodDomain',
@@ -1860,7 +1828,7 @@ class Vod extends OpenApiClient
             'method'      => 'POST',
             'authType'    => 'AK',
             'style'       => 'RPC',
-            'reqBodyType' => 'json',
+            'reqBodyType' => 'formData',
             'bodyType'    => 'json',
         ]);
 
@@ -1900,7 +1868,7 @@ class Vod extends OpenApiClient
             'method'      => 'GET',
             'authType'    => 'AK',
             'style'       => 'RPC',
-            'reqBodyType' => 'json',
+            'reqBodyType' => 'formData',
             'bodyType'    => 'json',
         ]);
 
@@ -1935,7 +1903,6 @@ class Vod extends OpenApiClient
         $query['SecurityToken'] = $request->securityToken;
         $req                    = new OpenApiRequest([
             'query' => OpenApiUtilClient::query($query),
-            'body'  => Utils::toMap($request),
         ]);
         $params = new Params([
             'action'      => 'DeleteVodSpecificConfig',
@@ -1945,7 +1912,7 @@ class Vod extends OpenApiClient
             'method'      => 'POST',
             'authType'    => 'AK',
             'style'       => 'RPC',
-            'reqBodyType' => 'json',
+            'reqBodyType' => 'formData',
             'bodyType'    => 'json',
         ]);
 
@@ -1977,7 +1944,6 @@ class Vod extends OpenApiClient
         $query['VodTemplateId'] = $request->vodTemplateId;
         $req                    = new OpenApiRequest([
             'query' => OpenApiUtilClient::query($query),
-            'body'  => Utils::toMap($request),
         ]);
         $params = new Params([
             'action'      => 'DeleteVodTemplate',
@@ -1987,7 +1953,7 @@ class Vod extends OpenApiClient
             'method'      => 'POST',
             'authType'    => 'AK',
             'style'       => 'RPC',
-            'reqBodyType' => 'json',
+            'reqBodyType' => 'formData',
             'bodyType'    => 'json',
         ]);
 
@@ -2019,7 +1985,6 @@ class Vod extends OpenApiClient
         $query['WatermarkId'] = $request->watermarkId;
         $req                  = new OpenApiRequest([
             'query' => OpenApiUtilClient::query($query),
-            'body'  => Utils::toMap($request),
         ]);
         $params = new Params([
             'action'      => 'DeleteWatermark',
@@ -2029,7 +1994,7 @@ class Vod extends OpenApiClient
             'method'      => 'POST',
             'authType'    => 'AK',
             'style'       => 'RPC',
-            'reqBodyType' => 'json',
+            'reqBodyType' => 'formData',
             'bodyType'    => 'json',
         ]);
 
@@ -2064,7 +2029,6 @@ class Vod extends OpenApiClient
         $query['PageSize'] = $request->pageSize;
         $req               = new OpenApiRequest([
             'query' => OpenApiUtilClient::query($query),
-            'body'  => Utils::toMap($request),
         ]);
         $params = new Params([
             'action'      => 'DescribePlayTopVideos',
@@ -2074,7 +2038,7 @@ class Vod extends OpenApiClient
             'method'      => 'POST',
             'authType'    => 'AK',
             'style'       => 'RPC',
-            'reqBodyType' => 'json',
+            'reqBodyType' => 'formData',
             'bodyType'    => 'json',
         ]);
 
@@ -2108,7 +2072,6 @@ class Vod extends OpenApiClient
         $query['StartTime'] = $request->startTime;
         $req                = new OpenApiRequest([
             'query' => OpenApiUtilClient::query($query),
-            'body'  => Utils::toMap($request),
         ]);
         $params = new Params([
             'action'      => 'DescribePlayUserAvg',
@@ -2118,7 +2081,7 @@ class Vod extends OpenApiClient
             'method'      => 'POST',
             'authType'    => 'AK',
             'style'       => 'RPC',
-            'reqBodyType' => 'json',
+            'reqBodyType' => 'formData',
             'bodyType'    => 'json',
         ]);
 
@@ -2152,7 +2115,6 @@ class Vod extends OpenApiClient
         $query['StartTime'] = $request->startTime;
         $req                = new OpenApiRequest([
             'query' => OpenApiUtilClient::query($query),
-            'body'  => Utils::toMap($request),
         ]);
         $params = new Params([
             'action'      => 'DescribePlayUserTotal',
@@ -2162,7 +2124,7 @@ class Vod extends OpenApiClient
             'method'      => 'POST',
             'authType'    => 'AK',
             'style'       => 'RPC',
-            'reqBodyType' => 'json',
+            'reqBodyType' => 'formData',
             'bodyType'    => 'json',
         ]);
 
@@ -2197,7 +2159,6 @@ class Vod extends OpenApiClient
         $query['VideoId']   = $request->videoId;
         $req                = new OpenApiRequest([
             'query' => OpenApiUtilClient::query($query),
-            'body'  => Utils::toMap($request),
         ]);
         $params = new Params([
             'action'      => 'DescribePlayVideoStatis',
@@ -2207,7 +2168,7 @@ class Vod extends OpenApiClient
             'method'      => 'POST',
             'authType'    => 'AK',
             'style'       => 'RPC',
-            'reqBodyType' => 'json',
+            'reqBodyType' => 'formData',
             'bodyType'    => 'json',
         ]);
 
@@ -2243,7 +2204,6 @@ class Vod extends OpenApiClient
         $query['StartTime'] = $request->startTime;
         $req                = new OpenApiRequest([
             'query' => OpenApiUtilClient::query($query),
-            'body'  => Utils::toMap($request),
         ]);
         $params = new Params([
             'action'      => 'DescribeVodAIData',
@@ -2253,7 +2213,7 @@ class Vod extends OpenApiClient
             'method'      => 'POST',
             'authType'    => 'AK',
             'style'       => 'RPC',
-            'reqBodyType' => 'json',
+            'reqBodyType' => 'formData',
             'bodyType'    => 'json',
         ]);
 
@@ -2287,7 +2247,6 @@ class Vod extends OpenApiClient
         $query['SecurityToken'] = $request->securityToken;
         $req                    = new OpenApiRequest([
             'query' => OpenApiUtilClient::query($query),
-            'body'  => Utils::toMap($request),
         ]);
         $params = new Params([
             'action'      => 'DescribeVodCertificateList',
@@ -2297,7 +2256,7 @@ class Vod extends OpenApiClient
             'method'      => 'POST',
             'authType'    => 'AK',
             'style'       => 'RPC',
-            'reqBodyType' => 'json',
+            'reqBodyType' => 'formData',
             'bodyType'    => 'json',
         ]);
 
@@ -2335,7 +2294,6 @@ class Vod extends OpenApiClient
         $query['StartTime']      = $request->startTime;
         $req                     = new OpenApiRequest([
             'query' => OpenApiUtilClient::query($query),
-            'body'  => Utils::toMap($request),
         ]);
         $params = new Params([
             'action'      => 'DescribeVodDomainBpsData',
@@ -2345,7 +2303,7 @@ class Vod extends OpenApiClient
             'method'      => 'POST',
             'authType'    => 'AK',
             'style'       => 'RPC',
-            'reqBodyType' => 'json',
+            'reqBodyType' => 'formData',
             'bodyType'    => 'json',
         ]);
 
@@ -2378,7 +2336,6 @@ class Vod extends OpenApiClient
         $query['OwnerId']    = $request->ownerId;
         $req                 = new OpenApiRequest([
             'query' => OpenApiUtilClient::query($query),
-            'body'  => Utils::toMap($request),
         ]);
         $params = new Params([
             'action'      => 'DescribeVodDomainCertificateInfo',
@@ -2388,7 +2345,7 @@ class Vod extends OpenApiClient
             'method'      => 'POST',
             'authType'    => 'AK',
             'style'       => 'RPC',
-            'reqBodyType' => 'json',
+            'reqBodyType' => 'formData',
             'bodyType'    => 'json',
         ]);
 
@@ -2423,7 +2380,6 @@ class Vod extends OpenApiClient
         $query['SecurityToken'] = $request->securityToken;
         $req                    = new OpenApiRequest([
             'query' => OpenApiUtilClient::query($query),
-            'body'  => Utils::toMap($request),
         ]);
         $params = new Params([
             'action'      => 'DescribeVodDomainConfigs',
@@ -2433,7 +2389,7 @@ class Vod extends OpenApiClient
             'method'      => 'POST',
             'authType'    => 'AK',
             'style'       => 'RPC',
-            'reqBodyType' => 'json',
+            'reqBodyType' => 'formData',
             'bodyType'    => 'json',
         ]);
 
@@ -2467,7 +2423,6 @@ class Vod extends OpenApiClient
         $query['SecurityToken'] = $request->securityToken;
         $req                    = new OpenApiRequest([
             'query' => OpenApiUtilClient::query($query),
-            'body'  => Utils::toMap($request),
         ]);
         $params = new Params([
             'action'      => 'DescribeVodDomainDetail',
@@ -2477,7 +2432,7 @@ class Vod extends OpenApiClient
             'method'      => 'POST',
             'authType'    => 'AK',
             'style'       => 'RPC',
-            'reqBodyType' => 'json',
+            'reqBodyType' => 'formData',
             'bodyType'    => 'json',
         ]);
 
@@ -2514,7 +2469,6 @@ class Vod extends OpenApiClient
         $query['StartTime']  = $request->startTime;
         $req                 = new OpenApiRequest([
             'query' => OpenApiUtilClient::query($query),
-            'body'  => Utils::toMap($request),
         ]);
         $params = new Params([
             'action'      => 'DescribeVodDomainLog',
@@ -2524,7 +2478,7 @@ class Vod extends OpenApiClient
             'method'      => 'POST',
             'authType'    => 'AK',
             'style'       => 'RPC',
-            'reqBodyType' => 'json',
+            'reqBodyType' => 'formData',
             'bodyType'    => 'json',
         ]);
 
@@ -2564,7 +2518,7 @@ class Vod extends OpenApiClient
             'method'      => 'GET',
             'authType'    => 'AK',
             'style'       => 'RPC',
-            'reqBodyType' => 'json',
+            'reqBodyType' => 'formData',
             'bodyType'    => 'json',
         ]);
 
@@ -2600,7 +2554,6 @@ class Vod extends OpenApiClient
         $query['StartTime']  = $request->startTime;
         $req                 = new OpenApiRequest([
             'query' => OpenApiUtilClient::query($query),
-            'body'  => Utils::toMap($request),
         ]);
         $params = new Params([
             'action'      => 'DescribeVodDomainSrcBpsData',
@@ -2610,7 +2563,7 @@ class Vod extends OpenApiClient
             'method'      => 'POST',
             'authType'    => 'AK',
             'style'       => 'RPC',
-            'reqBodyType' => 'json',
+            'reqBodyType' => 'formData',
             'bodyType'    => 'json',
         ]);
 
@@ -2648,7 +2601,6 @@ class Vod extends OpenApiClient
         $query['StartTime']      = $request->startTime;
         $req                     = new OpenApiRequest([
             'query' => OpenApiUtilClient::query($query),
-            'body'  => Utils::toMap($request),
         ]);
         $params = new Params([
             'action'      => 'DescribeVodDomainTrafficData',
@@ -2658,7 +2610,7 @@ class Vod extends OpenApiClient
             'method'      => 'POST',
             'authType'    => 'AK',
             'style'       => 'RPC',
-            'reqBodyType' => 'json',
+            'reqBodyType' => 'formData',
             'bodyType'    => 'json',
         ]);
 
@@ -2696,7 +2648,6 @@ class Vod extends OpenApiClient
         $query['Type']       = $request->type;
         $req                 = new OpenApiRequest([
             'query' => OpenApiUtilClient::query($query),
-            'body'  => Utils::toMap($request),
         ]);
         $params = new Params([
             'action'      => 'DescribeVodDomainUsageData',
@@ -2706,7 +2657,7 @@ class Vod extends OpenApiClient
             'method'      => 'POST',
             'authType'    => 'AK',
             'style'       => 'RPC',
-            'reqBodyType' => 'json',
+            'reqBodyType' => 'formData',
             'bodyType'    => 'json',
         ]);
 
@@ -2739,7 +2690,6 @@ class Vod extends OpenApiClient
         $query['SecurityToken'] = $request->securityToken;
         $req                    = new OpenApiRequest([
             'query' => OpenApiUtilClient::query($query),
-            'body'  => Utils::toMap($request),
         ]);
         $params = new Params([
             'action'      => 'DescribeVodRefreshQuota',
@@ -2749,7 +2699,7 @@ class Vod extends OpenApiClient
             'method'      => 'POST',
             'authType'    => 'AK',
             'style'       => 'RPC',
-            'reqBodyType' => 'json',
+            'reqBodyType' => 'formData',
             'bodyType'    => 'json',
         ]);
 
@@ -2791,7 +2741,6 @@ class Vod extends OpenApiClient
         $query['TaskId']        = $request->taskId;
         $req                    = new OpenApiRequest([
             'query' => OpenApiUtilClient::query($query),
-            'body'  => Utils::toMap($request),
         ]);
         $params = new Params([
             'action'      => 'DescribeVodRefreshTasks',
@@ -2801,7 +2750,7 @@ class Vod extends OpenApiClient
             'method'      => 'POST',
             'authType'    => 'AK',
             'style'       => 'RPC',
-            'reqBodyType' => 'json',
+            'reqBodyType' => 'formData',
             'bodyType'    => 'json',
         ]);
 
@@ -2838,7 +2787,6 @@ class Vod extends OpenApiClient
         $query['StorageType'] = $request->storageType;
         $req                  = new OpenApiRequest([
             'query' => OpenApiUtilClient::query($query),
-            'body'  => Utils::toMap($request),
         ]);
         $params = new Params([
             'action'      => 'DescribeVodStorageData',
@@ -2848,7 +2796,7 @@ class Vod extends OpenApiClient
             'method'      => 'POST',
             'authType'    => 'AK',
             'style'       => 'RPC',
-            'reqBodyType' => 'json',
+            'reqBodyType' => 'formData',
             'bodyType'    => 'json',
         ]);
 
@@ -2883,7 +2831,6 @@ class Vod extends OpenApiClient
         $query['Tag']          = $request->tag;
         $req                   = new OpenApiRequest([
             'query' => OpenApiUtilClient::query($query),
-            'body'  => Utils::toMap($request),
         ]);
         $params = new Params([
             'action'      => 'DescribeVodTagResources',
@@ -2893,7 +2840,7 @@ class Vod extends OpenApiClient
             'method'      => 'POST',
             'authType'    => 'AK',
             'style'       => 'RPC',
-            'reqBodyType' => 'json',
+            'reqBodyType' => 'formData',
             'bodyType'    => 'json',
         ]);
 
@@ -2931,7 +2878,6 @@ class Vod extends OpenApiClient
         $query['Storage']       = $request->storage;
         $req                    = new OpenApiRequest([
             'query' => OpenApiUtilClient::query($query),
-            'body'  => Utils::toMap($request),
         ]);
         $params = new Params([
             'action'      => 'DescribeVodTranscodeData',
@@ -2941,7 +2887,7 @@ class Vod extends OpenApiClient
             'method'      => 'POST',
             'authType'    => 'AK',
             'style'       => 'RPC',
-            'reqBodyType' => 'json',
+            'reqBodyType' => 'formData',
             'bodyType'    => 'json',
         ]);
 
@@ -2980,7 +2926,6 @@ class Vod extends OpenApiClient
         $query['Tag']              = $request->tag;
         $req                       = new OpenApiRequest([
             'query' => OpenApiUtilClient::query($query),
-            'body'  => Utils::toMap($request),
         ]);
         $params = new Params([
             'action'      => 'DescribeVodUserDomains',
@@ -2990,7 +2935,7 @@ class Vod extends OpenApiClient
             'method'      => 'POST',
             'authType'    => 'AK',
             'style'       => 'RPC',
-            'reqBodyType' => 'json',
+            'reqBodyType' => 'formData',
             'bodyType'    => 'json',
         ]);
 
@@ -3022,7 +2967,6 @@ class Vod extends OpenApiClient
         $query['OwnerId'] = $request->ownerId;
         $req              = new OpenApiRequest([
             'query' => OpenApiUtilClient::query($query),
-            'body'  => Utils::toMap($request),
         ]);
         $params = new Params([
             'action'      => 'DescribeVodUserTags',
@@ -3032,7 +2976,7 @@ class Vod extends OpenApiClient
             'method'      => 'POST',
             'authType'    => 'AK',
             'style'       => 'RPC',
-            'reqBodyType' => 'json',
+            'reqBodyType' => 'formData',
             'bodyType'    => 'json',
         ]);
 
@@ -3065,7 +3009,6 @@ class Vod extends OpenApiClient
         $query['OwnerId']    = $request->ownerId;
         $req                 = new OpenApiRequest([
             'query' => OpenApiUtilClient::query($query),
-            'body'  => Utils::toMap($request),
         ]);
         $params = new Params([
             'action'      => 'DescribeVodVerifyContent',
@@ -3075,7 +3018,7 @@ class Vod extends OpenApiClient
             'method'      => 'POST',
             'authType'    => 'AK',
             'style'       => 'RPC',
-            'reqBodyType' => 'json',
+            'reqBodyType' => 'formData',
             'bodyType'    => 'json',
         ]);
 
@@ -3110,7 +3053,6 @@ class Vod extends OpenApiClient
         $query['PolicyNames']  = $request->policyNames;
         $req                   = new OpenApiRequest([
             'query' => OpenApiUtilClient::query($query),
-            'body'  => Utils::toMap($request),
         ]);
         $params = new Params([
             'action'      => 'DetachAppPolicyFromIdentity',
@@ -3120,7 +3062,7 @@ class Vod extends OpenApiClient
             'method'      => 'POST',
             'authType'    => 'AK',
             'style'       => 'RPC',
-            'reqBodyType' => 'json',
+            'reqBodyType' => 'formData',
             'bodyType'    => 'json',
         ]);
 
@@ -3160,7 +3102,7 @@ class Vod extends OpenApiClient
             'method'      => 'GET',
             'authType'    => 'AK',
             'style'       => 'RPC',
-            'reqBodyType' => 'json',
+            'reqBodyType' => 'formData',
             'bodyType'    => 'json',
         ]);
 
@@ -3200,7 +3142,7 @@ class Vod extends OpenApiClient
             'method'      => 'GET',
             'authType'    => 'AK',
             'style'       => 'RPC',
-            'reqBodyType' => 'json',
+            'reqBodyType' => 'formData',
             'bodyType'    => 'json',
         ]);
 
@@ -3236,7 +3178,6 @@ class Vod extends OpenApiClient
         $query['ResourceOwnerId']      = $request->resourceOwnerId;
         $req                           = new OpenApiRequest([
             'query' => OpenApiUtilClient::query($query),
-            'body'  => Utils::toMap($request),
         ]);
         $params = new Params([
             'action'      => 'GetAIImageJobs',
@@ -3246,7 +3187,7 @@ class Vod extends OpenApiClient
             'method'      => 'POST',
             'authType'    => 'AK',
             'style'       => 'RPC',
-            'reqBodyType' => 'json',
+            'reqBodyType' => 'formData',
             'bodyType'    => 'json',
         ]);
 
@@ -3278,7 +3219,6 @@ class Vod extends OpenApiClient
         $query['JobId'] = $request->jobId;
         $req            = new OpenApiRequest([
             'query' => OpenApiUtilClient::query($query),
-            'body'  => Utils::toMap($request),
         ]);
         $params = new Params([
             'action'      => 'GetAIMediaAuditJob',
@@ -3288,7 +3228,7 @@ class Vod extends OpenApiClient
             'method'      => 'POST',
             'authType'    => 'AK',
             'style'       => 'RPC',
-            'reqBodyType' => 'json',
+            'reqBodyType' => 'formData',
             'bodyType'    => 'json',
         ]);
 
@@ -3320,7 +3260,6 @@ class Vod extends OpenApiClient
         $query['TemplateId'] = $request->templateId;
         $req                 = new OpenApiRequest([
             'query' => OpenApiUtilClient::query($query),
-            'body'  => Utils::toMap($request),
         ]);
         $params = new Params([
             'action'      => 'GetAITemplate',
@@ -3330,7 +3269,7 @@ class Vod extends OpenApiClient
             'method'      => 'POST',
             'authType'    => 'AK',
             'style'       => 'RPC',
-            'reqBodyType' => 'json',
+            'reqBodyType' => 'formData',
             'bodyType'    => 'json',
         ]);
 
@@ -3366,7 +3305,6 @@ class Vod extends OpenApiClient
         $query['ResourceOwnerId']      = $request->resourceOwnerId;
         $req                           = new OpenApiRequest([
             'query' => OpenApiUtilClient::query($query),
-            'body'  => Utils::toMap($request),
         ]);
         $params = new Params([
             'action'      => 'GetAIVideoTagResult',
@@ -3376,7 +3314,7 @@ class Vod extends OpenApiClient
             'method'      => 'POST',
             'authType'    => 'AK',
             'style'       => 'RPC',
-            'reqBodyType' => 'json',
+            'reqBodyType' => 'formData',
             'bodyType'    => 'json',
         ]);
 
@@ -3408,7 +3346,6 @@ class Vod extends OpenApiClient
         $query['AppIds'] = $request->appIds;
         $req             = new OpenApiRequest([
             'query' => OpenApiUtilClient::query($query),
-            'body'  => Utils::toMap($request),
         ]);
         $params = new Params([
             'action'      => 'GetAppInfos',
@@ -3418,7 +3355,7 @@ class Vod extends OpenApiClient
             'method'      => 'POST',
             'authType'    => 'AK',
             'style'       => 'RPC',
-            'reqBodyType' => 'json',
+            'reqBodyType' => 'formData',
             'bodyType'    => 'json',
         ]);
 
@@ -3452,7 +3389,6 @@ class Vod extends OpenApiClient
         $query['OutputType']  = $request->outputType;
         $req                  = new OpenApiRequest([
             'query' => OpenApiUtilClient::query($query),
-            'body'  => Utils::toMap($request),
         ]);
         $params = new Params([
             'action'      => 'GetAttachedMediaInfo',
@@ -3462,7 +3398,7 @@ class Vod extends OpenApiClient
             'method'      => 'POST',
             'authType'    => 'AK',
             'style'       => 'RPC',
-            'reqBodyType' => 'json',
+            'reqBodyType' => 'formData',
             'bodyType'    => 'json',
         ]);
 
@@ -3497,7 +3433,6 @@ class Vod extends OpenApiClient
         $query['VideoId']  = $request->videoId;
         $req               = new OpenApiRequest([
             'query' => OpenApiUtilClient::query($query),
-            'body'  => Utils::toMap($request),
         ]);
         $params = new Params([
             'action'      => 'GetAuditHistory',
@@ -3507,7 +3442,7 @@ class Vod extends OpenApiClient
             'method'      => 'POST',
             'authType'    => 'AK',
             'style'       => 'RPC',
-            'reqBodyType' => 'json',
+            'reqBodyType' => 'formData',
             'bodyType'    => 'json',
         ]);
 
@@ -3543,7 +3478,6 @@ class Vod extends OpenApiClient
         $query['Type']     = $request->type;
         $req               = new OpenApiRequest([
             'query' => OpenApiUtilClient::query($query),
-            'body'  => Utils::toMap($request),
         ]);
         $params = new Params([
             'action'      => 'GetCategories',
@@ -3553,7 +3487,7 @@ class Vod extends OpenApiClient
             'method'      => 'POST',
             'authType'    => 'AK',
             'style'       => 'RPC',
-            'reqBodyType' => 'json',
+            'reqBodyType' => 'formData',
             'bodyType'    => 'json',
         ]);
 
@@ -3585,7 +3519,6 @@ class Vod extends OpenApiClient
         $query['TemplateType'] = $request->templateType;
         $req                   = new OpenApiRequest([
             'query' => OpenApiUtilClient::query($query),
-            'body'  => Utils::toMap($request),
         ]);
         $params = new Params([
             'action'      => 'GetDefaultAITemplate',
@@ -3595,7 +3528,7 @@ class Vod extends OpenApiClient
             'method'      => 'POST',
             'authType'    => 'AK',
             'style'       => 'RPC',
-            'reqBodyType' => 'json',
+            'reqBodyType' => 'formData',
             'bodyType'    => 'json',
         ]);
 
@@ -3631,7 +3564,6 @@ class Vod extends OpenApiClient
         $query['ResourceOwnerId']      = $request->resourceOwnerId;
         $req                           = new OpenApiRequest([
             'query' => OpenApiUtilClient::query($query),
-            'body'  => Utils::toMap($request),
         ]);
         $params = new Params([
             'action'      => 'GetEditingProject',
@@ -3641,7 +3573,7 @@ class Vod extends OpenApiClient
             'method'      => 'POST',
             'authType'    => 'AK',
             'style'       => 'RPC',
-            'reqBodyType' => 'json',
+            'reqBodyType' => 'formData',
             'bodyType'    => 'json',
         ]);
 
@@ -3679,7 +3611,6 @@ class Vod extends OpenApiClient
         $query['Type']                 = $request->type;
         $req                           = new OpenApiRequest([
             'query' => OpenApiUtilClient::query($query),
-            'body'  => Utils::toMap($request),
         ]);
         $params = new Params([
             'action'      => 'GetEditingProjectMaterials',
@@ -3689,7 +3620,7 @@ class Vod extends OpenApiClient
             'method'      => 'POST',
             'authType'    => 'AK',
             'style'       => 'RPC',
-            'reqBodyType' => 'json',
+            'reqBodyType' => 'formData',
             'bodyType'    => 'json',
         ]);
 
@@ -3723,7 +3654,6 @@ class Vod extends OpenApiClient
         $query['OutputType']  = $request->outputType;
         $req                  = new OpenApiRequest([
             'query' => OpenApiUtilClient::query($query),
-            'body'  => Utils::toMap($request),
         ]);
         $params = new Params([
             'action'      => 'GetImageInfo',
@@ -3733,7 +3663,7 @@ class Vod extends OpenApiClient
             'method'      => 'POST',
             'authType'    => 'AK',
             'style'       => 'RPC',
-            'reqBodyType' => 'json',
+            'reqBodyType' => 'formData',
             'bodyType'    => 'json',
         ]);
 
@@ -3770,7 +3700,6 @@ class Vod extends OpenApiClient
         $query['ResourceOwnerId']      = $request->resourceOwnerId;
         $req                           = new OpenApiRequest([
             'query' => OpenApiUtilClient::query($query),
-            'body'  => Utils::toMap($request),
         ]);
         $params = new Params([
             'action'      => 'GetMediaAuditAudioResultDetail',
@@ -3780,7 +3709,7 @@ class Vod extends OpenApiClient
             'method'      => 'POST',
             'authType'    => 'AK',
             'style'       => 'RPC',
-            'reqBodyType' => 'json',
+            'reqBodyType' => 'formData',
             'bodyType'    => 'json',
         ]);
 
@@ -3812,7 +3741,6 @@ class Vod extends OpenApiClient
         $query['MediaId'] = $request->mediaId;
         $req              = new OpenApiRequest([
             'query' => OpenApiUtilClient::query($query),
-            'body'  => Utils::toMap($request),
         ]);
         $params = new Params([
             'action'      => 'GetMediaAuditResult',
@@ -3822,7 +3750,7 @@ class Vod extends OpenApiClient
             'method'      => 'POST',
             'authType'    => 'AK',
             'style'       => 'RPC',
-            'reqBodyType' => 'json',
+            'reqBodyType' => 'formData',
             'bodyType'    => 'json',
         ]);
 
@@ -3855,7 +3783,6 @@ class Vod extends OpenApiClient
         $query['PageNo']  = $request->pageNo;
         $req              = new OpenApiRequest([
             'query' => OpenApiUtilClient::query($query),
-            'body'  => Utils::toMap($request),
         ]);
         $params = new Params([
             'action'      => 'GetMediaAuditResultDetail',
@@ -3865,7 +3792,7 @@ class Vod extends OpenApiClient
             'method'      => 'POST',
             'authType'    => 'AK',
             'style'       => 'RPC',
-            'reqBodyType' => 'json',
+            'reqBodyType' => 'formData',
             'bodyType'    => 'json',
         ]);
 
@@ -3897,7 +3824,6 @@ class Vod extends OpenApiClient
         $query['MediaId'] = $request->mediaId;
         $req              = new OpenApiRequest([
             'query' => OpenApiUtilClient::query($query),
-            'body'  => Utils::toMap($request),
         ]);
         $params = new Params([
             'action'      => 'GetMediaAuditResultTimeline',
@@ -3907,7 +3833,7 @@ class Vod extends OpenApiClient
             'method'      => 'POST',
             'authType'    => 'AK',
             'style'       => 'RPC',
-            'reqBodyType' => 'json',
+            'reqBodyType' => 'formData',
             'bodyType'    => 'json',
         ]);
 
@@ -3943,7 +3869,6 @@ class Vod extends OpenApiClient
         $query['ResourceOwnerId']      = $request->resourceOwnerId;
         $req                           = new OpenApiRequest([
             'query' => OpenApiUtilClient::query($query),
-            'body'  => Utils::toMap($request),
         ]);
         $params = new Params([
             'action'      => 'GetMediaDNAResult',
@@ -3953,7 +3878,7 @@ class Vod extends OpenApiClient
             'method'      => 'POST',
             'authType'    => 'AK',
             'style'       => 'RPC',
-            'reqBodyType' => 'json',
+            'reqBodyType' => 'formData',
             'bodyType'    => 'json',
         ]);
 
@@ -3986,7 +3911,6 @@ class Vod extends OpenApiClient
         $query['OwnerAccount'] = $request->ownerAccount;
         $req                   = new OpenApiRequest([
             'query' => OpenApiUtilClient::query($query),
-            'body'  => Utils::toMap($request),
         ]);
         $params = new Params([
             'action'      => 'GetMessageCallback',
@@ -3996,7 +3920,7 @@ class Vod extends OpenApiClient
             'method'      => 'POST',
             'authType'    => 'AK',
             'style'       => 'RPC',
-            'reqBodyType' => 'json',
+            'reqBodyType' => 'formData',
             'bodyType'    => 'json',
         ]);
 
@@ -4031,7 +3955,6 @@ class Vod extends OpenApiClient
         $query['VideoId']      = $request->videoId;
         $req                   = new OpenApiRequest([
             'query' => OpenApiUtilClient::query($query),
-            'body'  => Utils::toMap($request),
         ]);
         $params = new Params([
             'action'      => 'GetMezzanineInfo',
@@ -4041,7 +3964,7 @@ class Vod extends OpenApiClient
             'method'      => 'POST',
             'authType'    => 'AK',
             'style'       => 'RPC',
-            'reqBodyType' => 'json',
+            'reqBodyType' => 'formData',
             'bodyType'    => 'json',
         ]);
 
@@ -4082,7 +4005,6 @@ class Vod extends OpenApiClient
         $query['VideoId']      = $request->videoId;
         $req                   = new OpenApiRequest([
             'query' => OpenApiUtilClient::query($query),
-            'body'  => Utils::toMap($request),
         ]);
         $params = new Params([
             'action'      => 'GetPlayInfo',
@@ -4092,7 +4014,7 @@ class Vod extends OpenApiClient
             'method'      => 'POST',
             'authType'    => 'AK',
             'style'       => 'RPC',
-            'reqBodyType' => 'json',
+            'reqBodyType' => 'formData',
             'bodyType'    => 'json',
         ]);
 
@@ -4124,7 +4046,6 @@ class Vod extends OpenApiClient
         $query['VideoIds'] = $request->videoIds;
         $req               = new OpenApiRequest([
             'query' => OpenApiUtilClient::query($query),
-            'body'  => Utils::toMap($request),
         ]);
         $params = new Params([
             'action'      => 'GetTranscodeSummary',
@@ -4134,7 +4055,7 @@ class Vod extends OpenApiClient
             'method'      => 'POST',
             'authType'    => 'AK',
             'style'       => 'RPC',
-            'reqBodyType' => 'json',
+            'reqBodyType' => 'formData',
             'bodyType'    => 'json',
         ]);
 
@@ -4166,7 +4087,6 @@ class Vod extends OpenApiClient
         $query['TranscodeTaskId'] = $request->transcodeTaskId;
         $req                      = new OpenApiRequest([
             'query' => OpenApiUtilClient::query($query),
-            'body'  => Utils::toMap($request),
         ]);
         $params = new Params([
             'action'      => 'GetTranscodeTask',
@@ -4176,7 +4096,7 @@ class Vod extends OpenApiClient
             'method'      => 'POST',
             'authType'    => 'AK',
             'style'       => 'RPC',
-            'reqBodyType' => 'json',
+            'reqBodyType' => 'formData',
             'bodyType'    => 'json',
         ]);
 
@@ -4208,7 +4128,6 @@ class Vod extends OpenApiClient
         $query['TranscodeTemplateGroupId'] = $request->transcodeTemplateGroupId;
         $req                               = new OpenApiRequest([
             'query' => OpenApiUtilClient::query($query),
-            'body'  => Utils::toMap($request),
         ]);
         $params = new Params([
             'action'      => 'GetTranscodeTemplateGroup',
@@ -4218,7 +4137,7 @@ class Vod extends OpenApiClient
             'method'      => 'POST',
             'authType'    => 'AK',
             'style'       => 'RPC',
-            'reqBodyType' => 'json',
+            'reqBodyType' => 'formData',
             'bodyType'    => 'json',
         ]);
 
@@ -4251,7 +4170,6 @@ class Vod extends OpenApiClient
         $query['UploadURLs'] = $request->uploadURLs;
         $req                 = new OpenApiRequest([
             'query' => OpenApiUtilClient::query($query),
-            'body'  => Utils::toMap($request),
         ]);
         $params = new Params([
             'action'      => 'GetURLUploadInfos',
@@ -4261,7 +4179,7 @@ class Vod extends OpenApiClient
             'method'      => 'POST',
             'authType'    => 'AK',
             'style'       => 'RPC',
-            'reqBodyType' => 'json',
+            'reqBodyType' => 'formData',
             'bodyType'    => 'json',
         ]);
 
@@ -4294,7 +4212,6 @@ class Vod extends OpenApiClient
         $query['MediaType'] = $request->mediaType;
         $req                = new OpenApiRequest([
             'query' => OpenApiUtilClient::query($query),
-            'body'  => Utils::toMap($request),
         ]);
         $params = new Params([
             'action'      => 'GetUploadDetails',
@@ -4304,7 +4221,7 @@ class Vod extends OpenApiClient
             'method'      => 'POST',
             'authType'    => 'AK',
             'style'       => 'RPC',
-            'reqBodyType' => 'json',
+            'reqBodyType' => 'formData',
             'bodyType'    => 'json',
         ]);
 
@@ -4336,7 +4253,6 @@ class Vod extends OpenApiClient
         $query['VideoId'] = $request->videoId;
         $req              = new OpenApiRequest([
             'query' => OpenApiUtilClient::query($query),
-            'body'  => Utils::toMap($request),
         ]);
         $params = new Params([
             'action'      => 'GetVideoInfo',
@@ -4346,7 +4262,7 @@ class Vod extends OpenApiClient
             'method'      => 'POST',
             'authType'    => 'AK',
             'style'       => 'RPC',
-            'reqBodyType' => 'json',
+            'reqBodyType' => 'formData',
             'bodyType'    => 'json',
         ]);
 
@@ -4378,7 +4294,6 @@ class Vod extends OpenApiClient
         $query['VideoIds'] = $request->videoIds;
         $req               = new OpenApiRequest([
             'query' => OpenApiUtilClient::query($query),
-            'body'  => Utils::toMap($request),
         ]);
         $params = new Params([
             'action'      => 'GetVideoInfos',
@@ -4388,7 +4303,7 @@ class Vod extends OpenApiClient
             'method'      => 'POST',
             'authType'    => 'AK',
             'style'       => 'RPC',
-            'reqBodyType' => 'json',
+            'reqBodyType' => 'formData',
             'bodyType'    => 'json',
         ]);
 
@@ -4427,7 +4342,6 @@ class Vod extends OpenApiClient
         $query['StorageLocation'] = $request->storageLocation;
         $req                      = new OpenApiRequest([
             'query' => OpenApiUtilClient::query($query),
-            'body'  => Utils::toMap($request),
         ]);
         $params = new Params([
             'action'      => 'GetVideoList',
@@ -4437,7 +4351,7 @@ class Vod extends OpenApiClient
             'method'      => 'POST',
             'authType'    => 'AK',
             'style'       => 'RPC',
-            'reqBodyType' => 'json',
+            'reqBodyType' => 'formData',
             'bodyType'    => 'json',
         ]);
 
@@ -4471,7 +4385,6 @@ class Vod extends OpenApiClient
         $query['VideoId']         = $request->videoId;
         $req                      = new OpenApiRequest([
             'query' => OpenApiUtilClient::query($query),
-            'body'  => Utils::toMap($request),
         ]);
         $params = new Params([
             'action'      => 'GetVideoPlayAuth',
@@ -4481,7 +4394,7 @@ class Vod extends OpenApiClient
             'method'      => 'POST',
             'authType'    => 'AK',
             'style'       => 'RPC',
-            'reqBodyType' => 'json',
+            'reqBodyType' => 'formData',
             'bodyType'    => 'json',
         ]);
 
@@ -4513,7 +4426,6 @@ class Vod extends OpenApiClient
         $query['VodTemplateId'] = $request->vodTemplateId;
         $req                    = new OpenApiRequest([
             'query' => OpenApiUtilClient::query($query),
-            'body'  => Utils::toMap($request),
         ]);
         $params = new Params([
             'action'      => 'GetVodTemplate',
@@ -4523,7 +4435,7 @@ class Vod extends OpenApiClient
             'method'      => 'POST',
             'authType'    => 'AK',
             'style'       => 'RPC',
-            'reqBodyType' => 'json',
+            'reqBodyType' => 'formData',
             'bodyType'    => 'json',
         ]);
 
@@ -4555,7 +4467,6 @@ class Vod extends OpenApiClient
         $query['WatermarkId'] = $request->watermarkId;
         $req                  = new OpenApiRequest([
             'query' => OpenApiUtilClient::query($query),
-            'body'  => Utils::toMap($request),
         ]);
         $params = new Params([
             'action'      => 'GetWatermark',
@@ -4565,7 +4476,7 @@ class Vod extends OpenApiClient
             'method'      => 'POST',
             'authType'    => 'AK',
             'style'       => 'RPC',
-            'reqBodyType' => 'json',
+            'reqBodyType' => 'formData',
             'bodyType'    => 'json',
         ]);
 
@@ -4597,7 +4508,6 @@ class Vod extends OpenApiClient
         $query['VideoId'] = $request->videoId;
         $req              = new OpenApiRequest([
             'query' => OpenApiUtilClient::query($query),
-            'body'  => Utils::toMap($request),
         ]);
         $params = new Params([
             'action'      => 'ListAIImageInfo',
@@ -4607,7 +4517,7 @@ class Vod extends OpenApiClient
             'method'      => 'POST',
             'authType'    => 'AK',
             'style'       => 'RPC',
-            'reqBodyType' => 'json',
+            'reqBodyType' => 'formData',
             'bodyType'    => 'json',
         ]);
 
@@ -4643,7 +4553,6 @@ class Vod extends OpenApiClient
         $query['ResourceOwnerId']      = $request->resourceOwnerId;
         $req                           = new OpenApiRequest([
             'query' => OpenApiUtilClient::query($query),
-            'body'  => Utils::toMap($request),
         ]);
         $params = new Params([
             'action'      => 'ListAIJob',
@@ -4653,7 +4562,7 @@ class Vod extends OpenApiClient
             'method'      => 'POST',
             'authType'    => 'AK',
             'style'       => 'RPC',
-            'reqBodyType' => 'json',
+            'reqBodyType' => 'formData',
             'bodyType'    => 'json',
         ]);
 
@@ -4685,7 +4594,6 @@ class Vod extends OpenApiClient
         $query['TemplateType'] = $request->templateType;
         $req                   = new OpenApiRequest([
             'query' => OpenApiUtilClient::query($query),
-            'body'  => Utils::toMap($request),
         ]);
         $params = new Params([
             'action'      => 'ListAITemplate',
@@ -4695,7 +4603,7 @@ class Vod extends OpenApiClient
             'method'      => 'POST',
             'authType'    => 'AK',
             'style'       => 'RPC',
-            'reqBodyType' => 'json',
+            'reqBodyType' => 'formData',
             'bodyType'    => 'json',
         ]);
 
@@ -4729,7 +4637,6 @@ class Vod extends OpenApiClient
         $query['Status']   = $request->status;
         $req               = new OpenApiRequest([
             'query' => OpenApiUtilClient::query($query),
-            'body'  => Utils::toMap($request),
         ]);
         $params = new Params([
             'action'      => 'ListAppInfo',
@@ -4739,7 +4646,7 @@ class Vod extends OpenApiClient
             'method'      => 'POST',
             'authType'    => 'AK',
             'style'       => 'RPC',
-            'reqBodyType' => 'json',
+            'reqBodyType' => 'formData',
             'bodyType'    => 'json',
         ]);
 
@@ -4773,7 +4680,6 @@ class Vod extends OpenApiClient
         $query['IdentityType'] = $request->identityType;
         $req                   = new OpenApiRequest([
             'query' => OpenApiUtilClient::query($query),
-            'body'  => Utils::toMap($request),
         ]);
         $params = new Params([
             'action'      => 'ListAppPoliciesForIdentity',
@@ -4783,7 +4689,7 @@ class Vod extends OpenApiClient
             'method'      => 'POST',
             'authType'    => 'AK',
             'style'       => 'RPC',
-            'reqBodyType' => 'json',
+            'reqBodyType' => 'formData',
             'bodyType'    => 'json',
         ]);
 
@@ -4815,7 +4721,6 @@ class Vod extends OpenApiClient
         $query['SecurityGroupName'] = $request->securityGroupName;
         $req                        = new OpenApiRequest([
             'query' => OpenApiUtilClient::query($query),
-            'body'  => Utils::toMap($request),
         ]);
         $params = new Params([
             'action'      => 'ListAuditSecurityIp',
@@ -4825,7 +4730,7 @@ class Vod extends OpenApiClient
             'method'      => 'POST',
             'authType'    => 'AK',
             'style'       => 'RPC',
-            'reqBodyType' => 'json',
+            'reqBodyType' => 'formData',
             'bodyType'    => 'json',
         ]);
 
@@ -4857,7 +4762,6 @@ class Vod extends OpenApiClient
         $query['VideoId'] = $request->videoId;
         $req              = new OpenApiRequest([
             'query' => OpenApiUtilClient::query($query),
-            'body'  => Utils::toMap($request),
         ]);
         $params = new Params([
             'action'      => 'ListDynamicImage',
@@ -4867,7 +4771,7 @@ class Vod extends OpenApiClient
             'method'      => 'POST',
             'authType'    => 'AK',
             'style'       => 'RPC',
-            'reqBodyType' => 'json',
+            'reqBodyType' => 'formData',
             'bodyType'    => 'json',
         ]);
 
@@ -4906,7 +4810,6 @@ class Vod extends OpenApiClient
         $query['StreamName'] = $request->streamName;
         $req                 = new OpenApiRequest([
             'query' => OpenApiUtilClient::query($query),
-            'body'  => Utils::toMap($request),
         ]);
         $params = new Params([
             'action'      => 'ListLiveRecordVideo',
@@ -4916,7 +4819,7 @@ class Vod extends OpenApiClient
             'method'      => 'POST',
             'authType'    => 'AK',
             'style'       => 'RPC',
-            'reqBodyType' => 'json',
+            'reqBodyType' => 'formData',
             'bodyType'    => 'json',
         ]);
 
@@ -4952,7 +4855,6 @@ class Vod extends OpenApiClient
         $query['ResourceOwnerId']      = $request->resourceOwnerId;
         $req                           = new OpenApiRequest([
             'query' => OpenApiUtilClient::query($query),
-            'body'  => Utils::toMap($request),
         ]);
         $params = new Params([
             'action'      => 'ListMediaDNADeleteJob',
@@ -4962,7 +4864,7 @@ class Vod extends OpenApiClient
             'method'      => 'POST',
             'authType'    => 'AK',
             'style'       => 'RPC',
-            'reqBodyType' => 'json',
+            'reqBodyType' => 'formData',
             'bodyType'    => 'json',
         ]);
 
@@ -4998,7 +4900,6 @@ class Vod extends OpenApiClient
         $query['VideoId']      = $request->videoId;
         $req                   = new OpenApiRequest([
             'query' => OpenApiUtilClient::query($query),
-            'body'  => Utils::toMap($request),
         ]);
         $params = new Params([
             'action'      => 'ListSnapshots',
@@ -5008,7 +4909,7 @@ class Vod extends OpenApiClient
             'method'      => 'POST',
             'authType'    => 'AK',
             'style'       => 'RPC',
-            'reqBodyType' => 'json',
+            'reqBodyType' => 'formData',
             'bodyType'    => 'json',
         ]);
 
@@ -5044,7 +4945,6 @@ class Vod extends OpenApiClient
         $query['VideoId']   = $request->videoId;
         $req                = new OpenApiRequest([
             'query' => OpenApiUtilClient::query($query),
-            'body'  => Utils::toMap($request),
         ]);
         $params = new Params([
             'action'      => 'ListTranscodeTask',
@@ -5054,7 +4954,7 @@ class Vod extends OpenApiClient
             'method'      => 'POST',
             'authType'    => 'AK',
             'style'       => 'RPC',
-            'reqBodyType' => 'json',
+            'reqBodyType' => 'formData',
             'bodyType'    => 'json',
         ]);
 
@@ -5086,7 +4986,6 @@ class Vod extends OpenApiClient
         $query['AppId'] = $request->appId;
         $req            = new OpenApiRequest([
             'query' => OpenApiUtilClient::query($query),
-            'body'  => Utils::toMap($request),
         ]);
         $params = new Params([
             'action'      => 'ListTranscodeTemplateGroup',
@@ -5096,7 +4995,7 @@ class Vod extends OpenApiClient
             'method'      => 'POST',
             'authType'    => 'AK',
             'style'       => 'RPC',
-            'reqBodyType' => 'json',
+            'reqBodyType' => 'formData',
             'bodyType'    => 'json',
         ]);
 
@@ -5136,7 +5035,7 @@ class Vod extends OpenApiClient
             'method'      => 'GET',
             'authType'    => 'AK',
             'style'       => 'RPC',
-            'reqBodyType' => 'json',
+            'reqBodyType' => 'formData',
             'bodyType'    => 'json',
         ]);
 
@@ -5176,7 +5075,7 @@ class Vod extends OpenApiClient
             'method'      => 'GET',
             'authType'    => 'AK',
             'style'       => 'RPC',
-            'reqBodyType' => 'json',
+            'reqBodyType' => 'formData',
             'bodyType'    => 'json',
         ]);
 
@@ -5209,7 +5108,6 @@ class Vod extends OpenApiClient
         $query['TemplateType'] = $request->templateType;
         $req                   = new OpenApiRequest([
             'query' => OpenApiUtilClient::query($query),
-            'body'  => Utils::toMap($request),
         ]);
         $params = new Params([
             'action'      => 'ListVodTemplate',
@@ -5219,7 +5117,7 @@ class Vod extends OpenApiClient
             'method'      => 'POST',
             'authType'    => 'AK',
             'style'       => 'RPC',
-            'reqBodyType' => 'json',
+            'reqBodyType' => 'formData',
             'bodyType'    => 'json',
         ]);
 
@@ -5251,7 +5149,6 @@ class Vod extends OpenApiClient
         $query['AppId'] = $request->appId;
         $req            = new OpenApiRequest([
             'query' => OpenApiUtilClient::query($query),
-            'body'  => Utils::toMap($request),
         ]);
         $params = new Params([
             'action'      => 'ListWatermark',
@@ -5261,7 +5158,7 @@ class Vod extends OpenApiClient
             'method'      => 'POST',
             'authType'    => 'AK',
             'style'       => 'RPC',
-            'reqBodyType' => 'json',
+            'reqBodyType' => 'formData',
             'bodyType'    => 'json',
         ]);
 
@@ -5295,7 +5192,6 @@ class Vod extends OpenApiClient
         $query['TargetAppId']  = $request->targetAppId;
         $req                   = new OpenApiRequest([
             'query' => OpenApiUtilClient::query($query),
-            'body'  => Utils::toMap($request),
         ]);
         $params = new Params([
             'action'      => 'MoveAppResource',
@@ -5305,7 +5201,7 @@ class Vod extends OpenApiClient
             'method'      => 'POST',
             'authType'    => 'AK',
             'style'       => 'RPC',
-            'reqBodyType' => 'json',
+            'reqBodyType' => 'formData',
             'bodyType'    => 'json',
         ]);
 
@@ -5339,7 +5235,6 @@ class Vod extends OpenApiClient
         $query['SecurityToken'] = $request->securityToken;
         $req                    = new OpenApiRequest([
             'query' => OpenApiUtilClient::query($query),
-            'body'  => Utils::toMap($request),
         ]);
         $params = new Params([
             'action'      => 'PreloadVodObjectCaches',
@@ -5349,7 +5244,7 @@ class Vod extends OpenApiClient
             'method'      => 'POST',
             'authType'    => 'AK',
             'style'       => 'RPC',
-            'reqBodyType' => 'json',
+            'reqBodyType' => 'formData',
             'bodyType'    => 'json',
         ]);
 
@@ -5391,7 +5286,6 @@ class Vod extends OpenApiClient
         $query['UserData']             = $request->userData;
         $req                           = new OpenApiRequest([
             'query' => OpenApiUtilClient::query($query),
-            'body'  => Utils::toMap($request),
         ]);
         $params = new Params([
             'action'      => 'ProduceEditingProjectVideo',
@@ -5401,7 +5295,7 @@ class Vod extends OpenApiClient
             'method'      => 'POST',
             'authType'    => 'AK',
             'style'       => 'RPC',
-            'reqBodyType' => 'json',
+            'reqBodyType' => 'formData',
             'bodyType'    => 'json',
         ]);
 
@@ -5436,7 +5330,6 @@ class Vod extends OpenApiClient
         $query['VideoId']              = $request->videoId;
         $req                           = new OpenApiRequest([
             'query' => OpenApiUtilClient::query($query),
-            'body'  => Utils::toMap($request),
         ]);
         $params = new Params([
             'action'      => 'RefreshUploadVideo',
@@ -5446,7 +5339,7 @@ class Vod extends OpenApiClient
             'method'      => 'POST',
             'authType'    => 'AK',
             'style'       => 'RPC',
-            'reqBodyType' => 'json',
+            'reqBodyType' => 'formData',
             'bodyType'    => 'json',
         ]);
 
@@ -5481,7 +5374,6 @@ class Vod extends OpenApiClient
         $query['SecurityToken'] = $request->securityToken;
         $req                    = new OpenApiRequest([
             'query' => OpenApiUtilClient::query($query),
-            'body'  => Utils::toMap($request),
         ]);
         $params = new Params([
             'action'      => 'RefreshVodObjectCaches',
@@ -5491,7 +5383,7 @@ class Vod extends OpenApiClient
             'method'      => 'POST',
             'authType'    => 'AK',
             'style'       => 'RPC',
-            'reqBodyType' => 'json',
+            'reqBodyType' => 'formData',
             'bodyType'    => 'json',
         ]);
 
@@ -5526,7 +5418,6 @@ class Vod extends OpenApiClient
         $query['WorkflowId']        = $request->workflowId;
         $req                        = new OpenApiRequest([
             'query' => OpenApiUtilClient::query($query),
-            'body'  => Utils::toMap($request),
         ]);
         $params = new Params([
             'action'      => 'RegisterMedia',
@@ -5536,7 +5427,7 @@ class Vod extends OpenApiClient
             'method'      => 'POST',
             'authType'    => 'AK',
             'style'       => 'RPC',
-            'reqBodyType' => 'json',
+            'reqBodyType' => 'formData',
             'bodyType'    => 'json',
         ]);
 
@@ -5578,7 +5469,6 @@ class Vod extends OpenApiClient
         $query['Title']                = $request->title;
         $req                           = new OpenApiRequest([
             'query' => OpenApiUtilClient::query($query),
-            'body'  => Utils::toMap($request),
         ]);
         $params = new Params([
             'action'      => 'SearchEditingProject',
@@ -5588,7 +5478,7 @@ class Vod extends OpenApiClient
             'method'      => 'POST',
             'authType'    => 'AK',
             'style'       => 'RPC',
-            'reqBodyType' => 'json',
+            'reqBodyType' => 'formData',
             'bodyType'    => 'json',
         ]);
 
@@ -5626,7 +5516,6 @@ class Vod extends OpenApiClient
         $query['SortBy']      = $request->sortBy;
         $req                  = new OpenApiRequest([
             'query' => OpenApiUtilClient::query($query),
-            'body'  => Utils::toMap($request),
         ]);
         $params = new Params([
             'action'      => 'SearchMedia',
@@ -5636,7 +5525,7 @@ class Vod extends OpenApiClient
             'method'      => 'POST',
             'authType'    => 'AK',
             'style'       => 'RPC',
-            'reqBodyType' => 'json',
+            'reqBodyType' => 'formData',
             'bodyType'    => 'json',
         ]);
 
@@ -5670,7 +5559,6 @@ class Vod extends OpenApiClient
         $query['SecurityGroupName'] = $request->securityGroupName;
         $req                        = new OpenApiRequest([
             'query' => OpenApiUtilClient::query($query),
-            'body'  => Utils::toMap($request),
         ]);
         $params = new Params([
             'action'      => 'SetAuditSecurityIp',
@@ -5680,7 +5568,7 @@ class Vod extends OpenApiClient
             'method'      => 'POST',
             'authType'    => 'AK',
             'style'       => 'RPC',
-            'reqBodyType' => 'json',
+            'reqBodyType' => 'formData',
             'bodyType'    => 'json',
         ]);
 
@@ -5718,7 +5606,6 @@ class Vod extends OpenApiClient
         $query['StorageLocation']      = $request->storageLocation;
         $req                           = new OpenApiRequest([
             'query' => OpenApiUtilClient::query($query),
-            'body'  => Utils::toMap($request),
         ]);
         $params = new Params([
             'action'      => 'SetCrossdomainContent',
@@ -5728,7 +5615,7 @@ class Vod extends OpenApiClient
             'method'      => 'POST',
             'authType'    => 'AK',
             'style'       => 'RPC',
-            'reqBodyType' => 'json',
+            'reqBodyType' => 'formData',
             'bodyType'    => 'json',
         ]);
 
@@ -5760,7 +5647,6 @@ class Vod extends OpenApiClient
         $query['TemplateId'] = $request->templateId;
         $req                 = new OpenApiRequest([
             'query' => OpenApiUtilClient::query($query),
-            'body'  => Utils::toMap($request),
         ]);
         $params = new Params([
             'action'      => 'SetDefaultAITemplate',
@@ -5770,7 +5656,7 @@ class Vod extends OpenApiClient
             'method'      => 'POST',
             'authType'    => 'AK',
             'style'       => 'RPC',
-            'reqBodyType' => 'json',
+            'reqBodyType' => 'formData',
             'bodyType'    => 'json',
         ]);
 
@@ -5802,7 +5688,6 @@ class Vod extends OpenApiClient
         $query['TranscodeTemplateGroupId'] = $request->transcodeTemplateGroupId;
         $req                               = new OpenApiRequest([
             'query' => OpenApiUtilClient::query($query),
-            'body'  => Utils::toMap($request),
         ]);
         $params = new Params([
             'action'      => 'SetDefaultTranscodeTemplateGroup',
@@ -5812,7 +5697,7 @@ class Vod extends OpenApiClient
             'method'      => 'POST',
             'authType'    => 'AK',
             'style'       => 'RPC',
-            'reqBodyType' => 'json',
+            'reqBodyType' => 'formData',
             'bodyType'    => 'json',
         ]);
 
@@ -5844,7 +5729,6 @@ class Vod extends OpenApiClient
         $query['WatermarkId'] = $request->watermarkId;
         $req                  = new OpenApiRequest([
             'query' => OpenApiUtilClient::query($query),
-            'body'  => Utils::toMap($request),
         ]);
         $params = new Params([
             'action'      => 'SetDefaultWatermark',
@@ -5854,7 +5738,7 @@ class Vod extends OpenApiClient
             'method'      => 'POST',
             'authType'    => 'AK',
             'style'       => 'RPC',
-            'reqBodyType' => 'json',
+            'reqBodyType' => 'formData',
             'bodyType'    => 'json',
         ]);
 
@@ -5891,7 +5775,6 @@ class Vod extends OpenApiClient
         $query['ResourceOwnerId']      = $request->resourceOwnerId;
         $req                           = new OpenApiRequest([
             'query' => OpenApiUtilClient::query($query),
-            'body'  => Utils::toMap($request),
         ]);
         $params = new Params([
             'action'      => 'SetEditingProjectMaterials',
@@ -5901,7 +5784,7 @@ class Vod extends OpenApiClient
             'method'      => 'POST',
             'authType'    => 'AK',
             'style'       => 'RPC',
-            'reqBodyType' => 'json',
+            'reqBodyType' => 'formData',
             'bodyType'    => 'json',
         ]);
 
@@ -5941,7 +5824,6 @@ class Vod extends OpenApiClient
         $query['OwnerAccount']  = $request->ownerAccount;
         $req                    = new OpenApiRequest([
             'query' => OpenApiUtilClient::query($query),
-            'body'  => Utils::toMap($request),
         ]);
         $params = new Params([
             'action'      => 'SetMessageCallback',
@@ -5951,7 +5833,7 @@ class Vod extends OpenApiClient
             'method'      => 'POST',
             'authType'    => 'AK',
             'style'       => 'RPC',
-            'reqBodyType' => 'json',
+            'reqBodyType' => 'formData',
             'bodyType'    => 'json',
         ]);
 
@@ -5989,7 +5871,6 @@ class Vod extends OpenApiClient
         $query['SecurityToken'] = $request->securityToken;
         $req                    = new OpenApiRequest([
             'query' => OpenApiUtilClient::query($query),
-            'body'  => Utils::toMap($request),
         ]);
         $params = new Params([
             'action'      => 'SetVodDomainCertificate',
@@ -5999,7 +5880,7 @@ class Vod extends OpenApiClient
             'method'      => 'POST',
             'authType'    => 'AK',
             'style'       => 'RPC',
-            'reqBodyType' => 'json',
+            'reqBodyType' => 'formData',
             'bodyType'    => 'json',
         ]);
 
@@ -6037,7 +5918,6 @@ class Vod extends OpenApiClient
         $query['TemplateId']              = $request->templateId;
         $req                              = new OpenApiRequest([
             'query' => OpenApiUtilClient::query($query),
-            'body'  => Utils::toMap($request),
         ]);
         $params = new Params([
             'action'      => 'SubmitAIImageAuditJob',
@@ -6047,7 +5927,7 @@ class Vod extends OpenApiClient
             'method'      => 'POST',
             'authType'    => 'AK',
             'style'       => 'RPC',
-            'reqBodyType' => 'json',
+            'reqBodyType' => 'formData',
             'bodyType'    => 'json',
         ]);
 
@@ -6086,7 +5966,6 @@ class Vod extends OpenApiClient
         $query['VideoId']              = $request->videoId;
         $req                           = new OpenApiRequest([
             'query' => OpenApiUtilClient::query($query),
-            'body'  => Utils::toMap($request),
         ]);
         $params = new Params([
             'action'      => 'SubmitAIImageJob',
@@ -6096,7 +5975,7 @@ class Vod extends OpenApiClient
             'method'      => 'POST',
             'authType'    => 'AK',
             'style'       => 'RPC',
-            'reqBodyType' => 'json',
+            'reqBodyType' => 'formData',
             'bodyType'    => 'json',
         ]);
 
@@ -6135,7 +6014,6 @@ class Vod extends OpenApiClient
         $query['UserData']             = $request->userData;
         $req                           = new OpenApiRequest([
             'query' => OpenApiUtilClient::query($query),
-            'body'  => Utils::toMap($request),
         ]);
         $params = new Params([
             'action'      => 'SubmitAIJob',
@@ -6145,7 +6023,7 @@ class Vod extends OpenApiClient
             'method'      => 'POST',
             'authType'    => 'AK',
             'style'       => 'RPC',
-            'reqBodyType' => 'json',
+            'reqBodyType' => 'formData',
             'bodyType'    => 'json',
         ]);
 
@@ -6181,7 +6059,6 @@ class Vod extends OpenApiClient
         $query['UserData']                = $request->userData;
         $req                              = new OpenApiRequest([
             'query' => OpenApiUtilClient::query($query),
-            'body'  => Utils::toMap($request),
         ]);
         $params = new Params([
             'action'      => 'SubmitAIMediaAuditJob',
@@ -6191,7 +6068,7 @@ class Vod extends OpenApiClient
             'method'      => 'POST',
             'authType'    => 'AK',
             'style'       => 'RPC',
-            'reqBodyType' => 'json',
+            'reqBodyType' => 'formData',
             'bodyType'    => 'json',
         ]);
 
@@ -6225,7 +6102,6 @@ class Vod extends OpenApiClient
         $query['VideoId']                = $request->videoId;
         $req                             = new OpenApiRequest([
             'query' => OpenApiUtilClient::query($query),
-            'body'  => Utils::toMap($request),
         ]);
         $params = new Params([
             'action'      => 'SubmitDynamicImageJob',
@@ -6235,7 +6111,7 @@ class Vod extends OpenApiClient
             'method'      => 'POST',
             'authType'    => 'AK',
             'style'       => 'RPC',
-            'reqBodyType' => 'json',
+            'reqBodyType' => 'formData',
             'bodyType'    => 'json',
         ]);
 
@@ -6279,7 +6155,6 @@ class Vod extends OpenApiClient
         $query['UserData']             = $request->userData;
         $req                           = new OpenApiRequest([
             'query' => OpenApiUtilClient::query($query),
-            'body'  => Utils::toMap($request),
         ]);
         $params = new Params([
             'action'      => 'SubmitLiveEditing',
@@ -6289,7 +6164,7 @@ class Vod extends OpenApiClient
             'method'      => 'POST',
             'authType'    => 'AK',
             'style'       => 'RPC',
-            'reqBodyType' => 'json',
+            'reqBodyType' => 'formData',
             'bodyType'    => 'json',
         ]);
 
@@ -6325,7 +6200,6 @@ class Vod extends OpenApiClient
         $query['ResourceOwnerId']      = $request->resourceOwnerId;
         $req                           = new OpenApiRequest([
             'query' => OpenApiUtilClient::query($query),
-            'body'  => Utils::toMap($request),
         ]);
         $params = new Params([
             'action'      => 'SubmitMediaDNADeleteJob',
@@ -6335,7 +6209,7 @@ class Vod extends OpenApiClient
             'method'      => 'POST',
             'authType'    => 'AK',
             'style'       => 'RPC',
-            'reqBodyType' => 'json',
+            'reqBodyType' => 'formData',
             'bodyType'    => 'json',
         ]);
 
@@ -6368,7 +6242,6 @@ class Vod extends OpenApiClient
         $query['VideoId']        = $request->videoId;
         $req                     = new OpenApiRequest([
             'query' => OpenApiUtilClient::query($query),
-            'body'  => Utils::toMap($request),
         ]);
         $params = new Params([
             'action'      => 'SubmitPreprocessJobs',
@@ -6378,7 +6251,7 @@ class Vod extends OpenApiClient
             'method'      => 'POST',
             'authType'    => 'AK',
             'style'       => 'RPC',
-            'reqBodyType' => 'json',
+            'reqBodyType' => 'formData',
             'bodyType'    => 'json',
         ]);
 
@@ -6418,7 +6291,6 @@ class Vod extends OpenApiClient
         $query['Width']                = $request->width;
         $req                           = new OpenApiRequest([
             'query' => OpenApiUtilClient::query($query),
-            'body'  => Utils::toMap($request),
         ]);
         $params = new Params([
             'action'      => 'SubmitSnapshotJob',
@@ -6428,7 +6300,7 @@ class Vod extends OpenApiClient
             'method'      => 'POST',
             'authType'    => 'AK',
             'style'       => 'RPC',
-            'reqBodyType' => 'json',
+            'reqBodyType' => 'formData',
             'bodyType'    => 'json',
         ]);
 
@@ -6466,7 +6338,6 @@ class Vod extends OpenApiClient
         $query['VideoId']         = $request->videoId;
         $req                      = new OpenApiRequest([
             'query' => OpenApiUtilClient::query($query),
-            'body'  => Utils::toMap($request),
         ]);
         $params = new Params([
             'action'      => 'SubmitTranscodeJobs',
@@ -6476,7 +6347,7 @@ class Vod extends OpenApiClient
             'method'      => 'POST',
             'authType'    => 'AK',
             'style'       => 'RPC',
-            'reqBodyType' => 'json',
+            'reqBodyType' => 'formData',
             'bodyType'    => 'json',
         ]);
 
@@ -6509,7 +6380,6 @@ class Vod extends OpenApiClient
         $query['WorkflowId'] = $request->workflowId;
         $req                 = new OpenApiRequest([
             'query' => OpenApiUtilClient::query($query),
-            'body'  => Utils::toMap($request),
         ]);
         $params = new Params([
             'action'      => 'SubmitWorkflowJob',
@@ -6519,7 +6389,7 @@ class Vod extends OpenApiClient
             'method'      => 'POST',
             'authType'    => 'AK',
             'style'       => 'RPC',
-            'reqBodyType' => 'json',
+            'reqBodyType' => 'formData',
             'bodyType'    => 'json',
         ]);
 
@@ -6554,7 +6424,6 @@ class Vod extends OpenApiClient
         $query['Tag']          = $request->tag;
         $req                   = new OpenApiRequest([
             'query' => OpenApiUtilClient::query($query),
-            'body'  => Utils::toMap($request),
         ]);
         $params = new Params([
             'action'      => 'TagVodResources',
@@ -6564,7 +6433,7 @@ class Vod extends OpenApiClient
             'method'      => 'POST',
             'authType'    => 'AK',
             'style'       => 'RPC',
-            'reqBodyType' => 'json',
+            'reqBodyType' => 'formData',
             'bodyType'    => 'json',
         ]);
 
@@ -6600,7 +6469,6 @@ class Vod extends OpenApiClient
         $query['TagKey']       = $request->tagKey;
         $req                   = new OpenApiRequest([
             'query' => OpenApiUtilClient::query($query),
-            'body'  => Utils::toMap($request),
         ]);
         $params = new Params([
             'action'      => 'UnTagVodResources',
@@ -6610,7 +6478,7 @@ class Vod extends OpenApiClient
             'method'      => 'POST',
             'authType'    => 'AK',
             'style'       => 'RPC',
-            'reqBodyType' => 'json',
+            'reqBodyType' => 'formData',
             'bodyType'    => 'json',
         ]);
 
@@ -6644,7 +6512,6 @@ class Vod extends OpenApiClient
         $query['TemplateName']   = $request->templateName;
         $req                     = new OpenApiRequest([
             'query' => OpenApiUtilClient::query($query),
-            'body'  => Utils::toMap($request),
         ]);
         $params = new Params([
             'action'      => 'UpdateAITemplate',
@@ -6654,7 +6521,7 @@ class Vod extends OpenApiClient
             'method'      => 'POST',
             'authType'    => 'AK',
             'style'       => 'RPC',
-            'reqBodyType' => 'json',
+            'reqBodyType' => 'formData',
             'bodyType'    => 'json',
         ]);
 
@@ -6689,7 +6556,6 @@ class Vod extends OpenApiClient
         $query['Status']      = $request->status;
         $req                  = new OpenApiRequest([
             'query' => OpenApiUtilClient::query($query),
-            'body'  => Utils::toMap($request),
         ]);
         $params = new Params([
             'action'      => 'UpdateAppInfo',
@@ -6699,7 +6565,7 @@ class Vod extends OpenApiClient
             'method'      => 'POST',
             'authType'    => 'AK',
             'style'       => 'RPC',
-            'reqBodyType' => 'json',
+            'reqBodyType' => 'formData',
             'bodyType'    => 'json',
         ]);
 
@@ -6731,7 +6597,6 @@ class Vod extends OpenApiClient
         $query['UpdateContent'] = $request->updateContent;
         $req                    = new OpenApiRequest([
             'query' => OpenApiUtilClient::query($query),
-            'body'  => Utils::toMap($request),
         ]);
         $params = new Params([
             'action'      => 'UpdateAttachedMediaInfos',
@@ -6741,7 +6606,7 @@ class Vod extends OpenApiClient
             'method'      => 'POST',
             'authType'    => 'AK',
             'style'       => 'RPC',
-            'reqBodyType' => 'json',
+            'reqBodyType' => 'formData',
             'bodyType'    => 'json',
         ]);
 
@@ -6774,7 +6639,6 @@ class Vod extends OpenApiClient
         $query['CateName'] = $request->cateName;
         $req               = new OpenApiRequest([
             'query' => OpenApiUtilClient::query($query),
-            'body'  => Utils::toMap($request),
         ]);
         $params = new Params([
             'action'      => 'UpdateCategory',
@@ -6784,7 +6648,7 @@ class Vod extends OpenApiClient
             'method'      => 'POST',
             'authType'    => 'AK',
             'style'       => 'RPC',
-            'reqBodyType' => 'json',
+            'reqBodyType' => 'formData',
             'bodyType'    => 'json',
         ]);
 
@@ -6824,7 +6688,6 @@ class Vod extends OpenApiClient
         $query['Title']                = $request->title;
         $req                           = new OpenApiRequest([
             'query' => OpenApiUtilClient::query($query),
-            'body'  => Utils::toMap($request),
         ]);
         $params = new Params([
             'action'      => 'UpdateEditingProject',
@@ -6834,7 +6697,7 @@ class Vod extends OpenApiClient
             'method'      => 'POST',
             'authType'    => 'AK',
             'style'       => 'RPC',
-            'reqBodyType' => 'json',
+            'reqBodyType' => 'formData',
             'bodyType'    => 'json',
         ]);
 
@@ -6866,7 +6729,6 @@ class Vod extends OpenApiClient
         $query['UpdateContent'] = $request->updateContent;
         $req                    = new OpenApiRequest([
             'query' => OpenApiUtilClient::query($query),
-            'body'  => Utils::toMap($request),
         ]);
         $params = new Params([
             'action'      => 'UpdateImageInfos',
@@ -6876,7 +6738,7 @@ class Vod extends OpenApiClient
             'method'      => 'POST',
             'authType'    => 'AK',
             'style'       => 'RPC',
-            'reqBodyType' => 'json',
+            'reqBodyType' => 'formData',
             'bodyType'    => 'json',
         ]);
 
@@ -6909,7 +6771,6 @@ class Vod extends OpenApiClient
         $query['MediaId'] = $request->mediaId;
         $req              = new OpenApiRequest([
             'query' => OpenApiUtilClient::query($query),
-            'body'  => Utils::toMap($request),
         ]);
         $params = new Params([
             'action'      => 'UpdateStreamInfo',
@@ -6919,7 +6780,7 @@ class Vod extends OpenApiClient
             'method'      => 'POST',
             'authType'    => 'AK',
             'style'       => 'RPC',
-            'reqBodyType' => 'json',
+            'reqBodyType' => 'formData',
             'bodyType'    => 'json',
         ]);
 
@@ -6954,7 +6815,6 @@ class Vod extends OpenApiClient
         $query['TranscodeTemplateList']    = $request->transcodeTemplateList;
         $req                               = new OpenApiRequest([
             'query' => OpenApiUtilClient::query($query),
-            'body'  => Utils::toMap($request),
         ]);
         $params = new Params([
             'action'      => 'UpdateTranscodeTemplateGroup',
@@ -6964,7 +6824,7 @@ class Vod extends OpenApiClient
             'method'      => 'POST',
             'authType'    => 'AK',
             'style'       => 'RPC',
-            'reqBodyType' => 'json',
+            'reqBodyType' => 'formData',
             'bodyType'    => 'json',
         ]);
 
@@ -7001,7 +6861,6 @@ class Vod extends OpenApiClient
         $query['VideoId']     = $request->videoId;
         $req                  = new OpenApiRequest([
             'query' => OpenApiUtilClient::query($query),
-            'body'  => Utils::toMap($request),
         ]);
         $params = new Params([
             'action'      => 'UpdateVideoInfo',
@@ -7011,7 +6870,7 @@ class Vod extends OpenApiClient
             'method'      => 'POST',
             'authType'    => 'AK',
             'style'       => 'RPC',
-            'reqBodyType' => 'json',
+            'reqBodyType' => 'formData',
             'bodyType'    => 'json',
         ]);
 
@@ -7043,7 +6902,6 @@ class Vod extends OpenApiClient
         $query['UpdateContent'] = $request->updateContent;
         $req                    = new OpenApiRequest([
             'query' => OpenApiUtilClient::query($query),
-            'body'  => Utils::toMap($request),
         ]);
         $params = new Params([
             'action'      => 'UpdateVideoInfos',
@@ -7053,7 +6911,7 @@ class Vod extends OpenApiClient
             'method'      => 'POST',
             'authType'    => 'AK',
             'style'       => 'RPC',
-            'reqBodyType' => 'json',
+            'reqBodyType' => 'formData',
             'bodyType'    => 'json',
         ]);
 
@@ -7089,7 +6947,6 @@ class Vod extends OpenApiClient
         $query['TopLevelDomain'] = $request->topLevelDomain;
         $req                     = new OpenApiRequest([
             'query' => OpenApiUtilClient::query($query),
-            'body'  => Utils::toMap($request),
         ]);
         $params = new Params([
             'action'      => 'UpdateVodDomain',
@@ -7099,7 +6956,7 @@ class Vod extends OpenApiClient
             'method'      => 'POST',
             'authType'    => 'AK',
             'style'       => 'RPC',
-            'reqBodyType' => 'json',
+            'reqBodyType' => 'formData',
             'bodyType'    => 'json',
         ]);
 
@@ -7133,7 +6990,6 @@ class Vod extends OpenApiClient
         $query['VodTemplateId']  = $request->vodTemplateId;
         $req                     = new OpenApiRequest([
             'query' => OpenApiUtilClient::query($query),
-            'body'  => Utils::toMap($request),
         ]);
         $params = new Params([
             'action'      => 'UpdateVodTemplate',
@@ -7143,7 +6999,7 @@ class Vod extends OpenApiClient
             'method'      => 'POST',
             'authType'    => 'AK',
             'style'       => 'RPC',
-            'reqBodyType' => 'json',
+            'reqBodyType' => 'formData',
             'bodyType'    => 'json',
         ]);
 
@@ -7177,7 +7033,6 @@ class Vod extends OpenApiClient
         $query['WatermarkId']     = $request->watermarkId;
         $req                      = new OpenApiRequest([
             'query' => OpenApiUtilClient::query($query),
-            'body'  => Utils::toMap($request),
         ]);
         $params = new Params([
             'action'      => 'UpdateWatermark',
@@ -7187,7 +7042,7 @@ class Vod extends OpenApiClient
             'method'      => 'POST',
             'authType'    => 'AK',
             'style'       => 'RPC',
-            'reqBodyType' => 'json',
+            'reqBodyType' => 'formData',
             'bodyType'    => 'json',
         ]);
 
@@ -7225,7 +7080,6 @@ class Vod extends OpenApiClient
         $query['WorkflowId']      = $request->workflowId;
         $req                      = new OpenApiRequest([
             'query' => OpenApiUtilClient::query($query),
-            'body'  => Utils::toMap($request),
         ]);
         $params = new Params([
             'action'      => 'UploadMediaByURL',
@@ -7235,7 +7089,7 @@ class Vod extends OpenApiClient
             'method'      => 'POST',
             'authType'    => 'AK',
             'style'       => 'RPC',
-            'reqBodyType' => 'json',
+            'reqBodyType' => 'formData',
             'bodyType'    => 'json',
         ]);
 
@@ -7272,7 +7126,6 @@ class Vod extends OpenApiClient
         $query['UserData']      = $request->userData;
         $req                    = new OpenApiRequest([
             'query' => OpenApiUtilClient::query($query),
-            'body'  => Utils::toMap($request),
         ]);
         $params = new Params([
             'action'      => 'UploadStreamByURL',
@@ -7282,7 +7135,7 @@ class Vod extends OpenApiClient
             'method'      => 'POST',
             'authType'    => 'AK',
             'style'       => 'RPC',
-            'reqBodyType' => 'json',
+            'reqBodyType' => 'formData',
             'bodyType'    => 'json',
         ]);
 
@@ -7316,7 +7169,6 @@ class Vod extends OpenApiClient
         $query['VerifyType'] = $request->verifyType;
         $req                 = new OpenApiRequest([
             'query' => OpenApiUtilClient::query($query),
-            'body'  => Utils::toMap($request),
         ]);
         $params = new Params([
             'action'      => 'VerifyVodDomainOwner',
@@ -7326,7 +7178,7 @@ class Vod extends OpenApiClient
             'method'      => 'POST',
             'authType'    => 'AK',
             'style'       => 'RPC',
-            'reqBodyType' => 'json',
+            'reqBodyType' => 'formData',
             'bodyType'    => 'json',
         ]);
 
