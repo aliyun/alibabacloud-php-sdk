@@ -10,21 +10,21 @@ use AlibabaCloud\Tea\Model;
 class nodes extends Model
 {
     /**
-     * @description 用户ID
-     *
-     * @var string
-     */
-    public $userId;
-
-    /**
      * @description 事件数据列表
      *
      * @var eventDataItems[]
      */
     public $eventDataItems;
+
+    /**
+     * @description 用户ID
+     *
+     * @var string
+     */
+    public $userId;
     protected $_name = [
-        'userId'         => 'UserId',
         'eventDataItems' => 'EventDataItems',
+        'userId'         => 'UserId',
     ];
 
     public function validate()
@@ -34,9 +34,6 @@ class nodes extends Model
     public function toMap()
     {
         $res = [];
-        if (null !== $this->userId) {
-            $res['UserId'] = $this->userId;
-        }
         if (null !== $this->eventDataItems) {
             $res['EventDataItems'] = [];
             if (null !== $this->eventDataItems && \is_array($this->eventDataItems)) {
@@ -45,6 +42,9 @@ class nodes extends Model
                     $res['EventDataItems'][$n++] = null !== $item ? $item->toMap() : $item;
                 }
             }
+        }
+        if (null !== $this->userId) {
+            $res['UserId'] = $this->userId;
         }
 
         return $res;
@@ -58,9 +58,6 @@ class nodes extends Model
     public static function fromMap($map = [])
     {
         $model = new self();
-        if (isset($map['UserId'])) {
-            $model->userId = $map['UserId'];
-        }
         if (isset($map['EventDataItems'])) {
             if (!empty($map['EventDataItems'])) {
                 $model->eventDataItems = [];
@@ -69,6 +66,9 @@ class nodes extends Model
                     $model->eventDataItems[$n++] = null !== $item ? eventDataItems::fromMap($item) : $item;
                 }
             }
+        }
+        if (isset($map['UserId'])) {
+            $model->userId = $map['UserId'];
         }
 
         return $model;

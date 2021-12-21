@@ -9,21 +9,21 @@ use AlibabaCloud\Tea\Model;
 class UpdateAppExpMetricRuleRequest extends Model
 {
     /**
-     * @description 具体规则，JSON格式
-     *
-     * @var string
-     */
-    public $rule;
-
-    /**
      * @description APP ID
      *
      * @var string
      */
     public $appId;
+
+    /**
+     * @description 具体规则，JSON格式
+     *
+     * @var string
+     */
+    public $rule;
     protected $_name = [
-        'rule'  => 'Rule',
         'appId' => 'AppId',
+        'rule'  => 'Rule',
     ];
 
     public function validate()
@@ -33,11 +33,11 @@ class UpdateAppExpMetricRuleRequest extends Model
     public function toMap()
     {
         $res = [];
-        if (null !== $this->rule) {
-            $res['Rule'] = $this->rule;
-        }
         if (null !== $this->appId) {
             $res['AppId'] = $this->appId;
+        }
+        if (null !== $this->rule) {
+            $res['Rule'] = $this->rule;
         }
 
         return $res;
@@ -51,11 +51,11 @@ class UpdateAppExpMetricRuleRequest extends Model
     public static function fromMap($map = [])
     {
         $model = new self();
-        if (isset($map['Rule'])) {
-            $model->rule = $map['Rule'];
-        }
         if (isset($map['AppId'])) {
             $model->appId = $map['AppId'];
+        }
+        if (isset($map['Rule'])) {
+            $model->rule = $map['Rule'];
         }
 
         return $model;

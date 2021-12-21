@@ -23,6 +23,13 @@ class areaStatList extends Model
     public $callUserCount;
 
     /**
+     * @description 优质传输率，用小数表示，例如0.9999表示优质传输率为99.99%。
+     *
+     * @var string
+     */
+    public $highQualityTransmissionRate;
+
+    /**
      * @description 发布端人数。
      *
      * @var int
@@ -35,19 +42,12 @@ class areaStatList extends Model
      * @var int
      */
     public $subUserCount;
-
-    /**
-     * @description 优质传输率，用小数表示，例如0.9999表示优质传输率为99.99%。
-     *
-     * @var string
-     */
-    public $highQualityTransmissionRate;
     protected $_name = [
         'areaName'                    => 'AreaName',
         'callUserCount'               => 'CallUserCount',
+        'highQualityTransmissionRate' => 'HighQualityTransmissionRate',
         'pubUserCount'                => 'PubUserCount',
         'subUserCount'                => 'SubUserCount',
-        'highQualityTransmissionRate' => 'HighQualityTransmissionRate',
     ];
 
     public function validate()
@@ -63,14 +63,14 @@ class areaStatList extends Model
         if (null !== $this->callUserCount) {
             $res['CallUserCount'] = $this->callUserCount;
         }
+        if (null !== $this->highQualityTransmissionRate) {
+            $res['HighQualityTransmissionRate'] = $this->highQualityTransmissionRate;
+        }
         if (null !== $this->pubUserCount) {
             $res['PubUserCount'] = $this->pubUserCount;
         }
         if (null !== $this->subUserCount) {
             $res['SubUserCount'] = $this->subUserCount;
-        }
-        if (null !== $this->highQualityTransmissionRate) {
-            $res['HighQualityTransmissionRate'] = $this->highQualityTransmissionRate;
         }
 
         return $res;
@@ -90,14 +90,14 @@ class areaStatList extends Model
         if (isset($map['CallUserCount'])) {
             $model->callUserCount = $map['CallUserCount'];
         }
+        if (isset($map['HighQualityTransmissionRate'])) {
+            $model->highQualityTransmissionRate = $map['HighQualityTransmissionRate'];
+        }
         if (isset($map['PubUserCount'])) {
             $model->pubUserCount = $map['PubUserCount'];
         }
         if (isset($map['SubUserCount'])) {
             $model->subUserCount = $map['SubUserCount'];
-        }
-        if (isset($map['HighQualityTransmissionRate'])) {
-            $model->highQualityTransmissionRate = $map['HighQualityTransmissionRate'];
         }
 
         return $model;

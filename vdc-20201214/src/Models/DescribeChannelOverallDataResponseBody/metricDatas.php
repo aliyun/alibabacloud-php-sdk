@@ -10,21 +10,21 @@ use AlibabaCloud\Tea\Model;
 class metricDatas extends Model
 {
     /**
-     * @description 指标类型，取值：CALL_QUALITY：通信质量。CONN_NUM：通信次数。
-     *
-     * @var string
-     */
-    public $type;
-
-    /**
      * @description 指标趋势图坐标点列表。
      *
      * @var nodes[]
      */
     public $nodes;
+
+    /**
+     * @description 指标类型，取值：CALL_QUALITY：通信质量。CONN_NUM：通信次数。
+     *
+     * @var string
+     */
+    public $type;
     protected $_name = [
-        'type'  => 'Type',
         'nodes' => 'Nodes',
+        'type'  => 'Type',
     ];
 
     public function validate()
@@ -34,9 +34,6 @@ class metricDatas extends Model
     public function toMap()
     {
         $res = [];
-        if (null !== $this->type) {
-            $res['Type'] = $this->type;
-        }
         if (null !== $this->nodes) {
             $res['Nodes'] = [];
             if (null !== $this->nodes && \is_array($this->nodes)) {
@@ -45,6 +42,9 @@ class metricDatas extends Model
                     $res['Nodes'][$n++] = null !== $item ? $item->toMap() : $item;
                 }
             }
+        }
+        if (null !== $this->type) {
+            $res['Type'] = $this->type;
         }
 
         return $res;
@@ -58,9 +58,6 @@ class metricDatas extends Model
     public static function fromMap($map = [])
     {
         $model = new self();
-        if (isset($map['Type'])) {
-            $model->type = $map['Type'];
-        }
         if (isset($map['Nodes'])) {
             if (!empty($map['Nodes'])) {
                 $model->nodes = [];
@@ -69,6 +66,9 @@ class metricDatas extends Model
                     $model->nodes[$n++] = null !== $item ? nodes::fromMap($item) : $item;
                 }
             }
+        }
+        if (isset($map['Type'])) {
+            $model->type = $map['Type'];
         }
 
         return $model;

@@ -10,18 +10,18 @@ use AlibabaCloud\Tea\Model;
 class jobInfoList extends Model
 {
     /**
-     * @description 任务总时长,单位分钟
-     *
-     * @var int
-     */
-    public $duration;
-
-    /**
      * @description 日期时间戳
      *
      * @var int
      */
     public $dateTs;
+
+    /**
+     * @description 任务总时长,单位分钟
+     *
+     * @var int
+     */
+    public $duration;
 
     /**
      * @description 子任务信息列表
@@ -30,8 +30,8 @@ class jobInfoList extends Model
      */
     public $subJobInfoList;
     protected $_name = [
-        'duration'       => 'Duration',
         'dateTs'         => 'DateTs',
+        'duration'       => 'Duration',
         'subJobInfoList' => 'SubJobInfoList',
     ];
 
@@ -42,11 +42,11 @@ class jobInfoList extends Model
     public function toMap()
     {
         $res = [];
-        if (null !== $this->duration) {
-            $res['Duration'] = $this->duration;
-        }
         if (null !== $this->dateTs) {
             $res['DateTs'] = $this->dateTs;
+        }
+        if (null !== $this->duration) {
+            $res['Duration'] = $this->duration;
         }
         if (null !== $this->subJobInfoList) {
             $res['SubJobInfoList'] = [];
@@ -69,11 +69,11 @@ class jobInfoList extends Model
     public static function fromMap($map = [])
     {
         $model = new self();
-        if (isset($map['Duration'])) {
-            $model->duration = $map['Duration'];
-        }
         if (isset($map['DateTs'])) {
             $model->dateTs = $map['DateTs'];
+        }
+        if (isset($map['Duration'])) {
+            $model->duration = $map['Duration'];
         }
         if (isset($map['SubJobInfoList'])) {
             if (!empty($map['SubJobInfoList'])) {

@@ -10,11 +10,18 @@ use AlibabaCloud\Tea\Model;
 class DescribeRtcChannelDetailsResponseBody extends Model
 {
     /**
-     * @description 请求Id
+     * @description 频道ID
      *
      * @var string
      */
-    public $requestId;
+    public $channelId;
+
+    /**
+     * @description 频道信息
+     *
+     * @var channelInfo[]
+     */
+    public $channelInfo;
 
     /**
      * @description 页号
@@ -31,32 +38,25 @@ class DescribeRtcChannelDetailsResponseBody extends Model
     public $pageSize;
 
     /**
+     * @description 请求Id
+     *
+     * @var string
+     */
+    public $requestId;
+
+    /**
      * @description 总数量
      *
      * @var int
      */
     public $totalSize;
-
-    /**
-     * @description 频道ID
-     *
-     * @var string
-     */
-    public $channelId;
-
-    /**
-     * @description 频道信息
-     *
-     * @var channelInfo[]
-     */
-    public $channelInfo;
     protected $_name = [
-        'requestId'   => 'RequestId',
-        'pageNo'      => 'PageNo',
-        'pageSize'    => 'PageSize',
-        'totalSize'   => 'TotalSize',
         'channelId'   => 'ChannelId',
         'channelInfo' => 'ChannelInfo',
+        'pageNo'      => 'PageNo',
+        'pageSize'    => 'PageSize',
+        'requestId'   => 'RequestId',
+        'totalSize'   => 'TotalSize',
     ];
 
     public function validate()
@@ -66,18 +66,6 @@ class DescribeRtcChannelDetailsResponseBody extends Model
     public function toMap()
     {
         $res = [];
-        if (null !== $this->requestId) {
-            $res['RequestId'] = $this->requestId;
-        }
-        if (null !== $this->pageNo) {
-            $res['PageNo'] = $this->pageNo;
-        }
-        if (null !== $this->pageSize) {
-            $res['PageSize'] = $this->pageSize;
-        }
-        if (null !== $this->totalSize) {
-            $res['TotalSize'] = $this->totalSize;
-        }
         if (null !== $this->channelId) {
             $res['ChannelId'] = $this->channelId;
         }
@@ -89,6 +77,18 @@ class DescribeRtcChannelDetailsResponseBody extends Model
                     $res['ChannelInfo'][$n++] = null !== $item ? $item->toMap() : $item;
                 }
             }
+        }
+        if (null !== $this->pageNo) {
+            $res['PageNo'] = $this->pageNo;
+        }
+        if (null !== $this->pageSize) {
+            $res['PageSize'] = $this->pageSize;
+        }
+        if (null !== $this->requestId) {
+            $res['RequestId'] = $this->requestId;
+        }
+        if (null !== $this->totalSize) {
+            $res['TotalSize'] = $this->totalSize;
         }
 
         return $res;
@@ -102,18 +102,6 @@ class DescribeRtcChannelDetailsResponseBody extends Model
     public static function fromMap($map = [])
     {
         $model = new self();
-        if (isset($map['RequestId'])) {
-            $model->requestId = $map['RequestId'];
-        }
-        if (isset($map['PageNo'])) {
-            $model->pageNo = $map['PageNo'];
-        }
-        if (isset($map['PageSize'])) {
-            $model->pageSize = $map['PageSize'];
-        }
-        if (isset($map['TotalSize'])) {
-            $model->totalSize = $map['TotalSize'];
-        }
         if (isset($map['ChannelId'])) {
             $model->channelId = $map['ChannelId'];
         }
@@ -125,6 +113,18 @@ class DescribeRtcChannelDetailsResponseBody extends Model
                     $model->channelInfo[$n++] = null !== $item ? channelInfo::fromMap($item) : $item;
                 }
             }
+        }
+        if (isset($map['PageNo'])) {
+            $model->pageNo = $map['PageNo'];
+        }
+        if (isset($map['PageSize'])) {
+            $model->pageSize = $map['PageSize'];
+        }
+        if (isset($map['RequestId'])) {
+            $model->requestId = $map['RequestId'];
+        }
+        if (isset($map['TotalSize'])) {
+            $model->totalSize = $map['TotalSize'];
         }
 
         return $model;

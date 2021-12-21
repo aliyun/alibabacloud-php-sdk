@@ -10,18 +10,18 @@ use AlibabaCloud\Tea\Model;
 class userList extends Model
 {
     /**
+     * @description 通信的创建时间戳，使用UNIX时间戳表示，单位：秒。
+     *
+     * @var int
+     */
+    public $channelCreatedTs;
+
+    /**
      * @description 频道ID。
      *
      * @var string
      */
     public $channelId;
-
-    /**
-     * @description 用户ID。
-     *
-     * @var string
-     */
-    public $userId;
 
     /**
      * @description 用户首次进入通话时间，使用UNIX时间戳表示，单位：秒。
@@ -38,25 +38,25 @@ class userList extends Model
     public $destroyedTs;
 
     /**
-     * @description 通信的创建时间戳，使用UNIX时间戳表示，单位：秒。
-     *
-     * @var int
-     */
-    public $channelCreatedTs;
-
-    /**
      * @description 异常列表。
      *
      * @var faultList[]
      */
     public $faultList;
+
+    /**
+     * @description 用户ID。
+     *
+     * @var string
+     */
+    public $userId;
     protected $_name = [
+        'channelCreatedTs' => 'ChannelCreatedTs',
         'channelId'        => 'ChannelId',
-        'userId'           => 'UserId',
         'createdTs'        => 'CreatedTs',
         'destroyedTs'      => 'DestroyedTs',
-        'channelCreatedTs' => 'ChannelCreatedTs',
         'faultList'        => 'FaultList',
+        'userId'           => 'UserId',
     ];
 
     public function validate()
@@ -66,20 +66,17 @@ class userList extends Model
     public function toMap()
     {
         $res = [];
+        if (null !== $this->channelCreatedTs) {
+            $res['ChannelCreatedTs'] = $this->channelCreatedTs;
+        }
         if (null !== $this->channelId) {
             $res['ChannelId'] = $this->channelId;
-        }
-        if (null !== $this->userId) {
-            $res['UserId'] = $this->userId;
         }
         if (null !== $this->createdTs) {
             $res['CreatedTs'] = $this->createdTs;
         }
         if (null !== $this->destroyedTs) {
             $res['DestroyedTs'] = $this->destroyedTs;
-        }
-        if (null !== $this->channelCreatedTs) {
-            $res['ChannelCreatedTs'] = $this->channelCreatedTs;
         }
         if (null !== $this->faultList) {
             $res['FaultList'] = [];
@@ -89,6 +86,9 @@ class userList extends Model
                     $res['FaultList'][$n++] = null !== $item ? $item->toMap() : $item;
                 }
             }
+        }
+        if (null !== $this->userId) {
+            $res['UserId'] = $this->userId;
         }
 
         return $res;
@@ -102,20 +102,17 @@ class userList extends Model
     public static function fromMap($map = [])
     {
         $model = new self();
+        if (isset($map['ChannelCreatedTs'])) {
+            $model->channelCreatedTs = $map['ChannelCreatedTs'];
+        }
         if (isset($map['ChannelId'])) {
             $model->channelId = $map['ChannelId'];
-        }
-        if (isset($map['UserId'])) {
-            $model->userId = $map['UserId'];
         }
         if (isset($map['CreatedTs'])) {
             $model->createdTs = $map['CreatedTs'];
         }
         if (isset($map['DestroyedTs'])) {
             $model->destroyedTs = $map['DestroyedTs'];
-        }
-        if (isset($map['ChannelCreatedTs'])) {
-            $model->channelCreatedTs = $map['ChannelCreatedTs'];
         }
         if (isset($map['FaultList'])) {
             if (!empty($map['FaultList'])) {
@@ -125,6 +122,9 @@ class userList extends Model
                     $model->faultList[$n++] = null !== $item ? faultList::fromMap($item) : $item;
                 }
             }
+        }
+        if (isset($map['UserId'])) {
+            $model->userId = $map['UserId'];
         }
 
         return $model;

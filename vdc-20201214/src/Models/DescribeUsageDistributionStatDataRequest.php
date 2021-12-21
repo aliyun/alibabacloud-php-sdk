@@ -9,11 +9,11 @@ use AlibabaCloud\Tea\Model;
 class DescribeUsageDistributionStatDataRequest extends Model
 {
     /**
-     * @description 开始时间，秒级时间戳：如1609344000
+     * @description APP ID
      *
-     * @var int
+     * @var string
      */
-    public $startDate;
+    public $appId;
 
     /**
      * @description 结束时间，秒级时间戳：如1609344000
@@ -23,23 +23,23 @@ class DescribeUsageDistributionStatDataRequest extends Model
     public $endDate;
 
     /**
+     * @description 开始时间，秒级时间戳：如1609344000
+     *
+     * @var int
+     */
+    public $startDate;
+
+    /**
      * @description 统计维度，支持最多填入一个 CHANNEL_ONLINE, NETWORK, OS
      *
      * @var string
      */
     public $statDim;
-
-    /**
-     * @description APP ID
-     *
-     * @var string
-     */
-    public $appId;
     protected $_name = [
-        'startDate' => 'StartDate',
-        'endDate'   => 'EndDate',
-        'statDim'   => 'StatDim',
         'appId'     => 'AppId',
+        'endDate'   => 'EndDate',
+        'startDate' => 'StartDate',
+        'statDim'   => 'StatDim',
     ];
 
     public function validate()
@@ -49,17 +49,17 @@ class DescribeUsageDistributionStatDataRequest extends Model
     public function toMap()
     {
         $res = [];
-        if (null !== $this->startDate) {
-            $res['StartDate'] = $this->startDate;
+        if (null !== $this->appId) {
+            $res['AppId'] = $this->appId;
         }
         if (null !== $this->endDate) {
             $res['EndDate'] = $this->endDate;
         }
+        if (null !== $this->startDate) {
+            $res['StartDate'] = $this->startDate;
+        }
         if (null !== $this->statDim) {
             $res['StatDim'] = $this->statDim;
-        }
-        if (null !== $this->appId) {
-            $res['AppId'] = $this->appId;
         }
 
         return $res;
@@ -73,17 +73,17 @@ class DescribeUsageDistributionStatDataRequest extends Model
     public static function fromMap($map = [])
     {
         $model = new self();
-        if (isset($map['StartDate'])) {
-            $model->startDate = $map['StartDate'];
+        if (isset($map['AppId'])) {
+            $model->appId = $map['AppId'];
         }
         if (isset($map['EndDate'])) {
             $model->endDate = $map['EndDate'];
         }
+        if (isset($map['StartDate'])) {
+            $model->startDate = $map['StartDate'];
+        }
         if (isset($map['StatDim'])) {
             $model->statDim = $map['StatDim'];
-        }
-        if (isset($map['AppId'])) {
-            $model->appId = $map['AppId'];
         }
 
         return $model;

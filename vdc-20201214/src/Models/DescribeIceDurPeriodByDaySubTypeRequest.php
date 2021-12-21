@@ -9,6 +9,13 @@ use AlibabaCloud\Tea\Model;
 class DescribeIceDurPeriodByDaySubTypeRequest extends Model
 {
     /**
+     * @description 结束是时间戳
+     *
+     * @var int
+     */
+    public $endTs;
+
+    /**
      * @description 任务类型
      *
      * @var string
@@ -23,22 +30,15 @@ class DescribeIceDurPeriodByDaySubTypeRequest extends Model
     public $startTs;
 
     /**
-     * @description 结束是时间戳
-     *
-     * @var int
-     */
-    public $endTs;
-
-    /**
      * @description 时区
      *
      * @var string
      */
     public $timeZone;
     protected $_name = [
+        'endTs'    => 'EndTs',
         'jobType'  => 'JobType',
         'startTs'  => 'StartTs',
-        'endTs'    => 'EndTs',
         'timeZone' => 'TimeZone',
     ];
 
@@ -49,14 +49,14 @@ class DescribeIceDurPeriodByDaySubTypeRequest extends Model
     public function toMap()
     {
         $res = [];
+        if (null !== $this->endTs) {
+            $res['EndTs'] = $this->endTs;
+        }
         if (null !== $this->jobType) {
             $res['JobType'] = $this->jobType;
         }
         if (null !== $this->startTs) {
             $res['StartTs'] = $this->startTs;
-        }
-        if (null !== $this->endTs) {
-            $res['EndTs'] = $this->endTs;
         }
         if (null !== $this->timeZone) {
             $res['TimeZone'] = $this->timeZone;
@@ -73,14 +73,14 @@ class DescribeIceDurPeriodByDaySubTypeRequest extends Model
     public static function fromMap($map = [])
     {
         $model = new self();
+        if (isset($map['EndTs'])) {
+            $model->endTs = $map['EndTs'];
+        }
         if (isset($map['JobType'])) {
             $model->jobType = $map['JobType'];
         }
         if (isset($map['StartTs'])) {
             $model->startTs = $map['StartTs'];
-        }
-        if (isset($map['EndTs'])) {
-            $model->endTs = $map['EndTs'];
         }
         if (isset($map['TimeZone'])) {
             $model->timeZone = $map['TimeZone'];

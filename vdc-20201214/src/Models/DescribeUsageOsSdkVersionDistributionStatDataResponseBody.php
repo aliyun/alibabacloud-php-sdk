@@ -10,21 +10,21 @@ use AlibabaCloud\Tea\Model;
 class DescribeUsageOsSdkVersionDistributionStatDataResponseBody extends Model
 {
     /**
-     * @description 用量统计SDK版本数据列表
-     *
-     * @var usageOsSdkVersionStatList[]
-     */
-    public $usageOsSdkVersionStatList;
-
-    /**
      * @description 请求ID
      *
      * @var string
      */
     public $requestId;
+
+    /**
+     * @description 用量统计SDK版本数据列表
+     *
+     * @var usageOsSdkVersionStatList[]
+     */
+    public $usageOsSdkVersionStatList;
     protected $_name = [
-        'usageOsSdkVersionStatList' => 'UsageOsSdkVersionStatList',
         'requestId'                 => 'RequestId',
+        'usageOsSdkVersionStatList' => 'UsageOsSdkVersionStatList',
     ];
 
     public function validate()
@@ -34,6 +34,9 @@ class DescribeUsageOsSdkVersionDistributionStatDataResponseBody extends Model
     public function toMap()
     {
         $res = [];
+        if (null !== $this->requestId) {
+            $res['RequestId'] = $this->requestId;
+        }
         if (null !== $this->usageOsSdkVersionStatList) {
             $res['UsageOsSdkVersionStatList'] = [];
             if (null !== $this->usageOsSdkVersionStatList && \is_array($this->usageOsSdkVersionStatList)) {
@@ -42,9 +45,6 @@ class DescribeUsageOsSdkVersionDistributionStatDataResponseBody extends Model
                     $res['UsageOsSdkVersionStatList'][$n++] = null !== $item ? $item->toMap() : $item;
                 }
             }
-        }
-        if (null !== $this->requestId) {
-            $res['RequestId'] = $this->requestId;
         }
 
         return $res;
@@ -58,6 +58,9 @@ class DescribeUsageOsSdkVersionDistributionStatDataResponseBody extends Model
     public static function fromMap($map = [])
     {
         $model = new self();
+        if (isset($map['RequestId'])) {
+            $model->requestId = $map['RequestId'];
+        }
         if (isset($map['UsageOsSdkVersionStatList'])) {
             if (!empty($map['UsageOsSdkVersionStatList'])) {
                 $model->usageOsSdkVersionStatList = [];
@@ -66,9 +69,6 @@ class DescribeUsageOsSdkVersionDistributionStatDataResponseBody extends Model
                     $model->usageOsSdkVersionStatList[$n++] = null !== $item ? usageOsSdkVersionStatList::fromMap($item) : $item;
                 }
             }
-        }
-        if (isset($map['RequestId'])) {
-            $model->requestId = $map['RequestId'];
         }
 
         return $model;

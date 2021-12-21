@@ -10,6 +10,13 @@ use AlibabaCloud\Tea\Model;
 class pubMetrics extends Model
 {
     /**
+     * @description 坐标点列表
+     *
+     * @var nodes[]
+     */
+    public $nodes;
+
+    /**
      * @description 对应入参Metrics中的类型
      *
      * @var string
@@ -22,17 +29,10 @@ class pubMetrics extends Model
      * @var string
      */
     public $userId;
-
-    /**
-     * @description 坐标点列表
-     *
-     * @var nodes[]
-     */
-    public $nodes;
     protected $_name = [
+        'nodes'  => 'Nodes',
         'type'   => 'Type',
         'userId' => 'UserId',
-        'nodes'  => 'Nodes',
     ];
 
     public function validate()
@@ -42,12 +42,6 @@ class pubMetrics extends Model
     public function toMap()
     {
         $res = [];
-        if (null !== $this->type) {
-            $res['Type'] = $this->type;
-        }
-        if (null !== $this->userId) {
-            $res['UserId'] = $this->userId;
-        }
         if (null !== $this->nodes) {
             $res['Nodes'] = [];
             if (null !== $this->nodes && \is_array($this->nodes)) {
@@ -56,6 +50,12 @@ class pubMetrics extends Model
                     $res['Nodes'][$n++] = null !== $item ? $item->toMap() : $item;
                 }
             }
+        }
+        if (null !== $this->type) {
+            $res['Type'] = $this->type;
+        }
+        if (null !== $this->userId) {
+            $res['UserId'] = $this->userId;
         }
 
         return $res;
@@ -69,12 +69,6 @@ class pubMetrics extends Model
     public static function fromMap($map = [])
     {
         $model = new self();
-        if (isset($map['Type'])) {
-            $model->type = $map['Type'];
-        }
-        if (isset($map['UserId'])) {
-            $model->userId = $map['UserId'];
-        }
         if (isset($map['Nodes'])) {
             if (!empty($map['Nodes'])) {
                 $model->nodes = [];
@@ -83,6 +77,12 @@ class pubMetrics extends Model
                     $model->nodes[$n++] = null !== $item ? nodes::fromMap($item) : $item;
                 }
             }
+        }
+        if (isset($map['Type'])) {
+            $model->type = $map['Type'];
+        }
+        if (isset($map['UserId'])) {
+            $model->userId = $map['UserId'];
         }
 
         return $model;

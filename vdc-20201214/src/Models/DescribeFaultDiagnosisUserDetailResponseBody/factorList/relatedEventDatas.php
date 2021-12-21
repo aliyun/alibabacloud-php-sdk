@@ -10,11 +10,11 @@ use AlibabaCloud\Tea\Model;
 class relatedEventDatas extends Model
 {
     /**
-     * @description 用户ID
+     * @description 事件数据列表
      *
-     * @var string
+     * @var eventDataItems[]
      */
-    public $userId;
+    public $eventDataItems;
 
     /**
      * @description 来源角色： SENDER：发布端，即上行 RECEIVER：订阅端，即下行
@@ -24,15 +24,15 @@ class relatedEventDatas extends Model
     public $role;
 
     /**
-     * @description 事件数据列表
+     * @description 用户ID
      *
-     * @var eventDataItems[]
+     * @var string
      */
-    public $eventDataItems;
+    public $userId;
     protected $_name = [
-        'userId'         => 'UserId',
-        'role'           => 'Role',
         'eventDataItems' => 'EventDataItems',
+        'role'           => 'Role',
+        'userId'         => 'UserId',
     ];
 
     public function validate()
@@ -42,12 +42,6 @@ class relatedEventDatas extends Model
     public function toMap()
     {
         $res = [];
-        if (null !== $this->userId) {
-            $res['UserId'] = $this->userId;
-        }
-        if (null !== $this->role) {
-            $res['Role'] = $this->role;
-        }
         if (null !== $this->eventDataItems) {
             $res['EventDataItems'] = [];
             if (null !== $this->eventDataItems && \is_array($this->eventDataItems)) {
@@ -56,6 +50,12 @@ class relatedEventDatas extends Model
                     $res['EventDataItems'][$n++] = null !== $item ? $item->toMap() : $item;
                 }
             }
+        }
+        if (null !== $this->role) {
+            $res['Role'] = $this->role;
+        }
+        if (null !== $this->userId) {
+            $res['UserId'] = $this->userId;
         }
 
         return $res;
@@ -69,12 +69,6 @@ class relatedEventDatas extends Model
     public static function fromMap($map = [])
     {
         $model = new self();
-        if (isset($map['UserId'])) {
-            $model->userId = $map['UserId'];
-        }
-        if (isset($map['Role'])) {
-            $model->role = $map['Role'];
-        }
         if (isset($map['EventDataItems'])) {
             if (!empty($map['EventDataItems'])) {
                 $model->eventDataItems = [];
@@ -83,6 +77,12 @@ class relatedEventDatas extends Model
                     $model->eventDataItems[$n++] = null !== $item ? eventDataItems::fromMap($item) : $item;
                 }
             }
+        }
+        if (isset($map['Role'])) {
+            $model->role = $map['Role'];
+        }
+        if (isset($map['UserId'])) {
+            $model->userId = $map['UserId'];
         }
 
         return $model;

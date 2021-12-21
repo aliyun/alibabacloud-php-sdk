@@ -9,11 +9,11 @@ use AlibabaCloud\Tea\Model;
 class DescribeQualityAreaDistributionStatDataRequest extends Model
 {
     /**
-     * @description 开始时间，秒级时间戳，如1609344000
+     * @description APP ID
      *
-     * @var int
+     * @var string
      */
-    public $startDate;
+    public $appId;
 
     /**
      * @description 结束时间，秒级时间戳，如1609344000
@@ -30,16 +30,16 @@ class DescribeQualityAreaDistributionStatDataRequest extends Model
     public $parentArea;
 
     /**
-     * @description APP ID
+     * @description 开始时间，秒级时间戳，如1609344000
      *
-     * @var string
+     * @var int
      */
-    public $appId;
+    public $startDate;
     protected $_name = [
-        'startDate'  => 'StartDate',
+        'appId'      => 'AppId',
         'endDate'    => 'EndDate',
         'parentArea' => 'ParentArea',
-        'appId'      => 'AppId',
+        'startDate'  => 'StartDate',
     ];
 
     public function validate()
@@ -49,8 +49,8 @@ class DescribeQualityAreaDistributionStatDataRequest extends Model
     public function toMap()
     {
         $res = [];
-        if (null !== $this->startDate) {
-            $res['StartDate'] = $this->startDate;
+        if (null !== $this->appId) {
+            $res['AppId'] = $this->appId;
         }
         if (null !== $this->endDate) {
             $res['EndDate'] = $this->endDate;
@@ -58,8 +58,8 @@ class DescribeQualityAreaDistributionStatDataRequest extends Model
         if (null !== $this->parentArea) {
             $res['ParentArea'] = $this->parentArea;
         }
-        if (null !== $this->appId) {
-            $res['AppId'] = $this->appId;
+        if (null !== $this->startDate) {
+            $res['StartDate'] = $this->startDate;
         }
 
         return $res;
@@ -73,8 +73,8 @@ class DescribeQualityAreaDistributionStatDataRequest extends Model
     public static function fromMap($map = [])
     {
         $model = new self();
-        if (isset($map['StartDate'])) {
-            $model->startDate = $map['StartDate'];
+        if (isset($map['AppId'])) {
+            $model->appId = $map['AppId'];
         }
         if (isset($map['EndDate'])) {
             $model->endDate = $map['EndDate'];
@@ -82,8 +82,8 @@ class DescribeQualityAreaDistributionStatDataRequest extends Model
         if (isset($map['ParentArea'])) {
             $model->parentArea = $map['ParentArea'];
         }
-        if (isset($map['AppId'])) {
-            $model->appId = $map['AppId'];
+        if (isset($map['StartDate'])) {
+            $model->startDate = $map['StartDate'];
         }
 
         return $model;

@@ -10,21 +10,21 @@ use AlibabaCloud\Tea\Model;
 class DescribeRtcChannelMetricListResponseBody extends Model
 {
     /**
-     * @description 请求Id
-     *
-     * @var string
-     */
-    public $requestId;
-
-    /**
      * @description 指标列表
      *
      * @var metrics[]
      */
     public $metrics;
+
+    /**
+     * @description 请求Id
+     *
+     * @var string
+     */
+    public $requestId;
     protected $_name = [
-        'requestId' => 'RequestId',
         'metrics'   => 'Metrics',
+        'requestId' => 'RequestId',
     ];
 
     public function validate()
@@ -34,9 +34,6 @@ class DescribeRtcChannelMetricListResponseBody extends Model
     public function toMap()
     {
         $res = [];
-        if (null !== $this->requestId) {
-            $res['RequestId'] = $this->requestId;
-        }
         if (null !== $this->metrics) {
             $res['Metrics'] = [];
             if (null !== $this->metrics && \is_array($this->metrics)) {
@@ -45,6 +42,9 @@ class DescribeRtcChannelMetricListResponseBody extends Model
                     $res['Metrics'][$n++] = null !== $item ? $item->toMap() : $item;
                 }
             }
+        }
+        if (null !== $this->requestId) {
+            $res['RequestId'] = $this->requestId;
         }
 
         return $res;
@@ -58,9 +58,6 @@ class DescribeRtcChannelMetricListResponseBody extends Model
     public static function fromMap($map = [])
     {
         $model = new self();
-        if (isset($map['RequestId'])) {
-            $model->requestId = $map['RequestId'];
-        }
         if (isset($map['Metrics'])) {
             if (!empty($map['Metrics'])) {
                 $model->metrics = [];
@@ -69,6 +66,9 @@ class DescribeRtcChannelMetricListResponseBody extends Model
                     $model->metrics[$n++] = null !== $item ? metrics::fromMap($item) : $item;
                 }
             }
+        }
+        if (isset($map['RequestId'])) {
+            $model->requestId = $map['RequestId'];
         }
 
         return $model;

@@ -16,25 +16,11 @@ class appFollowCallRule extends Model
     public $appId;
 
     /**
-     * @description 具体规则，JSON格式
-     *
-     * @var string
-     */
-    public $rule;
-
-    /**
      * @description 创建时间，秒级时间戳，如1614936817
      *
      * @var int
      */
     public $createdTs;
-
-    /**
-     * @description 修改时间，秒级时间戳，如1614936817
-     *
-     * @var int
-     */
-    public $modifiedTs;
 
     /**
      * @var int
@@ -45,13 +31,27 @@ class appFollowCallRule extends Model
      * @var int
      */
     public $gmtModifiedTs;
+
+    /**
+     * @description 修改时间，秒级时间戳，如1614936817
+     *
+     * @var int
+     */
+    public $modifiedTs;
+
+    /**
+     * @description 具体规则，JSON格式
+     *
+     * @var string
+     */
+    public $rule;
     protected $_name = [
         'appId'         => 'AppId',
-        'rule'          => 'Rule',
         'createdTs'     => 'CreatedTs',
-        'modifiedTs'    => 'ModifiedTs',
         'gmtCreateTs'   => 'GmtCreateTs',
         'gmtModifiedTs' => 'GmtModifiedTs',
+        'modifiedTs'    => 'ModifiedTs',
+        'rule'          => 'Rule',
     ];
 
     public function validate()
@@ -64,20 +64,20 @@ class appFollowCallRule extends Model
         if (null !== $this->appId) {
             $res['AppId'] = $this->appId;
         }
-        if (null !== $this->rule) {
-            $res['Rule'] = $this->rule;
-        }
         if (null !== $this->createdTs) {
             $res['CreatedTs'] = $this->createdTs;
-        }
-        if (null !== $this->modifiedTs) {
-            $res['ModifiedTs'] = $this->modifiedTs;
         }
         if (null !== $this->gmtCreateTs) {
             $res['GmtCreateTs'] = $this->gmtCreateTs;
         }
         if (null !== $this->gmtModifiedTs) {
             $res['GmtModifiedTs'] = $this->gmtModifiedTs;
+        }
+        if (null !== $this->modifiedTs) {
+            $res['ModifiedTs'] = $this->modifiedTs;
+        }
+        if (null !== $this->rule) {
+            $res['Rule'] = $this->rule;
         }
 
         return $res;
@@ -94,20 +94,20 @@ class appFollowCallRule extends Model
         if (isset($map['AppId'])) {
             $model->appId = $map['AppId'];
         }
-        if (isset($map['Rule'])) {
-            $model->rule = $map['Rule'];
-        }
         if (isset($map['CreatedTs'])) {
             $model->createdTs = $map['CreatedTs'];
-        }
-        if (isset($map['ModifiedTs'])) {
-            $model->modifiedTs = $map['ModifiedTs'];
         }
         if (isset($map['GmtCreateTs'])) {
             $model->gmtCreateTs = $map['GmtCreateTs'];
         }
         if (isset($map['GmtModifiedTs'])) {
             $model->gmtModifiedTs = $map['GmtModifiedTs'];
+        }
+        if (isset($map['ModifiedTs'])) {
+            $model->modifiedTs = $map['ModifiedTs'];
+        }
+        if (isset($map['Rule'])) {
+            $model->rule = $map['Rule'];
         }
 
         return $model;

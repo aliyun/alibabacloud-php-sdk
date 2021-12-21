@@ -9,11 +9,18 @@ use AlibabaCloud\Tea\Model;
 class rtcRecordMetricData extends Model
 {
     /**
-     * @description 日期，UTC格式
+     * @description 时长分钟
+     *
+     * @var int
+     */
+    public $duration;
+
+    /**
+     * @description 分辨率
      *
      * @var string
      */
-    public $timeStamp;
+    public $ratio;
 
     /**
      * @description 服务区域
@@ -30,32 +37,25 @@ class rtcRecordMetricData extends Model
     public $taskProfile;
 
     /**
+     * @description 日期，UTC格式
+     *
+     * @var string
+     */
+    public $timeStamp;
+
+    /**
      * @description 输入路数
      *
      * @var string
      */
     public $type;
-
-    /**
-     * @description 分辨率
-     *
-     * @var string
-     */
-    public $ratio;
-
-    /**
-     * @description 时长分钟
-     *
-     * @var int
-     */
-    public $duration;
     protected $_name = [
-        'timeStamp'   => 'TimeStamp',
+        'duration'    => 'Duration',
+        'ratio'       => 'Ratio',
         'serviceArea' => 'ServiceArea',
         'taskProfile' => 'TaskProfile',
+        'timeStamp'   => 'TimeStamp',
         'type'        => 'Type',
-        'ratio'       => 'Ratio',
-        'duration'    => 'Duration',
     ];
 
     public function validate()
@@ -65,8 +65,11 @@ class rtcRecordMetricData extends Model
     public function toMap()
     {
         $res = [];
-        if (null !== $this->timeStamp) {
-            $res['TimeStamp'] = $this->timeStamp;
+        if (null !== $this->duration) {
+            $res['Duration'] = $this->duration;
+        }
+        if (null !== $this->ratio) {
+            $res['Ratio'] = $this->ratio;
         }
         if (null !== $this->serviceArea) {
             $res['ServiceArea'] = $this->serviceArea;
@@ -74,14 +77,11 @@ class rtcRecordMetricData extends Model
         if (null !== $this->taskProfile) {
             $res['TaskProfile'] = $this->taskProfile;
         }
+        if (null !== $this->timeStamp) {
+            $res['TimeStamp'] = $this->timeStamp;
+        }
         if (null !== $this->type) {
             $res['Type'] = $this->type;
-        }
-        if (null !== $this->ratio) {
-            $res['Ratio'] = $this->ratio;
-        }
-        if (null !== $this->duration) {
-            $res['Duration'] = $this->duration;
         }
 
         return $res;
@@ -95,8 +95,11 @@ class rtcRecordMetricData extends Model
     public static function fromMap($map = [])
     {
         $model = new self();
-        if (isset($map['TimeStamp'])) {
-            $model->timeStamp = $map['TimeStamp'];
+        if (isset($map['Duration'])) {
+            $model->duration = $map['Duration'];
+        }
+        if (isset($map['Ratio'])) {
+            $model->ratio = $map['Ratio'];
         }
         if (isset($map['ServiceArea'])) {
             $model->serviceArea = $map['ServiceArea'];
@@ -104,14 +107,11 @@ class rtcRecordMetricData extends Model
         if (isset($map['TaskProfile'])) {
             $model->taskProfile = $map['TaskProfile'];
         }
+        if (isset($map['TimeStamp'])) {
+            $model->timeStamp = $map['TimeStamp'];
+        }
         if (isset($map['Type'])) {
             $model->type = $map['Type'];
-        }
-        if (isset($map['Ratio'])) {
-            $model->ratio = $map['Ratio'];
-        }
-        if (isset($map['Duration'])) {
-            $model->duration = $map['Duration'];
         }
 
         return $model;

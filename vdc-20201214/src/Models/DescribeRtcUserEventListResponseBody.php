@@ -10,21 +10,21 @@ use AlibabaCloud\Tea\Model;
 class DescribeRtcUserEventListResponseBody extends Model
 {
     /**
-     * @description 请求ID
-     *
-     * @var string
-     */
-    public $requestId;
-
-    /**
      * @description 指标列表
      *
      * @var events[]
      */
     public $events;
+
+    /**
+     * @description 请求ID
+     *
+     * @var string
+     */
+    public $requestId;
     protected $_name = [
-        'requestId' => 'RequestId',
         'events'    => 'Events',
+        'requestId' => 'RequestId',
     ];
 
     public function validate()
@@ -34,9 +34,6 @@ class DescribeRtcUserEventListResponseBody extends Model
     public function toMap()
     {
         $res = [];
-        if (null !== $this->requestId) {
-            $res['RequestId'] = $this->requestId;
-        }
         if (null !== $this->events) {
             $res['Events'] = [];
             if (null !== $this->events && \is_array($this->events)) {
@@ -45,6 +42,9 @@ class DescribeRtcUserEventListResponseBody extends Model
                     $res['Events'][$n++] = null !== $item ? $item->toMap() : $item;
                 }
             }
+        }
+        if (null !== $this->requestId) {
+            $res['RequestId'] = $this->requestId;
         }
 
         return $res;
@@ -58,9 +58,6 @@ class DescribeRtcUserEventListResponseBody extends Model
     public static function fromMap($map = [])
     {
         $model = new self();
-        if (isset($map['RequestId'])) {
-            $model->requestId = $map['RequestId'];
-        }
         if (isset($map['Events'])) {
             if (!empty($map['Events'])) {
                 $model->events = [];
@@ -69,6 +66,9 @@ class DescribeRtcUserEventListResponseBody extends Model
                     $model->events[$n++] = null !== $item ? events::fromMap($item) : $item;
                 }
             }
+        }
+        if (isset($map['RequestId'])) {
+            $model->requestId = $map['RequestId'];
         }
 
         return $model;

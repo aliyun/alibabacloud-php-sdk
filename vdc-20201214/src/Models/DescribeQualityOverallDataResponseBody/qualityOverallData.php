@@ -10,11 +10,11 @@ use AlibabaCloud\Tea\Model;
 class qualityOverallData extends Model
 {
     /**
-     * @description 概览数据类型，加入频道成功率： JOIN_CHANNEL_SUC_RATE 五秒加入频道成功率： JOIN_CHANNEL_SUC_FIVE_SEC_RATE  首次出声时间： AUDIO_SPEAK_OUT_DUR 首次出图时间： VIDEO_FIRST_PIC_DUR 音频卡顿率： AUDIO_STUCK_RATE 视频卡顿率： VIDEO_STUCK_RATE 音频延时： AUDIO_DELAY 视频延时： AUDIO_DELAY 音频优质传输率： AUDIO_HIGH_QUALITY_TRANSMISSION_RATE 视频优质传输率： VIDEO_HIGH_QUALITY_TRANSMISSION_RATE
+     * @description 平均值
      *
      * @var string
      */
-    public $type;
+    public $average;
 
     /**
      * @description 坐标点列表
@@ -24,15 +24,15 @@ class qualityOverallData extends Model
     public $nodes;
 
     /**
-     * @description 平均值
+     * @description 概览数据类型，加入频道成功率： JOIN_CHANNEL_SUC_RATE 五秒加入频道成功率： JOIN_CHANNEL_SUC_FIVE_SEC_RATE  首次出声时间： AUDIO_SPEAK_OUT_DUR 首次出图时间： VIDEO_FIRST_PIC_DUR 音频卡顿率： AUDIO_STUCK_RATE 视频卡顿率： VIDEO_STUCK_RATE 音频延时： AUDIO_DELAY 视频延时： AUDIO_DELAY 音频优质传输率： AUDIO_HIGH_QUALITY_TRANSMISSION_RATE 视频优质传输率： VIDEO_HIGH_QUALITY_TRANSMISSION_RATE
      *
      * @var string
      */
-    public $average;
+    public $type;
     protected $_name = [
-        'type'    => 'Type',
-        'nodes'   => 'Nodes',
         'average' => 'Average',
+        'nodes'   => 'Nodes',
+        'type'    => 'Type',
     ];
 
     public function validate()
@@ -42,8 +42,8 @@ class qualityOverallData extends Model
     public function toMap()
     {
         $res = [];
-        if (null !== $this->type) {
-            $res['Type'] = $this->type;
+        if (null !== $this->average) {
+            $res['Average'] = $this->average;
         }
         if (null !== $this->nodes) {
             $res['Nodes'] = [];
@@ -54,8 +54,8 @@ class qualityOverallData extends Model
                 }
             }
         }
-        if (null !== $this->average) {
-            $res['Average'] = $this->average;
+        if (null !== $this->type) {
+            $res['Type'] = $this->type;
         }
 
         return $res;
@@ -69,8 +69,8 @@ class qualityOverallData extends Model
     public static function fromMap($map = [])
     {
         $model = new self();
-        if (isset($map['Type'])) {
-            $model->type = $map['Type'];
+        if (isset($map['Average'])) {
+            $model->average = $map['Average'];
         }
         if (isset($map['Nodes'])) {
             if (!empty($map['Nodes'])) {
@@ -81,8 +81,8 @@ class qualityOverallData extends Model
                 }
             }
         }
-        if (isset($map['Average'])) {
-            $model->average = $map['Average'];
+        if (isset($map['Type'])) {
+            $model->type = $map['Type'];
         }
 
         return $model;

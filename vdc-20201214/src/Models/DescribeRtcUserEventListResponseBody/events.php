@@ -9,11 +9,11 @@ use AlibabaCloud\Tea\Model;
 class events extends Model
 {
     /**
-     * @description 时间发生unix timestamp
+     * @description 事件类型
      *
-     * @var int
+     * @var string
      */
-    public $eventTime;
+    public $category;
 
     /**
      * @description 事件Id
@@ -23,15 +23,15 @@ class events extends Model
     public $eventId;
 
     /**
-     * @description 事件类型
+     * @description 时间发生unix timestamp
      *
-     * @var string
+     * @var int
      */
-    public $category;
+    public $eventTime;
     protected $_name = [
-        'eventTime' => 'EventTime',
-        'eventId'   => 'EventId',
         'category'  => 'Category',
+        'eventId'   => 'EventId',
+        'eventTime' => 'EventTime',
     ];
 
     public function validate()
@@ -41,14 +41,14 @@ class events extends Model
     public function toMap()
     {
         $res = [];
-        if (null !== $this->eventTime) {
-            $res['EventTime'] = $this->eventTime;
+        if (null !== $this->category) {
+            $res['Category'] = $this->category;
         }
         if (null !== $this->eventId) {
             $res['EventId'] = $this->eventId;
         }
-        if (null !== $this->category) {
-            $res['Category'] = $this->category;
+        if (null !== $this->eventTime) {
+            $res['EventTime'] = $this->eventTime;
         }
 
         return $res;
@@ -62,14 +62,14 @@ class events extends Model
     public static function fromMap($map = [])
     {
         $model = new self();
-        if (isset($map['EventTime'])) {
-            $model->eventTime = $map['EventTime'];
+        if (isset($map['Category'])) {
+            $model->category = $map['Category'];
         }
         if (isset($map['EventId'])) {
             $model->eventId = $map['EventId'];
         }
-        if (isset($map['Category'])) {
-            $model->category = $map['Category'];
+        if (isset($map['EventTime'])) {
+            $model->eventTime = $map['EventTime'];
         }
 
         return $model;

@@ -9,13 +9,6 @@ use AlibabaCloud\Tea\Model;
 class usageStatList extends Model
 {
     /**
-     * @description 统计名称， 当StatDim=CHANNEL_ONLINE： ONE_TO_FIVE：1-5人 SIX_TO_TEN：6-10人 ELEVEN_TO_TWENTY：11-20人 TWENTY_ONE_TO_FIFTY: 21-50人 ABOVE_FIFTY：50人以上  当StatDim=NETWORK： WiFi，4G等  当StatDim=OS： iOS、android等
-     *
-     * @var string
-     */
-    public $name;
-
-    /**
      * @description 音频通话时长，单位分钟
      *
      * @var int
@@ -23,11 +16,18 @@ class usageStatList extends Model
     public $audioCallDuration;
 
     /**
-     * @description 视频通话时长，单位分钟
+     * @description 通话时长占比，四位小数表示，如1.0000
      *
-     * @var int
+     * @var string
      */
-    public $videoCallDuration;
+    public $callDurationRatio;
+
+    /**
+     * @description 统计名称， 当StatDim=CHANNEL_ONLINE： ONE_TO_FIVE：1-5人 SIX_TO_TEN：6-10人 ELEVEN_TO_TWENTY：11-20人 TWENTY_ONE_TO_FIFTY: 21-50人 ABOVE_FIFTY：50人以上  当StatDim=NETWORK： WiFi，4G等  当StatDim=OS： iOS、android等
+     *
+     * @var string
+     */
+    public $name;
 
     /**
      * @description 总通话时长，单位分钟
@@ -37,17 +37,17 @@ class usageStatList extends Model
     public $totalCallDuration;
 
     /**
-     * @description 通话时长占比，四位小数表示，如1.0000
+     * @description 视频通话时长，单位分钟
      *
-     * @var string
+     * @var int
      */
-    public $callDurationRatio;
+    public $videoCallDuration;
     protected $_name = [
-        'name'              => 'Name',
         'audioCallDuration' => 'AudioCallDuration',
-        'videoCallDuration' => 'VideoCallDuration',
-        'totalCallDuration' => 'TotalCallDuration',
         'callDurationRatio' => 'CallDurationRatio',
+        'name'              => 'Name',
+        'totalCallDuration' => 'TotalCallDuration',
+        'videoCallDuration' => 'VideoCallDuration',
     ];
 
     public function validate()
@@ -57,20 +57,20 @@ class usageStatList extends Model
     public function toMap()
     {
         $res = [];
-        if (null !== $this->name) {
-            $res['Name'] = $this->name;
-        }
         if (null !== $this->audioCallDuration) {
             $res['AudioCallDuration'] = $this->audioCallDuration;
         }
-        if (null !== $this->videoCallDuration) {
-            $res['VideoCallDuration'] = $this->videoCallDuration;
+        if (null !== $this->callDurationRatio) {
+            $res['CallDurationRatio'] = $this->callDurationRatio;
+        }
+        if (null !== $this->name) {
+            $res['Name'] = $this->name;
         }
         if (null !== $this->totalCallDuration) {
             $res['TotalCallDuration'] = $this->totalCallDuration;
         }
-        if (null !== $this->callDurationRatio) {
-            $res['CallDurationRatio'] = $this->callDurationRatio;
+        if (null !== $this->videoCallDuration) {
+            $res['VideoCallDuration'] = $this->videoCallDuration;
         }
 
         return $res;
@@ -84,20 +84,20 @@ class usageStatList extends Model
     public static function fromMap($map = [])
     {
         $model = new self();
-        if (isset($map['Name'])) {
-            $model->name = $map['Name'];
-        }
         if (isset($map['AudioCallDuration'])) {
             $model->audioCallDuration = $map['AudioCallDuration'];
         }
-        if (isset($map['VideoCallDuration'])) {
-            $model->videoCallDuration = $map['VideoCallDuration'];
+        if (isset($map['CallDurationRatio'])) {
+            $model->callDurationRatio = $map['CallDurationRatio'];
+        }
+        if (isset($map['Name'])) {
+            $model->name = $map['Name'];
         }
         if (isset($map['TotalCallDuration'])) {
             $model->totalCallDuration = $map['TotalCallDuration'];
         }
-        if (isset($map['CallDurationRatio'])) {
-            $model->callDurationRatio = $map['CallDurationRatio'];
+        if (isset($map['VideoCallDuration'])) {
+            $model->videoCallDuration = $map['VideoCallDuration'];
         }
 
         return $model;

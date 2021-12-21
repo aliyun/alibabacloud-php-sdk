@@ -10,21 +10,21 @@ use AlibabaCloud\Tea\Model;
 class DescribeChannelTopPubUserListResponseBody extends Model
 {
     /**
-     * @description Top发布用户详情列表
-     *
-     * @var topPubUserDetailList[]
-     */
-    public $topPubUserDetailList;
-
-    /**
      * @description 请求ID。
      *
      * @var string
      */
     public $requestId;
+
+    /**
+     * @description Top发布用户详情列表
+     *
+     * @var topPubUserDetailList[]
+     */
+    public $topPubUserDetailList;
     protected $_name = [
-        'topPubUserDetailList' => 'TopPubUserDetailList',
         'requestId'            => 'RequestId',
+        'topPubUserDetailList' => 'TopPubUserDetailList',
     ];
 
     public function validate()
@@ -34,6 +34,9 @@ class DescribeChannelTopPubUserListResponseBody extends Model
     public function toMap()
     {
         $res = [];
+        if (null !== $this->requestId) {
+            $res['RequestId'] = $this->requestId;
+        }
         if (null !== $this->topPubUserDetailList) {
             $res['TopPubUserDetailList'] = [];
             if (null !== $this->topPubUserDetailList && \is_array($this->topPubUserDetailList)) {
@@ -42,9 +45,6 @@ class DescribeChannelTopPubUserListResponseBody extends Model
                     $res['TopPubUserDetailList'][$n++] = null !== $item ? $item->toMap() : $item;
                 }
             }
-        }
-        if (null !== $this->requestId) {
-            $res['RequestId'] = $this->requestId;
         }
 
         return $res;
@@ -58,6 +58,9 @@ class DescribeChannelTopPubUserListResponseBody extends Model
     public static function fromMap($map = [])
     {
         $model = new self();
+        if (isset($map['RequestId'])) {
+            $model->requestId = $map['RequestId'];
+        }
         if (isset($map['TopPubUserDetailList'])) {
             if (!empty($map['TopPubUserDetailList'])) {
                 $model->topPubUserDetailList = [];
@@ -66,9 +69,6 @@ class DescribeChannelTopPubUserListResponseBody extends Model
                     $model->topPubUserDetailList[$n++] = null !== $item ? topPubUserDetailList::fromMap($item) : $item;
                 }
             }
-        }
-        if (isset($map['RequestId'])) {
-            $model->requestId = $map['RequestId'];
         }
 
         return $model;

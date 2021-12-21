@@ -10,6 +10,13 @@ use AlibabaCloud\Tea\Model;
 class DescribeCallListResponseBody extends Model
 {
     /**
+     * @description 通信列表。
+     *
+     * @var callList[]
+     */
+    public $callList;
+
+    /**
      * @description 页码。
      *
      * @var int
@@ -24,31 +31,24 @@ class DescribeCallListResponseBody extends Model
     public $pageSize;
 
     /**
-     * @description 总数量。
-     *
-     * @var int
-     */
-    public $totalCnt;
-
-    /**
-     * @description 通信列表。
-     *
-     * @var callList[]
-     */
-    public $callList;
-
-    /**
      * @description 请求ID。
      *
      * @var string
      */
     public $requestId;
+
+    /**
+     * @description 总数量。
+     *
+     * @var int
+     */
+    public $totalCnt;
     protected $_name = [
+        'callList'  => 'CallList',
         'pageNo'    => 'PageNo',
         'pageSize'  => 'PageSize',
-        'totalCnt'  => 'TotalCnt',
-        'callList'  => 'CallList',
         'requestId' => 'RequestId',
+        'totalCnt'  => 'TotalCnt',
     ];
 
     public function validate()
@@ -58,15 +58,6 @@ class DescribeCallListResponseBody extends Model
     public function toMap()
     {
         $res = [];
-        if (null !== $this->pageNo) {
-            $res['PageNo'] = $this->pageNo;
-        }
-        if (null !== $this->pageSize) {
-            $res['PageSize'] = $this->pageSize;
-        }
-        if (null !== $this->totalCnt) {
-            $res['TotalCnt'] = $this->totalCnt;
-        }
         if (null !== $this->callList) {
             $res['CallList'] = [];
             if (null !== $this->callList && \is_array($this->callList)) {
@@ -76,8 +67,17 @@ class DescribeCallListResponseBody extends Model
                 }
             }
         }
+        if (null !== $this->pageNo) {
+            $res['PageNo'] = $this->pageNo;
+        }
+        if (null !== $this->pageSize) {
+            $res['PageSize'] = $this->pageSize;
+        }
         if (null !== $this->requestId) {
             $res['RequestId'] = $this->requestId;
+        }
+        if (null !== $this->totalCnt) {
+            $res['TotalCnt'] = $this->totalCnt;
         }
 
         return $res;
@@ -91,15 +91,6 @@ class DescribeCallListResponseBody extends Model
     public static function fromMap($map = [])
     {
         $model = new self();
-        if (isset($map['PageNo'])) {
-            $model->pageNo = $map['PageNo'];
-        }
-        if (isset($map['PageSize'])) {
-            $model->pageSize = $map['PageSize'];
-        }
-        if (isset($map['TotalCnt'])) {
-            $model->totalCnt = $map['TotalCnt'];
-        }
         if (isset($map['CallList'])) {
             if (!empty($map['CallList'])) {
                 $model->callList = [];
@@ -109,8 +100,17 @@ class DescribeCallListResponseBody extends Model
                 }
             }
         }
+        if (isset($map['PageNo'])) {
+            $model->pageNo = $map['PageNo'];
+        }
+        if (isset($map['PageSize'])) {
+            $model->pageSize = $map['PageSize'];
+        }
         if (isset($map['RequestId'])) {
             $model->requestId = $map['RequestId'];
+        }
+        if (isset($map['TotalCnt'])) {
+            $model->totalCnt = $map['TotalCnt'];
         }
 
         return $model;

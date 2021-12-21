@@ -16,20 +16,6 @@ class DescribeFaultDiagnosisUserListRequest extends Model
     public $appId;
 
     /**
-     * @description 查询的开始时间，使用UNIX时间戳表示，单位：秒。
-     *
-     * @var int
-     */
-    public $startTs;
-
-    /**
-     * @description 查询的结束时间，使用UNIX时间戳表示，单位：秒。
-     *
-     * @var int
-     */
-    public $endTs;
-
-    /**
      * @description 搜索的频道ID
      *
      * @var string
@@ -37,11 +23,11 @@ class DescribeFaultDiagnosisUserListRequest extends Model
     public $channelId;
 
     /**
-     * @description 搜索的用户ID
+     * @description 查询的结束时间，使用UNIX时间戳表示，单位：秒。
      *
-     * @var string
+     * @var int
      */
-    public $userId;
+    public $endTs;
 
     /**
      * @description 过滤的异常类型，多个使用半角逗号分隔 JOIN_SLOW：进频道慢 AUDIO_STUCK：音频卡顿 VIDEO_STUCK：视频卡顿 VIDEO_VAGUE：视频模糊 HIGH_DELAY：通话延迟高 FIRST_FRAME_SLOW：接收首屏慢
@@ -63,15 +49,29 @@ class DescribeFaultDiagnosisUserListRequest extends Model
      * @var int
      */
     public $pageSize;
+
+    /**
+     * @description 查询的开始时间，使用UNIX时间戳表示，单位：秒。
+     *
+     * @var int
+     */
+    public $startTs;
+
+    /**
+     * @description 搜索的用户ID
+     *
+     * @var string
+     */
+    public $userId;
     protected $_name = [
         'appId'      => 'AppId',
-        'startTs'    => 'StartTs',
-        'endTs'      => 'EndTs',
         'channelId'  => 'ChannelId',
-        'userId'     => 'UserId',
+        'endTs'      => 'EndTs',
         'faultTypes' => 'FaultTypes',
         'pageNo'     => 'PageNo',
         'pageSize'   => 'PageSize',
+        'startTs'    => 'StartTs',
+        'userId'     => 'UserId',
     ];
 
     public function validate()
@@ -84,17 +84,11 @@ class DescribeFaultDiagnosisUserListRequest extends Model
         if (null !== $this->appId) {
             $res['AppId'] = $this->appId;
         }
-        if (null !== $this->startTs) {
-            $res['StartTs'] = $this->startTs;
-        }
-        if (null !== $this->endTs) {
-            $res['EndTs'] = $this->endTs;
-        }
         if (null !== $this->channelId) {
             $res['ChannelId'] = $this->channelId;
         }
-        if (null !== $this->userId) {
-            $res['UserId'] = $this->userId;
+        if (null !== $this->endTs) {
+            $res['EndTs'] = $this->endTs;
         }
         if (null !== $this->faultTypes) {
             $res['FaultTypes'] = $this->faultTypes;
@@ -104,6 +98,12 @@ class DescribeFaultDiagnosisUserListRequest extends Model
         }
         if (null !== $this->pageSize) {
             $res['PageSize'] = $this->pageSize;
+        }
+        if (null !== $this->startTs) {
+            $res['StartTs'] = $this->startTs;
+        }
+        if (null !== $this->userId) {
+            $res['UserId'] = $this->userId;
         }
 
         return $res;
@@ -120,17 +120,11 @@ class DescribeFaultDiagnosisUserListRequest extends Model
         if (isset($map['AppId'])) {
             $model->appId = $map['AppId'];
         }
-        if (isset($map['StartTs'])) {
-            $model->startTs = $map['StartTs'];
-        }
-        if (isset($map['EndTs'])) {
-            $model->endTs = $map['EndTs'];
-        }
         if (isset($map['ChannelId'])) {
             $model->channelId = $map['ChannelId'];
         }
-        if (isset($map['UserId'])) {
-            $model->userId = $map['UserId'];
+        if (isset($map['EndTs'])) {
+            $model->endTs = $map['EndTs'];
         }
         if (isset($map['FaultTypes'])) {
             $model->faultTypes = $map['FaultTypes'];
@@ -140,6 +134,12 @@ class DescribeFaultDiagnosisUserListRequest extends Model
         }
         if (isset($map['PageSize'])) {
             $model->pageSize = $map['PageSize'];
+        }
+        if (isset($map['StartTs'])) {
+            $model->startTs = $map['StartTs'];
+        }
+        if (isset($map['UserId'])) {
+            $model->userId = $map['UserId'];
         }
 
         return $model;

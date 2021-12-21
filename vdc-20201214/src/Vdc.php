@@ -93,6 +93,7 @@ use AlibabaCloud\SDK\Vdc\V20201214\Models\UpdateAppFollowCallRuleResponse;
 use AlibabaCloud\Tea\Utils\Utils;
 use AlibabaCloud\Tea\Utils\Utils\RuntimeOptions;
 use Darabonba\OpenApi\Models\OpenApiRequest;
+use Darabonba\OpenApi\Models\Params;
 use Darabonba\OpenApi\OpenApiClient;
 
 class Vdc extends OpenApiClient
@@ -129,379 +130,6 @@ class Vdc extends OpenApiClient
     }
 
     /**
-     * @param DescribeFaultDiagnosisOverallDataRequest $request
-     *
-     * @return DescribeFaultDiagnosisOverallDataResponse
-     */
-    public function describeFaultDiagnosisOverallData($request)
-    {
-        $runtime = new RuntimeOptions([]);
-        $headers = [];
-
-        return $this->describeFaultDiagnosisOverallDataWithOptions($request, $headers, $runtime);
-    }
-
-    /**
-     * @param DescribeFaultDiagnosisOverallDataRequest $request
-     * @param string[]                                 $headers
-     * @param RuntimeOptions                           $runtime
-     *
-     * @return DescribeFaultDiagnosisOverallDataResponse
-     */
-    public function describeFaultDiagnosisOverallDataWithOptions($request, $headers, $runtime)
-    {
-        Utils::validateModel($request);
-        $query = [];
-        if (!Utils::isUnset($request->appId)) {
-            @$query['AppId'] = $request->appId;
-        }
-        if (!Utils::isUnset($request->startTs)) {
-            @$query['StartTs'] = $request->startTs;
-        }
-        if (!Utils::isUnset($request->endTs)) {
-            @$query['EndTs'] = $request->endTs;
-        }
-        if (!Utils::isUnset($request->statDim)) {
-            @$query['StatDim'] = $request->statDim;
-        }
-        $req = new OpenApiRequest([
-            'headers' => $headers,
-            'query'   => OpenApiUtilClient::query($query),
-        ]);
-
-        return DescribeFaultDiagnosisOverallDataResponse::fromMap($this->doROARequest('DescribeFaultDiagnosisOverallData', '2020-12-14', 'HTTPS', 'POST', 'AK', '/api/diagnosis/describeFaultDiagnosisOverallData', 'json', $req, $runtime));
-    }
-
-    /**
-     * @param DescribeRtcChannelUsersRequest $request
-     *
-     * @return DescribeRtcChannelUsersResponse
-     */
-    public function describeRtcChannelUsers($request)
-    {
-        $runtime = new RuntimeOptions([]);
-        $headers = [];
-
-        return $this->describeRtcChannelUsersWithOptions($request, $headers, $runtime);
-    }
-
-    /**
-     * @param DescribeRtcChannelUsersRequest $request
-     * @param string[]                       $headers
-     * @param RuntimeOptions                 $runtime
-     *
-     * @return DescribeRtcChannelUsersResponse
-     */
-    public function describeRtcChannelUsersWithOptions($request, $headers, $runtime)
-    {
-        Utils::validateModel($request);
-        $query = [];
-        if (!Utils::isUnset($request->appId)) {
-            @$query['AppId'] = $request->appId;
-        }
-        if (!Utils::isUnset($request->channelId)) {
-            @$query['ChannelId'] = $request->channelId;
-        }
-        if (!Utils::isUnset($request->timePoint)) {
-            @$query['TimePoint'] = $request->timePoint;
-        }
-        if (!Utils::isUnset($request->pageNo)) {
-            @$query['PageNo'] = $request->pageNo;
-        }
-        if (!Utils::isUnset($request->pageSize)) {
-            @$query['PageSize'] = $request->pageSize;
-        }
-        $req = new OpenApiRequest([
-            'headers' => $headers,
-            'query'   => OpenApiUtilClient::query($query),
-        ]);
-
-        return DescribeRtcChannelUsersResponse::fromMap($this->doROARequest('DescribeRtcChannelUsers', '2020-12-14', 'HTTPS', 'POST', 'AK', '/api/channel/describeRtcChannelUsers', 'json', $req, $runtime));
-    }
-
-    /**
-     * @param DescribeChannelOverallDataRequest $request
-     *
-     * @return DescribeChannelOverallDataResponse
-     */
-    public function describeChannelOverallData($request)
-    {
-        $runtime = new RuntimeOptions([]);
-        $headers = [];
-
-        return $this->describeChannelOverallDataWithOptions($request, $headers, $runtime);
-    }
-
-    /**
-     * @param DescribeChannelOverallDataRequest $request
-     * @param string[]                          $headers
-     * @param RuntimeOptions                    $runtime
-     *
-     * @return DescribeChannelOverallDataResponse
-     */
-    public function describeChannelOverallDataWithOptions($request, $headers, $runtime)
-    {
-        Utils::validateModel($request);
-        $query = [];
-        if (!Utils::isUnset($request->appId)) {
-            @$query['AppId'] = $request->appId;
-        }
-        if (!Utils::isUnset($request->channelId)) {
-            @$query['ChannelId'] = $request->channelId;
-        }
-        if (!Utils::isUnset($request->createdTs)) {
-            @$query['CreatedTs'] = $request->createdTs;
-        }
-        if (!Utils::isUnset($request->destroyedTs)) {
-            @$query['DestroyedTs'] = $request->destroyedTs;
-        }
-        $req = new OpenApiRequest([
-            'headers' => $headers,
-            'query'   => OpenApiUtilClient::query($query),
-        ]);
-
-        return DescribeChannelOverallDataResponse::fromMap($this->doROARequest('DescribeChannelOverallData', '2020-12-14', 'HTTPS', 'POST', 'AK', '/api/channel/describeChannelOverallData', 'json', $req, $runtime));
-    }
-
-    /**
-     * @param DescribeUsageOsSdkVersionDistributionStatDataRequest $request
-     *
-     * @return DescribeUsageOsSdkVersionDistributionStatDataResponse
-     */
-    public function describeUsageOsSdkVersionDistributionStatData($request)
-    {
-        $runtime = new RuntimeOptions([]);
-        $headers = [];
-
-        return $this->describeUsageOsSdkVersionDistributionStatDataWithOptions($request, $headers, $runtime);
-    }
-
-    /**
-     * @param DescribeUsageOsSdkVersionDistributionStatDataRequest $request
-     * @param string[]                                             $headers
-     * @param RuntimeOptions                                       $runtime
-     *
-     * @return DescribeUsageOsSdkVersionDistributionStatDataResponse
-     */
-    public function describeUsageOsSdkVersionDistributionStatDataWithOptions($request, $headers, $runtime)
-    {
-        Utils::validateModel($request);
-        $query = [];
-        if (!Utils::isUnset($request->startDate)) {
-            @$query['StartDate'] = $request->startDate;
-        }
-        if (!Utils::isUnset($request->endDate)) {
-            @$query['EndDate'] = $request->endDate;
-        }
-        if (!Utils::isUnset($request->appId)) {
-            @$query['AppId'] = $request->appId;
-        }
-        $req = new OpenApiRequest([
-            'headers' => $headers,
-            'query'   => OpenApiUtilClient::query($query),
-        ]);
-
-        return DescribeUsageOsSdkVersionDistributionStatDataResponse::fromMap($this->doROARequest('DescribeUsageOsSdkVersionDistributionStatData', '2020-12-14', 'HTTPS', 'POST', 'AK', '/api/usage/describeUsageOsSdkVersionDistributionStatData', 'json', $req, $runtime));
-    }
-
-    /**
-     * @param DescribeIceDurPeriodByDaySubTypeRequest $request
-     *
-     * @return DescribeIceDurPeriodByDaySubTypeResponse
-     */
-    public function describeIceDurPeriodByDaySubType($request)
-    {
-        $runtime = new RuntimeOptions([]);
-        $headers = [];
-
-        return $this->describeIceDurPeriodByDaySubTypeWithOptions($request, $headers, $runtime);
-    }
-
-    /**
-     * @param DescribeIceDurPeriodByDaySubTypeRequest $request
-     * @param string[]                                $headers
-     * @param RuntimeOptions                          $runtime
-     *
-     * @return DescribeIceDurPeriodByDaySubTypeResponse
-     */
-    public function describeIceDurPeriodByDaySubTypeWithOptions($request, $headers, $runtime)
-    {
-        Utils::validateModel($request);
-        $query = [];
-        if (!Utils::isUnset($request->jobType)) {
-            @$query['JobType'] = $request->jobType;
-        }
-        if (!Utils::isUnset($request->startTs)) {
-            @$query['StartTs'] = $request->startTs;
-        }
-        if (!Utils::isUnset($request->endTs)) {
-            @$query['EndTs'] = $request->endTs;
-        }
-        if (!Utils::isUnset($request->timeZone)) {
-            @$query['TimeZone'] = $request->timeZone;
-        }
-        $req = new OpenApiRequest([
-            'headers' => $headers,
-            'query'   => OpenApiUtilClient::query($query),
-        ]);
-
-        return DescribeIceDurPeriodByDaySubTypeResponse::fromMap($this->doROARequest('DescribeIceDurPeriodByDaySubType', '2020-12-14', 'HTTPS', 'POST', 'AK', '/api/ice/describeIceDurPeriodByDaySubType', 'json', $req, $runtime));
-    }
-
-    /**
-     * @param DescribeCallListRequest $request
-     *
-     * @return DescribeCallListResponse
-     */
-    public function describeCallList($request)
-    {
-        $runtime = new RuntimeOptions([]);
-        $headers = [];
-
-        return $this->describeCallListWithOptions($request, $headers, $runtime);
-    }
-
-    /**
-     * @param DescribeCallListRequest $request
-     * @param string[]                $headers
-     * @param RuntimeOptions          $runtime
-     *
-     * @return DescribeCallListResponse
-     */
-    public function describeCallListWithOptions($request, $headers, $runtime)
-    {
-        Utils::validateModel($request);
-        $query = [];
-        if (!Utils::isUnset($request->appId)) {
-            @$query['AppId'] = $request->appId;
-        }
-        if (!Utils::isUnset($request->startTs)) {
-            @$query['StartTs'] = $request->startTs;
-        }
-        if (!Utils::isUnset($request->endTs)) {
-            @$query['EndTs'] = $request->endTs;
-        }
-        if (!Utils::isUnset($request->channelId)) {
-            @$query['ChannelId'] = $request->channelId;
-        }
-        if (!Utils::isUnset($request->userId)) {
-            @$query['UserId'] = $request->userId;
-        }
-        if (!Utils::isUnset($request->callStatus)) {
-            @$query['CallStatus'] = $request->callStatus;
-        }
-        if (!Utils::isUnset($request->orderBy)) {
-            @$query['OrderBy'] = $request->orderBy;
-        }
-        if (!Utils::isUnset($request->queryMode)) {
-            @$query['QueryMode'] = $request->queryMode;
-        }
-        if (!Utils::isUnset($request->pageNo)) {
-            @$query['PageNo'] = $request->pageNo;
-        }
-        if (!Utils::isUnset($request->pageSize)) {
-            @$query['PageSize'] = $request->pageSize;
-        }
-        $req = new OpenApiRequest([
-            'headers' => $headers,
-            'query'   => OpenApiUtilClient::query($query),
-        ]);
-
-        return DescribeCallListResponse::fromMap($this->doROARequest('DescribeCallList', '2020-12-14', 'HTTPS', 'POST', 'AK', '/api/call/describeCallList', 'json', $req, $runtime));
-    }
-
-    /**
-     * @param DescribeQualityAreaDistributionStatDataRequest $request
-     *
-     * @return DescribeQualityAreaDistributionStatDataResponse
-     */
-    public function describeQualityAreaDistributionStatData($request)
-    {
-        $runtime = new RuntimeOptions([]);
-        $headers = [];
-
-        return $this->describeQualityAreaDistributionStatDataWithOptions($request, $headers, $runtime);
-    }
-
-    /**
-     * @param DescribeQualityAreaDistributionStatDataRequest $request
-     * @param string[]                                       $headers
-     * @param RuntimeOptions                                 $runtime
-     *
-     * @return DescribeQualityAreaDistributionStatDataResponse
-     */
-    public function describeQualityAreaDistributionStatDataWithOptions($request, $headers, $runtime)
-    {
-        Utils::validateModel($request);
-        $query = [];
-        if (!Utils::isUnset($request->startDate)) {
-            @$query['StartDate'] = $request->startDate;
-        }
-        if (!Utils::isUnset($request->endDate)) {
-            @$query['EndDate'] = $request->endDate;
-        }
-        if (!Utils::isUnset($request->parentArea)) {
-            @$query['ParentArea'] = $request->parentArea;
-        }
-        if (!Utils::isUnset($request->appId)) {
-            @$query['AppId'] = $request->appId;
-        }
-        $req = new OpenApiRequest([
-            'headers' => $headers,
-            'query'   => OpenApiUtilClient::query($query),
-        ]);
-
-        return DescribeQualityAreaDistributionStatDataResponse::fromMap($this->doROARequest('DescribeQualityAreaDistributionStatData', '2020-12-14', 'HTTPS', 'POST', 'AK', '/api/quality/describeQualityAreaDistributionStatData', 'json', $req, $runtime));
-    }
-
-    /**
-     * @param DescribeRtcUserEventListRequest $request
-     *
-     * @return DescribeRtcUserEventListResponse
-     */
-    public function describeRtcUserEventList($request)
-    {
-        $runtime = new RuntimeOptions([]);
-        $headers = [];
-
-        return $this->describeRtcUserEventListWithOptions($request, $headers, $runtime);
-    }
-
-    /**
-     * @param DescribeRtcUserEventListRequest $request
-     * @param string[]                        $headers
-     * @param RuntimeOptions                  $runtime
-     *
-     * @return DescribeRtcUserEventListResponse
-     */
-    public function describeRtcUserEventListWithOptions($request, $headers, $runtime)
-    {
-        Utils::validateModel($request);
-        $query = [];
-        if (!Utils::isUnset($request->appId)) {
-            @$query['AppId'] = $request->appId;
-        }
-        if (!Utils::isUnset($request->channelId)) {
-            @$query['ChannelId'] = $request->channelId;
-        }
-        if (!Utils::isUnset($request->uid)) {
-            @$query['Uid'] = $request->uid;
-        }
-        if (!Utils::isUnset($request->startTime)) {
-            @$query['StartTime'] = $request->startTime;
-        }
-        if (!Utils::isUnset($request->endTime)) {
-            @$query['EndTime'] = $request->endTime;
-        }
-        $req = new OpenApiRequest([
-            'headers' => $headers,
-            'query'   => OpenApiUtilClient::query($query),
-        ]);
-
-        return DescribeRtcUserEventListResponse::fromMap($this->doROARequest('DescribeRtcUserEventList', '2020-12-14', 'HTTPS', 'POST', 'AK', '/api/call/describeRtcUserEventList', 'json', $req, $runtime));
-    }
-
-    /**
      * @param DeleteAppExpMetricRuleRequest $request
      *
      * @return DeleteAppExpMetricRuleResponse
@@ -526,480 +154,25 @@ class Vdc extends OpenApiClient
         Utils::validateModel($request);
         $query = [];
         if (!Utils::isUnset($request->appId)) {
-            @$query['AppId'] = $request->appId;
+            $query['AppId'] = $request->appId;
         }
         $req = new OpenApiRequest([
             'headers' => $headers,
             'query'   => OpenApiUtilClient::query($query),
         ]);
-
-        return DeleteAppExpMetricRuleResponse::fromMap($this->doROARequest('DeleteAppExpMetricRule', '2020-12-14', 'HTTPS', 'POST', 'AK', '/api/config/deleteAppExpMetricRule', 'json', $req, $runtime));
-    }
-
-    /**
-     * @param DescribeEndPointEventListRequest $request
-     *
-     * @return DescribeEndPointEventListResponse
-     */
-    public function describeEndPointEventList($request)
-    {
-        $runtime = new RuntimeOptions([]);
-        $headers = [];
-
-        return $this->describeEndPointEventListWithOptions($request, $headers, $runtime);
-    }
-
-    /**
-     * @param DescribeEndPointEventListRequest $request
-     * @param string[]                         $headers
-     * @param RuntimeOptions                   $runtime
-     *
-     * @return DescribeEndPointEventListResponse
-     */
-    public function describeEndPointEventListWithOptions($request, $headers, $runtime)
-    {
-        Utils::validateModel($request);
-        $query = [];
-        if (!Utils::isUnset($request->appId)) {
-            @$query['AppId'] = $request->appId;
-        }
-        if (!Utils::isUnset($request->channelId)) {
-            @$query['ChannelId'] = $request->channelId;
-        }
-        if (!Utils::isUnset($request->createdTs)) {
-            @$query['CreatedTs'] = $request->createdTs;
-        }
-        if (!Utils::isUnset($request->destroyedTs)) {
-            @$query['DestroyedTs'] = $request->destroyedTs;
-        }
-        if (!Utils::isUnset($request->userIdList)) {
-            @$query['UserIdList'] = $request->userIdList;
-        }
-        $req = new OpenApiRequest([
-            'headers' => $headers,
-            'query'   => OpenApiUtilClient::query($query),
+        $params = new Params([
+            'action'      => 'DeleteAppExpMetricRule',
+            'version'     => '2020-12-14',
+            'protocol'    => 'HTTPS',
+            'pathname'    => '/api/config/deleteAppExpMetricRule',
+            'method'      => 'POST',
+            'authType'    => 'AK',
+            'style'       => 'ROA',
+            'reqBodyType' => 'json',
+            'bodyType'    => 'json',
         ]);
 
-        return DescribeEndPointEventListResponse::fromMap($this->doROARequest('DescribeEndPointEventList', '2020-12-14', 'HTTPS', 'POST', 'AK', '/api/call/describeEndPointEventList', 'json', $req, $runtime));
-    }
-
-    /**
-     * @param DescribeQualityDistributionStatDataRequest $request
-     *
-     * @return DescribeQualityDistributionStatDataResponse
-     */
-    public function describeQualityDistributionStatData($request)
-    {
-        $runtime = new RuntimeOptions([]);
-        $headers = [];
-
-        return $this->describeQualityDistributionStatDataWithOptions($request, $headers, $runtime);
-    }
-
-    /**
-     * @param DescribeQualityDistributionStatDataRequest $request
-     * @param string[]                                   $headers
-     * @param RuntimeOptions                             $runtime
-     *
-     * @return DescribeQualityDistributionStatDataResponse
-     */
-    public function describeQualityDistributionStatDataWithOptions($request, $headers, $runtime)
-    {
-        Utils::validateModel($request);
-        $query = [];
-        if (!Utils::isUnset($request->startDate)) {
-            @$query['StartDate'] = $request->startDate;
-        }
-        if (!Utils::isUnset($request->endDate)) {
-            @$query['EndDate'] = $request->endDate;
-        }
-        if (!Utils::isUnset($request->statDim)) {
-            @$query['StatDim'] = $request->statDim;
-        }
-        if (!Utils::isUnset($request->appId)) {
-            @$query['AppId'] = $request->appId;
-        }
-        $req = new OpenApiRequest([
-            'headers' => $headers,
-            'query'   => OpenApiUtilClient::query($query),
-        ]);
-
-        return DescribeQualityDistributionStatDataResponse::fromMap($this->doROARequest('DescribeQualityDistributionStatData', '2020-12-14', 'HTTPS', 'POST', 'AK', '/api/quality/describeQualityDistributionStatData', 'json', $req, $runtime));
-    }
-
-    /**
-     * @param DescribeCallListTestRequest $request
-     *
-     * @return DescribeCallListTestResponse
-     */
-    public function describeCallListTest($request)
-    {
-        $runtime = new RuntimeOptions([]);
-        $headers = [];
-
-        return $this->describeCallListTestWithOptions($request, $headers, $runtime);
-    }
-
-    /**
-     * @param DescribeCallListTestRequest $request
-     * @param string[]                    $headers
-     * @param RuntimeOptions              $runtime
-     *
-     * @return DescribeCallListTestResponse
-     */
-    public function describeCallListTestWithOptions($request, $headers, $runtime)
-    {
-        Utils::validateModel($request);
-        $query = [];
-        if (!Utils::isUnset($request->appId)) {
-            @$query['AppId'] = $request->appId;
-        }
-        if (!Utils::isUnset($request->startTs)) {
-            @$query['StartTs'] = $request->startTs;
-        }
-        if (!Utils::isUnset($request->endTs)) {
-            @$query['EndTs'] = $request->endTs;
-        }
-        $req = new OpenApiRequest([
-            'headers' => $headers,
-            'query'   => OpenApiUtilClient::query($query),
-        ]);
-
-        return DescribeCallListTestResponse::fromMap($this->doROARequest('DescribeCallListTest', '2020-12-14', 'HTTPS', 'POST', 'AK', '/api/call/describeCallListTest', 'json', $req, $runtime));
-    }
-
-    /**
-     * @param DescribeCallRequest $request
-     *
-     * @return DescribeCallResponse
-     */
-    public function describeCall($request)
-    {
-        $runtime = new RuntimeOptions([]);
-        $headers = [];
-
-        return $this->describeCallWithOptions($request, $headers, $runtime);
-    }
-
-    /**
-     * @param DescribeCallRequest $request
-     * @param string[]            $headers
-     * @param RuntimeOptions      $runtime
-     *
-     * @return DescribeCallResponse
-     */
-    public function describeCallWithOptions($request, $headers, $runtime)
-    {
-        Utils::validateModel($request);
-        $query = [];
-        if (!Utils::isUnset($request->appId)) {
-            @$query['AppId'] = $request->appId;
-        }
-        if (!Utils::isUnset($request->channelId)) {
-            @$query['ChannelId'] = $request->channelId;
-        }
-        if (!Utils::isUnset($request->createdTs)) {
-            @$query['CreatedTs'] = $request->createdTs;
-        }
-        if (!Utils::isUnset($request->destroyedTs)) {
-            @$query['DestroyedTs'] = $request->destroyedTs;
-        }
-        if (!Utils::isUnset($request->extDataType)) {
-            @$query['ExtDataType'] = $request->extDataType;
-        }
-        if (!Utils::isUnset($request->queryExpInfo)) {
-            @$query['QueryExpInfo'] = $request->queryExpInfo;
-        }
-        $req = new OpenApiRequest([
-            'headers' => $headers,
-            'query'   => OpenApiUtilClient::query($query),
-        ]);
-
-        return DescribeCallResponse::fromMap($this->doROARequest('DescribeCall', '2020-12-14', 'HTTPS', 'POST', 'AK', '/api/call/describeCall', 'json', $req, $runtime));
-    }
-
-    /**
-     * @return DescribeAppFollowCallRuleListResponse
-     */
-    public function describeAppFollowCallRuleList()
-    {
-        $runtime = new RuntimeOptions([]);
-        $headers = [];
-
-        return $this->describeAppFollowCallRuleListWithOptions($headers, $runtime);
-    }
-
-    /**
-     * @param string[]       $headers
-     * @param RuntimeOptions $runtime
-     *
-     * @return DescribeAppFollowCallRuleListResponse
-     */
-    public function describeAppFollowCallRuleListWithOptions($headers, $runtime)
-    {
-        $req = new OpenApiRequest([
-            'headers' => $headers,
-        ]);
-
-        return DescribeAppFollowCallRuleListResponse::fromMap($this->doROARequest('DescribeAppFollowCallRuleList', '2020-12-14', 'HTTPS', 'POST', 'AK', '/api/config/describeAppFollowCallRuleList', 'json', $req, $runtime));
-    }
-
-    /**
-     * @param DescribeChannelAreaDistributionStatDataRequest $request
-     *
-     * @return DescribeChannelAreaDistributionStatDataResponse
-     */
-    public function describeChannelAreaDistributionStatData($request)
-    {
-        $runtime = new RuntimeOptions([]);
-        $headers = [];
-
-        return $this->describeChannelAreaDistributionStatDataWithOptions($request, $headers, $runtime);
-    }
-
-    /**
-     * @param DescribeChannelAreaDistributionStatDataRequest $request
-     * @param string[]                                       $headers
-     * @param RuntimeOptions                                 $runtime
-     *
-     * @return DescribeChannelAreaDistributionStatDataResponse
-     */
-    public function describeChannelAreaDistributionStatDataWithOptions($request, $headers, $runtime)
-    {
-        Utils::validateModel($request);
-        $query = [];
-        if (!Utils::isUnset($request->appId)) {
-            @$query['AppId'] = $request->appId;
-        }
-        if (!Utils::isUnset($request->channelId)) {
-            @$query['ChannelId'] = $request->channelId;
-        }
-        if (!Utils::isUnset($request->createdTs)) {
-            @$query['CreatedTs'] = $request->createdTs;
-        }
-        if (!Utils::isUnset($request->destroyedTs)) {
-            @$query['DestroyedTs'] = $request->destroyedTs;
-        }
-        if (!Utils::isUnset($request->parentArea)) {
-            @$query['ParentArea'] = $request->parentArea;
-        }
-        $req = new OpenApiRequest([
-            'headers' => $headers,
-            'query'   => OpenApiUtilClient::query($query),
-        ]);
-
-        return DescribeChannelAreaDistributionStatDataResponse::fromMap($this->doROARequest('DescribeChannelAreaDistributionStatData', '2020-12-14', 'HTTPS', 'POST', 'AK', '/api/channel/describeChannelAreaDistributionStatData', 'json', $req, $runtime));
-    }
-
-    /**
-     * @param DescribeAppExpMetricRuleRequest $request
-     *
-     * @return DescribeAppExpMetricRuleResponse
-     */
-    public function describeAppExpMetricRule($request)
-    {
-        $runtime = new RuntimeOptions([]);
-        $headers = [];
-
-        return $this->describeAppExpMetricRuleWithOptions($request, $headers, $runtime);
-    }
-
-    /**
-     * @param DescribeAppExpMetricRuleRequest $request
-     * @param string[]                        $headers
-     * @param RuntimeOptions                  $runtime
-     *
-     * @return DescribeAppExpMetricRuleResponse
-     */
-    public function describeAppExpMetricRuleWithOptions($request, $headers, $runtime)
-    {
-        Utils::validateModel($request);
-        $query = [];
-        if (!Utils::isUnset($request->appId)) {
-            @$query['AppId'] = $request->appId;
-        }
-        $req = new OpenApiRequest([
-            'headers' => $headers,
-            'query'   => OpenApiUtilClient::query($query),
-        ]);
-
-        return DescribeAppExpMetricRuleResponse::fromMap($this->doROARequest('DescribeAppExpMetricRule', '2020-12-14', 'HTTPS', 'POST', 'AK', '/api/config/describeAppExpMetricRule', 'json', $req, $runtime));
-    }
-
-    /**
-     * @param DescribeRtcChannelDetailsRequest $request
-     *
-     * @return DescribeRtcChannelDetailsResponse
-     */
-    public function describeRtcChannelDetails($request)
-    {
-        $runtime = new RuntimeOptions([]);
-        $headers = [];
-
-        return $this->describeRtcChannelDetailsWithOptions($request, $headers, $runtime);
-    }
-
-    /**
-     * @param DescribeRtcChannelDetailsRequest $request
-     * @param string[]                         $headers
-     * @param RuntimeOptions                   $runtime
-     *
-     * @return DescribeRtcChannelDetailsResponse
-     */
-    public function describeRtcChannelDetailsWithOptions($request, $headers, $runtime)
-    {
-        Utils::validateModel($request);
-        $query = [];
-        if (!Utils::isUnset($request->appId)) {
-            @$query['AppId'] = $request->appId;
-        }
-        if (!Utils::isUnset($request->channelId)) {
-            @$query['ChannelId'] = $request->channelId;
-        }
-        if (!Utils::isUnset($request->startTime)) {
-            @$query['StartTime'] = $request->startTime;
-        }
-        if (!Utils::isUnset($request->endTime)) {
-            @$query['EndTime'] = $request->endTime;
-        }
-        if (!Utils::isUnset($request->pageNo)) {
-            @$query['PageNo'] = $request->pageNo;
-        }
-        if (!Utils::isUnset($request->pageSize)) {
-            @$query['PageSize'] = $request->pageSize;
-        }
-        $req = new OpenApiRequest([
-            'headers' => $headers,
-            'query'   => OpenApiUtilClient::query($query),
-        ]);
-
-        return DescribeRtcChannelDetailsResponse::fromMap($this->doROARequest('DescribeRtcChannelDetails', '2020-12-14', 'HTTPS', 'POST', 'AK', '/api/channel/describeRtcChannelDetails', 'json', $req, $runtime));
-    }
-
-    /**
-     * @param DescribeIceDurSummaryOverviewRequest $request
-     *
-     * @return DescribeIceDurSummaryOverviewResponse
-     */
-    public function describeIceDurSummaryOverview($request)
-    {
-        $runtime = new RuntimeOptions([]);
-        $headers = [];
-
-        return $this->describeIceDurSummaryOverviewWithOptions($request, $headers, $runtime);
-    }
-
-    /**
-     * @param DescribeIceDurSummaryOverviewRequest $request
-     * @param string[]                             $headers
-     * @param RuntimeOptions                       $runtime
-     *
-     * @return DescribeIceDurSummaryOverviewResponse
-     */
-    public function describeIceDurSummaryOverviewWithOptions($request, $headers, $runtime)
-    {
-        Utils::validateModel($request);
-        $query = [];
-        if (!Utils::isUnset($request->curTs)) {
-            @$query['CurTs'] = $request->curTs;
-        }
-        if (!Utils::isUnset($request->timeZone)) {
-            @$query['TimeZone'] = $request->timeZone;
-        }
-        $req = new OpenApiRequest([
-            'headers' => $headers,
-            'query'   => OpenApiUtilClient::query($query),
-        ]);
-
-        return DescribeIceDurSummaryOverviewResponse::fromMap($this->doROARequest('DescribeIceDurSummaryOverview', '2020-12-14', 'HTTPS', 'POST', 'AK', '/api/ice/describeIceDurSummaryOverview', 'json', $req, $runtime));
-    }
-
-    /**
-     * @param DescribeCallUserExpRequest $request
-     *
-     * @return DescribeCallUserExpResponse
-     */
-    public function describeCallUserExp($request)
-    {
-        $runtime = new RuntimeOptions([]);
-        $headers = [];
-
-        return $this->describeCallUserExpWithOptions($request, $headers, $runtime);
-    }
-
-    /**
-     * @param DescribeCallUserExpRequest $request
-     * @param string[]                   $headers
-     * @param RuntimeOptions             $runtime
-     *
-     * @return DescribeCallUserExpResponse
-     */
-    public function describeCallUserExpWithOptions($request, $headers, $runtime)
-    {
-        Utils::validateModel($request);
-        $query = [];
-        if (!Utils::isUnset($request->appId)) {
-            @$query['AppId'] = $request->appId;
-        }
-        if (!Utils::isUnset($request->channelId)) {
-            @$query['ChannelId'] = $request->channelId;
-        }
-        if (!Utils::isUnset($request->createdTs)) {
-            @$query['CreatedTs'] = $request->createdTs;
-        }
-        if (!Utils::isUnset($request->destroyedTs)) {
-            @$query['DestroyedTs'] = $request->destroyedTs;
-        }
-        $req = new OpenApiRequest([
-            'headers' => $headers,
-            'query'   => OpenApiUtilClient::query($query),
-        ]);
-
-        return DescribeCallUserExpResponse::fromMap($this->doROARequest('DescribeCallUserExp', '2020-12-14', 'HTTPS', 'POST', 'AK', '/api/call/describeCallUserExp', 'json', $req, $runtime));
-    }
-
-    /**
-     * @param DescribeChannelJoinInfoRequest $request
-     *
-     * @return DescribeChannelJoinInfoResponse
-     */
-    public function describeChannelJoinInfo($request)
-    {
-        $runtime = new RuntimeOptions([]);
-        $headers = [];
-
-        return $this->describeChannelJoinInfoWithOptions($request, $headers, $runtime);
-    }
-
-    /**
-     * @param DescribeChannelJoinInfoRequest $request
-     * @param string[]                       $headers
-     * @param RuntimeOptions                 $runtime
-     *
-     * @return DescribeChannelJoinInfoResponse
-     */
-    public function describeChannelJoinInfoWithOptions($request, $headers, $runtime)
-    {
-        Utils::validateModel($request);
-        $query = [];
-        if (!Utils::isUnset($request->appId)) {
-            @$query['AppId'] = $request->appId;
-        }
-        if (!Utils::isUnset($request->channelId)) {
-            @$query['ChannelId'] = $request->channelId;
-        }
-        if (!Utils::isUnset($request->createdTs)) {
-            @$query['CreatedTs'] = $request->createdTs;
-        }
-        if (!Utils::isUnset($request->destroyedTs)) {
-            @$query['DestroyedTs'] = $request->destroyedTs;
-        }
-        $req = new OpenApiRequest([
-            'headers' => $headers,
-            'query'   => OpenApiUtilClient::query($query),
-        ]);
-
-        return DescribeChannelJoinInfoResponse::fromMap($this->doROARequest('DescribeChannelJoinInfo', '2020-12-14', 'HTTPS', 'POST', 'AK', '/api/channel/describeChannelJoinInfo', 'json', $req, $runtime));
+        return DeleteAppExpMetricRuleResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
@@ -1027,263 +200,25 @@ class Vdc extends OpenApiClient
         Utils::validateModel($request);
         $query = [];
         if (!Utils::isUnset($request->appId)) {
-            @$query['AppId'] = $request->appId;
+            $query['AppId'] = $request->appId;
         }
         $req = new OpenApiRequest([
             'headers' => $headers,
             'query'   => OpenApiUtilClient::query($query),
         ]);
-
-        return DeleteAppFollowCallRuleResponse::fromMap($this->doROARequest('DeleteAppFollowCallRule', '2020-12-14', 'HTTPS', 'POST', 'AK', '/api/config/deleteAppFollowCallRule', 'json', $req, $runtime));
-    }
-
-    /**
-     * @return DescribeAppExpMetricRuleListResponse
-     */
-    public function describeAppExpMetricRuleList()
-    {
-        $runtime = new RuntimeOptions([]);
-        $headers = [];
-
-        return $this->describeAppExpMetricRuleListWithOptions($headers, $runtime);
-    }
-
-    /**
-     * @param string[]       $headers
-     * @param RuntimeOptions $runtime
-     *
-     * @return DescribeAppExpMetricRuleListResponse
-     */
-    public function describeAppExpMetricRuleListWithOptions($headers, $runtime)
-    {
-        $req = new OpenApiRequest([
-            'headers' => $headers,
+        $params = new Params([
+            'action'      => 'DeleteAppFollowCallRule',
+            'version'     => '2020-12-14',
+            'protocol'    => 'HTTPS',
+            'pathname'    => '/api/config/deleteAppFollowCallRule',
+            'method'      => 'POST',
+            'authType'    => 'AK',
+            'style'       => 'ROA',
+            'reqBodyType' => 'json',
+            'bodyType'    => 'json',
         ]);
 
-        return DescribeAppExpMetricRuleListResponse::fromMap($this->doROARequest('DescribeAppExpMetricRuleList', '2020-12-14', 'HTTPS', 'POST', 'AK', '/api/config/describeAppExpMetricRuleList', 'json', $req, $runtime));
-    }
-
-    /**
-     * @param DescribeChannelTopPubUserListRequest $request
-     *
-     * @return DescribeChannelTopPubUserListResponse
-     */
-    public function describeChannelTopPubUserList($request)
-    {
-        $runtime = new RuntimeOptions([]);
-        $headers = [];
-
-        return $this->describeChannelTopPubUserListWithOptions($request, $headers, $runtime);
-    }
-
-    /**
-     * @param DescribeChannelTopPubUserListRequest $request
-     * @param string[]                             $headers
-     * @param RuntimeOptions                       $runtime
-     *
-     * @return DescribeChannelTopPubUserListResponse
-     */
-    public function describeChannelTopPubUserListWithOptions($request, $headers, $runtime)
-    {
-        Utils::validateModel($request);
-        $query = [];
-        if (!Utils::isUnset($request->appId)) {
-            @$query['AppId'] = $request->appId;
-        }
-        if (!Utils::isUnset($request->channelId)) {
-            @$query['ChannelId'] = $request->channelId;
-        }
-        if (!Utils::isUnset($request->createdTs)) {
-            @$query['CreatedTs'] = $request->createdTs;
-        }
-        if (!Utils::isUnset($request->destroyedTs)) {
-            @$query['DestroyedTs'] = $request->destroyedTs;
-        }
-        $req = new OpenApiRequest([
-            'headers' => $headers,
-            'query'   => OpenApiUtilClient::query($query),
-        ]);
-
-        return DescribeChannelTopPubUserListResponse::fromMap($this->doROARequest('DescribeChannelTopPubUserList', '2020-12-14', 'HTTPS', 'POST', 'AK', '/api/channel/describeChannelTopPubUserList', 'json', $req, $runtime));
-    }
-
-    /**
-     * @param DescribeAppFollowCallRuleRequest $request
-     *
-     * @return DescribeAppFollowCallRuleResponse
-     */
-    public function describeAppFollowCallRule($request)
-    {
-        $runtime = new RuntimeOptions([]);
-        $headers = [];
-
-        return $this->describeAppFollowCallRuleWithOptions($request, $headers, $runtime);
-    }
-
-    /**
-     * @param DescribeAppFollowCallRuleRequest $request
-     * @param string[]                         $headers
-     * @param RuntimeOptions                   $runtime
-     *
-     * @return DescribeAppFollowCallRuleResponse
-     */
-    public function describeAppFollowCallRuleWithOptions($request, $headers, $runtime)
-    {
-        Utils::validateModel($request);
-        $query = [];
-        if (!Utils::isUnset($request->appId)) {
-            @$query['AppId'] = $request->appId;
-        }
-        $req = new OpenApiRequest([
-            'headers' => $headers,
-            'query'   => OpenApiUtilClient::query($query),
-        ]);
-
-        return DescribeAppFollowCallRuleResponse::fromMap($this->doROARequest('DescribeAppFollowCallRule', '2020-12-14', 'HTTPS', 'POST', 'AK', '/api/config/describeAppFollowCallRule', 'json', $req, $runtime));
-    }
-
-    /**
-     * @param DescribeUsageDistributionStatDataRequest $request
-     *
-     * @return DescribeUsageDistributionStatDataResponse
-     */
-    public function describeUsageDistributionStatData($request)
-    {
-        $runtime = new RuntimeOptions([]);
-        $headers = [];
-
-        return $this->describeUsageDistributionStatDataWithOptions($request, $headers, $runtime);
-    }
-
-    /**
-     * @param DescribeUsageDistributionStatDataRequest $request
-     * @param string[]                                 $headers
-     * @param RuntimeOptions                           $runtime
-     *
-     * @return DescribeUsageDistributionStatDataResponse
-     */
-    public function describeUsageDistributionStatDataWithOptions($request, $headers, $runtime)
-    {
-        Utils::validateModel($request);
-        $query = [];
-        if (!Utils::isUnset($request->startDate)) {
-            @$query['StartDate'] = $request->startDate;
-        }
-        if (!Utils::isUnset($request->endDate)) {
-            @$query['EndDate'] = $request->endDate;
-        }
-        if (!Utils::isUnset($request->statDim)) {
-            @$query['StatDim'] = $request->statDim;
-        }
-        if (!Utils::isUnset($request->appId)) {
-            @$query['AppId'] = $request->appId;
-        }
-        $req = new OpenApiRequest([
-            'headers' => $headers,
-            'query'   => OpenApiUtilClient::query($query),
-        ]);
-
-        return DescribeUsageDistributionStatDataResponse::fromMap($this->doROARequest('DescribeUsageDistributionStatData', '2020-12-14', 'HTTPS', 'POST', 'AK', '/api/usage/describeUsageDistributionStatData', 'json', $req, $runtime));
-    }
-
-    /**
-     * @param DescribeUsageAreaDistributionStatDataRequest $request
-     *
-     * @return DescribeUsageAreaDistributionStatDataResponse
-     */
-    public function describeUsageAreaDistributionStatData($request)
-    {
-        $runtime = new RuntimeOptions([]);
-        $headers = [];
-
-        return $this->describeUsageAreaDistributionStatDataWithOptions($request, $headers, $runtime);
-    }
-
-    /**
-     * @param DescribeUsageAreaDistributionStatDataRequest $request
-     * @param string[]                                     $headers
-     * @param RuntimeOptions                               $runtime
-     *
-     * @return DescribeUsageAreaDistributionStatDataResponse
-     */
-    public function describeUsageAreaDistributionStatDataWithOptions($request, $headers, $runtime)
-    {
-        Utils::validateModel($request);
-        $query = [];
-        if (!Utils::isUnset($request->startDate)) {
-            @$query['StartDate'] = $request->startDate;
-        }
-        if (!Utils::isUnset($request->endDate)) {
-            @$query['EndDate'] = $request->endDate;
-        }
-        if (!Utils::isUnset($request->parentArea)) {
-            @$query['ParentArea'] = $request->parentArea;
-        }
-        if (!Utils::isUnset($request->appId)) {
-            @$query['AppId'] = $request->appId;
-        }
-        $req = new OpenApiRequest([
-            'headers' => $headers,
-            'query'   => OpenApiUtilClient::query($query),
-        ]);
-
-        return DescribeUsageAreaDistributionStatDataResponse::fromMap($this->doROARequest('DescribeUsageAreaDistributionStatData', '2020-12-14', 'HTTPS', 'POST', 'AK', '/api/usage/describeUsageAreaDistributionStatData', 'json', $req, $runtime));
-    }
-
-    /**
-     * @param DescribeEndPointMetricDataRequest $request
-     *
-     * @return DescribeEndPointMetricDataResponse
-     */
-    public function describeEndPointMetricData($request)
-    {
-        $runtime = new RuntimeOptions([]);
-        $headers = [];
-
-        return $this->describeEndPointMetricDataWithOptions($request, $headers, $runtime);
-    }
-
-    /**
-     * @param DescribeEndPointMetricDataRequest $request
-     * @param string[]                          $headers
-     * @param RuntimeOptions                    $runtime
-     *
-     * @return DescribeEndPointMetricDataResponse
-     */
-    public function describeEndPointMetricDataWithOptions($request, $headers, $runtime)
-    {
-        Utils::validateModel($request);
-        $query = [];
-        if (!Utils::isUnset($request->appId)) {
-            @$query['AppId'] = $request->appId;
-        }
-        if (!Utils::isUnset($request->channelId)) {
-            @$query['ChannelId'] = $request->channelId;
-        }
-        if (!Utils::isUnset($request->createdTs)) {
-            @$query['CreatedTs'] = $request->createdTs;
-        }
-        if (!Utils::isUnset($request->destroyedTs)) {
-            @$query['DestroyedTs'] = $request->destroyedTs;
-        }
-        if (!Utils::isUnset($request->subUserId)) {
-            @$query['SubUserId'] = $request->subUserId;
-        }
-        if (!Utils::isUnset($request->pubUserId)) {
-            @$query['PubUserId'] = $request->pubUserId;
-        }
-        if (!Utils::isUnset($request->pubCallIdList)) {
-            @$query['PubCallIdList'] = $request->pubCallIdList;
-        }
-        if (!Utils::isUnset($request->metrics)) {
-            @$query['Metrics'] = $request->metrics;
-        }
-        $req = new OpenApiRequest([
-            'headers' => $headers,
-            'query'   => OpenApiUtilClient::query($query),
-        ]);
-
-        return DescribeEndPointMetricDataResponse::fromMap($this->doROARequest('DescribeEndPointMetricData', '2020-12-14', 'HTTPS', 'POST', 'AK', '/api/call/describeEndPointMetricData', 'json', $req, $runtime));
+        return DeleteAppFollowCallRuleResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
@@ -1311,146 +246,490 @@ class Vdc extends OpenApiClient
         Utils::validateModel($request);
         $query = [];
         if (!Utils::isUnset($request->appId)) {
-            @$query['AppId'] = $request->appId;
+            $query['AppId'] = $request->appId;
         }
         $req = new OpenApiRequest([
             'headers' => $headers,
             'query'   => OpenApiUtilClient::query($query),
         ]);
+        $params = new Params([
+            'action'      => 'DescribeAppConfig',
+            'version'     => '2020-12-14',
+            'protocol'    => 'HTTPS',
+            'pathname'    => '/api/config/describeAppConfig',
+            'method'      => 'POST',
+            'authType'    => 'AK',
+            'style'       => 'ROA',
+            'reqBodyType' => 'json',
+            'bodyType'    => 'json',
+        ]);
 
-        return DescribeAppConfigResponse::fromMap($this->doROARequest('DescribeAppConfig', '2020-12-14', 'HTTPS', 'POST', 'AK', '/api/config/describeAppConfig', 'json', $req, $runtime));
+        return DescribeAppConfigResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
-     * @param DescribeUsageOverallDataRequest $request
+     * @param DescribeAppExpMetricRuleRequest $request
      *
-     * @return DescribeUsageOverallDataResponse
+     * @return DescribeAppExpMetricRuleResponse
      */
-    public function describeUsageOverallData($request)
+    public function describeAppExpMetricRule($request)
     {
         $runtime = new RuntimeOptions([]);
         $headers = [];
 
-        return $this->describeUsageOverallDataWithOptions($request, $headers, $runtime);
+        return $this->describeAppExpMetricRuleWithOptions($request, $headers, $runtime);
     }
 
     /**
-     * @param DescribeUsageOverallDataRequest $request
+     * @param DescribeAppExpMetricRuleRequest $request
      * @param string[]                        $headers
      * @param RuntimeOptions                  $runtime
      *
-     * @return DescribeUsageOverallDataResponse
+     * @return DescribeAppExpMetricRuleResponse
      */
-    public function describeUsageOverallDataWithOptions($request, $headers, $runtime)
+    public function describeAppExpMetricRuleWithOptions($request, $headers, $runtime)
     {
         Utils::validateModel($request);
         $query = [];
-        if (!Utils::isUnset($request->startDate)) {
-            @$query['StartDate'] = $request->startDate;
-        }
-        if (!Utils::isUnset($request->endDate)) {
-            @$query['EndDate'] = $request->endDate;
-        }
-        if (!Utils::isUnset($request->types)) {
-            @$query['Types'] = $request->types;
-        }
         if (!Utils::isUnset($request->appId)) {
-            @$query['AppId'] = $request->appId;
+            $query['AppId'] = $request->appId;
         }
         $req = new OpenApiRequest([
             'headers' => $headers,
             'query'   => OpenApiUtilClient::query($query),
         ]);
+        $params = new Params([
+            'action'      => 'DescribeAppExpMetricRule',
+            'version'     => '2020-12-14',
+            'protocol'    => 'HTTPS',
+            'pathname'    => '/api/config/describeAppExpMetricRule',
+            'method'      => 'POST',
+            'authType'    => 'AK',
+            'style'       => 'ROA',
+            'reqBodyType' => 'json',
+            'bodyType'    => 'json',
+        ]);
 
-        return DescribeUsageOverallDataResponse::fromMap($this->doROARequest('DescribeUsageOverallData', '2020-12-14', 'HTTPS', 'POST', 'AK', '/api/usage/describeUsageOverallData', 'json', $req, $runtime));
+        return DescribeAppExpMetricRuleResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
-     * @param UpdateAppExpMetricRuleRequest $request
-     *
-     * @return UpdateAppExpMetricRuleResponse
+     * @return DescribeAppExpMetricRuleListResponse
      */
-    public function updateAppExpMetricRule($request)
+    public function describeAppExpMetricRuleList()
     {
         $runtime = new RuntimeOptions([]);
         $headers = [];
 
-        return $this->updateAppExpMetricRuleWithOptions($request, $headers, $runtime);
+        return $this->describeAppExpMetricRuleListWithOptions($headers, $runtime);
     }
 
     /**
-     * @param UpdateAppExpMetricRuleRequest $request
-     * @param string[]                      $headers
-     * @param RuntimeOptions                $runtime
+     * @param string[]       $headers
+     * @param RuntimeOptions $runtime
      *
-     * @return UpdateAppExpMetricRuleResponse
+     * @return DescribeAppExpMetricRuleListResponse
      */
-    public function updateAppExpMetricRuleWithOptions($request, $headers, $runtime)
+    public function describeAppExpMetricRuleListWithOptions($headers, $runtime)
+    {
+        $req = new OpenApiRequest([
+            'headers' => $headers,
+        ]);
+        $params = new Params([
+            'action'      => 'DescribeAppExpMetricRuleList',
+            'version'     => '2020-12-14',
+            'protocol'    => 'HTTPS',
+            'pathname'    => '/api/config/describeAppExpMetricRuleList',
+            'method'      => 'POST',
+            'authType'    => 'AK',
+            'style'       => 'ROA',
+            'reqBodyType' => 'json',
+            'bodyType'    => 'json',
+        ]);
+
+        return DescribeAppExpMetricRuleListResponse::fromMap($this->callApi($params, $req, $runtime));
+    }
+
+    /**
+     * @param DescribeAppFollowCallRuleRequest $request
+     *
+     * @return DescribeAppFollowCallRuleResponse
+     */
+    public function describeAppFollowCallRule($request)
+    {
+        $runtime = new RuntimeOptions([]);
+        $headers = [];
+
+        return $this->describeAppFollowCallRuleWithOptions($request, $headers, $runtime);
+    }
+
+    /**
+     * @param DescribeAppFollowCallRuleRequest $request
+     * @param string[]                         $headers
+     * @param RuntimeOptions                   $runtime
+     *
+     * @return DescribeAppFollowCallRuleResponse
+     */
+    public function describeAppFollowCallRuleWithOptions($request, $headers, $runtime)
     {
         Utils::validateModel($request);
         $query = [];
-        if (!Utils::isUnset($request->rule)) {
-            @$query['Rule'] = $request->rule;
-        }
         if (!Utils::isUnset($request->appId)) {
-            @$query['AppId'] = $request->appId;
+            $query['AppId'] = $request->appId;
         }
         $req = new OpenApiRequest([
             'headers' => $headers,
             'query'   => OpenApiUtilClient::query($query),
         ]);
+        $params = new Params([
+            'action'      => 'DescribeAppFollowCallRule',
+            'version'     => '2020-12-14',
+            'protocol'    => 'HTTPS',
+            'pathname'    => '/api/config/describeAppFollowCallRule',
+            'method'      => 'POST',
+            'authType'    => 'AK',
+            'style'       => 'ROA',
+            'reqBodyType' => 'json',
+            'bodyType'    => 'json',
+        ]);
 
-        return UpdateAppExpMetricRuleResponse::fromMap($this->doROARequest('UpdateAppExpMetricRule', '2020-12-14', 'HTTPS', 'POST', 'AK', '/api/config/updateAppExpMetricRule', 'json', $req, $runtime));
+        return DescribeAppFollowCallRuleResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
-     * @param DescribeFaultDiagnosisUserDetailRequest $request
-     *
-     * @return DescribeFaultDiagnosisUserDetailResponse
+     * @return DescribeAppFollowCallRuleListResponse
      */
-    public function describeFaultDiagnosisUserDetail($request)
+    public function describeAppFollowCallRuleList()
     {
         $runtime = new RuntimeOptions([]);
         $headers = [];
 
-        return $this->describeFaultDiagnosisUserDetailWithOptions($request, $headers, $runtime);
+        return $this->describeAppFollowCallRuleListWithOptions($headers, $runtime);
     }
 
     /**
-     * @param DescribeFaultDiagnosisUserDetailRequest $request
-     * @param string[]                                $headers
-     * @param RuntimeOptions                          $runtime
+     * @param string[]       $headers
+     * @param RuntimeOptions $runtime
      *
-     * @return DescribeFaultDiagnosisUserDetailResponse
+     * @return DescribeAppFollowCallRuleListResponse
      */
-    public function describeFaultDiagnosisUserDetailWithOptions($request, $headers, $runtime)
+    public function describeAppFollowCallRuleListWithOptions($headers, $runtime)
+    {
+        $req = new OpenApiRequest([
+            'headers' => $headers,
+        ]);
+        $params = new Params([
+            'action'      => 'DescribeAppFollowCallRuleList',
+            'version'     => '2020-12-14',
+            'protocol'    => 'HTTPS',
+            'pathname'    => '/api/config/describeAppFollowCallRuleList',
+            'method'      => 'POST',
+            'authType'    => 'AK',
+            'style'       => 'ROA',
+            'reqBodyType' => 'json',
+            'bodyType'    => 'json',
+        ]);
+
+        return DescribeAppFollowCallRuleListResponse::fromMap($this->callApi($params, $req, $runtime));
+    }
+
+    /**
+     * @param DescribeCallRequest $request
+     *
+     * @return DescribeCallResponse
+     */
+    public function describeCall($request)
+    {
+        $runtime = new RuntimeOptions([]);
+        $headers = [];
+
+        return $this->describeCallWithOptions($request, $headers, $runtime);
+    }
+
+    /**
+     * @param DescribeCallRequest $request
+     * @param string[]            $headers
+     * @param RuntimeOptions      $runtime
+     *
+     * @return DescribeCallResponse
+     */
+    public function describeCallWithOptions($request, $headers, $runtime)
     {
         Utils::validateModel($request);
         $query = [];
         if (!Utils::isUnset($request->appId)) {
-            @$query['AppId'] = $request->appId;
+            $query['AppId'] = $request->appId;
         }
         if (!Utils::isUnset($request->channelId)) {
-            @$query['ChannelId'] = $request->channelId;
+            $query['ChannelId'] = $request->channelId;
         }
         if (!Utils::isUnset($request->createdTs)) {
-            @$query['CreatedTs'] = $request->createdTs;
+            $query['CreatedTs'] = $request->createdTs;
         }
-        if (!Utils::isUnset($request->userId)) {
-            @$query['UserId'] = $request->userId;
+        if (!Utils::isUnset($request->destroyedTs)) {
+            $query['DestroyedTs'] = $request->destroyedTs;
         }
-        if (!Utils::isUnset($request->faultType)) {
-            @$query['FaultType'] = $request->faultType;
+        if (!Utils::isUnset($request->extDataType)) {
+            $query['ExtDataType'] = $request->extDataType;
         }
-        if (!Utils::isUnset($request->queryCallUserInfo)) {
-            @$query['QueryCallUserInfo'] = $request->queryCallUserInfo;
+        if (!Utils::isUnset($request->queryExpInfo)) {
+            $query['QueryExpInfo'] = $request->queryExpInfo;
         }
         $req = new OpenApiRequest([
             'headers' => $headers,
             'query'   => OpenApiUtilClient::query($query),
         ]);
+        $params = new Params([
+            'action'      => 'DescribeCall',
+            'version'     => '2020-12-14',
+            'protocol'    => 'HTTPS',
+            'pathname'    => '/api/call/describeCall',
+            'method'      => 'POST',
+            'authType'    => 'AK',
+            'style'       => 'ROA',
+            'reqBodyType' => 'json',
+            'bodyType'    => 'json',
+        ]);
 
-        return DescribeFaultDiagnosisUserDetailResponse::fromMap($this->doROARequest('DescribeFaultDiagnosisUserDetail', '2020-12-14', 'HTTPS', 'POST', 'AK', '/api/diagnosis/describeFaultDiagnosisUserDetail', 'json', $req, $runtime));
+        return DescribeCallResponse::fromMap($this->callApi($params, $req, $runtime));
+    }
+
+    /**
+     * @param DescribeCallListRequest $request
+     *
+     * @return DescribeCallListResponse
+     */
+    public function describeCallList($request)
+    {
+        $runtime = new RuntimeOptions([]);
+        $headers = [];
+
+        return $this->describeCallListWithOptions($request, $headers, $runtime);
+    }
+
+    /**
+     * @param DescribeCallListRequest $request
+     * @param string[]                $headers
+     * @param RuntimeOptions          $runtime
+     *
+     * @return DescribeCallListResponse
+     */
+    public function describeCallListWithOptions($request, $headers, $runtime)
+    {
+        Utils::validateModel($request);
+        $query = [];
+        if (!Utils::isUnset($request->appId)) {
+            $query['AppId'] = $request->appId;
+        }
+        if (!Utils::isUnset($request->callStatus)) {
+            $query['CallStatus'] = $request->callStatus;
+        }
+        if (!Utils::isUnset($request->channelId)) {
+            $query['ChannelId'] = $request->channelId;
+        }
+        if (!Utils::isUnset($request->endTs)) {
+            $query['EndTs'] = $request->endTs;
+        }
+        if (!Utils::isUnset($request->orderBy)) {
+            $query['OrderBy'] = $request->orderBy;
+        }
+        if (!Utils::isUnset($request->pageNo)) {
+            $query['PageNo'] = $request->pageNo;
+        }
+        if (!Utils::isUnset($request->pageSize)) {
+            $query['PageSize'] = $request->pageSize;
+        }
+        if (!Utils::isUnset($request->queryMode)) {
+            $query['QueryMode'] = $request->queryMode;
+        }
+        if (!Utils::isUnset($request->startTs)) {
+            $query['StartTs'] = $request->startTs;
+        }
+        if (!Utils::isUnset($request->userId)) {
+            $query['UserId'] = $request->userId;
+        }
+        $req = new OpenApiRequest([
+            'headers' => $headers,
+            'query'   => OpenApiUtilClient::query($query),
+        ]);
+        $params = new Params([
+            'action'      => 'DescribeCallList',
+            'version'     => '2020-12-14',
+            'protocol'    => 'HTTPS',
+            'pathname'    => '/api/call/describeCallList',
+            'method'      => 'POST',
+            'authType'    => 'AK',
+            'style'       => 'ROA',
+            'reqBodyType' => 'json',
+            'bodyType'    => 'json',
+        ]);
+
+        return DescribeCallListResponse::fromMap($this->callApi($params, $req, $runtime));
+    }
+
+    /**
+     * @param DescribeCallListTestRequest $request
+     *
+     * @return DescribeCallListTestResponse
+     */
+    public function describeCallListTest($request)
+    {
+        $runtime = new RuntimeOptions([]);
+        $headers = [];
+
+        return $this->describeCallListTestWithOptions($request, $headers, $runtime);
+    }
+
+    /**
+     * @param DescribeCallListTestRequest $request
+     * @param string[]                    $headers
+     * @param RuntimeOptions              $runtime
+     *
+     * @return DescribeCallListTestResponse
+     */
+    public function describeCallListTestWithOptions($request, $headers, $runtime)
+    {
+        Utils::validateModel($request);
+        $query = [];
+        if (!Utils::isUnset($request->appId)) {
+            $query['AppId'] = $request->appId;
+        }
+        if (!Utils::isUnset($request->endTs)) {
+            $query['EndTs'] = $request->endTs;
+        }
+        if (!Utils::isUnset($request->startTs)) {
+            $query['StartTs'] = $request->startTs;
+        }
+        $req = new OpenApiRequest([
+            'headers' => $headers,
+            'query'   => OpenApiUtilClient::query($query),
+        ]);
+        $params = new Params([
+            'action'      => 'DescribeCallListTest',
+            'version'     => '2020-12-14',
+            'protocol'    => 'HTTPS',
+            'pathname'    => '/api/call/describeCallListTest',
+            'method'      => 'POST',
+            'authType'    => 'AK',
+            'style'       => 'ROA',
+            'reqBodyType' => 'json',
+            'bodyType'    => 'json',
+        ]);
+
+        return DescribeCallListTestResponse::fromMap($this->callApi($params, $req, $runtime));
+    }
+
+    /**
+     * @param DescribeCallUserExpRequest $request
+     *
+     * @return DescribeCallUserExpResponse
+     */
+    public function describeCallUserExp($request)
+    {
+        $runtime = new RuntimeOptions([]);
+        $headers = [];
+
+        return $this->describeCallUserExpWithOptions($request, $headers, $runtime);
+    }
+
+    /**
+     * @param DescribeCallUserExpRequest $request
+     * @param string[]                   $headers
+     * @param RuntimeOptions             $runtime
+     *
+     * @return DescribeCallUserExpResponse
+     */
+    public function describeCallUserExpWithOptions($request, $headers, $runtime)
+    {
+        Utils::validateModel($request);
+        $query = [];
+        if (!Utils::isUnset($request->appId)) {
+            $query['AppId'] = $request->appId;
+        }
+        if (!Utils::isUnset($request->channelId)) {
+            $query['ChannelId'] = $request->channelId;
+        }
+        if (!Utils::isUnset($request->createdTs)) {
+            $query['CreatedTs'] = $request->createdTs;
+        }
+        if (!Utils::isUnset($request->destroyedTs)) {
+            $query['DestroyedTs'] = $request->destroyedTs;
+        }
+        $req = new OpenApiRequest([
+            'headers' => $headers,
+            'query'   => OpenApiUtilClient::query($query),
+        ]);
+        $params = new Params([
+            'action'      => 'DescribeCallUserExp',
+            'version'     => '2020-12-14',
+            'protocol'    => 'HTTPS',
+            'pathname'    => '/api/call/describeCallUserExp',
+            'method'      => 'POST',
+            'authType'    => 'AK',
+            'style'       => 'ROA',
+            'reqBodyType' => 'json',
+            'bodyType'    => 'json',
+        ]);
+
+        return DescribeCallUserExpResponse::fromMap($this->callApi($params, $req, $runtime));
+    }
+
+    /**
+     * @param DescribeChannelAreaDistributionStatDataRequest $request
+     *
+     * @return DescribeChannelAreaDistributionStatDataResponse
+     */
+    public function describeChannelAreaDistributionStatData($request)
+    {
+        $runtime = new RuntimeOptions([]);
+        $headers = [];
+
+        return $this->describeChannelAreaDistributionStatDataWithOptions($request, $headers, $runtime);
+    }
+
+    /**
+     * @param DescribeChannelAreaDistributionStatDataRequest $request
+     * @param string[]                                       $headers
+     * @param RuntimeOptions                                 $runtime
+     *
+     * @return DescribeChannelAreaDistributionStatDataResponse
+     */
+    public function describeChannelAreaDistributionStatDataWithOptions($request, $headers, $runtime)
+    {
+        Utils::validateModel($request);
+        $query = [];
+        if (!Utils::isUnset($request->appId)) {
+            $query['AppId'] = $request->appId;
+        }
+        if (!Utils::isUnset($request->channelId)) {
+            $query['ChannelId'] = $request->channelId;
+        }
+        if (!Utils::isUnset($request->createdTs)) {
+            $query['CreatedTs'] = $request->createdTs;
+        }
+        if (!Utils::isUnset($request->destroyedTs)) {
+            $query['DestroyedTs'] = $request->destroyedTs;
+        }
+        if (!Utils::isUnset($request->parentArea)) {
+            $query['ParentArea'] = $request->parentArea;
+        }
+        $req = new OpenApiRequest([
+            'headers' => $headers,
+            'query'   => OpenApiUtilClient::query($query),
+        ]);
+        $params = new Params([
+            'action'      => 'DescribeChannelAreaDistributionStatData',
+            'version'     => '2020-12-14',
+            'protocol'    => 'HTTPS',
+            'pathname'    => '/api/channel/describeChannelAreaDistributionStatData',
+            'method'      => 'POST',
+            'authType'    => 'AK',
+            'style'       => 'ROA',
+            'reqBodyType' => 'json',
+            'bodyType'    => 'json',
+        ]);
+
+        return DescribeChannelAreaDistributionStatDataResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
@@ -1478,26 +757,202 @@ class Vdc extends OpenApiClient
         Utils::validateModel($request);
         $query = [];
         if (!Utils::isUnset($request->appId)) {
-            @$query['AppId'] = $request->appId;
+            $query['AppId'] = $request->appId;
         }
         if (!Utils::isUnset($request->channelId)) {
-            @$query['ChannelId'] = $request->channelId;
+            $query['ChannelId'] = $request->channelId;
         }
         if (!Utils::isUnset($request->createdTs)) {
-            @$query['CreatedTs'] = $request->createdTs;
+            $query['CreatedTs'] = $request->createdTs;
         }
         if (!Utils::isUnset($request->destroyedTs)) {
-            @$query['DestroyedTs'] = $request->destroyedTs;
+            $query['DestroyedTs'] = $request->destroyedTs;
         }
         if (!Utils::isUnset($request->statDim)) {
-            @$query['StatDim'] = $request->statDim;
+            $query['StatDim'] = $request->statDim;
         }
         $req = new OpenApiRequest([
             'headers' => $headers,
             'query'   => OpenApiUtilClient::query($query),
         ]);
+        $params = new Params([
+            'action'      => 'DescribeChannelDistributionStatData',
+            'version'     => '2020-12-14',
+            'protocol'    => 'HTTPS',
+            'pathname'    => '/api/channel/describeChannelDistributionStatData',
+            'method'      => 'POST',
+            'authType'    => 'AK',
+            'style'       => 'ROA',
+            'reqBodyType' => 'json',
+            'bodyType'    => 'json',
+        ]);
 
-        return DescribeChannelDistributionStatDataResponse::fromMap($this->doROARequest('DescribeChannelDistributionStatData', '2020-12-14', 'HTTPS', 'POST', 'AK', '/api/channel/describeChannelDistributionStatData', 'json', $req, $runtime));
+        return DescribeChannelDistributionStatDataResponse::fromMap($this->callApi($params, $req, $runtime));
+    }
+
+    /**
+     * @param DescribeChannelJoinInfoRequest $request
+     *
+     * @return DescribeChannelJoinInfoResponse
+     */
+    public function describeChannelJoinInfo($request)
+    {
+        $runtime = new RuntimeOptions([]);
+        $headers = [];
+
+        return $this->describeChannelJoinInfoWithOptions($request, $headers, $runtime);
+    }
+
+    /**
+     * @param DescribeChannelJoinInfoRequest $request
+     * @param string[]                       $headers
+     * @param RuntimeOptions                 $runtime
+     *
+     * @return DescribeChannelJoinInfoResponse
+     */
+    public function describeChannelJoinInfoWithOptions($request, $headers, $runtime)
+    {
+        Utils::validateModel($request);
+        $query = [];
+        if (!Utils::isUnset($request->appId)) {
+            $query['AppId'] = $request->appId;
+        }
+        if (!Utils::isUnset($request->channelId)) {
+            $query['ChannelId'] = $request->channelId;
+        }
+        if (!Utils::isUnset($request->createdTs)) {
+            $query['CreatedTs'] = $request->createdTs;
+        }
+        if (!Utils::isUnset($request->destroyedTs)) {
+            $query['DestroyedTs'] = $request->destroyedTs;
+        }
+        $req = new OpenApiRequest([
+            'headers' => $headers,
+            'query'   => OpenApiUtilClient::query($query),
+        ]);
+        $params = new Params([
+            'action'      => 'DescribeChannelJoinInfo',
+            'version'     => '2020-12-14',
+            'protocol'    => 'HTTPS',
+            'pathname'    => '/api/channel/describeChannelJoinInfo',
+            'method'      => 'POST',
+            'authType'    => 'AK',
+            'style'       => 'ROA',
+            'reqBodyType' => 'json',
+            'bodyType'    => 'json',
+        ]);
+
+        return DescribeChannelJoinInfoResponse::fromMap($this->callApi($params, $req, $runtime));
+    }
+
+    /**
+     * @param DescribeChannelOverallDataRequest $request
+     *
+     * @return DescribeChannelOverallDataResponse
+     */
+    public function describeChannelOverallData($request)
+    {
+        $runtime = new RuntimeOptions([]);
+        $headers = [];
+
+        return $this->describeChannelOverallDataWithOptions($request, $headers, $runtime);
+    }
+
+    /**
+     * @param DescribeChannelOverallDataRequest $request
+     * @param string[]                          $headers
+     * @param RuntimeOptions                    $runtime
+     *
+     * @return DescribeChannelOverallDataResponse
+     */
+    public function describeChannelOverallDataWithOptions($request, $headers, $runtime)
+    {
+        Utils::validateModel($request);
+        $query = [];
+        if (!Utils::isUnset($request->appId)) {
+            $query['AppId'] = $request->appId;
+        }
+        if (!Utils::isUnset($request->channelId)) {
+            $query['ChannelId'] = $request->channelId;
+        }
+        if (!Utils::isUnset($request->createdTs)) {
+            $query['CreatedTs'] = $request->createdTs;
+        }
+        if (!Utils::isUnset($request->destroyedTs)) {
+            $query['DestroyedTs'] = $request->destroyedTs;
+        }
+        $req = new OpenApiRequest([
+            'headers' => $headers,
+            'query'   => OpenApiUtilClient::query($query),
+        ]);
+        $params = new Params([
+            'action'      => 'DescribeChannelOverallData',
+            'version'     => '2020-12-14',
+            'protocol'    => 'HTTPS',
+            'pathname'    => '/api/channel/describeChannelOverallData',
+            'method'      => 'POST',
+            'authType'    => 'AK',
+            'style'       => 'ROA',
+            'reqBodyType' => 'json',
+            'bodyType'    => 'json',
+        ]);
+
+        return DescribeChannelOverallDataResponse::fromMap($this->callApi($params, $req, $runtime));
+    }
+
+    /**
+     * @param DescribeChannelTopPubUserListRequest $request
+     *
+     * @return DescribeChannelTopPubUserListResponse
+     */
+    public function describeChannelTopPubUserList($request)
+    {
+        $runtime = new RuntimeOptions([]);
+        $headers = [];
+
+        return $this->describeChannelTopPubUserListWithOptions($request, $headers, $runtime);
+    }
+
+    /**
+     * @param DescribeChannelTopPubUserListRequest $request
+     * @param string[]                             $headers
+     * @param RuntimeOptions                       $runtime
+     *
+     * @return DescribeChannelTopPubUserListResponse
+     */
+    public function describeChannelTopPubUserListWithOptions($request, $headers, $runtime)
+    {
+        Utils::validateModel($request);
+        $query = [];
+        if (!Utils::isUnset($request->appId)) {
+            $query['AppId'] = $request->appId;
+        }
+        if (!Utils::isUnset($request->channelId)) {
+            $query['ChannelId'] = $request->channelId;
+        }
+        if (!Utils::isUnset($request->createdTs)) {
+            $query['CreatedTs'] = $request->createdTs;
+        }
+        if (!Utils::isUnset($request->destroyedTs)) {
+            $query['DestroyedTs'] = $request->destroyedTs;
+        }
+        $req = new OpenApiRequest([
+            'headers' => $headers,
+            'query'   => OpenApiUtilClient::query($query),
+        ]);
+        $params = new Params([
+            'action'      => 'DescribeChannelTopPubUserList',
+            'version'     => '2020-12-14',
+            'protocol'    => 'HTTPS',
+            'pathname'    => '/api/channel/describeChannelTopPubUserList',
+            'method'      => 'POST',
+            'authType'    => 'AK',
+            'style'       => 'ROA',
+            'reqBodyType' => 'json',
+            'bodyType'    => 'json',
+        ]);
+
+        return DescribeChannelTopPubUserListResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
@@ -1525,23 +980,159 @@ class Vdc extends OpenApiClient
         Utils::validateModel($request);
         $query = [];
         if (!Utils::isUnset($request->appId)) {
-            @$query['AppId'] = $request->appId;
+            $query['AppId'] = $request->appId;
         }
         if (!Utils::isUnset($request->channelId)) {
-            @$query['ChannelId'] = $request->channelId;
+            $query['ChannelId'] = $request->channelId;
         }
         if (!Utils::isUnset($request->createdTs)) {
-            @$query['CreatedTs'] = $request->createdTs;
+            $query['CreatedTs'] = $request->createdTs;
         }
         if (!Utils::isUnset($request->destroyedTs)) {
-            @$query['DestroyedTs'] = $request->destroyedTs;
+            $query['DestroyedTs'] = $request->destroyedTs;
         }
         $req = new OpenApiRequest([
             'headers' => $headers,
             'query'   => OpenApiUtilClient::query($query),
         ]);
+        $params = new Params([
+            'action'      => 'DescribeChannelUserMetrics',
+            'version'     => '2020-12-14',
+            'protocol'    => 'HTTPS',
+            'pathname'    => '/api/channel/describeChannelUserMetrics',
+            'method'      => 'POST',
+            'authType'    => 'AK',
+            'style'       => 'ROA',
+            'reqBodyType' => 'json',
+            'bodyType'    => 'json',
+        ]);
 
-        return DescribeChannelUserMetricsResponse::fromMap($this->doROARequest('DescribeChannelUserMetrics', '2020-12-14', 'HTTPS', 'POST', 'AK', '/api/channel/describeChannelUserMetrics', 'json', $req, $runtime));
+        return DescribeChannelUserMetricsResponse::fromMap($this->callApi($params, $req, $runtime));
+    }
+
+    /**
+     * @param DescribeEndPointEventListRequest $request
+     *
+     * @return DescribeEndPointEventListResponse
+     */
+    public function describeEndPointEventList($request)
+    {
+        $runtime = new RuntimeOptions([]);
+        $headers = [];
+
+        return $this->describeEndPointEventListWithOptions($request, $headers, $runtime);
+    }
+
+    /**
+     * @param DescribeEndPointEventListRequest $request
+     * @param string[]                         $headers
+     * @param RuntimeOptions                   $runtime
+     *
+     * @return DescribeEndPointEventListResponse
+     */
+    public function describeEndPointEventListWithOptions($request, $headers, $runtime)
+    {
+        Utils::validateModel($request);
+        $query = [];
+        if (!Utils::isUnset($request->appId)) {
+            $query['AppId'] = $request->appId;
+        }
+        if (!Utils::isUnset($request->channelId)) {
+            $query['ChannelId'] = $request->channelId;
+        }
+        if (!Utils::isUnset($request->createdTs)) {
+            $query['CreatedTs'] = $request->createdTs;
+        }
+        if (!Utils::isUnset($request->destroyedTs)) {
+            $query['DestroyedTs'] = $request->destroyedTs;
+        }
+        if (!Utils::isUnset($request->userIdList)) {
+            $query['UserIdList'] = $request->userIdList;
+        }
+        $req = new OpenApiRequest([
+            'headers' => $headers,
+            'query'   => OpenApiUtilClient::query($query),
+        ]);
+        $params = new Params([
+            'action'      => 'DescribeEndPointEventList',
+            'version'     => '2020-12-14',
+            'protocol'    => 'HTTPS',
+            'pathname'    => '/api/call/describeEndPointEventList',
+            'method'      => 'POST',
+            'authType'    => 'AK',
+            'style'       => 'ROA',
+            'reqBodyType' => 'json',
+            'bodyType'    => 'json',
+        ]);
+
+        return DescribeEndPointEventListResponse::fromMap($this->callApi($params, $req, $runtime));
+    }
+
+    /**
+     * @param DescribeEndPointMetricDataRequest $request
+     *
+     * @return DescribeEndPointMetricDataResponse
+     */
+    public function describeEndPointMetricData($request)
+    {
+        $runtime = new RuntimeOptions([]);
+        $headers = [];
+
+        return $this->describeEndPointMetricDataWithOptions($request, $headers, $runtime);
+    }
+
+    /**
+     * @param DescribeEndPointMetricDataRequest $request
+     * @param string[]                          $headers
+     * @param RuntimeOptions                    $runtime
+     *
+     * @return DescribeEndPointMetricDataResponse
+     */
+    public function describeEndPointMetricDataWithOptions($request, $headers, $runtime)
+    {
+        Utils::validateModel($request);
+        $query = [];
+        if (!Utils::isUnset($request->appId)) {
+            $query['AppId'] = $request->appId;
+        }
+        if (!Utils::isUnset($request->channelId)) {
+            $query['ChannelId'] = $request->channelId;
+        }
+        if (!Utils::isUnset($request->createdTs)) {
+            $query['CreatedTs'] = $request->createdTs;
+        }
+        if (!Utils::isUnset($request->destroyedTs)) {
+            $query['DestroyedTs'] = $request->destroyedTs;
+        }
+        if (!Utils::isUnset($request->metrics)) {
+            $query['Metrics'] = $request->metrics;
+        }
+        if (!Utils::isUnset($request->pubCallIdList)) {
+            $query['PubCallIdList'] = $request->pubCallIdList;
+        }
+        if (!Utils::isUnset($request->pubUserId)) {
+            $query['PubUserId'] = $request->pubUserId;
+        }
+        if (!Utils::isUnset($request->subUserId)) {
+            $query['SubUserId'] = $request->subUserId;
+        }
+        $req = new OpenApiRequest([
+            'headers' => $headers,
+            'query'   => OpenApiUtilClient::query($query),
+        ]);
+        $params = new Params([
+            'action'      => 'DescribeEndPointMetricData',
+            'version'     => '2020-12-14',
+            'protocol'    => 'HTTPS',
+            'pathname'    => '/api/call/describeEndPointMetricData',
+            'method'      => 'POST',
+            'authType'    => 'AK',
+            'style'       => 'ROA',
+            'reqBodyType' => 'json',
+            'bodyType'    => 'json',
+        ]);
+
+        return DescribeEndPointMetricDataResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
@@ -1569,70 +1160,147 @@ class Vdc extends OpenApiClient
         Utils::validateModel($request);
         $query = [];
         if (!Utils::isUnset($request->appId)) {
-            @$query['AppId'] = $request->appId;
-        }
-        if (!Utils::isUnset($request->startTs)) {
-            @$query['StartTs'] = $request->startTs;
+            $query['AppId'] = $request->appId;
         }
         if (!Utils::isUnset($request->endTs)) {
-            @$query['EndTs'] = $request->endTs;
+            $query['EndTs'] = $request->endTs;
+        }
+        if (!Utils::isUnset($request->startTs)) {
+            $query['StartTs'] = $request->startTs;
         }
         $req = new OpenApiRequest([
             'headers' => $headers,
             'query'   => OpenApiUtilClient::query($query),
         ]);
+        $params = new Params([
+            'action'      => 'DescribeFaultDiagnosisFactorDistributionStat',
+            'version'     => '2020-12-14',
+            'protocol'    => 'HTTPS',
+            'pathname'    => '/api/diagnosis/describeFaultDiagnosisFactorDistributionStat',
+            'method'      => 'POST',
+            'authType'    => 'AK',
+            'style'       => 'ROA',
+            'reqBodyType' => 'json',
+            'bodyType'    => 'json',
+        ]);
 
-        return DescribeFaultDiagnosisFactorDistributionStatResponse::fromMap($this->doROARequest('DescribeFaultDiagnosisFactorDistributionStat', '2020-12-14', 'HTTPS', 'POST', 'AK', '/api/diagnosis/describeFaultDiagnosisFactorDistributionStat', 'json', $req, $runtime));
+        return DescribeFaultDiagnosisFactorDistributionStatResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
-     * @param DescribeRtcChannelListRequest $request
+     * @param DescribeFaultDiagnosisOverallDataRequest $request
      *
-     * @return DescribeRtcChannelListResponse
+     * @return DescribeFaultDiagnosisOverallDataResponse
      */
-    public function describeRtcChannelList($request)
+    public function describeFaultDiagnosisOverallData($request)
     {
         $runtime = new RuntimeOptions([]);
         $headers = [];
 
-        return $this->describeRtcChannelListWithOptions($request, $headers, $runtime);
+        return $this->describeFaultDiagnosisOverallDataWithOptions($request, $headers, $runtime);
     }
 
     /**
-     * @param DescribeRtcChannelListRequest $request
-     * @param string[]                      $headers
-     * @param RuntimeOptions                $runtime
+     * @param DescribeFaultDiagnosisOverallDataRequest $request
+     * @param string[]                                 $headers
+     * @param RuntimeOptions                           $runtime
      *
-     * @return DescribeRtcChannelListResponse
+     * @return DescribeFaultDiagnosisOverallDataResponse
      */
-    public function describeRtcChannelListWithOptions($request, $headers, $runtime)
+    public function describeFaultDiagnosisOverallDataWithOptions($request, $headers, $runtime)
     {
         Utils::validateModel($request);
         $query = [];
         if (!Utils::isUnset($request->appId)) {
-            @$query['AppId'] = $request->appId;
+            $query['AppId'] = $request->appId;
         }
-        if (!Utils::isUnset($request->startTime)) {
-            @$query['StartTime'] = $request->startTime;
+        if (!Utils::isUnset($request->endTs)) {
+            $query['EndTs'] = $request->endTs;
         }
-        if (!Utils::isUnset($request->endTime)) {
-            @$query['EndTime'] = $request->endTime;
+        if (!Utils::isUnset($request->startTs)) {
+            $query['StartTs'] = $request->startTs;
         }
-        if (!Utils::isUnset($request->channelId)) {
-            @$query['ChannelId'] = $request->channelId;
-        }
-        if (!Utils::isUnset($request->pageNo)) {
-            @$query['PageNo'] = $request->pageNo;
-        }
-        if (!Utils::isUnset($request->pageSize)) {
-            @$query['PageSize'] = $request->pageSize;
+        if (!Utils::isUnset($request->statDim)) {
+            $query['StatDim'] = $request->statDim;
         }
         $req = new OpenApiRequest([
             'headers' => $headers,
             'query'   => OpenApiUtilClient::query($query),
         ]);
+        $params = new Params([
+            'action'      => 'DescribeFaultDiagnosisOverallData',
+            'version'     => '2020-12-14',
+            'protocol'    => 'HTTPS',
+            'pathname'    => '/api/diagnosis/describeFaultDiagnosisOverallData',
+            'method'      => 'POST',
+            'authType'    => 'AK',
+            'style'       => 'ROA',
+            'reqBodyType' => 'json',
+            'bodyType'    => 'json',
+        ]);
 
-        return DescribeRtcChannelListResponse::fromMap($this->doROARequest('DescribeRtcChannelList', '2020-12-14', 'HTTPS', 'POST', 'AK', '/api/channel/describeRtcChannelList', 'json', $req, $runtime));
+        return DescribeFaultDiagnosisOverallDataResponse::fromMap($this->callApi($params, $req, $runtime));
+    }
+
+    /**
+     * @param DescribeFaultDiagnosisUserDetailRequest $request
+     *
+     * @return DescribeFaultDiagnosisUserDetailResponse
+     */
+    public function describeFaultDiagnosisUserDetail($request)
+    {
+        $runtime = new RuntimeOptions([]);
+        $headers = [];
+
+        return $this->describeFaultDiagnosisUserDetailWithOptions($request, $headers, $runtime);
+    }
+
+    /**
+     * @param DescribeFaultDiagnosisUserDetailRequest $request
+     * @param string[]                                $headers
+     * @param RuntimeOptions                          $runtime
+     *
+     * @return DescribeFaultDiagnosisUserDetailResponse
+     */
+    public function describeFaultDiagnosisUserDetailWithOptions($request, $headers, $runtime)
+    {
+        Utils::validateModel($request);
+        $query = [];
+        if (!Utils::isUnset($request->appId)) {
+            $query['AppId'] = $request->appId;
+        }
+        if (!Utils::isUnset($request->channelId)) {
+            $query['ChannelId'] = $request->channelId;
+        }
+        if (!Utils::isUnset($request->createdTs)) {
+            $query['CreatedTs'] = $request->createdTs;
+        }
+        if (!Utils::isUnset($request->faultType)) {
+            $query['FaultType'] = $request->faultType;
+        }
+        if (!Utils::isUnset($request->queryCallUserInfo)) {
+            $query['QueryCallUserInfo'] = $request->queryCallUserInfo;
+        }
+        if (!Utils::isUnset($request->userId)) {
+            $query['UserId'] = $request->userId;
+        }
+        $req = new OpenApiRequest([
+            'headers' => $headers,
+            'query'   => OpenApiUtilClient::query($query),
+        ]);
+        $params = new Params([
+            'action'      => 'DescribeFaultDiagnosisUserDetail',
+            'version'     => '2020-12-14',
+            'protocol'    => 'HTTPS',
+            'pathname'    => '/api/diagnosis/describeFaultDiagnosisUserDetail',
+            'method'      => 'POST',
+            'authType'    => 'AK',
+            'style'       => 'ROA',
+            'reqBodyType' => 'json',
+            'bodyType'    => 'json',
+        ]);
+
+        return DescribeFaultDiagnosisUserDetailResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
@@ -1660,132 +1328,150 @@ class Vdc extends OpenApiClient
         Utils::validateModel($request);
         $query = [];
         if (!Utils::isUnset($request->appId)) {
-            @$query['AppId'] = $request->appId;
+            $query['AppId'] = $request->appId;
         }
-        if (!Utils::isUnset($request->startTs)) {
-            @$query['StartTs'] = $request->startTs;
+        if (!Utils::isUnset($request->channelId)) {
+            $query['ChannelId'] = $request->channelId;
         }
         if (!Utils::isUnset($request->endTs)) {
-            @$query['EndTs'] = $request->endTs;
-        }
-        if (!Utils::isUnset($request->channelId)) {
-            @$query['ChannelId'] = $request->channelId;
-        }
-        if (!Utils::isUnset($request->userId)) {
-            @$query['UserId'] = $request->userId;
+            $query['EndTs'] = $request->endTs;
         }
         if (!Utils::isUnset($request->faultTypes)) {
-            @$query['FaultTypes'] = $request->faultTypes;
+            $query['FaultTypes'] = $request->faultTypes;
         }
         if (!Utils::isUnset($request->pageNo)) {
-            @$query['PageNo'] = $request->pageNo;
+            $query['PageNo'] = $request->pageNo;
         }
         if (!Utils::isUnset($request->pageSize)) {
-            @$query['PageSize'] = $request->pageSize;
+            $query['PageSize'] = $request->pageSize;
         }
-        $req = new OpenApiRequest([
-            'headers' => $headers,
-            'query'   => OpenApiUtilClient::query($query),
-        ]);
-
-        return DescribeFaultDiagnosisUserListResponse::fromMap($this->doROARequest('DescribeFaultDiagnosisUserList', '2020-12-14', 'HTTPS', 'POST', 'AK', '/api/diagnosis/describeFaultDiagnosisUserList', 'json', $req, $runtime));
-    }
-
-    /**
-     * @param DescribeRtcChannelMetricListRequest $request
-     *
-     * @return DescribeRtcChannelMetricListResponse
-     */
-    public function describeRtcChannelMetricList($request)
-    {
-        $runtime = new RuntimeOptions([]);
-        $headers = [];
-
-        return $this->describeRtcChannelMetricListWithOptions($request, $headers, $runtime);
-    }
-
-    /**
-     * @param DescribeRtcChannelMetricListRequest $request
-     * @param string[]                            $headers
-     * @param RuntimeOptions                      $runtime
-     *
-     * @return DescribeRtcChannelMetricListResponse
-     */
-    public function describeRtcChannelMetricListWithOptions($request, $headers, $runtime)
-    {
-        Utils::validateModel($request);
-        $query = [];
-        if (!Utils::isUnset($request->appId)) {
-            @$query['AppId'] = $request->appId;
-        }
-        if (!Utils::isUnset($request->channelId)) {
-            @$query['ChannelId'] = $request->channelId;
-        }
-        if (!Utils::isUnset($request->pubUid)) {
-            @$query['PubUid'] = $request->pubUid;
-        }
-        if (!Utils::isUnset($request->subUid)) {
-            @$query['SubUid'] = $request->subUid;
-        }
-        if (!Utils::isUnset($request->startTime)) {
-            @$query['StartTime'] = $request->startTime;
-        }
-        if (!Utils::isUnset($request->endTime)) {
-            @$query['EndTime'] = $request->endTime;
-        }
-        $req = new OpenApiRequest([
-            'headers' => $headers,
-            'query'   => OpenApiUtilClient::query($query),
-        ]);
-
-        return DescribeRtcChannelMetricListResponse::fromMap($this->doROARequest('DescribeRtcChannelMetricList', '2020-12-14', 'HTTPS', 'POST', 'AK', '/api/call/describeRtcChannelMetricList', 'json', $req, $runtime));
-    }
-
-    /**
-     * @param DescribeQoeMetricDataRequest $request
-     *
-     * @return DescribeQoeMetricDataResponse
-     */
-    public function describeQoeMetricData($request)
-    {
-        $runtime = new RuntimeOptions([]);
-        $headers = [];
-
-        return $this->describeQoeMetricDataWithOptions($request, $headers, $runtime);
-    }
-
-    /**
-     * @param DescribeQoeMetricDataRequest $request
-     * @param string[]                     $headers
-     * @param RuntimeOptions               $runtime
-     *
-     * @return DescribeQoeMetricDataResponse
-     */
-    public function describeQoeMetricDataWithOptions($request, $headers, $runtime)
-    {
-        Utils::validateModel($request);
-        $query = [];
-        if (!Utils::isUnset($request->appId)) {
-            @$query['AppId'] = $request->appId;
-        }
-        if (!Utils::isUnset($request->channelId)) {
-            @$query['ChannelId'] = $request->channelId;
-        }
-        if (!Utils::isUnset($request->createdTs)) {
-            @$query['CreatedTs'] = $request->createdTs;
-        }
-        if (!Utils::isUnset($request->destroyedTs)) {
-            @$query['DestroyedTs'] = $request->destroyedTs;
+        if (!Utils::isUnset($request->startTs)) {
+            $query['StartTs'] = $request->startTs;
         }
         if (!Utils::isUnset($request->userId)) {
-            @$query['UserId'] = $request->userId;
+            $query['UserId'] = $request->userId;
         }
         $req = new OpenApiRequest([
             'headers' => $headers,
             'query'   => OpenApiUtilClient::query($query),
         ]);
+        $params = new Params([
+            'action'      => 'DescribeFaultDiagnosisUserList',
+            'version'     => '2020-12-14',
+            'protocol'    => 'HTTPS',
+            'pathname'    => '/api/diagnosis/describeFaultDiagnosisUserList',
+            'method'      => 'POST',
+            'authType'    => 'AK',
+            'style'       => 'ROA',
+            'reqBodyType' => 'json',
+            'bodyType'    => 'json',
+        ]);
 
-        return DescribeQoeMetricDataResponse::fromMap($this->doROARequest('DescribeQoeMetricData', '2020-12-14', 'HTTPS', 'POST', 'AK', '/api/call/describeQoeMetricData', 'json', $req, $runtime));
+        return DescribeFaultDiagnosisUserListResponse::fromMap($this->callApi($params, $req, $runtime));
+    }
+
+    /**
+     * @param DescribeIceDurPeriodByDaySubTypeRequest $request
+     *
+     * @return DescribeIceDurPeriodByDaySubTypeResponse
+     */
+    public function describeIceDurPeriodByDaySubType($request)
+    {
+        $runtime = new RuntimeOptions([]);
+        $headers = [];
+
+        return $this->describeIceDurPeriodByDaySubTypeWithOptions($request, $headers, $runtime);
+    }
+
+    /**
+     * @param DescribeIceDurPeriodByDaySubTypeRequest $request
+     * @param string[]                                $headers
+     * @param RuntimeOptions                          $runtime
+     *
+     * @return DescribeIceDurPeriodByDaySubTypeResponse
+     */
+    public function describeIceDurPeriodByDaySubTypeWithOptions($request, $headers, $runtime)
+    {
+        Utils::validateModel($request);
+        $query = [];
+        if (!Utils::isUnset($request->endTs)) {
+            $query['EndTs'] = $request->endTs;
+        }
+        if (!Utils::isUnset($request->jobType)) {
+            $query['JobType'] = $request->jobType;
+        }
+        if (!Utils::isUnset($request->startTs)) {
+            $query['StartTs'] = $request->startTs;
+        }
+        if (!Utils::isUnset($request->timeZone)) {
+            $query['TimeZone'] = $request->timeZone;
+        }
+        $req = new OpenApiRequest([
+            'headers' => $headers,
+            'query'   => OpenApiUtilClient::query($query),
+        ]);
+        $params = new Params([
+            'action'      => 'DescribeIceDurPeriodByDaySubType',
+            'version'     => '2020-12-14',
+            'protocol'    => 'HTTPS',
+            'pathname'    => '/api/ice/describeIceDurPeriodByDaySubType',
+            'method'      => 'POST',
+            'authType'    => 'AK',
+            'style'       => 'ROA',
+            'reqBodyType' => 'json',
+            'bodyType'    => 'json',
+        ]);
+
+        return DescribeIceDurPeriodByDaySubTypeResponse::fromMap($this->callApi($params, $req, $runtime));
+    }
+
+    /**
+     * @param DescribeIceDurSummaryOverviewRequest $request
+     *
+     * @return DescribeIceDurSummaryOverviewResponse
+     */
+    public function describeIceDurSummaryOverview($request)
+    {
+        $runtime = new RuntimeOptions([]);
+        $headers = [];
+
+        return $this->describeIceDurSummaryOverviewWithOptions($request, $headers, $runtime);
+    }
+
+    /**
+     * @param DescribeIceDurSummaryOverviewRequest $request
+     * @param string[]                             $headers
+     * @param RuntimeOptions                       $runtime
+     *
+     * @return DescribeIceDurSummaryOverviewResponse
+     */
+    public function describeIceDurSummaryOverviewWithOptions($request, $headers, $runtime)
+    {
+        Utils::validateModel($request);
+        $query = [];
+        if (!Utils::isUnset($request->curTs)) {
+            $query['CurTs'] = $request->curTs;
+        }
+        if (!Utils::isUnset($request->timeZone)) {
+            $query['TimeZone'] = $request->timeZone;
+        }
+        $req = new OpenApiRequest([
+            'headers' => $headers,
+            'query'   => OpenApiUtilClient::query($query),
+        ]);
+        $params = new Params([
+            'action'      => 'DescribeIceDurSummaryOverview',
+            'version'     => '2020-12-14',
+            'protocol'    => 'HTTPS',
+            'pathname'    => '/api/ice/describeIceDurSummaryOverview',
+            'method'      => 'POST',
+            'authType'    => 'AK',
+            'style'       => 'ROA',
+            'reqBodyType' => 'json',
+            'bodyType'    => 'json',
+        ]);
+
+        return DescribeIceDurSummaryOverviewResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
@@ -1813,64 +1499,205 @@ class Vdc extends OpenApiClient
         Utils::validateModel($request);
         $query = [];
         if (!Utils::isUnset($request->appId)) {
-            @$query['AppId'] = $request->appId;
+            $query['AppId'] = $request->appId;
         }
         if (!Utils::isUnset($request->channelId)) {
-            @$query['ChannelId'] = $request->channelId;
+            $query['ChannelId'] = $request->channelId;
         }
         if (!Utils::isUnset($request->createdTs)) {
-            @$query['CreatedTs'] = $request->createdTs;
+            $query['CreatedTs'] = $request->createdTs;
         }
         if (!Utils::isUnset($request->destroyedTs)) {
-            @$query['DestroyedTs'] = $request->destroyedTs;
+            $query['DestroyedTs'] = $request->destroyedTs;
         }
         if (!Utils::isUnset($request->subUserId)) {
-            @$query['SubUserId'] = $request->subUserId;
+            $query['SubUserId'] = $request->subUserId;
         }
         $req = new OpenApiRequest([
             'headers' => $headers,
             'query'   => OpenApiUtilClient::query($query),
         ]);
+        $params = new Params([
+            'action'      => 'DescribePubUserListBySubUser',
+            'version'     => '2020-12-14',
+            'protocol'    => 'HTTPS',
+            'pathname'    => '/api/call/describePubUserListBySubUser',
+            'method'      => 'POST',
+            'authType'    => 'AK',
+            'style'       => 'ROA',
+            'reqBodyType' => 'json',
+            'bodyType'    => 'json',
+        ]);
 
-        return DescribePubUserListBySubUserResponse::fromMap($this->doROARequest('DescribePubUserListBySubUser', '2020-12-14', 'HTTPS', 'POST', 'AK', '/api/call/describePubUserListBySubUser', 'json', $req, $runtime));
+        return DescribePubUserListBySubUserResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
-     * @param UpdateAppFollowCallRuleRequest $request
+     * @param DescribeQoeMetricDataRequest $request
      *
-     * @return UpdateAppFollowCallRuleResponse
+     * @return DescribeQoeMetricDataResponse
      */
-    public function updateAppFollowCallRule($request)
+    public function describeQoeMetricData($request)
     {
         $runtime = new RuntimeOptions([]);
         $headers = [];
 
-        return $this->updateAppFollowCallRuleWithOptions($request, $headers, $runtime);
+        return $this->describeQoeMetricDataWithOptions($request, $headers, $runtime);
     }
 
     /**
-     * @param UpdateAppFollowCallRuleRequest $request
-     * @param string[]                       $headers
-     * @param RuntimeOptions                 $runtime
+     * @param DescribeQoeMetricDataRequest $request
+     * @param string[]                     $headers
+     * @param RuntimeOptions               $runtime
      *
-     * @return UpdateAppFollowCallRuleResponse
+     * @return DescribeQoeMetricDataResponse
      */
-    public function updateAppFollowCallRuleWithOptions($request, $headers, $runtime)
+    public function describeQoeMetricDataWithOptions($request, $headers, $runtime)
     {
         Utils::validateModel($request);
         $query = [];
-        if (!Utils::isUnset($request->rule)) {
-            @$query['Rule'] = $request->rule;
-        }
         if (!Utils::isUnset($request->appId)) {
-            @$query['AppId'] = $request->appId;
+            $query['AppId'] = $request->appId;
+        }
+        if (!Utils::isUnset($request->channelId)) {
+            $query['ChannelId'] = $request->channelId;
+        }
+        if (!Utils::isUnset($request->createdTs)) {
+            $query['CreatedTs'] = $request->createdTs;
+        }
+        if (!Utils::isUnset($request->destroyedTs)) {
+            $query['DestroyedTs'] = $request->destroyedTs;
+        }
+        if (!Utils::isUnset($request->userId)) {
+            $query['UserId'] = $request->userId;
         }
         $req = new OpenApiRequest([
             'headers' => $headers,
             'query'   => OpenApiUtilClient::query($query),
         ]);
+        $params = new Params([
+            'action'      => 'DescribeQoeMetricData',
+            'version'     => '2020-12-14',
+            'protocol'    => 'HTTPS',
+            'pathname'    => '/api/call/describeQoeMetricData',
+            'method'      => 'POST',
+            'authType'    => 'AK',
+            'style'       => 'ROA',
+            'reqBodyType' => 'json',
+            'bodyType'    => 'json',
+        ]);
 
-        return UpdateAppFollowCallRuleResponse::fromMap($this->doROARequest('UpdateAppFollowCallRule', '2020-12-14', 'HTTPS', 'POST', 'AK', '/api/config/updateAppFollowCallRule', 'json', $req, $runtime));
+        return DescribeQoeMetricDataResponse::fromMap($this->callApi($params, $req, $runtime));
+    }
+
+    /**
+     * @param DescribeQualityAreaDistributionStatDataRequest $request
+     *
+     * @return DescribeQualityAreaDistributionStatDataResponse
+     */
+    public function describeQualityAreaDistributionStatData($request)
+    {
+        $runtime = new RuntimeOptions([]);
+        $headers = [];
+
+        return $this->describeQualityAreaDistributionStatDataWithOptions($request, $headers, $runtime);
+    }
+
+    /**
+     * @param DescribeQualityAreaDistributionStatDataRequest $request
+     * @param string[]                                       $headers
+     * @param RuntimeOptions                                 $runtime
+     *
+     * @return DescribeQualityAreaDistributionStatDataResponse
+     */
+    public function describeQualityAreaDistributionStatDataWithOptions($request, $headers, $runtime)
+    {
+        Utils::validateModel($request);
+        $query = [];
+        if (!Utils::isUnset($request->appId)) {
+            $query['AppId'] = $request->appId;
+        }
+        if (!Utils::isUnset($request->endDate)) {
+            $query['EndDate'] = $request->endDate;
+        }
+        if (!Utils::isUnset($request->parentArea)) {
+            $query['ParentArea'] = $request->parentArea;
+        }
+        if (!Utils::isUnset($request->startDate)) {
+            $query['StartDate'] = $request->startDate;
+        }
+        $req = new OpenApiRequest([
+            'headers' => $headers,
+            'query'   => OpenApiUtilClient::query($query),
+        ]);
+        $params = new Params([
+            'action'      => 'DescribeQualityAreaDistributionStatData',
+            'version'     => '2020-12-14',
+            'protocol'    => 'HTTPS',
+            'pathname'    => '/api/quality/describeQualityAreaDistributionStatData',
+            'method'      => 'POST',
+            'authType'    => 'AK',
+            'style'       => 'ROA',
+            'reqBodyType' => 'json',
+            'bodyType'    => 'json',
+        ]);
+
+        return DescribeQualityAreaDistributionStatDataResponse::fromMap($this->callApi($params, $req, $runtime));
+    }
+
+    /**
+     * @param DescribeQualityDistributionStatDataRequest $request
+     *
+     * @return DescribeQualityDistributionStatDataResponse
+     */
+    public function describeQualityDistributionStatData($request)
+    {
+        $runtime = new RuntimeOptions([]);
+        $headers = [];
+
+        return $this->describeQualityDistributionStatDataWithOptions($request, $headers, $runtime);
+    }
+
+    /**
+     * @param DescribeQualityDistributionStatDataRequest $request
+     * @param string[]                                   $headers
+     * @param RuntimeOptions                             $runtime
+     *
+     * @return DescribeQualityDistributionStatDataResponse
+     */
+    public function describeQualityDistributionStatDataWithOptions($request, $headers, $runtime)
+    {
+        Utils::validateModel($request);
+        $query = [];
+        if (!Utils::isUnset($request->appId)) {
+            $query['AppId'] = $request->appId;
+        }
+        if (!Utils::isUnset($request->endDate)) {
+            $query['EndDate'] = $request->endDate;
+        }
+        if (!Utils::isUnset($request->startDate)) {
+            $query['StartDate'] = $request->startDate;
+        }
+        if (!Utils::isUnset($request->statDim)) {
+            $query['StatDim'] = $request->statDim;
+        }
+        $req = new OpenApiRequest([
+            'headers' => $headers,
+            'query'   => OpenApiUtilClient::query($query),
+        ]);
+        $params = new Params([
+            'action'      => 'DescribeQualityDistributionStatData',
+            'version'     => '2020-12-14',
+            'protocol'    => 'HTTPS',
+            'pathname'    => '/api/quality/describeQualityDistributionStatData',
+            'method'      => 'POST',
+            'authType'    => 'AK',
+            'style'       => 'ROA',
+            'reqBodyType' => 'json',
+            'bodyType'    => 'json',
+        ]);
+
+        return DescribeQualityDistributionStatDataResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
@@ -1897,65 +1724,32 @@ class Vdc extends OpenApiClient
     {
         Utils::validateModel($request);
         $query = [];
-        if (!Utils::isUnset($request->startDate)) {
-            @$query['StartDate'] = $request->startDate;
+        if (!Utils::isUnset($request->appId)) {
+            $query['AppId'] = $request->appId;
         }
         if (!Utils::isUnset($request->endDate)) {
-            @$query['EndDate'] = $request->endDate;
+            $query['EndDate'] = $request->endDate;
         }
-        if (!Utils::isUnset($request->appId)) {
-            @$query['AppId'] = $request->appId;
-        }
-        $req = new OpenApiRequest([
-            'headers' => $headers,
-            'query'   => OpenApiUtilClient::query($query),
-        ]);
-
-        return DescribeQualityOsSdkVersionDistributionStatDataResponse::fromMap($this->doROARequest('DescribeQualityOsSdkVersionDistributionStatData', '2020-12-14', 'HTTPS', 'POST', 'AK', '/api/quality/describeQualityOsSdkVersionDistributionStatData', 'json', $req, $runtime));
-    }
-
-    /**
-     * @param DescribeRtcRecordMetricDataRequest $request
-     *
-     * @return DescribeRtcRecordMetricDataResponse
-     */
-    public function describeRtcRecordMetricData($request)
-    {
-        $runtime = new RuntimeOptions([]);
-        $headers = [];
-
-        return $this->describeRtcRecordMetricDataWithOptions($request, $headers, $runtime);
-    }
-
-    /**
-     * @param DescribeRtcRecordMetricDataRequest $request
-     * @param string[]                           $headers
-     * @param RuntimeOptions                     $runtime
-     *
-     * @return DescribeRtcRecordMetricDataResponse
-     */
-    public function describeRtcRecordMetricDataWithOptions($request, $headers, $runtime)
-    {
-        Utils::validateModel($request);
-        $query = [];
-        if (!Utils::isUnset($request->startTime)) {
-            @$query['StartTime'] = $request->startTime;
-        }
-        if (!Utils::isUnset($request->endTime)) {
-            @$query['EndTime'] = $request->endTime;
-        }
-        if (!Utils::isUnset($request->serviceArea)) {
-            @$query['ServiceArea'] = $request->serviceArea;
-        }
-        if (!Utils::isUnset($request->appId)) {
-            @$query['AppId'] = $request->appId;
+        if (!Utils::isUnset($request->startDate)) {
+            $query['StartDate'] = $request->startDate;
         }
         $req = new OpenApiRequest([
             'headers' => $headers,
             'query'   => OpenApiUtilClient::query($query),
         ]);
+        $params = new Params([
+            'action'      => 'DescribeQualityOsSdkVersionDistributionStatData',
+            'version'     => '2020-12-14',
+            'protocol'    => 'HTTPS',
+            'pathname'    => '/api/quality/describeQualityOsSdkVersionDistributionStatData',
+            'method'      => 'POST',
+            'authType'    => 'AK',
+            'style'       => 'ROA',
+            'reqBodyType' => 'json',
+            'bodyType'    => 'json',
+        ]);
 
-        return DescribeRtcRecordMetricDataResponse::fromMap($this->doROARequest('DescribeRtcRecordMetricData', '2020-12-14', 'HTTPS', 'POST', 'AK', '/api/record/describeRtcRecordMetricData', 'json', $req, $runtime));
+        return DescribeQualityOsSdkVersionDistributionStatDataResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
@@ -1982,23 +1776,703 @@ class Vdc extends OpenApiClient
     {
         Utils::validateModel($request);
         $query = [];
-        if (!Utils::isUnset($request->startDate)) {
-            @$query['StartDate'] = $request->startDate;
+        if (!Utils::isUnset($request->appId)) {
+            $query['AppId'] = $request->appId;
         }
         if (!Utils::isUnset($request->endDate)) {
-            @$query['EndDate'] = $request->endDate;
+            $query['EndDate'] = $request->endDate;
+        }
+        if (!Utils::isUnset($request->startDate)) {
+            $query['StartDate'] = $request->startDate;
         }
         if (!Utils::isUnset($request->types)) {
-            @$query['Types'] = $request->types;
-        }
-        if (!Utils::isUnset($request->appId)) {
-            @$query['AppId'] = $request->appId;
+            $query['Types'] = $request->types;
         }
         $req = new OpenApiRequest([
             'headers' => $headers,
             'query'   => OpenApiUtilClient::query($query),
         ]);
+        $params = new Params([
+            'action'      => 'DescribeQualityOverallData',
+            'version'     => '2020-12-14',
+            'protocol'    => 'HTTPS',
+            'pathname'    => '/api/quality/describeQualityOverallData',
+            'method'      => 'POST',
+            'authType'    => 'AK',
+            'style'       => 'ROA',
+            'reqBodyType' => 'json',
+            'bodyType'    => 'json',
+        ]);
 
-        return DescribeQualityOverallDataResponse::fromMap($this->doROARequest('DescribeQualityOverallData', '2020-12-14', 'HTTPS', 'POST', 'AK', '/api/quality/describeQualityOverallData', 'json', $req, $runtime));
+        return DescribeQualityOverallDataResponse::fromMap($this->callApi($params, $req, $runtime));
+    }
+
+    /**
+     * @param DescribeRtcChannelDetailsRequest $request
+     *
+     * @return DescribeRtcChannelDetailsResponse
+     */
+    public function describeRtcChannelDetails($request)
+    {
+        $runtime = new RuntimeOptions([]);
+        $headers = [];
+
+        return $this->describeRtcChannelDetailsWithOptions($request, $headers, $runtime);
+    }
+
+    /**
+     * @param DescribeRtcChannelDetailsRequest $request
+     * @param string[]                         $headers
+     * @param RuntimeOptions                   $runtime
+     *
+     * @return DescribeRtcChannelDetailsResponse
+     */
+    public function describeRtcChannelDetailsWithOptions($request, $headers, $runtime)
+    {
+        Utils::validateModel($request);
+        $query = [];
+        if (!Utils::isUnset($request->appId)) {
+            $query['AppId'] = $request->appId;
+        }
+        if (!Utils::isUnset($request->channelId)) {
+            $query['ChannelId'] = $request->channelId;
+        }
+        if (!Utils::isUnset($request->endTime)) {
+            $query['EndTime'] = $request->endTime;
+        }
+        if (!Utils::isUnset($request->pageNo)) {
+            $query['PageNo'] = $request->pageNo;
+        }
+        if (!Utils::isUnset($request->pageSize)) {
+            $query['PageSize'] = $request->pageSize;
+        }
+        if (!Utils::isUnset($request->startTime)) {
+            $query['StartTime'] = $request->startTime;
+        }
+        $req = new OpenApiRequest([
+            'headers' => $headers,
+            'query'   => OpenApiUtilClient::query($query),
+        ]);
+        $params = new Params([
+            'action'      => 'DescribeRtcChannelDetails',
+            'version'     => '2020-12-14',
+            'protocol'    => 'HTTPS',
+            'pathname'    => '/api/channel/describeRtcChannelDetails',
+            'method'      => 'POST',
+            'authType'    => 'AK',
+            'style'       => 'ROA',
+            'reqBodyType' => 'json',
+            'bodyType'    => 'json',
+        ]);
+
+        return DescribeRtcChannelDetailsResponse::fromMap($this->callApi($params, $req, $runtime));
+    }
+
+    /**
+     * @param DescribeRtcChannelListRequest $request
+     *
+     * @return DescribeRtcChannelListResponse
+     */
+    public function describeRtcChannelList($request)
+    {
+        $runtime = new RuntimeOptions([]);
+        $headers = [];
+
+        return $this->describeRtcChannelListWithOptions($request, $headers, $runtime);
+    }
+
+    /**
+     * @param DescribeRtcChannelListRequest $request
+     * @param string[]                      $headers
+     * @param RuntimeOptions                $runtime
+     *
+     * @return DescribeRtcChannelListResponse
+     */
+    public function describeRtcChannelListWithOptions($request, $headers, $runtime)
+    {
+        Utils::validateModel($request);
+        $query = [];
+        if (!Utils::isUnset($request->appId)) {
+            $query['AppId'] = $request->appId;
+        }
+        if (!Utils::isUnset($request->channelId)) {
+            $query['ChannelId'] = $request->channelId;
+        }
+        if (!Utils::isUnset($request->endTime)) {
+            $query['EndTime'] = $request->endTime;
+        }
+        if (!Utils::isUnset($request->pageNo)) {
+            $query['PageNo'] = $request->pageNo;
+        }
+        if (!Utils::isUnset($request->pageSize)) {
+            $query['PageSize'] = $request->pageSize;
+        }
+        if (!Utils::isUnset($request->startTime)) {
+            $query['StartTime'] = $request->startTime;
+        }
+        $req = new OpenApiRequest([
+            'headers' => $headers,
+            'query'   => OpenApiUtilClient::query($query),
+        ]);
+        $params = new Params([
+            'action'      => 'DescribeRtcChannelList',
+            'version'     => '2020-12-14',
+            'protocol'    => 'HTTPS',
+            'pathname'    => '/api/channel/describeRtcChannelList',
+            'method'      => 'POST',
+            'authType'    => 'AK',
+            'style'       => 'ROA',
+            'reqBodyType' => 'json',
+            'bodyType'    => 'json',
+        ]);
+
+        return DescribeRtcChannelListResponse::fromMap($this->callApi($params, $req, $runtime));
+    }
+
+    /**
+     * @param DescribeRtcChannelMetricListRequest $request
+     *
+     * @return DescribeRtcChannelMetricListResponse
+     */
+    public function describeRtcChannelMetricList($request)
+    {
+        $runtime = new RuntimeOptions([]);
+        $headers = [];
+
+        return $this->describeRtcChannelMetricListWithOptions($request, $headers, $runtime);
+    }
+
+    /**
+     * @param DescribeRtcChannelMetricListRequest $request
+     * @param string[]                            $headers
+     * @param RuntimeOptions                      $runtime
+     *
+     * @return DescribeRtcChannelMetricListResponse
+     */
+    public function describeRtcChannelMetricListWithOptions($request, $headers, $runtime)
+    {
+        Utils::validateModel($request);
+        $query = [];
+        if (!Utils::isUnset($request->appId)) {
+            $query['AppId'] = $request->appId;
+        }
+        if (!Utils::isUnset($request->channelId)) {
+            $query['ChannelId'] = $request->channelId;
+        }
+        if (!Utils::isUnset($request->endTime)) {
+            $query['EndTime'] = $request->endTime;
+        }
+        if (!Utils::isUnset($request->pubUid)) {
+            $query['PubUid'] = $request->pubUid;
+        }
+        if (!Utils::isUnset($request->startTime)) {
+            $query['StartTime'] = $request->startTime;
+        }
+        if (!Utils::isUnset($request->subUid)) {
+            $query['SubUid'] = $request->subUid;
+        }
+        $req = new OpenApiRequest([
+            'headers' => $headers,
+            'query'   => OpenApiUtilClient::query($query),
+        ]);
+        $params = new Params([
+            'action'      => 'DescribeRtcChannelMetricList',
+            'version'     => '2020-12-14',
+            'protocol'    => 'HTTPS',
+            'pathname'    => '/api/call/describeRtcChannelMetricList',
+            'method'      => 'POST',
+            'authType'    => 'AK',
+            'style'       => 'ROA',
+            'reqBodyType' => 'json',
+            'bodyType'    => 'json',
+        ]);
+
+        return DescribeRtcChannelMetricListResponse::fromMap($this->callApi($params, $req, $runtime));
+    }
+
+    /**
+     * @param DescribeRtcChannelUsersRequest $request
+     *
+     * @return DescribeRtcChannelUsersResponse
+     */
+    public function describeRtcChannelUsers($request)
+    {
+        $runtime = new RuntimeOptions([]);
+        $headers = [];
+
+        return $this->describeRtcChannelUsersWithOptions($request, $headers, $runtime);
+    }
+
+    /**
+     * @param DescribeRtcChannelUsersRequest $request
+     * @param string[]                       $headers
+     * @param RuntimeOptions                 $runtime
+     *
+     * @return DescribeRtcChannelUsersResponse
+     */
+    public function describeRtcChannelUsersWithOptions($request, $headers, $runtime)
+    {
+        Utils::validateModel($request);
+        $query = [];
+        if (!Utils::isUnset($request->appId)) {
+            $query['AppId'] = $request->appId;
+        }
+        if (!Utils::isUnset($request->channelId)) {
+            $query['ChannelId'] = $request->channelId;
+        }
+        if (!Utils::isUnset($request->pageNo)) {
+            $query['PageNo'] = $request->pageNo;
+        }
+        if (!Utils::isUnset($request->pageSize)) {
+            $query['PageSize'] = $request->pageSize;
+        }
+        if (!Utils::isUnset($request->timePoint)) {
+            $query['TimePoint'] = $request->timePoint;
+        }
+        $req = new OpenApiRequest([
+            'headers' => $headers,
+            'query'   => OpenApiUtilClient::query($query),
+        ]);
+        $params = new Params([
+            'action'      => 'DescribeRtcChannelUsers',
+            'version'     => '2020-12-14',
+            'protocol'    => 'HTTPS',
+            'pathname'    => '/api/channel/describeRtcChannelUsers',
+            'method'      => 'POST',
+            'authType'    => 'AK',
+            'style'       => 'ROA',
+            'reqBodyType' => 'json',
+            'bodyType'    => 'json',
+        ]);
+
+        return DescribeRtcChannelUsersResponse::fromMap($this->callApi($params, $req, $runtime));
+    }
+
+    /**
+     * @param DescribeRtcRecordMetricDataRequest $request
+     *
+     * @return DescribeRtcRecordMetricDataResponse
+     */
+    public function describeRtcRecordMetricData($request)
+    {
+        $runtime = new RuntimeOptions([]);
+        $headers = [];
+
+        return $this->describeRtcRecordMetricDataWithOptions($request, $headers, $runtime);
+    }
+
+    /**
+     * @param DescribeRtcRecordMetricDataRequest $request
+     * @param string[]                           $headers
+     * @param RuntimeOptions                     $runtime
+     *
+     * @return DescribeRtcRecordMetricDataResponse
+     */
+    public function describeRtcRecordMetricDataWithOptions($request, $headers, $runtime)
+    {
+        Utils::validateModel($request);
+        $query = [];
+        if (!Utils::isUnset($request->appId)) {
+            $query['AppId'] = $request->appId;
+        }
+        if (!Utils::isUnset($request->endTime)) {
+            $query['EndTime'] = $request->endTime;
+        }
+        if (!Utils::isUnset($request->serviceArea)) {
+            $query['ServiceArea'] = $request->serviceArea;
+        }
+        if (!Utils::isUnset($request->startTime)) {
+            $query['StartTime'] = $request->startTime;
+        }
+        $req = new OpenApiRequest([
+            'headers' => $headers,
+            'query'   => OpenApiUtilClient::query($query),
+        ]);
+        $params = new Params([
+            'action'      => 'DescribeRtcRecordMetricData',
+            'version'     => '2020-12-14',
+            'protocol'    => 'HTTPS',
+            'pathname'    => '/api/record/describeRtcRecordMetricData',
+            'method'      => 'POST',
+            'authType'    => 'AK',
+            'style'       => 'ROA',
+            'reqBodyType' => 'json',
+            'bodyType'    => 'json',
+        ]);
+
+        return DescribeRtcRecordMetricDataResponse::fromMap($this->callApi($params, $req, $runtime));
+    }
+
+    /**
+     * @param DescribeRtcUserEventListRequest $request
+     *
+     * @return DescribeRtcUserEventListResponse
+     */
+    public function describeRtcUserEventList($request)
+    {
+        $runtime = new RuntimeOptions([]);
+        $headers = [];
+
+        return $this->describeRtcUserEventListWithOptions($request, $headers, $runtime);
+    }
+
+    /**
+     * @param DescribeRtcUserEventListRequest $request
+     * @param string[]                        $headers
+     * @param RuntimeOptions                  $runtime
+     *
+     * @return DescribeRtcUserEventListResponse
+     */
+    public function describeRtcUserEventListWithOptions($request, $headers, $runtime)
+    {
+        Utils::validateModel($request);
+        $query = [];
+        if (!Utils::isUnset($request->appId)) {
+            $query['AppId'] = $request->appId;
+        }
+        if (!Utils::isUnset($request->channelId)) {
+            $query['ChannelId'] = $request->channelId;
+        }
+        if (!Utils::isUnset($request->endTime)) {
+            $query['EndTime'] = $request->endTime;
+        }
+        if (!Utils::isUnset($request->startTime)) {
+            $query['StartTime'] = $request->startTime;
+        }
+        if (!Utils::isUnset($request->uid)) {
+            $query['Uid'] = $request->uid;
+        }
+        $req = new OpenApiRequest([
+            'headers' => $headers,
+            'query'   => OpenApiUtilClient::query($query),
+        ]);
+        $params = new Params([
+            'action'      => 'DescribeRtcUserEventList',
+            'version'     => '2020-12-14',
+            'protocol'    => 'HTTPS',
+            'pathname'    => '/api/call/describeRtcUserEventList',
+            'method'      => 'POST',
+            'authType'    => 'AK',
+            'style'       => 'ROA',
+            'reqBodyType' => 'json',
+            'bodyType'    => 'json',
+        ]);
+
+        return DescribeRtcUserEventListResponse::fromMap($this->callApi($params, $req, $runtime));
+    }
+
+    /**
+     * @param DescribeUsageAreaDistributionStatDataRequest $request
+     *
+     * @return DescribeUsageAreaDistributionStatDataResponse
+     */
+    public function describeUsageAreaDistributionStatData($request)
+    {
+        $runtime = new RuntimeOptions([]);
+        $headers = [];
+
+        return $this->describeUsageAreaDistributionStatDataWithOptions($request, $headers, $runtime);
+    }
+
+    /**
+     * @param DescribeUsageAreaDistributionStatDataRequest $request
+     * @param string[]                                     $headers
+     * @param RuntimeOptions                               $runtime
+     *
+     * @return DescribeUsageAreaDistributionStatDataResponse
+     */
+    public function describeUsageAreaDistributionStatDataWithOptions($request, $headers, $runtime)
+    {
+        Utils::validateModel($request);
+        $query = [];
+        if (!Utils::isUnset($request->appId)) {
+            $query['AppId'] = $request->appId;
+        }
+        if (!Utils::isUnset($request->endDate)) {
+            $query['EndDate'] = $request->endDate;
+        }
+        if (!Utils::isUnset($request->parentArea)) {
+            $query['ParentArea'] = $request->parentArea;
+        }
+        if (!Utils::isUnset($request->startDate)) {
+            $query['StartDate'] = $request->startDate;
+        }
+        $req = new OpenApiRequest([
+            'headers' => $headers,
+            'query'   => OpenApiUtilClient::query($query),
+        ]);
+        $params = new Params([
+            'action'      => 'DescribeUsageAreaDistributionStatData',
+            'version'     => '2020-12-14',
+            'protocol'    => 'HTTPS',
+            'pathname'    => '/api/usage/describeUsageAreaDistributionStatData',
+            'method'      => 'POST',
+            'authType'    => 'AK',
+            'style'       => 'ROA',
+            'reqBodyType' => 'json',
+            'bodyType'    => 'json',
+        ]);
+
+        return DescribeUsageAreaDistributionStatDataResponse::fromMap($this->callApi($params, $req, $runtime));
+    }
+
+    /**
+     * @param DescribeUsageDistributionStatDataRequest $request
+     *
+     * @return DescribeUsageDistributionStatDataResponse
+     */
+    public function describeUsageDistributionStatData($request)
+    {
+        $runtime = new RuntimeOptions([]);
+        $headers = [];
+
+        return $this->describeUsageDistributionStatDataWithOptions($request, $headers, $runtime);
+    }
+
+    /**
+     * @param DescribeUsageDistributionStatDataRequest $request
+     * @param string[]                                 $headers
+     * @param RuntimeOptions                           $runtime
+     *
+     * @return DescribeUsageDistributionStatDataResponse
+     */
+    public function describeUsageDistributionStatDataWithOptions($request, $headers, $runtime)
+    {
+        Utils::validateModel($request);
+        $query = [];
+        if (!Utils::isUnset($request->appId)) {
+            $query['AppId'] = $request->appId;
+        }
+        if (!Utils::isUnset($request->endDate)) {
+            $query['EndDate'] = $request->endDate;
+        }
+        if (!Utils::isUnset($request->startDate)) {
+            $query['StartDate'] = $request->startDate;
+        }
+        if (!Utils::isUnset($request->statDim)) {
+            $query['StatDim'] = $request->statDim;
+        }
+        $req = new OpenApiRequest([
+            'headers' => $headers,
+            'query'   => OpenApiUtilClient::query($query),
+        ]);
+        $params = new Params([
+            'action'      => 'DescribeUsageDistributionStatData',
+            'version'     => '2020-12-14',
+            'protocol'    => 'HTTPS',
+            'pathname'    => '/api/usage/describeUsageDistributionStatData',
+            'method'      => 'POST',
+            'authType'    => 'AK',
+            'style'       => 'ROA',
+            'reqBodyType' => 'json',
+            'bodyType'    => 'json',
+        ]);
+
+        return DescribeUsageDistributionStatDataResponse::fromMap($this->callApi($params, $req, $runtime));
+    }
+
+    /**
+     * @param DescribeUsageOsSdkVersionDistributionStatDataRequest $request
+     *
+     * @return DescribeUsageOsSdkVersionDistributionStatDataResponse
+     */
+    public function describeUsageOsSdkVersionDistributionStatData($request)
+    {
+        $runtime = new RuntimeOptions([]);
+        $headers = [];
+
+        return $this->describeUsageOsSdkVersionDistributionStatDataWithOptions($request, $headers, $runtime);
+    }
+
+    /**
+     * @param DescribeUsageOsSdkVersionDistributionStatDataRequest $request
+     * @param string[]                                             $headers
+     * @param RuntimeOptions                                       $runtime
+     *
+     * @return DescribeUsageOsSdkVersionDistributionStatDataResponse
+     */
+    public function describeUsageOsSdkVersionDistributionStatDataWithOptions($request, $headers, $runtime)
+    {
+        Utils::validateModel($request);
+        $query = [];
+        if (!Utils::isUnset($request->appId)) {
+            $query['AppId'] = $request->appId;
+        }
+        if (!Utils::isUnset($request->endDate)) {
+            $query['EndDate'] = $request->endDate;
+        }
+        if (!Utils::isUnset($request->startDate)) {
+            $query['StartDate'] = $request->startDate;
+        }
+        $req = new OpenApiRequest([
+            'headers' => $headers,
+            'query'   => OpenApiUtilClient::query($query),
+        ]);
+        $params = new Params([
+            'action'      => 'DescribeUsageOsSdkVersionDistributionStatData',
+            'version'     => '2020-12-14',
+            'protocol'    => 'HTTPS',
+            'pathname'    => '/api/usage/describeUsageOsSdkVersionDistributionStatData',
+            'method'      => 'POST',
+            'authType'    => 'AK',
+            'style'       => 'ROA',
+            'reqBodyType' => 'json',
+            'bodyType'    => 'json',
+        ]);
+
+        return DescribeUsageOsSdkVersionDistributionStatDataResponse::fromMap($this->callApi($params, $req, $runtime));
+    }
+
+    /**
+     * @param DescribeUsageOverallDataRequest $request
+     *
+     * @return DescribeUsageOverallDataResponse
+     */
+    public function describeUsageOverallData($request)
+    {
+        $runtime = new RuntimeOptions([]);
+        $headers = [];
+
+        return $this->describeUsageOverallDataWithOptions($request, $headers, $runtime);
+    }
+
+    /**
+     * @param DescribeUsageOverallDataRequest $request
+     * @param string[]                        $headers
+     * @param RuntimeOptions                  $runtime
+     *
+     * @return DescribeUsageOverallDataResponse
+     */
+    public function describeUsageOverallDataWithOptions($request, $headers, $runtime)
+    {
+        Utils::validateModel($request);
+        $query = [];
+        if (!Utils::isUnset($request->appId)) {
+            $query['AppId'] = $request->appId;
+        }
+        if (!Utils::isUnset($request->endDate)) {
+            $query['EndDate'] = $request->endDate;
+        }
+        if (!Utils::isUnset($request->startDate)) {
+            $query['StartDate'] = $request->startDate;
+        }
+        if (!Utils::isUnset($request->types)) {
+            $query['Types'] = $request->types;
+        }
+        $req = new OpenApiRequest([
+            'headers' => $headers,
+            'query'   => OpenApiUtilClient::query($query),
+        ]);
+        $params = new Params([
+            'action'      => 'DescribeUsageOverallData',
+            'version'     => '2020-12-14',
+            'protocol'    => 'HTTPS',
+            'pathname'    => '/api/usage/describeUsageOverallData',
+            'method'      => 'POST',
+            'authType'    => 'AK',
+            'style'       => 'ROA',
+            'reqBodyType' => 'json',
+            'bodyType'    => 'json',
+        ]);
+
+        return DescribeUsageOverallDataResponse::fromMap($this->callApi($params, $req, $runtime));
+    }
+
+    /**
+     * @param UpdateAppExpMetricRuleRequest $request
+     *
+     * @return UpdateAppExpMetricRuleResponse
+     */
+    public function updateAppExpMetricRule($request)
+    {
+        $runtime = new RuntimeOptions([]);
+        $headers = [];
+
+        return $this->updateAppExpMetricRuleWithOptions($request, $headers, $runtime);
+    }
+
+    /**
+     * @param UpdateAppExpMetricRuleRequest $request
+     * @param string[]                      $headers
+     * @param RuntimeOptions                $runtime
+     *
+     * @return UpdateAppExpMetricRuleResponse
+     */
+    public function updateAppExpMetricRuleWithOptions($request, $headers, $runtime)
+    {
+        Utils::validateModel($request);
+        $query = [];
+        if (!Utils::isUnset($request->appId)) {
+            $query['AppId'] = $request->appId;
+        }
+        if (!Utils::isUnset($request->rule)) {
+            $query['Rule'] = $request->rule;
+        }
+        $req = new OpenApiRequest([
+            'headers' => $headers,
+            'query'   => OpenApiUtilClient::query($query),
+        ]);
+        $params = new Params([
+            'action'      => 'UpdateAppExpMetricRule',
+            'version'     => '2020-12-14',
+            'protocol'    => 'HTTPS',
+            'pathname'    => '/api/config/updateAppExpMetricRule',
+            'method'      => 'POST',
+            'authType'    => 'AK',
+            'style'       => 'ROA',
+            'reqBodyType' => 'json',
+            'bodyType'    => 'json',
+        ]);
+
+        return UpdateAppExpMetricRuleResponse::fromMap($this->callApi($params, $req, $runtime));
+    }
+
+    /**
+     * @param UpdateAppFollowCallRuleRequest $request
+     *
+     * @return UpdateAppFollowCallRuleResponse
+     */
+    public function updateAppFollowCallRule($request)
+    {
+        $runtime = new RuntimeOptions([]);
+        $headers = [];
+
+        return $this->updateAppFollowCallRuleWithOptions($request, $headers, $runtime);
+    }
+
+    /**
+     * @param UpdateAppFollowCallRuleRequest $request
+     * @param string[]                       $headers
+     * @param RuntimeOptions                 $runtime
+     *
+     * @return UpdateAppFollowCallRuleResponse
+     */
+    public function updateAppFollowCallRuleWithOptions($request, $headers, $runtime)
+    {
+        Utils::validateModel($request);
+        $query = [];
+        if (!Utils::isUnset($request->appId)) {
+            $query['AppId'] = $request->appId;
+        }
+        if (!Utils::isUnset($request->rule)) {
+            $query['Rule'] = $request->rule;
+        }
+        $req = new OpenApiRequest([
+            'headers' => $headers,
+            'query'   => OpenApiUtilClient::query($query),
+        ]);
+        $params = new Params([
+            'action'      => 'UpdateAppFollowCallRule',
+            'version'     => '2020-12-14',
+            'protocol'    => 'HTTPS',
+            'pathname'    => '/api/config/updateAppFollowCallRule',
+            'method'      => 'POST',
+            'authType'    => 'AK',
+            'style'       => 'ROA',
+            'reqBodyType' => 'json',
+            'bodyType'    => 'json',
+        ]);
+
+        return UpdateAppFollowCallRuleResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 }

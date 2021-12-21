@@ -9,11 +9,11 @@ use AlibabaCloud\Tea\Model;
 class DescribeRtcRecordMetricDataRequest extends Model
 {
     /**
-     * @description 起始时间，UTC格式
+     * @description appId
      *
      * @var string
      */
-    public $startTime;
+    public $appId;
 
     /**
      * @description 结束时间，UTC格式
@@ -30,16 +30,16 @@ class DescribeRtcRecordMetricDataRequest extends Model
     public $serviceArea;
 
     /**
-     * @description appId
+     * @description 起始时间，UTC格式
      *
      * @var string
      */
-    public $appId;
+    public $startTime;
     protected $_name = [
-        'startTime'   => 'StartTime',
+        'appId'       => 'AppId',
         'endTime'     => 'EndTime',
         'serviceArea' => 'ServiceArea',
-        'appId'       => 'AppId',
+        'startTime'   => 'StartTime',
     ];
 
     public function validate()
@@ -49,8 +49,8 @@ class DescribeRtcRecordMetricDataRequest extends Model
     public function toMap()
     {
         $res = [];
-        if (null !== $this->startTime) {
-            $res['StartTime'] = $this->startTime;
+        if (null !== $this->appId) {
+            $res['AppId'] = $this->appId;
         }
         if (null !== $this->endTime) {
             $res['EndTime'] = $this->endTime;
@@ -58,8 +58,8 @@ class DescribeRtcRecordMetricDataRequest extends Model
         if (null !== $this->serviceArea) {
             $res['ServiceArea'] = $this->serviceArea;
         }
-        if (null !== $this->appId) {
-            $res['AppId'] = $this->appId;
+        if (null !== $this->startTime) {
+            $res['StartTime'] = $this->startTime;
         }
 
         return $res;
@@ -73,8 +73,8 @@ class DescribeRtcRecordMetricDataRequest extends Model
     public static function fromMap($map = [])
     {
         $model = new self();
-        if (isset($map['StartTime'])) {
-            $model->startTime = $map['StartTime'];
+        if (isset($map['AppId'])) {
+            $model->appId = $map['AppId'];
         }
         if (isset($map['EndTime'])) {
             $model->endTime = $map['EndTime'];
@@ -82,8 +82,8 @@ class DescribeRtcRecordMetricDataRequest extends Model
         if (isset($map['ServiceArea'])) {
             $model->serviceArea = $map['ServiceArea'];
         }
-        if (isset($map['AppId'])) {
-            $model->appId = $map['AppId'];
+        if (isset($map['StartTime'])) {
+            $model->startTime = $map['StartTime'];
         }
 
         return $model;

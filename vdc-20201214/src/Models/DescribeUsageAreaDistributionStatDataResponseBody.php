@@ -10,21 +10,21 @@ use AlibabaCloud\Tea\Model;
 class DescribeUsageAreaDistributionStatDataResponseBody extends Model
 {
     /**
-     * @description 用量统计地域分布数据
-     *
-     * @var usageAreaStatList[]
-     */
-    public $usageAreaStatList;
-
-    /**
      * @description 请求ID
      *
      * @var string
      */
     public $requestId;
+
+    /**
+     * @description 用量统计地域分布数据
+     *
+     * @var usageAreaStatList[]
+     */
+    public $usageAreaStatList;
     protected $_name = [
-        'usageAreaStatList' => 'UsageAreaStatList',
         'requestId'         => 'RequestId',
+        'usageAreaStatList' => 'UsageAreaStatList',
     ];
 
     public function validate()
@@ -34,6 +34,9 @@ class DescribeUsageAreaDistributionStatDataResponseBody extends Model
     public function toMap()
     {
         $res = [];
+        if (null !== $this->requestId) {
+            $res['RequestId'] = $this->requestId;
+        }
         if (null !== $this->usageAreaStatList) {
             $res['UsageAreaStatList'] = [];
             if (null !== $this->usageAreaStatList && \is_array($this->usageAreaStatList)) {
@@ -42,9 +45,6 @@ class DescribeUsageAreaDistributionStatDataResponseBody extends Model
                     $res['UsageAreaStatList'][$n++] = null !== $item ? $item->toMap() : $item;
                 }
             }
-        }
-        if (null !== $this->requestId) {
-            $res['RequestId'] = $this->requestId;
         }
 
         return $res;
@@ -58,6 +58,9 @@ class DescribeUsageAreaDistributionStatDataResponseBody extends Model
     public static function fromMap($map = [])
     {
         $model = new self();
+        if (isset($map['RequestId'])) {
+            $model->requestId = $map['RequestId'];
+        }
         if (isset($map['UsageAreaStatList'])) {
             if (!empty($map['UsageAreaStatList'])) {
                 $model->usageAreaStatList = [];
@@ -66,9 +69,6 @@ class DescribeUsageAreaDistributionStatDataResponseBody extends Model
                     $model->usageAreaStatList[$n++] = null !== $item ? usageAreaStatList::fromMap($item) : $item;
                 }
             }
-        }
-        if (isset($map['RequestId'])) {
-            $model->requestId = $map['RequestId'];
         }
 
         return $model;

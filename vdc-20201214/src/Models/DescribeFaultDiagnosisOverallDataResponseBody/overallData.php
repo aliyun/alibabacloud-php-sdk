@@ -16,22 +16,22 @@ class overallData extends Model
     public $faultUserCount;
 
     /**
-     * @description 用户总数/人次
-     *
-     * @var int
-     */
-    public $totalUserCount;
-
-    /**
      * @description 异常用户总占比
      *
      * @var float
      */
     public $faultUserRatio;
+
+    /**
+     * @description 用户总数/人次
+     *
+     * @var int
+     */
+    public $totalUserCount;
     protected $_name = [
         'faultUserCount' => 'FaultUserCount',
-        'totalUserCount' => 'TotalUserCount',
         'faultUserRatio' => 'FaultUserRatio',
+        'totalUserCount' => 'TotalUserCount',
     ];
 
     public function validate()
@@ -44,11 +44,11 @@ class overallData extends Model
         if (null !== $this->faultUserCount) {
             $res['FaultUserCount'] = $this->faultUserCount;
         }
-        if (null !== $this->totalUserCount) {
-            $res['TotalUserCount'] = $this->totalUserCount;
-        }
         if (null !== $this->faultUserRatio) {
             $res['FaultUserRatio'] = $this->faultUserRatio;
+        }
+        if (null !== $this->totalUserCount) {
+            $res['TotalUserCount'] = $this->totalUserCount;
         }
 
         return $res;
@@ -65,11 +65,11 @@ class overallData extends Model
         if (isset($map['FaultUserCount'])) {
             $model->faultUserCount = $map['FaultUserCount'];
         }
-        if (isset($map['TotalUserCount'])) {
-            $model->totalUserCount = $map['TotalUserCount'];
-        }
         if (isset($map['FaultUserRatio'])) {
             $model->faultUserRatio = $map['FaultUserRatio'];
+        }
+        if (isset($map['TotalUserCount'])) {
+            $model->totalUserCount = $map['TotalUserCount'];
         }
 
         return $model;

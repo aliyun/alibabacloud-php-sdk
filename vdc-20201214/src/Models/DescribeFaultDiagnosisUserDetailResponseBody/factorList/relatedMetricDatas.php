@@ -10,18 +10,18 @@ use AlibabaCloud\Tea\Model;
 class relatedMetricDatas extends Model
 {
     /**
+     * @description 坐标数据列表
+     *
+     * @var nodes[]
+     */
+    public $nodes;
+
+    /**
      * @description 来源角色： SENDER：发布端，即上行 RECEIVER：订阅端，即下行
      *
      * @var string
      */
     public $role;
-
-    /**
-     * @description 数据来自对应发布端的用户ID
-     *
-     * @var string
-     */
-    public $userId;
 
     /**
      * @description 指标类型，参照端到端指标接口的指标类型
@@ -31,16 +31,16 @@ class relatedMetricDatas extends Model
     public $type;
 
     /**
-     * @description 坐标数据列表
+     * @description 数据来自对应发布端的用户ID
      *
-     * @var nodes[]
+     * @var string
      */
-    public $nodes;
+    public $userId;
     protected $_name = [
-        'role'   => 'Role',
-        'userId' => 'UserId',
-        'type'   => 'Type',
         'nodes'  => 'Nodes',
+        'role'   => 'Role',
+        'type'   => 'Type',
+        'userId' => 'UserId',
     ];
 
     public function validate()
@@ -50,15 +50,6 @@ class relatedMetricDatas extends Model
     public function toMap()
     {
         $res = [];
-        if (null !== $this->role) {
-            $res['Role'] = $this->role;
-        }
-        if (null !== $this->userId) {
-            $res['UserId'] = $this->userId;
-        }
-        if (null !== $this->type) {
-            $res['Type'] = $this->type;
-        }
         if (null !== $this->nodes) {
             $res['Nodes'] = [];
             if (null !== $this->nodes && \is_array($this->nodes)) {
@@ -67,6 +58,15 @@ class relatedMetricDatas extends Model
                     $res['Nodes'][$n++] = null !== $item ? $item->toMap() : $item;
                 }
             }
+        }
+        if (null !== $this->role) {
+            $res['Role'] = $this->role;
+        }
+        if (null !== $this->type) {
+            $res['Type'] = $this->type;
+        }
+        if (null !== $this->userId) {
+            $res['UserId'] = $this->userId;
         }
 
         return $res;
@@ -80,15 +80,6 @@ class relatedMetricDatas extends Model
     public static function fromMap($map = [])
     {
         $model = new self();
-        if (isset($map['Role'])) {
-            $model->role = $map['Role'];
-        }
-        if (isset($map['UserId'])) {
-            $model->userId = $map['UserId'];
-        }
-        if (isset($map['Type'])) {
-            $model->type = $map['Type'];
-        }
         if (isset($map['Nodes'])) {
             if (!empty($map['Nodes'])) {
                 $model->nodes = [];
@@ -97,6 +88,15 @@ class relatedMetricDatas extends Model
                     $model->nodes[$n++] = null !== $item ? nodes::fromMap($item) : $item;
                 }
             }
+        }
+        if (isset($map['Role'])) {
+            $model->role = $map['Role'];
+        }
+        if (isset($map['Type'])) {
+            $model->type = $map['Type'];
+        }
+        if (isset($map['UserId'])) {
+            $model->userId = $map['UserId'];
         }
 
         return $model;

@@ -9,6 +9,13 @@ use AlibabaCloud\Tea\Model;
 class jobInfoList extends Model
 {
     /**
+     * @description 任务时长
+     *
+     * @var int
+     */
+    public $duration;
+
+    /**
      * @description 作业类型
      *
      * @var string
@@ -21,17 +28,10 @@ class jobInfoList extends Model
      * @var string
      */
     public $timeRange;
-
-    /**
-     * @description 任务时长
-     *
-     * @var int
-     */
-    public $duration;
     protected $_name = [
+        'duration'  => 'Duration',
         'jobType'   => 'JobType',
         'timeRange' => 'TimeRange',
-        'duration'  => 'Duration',
     ];
 
     public function validate()
@@ -41,14 +41,14 @@ class jobInfoList extends Model
     public function toMap()
     {
         $res = [];
+        if (null !== $this->duration) {
+            $res['Duration'] = $this->duration;
+        }
         if (null !== $this->jobType) {
             $res['JobType'] = $this->jobType;
         }
         if (null !== $this->timeRange) {
             $res['TimeRange'] = $this->timeRange;
-        }
-        if (null !== $this->duration) {
-            $res['Duration'] = $this->duration;
         }
 
         return $res;
@@ -62,14 +62,14 @@ class jobInfoList extends Model
     public static function fromMap($map = [])
     {
         $model = new self();
+        if (isset($map['Duration'])) {
+            $model->duration = $map['Duration'];
+        }
         if (isset($map['JobType'])) {
             $model->jobType = $map['JobType'];
         }
         if (isset($map['TimeRange'])) {
             $model->timeRange = $map['TimeRange'];
-        }
-        if (isset($map['Duration'])) {
-            $model->duration = $map['Duration'];
         }
 
         return $model;

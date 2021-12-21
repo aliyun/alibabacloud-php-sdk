@@ -10,21 +10,21 @@ use AlibabaCloud\Tea\Model;
 class DescribeRtcRecordMetricDataResponseBody extends Model
 {
     /**
-     * @description 录制用量查询数据
-     *
-     * @var rtcRecordMetricData[]
-     */
-    public $rtcRecordMetricData;
-
-    /**
      * @description 请求Id
      *
      * @var string
      */
     public $requestId;
+
+    /**
+     * @description 录制用量查询数据
+     *
+     * @var rtcRecordMetricData[]
+     */
+    public $rtcRecordMetricData;
     protected $_name = [
-        'rtcRecordMetricData' => 'RtcRecordMetricData',
         'requestId'           => 'RequestId',
+        'rtcRecordMetricData' => 'RtcRecordMetricData',
     ];
 
     public function validate()
@@ -34,6 +34,9 @@ class DescribeRtcRecordMetricDataResponseBody extends Model
     public function toMap()
     {
         $res = [];
+        if (null !== $this->requestId) {
+            $res['RequestId'] = $this->requestId;
+        }
         if (null !== $this->rtcRecordMetricData) {
             $res['RtcRecordMetricData'] = [];
             if (null !== $this->rtcRecordMetricData && \is_array($this->rtcRecordMetricData)) {
@@ -42,9 +45,6 @@ class DescribeRtcRecordMetricDataResponseBody extends Model
                     $res['RtcRecordMetricData'][$n++] = null !== $item ? $item->toMap() : $item;
                 }
             }
-        }
-        if (null !== $this->requestId) {
-            $res['RequestId'] = $this->requestId;
         }
 
         return $res;
@@ -58,6 +58,9 @@ class DescribeRtcRecordMetricDataResponseBody extends Model
     public static function fromMap($map = [])
     {
         $model = new self();
+        if (isset($map['RequestId'])) {
+            $model->requestId = $map['RequestId'];
+        }
         if (isset($map['RtcRecordMetricData'])) {
             if (!empty($map['RtcRecordMetricData'])) {
                 $model->rtcRecordMetricData = [];
@@ -66,9 +69,6 @@ class DescribeRtcRecordMetricDataResponseBody extends Model
                     $model->rtcRecordMetricData[$n++] = null !== $item ? rtcRecordMetricData::fromMap($item) : $item;
                 }
             }
-        }
-        if (isset($map['RequestId'])) {
-            $model->requestId = $map['RequestId'];
         }
 
         return $model;

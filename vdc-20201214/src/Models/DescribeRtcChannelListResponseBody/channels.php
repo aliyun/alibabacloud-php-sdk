@@ -16,13 +16,6 @@ class channels extends Model
     public $channelId;
 
     /**
-     * @description 频道开始时间，UTC格式
-     *
-     * @var string
-     */
-    public $startTime;
-
-    /**
      * @description 频道结束时间，UTC时间
      *
      * @var string
@@ -35,11 +28,18 @@ class channels extends Model
      * @var bool
      */
     public $finished;
+
+    /**
+     * @description 频道开始时间，UTC格式
+     *
+     * @var string
+     */
+    public $startTime;
     protected $_name = [
         'channelId' => 'ChannelId',
-        'startTime' => 'StartTime',
         'endTime'   => 'EndTime',
         'finished'  => 'Finished',
+        'startTime' => 'StartTime',
     ];
 
     public function validate()
@@ -52,14 +52,14 @@ class channels extends Model
         if (null !== $this->channelId) {
             $res['ChannelId'] = $this->channelId;
         }
-        if (null !== $this->startTime) {
-            $res['StartTime'] = $this->startTime;
-        }
         if (null !== $this->endTime) {
             $res['EndTime'] = $this->endTime;
         }
         if (null !== $this->finished) {
             $res['Finished'] = $this->finished;
+        }
+        if (null !== $this->startTime) {
+            $res['StartTime'] = $this->startTime;
         }
 
         return $res;
@@ -76,14 +76,14 @@ class channels extends Model
         if (isset($map['ChannelId'])) {
             $model->channelId = $map['ChannelId'];
         }
-        if (isset($map['StartTime'])) {
-            $model->startTime = $map['StartTime'];
-        }
         if (isset($map['EndTime'])) {
             $model->endTime = $map['EndTime'];
         }
         if (isset($map['Finished'])) {
             $model->finished = $map['Finished'];
+        }
+        if (isset($map['StartTime'])) {
+            $model->startTime = $map['StartTime'];
         }
 
         return $model;

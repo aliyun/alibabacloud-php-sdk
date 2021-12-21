@@ -30,13 +30,6 @@ class DescribeFaultDiagnosisUserDetailRequest extends Model
     public $createdTs;
 
     /**
-     * @description 用户ID
-     *
-     * @var string
-     */
-    public $userId;
-
-    /**
      * @description 异常类型 JOIN_SLOW：进频道慢 AUDIO_STUCK：音频卡顿 VIDEO_STUCK：视频卡顿 VIDEO_VAGUE：视频模糊 HIGH_DELAY：通话延迟高 FIRST_FRAME_SLOW：接收首屏慢
      *
      * @var string
@@ -49,13 +42,20 @@ class DescribeFaultDiagnosisUserDetailRequest extends Model
      * @var bool
      */
     public $queryCallUserInfo;
+
+    /**
+     * @description 用户ID
+     *
+     * @var string
+     */
+    public $userId;
     protected $_name = [
         'appId'             => 'AppId',
         'channelId'         => 'ChannelId',
         'createdTs'         => 'CreatedTs',
-        'userId'            => 'UserId',
         'faultType'         => 'FaultType',
         'queryCallUserInfo' => 'QueryCallUserInfo',
+        'userId'            => 'UserId',
     ];
 
     public function validate()
@@ -74,14 +74,14 @@ class DescribeFaultDiagnosisUserDetailRequest extends Model
         if (null !== $this->createdTs) {
             $res['CreatedTs'] = $this->createdTs;
         }
-        if (null !== $this->userId) {
-            $res['UserId'] = $this->userId;
-        }
         if (null !== $this->faultType) {
             $res['FaultType'] = $this->faultType;
         }
         if (null !== $this->queryCallUserInfo) {
             $res['QueryCallUserInfo'] = $this->queryCallUserInfo;
+        }
+        if (null !== $this->userId) {
+            $res['UserId'] = $this->userId;
         }
 
         return $res;
@@ -104,14 +104,14 @@ class DescribeFaultDiagnosisUserDetailRequest extends Model
         if (isset($map['CreatedTs'])) {
             $model->createdTs = $map['CreatedTs'];
         }
-        if (isset($map['UserId'])) {
-            $model->userId = $map['UserId'];
-        }
         if (isset($map['FaultType'])) {
             $model->faultType = $map['FaultType'];
         }
         if (isset($map['QueryCallUserInfo'])) {
             $model->queryCallUserInfo = $map['QueryCallUserInfo'];
+        }
+        if (isset($map['UserId'])) {
+            $model->userId = $map['UserId'];
         }
 
         return $model;

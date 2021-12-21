@@ -24,6 +24,13 @@ class DescribeRtcChannelUsersResponseBody extends Model
     public $pageSize;
 
     /**
+     * @description 请求ID
+     *
+     * @var string
+     */
+    public $requestId;
+
+    /**
      * @description 总数
      *
      * @var int
@@ -36,19 +43,12 @@ class DescribeRtcChannelUsersResponseBody extends Model
      * @var userList
      */
     public $userList;
-
-    /**
-     * @description 请求ID
-     *
-     * @var string
-     */
-    public $requestId;
     protected $_name = [
         'pageNo'    => 'PageNo',
         'pageSize'  => 'PageSize',
+        'requestId' => 'RequestId',
         'totalCnt'  => 'TotalCnt',
         'userList'  => 'UserList',
-        'requestId' => 'RequestId',
     ];
 
     public function validate()
@@ -64,14 +64,14 @@ class DescribeRtcChannelUsersResponseBody extends Model
         if (null !== $this->pageSize) {
             $res['PageSize'] = $this->pageSize;
         }
+        if (null !== $this->requestId) {
+            $res['RequestId'] = $this->requestId;
+        }
         if (null !== $this->totalCnt) {
             $res['TotalCnt'] = $this->totalCnt;
         }
         if (null !== $this->userList) {
             $res['UserList'] = null !== $this->userList ? $this->userList->toMap() : null;
-        }
-        if (null !== $this->requestId) {
-            $res['RequestId'] = $this->requestId;
         }
 
         return $res;
@@ -91,14 +91,14 @@ class DescribeRtcChannelUsersResponseBody extends Model
         if (isset($map['PageSize'])) {
             $model->pageSize = $map['PageSize'];
         }
+        if (isset($map['RequestId'])) {
+            $model->requestId = $map['RequestId'];
+        }
         if (isset($map['TotalCnt'])) {
             $model->totalCnt = $map['TotalCnt'];
         }
         if (isset($map['UserList'])) {
             $model->userList = userList::fromMap($map['UserList']);
-        }
-        if (isset($map['RequestId'])) {
-            $model->requestId = $map['RequestId'];
         }
 
         return $model;

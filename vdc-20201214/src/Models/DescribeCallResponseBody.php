@@ -18,22 +18,22 @@ class DescribeCallResponseBody extends Model
     public $callInfo;
 
     /**
-     * @description 用户详情列表。
-     *
-     * @var userDetailList[]
-     */
-    public $userDetailList;
-
-    /**
      * @description 请求ID
      *
      * @var string
      */
     public $requestId;
+
+    /**
+     * @description 用户详情列表。
+     *
+     * @var userDetailList[]
+     */
+    public $userDetailList;
     protected $_name = [
         'callInfo'       => 'CallInfo',
-        'userDetailList' => 'UserDetailList',
         'requestId'      => 'RequestId',
+        'userDetailList' => 'UserDetailList',
     ];
 
     public function validate()
@@ -46,6 +46,9 @@ class DescribeCallResponseBody extends Model
         if (null !== $this->callInfo) {
             $res['CallInfo'] = null !== $this->callInfo ? $this->callInfo->toMap() : null;
         }
+        if (null !== $this->requestId) {
+            $res['RequestId'] = $this->requestId;
+        }
         if (null !== $this->userDetailList) {
             $res['UserDetailList'] = [];
             if (null !== $this->userDetailList && \is_array($this->userDetailList)) {
@@ -54,9 +57,6 @@ class DescribeCallResponseBody extends Model
                     $res['UserDetailList'][$n++] = null !== $item ? $item->toMap() : $item;
                 }
             }
-        }
-        if (null !== $this->requestId) {
-            $res['RequestId'] = $this->requestId;
         }
 
         return $res;
@@ -73,6 +73,9 @@ class DescribeCallResponseBody extends Model
         if (isset($map['CallInfo'])) {
             $model->callInfo = callInfo::fromMap($map['CallInfo']);
         }
+        if (isset($map['RequestId'])) {
+            $model->requestId = $map['RequestId'];
+        }
         if (isset($map['UserDetailList'])) {
             if (!empty($map['UserDetailList'])) {
                 $model->userDetailList = [];
@@ -81,9 +84,6 @@ class DescribeCallResponseBody extends Model
                     $model->userDetailList[$n++] = null !== $item ? userDetailList::fromMap($item) : $item;
                 }
             }
-        }
-        if (isset($map['RequestId'])) {
-            $model->requestId = $map['RequestId'];
         }
 
         return $model;

@@ -9,13 +9,6 @@ use AlibabaCloud\Tea\Model;
 class statList extends Model
 {
     /**
-     * @description 统计维度。
-     *
-     * @var string
-     */
-    public $name;
-
-    /**
      * @description 通信人数。
      *
      * @var int
@@ -28,10 +21,17 @@ class statList extends Model
      * @var string
      */
     public $callUserRatio;
+
+    /**
+     * @description 统计维度。
+     *
+     * @var string
+     */
+    public $name;
     protected $_name = [
-        'name'          => 'Name',
         'callUserCount' => 'CallUserCount',
         'callUserRatio' => 'CallUserRatio',
+        'name'          => 'Name',
     ];
 
     public function validate()
@@ -41,14 +41,14 @@ class statList extends Model
     public function toMap()
     {
         $res = [];
-        if (null !== $this->name) {
-            $res['Name'] = $this->name;
-        }
         if (null !== $this->callUserCount) {
             $res['CallUserCount'] = $this->callUserCount;
         }
         if (null !== $this->callUserRatio) {
             $res['CallUserRatio'] = $this->callUserRatio;
+        }
+        if (null !== $this->name) {
+            $res['Name'] = $this->name;
         }
 
         return $res;
@@ -62,14 +62,14 @@ class statList extends Model
     public static function fromMap($map = [])
     {
         $model = new self();
-        if (isset($map['Name'])) {
-            $model->name = $map['Name'];
-        }
         if (isset($map['CallUserCount'])) {
             $model->callUserCount = $map['CallUserCount'];
         }
         if (isset($map['CallUserRatio'])) {
             $model->callUserRatio = $map['CallUserRatio'];
+        }
+        if (isset($map['Name'])) {
+            $model->name = $map['Name'];
         }
 
         return $model;

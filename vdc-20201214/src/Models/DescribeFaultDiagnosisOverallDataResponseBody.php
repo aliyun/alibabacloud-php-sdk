@@ -11,18 +11,18 @@ use AlibabaCloud\Tea\Model;
 class DescribeFaultDiagnosisOverallDataResponseBody extends Model
 {
     /**
-     * @description 总览数据
-     *
-     * @var overallData
-     */
-    public $overallData;
-
-    /**
      * @description 异常指标数据
      *
      * @var metricData
      */
     public $metricData;
+
+    /**
+     * @description 总览数据
+     *
+     * @var overallData
+     */
+    public $overallData;
 
     /**
      * @description 请求ID。
@@ -31,8 +31,8 @@ class DescribeFaultDiagnosisOverallDataResponseBody extends Model
      */
     public $requestId;
     protected $_name = [
-        'overallData' => 'OverallData',
         'metricData'  => 'MetricData',
+        'overallData' => 'OverallData',
         'requestId'   => 'RequestId',
     ];
 
@@ -43,11 +43,11 @@ class DescribeFaultDiagnosisOverallDataResponseBody extends Model
     public function toMap()
     {
         $res = [];
-        if (null !== $this->overallData) {
-            $res['OverallData'] = null !== $this->overallData ? $this->overallData->toMap() : null;
-        }
         if (null !== $this->metricData) {
             $res['MetricData'] = null !== $this->metricData ? $this->metricData->toMap() : null;
+        }
+        if (null !== $this->overallData) {
+            $res['OverallData'] = null !== $this->overallData ? $this->overallData->toMap() : null;
         }
         if (null !== $this->requestId) {
             $res['RequestId'] = $this->requestId;
@@ -64,11 +64,11 @@ class DescribeFaultDiagnosisOverallDataResponseBody extends Model
     public static function fromMap($map = [])
     {
         $model = new self();
-        if (isset($map['OverallData'])) {
-            $model->overallData = overallData::fromMap($map['OverallData']);
-        }
         if (isset($map['MetricData'])) {
             $model->metricData = metricData::fromMap($map['MetricData']);
+        }
+        if (isset($map['OverallData'])) {
+            $model->overallData = overallData::fromMap($map['OverallData']);
         }
         if (isset($map['RequestId'])) {
             $model->requestId = $map['RequestId'];

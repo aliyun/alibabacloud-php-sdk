@@ -9,21 +9,21 @@ use AlibabaCloud\Tea\Model;
 class subJobInfoList extends Model
 {
     /**
-     * @description 子任务类型
-     *
-     * @var string
-     */
-    public $subJobType;
-
-    /**
      * @description 子任务时长
      *
      * @var int
      */
     public $subJobDuration;
+
+    /**
+     * @description 子任务类型
+     *
+     * @var string
+     */
+    public $subJobType;
     protected $_name = [
-        'subJobType'     => 'SubJobType',
         'subJobDuration' => 'SubJobDuration',
+        'subJobType'     => 'SubJobType',
     ];
 
     public function validate()
@@ -33,11 +33,11 @@ class subJobInfoList extends Model
     public function toMap()
     {
         $res = [];
-        if (null !== $this->subJobType) {
-            $res['SubJobType'] = $this->subJobType;
-        }
         if (null !== $this->subJobDuration) {
             $res['SubJobDuration'] = $this->subJobDuration;
+        }
+        if (null !== $this->subJobType) {
+            $res['SubJobType'] = $this->subJobType;
         }
 
         return $res;
@@ -51,11 +51,11 @@ class subJobInfoList extends Model
     public static function fromMap($map = [])
     {
         $model = new self();
-        if (isset($map['SubJobType'])) {
-            $model->subJobType = $map['SubJobType'];
-        }
         if (isset($map['SubJobDuration'])) {
             $model->subJobDuration = $map['SubJobDuration'];
+        }
+        if (isset($map['SubJobType'])) {
+            $model->subJobType = $map['SubJobType'];
         }
 
         return $model;

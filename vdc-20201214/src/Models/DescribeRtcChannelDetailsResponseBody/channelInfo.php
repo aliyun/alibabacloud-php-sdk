@@ -9,18 +9,11 @@ use AlibabaCloud\Tea\Model;
 class channelInfo extends Model
 {
     /**
-     * @description SessionID
+     * @description 设备类型
      *
      * @var string
      */
-    public $sid;
-
-    /**
-     * @description 参会者ID
-     *
-     * @var string
-     */
-    public $uid;
+    public $deviceType;
 
     /**
      * @description 用户入会时间，UTC格式
@@ -37,11 +30,11 @@ class channelInfo extends Model
     public $leaveTime;
 
     /**
-     * @description SDK版本
+     * @description 操作系统
      *
      * @var string
      */
-    public $sdkVersion;
+    public $OS;
 
     /**
      * @description 平台信息
@@ -51,27 +44,34 @@ class channelInfo extends Model
     public $platform;
 
     /**
-     * @description 操作系统
+     * @description SDK版本
      *
      * @var string
      */
-    public $OS;
+    public $sdkVersion;
 
     /**
-     * @description 设备类型
+     * @description SessionID
      *
      * @var string
      */
-    public $deviceType;
+    public $sid;
+
+    /**
+     * @description 参会者ID
+     *
+     * @var string
+     */
+    public $uid;
     protected $_name = [
-        'sid'        => 'Sid',
-        'uid'        => 'Uid',
+        'deviceType' => 'DeviceType',
         'joinTime'   => 'JoinTime',
         'leaveTime'  => 'LeaveTime',
-        'sdkVersion' => 'SdkVersion',
-        'platform'   => 'Platform',
         'OS'         => 'OS',
-        'deviceType' => 'DeviceType',
+        'platform'   => 'Platform',
+        'sdkVersion' => 'SdkVersion',
+        'sid'        => 'Sid',
+        'uid'        => 'Uid',
     ];
 
     public function validate()
@@ -81,11 +81,8 @@ class channelInfo extends Model
     public function toMap()
     {
         $res = [];
-        if (null !== $this->sid) {
-            $res['Sid'] = $this->sid;
-        }
-        if (null !== $this->uid) {
-            $res['Uid'] = $this->uid;
+        if (null !== $this->deviceType) {
+            $res['DeviceType'] = $this->deviceType;
         }
         if (null !== $this->joinTime) {
             $res['JoinTime'] = $this->joinTime;
@@ -93,17 +90,20 @@ class channelInfo extends Model
         if (null !== $this->leaveTime) {
             $res['LeaveTime'] = $this->leaveTime;
         }
-        if (null !== $this->sdkVersion) {
-            $res['SdkVersion'] = $this->sdkVersion;
+        if (null !== $this->OS) {
+            $res['OS'] = $this->OS;
         }
         if (null !== $this->platform) {
             $res['Platform'] = $this->platform;
         }
-        if (null !== $this->OS) {
-            $res['OS'] = $this->OS;
+        if (null !== $this->sdkVersion) {
+            $res['SdkVersion'] = $this->sdkVersion;
         }
-        if (null !== $this->deviceType) {
-            $res['DeviceType'] = $this->deviceType;
+        if (null !== $this->sid) {
+            $res['Sid'] = $this->sid;
+        }
+        if (null !== $this->uid) {
+            $res['Uid'] = $this->uid;
         }
 
         return $res;
@@ -117,11 +117,8 @@ class channelInfo extends Model
     public static function fromMap($map = [])
     {
         $model = new self();
-        if (isset($map['Sid'])) {
-            $model->sid = $map['Sid'];
-        }
-        if (isset($map['Uid'])) {
-            $model->uid = $map['Uid'];
+        if (isset($map['DeviceType'])) {
+            $model->deviceType = $map['DeviceType'];
         }
         if (isset($map['JoinTime'])) {
             $model->joinTime = $map['JoinTime'];
@@ -129,17 +126,20 @@ class channelInfo extends Model
         if (isset($map['LeaveTime'])) {
             $model->leaveTime = $map['LeaveTime'];
         }
-        if (isset($map['SdkVersion'])) {
-            $model->sdkVersion = $map['SdkVersion'];
+        if (isset($map['OS'])) {
+            $model->OS = $map['OS'];
         }
         if (isset($map['Platform'])) {
             $model->platform = $map['Platform'];
         }
-        if (isset($map['OS'])) {
-            $model->OS = $map['OS'];
+        if (isset($map['SdkVersion'])) {
+            $model->sdkVersion = $map['SdkVersion'];
         }
-        if (isset($map['DeviceType'])) {
-            $model->deviceType = $map['DeviceType'];
+        if (isset($map['Sid'])) {
+            $model->sid = $map['Sid'];
+        }
+        if (isset($map['Uid'])) {
+            $model->uid = $map['Uid'];
         }
 
         return $model;

@@ -20,11 +20,11 @@ class DescribeFaultDiagnosisUserDetailResponseBody extends Model
     public $callInfo;
 
     /**
-     * @description 诊断用户详细信，QueryCallUserInfo=false是返回息
+     * @description 影响因素列表，空表示影响因素未知
      *
-     * @var userDetail
+     * @var factorList[]
      */
-    public $userDetail;
+    public $factorList;
 
     /**
      * @description 异常指标
@@ -32,13 +32,6 @@ class DescribeFaultDiagnosisUserDetailResponseBody extends Model
      * @var faultMetricData
      */
     public $faultMetricData;
-
-    /**
-     * @description 影响因素列表，空表示影响因素未知
-     *
-     * @var factorList[]
-     */
-    public $factorList;
 
     /**
      * @description 网络运营商列表
@@ -53,13 +46,20 @@ class DescribeFaultDiagnosisUserDetailResponseBody extends Model
      * @var string
      */
     public $requestId;
+
+    /**
+     * @description 诊断用户详细信，QueryCallUserInfo=false是返回息
+     *
+     * @var userDetail
+     */
+    public $userDetail;
     protected $_name = [
         'callInfo'         => 'CallInfo',
-        'userDetail'       => 'UserDetail',
-        'faultMetricData'  => 'FaultMetricData',
         'factorList'       => 'FactorList',
+        'faultMetricData'  => 'FaultMetricData',
         'networkOperators' => 'NetworkOperators',
         'requestId'        => 'RequestId',
+        'userDetail'       => 'UserDetail',
     ];
 
     public function validate()
@@ -72,12 +72,6 @@ class DescribeFaultDiagnosisUserDetailResponseBody extends Model
         if (null !== $this->callInfo) {
             $res['CallInfo'] = null !== $this->callInfo ? $this->callInfo->toMap() : null;
         }
-        if (null !== $this->userDetail) {
-            $res['UserDetail'] = null !== $this->userDetail ? $this->userDetail->toMap() : null;
-        }
-        if (null !== $this->faultMetricData) {
-            $res['FaultMetricData'] = null !== $this->faultMetricData ? $this->faultMetricData->toMap() : null;
-        }
         if (null !== $this->factorList) {
             $res['FactorList'] = [];
             if (null !== $this->factorList && \is_array($this->factorList)) {
@@ -87,11 +81,17 @@ class DescribeFaultDiagnosisUserDetailResponseBody extends Model
                 }
             }
         }
+        if (null !== $this->faultMetricData) {
+            $res['FaultMetricData'] = null !== $this->faultMetricData ? $this->faultMetricData->toMap() : null;
+        }
         if (null !== $this->networkOperators) {
             $res['NetworkOperators'] = $this->networkOperators;
         }
         if (null !== $this->requestId) {
             $res['RequestId'] = $this->requestId;
+        }
+        if (null !== $this->userDetail) {
+            $res['UserDetail'] = null !== $this->userDetail ? $this->userDetail->toMap() : null;
         }
 
         return $res;
@@ -108,12 +108,6 @@ class DescribeFaultDiagnosisUserDetailResponseBody extends Model
         if (isset($map['CallInfo'])) {
             $model->callInfo = callInfo::fromMap($map['CallInfo']);
         }
-        if (isset($map['UserDetail'])) {
-            $model->userDetail = userDetail::fromMap($map['UserDetail']);
-        }
-        if (isset($map['FaultMetricData'])) {
-            $model->faultMetricData = faultMetricData::fromMap($map['FaultMetricData']);
-        }
         if (isset($map['FactorList'])) {
             if (!empty($map['FactorList'])) {
                 $model->factorList = [];
@@ -123,6 +117,9 @@ class DescribeFaultDiagnosisUserDetailResponseBody extends Model
                 }
             }
         }
+        if (isset($map['FaultMetricData'])) {
+            $model->faultMetricData = faultMetricData::fromMap($map['FaultMetricData']);
+        }
         if (isset($map['NetworkOperators'])) {
             if (!empty($map['NetworkOperators'])) {
                 $model->networkOperators = $map['NetworkOperators'];
@@ -130,6 +127,9 @@ class DescribeFaultDiagnosisUserDetailResponseBody extends Model
         }
         if (isset($map['RequestId'])) {
             $model->requestId = $map['RequestId'];
+        }
+        if (isset($map['UserDetail'])) {
+            $model->userDetail = userDetail::fromMap($map['UserDetail']);
         }
 
         return $model;

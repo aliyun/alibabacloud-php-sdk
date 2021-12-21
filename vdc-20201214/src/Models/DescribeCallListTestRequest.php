@@ -16,16 +16,16 @@ class DescribeCallListTestRequest extends Model
     /**
      * @var int
      */
-    public $startTs;
+    public $endTs;
 
     /**
      * @var int
      */
-    public $endTs;
+    public $startTs;
     protected $_name = [
         'appId'   => 'AppId',
-        'startTs' => 'StartTs',
         'endTs'   => 'EndTs',
+        'startTs' => 'StartTs',
     ];
 
     public function validate()
@@ -38,11 +38,11 @@ class DescribeCallListTestRequest extends Model
         if (null !== $this->appId) {
             $res['AppId'] = $this->appId;
         }
-        if (null !== $this->startTs) {
-            $res['StartTs'] = $this->startTs;
-        }
         if (null !== $this->endTs) {
             $res['EndTs'] = $this->endTs;
+        }
+        if (null !== $this->startTs) {
+            $res['StartTs'] = $this->startTs;
         }
 
         return $res;
@@ -59,11 +59,11 @@ class DescribeCallListTestRequest extends Model
         if (isset($map['AppId'])) {
             $model->appId = $map['AppId'];
         }
-        if (isset($map['StartTs'])) {
-            $model->startTs = $map['StartTs'];
-        }
         if (isset($map['EndTs'])) {
             $model->endTs = $map['EndTs'];
+        }
+        if (isset($map['StartTs'])) {
+            $model->startTs = $map['StartTs'];
         }
 
         return $model;

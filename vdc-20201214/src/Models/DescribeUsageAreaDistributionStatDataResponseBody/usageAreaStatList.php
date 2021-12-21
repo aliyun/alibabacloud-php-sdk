@@ -9,13 +9,6 @@ use AlibabaCloud\Tea\Model;
 class usageAreaStatList extends Model
 {
     /**
-     * @description 地域名称，如中国
-     *
-     * @var string
-     */
-    public $name;
-
-    /**
      * @description 音频通话时长，单位分钟
      *
      * @var int
@@ -23,11 +16,11 @@ class usageAreaStatList extends Model
     public $audioCallDuration;
 
     /**
-     * @description 视频通话时长，单位分钟
+     * @description 地域名称，如中国
      *
-     * @var int
+     * @var string
      */
-    public $videoCallDuration;
+    public $name;
 
     /**
      * @description 总通话时长，单位分钟
@@ -35,11 +28,18 @@ class usageAreaStatList extends Model
      * @var int
      */
     public $totalCallDuration;
+
+    /**
+     * @description 视频通话时长，单位分钟
+     *
+     * @var int
+     */
+    public $videoCallDuration;
     protected $_name = [
-        'name'              => 'Name',
         'audioCallDuration' => 'AudioCallDuration',
-        'videoCallDuration' => 'VideoCallDuration',
+        'name'              => 'Name',
         'totalCallDuration' => 'TotalCallDuration',
+        'videoCallDuration' => 'VideoCallDuration',
     ];
 
     public function validate()
@@ -49,17 +49,17 @@ class usageAreaStatList extends Model
     public function toMap()
     {
         $res = [];
-        if (null !== $this->name) {
-            $res['Name'] = $this->name;
-        }
         if (null !== $this->audioCallDuration) {
             $res['AudioCallDuration'] = $this->audioCallDuration;
         }
-        if (null !== $this->videoCallDuration) {
-            $res['VideoCallDuration'] = $this->videoCallDuration;
+        if (null !== $this->name) {
+            $res['Name'] = $this->name;
         }
         if (null !== $this->totalCallDuration) {
             $res['TotalCallDuration'] = $this->totalCallDuration;
+        }
+        if (null !== $this->videoCallDuration) {
+            $res['VideoCallDuration'] = $this->videoCallDuration;
         }
 
         return $res;
@@ -73,17 +73,17 @@ class usageAreaStatList extends Model
     public static function fromMap($map = [])
     {
         $model = new self();
-        if (isset($map['Name'])) {
-            $model->name = $map['Name'];
-        }
         if (isset($map['AudioCallDuration'])) {
             $model->audioCallDuration = $map['AudioCallDuration'];
         }
-        if (isset($map['VideoCallDuration'])) {
-            $model->videoCallDuration = $map['VideoCallDuration'];
+        if (isset($map['Name'])) {
+            $model->name = $map['Name'];
         }
         if (isset($map['TotalCallDuration'])) {
             $model->totalCallDuration = $map['TotalCallDuration'];
+        }
+        if (isset($map['VideoCallDuration'])) {
+            $model->videoCallDuration = $map['VideoCallDuration'];
         }
 
         return $model;

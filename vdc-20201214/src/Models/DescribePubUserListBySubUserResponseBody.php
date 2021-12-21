@@ -11,11 +11,11 @@ use AlibabaCloud\Tea\Model;
 class DescribePubUserListBySubUserResponseBody extends Model
 {
     /**
-     * @description 订阅端用户详细信息。
+     * @description 通信状态。取值：IN：进行中。OUT：已结束。
      *
-     * @var subUserDetail
+     * @var string
      */
-    public $subUserDetail;
+    public $callStatus;
 
     /**
      * @description 发布端用户详情信息。
@@ -25,23 +25,23 @@ class DescribePubUserListBySubUserResponseBody extends Model
     public $pubUserDetailList;
 
     /**
-     * @description 通信状态。取值：IN：进行中。OUT：已结束。
-     *
-     * @var string
-     */
-    public $callStatus;
-
-    /**
      * @description 请求ID。
      *
      * @var string
      */
     public $requestId;
+
+    /**
+     * @description 订阅端用户详细信息。
+     *
+     * @var subUserDetail
+     */
+    public $subUserDetail;
     protected $_name = [
-        'subUserDetail'     => 'SubUserDetail',
-        'pubUserDetailList' => 'PubUserDetailList',
         'callStatus'        => 'CallStatus',
+        'pubUserDetailList' => 'PubUserDetailList',
         'requestId'         => 'RequestId',
+        'subUserDetail'     => 'SubUserDetail',
     ];
 
     public function validate()
@@ -51,8 +51,8 @@ class DescribePubUserListBySubUserResponseBody extends Model
     public function toMap()
     {
         $res = [];
-        if (null !== $this->subUserDetail) {
-            $res['SubUserDetail'] = null !== $this->subUserDetail ? $this->subUserDetail->toMap() : null;
+        if (null !== $this->callStatus) {
+            $res['CallStatus'] = $this->callStatus;
         }
         if (null !== $this->pubUserDetailList) {
             $res['PubUserDetailList'] = [];
@@ -63,11 +63,11 @@ class DescribePubUserListBySubUserResponseBody extends Model
                 }
             }
         }
-        if (null !== $this->callStatus) {
-            $res['CallStatus'] = $this->callStatus;
-        }
         if (null !== $this->requestId) {
             $res['RequestId'] = $this->requestId;
+        }
+        if (null !== $this->subUserDetail) {
+            $res['SubUserDetail'] = null !== $this->subUserDetail ? $this->subUserDetail->toMap() : null;
         }
 
         return $res;
@@ -81,8 +81,8 @@ class DescribePubUserListBySubUserResponseBody extends Model
     public static function fromMap($map = [])
     {
         $model = new self();
-        if (isset($map['SubUserDetail'])) {
-            $model->subUserDetail = subUserDetail::fromMap($map['SubUserDetail']);
+        if (isset($map['CallStatus'])) {
+            $model->callStatus = $map['CallStatus'];
         }
         if (isset($map['PubUserDetailList'])) {
             if (!empty($map['PubUserDetailList'])) {
@@ -93,11 +93,11 @@ class DescribePubUserListBySubUserResponseBody extends Model
                 }
             }
         }
-        if (isset($map['CallStatus'])) {
-            $model->callStatus = $map['CallStatus'];
-        }
         if (isset($map['RequestId'])) {
             $model->requestId = $map['RequestId'];
+        }
+        if (isset($map['SubUserDetail'])) {
+            $model->subUserDetail = subUserDetail::fromMap($map['SubUserDetail']);
         }
 
         return $model;

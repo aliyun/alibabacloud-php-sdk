@@ -23,11 +23,11 @@ class DescribeRtcUserEventListRequest extends Model
     public $channelId;
 
     /**
-     * @description 用户ID
+     * @description 结束时间，UTC格式
      *
      * @var string
      */
-    public $uid;
+    public $endTime;
 
     /**
      * @description 起始时间，UTC格式
@@ -37,17 +37,17 @@ class DescribeRtcUserEventListRequest extends Model
     public $startTime;
 
     /**
-     * @description 结束时间，UTC格式
+     * @description 用户ID
      *
      * @var string
      */
-    public $endTime;
+    public $uid;
     protected $_name = [
         'appId'     => 'AppId',
         'channelId' => 'ChannelId',
-        'uid'       => 'Uid',
-        'startTime' => 'StartTime',
         'endTime'   => 'EndTime',
+        'startTime' => 'StartTime',
+        'uid'       => 'Uid',
     ];
 
     public function validate()
@@ -63,14 +63,14 @@ class DescribeRtcUserEventListRequest extends Model
         if (null !== $this->channelId) {
             $res['ChannelId'] = $this->channelId;
         }
-        if (null !== $this->uid) {
-            $res['Uid'] = $this->uid;
+        if (null !== $this->endTime) {
+            $res['EndTime'] = $this->endTime;
         }
         if (null !== $this->startTime) {
             $res['StartTime'] = $this->startTime;
         }
-        if (null !== $this->endTime) {
-            $res['EndTime'] = $this->endTime;
+        if (null !== $this->uid) {
+            $res['Uid'] = $this->uid;
         }
 
         return $res;
@@ -90,14 +90,14 @@ class DescribeRtcUserEventListRequest extends Model
         if (isset($map['ChannelId'])) {
             $model->channelId = $map['ChannelId'];
         }
-        if (isset($map['Uid'])) {
-            $model->uid = $map['Uid'];
+        if (isset($map['EndTime'])) {
+            $model->endTime = $map['EndTime'];
         }
         if (isset($map['StartTime'])) {
             $model->startTime = $map['StartTime'];
         }
-        if (isset($map['EndTime'])) {
-            $model->endTime = $map['EndTime'];
+        if (isset($map['Uid'])) {
+            $model->uid = $map['Uid'];
         }
 
         return $model;

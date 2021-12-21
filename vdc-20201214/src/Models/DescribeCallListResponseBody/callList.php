@@ -16,11 +16,11 @@ class callList extends Model
     public $appId;
 
     /**
-     * @description 频道ID。
+     * @description 通信体验差的用户数。
      *
-     * @var string
+     * @var int
      */
-    public $channelId;
+    public $badExpUserCnt;
 
     /**
      * @description 通信状态，IN：进行中，OUT：已结束
@@ -28,6 +28,13 @@ class callList extends Model
      * @var string
      */
     public $callStatus;
+
+    /**
+     * @description 频道ID。
+     *
+     * @var string
+     */
+    public $channelId;
 
     /**
      * @description 通信的创建时间戳，使用UNIX时间戳表示，单位：秒。
@@ -56,22 +63,15 @@ class callList extends Model
      * @var int
      */
     public $userCnt;
-
-    /**
-     * @description 通信体验差的用户数。
-     *
-     * @var int
-     */
-    public $badExpUserCnt;
     protected $_name = [
         'appId'         => 'AppId',
-        'channelId'     => 'ChannelId',
+        'badExpUserCnt' => 'BadExpUserCnt',
         'callStatus'    => 'CallStatus',
+        'channelId'     => 'ChannelId',
         'createdTs'     => 'CreatedTs',
         'destroyedTs'   => 'DestroyedTs',
         'duration'      => 'Duration',
         'userCnt'       => 'UserCnt',
-        'badExpUserCnt' => 'BadExpUserCnt',
     ];
 
     public function validate()
@@ -84,11 +84,14 @@ class callList extends Model
         if (null !== $this->appId) {
             $res['AppId'] = $this->appId;
         }
-        if (null !== $this->channelId) {
-            $res['ChannelId'] = $this->channelId;
+        if (null !== $this->badExpUserCnt) {
+            $res['BadExpUserCnt'] = $this->badExpUserCnt;
         }
         if (null !== $this->callStatus) {
             $res['CallStatus'] = $this->callStatus;
+        }
+        if (null !== $this->channelId) {
+            $res['ChannelId'] = $this->channelId;
         }
         if (null !== $this->createdTs) {
             $res['CreatedTs'] = $this->createdTs;
@@ -101,9 +104,6 @@ class callList extends Model
         }
         if (null !== $this->userCnt) {
             $res['UserCnt'] = $this->userCnt;
-        }
-        if (null !== $this->badExpUserCnt) {
-            $res['BadExpUserCnt'] = $this->badExpUserCnt;
         }
 
         return $res;
@@ -120,11 +120,14 @@ class callList extends Model
         if (isset($map['AppId'])) {
             $model->appId = $map['AppId'];
         }
-        if (isset($map['ChannelId'])) {
-            $model->channelId = $map['ChannelId'];
+        if (isset($map['BadExpUserCnt'])) {
+            $model->badExpUserCnt = $map['BadExpUserCnt'];
         }
         if (isset($map['CallStatus'])) {
             $model->callStatus = $map['CallStatus'];
+        }
+        if (isset($map['ChannelId'])) {
+            $model->channelId = $map['ChannelId'];
         }
         if (isset($map['CreatedTs'])) {
             $model->createdTs = $map['CreatedTs'];
@@ -137,9 +140,6 @@ class callList extends Model
         }
         if (isset($map['UserCnt'])) {
             $model->userCnt = $map['UserCnt'];
-        }
-        if (isset($map['BadExpUserCnt'])) {
-            $model->badExpUserCnt = $map['BadExpUserCnt'];
         }
 
         return $model;

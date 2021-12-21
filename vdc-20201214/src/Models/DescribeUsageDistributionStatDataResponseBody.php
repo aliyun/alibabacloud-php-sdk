@@ -10,21 +10,21 @@ use AlibabaCloud\Tea\Model;
 class DescribeUsageDistributionStatDataResponseBody extends Model
 {
     /**
-     * @description 用量统计数据列表
-     *
-     * @var usageStatList[]
-     */
-    public $usageStatList;
-
-    /**
      * @description 请求ID
      *
      * @var string
      */
     public $requestId;
+
+    /**
+     * @description 用量统计数据列表
+     *
+     * @var usageStatList[]
+     */
+    public $usageStatList;
     protected $_name = [
-        'usageStatList' => 'UsageStatList',
         'requestId'     => 'RequestId',
+        'usageStatList' => 'UsageStatList',
     ];
 
     public function validate()
@@ -34,6 +34,9 @@ class DescribeUsageDistributionStatDataResponseBody extends Model
     public function toMap()
     {
         $res = [];
+        if (null !== $this->requestId) {
+            $res['RequestId'] = $this->requestId;
+        }
         if (null !== $this->usageStatList) {
             $res['UsageStatList'] = [];
             if (null !== $this->usageStatList && \is_array($this->usageStatList)) {
@@ -42,9 +45,6 @@ class DescribeUsageDistributionStatDataResponseBody extends Model
                     $res['UsageStatList'][$n++] = null !== $item ? $item->toMap() : $item;
                 }
             }
-        }
-        if (null !== $this->requestId) {
-            $res['RequestId'] = $this->requestId;
         }
 
         return $res;
@@ -58,6 +58,9 @@ class DescribeUsageDistributionStatDataResponseBody extends Model
     public static function fromMap($map = [])
     {
         $model = new self();
+        if (isset($map['RequestId'])) {
+            $model->requestId = $map['RequestId'];
+        }
         if (isset($map['UsageStatList'])) {
             if (!empty($map['UsageStatList'])) {
                 $model->usageStatList = [];
@@ -66,9 +69,6 @@ class DescribeUsageDistributionStatDataResponseBody extends Model
                     $model->usageStatList[$n++] = null !== $item ? usageStatList::fromMap($item) : $item;
                 }
             }
-        }
-        if (isset($map['RequestId'])) {
-            $model->requestId = $map['RequestId'];
         }
 
         return $model;

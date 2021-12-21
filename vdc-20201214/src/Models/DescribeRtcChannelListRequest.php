@@ -16,11 +16,11 @@ class DescribeRtcChannelListRequest extends Model
     public $appId;
 
     /**
-     * @description 起始时间，UTC格式
+     * @description ChannelId
      *
      * @var string
      */
-    public $startTime;
+    public $channelId;
 
     /**
      * @description 结束时间，UTC格式
@@ -28,13 +28,6 @@ class DescribeRtcChannelListRequest extends Model
      * @var string
      */
     public $endTime;
-
-    /**
-     * @description ChannelId
-     *
-     * @var string
-     */
-    public $channelId;
 
     /**
      * @description 页号
@@ -49,13 +42,20 @@ class DescribeRtcChannelListRequest extends Model
      * @var int
      */
     public $pageSize;
+
+    /**
+     * @description 起始时间，UTC格式
+     *
+     * @var string
+     */
+    public $startTime;
     protected $_name = [
         'appId'     => 'AppId',
-        'startTime' => 'StartTime',
-        'endTime'   => 'EndTime',
         'channelId' => 'ChannelId',
+        'endTime'   => 'EndTime',
         'pageNo'    => 'PageNo',
         'pageSize'  => 'PageSize',
+        'startTime' => 'StartTime',
     ];
 
     public function validate()
@@ -68,20 +68,20 @@ class DescribeRtcChannelListRequest extends Model
         if (null !== $this->appId) {
             $res['AppId'] = $this->appId;
         }
-        if (null !== $this->startTime) {
-            $res['StartTime'] = $this->startTime;
+        if (null !== $this->channelId) {
+            $res['ChannelId'] = $this->channelId;
         }
         if (null !== $this->endTime) {
             $res['EndTime'] = $this->endTime;
-        }
-        if (null !== $this->channelId) {
-            $res['ChannelId'] = $this->channelId;
         }
         if (null !== $this->pageNo) {
             $res['PageNo'] = $this->pageNo;
         }
         if (null !== $this->pageSize) {
             $res['PageSize'] = $this->pageSize;
+        }
+        if (null !== $this->startTime) {
+            $res['StartTime'] = $this->startTime;
         }
 
         return $res;
@@ -98,20 +98,20 @@ class DescribeRtcChannelListRequest extends Model
         if (isset($map['AppId'])) {
             $model->appId = $map['AppId'];
         }
-        if (isset($map['StartTime'])) {
-            $model->startTime = $map['StartTime'];
+        if (isset($map['ChannelId'])) {
+            $model->channelId = $map['ChannelId'];
         }
         if (isset($map['EndTime'])) {
             $model->endTime = $map['EndTime'];
-        }
-        if (isset($map['ChannelId'])) {
-            $model->channelId = $map['ChannelId'];
         }
         if (isset($map['PageNo'])) {
             $model->pageNo = $map['PageNo'];
         }
         if (isset($map['PageSize'])) {
             $model->pageSize = $map['PageSize'];
+        }
+        if (isset($map['StartTime'])) {
+            $model->startTime = $map['StartTime'];
         }
 
         return $model;

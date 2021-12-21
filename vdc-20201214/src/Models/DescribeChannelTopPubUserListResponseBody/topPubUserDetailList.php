@@ -10,27 +10,6 @@ use AlibabaCloud\Tea\Model;
 class topPubUserDetailList extends Model
 {
     /**
-     * @description 用户ID。
-     *
-     * @var string
-     */
-    public $userId;
-
-    /**
-     * @description 地域位置，例如：北京市-北京市
-     *
-     * @var string
-     */
-    public $location;
-
-    /**
-     * @description 在线期间用户列表。
-     *
-     * @var onlinePeriods[]
-     */
-    public $onlinePeriods;
-
-    /**
      * @description 第一次加入通话的时间，使用UNIX时间戳表示，单位：秒。
      *
      * @var int
@@ -45,6 +24,20 @@ class topPubUserDetailList extends Model
     public $destroyedTs;
 
     /**
+     * @description 总时长，单位：秒。
+     *
+     * @var int
+     */
+    public $duration;
+
+    /**
+     * @description 地域位置，例如：北京市-北京市
+     *
+     * @var string
+     */
+    public $location;
+
+    /**
      * @description 通信时长，单位：秒。
      *
      * @var int
@@ -52,19 +45,26 @@ class topPubUserDetailList extends Model
     public $onlineDuration;
 
     /**
-     * @description 总时长，单位：秒。
+     * @description 在线期间用户列表。
      *
-     * @var int
+     * @var onlinePeriods[]
      */
-    public $duration;
+    public $onlinePeriods;
+
+    /**
+     * @description 用户ID。
+     *
+     * @var string
+     */
+    public $userId;
     protected $_name = [
-        'userId'         => 'UserId',
-        'location'       => 'Location',
-        'onlinePeriods'  => 'OnlinePeriods',
         'createdTs'      => 'CreatedTs',
         'destroyedTs'    => 'DestroyedTs',
-        'onlineDuration' => 'OnlineDuration',
         'duration'       => 'Duration',
+        'location'       => 'Location',
+        'onlineDuration' => 'OnlineDuration',
+        'onlinePeriods'  => 'OnlinePeriods',
+        'userId'         => 'UserId',
     ];
 
     public function validate()
@@ -74,11 +74,20 @@ class topPubUserDetailList extends Model
     public function toMap()
     {
         $res = [];
-        if (null !== $this->userId) {
-            $res['UserId'] = $this->userId;
+        if (null !== $this->createdTs) {
+            $res['CreatedTs'] = $this->createdTs;
+        }
+        if (null !== $this->destroyedTs) {
+            $res['DestroyedTs'] = $this->destroyedTs;
+        }
+        if (null !== $this->duration) {
+            $res['Duration'] = $this->duration;
         }
         if (null !== $this->location) {
             $res['Location'] = $this->location;
+        }
+        if (null !== $this->onlineDuration) {
+            $res['OnlineDuration'] = $this->onlineDuration;
         }
         if (null !== $this->onlinePeriods) {
             $res['OnlinePeriods'] = [];
@@ -89,17 +98,8 @@ class topPubUserDetailList extends Model
                 }
             }
         }
-        if (null !== $this->createdTs) {
-            $res['CreatedTs'] = $this->createdTs;
-        }
-        if (null !== $this->destroyedTs) {
-            $res['DestroyedTs'] = $this->destroyedTs;
-        }
-        if (null !== $this->onlineDuration) {
-            $res['OnlineDuration'] = $this->onlineDuration;
-        }
-        if (null !== $this->duration) {
-            $res['Duration'] = $this->duration;
+        if (null !== $this->userId) {
+            $res['UserId'] = $this->userId;
         }
 
         return $res;
@@ -113,11 +113,20 @@ class topPubUserDetailList extends Model
     public static function fromMap($map = [])
     {
         $model = new self();
-        if (isset($map['UserId'])) {
-            $model->userId = $map['UserId'];
+        if (isset($map['CreatedTs'])) {
+            $model->createdTs = $map['CreatedTs'];
+        }
+        if (isset($map['DestroyedTs'])) {
+            $model->destroyedTs = $map['DestroyedTs'];
+        }
+        if (isset($map['Duration'])) {
+            $model->duration = $map['Duration'];
         }
         if (isset($map['Location'])) {
             $model->location = $map['Location'];
+        }
+        if (isset($map['OnlineDuration'])) {
+            $model->onlineDuration = $map['OnlineDuration'];
         }
         if (isset($map['OnlinePeriods'])) {
             if (!empty($map['OnlinePeriods'])) {
@@ -128,17 +137,8 @@ class topPubUserDetailList extends Model
                 }
             }
         }
-        if (isset($map['CreatedTs'])) {
-            $model->createdTs = $map['CreatedTs'];
-        }
-        if (isset($map['DestroyedTs'])) {
-            $model->destroyedTs = $map['DestroyedTs'];
-        }
-        if (isset($map['OnlineDuration'])) {
-            $model->onlineDuration = $map['OnlineDuration'];
-        }
-        if (isset($map['Duration'])) {
-            $model->duration = $map['Duration'];
+        if (isset($map['UserId'])) {
+            $model->userId = $map['UserId'];
         }
 
         return $model;

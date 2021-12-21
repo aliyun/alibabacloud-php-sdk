@@ -16,18 +16,18 @@ class DescribeFaultDiagnosisOverallDataRequest extends Model
     public $appId;
 
     /**
-     * @description 开始时间，秒级时间戳：1609344000
-     *
-     * @var int
-     */
-    public $startTs;
-
-    /**
      * @description 结束时间，秒级时间戳：1609344000
      *
      * @var int
      */
     public $endTs;
+
+    /**
+     * @description 开始时间，秒级时间戳：1609344000
+     *
+     * @var int
+     */
+    public $startTs;
 
     /**
      * @description 获取数据统计维度： JOIN_SLOW_USER：进频道慢用户数 AUDIO_STUCK_USER：音频卡顿用户数 VIDEO_STUCK_USER：视频卡顿用户数 VIDEO_VAGUE_USER：视频模糊用户数 HIGH_DELAY_USER：通话延迟高用户数 FIRST_SCREEN_SLOW_USER：接收首屏慢用户数
@@ -37,8 +37,8 @@ class DescribeFaultDiagnosisOverallDataRequest extends Model
     public $statDim;
     protected $_name = [
         'appId'   => 'AppId',
-        'startTs' => 'StartTs',
         'endTs'   => 'EndTs',
+        'startTs' => 'StartTs',
         'statDim' => 'StatDim',
     ];
 
@@ -52,11 +52,11 @@ class DescribeFaultDiagnosisOverallDataRequest extends Model
         if (null !== $this->appId) {
             $res['AppId'] = $this->appId;
         }
-        if (null !== $this->startTs) {
-            $res['StartTs'] = $this->startTs;
-        }
         if (null !== $this->endTs) {
             $res['EndTs'] = $this->endTs;
+        }
+        if (null !== $this->startTs) {
+            $res['StartTs'] = $this->startTs;
         }
         if (null !== $this->statDim) {
             $res['StatDim'] = $this->statDim;
@@ -76,11 +76,11 @@ class DescribeFaultDiagnosisOverallDataRequest extends Model
         if (isset($map['AppId'])) {
             $model->appId = $map['AppId'];
         }
-        if (isset($map['StartTs'])) {
-            $model->startTs = $map['StartTs'];
-        }
         if (isset($map['EndTs'])) {
             $model->endTs = $map['EndTs'];
+        }
+        if (isset($map['StartTs'])) {
+            $model->startTs = $map['StartTs'];
         }
         if (isset($map['StatDim'])) {
             $model->statDim = $map['StatDim'];

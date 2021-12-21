@@ -9,6 +9,20 @@ use AlibabaCloud\Tea\Model;
 class usageOsSdkVersionStatList extends Model
 {
     /**
+     * @description 音频通话时长，单位分钟
+     *
+     * @var int
+     */
+    public $audioCallDuration;
+
+    /**
+     * @description 通话时长占比，四位小数表示，如1.0000
+     *
+     * @var string
+     */
+    public $callDurationRatio;
+
+    /**
      * @description SDK版本名称，1.0.0、1.1.1等
      *
      * @var string
@@ -23,20 +37,6 @@ class usageOsSdkVersionStatList extends Model
     public $os;
 
     /**
-     * @description 音频通话时长，单位分钟
-     *
-     * @var int
-     */
-    public $audioCallDuration;
-
-    /**
-     * @description 视频通话时长，单位分钟
-     *
-     * @var int
-     */
-    public $videoCallDuration;
-
-    /**
      * @description 总通话时长，单位分钟
      *
      * @var int
@@ -44,18 +44,18 @@ class usageOsSdkVersionStatList extends Model
     public $totalCallDuration;
 
     /**
-     * @description 通话时长占比，四位小数表示，如1.0000
+     * @description 视频通话时长，单位分钟
      *
-     * @var string
+     * @var int
      */
-    public $callDurationRatio;
+    public $videoCallDuration;
     protected $_name = [
+        'audioCallDuration' => 'AudioCallDuration',
+        'callDurationRatio' => 'CallDurationRatio',
         'name'              => 'Name',
         'os'                => 'Os',
-        'audioCallDuration' => 'AudioCallDuration',
-        'videoCallDuration' => 'VideoCallDuration',
         'totalCallDuration' => 'TotalCallDuration',
-        'callDurationRatio' => 'CallDurationRatio',
+        'videoCallDuration' => 'VideoCallDuration',
     ];
 
     public function validate()
@@ -65,23 +65,23 @@ class usageOsSdkVersionStatList extends Model
     public function toMap()
     {
         $res = [];
+        if (null !== $this->audioCallDuration) {
+            $res['AudioCallDuration'] = $this->audioCallDuration;
+        }
+        if (null !== $this->callDurationRatio) {
+            $res['CallDurationRatio'] = $this->callDurationRatio;
+        }
         if (null !== $this->name) {
             $res['Name'] = $this->name;
         }
         if (null !== $this->os) {
             $res['Os'] = $this->os;
         }
-        if (null !== $this->audioCallDuration) {
-            $res['AudioCallDuration'] = $this->audioCallDuration;
-        }
-        if (null !== $this->videoCallDuration) {
-            $res['VideoCallDuration'] = $this->videoCallDuration;
-        }
         if (null !== $this->totalCallDuration) {
             $res['TotalCallDuration'] = $this->totalCallDuration;
         }
-        if (null !== $this->callDurationRatio) {
-            $res['CallDurationRatio'] = $this->callDurationRatio;
+        if (null !== $this->videoCallDuration) {
+            $res['VideoCallDuration'] = $this->videoCallDuration;
         }
 
         return $res;
@@ -95,23 +95,23 @@ class usageOsSdkVersionStatList extends Model
     public static function fromMap($map = [])
     {
         $model = new self();
+        if (isset($map['AudioCallDuration'])) {
+            $model->audioCallDuration = $map['AudioCallDuration'];
+        }
+        if (isset($map['CallDurationRatio'])) {
+            $model->callDurationRatio = $map['CallDurationRatio'];
+        }
         if (isset($map['Name'])) {
             $model->name = $map['Name'];
         }
         if (isset($map['Os'])) {
             $model->os = $map['Os'];
         }
-        if (isset($map['AudioCallDuration'])) {
-            $model->audioCallDuration = $map['AudioCallDuration'];
-        }
-        if (isset($map['VideoCallDuration'])) {
-            $model->videoCallDuration = $map['VideoCallDuration'];
-        }
         if (isset($map['TotalCallDuration'])) {
             $model->totalCallDuration = $map['TotalCallDuration'];
         }
-        if (isset($map['CallDurationRatio'])) {
-            $model->callDurationRatio = $map['CallDurationRatio'];
+        if (isset($map['VideoCallDuration'])) {
+            $model->videoCallDuration = $map['VideoCallDuration'];
         }
 
         return $model;

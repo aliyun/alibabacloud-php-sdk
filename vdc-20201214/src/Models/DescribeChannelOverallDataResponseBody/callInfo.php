@@ -16,18 +16,18 @@ class callInfo extends Model
     public $appId;
 
     /**
-     * @description 频道ID。
-     *
-     * @var string
-     */
-    public $channelId;
-
-    /**
      * @description 通信状态，取值：IN：进行中。OUT：已结束
      *
      * @var string
      */
     public $callStatus;
+
+    /**
+     * @description 频道ID。
+     *
+     * @var string
+     */
+    public $channelId;
 
     /**
      * @description 创建通信的时间戳，使用UNIX时间戳表示，单位：秒。
@@ -51,8 +51,8 @@ class callInfo extends Model
     public $duration;
     protected $_name = [
         'appId'       => 'AppId',
-        'channelId'   => 'ChannelId',
         'callStatus'  => 'CallStatus',
+        'channelId'   => 'ChannelId',
         'createdTs'   => 'CreatedTs',
         'destroyedTs' => 'DestroyedTs',
         'duration'    => 'Duration',
@@ -68,11 +68,11 @@ class callInfo extends Model
         if (null !== $this->appId) {
             $res['AppId'] = $this->appId;
         }
-        if (null !== $this->channelId) {
-            $res['ChannelId'] = $this->channelId;
-        }
         if (null !== $this->callStatus) {
             $res['CallStatus'] = $this->callStatus;
+        }
+        if (null !== $this->channelId) {
+            $res['ChannelId'] = $this->channelId;
         }
         if (null !== $this->createdTs) {
             $res['CreatedTs'] = $this->createdTs;
@@ -98,11 +98,11 @@ class callInfo extends Model
         if (isset($map['AppId'])) {
             $model->appId = $map['AppId'];
         }
-        if (isset($map['ChannelId'])) {
-            $model->channelId = $map['ChannelId'];
-        }
         if (isset($map['CallStatus'])) {
             $model->callStatus = $map['CallStatus'];
+        }
+        if (isset($map['ChannelId'])) {
+            $model->channelId = $map['ChannelId'];
         }
         if (isset($map['CreatedTs'])) {
             $model->createdTs = $map['CreatedTs'];

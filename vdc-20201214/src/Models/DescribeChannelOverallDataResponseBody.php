@@ -12,6 +12,13 @@ use AlibabaCloud\Tea\Model;
 class DescribeChannelOverallDataResponseBody extends Model
 {
     /**
+     * @description 通信基本信息。
+     *
+     * @var callInfo
+     */
+    public $callInfo;
+
+    /**
      * @description 指标数据列表。
      *
      * @var metricDatas[]
@@ -26,22 +33,15 @@ class DescribeChannelOverallDataResponseBody extends Model
     public $overallData;
 
     /**
-     * @description 通信基本信息。
-     *
-     * @var callInfo
-     */
-    public $callInfo;
-
-    /**
      * @description 请求ID。
      *
      * @var string
      */
     public $requestId;
     protected $_name = [
+        'callInfo'    => 'CallInfo',
         'metricDatas' => 'MetricDatas',
         'overallData' => 'OverallData',
-        'callInfo'    => 'CallInfo',
         'requestId'   => 'RequestId',
     ];
 
@@ -52,6 +52,9 @@ class DescribeChannelOverallDataResponseBody extends Model
     public function toMap()
     {
         $res = [];
+        if (null !== $this->callInfo) {
+            $res['CallInfo'] = null !== $this->callInfo ? $this->callInfo->toMap() : null;
+        }
         if (null !== $this->metricDatas) {
             $res['MetricDatas'] = [];
             if (null !== $this->metricDatas && \is_array($this->metricDatas)) {
@@ -63,9 +66,6 @@ class DescribeChannelOverallDataResponseBody extends Model
         }
         if (null !== $this->overallData) {
             $res['OverallData'] = null !== $this->overallData ? $this->overallData->toMap() : null;
-        }
-        if (null !== $this->callInfo) {
-            $res['CallInfo'] = null !== $this->callInfo ? $this->callInfo->toMap() : null;
         }
         if (null !== $this->requestId) {
             $res['RequestId'] = $this->requestId;
@@ -82,6 +82,9 @@ class DescribeChannelOverallDataResponseBody extends Model
     public static function fromMap($map = [])
     {
         $model = new self();
+        if (isset($map['CallInfo'])) {
+            $model->callInfo = callInfo::fromMap($map['CallInfo']);
+        }
         if (isset($map['MetricDatas'])) {
             if (!empty($map['MetricDatas'])) {
                 $model->metricDatas = [];
@@ -93,9 +96,6 @@ class DescribeChannelOverallDataResponseBody extends Model
         }
         if (isset($map['OverallData'])) {
             $model->overallData = overallData::fromMap($map['OverallData']);
-        }
-        if (isset($map['CallInfo'])) {
-            $model->callInfo = callInfo::fromMap($map['CallInfo']);
         }
         if (isset($map['RequestId'])) {
             $model->requestId = $map['RequestId'];

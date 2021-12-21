@@ -10,21 +10,21 @@ use AlibabaCloud\Tea\Model;
 class DescribeAppConfigResponseBody extends Model
 {
     /**
-     * @description 阈值配置对象
-     *
-     * @var thresholdConfig
-     */
-    public $thresholdConfig;
-
-    /**
      * @description 请求ID
      *
      * @var string
      */
     public $requestId;
+
+    /**
+     * @description 阈值配置对象
+     *
+     * @var thresholdConfig
+     */
+    public $thresholdConfig;
     protected $_name = [
-        'thresholdConfig' => 'ThresholdConfig',
         'requestId'       => 'RequestId',
+        'thresholdConfig' => 'ThresholdConfig',
     ];
 
     public function validate()
@@ -34,11 +34,11 @@ class DescribeAppConfigResponseBody extends Model
     public function toMap()
     {
         $res = [];
-        if (null !== $this->thresholdConfig) {
-            $res['ThresholdConfig'] = null !== $this->thresholdConfig ? $this->thresholdConfig->toMap() : null;
-        }
         if (null !== $this->requestId) {
             $res['RequestId'] = $this->requestId;
+        }
+        if (null !== $this->thresholdConfig) {
+            $res['ThresholdConfig'] = null !== $this->thresholdConfig ? $this->thresholdConfig->toMap() : null;
         }
 
         return $res;
@@ -52,11 +52,11 @@ class DescribeAppConfigResponseBody extends Model
     public static function fromMap($map = [])
     {
         $model = new self();
-        if (isset($map['ThresholdConfig'])) {
-            $model->thresholdConfig = thresholdConfig::fromMap($map['ThresholdConfig']);
-        }
         if (isset($map['RequestId'])) {
             $model->requestId = $map['RequestId'];
+        }
+        if (isset($map['ThresholdConfig'])) {
+            $model->thresholdConfig = thresholdConfig::fromMap($map['ThresholdConfig']);
         }
 
         return $model;

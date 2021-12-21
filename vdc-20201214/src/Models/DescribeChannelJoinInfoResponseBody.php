@@ -9,18 +9,18 @@ use AlibabaCloud\Tea\Model;
 class DescribeChannelJoinInfoResponseBody extends Model
 {
     /**
-     * @description 入会慢时间阈值
-     *
-     * @var int
-     */
-    public $joinSlowThreshold;
-
-    /**
      * @description 在入会慢时间阈值内的入会成功率
      *
      * @var string
      */
     public $joinFastSuccessRate;
+
+    /**
+     * @description 入会慢时间阈值
+     *
+     * @var int
+     */
+    public $joinSlowThreshold;
 
     /**
      * @description 请求ID
@@ -29,8 +29,8 @@ class DescribeChannelJoinInfoResponseBody extends Model
      */
     public $requestId;
     protected $_name = [
-        'joinSlowThreshold'   => 'JoinSlowThreshold',
         'joinFastSuccessRate' => 'JoinFastSuccessRate',
+        'joinSlowThreshold'   => 'JoinSlowThreshold',
         'requestId'           => 'RequestId',
     ];
 
@@ -41,11 +41,11 @@ class DescribeChannelJoinInfoResponseBody extends Model
     public function toMap()
     {
         $res = [];
-        if (null !== $this->joinSlowThreshold) {
-            $res['JoinSlowThreshold'] = $this->joinSlowThreshold;
-        }
         if (null !== $this->joinFastSuccessRate) {
             $res['JoinFastSuccessRate'] = $this->joinFastSuccessRate;
+        }
+        if (null !== $this->joinSlowThreshold) {
+            $res['JoinSlowThreshold'] = $this->joinSlowThreshold;
         }
         if (null !== $this->requestId) {
             $res['RequestId'] = $this->requestId;
@@ -62,11 +62,11 @@ class DescribeChannelJoinInfoResponseBody extends Model
     public static function fromMap($map = [])
     {
         $model = new self();
-        if (isset($map['JoinSlowThreshold'])) {
-            $model->joinSlowThreshold = $map['JoinSlowThreshold'];
-        }
         if (isset($map['JoinFastSuccessRate'])) {
             $model->joinFastSuccessRate = $map['JoinFastSuccessRate'];
+        }
+        if (isset($map['JoinSlowThreshold'])) {
+            $model->joinSlowThreshold = $map['JoinSlowThreshold'];
         }
         if (isset($map['RequestId'])) {
             $model->requestId = $map['RequestId'];

@@ -9,11 +9,11 @@ use AlibabaCloud\Tea\Model;
 class metrics extends Model
 {
     /**
-     * @description 用户ID
+     * @description 指标键值对,指标发生时间:指标值
      *
-     * @var string
+     * @var mixed[]
      */
-    public $uid;
+    public $KVs;
 
     /**
      * @description 指标ID
@@ -23,15 +23,15 @@ class metrics extends Model
     public $mid;
 
     /**
-     * @description 指标键值对,指标发生时间:指标值
+     * @description 用户ID
      *
-     * @var mixed[]
+     * @var string
      */
-    public $KVs;
+    public $uid;
     protected $_name = [
-        'uid' => 'Uid',
-        'mid' => 'Mid',
         'KVs' => 'KVs',
+        'mid' => 'Mid',
+        'uid' => 'Uid',
     ];
 
     public function validate()
@@ -41,14 +41,14 @@ class metrics extends Model
     public function toMap()
     {
         $res = [];
-        if (null !== $this->uid) {
-            $res['Uid'] = $this->uid;
+        if (null !== $this->KVs) {
+            $res['KVs'] = $this->KVs;
         }
         if (null !== $this->mid) {
             $res['Mid'] = $this->mid;
         }
-        if (null !== $this->KVs) {
-            $res['KVs'] = $this->KVs;
+        if (null !== $this->uid) {
+            $res['Uid'] = $this->uid;
         }
 
         return $res;
@@ -62,14 +62,14 @@ class metrics extends Model
     public static function fromMap($map = [])
     {
         $model = new self();
-        if (isset($map['Uid'])) {
-            $model->uid = $map['Uid'];
+        if (isset($map['KVs'])) {
+            $model->KVs = $map['KVs'];
         }
         if (isset($map['Mid'])) {
             $model->mid = $map['Mid'];
         }
-        if (isset($map['KVs'])) {
-            $model->KVs = $map['KVs'];
+        if (isset($map['Uid'])) {
+            $model->uid = $map['Uid'];
         }
 
         return $model;

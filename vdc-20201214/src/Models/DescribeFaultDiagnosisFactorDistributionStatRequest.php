@@ -16,22 +16,22 @@ class DescribeFaultDiagnosisFactorDistributionStatRequest extends Model
     public $appId;
 
     /**
-     * @description 查询的开始时间，使用UNIX时间戳表示，单位：秒。
-     *
-     * @var int
-     */
-    public $startTs;
-
-    /**
      * @description 查询的结束时间，使用UNIX时间戳表示，单位：秒。
      *
      * @var int
      */
     public $endTs;
+
+    /**
+     * @description 查询的开始时间，使用UNIX时间戳表示，单位：秒。
+     *
+     * @var int
+     */
+    public $startTs;
     protected $_name = [
         'appId'   => 'AppId',
-        'startTs' => 'StartTs',
         'endTs'   => 'EndTs',
+        'startTs' => 'StartTs',
     ];
 
     public function validate()
@@ -44,11 +44,11 @@ class DescribeFaultDiagnosisFactorDistributionStatRequest extends Model
         if (null !== $this->appId) {
             $res['AppId'] = $this->appId;
         }
-        if (null !== $this->startTs) {
-            $res['StartTs'] = $this->startTs;
-        }
         if (null !== $this->endTs) {
             $res['EndTs'] = $this->endTs;
+        }
+        if (null !== $this->startTs) {
+            $res['StartTs'] = $this->startTs;
         }
 
         return $res;
@@ -65,11 +65,11 @@ class DescribeFaultDiagnosisFactorDistributionStatRequest extends Model
         if (isset($map['AppId'])) {
             $model->appId = $map['AppId'];
         }
-        if (isset($map['StartTs'])) {
-            $model->startTs = $map['StartTs'];
-        }
         if (isset($map['EndTs'])) {
             $model->endTs = $map['EndTs'];
+        }
+        if (isset($map['StartTs'])) {
+            $model->startTs = $map['StartTs'];
         }
 
         return $model;

@@ -10,13 +10,6 @@ use AlibabaCloud\Tea\Model;
 class DescribeFaultDiagnosisUserListResponseBody extends Model
 {
     /**
-     * @description 异常用户明细列表。
-     *
-     * @var userList[]
-     */
-    public $userList;
-
-    /**
      * @description 页码。
      *
      * @var int
@@ -31,6 +24,13 @@ class DescribeFaultDiagnosisUserListResponseBody extends Model
     public $pageSize;
 
     /**
+     * @description 请求ID。
+     *
+     * @var string
+     */
+    public $requestId;
+
+    /**
      * @description 总数量。
      *
      * @var int
@@ -38,17 +38,17 @@ class DescribeFaultDiagnosisUserListResponseBody extends Model
     public $totalCnt;
 
     /**
-     * @description 请求ID。
+     * @description 异常用户明细列表。
      *
-     * @var string
+     * @var userList[]
      */
-    public $requestId;
+    public $userList;
     protected $_name = [
-        'userList'  => 'UserList',
         'pageNo'    => 'PageNo',
         'pageSize'  => 'PageSize',
-        'totalCnt'  => 'TotalCnt',
         'requestId' => 'RequestId',
+        'totalCnt'  => 'TotalCnt',
+        'userList'  => 'UserList',
     ];
 
     public function validate()
@@ -58,6 +58,18 @@ class DescribeFaultDiagnosisUserListResponseBody extends Model
     public function toMap()
     {
         $res = [];
+        if (null !== $this->pageNo) {
+            $res['PageNo'] = $this->pageNo;
+        }
+        if (null !== $this->pageSize) {
+            $res['PageSize'] = $this->pageSize;
+        }
+        if (null !== $this->requestId) {
+            $res['RequestId'] = $this->requestId;
+        }
+        if (null !== $this->totalCnt) {
+            $res['TotalCnt'] = $this->totalCnt;
+        }
         if (null !== $this->userList) {
             $res['UserList'] = [];
             if (null !== $this->userList && \is_array($this->userList)) {
@@ -66,18 +78,6 @@ class DescribeFaultDiagnosisUserListResponseBody extends Model
                     $res['UserList'][$n++] = null !== $item ? $item->toMap() : $item;
                 }
             }
-        }
-        if (null !== $this->pageNo) {
-            $res['PageNo'] = $this->pageNo;
-        }
-        if (null !== $this->pageSize) {
-            $res['PageSize'] = $this->pageSize;
-        }
-        if (null !== $this->totalCnt) {
-            $res['TotalCnt'] = $this->totalCnt;
-        }
-        if (null !== $this->requestId) {
-            $res['RequestId'] = $this->requestId;
         }
 
         return $res;
@@ -91,6 +91,18 @@ class DescribeFaultDiagnosisUserListResponseBody extends Model
     public static function fromMap($map = [])
     {
         $model = new self();
+        if (isset($map['PageNo'])) {
+            $model->pageNo = $map['PageNo'];
+        }
+        if (isset($map['PageSize'])) {
+            $model->pageSize = $map['PageSize'];
+        }
+        if (isset($map['RequestId'])) {
+            $model->requestId = $map['RequestId'];
+        }
+        if (isset($map['TotalCnt'])) {
+            $model->totalCnt = $map['TotalCnt'];
+        }
         if (isset($map['UserList'])) {
             if (!empty($map['UserList'])) {
                 $model->userList = [];
@@ -99,18 +111,6 @@ class DescribeFaultDiagnosisUserListResponseBody extends Model
                     $model->userList[$n++] = null !== $item ? userList::fromMap($item) : $item;
                 }
             }
-        }
-        if (isset($map['PageNo'])) {
-            $model->pageNo = $map['PageNo'];
-        }
-        if (isset($map['PageSize'])) {
-            $model->pageSize = $map['PageSize'];
-        }
-        if (isset($map['TotalCnt'])) {
-            $model->totalCnt = $map['TotalCnt'];
-        }
-        if (isset($map['RequestId'])) {
-            $model->requestId = $map['RequestId'];
         }
 
         return $model;
