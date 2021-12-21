@@ -8,10 +8,16 @@ use AlibabaCloud\Endpoint\Endpoint;
 use AlibabaCloud\OpenApiUtil\OpenApiUtilClient;
 use AlibabaCloud\SDK\Ddi\V20200617\Models\CreateClusterV2Request;
 use AlibabaCloud\SDK\Ddi\V20200617\Models\CreateClusterV2Response;
+use AlibabaCloud\SDK\Ddi\V20200617\Models\CreateFlowJobRequest;
+use AlibabaCloud\SDK\Ddi\V20200617\Models\CreateFlowJobResponse;
+use AlibabaCloud\SDK\Ddi\V20200617\Models\CreateFlowProjectRequest;
+use AlibabaCloud\SDK\Ddi\V20200617\Models\CreateFlowProjectResponse;
 use AlibabaCloud\SDK\Ddi\V20200617\Models\DescribeClusterV2Request;
 use AlibabaCloud\SDK\Ddi\V20200617\Models\DescribeClusterV2Response;
 use AlibabaCloud\SDK\Ddi\V20200617\Models\ListClustersRequest;
 use AlibabaCloud\SDK\Ddi\V20200617\Models\ListClustersResponse;
+use AlibabaCloud\SDK\Ddi\V20200617\Models\ListMainVersionsRequest;
+use AlibabaCloud\SDK\Ddi\V20200617\Models\ListMainVersionsResponse;
 use AlibabaCloud\SDK\Ddi\V20200617\Models\ReleaseClusterRequest;
 use AlibabaCloud\SDK\Ddi\V20200617\Models\ReleaseClusterResponse;
 use AlibabaCloud\Tea\Utils\Utils;
@@ -128,7 +134,6 @@ class Ddi extends OpenApiClient
         $query['ZoneId']                 = $request->zoneId;
         $req                             = new OpenApiRequest([
             'query' => OpenApiUtilClient::query($query),
-            'body'  => Utils::toMap($request),
         ]);
         $params = new Params([
             'action'      => 'CreateClusterV2',
@@ -138,7 +143,7 @@ class Ddi extends OpenApiClient
             'method'      => 'POST',
             'authType'    => 'AK',
             'style'       => 'RPC',
-            'reqBodyType' => 'json',
+            'reqBodyType' => 'formData',
             'bodyType'    => 'json',
         ]);
 
@@ -158,6 +163,112 @@ class Ddi extends OpenApiClient
     }
 
     /**
+     * @param CreateFlowJobRequest $request
+     * @param RuntimeOptions       $runtime
+     *
+     * @return CreateFlowJobResponse
+     */
+    public function createFlowJobWithOptions($request, $runtime)
+    {
+        Utils::validateModel($request);
+        $query                    = [];
+        $query['Adhoc']           = $request->adhoc;
+        $query['AlertConf']       = $request->alertConf;
+        $query['ClientToken']     = $request->clientToken;
+        $query['ClusterId']       = $request->clusterId;
+        $query['CustomVariables'] = $request->customVariables;
+        $query['Description']     = $request->description;
+        $query['EnvConf']         = $request->envConf;
+        $query['FailAct']         = $request->failAct;
+        $query['Mode']            = $request->mode;
+        $query['MonitorConf']     = $request->monitorConf;
+        $query['Name']            = $request->name;
+        $query['ParamConf']       = $request->paramConf;
+        $query['Params']          = $request->params;
+        $query['ParentCategory']  = $request->parentCategory;
+        $query['ProjectId']       = $request->projectId;
+        $query['RegionId']        = $request->regionId;
+        $query['ResourceList']    = $request->resourceList;
+        $query['RetryPolicy']     = $request->retryPolicy;
+        $query['RunConf']         = $request->runConf;
+        $query['Type']            = $request->type;
+        $req                      = new OpenApiRequest([
+            'query' => OpenApiUtilClient::query($query),
+        ]);
+        $params = new Params([
+            'action'      => 'CreateFlowJob',
+            'version'     => '2020-06-17',
+            'protocol'    => 'HTTPS',
+            'pathname'    => '/',
+            'method'      => 'POST',
+            'authType'    => 'AK',
+            'style'       => 'RPC',
+            'reqBodyType' => 'formData',
+            'bodyType'    => 'json',
+        ]);
+
+        return CreateFlowJobResponse::fromMap($this->callApi($params, $req, $runtime));
+    }
+
+    /**
+     * @param CreateFlowJobRequest $request
+     *
+     * @return CreateFlowJobResponse
+     */
+    public function createFlowJob($request)
+    {
+        $runtime = new RuntimeOptions([]);
+
+        return $this->createFlowJobWithOptions($request, $runtime);
+    }
+
+    /**
+     * @param CreateFlowProjectRequest $request
+     * @param RuntimeOptions           $runtime
+     *
+     * @return CreateFlowProjectResponse
+     */
+    public function createFlowProjectWithOptions($request, $runtime)
+    {
+        Utils::validateModel($request);
+        $query                    = [];
+        $query['ClientToken']     = $request->clientToken;
+        $query['Description']     = $request->description;
+        $query['Name']            = $request->name;
+        $query['ProductType']     = $request->productType;
+        $query['RegionId']        = $request->regionId;
+        $query['ResourceGroupId'] = $request->resourceGroupId;
+        $req                      = new OpenApiRequest([
+            'query' => OpenApiUtilClient::query($query),
+        ]);
+        $params = new Params([
+            'action'      => 'CreateFlowProject',
+            'version'     => '2020-06-17',
+            'protocol'    => 'HTTPS',
+            'pathname'    => '/',
+            'method'      => 'POST',
+            'authType'    => 'AK',
+            'style'       => 'RPC',
+            'reqBodyType' => 'formData',
+            'bodyType'    => 'json',
+        ]);
+
+        return CreateFlowProjectResponse::fromMap($this->callApi($params, $req, $runtime));
+    }
+
+    /**
+     * @param CreateFlowProjectRequest $request
+     *
+     * @return CreateFlowProjectResponse
+     */
+    public function createFlowProject($request)
+    {
+        $runtime = new RuntimeOptions([]);
+
+        return $this->createFlowProjectWithOptions($request, $runtime);
+    }
+
+    /**
      * @param DescribeClusterV2Request $request
      * @param RuntimeOptions           $runtime
      *
@@ -172,7 +283,6 @@ class Ddi extends OpenApiClient
         $query['ResourceOwnerId'] = $request->resourceOwnerId;
         $req                      = new OpenApiRequest([
             'query' => OpenApiUtilClient::query($query),
-            'body'  => Utils::toMap($request),
         ]);
         $params = new Params([
             'action'      => 'DescribeClusterV2',
@@ -182,7 +292,7 @@ class Ddi extends OpenApiClient
             'method'      => 'POST',
             'authType'    => 'AK',
             'style'       => 'RPC',
-            'reqBodyType' => 'json',
+            'reqBodyType' => 'formData',
             'bodyType'    => 'json',
         ]);
 
@@ -228,7 +338,6 @@ class Ddi extends OpenApiClient
         $query['Tag']             = $request->tag;
         $req                      = new OpenApiRequest([
             'query' => OpenApiUtilClient::query($query),
-            'body'  => Utils::toMap($request),
         ]);
         $params = new Params([
             'action'      => 'ListClusters',
@@ -238,7 +347,7 @@ class Ddi extends OpenApiClient
             'method'      => 'POST',
             'authType'    => 'AK',
             'style'       => 'RPC',
-            'reqBodyType' => 'json',
+            'reqBodyType' => 'formData',
             'bodyType'    => 'json',
         ]);
 
@@ -258,6 +367,46 @@ class Ddi extends OpenApiClient
     }
 
     /**
+     * @param ListMainVersionsRequest $request
+     * @param RuntimeOptions          $runtime
+     *
+     * @return ListMainVersionsResponse
+     */
+    public function listMainVersionsWithOptions($request, $runtime)
+    {
+        Utils::validateModel($request);
+        $query = OpenApiUtilClient::query(Utils::toMap($request));
+        $req   = new OpenApiRequest([
+            'query' => OpenApiUtilClient::query($query),
+        ]);
+        $params = new Params([
+            'action'      => 'ListMainVersions',
+            'version'     => '2020-06-17',
+            'protocol'    => 'HTTPS',
+            'pathname'    => '/',
+            'method'      => 'GET',
+            'authType'    => 'AK',
+            'style'       => 'RPC',
+            'reqBodyType' => 'formData',
+            'bodyType'    => 'json',
+        ]);
+
+        return ListMainVersionsResponse::fromMap($this->callApi($params, $req, $runtime));
+    }
+
+    /**
+     * @param ListMainVersionsRequest $request
+     *
+     * @return ListMainVersionsResponse
+     */
+    public function listMainVersions($request)
+    {
+        $runtime = new RuntimeOptions([]);
+
+        return $this->listMainVersionsWithOptions($request, $runtime);
+    }
+
+    /**
      * @param ReleaseClusterRequest $request
      * @param RuntimeOptions        $runtime
      *
@@ -273,7 +422,6 @@ class Ddi extends OpenApiClient
         $query['ResourceOwnerId'] = $request->resourceOwnerId;
         $req                      = new OpenApiRequest([
             'query' => OpenApiUtilClient::query($query),
-            'body'  => Utils::toMap($request),
         ]);
         $params = new Params([
             'action'      => 'ReleaseCluster',
@@ -283,7 +431,7 @@ class Ddi extends OpenApiClient
             'method'      => 'POST',
             'authType'    => 'AK',
             'style'       => 'RPC',
-            'reqBodyType' => 'json',
+            'reqBodyType' => 'formData',
             'bodyType'    => 'json',
         ]);
 
