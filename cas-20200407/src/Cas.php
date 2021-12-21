@@ -5,6 +5,13 @@
 namespace AlibabaCloud\SDK\Cas\V20200407;
 
 use AlibabaCloud\Endpoint\Endpoint;
+use AlibabaCloud\OpenApiUtil\OpenApiUtilClient;
+use AlibabaCloud\SDK\Cas\V20200407\Models\CancelCertificateForPackageRequestRequest;
+use AlibabaCloud\SDK\Cas\V20200407\Models\CancelCertificateForPackageRequestResponse;
+use AlibabaCloud\SDK\Cas\V20200407\Models\CancelOrderRequestRequest;
+use AlibabaCloud\SDK\Cas\V20200407\Models\CancelOrderRequestResponse;
+use AlibabaCloud\SDK\Cas\V20200407\Models\CreateCertificateForPackageRequestRequest;
+use AlibabaCloud\SDK\Cas\V20200407\Models\CreateCertificateForPackageRequestResponse;
 use AlibabaCloud\SDK\Cas\V20200407\Models\CreateCertificateRequestRequest;
 use AlibabaCloud\SDK\Cas\V20200407\Models\CreateCertificateRequestResponse;
 use AlibabaCloud\SDK\Cas\V20200407\Models\CreateCertificateWithCsrRequestRequest;
@@ -15,9 +22,12 @@ use AlibabaCloud\SDK\Cas\V20200407\Models\DescribeCertificateStateRequest;
 use AlibabaCloud\SDK\Cas\V20200407\Models\DescribeCertificateStateResponse;
 use AlibabaCloud\SDK\Cas\V20200407\Models\DescribePackageStateRequest;
 use AlibabaCloud\SDK\Cas\V20200407\Models\DescribePackageStateResponse;
+use AlibabaCloud\SDK\Cas\V20200407\Models\RenewCertificateOrderForPackageRequestRequest;
+use AlibabaCloud\SDK\Cas\V20200407\Models\RenewCertificateOrderForPackageRequestResponse;
 use AlibabaCloud\Tea\Utils\Utils;
 use AlibabaCloud\Tea\Utils\Utils\RuntimeOptions;
 use Darabonba\OpenApi\Models\OpenApiRequest;
+use Darabonba\OpenApi\Models\Params;
 use Darabonba\OpenApi\OpenApiClient;
 
 class Cas extends OpenApiClient
@@ -105,6 +115,136 @@ class Cas extends OpenApiClient
     }
 
     /**
+     * @param CancelCertificateForPackageRequestRequest $request
+     * @param RuntimeOptions                            $runtime
+     *
+     * @return CancelCertificateForPackageRequestResponse
+     */
+    public function cancelCertificateForPackageRequestWithOptions($request, $runtime)
+    {
+        Utils::validateModel($request);
+        $query            = [];
+        $query['OrderId'] = $request->orderId;
+        $req              = new OpenApiRequest([
+            'query' => OpenApiUtilClient::query($query),
+        ]);
+        $params = new Params([
+            'action'      => 'CancelCertificateForPackageRequest',
+            'version'     => '2020-04-07',
+            'protocol'    => 'HTTPS',
+            'pathname'    => '/',
+            'method'      => 'POST',
+            'authType'    => 'AK',
+            'style'       => 'RPC',
+            'reqBodyType' => 'formData',
+            'bodyType'    => 'json',
+        ]);
+
+        return CancelCertificateForPackageRequestResponse::fromMap($this->callApi($params, $req, $runtime));
+    }
+
+    /**
+     * @param CancelCertificateForPackageRequestRequest $request
+     *
+     * @return CancelCertificateForPackageRequestResponse
+     */
+    public function cancelCertificateForPackageRequest($request)
+    {
+        $runtime = new RuntimeOptions([]);
+
+        return $this->cancelCertificateForPackageRequestWithOptions($request, $runtime);
+    }
+
+    /**
+     * @param CancelOrderRequestRequest $request
+     * @param RuntimeOptions            $runtime
+     *
+     * @return CancelOrderRequestResponse
+     */
+    public function cancelOrderRequestWithOptions($request, $runtime)
+    {
+        Utils::validateModel($request);
+        $query            = [];
+        $query['OrderId'] = $request->orderId;
+        $req              = new OpenApiRequest([
+            'query' => OpenApiUtilClient::query($query),
+        ]);
+        $params = new Params([
+            'action'      => 'CancelOrderRequest',
+            'version'     => '2020-04-07',
+            'protocol'    => 'HTTPS',
+            'pathname'    => '/',
+            'method'      => 'POST',
+            'authType'    => 'AK',
+            'style'       => 'RPC',
+            'reqBodyType' => 'formData',
+            'bodyType'    => 'json',
+        ]);
+
+        return CancelOrderRequestResponse::fromMap($this->callApi($params, $req, $runtime));
+    }
+
+    /**
+     * @param CancelOrderRequestRequest $request
+     *
+     * @return CancelOrderRequestResponse
+     */
+    public function cancelOrderRequest($request)
+    {
+        $runtime = new RuntimeOptions([]);
+
+        return $this->cancelOrderRequestWithOptions($request, $runtime);
+    }
+
+    /**
+     * @param CreateCertificateForPackageRequestRequest $request
+     * @param RuntimeOptions                            $runtime
+     *
+     * @return CreateCertificateForPackageRequestResponse
+     */
+    public function createCertificateForPackageRequestWithOptions($request, $runtime)
+    {
+        Utils::validateModel($request);
+        $query                 = [];
+        $query['CompanyName']  = $request->companyName;
+        $query['Csr']          = $request->csr;
+        $query['Domain']       = $request->domain;
+        $query['Email']        = $request->email;
+        $query['Phone']        = $request->phone;
+        $query['ProductCode']  = $request->productCode;
+        $query['Username']     = $request->username;
+        $query['ValidateType'] = $request->validateType;
+        $req                   = new OpenApiRequest([
+            'query' => OpenApiUtilClient::query($query),
+        ]);
+        $params = new Params([
+            'action'      => 'CreateCertificateForPackageRequest',
+            'version'     => '2020-04-07',
+            'protocol'    => 'HTTPS',
+            'pathname'    => '/',
+            'method'      => 'POST',
+            'authType'    => 'AK',
+            'style'       => 'RPC',
+            'reqBodyType' => 'formData',
+            'bodyType'    => 'json',
+        ]);
+
+        return CreateCertificateForPackageRequestResponse::fromMap($this->callApi($params, $req, $runtime));
+    }
+
+    /**
+     * @param CreateCertificateForPackageRequestRequest $request
+     *
+     * @return CreateCertificateForPackageRequestResponse
+     */
+    public function createCertificateForPackageRequest($request)
+    {
+        $runtime = new RuntimeOptions([]);
+
+        return $this->createCertificateForPackageRequestWithOptions($request, $runtime);
+    }
+
+    /**
      * @param CreateCertificateRequestRequest $request
      * @param RuntimeOptions                  $runtime
      *
@@ -113,11 +253,29 @@ class Cas extends OpenApiClient
     public function createCertificateRequestWithOptions($request, $runtime)
     {
         Utils::validateModel($request);
-        $req = new OpenApiRequest([
-            'body' => Utils::toMap($request),
+        $query                 = [];
+        $query['Domain']       = $request->domain;
+        $query['Email']        = $request->email;
+        $query['Phone']        = $request->phone;
+        $query['ProductCode']  = $request->productCode;
+        $query['Username']     = $request->username;
+        $query['ValidateType'] = $request->validateType;
+        $req                   = new OpenApiRequest([
+            'query' => OpenApiUtilClient::query($query),
+        ]);
+        $params = new Params([
+            'action'      => 'CreateCertificateRequest',
+            'version'     => '2020-04-07',
+            'protocol'    => 'HTTPS',
+            'pathname'    => '/',
+            'method'      => 'POST',
+            'authType'    => 'AK',
+            'style'       => 'RPC',
+            'reqBodyType' => 'formData',
+            'bodyType'    => 'json',
         ]);
 
-        return CreateCertificateRequestResponse::fromMap($this->doRPCRequest('CreateCertificateRequest', '2020-04-07', 'HTTPS', 'POST', 'AK', 'json', $req, $runtime));
+        return CreateCertificateRequestResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
@@ -141,11 +299,29 @@ class Cas extends OpenApiClient
     public function createCertificateWithCsrRequestWithOptions($request, $runtime)
     {
         Utils::validateModel($request);
-        $req = new OpenApiRequest([
-            'body' => Utils::toMap($request),
+        $query                 = [];
+        $query['Csr']          = $request->csr;
+        $query['Email']        = $request->email;
+        $query['Phone']        = $request->phone;
+        $query['ProductCode']  = $request->productCode;
+        $query['Username']     = $request->username;
+        $query['ValidateType'] = $request->validateType;
+        $req                   = new OpenApiRequest([
+            'query' => OpenApiUtilClient::query($query),
+        ]);
+        $params = new Params([
+            'action'      => 'CreateCertificateWithCsrRequest',
+            'version'     => '2020-04-07',
+            'protocol'    => 'HTTPS',
+            'pathname'    => '/',
+            'method'      => 'POST',
+            'authType'    => 'AK',
+            'style'       => 'RPC',
+            'reqBodyType' => 'formData',
+            'bodyType'    => 'json',
         ]);
 
-        return CreateCertificateWithCsrRequestResponse::fromMap($this->doRPCRequest('CreateCertificateWithCsrRequest', '2020-04-07', 'HTTPS', 'POST', 'AK', 'json', $req, $runtime));
+        return CreateCertificateWithCsrRequestResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
@@ -169,11 +345,24 @@ class Cas extends OpenApiClient
     public function deleteCertificateRequestWithOptions($request, $runtime)
     {
         Utils::validateModel($request);
-        $req = new OpenApiRequest([
-            'body' => Utils::toMap($request),
+        $query            = [];
+        $query['OrderId'] = $request->orderId;
+        $req              = new OpenApiRequest([
+            'query' => OpenApiUtilClient::query($query),
+        ]);
+        $params = new Params([
+            'action'      => 'DeleteCertificateRequest',
+            'version'     => '2020-04-07',
+            'protocol'    => 'HTTPS',
+            'pathname'    => '/',
+            'method'      => 'POST',
+            'authType'    => 'AK',
+            'style'       => 'RPC',
+            'reqBodyType' => 'formData',
+            'bodyType'    => 'json',
         ]);
 
-        return DeleteCertificateRequestResponse::fromMap($this->doRPCRequest('DeleteCertificateRequest', '2020-04-07', 'HTTPS', 'POST', 'AK', 'json', $req, $runtime));
+        return DeleteCertificateRequestResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
@@ -197,11 +386,24 @@ class Cas extends OpenApiClient
     public function describeCertificateStateWithOptions($request, $runtime)
     {
         Utils::validateModel($request);
-        $req = new OpenApiRequest([
-            'body' => Utils::toMap($request),
+        $query            = [];
+        $query['OrderId'] = $request->orderId;
+        $req              = new OpenApiRequest([
+            'query' => OpenApiUtilClient::query($query),
+        ]);
+        $params = new Params([
+            'action'      => 'DescribeCertificateState',
+            'version'     => '2020-04-07',
+            'protocol'    => 'HTTPS',
+            'pathname'    => '/',
+            'method'      => 'POST',
+            'authType'    => 'AK',
+            'style'       => 'RPC',
+            'reqBodyType' => 'formData',
+            'bodyType'    => 'json',
         ]);
 
-        return DescribeCertificateStateResponse::fromMap($this->doRPCRequest('DescribeCertificateState', '2020-04-07', 'HTTPS', 'POST', 'AK', 'json', $req, $runtime));
+        return DescribeCertificateStateResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
@@ -225,11 +427,24 @@ class Cas extends OpenApiClient
     public function describePackageStateWithOptions($request, $runtime)
     {
         Utils::validateModel($request);
-        $req = new OpenApiRequest([
-            'body' => Utils::toMap($request),
+        $query                = [];
+        $query['ProductCode'] = $request->productCode;
+        $req                  = new OpenApiRequest([
+            'query' => OpenApiUtilClient::query($query),
+        ]);
+        $params = new Params([
+            'action'      => 'DescribePackageState',
+            'version'     => '2020-04-07',
+            'protocol'    => 'HTTPS',
+            'pathname'    => '/',
+            'method'      => 'POST',
+            'authType'    => 'AK',
+            'style'       => 'RPC',
+            'reqBodyType' => 'formData',
+            'bodyType'    => 'json',
         ]);
 
-        return DescribePackageStateResponse::fromMap($this->doRPCRequest('DescribePackageState', '2020-04-07', 'HTTPS', 'POST', 'AK', 'json', $req, $runtime));
+        return DescribePackageStateResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
@@ -242,5 +457,47 @@ class Cas extends OpenApiClient
         $runtime = new RuntimeOptions([]);
 
         return $this->describePackageStateWithOptions($request, $runtime);
+    }
+
+    /**
+     * @param RenewCertificateOrderForPackageRequestRequest $request
+     * @param RuntimeOptions                                $runtime
+     *
+     * @return RenewCertificateOrderForPackageRequestResponse
+     */
+    public function renewCertificateOrderForPackageRequestWithOptions($request, $runtime)
+    {
+        Utils::validateModel($request);
+        $query            = [];
+        $query['Csr']     = $request->csr;
+        $query['OrderId'] = $request->orderId;
+        $req              = new OpenApiRequest([
+            'query' => OpenApiUtilClient::query($query),
+        ]);
+        $params = new Params([
+            'action'      => 'RenewCertificateOrderForPackageRequest',
+            'version'     => '2020-04-07',
+            'protocol'    => 'HTTPS',
+            'pathname'    => '/',
+            'method'      => 'POST',
+            'authType'    => 'AK',
+            'style'       => 'RPC',
+            'reqBodyType' => 'formData',
+            'bodyType'    => 'json',
+        ]);
+
+        return RenewCertificateOrderForPackageRequestResponse::fromMap($this->callApi($params, $req, $runtime));
+    }
+
+    /**
+     * @param RenewCertificateOrderForPackageRequestRequest $request
+     *
+     * @return RenewCertificateOrderForPackageRequestResponse
+     */
+    public function renewCertificateOrderForPackageRequest($request)
+    {
+        $runtime = new RuntimeOptions([]);
+
+        return $this->renewCertificateOrderForPackageRequestWithOptions($request, $runtime);
     }
 }

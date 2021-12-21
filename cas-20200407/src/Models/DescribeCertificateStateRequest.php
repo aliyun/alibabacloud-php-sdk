@@ -9,17 +9,11 @@ use AlibabaCloud\Tea\Model;
 class DescribeCertificateStateRequest extends Model
 {
     /**
-     * @var string
-     */
-    public $sourceIp;
-
-    /**
      * @var int
      */
     public $orderId;
     protected $_name = [
-        'sourceIp' => 'SourceIp',
-        'orderId'  => 'OrderId',
+        'orderId' => 'OrderId',
     ];
 
     public function validate()
@@ -29,9 +23,6 @@ class DescribeCertificateStateRequest extends Model
     public function toMap()
     {
         $res = [];
-        if (null !== $this->sourceIp) {
-            $res['SourceIp'] = $this->sourceIp;
-        }
         if (null !== $this->orderId) {
             $res['OrderId'] = $this->orderId;
         }
@@ -47,9 +38,6 @@ class DescribeCertificateStateRequest extends Model
     public static function fromMap($map = [])
     {
         $model = new self();
-        if (isset($map['SourceIp'])) {
-            $model->sourceIp = $map['SourceIp'];
-        }
         if (isset($map['OrderId'])) {
             $model->orderId = $map['OrderId'];
         }

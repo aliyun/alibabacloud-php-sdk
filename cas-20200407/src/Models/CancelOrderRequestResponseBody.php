@@ -6,19 +6,13 @@ namespace AlibabaCloud\SDK\Cas\V20200407\Models;
 
 use AlibabaCloud\Tea\Model;
 
-class CreateCertificateRequestResponseBody extends Model
+class CancelOrderRequestResponseBody extends Model
 {
-    /**
-     * @var int
-     */
-    public $orderId;
-
     /**
      * @var string
      */
     public $requestId;
     protected $_name = [
-        'orderId'   => 'OrderId',
         'requestId' => 'RequestId',
     ];
 
@@ -29,9 +23,6 @@ class CreateCertificateRequestResponseBody extends Model
     public function toMap()
     {
         $res = [];
-        if (null !== $this->orderId) {
-            $res['OrderId'] = $this->orderId;
-        }
         if (null !== $this->requestId) {
             $res['RequestId'] = $this->requestId;
         }
@@ -42,14 +33,11 @@ class CreateCertificateRequestResponseBody extends Model
     /**
      * @param array $map
      *
-     * @return CreateCertificateRequestResponseBody
+     * @return CancelOrderRequestResponseBody
      */
     public static function fromMap($map = [])
     {
         $model = new self();
-        if (isset($map['OrderId'])) {
-            $model->orderId = $map['OrderId'];
-        }
         if (isset($map['RequestId'])) {
             $model->requestId = $map['RequestId'];
         }

@@ -11,14 +11,8 @@ class DescribePackageStateRequest extends Model
     /**
      * @var string
      */
-    public $sourceIp;
-
-    /**
-     * @var string
-     */
     public $productCode;
     protected $_name = [
-        'sourceIp'    => 'SourceIp',
         'productCode' => 'ProductCode',
     ];
 
@@ -29,9 +23,6 @@ class DescribePackageStateRequest extends Model
     public function toMap()
     {
         $res = [];
-        if (null !== $this->sourceIp) {
-            $res['SourceIp'] = $this->sourceIp;
-        }
         if (null !== $this->productCode) {
             $res['ProductCode'] = $this->productCode;
         }
@@ -47,9 +38,6 @@ class DescribePackageStateRequest extends Model
     public static function fromMap($map = [])
     {
         $model = new self();
-        if (isset($map['SourceIp'])) {
-            $model->sourceIp = $map['SourceIp'];
-        }
         if (isset($map['ProductCode'])) {
             $model->productCode = $map['ProductCode'];
         }

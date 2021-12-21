@@ -6,8 +6,18 @@ namespace AlibabaCloud\SDK\Cas\V20200407\Models;
 
 use AlibabaCloud\Tea\Model;
 
-class CreateCertificateRequestRequest extends Model
+class CreateCertificateForPackageRequestRequest extends Model
 {
+    /**
+     * @var string
+     */
+    public $companyName;
+
+    /**
+     * @var string
+     */
+    public $csr;
+
     /**
      * @var string
      */
@@ -38,6 +48,8 @@ class CreateCertificateRequestRequest extends Model
      */
     public $validateType;
     protected $_name = [
+        'companyName'  => 'CompanyName',
+        'csr'          => 'Csr',
         'domain'       => 'Domain',
         'email'        => 'Email',
         'phone'        => 'Phone',
@@ -53,6 +65,12 @@ class CreateCertificateRequestRequest extends Model
     public function toMap()
     {
         $res = [];
+        if (null !== $this->companyName) {
+            $res['CompanyName'] = $this->companyName;
+        }
+        if (null !== $this->csr) {
+            $res['Csr'] = $this->csr;
+        }
         if (null !== $this->domain) {
             $res['Domain'] = $this->domain;
         }
@@ -78,11 +96,17 @@ class CreateCertificateRequestRequest extends Model
     /**
      * @param array $map
      *
-     * @return CreateCertificateRequestRequest
+     * @return CreateCertificateForPackageRequestRequest
      */
     public static function fromMap($map = [])
     {
         $model = new self();
+        if (isset($map['CompanyName'])) {
+            $model->companyName = $map['CompanyName'];
+        }
+        if (isset($map['Csr'])) {
+            $model->csr = $map['Csr'];
+        }
         if (isset($map['Domain'])) {
             $model->domain = $map['Domain'];
         }

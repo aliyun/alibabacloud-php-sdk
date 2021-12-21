@@ -6,7 +6,7 @@ namespace AlibabaCloud\SDK\Cas\V20200407\Models;
 
 use AlibabaCloud\Tea\Model;
 
-class CreateCertificateRequestResponseBody extends Model
+class RenewCertificateOrderForPackageRequestResponseBody extends Model
 {
     /**
      * @var int
@@ -42,7 +42,7 @@ class CreateCertificateRequestResponseBody extends Model
     /**
      * @param array $map
      *
-     * @return CreateCertificateRequestResponseBody
+     * @return RenewCertificateOrderForPackageRequestResponseBody
      */
     public static function fromMap($map = [])
     {

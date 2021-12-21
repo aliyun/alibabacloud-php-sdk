@@ -11,12 +11,17 @@ class CreateCertificateWithCsrRequestRequest extends Model
     /**
      * @var string
      */
-    public $sourceIp;
+    public $csr;
 
     /**
      * @var string
      */
-    public $csr;
+    public $email;
+
+    /**
+     * @var string
+     */
+    public $phone;
 
     /**
      * @var string
@@ -31,24 +36,13 @@ class CreateCertificateWithCsrRequestRequest extends Model
     /**
      * @var string
      */
-    public $phone;
-
-    /**
-     * @var string
-     */
-    public $email;
-
-    /**
-     * @var string
-     */
     public $validateType;
     protected $_name = [
-        'sourceIp'     => 'SourceIp',
         'csr'          => 'Csr',
+        'email'        => 'Email',
+        'phone'        => 'Phone',
         'productCode'  => 'ProductCode',
         'username'     => 'Username',
-        'phone'        => 'Phone',
-        'email'        => 'Email',
         'validateType' => 'ValidateType',
     ];
 
@@ -59,23 +53,20 @@ class CreateCertificateWithCsrRequestRequest extends Model
     public function toMap()
     {
         $res = [];
-        if (null !== $this->sourceIp) {
-            $res['SourceIp'] = $this->sourceIp;
-        }
         if (null !== $this->csr) {
             $res['Csr'] = $this->csr;
+        }
+        if (null !== $this->email) {
+            $res['Email'] = $this->email;
+        }
+        if (null !== $this->phone) {
+            $res['Phone'] = $this->phone;
         }
         if (null !== $this->productCode) {
             $res['ProductCode'] = $this->productCode;
         }
         if (null !== $this->username) {
             $res['Username'] = $this->username;
-        }
-        if (null !== $this->phone) {
-            $res['Phone'] = $this->phone;
-        }
-        if (null !== $this->email) {
-            $res['Email'] = $this->email;
         }
         if (null !== $this->validateType) {
             $res['ValidateType'] = $this->validateType;
@@ -92,23 +83,20 @@ class CreateCertificateWithCsrRequestRequest extends Model
     public static function fromMap($map = [])
     {
         $model = new self();
-        if (isset($map['SourceIp'])) {
-            $model->sourceIp = $map['SourceIp'];
-        }
         if (isset($map['Csr'])) {
             $model->csr = $map['Csr'];
+        }
+        if (isset($map['Email'])) {
+            $model->email = $map['Email'];
+        }
+        if (isset($map['Phone'])) {
+            $model->phone = $map['Phone'];
         }
         if (isset($map['ProductCode'])) {
             $model->productCode = $map['ProductCode'];
         }
         if (isset($map['Username'])) {
             $model->username = $map['Username'];
-        }
-        if (isset($map['Phone'])) {
-            $model->phone = $map['Phone'];
-        }
-        if (isset($map['Email'])) {
-            $model->email = $map['Email'];
         }
         if (isset($map['ValidateType'])) {
             $model->validateType = $map['ValidateType'];
