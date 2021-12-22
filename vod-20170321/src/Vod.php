@@ -106,6 +106,8 @@ use AlibabaCloud\SDK\Vod\V20170321\Models\DescribeVodDomainRealtimeLogDeliveryRe
 use AlibabaCloud\SDK\Vod\V20170321\Models\DescribeVodDomainRealtimeLogDeliveryResponse;
 use AlibabaCloud\SDK\Vod\V20170321\Models\DescribeVodDomainSrcBpsDataRequest;
 use AlibabaCloud\SDK\Vod\V20170321\Models\DescribeVodDomainSrcBpsDataResponse;
+use AlibabaCloud\SDK\Vod\V20170321\Models\DescribeVodDomainSrcTrafficDataRequest;
+use AlibabaCloud\SDK\Vod\V20170321\Models\DescribeVodDomainSrcTrafficDataResponse;
 use AlibabaCloud\SDK\Vod\V20170321\Models\DescribeVodDomainTrafficDataRequest;
 use AlibabaCloud\SDK\Vod\V20170321\Models\DescribeVodDomainTrafficDataResponse;
 use AlibabaCloud\SDK\Vod\V20170321\Models\DescribeVodDomainUsageDataRequest;
@@ -2580,6 +2582,51 @@ class Vod extends OpenApiClient
         $runtime = new RuntimeOptions([]);
 
         return $this->describeVodDomainSrcBpsDataWithOptions($request, $runtime);
+    }
+
+    /**
+     * @param DescribeVodDomainSrcTrafficDataRequest $request
+     * @param RuntimeOptions                         $runtime
+     *
+     * @return DescribeVodDomainSrcTrafficDataResponse
+     */
+    public function describeVodDomainSrcTrafficDataWithOptions($request, $runtime)
+    {
+        Utils::validateModel($request);
+        $query               = [];
+        $query['DomainName'] = $request->domainName;
+        $query['EndTime']    = $request->endTime;
+        $query['Interval']   = $request->interval;
+        $query['OwnerId']    = $request->ownerId;
+        $query['StartTime']  = $request->startTime;
+        $req                 = new OpenApiRequest([
+            'query' => OpenApiUtilClient::query($query),
+        ]);
+        $params = new Params([
+            'action'      => 'DescribeVodDomainSrcTrafficData',
+            'version'     => '2017-03-21',
+            'protocol'    => 'HTTPS',
+            'pathname'    => '/',
+            'method'      => 'POST',
+            'authType'    => 'AK',
+            'style'       => 'RPC',
+            'reqBodyType' => 'formData',
+            'bodyType'    => 'json',
+        ]);
+
+        return DescribeVodDomainSrcTrafficDataResponse::fromMap($this->callApi($params, $req, $runtime));
+    }
+
+    /**
+     * @param DescribeVodDomainSrcTrafficDataRequest $request
+     *
+     * @return DescribeVodDomainSrcTrafficDataResponse
+     */
+    public function describeVodDomainSrcTrafficData($request)
+    {
+        $runtime = new RuntimeOptions([]);
+
+        return $this->describeVodDomainSrcTrafficDataWithOptions($request, $runtime);
     }
 
     /**

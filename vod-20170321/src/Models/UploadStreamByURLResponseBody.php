@@ -11,6 +11,11 @@ class UploadStreamByURLResponseBody extends Model
     /**
      * @var string
      */
+    public $fileURL;
+
+    /**
+     * @var string
+     */
     public $requestId;
 
     /**
@@ -21,17 +26,12 @@ class UploadStreamByURLResponseBody extends Model
     /**
      * @var string
      */
-    public $streamFileURL;
-
-    /**
-     * @var string
-     */
     public $streamJobId;
     protected $_name = [
-        'requestId'     => 'RequestId',
-        'sourceURL'     => 'SourceURL',
-        'streamFileURL' => 'StreamFileURL',
-        'streamJobId'   => 'StreamJobId',
+        'fileURL'     => 'FileURL',
+        'requestId'   => 'RequestId',
+        'sourceURL'   => 'SourceURL',
+        'streamJobId' => 'StreamJobId',
     ];
 
     public function validate()
@@ -41,14 +41,14 @@ class UploadStreamByURLResponseBody extends Model
     public function toMap()
     {
         $res = [];
+        if (null !== $this->fileURL) {
+            $res['FileURL'] = $this->fileURL;
+        }
         if (null !== $this->requestId) {
             $res['RequestId'] = $this->requestId;
         }
         if (null !== $this->sourceURL) {
             $res['SourceURL'] = $this->sourceURL;
-        }
-        if (null !== $this->streamFileURL) {
-            $res['StreamFileURL'] = $this->streamFileURL;
         }
         if (null !== $this->streamJobId) {
             $res['StreamJobId'] = $this->streamJobId;
@@ -65,14 +65,14 @@ class UploadStreamByURLResponseBody extends Model
     public static function fromMap($map = [])
     {
         $model = new self();
+        if (isset($map['FileURL'])) {
+            $model->fileURL = $map['FileURL'];
+        }
         if (isset($map['RequestId'])) {
             $model->requestId = $map['RequestId'];
         }
         if (isset($map['SourceURL'])) {
             $model->sourceURL = $map['SourceURL'];
-        }
-        if (isset($map['StreamFileURL'])) {
-            $model->streamFileURL = $map['StreamFileURL'];
         }
         if (isset($map['StreamJobId'])) {
             $model->streamJobId = $map['StreamJobId'];
