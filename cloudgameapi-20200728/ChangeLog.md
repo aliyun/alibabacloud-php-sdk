@@ -1,3 +1,6 @@
+2021-12-22 Version: 2.0.1
+- Netease.
+
 2021-12-17 Version: 1.1.2
 - Mod Ver.
 
