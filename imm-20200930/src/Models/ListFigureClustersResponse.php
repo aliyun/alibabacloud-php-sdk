@@ -6,7 +6,7 @@ namespace AlibabaCloud\SDK\Imm\V20200930\Models;
 
 use AlibabaCloud\Tea\Model;
 
-class ListOfficeConversionTaskResponse extends Model
+class ListFigureClustersResponse extends Model
 {
     /**
      * @var string[]
@@ -14,7 +14,7 @@ class ListOfficeConversionTaskResponse extends Model
     public $headers;
 
     /**
-     * @var ListOfficeConversionTaskResponseBody
+     * @var ListFigureClustersResponseBody
      */
     public $body;
     protected $_name = [
@@ -44,7 +44,7 @@ class ListOfficeConversionTaskResponse extends Model
     /**
      * @param array $map
      *
-     * @return ListOfficeConversionTaskResponse
+     * @return ListFigureClustersResponse
      */
     public static function fromMap($map = [])
     {
@@ -53,7 +53,7 @@ class ListOfficeConversionTaskResponse extends Model
             $model->headers = $map['headers'];
         }
         if (isset($map['body'])) {
-            $model->body = ListOfficeConversionTaskResponseBody::fromMap($map['body']);
+            $model->body = ListFigureClustersResponseBody::fromMap($map['body']);
         }
 
         return $model;

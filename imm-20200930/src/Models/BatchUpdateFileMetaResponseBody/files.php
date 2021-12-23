@@ -2,30 +2,30 @@
 
 // This file is auto-generated, don't edit it. Thanks.
 
-namespace AlibabaCloud\SDK\Imm\V20200930\Models;
+namespace AlibabaCloud\SDK\Imm\V20200930\Models\BatchUpdateFileMetaResponseBody;
 
 use AlibabaCloud\Tea\Model;
 
-class DeleteFileMetaRequest extends Model
+class files extends Model
 {
     /**
      * @var string
      */
-    public $datasetName;
+    public $message;
 
     /**
-     * @var string
+     * @var bool
      */
-    public $projectName;
+    public $success;
 
     /**
      * @var string
      */
     public $URI;
     protected $_name = [
-        'datasetName' => 'DatasetName',
-        'projectName' => 'ProjectName',
-        'URI'         => 'URI',
+        'message' => 'Message',
+        'success' => 'Success',
+        'URI'     => 'URI',
     ];
 
     public function validate()
@@ -35,11 +35,11 @@ class DeleteFileMetaRequest extends Model
     public function toMap()
     {
         $res = [];
-        if (null !== $this->datasetName) {
-            $res['DatasetName'] = $this->datasetName;
+        if (null !== $this->message) {
+            $res['Message'] = $this->message;
         }
-        if (null !== $this->projectName) {
-            $res['ProjectName'] = $this->projectName;
+        if (null !== $this->success) {
+            $res['Success'] = $this->success;
         }
         if (null !== $this->URI) {
             $res['URI'] = $this->URI;
@@ -51,16 +51,16 @@ class DeleteFileMetaRequest extends Model
     /**
      * @param array $map
      *
-     * @return DeleteFileMetaRequest
+     * @return files
      */
     public static function fromMap($map = [])
     {
         $model = new self();
-        if (isset($map['DatasetName'])) {
-            $model->datasetName = $map['DatasetName'];
+        if (isset($map['Message'])) {
+            $model->message = $map['Message'];
         }
-        if (isset($map['ProjectName'])) {
-            $model->projectName = $map['ProjectName'];
+        if (isset($map['Success'])) {
+            $model->success = $map['Success'];
         }
         if (isset($map['URI'])) {
             $model->URI = $map['URI'];

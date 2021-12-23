@@ -21,23 +21,11 @@ class UpdateFileMetaRequest extends Model
     /**
      * @var string
      */
-    public $notifyEndpoint;
-
-    /**
-     * @var string
-     */
-    public $notifyTopicName;
-
-    /**
-     * @var string
-     */
     public $projectName;
     protected $_name = [
-        'datasetName'     => 'DatasetName',
-        'file'            => 'File',
-        'notifyEndpoint'  => 'NotifyEndpoint',
-        'notifyTopicName' => 'NotifyTopicName',
-        'projectName'     => 'ProjectName',
+        'datasetName' => 'DatasetName',
+        'file'        => 'File',
+        'projectName' => 'ProjectName',
     ];
 
     public function validate()
@@ -52,12 +40,6 @@ class UpdateFileMetaRequest extends Model
         }
         if (null !== $this->file) {
             $res['File'] = null !== $this->file ? $this->file->toMap() : null;
-        }
-        if (null !== $this->notifyEndpoint) {
-            $res['NotifyEndpoint'] = $this->notifyEndpoint;
-        }
-        if (null !== $this->notifyTopicName) {
-            $res['NotifyTopicName'] = $this->notifyTopicName;
         }
         if (null !== $this->projectName) {
             $res['ProjectName'] = $this->projectName;
@@ -79,12 +61,6 @@ class UpdateFileMetaRequest extends Model
         }
         if (isset($map['File'])) {
             $model->file = FileForReq::fromMap($map['File']);
-        }
-        if (isset($map['NotifyEndpoint'])) {
-            $model->notifyEndpoint = $map['NotifyEndpoint'];
-        }
-        if (isset($map['NotifyTopicName'])) {
-            $model->notifyTopicName = $map['NotifyTopicName'];
         }
         if (isset($map['ProjectName'])) {
             $model->projectName = $map['ProjectName'];

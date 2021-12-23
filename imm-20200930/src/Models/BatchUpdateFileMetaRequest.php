@@ -21,23 +21,11 @@ class BatchUpdateFileMetaRequest extends Model
     /**
      * @var string
      */
-    public $notifyEndpoint;
-
-    /**
-     * @var string
-     */
-    public $notifyTopicName;
-
-    /**
-     * @var string
-     */
     public $projectName;
     protected $_name = [
-        'datasetName'     => 'DatasetName',
-        'files'           => 'Files',
-        'notifyEndpoint'  => 'NotifyEndpoint',
-        'notifyTopicName' => 'NotifyTopicName',
-        'projectName'     => 'ProjectName',
+        'datasetName' => 'DatasetName',
+        'files'       => 'Files',
+        'projectName' => 'ProjectName',
     ];
 
     public function validate()
@@ -58,12 +46,6 @@ class BatchUpdateFileMetaRequest extends Model
                     $res['Files'][$n++] = null !== $item ? $item->toMap() : $item;
                 }
             }
-        }
-        if (null !== $this->notifyEndpoint) {
-            $res['NotifyEndpoint'] = $this->notifyEndpoint;
-        }
-        if (null !== $this->notifyTopicName) {
-            $res['NotifyTopicName'] = $this->notifyTopicName;
         }
         if (null !== $this->projectName) {
             $res['ProjectName'] = $this->projectName;
@@ -91,12 +73,6 @@ class BatchUpdateFileMetaRequest extends Model
                     $model->files[$n++] = null !== $item ? FileForReq::fromMap($item) : $item;
                 }
             }
-        }
-        if (isset($map['NotifyEndpoint'])) {
-            $model->notifyEndpoint = $map['NotifyEndpoint'];
-        }
-        if (isset($map['NotifyTopicName'])) {
-            $model->notifyTopicName = $map['NotifyTopicName'];
         }
         if (isset($map['ProjectName'])) {
             $model->projectName = $map['ProjectName'];

@@ -6,24 +6,22 @@ namespace AlibabaCloud\SDK\Imm\V20200930\Models;
 
 use AlibabaCloud\Tea\Model;
 
-class CreateOfficeConversionTaskResponseBody extends Model
+class GetFigureClusterResponseBody extends Model
 {
     /**
-     * @description 请求 id
+     * @var FigureCluster
+     */
+    public $figureCluster;
+
+    /**
+     * @description Id of the request
      *
      * @var string
      */
     public $requestId;
-
-    /**
-     * @description 任务 id
-     *
-     * @var string
-     */
-    public $taskId;
     protected $_name = [
-        'requestId' => 'RequestId',
-        'taskId'    => 'TaskId',
+        'figureCluster' => 'FigureCluster',
+        'requestId'     => 'RequestId',
     ];
 
     public function validate()
@@ -33,11 +31,11 @@ class CreateOfficeConversionTaskResponseBody extends Model
     public function toMap()
     {
         $res = [];
+        if (null !== $this->figureCluster) {
+            $res['FigureCluster'] = null !== $this->figureCluster ? $this->figureCluster->toMap() : null;
+        }
         if (null !== $this->requestId) {
             $res['RequestId'] = $this->requestId;
-        }
-        if (null !== $this->taskId) {
-            $res['TaskId'] = $this->taskId;
         }
 
         return $res;
@@ -46,16 +44,16 @@ class CreateOfficeConversionTaskResponseBody extends Model
     /**
      * @param array $map
      *
-     * @return CreateOfficeConversionTaskResponseBody
+     * @return GetFigureClusterResponseBody
      */
     public static function fromMap($map = [])
     {
         $model = new self();
+        if (isset($map['FigureCluster'])) {
+            $model->figureCluster = FigureCluster::fromMap($map['FigureCluster']);
+        }
         if (isset($map['RequestId'])) {
             $model->requestId = $map['RequestId'];
-        }
-        if (isset($map['TaskId'])) {
-            $model->taskId = $map['TaskId'];
         }
 
         return $model;

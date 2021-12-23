@@ -16,16 +16,6 @@ class BatchDeleteFileMetaRequest extends Model
     /**
      * @var string
      */
-    public $notifyEndpoint;
-
-    /**
-     * @var string
-     */
-    public $notifyTopicName;
-
-    /**
-     * @var string
-     */
     public $projectName;
 
     /**
@@ -33,11 +23,9 @@ class BatchDeleteFileMetaRequest extends Model
      */
     public $URIs;
     protected $_name = [
-        'datasetName'     => 'DatasetName',
-        'notifyEndpoint'  => 'NotifyEndpoint',
-        'notifyTopicName' => 'NotifyTopicName',
-        'projectName'     => 'ProjectName',
-        'URIs'            => 'URIs',
+        'datasetName' => 'DatasetName',
+        'projectName' => 'ProjectName',
+        'URIs'        => 'URIs',
     ];
 
     public function validate()
@@ -49,12 +37,6 @@ class BatchDeleteFileMetaRequest extends Model
         $res = [];
         if (null !== $this->datasetName) {
             $res['DatasetName'] = $this->datasetName;
-        }
-        if (null !== $this->notifyEndpoint) {
-            $res['NotifyEndpoint'] = $this->notifyEndpoint;
-        }
-        if (null !== $this->notifyTopicName) {
-            $res['NotifyTopicName'] = $this->notifyTopicName;
         }
         if (null !== $this->projectName) {
             $res['ProjectName'] = $this->projectName;
@@ -76,12 +58,6 @@ class BatchDeleteFileMetaRequest extends Model
         $model = new self();
         if (isset($map['DatasetName'])) {
             $model->datasetName = $map['DatasetName'];
-        }
-        if (isset($map['NotifyEndpoint'])) {
-            $model->notifyEndpoint = $map['NotifyEndpoint'];
-        }
-        if (isset($map['NotifyTopicName'])) {
-            $model->notifyTopicName = $map['NotifyTopicName'];
         }
         if (isset($map['ProjectName'])) {
             $model->projectName = $map['ProjectName'];

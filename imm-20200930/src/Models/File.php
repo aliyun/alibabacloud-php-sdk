@@ -72,20 +72,6 @@ class File extends Model
     public $audioDuration;
 
     /**
-     * @description AudioEmbeddingsFloat32
-     *
-     * @var float[]
-     */
-    public $audioEmbeddingsFloat32;
-
-    /**
-     * @description AudioEmbeddingsInt8
-     *
-     * @var int[]
-     */
-    public $audioEmbeddingsInt8;
-
-    /**
      * @description AudioLanguage
      *
      * @var string
@@ -198,20 +184,6 @@ class File extends Model
     public $documentContent;
 
     /**
-     * @description DocumentEmbeddingsFloat32
-     *
-     * @var float[]
-     */
-    public $documentEmbeddingsFloat32;
-
-    /**
-     * @description DocumentEmbeddingsInt8
-     *
-     * @var int[]
-     */
-    public $documentEmbeddingsInt8;
-
-    /**
      * @description DocumentLanguage
      *
      * @var string
@@ -233,18 +205,18 @@ class File extends Model
     public $EXIF;
 
     /**
-     * @description FaceCount
+     * @description FigureCount
      *
      * @var int
      */
-    public $faceCount;
+    public $figureCount;
 
     /**
-     * @description Faces
+     * @description Figures
      *
-     * @var Face[]
+     * @var Figure[]
      */
-    public $faces;
+    public $figures;
 
     /**
      * @description FileAccessTime
@@ -280,20 +252,6 @@ class File extends Model
      * @var string
      */
     public $filename;
-
-    /**
-     * @description ImageEmbeddingsFloat32
-     *
-     * @var float[]
-     */
-    public $imageEmbeddingsFloat32;
-
-    /**
-     * @description ImageEmbeddingsInt8
-     *
-     * @var int[]
-     */
-    public $imageEmbeddingsInt8;
 
     /**
      * @description ImageHeight
@@ -343,6 +301,13 @@ class File extends Model
     public $OCRContents;
 
     /**
+     * @description OSSCRC64
+     *
+     * @var string
+     */
+    public $OSSCRC64;
+
+    /**
      * @description OSSDeleteMarker
      *
      * @var string
@@ -364,6 +329,13 @@ class File extends Model
     public $OSSObjectType;
 
     /**
+     * @description OSSStorageClass
+     *
+     * @var string
+     */
+    public $OSSStorageClass;
+
+    /**
      * @description OSSTagging
      *
      * @var mixed[]
@@ -376,6 +348,13 @@ class File extends Model
      * @var int
      */
     public $OSSTaggingCount;
+
+    /**
+     * @description OSSURI
+     *
+     * @var string
+     */
+    public $OSSURI;
 
     /**
      * @description OSSUserMeta
@@ -490,13 +469,6 @@ class File extends Model
     public $size;
 
     /**
-     * @description StorageClass
-     *
-     * @var string
-     */
-    public $storageClass;
-
-    /**
      * @description Subtitles
      *
      * @var SubtitleStream[]
@@ -553,20 +525,6 @@ class File extends Model
     public $videoDuration;
 
     /**
-     * @description VideoEmbeddingsFloat32
-     *
-     * @var float[]
-     */
-    public $videoEmbeddingsFloat32;
-
-    /**
-     * @description VideoEmbeddingsInt8
-     *
-     * @var int[]
-     */
-    public $videoEmbeddingsInt8;
-
-    /**
      * @description VideoHeight
      *
      * @var int
@@ -610,8 +568,6 @@ class File extends Model
         'audioBitrate'                          => 'AudioBitrate',
         'audioCovers'                           => 'AudioCovers',
         'audioDuration'                         => 'AudioDuration',
-        'audioEmbeddingsFloat32'                => 'AudioEmbeddingsFloat32',
-        'audioEmbeddingsInt8'                   => 'AudioEmbeddingsInt8',
         'audioLanguage'                         => 'AudioLanguage',
         'audioStreams'                          => 'AudioStreams',
         'audioTakenTime'                        => 'AudioTakenTime',
@@ -628,20 +584,16 @@ class File extends Model
         'customLabels'                          => 'CustomLabels',
         'datasetName'                           => 'DatasetName',
         'documentContent'                       => 'DocumentContent',
-        'documentEmbeddingsFloat32'             => 'DocumentEmbeddingsFloat32',
-        'documentEmbeddingsInt8'                => 'DocumentEmbeddingsInt8',
         'documentLanguage'                      => 'DocumentLanguage',
         'ETag'                                  => 'ETag',
         'EXIF'                                  => 'EXIF',
-        'faceCount'                             => 'FaceCount',
-        'faces'                                 => 'Faces',
+        'figureCount'                           => 'FigureCount',
+        'figures'                               => 'Figures',
         'fileAccessTime'                        => 'FileAccessTime',
         'fileCreateTime'                        => 'FileCreateTime',
         'fileHash'                              => 'FileHash',
         'fileModifiedTime'                      => 'FileModifiedTime',
         'filename'                              => 'Filename',
-        'imageEmbeddingsFloat32'                => 'ImageEmbeddingsFloat32',
-        'imageEmbeddingsInt8'                   => 'ImageEmbeddingsInt8',
         'imageHeight'                           => 'ImageHeight',
         'imageScore'                            => 'ImageScore',
         'imageWidth'                            => 'ImageWidth',
@@ -649,11 +601,14 @@ class File extends Model
         'latLong'                               => 'LatLong',
         'mediaType'                             => 'MediaType',
         'OCRContents'                           => 'OCRContents',
+        'OSSCRC64'                              => 'OSSCRC64',
         'OSSDeleteMarker'                       => 'OSSDeleteMarker',
         'OSSExpiration'                         => 'OSSExpiration',
         'OSSObjectType'                         => 'OSSObjectType',
+        'OSSStorageClass'                       => 'OSSStorageClass',
         'OSSTagging'                            => 'OSSTagging',
         'OSSTaggingCount'                       => 'OSSTaggingCount',
+        'OSSURI'                                => 'OSSURI',
         'OSSUserMeta'                           => 'OSSUserMeta',
         'OSSVersionId'                          => 'OSSVersionId',
         'objectACL'                             => 'ObjectACL',
@@ -670,7 +625,6 @@ class File extends Model
         'serverSideEncryptionCustomerAlgorithm' => 'ServerSideEncryptionCustomerAlgorithm',
         'serverSideEncryptionKeyId'             => 'ServerSideEncryptionKeyId',
         'size'                                  => 'Size',
-        'storageClass'                          => 'StorageClass',
         'subtitles'                             => 'Subtitles',
         'timezone'                              => 'Timezone',
         'title'                                 => 'Title',
@@ -679,8 +633,6 @@ class File extends Model
         'updateTime'                            => 'UpdateTime',
         'videoBitrate'                          => 'VideoBitrate',
         'videoDuration'                         => 'VideoDuration',
-        'videoEmbeddingsFloat32'                => 'VideoEmbeddingsFloat32',
-        'videoEmbeddingsInt8'                   => 'VideoEmbeddingsInt8',
         'videoHeight'                           => 'VideoHeight',
         'videoStartTime'                        => 'VideoStartTime',
         'videoStreams'                          => 'VideoStreams',
@@ -733,12 +685,6 @@ class File extends Model
         }
         if (null !== $this->audioDuration) {
             $res['AudioDuration'] = $this->audioDuration;
-        }
-        if (null !== $this->audioEmbeddingsFloat32) {
-            $res['AudioEmbeddingsFloat32'] = $this->audioEmbeddingsFloat32;
-        }
-        if (null !== $this->audioEmbeddingsInt8) {
-            $res['AudioEmbeddingsInt8'] = $this->audioEmbeddingsInt8;
         }
         if (null !== $this->audioLanguage) {
             $res['AudioLanguage'] = $this->audioLanguage;
@@ -800,12 +746,6 @@ class File extends Model
         if (null !== $this->documentContent) {
             $res['DocumentContent'] = $this->documentContent;
         }
-        if (null !== $this->documentEmbeddingsFloat32) {
-            $res['DocumentEmbeddingsFloat32'] = $this->documentEmbeddingsFloat32;
-        }
-        if (null !== $this->documentEmbeddingsInt8) {
-            $res['DocumentEmbeddingsInt8'] = $this->documentEmbeddingsInt8;
-        }
         if (null !== $this->documentLanguage) {
             $res['DocumentLanguage'] = $this->documentLanguage;
         }
@@ -815,15 +755,15 @@ class File extends Model
         if (null !== $this->EXIF) {
             $res['EXIF'] = $this->EXIF;
         }
-        if (null !== $this->faceCount) {
-            $res['FaceCount'] = $this->faceCount;
+        if (null !== $this->figureCount) {
+            $res['FigureCount'] = $this->figureCount;
         }
-        if (null !== $this->faces) {
-            $res['Faces'] = [];
-            if (null !== $this->faces && \is_array($this->faces)) {
+        if (null !== $this->figures) {
+            $res['Figures'] = [];
+            if (null !== $this->figures && \is_array($this->figures)) {
                 $n = 0;
-                foreach ($this->faces as $item) {
-                    $res['Faces'][$n++] = null !== $item ? $item->toMap() : $item;
+                foreach ($this->figures as $item) {
+                    $res['Figures'][$n++] = null !== $item ? $item->toMap() : $item;
                 }
             }
         }
@@ -841,12 +781,6 @@ class File extends Model
         }
         if (null !== $this->filename) {
             $res['Filename'] = $this->filename;
-        }
-        if (null !== $this->imageEmbeddingsFloat32) {
-            $res['ImageEmbeddingsFloat32'] = $this->imageEmbeddingsFloat32;
-        }
-        if (null !== $this->imageEmbeddingsInt8) {
-            $res['ImageEmbeddingsInt8'] = $this->imageEmbeddingsInt8;
         }
         if (null !== $this->imageHeight) {
             $res['ImageHeight'] = $this->imageHeight;
@@ -881,6 +815,9 @@ class File extends Model
                 }
             }
         }
+        if (null !== $this->OSSCRC64) {
+            $res['OSSCRC64'] = $this->OSSCRC64;
+        }
         if (null !== $this->OSSDeleteMarker) {
             $res['OSSDeleteMarker'] = $this->OSSDeleteMarker;
         }
@@ -890,11 +827,17 @@ class File extends Model
         if (null !== $this->OSSObjectType) {
             $res['OSSObjectType'] = $this->OSSObjectType;
         }
+        if (null !== $this->OSSStorageClass) {
+            $res['OSSStorageClass'] = $this->OSSStorageClass;
+        }
         if (null !== $this->OSSTagging) {
             $res['OSSTagging'] = $this->OSSTagging;
         }
         if (null !== $this->OSSTaggingCount) {
             $res['OSSTaggingCount'] = $this->OSSTaggingCount;
+        }
+        if (null !== $this->OSSURI) {
+            $res['OSSURI'] = $this->OSSURI;
         }
         if (null !== $this->OSSUserMeta) {
             $res['OSSUserMeta'] = $this->OSSUserMeta;
@@ -944,9 +887,6 @@ class File extends Model
         if (null !== $this->size) {
             $res['Size'] = $this->size;
         }
-        if (null !== $this->storageClass) {
-            $res['StorageClass'] = $this->storageClass;
-        }
         if (null !== $this->subtitles) {
             $res['Subtitles'] = [];
             if (null !== $this->subtitles && \is_array($this->subtitles)) {
@@ -976,12 +916,6 @@ class File extends Model
         }
         if (null !== $this->videoDuration) {
             $res['VideoDuration'] = $this->videoDuration;
-        }
-        if (null !== $this->videoEmbeddingsFloat32) {
-            $res['VideoEmbeddingsFloat32'] = $this->videoEmbeddingsFloat32;
-        }
-        if (null !== $this->videoEmbeddingsInt8) {
-            $res['VideoEmbeddingsInt8'] = $this->videoEmbeddingsInt8;
         }
         if (null !== $this->videoHeight) {
             $res['VideoHeight'] = $this->videoHeight;
@@ -1057,16 +991,6 @@ class File extends Model
         if (isset($map['AudioDuration'])) {
             $model->audioDuration = $map['AudioDuration'];
         }
-        if (isset($map['AudioEmbeddingsFloat32'])) {
-            if (!empty($map['AudioEmbeddingsFloat32'])) {
-                $model->audioEmbeddingsFloat32 = $map['AudioEmbeddingsFloat32'];
-            }
-        }
-        if (isset($map['AudioEmbeddingsInt8'])) {
-            if (!empty($map['AudioEmbeddingsInt8'])) {
-                $model->audioEmbeddingsInt8 = $map['AudioEmbeddingsInt8'];
-            }
-        }
         if (isset($map['AudioLanguage'])) {
             $model->audioLanguage = $map['AudioLanguage'];
         }
@@ -1127,16 +1051,6 @@ class File extends Model
         if (isset($map['DocumentContent'])) {
             $model->documentContent = $map['DocumentContent'];
         }
-        if (isset($map['DocumentEmbeddingsFloat32'])) {
-            if (!empty($map['DocumentEmbeddingsFloat32'])) {
-                $model->documentEmbeddingsFloat32 = $map['DocumentEmbeddingsFloat32'];
-            }
-        }
-        if (isset($map['DocumentEmbeddingsInt8'])) {
-            if (!empty($map['DocumentEmbeddingsInt8'])) {
-                $model->documentEmbeddingsInt8 = $map['DocumentEmbeddingsInt8'];
-            }
-        }
         if (isset($map['DocumentLanguage'])) {
             $model->documentLanguage = $map['DocumentLanguage'];
         }
@@ -1146,15 +1060,15 @@ class File extends Model
         if (isset($map['EXIF'])) {
             $model->EXIF = $map['EXIF'];
         }
-        if (isset($map['FaceCount'])) {
-            $model->faceCount = $map['FaceCount'];
+        if (isset($map['FigureCount'])) {
+            $model->figureCount = $map['FigureCount'];
         }
-        if (isset($map['Faces'])) {
-            if (!empty($map['Faces'])) {
-                $model->faces = [];
-                $n            = 0;
-                foreach ($map['Faces'] as $item) {
-                    $model->faces[$n++] = null !== $item ? Face::fromMap($item) : $item;
+        if (isset($map['Figures'])) {
+            if (!empty($map['Figures'])) {
+                $model->figures = [];
+                $n              = 0;
+                foreach ($map['Figures'] as $item) {
+                    $model->figures[$n++] = null !== $item ? Figure::fromMap($item) : $item;
                 }
             }
         }
@@ -1172,16 +1086,6 @@ class File extends Model
         }
         if (isset($map['Filename'])) {
             $model->filename = $map['Filename'];
-        }
-        if (isset($map['ImageEmbeddingsFloat32'])) {
-            if (!empty($map['ImageEmbeddingsFloat32'])) {
-                $model->imageEmbeddingsFloat32 = $map['ImageEmbeddingsFloat32'];
-            }
-        }
-        if (isset($map['ImageEmbeddingsInt8'])) {
-            if (!empty($map['ImageEmbeddingsInt8'])) {
-                $model->imageEmbeddingsInt8 = $map['ImageEmbeddingsInt8'];
-            }
         }
         if (isset($map['ImageHeight'])) {
             $model->imageHeight = $map['ImageHeight'];
@@ -1216,6 +1120,9 @@ class File extends Model
                 }
             }
         }
+        if (isset($map['OSSCRC64'])) {
+            $model->OSSCRC64 = $map['OSSCRC64'];
+        }
         if (isset($map['OSSDeleteMarker'])) {
             $model->OSSDeleteMarker = $map['OSSDeleteMarker'];
         }
@@ -1225,11 +1132,17 @@ class File extends Model
         if (isset($map['OSSObjectType'])) {
             $model->OSSObjectType = $map['OSSObjectType'];
         }
+        if (isset($map['OSSStorageClass'])) {
+            $model->OSSStorageClass = $map['OSSStorageClass'];
+        }
         if (isset($map['OSSTagging'])) {
             $model->OSSTagging = $map['OSSTagging'];
         }
         if (isset($map['OSSTaggingCount'])) {
             $model->OSSTaggingCount = $map['OSSTaggingCount'];
+        }
+        if (isset($map['OSSURI'])) {
+            $model->OSSURI = $map['OSSURI'];
         }
         if (isset($map['OSSUserMeta'])) {
             $model->OSSUserMeta = $map['OSSUserMeta'];
@@ -1279,9 +1192,6 @@ class File extends Model
         if (isset($map['Size'])) {
             $model->size = $map['Size'];
         }
-        if (isset($map['StorageClass'])) {
-            $model->storageClass = $map['StorageClass'];
-        }
         if (isset($map['Subtitles'])) {
             if (!empty($map['Subtitles'])) {
                 $model->subtitles = [];
@@ -1311,16 +1221,6 @@ class File extends Model
         }
         if (isset($map['VideoDuration'])) {
             $model->videoDuration = $map['VideoDuration'];
-        }
-        if (isset($map['VideoEmbeddingsFloat32'])) {
-            if (!empty($map['VideoEmbeddingsFloat32'])) {
-                $model->videoEmbeddingsFloat32 = $map['VideoEmbeddingsFloat32'];
-            }
-        }
-        if (isset($map['VideoEmbeddingsInt8'])) {
-            if (!empty($map['VideoEmbeddingsInt8'])) {
-                $model->videoEmbeddingsInt8 = $map['VideoEmbeddingsInt8'];
-            }
         }
         if (isset($map['VideoHeight'])) {
             $model->videoHeight = $map['VideoHeight'];

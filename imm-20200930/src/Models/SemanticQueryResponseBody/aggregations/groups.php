@@ -2,7 +2,7 @@
 
 // This file is auto-generated, don't edit it. Thanks.
 
-namespace AlibabaCloud\SDK\Imm\V20200930\Models\SimpleQueryResponseBody\aggregations;
+namespace AlibabaCloud\SDK\Imm\V20200930\Models\SemanticQueryResponseBody\aggregations;
 
 use AlibabaCloud\Tea\Model;
 

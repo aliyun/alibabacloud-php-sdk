@@ -6,32 +6,26 @@ namespace AlibabaCloud\SDK\Imm\V20200930\Models;
 
 use AlibabaCloud\Tea\Model;
 
-class ListOfficeConversionTaskRequest extends Model
+class GetFigureClusterRequest extends Model
 {
     /**
-     * @description 最大结果数
-     *
-     * @var int
-     */
-    public $maxResults;
-
-    /**
-     * @description 下一条记录开始标记
-     *
      * @var string
      */
-    public $nextToken;
+    public $datasetName;
 
     /**
-     * @description 项目名称
-     *
+     * @var string
+     */
+    public $figureClusterId;
+
+    /**
      * @var string
      */
     public $projectName;
     protected $_name = [
-        'maxResults'  => 'MaxResults',
-        'nextToken'   => 'NextToken',
-        'projectName' => 'ProjectName',
+        'datasetName'     => 'DatasetName',
+        'figureClusterId' => 'FigureClusterId',
+        'projectName'     => 'ProjectName',
     ];
 
     public function validate()
@@ -41,11 +35,11 @@ class ListOfficeConversionTaskRequest extends Model
     public function toMap()
     {
         $res = [];
-        if (null !== $this->maxResults) {
-            $res['MaxResults'] = $this->maxResults;
+        if (null !== $this->datasetName) {
+            $res['DatasetName'] = $this->datasetName;
         }
-        if (null !== $this->nextToken) {
-            $res['NextToken'] = $this->nextToken;
+        if (null !== $this->figureClusterId) {
+            $res['FigureClusterId'] = $this->figureClusterId;
         }
         if (null !== $this->projectName) {
             $res['ProjectName'] = $this->projectName;
@@ -57,16 +51,16 @@ class ListOfficeConversionTaskRequest extends Model
     /**
      * @param array $map
      *
-     * @return ListOfficeConversionTaskRequest
+     * @return GetFigureClusterRequest
      */
     public static function fromMap($map = [])
     {
         $model = new self();
-        if (isset($map['MaxResults'])) {
-            $model->maxResults = $map['MaxResults'];
+        if (isset($map['DatasetName'])) {
+            $model->datasetName = $map['DatasetName'];
         }
-        if (isset($map['NextToken'])) {
-            $model->nextToken = $map['NextToken'];
+        if (isset($map['FigureClusterId'])) {
+            $model->figureClusterId = $map['FigureClusterId'];
         }
         if (isset($map['ProjectName'])) {
             $model->projectName = $map['ProjectName'];

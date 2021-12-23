@@ -2,9 +2,9 @@
 
 // This file is auto-generated, don't edit it. Thanks.
 
-namespace AlibabaCloud\SDK\Imm\V20200930\Models\SimpleQueryResponseBody;
+namespace AlibabaCloud\SDK\Imm\V20200930\Models\SemanticQueryResponseBody;
 
-use AlibabaCloud\SDK\Imm\V20200930\Models\SimpleQueryResponseBody\aggregations\groups;
+use AlibabaCloud\SDK\Imm\V20200930\Models\SemanticQueryResponseBody\aggregations\groups;
 use AlibabaCloud\Tea\Model;
 
 class aggregations extends Model

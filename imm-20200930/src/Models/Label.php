@@ -9,6 +9,13 @@ use AlibabaCloud\Tea\Model;
 class Label extends Model
 {
     /**
+     * @description CentricScore
+     *
+     * @var float
+     */
+    public $centricScore;
+
+    /**
      * @description LabelConfidence
      *
      * @var float
@@ -35,11 +42,20 @@ class Label extends Model
      * @var string
      */
     public $language;
+
+    /**
+     * @description ParentLabelName
+     *
+     * @var string
+     */
+    public $parentLabelName;
     protected $_name = [
+        'centricScore'    => 'CentricScore',
         'labelConfidence' => 'LabelConfidence',
         'labelLevel'      => 'LabelLevel',
         'labelName'       => 'LabelName',
         'language'        => 'Language',
+        'parentLabelName' => 'ParentLabelName',
     ];
 
     public function validate()
@@ -49,6 +65,9 @@ class Label extends Model
     public function toMap()
     {
         $res = [];
+        if (null !== $this->centricScore) {
+            $res['CentricScore'] = $this->centricScore;
+        }
         if (null !== $this->labelConfidence) {
             $res['LabelConfidence'] = $this->labelConfidence;
         }
@@ -60,6 +79,9 @@ class Label extends Model
         }
         if (null !== $this->language) {
             $res['Language'] = $this->language;
+        }
+        if (null !== $this->parentLabelName) {
+            $res['ParentLabelName'] = $this->parentLabelName;
         }
 
         return $res;
@@ -73,6 +95,9 @@ class Label extends Model
     public static function fromMap($map = [])
     {
         $model = new self();
+        if (isset($map['CentricScore'])) {
+            $model->centricScore = $map['CentricScore'];
+        }
         if (isset($map['LabelConfidence'])) {
             $model->labelConfidence = $map['LabelConfidence'];
         }
@@ -84,6 +109,9 @@ class Label extends Model
         }
         if (isset($map['Language'])) {
             $model->language = $map['Language'];
+        }
+        if (isset($map['ParentLabelName'])) {
+            $model->parentLabelName = $map['ParentLabelName'];
         }
 
         return $model;

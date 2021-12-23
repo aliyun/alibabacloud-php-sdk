@@ -6,7 +6,7 @@ namespace AlibabaCloud\SDK\Imm\V20200930\Models;
 
 use AlibabaCloud\Tea\Model;
 
-class GetOfficeConversionTaskRequest extends Model
+class GetTaskRequest extends Model
 {
     /**
      * @description 项目名称
@@ -16,14 +16,22 @@ class GetOfficeConversionTaskRequest extends Model
     public $projectName;
 
     /**
-     * @description 任务 id
+     * @description TaskId
      *
      * @var string
      */
     public $taskId;
+
+    /**
+     * @description TaskType
+     *
+     * @var string
+     */
+    public $taskType;
     protected $_name = [
         'projectName' => 'ProjectName',
         'taskId'      => 'TaskId',
+        'taskType'    => 'TaskType',
     ];
 
     public function validate()
@@ -39,6 +47,9 @@ class GetOfficeConversionTaskRequest extends Model
         if (null !== $this->taskId) {
             $res['TaskId'] = $this->taskId;
         }
+        if (null !== $this->taskType) {
+            $res['TaskType'] = $this->taskType;
+        }
 
         return $res;
     }
@@ -46,7 +57,7 @@ class GetOfficeConversionTaskRequest extends Model
     /**
      * @param array $map
      *
-     * @return GetOfficeConversionTaskRequest
+     * @return GetTaskRequest
      */
     public static function fromMap($map = [])
     {
@@ -56,6 +67,9 @@ class GetOfficeConversionTaskRequest extends Model
         }
         if (isset($map['TaskId'])) {
             $model->taskId = $map['TaskId'];
+        }
+        if (isset($map['TaskType'])) {
+            $model->taskType = $map['TaskType'];
         }
 
         return $model;

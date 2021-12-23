@@ -4,14 +4,15 @@
 
 namespace AlibabaCloud\SDK\Imm\V20200930\Models;
 
+use AlibabaCloud\SDK\Imm\V20200930\Models\BatchUpdateFileMetaResponseBody\files;
 use AlibabaCloud\Tea\Model;
 
 class BatchUpdateFileMetaResponseBody extends Model
 {
     /**
-     * @var string
+     * @var files[]
      */
-    public $eventId;
+    public $files;
 
     /**
      * @description Id of the request
@@ -20,7 +21,7 @@ class BatchUpdateFileMetaResponseBody extends Model
      */
     public $requestId;
     protected $_name = [
-        'eventId'   => 'EventId',
+        'files'     => 'Files',
         'requestId' => 'RequestId',
     ];
 
@@ -31,8 +32,14 @@ class BatchUpdateFileMetaResponseBody extends Model
     public function toMap()
     {
         $res = [];
-        if (null !== $this->eventId) {
-            $res['EventId'] = $this->eventId;
+        if (null !== $this->files) {
+            $res['Files'] = [];
+            if (null !== $this->files && \is_array($this->files)) {
+                $n = 0;
+                foreach ($this->files as $item) {
+                    $res['Files'][$n++] = null !== $item ? $item->toMap() : $item;
+                }
+            }
         }
         if (null !== $this->requestId) {
             $res['RequestId'] = $this->requestId;
@@ -49,8 +56,14 @@ class BatchUpdateFileMetaResponseBody extends Model
     public static function fromMap($map = [])
     {
         $model = new self();
-        if (isset($map['EventId'])) {
-            $model->eventId = $map['EventId'];
+        if (isset($map['Files'])) {
+            if (!empty($map['Files'])) {
+                $model->files = [];
+                $n            = 0;
+                foreach ($map['Files'] as $item) {
+                    $model->files[$n++] = null !== $item ? files::fromMap($item) : $item;
+                }
+            }
         }
         if (isset($map['RequestId'])) {
             $model->requestId = $map['RequestId'];

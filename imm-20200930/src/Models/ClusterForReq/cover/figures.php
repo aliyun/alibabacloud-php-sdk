@@ -2,20 +2,20 @@
 
 // This file is auto-generated, don't edit it. Thanks.
 
-namespace AlibabaCloud\SDK\Imm\V20200930\Models;
+namespace AlibabaCloud\SDK\Imm\V20200930\Models\ClusterForReq\cover;
 
 use AlibabaCloud\Tea\Model;
 
-class BatchDeleteFileMetaResponseBody extends Model
+class figures extends Model
 {
     /**
-     * @description Id of the request
+     * @description FigureId
      *
      * @var string
      */
-    public $requestId;
+    public $figureId;
     protected $_name = [
-        'requestId' => 'RequestId',
+        'figureId' => 'FigureId',
     ];
 
     public function validate()
@@ -25,8 +25,8 @@ class BatchDeleteFileMetaResponseBody extends Model
     public function toMap()
     {
         $res = [];
-        if (null !== $this->requestId) {
-            $res['RequestId'] = $this->requestId;
+        if (null !== $this->figureId) {
+            $res['FigureId'] = $this->figureId;
         }
 
         return $res;
@@ -35,13 +35,13 @@ class BatchDeleteFileMetaResponseBody extends Model
     /**
      * @param array $map
      *
-     * @return BatchDeleteFileMetaResponseBody
+     * @return figures
      */
     public static function fromMap($map = [])
     {
         $model = new self();
-        if (isset($map['RequestId'])) {
-            $model->requestId = $map['RequestId'];
+        if (isset($map['FigureId'])) {
+            $model->figureId = $map['FigureId'];
         }
 
         return $model;

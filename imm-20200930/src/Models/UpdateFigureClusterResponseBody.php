@@ -6,7 +6,7 @@ namespace AlibabaCloud\SDK\Imm\V20200930\Models;
 
 use AlibabaCloud\Tea\Model;
 
-class BatchDeleteFileMetaResponseBody extends Model
+class UpdateFigureClusterResponseBody extends Model
 {
     /**
      * @description Id of the request
@@ -35,7 +35,7 @@ class BatchDeleteFileMetaResponseBody extends Model
     /**
      * @param array $map
      *
-     * @return BatchDeleteFileMetaResponseBody
+     * @return UpdateFigureClusterResponseBody
      */
     public static function fromMap($map = [])
     {

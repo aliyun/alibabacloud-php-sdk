@@ -6,28 +6,28 @@ namespace AlibabaCloud\SDK\Imm\V20200930\Models;
 
 use AlibabaCloud\Tea\Model;
 
-class OfficeConversionTask extends Model
+class TaskInfo extends Model
 {
     /**
-     * @description 任务创建时间
+     * @description 错误码
      *
      * @var string
      */
-    public $createTime;
+    public $code;
 
     /**
-     * @description 任务解释时间
+     * @description 任务结束时间
      *
      * @var string
      */
     public $endTime;
 
     /**
-     * @description Status 解释
+     * @description 错误消息
      *
      * @var string
      */
-    public $reason;
+    public $message;
 
     /**
      * @description 任务开始时间
@@ -44,34 +44,34 @@ class OfficeConversionTask extends Model
     public $status;
 
     /**
-     * @description 任务 id
+     * @description 任务唯一ID
      *
      * @var string
      */
     public $taskId;
 
     /**
-     * @description 转换页数
+     * @description 任务类型
      *
-     * @var int
+     * @var string
      */
-    public $totalPages;
+    public $taskType;
 
     /**
-     * @description 用户自定义内容
+     * @description 用户自定义信息
      *
      * @var string
      */
     public $userData;
     protected $_name = [
-        'createTime' => 'CreateTime',
-        'endTime'    => 'EndTime',
-        'reason'     => 'Reason',
-        'startTime'  => 'StartTime',
-        'status'     => 'Status',
-        'taskId'     => 'TaskId',
-        'totalPages' => 'TotalPages',
-        'userData'   => 'UserData',
+        'code'      => 'Code',
+        'endTime'   => 'EndTime',
+        'message'   => 'Message',
+        'startTime' => 'StartTime',
+        'status'    => 'Status',
+        'taskId'    => 'TaskId',
+        'taskType'  => 'TaskType',
+        'userData'  => 'UserData',
     ];
 
     public function validate()
@@ -81,14 +81,14 @@ class OfficeConversionTask extends Model
     public function toMap()
     {
         $res = [];
-        if (null !== $this->createTime) {
-            $res['CreateTime'] = $this->createTime;
+        if (null !== $this->code) {
+            $res['Code'] = $this->code;
         }
         if (null !== $this->endTime) {
             $res['EndTime'] = $this->endTime;
         }
-        if (null !== $this->reason) {
-            $res['Reason'] = $this->reason;
+        if (null !== $this->message) {
+            $res['Message'] = $this->message;
         }
         if (null !== $this->startTime) {
             $res['StartTime'] = $this->startTime;
@@ -99,8 +99,8 @@ class OfficeConversionTask extends Model
         if (null !== $this->taskId) {
             $res['TaskId'] = $this->taskId;
         }
-        if (null !== $this->totalPages) {
-            $res['TotalPages'] = $this->totalPages;
+        if (null !== $this->taskType) {
+            $res['TaskType'] = $this->taskType;
         }
         if (null !== $this->userData) {
             $res['UserData'] = $this->userData;
@@ -112,19 +112,19 @@ class OfficeConversionTask extends Model
     /**
      * @param array $map
      *
-     * @return OfficeConversionTask
+     * @return TaskInfo
      */
     public static function fromMap($map = [])
     {
         $model = new self();
-        if (isset($map['CreateTime'])) {
-            $model->createTime = $map['CreateTime'];
+        if (isset($map['Code'])) {
+            $model->code = $map['Code'];
         }
         if (isset($map['EndTime'])) {
             $model->endTime = $map['EndTime'];
         }
-        if (isset($map['Reason'])) {
-            $model->reason = $map['Reason'];
+        if (isset($map['Message'])) {
+            $model->message = $map['Message'];
         }
         if (isset($map['StartTime'])) {
             $model->startTime = $map['StartTime'];
@@ -135,8 +135,8 @@ class OfficeConversionTask extends Model
         if (isset($map['TaskId'])) {
             $model->taskId = $map['TaskId'];
         }
-        if (isset($map['TotalPages'])) {
-            $model->totalPages = $map['TotalPages'];
+        if (isset($map['TaskType'])) {
+            $model->taskType = $map['TaskType'];
         }
         if (isset($map['UserData'])) {
             $model->userData = $map['UserData'];

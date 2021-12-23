@@ -18,12 +18,14 @@ use AlibabaCloud\SDK\Imm\V20200930\Models\BatchIndexFileMetaShrinkRequest;
 use AlibabaCloud\SDK\Imm\V20200930\Models\BatchUpdateFileMetaRequest;
 use AlibabaCloud\SDK\Imm\V20200930\Models\BatchUpdateFileMetaResponse;
 use AlibabaCloud\SDK\Imm\V20200930\Models\BatchUpdateFileMetaShrinkRequest;
+use AlibabaCloud\SDK\Imm\V20200930\Models\ClusterFiguresRequest;
+use AlibabaCloud\SDK\Imm\V20200930\Models\ClusterFiguresResponse;
 use AlibabaCloud\SDK\Imm\V20200930\Models\CreateBindingRequest;
 use AlibabaCloud\SDK\Imm\V20200930\Models\CreateBindingResponse;
 use AlibabaCloud\SDK\Imm\V20200930\Models\CreateDatasetRequest;
 use AlibabaCloud\SDK\Imm\V20200930\Models\CreateDatasetResponse;
-use AlibabaCloud\SDK\Imm\V20200930\Models\CreateOfficeConversionTaskRequest;
-use AlibabaCloud\SDK\Imm\V20200930\Models\CreateOfficeConversionTaskResponse;
+use AlibabaCloud\SDK\Imm\V20200930\Models\CreateDetectVideoLabelsTaskRequest;
+use AlibabaCloud\SDK\Imm\V20200930\Models\CreateDetectVideoLabelsTaskResponse;
 use AlibabaCloud\SDK\Imm\V20200930\Models\CreateProjectRequest;
 use AlibabaCloud\SDK\Imm\V20200930\Models\CreateProjectResponse;
 use AlibabaCloud\SDK\Imm\V20200930\Models\DeleteBindingRequest;
@@ -42,14 +44,18 @@ use AlibabaCloud\SDK\Imm\V20200930\Models\GetBindingRequest;
 use AlibabaCloud\SDK\Imm\V20200930\Models\GetBindingResponse;
 use AlibabaCloud\SDK\Imm\V20200930\Models\GetDatasetRequest;
 use AlibabaCloud\SDK\Imm\V20200930\Models\GetDatasetResponse;
+use AlibabaCloud\SDK\Imm\V20200930\Models\GetDetectVideoLabelsResultRequest;
+use AlibabaCloud\SDK\Imm\V20200930\Models\GetDetectVideoLabelsResultResponse;
+use AlibabaCloud\SDK\Imm\V20200930\Models\GetFigureClusterRequest;
+use AlibabaCloud\SDK\Imm\V20200930\Models\GetFigureClusterResponse;
 use AlibabaCloud\SDK\Imm\V20200930\Models\GetFileMetaRequest;
 use AlibabaCloud\SDK\Imm\V20200930\Models\GetFileMetaResponse;
 use AlibabaCloud\SDK\Imm\V20200930\Models\GetFileSignedURIRequest;
 use AlibabaCloud\SDK\Imm\V20200930\Models\GetFileSignedURIResponse;
-use AlibabaCloud\SDK\Imm\V20200930\Models\GetOfficeConversionTaskRequest;
-use AlibabaCloud\SDK\Imm\V20200930\Models\GetOfficeConversionTaskResponse;
 use AlibabaCloud\SDK\Imm\V20200930\Models\GetProjectRequest;
 use AlibabaCloud\SDK\Imm\V20200930\Models\GetProjectResponse;
+use AlibabaCloud\SDK\Imm\V20200930\Models\GetTaskRequest;
+use AlibabaCloud\SDK\Imm\V20200930\Models\GetTaskResponse;
 use AlibabaCloud\SDK\Imm\V20200930\Models\GetWebofficeURLRequest;
 use AlibabaCloud\SDK\Imm\V20200930\Models\GetWebofficeURLResponse;
 use AlibabaCloud\SDK\Imm\V20200930\Models\GetWebofficeURLShrinkRequest;
@@ -60,15 +66,21 @@ use AlibabaCloud\SDK\Imm\V20200930\Models\ListBindingsRequest;
 use AlibabaCloud\SDK\Imm\V20200930\Models\ListBindingsResponse;
 use AlibabaCloud\SDK\Imm\V20200930\Models\ListDatasetsRequest;
 use AlibabaCloud\SDK\Imm\V20200930\Models\ListDatasetsResponse;
-use AlibabaCloud\SDK\Imm\V20200930\Models\ListOfficeConversionTaskRequest;
-use AlibabaCloud\SDK\Imm\V20200930\Models\ListOfficeConversionTaskResponse;
+use AlibabaCloud\SDK\Imm\V20200930\Models\ListFigureClustersRequest;
+use AlibabaCloud\SDK\Imm\V20200930\Models\ListFigureClustersResponse;
 use AlibabaCloud\SDK\Imm\V20200930\Models\ListProjectsRequest;
 use AlibabaCloud\SDK\Imm\V20200930\Models\ListProjectsResponse;
+use AlibabaCloud\SDK\Imm\V20200930\Models\ListTasksRequest;
+use AlibabaCloud\SDK\Imm\V20200930\Models\ListTasksResponse;
+use AlibabaCloud\SDK\Imm\V20200930\Models\MergeFigureClustersRequest;
+use AlibabaCloud\SDK\Imm\V20200930\Models\MergeFigureClustersResponse;
 use AlibabaCloud\SDK\Imm\V20200930\Models\RefreshWebofficeTokenRequest;
 use AlibabaCloud\SDK\Imm\V20200930\Models\RefreshWebofficeTokenResponse;
 use AlibabaCloud\SDK\Imm\V20200930\Models\RefreshWebofficeTokenShrinkRequest;
 use AlibabaCloud\SDK\Imm\V20200930\Models\ResumeBindingRequest;
 use AlibabaCloud\SDK\Imm\V20200930\Models\ResumeBindingResponse;
+use AlibabaCloud\SDK\Imm\V20200930\Models\SemanticQueryRequest;
+use AlibabaCloud\SDK\Imm\V20200930\Models\SemanticQueryResponse;
 use AlibabaCloud\SDK\Imm\V20200930\Models\SimpleQueryRequest;
 use AlibabaCloud\SDK\Imm\V20200930\Models\SimpleQueryResponse;
 use AlibabaCloud\SDK\Imm\V20200930\Models\SimpleQueryShrinkRequest;
@@ -76,6 +88,9 @@ use AlibabaCloud\SDK\Imm\V20200930\Models\StopBindingRequest;
 use AlibabaCloud\SDK\Imm\V20200930\Models\StopBindingResponse;
 use AlibabaCloud\SDK\Imm\V20200930\Models\UpdateDatasetRequest;
 use AlibabaCloud\SDK\Imm\V20200930\Models\UpdateDatasetResponse;
+use AlibabaCloud\SDK\Imm\V20200930\Models\UpdateFigureClusterRequest;
+use AlibabaCloud\SDK\Imm\V20200930\Models\UpdateFigureClusterResponse;
+use AlibabaCloud\SDK\Imm\V20200930\Models\UpdateFigureClusterShrinkRequest;
 use AlibabaCloud\SDK\Imm\V20200930\Models\UpdateFileMetaRequest;
 use AlibabaCloud\SDK\Imm\V20200930\Models\UpdateFileMetaResponse;
 use AlibabaCloud\SDK\Imm\V20200930\Models\UpdateFileMetaShrinkRequest;
@@ -138,15 +153,12 @@ class Imm extends OpenApiClient
         if (!Utils::isUnset($tmpReq->URIs)) {
             $request->URIsShrink = OpenApiUtilClient::arrayToStringWithSpecifiedStyle($tmpReq->URIs, 'URIs', 'json');
         }
-        $query                    = [];
-        $query['DatasetName']     = $request->datasetName;
-        $query['NotifyEndpoint']  = $request->notifyEndpoint;
-        $query['NotifyTopicName'] = $request->notifyTopicName;
-        $query['ProjectName']     = $request->projectName;
-        $query['URIs']            = $request->URIsShrink;
-        $req                      = new OpenApiRequest([
+        $query                = [];
+        $query['DatasetName'] = $request->datasetName;
+        $query['ProjectName'] = $request->projectName;
+        $query['URIs']        = $request->URIsShrink;
+        $req                  = new OpenApiRequest([
             'query' => OpenApiUtilClient::query($query),
-            'body'  => Utils::toMap($request),
         ]);
         $params = new Params([
             'action'      => 'BatchDeleteFileMeta',
@@ -156,7 +168,7 @@ class Imm extends OpenApiClient
             'method'      => 'POST',
             'authType'    => 'AK',
             'style'       => 'RPC',
-            'reqBodyType' => 'json',
+            'reqBodyType' => 'formData',
             'bodyType'    => 'json',
         ]);
 
@@ -195,7 +207,6 @@ class Imm extends OpenApiClient
         $query['URIs']        = $request->URIsShrink;
         $req                  = new OpenApiRequest([
             'query' => OpenApiUtilClient::query($query),
-            'body'  => Utils::toMap($request),
         ]);
         $params = new Params([
             'action'      => 'BatchGetFileMeta',
@@ -205,7 +216,7 @@ class Imm extends OpenApiClient
             'method'      => 'POST',
             'authType'    => 'AK',
             'style'       => 'RPC',
-            'reqBodyType' => 'json',
+            'reqBodyType' => 'formData',
             'bodyType'    => 'json',
         ]);
 
@@ -246,7 +257,6 @@ class Imm extends OpenApiClient
         $query['ProjectName']     = $request->projectName;
         $req                      = new OpenApiRequest([
             'query' => OpenApiUtilClient::query($query),
-            'body'  => Utils::toMap($request),
         ]);
         $params = new Params([
             'action'      => 'BatchIndexFileMeta',
@@ -256,7 +266,7 @@ class Imm extends OpenApiClient
             'method'      => 'POST',
             'authType'    => 'AK',
             'style'       => 'RPC',
-            'reqBodyType' => 'json',
+            'reqBodyType' => 'formData',
             'bodyType'    => 'json',
         ]);
 
@@ -289,15 +299,12 @@ class Imm extends OpenApiClient
         if (!Utils::isUnset($tmpReq->files)) {
             $request->filesShrink = OpenApiUtilClient::arrayToStringWithSpecifiedStyle($tmpReq->files, 'Files', 'json');
         }
-        $query                    = [];
-        $query['DatasetName']     = $request->datasetName;
-        $query['Files']           = $request->filesShrink;
-        $query['NotifyEndpoint']  = $request->notifyEndpoint;
-        $query['NotifyTopicName'] = $request->notifyTopicName;
-        $query['ProjectName']     = $request->projectName;
-        $req                      = new OpenApiRequest([
+        $query                = [];
+        $query['DatasetName'] = $request->datasetName;
+        $query['Files']       = $request->filesShrink;
+        $query['ProjectName'] = $request->projectName;
+        $req                  = new OpenApiRequest([
             'query' => OpenApiUtilClient::query($query),
-            'body'  => Utils::toMap($request),
         ]);
         $params = new Params([
             'action'      => 'BatchUpdateFileMeta',
@@ -307,7 +314,7 @@ class Imm extends OpenApiClient
             'method'      => 'POST',
             'authType'    => 'AK',
             'style'       => 'RPC',
-            'reqBodyType' => 'json',
+            'reqBodyType' => 'formData',
             'bodyType'    => 'json',
         ]);
 
@@ -327,6 +334,52 @@ class Imm extends OpenApiClient
     }
 
     /**
+     * @param ClusterFiguresRequest $request
+     * @param RuntimeOptions        $runtime
+     *
+     * @return ClusterFiguresResponse
+     */
+    public function clusterFiguresWithOptions($request, $runtime)
+    {
+        Utils::validateModel($request);
+        $query                        = [];
+        $query['CustomMessage']       = $request->customMessage;
+        $query['DatasetName']         = $request->datasetName;
+        $query['FigureType']          = $request->figureType;
+        $query['NotifyTopicEndpoint'] = $request->notifyTopicEndpoint;
+        $query['NotifyTopicName']     = $request->notifyTopicName;
+        $query['ProjectName']         = $request->projectName;
+        $req                          = new OpenApiRequest([
+            'query' => OpenApiUtilClient::query($query),
+        ]);
+        $params = new Params([
+            'action'      => 'ClusterFigures',
+            'version'     => '2020-09-30',
+            'protocol'    => 'HTTPS',
+            'pathname'    => '/',
+            'method'      => 'POST',
+            'authType'    => 'AK',
+            'style'       => 'RPC',
+            'reqBodyType' => 'formData',
+            'bodyType'    => 'json',
+        ]);
+
+        return ClusterFiguresResponse::fromMap($this->callApi($params, $req, $runtime));
+    }
+
+    /**
+     * @param ClusterFiguresRequest $request
+     *
+     * @return ClusterFiguresResponse
+     */
+    public function clusterFigures($request)
+    {
+        $runtime = new RuntimeOptions([]);
+
+        return $this->clusterFiguresWithOptions($request, $runtime);
+    }
+
+    /**
      * @param CreateBindingRequest $request
      * @param RuntimeOptions       $runtime
      *
@@ -341,7 +394,6 @@ class Imm extends OpenApiClient
         $query['URI']         = $request->URI;
         $req                  = new OpenApiRequest([
             'query' => OpenApiUtilClient::query($query),
-            'body'  => Utils::toMap($request),
         ]);
         $params = new Params([
             'action'      => 'CreateBinding',
@@ -351,7 +403,7 @@ class Imm extends OpenApiClient
             'method'      => 'POST',
             'authType'    => 'AK',
             'style'       => 'RPC',
-            'reqBodyType' => 'json',
+            'reqBodyType' => 'formData',
             'bodyType'    => 'json',
         ]);
 
@@ -391,7 +443,6 @@ class Imm extends OpenApiClient
         $query['TemplateId']              = $request->templateId;
         $req                              = new OpenApiRequest([
             'query' => OpenApiUtilClient::query($query),
-            'body'  => Utils::toMap($request),
         ]);
         $params = new Params([
             'action'      => 'CreateDataset',
@@ -401,7 +452,7 @@ class Imm extends OpenApiClient
             'method'      => 'POST',
             'authType'    => 'AK',
             'style'       => 'RPC',
-            'reqBodyType' => 'json',
+            'reqBodyType' => 'formData',
             'bodyType'    => 'json',
         ]);
 
@@ -421,66 +472,46 @@ class Imm extends OpenApiClient
     }
 
     /**
-     * @param CreateOfficeConversionTaskRequest $request
-     * @param RuntimeOptions                    $runtime
+     * @param CreateDetectVideoLabelsTaskRequest $request
+     * @param RuntimeOptions                     $runtime
      *
-     * @return CreateOfficeConversionTaskResponse
+     * @return CreateDetectVideoLabelsTaskResponse
      */
-    public function createOfficeConversionTaskWithOptions($request, $runtime)
+    public function createDetectVideoLabelsTaskWithOptions($request, $runtime)
     {
         Utils::validateModel($request);
-        $query                    = [];
-        $query['EndPage']         = $request->endPage;
-        $query['FirstPage']       = $request->firstPage;
-        $query['FitToHeight']     = $request->fitToHeight;
-        $query['FitToWidth']      = $request->fitToWidth;
-        $query['IsHorizontal']    = $request->isHorizontal;
-        $query['LongPic']         = $request->longPic;
-        $query['NotifyEndpoint']  = $request->notifyEndpoint;
-        $query['NotifyTopicName'] = $request->notifyTopicName;
-        $query['PaperSize']       = $request->paperSize;
-        $query['Password']        = $request->password;
-        $query['ProjectName']     = $request->projectName;
-        $query['Quality']         = $request->quality;
-        $query['Scale']           = $request->scale;
-        $query['SheetCount']      = $request->sheetCount;
-        $query['SheetIndex']      = $request->sheetIndex;
-        $query['ShowComments']    = $request->showComments;
-        $query['SourceType']      = $request->sourceType;
-        $query['SourceUri']       = $request->sourceUri;
-        $query['StartPage']       = $request->startPage;
-        $query['TargetType']      = $request->targetType;
-        $query['TargetUri']       = $request->targetUri;
-        $query['UserData']        = $request->userData;
-        $req                      = new OpenApiRequest([
+        $query                = [];
+        $query['ProjectName'] = $request->projectName;
+        $query['SourceURI']   = $request->sourceURI;
+        $query['UserData']    = $request->userData;
+        $req                  = new OpenApiRequest([
             'query' => OpenApiUtilClient::query($query),
-            'body'  => Utils::toMap($request),
         ]);
         $params = new Params([
-            'action'      => 'CreateOfficeConversionTask',
+            'action'      => 'CreateDetectVideoLabelsTask',
             'version'     => '2020-09-30',
             'protocol'    => 'HTTPS',
             'pathname'    => '/',
             'method'      => 'POST',
             'authType'    => 'AK',
             'style'       => 'RPC',
-            'reqBodyType' => 'json',
+            'reqBodyType' => 'formData',
             'bodyType'    => 'json',
         ]);
 
-        return CreateOfficeConversionTaskResponse::fromMap($this->callApi($params, $req, $runtime));
+        return CreateDetectVideoLabelsTaskResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
-     * @param CreateOfficeConversionTaskRequest $request
+     * @param CreateDetectVideoLabelsTaskRequest $request
      *
-     * @return CreateOfficeConversionTaskResponse
+     * @return CreateDetectVideoLabelsTaskResponse
      */
-    public function createOfficeConversionTask($request)
+    public function createDetectVideoLabelsTask($request)
     {
         $runtime = new RuntimeOptions([]);
 
-        return $this->createOfficeConversionTaskWithOptions($request, $runtime);
+        return $this->createDetectVideoLabelsTaskWithOptions($request, $runtime);
     }
 
     /**
@@ -507,7 +538,6 @@ class Imm extends OpenApiClient
         $query['TemplateId']              = $request->templateId;
         $req                              = new OpenApiRequest([
             'query' => OpenApiUtilClient::query($query),
-            'body'  => Utils::toMap($request),
         ]);
         $params = new Params([
             'action'      => 'CreateProject',
@@ -517,7 +547,7 @@ class Imm extends OpenApiClient
             'method'      => 'POST',
             'authType'    => 'AK',
             'style'       => 'RPC',
-            'reqBodyType' => 'json',
+            'reqBodyType' => 'formData',
             'bodyType'    => 'json',
         ]);
 
@@ -551,7 +581,6 @@ class Imm extends OpenApiClient
         $query['URI']         = $request->URI;
         $req                  = new OpenApiRequest([
             'query' => OpenApiUtilClient::query($query),
-            'body'  => Utils::toMap($request),
         ]);
         $params = new Params([
             'action'      => 'DeleteBinding',
@@ -561,7 +590,7 @@ class Imm extends OpenApiClient
             'method'      => 'POST',
             'authType'    => 'AK',
             'style'       => 'RPC',
-            'reqBodyType' => 'json',
+            'reqBodyType' => 'formData',
             'bodyType'    => 'json',
         ]);
 
@@ -594,7 +623,6 @@ class Imm extends OpenApiClient
         $query['ProjectName'] = $request->projectName;
         $req                  = new OpenApiRequest([
             'query' => OpenApiUtilClient::query($query),
-            'body'  => Utils::toMap($request),
         ]);
         $params = new Params([
             'action'      => 'DeleteDataset',
@@ -604,7 +632,7 @@ class Imm extends OpenApiClient
             'method'      => 'POST',
             'authType'    => 'AK',
             'style'       => 'RPC',
-            'reqBodyType' => 'json',
+            'reqBodyType' => 'formData',
             'bodyType'    => 'json',
         ]);
 
@@ -632,15 +660,12 @@ class Imm extends OpenApiClient
     public function deleteFileMetaWithOptions($request, $runtime)
     {
         Utils::validateModel($request);
-        $query                    = [];
-        $query['DatasetName']     = $request->datasetName;
-        $query['NotifyEndpoint']  = $request->notifyEndpoint;
-        $query['NotifyTopicName'] = $request->notifyTopicName;
-        $query['ProjectName']     = $request->projectName;
-        $query['URI']             = $request->URI;
-        $req                      = new OpenApiRequest([
+        $query                = [];
+        $query['DatasetName'] = $request->datasetName;
+        $query['ProjectName'] = $request->projectName;
+        $query['URI']         = $request->URI;
+        $req                  = new OpenApiRequest([
             'query' => OpenApiUtilClient::query($query),
-            'body'  => Utils::toMap($request),
         ]);
         $params = new Params([
             'action'      => 'DeleteFileMeta',
@@ -650,7 +675,7 @@ class Imm extends OpenApiClient
             'method'      => 'POST',
             'authType'    => 'AK',
             'style'       => 'RPC',
-            'reqBodyType' => 'json',
+            'reqBodyType' => 'formData',
             'bodyType'    => 'json',
         ]);
 
@@ -682,7 +707,6 @@ class Imm extends OpenApiClient
         $query['ProjectName'] = $request->projectName;
         $req                  = new OpenApiRequest([
             'query' => OpenApiUtilClient::query($query),
-            'body'  => Utils::toMap($request),
         ]);
         $params = new Params([
             'action'      => 'DeleteProject',
@@ -692,7 +716,7 @@ class Imm extends OpenApiClient
             'method'      => 'POST',
             'authType'    => 'AK',
             'style'       => 'RPC',
-            'reqBodyType' => 'json',
+            'reqBodyType' => 'formData',
             'bodyType'    => 'json',
         ]);
 
@@ -726,7 +750,6 @@ class Imm extends OpenApiClient
         $query['Threshold']   = $request->threshold;
         $req                  = new OpenApiRequest([
             'query' => OpenApiUtilClient::query($query),
-            'body'  => Utils::toMap($request),
         ]);
         $params = new Params([
             'action'      => 'DetectImageLabels',
@@ -736,7 +759,7 @@ class Imm extends OpenApiClient
             'method'      => 'POST',
             'authType'    => 'AK',
             'style'       => 'RPC',
-            'reqBodyType' => 'json',
+            'reqBodyType' => 'formData',
             'bodyType'    => 'json',
         ]);
 
@@ -772,7 +795,6 @@ class Imm extends OpenApiClient
         $query['Query']       = $request->query;
         $req                  = new OpenApiRequest([
             'query' => OpenApiUtilClient::query($query),
-            'body'  => Utils::toMap($request),
         ]);
         $params = new Params([
             'action'      => 'FuzzyQuery',
@@ -782,7 +804,7 @@ class Imm extends OpenApiClient
             'method'      => 'POST',
             'authType'    => 'AK',
             'style'       => 'RPC',
-            'reqBodyType' => 'json',
+            'reqBodyType' => 'formData',
             'bodyType'    => 'json',
         ]);
 
@@ -816,7 +838,6 @@ class Imm extends OpenApiClient
         $query['URI']         = $request->URI;
         $req                  = new OpenApiRequest([
             'query' => OpenApiUtilClient::query($query),
-            'body'  => Utils::toMap($request),
         ]);
         $params = new Params([
             'action'      => 'GetBinding',
@@ -826,7 +847,7 @@ class Imm extends OpenApiClient
             'method'      => 'POST',
             'authType'    => 'AK',
             'style'       => 'RPC',
-            'reqBodyType' => 'json',
+            'reqBodyType' => 'formData',
             'bodyType'    => 'json',
         ]);
 
@@ -860,7 +881,6 @@ class Imm extends OpenApiClient
         $query['WithStatistics'] = $request->withStatistics;
         $req                     = new OpenApiRequest([
             'query' => OpenApiUtilClient::query($query),
-            'body'  => Utils::toMap($request),
         ]);
         $params = new Params([
             'action'      => 'GetDataset',
@@ -870,7 +890,7 @@ class Imm extends OpenApiClient
             'method'      => 'POST',
             'authType'    => 'AK',
             'style'       => 'RPC',
-            'reqBodyType' => 'json',
+            'reqBodyType' => 'formData',
             'bodyType'    => 'json',
         ]);
 
@@ -890,6 +910,92 @@ class Imm extends OpenApiClient
     }
 
     /**
+     * @param GetDetectVideoLabelsResultRequest $request
+     * @param RuntimeOptions                    $runtime
+     *
+     * @return GetDetectVideoLabelsResultResponse
+     */
+    public function getDetectVideoLabelsResultWithOptions($request, $runtime)
+    {
+        Utils::validateModel($request);
+        $query                = [];
+        $query['ProjectName'] = $request->projectName;
+        $query['TaskId']      = $request->taskId;
+        $query['TaskType']    = $request->taskType;
+        $req                  = new OpenApiRequest([
+            'query' => OpenApiUtilClient::query($query),
+        ]);
+        $params = new Params([
+            'action'      => 'GetDetectVideoLabelsResult',
+            'version'     => '2020-09-30',
+            'protocol'    => 'HTTPS',
+            'pathname'    => '/',
+            'method'      => 'POST',
+            'authType'    => 'AK',
+            'style'       => 'RPC',
+            'reqBodyType' => 'formData',
+            'bodyType'    => 'json',
+        ]);
+
+        return GetDetectVideoLabelsResultResponse::fromMap($this->callApi($params, $req, $runtime));
+    }
+
+    /**
+     * @param GetDetectVideoLabelsResultRequest $request
+     *
+     * @return GetDetectVideoLabelsResultResponse
+     */
+    public function getDetectVideoLabelsResult($request)
+    {
+        $runtime = new RuntimeOptions([]);
+
+        return $this->getDetectVideoLabelsResultWithOptions($request, $runtime);
+    }
+
+    /**
+     * @param GetFigureClusterRequest $request
+     * @param RuntimeOptions          $runtime
+     *
+     * @return GetFigureClusterResponse
+     */
+    public function getFigureClusterWithOptions($request, $runtime)
+    {
+        Utils::validateModel($request);
+        $query                    = [];
+        $query['DatasetName']     = $request->datasetName;
+        $query['FigureClusterId'] = $request->figureClusterId;
+        $query['ProjectName']     = $request->projectName;
+        $req                      = new OpenApiRequest([
+            'query' => OpenApiUtilClient::query($query),
+        ]);
+        $params = new Params([
+            'action'      => 'GetFigureCluster',
+            'version'     => '2020-09-30',
+            'protocol'    => 'HTTPS',
+            'pathname'    => '/',
+            'method'      => 'POST',
+            'authType'    => 'AK',
+            'style'       => 'RPC',
+            'reqBodyType' => 'formData',
+            'bodyType'    => 'json',
+        ]);
+
+        return GetFigureClusterResponse::fromMap($this->callApi($params, $req, $runtime));
+    }
+
+    /**
+     * @param GetFigureClusterRequest $request
+     *
+     * @return GetFigureClusterResponse
+     */
+    public function getFigureCluster($request)
+    {
+        $runtime = new RuntimeOptions([]);
+
+        return $this->getFigureClusterWithOptions($request, $runtime);
+    }
+
+    /**
      * @param GetFileMetaRequest $request
      * @param RuntimeOptions     $runtime
      *
@@ -904,7 +1010,6 @@ class Imm extends OpenApiClient
         $query['URI']         = $request->URI;
         $req                  = new OpenApiRequest([
             'query' => OpenApiUtilClient::query($query),
-            'body'  => Utils::toMap($request),
         ]);
         $params = new Params([
             'action'      => 'GetFileMeta',
@@ -914,7 +1019,7 @@ class Imm extends OpenApiClient
             'method'      => 'POST',
             'authType'    => 'AK',
             'style'       => 'RPC',
-            'reqBodyType' => 'json',
+            'reqBodyType' => 'formData',
             'bodyType'    => 'json',
         ]);
 
@@ -947,7 +1052,6 @@ class Imm extends OpenApiClient
         $query['URI']         = $request->URI;
         $req                  = new OpenApiRequest([
             'query' => OpenApiUtilClient::query($query),
-            'body'  => Utils::toMap($request),
         ]);
         $params = new Params([
             'action'      => 'GetFileSignedURI',
@@ -957,7 +1061,7 @@ class Imm extends OpenApiClient
             'method'      => 'POST',
             'authType'    => 'AK',
             'style'       => 'RPC',
-            'reqBodyType' => 'json',
+            'reqBodyType' => 'formData',
             'bodyType'    => 'json',
         ]);
 
@@ -977,49 +1081,6 @@ class Imm extends OpenApiClient
     }
 
     /**
-     * @param GetOfficeConversionTaskRequest $request
-     * @param RuntimeOptions                 $runtime
-     *
-     * @return GetOfficeConversionTaskResponse
-     */
-    public function getOfficeConversionTaskWithOptions($request, $runtime)
-    {
-        Utils::validateModel($request);
-        $query                = [];
-        $query['ProjectName'] = $request->projectName;
-        $query['TaskId']      = $request->taskId;
-        $req                  = new OpenApiRequest([
-            'query' => OpenApiUtilClient::query($query),
-            'body'  => Utils::toMap($request),
-        ]);
-        $params = new Params([
-            'action'      => 'GetOfficeConversionTask',
-            'version'     => '2020-09-30',
-            'protocol'    => 'HTTPS',
-            'pathname'    => '/',
-            'method'      => 'POST',
-            'authType'    => 'AK',
-            'style'       => 'RPC',
-            'reqBodyType' => 'json',
-            'bodyType'    => 'json',
-        ]);
-
-        return GetOfficeConversionTaskResponse::fromMap($this->callApi($params, $req, $runtime));
-    }
-
-    /**
-     * @param GetOfficeConversionTaskRequest $request
-     *
-     * @return GetOfficeConversionTaskResponse
-     */
-    public function getOfficeConversionTask($request)
-    {
-        $runtime = new RuntimeOptions([]);
-
-        return $this->getOfficeConversionTaskWithOptions($request, $runtime);
-    }
-
-    /**
      * @param GetProjectRequest $request
      * @param RuntimeOptions    $runtime
      *
@@ -1033,7 +1094,6 @@ class Imm extends OpenApiClient
         $query['WithStatistics'] = $request->withStatistics;
         $req                     = new OpenApiRequest([
             'query' => OpenApiUtilClient::query($query),
-            'body'  => Utils::toMap($request),
         ]);
         $params = new Params([
             'action'      => 'GetProject',
@@ -1043,7 +1103,7 @@ class Imm extends OpenApiClient
             'method'      => 'POST',
             'authType'    => 'AK',
             'style'       => 'RPC',
-            'reqBodyType' => 'json',
+            'reqBodyType' => 'formData',
             'bodyType'    => 'json',
         ]);
 
@@ -1060,6 +1120,49 @@ class Imm extends OpenApiClient
         $runtime = new RuntimeOptions([]);
 
         return $this->getProjectWithOptions($request, $runtime);
+    }
+
+    /**
+     * @param GetTaskRequest $request
+     * @param RuntimeOptions $runtime
+     *
+     * @return GetTaskResponse
+     */
+    public function getTaskWithOptions($request, $runtime)
+    {
+        Utils::validateModel($request);
+        $query                = [];
+        $query['ProjectName'] = $request->projectName;
+        $query['TaskId']      = $request->taskId;
+        $query['TaskType']    = $request->taskType;
+        $req                  = new OpenApiRequest([
+            'query' => OpenApiUtilClient::query($query),
+        ]);
+        $params = new Params([
+            'action'      => 'GetTask',
+            'version'     => '2020-09-30',
+            'protocol'    => 'HTTPS',
+            'pathname'    => '/',
+            'method'      => 'POST',
+            'authType'    => 'AK',
+            'style'       => 'RPC',
+            'reqBodyType' => 'formData',
+            'bodyType'    => 'json',
+        ]);
+
+        return GetTaskResponse::fromMap($this->callApi($params, $req, $runtime));
+    }
+
+    /**
+     * @param GetTaskRequest $request
+     *
+     * @return GetTaskResponse
+     */
+    public function getTask($request)
+    {
+        $runtime = new RuntimeOptions([]);
+
+        return $this->getTaskWithOptions($request, $runtime);
     }
 
     /**
@@ -1103,7 +1206,6 @@ class Imm extends OpenApiClient
         $query['Watermark']        = $request->watermarkShrink;
         $req                       = new OpenApiRequest([
             'query' => OpenApiUtilClient::query($query),
-            'body'  => Utils::toMap($request),
         ]);
         $params = new Params([
             'action'      => 'GetWebofficeURL',
@@ -1113,7 +1215,7 @@ class Imm extends OpenApiClient
             'method'      => 'POST',
             'authType'    => 'AK',
             'style'       => 'RPC',
-            'reqBodyType' => 'json',
+            'reqBodyType' => 'formData',
             'bodyType'    => 'json',
         ]);
 
@@ -1154,7 +1256,6 @@ class Imm extends OpenApiClient
         $query['ProjectName']     = $request->projectName;
         $req                      = new OpenApiRequest([
             'query' => OpenApiUtilClient::query($query),
-            'body'  => Utils::toMap($request),
         ]);
         $params = new Params([
             'action'      => 'IndexFileMeta',
@@ -1164,7 +1265,7 @@ class Imm extends OpenApiClient
             'method'      => 'POST',
             'authType'    => 'AK',
             'style'       => 'RPC',
-            'reqBodyType' => 'json',
+            'reqBodyType' => 'formData',
             'bodyType'    => 'json',
         ]);
 
@@ -1199,7 +1300,6 @@ class Imm extends OpenApiClient
         $query['ProjectName'] = $request->projectName;
         $req                  = new OpenApiRequest([
             'query' => OpenApiUtilClient::query($query),
-            'body'  => Utils::toMap($request),
         ]);
         $params = new Params([
             'action'      => 'ListBindings',
@@ -1209,7 +1309,7 @@ class Imm extends OpenApiClient
             'method'      => 'POST',
             'authType'    => 'AK',
             'style'       => 'RPC',
-            'reqBodyType' => 'json',
+            'reqBodyType' => 'formData',
             'bodyType'    => 'json',
         ]);
 
@@ -1244,7 +1344,6 @@ class Imm extends OpenApiClient
         $query['ProjectName'] = $request->projectName;
         $req                  = new OpenApiRequest([
             'query' => OpenApiUtilClient::query($query),
-            'body'  => Utils::toMap($request),
         ]);
         $params = new Params([
             'action'      => 'ListDatasets',
@@ -1254,7 +1353,7 @@ class Imm extends OpenApiClient
             'method'      => 'POST',
             'authType'    => 'AK',
             'style'       => 'RPC',
-            'reqBodyType' => 'json',
+            'reqBodyType' => 'formData',
             'bodyType'    => 'json',
         ]);
 
@@ -1274,47 +1373,50 @@ class Imm extends OpenApiClient
     }
 
     /**
-     * @param ListOfficeConversionTaskRequest $request
-     * @param RuntimeOptions                  $runtime
+     * @param ListFigureClustersRequest $request
+     * @param RuntimeOptions            $runtime
      *
-     * @return ListOfficeConversionTaskResponse
+     * @return ListFigureClustersResponse
      */
-    public function listOfficeConversionTaskWithOptions($request, $runtime)
+    public function listFigureClustersWithOptions($request, $runtime)
     {
         Utils::validateModel($request);
         $query                = [];
+        $query['DatasetName'] = $request->datasetName;
+        $query['Labels']      = $request->labels;
         $query['MaxResults']  = $request->maxResults;
         $query['NextToken']   = $request->nextToken;
+        $query['Order']       = $request->order;
         $query['ProjectName'] = $request->projectName;
+        $query['Sort']        = $request->sort;
         $req                  = new OpenApiRequest([
             'query' => OpenApiUtilClient::query($query),
-            'body'  => Utils::toMap($request),
         ]);
         $params = new Params([
-            'action'      => 'ListOfficeConversionTask',
+            'action'      => 'ListFigureClusters',
             'version'     => '2020-09-30',
             'protocol'    => 'HTTPS',
             'pathname'    => '/',
             'method'      => 'POST',
             'authType'    => 'AK',
             'style'       => 'RPC',
-            'reqBodyType' => 'json',
+            'reqBodyType' => 'formData',
             'bodyType'    => 'json',
         ]);
 
-        return ListOfficeConversionTaskResponse::fromMap($this->callApi($params, $req, $runtime));
+        return ListFigureClustersResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
-     * @param ListOfficeConversionTaskRequest $request
+     * @param ListFigureClustersRequest $request
      *
-     * @return ListOfficeConversionTaskResponse
+     * @return ListFigureClustersResponse
      */
-    public function listOfficeConversionTask($request)
+    public function listFigureClusters($request)
     {
         $runtime = new RuntimeOptions([]);
 
-        return $this->listOfficeConversionTaskWithOptions($request, $runtime);
+        return $this->listFigureClustersWithOptions($request, $runtime);
     }
 
     /**
@@ -1332,7 +1434,6 @@ class Imm extends OpenApiClient
         $query['Prefix']     = $request->prefix;
         $req                 = new OpenApiRequest([
             'query' => OpenApiUtilClient::query($query),
-            'body'  => Utils::toMap($request),
         ]);
         $params = new Params([
             'action'      => 'ListProjects',
@@ -1342,7 +1443,7 @@ class Imm extends OpenApiClient
             'method'      => 'POST',
             'authType'    => 'AK',
             'style'       => 'RPC',
-            'reqBodyType' => 'json',
+            'reqBodyType' => 'formData',
             'bodyType'    => 'json',
         ]);
 
@@ -1359,6 +1460,98 @@ class Imm extends OpenApiClient
         $runtime = new RuntimeOptions([]);
 
         return $this->listProjectsWithOptions($request, $runtime);
+    }
+
+    /**
+     * @param ListTasksRequest $request
+     * @param RuntimeOptions   $runtime
+     *
+     * @return ListTasksResponse
+     */
+    public function listTasksWithOptions($request, $runtime)
+    {
+        Utils::validateModel($request);
+        $query                = [];
+        $query['MaxResults']  = $request->maxResults;
+        $query['NextToken']   = $request->nextToken;
+        $query['ProjectName'] = $request->projectName;
+        $query['TaskType']    = $request->taskType;
+        $req                  = new OpenApiRequest([
+            'query' => OpenApiUtilClient::query($query),
+        ]);
+        $params = new Params([
+            'action'      => 'ListTasks',
+            'version'     => '2020-09-30',
+            'protocol'    => 'HTTPS',
+            'pathname'    => '/',
+            'method'      => 'POST',
+            'authType'    => 'AK',
+            'style'       => 'RPC',
+            'reqBodyType' => 'formData',
+            'bodyType'    => 'json',
+        ]);
+
+        return ListTasksResponse::fromMap($this->callApi($params, $req, $runtime));
+    }
+
+    /**
+     * @param ListTasksRequest $request
+     *
+     * @return ListTasksResponse
+     */
+    public function listTasks($request)
+    {
+        $runtime = new RuntimeOptions([]);
+
+        return $this->listTasksWithOptions($request, $runtime);
+    }
+
+    /**
+     * @param MergeFigureClustersRequest $request
+     * @param RuntimeOptions             $runtime
+     *
+     * @return MergeFigureClustersResponse
+     */
+    public function mergeFigureClustersWithOptions($request, $runtime)
+    {
+        Utils::validateModel($request);
+        $query                        = [];
+        $query['ClusterIdFrom']       = $request->clusterIdFrom;
+        $query['ClusterIdTo']         = $request->clusterIdTo;
+        $query['CustomMessage']       = $request->customMessage;
+        $query['DatasetName']         = $request->datasetName;
+        $query['FigureType']          = $request->figureType;
+        $query['NotifyTopicEndpoint'] = $request->notifyTopicEndpoint;
+        $query['NotifyTopicName']     = $request->notifyTopicName;
+        $query['ProjectName']         = $request->projectName;
+        $req                          = new OpenApiRequest([
+            'query' => OpenApiUtilClient::query($query),
+        ]);
+        $params = new Params([
+            'action'      => 'MergeFigureClusters',
+            'version'     => '2020-09-30',
+            'protocol'    => 'HTTPS',
+            'pathname'    => '/',
+            'method'      => 'POST',
+            'authType'    => 'AK',
+            'style'       => 'RPC',
+            'reqBodyType' => 'formData',
+            'bodyType'    => 'json',
+        ]);
+
+        return MergeFigureClustersResponse::fromMap($this->callApi($params, $req, $runtime));
+    }
+
+    /**
+     * @param MergeFigureClustersRequest $request
+     *
+     * @return MergeFigureClustersResponse
+     */
+    public function mergeFigureClusters($request)
+    {
+        $runtime = new RuntimeOptions([]);
+
+        return $this->mergeFigureClustersWithOptions($request, $runtime);
     }
 
     /**
@@ -1382,7 +1575,6 @@ class Imm extends OpenApiClient
         $query['RefreshToken']    = $request->refreshToken;
         $req                      = new OpenApiRequest([
             'query' => OpenApiUtilClient::query($query),
-            'body'  => Utils::toMap($request),
         ]);
         $params = new Params([
             'action'      => 'RefreshWebofficeToken',
@@ -1392,7 +1584,7 @@ class Imm extends OpenApiClient
             'method'      => 'POST',
             'authType'    => 'AK',
             'style'       => 'RPC',
-            'reqBodyType' => 'json',
+            'reqBodyType' => 'formData',
             'bodyType'    => 'json',
         ]);
 
@@ -1426,7 +1618,6 @@ class Imm extends OpenApiClient
         $query['URI']         = $request->URI;
         $req                  = new OpenApiRequest([
             'query' => OpenApiUtilClient::query($query),
-            'body'  => Utils::toMap($request),
         ]);
         $params = new Params([
             'action'      => 'ResumeBinding',
@@ -1436,7 +1627,7 @@ class Imm extends OpenApiClient
             'method'      => 'POST',
             'authType'    => 'AK',
             'style'       => 'RPC',
-            'reqBodyType' => 'json',
+            'reqBodyType' => 'formData',
             'bodyType'    => 'json',
         ]);
 
@@ -1453,6 +1644,51 @@ class Imm extends OpenApiClient
         $runtime = new RuntimeOptions([]);
 
         return $this->resumeBindingWithOptions($request, $runtime);
+    }
+
+    /**
+     * @param SemanticQueryRequest $request
+     * @param RuntimeOptions       $runtime
+     *
+     * @return SemanticQueryResponse
+     */
+    public function semanticQueryWithOptions($request, $runtime)
+    {
+        Utils::validateModel($request);
+        $query                = [];
+        $query['DatasetName'] = $request->datasetName;
+        $query['MaxResults']  = $request->maxResults;
+        $query['NextToken']   = $request->nextToken;
+        $query['ProjectName'] = $request->projectName;
+        $query['Query']       = $request->query;
+        $req                  = new OpenApiRequest([
+            'query' => OpenApiUtilClient::query($query),
+        ]);
+        $params = new Params([
+            'action'      => 'SemanticQuery',
+            'version'     => '2020-09-30',
+            'protocol'    => 'HTTPS',
+            'pathname'    => '/',
+            'method'      => 'POST',
+            'authType'    => 'AK',
+            'style'       => 'RPC',
+            'reqBodyType' => 'formData',
+            'bodyType'    => 'json',
+        ]);
+
+        return SemanticQueryResponse::fromMap($this->callApi($params, $req, $runtime));
+    }
+
+    /**
+     * @param SemanticQueryRequest $request
+     *
+     * @return SemanticQueryResponse
+     */
+    public function semanticQuery($request)
+    {
+        $runtime = new RuntimeOptions([]);
+
+        return $this->semanticQueryWithOptions($request, $runtime);
     }
 
     /**
@@ -1483,7 +1719,6 @@ class Imm extends OpenApiClient
         $query['Sort']         = $request->sort;
         $req                   = new OpenApiRequest([
             'query' => OpenApiUtilClient::query($query),
-            'body'  => Utils::toMap($request),
         ]);
         $params = new Params([
             'action'      => 'SimpleQuery',
@@ -1493,7 +1728,7 @@ class Imm extends OpenApiClient
             'method'      => 'POST',
             'authType'    => 'AK',
             'style'       => 'RPC',
-            'reqBodyType' => 'json',
+            'reqBodyType' => 'formData',
             'bodyType'    => 'json',
         ]);
 
@@ -1528,7 +1763,6 @@ class Imm extends OpenApiClient
         $query['URI']         = $request->URI;
         $req                  = new OpenApiRequest([
             'query' => OpenApiUtilClient::query($query),
-            'body'  => Utils::toMap($request),
         ]);
         $params = new Params([
             'action'      => 'StopBinding',
@@ -1538,7 +1772,7 @@ class Imm extends OpenApiClient
             'method'      => 'POST',
             'authType'    => 'AK',
             'style'       => 'RPC',
-            'reqBodyType' => 'json',
+            'reqBodyType' => 'formData',
             'bodyType'    => 'json',
         ]);
 
@@ -1578,7 +1812,6 @@ class Imm extends OpenApiClient
         $query['TemplateId']              = $request->templateId;
         $req                              = new OpenApiRequest([
             'query' => OpenApiUtilClient::query($query),
-            'body'  => Utils::toMap($request),
         ]);
         $params = new Params([
             'action'      => 'UpdateDataset',
@@ -1588,7 +1821,7 @@ class Imm extends OpenApiClient
             'method'      => 'POST',
             'authType'    => 'AK',
             'style'       => 'RPC',
-            'reqBodyType' => 'json',
+            'reqBodyType' => 'formData',
             'bodyType'    => 'json',
         ]);
 
@@ -1608,6 +1841,54 @@ class Imm extends OpenApiClient
     }
 
     /**
+     * @param UpdateFigureClusterRequest $tmpReq
+     * @param RuntimeOptions             $runtime
+     *
+     * @return UpdateFigureClusterResponse
+     */
+    public function updateFigureClusterWithOptions($tmpReq, $runtime)
+    {
+        Utils::validateModel($tmpReq);
+        $request = new UpdateFigureClusterShrinkRequest([]);
+        OpenApiUtilClient::convert($tmpReq, $request);
+        if (!Utils::isUnset($tmpReq->figureCluster)) {
+            $request->figureClusterShrink = OpenApiUtilClient::arrayToStringWithSpecifiedStyle(Tea::merge($tmpReq->figureCluster), 'FigureCluster', 'json');
+        }
+        $query                  = [];
+        $query['DatasetName']   = $request->datasetName;
+        $query['FigureCluster'] = $request->figureClusterShrink;
+        $query['ProjectName']   = $request->projectName;
+        $req                    = new OpenApiRequest([
+            'query' => OpenApiUtilClient::query($query),
+        ]);
+        $params = new Params([
+            'action'      => 'UpdateFigureCluster',
+            'version'     => '2020-09-30',
+            'protocol'    => 'HTTPS',
+            'pathname'    => '/',
+            'method'      => 'POST',
+            'authType'    => 'AK',
+            'style'       => 'RPC',
+            'reqBodyType' => 'formData',
+            'bodyType'    => 'json',
+        ]);
+
+        return UpdateFigureClusterResponse::fromMap($this->callApi($params, $req, $runtime));
+    }
+
+    /**
+     * @param UpdateFigureClusterRequest $request
+     *
+     * @return UpdateFigureClusterResponse
+     */
+    public function updateFigureCluster($request)
+    {
+        $runtime = new RuntimeOptions([]);
+
+        return $this->updateFigureClusterWithOptions($request, $runtime);
+    }
+
+    /**
      * @param UpdateFileMetaRequest $tmpReq
      * @param RuntimeOptions        $runtime
      *
@@ -1621,15 +1902,12 @@ class Imm extends OpenApiClient
         if (!Utils::isUnset($tmpReq->file)) {
             $request->fileShrink = OpenApiUtilClient::arrayToStringWithSpecifiedStyle(Tea::merge($tmpReq->file), 'File', 'json');
         }
-        $query                    = [];
-        $query['DatasetName']     = $request->datasetName;
-        $query['File']            = $request->fileShrink;
-        $query['NotifyEndpoint']  = $request->notifyEndpoint;
-        $query['NotifyTopicName'] = $request->notifyTopicName;
-        $query['ProjectName']     = $request->projectName;
-        $req                      = new OpenApiRequest([
+        $query                = [];
+        $query['DatasetName'] = $request->datasetName;
+        $query['File']        = $request->fileShrink;
+        $query['ProjectName'] = $request->projectName;
+        $req                  = new OpenApiRequest([
             'query' => OpenApiUtilClient::query($query),
-            'body'  => Utils::toMap($request),
         ]);
         $params = new Params([
             'action'      => 'UpdateFileMeta',
@@ -1639,7 +1917,7 @@ class Imm extends OpenApiClient
             'method'      => 'POST',
             'authType'    => 'AK',
             'style'       => 'RPC',
-            'reqBodyType' => 'json',
+            'reqBodyType' => 'formData',
             'bodyType'    => 'json',
         ]);
 
@@ -1682,7 +1960,6 @@ class Imm extends OpenApiClient
         $query['TemplateId']              = $request->templateId;
         $req                              = new OpenApiRequest([
             'query' => OpenApiUtilClient::query($query),
-            'body'  => Utils::toMap($request),
         ]);
         $params = new Params([
             'action'      => 'UpdateProject',
@@ -1692,7 +1969,7 @@ class Imm extends OpenApiClient
             'method'      => 'POST',
             'authType'    => 'AK',
             'style'       => 'RPC',
-            'reqBodyType' => 'json',
+            'reqBodyType' => 'formData',
             'bodyType'    => 'json',
         ]);
 

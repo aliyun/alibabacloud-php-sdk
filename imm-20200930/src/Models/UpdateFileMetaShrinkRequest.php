@@ -21,23 +21,11 @@ class UpdateFileMetaShrinkRequest extends Model
     /**
      * @var string
      */
-    public $notifyEndpoint;
-
-    /**
-     * @var string
-     */
-    public $notifyTopicName;
-
-    /**
-     * @var string
-     */
     public $projectName;
     protected $_name = [
-        'datasetName'     => 'DatasetName',
-        'fileShrink'      => 'File',
-        'notifyEndpoint'  => 'NotifyEndpoint',
-        'notifyTopicName' => 'NotifyTopicName',
-        'projectName'     => 'ProjectName',
+        'datasetName' => 'DatasetName',
+        'fileShrink'  => 'File',
+        'projectName' => 'ProjectName',
     ];
 
     public function validate()
@@ -52,12 +40,6 @@ class UpdateFileMetaShrinkRequest extends Model
         }
         if (null !== $this->fileShrink) {
             $res['File'] = $this->fileShrink;
-        }
-        if (null !== $this->notifyEndpoint) {
-            $res['NotifyEndpoint'] = $this->notifyEndpoint;
-        }
-        if (null !== $this->notifyTopicName) {
-            $res['NotifyTopicName'] = $this->notifyTopicName;
         }
         if (null !== $this->projectName) {
             $res['ProjectName'] = $this->projectName;
@@ -79,12 +61,6 @@ class UpdateFileMetaShrinkRequest extends Model
         }
         if (isset($map['File'])) {
             $model->fileShrink = $map['File'];
-        }
-        if (isset($map['NotifyEndpoint'])) {
-            $model->notifyEndpoint = $map['NotifyEndpoint'];
-        }
-        if (isset($map['NotifyTopicName'])) {
-            $model->notifyTopicName = $map['NotifyTopicName'];
         }
         if (isset($map['ProjectName'])) {
             $model->projectName = $map['ProjectName'];
