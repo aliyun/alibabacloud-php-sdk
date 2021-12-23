@@ -4,6 +4,7 @@
 
 namespace AlibabaCloud\SDK\EHPC\V20180412\Models;
 
+use AlibabaCloud\SDK\EHPC\V20180412\Models\AddNodesRequest\dataDisks;
 use AlibabaCloud\Tea\Model;
 
 class AddNodesRequest extends Model
@@ -57,6 +58,11 @@ class AddNodesRequest extends Model
      * @var string
      */
     public $createMode;
+
+    /**
+     * @var dataDisks[]
+     */
+    public $dataDisks;
 
     /**
      * @var string
@@ -163,6 +169,7 @@ class AddNodesRequest extends Model
         'computeSpotStrategy'     => 'ComputeSpotStrategy',
         'count'                   => 'Count',
         'createMode'              => 'CreateMode',
+        'dataDisks'               => 'DataDisks',
         'ecsChargeType'           => 'EcsChargeType',
         'hostNamePrefix'          => 'HostNamePrefix',
         'hostNameSuffix'          => 'HostNameSuffix',
@@ -220,6 +227,15 @@ class AddNodesRequest extends Model
         }
         if (null !== $this->createMode) {
             $res['CreateMode'] = $this->createMode;
+        }
+        if (null !== $this->dataDisks) {
+            $res['DataDisks'] = [];
+            if (null !== $this->dataDisks && \is_array($this->dataDisks)) {
+                $n = 0;
+                foreach ($this->dataDisks as $item) {
+                    $res['DataDisks'][$n++] = null !== $item ? $item->toMap() : $item;
+                }
+            }
         }
         if (null !== $this->ecsChargeType) {
             $res['EcsChargeType'] = $this->ecsChargeType;
@@ -319,6 +335,15 @@ class AddNodesRequest extends Model
         }
         if (isset($map['CreateMode'])) {
             $model->createMode = $map['CreateMode'];
+        }
+        if (isset($map['DataDisks'])) {
+            if (!empty($map['DataDisks'])) {
+                $model->dataDisks = [];
+                $n                = 0;
+                foreach ($map['DataDisks'] as $item) {
+                    $model->dataDisks[$n++] = null !== $item ? dataDisks::fromMap($item) : $item;
+                }
+            }
         }
         if (isset($map['EcsChargeType'])) {
             $model->ecsChargeType = $map['EcsChargeType'];

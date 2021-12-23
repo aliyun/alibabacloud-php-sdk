@@ -4,11 +4,17 @@
 
 namespace AlibabaCloud\SDK\EHPC\V20180412\Models\SetAutoScaleConfigRequest;
 
+use AlibabaCloud\SDK\EHPC\V20180412\Models\SetAutoScaleConfigRequest\queues\dataDisks;
 use AlibabaCloud\SDK\EHPC\V20180412\Models\SetAutoScaleConfigRequest\queues\instanceTypes;
 use AlibabaCloud\Tea\Model;
 
 class queues extends Model
 {
+    /**
+     * @var dataDisks[]
+     */
+    public $dataDisks;
+
     /**
      * @var bool
      */
@@ -84,6 +90,7 @@ class queues extends Model
      */
     public $systemDiskSize;
     protected $_name = [
+        'dataDisks'          => 'DataDisks',
         'enableAutoGrow'     => 'EnableAutoGrow',
         'enableAutoShrink'   => 'EnableAutoShrink',
         'hostNamePrefix'     => 'HostNamePrefix',
@@ -108,6 +115,15 @@ class queues extends Model
     public function toMap()
     {
         $res = [];
+        if (null !== $this->dataDisks) {
+            $res['DataDisks'] = [];
+            if (null !== $this->dataDisks && \is_array($this->dataDisks)) {
+                $n = 0;
+                foreach ($this->dataDisks as $item) {
+                    $res['DataDisks'][$n++] = null !== $item ? $item->toMap() : $item;
+                }
+            }
+        }
         if (null !== $this->enableAutoGrow) {
             $res['EnableAutoGrow'] = $this->enableAutoGrow;
         }
@@ -171,6 +187,15 @@ class queues extends Model
     public static function fromMap($map = [])
     {
         $model = new self();
+        if (isset($map['DataDisks'])) {
+            if (!empty($map['DataDisks'])) {
+                $model->dataDisks = [];
+                $n                = 0;
+                foreach ($map['DataDisks'] as $item) {
+                    $model->dataDisks[$n++] = null !== $item ? dataDisks::fromMap($item) : $item;
+                }
+            }
+        }
         if (isset($map['EnableAutoGrow'])) {
             $model->enableAutoGrow = $map['EnableAutoGrow'];
         }

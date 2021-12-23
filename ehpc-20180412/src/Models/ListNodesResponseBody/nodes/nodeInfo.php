@@ -104,6 +104,11 @@ class nodeInfo extends Model
     /**
      * @var string
      */
+    public $stateInSched;
+
+    /**
+     * @var string
+     */
     public $status;
 
     /**
@@ -154,6 +159,7 @@ class nodeInfo extends Model
         'regionId'        => 'RegionId',
         'roles'           => 'Roles',
         'spotStrategy'    => 'SpotStrategy',
+        'stateInSched'    => 'StateInSched',
         'status'          => 'Status',
         'totalResources'  => 'TotalResources',
         'usedResources'   => 'UsedResources',
@@ -223,6 +229,9 @@ class nodeInfo extends Model
         }
         if (null !== $this->spotStrategy) {
             $res['SpotStrategy'] = $this->spotStrategy;
+        }
+        if (null !== $this->stateInSched) {
+            $res['StateInSched'] = $this->stateInSched;
         }
         if (null !== $this->status) {
             $res['Status'] = $this->status;
@@ -310,6 +319,9 @@ class nodeInfo extends Model
         }
         if (isset($map['SpotStrategy'])) {
             $model->spotStrategy = $map['SpotStrategy'];
+        }
+        if (isset($map['StateInSched'])) {
+            $model->stateInSched = $map['StateInSched'];
         }
         if (isset($map['Status'])) {
             $model->status = $map['Status'];

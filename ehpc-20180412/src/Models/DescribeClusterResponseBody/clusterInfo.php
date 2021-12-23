@@ -6,6 +6,7 @@ namespace AlibabaCloud\SDK\EHPC\V20180412\Models\DescribeClusterResponseBody;
 
 use AlibabaCloud\SDK\EHPC\V20180412\Models\DescribeClusterResponseBody\clusterInfo\applications;
 use AlibabaCloud\SDK\EHPC\V20180412\Models\DescribeClusterResponseBody\clusterInfo\ecsInfo;
+use AlibabaCloud\SDK\EHPC\V20180412\Models\DescribeClusterResponseBody\clusterInfo\onPremiseInfo;
 use AlibabaCloud\SDK\EHPC\V20180412\Models\DescribeClusterResponseBody\clusterInfo\postInstallScripts;
 use AlibabaCloud\Tea\Model;
 
@@ -97,6 +98,11 @@ class clusterInfo extends Model
     public $name;
 
     /**
+     * @var onPremiseInfo
+     */
+    public $onPremiseInfo;
+
+    /**
      * @var string
      */
     public $osTag;
@@ -183,6 +189,7 @@ class clusterInfo extends Model
         'keyPairName'        => 'KeyPairName',
         'location'           => 'Location',
         'name'               => 'Name',
+        'onPremiseInfo'      => 'OnPremiseInfo',
         'osTag'              => 'OsTag',
         'postInstallScripts' => 'PostInstallScripts',
         'regionId'           => 'RegionId',
@@ -256,6 +263,9 @@ class clusterInfo extends Model
         }
         if (null !== $this->name) {
             $res['Name'] = $this->name;
+        }
+        if (null !== $this->onPremiseInfo) {
+            $res['OnPremiseInfo'] = null !== $this->onPremiseInfo ? $this->onPremiseInfo->toMap() : null;
         }
         if (null !== $this->osTag) {
             $res['OsTag'] = $this->osTag;
@@ -361,6 +371,9 @@ class clusterInfo extends Model
         }
         if (isset($map['Name'])) {
             $model->name = $map['Name'];
+        }
+        if (isset($map['OnPremiseInfo'])) {
+            $model->onPremiseInfo = onPremiseInfo::fromMap($map['OnPremiseInfo']);
         }
         if (isset($map['OsTag'])) {
             $model->osTag = $map['OsTag'];

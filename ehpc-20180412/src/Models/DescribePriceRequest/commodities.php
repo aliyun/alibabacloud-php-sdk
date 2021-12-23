@@ -4,6 +4,7 @@
 
 namespace AlibabaCloud\SDK\EHPC\V20180412\Models\DescribePriceRequest;
 
+use AlibabaCloud\SDK\EHPC\V20180412\Models\DescribePriceRequest\commodities\dataDisks;
 use AlibabaCloud\Tea\Model;
 
 class commodities extends Model
@@ -12,6 +13,11 @@ class commodities extends Model
      * @var int
      */
     public $amount;
+
+    /**
+     * @var dataDisks[]
+     */
+    public $dataDisks;
 
     /**
      * @var string
@@ -59,6 +65,7 @@ class commodities extends Model
     public $systemDiskSize;
     protected $_name = [
         'amount'                     => 'Amount',
+        'dataDisks'                  => 'DataDisks',
         'instanceType'               => 'InstanceType',
         'internetChargeType'         => 'InternetChargeType',
         'internetMaxBandWidthOut'    => 'InternetMaxBandWidthOut',
@@ -79,6 +86,15 @@ class commodities extends Model
         $res = [];
         if (null !== $this->amount) {
             $res['Amount'] = $this->amount;
+        }
+        if (null !== $this->dataDisks) {
+            $res['DataDisks'] = [];
+            if (null !== $this->dataDisks && \is_array($this->dataDisks)) {
+                $n = 0;
+                foreach ($this->dataDisks as $item) {
+                    $res['DataDisks'][$n++] = null !== $item ? $item->toMap() : $item;
+                }
+            }
         }
         if (null !== $this->instanceType) {
             $res['InstanceType'] = $this->instanceType;
@@ -121,6 +137,15 @@ class commodities extends Model
         $model = new self();
         if (isset($map['Amount'])) {
             $model->amount = $map['Amount'];
+        }
+        if (isset($map['DataDisks'])) {
+            if (!empty($map['DataDisks'])) {
+                $model->dataDisks = [];
+                $n                = 0;
+                foreach ($map['DataDisks'] as $item) {
+                    $model->dataDisks[$n++] = null !== $item ? dataDisks::fromMap($item) : $item;
+                }
+            }
         }
         if (isset($map['InstanceType'])) {
             $model->instanceType = $map['InstanceType'];

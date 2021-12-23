@@ -7,6 +7,7 @@ namespace AlibabaCloud\SDK\EHPC\V20180412\Models\DescribeClusterResponseBody\clu
 use AlibabaCloud\SDK\EHPC\V20180412\Models\DescribeClusterResponseBody\clusterInfo\ecsInfo\compute;
 use AlibabaCloud\SDK\EHPC\V20180412\Models\DescribeClusterResponseBody\clusterInfo\ecsInfo\login;
 use AlibabaCloud\SDK\EHPC\V20180412\Models\DescribeClusterResponseBody\clusterInfo\ecsInfo\manager;
+use AlibabaCloud\SDK\EHPC\V20180412\Models\DescribeClusterResponseBody\clusterInfo\ecsInfo\proxyMgr;
 use AlibabaCloud\Tea\Model;
 
 class ecsInfo extends Model
@@ -25,10 +26,16 @@ class ecsInfo extends Model
      * @var manager
      */
     public $manager;
+
+    /**
+     * @var proxyMgr
+     */
+    public $proxyMgr;
     protected $_name = [
-        'compute' => 'Compute',
-        'login'   => 'Login',
-        'manager' => 'Manager',
+        'compute'  => 'Compute',
+        'login'    => 'Login',
+        'manager'  => 'Manager',
+        'proxyMgr' => 'ProxyMgr',
     ];
 
     public function validate()
@@ -46,6 +53,9 @@ class ecsInfo extends Model
         }
         if (null !== $this->manager) {
             $res['Manager'] = null !== $this->manager ? $this->manager->toMap() : null;
+        }
+        if (null !== $this->proxyMgr) {
+            $res['ProxyMgr'] = null !== $this->proxyMgr ? $this->proxyMgr->toMap() : null;
         }
 
         return $res;
@@ -67,6 +77,9 @@ class ecsInfo extends Model
         }
         if (isset($map['Manager'])) {
             $model->manager = manager::fromMap($map['Manager']);
+        }
+        if (isset($map['ProxyMgr'])) {
+            $model->proxyMgr = proxyMgr::fromMap($map['ProxyMgr']);
         }
 
         return $model;

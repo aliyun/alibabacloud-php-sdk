@@ -29,6 +29,11 @@ class clusterInfoSimple extends Model
     public $description;
 
     /**
+     * @var bool
+     */
+    public $hasPlugin;
+
+    /**
      * @var string
      */
     public $id;
@@ -72,6 +77,7 @@ class clusterInfoSimple extends Model
         'clientVersion' => 'ClientVersion',
         'deployMode'    => 'DeployMode',
         'description'   => 'Description',
+        'hasPlugin'     => 'HasPlugin',
         'id'            => 'Id',
         'isComputeEss'  => 'IsComputeEss',
         'location'      => 'Location',
@@ -100,6 +106,9 @@ class clusterInfoSimple extends Model
         }
         if (null !== $this->description) {
             $res['Description'] = $this->description;
+        }
+        if (null !== $this->hasPlugin) {
+            $res['HasPlugin'] = $this->hasPlugin;
         }
         if (null !== $this->id) {
             $res['Id'] = $this->id;
@@ -148,6 +157,9 @@ class clusterInfoSimple extends Model
         }
         if (isset($map['Description'])) {
             $model->description = $map['Description'];
+        }
+        if (isset($map['HasPlugin'])) {
+            $model->hasPlugin = $map['HasPlugin'];
         }
         if (isset($map['Id'])) {
             $model->id = $map['Id'];

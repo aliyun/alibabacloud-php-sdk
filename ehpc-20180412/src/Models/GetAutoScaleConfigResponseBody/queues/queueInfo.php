@@ -4,11 +4,17 @@
 
 namespace AlibabaCloud\SDK\EHPC\V20180412\Models\GetAutoScaleConfigResponseBody\queues;
 
+use AlibabaCloud\SDK\EHPC\V20180412\Models\GetAutoScaleConfigResponseBody\queues\queueInfo\dataDisks;
 use AlibabaCloud\SDK\EHPC\V20180412\Models\GetAutoScaleConfigResponseBody\queues\queueInfo\instanceTypes;
 use AlibabaCloud\Tea\Model;
 
 class queueInfo extends Model
 {
+    /**
+     * @var dataDisks
+     */
+    public $dataDisks;
+
     /**
      * @var bool
      */
@@ -89,6 +95,7 @@ class queueInfo extends Model
      */
     public $systemDiskSize;
     protected $_name = [
+        'dataDisks'          => 'DataDisks',
         'enableAutoGrow'     => 'EnableAutoGrow',
         'enableAutoShrink'   => 'EnableAutoShrink',
         'hostNamePrefix'     => 'HostNamePrefix',
@@ -114,6 +121,9 @@ class queueInfo extends Model
     public function toMap()
     {
         $res = [];
+        if (null !== $this->dataDisks) {
+            $res['DataDisks'] = null !== $this->dataDisks ? $this->dataDisks->toMap() : null;
+        }
         if (null !== $this->enableAutoGrow) {
             $res['EnableAutoGrow'] = $this->enableAutoGrow;
         }
@@ -174,6 +184,9 @@ class queueInfo extends Model
     public static function fromMap($map = [])
     {
         $model = new self();
+        if (isset($map['DataDisks'])) {
+            $model->dataDisks = dataDisks::fromMap($map['DataDisks']);
+        }
         if (isset($map['EnableAutoGrow'])) {
             $model->enableAutoGrow = $map['EnableAutoGrow'];
         }

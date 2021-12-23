@@ -68,6 +68,11 @@ class clusterInfoSimple extends Model
     public $ehpcVersion;
 
     /**
+     * @var bool
+     */
+    public $hasPlugin;
+
+    /**
      * @var string
      */
     public $id;
@@ -183,6 +188,7 @@ class clusterInfoSimple extends Model
         'deployMode'            => 'DeployMode',
         'description'           => 'Description',
         'ehpcVersion'           => 'EhpcVersion',
+        'hasPlugin'             => 'HasPlugin',
         'id'                    => 'Id',
         'imageId'               => 'ImageId',
         'imageOwnerAlias'       => 'ImageOwnerAlias',
@@ -245,6 +251,9 @@ class clusterInfoSimple extends Model
         }
         if (null !== $this->ehpcVersion) {
             $res['EhpcVersion'] = $this->ehpcVersion;
+        }
+        if (null !== $this->hasPlugin) {
+            $res['HasPlugin'] = $this->hasPlugin;
         }
         if (null !== $this->id) {
             $res['Id'] = $this->id;
@@ -353,6 +362,9 @@ class clusterInfoSimple extends Model
         }
         if (isset($map['EhpcVersion'])) {
             $model->ehpcVersion = $map['EhpcVersion'];
+        }
+        if (isset($map['HasPlugin'])) {
+            $model->hasPlugin = $map['HasPlugin'];
         }
         if (isset($map['Id'])) {
             $model->id = $map['Id'];

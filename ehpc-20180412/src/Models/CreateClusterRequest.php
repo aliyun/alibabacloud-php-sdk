@@ -163,6 +163,16 @@ class CreateClusterRequest extends Model
     public $postInstallScript;
 
     /**
+     * @var string[]
+     */
+    public $ramNodeTypes;
+
+    /**
+     * @var string
+     */
+    public $ramRoleName;
+
+    /**
      * @var string
      */
     public $remoteDirectory;
@@ -287,6 +297,8 @@ class CreateClusterRequest extends Model
         'periodUnit'            => 'PeriodUnit',
         'plugin'                => 'Plugin',
         'postInstallScript'     => 'PostInstallScript',
+        'ramNodeTypes'          => 'RamNodeTypes',
+        'ramRoleName'           => 'RamRoleName',
         'remoteDirectory'       => 'RemoteDirectory',
         'remoteVisEnable'       => 'RemoteVisEnable',
         'resourceGroupId'       => 'ResourceGroupId',
@@ -422,6 +434,12 @@ class CreateClusterRequest extends Model
                     $res['PostInstallScript'][$n++] = null !== $item ? $item->toMap() : $item;
                 }
             }
+        }
+        if (null !== $this->ramNodeTypes) {
+            $res['RamNodeTypes'] = $this->ramNodeTypes;
+        }
+        if (null !== $this->ramRoleName) {
+            $res['RamRoleName'] = $this->ramRoleName;
         }
         if (null !== $this->remoteDirectory) {
             $res['RemoteDirectory'] = $this->remoteDirectory;
@@ -599,6 +617,14 @@ class CreateClusterRequest extends Model
                     $model->postInstallScript[$n++] = null !== $item ? postInstallScript::fromMap($item) : $item;
                 }
             }
+        }
+        if (isset($map['RamNodeTypes'])) {
+            if (!empty($map['RamNodeTypes'])) {
+                $model->ramNodeTypes = $map['RamNodeTypes'];
+            }
+        }
+        if (isset($map['RamRoleName'])) {
+            $model->ramRoleName = $map['RamRoleName'];
         }
         if (isset($map['RemoteDirectory'])) {
             $model->remoteDirectory = $map['RemoteDirectory'];

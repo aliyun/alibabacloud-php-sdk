@@ -26,11 +26,17 @@ class DescribeImageRequest extends Model
     /**
      * @var string
      */
+    public $regionId;
+
+    /**
+     * @var string
+     */
     public $repository;
     protected $_name = [
         'clusterId'     => 'ClusterId',
         'containerType' => 'ContainerType',
         'imageTag'      => 'ImageTag',
+        'regionId'      => 'RegionId',
         'repository'    => 'Repository',
     ];
 
@@ -49,6 +55,9 @@ class DescribeImageRequest extends Model
         }
         if (null !== $this->imageTag) {
             $res['ImageTag'] = $this->imageTag;
+        }
+        if (null !== $this->regionId) {
+            $res['RegionId'] = $this->regionId;
         }
         if (null !== $this->repository) {
             $res['Repository'] = $this->repository;
@@ -73,6 +82,9 @@ class DescribeImageRequest extends Model
         }
         if (isset($map['ImageTag'])) {
             $model->imageTag = $map['ImageTag'];
+        }
+        if (isset($map['RegionId'])) {
+            $model->regionId = $map['RegionId'];
         }
         if (isset($map['Repository'])) {
             $model->repository = $map['Repository'];
