@@ -332,7 +332,8 @@ class Config extends OpenApiClient
         if (!Utils::isUnset($tmpReq->configRules)) {
             $request->configRulesShrink = OpenApiUtilClient::arrayToStringWithSpecifiedStyle($tmpReq->configRules, 'ConfigRules', 'json');
         }
-        $body = [];
+        $query = [];
+        $body  = [];
         if (!Utils::isUnset($request->aggregatorId)) {
             $body['AggregatorId'] = $request->aggregatorId;
         }
@@ -401,7 +402,8 @@ class Config extends OpenApiClient
         if (!Utils::isUnset($tmpReq->resourceTypesScope)) {
             $request->resourceTypesScopeShrink = OpenApiUtilClient::arrayToStringWithSpecifiedStyle($tmpReq->resourceTypesScope, 'ResourceTypesScope', 'simple');
         }
-        $body = [];
+        $query = [];
+        $body  = [];
         if (!Utils::isUnset($request->aggregatorId)) {
             $body['AggregatorId'] = $request->aggregatorId;
         }
@@ -494,7 +496,8 @@ class Config extends OpenApiClient
         if (!Utils::isUnset($tmpReq->aggregatorAccounts)) {
             $request->aggregatorAccountsShrink = OpenApiUtilClient::arrayToStringWithSpecifiedStyle($tmpReq->aggregatorAccounts, 'AggregatorAccounts', 'json');
         }
-        $body = [];
+        $query = [];
+        $body  = [];
         if (!Utils::isUnset($request->aggregatorAccountsShrink)) {
             $body['AggregatorAccounts'] = $request->aggregatorAccountsShrink;
         }
@@ -554,7 +557,8 @@ class Config extends OpenApiClient
         if (!Utils::isUnset($tmpReq->configRules)) {
             $request->configRulesShrink = OpenApiUtilClient::arrayToStringWithSpecifiedStyle($tmpReq->configRules, 'ConfigRules', 'json');
         }
-        $body = [];
+        $query = [];
+        $body  = [];
         if (!Utils::isUnset($request->clientToken)) {
             $body['ClientToken'] = $request->clientToken;
         }
@@ -620,7 +624,8 @@ class Config extends OpenApiClient
         if (!Utils::isUnset($tmpReq->resourceTypesScope)) {
             $request->resourceTypesScopeShrink = OpenApiUtilClient::arrayToStringWithSpecifiedStyle($tmpReq->resourceTypesScope, 'ResourceTypesScope', 'simple');
         }
-        $body = [];
+        $query = [];
+        $body  = [];
         if (!Utils::isUnset($request->clientToken)) {
             $body['ClientToken'] = $request->clientToken;
         }
@@ -788,7 +793,8 @@ class Config extends OpenApiClient
     public function deleteAggregateCompliancePacksWithOptions($request, $runtime)
     {
         Utils::validateModel($request);
-        $body = [];
+        $query = [];
+        $body  = [];
         if (!Utils::isUnset($request->aggregatorId)) {
             $body['AggregatorId'] = $request->aggregatorId;
         }
@@ -882,7 +888,8 @@ class Config extends OpenApiClient
     public function deleteAggregatorsWithOptions($request, $runtime)
     {
         Utils::validateModel($request);
-        $body = [];
+        $query = [];
+        $body  = [];
         if (!Utils::isUnset($request->aggregatorIds)) {
             $body['AggregatorIds'] = $request->aggregatorIds;
         }
@@ -928,7 +935,8 @@ class Config extends OpenApiClient
     public function deleteCompliancePacksWithOptions($request, $runtime)
     {
         Utils::validateModel($request);
-        $body = [];
+        $query = [];
+        $body  = [];
         if (!Utils::isUnset($request->clientToken)) {
             $body['ClientToken'] = $request->clientToken;
         }
@@ -1062,7 +1070,8 @@ class Config extends OpenApiClient
     public function generateAggregateCompliancePackReportWithOptions($request, $runtime)
     {
         Utils::validateModel($request);
-        $body = [];
+        $query = [];
+        $body  = [];
         if (!Utils::isUnset($request->aggregatorId)) {
             $body['AggregatorId'] = $request->aggregatorId;
         }
@@ -1111,7 +1120,8 @@ class Config extends OpenApiClient
     public function generateAggregateConfigRulesReportWithOptions($request, $runtime)
     {
         Utils::validateModel($request);
-        $body = [];
+        $query = [];
+        $body  = [];
         if (!Utils::isUnset($request->aggregatorId)) {
             $body['AggregatorId'] = $request->aggregatorId;
         }
@@ -1157,7 +1167,8 @@ class Config extends OpenApiClient
     public function generateCompliancePackReportWithOptions($request, $runtime)
     {
         Utils::validateModel($request);
-        $body = [];
+        $query = [];
+        $body  = [];
         if (!Utils::isUnset($request->clientToken)) {
             $body['ClientToken'] = $request->clientToken;
         }
@@ -1203,7 +1214,8 @@ class Config extends OpenApiClient
     public function generateConfigRulesReportWithOptions($request, $runtime)
     {
         Utils::validateModel($request);
-        $body = [];
+        $query = [];
+        $body  = [];
         if (!Utils::isUnset($request->clientToken)) {
             $body['ClientToken'] = $request->clientToken;
         }
@@ -2280,7 +2292,8 @@ class Config extends OpenApiClient
         if (!Utils::isUnset($tmpReq->resources)) {
             $request->resourcesShrink = OpenApiUtilClient::arrayToStringWithSpecifiedStyle($tmpReq->resources, 'Resources', 'json');
         }
-        $body = [];
+        $query = [];
+        $body  = [];
         if (!Utils::isUnset($request->aggregatorId)) {
             $body['AggregatorId'] = $request->aggregatorId;
         }
@@ -2337,7 +2350,8 @@ class Config extends OpenApiClient
         if (!Utils::isUnset($tmpReq->resources)) {
             $request->resourcesShrink = OpenApiUtilClient::arrayToStringWithSpecifiedStyle($tmpReq->resources, 'Resources', 'json');
         }
-        $body = [];
+        $query = [];
+        $body  = [];
         if (!Utils::isUnset($request->configRuleId)) {
             $body['ConfigRuleId'] = $request->configRuleId;
         }
@@ -2751,7 +2765,8 @@ class Config extends OpenApiClient
         if (!Utils::isUnset($tmpReq->resources)) {
             $request->resourcesShrink = OpenApiUtilClient::arrayToStringWithSpecifiedStyle($tmpReq->resources, 'Resources', 'json');
         }
-        $body = [];
+        $query = [];
+        $body  = [];
         if (!Utils::isUnset($request->aggregatorId)) {
             $body['AggregatorId'] = $request->aggregatorId;
         }
@@ -2805,7 +2820,8 @@ class Config extends OpenApiClient
         if (!Utils::isUnset($tmpReq->resources)) {
             $request->resourcesShrink = OpenApiUtilClient::arrayToStringWithSpecifiedStyle($tmpReq->resources, 'Resources', 'json');
         }
-        $body = [];
+        $query = [];
+        $body  = [];
         if (!Utils::isUnset($request->configRuleId)) {
             $body['ConfigRuleId'] = $request->configRuleId;
         }
@@ -2900,7 +2916,8 @@ class Config extends OpenApiClient
         if (!Utils::isUnset($tmpReq->configRules)) {
             $request->configRulesShrink = OpenApiUtilClient::arrayToStringWithSpecifiedStyle($tmpReq->configRules, 'ConfigRules', 'json');
         }
-        $body = [];
+        $query = [];
+        $body  = [];
         if (!Utils::isUnset($request->aggregatorId)) {
             $body['AggregatorId'] = $request->aggregatorId;
         }
@@ -2969,7 +2986,8 @@ class Config extends OpenApiClient
         if (!Utils::isUnset($tmpReq->resourceTypesScope)) {
             $request->resourceTypesScopeShrink = OpenApiUtilClient::arrayToStringWithSpecifiedStyle($tmpReq->resourceTypesScope, 'ResourceTypesScope', 'simple');
         }
-        $body = [];
+        $query = [];
+        $body  = [];
         if (!Utils::isUnset($request->aggregatorId)) {
             $body['AggregatorId'] = $request->aggregatorId;
         }
@@ -3059,7 +3077,8 @@ class Config extends OpenApiClient
         if (!Utils::isUnset($tmpReq->aggregatorAccounts)) {
             $request->aggregatorAccountsShrink = OpenApiUtilClient::arrayToStringWithSpecifiedStyle($tmpReq->aggregatorAccounts, 'AggregatorAccounts', 'json');
         }
-        $body = [];
+        $query = [];
+        $body  = [];
         if (!Utils::isUnset($request->aggregatorAccountsShrink)) {
             $body['AggregatorAccounts'] = $request->aggregatorAccountsShrink;
         }
@@ -3119,7 +3138,8 @@ class Config extends OpenApiClient
         if (!Utils::isUnset($tmpReq->configRules)) {
             $request->configRulesShrink = OpenApiUtilClient::arrayToStringWithSpecifiedStyle($tmpReq->configRules, 'ConfigRules', 'json');
         }
-        $body = [];
+        $query = [];
+        $body  = [];
         if (!Utils::isUnset($request->clientToken)) {
             $body['ClientToken'] = $request->clientToken;
         }
@@ -3185,7 +3205,8 @@ class Config extends OpenApiClient
         if (!Utils::isUnset($tmpReq->resourceTypesScope)) {
             $request->resourceTypesScopeShrink = OpenApiUtilClient::arrayToStringWithSpecifiedStyle($tmpReq->resourceTypesScope, 'ResourceTypesScope', 'simple');
         }
-        $body = [];
+        $query = [];
+        $body  = [];
         if (!Utils::isUnset($request->clientToken)) {
             $body['ClientToken'] = $request->clientToken;
         }
