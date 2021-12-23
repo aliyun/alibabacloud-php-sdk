@@ -5,12 +5,11 @@
 namespace AlibabaCloud\SDK\MPServerless\V20190615;
 
 use AlibabaCloud\Endpoint\Endpoint;
+use AlibabaCloud\OpenApiUtil\OpenApiUtilClient;
 use AlibabaCloud\SDK\MPServerless\V20190615\Models\AddCorsDomainRequest;
 use AlibabaCloud\SDK\MPServerless\V20190615\Models\AddCorsDomainResponse;
 use AlibabaCloud\SDK\MPServerless\V20190615\Models\AddDingtalkOpenPlatformConfigRequest;
 use AlibabaCloud\SDK\MPServerless\V20190615\Models\AddDingtalkOpenPlatformConfigResponse;
-use AlibabaCloud\SDK\MPServerless\V20190615\Models\AttachSmsSignRequest;
-use AlibabaCloud\SDK\MPServerless\V20190615\Models\AttachSmsSignResponse;
 use AlibabaCloud\SDK\MPServerless\V20190615\Models\AttachWebHostingCertificateRequest;
 use AlibabaCloud\SDK\MPServerless\V20190615\Models\AttachWebHostingCertificateResponse;
 use AlibabaCloud\SDK\MPServerless\V20190615\Models\BatchDeleteWebHostingFilesRequest;
@@ -19,10 +18,6 @@ use AlibabaCloud\SDK\MPServerless\V20190615\Models\BindWebHostingCustomDomainReq
 use AlibabaCloud\SDK\MPServerless\V20190615\Models\BindWebHostingCustomDomainResponse;
 use AlibabaCloud\SDK\MPServerless\V20190615\Models\CheckMpServerlessRoleExistsRequest;
 use AlibabaCloud\SDK\MPServerless\V20190615\Models\CheckMpServerlessRoleExistsResponse;
-use AlibabaCloud\SDK\MPServerless\V20190615\Models\CheckSmsHasAuthorizedToMPSRequest;
-use AlibabaCloud\SDK\MPServerless\V20190615\Models\CheckSmsHasAuthorizedToMPSResponse;
-use AlibabaCloud\SDK\MPServerless\V20190615\Models\CreateBuiltinFunctionTemplateRequest;
-use AlibabaCloud\SDK\MPServerless\V20190615\Models\CreateBuiltinFunctionTemplateResponse;
 use AlibabaCloud\SDK\MPServerless\V20190615\Models\CreateDBExportTaskRequest;
 use AlibabaCloud\SDK\MPServerless\V20190615\Models\CreateDBExportTaskResponse;
 use AlibabaCloud\SDK\MPServerless\V20190615\Models\CreateDBImportTaskRequest;
@@ -33,10 +28,6 @@ use AlibabaCloud\SDK\MPServerless\V20190615\Models\CreateFunctionDeploymentReque
 use AlibabaCloud\SDK\MPServerless\V20190615\Models\CreateFunctionDeploymentResponse;
 use AlibabaCloud\SDK\MPServerless\V20190615\Models\CreateFunctionRequest;
 use AlibabaCloud\SDK\MPServerless\V20190615\Models\CreateFunctionResponse;
-use AlibabaCloud\SDK\MPServerless\V20190615\Models\CreateSmsSignRequest;
-use AlibabaCloud\SDK\MPServerless\V20190615\Models\CreateSmsSignResponse;
-use AlibabaCloud\SDK\MPServerless\V20190615\Models\CreateSmsTemplateRequest;
-use AlibabaCloud\SDK\MPServerless\V20190615\Models\CreateSmsTemplateResponse;
 use AlibabaCloud\SDK\MPServerless\V20190615\Models\CreateSpaceRequest;
 use AlibabaCloud\SDK\MPServerless\V20190615\Models\CreateSpaceResponse;
 use AlibabaCloud\SDK\MPServerless\V20190615\Models\DeleteAntOpenPlatformConfigRequest;
@@ -51,10 +42,6 @@ use AlibabaCloud\SDK\MPServerless\V20190615\Models\DeleteFileRequest;
 use AlibabaCloud\SDK\MPServerless\V20190615\Models\DeleteFileResponse;
 use AlibabaCloud\SDK\MPServerless\V20190615\Models\DeleteFunctionRequest;
 use AlibabaCloud\SDK\MPServerless\V20190615\Models\DeleteFunctionResponse;
-use AlibabaCloud\SDK\MPServerless\V20190615\Models\DeleteSmsSignRequest;
-use AlibabaCloud\SDK\MPServerless\V20190615\Models\DeleteSmsSignResponse;
-use AlibabaCloud\SDK\MPServerless\V20190615\Models\DeleteSmsTemplateRequest;
-use AlibabaCloud\SDK\MPServerless\V20190615\Models\DeleteSmsTemplateResponse;
 use AlibabaCloud\SDK\MPServerless\V20190615\Models\DeleteSpaceRequest;
 use AlibabaCloud\SDK\MPServerless\V20190615\Models\DeleteSpaceResponse;
 use AlibabaCloud\SDK\MPServerless\V20190615\Models\DeleteWebHostingCertificateRequest;
@@ -66,38 +53,24 @@ use AlibabaCloud\SDK\MPServerless\V20190615\Models\DeleteWechatOpenPlatformConfi
 use AlibabaCloud\SDK\MPServerless\V20190615\Models\DeployFunctionRequest;
 use AlibabaCloud\SDK\MPServerless\V20190615\Models\DeployFunctionResponse;
 use AlibabaCloud\SDK\MPServerless\V20190615\Models\DescribeFCOpenStatusResponse;
-use AlibabaCloud\SDK\MPServerless\V20190615\Models\DescribeFileRequest;
-use AlibabaCloud\SDK\MPServerless\V20190615\Models\DescribeFileResponse;
 use AlibabaCloud\SDK\MPServerless\V20190615\Models\DescribeFileUploadSignedUrlRequest;
 use AlibabaCloud\SDK\MPServerless\V20190615\Models\DescribeFileUploadSignedUrlResponse;
 use AlibabaCloud\SDK\MPServerless\V20190615\Models\DescribeFunctionRequest;
 use AlibabaCloud\SDK\MPServerless\V20190615\Models\DescribeFunctionResponse;
 use AlibabaCloud\SDK\MPServerless\V20190615\Models\DescribeHttpTriggerConfigRequest;
 use AlibabaCloud\SDK\MPServerless\V20190615\Models\DescribeHttpTriggerConfigResponse;
-use AlibabaCloud\SDK\MPServerless\V20190615\Models\DescribeISVFileUploadSignedUrlRequest;
-use AlibabaCloud\SDK\MPServerless\V20190615\Models\DescribeISVFileUploadSignedUrlResponse;
-use AlibabaCloud\SDK\MPServerless\V20190615\Models\DescribeProductOpenStatusRequest;
-use AlibabaCloud\SDK\MPServerless\V20190615\Models\DescribeProductOpenStatusResponse;
+use AlibabaCloud\SDK\MPServerless\V20190615\Models\DescribeResourceQuotaRequest;
+use AlibabaCloud\SDK\MPServerless\V20190615\Models\DescribeResourceQuotaResponse;
+use AlibabaCloud\SDK\MPServerless\V20190615\Models\DescribeResourceUsageRequest;
+use AlibabaCloud\SDK\MPServerless\V20190615\Models\DescribeResourceUsageResponse;
 use AlibabaCloud\SDK\MPServerless\V20190615\Models\DescribeServicePolicyRequest;
 use AlibabaCloud\SDK\MPServerless\V20190615\Models\DescribeServicePolicyResponse;
-use AlibabaCloud\SDK\MPServerless\V20190615\Models\DescribeSmsOpenStatusResponse;
-use AlibabaCloud\SDK\MPServerless\V20190615\Models\DescribeSmsSignRequest;
-use AlibabaCloud\SDK\MPServerless\V20190615\Models\DescribeSmsSignResponse;
-use AlibabaCloud\SDK\MPServerless\V20190615\Models\DescribeSmsSignStatusRequest;
-use AlibabaCloud\SDK\MPServerless\V20190615\Models\DescribeSmsSignStatusResponse;
-use AlibabaCloud\SDK\MPServerless\V20190615\Models\DescribeSmsTemplateRequest;
-use AlibabaCloud\SDK\MPServerless\V20190615\Models\DescribeSmsTemplateResponse;
-use AlibabaCloud\SDK\MPServerless\V20190615\Models\DescribeSmsTemplateStatusRequest;
-use AlibabaCloud\SDK\MPServerless\V20190615\Models\DescribeSmsTemplateStatusResponse;
 use AlibabaCloud\SDK\MPServerless\V20190615\Models\DescribeSpaceClientConfigRequest;
 use AlibabaCloud\SDK\MPServerless\V20190615\Models\DescribeSpaceClientConfigResponse;
-use AlibabaCloud\SDK\MPServerless\V20190615\Models\DescribeSpaceRequest;
-use AlibabaCloud\SDK\MPServerless\V20190615\Models\DescribeSpaceResponse;
 use AlibabaCloud\SDK\MPServerless\V20190615\Models\DescribeWebHostingFileRequest;
 use AlibabaCloud\SDK\MPServerless\V20190615\Models\DescribeWebHostingFileResponse;
 use AlibabaCloud\SDK\MPServerless\V20190615\Models\EnableExtensionRequest;
 use AlibabaCloud\SDK\MPServerless\V20190615\Models\EnableExtensionResponse;
-use AlibabaCloud\SDK\MPServerless\V20190615\Models\EnableSmsServiceResponse;
 use AlibabaCloud\SDK\MPServerless\V20190615\Models\GetWebHostingCertificateDetailRequest;
 use AlibabaCloud\SDK\MPServerless\V20190615\Models\GetWebHostingCertificateDetailResponse;
 use AlibabaCloud\SDK\MPServerless\V20190615\Models\GetWebHostingConfigRequest;
@@ -124,15 +97,8 @@ use AlibabaCloud\SDK\MPServerless\V20190615\Models\ListFunctionLogRequest;
 use AlibabaCloud\SDK\MPServerless\V20190615\Models\ListFunctionLogResponse;
 use AlibabaCloud\SDK\MPServerless\V20190615\Models\ListFunctionRequest;
 use AlibabaCloud\SDK\MPServerless\V20190615\Models\ListFunctionResponse;
-use AlibabaCloud\SDK\MPServerless\V20190615\Models\ListFunctionSpecResponse;
 use AlibabaCloud\SDK\MPServerless\V20190615\Models\ListOpenPlatformConfigRequest;
 use AlibabaCloud\SDK\MPServerless\V20190615\Models\ListOpenPlatformConfigResponse;
-use AlibabaCloud\SDK\MPServerless\V20190615\Models\ListSmsSignsForAccountRequest;
-use AlibabaCloud\SDK\MPServerless\V20190615\Models\ListSmsSignsForAccountResponse;
-use AlibabaCloud\SDK\MPServerless\V20190615\Models\ListSmsSignsRequest;
-use AlibabaCloud\SDK\MPServerless\V20190615\Models\ListSmsSignsResponse;
-use AlibabaCloud\SDK\MPServerless\V20190615\Models\ListSmsTemplatesRequest;
-use AlibabaCloud\SDK\MPServerless\V20190615\Models\ListSmsTemplatesResponse;
 use AlibabaCloud\SDK\MPServerless\V20190615\Models\ListSpaceRequest;
 use AlibabaCloud\SDK\MPServerless\V20190615\Models\ListSpaceResponse;
 use AlibabaCloud\SDK\MPServerless\V20190615\Models\ListWebHostingCustomDomainsRequest;
@@ -141,10 +107,6 @@ use AlibabaCloud\SDK\MPServerless\V20190615\Models\ListWebHostingFilesRequest;
 use AlibabaCloud\SDK\MPServerless\V20190615\Models\ListWebHostingFilesResponse;
 use AlibabaCloud\SDK\MPServerless\V20190615\Models\ModifyWebHostingConfigRequest;
 use AlibabaCloud\SDK\MPServerless\V20190615\Models\ModifyWebHostingConfigResponse;
-use AlibabaCloud\SDK\MPServerless\V20190615\Models\MoveWebHostingFileRequest;
-use AlibabaCloud\SDK\MPServerless\V20190615\Models\MoveWebHostingFileResponse;
-use AlibabaCloud\SDK\MPServerless\V20190615\Models\OpenProductRequest;
-use AlibabaCloud\SDK\MPServerless\V20190615\Models\OpenProductResponse;
 use AlibabaCloud\SDK\MPServerless\V20190615\Models\OpenServiceRequest;
 use AlibabaCloud\SDK\MPServerless\V20190615\Models\OpenServiceResponse;
 use AlibabaCloud\SDK\MPServerless\V20190615\Models\OpenWebHostingServiceRequest;
@@ -163,8 +125,6 @@ use AlibabaCloud\SDK\MPServerless\V20190615\Models\QueryServiceStatusRequest;
 use AlibabaCloud\SDK\MPServerless\V20190615\Models\QueryServiceStatusResponse;
 use AlibabaCloud\SDK\MPServerless\V20190615\Models\RegisterFileRequest;
 use AlibabaCloud\SDK\MPServerless\V20190615\Models\RegisterFileResponse;
-use AlibabaCloud\SDK\MPServerless\V20190615\Models\ReleaseBuiltinFunctionTemplateRequest;
-use AlibabaCloud\SDK\MPServerless\V20190615\Models\ReleaseBuiltinFunctionTemplateResponse;
 use AlibabaCloud\SDK\MPServerless\V20190615\Models\RenameDBCollectionRequest;
 use AlibabaCloud\SDK\MPServerless\V20190615\Models\RenameDBCollectionResponse;
 use AlibabaCloud\SDK\MPServerless\V20190615\Models\ResetServerSecretRequest;
@@ -177,8 +137,6 @@ use AlibabaCloud\SDK\MPServerless\V20190615\Models\SaveAntOpenPlatformConfigRequ
 use AlibabaCloud\SDK\MPServerless\V20190615\Models\SaveAntOpenPlatformConfigResponse;
 use AlibabaCloud\SDK\MPServerless\V20190615\Models\SaveAppAuthTokenRequest;
 use AlibabaCloud\SDK\MPServerless\V20190615\Models\SaveAppAuthTokenResponse;
-use AlibabaCloud\SDK\MPServerless\V20190615\Models\SaveBuiltinFunctionTemplateRequest;
-use AlibabaCloud\SDK\MPServerless\V20190615\Models\SaveBuiltinFunctionTemplateResponse;
 use AlibabaCloud\SDK\MPServerless\V20190615\Models\SaveWebHostingCustomDomainConfigRequest;
 use AlibabaCloud\SDK\MPServerless\V20190615\Models\SaveWebHostingCustomDomainConfigResponse;
 use AlibabaCloud\SDK\MPServerless\V20190615\Models\SaveWebHostingCustomDomainCorsConfigRequest;
@@ -195,19 +153,14 @@ use AlibabaCloud\SDK\MPServerless\V20190615\Models\UpdateHttpTriggerConfigReques
 use AlibabaCloud\SDK\MPServerless\V20190615\Models\UpdateHttpTriggerConfigResponse;
 use AlibabaCloud\SDK\MPServerless\V20190615\Models\UpdateServicePolicyRequest;
 use AlibabaCloud\SDK\MPServerless\V20190615\Models\UpdateServicePolicyResponse;
-use AlibabaCloud\SDK\MPServerless\V20190615\Models\UpdateSmsSignRequest;
-use AlibabaCloud\SDK\MPServerless\V20190615\Models\UpdateSmsSignResponse;
-use AlibabaCloud\SDK\MPServerless\V20190615\Models\UpdateSmsTemplateRequest;
-use AlibabaCloud\SDK\MPServerless\V20190615\Models\UpdateSmsTemplateResponse;
 use AlibabaCloud\SDK\MPServerless\V20190615\Models\UpdateSpaceRequest;
 use AlibabaCloud\SDK\MPServerless\V20190615\Models\UpdateSpaceResponse;
-use AlibabaCloud\SDK\MPServerless\V20190615\Models\VerifyBuiltinFunctionTemplateRequest;
-use AlibabaCloud\SDK\MPServerless\V20190615\Models\VerifyBuiltinFunctionTemplateResponse;
 use AlibabaCloud\SDK\MPServerless\V20190615\Models\VerifyWebHostingDomainOwnerRequest;
 use AlibabaCloud\SDK\MPServerless\V20190615\Models\VerifyWebHostingDomainOwnerResponse;
 use AlibabaCloud\Tea\Utils\Utils;
 use AlibabaCloud\Tea\Utils\Utils\RuntimeOptions;
 use Darabonba\OpenApi\Models\OpenApiRequest;
+use Darabonba\OpenApi\Models\Params;
 use Darabonba\OpenApi\OpenApiClient;
 
 class MPServerless extends OpenApiClient
@@ -244,193 +197,543 @@ class MPServerless extends OpenApiClient
     }
 
     /**
-     * @param RunFunctionRequest $request
-     * @param RuntimeOptions     $runtime
+     * @param AddCorsDomainRequest $request
+     * @param RuntimeOptions       $runtime
      *
-     * @return RunFunctionResponse
+     * @return AddCorsDomainResponse
      */
-    public function runFunctionWithOptions($request, $runtime)
+    public function addCorsDomainWithOptions($request, $runtime)
     {
         Utils::validateModel($request);
+        $body = [];
+        if (!Utils::isUnset($request->domain)) {
+            $body['Domain'] = $request->domain;
+        }
+        if (!Utils::isUnset($request->spaceId)) {
+            $body['SpaceId'] = $request->spaceId;
+        }
         $req = new OpenApiRequest([
-            'body' => Utils::toMap($request),
+            'body' => OpenApiUtilClient::parseToMap($body),
+        ]);
+        $params = new Params([
+            'action'      => 'AddCorsDomain',
+            'version'     => '2019-06-15',
+            'protocol'    => 'HTTPS',
+            'pathname'    => '/',
+            'method'      => 'POST',
+            'authType'    => 'AK',
+            'style'       => 'RPC',
+            'reqBodyType' => 'formData',
+            'bodyType'    => 'json',
         ]);
 
-        return RunFunctionResponse::fromMap($this->doRPCRequest('RunFunction', '2019-06-15', 'HTTPS', 'POST', 'AK', 'json', $req, $runtime));
+        return AddCorsDomainResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
-     * @param RunFunctionRequest $request
+     * @param AddCorsDomainRequest $request
      *
-     * @return RunFunctionResponse
+     * @return AddCorsDomainResponse
      */
-    public function runFunction($request)
+    public function addCorsDomain($request)
     {
         $runtime = new RuntimeOptions([]);
 
-        return $this->runFunctionWithOptions($request, $runtime);
+        return $this->addCorsDomainWithOptions($request, $runtime);
     }
 
     /**
-     * @param ListFunctionRequest $request
-     * @param RuntimeOptions      $runtime
+     * @param AddDingtalkOpenPlatformConfigRequest $request
+     * @param RuntimeOptions                       $runtime
      *
-     * @return ListFunctionResponse
+     * @return AddDingtalkOpenPlatformConfigResponse
      */
-    public function listFunctionWithOptions($request, $runtime)
+    public function addDingtalkOpenPlatformConfigWithOptions($request, $runtime)
     {
         Utils::validateModel($request);
+        $body = [];
+        if (!Utils::isUnset($request->appId)) {
+            $body['AppId'] = $request->appId;
+        }
+        if (!Utils::isUnset($request->appSecret)) {
+            $body['AppSecret'] = $request->appSecret;
+        }
+        if (!Utils::isUnset($request->spaceId)) {
+            $body['SpaceId'] = $request->spaceId;
+        }
         $req = new OpenApiRequest([
-            'body' => Utils::toMap($request),
+            'body' => OpenApiUtilClient::parseToMap($body),
+        ]);
+        $params = new Params([
+            'action'      => 'AddDingtalkOpenPlatformConfig',
+            'version'     => '2019-06-15',
+            'protocol'    => 'HTTPS',
+            'pathname'    => '/',
+            'method'      => 'POST',
+            'authType'    => 'AK',
+            'style'       => 'RPC',
+            'reqBodyType' => 'formData',
+            'bodyType'    => 'json',
         ]);
 
-        return ListFunctionResponse::fromMap($this->doRPCRequest('ListFunction', '2019-06-15', 'HTTPS', 'POST', 'AK', 'json', $req, $runtime));
+        return AddDingtalkOpenPlatformConfigResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
-     * @param ListFunctionRequest $request
+     * @param AddDingtalkOpenPlatformConfigRequest $request
      *
-     * @return ListFunctionResponse
+     * @return AddDingtalkOpenPlatformConfigResponse
      */
-    public function listFunction($request)
+    public function addDingtalkOpenPlatformConfig($request)
     {
         $runtime = new RuntimeOptions([]);
 
-        return $this->listFunctionWithOptions($request, $runtime);
+        return $this->addDingtalkOpenPlatformConfigWithOptions($request, $runtime);
     }
 
     /**
-     * @param GetWebHostingCertificateDetailRequest $request
-     * @param RuntimeOptions                        $runtime
+     * @param AttachWebHostingCertificateRequest $request
+     * @param RuntimeOptions                     $runtime
      *
-     * @return GetWebHostingCertificateDetailResponse
+     * @return AttachWebHostingCertificateResponse
      */
-    public function getWebHostingCertificateDetailWithOptions($request, $runtime)
+    public function attachWebHostingCertificateWithOptions($request, $runtime)
     {
         Utils::validateModel($request);
+        $body = [];
+        if (!Utils::isUnset($request->certName)) {
+            $body['CertName'] = $request->certName;
+        }
+        if (!Utils::isUnset($request->certType)) {
+            $body['CertType'] = $request->certType;
+        }
+        if (!Utils::isUnset($request->domain)) {
+            $body['Domain'] = $request->domain;
+        }
+        if (!Utils::isUnset($request->privateKey)) {
+            $body['PrivateKey'] = $request->privateKey;
+        }
+        if (!Utils::isUnset($request->serverCertificate)) {
+            $body['ServerCertificate'] = $request->serverCertificate;
+        }
+        if (!Utils::isUnset($request->spaceId)) {
+            $body['SpaceId'] = $request->spaceId;
+        }
         $req = new OpenApiRequest([
-            'body' => Utils::toMap($request),
+            'body' => OpenApiUtilClient::parseToMap($body),
+        ]);
+        $params = new Params([
+            'action'      => 'AttachWebHostingCertificate',
+            'version'     => '2019-06-15',
+            'protocol'    => 'HTTPS',
+            'pathname'    => '/',
+            'method'      => 'POST',
+            'authType'    => 'AK',
+            'style'       => 'RPC',
+            'reqBodyType' => 'formData',
+            'bodyType'    => 'json',
         ]);
 
-        return GetWebHostingCertificateDetailResponse::fromMap($this->doRPCRequest('GetWebHostingCertificateDetail', '2019-06-15', 'HTTPS', 'POST', 'AK', 'json', $req, $runtime));
+        return AttachWebHostingCertificateResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
-     * @param GetWebHostingCertificateDetailRequest $request
+     * @param AttachWebHostingCertificateRequest $request
      *
-     * @return GetWebHostingCertificateDetailResponse
+     * @return AttachWebHostingCertificateResponse
      */
-    public function getWebHostingCertificateDetail($request)
+    public function attachWebHostingCertificate($request)
     {
         $runtime = new RuntimeOptions([]);
 
-        return $this->getWebHostingCertificateDetailWithOptions($request, $runtime);
+        return $this->attachWebHostingCertificateWithOptions($request, $runtime);
     }
 
     /**
-     * @param UpdateSpaceRequest $request
-     * @param RuntimeOptions     $runtime
+     * @param BatchDeleteWebHostingFilesRequest $request
+     * @param RuntimeOptions                    $runtime
      *
-     * @return UpdateSpaceResponse
+     * @return BatchDeleteWebHostingFilesResponse
      */
-    public function updateSpaceWithOptions($request, $runtime)
+    public function batchDeleteWebHostingFilesWithOptions($request, $runtime)
     {
         Utils::validateModel($request);
+        $body = [];
+        if (!Utils::isUnset($request->filePaths)) {
+            $body['FilePaths'] = $request->filePaths;
+        }
+        if (!Utils::isUnset($request->spaceId)) {
+            $body['SpaceId'] = $request->spaceId;
+        }
         $req = new OpenApiRequest([
-            'body' => Utils::toMap($request),
+            'body' => OpenApiUtilClient::parseToMap($body),
+        ]);
+        $params = new Params([
+            'action'      => 'BatchDeleteWebHostingFiles',
+            'version'     => '2019-06-15',
+            'protocol'    => 'HTTPS',
+            'pathname'    => '/',
+            'method'      => 'POST',
+            'authType'    => 'AK',
+            'style'       => 'RPC',
+            'reqBodyType' => 'formData',
+            'bodyType'    => 'json',
         ]);
 
-        return UpdateSpaceResponse::fromMap($this->doRPCRequest('UpdateSpace', '2019-06-15', 'HTTPS', 'POST', 'AK', 'json', $req, $runtime));
+        return BatchDeleteWebHostingFilesResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
-     * @param UpdateSpaceRequest $request
+     * @param BatchDeleteWebHostingFilesRequest $request
      *
-     * @return UpdateSpaceResponse
+     * @return BatchDeleteWebHostingFilesResponse
      */
-    public function updateSpace($request)
+    public function batchDeleteWebHostingFiles($request)
     {
         $runtime = new RuntimeOptions([]);
 
-        return $this->updateSpaceWithOptions($request, $runtime);
+        return $this->batchDeleteWebHostingFilesWithOptions($request, $runtime);
     }
 
     /**
-     * @param SaveWebHostingCustomDomainConfigRequest $request
-     * @param RuntimeOptions                          $runtime
+     * @param BindWebHostingCustomDomainRequest $request
+     * @param RuntimeOptions                    $runtime
      *
-     * @return SaveWebHostingCustomDomainConfigResponse
+     * @return BindWebHostingCustomDomainResponse
      */
-    public function saveWebHostingCustomDomainConfigWithOptions($request, $runtime)
+    public function bindWebHostingCustomDomainWithOptions($request, $runtime)
     {
         Utils::validateModel($request);
+        $body = [];
+        if (!Utils::isUnset($request->customDomain)) {
+            $body['CustomDomain'] = $request->customDomain;
+        }
+        if (!Utils::isUnset($request->spaceId)) {
+            $body['SpaceId'] = $request->spaceId;
+        }
         $req = new OpenApiRequest([
-            'body' => Utils::toMap($request),
+            'body' => OpenApiUtilClient::parseToMap($body),
+        ]);
+        $params = new Params([
+            'action'      => 'BindWebHostingCustomDomain',
+            'version'     => '2019-06-15',
+            'protocol'    => 'HTTPS',
+            'pathname'    => '/',
+            'method'      => 'POST',
+            'authType'    => 'AK',
+            'style'       => 'RPC',
+            'reqBodyType' => 'formData',
+            'bodyType'    => 'json',
         ]);
 
-        return SaveWebHostingCustomDomainConfigResponse::fromMap($this->doRPCRequest('SaveWebHostingCustomDomainConfig', '2019-06-15', 'HTTPS', 'POST', 'AK', 'json', $req, $runtime));
+        return BindWebHostingCustomDomainResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
-     * @param SaveWebHostingCustomDomainConfigRequest $request
+     * @param BindWebHostingCustomDomainRequest $request
      *
-     * @return SaveWebHostingCustomDomainConfigResponse
+     * @return BindWebHostingCustomDomainResponse
      */
-    public function saveWebHostingCustomDomainConfig($request)
+    public function bindWebHostingCustomDomain($request)
     {
         $runtime = new RuntimeOptions([]);
 
-        return $this->saveWebHostingCustomDomainConfigWithOptions($request, $runtime);
+        return $this->bindWebHostingCustomDomainWithOptions($request, $runtime);
     }
 
     /**
-     * @param RuntimeOptions $runtime
+     * @param CheckMpServerlessRoleExistsRequest $request
+     * @param RuntimeOptions                     $runtime
      *
-     * @return ListFunctionSpecResponse
+     * @return CheckMpServerlessRoleExistsResponse
      */
-    public function listFunctionSpecWithOptions($runtime)
-    {
-        $req = new OpenApiRequest([]);
-
-        return ListFunctionSpecResponse::fromMap($this->doRPCRequest('ListFunctionSpec', '2019-06-15', 'HTTPS', 'POST', 'AK', 'json', $req, $runtime));
-    }
-
-    /**
-     * @return ListFunctionSpecResponse
-     */
-    public function listFunctionSpec()
-    {
-        $runtime = new RuntimeOptions([]);
-
-        return $this->listFunctionSpecWithOptions($runtime);
-    }
-
-    /**
-     * @param DeleteWechatOpenPlatformConfigRequest $request
-     * @param RuntimeOptions                        $runtime
-     *
-     * @return DeleteWechatOpenPlatformConfigResponse
-     */
-    public function deleteWechatOpenPlatformConfigWithOptions($request, $runtime)
+    public function checkMpServerlessRoleExistsWithOptions($request, $runtime)
     {
         Utils::validateModel($request);
-        $req = new OpenApiRequest([
-            'body' => Utils::toMap($request),
+        $query             = [];
+        $query['RoleName'] = $request->roleName;
+        $req               = new OpenApiRequest([
+            'query' => OpenApiUtilClient::query($query),
+        ]);
+        $params = new Params([
+            'action'      => 'CheckMpServerlessRoleExists',
+            'version'     => '2019-06-15',
+            'protocol'    => 'HTTPS',
+            'pathname'    => '/',
+            'method'      => 'POST',
+            'authType'    => 'AK',
+            'style'       => 'RPC',
+            'reqBodyType' => 'formData',
+            'bodyType'    => 'json',
         ]);
 
-        return DeleteWechatOpenPlatformConfigResponse::fromMap($this->doRPCRequest('DeleteWechatOpenPlatformConfig', '2019-06-15', 'HTTPS', 'POST', 'AK', 'json', $req, $runtime));
+        return CheckMpServerlessRoleExistsResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
-     * @param DeleteWechatOpenPlatformConfigRequest $request
+     * @param CheckMpServerlessRoleExistsRequest $request
      *
-     * @return DeleteWechatOpenPlatformConfigResponse
+     * @return CheckMpServerlessRoleExistsResponse
      */
-    public function deleteWechatOpenPlatformConfig($request)
+    public function checkMpServerlessRoleExists($request)
     {
         $runtime = new RuntimeOptions([]);
 
-        return $this->deleteWechatOpenPlatformConfigWithOptions($request, $runtime);
+        return $this->checkMpServerlessRoleExistsWithOptions($request, $runtime);
+    }
+
+    /**
+     * @param CreateDBExportTaskRequest $request
+     * @param RuntimeOptions            $runtime
+     *
+     * @return CreateDBExportTaskResponse
+     */
+    public function createDBExportTaskWithOptions($request, $runtime)
+    {
+        Utils::validateModel($request);
+        $body = [];
+        if (!Utils::isUnset($request->collection)) {
+            $body['Collection'] = $request->collection;
+        }
+        if (!Utils::isUnset($request->fields)) {
+            $body['Fields'] = $request->fields;
+        }
+        if (!Utils::isUnset($request->fileType)) {
+            $body['FileType'] = $request->fileType;
+        }
+        if (!Utils::isUnset($request->spaceId)) {
+            $body['SpaceId'] = $request->spaceId;
+        }
+        $req = new OpenApiRequest([
+            'body' => OpenApiUtilClient::parseToMap($body),
+        ]);
+        $params = new Params([
+            'action'      => 'CreateDBExportTask',
+            'version'     => '2019-06-15',
+            'protocol'    => 'HTTPS',
+            'pathname'    => '/',
+            'method'      => 'POST',
+            'authType'    => 'AK',
+            'style'       => 'RPC',
+            'reqBodyType' => 'formData',
+            'bodyType'    => 'json',
+        ]);
+
+        return CreateDBExportTaskResponse::fromMap($this->callApi($params, $req, $runtime));
+    }
+
+    /**
+     * @param CreateDBExportTaskRequest $request
+     *
+     * @return CreateDBExportTaskResponse
+     */
+    public function createDBExportTask($request)
+    {
+        $runtime = new RuntimeOptions([]);
+
+        return $this->createDBExportTaskWithOptions($request, $runtime);
+    }
+
+    /**
+     * @param CreateDBImportTaskRequest $request
+     * @param RuntimeOptions            $runtime
+     *
+     * @return CreateDBImportTaskResponse
+     */
+    public function createDBImportTaskWithOptions($request, $runtime)
+    {
+        Utils::validateModel($request);
+        $body = [];
+        if (!Utils::isUnset($request->collection)) {
+            $body['Collection'] = $request->collection;
+        }
+        if (!Utils::isUnset($request->fileType)) {
+            $body['FileType'] = $request->fileType;
+        }
+        if (!Utils::isUnset($request->mode)) {
+            $body['Mode'] = $request->mode;
+        }
+        if (!Utils::isUnset($request->spaceId)) {
+            $body['SpaceId'] = $request->spaceId;
+        }
+        $req = new OpenApiRequest([
+            'body' => OpenApiUtilClient::parseToMap($body),
+        ]);
+        $params = new Params([
+            'action'      => 'CreateDBImportTask',
+            'version'     => '2019-06-15',
+            'protocol'    => 'HTTPS',
+            'pathname'    => '/',
+            'method'      => 'POST',
+            'authType'    => 'AK',
+            'style'       => 'RPC',
+            'reqBodyType' => 'formData',
+            'bodyType'    => 'json',
+        ]);
+
+        return CreateDBImportTaskResponse::fromMap($this->callApi($params, $req, $runtime));
+    }
+
+    /**
+     * @param CreateDBImportTaskRequest $request
+     *
+     * @return CreateDBImportTaskResponse
+     */
+    public function createDBImportTask($request)
+    {
+        $runtime = new RuntimeOptions([]);
+
+        return $this->createDBImportTaskWithOptions($request, $runtime);
+    }
+
+    /**
+     * @param CreateDBRestoreTaskRequest $request
+     * @param RuntimeOptions             $runtime
+     *
+     * @return CreateDBRestoreTaskResponse
+     */
+    public function createDBRestoreTaskWithOptions($request, $runtime)
+    {
+        Utils::validateModel($request);
+        $body = [];
+        if (!Utils::isUnset($request->backupId)) {
+            $body['BackupId'] = $request->backupId;
+        }
+        if (!Utils::isUnset($request->newCollections)) {
+            $body['NewCollections'] = $request->newCollections;
+        }
+        if (!Utils::isUnset($request->originCollections)) {
+            $body['OriginCollections'] = $request->originCollections;
+        }
+        if (!Utils::isUnset($request->spaceId)) {
+            $body['SpaceId'] = $request->spaceId;
+        }
+        $req = new OpenApiRequest([
+            'body' => OpenApiUtilClient::parseToMap($body),
+        ]);
+        $params = new Params([
+            'action'      => 'CreateDBRestoreTask',
+            'version'     => '2019-06-15',
+            'protocol'    => 'HTTPS',
+            'pathname'    => '/',
+            'method'      => 'POST',
+            'authType'    => 'AK',
+            'style'       => 'RPC',
+            'reqBodyType' => 'formData',
+            'bodyType'    => 'json',
+        ]);
+
+        return CreateDBRestoreTaskResponse::fromMap($this->callApi($params, $req, $runtime));
+    }
+
+    /**
+     * @param CreateDBRestoreTaskRequest $request
+     *
+     * @return CreateDBRestoreTaskResponse
+     */
+    public function createDBRestoreTask($request)
+    {
+        $runtime = new RuntimeOptions([]);
+
+        return $this->createDBRestoreTaskWithOptions($request, $runtime);
+    }
+
+    /**
+     * @param CreateFunctionRequest $request
+     * @param RuntimeOptions        $runtime
+     *
+     * @return CreateFunctionResponse
+     */
+    public function createFunctionWithOptions($request, $runtime)
+    {
+        Utils::validateModel($request);
+        $body = [];
+        if (!Utils::isUnset($request->desc)) {
+            $body['Desc'] = $request->desc;
+        }
+        if (!Utils::isUnset($request->name)) {
+            $body['Name'] = $request->name;
+        }
+        if (!Utils::isUnset($request->runtime)) {
+            $body['Runtime'] = $request->runtime;
+        }
+        if (!Utils::isUnset($request->spaceId)) {
+            $body['SpaceId'] = $request->spaceId;
+        }
+        $req = new OpenApiRequest([
+            'body' => OpenApiUtilClient::parseToMap($body),
+        ]);
+        $params = new Params([
+            'action'      => 'CreateFunction',
+            'version'     => '2019-06-15',
+            'protocol'    => 'HTTPS',
+            'pathname'    => '/',
+            'method'      => 'POST',
+            'authType'    => 'AK',
+            'style'       => 'RPC',
+            'reqBodyType' => 'formData',
+            'bodyType'    => 'json',
+        ]);
+
+        return CreateFunctionResponse::fromMap($this->callApi($params, $req, $runtime));
+    }
+
+    /**
+     * @param CreateFunctionRequest $request
+     *
+     * @return CreateFunctionResponse
+     */
+    public function createFunction($request)
+    {
+        $runtime = new RuntimeOptions([]);
+
+        return $this->createFunctionWithOptions($request, $runtime);
+    }
+
+    /**
+     * @param CreateFunctionDeploymentRequest $request
+     * @param RuntimeOptions                  $runtime
+     *
+     * @return CreateFunctionDeploymentResponse
+     */
+    public function createFunctionDeploymentWithOptions($request, $runtime)
+    {
+        Utils::validateModel($request);
+        $body = [];
+        if (!Utils::isUnset($request->name)) {
+            $body['Name'] = $request->name;
+        }
+        if (!Utils::isUnset($request->spaceId)) {
+            $body['SpaceId'] = $request->spaceId;
+        }
+        $req = new OpenApiRequest([
+            'body' => OpenApiUtilClient::parseToMap($body),
+        ]);
+        $params = new Params([
+            'action'      => 'CreateFunctionDeployment',
+            'version'     => '2019-06-15',
+            'protocol'    => 'HTTPS',
+            'pathname'    => '/',
+            'method'      => 'POST',
+            'authType'    => 'AK',
+            'style'       => 'RPC',
+            'reqBodyType' => 'formData',
+            'bodyType'    => 'json',
+        ]);
+
+        return CreateFunctionDeploymentResponse::fromMap($this->callApi($params, $req, $runtime));
+    }
+
+    /**
+     * @param CreateFunctionDeploymentRequest $request
+     *
+     * @return CreateFunctionDeploymentResponse
+     */
+    public function createFunctionDeployment($request)
+    {
+        $runtime = new RuntimeOptions([]);
+
+        return $this->createFunctionDeploymentWithOptions($request, $runtime);
     }
 
     /**
@@ -442,11 +745,32 @@ class MPServerless extends OpenApiClient
     public function createSpaceWithOptions($request, $runtime)
     {
         Utils::validateModel($request);
+        $body = [];
+        if (!Utils::isUnset($request->desc)) {
+            $body['Desc'] = $request->desc;
+        }
+        if (!Utils::isUnset($request->name)) {
+            $body['Name'] = $request->name;
+        }
+        if (!Utils::isUnset($request->workspaceId)) {
+            $body['WorkspaceId'] = $request->workspaceId;
+        }
         $req = new OpenApiRequest([
-            'body' => Utils::toMap($request),
+            'body' => OpenApiUtilClient::parseToMap($body),
+        ]);
+        $params = new Params([
+            'action'      => 'CreateSpace',
+            'version'     => '2019-06-15',
+            'protocol'    => 'HTTPS',
+            'pathname'    => '/',
+            'method'      => 'POST',
+            'authType'    => 'AK',
+            'style'       => 'RPC',
+            'reqBodyType' => 'formData',
+            'bodyType'    => 'json',
         ]);
 
-        return CreateSpaceResponse::fromMap($this->doRPCRequest('CreateSpace', '2019-06-15', 'HTTPS', 'POST', 'AK', 'json', $req, $runtime));
+        return CreateSpaceResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
@@ -462,90 +786,6 @@ class MPServerless extends OpenApiClient
     }
 
     /**
-     * @param OpenProductRequest $request
-     * @param RuntimeOptions     $runtime
-     *
-     * @return OpenProductResponse
-     */
-    public function openProductWithOptions($request, $runtime)
-    {
-        Utils::validateModel($request);
-        $req = new OpenApiRequest([
-            'body' => Utils::toMap($request),
-        ]);
-
-        return OpenProductResponse::fromMap($this->doRPCRequest('OpenProduct', '2019-06-15', 'HTTPS', 'POST', 'AK', 'json', $req, $runtime));
-    }
-
-    /**
-     * @param OpenProductRequest $request
-     *
-     * @return OpenProductResponse
-     */
-    public function openProduct($request)
-    {
-        $runtime = new RuntimeOptions([]);
-
-        return $this->openProductWithOptions($request, $runtime);
-    }
-
-    /**
-     * @param OpenServiceRequest $request
-     * @param RuntimeOptions     $runtime
-     *
-     * @return OpenServiceResponse
-     */
-    public function openServiceWithOptions($request, $runtime)
-    {
-        Utils::validateModel($request);
-        $req = new OpenApiRequest([
-            'body' => Utils::toMap($request),
-        ]);
-
-        return OpenServiceResponse::fromMap($this->doRPCRequest('OpenService', '2019-06-15', 'HTTPS', 'POST', 'AK', 'json', $req, $runtime));
-    }
-
-    /**
-     * @param OpenServiceRequest $request
-     *
-     * @return OpenServiceResponse
-     */
-    public function openService($request)
-    {
-        $runtime = new RuntimeOptions([]);
-
-        return $this->openServiceWithOptions($request, $runtime);
-    }
-
-    /**
-     * @param DeleteSpaceRequest $request
-     * @param RuntimeOptions     $runtime
-     *
-     * @return DeleteSpaceResponse
-     */
-    public function deleteSpaceWithOptions($request, $runtime)
-    {
-        Utils::validateModel($request);
-        $req = new OpenApiRequest([
-            'body' => Utils::toMap($request),
-        ]);
-
-        return DeleteSpaceResponse::fromMap($this->doRPCRequest('DeleteSpace', '2019-06-15', 'HTTPS', 'POST', 'AK', 'json', $req, $runtime));
-    }
-
-    /**
-     * @param DeleteSpaceRequest $request
-     *
-     * @return DeleteSpaceResponse
-     */
-    public function deleteSpace($request)
-    {
-        $runtime = new RuntimeOptions([]);
-
-        return $this->deleteSpaceWithOptions($request, $runtime);
-    }
-
-    /**
      * @param DeleteAntOpenPlatformConfigRequest $request
      * @param RuntimeOptions                     $runtime
      *
@@ -554,11 +794,29 @@ class MPServerless extends OpenApiClient
     public function deleteAntOpenPlatformConfigWithOptions($request, $runtime)
     {
         Utils::validateModel($request);
+        $body = [];
+        if (!Utils::isUnset($request->appId)) {
+            $body['AppId'] = $request->appId;
+        }
+        if (!Utils::isUnset($request->spaceId)) {
+            $body['SpaceId'] = $request->spaceId;
+        }
         $req = new OpenApiRequest([
-            'body' => Utils::toMap($request),
+            'body' => OpenApiUtilClient::parseToMap($body),
+        ]);
+        $params = new Params([
+            'action'      => 'DeleteAntOpenPlatformConfig',
+            'version'     => '2019-06-15',
+            'protocol'    => 'HTTPS',
+            'pathname'    => '/',
+            'method'      => 'POST',
+            'authType'    => 'AK',
+            'style'       => 'RPC',
+            'reqBodyType' => 'formData',
+            'bodyType'    => 'json',
         ]);
 
-        return DeleteAntOpenPlatformConfigResponse::fromMap($this->doRPCRequest('DeleteAntOpenPlatformConfig', '2019-06-15', 'HTTPS', 'POST', 'AK', 'json', $req, $runtime));
+        return DeleteAntOpenPlatformConfigResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
@@ -574,15 +832,483 @@ class MPServerless extends OpenApiClient
     }
 
     /**
+     * @param DeleteCorsDomainRequest $request
+     * @param RuntimeOptions          $runtime
+     *
+     * @return DeleteCorsDomainResponse
+     */
+    public function deleteCorsDomainWithOptions($request, $runtime)
+    {
+        Utils::validateModel($request);
+        $body = [];
+        if (!Utils::isUnset($request->domainId)) {
+            $body['DomainId'] = $request->domainId;
+        }
+        if (!Utils::isUnset($request->spaceId)) {
+            $body['SpaceId'] = $request->spaceId;
+        }
+        $req = new OpenApiRequest([
+            'body' => OpenApiUtilClient::parseToMap($body),
+        ]);
+        $params = new Params([
+            'action'      => 'DeleteCorsDomain',
+            'version'     => '2019-06-15',
+            'protocol'    => 'HTTPS',
+            'pathname'    => '/',
+            'method'      => 'POST',
+            'authType'    => 'AK',
+            'style'       => 'RPC',
+            'reqBodyType' => 'formData',
+            'bodyType'    => 'json',
+        ]);
+
+        return DeleteCorsDomainResponse::fromMap($this->callApi($params, $req, $runtime));
+    }
+
+    /**
+     * @param DeleteCorsDomainRequest $request
+     *
+     * @return DeleteCorsDomainResponse
+     */
+    public function deleteCorsDomain($request)
+    {
+        $runtime = new RuntimeOptions([]);
+
+        return $this->deleteCorsDomainWithOptions($request, $runtime);
+    }
+
+    /**
+     * @param DeleteDBCollectionRequest $request
+     * @param RuntimeOptions            $runtime
+     *
+     * @return DeleteDBCollectionResponse
+     */
+    public function deleteDBCollectionWithOptions($request, $runtime)
+    {
+        Utils::validateModel($request);
+        $body = [];
+        if (!Utils::isUnset($request->body)) {
+            $body['Body'] = $request->body;
+        }
+        if (!Utils::isUnset($request->spaceId)) {
+            $body['SpaceId'] = $request->spaceId;
+        }
+        $req = new OpenApiRequest([
+            'body' => OpenApiUtilClient::parseToMap($body),
+        ]);
+        $params = new Params([
+            'action'      => 'DeleteDBCollection',
+            'version'     => '2019-06-15',
+            'protocol'    => 'HTTPS',
+            'pathname'    => '/',
+            'method'      => 'POST',
+            'authType'    => 'AK',
+            'style'       => 'RPC',
+            'reqBodyType' => 'formData',
+            'bodyType'    => 'json',
+        ]);
+
+        return DeleteDBCollectionResponse::fromMap($this->callApi($params, $req, $runtime));
+    }
+
+    /**
+     * @param DeleteDBCollectionRequest $request
+     *
+     * @return DeleteDBCollectionResponse
+     */
+    public function deleteDBCollection($request)
+    {
+        $runtime = new RuntimeOptions([]);
+
+        return $this->deleteDBCollectionWithOptions($request, $runtime);
+    }
+
+    /**
+     * @param DeleteDingtalkOpenPlatformConfigRequest $request
+     * @param RuntimeOptions                          $runtime
+     *
+     * @return DeleteDingtalkOpenPlatformConfigResponse
+     */
+    public function deleteDingtalkOpenPlatformConfigWithOptions($request, $runtime)
+    {
+        Utils::validateModel($request);
+        $body = [];
+        if (!Utils::isUnset($request->appId)) {
+            $body['AppId'] = $request->appId;
+        }
+        if (!Utils::isUnset($request->spaceId)) {
+            $body['SpaceId'] = $request->spaceId;
+        }
+        $req = new OpenApiRequest([
+            'body' => OpenApiUtilClient::parseToMap($body),
+        ]);
+        $params = new Params([
+            'action'      => 'DeleteDingtalkOpenPlatformConfig',
+            'version'     => '2019-06-15',
+            'protocol'    => 'HTTPS',
+            'pathname'    => '/',
+            'method'      => 'POST',
+            'authType'    => 'AK',
+            'style'       => 'RPC',
+            'reqBodyType' => 'formData',
+            'bodyType'    => 'json',
+        ]);
+
+        return DeleteDingtalkOpenPlatformConfigResponse::fromMap($this->callApi($params, $req, $runtime));
+    }
+
+    /**
+     * @param DeleteDingtalkOpenPlatformConfigRequest $request
+     *
+     * @return DeleteDingtalkOpenPlatformConfigResponse
+     */
+    public function deleteDingtalkOpenPlatformConfig($request)
+    {
+        $runtime = new RuntimeOptions([]);
+
+        return $this->deleteDingtalkOpenPlatformConfigWithOptions($request, $runtime);
+    }
+
+    /**
+     * @param DeleteFileRequest $request
+     * @param RuntimeOptions    $runtime
+     *
+     * @return DeleteFileResponse
+     */
+    public function deleteFileWithOptions($request, $runtime)
+    {
+        Utils::validateModel($request);
+        $body = [];
+        if (!Utils::isUnset($request->id)) {
+            $body['Id'] = $request->id;
+        }
+        if (!Utils::isUnset($request->spaceId)) {
+            $body['SpaceId'] = $request->spaceId;
+        }
+        $req = new OpenApiRequest([
+            'body' => OpenApiUtilClient::parseToMap($body),
+        ]);
+        $params = new Params([
+            'action'      => 'DeleteFile',
+            'version'     => '2019-06-15',
+            'protocol'    => 'HTTPS',
+            'pathname'    => '/',
+            'method'      => 'POST',
+            'authType'    => 'AK',
+            'style'       => 'RPC',
+            'reqBodyType' => 'formData',
+            'bodyType'    => 'json',
+        ]);
+
+        return DeleteFileResponse::fromMap($this->callApi($params, $req, $runtime));
+    }
+
+    /**
+     * @param DeleteFileRequest $request
+     *
+     * @return DeleteFileResponse
+     */
+    public function deleteFile($request)
+    {
+        $runtime = new RuntimeOptions([]);
+
+        return $this->deleteFileWithOptions($request, $runtime);
+    }
+
+    /**
+     * @param DeleteFunctionRequest $request
+     * @param RuntimeOptions        $runtime
+     *
+     * @return DeleteFunctionResponse
+     */
+    public function deleteFunctionWithOptions($request, $runtime)
+    {
+        Utils::validateModel($request);
+        $body = [];
+        if (!Utils::isUnset($request->name)) {
+            $body['Name'] = $request->name;
+        }
+        if (!Utils::isUnset($request->spaceId)) {
+            $body['SpaceId'] = $request->spaceId;
+        }
+        $req = new OpenApiRequest([
+            'body' => OpenApiUtilClient::parseToMap($body),
+        ]);
+        $params = new Params([
+            'action'      => 'DeleteFunction',
+            'version'     => '2019-06-15',
+            'protocol'    => 'HTTPS',
+            'pathname'    => '/',
+            'method'      => 'POST',
+            'authType'    => 'AK',
+            'style'       => 'RPC',
+            'reqBodyType' => 'formData',
+            'bodyType'    => 'json',
+        ]);
+
+        return DeleteFunctionResponse::fromMap($this->callApi($params, $req, $runtime));
+    }
+
+    /**
+     * @param DeleteFunctionRequest $request
+     *
+     * @return DeleteFunctionResponse
+     */
+    public function deleteFunction($request)
+    {
+        $runtime = new RuntimeOptions([]);
+
+        return $this->deleteFunctionWithOptions($request, $runtime);
+    }
+
+    /**
+     * @param DeleteSpaceRequest $request
+     * @param RuntimeOptions     $runtime
+     *
+     * @return DeleteSpaceResponse
+     */
+    public function deleteSpaceWithOptions($request, $runtime)
+    {
+        Utils::validateModel($request);
+        $body = [];
+        if (!Utils::isUnset($request->spaceId)) {
+            $body['SpaceId'] = $request->spaceId;
+        }
+        $req = new OpenApiRequest([
+            'body' => OpenApiUtilClient::parseToMap($body),
+        ]);
+        $params = new Params([
+            'action'      => 'DeleteSpace',
+            'version'     => '2019-06-15',
+            'protocol'    => 'HTTPS',
+            'pathname'    => '/',
+            'method'      => 'POST',
+            'authType'    => 'AK',
+            'style'       => 'RPC',
+            'reqBodyType' => 'formData',
+            'bodyType'    => 'json',
+        ]);
+
+        return DeleteSpaceResponse::fromMap($this->callApi($params, $req, $runtime));
+    }
+
+    /**
+     * @param DeleteSpaceRequest $request
+     *
+     * @return DeleteSpaceResponse
+     */
+    public function deleteSpace($request)
+    {
+        $runtime = new RuntimeOptions([]);
+
+        return $this->deleteSpaceWithOptions($request, $runtime);
+    }
+
+    /**
+     * @param DeleteWebHostingCertificateRequest $request
+     * @param RuntimeOptions                     $runtime
+     *
+     * @return DeleteWebHostingCertificateResponse
+     */
+    public function deleteWebHostingCertificateWithOptions($request, $runtime)
+    {
+        Utils::validateModel($request);
+        $body = [];
+        if (!Utils::isUnset($request->domain)) {
+            $body['Domain'] = $request->domain;
+        }
+        if (!Utils::isUnset($request->spaceId)) {
+            $body['SpaceId'] = $request->spaceId;
+        }
+        $req = new OpenApiRequest([
+            'body' => OpenApiUtilClient::parseToMap($body),
+        ]);
+        $params = new Params([
+            'action'      => 'DeleteWebHostingCertificate',
+            'version'     => '2019-06-15',
+            'protocol'    => 'HTTPS',
+            'pathname'    => '/',
+            'method'      => 'POST',
+            'authType'    => 'AK',
+            'style'       => 'RPC',
+            'reqBodyType' => 'formData',
+            'bodyType'    => 'json',
+        ]);
+
+        return DeleteWebHostingCertificateResponse::fromMap($this->callApi($params, $req, $runtime));
+    }
+
+    /**
+     * @param DeleteWebHostingCertificateRequest $request
+     *
+     * @return DeleteWebHostingCertificateResponse
+     */
+    public function deleteWebHostingCertificate($request)
+    {
+        $runtime = new RuntimeOptions([]);
+
+        return $this->deleteWebHostingCertificateWithOptions($request, $runtime);
+    }
+
+    /**
+     * @param DeleteWebHostingFileRequest $request
+     * @param RuntimeOptions              $runtime
+     *
+     * @return DeleteWebHostingFileResponse
+     */
+    public function deleteWebHostingFileWithOptions($request, $runtime)
+    {
+        Utils::validateModel($request);
+        $body = [];
+        if (!Utils::isUnset($request->filePath)) {
+            $body['FilePath'] = $request->filePath;
+        }
+        if (!Utils::isUnset($request->spaceId)) {
+            $body['SpaceId'] = $request->spaceId;
+        }
+        $req = new OpenApiRequest([
+            'body' => OpenApiUtilClient::parseToMap($body),
+        ]);
+        $params = new Params([
+            'action'      => 'DeleteWebHostingFile',
+            'version'     => '2019-06-15',
+            'protocol'    => 'HTTPS',
+            'pathname'    => '/',
+            'method'      => 'POST',
+            'authType'    => 'AK',
+            'style'       => 'RPC',
+            'reqBodyType' => 'formData',
+            'bodyType'    => 'json',
+        ]);
+
+        return DeleteWebHostingFileResponse::fromMap($this->callApi($params, $req, $runtime));
+    }
+
+    /**
+     * @param DeleteWebHostingFileRequest $request
+     *
+     * @return DeleteWebHostingFileResponse
+     */
+    public function deleteWebHostingFile($request)
+    {
+        $runtime = new RuntimeOptions([]);
+
+        return $this->deleteWebHostingFileWithOptions($request, $runtime);
+    }
+
+    /**
+     * @param DeleteWechatOpenPlatformConfigRequest $request
+     * @param RuntimeOptions                        $runtime
+     *
+     * @return DeleteWechatOpenPlatformConfigResponse
+     */
+    public function deleteWechatOpenPlatformConfigWithOptions($request, $runtime)
+    {
+        Utils::validateModel($request);
+        $body = [];
+        if (!Utils::isUnset($request->appId)) {
+            $body['AppId'] = $request->appId;
+        }
+        if (!Utils::isUnset($request->spaceId)) {
+            $body['SpaceId'] = $request->spaceId;
+        }
+        $req = new OpenApiRequest([
+            'body' => OpenApiUtilClient::parseToMap($body),
+        ]);
+        $params = new Params([
+            'action'      => 'DeleteWechatOpenPlatformConfig',
+            'version'     => '2019-06-15',
+            'protocol'    => 'HTTPS',
+            'pathname'    => '/',
+            'method'      => 'POST',
+            'authType'    => 'AK',
+            'style'       => 'RPC',
+            'reqBodyType' => 'formData',
+            'bodyType'    => 'json',
+        ]);
+
+        return DeleteWechatOpenPlatformConfigResponse::fromMap($this->callApi($params, $req, $runtime));
+    }
+
+    /**
+     * @param DeleteWechatOpenPlatformConfigRequest $request
+     *
+     * @return DeleteWechatOpenPlatformConfigResponse
+     */
+    public function deleteWechatOpenPlatformConfig($request)
+    {
+        $runtime = new RuntimeOptions([]);
+
+        return $this->deleteWechatOpenPlatformConfigWithOptions($request, $runtime);
+    }
+
+    /**
+     * @param DeployFunctionRequest $request
+     * @param RuntimeOptions        $runtime
+     *
+     * @return DeployFunctionResponse
+     */
+    public function deployFunctionWithOptions($request, $runtime)
+    {
+        Utils::validateModel($request);
+        $body = [];
+        if (!Utils::isUnset($request->deploymentId)) {
+            $body['DeploymentId'] = $request->deploymentId;
+        }
+        if (!Utils::isUnset($request->spaceId)) {
+            $body['SpaceId'] = $request->spaceId;
+        }
+        $req = new OpenApiRequest([
+            'body' => OpenApiUtilClient::parseToMap($body),
+        ]);
+        $params = new Params([
+            'action'      => 'DeployFunction',
+            'version'     => '2019-06-15',
+            'protocol'    => 'HTTPS',
+            'pathname'    => '/',
+            'method'      => 'POST',
+            'authType'    => 'AK',
+            'style'       => 'RPC',
+            'reqBodyType' => 'formData',
+            'bodyType'    => 'json',
+        ]);
+
+        return DeployFunctionResponse::fromMap($this->callApi($params, $req, $runtime));
+    }
+
+    /**
+     * @param DeployFunctionRequest $request
+     *
+     * @return DeployFunctionResponse
+     */
+    public function deployFunction($request)
+    {
+        $runtime = new RuntimeOptions([]);
+
+        return $this->deployFunctionWithOptions($request, $runtime);
+    }
+
+    /**
      * @param RuntimeOptions $runtime
      *
      * @return DescribeFCOpenStatusResponse
      */
     public function describeFCOpenStatusWithOptions($runtime)
     {
-        $req = new OpenApiRequest([]);
+        $req    = new OpenApiRequest([]);
+        $params = new Params([
+            'action'      => 'DescribeFCOpenStatus',
+            'version'     => '2019-06-15',
+            'protocol'    => 'HTTPS',
+            'pathname'    => '/',
+            'method'      => 'POST',
+            'authType'    => 'AK',
+            'style'       => 'RPC',
+            'reqBodyType' => 'formData',
+            'bodyType'    => 'json',
+        ]);
 
-        return DescribeFCOpenStatusResponse::fromMap($this->doRPCRequest('DescribeFCOpenStatus', '2019-06-15', 'HTTPS', 'POST', 'AK', 'json', $req, $runtime));
+        return DescribeFCOpenStatusResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
@@ -604,11 +1330,35 @@ class MPServerless extends OpenApiClient
     public function describeFileUploadSignedUrlWithOptions($request, $runtime)
     {
         Utils::validateModel($request);
+        $body = [];
+        if (!Utils::isUnset($request->contentType)) {
+            $body['ContentType'] = $request->contentType;
+        }
+        if (!Utils::isUnset($request->filename)) {
+            $body['Filename'] = $request->filename;
+        }
+        if (!Utils::isUnset($request->size)) {
+            $body['Size'] = $request->size;
+        }
+        if (!Utils::isUnset($request->spaceId)) {
+            $body['SpaceId'] = $request->spaceId;
+        }
         $req = new OpenApiRequest([
-            'body' => Utils::toMap($request),
+            'body' => OpenApiUtilClient::parseToMap($body),
+        ]);
+        $params = new Params([
+            'action'      => 'DescribeFileUploadSignedUrl',
+            'version'     => '2019-06-15',
+            'protocol'    => 'HTTPS',
+            'pathname'    => '/',
+            'method'      => 'POST',
+            'authType'    => 'AK',
+            'style'       => 'RPC',
+            'reqBodyType' => 'formData',
+            'bodyType'    => 'json',
         ]);
 
-        return DescribeFileUploadSignedUrlResponse::fromMap($this->doRPCRequest('DescribeFileUploadSignedUrl', '2019-06-15', 'HTTPS', 'POST', 'AK', 'json', $req, $runtime));
+        return DescribeFileUploadSignedUrlResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
@@ -624,118 +1374,6 @@ class MPServerless extends OpenApiClient
     }
 
     /**
-     * @param DeleteFileRequest $request
-     * @param RuntimeOptions    $runtime
-     *
-     * @return DeleteFileResponse
-     */
-    public function deleteFileWithOptions($request, $runtime)
-    {
-        Utils::validateModel($request);
-        $req = new OpenApiRequest([
-            'body' => Utils::toMap($request),
-        ]);
-
-        return DeleteFileResponse::fromMap($this->doRPCRequest('DeleteFile', '2019-06-15', 'HTTPS', 'POST', 'AK', 'json', $req, $runtime));
-    }
-
-    /**
-     * @param DeleteFileRequest $request
-     *
-     * @return DeleteFileResponse
-     */
-    public function deleteFile($request)
-    {
-        $runtime = new RuntimeOptions([]);
-
-        return $this->deleteFileWithOptions($request, $runtime);
-    }
-
-    /**
-     * @param QueryDBImportTaskStatusRequest $request
-     * @param RuntimeOptions                 $runtime
-     *
-     * @return QueryDBImportTaskStatusResponse
-     */
-    public function queryDBImportTaskStatusWithOptions($request, $runtime)
-    {
-        Utils::validateModel($request);
-        $req = new OpenApiRequest([
-            'body' => Utils::toMap($request),
-        ]);
-
-        return QueryDBImportTaskStatusResponse::fromMap($this->doRPCRequest('QueryDBImportTaskStatus', '2019-06-15', 'HTTPS', 'POST', 'AK', 'json', $req, $runtime));
-    }
-
-    /**
-     * @param QueryDBImportTaskStatusRequest $request
-     *
-     * @return QueryDBImportTaskStatusResponse
-     */
-    public function queryDBImportTaskStatus($request)
-    {
-        $runtime = new RuntimeOptions([]);
-
-        return $this->queryDBImportTaskStatusWithOptions($request, $runtime);
-    }
-
-    /**
-     * @param RegisterFileRequest $request
-     * @param RuntimeOptions      $runtime
-     *
-     * @return RegisterFileResponse
-     */
-    public function registerFileWithOptions($request, $runtime)
-    {
-        Utils::validateModel($request);
-        $req = new OpenApiRequest([
-            'body' => Utils::toMap($request),
-        ]);
-
-        return RegisterFileResponse::fromMap($this->doRPCRequest('RegisterFile', '2019-06-15', 'HTTPS', 'POST', 'AK', 'json', $req, $runtime));
-    }
-
-    /**
-     * @param RegisterFileRequest $request
-     *
-     * @return RegisterFileResponse
-     */
-    public function registerFile($request)
-    {
-        $runtime = new RuntimeOptions([]);
-
-        return $this->registerFileWithOptions($request, $runtime);
-    }
-
-    /**
-     * @param SaveAntOpenPlatformConfigRequest $request
-     * @param RuntimeOptions                   $runtime
-     *
-     * @return SaveAntOpenPlatformConfigResponse
-     */
-    public function saveAntOpenPlatformConfigWithOptions($request, $runtime)
-    {
-        Utils::validateModel($request);
-        $req = new OpenApiRequest([
-            'body' => Utils::toMap($request),
-        ]);
-
-        return SaveAntOpenPlatformConfigResponse::fromMap($this->doRPCRequest('SaveAntOpenPlatformConfig', '2019-06-15', 'HTTPS', 'POST', 'AK', 'json', $req, $runtime));
-    }
-
-    /**
-     * @param SaveAntOpenPlatformConfigRequest $request
-     *
-     * @return SaveAntOpenPlatformConfigResponse
-     */
-    public function saveAntOpenPlatformConfig($request)
-    {
-        $runtime = new RuntimeOptions([]);
-
-        return $this->saveAntOpenPlatformConfigWithOptions($request, $runtime);
-    }
-
-    /**
      * @param DescribeFunctionRequest $request
      * @param RuntimeOptions          $runtime
      *
@@ -744,11 +1382,29 @@ class MPServerless extends OpenApiClient
     public function describeFunctionWithOptions($request, $runtime)
     {
         Utils::validateModel($request);
+        $body = [];
+        if (!Utils::isUnset($request->name)) {
+            $body['Name'] = $request->name;
+        }
+        if (!Utils::isUnset($request->spaceId)) {
+            $body['SpaceId'] = $request->spaceId;
+        }
         $req = new OpenApiRequest([
-            'body' => Utils::toMap($request),
+            'body' => OpenApiUtilClient::parseToMap($body),
+        ]);
+        $params = new Params([
+            'action'      => 'DescribeFunction',
+            'version'     => '2019-06-15',
+            'protocol'    => 'HTTPS',
+            'pathname'    => '/',
+            'method'      => 'POST',
+            'authType'    => 'AK',
+            'style'       => 'RPC',
+            'reqBodyType' => 'formData',
+            'bodyType'    => 'json',
         ]);
 
-        return DescribeFunctionResponse::fromMap($this->doRPCRequest('DescribeFunction', '2019-06-15', 'HTTPS', 'POST', 'AK', 'json', $req, $runtime));
+        return DescribeFunctionResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
@@ -764,613 +1420,147 @@ class MPServerless extends OpenApiClient
     }
 
     /**
-     * @param OpenWebHostingServiceRequest $request
-     * @param RuntimeOptions               $runtime
-     *
-     * @return OpenWebHostingServiceResponse
-     */
-    public function openWebHostingServiceWithOptions($request, $runtime)
-    {
-        Utils::validateModel($request);
-        $req = new OpenApiRequest([
-            'body' => Utils::toMap($request),
-        ]);
-
-        return OpenWebHostingServiceResponse::fromMap($this->doRPCRequest('OpenWebHostingService', '2019-06-15', 'HTTPS', 'POST', 'AK', 'json', $req, $runtime));
-    }
-
-    /**
-     * @param OpenWebHostingServiceRequest $request
-     *
-     * @return OpenWebHostingServiceResponse
-     */
-    public function openWebHostingService($request)
-    {
-        $runtime = new RuntimeOptions([]);
-
-        return $this->openWebHostingServiceWithOptions($request, $runtime);
-    }
-
-    /**
-     * @param DescribeSmsSignRequest $request
-     * @param RuntimeOptions         $runtime
-     *
-     * @return DescribeSmsSignResponse
-     */
-    public function describeSmsSignWithOptions($request, $runtime)
-    {
-        Utils::validateModel($request);
-        $req = new OpenApiRequest([
-            'body' => Utils::toMap($request),
-        ]);
-
-        return DescribeSmsSignResponse::fromMap($this->doRPCRequest('DescribeSmsSign', '2019-06-15', 'HTTPS', 'POST', 'AK', 'json', $req, $runtime));
-    }
-
-    /**
-     * @param DescribeSmsSignRequest $request
-     *
-     * @return DescribeSmsSignResponse
-     */
-    public function describeSmsSign($request)
-    {
-        $runtime = new RuntimeOptions([]);
-
-        return $this->describeSmsSignWithOptions($request, $runtime);
-    }
-
-    /**
-     * @param ListAvailableCertificatesRequest $request
+     * @param DescribeHttpTriggerConfigRequest $request
      * @param RuntimeOptions                   $runtime
      *
-     * @return ListAvailableCertificatesResponse
+     * @return DescribeHttpTriggerConfigResponse
      */
-    public function listAvailableCertificatesWithOptions($request, $runtime)
+    public function describeHttpTriggerConfigWithOptions($request, $runtime)
     {
         Utils::validateModel($request);
+        $body = [];
+        if (!Utils::isUnset($request->spaceId)) {
+            $body['SpaceId'] = $request->spaceId;
+        }
         $req = new OpenApiRequest([
-            'body' => Utils::toMap($request),
+            'body' => OpenApiUtilClient::parseToMap($body),
+        ]);
+        $params = new Params([
+            'action'      => 'DescribeHttpTriggerConfig',
+            'version'     => '2019-06-15',
+            'protocol'    => 'HTTPS',
+            'pathname'    => '/',
+            'method'      => 'POST',
+            'authType'    => 'AK',
+            'style'       => 'RPC',
+            'reqBodyType' => 'formData',
+            'bodyType'    => 'json',
         ]);
 
-        return ListAvailableCertificatesResponse::fromMap($this->doRPCRequest('ListAvailableCertificates', '2019-06-15', 'HTTPS', 'POST', 'AK', 'json', $req, $runtime));
+        return DescribeHttpTriggerConfigResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
-     * @param ListAvailableCertificatesRequest $request
+     * @param DescribeHttpTriggerConfigRequest $request
      *
-     * @return ListAvailableCertificatesResponse
+     * @return DescribeHttpTriggerConfigResponse
      */
-    public function listAvailableCertificates($request)
+    public function describeHttpTriggerConfig($request)
     {
         $runtime = new RuntimeOptions([]);
 
-        return $this->listAvailableCertificatesWithOptions($request, $runtime);
+        return $this->describeHttpTriggerConfigWithOptions($request, $runtime);
     }
 
     /**
-     * @param ListOpenPlatformConfigRequest $request
-     * @param RuntimeOptions                $runtime
+     * @param DescribeResourceQuotaRequest $request
+     * @param RuntimeOptions               $runtime
      *
-     * @return ListOpenPlatformConfigResponse
+     * @return DescribeResourceQuotaResponse
      */
-    public function listOpenPlatformConfigWithOptions($request, $runtime)
+    public function describeResourceQuotaWithOptions($request, $runtime)
     {
         Utils::validateModel($request);
+        $body = [];
+        if (!Utils::isUnset($request->spaceId)) {
+            $body['SpaceId'] = $request->spaceId;
+        }
         $req = new OpenApiRequest([
-            'body' => Utils::toMap($request),
+            'body' => OpenApiUtilClient::parseToMap($body),
+        ]);
+        $params = new Params([
+            'action'      => 'DescribeResourceQuota',
+            'version'     => '2019-06-15',
+            'protocol'    => 'HTTPS',
+            'pathname'    => '/',
+            'method'      => 'POST',
+            'authType'    => 'AK',
+            'style'       => 'RPC',
+            'reqBodyType' => 'formData',
+            'bodyType'    => 'json',
         ]);
 
-        return ListOpenPlatformConfigResponse::fromMap($this->doRPCRequest('ListOpenPlatformConfig', '2019-06-15', 'HTTPS', 'POST', 'AK', 'json', $req, $runtime));
+        return DescribeResourceQuotaResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
-     * @param ListOpenPlatformConfigRequest $request
+     * @param DescribeResourceQuotaRequest $request
      *
-     * @return ListOpenPlatformConfigResponse
+     * @return DescribeResourceQuotaResponse
      */
-    public function listOpenPlatformConfig($request)
+    public function describeResourceQuota($request)
     {
         $runtime = new RuntimeOptions([]);
 
-        return $this->listOpenPlatformConfigWithOptions($request, $runtime);
+        return $this->describeResourceQuotaWithOptions($request, $runtime);
     }
 
     /**
-     * @param ModifyWebHostingConfigRequest $request
-     * @param RuntimeOptions                $runtime
+     * @param DescribeResourceUsageRequest $request
+     * @param RuntimeOptions               $runtime
      *
-     * @return ModifyWebHostingConfigResponse
+     * @return DescribeResourceUsageResponse
      */
-    public function modifyWebHostingConfigWithOptions($request, $runtime)
+    public function describeResourceUsageWithOptions($request, $runtime)
     {
         Utils::validateModel($request);
+        $body = [];
+        if (!Utils::isUnset($request->endTime)) {
+            $body['EndTime'] = $request->endTime;
+        }
+        if (!Utils::isUnset($request->format)) {
+            $body['Format'] = $request->format;
+        }
+        if (!Utils::isUnset($request->pageNumber)) {
+            $body['PageNumber'] = $request->pageNumber;
+        }
+        if (!Utils::isUnset($request->pageSize)) {
+            $body['PageSize'] = $request->pageSize;
+        }
+        if (!Utils::isUnset($request->spaceId)) {
+            $body['SpaceId'] = $request->spaceId;
+        }
+        if (!Utils::isUnset($request->startTime)) {
+            $body['StartTime'] = $request->startTime;
+        }
         $req = new OpenApiRequest([
-            'body' => Utils::toMap($request),
+            'body' => OpenApiUtilClient::parseToMap($body),
+        ]);
+        $params = new Params([
+            'action'      => 'DescribeResourceUsage',
+            'version'     => '2019-06-15',
+            'protocol'    => 'HTTPS',
+            'pathname'    => '/',
+            'method'      => 'POST',
+            'authType'    => 'AK',
+            'style'       => 'RPC',
+            'reqBodyType' => 'formData',
+            'bodyType'    => 'json',
         ]);
 
-        return ModifyWebHostingConfigResponse::fromMap($this->doRPCRequest('ModifyWebHostingConfig', '2019-06-15', 'HTTPS', 'POST', 'AK', 'json', $req, $runtime));
+        return DescribeResourceUsageResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
-     * @param ModifyWebHostingConfigRequest $request
+     * @param DescribeResourceUsageRequest $request
      *
-     * @return ModifyWebHostingConfigResponse
+     * @return DescribeResourceUsageResponse
      */
-    public function modifyWebHostingConfig($request)
+    public function describeResourceUsage($request)
     {
         $runtime = new RuntimeOptions([]);
 
-        return $this->modifyWebHostingConfigWithOptions($request, $runtime);
-    }
-
-    /**
-     * @param DeleteSmsSignRequest $request
-     * @param RuntimeOptions       $runtime
-     *
-     * @return DeleteSmsSignResponse
-     */
-    public function deleteSmsSignWithOptions($request, $runtime)
-    {
-        Utils::validateModel($request);
-        $req = new OpenApiRequest([
-            'body' => Utils::toMap($request),
-        ]);
-
-        return DeleteSmsSignResponse::fromMap($this->doRPCRequest('DeleteSmsSign', '2019-06-15', 'HTTPS', 'POST', 'AK', 'json', $req, $runtime));
-    }
-
-    /**
-     * @param DeleteSmsSignRequest $request
-     *
-     * @return DeleteSmsSignResponse
-     */
-    public function deleteSmsSign($request)
-    {
-        $runtime = new RuntimeOptions([]);
-
-        return $this->deleteSmsSignWithOptions($request, $runtime);
-    }
-
-    /**
-     * @param RuntimeOptions $runtime
-     *
-     * @return DescribeSmsOpenStatusResponse
-     */
-    public function describeSmsOpenStatusWithOptions($runtime)
-    {
-        $req = new OpenApiRequest([]);
-
-        return DescribeSmsOpenStatusResponse::fromMap($this->doRPCRequest('DescribeSmsOpenStatus', '2019-06-15', 'HTTPS', 'POST', 'AK', 'json', $req, $runtime));
-    }
-
-    /**
-     * @return DescribeSmsOpenStatusResponse
-     */
-    public function describeSmsOpenStatus()
-    {
-        $runtime = new RuntimeOptions([]);
-
-        return $this->describeSmsOpenStatusWithOptions($runtime);
-    }
-
-    /**
-     * @param ListSpaceRequest $request
-     * @param RuntimeOptions   $runtime
-     *
-     * @return ListSpaceResponse
-     */
-    public function listSpaceWithOptions($request, $runtime)
-    {
-        Utils::validateModel($request);
-        $req = new OpenApiRequest([
-            'body' => Utils::toMap($request),
-        ]);
-
-        return ListSpaceResponse::fromMap($this->doRPCRequest('ListSpace', '2019-06-15', 'HTTPS', 'POST', 'AK', 'json', $req, $runtime));
-    }
-
-    /**
-     * @param ListSpaceRequest $request
-     *
-     * @return ListSpaceResponse
-     */
-    public function listSpace($request)
-    {
-        $runtime = new RuntimeOptions([]);
-
-        return $this->listSpaceWithOptions($request, $runtime);
-    }
-
-    /**
-     * @param DeleteDBCollectionRequest $request
-     * @param RuntimeOptions            $runtime
-     *
-     * @return DeleteDBCollectionResponse
-     */
-    public function deleteDBCollectionWithOptions($request, $runtime)
-    {
-        Utils::validateModel($request);
-        $req = new OpenApiRequest([
-            'body' => Utils::toMap($request),
-        ]);
-
-        return DeleteDBCollectionResponse::fromMap($this->doRPCRequest('DeleteDBCollection', '2019-06-15', 'HTTPS', 'POST', 'AK', 'json', $req, $runtime));
-    }
-
-    /**
-     * @param DeleteDBCollectionRequest $request
-     *
-     * @return DeleteDBCollectionResponse
-     */
-    public function deleteDBCollection($request)
-    {
-        $runtime = new RuntimeOptions([]);
-
-        return $this->deleteDBCollectionWithOptions($request, $runtime);
-    }
-
-    /**
-     * @param CreateFunctionDeploymentRequest $request
-     * @param RuntimeOptions                  $runtime
-     *
-     * @return CreateFunctionDeploymentResponse
-     */
-    public function createFunctionDeploymentWithOptions($request, $runtime)
-    {
-        Utils::validateModel($request);
-        $req = new OpenApiRequest([
-            'body' => Utils::toMap($request),
-        ]);
-
-        return CreateFunctionDeploymentResponse::fromMap($this->doRPCRequest('CreateFunctionDeployment', '2019-06-15', 'HTTPS', 'POST', 'AK', 'json', $req, $runtime));
-    }
-
-    /**
-     * @param CreateFunctionDeploymentRequest $request
-     *
-     * @return CreateFunctionDeploymentResponse
-     */
-    public function createFunctionDeployment($request)
-    {
-        $runtime = new RuntimeOptions([]);
-
-        return $this->createFunctionDeploymentWithOptions($request, $runtime);
-    }
-
-    /**
-     * @param GetWebHostingUploadCredentialRequest $request
-     * @param RuntimeOptions                       $runtime
-     *
-     * @return GetWebHostingUploadCredentialResponse
-     */
-    public function getWebHostingUploadCredentialWithOptions($request, $runtime)
-    {
-        Utils::validateModel($request);
-        $req = new OpenApiRequest([
-            'body' => Utils::toMap($request),
-        ]);
-
-        return GetWebHostingUploadCredentialResponse::fromMap($this->doRPCRequest('GetWebHostingUploadCredential', '2019-06-15', 'HTTPS', 'POST', 'AK', 'json', $req, $runtime));
-    }
-
-    /**
-     * @param GetWebHostingUploadCredentialRequest $request
-     *
-     * @return GetWebHostingUploadCredentialResponse
-     */
-    public function getWebHostingUploadCredential($request)
-    {
-        $runtime = new RuntimeOptions([]);
-
-        return $this->getWebHostingUploadCredentialWithOptions($request, $runtime);
-    }
-
-    /**
-     * @param ListFunctionDeploymentRequest $request
-     * @param RuntimeOptions                $runtime
-     *
-     * @return ListFunctionDeploymentResponse
-     */
-    public function listFunctionDeploymentWithOptions($request, $runtime)
-    {
-        Utils::validateModel($request);
-        $req = new OpenApiRequest([
-            'body' => Utils::toMap($request),
-        ]);
-
-        return ListFunctionDeploymentResponse::fromMap($this->doRPCRequest('ListFunctionDeployment', '2019-06-15', 'HTTPS', 'POST', 'AK', 'json', $req, $runtime));
-    }
-
-    /**
-     * @param ListFunctionDeploymentRequest $request
-     *
-     * @return ListFunctionDeploymentResponse
-     */
-    public function listFunctionDeployment($request)
-    {
-        $runtime = new RuntimeOptions([]);
-
-        return $this->listFunctionDeploymentWithOptions($request, $runtime);
-    }
-
-    /**
-     * @param AddDingtalkOpenPlatformConfigRequest $request
-     * @param RuntimeOptions                       $runtime
-     *
-     * @return AddDingtalkOpenPlatformConfigResponse
-     */
-    public function addDingtalkOpenPlatformConfigWithOptions($request, $runtime)
-    {
-        Utils::validateModel($request);
-        $req = new OpenApiRequest([
-            'body' => Utils::toMap($request),
-        ]);
-
-        return AddDingtalkOpenPlatformConfigResponse::fromMap($this->doRPCRequest('AddDingtalkOpenPlatformConfig', '2019-06-15', 'HTTPS', 'POST', 'AK', 'json', $req, $runtime));
-    }
-
-    /**
-     * @param AddDingtalkOpenPlatformConfigRequest $request
-     *
-     * @return AddDingtalkOpenPlatformConfigResponse
-     */
-    public function addDingtalkOpenPlatformConfig($request)
-    {
-        $runtime = new RuntimeOptions([]);
-
-        return $this->addDingtalkOpenPlatformConfigWithOptions($request, $runtime);
-    }
-
-    /**
-     * @param CreateDBRestoreTaskRequest $request
-     * @param RuntimeOptions             $runtime
-     *
-     * @return CreateDBRestoreTaskResponse
-     */
-    public function createDBRestoreTaskWithOptions($request, $runtime)
-    {
-        Utils::validateModel($request);
-        $req = new OpenApiRequest([
-            'body' => Utils::toMap($request),
-        ]);
-
-        return CreateDBRestoreTaskResponse::fromMap($this->doRPCRequest('CreateDBRestoreTask', '2019-06-15', 'HTTPS', 'POST', 'AK', 'json', $req, $runtime));
-    }
-
-    /**
-     * @param CreateDBRestoreTaskRequest $request
-     *
-     * @return CreateDBRestoreTaskResponse
-     */
-    public function createDBRestoreTask($request)
-    {
-        $runtime = new RuntimeOptions([]);
-
-        return $this->createDBRestoreTaskWithOptions($request, $runtime);
-    }
-
-    /**
-     * @param AttachWebHostingCertificateRequest $request
-     * @param RuntimeOptions                     $runtime
-     *
-     * @return AttachWebHostingCertificateResponse
-     */
-    public function attachWebHostingCertificateWithOptions($request, $runtime)
-    {
-        Utils::validateModel($request);
-        $req = new OpenApiRequest([
-            'body' => Utils::toMap($request),
-        ]);
-
-        return AttachWebHostingCertificateResponse::fromMap($this->doRPCRequest('AttachWebHostingCertificate', '2019-06-15', 'HTTPS', 'POST', 'AK', 'json', $req, $runtime));
-    }
-
-    /**
-     * @param AttachWebHostingCertificateRequest $request
-     *
-     * @return AttachWebHostingCertificateResponse
-     */
-    public function attachWebHostingCertificate($request)
-    {
-        $runtime = new RuntimeOptions([]);
-
-        return $this->attachWebHostingCertificateWithOptions($request, $runtime);
-    }
-
-    /**
-     * @param ListFileRequest $request
-     * @param RuntimeOptions  $runtime
-     *
-     * @return ListFileResponse
-     */
-    public function listFileWithOptions($request, $runtime)
-    {
-        Utils::validateModel($request);
-        $req = new OpenApiRequest([
-            'body' => Utils::toMap($request),
-        ]);
-
-        return ListFileResponse::fromMap($this->doRPCRequest('ListFile', '2019-06-15', 'HTTPS', 'POST', 'AK', 'json', $req, $runtime));
-    }
-
-    /**
-     * @param ListFileRequest $request
-     *
-     * @return ListFileResponse
-     */
-    public function listFile($request)
-    {
-        $runtime = new RuntimeOptions([]);
-
-        return $this->listFileWithOptions($request, $runtime);
-    }
-
-    /**
-     * @param QueryDBRestoreTaskStatusRequest $request
-     * @param RuntimeOptions                  $runtime
-     *
-     * @return QueryDBRestoreTaskStatusResponse
-     */
-    public function queryDBRestoreTaskStatusWithOptions($request, $runtime)
-    {
-        Utils::validateModel($request);
-        $req = new OpenApiRequest([
-            'body' => Utils::toMap($request),
-        ]);
-
-        return QueryDBRestoreTaskStatusResponse::fromMap($this->doRPCRequest('QueryDBRestoreTaskStatus', '2019-06-15', 'HTTPS', 'POST', 'AK', 'json', $req, $runtime));
-    }
-
-    /**
-     * @param QueryDBRestoreTaskStatusRequest $request
-     *
-     * @return QueryDBRestoreTaskStatusResponse
-     */
-    public function queryDBRestoreTaskStatus($request)
-    {
-        $runtime = new RuntimeOptions([]);
-
-        return $this->queryDBRestoreTaskStatusWithOptions($request, $runtime);
-    }
-
-    /**
-     * @param VerifyWebHostingDomainOwnerRequest $request
-     * @param RuntimeOptions                     $runtime
-     *
-     * @return VerifyWebHostingDomainOwnerResponse
-     */
-    public function verifyWebHostingDomainOwnerWithOptions($request, $runtime)
-    {
-        Utils::validateModel($request);
-        $req = new OpenApiRequest([
-            'body' => Utils::toMap($request),
-        ]);
-
-        return VerifyWebHostingDomainOwnerResponse::fromMap($this->doRPCRequest('VerifyWebHostingDomainOwner', '2019-06-15', 'HTTPS', 'POST', 'AK', 'json', $req, $runtime));
-    }
-
-    /**
-     * @param VerifyWebHostingDomainOwnerRequest $request
-     *
-     * @return VerifyWebHostingDomainOwnerResponse
-     */
-    public function verifyWebHostingDomainOwner($request)
-    {
-        $runtime = new RuntimeOptions([]);
-
-        return $this->verifyWebHostingDomainOwnerWithOptions($request, $runtime);
-    }
-
-    /**
-     * @param DeleteSmsTemplateRequest $request
-     * @param RuntimeOptions           $runtime
-     *
-     * @return DeleteSmsTemplateResponse
-     */
-    public function deleteSmsTemplateWithOptions($request, $runtime)
-    {
-        Utils::validateModel($request);
-        $req = new OpenApiRequest([
-            'body' => Utils::toMap($request),
-        ]);
-
-        return DeleteSmsTemplateResponse::fromMap($this->doRPCRequest('DeleteSmsTemplate', '2019-06-15', 'HTTPS', 'POST', 'AK', 'json', $req, $runtime));
-    }
-
-    /**
-     * @param DeleteSmsTemplateRequest $request
-     *
-     * @return DeleteSmsTemplateResponse
-     */
-    public function deleteSmsTemplate($request)
-    {
-        $runtime = new RuntimeOptions([]);
-
-        return $this->deleteSmsTemplateWithOptions($request, $runtime);
-    }
-
-    /**
-     * @param QueryDBExportTaskStatusRequest $request
-     * @param RuntimeOptions                 $runtime
-     *
-     * @return QueryDBExportTaskStatusResponse
-     */
-    public function queryDBExportTaskStatusWithOptions($request, $runtime)
-    {
-        Utils::validateModel($request);
-        $req = new OpenApiRequest([
-            'body' => Utils::toMap($request),
-        ]);
-
-        return QueryDBExportTaskStatusResponse::fromMap($this->doRPCRequest('QueryDBExportTaskStatus', '2019-06-15', 'HTTPS', 'POST', 'AK', 'json', $req, $runtime));
-    }
-
-    /**
-     * @param QueryDBExportTaskStatusRequest $request
-     *
-     * @return QueryDBExportTaskStatusResponse
-     */
-    public function queryDBExportTaskStatus($request)
-    {
-        $runtime = new RuntimeOptions([]);
-
-        return $this->queryDBExportTaskStatusWithOptions($request, $runtime);
-    }
-
-    /**
-     * @param CreateDBImportTaskRequest $request
-     * @param RuntimeOptions            $runtime
-     *
-     * @return CreateDBImportTaskResponse
-     */
-    public function createDBImportTaskWithOptions($request, $runtime)
-    {
-        Utils::validateModel($request);
-        $req = new OpenApiRequest([
-            'body' => Utils::toMap($request),
-        ]);
-
-        return CreateDBImportTaskResponse::fromMap($this->doRPCRequest('CreateDBImportTask', '2019-06-15', 'HTTPS', 'POST', 'AK', 'json', $req, $runtime));
-    }
-
-    /**
-     * @param CreateDBImportTaskRequest $request
-     *
-     * @return CreateDBImportTaskResponse
-     */
-    public function createDBImportTask($request)
-    {
-        $runtime = new RuntimeOptions([]);
-
-        return $this->createDBImportTaskWithOptions($request, $runtime);
-    }
-
-    /**
-     * @param CheckSmsHasAuthorizedToMPSRequest $request
-     * @param RuntimeOptions                    $runtime
-     *
-     * @return CheckSmsHasAuthorizedToMPSResponse
-     */
-    public function checkSmsHasAuthorizedToMPSWithOptions($request, $runtime)
-    {
-        Utils::validateModel($request);
-        $req = new OpenApiRequest([
-            'body' => Utils::toMap($request),
-        ]);
-
-        return CheckSmsHasAuthorizedToMPSResponse::fromMap($this->doRPCRequest('CheckSmsHasAuthorizedToMPS', '2019-06-15', 'HTTPS', 'POST', 'AK', 'json', $req, $runtime));
-    }
-
-    /**
-     * @param CheckSmsHasAuthorizedToMPSRequest $request
-     *
-     * @return CheckSmsHasAuthorizedToMPSResponse
-     */
-    public function checkSmsHasAuthorizedToMPS($request)
-    {
-        $runtime = new RuntimeOptions([]);
-
-        return $this->checkSmsHasAuthorizedToMPSWithOptions($request, $runtime);
+        return $this->describeResourceUsageWithOptions($request, $runtime);
     }
 
     /**
@@ -1382,11 +1572,32 @@ class MPServerless extends OpenApiClient
     public function describeServicePolicyWithOptions($request, $runtime)
     {
         Utils::validateModel($request);
+        $body = [];
+        if (!Utils::isUnset($request->collectionName)) {
+            $body['CollectionName'] = $request->collectionName;
+        }
+        if (!Utils::isUnset($request->serviceName)) {
+            $body['ServiceName'] = $request->serviceName;
+        }
+        if (!Utils::isUnset($request->spaceId)) {
+            $body['SpaceId'] = $request->spaceId;
+        }
         $req = new OpenApiRequest([
-            'body' => Utils::toMap($request),
+            'body' => OpenApiUtilClient::parseToMap($body),
+        ]);
+        $params = new Params([
+            'action'      => 'DescribeServicePolicy',
+            'version'     => '2019-06-15',
+            'protocol'    => 'HTTPS',
+            'pathname'    => '/',
+            'method'      => 'POST',
+            'authType'    => 'AK',
+            'style'       => 'RPC',
+            'reqBodyType' => 'formData',
+            'bodyType'    => 'json',
         ]);
 
-        return DescribeServicePolicyResponse::fromMap($this->doRPCRequest('DescribeServicePolicy', '2019-06-15', 'HTTPS', 'POST', 'AK', 'json', $req, $runtime));
+        return DescribeServicePolicyResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
@@ -1402,90 +1613,6 @@ class MPServerless extends OpenApiClient
     }
 
     /**
-     * @param ListSmsTemplatesRequest $request
-     * @param RuntimeOptions          $runtime
-     *
-     * @return ListSmsTemplatesResponse
-     */
-    public function listSmsTemplatesWithOptions($request, $runtime)
-    {
-        Utils::validateModel($request);
-        $req = new OpenApiRequest([
-            'body' => Utils::toMap($request),
-        ]);
-
-        return ListSmsTemplatesResponse::fromMap($this->doRPCRequest('ListSmsTemplates', '2019-06-15', 'HTTPS', 'POST', 'AK', 'json', $req, $runtime));
-    }
-
-    /**
-     * @param ListSmsTemplatesRequest $request
-     *
-     * @return ListSmsTemplatesResponse
-     */
-    public function listSmsTemplates($request)
-    {
-        $runtime = new RuntimeOptions([]);
-
-        return $this->listSmsTemplatesWithOptions($request, $runtime);
-    }
-
-    /**
-     * @param QueryDBBackupCollectionsRequest $request
-     * @param RuntimeOptions                  $runtime
-     *
-     * @return QueryDBBackupCollectionsResponse
-     */
-    public function queryDBBackupCollectionsWithOptions($request, $runtime)
-    {
-        Utils::validateModel($request);
-        $req = new OpenApiRequest([
-            'body' => Utils::toMap($request),
-        ]);
-
-        return QueryDBBackupCollectionsResponse::fromMap($this->doRPCRequest('QueryDBBackupCollections', '2019-06-15', 'HTTPS', 'POST', 'AK', 'json', $req, $runtime));
-    }
-
-    /**
-     * @param QueryDBBackupCollectionsRequest $request
-     *
-     * @return QueryDBBackupCollectionsResponse
-     */
-    public function queryDBBackupCollections($request)
-    {
-        $runtime = new RuntimeOptions([]);
-
-        return $this->queryDBBackupCollectionsWithOptions($request, $runtime);
-    }
-
-    /**
-     * @param QueryServiceStatusRequest $request
-     * @param RuntimeOptions            $runtime
-     *
-     * @return QueryServiceStatusResponse
-     */
-    public function queryServiceStatusWithOptions($request, $runtime)
-    {
-        Utils::validateModel($request);
-        $req = new OpenApiRequest([
-            'body' => Utils::toMap($request),
-        ]);
-
-        return QueryServiceStatusResponse::fromMap($this->doRPCRequest('QueryServiceStatus', '2019-06-15', 'HTTPS', 'POST', 'AK', 'json', $req, $runtime));
-    }
-
-    /**
-     * @param QueryServiceStatusRequest $request
-     *
-     * @return QueryServiceStatusResponse
-     */
-    public function queryServiceStatus($request)
-    {
-        $runtime = new RuntimeOptions([]);
-
-        return $this->queryServiceStatusWithOptions($request, $runtime);
-    }
-
-    /**
      * @param DescribeSpaceClientConfigRequest $request
      * @param RuntimeOptions                   $runtime
      *
@@ -1494,11 +1621,32 @@ class MPServerless extends OpenApiClient
     public function describeSpaceClientConfigWithOptions($request, $runtime)
     {
         Utils::validateModel($request);
+        $body = [];
+        if (!Utils::isUnset($request->detail)) {
+            $body['Detail'] = $request->detail;
+        }
+        if (!Utils::isUnset($request->spaceId)) {
+            $body['SpaceId'] = $request->spaceId;
+        }
+        if (!Utils::isUnset($request->workspaceId)) {
+            $body['WorkspaceId'] = $request->workspaceId;
+        }
         $req = new OpenApiRequest([
-            'body' => Utils::toMap($request),
+            'body' => OpenApiUtilClient::parseToMap($body),
+        ]);
+        $params = new Params([
+            'action'      => 'DescribeSpaceClientConfig',
+            'version'     => '2019-06-15',
+            'protocol'    => 'HTTPS',
+            'pathname'    => '/',
+            'method'      => 'POST',
+            'authType'    => 'AK',
+            'style'       => 'RPC',
+            'reqBodyType' => 'formData',
+            'bodyType'    => 'json',
         ]);
 
-        return DescribeSpaceClientConfigResponse::fromMap($this->doRPCRequest('DescribeSpaceClientConfig', '2019-06-15', 'HTTPS', 'POST', 'AK', 'json', $req, $runtime));
+        return DescribeSpaceClientConfigResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
@@ -1514,641 +1662,49 @@ class MPServerless extends OpenApiClient
     }
 
     /**
-     * @param SaveBuiltinFunctionTemplateRequest $request
-     * @param RuntimeOptions                     $runtime
+     * @param DescribeWebHostingFileRequest $request
+     * @param RuntimeOptions                $runtime
      *
-     * @return SaveBuiltinFunctionTemplateResponse
+     * @return DescribeWebHostingFileResponse
      */
-    public function saveBuiltinFunctionTemplateWithOptions($request, $runtime)
+    public function describeWebHostingFileWithOptions($request, $runtime)
     {
         Utils::validateModel($request);
+        $body = [];
+        if (!Utils::isUnset($request->filePath)) {
+            $body['FilePath'] = $request->filePath;
+        }
+        if (!Utils::isUnset($request->spaceId)) {
+            $body['SpaceId'] = $request->spaceId;
+        }
         $req = new OpenApiRequest([
-            'body' => Utils::toMap($request),
+            'body' => OpenApiUtilClient::parseToMap($body),
+        ]);
+        $params = new Params([
+            'action'      => 'DescribeWebHostingFile',
+            'version'     => '2019-06-15',
+            'protocol'    => 'HTTPS',
+            'pathname'    => '/',
+            'method'      => 'POST',
+            'authType'    => 'AK',
+            'style'       => 'RPC',
+            'reqBodyType' => 'formData',
+            'bodyType'    => 'json',
         ]);
 
-        return SaveBuiltinFunctionTemplateResponse::fromMap($this->doRPCRequest('SaveBuiltinFunctionTemplate', '2019-06-15', 'HTTPS', 'POST', 'AK', 'json', $req, $runtime));
+        return DescribeWebHostingFileResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
-     * @param SaveBuiltinFunctionTemplateRequest $request
+     * @param DescribeWebHostingFileRequest $request
      *
-     * @return SaveBuiltinFunctionTemplateResponse
+     * @return DescribeWebHostingFileResponse
      */
-    public function saveBuiltinFunctionTemplate($request)
+    public function describeWebHostingFile($request)
     {
         $runtime = new RuntimeOptions([]);
 
-        return $this->saveBuiltinFunctionTemplateWithOptions($request, $runtime);
-    }
-
-    /**
-     * @param DescribeISVFileUploadSignedUrlRequest $request
-     * @param RuntimeOptions                        $runtime
-     *
-     * @return DescribeISVFileUploadSignedUrlResponse
-     */
-    public function describeISVFileUploadSignedUrlWithOptions($request, $runtime)
-    {
-        Utils::validateModel($request);
-        $req = new OpenApiRequest([
-            'body' => Utils::toMap($request),
-        ]);
-
-        return DescribeISVFileUploadSignedUrlResponse::fromMap($this->doRPCRequest('DescribeISVFileUploadSignedUrl', '2019-06-15', 'HTTPS', 'POST', 'AK', 'json', $req, $runtime));
-    }
-
-    /**
-     * @param DescribeISVFileUploadSignedUrlRequest $request
-     *
-     * @return DescribeISVFileUploadSignedUrlResponse
-     */
-    public function describeISVFileUploadSignedUrl($request)
-    {
-        $runtime = new RuntimeOptions([]);
-
-        return $this->describeISVFileUploadSignedUrlWithOptions($request, $runtime);
-    }
-
-    /**
-     * @param CreateBuiltinFunctionTemplateRequest $request
-     * @param RuntimeOptions                       $runtime
-     *
-     * @return CreateBuiltinFunctionTemplateResponse
-     */
-    public function createBuiltinFunctionTemplateWithOptions($request, $runtime)
-    {
-        Utils::validateModel($request);
-        $req = new OpenApiRequest([
-            'body' => Utils::toMap($request),
-        ]);
-
-        return CreateBuiltinFunctionTemplateResponse::fromMap($this->doRPCRequest('CreateBuiltinFunctionTemplate', '2019-06-15', 'HTTPS', 'POST', 'AK', 'json', $req, $runtime));
-    }
-
-    /**
-     * @param CreateBuiltinFunctionTemplateRequest $request
-     *
-     * @return CreateBuiltinFunctionTemplateResponse
-     */
-    public function createBuiltinFunctionTemplate($request)
-    {
-        $runtime = new RuntimeOptions([]);
-
-        return $this->createBuiltinFunctionTemplateWithOptions($request, $runtime);
-    }
-
-    /**
-     * @param GetWebHostingStatusRequest $request
-     * @param RuntimeOptions             $runtime
-     *
-     * @return GetWebHostingStatusResponse
-     */
-    public function getWebHostingStatusWithOptions($request, $runtime)
-    {
-        Utils::validateModel($request);
-        $req = new OpenApiRequest([
-            'body' => Utils::toMap($request),
-        ]);
-
-        return GetWebHostingStatusResponse::fromMap($this->doRPCRequest('GetWebHostingStatus', '2019-06-15', 'HTTPS', 'POST', 'AK', 'json', $req, $runtime));
-    }
-
-    /**
-     * @param GetWebHostingStatusRequest $request
-     *
-     * @return GetWebHostingStatusResponse
-     */
-    public function getWebHostingStatus($request)
-    {
-        $runtime = new RuntimeOptions([]);
-
-        return $this->getWebHostingStatusWithOptions($request, $runtime);
-    }
-
-    /**
-     * @param ListFunctionLogRequest $request
-     * @param RuntimeOptions         $runtime
-     *
-     * @return ListFunctionLogResponse
-     */
-    public function listFunctionLogWithOptions($request, $runtime)
-    {
-        Utils::validateModel($request);
-        $req = new OpenApiRequest([
-            'body' => Utils::toMap($request),
-        ]);
-
-        return ListFunctionLogResponse::fromMap($this->doRPCRequest('ListFunctionLog', '2019-06-15', 'HTTPS', 'POST', 'AK', 'json', $req, $runtime));
-    }
-
-    /**
-     * @param ListFunctionLogRequest $request
-     *
-     * @return ListFunctionLogResponse
-     */
-    public function listFunctionLog($request)
-    {
-        $runtime = new RuntimeOptions([]);
-
-        return $this->listFunctionLogWithOptions($request, $runtime);
-    }
-
-    /**
-     * @param ListWebHostingFilesRequest $request
-     * @param RuntimeOptions             $runtime
-     *
-     * @return ListWebHostingFilesResponse
-     */
-    public function listWebHostingFilesWithOptions($request, $runtime)
-    {
-        Utils::validateModel($request);
-        $req = new OpenApiRequest([
-            'body' => Utils::toMap($request),
-        ]);
-
-        return ListWebHostingFilesResponse::fromMap($this->doRPCRequest('ListWebHostingFiles', '2019-06-15', 'HTTPS', 'POST', 'AK', 'json', $req, $runtime));
-    }
-
-    /**
-     * @param ListWebHostingFilesRequest $request
-     *
-     * @return ListWebHostingFilesResponse
-     */
-    public function listWebHostingFiles($request)
-    {
-        $runtime = new RuntimeOptions([]);
-
-        return $this->listWebHostingFilesWithOptions($request, $runtime);
-    }
-
-    /**
-     * @param DescribeFileRequest $request
-     * @param RuntimeOptions      $runtime
-     *
-     * @return DescribeFileResponse
-     */
-    public function describeFileWithOptions($request, $runtime)
-    {
-        Utils::validateModel($request);
-        $req = new OpenApiRequest([
-            'body' => Utils::toMap($request),
-        ]);
-
-        return DescribeFileResponse::fromMap($this->doRPCRequest('DescribeFile', '2019-06-15', 'HTTPS', 'POST', 'AK', 'json', $req, $runtime));
-    }
-
-    /**
-     * @param DescribeFileRequest $request
-     *
-     * @return DescribeFileResponse
-     */
-    public function describeFile($request)
-    {
-        $runtime = new RuntimeOptions([]);
-
-        return $this->describeFileWithOptions($request, $runtime);
-    }
-
-    /**
-     * @param MoveWebHostingFileRequest $request
-     * @param RuntimeOptions            $runtime
-     *
-     * @return MoveWebHostingFileResponse
-     */
-    public function moveWebHostingFileWithOptions($request, $runtime)
-    {
-        Utils::validateModel($request);
-        $req = new OpenApiRequest([
-            'body' => Utils::toMap($request),
-        ]);
-
-        return MoveWebHostingFileResponse::fromMap($this->doRPCRequest('MoveWebHostingFile', '2019-06-15', 'HTTPS', 'POST', 'AK', 'json', $req, $runtime));
-    }
-
-    /**
-     * @param MoveWebHostingFileRequest $request
-     *
-     * @return MoveWebHostingFileResponse
-     */
-    public function moveWebHostingFile($request)
-    {
-        $runtime = new RuntimeOptions([]);
-
-        return $this->moveWebHostingFileWithOptions($request, $runtime);
-    }
-
-    /**
-     * @param CreateSmsTemplateRequest $request
-     * @param RuntimeOptions           $runtime
-     *
-     * @return CreateSmsTemplateResponse
-     */
-    public function createSmsTemplateWithOptions($request, $runtime)
-    {
-        Utils::validateModel($request);
-        $req = new OpenApiRequest([
-            'body' => Utils::toMap($request),
-        ]);
-
-        return CreateSmsTemplateResponse::fromMap($this->doRPCRequest('CreateSmsTemplate', '2019-06-15', 'HTTPS', 'POST', 'AK', 'json', $req, $runtime));
-    }
-
-    /**
-     * @param CreateSmsTemplateRequest $request
-     *
-     * @return CreateSmsTemplateResponse
-     */
-    public function createSmsTemplate($request)
-    {
-        $runtime = new RuntimeOptions([]);
-
-        return $this->createSmsTemplateWithOptions($request, $runtime);
-    }
-
-    /**
-     * @param DescribeSmsTemplateStatusRequest $request
-     * @param RuntimeOptions                   $runtime
-     *
-     * @return DescribeSmsTemplateStatusResponse
-     */
-    public function describeSmsTemplateStatusWithOptions($request, $runtime)
-    {
-        Utils::validateModel($request);
-        $req = new OpenApiRequest([
-            'body' => Utils::toMap($request),
-        ]);
-
-        return DescribeSmsTemplateStatusResponse::fromMap($this->doRPCRequest('DescribeSmsTemplateStatus', '2019-06-15', 'HTTPS', 'POST', 'AK', 'json', $req, $runtime));
-    }
-
-    /**
-     * @param DescribeSmsTemplateStatusRequest $request
-     *
-     * @return DescribeSmsTemplateStatusResponse
-     */
-    public function describeSmsTemplateStatus($request)
-    {
-        $runtime = new RuntimeOptions([]);
-
-        return $this->describeSmsTemplateStatusWithOptions($request, $runtime);
-    }
-
-    /**
-     * @param BindWebHostingCustomDomainRequest $request
-     * @param RuntimeOptions                    $runtime
-     *
-     * @return BindWebHostingCustomDomainResponse
-     */
-    public function bindWebHostingCustomDomainWithOptions($request, $runtime)
-    {
-        Utils::validateModel($request);
-        $req = new OpenApiRequest([
-            'body' => Utils::toMap($request),
-        ]);
-
-        return BindWebHostingCustomDomainResponse::fromMap($this->doRPCRequest('BindWebHostingCustomDomain', '2019-06-15', 'HTTPS', 'POST', 'AK', 'json', $req, $runtime));
-    }
-
-    /**
-     * @param BindWebHostingCustomDomainRequest $request
-     *
-     * @return BindWebHostingCustomDomainResponse
-     */
-    public function bindWebHostingCustomDomain($request)
-    {
-        $runtime = new RuntimeOptions([]);
-
-        return $this->bindWebHostingCustomDomainWithOptions($request, $runtime);
-    }
-
-    /**
-     * @param CreateFunctionRequest $request
-     * @param RuntimeOptions        $runtime
-     *
-     * @return CreateFunctionResponse
-     */
-    public function createFunctionWithOptions($request, $runtime)
-    {
-        Utils::validateModel($request);
-        $req = new OpenApiRequest([
-            'body' => Utils::toMap($request),
-        ]);
-
-        return CreateFunctionResponse::fromMap($this->doRPCRequest('CreateFunction', '2019-06-15', 'HTTPS', 'POST', 'AK', 'json', $req, $runtime));
-    }
-
-    /**
-     * @param CreateFunctionRequest $request
-     *
-     * @return CreateFunctionResponse
-     */
-    public function createFunction($request)
-    {
-        $runtime = new RuntimeOptions([]);
-
-        return $this->createFunctionWithOptions($request, $runtime);
-    }
-
-    /**
-     * @param DeleteDingtalkOpenPlatformConfigRequest $request
-     * @param RuntimeOptions                          $runtime
-     *
-     * @return DeleteDingtalkOpenPlatformConfigResponse
-     */
-    public function deleteDingtalkOpenPlatformConfigWithOptions($request, $runtime)
-    {
-        Utils::validateModel($request);
-        $req = new OpenApiRequest([
-            'body' => Utils::toMap($request),
-        ]);
-
-        return DeleteDingtalkOpenPlatformConfigResponse::fromMap($this->doRPCRequest('DeleteDingtalkOpenPlatformConfig', '2019-06-15', 'HTTPS', 'POST', 'AK', 'json', $req, $runtime));
-    }
-
-    /**
-     * @param DeleteDingtalkOpenPlatformConfigRequest $request
-     *
-     * @return DeleteDingtalkOpenPlatformConfigResponse
-     */
-    public function deleteDingtalkOpenPlatformConfig($request)
-    {
-        $runtime = new RuntimeOptions([]);
-
-        return $this->deleteDingtalkOpenPlatformConfigWithOptions($request, $runtime);
-    }
-
-    /**
-     * @param ListExtensionsRequest $request
-     * @param RuntimeOptions        $runtime
-     *
-     * @return ListExtensionsResponse
-     */
-    public function listExtensionsWithOptions($request, $runtime)
-    {
-        Utils::validateModel($request);
-        $req = new OpenApiRequest([
-            'body' => Utils::toMap($request),
-        ]);
-
-        return ListExtensionsResponse::fromMap($this->doRPCRequest('ListExtensions', '2019-06-15', 'HTTPS', 'POST', 'AK', 'json', $req, $runtime));
-    }
-
-    /**
-     * @param ListExtensionsRequest $request
-     *
-     * @return ListExtensionsResponse
-     */
-    public function listExtensions($request)
-    {
-        $runtime = new RuntimeOptions([]);
-
-        return $this->listExtensionsWithOptions($request, $runtime);
-    }
-
-    /**
-     * @param RuntimeOptions $runtime
-     *
-     * @return EnableSmsServiceResponse
-     */
-    public function enableSmsServiceWithOptions($runtime)
-    {
-        $req = new OpenApiRequest([]);
-
-        return EnableSmsServiceResponse::fromMap($this->doRPCRequest('EnableSmsService', '2019-06-15', 'HTTPS', 'POST', 'AK', 'json', $req, $runtime));
-    }
-
-    /**
-     * @return EnableSmsServiceResponse
-     */
-    public function enableSmsService()
-    {
-        $runtime = new RuntimeOptions([]);
-
-        return $this->enableSmsServiceWithOptions($runtime);
-    }
-
-    /**
-     * @param ReleaseBuiltinFunctionTemplateRequest $request
-     * @param RuntimeOptions                        $runtime
-     *
-     * @return ReleaseBuiltinFunctionTemplateResponse
-     */
-    public function releaseBuiltinFunctionTemplateWithOptions($request, $runtime)
-    {
-        Utils::validateModel($request);
-        $req = new OpenApiRequest([
-            'body' => Utils::toMap($request),
-        ]);
-
-        return ReleaseBuiltinFunctionTemplateResponse::fromMap($this->doRPCRequest('ReleaseBuiltinFunctionTemplate', '2019-06-15', 'HTTPS', 'POST', 'AK', 'json', $req, $runtime));
-    }
-
-    /**
-     * @param ReleaseBuiltinFunctionTemplateRequest $request
-     *
-     * @return ReleaseBuiltinFunctionTemplateResponse
-     */
-    public function releaseBuiltinFunctionTemplate($request)
-    {
-        $runtime = new RuntimeOptions([]);
-
-        return $this->releaseBuiltinFunctionTemplateWithOptions($request, $runtime);
-    }
-
-    /**
-     * @param CreateSmsSignRequest $request
-     * @param RuntimeOptions       $runtime
-     *
-     * @return CreateSmsSignResponse
-     */
-    public function createSmsSignWithOptions($request, $runtime)
-    {
-        Utils::validateModel($request);
-        $req = new OpenApiRequest([
-            'body' => Utils::toMap($request),
-        ]);
-
-        return CreateSmsSignResponse::fromMap($this->doRPCRequest('CreateSmsSign', '2019-06-15', 'HTTPS', 'POST', 'AK', 'json', $req, $runtime));
-    }
-
-    /**
-     * @param CreateSmsSignRequest $request
-     *
-     * @return CreateSmsSignResponse
-     */
-    public function createSmsSign($request)
-    {
-        $runtime = new RuntimeOptions([]);
-
-        return $this->createSmsSignWithOptions($request, $runtime);
-    }
-
-    /**
-     * @param UpdateFunctionRequest $request
-     * @param RuntimeOptions        $runtime
-     *
-     * @return UpdateFunctionResponse
-     */
-    public function updateFunctionWithOptions($request, $runtime)
-    {
-        Utils::validateModel($request);
-        $req = new OpenApiRequest([
-            'body' => Utils::toMap($request),
-        ]);
-
-        return UpdateFunctionResponse::fromMap($this->doRPCRequest('UpdateFunction', '2019-06-15', 'HTTPS', 'POST', 'AK', 'json', $req, $runtime));
-    }
-
-    /**
-     * @param UpdateFunctionRequest $request
-     *
-     * @return UpdateFunctionResponse
-     */
-    public function updateFunction($request)
-    {
-        $runtime = new RuntimeOptions([]);
-
-        return $this->updateFunctionWithOptions($request, $runtime);
-    }
-
-    /**
-     * @param UpdateHttpTriggerConfigRequest $request
-     * @param RuntimeOptions                 $runtime
-     *
-     * @return UpdateHttpTriggerConfigResponse
-     */
-    public function updateHttpTriggerConfigWithOptions($request, $runtime)
-    {
-        Utils::validateModel($request);
-        $req = new OpenApiRequest([
-            'body' => Utils::toMap($request),
-        ]);
-
-        return UpdateHttpTriggerConfigResponse::fromMap($this->doRPCRequest('UpdateHttpTriggerConfig', '2019-06-15', 'HTTPS', 'POST', 'AK', 'json', $req, $runtime));
-    }
-
-    /**
-     * @param UpdateHttpTriggerConfigRequest $request
-     *
-     * @return UpdateHttpTriggerConfigResponse
-     */
-    public function updateHttpTriggerConfig($request)
-    {
-        $runtime = new RuntimeOptions([]);
-
-        return $this->updateHttpTriggerConfigWithOptions($request, $runtime);
-    }
-
-    /**
-     * @param ResetServerSecretRequest $request
-     * @param RuntimeOptions           $runtime
-     *
-     * @return ResetServerSecretResponse
-     */
-    public function resetServerSecretWithOptions($request, $runtime)
-    {
-        Utils::validateModel($request);
-        $req = new OpenApiRequest([
-            'body' => Utils::toMap($request),
-        ]);
-
-        return ResetServerSecretResponse::fromMap($this->doRPCRequest('ResetServerSecret', '2019-06-15', 'HTTPS', 'POST', 'AK', 'json', $req, $runtime));
-    }
-
-    /**
-     * @param ResetServerSecretRequest $request
-     *
-     * @return ResetServerSecretResponse
-     */
-    public function resetServerSecret($request)
-    {
-        $runtime = new RuntimeOptions([]);
-
-        return $this->resetServerSecretWithOptions($request, $runtime);
-    }
-
-    /**
-     * @param GetWebHostingDomainVerificationContentRequest $request
-     * @param RuntimeOptions                                $runtime
-     *
-     * @return GetWebHostingDomainVerificationContentResponse
-     */
-    public function getWebHostingDomainVerificationContentWithOptions($request, $runtime)
-    {
-        Utils::validateModel($request);
-        $req = new OpenApiRequest([
-            'body' => Utils::toMap($request),
-        ]);
-
-        return GetWebHostingDomainVerificationContentResponse::fromMap($this->doRPCRequest('GetWebHostingDomainVerificationContent', '2019-06-15', 'HTTPS', 'POST', 'AK', 'json', $req, $runtime));
-    }
-
-    /**
-     * @param GetWebHostingDomainVerificationContentRequest $request
-     *
-     * @return GetWebHostingDomainVerificationContentResponse
-     */
-    public function getWebHostingDomainVerificationContent($request)
-    {
-        $runtime = new RuntimeOptions([]);
-
-        return $this->getWebHostingDomainVerificationContentWithOptions($request, $runtime);
-    }
-
-    /**
-     * @param UpdateDingtalkOpenPlatformConfigRequest $request
-     * @param RuntimeOptions                          $runtime
-     *
-     * @return UpdateDingtalkOpenPlatformConfigResponse
-     */
-    public function updateDingtalkOpenPlatformConfigWithOptions($request, $runtime)
-    {
-        Utils::validateModel($request);
-        $req = new OpenApiRequest([
-            'body' => Utils::toMap($request),
-        ]);
-
-        return UpdateDingtalkOpenPlatformConfigResponse::fromMap($this->doRPCRequest('UpdateDingtalkOpenPlatformConfig', '2019-06-15', 'HTTPS', 'POST', 'AK', 'json', $req, $runtime));
-    }
-
-    /**
-     * @param UpdateDingtalkOpenPlatformConfigRequest $request
-     *
-     * @return UpdateDingtalkOpenPlatformConfigResponse
-     */
-    public function updateDingtalkOpenPlatformConfig($request)
-    {
-        $runtime = new RuntimeOptions([]);
-
-        return $this->updateDingtalkOpenPlatformConfigWithOptions($request, $runtime);
-    }
-
-    /**
-     * @param CheckMpServerlessRoleExistsRequest $request
-     * @param RuntimeOptions                     $runtime
-     *
-     * @return CheckMpServerlessRoleExistsResponse
-     */
-    public function checkMpServerlessRoleExistsWithOptions($request, $runtime)
-    {
-        Utils::validateModel($request);
-        $req = new OpenApiRequest([
-            'body' => Utils::toMap($request),
-        ]);
-
-        return CheckMpServerlessRoleExistsResponse::fromMap($this->doRPCRequest('CheckMpServerlessRoleExists', '2019-06-15', 'HTTPS', 'POST', 'AK', 'json', $req, $runtime));
-    }
-
-    /**
-     * @param CheckMpServerlessRoleExistsRequest $request
-     *
-     * @return CheckMpServerlessRoleExistsResponse
-     */
-    public function checkMpServerlessRoleExists($request)
-    {
-        $runtime = new RuntimeOptions([]);
-
-        return $this->checkMpServerlessRoleExistsWithOptions($request, $runtime);
+        return $this->describeWebHostingFileWithOptions($request, $runtime);
     }
 
     /**
@@ -2160,11 +1716,26 @@ class MPServerless extends OpenApiClient
     public function enableExtensionWithOptions($request, $runtime)
     {
         Utils::validateModel($request);
+        $body = [];
+        if (!Utils::isUnset($request->extensionId)) {
+            $body['ExtensionId'] = $request->extensionId;
+        }
         $req = new OpenApiRequest([
-            'body' => Utils::toMap($request),
+            'body' => OpenApiUtilClient::parseToMap($body),
+        ]);
+        $params = new Params([
+            'action'      => 'EnableExtension',
+            'version'     => '2019-06-15',
+            'protocol'    => 'HTTPS',
+            'pathname'    => '/',
+            'method'      => 'POST',
+            'authType'    => 'AK',
+            'style'       => 'RPC',
+            'reqBodyType' => 'formData',
+            'bodyType'    => 'json',
         ]);
 
-        return EnableExtensionResponse::fromMap($this->doRPCRequest('EnableExtension', '2019-06-15', 'HTTPS', 'POST', 'AK', 'json', $req, $runtime));
+        return EnableExtensionResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
@@ -2180,31 +1751,273 @@ class MPServerless extends OpenApiClient
     }
 
     /**
-     * @param ListSmsSignsForAccountRequest $request
-     * @param RuntimeOptions                $runtime
+     * @param GetWebHostingCertificateDetailRequest $request
+     * @param RuntimeOptions                        $runtime
      *
-     * @return ListSmsSignsForAccountResponse
+     * @return GetWebHostingCertificateDetailResponse
      */
-    public function listSmsSignsForAccountWithOptions($request, $runtime)
+    public function getWebHostingCertificateDetailWithOptions($request, $runtime)
     {
         Utils::validateModel($request);
+        $body = [];
+        if (!Utils::isUnset($request->customDomain)) {
+            $body['CustomDomain'] = $request->customDomain;
+        }
+        if (!Utils::isUnset($request->spaceId)) {
+            $body['SpaceId'] = $request->spaceId;
+        }
         $req = new OpenApiRequest([
-            'body' => Utils::toMap($request),
+            'body' => OpenApiUtilClient::parseToMap($body),
+        ]);
+        $params = new Params([
+            'action'      => 'GetWebHostingCertificateDetail',
+            'version'     => '2019-06-15',
+            'protocol'    => 'HTTPS',
+            'pathname'    => '/',
+            'method'      => 'POST',
+            'authType'    => 'AK',
+            'style'       => 'RPC',
+            'reqBodyType' => 'formData',
+            'bodyType'    => 'json',
         ]);
 
-        return ListSmsSignsForAccountResponse::fromMap($this->doRPCRequest('ListSmsSignsForAccount', '2019-06-15', 'HTTPS', 'POST', 'AK', 'json', $req, $runtime));
+        return GetWebHostingCertificateDetailResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
-     * @param ListSmsSignsForAccountRequest $request
+     * @param GetWebHostingCertificateDetailRequest $request
      *
-     * @return ListSmsSignsForAccountResponse
+     * @return GetWebHostingCertificateDetailResponse
      */
-    public function listSmsSignsForAccount($request)
+    public function getWebHostingCertificateDetail($request)
     {
         $runtime = new RuntimeOptions([]);
 
-        return $this->listSmsSignsForAccountWithOptions($request, $runtime);
+        return $this->getWebHostingCertificateDetailWithOptions($request, $runtime);
+    }
+
+    /**
+     * @param GetWebHostingConfigRequest $request
+     * @param RuntimeOptions             $runtime
+     *
+     * @return GetWebHostingConfigResponse
+     */
+    public function getWebHostingConfigWithOptions($request, $runtime)
+    {
+        Utils::validateModel($request);
+        $body = [];
+        if (!Utils::isUnset($request->spaceId)) {
+            $body['SpaceId'] = $request->spaceId;
+        }
+        $req = new OpenApiRequest([
+            'body' => OpenApiUtilClient::parseToMap($body),
+        ]);
+        $params = new Params([
+            'action'      => 'GetWebHostingConfig',
+            'version'     => '2019-06-15',
+            'protocol'    => 'HTTPS',
+            'pathname'    => '/',
+            'method'      => 'POST',
+            'authType'    => 'AK',
+            'style'       => 'RPC',
+            'reqBodyType' => 'formData',
+            'bodyType'    => 'json',
+        ]);
+
+        return GetWebHostingConfigResponse::fromMap($this->callApi($params, $req, $runtime));
+    }
+
+    /**
+     * @param GetWebHostingConfigRequest $request
+     *
+     * @return GetWebHostingConfigResponse
+     */
+    public function getWebHostingConfig($request)
+    {
+        $runtime = new RuntimeOptions([]);
+
+        return $this->getWebHostingConfigWithOptions($request, $runtime);
+    }
+
+    /**
+     * @param GetWebHostingDomainVerificationContentRequest $request
+     * @param RuntimeOptions                                $runtime
+     *
+     * @return GetWebHostingDomainVerificationContentResponse
+     */
+    public function getWebHostingDomainVerificationContentWithOptions($request, $runtime)
+    {
+        Utils::validateModel($request);
+        $body = [];
+        if (!Utils::isUnset($request->domain)) {
+            $body['Domain'] = $request->domain;
+        }
+        if (!Utils::isUnset($request->spaceId)) {
+            $body['SpaceId'] = $request->spaceId;
+        }
+        $req = new OpenApiRequest([
+            'body' => OpenApiUtilClient::parseToMap($body),
+        ]);
+        $params = new Params([
+            'action'      => 'GetWebHostingDomainVerificationContent',
+            'version'     => '2019-06-15',
+            'protocol'    => 'HTTPS',
+            'pathname'    => '/',
+            'method'      => 'POST',
+            'authType'    => 'AK',
+            'style'       => 'RPC',
+            'reqBodyType' => 'formData',
+            'bodyType'    => 'json',
+        ]);
+
+        return GetWebHostingDomainVerificationContentResponse::fromMap($this->callApi($params, $req, $runtime));
+    }
+
+    /**
+     * @param GetWebHostingDomainVerificationContentRequest $request
+     *
+     * @return GetWebHostingDomainVerificationContentResponse
+     */
+    public function getWebHostingDomainVerificationContent($request)
+    {
+        $runtime = new RuntimeOptions([]);
+
+        return $this->getWebHostingDomainVerificationContentWithOptions($request, $runtime);
+    }
+
+    /**
+     * @param GetWebHostingStatusRequest $request
+     * @param RuntimeOptions             $runtime
+     *
+     * @return GetWebHostingStatusResponse
+     */
+    public function getWebHostingStatusWithOptions($request, $runtime)
+    {
+        Utils::validateModel($request);
+        $body = [];
+        if (!Utils::isUnset($request->spaceId)) {
+            $body['SpaceId'] = $request->spaceId;
+        }
+        $req = new OpenApiRequest([
+            'body' => OpenApiUtilClient::parseToMap($body),
+        ]);
+        $params = new Params([
+            'action'      => 'GetWebHostingStatus',
+            'version'     => '2019-06-15',
+            'protocol'    => 'HTTPS',
+            'pathname'    => '/',
+            'method'      => 'POST',
+            'authType'    => 'AK',
+            'style'       => 'RPC',
+            'reqBodyType' => 'formData',
+            'bodyType'    => 'json',
+        ]);
+
+        return GetWebHostingStatusResponse::fromMap($this->callApi($params, $req, $runtime));
+    }
+
+    /**
+     * @param GetWebHostingStatusRequest $request
+     *
+     * @return GetWebHostingStatusResponse
+     */
+    public function getWebHostingStatus($request)
+    {
+        $runtime = new RuntimeOptions([]);
+
+        return $this->getWebHostingStatusWithOptions($request, $runtime);
+    }
+
+    /**
+     * @param GetWebHostingUploadCredentialRequest $request
+     * @param RuntimeOptions                       $runtime
+     *
+     * @return GetWebHostingUploadCredentialResponse
+     */
+    public function getWebHostingUploadCredentialWithOptions($request, $runtime)
+    {
+        Utils::validateModel($request);
+        $body = [];
+        if (!Utils::isUnset($request->filePath)) {
+            $body['FilePath'] = $request->filePath;
+        }
+        if (!Utils::isUnset($request->spaceId)) {
+            $body['SpaceId'] = $request->spaceId;
+        }
+        $req = new OpenApiRequest([
+            'body' => OpenApiUtilClient::parseToMap($body),
+        ]);
+        $params = new Params([
+            'action'      => 'GetWebHostingUploadCredential',
+            'version'     => '2019-06-15',
+            'protocol'    => 'HTTPS',
+            'pathname'    => '/',
+            'method'      => 'POST',
+            'authType'    => 'AK',
+            'style'       => 'RPC',
+            'reqBodyType' => 'formData',
+            'bodyType'    => 'json',
+        ]);
+
+        return GetWebHostingUploadCredentialResponse::fromMap($this->callApi($params, $req, $runtime));
+    }
+
+    /**
+     * @param GetWebHostingUploadCredentialRequest $request
+     *
+     * @return GetWebHostingUploadCredentialResponse
+     */
+    public function getWebHostingUploadCredential($request)
+    {
+        $runtime = new RuntimeOptions([]);
+
+        return $this->getWebHostingUploadCredentialWithOptions($request, $runtime);
+    }
+
+    /**
+     * @param ListAvailableCertificatesRequest $request
+     * @param RuntimeOptions                   $runtime
+     *
+     * @return ListAvailableCertificatesResponse
+     */
+    public function listAvailableCertificatesWithOptions($request, $runtime)
+    {
+        Utils::validateModel($request);
+        $body = [];
+        if (!Utils::isUnset($request->domain)) {
+            $body['Domain'] = $request->domain;
+        }
+        if (!Utils::isUnset($request->spaceId)) {
+            $body['SpaceId'] = $request->spaceId;
+        }
+        $req = new OpenApiRequest([
+            'body' => OpenApiUtilClient::parseToMap($body),
+        ]);
+        $params = new Params([
+            'action'      => 'ListAvailableCertificates',
+            'version'     => '2019-06-15',
+            'protocol'    => 'HTTPS',
+            'pathname'    => '/',
+            'method'      => 'POST',
+            'authType'    => 'AK',
+            'style'       => 'RPC',
+            'reqBodyType' => 'formData',
+            'bodyType'    => 'json',
+        ]);
+
+        return ListAvailableCertificatesResponse::fromMap($this->callApi($params, $req, $runtime));
+    }
+
+    /**
+     * @param ListAvailableCertificatesRequest $request
+     *
+     * @return ListAvailableCertificatesResponse
+     */
+    public function listAvailableCertificates($request)
+    {
+        $runtime = new RuntimeOptions([]);
+
+        return $this->listAvailableCertificatesWithOptions($request, $runtime);
     }
 
     /**
@@ -2216,11 +2029,26 @@ class MPServerless extends OpenApiClient
     public function listCorsDomainsWithOptions($request, $runtime)
     {
         Utils::validateModel($request);
+        $body = [];
+        if (!Utils::isUnset($request->spaceId)) {
+            $body['SpaceId'] = $request->spaceId;
+        }
         $req = new OpenApiRequest([
-            'body' => Utils::toMap($request),
+            'body' => OpenApiUtilClient::parseToMap($body),
+        ]);
+        $params = new Params([
+            'action'      => 'ListCorsDomains',
+            'version'     => '2019-06-15',
+            'protocol'    => 'HTTPS',
+            'pathname'    => '/',
+            'method'      => 'POST',
+            'authType'    => 'AK',
+            'style'       => 'RPC',
+            'reqBodyType' => 'formData',
+            'bodyType'    => 'json',
         ]);
 
-        return ListCorsDomainsResponse::fromMap($this->doRPCRequest('ListCorsDomains', '2019-06-15', 'HTTPS', 'POST', 'AK', 'json', $req, $runtime));
+        return ListCorsDomainsResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
@@ -2244,11 +2072,26 @@ class MPServerless extends OpenApiClient
     public function listDingtalkOpenPlatformConfigsWithOptions($request, $runtime)
     {
         Utils::validateModel($request);
+        $body = [];
+        if (!Utils::isUnset($request->spaceId)) {
+            $body['SpaceId'] = $request->spaceId;
+        }
         $req = new OpenApiRequest([
-            'body' => Utils::toMap($request),
+            'body' => OpenApiUtilClient::parseToMap($body),
+        ]);
+        $params = new Params([
+            'action'      => 'ListDingtalkOpenPlatformConfigs',
+            'version'     => '2019-06-15',
+            'protocol'    => 'HTTPS',
+            'pathname'    => '/',
+            'method'      => 'POST',
+            'authType'    => 'AK',
+            'style'       => 'RPC',
+            'reqBodyType' => 'formData',
+            'bodyType'    => 'json',
         ]);
 
-        return ListDingtalkOpenPlatformConfigsResponse::fromMap($this->doRPCRequest('ListDingtalkOpenPlatformConfigs', '2019-06-15', 'HTTPS', 'POST', 'AK', 'json', $req, $runtime));
+        return ListDingtalkOpenPlatformConfigsResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
@@ -2264,731 +2107,364 @@ class MPServerless extends OpenApiClient
     }
 
     /**
-     * @param CreateDBExportTaskRequest $request
-     * @param RuntimeOptions            $runtime
-     *
-     * @return CreateDBExportTaskResponse
-     */
-    public function createDBExportTaskWithOptions($request, $runtime)
-    {
-        Utils::validateModel($request);
-        $req = new OpenApiRequest([
-            'body' => Utils::toMap($request),
-        ]);
-
-        return CreateDBExportTaskResponse::fromMap($this->doRPCRequest('CreateDBExportTask', '2019-06-15', 'HTTPS', 'POST', 'AK', 'json', $req, $runtime));
-    }
-
-    /**
-     * @param CreateDBExportTaskRequest $request
-     *
-     * @return CreateDBExportTaskResponse
-     */
-    public function createDBExportTask($request)
-    {
-        $runtime = new RuntimeOptions([]);
-
-        return $this->createDBExportTaskWithOptions($request, $runtime);
-    }
-
-    /**
-     * @param GetWebHostingConfigRequest $request
-     * @param RuntimeOptions             $runtime
-     *
-     * @return GetWebHostingConfigResponse
-     */
-    public function getWebHostingConfigWithOptions($request, $runtime)
-    {
-        Utils::validateModel($request);
-        $req = new OpenApiRequest([
-            'body' => Utils::toMap($request),
-        ]);
-
-        return GetWebHostingConfigResponse::fromMap($this->doRPCRequest('GetWebHostingConfig', '2019-06-15', 'HTTPS', 'POST', 'AK', 'json', $req, $runtime));
-    }
-
-    /**
-     * @param GetWebHostingConfigRequest $request
-     *
-     * @return GetWebHostingConfigResponse
-     */
-    public function getWebHostingConfig($request)
-    {
-        $runtime = new RuntimeOptions([]);
-
-        return $this->getWebHostingConfigWithOptions($request, $runtime);
-    }
-
-    /**
-     * @param UnbindWebHostingCustomDomainRequest $request
-     * @param RuntimeOptions                      $runtime
-     *
-     * @return UnbindWebHostingCustomDomainResponse
-     */
-    public function unbindWebHostingCustomDomainWithOptions($request, $runtime)
-    {
-        Utils::validateModel($request);
-        $req = new OpenApiRequest([
-            'body' => Utils::toMap($request),
-        ]);
-
-        return UnbindWebHostingCustomDomainResponse::fromMap($this->doRPCRequest('UnbindWebHostingCustomDomain', '2019-06-15', 'HTTPS', 'POST', 'AK', 'json', $req, $runtime));
-    }
-
-    /**
-     * @param UnbindWebHostingCustomDomainRequest $request
-     *
-     * @return UnbindWebHostingCustomDomainResponse
-     */
-    public function unbindWebHostingCustomDomain($request)
-    {
-        $runtime = new RuntimeOptions([]);
-
-        return $this->unbindWebHostingCustomDomainWithOptions($request, $runtime);
-    }
-
-    /**
-     * @param DescribeSmsTemplateRequest $request
-     * @param RuntimeOptions             $runtime
-     *
-     * @return DescribeSmsTemplateResponse
-     */
-    public function describeSmsTemplateWithOptions($request, $runtime)
-    {
-        Utils::validateModel($request);
-        $req = new OpenApiRequest([
-            'body' => Utils::toMap($request),
-        ]);
-
-        return DescribeSmsTemplateResponse::fromMap($this->doRPCRequest('DescribeSmsTemplate', '2019-06-15', 'HTTPS', 'POST', 'AK', 'json', $req, $runtime));
-    }
-
-    /**
-     * @param DescribeSmsTemplateRequest $request
-     *
-     * @return DescribeSmsTemplateResponse
-     */
-    public function describeSmsTemplate($request)
-    {
-        $runtime = new RuntimeOptions([]);
-
-        return $this->describeSmsTemplateWithOptions($request, $runtime);
-    }
-
-    /**
-     * @param SaveWebHostingCustomDomainCorsConfigRequest $request
-     * @param RuntimeOptions                              $runtime
-     *
-     * @return SaveWebHostingCustomDomainCorsConfigResponse
-     */
-    public function saveWebHostingCustomDomainCorsConfigWithOptions($request, $runtime)
-    {
-        Utils::validateModel($request);
-        $req = new OpenApiRequest([
-            'body' => Utils::toMap($request),
-        ]);
-
-        return SaveWebHostingCustomDomainCorsConfigResponse::fromMap($this->doRPCRequest('SaveWebHostingCustomDomainCorsConfig', '2019-06-15', 'HTTPS', 'POST', 'AK', 'json', $req, $runtime));
-    }
-
-    /**
-     * @param SaveWebHostingCustomDomainCorsConfigRequest $request
-     *
-     * @return SaveWebHostingCustomDomainCorsConfigResponse
-     */
-    public function saveWebHostingCustomDomainCorsConfig($request)
-    {
-        $runtime = new RuntimeOptions([]);
-
-        return $this->saveWebHostingCustomDomainCorsConfigWithOptions($request, $runtime);
-    }
-
-    /**
-     * @param BatchDeleteWebHostingFilesRequest $request
-     * @param RuntimeOptions                    $runtime
-     *
-     * @return BatchDeleteWebHostingFilesResponse
-     */
-    public function batchDeleteWebHostingFilesWithOptions($request, $runtime)
-    {
-        Utils::validateModel($request);
-        $req = new OpenApiRequest([
-            'body' => Utils::toMap($request),
-        ]);
-
-        return BatchDeleteWebHostingFilesResponse::fromMap($this->doRPCRequest('BatchDeleteWebHostingFiles', '2019-06-15', 'HTTPS', 'POST', 'AK', 'json', $req, $runtime));
-    }
-
-    /**
-     * @param BatchDeleteWebHostingFilesRequest $request
-     *
-     * @return BatchDeleteWebHostingFilesResponse
-     */
-    public function batchDeleteWebHostingFiles($request)
-    {
-        $runtime = new RuntimeOptions([]);
-
-        return $this->batchDeleteWebHostingFilesWithOptions($request, $runtime);
-    }
-
-    /**
-     * @param DeleteCorsDomainRequest $request
-     * @param RuntimeOptions          $runtime
-     *
-     * @return DeleteCorsDomainResponse
-     */
-    public function deleteCorsDomainWithOptions($request, $runtime)
-    {
-        Utils::validateModel($request);
-        $req = new OpenApiRequest([
-            'body' => Utils::toMap($request),
-        ]);
-
-        return DeleteCorsDomainResponse::fromMap($this->doRPCRequest('DeleteCorsDomain', '2019-06-15', 'HTTPS', 'POST', 'AK', 'json', $req, $runtime));
-    }
-
-    /**
-     * @param DeleteCorsDomainRequest $request
-     *
-     * @return DeleteCorsDomainResponse
-     */
-    public function deleteCorsDomain($request)
-    {
-        $runtime = new RuntimeOptions([]);
-
-        return $this->deleteCorsDomainWithOptions($request, $runtime);
-    }
-
-    /**
-     * @param DescribeHttpTriggerConfigRequest $request
-     * @param RuntimeOptions                   $runtime
-     *
-     * @return DescribeHttpTriggerConfigResponse
-     */
-    public function describeHttpTriggerConfigWithOptions($request, $runtime)
-    {
-        Utils::validateModel($request);
-        $req = new OpenApiRequest([
-            'body' => Utils::toMap($request),
-        ]);
-
-        return DescribeHttpTriggerConfigResponse::fromMap($this->doRPCRequest('DescribeHttpTriggerConfig', '2019-06-15', 'HTTPS', 'POST', 'AK', 'json', $req, $runtime));
-    }
-
-    /**
-     * @param DescribeHttpTriggerConfigRequest $request
-     *
-     * @return DescribeHttpTriggerConfigResponse
-     */
-    public function describeHttpTriggerConfig($request)
-    {
-        $runtime = new RuntimeOptions([]);
-
-        return $this->describeHttpTriggerConfigWithOptions($request, $runtime);
-    }
-
-    /**
-     * @param SaveAppAuthTokenRequest $request
-     * @param RuntimeOptions          $runtime
-     *
-     * @return SaveAppAuthTokenResponse
-     */
-    public function saveAppAuthTokenWithOptions($request, $runtime)
-    {
-        Utils::validateModel($request);
-        $req = new OpenApiRequest([
-            'body' => Utils::toMap($request),
-        ]);
-
-        return SaveAppAuthTokenResponse::fromMap($this->doRPCRequest('SaveAppAuthToken', '2019-06-15', 'HTTPS', 'POST', 'AK', 'json', $req, $runtime));
-    }
-
-    /**
-     * @param SaveAppAuthTokenRequest $request
-     *
-     * @return SaveAppAuthTokenResponse
-     */
-    public function saveAppAuthToken($request)
-    {
-        $runtime = new RuntimeOptions([]);
-
-        return $this->saveAppAuthTokenWithOptions($request, $runtime);
-    }
-
-    /**
-     * @param DescribeSmsSignStatusRequest $request
-     * @param RuntimeOptions               $runtime
-     *
-     * @return DescribeSmsSignStatusResponse
-     */
-    public function describeSmsSignStatusWithOptions($request, $runtime)
-    {
-        Utils::validateModel($request);
-        $req = new OpenApiRequest([
-            'body' => Utils::toMap($request),
-        ]);
-
-        return DescribeSmsSignStatusResponse::fromMap($this->doRPCRequest('DescribeSmsSignStatus', '2019-06-15', 'HTTPS', 'POST', 'AK', 'json', $req, $runtime));
-    }
-
-    /**
-     * @param DescribeSmsSignStatusRequest $request
-     *
-     * @return DescribeSmsSignStatusResponse
-     */
-    public function describeSmsSignStatus($request)
-    {
-        $runtime = new RuntimeOptions([]);
-
-        return $this->describeSmsSignStatusWithOptions($request, $runtime);
-    }
-
-    /**
-     * @param SaveWechatOpenPlatformConfigRequest $request
-     * @param RuntimeOptions                      $runtime
-     *
-     * @return SaveWechatOpenPlatformConfigResponse
-     */
-    public function saveWechatOpenPlatformConfigWithOptions($request, $runtime)
-    {
-        Utils::validateModel($request);
-        $req = new OpenApiRequest([
-            'body' => Utils::toMap($request),
-        ]);
-
-        return SaveWechatOpenPlatformConfigResponse::fromMap($this->doRPCRequest('SaveWechatOpenPlatformConfig', '2019-06-15', 'HTTPS', 'POST', 'AK', 'json', $req, $runtime));
-    }
-
-    /**
-     * @param SaveWechatOpenPlatformConfigRequest $request
-     *
-     * @return SaveWechatOpenPlatformConfigResponse
-     */
-    public function saveWechatOpenPlatformConfig($request)
-    {
-        $runtime = new RuntimeOptions([]);
-
-        return $this->saveWechatOpenPlatformConfigWithOptions($request, $runtime);
-    }
-
-    /**
-     * @param DescribeSpaceRequest $request
-     * @param RuntimeOptions       $runtime
-     *
-     * @return DescribeSpaceResponse
-     */
-    public function describeSpaceWithOptions($request, $runtime)
-    {
-        Utils::validateModel($request);
-        $req = new OpenApiRequest([
-            'body' => Utils::toMap($request),
-        ]);
-
-        return DescribeSpaceResponse::fromMap($this->doRPCRequest('DescribeSpace', '2019-06-15', 'HTTPS', 'POST', 'AK', 'json', $req, $runtime));
-    }
-
-    /**
-     * @param DescribeSpaceRequest $request
-     *
-     * @return DescribeSpaceResponse
-     */
-    public function describeSpace($request)
-    {
-        $runtime = new RuntimeOptions([]);
-
-        return $this->describeSpaceWithOptions($request, $runtime);
-    }
-
-    /**
-     * @param RenameDBCollectionRequest $request
-     * @param RuntimeOptions            $runtime
-     *
-     * @return RenameDBCollectionResponse
-     */
-    public function renameDBCollectionWithOptions($request, $runtime)
-    {
-        Utils::validateModel($request);
-        $req = new OpenApiRequest([
-            'body' => Utils::toMap($request),
-        ]);
-
-        return RenameDBCollectionResponse::fromMap($this->doRPCRequest('RenameDBCollection', '2019-06-15', 'HTTPS', 'POST', 'AK', 'json', $req, $runtime));
-    }
-
-    /**
-     * @param RenameDBCollectionRequest $request
-     *
-     * @return RenameDBCollectionResponse
-     */
-    public function renameDBCollection($request)
-    {
-        $runtime = new RuntimeOptions([]);
-
-        return $this->renameDBCollectionWithOptions($request, $runtime);
-    }
-
-    /**
-     * @param ListSmsSignsRequest $request
-     * @param RuntimeOptions      $runtime
-     *
-     * @return ListSmsSignsResponse
-     */
-    public function listSmsSignsWithOptions($request, $runtime)
-    {
-        Utils::validateModel($request);
-        $req = new OpenApiRequest([
-            'body' => Utils::toMap($request),
-        ]);
-
-        return ListSmsSignsResponse::fromMap($this->doRPCRequest('ListSmsSigns', '2019-06-15', 'HTTPS', 'POST', 'AK', 'json', $req, $runtime));
-    }
-
-    /**
-     * @param ListSmsSignsRequest $request
-     *
-     * @return ListSmsSignsResponse
-     */
-    public function listSmsSigns($request)
-    {
-        $runtime = new RuntimeOptions([]);
-
-        return $this->listSmsSignsWithOptions($request, $runtime);
-    }
-
-    /**
-     * @param DescribeProductOpenStatusRequest $request
-     * @param RuntimeOptions                   $runtime
-     *
-     * @return DescribeProductOpenStatusResponse
-     */
-    public function describeProductOpenStatusWithOptions($request, $runtime)
-    {
-        Utils::validateModel($request);
-        $req = new OpenApiRequest([
-            'body' => Utils::toMap($request),
-        ]);
-
-        return DescribeProductOpenStatusResponse::fromMap($this->doRPCRequest('DescribeProductOpenStatus', '2019-06-15', 'HTTPS', 'POST', 'AK', 'json', $req, $runtime));
-    }
-
-    /**
-     * @param DescribeProductOpenStatusRequest $request
-     *
-     * @return DescribeProductOpenStatusResponse
-     */
-    public function describeProductOpenStatus($request)
-    {
-        $runtime = new RuntimeOptions([]);
-
-        return $this->describeProductOpenStatusWithOptions($request, $runtime);
-    }
-
-    /**
-     * @param UpdateSmsSignRequest $request
-     * @param RuntimeOptions       $runtime
-     *
-     * @return UpdateSmsSignResponse
-     */
-    public function updateSmsSignWithOptions($request, $runtime)
-    {
-        Utils::validateModel($request);
-        $req = new OpenApiRequest([
-            'body' => Utils::toMap($request),
-        ]);
-
-        return UpdateSmsSignResponse::fromMap($this->doRPCRequest('UpdateSmsSign', '2019-06-15', 'HTTPS', 'POST', 'AK', 'json', $req, $runtime));
-    }
-
-    /**
-     * @param UpdateSmsSignRequest $request
-     *
-     * @return UpdateSmsSignResponse
-     */
-    public function updateSmsSign($request)
-    {
-        $runtime = new RuntimeOptions([]);
-
-        return $this->updateSmsSignWithOptions($request, $runtime);
-    }
-
-    /**
-     * @param DeleteWebHostingCertificateRequest $request
-     * @param RuntimeOptions                     $runtime
-     *
-     * @return DeleteWebHostingCertificateResponse
-     */
-    public function deleteWebHostingCertificateWithOptions($request, $runtime)
-    {
-        Utils::validateModel($request);
-        $req = new OpenApiRequest([
-            'body' => Utils::toMap($request),
-        ]);
-
-        return DeleteWebHostingCertificateResponse::fromMap($this->doRPCRequest('DeleteWebHostingCertificate', '2019-06-15', 'HTTPS', 'POST', 'AK', 'json', $req, $runtime));
-    }
-
-    /**
-     * @param DeleteWebHostingCertificateRequest $request
-     *
-     * @return DeleteWebHostingCertificateResponse
-     */
-    public function deleteWebHostingCertificate($request)
-    {
-        $runtime = new RuntimeOptions([]);
-
-        return $this->deleteWebHostingCertificateWithOptions($request, $runtime);
-    }
-
-    /**
-     * @param QueryDBBackupDumpTimesRequest $request
-     * @param RuntimeOptions                $runtime
-     *
-     * @return QueryDBBackupDumpTimesResponse
-     */
-    public function queryDBBackupDumpTimesWithOptions($request, $runtime)
-    {
-        Utils::validateModel($request);
-        $req = new OpenApiRequest([
-            'body' => Utils::toMap($request),
-        ]);
-
-        return QueryDBBackupDumpTimesResponse::fromMap($this->doRPCRequest('QueryDBBackupDumpTimes', '2019-06-15', 'HTTPS', 'POST', 'AK', 'json', $req, $runtime));
-    }
-
-    /**
-     * @param QueryDBBackupDumpTimesRequest $request
-     *
-     * @return QueryDBBackupDumpTimesResponse
-     */
-    public function queryDBBackupDumpTimes($request)
-    {
-        $runtime = new RuntimeOptions([]);
-
-        return $this->queryDBBackupDumpTimesWithOptions($request, $runtime);
-    }
-
-    /**
-     * @param DeployFunctionRequest $request
+     * @param ListExtensionsRequest $request
      * @param RuntimeOptions        $runtime
      *
-     * @return DeployFunctionResponse
+     * @return ListExtensionsResponse
      */
-    public function deployFunctionWithOptions($request, $runtime)
+    public function listExtensionsWithOptions($request, $runtime)
     {
         Utils::validateModel($request);
+        $body = [];
+        if (!Utils::isUnset($request->pageNumber)) {
+            $body['PageNumber'] = $request->pageNumber;
+        }
+        if (!Utils::isUnset($request->pageSize)) {
+            $body['PageSize'] = $request->pageSize;
+        }
         $req = new OpenApiRequest([
-            'body' => Utils::toMap($request),
+            'body' => OpenApiUtilClient::parseToMap($body),
+        ]);
+        $params = new Params([
+            'action'      => 'ListExtensions',
+            'version'     => '2019-06-15',
+            'protocol'    => 'HTTPS',
+            'pathname'    => '/',
+            'method'      => 'POST',
+            'authType'    => 'AK',
+            'style'       => 'RPC',
+            'reqBodyType' => 'formData',
+            'bodyType'    => 'json',
         ]);
 
-        return DeployFunctionResponse::fromMap($this->doRPCRequest('DeployFunction', '2019-06-15', 'HTTPS', 'POST', 'AK', 'json', $req, $runtime));
+        return ListExtensionsResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
-     * @param DeployFunctionRequest $request
+     * @param ListExtensionsRequest $request
      *
-     * @return DeployFunctionResponse
+     * @return ListExtensionsResponse
      */
-    public function deployFunction($request)
+    public function listExtensions($request)
     {
         $runtime = new RuntimeOptions([]);
 
-        return $this->deployFunctionWithOptions($request, $runtime);
+        return $this->listExtensionsWithOptions($request, $runtime);
     }
 
     /**
-     * @param AttachSmsSignRequest $request
-     * @param RuntimeOptions       $runtime
+     * @param ListFileRequest $request
+     * @param RuntimeOptions  $runtime
      *
-     * @return AttachSmsSignResponse
+     * @return ListFileResponse
      */
-    public function attachSmsSignWithOptions($request, $runtime)
+    public function listFileWithOptions($request, $runtime)
     {
         Utils::validateModel($request);
+        $body = [];
+        if (!Utils::isUnset($request->keyword)) {
+            $body['Keyword'] = $request->keyword;
+        }
+        if (!Utils::isUnset($request->pageNum)) {
+            $body['PageNum'] = $request->pageNum;
+        }
+        if (!Utils::isUnset($request->pageSize)) {
+            $body['PageSize'] = $request->pageSize;
+        }
+        if (!Utils::isUnset($request->spaceId)) {
+            $body['SpaceId'] = $request->spaceId;
+        }
         $req = new OpenApiRequest([
-            'body' => Utils::toMap($request),
+            'body' => OpenApiUtilClient::parseToMap($body),
+        ]);
+        $params = new Params([
+            'action'      => 'ListFile',
+            'version'     => '2019-06-15',
+            'protocol'    => 'HTTPS',
+            'pathname'    => '/',
+            'method'      => 'POST',
+            'authType'    => 'AK',
+            'style'       => 'RPC',
+            'reqBodyType' => 'formData',
+            'bodyType'    => 'json',
         ]);
 
-        return AttachSmsSignResponse::fromMap($this->doRPCRequest('AttachSmsSign', '2019-06-15', 'HTTPS', 'POST', 'AK', 'json', $req, $runtime));
+        return ListFileResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
-     * @param AttachSmsSignRequest $request
+     * @param ListFileRequest $request
      *
-     * @return AttachSmsSignResponse
+     * @return ListFileResponse
      */
-    public function attachSmsSign($request)
+    public function listFile($request)
     {
         $runtime = new RuntimeOptions([]);
 
-        return $this->attachSmsSignWithOptions($request, $runtime);
+        return $this->listFileWithOptions($request, $runtime);
     }
 
     /**
-     * @param UpdateServicePolicyRequest $request
-     * @param RuntimeOptions             $runtime
+     * @param ListFunctionRequest $request
+     * @param RuntimeOptions      $runtime
      *
-     * @return UpdateServicePolicyResponse
+     * @return ListFunctionResponse
      */
-    public function updateServicePolicyWithOptions($request, $runtime)
+    public function listFunctionWithOptions($request, $runtime)
     {
         Utils::validateModel($request);
+        $body = [];
+        if (!Utils::isUnset($request->filterBy)) {
+            $body['FilterBy'] = $request->filterBy;
+        }
+        if (!Utils::isUnset($request->pageNum)) {
+            $body['PageNum'] = $request->pageNum;
+        }
+        if (!Utils::isUnset($request->pageSize)) {
+            $body['PageSize'] = $request->pageSize;
+        }
+        if (!Utils::isUnset($request->spaceId)) {
+            $body['SpaceId'] = $request->spaceId;
+        }
         $req = new OpenApiRequest([
-            'body' => Utils::toMap($request),
+            'body' => OpenApiUtilClient::parseToMap($body),
+        ]);
+        $params = new Params([
+            'action'      => 'ListFunction',
+            'version'     => '2019-06-15',
+            'protocol'    => 'HTTPS',
+            'pathname'    => '/',
+            'method'      => 'POST',
+            'authType'    => 'AK',
+            'style'       => 'RPC',
+            'reqBodyType' => 'formData',
+            'bodyType'    => 'json',
         ]);
 
-        return UpdateServicePolicyResponse::fromMap($this->doRPCRequest('UpdateServicePolicy', '2019-06-15', 'HTTPS', 'POST', 'AK', 'json', $req, $runtime));
+        return ListFunctionResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
-     * @param UpdateServicePolicyRequest $request
+     * @param ListFunctionRequest $request
      *
-     * @return UpdateServicePolicyResponse
+     * @return ListFunctionResponse
      */
-    public function updateServicePolicy($request)
+    public function listFunction($request)
     {
         $runtime = new RuntimeOptions([]);
 
-        return $this->updateServicePolicyWithOptions($request, $runtime);
+        return $this->listFunctionWithOptions($request, $runtime);
     }
 
     /**
-     * @param AddCorsDomainRequest $request
-     * @param RuntimeOptions       $runtime
-     *
-     * @return AddCorsDomainResponse
-     */
-    public function addCorsDomainWithOptions($request, $runtime)
-    {
-        Utils::validateModel($request);
-        $req = new OpenApiRequest([
-            'body' => Utils::toMap($request),
-        ]);
-
-        return AddCorsDomainResponse::fromMap($this->doRPCRequest('AddCorsDomain', '2019-06-15', 'HTTPS', 'POST', 'AK', 'json', $req, $runtime));
-    }
-
-    /**
-     * @param AddCorsDomainRequest $request
-     *
-     * @return AddCorsDomainResponse
-     */
-    public function addCorsDomain($request)
-    {
-        $runtime = new RuntimeOptions([]);
-
-        return $this->addCorsDomainWithOptions($request, $runtime);
-    }
-
-    /**
-     * @param DescribeWebHostingFileRequest $request
+     * @param ListFunctionDeploymentRequest $request
      * @param RuntimeOptions                $runtime
      *
-     * @return DescribeWebHostingFileResponse
+     * @return ListFunctionDeploymentResponse
      */
-    public function describeWebHostingFileWithOptions($request, $runtime)
+    public function listFunctionDeploymentWithOptions($request, $runtime)
     {
         Utils::validateModel($request);
+        $body = [];
+        if (!Utils::isUnset($request->name)) {
+            $body['Name'] = $request->name;
+        }
+        if (!Utils::isUnset($request->pageNum)) {
+            $body['PageNum'] = $request->pageNum;
+        }
+        if (!Utils::isUnset($request->pageSize)) {
+            $body['PageSize'] = $request->pageSize;
+        }
+        if (!Utils::isUnset($request->spaceId)) {
+            $body['SpaceId'] = $request->spaceId;
+        }
+        if (!Utils::isUnset($request->status)) {
+            $body['Status'] = $request->status;
+        }
         $req = new OpenApiRequest([
-            'body' => Utils::toMap($request),
+            'body' => OpenApiUtilClient::parseToMap($body),
+        ]);
+        $params = new Params([
+            'action'      => 'ListFunctionDeployment',
+            'version'     => '2019-06-15',
+            'protocol'    => 'HTTPS',
+            'pathname'    => '/',
+            'method'      => 'POST',
+            'authType'    => 'AK',
+            'style'       => 'RPC',
+            'reqBodyType' => 'formData',
+            'bodyType'    => 'json',
         ]);
 
-        return DescribeWebHostingFileResponse::fromMap($this->doRPCRequest('DescribeWebHostingFile', '2019-06-15', 'HTTPS', 'POST', 'AK', 'json', $req, $runtime));
+        return ListFunctionDeploymentResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
-     * @param DescribeWebHostingFileRequest $request
+     * @param ListFunctionDeploymentRequest $request
      *
-     * @return DescribeWebHostingFileResponse
+     * @return ListFunctionDeploymentResponse
      */
-    public function describeWebHostingFile($request)
+    public function listFunctionDeployment($request)
     {
         $runtime = new RuntimeOptions([]);
 
-        return $this->describeWebHostingFileWithOptions($request, $runtime);
+        return $this->listFunctionDeploymentWithOptions($request, $runtime);
     }
 
     /**
-     * @param UpdateSmsTemplateRequest $request
-     * @param RuntimeOptions           $runtime
+     * @param ListFunctionLogRequest $request
+     * @param RuntimeOptions         $runtime
      *
-     * @return UpdateSmsTemplateResponse
+     * @return ListFunctionLogResponse
      */
-    public function updateSmsTemplateWithOptions($request, $runtime)
+    public function listFunctionLogWithOptions($request, $runtime)
     {
         Utils::validateModel($request);
+        $body = [];
+        if (!Utils::isUnset($request->fromDate)) {
+            $body['FromDate'] = $request->fromDate;
+        }
+        if (!Utils::isUnset($request->logRequestId)) {
+            $body['LogRequestId'] = $request->logRequestId;
+        }
+        if (!Utils::isUnset($request->name)) {
+            $body['Name'] = $request->name;
+        }
+        if (!Utils::isUnset($request->pageNum)) {
+            $body['PageNum'] = $request->pageNum;
+        }
+        if (!Utils::isUnset($request->pageSize)) {
+            $body['PageSize'] = $request->pageSize;
+        }
+        if (!Utils::isUnset($request->spaceId)) {
+            $body['SpaceId'] = $request->spaceId;
+        }
+        if (!Utils::isUnset($request->status)) {
+            $body['Status'] = $request->status;
+        }
+        if (!Utils::isUnset($request->toDate)) {
+            $body['ToDate'] = $request->toDate;
+        }
         $req = new OpenApiRequest([
-            'body' => Utils::toMap($request),
+            'body' => OpenApiUtilClient::parseToMap($body),
+        ]);
+        $params = new Params([
+            'action'      => 'ListFunctionLog',
+            'version'     => '2019-06-15',
+            'protocol'    => 'HTTPS',
+            'pathname'    => '/',
+            'method'      => 'POST',
+            'authType'    => 'AK',
+            'style'       => 'RPC',
+            'reqBodyType' => 'formData',
+            'bodyType'    => 'json',
         ]);
 
-        return UpdateSmsTemplateResponse::fromMap($this->doRPCRequest('UpdateSmsTemplate', '2019-06-15', 'HTTPS', 'POST', 'AK', 'json', $req, $runtime));
+        return ListFunctionLogResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
-     * @param UpdateSmsTemplateRequest $request
+     * @param ListFunctionLogRequest $request
      *
-     * @return UpdateSmsTemplateResponse
+     * @return ListFunctionLogResponse
      */
-    public function updateSmsTemplate($request)
+    public function listFunctionLog($request)
     {
         $runtime = new RuntimeOptions([]);
 
-        return $this->updateSmsTemplateWithOptions($request, $runtime);
+        return $this->listFunctionLogWithOptions($request, $runtime);
     }
 
     /**
-     * @param VerifyBuiltinFunctionTemplateRequest $request
-     * @param RuntimeOptions                       $runtime
+     * @param ListOpenPlatformConfigRequest $request
+     * @param RuntimeOptions                $runtime
      *
-     * @return VerifyBuiltinFunctionTemplateResponse
+     * @return ListOpenPlatformConfigResponse
      */
-    public function verifyBuiltinFunctionTemplateWithOptions($request, $runtime)
+    public function listOpenPlatformConfigWithOptions($request, $runtime)
     {
         Utils::validateModel($request);
+        $body = [];
+        if (!Utils::isUnset($request->platform)) {
+            $body['Platform'] = $request->platform;
+        }
+        if (!Utils::isUnset($request->spaceId)) {
+            $body['SpaceId'] = $request->spaceId;
+        }
         $req = new OpenApiRequest([
-            'body' => Utils::toMap($request),
+            'body' => OpenApiUtilClient::parseToMap($body),
+        ]);
+        $params = new Params([
+            'action'      => 'ListOpenPlatformConfig',
+            'version'     => '2019-06-15',
+            'protocol'    => 'HTTPS',
+            'pathname'    => '/',
+            'method'      => 'POST',
+            'authType'    => 'AK',
+            'style'       => 'RPC',
+            'reqBodyType' => 'formData',
+            'bodyType'    => 'json',
         ]);
 
-        return VerifyBuiltinFunctionTemplateResponse::fromMap($this->doRPCRequest('VerifyBuiltinFunctionTemplate', '2019-06-15', 'HTTPS', 'POST', 'AK', 'json', $req, $runtime));
+        return ListOpenPlatformConfigResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
-     * @param VerifyBuiltinFunctionTemplateRequest $request
+     * @param ListOpenPlatformConfigRequest $request
      *
-     * @return VerifyBuiltinFunctionTemplateResponse
+     * @return ListOpenPlatformConfigResponse
      */
-    public function verifyBuiltinFunctionTemplate($request)
+    public function listOpenPlatformConfig($request)
     {
         $runtime = new RuntimeOptions([]);
 
-        return $this->verifyBuiltinFunctionTemplateWithOptions($request, $runtime);
+        return $this->listOpenPlatformConfigWithOptions($request, $runtime);
     }
 
     /**
-     * @param DeleteWebHostingFileRequest $request
-     * @param RuntimeOptions              $runtime
+     * @param ListSpaceRequest $request
+     * @param RuntimeOptions   $runtime
      *
-     * @return DeleteWebHostingFileResponse
+     * @return ListSpaceResponse
      */
-    public function deleteWebHostingFileWithOptions($request, $runtime)
+    public function listSpaceWithOptions($request, $runtime)
     {
         Utils::validateModel($request);
+        $body = [];
+        if (!Utils::isUnset($request->pageNum)) {
+            $body['PageNum'] = $request->pageNum;
+        }
+        if (!Utils::isUnset($request->pageSize)) {
+            $body['PageSize'] = $request->pageSize;
+        }
         $req = new OpenApiRequest([
-            'body' => Utils::toMap($request),
+            'body' => OpenApiUtilClient::parseToMap($body),
+        ]);
+        $params = new Params([
+            'action'      => 'ListSpace',
+            'version'     => '2019-06-15',
+            'protocol'    => 'HTTPS',
+            'pathname'    => '/',
+            'method'      => 'POST',
+            'authType'    => 'AK',
+            'style'       => 'RPC',
+            'reqBodyType' => 'formData',
+            'bodyType'    => 'json',
         ]);
 
-        return DeleteWebHostingFileResponse::fromMap($this->doRPCRequest('DeleteWebHostingFile', '2019-06-15', 'HTTPS', 'POST', 'AK', 'json', $req, $runtime));
+        return ListSpaceResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
-     * @param DeleteWebHostingFileRequest $request
+     * @param ListSpaceRequest $request
      *
-     * @return DeleteWebHostingFileResponse
+     * @return ListSpaceResponse
      */
-    public function deleteWebHostingFile($request)
+    public function listSpace($request)
     {
         $runtime = new RuntimeOptions([]);
 
-        return $this->deleteWebHostingFileWithOptions($request, $runtime);
+        return $this->listSpaceWithOptions($request, $runtime);
     }
 
     /**
@@ -3000,11 +2476,26 @@ class MPServerless extends OpenApiClient
     public function listWebHostingCustomDomainsWithOptions($request, $runtime)
     {
         Utils::validateModel($request);
+        $body = [];
+        if (!Utils::isUnset($request->spaceId)) {
+            $body['SpaceId'] = $request->spaceId;
+        }
         $req = new OpenApiRequest([
-            'body' => Utils::toMap($request),
+            'body' => OpenApiUtilClient::parseToMap($body),
+        ]);
+        $params = new Params([
+            'action'      => 'ListWebHostingCustomDomains',
+            'version'     => '2019-06-15',
+            'protocol'    => 'HTTPS',
+            'pathname'    => '/',
+            'method'      => 'POST',
+            'authType'    => 'AK',
+            'style'       => 'RPC',
+            'reqBodyType' => 'formData',
+            'bodyType'    => 'json',
         ]);
 
-        return ListWebHostingCustomDomainsResponse::fromMap($this->doRPCRequest('ListWebHostingCustomDomains', '2019-06-15', 'HTTPS', 'POST', 'AK', 'json', $req, $runtime));
+        return ListWebHostingCustomDomainsResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
@@ -3020,6 +2511,613 @@ class MPServerless extends OpenApiClient
     }
 
     /**
+     * @param ListWebHostingFilesRequest $request
+     * @param RuntimeOptions             $runtime
+     *
+     * @return ListWebHostingFilesResponse
+     */
+    public function listWebHostingFilesWithOptions($request, $runtime)
+    {
+        Utils::validateModel($request);
+        $body = [];
+        if (!Utils::isUnset($request->marker)) {
+            $body['Marker'] = $request->marker;
+        }
+        if (!Utils::isUnset($request->pageSize)) {
+            $body['PageSize'] = $request->pageSize;
+        }
+        if (!Utils::isUnset($request->prefix)) {
+            $body['Prefix'] = $request->prefix;
+        }
+        if (!Utils::isUnset($request->spaceId)) {
+            $body['SpaceId'] = $request->spaceId;
+        }
+        $req = new OpenApiRequest([
+            'body' => OpenApiUtilClient::parseToMap($body),
+        ]);
+        $params = new Params([
+            'action'      => 'ListWebHostingFiles',
+            'version'     => '2019-06-15',
+            'protocol'    => 'HTTPS',
+            'pathname'    => '/',
+            'method'      => 'POST',
+            'authType'    => 'AK',
+            'style'       => 'RPC',
+            'reqBodyType' => 'formData',
+            'bodyType'    => 'json',
+        ]);
+
+        return ListWebHostingFilesResponse::fromMap($this->callApi($params, $req, $runtime));
+    }
+
+    /**
+     * @param ListWebHostingFilesRequest $request
+     *
+     * @return ListWebHostingFilesResponse
+     */
+    public function listWebHostingFiles($request)
+    {
+        $runtime = new RuntimeOptions([]);
+
+        return $this->listWebHostingFilesWithOptions($request, $runtime);
+    }
+
+    /**
+     * @param ModifyWebHostingConfigRequest $request
+     * @param RuntimeOptions                $runtime
+     *
+     * @return ModifyWebHostingConfigResponse
+     */
+    public function modifyWebHostingConfigWithOptions($request, $runtime)
+    {
+        Utils::validateModel($request);
+        $body = [];
+        if (!Utils::isUnset($request->allowedIps)) {
+            $body['AllowedIps'] = $request->allowedIps;
+        }
+        if (!Utils::isUnset($request->errorPath)) {
+            $body['ErrorPath'] = $request->errorPath;
+        }
+        if (!Utils::isUnset($request->historyModePath)) {
+            $body['HistoryModePath'] = $request->historyModePath;
+        }
+        if (!Utils::isUnset($request->indexPath)) {
+            $body['IndexPath'] = $request->indexPath;
+        }
+        if (!Utils::isUnset($request->spaceId)) {
+            $body['SpaceId'] = $request->spaceId;
+        }
+        $req = new OpenApiRequest([
+            'body' => OpenApiUtilClient::parseToMap($body),
+        ]);
+        $params = new Params([
+            'action'      => 'ModifyWebHostingConfig',
+            'version'     => '2019-06-15',
+            'protocol'    => 'HTTPS',
+            'pathname'    => '/',
+            'method'      => 'POST',
+            'authType'    => 'AK',
+            'style'       => 'RPC',
+            'reqBodyType' => 'formData',
+            'bodyType'    => 'json',
+        ]);
+
+        return ModifyWebHostingConfigResponse::fromMap($this->callApi($params, $req, $runtime));
+    }
+
+    /**
+     * @param ModifyWebHostingConfigRequest $request
+     *
+     * @return ModifyWebHostingConfigResponse
+     */
+    public function modifyWebHostingConfig($request)
+    {
+        $runtime = new RuntimeOptions([]);
+
+        return $this->modifyWebHostingConfigWithOptions($request, $runtime);
+    }
+
+    /**
+     * @param OpenServiceRequest $request
+     * @param RuntimeOptions     $runtime
+     *
+     * @return OpenServiceResponse
+     */
+    public function openServiceWithOptions($request, $runtime)
+    {
+        Utils::validateModel($request);
+        $body = [];
+        if (!Utils::isUnset($request->serviceName)) {
+            $body['ServiceName'] = $request->serviceName;
+        }
+        if (!Utils::isUnset($request->spaceId)) {
+            $body['SpaceId'] = $request->spaceId;
+        }
+        $req = new OpenApiRequest([
+            'body' => OpenApiUtilClient::parseToMap($body),
+        ]);
+        $params = new Params([
+            'action'      => 'OpenService',
+            'version'     => '2019-06-15',
+            'protocol'    => 'HTTPS',
+            'pathname'    => '/',
+            'method'      => 'POST',
+            'authType'    => 'AK',
+            'style'       => 'RPC',
+            'reqBodyType' => 'formData',
+            'bodyType'    => 'json',
+        ]);
+
+        return OpenServiceResponse::fromMap($this->callApi($params, $req, $runtime));
+    }
+
+    /**
+     * @param OpenServiceRequest $request
+     *
+     * @return OpenServiceResponse
+     */
+    public function openService($request)
+    {
+        $runtime = new RuntimeOptions([]);
+
+        return $this->openServiceWithOptions($request, $runtime);
+    }
+
+    /**
+     * @param OpenWebHostingServiceRequest $request
+     * @param RuntimeOptions               $runtime
+     *
+     * @return OpenWebHostingServiceResponse
+     */
+    public function openWebHostingServiceWithOptions($request, $runtime)
+    {
+        Utils::validateModel($request);
+        $body = [];
+        if (!Utils::isUnset($request->spaceId)) {
+            $body['SpaceId'] = $request->spaceId;
+        }
+        $req = new OpenApiRequest([
+            'body' => OpenApiUtilClient::parseToMap($body),
+        ]);
+        $params = new Params([
+            'action'      => 'OpenWebHostingService',
+            'version'     => '2019-06-15',
+            'protocol'    => 'HTTPS',
+            'pathname'    => '/',
+            'method'      => 'POST',
+            'authType'    => 'AK',
+            'style'       => 'RPC',
+            'reqBodyType' => 'formData',
+            'bodyType'    => 'json',
+        ]);
+
+        return OpenWebHostingServiceResponse::fromMap($this->callApi($params, $req, $runtime));
+    }
+
+    /**
+     * @param OpenWebHostingServiceRequest $request
+     *
+     * @return OpenWebHostingServiceResponse
+     */
+    public function openWebHostingService($request)
+    {
+        $runtime = new RuntimeOptions([]);
+
+        return $this->openWebHostingServiceWithOptions($request, $runtime);
+    }
+
+    /**
+     * @param QueryDBBackupCollectionsRequest $request
+     * @param RuntimeOptions                  $runtime
+     *
+     * @return QueryDBBackupCollectionsResponse
+     */
+    public function queryDBBackupCollectionsWithOptions($request, $runtime)
+    {
+        Utils::validateModel($request);
+        $body = [];
+        if (!Utils::isUnset($request->backupId)) {
+            $body['BackupId'] = $request->backupId;
+        }
+        if (!Utils::isUnset($request->spaceId)) {
+            $body['SpaceId'] = $request->spaceId;
+        }
+        $req = new OpenApiRequest([
+            'body' => OpenApiUtilClient::parseToMap($body),
+        ]);
+        $params = new Params([
+            'action'      => 'QueryDBBackupCollections',
+            'version'     => '2019-06-15',
+            'protocol'    => 'HTTPS',
+            'pathname'    => '/',
+            'method'      => 'POST',
+            'authType'    => 'AK',
+            'style'       => 'RPC',
+            'reqBodyType' => 'formData',
+            'bodyType'    => 'json',
+        ]);
+
+        return QueryDBBackupCollectionsResponse::fromMap($this->callApi($params, $req, $runtime));
+    }
+
+    /**
+     * @param QueryDBBackupCollectionsRequest $request
+     *
+     * @return QueryDBBackupCollectionsResponse
+     */
+    public function queryDBBackupCollections($request)
+    {
+        $runtime = new RuntimeOptions([]);
+
+        return $this->queryDBBackupCollectionsWithOptions($request, $runtime);
+    }
+
+    /**
+     * @param QueryDBBackupDumpTimesRequest $request
+     * @param RuntimeOptions                $runtime
+     *
+     * @return QueryDBBackupDumpTimesResponse
+     */
+    public function queryDBBackupDumpTimesWithOptions($request, $runtime)
+    {
+        Utils::validateModel($request);
+        $body = [];
+        if (!Utils::isUnset($request->spaceId)) {
+            $body['SpaceId'] = $request->spaceId;
+        }
+        $req = new OpenApiRequest([
+            'body' => OpenApiUtilClient::parseToMap($body),
+        ]);
+        $params = new Params([
+            'action'      => 'QueryDBBackupDumpTimes',
+            'version'     => '2019-06-15',
+            'protocol'    => 'HTTPS',
+            'pathname'    => '/',
+            'method'      => 'POST',
+            'authType'    => 'AK',
+            'style'       => 'RPC',
+            'reqBodyType' => 'formData',
+            'bodyType'    => 'json',
+        ]);
+
+        return QueryDBBackupDumpTimesResponse::fromMap($this->callApi($params, $req, $runtime));
+    }
+
+    /**
+     * @param QueryDBBackupDumpTimesRequest $request
+     *
+     * @return QueryDBBackupDumpTimesResponse
+     */
+    public function queryDBBackupDumpTimes($request)
+    {
+        $runtime = new RuntimeOptions([]);
+
+        return $this->queryDBBackupDumpTimesWithOptions($request, $runtime);
+    }
+
+    /**
+     * @param QueryDBExportTaskStatusRequest $request
+     * @param RuntimeOptions                 $runtime
+     *
+     * @return QueryDBExportTaskStatusResponse
+     */
+    public function queryDBExportTaskStatusWithOptions($request, $runtime)
+    {
+        Utils::validateModel($request);
+        $body = [];
+        if (!Utils::isUnset($request->spaceId)) {
+            $body['SpaceId'] = $request->spaceId;
+        }
+        if (!Utils::isUnset($request->taskId)) {
+            $body['TaskId'] = $request->taskId;
+        }
+        $req = new OpenApiRequest([
+            'body' => OpenApiUtilClient::parseToMap($body),
+        ]);
+        $params = new Params([
+            'action'      => 'QueryDBExportTaskStatus',
+            'version'     => '2019-06-15',
+            'protocol'    => 'HTTPS',
+            'pathname'    => '/',
+            'method'      => 'POST',
+            'authType'    => 'AK',
+            'style'       => 'RPC',
+            'reqBodyType' => 'formData',
+            'bodyType'    => 'json',
+        ]);
+
+        return QueryDBExportTaskStatusResponse::fromMap($this->callApi($params, $req, $runtime));
+    }
+
+    /**
+     * @param QueryDBExportTaskStatusRequest $request
+     *
+     * @return QueryDBExportTaskStatusResponse
+     */
+    public function queryDBExportTaskStatus($request)
+    {
+        $runtime = new RuntimeOptions([]);
+
+        return $this->queryDBExportTaskStatusWithOptions($request, $runtime);
+    }
+
+    /**
+     * @param QueryDBImportTaskStatusRequest $request
+     * @param RuntimeOptions                 $runtime
+     *
+     * @return QueryDBImportTaskStatusResponse
+     */
+    public function queryDBImportTaskStatusWithOptions($request, $runtime)
+    {
+        Utils::validateModel($request);
+        $body = [];
+        if (!Utils::isUnset($request->spaceId)) {
+            $body['SpaceId'] = $request->spaceId;
+        }
+        if (!Utils::isUnset($request->taskId)) {
+            $body['TaskId'] = $request->taskId;
+        }
+        $req = new OpenApiRequest([
+            'body' => OpenApiUtilClient::parseToMap($body),
+        ]);
+        $params = new Params([
+            'action'      => 'QueryDBImportTaskStatus',
+            'version'     => '2019-06-15',
+            'protocol'    => 'HTTPS',
+            'pathname'    => '/',
+            'method'      => 'POST',
+            'authType'    => 'AK',
+            'style'       => 'RPC',
+            'reqBodyType' => 'formData',
+            'bodyType'    => 'json',
+        ]);
+
+        return QueryDBImportTaskStatusResponse::fromMap($this->callApi($params, $req, $runtime));
+    }
+
+    /**
+     * @param QueryDBImportTaskStatusRequest $request
+     *
+     * @return QueryDBImportTaskStatusResponse
+     */
+    public function queryDBImportTaskStatus($request)
+    {
+        $runtime = new RuntimeOptions([]);
+
+        return $this->queryDBImportTaskStatusWithOptions($request, $runtime);
+    }
+
+    /**
+     * @param QueryDBRestoreTaskStatusRequest $request
+     * @param RuntimeOptions                  $runtime
+     *
+     * @return QueryDBRestoreTaskStatusResponse
+     */
+    public function queryDBRestoreTaskStatusWithOptions($request, $runtime)
+    {
+        Utils::validateModel($request);
+        $body = [];
+        if (!Utils::isUnset($request->spaceId)) {
+            $body['SpaceId'] = $request->spaceId;
+        }
+        if (!Utils::isUnset($request->taskId)) {
+            $body['TaskId'] = $request->taskId;
+        }
+        $req = new OpenApiRequest([
+            'body' => OpenApiUtilClient::parseToMap($body),
+        ]);
+        $params = new Params([
+            'action'      => 'QueryDBRestoreTaskStatus',
+            'version'     => '2019-06-15',
+            'protocol'    => 'HTTPS',
+            'pathname'    => '/',
+            'method'      => 'POST',
+            'authType'    => 'AK',
+            'style'       => 'RPC',
+            'reqBodyType' => 'formData',
+            'bodyType'    => 'json',
+        ]);
+
+        return QueryDBRestoreTaskStatusResponse::fromMap($this->callApi($params, $req, $runtime));
+    }
+
+    /**
+     * @param QueryDBRestoreTaskStatusRequest $request
+     *
+     * @return QueryDBRestoreTaskStatusResponse
+     */
+    public function queryDBRestoreTaskStatus($request)
+    {
+        $runtime = new RuntimeOptions([]);
+
+        return $this->queryDBRestoreTaskStatusWithOptions($request, $runtime);
+    }
+
+    /**
+     * @param QueryServiceStatusRequest $request
+     * @param RuntimeOptions            $runtime
+     *
+     * @return QueryServiceStatusResponse
+     */
+    public function queryServiceStatusWithOptions($request, $runtime)
+    {
+        Utils::validateModel($request);
+        $body = [];
+        if (!Utils::isUnset($request->serviceName)) {
+            $body['ServiceName'] = $request->serviceName;
+        }
+        if (!Utils::isUnset($request->spaceId)) {
+            $body['SpaceId'] = $request->spaceId;
+        }
+        $req = new OpenApiRequest([
+            'body' => OpenApiUtilClient::parseToMap($body),
+        ]);
+        $params = new Params([
+            'action'      => 'QueryServiceStatus',
+            'version'     => '2019-06-15',
+            'protocol'    => 'HTTPS',
+            'pathname'    => '/',
+            'method'      => 'POST',
+            'authType'    => 'AK',
+            'style'       => 'RPC',
+            'reqBodyType' => 'formData',
+            'bodyType'    => 'json',
+        ]);
+
+        return QueryServiceStatusResponse::fromMap($this->callApi($params, $req, $runtime));
+    }
+
+    /**
+     * @param QueryServiceStatusRequest $request
+     *
+     * @return QueryServiceStatusResponse
+     */
+    public function queryServiceStatus($request)
+    {
+        $runtime = new RuntimeOptions([]);
+
+        return $this->queryServiceStatusWithOptions($request, $runtime);
+    }
+
+    /**
+     * @param RegisterFileRequest $request
+     * @param RuntimeOptions      $runtime
+     *
+     * @return RegisterFileResponse
+     */
+    public function registerFileWithOptions($request, $runtime)
+    {
+        Utils::validateModel($request);
+        $body = [];
+        if (!Utils::isUnset($request->id)) {
+            $body['Id'] = $request->id;
+        }
+        if (!Utils::isUnset($request->spaceId)) {
+            $body['SpaceId'] = $request->spaceId;
+        }
+        $req = new OpenApiRequest([
+            'body' => OpenApiUtilClient::parseToMap($body),
+        ]);
+        $params = new Params([
+            'action'      => 'RegisterFile',
+            'version'     => '2019-06-15',
+            'protocol'    => 'HTTPS',
+            'pathname'    => '/',
+            'method'      => 'POST',
+            'authType'    => 'AK',
+            'style'       => 'RPC',
+            'reqBodyType' => 'formData',
+            'bodyType'    => 'json',
+        ]);
+
+        return RegisterFileResponse::fromMap($this->callApi($params, $req, $runtime));
+    }
+
+    /**
+     * @param RegisterFileRequest $request
+     *
+     * @return RegisterFileResponse
+     */
+    public function registerFile($request)
+    {
+        $runtime = new RuntimeOptions([]);
+
+        return $this->registerFileWithOptions($request, $runtime);
+    }
+
+    /**
+     * @param RenameDBCollectionRequest $request
+     * @param RuntimeOptions            $runtime
+     *
+     * @return RenameDBCollectionResponse
+     */
+    public function renameDBCollectionWithOptions($request, $runtime)
+    {
+        Utils::validateModel($request);
+        $body = [];
+        if (!Utils::isUnset($request->newCollection)) {
+            $body['NewCollection'] = $request->newCollection;
+        }
+        if (!Utils::isUnset($request->originCollection)) {
+            $body['OriginCollection'] = $request->originCollection;
+        }
+        if (!Utils::isUnset($request->spaceId)) {
+            $body['SpaceId'] = $request->spaceId;
+        }
+        $req = new OpenApiRequest([
+            'body' => OpenApiUtilClient::parseToMap($body),
+        ]);
+        $params = new Params([
+            'action'      => 'RenameDBCollection',
+            'version'     => '2019-06-15',
+            'protocol'    => 'HTTPS',
+            'pathname'    => '/',
+            'method'      => 'POST',
+            'authType'    => 'AK',
+            'style'       => 'RPC',
+            'reqBodyType' => 'formData',
+            'bodyType'    => 'json',
+        ]);
+
+        return RenameDBCollectionResponse::fromMap($this->callApi($params, $req, $runtime));
+    }
+
+    /**
+     * @param RenameDBCollectionRequest $request
+     *
+     * @return RenameDBCollectionResponse
+     */
+    public function renameDBCollection($request)
+    {
+        $runtime = new RuntimeOptions([]);
+
+        return $this->renameDBCollectionWithOptions($request, $runtime);
+    }
+
+    /**
+     * @param ResetServerSecretRequest $request
+     * @param RuntimeOptions           $runtime
+     *
+     * @return ResetServerSecretResponse
+     */
+    public function resetServerSecretWithOptions($request, $runtime)
+    {
+        Utils::validateModel($request);
+        $body = [];
+        if (!Utils::isUnset($request->spaceId)) {
+            $body['SpaceId'] = $request->spaceId;
+        }
+        $req = new OpenApiRequest([
+            'body' => OpenApiUtilClient::parseToMap($body),
+        ]);
+        $params = new Params([
+            'action'      => 'ResetServerSecret',
+            'version'     => '2019-06-15',
+            'protocol'    => 'HTTPS',
+            'pathname'    => '/',
+            'method'      => 'POST',
+            'authType'    => 'AK',
+            'style'       => 'RPC',
+            'reqBodyType' => 'formData',
+            'bodyType'    => 'json',
+        ]);
+
+        return ResetServerSecretResponse::fromMap($this->callApi($params, $req, $runtime));
+    }
+
+    /**
+     * @param ResetServerSecretRequest $request
+     *
+     * @return ResetServerSecretResponse
+     */
+    public function resetServerSecret($request)
+    {
+        $runtime = new RuntimeOptions([]);
+
+        return $this->resetServerSecretWithOptions($request, $runtime);
+    }
+
+    /**
      * @param RunDBCommandRequest $request
      * @param RuntimeOptions      $runtime
      *
@@ -3028,11 +3126,29 @@ class MPServerless extends OpenApiClient
     public function runDBCommandWithOptions($request, $runtime)
     {
         Utils::validateModel($request);
+        $body = [];
+        if (!Utils::isUnset($request->body)) {
+            $body['Body'] = $request->body;
+        }
+        if (!Utils::isUnset($request->spaceId)) {
+            $body['SpaceId'] = $request->spaceId;
+        }
         $req = new OpenApiRequest([
-            'body' => Utils::toMap($request),
+            'body' => OpenApiUtilClient::parseToMap($body),
+        ]);
+        $params = new Params([
+            'action'      => 'RunDBCommand',
+            'version'     => '2019-06-15',
+            'protocol'    => 'HTTPS',
+            'pathname'    => '/',
+            'method'      => 'POST',
+            'authType'    => 'AK',
+            'style'       => 'RPC',
+            'reqBodyType' => 'formData',
+            'bodyType'    => 'json',
         ]);
 
-        return RunDBCommandResponse::fromMap($this->doRPCRequest('RunDBCommand', '2019-06-15', 'HTTPS', 'POST', 'AK', 'json', $req, $runtime));
+        return RunDBCommandResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
@@ -3048,30 +3164,684 @@ class MPServerless extends OpenApiClient
     }
 
     /**
-     * @param DeleteFunctionRequest $request
-     * @param RuntimeOptions        $runtime
+     * @param RunFunctionRequest $request
+     * @param RuntimeOptions     $runtime
      *
-     * @return DeleteFunctionResponse
+     * @return RunFunctionResponse
      */
-    public function deleteFunctionWithOptions($request, $runtime)
+    public function runFunctionWithOptions($request, $runtime)
     {
         Utils::validateModel($request);
+        $body = [];
+        if (!Utils::isUnset($request->body)) {
+            $body['Body'] = $request->body;
+        }
+        if (!Utils::isUnset($request->spaceId)) {
+            $body['SpaceId'] = $request->spaceId;
+        }
         $req = new OpenApiRequest([
-            'body' => Utils::toMap($request),
+            'body' => OpenApiUtilClient::parseToMap($body),
+        ]);
+        $params = new Params([
+            'action'      => 'RunFunction',
+            'version'     => '2019-06-15',
+            'protocol'    => 'HTTPS',
+            'pathname'    => '/',
+            'method'      => 'POST',
+            'authType'    => 'AK',
+            'style'       => 'RPC',
+            'reqBodyType' => 'formData',
+            'bodyType'    => 'json',
         ]);
 
-        return DeleteFunctionResponse::fromMap($this->doRPCRequest('DeleteFunction', '2019-06-15', 'HTTPS', 'POST', 'AK', 'json', $req, $runtime));
+        return RunFunctionResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
-     * @param DeleteFunctionRequest $request
+     * @param RunFunctionRequest $request
      *
-     * @return DeleteFunctionResponse
+     * @return RunFunctionResponse
      */
-    public function deleteFunction($request)
+    public function runFunction($request)
     {
         $runtime = new RuntimeOptions([]);
 
-        return $this->deleteFunctionWithOptions($request, $runtime);
+        return $this->runFunctionWithOptions($request, $runtime);
+    }
+
+    /**
+     * @param SaveAntOpenPlatformConfigRequest $request
+     * @param RuntimeOptions                   $runtime
+     *
+     * @return SaveAntOpenPlatformConfigResponse
+     */
+    public function saveAntOpenPlatformConfigWithOptions($request, $runtime)
+    {
+        Utils::validateModel($request);
+        $body = [];
+        if (!Utils::isUnset($request->appCert)) {
+            $body['AppCert'] = $request->appCert;
+        }
+        if (!Utils::isUnset($request->appId)) {
+            $body['AppId'] = $request->appId;
+        }
+        if (!Utils::isUnset($request->privateKey)) {
+            $body['PrivateKey'] = $request->privateKey;
+        }
+        if (!Utils::isUnset($request->publicCert)) {
+            $body['PublicCert'] = $request->publicCert;
+        }
+        if (!Utils::isUnset($request->publicKey)) {
+            $body['PublicKey'] = $request->publicKey;
+        }
+        if (!Utils::isUnset($request->rootCert)) {
+            $body['RootCert'] = $request->rootCert;
+        }
+        if (!Utils::isUnset($request->signMode)) {
+            $body['SignMode'] = $request->signMode;
+        }
+        if (!Utils::isUnset($request->spaceId)) {
+            $body['SpaceId'] = $request->spaceId;
+        }
+        $req = new OpenApiRequest([
+            'body' => OpenApiUtilClient::parseToMap($body),
+        ]);
+        $params = new Params([
+            'action'      => 'SaveAntOpenPlatformConfig',
+            'version'     => '2019-06-15',
+            'protocol'    => 'HTTPS',
+            'pathname'    => '/',
+            'method'      => 'POST',
+            'authType'    => 'AK',
+            'style'       => 'RPC',
+            'reqBodyType' => 'formData',
+            'bodyType'    => 'json',
+        ]);
+
+        return SaveAntOpenPlatformConfigResponse::fromMap($this->callApi($params, $req, $runtime));
+    }
+
+    /**
+     * @param SaveAntOpenPlatformConfigRequest $request
+     *
+     * @return SaveAntOpenPlatformConfigResponse
+     */
+    public function saveAntOpenPlatformConfig($request)
+    {
+        $runtime = new RuntimeOptions([]);
+
+        return $this->saveAntOpenPlatformConfigWithOptions($request, $runtime);
+    }
+
+    /**
+     * @param SaveAppAuthTokenRequest $request
+     * @param RuntimeOptions          $runtime
+     *
+     * @return SaveAppAuthTokenResponse
+     */
+    public function saveAppAuthTokenWithOptions($request, $runtime)
+    {
+        Utils::validateModel($request);
+        $body = [];
+        if (!Utils::isUnset($request->appAuthToken)) {
+            $body['AppAuthToken'] = $request->appAuthToken;
+        }
+        if (!Utils::isUnset($request->appId)) {
+            $body['AppId'] = $request->appId;
+        }
+        if (!Utils::isUnset($request->isvAppId)) {
+            $body['IsvAppId'] = $request->isvAppId;
+        }
+        if (!Utils::isUnset($request->spaceId)) {
+            $body['SpaceId'] = $request->spaceId;
+        }
+        $req = new OpenApiRequest([
+            'body' => OpenApiUtilClient::parseToMap($body),
+        ]);
+        $params = new Params([
+            'action'      => 'SaveAppAuthToken',
+            'version'     => '2019-06-15',
+            'protocol'    => 'HTTPS',
+            'pathname'    => '/',
+            'method'      => 'POST',
+            'authType'    => 'AK',
+            'style'       => 'RPC',
+            'reqBodyType' => 'formData',
+            'bodyType'    => 'json',
+        ]);
+
+        return SaveAppAuthTokenResponse::fromMap($this->callApi($params, $req, $runtime));
+    }
+
+    /**
+     * @param SaveAppAuthTokenRequest $request
+     *
+     * @return SaveAppAuthTokenResponse
+     */
+    public function saveAppAuthToken($request)
+    {
+        $runtime = new RuntimeOptions([]);
+
+        return $this->saveAppAuthTokenWithOptions($request, $runtime);
+    }
+
+    /**
+     * @param SaveWebHostingCustomDomainConfigRequest $request
+     * @param RuntimeOptions                          $runtime
+     *
+     * @return SaveWebHostingCustomDomainConfigResponse
+     */
+    public function saveWebHostingCustomDomainConfigWithOptions($request, $runtime)
+    {
+        Utils::validateModel($request);
+        $body = [];
+        if (!Utils::isUnset($request->domainName)) {
+            $body['DomainName'] = $request->domainName;
+        }
+        if (!Utils::isUnset($request->forceRedirectType)) {
+            $body['ForceRedirectType'] = $request->forceRedirectType;
+        }
+        if (!Utils::isUnset($request->spaceId)) {
+            $body['SpaceId'] = $request->spaceId;
+        }
+        $req = new OpenApiRequest([
+            'body' => OpenApiUtilClient::parseToMap($body),
+        ]);
+        $params = new Params([
+            'action'      => 'SaveWebHostingCustomDomainConfig',
+            'version'     => '2019-06-15',
+            'protocol'    => 'HTTPS',
+            'pathname'    => '/',
+            'method'      => 'POST',
+            'authType'    => 'AK',
+            'style'       => 'RPC',
+            'reqBodyType' => 'formData',
+            'bodyType'    => 'json',
+        ]);
+
+        return SaveWebHostingCustomDomainConfigResponse::fromMap($this->callApi($params, $req, $runtime));
+    }
+
+    /**
+     * @param SaveWebHostingCustomDomainConfigRequest $request
+     *
+     * @return SaveWebHostingCustomDomainConfigResponse
+     */
+    public function saveWebHostingCustomDomainConfig($request)
+    {
+        $runtime = new RuntimeOptions([]);
+
+        return $this->saveWebHostingCustomDomainConfigWithOptions($request, $runtime);
+    }
+
+    /**
+     * @param SaveWebHostingCustomDomainCorsConfigRequest $request
+     * @param RuntimeOptions                              $runtime
+     *
+     * @return SaveWebHostingCustomDomainCorsConfigResponse
+     */
+    public function saveWebHostingCustomDomainCorsConfigWithOptions($request, $runtime)
+    {
+        Utils::validateModel($request);
+        $body = [];
+        if (!Utils::isUnset($request->accessControlAllowOrigin)) {
+            $body['AccessControlAllowOrigin'] = $request->accessControlAllowOrigin;
+        }
+        if (!Utils::isUnset($request->domainName)) {
+            $body['DomainName'] = $request->domainName;
+        }
+        if (!Utils::isUnset($request->enableCors)) {
+            $body['EnableCors'] = $request->enableCors;
+        }
+        if (!Utils::isUnset($request->spaceId)) {
+            $body['SpaceId'] = $request->spaceId;
+        }
+        $req = new OpenApiRequest([
+            'body' => OpenApiUtilClient::parseToMap($body),
+        ]);
+        $params = new Params([
+            'action'      => 'SaveWebHostingCustomDomainCorsConfig',
+            'version'     => '2019-06-15',
+            'protocol'    => 'HTTPS',
+            'pathname'    => '/',
+            'method'      => 'POST',
+            'authType'    => 'AK',
+            'style'       => 'RPC',
+            'reqBodyType' => 'formData',
+            'bodyType'    => 'json',
+        ]);
+
+        return SaveWebHostingCustomDomainCorsConfigResponse::fromMap($this->callApi($params, $req, $runtime));
+    }
+
+    /**
+     * @param SaveWebHostingCustomDomainCorsConfigRequest $request
+     *
+     * @return SaveWebHostingCustomDomainCorsConfigResponse
+     */
+    public function saveWebHostingCustomDomainCorsConfig($request)
+    {
+        $runtime = new RuntimeOptions([]);
+
+        return $this->saveWebHostingCustomDomainCorsConfigWithOptions($request, $runtime);
+    }
+
+    /**
+     * @param SaveWechatOpenPlatformConfigRequest $request
+     * @param RuntimeOptions                      $runtime
+     *
+     * @return SaveWechatOpenPlatformConfigResponse
+     */
+    public function saveWechatOpenPlatformConfigWithOptions($request, $runtime)
+    {
+        Utils::validateModel($request);
+        $body = [];
+        if (!Utils::isUnset($request->appId)) {
+            $body['AppId'] = $request->appId;
+        }
+        if (!Utils::isUnset($request->appSecret)) {
+            $body['AppSecret'] = $request->appSecret;
+        }
+        if (!Utils::isUnset($request->spaceId)) {
+            $body['SpaceId'] = $request->spaceId;
+        }
+        $req = new OpenApiRequest([
+            'body' => OpenApiUtilClient::parseToMap($body),
+        ]);
+        $params = new Params([
+            'action'      => 'SaveWechatOpenPlatformConfig',
+            'version'     => '2019-06-15',
+            'protocol'    => 'HTTPS',
+            'pathname'    => '/',
+            'method'      => 'POST',
+            'authType'    => 'AK',
+            'style'       => 'RPC',
+            'reqBodyType' => 'formData',
+            'bodyType'    => 'json',
+        ]);
+
+        return SaveWechatOpenPlatformConfigResponse::fromMap($this->callApi($params, $req, $runtime));
+    }
+
+    /**
+     * @param SaveWechatOpenPlatformConfigRequest $request
+     *
+     * @return SaveWechatOpenPlatformConfigResponse
+     */
+    public function saveWechatOpenPlatformConfig($request)
+    {
+        $runtime = new RuntimeOptions([]);
+
+        return $this->saveWechatOpenPlatformConfigWithOptions($request, $runtime);
+    }
+
+    /**
+     * @param UnbindWebHostingCustomDomainRequest $request
+     * @param RuntimeOptions                      $runtime
+     *
+     * @return UnbindWebHostingCustomDomainResponse
+     */
+    public function unbindWebHostingCustomDomainWithOptions($request, $runtime)
+    {
+        Utils::validateModel($request);
+        $body = [];
+        if (!Utils::isUnset($request->customDomain)) {
+            $body['CustomDomain'] = $request->customDomain;
+        }
+        if (!Utils::isUnset($request->spaceId)) {
+            $body['SpaceId'] = $request->spaceId;
+        }
+        $req = new OpenApiRequest([
+            'body' => OpenApiUtilClient::parseToMap($body),
+        ]);
+        $params = new Params([
+            'action'      => 'UnbindWebHostingCustomDomain',
+            'version'     => '2019-06-15',
+            'protocol'    => 'HTTPS',
+            'pathname'    => '/',
+            'method'      => 'POST',
+            'authType'    => 'AK',
+            'style'       => 'RPC',
+            'reqBodyType' => 'formData',
+            'bodyType'    => 'json',
+        ]);
+
+        return UnbindWebHostingCustomDomainResponse::fromMap($this->callApi($params, $req, $runtime));
+    }
+
+    /**
+     * @param UnbindWebHostingCustomDomainRequest $request
+     *
+     * @return UnbindWebHostingCustomDomainResponse
+     */
+    public function unbindWebHostingCustomDomain($request)
+    {
+        $runtime = new RuntimeOptions([]);
+
+        return $this->unbindWebHostingCustomDomainWithOptions($request, $runtime);
+    }
+
+    /**
+     * @param UpdateDingtalkOpenPlatformConfigRequest $request
+     * @param RuntimeOptions                          $runtime
+     *
+     * @return UpdateDingtalkOpenPlatformConfigResponse
+     */
+    public function updateDingtalkOpenPlatformConfigWithOptions($request, $runtime)
+    {
+        Utils::validateModel($request);
+        $body = [];
+        if (!Utils::isUnset($request->appId)) {
+            $body['AppId'] = $request->appId;
+        }
+        if (!Utils::isUnset($request->appSecret)) {
+            $body['AppSecret'] = $request->appSecret;
+        }
+        if (!Utils::isUnset($request->spaceId)) {
+            $body['SpaceId'] = $request->spaceId;
+        }
+        $req = new OpenApiRequest([
+            'body' => OpenApiUtilClient::parseToMap($body),
+        ]);
+        $params = new Params([
+            'action'      => 'UpdateDingtalkOpenPlatformConfig',
+            'version'     => '2019-06-15',
+            'protocol'    => 'HTTPS',
+            'pathname'    => '/',
+            'method'      => 'POST',
+            'authType'    => 'AK',
+            'style'       => 'RPC',
+            'reqBodyType' => 'formData',
+            'bodyType'    => 'json',
+        ]);
+
+        return UpdateDingtalkOpenPlatformConfigResponse::fromMap($this->callApi($params, $req, $runtime));
+    }
+
+    /**
+     * @param UpdateDingtalkOpenPlatformConfigRequest $request
+     *
+     * @return UpdateDingtalkOpenPlatformConfigResponse
+     */
+    public function updateDingtalkOpenPlatformConfig($request)
+    {
+        $runtime = new RuntimeOptions([]);
+
+        return $this->updateDingtalkOpenPlatformConfigWithOptions($request, $runtime);
+    }
+
+    /**
+     * @param UpdateFunctionRequest $request
+     * @param RuntimeOptions        $runtime
+     *
+     * @return UpdateFunctionResponse
+     */
+    public function updateFunctionWithOptions($request, $runtime)
+    {
+        Utils::validateModel($request);
+        $body = [];
+        if (!Utils::isUnset($request->desc)) {
+            $body['Desc'] = $request->desc;
+        }
+        if (!Utils::isUnset($request->httpTriggerPath)) {
+            $body['HttpTriggerPath'] = $request->httpTriggerPath;
+        }
+        if (!Utils::isUnset($request->instanceConcurrency)) {
+            $body['InstanceConcurrency'] = $request->instanceConcurrency;
+        }
+        if (!Utils::isUnset($request->memory)) {
+            $body['Memory'] = $request->memory;
+        }
+        if (!Utils::isUnset($request->name)) {
+            $body['Name'] = $request->name;
+        }
+        if (!Utils::isUnset($request->runtime)) {
+            $body['Runtime'] = $request->runtime;
+        }
+        if (!Utils::isUnset($request->spaceId)) {
+            $body['SpaceId'] = $request->spaceId;
+        }
+        if (!Utils::isUnset($request->timeout)) {
+            $body['Timeout'] = $request->timeout;
+        }
+        if (!Utils::isUnset($request->timingTriggerConfig)) {
+            $body['TimingTriggerConfig'] = $request->timingTriggerConfig;
+        }
+        $req = new OpenApiRequest([
+            'body' => OpenApiUtilClient::parseToMap($body),
+        ]);
+        $params = new Params([
+            'action'      => 'UpdateFunction',
+            'version'     => '2019-06-15',
+            'protocol'    => 'HTTPS',
+            'pathname'    => '/',
+            'method'      => 'POST',
+            'authType'    => 'AK',
+            'style'       => 'RPC',
+            'reqBodyType' => 'formData',
+            'bodyType'    => 'json',
+        ]);
+
+        return UpdateFunctionResponse::fromMap($this->callApi($params, $req, $runtime));
+    }
+
+    /**
+     * @param UpdateFunctionRequest $request
+     *
+     * @return UpdateFunctionResponse
+     */
+    public function updateFunction($request)
+    {
+        $runtime = new RuntimeOptions([]);
+
+        return $this->updateFunctionWithOptions($request, $runtime);
+    }
+
+    /**
+     * @param UpdateHttpTriggerConfigRequest $request
+     * @param RuntimeOptions                 $runtime
+     *
+     * @return UpdateHttpTriggerConfigResponse
+     */
+    public function updateHttpTriggerConfigWithOptions($request, $runtime)
+    {
+        Utils::validateModel($request);
+        $body = [];
+        if (!Utils::isUnset($request->customDomain)) {
+            $body['CustomDomain'] = $request->customDomain;
+        }
+        if (!Utils::isUnset($request->customDomainCertificate)) {
+            $body['CustomDomainCertificate'] = $request->customDomainCertificate;
+        }
+        if (!Utils::isUnset($request->customDomainPrivateKey)) {
+            $body['CustomDomainPrivateKey'] = $request->customDomainPrivateKey;
+        }
+        if (!Utils::isUnset($request->enableService)) {
+            $body['EnableService'] = $request->enableService;
+        }
+        if (!Utils::isUnset($request->spaceId)) {
+            $body['SpaceId'] = $request->spaceId;
+        }
+        $req = new OpenApiRequest([
+            'body' => OpenApiUtilClient::parseToMap($body),
+        ]);
+        $params = new Params([
+            'action'      => 'UpdateHttpTriggerConfig',
+            'version'     => '2019-06-15',
+            'protocol'    => 'HTTPS',
+            'pathname'    => '/',
+            'method'      => 'POST',
+            'authType'    => 'AK',
+            'style'       => 'RPC',
+            'reqBodyType' => 'formData',
+            'bodyType'    => 'json',
+        ]);
+
+        return UpdateHttpTriggerConfigResponse::fromMap($this->callApi($params, $req, $runtime));
+    }
+
+    /**
+     * @param UpdateHttpTriggerConfigRequest $request
+     *
+     * @return UpdateHttpTriggerConfigResponse
+     */
+    public function updateHttpTriggerConfig($request)
+    {
+        $runtime = new RuntimeOptions([]);
+
+        return $this->updateHttpTriggerConfigWithOptions($request, $runtime);
+    }
+
+    /**
+     * @param UpdateServicePolicyRequest $request
+     * @param RuntimeOptions             $runtime
+     *
+     * @return UpdateServicePolicyResponse
+     */
+    public function updateServicePolicyWithOptions($request, $runtime)
+    {
+        Utils::validateModel($request);
+        $body = [];
+        if (!Utils::isUnset($request->collectionName)) {
+            $body['CollectionName'] = $request->collectionName;
+        }
+        if (!Utils::isUnset($request->policy)) {
+            $body['Policy'] = $request->policy;
+        }
+        if (!Utils::isUnset($request->policyName)) {
+            $body['PolicyName'] = $request->policyName;
+        }
+        if (!Utils::isUnset($request->serviceName)) {
+            $body['ServiceName'] = $request->serviceName;
+        }
+        if (!Utils::isUnset($request->spaceId)) {
+            $body['SpaceId'] = $request->spaceId;
+        }
+        $req = new OpenApiRequest([
+            'body' => OpenApiUtilClient::parseToMap($body),
+        ]);
+        $params = new Params([
+            'action'      => 'UpdateServicePolicy',
+            'version'     => '2019-06-15',
+            'protocol'    => 'HTTPS',
+            'pathname'    => '/',
+            'method'      => 'POST',
+            'authType'    => 'AK',
+            'style'       => 'RPC',
+            'reqBodyType' => 'formData',
+            'bodyType'    => 'json',
+        ]);
+
+        return UpdateServicePolicyResponse::fromMap($this->callApi($params, $req, $runtime));
+    }
+
+    /**
+     * @param UpdateServicePolicyRequest $request
+     *
+     * @return UpdateServicePolicyResponse
+     */
+    public function updateServicePolicy($request)
+    {
+        $runtime = new RuntimeOptions([]);
+
+        return $this->updateServicePolicyWithOptions($request, $runtime);
+    }
+
+    /**
+     * @param UpdateSpaceRequest $request
+     * @param RuntimeOptions     $runtime
+     *
+     * @return UpdateSpaceResponse
+     */
+    public function updateSpaceWithOptions($request, $runtime)
+    {
+        Utils::validateModel($request);
+        $body = [];
+        if (!Utils::isUnset($request->desc)) {
+            $body['Desc'] = $request->desc;
+        }
+        if (!Utils::isUnset($request->spaceId)) {
+            $body['SpaceId'] = $request->spaceId;
+        }
+        if (!Utils::isUnset($request->status)) {
+            $body['Status'] = $request->status;
+        }
+        $req = new OpenApiRequest([
+            'body' => OpenApiUtilClient::parseToMap($body),
+        ]);
+        $params = new Params([
+            'action'      => 'UpdateSpace',
+            'version'     => '2019-06-15',
+            'protocol'    => 'HTTPS',
+            'pathname'    => '/',
+            'method'      => 'POST',
+            'authType'    => 'AK',
+            'style'       => 'RPC',
+            'reqBodyType' => 'formData',
+            'bodyType'    => 'json',
+        ]);
+
+        return UpdateSpaceResponse::fromMap($this->callApi($params, $req, $runtime));
+    }
+
+    /**
+     * @param UpdateSpaceRequest $request
+     *
+     * @return UpdateSpaceResponse
+     */
+    public function updateSpace($request)
+    {
+        $runtime = new RuntimeOptions([]);
+
+        return $this->updateSpaceWithOptions($request, $runtime);
+    }
+
+    /**
+     * @param VerifyWebHostingDomainOwnerRequest $request
+     * @param RuntimeOptions                     $runtime
+     *
+     * @return VerifyWebHostingDomainOwnerResponse
+     */
+    public function verifyWebHostingDomainOwnerWithOptions($request, $runtime)
+    {
+        Utils::validateModel($request);
+        $body = [];
+        if (!Utils::isUnset($request->domain)) {
+            $body['Domain'] = $request->domain;
+        }
+        if (!Utils::isUnset($request->spaceId)) {
+            $body['SpaceId'] = $request->spaceId;
+        }
+        if (!Utils::isUnset($request->verifyType)) {
+            $body['VerifyType'] = $request->verifyType;
+        }
+        $req = new OpenApiRequest([
+            'body' => OpenApiUtilClient::parseToMap($body),
+        ]);
+        $params = new Params([
+            'action'      => 'VerifyWebHostingDomainOwner',
+            'version'     => '2019-06-15',
+            'protocol'    => 'HTTPS',
+            'pathname'    => '/',
+            'method'      => 'POST',
+            'authType'    => 'AK',
+            'style'       => 'RPC',
+            'reqBodyType' => 'formData',
+            'bodyType'    => 'json',
+        ]);
+
+        return VerifyWebHostingDomainOwnerResponse::fromMap($this->callApi($params, $req, $runtime));
+    }
+
+    /**
+     * @param VerifyWebHostingDomainOwnerRequest $request
+     *
+     * @return VerifyWebHostingDomainOwnerResponse
+     */
+    public function verifyWebHostingDomainOwner($request)
+    {
+        $runtime = new RuntimeOptions([]);
+
+        return $this->verifyWebHostingDomainOwnerWithOptions($request, $runtime);
     }
 }

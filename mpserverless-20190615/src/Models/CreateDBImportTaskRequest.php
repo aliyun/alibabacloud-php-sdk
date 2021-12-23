@@ -11,11 +11,6 @@ class CreateDBImportTaskRequest extends Model
     /**
      * @var string
      */
-    public $spaceId;
-
-    /**
-     * @var string
-     */
     public $collection;
 
     /**
@@ -27,11 +22,16 @@ class CreateDBImportTaskRequest extends Model
      * @var string
      */
     public $mode;
+
+    /**
+     * @var string
+     */
+    public $spaceId;
     protected $_name = [
-        'spaceId'    => 'SpaceId',
         'collection' => 'Collection',
         'fileType'   => 'FileType',
         'mode'       => 'Mode',
+        'spaceId'    => 'SpaceId',
     ];
 
     public function validate()
@@ -41,9 +41,6 @@ class CreateDBImportTaskRequest extends Model
     public function toMap()
     {
         $res = [];
-        if (null !== $this->spaceId) {
-            $res['SpaceId'] = $this->spaceId;
-        }
         if (null !== $this->collection) {
             $res['Collection'] = $this->collection;
         }
@@ -52,6 +49,9 @@ class CreateDBImportTaskRequest extends Model
         }
         if (null !== $this->mode) {
             $res['Mode'] = $this->mode;
+        }
+        if (null !== $this->spaceId) {
+            $res['SpaceId'] = $this->spaceId;
         }
 
         return $res;
@@ -65,9 +65,6 @@ class CreateDBImportTaskRequest extends Model
     public static function fromMap($map = [])
     {
         $model = new self();
-        if (isset($map['SpaceId'])) {
-            $model->spaceId = $map['SpaceId'];
-        }
         if (isset($map['Collection'])) {
             $model->collection = $map['Collection'];
         }
@@ -76,6 +73,9 @@ class CreateDBImportTaskRequest extends Model
         }
         if (isset($map['Mode'])) {
             $model->mode = $map['Mode'];
+        }
+        if (isset($map['SpaceId'])) {
+            $model->spaceId = $map['SpaceId'];
         }
 
         return $model;

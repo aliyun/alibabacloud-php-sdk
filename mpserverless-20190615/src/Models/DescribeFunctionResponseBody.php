@@ -11,9 +11,9 @@ use AlibabaCloud\Tea\Model;
 class DescribeFunctionResponseBody extends Model
 {
     /**
-     * @var string
+     * @var deployment
      */
-    public $requestId;
+    public $deployment;
 
     /**
      * @var function_
@@ -21,13 +21,13 @@ class DescribeFunctionResponseBody extends Model
     public $function;
 
     /**
-     * @var deployment
+     * @var string
      */
-    public $deployment;
+    public $requestId;
     protected $_name = [
-        'requestId'  => 'RequestId',
-        'function'   => 'Function',
         'deployment' => 'Deployment',
+        'function'   => 'Function',
+        'requestId'  => 'RequestId',
     ];
 
     public function validate()
@@ -37,14 +37,14 @@ class DescribeFunctionResponseBody extends Model
     public function toMap()
     {
         $res = [];
-        if (null !== $this->requestId) {
-            $res['RequestId'] = $this->requestId;
+        if (null !== $this->deployment) {
+            $res['Deployment'] = null !== $this->deployment ? $this->deployment->toMap() : null;
         }
         if (null !== $this->function) {
             $res['Function'] = null !== $this->function ? $this->function->toMap() : null;
         }
-        if (null !== $this->deployment) {
-            $res['Deployment'] = null !== $this->deployment ? $this->deployment->toMap() : null;
+        if (null !== $this->requestId) {
+            $res['RequestId'] = $this->requestId;
         }
 
         return $res;
@@ -58,14 +58,14 @@ class DescribeFunctionResponseBody extends Model
     public static function fromMap($map = [])
     {
         $model = new self();
-        if (isset($map['RequestId'])) {
-            $model->requestId = $map['RequestId'];
+        if (isset($map['Deployment'])) {
+            $model->deployment = deployment::fromMap($map['Deployment']);
         }
         if (isset($map['Function'])) {
             $model->function = function_::fromMap($map['Function']);
         }
-        if (isset($map['Deployment'])) {
-            $model->deployment = deployment::fromMap($map['Deployment']);
+        if (isset($map['RequestId'])) {
+            $model->requestId = $map['RequestId'];
         }
 
         return $model;

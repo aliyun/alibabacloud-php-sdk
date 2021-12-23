@@ -11,15 +11,15 @@ class QueryServiceStatusRequest extends Model
     /**
      * @var string
      */
-    public $spaceId;
+    public $serviceName;
 
     /**
      * @var string
      */
-    public $serviceName;
+    public $spaceId;
     protected $_name = [
-        'spaceId'     => 'SpaceId',
         'serviceName' => 'ServiceName',
+        'spaceId'     => 'SpaceId',
     ];
 
     public function validate()
@@ -29,11 +29,11 @@ class QueryServiceStatusRequest extends Model
     public function toMap()
     {
         $res = [];
-        if (null !== $this->spaceId) {
-            $res['SpaceId'] = $this->spaceId;
-        }
         if (null !== $this->serviceName) {
             $res['ServiceName'] = $this->serviceName;
+        }
+        if (null !== $this->spaceId) {
+            $res['SpaceId'] = $this->spaceId;
         }
 
         return $res;
@@ -47,11 +47,11 @@ class QueryServiceStatusRequest extends Model
     public static function fromMap($map = [])
     {
         $model = new self();
-        if (isset($map['SpaceId'])) {
-            $model->spaceId = $map['SpaceId'];
-        }
         if (isset($map['ServiceName'])) {
             $model->serviceName = $map['ServiceName'];
+        }
+        if (isset($map['SpaceId'])) {
+            $model->spaceId = $map['SpaceId'];
         }
 
         return $model;

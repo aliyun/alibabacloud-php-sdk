@@ -11,15 +11,15 @@ class UnbindWebHostingCustomDomainRequest extends Model
     /**
      * @var string
      */
-    public $spaceId;
+    public $customDomain;
 
     /**
      * @var string
      */
-    public $customDomain;
+    public $spaceId;
     protected $_name = [
-        'spaceId'      => 'SpaceId',
         'customDomain' => 'CustomDomain',
+        'spaceId'      => 'SpaceId',
     ];
 
     public function validate()
@@ -29,11 +29,11 @@ class UnbindWebHostingCustomDomainRequest extends Model
     public function toMap()
     {
         $res = [];
-        if (null !== $this->spaceId) {
-            $res['SpaceId'] = $this->spaceId;
-        }
         if (null !== $this->customDomain) {
             $res['CustomDomain'] = $this->customDomain;
+        }
+        if (null !== $this->spaceId) {
+            $res['SpaceId'] = $this->spaceId;
         }
 
         return $res;
@@ -47,11 +47,11 @@ class UnbindWebHostingCustomDomainRequest extends Model
     public static function fromMap($map = [])
     {
         $model = new self();
-        if (isset($map['SpaceId'])) {
-            $model->spaceId = $map['SpaceId'];
-        }
         if (isset($map['CustomDomain'])) {
             $model->customDomain = $map['CustomDomain'];
+        }
+        if (isset($map['SpaceId'])) {
+            $model->spaceId = $map['SpaceId'];
         }
 
         return $model;

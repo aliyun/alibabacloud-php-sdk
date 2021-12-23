@@ -10,22 +10,22 @@ use AlibabaCloud\Tea\Model;
 class data extends Model
 {
     /**
-     * @var string
-     */
-    public $nextMarker;
-
-    /**
      * @var int
      */
     public $count;
+
+    /**
+     * @var string
+     */
+    public $nextMarker;
 
     /**
      * @var webHostingFiles[]
      */
     public $webHostingFiles;
     protected $_name = [
-        'nextMarker'      => 'NextMarker',
         'count'           => 'Count',
+        'nextMarker'      => 'NextMarker',
         'webHostingFiles' => 'WebHostingFiles',
     ];
 
@@ -36,11 +36,11 @@ class data extends Model
     public function toMap()
     {
         $res = [];
-        if (null !== $this->nextMarker) {
-            $res['NextMarker'] = $this->nextMarker;
-        }
         if (null !== $this->count) {
             $res['Count'] = $this->count;
+        }
+        if (null !== $this->nextMarker) {
+            $res['NextMarker'] = $this->nextMarker;
         }
         if (null !== $this->webHostingFiles) {
             $res['WebHostingFiles'] = [];
@@ -63,11 +63,11 @@ class data extends Model
     public static function fromMap($map = [])
     {
         $model = new self();
-        if (isset($map['NextMarker'])) {
-            $model->nextMarker = $map['NextMarker'];
-        }
         if (isset($map['Count'])) {
             $model->count = $map['Count'];
+        }
+        if (isset($map['NextMarker'])) {
+            $model->nextMarker = $map['NextMarker'];
         }
         if (isset($map['WebHostingFiles'])) {
             if (!empty($map['WebHostingFiles'])) {

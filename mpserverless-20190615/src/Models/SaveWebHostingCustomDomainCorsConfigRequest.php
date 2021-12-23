@@ -11,7 +11,7 @@ class SaveWebHostingCustomDomainCorsConfigRequest extends Model
     /**
      * @var string
      */
-    public $spaceId;
+    public $accessControlAllowOrigin;
 
     /**
      * @var string
@@ -26,12 +26,12 @@ class SaveWebHostingCustomDomainCorsConfigRequest extends Model
     /**
      * @var string
      */
-    public $accessControlAllowOrigin;
+    public $spaceId;
     protected $_name = [
-        'spaceId'                  => 'SpaceId',
+        'accessControlAllowOrigin' => 'AccessControlAllowOrigin',
         'domainName'               => 'DomainName',
         'enableCors'               => 'EnableCors',
-        'accessControlAllowOrigin' => 'AccessControlAllowOrigin',
+        'spaceId'                  => 'SpaceId',
     ];
 
     public function validate()
@@ -41,8 +41,8 @@ class SaveWebHostingCustomDomainCorsConfigRequest extends Model
     public function toMap()
     {
         $res = [];
-        if (null !== $this->spaceId) {
-            $res['SpaceId'] = $this->spaceId;
+        if (null !== $this->accessControlAllowOrigin) {
+            $res['AccessControlAllowOrigin'] = $this->accessControlAllowOrigin;
         }
         if (null !== $this->domainName) {
             $res['DomainName'] = $this->domainName;
@@ -50,8 +50,8 @@ class SaveWebHostingCustomDomainCorsConfigRequest extends Model
         if (null !== $this->enableCors) {
             $res['EnableCors'] = $this->enableCors;
         }
-        if (null !== $this->accessControlAllowOrigin) {
-            $res['AccessControlAllowOrigin'] = $this->accessControlAllowOrigin;
+        if (null !== $this->spaceId) {
+            $res['SpaceId'] = $this->spaceId;
         }
 
         return $res;
@@ -65,8 +65,8 @@ class SaveWebHostingCustomDomainCorsConfigRequest extends Model
     public static function fromMap($map = [])
     {
         $model = new self();
-        if (isset($map['SpaceId'])) {
-            $model->spaceId = $map['SpaceId'];
+        if (isset($map['AccessControlAllowOrigin'])) {
+            $model->accessControlAllowOrigin = $map['AccessControlAllowOrigin'];
         }
         if (isset($map['DomainName'])) {
             $model->domainName = $map['DomainName'];
@@ -74,8 +74,8 @@ class SaveWebHostingCustomDomainCorsConfigRequest extends Model
         if (isset($map['EnableCors'])) {
             $model->enableCors = $map['EnableCors'];
         }
-        if (isset($map['AccessControlAllowOrigin'])) {
-            $model->accessControlAllowOrigin = $map['AccessControlAllowOrigin'];
+        if (isset($map['SpaceId'])) {
+            $model->spaceId = $map['SpaceId'];
         }
 
         return $model;

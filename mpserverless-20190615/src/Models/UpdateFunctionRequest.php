@@ -16,7 +16,27 @@ class UpdateFunctionRequest extends Model
     /**
      * @var string
      */
+    public $httpTriggerPath;
+
+    /**
+     * @var int
+     */
+    public $instanceConcurrency;
+
+    /**
+     * @var int
+     */
+    public $memory;
+
+    /**
+     * @var string
+     */
     public $name;
+
+    /**
+     * @var string
+     */
+    public $runtime;
 
     /**
      * @var string
@@ -26,42 +46,22 @@ class UpdateFunctionRequest extends Model
     /**
      * @var int
      */
-    public $memory;
-
-    /**
-     * @var int
-     */
     public $timeout;
 
     /**
      * @var string
      */
-    public $httpTriggerPath;
-
-    /**
-     * @var string
-     */
     public $timingTriggerConfig;
-
-    /**
-     * @var int
-     */
-    public $instanceConcurrency;
-
-    /**
-     * @var string
-     */
-    public $runtime;
     protected $_name = [
         'desc'                => 'Desc',
-        'name'                => 'Name',
-        'spaceId'             => 'SpaceId',
-        'memory'              => 'Memory',
-        'timeout'             => 'Timeout',
         'httpTriggerPath'     => 'HttpTriggerPath',
-        'timingTriggerConfig' => 'TimingTriggerConfig',
         'instanceConcurrency' => 'InstanceConcurrency',
+        'memory'              => 'Memory',
+        'name'                => 'Name',
         'runtime'             => 'Runtime',
+        'spaceId'             => 'SpaceId',
+        'timeout'             => 'Timeout',
+        'timingTriggerConfig' => 'TimingTriggerConfig',
     ];
 
     public function validate()
@@ -74,29 +74,29 @@ class UpdateFunctionRequest extends Model
         if (null !== $this->desc) {
             $res['Desc'] = $this->desc;
         }
-        if (null !== $this->name) {
-            $res['Name'] = $this->name;
-        }
-        if (null !== $this->spaceId) {
-            $res['SpaceId'] = $this->spaceId;
-        }
-        if (null !== $this->memory) {
-            $res['Memory'] = $this->memory;
-        }
-        if (null !== $this->timeout) {
-            $res['Timeout'] = $this->timeout;
-        }
         if (null !== $this->httpTriggerPath) {
             $res['HttpTriggerPath'] = $this->httpTriggerPath;
-        }
-        if (null !== $this->timingTriggerConfig) {
-            $res['TimingTriggerConfig'] = $this->timingTriggerConfig;
         }
         if (null !== $this->instanceConcurrency) {
             $res['InstanceConcurrency'] = $this->instanceConcurrency;
         }
+        if (null !== $this->memory) {
+            $res['Memory'] = $this->memory;
+        }
+        if (null !== $this->name) {
+            $res['Name'] = $this->name;
+        }
         if (null !== $this->runtime) {
             $res['Runtime'] = $this->runtime;
+        }
+        if (null !== $this->spaceId) {
+            $res['SpaceId'] = $this->spaceId;
+        }
+        if (null !== $this->timeout) {
+            $res['Timeout'] = $this->timeout;
+        }
+        if (null !== $this->timingTriggerConfig) {
+            $res['TimingTriggerConfig'] = $this->timingTriggerConfig;
         }
 
         return $res;
@@ -113,29 +113,29 @@ class UpdateFunctionRequest extends Model
         if (isset($map['Desc'])) {
             $model->desc = $map['Desc'];
         }
-        if (isset($map['Name'])) {
-            $model->name = $map['Name'];
-        }
-        if (isset($map['SpaceId'])) {
-            $model->spaceId = $map['SpaceId'];
-        }
-        if (isset($map['Memory'])) {
-            $model->memory = $map['Memory'];
-        }
-        if (isset($map['Timeout'])) {
-            $model->timeout = $map['Timeout'];
-        }
         if (isset($map['HttpTriggerPath'])) {
             $model->httpTriggerPath = $map['HttpTriggerPath'];
-        }
-        if (isset($map['TimingTriggerConfig'])) {
-            $model->timingTriggerConfig = $map['TimingTriggerConfig'];
         }
         if (isset($map['InstanceConcurrency'])) {
             $model->instanceConcurrency = $map['InstanceConcurrency'];
         }
+        if (isset($map['Memory'])) {
+            $model->memory = $map['Memory'];
+        }
+        if (isset($map['Name'])) {
+            $model->name = $map['Name'];
+        }
         if (isset($map['Runtime'])) {
             $model->runtime = $map['Runtime'];
+        }
+        if (isset($map['SpaceId'])) {
+            $model->spaceId = $map['SpaceId'];
+        }
+        if (isset($map['Timeout'])) {
+            $model->timeout = $map['Timeout'];
+        }
+        if (isset($map['TimingTriggerConfig'])) {
+            $model->timingTriggerConfig = $map['TimingTriggerConfig'];
         }
 
         return $model;

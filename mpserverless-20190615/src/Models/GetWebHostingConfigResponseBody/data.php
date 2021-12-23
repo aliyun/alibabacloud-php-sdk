@@ -11,17 +11,7 @@ class data extends Model
     /**
      * @var string
      */
-    public $spaceId;
-
-    /**
-     * @var string
-     */
     public $allowedIps;
-
-    /**
-     * @var string
-     */
-    public $errorPath;
 
     /**
      * @var string
@@ -31,13 +21,29 @@ class data extends Model
     /**
      * @var string
      */
+    public $errorPath;
+
+    /**
+     * @var string
+     */
+    public $historyModePath;
+
+    /**
+     * @var string
+     */
     public $indexPath;
+
+    /**
+     * @var string
+     */
+    public $spaceId;
     protected $_name = [
-        'spaceId'       => 'SpaceId',
-        'allowedIps'    => 'AllowedIps',
-        'errorPath'     => 'ErrorPath',
-        'defaultDomain' => 'DefaultDomain',
-        'indexPath'     => 'IndexPath',
+        'allowedIps'      => 'AllowedIps',
+        'defaultDomain'   => 'DefaultDomain',
+        'errorPath'       => 'ErrorPath',
+        'historyModePath' => 'HistoryModePath',
+        'indexPath'       => 'IndexPath',
+        'spaceId'         => 'SpaceId',
     ];
 
     public function validate()
@@ -47,20 +53,23 @@ class data extends Model
     public function toMap()
     {
         $res = [];
-        if (null !== $this->spaceId) {
-            $res['SpaceId'] = $this->spaceId;
-        }
         if (null !== $this->allowedIps) {
             $res['AllowedIps'] = $this->allowedIps;
-        }
-        if (null !== $this->errorPath) {
-            $res['ErrorPath'] = $this->errorPath;
         }
         if (null !== $this->defaultDomain) {
             $res['DefaultDomain'] = $this->defaultDomain;
         }
+        if (null !== $this->errorPath) {
+            $res['ErrorPath'] = $this->errorPath;
+        }
+        if (null !== $this->historyModePath) {
+            $res['HistoryModePath'] = $this->historyModePath;
+        }
         if (null !== $this->indexPath) {
             $res['IndexPath'] = $this->indexPath;
+        }
+        if (null !== $this->spaceId) {
+            $res['SpaceId'] = $this->spaceId;
         }
 
         return $res;
@@ -74,20 +83,23 @@ class data extends Model
     public static function fromMap($map = [])
     {
         $model = new self();
-        if (isset($map['SpaceId'])) {
-            $model->spaceId = $map['SpaceId'];
-        }
         if (isset($map['AllowedIps'])) {
             $model->allowedIps = $map['AllowedIps'];
-        }
-        if (isset($map['ErrorPath'])) {
-            $model->errorPath = $map['ErrorPath'];
         }
         if (isset($map['DefaultDomain'])) {
             $model->defaultDomain = $map['DefaultDomain'];
         }
+        if (isset($map['ErrorPath'])) {
+            $model->errorPath = $map['ErrorPath'];
+        }
+        if (isset($map['HistoryModePath'])) {
+            $model->historyModePath = $map['HistoryModePath'];
+        }
         if (isset($map['IndexPath'])) {
             $model->indexPath = $map['IndexPath'];
+        }
+        if (isset($map['SpaceId'])) {
+            $model->spaceId = $map['SpaceId'];
         }
 
         return $model;

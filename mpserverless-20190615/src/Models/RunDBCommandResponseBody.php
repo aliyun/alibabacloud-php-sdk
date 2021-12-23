@@ -9,6 +9,11 @@ use AlibabaCloud\Tea\Model;
 class RunDBCommandResponseBody extends Model
 {
     /**
+     * @var int
+     */
+    public $affectedDocs;
+
+    /**
      * @var string
      */
     public $requestId;
@@ -17,15 +22,10 @@ class RunDBCommandResponseBody extends Model
      * @var string
      */
     public $result;
-
-    /**
-     * @var int
-     */
-    public $affectedDocs;
     protected $_name = [
+        'affectedDocs' => 'AffectedDocs',
         'requestId'    => 'RequestId',
         'result'       => 'Result',
-        'affectedDocs' => 'AffectedDocs',
     ];
 
     public function validate()
@@ -35,14 +35,14 @@ class RunDBCommandResponseBody extends Model
     public function toMap()
     {
         $res = [];
+        if (null !== $this->affectedDocs) {
+            $res['AffectedDocs'] = $this->affectedDocs;
+        }
         if (null !== $this->requestId) {
             $res['RequestId'] = $this->requestId;
         }
         if (null !== $this->result) {
             $res['Result'] = $this->result;
-        }
-        if (null !== $this->affectedDocs) {
-            $res['AffectedDocs'] = $this->affectedDocs;
         }
 
         return $res;
@@ -56,14 +56,14 @@ class RunDBCommandResponseBody extends Model
     public static function fromMap($map = [])
     {
         $model = new self();
+        if (isset($map['AffectedDocs'])) {
+            $model->affectedDocs = $map['AffectedDocs'];
+        }
         if (isset($map['RequestId'])) {
             $model->requestId = $map['RequestId'];
         }
         if (isset($map['Result'])) {
             $model->result = $map['Result'];
-        }
-        if (isset($map['AffectedDocs'])) {
-            $model->affectedDocs = $map['AffectedDocs'];
         }
 
         return $model;

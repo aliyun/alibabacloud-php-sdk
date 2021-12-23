@@ -11,20 +11,20 @@ class CreateSpaceRequest extends Model
     /**
      * @var string
      */
-    public $name;
+    public $desc;
 
     /**
      * @var string
      */
-    public $desc;
+    public $name;
 
     /**
      * @var int
      */
     public $workspaceId;
     protected $_name = [
-        'name'        => 'Name',
         'desc'        => 'Desc',
+        'name'        => 'Name',
         'workspaceId' => 'WorkspaceId',
     ];
 
@@ -35,11 +35,11 @@ class CreateSpaceRequest extends Model
     public function toMap()
     {
         $res = [];
-        if (null !== $this->name) {
-            $res['Name'] = $this->name;
-        }
         if (null !== $this->desc) {
             $res['Desc'] = $this->desc;
+        }
+        if (null !== $this->name) {
+            $res['Name'] = $this->name;
         }
         if (null !== $this->workspaceId) {
             $res['WorkspaceId'] = $this->workspaceId;
@@ -56,11 +56,11 @@ class CreateSpaceRequest extends Model
     public static function fromMap($map = [])
     {
         $model = new self();
-        if (isset($map['Name'])) {
-            $model->name = $map['Name'];
-        }
         if (isset($map['Desc'])) {
             $model->desc = $map['Desc'];
+        }
+        if (isset($map['Name'])) {
+            $model->name = $map['Name'];
         }
         if (isset($map['WorkspaceId'])) {
             $model->workspaceId = $map['WorkspaceId'];

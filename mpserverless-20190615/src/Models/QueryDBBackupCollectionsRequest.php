@@ -11,15 +11,15 @@ class QueryDBBackupCollectionsRequest extends Model
     /**
      * @var string
      */
-    public $spaceId;
+    public $backupId;
 
     /**
      * @var string
      */
-    public $backupId;
+    public $spaceId;
     protected $_name = [
-        'spaceId'  => 'SpaceId',
         'backupId' => 'BackupId',
+        'spaceId'  => 'SpaceId',
     ];
 
     public function validate()
@@ -29,11 +29,11 @@ class QueryDBBackupCollectionsRequest extends Model
     public function toMap()
     {
         $res = [];
-        if (null !== $this->spaceId) {
-            $res['SpaceId'] = $this->spaceId;
-        }
         if (null !== $this->backupId) {
             $res['BackupId'] = $this->backupId;
+        }
+        if (null !== $this->spaceId) {
+            $res['SpaceId'] = $this->spaceId;
         }
 
         return $res;
@@ -47,11 +47,11 @@ class QueryDBBackupCollectionsRequest extends Model
     public static function fromMap($map = [])
     {
         $model = new self();
-        if (isset($map['SpaceId'])) {
-            $model->spaceId = $map['SpaceId'];
-        }
         if (isset($map['BackupId'])) {
             $model->backupId = $map['BackupId'];
+        }
+        if (isset($map['SpaceId'])) {
+            $model->spaceId = $map['SpaceId'];
         }
 
         return $model;

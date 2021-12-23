@@ -12,20 +12,8 @@ class OpenServiceResponseBody extends Model
      * @var string
      */
     public $requestId;
-
-    /**
-     * @var string
-     */
-    public $serviceStatus;
-
-    /**
-     * @var int
-     */
-    public $count;
     protected $_name = [
-        'requestId'     => 'RequestId',
-        'serviceStatus' => 'ServiceStatus',
-        'count'         => 'Count',
+        'requestId' => 'RequestId',
     ];
 
     public function validate()
@@ -37,12 +25,6 @@ class OpenServiceResponseBody extends Model
         $res = [];
         if (null !== $this->requestId) {
             $res['RequestId'] = $this->requestId;
-        }
-        if (null !== $this->serviceStatus) {
-            $res['ServiceStatus'] = $this->serviceStatus;
-        }
-        if (null !== $this->count) {
-            $res['Count'] = $this->count;
         }
 
         return $res;
@@ -58,12 +40,6 @@ class OpenServiceResponseBody extends Model
         $model = new self();
         if (isset($map['RequestId'])) {
             $model->requestId = $map['RequestId'];
-        }
-        if (isset($map['ServiceStatus'])) {
-            $model->serviceStatus = $map['ServiceStatus'];
-        }
-        if (isset($map['Count'])) {
-            $model->count = $map['Count'];
         }
 
         return $model;

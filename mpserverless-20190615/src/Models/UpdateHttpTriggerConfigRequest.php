@@ -9,16 +9,6 @@ use AlibabaCloud\Tea\Model;
 class UpdateHttpTriggerConfigRequest extends Model
 {
     /**
-     * @var bool
-     */
-    public $enableService;
-
-    /**
-     * @var string
-     */
-    public $spaceId;
-
-    /**
      * @var string
      */
     public $customDomain;
@@ -32,12 +22,22 @@ class UpdateHttpTriggerConfigRequest extends Model
      * @var string
      */
     public $customDomainPrivateKey;
+
+    /**
+     * @var bool
+     */
+    public $enableService;
+
+    /**
+     * @var string
+     */
+    public $spaceId;
     protected $_name = [
-        'enableService'           => 'EnableService',
-        'spaceId'                 => 'SpaceId',
         'customDomain'            => 'CustomDomain',
         'customDomainCertificate' => 'CustomDomainCertificate',
         'customDomainPrivateKey'  => 'CustomDomainPrivateKey',
+        'enableService'           => 'EnableService',
+        'spaceId'                 => 'SpaceId',
     ];
 
     public function validate()
@@ -47,12 +47,6 @@ class UpdateHttpTriggerConfigRequest extends Model
     public function toMap()
     {
         $res = [];
-        if (null !== $this->enableService) {
-            $res['EnableService'] = $this->enableService;
-        }
-        if (null !== $this->spaceId) {
-            $res['SpaceId'] = $this->spaceId;
-        }
         if (null !== $this->customDomain) {
             $res['CustomDomain'] = $this->customDomain;
         }
@@ -61,6 +55,12 @@ class UpdateHttpTriggerConfigRequest extends Model
         }
         if (null !== $this->customDomainPrivateKey) {
             $res['CustomDomainPrivateKey'] = $this->customDomainPrivateKey;
+        }
+        if (null !== $this->enableService) {
+            $res['EnableService'] = $this->enableService;
+        }
+        if (null !== $this->spaceId) {
+            $res['SpaceId'] = $this->spaceId;
         }
 
         return $res;
@@ -74,12 +74,6 @@ class UpdateHttpTriggerConfigRequest extends Model
     public static function fromMap($map = [])
     {
         $model = new self();
-        if (isset($map['EnableService'])) {
-            $model->enableService = $map['EnableService'];
-        }
-        if (isset($map['SpaceId'])) {
-            $model->spaceId = $map['SpaceId'];
-        }
         if (isset($map['CustomDomain'])) {
             $model->customDomain = $map['CustomDomain'];
         }
@@ -88,6 +82,12 @@ class UpdateHttpTriggerConfigRequest extends Model
         }
         if (isset($map['CustomDomainPrivateKey'])) {
             $model->customDomainPrivateKey = $map['CustomDomainPrivateKey'];
+        }
+        if (isset($map['EnableService'])) {
+            $model->enableService = $map['EnableService'];
+        }
+        if (isset($map['SpaceId'])) {
+            $model->spaceId = $map['SpaceId'];
         }
 
         return $model;

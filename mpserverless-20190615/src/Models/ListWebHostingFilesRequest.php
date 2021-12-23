@@ -11,7 +11,12 @@ class ListWebHostingFilesRequest extends Model
     /**
      * @var string
      */
-    public $spaceId;
+    public $marker;
+
+    /**
+     * @var int
+     */
+    public $pageSize;
 
     /**
      * @var string
@@ -21,17 +26,12 @@ class ListWebHostingFilesRequest extends Model
     /**
      * @var string
      */
-    public $marker;
-
-    /**
-     * @var int
-     */
-    public $pageSize;
+    public $spaceId;
     protected $_name = [
-        'spaceId'  => 'SpaceId',
-        'prefix'   => 'Prefix',
         'marker'   => 'Marker',
         'pageSize' => 'PageSize',
+        'prefix'   => 'Prefix',
+        'spaceId'  => 'SpaceId',
     ];
 
     public function validate()
@@ -41,17 +41,17 @@ class ListWebHostingFilesRequest extends Model
     public function toMap()
     {
         $res = [];
-        if (null !== $this->spaceId) {
-            $res['SpaceId'] = $this->spaceId;
-        }
-        if (null !== $this->prefix) {
-            $res['Prefix'] = $this->prefix;
-        }
         if (null !== $this->marker) {
             $res['Marker'] = $this->marker;
         }
         if (null !== $this->pageSize) {
             $res['PageSize'] = $this->pageSize;
+        }
+        if (null !== $this->prefix) {
+            $res['Prefix'] = $this->prefix;
+        }
+        if (null !== $this->spaceId) {
+            $res['SpaceId'] = $this->spaceId;
         }
 
         return $res;
@@ -65,17 +65,17 @@ class ListWebHostingFilesRequest extends Model
     public static function fromMap($map = [])
     {
         $model = new self();
-        if (isset($map['SpaceId'])) {
-            $model->spaceId = $map['SpaceId'];
-        }
-        if (isset($map['Prefix'])) {
-            $model->prefix = $map['Prefix'];
-        }
         if (isset($map['Marker'])) {
             $model->marker = $map['Marker'];
         }
         if (isset($map['PageSize'])) {
             $model->pageSize = $map['PageSize'];
+        }
+        if (isset($map['Prefix'])) {
+            $model->prefix = $map['Prefix'];
+        }
+        if (isset($map['SpaceId'])) {
+            $model->spaceId = $map['SpaceId'];
         }
 
         return $model;

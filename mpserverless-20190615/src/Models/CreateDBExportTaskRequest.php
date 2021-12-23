@@ -11,12 +11,12 @@ class CreateDBExportTaskRequest extends Model
     /**
      * @var string
      */
-    public $spaceId;
+    public $collection;
 
     /**
      * @var string
      */
-    public $collection;
+    public $fields;
 
     /**
      * @var string
@@ -26,12 +26,12 @@ class CreateDBExportTaskRequest extends Model
     /**
      * @var string
      */
-    public $fields;
+    public $spaceId;
     protected $_name = [
-        'spaceId'    => 'SpaceId',
         'collection' => 'Collection',
-        'fileType'   => 'FileType',
         'fields'     => 'Fields',
+        'fileType'   => 'FileType',
+        'spaceId'    => 'SpaceId',
     ];
 
     public function validate()
@@ -41,17 +41,17 @@ class CreateDBExportTaskRequest extends Model
     public function toMap()
     {
         $res = [];
-        if (null !== $this->spaceId) {
-            $res['SpaceId'] = $this->spaceId;
-        }
         if (null !== $this->collection) {
             $res['Collection'] = $this->collection;
+        }
+        if (null !== $this->fields) {
+            $res['Fields'] = $this->fields;
         }
         if (null !== $this->fileType) {
             $res['FileType'] = $this->fileType;
         }
-        if (null !== $this->fields) {
-            $res['Fields'] = $this->fields;
+        if (null !== $this->spaceId) {
+            $res['SpaceId'] = $this->spaceId;
         }
 
         return $res;
@@ -65,17 +65,17 @@ class CreateDBExportTaskRequest extends Model
     public static function fromMap($map = [])
     {
         $model = new self();
-        if (isset($map['SpaceId'])) {
-            $model->spaceId = $map['SpaceId'];
-        }
         if (isset($map['Collection'])) {
             $model->collection = $map['Collection'];
+        }
+        if (isset($map['Fields'])) {
+            $model->fields = $map['Fields'];
         }
         if (isset($map['FileType'])) {
             $model->fileType = $map['FileType'];
         }
-        if (isset($map['Fields'])) {
-            $model->fields = $map['Fields'];
+        if (isset($map['SpaceId'])) {
+            $model->spaceId = $map['SpaceId'];
         }
 
         return $model;

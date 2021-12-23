@@ -11,20 +11,20 @@ class data extends Model
     /**
      * @var string
      */
-    public $name;
+    public $id;
 
     /**
      * @var string
      */
-    public $id;
+    public $name;
 
     /**
      * @var string
      */
     public $statusCode;
     protected $_name = [
-        'name'       => 'Name',
         'id'         => 'Id',
+        'name'       => 'Name',
         'statusCode' => 'StatusCode',
     ];
 
@@ -35,11 +35,11 @@ class data extends Model
     public function toMap()
     {
         $res = [];
-        if (null !== $this->name) {
-            $res['Name'] = $this->name;
-        }
         if (null !== $this->id) {
             $res['Id'] = $this->id;
+        }
+        if (null !== $this->name) {
+            $res['Name'] = $this->name;
         }
         if (null !== $this->statusCode) {
             $res['StatusCode'] = $this->statusCode;
@@ -56,11 +56,11 @@ class data extends Model
     public static function fromMap($map = [])
     {
         $model = new self();
-        if (isset($map['Name'])) {
-            $model->name = $map['Name'];
-        }
         if (isset($map['Id'])) {
             $model->id = $map['Id'];
+        }
+        if (isset($map['Name'])) {
+            $model->name = $map['Name'];
         }
         if (isset($map['StatusCode'])) {
             $model->statusCode = $map['StatusCode'];

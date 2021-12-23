@@ -9,6 +9,11 @@ use AlibabaCloud\Tea\Model;
 class ListFunctionRequest extends Model
 {
     /**
+     * @var string
+     */
+    public $filterBy;
+
+    /**
      * @var int
      */
     public $pageNum;
@@ -21,16 +26,11 @@ class ListFunctionRequest extends Model
     /**
      * @var string
      */
-    public $filterBy;
-
-    /**
-     * @var string
-     */
     public $spaceId;
     protected $_name = [
+        'filterBy' => 'FilterBy',
         'pageNum'  => 'PageNum',
         'pageSize' => 'PageSize',
-        'filterBy' => 'FilterBy',
         'spaceId'  => 'SpaceId',
     ];
 
@@ -41,14 +41,14 @@ class ListFunctionRequest extends Model
     public function toMap()
     {
         $res = [];
+        if (null !== $this->filterBy) {
+            $res['FilterBy'] = $this->filterBy;
+        }
         if (null !== $this->pageNum) {
             $res['PageNum'] = $this->pageNum;
         }
         if (null !== $this->pageSize) {
             $res['PageSize'] = $this->pageSize;
-        }
-        if (null !== $this->filterBy) {
-            $res['FilterBy'] = $this->filterBy;
         }
         if (null !== $this->spaceId) {
             $res['SpaceId'] = $this->spaceId;
@@ -65,14 +65,14 @@ class ListFunctionRequest extends Model
     public static function fromMap($map = [])
     {
         $model = new self();
+        if (isset($map['FilterBy'])) {
+            $model->filterBy = $map['FilterBy'];
+        }
         if (isset($map['PageNum'])) {
             $model->pageNum = $map['PageNum'];
         }
         if (isset($map['PageSize'])) {
             $model->pageSize = $map['PageSize'];
-        }
-        if (isset($map['FilterBy'])) {
-            $model->filterBy = $map['FilterBy'];
         }
         if (isset($map['SpaceId'])) {
             $model->spaceId = $map['SpaceId'];

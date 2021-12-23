@@ -11,12 +11,7 @@ class UpdateServicePolicyResponseBody extends Model
     /**
      * @var string
      */
-    public $spaceId;
-
-    /**
-     * @var string
-     */
-    public $requestId;
+    public $collectionName;
 
     /**
      * @var string
@@ -31,19 +26,24 @@ class UpdateServicePolicyResponseBody extends Model
     /**
      * @var string
      */
+    public $requestId;
+
+    /**
+     * @var string
+     */
     public $serviceName;
 
     /**
      * @var string
      */
-    public $collectionName;
+    public $spaceId;
     protected $_name = [
-        'spaceId'        => 'SpaceId',
-        'requestId'      => 'RequestId',
+        'collectionName' => 'CollectionName',
         'policy'         => 'Policy',
         'policyName'     => 'PolicyName',
+        'requestId'      => 'RequestId',
         'serviceName'    => 'ServiceName',
-        'collectionName' => 'CollectionName',
+        'spaceId'        => 'SpaceId',
     ];
 
     public function validate()
@@ -53,11 +53,8 @@ class UpdateServicePolicyResponseBody extends Model
     public function toMap()
     {
         $res = [];
-        if (null !== $this->spaceId) {
-            $res['SpaceId'] = $this->spaceId;
-        }
-        if (null !== $this->requestId) {
-            $res['RequestId'] = $this->requestId;
+        if (null !== $this->collectionName) {
+            $res['CollectionName'] = $this->collectionName;
         }
         if (null !== $this->policy) {
             $res['Policy'] = $this->policy;
@@ -65,11 +62,14 @@ class UpdateServicePolicyResponseBody extends Model
         if (null !== $this->policyName) {
             $res['PolicyName'] = $this->policyName;
         }
+        if (null !== $this->requestId) {
+            $res['RequestId'] = $this->requestId;
+        }
         if (null !== $this->serviceName) {
             $res['ServiceName'] = $this->serviceName;
         }
-        if (null !== $this->collectionName) {
-            $res['CollectionName'] = $this->collectionName;
+        if (null !== $this->spaceId) {
+            $res['SpaceId'] = $this->spaceId;
         }
 
         return $res;
@@ -83,11 +83,8 @@ class UpdateServicePolicyResponseBody extends Model
     public static function fromMap($map = [])
     {
         $model = new self();
-        if (isset($map['SpaceId'])) {
-            $model->spaceId = $map['SpaceId'];
-        }
-        if (isset($map['RequestId'])) {
-            $model->requestId = $map['RequestId'];
+        if (isset($map['CollectionName'])) {
+            $model->collectionName = $map['CollectionName'];
         }
         if (isset($map['Policy'])) {
             $model->policy = $map['Policy'];
@@ -95,11 +92,14 @@ class UpdateServicePolicyResponseBody extends Model
         if (isset($map['PolicyName'])) {
             $model->policyName = $map['PolicyName'];
         }
+        if (isset($map['RequestId'])) {
+            $model->requestId = $map['RequestId'];
+        }
         if (isset($map['ServiceName'])) {
             $model->serviceName = $map['ServiceName'];
         }
-        if (isset($map['CollectionName'])) {
-            $model->collectionName = $map['CollectionName'];
+        if (isset($map['SpaceId'])) {
+            $model->spaceId = $map['SpaceId'];
         }
 
         return $model;

@@ -12,17 +12,12 @@ class CreateFunctionResponseBody extends Model
     /**
      * @var string
      */
-    public $requestId;
-
-    /**
-     * @var string
-     */
     public $createdAt;
 
     /**
      * @var string
      */
-    public $name;
+    public $desc;
 
     /**
      * @var string
@@ -32,18 +27,23 @@ class CreateFunctionResponseBody extends Model
     /**
      * @var string
      */
-    public $desc;
+    public $name;
+
+    /**
+     * @var string
+     */
+    public $requestId;
 
     /**
      * @var spec
      */
     public $spec;
     protected $_name = [
-        'requestId'  => 'RequestId',
         'createdAt'  => 'CreatedAt',
-        'name'       => 'Name',
-        'modifiedAt' => 'ModifiedAt',
         'desc'       => 'Desc',
+        'modifiedAt' => 'ModifiedAt',
+        'name'       => 'Name',
+        'requestId'  => 'RequestId',
         'spec'       => 'Spec',
     ];
 
@@ -54,20 +54,20 @@ class CreateFunctionResponseBody extends Model
     public function toMap()
     {
         $res = [];
-        if (null !== $this->requestId) {
-            $res['RequestId'] = $this->requestId;
-        }
         if (null !== $this->createdAt) {
             $res['CreatedAt'] = $this->createdAt;
         }
-        if (null !== $this->name) {
-            $res['Name'] = $this->name;
+        if (null !== $this->desc) {
+            $res['Desc'] = $this->desc;
         }
         if (null !== $this->modifiedAt) {
             $res['ModifiedAt'] = $this->modifiedAt;
         }
-        if (null !== $this->desc) {
-            $res['Desc'] = $this->desc;
+        if (null !== $this->name) {
+            $res['Name'] = $this->name;
+        }
+        if (null !== $this->requestId) {
+            $res['RequestId'] = $this->requestId;
         }
         if (null !== $this->spec) {
             $res['Spec'] = null !== $this->spec ? $this->spec->toMap() : null;
@@ -84,20 +84,20 @@ class CreateFunctionResponseBody extends Model
     public static function fromMap($map = [])
     {
         $model = new self();
-        if (isset($map['RequestId'])) {
-            $model->requestId = $map['RequestId'];
-        }
         if (isset($map['CreatedAt'])) {
             $model->createdAt = $map['CreatedAt'];
         }
-        if (isset($map['Name'])) {
-            $model->name = $map['Name'];
+        if (isset($map['Desc'])) {
+            $model->desc = $map['Desc'];
         }
         if (isset($map['ModifiedAt'])) {
             $model->modifiedAt = $map['ModifiedAt'];
         }
-        if (isset($map['Desc'])) {
-            $model->desc = $map['Desc'];
+        if (isset($map['Name'])) {
+            $model->name = $map['Name'];
+        }
+        if (isset($map['RequestId'])) {
+            $model->requestId = $map['RequestId'];
         }
         if (isset($map['Spec'])) {
             $model->spec = spec::fromMap($map['Spec']);

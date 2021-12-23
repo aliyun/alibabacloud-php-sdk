@@ -11,7 +11,7 @@ class spaces extends Model
     /**
      * @var string
      */
-    public $status;
+    public $desc;
 
     /**
      * @var int
@@ -21,23 +21,23 @@ class spaces extends Model
     /**
      * @var string
      */
-    public $spaceId;
-
-    /**
-     * @var string
-     */
     public $name;
 
     /**
      * @var string
      */
-    public $desc;
+    public $spaceId;
+
+    /**
+     * @var string
+     */
+    public $status;
     protected $_name = [
-        'status'    => 'Status',
-        'gmtCreate' => 'GmtCreate',
-        'spaceId'   => 'SpaceId',
-        'name'      => 'Name',
         'desc'      => 'Desc',
+        'gmtCreate' => 'GmtCreate',
+        'name'      => 'Name',
+        'spaceId'   => 'SpaceId',
+        'status'    => 'Status',
     ];
 
     public function validate()
@@ -47,20 +47,20 @@ class spaces extends Model
     public function toMap()
     {
         $res = [];
-        if (null !== $this->status) {
-            $res['Status'] = $this->status;
+        if (null !== $this->desc) {
+            $res['Desc'] = $this->desc;
         }
         if (null !== $this->gmtCreate) {
             $res['GmtCreate'] = $this->gmtCreate;
         }
-        if (null !== $this->spaceId) {
-            $res['SpaceId'] = $this->spaceId;
-        }
         if (null !== $this->name) {
             $res['Name'] = $this->name;
         }
-        if (null !== $this->desc) {
-            $res['Desc'] = $this->desc;
+        if (null !== $this->spaceId) {
+            $res['SpaceId'] = $this->spaceId;
+        }
+        if (null !== $this->status) {
+            $res['Status'] = $this->status;
         }
 
         return $res;
@@ -74,20 +74,20 @@ class spaces extends Model
     public static function fromMap($map = [])
     {
         $model = new self();
-        if (isset($map['Status'])) {
-            $model->status = $map['Status'];
+        if (isset($map['Desc'])) {
+            $model->desc = $map['Desc'];
         }
         if (isset($map['GmtCreate'])) {
             $model->gmtCreate = $map['GmtCreate'];
         }
-        if (isset($map['SpaceId'])) {
-            $model->spaceId = $map['SpaceId'];
-        }
         if (isset($map['Name'])) {
             $model->name = $map['Name'];
         }
-        if (isset($map['Desc'])) {
-            $model->desc = $map['Desc'];
+        if (isset($map['SpaceId'])) {
+            $model->spaceId = $map['SpaceId'];
+        }
+        if (isset($map['Status'])) {
+            $model->status = $map['Status'];
         }
 
         return $model;

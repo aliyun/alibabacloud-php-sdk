@@ -11,6 +11,11 @@ class DescribeFileUploadSignedUrlRequest extends Model
     /**
      * @var string
      */
+    public $contentType;
+
+    /**
+     * @var string
+     */
     public $filename;
 
     /**
@@ -22,16 +27,11 @@ class DescribeFileUploadSignedUrlRequest extends Model
      * @var string
      */
     public $spaceId;
-
-    /**
-     * @var string
-     */
-    public $contentType;
     protected $_name = [
+        'contentType' => 'ContentType',
         'filename'    => 'Filename',
         'size'        => 'Size',
         'spaceId'     => 'SpaceId',
-        'contentType' => 'ContentType',
     ];
 
     public function validate()
@@ -41,6 +41,9 @@ class DescribeFileUploadSignedUrlRequest extends Model
     public function toMap()
     {
         $res = [];
+        if (null !== $this->contentType) {
+            $res['ContentType'] = $this->contentType;
+        }
         if (null !== $this->filename) {
             $res['Filename'] = $this->filename;
         }
@@ -49,9 +52,6 @@ class DescribeFileUploadSignedUrlRequest extends Model
         }
         if (null !== $this->spaceId) {
             $res['SpaceId'] = $this->spaceId;
-        }
-        if (null !== $this->contentType) {
-            $res['ContentType'] = $this->contentType;
         }
 
         return $res;
@@ -65,6 +65,9 @@ class DescribeFileUploadSignedUrlRequest extends Model
     public static function fromMap($map = [])
     {
         $model = new self();
+        if (isset($map['ContentType'])) {
+            $model->contentType = $map['ContentType'];
+        }
         if (isset($map['Filename'])) {
             $model->filename = $map['Filename'];
         }
@@ -73,9 +76,6 @@ class DescribeFileUploadSignedUrlRequest extends Model
         }
         if (isset($map['SpaceId'])) {
             $model->spaceId = $map['SpaceId'];
-        }
-        if (isset($map['ContentType'])) {
-            $model->contentType = $map['ContentType'];
         }
 
         return $model;

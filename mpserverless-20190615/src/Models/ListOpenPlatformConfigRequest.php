@@ -11,15 +11,15 @@ class ListOpenPlatformConfigRequest extends Model
     /**
      * @var string
      */
-    public $spaceId;
+    public $platform;
 
     /**
      * @var string
      */
-    public $platform;
+    public $spaceId;
     protected $_name = [
-        'spaceId'  => 'SpaceId',
         'platform' => 'Platform',
+        'spaceId'  => 'SpaceId',
     ];
 
     public function validate()
@@ -29,11 +29,11 @@ class ListOpenPlatformConfigRequest extends Model
     public function toMap()
     {
         $res = [];
-        if (null !== $this->spaceId) {
-            $res['SpaceId'] = $this->spaceId;
-        }
         if (null !== $this->platform) {
             $res['Platform'] = $this->platform;
+        }
+        if (null !== $this->spaceId) {
+            $res['SpaceId'] = $this->spaceId;
         }
 
         return $res;
@@ -47,11 +47,11 @@ class ListOpenPlatformConfigRequest extends Model
     public static function fromMap($map = [])
     {
         $model = new self();
-        if (isset($map['SpaceId'])) {
-            $model->spaceId = $map['SpaceId'];
-        }
         if (isset($map['Platform'])) {
             $model->platform = $map['Platform'];
+        }
+        if (isset($map['SpaceId'])) {
+            $model->spaceId = $map['SpaceId'];
         }
 
         return $model;

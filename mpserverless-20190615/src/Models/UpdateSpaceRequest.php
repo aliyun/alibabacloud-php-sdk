@@ -11,20 +11,20 @@ class UpdateSpaceRequest extends Model
     /**
      * @var string
      */
-    public $spaceId;
+    public $desc;
 
     /**
      * @var string
      */
-    public $desc;
+    public $spaceId;
 
     /**
      * @var string
      */
     public $status;
     protected $_name = [
-        'spaceId' => 'SpaceId',
         'desc'    => 'Desc',
+        'spaceId' => 'SpaceId',
         'status'  => 'Status',
     ];
 
@@ -35,11 +35,11 @@ class UpdateSpaceRequest extends Model
     public function toMap()
     {
         $res = [];
-        if (null !== $this->spaceId) {
-            $res['SpaceId'] = $this->spaceId;
-        }
         if (null !== $this->desc) {
             $res['Desc'] = $this->desc;
+        }
+        if (null !== $this->spaceId) {
+            $res['SpaceId'] = $this->spaceId;
         }
         if (null !== $this->status) {
             $res['Status'] = $this->status;
@@ -56,11 +56,11 @@ class UpdateSpaceRequest extends Model
     public static function fromMap($map = [])
     {
         $model = new self();
-        if (isset($map['SpaceId'])) {
-            $model->spaceId = $map['SpaceId'];
-        }
         if (isset($map['Desc'])) {
             $model->desc = $map['Desc'];
+        }
+        if (isset($map['SpaceId'])) {
+            $model->spaceId = $map['SpaceId'];
         }
         if (isset($map['Status'])) {
             $model->status = $map['Status'];

@@ -17,15 +17,9 @@ class QueryServiceStatusResponseBody extends Model
      * @var string
      */
     public $serviceStatus;
-
-    /**
-     * @var int
-     */
-    public $count;
     protected $_name = [
         'requestId'     => 'RequestId',
         'serviceStatus' => 'ServiceStatus',
-        'count'         => 'Count',
     ];
 
     public function validate()
@@ -40,9 +34,6 @@ class QueryServiceStatusResponseBody extends Model
         }
         if (null !== $this->serviceStatus) {
             $res['ServiceStatus'] = $this->serviceStatus;
-        }
-        if (null !== $this->count) {
-            $res['Count'] = $this->count;
         }
 
         return $res;
@@ -61,9 +52,6 @@ class QueryServiceStatusResponseBody extends Model
         }
         if (isset($map['ServiceStatus'])) {
             $model->serviceStatus = $map['ServiceStatus'];
-        }
-        if (isset($map['Count'])) {
-            $model->count = $map['Count'];
         }
 
         return $model;

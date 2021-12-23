@@ -11,7 +11,7 @@ class RenameDBCollectionRequest extends Model
     /**
      * @var string
      */
-    public $spaceId;
+    public $newCollection;
 
     /**
      * @var string
@@ -21,11 +21,11 @@ class RenameDBCollectionRequest extends Model
     /**
      * @var string
      */
-    public $newCollection;
+    public $spaceId;
     protected $_name = [
-        'spaceId'          => 'SpaceId',
-        'originCollection' => 'OriginCollection',
         'newCollection'    => 'NewCollection',
+        'originCollection' => 'OriginCollection',
+        'spaceId'          => 'SpaceId',
     ];
 
     public function validate()
@@ -35,14 +35,14 @@ class RenameDBCollectionRequest extends Model
     public function toMap()
     {
         $res = [];
-        if (null !== $this->spaceId) {
-            $res['SpaceId'] = $this->spaceId;
+        if (null !== $this->newCollection) {
+            $res['NewCollection'] = $this->newCollection;
         }
         if (null !== $this->originCollection) {
             $res['OriginCollection'] = $this->originCollection;
         }
-        if (null !== $this->newCollection) {
-            $res['NewCollection'] = $this->newCollection;
+        if (null !== $this->spaceId) {
+            $res['SpaceId'] = $this->spaceId;
         }
 
         return $res;
@@ -56,14 +56,14 @@ class RenameDBCollectionRequest extends Model
     public static function fromMap($map = [])
     {
         $model = new self();
-        if (isset($map['SpaceId'])) {
-            $model->spaceId = $map['SpaceId'];
+        if (isset($map['NewCollection'])) {
+            $model->newCollection = $map['NewCollection'];
         }
         if (isset($map['OriginCollection'])) {
             $model->originCollection = $map['OriginCollection'];
         }
-        if (isset($map['NewCollection'])) {
-            $model->newCollection = $map['NewCollection'];
+        if (isset($map['SpaceId'])) {
+            $model->spaceId = $map['SpaceId'];
         }
 
         return $model;

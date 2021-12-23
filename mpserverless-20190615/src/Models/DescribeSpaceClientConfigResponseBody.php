@@ -16,21 +16,6 @@ class DescribeSpaceClientConfigResponseBody extends Model
     /**
      * @var string
      */
-    public $spaceId;
-
-    /**
-     * @var string
-     */
-    public $requestId;
-
-    /**
-     * @var string
-     */
-    public $privateKey;
-
-    /**
-     * @var string
-     */
     public $endpoint;
 
     /**
@@ -42,14 +27,29 @@ class DescribeSpaceClientConfigResponseBody extends Model
      * @var string
      */
     public $name;
+
+    /**
+     * @var string
+     */
+    public $privateKey;
+
+    /**
+     * @var string
+     */
+    public $requestId;
+
+    /**
+     * @var string
+     */
+    public $spaceId;
     protected $_name = [
         'apiKey'             => 'ApiKey',
-        'spaceId'            => 'SpaceId',
-        'requestId'          => 'RequestId',
-        'privateKey'         => 'PrivateKey',
         'endpoint'           => 'Endpoint',
         'fileUploadEndpoint' => 'FileUploadEndpoint',
         'name'               => 'Name',
+        'privateKey'         => 'PrivateKey',
+        'requestId'          => 'RequestId',
+        'spaceId'            => 'SpaceId',
     ];
 
     public function validate()
@@ -62,15 +62,6 @@ class DescribeSpaceClientConfigResponseBody extends Model
         if (null !== $this->apiKey) {
             $res['ApiKey'] = $this->apiKey;
         }
-        if (null !== $this->spaceId) {
-            $res['SpaceId'] = $this->spaceId;
-        }
-        if (null !== $this->requestId) {
-            $res['RequestId'] = $this->requestId;
-        }
-        if (null !== $this->privateKey) {
-            $res['PrivateKey'] = $this->privateKey;
-        }
         if (null !== $this->endpoint) {
             $res['Endpoint'] = $this->endpoint;
         }
@@ -79,6 +70,15 @@ class DescribeSpaceClientConfigResponseBody extends Model
         }
         if (null !== $this->name) {
             $res['Name'] = $this->name;
+        }
+        if (null !== $this->privateKey) {
+            $res['PrivateKey'] = $this->privateKey;
+        }
+        if (null !== $this->requestId) {
+            $res['RequestId'] = $this->requestId;
+        }
+        if (null !== $this->spaceId) {
+            $res['SpaceId'] = $this->spaceId;
         }
 
         return $res;
@@ -95,15 +95,6 @@ class DescribeSpaceClientConfigResponseBody extends Model
         if (isset($map['ApiKey'])) {
             $model->apiKey = $map['ApiKey'];
         }
-        if (isset($map['SpaceId'])) {
-            $model->spaceId = $map['SpaceId'];
-        }
-        if (isset($map['RequestId'])) {
-            $model->requestId = $map['RequestId'];
-        }
-        if (isset($map['PrivateKey'])) {
-            $model->privateKey = $map['PrivateKey'];
-        }
         if (isset($map['Endpoint'])) {
             $model->endpoint = $map['Endpoint'];
         }
@@ -112,6 +103,15 @@ class DescribeSpaceClientConfigResponseBody extends Model
         }
         if (isset($map['Name'])) {
             $model->name = $map['Name'];
+        }
+        if (isset($map['PrivateKey'])) {
+            $model->privateKey = $map['PrivateKey'];
+        }
+        if (isset($map['RequestId'])) {
+            $model->requestId = $map['RequestId'];
+        }
+        if (isset($map['SpaceId'])) {
+            $model->spaceId = $map['SpaceId'];
         }
 
         return $model;

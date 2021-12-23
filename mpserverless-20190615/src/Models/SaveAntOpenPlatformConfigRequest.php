@@ -11,7 +11,7 @@ class SaveAntOpenPlatformConfigRequest extends Model
     /**
      * @var string
      */
-    public $spaceId;
+    public $appCert;
 
     /**
      * @var string
@@ -21,22 +21,7 @@ class SaveAntOpenPlatformConfigRequest extends Model
     /**
      * @var string
      */
-    public $publicKey;
-
-    /**
-     * @var string
-     */
     public $privateKey;
-
-    /**
-     * @var string
-     */
-    public $signMode;
-
-    /**
-     * @var string
-     */
-    public $appCert;
 
     /**
      * @var string
@@ -46,16 +31,31 @@ class SaveAntOpenPlatformConfigRequest extends Model
     /**
      * @var string
      */
+    public $publicKey;
+
+    /**
+     * @var string
+     */
     public $rootCert;
+
+    /**
+     * @var string
+     */
+    public $signMode;
+
+    /**
+     * @var string
+     */
+    public $spaceId;
     protected $_name = [
-        'spaceId'    => 'SpaceId',
-        'appId'      => 'AppId',
-        'publicKey'  => 'PublicKey',
-        'privateKey' => 'PrivateKey',
-        'signMode'   => 'SignMode',
         'appCert'    => 'AppCert',
+        'appId'      => 'AppId',
+        'privateKey' => 'PrivateKey',
         'publicCert' => 'PublicCert',
+        'publicKey'  => 'PublicKey',
         'rootCert'   => 'RootCert',
+        'signMode'   => 'SignMode',
+        'spaceId'    => 'SpaceId',
     ];
 
     public function validate()
@@ -65,29 +65,29 @@ class SaveAntOpenPlatformConfigRequest extends Model
     public function toMap()
     {
         $res = [];
-        if (null !== $this->spaceId) {
-            $res['SpaceId'] = $this->spaceId;
+        if (null !== $this->appCert) {
+            $res['AppCert'] = $this->appCert;
         }
         if (null !== $this->appId) {
             $res['AppId'] = $this->appId;
         }
-        if (null !== $this->publicKey) {
-            $res['PublicKey'] = $this->publicKey;
-        }
         if (null !== $this->privateKey) {
             $res['PrivateKey'] = $this->privateKey;
-        }
-        if (null !== $this->signMode) {
-            $res['SignMode'] = $this->signMode;
-        }
-        if (null !== $this->appCert) {
-            $res['AppCert'] = $this->appCert;
         }
         if (null !== $this->publicCert) {
             $res['PublicCert'] = $this->publicCert;
         }
+        if (null !== $this->publicKey) {
+            $res['PublicKey'] = $this->publicKey;
+        }
         if (null !== $this->rootCert) {
             $res['RootCert'] = $this->rootCert;
+        }
+        if (null !== $this->signMode) {
+            $res['SignMode'] = $this->signMode;
+        }
+        if (null !== $this->spaceId) {
+            $res['SpaceId'] = $this->spaceId;
         }
 
         return $res;
@@ -101,29 +101,29 @@ class SaveAntOpenPlatformConfigRequest extends Model
     public static function fromMap($map = [])
     {
         $model = new self();
-        if (isset($map['SpaceId'])) {
-            $model->spaceId = $map['SpaceId'];
+        if (isset($map['AppCert'])) {
+            $model->appCert = $map['AppCert'];
         }
         if (isset($map['AppId'])) {
             $model->appId = $map['AppId'];
         }
-        if (isset($map['PublicKey'])) {
-            $model->publicKey = $map['PublicKey'];
-        }
         if (isset($map['PrivateKey'])) {
             $model->privateKey = $map['PrivateKey'];
-        }
-        if (isset($map['SignMode'])) {
-            $model->signMode = $map['SignMode'];
-        }
-        if (isset($map['AppCert'])) {
-            $model->appCert = $map['AppCert'];
         }
         if (isset($map['PublicCert'])) {
             $model->publicCert = $map['PublicCert'];
         }
+        if (isset($map['PublicKey'])) {
+            $model->publicKey = $map['PublicKey'];
+        }
         if (isset($map['RootCert'])) {
             $model->rootCert = $map['RootCert'];
+        }
+        if (isset($map['SignMode'])) {
+            $model->signMode = $map['SignMode'];
+        }
+        if (isset($map['SpaceId'])) {
+            $model->spaceId = $map['SpaceId'];
         }
 
         return $model;

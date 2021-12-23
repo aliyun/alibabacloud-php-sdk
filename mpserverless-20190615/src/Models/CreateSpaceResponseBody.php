@@ -11,15 +11,15 @@ class CreateSpaceResponseBody extends Model
     /**
      * @var string
      */
-    public $spaceId;
+    public $requestId;
 
     /**
      * @var string
      */
-    public $requestId;
+    public $spaceId;
     protected $_name = [
-        'spaceId'   => 'SpaceId',
         'requestId' => 'RequestId',
+        'spaceId'   => 'SpaceId',
     ];
 
     public function validate()
@@ -29,11 +29,11 @@ class CreateSpaceResponseBody extends Model
     public function toMap()
     {
         $res = [];
-        if (null !== $this->spaceId) {
-            $res['SpaceId'] = $this->spaceId;
-        }
         if (null !== $this->requestId) {
             $res['RequestId'] = $this->requestId;
+        }
+        if (null !== $this->spaceId) {
+            $res['SpaceId'] = $this->spaceId;
         }
 
         return $res;
@@ -47,11 +47,11 @@ class CreateSpaceResponseBody extends Model
     public static function fromMap($map = [])
     {
         $model = new self();
-        if (isset($map['SpaceId'])) {
-            $model->spaceId = $map['SpaceId'];
-        }
         if (isset($map['RequestId'])) {
             $model->requestId = $map['RequestId'];
+        }
+        if (isset($map['SpaceId'])) {
+            $model->spaceId = $map['SpaceId'];
         }
 
         return $model;

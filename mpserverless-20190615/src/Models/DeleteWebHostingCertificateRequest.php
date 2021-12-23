@@ -11,15 +11,15 @@ class DeleteWebHostingCertificateRequest extends Model
     /**
      * @var string
      */
-    public $spaceId;
+    public $domain;
 
     /**
      * @var string
      */
-    public $domain;
+    public $spaceId;
     protected $_name = [
-        'spaceId' => 'SpaceId',
         'domain'  => 'Domain',
+        'spaceId' => 'SpaceId',
     ];
 
     public function validate()
@@ -29,11 +29,11 @@ class DeleteWebHostingCertificateRequest extends Model
     public function toMap()
     {
         $res = [];
-        if (null !== $this->spaceId) {
-            $res['SpaceId'] = $this->spaceId;
-        }
         if (null !== $this->domain) {
             $res['Domain'] = $this->domain;
+        }
+        if (null !== $this->spaceId) {
+            $res['SpaceId'] = $this->spaceId;
         }
 
         return $res;
@@ -47,11 +47,11 @@ class DeleteWebHostingCertificateRequest extends Model
     public static function fromMap($map = [])
     {
         $model = new self();
-        if (isset($map['SpaceId'])) {
-            $model->spaceId = $map['SpaceId'];
-        }
         if (isset($map['Domain'])) {
             $model->domain = $map['Domain'];
+        }
+        if (isset($map['SpaceId'])) {
+            $model->spaceId = $map['SpaceId'];
         }
 
         return $model;

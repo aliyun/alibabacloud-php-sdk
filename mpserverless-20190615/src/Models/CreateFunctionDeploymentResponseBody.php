@@ -11,21 +11,21 @@ class CreateFunctionDeploymentResponseBody extends Model
     /**
      * @var string
      */
-    public $uploadSignedUrl;
-
-    /**
-     * @var string
-     */
     public $deploymentId;
 
     /**
      * @var string
      */
     public $requestId;
+
+    /**
+     * @var string
+     */
+    public $uploadSignedUrl;
     protected $_name = [
-        'uploadSignedUrl' => 'UploadSignedUrl',
         'deploymentId'    => 'DeploymentId',
         'requestId'       => 'RequestId',
+        'uploadSignedUrl' => 'UploadSignedUrl',
     ];
 
     public function validate()
@@ -35,14 +35,14 @@ class CreateFunctionDeploymentResponseBody extends Model
     public function toMap()
     {
         $res = [];
-        if (null !== $this->uploadSignedUrl) {
-            $res['UploadSignedUrl'] = $this->uploadSignedUrl;
-        }
         if (null !== $this->deploymentId) {
             $res['DeploymentId'] = $this->deploymentId;
         }
         if (null !== $this->requestId) {
             $res['RequestId'] = $this->requestId;
+        }
+        if (null !== $this->uploadSignedUrl) {
+            $res['UploadSignedUrl'] = $this->uploadSignedUrl;
         }
 
         return $res;
@@ -56,14 +56,14 @@ class CreateFunctionDeploymentResponseBody extends Model
     public static function fromMap($map = [])
     {
         $model = new self();
-        if (isset($map['UploadSignedUrl'])) {
-            $model->uploadSignedUrl = $map['UploadSignedUrl'];
-        }
         if (isset($map['DeploymentId'])) {
             $model->deploymentId = $map['DeploymentId'];
         }
         if (isset($map['RequestId'])) {
             $model->requestId = $map['RequestId'];
+        }
+        if (isset($map['UploadSignedUrl'])) {
+            $model->uploadSignedUrl = $map['UploadSignedUrl'];
         }
 
         return $model;

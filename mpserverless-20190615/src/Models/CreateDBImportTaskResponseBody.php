@@ -11,7 +11,7 @@ class CreateDBImportTaskResponseBody extends Model
     /**
      * @var string
      */
-    public $host;
+    public $accessKeyId;
 
     /**
      * @var string
@@ -26,17 +26,7 @@ class CreateDBImportTaskResponseBody extends Model
     /**
      * @var string
      */
-    public $accessKeyId;
-
-    /**
-     * @var string
-     */
-    public $signature;
-
-    /**
-     * @var string
-     */
-    public $requestId;
+    public $host;
 
     /**
      * @var string
@@ -46,15 +36,25 @@ class CreateDBImportTaskResponseBody extends Model
     /**
      * @var string
      */
+    public $requestId;
+
+    /**
+     * @var string
+     */
+    public $signature;
+
+    /**
+     * @var string
+     */
     public $taskId;
     protected $_name = [
-        'host'        => 'Host',
+        'accessKeyId' => 'AccessKeyId',
         'expireTime'  => 'ExpireTime',
         'fileKey'     => 'FileKey',
-        'accessKeyId' => 'AccessKeyId',
-        'signature'   => 'Signature',
-        'requestId'   => 'RequestId',
+        'host'        => 'Host',
         'policy'      => 'Policy',
+        'requestId'   => 'RequestId',
+        'signature'   => 'Signature',
         'taskId'      => 'TaskId',
     ];
 
@@ -65,8 +65,8 @@ class CreateDBImportTaskResponseBody extends Model
     public function toMap()
     {
         $res = [];
-        if (null !== $this->host) {
-            $res['Host'] = $this->host;
+        if (null !== $this->accessKeyId) {
+            $res['AccessKeyId'] = $this->accessKeyId;
         }
         if (null !== $this->expireTime) {
             $res['ExpireTime'] = $this->expireTime;
@@ -74,17 +74,17 @@ class CreateDBImportTaskResponseBody extends Model
         if (null !== $this->fileKey) {
             $res['FileKey'] = $this->fileKey;
         }
-        if (null !== $this->accessKeyId) {
-            $res['AccessKeyId'] = $this->accessKeyId;
+        if (null !== $this->host) {
+            $res['Host'] = $this->host;
         }
-        if (null !== $this->signature) {
-            $res['Signature'] = $this->signature;
+        if (null !== $this->policy) {
+            $res['Policy'] = $this->policy;
         }
         if (null !== $this->requestId) {
             $res['RequestId'] = $this->requestId;
         }
-        if (null !== $this->policy) {
-            $res['Policy'] = $this->policy;
+        if (null !== $this->signature) {
+            $res['Signature'] = $this->signature;
         }
         if (null !== $this->taskId) {
             $res['TaskId'] = $this->taskId;
@@ -101,8 +101,8 @@ class CreateDBImportTaskResponseBody extends Model
     public static function fromMap($map = [])
     {
         $model = new self();
-        if (isset($map['Host'])) {
-            $model->host = $map['Host'];
+        if (isset($map['AccessKeyId'])) {
+            $model->accessKeyId = $map['AccessKeyId'];
         }
         if (isset($map['ExpireTime'])) {
             $model->expireTime = $map['ExpireTime'];
@@ -110,17 +110,17 @@ class CreateDBImportTaskResponseBody extends Model
         if (isset($map['FileKey'])) {
             $model->fileKey = $map['FileKey'];
         }
-        if (isset($map['AccessKeyId'])) {
-            $model->accessKeyId = $map['AccessKeyId'];
+        if (isset($map['Host'])) {
+            $model->host = $map['Host'];
         }
-        if (isset($map['Signature'])) {
-            $model->signature = $map['Signature'];
+        if (isset($map['Policy'])) {
+            $model->policy = $map['Policy'];
         }
         if (isset($map['RequestId'])) {
             $model->requestId = $map['RequestId'];
         }
-        if (isset($map['Policy'])) {
-            $model->policy = $map['Policy'];
+        if (isset($map['Signature'])) {
+            $model->signature = $map['Signature'];
         }
         if (isset($map['TaskId'])) {
             $model->taskId = $map['TaskId'];

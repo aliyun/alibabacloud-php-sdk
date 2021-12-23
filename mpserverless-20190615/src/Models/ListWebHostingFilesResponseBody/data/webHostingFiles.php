@@ -11,11 +11,6 @@ class webHostingFiles extends Model
     /**
      * @var string
      */
-    public $filePath;
-
-    /**
-     * @var string
-     */
     public $contentType;
 
     /**
@@ -24,9 +19,9 @@ class webHostingFiles extends Model
     public $ETag;
 
     /**
-     * @var int
+     * @var string
      */
-    public $size;
+    public $filePath;
 
     /**
      * @var int
@@ -37,13 +32,18 @@ class webHostingFiles extends Model
      * @var string
      */
     public $signedUrl;
+
+    /**
+     * @var int
+     */
+    public $size;
     protected $_name = [
-        'filePath'         => 'FilePath',
         'contentType'      => 'ContentType',
         'ETag'             => 'ETag',
-        'size'             => 'Size',
+        'filePath'         => 'FilePath',
         'lastModifiedTime' => 'LastModifiedTime',
         'signedUrl'        => 'SignedUrl',
+        'size'             => 'Size',
     ];
 
     public function validate()
@@ -53,23 +53,23 @@ class webHostingFiles extends Model
     public function toMap()
     {
         $res = [];
-        if (null !== $this->filePath) {
-            $res['FilePath'] = $this->filePath;
-        }
         if (null !== $this->contentType) {
             $res['ContentType'] = $this->contentType;
         }
         if (null !== $this->ETag) {
             $res['ETag'] = $this->ETag;
         }
-        if (null !== $this->size) {
-            $res['Size'] = $this->size;
+        if (null !== $this->filePath) {
+            $res['FilePath'] = $this->filePath;
         }
         if (null !== $this->lastModifiedTime) {
             $res['LastModifiedTime'] = $this->lastModifiedTime;
         }
         if (null !== $this->signedUrl) {
             $res['SignedUrl'] = $this->signedUrl;
+        }
+        if (null !== $this->size) {
+            $res['Size'] = $this->size;
         }
 
         return $res;
@@ -83,23 +83,23 @@ class webHostingFiles extends Model
     public static function fromMap($map = [])
     {
         $model = new self();
-        if (isset($map['FilePath'])) {
-            $model->filePath = $map['FilePath'];
-        }
         if (isset($map['ContentType'])) {
             $model->contentType = $map['ContentType'];
         }
         if (isset($map['ETag'])) {
             $model->ETag = $map['ETag'];
         }
-        if (isset($map['Size'])) {
-            $model->size = $map['Size'];
+        if (isset($map['FilePath'])) {
+            $model->filePath = $map['FilePath'];
         }
         if (isset($map['LastModifiedTime'])) {
             $model->lastModifiedTime = $map['LastModifiedTime'];
         }
         if (isset($map['SignedUrl'])) {
             $model->signedUrl = $map['SignedUrl'];
+        }
+        if (isset($map['Size'])) {
+            $model->size = $map['Size'];
         }
 
         return $model;

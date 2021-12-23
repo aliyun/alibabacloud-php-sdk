@@ -11,7 +11,7 @@ class QueryDBRestoreTaskStatusResponseBody extends Model
     /**
      * @var string
      */
-    public $status;
+    public $detailMessage;
 
     /**
      * @var int
@@ -26,17 +26,17 @@ class QueryDBRestoreTaskStatusResponseBody extends Model
     /**
      * @var string
      */
-    public $detailMessage;
+    public $status;
 
     /**
      * @var int
      */
     public $successCount;
     protected $_name = [
-        'status'        => 'Status',
+        'detailMessage' => 'DetailMessage',
         'failedCount'   => 'FailedCount',
         'requestId'     => 'RequestId',
-        'detailMessage' => 'DetailMessage',
+        'status'        => 'Status',
         'successCount'  => 'SuccessCount',
     ];
 
@@ -47,8 +47,8 @@ class QueryDBRestoreTaskStatusResponseBody extends Model
     public function toMap()
     {
         $res = [];
-        if (null !== $this->status) {
-            $res['Status'] = $this->status;
+        if (null !== $this->detailMessage) {
+            $res['DetailMessage'] = $this->detailMessage;
         }
         if (null !== $this->failedCount) {
             $res['FailedCount'] = $this->failedCount;
@@ -56,8 +56,8 @@ class QueryDBRestoreTaskStatusResponseBody extends Model
         if (null !== $this->requestId) {
             $res['RequestId'] = $this->requestId;
         }
-        if (null !== $this->detailMessage) {
-            $res['DetailMessage'] = $this->detailMessage;
+        if (null !== $this->status) {
+            $res['Status'] = $this->status;
         }
         if (null !== $this->successCount) {
             $res['SuccessCount'] = $this->successCount;
@@ -74,8 +74,8 @@ class QueryDBRestoreTaskStatusResponseBody extends Model
     public static function fromMap($map = [])
     {
         $model = new self();
-        if (isset($map['Status'])) {
-            $model->status = $map['Status'];
+        if (isset($map['DetailMessage'])) {
+            $model->detailMessage = $map['DetailMessage'];
         }
         if (isset($map['FailedCount'])) {
             $model->failedCount = $map['FailedCount'];
@@ -83,8 +83,8 @@ class QueryDBRestoreTaskStatusResponseBody extends Model
         if (isset($map['RequestId'])) {
             $model->requestId = $map['RequestId'];
         }
-        if (isset($map['DetailMessage'])) {
-            $model->detailMessage = $map['DetailMessage'];
+        if (isset($map['Status'])) {
+            $model->status = $map['Status'];
         }
         if (isset($map['SuccessCount'])) {
             $model->successCount = $map['SuccessCount'];

@@ -26,18 +26,18 @@ class deployment extends Model
     /**
      * @var string
      */
-    public $versionNo;
+    public $modifiedAt;
 
     /**
      * @var string
      */
-    public $modifiedAt;
+    public $versionNo;
     protected $_name = [
         'createdAt'         => 'CreatedAt',
         'deploymentId'      => 'DeploymentId',
         'downloadSignedUrl' => 'DownloadSignedUrl',
-        'versionNo'         => 'VersionNo',
         'modifiedAt'        => 'ModifiedAt',
+        'versionNo'         => 'VersionNo',
     ];
 
     public function validate()
@@ -56,11 +56,11 @@ class deployment extends Model
         if (null !== $this->downloadSignedUrl) {
             $res['DownloadSignedUrl'] = $this->downloadSignedUrl;
         }
-        if (null !== $this->versionNo) {
-            $res['VersionNo'] = $this->versionNo;
-        }
         if (null !== $this->modifiedAt) {
             $res['ModifiedAt'] = $this->modifiedAt;
+        }
+        if (null !== $this->versionNo) {
+            $res['VersionNo'] = $this->versionNo;
         }
 
         return $res;
@@ -83,11 +83,11 @@ class deployment extends Model
         if (isset($map['DownloadSignedUrl'])) {
             $model->downloadSignedUrl = $map['DownloadSignedUrl'];
         }
-        if (isset($map['VersionNo'])) {
-            $model->versionNo = $map['VersionNo'];
-        }
         if (isset($map['ModifiedAt'])) {
             $model->modifiedAt = $map['ModifiedAt'];
+        }
+        if (isset($map['VersionNo'])) {
+            $model->versionNo = $map['VersionNo'];
         }
 
         return $model;

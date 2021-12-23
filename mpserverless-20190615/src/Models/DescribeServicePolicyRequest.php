@@ -11,7 +11,7 @@ class DescribeServicePolicyRequest extends Model
     /**
      * @var string
      */
-    public $spaceId;
+    public $collectionName;
 
     /**
      * @var string
@@ -21,11 +21,11 @@ class DescribeServicePolicyRequest extends Model
     /**
      * @var string
      */
-    public $collectionName;
+    public $spaceId;
     protected $_name = [
-        'spaceId'        => 'SpaceId',
-        'serviceName'    => 'ServiceName',
         'collectionName' => 'CollectionName',
+        'serviceName'    => 'ServiceName',
+        'spaceId'        => 'SpaceId',
     ];
 
     public function validate()
@@ -35,14 +35,14 @@ class DescribeServicePolicyRequest extends Model
     public function toMap()
     {
         $res = [];
-        if (null !== $this->spaceId) {
-            $res['SpaceId'] = $this->spaceId;
+        if (null !== $this->collectionName) {
+            $res['CollectionName'] = $this->collectionName;
         }
         if (null !== $this->serviceName) {
             $res['ServiceName'] = $this->serviceName;
         }
-        if (null !== $this->collectionName) {
-            $res['CollectionName'] = $this->collectionName;
+        if (null !== $this->spaceId) {
+            $res['SpaceId'] = $this->spaceId;
         }
 
         return $res;
@@ -56,14 +56,14 @@ class DescribeServicePolicyRequest extends Model
     public static function fromMap($map = [])
     {
         $model = new self();
-        if (isset($map['SpaceId'])) {
-            $model->spaceId = $map['SpaceId'];
+        if (isset($map['CollectionName'])) {
+            $model->collectionName = $map['CollectionName'];
         }
         if (isset($map['ServiceName'])) {
             $model->serviceName = $map['ServiceName'];
         }
-        if (isset($map['CollectionName'])) {
-            $model->collectionName = $map['CollectionName'];
+        if (isset($map['SpaceId'])) {
+            $model->spaceId = $map['SpaceId'];
         }
 
         return $model;

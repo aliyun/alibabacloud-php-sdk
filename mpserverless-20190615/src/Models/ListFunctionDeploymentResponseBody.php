@@ -11,9 +11,9 @@ use AlibabaCloud\Tea\Model;
 class ListFunctionDeploymentResponseBody extends Model
 {
     /**
-     * @var string
+     * @var dataList[]
      */
-    public $requestId;
+    public $dataList;
 
     /**
      * @var paginator
@@ -21,13 +21,13 @@ class ListFunctionDeploymentResponseBody extends Model
     public $paginator;
 
     /**
-     * @var dataList[]
+     * @var string
      */
-    public $dataList;
+    public $requestId;
     protected $_name = [
-        'requestId' => 'RequestId',
-        'paginator' => 'Paginator',
         'dataList'  => 'DataList',
+        'paginator' => 'Paginator',
+        'requestId' => 'RequestId',
     ];
 
     public function validate()
@@ -37,12 +37,6 @@ class ListFunctionDeploymentResponseBody extends Model
     public function toMap()
     {
         $res = [];
-        if (null !== $this->requestId) {
-            $res['RequestId'] = $this->requestId;
-        }
-        if (null !== $this->paginator) {
-            $res['Paginator'] = null !== $this->paginator ? $this->paginator->toMap() : null;
-        }
         if (null !== $this->dataList) {
             $res['DataList'] = [];
             if (null !== $this->dataList && \is_array($this->dataList)) {
@@ -51,6 +45,12 @@ class ListFunctionDeploymentResponseBody extends Model
                     $res['DataList'][$n++] = null !== $item ? $item->toMap() : $item;
                 }
             }
+        }
+        if (null !== $this->paginator) {
+            $res['Paginator'] = null !== $this->paginator ? $this->paginator->toMap() : null;
+        }
+        if (null !== $this->requestId) {
+            $res['RequestId'] = $this->requestId;
         }
 
         return $res;
@@ -64,12 +64,6 @@ class ListFunctionDeploymentResponseBody extends Model
     public static function fromMap($map = [])
     {
         $model = new self();
-        if (isset($map['RequestId'])) {
-            $model->requestId = $map['RequestId'];
-        }
-        if (isset($map['Paginator'])) {
-            $model->paginator = paginator::fromMap($map['Paginator']);
-        }
         if (isset($map['DataList'])) {
             if (!empty($map['DataList'])) {
                 $model->dataList = [];
@@ -78,6 +72,12 @@ class ListFunctionDeploymentResponseBody extends Model
                     $model->dataList[$n++] = null !== $item ? dataList::fromMap($item) : $item;
                 }
             }
+        }
+        if (isset($map['Paginator'])) {
+            $model->paginator = paginator::fromMap($map['Paginator']);
+        }
+        if (isset($map['RequestId'])) {
+            $model->requestId = $map['RequestId'];
         }
 
         return $model;

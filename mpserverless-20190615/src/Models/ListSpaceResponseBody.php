@@ -10,9 +10,9 @@ use AlibabaCloud\Tea\Model;
 class ListSpaceResponseBody extends Model
 {
     /**
-     * @var string
+     * @var int
      */
-    public $requestId;
+    public $count;
 
     /**
      * @var string
@@ -20,18 +20,18 @@ class ListSpaceResponseBody extends Model
     public $gmtCreate;
 
     /**
-     * @var int
+     * @var string
      */
-    public $count;
+    public $requestId;
 
     /**
      * @var spaces[]
      */
     public $spaces;
     protected $_name = [
-        'requestId' => 'RequestId',
-        'gmtCreate' => 'GmtCreate',
         'count'     => 'Count',
+        'gmtCreate' => 'GmtCreate',
+        'requestId' => 'RequestId',
         'spaces'    => 'Spaces',
     ];
 
@@ -42,14 +42,14 @@ class ListSpaceResponseBody extends Model
     public function toMap()
     {
         $res = [];
-        if (null !== $this->requestId) {
-            $res['RequestId'] = $this->requestId;
+        if (null !== $this->count) {
+            $res['Count'] = $this->count;
         }
         if (null !== $this->gmtCreate) {
             $res['GmtCreate'] = $this->gmtCreate;
         }
-        if (null !== $this->count) {
-            $res['Count'] = $this->count;
+        if (null !== $this->requestId) {
+            $res['RequestId'] = $this->requestId;
         }
         if (null !== $this->spaces) {
             $res['Spaces'] = [];
@@ -72,14 +72,14 @@ class ListSpaceResponseBody extends Model
     public static function fromMap($map = [])
     {
         $model = new self();
-        if (isset($map['RequestId'])) {
-            $model->requestId = $map['RequestId'];
+        if (isset($map['Count'])) {
+            $model->count = $map['Count'];
         }
         if (isset($map['GmtCreate'])) {
             $model->gmtCreate = $map['GmtCreate'];
         }
-        if (isset($map['Count'])) {
-            $model->count = $map['Count'];
+        if (isset($map['RequestId'])) {
+            $model->requestId = $map['RequestId'];
         }
         if (isset($map['Spaces'])) {
             if (!empty($map['Spaces'])) {

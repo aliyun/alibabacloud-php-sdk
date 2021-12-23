@@ -11,22 +11,7 @@ class dataList extends Model
     /**
      * @var string
      */
-    public $type;
-
-    /**
-     * @var int
-     */
-    public $size;
-
-    /**
-     * @var string
-     */
     public $gmtCreate;
-
-    /**
-     * @var string
-     */
-    public $url;
 
     /**
      * @var string
@@ -36,20 +21,35 @@ class dataList extends Model
     /**
      * @var string
      */
-    public $name;
+    public $id;
 
     /**
      * @var string
      */
-    public $id;
+    public $name;
+
+    /**
+     * @var int
+     */
+    public $size;
+
+    /**
+     * @var string
+     */
+    public $type;
+
+    /**
+     * @var string
+     */
+    public $url;
     protected $_name = [
-        'type'        => 'Type',
-        'size'        => 'Size',
         'gmtCreate'   => 'GmtCreate',
-        'url'         => 'Url',
         'gmtModified' => 'GmtModified',
-        'name'        => 'Name',
         'id'          => 'Id',
+        'name'        => 'Name',
+        'size'        => 'Size',
+        'type'        => 'Type',
+        'url'         => 'Url',
     ];
 
     public function validate()
@@ -59,26 +59,26 @@ class dataList extends Model
     public function toMap()
     {
         $res = [];
-        if (null !== $this->type) {
-            $res['Type'] = $this->type;
-        }
-        if (null !== $this->size) {
-            $res['Size'] = $this->size;
-        }
         if (null !== $this->gmtCreate) {
             $res['GmtCreate'] = $this->gmtCreate;
-        }
-        if (null !== $this->url) {
-            $res['Url'] = $this->url;
         }
         if (null !== $this->gmtModified) {
             $res['GmtModified'] = $this->gmtModified;
         }
+        if (null !== $this->id) {
+            $res['Id'] = $this->id;
+        }
         if (null !== $this->name) {
             $res['Name'] = $this->name;
         }
-        if (null !== $this->id) {
-            $res['Id'] = $this->id;
+        if (null !== $this->size) {
+            $res['Size'] = $this->size;
+        }
+        if (null !== $this->type) {
+            $res['Type'] = $this->type;
+        }
+        if (null !== $this->url) {
+            $res['Url'] = $this->url;
         }
 
         return $res;
@@ -92,26 +92,26 @@ class dataList extends Model
     public static function fromMap($map = [])
     {
         $model = new self();
-        if (isset($map['Type'])) {
-            $model->type = $map['Type'];
-        }
-        if (isset($map['Size'])) {
-            $model->size = $map['Size'];
-        }
         if (isset($map['GmtCreate'])) {
             $model->gmtCreate = $map['GmtCreate'];
-        }
-        if (isset($map['Url'])) {
-            $model->url = $map['Url'];
         }
         if (isset($map['GmtModified'])) {
             $model->gmtModified = $map['GmtModified'];
         }
+        if (isset($map['Id'])) {
+            $model->id = $map['Id'];
+        }
         if (isset($map['Name'])) {
             $model->name = $map['Name'];
         }
-        if (isset($map['Id'])) {
-            $model->id = $map['Id'];
+        if (isset($map['Size'])) {
+            $model->size = $map['Size'];
+        }
+        if (isset($map['Type'])) {
+            $model->type = $map['Type'];
+        }
+        if (isset($map['Url'])) {
+            $model->url = $map['Url'];
         }
 
         return $model;

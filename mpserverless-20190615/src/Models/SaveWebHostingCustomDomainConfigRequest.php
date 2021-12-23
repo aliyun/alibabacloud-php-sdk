@@ -11,7 +11,7 @@ class SaveWebHostingCustomDomainConfigRequest extends Model
     /**
      * @var string
      */
-    public $spaceId;
+    public $domainName;
 
     /**
      * @var string
@@ -21,11 +21,11 @@ class SaveWebHostingCustomDomainConfigRequest extends Model
     /**
      * @var string
      */
-    public $domainName;
+    public $spaceId;
     protected $_name = [
-        'spaceId'           => 'SpaceId',
-        'forceRedirectType' => 'ForceRedirectType',
         'domainName'        => 'DomainName',
+        'forceRedirectType' => 'ForceRedirectType',
+        'spaceId'           => 'SpaceId',
     ];
 
     public function validate()
@@ -35,14 +35,14 @@ class SaveWebHostingCustomDomainConfigRequest extends Model
     public function toMap()
     {
         $res = [];
-        if (null !== $this->spaceId) {
-            $res['SpaceId'] = $this->spaceId;
+        if (null !== $this->domainName) {
+            $res['DomainName'] = $this->domainName;
         }
         if (null !== $this->forceRedirectType) {
             $res['ForceRedirectType'] = $this->forceRedirectType;
         }
-        if (null !== $this->domainName) {
-            $res['DomainName'] = $this->domainName;
+        if (null !== $this->spaceId) {
+            $res['SpaceId'] = $this->spaceId;
         }
 
         return $res;
@@ -56,14 +56,14 @@ class SaveWebHostingCustomDomainConfigRequest extends Model
     public static function fromMap($map = [])
     {
         $model = new self();
-        if (isset($map['SpaceId'])) {
-            $model->spaceId = $map['SpaceId'];
+        if (isset($map['DomainName'])) {
+            $model->domainName = $map['DomainName'];
         }
         if (isset($map['ForceRedirectType'])) {
             $model->forceRedirectType = $map['ForceRedirectType'];
         }
-        if (isset($map['DomainName'])) {
-            $model->domainName = $map['DomainName'];
+        if (isset($map['SpaceId'])) {
+            $model->spaceId = $map['SpaceId'];
         }
 
         return $model;

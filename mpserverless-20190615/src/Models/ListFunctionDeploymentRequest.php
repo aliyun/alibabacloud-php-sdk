@@ -9,6 +9,11 @@ use AlibabaCloud\Tea\Model;
 class ListFunctionDeploymentRequest extends Model
 {
     /**
+     * @var string
+     */
+    public $name;
+
+    /**
      * @var int
      */
     public $pageNum;
@@ -21,11 +26,6 @@ class ListFunctionDeploymentRequest extends Model
     /**
      * @var string
      */
-    public $name;
-
-    /**
-     * @var string
-     */
     public $spaceId;
 
     /**
@@ -33,9 +33,9 @@ class ListFunctionDeploymentRequest extends Model
      */
     public $status;
     protected $_name = [
+        'name'     => 'Name',
         'pageNum'  => 'PageNum',
         'pageSize' => 'PageSize',
-        'name'     => 'Name',
         'spaceId'  => 'SpaceId',
         'status'   => 'Status',
     ];
@@ -47,14 +47,14 @@ class ListFunctionDeploymentRequest extends Model
     public function toMap()
     {
         $res = [];
+        if (null !== $this->name) {
+            $res['Name'] = $this->name;
+        }
         if (null !== $this->pageNum) {
             $res['PageNum'] = $this->pageNum;
         }
         if (null !== $this->pageSize) {
             $res['PageSize'] = $this->pageSize;
-        }
-        if (null !== $this->name) {
-            $res['Name'] = $this->name;
         }
         if (null !== $this->spaceId) {
             $res['SpaceId'] = $this->spaceId;
@@ -74,14 +74,14 @@ class ListFunctionDeploymentRequest extends Model
     public static function fromMap($map = [])
     {
         $model = new self();
+        if (isset($map['Name'])) {
+            $model->name = $map['Name'];
+        }
         if (isset($map['PageNum'])) {
             $model->pageNum = $map['PageNum'];
         }
         if (isset($map['PageSize'])) {
             $model->pageSize = $map['PageSize'];
-        }
-        if (isset($map['Name'])) {
-            $model->name = $map['Name'];
         }
         if (isset($map['SpaceId'])) {
             $model->spaceId = $map['SpaceId'];

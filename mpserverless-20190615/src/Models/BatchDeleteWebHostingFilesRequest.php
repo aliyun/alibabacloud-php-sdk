@@ -9,17 +9,17 @@ use AlibabaCloud\Tea\Model;
 class BatchDeleteWebHostingFilesRequest extends Model
 {
     /**
-     * @var string
-     */
-    public $spaceId;
-
-    /**
      * @var string[]
      */
     public $filePaths;
+
+    /**
+     * @var string
+     */
+    public $spaceId;
     protected $_name = [
-        'spaceId'   => 'SpaceId',
         'filePaths' => 'FilePaths',
+        'spaceId'   => 'SpaceId',
     ];
 
     public function validate()
@@ -29,11 +29,11 @@ class BatchDeleteWebHostingFilesRequest extends Model
     public function toMap()
     {
         $res = [];
-        if (null !== $this->spaceId) {
-            $res['SpaceId'] = $this->spaceId;
-        }
         if (null !== $this->filePaths) {
             $res['FilePaths'] = $this->filePaths;
+        }
+        if (null !== $this->spaceId) {
+            $res['SpaceId'] = $this->spaceId;
         }
 
         return $res;
@@ -47,13 +47,13 @@ class BatchDeleteWebHostingFilesRequest extends Model
     public static function fromMap($map = [])
     {
         $model = new self();
-        if (isset($map['SpaceId'])) {
-            $model->spaceId = $map['SpaceId'];
-        }
         if (isset($map['FilePaths'])) {
             if (!empty($map['FilePaths'])) {
                 $model->filePaths = $map['FilePaths'];
             }
+        }
+        if (isset($map['SpaceId'])) {
+            $model->spaceId = $map['SpaceId'];
         }
 
         return $model;

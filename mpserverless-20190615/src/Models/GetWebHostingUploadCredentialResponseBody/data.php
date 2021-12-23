@@ -11,12 +11,22 @@ class data extends Model
     /**
      * @var string
      */
-    public $filePath;
+    public $accessKeyId;
 
     /**
      * @var string
      */
-    public $signature;
+    public $endpoint;
+
+    /**
+     * @var int
+     */
+    public $expiredTime;
+
+    /**
+     * @var string
+     */
+    public $filePath;
 
     /**
      * @var string
@@ -29,27 +39,17 @@ class data extends Model
     public $securityToken;
 
     /**
-     * @var int
-     */
-    public $expiredTime;
-
-    /**
      * @var string
      */
-    public $endpoint;
-
-    /**
-     * @var string
-     */
-    public $accessKeyId;
+    public $signature;
     protected $_name = [
+        'accessKeyId'   => 'AccessKeyId',
+        'endpoint'      => 'Endpoint',
+        'expiredTime'   => 'ExpiredTime',
         'filePath'      => 'FilePath',
-        'signature'     => 'Signature',
         'policy'        => 'Policy',
         'securityToken' => 'SecurityToken',
-        'expiredTime'   => 'ExpiredTime',
-        'endpoint'      => 'Endpoint',
-        'accessKeyId'   => 'AccessKeyId',
+        'signature'     => 'Signature',
     ];
 
     public function validate()
@@ -59,11 +59,17 @@ class data extends Model
     public function toMap()
     {
         $res = [];
+        if (null !== $this->accessKeyId) {
+            $res['AccessKeyId'] = $this->accessKeyId;
+        }
+        if (null !== $this->endpoint) {
+            $res['Endpoint'] = $this->endpoint;
+        }
+        if (null !== $this->expiredTime) {
+            $res['ExpiredTime'] = $this->expiredTime;
+        }
         if (null !== $this->filePath) {
             $res['FilePath'] = $this->filePath;
-        }
-        if (null !== $this->signature) {
-            $res['Signature'] = $this->signature;
         }
         if (null !== $this->policy) {
             $res['Policy'] = $this->policy;
@@ -71,14 +77,8 @@ class data extends Model
         if (null !== $this->securityToken) {
             $res['SecurityToken'] = $this->securityToken;
         }
-        if (null !== $this->expiredTime) {
-            $res['ExpiredTime'] = $this->expiredTime;
-        }
-        if (null !== $this->endpoint) {
-            $res['Endpoint'] = $this->endpoint;
-        }
-        if (null !== $this->accessKeyId) {
-            $res['AccessKeyId'] = $this->accessKeyId;
+        if (null !== $this->signature) {
+            $res['Signature'] = $this->signature;
         }
 
         return $res;
@@ -92,11 +92,17 @@ class data extends Model
     public static function fromMap($map = [])
     {
         $model = new self();
+        if (isset($map['AccessKeyId'])) {
+            $model->accessKeyId = $map['AccessKeyId'];
+        }
+        if (isset($map['Endpoint'])) {
+            $model->endpoint = $map['Endpoint'];
+        }
+        if (isset($map['ExpiredTime'])) {
+            $model->expiredTime = $map['ExpiredTime'];
+        }
         if (isset($map['FilePath'])) {
             $model->filePath = $map['FilePath'];
-        }
-        if (isset($map['Signature'])) {
-            $model->signature = $map['Signature'];
         }
         if (isset($map['Policy'])) {
             $model->policy = $map['Policy'];
@@ -104,14 +110,8 @@ class data extends Model
         if (isset($map['SecurityToken'])) {
             $model->securityToken = $map['SecurityToken'];
         }
-        if (isset($map['ExpiredTime'])) {
-            $model->expiredTime = $map['ExpiredTime'];
-        }
-        if (isset($map['Endpoint'])) {
-            $model->endpoint = $map['Endpoint'];
-        }
-        if (isset($map['AccessKeyId'])) {
-            $model->accessKeyId = $map['AccessKeyId'];
+        if (isset($map['Signature'])) {
+            $model->signature = $map['Signature'];
         }
 
         return $model;

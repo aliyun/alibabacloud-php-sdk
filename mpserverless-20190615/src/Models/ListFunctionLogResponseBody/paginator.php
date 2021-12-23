@@ -11,6 +11,11 @@ class paginator extends Model
     /**
      * @var int
      */
+    public $pageCount;
+
+    /**
+     * @var int
+     */
     public $pageNum;
 
     /**
@@ -22,16 +27,11 @@ class paginator extends Model
      * @var int
      */
     public $total;
-
-    /**
-     * @var int
-     */
-    public $pageCount;
     protected $_name = [
+        'pageCount' => 'PageCount',
         'pageNum'   => 'PageNum',
         'pageSize'  => 'PageSize',
         'total'     => 'Total',
-        'pageCount' => 'PageCount',
     ];
 
     public function validate()
@@ -41,6 +41,9 @@ class paginator extends Model
     public function toMap()
     {
         $res = [];
+        if (null !== $this->pageCount) {
+            $res['PageCount'] = $this->pageCount;
+        }
         if (null !== $this->pageNum) {
             $res['PageNum'] = $this->pageNum;
         }
@@ -49,9 +52,6 @@ class paginator extends Model
         }
         if (null !== $this->total) {
             $res['Total'] = $this->total;
-        }
-        if (null !== $this->pageCount) {
-            $res['PageCount'] = $this->pageCount;
         }
 
         return $res;
@@ -65,6 +65,9 @@ class paginator extends Model
     public static function fromMap($map = [])
     {
         $model = new self();
+        if (isset($map['PageCount'])) {
+            $model->pageCount = $map['PageCount'];
+        }
         if (isset($map['PageNum'])) {
             $model->pageNum = $map['PageNum'];
         }
@@ -73,9 +76,6 @@ class paginator extends Model
         }
         if (isset($map['Total'])) {
             $model->total = $map['Total'];
-        }
-        if (isset($map['PageCount'])) {
-            $model->pageCount = $map['PageCount'];
         }
 
         return $model;

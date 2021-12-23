@@ -11,21 +11,15 @@ class DescribeFCOpenStatusResponseBody extends Model
     /**
      * @var string
      */
-    public $status;
+    public $requestId;
 
     /**
      * @var string
      */
-    public $requestId;
-
-    /**
-     * @var bool
-     */
-    public $isAuthorized;
+    public $status;
     protected $_name = [
-        'status'       => 'Status',
-        'requestId'    => 'RequestId',
-        'isAuthorized' => 'IsAuthorized',
+        'requestId' => 'RequestId',
+        'status'    => 'Status',
     ];
 
     public function validate()
@@ -35,14 +29,11 @@ class DescribeFCOpenStatusResponseBody extends Model
     public function toMap()
     {
         $res = [];
-        if (null !== $this->status) {
-            $res['Status'] = $this->status;
-        }
         if (null !== $this->requestId) {
             $res['RequestId'] = $this->requestId;
         }
-        if (null !== $this->isAuthorized) {
-            $res['IsAuthorized'] = $this->isAuthorized;
+        if (null !== $this->status) {
+            $res['Status'] = $this->status;
         }
 
         return $res;
@@ -56,14 +47,11 @@ class DescribeFCOpenStatusResponseBody extends Model
     public static function fromMap($map = [])
     {
         $model = new self();
-        if (isset($map['Status'])) {
-            $model->status = $map['Status'];
-        }
         if (isset($map['RequestId'])) {
             $model->requestId = $map['RequestId'];
         }
-        if (isset($map['IsAuthorized'])) {
-            $model->isAuthorized = $map['IsAuthorized'];
+        if (isset($map['Status'])) {
+            $model->status = $map['Status'];
         }
 
         return $model;

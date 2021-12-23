@@ -11,7 +11,7 @@ class ListFileRequest extends Model
     /**
      * @var string
      */
-    public $spaceId;
+    public $keyword;
 
     /**
      * @var int
@@ -26,12 +26,12 @@ class ListFileRequest extends Model
     /**
      * @var string
      */
-    public $keyword;
+    public $spaceId;
     protected $_name = [
-        'spaceId'  => 'SpaceId',
+        'keyword'  => 'Keyword',
         'pageNum'  => 'PageNum',
         'pageSize' => 'PageSize',
-        'keyword'  => 'Keyword',
+        'spaceId'  => 'SpaceId',
     ];
 
     public function validate()
@@ -41,8 +41,8 @@ class ListFileRequest extends Model
     public function toMap()
     {
         $res = [];
-        if (null !== $this->spaceId) {
-            $res['SpaceId'] = $this->spaceId;
+        if (null !== $this->keyword) {
+            $res['Keyword'] = $this->keyword;
         }
         if (null !== $this->pageNum) {
             $res['PageNum'] = $this->pageNum;
@@ -50,8 +50,8 @@ class ListFileRequest extends Model
         if (null !== $this->pageSize) {
             $res['PageSize'] = $this->pageSize;
         }
-        if (null !== $this->keyword) {
-            $res['Keyword'] = $this->keyword;
+        if (null !== $this->spaceId) {
+            $res['SpaceId'] = $this->spaceId;
         }
 
         return $res;
@@ -65,8 +65,8 @@ class ListFileRequest extends Model
     public static function fromMap($map = [])
     {
         $model = new self();
-        if (isset($map['SpaceId'])) {
-            $model->spaceId = $map['SpaceId'];
+        if (isset($map['Keyword'])) {
+            $model->keyword = $map['Keyword'];
         }
         if (isset($map['PageNum'])) {
             $model->pageNum = $map['PageNum'];
@@ -74,8 +74,8 @@ class ListFileRequest extends Model
         if (isset($map['PageSize'])) {
             $model->pageSize = $map['PageSize'];
         }
-        if (isset($map['Keyword'])) {
-            $model->keyword = $map['Keyword'];
+        if (isset($map['SpaceId'])) {
+            $model->spaceId = $map['SpaceId'];
         }
 
         return $model;

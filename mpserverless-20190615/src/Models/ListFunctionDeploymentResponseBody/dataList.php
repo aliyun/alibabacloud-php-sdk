@@ -27,24 +27,24 @@ class dataList extends Model
     /**
      * @var string
      */
-    public $versionNo;
-
-    /**
-     * @var string
-     */
     public $modifiedAt;
 
     /**
      * @var status
      */
     public $status;
+
+    /**
+     * @var string
+     */
+    public $versionNo;
     protected $_name = [
         'createdAt'         => 'CreatedAt',
         'deploymentId'      => 'DeploymentId',
         'downloadSignedUrl' => 'DownloadSignedUrl',
-        'versionNo'         => 'VersionNo',
         'modifiedAt'        => 'ModifiedAt',
         'status'            => 'Status',
+        'versionNo'         => 'VersionNo',
     ];
 
     public function validate()
@@ -63,14 +63,14 @@ class dataList extends Model
         if (null !== $this->downloadSignedUrl) {
             $res['DownloadSignedUrl'] = $this->downloadSignedUrl;
         }
-        if (null !== $this->versionNo) {
-            $res['VersionNo'] = $this->versionNo;
-        }
         if (null !== $this->modifiedAt) {
             $res['ModifiedAt'] = $this->modifiedAt;
         }
         if (null !== $this->status) {
             $res['Status'] = null !== $this->status ? $this->status->toMap() : null;
+        }
+        if (null !== $this->versionNo) {
+            $res['VersionNo'] = $this->versionNo;
         }
 
         return $res;
@@ -93,14 +93,14 @@ class dataList extends Model
         if (isset($map['DownloadSignedUrl'])) {
             $model->downloadSignedUrl = $map['DownloadSignedUrl'];
         }
-        if (isset($map['VersionNo'])) {
-            $model->versionNo = $map['VersionNo'];
-        }
         if (isset($map['ModifiedAt'])) {
             $model->modifiedAt = $map['ModifiedAt'];
         }
         if (isset($map['Status'])) {
             $model->status = status::fromMap($map['Status']);
+        }
+        if (isset($map['VersionNo'])) {
+            $model->versionNo = $map['VersionNo'];
         }
 
         return $model;

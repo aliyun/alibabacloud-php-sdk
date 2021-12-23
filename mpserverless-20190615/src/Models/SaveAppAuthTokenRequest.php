@@ -11,12 +11,7 @@ class SaveAppAuthTokenRequest extends Model
     /**
      * @var string
      */
-    public $spaceId;
-
-    /**
-     * @var string
-     */
-    public $isvAppId;
+    public $appAuthToken;
 
     /**
      * @var string
@@ -26,12 +21,17 @@ class SaveAppAuthTokenRequest extends Model
     /**
      * @var string
      */
-    public $appAuthToken;
+    public $isvAppId;
+
+    /**
+     * @var string
+     */
+    public $spaceId;
     protected $_name = [
-        'spaceId'      => 'SpaceId',
-        'isvAppId'     => 'IsvAppId',
-        'appId'        => 'AppId',
         'appAuthToken' => 'AppAuthToken',
+        'appId'        => 'AppId',
+        'isvAppId'     => 'IsvAppId',
+        'spaceId'      => 'SpaceId',
     ];
 
     public function validate()
@@ -41,17 +41,17 @@ class SaveAppAuthTokenRequest extends Model
     public function toMap()
     {
         $res = [];
-        if (null !== $this->spaceId) {
-            $res['SpaceId'] = $this->spaceId;
-        }
-        if (null !== $this->isvAppId) {
-            $res['IsvAppId'] = $this->isvAppId;
+        if (null !== $this->appAuthToken) {
+            $res['AppAuthToken'] = $this->appAuthToken;
         }
         if (null !== $this->appId) {
             $res['AppId'] = $this->appId;
         }
-        if (null !== $this->appAuthToken) {
-            $res['AppAuthToken'] = $this->appAuthToken;
+        if (null !== $this->isvAppId) {
+            $res['IsvAppId'] = $this->isvAppId;
+        }
+        if (null !== $this->spaceId) {
+            $res['SpaceId'] = $this->spaceId;
         }
 
         return $res;
@@ -65,17 +65,17 @@ class SaveAppAuthTokenRequest extends Model
     public static function fromMap($map = [])
     {
         $model = new self();
-        if (isset($map['SpaceId'])) {
-            $model->spaceId = $map['SpaceId'];
-        }
-        if (isset($map['IsvAppId'])) {
-            $model->isvAppId = $map['IsvAppId'];
+        if (isset($map['AppAuthToken'])) {
+            $model->appAuthToken = $map['AppAuthToken'];
         }
         if (isset($map['AppId'])) {
             $model->appId = $map['AppId'];
         }
-        if (isset($map['AppAuthToken'])) {
-            $model->appAuthToken = $map['AppAuthToken'];
+        if (isset($map['IsvAppId'])) {
+            $model->isvAppId = $map['IsvAppId'];
+        }
+        if (isset($map['SpaceId'])) {
+            $model->spaceId = $map['SpaceId'];
         }
 
         return $model;

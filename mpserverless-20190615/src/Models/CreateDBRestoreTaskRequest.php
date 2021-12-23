@@ -11,12 +11,12 @@ class CreateDBRestoreTaskRequest extends Model
     /**
      * @var string
      */
-    public $spaceId;
+    public $backupId;
 
     /**
      * @var string
      */
-    public $backupId;
+    public $newCollections;
 
     /**
      * @var string
@@ -26,12 +26,12 @@ class CreateDBRestoreTaskRequest extends Model
     /**
      * @var string
      */
-    public $newCollections;
+    public $spaceId;
     protected $_name = [
-        'spaceId'           => 'SpaceId',
         'backupId'          => 'BackupId',
-        'originCollections' => 'OriginCollections',
         'newCollections'    => 'NewCollections',
+        'originCollections' => 'OriginCollections',
+        'spaceId'           => 'SpaceId',
     ];
 
     public function validate()
@@ -41,17 +41,17 @@ class CreateDBRestoreTaskRequest extends Model
     public function toMap()
     {
         $res = [];
-        if (null !== $this->spaceId) {
-            $res['SpaceId'] = $this->spaceId;
-        }
         if (null !== $this->backupId) {
             $res['BackupId'] = $this->backupId;
+        }
+        if (null !== $this->newCollections) {
+            $res['NewCollections'] = $this->newCollections;
         }
         if (null !== $this->originCollections) {
             $res['OriginCollections'] = $this->originCollections;
         }
-        if (null !== $this->newCollections) {
-            $res['NewCollections'] = $this->newCollections;
+        if (null !== $this->spaceId) {
+            $res['SpaceId'] = $this->spaceId;
         }
 
         return $res;
@@ -65,17 +65,17 @@ class CreateDBRestoreTaskRequest extends Model
     public static function fromMap($map = [])
     {
         $model = new self();
-        if (isset($map['SpaceId'])) {
-            $model->spaceId = $map['SpaceId'];
-        }
         if (isset($map['BackupId'])) {
             $model->backupId = $map['BackupId'];
+        }
+        if (isset($map['NewCollections'])) {
+            $model->newCollections = $map['NewCollections'];
         }
         if (isset($map['OriginCollections'])) {
             $model->originCollections = $map['OriginCollections'];
         }
-        if (isset($map['NewCollections'])) {
-            $model->newCollections = $map['NewCollections'];
+        if (isset($map['SpaceId'])) {
+            $model->spaceId = $map['SpaceId'];
         }
 
         return $model;

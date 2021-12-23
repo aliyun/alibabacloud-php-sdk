@@ -11,20 +11,20 @@ class DescribeSpaceClientConfigRequest extends Model
     /**
      * @var string
      */
-    public $spaceId;
+    public $detail;
 
     /**
      * @var string
      */
-    public $detail;
+    public $spaceId;
 
     /**
      * @var int
      */
     public $workspaceId;
     protected $_name = [
-        'spaceId'     => 'SpaceId',
         'detail'      => 'Detail',
+        'spaceId'     => 'SpaceId',
         'workspaceId' => 'WorkspaceId',
     ];
 
@@ -35,11 +35,11 @@ class DescribeSpaceClientConfigRequest extends Model
     public function toMap()
     {
         $res = [];
-        if (null !== $this->spaceId) {
-            $res['SpaceId'] = $this->spaceId;
-        }
         if (null !== $this->detail) {
             $res['Detail'] = $this->detail;
+        }
+        if (null !== $this->spaceId) {
+            $res['SpaceId'] = $this->spaceId;
         }
         if (null !== $this->workspaceId) {
             $res['WorkspaceId'] = $this->workspaceId;
@@ -56,11 +56,11 @@ class DescribeSpaceClientConfigRequest extends Model
     public static function fromMap($map = [])
     {
         $model = new self();
-        if (isset($map['SpaceId'])) {
-            $model->spaceId = $map['SpaceId'];
-        }
         if (isset($map['Detail'])) {
             $model->detail = $map['Detail'];
+        }
+        if (isset($map['SpaceId'])) {
+            $model->spaceId = $map['SpaceId'];
         }
         if (isset($map['WorkspaceId'])) {
             $model->workspaceId = $map['WorkspaceId'];

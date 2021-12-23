@@ -10,17 +10,17 @@ use AlibabaCloud\Tea\Model;
 class QueryDBBackupDumpTimesResponseBody extends Model
 {
     /**
-     * @var string
-     */
-    public $requestId;
-
-    /**
      * @var backupDumpTimes[]
      */
     public $backupDumpTimes;
+
+    /**
+     * @var string
+     */
+    public $requestId;
     protected $_name = [
-        'requestId'       => 'RequestId',
         'backupDumpTimes' => 'BackupDumpTimes',
+        'requestId'       => 'RequestId',
     ];
 
     public function validate()
@@ -30,9 +30,6 @@ class QueryDBBackupDumpTimesResponseBody extends Model
     public function toMap()
     {
         $res = [];
-        if (null !== $this->requestId) {
-            $res['RequestId'] = $this->requestId;
-        }
         if (null !== $this->backupDumpTimes) {
             $res['BackupDumpTimes'] = [];
             if (null !== $this->backupDumpTimes && \is_array($this->backupDumpTimes)) {
@@ -41,6 +38,9 @@ class QueryDBBackupDumpTimesResponseBody extends Model
                     $res['BackupDumpTimes'][$n++] = null !== $item ? $item->toMap() : $item;
                 }
             }
+        }
+        if (null !== $this->requestId) {
+            $res['RequestId'] = $this->requestId;
         }
 
         return $res;
@@ -54,9 +54,6 @@ class QueryDBBackupDumpTimesResponseBody extends Model
     public static function fromMap($map = [])
     {
         $model = new self();
-        if (isset($map['RequestId'])) {
-            $model->requestId = $map['RequestId'];
-        }
         if (isset($map['BackupDumpTimes'])) {
             if (!empty($map['BackupDumpTimes'])) {
                 $model->backupDumpTimes = [];
@@ -65,6 +62,9 @@ class QueryDBBackupDumpTimesResponseBody extends Model
                     $model->backupDumpTimes[$n++] = null !== $item ? backupDumpTimes::fromMap($item) : $item;
                 }
             }
+        }
+        if (isset($map['RequestId'])) {
+            $model->requestId = $map['RequestId'];
         }
 
         return $model;

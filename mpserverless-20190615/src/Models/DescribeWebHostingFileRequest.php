@@ -11,15 +11,15 @@ class DescribeWebHostingFileRequest extends Model
     /**
      * @var string
      */
-    public $spaceId;
+    public $filePath;
 
     /**
      * @var string
      */
-    public $filePath;
+    public $spaceId;
     protected $_name = [
-        'spaceId'  => 'SpaceId',
         'filePath' => 'FilePath',
+        'spaceId'  => 'SpaceId',
     ];
 
     public function validate()
@@ -29,11 +29,11 @@ class DescribeWebHostingFileRequest extends Model
     public function toMap()
     {
         $res = [];
-        if (null !== $this->spaceId) {
-            $res['SpaceId'] = $this->spaceId;
-        }
         if (null !== $this->filePath) {
             $res['FilePath'] = $this->filePath;
+        }
+        if (null !== $this->spaceId) {
+            $res['SpaceId'] = $this->spaceId;
         }
 
         return $res;
@@ -47,11 +47,11 @@ class DescribeWebHostingFileRequest extends Model
     public static function fromMap($map = [])
     {
         $model = new self();
-        if (isset($map['SpaceId'])) {
-            $model->spaceId = $map['SpaceId'];
-        }
         if (isset($map['FilePath'])) {
             $model->filePath = $map['FilePath'];
+        }
+        if (isset($map['SpaceId'])) {
+            $model->spaceId = $map['SpaceId'];
         }
 
         return $model;

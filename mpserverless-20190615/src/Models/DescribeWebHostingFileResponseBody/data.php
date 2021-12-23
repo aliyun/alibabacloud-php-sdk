@@ -11,11 +11,6 @@ class data extends Model
     /**
      * @var string
      */
-    public $filePath;
-
-    /**
-     * @var string
-     */
     public $contentType;
 
     /**
@@ -24,14 +19,14 @@ class data extends Model
     public $ETag;
 
     /**
-     * @var int
-     */
-    public $size;
-
-    /**
      * @var bool
      */
     public $exists;
+
+    /**
+     * @var string
+     */
+    public $filePath;
 
     /**
      * @var int
@@ -42,14 +37,19 @@ class data extends Model
      * @var string
      */
     public $signedUrl;
+
+    /**
+     * @var int
+     */
+    public $size;
     protected $_name = [
-        'filePath'         => 'FilePath',
         'contentType'      => 'ContentType',
         'ETag'             => 'ETag',
-        'size'             => 'Size',
         'exists'           => 'Exists',
+        'filePath'         => 'FilePath',
         'lastModifiedTime' => 'LastModifiedTime',
         'signedUrl'        => 'SignedUrl',
+        'size'             => 'Size',
     ];
 
     public function validate()
@@ -59,26 +59,26 @@ class data extends Model
     public function toMap()
     {
         $res = [];
-        if (null !== $this->filePath) {
-            $res['FilePath'] = $this->filePath;
-        }
         if (null !== $this->contentType) {
             $res['ContentType'] = $this->contentType;
         }
         if (null !== $this->ETag) {
             $res['ETag'] = $this->ETag;
         }
-        if (null !== $this->size) {
-            $res['Size'] = $this->size;
-        }
         if (null !== $this->exists) {
             $res['Exists'] = $this->exists;
+        }
+        if (null !== $this->filePath) {
+            $res['FilePath'] = $this->filePath;
         }
         if (null !== $this->lastModifiedTime) {
             $res['LastModifiedTime'] = $this->lastModifiedTime;
         }
         if (null !== $this->signedUrl) {
             $res['SignedUrl'] = $this->signedUrl;
+        }
+        if (null !== $this->size) {
+            $res['Size'] = $this->size;
         }
 
         return $res;
@@ -92,26 +92,26 @@ class data extends Model
     public static function fromMap($map = [])
     {
         $model = new self();
-        if (isset($map['FilePath'])) {
-            $model->filePath = $map['FilePath'];
-        }
         if (isset($map['ContentType'])) {
             $model->contentType = $map['ContentType'];
         }
         if (isset($map['ETag'])) {
             $model->ETag = $map['ETag'];
         }
-        if (isset($map['Size'])) {
-            $model->size = $map['Size'];
-        }
         if (isset($map['Exists'])) {
             $model->exists = $map['Exists'];
+        }
+        if (isset($map['FilePath'])) {
+            $model->filePath = $map['FilePath'];
         }
         if (isset($map['LastModifiedTime'])) {
             $model->lastModifiedTime = $map['LastModifiedTime'];
         }
         if (isset($map['SignedUrl'])) {
             $model->signedUrl = $map['SignedUrl'];
+        }
+        if (isset($map['Size'])) {
+            $model->size = $map['Size'];
         }
 
         return $model;

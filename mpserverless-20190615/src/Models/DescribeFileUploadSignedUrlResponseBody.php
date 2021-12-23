@@ -11,7 +11,7 @@ class DescribeFileUploadSignedUrlResponseBody extends Model
     /**
      * @var string
      */
-    public $signUrl;
+    public $id;
 
     /**
      * @var string
@@ -21,11 +21,11 @@ class DescribeFileUploadSignedUrlResponseBody extends Model
     /**
      * @var string
      */
-    public $id;
+    public $signUrl;
     protected $_name = [
-        'signUrl'   => 'SignUrl',
-        'requestId' => 'RequestId',
         'id'        => 'Id',
+        'requestId' => 'RequestId',
+        'signUrl'   => 'SignUrl',
     ];
 
     public function validate()
@@ -35,14 +35,14 @@ class DescribeFileUploadSignedUrlResponseBody extends Model
     public function toMap()
     {
         $res = [];
-        if (null !== $this->signUrl) {
-            $res['SignUrl'] = $this->signUrl;
+        if (null !== $this->id) {
+            $res['Id'] = $this->id;
         }
         if (null !== $this->requestId) {
             $res['RequestId'] = $this->requestId;
         }
-        if (null !== $this->id) {
-            $res['Id'] = $this->id;
+        if (null !== $this->signUrl) {
+            $res['SignUrl'] = $this->signUrl;
         }
 
         return $res;
@@ -56,14 +56,14 @@ class DescribeFileUploadSignedUrlResponseBody extends Model
     public static function fromMap($map = [])
     {
         $model = new self();
-        if (isset($map['SignUrl'])) {
-            $model->signUrl = $map['SignUrl'];
+        if (isset($map['Id'])) {
+            $model->id = $map['Id'];
         }
         if (isset($map['RequestId'])) {
             $model->requestId = $map['RequestId'];
         }
-        if (isset($map['Id'])) {
-            $model->id = $map['Id'];
+        if (isset($map['SignUrl'])) {
+            $model->signUrl = $map['SignUrl'];
         }
 
         return $model;

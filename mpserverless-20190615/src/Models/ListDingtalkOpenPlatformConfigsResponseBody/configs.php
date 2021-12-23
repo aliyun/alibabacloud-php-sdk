@@ -11,7 +11,7 @@ class configs extends Model
     /**
      * @var string
      */
-    public $updateTime;
+    public $appId;
 
     /**
      * @var string
@@ -21,17 +21,17 @@ class configs extends Model
     /**
      * @var string
      */
-    public $appId;
+    public $createTime;
 
     /**
      * @var string
      */
-    public $createTime;
+    public $updateTime;
     protected $_name = [
-        'updateTime' => 'UpdateTime',
-        'appSecret'  => 'AppSecret',
         'appId'      => 'AppId',
+        'appSecret'  => 'AppSecret',
         'createTime' => 'CreateTime',
+        'updateTime' => 'UpdateTime',
     ];
 
     public function validate()
@@ -41,17 +41,17 @@ class configs extends Model
     public function toMap()
     {
         $res = [];
-        if (null !== $this->updateTime) {
-            $res['UpdateTime'] = $this->updateTime;
+        if (null !== $this->appId) {
+            $res['AppId'] = $this->appId;
         }
         if (null !== $this->appSecret) {
             $res['AppSecret'] = $this->appSecret;
         }
-        if (null !== $this->appId) {
-            $res['AppId'] = $this->appId;
-        }
         if (null !== $this->createTime) {
             $res['CreateTime'] = $this->createTime;
+        }
+        if (null !== $this->updateTime) {
+            $res['UpdateTime'] = $this->updateTime;
         }
 
         return $res;
@@ -65,17 +65,17 @@ class configs extends Model
     public static function fromMap($map = [])
     {
         $model = new self();
-        if (isset($map['UpdateTime'])) {
-            $model->updateTime = $map['UpdateTime'];
+        if (isset($map['AppId'])) {
+            $model->appId = $map['AppId'];
         }
         if (isset($map['AppSecret'])) {
             $model->appSecret = $map['AppSecret'];
         }
-        if (isset($map['AppId'])) {
-            $model->appId = $map['AppId'];
-        }
         if (isset($map['CreateTime'])) {
             $model->createTime = $map['CreateTime'];
+        }
+        if (isset($map['UpdateTime'])) {
+            $model->updateTime = $map['UpdateTime'];
         }
 
         return $model;

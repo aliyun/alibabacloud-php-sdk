@@ -11,20 +11,20 @@ class VerifyWebHostingDomainOwnerRequest extends Model
     /**
      * @var string
      */
-    public $spaceId;
+    public $domain;
 
     /**
      * @var string
      */
-    public $domain;
+    public $spaceId;
 
     /**
      * @var string
      */
     public $verifyType;
     protected $_name = [
-        'spaceId'    => 'SpaceId',
         'domain'     => 'Domain',
+        'spaceId'    => 'SpaceId',
         'verifyType' => 'VerifyType',
     ];
 
@@ -35,11 +35,11 @@ class VerifyWebHostingDomainOwnerRequest extends Model
     public function toMap()
     {
         $res = [];
-        if (null !== $this->spaceId) {
-            $res['SpaceId'] = $this->spaceId;
-        }
         if (null !== $this->domain) {
             $res['Domain'] = $this->domain;
+        }
+        if (null !== $this->spaceId) {
+            $res['SpaceId'] = $this->spaceId;
         }
         if (null !== $this->verifyType) {
             $res['VerifyType'] = $this->verifyType;
@@ -56,11 +56,11 @@ class VerifyWebHostingDomainOwnerRequest extends Model
     public static function fromMap($map = [])
     {
         $model = new self();
-        if (isset($map['SpaceId'])) {
-            $model->spaceId = $map['SpaceId'];
-        }
         if (isset($map['Domain'])) {
             $model->domain = $map['Domain'];
+        }
+        if (isset($map['SpaceId'])) {
+            $model->spaceId = $map['SpaceId'];
         }
         if (isset($map['VerifyType'])) {
             $model->verifyType = $map['VerifyType'];

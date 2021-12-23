@@ -12,12 +12,12 @@ class UpdateFunctionResponseBody extends Model
     /**
      * @var string
      */
-    public $requestId;
+    public $createdAt;
 
     /**
      * @var string
      */
-    public $timingTriggerConfig;
+    public $desc;
 
     /**
      * @var string
@@ -27,7 +27,7 @@ class UpdateFunctionResponseBody extends Model
     /**
      * @var string
      */
-    public $createdAt;
+    public $modifiedAt;
 
     /**
      * @var string
@@ -37,26 +37,26 @@ class UpdateFunctionResponseBody extends Model
     /**
      * @var string
      */
-    public $modifiedAt;
-
-    /**
-     * @var string
-     */
-    public $desc;
+    public $requestId;
 
     /**
      * @var spec
      */
     public $spec;
+
+    /**
+     * @var string
+     */
+    public $timingTriggerConfig;
     protected $_name = [
-        'requestId'           => 'RequestId',
-        'timingTriggerConfig' => 'TimingTriggerConfig',
-        'httpTriggerPath'     => 'HttpTriggerPath',
         'createdAt'           => 'CreatedAt',
-        'name'                => 'Name',
-        'modifiedAt'          => 'ModifiedAt',
         'desc'                => 'Desc',
+        'httpTriggerPath'     => 'HttpTriggerPath',
+        'modifiedAt'          => 'ModifiedAt',
+        'name'                => 'Name',
+        'requestId'           => 'RequestId',
         'spec'                => 'Spec',
+        'timingTriggerConfig' => 'TimingTriggerConfig',
     ];
 
     public function validate()
@@ -66,29 +66,29 @@ class UpdateFunctionResponseBody extends Model
     public function toMap()
     {
         $res = [];
-        if (null !== $this->requestId) {
-            $res['RequestId'] = $this->requestId;
-        }
-        if (null !== $this->timingTriggerConfig) {
-            $res['TimingTriggerConfig'] = $this->timingTriggerConfig;
-        }
-        if (null !== $this->httpTriggerPath) {
-            $res['HttpTriggerPath'] = $this->httpTriggerPath;
-        }
         if (null !== $this->createdAt) {
             $res['CreatedAt'] = $this->createdAt;
-        }
-        if (null !== $this->name) {
-            $res['Name'] = $this->name;
-        }
-        if (null !== $this->modifiedAt) {
-            $res['ModifiedAt'] = $this->modifiedAt;
         }
         if (null !== $this->desc) {
             $res['Desc'] = $this->desc;
         }
+        if (null !== $this->httpTriggerPath) {
+            $res['HttpTriggerPath'] = $this->httpTriggerPath;
+        }
+        if (null !== $this->modifiedAt) {
+            $res['ModifiedAt'] = $this->modifiedAt;
+        }
+        if (null !== $this->name) {
+            $res['Name'] = $this->name;
+        }
+        if (null !== $this->requestId) {
+            $res['RequestId'] = $this->requestId;
+        }
         if (null !== $this->spec) {
             $res['Spec'] = null !== $this->spec ? $this->spec->toMap() : null;
+        }
+        if (null !== $this->timingTriggerConfig) {
+            $res['TimingTriggerConfig'] = $this->timingTriggerConfig;
         }
 
         return $res;
@@ -102,29 +102,29 @@ class UpdateFunctionResponseBody extends Model
     public static function fromMap($map = [])
     {
         $model = new self();
-        if (isset($map['RequestId'])) {
-            $model->requestId = $map['RequestId'];
-        }
-        if (isset($map['TimingTriggerConfig'])) {
-            $model->timingTriggerConfig = $map['TimingTriggerConfig'];
-        }
-        if (isset($map['HttpTriggerPath'])) {
-            $model->httpTriggerPath = $map['HttpTriggerPath'];
-        }
         if (isset($map['CreatedAt'])) {
             $model->createdAt = $map['CreatedAt'];
-        }
-        if (isset($map['Name'])) {
-            $model->name = $map['Name'];
-        }
-        if (isset($map['ModifiedAt'])) {
-            $model->modifiedAt = $map['ModifiedAt'];
         }
         if (isset($map['Desc'])) {
             $model->desc = $map['Desc'];
         }
+        if (isset($map['HttpTriggerPath'])) {
+            $model->httpTriggerPath = $map['HttpTriggerPath'];
+        }
+        if (isset($map['ModifiedAt'])) {
+            $model->modifiedAt = $map['ModifiedAt'];
+        }
+        if (isset($map['Name'])) {
+            $model->name = $map['Name'];
+        }
+        if (isset($map['RequestId'])) {
+            $model->requestId = $map['RequestId'];
+        }
         if (isset($map['Spec'])) {
             $model->spec = spec::fromMap($map['Spec']);
+        }
+        if (isset($map['TimingTriggerConfig'])) {
+            $model->timingTriggerConfig = $map['TimingTriggerConfig'];
         }
 
         return $model;

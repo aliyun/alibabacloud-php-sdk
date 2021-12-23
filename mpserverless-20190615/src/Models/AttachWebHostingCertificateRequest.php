@@ -11,12 +11,7 @@ class AttachWebHostingCertificateRequest extends Model
     /**
      * @var string
      */
-    public $spaceId;
-
-    /**
-     * @var string
-     */
-    public $domain;
+    public $certName;
 
     /**
      * @var string
@@ -26,7 +21,12 @@ class AttachWebHostingCertificateRequest extends Model
     /**
      * @var string
      */
-    public $certName;
+    public $domain;
+
+    /**
+     * @var string
+     */
+    public $privateKey;
 
     /**
      * @var string
@@ -36,14 +36,14 @@ class AttachWebHostingCertificateRequest extends Model
     /**
      * @var string
      */
-    public $privateKey;
+    public $spaceId;
     protected $_name = [
-        'spaceId'           => 'SpaceId',
-        'domain'            => 'Domain',
-        'certType'          => 'CertType',
         'certName'          => 'CertName',
-        'serverCertificate' => 'ServerCertificate',
+        'certType'          => 'CertType',
+        'domain'            => 'Domain',
         'privateKey'        => 'PrivateKey',
+        'serverCertificate' => 'ServerCertificate',
+        'spaceId'           => 'SpaceId',
     ];
 
     public function validate()
@@ -53,23 +53,23 @@ class AttachWebHostingCertificateRequest extends Model
     public function toMap()
     {
         $res = [];
-        if (null !== $this->spaceId) {
-            $res['SpaceId'] = $this->spaceId;
-        }
-        if (null !== $this->domain) {
-            $res['Domain'] = $this->domain;
+        if (null !== $this->certName) {
+            $res['CertName'] = $this->certName;
         }
         if (null !== $this->certType) {
             $res['CertType'] = $this->certType;
         }
-        if (null !== $this->certName) {
-            $res['CertName'] = $this->certName;
+        if (null !== $this->domain) {
+            $res['Domain'] = $this->domain;
+        }
+        if (null !== $this->privateKey) {
+            $res['PrivateKey'] = $this->privateKey;
         }
         if (null !== $this->serverCertificate) {
             $res['ServerCertificate'] = $this->serverCertificate;
         }
-        if (null !== $this->privateKey) {
-            $res['PrivateKey'] = $this->privateKey;
+        if (null !== $this->spaceId) {
+            $res['SpaceId'] = $this->spaceId;
         }
 
         return $res;
@@ -83,23 +83,23 @@ class AttachWebHostingCertificateRequest extends Model
     public static function fromMap($map = [])
     {
         $model = new self();
-        if (isset($map['SpaceId'])) {
-            $model->spaceId = $map['SpaceId'];
-        }
-        if (isset($map['Domain'])) {
-            $model->domain = $map['Domain'];
+        if (isset($map['CertName'])) {
+            $model->certName = $map['CertName'];
         }
         if (isset($map['CertType'])) {
             $model->certType = $map['CertType'];
         }
-        if (isset($map['CertName'])) {
-            $model->certName = $map['CertName'];
+        if (isset($map['Domain'])) {
+            $model->domain = $map['Domain'];
+        }
+        if (isset($map['PrivateKey'])) {
+            $model->privateKey = $map['PrivateKey'];
         }
         if (isset($map['ServerCertificate'])) {
             $model->serverCertificate = $map['ServerCertificate'];
         }
-        if (isset($map['PrivateKey'])) {
-            $model->privateKey = $map['PrivateKey'];
+        if (isset($map['SpaceId'])) {
+            $model->spaceId = $map['SpaceId'];
         }
 
         return $model;

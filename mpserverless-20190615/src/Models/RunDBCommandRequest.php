@@ -11,15 +11,15 @@ class RunDBCommandRequest extends Model
     /**
      * @var string
      */
-    public $spaceId;
+    public $body;
 
     /**
      * @var string
      */
-    public $body;
+    public $spaceId;
     protected $_name = [
-        'spaceId' => 'SpaceId',
         'body'    => 'Body',
+        'spaceId' => 'SpaceId',
     ];
 
     public function validate()
@@ -29,11 +29,11 @@ class RunDBCommandRequest extends Model
     public function toMap()
     {
         $res = [];
-        if (null !== $this->spaceId) {
-            $res['SpaceId'] = $this->spaceId;
-        }
         if (null !== $this->body) {
             $res['Body'] = $this->body;
+        }
+        if (null !== $this->spaceId) {
+            $res['SpaceId'] = $this->spaceId;
         }
 
         return $res;
@@ -47,11 +47,11 @@ class RunDBCommandRequest extends Model
     public static function fromMap($map = [])
     {
         $model = new self();
-        if (isset($map['SpaceId'])) {
-            $model->spaceId = $map['SpaceId'];
-        }
         if (isset($map['Body'])) {
             $model->body = $map['Body'];
+        }
+        if (isset($map['SpaceId'])) {
+            $model->spaceId = $map['SpaceId'];
         }
 
         return $model;

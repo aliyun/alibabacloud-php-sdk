@@ -11,27 +11,27 @@ class runtimeMeta extends Model
     /**
      * @var int
      */
-    public $invocationDuration;
-
-    /**
-     * @var string
-     */
-    public $requestId;
-
-    /**
-     * @var int
-     */
     public $billingDuration;
 
     /**
      * @var int
      */
+    public $invocationDuration;
+
+    /**
+     * @var int
+     */
     public $maxMemoryUsage;
+
+    /**
+     * @var string
+     */
+    public $requestId;
     protected $_name = [
-        'invocationDuration' => 'InvocationDuration',
-        'requestId'          => 'RequestId',
         'billingDuration'    => 'BillingDuration',
+        'invocationDuration' => 'InvocationDuration',
         'maxMemoryUsage'     => 'MaxMemoryUsage',
+        'requestId'          => 'RequestId',
     ];
 
     public function validate()
@@ -41,17 +41,17 @@ class runtimeMeta extends Model
     public function toMap()
     {
         $res = [];
-        if (null !== $this->invocationDuration) {
-            $res['InvocationDuration'] = $this->invocationDuration;
-        }
-        if (null !== $this->requestId) {
-            $res['RequestId'] = $this->requestId;
-        }
         if (null !== $this->billingDuration) {
             $res['BillingDuration'] = $this->billingDuration;
         }
+        if (null !== $this->invocationDuration) {
+            $res['InvocationDuration'] = $this->invocationDuration;
+        }
         if (null !== $this->maxMemoryUsage) {
             $res['MaxMemoryUsage'] = $this->maxMemoryUsage;
+        }
+        if (null !== $this->requestId) {
+            $res['RequestId'] = $this->requestId;
         }
 
         return $res;
@@ -65,17 +65,17 @@ class runtimeMeta extends Model
     public static function fromMap($map = [])
     {
         $model = new self();
-        if (isset($map['InvocationDuration'])) {
-            $model->invocationDuration = $map['InvocationDuration'];
-        }
-        if (isset($map['RequestId'])) {
-            $model->requestId = $map['RequestId'];
-        }
         if (isset($map['BillingDuration'])) {
             $model->billingDuration = $map['BillingDuration'];
         }
+        if (isset($map['InvocationDuration'])) {
+            $model->invocationDuration = $map['InvocationDuration'];
+        }
         if (isset($map['MaxMemoryUsage'])) {
             $model->maxMemoryUsage = $map['MaxMemoryUsage'];
+        }
+        if (isset($map['RequestId'])) {
+            $model->requestId = $map['RequestId'];
         }
 
         return $model;
