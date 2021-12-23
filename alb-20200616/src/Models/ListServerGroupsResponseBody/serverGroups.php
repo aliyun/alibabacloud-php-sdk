@@ -12,11 +12,25 @@ use AlibabaCloud\Tea\Model;
 class serverGroups extends Model
 {
     /**
+     * @description 是否开启配置管理
+     *
+     * @var bool
+     */
+    public $configManagedEnabled;
+
+    /**
      * @description 健康检查配置
      *
      * @var healthCheckConfig
      */
     public $healthCheckConfig;
+
+    /**
+     * @description 是否支持Ipv6
+     *
+     * @var bool
+     */
+    public $ipv6Enabled;
 
     /**
      * @description 服务器组协议
@@ -89,24 +103,34 @@ class serverGroups extends Model
     public $tags;
 
     /**
+     * @description 是否开启后端长链接
+     *
+     * @var bool
+     */
+    public $upstreamKeepaliveEnabled;
+
+    /**
      * @description 服务器组所在VpcId
      *
      * @var string
      */
     public $vpcId;
     protected $_name = [
-        'healthCheckConfig'   => 'HealthCheckConfig',
-        'protocol'            => 'Protocol',
-        'resourceGroupId'     => 'ResourceGroupId',
-        'scheduler'           => 'Scheduler',
-        'serverCount'         => 'ServerCount',
-        'serverGroupId'       => 'ServerGroupId',
-        'serverGroupName'     => 'ServerGroupName',
-        'serverGroupStatus'   => 'ServerGroupStatus',
-        'serverGroupType'     => 'ServerGroupType',
-        'stickySessionConfig' => 'StickySessionConfig',
-        'tags'                => 'Tags',
-        'vpcId'               => 'VpcId',
+        'configManagedEnabled'     => 'ConfigManagedEnabled',
+        'healthCheckConfig'        => 'HealthCheckConfig',
+        'ipv6Enabled'              => 'Ipv6Enabled',
+        'protocol'                 => 'Protocol',
+        'resourceGroupId'          => 'ResourceGroupId',
+        'scheduler'                => 'Scheduler',
+        'serverCount'              => 'ServerCount',
+        'serverGroupId'            => 'ServerGroupId',
+        'serverGroupName'          => 'ServerGroupName',
+        'serverGroupStatus'        => 'ServerGroupStatus',
+        'serverGroupType'          => 'ServerGroupType',
+        'stickySessionConfig'      => 'StickySessionConfig',
+        'tags'                     => 'Tags',
+        'upstreamKeepaliveEnabled' => 'UpstreamKeepaliveEnabled',
+        'vpcId'                    => 'VpcId',
     ];
 
     public function validate()
@@ -116,8 +140,14 @@ class serverGroups extends Model
     public function toMap()
     {
         $res = [];
+        if (null !== $this->configManagedEnabled) {
+            $res['ConfigManagedEnabled'] = $this->configManagedEnabled;
+        }
         if (null !== $this->healthCheckConfig) {
             $res['HealthCheckConfig'] = null !== $this->healthCheckConfig ? $this->healthCheckConfig->toMap() : null;
+        }
+        if (null !== $this->ipv6Enabled) {
+            $res['Ipv6Enabled'] = $this->ipv6Enabled;
         }
         if (null !== $this->protocol) {
             $res['Protocol'] = $this->protocol;
@@ -155,6 +185,9 @@ class serverGroups extends Model
                 }
             }
         }
+        if (null !== $this->upstreamKeepaliveEnabled) {
+            $res['UpstreamKeepaliveEnabled'] = $this->upstreamKeepaliveEnabled;
+        }
         if (null !== $this->vpcId) {
             $res['VpcId'] = $this->vpcId;
         }
@@ -170,8 +203,14 @@ class serverGroups extends Model
     public static function fromMap($map = [])
     {
         $model = new self();
+        if (isset($map['ConfigManagedEnabled'])) {
+            $model->configManagedEnabled = $map['ConfigManagedEnabled'];
+        }
         if (isset($map['HealthCheckConfig'])) {
             $model->healthCheckConfig = healthCheckConfig::fromMap($map['HealthCheckConfig']);
+        }
+        if (isset($map['Ipv6Enabled'])) {
+            $model->ipv6Enabled = $map['Ipv6Enabled'];
         }
         if (isset($map['Protocol'])) {
             $model->protocol = $map['Protocol'];
@@ -208,6 +247,9 @@ class serverGroups extends Model
                     $model->tags[$n++] = null !== $item ? tags::fromMap($item) : $item;
                 }
             }
+        }
+        if (isset($map['UpstreamKeepaliveEnabled'])) {
+            $model->upstreamKeepaliveEnabled = $map['UpstreamKeepaliveEnabled'];
         }
         if (isset($map['VpcId'])) {
             $model->vpcId = $map['VpcId'];

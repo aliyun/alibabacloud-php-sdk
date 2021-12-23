@@ -29,6 +29,13 @@ class loadBalancers extends Model
     public $addressAllocatedMode;
 
     /**
+     * @description 协议版本
+     *
+     * @var string
+     */
+    public $addressIpVersion;
+
+    /**
      * @description 地址类型
      *
      * @var string
@@ -62,6 +69,13 @@ class loadBalancers extends Model
      * @var deletionProtectionConfig
      */
     public $deletionProtectionConfig;
+
+    /**
+     * @description IPV6地址类型
+     *
+     * @var string
+     */
+    public $ipv6AddressType;
 
     /**
      * @description 计费相关属性
@@ -142,11 +156,13 @@ class loadBalancers extends Model
     protected $_name = [
         'accessLogConfig'              => 'AccessLogConfig',
         'addressAllocatedMode'         => 'AddressAllocatedMode',
+        'addressIpVersion'             => 'AddressIpVersion',
         'addressType'                  => 'AddressType',
         'bandwidthPackageId'           => 'BandwidthPackageId',
         'createTime'                   => 'CreateTime',
         'DNSName'                      => 'DNSName',
         'deletionProtectionConfig'     => 'DeletionProtectionConfig',
+        'ipv6AddressType'              => 'Ipv6AddressType',
         'loadBalancerBillingConfig'    => 'LoadBalancerBillingConfig',
         'loadBalancerBussinessStatus'  => 'LoadBalancerBussinessStatus',
         'loadBalancerEdition'          => 'LoadBalancerEdition',
@@ -173,6 +189,9 @@ class loadBalancers extends Model
         if (null !== $this->addressAllocatedMode) {
             $res['AddressAllocatedMode'] = $this->addressAllocatedMode;
         }
+        if (null !== $this->addressIpVersion) {
+            $res['AddressIpVersion'] = $this->addressIpVersion;
+        }
         if (null !== $this->addressType) {
             $res['AddressType'] = $this->addressType;
         }
@@ -187,6 +206,9 @@ class loadBalancers extends Model
         }
         if (null !== $this->deletionProtectionConfig) {
             $res['DeletionProtectionConfig'] = null !== $this->deletionProtectionConfig ? $this->deletionProtectionConfig->toMap() : null;
+        }
+        if (null !== $this->ipv6AddressType) {
+            $res['Ipv6AddressType'] = $this->ipv6AddressType;
         }
         if (null !== $this->loadBalancerBillingConfig) {
             $res['LoadBalancerBillingConfig'] = null !== $this->loadBalancerBillingConfig ? $this->loadBalancerBillingConfig->toMap() : null;
@@ -251,6 +273,9 @@ class loadBalancers extends Model
         if (isset($map['AddressAllocatedMode'])) {
             $model->addressAllocatedMode = $map['AddressAllocatedMode'];
         }
+        if (isset($map['AddressIpVersion'])) {
+            $model->addressIpVersion = $map['AddressIpVersion'];
+        }
         if (isset($map['AddressType'])) {
             $model->addressType = $map['AddressType'];
         }
@@ -265,6 +290,9 @@ class loadBalancers extends Model
         }
         if (isset($map['DeletionProtectionConfig'])) {
             $model->deletionProtectionConfig = deletionProtectionConfig::fromMap($map['DeletionProtectionConfig']);
+        }
+        if (isset($map['Ipv6AddressType'])) {
+            $model->ipv6AddressType = $map['Ipv6AddressType'];
         }
         if (isset($map['LoadBalancerBillingConfig'])) {
             $model->loadBalancerBillingConfig = loadBalancerBillingConfig::fromMap($map['LoadBalancerBillingConfig']);

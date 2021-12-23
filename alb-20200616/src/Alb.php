@@ -5,6 +5,7 @@
 namespace AlibabaCloud\SDK\Alb\V20200616;
 
 use AlibabaCloud\Endpoint\Endpoint;
+use AlibabaCloud\OpenApiUtil\OpenApiUtilClient;
 use AlibabaCloud\SDK\Alb\V20200616\Models\AddEntriesToAclRequest;
 use AlibabaCloud\SDK\Alb\V20200616\Models\AddEntriesToAclResponse;
 use AlibabaCloud\SDK\Alb\V20200616\Models\AddServersToServerGroupRequest;
@@ -70,6 +71,8 @@ use AlibabaCloud\SDK\Alb\V20200616\Models\GetHealthCheckTemplateAttributeRequest
 use AlibabaCloud\SDK\Alb\V20200616\Models\GetHealthCheckTemplateAttributeResponse;
 use AlibabaCloud\SDK\Alb\V20200616\Models\GetListenerAttributeRequest;
 use AlibabaCloud\SDK\Alb\V20200616\Models\GetListenerAttributeResponse;
+use AlibabaCloud\SDK\Alb\V20200616\Models\GetListenerHealthStatusRequest;
+use AlibabaCloud\SDK\Alb\V20200616\Models\GetListenerHealthStatusResponse;
 use AlibabaCloud\SDK\Alb\V20200616\Models\GetLoadBalancerAttributeRequest;
 use AlibabaCloud\SDK\Alb\V20200616\Models\GetLoadBalancerAttributeResponse;
 use AlibabaCloud\SDK\Alb\V20200616\Models\ListAclEntriesRequest;
@@ -129,6 +132,8 @@ use AlibabaCloud\SDK\Alb\V20200616\Models\UpdateListenerAttributeRequest;
 use AlibabaCloud\SDK\Alb\V20200616\Models\UpdateListenerAttributeResponse;
 use AlibabaCloud\SDK\Alb\V20200616\Models\UpdateListenerLogConfigRequest;
 use AlibabaCloud\SDK\Alb\V20200616\Models\UpdateListenerLogConfigResponse;
+use AlibabaCloud\SDK\Alb\V20200616\Models\UpdateLoadBalancerAddressTypeConfigRequest;
+use AlibabaCloud\SDK\Alb\V20200616\Models\UpdateLoadBalancerAddressTypeConfigResponse;
 use AlibabaCloud\SDK\Alb\V20200616\Models\UpdateLoadBalancerAttributeRequest;
 use AlibabaCloud\SDK\Alb\V20200616\Models\UpdateLoadBalancerAttributeResponse;
 use AlibabaCloud\SDK\Alb\V20200616\Models\UpdateLoadBalancerEditionRequest;
@@ -148,6 +153,7 @@ use AlibabaCloud\SDK\Alb\V20200616\Models\UpdateServerGroupServersAttributeRespo
 use AlibabaCloud\Tea\Utils\Utils;
 use AlibabaCloud\Tea\Utils\Utils\RuntimeOptions;
 use Darabonba\OpenApi\Models\OpenApiRequest;
+use Darabonba\OpenApi\Models\Params;
 use Darabonba\OpenApi\OpenApiClient;
 
 class Alb extends OpenApiClient
@@ -192,11 +198,27 @@ class Alb extends OpenApiClient
     public function addEntriesToAclWithOptions($request, $runtime)
     {
         Utils::validateModel($request);
-        $req = new OpenApiRequest([
-            'body' => Utils::toMap($request),
+        $query                = [];
+        $query['AclEntries']  = $request->aclEntries;
+        $query['AclId']       = $request->aclId;
+        $query['ClientToken'] = $request->clientToken;
+        $query['DryRun']      = $request->dryRun;
+        $req                  = new OpenApiRequest([
+            'query' => OpenApiUtilClient::query($query),
+        ]);
+        $params = new Params([
+            'action'      => 'AddEntriesToAcl',
+            'version'     => '2020-06-16',
+            'protocol'    => 'HTTPS',
+            'pathname'    => '/',
+            'method'      => 'POST',
+            'authType'    => 'AK',
+            'style'       => 'RPC',
+            'reqBodyType' => 'formData',
+            'bodyType'    => 'json',
         ]);
 
-        return AddEntriesToAclResponse::fromMap($this->doRPCRequest('AddEntriesToAcl', '2020-06-16', 'HTTPS', 'POST', 'AK', 'json', $req, $runtime));
+        return AddEntriesToAclResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
@@ -220,11 +242,27 @@ class Alb extends OpenApiClient
     public function addServersToServerGroupWithOptions($request, $runtime)
     {
         Utils::validateModel($request);
-        $req = new OpenApiRequest([
-            'body' => Utils::toMap($request),
+        $query                  = [];
+        $query['ClientToken']   = $request->clientToken;
+        $query['DryRun']        = $request->dryRun;
+        $query['ServerGroupId'] = $request->serverGroupId;
+        $query['Servers']       = $request->servers;
+        $req                    = new OpenApiRequest([
+            'query' => OpenApiUtilClient::query($query),
+        ]);
+        $params = new Params([
+            'action'      => 'AddServersToServerGroup',
+            'version'     => '2020-06-16',
+            'protocol'    => 'HTTPS',
+            'pathname'    => '/',
+            'method'      => 'POST',
+            'authType'    => 'AK',
+            'style'       => 'RPC',
+            'reqBodyType' => 'formData',
+            'bodyType'    => 'json',
         ]);
 
-        return AddServersToServerGroupResponse::fromMap($this->doRPCRequest('AddServersToServerGroup', '2020-06-16', 'HTTPS', 'POST', 'AK', 'json', $req, $runtime));
+        return AddServersToServerGroupResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
@@ -248,11 +286,27 @@ class Alb extends OpenApiClient
     public function applyHealthCheckTemplateToServerGroupWithOptions($request, $runtime)
     {
         Utils::validateModel($request);
-        $req = new OpenApiRequest([
-            'body' => Utils::toMap($request),
+        $query                          = [];
+        $query['ClientToken']           = $request->clientToken;
+        $query['DryRun']                = $request->dryRun;
+        $query['HealthCheckTemplateId'] = $request->healthCheckTemplateId;
+        $query['ServerGroupId']         = $request->serverGroupId;
+        $req                            = new OpenApiRequest([
+            'query' => OpenApiUtilClient::query($query),
+        ]);
+        $params = new Params([
+            'action'      => 'ApplyHealthCheckTemplateToServerGroup',
+            'version'     => '2020-06-16',
+            'protocol'    => 'HTTPS',
+            'pathname'    => '/',
+            'method'      => 'POST',
+            'authType'    => 'AK',
+            'style'       => 'RPC',
+            'reqBodyType' => 'formData',
+            'bodyType'    => 'json',
         ]);
 
-        return ApplyHealthCheckTemplateToServerGroupResponse::fromMap($this->doRPCRequest('ApplyHealthCheckTemplateToServerGroup', '2020-06-16', 'HTTPS', 'POST', 'AK', 'json', $req, $runtime));
+        return ApplyHealthCheckTemplateToServerGroupResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
@@ -276,11 +330,28 @@ class Alb extends OpenApiClient
     public function associateAclsWithListenerWithOptions($request, $runtime)
     {
         Utils::validateModel($request);
-        $req = new OpenApiRequest([
-            'body' => Utils::toMap($request),
+        $query                = [];
+        $query['AclIds']      = $request->aclIds;
+        $query['AclType']     = $request->aclType;
+        $query['ClientToken'] = $request->clientToken;
+        $query['DryRun']      = $request->dryRun;
+        $query['ListenerId']  = $request->listenerId;
+        $req                  = new OpenApiRequest([
+            'query' => OpenApiUtilClient::query($query),
+        ]);
+        $params = new Params([
+            'action'      => 'AssociateAclsWithListener',
+            'version'     => '2020-06-16',
+            'protocol'    => 'HTTPS',
+            'pathname'    => '/',
+            'method'      => 'POST',
+            'authType'    => 'AK',
+            'style'       => 'RPC',
+            'reqBodyType' => 'formData',
+            'bodyType'    => 'json',
         ]);
 
-        return AssociateAclsWithListenerResponse::fromMap($this->doRPCRequest('AssociateAclsWithListener', '2020-06-16', 'HTTPS', 'POST', 'AK', 'json', $req, $runtime));
+        return AssociateAclsWithListenerResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
@@ -304,11 +375,27 @@ class Alb extends OpenApiClient
     public function associateAdditionalCertificatesWithListenerWithOptions($request, $runtime)
     {
         Utils::validateModel($request);
-        $req = new OpenApiRequest([
-            'body' => Utils::toMap($request),
+        $query                 = [];
+        $query['Certificates'] = $request->certificates;
+        $query['ClientToken']  = $request->clientToken;
+        $query['DryRun']       = $request->dryRun;
+        $query['ListenerId']   = $request->listenerId;
+        $req                   = new OpenApiRequest([
+            'query' => OpenApiUtilClient::query($query),
+        ]);
+        $params = new Params([
+            'action'      => 'AssociateAdditionalCertificatesWithListener',
+            'version'     => '2020-06-16',
+            'protocol'    => 'HTTPS',
+            'pathname'    => '/',
+            'method'      => 'POST',
+            'authType'    => 'AK',
+            'style'       => 'RPC',
+            'reqBodyType' => 'formData',
+            'bodyType'    => 'json',
         ]);
 
-        return AssociateAdditionalCertificatesWithListenerResponse::fromMap($this->doRPCRequest('AssociateAdditionalCertificatesWithListener', '2020-06-16', 'HTTPS', 'POST', 'AK', 'json', $req, $runtime));
+        return AssociateAdditionalCertificatesWithListenerResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
@@ -332,11 +419,28 @@ class Alb extends OpenApiClient
     public function attachCommonBandwidthPackageToLoadBalancerWithOptions($request, $runtime)
     {
         Utils::validateModel($request);
-        $req = new OpenApiRequest([
-            'body' => Utils::toMap($request),
+        $query                       = [];
+        $query['BandwidthPackageId'] = $request->bandwidthPackageId;
+        $query['ClientToken']        = $request->clientToken;
+        $query['DryRun']             = $request->dryRun;
+        $query['LoadBalancerId']     = $request->loadBalancerId;
+        $query['RegionId']           = $request->regionId;
+        $req                         = new OpenApiRequest([
+            'query' => OpenApiUtilClient::query($query),
+        ]);
+        $params = new Params([
+            'action'      => 'AttachCommonBandwidthPackageToLoadBalancer',
+            'version'     => '2020-06-16',
+            'protocol'    => 'HTTPS',
+            'pathname'    => '/',
+            'method'      => 'POST',
+            'authType'    => 'AK',
+            'style'       => 'RPC',
+            'reqBodyType' => 'formData',
+            'bodyType'    => 'json',
         ]);
 
-        return AttachCommonBandwidthPackageToLoadBalancerResponse::fromMap($this->doRPCRequest('AttachCommonBandwidthPackageToLoadBalancer', '2020-06-16', 'HTTPS', 'POST', 'AK', 'json', $req, $runtime));
+        return AttachCommonBandwidthPackageToLoadBalancerResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
@@ -360,11 +464,27 @@ class Alb extends OpenApiClient
     public function createAclWithOptions($request, $runtime)
     {
         Utils::validateModel($request);
-        $req = new OpenApiRequest([
-            'body' => Utils::toMap($request),
+        $query                    = [];
+        $query['AclName']         = $request->aclName;
+        $query['ClientToken']     = $request->clientToken;
+        $query['DryRun']          = $request->dryRun;
+        $query['ResourceGroupId'] = $request->resourceGroupId;
+        $req                      = new OpenApiRequest([
+            'query' => OpenApiUtilClient::query($query),
+        ]);
+        $params = new Params([
+            'action'      => 'CreateAcl',
+            'version'     => '2020-06-16',
+            'protocol'    => 'HTTPS',
+            'pathname'    => '/',
+            'method'      => 'POST',
+            'authType'    => 'AK',
+            'style'       => 'RPC',
+            'reqBodyType' => 'formData',
+            'bodyType'    => 'json',
         ]);
 
-        return CreateAclResponse::fromMap($this->doRPCRequest('CreateAcl', '2020-06-16', 'HTTPS', 'POST', 'AK', 'json', $req, $runtime));
+        return CreateAclResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
@@ -388,11 +508,37 @@ class Alb extends OpenApiClient
     public function createHealthCheckTemplateWithOptions($request, $runtime)
     {
         Utils::validateModel($request);
-        $req = new OpenApiRequest([
-            'body' => Utils::toMap($request),
+        $query                            = [];
+        $query['ClientToken']             = $request->clientToken;
+        $query['DryRun']                  = $request->dryRun;
+        $query['HealthCheckCodes']        = $request->healthCheckCodes;
+        $query['HealthCheckConnectPort']  = $request->healthCheckConnectPort;
+        $query['HealthCheckHost']         = $request->healthCheckHost;
+        $query['HealthCheckHttpVersion']  = $request->healthCheckHttpVersion;
+        $query['HealthCheckInterval']     = $request->healthCheckInterval;
+        $query['HealthCheckMethod']       = $request->healthCheckMethod;
+        $query['HealthCheckPath']         = $request->healthCheckPath;
+        $query['HealthCheckProtocol']     = $request->healthCheckProtocol;
+        $query['HealthCheckTemplateName'] = $request->healthCheckTemplateName;
+        $query['HealthCheckTimeout']      = $request->healthCheckTimeout;
+        $query['HealthyThreshold']        = $request->healthyThreshold;
+        $query['UnhealthyThreshold']      = $request->unhealthyThreshold;
+        $req                              = new OpenApiRequest([
+            'query' => OpenApiUtilClient::query($query),
+        ]);
+        $params = new Params([
+            'action'      => 'CreateHealthCheckTemplate',
+            'version'     => '2020-06-16',
+            'protocol'    => 'HTTPS',
+            'pathname'    => '/',
+            'method'      => 'POST',
+            'authType'    => 'AK',
+            'style'       => 'RPC',
+            'reqBodyType' => 'formData',
+            'bodyType'    => 'json',
         ]);
 
-        return CreateHealthCheckTemplateResponse::fromMap($this->doRPCRequest('CreateHealthCheckTemplate', '2020-06-16', 'HTTPS', 'POST', 'AK', 'json', $req, $runtime));
+        return CreateHealthCheckTemplateResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
@@ -416,11 +562,40 @@ class Alb extends OpenApiClient
     public function createListenerWithOptions($request, $runtime)
     {
         Utils::validateModel($request);
-        $req = new OpenApiRequest([
-            'body' => Utils::toMap($request),
+        $query                        = [];
+        $query['CaCertificates']      = $request->caCertificates;
+        $query['CaEnabled']           = $request->caEnabled;
+        $query['Certificates']        = $request->certificates;
+        $query['ClientToken']         = $request->clientToken;
+        $query['DefaultActions']      = $request->defaultActions;
+        $query['DryRun']              = $request->dryRun;
+        $query['GzipEnabled']         = $request->gzipEnabled;
+        $query['Http2Enabled']        = $request->http2Enabled;
+        $query['IdleTimeout']         = $request->idleTimeout;
+        $query['ListenerDescription'] = $request->listenerDescription;
+        $query['ListenerPort']        = $request->listenerPort;
+        $query['ListenerProtocol']    = $request->listenerProtocol;
+        $query['LoadBalancerId']      = $request->loadBalancerId;
+        $query['QuicConfig']          = $request->quicConfig;
+        $query['RequestTimeout']      = $request->requestTimeout;
+        $query['SecurityPolicyId']    = $request->securityPolicyId;
+        $query['XForwardedForConfig'] = $request->XForwardedForConfig;
+        $req                          = new OpenApiRequest([
+            'query' => OpenApiUtilClient::query($query),
+        ]);
+        $params = new Params([
+            'action'      => 'CreateListener',
+            'version'     => '2020-06-16',
+            'protocol'    => 'HTTPS',
+            'pathname'    => '/',
+            'method'      => 'POST',
+            'authType'    => 'AK',
+            'style'       => 'RPC',
+            'reqBodyType' => 'formData',
+            'bodyType'    => 'json',
         ]);
 
-        return CreateListenerResponse::fromMap($this->doRPCRequest('CreateListener', '2020-06-16', 'HTTPS', 'POST', 'AK', 'json', $req, $runtime));
+        return CreateListenerResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
@@ -444,11 +619,35 @@ class Alb extends OpenApiClient
     public function createLoadBalancerWithOptions($request, $runtime)
     {
         Utils::validateModel($request);
-        $req = new OpenApiRequest([
-            'body' => Utils::toMap($request),
+        $query                                 = [];
+        $query['AddressAllocatedMode']         = $request->addressAllocatedMode;
+        $query['AddressType']                  = $request->addressType;
+        $query['ClientToken']                  = $request->clientToken;
+        $query['DeletionProtectionEnabled']    = $request->deletionProtectionEnabled;
+        $query['DryRun']                       = $request->dryRun;
+        $query['LoadBalancerBillingConfig']    = $request->loadBalancerBillingConfig;
+        $query['LoadBalancerEdition']          = $request->loadBalancerEdition;
+        $query['LoadBalancerName']             = $request->loadBalancerName;
+        $query['ModificationProtectionConfig'] = $request->modificationProtectionConfig;
+        $query['ResourceGroupId']              = $request->resourceGroupId;
+        $query['VpcId']                        = $request->vpcId;
+        $query['ZoneMappings']                 = $request->zoneMappings;
+        $req                                   = new OpenApiRequest([
+            'query' => OpenApiUtilClient::query($query),
+        ]);
+        $params = new Params([
+            'action'      => 'CreateLoadBalancer',
+            'version'     => '2020-06-16',
+            'protocol'    => 'HTTPS',
+            'pathname'    => '/',
+            'method'      => 'POST',
+            'authType'    => 'AK',
+            'style'       => 'RPC',
+            'reqBodyType' => 'formData',
+            'bodyType'    => 'json',
         ]);
 
-        return CreateLoadBalancerResponse::fromMap($this->doRPCRequest('CreateLoadBalancer', '2020-06-16', 'HTTPS', 'POST', 'AK', 'json', $req, $runtime));
+        return CreateLoadBalancerResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
@@ -472,11 +671,30 @@ class Alb extends OpenApiClient
     public function createRuleWithOptions($request, $runtime)
     {
         Utils::validateModel($request);
-        $req = new OpenApiRequest([
-            'body' => Utils::toMap($request),
+        $query                   = [];
+        $query['ClientToken']    = $request->clientToken;
+        $query['DryRun']         = $request->dryRun;
+        $query['ListenerId']     = $request->listenerId;
+        $query['Priority']       = $request->priority;
+        $query['RuleActions']    = $request->ruleActions;
+        $query['RuleConditions'] = $request->ruleConditions;
+        $query['RuleName']       = $request->ruleName;
+        $req                     = new OpenApiRequest([
+            'query' => OpenApiUtilClient::query($query),
+        ]);
+        $params = new Params([
+            'action'      => 'CreateRule',
+            'version'     => '2020-06-16',
+            'protocol'    => 'HTTPS',
+            'pathname'    => '/',
+            'method'      => 'POST',
+            'authType'    => 'AK',
+            'style'       => 'RPC',
+            'reqBodyType' => 'formData',
+            'bodyType'    => 'json',
         ]);
 
-        return CreateRuleResponse::fromMap($this->doRPCRequest('CreateRule', '2020-06-16', 'HTTPS', 'POST', 'AK', 'json', $req, $runtime));
+        return CreateRuleResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
@@ -500,11 +718,27 @@ class Alb extends OpenApiClient
     public function createRulesWithOptions($request, $runtime)
     {
         Utils::validateModel($request);
-        $req = new OpenApiRequest([
-            'body' => Utils::toMap($request),
+        $query                = [];
+        $query['ClientToken'] = $request->clientToken;
+        $query['DryRun']      = $request->dryRun;
+        $query['ListenerId']  = $request->listenerId;
+        $query['Rules']       = $request->rules;
+        $req                  = new OpenApiRequest([
+            'query' => OpenApiUtilClient::query($query),
+        ]);
+        $params = new Params([
+            'action'      => 'CreateRules',
+            'version'     => '2020-06-16',
+            'protocol'    => 'HTTPS',
+            'pathname'    => '/',
+            'method'      => 'POST',
+            'authType'    => 'AK',
+            'style'       => 'RPC',
+            'reqBodyType' => 'formData',
+            'bodyType'    => 'json',
         ]);
 
-        return CreateRulesResponse::fromMap($this->doRPCRequest('CreateRules', '2020-06-16', 'HTTPS', 'POST', 'AK', 'json', $req, $runtime));
+        return CreateRulesResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
@@ -528,11 +762,29 @@ class Alb extends OpenApiClient
     public function createSecurityPolicyWithOptions($request, $runtime)
     {
         Utils::validateModel($request);
-        $req = new OpenApiRequest([
-            'body' => Utils::toMap($request),
+        $query                       = [];
+        $query['Ciphers']            = $request->ciphers;
+        $query['ClientToken']        = $request->clientToken;
+        $query['DryRun']             = $request->dryRun;
+        $query['ResourceGroupId']    = $request->resourceGroupId;
+        $query['SecurityPolicyName'] = $request->securityPolicyName;
+        $query['TLSVersions']        = $request->TLSVersions;
+        $req                         = new OpenApiRequest([
+            'query' => OpenApiUtilClient::query($query),
+        ]);
+        $params = new Params([
+            'action'      => 'CreateSecurityPolicy',
+            'version'     => '2020-06-16',
+            'protocol'    => 'HTTPS',
+            'pathname'    => '/',
+            'method'      => 'POST',
+            'authType'    => 'AK',
+            'style'       => 'RPC',
+            'reqBodyType' => 'formData',
+            'bodyType'    => 'json',
         ]);
 
-        return CreateSecurityPolicyResponse::fromMap($this->doRPCRequest('CreateSecurityPolicy', '2020-06-16', 'HTTPS', 'POST', 'AK', 'json', $req, $runtime));
+        return CreateSecurityPolicyResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
@@ -556,11 +808,33 @@ class Alb extends OpenApiClient
     public function createServerGroupWithOptions($request, $runtime)
     {
         Utils::validateModel($request);
-        $req = new OpenApiRequest([
-            'body' => Utils::toMap($request),
+        $query                        = [];
+        $query['ClientToken']         = $request->clientToken;
+        $query['DryRun']              = $request->dryRun;
+        $query['HealthCheckConfig']   = $request->healthCheckConfig;
+        $query['Protocol']            = $request->protocol;
+        $query['ResourceGroupId']     = $request->resourceGroupId;
+        $query['Scheduler']           = $request->scheduler;
+        $query['ServerGroupName']     = $request->serverGroupName;
+        $query['ServerGroupType']     = $request->serverGroupType;
+        $query['StickySessionConfig'] = $request->stickySessionConfig;
+        $query['VpcId']               = $request->vpcId;
+        $req                          = new OpenApiRequest([
+            'query' => OpenApiUtilClient::query($query),
+        ]);
+        $params = new Params([
+            'action'      => 'CreateServerGroup',
+            'version'     => '2020-06-16',
+            'protocol'    => 'HTTPS',
+            'pathname'    => '/',
+            'method'      => 'POST',
+            'authType'    => 'AK',
+            'style'       => 'RPC',
+            'reqBodyType' => 'formData',
+            'bodyType'    => 'json',
         ]);
 
-        return CreateServerGroupResponse::fromMap($this->doRPCRequest('CreateServerGroup', '2020-06-16', 'HTTPS', 'POST', 'AK', 'json', $req, $runtime));
+        return CreateServerGroupResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
@@ -584,11 +858,26 @@ class Alb extends OpenApiClient
     public function deleteAclWithOptions($request, $runtime)
     {
         Utils::validateModel($request);
-        $req = new OpenApiRequest([
-            'body' => Utils::toMap($request),
+        $query                = [];
+        $query['AclId']       = $request->aclId;
+        $query['ClientToken'] = $request->clientToken;
+        $query['DryRun']      = $request->dryRun;
+        $req                  = new OpenApiRequest([
+            'query' => OpenApiUtilClient::query($query),
+        ]);
+        $params = new Params([
+            'action'      => 'DeleteAcl',
+            'version'     => '2020-06-16',
+            'protocol'    => 'HTTPS',
+            'pathname'    => '/',
+            'method'      => 'POST',
+            'authType'    => 'AK',
+            'style'       => 'RPC',
+            'reqBodyType' => 'formData',
+            'bodyType'    => 'json',
         ]);
 
-        return DeleteAclResponse::fromMap($this->doRPCRequest('DeleteAcl', '2020-06-16', 'HTTPS', 'POST', 'AK', 'json', $req, $runtime));
+        return DeleteAclResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
@@ -612,11 +901,26 @@ class Alb extends OpenApiClient
     public function deleteHealthCheckTemplatesWithOptions($request, $runtime)
     {
         Utils::validateModel($request);
-        $req = new OpenApiRequest([
-            'body' => Utils::toMap($request),
+        $query                           = [];
+        $query['ClientToken']            = $request->clientToken;
+        $query['DryRun']                 = $request->dryRun;
+        $query['HealthCheckTemplateIds'] = $request->healthCheckTemplateIds;
+        $req                             = new OpenApiRequest([
+            'query' => OpenApiUtilClient::query($query),
+        ]);
+        $params = new Params([
+            'action'      => 'DeleteHealthCheckTemplates',
+            'version'     => '2020-06-16',
+            'protocol'    => 'HTTPS',
+            'pathname'    => '/',
+            'method'      => 'POST',
+            'authType'    => 'AK',
+            'style'       => 'RPC',
+            'reqBodyType' => 'formData',
+            'bodyType'    => 'json',
         ]);
 
-        return DeleteHealthCheckTemplatesResponse::fromMap($this->doRPCRequest('DeleteHealthCheckTemplates', '2020-06-16', 'HTTPS', 'POST', 'AK', 'json', $req, $runtime));
+        return DeleteHealthCheckTemplatesResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
@@ -640,11 +944,26 @@ class Alb extends OpenApiClient
     public function deleteListenerWithOptions($request, $runtime)
     {
         Utils::validateModel($request);
-        $req = new OpenApiRequest([
-            'body' => Utils::toMap($request),
+        $query                = [];
+        $query['ClientToken'] = $request->clientToken;
+        $query['DryRun']      = $request->dryRun;
+        $query['ListenerId']  = $request->listenerId;
+        $req                  = new OpenApiRequest([
+            'query' => OpenApiUtilClient::query($query),
+        ]);
+        $params = new Params([
+            'action'      => 'DeleteListener',
+            'version'     => '2020-06-16',
+            'protocol'    => 'HTTPS',
+            'pathname'    => '/',
+            'method'      => 'POST',
+            'authType'    => 'AK',
+            'style'       => 'RPC',
+            'reqBodyType' => 'formData',
+            'bodyType'    => 'json',
         ]);
 
-        return DeleteListenerResponse::fromMap($this->doRPCRequest('DeleteListener', '2020-06-16', 'HTTPS', 'POST', 'AK', 'json', $req, $runtime));
+        return DeleteListenerResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
@@ -668,11 +987,26 @@ class Alb extends OpenApiClient
     public function deleteLoadBalancerWithOptions($request, $runtime)
     {
         Utils::validateModel($request);
-        $req = new OpenApiRequest([
-            'body' => Utils::toMap($request),
+        $query                   = [];
+        $query['ClientToken']    = $request->clientToken;
+        $query['DryRun']         = $request->dryRun;
+        $query['LoadBalancerId'] = $request->loadBalancerId;
+        $req                     = new OpenApiRequest([
+            'query' => OpenApiUtilClient::query($query),
+        ]);
+        $params = new Params([
+            'action'      => 'DeleteLoadBalancer',
+            'version'     => '2020-06-16',
+            'protocol'    => 'HTTPS',
+            'pathname'    => '/',
+            'method'      => 'POST',
+            'authType'    => 'AK',
+            'style'       => 'RPC',
+            'reqBodyType' => 'formData',
+            'bodyType'    => 'json',
         ]);
 
-        return DeleteLoadBalancerResponse::fromMap($this->doRPCRequest('DeleteLoadBalancer', '2020-06-16', 'HTTPS', 'POST', 'AK', 'json', $req, $runtime));
+        return DeleteLoadBalancerResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
@@ -696,11 +1030,26 @@ class Alb extends OpenApiClient
     public function deleteRuleWithOptions($request, $runtime)
     {
         Utils::validateModel($request);
-        $req = new OpenApiRequest([
-            'body' => Utils::toMap($request),
+        $query                = [];
+        $query['ClientToken'] = $request->clientToken;
+        $query['DryRun']      = $request->dryRun;
+        $query['RuleId']      = $request->ruleId;
+        $req                  = new OpenApiRequest([
+            'query' => OpenApiUtilClient::query($query),
+        ]);
+        $params = new Params([
+            'action'      => 'DeleteRule',
+            'version'     => '2020-06-16',
+            'protocol'    => 'HTTPS',
+            'pathname'    => '/',
+            'method'      => 'POST',
+            'authType'    => 'AK',
+            'style'       => 'RPC',
+            'reqBodyType' => 'formData',
+            'bodyType'    => 'json',
         ]);
 
-        return DeleteRuleResponse::fromMap($this->doRPCRequest('DeleteRule', '2020-06-16', 'HTTPS', 'POST', 'AK', 'json', $req, $runtime));
+        return DeleteRuleResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
@@ -724,11 +1073,26 @@ class Alb extends OpenApiClient
     public function deleteRulesWithOptions($request, $runtime)
     {
         Utils::validateModel($request);
-        $req = new OpenApiRequest([
-            'body' => Utils::toMap($request),
+        $query                = [];
+        $query['ClientToken'] = $request->clientToken;
+        $query['DryRun']      = $request->dryRun;
+        $query['RuleIds']     = $request->ruleIds;
+        $req                  = new OpenApiRequest([
+            'query' => OpenApiUtilClient::query($query),
+        ]);
+        $params = new Params([
+            'action'      => 'DeleteRules',
+            'version'     => '2020-06-16',
+            'protocol'    => 'HTTPS',
+            'pathname'    => '/',
+            'method'      => 'POST',
+            'authType'    => 'AK',
+            'style'       => 'RPC',
+            'reqBodyType' => 'formData',
+            'bodyType'    => 'json',
         ]);
 
-        return DeleteRulesResponse::fromMap($this->doRPCRequest('DeleteRules', '2020-06-16', 'HTTPS', 'POST', 'AK', 'json', $req, $runtime));
+        return DeleteRulesResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
@@ -752,11 +1116,26 @@ class Alb extends OpenApiClient
     public function deleteSecurityPolicyWithOptions($request, $runtime)
     {
         Utils::validateModel($request);
-        $req = new OpenApiRequest([
-            'body' => Utils::toMap($request),
+        $query                     = [];
+        $query['ClientToken']      = $request->clientToken;
+        $query['DryRun']           = $request->dryRun;
+        $query['SecurityPolicyId'] = $request->securityPolicyId;
+        $req                       = new OpenApiRequest([
+            'query' => OpenApiUtilClient::query($query),
+        ]);
+        $params = new Params([
+            'action'      => 'DeleteSecurityPolicy',
+            'version'     => '2020-06-16',
+            'protocol'    => 'HTTPS',
+            'pathname'    => '/',
+            'method'      => 'POST',
+            'authType'    => 'AK',
+            'style'       => 'RPC',
+            'reqBodyType' => 'formData',
+            'bodyType'    => 'json',
         ]);
 
-        return DeleteSecurityPolicyResponse::fromMap($this->doRPCRequest('DeleteSecurityPolicy', '2020-06-16', 'HTTPS', 'POST', 'AK', 'json', $req, $runtime));
+        return DeleteSecurityPolicyResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
@@ -780,11 +1159,26 @@ class Alb extends OpenApiClient
     public function deleteServerGroupWithOptions($request, $runtime)
     {
         Utils::validateModel($request);
-        $req = new OpenApiRequest([
-            'body' => Utils::toMap($request),
+        $query                  = [];
+        $query['ClientToken']   = $request->clientToken;
+        $query['DryRun']        = $request->dryRun;
+        $query['ServerGroupId'] = $request->serverGroupId;
+        $req                    = new OpenApiRequest([
+            'query' => OpenApiUtilClient::query($query),
+        ]);
+        $params = new Params([
+            'action'      => 'DeleteServerGroup',
+            'version'     => '2020-06-16',
+            'protocol'    => 'HTTPS',
+            'pathname'    => '/',
+            'method'      => 'POST',
+            'authType'    => 'AK',
+            'style'       => 'RPC',
+            'reqBodyType' => 'formData',
+            'bodyType'    => 'json',
         ]);
 
-        return DeleteServerGroupResponse::fromMap($this->doRPCRequest('DeleteServerGroup', '2020-06-16', 'HTTPS', 'POST', 'AK', 'json', $req, $runtime));
+        return DeleteServerGroupResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
@@ -808,11 +1202,24 @@ class Alb extends OpenApiClient
     public function describeRegionsWithOptions($request, $runtime)
     {
         Utils::validateModel($request);
-        $req = new OpenApiRequest([
-            'body' => Utils::toMap($request),
+        $query                   = [];
+        $query['AcceptLanguage'] = $request->acceptLanguage;
+        $req                     = new OpenApiRequest([
+            'query' => OpenApiUtilClient::query($query),
+        ]);
+        $params = new Params([
+            'action'      => 'DescribeRegions',
+            'version'     => '2020-06-16',
+            'protocol'    => 'HTTPS',
+            'pathname'    => '/',
+            'method'      => 'POST',
+            'authType'    => 'AK',
+            'style'       => 'RPC',
+            'reqBodyType' => 'formData',
+            'bodyType'    => 'json',
         ]);
 
-        return DescribeRegionsResponse::fromMap($this->doRPCRequest('DescribeRegions', '2020-06-16', 'HTTPS', 'POST', 'AK', 'json', $req, $runtime));
+        return DescribeRegionsResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
@@ -834,9 +1241,20 @@ class Alb extends OpenApiClient
      */
     public function describeZonesWithOptions($runtime)
     {
-        $req = new OpenApiRequest([]);
+        $req    = new OpenApiRequest([]);
+        $params = new Params([
+            'action'      => 'DescribeZones',
+            'version'     => '2020-06-16',
+            'protocol'    => 'HTTPS',
+            'pathname'    => '/',
+            'method'      => 'POST',
+            'authType'    => 'AK',
+            'style'       => 'RPC',
+            'reqBodyType' => 'formData',
+            'bodyType'    => 'json',
+        ]);
 
-        return DescribeZonesResponse::fromMap($this->doRPCRequest('DescribeZones', '2020-06-16', 'HTTPS', 'POST', 'AK', 'json', $req, $runtime));
+        return DescribeZonesResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
@@ -858,11 +1276,28 @@ class Alb extends OpenApiClient
     public function detachCommonBandwidthPackageFromLoadBalancerWithOptions($request, $runtime)
     {
         Utils::validateModel($request);
-        $req = new OpenApiRequest([
-            'body' => Utils::toMap($request),
+        $query                       = [];
+        $query['BandwidthPackageId'] = $request->bandwidthPackageId;
+        $query['ClientToken']        = $request->clientToken;
+        $query['DryRun']             = $request->dryRun;
+        $query['LoadBalancerId']     = $request->loadBalancerId;
+        $query['RegionId']           = $request->regionId;
+        $req                         = new OpenApiRequest([
+            'query' => OpenApiUtilClient::query($query),
+        ]);
+        $params = new Params([
+            'action'      => 'DetachCommonBandwidthPackageFromLoadBalancer',
+            'version'     => '2020-06-16',
+            'protocol'    => 'HTTPS',
+            'pathname'    => '/',
+            'method'      => 'POST',
+            'authType'    => 'AK',
+            'style'       => 'RPC',
+            'reqBodyType' => 'formData',
+            'bodyType'    => 'json',
         ]);
 
-        return DetachCommonBandwidthPackageFromLoadBalancerResponse::fromMap($this->doRPCRequest('DetachCommonBandwidthPackageFromLoadBalancer', '2020-06-16', 'HTTPS', 'POST', 'AK', 'json', $req, $runtime));
+        return DetachCommonBandwidthPackageFromLoadBalancerResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
@@ -886,11 +1321,26 @@ class Alb extends OpenApiClient
     public function disableDeletionProtectionWithOptions($request, $runtime)
     {
         Utils::validateModel($request);
-        $req = new OpenApiRequest([
-            'body' => Utils::toMap($request),
+        $query                = [];
+        $query['ClientToken'] = $request->clientToken;
+        $query['DryRun']      = $request->dryRun;
+        $query['ResourceId']  = $request->resourceId;
+        $req                  = new OpenApiRequest([
+            'query' => OpenApiUtilClient::query($query),
+        ]);
+        $params = new Params([
+            'action'      => 'DisableDeletionProtection',
+            'version'     => '2020-06-16',
+            'protocol'    => 'HTTPS',
+            'pathname'    => '/',
+            'method'      => 'POST',
+            'authType'    => 'AK',
+            'style'       => 'RPC',
+            'reqBodyType' => 'formData',
+            'bodyType'    => 'json',
         ]);
 
-        return DisableDeletionProtectionResponse::fromMap($this->doRPCRequest('DisableDeletionProtection', '2020-06-16', 'HTTPS', 'POST', 'AK', 'json', $req, $runtime));
+        return DisableDeletionProtectionResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
@@ -914,11 +1364,26 @@ class Alb extends OpenApiClient
     public function disableLoadBalancerAccessLogWithOptions($request, $runtime)
     {
         Utils::validateModel($request);
-        $req = new OpenApiRequest([
-            'body' => Utils::toMap($request),
+        $query                   = [];
+        $query['ClientToken']    = $request->clientToken;
+        $query['DryRun']         = $request->dryRun;
+        $query['LoadBalancerId'] = $request->loadBalancerId;
+        $req                     = new OpenApiRequest([
+            'query' => OpenApiUtilClient::query($query),
+        ]);
+        $params = new Params([
+            'action'      => 'DisableLoadBalancerAccessLog',
+            'version'     => '2020-06-16',
+            'protocol'    => 'HTTPS',
+            'pathname'    => '/',
+            'method'      => 'POST',
+            'authType'    => 'AK',
+            'style'       => 'RPC',
+            'reqBodyType' => 'formData',
+            'bodyType'    => 'json',
         ]);
 
-        return DisableLoadBalancerAccessLogResponse::fromMap($this->doRPCRequest('DisableLoadBalancerAccessLog', '2020-06-16', 'HTTPS', 'POST', 'AK', 'json', $req, $runtime));
+        return DisableLoadBalancerAccessLogResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
@@ -942,11 +1407,27 @@ class Alb extends OpenApiClient
     public function dissociateAclsFromListenerWithOptions($request, $runtime)
     {
         Utils::validateModel($request);
-        $req = new OpenApiRequest([
-            'body' => Utils::toMap($request),
+        $query                = [];
+        $query['AclIds']      = $request->aclIds;
+        $query['ClientToken'] = $request->clientToken;
+        $query['DryRun']      = $request->dryRun;
+        $query['ListenerId']  = $request->listenerId;
+        $req                  = new OpenApiRequest([
+            'query' => OpenApiUtilClient::query($query),
+        ]);
+        $params = new Params([
+            'action'      => 'DissociateAclsFromListener',
+            'version'     => '2020-06-16',
+            'protocol'    => 'HTTPS',
+            'pathname'    => '/',
+            'method'      => 'POST',
+            'authType'    => 'AK',
+            'style'       => 'RPC',
+            'reqBodyType' => 'formData',
+            'bodyType'    => 'json',
         ]);
 
-        return DissociateAclsFromListenerResponse::fromMap($this->doRPCRequest('DissociateAclsFromListener', '2020-06-16', 'HTTPS', 'POST', 'AK', 'json', $req, $runtime));
+        return DissociateAclsFromListenerResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
@@ -970,11 +1451,27 @@ class Alb extends OpenApiClient
     public function dissociateAdditionalCertificatesFromListenerWithOptions($request, $runtime)
     {
         Utils::validateModel($request);
-        $req = new OpenApiRequest([
-            'body' => Utils::toMap($request),
+        $query                 = [];
+        $query['Certificates'] = $request->certificates;
+        $query['ClientToken']  = $request->clientToken;
+        $query['DryRun']       = $request->dryRun;
+        $query['ListenerId']   = $request->listenerId;
+        $req                   = new OpenApiRequest([
+            'query' => OpenApiUtilClient::query($query),
+        ]);
+        $params = new Params([
+            'action'      => 'DissociateAdditionalCertificatesFromListener',
+            'version'     => '2020-06-16',
+            'protocol'    => 'HTTPS',
+            'pathname'    => '/',
+            'method'      => 'POST',
+            'authType'    => 'AK',
+            'style'       => 'RPC',
+            'reqBodyType' => 'formData',
+            'bodyType'    => 'json',
         ]);
 
-        return DissociateAdditionalCertificatesFromListenerResponse::fromMap($this->doRPCRequest('DissociateAdditionalCertificatesFromListener', '2020-06-16', 'HTTPS', 'POST', 'AK', 'json', $req, $runtime));
+        return DissociateAdditionalCertificatesFromListenerResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
@@ -998,11 +1495,26 @@ class Alb extends OpenApiClient
     public function enableDeletionProtectionWithOptions($request, $runtime)
     {
         Utils::validateModel($request);
-        $req = new OpenApiRequest([
-            'body' => Utils::toMap($request),
+        $query                = [];
+        $query['ClientToken'] = $request->clientToken;
+        $query['DryRun']      = $request->dryRun;
+        $query['ResourceId']  = $request->resourceId;
+        $req                  = new OpenApiRequest([
+            'query' => OpenApiUtilClient::query($query),
+        ]);
+        $params = new Params([
+            'action'      => 'EnableDeletionProtection',
+            'version'     => '2020-06-16',
+            'protocol'    => 'HTTPS',
+            'pathname'    => '/',
+            'method'      => 'POST',
+            'authType'    => 'AK',
+            'style'       => 'RPC',
+            'reqBodyType' => 'formData',
+            'bodyType'    => 'json',
         ]);
 
-        return EnableDeletionProtectionResponse::fromMap($this->doRPCRequest('EnableDeletionProtection', '2020-06-16', 'HTTPS', 'POST', 'AK', 'json', $req, $runtime));
+        return EnableDeletionProtectionResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
@@ -1026,11 +1538,28 @@ class Alb extends OpenApiClient
     public function enableLoadBalancerAccessLogWithOptions($request, $runtime)
     {
         Utils::validateModel($request);
-        $req = new OpenApiRequest([
-            'body' => Utils::toMap($request),
+        $query                   = [];
+        $query['ClientToken']    = $request->clientToken;
+        $query['DryRun']         = $request->dryRun;
+        $query['LoadBalancerId'] = $request->loadBalancerId;
+        $query['LogProject']     = $request->logProject;
+        $query['LogStore']       = $request->logStore;
+        $req                     = new OpenApiRequest([
+            'query' => OpenApiUtilClient::query($query),
+        ]);
+        $params = new Params([
+            'action'      => 'EnableLoadBalancerAccessLog',
+            'version'     => '2020-06-16',
+            'protocol'    => 'HTTPS',
+            'pathname'    => '/',
+            'method'      => 'POST',
+            'authType'    => 'AK',
+            'style'       => 'RPC',
+            'reqBodyType' => 'formData',
+            'bodyType'    => 'json',
         ]);
 
-        return EnableLoadBalancerAccessLogResponse::fromMap($this->doRPCRequest('EnableLoadBalancerAccessLog', '2020-06-16', 'HTTPS', 'POST', 'AK', 'json', $req, $runtime));
+        return EnableLoadBalancerAccessLogResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
@@ -1054,11 +1583,24 @@ class Alb extends OpenApiClient
     public function getHealthCheckTemplateAttributeWithOptions($request, $runtime)
     {
         Utils::validateModel($request);
-        $req = new OpenApiRequest([
-            'body' => Utils::toMap($request),
+        $query                          = [];
+        $query['HealthCheckTemplateId'] = $request->healthCheckTemplateId;
+        $req                            = new OpenApiRequest([
+            'query' => OpenApiUtilClient::query($query),
+        ]);
+        $params = new Params([
+            'action'      => 'GetHealthCheckTemplateAttribute',
+            'version'     => '2020-06-16',
+            'protocol'    => 'HTTPS',
+            'pathname'    => '/',
+            'method'      => 'POST',
+            'authType'    => 'AK',
+            'style'       => 'RPC',
+            'reqBodyType' => 'formData',
+            'bodyType'    => 'json',
         ]);
 
-        return GetHealthCheckTemplateAttributeResponse::fromMap($this->doRPCRequest('GetHealthCheckTemplateAttribute', '2020-06-16', 'HTTPS', 'POST', 'AK', 'json', $req, $runtime));
+        return GetHealthCheckTemplateAttributeResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
@@ -1082,11 +1624,24 @@ class Alb extends OpenApiClient
     public function getListenerAttributeWithOptions($request, $runtime)
     {
         Utils::validateModel($request);
-        $req = new OpenApiRequest([
-            'body' => Utils::toMap($request),
+        $query               = [];
+        $query['ListenerId'] = $request->listenerId;
+        $req                 = new OpenApiRequest([
+            'query' => OpenApiUtilClient::query($query),
+        ]);
+        $params = new Params([
+            'action'      => 'GetListenerAttribute',
+            'version'     => '2020-06-16',
+            'protocol'    => 'HTTPS',
+            'pathname'    => '/',
+            'method'      => 'POST',
+            'authType'    => 'AK',
+            'style'       => 'RPC',
+            'reqBodyType' => 'formData',
+            'bodyType'    => 'json',
         ]);
 
-        return GetListenerAttributeResponse::fromMap($this->doRPCRequest('GetListenerAttribute', '2020-06-16', 'HTTPS', 'POST', 'AK', 'json', $req, $runtime));
+        return GetListenerAttributeResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
@@ -1102,6 +1657,50 @@ class Alb extends OpenApiClient
     }
 
     /**
+     * @param GetListenerHealthStatusRequest $request
+     * @param RuntimeOptions                 $runtime
+     *
+     * @return GetListenerHealthStatusResponse
+     */
+    public function getListenerHealthStatusWithOptions($request, $runtime)
+    {
+        Utils::validateModel($request);
+        $query                = [];
+        $query['IncludeRule'] = $request->includeRule;
+        $query['ListenerId']  = $request->listenerId;
+        $query['MaxResults']  = $request->maxResults;
+        $query['NextToken']   = $request->nextToken;
+        $req                  = new OpenApiRequest([
+            'query' => OpenApiUtilClient::query($query),
+        ]);
+        $params = new Params([
+            'action'      => 'GetListenerHealthStatus',
+            'version'     => '2020-06-16',
+            'protocol'    => 'HTTPS',
+            'pathname'    => '/',
+            'method'      => 'POST',
+            'authType'    => 'AK',
+            'style'       => 'RPC',
+            'reqBodyType' => 'formData',
+            'bodyType'    => 'json',
+        ]);
+
+        return GetListenerHealthStatusResponse::fromMap($this->callApi($params, $req, $runtime));
+    }
+
+    /**
+     * @param GetListenerHealthStatusRequest $request
+     *
+     * @return GetListenerHealthStatusResponse
+     */
+    public function getListenerHealthStatus($request)
+    {
+        $runtime = new RuntimeOptions([]);
+
+        return $this->getListenerHealthStatusWithOptions($request, $runtime);
+    }
+
+    /**
      * @param GetLoadBalancerAttributeRequest $request
      * @param RuntimeOptions                  $runtime
      *
@@ -1110,11 +1709,24 @@ class Alb extends OpenApiClient
     public function getLoadBalancerAttributeWithOptions($request, $runtime)
     {
         Utils::validateModel($request);
-        $req = new OpenApiRequest([
-            'body' => Utils::toMap($request),
+        $query                   = [];
+        $query['LoadBalancerId'] = $request->loadBalancerId;
+        $req                     = new OpenApiRequest([
+            'query' => OpenApiUtilClient::query($query),
+        ]);
+        $params = new Params([
+            'action'      => 'GetLoadBalancerAttribute',
+            'version'     => '2020-06-16',
+            'protocol'    => 'HTTPS',
+            'pathname'    => '/',
+            'method'      => 'POST',
+            'authType'    => 'AK',
+            'style'       => 'RPC',
+            'reqBodyType' => 'formData',
+            'bodyType'    => 'json',
         ]);
 
-        return GetLoadBalancerAttributeResponse::fromMap($this->doRPCRequest('GetLoadBalancerAttribute', '2020-06-16', 'HTTPS', 'POST', 'AK', 'json', $req, $runtime));
+        return GetLoadBalancerAttributeResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
@@ -1138,11 +1750,26 @@ class Alb extends OpenApiClient
     public function listAclEntriesWithOptions($request, $runtime)
     {
         Utils::validateModel($request);
-        $req = new OpenApiRequest([
-            'body' => Utils::toMap($request),
+        $query               = [];
+        $query['AclId']      = $request->aclId;
+        $query['MaxResults'] = $request->maxResults;
+        $query['NextToken']  = $request->nextToken;
+        $req                 = new OpenApiRequest([
+            'query' => OpenApiUtilClient::query($query),
+        ]);
+        $params = new Params([
+            'action'      => 'ListAclEntries',
+            'version'     => '2020-06-16',
+            'protocol'    => 'HTTPS',
+            'pathname'    => '/',
+            'method'      => 'POST',
+            'authType'    => 'AK',
+            'style'       => 'RPC',
+            'reqBodyType' => 'formData',
+            'bodyType'    => 'json',
         ]);
 
-        return ListAclEntriesResponse::fromMap($this->doRPCRequest('ListAclEntries', '2020-06-16', 'HTTPS', 'POST', 'AK', 'json', $req, $runtime));
+        return ListAclEntriesResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
@@ -1166,11 +1793,24 @@ class Alb extends OpenApiClient
     public function listAclRelationsWithOptions($request, $runtime)
     {
         Utils::validateModel($request);
-        $req = new OpenApiRequest([
-            'body' => Utils::toMap($request),
+        $query           = [];
+        $query['AclIds'] = $request->aclIds;
+        $req             = new OpenApiRequest([
+            'query' => OpenApiUtilClient::query($query),
+        ]);
+        $params = new Params([
+            'action'      => 'ListAclRelations',
+            'version'     => '2020-06-16',
+            'protocol'    => 'HTTPS',
+            'pathname'    => '/',
+            'method'      => 'POST',
+            'authType'    => 'AK',
+            'style'       => 'RPC',
+            'reqBodyType' => 'formData',
+            'bodyType'    => 'json',
         ]);
 
-        return ListAclRelationsResponse::fromMap($this->doRPCRequest('ListAclRelations', '2020-06-16', 'HTTPS', 'POST', 'AK', 'json', $req, $runtime));
+        return ListAclRelationsResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
@@ -1194,11 +1834,28 @@ class Alb extends OpenApiClient
     public function listAclsWithOptions($request, $runtime)
     {
         Utils::validateModel($request);
-        $req = new OpenApiRequest([
-            'body' => Utils::toMap($request),
+        $query                    = [];
+        $query['AclIds']          = $request->aclIds;
+        $query['AclNames']        = $request->aclNames;
+        $query['MaxResults']      = $request->maxResults;
+        $query['NextToken']       = $request->nextToken;
+        $query['ResourceGroupId'] = $request->resourceGroupId;
+        $req                      = new OpenApiRequest([
+            'query' => OpenApiUtilClient::query($query),
+        ]);
+        $params = new Params([
+            'action'      => 'ListAcls',
+            'version'     => '2020-06-16',
+            'protocol'    => 'HTTPS',
+            'pathname'    => '/',
+            'method'      => 'POST',
+            'authType'    => 'AK',
+            'style'       => 'RPC',
+            'reqBodyType' => 'formData',
+            'bodyType'    => 'json',
         ]);
 
-        return ListAclsResponse::fromMap($this->doRPCRequest('ListAcls', '2020-06-16', 'HTTPS', 'POST', 'AK', 'json', $req, $runtime));
+        return ListAclsResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
@@ -1222,11 +1879,31 @@ class Alb extends OpenApiClient
     public function listAsynJobsWithOptions($request, $runtime)
     {
         Utils::validateModel($request);
-        $req = new OpenApiRequest([
-            'body' => Utils::toMap($request),
+        $query                 = [];
+        $query['ApiName']      = $request->apiName;
+        $query['BeginTime']    = $request->beginTime;
+        $query['EndTime']      = $request->endTime;
+        $query['JobIds']       = $request->jobIds;
+        $query['MaxResults']   = $request->maxResults;
+        $query['NextToken']    = $request->nextToken;
+        $query['ResourceIds']  = $request->resourceIds;
+        $query['ResourceType'] = $request->resourceType;
+        $req                   = new OpenApiRequest([
+            'query' => OpenApiUtilClient::query($query),
+        ]);
+        $params = new Params([
+            'action'      => 'ListAsynJobs',
+            'version'     => '2020-06-16',
+            'protocol'    => 'HTTPS',
+            'pathname'    => '/',
+            'method'      => 'POST',
+            'authType'    => 'AK',
+            'style'       => 'RPC',
+            'reqBodyType' => 'formData',
+            'bodyType'    => 'json',
         ]);
 
-        return ListAsynJobsResponse::fromMap($this->doRPCRequest('ListAsynJobs', '2020-06-16', 'HTTPS', 'POST', 'AK', 'json', $req, $runtime));
+        return ListAsynJobsResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
@@ -1250,11 +1927,27 @@ class Alb extends OpenApiClient
     public function listHealthCheckTemplatesWithOptions($request, $runtime)
     {
         Utils::validateModel($request);
-        $req = new OpenApiRequest([
-            'body' => Utils::toMap($request),
+        $query                             = [];
+        $query['HealthCheckTemplateIds']   = $request->healthCheckTemplateIds;
+        $query['HealthCheckTemplateNames'] = $request->healthCheckTemplateNames;
+        $query['MaxResults']               = $request->maxResults;
+        $query['NextToken']                = $request->nextToken;
+        $req                               = new OpenApiRequest([
+            'query' => OpenApiUtilClient::query($query),
+        ]);
+        $params = new Params([
+            'action'      => 'ListHealthCheckTemplates',
+            'version'     => '2020-06-16',
+            'protocol'    => 'HTTPS',
+            'pathname'    => '/',
+            'method'      => 'POST',
+            'authType'    => 'AK',
+            'style'       => 'RPC',
+            'reqBodyType' => 'formData',
+            'bodyType'    => 'json',
         ]);
 
-        return ListHealthCheckTemplatesResponse::fromMap($this->doRPCRequest('ListHealthCheckTemplates', '2020-06-16', 'HTTPS', 'POST', 'AK', 'json', $req, $runtime));
+        return ListHealthCheckTemplatesResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
@@ -1278,11 +1971,27 @@ class Alb extends OpenApiClient
     public function listListenerCertificatesWithOptions($request, $runtime)
     {
         Utils::validateModel($request);
-        $req = new OpenApiRequest([
-            'body' => Utils::toMap($request),
+        $query                    = [];
+        $query['CertificateType'] = $request->certificateType;
+        $query['ListenerId']      = $request->listenerId;
+        $query['MaxResults']      = $request->maxResults;
+        $query['NextToken']       = $request->nextToken;
+        $req                      = new OpenApiRequest([
+            'query' => OpenApiUtilClient::query($query),
+        ]);
+        $params = new Params([
+            'action'      => 'ListListenerCertificates',
+            'version'     => '2020-06-16',
+            'protocol'    => 'HTTPS',
+            'pathname'    => '/',
+            'method'      => 'POST',
+            'authType'    => 'AK',
+            'style'       => 'RPC',
+            'reqBodyType' => 'formData',
+            'bodyType'    => 'json',
         ]);
 
-        return ListListenerCertificatesResponse::fromMap($this->doRPCRequest('ListListenerCertificates', '2020-06-16', 'HTTPS', 'POST', 'AK', 'json', $req, $runtime));
+        return ListListenerCertificatesResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
@@ -1306,11 +2015,28 @@ class Alb extends OpenApiClient
     public function listListenersWithOptions($request, $runtime)
     {
         Utils::validateModel($request);
-        $req = new OpenApiRequest([
-            'body' => Utils::toMap($request),
+        $query                     = [];
+        $query['ListenerIds']      = $request->listenerIds;
+        $query['ListenerProtocol'] = $request->listenerProtocol;
+        $query['LoadBalancerIds']  = $request->loadBalancerIds;
+        $query['MaxResults']       = $request->maxResults;
+        $query['NextToken']        = $request->nextToken;
+        $req                       = new OpenApiRequest([
+            'query' => OpenApiUtilClient::query($query),
+        ]);
+        $params = new Params([
+            'action'      => 'ListListeners',
+            'version'     => '2020-06-16',
+            'protocol'    => 'HTTPS',
+            'pathname'    => '/',
+            'method'      => 'POST',
+            'authType'    => 'AK',
+            'style'       => 'RPC',
+            'reqBodyType' => 'formData',
+            'bodyType'    => 'json',
         ]);
 
-        return ListListenersResponse::fromMap($this->doRPCRequest('ListListeners', '2020-06-16', 'HTTPS', 'POST', 'AK', 'json', $req, $runtime));
+        return ListListenersResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
@@ -1334,11 +2060,35 @@ class Alb extends OpenApiClient
     public function listLoadBalancersWithOptions($request, $runtime)
     {
         Utils::validateModel($request);
-        $req = new OpenApiRequest([
-            'body' => Utils::toMap($request),
+        $query                                = [];
+        $query['AddressType']                 = $request->addressType;
+        $query['LoadBalancerBussinessStatus'] = $request->loadBalancerBussinessStatus;
+        $query['LoadBalancerIds']             = $request->loadBalancerIds;
+        $query['LoadBalancerNames']           = $request->loadBalancerNames;
+        $query['LoadBalancerStatus']          = $request->loadBalancerStatus;
+        $query['MaxResults']                  = $request->maxResults;
+        $query['NextToken']                   = $request->nextToken;
+        $query['PayType']                     = $request->payType;
+        $query['ResourceGroupId']             = $request->resourceGroupId;
+        $query['Tag']                         = $request->tag;
+        $query['VpcIds']                      = $request->vpcIds;
+        $query['ZoneId']                      = $request->zoneId;
+        $req                                  = new OpenApiRequest([
+            'query' => OpenApiUtilClient::query($query),
+        ]);
+        $params = new Params([
+            'action'      => 'ListLoadBalancers',
+            'version'     => '2020-06-16',
+            'protocol'    => 'HTTPS',
+            'pathname'    => '/',
+            'method'      => 'POST',
+            'authType'    => 'AK',
+            'style'       => 'RPC',
+            'reqBodyType' => 'formData',
+            'bodyType'    => 'json',
         ]);
 
-        return ListLoadBalancersResponse::fromMap($this->doRPCRequest('ListLoadBalancers', '2020-06-16', 'HTTPS', 'POST', 'AK', 'json', $req, $runtime));
+        return ListLoadBalancersResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
@@ -1362,11 +2112,28 @@ class Alb extends OpenApiClient
     public function listRulesWithOptions($request, $runtime)
     {
         Utils::validateModel($request);
-        $req = new OpenApiRequest([
-            'body' => Utils::toMap($request),
+        $query                    = [];
+        $query['ListenerIds']     = $request->listenerIds;
+        $query['LoadBalancerIds'] = $request->loadBalancerIds;
+        $query['MaxResults']      = $request->maxResults;
+        $query['NextToken']       = $request->nextToken;
+        $query['RuleIds']         = $request->ruleIds;
+        $req                      = new OpenApiRequest([
+            'query' => OpenApiUtilClient::query($query),
+        ]);
+        $params = new Params([
+            'action'      => 'ListRules',
+            'version'     => '2020-06-16',
+            'protocol'    => 'HTTPS',
+            'pathname'    => '/',
+            'method'      => 'POST',
+            'authType'    => 'AK',
+            'style'       => 'RPC',
+            'reqBodyType' => 'formData',
+            'bodyType'    => 'json',
         ]);
 
-        return ListRulesResponse::fromMap($this->doRPCRequest('ListRules', '2020-06-16', 'HTTPS', 'POST', 'AK', 'json', $req, $runtime));
+        return ListRulesResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
@@ -1390,11 +2157,28 @@ class Alb extends OpenApiClient
     public function listSecurityPoliciesWithOptions($request, $runtime)
     {
         Utils::validateModel($request);
-        $req = new OpenApiRequest([
-            'body' => Utils::toMap($request),
+        $query                        = [];
+        $query['MaxResults']          = $request->maxResults;
+        $query['NextToken']           = $request->nextToken;
+        $query['ResourceGroupId']     = $request->resourceGroupId;
+        $query['SecurityPolicyIds']   = $request->securityPolicyIds;
+        $query['SecurityPolicyNames'] = $request->securityPolicyNames;
+        $req                          = new OpenApiRequest([
+            'query' => OpenApiUtilClient::query($query),
+        ]);
+        $params = new Params([
+            'action'      => 'ListSecurityPolicies',
+            'version'     => '2020-06-16',
+            'protocol'    => 'HTTPS',
+            'pathname'    => '/',
+            'method'      => 'POST',
+            'authType'    => 'AK',
+            'style'       => 'RPC',
+            'reqBodyType' => 'formData',
+            'bodyType'    => 'json',
         ]);
 
-        return ListSecurityPoliciesResponse::fromMap($this->doRPCRequest('ListSecurityPolicies', '2020-06-16', 'HTTPS', 'POST', 'AK', 'json', $req, $runtime));
+        return ListSecurityPoliciesResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
@@ -1418,11 +2202,24 @@ class Alb extends OpenApiClient
     public function listSecurityPolicyRelationsWithOptions($request, $runtime)
     {
         Utils::validateModel($request);
-        $req = new OpenApiRequest([
-            'body' => Utils::toMap($request),
+        $query                      = [];
+        $query['SecurityPolicyIds'] = $request->securityPolicyIds;
+        $req                        = new OpenApiRequest([
+            'query' => OpenApiUtilClient::query($query),
+        ]);
+        $params = new Params([
+            'action'      => 'ListSecurityPolicyRelations',
+            'version'     => '2020-06-16',
+            'protocol'    => 'HTTPS',
+            'pathname'    => '/',
+            'method'      => 'POST',
+            'authType'    => 'AK',
+            'style'       => 'RPC',
+            'reqBodyType' => 'formData',
+            'bodyType'    => 'json',
         ]);
 
-        return ListSecurityPolicyRelationsResponse::fromMap($this->doRPCRequest('ListSecurityPolicyRelations', '2020-06-16', 'HTTPS', 'POST', 'AK', 'json', $req, $runtime));
+        return ListSecurityPolicyRelationsResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
@@ -1446,11 +2243,28 @@ class Alb extends OpenApiClient
     public function listServerGroupServersWithOptions($request, $runtime)
     {
         Utils::validateModel($request);
-        $req = new OpenApiRequest([
-            'body' => Utils::toMap($request),
+        $query                  = [];
+        $query['MaxResults']    = $request->maxResults;
+        $query['NextToken']     = $request->nextToken;
+        $query['ServerGroupId'] = $request->serverGroupId;
+        $query['ServerIds']     = $request->serverIds;
+        $query['Tag']           = $request->tag;
+        $req                    = new OpenApiRequest([
+            'query' => OpenApiUtilClient::query($query),
+        ]);
+        $params = new Params([
+            'action'      => 'ListServerGroupServers',
+            'version'     => '2020-06-16',
+            'protocol'    => 'HTTPS',
+            'pathname'    => '/',
+            'method'      => 'POST',
+            'authType'    => 'AK',
+            'style'       => 'RPC',
+            'reqBodyType' => 'formData',
+            'bodyType'    => 'json',
         ]);
 
-        return ListServerGroupServersResponse::fromMap($this->doRPCRequest('ListServerGroupServers', '2020-06-16', 'HTTPS', 'POST', 'AK', 'json', $req, $runtime));
+        return ListServerGroupServersResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
@@ -1474,11 +2288,30 @@ class Alb extends OpenApiClient
     public function listServerGroupsWithOptions($request, $runtime)
     {
         Utils::validateModel($request);
-        $req = new OpenApiRequest([
-            'body' => Utils::toMap($request),
+        $query                     = [];
+        $query['MaxResults']       = $request->maxResults;
+        $query['NextToken']        = $request->nextToken;
+        $query['ResourceGroupId']  = $request->resourceGroupId;
+        $query['ServerGroupIds']   = $request->serverGroupIds;
+        $query['ServerGroupNames'] = $request->serverGroupNames;
+        $query['Tag']              = $request->tag;
+        $query['VpcId']            = $request->vpcId;
+        $req                       = new OpenApiRequest([
+            'query' => OpenApiUtilClient::query($query),
+        ]);
+        $params = new Params([
+            'action'      => 'ListServerGroups',
+            'version'     => '2020-06-16',
+            'protocol'    => 'HTTPS',
+            'pathname'    => '/',
+            'method'      => 'POST',
+            'authType'    => 'AK',
+            'style'       => 'RPC',
+            'reqBodyType' => 'formData',
+            'bodyType'    => 'json',
         ]);
 
-        return ListServerGroupsResponse::fromMap($this->doRPCRequest('ListServerGroups', '2020-06-16', 'HTTPS', 'POST', 'AK', 'json', $req, $runtime));
+        return ListServerGroupsResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
@@ -1500,9 +2333,20 @@ class Alb extends OpenApiClient
      */
     public function listSystemSecurityPoliciesWithOptions($runtime)
     {
-        $req = new OpenApiRequest([]);
+        $req    = new OpenApiRequest([]);
+        $params = new Params([
+            'action'      => 'ListSystemSecurityPolicies',
+            'version'     => '2020-06-16',
+            'protocol'    => 'HTTPS',
+            'pathname'    => '/',
+            'method'      => 'POST',
+            'authType'    => 'AK',
+            'style'       => 'RPC',
+            'reqBodyType' => 'formData',
+            'bodyType'    => 'json',
+        ]);
 
-        return ListSystemSecurityPoliciesResponse::fromMap($this->doRPCRequest('ListSystemSecurityPolicies', '2020-06-16', 'HTTPS', 'POST', 'AK', 'json', $req, $runtime));
+        return ListSystemSecurityPoliciesResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
@@ -1524,11 +2368,28 @@ class Alb extends OpenApiClient
     public function listTagKeysWithOptions($request, $runtime)
     {
         Utils::validateModel($request);
-        $req = new OpenApiRequest([
-            'body' => Utils::toMap($request),
+        $query                 = [];
+        $query['Category']     = $request->category;
+        $query['Keyword']      = $request->keyword;
+        $query['MaxResults']   = $request->maxResults;
+        $query['NextToken']    = $request->nextToken;
+        $query['ResourceType'] = $request->resourceType;
+        $req                   = new OpenApiRequest([
+            'query' => OpenApiUtilClient::query($query),
+        ]);
+        $params = new Params([
+            'action'      => 'ListTagKeys',
+            'version'     => '2020-06-16',
+            'protocol'    => 'HTTPS',
+            'pathname'    => '/',
+            'method'      => 'POST',
+            'authType'    => 'AK',
+            'style'       => 'RPC',
+            'reqBodyType' => 'formData',
+            'bodyType'    => 'json',
         ]);
 
-        return ListTagKeysResponse::fromMap($this->doRPCRequest('ListTagKeys', '2020-06-16', 'HTTPS', 'POST', 'AK', 'json', $req, $runtime));
+        return ListTagKeysResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
@@ -1552,11 +2413,28 @@ class Alb extends OpenApiClient
     public function listTagResourcesWithOptions($request, $runtime)
     {
         Utils::validateModel($request);
-        $req = new OpenApiRequest([
-            'body' => Utils::toMap($request),
+        $query                 = [];
+        $query['MaxResults']   = $request->maxResults;
+        $query['NextToken']    = $request->nextToken;
+        $query['ResourceId']   = $request->resourceId;
+        $query['ResourceType'] = $request->resourceType;
+        $query['Tag']          = $request->tag;
+        $req                   = new OpenApiRequest([
+            'query' => OpenApiUtilClient::query($query),
+        ]);
+        $params = new Params([
+            'action'      => 'ListTagResources',
+            'version'     => '2020-06-16',
+            'protocol'    => 'HTTPS',
+            'pathname'    => '/',
+            'method'      => 'POST',
+            'authType'    => 'AK',
+            'style'       => 'RPC',
+            'reqBodyType' => 'formData',
+            'bodyType'    => 'json',
         ]);
 
-        return ListTagResourcesResponse::fromMap($this->doRPCRequest('ListTagResources', '2020-06-16', 'HTTPS', 'POST', 'AK', 'json', $req, $runtime));
+        return ListTagResourcesResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
@@ -1580,11 +2458,28 @@ class Alb extends OpenApiClient
     public function listTagValuesWithOptions($request, $runtime)
     {
         Utils::validateModel($request);
-        $req = new OpenApiRequest([
-            'body' => Utils::toMap($request),
+        $query                 = [];
+        $query['MaxResults']   = $request->maxResults;
+        $query['NextToken']    = $request->nextToken;
+        $query['ResourceId']   = $request->resourceId;
+        $query['ResourceType'] = $request->resourceType;
+        $query['TagKey']       = $request->tagKey;
+        $req                   = new OpenApiRequest([
+            'query' => OpenApiUtilClient::query($query),
+        ]);
+        $params = new Params([
+            'action'      => 'ListTagValues',
+            'version'     => '2020-06-16',
+            'protocol'    => 'HTTPS',
+            'pathname'    => '/',
+            'method'      => 'POST',
+            'authType'    => 'AK',
+            'style'       => 'RPC',
+            'reqBodyType' => 'formData',
+            'bodyType'    => 'json',
         ]);
 
-        return ListTagValuesResponse::fromMap($this->doRPCRequest('ListTagValues', '2020-06-16', 'HTTPS', 'POST', 'AK', 'json', $req, $runtime));
+        return ListTagValuesResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
@@ -1608,11 +2503,26 @@ class Alb extends OpenApiClient
     public function moveResourceGroupWithOptions($request, $runtime)
     {
         Utils::validateModel($request);
-        $req = new OpenApiRequest([
-            'body' => Utils::toMap($request),
+        $query                       = [];
+        $query['NewResourceGroupId'] = $request->newResourceGroupId;
+        $query['ResourceId']         = $request->resourceId;
+        $query['ResourceType']       = $request->resourceType;
+        $req                         = new OpenApiRequest([
+            'query' => OpenApiUtilClient::query($query),
+        ]);
+        $params = new Params([
+            'action'      => 'MoveResourceGroup',
+            'version'     => '2020-06-16',
+            'protocol'    => 'HTTPS',
+            'pathname'    => '/',
+            'method'      => 'POST',
+            'authType'    => 'AK',
+            'style'       => 'RPC',
+            'reqBodyType' => 'formData',
+            'bodyType'    => 'json',
         ]);
 
-        return MoveResourceGroupResponse::fromMap($this->doRPCRequest('MoveResourceGroup', '2020-06-16', 'HTTPS', 'POST', 'AK', 'json', $req, $runtime));
+        return MoveResourceGroupResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
@@ -1636,11 +2546,27 @@ class Alb extends OpenApiClient
     public function removeEntriesFromAclWithOptions($request, $runtime)
     {
         Utils::validateModel($request);
-        $req = new OpenApiRequest([
-            'body' => Utils::toMap($request),
+        $query                = [];
+        $query['AclId']       = $request->aclId;
+        $query['ClientToken'] = $request->clientToken;
+        $query['DryRun']      = $request->dryRun;
+        $query['Entries']     = $request->entries;
+        $req                  = new OpenApiRequest([
+            'query' => OpenApiUtilClient::query($query),
+        ]);
+        $params = new Params([
+            'action'      => 'RemoveEntriesFromAcl',
+            'version'     => '2020-06-16',
+            'protocol'    => 'HTTPS',
+            'pathname'    => '/',
+            'method'      => 'POST',
+            'authType'    => 'AK',
+            'style'       => 'RPC',
+            'reqBodyType' => 'formData',
+            'bodyType'    => 'json',
         ]);
 
-        return RemoveEntriesFromAclResponse::fromMap($this->doRPCRequest('RemoveEntriesFromAcl', '2020-06-16', 'HTTPS', 'POST', 'AK', 'json', $req, $runtime));
+        return RemoveEntriesFromAclResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
@@ -1664,11 +2590,27 @@ class Alb extends OpenApiClient
     public function removeServersFromServerGroupWithOptions($request, $runtime)
     {
         Utils::validateModel($request);
-        $req = new OpenApiRequest([
-            'body' => Utils::toMap($request),
+        $query                  = [];
+        $query['ClientToken']   = $request->clientToken;
+        $query['DryRun']        = $request->dryRun;
+        $query['ServerGroupId'] = $request->serverGroupId;
+        $query['Servers']       = $request->servers;
+        $req                    = new OpenApiRequest([
+            'query' => OpenApiUtilClient::query($query),
+        ]);
+        $params = new Params([
+            'action'      => 'RemoveServersFromServerGroup',
+            'version'     => '2020-06-16',
+            'protocol'    => 'HTTPS',
+            'pathname'    => '/',
+            'method'      => 'POST',
+            'authType'    => 'AK',
+            'style'       => 'RPC',
+            'reqBodyType' => 'formData',
+            'bodyType'    => 'json',
         ]);
 
-        return RemoveServersFromServerGroupResponse::fromMap($this->doRPCRequest('RemoveServersFromServerGroup', '2020-06-16', 'HTTPS', 'POST', 'AK', 'json', $req, $runtime));
+        return RemoveServersFromServerGroupResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
@@ -1692,11 +2634,28 @@ class Alb extends OpenApiClient
     public function replaceServersInServerGroupWithOptions($request, $runtime)
     {
         Utils::validateModel($request);
-        $req = new OpenApiRequest([
-            'body' => Utils::toMap($request),
+        $query                   = [];
+        $query['AddedServers']   = $request->addedServers;
+        $query['ClientToken']    = $request->clientToken;
+        $query['DryRun']         = $request->dryRun;
+        $query['RemovedServers'] = $request->removedServers;
+        $query['ServerGroupId']  = $request->serverGroupId;
+        $req                     = new OpenApiRequest([
+            'query' => OpenApiUtilClient::query($query),
+        ]);
+        $params = new Params([
+            'action'      => 'ReplaceServersInServerGroup',
+            'version'     => '2020-06-16',
+            'protocol'    => 'HTTPS',
+            'pathname'    => '/',
+            'method'      => 'POST',
+            'authType'    => 'AK',
+            'style'       => 'RPC',
+            'reqBodyType' => 'formData',
+            'bodyType'    => 'json',
         ]);
 
-        return ReplaceServersInServerGroupResponse::fromMap($this->doRPCRequest('ReplaceServersInServerGroup', '2020-06-16', 'HTTPS', 'POST', 'AK', 'json', $req, $runtime));
+        return ReplaceServersInServerGroupResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
@@ -1720,11 +2679,26 @@ class Alb extends OpenApiClient
     public function startListenerWithOptions($request, $runtime)
     {
         Utils::validateModel($request);
-        $req = new OpenApiRequest([
-            'body' => Utils::toMap($request),
+        $query                = [];
+        $query['ClientToken'] = $request->clientToken;
+        $query['DryRun']      = $request->dryRun;
+        $query['ListenerId']  = $request->listenerId;
+        $req                  = new OpenApiRequest([
+            'query' => OpenApiUtilClient::query($query),
+        ]);
+        $params = new Params([
+            'action'      => 'StartListener',
+            'version'     => '2020-06-16',
+            'protocol'    => 'HTTPS',
+            'pathname'    => '/',
+            'method'      => 'POST',
+            'authType'    => 'AK',
+            'style'       => 'RPC',
+            'reqBodyType' => 'formData',
+            'bodyType'    => 'json',
         ]);
 
-        return StartListenerResponse::fromMap($this->doRPCRequest('StartListener', '2020-06-16', 'HTTPS', 'POST', 'AK', 'json', $req, $runtime));
+        return StartListenerResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
@@ -1748,11 +2722,26 @@ class Alb extends OpenApiClient
     public function stopListenerWithOptions($request, $runtime)
     {
         Utils::validateModel($request);
-        $req = new OpenApiRequest([
-            'body' => Utils::toMap($request),
+        $query                = [];
+        $query['ClientToken'] = $request->clientToken;
+        $query['DryRun']      = $request->dryRun;
+        $query['ListenerId']  = $request->listenerId;
+        $req                  = new OpenApiRequest([
+            'query' => OpenApiUtilClient::query($query),
+        ]);
+        $params = new Params([
+            'action'      => 'StopListener',
+            'version'     => '2020-06-16',
+            'protocol'    => 'HTTPS',
+            'pathname'    => '/',
+            'method'      => 'POST',
+            'authType'    => 'AK',
+            'style'       => 'RPC',
+            'reqBodyType' => 'formData',
+            'bodyType'    => 'json',
         ]);
 
-        return StopListenerResponse::fromMap($this->doRPCRequest('StopListener', '2020-06-16', 'HTTPS', 'POST', 'AK', 'json', $req, $runtime));
+        return StopListenerResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
@@ -1776,11 +2765,26 @@ class Alb extends OpenApiClient
     public function tagResourcesWithOptions($request, $runtime)
     {
         Utils::validateModel($request);
-        $req = new OpenApiRequest([
-            'body' => Utils::toMap($request),
+        $query                 = [];
+        $query['ResourceId']   = $request->resourceId;
+        $query['ResourceType'] = $request->resourceType;
+        $query['Tag']          = $request->tag;
+        $req                   = new OpenApiRequest([
+            'query' => OpenApiUtilClient::query($query),
+        ]);
+        $params = new Params([
+            'action'      => 'TagResources',
+            'version'     => '2020-06-16',
+            'protocol'    => 'HTTPS',
+            'pathname'    => '/',
+            'method'      => 'POST',
+            'authType'    => 'AK',
+            'style'       => 'RPC',
+            'reqBodyType' => 'formData',
+            'bodyType'    => 'json',
         ]);
 
-        return TagResourcesResponse::fromMap($this->doRPCRequest('TagResources', '2020-06-16', 'HTTPS', 'POST', 'AK', 'json', $req, $runtime));
+        return TagResourcesResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
@@ -1804,11 +2808,27 @@ class Alb extends OpenApiClient
     public function unTagResourcesWithOptions($request, $runtime)
     {
         Utils::validateModel($request);
-        $req = new OpenApiRequest([
-            'body' => Utils::toMap($request),
+        $query                 = [];
+        $query['ResourceId']   = $request->resourceId;
+        $query['ResourceType'] = $request->resourceType;
+        $query['Tag']          = $request->tag;
+        $query['TagKey']       = $request->tagKey;
+        $req                   = new OpenApiRequest([
+            'query' => OpenApiUtilClient::query($query),
+        ]);
+        $params = new Params([
+            'action'      => 'UnTagResources',
+            'version'     => '2020-06-16',
+            'protocol'    => 'HTTPS',
+            'pathname'    => '/',
+            'method'      => 'POST',
+            'authType'    => 'AK',
+            'style'       => 'RPC',
+            'reqBodyType' => 'formData',
+            'bodyType'    => 'json',
         ]);
 
-        return UnTagResourcesResponse::fromMap($this->doRPCRequest('UnTagResources', '2020-06-16', 'HTTPS', 'POST', 'AK', 'json', $req, $runtime));
+        return UnTagResourcesResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
@@ -1832,11 +2852,27 @@ class Alb extends OpenApiClient
     public function updateAclAttributeWithOptions($request, $runtime)
     {
         Utils::validateModel($request);
-        $req = new OpenApiRequest([
-            'body' => Utils::toMap($request),
+        $query                = [];
+        $query['AclId']       = $request->aclId;
+        $query['AclName']     = $request->aclName;
+        $query['ClientToken'] = $request->clientToken;
+        $query['DryRun']      = $request->dryRun;
+        $req                  = new OpenApiRequest([
+            'query' => OpenApiUtilClient::query($query),
+        ]);
+        $params = new Params([
+            'action'      => 'UpdateAclAttribute',
+            'version'     => '2020-06-16',
+            'protocol'    => 'HTTPS',
+            'pathname'    => '/',
+            'method'      => 'POST',
+            'authType'    => 'AK',
+            'style'       => 'RPC',
+            'reqBodyType' => 'formData',
+            'bodyType'    => 'json',
         ]);
 
-        return UpdateAclAttributeResponse::fromMap($this->doRPCRequest('UpdateAclAttribute', '2020-06-16', 'HTTPS', 'POST', 'AK', 'json', $req, $runtime));
+        return UpdateAclAttributeResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
@@ -1860,11 +2896,38 @@ class Alb extends OpenApiClient
     public function updateHealthCheckTemplateAttributeWithOptions($request, $runtime)
     {
         Utils::validateModel($request);
-        $req = new OpenApiRequest([
-            'body' => Utils::toMap($request),
+        $query                            = [];
+        $query['ClientToken']             = $request->clientToken;
+        $query['DryRun']                  = $request->dryRun;
+        $query['HealthCheckCodes']        = $request->healthCheckCodes;
+        $query['HealthCheckConnectPort']  = $request->healthCheckConnectPort;
+        $query['HealthCheckHost']         = $request->healthCheckHost;
+        $query['HealthCheckHttpVersion']  = $request->healthCheckHttpVersion;
+        $query['HealthCheckInterval']     = $request->healthCheckInterval;
+        $query['HealthCheckMethod']       = $request->healthCheckMethod;
+        $query['HealthCheckPath']         = $request->healthCheckPath;
+        $query['HealthCheckProtocol']     = $request->healthCheckProtocol;
+        $query['HealthCheckTemplateId']   = $request->healthCheckTemplateId;
+        $query['HealthCheckTemplateName'] = $request->healthCheckTemplateName;
+        $query['HealthCheckTimeout']      = $request->healthCheckTimeout;
+        $query['HealthyThreshold']        = $request->healthyThreshold;
+        $query['UnhealthyThreshold']      = $request->unhealthyThreshold;
+        $req                              = new OpenApiRequest([
+            'query' => OpenApiUtilClient::query($query),
+        ]);
+        $params = new Params([
+            'action'      => 'UpdateHealthCheckTemplateAttribute',
+            'version'     => '2020-06-16',
+            'protocol'    => 'HTTPS',
+            'pathname'    => '/',
+            'method'      => 'POST',
+            'authType'    => 'AK',
+            'style'       => 'RPC',
+            'reqBodyType' => 'formData',
+            'bodyType'    => 'json',
         ]);
 
-        return UpdateHealthCheckTemplateAttributeResponse::fromMap($this->doRPCRequest('UpdateHealthCheckTemplateAttribute', '2020-06-16', 'HTTPS', 'POST', 'AK', 'json', $req, $runtime));
+        return UpdateHealthCheckTemplateAttributeResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
@@ -1888,11 +2951,38 @@ class Alb extends OpenApiClient
     public function updateListenerAttributeWithOptions($request, $runtime)
     {
         Utils::validateModel($request);
-        $req = new OpenApiRequest([
-            'body' => Utils::toMap($request),
+        $query                        = [];
+        $query['CaCertificates']      = $request->caCertificates;
+        $query['CaEnabled']           = $request->caEnabled;
+        $query['Certificates']        = $request->certificates;
+        $query['ClientToken']         = $request->clientToken;
+        $query['DefaultActions']      = $request->defaultActions;
+        $query['DryRun']              = $request->dryRun;
+        $query['GzipEnabled']         = $request->gzipEnabled;
+        $query['Http2Enabled']        = $request->http2Enabled;
+        $query['IdleTimeout']         = $request->idleTimeout;
+        $query['ListenerDescription'] = $request->listenerDescription;
+        $query['ListenerId']          = $request->listenerId;
+        $query['QuicConfig']          = $request->quicConfig;
+        $query['RequestTimeout']      = $request->requestTimeout;
+        $query['SecurityPolicyId']    = $request->securityPolicyId;
+        $query['XForwardedForConfig'] = $request->XForwardedForConfig;
+        $req                          = new OpenApiRequest([
+            'query' => OpenApiUtilClient::query($query),
+        ]);
+        $params = new Params([
+            'action'      => 'UpdateListenerAttribute',
+            'version'     => '2020-06-16',
+            'protocol'    => 'HTTPS',
+            'pathname'    => '/',
+            'method'      => 'POST',
+            'authType'    => 'AK',
+            'style'       => 'RPC',
+            'reqBodyType' => 'formData',
+            'bodyType'    => 'json',
         ]);
 
-        return UpdateListenerAttributeResponse::fromMap($this->doRPCRequest('UpdateListenerAttribute', '2020-06-16', 'HTTPS', 'POST', 'AK', 'json', $req, $runtime));
+        return UpdateListenerAttributeResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
@@ -1916,11 +3006,28 @@ class Alb extends OpenApiClient
     public function updateListenerLogConfigWithOptions($request, $runtime)
     {
         Utils::validateModel($request);
-        $req = new OpenApiRequest([
-            'body' => Utils::toMap($request),
+        $query                                            = [];
+        $query['AccessLogRecordCustomizedHeadersEnabled'] = $request->accessLogRecordCustomizedHeadersEnabled;
+        $query['AccessLogTracingConfig']                  = $request->accessLogTracingConfig;
+        $query['ClientToken']                             = $request->clientToken;
+        $query['DryRun']                                  = $request->dryRun;
+        $query['ListenerId']                              = $request->listenerId;
+        $req                                              = new OpenApiRequest([
+            'query' => OpenApiUtilClient::query($query),
+        ]);
+        $params = new Params([
+            'action'      => 'UpdateListenerLogConfig',
+            'version'     => '2020-06-16',
+            'protocol'    => 'HTTPS',
+            'pathname'    => '/',
+            'method'      => 'POST',
+            'authType'    => 'AK',
+            'style'       => 'RPC',
+            'reqBodyType' => 'formData',
+            'bodyType'    => 'json',
         ]);
 
-        return UpdateListenerLogConfigResponse::fromMap($this->doRPCRequest('UpdateListenerLogConfig', '2020-06-16', 'HTTPS', 'POST', 'AK', 'json', $req, $runtime));
+        return UpdateListenerLogConfigResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
@@ -1936,6 +3043,51 @@ class Alb extends OpenApiClient
     }
 
     /**
+     * @param UpdateLoadBalancerAddressTypeConfigRequest $request
+     * @param RuntimeOptions                             $runtime
+     *
+     * @return UpdateLoadBalancerAddressTypeConfigResponse
+     */
+    public function updateLoadBalancerAddressTypeConfigWithOptions($request, $runtime)
+    {
+        Utils::validateModel($request);
+        $query                   = [];
+        $query['AddressType']    = $request->addressType;
+        $query['ClientToken']    = $request->clientToken;
+        $query['DryRun']         = $request->dryRun;
+        $query['LoadBalancerId'] = $request->loadBalancerId;
+        $query['ZoneMappings']   = $request->zoneMappings;
+        $req                     = new OpenApiRequest([
+            'query' => OpenApiUtilClient::query($query),
+        ]);
+        $params = new Params([
+            'action'      => 'UpdateLoadBalancerAddressTypeConfig',
+            'version'     => '2020-06-16',
+            'protocol'    => 'HTTPS',
+            'pathname'    => '/',
+            'method'      => 'POST',
+            'authType'    => 'AK',
+            'style'       => 'RPC',
+            'reqBodyType' => 'formData',
+            'bodyType'    => 'json',
+        ]);
+
+        return UpdateLoadBalancerAddressTypeConfigResponse::fromMap($this->callApi($params, $req, $runtime));
+    }
+
+    /**
+     * @param UpdateLoadBalancerAddressTypeConfigRequest $request
+     *
+     * @return UpdateLoadBalancerAddressTypeConfigResponse
+     */
+    public function updateLoadBalancerAddressTypeConfig($request)
+    {
+        $runtime = new RuntimeOptions([]);
+
+        return $this->updateLoadBalancerAddressTypeConfigWithOptions($request, $runtime);
+    }
+
+    /**
      * @param UpdateLoadBalancerAttributeRequest $request
      * @param RuntimeOptions                     $runtime
      *
@@ -1944,11 +3096,28 @@ class Alb extends OpenApiClient
     public function updateLoadBalancerAttributeWithOptions($request, $runtime)
     {
         Utils::validateModel($request);
-        $req = new OpenApiRequest([
-            'body' => Utils::toMap($request),
+        $query                                 = [];
+        $query['ClientToken']                  = $request->clientToken;
+        $query['DryRun']                       = $request->dryRun;
+        $query['LoadBalancerId']               = $request->loadBalancerId;
+        $query['LoadBalancerName']             = $request->loadBalancerName;
+        $query['ModificationProtectionConfig'] = $request->modificationProtectionConfig;
+        $req                                   = new OpenApiRequest([
+            'query' => OpenApiUtilClient::query($query),
+        ]);
+        $params = new Params([
+            'action'      => 'UpdateLoadBalancerAttribute',
+            'version'     => '2020-06-16',
+            'protocol'    => 'HTTPS',
+            'pathname'    => '/',
+            'method'      => 'POST',
+            'authType'    => 'AK',
+            'style'       => 'RPC',
+            'reqBodyType' => 'formData',
+            'bodyType'    => 'json',
         ]);
 
-        return UpdateLoadBalancerAttributeResponse::fromMap($this->doRPCRequest('UpdateLoadBalancerAttribute', '2020-06-16', 'HTTPS', 'POST', 'AK', 'json', $req, $runtime));
+        return UpdateLoadBalancerAttributeResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
@@ -1972,11 +3141,27 @@ class Alb extends OpenApiClient
     public function updateLoadBalancerEditionWithOptions($request, $runtime)
     {
         Utils::validateModel($request);
-        $req = new OpenApiRequest([
-            'body' => Utils::toMap($request),
+        $query                        = [];
+        $query['ClientToken']         = $request->clientToken;
+        $query['DryRun']              = $request->dryRun;
+        $query['LoadBalancerEdition'] = $request->loadBalancerEdition;
+        $query['LoadBalancerId']      = $request->loadBalancerId;
+        $req                          = new OpenApiRequest([
+            'query' => OpenApiUtilClient::query($query),
+        ]);
+        $params = new Params([
+            'action'      => 'UpdateLoadBalancerEdition',
+            'version'     => '2020-06-16',
+            'protocol'    => 'HTTPS',
+            'pathname'    => '/',
+            'method'      => 'POST',
+            'authType'    => 'AK',
+            'style'       => 'RPC',
+            'reqBodyType' => 'formData',
+            'bodyType'    => 'json',
         ]);
 
-        return UpdateLoadBalancerEditionResponse::fromMap($this->doRPCRequest('UpdateLoadBalancerEdition', '2020-06-16', 'HTTPS', 'POST', 'AK', 'json', $req, $runtime));
+        return UpdateLoadBalancerEditionResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
@@ -2000,11 +3185,27 @@ class Alb extends OpenApiClient
     public function updateLoadBalancerZonesWithOptions($request, $runtime)
     {
         Utils::validateModel($request);
-        $req = new OpenApiRequest([
-            'body' => Utils::toMap($request),
+        $query                   = [];
+        $query['ClientToken']    = $request->clientToken;
+        $query['DryRun']         = $request->dryRun;
+        $query['LoadBalancerId'] = $request->loadBalancerId;
+        $query['ZoneMappings']   = $request->zoneMappings;
+        $req                     = new OpenApiRequest([
+            'query' => OpenApiUtilClient::query($query),
+        ]);
+        $params = new Params([
+            'action'      => 'UpdateLoadBalancerZones',
+            'version'     => '2020-06-16',
+            'protocol'    => 'HTTPS',
+            'pathname'    => '/',
+            'method'      => 'POST',
+            'authType'    => 'AK',
+            'style'       => 'RPC',
+            'reqBodyType' => 'formData',
+            'bodyType'    => 'json',
         ]);
 
-        return UpdateLoadBalancerZonesResponse::fromMap($this->doRPCRequest('UpdateLoadBalancerZones', '2020-06-16', 'HTTPS', 'POST', 'AK', 'json', $req, $runtime));
+        return UpdateLoadBalancerZonesResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
@@ -2028,11 +3229,30 @@ class Alb extends OpenApiClient
     public function updateRuleAttributeWithOptions($request, $runtime)
     {
         Utils::validateModel($request);
-        $req = new OpenApiRequest([
-            'body' => Utils::toMap($request),
+        $query                   = [];
+        $query['ClientToken']    = $request->clientToken;
+        $query['DryRun']         = $request->dryRun;
+        $query['Priority']       = $request->priority;
+        $query['RuleActions']    = $request->ruleActions;
+        $query['RuleConditions'] = $request->ruleConditions;
+        $query['RuleId']         = $request->ruleId;
+        $query['RuleName']       = $request->ruleName;
+        $req                     = new OpenApiRequest([
+            'query' => OpenApiUtilClient::query($query),
+        ]);
+        $params = new Params([
+            'action'      => 'UpdateRuleAttribute',
+            'version'     => '2020-06-16',
+            'protocol'    => 'HTTPS',
+            'pathname'    => '/',
+            'method'      => 'POST',
+            'authType'    => 'AK',
+            'style'       => 'RPC',
+            'reqBodyType' => 'formData',
+            'bodyType'    => 'json',
         ]);
 
-        return UpdateRuleAttributeResponse::fromMap($this->doRPCRequest('UpdateRuleAttribute', '2020-06-16', 'HTTPS', 'POST', 'AK', 'json', $req, $runtime));
+        return UpdateRuleAttributeResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
@@ -2056,11 +3276,26 @@ class Alb extends OpenApiClient
     public function updateRulesAttributeWithOptions($request, $runtime)
     {
         Utils::validateModel($request);
-        $req = new OpenApiRequest([
-            'body' => Utils::toMap($request),
+        $query                = [];
+        $query['ClientToken'] = $request->clientToken;
+        $query['DryRun']      = $request->dryRun;
+        $query['Rules']       = $request->rules;
+        $req                  = new OpenApiRequest([
+            'query' => OpenApiUtilClient::query($query),
+        ]);
+        $params = new Params([
+            'action'      => 'UpdateRulesAttribute',
+            'version'     => '2020-06-16',
+            'protocol'    => 'HTTPS',
+            'pathname'    => '/',
+            'method'      => 'POST',
+            'authType'    => 'AK',
+            'style'       => 'RPC',
+            'reqBodyType' => 'formData',
+            'bodyType'    => 'json',
         ]);
 
-        return UpdateRulesAttributeResponse::fromMap($this->doRPCRequest('UpdateRulesAttribute', '2020-06-16', 'HTTPS', 'POST', 'AK', 'json', $req, $runtime));
+        return UpdateRulesAttributeResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
@@ -2084,11 +3319,29 @@ class Alb extends OpenApiClient
     public function updateSecurityPolicyAttributeWithOptions($request, $runtime)
     {
         Utils::validateModel($request);
-        $req = new OpenApiRequest([
-            'body' => Utils::toMap($request),
+        $query                       = [];
+        $query['Ciphers']            = $request->ciphers;
+        $query['ClientToken']        = $request->clientToken;
+        $query['DryRun']             = $request->dryRun;
+        $query['SecurityPolicyId']   = $request->securityPolicyId;
+        $query['SecurityPolicyName'] = $request->securityPolicyName;
+        $query['TLSVersions']        = $request->TLSVersions;
+        $req                         = new OpenApiRequest([
+            'query' => OpenApiUtilClient::query($query),
+        ]);
+        $params = new Params([
+            'action'      => 'UpdateSecurityPolicyAttribute',
+            'version'     => '2020-06-16',
+            'protocol'    => 'HTTPS',
+            'pathname'    => '/',
+            'method'      => 'POST',
+            'authType'    => 'AK',
+            'style'       => 'RPC',
+            'reqBodyType' => 'formData',
+            'bodyType'    => 'json',
         ]);
 
-        return UpdateSecurityPolicyAttributeResponse::fromMap($this->doRPCRequest('UpdateSecurityPolicyAttribute', '2020-06-16', 'HTTPS', 'POST', 'AK', 'json', $req, $runtime));
+        return UpdateSecurityPolicyAttributeResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
@@ -2112,11 +3365,30 @@ class Alb extends OpenApiClient
     public function updateServerGroupAttributeWithOptions($request, $runtime)
     {
         Utils::validateModel($request);
-        $req = new OpenApiRequest([
-            'body' => Utils::toMap($request),
+        $query                        = [];
+        $query['ClientToken']         = $request->clientToken;
+        $query['DryRun']              = $request->dryRun;
+        $query['HealthCheckConfig']   = $request->healthCheckConfig;
+        $query['Scheduler']           = $request->scheduler;
+        $query['ServerGroupId']       = $request->serverGroupId;
+        $query['ServerGroupName']     = $request->serverGroupName;
+        $query['StickySessionConfig'] = $request->stickySessionConfig;
+        $req                          = new OpenApiRequest([
+            'query' => OpenApiUtilClient::query($query),
+        ]);
+        $params = new Params([
+            'action'      => 'UpdateServerGroupAttribute',
+            'version'     => '2020-06-16',
+            'protocol'    => 'HTTPS',
+            'pathname'    => '/',
+            'method'      => 'POST',
+            'authType'    => 'AK',
+            'style'       => 'RPC',
+            'reqBodyType' => 'formData',
+            'bodyType'    => 'json',
         ]);
 
-        return UpdateServerGroupAttributeResponse::fromMap($this->doRPCRequest('UpdateServerGroupAttribute', '2020-06-16', 'HTTPS', 'POST', 'AK', 'json', $req, $runtime));
+        return UpdateServerGroupAttributeResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
@@ -2140,11 +3412,27 @@ class Alb extends OpenApiClient
     public function updateServerGroupServersAttributeWithOptions($request, $runtime)
     {
         Utils::validateModel($request);
-        $req = new OpenApiRequest([
-            'body' => Utils::toMap($request),
+        $query                  = [];
+        $query['ClientToken']   = $request->clientToken;
+        $query['DryRun']        = $request->dryRun;
+        $query['ServerGroupId'] = $request->serverGroupId;
+        $query['Servers']       = $request->servers;
+        $req                    = new OpenApiRequest([
+            'query' => OpenApiUtilClient::query($query),
+        ]);
+        $params = new Params([
+            'action'      => 'UpdateServerGroupServersAttribute',
+            'version'     => '2020-06-16',
+            'protocol'    => 'HTTPS',
+            'pathname'    => '/',
+            'method'      => 'POST',
+            'authType'    => 'AK',
+            'style'       => 'RPC',
+            'reqBodyType' => 'formData',
+            'bodyType'    => 'json',
         ]);
 
-        return UpdateServerGroupServersAttributeResponse::fromMap($this->doRPCRequest('UpdateServerGroupServersAttribute', '2020-06-16', 'HTTPS', 'POST', 'AK', 'json', $req, $runtime));
+        return UpdateServerGroupServersAttributeResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**

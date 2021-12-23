@@ -37,17 +37,25 @@ class acls extends Model
     public $addressIPVersion;
 
     /**
+     * @description 配置管理
+     *
+     * @var bool
+     */
+    public $configManagedEnabled;
+
+    /**
      * @description 资源组ID
      *
      * @var string
      */
     public $resourceGroupId;
     protected $_name = [
-        'aclId'            => 'AclId',
-        'aclName'          => 'AclName',
-        'aclStatus'        => 'AclStatus',
-        'addressIPVersion' => 'AddressIPVersion',
-        'resourceGroupId'  => 'ResourceGroupId',
+        'aclId'                => 'AclId',
+        'aclName'              => 'AclName',
+        'aclStatus'            => 'AclStatus',
+        'addressIPVersion'     => 'AddressIPVersion',
+        'configManagedEnabled' => 'ConfigManagedEnabled',
+        'resourceGroupId'      => 'ResourceGroupId',
     ];
 
     public function validate()
@@ -68,6 +76,9 @@ class acls extends Model
         }
         if (null !== $this->addressIPVersion) {
             $res['AddressIPVersion'] = $this->addressIPVersion;
+        }
+        if (null !== $this->configManagedEnabled) {
+            $res['ConfigManagedEnabled'] = $this->configManagedEnabled;
         }
         if (null !== $this->resourceGroupId) {
             $res['ResourceGroupId'] = $this->resourceGroupId;
@@ -95,6 +106,9 @@ class acls extends Model
         }
         if (isset($map['AddressIPVersion'])) {
             $model->addressIPVersion = $map['AddressIPVersion'];
+        }
+        if (isset($map['ConfigManagedEnabled'])) {
+            $model->configManagedEnabled = $map['ConfigManagedEnabled'];
         }
         if (isset($map['ResourceGroupId'])) {
             $model->resourceGroupId = $map['ResourceGroupId'];

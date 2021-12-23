@@ -14,8 +14,16 @@ class loadBalancerAddresses extends Model
      * @var string
      */
     public $address;
+
+    /**
+     * @description Ipv6地址
+     *
+     * @var string
+     */
+    public $ipv6Address;
     protected $_name = [
-        'address' => 'Address',
+        'address'     => 'Address',
+        'ipv6Address' => 'Ipv6Address',
     ];
 
     public function validate()
@@ -27,6 +35,9 @@ class loadBalancerAddresses extends Model
         $res = [];
         if (null !== $this->address) {
             $res['Address'] = $this->address;
+        }
+        if (null !== $this->ipv6Address) {
+            $res['Ipv6Address'] = $this->ipv6Address;
         }
 
         return $res;
@@ -42,6 +53,9 @@ class loadBalancerAddresses extends Model
         $model = new self();
         if (isset($map['Address'])) {
             $model->address = $map['Address'];
+        }
+        if (isset($map['Ipv6Address'])) {
+            $model->ipv6Address = $map['Ipv6Address'];
         }
 
         return $model;
