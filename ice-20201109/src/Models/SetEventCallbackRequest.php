@@ -17,9 +17,15 @@ class SetEventCallbackRequest extends Model
      * @var string
      */
     public $eventTypeList;
+
+    /**
+     * @var string
+     */
+    public $regionId;
     protected $_name = [
         'callbackQueueName' => 'CallbackQueueName',
         'eventTypeList'     => 'EventTypeList',
+        'regionId'          => 'RegionId',
     ];
 
     public function validate()
@@ -34,6 +40,9 @@ class SetEventCallbackRequest extends Model
         }
         if (null !== $this->eventTypeList) {
             $res['EventTypeList'] = $this->eventTypeList;
+        }
+        if (null !== $this->regionId) {
+            $res['RegionId'] = $this->regionId;
         }
 
         return $res;
@@ -52,6 +61,9 @@ class SetEventCallbackRequest extends Model
         }
         if (isset($map['EventTypeList'])) {
             $model->eventTypeList = $map['EventTypeList'];
+        }
+        if (isset($map['RegionId'])) {
+            $model->regionId = $map['RegionId'];
         }
 
         return $model;

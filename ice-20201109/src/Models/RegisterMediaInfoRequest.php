@@ -79,6 +79,11 @@ class RegisterMediaInfoRequest extends Model
     public $overwrite;
 
     /**
+     * @var string
+     */
+    public $regionId;
+
+    /**
      * @description 注册媒资的配置
      *
      * @var string
@@ -109,6 +114,7 @@ class RegisterMediaInfoRequest extends Model
         'mediaTags'           => 'MediaTags',
         'mediaType'           => 'MediaType',
         'overwrite'           => 'Overwrite',
+        'regionId'            => 'RegionId',
         'registerConfig'      => 'RegisterConfig',
         'title'               => 'Title',
         'userData'            => 'UserData',
@@ -150,6 +156,9 @@ class RegisterMediaInfoRequest extends Model
         }
         if (null !== $this->overwrite) {
             $res['Overwrite'] = $this->overwrite;
+        }
+        if (null !== $this->regionId) {
+            $res['RegionId'] = $this->regionId;
         }
         if (null !== $this->registerConfig) {
             $res['RegisterConfig'] = $this->registerConfig;
@@ -201,6 +210,9 @@ class RegisterMediaInfoRequest extends Model
         }
         if (isset($map['Overwrite'])) {
             $model->overwrite = $map['Overwrite'];
+        }
+        if (isset($map['RegionId'])) {
+            $model->regionId = $map['RegionId'];
         }
         if (isset($map['RegisterConfig'])) {
             $model->registerConfig = $map['RegisterConfig'];

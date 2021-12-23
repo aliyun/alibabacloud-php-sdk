@@ -17,9 +17,15 @@ class BatchGetMediaInfosRequest extends Model
      * @var string
      */
     public $mediaIds;
+
+    /**
+     * @var string
+     */
+    public $regionId;
     protected $_name = [
         'additionType' => 'AdditionType',
         'mediaIds'     => 'MediaIds',
+        'regionId'     => 'RegionId',
     ];
 
     public function validate()
@@ -34,6 +40,9 @@ class BatchGetMediaInfosRequest extends Model
         }
         if (null !== $this->mediaIds) {
             $res['MediaIds'] = $this->mediaIds;
+        }
+        if (null !== $this->regionId) {
+            $res['RegionId'] = $this->regionId;
         }
 
         return $res;
@@ -52,6 +61,9 @@ class BatchGetMediaInfosRequest extends Model
         }
         if (isset($map['MediaIds'])) {
             $model->mediaIds = $map['MediaIds'];
+        }
+        if (isset($map['RegionId'])) {
+            $model->regionId = $map['RegionId'];
         }
 
         return $model;

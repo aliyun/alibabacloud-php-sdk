@@ -46,6 +46,11 @@ class SubmitMediaProducingJobRequest extends Model
     /**
      * @var string
      */
+    public $regionId;
+
+    /**
+     * @var string
+     */
     public $source;
 
     /**
@@ -70,6 +75,7 @@ class SubmitMediaProducingJobRequest extends Model
         'outputMediaTarget'    => 'OutputMediaTarget',
         'projectId'            => 'ProjectId',
         'projectMetadata'      => 'ProjectMetadata',
+        'regionId'             => 'RegionId',
         'source'               => 'Source',
         'templateId'           => 'TemplateId',
         'timeline'             => 'Timeline',
@@ -103,6 +109,9 @@ class SubmitMediaProducingJobRequest extends Model
         }
         if (null !== $this->projectMetadata) {
             $res['ProjectMetadata'] = $this->projectMetadata;
+        }
+        if (null !== $this->regionId) {
+            $res['RegionId'] = $this->regionId;
         }
         if (null !== $this->source) {
             $res['Source'] = $this->source;
@@ -148,6 +157,9 @@ class SubmitMediaProducingJobRequest extends Model
         }
         if (isset($map['ProjectMetadata'])) {
             $model->projectMetadata = $map['ProjectMetadata'];
+        }
+        if (isset($map['RegionId'])) {
+            $model->regionId = $map['RegionId'];
         }
         if (isset($map['Source'])) {
             $model->source = $map['Source'];

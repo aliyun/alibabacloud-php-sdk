@@ -58,6 +58,11 @@ class ListMediaBasicInfosRequest extends Model
     public $nextToken;
 
     /**
+     * @var string
+     */
+    public $regionId;
+
+    /**
      * @description 排序
      *
      * @var string
@@ -92,6 +97,7 @@ class ListMediaBasicInfosRequest extends Model
         'maxResults'           => 'MaxResults',
         'mediaType'            => 'MediaType',
         'nextToken'            => 'NextToken',
+        'regionId'             => 'RegionId',
         'sortBy'               => 'SortBy',
         'source'               => 'Source',
         'startTime'            => 'StartTime',
@@ -125,6 +131,9 @@ class ListMediaBasicInfosRequest extends Model
         }
         if (null !== $this->nextToken) {
             $res['NextToken'] = $this->nextToken;
+        }
+        if (null !== $this->regionId) {
+            $res['RegionId'] = $this->regionId;
         }
         if (null !== $this->sortBy) {
             $res['SortBy'] = $this->sortBy;
@@ -170,6 +179,9 @@ class ListMediaBasicInfosRequest extends Model
         }
         if (isset($map['NextToken'])) {
             $model->nextToken = $map['NextToken'];
+        }
+        if (isset($map['RegionId'])) {
+            $model->regionId = $map['RegionId'];
         }
         if (isset($map['SortBy'])) {
             $model->sortBy = $map['SortBy'];

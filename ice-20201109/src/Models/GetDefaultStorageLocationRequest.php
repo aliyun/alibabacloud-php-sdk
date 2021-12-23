@@ -6,16 +6,14 @@ namespace AlibabaCloud\SDK\ICE\V20201109\Models;
 
 use AlibabaCloud\Tea\Model;
 
-class GetLiveEditingJobRequest extends Model
+class GetDefaultStorageLocationRequest extends Model
 {
     /**
-     * @description 直播剪辑JobId
-     *
      * @var string
      */
-    public $jobId;
+    public $regionId;
     protected $_name = [
-        'jobId' => 'JobId',
+        'regionId' => 'RegionId',
     ];
 
     public function validate()
@@ -25,8 +23,8 @@ class GetLiveEditingJobRequest extends Model
     public function toMap()
     {
         $res = [];
-        if (null !== $this->jobId) {
-            $res['JobId'] = $this->jobId;
+        if (null !== $this->regionId) {
+            $res['RegionId'] = $this->regionId;
         }
 
         return $res;
@@ -35,13 +33,13 @@ class GetLiveEditingJobRequest extends Model
     /**
      * @param array $map
      *
-     * @return GetLiveEditingJobRequest
+     * @return GetDefaultStorageLocationRequest
      */
     public static function fromMap($map = [])
     {
         $model = new self();
-        if (isset($map['JobId'])) {
-            $model->jobId = $map['JobId'];
+        if (isset($map['RegionId'])) {
+            $model->regionId = $map['RegionId'];
         }
 
         return $model;

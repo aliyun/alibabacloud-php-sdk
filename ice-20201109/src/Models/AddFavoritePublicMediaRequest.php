@@ -12,8 +12,14 @@ class AddFavoritePublicMediaRequest extends Model
      * @var string
      */
     public $mediaIds;
+
+    /**
+     * @var string
+     */
+    public $regionId;
     protected $_name = [
         'mediaIds' => 'MediaIds',
+        'regionId' => 'RegionId',
     ];
 
     public function validate()
@@ -25,6 +31,9 @@ class AddFavoritePublicMediaRequest extends Model
         $res = [];
         if (null !== $this->mediaIds) {
             $res['MediaIds'] = $this->mediaIds;
+        }
+        if (null !== $this->regionId) {
+            $res['RegionId'] = $this->regionId;
         }
 
         return $res;
@@ -40,6 +49,9 @@ class AddFavoritePublicMediaRequest extends Model
         $model = new self();
         if (isset($map['MediaIds'])) {
             $model->mediaIds = $map['MediaIds'];
+        }
+        if (isset($map['RegionId'])) {
+            $model->regionId = $map['RegionId'];
         }
 
         return $model;

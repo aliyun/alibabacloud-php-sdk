@@ -51,6 +51,11 @@ class SubmitDelogoJobRequest extends Model
     /**
      * @var string
      */
+    public $regionId;
+
+    /**
+     * @var string
+     */
     public $title;
 
     /**
@@ -64,6 +69,7 @@ class SubmitDelogoJobRequest extends Model
         'outputConfig'      => 'OutputConfig',
         'outputMediaTarget' => 'OutputMediaTarget',
         'overwrite'         => 'Overwrite',
+        'regionId'          => 'RegionId',
         'title'             => 'Title',
         'userData'          => 'UserData',
     ];
@@ -92,6 +98,9 @@ class SubmitDelogoJobRequest extends Model
         }
         if (null !== $this->overwrite) {
             $res['Overwrite'] = $this->overwrite;
+        }
+        if (null !== $this->regionId) {
+            $res['RegionId'] = $this->regionId;
         }
         if (null !== $this->title) {
             $res['Title'] = $this->title;
@@ -128,6 +137,9 @@ class SubmitDelogoJobRequest extends Model
         }
         if (isset($map['Overwrite'])) {
             $model->overwrite = $map['Overwrite'];
+        }
+        if (isset($map['RegionId'])) {
+            $model->regionId = $map['RegionId'];
         }
         if (isset($map['Title'])) {
             $model->title = $map['Title'];

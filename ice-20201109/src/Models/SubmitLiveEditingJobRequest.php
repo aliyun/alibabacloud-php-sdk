@@ -41,6 +41,11 @@ class SubmitLiveEditingJobRequest extends Model
     /**
      * @var string
      */
+    public $regionId;
+
+    /**
+     * @var string
+     */
     public $userData;
     protected $_name = [
         'clips'              => 'Clips',
@@ -49,6 +54,7 @@ class SubmitLiveEditingJobRequest extends Model
         'outputMediaConfig'  => 'OutputMediaConfig',
         'outputMediaTarget'  => 'OutputMediaTarget',
         'projectId'          => 'ProjectId',
+        'regionId'           => 'RegionId',
         'userData'           => 'UserData',
     ];
 
@@ -76,6 +82,9 @@ class SubmitLiveEditingJobRequest extends Model
         }
         if (null !== $this->projectId) {
             $res['ProjectId'] = $this->projectId;
+        }
+        if (null !== $this->regionId) {
+            $res['RegionId'] = $this->regionId;
         }
         if (null !== $this->userData) {
             $res['UserData'] = $this->userData;
@@ -109,6 +118,9 @@ class SubmitLiveEditingJobRequest extends Model
         }
         if (isset($map['ProjectId'])) {
             $model->projectId = $map['ProjectId'];
+        }
+        if (isset($map['RegionId'])) {
+            $model->regionId = $map['RegionId'];
         }
         if (isset($map['UserData'])) {
             $model->userData = $map['UserData'];

@@ -21,9 +21,15 @@ class AddEditingProjectMaterialsRequest extends Model
      * @var string
      */
     public $projectId;
+
+    /**
+     * @var string
+     */
+    public $regionId;
     protected $_name = [
         'materialMaps' => 'MaterialMaps',
         'projectId'    => 'ProjectId',
+        'regionId'     => 'RegionId',
     ];
 
     public function validate()
@@ -38,6 +44,9 @@ class AddEditingProjectMaterialsRequest extends Model
         }
         if (null !== $this->projectId) {
             $res['ProjectId'] = $this->projectId;
+        }
+        if (null !== $this->regionId) {
+            $res['RegionId'] = $this->regionId;
         }
 
         return $res;
@@ -56,6 +65,9 @@ class AddEditingProjectMaterialsRequest extends Model
         }
         if (isset($map['ProjectId'])) {
             $model->projectId = $map['ProjectId'];
+        }
+        if (isset($map['RegionId'])) {
+            $model->regionId = $map['RegionId'];
         }
 
         return $model;

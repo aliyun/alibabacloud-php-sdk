@@ -26,6 +26,11 @@ class SubmitKeyWordCutJobRequest extends Model
     /**
      * @var string
      */
+    public $regionId;
+
+    /**
+     * @var string
+     */
     public $title;
 
     /**
@@ -36,6 +41,7 @@ class SubmitKeyWordCutJobRequest extends Model
         'description' => 'Description',
         'inputFile'   => 'InputFile',
         'keyword'     => 'Keyword',
+        'regionId'    => 'RegionId',
         'title'       => 'Title',
         'userData'    => 'UserData',
     ];
@@ -55,6 +61,9 @@ class SubmitKeyWordCutJobRequest extends Model
         }
         if (null !== $this->keyword) {
             $res['Keyword'] = $this->keyword;
+        }
+        if (null !== $this->regionId) {
+            $res['RegionId'] = $this->regionId;
         }
         if (null !== $this->title) {
             $res['Title'] = $this->title;
@@ -82,6 +91,9 @@ class SubmitKeyWordCutJobRequest extends Model
         }
         if (isset($map['Keyword'])) {
             $model->keyword = $map['Keyword'];
+        }
+        if (isset($map['RegionId'])) {
+            $model->regionId = $map['RegionId'];
         }
         if (isset($map['Title'])) {
             $model->title = $map['Title'];

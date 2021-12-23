@@ -10,12 +10,14 @@ use AlibabaCloud\Tea\Model;
 class GetLiveEditingJobResponseBody extends Model
 {
     /**
+     * @description 直播剪辑任务
+     *
      * @var liveEditingJob
      */
     public $liveEditingJob;
 
     /**
-     * @description Id of the request
+     * @description 请求ID
      *
      * @var string
      */

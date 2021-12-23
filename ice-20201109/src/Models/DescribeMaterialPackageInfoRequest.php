@@ -21,10 +21,16 @@ class DescribeMaterialPackageInfoRequest extends Model
     /**
      * @var string
      */
+    public $regionId;
+
+    /**
+     * @var string
+     */
     public $status;
     protected $_name = [
         'materialPackageId'   => 'MaterialPackageId',
         'materialPackageType' => 'MaterialPackageType',
+        'regionId'            => 'RegionId',
         'status'              => 'Status',
     ];
 
@@ -40,6 +46,9 @@ class DescribeMaterialPackageInfoRequest extends Model
         }
         if (null !== $this->materialPackageType) {
             $res['MaterialPackageType'] = $this->materialPackageType;
+        }
+        if (null !== $this->regionId) {
+            $res['RegionId'] = $this->regionId;
         }
         if (null !== $this->status) {
             $res['Status'] = $this->status;
@@ -61,6 +70,9 @@ class DescribeMaterialPackageInfoRequest extends Model
         }
         if (isset($map['MaterialPackageType'])) {
             $model->materialPackageType = $map['MaterialPackageType'];
+        }
+        if (isset($map['RegionId'])) {
+            $model->regionId = $map['RegionId'];
         }
         if (isset($map['Status'])) {
             $model->status = $map['Status'];

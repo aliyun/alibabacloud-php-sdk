@@ -42,6 +42,13 @@ class SearchEditingProjectRequest extends Model
     public $projectType;
 
     /**
+     * @description RegionId
+     *
+     * @var string
+     */
+    public $regionId;
+
+    /**
      * @description 结果排序方式
      *
      * @var string
@@ -74,6 +81,7 @@ class SearchEditingProjectRequest extends Model
         'maxResults'   => 'MaxResults',
         'nextToken'    => 'NextToken',
         'projectType'  => 'ProjectType',
+        'regionId'     => 'RegionId',
         'sortBy'       => 'SortBy',
         'startTime'    => 'StartTime',
         'status'       => 'Status',
@@ -101,6 +109,9 @@ class SearchEditingProjectRequest extends Model
         }
         if (null !== $this->projectType) {
             $res['ProjectType'] = $this->projectType;
+        }
+        if (null !== $this->regionId) {
+            $res['RegionId'] = $this->regionId;
         }
         if (null !== $this->sortBy) {
             $res['SortBy'] = $this->sortBy;
@@ -140,6 +151,9 @@ class SearchEditingProjectRequest extends Model
         }
         if (isset($map['ProjectType'])) {
             $model->projectType = $map['ProjectType'];
+        }
+        if (isset($map['RegionId'])) {
+            $model->regionId = $map['RegionId'];
         }
         if (isset($map['SortBy'])) {
             $model->sortBy = $map['SortBy'];

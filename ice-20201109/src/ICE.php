@@ -32,12 +32,15 @@ use AlibabaCloud\SDK\ICE\V20201109\Models\DescribeIceProductStatusRequest;
 use AlibabaCloud\SDK\ICE\V20201109\Models\DescribeIceProductStatusResponse;
 use AlibabaCloud\SDK\ICE\V20201109\Models\DescribeMaterialPackageInfoRequest;
 use AlibabaCloud\SDK\ICE\V20201109\Models\DescribeMaterialPackageInfoResponse;
+use AlibabaCloud\SDK\ICE\V20201109\Models\DescribeRelatedAuthorizationStatusRequest;
 use AlibabaCloud\SDK\ICE\V20201109\Models\DescribeRelatedAuthorizationStatusResponse;
+use AlibabaCloud\SDK\ICE\V20201109\Models\GetDefaultStorageLocationRequest;
 use AlibabaCloud\SDK\ICE\V20201109\Models\GetDefaultStorageLocationResponse;
 use AlibabaCloud\SDK\ICE\V20201109\Models\GetEditingProjectMaterialsRequest;
 use AlibabaCloud\SDK\ICE\V20201109\Models\GetEditingProjectMaterialsResponse;
 use AlibabaCloud\SDK\ICE\V20201109\Models\GetEditingProjectRequest;
 use AlibabaCloud\SDK\ICE\V20201109\Models\GetEditingProjectResponse;
+use AlibabaCloud\SDK\ICE\V20201109\Models\GetEventCallbackRequest;
 use AlibabaCloud\SDK\ICE\V20201109\Models\GetEventCallbackResponse;
 use AlibabaCloud\SDK\ICE\V20201109\Models\GetLiveEditingIndexFileRequest;
 use AlibabaCloud\SDK\ICE\V20201109\Models\GetLiveEditingIndexFileResponse;
@@ -85,6 +88,8 @@ use AlibabaCloud\SDK\ICE\V20201109\Models\SubmitAudioProduceJobRequest;
 use AlibabaCloud\SDK\ICE\V20201109\Models\SubmitAudioProduceJobResponse;
 use AlibabaCloud\SDK\ICE\V20201109\Models\SubmitDelogoJobRequest;
 use AlibabaCloud\SDK\ICE\V20201109\Models\SubmitDelogoJobResponse;
+use AlibabaCloud\SDK\ICE\V20201109\Models\SubmitDynamicChartJobRequest;
+use AlibabaCloud\SDK\ICE\V20201109\Models\SubmitDynamicChartJobResponse;
 use AlibabaCloud\SDK\ICE\V20201109\Models\SubmitH2VJobRequest;
 use AlibabaCloud\SDK\ICE\V20201109\Models\SubmitH2VJobResponse;
 use AlibabaCloud\SDK\ICE\V20201109\Models\SubmitKeyWordCutJobRequest;
@@ -218,7 +223,6 @@ class ICE extends OpenApiClient
         $query['ProjectId']    = $request->projectId;
         $req                   = new OpenApiRequest([
             'query' => OpenApiUtilClient::query($query),
-            'body'  => Utils::toMap($request),
         ]);
         $params = new Params([
             'action'      => 'AddEditingProjectMaterials',
@@ -228,7 +232,7 @@ class ICE extends OpenApiClient
             'method'      => 'POST',
             'authType'    => 'AK',
             'style'       => 'RPC',
-            'reqBodyType' => 'json',
+            'reqBodyType' => 'formData',
             'bodyType'    => 'json',
         ]);
 
@@ -260,7 +264,6 @@ class ICE extends OpenApiClient
         $query['MediaIds'] = $request->mediaIds;
         $req               = new OpenApiRequest([
             'query' => OpenApiUtilClient::query($query),
-            'body'  => Utils::toMap($request),
         ]);
         $params = new Params([
             'action'      => 'AddFavoritePublicMedia',
@@ -270,7 +273,7 @@ class ICE extends OpenApiClient
             'method'      => 'POST',
             'authType'    => 'AK',
             'style'       => 'RPC',
-            'reqBodyType' => 'json',
+            'reqBodyType' => 'formData',
             'bodyType'    => 'json',
         ]);
 
@@ -309,7 +312,6 @@ class ICE extends OpenApiClient
         $query['Type']            = $request->type;
         $req                      = new OpenApiRequest([
             'query' => OpenApiUtilClient::query($query),
-            'body'  => Utils::toMap($request),
         ]);
         $params = new Params([
             'action'      => 'AddTemplate',
@@ -319,7 +321,7 @@ class ICE extends OpenApiClient
             'method'      => 'POST',
             'authType'    => 'AK',
             'style'       => 'RPC',
-            'reqBodyType' => 'json',
+            'reqBodyType' => 'formData',
             'bodyType'    => 'json',
         ]);
 
@@ -352,7 +354,6 @@ class ICE extends OpenApiClient
         $query['MediaIds']     = $request->mediaIds;
         $req                   = new OpenApiRequest([
             'query' => OpenApiUtilClient::query($query),
-            'body'  => Utils::toMap($request),
         ]);
         $params = new Params([
             'action'      => 'BatchGetMediaInfos',
@@ -362,7 +363,7 @@ class ICE extends OpenApiClient
             'method'      => 'POST',
             'authType'    => 'AK',
             'style'       => 'RPC',
-            'reqBodyType' => 'json',
+            'reqBodyType' => 'formData',
             'bodyType'    => 'json',
         ]);
 
@@ -394,7 +395,6 @@ class ICE extends OpenApiClient
         $query['MediaIds'] = $request->mediaIds;
         $req               = new OpenApiRequest([
             'query' => OpenApiUtilClient::query($query),
-            'body'  => Utils::toMap($request),
         ]);
         $params = new Params([
             'action'      => 'CancelFavoritePublicMedia',
@@ -404,7 +404,7 @@ class ICE extends OpenApiClient
             'method'      => 'POST',
             'authType'    => 'AK',
             'style'       => 'RPC',
-            'reqBodyType' => 'json',
+            'reqBodyType' => 'formData',
             'bodyType'    => 'json',
         ]);
 
@@ -444,7 +444,6 @@ class ICE extends OpenApiClient
         $query['Title']          = $request->title;
         $req                     = new OpenApiRequest([
             'query' => OpenApiUtilClient::query($query),
-            'body'  => Utils::toMap($request),
         ]);
         $params = new Params([
             'action'      => 'CreateEditingProject',
@@ -454,7 +453,7 @@ class ICE extends OpenApiClient
             'method'      => 'POST',
             'authType'    => 'AK',
             'style'       => 'RPC',
-            'reqBodyType' => 'json',
+            'reqBodyType' => 'formData',
             'bodyType'    => 'json',
         ]);
 
@@ -482,8 +481,11 @@ class ICE extends OpenApiClient
     public function deleteEditingProjectMaterialsWithOptions($request, $runtime)
     {
         Utils::validateModel($request);
-        $query = OpenApiUtilClient::query(Utils::toMap($request));
-        $req   = new OpenApiRequest([
+        $query                 = [];
+        $query['MaterialIds']  = $request->materialIds;
+        $query['MaterialType'] = $request->materialType;
+        $query['ProjectId']    = $request->projectId;
+        $req                   = new OpenApiRequest([
             'query' => OpenApiUtilClient::query($query),
         ]);
         $params = new Params([
@@ -491,10 +493,10 @@ class ICE extends OpenApiClient
             'version'     => '2020-11-09',
             'protocol'    => 'HTTPS',
             'pathname'    => '/',
-            'method'      => 'GET',
+            'method'      => 'POST',
             'authType'    => 'AK',
             'style'       => 'RPC',
-            'reqBodyType' => 'json',
+            'reqBodyType' => 'formData',
             'bodyType'    => 'json',
         ]);
 
@@ -526,7 +528,6 @@ class ICE extends OpenApiClient
         $query['ProjectIds'] = $request->projectIds;
         $req                 = new OpenApiRequest([
             'query' => OpenApiUtilClient::query($query),
-            'body'  => Utils::toMap($request),
         ]);
         $params = new Params([
             'action'      => 'DeleteEditingProjects',
@@ -536,7 +537,7 @@ class ICE extends OpenApiClient
             'method'      => 'POST',
             'authType'    => 'AK',
             'style'       => 'RPC',
-            'reqBodyType' => 'json',
+            'reqBodyType' => 'formData',
             'bodyType'    => 'json',
         ]);
 
@@ -569,7 +570,6 @@ class ICE extends OpenApiClient
         $query['MediaIds']  = $request->mediaIds;
         $req                = new OpenApiRequest([
             'query' => OpenApiUtilClient::query($query),
-            'body'  => Utils::toMap($request),
         ]);
         $params = new Params([
             'action'      => 'DeleteMediaInfos',
@@ -579,7 +579,7 @@ class ICE extends OpenApiClient
             'method'      => 'POST',
             'authType'    => 'AK',
             'style'       => 'RPC',
-            'reqBodyType' => 'json',
+            'reqBodyType' => 'formData',
             'bodyType'    => 'json',
         ]);
 
@@ -611,7 +611,6 @@ class ICE extends OpenApiClient
         $query['JobId'] = $request->jobId;
         $req            = new OpenApiRequest([
             'query' => OpenApiUtilClient::query($query),
-            'body'  => Utils::toMap($request),
         ]);
         $params = new Params([
             'action'      => 'DeleteSmartJob',
@@ -621,7 +620,7 @@ class ICE extends OpenApiClient
             'method'      => 'POST',
             'authType'    => 'AK',
             'style'       => 'RPC',
-            'reqBodyType' => 'json',
+            'reqBodyType' => 'formData',
             'bodyType'    => 'json',
         ]);
 
@@ -661,7 +660,7 @@ class ICE extends OpenApiClient
             'method'      => 'GET',
             'authType'    => 'AK',
             'style'       => 'RPC',
-            'reqBodyType' => 'json',
+            'reqBodyType' => 'formData',
             'bodyType'    => 'json',
         ]);
 
@@ -693,7 +692,6 @@ class ICE extends OpenApiClient
         $query['CommodityCode'] = $request->commodityCode;
         $req                    = new OpenApiRequest([
             'query' => OpenApiUtilClient::query($query),
-            'body'  => Utils::toMap($request),
         ]);
         $params = new Params([
             'action'      => 'DescribeIceProductStatus',
@@ -703,7 +701,7 @@ class ICE extends OpenApiClient
             'method'      => 'POST',
             'authType'    => 'AK',
             'style'       => 'RPC',
-            'reqBodyType' => 'json',
+            'reqBodyType' => 'formData',
             'bodyType'    => 'json',
         ]);
 
@@ -737,7 +735,6 @@ class ICE extends OpenApiClient
         $query['Status']              = $request->status;
         $req                          = new OpenApiRequest([
             'query' => OpenApiUtilClient::query($query),
-            'body'  => Utils::toMap($request),
         ]);
         $params = new Params([
             'action'      => 'DescribeMaterialPackageInfo',
@@ -747,7 +744,7 @@ class ICE extends OpenApiClient
             'method'      => 'POST',
             'authType'    => 'AK',
             'style'       => 'RPC',
-            'reqBodyType' => 'json',
+            'reqBodyType' => 'formData',
             'bodyType'    => 'json',
         ]);
 
@@ -767,13 +764,18 @@ class ICE extends OpenApiClient
     }
 
     /**
-     * @param RuntimeOptions $runtime
+     * @param DescribeRelatedAuthorizationStatusRequest $request
+     * @param RuntimeOptions                            $runtime
      *
      * @return DescribeRelatedAuthorizationStatusResponse
      */
-    public function describeRelatedAuthorizationStatusWithOptions($runtime)
+    public function describeRelatedAuthorizationStatusWithOptions($request, $runtime)
     {
-        $req    = new OpenApiRequest([]);
+        Utils::validateModel($request);
+        $query = OpenApiUtilClient::query(Utils::toMap($request));
+        $req   = new OpenApiRequest([
+            'query' => OpenApiUtilClient::query($query),
+        ]);
         $params = new Params([
             'action'      => 'DescribeRelatedAuthorizationStatus',
             'version'     => '2020-11-09',
@@ -782,7 +784,7 @@ class ICE extends OpenApiClient
             'method'      => 'GET',
             'authType'    => 'AK',
             'style'       => 'RPC',
-            'reqBodyType' => 'json',
+            'reqBodyType' => 'formData',
             'bodyType'    => 'json',
         ]);
 
@@ -790,22 +792,27 @@ class ICE extends OpenApiClient
     }
 
     /**
+     * @param DescribeRelatedAuthorizationStatusRequest $request
+     *
      * @return DescribeRelatedAuthorizationStatusResponse
      */
-    public function describeRelatedAuthorizationStatus()
+    public function describeRelatedAuthorizationStatus($request)
     {
         $runtime = new RuntimeOptions([]);
 
-        return $this->describeRelatedAuthorizationStatusWithOptions($runtime);
+        return $this->describeRelatedAuthorizationStatusWithOptions($request, $runtime);
     }
 
     /**
-     * @param RuntimeOptions $runtime
+     * @param GetDefaultStorageLocationRequest $request
+     * @param RuntimeOptions                   $runtime
      *
      * @return GetDefaultStorageLocationResponse
      */
-    public function getDefaultStorageLocationWithOptions($runtime)
+    public function getDefaultStorageLocationWithOptions($request, $runtime)
     {
+        Utils::validateModel($request);
+        $query  = [];
         $req    = new OpenApiRequest([]);
         $params = new Params([
             'action'      => 'GetDefaultStorageLocation',
@@ -815,7 +822,7 @@ class ICE extends OpenApiClient
             'method'      => 'POST',
             'authType'    => 'AK',
             'style'       => 'RPC',
-            'reqBodyType' => 'json',
+            'reqBodyType' => 'formData',
             'bodyType'    => 'json',
         ]);
 
@@ -823,13 +830,15 @@ class ICE extends OpenApiClient
     }
 
     /**
+     * @param GetDefaultStorageLocationRequest $request
+     *
      * @return GetDefaultStorageLocationResponse
      */
-    public function getDefaultStorageLocation()
+    public function getDefaultStorageLocation($request)
     {
         $runtime = new RuntimeOptions([]);
 
-        return $this->getDefaultStorageLocationWithOptions($runtime);
+        return $this->getDefaultStorageLocationWithOptions($request, $runtime);
     }
 
     /**
@@ -841,8 +850,9 @@ class ICE extends OpenApiClient
     public function getEditingProjectWithOptions($request, $runtime)
     {
         Utils::validateModel($request);
-        $query = OpenApiUtilClient::query(Utils::toMap($request));
-        $req   = new OpenApiRequest([
+        $query              = [];
+        $query['ProjectId'] = $request->projectId;
+        $req                = new OpenApiRequest([
             'query' => OpenApiUtilClient::query($query),
         ]);
         $params = new Params([
@@ -850,10 +860,10 @@ class ICE extends OpenApiClient
             'version'     => '2020-11-09',
             'protocol'    => 'HTTPS',
             'pathname'    => '/',
-            'method'      => 'GET',
+            'method'      => 'POST',
             'authType'    => 'AK',
             'style'       => 'RPC',
-            'reqBodyType' => 'json',
+            'reqBodyType' => 'formData',
             'bodyType'    => 'json',
         ]);
 
@@ -881,8 +891,9 @@ class ICE extends OpenApiClient
     public function getEditingProjectMaterialsWithOptions($request, $runtime)
     {
         Utils::validateModel($request);
-        $query = OpenApiUtilClient::query(Utils::toMap($request));
-        $req   = new OpenApiRequest([
+        $query              = [];
+        $query['ProjectId'] = $request->projectId;
+        $req                = new OpenApiRequest([
             'query' => OpenApiUtilClient::query($query),
         ]);
         $params = new Params([
@@ -890,10 +901,10 @@ class ICE extends OpenApiClient
             'version'     => '2020-11-09',
             'protocol'    => 'HTTPS',
             'pathname'    => '/',
-            'method'      => 'GET',
+            'method'      => 'POST',
             'authType'    => 'AK',
             'style'       => 'RPC',
-            'reqBodyType' => 'json',
+            'reqBodyType' => 'formData',
             'bodyType'    => 'json',
         ]);
 
@@ -913,12 +924,15 @@ class ICE extends OpenApiClient
     }
 
     /**
-     * @param RuntimeOptions $runtime
+     * @param GetEventCallbackRequest $request
+     * @param RuntimeOptions          $runtime
      *
      * @return GetEventCallbackResponse
      */
-    public function getEventCallbackWithOptions($runtime)
+    public function getEventCallbackWithOptions($request, $runtime)
     {
+        Utils::validateModel($request);
+        $query  = [];
         $req    = new OpenApiRequest([]);
         $params = new Params([
             'action'      => 'GetEventCallback',
@@ -928,7 +942,7 @@ class ICE extends OpenApiClient
             'method'      => 'POST',
             'authType'    => 'AK',
             'style'       => 'RPC',
-            'reqBodyType' => 'json',
+            'reqBodyType' => 'formData',
             'bodyType'    => 'json',
         ]);
 
@@ -936,13 +950,15 @@ class ICE extends OpenApiClient
     }
 
     /**
+     * @param GetEventCallbackRequest $request
+     *
      * @return GetEventCallbackResponse
      */
-    public function getEventCallback()
+    public function getEventCallback($request)
     {
         $runtime = new RuntimeOptions([]);
 
-        return $this->getEventCallbackWithOptions($runtime);
+        return $this->getEventCallbackWithOptions($request, $runtime);
     }
 
     /**
@@ -966,7 +982,7 @@ class ICE extends OpenApiClient
             'method'      => 'GET',
             'authType'    => 'AK',
             'style'       => 'RPC',
-            'reqBodyType' => 'json',
+            'reqBodyType' => 'formData',
             'bodyType'    => 'json',
         ]);
 
@@ -998,7 +1014,6 @@ class ICE extends OpenApiClient
         $query['JobId'] = $request->jobId;
         $req            = new OpenApiRequest([
             'query' => OpenApiUtilClient::query($query),
-            'body'  => Utils::toMap($request),
         ]);
         $params = new Params([
             'action'      => 'GetLiveEditingJob',
@@ -1008,7 +1023,7 @@ class ICE extends OpenApiClient
             'method'      => 'POST',
             'authType'    => 'AK',
             'style'       => 'RPC',
-            'reqBodyType' => 'json',
+            'reqBodyType' => 'formData',
             'bodyType'    => 'json',
         ]);
 
@@ -1042,7 +1057,6 @@ class ICE extends OpenApiClient
         $query['OutputType'] = $request->outputType;
         $req                 = new OpenApiRequest([
             'query' => OpenApiUtilClient::query($query),
-            'body'  => Utils::toMap($request),
         ]);
         $params = new Params([
             'action'      => 'GetMediaInfo',
@@ -1052,7 +1066,7 @@ class ICE extends OpenApiClient
             'method'      => 'POST',
             'authType'    => 'AK',
             'style'       => 'RPC',
-            'reqBodyType' => 'json',
+            'reqBodyType' => 'formData',
             'bodyType'    => 'json',
         ]);
 
@@ -1092,7 +1106,7 @@ class ICE extends OpenApiClient
             'method'      => 'GET',
             'authType'    => 'AK',
             'style'       => 'RPC',
-            'reqBodyType' => 'json',
+            'reqBodyType' => 'formData',
             'bodyType'    => 'json',
         ]);
 
@@ -1124,7 +1138,6 @@ class ICE extends OpenApiClient
         $query['MediaId'] = $request->mediaId;
         $req              = new OpenApiRequest([
             'query' => OpenApiUtilClient::query($query),
-            'body'  => Utils::toMap($request),
         ]);
         $params = new Params([
             'action'      => 'GetPublicMediaInfo',
@@ -1134,7 +1147,7 @@ class ICE extends OpenApiClient
             'method'      => 'POST',
             'authType'    => 'AK',
             'style'       => 'RPC',
-            'reqBodyType' => 'json',
+            'reqBodyType' => 'formData',
             'bodyType'    => 'json',
         ]);
 
@@ -1174,7 +1187,7 @@ class ICE extends OpenApiClient
             'method'      => 'GET',
             'authType'    => 'AK',
             'style'       => 'RPC',
-            'reqBodyType' => 'json',
+            'reqBodyType' => 'formData',
             'bodyType'    => 'json',
         ]);
 
@@ -1214,7 +1227,7 @@ class ICE extends OpenApiClient
             'method'      => 'GET',
             'authType'    => 'AK',
             'style'       => 'RPC',
-            'reqBodyType' => 'json',
+            'reqBodyType' => 'formData',
             'bodyType'    => 'json',
         ]);
 
@@ -1254,7 +1267,7 @@ class ICE extends OpenApiClient
             'method'      => 'GET',
             'authType'    => 'AK',
             'style'       => 'RPC',
-            'reqBodyType' => 'json',
+            'reqBodyType' => 'formData',
             'bodyType'    => 'json',
         ]);
 
@@ -1287,7 +1300,6 @@ class ICE extends OpenApiClient
         $query['EntityId']     = $request->entityId;
         $req                   = new OpenApiRequest([
             'query' => OpenApiUtilClient::query($query),
-            'body'  => Utils::toMap($request),
         ]);
         $params = new Params([
             'action'      => 'ListAllPublicMediaTags',
@@ -1297,7 +1309,7 @@ class ICE extends OpenApiClient
             'method'      => 'POST',
             'authType'    => 'AK',
             'style'       => 'RPC',
-            'reqBodyType' => 'json',
+            'reqBodyType' => 'formData',
             'bodyType'    => 'json',
         ]);
 
@@ -1339,7 +1351,6 @@ class ICE extends OpenApiClient
         $query['Status']               = $request->status;
         $req                           = new OpenApiRequest([
             'query' => OpenApiUtilClient::query($query),
-            'body'  => Utils::toMap($request),
         ]);
         $params = new Params([
             'action'      => 'ListMediaBasicInfos',
@@ -1349,7 +1360,7 @@ class ICE extends OpenApiClient
             'method'      => 'POST',
             'authType'    => 'AK',
             'style'       => 'RPC',
-            'reqBodyType' => 'json',
+            'reqBodyType' => 'formData',
             'bodyType'    => 'json',
         ]);
 
@@ -1381,7 +1392,6 @@ class ICE extends OpenApiClient
         $query['Status'] = $request->status;
         $req             = new OpenApiRequest([
             'query' => OpenApiUtilClient::query($query),
-            'body'  => Utils::toMap($request),
         ]);
         $params = new Params([
             'action'      => 'ListMediaProducingJobs',
@@ -1391,7 +1401,7 @@ class ICE extends OpenApiClient
             'method'      => 'POST',
             'authType'    => 'AK',
             'style'       => 'RPC',
-            'reqBodyType' => 'json',
+            'reqBodyType' => 'formData',
             'bodyType'    => 'json',
         ]);
 
@@ -1426,7 +1436,6 @@ class ICE extends OpenApiClient
         $query['NextToken']            = $request->nextToken;
         $req                           = new OpenApiRequest([
             'query' => OpenApiUtilClient::query($query),
-            'body'  => Utils::toMap($request),
         ]);
         $params = new Params([
             'action'      => 'ListPublicMediaBasicInfos',
@@ -1436,7 +1445,7 @@ class ICE extends OpenApiClient
             'method'      => 'POST',
             'authType'    => 'AK',
             'style'       => 'RPC',
-            'reqBodyType' => 'json',
+            'reqBodyType' => 'formData',
             'bodyType'    => 'json',
         ]);
 
@@ -1476,7 +1485,7 @@ class ICE extends OpenApiClient
             'method'      => 'GET',
             'authType'    => 'AK',
             'style'       => 'RPC',
-            'reqBodyType' => 'json',
+            'reqBodyType' => 'formData',
             'bodyType'    => 'json',
         ]);
 
@@ -1516,7 +1525,7 @@ class ICE extends OpenApiClient
             'method'      => 'GET',
             'authType'    => 'AK',
             'style'       => 'RPC',
-            'reqBodyType' => 'json',
+            'reqBodyType' => 'formData',
             'bodyType'    => 'json',
         ]);
 
@@ -1552,7 +1561,6 @@ class ICE extends OpenApiClient
         $query['Type']         = $request->type;
         $req                   = new OpenApiRequest([
             'query' => OpenApiUtilClient::query($query),
-            'body'  => Utils::toMap($request),
         ]);
         $params = new Params([
             'action'      => 'ListTemplates',
@@ -1562,7 +1570,7 @@ class ICE extends OpenApiClient
             'method'      => 'POST',
             'authType'    => 'AK',
             'style'       => 'RPC',
-            'reqBodyType' => 'json',
+            'reqBodyType' => 'formData',
             'bodyType'    => 'json',
         ]);
 
@@ -1606,7 +1614,6 @@ class ICE extends OpenApiClient
         $query['UserData']            = $request->userData;
         $req                          = new OpenApiRequest([
             'query' => OpenApiUtilClient::query($query),
-            'body'  => Utils::toMap($request),
         ]);
         $params = new Params([
             'action'      => 'RegisterMediaInfo',
@@ -1616,7 +1623,7 @@ class ICE extends OpenApiClient
             'method'      => 'POST',
             'authType'    => 'AK',
             'style'       => 'RPC',
-            'reqBodyType' => 'json',
+            'reqBodyType' => 'formData',
             'bodyType'    => 'json',
         ]);
 
@@ -1656,7 +1663,6 @@ class ICE extends OpenApiClient
         $query['TemplateType'] = $request->templateType;
         $req                   = new OpenApiRequest([
             'query' => OpenApiUtilClient::query($query),
-            'body'  => Utils::toMap($request),
         ]);
         $params = new Params([
             'action'      => 'SearchEditingProject',
@@ -1666,7 +1672,7 @@ class ICE extends OpenApiClient
             'method'      => 'POST',
             'authType'    => 'AK',
             'style'       => 'RPC',
-            'reqBodyType' => 'json',
+            'reqBodyType' => 'formData',
             'bodyType'    => 'json',
         ]);
 
@@ -1705,7 +1711,6 @@ class ICE extends OpenApiClient
         $query['SortBy']                     = $request->sortBy;
         $req                                 = new OpenApiRequest([
             'query' => OpenApiUtilClient::query($query),
-            'body'  => Utils::toMap($request),
         ]);
         $params = new Params([
             'action'      => 'SearchPublicMediaInfo',
@@ -1715,7 +1720,7 @@ class ICE extends OpenApiClient
             'method'      => 'POST',
             'authType'    => 'AK',
             'style'       => 'RPC',
-            'reqBodyType' => 'json',
+            'reqBodyType' => 'formData',
             'bodyType'    => 'json',
         ]);
 
@@ -1749,7 +1754,6 @@ class ICE extends OpenApiClient
         $query['StorageType'] = $request->storageType;
         $req                  = new OpenApiRequest([
             'query' => OpenApiUtilClient::query($query),
-            'body'  => Utils::toMap($request),
         ]);
         $params = new Params([
             'action'      => 'SetDefaultStorageLocation',
@@ -1759,7 +1763,7 @@ class ICE extends OpenApiClient
             'method'      => 'POST',
             'authType'    => 'AK',
             'style'       => 'RPC',
-            'reqBodyType' => 'json',
+            'reqBodyType' => 'formData',
             'bodyType'    => 'json',
         ]);
 
@@ -1792,7 +1796,6 @@ class ICE extends OpenApiClient
         $query['EventTypeList']     = $request->eventTypeList;
         $req                        = new OpenApiRequest([
             'query' => OpenApiUtilClient::query($query),
-            'body'  => Utils::toMap($request),
         ]);
         $params = new Params([
             'action'      => 'SetEventCallback',
@@ -1802,7 +1805,7 @@ class ICE extends OpenApiClient
             'method'      => 'POST',
             'authType'    => 'AK',
             'style'       => 'RPC',
-            'reqBodyType' => 'json',
+            'reqBodyType' => 'formData',
             'bodyType'    => 'json',
         ]);
 
@@ -1839,7 +1842,6 @@ class ICE extends OpenApiClient
         $query['UserData']    = $request->userData;
         $req                  = new OpenApiRequest([
             'query' => OpenApiUtilClient::query($query),
-            'body'  => Utils::toMap($request),
         ]);
         $params = new Params([
             'action'      => 'SubmitASRJob',
@@ -1849,7 +1851,7 @@ class ICE extends OpenApiClient
             'method'      => 'POST',
             'authType'    => 'AK',
             'style'       => 'RPC',
-            'reqBodyType' => 'json',
+            'reqBodyType' => 'formData',
             'bodyType'    => 'json',
         ]);
 
@@ -1887,7 +1889,6 @@ class ICE extends OpenApiClient
         $query['UserData']      = $request->userData;
         $req                    = new OpenApiRequest([
             'query' => OpenApiUtilClient::query($query),
-            'body'  => Utils::toMap($request),
         ]);
         $params = new Params([
             'action'      => 'SubmitAudioProduceJob',
@@ -1897,7 +1898,7 @@ class ICE extends OpenApiClient
             'method'      => 'POST',
             'authType'    => 'AK',
             'style'       => 'RPC',
-            'reqBodyType' => 'json',
+            'reqBodyType' => 'formData',
             'bodyType'    => 'json',
         ]);
 
@@ -1936,7 +1937,6 @@ class ICE extends OpenApiClient
         $query['UserData']          = $request->userData;
         $req                        = new OpenApiRequest([
             'query' => OpenApiUtilClient::query($query),
-            'body'  => Utils::toMap($request),
         ]);
         $params = new Params([
             'action'      => 'SubmitDelogoJob',
@@ -1946,7 +1946,7 @@ class ICE extends OpenApiClient
             'method'      => 'POST',
             'authType'    => 'AK',
             'style'       => 'RPC',
-            'reqBodyType' => 'json',
+            'reqBodyType' => 'formData',
             'bodyType'    => 'json',
         ]);
 
@@ -1963,6 +1963,59 @@ class ICE extends OpenApiClient
         $runtime = new RuntimeOptions([]);
 
         return $this->submitDelogoJobWithOptions($request, $runtime);
+    }
+
+    /**
+     * @param SubmitDynamicChartJobRequest $request
+     * @param RuntimeOptions               $runtime
+     *
+     * @return SubmitDynamicChartJobResponse
+     */
+    public function submitDynamicChartJobWithOptions($request, $runtime)
+    {
+        Utils::validateModel($request);
+        $query                 = [];
+        $query['AxisParams']   = $request->axisParams;
+        $query['Background']   = $request->background;
+        $query['ChartConfig']  = $request->chartConfig;
+        $query['ChartTitle']   = $request->chartTitle;
+        $query['ChartType']    = $request->chartType;
+        $query['DataSource']   = $request->dataSource;
+        $query['Description']  = $request->description;
+        $query['Input']        = $request->input;
+        $query['OutputConfig'] = $request->outputConfig;
+        $query['Subtitle']     = $request->subtitle;
+        $query['Title']        = $request->title;
+        $query['Unit']         = $request->unit;
+        $query['UserData']     = $request->userData;
+        $req                   = new OpenApiRequest([
+            'query' => OpenApiUtilClient::query($query),
+        ]);
+        $params = new Params([
+            'action'      => 'SubmitDynamicChartJob',
+            'version'     => '2020-11-09',
+            'protocol'    => 'HTTPS',
+            'pathname'    => '/',
+            'method'      => 'POST',
+            'authType'    => 'AK',
+            'style'       => 'RPC',
+            'reqBodyType' => 'formData',
+            'bodyType'    => 'json',
+        ]);
+
+        return SubmitDynamicChartJobResponse::fromMap($this->callApi($params, $req, $runtime));
+    }
+
+    /**
+     * @param SubmitDynamicChartJobRequest $request
+     *
+     * @return SubmitDynamicChartJobResponse
+     */
+    public function submitDynamicChartJob($request)
+    {
+        $runtime = new RuntimeOptions([]);
+
+        return $this->submitDynamicChartJobWithOptions($request, $runtime);
     }
 
     /**
@@ -1985,7 +2038,6 @@ class ICE extends OpenApiClient
         $query['UserData']          = $request->userData;
         $req                        = new OpenApiRequest([
             'query' => OpenApiUtilClient::query($query),
-            'body'  => Utils::toMap($request),
         ]);
         $params = new Params([
             'action'      => 'SubmitH2VJob',
@@ -1995,7 +2047,7 @@ class ICE extends OpenApiClient
             'method'      => 'POST',
             'authType'    => 'AK',
             'style'       => 'RPC',
-            'reqBodyType' => 'json',
+            'reqBodyType' => 'formData',
             'bodyType'    => 'json',
         ]);
 
@@ -2035,7 +2087,7 @@ class ICE extends OpenApiClient
             'method'      => 'GET',
             'authType'    => 'AK',
             'style'       => 'RPC',
-            'reqBodyType' => 'json',
+            'reqBodyType' => 'formData',
             'bodyType'    => 'json',
         ]);
 
@@ -2073,7 +2125,6 @@ class ICE extends OpenApiClient
         $query['UserData']           = $request->userData;
         $req                         = new OpenApiRequest([
             'query' => OpenApiUtilClient::query($query),
-            'body'  => Utils::toMap($request),
         ]);
         $params = new Params([
             'action'      => 'SubmitLiveEditingJob',
@@ -2083,7 +2134,7 @@ class ICE extends OpenApiClient
             'method'      => 'POST',
             'authType'    => 'AK',
             'style'       => 'RPC',
-            'reqBodyType' => 'json',
+            'reqBodyType' => 'formData',
             'bodyType'    => 'json',
         ]);
 
@@ -2122,7 +2173,6 @@ class ICE extends OpenApiClient
         $query['UserData']          = $request->userData;
         $req                        = new OpenApiRequest([
             'query' => OpenApiUtilClient::query($query),
-            'body'  => Utils::toMap($request),
         ]);
         $params = new Params([
             'action'      => 'SubmitMattingJob',
@@ -2132,7 +2182,7 @@ class ICE extends OpenApiClient
             'method'      => 'POST',
             'authType'    => 'AK',
             'style'       => 'RPC',
-            'reqBodyType' => 'json',
+            'reqBodyType' => 'formData',
             'bodyType'    => 'json',
         ]);
 
@@ -2174,7 +2224,6 @@ class ICE extends OpenApiClient
         $query['UserData']             = $request->userData;
         $req                           = new OpenApiRequest([
             'query' => OpenApiUtilClient::query($query),
-            'body'  => Utils::toMap($request),
         ]);
         $params = new Params([
             'action'      => 'SubmitMediaProducingJob',
@@ -2184,7 +2233,7 @@ class ICE extends OpenApiClient
             'method'      => 'POST',
             'authType'    => 'AK',
             'style'       => 'RPC',
-            'reqBodyType' => 'json',
+            'reqBodyType' => 'formData',
             'bodyType'    => 'json',
         ]);
 
@@ -2224,7 +2273,7 @@ class ICE extends OpenApiClient
             'method'      => 'GET',
             'authType'    => 'AK',
             'style'       => 'RPC',
-            'reqBodyType' => 'json',
+            'reqBodyType' => 'formData',
             'bodyType'    => 'json',
         ]);
 
@@ -2263,7 +2312,6 @@ class ICE extends OpenApiClient
         $query['UserData']      = $request->userData;
         $req                    = new OpenApiRequest([
             'query' => OpenApiUtilClient::query($query),
-            'body'  => Utils::toMap($request),
         ]);
         $params = new Params([
             'action'      => 'SubmitSubtitleProduceJob',
@@ -2273,7 +2321,7 @@ class ICE extends OpenApiClient
             'method'      => 'POST',
             'authType'    => 'AK',
             'style'       => 'RPC',
-            'reqBodyType' => 'json',
+            'reqBodyType' => 'formData',
             'bodyType'    => 'json',
         ]);
 
@@ -2312,7 +2360,6 @@ class ICE extends OpenApiClient
         $query['Title']          = $request->title;
         $req                     = new OpenApiRequest([
             'query' => OpenApiUtilClient::query($query),
-            'body'  => Utils::toMap($request),
         ]);
         $params = new Params([
             'action'      => 'UpdateEditingProject',
@@ -2322,7 +2369,7 @@ class ICE extends OpenApiClient
             'method'      => 'POST',
             'authType'    => 'AK',
             'style'       => 'RPC',
-            'reqBodyType' => 'json',
+            'reqBodyType' => 'formData',
             'bodyType'    => 'json',
         ]);
 
@@ -2365,7 +2412,6 @@ class ICE extends OpenApiClient
         $query['UserData']            = $request->userData;
         $req                          = new OpenApiRequest([
             'query' => OpenApiUtilClient::query($query),
-            'body'  => Utils::toMap($request),
         ]);
         $params = new Params([
             'action'      => 'UpdateMediaInfo',
@@ -2375,7 +2421,7 @@ class ICE extends OpenApiClient
             'method'      => 'POST',
             'authType'    => 'AK',
             'style'       => 'RPC',
-            'reqBodyType' => 'json',
+            'reqBodyType' => 'formData',
             'bodyType'    => 'json',
         ]);
 
@@ -2408,7 +2454,6 @@ class ICE extends OpenApiClient
         $query['JobId']    = $request->jobId;
         $req               = new OpenApiRequest([
             'query' => OpenApiUtilClient::query($query),
-            'body'  => Utils::toMap($request),
         ]);
         $params = new Params([
             'action'      => 'UpdateSmartJob',
@@ -2418,7 +2463,7 @@ class ICE extends OpenApiClient
             'method'      => 'POST',
             'authType'    => 'AK',
             'style'       => 'RPC',
-            'reqBodyType' => 'json',
+            'reqBodyType' => 'formData',
             'bodyType'    => 'json',
         ]);
 
@@ -2457,7 +2502,6 @@ class ICE extends OpenApiClient
         $query['TemplateId']      = $request->templateId;
         $req                      = new OpenApiRequest([
             'query' => OpenApiUtilClient::query($query),
-            'body'  => Utils::toMap($request),
         ]);
         $params = new Params([
             'action'      => 'UpdateTemplate',
@@ -2467,7 +2511,7 @@ class ICE extends OpenApiClient
             'method'      => 'POST',
             'authType'    => 'AK',
             'style'       => 'RPC',
-            'reqBodyType' => 'json',
+            'reqBodyType' => 'formData',
             'bodyType'    => 'json',
         ]);
 

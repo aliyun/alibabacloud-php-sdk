@@ -21,6 +21,11 @@ class SubmitPPTCutJobRequest extends Model
     /**
      * @var string
      */
+    public $regionId;
+
+    /**
+     * @var string
+     */
     public $title;
 
     /**
@@ -30,6 +35,7 @@ class SubmitPPTCutJobRequest extends Model
     protected $_name = [
         'description' => 'Description',
         'inputFile'   => 'InputFile',
+        'regionId'    => 'RegionId',
         'title'       => 'Title',
         'userData'    => 'UserData',
     ];
@@ -46,6 +52,9 @@ class SubmitPPTCutJobRequest extends Model
         }
         if (null !== $this->inputFile) {
             $res['InputFile'] = $this->inputFile;
+        }
+        if (null !== $this->regionId) {
+            $res['RegionId'] = $this->regionId;
         }
         if (null !== $this->title) {
             $res['Title'] = $this->title;
@@ -70,6 +79,9 @@ class SubmitPPTCutJobRequest extends Model
         }
         if (isset($map['InputFile'])) {
             $model->inputFile = $map['InputFile'];
+        }
+        if (isset($map['RegionId'])) {
+            $model->regionId = $map['RegionId'];
         }
         if (isset($map['Title'])) {
             $model->title = $map['Title'];

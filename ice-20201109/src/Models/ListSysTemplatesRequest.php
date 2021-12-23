@@ -25,10 +25,16 @@ class ListSysTemplatesRequest extends Model
     /**
      * @var string
      */
+    public $regionId;
+
+    /**
+     * @var string
+     */
     public $type;
     protected $_name = [
         'maxResults' => 'MaxResults',
         'nextToken'  => 'NextToken',
+        'regionId'   => 'RegionId',
         'type'       => 'Type',
     ];
 
@@ -44,6 +50,9 @@ class ListSysTemplatesRequest extends Model
         }
         if (null !== $this->nextToken) {
             $res['NextToken'] = $this->nextToken;
+        }
+        if (null !== $this->regionId) {
+            $res['RegionId'] = $this->regionId;
         }
         if (null !== $this->type) {
             $res['Type'] = $this->type;
@@ -65,6 +74,9 @@ class ListSysTemplatesRequest extends Model
         }
         if (isset($map['NextToken'])) {
             $model->nextToken = $map['NextToken'];
+        }
+        if (isset($map['RegionId'])) {
+            $model->regionId = $map['RegionId'];
         }
         if (isset($map['Type'])) {
             $model->type = $map['Type'];

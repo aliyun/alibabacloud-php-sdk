@@ -14,8 +14,14 @@ class DeleteEditingProjectsRequest extends Model
      * @var string
      */
     public $projectIds;
+
+    /**
+     * @var string
+     */
+    public $regionId;
     protected $_name = [
         'projectIds' => 'ProjectIds',
+        'regionId'   => 'RegionId',
     ];
 
     public function validate()
@@ -27,6 +33,9 @@ class DeleteEditingProjectsRequest extends Model
         $res = [];
         if (null !== $this->projectIds) {
             $res['ProjectIds'] = $this->projectIds;
+        }
+        if (null !== $this->regionId) {
+            $res['RegionId'] = $this->regionId;
         }
 
         return $res;
@@ -42,6 +51,9 @@ class DeleteEditingProjectsRequest extends Model
         $model = new self();
         if (isset($map['ProjectIds'])) {
             $model->projectIds = $map['ProjectIds'];
+        }
+        if (isset($map['RegionId'])) {
+            $model->regionId = $map['RegionId'];
         }
 
         return $model;

@@ -9,13 +9,19 @@ use AlibabaCloud\Tea\Model;
 class ListMediaProducingJobsRequest extends Model
 {
     /**
+     * @var string
+     */
+    public $regionId;
+
+    /**
      * @description 查询以下状态的合成任务，支持多值，以英文逗号分隔
      *
      * @var string
      */
     public $status;
     protected $_name = [
-        'status' => 'Status',
+        'regionId' => 'RegionId',
+        'status'   => 'Status',
     ];
 
     public function validate()
@@ -25,6 +31,9 @@ class ListMediaProducingJobsRequest extends Model
     public function toMap()
     {
         $res = [];
+        if (null !== $this->regionId) {
+            $res['RegionId'] = $this->regionId;
+        }
         if (null !== $this->status) {
             $res['Status'] = $this->status;
         }
@@ -40,6 +49,9 @@ class ListMediaProducingJobsRequest extends Model
     public static function fromMap($map = [])
     {
         $model = new self();
+        if (isset($map['RegionId'])) {
+            $model->regionId = $map['RegionId'];
+        }
         if (isset($map['Status'])) {
             $model->status = $map['Status'];
         }

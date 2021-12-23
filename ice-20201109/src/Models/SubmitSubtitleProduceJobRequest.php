@@ -36,6 +36,11 @@ class SubmitSubtitleProduceJobRequest extends Model
     /**
      * @var string
      */
+    public $regionId;
+
+    /**
+     * @var string
+     */
     public $title;
 
     /**
@@ -53,6 +58,7 @@ class SubmitSubtitleProduceJobRequest extends Model
         'inputConfig'   => 'InputConfig',
         'isAsync'       => 'IsAsync',
         'outputConfig'  => 'OutputConfig',
+        'regionId'      => 'RegionId',
         'title'         => 'Title',
         'type'          => 'Type',
         'userData'      => 'UserData',
@@ -79,6 +85,9 @@ class SubmitSubtitleProduceJobRequest extends Model
         }
         if (null !== $this->outputConfig) {
             $res['OutputConfig'] = $this->outputConfig;
+        }
+        if (null !== $this->regionId) {
+            $res['RegionId'] = $this->regionId;
         }
         if (null !== $this->title) {
             $res['Title'] = $this->title;
@@ -115,6 +124,9 @@ class SubmitSubtitleProduceJobRequest extends Model
         }
         if (isset($map['OutputConfig'])) {
             $model->outputConfig = $map['OutputConfig'];
+        }
+        if (isset($map['RegionId'])) {
+            $model->regionId = $map['RegionId'];
         }
         if (isset($map['Title'])) {
             $model->title = $map['Title'];

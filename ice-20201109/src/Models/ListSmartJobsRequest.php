@@ -41,6 +41,11 @@ class ListSmartJobsRequest extends Model
     /**
      * @var string
      */
+    public $regionId;
+
+    /**
+     * @var string
+     */
     public $sortBy;
 
     /**
@@ -54,6 +59,7 @@ class ListSmartJobsRequest extends Model
         'nextToken'  => 'NextToken',
         'pageNo'     => 'PageNo',
         'pageSize'   => 'PageSize',
+        'regionId'   => 'RegionId',
         'sortBy'     => 'SortBy',
         'status'     => 'Status',
     ];
@@ -82,6 +88,9 @@ class ListSmartJobsRequest extends Model
         }
         if (null !== $this->pageSize) {
             $res['PageSize'] = $this->pageSize;
+        }
+        if (null !== $this->regionId) {
+            $res['RegionId'] = $this->regionId;
         }
         if (null !== $this->sortBy) {
             $res['SortBy'] = $this->sortBy;
@@ -118,6 +127,9 @@ class ListSmartJobsRequest extends Model
         }
         if (isset($map['PageSize'])) {
             $model->pageSize = $map['PageSize'];
+        }
+        if (isset($map['RegionId'])) {
+            $model->regionId = $map['RegionId'];
         }
         if (isset($map['SortBy'])) {
             $model->sortBy = $map['SortBy'];
