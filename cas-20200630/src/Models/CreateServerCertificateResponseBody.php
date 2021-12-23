@@ -11,6 +11,11 @@ class CreateServerCertificateResponseBody extends Model
     /**
      * @var string
      */
+    public $certificateChain;
+
+    /**
+     * @var string
+     */
     public $identifier;
 
     /**
@@ -33,6 +38,7 @@ class CreateServerCertificateResponseBody extends Model
      */
     public $x509Certificate;
     protected $_name = [
+        'certificateChain'      => 'CertificateChain',
         'identifier'            => 'Identifier',
         'parentX509Certificate' => 'ParentX509Certificate',
         'requestId'             => 'RequestId',
@@ -47,6 +53,9 @@ class CreateServerCertificateResponseBody extends Model
     public function toMap()
     {
         $res = [];
+        if (null !== $this->certificateChain) {
+            $res['CertificateChain'] = $this->certificateChain;
+        }
         if (null !== $this->identifier) {
             $res['Identifier'] = $this->identifier;
         }
@@ -74,6 +83,9 @@ class CreateServerCertificateResponseBody extends Model
     public static function fromMap($map = [])
     {
         $model = new self();
+        if (isset($map['CertificateChain'])) {
+            $model->certificateChain = $map['CertificateChain'];
+        }
         if (isset($map['Identifier'])) {
             $model->identifier = $map['Identifier'];
         }

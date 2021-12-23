@@ -167,7 +167,6 @@ class Cas extends OpenApiClient
         $query['State']                    = $request->state;
         $req                               = new OpenApiRequest([
             'query' => OpenApiUtilClient::query($query),
-            'body'  => Utils::toMap($request),
         ]);
         $params = new Params([
             'action'      => 'CreateCertificateWithExtension',
@@ -177,7 +176,7 @@ class Cas extends OpenApiClient
             'method'      => 'POST',
             'authType'    => 'AK',
             'style'       => 'RPC',
-            'reqBodyType' => 'json',
+            'reqBodyType' => 'formData',
             'bodyType'    => 'json',
         ]);
 
@@ -216,7 +215,6 @@ class Cas extends OpenApiClient
         $query['SanValue']         = $request->sanValue;
         $req                       = new OpenApiRequest([
             'query' => OpenApiUtilClient::query($query),
-            'body'  => Utils::toMap($request),
         ]);
         $params = new Params([
             'action'      => 'CreateClientCertificate',
@@ -226,7 +224,7 @@ class Cas extends OpenApiClient
             'method'      => 'POST',
             'authType'    => 'AK',
             'style'       => 'RPC',
-            'reqBodyType' => 'json',
+            'reqBodyType' => 'formData',
             'bodyType'    => 'json',
         ]);
 
@@ -264,7 +262,6 @@ class Cas extends OpenApiClient
         $query['SanValue']         = $request->sanValue;
         $req                       = new OpenApiRequest([
             'query' => OpenApiUtilClient::query($query),
-            'body'  => Utils::toMap($request),
         ]);
         $params = new Params([
             'action'      => 'CreateClientCertificateWithCsr',
@@ -274,7 +271,7 @@ class Cas extends OpenApiClient
             'method'      => 'POST',
             'authType'    => 'AK',
             'style'       => 'RPC',
-            'reqBodyType' => 'json',
+            'reqBodyType' => 'formData',
             'bodyType'    => 'json',
         ]);
 
@@ -306,7 +303,6 @@ class Cas extends OpenApiClient
         $query['Identifier'] = $request->identifier;
         $req                 = new OpenApiRequest([
             'query' => OpenApiUtilClient::query($query),
-            'body'  => Utils::toMap($request),
         ]);
         $params = new Params([
             'action'      => 'CreateRevokeClientCertificate',
@@ -316,7 +312,7 @@ class Cas extends OpenApiClient
             'method'      => 'POST',
             'authType'    => 'AK',
             'style'       => 'RPC',
-            'reqBodyType' => 'json',
+            'reqBodyType' => 'formData',
             'bodyType'    => 'json',
         ]);
 
@@ -355,7 +351,6 @@ class Cas extends OpenApiClient
         $query['Years']            = $request->years;
         $req                       = new OpenApiRequest([
             'query' => OpenApiUtilClient::query($query),
-            'body'  => Utils::toMap($request),
         ]);
         $params = new Params([
             'action'      => 'CreateRootCACertificate',
@@ -365,7 +360,7 @@ class Cas extends OpenApiClient
             'method'      => 'POST',
             'authType'    => 'AK',
             'style'       => 'RPC',
-            'reqBodyType' => 'json',
+            'reqBodyType' => 'formData',
             'bodyType'    => 'json',
         ]);
 
@@ -403,7 +398,6 @@ class Cas extends OpenApiClient
         $query['ParentIdentifier'] = $request->parentIdentifier;
         $req                       = new OpenApiRequest([
             'query' => OpenApiUtilClient::query($query),
-            'body'  => Utils::toMap($request),
         ]);
         $params = new Params([
             'action'      => 'CreateServerCertificate',
@@ -413,7 +407,7 @@ class Cas extends OpenApiClient
             'method'      => 'POST',
             'authType'    => 'AK',
             'style'       => 'RPC',
-            'reqBodyType' => 'json',
+            'reqBodyType' => 'formData',
             'bodyType'    => 'json',
         ]);
 
@@ -450,7 +444,6 @@ class Cas extends OpenApiClient
         $query['ParentIdentifier'] = $request->parentIdentifier;
         $req                       = new OpenApiRequest([
             'query' => OpenApiUtilClient::query($query),
-            'body'  => Utils::toMap($request),
         ]);
         $params = new Params([
             'action'      => 'CreateServerCertificateWithCsr',
@@ -460,7 +453,7 @@ class Cas extends OpenApiClient
             'method'      => 'POST',
             'authType'    => 'AK',
             'style'       => 'RPC',
-            'reqBodyType' => 'json',
+            'reqBodyType' => 'formData',
             'bodyType'    => 'json',
         ]);
 
@@ -500,7 +493,6 @@ class Cas extends OpenApiClient
         $query['Years']            = $request->years;
         $req                       = new OpenApiRequest([
             'query' => OpenApiUtilClient::query($query),
-            'body'  => Utils::toMap($request),
         ]);
         $params = new Params([
             'action'      => 'CreateSubCACertificate',
@@ -510,7 +502,7 @@ class Cas extends OpenApiClient
             'method'      => 'POST',
             'authType'    => 'AK',
             'style'       => 'RPC',
-            'reqBodyType' => 'json',
+            'reqBodyType' => 'formData',
             'bodyType'    => 'json',
         ]);
 
@@ -542,7 +534,6 @@ class Cas extends OpenApiClient
         $query['Identifier'] = $request->identifier;
         $req                 = new OpenApiRequest([
             'query' => OpenApiUtilClient::query($query),
-            'body'  => Utils::toMap($request),
         ]);
         $params = new Params([
             'action'      => 'DeleteClientCertificate',
@@ -552,7 +543,7 @@ class Cas extends OpenApiClient
             'method'      => 'POST',
             'authType'    => 'AK',
             'style'       => 'RPC',
-            'reqBodyType' => 'json',
+            'reqBodyType' => 'formData',
             'bodyType'    => 'json',
         ]);
 
@@ -584,7 +575,6 @@ class Cas extends OpenApiClient
         $query['Identifier'] = $request->identifier;
         $req                 = new OpenApiRequest([
             'query' => OpenApiUtilClient::query($query),
-            'body'  => Utils::toMap($request),
         ]);
         $params = new Params([
             'action'      => 'DescribeCACertificate',
@@ -594,7 +584,7 @@ class Cas extends OpenApiClient
             'method'      => 'POST',
             'authType'    => 'AK',
             'style'       => 'RPC',
-            'reqBodyType' => 'json',
+            'reqBodyType' => 'formData',
             'bodyType'    => 'json',
         ]);
 
@@ -629,7 +619,7 @@ class Cas extends OpenApiClient
             'method'      => 'POST',
             'authType'    => 'AK',
             'style'       => 'RPC',
-            'reqBodyType' => 'json',
+            'reqBodyType' => 'formData',
             'bodyType'    => 'json',
         ]);
 
@@ -660,7 +650,6 @@ class Cas extends OpenApiClient
         $query['ShowSize']    = $request->showSize;
         $req                  = new OpenApiRequest([
             'query' => OpenApiUtilClient::query($query),
-            'body'  => Utils::toMap($request),
         ]);
         $params = new Params([
             'action'      => 'DescribeCACertificateList',
@@ -670,7 +659,7 @@ class Cas extends OpenApiClient
             'method'      => 'POST',
             'authType'    => 'AK',
             'style'       => 'RPC',
-            'reqBodyType' => 'json',
+            'reqBodyType' => 'formData',
             'bodyType'    => 'json',
         ]);
 
@@ -703,7 +692,6 @@ class Cas extends OpenApiClient
         $query['Identifier']    = $request->identifier;
         $req                    = new OpenApiRequest([
             'query' => OpenApiUtilClient::query($query),
-            'body'  => Utils::toMap($request),
         ]);
         $params = new Params([
             'action'      => 'DescribeCertificatePrivateKey',
@@ -713,7 +701,7 @@ class Cas extends OpenApiClient
             'method'      => 'POST',
             'authType'    => 'AK',
             'style'       => 'RPC',
-            'reqBodyType' => 'json',
+            'reqBodyType' => 'formData',
             'bodyType'    => 'json',
         ]);
 
@@ -745,7 +733,6 @@ class Cas extends OpenApiClient
         $query['Identifier'] = $request->identifier;
         $req                 = new OpenApiRequest([
             'query' => OpenApiUtilClient::query($query),
-            'body'  => Utils::toMap($request),
         ]);
         $params = new Params([
             'action'      => 'DescribeClientCertificate',
@@ -755,7 +742,7 @@ class Cas extends OpenApiClient
             'method'      => 'POST',
             'authType'    => 'AK',
             'style'       => 'RPC',
-            'reqBodyType' => 'json',
+            'reqBodyType' => 'formData',
             'bodyType'    => 'json',
         ]);
 
@@ -787,7 +774,6 @@ class Cas extends OpenApiClient
         $query['SerialNumber'] = $request->serialNumber;
         $req                   = new OpenApiRequest([
             'query' => OpenApiUtilClient::query($query),
-            'body'  => Utils::toMap($request),
         ]);
         $params = new Params([
             'action'      => 'DescribeClientCertificateForSerialNumber',
@@ -797,7 +783,7 @@ class Cas extends OpenApiClient
             'method'      => 'POST',
             'authType'    => 'AK',
             'style'       => 'RPC',
-            'reqBodyType' => 'json',
+            'reqBodyType' => 'formData',
             'bodyType'    => 'json',
         ]);
 
@@ -829,7 +815,6 @@ class Cas extends OpenApiClient
         $query['Identifier'] = $request->identifier;
         $req                 = new OpenApiRequest([
             'query' => OpenApiUtilClient::query($query),
-            'body'  => Utils::toMap($request),
         ]);
         $params = new Params([
             'action'      => 'DescribeClientCertificateStatus',
@@ -839,7 +824,7 @@ class Cas extends OpenApiClient
             'method'      => 'POST',
             'authType'    => 'AK',
             'style'       => 'RPC',
-            'reqBodyType' => 'json',
+            'reqBodyType' => 'formData',
             'bodyType'    => 'json',
         ]);
 
@@ -871,7 +856,6 @@ class Cas extends OpenApiClient
         $query['SerialNumber'] = $request->serialNumber;
         $req                   = new OpenApiRequest([
             'query' => OpenApiUtilClient::query($query),
-            'body'  => Utils::toMap($request),
         ]);
         $params = new Params([
             'action'      => 'DescribeClientCertificateStatusForSerialNumber',
@@ -881,7 +865,7 @@ class Cas extends OpenApiClient
             'method'      => 'POST',
             'authType'    => 'AK',
             'style'       => 'RPC',
-            'reqBodyType' => 'json',
+            'reqBodyType' => 'formData',
             'bodyType'    => 'json',
         ]);
 
@@ -913,7 +897,6 @@ class Cas extends OpenApiClient
         $query['InstanceId'] = $request->instanceId;
         $req                 = new OpenApiRequest([
             'query' => OpenApiUtilClient::query($query),
-            'body'  => Utils::toMap($request),
         ]);
         $params = new Params([
             'action'      => 'GetCAInstanceStatus',
@@ -923,7 +906,7 @@ class Cas extends OpenApiClient
             'method'      => 'POST',
             'authType'    => 'AK',
             'style'       => 'RPC',
-            'reqBodyType' => 'json',
+            'reqBodyType' => 'formData',
             'bodyType'    => 'json',
         ]);
 
@@ -955,7 +938,6 @@ class Cas extends OpenApiClient
         $query['Identifier'] = $request->identifier;
         $req                 = new OpenApiRequest([
             'query' => OpenApiUtilClient::query($query),
-            'body'  => Utils::toMap($request),
         ]);
         $params = new Params([
             'action'      => 'ListCACertificateLog',
@@ -965,7 +947,7 @@ class Cas extends OpenApiClient
             'method'      => 'POST',
             'authType'    => 'AK',
             'style'       => 'RPC',
-            'reqBodyType' => 'json',
+            'reqBodyType' => 'formData',
             'bodyType'    => 'json',
         ]);
 
@@ -998,7 +980,6 @@ class Cas extends OpenApiClient
         $query['ShowSize']    = $request->showSize;
         $req                  = new OpenApiRequest([
             'query' => OpenApiUtilClient::query($query),
-            'body'  => Utils::toMap($request),
         ]);
         $params = new Params([
             'action'      => 'ListClientCertificate',
@@ -1008,7 +989,7 @@ class Cas extends OpenApiClient
             'method'      => 'POST',
             'authType'    => 'AK',
             'style'       => 'RPC',
-            'reqBodyType' => 'json',
+            'reqBodyType' => 'formData',
             'bodyType'    => 'json',
         ]);
 
@@ -1041,7 +1022,6 @@ class Cas extends OpenApiClient
         $query['ShowSize']    = $request->showSize;
         $req                  = new OpenApiRequest([
             'query' => OpenApiUtilClient::query($query),
-            'body'  => Utils::toMap($request),
         ]);
         $params = new Params([
             'action'      => 'ListRevokeCertificate',
@@ -1051,7 +1031,7 @@ class Cas extends OpenApiClient
             'method'      => 'POST',
             'authType'    => 'AK',
             'style'       => 'RPC',
-            'reqBodyType' => 'json',
+            'reqBodyType' => 'formData',
             'bodyType'    => 'json',
         ]);
 
@@ -1084,7 +1064,6 @@ class Cas extends OpenApiClient
         $query['Status']     = $request->status;
         $req                 = new OpenApiRequest([
             'query' => OpenApiUtilClient::query($query),
-            'body'  => Utils::toMap($request),
         ]);
         $params = new Params([
             'action'      => 'UpdateCACertificateStatus',
@@ -1094,7 +1073,7 @@ class Cas extends OpenApiClient
             'method'      => 'POST',
             'authType'    => 'AK',
             'style'       => 'RPC',
-            'reqBodyType' => 'json',
+            'reqBodyType' => 'formData',
             'bodyType'    => 'json',
         ]);
 

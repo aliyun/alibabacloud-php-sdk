@@ -11,6 +11,16 @@ class CreateRootCACertificateResponseBody extends Model
     /**
      * @var string
      */
+    public $certificate;
+
+    /**
+     * @var string
+     */
+    public $certificateChain;
+
+    /**
+     * @var string
+     */
     public $identifier;
 
     /**
@@ -18,8 +28,10 @@ class CreateRootCACertificateResponseBody extends Model
      */
     public $requestId;
     protected $_name = [
-        'identifier' => 'Identifier',
-        'requestId'  => 'RequestId',
+        'certificate'      => 'Certificate',
+        'certificateChain' => 'CertificateChain',
+        'identifier'       => 'Identifier',
+        'requestId'        => 'RequestId',
     ];
 
     public function validate()
@@ -29,6 +41,12 @@ class CreateRootCACertificateResponseBody extends Model
     public function toMap()
     {
         $res = [];
+        if (null !== $this->certificate) {
+            $res['Certificate'] = $this->certificate;
+        }
+        if (null !== $this->certificateChain) {
+            $res['CertificateChain'] = $this->certificateChain;
+        }
         if (null !== $this->identifier) {
             $res['Identifier'] = $this->identifier;
         }
@@ -47,6 +65,12 @@ class CreateRootCACertificateResponseBody extends Model
     public static function fromMap($map = [])
     {
         $model = new self();
+        if (isset($map['Certificate'])) {
+            $model->certificate = $map['Certificate'];
+        }
+        if (isset($map['CertificateChain'])) {
+            $model->certificateChain = $map['CertificateChain'];
+        }
         if (isset($map['Identifier'])) {
             $model->identifier = $map['Identifier'];
         }
