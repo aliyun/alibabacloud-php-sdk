@@ -12,6 +12,8 @@ use AlibabaCloud\SDK\Tdsr\V20200101\Models\AddProjectRequest;
 use AlibabaCloud\SDK\Tdsr\V20200101\Models\AddProjectResponse;
 use AlibabaCloud\SDK\Tdsr\V20200101\Models\AddRelativePositionRequest;
 use AlibabaCloud\SDK\Tdsr\V20200101\Models\AddRelativePositionResponse;
+use AlibabaCloud\SDK\Tdsr\V20200101\Models\AddRoomPlanRequest;
+use AlibabaCloud\SDK\Tdsr\V20200101\Models\AddRoomPlanResponse;
 use AlibabaCloud\SDK\Tdsr\V20200101\Models\AddSceneRequest;
 use AlibabaCloud\SDK\Tdsr\V20200101\Models\AddSceneResponse;
 use AlibabaCloud\SDK\Tdsr\V20200101\Models\AddSubSceneRequest;
@@ -171,12 +173,15 @@ class Tdsr extends OpenApiClient
     public function addMosaicsWithOptions($request, $runtime)
     {
         Utils::validateModel($request);
-        $query                 = [];
-        $query['MarkPosition'] = $request->markPosition;
-        $query['SubSceneId']   = $request->subSceneId;
-        $req                   = new OpenApiRequest([
+        $query = [];
+        if (!Utils::isUnset($request->markPosition)) {
+            $query['MarkPosition'] = $request->markPosition;
+        }
+        if (!Utils::isUnset($request->subSceneId)) {
+            $query['SubSceneId'] = $request->subSceneId;
+        }
+        $req = new OpenApiRequest([
             'query' => OpenApiUtilClient::query($query),
-            'body'  => Utils::toMap($request),
         ]);
         $params = new Params([
             'action'      => 'AddMosaics',
@@ -186,7 +191,7 @@ class Tdsr extends OpenApiClient
             'method'      => 'POST',
             'authType'    => 'AK',
             'style'       => 'RPC',
-            'reqBodyType' => 'json',
+            'reqBodyType' => 'formData',
             'bodyType'    => 'json',
         ]);
 
@@ -214,12 +219,15 @@ class Tdsr extends OpenApiClient
     public function addProjectWithOptions($request, $runtime)
     {
         Utils::validateModel($request);
-        $query               = [];
-        $query['BusinessId'] = $request->businessId;
-        $query['Name']       = $request->name;
-        $req                 = new OpenApiRequest([
+        $query = [];
+        if (!Utils::isUnset($request->businessId)) {
+            $query['BusinessId'] = $request->businessId;
+        }
+        if (!Utils::isUnset($request->name)) {
+            $query['Name'] = $request->name;
+        }
+        $req = new OpenApiRequest([
             'query' => OpenApiUtilClient::query($query),
-            'body'  => Utils::toMap($request),
         ]);
         $params = new Params([
             'action'      => 'AddProject',
@@ -229,7 +237,7 @@ class Tdsr extends OpenApiClient
             'method'      => 'POST',
             'authType'    => 'AK',
             'style'       => 'RPC',
-            'reqBodyType' => 'json',
+            'reqBodyType' => 'formData',
             'bodyType'    => 'json',
         ]);
 
@@ -257,12 +265,15 @@ class Tdsr extends OpenApiClient
     public function addRelativePositionWithOptions($request, $runtime)
     {
         Utils::validateModel($request);
-        $query                     = [];
-        $query['RelativePosition'] = $request->relativePosition;
-        $query['SceneId']          = $request->sceneId;
-        $req                       = new OpenApiRequest([
+        $query = [];
+        if (!Utils::isUnset($request->relativePosition)) {
+            $query['RelativePosition'] = $request->relativePosition;
+        }
+        if (!Utils::isUnset($request->sceneId)) {
+            $query['SceneId'] = $request->sceneId;
+        }
+        $req = new OpenApiRequest([
             'query' => OpenApiUtilClient::query($query),
-            'body'  => Utils::toMap($request),
         ]);
         $params = new Params([
             'action'      => 'AddRelativePosition',
@@ -272,7 +283,7 @@ class Tdsr extends OpenApiClient
             'method'      => 'POST',
             'authType'    => 'AK',
             'style'       => 'RPC',
-            'reqBodyType' => 'json',
+            'reqBodyType' => 'formData',
             'bodyType'    => 'json',
         ]);
 
@@ -292,6 +303,49 @@ class Tdsr extends OpenApiClient
     }
 
     /**
+     * @param AddRoomPlanRequest $request
+     * @param RuntimeOptions     $runtime
+     *
+     * @return AddRoomPlanResponse
+     */
+    public function addRoomPlanWithOptions($request, $runtime)
+    {
+        Utils::validateModel($request);
+        $query = [];
+        if (!Utils::isUnset($request->sceneId)) {
+            $query['SceneId'] = $request->sceneId;
+        }
+        $req = new OpenApiRequest([
+            'query' => OpenApiUtilClient::query($query),
+        ]);
+        $params = new Params([
+            'action'      => 'AddRoomPlan',
+            'version'     => '2020-01-01',
+            'protocol'    => 'HTTPS',
+            'pathname'    => '/',
+            'method'      => 'POST',
+            'authType'    => 'AK',
+            'style'       => 'RPC',
+            'reqBodyType' => 'formData',
+            'bodyType'    => 'json',
+        ]);
+
+        return AddRoomPlanResponse::fromMap($this->callApi($params, $req, $runtime));
+    }
+
+    /**
+     * @param AddRoomPlanRequest $request
+     *
+     * @return AddRoomPlanResponse
+     */
+    public function addRoomPlan($request)
+    {
+        $runtime = new RuntimeOptions([]);
+
+        return $this->addRoomPlanWithOptions($request, $runtime);
+    }
+
+    /**
      * @param AddSceneRequest $request
      * @param RuntimeOptions  $runtime
      *
@@ -300,13 +354,18 @@ class Tdsr extends OpenApiClient
     public function addSceneWithOptions($request, $runtime)
     {
         Utils::validateModel($request);
-        $query              = [];
-        $query['Name']      = $request->name;
-        $query['ProjectId'] = $request->projectId;
-        $query['Type']      = $request->type;
-        $req                = new OpenApiRequest([
+        $query = [];
+        if (!Utils::isUnset($request->name)) {
+            $query['Name'] = $request->name;
+        }
+        if (!Utils::isUnset($request->projectId)) {
+            $query['ProjectId'] = $request->projectId;
+        }
+        if (!Utils::isUnset($request->type)) {
+            $query['Type'] = $request->type;
+        }
+        $req = new OpenApiRequest([
             'query' => OpenApiUtilClient::query($query),
-            'body'  => Utils::toMap($request),
         ]);
         $params = new Params([
             'action'      => 'AddScene',
@@ -316,7 +375,7 @@ class Tdsr extends OpenApiClient
             'method'      => 'POST',
             'authType'    => 'AK',
             'style'       => 'RPC',
-            'reqBodyType' => 'json',
+            'reqBodyType' => 'formData',
             'bodyType'    => 'json',
         ]);
 
@@ -344,13 +403,18 @@ class Tdsr extends OpenApiClient
     public function addSubSceneWithOptions($request, $runtime)
     {
         Utils::validateModel($request);
-        $query               = [];
-        $query['Name']       = $request->name;
-        $query['SceneId']    = $request->sceneId;
-        $query['UploadType'] = $request->uploadType;
-        $req                 = new OpenApiRequest([
+        $query = [];
+        if (!Utils::isUnset($request->name)) {
+            $query['Name'] = $request->name;
+        }
+        if (!Utils::isUnset($request->sceneId)) {
+            $query['SceneId'] = $request->sceneId;
+        }
+        if (!Utils::isUnset($request->uploadType)) {
+            $query['UploadType'] = $request->uploadType;
+        }
+        $req = new OpenApiRequest([
             'query' => OpenApiUtilClient::query($query),
-            'body'  => Utils::toMap($request),
         ]);
         $params = new Params([
             'action'      => 'AddSubScene',
@@ -360,7 +424,7 @@ class Tdsr extends OpenApiClient
             'method'      => 'POST',
             'authType'    => 'AK',
             'style'       => 'RPC',
-            'reqBodyType' => 'json',
+            'reqBodyType' => 'formData',
             'bodyType'    => 'json',
         ]);
 
@@ -388,24 +452,51 @@ class Tdsr extends OpenApiClient
     public function checkResourceWithOptions($request, $runtime)
     {
         Utils::validateModel($request);
-        $query                   = [];
-        $query['Bid']            = $request->bid;
-        $query['Country']        = $request->country;
-        $query['GmtWakeup']      = $request->gmtWakeup;
-        $query['Hid']            = $request->hid;
-        $query['Interrupt']      = $request->interrupt;
-        $query['Invoker']        = $request->invoker;
-        $query['Level']          = $request->level;
-        $query['Message']        = $request->message;
-        $query['Pk']             = $request->pk;
-        $query['Prompt']         = $request->prompt;
-        $query['Success']        = $request->success;
-        $query['TaskExtraData']  = $request->taskExtraData;
-        $query['TaskIdentifier'] = $request->taskIdentifier;
-        $query['Url']            = $request->url;
-        $req                     = new OpenApiRequest([
+        $query = [];
+        if (!Utils::isUnset($request->bid)) {
+            $query['Bid'] = $request->bid;
+        }
+        if (!Utils::isUnset($request->country)) {
+            $query['Country'] = $request->country;
+        }
+        if (!Utils::isUnset($request->gmtWakeup)) {
+            $query['GmtWakeup'] = $request->gmtWakeup;
+        }
+        if (!Utils::isUnset($request->hid)) {
+            $query['Hid'] = $request->hid;
+        }
+        if (!Utils::isUnset($request->interrupt)) {
+            $query['Interrupt'] = $request->interrupt;
+        }
+        if (!Utils::isUnset($request->invoker)) {
+            $query['Invoker'] = $request->invoker;
+        }
+        if (!Utils::isUnset($request->level)) {
+            $query['Level'] = $request->level;
+        }
+        if (!Utils::isUnset($request->message)) {
+            $query['Message'] = $request->message;
+        }
+        if (!Utils::isUnset($request->pk)) {
+            $query['Pk'] = $request->pk;
+        }
+        if (!Utils::isUnset($request->prompt)) {
+            $query['Prompt'] = $request->prompt;
+        }
+        if (!Utils::isUnset($request->success)) {
+            $query['Success'] = $request->success;
+        }
+        if (!Utils::isUnset($request->taskExtraData)) {
+            $query['TaskExtraData'] = $request->taskExtraData;
+        }
+        if (!Utils::isUnset($request->taskIdentifier)) {
+            $query['TaskIdentifier'] = $request->taskIdentifier;
+        }
+        if (!Utils::isUnset($request->url)) {
+            $query['Url'] = $request->url;
+        }
+        $req = new OpenApiRequest([
             'query' => OpenApiUtilClient::query($query),
-            'body'  => Utils::toMap($request),
         ]);
         $params = new Params([
             'action'      => 'CheckResource',
@@ -415,7 +506,7 @@ class Tdsr extends OpenApiClient
             'method'      => 'POST',
             'authType'    => 'AK',
             'style'       => 'RPC',
-            'reqBodyType' => 'json',
+            'reqBodyType' => 'formData',
             'bodyType'    => 'json',
         ]);
 
@@ -443,15 +534,24 @@ class Tdsr extends OpenApiClient
     public function createProjectWithOptions($request, $runtime)
     {
         Utils::validateModel($request);
-        $query                       = [];
-        $query['BuilderUserIdList']  = $request->builderUserIdList;
-        $query['BusinessId']         = $request->businessId;
-        $query['BusinessUserIdList'] = $request->businessUserIdList;
-        $query['GatherUserIdList']   = $request->gatherUserIdList;
-        $query['Name']               = $request->name;
-        $req                         = new OpenApiRequest([
+        $query = [];
+        if (!Utils::isUnset($request->builderUserIdList)) {
+            $query['BuilderUserIdList'] = $request->builderUserIdList;
+        }
+        if (!Utils::isUnset($request->businessId)) {
+            $query['BusinessId'] = $request->businessId;
+        }
+        if (!Utils::isUnset($request->businessUserIdList)) {
+            $query['BusinessUserIdList'] = $request->businessUserIdList;
+        }
+        if (!Utils::isUnset($request->gatherUserIdList)) {
+            $query['GatherUserIdList'] = $request->gatherUserIdList;
+        }
+        if (!Utils::isUnset($request->name)) {
+            $query['Name'] = $request->name;
+        }
+        $req = new OpenApiRequest([
             'query' => OpenApiUtilClient::query($query),
-            'body'  => Utils::toMap($request),
         ]);
         $params = new Params([
             'action'      => 'CreateProject',
@@ -461,7 +561,7 @@ class Tdsr extends OpenApiClient
             'method'      => 'POST',
             'authType'    => 'AK',
             'style'       => 'RPC',
-            'reqBodyType' => 'json',
+            'reqBodyType' => 'formData',
             'bodyType'    => 'json',
         ]);
 
@@ -489,12 +589,15 @@ class Tdsr extends OpenApiClient
     public function createSceneWithOptions($request, $runtime)
     {
         Utils::validateModel($request);
-        $query              = [];
-        $query['Name']      = $request->name;
-        $query['ProjectId'] = $request->projectId;
-        $req                = new OpenApiRequest([
+        $query = [];
+        if (!Utils::isUnset($request->name)) {
+            $query['Name'] = $request->name;
+        }
+        if (!Utils::isUnset($request->projectId)) {
+            $query['ProjectId'] = $request->projectId;
+        }
+        $req = new OpenApiRequest([
             'query' => OpenApiUtilClient::query($query),
-            'body'  => Utils::toMap($request),
         ]);
         $params = new Params([
             'action'      => 'CreateScene',
@@ -504,7 +607,7 @@ class Tdsr extends OpenApiClient
             'method'      => 'POST',
             'authType'    => 'AK',
             'style'       => 'RPC',
-            'reqBodyType' => 'json',
+            'reqBodyType' => 'formData',
             'bodyType'    => 'json',
         ]);
 
@@ -532,12 +635,15 @@ class Tdsr extends OpenApiClient
     public function deleteFileWithOptions($request, $runtime)
     {
         Utils::validateModel($request);
-        $query                 = [];
-        $query['ParamFile']    = $request->paramFile;
-        $query['SubSceneUuid'] = $request->subSceneUuid;
-        $req                   = new OpenApiRequest([
+        $query = [];
+        if (!Utils::isUnset($request->paramFile)) {
+            $query['ParamFile'] = $request->paramFile;
+        }
+        if (!Utils::isUnset($request->subSceneUuid)) {
+            $query['SubSceneUuid'] = $request->subSceneUuid;
+        }
+        $req = new OpenApiRequest([
             'query' => OpenApiUtilClient::query($query),
-            'body'  => Utils::toMap($request),
         ]);
         $params = new Params([
             'action'      => 'DeleteFile',
@@ -547,7 +653,7 @@ class Tdsr extends OpenApiClient
             'method'      => 'POST',
             'authType'    => 'AK',
             'style'       => 'RPC',
-            'reqBodyType' => 'json',
+            'reqBodyType' => 'formData',
             'bodyType'    => 'json',
         ]);
 
@@ -575,11 +681,12 @@ class Tdsr extends OpenApiClient
     public function deleteProjectWithOptions($request, $runtime)
     {
         Utils::validateModel($request);
-        $query              = [];
-        $query['ProjectId'] = $request->projectId;
-        $req                = new OpenApiRequest([
+        $query = [];
+        if (!Utils::isUnset($request->projectId)) {
+            $query['ProjectId'] = $request->projectId;
+        }
+        $req = new OpenApiRequest([
             'query' => OpenApiUtilClient::query($query),
-            'body'  => Utils::toMap($request),
         ]);
         $params = new Params([
             'action'      => 'DeleteProject',
@@ -589,7 +696,7 @@ class Tdsr extends OpenApiClient
             'method'      => 'POST',
             'authType'    => 'AK',
             'style'       => 'RPC',
-            'reqBodyType' => 'json',
+            'reqBodyType' => 'formData',
             'bodyType'    => 'json',
         ]);
 
@@ -617,11 +724,12 @@ class Tdsr extends OpenApiClient
     public function detailProjectWithOptions($request, $runtime)
     {
         Utils::validateModel($request);
-        $query       = [];
-        $query['Id'] = $request->id;
-        $req         = new OpenApiRequest([
+        $query = [];
+        if (!Utils::isUnset($request->id)) {
+            $query['Id'] = $request->id;
+        }
+        $req = new OpenApiRequest([
             'query' => OpenApiUtilClient::query($query),
-            'body'  => Utils::toMap($request),
         ]);
         $params = new Params([
             'action'      => 'DetailProject',
@@ -631,7 +739,7 @@ class Tdsr extends OpenApiClient
             'method'      => 'POST',
             'authType'    => 'AK',
             'style'       => 'RPC',
-            'reqBodyType' => 'json',
+            'reqBodyType' => 'formData',
             'bodyType'    => 'json',
         ]);
 
@@ -659,11 +767,12 @@ class Tdsr extends OpenApiClient
     public function detailSceneWithOptions($request, $runtime)
     {
         Utils::validateModel($request);
-        $query       = [];
-        $query['Id'] = $request->id;
-        $req         = new OpenApiRequest([
+        $query = [];
+        if (!Utils::isUnset($request->id)) {
+            $query['Id'] = $request->id;
+        }
+        $req = new OpenApiRequest([
             'query' => OpenApiUtilClient::query($query),
-            'body'  => Utils::toMap($request),
         ]);
         $params = new Params([
             'action'      => 'DetailScene',
@@ -673,7 +782,7 @@ class Tdsr extends OpenApiClient
             'method'      => 'POST',
             'authType'    => 'AK',
             'style'       => 'RPC',
-            'reqBodyType' => 'json',
+            'reqBodyType' => 'formData',
             'bodyType'    => 'json',
         ]);
 
@@ -701,11 +810,12 @@ class Tdsr extends OpenApiClient
     public function detailSubSceneWithOptions($request, $runtime)
     {
         Utils::validateModel($request);
-        $query       = [];
-        $query['Id'] = $request->id;
-        $req         = new OpenApiRequest([
+        $query = [];
+        if (!Utils::isUnset($request->id)) {
+            $query['Id'] = $request->id;
+        }
+        $req = new OpenApiRequest([
             'query' => OpenApiUtilClient::query($query),
-            'body'  => Utils::toMap($request),
         ]);
         $params = new Params([
             'action'      => 'DetailSubScene',
@@ -715,7 +825,7 @@ class Tdsr extends OpenApiClient
             'method'      => 'POST',
             'authType'    => 'AK',
             'style'       => 'RPC',
-            'reqBodyType' => 'json',
+            'reqBodyType' => 'formData',
             'bodyType'    => 'json',
         ]);
 
@@ -743,11 +853,12 @@ class Tdsr extends OpenApiClient
     public function dropProjectWithOptions($request, $runtime)
     {
         Utils::validateModel($request);
-        $query              = [];
-        $query['ProjectId'] = $request->projectId;
-        $req                = new OpenApiRequest([
+        $query = [];
+        if (!Utils::isUnset($request->projectId)) {
+            $query['ProjectId'] = $request->projectId;
+        }
+        $req = new OpenApiRequest([
             'query' => OpenApiUtilClient::query($query),
-            'body'  => Utils::toMap($request),
         ]);
         $params = new Params([
             'action'      => 'DropProject',
@@ -757,7 +868,7 @@ class Tdsr extends OpenApiClient
             'method'      => 'POST',
             'authType'    => 'AK',
             'style'       => 'RPC',
-            'reqBodyType' => 'json',
+            'reqBodyType' => 'formData',
             'bodyType'    => 'json',
         ]);
 
@@ -785,11 +896,12 @@ class Tdsr extends OpenApiClient
     public function dropSceneWithOptions($request, $runtime)
     {
         Utils::validateModel($request);
-        $query       = [];
-        $query['Id'] = $request->id;
-        $req         = new OpenApiRequest([
+        $query = [];
+        if (!Utils::isUnset($request->id)) {
+            $query['Id'] = $request->id;
+        }
+        $req = new OpenApiRequest([
             'query' => OpenApiUtilClient::query($query),
-            'body'  => Utils::toMap($request),
         ]);
         $params = new Params([
             'action'      => 'DropScene',
@@ -799,7 +911,7 @@ class Tdsr extends OpenApiClient
             'method'      => 'POST',
             'authType'    => 'AK',
             'style'       => 'RPC',
-            'reqBodyType' => 'json',
+            'reqBodyType' => 'formData',
             'bodyType'    => 'json',
         ]);
 
@@ -827,11 +939,12 @@ class Tdsr extends OpenApiClient
     public function dropSubSceneWithOptions($request, $runtime)
     {
         Utils::validateModel($request);
-        $query       = [];
-        $query['Id'] = $request->id;
-        $req         = new OpenApiRequest([
+        $query = [];
+        if (!Utils::isUnset($request->id)) {
+            $query['Id'] = $request->id;
+        }
+        $req = new OpenApiRequest([
             'query' => OpenApiUtilClient::query($query),
-            'body'  => Utils::toMap($request),
         ]);
         $params = new Params([
             'action'      => 'DropSubScene',
@@ -841,7 +954,7 @@ class Tdsr extends OpenApiClient
             'method'      => 'POST',
             'authType'    => 'AK',
             'style'       => 'RPC',
-            'reqBodyType' => 'json',
+            'reqBodyType' => 'formData',
             'bodyType'    => 'json',
         ]);
 
@@ -869,11 +982,12 @@ class Tdsr extends OpenApiClient
     public function getConnDataWithOptions($request, $runtime)
     {
         Utils::validateModel($request);
-        $query            = [];
-        $query['SceneId'] = $request->sceneId;
-        $req              = new OpenApiRequest([
+        $query = [];
+        if (!Utils::isUnset($request->sceneId)) {
+            $query['SceneId'] = $request->sceneId;
+        }
+        $req = new OpenApiRequest([
             'query' => OpenApiUtilClient::query($query),
-            'body'  => Utils::toMap($request),
         ]);
         $params = new Params([
             'action'      => 'GetConnData',
@@ -883,7 +997,7 @@ class Tdsr extends OpenApiClient
             'method'      => 'POST',
             'authType'    => 'AK',
             'style'       => 'RPC',
-            'reqBodyType' => 'json',
+            'reqBodyType' => 'formData',
             'bodyType'    => 'json',
         ]);
 
@@ -911,14 +1025,21 @@ class Tdsr extends OpenApiClient
     public function getHotspotConfigWithOptions($request, $runtime)
     {
         Utils::validateModel($request);
-        $query                 = [];
-        $query['Domain']       = $request->domain;
-        $query['Enabled']      = $request->enabled;
-        $query['PreviewToken'] = $request->previewToken;
-        $query['Type']         = $request->type;
-        $req                   = new OpenApiRequest([
+        $query = [];
+        if (!Utils::isUnset($request->domain)) {
+            $query['Domain'] = $request->domain;
+        }
+        if (!Utils::isUnset($request->enabled)) {
+            $query['Enabled'] = $request->enabled;
+        }
+        if (!Utils::isUnset($request->previewToken)) {
+            $query['PreviewToken'] = $request->previewToken;
+        }
+        if (!Utils::isUnset($request->type)) {
+            $query['Type'] = $request->type;
+        }
+        $req = new OpenApiRequest([
             'query' => OpenApiUtilClient::query($query),
-            'body'  => Utils::toMap($request),
         ]);
         $params = new Params([
             'action'      => 'GetHotspotConfig',
@@ -928,7 +1049,7 @@ class Tdsr extends OpenApiClient
             'method'      => 'POST',
             'authType'    => 'AK',
             'style'       => 'RPC',
-            'reqBodyType' => 'json',
+            'reqBodyType' => 'formData',
             'bodyType'    => 'json',
         ]);
 
@@ -956,14 +1077,21 @@ class Tdsr extends OpenApiClient
     public function getHotspotSceneDataWithOptions($request, $runtime)
     {
         Utils::validateModel($request);
-        $query                 = [];
-        $query['Domain']       = $request->domain;
-        $query['Enabled']      = $request->enabled;
-        $query['PreviewToken'] = $request->previewToken;
-        $query['Type']         = $request->type;
-        $req                   = new OpenApiRequest([
+        $query = [];
+        if (!Utils::isUnset($request->domain)) {
+            $query['Domain'] = $request->domain;
+        }
+        if (!Utils::isUnset($request->enabled)) {
+            $query['Enabled'] = $request->enabled;
+        }
+        if (!Utils::isUnset($request->previewToken)) {
+            $query['PreviewToken'] = $request->previewToken;
+        }
+        if (!Utils::isUnset($request->type)) {
+            $query['Type'] = $request->type;
+        }
+        $req = new OpenApiRequest([
             'query' => OpenApiUtilClient::query($query),
-            'body'  => Utils::toMap($request),
         ]);
         $params = new Params([
             'action'      => 'GetHotspotSceneData',
@@ -973,7 +1101,7 @@ class Tdsr extends OpenApiClient
             'method'      => 'POST',
             'authType'    => 'AK',
             'style'       => 'RPC',
-            'reqBodyType' => 'json',
+            'reqBodyType' => 'formData',
             'bodyType'    => 'json',
         ]);
 
@@ -1001,15 +1129,24 @@ class Tdsr extends OpenApiClient
     public function getHotspotTagWithOptions($request, $runtime)
     {
         Utils::validateModel($request);
-        $query                 = [];
-        $query['Domain']       = $request->domain;
-        $query['Enabled']      = $request->enabled;
-        $query['PreviewToken'] = $request->previewToken;
-        $query['SubSceneUuid'] = $request->subSceneUuid;
-        $query['Type']         = $request->type;
-        $req                   = new OpenApiRequest([
+        $query = [];
+        if (!Utils::isUnset($request->domain)) {
+            $query['Domain'] = $request->domain;
+        }
+        if (!Utils::isUnset($request->enabled)) {
+            $query['Enabled'] = $request->enabled;
+        }
+        if (!Utils::isUnset($request->previewToken)) {
+            $query['PreviewToken'] = $request->previewToken;
+        }
+        if (!Utils::isUnset($request->subSceneUuid)) {
+            $query['SubSceneUuid'] = $request->subSceneUuid;
+        }
+        if (!Utils::isUnset($request->type)) {
+            $query['Type'] = $request->type;
+        }
+        $req = new OpenApiRequest([
             'query' => OpenApiUtilClient::query($query),
-            'body'  => Utils::toMap($request),
         ]);
         $params = new Params([
             'action'      => 'GetHotspotTag',
@@ -1019,7 +1156,7 @@ class Tdsr extends OpenApiClient
             'method'      => 'POST',
             'authType'    => 'AK',
             'style'       => 'RPC',
-            'reqBodyType' => 'json',
+            'reqBodyType' => 'formData',
             'bodyType'    => 'json',
         ]);
 
@@ -1047,11 +1184,12 @@ class Tdsr extends OpenApiClient
     public function getLayoutDataWithOptions($request, $runtime)
     {
         Utils::validateModel($request);
-        $query               = [];
-        $query['SubSceneId'] = $request->subSceneId;
-        $req                 = new OpenApiRequest([
+        $query = [];
+        if (!Utils::isUnset($request->subSceneId)) {
+            $query['SubSceneId'] = $request->subSceneId;
+        }
+        $req = new OpenApiRequest([
             'query' => OpenApiUtilClient::query($query),
-            'body'  => Utils::toMap($request),
         ]);
         $params = new Params([
             'action'      => 'GetLayoutData',
@@ -1061,7 +1199,7 @@ class Tdsr extends OpenApiClient
             'method'      => 'POST',
             'authType'    => 'AK',
             'style'       => 'RPC',
-            'reqBodyType' => 'json',
+            'reqBodyType' => 'formData',
             'bodyType'    => 'json',
         ]);
 
@@ -1089,11 +1227,12 @@ class Tdsr extends OpenApiClient
     public function getOriginLayoutDataWithOptions($request, $runtime)
     {
         Utils::validateModel($request);
-        $query               = [];
-        $query['SubSceneId'] = $request->subSceneId;
-        $req                 = new OpenApiRequest([
+        $query = [];
+        if (!Utils::isUnset($request->subSceneId)) {
+            $query['SubSceneId'] = $request->subSceneId;
+        }
+        $req = new OpenApiRequest([
             'query' => OpenApiUtilClient::query($query),
-            'body'  => Utils::toMap($request),
         ]);
         $params = new Params([
             'action'      => 'GetOriginLayoutData',
@@ -1103,7 +1242,7 @@ class Tdsr extends OpenApiClient
             'method'      => 'POST',
             'authType'    => 'AK',
             'style'       => 'RPC',
-            'reqBodyType' => 'json',
+            'reqBodyType' => 'formData',
             'bodyType'    => 'json',
         ]);
 
@@ -1131,11 +1270,12 @@ class Tdsr extends OpenApiClient
     public function getOssPolicyWithOptions($request, $runtime)
     {
         Utils::validateModel($request);
-        $query               = [];
-        $query['SubSceneId'] = $request->subSceneId;
-        $req                 = new OpenApiRequest([
+        $query = [];
+        if (!Utils::isUnset($request->subSceneId)) {
+            $query['SubSceneId'] = $request->subSceneId;
+        }
+        $req = new OpenApiRequest([
             'query' => OpenApiUtilClient::query($query),
-            'body'  => Utils::toMap($request),
         ]);
         $params = new Params([
             'action'      => 'GetOssPolicy',
@@ -1145,7 +1285,7 @@ class Tdsr extends OpenApiClient
             'method'      => 'POST',
             'authType'    => 'AK',
             'style'       => 'RPC',
-            'reqBodyType' => 'json',
+            'reqBodyType' => 'formData',
             'bodyType'    => 'json',
         ]);
 
@@ -1173,12 +1313,15 @@ class Tdsr extends OpenApiClient
     public function getPolicyWithOptions($request, $runtime)
     {
         Utils::validateModel($request);
-        $query                 = [];
-        $query['SubSceneUuid'] = $request->subSceneUuid;
-        $query['Type']         = $request->type;
-        $req                   = new OpenApiRequest([
+        $query = [];
+        if (!Utils::isUnset($request->subSceneUuid)) {
+            $query['SubSceneUuid'] = $request->subSceneUuid;
+        }
+        if (!Utils::isUnset($request->type)) {
+            $query['Type'] = $request->type;
+        }
+        $req = new OpenApiRequest([
             'query' => OpenApiUtilClient::query($query),
-            'body'  => Utils::toMap($request),
         ]);
         $params = new Params([
             'action'      => 'GetPolicy',
@@ -1188,7 +1331,7 @@ class Tdsr extends OpenApiClient
             'method'      => 'POST',
             'authType'    => 'AK',
             'style'       => 'RPC',
-            'reqBodyType' => 'json',
+            'reqBodyType' => 'formData',
             'bodyType'    => 'json',
         ]);
 
@@ -1216,11 +1359,12 @@ class Tdsr extends OpenApiClient
     public function getRectifyImageWithOptions($request, $runtime)
     {
         Utils::validateModel($request);
-        $query               = [];
-        $query['SubSceneId'] = $request->subSceneId;
-        $req                 = new OpenApiRequest([
+        $query = [];
+        if (!Utils::isUnset($request->subSceneId)) {
+            $query['SubSceneId'] = $request->subSceneId;
+        }
+        $req = new OpenApiRequest([
             'query' => OpenApiUtilClient::query($query),
-            'body'  => Utils::toMap($request),
         ]);
         $params = new Params([
             'action'      => 'GetRectifyImage',
@@ -1230,7 +1374,7 @@ class Tdsr extends OpenApiClient
             'method'      => 'POST',
             'authType'    => 'AK',
             'style'       => 'RPC',
-            'reqBodyType' => 'json',
+            'reqBodyType' => 'formData',
             'bodyType'    => 'json',
         ]);
 
@@ -1258,11 +1402,12 @@ class Tdsr extends OpenApiClient
     public function getSceneBuildTaskStatusWithOptions($request, $runtime)
     {
         Utils::validateModel($request);
-        $query            = [];
-        $query['SceneId'] = $request->sceneId;
-        $req              = new OpenApiRequest([
+        $query = [];
+        if (!Utils::isUnset($request->sceneId)) {
+            $query['SceneId'] = $request->sceneId;
+        }
+        $req = new OpenApiRequest([
             'query' => OpenApiUtilClient::query($query),
-            'body'  => Utils::toMap($request),
         ]);
         $params = new Params([
             'action'      => 'GetSceneBuildTaskStatus',
@@ -1272,7 +1417,7 @@ class Tdsr extends OpenApiClient
             'method'      => 'POST',
             'authType'    => 'AK',
             'style'       => 'RPC',
-            'reqBodyType' => 'json',
+            'reqBodyType' => 'formData',
             'bodyType'    => 'json',
         ]);
 
@@ -1300,13 +1445,18 @@ class Tdsr extends OpenApiClient
     public function getScenePreviewInfoWithOptions($request, $runtime)
     {
         Utils::validateModel($request);
-        $query               = [];
-        $query['Domain']     = $request->domain;
-        $query['Enabled']    = $request->enabled;
-        $query['ModelToken'] = $request->modelToken;
-        $req                 = new OpenApiRequest([
+        $query = [];
+        if (!Utils::isUnset($request->domain)) {
+            $query['Domain'] = $request->domain;
+        }
+        if (!Utils::isUnset($request->enabled)) {
+            $query['Enabled'] = $request->enabled;
+        }
+        if (!Utils::isUnset($request->modelToken)) {
+            $query['ModelToken'] = $request->modelToken;
+        }
+        $req = new OpenApiRequest([
             'query' => OpenApiUtilClient::query($query),
-            'body'  => Utils::toMap($request),
         ]);
         $params = new Params([
             'action'      => 'GetScenePreviewInfo',
@@ -1316,7 +1466,7 @@ class Tdsr extends OpenApiClient
             'method'      => 'POST',
             'authType'    => 'AK',
             'style'       => 'RPC',
-            'reqBodyType' => 'json',
+            'reqBodyType' => 'formData',
             'bodyType'    => 'json',
         ]);
 
@@ -1344,11 +1494,12 @@ class Tdsr extends OpenApiClient
     public function getSingleConnDataWithOptions($request, $runtime)
     {
         Utils::validateModel($request);
-        $query               = [];
-        $query['SubSceneId'] = $request->subSceneId;
-        $req                 = new OpenApiRequest([
+        $query = [];
+        if (!Utils::isUnset($request->subSceneId)) {
+            $query['SubSceneId'] = $request->subSceneId;
+        }
+        $req = new OpenApiRequest([
             'query' => OpenApiUtilClient::query($query),
-            'body'  => Utils::toMap($request),
         ]);
         $params = new Params([
             'action'      => 'GetSingleConnData',
@@ -1358,7 +1509,7 @@ class Tdsr extends OpenApiClient
             'method'      => 'POST',
             'authType'    => 'AK',
             'style'       => 'RPC',
-            'reqBodyType' => 'json',
+            'reqBodyType' => 'formData',
             'bodyType'    => 'json',
         ]);
 
@@ -1386,11 +1537,12 @@ class Tdsr extends OpenApiClient
     public function getSubSceneTaskStatusWithOptions($request, $runtime)
     {
         Utils::validateModel($request);
-        $query               = [];
-        $query['SubSceneId'] = $request->subSceneId;
-        $req                 = new OpenApiRequest([
+        $query = [];
+        if (!Utils::isUnset($request->subSceneId)) {
+            $query['SubSceneId'] = $request->subSceneId;
+        }
+        $req = new OpenApiRequest([
             'query' => OpenApiUtilClient::query($query),
-            'body'  => Utils::toMap($request),
         ]);
         $params = new Params([
             'action'      => 'GetSubSceneTaskStatus',
@@ -1400,7 +1552,7 @@ class Tdsr extends OpenApiClient
             'method'      => 'POST',
             'authType'    => 'AK',
             'style'       => 'RPC',
-            'reqBodyType' => 'json',
+            'reqBodyType' => 'formData',
             'bodyType'    => 'json',
         ]);
 
@@ -1428,11 +1580,12 @@ class Tdsr extends OpenApiClient
     public function getTaskStatusWithOptions($request, $runtime)
     {
         Utils::validateModel($request);
-        $query           = [];
-        $query['TaskId'] = $request->taskId;
-        $req             = new OpenApiRequest([
+        $query = [];
+        if (!Utils::isUnset($request->taskId)) {
+            $query['TaskId'] = $request->taskId;
+        }
+        $req = new OpenApiRequest([
             'query' => OpenApiUtilClient::query($query),
-            'body'  => Utils::toMap($request),
         ]);
         $params = new Params([
             'action'      => 'GetTaskStatus',
@@ -1442,7 +1595,7 @@ class Tdsr extends OpenApiClient
             'method'      => 'POST',
             'authType'    => 'AK',
             'style'       => 'RPC',
-            'reqBodyType' => 'json',
+            'reqBodyType' => 'formData',
             'bodyType'    => 'json',
         ]);
 
@@ -1470,11 +1623,12 @@ class Tdsr extends OpenApiClient
     public function getWindowConfigWithOptions($request, $runtime)
     {
         Utils::validateModel($request);
-        $query                 = [];
-        $query['PreviewToken'] = $request->previewToken;
-        $req                   = new OpenApiRequest([
+        $query = [];
+        if (!Utils::isUnset($request->previewToken)) {
+            $query['PreviewToken'] = $request->previewToken;
+        }
+        $req = new OpenApiRequest([
             'query' => OpenApiUtilClient::query($query),
-            'body'  => Utils::toMap($request),
         ]);
         $params = new Params([
             'action'      => 'GetWindowConfig',
@@ -1484,7 +1638,7 @@ class Tdsr extends OpenApiClient
             'method'      => 'POST',
             'authType'    => 'AK',
             'style'       => 'RPC',
-            'reqBodyType' => 'json',
+            'reqBodyType' => 'formData',
             'bodyType'    => 'json',
         ]);
 
@@ -1512,12 +1666,15 @@ class Tdsr extends OpenApiClient
     public function labelBuildWithOptions($request, $runtime)
     {
         Utils::validateModel($request);
-        $query            = [];
-        $query['Mode']    = $request->mode;
-        $query['SceneId'] = $request->sceneId;
-        $req              = new OpenApiRequest([
+        $query = [];
+        if (!Utils::isUnset($request->mode)) {
+            $query['Mode'] = $request->mode;
+        }
+        if (!Utils::isUnset($request->sceneId)) {
+            $query['SceneId'] = $request->sceneId;
+        }
+        $req = new OpenApiRequest([
             'query' => OpenApiUtilClient::query($query),
-            'body'  => Utils::toMap($request),
         ]);
         $params = new Params([
             'action'      => 'LabelBuild',
@@ -1527,7 +1684,7 @@ class Tdsr extends OpenApiClient
             'method'      => 'POST',
             'authType'    => 'AK',
             'style'       => 'RPC',
-            'reqBodyType' => 'json',
+            'reqBodyType' => 'formData',
             'bodyType'    => 'json',
         ]);
 
@@ -1555,14 +1712,21 @@ class Tdsr extends OpenApiClient
     public function linkImageWithOptions($request, $runtime)
     {
         Utils::validateModel($request);
-        $query                 = [];
-        $query['CameraHeight'] = $request->cameraHeight;
-        $query['FileName']     = $request->fileName;
-        $query['Platform']     = $request->platform;
-        $query['SubSceneId']   = $request->subSceneId;
-        $req                   = new OpenApiRequest([
+        $query = [];
+        if (!Utils::isUnset($request->cameraHeight)) {
+            $query['CameraHeight'] = $request->cameraHeight;
+        }
+        if (!Utils::isUnset($request->fileName)) {
+            $query['FileName'] = $request->fileName;
+        }
+        if (!Utils::isUnset($request->platform)) {
+            $query['Platform'] = $request->platform;
+        }
+        if (!Utils::isUnset($request->subSceneId)) {
+            $query['SubSceneId'] = $request->subSceneId;
+        }
+        $req = new OpenApiRequest([
             'query' => OpenApiUtilClient::query($query),
-            'body'  => Utils::toMap($request),
         ]);
         $params = new Params([
             'action'      => 'LinkImage',
@@ -1572,7 +1736,7 @@ class Tdsr extends OpenApiClient
             'method'      => 'POST',
             'authType'    => 'AK',
             'style'       => 'RPC',
-            'reqBodyType' => 'json',
+            'reqBodyType' => 'formData',
             'bodyType'    => 'json',
         ]);
 
@@ -1600,13 +1764,18 @@ class Tdsr extends OpenApiClient
     public function listProjectWithOptions($request, $runtime)
     {
         Utils::validateModel($request);
-        $query             = [];
-        $query['Name']     = $request->name;
-        $query['PageNum']  = $request->pageNum;
-        $query['PageSize'] = $request->pageSize;
-        $req               = new OpenApiRequest([
+        $query = [];
+        if (!Utils::isUnset($request->name)) {
+            $query['Name'] = $request->name;
+        }
+        if (!Utils::isUnset($request->pageNum)) {
+            $query['PageNum'] = $request->pageNum;
+        }
+        if (!Utils::isUnset($request->pageSize)) {
+            $query['PageSize'] = $request->pageSize;
+        }
+        $req = new OpenApiRequest([
             'query' => OpenApiUtilClient::query($query),
-            'body'  => Utils::toMap($request),
         ]);
         $params = new Params([
             'action'      => 'ListProject',
@@ -1616,7 +1785,7 @@ class Tdsr extends OpenApiClient
             'method'      => 'POST',
             'authType'    => 'AK',
             'style'       => 'RPC',
-            'reqBodyType' => 'json',
+            'reqBodyType' => 'formData',
             'bodyType'    => 'json',
         ]);
 
@@ -1644,14 +1813,21 @@ class Tdsr extends OpenApiClient
     public function listSceneWithOptions($request, $runtime)
     {
         Utils::validateModel($request);
-        $query              = [];
-        $query['Name']      = $request->name;
-        $query['PageNum']   = $request->pageNum;
-        $query['PageSize']  = $request->pageSize;
-        $query['ProjectId'] = $request->projectId;
-        $req                = new OpenApiRequest([
+        $query = [];
+        if (!Utils::isUnset($request->name)) {
+            $query['Name'] = $request->name;
+        }
+        if (!Utils::isUnset($request->pageNum)) {
+            $query['PageNum'] = $request->pageNum;
+        }
+        if (!Utils::isUnset($request->pageSize)) {
+            $query['PageSize'] = $request->pageSize;
+        }
+        if (!Utils::isUnset($request->projectId)) {
+            $query['ProjectId'] = $request->projectId;
+        }
+        $req = new OpenApiRequest([
             'query' => OpenApiUtilClient::query($query),
-            'body'  => Utils::toMap($request),
         ]);
         $params = new Params([
             'action'      => 'ListScene',
@@ -1661,7 +1837,7 @@ class Tdsr extends OpenApiClient
             'method'      => 'POST',
             'authType'    => 'AK',
             'style'       => 'RPC',
-            'reqBodyType' => 'json',
+            'reqBodyType' => 'formData',
             'bodyType'    => 'json',
         ]);
 
@@ -1689,12 +1865,15 @@ class Tdsr extends OpenApiClient
     public function listScenesWithOptions($request, $runtime)
     {
         Utils::validateModel($request);
-        $query                   = [];
-        $query['IsPublishQuery'] = $request->isPublishQuery;
-        $query['ProjectId']      = $request->projectId;
-        $req                     = new OpenApiRequest([
+        $query = [];
+        if (!Utils::isUnset($request->isPublishQuery)) {
+            $query['IsPublishQuery'] = $request->isPublishQuery;
+        }
+        if (!Utils::isUnset($request->projectId)) {
+            $query['ProjectId'] = $request->projectId;
+        }
+        $req = new OpenApiRequest([
             'query' => OpenApiUtilClient::query($query),
-            'body'  => Utils::toMap($request),
         ]);
         $params = new Params([
             'action'      => 'ListScenes',
@@ -1704,7 +1883,7 @@ class Tdsr extends OpenApiClient
             'method'      => 'POST',
             'authType'    => 'AK',
             'style'       => 'RPC',
-            'reqBodyType' => 'json',
+            'reqBodyType' => 'formData',
             'bodyType'    => 'json',
         ]);
 
@@ -1732,14 +1911,21 @@ class Tdsr extends OpenApiClient
     public function listSubSceneWithOptions($request, $runtime)
     {
         Utils::validateModel($request);
-        $query                   = [];
-        $query['PageNum']        = $request->pageNum;
-        $query['PageSize']       = $request->pageSize;
-        $query['SceneId']        = $request->sceneId;
-        $query['ShowLayoutData'] = $request->showLayoutData;
-        $req                     = new OpenApiRequest([
+        $query = [];
+        if (!Utils::isUnset($request->pageNum)) {
+            $query['PageNum'] = $request->pageNum;
+        }
+        if (!Utils::isUnset($request->pageSize)) {
+            $query['PageSize'] = $request->pageSize;
+        }
+        if (!Utils::isUnset($request->sceneId)) {
+            $query['SceneId'] = $request->sceneId;
+        }
+        if (!Utils::isUnset($request->showLayoutData)) {
+            $query['ShowLayoutData'] = $request->showLayoutData;
+        }
+        $req = new OpenApiRequest([
             'query' => OpenApiUtilClient::query($query),
-            'body'  => Utils::toMap($request),
         ]);
         $params = new Params([
             'action'      => 'ListSubScene',
@@ -1749,7 +1935,7 @@ class Tdsr extends OpenApiClient
             'method'      => 'POST',
             'authType'    => 'AK',
             'style'       => 'RPC',
-            'reqBodyType' => 'json',
+            'reqBodyType' => 'formData',
             'bodyType'    => 'json',
         ]);
 
@@ -1777,11 +1963,12 @@ class Tdsr extends OpenApiClient
     public function optimizeRightAngleWithOptions($request, $runtime)
     {
         Utils::validateModel($request);
-        $query               = [];
-        $query['SubSceneId'] = $request->subSceneId;
-        $req                 = new OpenApiRequest([
+        $query = [];
+        if (!Utils::isUnset($request->subSceneId)) {
+            $query['SubSceneId'] = $request->subSceneId;
+        }
+        $req = new OpenApiRequest([
             'query' => OpenApiUtilClient::query($query),
-            'body'  => Utils::toMap($request),
         ]);
         $params = new Params([
             'action'      => 'OptimizeRightAngle',
@@ -1791,7 +1978,7 @@ class Tdsr extends OpenApiClient
             'method'      => 'POST',
             'authType'    => 'AK',
             'style'       => 'RPC',
-            'reqBodyType' => 'json',
+            'reqBodyType' => 'formData',
             'bodyType'    => 'json',
         ]);
 
@@ -1819,14 +2006,21 @@ class Tdsr extends OpenApiClient
     public function predImageWithOptions($request, $runtime)
     {
         Utils::validateModel($request);
-        $query                    = [];
-        $query['CorrectVertical'] = $request->correctVertical;
-        $query['CountDetectDoor'] = $request->countDetectDoor;
-        $query['DetectDoor']      = $request->detectDoor;
-        $query['SubSceneId']      = $request->subSceneId;
-        $req                      = new OpenApiRequest([
+        $query = [];
+        if (!Utils::isUnset($request->correctVertical)) {
+            $query['CorrectVertical'] = $request->correctVertical;
+        }
+        if (!Utils::isUnset($request->countDetectDoor)) {
+            $query['CountDetectDoor'] = $request->countDetectDoor;
+        }
+        if (!Utils::isUnset($request->detectDoor)) {
+            $query['DetectDoor'] = $request->detectDoor;
+        }
+        if (!Utils::isUnset($request->subSceneId)) {
+            $query['SubSceneId'] = $request->subSceneId;
+        }
+        $req = new OpenApiRequest([
             'query' => OpenApiUtilClient::query($query),
-            'body'  => Utils::toMap($request),
         ]);
         $params = new Params([
             'action'      => 'PredImage',
@@ -1836,7 +2030,7 @@ class Tdsr extends OpenApiClient
             'method'      => 'POST',
             'authType'    => 'AK',
             'style'       => 'RPC',
-            'reqBodyType' => 'json',
+            'reqBodyType' => 'formData',
             'bodyType'    => 'json',
         ]);
 
@@ -1864,12 +2058,15 @@ class Tdsr extends OpenApiClient
     public function predictionWallLineWithOptions($request, $runtime)
     {
         Utils::validateModel($request);
-        $query                 = [];
-        $query['CameraHeight'] = $request->cameraHeight;
-        $query['Url']          = $request->url;
-        $req                   = new OpenApiRequest([
+        $query = [];
+        if (!Utils::isUnset($request->cameraHeight)) {
+            $query['CameraHeight'] = $request->cameraHeight;
+        }
+        if (!Utils::isUnset($request->url)) {
+            $query['Url'] = $request->url;
+        }
+        $req = new OpenApiRequest([
             'query' => OpenApiUtilClient::query($query),
-            'body'  => Utils::toMap($request),
         ]);
         $params = new Params([
             'action'      => 'PredictionWallLine',
@@ -1879,7 +2076,7 @@ class Tdsr extends OpenApiClient
             'method'      => 'POST',
             'authType'    => 'AK',
             'style'       => 'RPC',
-            'reqBodyType' => 'json',
+            'reqBodyType' => 'formData',
             'bodyType'    => 'json',
         ]);
 
@@ -1907,12 +2104,15 @@ class Tdsr extends OpenApiClient
     public function publishHotspotWithOptions($request, $runtime)
     {
         Utils::validateModel($request);
-        $query                 = [];
-        $query['ParamTag']     = $request->paramTag;
-        $query['SubSceneUuid'] = $request->subSceneUuid;
-        $req                   = new OpenApiRequest([
+        $query = [];
+        if (!Utils::isUnset($request->paramTag)) {
+            $query['ParamTag'] = $request->paramTag;
+        }
+        if (!Utils::isUnset($request->subSceneUuid)) {
+            $query['SubSceneUuid'] = $request->subSceneUuid;
+        }
+        $req = new OpenApiRequest([
             'query' => OpenApiUtilClient::query($query),
-            'body'  => Utils::toMap($request),
         ]);
         $params = new Params([
             'action'      => 'PublishHotspot',
@@ -1922,7 +2122,7 @@ class Tdsr extends OpenApiClient
             'method'      => 'POST',
             'authType'    => 'AK',
             'style'       => 'RPC',
-            'reqBodyType' => 'json',
+            'reqBodyType' => 'formData',
             'bodyType'    => 'json',
         ]);
 
@@ -1950,11 +2150,12 @@ class Tdsr extends OpenApiClient
     public function publishSceneWithOptions($request, $runtime)
     {
         Utils::validateModel($request);
-        $query            = [];
-        $query['SceneId'] = $request->sceneId;
-        $req              = new OpenApiRequest([
+        $query = [];
+        if (!Utils::isUnset($request->sceneId)) {
+            $query['SceneId'] = $request->sceneId;
+        }
+        $req = new OpenApiRequest([
             'query' => OpenApiUtilClient::query($query),
-            'body'  => Utils::toMap($request),
         ]);
         $params = new Params([
             'action'      => 'PublishScene',
@@ -1964,7 +2165,7 @@ class Tdsr extends OpenApiClient
             'method'      => 'POST',
             'authType'    => 'AK',
             'style'       => 'RPC',
-            'reqBodyType' => 'json',
+            'reqBodyType' => 'formData',
             'bodyType'    => 'json',
         ]);
 
@@ -1992,11 +2193,12 @@ class Tdsr extends OpenApiClient
     public function publishStatusWithOptions($request, $runtime)
     {
         Utils::validateModel($request);
-        $query            = [];
-        $query['SceneId'] = $request->sceneId;
-        $req              = new OpenApiRequest([
+        $query = [];
+        if (!Utils::isUnset($request->sceneId)) {
+            $query['SceneId'] = $request->sceneId;
+        }
+        $req = new OpenApiRequest([
             'query' => OpenApiUtilClient::query($query),
-            'body'  => Utils::toMap($request),
         ]);
         $params = new Params([
             'action'      => 'PublishStatus',
@@ -2006,7 +2208,7 @@ class Tdsr extends OpenApiClient
             'method'      => 'POST',
             'authType'    => 'AK',
             'style'       => 'RPC',
-            'reqBodyType' => 'json',
+            'reqBodyType' => 'formData',
             'bodyType'    => 'json',
         ]);
 
@@ -2034,11 +2236,12 @@ class Tdsr extends OpenApiClient
     public function recoveryOriginImageWithOptions($request, $runtime)
     {
         Utils::validateModel($request);
-        $query               = [];
-        $query['SubSceneId'] = $request->subSceneId;
-        $req                 = new OpenApiRequest([
+        $query = [];
+        if (!Utils::isUnset($request->subSceneId)) {
+            $query['SubSceneId'] = $request->subSceneId;
+        }
+        $req = new OpenApiRequest([
             'query' => OpenApiUtilClient::query($query),
-            'body'  => Utils::toMap($request),
         ]);
         $params = new Params([
             'action'      => 'RecoveryOriginImage',
@@ -2048,7 +2251,7 @@ class Tdsr extends OpenApiClient
             'method'      => 'POST',
             'authType'    => 'AK',
             'style'       => 'RPC',
-            'reqBodyType' => 'json',
+            'reqBodyType' => 'formData',
             'bodyType'    => 'json',
         ]);
 
@@ -2076,14 +2279,21 @@ class Tdsr extends OpenApiClient
     public function rectVerticalWithOptions($request, $runtime)
     {
         Utils::validateModel($request);
-        $query                    = [];
-        $query['CountDetectDoor'] = $request->countDetectDoor;
-        $query['DetectDoor']      = $request->detectDoor;
-        $query['SubSceneId']      = $request->subSceneId;
-        $query['VerticalRect']    = $request->verticalRect;
-        $req                      = new OpenApiRequest([
+        $query = [];
+        if (!Utils::isUnset($request->countDetectDoor)) {
+            $query['CountDetectDoor'] = $request->countDetectDoor;
+        }
+        if (!Utils::isUnset($request->detectDoor)) {
+            $query['DetectDoor'] = $request->detectDoor;
+        }
+        if (!Utils::isUnset($request->subSceneId)) {
+            $query['SubSceneId'] = $request->subSceneId;
+        }
+        if (!Utils::isUnset($request->verticalRect)) {
+            $query['VerticalRect'] = $request->verticalRect;
+        }
+        $req = new OpenApiRequest([
             'query' => OpenApiUtilClient::query($query),
-            'body'  => Utils::toMap($request),
         ]);
         $params = new Params([
             'action'      => 'RectVertical',
@@ -2093,7 +2303,7 @@ class Tdsr extends OpenApiClient
             'method'      => 'POST',
             'authType'    => 'AK',
             'style'       => 'RPC',
-            'reqBodyType' => 'json',
+            'reqBodyType' => 'formData',
             'bodyType'    => 'json',
         ]);
 
@@ -2121,12 +2331,15 @@ class Tdsr extends OpenApiClient
     public function rectifyImageWithOptions($request, $runtime)
     {
         Utils::validateModel($request);
-        $query                 = [];
-        $query['CameraHeight'] = $request->cameraHeight;
-        $query['Url']          = $request->url;
-        $req                   = new OpenApiRequest([
+        $query = [];
+        if (!Utils::isUnset($request->cameraHeight)) {
+            $query['CameraHeight'] = $request->cameraHeight;
+        }
+        if (!Utils::isUnset($request->url)) {
+            $query['Url'] = $request->url;
+        }
+        $req = new OpenApiRequest([
             'query' => OpenApiUtilClient::query($query),
-            'body'  => Utils::toMap($request),
         ]);
         $params = new Params([
             'action'      => 'RectifyImage',
@@ -2136,7 +2349,7 @@ class Tdsr extends OpenApiClient
             'method'      => 'POST',
             'authType'    => 'AK',
             'style'       => 'RPC',
-            'reqBodyType' => 'json',
+            'reqBodyType' => 'formData',
             'bodyType'    => 'json',
         ]);
 
@@ -2164,11 +2377,12 @@ class Tdsr extends OpenApiClient
     public function rollbackSubSceneWithOptions($request, $runtime)
     {
         Utils::validateModel($request);
-        $query       = [];
-        $query['Id'] = $request->id;
-        $req         = new OpenApiRequest([
+        $query = [];
+        if (!Utils::isUnset($request->id)) {
+            $query['Id'] = $request->id;
+        }
+        $req = new OpenApiRequest([
             'query' => OpenApiUtilClient::query($query),
-            'body'  => Utils::toMap($request),
         ]);
         $params = new Params([
             'action'      => 'RollbackSubScene',
@@ -2178,7 +2392,7 @@ class Tdsr extends OpenApiClient
             'method'      => 'POST',
             'authType'    => 'AK',
             'style'       => 'RPC',
-            'reqBodyType' => 'json',
+            'reqBodyType' => 'formData',
             'bodyType'    => 'json',
         ]);
 
@@ -2206,12 +2420,15 @@ class Tdsr extends OpenApiClient
     public function saveHotspotConfigWithOptions($request, $runtime)
     {
         Utils::validateModel($request);
-        $query                 = [];
-        $query['ParamTag']     = $request->paramTag;
-        $query['PreviewToken'] = $request->previewToken;
-        $req                   = new OpenApiRequest([
+        $query = [];
+        if (!Utils::isUnset($request->paramTag)) {
+            $query['ParamTag'] = $request->paramTag;
+        }
+        if (!Utils::isUnset($request->previewToken)) {
+            $query['PreviewToken'] = $request->previewToken;
+        }
+        $req = new OpenApiRequest([
             'query' => OpenApiUtilClient::query($query),
-            'body'  => Utils::toMap($request),
         ]);
         $params = new Params([
             'action'      => 'SaveHotspotConfig',
@@ -2221,7 +2438,7 @@ class Tdsr extends OpenApiClient
             'method'      => 'POST',
             'authType'    => 'AK',
             'style'       => 'RPC',
-            'reqBodyType' => 'json',
+            'reqBodyType' => 'formData',
             'bodyType'    => 'json',
         ]);
 
@@ -2249,12 +2466,15 @@ class Tdsr extends OpenApiClient
     public function saveHotspotTagWithOptions($request, $runtime)
     {
         Utils::validateModel($request);
-        $query                 = [];
-        $query['ParamTag']     = $request->paramTag;
-        $query['SubSceneUuid'] = $request->subSceneUuid;
-        $req                   = new OpenApiRequest([
+        $query = [];
+        if (!Utils::isUnset($request->paramTag)) {
+            $query['ParamTag'] = $request->paramTag;
+        }
+        if (!Utils::isUnset($request->subSceneUuid)) {
+            $query['SubSceneUuid'] = $request->subSceneUuid;
+        }
+        $req = new OpenApiRequest([
             'query' => OpenApiUtilClient::query($query),
-            'body'  => Utils::toMap($request),
         ]);
         $params = new Params([
             'action'      => 'SaveHotspotTag',
@@ -2264,7 +2484,7 @@ class Tdsr extends OpenApiClient
             'method'      => 'POST',
             'authType'    => 'AK',
             'style'       => 'RPC',
-            'reqBodyType' => 'json',
+            'reqBodyType' => 'formData',
             'bodyType'    => 'json',
         ]);
 
@@ -2292,11 +2512,12 @@ class Tdsr extends OpenApiClient
     public function scenePublishWithOptions($request, $runtime)
     {
         Utils::validateModel($request);
-        $query            = [];
-        $query['SceneId'] = $request->sceneId;
-        $req              = new OpenApiRequest([
+        $query = [];
+        if (!Utils::isUnset($request->sceneId)) {
+            $query['SceneId'] = $request->sceneId;
+        }
+        $req = new OpenApiRequest([
             'query' => OpenApiUtilClient::query($query),
-            'body'  => Utils::toMap($request),
         ]);
         $params = new Params([
             'action'      => 'ScenePublish',
@@ -2306,7 +2527,7 @@ class Tdsr extends OpenApiClient
             'method'      => 'POST',
             'authType'    => 'AK',
             'style'       => 'RPC',
-            'reqBodyType' => 'json',
+            'reqBodyType' => 'formData',
             'bodyType'    => 'json',
         ]);
 
@@ -2334,11 +2555,12 @@ class Tdsr extends OpenApiClient
     public function tempPreviewWithOptions($request, $runtime)
     {
         Utils::validateModel($request);
-        $query            = [];
-        $query['SceneId'] = $request->sceneId;
-        $req              = new OpenApiRequest([
+        $query = [];
+        if (!Utils::isUnset($request->sceneId)) {
+            $query['SceneId'] = $request->sceneId;
+        }
+        $req = new OpenApiRequest([
             'query' => OpenApiUtilClient::query($query),
-            'body'  => Utils::toMap($request),
         ]);
         $params = new Params([
             'action'      => 'TempPreview',
@@ -2348,7 +2570,7 @@ class Tdsr extends OpenApiClient
             'method'      => 'POST',
             'authType'    => 'AK',
             'style'       => 'RPC',
-            'reqBodyType' => 'json',
+            'reqBodyType' => 'formData',
             'bodyType'    => 'json',
         ]);
 
@@ -2376,11 +2598,12 @@ class Tdsr extends OpenApiClient
     public function tempPreviewStatusWithOptions($request, $runtime)
     {
         Utils::validateModel($request);
-        $query            = [];
-        $query['SceneId'] = $request->sceneId;
-        $req              = new OpenApiRequest([
+        $query = [];
+        if (!Utils::isUnset($request->sceneId)) {
+            $query['SceneId'] = $request->sceneId;
+        }
+        $req = new OpenApiRequest([
             'query' => OpenApiUtilClient::query($query),
-            'body'  => Utils::toMap($request),
         ]);
         $params = new Params([
             'action'      => 'TempPreviewStatus',
@@ -2390,7 +2613,7 @@ class Tdsr extends OpenApiClient
             'method'      => 'POST',
             'authType'    => 'AK',
             'style'       => 'RPC',
-            'reqBodyType' => 'json',
+            'reqBodyType' => 'formData',
             'bodyType'    => 'json',
         ]);
 
@@ -2418,12 +2641,15 @@ class Tdsr extends OpenApiClient
     public function updateConnDataWithOptions($request, $runtime)
     {
         Utils::validateModel($request);
-        $query             = [];
-        $query['ConnData'] = $request->connData;
-        $query['SceneId']  = $request->sceneId;
-        $req               = new OpenApiRequest([
+        $query = [];
+        if (!Utils::isUnset($request->connData)) {
+            $query['ConnData'] = $request->connData;
+        }
+        if (!Utils::isUnset($request->sceneId)) {
+            $query['SceneId'] = $request->sceneId;
+        }
+        $req = new OpenApiRequest([
             'query' => OpenApiUtilClient::query($query),
-            'body'  => Utils::toMap($request),
         ]);
         $params = new Params([
             'action'      => 'UpdateConnData',
@@ -2433,7 +2659,7 @@ class Tdsr extends OpenApiClient
             'method'      => 'POST',
             'authType'    => 'AK',
             'style'       => 'RPC',
-            'reqBodyType' => 'json',
+            'reqBodyType' => 'formData',
             'bodyType'    => 'json',
         ]);
 
@@ -2461,12 +2687,15 @@ class Tdsr extends OpenApiClient
     public function updateLayoutDataWithOptions($request, $runtime)
     {
         Utils::validateModel($request);
-        $query               = [];
-        $query['LayoutData'] = $request->layoutData;
-        $query['SubSceneId'] = $request->subSceneId;
-        $req                 = new OpenApiRequest([
+        $query = [];
+        if (!Utils::isUnset($request->layoutData)) {
+            $query['LayoutData'] = $request->layoutData;
+        }
+        if (!Utils::isUnset($request->subSceneId)) {
+            $query['SubSceneId'] = $request->subSceneId;
+        }
+        $req = new OpenApiRequest([
             'query' => OpenApiUtilClient::query($query),
-            'body'  => Utils::toMap($request),
         ]);
         $params = new Params([
             'action'      => 'UpdateLayoutData',
@@ -2476,7 +2705,7 @@ class Tdsr extends OpenApiClient
             'method'      => 'POST',
             'authType'    => 'AK',
             'style'       => 'RPC',
-            'reqBodyType' => 'json',
+            'reqBodyType' => 'formData',
             'bodyType'    => 'json',
         ]);
 
@@ -2504,13 +2733,18 @@ class Tdsr extends OpenApiClient
     public function updateProjectWithOptions($request, $runtime)
     {
         Utils::validateModel($request);
-        $query               = [];
-        $query['BusinessId'] = $request->businessId;
-        $query['Id']         = $request->id;
-        $query['Name']       = $request->name;
-        $req                 = new OpenApiRequest([
+        $query = [];
+        if (!Utils::isUnset($request->businessId)) {
+            $query['BusinessId'] = $request->businessId;
+        }
+        if (!Utils::isUnset($request->id)) {
+            $query['Id'] = $request->id;
+        }
+        if (!Utils::isUnset($request->name)) {
+            $query['Name'] = $request->name;
+        }
+        $req = new OpenApiRequest([
             'query' => OpenApiUtilClient::query($query),
-            'body'  => Utils::toMap($request),
         ]);
         $params = new Params([
             'action'      => 'UpdateProject',
@@ -2520,7 +2754,7 @@ class Tdsr extends OpenApiClient
             'method'      => 'POST',
             'authType'    => 'AK',
             'style'       => 'RPC',
-            'reqBodyType' => 'json',
+            'reqBodyType' => 'formData',
             'bodyType'    => 'json',
         ]);
 
@@ -2548,12 +2782,15 @@ class Tdsr extends OpenApiClient
     public function updateSceneWithOptions($request, $runtime)
     {
         Utils::validateModel($request);
-        $query         = [];
-        $query['Id']   = $request->id;
-        $query['Name'] = $request->name;
-        $req           = new OpenApiRequest([
+        $query = [];
+        if (!Utils::isUnset($request->id)) {
+            $query['Id'] = $request->id;
+        }
+        if (!Utils::isUnset($request->name)) {
+            $query['Name'] = $request->name;
+        }
+        $req = new OpenApiRequest([
             'query' => OpenApiUtilClient::query($query),
-            'body'  => Utils::toMap($request),
         ]);
         $params = new Params([
             'action'      => 'UpdateScene',
@@ -2563,7 +2800,7 @@ class Tdsr extends OpenApiClient
             'method'      => 'POST',
             'authType'    => 'AK',
             'style'       => 'RPC',
-            'reqBodyType' => 'json',
+            'reqBodyType' => 'formData',
             'bodyType'    => 'json',
         ]);
 
@@ -2591,12 +2828,15 @@ class Tdsr extends OpenApiClient
     public function updateSubSceneWithOptions($request, $runtime)
     {
         Utils::validateModel($request);
-        $query         = [];
-        $query['Id']   = $request->id;
-        $query['Name'] = $request->name;
-        $req           = new OpenApiRequest([
+        $query = [];
+        if (!Utils::isUnset($request->id)) {
+            $query['Id'] = $request->id;
+        }
+        if (!Utils::isUnset($request->name)) {
+            $query['Name'] = $request->name;
+        }
+        $req = new OpenApiRequest([
             'query' => OpenApiUtilClient::query($query),
-            'body'  => Utils::toMap($request),
         ]);
         $params = new Params([
             'action'      => 'UpdateSubScene',
@@ -2606,7 +2846,7 @@ class Tdsr extends OpenApiClient
             'method'      => 'POST',
             'authType'    => 'AK',
             'style'       => 'RPC',
-            'reqBodyType' => 'json',
+            'reqBodyType' => 'formData',
             'bodyType'    => 'json',
         ]);
 
