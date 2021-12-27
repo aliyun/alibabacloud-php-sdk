@@ -17,9 +17,15 @@ class relationLoadConfigList extends Model
      * @var int
      */
     public $concurrencyLimit;
+
+    /**
+     * @var string
+     */
+    public $relationId;
     protected $_name = [
         'concurrencyBegin' => 'ConcurrencyBegin',
         'concurrencyLimit' => 'ConcurrencyLimit',
+        'relationId'       => 'RelationId',
     ];
 
     public function validate()
@@ -34,6 +40,9 @@ class relationLoadConfigList extends Model
         }
         if (null !== $this->concurrencyLimit) {
             $res['ConcurrencyLimit'] = $this->concurrencyLimit;
+        }
+        if (null !== $this->relationId) {
+            $res['RelationId'] = $this->relationId;
         }
 
         return $res;
@@ -52,6 +61,9 @@ class relationLoadConfigList extends Model
         }
         if (isset($map['ConcurrencyLimit'])) {
             $model->concurrencyLimit = $map['ConcurrencyLimit'];
+        }
+        if (isset($map['RelationId'])) {
+            $model->relationId = $map['RelationId'];
         }
 
         return $model;

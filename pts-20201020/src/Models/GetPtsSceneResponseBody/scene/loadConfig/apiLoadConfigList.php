@@ -9,6 +9,11 @@ use AlibabaCloud\Tea\Model;
 class apiLoadConfigList extends Model
 {
     /**
+     * @var string
+     */
+    public $apiId;
+
+    /**
      * @var int
      */
     public $rpsBegin;
@@ -18,6 +23,7 @@ class apiLoadConfigList extends Model
      */
     public $rpsLimit;
     protected $_name = [
+        'apiId'    => 'ApiId',
         'rpsBegin' => 'RpsBegin',
         'rpsLimit' => 'RpsLimit',
     ];
@@ -29,6 +35,9 @@ class apiLoadConfigList extends Model
     public function toMap()
     {
         $res = [];
+        if (null !== $this->apiId) {
+            $res['ApiId'] = $this->apiId;
+        }
         if (null !== $this->rpsBegin) {
             $res['RpsBegin'] = $this->rpsBegin;
         }
@@ -47,6 +56,9 @@ class apiLoadConfigList extends Model
     public static function fromMap($map = [])
     {
         $model = new self();
+        if (isset($map['ApiId'])) {
+            $model->apiId = $map['ApiId'];
+        }
         if (isset($map['RpsBegin'])) {
             $model->rpsBegin = $map['RpsBegin'];
         }
