@@ -29,11 +29,6 @@ class HandleSecurityEventsRequest extends Model
     public $operationParams;
 
     /**
-     * @var int
-     */
-    public $resourceOwnerId;
-
-    /**
      * @var string[]
      */
     public $securityEventIds;
@@ -47,7 +42,6 @@ class HandleSecurityEventsRequest extends Model
         'markMissParam'    => 'MarkMissParam',
         'operationCode'    => 'OperationCode',
         'operationParams'  => 'OperationParams',
-        'resourceOwnerId'  => 'ResourceOwnerId',
         'securityEventIds' => 'SecurityEventIds',
         'sourceIp'         => 'SourceIp',
     ];
@@ -70,9 +64,6 @@ class HandleSecurityEventsRequest extends Model
         }
         if (null !== $this->operationParams) {
             $res['OperationParams'] = $this->operationParams;
-        }
-        if (null !== $this->resourceOwnerId) {
-            $res['ResourceOwnerId'] = $this->resourceOwnerId;
         }
         if (null !== $this->securityEventIds) {
             $res['SecurityEventIds'] = $this->securityEventIds;
@@ -103,9 +94,6 @@ class HandleSecurityEventsRequest extends Model
         }
         if (isset($map['OperationParams'])) {
             $model->operationParams = $map['OperationParams'];
-        }
-        if (isset($map['ResourceOwnerId'])) {
-            $model->resourceOwnerId = $map['ResourceOwnerId'];
         }
         if (isset($map['SecurityEventIds'])) {
             if (!empty($map['SecurityEventIds'])) {

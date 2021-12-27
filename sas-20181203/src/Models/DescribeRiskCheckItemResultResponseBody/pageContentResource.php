@@ -9,7 +9,7 @@ use AlibabaCloud\Tea\Model;
 class pageContentResource extends Model
 {
     /**
-     * @var mixed[]
+     * @var string
      */
     public $contentResource;
 

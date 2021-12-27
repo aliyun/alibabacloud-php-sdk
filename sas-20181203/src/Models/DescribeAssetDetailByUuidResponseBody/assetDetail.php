@@ -34,6 +34,11 @@ class assetDetail extends Model
     public $clientStatus;
 
     /**
+     * @var string
+     */
+    public $clientVersion;
+
+    /**
      * @var int
      */
     public $cpu;
@@ -52,6 +57,11 @@ class assetDetail extends Model
      * @var string[]
      */
     public $diskInfoList;
+
+    /**
+     * @var int
+     */
+    public $flag;
 
     /**
      * @var string
@@ -109,6 +119,11 @@ class assetDetail extends Model
     public $mem;
 
     /**
+     * @var int
+     */
+    public $memory;
+
+    /**
      * @var string
      */
     public $os;
@@ -163,10 +178,12 @@ class assetDetail extends Model
         'authVersion'    => 'AuthVersion',
         'bind'           => 'Bind',
         'clientStatus'   => 'ClientStatus',
+        'clientVersion'  => 'ClientVersion',
         'cpu'            => 'Cpu',
         'cpuInfo'        => 'CpuInfo',
         'createTime'     => 'CreateTime',
         'diskInfoList'   => 'DiskInfoList',
+        'flag'           => 'Flag',
         'groupTrace'     => 'GroupTrace',
         'hostName'       => 'HostName',
         'instanceId'     => 'InstanceId',
@@ -178,6 +195,7 @@ class assetDetail extends Model
         'kernel'         => 'Kernel',
         'macList'        => 'MacList',
         'mem'            => 'Mem',
+        'memory'         => 'Memory',
         'os'             => 'Os',
         'osDetail'       => 'OsDetail',
         'osName'         => 'OsName',
@@ -212,6 +230,9 @@ class assetDetail extends Model
         if (null !== $this->clientStatus) {
             $res['ClientStatus'] = $this->clientStatus;
         }
+        if (null !== $this->clientVersion) {
+            $res['ClientVersion'] = $this->clientVersion;
+        }
         if (null !== $this->cpu) {
             $res['Cpu'] = $this->cpu;
         }
@@ -223,6 +244,9 @@ class assetDetail extends Model
         }
         if (null !== $this->diskInfoList) {
             $res['DiskInfoList'] = $this->diskInfoList;
+        }
+        if (null !== $this->flag) {
+            $res['Flag'] = $this->flag;
         }
         if (null !== $this->groupTrace) {
             $res['GroupTrace'] = $this->groupTrace;
@@ -256,6 +280,9 @@ class assetDetail extends Model
         }
         if (null !== $this->mem) {
             $res['Mem'] = $this->mem;
+        }
+        if (null !== $this->memory) {
+            $res['Memory'] = $this->memory;
         }
         if (null !== $this->os) {
             $res['Os'] = $this->os;
@@ -314,6 +341,9 @@ class assetDetail extends Model
         if (isset($map['ClientStatus'])) {
             $model->clientStatus = $map['ClientStatus'];
         }
+        if (isset($map['ClientVersion'])) {
+            $model->clientVersion = $map['ClientVersion'];
+        }
         if (isset($map['Cpu'])) {
             $model->cpu = $map['Cpu'];
         }
@@ -327,6 +357,9 @@ class assetDetail extends Model
             if (!empty($map['DiskInfoList'])) {
                 $model->diskInfoList = $map['DiskInfoList'];
             }
+        }
+        if (isset($map['Flag'])) {
+            $model->flag = $map['Flag'];
         }
         if (isset($map['GroupTrace'])) {
             $model->groupTrace = $map['GroupTrace'];
@@ -364,6 +397,9 @@ class assetDetail extends Model
         }
         if (isset($map['Mem'])) {
             $model->mem = $map['Mem'];
+        }
+        if (isset($map['Memory'])) {
+            $model->memory = $map['Memory'];
         }
         if (isset($map['Os'])) {
             $model->os = $map['Os'];

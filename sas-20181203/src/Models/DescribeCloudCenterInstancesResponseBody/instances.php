@@ -79,7 +79,7 @@ class instances extends Model
     public $flag;
 
     /**
-     * @var string
+     * @var int
      */
     public $groupId;
 

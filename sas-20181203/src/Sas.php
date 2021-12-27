@@ -8,33 +8,18 @@ use AlibabaCloud\Endpoint\Endpoint;
 use AlibabaCloud\OpenApiUtil\OpenApiUtilClient;
 use AlibabaCloud\SDK\Sas\V20181203\Models\AddVpcHoneyPotRequest;
 use AlibabaCloud\SDK\Sas\V20181203\Models\AddVpcHoneyPotResponse;
-use AlibabaCloud\SDK\Sas\V20181203\Models\CheckQuaraFileIdRequest;
-use AlibabaCloud\SDK\Sas\V20181203\Models\CheckQuaraFileIdResponse;
 use AlibabaCloud\SDK\Sas\V20181203\Models\CheckSecurityEventIdRequest;
 use AlibabaCloud\SDK\Sas\V20181203\Models\CheckSecurityEventIdResponse;
 use AlibabaCloud\SDK\Sas\V20181203\Models\CreateAntiBruteForceRuleRequest;
 use AlibabaCloud\SDK\Sas\V20181203\Models\CreateAntiBruteForceRuleResponse;
-use AlibabaCloud\SDK\Sas\V20181203\Models\CreateAssetRequest;
-use AlibabaCloud\SDK\Sas\V20181203\Models\CreateAssetResponse;
 use AlibabaCloud\SDK\Sas\V20181203\Models\CreateBackupPolicyRequest;
 use AlibabaCloud\SDK\Sas\V20181203\Models\CreateBackupPolicyResponse;
 use AlibabaCloud\SDK\Sas\V20181203\Models\CreateBackupPolicyShrinkRequest;
 use AlibabaCloud\SDK\Sas\V20181203\Models\CreateOrUpdateAssetGroupRequest;
 use AlibabaCloud\SDK\Sas\V20181203\Models\CreateOrUpdateAssetGroupResponse;
-use AlibabaCloud\SDK\Sas\V20181203\Models\CreateRestoreJobRequest;
-use AlibabaCloud\SDK\Sas\V20181203\Models\CreateRestoreJobResponse;
-use AlibabaCloud\SDK\Sas\V20181203\Models\CreateSasOrderRequest;
-use AlibabaCloud\SDK\Sas\V20181203\Models\CreateSasOrderResponse;
 use AlibabaCloud\SDK\Sas\V20181203\Models\CreateServiceLinkedRoleResponse;
 use AlibabaCloud\SDK\Sas\V20181203\Models\CreateSimilarSecurityEventsQueryTaskRequest;
 use AlibabaCloud\SDK\Sas\V20181203\Models\CreateSimilarSecurityEventsQueryTaskResponse;
-use AlibabaCloud\SDK\Sas\V20181203\Models\CreateUniBackupPolicyRequest;
-use AlibabaCloud\SDK\Sas\V20181203\Models\CreateUniBackupPolicyResponse;
-use AlibabaCloud\SDK\Sas\V20181203\Models\CreateUniBackupPolicyShrinkRequest;
-use AlibabaCloud\SDK\Sas\V20181203\Models\CreateUniRestorePlanRequest;
-use AlibabaCloud\SDK\Sas\V20181203\Models\CreateUniRestorePlanResponse;
-use AlibabaCloud\SDK\Sas\V20181203\Models\DeleteAssetRequest;
-use AlibabaCloud\SDK\Sas\V20181203\Models\DeleteAssetResponse;
 use AlibabaCloud\SDK\Sas\V20181203\Models\DeleteBackupPolicyMachineRequest;
 use AlibabaCloud\SDK\Sas\V20181203\Models\DeleteBackupPolicyMachineResponse;
 use AlibabaCloud\SDK\Sas\V20181203\Models\DeleteBackupPolicyRequest;
@@ -47,10 +32,10 @@ use AlibabaCloud\SDK\Sas\V20181203\Models\DeleteStrategyRequest;
 use AlibabaCloud\SDK\Sas\V20181203\Models\DeleteStrategyResponse;
 use AlibabaCloud\SDK\Sas\V20181203\Models\DeleteTagWithUuidRequest;
 use AlibabaCloud\SDK\Sas\V20181203\Models\DeleteTagWithUuidResponse;
-use AlibabaCloud\SDK\Sas\V20181203\Models\DeleteUniBackupPolicyRequest;
-use AlibabaCloud\SDK\Sas\V20181203\Models\DeleteUniBackupPolicyResponse;
 use AlibabaCloud\SDK\Sas\V20181203\Models\DeleteVpcHoneyPotRequest;
 use AlibabaCloud\SDK\Sas\V20181203\Models\DeleteVpcHoneyPotResponse;
+use AlibabaCloud\SDK\Sas\V20181203\Models\DescribeAccessKeyLeakDetailRequest;
+use AlibabaCloud\SDK\Sas\V20181203\Models\DescribeAccessKeyLeakDetailResponse;
 use AlibabaCloud\SDK\Sas\V20181203\Models\DescribeAccesskeyLeakListRequest;
 use AlibabaCloud\SDK\Sas\V20181203\Models\DescribeAccesskeyLeakListResponse;
 use AlibabaCloud\SDK\Sas\V20181203\Models\DescribeAffectedMaliciousFileImagesRequest;
@@ -59,13 +44,9 @@ use AlibabaCloud\SDK\Sas\V20181203\Models\DescribeAlarmEventDetailRequest;
 use AlibabaCloud\SDK\Sas\V20181203\Models\DescribeAlarmEventDetailResponse;
 use AlibabaCloud\SDK\Sas\V20181203\Models\DescribeAlarmEventListRequest;
 use AlibabaCloud\SDK\Sas\V20181203\Models\DescribeAlarmEventListResponse;
-use AlibabaCloud\SDK\Sas\V20181203\Models\DescribeAlarmEventStackInfoRequest;
-use AlibabaCloud\SDK\Sas\V20181203\Models\DescribeAlarmEventStackInfoResponse;
 use AlibabaCloud\SDK\Sas\V20181203\Models\DescribeAllEntityResponse;
 use AlibabaCloud\SDK\Sas\V20181203\Models\DescribeAllGroupsRequest;
 use AlibabaCloud\SDK\Sas\V20181203\Models\DescribeAllGroupsResponse;
-use AlibabaCloud\SDK\Sas\V20181203\Models\DescribeAllRegionsStatisticsRequest;
-use AlibabaCloud\SDK\Sas\V20181203\Models\DescribeAllRegionsStatisticsResponse;
 use AlibabaCloud\SDK\Sas\V20181203\Models\DescribeAntiBruteForceRulesRequest;
 use AlibabaCloud\SDK\Sas\V20181203\Models\DescribeAntiBruteForceRulesResponse;
 use AlibabaCloud\SDK\Sas\V20181203\Models\DescribeAssetDetailByUuidRequest;
@@ -78,16 +59,10 @@ use AlibabaCloud\SDK\Sas\V20181203\Models\DescribeAttackAnalysisDataResponse;
 use AlibabaCloud\SDK\Sas\V20181203\Models\DescribeAutoDelConfigResponse;
 use AlibabaCloud\SDK\Sas\V20181203\Models\DescribeBackupClientsRequest;
 use AlibabaCloud\SDK\Sas\V20181203\Models\DescribeBackupClientsResponse;
-use AlibabaCloud\SDK\Sas\V20181203\Models\DescribeBackupDirsRequest;
-use AlibabaCloud\SDK\Sas\V20181203\Models\DescribeBackupDirsResponse;
 use AlibabaCloud\SDK\Sas\V20181203\Models\DescribeBackupFilesRequest;
 use AlibabaCloud\SDK\Sas\V20181203\Models\DescribeBackupFilesResponse;
-use AlibabaCloud\SDK\Sas\V20181203\Models\DescribeBackupMachineStatusRequest;
-use AlibabaCloud\SDK\Sas\V20181203\Models\DescribeBackupMachineStatusResponse;
 use AlibabaCloud\SDK\Sas\V20181203\Models\DescribeBackupPoliciesRequest;
 use AlibabaCloud\SDK\Sas\V20181203\Models\DescribeBackupPoliciesResponse;
-use AlibabaCloud\SDK\Sas\V20181203\Models\DescribeBackupPolicyRequest;
-use AlibabaCloud\SDK\Sas\V20181203\Models\DescribeBackupPolicyResponse;
 use AlibabaCloud\SDK\Sas\V20181203\Models\DescribeBackupRestoreCountResponse;
 use AlibabaCloud\SDK\Sas\V20181203\Models\DescribeBruteForceSummaryRequest;
 use AlibabaCloud\SDK\Sas\V20181203\Models\DescribeBruteForceSummaryResponse;
@@ -106,6 +81,8 @@ use AlibabaCloud\SDK\Sas\V20181203\Models\DescribeConcernNecessityRequest;
 use AlibabaCloud\SDK\Sas\V20181203\Models\DescribeConcernNecessityResponse;
 use AlibabaCloud\SDK\Sas\V20181203\Models\DescribeContainerStatisticsRequest;
 use AlibabaCloud\SDK\Sas\V20181203\Models\DescribeContainerStatisticsResponse;
+use AlibabaCloud\SDK\Sas\V20181203\Models\DescribeContainerTagsRequest;
+use AlibabaCloud\SDK\Sas\V20181203\Models\DescribeContainerTagsResponse;
 use AlibabaCloud\SDK\Sas\V20181203\Models\DescribeCriteriaRequest;
 use AlibabaCloud\SDK\Sas\V20181203\Models\DescribeCriteriaResponse;
 use AlibabaCloud\SDK\Sas\V20181203\Models\DescribeDialogMessagesRequest;
@@ -120,8 +97,6 @@ use AlibabaCloud\SDK\Sas\V20181203\Models\DescribeDomainListRequest;
 use AlibabaCloud\SDK\Sas\V20181203\Models\DescribeDomainListResponse;
 use AlibabaCloud\SDK\Sas\V20181203\Models\DescribeEmgVulItemRequest;
 use AlibabaCloud\SDK\Sas\V20181203\Models\DescribeEmgVulItemResponse;
-use AlibabaCloud\SDK\Sas\V20181203\Models\DescribeExcludeSystemPathRequest;
-use AlibabaCloud\SDK\Sas\V20181203\Models\DescribeExcludeSystemPathResponse;
 use AlibabaCloud\SDK\Sas\V20181203\Models\DescribeExportInfoRequest;
 use AlibabaCloud\SDK\Sas\V20181203\Models\DescribeExportInfoResponse;
 use AlibabaCloud\SDK\Sas\V20181203\Models\DescribeExposedInstanceCriteriaRequest;
@@ -130,16 +105,11 @@ use AlibabaCloud\SDK\Sas\V20181203\Models\DescribeExposedInstanceDetailRequest;
 use AlibabaCloud\SDK\Sas\V20181203\Models\DescribeExposedInstanceDetailResponse;
 use AlibabaCloud\SDK\Sas\V20181203\Models\DescribeExposedInstanceListRequest;
 use AlibabaCloud\SDK\Sas\V20181203\Models\DescribeExposedInstanceListResponse;
-use AlibabaCloud\SDK\Sas\V20181203\Models\DescribeExposedRiskNumResponse;
 use AlibabaCloud\SDK\Sas\V20181203\Models\DescribeExposedStatisticsDetailRequest;
 use AlibabaCloud\SDK\Sas\V20181203\Models\DescribeExposedStatisticsDetailResponse;
 use AlibabaCloud\SDK\Sas\V20181203\Models\DescribeExposedStatisticsResponse;
 use AlibabaCloud\SDK\Sas\V20181203\Models\DescribeFieldStatisticsRequest;
 use AlibabaCloud\SDK\Sas\V20181203\Models\DescribeFieldStatisticsResponse;
-use AlibabaCloud\SDK\Sas\V20181203\Models\DescribeFrontVulPatchListRequest;
-use AlibabaCloud\SDK\Sas\V20181203\Models\DescribeFrontVulPatchListResponse;
-use AlibabaCloud\SDK\Sas\V20181203\Models\DescribeGraph4InvestigationOnlineRequest;
-use AlibabaCloud\SDK\Sas\V20181203\Models\DescribeGraph4InvestigationOnlineResponse;
 use AlibabaCloud\SDK\Sas\V20181203\Models\DescribeGroupedContainerInstancesRequest;
 use AlibabaCloud\SDK\Sas\V20181203\Models\DescribeGroupedContainerInstancesResponse;
 use AlibabaCloud\SDK\Sas\V20181203\Models\DescribeGroupedInstancesRequest;
@@ -157,8 +127,6 @@ use AlibabaCloud\SDK\Sas\V20181203\Models\DescribeImageFixTaskRequest;
 use AlibabaCloud\SDK\Sas\V20181203\Models\DescribeImageFixTaskResponse;
 use AlibabaCloud\SDK\Sas\V20181203\Models\DescribeImageGroupedVulListRequest;
 use AlibabaCloud\SDK\Sas\V20181203\Models\DescribeImageGroupedVulListResponse;
-use AlibabaCloud\SDK\Sas\V20181203\Models\DescribeImageInstancesRequest;
-use AlibabaCloud\SDK\Sas\V20181203\Models\DescribeImageInstancesResponse;
 use AlibabaCloud\SDK\Sas\V20181203\Models\DescribeImageScanAuthCountResponse;
 use AlibabaCloud\SDK\Sas\V20181203\Models\DescribeImageStatisticsResponse;
 use AlibabaCloud\SDK\Sas\V20181203\Models\DescribeImageVulListRequest;
@@ -201,12 +169,8 @@ use AlibabaCloud\SDK\Sas\V20181203\Models\DescribePropertyUserDetailRequest;
 use AlibabaCloud\SDK\Sas\V20181203\Models\DescribePropertyUserDetailResponse;
 use AlibabaCloud\SDK\Sas\V20181203\Models\DescribePropertyUserItemRequest;
 use AlibabaCloud\SDK\Sas\V20181203\Models\DescribePropertyUserItemResponse;
-use AlibabaCloud\SDK\Sas\V20181203\Models\DescribeQuaraFileDownloadInfoRequest;
-use AlibabaCloud\SDK\Sas\V20181203\Models\DescribeQuaraFileDownloadInfoResponse;
 use AlibabaCloud\SDK\Sas\V20181203\Models\DescribeRestoreJobsRequest;
 use AlibabaCloud\SDK\Sas\V20181203\Models\DescribeRestoreJobsResponse;
-use AlibabaCloud\SDK\Sas\V20181203\Models\DescribeRestorePlansRequest;
-use AlibabaCloud\SDK\Sas\V20181203\Models\DescribeRestorePlansResponse;
 use AlibabaCloud\SDK\Sas\V20181203\Models\DescribeRiskCheckItemResultRequest;
 use AlibabaCloud\SDK\Sas\V20181203\Models\DescribeRiskCheckItemResultResponse;
 use AlibabaCloud\SDK\Sas\V20181203\Models\DescribeRiskCheckResultRequest;
@@ -236,12 +200,8 @@ use AlibabaCloud\SDK\Sas\V20181203\Models\DescribeSimilarEventScenariosRequest;
 use AlibabaCloud\SDK\Sas\V20181203\Models\DescribeSimilarEventScenariosResponse;
 use AlibabaCloud\SDK\Sas\V20181203\Models\DescribeSimilarSecurityEventsRequest;
 use AlibabaCloud\SDK\Sas\V20181203\Models\DescribeSimilarSecurityEventsResponse;
-use AlibabaCloud\SDK\Sas\V20181203\Models\DescribeSnapshotsRequest;
-use AlibabaCloud\SDK\Sas\V20181203\Models\DescribeSnapshotsResponse;
 use AlibabaCloud\SDK\Sas\V20181203\Models\DescribeStrategyExecDetailRequest;
 use AlibabaCloud\SDK\Sas\V20181203\Models\DescribeStrategyExecDetailResponse;
-use AlibabaCloud\SDK\Sas\V20181203\Models\DescribeStrategyProcessRequest;
-use AlibabaCloud\SDK\Sas\V20181203\Models\DescribeStrategyProcessResponse;
 use AlibabaCloud\SDK\Sas\V20181203\Models\DescribeStrategyRequest;
 use AlibabaCloud\SDK\Sas\V20181203\Models\DescribeStrategyResponse;
 use AlibabaCloud\SDK\Sas\V20181203\Models\DescribeStrategyTargetRequest;
@@ -251,29 +211,21 @@ use AlibabaCloud\SDK\Sas\V20181203\Models\DescribeSummaryInfoResponse;
 use AlibabaCloud\SDK\Sas\V20181203\Models\DescribeSupportRegionResponse;
 use AlibabaCloud\SDK\Sas\V20181203\Models\DescribeSuspEventDetailRequest;
 use AlibabaCloud\SDK\Sas\V20181203\Models\DescribeSuspEventDetailResponse;
+use AlibabaCloud\SDK\Sas\V20181203\Models\DescribeSuspEventExportInfoRequest;
+use AlibabaCloud\SDK\Sas\V20181203\Models\DescribeSuspEventExportInfoResponse;
 use AlibabaCloud\SDK\Sas\V20181203\Models\DescribeSuspEventQuaraFilesRequest;
 use AlibabaCloud\SDK\Sas\V20181203\Models\DescribeSuspEventQuaraFilesResponse;
 use AlibabaCloud\SDK\Sas\V20181203\Models\DescribeSuspEventsRequest;
 use AlibabaCloud\SDK\Sas\V20181203\Models\DescribeSuspEventsResponse;
-use AlibabaCloud\SDK\Sas\V20181203\Models\DescribeTaskErrorLogRequest;
-use AlibabaCloud\SDK\Sas\V20181203\Models\DescribeTaskErrorLogResponse;
-use AlibabaCloud\SDK\Sas\V20181203\Models\DescribeUniBackupDatabaseRequest;
-use AlibabaCloud\SDK\Sas\V20181203\Models\DescribeUniBackupDatabaseResponse;
+use AlibabaCloud\SDK\Sas\V20181203\Models\DescribeSuspiciousUUIDConfigRequest;
+use AlibabaCloud\SDK\Sas\V20181203\Models\DescribeSuspiciousUUIDConfigResponse;
 use AlibabaCloud\SDK\Sas\V20181203\Models\DescribeUniBackupPoliciesRequest;
 use AlibabaCloud\SDK\Sas\V20181203\Models\DescribeUniBackupPoliciesResponse;
-use AlibabaCloud\SDK\Sas\V20181203\Models\DescribeUniBackupPolicyDetailRequest;
-use AlibabaCloud\SDK\Sas\V20181203\Models\DescribeUniBackupPolicyDetailResponse;
-use AlibabaCloud\SDK\Sas\V20181203\Models\DescribeUniBackupStatisticsResponse;
-use AlibabaCloud\SDK\Sas\V20181203\Models\DescribeUniRecoverableListRequest;
-use AlibabaCloud\SDK\Sas\V20181203\Models\DescribeUniRecoverableListResponse;
-use AlibabaCloud\SDK\Sas\V20181203\Models\DescribeUniSupportRegionResponse;
 use AlibabaCloud\SDK\Sas\V20181203\Models\DescribeUserBackupMachinesResponse;
 use AlibabaCloud\SDK\Sas\V20181203\Models\DescribeUserBaselineAuthorizationRequest;
 use AlibabaCloud\SDK\Sas\V20181203\Models\DescribeUserBaselineAuthorizationResponse;
 use AlibabaCloud\SDK\Sas\V20181203\Models\DescribeUserLayoutAuthorizationRequest;
 use AlibabaCloud\SDK\Sas\V20181203\Models\DescribeUserLayoutAuthorizationResponse;
-use AlibabaCloud\SDK\Sas\V20181203\Models\DescribeUuidsByVulNamesRequest;
-use AlibabaCloud\SDK\Sas\V20181203\Models\DescribeUuidsByVulNamesResponse;
 use AlibabaCloud\SDK\Sas\V20181203\Models\DescribeVersionConfigRequest;
 use AlibabaCloud\SDK\Sas\V20181203\Models\DescribeVersionConfigResponse;
 use AlibabaCloud\SDK\Sas\V20181203\Models\DescribeVolDingdingMessageRequest;
@@ -286,6 +238,8 @@ use AlibabaCloud\SDK\Sas\V20181203\Models\DescribeVulDetailsRequest;
 use AlibabaCloud\SDK\Sas\V20181203\Models\DescribeVulDetailsResponse;
 use AlibabaCloud\SDK\Sas\V20181203\Models\DescribeVulExportInfoRequest;
 use AlibabaCloud\SDK\Sas\V20181203\Models\DescribeVulExportInfoResponse;
+use AlibabaCloud\SDK\Sas\V20181203\Models\DescribeVulListPageRequest;
+use AlibabaCloud\SDK\Sas\V20181203\Models\DescribeVulListPageResponse;
 use AlibabaCloud\SDK\Sas\V20181203\Models\DescribeVulListRequest;
 use AlibabaCloud\SDK\Sas\V20181203\Models\DescribeVulListResponse;
 use AlibabaCloud\SDK\Sas\V20181203\Models\DescribeVulWhitelistRequest;
@@ -296,23 +250,17 @@ use AlibabaCloud\SDK\Sas\V20181203\Models\DescribeWebLockBindListRequest;
 use AlibabaCloud\SDK\Sas\V20181203\Models\DescribeWebLockBindListResponse;
 use AlibabaCloud\SDK\Sas\V20181203\Models\DescribeWebLockConfigListRequest;
 use AlibabaCloud\SDK\Sas\V20181203\Models\DescribeWebLockConfigListResponse;
-use AlibabaCloud\SDK\Sas\V20181203\Models\ExecStrategyRequest;
-use AlibabaCloud\SDK\Sas\V20181203\Models\ExecStrategyResponse;
 use AlibabaCloud\SDK\Sas\V20181203\Models\ExportRecordRequest;
 use AlibabaCloud\SDK\Sas\V20181203\Models\ExportRecordResponse;
+use AlibabaCloud\SDK\Sas\V20181203\Models\ExportSuspEventsRequest;
+use AlibabaCloud\SDK\Sas\V20181203\Models\ExportSuspEventsResponse;
 use AlibabaCloud\SDK\Sas\V20181203\Models\ExportVulRequest;
 use AlibabaCloud\SDK\Sas\V20181203\Models\ExportVulResponse;
+use AlibabaCloud\SDK\Sas\V20181203\Models\ExportWarningRequest;
+use AlibabaCloud\SDK\Sas\V20181203\Models\ExportWarningResponse;
 use AlibabaCloud\SDK\Sas\V20181203\Models\FixCheckWarningsRequest;
 use AlibabaCloud\SDK\Sas\V20181203\Models\FixCheckWarningsResponse;
 use AlibabaCloud\SDK\Sas\V20181203\Models\GetBackupStorageCountResponse;
-use AlibabaCloud\SDK\Sas\V20181203\Models\GetIncIOCsRequest;
-use AlibabaCloud\SDK\Sas\V20181203\Models\GetIncIOCsResponse;
-use AlibabaCloud\SDK\Sas\V20181203\Models\GetIOCsRequest;
-use AlibabaCloud\SDK\Sas\V20181203\Models\GetIOCsResponse;
-use AlibabaCloud\SDK\Sas\V20181203\Models\GetLocalInstallScriptRequest;
-use AlibabaCloud\SDK\Sas\V20181203\Models\GetLocalInstallScriptResponse;
-use AlibabaCloud\SDK\Sas\V20181203\Models\GetLocalUninstallScriptRequest;
-use AlibabaCloud\SDK\Sas\V20181203\Models\GetLocalUninstallScriptResponse;
 use AlibabaCloud\SDK\Sas\V20181203\Models\GetSuspiciousStatisticsRequest;
 use AlibabaCloud\SDK\Sas\V20181203\Models\GetSuspiciousStatisticsResponse;
 use AlibabaCloud\SDK\Sas\V20181203\Models\GetVulStatisticsRequest;
@@ -325,8 +273,6 @@ use AlibabaCloud\SDK\Sas\V20181203\Models\IgnoreHcCheckWarningsRequest;
 use AlibabaCloud\SDK\Sas\V20181203\Models\IgnoreHcCheckWarningsResponse;
 use AlibabaCloud\SDK\Sas\V20181203\Models\InstallBackupClientRequest;
 use AlibabaCloud\SDK\Sas\V20181203\Models\InstallBackupClientResponse;
-use AlibabaCloud\SDK\Sas\V20181203\Models\InstallUniBackupAgentRequest;
-use AlibabaCloud\SDK\Sas\V20181203\Models\InstallUniBackupAgentResponse;
 use AlibabaCloud\SDK\Sas\V20181203\Models\ModifyAntiBruteForceRuleRequest;
 use AlibabaCloud\SDK\Sas\V20181203\Models\ModifyAntiBruteForceRuleResponse;
 use AlibabaCloud\SDK\Sas\V20181203\Models\ModifyAssetGroupRequest;
@@ -336,6 +282,8 @@ use AlibabaCloud\SDK\Sas\V20181203\Models\ModifyBackupPolicyResponse;
 use AlibabaCloud\SDK\Sas\V20181203\Models\ModifyBackupPolicyShrinkRequest;
 use AlibabaCloud\SDK\Sas\V20181203\Models\ModifyBackupPolicyStatusRequest;
 use AlibabaCloud\SDK\Sas\V20181203\Models\ModifyBackupPolicyStatusResponse;
+use AlibabaCloud\SDK\Sas\V20181203\Models\ModifyClearLogstoreStorageRequest;
+use AlibabaCloud\SDK\Sas\V20181203\Models\ModifyClearLogstoreStorageResponse;
 use AlibabaCloud\SDK\Sas\V20181203\Models\ModifyCreateVulWhitelistRequest;
 use AlibabaCloud\SDK\Sas\V20181203\Models\ModifyCreateVulWhitelistResponse;
 use AlibabaCloud\SDK\Sas\V20181203\Models\ModifyEmgVulSubmitRequest;
@@ -348,8 +296,6 @@ use AlibabaCloud\SDK\Sas\V20181203\Models\ModifyLoginBaseConfigRequest;
 use AlibabaCloud\SDK\Sas\V20181203\Models\ModifyLoginBaseConfigResponse;
 use AlibabaCloud\SDK\Sas\V20181203\Models\ModifyLoginSwitchConfigRequest;
 use AlibabaCloud\SDK\Sas\V20181203\Models\ModifyLoginSwitchConfigResponse;
-use AlibabaCloud\SDK\Sas\V20181203\Models\ModifyNoticeConfigRequest;
-use AlibabaCloud\SDK\Sas\V20181203\Models\ModifyNoticeConfigResponse;
 use AlibabaCloud\SDK\Sas\V20181203\Models\ModifyOpenLogShipperRequest;
 use AlibabaCloud\SDK\Sas\V20181203\Models\ModifyOpenLogShipperResponse;
 use AlibabaCloud\SDK\Sas\V20181203\Models\ModifyOperateVulRequest;
@@ -364,15 +310,8 @@ use AlibabaCloud\SDK\Sas\V20181203\Models\ModifySecurityCheckScheduleConfigReque
 use AlibabaCloud\SDK\Sas\V20181203\Models\ModifySecurityCheckScheduleConfigResponse;
 use AlibabaCloud\SDK\Sas\V20181203\Models\ModifyStartVulScanRequest;
 use AlibabaCloud\SDK\Sas\V20181203\Models\ModifyStartVulScanResponse;
-use AlibabaCloud\SDK\Sas\V20181203\Models\ModifyStrategyRequest;
-use AlibabaCloud\SDK\Sas\V20181203\Models\ModifyStrategyResponse;
-use AlibabaCloud\SDK\Sas\V20181203\Models\ModifyStrategyTargetRequest;
-use AlibabaCloud\SDK\Sas\V20181203\Models\ModifyStrategyTargetResponse;
 use AlibabaCloud\SDK\Sas\V20181203\Models\ModifyTagWithUuidRequest;
 use AlibabaCloud\SDK\Sas\V20181203\Models\ModifyTagWithUuidResponse;
-use AlibabaCloud\SDK\Sas\V20181203\Models\ModifyUniBackupPolicyRequest;
-use AlibabaCloud\SDK\Sas\V20181203\Models\ModifyUniBackupPolicyResponse;
-use AlibabaCloud\SDK\Sas\V20181203\Models\ModifyUniBackupPolicyShrinkRequest;
 use AlibabaCloud\SDK\Sas\V20181203\Models\ModifyVpcHoneyPotRequest;
 use AlibabaCloud\SDK\Sas\V20181203\Models\ModifyVpcHoneyPotResponse;
 use AlibabaCloud\SDK\Sas\V20181203\Models\ModifyVulTargetConfigRequest;
@@ -385,8 +324,6 @@ use AlibabaCloud\SDK\Sas\V20181203\Models\ModifyWebLockStartRequest;
 use AlibabaCloud\SDK\Sas\V20181203\Models\ModifyWebLockStartResponse;
 use AlibabaCloud\SDK\Sas\V20181203\Models\ModifyWebLockStatusRequest;
 use AlibabaCloud\SDK\Sas\V20181203\Models\ModifyWebLockStatusResponse;
-use AlibabaCloud\SDK\Sas\V20181203\Models\ModifyWebLockUnbindRequest;
-use AlibabaCloud\SDK\Sas\V20181203\Models\ModifyWebLockUnbindResponse;
 use AlibabaCloud\SDK\Sas\V20181203\Models\ModifyWebLockUpdateConfigRequest;
 use AlibabaCloud\SDK\Sas\V20181203\Models\ModifyWebLockUpdateConfigResponse;
 use AlibabaCloud\SDK\Sas\V20181203\Models\OperateAgentClientInstallRequest;
@@ -399,43 +336,34 @@ use AlibabaCloud\SDK\Sas\V20181203\Models\OperationSuspEventsRequest;
 use AlibabaCloud\SDK\Sas\V20181203\Models\OperationSuspEventsResponse;
 use AlibabaCloud\SDK\Sas\V20181203\Models\PauseClientRequest;
 use AlibabaCloud\SDK\Sas\V20181203\Models\PauseClientResponse;
-use AlibabaCloud\SDK\Sas\V20181203\Models\QueryDiscoverDatabaseRequest;
-use AlibabaCloud\SDK\Sas\V20181203\Models\QueryDiscoverDatabaseResponse;
 use AlibabaCloud\SDK\Sas\V20181203\Models\QueryGroupIdByGroupNameRequest;
 use AlibabaCloud\SDK\Sas\V20181203\Models\QueryGroupIdByGroupNameResponse;
-use AlibabaCloud\SDK\Sas\V20181203\Models\QueryPreCheckDatabaseRequest;
-use AlibabaCloud\SDK\Sas\V20181203\Models\QueryPreCheckDatabaseResponse;
 use AlibabaCloud\SDK\Sas\V20181203\Models\RefreshAssetsRequest;
 use AlibabaCloud\SDK\Sas\V20181203\Models\RefreshAssetsResponse;
 use AlibabaCloud\SDK\Sas\V20181203\Models\RefreshContainerAssetsRequest;
 use AlibabaCloud\SDK\Sas\V20181203\Models\RefreshContainerAssetsResponse;
+use AlibabaCloud\SDK\Sas\V20181203\Models\RefreshContainerNetworkRequest;
+use AlibabaCloud\SDK\Sas\V20181203\Models\RefreshContainerNetworkResponse;
 use AlibabaCloud\SDK\Sas\V20181203\Models\RollbackSuspEventQuaraFileRequest;
 use AlibabaCloud\SDK\Sas\V20181203\Models\RollbackSuspEventQuaraFileResponse;
 use AlibabaCloud\SDK\Sas\V20181203\Models\SasInstallCodeRequest;
 use AlibabaCloud\SDK\Sas\V20181203\Models\SasInstallCodeResponse;
 use AlibabaCloud\SDK\Sas\V20181203\Models\StartBaselineSecurityCheckRequest;
 use AlibabaCloud\SDK\Sas\V20181203\Models\StartBaselineSecurityCheckResponse;
-use AlibabaCloud\SDK\Sas\V20181203\Models\StartDiscoverDatabaseTaskRequest;
-use AlibabaCloud\SDK\Sas\V20181203\Models\StartDiscoverDatabaseTaskResponse;
 use AlibabaCloud\SDK\Sas\V20181203\Models\StartImageVulScanRequest;
 use AlibabaCloud\SDK\Sas\V20181203\Models\StartImageVulScanResponse;
-use AlibabaCloud\SDK\Sas\V20181203\Models\StartPreCheckDatabaseRequest;
-use AlibabaCloud\SDK\Sas\V20181203\Models\StartPreCheckDatabaseResponse;
 use AlibabaCloud\SDK\Sas\V20181203\Models\StartVirusScanTaskRequest;
 use AlibabaCloud\SDK\Sas\V20181203\Models\StartVirusScanTaskResponse;
 use AlibabaCloud\SDK\Sas\V20181203\Models\UnbindAegisRequest;
 use AlibabaCloud\SDK\Sas\V20181203\Models\UnbindAegisResponse;
 use AlibabaCloud\SDK\Sas\V20181203\Models\UninstallBackupClientRequest;
 use AlibabaCloud\SDK\Sas\V20181203\Models\UninstallBackupClientResponse;
-use AlibabaCloud\SDK\Sas\V20181203\Models\UninstallUniBackupAgentRequest;
-use AlibabaCloud\SDK\Sas\V20181203\Models\UninstallUniBackupAgentResponse;
-use AlibabaCloud\SDK\Sas\V20181203\Models\UpgradeBackupPolicyVersionRequest;
-use AlibabaCloud\SDK\Sas\V20181203\Models\UpgradeBackupPolicyVersionResponse;
 use AlibabaCloud\SDK\Sas\V20181203\Models\ValidateHcWarningsRequest;
 use AlibabaCloud\SDK\Sas\V20181203\Models\ValidateHcWarningsResponse;
 use AlibabaCloud\Tea\Utils\Utils;
 use AlibabaCloud\Tea\Utils\Utils\RuntimeOptions;
 use Darabonba\OpenApi\Models\OpenApiRequest;
+use Darabonba\OpenApi\Models\Params;
 use Darabonba\OpenApi\OpenApiClient;
 
 class Sas extends OpenApiClient
@@ -539,11 +467,29 @@ class Sas extends OpenApiClient
     public function addVpcHoneyPotWithOptions($request, $runtime)
     {
         Utils::validateModel($request);
+        $query = [];
+        if (!Utils::isUnset($request->vpcId)) {
+            $query['VpcId'] = $request->vpcId;
+        }
+        if (!Utils::isUnset($request->vpcSwitchId)) {
+            $query['VpcSwitchId'] = $request->vpcSwitchId;
+        }
         $req = new OpenApiRequest([
-            'body' => Utils::toMap($request),
+            'query' => OpenApiUtilClient::query($query),
+        ]);
+        $params = new Params([
+            'action'      => 'AddVpcHoneyPot',
+            'version'     => '2018-12-03',
+            'protocol'    => 'HTTPS',
+            'pathname'    => '/',
+            'method'      => 'POST',
+            'authType'    => 'AK',
+            'style'       => 'RPC',
+            'reqBodyType' => 'formData',
+            'bodyType'    => 'json',
         ]);
 
-        return AddVpcHoneyPotResponse::fromMap($this->doRPCRequest('AddVpcHoneyPot', '2018-12-03', 'HTTPS', 'POST', 'AK', 'json', $req, $runtime));
+        return AddVpcHoneyPotResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
@@ -559,34 +505,6 @@ class Sas extends OpenApiClient
     }
 
     /**
-     * @param CheckQuaraFileIdRequest $request
-     * @param RuntimeOptions          $runtime
-     *
-     * @return CheckQuaraFileIdResponse
-     */
-    public function checkQuaraFileIdWithOptions($request, $runtime)
-    {
-        Utils::validateModel($request);
-        $req = new OpenApiRequest([
-            'body' => Utils::toMap($request),
-        ]);
-
-        return CheckQuaraFileIdResponse::fromMap($this->doRPCRequest('CheckQuaraFileId', '2018-12-03', 'HTTPS', 'POST', 'AK', 'json', $req, $runtime));
-    }
-
-    /**
-     * @param CheckQuaraFileIdRequest $request
-     *
-     * @return CheckQuaraFileIdResponse
-     */
-    public function checkQuaraFileId($request)
-    {
-        $runtime = new RuntimeOptions([]);
-
-        return $this->checkQuaraFileIdWithOptions($request, $runtime);
-    }
-
-    /**
      * @param CheckSecurityEventIdRequest $request
      * @param RuntimeOptions              $runtime
      *
@@ -595,11 +513,29 @@ class Sas extends OpenApiClient
     public function checkSecurityEventIdWithOptions($request, $runtime)
     {
         Utils::validateModel($request);
+        $query = [];
+        if (!Utils::isUnset($request->securityEventIds)) {
+            $query['SecurityEventIds'] = $request->securityEventIds;
+        }
+        if (!Utils::isUnset($request->uuid)) {
+            $query['Uuid'] = $request->uuid;
+        }
         $req = new OpenApiRequest([
-            'body' => Utils::toMap($request),
+            'query' => OpenApiUtilClient::query($query),
+        ]);
+        $params = new Params([
+            'action'      => 'CheckSecurityEventId',
+            'version'     => '2018-12-03',
+            'protocol'    => 'HTTPS',
+            'pathname'    => '/',
+            'method'      => 'POST',
+            'authType'    => 'AK',
+            'style'       => 'RPC',
+            'reqBodyType' => 'formData',
+            'bodyType'    => 'json',
         ]);
 
-        return CheckSecurityEventIdResponse::fromMap($this->doRPCRequest('CheckSecurityEventId', '2018-12-03', 'HTTPS', 'POST', 'AK', 'json', $req, $runtime));
+        return CheckSecurityEventIdResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
@@ -623,11 +559,47 @@ class Sas extends OpenApiClient
     public function createAntiBruteForceRuleWithOptions($request, $runtime)
     {
         Utils::validateModel($request);
+        $query = [];
+        if (!Utils::isUnset($request->defaultRule)) {
+            $query['DefaultRule'] = $request->defaultRule;
+        }
+        if (!Utils::isUnset($request->failCount)) {
+            $query['FailCount'] = $request->failCount;
+        }
+        if (!Utils::isUnset($request->forbiddenTime)) {
+            $query['ForbiddenTime'] = $request->forbiddenTime;
+        }
+        if (!Utils::isUnset($request->name)) {
+            $query['Name'] = $request->name;
+        }
+        if (!Utils::isUnset($request->resourceOwnerId)) {
+            $query['ResourceOwnerId'] = $request->resourceOwnerId;
+        }
+        if (!Utils::isUnset($request->sourceIp)) {
+            $query['SourceIp'] = $request->sourceIp;
+        }
+        if (!Utils::isUnset($request->span)) {
+            $query['Span'] = $request->span;
+        }
+        if (!Utils::isUnset($request->uuidList)) {
+            $query['UuidList'] = $request->uuidList;
+        }
         $req = new OpenApiRequest([
-            'body' => Utils::toMap($request),
+            'query' => OpenApiUtilClient::query($query),
+        ]);
+        $params = new Params([
+            'action'      => 'CreateAntiBruteForceRule',
+            'version'     => '2018-12-03',
+            'protocol'    => 'HTTPS',
+            'pathname'    => '/',
+            'method'      => 'POST',
+            'authType'    => 'AK',
+            'style'       => 'RPC',
+            'reqBodyType' => 'formData',
+            'bodyType'    => 'json',
         ]);
 
-        return CreateAntiBruteForceRuleResponse::fromMap($this->doRPCRequest('CreateAntiBruteForceRule', '2018-12-03', 'HTTPS', 'POST', 'AK', 'json', $req, $runtime));
+        return CreateAntiBruteForceRuleResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
@@ -640,34 +612,6 @@ class Sas extends OpenApiClient
         $runtime = new RuntimeOptions([]);
 
         return $this->createAntiBruteForceRuleWithOptions($request, $runtime);
-    }
-
-    /**
-     * @param CreateAssetRequest $request
-     * @param RuntimeOptions     $runtime
-     *
-     * @return CreateAssetResponse
-     */
-    public function createAssetWithOptions($request, $runtime)
-    {
-        Utils::validateModel($request);
-        $req = new OpenApiRequest([
-            'body' => Utils::toMap($request),
-        ]);
-
-        return CreateAssetResponse::fromMap($this->doRPCRequest('CreateAsset', '2018-12-03', 'HTTPS', 'POST', 'AK', 'json', $req, $runtime));
-    }
-
-    /**
-     * @param CreateAssetRequest $request
-     *
-     * @return CreateAssetResponse
-     */
-    public function createAsset($request)
-    {
-        $runtime = new RuntimeOptions([]);
-
-        return $this->createAssetWithOptions($request, $runtime);
     }
 
     /**
@@ -684,11 +628,38 @@ class Sas extends OpenApiClient
         if (!Utils::isUnset($tmpReq->policy)) {
             $request->policyShrink = OpenApiUtilClient::arrayToStringWithSpecifiedStyle($tmpReq->policy, 'Policy', 'json');
         }
+        $query = [];
+        if (!Utils::isUnset($request->name)) {
+            $query['Name'] = $request->name;
+        }
+        if (!Utils::isUnset($request->policyShrink)) {
+            $query['Policy'] = $request->policyShrink;
+        }
+        if (!Utils::isUnset($request->policyRegionId)) {
+            $query['PolicyRegionId'] = $request->policyRegionId;
+        }
+        if (!Utils::isUnset($request->policyVersion)) {
+            $query['PolicyVersion'] = $request->policyVersion;
+        }
+        if (!Utils::isUnset($request->uuidList)) {
+            $query['UuidList'] = $request->uuidList;
+        }
         $req = new OpenApiRequest([
-            'body' => Utils::toMap($request),
+            'query' => OpenApiUtilClient::query($query),
+        ]);
+        $params = new Params([
+            'action'      => 'CreateBackupPolicy',
+            'version'     => '2018-12-03',
+            'protocol'    => 'HTTPS',
+            'pathname'    => '/',
+            'method'      => 'POST',
+            'authType'    => 'AK',
+            'style'       => 'RPC',
+            'reqBodyType' => 'formData',
+            'bodyType'    => 'json',
         ]);
 
-        return CreateBackupPolicyResponse::fromMap($this->doRPCRequest('CreateBackupPolicy', '2018-12-03', 'HTTPS', 'POST', 'AK', 'json', $req, $runtime));
+        return CreateBackupPolicyResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
@@ -712,11 +683,32 @@ class Sas extends OpenApiClient
     public function createOrUpdateAssetGroupWithOptions($request, $runtime)
     {
         Utils::validateModel($request);
+        $query = [];
+        if (!Utils::isUnset($request->groupId)) {
+            $query['GroupId'] = $request->groupId;
+        }
+        if (!Utils::isUnset($request->groupName)) {
+            $query['GroupName'] = $request->groupName;
+        }
+        if (!Utils::isUnset($request->uuids)) {
+            $query['Uuids'] = $request->uuids;
+        }
         $req = new OpenApiRequest([
-            'body' => Utils::toMap($request),
+            'query' => OpenApiUtilClient::query($query),
+        ]);
+        $params = new Params([
+            'action'      => 'CreateOrUpdateAssetGroup',
+            'version'     => '2018-12-03',
+            'protocol'    => 'HTTPS',
+            'pathname'    => '/',
+            'method'      => 'POST',
+            'authType'    => 'AK',
+            'style'       => 'RPC',
+            'reqBodyType' => 'formData',
+            'bodyType'    => 'json',
         ]);
 
-        return CreateOrUpdateAssetGroupResponse::fromMap($this->doRPCRequest('CreateOrUpdateAssetGroup', '2018-12-03', 'HTTPS', 'POST', 'AK', 'json', $req, $runtime));
+        return CreateOrUpdateAssetGroupResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
@@ -732,71 +724,26 @@ class Sas extends OpenApiClient
     }
 
     /**
-     * @param CreateRestoreJobRequest $request
-     * @param RuntimeOptions          $runtime
-     *
-     * @return CreateRestoreJobResponse
-     */
-    public function createRestoreJobWithOptions($request, $runtime)
-    {
-        Utils::validateModel($request);
-        $req = new OpenApiRequest([
-            'body' => Utils::toMap($request),
-        ]);
-
-        return CreateRestoreJobResponse::fromMap($this->doRPCRequest('CreateRestoreJob', '2018-12-03', 'HTTPS', 'POST', 'AK', 'json', $req, $runtime));
-    }
-
-    /**
-     * @param CreateRestoreJobRequest $request
-     *
-     * @return CreateRestoreJobResponse
-     */
-    public function createRestoreJob($request)
-    {
-        $runtime = new RuntimeOptions([]);
-
-        return $this->createRestoreJobWithOptions($request, $runtime);
-    }
-
-    /**
-     * @param CreateSasOrderRequest $request
-     * @param RuntimeOptions        $runtime
-     *
-     * @return CreateSasOrderResponse
-     */
-    public function createSasOrderWithOptions($request, $runtime)
-    {
-        Utils::validateModel($request);
-        $req = new OpenApiRequest([
-            'body' => Utils::toMap($request),
-        ]);
-
-        return CreateSasOrderResponse::fromMap($this->doRPCRequest('CreateSasOrder', '2018-12-03', 'HTTPS', 'POST', 'AK', 'json', $req, $runtime));
-    }
-
-    /**
-     * @param CreateSasOrderRequest $request
-     *
-     * @return CreateSasOrderResponse
-     */
-    public function createSasOrder($request)
-    {
-        $runtime = new RuntimeOptions([]);
-
-        return $this->createSasOrderWithOptions($request, $runtime);
-    }
-
-    /**
      * @param RuntimeOptions $runtime
      *
      * @return CreateServiceLinkedRoleResponse
      */
     public function createServiceLinkedRoleWithOptions($runtime)
     {
-        $req = new OpenApiRequest([]);
+        $req    = new OpenApiRequest([]);
+        $params = new Params([
+            'action'      => 'CreateServiceLinkedRole',
+            'version'     => '2018-12-03',
+            'protocol'    => 'HTTPS',
+            'pathname'    => '/',
+            'method'      => 'POST',
+            'authType'    => 'AK',
+            'style'       => 'RPC',
+            'reqBodyType' => 'formData',
+            'bodyType'    => 'json',
+        ]);
 
-        return CreateServiceLinkedRoleResponse::fromMap($this->doRPCRequest('CreateServiceLinkedRole', '2018-12-03', 'HTTPS', 'POST', 'AK', 'json', $req, $runtime));
+        return CreateServiceLinkedRoleResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
@@ -818,11 +765,35 @@ class Sas extends OpenApiClient
     public function createSimilarSecurityEventsQueryTaskWithOptions($request, $runtime)
     {
         Utils::validateModel($request);
+        $query = [];
+        if (!Utils::isUnset($request->resourceOwnerId)) {
+            $query['ResourceOwnerId'] = $request->resourceOwnerId;
+        }
+        if (!Utils::isUnset($request->securityEventId)) {
+            $query['SecurityEventId'] = $request->securityEventId;
+        }
+        if (!Utils::isUnset($request->similarEventScenarioCode)) {
+            $query['SimilarEventScenarioCode'] = $request->similarEventScenarioCode;
+        }
+        if (!Utils::isUnset($request->sourceIp)) {
+            $query['SourceIp'] = $request->sourceIp;
+        }
         $req = new OpenApiRequest([
-            'body' => Utils::toMap($request),
+            'query' => OpenApiUtilClient::query($query),
+        ]);
+        $params = new Params([
+            'action'      => 'CreateSimilarSecurityEventsQueryTask',
+            'version'     => '2018-12-03',
+            'protocol'    => 'HTTPS',
+            'pathname'    => '/',
+            'method'      => 'POST',
+            'authType'    => 'AK',
+            'style'       => 'RPC',
+            'reqBodyType' => 'formData',
+            'bodyType'    => 'json',
         ]);
 
-        return CreateSimilarSecurityEventsQueryTaskResponse::fromMap($this->doRPCRequest('CreateSimilarSecurityEventsQueryTask', '2018-12-03', 'HTTPS', 'POST', 'AK', 'json', $req, $runtime));
+        return CreateSimilarSecurityEventsQueryTaskResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
@@ -838,98 +809,6 @@ class Sas extends OpenApiClient
     }
 
     /**
-     * @param CreateUniBackupPolicyRequest $tmpReq
-     * @param RuntimeOptions               $runtime
-     *
-     * @return CreateUniBackupPolicyResponse
-     */
-    public function createUniBackupPolicyWithOptions($tmpReq, $runtime)
-    {
-        Utils::validateModel($tmpReq);
-        $request = new CreateUniBackupPolicyShrinkRequest([]);
-        OpenApiUtilClient::convert($tmpReq, $request);
-        if (!Utils::isUnset($tmpReq->fullPlan)) {
-            $request->fullPlanShrink = OpenApiUtilClient::arrayToStringWithSpecifiedStyle($tmpReq->fullPlan, 'FullPlan', 'json');
-        }
-        if (!Utils::isUnset($tmpReq->incPlan)) {
-            $request->incPlanShrink = OpenApiUtilClient::arrayToStringWithSpecifiedStyle($tmpReq->incPlan, 'IncPlan', 'json');
-        }
-        $req = new OpenApiRequest([
-            'body' => Utils::toMap($request),
-        ]);
-
-        return CreateUniBackupPolicyResponse::fromMap($this->doRPCRequest('CreateUniBackupPolicy', '2018-12-03', 'HTTPS', 'POST', 'AK', 'json', $req, $runtime));
-    }
-
-    /**
-     * @param CreateUniBackupPolicyRequest $request
-     *
-     * @return CreateUniBackupPolicyResponse
-     */
-    public function createUniBackupPolicy($request)
-    {
-        $runtime = new RuntimeOptions([]);
-
-        return $this->createUniBackupPolicyWithOptions($request, $runtime);
-    }
-
-    /**
-     * @param CreateUniRestorePlanRequest $request
-     * @param RuntimeOptions              $runtime
-     *
-     * @return CreateUniRestorePlanResponse
-     */
-    public function createUniRestorePlanWithOptions($request, $runtime)
-    {
-        Utils::validateModel($request);
-        $req = new OpenApiRequest([
-            'body' => Utils::toMap($request),
-        ]);
-
-        return CreateUniRestorePlanResponse::fromMap($this->doRPCRequest('CreateUniRestorePlan', '2018-12-03', 'HTTPS', 'POST', 'AK', 'json', $req, $runtime));
-    }
-
-    /**
-     * @param CreateUniRestorePlanRequest $request
-     *
-     * @return CreateUniRestorePlanResponse
-     */
-    public function createUniRestorePlan($request)
-    {
-        $runtime = new RuntimeOptions([]);
-
-        return $this->createUniRestorePlanWithOptions($request, $runtime);
-    }
-
-    /**
-     * @param DeleteAssetRequest $request
-     * @param RuntimeOptions     $runtime
-     *
-     * @return DeleteAssetResponse
-     */
-    public function deleteAssetWithOptions($request, $runtime)
-    {
-        Utils::validateModel($request);
-        $req = new OpenApiRequest([
-            'body' => Utils::toMap($request),
-        ]);
-
-        return DeleteAssetResponse::fromMap($this->doRPCRequest('DeleteAsset', '2018-12-03', 'HTTPS', 'POST', 'AK', 'json', $req, $runtime));
-    }
-
-    /**
-     * @param DeleteAssetRequest $request
-     *
-     * @return DeleteAssetResponse
-     */
-    public function deleteAsset($request)
-    {
-        $runtime = new RuntimeOptions([]);
-
-        return $this->deleteAssetWithOptions($request, $runtime);
-    }
-
-    /**
      * @param DeleteBackupPolicyRequest $request
      * @param RuntimeOptions            $runtime
      *
@@ -938,11 +817,29 @@ class Sas extends OpenApiClient
     public function deleteBackupPolicyWithOptions($request, $runtime)
     {
         Utils::validateModel($request);
+        $query = [];
+        if (!Utils::isUnset($request->id)) {
+            $query['Id'] = $request->id;
+        }
+        if (!Utils::isUnset($request->policyVersion)) {
+            $query['PolicyVersion'] = $request->policyVersion;
+        }
         $req = new OpenApiRequest([
-            'body' => Utils::toMap($request),
+            'query' => OpenApiUtilClient::query($query),
+        ]);
+        $params = new Params([
+            'action'      => 'DeleteBackupPolicy',
+            'version'     => '2018-12-03',
+            'protocol'    => 'HTTPS',
+            'pathname'    => '/',
+            'method'      => 'POST',
+            'authType'    => 'AK',
+            'style'       => 'RPC',
+            'reqBodyType' => 'formData',
+            'bodyType'    => 'json',
         ]);
 
-        return DeleteBackupPolicyResponse::fromMap($this->doRPCRequest('DeleteBackupPolicy', '2018-12-03', 'HTTPS', 'POST', 'AK', 'json', $req, $runtime));
+        return DeleteBackupPolicyResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
@@ -966,11 +863,35 @@ class Sas extends OpenApiClient
     public function deleteBackupPolicyMachineWithOptions($request, $runtime)
     {
         Utils::validateModel($request);
+        $query = [];
+        if (!Utils::isUnset($request->policyId)) {
+            $query['PolicyId'] = $request->policyId;
+        }
+        if (!Utils::isUnset($request->policyVersion)) {
+            $query['PolicyVersion'] = $request->policyVersion;
+        }
+        if (!Utils::isUnset($request->uuid)) {
+            $query['Uuid'] = $request->uuid;
+        }
+        if (!Utils::isUnset($request->uuidList)) {
+            $query['UuidList'] = $request->uuidList;
+        }
         $req = new OpenApiRequest([
-            'body' => Utils::toMap($request),
+            'query' => OpenApiUtilClient::query($query),
+        ]);
+        $params = new Params([
+            'action'      => 'DeleteBackupPolicyMachine',
+            'version'     => '2018-12-03',
+            'protocol'    => 'HTTPS',
+            'pathname'    => '/',
+            'method'      => 'POST',
+            'authType'    => 'AK',
+            'style'       => 'RPC',
+            'reqBodyType' => 'formData',
+            'bodyType'    => 'json',
         ]);
 
-        return DeleteBackupPolicyMachineResponse::fromMap($this->doRPCRequest('DeleteBackupPolicyMachine', '2018-12-03', 'HTTPS', 'POST', 'AK', 'json', $req, $runtime));
+        return DeleteBackupPolicyMachineResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
@@ -994,11 +915,29 @@ class Sas extends OpenApiClient
     public function deleteGroupWithOptions($request, $runtime)
     {
         Utils::validateModel($request);
+        $query = [];
+        if (!Utils::isUnset($request->groupId)) {
+            $query['GroupId'] = $request->groupId;
+        }
+        if (!Utils::isUnset($request->sourceIp)) {
+            $query['SourceIp'] = $request->sourceIp;
+        }
         $req = new OpenApiRequest([
-            'body' => Utils::toMap($request),
+            'query' => OpenApiUtilClient::query($query),
+        ]);
+        $params = new Params([
+            'action'      => 'DeleteGroup',
+            'version'     => '2018-12-03',
+            'protocol'    => 'HTTPS',
+            'pathname'    => '/',
+            'method'      => 'POST',
+            'authType'    => 'AK',
+            'style'       => 'RPC',
+            'reqBodyType' => 'formData',
+            'bodyType'    => 'json',
         ]);
 
-        return DeleteGroupResponse::fromMap($this->doRPCRequest('DeleteGroup', '2018-12-03', 'HTTPS', 'POST', 'AK', 'json', $req, $runtime));
+        return DeleteGroupResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
@@ -1022,11 +961,32 @@ class Sas extends OpenApiClient
     public function deleteLoginBaseConfigWithOptions($request, $runtime)
     {
         Utils::validateModel($request);
+        $query = [];
+        if (!Utils::isUnset($request->config)) {
+            $query['Config'] = $request->config;
+        }
+        if (!Utils::isUnset($request->target)) {
+            $query['Target'] = $request->target;
+        }
+        if (!Utils::isUnset($request->type)) {
+            $query['Type'] = $request->type;
+        }
         $req = new OpenApiRequest([
-            'body' => Utils::toMap($request),
+            'query' => OpenApiUtilClient::query($query),
+        ]);
+        $params = new Params([
+            'action'      => 'DeleteLoginBaseConfig',
+            'version'     => '2018-12-03',
+            'protocol'    => 'HTTPS',
+            'pathname'    => '/',
+            'method'      => 'POST',
+            'authType'    => 'AK',
+            'style'       => 'RPC',
+            'reqBodyType' => 'formData',
+            'bodyType'    => 'json',
         ]);
 
-        return DeleteLoginBaseConfigResponse::fromMap($this->doRPCRequest('DeleteLoginBaseConfig', '2018-12-03', 'HTTPS', 'POST', 'AK', 'json', $req, $runtime));
+        return DeleteLoginBaseConfigResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
@@ -1050,11 +1010,32 @@ class Sas extends OpenApiClient
     public function deleteStrategyWithOptions($request, $runtime)
     {
         Utils::validateModel($request);
+        $query = [];
+        if (!Utils::isUnset($request->id)) {
+            $query['Id'] = $request->id;
+        }
+        if (!Utils::isUnset($request->lang)) {
+            $query['Lang'] = $request->lang;
+        }
+        if (!Utils::isUnset($request->sourceIp)) {
+            $query['SourceIp'] = $request->sourceIp;
+        }
         $req = new OpenApiRequest([
-            'body' => Utils::toMap($request),
+            'query' => OpenApiUtilClient::query($query),
+        ]);
+        $params = new Params([
+            'action'      => 'DeleteStrategy',
+            'version'     => '2018-12-03',
+            'protocol'    => 'HTTPS',
+            'pathname'    => '/',
+            'method'      => 'POST',
+            'authType'    => 'AK',
+            'style'       => 'RPC',
+            'reqBodyType' => 'formData',
+            'bodyType'    => 'json',
         ]);
 
-        return DeleteStrategyResponse::fromMap($this->doRPCRequest('DeleteStrategy', '2018-12-03', 'HTTPS', 'POST', 'AK', 'json', $req, $runtime));
+        return DeleteStrategyResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
@@ -1078,11 +1059,29 @@ class Sas extends OpenApiClient
     public function deleteTagWithUuidWithOptions($request, $runtime)
     {
         Utils::validateModel($request);
+        $query = [];
+        if (!Utils::isUnset($request->tagName)) {
+            $query['TagName'] = $request->tagName;
+        }
+        if (!Utils::isUnset($request->uuidList)) {
+            $query['UuidList'] = $request->uuidList;
+        }
         $req = new OpenApiRequest([
-            'body' => Utils::toMap($request),
+            'query' => OpenApiUtilClient::query($query),
+        ]);
+        $params = new Params([
+            'action'      => 'DeleteTagWithUuid',
+            'version'     => '2018-12-03',
+            'protocol'    => 'HTTPS',
+            'pathname'    => '/',
+            'method'      => 'POST',
+            'authType'    => 'AK',
+            'style'       => 'RPC',
+            'reqBodyType' => 'formData',
+            'bodyType'    => 'json',
         ]);
 
-        return DeleteTagWithUuidResponse::fromMap($this->doRPCRequest('DeleteTagWithUuid', '2018-12-03', 'HTTPS', 'POST', 'AK', 'json', $req, $runtime));
+        return DeleteTagWithUuidResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
@@ -1098,34 +1097,6 @@ class Sas extends OpenApiClient
     }
 
     /**
-     * @param DeleteUniBackupPolicyRequest $request
-     * @param RuntimeOptions               $runtime
-     *
-     * @return DeleteUniBackupPolicyResponse
-     */
-    public function deleteUniBackupPolicyWithOptions($request, $runtime)
-    {
-        Utils::validateModel($request);
-        $req = new OpenApiRequest([
-            'body' => Utils::toMap($request),
-        ]);
-
-        return DeleteUniBackupPolicyResponse::fromMap($this->doRPCRequest('DeleteUniBackupPolicy', '2018-12-03', 'HTTPS', 'POST', 'AK', 'json', $req, $runtime));
-    }
-
-    /**
-     * @param DeleteUniBackupPolicyRequest $request
-     *
-     * @return DeleteUniBackupPolicyResponse
-     */
-    public function deleteUniBackupPolicy($request)
-    {
-        $runtime = new RuntimeOptions([]);
-
-        return $this->deleteUniBackupPolicyWithOptions($request, $runtime);
-    }
-
-    /**
      * @param DeleteVpcHoneyPotRequest $request
      * @param RuntimeOptions           $runtime
      *
@@ -1134,11 +1105,26 @@ class Sas extends OpenApiClient
     public function deleteVpcHoneyPotWithOptions($request, $runtime)
     {
         Utils::validateModel($request);
+        $query = [];
+        if (!Utils::isUnset($request->vpcId)) {
+            $query['VpcId'] = $request->vpcId;
+        }
         $req = new OpenApiRequest([
-            'body' => Utils::toMap($request),
+            'query' => OpenApiUtilClient::query($query),
+        ]);
+        $params = new Params([
+            'action'      => 'DeleteVpcHoneyPot',
+            'version'     => '2018-12-03',
+            'protocol'    => 'HTTPS',
+            'pathname'    => '/',
+            'method'      => 'POST',
+            'authType'    => 'AK',
+            'style'       => 'RPC',
+            'reqBodyType' => 'formData',
+            'bodyType'    => 'json',
         ]);
 
-        return DeleteVpcHoneyPotResponse::fromMap($this->doRPCRequest('DeleteVpcHoneyPot', '2018-12-03', 'HTTPS', 'POST', 'AK', 'json', $req, $runtime));
+        return DeleteVpcHoneyPotResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
@@ -1154,6 +1140,49 @@ class Sas extends OpenApiClient
     }
 
     /**
+     * @param DescribeAccessKeyLeakDetailRequest $request
+     * @param RuntimeOptions                     $runtime
+     *
+     * @return DescribeAccessKeyLeakDetailResponse
+     */
+    public function describeAccessKeyLeakDetailWithOptions($request, $runtime)
+    {
+        Utils::validateModel($request);
+        $query = [];
+        if (!Utils::isUnset($request->id)) {
+            $query['Id'] = $request->id;
+        }
+        $req = new OpenApiRequest([
+            'query' => OpenApiUtilClient::query($query),
+        ]);
+        $params = new Params([
+            'action'      => 'DescribeAccessKeyLeakDetail',
+            'version'     => '2018-12-03',
+            'protocol'    => 'HTTPS',
+            'pathname'    => '/',
+            'method'      => 'POST',
+            'authType'    => 'AK',
+            'style'       => 'RPC',
+            'reqBodyType' => 'formData',
+            'bodyType'    => 'json',
+        ]);
+
+        return DescribeAccessKeyLeakDetailResponse::fromMap($this->callApi($params, $req, $runtime));
+    }
+
+    /**
+     * @param DescribeAccessKeyLeakDetailRequest $request
+     *
+     * @return DescribeAccessKeyLeakDetailResponse
+     */
+    public function describeAccessKeyLeakDetail($request)
+    {
+        $runtime = new RuntimeOptions([]);
+
+        return $this->describeAccessKeyLeakDetailWithOptions($request, $runtime);
+    }
+
+    /**
      * @param DescribeAccesskeyLeakListRequest $request
      * @param RuntimeOptions                   $runtime
      *
@@ -1162,11 +1191,38 @@ class Sas extends OpenApiClient
     public function describeAccesskeyLeakListWithOptions($request, $runtime)
     {
         Utils::validateModel($request);
+        $query = [];
+        if (!Utils::isUnset($request->currentPage)) {
+            $query['CurrentPage'] = $request->currentPage;
+        }
+        if (!Utils::isUnset($request->pageSize)) {
+            $query['PageSize'] = $request->pageSize;
+        }
+        if (!Utils::isUnset($request->query)) {
+            $query['Query'] = $request->query;
+        }
+        if (!Utils::isUnset($request->startTs)) {
+            $query['StartTs'] = $request->startTs;
+        }
+        if (!Utils::isUnset($request->status)) {
+            $query['Status'] = $request->status;
+        }
         $req = new OpenApiRequest([
-            'body' => Utils::toMap($request),
+            'query' => OpenApiUtilClient::query($query),
+        ]);
+        $params = new Params([
+            'action'      => 'DescribeAccesskeyLeakList',
+            'version'     => '2018-12-03',
+            'protocol'    => 'HTTPS',
+            'pathname'    => '/',
+            'method'      => 'POST',
+            'authType'    => 'AK',
+            'style'       => 'RPC',
+            'reqBodyType' => 'formData',
+            'bodyType'    => 'json',
         ]);
 
-        return DescribeAccesskeyLeakListResponse::fromMap($this->doRPCRequest('DescribeAccesskeyLeakList', '2018-12-03', 'HTTPS', 'POST', 'AK', 'json', $req, $runtime));
+        return DescribeAccesskeyLeakListResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
@@ -1190,11 +1246,59 @@ class Sas extends OpenApiClient
     public function describeAffectedMaliciousFileImagesWithOptions($request, $runtime)
     {
         Utils::validateModel($request);
+        $query = [];
+        if (!Utils::isUnset($request->currentPage)) {
+            $query['CurrentPage'] = $request->currentPage;
+        }
+        if (!Utils::isUnset($request->imageDigest)) {
+            $query['ImageDigest'] = $request->imageDigest;
+        }
+        if (!Utils::isUnset($request->imageLayer)) {
+            $query['ImageLayer'] = $request->imageLayer;
+        }
+        if (!Utils::isUnset($request->imageTag)) {
+            $query['ImageTag'] = $request->imageTag;
+        }
+        if (!Utils::isUnset($request->lang)) {
+            $query['Lang'] = $request->lang;
+        }
+        if (!Utils::isUnset($request->maliciousMd5)) {
+            $query['MaliciousMd5'] = $request->maliciousMd5;
+        }
+        if (!Utils::isUnset($request->pageSize)) {
+            $query['PageSize'] = $request->pageSize;
+        }
+        if (!Utils::isUnset($request->repoId)) {
+            $query['RepoId'] = $request->repoId;
+        }
+        if (!Utils::isUnset($request->repoInstanceId)) {
+            $query['RepoInstanceId'] = $request->repoInstanceId;
+        }
+        if (!Utils::isUnset($request->repoName)) {
+            $query['RepoName'] = $request->repoName;
+        }
+        if (!Utils::isUnset($request->repoNamespace)) {
+            $query['RepoNamespace'] = $request->repoNamespace;
+        }
+        if (!Utils::isUnset($request->repoRegionId)) {
+            $query['RepoRegionId'] = $request->repoRegionId;
+        }
         $req = new OpenApiRequest([
-            'body' => Utils::toMap($request),
+            'query' => OpenApiUtilClient::query($query),
+        ]);
+        $params = new Params([
+            'action'      => 'DescribeAffectedMaliciousFileImages',
+            'version'     => '2018-12-03',
+            'protocol'    => 'HTTPS',
+            'pathname'    => '/',
+            'method'      => 'POST',
+            'authType'    => 'AK',
+            'style'       => 'RPC',
+            'reqBodyType' => 'formData',
+            'bodyType'    => 'json',
         ]);
 
-        return DescribeAffectedMaliciousFileImagesResponse::fromMap($this->doRPCRequest('DescribeAffectedMaliciousFileImages', '2018-12-03', 'HTTPS', 'POST', 'AK', 'json', $req, $runtime));
+        return DescribeAffectedMaliciousFileImagesResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
@@ -1218,11 +1322,35 @@ class Sas extends OpenApiClient
     public function describeAlarmEventDetailWithOptions($request, $runtime)
     {
         Utils::validateModel($request);
+        $query = [];
+        if (!Utils::isUnset($request->alarmUniqueInfo)) {
+            $query['AlarmUniqueInfo'] = $request->alarmUniqueInfo;
+        }
+        if (!Utils::isUnset($request->from)) {
+            $query['From'] = $request->from;
+        }
+        if (!Utils::isUnset($request->lang)) {
+            $query['Lang'] = $request->lang;
+        }
+        if (!Utils::isUnset($request->sourceIp)) {
+            $query['SourceIp'] = $request->sourceIp;
+        }
         $req = new OpenApiRequest([
-            'body' => Utils::toMap($request),
+            'query' => OpenApiUtilClient::query($query),
+        ]);
+        $params = new Params([
+            'action'      => 'DescribeAlarmEventDetail',
+            'version'     => '2018-12-03',
+            'protocol'    => 'HTTPS',
+            'pathname'    => '/',
+            'method'      => 'POST',
+            'authType'    => 'AK',
+            'style'       => 'RPC',
+            'reqBodyType' => 'formData',
+            'bodyType'    => 'json',
         ]);
 
-        return DescribeAlarmEventDetailResponse::fromMap($this->doRPCRequest('DescribeAlarmEventDetail', '2018-12-03', 'HTTPS', 'POST', 'AK', 'json', $req, $runtime));
+        return DescribeAlarmEventDetailResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
@@ -1246,11 +1374,59 @@ class Sas extends OpenApiClient
     public function describeAlarmEventListWithOptions($request, $runtime)
     {
         Utils::validateModel($request);
+        $query = [];
+        if (!Utils::isUnset($request->alarmEventName)) {
+            $query['AlarmEventName'] = $request->alarmEventName;
+        }
+        if (!Utils::isUnset($request->alarmEventType)) {
+            $query['AlarmEventType'] = $request->alarmEventType;
+        }
+        if (!Utils::isUnset($request->currentPage)) {
+            $query['CurrentPage'] = $request->currentPage;
+        }
+        if (!Utils::isUnset($request->dealed)) {
+            $query['Dealed'] = $request->dealed;
+        }
+        if (!Utils::isUnset($request->from)) {
+            $query['From'] = $request->from;
+        }
+        if (!Utils::isUnset($request->groupId)) {
+            $query['GroupId'] = $request->groupId;
+        }
+        if (!Utils::isUnset($request->lang)) {
+            $query['Lang'] = $request->lang;
+        }
+        if (!Utils::isUnset($request->levels)) {
+            $query['Levels'] = $request->levels;
+        }
+        if (!Utils::isUnset($request->operateErrorCodeList)) {
+            $query['OperateErrorCodeList'] = $request->operateErrorCodeList;
+        }
+        if (!Utils::isUnset($request->pageSize)) {
+            $query['PageSize'] = $request->pageSize;
+        }
+        if (!Utils::isUnset($request->remark)) {
+            $query['Remark'] = $request->remark;
+        }
+        if (!Utils::isUnset($request->sourceIp)) {
+            $query['SourceIp'] = $request->sourceIp;
+        }
         $req = new OpenApiRequest([
-            'body' => Utils::toMap($request),
+            'query' => OpenApiUtilClient::query($query),
+        ]);
+        $params = new Params([
+            'action'      => 'DescribeAlarmEventList',
+            'version'     => '2018-12-03',
+            'protocol'    => 'HTTPS',
+            'pathname'    => '/',
+            'method'      => 'POST',
+            'authType'    => 'AK',
+            'style'       => 'RPC',
+            'reqBodyType' => 'formData',
+            'bodyType'    => 'json',
         ]);
 
-        return DescribeAlarmEventListResponse::fromMap($this->doRPCRequest('DescribeAlarmEventList', '2018-12-03', 'HTTPS', 'POST', 'AK', 'json', $req, $runtime));
+        return DescribeAlarmEventListResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
@@ -1266,43 +1442,26 @@ class Sas extends OpenApiClient
     }
 
     /**
-     * @param DescribeAlarmEventStackInfoRequest $request
-     * @param RuntimeOptions                     $runtime
-     *
-     * @return DescribeAlarmEventStackInfoResponse
-     */
-    public function describeAlarmEventStackInfoWithOptions($request, $runtime)
-    {
-        Utils::validateModel($request);
-        $req = new OpenApiRequest([
-            'body' => Utils::toMap($request),
-        ]);
-
-        return DescribeAlarmEventStackInfoResponse::fromMap($this->doRPCRequest('DescribeAlarmEventStackInfo', '2018-12-03', 'HTTPS', 'POST', 'AK', 'json', $req, $runtime));
-    }
-
-    /**
-     * @param DescribeAlarmEventStackInfoRequest $request
-     *
-     * @return DescribeAlarmEventStackInfoResponse
-     */
-    public function describeAlarmEventStackInfo($request)
-    {
-        $runtime = new RuntimeOptions([]);
-
-        return $this->describeAlarmEventStackInfoWithOptions($request, $runtime);
-    }
-
-    /**
      * @param RuntimeOptions $runtime
      *
      * @return DescribeAllEntityResponse
      */
     public function describeAllEntityWithOptions($runtime)
     {
-        $req = new OpenApiRequest([]);
+        $req    = new OpenApiRequest([]);
+        $params = new Params([
+            'action'      => 'DescribeAllEntity',
+            'version'     => '2018-12-03',
+            'protocol'    => 'HTTPS',
+            'pathname'    => '/',
+            'method'      => 'POST',
+            'authType'    => 'AK',
+            'style'       => 'RPC',
+            'reqBodyType' => 'formData',
+            'bodyType'    => 'json',
+        ]);
 
-        return DescribeAllEntityResponse::fromMap($this->doRPCRequest('DescribeAllEntity', '2018-12-03', 'HTTPS', 'POST', 'AK', 'json', $req, $runtime));
+        return DescribeAllEntityResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
@@ -1324,11 +1483,26 @@ class Sas extends OpenApiClient
     public function describeAllGroupsWithOptions($request, $runtime)
     {
         Utils::validateModel($request);
+        $query = [];
+        if (!Utils::isUnset($request->lang)) {
+            $query['Lang'] = $request->lang;
+        }
         $req = new OpenApiRequest([
-            'body' => Utils::toMap($request),
+            'query' => OpenApiUtilClient::query($query),
+        ]);
+        $params = new Params([
+            'action'      => 'DescribeAllGroups',
+            'version'     => '2018-12-03',
+            'protocol'    => 'HTTPS',
+            'pathname'    => '/',
+            'method'      => 'POST',
+            'authType'    => 'AK',
+            'style'       => 'RPC',
+            'reqBodyType' => 'formData',
+            'bodyType'    => 'json',
         ]);
 
-        return DescribeAllGroupsResponse::fromMap($this->doRPCRequest('DescribeAllGroups', '2018-12-03', 'HTTPS', 'POST', 'AK', 'json', $req, $runtime));
+        return DescribeAllGroupsResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
@@ -1344,34 +1518,6 @@ class Sas extends OpenApiClient
     }
 
     /**
-     * @param DescribeAllRegionsStatisticsRequest $request
-     * @param RuntimeOptions                      $runtime
-     *
-     * @return DescribeAllRegionsStatisticsResponse
-     */
-    public function describeAllRegionsStatisticsWithOptions($request, $runtime)
-    {
-        Utils::validateModel($request);
-        $req = new OpenApiRequest([
-            'body' => Utils::toMap($request),
-        ]);
-
-        return DescribeAllRegionsStatisticsResponse::fromMap($this->doRPCRequest('DescribeAllRegionsStatistics', '2018-12-03', 'HTTPS', 'POST', 'AK', 'json', $req, $runtime));
-    }
-
-    /**
-     * @param DescribeAllRegionsStatisticsRequest $request
-     *
-     * @return DescribeAllRegionsStatisticsResponse
-     */
-    public function describeAllRegionsStatistics($request)
-    {
-        $runtime = new RuntimeOptions([]);
-
-        return $this->describeAllRegionsStatisticsWithOptions($request, $runtime);
-    }
-
-    /**
      * @param DescribeAntiBruteForceRulesRequest $request
      * @param RuntimeOptions                     $runtime
      *
@@ -1380,11 +1526,29 @@ class Sas extends OpenApiClient
     public function describeAntiBruteForceRulesWithOptions($request, $runtime)
     {
         Utils::validateModel($request);
+        $query = [];
+        if (!Utils::isUnset($request->resourceOwnerId)) {
+            $query['ResourceOwnerId'] = $request->resourceOwnerId;
+        }
+        if (!Utils::isUnset($request->sourceIp)) {
+            $query['SourceIp'] = $request->sourceIp;
+        }
         $req = new OpenApiRequest([
-            'body' => Utils::toMap($request),
+            'query' => OpenApiUtilClient::query($query),
+        ]);
+        $params = new Params([
+            'action'      => 'DescribeAntiBruteForceRules',
+            'version'     => '2018-12-03',
+            'protocol'    => 'HTTPS',
+            'pathname'    => '/',
+            'method'      => 'POST',
+            'authType'    => 'AK',
+            'style'       => 'RPC',
+            'reqBodyType' => 'formData',
+            'bodyType'    => 'json',
         ]);
 
-        return DescribeAntiBruteForceRulesResponse::fromMap($this->doRPCRequest('DescribeAntiBruteForceRules', '2018-12-03', 'HTTPS', 'POST', 'AK', 'json', $req, $runtime));
+        return DescribeAntiBruteForceRulesResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
@@ -1408,11 +1572,32 @@ class Sas extends OpenApiClient
     public function describeAssetDetailByUuidWithOptions($request, $runtime)
     {
         Utils::validateModel($request);
+        $query = [];
+        if (!Utils::isUnset($request->lang)) {
+            $query['Lang'] = $request->lang;
+        }
+        if (!Utils::isUnset($request->sourceIp)) {
+            $query['SourceIp'] = $request->sourceIp;
+        }
+        if (!Utils::isUnset($request->uuid)) {
+            $query['Uuid'] = $request->uuid;
+        }
         $req = new OpenApiRequest([
-            'body' => Utils::toMap($request),
+            'query' => OpenApiUtilClient::query($query),
+        ]);
+        $params = new Params([
+            'action'      => 'DescribeAssetDetailByUuid',
+            'version'     => '2018-12-03',
+            'protocol'    => 'HTTPS',
+            'pathname'    => '/',
+            'method'      => 'POST',
+            'authType'    => 'AK',
+            'style'       => 'RPC',
+            'reqBodyType' => 'formData',
+            'bodyType'    => 'json',
         ]);
 
-        return DescribeAssetDetailByUuidResponse::fromMap($this->doRPCRequest('DescribeAssetDetailByUuid', '2018-12-03', 'HTTPS', 'POST', 'AK', 'json', $req, $runtime));
+        return DescribeAssetDetailByUuidResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
@@ -1436,11 +1621,26 @@ class Sas extends OpenApiClient
     public function describeAssetDetailByUuidsWithOptions($request, $runtime)
     {
         Utils::validateModel($request);
+        $query = [];
+        if (!Utils::isUnset($request->uuids)) {
+            $query['Uuids'] = $request->uuids;
+        }
         $req = new OpenApiRequest([
-            'body' => Utils::toMap($request),
+            'query' => OpenApiUtilClient::query($query),
+        ]);
+        $params = new Params([
+            'action'      => 'DescribeAssetDetailByUuids',
+            'version'     => '2018-12-03',
+            'protocol'    => 'HTTPS',
+            'pathname'    => '/',
+            'method'      => 'POST',
+            'authType'    => 'AK',
+            'style'       => 'RPC',
+            'reqBodyType' => 'formData',
+            'bodyType'    => 'json',
         ]);
 
-        return DescribeAssetDetailByUuidsResponse::fromMap($this->doRPCRequest('DescribeAssetDetailByUuids', '2018-12-03', 'HTTPS', 'POST', 'AK', 'json', $req, $runtime));
+        return DescribeAssetDetailByUuidsResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
@@ -1462,9 +1662,20 @@ class Sas extends OpenApiClient
      */
     public function describeAssetSummaryWithOptions($runtime)
     {
-        $req = new OpenApiRequest([]);
+        $req    = new OpenApiRequest([]);
+        $params = new Params([
+            'action'      => 'DescribeAssetSummary',
+            'version'     => '2018-12-03',
+            'protocol'    => 'HTTPS',
+            'pathname'    => '/',
+            'method'      => 'POST',
+            'authType'    => 'AK',
+            'style'       => 'RPC',
+            'reqBodyType' => 'formData',
+            'bodyType'    => 'json',
+        ]);
 
-        return DescribeAssetSummaryResponse::fromMap($this->doRPCRequest('DescribeAssetSummary', '2018-12-03', 'HTTPS', 'POST', 'AK', 'json', $req, $runtime));
+        return DescribeAssetSummaryResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
@@ -1486,11 +1697,47 @@ class Sas extends OpenApiClient
     public function describeAttackAnalysisDataWithOptions($request, $runtime)
     {
         Utils::validateModel($request);
+        $query = [];
+        if (!Utils::isUnset($request->base64)) {
+            $query['Base64'] = $request->base64;
+        }
+        if (!Utils::isUnset($request->currentPage)) {
+            $query['CurrentPage'] = $request->currentPage;
+        }
+        if (!Utils::isUnset($request->data)) {
+            $query['Data'] = $request->data;
+        }
+        if (!Utils::isUnset($request->endTime)) {
+            $query['EndTime'] = $request->endTime;
+        }
+        if (!Utils::isUnset($request->lang)) {
+            $query['Lang'] = $request->lang;
+        }
+        if (!Utils::isUnset($request->pageSize)) {
+            $query['PageSize'] = $request->pageSize;
+        }
+        if (!Utils::isUnset($request->startTime)) {
+            $query['StartTime'] = $request->startTime;
+        }
+        if (!Utils::isUnset($request->type)) {
+            $query['Type'] = $request->type;
+        }
         $req = new OpenApiRequest([
-            'body' => Utils::toMap($request),
+            'query' => OpenApiUtilClient::query($query),
+        ]);
+        $params = new Params([
+            'action'      => 'DescribeAttackAnalysisData',
+            'version'     => '2018-12-03',
+            'protocol'    => 'HTTPS',
+            'pathname'    => '/',
+            'method'      => 'POST',
+            'authType'    => 'AK',
+            'style'       => 'RPC',
+            'reqBodyType' => 'formData',
+            'bodyType'    => 'json',
         ]);
 
-        return DescribeAttackAnalysisDataResponse::fromMap($this->doRPCRequest('DescribeAttackAnalysisData', '2018-12-03', 'HTTPS', 'POST', 'AK', 'json', $req, $runtime));
+        return DescribeAttackAnalysisDataResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
@@ -1512,9 +1759,20 @@ class Sas extends OpenApiClient
      */
     public function describeAutoDelConfigWithOptions($runtime)
     {
-        $req = new OpenApiRequest([]);
+        $req    = new OpenApiRequest([]);
+        $params = new Params([
+            'action'      => 'DescribeAutoDelConfig',
+            'version'     => '2018-12-03',
+            'protocol'    => 'HTTPS',
+            'pathname'    => '/',
+            'method'      => 'POST',
+            'authType'    => 'AK',
+            'style'       => 'RPC',
+            'reqBodyType' => 'formData',
+            'bodyType'    => 'json',
+        ]);
 
-        return DescribeAutoDelConfigResponse::fromMap($this->doRPCRequest('DescribeAutoDelConfig', '2018-12-03', 'HTTPS', 'POST', 'AK', 'json', $req, $runtime));
+        return DescribeAutoDelConfigResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
@@ -1536,11 +1794,26 @@ class Sas extends OpenApiClient
     public function describeBackupClientsWithOptions($request, $runtime)
     {
         Utils::validateModel($request);
+        $query = [];
+        if (!Utils::isUnset($request->supportRegionId)) {
+            $query['SupportRegionId'] = $request->supportRegionId;
+        }
         $req = new OpenApiRequest([
-            'body' => Utils::toMap($request),
+            'query' => OpenApiUtilClient::query($query),
+        ]);
+        $params = new Params([
+            'action'      => 'DescribeBackupClients',
+            'version'     => '2018-12-03',
+            'protocol'    => 'HTTPS',
+            'pathname'    => '/',
+            'method'      => 'POST',
+            'authType'    => 'AK',
+            'style'       => 'RPC',
+            'reqBodyType' => 'formData',
+            'bodyType'    => 'json',
         ]);
 
-        return DescribeBackupClientsResponse::fromMap($this->doRPCRequest('DescribeBackupClients', '2018-12-03', 'HTTPS', 'POST', 'AK', 'json', $req, $runtime));
+        return DescribeBackupClientsResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
@@ -1556,34 +1829,6 @@ class Sas extends OpenApiClient
     }
 
     /**
-     * @param DescribeBackupDirsRequest $request
-     * @param RuntimeOptions            $runtime
-     *
-     * @return DescribeBackupDirsResponse
-     */
-    public function describeBackupDirsWithOptions($request, $runtime)
-    {
-        Utils::validateModel($request);
-        $req = new OpenApiRequest([
-            'body' => Utils::toMap($request),
-        ]);
-
-        return DescribeBackupDirsResponse::fromMap($this->doRPCRequest('DescribeBackupDirs', '2018-12-03', 'HTTPS', 'POST', 'AK', 'json', $req, $runtime));
-    }
-
-    /**
-     * @param DescribeBackupDirsRequest $request
-     *
-     * @return DescribeBackupDirsResponse
-     */
-    public function describeBackupDirs($request)
-    {
-        $runtime = new RuntimeOptions([]);
-
-        return $this->describeBackupDirsWithOptions($request, $runtime);
-    }
-
-    /**
      * @param DescribeBackupFilesRequest $request
      * @param RuntimeOptions             $runtime
      *
@@ -1592,11 +1837,38 @@ class Sas extends OpenApiClient
     public function describeBackupFilesWithOptions($request, $runtime)
     {
         Utils::validateModel($request);
+        $query = [];
+        if (!Utils::isUnset($request->currentPage)) {
+            $query['CurrentPage'] = $request->currentPage;
+        }
+        if (!Utils::isUnset($request->pageSize)) {
+            $query['PageSize'] = $request->pageSize;
+        }
+        if (!Utils::isUnset($request->path)) {
+            $query['Path'] = $request->path;
+        }
+        if (!Utils::isUnset($request->snapshotHash)) {
+            $query['SnapshotHash'] = $request->snapshotHash;
+        }
+        if (!Utils::isUnset($request->uuid)) {
+            $query['Uuid'] = $request->uuid;
+        }
         $req = new OpenApiRequest([
-            'body' => Utils::toMap($request),
+            'query' => OpenApiUtilClient::query($query),
+        ]);
+        $params = new Params([
+            'action'      => 'DescribeBackupFiles',
+            'version'     => '2018-12-03',
+            'protocol'    => 'HTTPS',
+            'pathname'    => '/',
+            'method'      => 'POST',
+            'authType'    => 'AK',
+            'style'       => 'RPC',
+            'reqBodyType' => 'formData',
+            'bodyType'    => 'json',
         ]);
 
-        return DescribeBackupFilesResponse::fromMap($this->doRPCRequest('DescribeBackupFiles', '2018-12-03', 'HTTPS', 'POST', 'AK', 'json', $req, $runtime));
+        return DescribeBackupFilesResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
@@ -1612,34 +1884,6 @@ class Sas extends OpenApiClient
     }
 
     /**
-     * @param DescribeBackupMachineStatusRequest $request
-     * @param RuntimeOptions                     $runtime
-     *
-     * @return DescribeBackupMachineStatusResponse
-     */
-    public function describeBackupMachineStatusWithOptions($request, $runtime)
-    {
-        Utils::validateModel($request);
-        $req = new OpenApiRequest([
-            'body' => Utils::toMap($request),
-        ]);
-
-        return DescribeBackupMachineStatusResponse::fromMap($this->doRPCRequest('DescribeBackupMachineStatus', '2018-12-03', 'HTTPS', 'POST', 'AK', 'json', $req, $runtime));
-    }
-
-    /**
-     * @param DescribeBackupMachineStatusRequest $request
-     *
-     * @return DescribeBackupMachineStatusResponse
-     */
-    public function describeBackupMachineStatus($request)
-    {
-        $runtime = new RuntimeOptions([]);
-
-        return $this->describeBackupMachineStatusWithOptions($request, $runtime);
-    }
-
-    /**
      * @param DescribeBackupPoliciesRequest $request
      * @param RuntimeOptions                $runtime
      *
@@ -1648,11 +1892,38 @@ class Sas extends OpenApiClient
     public function describeBackupPoliciesWithOptions($request, $runtime)
     {
         Utils::validateModel($request);
+        $query = [];
+        if (!Utils::isUnset($request->currentPage)) {
+            $query['CurrentPage'] = $request->currentPage;
+        }
+        if (!Utils::isUnset($request->machineRemark)) {
+            $query['MachineRemark'] = $request->machineRemark;
+        }
+        if (!Utils::isUnset($request->name)) {
+            $query['Name'] = $request->name;
+        }
+        if (!Utils::isUnset($request->pageSize)) {
+            $query['PageSize'] = $request->pageSize;
+        }
+        if (!Utils::isUnset($request->status)) {
+            $query['Status'] = $request->status;
+        }
         $req = new OpenApiRequest([
-            'body' => Utils::toMap($request),
+            'query' => OpenApiUtilClient::query($query),
+        ]);
+        $params = new Params([
+            'action'      => 'DescribeBackupPolicies',
+            'version'     => '2018-12-03',
+            'protocol'    => 'HTTPS',
+            'pathname'    => '/',
+            'method'      => 'POST',
+            'authType'    => 'AK',
+            'style'       => 'RPC',
+            'reqBodyType' => 'formData',
+            'bodyType'    => 'json',
         ]);
 
-        return DescribeBackupPoliciesResponse::fromMap($this->doRPCRequest('DescribeBackupPolicies', '2018-12-03', 'HTTPS', 'POST', 'AK', 'json', $req, $runtime));
+        return DescribeBackupPoliciesResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
@@ -1668,43 +1939,26 @@ class Sas extends OpenApiClient
     }
 
     /**
-     * @param DescribeBackupPolicyRequest $request
-     * @param RuntimeOptions              $runtime
-     *
-     * @return DescribeBackupPolicyResponse
-     */
-    public function describeBackupPolicyWithOptions($request, $runtime)
-    {
-        Utils::validateModel($request);
-        $req = new OpenApiRequest([
-            'body' => Utils::toMap($request),
-        ]);
-
-        return DescribeBackupPolicyResponse::fromMap($this->doRPCRequest('DescribeBackupPolicy', '2018-12-03', 'HTTPS', 'POST', 'AK', 'json', $req, $runtime));
-    }
-
-    /**
-     * @param DescribeBackupPolicyRequest $request
-     *
-     * @return DescribeBackupPolicyResponse
-     */
-    public function describeBackupPolicy($request)
-    {
-        $runtime = new RuntimeOptions([]);
-
-        return $this->describeBackupPolicyWithOptions($request, $runtime);
-    }
-
-    /**
      * @param RuntimeOptions $runtime
      *
      * @return DescribeBackupRestoreCountResponse
      */
     public function describeBackupRestoreCountWithOptions($runtime)
     {
-        $req = new OpenApiRequest([]);
+        $req    = new OpenApiRequest([]);
+        $params = new Params([
+            'action'      => 'DescribeBackupRestoreCount',
+            'version'     => '2018-12-03',
+            'protocol'    => 'HTTPS',
+            'pathname'    => '/',
+            'method'      => 'POST',
+            'authType'    => 'AK',
+            'style'       => 'RPC',
+            'reqBodyType' => 'formData',
+            'bodyType'    => 'json',
+        ]);
 
-        return DescribeBackupRestoreCountResponse::fromMap($this->doRPCRequest('DescribeBackupRestoreCount', '2018-12-03', 'HTTPS', 'POST', 'AK', 'json', $req, $runtime));
+        return DescribeBackupRestoreCountResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
@@ -1726,11 +1980,29 @@ class Sas extends OpenApiClient
     public function describeBruteForceSummaryWithOptions($request, $runtime)
     {
         Utils::validateModel($request);
+        $query = [];
+        if (!Utils::isUnset($request->resourceOwnerId)) {
+            $query['ResourceOwnerId'] = $request->resourceOwnerId;
+        }
+        if (!Utils::isUnset($request->sourceIp)) {
+            $query['SourceIp'] = $request->sourceIp;
+        }
         $req = new OpenApiRequest([
-            'body' => Utils::toMap($request),
+            'query' => OpenApiUtilClient::query($query),
+        ]);
+        $params = new Params([
+            'action'      => 'DescribeBruteForceSummary',
+            'version'     => '2018-12-03',
+            'protocol'    => 'HTTPS',
+            'pathname'    => '/',
+            'method'      => 'POST',
+            'authType'    => 'AK',
+            'style'       => 'RPC',
+            'reqBodyType' => 'formData',
+            'bodyType'    => 'json',
         ]);
 
-        return DescribeBruteForceSummaryResponse::fromMap($this->doRPCRequest('DescribeBruteForceSummary', '2018-12-03', 'HTTPS', 'POST', 'AK', 'json', $req, $runtime));
+        return DescribeBruteForceSummaryResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
@@ -1754,11 +2026,26 @@ class Sas extends OpenApiClient
     public function describeCheckEcsWarningsWithOptions($request, $runtime)
     {
         Utils::validateModel($request);
+        $query = [];
+        if (!Utils::isUnset($request->sourceIp)) {
+            $query['SourceIp'] = $request->sourceIp;
+        }
         $req = new OpenApiRequest([
-            'body' => Utils::toMap($request),
+            'query' => OpenApiUtilClient::query($query),
+        ]);
+        $params = new Params([
+            'action'      => 'DescribeCheckEcsWarnings',
+            'version'     => '2018-12-03',
+            'protocol'    => 'HTTPS',
+            'pathname'    => '/',
+            'method'      => 'POST',
+            'authType'    => 'AK',
+            'style'       => 'RPC',
+            'reqBodyType' => 'formData',
+            'bodyType'    => 'json',
         ]);
 
-        return DescribeCheckEcsWarningsResponse::fromMap($this->doRPCRequest('DescribeCheckEcsWarnings', '2018-12-03', 'HTTPS', 'POST', 'AK', 'json', $req, $runtime));
+        return DescribeCheckEcsWarningsResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
@@ -1782,11 +2069,32 @@ class Sas extends OpenApiClient
     public function describeCheckWarningDetailWithOptions($request, $runtime)
     {
         Utils::validateModel($request);
+        $query = [];
+        if (!Utils::isUnset($request->checkWarningId)) {
+            $query['CheckWarningId'] = $request->checkWarningId;
+        }
+        if (!Utils::isUnset($request->lang)) {
+            $query['Lang'] = $request->lang;
+        }
+        if (!Utils::isUnset($request->sourceIp)) {
+            $query['SourceIp'] = $request->sourceIp;
+        }
         $req = new OpenApiRequest([
-            'body' => Utils::toMap($request),
+            'query' => OpenApiUtilClient::query($query),
+        ]);
+        $params = new Params([
+            'action'      => 'DescribeCheckWarningDetail',
+            'version'     => '2018-12-03',
+            'protocol'    => 'HTTPS',
+            'pathname'    => '/',
+            'method'      => 'POST',
+            'authType'    => 'AK',
+            'style'       => 'RPC',
+            'reqBodyType' => 'formData',
+            'bodyType'    => 'json',
         ]);
 
-        return DescribeCheckWarningDetailResponse::fromMap($this->doRPCRequest('DescribeCheckWarningDetail', '2018-12-03', 'HTTPS', 'POST', 'AK', 'json', $req, $runtime));
+        return DescribeCheckWarningDetailResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
@@ -1810,11 +2118,53 @@ class Sas extends OpenApiClient
     public function describeCheckWarningSummaryWithOptions($request, $runtime)
     {
         Utils::validateModel($request);
+        $query = [];
+        if (!Utils::isUnset($request->currentPage)) {
+            $query['CurrentPage'] = $request->currentPage;
+        }
+        if (!Utils::isUnset($request->lang)) {
+            $query['Lang'] = $request->lang;
+        }
+        if (!Utils::isUnset($request->pageSize)) {
+            $query['PageSize'] = $request->pageSize;
+        }
+        if (!Utils::isUnset($request->riskName)) {
+            $query['RiskName'] = $request->riskName;
+        }
+        if (!Utils::isUnset($request->riskStatus)) {
+            $query['RiskStatus'] = $request->riskStatus;
+        }
+        if (!Utils::isUnset($request->sourceIp)) {
+            $query['SourceIp'] = $request->sourceIp;
+        }
+        if (!Utils::isUnset($request->status)) {
+            $query['Status'] = $request->status;
+        }
+        if (!Utils::isUnset($request->strategyId)) {
+            $query['StrategyId'] = $request->strategyId;
+        }
+        if (!Utils::isUnset($request->typeName)) {
+            $query['TypeName'] = $request->typeName;
+        }
+        if (!Utils::isUnset($request->uuids)) {
+            $query['Uuids'] = $request->uuids;
+        }
         $req = new OpenApiRequest([
-            'body' => Utils::toMap($request),
+            'query' => OpenApiUtilClient::query($query),
+        ]);
+        $params = new Params([
+            'action'      => 'DescribeCheckWarningSummary',
+            'version'     => '2018-12-03',
+            'protocol'    => 'HTTPS',
+            'pathname'    => '/',
+            'method'      => 'POST',
+            'authType'    => 'AK',
+            'style'       => 'RPC',
+            'reqBodyType' => 'formData',
+            'bodyType'    => 'json',
         ]);
 
-        return DescribeCheckWarningSummaryResponse::fromMap($this->doRPCRequest('DescribeCheckWarningSummary', '2018-12-03', 'HTTPS', 'POST', 'AK', 'json', $req, $runtime));
+        return DescribeCheckWarningSummaryResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
@@ -1838,11 +2188,44 @@ class Sas extends OpenApiClient
     public function describeCheckWarningsWithOptions($request, $runtime)
     {
         Utils::validateModel($request);
+        $query = [];
+        if (!Utils::isUnset($request->checkId)) {
+            $query['CheckId'] = $request->checkId;
+        }
+        if (!Utils::isUnset($request->currentPage)) {
+            $query['CurrentPage'] = $request->currentPage;
+        }
+        if (!Utils::isUnset($request->lang)) {
+            $query['Lang'] = $request->lang;
+        }
+        if (!Utils::isUnset($request->pageSize)) {
+            $query['PageSize'] = $request->pageSize;
+        }
+        if (!Utils::isUnset($request->riskId)) {
+            $query['RiskId'] = $request->riskId;
+        }
+        if (!Utils::isUnset($request->sourceIp)) {
+            $query['SourceIp'] = $request->sourceIp;
+        }
+        if (!Utils::isUnset($request->uuid)) {
+            $query['Uuid'] = $request->uuid;
+        }
         $req = new OpenApiRequest([
-            'body' => Utils::toMap($request),
+            'query' => OpenApiUtilClient::query($query),
+        ]);
+        $params = new Params([
+            'action'      => 'DescribeCheckWarnings',
+            'version'     => '2018-12-03',
+            'protocol'    => 'HTTPS',
+            'pathname'    => '/',
+            'method'      => 'POST',
+            'authType'    => 'AK',
+            'style'       => 'RPC',
+            'reqBodyType' => 'formData',
+            'bodyType'    => 'json',
         ]);
 
-        return DescribeCheckWarningsResponse::fromMap($this->doRPCRequest('DescribeCheckWarnings', '2018-12-03', 'HTTPS', 'POST', 'AK', 'json', $req, $runtime));
+        return DescribeCheckWarningsResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
@@ -1866,11 +2249,44 @@ class Sas extends OpenApiClient
     public function describeCloudCenterInstancesWithOptions($request, $runtime)
     {
         Utils::validateModel($request);
+        $query = [];
+        if (!Utils::isUnset($request->criteria)) {
+            $query['Criteria'] = $request->criteria;
+        }
+        if (!Utils::isUnset($request->currentPage)) {
+            $query['CurrentPage'] = $request->currentPage;
+        }
+        if (!Utils::isUnset($request->importance)) {
+            $query['Importance'] = $request->importance;
+        }
+        if (!Utils::isUnset($request->logicalExp)) {
+            $query['LogicalExp'] = $request->logicalExp;
+        }
+        if (!Utils::isUnset($request->machineTypes)) {
+            $query['MachineTypes'] = $request->machineTypes;
+        }
+        if (!Utils::isUnset($request->pageSize)) {
+            $query['PageSize'] = $request->pageSize;
+        }
+        if (!Utils::isUnset($request->regionId)) {
+            $query['RegionId'] = $request->regionId;
+        }
         $req = new OpenApiRequest([
-            'body' => Utils::toMap($request),
+            'query' => OpenApiUtilClient::query($query),
+        ]);
+        $params = new Params([
+            'action'      => 'DescribeCloudCenterInstances',
+            'version'     => '2018-12-03',
+            'protocol'    => 'HTTPS',
+            'pathname'    => '/',
+            'method'      => 'POST',
+            'authType'    => 'AK',
+            'style'       => 'RPC',
+            'reqBodyType' => 'formData',
+            'bodyType'    => 'json',
         ]);
 
-        return DescribeCloudCenterInstancesResponse::fromMap($this->doRPCRequest('DescribeCloudCenterInstances', '2018-12-03', 'HTTPS', 'POST', 'AK', 'json', $req, $runtime));
+        return DescribeCloudCenterInstancesResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
@@ -1892,9 +2308,20 @@ class Sas extends OpenApiClient
      */
     public function describeCloudProductFieldStatisticsWithOptions($runtime)
     {
-        $req = new OpenApiRequest([]);
+        $req    = new OpenApiRequest([]);
+        $params = new Params([
+            'action'      => 'DescribeCloudProductFieldStatistics',
+            'version'     => '2018-12-03',
+            'protocol'    => 'HTTPS',
+            'pathname'    => '/',
+            'method'      => 'POST',
+            'authType'    => 'AK',
+            'style'       => 'RPC',
+            'reqBodyType' => 'formData',
+            'bodyType'    => 'json',
+        ]);
 
-        return DescribeCloudProductFieldStatisticsResponse::fromMap($this->doRPCRequest('DescribeCloudProductFieldStatistics', '2018-12-03', 'HTTPS', 'POST', 'AK', 'json', $req, $runtime));
+        return DescribeCloudProductFieldStatisticsResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
@@ -1916,11 +2343,26 @@ class Sas extends OpenApiClient
     public function describeConcernNecessityWithOptions($request, $runtime)
     {
         Utils::validateModel($request);
+        $query = [];
+        if (!Utils::isUnset($request->lang)) {
+            $query['Lang'] = $request->lang;
+        }
         $req = new OpenApiRequest([
-            'body' => Utils::toMap($request),
+            'query' => OpenApiUtilClient::query($query),
+        ]);
+        $params = new Params([
+            'action'      => 'DescribeConcernNecessity',
+            'version'     => '2018-12-03',
+            'protocol'    => 'HTTPS',
+            'pathname'    => '/',
+            'method'      => 'POST',
+            'authType'    => 'AK',
+            'style'       => 'RPC',
+            'reqBodyType' => 'formData',
+            'bodyType'    => 'json',
         ]);
 
-        return DescribeConcernNecessityResponse::fromMap($this->doRPCRequest('DescribeConcernNecessity', '2018-12-03', 'HTTPS', 'POST', 'AK', 'json', $req, $runtime));
+        return DescribeConcernNecessityResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
@@ -1944,11 +2386,26 @@ class Sas extends OpenApiClient
     public function describeContainerStatisticsWithOptions($request, $runtime)
     {
         Utils::validateModel($request);
+        $query = [];
+        if (!Utils::isUnset($request->clusterId)) {
+            $query['ClusterId'] = $request->clusterId;
+        }
         $req = new OpenApiRequest([
-            'body' => Utils::toMap($request),
+            'query' => OpenApiUtilClient::query($query),
+        ]);
+        $params = new Params([
+            'action'      => 'DescribeContainerStatistics',
+            'version'     => '2018-12-03',
+            'protocol'    => 'HTTPS',
+            'pathname'    => '/',
+            'method'      => 'POST',
+            'authType'    => 'AK',
+            'style'       => 'RPC',
+            'reqBodyType' => 'formData',
+            'bodyType'    => 'json',
         ]);
 
-        return DescribeContainerStatisticsResponse::fromMap($this->doRPCRequest('DescribeContainerStatistics', '2018-12-03', 'HTTPS', 'POST', 'AK', 'json', $req, $runtime));
+        return DescribeContainerStatisticsResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
@@ -1964,6 +2421,67 @@ class Sas extends OpenApiClient
     }
 
     /**
+     * @param DescribeContainerTagsRequest $request
+     * @param RuntimeOptions               $runtime
+     *
+     * @return DescribeContainerTagsResponse
+     */
+    public function describeContainerTagsWithOptions($request, $runtime)
+    {
+        Utils::validateModel($request);
+        $query = [];
+        if (!Utils::isUnset($request->appName)) {
+            $query['AppName'] = $request->appName;
+        }
+        if (!Utils::isUnset($request->clusterId)) {
+            $query['ClusterId'] = $request->clusterId;
+        }
+        if (!Utils::isUnset($request->currentPage)) {
+            $query['CurrentPage'] = $request->currentPage;
+        }
+        if (!Utils::isUnset($request->fieldName)) {
+            $query['FieldName'] = $request->fieldName;
+        }
+        if (!Utils::isUnset($request->fieldValue)) {
+            $query['FieldValue'] = $request->fieldValue;
+        }
+        if (!Utils::isUnset($request->namespace_)) {
+            $query['Namespace'] = $request->namespace_;
+        }
+        if (!Utils::isUnset($request->pageSize)) {
+            $query['PageSize'] = $request->pageSize;
+        }
+        $req = new OpenApiRequest([
+            'query' => OpenApiUtilClient::query($query),
+        ]);
+        $params = new Params([
+            'action'      => 'DescribeContainerTags',
+            'version'     => '2018-12-03',
+            'protocol'    => 'HTTPS',
+            'pathname'    => '/',
+            'method'      => 'POST',
+            'authType'    => 'AK',
+            'style'       => 'RPC',
+            'reqBodyType' => 'formData',
+            'bodyType'    => 'json',
+        ]);
+
+        return DescribeContainerTagsResponse::fromMap($this->callApi($params, $req, $runtime));
+    }
+
+    /**
+     * @param DescribeContainerTagsRequest $request
+     *
+     * @return DescribeContainerTagsResponse
+     */
+    public function describeContainerTags($request)
+    {
+        $runtime = new RuntimeOptions([]);
+
+        return $this->describeContainerTagsWithOptions($request, $runtime);
+    }
+
+    /**
      * @param DescribeCriteriaRequest $request
      * @param RuntimeOptions          $runtime
      *
@@ -1972,11 +2490,32 @@ class Sas extends OpenApiClient
     public function describeCriteriaWithOptions($request, $runtime)
     {
         Utils::validateModel($request);
+        $query = [];
+        if (!Utils::isUnset($request->machineTypes)) {
+            $query['MachineTypes'] = $request->machineTypes;
+        }
+        if (!Utils::isUnset($request->supportAutoTag)) {
+            $query['SupportAutoTag'] = $request->supportAutoTag;
+        }
+        if (!Utils::isUnset($request->value)) {
+            $query['Value'] = $request->value;
+        }
         $req = new OpenApiRequest([
-            'body' => Utils::toMap($request),
+            'query' => OpenApiUtilClient::query($query),
+        ]);
+        $params = new Params([
+            'action'      => 'DescribeCriteria',
+            'version'     => '2018-12-03',
+            'protocol'    => 'HTTPS',
+            'pathname'    => '/',
+            'method'      => 'POST',
+            'authType'    => 'AK',
+            'style'       => 'RPC',
+            'reqBodyType' => 'formData',
+            'bodyType'    => 'json',
         ]);
 
-        return DescribeCriteriaResponse::fromMap($this->doRPCRequest('DescribeCriteria', '2018-12-03', 'HTTPS', 'POST', 'AK', 'json', $req, $runtime));
+        return DescribeCriteriaResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
@@ -2000,11 +2539,26 @@ class Sas extends OpenApiClient
     public function describeDialogMessagesWithOptions($request, $runtime)
     {
         Utils::validateModel($request);
+        $query = [];
+        if (!Utils::isUnset($request->sourceIp)) {
+            $query['SourceIp'] = $request->sourceIp;
+        }
         $req = new OpenApiRequest([
-            'body' => Utils::toMap($request),
+            'query' => OpenApiUtilClient::query($query),
+        ]);
+        $params = new Params([
+            'action'      => 'DescribeDialogMessages',
+            'version'     => '2018-12-03',
+            'protocol'    => 'HTTPS',
+            'pathname'    => '/',
+            'method'      => 'POST',
+            'authType'    => 'AK',
+            'style'       => 'RPC',
+            'reqBodyType' => 'formData',
+            'bodyType'    => 'json',
         ]);
 
-        return DescribeDialogMessagesResponse::fromMap($this->doRPCRequest('DescribeDialogMessages', '2018-12-03', 'HTTPS', 'POST', 'AK', 'json', $req, $runtime));
+        return DescribeDialogMessagesResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
@@ -2028,11 +2582,32 @@ class Sas extends OpenApiClient
     public function describeDingTalkWithOptions($request, $runtime)
     {
         Utils::validateModel($request);
+        $query = [];
+        if (!Utils::isUnset($request->currentPage)) {
+            $query['CurrentPage'] = $request->currentPage;
+        }
+        if (!Utils::isUnset($request->pageSize)) {
+            $query['PageSize'] = $request->pageSize;
+        }
+        if (!Utils::isUnset($request->ruleActionName)) {
+            $query['RuleActionName'] = $request->ruleActionName;
+        }
         $req = new OpenApiRequest([
-            'body' => Utils::toMap($request),
+            'query' => OpenApiUtilClient::query($query),
+        ]);
+        $params = new Params([
+            'action'      => 'DescribeDingTalk',
+            'version'     => '2018-12-03',
+            'protocol'    => 'HTTPS',
+            'pathname'    => '/',
+            'method'      => 'POST',
+            'authType'    => 'AK',
+            'style'       => 'RPC',
+            'reqBodyType' => 'formData',
+            'bodyType'    => 'json',
         ]);
 
-        return DescribeDingTalkResponse::fromMap($this->doRPCRequest('DescribeDingTalk', '2018-12-03', 'HTTPS', 'POST', 'AK', 'json', $req, $runtime));
+        return DescribeDingTalkResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
@@ -2056,11 +2631,26 @@ class Sas extends OpenApiClient
     public function describeDomainCountWithOptions($request, $runtime)
     {
         Utils::validateModel($request);
+        $query = [];
+        if (!Utils::isUnset($request->sourceIp)) {
+            $query['SourceIp'] = $request->sourceIp;
+        }
         $req = new OpenApiRequest([
-            'body' => Utils::toMap($request),
+            'query' => OpenApiUtilClient::query($query),
+        ]);
+        $params = new Params([
+            'action'      => 'DescribeDomainCount',
+            'version'     => '2018-12-03',
+            'protocol'    => 'HTTPS',
+            'pathname'    => '/',
+            'method'      => 'POST',
+            'authType'    => 'AK',
+            'style'       => 'RPC',
+            'reqBodyType' => 'formData',
+            'bodyType'    => 'json',
         ]);
 
-        return DescribeDomainCountResponse::fromMap($this->doRPCRequest('DescribeDomainCount', '2018-12-03', 'HTTPS', 'POST', 'AK', 'json', $req, $runtime));
+        return DescribeDomainCountResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
@@ -2084,11 +2674,29 @@ class Sas extends OpenApiClient
     public function describeDomainDetailWithOptions($request, $runtime)
     {
         Utils::validateModel($request);
+        $query = [];
+        if (!Utils::isUnset($request->domainName)) {
+            $query['DomainName'] = $request->domainName;
+        }
+        if (!Utils::isUnset($request->sourceIp)) {
+            $query['SourceIp'] = $request->sourceIp;
+        }
         $req = new OpenApiRequest([
-            'body' => Utils::toMap($request),
+            'query' => OpenApiUtilClient::query($query),
+        ]);
+        $params = new Params([
+            'action'      => 'DescribeDomainDetail',
+            'version'     => '2018-12-03',
+            'protocol'    => 'HTTPS',
+            'pathname'    => '/',
+            'method'      => 'POST',
+            'authType'    => 'AK',
+            'style'       => 'RPC',
+            'reqBodyType' => 'formData',
+            'bodyType'    => 'json',
         ]);
 
-        return DescribeDomainDetailResponse::fromMap($this->doRPCRequest('DescribeDomainDetail', '2018-12-03', 'HTTPS', 'POST', 'AK', 'json', $req, $runtime));
+        return DescribeDomainDetailResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
@@ -2112,11 +2720,38 @@ class Sas extends OpenApiClient
     public function describeDomainListWithOptions($request, $runtime)
     {
         Utils::validateModel($request);
+        $query = [];
+        if (!Utils::isUnset($request->currentPage)) {
+            $query['CurrentPage'] = $request->currentPage;
+        }
+        if (!Utils::isUnset($request->domainType)) {
+            $query['DomainType'] = $request->domainType;
+        }
+        if (!Utils::isUnset($request->fuzzyDomain)) {
+            $query['FuzzyDomain'] = $request->fuzzyDomain;
+        }
+        if (!Utils::isUnset($request->pageSize)) {
+            $query['PageSize'] = $request->pageSize;
+        }
+        if (!Utils::isUnset($request->sourceIp)) {
+            $query['SourceIp'] = $request->sourceIp;
+        }
         $req = new OpenApiRequest([
-            'body' => Utils::toMap($request),
+            'query' => OpenApiUtilClient::query($query),
+        ]);
+        $params = new Params([
+            'action'      => 'DescribeDomainList',
+            'version'     => '2018-12-03',
+            'protocol'    => 'HTTPS',
+            'pathname'    => '/',
+            'method'      => 'POST',
+            'authType'    => 'AK',
+            'style'       => 'RPC',
+            'reqBodyType' => 'formData',
+            'bodyType'    => 'json',
         ]);
 
-        return DescribeDomainListResponse::fromMap($this->doRPCRequest('DescribeDomainList', '2018-12-03', 'HTTPS', 'POST', 'AK', 'json', $req, $runtime));
+        return DescribeDomainListResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
@@ -2140,11 +2775,41 @@ class Sas extends OpenApiClient
     public function describeEmgVulItemWithOptions($request, $runtime)
     {
         Utils::validateModel($request);
+        $query = [];
+        if (!Utils::isUnset($request->currentPage)) {
+            $query['CurrentPage'] = $request->currentPage;
+        }
+        if (!Utils::isUnset($request->lang)) {
+            $query['Lang'] = $request->lang;
+        }
+        if (!Utils::isUnset($request->pageSize)) {
+            $query['PageSize'] = $request->pageSize;
+        }
+        if (!Utils::isUnset($request->riskStatus)) {
+            $query['RiskStatus'] = $request->riskStatus;
+        }
+        if (!Utils::isUnset($request->scanType)) {
+            $query['ScanType'] = $request->scanType;
+        }
+        if (!Utils::isUnset($request->vulName)) {
+            $query['VulName'] = $request->vulName;
+        }
         $req = new OpenApiRequest([
-            'body' => Utils::toMap($request),
+            'query' => OpenApiUtilClient::query($query),
+        ]);
+        $params = new Params([
+            'action'      => 'DescribeEmgVulItem',
+            'version'     => '2018-12-03',
+            'protocol'    => 'HTTPS',
+            'pathname'    => '/',
+            'method'      => 'POST',
+            'authType'    => 'AK',
+            'style'       => 'RPC',
+            'reqBodyType' => 'formData',
+            'bodyType'    => 'json',
         ]);
 
-        return DescribeEmgVulItemResponse::fromMap($this->doRPCRequest('DescribeEmgVulItem', '2018-12-03', 'HTTPS', 'POST', 'AK', 'json', $req, $runtime));
+        return DescribeEmgVulItemResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
@@ -2160,34 +2825,6 @@ class Sas extends OpenApiClient
     }
 
     /**
-     * @param DescribeExcludeSystemPathRequest $request
-     * @param RuntimeOptions                   $runtime
-     *
-     * @return DescribeExcludeSystemPathResponse
-     */
-    public function describeExcludeSystemPathWithOptions($request, $runtime)
-    {
-        Utils::validateModel($request);
-        $req = new OpenApiRequest([
-            'body' => Utils::toMap($request),
-        ]);
-
-        return DescribeExcludeSystemPathResponse::fromMap($this->doRPCRequest('DescribeExcludeSystemPath', '2018-12-03', 'HTTPS', 'POST', 'AK', 'json', $req, $runtime));
-    }
-
-    /**
-     * @param DescribeExcludeSystemPathRequest $request
-     *
-     * @return DescribeExcludeSystemPathResponse
-     */
-    public function describeExcludeSystemPath($request)
-    {
-        $runtime = new RuntimeOptions([]);
-
-        return $this->describeExcludeSystemPathWithOptions($request, $runtime);
-    }
-
-    /**
      * @param DescribeExportInfoRequest $request
      * @param RuntimeOptions            $runtime
      *
@@ -2196,11 +2833,26 @@ class Sas extends OpenApiClient
     public function describeExportInfoWithOptions($request, $runtime)
     {
         Utils::validateModel($request);
+        $query = [];
+        if (!Utils::isUnset($request->exportId)) {
+            $query['ExportId'] = $request->exportId;
+        }
         $req = new OpenApiRequest([
-            'body' => Utils::toMap($request),
+            'query' => OpenApiUtilClient::query($query),
+        ]);
+        $params = new Params([
+            'action'      => 'DescribeExportInfo',
+            'version'     => '2018-12-03',
+            'protocol'    => 'HTTPS',
+            'pathname'    => '/',
+            'method'      => 'POST',
+            'authType'    => 'AK',
+            'style'       => 'RPC',
+            'reqBodyType' => 'formData',
+            'bodyType'    => 'json',
         ]);
 
-        return DescribeExportInfoResponse::fromMap($this->doRPCRequest('DescribeExportInfo', '2018-12-03', 'HTTPS', 'POST', 'AK', 'json', $req, $runtime));
+        return DescribeExportInfoResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
@@ -2224,11 +2876,26 @@ class Sas extends OpenApiClient
     public function describeExposedInstanceCriteriaWithOptions($request, $runtime)
     {
         Utils::validateModel($request);
+        $query = [];
+        if (!Utils::isUnset($request->value)) {
+            $query['Value'] = $request->value;
+        }
         $req = new OpenApiRequest([
-            'body' => Utils::toMap($request),
+            'query' => OpenApiUtilClient::query($query),
+        ]);
+        $params = new Params([
+            'action'      => 'DescribeExposedInstanceCriteria',
+            'version'     => '2018-12-03',
+            'protocol'    => 'HTTPS',
+            'pathname'    => '/',
+            'method'      => 'POST',
+            'authType'    => 'AK',
+            'style'       => 'RPC',
+            'reqBodyType' => 'formData',
+            'bodyType'    => 'json',
         ]);
 
-        return DescribeExposedInstanceCriteriaResponse::fromMap($this->doRPCRequest('DescribeExposedInstanceCriteria', '2018-12-03', 'HTTPS', 'POST', 'AK', 'json', $req, $runtime));
+        return DescribeExposedInstanceCriteriaResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
@@ -2252,11 +2919,26 @@ class Sas extends OpenApiClient
     public function describeExposedInstanceDetailWithOptions($request, $runtime)
     {
         Utils::validateModel($request);
+        $query = [];
+        if (!Utils::isUnset($request->uuid)) {
+            $query['Uuid'] = $request->uuid;
+        }
         $req = new OpenApiRequest([
-            'body' => Utils::toMap($request),
+            'query' => OpenApiUtilClient::query($query),
+        ]);
+        $params = new Params([
+            'action'      => 'DescribeExposedInstanceDetail',
+            'version'     => '2018-12-03',
+            'protocol'    => 'HTTPS',
+            'pathname'    => '/',
+            'method'      => 'POST',
+            'authType'    => 'AK',
+            'style'       => 'RPC',
+            'reqBodyType' => 'formData',
+            'bodyType'    => 'json',
         ]);
 
-        return DescribeExposedInstanceDetailResponse::fromMap($this->doRPCRequest('DescribeExposedInstanceDetail', '2018-12-03', 'HTTPS', 'POST', 'AK', 'json', $req, $runtime));
+        return DescribeExposedInstanceDetailResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
@@ -2280,11 +2962,53 @@ class Sas extends OpenApiClient
     public function describeExposedInstanceListWithOptions($request, $runtime)
     {
         Utils::validateModel($request);
+        $query = [];
+        if (!Utils::isUnset($request->currentPage)) {
+            $query['CurrentPage'] = $request->currentPage;
+        }
+        if (!Utils::isUnset($request->exposureComponent)) {
+            $query['ExposureComponent'] = $request->exposureComponent;
+        }
+        if (!Utils::isUnset($request->exposureIp)) {
+            $query['ExposureIp'] = $request->exposureIp;
+        }
+        if (!Utils::isUnset($request->exposurePort)) {
+            $query['ExposurePort'] = $request->exposurePort;
+        }
+        if (!Utils::isUnset($request->groupId)) {
+            $query['GroupId'] = $request->groupId;
+        }
+        if (!Utils::isUnset($request->healthStatus)) {
+            $query['HealthStatus'] = $request->healthStatus;
+        }
+        if (!Utils::isUnset($request->instanceId)) {
+            $query['InstanceId'] = $request->instanceId;
+        }
+        if (!Utils::isUnset($request->instanceName)) {
+            $query['InstanceName'] = $request->instanceName;
+        }
+        if (!Utils::isUnset($request->pageSize)) {
+            $query['PageSize'] = $request->pageSize;
+        }
+        if (!Utils::isUnset($request->vulStatus)) {
+            $query['VulStatus'] = $request->vulStatus;
+        }
         $req = new OpenApiRequest([
-            'body' => Utils::toMap($request),
+            'query' => OpenApiUtilClient::query($query),
+        ]);
+        $params = new Params([
+            'action'      => 'DescribeExposedInstanceList',
+            'version'     => '2018-12-03',
+            'protocol'    => 'HTTPS',
+            'pathname'    => '/',
+            'method'      => 'POST',
+            'authType'    => 'AK',
+            'style'       => 'RPC',
+            'reqBodyType' => 'formData',
+            'bodyType'    => 'json',
         ]);
 
-        return DescribeExposedInstanceListResponse::fromMap($this->doRPCRequest('DescribeExposedInstanceList', '2018-12-03', 'HTTPS', 'POST', 'AK', 'json', $req, $runtime));
+        return DescribeExposedInstanceListResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
@@ -2302,35 +3026,24 @@ class Sas extends OpenApiClient
     /**
      * @param RuntimeOptions $runtime
      *
-     * @return DescribeExposedRiskNumResponse
-     */
-    public function describeExposedRiskNumWithOptions($runtime)
-    {
-        $req = new OpenApiRequest([]);
-
-        return DescribeExposedRiskNumResponse::fromMap($this->doRPCRequest('DescribeExposedRiskNum', '2018-12-03', 'HTTPS', 'POST', 'AK', 'json', $req, $runtime));
-    }
-
-    /**
-     * @return DescribeExposedRiskNumResponse
-     */
-    public function describeExposedRiskNum()
-    {
-        $runtime = new RuntimeOptions([]);
-
-        return $this->describeExposedRiskNumWithOptions($runtime);
-    }
-
-    /**
-     * @param RuntimeOptions $runtime
-     *
      * @return DescribeExposedStatisticsResponse
      */
     public function describeExposedStatisticsWithOptions($runtime)
     {
-        $req = new OpenApiRequest([]);
+        $req    = new OpenApiRequest([]);
+        $params = new Params([
+            'action'      => 'DescribeExposedStatistics',
+            'version'     => '2018-12-03',
+            'protocol'    => 'HTTPS',
+            'pathname'    => '/',
+            'method'      => 'POST',
+            'authType'    => 'AK',
+            'style'       => 'RPC',
+            'reqBodyType' => 'formData',
+            'bodyType'    => 'json',
+        ]);
 
-        return DescribeExposedStatisticsResponse::fromMap($this->doRPCRequest('DescribeExposedStatistics', '2018-12-03', 'HTTPS', 'POST', 'AK', 'json', $req, $runtime));
+        return DescribeExposedStatisticsResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
@@ -2352,11 +3065,38 @@ class Sas extends OpenApiClient
     public function describeExposedStatisticsDetailWithOptions($request, $runtime)
     {
         Utils::validateModel($request);
+        $query = [];
+        if (!Utils::isUnset($request->currentPage)) {
+            $query['CurrentPage'] = $request->currentPage;
+        }
+        if (!Utils::isUnset($request->pageSize)) {
+            $query['PageSize'] = $request->pageSize;
+        }
+        if (!Utils::isUnset($request->statisticsType)) {
+            $query['StatisticsType'] = $request->statisticsType;
+        }
+        if (!Utils::isUnset($request->statisticsTypeGatewayType)) {
+            $query['StatisticsTypeGatewayType'] = $request->statisticsTypeGatewayType;
+        }
+        if (!Utils::isUnset($request->statisticsTypeInstanceValue)) {
+            $query['StatisticsTypeInstanceValue'] = $request->statisticsTypeInstanceValue;
+        }
         $req = new OpenApiRequest([
-            'body' => Utils::toMap($request),
+            'query' => OpenApiUtilClient::query($query),
+        ]);
+        $params = new Params([
+            'action'      => 'DescribeExposedStatisticsDetail',
+            'version'     => '2018-12-03',
+            'protocol'    => 'HTTPS',
+            'pathname'    => '/',
+            'method'      => 'POST',
+            'authType'    => 'AK',
+            'style'       => 'RPC',
+            'reqBodyType' => 'formData',
+            'bodyType'    => 'json',
         ]);
 
-        return DescribeExposedStatisticsDetailResponse::fromMap($this->doRPCRequest('DescribeExposedStatisticsDetail', '2018-12-03', 'HTTPS', 'POST', 'AK', 'json', $req, $runtime));
+        return DescribeExposedStatisticsDetailResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
@@ -2380,11 +3120,29 @@ class Sas extends OpenApiClient
     public function describeFieldStatisticsWithOptions($request, $runtime)
     {
         Utils::validateModel($request);
+        $query = [];
+        if (!Utils::isUnset($request->machineTypes)) {
+            $query['MachineTypes'] = $request->machineTypes;
+        }
+        if (!Utils::isUnset($request->regionId)) {
+            $query['RegionId'] = $request->regionId;
+        }
         $req = new OpenApiRequest([
-            'body' => Utils::toMap($request),
+            'query' => OpenApiUtilClient::query($query),
+        ]);
+        $params = new Params([
+            'action'      => 'DescribeFieldStatistics',
+            'version'     => '2018-12-03',
+            'protocol'    => 'HTTPS',
+            'pathname'    => '/',
+            'method'      => 'POST',
+            'authType'    => 'AK',
+            'style'       => 'RPC',
+            'reqBodyType' => 'formData',
+            'bodyType'    => 'json',
         ]);
 
-        return DescribeFieldStatisticsResponse::fromMap($this->doRPCRequest('DescribeFieldStatistics', '2018-12-03', 'HTTPS', 'POST', 'AK', 'json', $req, $runtime));
+        return DescribeFieldStatisticsResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
@@ -2400,62 +3158,6 @@ class Sas extends OpenApiClient
     }
 
     /**
-     * @param DescribeFrontVulPatchListRequest $request
-     * @param RuntimeOptions                   $runtime
-     *
-     * @return DescribeFrontVulPatchListResponse
-     */
-    public function describeFrontVulPatchListWithOptions($request, $runtime)
-    {
-        Utils::validateModel($request);
-        $req = new OpenApiRequest([
-            'body' => Utils::toMap($request),
-        ]);
-
-        return DescribeFrontVulPatchListResponse::fromMap($this->doRPCRequest('DescribeFrontVulPatchList', '2018-12-03', 'HTTPS', 'POST', 'AK', 'json', $req, $runtime));
-    }
-
-    /**
-     * @param DescribeFrontVulPatchListRequest $request
-     *
-     * @return DescribeFrontVulPatchListResponse
-     */
-    public function describeFrontVulPatchList($request)
-    {
-        $runtime = new RuntimeOptions([]);
-
-        return $this->describeFrontVulPatchListWithOptions($request, $runtime);
-    }
-
-    /**
-     * @param DescribeGraph4InvestigationOnlineRequest $request
-     * @param RuntimeOptions                           $runtime
-     *
-     * @return DescribeGraph4InvestigationOnlineResponse
-     */
-    public function describeGraph4InvestigationOnlineWithOptions($request, $runtime)
-    {
-        Utils::validateModel($request);
-        $req = new OpenApiRequest([
-            'body' => Utils::toMap($request),
-        ]);
-
-        return DescribeGraph4InvestigationOnlineResponse::fromMap($this->doRPCRequest('DescribeGraph4InvestigationOnline', '2018-12-03', 'HTTPS', 'POST', 'AK', 'json', $req, $runtime));
-    }
-
-    /**
-     * @param DescribeGraph4InvestigationOnlineRequest $request
-     *
-     * @return DescribeGraph4InvestigationOnlineResponse
-     */
-    public function describeGraph4InvestigationOnline($request)
-    {
-        $runtime = new RuntimeOptions([]);
-
-        return $this->describeGraph4InvestigationOnlineWithOptions($request, $runtime);
-    }
-
-    /**
      * @param DescribeGroupedContainerInstancesRequest $request
      * @param RuntimeOptions                           $runtime
      *
@@ -2464,11 +3166,41 @@ class Sas extends OpenApiClient
     public function describeGroupedContainerInstancesWithOptions($request, $runtime)
     {
         Utils::validateModel($request);
+        $query = [];
+        if (!Utils::isUnset($request->criteria)) {
+            $query['Criteria'] = $request->criteria;
+        }
+        if (!Utils::isUnset($request->currentPage)) {
+            $query['CurrentPage'] = $request->currentPage;
+        }
+        if (!Utils::isUnset($request->fieldValue)) {
+            $query['FieldValue'] = $request->fieldValue;
+        }
+        if (!Utils::isUnset($request->groupField)) {
+            $query['GroupField'] = $request->groupField;
+        }
+        if (!Utils::isUnset($request->logicalExp)) {
+            $query['LogicalExp'] = $request->logicalExp;
+        }
+        if (!Utils::isUnset($request->pageSize)) {
+            $query['PageSize'] = $request->pageSize;
+        }
         $req = new OpenApiRequest([
-            'body' => Utils::toMap($request),
+            'query' => OpenApiUtilClient::query($query),
+        ]);
+        $params = new Params([
+            'action'      => 'DescribeGroupedContainerInstances',
+            'version'     => '2018-12-03',
+            'protocol'    => 'HTTPS',
+            'pathname'    => '/',
+            'method'      => 'POST',
+            'authType'    => 'AK',
+            'style'       => 'RPC',
+            'reqBodyType' => 'formData',
+            'bodyType'    => 'json',
         ]);
 
-        return DescribeGroupedContainerInstancesResponse::fromMap($this->doRPCRequest('DescribeGroupedContainerInstances', '2018-12-03', 'HTTPS', 'POST', 'AK', 'json', $req, $runtime));
+        return DescribeGroupedContainerInstancesResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
@@ -2492,11 +3224,44 @@ class Sas extends OpenApiClient
     public function describeGroupedInstancesWithOptions($request, $runtime)
     {
         Utils::validateModel($request);
+        $query = [];
+        if (!Utils::isUnset($request->currentPage)) {
+            $query['CurrentPage'] = $request->currentPage;
+        }
+        if (!Utils::isUnset($request->fieldValue)) {
+            $query['FieldValue'] = $request->fieldValue;
+        }
+        if (!Utils::isUnset($request->groupField)) {
+            $query['GroupField'] = $request->groupField;
+        }
+        if (!Utils::isUnset($request->lang)) {
+            $query['Lang'] = $request->lang;
+        }
+        if (!Utils::isUnset($request->machineTypes)) {
+            $query['MachineTypes'] = $request->machineTypes;
+        }
+        if (!Utils::isUnset($request->noPage)) {
+            $query['NoPage'] = $request->noPage;
+        }
+        if (!Utils::isUnset($request->pageSize)) {
+            $query['PageSize'] = $request->pageSize;
+        }
         $req = new OpenApiRequest([
-            'body' => Utils::toMap($request),
+            'query' => OpenApiUtilClient::query($query),
+        ]);
+        $params = new Params([
+            'action'      => 'DescribeGroupedInstances',
+            'version'     => '2018-12-03',
+            'protocol'    => 'HTTPS',
+            'pathname'    => '/',
+            'method'      => 'POST',
+            'authType'    => 'AK',
+            'style'       => 'RPC',
+            'reqBodyType' => 'formData',
+            'bodyType'    => 'json',
         ]);
 
-        return DescribeGroupedInstancesResponse::fromMap($this->doRPCRequest('DescribeGroupedInstances', '2018-12-03', 'HTTPS', 'POST', 'AK', 'json', $req, $runtime));
+        return DescribeGroupedInstancesResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
@@ -2520,11 +3285,62 @@ class Sas extends OpenApiClient
     public function describeGroupedMaliciousFilesWithOptions($request, $runtime)
     {
         Utils::validateModel($request);
+        $query = [];
+        if (!Utils::isUnset($request->currentPage)) {
+            $query['CurrentPage'] = $request->currentPage;
+        }
+        if (!Utils::isUnset($request->fuzzyMaliciousName)) {
+            $query['FuzzyMaliciousName'] = $request->fuzzyMaliciousName;
+        }
+        if (!Utils::isUnset($request->imageDigest)) {
+            $query['ImageDigest'] = $request->imageDigest;
+        }
+        if (!Utils::isUnset($request->imageLayer)) {
+            $query['ImageLayer'] = $request->imageLayer;
+        }
+        if (!Utils::isUnset($request->imageTag)) {
+            $query['ImageTag'] = $request->imageTag;
+        }
+        if (!Utils::isUnset($request->lang)) {
+            $query['Lang'] = $request->lang;
+        }
+        if (!Utils::isUnset($request->levels)) {
+            $query['Levels'] = $request->levels;
+        }
+        if (!Utils::isUnset($request->pageSize)) {
+            $query['PageSize'] = $request->pageSize;
+        }
+        if (!Utils::isUnset($request->repoId)) {
+            $query['RepoId'] = $request->repoId;
+        }
+        if (!Utils::isUnset($request->repoInstanceId)) {
+            $query['RepoInstanceId'] = $request->repoInstanceId;
+        }
+        if (!Utils::isUnset($request->repoName)) {
+            $query['RepoName'] = $request->repoName;
+        }
+        if (!Utils::isUnset($request->repoNamespace)) {
+            $query['RepoNamespace'] = $request->repoNamespace;
+        }
+        if (!Utils::isUnset($request->repoRegionId)) {
+            $query['RepoRegionId'] = $request->repoRegionId;
+        }
         $req = new OpenApiRequest([
-            'body' => Utils::toMap($request),
+            'query' => OpenApiUtilClient::query($query),
+        ]);
+        $params = new Params([
+            'action'      => 'DescribeGroupedMaliciousFiles',
+            'version'     => '2018-12-03',
+            'protocol'    => 'HTTPS',
+            'pathname'    => '/',
+            'method'      => 'POST',
+            'authType'    => 'AK',
+            'style'       => 'RPC',
+            'reqBodyType' => 'formData',
+            'bodyType'    => 'json',
         ]);
 
-        return DescribeGroupedMaliciousFilesResponse::fromMap($this->doRPCRequest('DescribeGroupedMaliciousFiles', '2018-12-03', 'HTTPS', 'POST', 'AK', 'json', $req, $runtime));
+        return DescribeGroupedMaliciousFilesResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
@@ -2548,11 +3364,26 @@ class Sas extends OpenApiClient
     public function describeGroupedTagsWithOptions($request, $runtime)
     {
         Utils::validateModel($request);
+        $query = [];
+        if (!Utils::isUnset($request->machineTypes)) {
+            $query['MachineTypes'] = $request->machineTypes;
+        }
         $req = new OpenApiRequest([
-            'body' => Utils::toMap($request),
+            'query' => OpenApiUtilClient::query($query),
+        ]);
+        $params = new Params([
+            'action'      => 'DescribeGroupedTags',
+            'version'     => '2018-12-03',
+            'protocol'    => 'HTTPS',
+            'pathname'    => '/',
+            'method'      => 'POST',
+            'authType'    => 'AK',
+            'style'       => 'RPC',
+            'reqBodyType' => 'formData',
+            'bodyType'    => 'json',
         ]);
 
-        return DescribeGroupedTagsResponse::fromMap($this->doRPCRequest('DescribeGroupedTags', '2018-12-03', 'HTTPS', 'POST', 'AK', 'json', $req, $runtime));
+        return DescribeGroupedTagsResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
@@ -2576,11 +3407,53 @@ class Sas extends OpenApiClient
     public function describeGroupedVulWithOptions($request, $runtime)
     {
         Utils::validateModel($request);
+        $query = [];
+        if (!Utils::isUnset($request->aliasName)) {
+            $query['AliasName'] = $request->aliasName;
+        }
+        if (!Utils::isUnset($request->currentPage)) {
+            $query['CurrentPage'] = $request->currentPage;
+        }
+        if (!Utils::isUnset($request->dealed)) {
+            $query['Dealed'] = $request->dealed;
+        }
+        if (!Utils::isUnset($request->groupId)) {
+            $query['GroupId'] = $request->groupId;
+        }
+        if (!Utils::isUnset($request->lang)) {
+            $query['Lang'] = $request->lang;
+        }
+        if (!Utils::isUnset($request->necessity)) {
+            $query['Necessity'] = $request->necessity;
+        }
+        if (!Utils::isUnset($request->pageSize)) {
+            $query['PageSize'] = $request->pageSize;
+        }
+        if (!Utils::isUnset($request->searchTags)) {
+            $query['SearchTags'] = $request->searchTags;
+        }
+        if (!Utils::isUnset($request->type)) {
+            $query['Type'] = $request->type;
+        }
+        if (!Utils::isUnset($request->uuids)) {
+            $query['Uuids'] = $request->uuids;
+        }
         $req = new OpenApiRequest([
-            'body' => Utils::toMap($request),
+            'query' => OpenApiUtilClient::query($query),
+        ]);
+        $params = new Params([
+            'action'      => 'DescribeGroupedVul',
+            'version'     => '2018-12-03',
+            'protocol'    => 'HTTPS',
+            'pathname'    => '/',
+            'method'      => 'POST',
+            'authType'    => 'AK',
+            'style'       => 'RPC',
+            'reqBodyType' => 'formData',
+            'bodyType'    => 'json',
         ]);
 
-        return DescribeGroupedVulResponse::fromMap($this->doRPCRequest('DescribeGroupedVul', '2018-12-03', 'HTTPS', 'POST', 'AK', 'json', $req, $runtime));
+        return DescribeGroupedVulResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
@@ -2602,9 +3475,20 @@ class Sas extends OpenApiClient
      */
     public function describeHoneyPotAuthWithOptions($runtime)
     {
-        $req = new OpenApiRequest([]);
+        $req    = new OpenApiRequest([]);
+        $params = new Params([
+            'action'      => 'DescribeHoneyPotAuth',
+            'version'     => '2018-12-03',
+            'protocol'    => 'HTTPS',
+            'pathname'    => '/',
+            'method'      => 'POST',
+            'authType'    => 'AK',
+            'style'       => 'RPC',
+            'reqBodyType' => 'formData',
+            'bodyType'    => 'json',
+        ]);
 
-        return DescribeHoneyPotAuthResponse::fromMap($this->doRPCRequest('DescribeHoneyPotAuth', '2018-12-03', 'HTTPS', 'POST', 'AK', 'json', $req, $runtime));
+        return DescribeHoneyPotAuthResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
@@ -2626,11 +3510,32 @@ class Sas extends OpenApiClient
     public function describeHoneyPotSuspStatisticsWithOptions($request, $runtime)
     {
         Utils::validateModel($request);
+        $query = [];
+        if (!Utils::isUnset($request->from)) {
+            $query['From'] = $request->from;
+        }
+        if (!Utils::isUnset($request->statisticsDays)) {
+            $query['StatisticsDays'] = $request->statisticsDays;
+        }
+        if (!Utils::isUnset($request->statisticsKeyType)) {
+            $query['StatisticsKeyType'] = $request->statisticsKeyType;
+        }
         $req = new OpenApiRequest([
-            'body' => Utils::toMap($request),
+            'query' => OpenApiUtilClient::query($query),
+        ]);
+        $params = new Params([
+            'action'      => 'DescribeHoneyPotSuspStatistics',
+            'version'     => '2018-12-03',
+            'protocol'    => 'HTTPS',
+            'pathname'    => '/',
+            'method'      => 'POST',
+            'authType'    => 'AK',
+            'style'       => 'RPC',
+            'reqBodyType' => 'formData',
+            'bodyType'    => 'json',
         ]);
 
-        return DescribeHoneyPotSuspStatisticsResponse::fromMap($this->doRPCRequest('DescribeHoneyPotSuspStatistics', '2018-12-03', 'HTTPS', 'POST', 'AK', 'json', $req, $runtime));
+        return DescribeHoneyPotSuspStatisticsResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
@@ -2654,11 +3559,38 @@ class Sas extends OpenApiClient
     public function describeImageFixTaskWithOptions($request, $runtime)
     {
         Utils::validateModel($request);
+        $query = [];
+        if (!Utils::isUnset($request->currentPage)) {
+            $query['CurrentPage'] = $request->currentPage;
+        }
+        if (!Utils::isUnset($request->endTime)) {
+            $query['EndTime'] = $request->endTime;
+        }
+        if (!Utils::isUnset($request->pageSize)) {
+            $query['PageSize'] = $request->pageSize;
+        }
+        if (!Utils::isUnset($request->startTime)) {
+            $query['StartTime'] = $request->startTime;
+        }
+        if (!Utils::isUnset($request->status)) {
+            $query['Status'] = $request->status;
+        }
         $req = new OpenApiRequest([
-            'body' => Utils::toMap($request),
+            'query' => OpenApiUtilClient::query($query),
+        ]);
+        $params = new Params([
+            'action'      => 'DescribeImageFixTask',
+            'version'     => '2018-12-03',
+            'protocol'    => 'HTTPS',
+            'pathname'    => '/',
+            'method'      => 'POST',
+            'authType'    => 'AK',
+            'style'       => 'RPC',
+            'reqBodyType' => 'formData',
+            'bodyType'    => 'json',
         ]);
 
-        return DescribeImageFixTaskResponse::fromMap($this->doRPCRequest('DescribeImageFixTask', '2018-12-03', 'HTTPS', 'POST', 'AK', 'json', $req, $runtime));
+        return DescribeImageFixTaskResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
@@ -2682,11 +3614,83 @@ class Sas extends OpenApiClient
     public function describeImageGroupedVulListWithOptions($request, $runtime)
     {
         Utils::validateModel($request);
+        $query = [];
+        if (!Utils::isUnset($request->aliasName)) {
+            $query['AliasName'] = $request->aliasName;
+        }
+        if (!Utils::isUnset($request->currentPage)) {
+            $query['CurrentPage'] = $request->currentPage;
+        }
+        if (!Utils::isUnset($request->cveId)) {
+            $query['CveId'] = $request->cveId;
+        }
+        if (!Utils::isUnset($request->groupId)) {
+            $query['GroupId'] = $request->groupId;
+        }
+        if (!Utils::isUnset($request->imageDigest)) {
+            $query['ImageDigest'] = $request->imageDigest;
+        }
+        if (!Utils::isUnset($request->imageLayer)) {
+            $query['ImageLayer'] = $request->imageLayer;
+        }
+        if (!Utils::isUnset($request->imageTag)) {
+            $query['ImageTag'] = $request->imageTag;
+        }
+        if (!Utils::isUnset($request->isLatest)) {
+            $query['IsLatest'] = $request->isLatest;
+        }
+        if (!Utils::isUnset($request->lang)) {
+            $query['Lang'] = $request->lang;
+        }
+        if (!Utils::isUnset($request->name)) {
+            $query['Name'] = $request->name;
+        }
+        if (!Utils::isUnset($request->necessity)) {
+            $query['Necessity'] = $request->necessity;
+        }
+        if (!Utils::isUnset($request->pageSize)) {
+            $query['PageSize'] = $request->pageSize;
+        }
+        if (!Utils::isUnset($request->patchId)) {
+            $query['PatchId'] = $request->patchId;
+        }
+        if (!Utils::isUnset($request->repoId)) {
+            $query['RepoId'] = $request->repoId;
+        }
+        if (!Utils::isUnset($request->repoInstanceId)) {
+            $query['RepoInstanceId'] = $request->repoInstanceId;
+        }
+        if (!Utils::isUnset($request->repoName)) {
+            $query['RepoName'] = $request->repoName;
+        }
+        if (!Utils::isUnset($request->repoNamespace)) {
+            $query['RepoNamespace'] = $request->repoNamespace;
+        }
+        if (!Utils::isUnset($request->repoRegionId)) {
+            $query['RepoRegionId'] = $request->repoRegionId;
+        }
+        if (!Utils::isUnset($request->type)) {
+            $query['Type'] = $request->type;
+        }
+        if (!Utils::isUnset($request->uuids)) {
+            $query['Uuids'] = $request->uuids;
+        }
         $req = new OpenApiRequest([
-            'body' => Utils::toMap($request),
+            'query' => OpenApiUtilClient::query($query),
+        ]);
+        $params = new Params([
+            'action'      => 'DescribeImageGroupedVulList',
+            'version'     => '2018-12-03',
+            'protocol'    => 'HTTPS',
+            'pathname'    => '/',
+            'method'      => 'POST',
+            'authType'    => 'AK',
+            'style'       => 'RPC',
+            'reqBodyType' => 'formData',
+            'bodyType'    => 'json',
         ]);
 
-        return DescribeImageGroupedVulListResponse::fromMap($this->doRPCRequest('DescribeImageGroupedVulList', '2018-12-03', 'HTTPS', 'POST', 'AK', 'json', $req, $runtime));
+        return DescribeImageGroupedVulListResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
@@ -2702,43 +3706,26 @@ class Sas extends OpenApiClient
     }
 
     /**
-     * @param DescribeImageInstancesRequest $request
-     * @param RuntimeOptions                $runtime
-     *
-     * @return DescribeImageInstancesResponse
-     */
-    public function describeImageInstancesWithOptions($request, $runtime)
-    {
-        Utils::validateModel($request);
-        $req = new OpenApiRequest([
-            'body' => Utils::toMap($request),
-        ]);
-
-        return DescribeImageInstancesResponse::fromMap($this->doRPCRequest('DescribeImageInstances', '2018-12-03', 'HTTPS', 'POST', 'AK', 'json', $req, $runtime));
-    }
-
-    /**
-     * @param DescribeImageInstancesRequest $request
-     *
-     * @return DescribeImageInstancesResponse
-     */
-    public function describeImageInstances($request)
-    {
-        $runtime = new RuntimeOptions([]);
-
-        return $this->describeImageInstancesWithOptions($request, $runtime);
-    }
-
-    /**
      * @param RuntimeOptions $runtime
      *
      * @return DescribeImageScanAuthCountResponse
      */
     public function describeImageScanAuthCountWithOptions($runtime)
     {
-        $req = new OpenApiRequest([]);
+        $req    = new OpenApiRequest([]);
+        $params = new Params([
+            'action'      => 'DescribeImageScanAuthCount',
+            'version'     => '2018-12-03',
+            'protocol'    => 'HTTPS',
+            'pathname'    => '/',
+            'method'      => 'POST',
+            'authType'    => 'AK',
+            'style'       => 'RPC',
+            'reqBodyType' => 'formData',
+            'bodyType'    => 'json',
+        ]);
 
-        return DescribeImageScanAuthCountResponse::fromMap($this->doRPCRequest('DescribeImageScanAuthCount', '2018-12-03', 'HTTPS', 'POST', 'AK', 'json', $req, $runtime));
+        return DescribeImageScanAuthCountResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
@@ -2758,9 +3745,20 @@ class Sas extends OpenApiClient
      */
     public function describeImageStatisticsWithOptions($runtime)
     {
-        $req = new OpenApiRequest([]);
+        $req    = new OpenApiRequest([]);
+        $params = new Params([
+            'action'      => 'DescribeImageStatistics',
+            'version'     => '2018-12-03',
+            'protocol'    => 'HTTPS',
+            'pathname'    => '/',
+            'method'      => 'POST',
+            'authType'    => 'AK',
+            'style'       => 'RPC',
+            'reqBodyType' => 'formData',
+            'bodyType'    => 'json',
+        ]);
 
-        return DescribeImageStatisticsResponse::fromMap($this->doRPCRequest('DescribeImageStatistics', '2018-12-03', 'HTTPS', 'POST', 'AK', 'json', $req, $runtime));
+        return DescribeImageStatisticsResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
@@ -2782,11 +3780,86 @@ class Sas extends OpenApiClient
     public function describeImageVulListWithOptions($request, $runtime)
     {
         Utils::validateModel($request);
+        $query = [];
+        if (!Utils::isUnset($request->aliasName)) {
+            $query['AliasName'] = $request->aliasName;
+        }
+        if (!Utils::isUnset($request->currentPage)) {
+            $query['CurrentPage'] = $request->currentPage;
+        }
+        if (!Utils::isUnset($request->dealed)) {
+            $query['Dealed'] = $request->dealed;
+        }
+        if (!Utils::isUnset($request->digest)) {
+            $query['Digest'] = $request->digest;
+        }
+        if (!Utils::isUnset($request->instanceId)) {
+            $query['InstanceId'] = $request->instanceId;
+        }
+        if (!Utils::isUnset($request->lang)) {
+            $query['Lang'] = $request->lang;
+        }
+        if (!Utils::isUnset($request->name)) {
+            $query['Name'] = $request->name;
+        }
+        if (!Utils::isUnset($request->necessity)) {
+            $query['Necessity'] = $request->necessity;
+        }
+        if (!Utils::isUnset($request->pageSize)) {
+            $query['PageSize'] = $request->pageSize;
+        }
+        if (!Utils::isUnset($request->regionId)) {
+            $query['RegionId'] = $request->regionId;
+        }
+        if (!Utils::isUnset($request->repoId)) {
+            $query['RepoId'] = $request->repoId;
+        }
+        if (!Utils::isUnset($request->repoId)) {
+            $query['RepoId'] = $request->repoId;
+        }
+        if (!Utils::isUnset($request->repoInstanceId)) {
+            $query['RepoInstanceId'] = $request->repoInstanceId;
+        }
+        if (!Utils::isUnset($request->repoName)) {
+            $query['RepoName'] = $request->repoName;
+        }
+        if (!Utils::isUnset($request->repoName)) {
+            $query['RepoName'] = $request->repoName;
+        }
+        if (!Utils::isUnset($request->repoNamespace)) {
+            $query['RepoNamespace'] = $request->repoNamespace;
+        }
+        if (!Utils::isUnset($request->repoRegionId)) {
+            $query['RepoRegionId'] = $request->repoRegionId;
+        }
+        if (!Utils::isUnset($request->statusList)) {
+            $query['StatusList'] = $request->statusList;
+        }
+        if (!Utils::isUnset($request->tag)) {
+            $query['Tag'] = $request->tag;
+        }
+        if (!Utils::isUnset($request->type)) {
+            $query['Type'] = $request->type;
+        }
+        if (!Utils::isUnset($request->uuids)) {
+            $query['Uuids'] = $request->uuids;
+        }
         $req = new OpenApiRequest([
-            'body' => Utils::toMap($request),
+            'query' => OpenApiUtilClient::query($query),
+        ]);
+        $params = new Params([
+            'action'      => 'DescribeImageVulList',
+            'version'     => '2018-12-03',
+            'protocol'    => 'HTTPS',
+            'pathname'    => '/',
+            'method'      => 'POST',
+            'authType'    => 'AK',
+            'style'       => 'RPC',
+            'reqBodyType' => 'formData',
+            'bodyType'    => 'json',
         ]);
 
-        return DescribeImageVulListResponse::fromMap($this->doRPCRequest('DescribeImageVulList', '2018-12-03', 'HTTPS', 'POST', 'AK', 'json', $req, $runtime));
+        return DescribeImageVulListResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
@@ -2810,11 +3883,32 @@ class Sas extends OpenApiClient
     public function describeInstallCaptchaWithOptions($request, $runtime)
     {
         Utils::validateModel($request);
+        $query = [];
+        if (!Utils::isUnset($request->deadline)) {
+            $query['Deadline'] = $request->deadline;
+        }
+        if (!Utils::isUnset($request->lang)) {
+            $query['Lang'] = $request->lang;
+        }
+        if (!Utils::isUnset($request->sourceIp)) {
+            $query['SourceIp'] = $request->sourceIp;
+        }
         $req = new OpenApiRequest([
-            'body' => Utils::toMap($request),
+            'query' => OpenApiUtilClient::query($query),
+        ]);
+        $params = new Params([
+            'action'      => 'DescribeInstallCaptcha',
+            'version'     => '2018-12-03',
+            'protocol'    => 'HTTPS',
+            'pathname'    => '/',
+            'method'      => 'POST',
+            'authType'    => 'AK',
+            'style'       => 'RPC',
+            'reqBodyType' => 'formData',
+            'bodyType'    => 'json',
         ]);
 
-        return DescribeInstallCaptchaResponse::fromMap($this->doRPCRequest('DescribeInstallCaptcha', '2018-12-03', 'HTTPS', 'POST', 'AK', 'json', $req, $runtime));
+        return DescribeInstallCaptchaResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
@@ -2836,9 +3930,20 @@ class Sas extends OpenApiClient
      */
     public function describeInstallCodesWithOptions($runtime)
     {
-        $req = new OpenApiRequest([]);
+        $req    = new OpenApiRequest([]);
+        $params = new Params([
+            'action'      => 'DescribeInstallCodes',
+            'version'     => '2018-12-03',
+            'protocol'    => 'HTTPS',
+            'pathname'    => '/',
+            'method'      => 'POST',
+            'authType'    => 'AK',
+            'style'       => 'RPC',
+            'reqBodyType' => 'formData',
+            'bodyType'    => 'json',
+        ]);
 
-        return DescribeInstallCodesResponse::fromMap($this->doRPCRequest('DescribeInstallCodes', '2018-12-03', 'HTTPS', 'POST', 'AK', 'json', $req, $runtime));
+        return DescribeInstallCodesResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
@@ -2860,11 +3965,32 @@ class Sas extends OpenApiClient
     public function describeInstanceAntiBruteForceRulesWithOptions($request, $runtime)
     {
         Utils::validateModel($request);
+        $query = [];
+        if (!Utils::isUnset($request->resourceOwnerId)) {
+            $query['ResourceOwnerId'] = $request->resourceOwnerId;
+        }
+        if (!Utils::isUnset($request->sourceIp)) {
+            $query['SourceIp'] = $request->sourceIp;
+        }
+        if (!Utils::isUnset($request->uuidList)) {
+            $query['UuidList'] = $request->uuidList;
+        }
         $req = new OpenApiRequest([
-            'body' => Utils::toMap($request),
+            'query' => OpenApiUtilClient::query($query),
+        ]);
+        $params = new Params([
+            'action'      => 'DescribeInstanceAntiBruteForceRules',
+            'version'     => '2018-12-03',
+            'protocol'    => 'HTTPS',
+            'pathname'    => '/',
+            'method'      => 'POST',
+            'authType'    => 'AK',
+            'style'       => 'RPC',
+            'reqBodyType' => 'formData',
+            'bodyType'    => 'json',
         ]);
 
-        return DescribeInstanceAntiBruteForceRulesResponse::fromMap($this->doRPCRequest('DescribeInstanceAntiBruteForceRules', '2018-12-03', 'HTTPS', 'POST', 'AK', 'json', $req, $runtime));
+        return DescribeInstanceAntiBruteForceRulesResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
@@ -2888,11 +4014,35 @@ class Sas extends OpenApiClient
     public function describeInstanceStatisticsWithOptions($request, $runtime)
     {
         Utils::validateModel($request);
+        $query = [];
+        if (!Utils::isUnset($request->from)) {
+            $query['From'] = $request->from;
+        }
+        if (!Utils::isUnset($request->lang)) {
+            $query['Lang'] = $request->lang;
+        }
+        if (!Utils::isUnset($request->sourceIp)) {
+            $query['SourceIp'] = $request->sourceIp;
+        }
+        if (!Utils::isUnset($request->uuid)) {
+            $query['Uuid'] = $request->uuid;
+        }
         $req = new OpenApiRequest([
-            'body' => Utils::toMap($request),
+            'query' => OpenApiUtilClient::query($query),
+        ]);
+        $params = new Params([
+            'action'      => 'DescribeInstanceStatistics',
+            'version'     => '2018-12-03',
+            'protocol'    => 'HTTPS',
+            'pathname'    => '/',
+            'method'      => 'POST',
+            'authType'    => 'AK',
+            'style'       => 'RPC',
+            'reqBodyType' => 'formData',
+            'bodyType'    => 'json',
         ]);
 
-        return DescribeInstanceStatisticsResponse::fromMap($this->doRPCRequest('DescribeInstanceStatistics', '2018-12-03', 'HTTPS', 'POST', 'AK', 'json', $req, $runtime));
+        return DescribeInstanceStatisticsResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
@@ -2916,11 +4066,29 @@ class Sas extends OpenApiClient
     public function describeIpInfoWithOptions($request, $runtime)
     {
         Utils::validateModel($request);
+        $query = [];
+        if (!Utils::isUnset($request->field)) {
+            $query['Field'] = $request->field;
+        }
+        if (!Utils::isUnset($request->ip)) {
+            $query['Ip'] = $request->ip;
+        }
         $req = new OpenApiRequest([
-            'body' => Utils::toMap($request),
+            'query' => OpenApiUtilClient::query($query),
+        ]);
+        $params = new Params([
+            'action'      => 'DescribeIpInfo',
+            'version'     => '2018-12-03',
+            'protocol'    => 'HTTPS',
+            'pathname'    => '/',
+            'method'      => 'POST',
+            'authType'    => 'AK',
+            'style'       => 'RPC',
+            'reqBodyType' => 'formData',
+            'bodyType'    => 'json',
         ]);
 
-        return DescribeIpInfoResponse::fromMap($this->doRPCRequest('DescribeIpInfo', '2018-12-03', 'HTTPS', 'POST', 'AK', 'json', $req, $runtime));
+        return DescribeIpInfoResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
@@ -2944,11 +4112,29 @@ class Sas extends OpenApiClient
     public function describeLogstoreStorageWithOptions($request, $runtime)
     {
         Utils::validateModel($request);
+        $query = [];
+        if (!Utils::isUnset($request->from)) {
+            $query['From'] = $request->from;
+        }
+        if (!Utils::isUnset($request->lang)) {
+            $query['Lang'] = $request->lang;
+        }
         $req = new OpenApiRequest([
-            'body' => Utils::toMap($request),
+            'query' => OpenApiUtilClient::query($query),
+        ]);
+        $params = new Params([
+            'action'      => 'DescribeLogstoreStorage',
+            'version'     => '2018-12-03',
+            'protocol'    => 'HTTPS',
+            'pathname'    => '/',
+            'method'      => 'POST',
+            'authType'    => 'AK',
+            'style'       => 'RPC',
+            'reqBodyType' => 'formData',
+            'bodyType'    => 'json',
         ]);
 
-        return DescribeLogstoreStorageResponse::fromMap($this->doRPCRequest('DescribeLogstoreStorage', '2018-12-03', 'HTTPS', 'POST', 'AK', 'json', $req, $runtime));
+        return DescribeLogstoreStorageResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
@@ -2970,9 +4156,20 @@ class Sas extends OpenApiClient
      */
     public function describeModuleConfigWithOptions($runtime)
     {
-        $req = new OpenApiRequest([]);
+        $req    = new OpenApiRequest([]);
+        $params = new Params([
+            'action'      => 'DescribeModuleConfig',
+            'version'     => '2018-12-03',
+            'protocol'    => 'HTTPS',
+            'pathname'    => '/',
+            'method'      => 'POST',
+            'authType'    => 'AK',
+            'style'       => 'RPC',
+            'reqBodyType' => 'formData',
+            'bodyType'    => 'json',
+        ]);
 
-        return DescribeModuleConfigResponse::fromMap($this->doRPCRequest('DescribeModuleConfig', '2018-12-03', 'HTTPS', 'POST', 'AK', 'json', $req, $runtime));
+        return DescribeModuleConfigResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
@@ -2994,11 +4191,26 @@ class Sas extends OpenApiClient
     public function describeNoticeConfigWithOptions($request, $runtime)
     {
         Utils::validateModel($request);
+        $query = [];
+        if (!Utils::isUnset($request->sourceIp)) {
+            $query['SourceIp'] = $request->sourceIp;
+        }
         $req = new OpenApiRequest([
-            'body' => Utils::toMap($request),
+            'query' => OpenApiUtilClient::query($query),
+        ]);
+        $params = new Params([
+            'action'      => 'DescribeNoticeConfig',
+            'version'     => '2018-12-03',
+            'protocol'    => 'HTTPS',
+            'pathname'    => '/',
+            'method'      => 'POST',
+            'authType'    => 'AK',
+            'style'       => 'RPC',
+            'reqBodyType' => 'formData',
+            'bodyType'    => 'json',
         ]);
 
-        return DescribeNoticeConfigResponse::fromMap($this->doRPCRequest('DescribeNoticeConfig', '2018-12-03', 'HTTPS', 'POST', 'AK', 'json', $req, $runtime));
+        return DescribeNoticeConfigResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
@@ -3022,11 +4234,29 @@ class Sas extends OpenApiClient
     public function describePropertyCountWithOptions($request, $runtime)
     {
         Utils::validateModel($request);
+        $query = [];
+        if (!Utils::isUnset($request->type)) {
+            $query['Type'] = $request->type;
+        }
+        if (!Utils::isUnset($request->uuidList)) {
+            $query['UuidList'] = $request->uuidList;
+        }
         $req = new OpenApiRequest([
-            'body' => Utils::toMap($request),
+            'query' => OpenApiUtilClient::query($query),
+        ]);
+        $params = new Params([
+            'action'      => 'DescribePropertyCount',
+            'version'     => '2018-12-03',
+            'protocol'    => 'HTTPS',
+            'pathname'    => '/',
+            'method'      => 'POST',
+            'authType'    => 'AK',
+            'style'       => 'RPC',
+            'reqBodyType' => 'formData',
+            'bodyType'    => 'json',
         ]);
 
-        return DescribePropertyCountResponse::fromMap($this->doRPCRequest('DescribePropertyCount', '2018-12-03', 'HTTPS', 'POST', 'AK', 'json', $req, $runtime));
+        return DescribePropertyCountResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
@@ -3050,11 +4280,41 @@ class Sas extends OpenApiClient
     public function describePropertyCronDetailWithOptions($request, $runtime)
     {
         Utils::validateModel($request);
+        $query = [];
+        if (!Utils::isUnset($request->currentPage)) {
+            $query['CurrentPage'] = $request->currentPage;
+        }
+        if (!Utils::isUnset($request->pageSize)) {
+            $query['PageSize'] = $request->pageSize;
+        }
+        if (!Utils::isUnset($request->remark)) {
+            $query['Remark'] = $request->remark;
+        }
+        if (!Utils::isUnset($request->source)) {
+            $query['Source'] = $request->source;
+        }
+        if (!Utils::isUnset($request->user)) {
+            $query['User'] = $request->user;
+        }
+        if (!Utils::isUnset($request->uuid)) {
+            $query['Uuid'] = $request->uuid;
+        }
         $req = new OpenApiRequest([
-            'body' => Utils::toMap($request),
+            'query' => OpenApiUtilClient::query($query),
+        ]);
+        $params = new Params([
+            'action'      => 'DescribePropertyCronDetail',
+            'version'     => '2018-12-03',
+            'protocol'    => 'HTTPS',
+            'pathname'    => '/',
+            'method'      => 'POST',
+            'authType'    => 'AK',
+            'style'       => 'RPC',
+            'reqBodyType' => 'formData',
+            'bodyType'    => 'json',
         ]);
 
-        return DescribePropertyCronDetailResponse::fromMap($this->doRPCRequest('DescribePropertyCronDetail', '2018-12-03', 'HTTPS', 'POST', 'AK', 'json', $req, $runtime));
+        return DescribePropertyCronDetailResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
@@ -3078,11 +4338,41 @@ class Sas extends OpenApiClient
     public function describePropertyPortDetailWithOptions($request, $runtime)
     {
         Utils::validateModel($request);
+        $query = [];
+        if (!Utils::isUnset($request->currentPage)) {
+            $query['CurrentPage'] = $request->currentPage;
+        }
+        if (!Utils::isUnset($request->pageSize)) {
+            $query['PageSize'] = $request->pageSize;
+        }
+        if (!Utils::isUnset($request->port)) {
+            $query['Port'] = $request->port;
+        }
+        if (!Utils::isUnset($request->procName)) {
+            $query['ProcName'] = $request->procName;
+        }
+        if (!Utils::isUnset($request->remark)) {
+            $query['Remark'] = $request->remark;
+        }
+        if (!Utils::isUnset($request->uuid)) {
+            $query['Uuid'] = $request->uuid;
+        }
         $req = new OpenApiRequest([
-            'body' => Utils::toMap($request),
+            'query' => OpenApiUtilClient::query($query),
+        ]);
+        $params = new Params([
+            'action'      => 'DescribePropertyPortDetail',
+            'version'     => '2018-12-03',
+            'protocol'    => 'HTTPS',
+            'pathname'    => '/',
+            'method'      => 'POST',
+            'authType'    => 'AK',
+            'style'       => 'RPC',
+            'reqBodyType' => 'formData',
+            'bodyType'    => 'json',
         ]);
 
-        return DescribePropertyPortDetailResponse::fromMap($this->doRPCRequest('DescribePropertyPortDetail', '2018-12-03', 'HTTPS', 'POST', 'AK', 'json', $req, $runtime));
+        return DescribePropertyPortDetailResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
@@ -3106,11 +4396,35 @@ class Sas extends OpenApiClient
     public function describePropertyPortItemWithOptions($request, $runtime)
     {
         Utils::validateModel($request);
+        $query = [];
+        if (!Utils::isUnset($request->currentPage)) {
+            $query['CurrentPage'] = $request->currentPage;
+        }
+        if (!Utils::isUnset($request->forceFlush)) {
+            $query['ForceFlush'] = $request->forceFlush;
+        }
+        if (!Utils::isUnset($request->pageSize)) {
+            $query['PageSize'] = $request->pageSize;
+        }
+        if (!Utils::isUnset($request->port)) {
+            $query['Port'] = $request->port;
+        }
         $req = new OpenApiRequest([
-            'body' => Utils::toMap($request),
+            'query' => OpenApiUtilClient::query($query),
+        ]);
+        $params = new Params([
+            'action'      => 'DescribePropertyPortItem',
+            'version'     => '2018-12-03',
+            'protocol'    => 'HTTPS',
+            'pathname'    => '/',
+            'method'      => 'POST',
+            'authType'    => 'AK',
+            'style'       => 'RPC',
+            'reqBodyType' => 'formData',
+            'bodyType'    => 'json',
         ]);
 
-        return DescribePropertyPortItemResponse::fromMap($this->doRPCRequest('DescribePropertyPortItem', '2018-12-03', 'HTTPS', 'POST', 'AK', 'json', $req, $runtime));
+        return DescribePropertyPortItemResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
@@ -3134,11 +4448,44 @@ class Sas extends OpenApiClient
     public function describePropertyProcDetailWithOptions($request, $runtime)
     {
         Utils::validateModel($request);
+        $query = [];
+        if (!Utils::isUnset($request->cmdline)) {
+            $query['Cmdline'] = $request->cmdline;
+        }
+        if (!Utils::isUnset($request->currentPage)) {
+            $query['CurrentPage'] = $request->currentPage;
+        }
+        if (!Utils::isUnset($request->name)) {
+            $query['Name'] = $request->name;
+        }
+        if (!Utils::isUnset($request->pageSize)) {
+            $query['PageSize'] = $request->pageSize;
+        }
+        if (!Utils::isUnset($request->remark)) {
+            $query['Remark'] = $request->remark;
+        }
+        if (!Utils::isUnset($request->user)) {
+            $query['User'] = $request->user;
+        }
+        if (!Utils::isUnset($request->uuid)) {
+            $query['Uuid'] = $request->uuid;
+        }
         $req = new OpenApiRequest([
-            'body' => Utils::toMap($request),
+            'query' => OpenApiUtilClient::query($query),
+        ]);
+        $params = new Params([
+            'action'      => 'DescribePropertyProcDetail',
+            'version'     => '2018-12-03',
+            'protocol'    => 'HTTPS',
+            'pathname'    => '/',
+            'method'      => 'POST',
+            'authType'    => 'AK',
+            'style'       => 'RPC',
+            'reqBodyType' => 'formData',
+            'bodyType'    => 'json',
         ]);
 
-        return DescribePropertyProcDetailResponse::fromMap($this->doRPCRequest('DescribePropertyProcDetail', '2018-12-03', 'HTTPS', 'POST', 'AK', 'json', $req, $runtime));
+        return DescribePropertyProcDetailResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
@@ -3162,11 +4509,35 @@ class Sas extends OpenApiClient
     public function describePropertyProcItemWithOptions($request, $runtime)
     {
         Utils::validateModel($request);
+        $query = [];
+        if (!Utils::isUnset($request->currentPage)) {
+            $query['CurrentPage'] = $request->currentPage;
+        }
+        if (!Utils::isUnset($request->forceFlush)) {
+            $query['ForceFlush'] = $request->forceFlush;
+        }
+        if (!Utils::isUnset($request->name)) {
+            $query['Name'] = $request->name;
+        }
+        if (!Utils::isUnset($request->pageSize)) {
+            $query['PageSize'] = $request->pageSize;
+        }
         $req = new OpenApiRequest([
-            'body' => Utils::toMap($request),
+            'query' => OpenApiUtilClient::query($query),
+        ]);
+        $params = new Params([
+            'action'      => 'DescribePropertyProcItem',
+            'version'     => '2018-12-03',
+            'protocol'    => 'HTTPS',
+            'pathname'    => '/',
+            'method'      => 'POST',
+            'authType'    => 'AK',
+            'style'       => 'RPC',
+            'reqBodyType' => 'formData',
+            'bodyType'    => 'json',
         ]);
 
-        return DescribePropertyProcItemResponse::fromMap($this->doRPCRequest('DescribePropertyProcItem', '2018-12-03', 'HTTPS', 'POST', 'AK', 'json', $req, $runtime));
+        return DescribePropertyProcItemResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
@@ -3190,11 +4561,59 @@ class Sas extends OpenApiClient
     public function describePropertyScaDetailWithOptions($request, $runtime)
     {
         Utils::validateModel($request);
+        $query = [];
+        if (!Utils::isUnset($request->bizType)) {
+            $query['BizType'] = $request->bizType;
+        }
+        if (!Utils::isUnset($request->currentPage)) {
+            $query['CurrentPage'] = $request->currentPage;
+        }
+        if (!Utils::isUnset($request->lang)) {
+            $query['Lang'] = $request->lang;
+        }
+        if (!Utils::isUnset($request->name)) {
+            $query['Name'] = $request->name;
+        }
+        if (!Utils::isUnset($request->pageSize)) {
+            $query['PageSize'] = $request->pageSize;
+        }
+        if (!Utils::isUnset($request->remark)) {
+            $query['Remark'] = $request->remark;
+        }
+        if (!Utils::isUnset($request->scaName)) {
+            $query['ScaName'] = $request->scaName;
+        }
+        if (!Utils::isUnset($request->searchInfo)) {
+            $query['SearchInfo'] = $request->searchInfo;
+        }
+        if (!Utils::isUnset($request->searchInfoSub)) {
+            $query['SearchInfoSub'] = $request->searchInfoSub;
+        }
+        if (!Utils::isUnset($request->searchItem)) {
+            $query['SearchItem'] = $request->searchItem;
+        }
+        if (!Utils::isUnset($request->searchItemSub)) {
+            $query['SearchItemSub'] = $request->searchItemSub;
+        }
+        if (!Utils::isUnset($request->uuid)) {
+            $query['Uuid'] = $request->uuid;
+        }
         $req = new OpenApiRequest([
-            'body' => Utils::toMap($request),
+            'query' => OpenApiUtilClient::query($query),
+        ]);
+        $params = new Params([
+            'action'      => 'DescribePropertyScaDetail',
+            'version'     => '2018-12-03',
+            'protocol'    => 'HTTPS',
+            'pathname'    => '/',
+            'method'      => 'POST',
+            'authType'    => 'AK',
+            'style'       => 'RPC',
+            'reqBodyType' => 'formData',
+            'bodyType'    => 'json',
         ]);
 
-        return DescribePropertyScaDetailResponse::fromMap($this->doRPCRequest('DescribePropertyScaDetail', '2018-12-03', 'HTTPS', 'POST', 'AK', 'json', $req, $runtime));
+        return DescribePropertyScaDetailResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
@@ -3218,11 +4637,44 @@ class Sas extends OpenApiClient
     public function describePropertySoftwareDetailWithOptions($request, $runtime)
     {
         Utils::validateModel($request);
+        $query = [];
+        if (!Utils::isUnset($request->currentPage)) {
+            $query['CurrentPage'] = $request->currentPage;
+        }
+        if (!Utils::isUnset($request->name)) {
+            $query['Name'] = $request->name;
+        }
+        if (!Utils::isUnset($request->pageSize)) {
+            $query['PageSize'] = $request->pageSize;
+        }
+        if (!Utils::isUnset($request->path)) {
+            $query['Path'] = $request->path;
+        }
+        if (!Utils::isUnset($request->remark)) {
+            $query['Remark'] = $request->remark;
+        }
+        if (!Utils::isUnset($request->softwareVersion)) {
+            $query['SoftwareVersion'] = $request->softwareVersion;
+        }
+        if (!Utils::isUnset($request->uuid)) {
+            $query['Uuid'] = $request->uuid;
+        }
         $req = new OpenApiRequest([
-            'body' => Utils::toMap($request),
+            'query' => OpenApiUtilClient::query($query),
+        ]);
+        $params = new Params([
+            'action'      => 'DescribePropertySoftwareDetail',
+            'version'     => '2018-12-03',
+            'protocol'    => 'HTTPS',
+            'pathname'    => '/',
+            'method'      => 'POST',
+            'authType'    => 'AK',
+            'style'       => 'RPC',
+            'reqBodyType' => 'formData',
+            'bodyType'    => 'json',
         ]);
 
-        return DescribePropertySoftwareDetailResponse::fromMap($this->doRPCRequest('DescribePropertySoftwareDetail', '2018-12-03', 'HTTPS', 'POST', 'AK', 'json', $req, $runtime));
+        return DescribePropertySoftwareDetailResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
@@ -3246,11 +4698,35 @@ class Sas extends OpenApiClient
     public function describePropertySoftwareItemWithOptions($request, $runtime)
     {
         Utils::validateModel($request);
+        $query = [];
+        if (!Utils::isUnset($request->currentPage)) {
+            $query['CurrentPage'] = $request->currentPage;
+        }
+        if (!Utils::isUnset($request->forceFlush)) {
+            $query['ForceFlush'] = $request->forceFlush;
+        }
+        if (!Utils::isUnset($request->name)) {
+            $query['Name'] = $request->name;
+        }
+        if (!Utils::isUnset($request->pageSize)) {
+            $query['PageSize'] = $request->pageSize;
+        }
         $req = new OpenApiRequest([
-            'body' => Utils::toMap($request),
+            'query' => OpenApiUtilClient::query($query),
+        ]);
+        $params = new Params([
+            'action'      => 'DescribePropertySoftwareItem',
+            'version'     => '2018-12-03',
+            'protocol'    => 'HTTPS',
+            'pathname'    => '/',
+            'method'      => 'POST',
+            'authType'    => 'AK',
+            'style'       => 'RPC',
+            'reqBodyType' => 'formData',
+            'bodyType'    => 'json',
         ]);
 
-        return DescribePropertySoftwareItemResponse::fromMap($this->doRPCRequest('DescribePropertySoftwareItem', '2018-12-03', 'HTTPS', 'POST', 'AK', 'json', $req, $runtime));
+        return DescribePropertySoftwareItemResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
@@ -3274,11 +4750,26 @@ class Sas extends OpenApiClient
     public function describePropertyUsageNewestWithOptions($request, $runtime)
     {
         Utils::validateModel($request);
+        $query = [];
+        if (!Utils::isUnset($request->type)) {
+            $query['Type'] = $request->type;
+        }
         $req = new OpenApiRequest([
-            'body' => Utils::toMap($request),
+            'query' => OpenApiUtilClient::query($query),
+        ]);
+        $params = new Params([
+            'action'      => 'DescribePropertyUsageNewest',
+            'version'     => '2018-12-03',
+            'protocol'    => 'HTTPS',
+            'pathname'    => '/',
+            'method'      => 'POST',
+            'authType'    => 'AK',
+            'style'       => 'RPC',
+            'reqBodyType' => 'formData',
+            'bodyType'    => 'json',
         ]);
 
-        return DescribePropertyUsageNewestResponse::fromMap($this->doRPCRequest('DescribePropertyUsageNewest', '2018-12-03', 'HTTPS', 'POST', 'AK', 'json', $req, $runtime));
+        return DescribePropertyUsageNewestResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
@@ -3302,11 +4793,41 @@ class Sas extends OpenApiClient
     public function describePropertyUserDetailWithOptions($request, $runtime)
     {
         Utils::validateModel($request);
+        $query = [];
+        if (!Utils::isUnset($request->currentPage)) {
+            $query['CurrentPage'] = $request->currentPage;
+        }
+        if (!Utils::isUnset($request->isRoot)) {
+            $query['IsRoot'] = $request->isRoot;
+        }
+        if (!Utils::isUnset($request->pageSize)) {
+            $query['PageSize'] = $request->pageSize;
+        }
+        if (!Utils::isUnset($request->remark)) {
+            $query['Remark'] = $request->remark;
+        }
+        if (!Utils::isUnset($request->user)) {
+            $query['User'] = $request->user;
+        }
+        if (!Utils::isUnset($request->uuid)) {
+            $query['Uuid'] = $request->uuid;
+        }
         $req = new OpenApiRequest([
-            'body' => Utils::toMap($request),
+            'query' => OpenApiUtilClient::query($query),
+        ]);
+        $params = new Params([
+            'action'      => 'DescribePropertyUserDetail',
+            'version'     => '2018-12-03',
+            'protocol'    => 'HTTPS',
+            'pathname'    => '/',
+            'method'      => 'POST',
+            'authType'    => 'AK',
+            'style'       => 'RPC',
+            'reqBodyType' => 'formData',
+            'bodyType'    => 'json',
         ]);
 
-        return DescribePropertyUserDetailResponse::fromMap($this->doRPCRequest('DescribePropertyUserDetail', '2018-12-03', 'HTTPS', 'POST', 'AK', 'json', $req, $runtime));
+        return DescribePropertyUserDetailResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
@@ -3330,11 +4851,35 @@ class Sas extends OpenApiClient
     public function describePropertyUserItemWithOptions($request, $runtime)
     {
         Utils::validateModel($request);
+        $query = [];
+        if (!Utils::isUnset($request->currentPage)) {
+            $query['CurrentPage'] = $request->currentPage;
+        }
+        if (!Utils::isUnset($request->forceFlush)) {
+            $query['ForceFlush'] = $request->forceFlush;
+        }
+        if (!Utils::isUnset($request->pageSize)) {
+            $query['PageSize'] = $request->pageSize;
+        }
+        if (!Utils::isUnset($request->user)) {
+            $query['User'] = $request->user;
+        }
         $req = new OpenApiRequest([
-            'body' => Utils::toMap($request),
+            'query' => OpenApiUtilClient::query($query),
+        ]);
+        $params = new Params([
+            'action'      => 'DescribePropertyUserItem',
+            'version'     => '2018-12-03',
+            'protocol'    => 'HTTPS',
+            'pathname'    => '/',
+            'method'      => 'POST',
+            'authType'    => 'AK',
+            'style'       => 'RPC',
+            'reqBodyType' => 'formData',
+            'bodyType'    => 'json',
         ]);
 
-        return DescribePropertyUserItemResponse::fromMap($this->doRPCRequest('DescribePropertyUserItem', '2018-12-03', 'HTTPS', 'POST', 'AK', 'json', $req, $runtime));
+        return DescribePropertyUserItemResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
@@ -3350,34 +4895,6 @@ class Sas extends OpenApiClient
     }
 
     /**
-     * @param DescribeQuaraFileDownloadInfoRequest $request
-     * @param RuntimeOptions                       $runtime
-     *
-     * @return DescribeQuaraFileDownloadInfoResponse
-     */
-    public function describeQuaraFileDownloadInfoWithOptions($request, $runtime)
-    {
-        Utils::validateModel($request);
-        $req = new OpenApiRequest([
-            'body' => Utils::toMap($request),
-        ]);
-
-        return DescribeQuaraFileDownloadInfoResponse::fromMap($this->doRPCRequest('DescribeQuaraFileDownloadInfo', '2018-12-03', 'HTTPS', 'POST', 'AK', 'json', $req, $runtime));
-    }
-
-    /**
-     * @param DescribeQuaraFileDownloadInfoRequest $request
-     *
-     * @return DescribeQuaraFileDownloadInfoResponse
-     */
-    public function describeQuaraFileDownloadInfo($request)
-    {
-        $runtime = new RuntimeOptions([]);
-
-        return $this->describeQuaraFileDownloadInfoWithOptions($request, $runtime);
-    }
-
-    /**
      * @param DescribeRestoreJobsRequest $request
      * @param RuntimeOptions             $runtime
      *
@@ -3386,11 +4903,35 @@ class Sas extends OpenApiClient
     public function describeRestoreJobsWithOptions($request, $runtime)
     {
         Utils::validateModel($request);
+        $query = [];
+        if (!Utils::isUnset($request->currentPage)) {
+            $query['CurrentPage'] = $request->currentPage;
+        }
+        if (!Utils::isUnset($request->machineRemark)) {
+            $query['MachineRemark'] = $request->machineRemark;
+        }
+        if (!Utils::isUnset($request->pageSize)) {
+            $query['PageSize'] = $request->pageSize;
+        }
+        if (!Utils::isUnset($request->status)) {
+            $query['Status'] = $request->status;
+        }
         $req = new OpenApiRequest([
-            'body' => Utils::toMap($request),
+            'query' => OpenApiUtilClient::query($query),
+        ]);
+        $params = new Params([
+            'action'      => 'DescribeRestoreJobs',
+            'version'     => '2018-12-03',
+            'protocol'    => 'HTTPS',
+            'pathname'    => '/',
+            'method'      => 'POST',
+            'authType'    => 'AK',
+            'style'       => 'RPC',
+            'reqBodyType' => 'formData',
+            'bodyType'    => 'json',
         ]);
 
-        return DescribeRestoreJobsResponse::fromMap($this->doRPCRequest('DescribeRestoreJobs', '2018-12-03', 'HTTPS', 'POST', 'AK', 'json', $req, $runtime));
+        return DescribeRestoreJobsResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
@@ -3406,34 +4947,6 @@ class Sas extends OpenApiClient
     }
 
     /**
-     * @param DescribeRestorePlansRequest $request
-     * @param RuntimeOptions              $runtime
-     *
-     * @return DescribeRestorePlansResponse
-     */
-    public function describeRestorePlansWithOptions($request, $runtime)
-    {
-        Utils::validateModel($request);
-        $req = new OpenApiRequest([
-            'body' => Utils::toMap($request),
-        ]);
-
-        return DescribeRestorePlansResponse::fromMap($this->doRPCRequest('DescribeRestorePlans', '2018-12-03', 'HTTPS', 'POST', 'AK', 'json', $req, $runtime));
-    }
-
-    /**
-     * @param DescribeRestorePlansRequest $request
-     *
-     * @return DescribeRestorePlansResponse
-     */
-    public function describeRestorePlans($request)
-    {
-        $runtime = new RuntimeOptions([]);
-
-        return $this->describeRestorePlansWithOptions($request, $runtime);
-    }
-
-    /**
      * @param DescribeRiskCheckItemResultRequest $request
      * @param RuntimeOptions                     $runtime
      *
@@ -3442,11 +4955,41 @@ class Sas extends OpenApiClient
     public function describeRiskCheckItemResultWithOptions($request, $runtime)
     {
         Utils::validateModel($request);
+        $query = [];
+        if (!Utils::isUnset($request->currentPage)) {
+            $query['CurrentPage'] = $request->currentPage;
+        }
+        if (!Utils::isUnset($request->itemId)) {
+            $query['ItemId'] = $request->itemId;
+        }
+        if (!Utils::isUnset($request->lang)) {
+            $query['Lang'] = $request->lang;
+        }
+        if (!Utils::isUnset($request->pageSize)) {
+            $query['PageSize'] = $request->pageSize;
+        }
+        if (!Utils::isUnset($request->resourceOwnerId)) {
+            $query['ResourceOwnerId'] = $request->resourceOwnerId;
+        }
+        if (!Utils::isUnset($request->sourceIp)) {
+            $query['SourceIp'] = $request->sourceIp;
+        }
         $req = new OpenApiRequest([
-            'body' => Utils::toMap($request),
+            'query' => OpenApiUtilClient::query($query),
+        ]);
+        $params = new Params([
+            'action'      => 'DescribeRiskCheckItemResult',
+            'version'     => '2018-12-03',
+            'protocol'    => 'HTTPS',
+            'pathname'    => '/',
+            'method'      => 'POST',
+            'authType'    => 'AK',
+            'style'       => 'RPC',
+            'reqBodyType' => 'formData',
+            'bodyType'    => 'json',
         ]);
 
-        return DescribeRiskCheckItemResultResponse::fromMap($this->doRPCRequest('DescribeRiskCheckItemResult', '2018-12-03', 'HTTPS', 'POST', 'AK', 'json', $req, $runtime));
+        return DescribeRiskCheckItemResultResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
@@ -3470,11 +5013,59 @@ class Sas extends OpenApiClient
     public function describeRiskCheckResultWithOptions($request, $runtime)
     {
         Utils::validateModel($request);
+        $query = [];
+        if (!Utils::isUnset($request->assetType)) {
+            $query['AssetType'] = $request->assetType;
+        }
+        if (!Utils::isUnset($request->currentPage)) {
+            $query['CurrentPage'] = $request->currentPage;
+        }
+        if (!Utils::isUnset($request->groupId)) {
+            $query['GroupId'] = $request->groupId;
+        }
+        if (!Utils::isUnset($request->itemIds)) {
+            $query['ItemIds'] = $request->itemIds;
+        }
+        if (!Utils::isUnset($request->lang)) {
+            $query['Lang'] = $request->lang;
+        }
+        if (!Utils::isUnset($request->name)) {
+            $query['Name'] = $request->name;
+        }
+        if (!Utils::isUnset($request->pageSize)) {
+            $query['PageSize'] = $request->pageSize;
+        }
+        if (!Utils::isUnset($request->queryFlag)) {
+            $query['QueryFlag'] = $request->queryFlag;
+        }
+        if (!Utils::isUnset($request->resourceOwnerId)) {
+            $query['ResourceOwnerId'] = $request->resourceOwnerId;
+        }
+        if (!Utils::isUnset($request->riskLevel)) {
+            $query['RiskLevel'] = $request->riskLevel;
+        }
+        if (!Utils::isUnset($request->sourceIp)) {
+            $query['SourceIp'] = $request->sourceIp;
+        }
+        if (!Utils::isUnset($request->status)) {
+            $query['Status'] = $request->status;
+        }
         $req = new OpenApiRequest([
-            'body' => Utils::toMap($request),
+            'query' => OpenApiUtilClient::query($query),
+        ]);
+        $params = new Params([
+            'action'      => 'DescribeRiskCheckResult',
+            'version'     => '2018-12-03',
+            'protocol'    => 'HTTPS',
+            'pathname'    => '/',
+            'method'      => 'POST',
+            'authType'    => 'AK',
+            'style'       => 'RPC',
+            'reqBodyType' => 'formData',
+            'bodyType'    => 'json',
         ]);
 
-        return DescribeRiskCheckResultResponse::fromMap($this->doRPCRequest('DescribeRiskCheckResult', '2018-12-03', 'HTTPS', 'POST', 'AK', 'json', $req, $runtime));
+        return DescribeRiskCheckResultResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
@@ -3498,11 +5089,35 @@ class Sas extends OpenApiClient
     public function describeRiskCheckSummaryWithOptions($request, $runtime)
     {
         Utils::validateModel($request);
+        $query = [];
+        if (!Utils::isUnset($request->lang)) {
+            $query['Lang'] = $request->lang;
+        }
+        if (!Utils::isUnset($request->resourceDirectoryAccountId)) {
+            $query['ResourceDirectoryAccountId'] = $request->resourceDirectoryAccountId;
+        }
+        if (!Utils::isUnset($request->resourceOwnerId)) {
+            $query['ResourceOwnerId'] = $request->resourceOwnerId;
+        }
+        if (!Utils::isUnset($request->sourceIp)) {
+            $query['SourceIp'] = $request->sourceIp;
+        }
         $req = new OpenApiRequest([
-            'body' => Utils::toMap($request),
+            'query' => OpenApiUtilClient::query($query),
+        ]);
+        $params = new Params([
+            'action'      => 'DescribeRiskCheckSummary',
+            'version'     => '2018-12-03',
+            'protocol'    => 'HTTPS',
+            'pathname'    => '/',
+            'method'      => 'POST',
+            'authType'    => 'AK',
+            'style'       => 'RPC',
+            'reqBodyType' => 'formData',
+            'bodyType'    => 'json',
         ]);
 
-        return DescribeRiskCheckSummaryResponse::fromMap($this->doRPCRequest('DescribeRiskCheckSummary', '2018-12-03', 'HTTPS', 'POST', 'AK', 'json', $req, $runtime));
+        return DescribeRiskCheckSummaryResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
@@ -3526,11 +5141,32 @@ class Sas extends OpenApiClient
     public function describeRiskItemTypeWithOptions($request, $runtime)
     {
         Utils::validateModel($request);
+        $query = [];
+        if (!Utils::isUnset($request->lang)) {
+            $query['Lang'] = $request->lang;
+        }
+        if (!Utils::isUnset($request->resourceOwnerId)) {
+            $query['ResourceOwnerId'] = $request->resourceOwnerId;
+        }
+        if (!Utils::isUnset($request->sourceIp)) {
+            $query['SourceIp'] = $request->sourceIp;
+        }
         $req = new OpenApiRequest([
-            'body' => Utils::toMap($request),
+            'query' => OpenApiUtilClient::query($query),
+        ]);
+        $params = new Params([
+            'action'      => 'DescribeRiskItemType',
+            'version'     => '2018-12-03',
+            'protocol'    => 'HTTPS',
+            'pathname'    => '/',
+            'method'      => 'POST',
+            'authType'    => 'AK',
+            'style'       => 'RPC',
+            'reqBodyType' => 'formData',
+            'bodyType'    => 'json',
         ]);
 
-        return DescribeRiskItemTypeResponse::fromMap($this->doRPCRequest('DescribeRiskItemType', '2018-12-03', 'HTTPS', 'POST', 'AK', 'json', $req, $runtime));
+        return DescribeRiskItemTypeResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
@@ -3554,11 +5190,41 @@ class Sas extends OpenApiClient
     public function describeRiskListCheckResultWithOptions($request, $runtime)
     {
         Utils::validateModel($request);
+        $query = [];
+        if (!Utils::isUnset($request->currentPage)) {
+            $query['CurrentPage'] = $request->currentPage;
+        }
+        if (!Utils::isUnset($request->instanceIds)) {
+            $query['InstanceIds'] = $request->instanceIds;
+        }
+        if (!Utils::isUnset($request->lang)) {
+            $query['Lang'] = $request->lang;
+        }
+        if (!Utils::isUnset($request->pageSize)) {
+            $query['PageSize'] = $request->pageSize;
+        }
+        if (!Utils::isUnset($request->resourceOwnerId)) {
+            $query['ResourceOwnerId'] = $request->resourceOwnerId;
+        }
+        if (!Utils::isUnset($request->sourceIp)) {
+            $query['SourceIp'] = $request->sourceIp;
+        }
         $req = new OpenApiRequest([
-            'body' => Utils::toMap($request),
+            'query' => OpenApiUtilClient::query($query),
+        ]);
+        $params = new Params([
+            'action'      => 'DescribeRiskListCheckResult',
+            'version'     => '2018-12-03',
+            'protocol'    => 'HTTPS',
+            'pathname'    => '/',
+            'method'      => 'POST',
+            'authType'    => 'AK',
+            'style'       => 'RPC',
+            'reqBodyType' => 'formData',
+            'bodyType'    => 'json',
         ]);
 
-        return DescribeRiskListCheckResultResponse::fromMap($this->doRPCRequest('DescribeRiskListCheckResult', '2018-12-03', 'HTTPS', 'POST', 'AK', 'json', $req, $runtime));
+        return DescribeRiskListCheckResultResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
@@ -3582,11 +5248,26 @@ class Sas extends OpenApiClient
     public function describeScanTaskProgressWithOptions($request, $runtime)
     {
         Utils::validateModel($request);
+        $query = [];
+        if (!Utils::isUnset($request->taskId)) {
+            $query['TaskId'] = $request->taskId;
+        }
         $req = new OpenApiRequest([
-            'body' => Utils::toMap($request),
+            'query' => OpenApiUtilClient::query($query),
+        ]);
+        $params = new Params([
+            'action'      => 'DescribeScanTaskProgress',
+            'version'     => '2018-12-03',
+            'protocol'    => 'HTTPS',
+            'pathname'    => '/',
+            'method'      => 'POST',
+            'authType'    => 'AK',
+            'style'       => 'RPC',
+            'reqBodyType' => 'formData',
+            'bodyType'    => 'json',
         ]);
 
-        return DescribeScanTaskProgressResponse::fromMap($this->doRPCRequest('DescribeScanTaskProgress', '2018-12-03', 'HTTPS', 'POST', 'AK', 'json', $req, $runtime));
+        return DescribeScanTaskProgressResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
@@ -3610,11 +5291,32 @@ class Sas extends OpenApiClient
     public function describeSearchConditionWithOptions($request, $runtime)
     {
         Utils::validateModel($request);
+        $query = [];
+        if (!Utils::isUnset($request->lang)) {
+            $query['Lang'] = $request->lang;
+        }
+        if (!Utils::isUnset($request->sourceIp)) {
+            $query['SourceIp'] = $request->sourceIp;
+        }
+        if (!Utils::isUnset($request->type)) {
+            $query['Type'] = $request->type;
+        }
         $req = new OpenApiRequest([
-            'body' => Utils::toMap($request),
+            'query' => OpenApiUtilClient::query($query),
+        ]);
+        $params = new Params([
+            'action'      => 'DescribeSearchCondition',
+            'version'     => '2018-12-03',
+            'protocol'    => 'HTTPS',
+            'pathname'    => '/',
+            'method'      => 'POST',
+            'authType'    => 'AK',
+            'style'       => 'RPC',
+            'reqBodyType' => 'formData',
+            'bodyType'    => 'json',
         ]);
 
-        return DescribeSearchConditionResponse::fromMap($this->doRPCRequest('DescribeSearchCondition', '2018-12-03', 'HTTPS', 'POST', 'AK', 'json', $req, $runtime));
+        return DescribeSearchConditionResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
@@ -3638,11 +5340,29 @@ class Sas extends OpenApiClient
     public function describeSecureSuggestionWithOptions($request, $runtime)
     {
         Utils::validateModel($request);
+        $query = [];
+        if (!Utils::isUnset($request->lang)) {
+            $query['Lang'] = $request->lang;
+        }
+        if (!Utils::isUnset($request->sourceIp)) {
+            $query['SourceIp'] = $request->sourceIp;
+        }
         $req = new OpenApiRequest([
-            'body' => Utils::toMap($request),
+            'query' => OpenApiUtilClient::query($query),
+        ]);
+        $params = new Params([
+            'action'      => 'DescribeSecureSuggestion',
+            'version'     => '2018-12-03',
+            'protocol'    => 'HTTPS',
+            'pathname'    => '/',
+            'method'      => 'POST',
+            'authType'    => 'AK',
+            'style'       => 'RPC',
+            'reqBodyType' => 'formData',
+            'bodyType'    => 'json',
         ]);
 
-        return DescribeSecureSuggestionResponse::fromMap($this->doRPCRequest('DescribeSecureSuggestion', '2018-12-03', 'HTTPS', 'POST', 'AK', 'json', $req, $runtime));
+        return DescribeSecureSuggestionResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
@@ -3666,11 +5386,32 @@ class Sas extends OpenApiClient
     public function describeSecurityCheckScheduleConfigWithOptions($request, $runtime)
     {
         Utils::validateModel($request);
+        $query = [];
+        if (!Utils::isUnset($request->lang)) {
+            $query['Lang'] = $request->lang;
+        }
+        if (!Utils::isUnset($request->resourceOwnerId)) {
+            $query['ResourceOwnerId'] = $request->resourceOwnerId;
+        }
+        if (!Utils::isUnset($request->sourceIp)) {
+            $query['SourceIp'] = $request->sourceIp;
+        }
         $req = new OpenApiRequest([
-            'body' => Utils::toMap($request),
+            'query' => OpenApiUtilClient::query($query),
+        ]);
+        $params = new Params([
+            'action'      => 'DescribeSecurityCheckScheduleConfig',
+            'version'     => '2018-12-03',
+            'protocol'    => 'HTTPS',
+            'pathname'    => '/',
+            'method'      => 'POST',
+            'authType'    => 'AK',
+            'style'       => 'RPC',
+            'reqBodyType' => 'formData',
+            'bodyType'    => 'json',
         ]);
 
-        return DescribeSecurityCheckScheduleConfigResponse::fromMap($this->doRPCRequest('DescribeSecurityCheckScheduleConfig', '2018-12-03', 'HTTPS', 'POST', 'AK', 'json', $req, $runtime));
+        return DescribeSecurityCheckScheduleConfigResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
@@ -3694,11 +5435,35 @@ class Sas extends OpenApiClient
     public function describeSecurityEventOperationStatusWithOptions($request, $runtime)
     {
         Utils::validateModel($request);
+        $query = [];
+        if (!Utils::isUnset($request->resourceOwnerId)) {
+            $query['ResourceOwnerId'] = $request->resourceOwnerId;
+        }
+        if (!Utils::isUnset($request->securityEventIds)) {
+            $query['SecurityEventIds'] = $request->securityEventIds;
+        }
+        if (!Utils::isUnset($request->sourceIp)) {
+            $query['SourceIp'] = $request->sourceIp;
+        }
+        if (!Utils::isUnset($request->taskId)) {
+            $query['TaskId'] = $request->taskId;
+        }
         $req = new OpenApiRequest([
-            'body' => Utils::toMap($request),
+            'query' => OpenApiUtilClient::query($query),
+        ]);
+        $params = new Params([
+            'action'      => 'DescribeSecurityEventOperationStatus',
+            'version'     => '2018-12-03',
+            'protocol'    => 'HTTPS',
+            'pathname'    => '/',
+            'method'      => 'POST',
+            'authType'    => 'AK',
+            'style'       => 'RPC',
+            'reqBodyType' => 'formData',
+            'bodyType'    => 'json',
         ]);
 
-        return DescribeSecurityEventOperationStatusResponse::fromMap($this->doRPCRequest('DescribeSecurityEventOperationStatus', '2018-12-03', 'HTTPS', 'POST', 'AK', 'json', $req, $runtime));
+        return DescribeSecurityEventOperationStatusResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
@@ -3722,11 +5487,35 @@ class Sas extends OpenApiClient
     public function describeSecurityEventOperationsWithOptions($request, $runtime)
     {
         Utils::validateModel($request);
+        $query = [];
+        if (!Utils::isUnset($request->lang)) {
+            $query['Lang'] = $request->lang;
+        }
+        if (!Utils::isUnset($request->resourceOwnerId)) {
+            $query['ResourceOwnerId'] = $request->resourceOwnerId;
+        }
+        if (!Utils::isUnset($request->securityEventId)) {
+            $query['SecurityEventId'] = $request->securityEventId;
+        }
+        if (!Utils::isUnset($request->sourceIp)) {
+            $query['SourceIp'] = $request->sourceIp;
+        }
         $req = new OpenApiRequest([
-            'body' => Utils::toMap($request),
+            'query' => OpenApiUtilClient::query($query),
+        ]);
+        $params = new Params([
+            'action'      => 'DescribeSecurityEventOperations',
+            'version'     => '2018-12-03',
+            'protocol'    => 'HTTPS',
+            'pathname'    => '/',
+            'method'      => 'POST',
+            'authType'    => 'AK',
+            'style'       => 'RPC',
+            'reqBodyType' => 'formData',
+            'bodyType'    => 'json',
         ]);
 
-        return DescribeSecurityEventOperationsResponse::fromMap($this->doRPCRequest('DescribeSecurityEventOperations', '2018-12-03', 'HTTPS', 'POST', 'AK', 'json', $req, $runtime));
+        return DescribeSecurityEventOperationsResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
@@ -3750,11 +5539,32 @@ class Sas extends OpenApiClient
     public function describeSecurityStatInfoWithOptions($request, $runtime)
     {
         Utils::validateModel($request);
+        $query = [];
+        if (!Utils::isUnset($request->lang)) {
+            $query['Lang'] = $request->lang;
+        }
+        if (!Utils::isUnset($request->resourceDirectoryAccountId)) {
+            $query['ResourceDirectoryAccountId'] = $request->resourceDirectoryAccountId;
+        }
+        if (!Utils::isUnset($request->sourceIp)) {
+            $query['SourceIp'] = $request->sourceIp;
+        }
         $req = new OpenApiRequest([
-            'body' => Utils::toMap($request),
+            'query' => OpenApiUtilClient::query($query),
+        ]);
+        $params = new Params([
+            'action'      => 'DescribeSecurityStatInfo',
+            'version'     => '2018-12-03',
+            'protocol'    => 'HTTPS',
+            'pathname'    => '/',
+            'method'      => 'POST',
+            'authType'    => 'AK',
+            'style'       => 'RPC',
+            'reqBodyType' => 'formData',
+            'bodyType'    => 'json',
         ]);
 
-        return DescribeSecurityStatInfoResponse::fromMap($this->doRPCRequest('DescribeSecurityStatInfo', '2018-12-03', 'HTTPS', 'POST', 'AK', 'json', $req, $runtime));
+        return DescribeSecurityStatInfoResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
@@ -3776,9 +5586,20 @@ class Sas extends OpenApiClient
      */
     public function describeServiceLinkedRoleStatusWithOptions($runtime)
     {
-        $req = new OpenApiRequest([]);
+        $req    = new OpenApiRequest([]);
+        $params = new Params([
+            'action'      => 'DescribeServiceLinkedRoleStatus',
+            'version'     => '2018-12-03',
+            'protocol'    => 'HTTPS',
+            'pathname'    => '/',
+            'method'      => 'POST',
+            'authType'    => 'AK',
+            'style'       => 'RPC',
+            'reqBodyType' => 'formData',
+            'bodyType'    => 'json',
+        ]);
 
-        return DescribeServiceLinkedRoleStatusResponse::fromMap($this->doRPCRequest('DescribeServiceLinkedRoleStatus', '2018-12-03', 'HTTPS', 'POST', 'AK', 'json', $req, $runtime));
+        return DescribeServiceLinkedRoleStatusResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
@@ -3800,11 +5621,32 @@ class Sas extends OpenApiClient
     public function describeSimilarEventScenariosWithOptions($request, $runtime)
     {
         Utils::validateModel($request);
+        $query = [];
+        if (!Utils::isUnset($request->resourceOwnerId)) {
+            $query['ResourceOwnerId'] = $request->resourceOwnerId;
+        }
+        if (!Utils::isUnset($request->securityEventId)) {
+            $query['SecurityEventId'] = $request->securityEventId;
+        }
+        if (!Utils::isUnset($request->sourceIp)) {
+            $query['SourceIp'] = $request->sourceIp;
+        }
         $req = new OpenApiRequest([
-            'body' => Utils::toMap($request),
+            'query' => OpenApiUtilClient::query($query),
+        ]);
+        $params = new Params([
+            'action'      => 'DescribeSimilarEventScenarios',
+            'version'     => '2018-12-03',
+            'protocol'    => 'HTTPS',
+            'pathname'    => '/',
+            'method'      => 'POST',
+            'authType'    => 'AK',
+            'style'       => 'RPC',
+            'reqBodyType' => 'formData',
+            'bodyType'    => 'json',
         ]);
 
-        return DescribeSimilarEventScenariosResponse::fromMap($this->doRPCRequest('DescribeSimilarEventScenarios', '2018-12-03', 'HTTPS', 'POST', 'AK', 'json', $req, $runtime));
+        return DescribeSimilarEventScenariosResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
@@ -3828,11 +5670,41 @@ class Sas extends OpenApiClient
     public function describeSimilarSecurityEventsWithOptions($request, $runtime)
     {
         Utils::validateModel($request);
+        $query = [];
+        if (!Utils::isUnset($request->currentPage)) {
+            $query['CurrentPage'] = $request->currentPage;
+        }
+        if (!Utils::isUnset($request->lang)) {
+            $query['Lang'] = $request->lang;
+        }
+        if (!Utils::isUnset($request->pageSize)) {
+            $query['PageSize'] = $request->pageSize;
+        }
+        if (!Utils::isUnset($request->resourceOwnerId)) {
+            $query['ResourceOwnerId'] = $request->resourceOwnerId;
+        }
+        if (!Utils::isUnset($request->sourceIp)) {
+            $query['SourceIp'] = $request->sourceIp;
+        }
+        if (!Utils::isUnset($request->taskId)) {
+            $query['TaskId'] = $request->taskId;
+        }
         $req = new OpenApiRequest([
-            'body' => Utils::toMap($request),
+            'query' => OpenApiUtilClient::query($query),
+        ]);
+        $params = new Params([
+            'action'      => 'DescribeSimilarSecurityEvents',
+            'version'     => '2018-12-03',
+            'protocol'    => 'HTTPS',
+            'pathname'    => '/',
+            'method'      => 'POST',
+            'authType'    => 'AK',
+            'style'       => 'RPC',
+            'reqBodyType' => 'formData',
+            'bodyType'    => 'json',
         ]);
 
-        return DescribeSimilarSecurityEventsResponse::fromMap($this->doRPCRequest('DescribeSimilarSecurityEvents', '2018-12-03', 'HTTPS', 'POST', 'AK', 'json', $req, $runtime));
+        return DescribeSimilarSecurityEventsResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
@@ -3848,34 +5720,6 @@ class Sas extends OpenApiClient
     }
 
     /**
-     * @param DescribeSnapshotsRequest $request
-     * @param RuntimeOptions           $runtime
-     *
-     * @return DescribeSnapshotsResponse
-     */
-    public function describeSnapshotsWithOptions($request, $runtime)
-    {
-        Utils::validateModel($request);
-        $req = new OpenApiRequest([
-            'body' => Utils::toMap($request),
-        ]);
-
-        return DescribeSnapshotsResponse::fromMap($this->doRPCRequest('DescribeSnapshots', '2018-12-03', 'HTTPS', 'POST', 'AK', 'json', $req, $runtime));
-    }
-
-    /**
-     * @param DescribeSnapshotsRequest $request
-     *
-     * @return DescribeSnapshotsResponse
-     */
-    public function describeSnapshots($request)
-    {
-        $runtime = new RuntimeOptions([]);
-
-        return $this->describeSnapshotsWithOptions($request, $runtime);
-    }
-
-    /**
      * @param DescribeStrategyRequest $request
      * @param RuntimeOptions          $runtime
      *
@@ -3884,11 +5728,35 @@ class Sas extends OpenApiClient
     public function describeStrategyWithOptions($request, $runtime)
     {
         Utils::validateModel($request);
+        $query = [];
+        if (!Utils::isUnset($request->customType)) {
+            $query['CustomType'] = $request->customType;
+        }
+        if (!Utils::isUnset($request->lang)) {
+            $query['Lang'] = $request->lang;
+        }
+        if (!Utils::isUnset($request->sourceIp)) {
+            $query['SourceIp'] = $request->sourceIp;
+        }
+        if (!Utils::isUnset($request->strategyIds)) {
+            $query['StrategyIds'] = $request->strategyIds;
+        }
         $req = new OpenApiRequest([
-            'body' => Utils::toMap($request),
+            'query' => OpenApiUtilClient::query($query),
+        ]);
+        $params = new Params([
+            'action'      => 'DescribeStrategy',
+            'version'     => '2018-12-03',
+            'protocol'    => 'HTTPS',
+            'pathname'    => '/',
+            'method'      => 'POST',
+            'authType'    => 'AK',
+            'style'       => 'RPC',
+            'reqBodyType' => 'formData',
+            'bodyType'    => 'json',
         ]);
 
-        return DescribeStrategyResponse::fromMap($this->doRPCRequest('DescribeStrategy', '2018-12-03', 'HTTPS', 'POST', 'AK', 'json', $req, $runtime));
+        return DescribeStrategyResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
@@ -3912,11 +5780,35 @@ class Sas extends OpenApiClient
     public function describeStrategyExecDetailWithOptions($request, $runtime)
     {
         Utils::validateModel($request);
+        $query = [];
+        if (!Utils::isUnset($request->currentPage)) {
+            $query['CurrentPage'] = $request->currentPage;
+        }
+        if (!Utils::isUnset($request->pageSize)) {
+            $query['PageSize'] = $request->pageSize;
+        }
+        if (!Utils::isUnset($request->sourceIp)) {
+            $query['SourceIp'] = $request->sourceIp;
+        }
+        if (!Utils::isUnset($request->strategyId)) {
+            $query['StrategyId'] = $request->strategyId;
+        }
         $req = new OpenApiRequest([
-            'body' => Utils::toMap($request),
+            'query' => OpenApiUtilClient::query($query),
+        ]);
+        $params = new Params([
+            'action'      => 'DescribeStrategyExecDetail',
+            'version'     => '2018-12-03',
+            'protocol'    => 'HTTPS',
+            'pathname'    => '/',
+            'method'      => 'POST',
+            'authType'    => 'AK',
+            'style'       => 'RPC',
+            'reqBodyType' => 'formData',
+            'bodyType'    => 'json',
         ]);
 
-        return DescribeStrategyExecDetailResponse::fromMap($this->doRPCRequest('DescribeStrategyExecDetail', '2018-12-03', 'HTTPS', 'POST', 'AK', 'json', $req, $runtime));
+        return DescribeStrategyExecDetailResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
@@ -3932,34 +5824,6 @@ class Sas extends OpenApiClient
     }
 
     /**
-     * @param DescribeStrategyProcessRequest $request
-     * @param RuntimeOptions                 $runtime
-     *
-     * @return DescribeStrategyProcessResponse
-     */
-    public function describeStrategyProcessWithOptions($request, $runtime)
-    {
-        Utils::validateModel($request);
-        $req = new OpenApiRequest([
-            'body' => Utils::toMap($request),
-        ]);
-
-        return DescribeStrategyProcessResponse::fromMap($this->doRPCRequest('DescribeStrategyProcess', '2018-12-03', 'HTTPS', 'POST', 'AK', 'json', $req, $runtime));
-    }
-
-    /**
-     * @param DescribeStrategyProcessRequest $request
-     *
-     * @return DescribeStrategyProcessResponse
-     */
-    public function describeStrategyProcess($request)
-    {
-        $runtime = new RuntimeOptions([]);
-
-        return $this->describeStrategyProcessWithOptions($request, $runtime);
-    }
-
-    /**
      * @param DescribeStrategyTargetRequest $request
      * @param RuntimeOptions                $runtime
      *
@@ -3968,11 +5832,32 @@ class Sas extends OpenApiClient
     public function describeStrategyTargetWithOptions($request, $runtime)
     {
         Utils::validateModel($request);
+        $query = [];
+        if (!Utils::isUnset($request->config)) {
+            $query['Config'] = $request->config;
+        }
+        if (!Utils::isUnset($request->sourceIp)) {
+            $query['SourceIp'] = $request->sourceIp;
+        }
+        if (!Utils::isUnset($request->type)) {
+            $query['Type'] = $request->type;
+        }
         $req = new OpenApiRequest([
-            'body' => Utils::toMap($request),
+            'query' => OpenApiUtilClient::query($query),
+        ]);
+        $params = new Params([
+            'action'      => 'DescribeStrategyTarget',
+            'version'     => '2018-12-03',
+            'protocol'    => 'HTTPS',
+            'pathname'    => '/',
+            'method'      => 'POST',
+            'authType'    => 'AK',
+            'style'       => 'RPC',
+            'reqBodyType' => 'formData',
+            'bodyType'    => 'json',
         ]);
 
-        return DescribeStrategyTargetResponse::fromMap($this->doRPCRequest('DescribeStrategyTarget', '2018-12-03', 'HTTPS', 'POST', 'AK', 'json', $req, $runtime));
+        return DescribeStrategyTargetResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
@@ -3996,11 +5881,32 @@ class Sas extends OpenApiClient
     public function describeSummaryInfoWithOptions($request, $runtime)
     {
         Utils::validateModel($request);
+        $query = [];
+        if (!Utils::isUnset($request->lang)) {
+            $query['Lang'] = $request->lang;
+        }
+        if (!Utils::isUnset($request->resourceDirectoryAccountId)) {
+            $query['ResourceDirectoryAccountId'] = $request->resourceDirectoryAccountId;
+        }
+        if (!Utils::isUnset($request->sourceIp)) {
+            $query['SourceIp'] = $request->sourceIp;
+        }
         $req = new OpenApiRequest([
-            'body' => Utils::toMap($request),
+            'query' => OpenApiUtilClient::query($query),
+        ]);
+        $params = new Params([
+            'action'      => 'DescribeSummaryInfo',
+            'version'     => '2018-12-03',
+            'protocol'    => 'HTTPS',
+            'pathname'    => '/',
+            'method'      => 'POST',
+            'authType'    => 'AK',
+            'style'       => 'RPC',
+            'reqBodyType' => 'formData',
+            'bodyType'    => 'json',
         ]);
 
-        return DescribeSummaryInfoResponse::fromMap($this->doRPCRequest('DescribeSummaryInfo', '2018-12-03', 'HTTPS', 'POST', 'AK', 'json', $req, $runtime));
+        return DescribeSummaryInfoResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
@@ -4022,9 +5928,20 @@ class Sas extends OpenApiClient
      */
     public function describeSupportRegionWithOptions($runtime)
     {
-        $req = new OpenApiRequest([]);
+        $req    = new OpenApiRequest([]);
+        $params = new Params([
+            'action'      => 'DescribeSupportRegion',
+            'version'     => '2018-12-03',
+            'protocol'    => 'HTTPS',
+            'pathname'    => '/',
+            'method'      => 'POST',
+            'authType'    => 'AK',
+            'style'       => 'RPC',
+            'reqBodyType' => 'formData',
+            'bodyType'    => 'json',
+        ]);
 
-        return DescribeSupportRegionResponse::fromMap($this->doRPCRequest('DescribeSupportRegion', '2018-12-03', 'HTTPS', 'POST', 'AK', 'json', $req, $runtime));
+        return DescribeSupportRegionResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
@@ -4046,11 +5963,35 @@ class Sas extends OpenApiClient
     public function describeSuspEventDetailWithOptions($request, $runtime)
     {
         Utils::validateModel($request);
+        $query = [];
+        if (!Utils::isUnset($request->from)) {
+            $query['From'] = $request->from;
+        }
+        if (!Utils::isUnset($request->lang)) {
+            $query['Lang'] = $request->lang;
+        }
+        if (!Utils::isUnset($request->sourceIp)) {
+            $query['SourceIp'] = $request->sourceIp;
+        }
+        if (!Utils::isUnset($request->suspiciousEventId)) {
+            $query['SuspiciousEventId'] = $request->suspiciousEventId;
+        }
         $req = new OpenApiRequest([
-            'body' => Utils::toMap($request),
+            'query' => OpenApiUtilClient::query($query),
+        ]);
+        $params = new Params([
+            'action'      => 'DescribeSuspEventDetail',
+            'version'     => '2018-12-03',
+            'protocol'    => 'HTTPS',
+            'pathname'    => '/',
+            'method'      => 'POST',
+            'authType'    => 'AK',
+            'style'       => 'RPC',
+            'reqBodyType' => 'formData',
+            'bodyType'    => 'json',
         ]);
 
-        return DescribeSuspEventDetailResponse::fromMap($this->doRPCRequest('DescribeSuspEventDetail', '2018-12-03', 'HTTPS', 'POST', 'AK', 'json', $req, $runtime));
+        return DescribeSuspEventDetailResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
@@ -4066,6 +6007,55 @@ class Sas extends OpenApiClient
     }
 
     /**
+     * @param DescribeSuspEventExportInfoRequest $request
+     * @param RuntimeOptions                     $runtime
+     *
+     * @return DescribeSuspEventExportInfoResponse
+     */
+    public function describeSuspEventExportInfoWithOptions($request, $runtime)
+    {
+        Utils::validateModel($request);
+        $query = [];
+        if (!Utils::isUnset($request->exportId)) {
+            $query['ExportId'] = $request->exportId;
+        }
+        if (!Utils::isUnset($request->from)) {
+            $query['From'] = $request->from;
+        }
+        if (!Utils::isUnset($request->sourceIp)) {
+            $query['SourceIp'] = $request->sourceIp;
+        }
+        $req = new OpenApiRequest([
+            'query' => OpenApiUtilClient::query($query),
+        ]);
+        $params = new Params([
+            'action'      => 'DescribeSuspEventExportInfo',
+            'version'     => '2018-12-03',
+            'protocol'    => 'HTTPS',
+            'pathname'    => '/',
+            'method'      => 'POST',
+            'authType'    => 'AK',
+            'style'       => 'RPC',
+            'reqBodyType' => 'formData',
+            'bodyType'    => 'json',
+        ]);
+
+        return DescribeSuspEventExportInfoResponse::fromMap($this->callApi($params, $req, $runtime));
+    }
+
+    /**
+     * @param DescribeSuspEventExportInfoRequest $request
+     *
+     * @return DescribeSuspEventExportInfoResponse
+     */
+    public function describeSuspEventExportInfo($request)
+    {
+        $runtime = new RuntimeOptions([]);
+
+        return $this->describeSuspEventExportInfoWithOptions($request, $runtime);
+    }
+
+    /**
      * @param DescribeSuspEventQuaraFilesRequest $request
      * @param RuntimeOptions                     $runtime
      *
@@ -4074,11 +6064,47 @@ class Sas extends OpenApiClient
     public function describeSuspEventQuaraFilesWithOptions($request, $runtime)
     {
         Utils::validateModel($request);
+        $query = [];
+        if (!Utils::isUnset($request->currentPage)) {
+            $query['CurrentPage'] = $request->currentPage;
+        }
+        if (!Utils::isUnset($request->from)) {
+            $query['From'] = $request->from;
+        }
+        if (!Utils::isUnset($request->groupId)) {
+            $query['GroupId'] = $request->groupId;
+        }
+        if (!Utils::isUnset($request->groupingId)) {
+            $query['GroupingId'] = $request->groupingId;
+        }
+        if (!Utils::isUnset($request->pageSize)) {
+            $query['PageSize'] = $request->pageSize;
+        }
+        if (!Utils::isUnset($request->quaraTag)) {
+            $query['QuaraTag'] = $request->quaraTag;
+        }
+        if (!Utils::isUnset($request->sourceIp)) {
+            $query['SourceIp'] = $request->sourceIp;
+        }
+        if (!Utils::isUnset($request->status)) {
+            $query['Status'] = $request->status;
+        }
         $req = new OpenApiRequest([
-            'body' => Utils::toMap($request),
+            'query' => OpenApiUtilClient::query($query),
+        ]);
+        $params = new Params([
+            'action'      => 'DescribeSuspEventQuaraFiles',
+            'version'     => '2018-12-03',
+            'protocol'    => 'HTTPS',
+            'pathname'    => '/',
+            'method'      => 'POST',
+            'authType'    => 'AK',
+            'style'       => 'RPC',
+            'reqBodyType' => 'formData',
+            'bodyType'    => 'json',
         ]);
 
-        return DescribeSuspEventQuaraFilesResponse::fromMap($this->doRPCRequest('DescribeSuspEventQuaraFiles', '2018-12-03', 'HTTPS', 'POST', 'AK', 'json', $req, $runtime));
+        return DescribeSuspEventQuaraFilesResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
@@ -4102,11 +6128,89 @@ class Sas extends OpenApiClient
     public function describeSuspEventsWithOptions($request, $runtime)
     {
         Utils::validateModel($request);
+        $query = [];
+        if (!Utils::isUnset($request->alarmUniqueInfo)) {
+            $query['AlarmUniqueInfo'] = $request->alarmUniqueInfo;
+        }
+        if (!Utils::isUnset($request->clusterId)) {
+            $query['ClusterId'] = $request->clusterId;
+        }
+        if (!Utils::isUnset($request->containerFieldName)) {
+            $query['ContainerFieldName'] = $request->containerFieldName;
+        }
+        if (!Utils::isUnset($request->containerFieldValue)) {
+            $query['ContainerFieldValue'] = $request->containerFieldValue;
+        }
+        if (!Utils::isUnset($request->currentPage)) {
+            $query['CurrentPage'] = $request->currentPage;
+        }
+        if (!Utils::isUnset($request->dealed)) {
+            $query['Dealed'] = $request->dealed;
+        }
+        if (!Utils::isUnset($request->eventNames)) {
+            $query['EventNames'] = $request->eventNames;
+        }
+        if (!Utils::isUnset($request->from)) {
+            $query['From'] = $request->from;
+        }
+        if (!Utils::isUnset($request->groupId)) {
+            $query['GroupId'] = $request->groupId;
+        }
+        if (!Utils::isUnset($request->lang)) {
+            $query['Lang'] = $request->lang;
+        }
+        if (!Utils::isUnset($request->levels)) {
+            $query['Levels'] = $request->levels;
+        }
+        if (!Utils::isUnset($request->name)) {
+            $query['Name'] = $request->name;
+        }
+        if (!Utils::isUnset($request->operateErrorCodeList)) {
+            $query['OperateErrorCodeList'] = $request->operateErrorCodeList;
+        }
+        if (!Utils::isUnset($request->pageSize)) {
+            $query['PageSize'] = $request->pageSize;
+        }
+        if (!Utils::isUnset($request->parentEventTypes)) {
+            $query['ParentEventTypes'] = $request->parentEventTypes;
+        }
+        if (!Utils::isUnset($request->remark)) {
+            $query['Remark'] = $request->remark;
+        }
+        if (!Utils::isUnset($request->source)) {
+            $query['Source'] = $request->source;
+        }
+        if (!Utils::isUnset($request->sourceIp)) {
+            $query['SourceIp'] = $request->sourceIp;
+        }
+        if (!Utils::isUnset($request->status)) {
+            $query['Status'] = $request->status;
+        }
+        if (!Utils::isUnset($request->targetType)) {
+            $query['TargetType'] = $request->targetType;
+        }
+        if (!Utils::isUnset($request->uniqueInfo)) {
+            $query['UniqueInfo'] = $request->uniqueInfo;
+        }
+        if (!Utils::isUnset($request->uuids)) {
+            $query['Uuids'] = $request->uuids;
+        }
         $req = new OpenApiRequest([
-            'body' => Utils::toMap($request),
+            'query' => OpenApiUtilClient::query($query),
+        ]);
+        $params = new Params([
+            'action'      => 'DescribeSuspEvents',
+            'version'     => '2018-12-03',
+            'protocol'    => 'HTTPS',
+            'pathname'    => '/',
+            'method'      => 'POST',
+            'authType'    => 'AK',
+            'style'       => 'RPC',
+            'reqBodyType' => 'formData',
+            'bodyType'    => 'json',
         ]);
 
-        return DescribeSuspEventsResponse::fromMap($this->doRPCRequest('DescribeSuspEvents', '2018-12-03', 'HTTPS', 'POST', 'AK', 'json', $req, $runtime));
+        return DescribeSuspEventsResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
@@ -4122,59 +6226,46 @@ class Sas extends OpenApiClient
     }
 
     /**
-     * @param DescribeTaskErrorLogRequest $request
-     * @param RuntimeOptions              $runtime
+     * @param DescribeSuspiciousUUIDConfigRequest $request
+     * @param RuntimeOptions                      $runtime
      *
-     * @return DescribeTaskErrorLogResponse
+     * @return DescribeSuspiciousUUIDConfigResponse
      */
-    public function describeTaskErrorLogWithOptions($request, $runtime)
+    public function describeSuspiciousUUIDConfigWithOptions($request, $runtime)
     {
         Utils::validateModel($request);
+        $query = [];
+        if (!Utils::isUnset($request->type)) {
+            $query['Type'] = $request->type;
+        }
         $req = new OpenApiRequest([
-            'body' => Utils::toMap($request),
+            'query' => OpenApiUtilClient::query($query),
+        ]);
+        $params = new Params([
+            'action'      => 'DescribeSuspiciousUUIDConfig',
+            'version'     => '2018-12-03',
+            'protocol'    => 'HTTPS',
+            'pathname'    => '/',
+            'method'      => 'POST',
+            'authType'    => 'AK',
+            'style'       => 'RPC',
+            'reqBodyType' => 'formData',
+            'bodyType'    => 'json',
         ]);
 
-        return DescribeTaskErrorLogResponse::fromMap($this->doRPCRequest('DescribeTaskErrorLog', '2018-12-03', 'HTTPS', 'POST', 'AK', 'json', $req, $runtime));
+        return DescribeSuspiciousUUIDConfigResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
-     * @param DescribeTaskErrorLogRequest $request
+     * @param DescribeSuspiciousUUIDConfigRequest $request
      *
-     * @return DescribeTaskErrorLogResponse
+     * @return DescribeSuspiciousUUIDConfigResponse
      */
-    public function describeTaskErrorLog($request)
+    public function describeSuspiciousUUIDConfig($request)
     {
         $runtime = new RuntimeOptions([]);
 
-        return $this->describeTaskErrorLogWithOptions($request, $runtime);
-    }
-
-    /**
-     * @param DescribeUniBackupDatabaseRequest $request
-     * @param RuntimeOptions                   $runtime
-     *
-     * @return DescribeUniBackupDatabaseResponse
-     */
-    public function describeUniBackupDatabaseWithOptions($request, $runtime)
-    {
-        Utils::validateModel($request);
-        $req = new OpenApiRequest([
-            'body' => Utils::toMap($request),
-        ]);
-
-        return DescribeUniBackupDatabaseResponse::fromMap($this->doRPCRequest('DescribeUniBackupDatabase', '2018-12-03', 'HTTPS', 'POST', 'AK', 'json', $req, $runtime));
-    }
-
-    /**
-     * @param DescribeUniBackupDatabaseRequest $request
-     *
-     * @return DescribeUniBackupDatabaseResponse
-     */
-    public function describeUniBackupDatabase($request)
-    {
-        $runtime = new RuntimeOptions([]);
-
-        return $this->describeUniBackupDatabaseWithOptions($request, $runtime);
+        return $this->describeSuspiciousUUIDConfigWithOptions($request, $runtime);
     }
 
     /**
@@ -4186,11 +6277,38 @@ class Sas extends OpenApiClient
     public function describeUniBackupPoliciesWithOptions($request, $runtime)
     {
         Utils::validateModel($request);
+        $query = [];
+        if (!Utils::isUnset($request->currentPage)) {
+            $query['CurrentPage'] = $request->currentPage;
+        }
+        if (!Utils::isUnset($request->pageSize)) {
+            $query['PageSize'] = $request->pageSize;
+        }
+        if (!Utils::isUnset($request->policyName)) {
+            $query['PolicyName'] = $request->policyName;
+        }
+        if (!Utils::isUnset($request->resourceOwnerId)) {
+            $query['ResourceOwnerId'] = $request->resourceOwnerId;
+        }
+        if (!Utils::isUnset($request->sourceIp)) {
+            $query['SourceIp'] = $request->sourceIp;
+        }
         $req = new OpenApiRequest([
-            'body' => Utils::toMap($request),
+            'query' => OpenApiUtilClient::query($query),
+        ]);
+        $params = new Params([
+            'action'      => 'DescribeUniBackupPolicies',
+            'version'     => '2018-12-03',
+            'protocol'    => 'HTTPS',
+            'pathname'    => '/',
+            'method'      => 'POST',
+            'authType'    => 'AK',
+            'style'       => 'RPC',
+            'reqBodyType' => 'formData',
+            'bodyType'    => 'json',
         ]);
 
-        return DescribeUniBackupPoliciesResponse::fromMap($this->doRPCRequest('DescribeUniBackupPolicies', '2018-12-03', 'HTTPS', 'POST', 'AK', 'json', $req, $runtime));
+        return DescribeUniBackupPoliciesResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
@@ -4206,115 +6324,26 @@ class Sas extends OpenApiClient
     }
 
     /**
-     * @param DescribeUniBackupPolicyDetailRequest $request
-     * @param RuntimeOptions                       $runtime
-     *
-     * @return DescribeUniBackupPolicyDetailResponse
-     */
-    public function describeUniBackupPolicyDetailWithOptions($request, $runtime)
-    {
-        Utils::validateModel($request);
-        $req = new OpenApiRequest([
-            'body' => Utils::toMap($request),
-        ]);
-
-        return DescribeUniBackupPolicyDetailResponse::fromMap($this->doRPCRequest('DescribeUniBackupPolicyDetail', '2018-12-03', 'HTTPS', 'POST', 'AK', 'json', $req, $runtime));
-    }
-
-    /**
-     * @param DescribeUniBackupPolicyDetailRequest $request
-     *
-     * @return DescribeUniBackupPolicyDetailResponse
-     */
-    public function describeUniBackupPolicyDetail($request)
-    {
-        $runtime = new RuntimeOptions([]);
-
-        return $this->describeUniBackupPolicyDetailWithOptions($request, $runtime);
-    }
-
-    /**
-     * @param RuntimeOptions $runtime
-     *
-     * @return DescribeUniBackupStatisticsResponse
-     */
-    public function describeUniBackupStatisticsWithOptions($runtime)
-    {
-        $req = new OpenApiRequest([]);
-
-        return DescribeUniBackupStatisticsResponse::fromMap($this->doRPCRequest('DescribeUniBackupStatistics', '2018-12-03', 'HTTPS', 'POST', 'AK', 'json', $req, $runtime));
-    }
-
-    /**
-     * @return DescribeUniBackupStatisticsResponse
-     */
-    public function describeUniBackupStatistics()
-    {
-        $runtime = new RuntimeOptions([]);
-
-        return $this->describeUniBackupStatisticsWithOptions($runtime);
-    }
-
-    /**
-     * @param DescribeUniRecoverableListRequest $request
-     * @param RuntimeOptions                    $runtime
-     *
-     * @return DescribeUniRecoverableListResponse
-     */
-    public function describeUniRecoverableListWithOptions($request, $runtime)
-    {
-        Utils::validateModel($request);
-        $req = new OpenApiRequest([
-            'body' => Utils::toMap($request),
-        ]);
-
-        return DescribeUniRecoverableListResponse::fromMap($this->doRPCRequest('DescribeUniRecoverableList', '2018-12-03', 'HTTPS', 'POST', 'AK', 'json', $req, $runtime));
-    }
-
-    /**
-     * @param DescribeUniRecoverableListRequest $request
-     *
-     * @return DescribeUniRecoverableListResponse
-     */
-    public function describeUniRecoverableList($request)
-    {
-        $runtime = new RuntimeOptions([]);
-
-        return $this->describeUniRecoverableListWithOptions($request, $runtime);
-    }
-
-    /**
-     * @param RuntimeOptions $runtime
-     *
-     * @return DescribeUniSupportRegionResponse
-     */
-    public function describeUniSupportRegionWithOptions($runtime)
-    {
-        $req = new OpenApiRequest([]);
-
-        return DescribeUniSupportRegionResponse::fromMap($this->doRPCRequest('DescribeUniSupportRegion', '2018-12-03', 'HTTPS', 'POST', 'AK', 'json', $req, $runtime));
-    }
-
-    /**
-     * @return DescribeUniSupportRegionResponse
-     */
-    public function describeUniSupportRegion()
-    {
-        $runtime = new RuntimeOptions([]);
-
-        return $this->describeUniSupportRegionWithOptions($runtime);
-    }
-
-    /**
      * @param RuntimeOptions $runtime
      *
      * @return DescribeUserBackupMachinesResponse
      */
     public function describeUserBackupMachinesWithOptions($runtime)
     {
-        $req = new OpenApiRequest([]);
+        $req    = new OpenApiRequest([]);
+        $params = new Params([
+            'action'      => 'DescribeUserBackupMachines',
+            'version'     => '2018-12-03',
+            'protocol'    => 'HTTPS',
+            'pathname'    => '/',
+            'method'      => 'POST',
+            'authType'    => 'AK',
+            'style'       => 'RPC',
+            'reqBodyType' => 'formData',
+            'bodyType'    => 'json',
+        ]);
 
-        return DescribeUserBackupMachinesResponse::fromMap($this->doRPCRequest('DescribeUserBackupMachines', '2018-12-03', 'HTTPS', 'POST', 'AK', 'json', $req, $runtime));
+        return DescribeUserBackupMachinesResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
@@ -4336,11 +6365,32 @@ class Sas extends OpenApiClient
     public function describeUserBaselineAuthorizationWithOptions($request, $runtime)
     {
         Utils::validateModel($request);
+        $query = [];
+        if (!Utils::isUnset($request->lang)) {
+            $query['Lang'] = $request->lang;
+        }
+        if (!Utils::isUnset($request->resourceOwnerId)) {
+            $query['ResourceOwnerId'] = $request->resourceOwnerId;
+        }
+        if (!Utils::isUnset($request->sourceIp)) {
+            $query['SourceIp'] = $request->sourceIp;
+        }
         $req = new OpenApiRequest([
-            'body' => Utils::toMap($request),
+            'query' => OpenApiUtilClient::query($query),
+        ]);
+        $params = new Params([
+            'action'      => 'DescribeUserBaselineAuthorization',
+            'version'     => '2018-12-03',
+            'protocol'    => 'HTTPS',
+            'pathname'    => '/',
+            'method'      => 'POST',
+            'authType'    => 'AK',
+            'style'       => 'RPC',
+            'reqBodyType' => 'formData',
+            'bodyType'    => 'json',
         ]);
 
-        return DescribeUserBaselineAuthorizationResponse::fromMap($this->doRPCRequest('DescribeUserBaselineAuthorization', '2018-12-03', 'HTTPS', 'POST', 'AK', 'json', $req, $runtime));
+        return DescribeUserBaselineAuthorizationResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
@@ -4364,11 +6414,32 @@ class Sas extends OpenApiClient
     public function describeUserLayoutAuthorizationWithOptions($request, $runtime)
     {
         Utils::validateModel($request);
+        $query = [];
+        if (!Utils::isUnset($request->lang)) {
+            $query['Lang'] = $request->lang;
+        }
+        if (!Utils::isUnset($request->resourceOwnerId)) {
+            $query['ResourceOwnerId'] = $request->resourceOwnerId;
+        }
+        if (!Utils::isUnset($request->sourceIp)) {
+            $query['SourceIp'] = $request->sourceIp;
+        }
         $req = new OpenApiRequest([
-            'body' => Utils::toMap($request),
+            'query' => OpenApiUtilClient::query($query),
+        ]);
+        $params = new Params([
+            'action'      => 'DescribeUserLayoutAuthorization',
+            'version'     => '2018-12-03',
+            'protocol'    => 'HTTPS',
+            'pathname'    => '/',
+            'method'      => 'POST',
+            'authType'    => 'AK',
+            'style'       => 'RPC',
+            'reqBodyType' => 'formData',
+            'bodyType'    => 'json',
         ]);
 
-        return DescribeUserLayoutAuthorizationResponse::fromMap($this->doRPCRequest('DescribeUserLayoutAuthorization', '2018-12-03', 'HTTPS', 'POST', 'AK', 'json', $req, $runtime));
+        return DescribeUserLayoutAuthorizationResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
@@ -4384,34 +6455,6 @@ class Sas extends OpenApiClient
     }
 
     /**
-     * @param DescribeUuidsByVulNamesRequest $request
-     * @param RuntimeOptions                 $runtime
-     *
-     * @return DescribeUuidsByVulNamesResponse
-     */
-    public function describeUuidsByVulNamesWithOptions($request, $runtime)
-    {
-        Utils::validateModel($request);
-        $req = new OpenApiRequest([
-            'body' => Utils::toMap($request),
-        ]);
-
-        return DescribeUuidsByVulNamesResponse::fromMap($this->doRPCRequest('DescribeUuidsByVulNames', '2018-12-03', 'HTTPS', 'POST', 'AK', 'json', $req, $runtime));
-    }
-
-    /**
-     * @param DescribeUuidsByVulNamesRequest $request
-     *
-     * @return DescribeUuidsByVulNamesResponse
-     */
-    public function describeUuidsByVulNames($request)
-    {
-        $runtime = new RuntimeOptions([]);
-
-        return $this->describeUuidsByVulNamesWithOptions($request, $runtime);
-    }
-
-    /**
      * @param DescribeVersionConfigRequest $request
      * @param RuntimeOptions               $runtime
      *
@@ -4420,11 +6463,29 @@ class Sas extends OpenApiClient
     public function describeVersionConfigWithOptions($request, $runtime)
     {
         Utils::validateModel($request);
+        $query = [];
+        if (!Utils::isUnset($request->resourceDirectoryAccountId)) {
+            $query['ResourceDirectoryAccountId'] = $request->resourceDirectoryAccountId;
+        }
+        if (!Utils::isUnset($request->sourceIp)) {
+            $query['SourceIp'] = $request->sourceIp;
+        }
         $req = new OpenApiRequest([
-            'body' => Utils::toMap($request),
+            'query' => OpenApiUtilClient::query($query),
+        ]);
+        $params = new Params([
+            'action'      => 'DescribeVersionConfig',
+            'version'     => '2018-12-03',
+            'protocol'    => 'HTTPS',
+            'pathname'    => '/',
+            'method'      => 'POST',
+            'authType'    => 'AK',
+            'style'       => 'RPC',
+            'reqBodyType' => 'formData',
+            'bodyType'    => 'json',
         ]);
 
-        return DescribeVersionConfigResponse::fromMap($this->doRPCRequest('DescribeVersionConfig', '2018-12-03', 'HTTPS', 'POST', 'AK', 'json', $req, $runtime));
+        return DescribeVersionConfigResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
@@ -4448,11 +6509,29 @@ class Sas extends OpenApiClient
     public function describeVolDingdingMessageWithOptions($request, $runtime)
     {
         Utils::validateModel($request);
+        $query = [];
+        if (!Utils::isUnset($request->lang)) {
+            $query['Lang'] = $request->lang;
+        }
+        if (!Utils::isUnset($request->sourceIp)) {
+            $query['SourceIp'] = $request->sourceIp;
+        }
         $req = new OpenApiRequest([
-            'body' => Utils::toMap($request),
+            'query' => OpenApiUtilClient::query($query),
+        ]);
+        $params = new Params([
+            'action'      => 'DescribeVolDingdingMessage',
+            'version'     => '2018-12-03',
+            'protocol'    => 'HTTPS',
+            'pathname'    => '/',
+            'method'      => 'POST',
+            'authType'    => 'AK',
+            'style'       => 'RPC',
+            'reqBodyType' => 'formData',
+            'bodyType'    => 'json',
         ]);
 
-        return DescribeVolDingdingMessageResponse::fromMap($this->doRPCRequest('DescribeVolDingdingMessage', '2018-12-03', 'HTTPS', 'POST', 'AK', 'json', $req, $runtime));
+        return DescribeVolDingdingMessageResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
@@ -4474,9 +6553,20 @@ class Sas extends OpenApiClient
      */
     public function describeVpcHoneyPotCriteriaWithOptions($runtime)
     {
-        $req = new OpenApiRequest([]);
+        $req    = new OpenApiRequest([]);
+        $params = new Params([
+            'action'      => 'DescribeVpcHoneyPotCriteria',
+            'version'     => '2018-12-03',
+            'protocol'    => 'HTTPS',
+            'pathname'    => '/',
+            'method'      => 'POST',
+            'authType'    => 'AK',
+            'style'       => 'RPC',
+            'reqBodyType' => 'formData',
+            'bodyType'    => 'json',
+        ]);
 
-        return DescribeVpcHoneyPotCriteriaResponse::fromMap($this->doRPCRequest('DescribeVpcHoneyPotCriteria', '2018-12-03', 'HTTPS', 'POST', 'AK', 'json', $req, $runtime));
+        return DescribeVpcHoneyPotCriteriaResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
@@ -4498,11 +6588,41 @@ class Sas extends OpenApiClient
     public function describeVpcHoneyPotListWithOptions($request, $runtime)
     {
         Utils::validateModel($request);
+        $query = [];
+        if (!Utils::isUnset($request->currentPage)) {
+            $query['CurrentPage'] = $request->currentPage;
+        }
+        if (!Utils::isUnset($request->honeyPotExistence)) {
+            $query['HoneyPotExistence'] = $request->honeyPotExistence;
+        }
+        if (!Utils::isUnset($request->pageSize)) {
+            $query['PageSize'] = $request->pageSize;
+        }
+        if (!Utils::isUnset($request->vpcId)) {
+            $query['VpcId'] = $request->vpcId;
+        }
+        if (!Utils::isUnset($request->vpcName)) {
+            $query['VpcName'] = $request->vpcName;
+        }
+        if (!Utils::isUnset($request->vpcRegionId)) {
+            $query['VpcRegionId'] = $request->vpcRegionId;
+        }
         $req = new OpenApiRequest([
-            'body' => Utils::toMap($request),
+            'query' => OpenApiUtilClient::query($query),
+        ]);
+        $params = new Params([
+            'action'      => 'DescribeVpcHoneyPotList',
+            'version'     => '2018-12-03',
+            'protocol'    => 'HTTPS',
+            'pathname'    => '/',
+            'method'      => 'POST',
+            'authType'    => 'AK',
+            'style'       => 'RPC',
+            'reqBodyType' => 'formData',
+            'bodyType'    => 'json',
         ]);
 
-        return DescribeVpcHoneyPotListResponse::fromMap($this->doRPCRequest('DescribeVpcHoneyPotList', '2018-12-03', 'HTTPS', 'POST', 'AK', 'json', $req, $runtime));
+        return DescribeVpcHoneyPotListResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
@@ -4524,9 +6644,20 @@ class Sas extends OpenApiClient
      */
     public function describeVpcListWithOptions($runtime)
     {
-        $req = new OpenApiRequest([]);
+        $req    = new OpenApiRequest([]);
+        $params = new Params([
+            'action'      => 'DescribeVpcList',
+            'version'     => '2018-12-03',
+            'protocol'    => 'HTTPS',
+            'pathname'    => '/',
+            'method'      => 'POST',
+            'authType'    => 'AK',
+            'style'       => 'RPC',
+            'reqBodyType' => 'formData',
+            'bodyType'    => 'json',
+        ]);
 
-        return DescribeVpcListResponse::fromMap($this->doRPCRequest('DescribeVpcList', '2018-12-03', 'HTTPS', 'POST', 'AK', 'json', $req, $runtime));
+        return DescribeVpcListResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
@@ -4548,11 +6679,35 @@ class Sas extends OpenApiClient
     public function describeVulDetailsWithOptions($request, $runtime)
     {
         Utils::validateModel($request);
+        $query = [];
+        if (!Utils::isUnset($request->aliasName)) {
+            $query['AliasName'] = $request->aliasName;
+        }
+        if (!Utils::isUnset($request->lang)) {
+            $query['Lang'] = $request->lang;
+        }
+        if (!Utils::isUnset($request->name)) {
+            $query['Name'] = $request->name;
+        }
+        if (!Utils::isUnset($request->type)) {
+            $query['Type'] = $request->type;
+        }
         $req = new OpenApiRequest([
-            'body' => Utils::toMap($request),
+            'query' => OpenApiUtilClient::query($query),
+        ]);
+        $params = new Params([
+            'action'      => 'DescribeVulDetails',
+            'version'     => '2018-12-03',
+            'protocol'    => 'HTTPS',
+            'pathname'    => '/',
+            'method'      => 'POST',
+            'authType'    => 'AK',
+            'style'       => 'RPC',
+            'reqBodyType' => 'formData',
+            'bodyType'    => 'json',
         ]);
 
-        return DescribeVulDetailsResponse::fromMap($this->doRPCRequest('DescribeVulDetails', '2018-12-03', 'HTTPS', 'POST', 'AK', 'json', $req, $runtime));
+        return DescribeVulDetailsResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
@@ -4576,11 +6731,26 @@ class Sas extends OpenApiClient
     public function describeVulExportInfoWithOptions($request, $runtime)
     {
         Utils::validateModel($request);
+        $query = [];
+        if (!Utils::isUnset($request->exportId)) {
+            $query['ExportId'] = $request->exportId;
+        }
         $req = new OpenApiRequest([
-            'body' => Utils::toMap($request),
+            'query' => OpenApiUtilClient::query($query),
+        ]);
+        $params = new Params([
+            'action'      => 'DescribeVulExportInfo',
+            'version'     => '2018-12-03',
+            'protocol'    => 'HTTPS',
+            'pathname'    => '/',
+            'method'      => 'POST',
+            'authType'    => 'AK',
+            'style'       => 'RPC',
+            'reqBodyType' => 'formData',
+            'bodyType'    => 'json',
         ]);
 
-        return DescribeVulExportInfoResponse::fromMap($this->doRPCRequest('DescribeVulExportInfo', '2018-12-03', 'HTTPS', 'POST', 'AK', 'json', $req, $runtime));
+        return DescribeVulExportInfoResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
@@ -4604,11 +6774,59 @@ class Sas extends OpenApiClient
     public function describeVulListWithOptions($request, $runtime)
     {
         Utils::validateModel($request);
+        $query = [];
+        if (!Utils::isUnset($request->aliasName)) {
+            $query['AliasName'] = $request->aliasName;
+        }
+        if (!Utils::isUnset($request->attachTypes)) {
+            $query['AttachTypes'] = $request->attachTypes;
+        }
+        if (!Utils::isUnset($request->currentPage)) {
+            $query['CurrentPage'] = $request->currentPage;
+        }
+        if (!Utils::isUnset($request->dealed)) {
+            $query['Dealed'] = $request->dealed;
+        }
+        if (!Utils::isUnset($request->groupId)) {
+            $query['GroupId'] = $request->groupId;
+        }
+        if (!Utils::isUnset($request->lang)) {
+            $query['Lang'] = $request->lang;
+        }
+        if (!Utils::isUnset($request->necessity)) {
+            $query['Necessity'] = $request->necessity;
+        }
+        if (!Utils::isUnset($request->pageSize)) {
+            $query['PageSize'] = $request->pageSize;
+        }
+        if (!Utils::isUnset($request->remark)) {
+            $query['Remark'] = $request->remark;
+        }
+        if (!Utils::isUnset($request->type)) {
+            $query['Type'] = $request->type;
+        }
+        if (!Utils::isUnset($request->uuids)) {
+            $query['Uuids'] = $request->uuids;
+        }
+        if (!Utils::isUnset($request->vpcInstanceIds)) {
+            $query['VpcInstanceIds'] = $request->vpcInstanceIds;
+        }
         $req = new OpenApiRequest([
-            'body' => Utils::toMap($request),
+            'query' => OpenApiUtilClient::query($query),
+        ]);
+        $params = new Params([
+            'action'      => 'DescribeVulList',
+            'version'     => '2018-12-03',
+            'protocol'    => 'HTTPS',
+            'pathname'    => '/',
+            'method'      => 'POST',
+            'authType'    => 'AK',
+            'style'       => 'RPC',
+            'reqBodyType' => 'formData',
+            'bodyType'    => 'json',
         ]);
 
-        return DescribeVulListResponse::fromMap($this->doRPCRequest('DescribeVulList', '2018-12-03', 'HTTPS', 'POST', 'AK', 'json', $req, $runtime));
+        return DescribeVulListResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
@@ -4624,6 +6842,61 @@ class Sas extends OpenApiClient
     }
 
     /**
+     * @param DescribeVulListPageRequest $request
+     * @param RuntimeOptions             $runtime
+     *
+     * @return DescribeVulListPageResponse
+     */
+    public function describeVulListPageWithOptions($request, $runtime)
+    {
+        Utils::validateModel($request);
+        $query = [];
+        if (!Utils::isUnset($request->currentPage)) {
+            $query['CurrentPage'] = $request->currentPage;
+        }
+        if (!Utils::isUnset($request->cveId)) {
+            $query['CveId'] = $request->cveId;
+        }
+        if (!Utils::isUnset($request->pageSize)) {
+            $query['PageSize'] = $request->pageSize;
+        }
+        if (!Utils::isUnset($request->sourceIp)) {
+            $query['SourceIp'] = $request->sourceIp;
+        }
+        if (!Utils::isUnset($request->vulNameLike)) {
+            $query['VulNameLike'] = $request->vulNameLike;
+        }
+        $req = new OpenApiRequest([
+            'query' => OpenApiUtilClient::query($query),
+        ]);
+        $params = new Params([
+            'action'      => 'DescribeVulListPage',
+            'version'     => '2018-12-03',
+            'protocol'    => 'HTTPS',
+            'pathname'    => '/',
+            'method'      => 'POST',
+            'authType'    => 'AK',
+            'style'       => 'RPC',
+            'reqBodyType' => 'formData',
+            'bodyType'    => 'json',
+        ]);
+
+        return DescribeVulListPageResponse::fromMap($this->callApi($params, $req, $runtime));
+    }
+
+    /**
+     * @param DescribeVulListPageRequest $request
+     *
+     * @return DescribeVulListPageResponse
+     */
+    public function describeVulListPage($request)
+    {
+        $runtime = new RuntimeOptions([]);
+
+        return $this->describeVulListPageWithOptions($request, $runtime);
+    }
+
+    /**
      * @param DescribeVulWhitelistRequest $request
      * @param RuntimeOptions              $runtime
      *
@@ -4632,11 +6905,29 @@ class Sas extends OpenApiClient
     public function describeVulWhitelistWithOptions($request, $runtime)
     {
         Utils::validateModel($request);
+        $query = [];
+        if (!Utils::isUnset($request->currentPage)) {
+            $query['CurrentPage'] = $request->currentPage;
+        }
+        if (!Utils::isUnset($request->pageSize)) {
+            $query['PageSize'] = $request->pageSize;
+        }
         $req = new OpenApiRequest([
-            'body' => Utils::toMap($request),
+            'query' => OpenApiUtilClient::query($query),
+        ]);
+        $params = new Params([
+            'action'      => 'DescribeVulWhitelist',
+            'version'     => '2018-12-03',
+            'protocol'    => 'HTTPS',
+            'pathname'    => '/',
+            'method'      => 'POST',
+            'authType'    => 'AK',
+            'style'       => 'RPC',
+            'reqBodyType' => 'formData',
+            'bodyType'    => 'json',
         ]);
 
-        return DescribeVulWhitelistResponse::fromMap($this->doRPCRequest('DescribeVulWhitelist', '2018-12-03', 'HTTPS', 'POST', 'AK', 'json', $req, $runtime));
+        return DescribeVulWhitelistResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
@@ -4660,11 +6951,47 @@ class Sas extends OpenApiClient
     public function describeWarningMachinesWithOptions($request, $runtime)
     {
         Utils::validateModel($request);
+        $query = [];
+        if (!Utils::isUnset($request->currentPage)) {
+            $query['CurrentPage'] = $request->currentPage;
+        }
+        if (!Utils::isUnset($request->lang)) {
+            $query['Lang'] = $request->lang;
+        }
+        if (!Utils::isUnset($request->machineName)) {
+            $query['MachineName'] = $request->machineName;
+        }
+        if (!Utils::isUnset($request->pageSize)) {
+            $query['PageSize'] = $request->pageSize;
+        }
+        if (!Utils::isUnset($request->riskId)) {
+            $query['RiskId'] = $request->riskId;
+        }
+        if (!Utils::isUnset($request->sourceIp)) {
+            $query['SourceIp'] = $request->sourceIp;
+        }
+        if (!Utils::isUnset($request->strategyId)) {
+            $query['StrategyId'] = $request->strategyId;
+        }
+        if (!Utils::isUnset($request->uuids)) {
+            $query['Uuids'] = $request->uuids;
+        }
         $req = new OpenApiRequest([
-            'body' => Utils::toMap($request),
+            'query' => OpenApiUtilClient::query($query),
+        ]);
+        $params = new Params([
+            'action'      => 'DescribeWarningMachines',
+            'version'     => '2018-12-03',
+            'protocol'    => 'HTTPS',
+            'pathname'    => '/',
+            'method'      => 'POST',
+            'authType'    => 'AK',
+            'style'       => 'RPC',
+            'reqBodyType' => 'formData',
+            'bodyType'    => 'json',
         ]);
 
-        return DescribeWarningMachinesResponse::fromMap($this->doRPCRequest('DescribeWarningMachines', '2018-12-03', 'HTTPS', 'POST', 'AK', 'json', $req, $runtime));
+        return DescribeWarningMachinesResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
@@ -4688,11 +7015,41 @@ class Sas extends OpenApiClient
     public function describeWebLockBindListWithOptions($request, $runtime)
     {
         Utils::validateModel($request);
+        $query = [];
+        if (!Utils::isUnset($request->currentPage)) {
+            $query['CurrentPage'] = $request->currentPage;
+        }
+        if (!Utils::isUnset($request->lang)) {
+            $query['Lang'] = $request->lang;
+        }
+        if (!Utils::isUnset($request->pageSize)) {
+            $query['PageSize'] = $request->pageSize;
+        }
+        if (!Utils::isUnset($request->remark)) {
+            $query['Remark'] = $request->remark;
+        }
+        if (!Utils::isUnset($request->sourceIp)) {
+            $query['SourceIp'] = $request->sourceIp;
+        }
+        if (!Utils::isUnset($request->status)) {
+            $query['Status'] = $request->status;
+        }
         $req = new OpenApiRequest([
-            'body' => Utils::toMap($request),
+            'query' => OpenApiUtilClient::query($query),
+        ]);
+        $params = new Params([
+            'action'      => 'DescribeWebLockBindList',
+            'version'     => '2018-12-03',
+            'protocol'    => 'HTTPS',
+            'pathname'    => '/',
+            'method'      => 'POST',
+            'authType'    => 'AK',
+            'style'       => 'RPC',
+            'reqBodyType' => 'formData',
+            'bodyType'    => 'json',
         ]);
 
-        return DescribeWebLockBindListResponse::fromMap($this->doRPCRequest('DescribeWebLockBindList', '2018-12-03', 'HTTPS', 'POST', 'AK', 'json', $req, $runtime));
+        return DescribeWebLockBindListResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
@@ -4716,11 +7073,32 @@ class Sas extends OpenApiClient
     public function describeWebLockConfigListWithOptions($request, $runtime)
     {
         Utils::validateModel($request);
+        $query = [];
+        if (!Utils::isUnset($request->lang)) {
+            $query['Lang'] = $request->lang;
+        }
+        if (!Utils::isUnset($request->sourceIp)) {
+            $query['SourceIp'] = $request->sourceIp;
+        }
+        if (!Utils::isUnset($request->uuid)) {
+            $query['Uuid'] = $request->uuid;
+        }
         $req = new OpenApiRequest([
-            'body' => Utils::toMap($request),
+            'query' => OpenApiUtilClient::query($query),
+        ]);
+        $params = new Params([
+            'action'      => 'DescribeWebLockConfigList',
+            'version'     => '2018-12-03',
+            'protocol'    => 'HTTPS',
+            'pathname'    => '/',
+            'method'      => 'POST',
+            'authType'    => 'AK',
+            'style'       => 'RPC',
+            'reqBodyType' => 'formData',
+            'bodyType'    => 'json',
         ]);
 
-        return DescribeWebLockConfigListResponse::fromMap($this->doRPCRequest('DescribeWebLockConfigList', '2018-12-03', 'HTTPS', 'POST', 'AK', 'json', $req, $runtime));
+        return DescribeWebLockConfigListResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
@@ -4736,34 +7114,6 @@ class Sas extends OpenApiClient
     }
 
     /**
-     * @param ExecStrategyRequest $request
-     * @param RuntimeOptions      $runtime
-     *
-     * @return ExecStrategyResponse
-     */
-    public function execStrategyWithOptions($request, $runtime)
-    {
-        Utils::validateModel($request);
-        $req = new OpenApiRequest([
-            'body' => Utils::toMap($request),
-        ]);
-
-        return ExecStrategyResponse::fromMap($this->doRPCRequest('ExecStrategy', '2018-12-03', 'HTTPS', 'POST', 'AK', 'json', $req, $runtime));
-    }
-
-    /**
-     * @param ExecStrategyRequest $request
-     *
-     * @return ExecStrategyResponse
-     */
-    public function execStrategy($request)
-    {
-        $runtime = new RuntimeOptions([]);
-
-        return $this->execStrategyWithOptions($request, $runtime);
-    }
-
-    /**
      * @param ExportRecordRequest $request
      * @param RuntimeOptions      $runtime
      *
@@ -4772,11 +7122,32 @@ class Sas extends OpenApiClient
     public function exportRecordWithOptions($request, $runtime)
     {
         Utils::validateModel($request);
+        $query = [];
+        if (!Utils::isUnset($request->exportType)) {
+            $query['ExportType'] = $request->exportType;
+        }
+        if (!Utils::isUnset($request->lang)) {
+            $query['Lang'] = $request->lang;
+        }
+        if (!Utils::isUnset($request->params)) {
+            $query['Params'] = $request->params;
+        }
         $req = new OpenApiRequest([
-            'body' => Utils::toMap($request),
+            'query' => OpenApiUtilClient::query($query),
+        ]);
+        $params = new Params([
+            'action'      => 'ExportRecord',
+            'version'     => '2018-12-03',
+            'protocol'    => 'HTTPS',
+            'pathname'    => '/',
+            'method'      => 'POST',
+            'authType'    => 'AK',
+            'style'       => 'RPC',
+            'reqBodyType' => 'formData',
+            'bodyType'    => 'json',
         ]);
 
-        return ExportRecordResponse::fromMap($this->doRPCRequest('ExportRecord', '2018-12-03', 'HTTPS', 'POST', 'AK', 'json', $req, $runtime));
+        return ExportRecordResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
@@ -4792,6 +7163,91 @@ class Sas extends OpenApiClient
     }
 
     /**
+     * @param ExportSuspEventsRequest $request
+     * @param RuntimeOptions          $runtime
+     *
+     * @return ExportSuspEventsResponse
+     */
+    public function exportSuspEventsWithOptions($request, $runtime)
+    {
+        Utils::validateModel($request);
+        $query = [];
+        if (!Utils::isUnset($request->clusterId)) {
+            $query['ClusterId'] = $request->clusterId;
+        }
+        if (!Utils::isUnset($request->containerFieldName)) {
+            $query['ContainerFieldName'] = $request->containerFieldName;
+        }
+        if (!Utils::isUnset($request->containerFieldValue)) {
+            $query['ContainerFieldValue'] = $request->containerFieldValue;
+        }
+        if (!Utils::isUnset($request->dealed)) {
+            $query['Dealed'] = $request->dealed;
+        }
+        if (!Utils::isUnset($request->from)) {
+            $query['From'] = $request->from;
+        }
+        if (!Utils::isUnset($request->lang)) {
+            $query['Lang'] = $request->lang;
+        }
+        if (!Utils::isUnset($request->levels)) {
+            $query['Levels'] = $request->levels;
+        }
+        if (!Utils::isUnset($request->name)) {
+            $query['Name'] = $request->name;
+        }
+        if (!Utils::isUnset($request->parentEventTypes)) {
+            $query['ParentEventTypes'] = $request->parentEventTypes;
+        }
+        if (!Utils::isUnset($request->remark)) {
+            $query['Remark'] = $request->remark;
+        }
+        if (!Utils::isUnset($request->sourceIp)) {
+            $query['SourceIp'] = $request->sourceIp;
+        }
+        if (!Utils::isUnset($request->status)) {
+            $query['Status'] = $request->status;
+        }
+        if (!Utils::isUnset($request->targetType)) {
+            $query['TargetType'] = $request->targetType;
+        }
+        if (!Utils::isUnset($request->timeEnd)) {
+            $query['TimeEnd'] = $request->timeEnd;
+        }
+        if (!Utils::isUnset($request->timeStart)) {
+            $query['TimeStart'] = $request->timeStart;
+        }
+        $req = new OpenApiRequest([
+            'query' => OpenApiUtilClient::query($query),
+        ]);
+        $params = new Params([
+            'action'      => 'ExportSuspEvents',
+            'version'     => '2018-12-03',
+            'protocol'    => 'HTTPS',
+            'pathname'    => '/',
+            'method'      => 'POST',
+            'authType'    => 'AK',
+            'style'       => 'RPC',
+            'reqBodyType' => 'formData',
+            'bodyType'    => 'json',
+        ]);
+
+        return ExportSuspEventsResponse::fromMap($this->callApi($params, $req, $runtime));
+    }
+
+    /**
+     * @param ExportSuspEventsRequest $request
+     *
+     * @return ExportSuspEventsResponse
+     */
+    public function exportSuspEvents($request)
+    {
+        $runtime = new RuntimeOptions([]);
+
+        return $this->exportSuspEventsWithOptions($request, $runtime);
+    }
+
+    /**
      * @param ExportVulRequest $request
      * @param RuntimeOptions   $runtime
      *
@@ -4800,11 +7256,53 @@ class Sas extends OpenApiClient
     public function exportVulWithOptions($request, $runtime)
     {
         Utils::validateModel($request);
+        $query = [];
+        if (!Utils::isUnset($request->aliasName)) {
+            $query['AliasName'] = $request->aliasName;
+        }
+        if (!Utils::isUnset($request->attachTypes)) {
+            $query['AttachTypes'] = $request->attachTypes;
+        }
+        if (!Utils::isUnset($request->dealed)) {
+            $query['Dealed'] = $request->dealed;
+        }
+        if (!Utils::isUnset($request->groupId)) {
+            $query['GroupId'] = $request->groupId;
+        }
+        if (!Utils::isUnset($request->lang)) {
+            $query['Lang'] = $request->lang;
+        }
+        if (!Utils::isUnset($request->necessity)) {
+            $query['Necessity'] = $request->necessity;
+        }
+        if (!Utils::isUnset($request->searchTags)) {
+            $query['SearchTags'] = $request->searchTags;
+        }
+        if (!Utils::isUnset($request->type)) {
+            $query['Type'] = $request->type;
+        }
+        if (!Utils::isUnset($request->uuids)) {
+            $query['Uuids'] = $request->uuids;
+        }
+        if (!Utils::isUnset($request->vpcInstanceIds)) {
+            $query['VpcInstanceIds'] = $request->vpcInstanceIds;
+        }
         $req = new OpenApiRequest([
-            'body' => Utils::toMap($request),
+            'query' => OpenApiUtilClient::query($query),
+        ]);
+        $params = new Params([
+            'action'      => 'ExportVul',
+            'version'     => '2018-12-03',
+            'protocol'    => 'HTTPS',
+            'pathname'    => '/',
+            'method'      => 'POST',
+            'authType'    => 'AK',
+            'style'       => 'RPC',
+            'reqBodyType' => 'formData',
+            'bodyType'    => 'json',
         ]);
 
-        return ExportVulResponse::fromMap($this->doRPCRequest('ExportVul', '2018-12-03', 'HTTPS', 'POST', 'AK', 'json', $req, $runtime));
+        return ExportVulResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
@@ -4820,6 +7318,91 @@ class Sas extends OpenApiClient
     }
 
     /**
+     * @param ExportWarningRequest $request
+     * @param RuntimeOptions       $runtime
+     *
+     * @return ExportWarningResponse
+     */
+    public function exportWarningWithOptions($request, $runtime)
+    {
+        Utils::validateModel($request);
+        $query = [];
+        if (!Utils::isUnset($request->dealed)) {
+            $query['Dealed'] = $request->dealed;
+        }
+        if (!Utils::isUnset($request->exportType)) {
+            $query['ExportType'] = $request->exportType;
+        }
+        if (!Utils::isUnset($request->isCleartextPwd)) {
+            $query['IsCleartextPwd'] = $request->isCleartextPwd;
+        }
+        if (!Utils::isUnset($request->isSummaryExport)) {
+            $query['IsSummaryExport'] = $request->isSummaryExport;
+        }
+        if (!Utils::isUnset($request->lang)) {
+            $query['Lang'] = $request->lang;
+        }
+        if (!Utils::isUnset($request->riskIds)) {
+            $query['RiskIds'] = $request->riskIds;
+        }
+        if (!Utils::isUnset($request->riskLevels)) {
+            $query['RiskLevels'] = $request->riskLevels;
+        }
+        if (!Utils::isUnset($request->riskName)) {
+            $query['RiskName'] = $request->riskName;
+        }
+        if (!Utils::isUnset($request->sourceIp)) {
+            $query['SourceIp'] = $request->sourceIp;
+        }
+        if (!Utils::isUnset($request->statusList)) {
+            $query['StatusList'] = $request->statusList;
+        }
+        if (!Utils::isUnset($request->strategyId)) {
+            $query['StrategyId'] = $request->strategyId;
+        }
+        if (!Utils::isUnset($request->subTypeNames)) {
+            $query['SubTypeNames'] = $request->subTypeNames;
+        }
+        if (!Utils::isUnset($request->typeName)) {
+            $query['TypeName'] = $request->typeName;
+        }
+        if (!Utils::isUnset($request->typeNames)) {
+            $query['TypeNames'] = $request->typeNames;
+        }
+        if (!Utils::isUnset($request->uuids)) {
+            $query['Uuids'] = $request->uuids;
+        }
+        $req = new OpenApiRequest([
+            'query' => OpenApiUtilClient::query($query),
+        ]);
+        $params = new Params([
+            'action'      => 'ExportWarning',
+            'version'     => '2018-12-03',
+            'protocol'    => 'HTTPS',
+            'pathname'    => '/',
+            'method'      => 'POST',
+            'authType'    => 'AK',
+            'style'       => 'RPC',
+            'reqBodyType' => 'formData',
+            'bodyType'    => 'json',
+        ]);
+
+        return ExportWarningResponse::fromMap($this->callApi($params, $req, $runtime));
+    }
+
+    /**
+     * @param ExportWarningRequest $request
+     *
+     * @return ExportWarningResponse
+     */
+    public function exportWarning($request)
+    {
+        $runtime = new RuntimeOptions([]);
+
+        return $this->exportWarningWithOptions($request, $runtime);
+    }
+
+    /**
      * @param FixCheckWarningsRequest $request
      * @param RuntimeOptions          $runtime
      *
@@ -4828,11 +7411,38 @@ class Sas extends OpenApiClient
     public function fixCheckWarningsWithOptions($request, $runtime)
     {
         Utils::validateModel($request);
+        $query = [];
+        if (!Utils::isUnset($request->checkParams)) {
+            $query['CheckParams'] = $request->checkParams;
+        }
+        if (!Utils::isUnset($request->lang)) {
+            $query['Lang'] = $request->lang;
+        }
+        if (!Utils::isUnset($request->riskId)) {
+            $query['RiskId'] = $request->riskId;
+        }
+        if (!Utils::isUnset($request->sourceIp)) {
+            $query['SourceIp'] = $request->sourceIp;
+        }
+        if (!Utils::isUnset($request->uuids)) {
+            $query['Uuids'] = $request->uuids;
+        }
         $req = new OpenApiRequest([
-            'body' => Utils::toMap($request),
+            'query' => OpenApiUtilClient::query($query),
+        ]);
+        $params = new Params([
+            'action'      => 'FixCheckWarnings',
+            'version'     => '2018-12-03',
+            'protocol'    => 'HTTPS',
+            'pathname'    => '/',
+            'method'      => 'POST',
+            'authType'    => 'AK',
+            'style'       => 'RPC',
+            'reqBodyType' => 'formData',
+            'bodyType'    => 'json',
         ]);
 
-        return FixCheckWarningsResponse::fromMap($this->doRPCRequest('FixCheckWarnings', '2018-12-03', 'HTTPS', 'POST', 'AK', 'json', $req, $runtime));
+        return FixCheckWarningsResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
@@ -4854,9 +7464,20 @@ class Sas extends OpenApiClient
      */
     public function getBackupStorageCountWithOptions($runtime)
     {
-        $req = new OpenApiRequest([]);
+        $req    = new OpenApiRequest([]);
+        $params = new Params([
+            'action'      => 'GetBackupStorageCount',
+            'version'     => '2018-12-03',
+            'protocol'    => 'HTTPS',
+            'pathname'    => '/',
+            'method'      => 'POST',
+            'authType'    => 'AK',
+            'style'       => 'RPC',
+            'reqBodyType' => 'formData',
+            'bodyType'    => 'json',
+        ]);
 
-        return GetBackupStorageCountResponse::fromMap($this->doRPCRequest('GetBackupStorageCount', '2018-12-03', 'HTTPS', 'POST', 'AK', 'json', $req, $runtime));
+        return GetBackupStorageCountResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
@@ -4870,118 +7491,6 @@ class Sas extends OpenApiClient
     }
 
     /**
-     * @param GetIOCsRequest $request
-     * @param RuntimeOptions $runtime
-     *
-     * @return GetIOCsResponse
-     */
-    public function getIOCsWithOptions($request, $runtime)
-    {
-        Utils::validateModel($request);
-        $req = new OpenApiRequest([
-            'body' => Utils::toMap($request),
-        ]);
-
-        return GetIOCsResponse::fromMap($this->doRPCRequest('GetIOCs', '2018-12-03', 'HTTPS', 'POST', 'AK', 'json', $req, $runtime));
-    }
-
-    /**
-     * @param GetIOCsRequest $request
-     *
-     * @return GetIOCsResponse
-     */
-    public function getIOCs($request)
-    {
-        $runtime = new RuntimeOptions([]);
-
-        return $this->getIOCsWithOptions($request, $runtime);
-    }
-
-    /**
-     * @param GetIncIOCsRequest $request
-     * @param RuntimeOptions    $runtime
-     *
-     * @return GetIncIOCsResponse
-     */
-    public function getIncIOCsWithOptions($request, $runtime)
-    {
-        Utils::validateModel($request);
-        $req = new OpenApiRequest([
-            'body' => Utils::toMap($request),
-        ]);
-
-        return GetIncIOCsResponse::fromMap($this->doRPCRequest('GetIncIOCs', '2018-12-03', 'HTTPS', 'POST', 'AK', 'json', $req, $runtime));
-    }
-
-    /**
-     * @param GetIncIOCsRequest $request
-     *
-     * @return GetIncIOCsResponse
-     */
-    public function getIncIOCs($request)
-    {
-        $runtime = new RuntimeOptions([]);
-
-        return $this->getIncIOCsWithOptions($request, $runtime);
-    }
-
-    /**
-     * @param GetLocalInstallScriptRequest $request
-     * @param RuntimeOptions               $runtime
-     *
-     * @return GetLocalInstallScriptResponse
-     */
-    public function getLocalInstallScriptWithOptions($request, $runtime)
-    {
-        Utils::validateModel($request);
-        $req = new OpenApiRequest([
-            'body' => Utils::toMap($request),
-        ]);
-
-        return GetLocalInstallScriptResponse::fromMap($this->doRPCRequest('GetLocalInstallScript', '2018-12-03', 'HTTPS', 'POST', 'AK', 'json', $req, $runtime));
-    }
-
-    /**
-     * @param GetLocalInstallScriptRequest $request
-     *
-     * @return GetLocalInstallScriptResponse
-     */
-    public function getLocalInstallScript($request)
-    {
-        $runtime = new RuntimeOptions([]);
-
-        return $this->getLocalInstallScriptWithOptions($request, $runtime);
-    }
-
-    /**
-     * @param GetLocalUninstallScriptRequest $request
-     * @param RuntimeOptions                 $runtime
-     *
-     * @return GetLocalUninstallScriptResponse
-     */
-    public function getLocalUninstallScriptWithOptions($request, $runtime)
-    {
-        Utils::validateModel($request);
-        $req = new OpenApiRequest([
-            'body' => Utils::toMap($request),
-        ]);
-
-        return GetLocalUninstallScriptResponse::fromMap($this->doRPCRequest('GetLocalUninstallScript', '2018-12-03', 'HTTPS', 'POST', 'AK', 'json', $req, $runtime));
-    }
-
-    /**
-     * @param GetLocalUninstallScriptRequest $request
-     *
-     * @return GetLocalUninstallScriptResponse
-     */
-    public function getLocalUninstallScript($request)
-    {
-        $runtime = new RuntimeOptions([]);
-
-        return $this->getLocalUninstallScriptWithOptions($request, $runtime);
-    }
-
-    /**
      * @param GetSuspiciousStatisticsRequest $request
      * @param RuntimeOptions                 $runtime
      *
@@ -4990,11 +7499,29 @@ class Sas extends OpenApiClient
     public function getSuspiciousStatisticsWithOptions($request, $runtime)
     {
         Utils::validateModel($request);
+        $query = [];
+        if (!Utils::isUnset($request->groupIdList)) {
+            $query['GroupIdList'] = $request->groupIdList;
+        }
+        if (!Utils::isUnset($request->sourceIp)) {
+            $query['SourceIp'] = $request->sourceIp;
+        }
         $req = new OpenApiRequest([
-            'body' => Utils::toMap($request),
+            'query' => OpenApiUtilClient::query($query),
+        ]);
+        $params = new Params([
+            'action'      => 'GetSuspiciousStatistics',
+            'version'     => '2018-12-03',
+            'protocol'    => 'HTTPS',
+            'pathname'    => '/',
+            'method'      => 'POST',
+            'authType'    => 'AK',
+            'style'       => 'RPC',
+            'reqBodyType' => 'formData',
+            'bodyType'    => 'json',
         ]);
 
-        return GetSuspiciousStatisticsResponse::fromMap($this->doRPCRequest('GetSuspiciousStatistics', '2018-12-03', 'HTTPS', 'POST', 'AK', 'json', $req, $runtime));
+        return GetSuspiciousStatisticsResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
@@ -5018,11 +7545,32 @@ class Sas extends OpenApiClient
     public function getVulStatisticsWithOptions($request, $runtime)
     {
         Utils::validateModel($request);
+        $query = [];
+        if (!Utils::isUnset($request->groupIdList)) {
+            $query['GroupIdList'] = $request->groupIdList;
+        }
+        if (!Utils::isUnset($request->sourceIp)) {
+            $query['SourceIp'] = $request->sourceIp;
+        }
+        if (!Utils::isUnset($request->typeList)) {
+            $query['TypeList'] = $request->typeList;
+        }
         $req = new OpenApiRequest([
-            'body' => Utils::toMap($request),
+            'query' => OpenApiUtilClient::query($query),
+        ]);
+        $params = new Params([
+            'action'      => 'GetVulStatistics',
+            'version'     => '2018-12-03',
+            'protocol'    => 'HTTPS',
+            'pathname'    => '/',
+            'method'      => 'POST',
+            'authType'    => 'AK',
+            'style'       => 'RPC',
+            'reqBodyType' => 'formData',
+            'bodyType'    => 'json',
         ]);
 
-        return GetVulStatisticsResponse::fromMap($this->doRPCRequest('GetVulStatistics', '2018-12-03', 'HTTPS', 'POST', 'AK', 'json', $req, $runtime));
+        return GetVulStatisticsResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
@@ -5046,11 +7594,41 @@ class Sas extends OpenApiClient
     public function handleSecurityEventsWithOptions($request, $runtime)
     {
         Utils::validateModel($request);
+        $query = [];
+        if (!Utils::isUnset($request->markBatch)) {
+            $query['MarkBatch'] = $request->markBatch;
+        }
+        if (!Utils::isUnset($request->markMissParam)) {
+            $query['MarkMissParam'] = $request->markMissParam;
+        }
+        if (!Utils::isUnset($request->operationCode)) {
+            $query['OperationCode'] = $request->operationCode;
+        }
+        if (!Utils::isUnset($request->operationParams)) {
+            $query['OperationParams'] = $request->operationParams;
+        }
+        if (!Utils::isUnset($request->securityEventIds)) {
+            $query['SecurityEventIds'] = $request->securityEventIds;
+        }
+        if (!Utils::isUnset($request->sourceIp)) {
+            $query['SourceIp'] = $request->sourceIp;
+        }
         $req = new OpenApiRequest([
-            'body' => Utils::toMap($request),
+            'query' => OpenApiUtilClient::query($query),
+        ]);
+        $params = new Params([
+            'action'      => 'HandleSecurityEvents',
+            'version'     => '2018-12-03',
+            'protocol'    => 'HTTPS',
+            'pathname'    => '/',
+            'method'      => 'POST',
+            'authType'    => 'AK',
+            'style'       => 'RPC',
+            'reqBodyType' => 'formData',
+            'bodyType'    => 'json',
         ]);
 
-        return HandleSecurityEventsResponse::fromMap($this->doRPCRequest('HandleSecurityEvents', '2018-12-03', 'HTTPS', 'POST', 'AK', 'json', $req, $runtime));
+        return HandleSecurityEventsResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
@@ -5074,11 +7652,41 @@ class Sas extends OpenApiClient
     public function handleSimilarSecurityEventsWithOptions($request, $runtime)
     {
         Utils::validateModel($request);
+        $query = [];
+        if (!Utils::isUnset($request->markMissParam)) {
+            $query['MarkMissParam'] = $request->markMissParam;
+        }
+        if (!Utils::isUnset($request->operationCode)) {
+            $query['OperationCode'] = $request->operationCode;
+        }
+        if (!Utils::isUnset($request->operationParams)) {
+            $query['OperationParams'] = $request->operationParams;
+        }
+        if (!Utils::isUnset($request->resourceOwnerId)) {
+            $query['ResourceOwnerId'] = $request->resourceOwnerId;
+        }
+        if (!Utils::isUnset($request->sourceIp)) {
+            $query['SourceIp'] = $request->sourceIp;
+        }
+        if (!Utils::isUnset($request->taskId)) {
+            $query['TaskId'] = $request->taskId;
+        }
         $req = new OpenApiRequest([
-            'body' => Utils::toMap($request),
+            'query' => OpenApiUtilClient::query($query),
+        ]);
+        $params = new Params([
+            'action'      => 'HandleSimilarSecurityEvents',
+            'version'     => '2018-12-03',
+            'protocol'    => 'HTTPS',
+            'pathname'    => '/',
+            'method'      => 'POST',
+            'authType'    => 'AK',
+            'style'       => 'RPC',
+            'reqBodyType' => 'formData',
+            'bodyType'    => 'json',
         ]);
 
-        return HandleSimilarSecurityEventsResponse::fromMap($this->doRPCRequest('HandleSimilarSecurityEvents', '2018-12-03', 'HTTPS', 'POST', 'AK', 'json', $req, $runtime));
+        return HandleSimilarSecurityEventsResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
@@ -5102,11 +7710,41 @@ class Sas extends OpenApiClient
     public function ignoreHcCheckWarningsWithOptions($request, $runtime)
     {
         Utils::validateModel($request);
+        $query = [];
+        if (!Utils::isUnset($request->checkIds)) {
+            $query['CheckIds'] = $request->checkIds;
+        }
+        if (!Utils::isUnset($request->checkWarningIds)) {
+            $query['CheckWarningIds'] = $request->checkWarningIds;
+        }
+        if (!Utils::isUnset($request->reason)) {
+            $query['Reason'] = $request->reason;
+        }
+        if (!Utils::isUnset($request->riskId)) {
+            $query['RiskId'] = $request->riskId;
+        }
+        if (!Utils::isUnset($request->sourceIp)) {
+            $query['SourceIp'] = $request->sourceIp;
+        }
+        if (!Utils::isUnset($request->type)) {
+            $query['Type'] = $request->type;
+        }
         $req = new OpenApiRequest([
-            'body' => Utils::toMap($request),
+            'query' => OpenApiUtilClient::query($query),
+        ]);
+        $params = new Params([
+            'action'      => 'IgnoreHcCheckWarnings',
+            'version'     => '2018-12-03',
+            'protocol'    => 'HTTPS',
+            'pathname'    => '/',
+            'method'      => 'POST',
+            'authType'    => 'AK',
+            'style'       => 'RPC',
+            'reqBodyType' => 'formData',
+            'bodyType'    => 'json',
         ]);
 
-        return IgnoreHcCheckWarningsResponse::fromMap($this->doRPCRequest('IgnoreHcCheckWarnings', '2018-12-03', 'HTTPS', 'POST', 'AK', 'json', $req, $runtime));
+        return IgnoreHcCheckWarningsResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
@@ -5130,11 +7768,32 @@ class Sas extends OpenApiClient
     public function installBackupClientWithOptions($request, $runtime)
     {
         Utils::validateModel($request);
+        $query = [];
+        if (!Utils::isUnset($request->policyVersion)) {
+            $query['PolicyVersion'] = $request->policyVersion;
+        }
+        if (!Utils::isUnset($request->uuid)) {
+            $query['Uuid'] = $request->uuid;
+        }
+        if (!Utils::isUnset($request->uuidList)) {
+            $query['UuidList'] = $request->uuidList;
+        }
         $req = new OpenApiRequest([
-            'body' => Utils::toMap($request),
+            'query' => OpenApiUtilClient::query($query),
+        ]);
+        $params = new Params([
+            'action'      => 'InstallBackupClient',
+            'version'     => '2018-12-03',
+            'protocol'    => 'HTTPS',
+            'pathname'    => '/',
+            'method'      => 'POST',
+            'authType'    => 'AK',
+            'style'       => 'RPC',
+            'reqBodyType' => 'formData',
+            'bodyType'    => 'json',
         ]);
 
-        return InstallBackupClientResponse::fromMap($this->doRPCRequest('InstallBackupClient', '2018-12-03', 'HTTPS', 'POST', 'AK', 'json', $req, $runtime));
+        return InstallBackupClientResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
@@ -5150,34 +7809,6 @@ class Sas extends OpenApiClient
     }
 
     /**
-     * @param InstallUniBackupAgentRequest $request
-     * @param RuntimeOptions               $runtime
-     *
-     * @return InstallUniBackupAgentResponse
-     */
-    public function installUniBackupAgentWithOptions($request, $runtime)
-    {
-        Utils::validateModel($request);
-        $req = new OpenApiRequest([
-            'body' => Utils::toMap($request),
-        ]);
-
-        return InstallUniBackupAgentResponse::fromMap($this->doRPCRequest('InstallUniBackupAgent', '2018-12-03', 'HTTPS', 'POST', 'AK', 'json', $req, $runtime));
-    }
-
-    /**
-     * @param InstallUniBackupAgentRequest $request
-     *
-     * @return InstallUniBackupAgentResponse
-     */
-    public function installUniBackupAgent($request)
-    {
-        $runtime = new RuntimeOptions([]);
-
-        return $this->installUniBackupAgentWithOptions($request, $runtime);
-    }
-
-    /**
      * @param ModifyAntiBruteForceRuleRequest $request
      * @param RuntimeOptions                  $runtime
      *
@@ -5186,11 +7817,50 @@ class Sas extends OpenApiClient
     public function modifyAntiBruteForceRuleWithOptions($request, $runtime)
     {
         Utils::validateModel($request);
+        $query = [];
+        if (!Utils::isUnset($request->defaultRule)) {
+            $query['DefaultRule'] = $request->defaultRule;
+        }
+        if (!Utils::isUnset($request->failCount)) {
+            $query['FailCount'] = $request->failCount;
+        }
+        if (!Utils::isUnset($request->forbiddenTime)) {
+            $query['ForbiddenTime'] = $request->forbiddenTime;
+        }
+        if (!Utils::isUnset($request->id)) {
+            $query['Id'] = $request->id;
+        }
+        if (!Utils::isUnset($request->name)) {
+            $query['Name'] = $request->name;
+        }
+        if (!Utils::isUnset($request->resourceOwnerId)) {
+            $query['ResourceOwnerId'] = $request->resourceOwnerId;
+        }
+        if (!Utils::isUnset($request->sourceIp)) {
+            $query['SourceIp'] = $request->sourceIp;
+        }
+        if (!Utils::isUnset($request->span)) {
+            $query['Span'] = $request->span;
+        }
+        if (!Utils::isUnset($request->uuidList)) {
+            $query['UuidList'] = $request->uuidList;
+        }
         $req = new OpenApiRequest([
-            'body' => Utils::toMap($request),
+            'query' => OpenApiUtilClient::query($query),
+        ]);
+        $params = new Params([
+            'action'      => 'ModifyAntiBruteForceRule',
+            'version'     => '2018-12-03',
+            'protocol'    => 'HTTPS',
+            'pathname'    => '/',
+            'method'      => 'POST',
+            'authType'    => 'AK',
+            'style'       => 'RPC',
+            'reqBodyType' => 'formData',
+            'bodyType'    => 'json',
         ]);
 
-        return ModifyAntiBruteForceRuleResponse::fromMap($this->doRPCRequest('ModifyAntiBruteForceRule', '2018-12-03', 'HTTPS', 'POST', 'AK', 'json', $req, $runtime));
+        return ModifyAntiBruteForceRuleResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
@@ -5214,11 +7884,32 @@ class Sas extends OpenApiClient
     public function modifyAssetGroupWithOptions($request, $runtime)
     {
         Utils::validateModel($request);
+        $query = [];
+        if (!Utils::isUnset($request->groupId)) {
+            $query['GroupId'] = $request->groupId;
+        }
+        if (!Utils::isUnset($request->sourceIp)) {
+            $query['SourceIp'] = $request->sourceIp;
+        }
+        if (!Utils::isUnset($request->uuids)) {
+            $query['Uuids'] = $request->uuids;
+        }
         $req = new OpenApiRequest([
-            'body' => Utils::toMap($request),
+            'query' => OpenApiUtilClient::query($query),
+        ]);
+        $params = new Params([
+            'action'      => 'ModifyAssetGroup',
+            'version'     => '2018-12-03',
+            'protocol'    => 'HTTPS',
+            'pathname'    => '/',
+            'method'      => 'POST',
+            'authType'    => 'AK',
+            'style'       => 'RPC',
+            'reqBodyType' => 'formData',
+            'bodyType'    => 'json',
         ]);
 
-        return ModifyAssetGroupResponse::fromMap($this->doRPCRequest('ModifyAssetGroup', '2018-12-03', 'HTTPS', 'POST', 'AK', 'json', $req, $runtime));
+        return ModifyAssetGroupResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
@@ -5247,11 +7938,41 @@ class Sas extends OpenApiClient
         if (!Utils::isUnset($tmpReq->policy)) {
             $request->policyShrink = OpenApiUtilClient::arrayToStringWithSpecifiedStyle($tmpReq->policy, 'Policy', 'json');
         }
+        $query = [];
+        if (!Utils::isUnset($request->id)) {
+            $query['Id'] = $request->id;
+        }
+        if (!Utils::isUnset($request->name)) {
+            $query['Name'] = $request->name;
+        }
+        if (!Utils::isUnset($request->policyShrink)) {
+            $query['Policy'] = $request->policyShrink;
+        }
+        if (!Utils::isUnset($request->policyRegionId)) {
+            $query['PolicyRegionId'] = $request->policyRegionId;
+        }
+        if (!Utils::isUnset($request->policyVersion)) {
+            $query['PolicyVersion'] = $request->policyVersion;
+        }
+        if (!Utils::isUnset($request->uuidList)) {
+            $query['UuidList'] = $request->uuidList;
+        }
         $req = new OpenApiRequest([
-            'body' => Utils::toMap($request),
+            'query' => OpenApiUtilClient::query($query),
+        ]);
+        $params = new Params([
+            'action'      => 'ModifyBackupPolicy',
+            'version'     => '2018-12-03',
+            'protocol'    => 'HTTPS',
+            'pathname'    => '/',
+            'method'      => 'POST',
+            'authType'    => 'AK',
+            'style'       => 'RPC',
+            'reqBodyType' => 'formData',
+            'bodyType'    => 'json',
         ]);
 
-        return ModifyBackupPolicyResponse::fromMap($this->doRPCRequest('ModifyBackupPolicy', '2018-12-03', 'HTTPS', 'POST', 'AK', 'json', $req, $runtime));
+        return ModifyBackupPolicyResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
@@ -5275,11 +7996,32 @@ class Sas extends OpenApiClient
     public function modifyBackupPolicyStatusWithOptions($request, $runtime)
     {
         Utils::validateModel($request);
+        $query = [];
+        if (!Utils::isUnset($request->id)) {
+            $query['Id'] = $request->id;
+        }
+        if (!Utils::isUnset($request->policyVersion)) {
+            $query['PolicyVersion'] = $request->policyVersion;
+        }
+        if (!Utils::isUnset($request->status)) {
+            $query['Status'] = $request->status;
+        }
         $req = new OpenApiRequest([
-            'body' => Utils::toMap($request),
+            'query' => OpenApiUtilClient::query($query),
+        ]);
+        $params = new Params([
+            'action'      => 'ModifyBackupPolicyStatus',
+            'version'     => '2018-12-03',
+            'protocol'    => 'HTTPS',
+            'pathname'    => '/',
+            'method'      => 'POST',
+            'authType'    => 'AK',
+            'style'       => 'RPC',
+            'reqBodyType' => 'formData',
+            'bodyType'    => 'json',
         ]);
 
-        return ModifyBackupPolicyStatusResponse::fromMap($this->doRPCRequest('ModifyBackupPolicyStatus', '2018-12-03', 'HTTPS', 'POST', 'AK', 'json', $req, $runtime));
+        return ModifyBackupPolicyStatusResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
@@ -5295,6 +8037,52 @@ class Sas extends OpenApiClient
     }
 
     /**
+     * @param ModifyClearLogstoreStorageRequest $request
+     * @param RuntimeOptions                    $runtime
+     *
+     * @return ModifyClearLogstoreStorageResponse
+     */
+    public function modifyClearLogstoreStorageWithOptions($request, $runtime)
+    {
+        Utils::validateModel($request);
+        $query = [];
+        if (!Utils::isUnset($request->from)) {
+            $query['From'] = $request->from;
+        }
+        if (!Utils::isUnset($request->lang)) {
+            $query['Lang'] = $request->lang;
+        }
+        $req = new OpenApiRequest([
+            'query' => OpenApiUtilClient::query($query),
+        ]);
+        $params = new Params([
+            'action'      => 'ModifyClearLogstoreStorage',
+            'version'     => '2018-12-03',
+            'protocol'    => 'HTTPS',
+            'pathname'    => '/',
+            'method'      => 'POST',
+            'authType'    => 'AK',
+            'style'       => 'RPC',
+            'reqBodyType' => 'formData',
+            'bodyType'    => 'json',
+        ]);
+
+        return ModifyClearLogstoreStorageResponse::fromMap($this->callApi($params, $req, $runtime));
+    }
+
+    /**
+     * @param ModifyClearLogstoreStorageRequest $request
+     *
+     * @return ModifyClearLogstoreStorageResponse
+     */
+    public function modifyClearLogstoreStorage($request)
+    {
+        $runtime = new RuntimeOptions([]);
+
+        return $this->modifyClearLogstoreStorageWithOptions($request, $runtime);
+    }
+
+    /**
      * @param ModifyCreateVulWhitelistRequest $request
      * @param RuntimeOptions                  $runtime
      *
@@ -5303,11 +8091,32 @@ class Sas extends OpenApiClient
     public function modifyCreateVulWhitelistWithOptions($request, $runtime)
     {
         Utils::validateModel($request);
+        $query = [];
+        if (!Utils::isUnset($request->reason)) {
+            $query['Reason'] = $request->reason;
+        }
+        if (!Utils::isUnset($request->targetInfo)) {
+            $query['TargetInfo'] = $request->targetInfo;
+        }
+        if (!Utils::isUnset($request->whitelist)) {
+            $query['Whitelist'] = $request->whitelist;
+        }
         $req = new OpenApiRequest([
-            'body' => Utils::toMap($request),
+            'query' => OpenApiUtilClient::query($query),
+        ]);
+        $params = new Params([
+            'action'      => 'ModifyCreateVulWhitelist',
+            'version'     => '2018-12-03',
+            'protocol'    => 'HTTPS',
+            'pathname'    => '/',
+            'method'      => 'POST',
+            'authType'    => 'AK',
+            'style'       => 'RPC',
+            'reqBodyType' => 'formData',
+            'bodyType'    => 'json',
         ]);
 
-        return ModifyCreateVulWhitelistResponse::fromMap($this->doRPCRequest('ModifyCreateVulWhitelist', '2018-12-03', 'HTTPS', 'POST', 'AK', 'json', $req, $runtime));
+        return ModifyCreateVulWhitelistResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
@@ -5331,11 +8140,32 @@ class Sas extends OpenApiClient
     public function modifyEmgVulSubmitWithOptions($request, $runtime)
     {
         Utils::validateModel($request);
+        $query = [];
+        if (!Utils::isUnset($request->lang)) {
+            $query['Lang'] = $request->lang;
+        }
+        if (!Utils::isUnset($request->name)) {
+            $query['Name'] = $request->name;
+        }
+        if (!Utils::isUnset($request->userAgreement)) {
+            $query['UserAgreement'] = $request->userAgreement;
+        }
         $req = new OpenApiRequest([
-            'body' => Utils::toMap($request),
+            'query' => OpenApiUtilClient::query($query),
+        ]);
+        $params = new Params([
+            'action'      => 'ModifyEmgVulSubmit',
+            'version'     => '2018-12-03',
+            'protocol'    => 'HTTPS',
+            'pathname'    => '/',
+            'method'      => 'POST',
+            'authType'    => 'AK',
+            'style'       => 'RPC',
+            'reqBodyType' => 'formData',
+            'bodyType'    => 'json',
         ]);
 
-        return ModifyEmgVulSubmitResponse::fromMap($this->doRPCRequest('ModifyEmgVulSubmit', '2018-12-03', 'HTTPS', 'POST', 'AK', 'json', $req, $runtime));
+        return ModifyEmgVulSubmitResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
@@ -5359,11 +8189,26 @@ class Sas extends OpenApiClient
     public function modifyGroupPropertyWithOptions($request, $runtime)
     {
         Utils::validateModel($request);
+        $query = [];
+        if (!Utils::isUnset($request->data)) {
+            $query['Data'] = $request->data;
+        }
         $req = new OpenApiRequest([
-            'body' => Utils::toMap($request),
+            'query' => OpenApiUtilClient::query($query),
+        ]);
+        $params = new Params([
+            'action'      => 'ModifyGroupProperty',
+            'version'     => '2018-12-03',
+            'protocol'    => 'HTTPS',
+            'pathname'    => '/',
+            'method'      => 'POST',
+            'authType'    => 'AK',
+            'style'       => 'RPC',
+            'reqBodyType' => 'formData',
+            'bodyType'    => 'json',
         ]);
 
-        return ModifyGroupPropertyResponse::fromMap($this->doRPCRequest('ModifyGroupProperty', '2018-12-03', 'HTTPS', 'POST', 'AK', 'json', $req, $runtime));
+        return ModifyGroupPropertyResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
@@ -5387,11 +8232,35 @@ class Sas extends OpenApiClient
     public function modifyInstanceAntiBruteForceRuleWithOptions($request, $runtime)
     {
         Utils::validateModel($request);
+        $query = [];
+        if (!Utils::isUnset($request->newRuleId)) {
+            $query['NewRuleId'] = $request->newRuleId;
+        }
+        if (!Utils::isUnset($request->resourceOwnerId)) {
+            $query['ResourceOwnerId'] = $request->resourceOwnerId;
+        }
+        if (!Utils::isUnset($request->sourceIp)) {
+            $query['SourceIp'] = $request->sourceIp;
+        }
+        if (!Utils::isUnset($request->uuid)) {
+            $query['Uuid'] = $request->uuid;
+        }
         $req = new OpenApiRequest([
-            'body' => Utils::toMap($request),
+            'query' => OpenApiUtilClient::query($query),
+        ]);
+        $params = new Params([
+            'action'      => 'ModifyInstanceAntiBruteForceRule',
+            'version'     => '2018-12-03',
+            'protocol'    => 'HTTPS',
+            'pathname'    => '/',
+            'method'      => 'POST',
+            'authType'    => 'AK',
+            'style'       => 'RPC',
+            'reqBodyType' => 'formData',
+            'bodyType'    => 'json',
         ]);
 
-        return ModifyInstanceAntiBruteForceRuleResponse::fromMap($this->doRPCRequest('ModifyInstanceAntiBruteForceRule', '2018-12-03', 'HTTPS', 'POST', 'AK', 'json', $req, $runtime));
+        return ModifyInstanceAntiBruteForceRuleResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
@@ -5415,11 +8284,32 @@ class Sas extends OpenApiClient
     public function modifyLoginBaseConfigWithOptions($request, $runtime)
     {
         Utils::validateModel($request);
+        $query = [];
+        if (!Utils::isUnset($request->config)) {
+            $query['Config'] = $request->config;
+        }
+        if (!Utils::isUnset($request->target)) {
+            $query['Target'] = $request->target;
+        }
+        if (!Utils::isUnset($request->type)) {
+            $query['Type'] = $request->type;
+        }
         $req = new OpenApiRequest([
-            'body' => Utils::toMap($request),
+            'query' => OpenApiUtilClient::query($query),
+        ]);
+        $params = new Params([
+            'action'      => 'ModifyLoginBaseConfig',
+            'version'     => '2018-12-03',
+            'protocol'    => 'HTTPS',
+            'pathname'    => '/',
+            'method'      => 'POST',
+            'authType'    => 'AK',
+            'style'       => 'RPC',
+            'reqBodyType' => 'formData',
+            'bodyType'    => 'json',
         ]);
 
-        return ModifyLoginBaseConfigResponse::fromMap($this->doRPCRequest('ModifyLoginBaseConfig', '2018-12-03', 'HTTPS', 'POST', 'AK', 'json', $req, $runtime));
+        return ModifyLoginBaseConfigResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
@@ -5443,11 +8333,29 @@ class Sas extends OpenApiClient
     public function modifyLoginSwitchConfigWithOptions($request, $runtime)
     {
         Utils::validateModel($request);
+        $query = [];
+        if (!Utils::isUnset($request->item)) {
+            $query['Item'] = $request->item;
+        }
+        if (!Utils::isUnset($request->status)) {
+            $query['Status'] = $request->status;
+        }
         $req = new OpenApiRequest([
-            'body' => Utils::toMap($request),
+            'query' => OpenApiUtilClient::query($query),
+        ]);
+        $params = new Params([
+            'action'      => 'ModifyLoginSwitchConfig',
+            'version'     => '2018-12-03',
+            'protocol'    => 'HTTPS',
+            'pathname'    => '/',
+            'method'      => 'POST',
+            'authType'    => 'AK',
+            'style'       => 'RPC',
+            'reqBodyType' => 'formData',
+            'bodyType'    => 'json',
         ]);
 
-        return ModifyLoginSwitchConfigResponse::fromMap($this->doRPCRequest('ModifyLoginSwitchConfig', '2018-12-03', 'HTTPS', 'POST', 'AK', 'json', $req, $runtime));
+        return ModifyLoginSwitchConfigResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
@@ -5463,34 +8371,6 @@ class Sas extends OpenApiClient
     }
 
     /**
-     * @param ModifyNoticeConfigRequest $request
-     * @param RuntimeOptions            $runtime
-     *
-     * @return ModifyNoticeConfigResponse
-     */
-    public function modifyNoticeConfigWithOptions($request, $runtime)
-    {
-        Utils::validateModel($request);
-        $req = new OpenApiRequest([
-            'body' => Utils::toMap($request),
-        ]);
-
-        return ModifyNoticeConfigResponse::fromMap($this->doRPCRequest('ModifyNoticeConfig', '2018-12-03', 'HTTPS', 'POST', 'AK', 'json', $req, $runtime));
-    }
-
-    /**
-     * @param ModifyNoticeConfigRequest $request
-     *
-     * @return ModifyNoticeConfigResponse
-     */
-    public function modifyNoticeConfig($request)
-    {
-        $runtime = new RuntimeOptions([]);
-
-        return $this->modifyNoticeConfigWithOptions($request, $runtime);
-    }
-
-    /**
      * @param ModifyOpenLogShipperRequest $request
      * @param RuntimeOptions              $runtime
      *
@@ -5499,11 +8379,26 @@ class Sas extends OpenApiClient
     public function modifyOpenLogShipperWithOptions($request, $runtime)
     {
         Utils::validateModel($request);
+        $query = [];
+        if (!Utils::isUnset($request->from)) {
+            $query['From'] = $request->from;
+        }
         $req = new OpenApiRequest([
-            'body' => Utils::toMap($request),
+            'query' => OpenApiUtilClient::query($query),
+        ]);
+        $params = new Params([
+            'action'      => 'ModifyOpenLogShipper',
+            'version'     => '2018-12-03',
+            'protocol'    => 'HTTPS',
+            'pathname'    => '/',
+            'method'      => 'POST',
+            'authType'    => 'AK',
+            'style'       => 'RPC',
+            'reqBodyType' => 'formData',
+            'bodyType'    => 'json',
         ]);
 
-        return ModifyOpenLogShipperResponse::fromMap($this->doRPCRequest('ModifyOpenLogShipper', '2018-12-03', 'HTTPS', 'POST', 'AK', 'json', $req, $runtime));
+        return ModifyOpenLogShipperResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
@@ -5527,11 +8422,35 @@ class Sas extends OpenApiClient
     public function modifyOperateVulWithOptions($request, $runtime)
     {
         Utils::validateModel($request);
+        $query = [];
+        if (!Utils::isUnset($request->info)) {
+            $query['Info'] = $request->info;
+        }
+        if (!Utils::isUnset($request->operateType)) {
+            $query['OperateType'] = $request->operateType;
+        }
+        if (!Utils::isUnset($request->reason)) {
+            $query['Reason'] = $request->reason;
+        }
+        if (!Utils::isUnset($request->type)) {
+            $query['Type'] = $request->type;
+        }
         $req = new OpenApiRequest([
-            'body' => Utils::toMap($request),
+            'query' => OpenApiUtilClient::query($query),
+        ]);
+        $params = new Params([
+            'action'      => 'ModifyOperateVul',
+            'version'     => '2018-12-03',
+            'protocol'    => 'HTTPS',
+            'pathname'    => '/',
+            'method'      => 'POST',
+            'authType'    => 'AK',
+            'style'       => 'RPC',
+            'reqBodyType' => 'formData',
+            'bodyType'    => 'json',
         ]);
 
-        return ModifyOperateVulResponse::fromMap($this->doRPCRequest('ModifyOperateVul', '2018-12-03', 'HTTPS', 'POST', 'AK', 'json', $req, $runtime));
+        return ModifyOperateVulResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
@@ -5555,11 +8474,32 @@ class Sas extends OpenApiClient
     public function modifyPushAllTaskWithOptions($request, $runtime)
     {
         Utils::validateModel($request);
+        $query = [];
+        if (!Utils::isUnset($request->sourceIp)) {
+            $query['SourceIp'] = $request->sourceIp;
+        }
+        if (!Utils::isUnset($request->tasks)) {
+            $query['Tasks'] = $request->tasks;
+        }
+        if (!Utils::isUnset($request->uuids)) {
+            $query['Uuids'] = $request->uuids;
+        }
         $req = new OpenApiRequest([
-            'body' => Utils::toMap($request),
+            'query' => OpenApiUtilClient::query($query),
+        ]);
+        $params = new Params([
+            'action'      => 'ModifyPushAllTask',
+            'version'     => '2018-12-03',
+            'protocol'    => 'HTTPS',
+            'pathname'    => '/',
+            'method'      => 'POST',
+            'authType'    => 'AK',
+            'style'       => 'RPC',
+            'reqBodyType' => 'formData',
+            'bodyType'    => 'json',
         ]);
 
-        return ModifyPushAllTaskResponse::fromMap($this->doRPCRequest('ModifyPushAllTask', '2018-12-03', 'HTTPS', 'POST', 'AK', 'json', $req, $runtime));
+        return ModifyPushAllTaskResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
@@ -5583,11 +8523,41 @@ class Sas extends OpenApiClient
     public function modifyRiskCheckStatusWithOptions($request, $runtime)
     {
         Utils::validateModel($request);
+        $query = [];
+        if (!Utils::isUnset($request->itemId)) {
+            $query['ItemId'] = $request->itemId;
+        }
+        if (!Utils::isUnset($request->lang)) {
+            $query['Lang'] = $request->lang;
+        }
+        if (!Utils::isUnset($request->resourceOwnerId)) {
+            $query['ResourceOwnerId'] = $request->resourceOwnerId;
+        }
+        if (!Utils::isUnset($request->sourceIp)) {
+            $query['SourceIp'] = $request->sourceIp;
+        }
+        if (!Utils::isUnset($request->status)) {
+            $query['Status'] = $request->status;
+        }
+        if (!Utils::isUnset($request->taskId)) {
+            $query['TaskId'] = $request->taskId;
+        }
         $req = new OpenApiRequest([
-            'body' => Utils::toMap($request),
+            'query' => OpenApiUtilClient::query($query),
+        ]);
+        $params = new Params([
+            'action'      => 'ModifyRiskCheckStatus',
+            'version'     => '2018-12-03',
+            'protocol'    => 'HTTPS',
+            'pathname'    => '/',
+            'method'      => 'POST',
+            'authType'    => 'AK',
+            'style'       => 'RPC',
+            'reqBodyType' => 'formData',
+            'bodyType'    => 'json',
         ]);
 
-        return ModifyRiskCheckStatusResponse::fromMap($this->doRPCRequest('ModifyRiskCheckStatus', '2018-12-03', 'HTTPS', 'POST', 'AK', 'json', $req, $runtime));
+        return ModifyRiskCheckStatusResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
@@ -5611,11 +8581,41 @@ class Sas extends OpenApiClient
     public function modifyRiskSingleResultStatusWithOptions($request, $runtime)
     {
         Utils::validateModel($request);
+        $query = [];
+        if (!Utils::isUnset($request->ids)) {
+            $query['Ids'] = $request->ids;
+        }
+        if (!Utils::isUnset($request->lang)) {
+            $query['Lang'] = $request->lang;
+        }
+        if (!Utils::isUnset($request->resourceOwnerId)) {
+            $query['ResourceOwnerId'] = $request->resourceOwnerId;
+        }
+        if (!Utils::isUnset($request->sourceIp)) {
+            $query['SourceIp'] = $request->sourceIp;
+        }
+        if (!Utils::isUnset($request->status)) {
+            $query['Status'] = $request->status;
+        }
+        if (!Utils::isUnset($request->taskId)) {
+            $query['TaskId'] = $request->taskId;
+        }
         $req = new OpenApiRequest([
-            'body' => Utils::toMap($request),
+            'query' => OpenApiUtilClient::query($query),
+        ]);
+        $params = new Params([
+            'action'      => 'ModifyRiskSingleResultStatus',
+            'version'     => '2018-12-03',
+            'protocol'    => 'HTTPS',
+            'pathname'    => '/',
+            'method'      => 'POST',
+            'authType'    => 'AK',
+            'style'       => 'RPC',
+            'reqBodyType' => 'formData',
+            'bodyType'    => 'json',
         ]);
 
-        return ModifyRiskSingleResultStatusResponse::fromMap($this->doRPCRequest('ModifyRiskSingleResultStatus', '2018-12-03', 'HTTPS', 'POST', 'AK', 'json', $req, $runtime));
+        return ModifyRiskSingleResultStatusResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
@@ -5639,11 +8639,41 @@ class Sas extends OpenApiClient
     public function modifySecurityCheckScheduleConfigWithOptions($request, $runtime)
     {
         Utils::validateModel($request);
+        $query = [];
+        if (!Utils::isUnset($request->daysOfWeek)) {
+            $query['DaysOfWeek'] = $request->daysOfWeek;
+        }
+        if (!Utils::isUnset($request->endTime)) {
+            $query['EndTime'] = $request->endTime;
+        }
+        if (!Utils::isUnset($request->lang)) {
+            $query['Lang'] = $request->lang;
+        }
+        if (!Utils::isUnset($request->resourceOwnerId)) {
+            $query['ResourceOwnerId'] = $request->resourceOwnerId;
+        }
+        if (!Utils::isUnset($request->sourceIp)) {
+            $query['SourceIp'] = $request->sourceIp;
+        }
+        if (!Utils::isUnset($request->startTime)) {
+            $query['StartTime'] = $request->startTime;
+        }
         $req = new OpenApiRequest([
-            'body' => Utils::toMap($request),
+            'query' => OpenApiUtilClient::query($query),
+        ]);
+        $params = new Params([
+            'action'      => 'ModifySecurityCheckScheduleConfig',
+            'version'     => '2018-12-03',
+            'protocol'    => 'HTTPS',
+            'pathname'    => '/',
+            'method'      => 'POST',
+            'authType'    => 'AK',
+            'style'       => 'RPC',
+            'reqBodyType' => 'formData',
+            'bodyType'    => 'json',
         ]);
 
-        return ModifySecurityCheckScheduleConfigResponse::fromMap($this->doRPCRequest('ModifySecurityCheckScheduleConfig', '2018-12-03', 'HTTPS', 'POST', 'AK', 'json', $req, $runtime));
+        return ModifySecurityCheckScheduleConfigResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
@@ -5667,11 +8697,29 @@ class Sas extends OpenApiClient
     public function modifyStartVulScanWithOptions($request, $runtime)
     {
         Utils::validateModel($request);
+        $query = [];
+        if (!Utils::isUnset($request->types)) {
+            $query['Types'] = $request->types;
+        }
+        if (!Utils::isUnset($request->uuids)) {
+            $query['Uuids'] = $request->uuids;
+        }
         $req = new OpenApiRequest([
-            'body' => Utils::toMap($request),
+            'query' => OpenApiUtilClient::query($query),
+        ]);
+        $params = new Params([
+            'action'      => 'ModifyStartVulScan',
+            'version'     => '2018-12-03',
+            'protocol'    => 'HTTPS',
+            'pathname'    => '/',
+            'method'      => 'POST',
+            'authType'    => 'AK',
+            'style'       => 'RPC',
+            'reqBodyType' => 'formData',
+            'bodyType'    => 'json',
         ]);
 
-        return ModifyStartVulScanResponse::fromMap($this->doRPCRequest('ModifyStartVulScan', '2018-12-03', 'HTTPS', 'POST', 'AK', 'json', $req, $runtime));
+        return ModifyStartVulScanResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
@@ -5687,62 +8735,6 @@ class Sas extends OpenApiClient
     }
 
     /**
-     * @param ModifyStrategyRequest $request
-     * @param RuntimeOptions        $runtime
-     *
-     * @return ModifyStrategyResponse
-     */
-    public function modifyStrategyWithOptions($request, $runtime)
-    {
-        Utils::validateModel($request);
-        $req = new OpenApiRequest([
-            'body' => Utils::toMap($request),
-        ]);
-
-        return ModifyStrategyResponse::fromMap($this->doRPCRequest('ModifyStrategy', '2018-12-03', 'HTTPS', 'POST', 'AK', 'json', $req, $runtime));
-    }
-
-    /**
-     * @param ModifyStrategyRequest $request
-     *
-     * @return ModifyStrategyResponse
-     */
-    public function modifyStrategy($request)
-    {
-        $runtime = new RuntimeOptions([]);
-
-        return $this->modifyStrategyWithOptions($request, $runtime);
-    }
-
-    /**
-     * @param ModifyStrategyTargetRequest $request
-     * @param RuntimeOptions              $runtime
-     *
-     * @return ModifyStrategyTargetResponse
-     */
-    public function modifyStrategyTargetWithOptions($request, $runtime)
-    {
-        Utils::validateModel($request);
-        $req = new OpenApiRequest([
-            'body' => Utils::toMap($request),
-        ]);
-
-        return ModifyStrategyTargetResponse::fromMap($this->doRPCRequest('ModifyStrategyTarget', '2018-12-03', 'HTTPS', 'POST', 'AK', 'json', $req, $runtime));
-    }
-
-    /**
-     * @param ModifyStrategyTargetRequest $request
-     *
-     * @return ModifyStrategyTargetResponse
-     */
-    public function modifyStrategyTarget($request)
-    {
-        $runtime = new RuntimeOptions([]);
-
-        return $this->modifyStrategyTargetWithOptions($request, $runtime);
-    }
-
-    /**
      * @param ModifyTagWithUuidRequest $request
      * @param RuntimeOptions           $runtime
      *
@@ -5751,11 +8743,35 @@ class Sas extends OpenApiClient
     public function modifyTagWithUuidWithOptions($request, $runtime)
     {
         Utils::validateModel($request);
+        $query = [];
+        if (!Utils::isUnset($request->machineTypes)) {
+            $query['MachineTypes'] = $request->machineTypes;
+        }
+        if (!Utils::isUnset($request->tagId)) {
+            $query['TagId'] = $request->tagId;
+        }
+        if (!Utils::isUnset($request->tagList)) {
+            $query['TagList'] = $request->tagList;
+        }
+        if (!Utils::isUnset($request->uuidList)) {
+            $query['UuidList'] = $request->uuidList;
+        }
         $req = new OpenApiRequest([
-            'body' => Utils::toMap($request),
+            'query' => OpenApiUtilClient::query($query),
+        ]);
+        $params = new Params([
+            'action'      => 'ModifyTagWithUuid',
+            'version'     => '2018-12-03',
+            'protocol'    => 'HTTPS',
+            'pathname'    => '/',
+            'method'      => 'POST',
+            'authType'    => 'AK',
+            'style'       => 'RPC',
+            'reqBodyType' => 'formData',
+            'bodyType'    => 'json',
         ]);
 
-        return ModifyTagWithUuidResponse::fromMap($this->doRPCRequest('ModifyTagWithUuid', '2018-12-03', 'HTTPS', 'POST', 'AK', 'json', $req, $runtime));
+        return ModifyTagWithUuidResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
@@ -5771,42 +8787,6 @@ class Sas extends OpenApiClient
     }
 
     /**
-     * @param ModifyUniBackupPolicyRequest $tmpReq
-     * @param RuntimeOptions               $runtime
-     *
-     * @return ModifyUniBackupPolicyResponse
-     */
-    public function modifyUniBackupPolicyWithOptions($tmpReq, $runtime)
-    {
-        Utils::validateModel($tmpReq);
-        $request = new ModifyUniBackupPolicyShrinkRequest([]);
-        OpenApiUtilClient::convert($tmpReq, $request);
-        if (!Utils::isUnset($tmpReq->fullPlan)) {
-            $request->fullPlanShrink = OpenApiUtilClient::arrayToStringWithSpecifiedStyle($tmpReq->fullPlan, 'FullPlan', 'json');
-        }
-        if (!Utils::isUnset($tmpReq->incPlan)) {
-            $request->incPlanShrink = OpenApiUtilClient::arrayToStringWithSpecifiedStyle($tmpReq->incPlan, 'IncPlan', 'json');
-        }
-        $req = new OpenApiRequest([
-            'body' => Utils::toMap($request),
-        ]);
-
-        return ModifyUniBackupPolicyResponse::fromMap($this->doRPCRequest('ModifyUniBackupPolicy', '2018-12-03', 'HTTPS', 'POST', 'AK', 'json', $req, $runtime));
-    }
-
-    /**
-     * @param ModifyUniBackupPolicyRequest $request
-     *
-     * @return ModifyUniBackupPolicyResponse
-     */
-    public function modifyUniBackupPolicy($request)
-    {
-        $runtime = new RuntimeOptions([]);
-
-        return $this->modifyUniBackupPolicyWithOptions($request, $runtime);
-    }
-
-    /**
      * @param ModifyVpcHoneyPotRequest $request
      * @param RuntimeOptions           $runtime
      *
@@ -5815,11 +8795,29 @@ class Sas extends OpenApiClient
     public function modifyVpcHoneyPotWithOptions($request, $runtime)
     {
         Utils::validateModel($request);
+        $query = [];
+        if (!Utils::isUnset($request->honeyPotAction)) {
+            $query['HoneyPotAction'] = $request->honeyPotAction;
+        }
+        if (!Utils::isUnset($request->vpcId)) {
+            $query['VpcId'] = $request->vpcId;
+        }
         $req = new OpenApiRequest([
-            'body' => Utils::toMap($request),
+            'query' => OpenApiUtilClient::query($query),
+        ]);
+        $params = new Params([
+            'action'      => 'ModifyVpcHoneyPot',
+            'version'     => '2018-12-03',
+            'protocol'    => 'HTTPS',
+            'pathname'    => '/',
+            'method'      => 'POST',
+            'authType'    => 'AK',
+            'style'       => 'RPC',
+            'reqBodyType' => 'formData',
+            'bodyType'    => 'json',
         ]);
 
-        return ModifyVpcHoneyPotResponse::fromMap($this->doRPCRequest('ModifyVpcHoneyPot', '2018-12-03', 'HTTPS', 'POST', 'AK', 'json', $req, $runtime));
+        return ModifyVpcHoneyPotResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
@@ -5843,11 +8841,35 @@ class Sas extends OpenApiClient
     public function modifyVulTargetConfigWithOptions($request, $runtime)
     {
         Utils::validateModel($request);
+        $query = [];
+        if (!Utils::isUnset($request->config)) {
+            $query['Config'] = $request->config;
+        }
+        if (!Utils::isUnset($request->sourceIp)) {
+            $query['SourceIp'] = $request->sourceIp;
+        }
+        if (!Utils::isUnset($request->type)) {
+            $query['Type'] = $request->type;
+        }
+        if (!Utils::isUnset($request->uuid)) {
+            $query['Uuid'] = $request->uuid;
+        }
         $req = new OpenApiRequest([
-            'body' => Utils::toMap($request),
+            'query' => OpenApiUtilClient::query($query),
+        ]);
+        $params = new Params([
+            'action'      => 'ModifyVulTargetConfig',
+            'version'     => '2018-12-03',
+            'protocol'    => 'HTTPS',
+            'pathname'    => '/',
+            'method'      => 'POST',
+            'authType'    => 'AK',
+            'style'       => 'RPC',
+            'reqBodyType' => 'formData',
+            'bodyType'    => 'json',
         ]);
 
-        return ModifyVulTargetConfigResponse::fromMap($this->doRPCRequest('ModifyVulTargetConfig', '2018-12-03', 'HTTPS', 'POST', 'AK', 'json', $req, $runtime));
+        return ModifyVulTargetConfigResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
@@ -5871,11 +8893,59 @@ class Sas extends OpenApiClient
     public function modifyWebLockCreateConfigWithOptions($request, $runtime)
     {
         Utils::validateModel($request);
+        $query = [];
+        if (!Utils::isUnset($request->defenceMode)) {
+            $query['DefenceMode'] = $request->defenceMode;
+        }
+        if (!Utils::isUnset($request->dir)) {
+            $query['Dir'] = $request->dir;
+        }
+        if (!Utils::isUnset($request->exclusiveDir)) {
+            $query['ExclusiveDir'] = $request->exclusiveDir;
+        }
+        if (!Utils::isUnset($request->exclusiveFile)) {
+            $query['ExclusiveFile'] = $request->exclusiveFile;
+        }
+        if (!Utils::isUnset($request->exclusiveFileType)) {
+            $query['ExclusiveFileType'] = $request->exclusiveFileType;
+        }
+        if (!Utils::isUnset($request->inclusiveFile)) {
+            $query['InclusiveFile'] = $request->inclusiveFile;
+        }
+        if (!Utils::isUnset($request->inclusiveFileType)) {
+            $query['InclusiveFileType'] = $request->inclusiveFileType;
+        }
+        if (!Utils::isUnset($request->lang)) {
+            $query['Lang'] = $request->lang;
+        }
+        if (!Utils::isUnset($request->localBackupDir)) {
+            $query['LocalBackupDir'] = $request->localBackupDir;
+        }
+        if (!Utils::isUnset($request->mode)) {
+            $query['Mode'] = $request->mode;
+        }
+        if (!Utils::isUnset($request->sourceIp)) {
+            $query['SourceIp'] = $request->sourceIp;
+        }
+        if (!Utils::isUnset($request->uuid)) {
+            $query['Uuid'] = $request->uuid;
+        }
         $req = new OpenApiRequest([
-            'body' => Utils::toMap($request),
+            'query' => OpenApiUtilClient::query($query),
+        ]);
+        $params = new Params([
+            'action'      => 'ModifyWebLockCreateConfig',
+            'version'     => '2018-12-03',
+            'protocol'    => 'HTTPS',
+            'pathname'    => '/',
+            'method'      => 'POST',
+            'authType'    => 'AK',
+            'style'       => 'RPC',
+            'reqBodyType' => 'formData',
+            'bodyType'    => 'json',
         ]);
 
-        return ModifyWebLockCreateConfigResponse::fromMap($this->doRPCRequest('ModifyWebLockCreateConfig', '2018-12-03', 'HTTPS', 'POST', 'AK', 'json', $req, $runtime));
+        return ModifyWebLockCreateConfigResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
@@ -5899,11 +8969,35 @@ class Sas extends OpenApiClient
     public function modifyWebLockDeleteConfigWithOptions($request, $runtime)
     {
         Utils::validateModel($request);
+        $query = [];
+        if (!Utils::isUnset($request->id)) {
+            $query['Id'] = $request->id;
+        }
+        if (!Utils::isUnset($request->lang)) {
+            $query['Lang'] = $request->lang;
+        }
+        if (!Utils::isUnset($request->sourceIp)) {
+            $query['SourceIp'] = $request->sourceIp;
+        }
+        if (!Utils::isUnset($request->uuid)) {
+            $query['Uuid'] = $request->uuid;
+        }
         $req = new OpenApiRequest([
-            'body' => Utils::toMap($request),
+            'query' => OpenApiUtilClient::query($query),
+        ]);
+        $params = new Params([
+            'action'      => 'ModifyWebLockDeleteConfig',
+            'version'     => '2018-12-03',
+            'protocol'    => 'HTTPS',
+            'pathname'    => '/',
+            'method'      => 'POST',
+            'authType'    => 'AK',
+            'style'       => 'RPC',
+            'reqBodyType' => 'formData',
+            'bodyType'    => 'json',
         ]);
 
-        return ModifyWebLockDeleteConfigResponse::fromMap($this->doRPCRequest('ModifyWebLockDeleteConfig', '2018-12-03', 'HTTPS', 'POST', 'AK', 'json', $req, $runtime));
+        return ModifyWebLockDeleteConfigResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
@@ -5927,11 +9021,50 @@ class Sas extends OpenApiClient
     public function modifyWebLockStartWithOptions($request, $runtime)
     {
         Utils::validateModel($request);
+        $query = [];
+        if (!Utils::isUnset($request->defenceMode)) {
+            $query['DefenceMode'] = $request->defenceMode;
+        }
+        if (!Utils::isUnset($request->dir)) {
+            $query['Dir'] = $request->dir;
+        }
+        if (!Utils::isUnset($request->exclusiveDir)) {
+            $query['ExclusiveDir'] = $request->exclusiveDir;
+        }
+        if (!Utils::isUnset($request->exclusiveFile)) {
+            $query['ExclusiveFile'] = $request->exclusiveFile;
+        }
+        if (!Utils::isUnset($request->exclusiveFileType)) {
+            $query['ExclusiveFileType'] = $request->exclusiveFileType;
+        }
+        if (!Utils::isUnset($request->inclusiveFileType)) {
+            $query['InclusiveFileType'] = $request->inclusiveFileType;
+        }
+        if (!Utils::isUnset($request->localBackupDir)) {
+            $query['LocalBackupDir'] = $request->localBackupDir;
+        }
+        if (!Utils::isUnset($request->mode)) {
+            $query['Mode'] = $request->mode;
+        }
+        if (!Utils::isUnset($request->uuid)) {
+            $query['Uuid'] = $request->uuid;
+        }
         $req = new OpenApiRequest([
-            'body' => Utils::toMap($request),
+            'query' => OpenApiUtilClient::query($query),
+        ]);
+        $params = new Params([
+            'action'      => 'ModifyWebLockStart',
+            'version'     => '2018-12-03',
+            'protocol'    => 'HTTPS',
+            'pathname'    => '/',
+            'method'      => 'POST',
+            'authType'    => 'AK',
+            'style'       => 'RPC',
+            'reqBodyType' => 'formData',
+            'bodyType'    => 'json',
         ]);
 
-        return ModifyWebLockStartResponse::fromMap($this->doRPCRequest('ModifyWebLockStart', '2018-12-03', 'HTTPS', 'POST', 'AK', 'json', $req, $runtime));
+        return ModifyWebLockStartResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
@@ -5955,11 +9088,35 @@ class Sas extends OpenApiClient
     public function modifyWebLockStatusWithOptions($request, $runtime)
     {
         Utils::validateModel($request);
+        $query = [];
+        if (!Utils::isUnset($request->lang)) {
+            $query['Lang'] = $request->lang;
+        }
+        if (!Utils::isUnset($request->sourceIp)) {
+            $query['SourceIp'] = $request->sourceIp;
+        }
+        if (!Utils::isUnset($request->status)) {
+            $query['Status'] = $request->status;
+        }
+        if (!Utils::isUnset($request->uuid)) {
+            $query['Uuid'] = $request->uuid;
+        }
         $req = new OpenApiRequest([
-            'body' => Utils::toMap($request),
+            'query' => OpenApiUtilClient::query($query),
+        ]);
+        $params = new Params([
+            'action'      => 'ModifyWebLockStatus',
+            'version'     => '2018-12-03',
+            'protocol'    => 'HTTPS',
+            'pathname'    => '/',
+            'method'      => 'POST',
+            'authType'    => 'AK',
+            'style'       => 'RPC',
+            'reqBodyType' => 'formData',
+            'bodyType'    => 'json',
         ]);
 
-        return ModifyWebLockStatusResponse::fromMap($this->doRPCRequest('ModifyWebLockStatus', '2018-12-03', 'HTTPS', 'POST', 'AK', 'json', $req, $runtime));
+        return ModifyWebLockStatusResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
@@ -5975,34 +9132,6 @@ class Sas extends OpenApiClient
     }
 
     /**
-     * @param ModifyWebLockUnbindRequest $request
-     * @param RuntimeOptions             $runtime
-     *
-     * @return ModifyWebLockUnbindResponse
-     */
-    public function modifyWebLockUnbindWithOptions($request, $runtime)
-    {
-        Utils::validateModel($request);
-        $req = new OpenApiRequest([
-            'body' => Utils::toMap($request),
-        ]);
-
-        return ModifyWebLockUnbindResponse::fromMap($this->doRPCRequest('ModifyWebLockUnbind', '2018-12-03', 'HTTPS', 'POST', 'AK', 'json', $req, $runtime));
-    }
-
-    /**
-     * @param ModifyWebLockUnbindRequest $request
-     *
-     * @return ModifyWebLockUnbindResponse
-     */
-    public function modifyWebLockUnbind($request)
-    {
-        $runtime = new RuntimeOptions([]);
-
-        return $this->modifyWebLockUnbindWithOptions($request, $runtime);
-    }
-
-    /**
      * @param ModifyWebLockUpdateConfigRequest $request
      * @param RuntimeOptions                   $runtime
      *
@@ -6011,11 +9140,62 @@ class Sas extends OpenApiClient
     public function modifyWebLockUpdateConfigWithOptions($request, $runtime)
     {
         Utils::validateModel($request);
+        $query = [];
+        if (!Utils::isUnset($request->defenceMode)) {
+            $query['DefenceMode'] = $request->defenceMode;
+        }
+        if (!Utils::isUnset($request->dir)) {
+            $query['Dir'] = $request->dir;
+        }
+        if (!Utils::isUnset($request->exclusiveDir)) {
+            $query['ExclusiveDir'] = $request->exclusiveDir;
+        }
+        if (!Utils::isUnset($request->exclusiveFile)) {
+            $query['ExclusiveFile'] = $request->exclusiveFile;
+        }
+        if (!Utils::isUnset($request->exclusiveFileType)) {
+            $query['ExclusiveFileType'] = $request->exclusiveFileType;
+        }
+        if (!Utils::isUnset($request->id)) {
+            $query['Id'] = $request->id;
+        }
+        if (!Utils::isUnset($request->inclusiveFile)) {
+            $query['InclusiveFile'] = $request->inclusiveFile;
+        }
+        if (!Utils::isUnset($request->inclusiveFileType)) {
+            $query['InclusiveFileType'] = $request->inclusiveFileType;
+        }
+        if (!Utils::isUnset($request->lang)) {
+            $query['Lang'] = $request->lang;
+        }
+        if (!Utils::isUnset($request->localBackupDir)) {
+            $query['LocalBackupDir'] = $request->localBackupDir;
+        }
+        if (!Utils::isUnset($request->mode)) {
+            $query['Mode'] = $request->mode;
+        }
+        if (!Utils::isUnset($request->sourceIp)) {
+            $query['SourceIp'] = $request->sourceIp;
+        }
+        if (!Utils::isUnset($request->uuid)) {
+            $query['Uuid'] = $request->uuid;
+        }
         $req = new OpenApiRequest([
-            'body' => Utils::toMap($request),
+            'query' => OpenApiUtilClient::query($query),
+        ]);
+        $params = new Params([
+            'action'      => 'ModifyWebLockUpdateConfig',
+            'version'     => '2018-12-03',
+            'protocol'    => 'HTTPS',
+            'pathname'    => '/',
+            'method'      => 'POST',
+            'authType'    => 'AK',
+            'style'       => 'RPC',
+            'reqBodyType' => 'formData',
+            'bodyType'    => 'json',
         ]);
 
-        return ModifyWebLockUpdateConfigResponse::fromMap($this->doRPCRequest('ModifyWebLockUpdateConfig', '2018-12-03', 'HTTPS', 'POST', 'AK', 'json', $req, $runtime));
+        return ModifyWebLockUpdateConfigResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
@@ -6039,11 +9219,29 @@ class Sas extends OpenApiClient
     public function operateAgentClientInstallWithOptions($request, $runtime)
     {
         Utils::validateModel($request);
+        $query = [];
+        if (!Utils::isUnset($request->instanceIds)) {
+            $query['InstanceIds'] = $request->instanceIds;
+        }
+        if (!Utils::isUnset($request->uuids)) {
+            $query['Uuids'] = $request->uuids;
+        }
         $req = new OpenApiRequest([
-            'body' => Utils::toMap($request),
+            'query' => OpenApiUtilClient::query($query),
+        ]);
+        $params = new Params([
+            'action'      => 'OperateAgentClientInstall',
+            'version'     => '2018-12-03',
+            'protocol'    => 'HTTPS',
+            'pathname'    => '/',
+            'method'      => 'POST',
+            'authType'    => 'AK',
+            'style'       => 'RPC',
+            'reqBodyType' => 'formData',
+            'bodyType'    => 'json',
         ]);
 
-        return OperateAgentClientInstallResponse::fromMap($this->doRPCRequest('OperateAgentClientInstall', '2018-12-03', 'HTTPS', 'POST', 'AK', 'json', $req, $runtime));
+        return OperateAgentClientInstallResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
@@ -6067,11 +9265,38 @@ class Sas extends OpenApiClient
     public function operateSuspiciousTargetConfigWithOptions($request, $runtime)
     {
         Utils::validateModel($request);
+        $query = [];
+        if (!Utils::isUnset($request->lang)) {
+            $query['Lang'] = $request->lang;
+        }
+        if (!Utils::isUnset($request->sourceIp)) {
+            $query['SourceIp'] = $request->sourceIp;
+        }
+        if (!Utils::isUnset($request->targetOperations)) {
+            $query['TargetOperations'] = $request->targetOperations;
+        }
+        if (!Utils::isUnset($request->targetType)) {
+            $query['TargetType'] = $request->targetType;
+        }
+        if (!Utils::isUnset($request->type)) {
+            $query['Type'] = $request->type;
+        }
         $req = new OpenApiRequest([
-            'body' => Utils::toMap($request),
+            'query' => OpenApiUtilClient::query($query),
+        ]);
+        $params = new Params([
+            'action'      => 'OperateSuspiciousTargetConfig',
+            'version'     => '2018-12-03',
+            'protocol'    => 'HTTPS',
+            'pathname'    => '/',
+            'method'      => 'POST',
+            'authType'    => 'AK',
+            'style'       => 'RPC',
+            'reqBodyType' => 'formData',
+            'bodyType'    => 'json',
         ]);
 
-        return OperateSuspiciousTargetConfigResponse::fromMap($this->doRPCRequest('OperateSuspiciousTargetConfig', '2018-12-03', 'HTTPS', 'POST', 'AK', 'json', $req, $runtime));
+        return OperateSuspiciousTargetConfigResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
@@ -6095,11 +9320,35 @@ class Sas extends OpenApiClient
     public function operateVulsWithOptions($request, $runtime)
     {
         Utils::validateModel($request);
+        $query = [];
+        if (!Utils::isUnset($request->operateType)) {
+            $query['OperateType'] = $request->operateType;
+        }
+        if (!Utils::isUnset($request->type)) {
+            $query['Type'] = $request->type;
+        }
+        if (!Utils::isUnset($request->uuids)) {
+            $query['Uuids'] = $request->uuids;
+        }
+        if (!Utils::isUnset($request->vulNames)) {
+            $query['VulNames'] = $request->vulNames;
+        }
         $req = new OpenApiRequest([
-            'body' => Utils::toMap($request),
+            'query' => OpenApiUtilClient::query($query),
+        ]);
+        $params = new Params([
+            'action'      => 'OperateVuls',
+            'version'     => '2018-12-03',
+            'protocol'    => 'HTTPS',
+            'pathname'    => '/',
+            'method'      => 'POST',
+            'authType'    => 'AK',
+            'style'       => 'RPC',
+            'reqBodyType' => 'formData',
+            'bodyType'    => 'json',
         ]);
 
-        return OperateVulsResponse::fromMap($this->doRPCRequest('OperateVuls', '2018-12-03', 'HTTPS', 'POST', 'AK', 'json', $req, $runtime));
+        return OperateVulsResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
@@ -6123,11 +9372,41 @@ class Sas extends OpenApiClient
     public function operationSuspEventsWithOptions($request, $runtime)
     {
         Utils::validateModel($request);
+        $query = [];
+        if (!Utils::isUnset($request->from)) {
+            $query['From'] = $request->from;
+        }
+        if (!Utils::isUnset($request->operation)) {
+            $query['Operation'] = $request->operation;
+        }
+        if (!Utils::isUnset($request->sourceIp)) {
+            $query['SourceIp'] = $request->sourceIp;
+        }
+        if (!Utils::isUnset($request->subOperation)) {
+            $query['SubOperation'] = $request->subOperation;
+        }
+        if (!Utils::isUnset($request->suspiciousEventIds)) {
+            $query['SuspiciousEventIds'] = $request->suspiciousEventIds;
+        }
+        if (!Utils::isUnset($request->warnType)) {
+            $query['WarnType'] = $request->warnType;
+        }
         $req = new OpenApiRequest([
-            'body' => Utils::toMap($request),
+            'query' => OpenApiUtilClient::query($query),
+        ]);
+        $params = new Params([
+            'action'      => 'OperationSuspEvents',
+            'version'     => '2018-12-03',
+            'protocol'    => 'HTTPS',
+            'pathname'    => '/',
+            'method'      => 'POST',
+            'authType'    => 'AK',
+            'style'       => 'RPC',
+            'reqBodyType' => 'formData',
+            'bodyType'    => 'json',
         ]);
 
-        return OperationSuspEventsResponse::fromMap($this->doRPCRequest('OperationSuspEvents', '2018-12-03', 'HTTPS', 'POST', 'AK', 'json', $req, $runtime));
+        return OperationSuspEventsResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
@@ -6151,11 +9430,29 @@ class Sas extends OpenApiClient
     public function pauseClientWithOptions($request, $runtime)
     {
         Utils::validateModel($request);
+        $query = [];
+        if (!Utils::isUnset($request->uuids)) {
+            $query['Uuids'] = $request->uuids;
+        }
+        if (!Utils::isUnset($request->value)) {
+            $query['Value'] = $request->value;
+        }
         $req = new OpenApiRequest([
-            'body' => Utils::toMap($request),
+            'query' => OpenApiUtilClient::query($query),
+        ]);
+        $params = new Params([
+            'action'      => 'PauseClient',
+            'version'     => '2018-12-03',
+            'protocol'    => 'HTTPS',
+            'pathname'    => '/',
+            'method'      => 'POST',
+            'authType'    => 'AK',
+            'style'       => 'RPC',
+            'reqBodyType' => 'formData',
+            'bodyType'    => 'json',
         ]);
 
-        return PauseClientResponse::fromMap($this->doRPCRequest('PauseClient', '2018-12-03', 'HTTPS', 'POST', 'AK', 'json', $req, $runtime));
+        return PauseClientResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
@@ -6171,34 +9468,6 @@ class Sas extends OpenApiClient
     }
 
     /**
-     * @param QueryDiscoverDatabaseRequest $request
-     * @param RuntimeOptions               $runtime
-     *
-     * @return QueryDiscoverDatabaseResponse
-     */
-    public function queryDiscoverDatabaseWithOptions($request, $runtime)
-    {
-        Utils::validateModel($request);
-        $req = new OpenApiRequest([
-            'body' => Utils::toMap($request),
-        ]);
-
-        return QueryDiscoverDatabaseResponse::fromMap($this->doRPCRequest('QueryDiscoverDatabase', '2018-12-03', 'HTTPS', 'POST', 'AK', 'json', $req, $runtime));
-    }
-
-    /**
-     * @param QueryDiscoverDatabaseRequest $request
-     *
-     * @return QueryDiscoverDatabaseResponse
-     */
-    public function queryDiscoverDatabase($request)
-    {
-        $runtime = new RuntimeOptions([]);
-
-        return $this->queryDiscoverDatabaseWithOptions($request, $runtime);
-    }
-
-    /**
      * @param QueryGroupIdByGroupNameRequest $request
      * @param RuntimeOptions                 $runtime
      *
@@ -6207,11 +9476,29 @@ class Sas extends OpenApiClient
     public function queryGroupIdByGroupNameWithOptions($request, $runtime)
     {
         Utils::validateModel($request);
+        $query = [];
+        if (!Utils::isUnset($request->groupName)) {
+            $query['GroupName'] = $request->groupName;
+        }
+        if (!Utils::isUnset($request->sourceIp)) {
+            $query['SourceIp'] = $request->sourceIp;
+        }
         $req = new OpenApiRequest([
-            'body' => Utils::toMap($request),
+            'query' => OpenApiUtilClient::query($query),
+        ]);
+        $params = new Params([
+            'action'      => 'QueryGroupIdByGroupName',
+            'version'     => '2018-12-03',
+            'protocol'    => 'HTTPS',
+            'pathname'    => '/',
+            'method'      => 'POST',
+            'authType'    => 'AK',
+            'style'       => 'RPC',
+            'reqBodyType' => 'formData',
+            'bodyType'    => 'json',
         ]);
 
-        return QueryGroupIdByGroupNameResponse::fromMap($this->doRPCRequest('QueryGroupIdByGroupName', '2018-12-03', 'HTTPS', 'POST', 'AK', 'json', $req, $runtime));
+        return QueryGroupIdByGroupNameResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
@@ -6227,34 +9514,6 @@ class Sas extends OpenApiClient
     }
 
     /**
-     * @param QueryPreCheckDatabaseRequest $request
-     * @param RuntimeOptions               $runtime
-     *
-     * @return QueryPreCheckDatabaseResponse
-     */
-    public function queryPreCheckDatabaseWithOptions($request, $runtime)
-    {
-        Utils::validateModel($request);
-        $req = new OpenApiRequest([
-            'body' => Utils::toMap($request),
-        ]);
-
-        return QueryPreCheckDatabaseResponse::fromMap($this->doRPCRequest('QueryPreCheckDatabase', '2018-12-03', 'HTTPS', 'POST', 'AK', 'json', $req, $runtime));
-    }
-
-    /**
-     * @param QueryPreCheckDatabaseRequest $request
-     *
-     * @return QueryPreCheckDatabaseResponse
-     */
-    public function queryPreCheckDatabase($request)
-    {
-        $runtime = new RuntimeOptions([]);
-
-        return $this->queryPreCheckDatabaseWithOptions($request, $runtime);
-    }
-
-    /**
      * @param RefreshAssetsRequest $request
      * @param RuntimeOptions       $runtime
      *
@@ -6263,11 +9522,26 @@ class Sas extends OpenApiClient
     public function refreshAssetsWithOptions($request, $runtime)
     {
         Utils::validateModel($request);
+        $query = [];
+        if (!Utils::isUnset($request->assetType)) {
+            $query['AssetType'] = $request->assetType;
+        }
         $req = new OpenApiRequest([
-            'body' => Utils::toMap($request),
+            'query' => OpenApiUtilClient::query($query),
+        ]);
+        $params = new Params([
+            'action'      => 'RefreshAssets',
+            'version'     => '2018-12-03',
+            'protocol'    => 'HTTPS',
+            'pathname'    => '/',
+            'method'      => 'POST',
+            'authType'    => 'AK',
+            'style'       => 'RPC',
+            'reqBodyType' => 'formData',
+            'bodyType'    => 'json',
         ]);
 
-        return RefreshAssetsResponse::fromMap($this->doRPCRequest('RefreshAssets', '2018-12-03', 'HTTPS', 'POST', 'AK', 'json', $req, $runtime));
+        return RefreshAssetsResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
@@ -6291,11 +9565,26 @@ class Sas extends OpenApiClient
     public function refreshContainerAssetsWithOptions($request, $runtime)
     {
         Utils::validateModel($request);
+        $query = [];
+        if (!Utils::isUnset($request->assetType)) {
+            $query['AssetType'] = $request->assetType;
+        }
         $req = new OpenApiRequest([
-            'body' => Utils::toMap($request),
+            'query' => OpenApiUtilClient::query($query),
+        ]);
+        $params = new Params([
+            'action'      => 'RefreshContainerAssets',
+            'version'     => '2018-12-03',
+            'protocol'    => 'HTTPS',
+            'pathname'    => '/',
+            'method'      => 'POST',
+            'authType'    => 'AK',
+            'style'       => 'RPC',
+            'reqBodyType' => 'formData',
+            'bodyType'    => 'json',
         ]);
 
-        return RefreshContainerAssetsResponse::fromMap($this->doRPCRequest('RefreshContainerAssets', '2018-12-03', 'HTTPS', 'POST', 'AK', 'json', $req, $runtime));
+        return RefreshContainerAssetsResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
@@ -6311,6 +9600,49 @@ class Sas extends OpenApiClient
     }
 
     /**
+     * @param RefreshContainerNetworkRequest $request
+     * @param RuntimeOptions                 $runtime
+     *
+     * @return RefreshContainerNetworkResponse
+     */
+    public function refreshContainerNetworkWithOptions($request, $runtime)
+    {
+        Utils::validateModel($request);
+        $query = [];
+        if (!Utils::isUnset($request->clusterId)) {
+            $query['ClusterId'] = $request->clusterId;
+        }
+        $req = new OpenApiRequest([
+            'query' => OpenApiUtilClient::query($query),
+        ]);
+        $params = new Params([
+            'action'      => 'RefreshContainerNetwork',
+            'version'     => '2018-12-03',
+            'protocol'    => 'HTTPS',
+            'pathname'    => '/',
+            'method'      => 'POST',
+            'authType'    => 'AK',
+            'style'       => 'RPC',
+            'reqBodyType' => 'formData',
+            'bodyType'    => 'json',
+        ]);
+
+        return RefreshContainerNetworkResponse::fromMap($this->callApi($params, $req, $runtime));
+    }
+
+    /**
+     * @param RefreshContainerNetworkRequest $request
+     *
+     * @return RefreshContainerNetworkResponse
+     */
+    public function refreshContainerNetwork($request)
+    {
+        $runtime = new RuntimeOptions([]);
+
+        return $this->refreshContainerNetworkWithOptions($request, $runtime);
+    }
+
+    /**
      * @param RollbackSuspEventQuaraFileRequest $request
      * @param RuntimeOptions                    $runtime
      *
@@ -6319,11 +9651,32 @@ class Sas extends OpenApiClient
     public function rollbackSuspEventQuaraFileWithOptions($request, $runtime)
     {
         Utils::validateModel($request);
+        $query = [];
+        if (!Utils::isUnset($request->from)) {
+            $query['From'] = $request->from;
+        }
+        if (!Utils::isUnset($request->quaraFileId)) {
+            $query['QuaraFileId'] = $request->quaraFileId;
+        }
+        if (!Utils::isUnset($request->sourceIp)) {
+            $query['SourceIp'] = $request->sourceIp;
+        }
         $req = new OpenApiRequest([
-            'body' => Utils::toMap($request),
+            'query' => OpenApiUtilClient::query($query),
+        ]);
+        $params = new Params([
+            'action'      => 'RollbackSuspEventQuaraFile',
+            'version'     => '2018-12-03',
+            'protocol'    => 'HTTPS',
+            'pathname'    => '/',
+            'method'      => 'POST',
+            'authType'    => 'AK',
+            'style'       => 'RPC',
+            'reqBodyType' => 'formData',
+            'bodyType'    => 'json',
         ]);
 
-        return RollbackSuspEventQuaraFileResponse::fromMap($this->doRPCRequest('RollbackSuspEventQuaraFile', '2018-12-03', 'HTTPS', 'POST', 'AK', 'json', $req, $runtime));
+        return RollbackSuspEventQuaraFileResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
@@ -6347,11 +9700,26 @@ class Sas extends OpenApiClient
     public function sasInstallCodeWithOptions($request, $runtime)
     {
         Utils::validateModel($request);
+        $query = [];
+        if (!Utils::isUnset($request->sourceIp)) {
+            $query['SourceIp'] = $request->sourceIp;
+        }
         $req = new OpenApiRequest([
-            'body' => Utils::toMap($request),
+            'query' => OpenApiUtilClient::query($query),
+        ]);
+        $params = new Params([
+            'action'      => 'SasInstallCode',
+            'version'     => '2018-12-03',
+            'protocol'    => 'HTTPS',
+            'pathname'    => '/',
+            'method'      => 'POST',
+            'authType'    => 'AK',
+            'style'       => 'RPC',
+            'reqBodyType' => 'formData',
+            'bodyType'    => 'json',
         ]);
 
-        return SasInstallCodeResponse::fromMap($this->doRPCRequest('SasInstallCode', '2018-12-03', 'HTTPS', 'POST', 'AK', 'json', $req, $runtime));
+        return SasInstallCodeResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
@@ -6375,11 +9743,38 @@ class Sas extends OpenApiClient
     public function startBaselineSecurityCheckWithOptions($request, $runtime)
     {
         Utils::validateModel($request);
+        $query = [];
+        if (!Utils::isUnset($request->itemIds)) {
+            $query['ItemIds'] = $request->itemIds;
+        }
+        if (!Utils::isUnset($request->lang)) {
+            $query['Lang'] = $request->lang;
+        }
+        if (!Utils::isUnset($request->resourceOwnerId)) {
+            $query['ResourceOwnerId'] = $request->resourceOwnerId;
+        }
+        if (!Utils::isUnset($request->sourceIp)) {
+            $query['SourceIp'] = $request->sourceIp;
+        }
+        if (!Utils::isUnset($request->type)) {
+            $query['Type'] = $request->type;
+        }
         $req = new OpenApiRequest([
-            'body' => Utils::toMap($request),
+            'query' => OpenApiUtilClient::query($query),
+        ]);
+        $params = new Params([
+            'action'      => 'StartBaselineSecurityCheck',
+            'version'     => '2018-12-03',
+            'protocol'    => 'HTTPS',
+            'pathname'    => '/',
+            'method'      => 'POST',
+            'authType'    => 'AK',
+            'style'       => 'RPC',
+            'reqBodyType' => 'formData',
+            'bodyType'    => 'json',
         ]);
 
-        return StartBaselineSecurityCheckResponse::fromMap($this->doRPCRequest('StartBaselineSecurityCheck', '2018-12-03', 'HTTPS', 'POST', 'AK', 'json', $req, $runtime));
+        return StartBaselineSecurityCheckResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
@@ -6395,34 +9790,6 @@ class Sas extends OpenApiClient
     }
 
     /**
-     * @param StartDiscoverDatabaseTaskRequest $request
-     * @param RuntimeOptions                   $runtime
-     *
-     * @return StartDiscoverDatabaseTaskResponse
-     */
-    public function startDiscoverDatabaseTaskWithOptions($request, $runtime)
-    {
-        Utils::validateModel($request);
-        $req = new OpenApiRequest([
-            'body' => Utils::toMap($request),
-        ]);
-
-        return StartDiscoverDatabaseTaskResponse::fromMap($this->doRPCRequest('StartDiscoverDatabaseTask', '2018-12-03', 'HTTPS', 'POST', 'AK', 'json', $req, $runtime));
-    }
-
-    /**
-     * @param StartDiscoverDatabaseTaskRequest $request
-     *
-     * @return StartDiscoverDatabaseTaskResponse
-     */
-    public function startDiscoverDatabaseTask($request)
-    {
-        $runtime = new RuntimeOptions([]);
-
-        return $this->startDiscoverDatabaseTaskWithOptions($request, $runtime);
-    }
-
-    /**
      * @param StartImageVulScanRequest $request
      * @param RuntimeOptions           $runtime
      *
@@ -6431,11 +9798,53 @@ class Sas extends OpenApiClient
     public function startImageVulScanWithOptions($request, $runtime)
     {
         Utils::validateModel($request);
+        $query = [];
+        if (!Utils::isUnset($request->imageDigest)) {
+            $query['ImageDigest'] = $request->imageDigest;
+        }
+        if (!Utils::isUnset($request->imageLayer)) {
+            $query['ImageLayer'] = $request->imageLayer;
+        }
+        if (!Utils::isUnset($request->imageTag)) {
+            $query['ImageTag'] = $request->imageTag;
+        }
+        if (!Utils::isUnset($request->lang)) {
+            $query['Lang'] = $request->lang;
+        }
+        if (!Utils::isUnset($request->registryTypes)) {
+            $query['RegistryTypes'] = $request->registryTypes;
+        }
+        if (!Utils::isUnset($request->repName)) {
+            $query['RepName'] = $request->repName;
+        }
+        if (!Utils::isUnset($request->repoId)) {
+            $query['RepoId'] = $request->repoId;
+        }
+        if (!Utils::isUnset($request->repoInstanceId)) {
+            $query['RepoInstanceId'] = $request->repoInstanceId;
+        }
+        if (!Utils::isUnset($request->repoNamespace)) {
+            $query['RepoNamespace'] = $request->repoNamespace;
+        }
+        if (!Utils::isUnset($request->repoRegionId)) {
+            $query['RepoRegionId'] = $request->repoRegionId;
+        }
         $req = new OpenApiRequest([
-            'body' => Utils::toMap($request),
+            'query' => OpenApiUtilClient::query($query),
+        ]);
+        $params = new Params([
+            'action'      => 'StartImageVulScan',
+            'version'     => '2018-12-03',
+            'protocol'    => 'HTTPS',
+            'pathname'    => '/',
+            'method'      => 'POST',
+            'authType'    => 'AK',
+            'style'       => 'RPC',
+            'reqBodyType' => 'formData',
+            'bodyType'    => 'json',
         ]);
 
-        return StartImageVulScanResponse::fromMap($this->doRPCRequest('StartImageVulScan', '2018-12-03', 'HTTPS', 'POST', 'AK', 'json', $req, $runtime));
+        return StartImageVulScanResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
@@ -6451,34 +9860,6 @@ class Sas extends OpenApiClient
     }
 
     /**
-     * @param StartPreCheckDatabaseRequest $request
-     * @param RuntimeOptions               $runtime
-     *
-     * @return StartPreCheckDatabaseResponse
-     */
-    public function startPreCheckDatabaseWithOptions($request, $runtime)
-    {
-        Utils::validateModel($request);
-        $req = new OpenApiRequest([
-            'body' => Utils::toMap($request),
-        ]);
-
-        return StartPreCheckDatabaseResponse::fromMap($this->doRPCRequest('StartPreCheckDatabase', '2018-12-03', 'HTTPS', 'POST', 'AK', 'json', $req, $runtime));
-    }
-
-    /**
-     * @param StartPreCheckDatabaseRequest $request
-     *
-     * @return StartPreCheckDatabaseResponse
-     */
-    public function startPreCheckDatabase($request)
-    {
-        $runtime = new RuntimeOptions([]);
-
-        return $this->startPreCheckDatabaseWithOptions($request, $runtime);
-    }
-
-    /**
      * @param StartVirusScanTaskRequest $request
      * @param RuntimeOptions            $runtime
      *
@@ -6487,11 +9868,26 @@ class Sas extends OpenApiClient
     public function startVirusScanTaskWithOptions($request, $runtime)
     {
         Utils::validateModel($request);
+        $query = [];
+        if (!Utils::isUnset($request->targetInfo)) {
+            $query['TargetInfo'] = $request->targetInfo;
+        }
         $req = new OpenApiRequest([
-            'body' => Utils::toMap($request),
+            'query' => OpenApiUtilClient::query($query),
+        ]);
+        $params = new Params([
+            'action'      => 'StartVirusScanTask',
+            'version'     => '2018-12-03',
+            'protocol'    => 'HTTPS',
+            'pathname'    => '/',
+            'method'      => 'POST',
+            'authType'    => 'AK',
+            'style'       => 'RPC',
+            'reqBodyType' => 'formData',
+            'bodyType'    => 'json',
         ]);
 
-        return StartVirusScanTaskResponse::fromMap($this->doRPCRequest('StartVirusScanTask', '2018-12-03', 'HTTPS', 'POST', 'AK', 'json', $req, $runtime));
+        return StartVirusScanTaskResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
@@ -6515,11 +9911,26 @@ class Sas extends OpenApiClient
     public function unbindAegisWithOptions($request, $runtime)
     {
         Utils::validateModel($request);
+        $query = [];
+        if (!Utils::isUnset($request->uuids)) {
+            $query['Uuids'] = $request->uuids;
+        }
         $req = new OpenApiRequest([
-            'body' => Utils::toMap($request),
+            'query' => OpenApiUtilClient::query($query),
+        ]);
+        $params = new Params([
+            'action'      => 'UnbindAegis',
+            'version'     => '2018-12-03',
+            'protocol'    => 'HTTPS',
+            'pathname'    => '/',
+            'method'      => 'POST',
+            'authType'    => 'AK',
+            'style'       => 'RPC',
+            'reqBodyType' => 'formData',
+            'bodyType'    => 'json',
         ]);
 
-        return UnbindAegisResponse::fromMap($this->doRPCRequest('UnbindAegis', '2018-12-03', 'HTTPS', 'POST', 'AK', 'json', $req, $runtime));
+        return UnbindAegisResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
@@ -6543,11 +9954,32 @@ class Sas extends OpenApiClient
     public function uninstallBackupClientWithOptions($request, $runtime)
     {
         Utils::validateModel($request);
+        $query = [];
+        if (!Utils::isUnset($request->policyVersion)) {
+            $query['PolicyVersion'] = $request->policyVersion;
+        }
+        if (!Utils::isUnset($request->uuid)) {
+            $query['Uuid'] = $request->uuid;
+        }
+        if (!Utils::isUnset($request->uuidList)) {
+            $query['UuidList'] = $request->uuidList;
+        }
         $req = new OpenApiRequest([
-            'body' => Utils::toMap($request),
+            'query' => OpenApiUtilClient::query($query),
+        ]);
+        $params = new Params([
+            'action'      => 'UninstallBackupClient',
+            'version'     => '2018-12-03',
+            'protocol'    => 'HTTPS',
+            'pathname'    => '/',
+            'method'      => 'POST',
+            'authType'    => 'AK',
+            'style'       => 'RPC',
+            'reqBodyType' => 'formData',
+            'bodyType'    => 'json',
         ]);
 
-        return UninstallBackupClientResponse::fromMap($this->doRPCRequest('UninstallBackupClient', '2018-12-03', 'HTTPS', 'POST', 'AK', 'json', $req, $runtime));
+        return UninstallBackupClientResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
@@ -6563,62 +9995,6 @@ class Sas extends OpenApiClient
     }
 
     /**
-     * @param UninstallUniBackupAgentRequest $request
-     * @param RuntimeOptions                 $runtime
-     *
-     * @return UninstallUniBackupAgentResponse
-     */
-    public function uninstallUniBackupAgentWithOptions($request, $runtime)
-    {
-        Utils::validateModel($request);
-        $req = new OpenApiRequest([
-            'body' => Utils::toMap($request),
-        ]);
-
-        return UninstallUniBackupAgentResponse::fromMap($this->doRPCRequest('UninstallUniBackupAgent', '2018-12-03', 'HTTPS', 'POST', 'AK', 'json', $req, $runtime));
-    }
-
-    /**
-     * @param UninstallUniBackupAgentRequest $request
-     *
-     * @return UninstallUniBackupAgentResponse
-     */
-    public function uninstallUniBackupAgent($request)
-    {
-        $runtime = new RuntimeOptions([]);
-
-        return $this->uninstallUniBackupAgentWithOptions($request, $runtime);
-    }
-
-    /**
-     * @param UpgradeBackupPolicyVersionRequest $request
-     * @param RuntimeOptions                    $runtime
-     *
-     * @return UpgradeBackupPolicyVersionResponse
-     */
-    public function upgradeBackupPolicyVersionWithOptions($request, $runtime)
-    {
-        Utils::validateModel($request);
-        $req = new OpenApiRequest([
-            'body' => Utils::toMap($request),
-        ]);
-
-        return UpgradeBackupPolicyVersionResponse::fromMap($this->doRPCRequest('UpgradeBackupPolicyVersion', '2018-12-03', 'HTTPS', 'POST', 'AK', 'json', $req, $runtime));
-    }
-
-    /**
-     * @param UpgradeBackupPolicyVersionRequest $request
-     *
-     * @return UpgradeBackupPolicyVersionResponse
-     */
-    public function upgradeBackupPolicyVersion($request)
-    {
-        $runtime = new RuntimeOptions([]);
-
-        return $this->upgradeBackupPolicyVersionWithOptions($request, $runtime);
-    }
-
-    /**
      * @param ValidateHcWarningsRequest $request
      * @param RuntimeOptions            $runtime
      *
@@ -6627,11 +10003,32 @@ class Sas extends OpenApiClient
     public function validateHcWarningsWithOptions($request, $runtime)
     {
         Utils::validateModel($request);
+        $query = [];
+        if (!Utils::isUnset($request->riskIds)) {
+            $query['RiskIds'] = $request->riskIds;
+        }
+        if (!Utils::isUnset($request->sourceIp)) {
+            $query['SourceIp'] = $request->sourceIp;
+        }
+        if (!Utils::isUnset($request->uuids)) {
+            $query['Uuids'] = $request->uuids;
+        }
         $req = new OpenApiRequest([
-            'body' => Utils::toMap($request),
+            'query' => OpenApiUtilClient::query($query),
+        ]);
+        $params = new Params([
+            'action'      => 'ValidateHcWarnings',
+            'version'     => '2018-12-03',
+            'protocol'    => 'HTTPS',
+            'pathname'    => '/',
+            'method'      => 'POST',
+            'authType'    => 'AK',
+            'style'       => 'RPC',
+            'reqBodyType' => 'formData',
+            'bodyType'    => 'json',
         ]);
 
-        return ValidateHcWarningsResponse::fromMap($this->doRPCRequest('ValidateHcWarnings', '2018-12-03', 'HTTPS', 'POST', 'AK', 'json', $req, $runtime));
+        return ValidateHcWarningsResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**

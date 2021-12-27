@@ -6,37 +6,22 @@ namespace AlibabaCloud\SDK\Sas\V20181203\Models;
 
 use AlibabaCloud\Tea\Model;
 
-class DescribeSuspEventQuaraFilesRequest extends Model
+class DescribeVulListPageRequest extends Model
 {
     /**
-     * @var string
+     * @var int
      */
     public $currentPage;
 
     /**
      * @var string
      */
-    public $from;
-
-    /**
-     * @var string
-     */
-    public $groupId;
+    public $cveId;
 
     /**
      * @var int
      */
-    public $groupingId;
-
-    /**
-     * @var string
-     */
     public $pageSize;
-
-    /**
-     * @var string
-     */
-    public $quaraTag;
 
     /**
      * @var string
@@ -46,16 +31,13 @@ class DescribeSuspEventQuaraFilesRequest extends Model
     /**
      * @var string
      */
-    public $status;
+    public $vulNameLike;
     protected $_name = [
         'currentPage' => 'CurrentPage',
-        'from'        => 'From',
-        'groupId'     => 'GroupId',
-        'groupingId'  => 'GroupingId',
+        'cveId'       => 'CveId',
         'pageSize'    => 'PageSize',
-        'quaraTag'    => 'QuaraTag',
         'sourceIp'    => 'SourceIp',
-        'status'      => 'Status',
+        'vulNameLike' => 'VulNameLike',
     ];
 
     public function validate()
@@ -68,26 +50,17 @@ class DescribeSuspEventQuaraFilesRequest extends Model
         if (null !== $this->currentPage) {
             $res['CurrentPage'] = $this->currentPage;
         }
-        if (null !== $this->from) {
-            $res['From'] = $this->from;
-        }
-        if (null !== $this->groupId) {
-            $res['GroupId'] = $this->groupId;
-        }
-        if (null !== $this->groupingId) {
-            $res['GroupingId'] = $this->groupingId;
+        if (null !== $this->cveId) {
+            $res['CveId'] = $this->cveId;
         }
         if (null !== $this->pageSize) {
             $res['PageSize'] = $this->pageSize;
         }
-        if (null !== $this->quaraTag) {
-            $res['QuaraTag'] = $this->quaraTag;
-        }
         if (null !== $this->sourceIp) {
             $res['SourceIp'] = $this->sourceIp;
         }
-        if (null !== $this->status) {
-            $res['Status'] = $this->status;
+        if (null !== $this->vulNameLike) {
+            $res['VulNameLike'] = $this->vulNameLike;
         }
 
         return $res;
@@ -96,7 +69,7 @@ class DescribeSuspEventQuaraFilesRequest extends Model
     /**
      * @param array $map
      *
-     * @return DescribeSuspEventQuaraFilesRequest
+     * @return DescribeVulListPageRequest
      */
     public static function fromMap($map = [])
     {
@@ -104,26 +77,17 @@ class DescribeSuspEventQuaraFilesRequest extends Model
         if (isset($map['CurrentPage'])) {
             $model->currentPage = $map['CurrentPage'];
         }
-        if (isset($map['From'])) {
-            $model->from = $map['From'];
-        }
-        if (isset($map['GroupId'])) {
-            $model->groupId = $map['GroupId'];
-        }
-        if (isset($map['GroupingId'])) {
-            $model->groupingId = $map['GroupingId'];
+        if (isset($map['CveId'])) {
+            $model->cveId = $map['CveId'];
         }
         if (isset($map['PageSize'])) {
             $model->pageSize = $map['PageSize'];
         }
-        if (isset($map['QuaraTag'])) {
-            $model->quaraTag = $map['QuaraTag'];
-        }
         if (isset($map['SourceIp'])) {
             $model->sourceIp = $map['SourceIp'];
         }
-        if (isset($map['Status'])) {
-            $model->status = $map['Status'];
+        if (isset($map['VulNameLike'])) {
+            $model->vulNameLike = $map['VulNameLike'];
         }
 
         return $model;
