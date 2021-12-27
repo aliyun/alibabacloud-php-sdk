@@ -9,17 +9,17 @@ use AlibabaCloud\Tea\Model;
 class ConversionDataRequest extends Model
 {
     /**
-     * @var int
-     */
-    public $reportTime;
-
-    /**
      * @var string
      */
     public $conversionRate;
+
+    /**
+     * @var int
+     */
+    public $reportTime;
     protected $_name = [
-        'reportTime'     => 'ReportTime',
         'conversionRate' => 'ConversionRate',
+        'reportTime'     => 'ReportTime',
     ];
 
     public function validate()
@@ -29,11 +29,11 @@ class ConversionDataRequest extends Model
     public function toMap()
     {
         $res = [];
-        if (null !== $this->reportTime) {
-            $res['ReportTime'] = $this->reportTime;
-        }
         if (null !== $this->conversionRate) {
             $res['ConversionRate'] = $this->conversionRate;
+        }
+        if (null !== $this->reportTime) {
+            $res['ReportTime'] = $this->reportTime;
         }
 
         return $res;
@@ -47,11 +47,11 @@ class ConversionDataRequest extends Model
     public static function fromMap($map = [])
     {
         $model = new self();
-        if (isset($map['ReportTime'])) {
-            $model->reportTime = $map['ReportTime'];
-        }
         if (isset($map['ConversionRate'])) {
             $model->conversionRate = $map['ConversionRate'];
+        }
+        if (isset($map['ReportTime'])) {
+            $model->reportTime = $map['ReportTime'];
         }
 
         return $model;

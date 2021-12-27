@@ -11,12 +11,12 @@ class SendMessageWithTemplateRequest extends Model
     /**
      * @var string
      */
-    public $to;
+    public $from;
 
     /**
      * @var string
      */
-    public $from;
+    public $smsUpExtendCode;
 
     /**
      * @var string
@@ -31,13 +31,13 @@ class SendMessageWithTemplateRequest extends Model
     /**
      * @var string
      */
-    public $smsUpExtendCode;
+    public $to;
     protected $_name = [
-        'to'              => 'To',
         'from'            => 'From',
+        'smsUpExtendCode' => 'SmsUpExtendCode',
         'templateCode'    => 'TemplateCode',
         'templateParam'   => 'TemplateParam',
-        'smsUpExtendCode' => 'SmsUpExtendCode',
+        'to'              => 'To',
     ];
 
     public function validate()
@@ -47,11 +47,11 @@ class SendMessageWithTemplateRequest extends Model
     public function toMap()
     {
         $res = [];
-        if (null !== $this->to) {
-            $res['To'] = $this->to;
-        }
         if (null !== $this->from) {
             $res['From'] = $this->from;
+        }
+        if (null !== $this->smsUpExtendCode) {
+            $res['SmsUpExtendCode'] = $this->smsUpExtendCode;
         }
         if (null !== $this->templateCode) {
             $res['TemplateCode'] = $this->templateCode;
@@ -59,8 +59,8 @@ class SendMessageWithTemplateRequest extends Model
         if (null !== $this->templateParam) {
             $res['TemplateParam'] = $this->templateParam;
         }
-        if (null !== $this->smsUpExtendCode) {
-            $res['SmsUpExtendCode'] = $this->smsUpExtendCode;
+        if (null !== $this->to) {
+            $res['To'] = $this->to;
         }
 
         return $res;
@@ -74,11 +74,11 @@ class SendMessageWithTemplateRequest extends Model
     public static function fromMap($map = [])
     {
         $model = new self();
-        if (isset($map['To'])) {
-            $model->to = $map['To'];
-        }
         if (isset($map['From'])) {
             $model->from = $map['From'];
+        }
+        if (isset($map['SmsUpExtendCode'])) {
+            $model->smsUpExtendCode = $map['SmsUpExtendCode'];
         }
         if (isset($map['TemplateCode'])) {
             $model->templateCode = $map['TemplateCode'];
@@ -86,8 +86,8 @@ class SendMessageWithTemplateRequest extends Model
         if (isset($map['TemplateParam'])) {
             $model->templateParam = $map['TemplateParam'];
         }
-        if (isset($map['SmsUpExtendCode'])) {
-            $model->smsUpExtendCode = $map['SmsUpExtendCode'];
+        if (isset($map['To'])) {
+            $model->to = $map['To'];
         }
 
         return $model;

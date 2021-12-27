@@ -12,12 +12,22 @@ class SendMessageWithTemplateResponseBody extends Model
     /**
      * @var string
      */
-    public $responseCode;
+    public $messageId;
 
     /**
      * @var numberDetail
      */
     public $numberDetail;
+
+    /**
+     * @var string
+     */
+    public $requestId;
+
+    /**
+     * @var string
+     */
+    public $responseCode;
 
     /**
      * @var string
@@ -33,18 +43,14 @@ class SendMessageWithTemplateResponseBody extends Model
      * @var string
      */
     public $to;
-
-    /**
-     * @var string
-     */
-    public $messageId;
     protected $_name = [
-        'responseCode'        => 'ResponseCode',
+        'messageId'           => 'MessageId',
         'numberDetail'        => 'NumberDetail',
+        'requestId'           => 'RequestId',
+        'responseCode'        => 'ResponseCode',
         'responseDescription' => 'ResponseDescription',
         'segments'            => 'Segments',
         'to'                  => 'To',
-        'messageId'           => 'MessageId',
     ];
 
     public function validate()
@@ -54,11 +60,17 @@ class SendMessageWithTemplateResponseBody extends Model
     public function toMap()
     {
         $res = [];
-        if (null !== $this->responseCode) {
-            $res['ResponseCode'] = $this->responseCode;
+        if (null !== $this->messageId) {
+            $res['MessageId'] = $this->messageId;
         }
         if (null !== $this->numberDetail) {
             $res['NumberDetail'] = null !== $this->numberDetail ? $this->numberDetail->toMap() : null;
+        }
+        if (null !== $this->requestId) {
+            $res['RequestId'] = $this->requestId;
+        }
+        if (null !== $this->responseCode) {
+            $res['ResponseCode'] = $this->responseCode;
         }
         if (null !== $this->responseDescription) {
             $res['ResponseDescription'] = $this->responseDescription;
@@ -68,9 +80,6 @@ class SendMessageWithTemplateResponseBody extends Model
         }
         if (null !== $this->to) {
             $res['To'] = $this->to;
-        }
-        if (null !== $this->messageId) {
-            $res['MessageId'] = $this->messageId;
         }
 
         return $res;
@@ -84,11 +93,17 @@ class SendMessageWithTemplateResponseBody extends Model
     public static function fromMap($map = [])
     {
         $model = new self();
-        if (isset($map['ResponseCode'])) {
-            $model->responseCode = $map['ResponseCode'];
+        if (isset($map['MessageId'])) {
+            $model->messageId = $map['MessageId'];
         }
         if (isset($map['NumberDetail'])) {
             $model->numberDetail = numberDetail::fromMap($map['NumberDetail']);
+        }
+        if (isset($map['RequestId'])) {
+            $model->requestId = $map['RequestId'];
+        }
+        if (isset($map['ResponseCode'])) {
+            $model->responseCode = $map['ResponseCode'];
         }
         if (isset($map['ResponseDescription'])) {
             $model->responseDescription = $map['ResponseDescription'];
@@ -98,9 +113,6 @@ class SendMessageWithTemplateResponseBody extends Model
         }
         if (isset($map['To'])) {
             $model->to = $map['To'];
-        }
-        if (isset($map['MessageId'])) {
-            $model->messageId = $map['MessageId'];
         }
 
         return $model;

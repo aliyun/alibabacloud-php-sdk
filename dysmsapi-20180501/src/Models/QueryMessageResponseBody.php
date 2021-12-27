@@ -12,7 +12,7 @@ class QueryMessageResponseBody extends Model
     /**
      * @var string
      */
-    public $status;
+    public $errorCode;
 
     /**
      * @var string
@@ -22,12 +22,12 @@ class QueryMessageResponseBody extends Model
     /**
      * @var string
      */
-    public $responseCode;
+    public $message;
 
     /**
      * @var string
      */
-    public $receiveDate;
+    public $messageId;
 
     /**
      * @var numberDetail
@@ -37,7 +37,17 @@ class QueryMessageResponseBody extends Model
     /**
      * @var string
      */
-    public $message;
+    public $receiveDate;
+
+    /**
+     * @var string
+     */
+    public $requestId;
+
+    /**
+     * @var string
+     */
+    public $responseCode;
 
     /**
      * @var string
@@ -47,34 +57,30 @@ class QueryMessageResponseBody extends Model
     /**
      * @var string
      */
-    public $errorCode;
-
-    /**
-     * @var string
-     */
     public $sendDate;
 
     /**
      * @var string
      */
-    public $to;
+    public $status;
 
     /**
      * @var string
      */
-    public $messageId;
+    public $to;
     protected $_name = [
-        'status'              => 'Status',
-        'errorDescription'    => 'ErrorDescription',
-        'responseCode'        => 'ResponseCode',
-        'receiveDate'         => 'ReceiveDate',
-        'numberDetail'        => 'NumberDetail',
-        'message'             => 'Message',
-        'responseDescription' => 'ResponseDescription',
         'errorCode'           => 'ErrorCode',
-        'sendDate'            => 'SendDate',
-        'to'                  => 'To',
+        'errorDescription'    => 'ErrorDescription',
+        'message'             => 'Message',
         'messageId'           => 'MessageId',
+        'numberDetail'        => 'NumberDetail',
+        'receiveDate'         => 'ReceiveDate',
+        'requestId'           => 'RequestId',
+        'responseCode'        => 'ResponseCode',
+        'responseDescription' => 'ResponseDescription',
+        'sendDate'            => 'SendDate',
+        'status'              => 'Status',
+        'to'                  => 'To',
     ];
 
     public function validate()
@@ -84,38 +90,41 @@ class QueryMessageResponseBody extends Model
     public function toMap()
     {
         $res = [];
-        if (null !== $this->status) {
-            $res['Status'] = $this->status;
+        if (null !== $this->errorCode) {
+            $res['ErrorCode'] = $this->errorCode;
         }
         if (null !== $this->errorDescription) {
             $res['ErrorDescription'] = $this->errorDescription;
         }
-        if (null !== $this->responseCode) {
-            $res['ResponseCode'] = $this->responseCode;
+        if (null !== $this->message) {
+            $res['Message'] = $this->message;
         }
-        if (null !== $this->receiveDate) {
-            $res['ReceiveDate'] = $this->receiveDate;
+        if (null !== $this->messageId) {
+            $res['MessageId'] = $this->messageId;
         }
         if (null !== $this->numberDetail) {
             $res['NumberDetail'] = null !== $this->numberDetail ? $this->numberDetail->toMap() : null;
         }
-        if (null !== $this->message) {
-            $res['Message'] = $this->message;
+        if (null !== $this->receiveDate) {
+            $res['ReceiveDate'] = $this->receiveDate;
+        }
+        if (null !== $this->requestId) {
+            $res['RequestId'] = $this->requestId;
+        }
+        if (null !== $this->responseCode) {
+            $res['ResponseCode'] = $this->responseCode;
         }
         if (null !== $this->responseDescription) {
             $res['ResponseDescription'] = $this->responseDescription;
         }
-        if (null !== $this->errorCode) {
-            $res['ErrorCode'] = $this->errorCode;
-        }
         if (null !== $this->sendDate) {
             $res['SendDate'] = $this->sendDate;
         }
+        if (null !== $this->status) {
+            $res['Status'] = $this->status;
+        }
         if (null !== $this->to) {
             $res['To'] = $this->to;
-        }
-        if (null !== $this->messageId) {
-            $res['MessageId'] = $this->messageId;
         }
 
         return $res;
@@ -129,38 +138,41 @@ class QueryMessageResponseBody extends Model
     public static function fromMap($map = [])
     {
         $model = new self();
-        if (isset($map['Status'])) {
-            $model->status = $map['Status'];
+        if (isset($map['ErrorCode'])) {
+            $model->errorCode = $map['ErrorCode'];
         }
         if (isset($map['ErrorDescription'])) {
             $model->errorDescription = $map['ErrorDescription'];
         }
-        if (isset($map['ResponseCode'])) {
-            $model->responseCode = $map['ResponseCode'];
+        if (isset($map['Message'])) {
+            $model->message = $map['Message'];
         }
-        if (isset($map['ReceiveDate'])) {
-            $model->receiveDate = $map['ReceiveDate'];
+        if (isset($map['MessageId'])) {
+            $model->messageId = $map['MessageId'];
         }
         if (isset($map['NumberDetail'])) {
             $model->numberDetail = numberDetail::fromMap($map['NumberDetail']);
         }
-        if (isset($map['Message'])) {
-            $model->message = $map['Message'];
+        if (isset($map['ReceiveDate'])) {
+            $model->receiveDate = $map['ReceiveDate'];
+        }
+        if (isset($map['RequestId'])) {
+            $model->requestId = $map['RequestId'];
+        }
+        if (isset($map['ResponseCode'])) {
+            $model->responseCode = $map['ResponseCode'];
         }
         if (isset($map['ResponseDescription'])) {
             $model->responseDescription = $map['ResponseDescription'];
         }
-        if (isset($map['ErrorCode'])) {
-            $model->errorCode = $map['ErrorCode'];
-        }
         if (isset($map['SendDate'])) {
             $model->sendDate = $map['SendDate'];
         }
+        if (isset($map['Status'])) {
+            $model->status = $map['Status'];
+        }
         if (isset($map['To'])) {
             $model->to = $map['To'];
-        }
-        if (isset($map['MessageId'])) {
-            $model->messageId = $map['MessageId'];
         }
 
         return $model;

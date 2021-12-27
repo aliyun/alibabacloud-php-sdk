@@ -12,7 +12,12 @@ class SendMessageToGlobeResponseBody extends Model
     /**
      * @var string
      */
-    public $responseCode;
+    public $from;
+
+    /**
+     * @var string
+     */
+    public $messageId;
 
     /**
      * @var numberDetail
@@ -27,7 +32,7 @@ class SendMessageToGlobeResponseBody extends Model
     /**
      * @var string
      */
-    public $segments;
+    public $responseCode;
 
     /**
      * @var string
@@ -37,26 +42,21 @@ class SendMessageToGlobeResponseBody extends Model
     /**
      * @var string
      */
-    public $from;
+    public $segments;
 
     /**
      * @var string
      */
     public $to;
-
-    /**
-     * @var string
-     */
-    public $messageId;
     protected $_name = [
-        'responseCode'        => 'ResponseCode',
+        'from'                => 'From',
+        'messageId'           => 'MessageId',
         'numberDetail'        => 'NumberDetail',
         'requestId'           => 'RequestId',
-        'segments'            => 'Segments',
+        'responseCode'        => 'ResponseCode',
         'responseDescription' => 'ResponseDescription',
-        'from'                => 'From',
+        'segments'            => 'Segments',
         'to'                  => 'To',
-        'messageId'           => 'MessageId',
     ];
 
     public function validate()
@@ -66,8 +66,11 @@ class SendMessageToGlobeResponseBody extends Model
     public function toMap()
     {
         $res = [];
-        if (null !== $this->responseCode) {
-            $res['ResponseCode'] = $this->responseCode;
+        if (null !== $this->from) {
+            $res['From'] = $this->from;
+        }
+        if (null !== $this->messageId) {
+            $res['MessageId'] = $this->messageId;
         }
         if (null !== $this->numberDetail) {
             $res['NumberDetail'] = null !== $this->numberDetail ? $this->numberDetail->toMap() : null;
@@ -75,20 +78,17 @@ class SendMessageToGlobeResponseBody extends Model
         if (null !== $this->requestId) {
             $res['RequestId'] = $this->requestId;
         }
-        if (null !== $this->segments) {
-            $res['Segments'] = $this->segments;
+        if (null !== $this->responseCode) {
+            $res['ResponseCode'] = $this->responseCode;
         }
         if (null !== $this->responseDescription) {
             $res['ResponseDescription'] = $this->responseDescription;
         }
-        if (null !== $this->from) {
-            $res['From'] = $this->from;
+        if (null !== $this->segments) {
+            $res['Segments'] = $this->segments;
         }
         if (null !== $this->to) {
             $res['To'] = $this->to;
-        }
-        if (null !== $this->messageId) {
-            $res['MessageId'] = $this->messageId;
         }
 
         return $res;
@@ -102,8 +102,11 @@ class SendMessageToGlobeResponseBody extends Model
     public static function fromMap($map = [])
     {
         $model = new self();
-        if (isset($map['ResponseCode'])) {
-            $model->responseCode = $map['ResponseCode'];
+        if (isset($map['From'])) {
+            $model->from = $map['From'];
+        }
+        if (isset($map['MessageId'])) {
+            $model->messageId = $map['MessageId'];
         }
         if (isset($map['NumberDetail'])) {
             $model->numberDetail = numberDetail::fromMap($map['NumberDetail']);
@@ -111,20 +114,17 @@ class SendMessageToGlobeResponseBody extends Model
         if (isset($map['RequestId'])) {
             $model->requestId = $map['RequestId'];
         }
-        if (isset($map['Segments'])) {
-            $model->segments = $map['Segments'];
+        if (isset($map['ResponseCode'])) {
+            $model->responseCode = $map['ResponseCode'];
         }
         if (isset($map['ResponseDescription'])) {
             $model->responseDescription = $map['ResponseDescription'];
         }
-        if (isset($map['From'])) {
-            $model->from = $map['From'];
+        if (isset($map['Segments'])) {
+            $model->segments = $map['Segments'];
         }
         if (isset($map['To'])) {
             $model->to = $map['To'];
-        }
-        if (isset($map['MessageId'])) {
-            $model->messageId = $map['MessageId'];
         }
 
         return $model;

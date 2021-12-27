@@ -9,9 +9,9 @@ use AlibabaCloud\Tea\Model;
 class SmsConversionRequest extends Model
 {
     /**
-     * @var string
+     * @var int
      */
-    public $messageId;
+    public $conversionTime;
 
     /**
      * @var bool
@@ -19,13 +19,13 @@ class SmsConversionRequest extends Model
     public $delivered;
 
     /**
-     * @var int
+     * @var string
      */
-    public $conversionTime;
+    public $messageId;
     protected $_name = [
-        'messageId'      => 'MessageId',
-        'delivered'      => 'Delivered',
         'conversionTime' => 'ConversionTime',
+        'delivered'      => 'Delivered',
+        'messageId'      => 'MessageId',
     ];
 
     public function validate()
@@ -35,14 +35,14 @@ class SmsConversionRequest extends Model
     public function toMap()
     {
         $res = [];
-        if (null !== $this->messageId) {
-            $res['MessageId'] = $this->messageId;
+        if (null !== $this->conversionTime) {
+            $res['ConversionTime'] = $this->conversionTime;
         }
         if (null !== $this->delivered) {
             $res['Delivered'] = $this->delivered;
         }
-        if (null !== $this->conversionTime) {
-            $res['ConversionTime'] = $this->conversionTime;
+        if (null !== $this->messageId) {
+            $res['MessageId'] = $this->messageId;
         }
 
         return $res;
@@ -56,14 +56,14 @@ class SmsConversionRequest extends Model
     public static function fromMap($map = [])
     {
         $model = new self();
-        if (isset($map['MessageId'])) {
-            $model->messageId = $map['MessageId'];
+        if (isset($map['ConversionTime'])) {
+            $model->conversionTime = $map['ConversionTime'];
         }
         if (isset($map['Delivered'])) {
             $model->delivered = $map['Delivered'];
         }
-        if (isset($map['ConversionTime'])) {
-            $model->conversionTime = $map['ConversionTime'];
+        if (isset($map['MessageId'])) {
+            $model->messageId = $map['MessageId'];
         }
 
         return $model;

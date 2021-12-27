@@ -11,11 +11,6 @@ class SendMessageToGlobeRequest extends Model
     /**
      * @var string
      */
-    public $to;
-
-    /**
-     * @var string
-     */
     public $from;
 
     /**
@@ -27,11 +22,16 @@ class SendMessageToGlobeRequest extends Model
      * @var string
      */
     public $taskId;
+
+    /**
+     * @var string
+     */
+    public $to;
     protected $_name = [
-        'to'      => 'To',
         'from'    => 'From',
         'message' => 'Message',
         'taskId'  => 'TaskId',
+        'to'      => 'To',
     ];
 
     public function validate()
@@ -41,9 +41,6 @@ class SendMessageToGlobeRequest extends Model
     public function toMap()
     {
         $res = [];
-        if (null !== $this->to) {
-            $res['To'] = $this->to;
-        }
         if (null !== $this->from) {
             $res['From'] = $this->from;
         }
@@ -52,6 +49,9 @@ class SendMessageToGlobeRequest extends Model
         }
         if (null !== $this->taskId) {
             $res['TaskId'] = $this->taskId;
+        }
+        if (null !== $this->to) {
+            $res['To'] = $this->to;
         }
 
         return $res;
@@ -65,9 +65,6 @@ class SendMessageToGlobeRequest extends Model
     public static function fromMap($map = [])
     {
         $model = new self();
-        if (isset($map['To'])) {
-            $model->to = $map['To'];
-        }
         if (isset($map['From'])) {
             $model->from = $map['From'];
         }
@@ -76,6 +73,9 @@ class SendMessageToGlobeRequest extends Model
         }
         if (isset($map['TaskId'])) {
             $model->taskId = $map['TaskId'];
+        }
+        if (isset($map['To'])) {
+            $model->to = $map['To'];
         }
 
         return $model;

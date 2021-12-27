@@ -16,16 +16,16 @@ class numberDetail extends Model
     /**
      * @var string
      */
-    public $region;
+    public $country;
 
     /**
      * @var string
      */
-    public $country;
+    public $region;
     protected $_name = [
         'carrier' => 'Carrier',
-        'region'  => 'Region',
         'country' => 'Country',
+        'region'  => 'Region',
     ];
 
     public function validate()
@@ -38,11 +38,11 @@ class numberDetail extends Model
         if (null !== $this->carrier) {
             $res['Carrier'] = $this->carrier;
         }
-        if (null !== $this->region) {
-            $res['Region'] = $this->region;
-        }
         if (null !== $this->country) {
             $res['Country'] = $this->country;
+        }
+        if (null !== $this->region) {
+            $res['Region'] = $this->region;
         }
 
         return $res;
@@ -59,11 +59,11 @@ class numberDetail extends Model
         if (isset($map['Carrier'])) {
             $model->carrier = $map['Carrier'];
         }
-        if (isset($map['Region'])) {
-            $model->region = $map['Region'];
-        }
         if (isset($map['Country'])) {
             $model->country = $map['Country'];
+        }
+        if (isset($map['Region'])) {
+            $model->region = $map['Region'];
         }
 
         return $model;
