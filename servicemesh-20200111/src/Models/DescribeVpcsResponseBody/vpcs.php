@@ -9,6 +9,16 @@ use AlibabaCloud\Tea\Model;
 class vpcs extends Model
 {
     /**
+     * @var bool
+     */
+    public $isDefault;
+
+    /**
+     * @var string
+     */
+    public $status;
+
+    /**
      * @var string
      */
     public $vpcId;
@@ -17,21 +27,11 @@ class vpcs extends Model
      * @var string
      */
     public $vpcName;
-
-    /**
-     * @var string
-     */
-    public $status;
-
-    /**
-     * @var bool
-     */
-    public $isDefault;
     protected $_name = [
+        'isDefault' => 'IsDefault',
+        'status'    => 'Status',
         'vpcId'     => 'VpcId',
         'vpcName'   => 'VpcName',
-        'status'    => 'Status',
-        'isDefault' => 'IsDefault',
     ];
 
     public function validate()
@@ -41,17 +41,17 @@ class vpcs extends Model
     public function toMap()
     {
         $res = [];
+        if (null !== $this->isDefault) {
+            $res['IsDefault'] = $this->isDefault;
+        }
+        if (null !== $this->status) {
+            $res['Status'] = $this->status;
+        }
         if (null !== $this->vpcId) {
             $res['VpcId'] = $this->vpcId;
         }
         if (null !== $this->vpcName) {
             $res['VpcName'] = $this->vpcName;
-        }
-        if (null !== $this->status) {
-            $res['Status'] = $this->status;
-        }
-        if (null !== $this->isDefault) {
-            $res['IsDefault'] = $this->isDefault;
         }
 
         return $res;
@@ -65,17 +65,17 @@ class vpcs extends Model
     public static function fromMap($map = [])
     {
         $model = new self();
+        if (isset($map['IsDefault'])) {
+            $model->isDefault = $map['IsDefault'];
+        }
+        if (isset($map['Status'])) {
+            $model->status = $map['Status'];
+        }
         if (isset($map['VpcId'])) {
             $model->vpcId = $map['VpcId'];
         }
         if (isset($map['VpcName'])) {
             $model->vpcName = $map['VpcName'];
-        }
-        if (isset($map['Status'])) {
-            $model->status = $map['Status'];
-        }
-        if (isset($map['IsDefault'])) {
-            $model->isDefault = $map['IsDefault'];
         }
 
         return $model;

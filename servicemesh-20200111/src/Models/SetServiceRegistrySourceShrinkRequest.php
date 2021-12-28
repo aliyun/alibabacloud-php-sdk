@@ -11,15 +11,15 @@ class SetServiceRegistrySourceShrinkRequest extends Model
     /**
      * @var string
      */
-    public $serviceMeshId;
+    public $configShrink;
 
     /**
      * @var string
      */
-    public $configShrink;
+    public $serviceMeshId;
     protected $_name = [
-        'serviceMeshId' => 'ServiceMeshId',
         'configShrink'  => 'Config',
+        'serviceMeshId' => 'ServiceMeshId',
     ];
 
     public function validate()
@@ -29,11 +29,11 @@ class SetServiceRegistrySourceShrinkRequest extends Model
     public function toMap()
     {
         $res = [];
-        if (null !== $this->serviceMeshId) {
-            $res['ServiceMeshId'] = $this->serviceMeshId;
-        }
         if (null !== $this->configShrink) {
             $res['Config'] = $this->configShrink;
+        }
+        if (null !== $this->serviceMeshId) {
+            $res['ServiceMeshId'] = $this->serviceMeshId;
         }
 
         return $res;
@@ -47,11 +47,11 @@ class SetServiceRegistrySourceShrinkRequest extends Model
     public static function fromMap($map = [])
     {
         $model = new self();
-        if (isset($map['ServiceMeshId'])) {
-            $model->serviceMeshId = $map['ServiceMeshId'];
-        }
         if (isset($map['Config'])) {
             $model->configShrink = $map['Config'];
+        }
+        if (isset($map['ServiceMeshId'])) {
+            $model->serviceMeshId = $map['ServiceMeshId'];
         }
 
         return $model;

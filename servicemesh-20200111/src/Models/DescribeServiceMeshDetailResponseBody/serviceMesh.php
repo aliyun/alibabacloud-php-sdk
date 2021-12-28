@@ -12,6 +12,11 @@ use AlibabaCloud\Tea\Model;
 class serviceMesh extends Model
 {
     /**
+     * @var string[]
+     */
+    public $clusters;
+
+    /**
      * @var endpoints
      */
     public $endpoints;
@@ -25,16 +30,11 @@ class serviceMesh extends Model
      * @var spec
      */
     public $spec;
-
-    /**
-     * @var string[]
-     */
-    public $clusters;
     protected $_name = [
+        'clusters'        => 'Clusters',
         'endpoints'       => 'Endpoints',
         'serviceMeshInfo' => 'ServiceMeshInfo',
         'spec'            => 'Spec',
-        'clusters'        => 'Clusters',
     ];
 
     public function validate()
@@ -44,6 +44,9 @@ class serviceMesh extends Model
     public function toMap()
     {
         $res = [];
+        if (null !== $this->clusters) {
+            $res['Clusters'] = $this->clusters;
+        }
         if (null !== $this->endpoints) {
             $res['Endpoints'] = null !== $this->endpoints ? $this->endpoints->toMap() : null;
         }
@@ -52,9 +55,6 @@ class serviceMesh extends Model
         }
         if (null !== $this->spec) {
             $res['Spec'] = null !== $this->spec ? $this->spec->toMap() : null;
-        }
-        if (null !== $this->clusters) {
-            $res['Clusters'] = $this->clusters;
         }
 
         return $res;
@@ -68,6 +68,11 @@ class serviceMesh extends Model
     public static function fromMap($map = [])
     {
         $model = new self();
+        if (isset($map['Clusters'])) {
+            if (!empty($map['Clusters'])) {
+                $model->clusters = $map['Clusters'];
+            }
+        }
         if (isset($map['Endpoints'])) {
             $model->endpoints = endpoints::fromMap($map['Endpoints']);
         }
@@ -76,11 +81,6 @@ class serviceMesh extends Model
         }
         if (isset($map['Spec'])) {
             $model->spec = spec::fromMap($map['Spec']);
-        }
-        if (isset($map['Clusters'])) {
-            if (!empty($map['Clusters'])) {
-                $model->clusters = $map['Clusters'];
-            }
         }
 
         return $model;

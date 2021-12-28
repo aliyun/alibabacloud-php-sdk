@@ -11,27 +11,27 @@ class GetVmMetaRequest extends Model
     /**
      * @var string
      */
-    public $serviceMeshId;
-
-    /**
-     * @var string
-     */
-    public $trustDomain;
-
-    /**
-     * @var string
-     */
     public $namespace;
 
     /**
      * @var string
      */
     public $serviceAccount;
+
+    /**
+     * @var string
+     */
+    public $serviceMeshId;
+
+    /**
+     * @var string
+     */
+    public $trustDomain;
     protected $_name = [
-        'serviceMeshId'  => 'ServiceMeshId',
-        'trustDomain'    => 'TrustDomain',
         'namespace'      => 'Namespace',
         'serviceAccount' => 'ServiceAccount',
+        'serviceMeshId'  => 'ServiceMeshId',
+        'trustDomain'    => 'TrustDomain',
     ];
 
     public function validate()
@@ -41,17 +41,17 @@ class GetVmMetaRequest extends Model
     public function toMap()
     {
         $res = [];
-        if (null !== $this->serviceMeshId) {
-            $res['ServiceMeshId'] = $this->serviceMeshId;
-        }
-        if (null !== $this->trustDomain) {
-            $res['TrustDomain'] = $this->trustDomain;
-        }
         if (null !== $this->namespace) {
             $res['Namespace'] = $this->namespace;
         }
         if (null !== $this->serviceAccount) {
             $res['ServiceAccount'] = $this->serviceAccount;
+        }
+        if (null !== $this->serviceMeshId) {
+            $res['ServiceMeshId'] = $this->serviceMeshId;
+        }
+        if (null !== $this->trustDomain) {
+            $res['TrustDomain'] = $this->trustDomain;
         }
 
         return $res;
@@ -65,17 +65,17 @@ class GetVmMetaRequest extends Model
     public static function fromMap($map = [])
     {
         $model = new self();
-        if (isset($map['ServiceMeshId'])) {
-            $model->serviceMeshId = $map['ServiceMeshId'];
-        }
-        if (isset($map['TrustDomain'])) {
-            $model->trustDomain = $map['TrustDomain'];
-        }
         if (isset($map['Namespace'])) {
             $model->namespace = $map['Namespace'];
         }
         if (isset($map['ServiceAccount'])) {
             $model->serviceAccount = $map['ServiceAccount'];
+        }
+        if (isset($map['ServiceMeshId'])) {
+            $model->serviceMeshId = $map['ServiceMeshId'];
+        }
+        if (isset($map['TrustDomain'])) {
+            $model->trustDomain = $map['TrustDomain'];
         }
 
         return $model;

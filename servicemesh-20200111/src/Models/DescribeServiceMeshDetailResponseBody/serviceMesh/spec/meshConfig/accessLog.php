@@ -12,8 +12,14 @@ class accessLog extends Model
      * @var bool
      */
     public $enabled;
+
+    /**
+     * @var string
+     */
+    public $project;
     protected $_name = [
         'enabled' => 'Enabled',
+        'project' => 'Project',
     ];
 
     public function validate()
@@ -25,6 +31,9 @@ class accessLog extends Model
         $res = [];
         if (null !== $this->enabled) {
             $res['Enabled'] = $this->enabled;
+        }
+        if (null !== $this->project) {
+            $res['Project'] = $this->project;
         }
 
         return $res;
@@ -40,6 +49,9 @@ class accessLog extends Model
         $model = new self();
         if (isset($map['Enabled'])) {
             $model->enabled = $map['Enabled'];
+        }
+        if (isset($map['Project'])) {
+            $model->project = $map['Project'];
         }
 
         return $model;

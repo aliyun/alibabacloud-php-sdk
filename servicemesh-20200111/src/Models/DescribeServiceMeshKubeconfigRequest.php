@@ -9,17 +9,17 @@ use AlibabaCloud\Tea\Model;
 class DescribeServiceMeshKubeconfigRequest extends Model
 {
     /**
-     * @var string
-     */
-    public $serviceMeshId;
-
-    /**
      * @var bool
      */
     public $privateIpAddress;
+
+    /**
+     * @var string
+     */
+    public $serviceMeshId;
     protected $_name = [
-        'serviceMeshId'    => 'ServiceMeshId',
         'privateIpAddress' => 'PrivateIpAddress',
+        'serviceMeshId'    => 'ServiceMeshId',
     ];
 
     public function validate()
@@ -29,11 +29,11 @@ class DescribeServiceMeshKubeconfigRequest extends Model
     public function toMap()
     {
         $res = [];
-        if (null !== $this->serviceMeshId) {
-            $res['ServiceMeshId'] = $this->serviceMeshId;
-        }
         if (null !== $this->privateIpAddress) {
             $res['PrivateIpAddress'] = $this->privateIpAddress;
+        }
+        if (null !== $this->serviceMeshId) {
+            $res['ServiceMeshId'] = $this->serviceMeshId;
         }
 
         return $res;
@@ -47,11 +47,11 @@ class DescribeServiceMeshKubeconfigRequest extends Model
     public static function fromMap($map = [])
     {
         $model = new self();
-        if (isset($map['ServiceMeshId'])) {
-            $model->serviceMeshId = $map['ServiceMeshId'];
-        }
         if (isset($map['PrivateIpAddress'])) {
             $model->privateIpAddress = $map['PrivateIpAddress'];
+        }
+        if (isset($map['ServiceMeshId'])) {
+            $model->serviceMeshId = $map['ServiceMeshId'];
         }
 
         return $model;

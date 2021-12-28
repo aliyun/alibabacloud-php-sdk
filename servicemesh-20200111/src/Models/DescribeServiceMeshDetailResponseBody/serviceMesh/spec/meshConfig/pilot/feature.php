@@ -11,15 +11,15 @@ class feature extends Model
     /**
      * @var bool
      */
-    public $filterGatewayClusterConfig;
+    public $enableSDSServer;
 
     /**
      * @var bool
      */
-    public $enableSDSServer;
+    public $filterGatewayClusterConfig;
     protected $_name = [
-        'filterGatewayClusterConfig' => 'FilterGatewayClusterConfig',
         'enableSDSServer'            => 'EnableSDSServer',
+        'filterGatewayClusterConfig' => 'FilterGatewayClusterConfig',
     ];
 
     public function validate()
@@ -29,11 +29,11 @@ class feature extends Model
     public function toMap()
     {
         $res = [];
-        if (null !== $this->filterGatewayClusterConfig) {
-            $res['FilterGatewayClusterConfig'] = $this->filterGatewayClusterConfig;
-        }
         if (null !== $this->enableSDSServer) {
             $res['EnableSDSServer'] = $this->enableSDSServer;
+        }
+        if (null !== $this->filterGatewayClusterConfig) {
+            $res['FilterGatewayClusterConfig'] = $this->filterGatewayClusterConfig;
         }
 
         return $res;
@@ -47,11 +47,11 @@ class feature extends Model
     public static function fromMap($map = [])
     {
         $model = new self();
-        if (isset($map['FilterGatewayClusterConfig'])) {
-            $model->filterGatewayClusterConfig = $map['FilterGatewayClusterConfig'];
-        }
         if (isset($map['EnableSDSServer'])) {
             $model->enableSDSServer = $map['EnableSDSServer'];
+        }
+        if (isset($map['FilterGatewayClusterConfig'])) {
+            $model->filterGatewayClusterConfig = $map['FilterGatewayClusterConfig'];
         }
 
         return $model;

@@ -10,17 +10,17 @@ use AlibabaCloud\Tea\Model;
 class GetVmMetaResponseBody extends Model
 {
     /**
-     * @var vmMetaInfo
-     */
-    public $vmMetaInfo;
-
-    /**
      * @var string
      */
     public $requestId;
+
+    /**
+     * @var vmMetaInfo
+     */
+    public $vmMetaInfo;
     protected $_name = [
-        'vmMetaInfo' => 'VmMetaInfo',
         'requestId'  => 'RequestId',
+        'vmMetaInfo' => 'VmMetaInfo',
     ];
 
     public function validate()
@@ -30,11 +30,11 @@ class GetVmMetaResponseBody extends Model
     public function toMap()
     {
         $res = [];
-        if (null !== $this->vmMetaInfo) {
-            $res['VmMetaInfo'] = null !== $this->vmMetaInfo ? $this->vmMetaInfo->toMap() : null;
-        }
         if (null !== $this->requestId) {
             $res['RequestId'] = $this->requestId;
+        }
+        if (null !== $this->vmMetaInfo) {
+            $res['VmMetaInfo'] = null !== $this->vmMetaInfo ? $this->vmMetaInfo->toMap() : null;
         }
 
         return $res;
@@ -48,11 +48,11 @@ class GetVmMetaResponseBody extends Model
     public static function fromMap($map = [])
     {
         $model = new self();
-        if (isset($map['VmMetaInfo'])) {
-            $model->vmMetaInfo = vmMetaInfo::fromMap($map['VmMetaInfo']);
-        }
         if (isset($map['RequestId'])) {
             $model->requestId = $map['RequestId'];
+        }
+        if (isset($map['VmMetaInfo'])) {
+            $model->vmMetaInfo = vmMetaInfo::fromMap($map['VmMetaInfo']);
         }
 
         return $model;

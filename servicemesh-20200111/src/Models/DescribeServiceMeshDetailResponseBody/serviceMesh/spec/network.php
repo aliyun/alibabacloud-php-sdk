@@ -11,21 +11,21 @@ class network extends Model
     /**
      * @var string
      */
-    public $vpcId;
-
-    /**
-     * @var string
-     */
     public $securityGroupId;
 
     /**
      * @var string[]
      */
     public $vSwitches;
+
+    /**
+     * @var string
+     */
+    public $vpcId;
     protected $_name = [
-        'vpcId'           => 'VpcId',
         'securityGroupId' => 'SecurityGroupId',
         'vSwitches'       => 'VSwitches',
+        'vpcId'           => 'VpcId',
     ];
 
     public function validate()
@@ -35,14 +35,14 @@ class network extends Model
     public function toMap()
     {
         $res = [];
-        if (null !== $this->vpcId) {
-            $res['VpcId'] = $this->vpcId;
-        }
         if (null !== $this->securityGroupId) {
             $res['SecurityGroupId'] = $this->securityGroupId;
         }
         if (null !== $this->vSwitches) {
             $res['VSwitches'] = $this->vSwitches;
+        }
+        if (null !== $this->vpcId) {
+            $res['VpcId'] = $this->vpcId;
         }
 
         return $res;
@@ -56,9 +56,6 @@ class network extends Model
     public static function fromMap($map = [])
     {
         $model = new self();
-        if (isset($map['VpcId'])) {
-            $model->vpcId = $map['VpcId'];
-        }
         if (isset($map['SecurityGroupId'])) {
             $model->securityGroupId = $map['SecurityGroupId'];
         }
@@ -66,6 +63,9 @@ class network extends Model
             if (!empty($map['VSwitches'])) {
                 $model->vSwitches = $map['VSwitches'];
             }
+        }
+        if (isset($map['VpcId'])) {
+            $model->vpcId = $map['VpcId'];
         }
 
         return $model;

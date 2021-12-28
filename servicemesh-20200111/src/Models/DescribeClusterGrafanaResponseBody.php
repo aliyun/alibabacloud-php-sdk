@@ -10,17 +10,17 @@ use AlibabaCloud\Tea\Model;
 class DescribeClusterGrafanaResponseBody extends Model
 {
     /**
-     * @var string
-     */
-    public $requestId;
-
-    /**
      * @var dashboards[]
      */
     public $dashboards;
+
+    /**
+     * @var string
+     */
+    public $requestId;
     protected $_name = [
-        'requestId'  => 'RequestId',
         'dashboards' => 'Dashboards',
+        'requestId'  => 'RequestId',
     ];
 
     public function validate()
@@ -30,9 +30,6 @@ class DescribeClusterGrafanaResponseBody extends Model
     public function toMap()
     {
         $res = [];
-        if (null !== $this->requestId) {
-            $res['RequestId'] = $this->requestId;
-        }
         if (null !== $this->dashboards) {
             $res['Dashboards'] = [];
             if (null !== $this->dashboards && \is_array($this->dashboards)) {
@@ -41,6 +38,9 @@ class DescribeClusterGrafanaResponseBody extends Model
                     $res['Dashboards'][$n++] = null !== $item ? $item->toMap() : $item;
                 }
             }
+        }
+        if (null !== $this->requestId) {
+            $res['RequestId'] = $this->requestId;
         }
 
         return $res;
@@ -54,9 +54,6 @@ class DescribeClusterGrafanaResponseBody extends Model
     public static function fromMap($map = [])
     {
         $model = new self();
-        if (isset($map['RequestId'])) {
-            $model->requestId = $map['RequestId'];
-        }
         if (isset($map['Dashboards'])) {
             if (!empty($map['Dashboards'])) {
                 $model->dashboards = [];
@@ -65,6 +62,9 @@ class DescribeClusterGrafanaResponseBody extends Model
                     $model->dashboards[$n++] = null !== $item ? dashboards::fromMap($item) : $item;
                 }
             }
+        }
+        if (isset($map['RequestId'])) {
+            $model->requestId = $map['RequestId'];
         }
 
         return $model;

@@ -11,15 +11,15 @@ class accessLogDashboards extends Model
     /**
      * @var string
      */
-    public $url;
+    public $title;
 
     /**
      * @var string
      */
-    public $title;
+    public $url;
     protected $_name = [
-        'url'   => 'Url',
         'title' => 'Title',
+        'url'   => 'Url',
     ];
 
     public function validate()
@@ -29,11 +29,11 @@ class accessLogDashboards extends Model
     public function toMap()
     {
         $res = [];
-        if (null !== $this->url) {
-            $res['Url'] = $this->url;
-        }
         if (null !== $this->title) {
             $res['Title'] = $this->title;
+        }
+        if (null !== $this->url) {
+            $res['Url'] = $this->url;
         }
 
         return $res;
@@ -47,11 +47,11 @@ class accessLogDashboards extends Model
     public static function fromMap($map = [])
     {
         $model = new self();
-        if (isset($map['Url'])) {
-            $model->url = $map['Url'];
-        }
         if (isset($map['Title'])) {
             $model->title = $map['Title'];
+        }
+        if (isset($map['Url'])) {
+            $model->url = $map['Url'];
         }
 
         return $model;

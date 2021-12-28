@@ -6,8 +6,13 @@ namespace AlibabaCloud\SDK\Servicemesh\V20200111\Models;
 
 use AlibabaCloud\Tea\Model;
 
-class RemoveVmAppFromMeshRequest extends Model
+class DeleteExtensionProviderRequest extends Model
 {
+    /**
+     * @var string
+     */
+    public $name;
+
     /**
      * @var string
      */
@@ -16,16 +21,11 @@ class RemoveVmAppFromMeshRequest extends Model
     /**
      * @var string
      */
-    public $namespace;
-
-    /**
-     * @var string
-     */
-    public $serviceName;
+    public $type;
     protected $_name = [
+        'name'          => 'Name',
         'serviceMeshId' => 'ServiceMeshId',
-        'namespace'     => 'Namespace',
-        'serviceName'   => 'ServiceName',
+        'type'          => 'Type',
     ];
 
     public function validate()
@@ -35,14 +35,14 @@ class RemoveVmAppFromMeshRequest extends Model
     public function toMap()
     {
         $res = [];
+        if (null !== $this->name) {
+            $res['Name'] = $this->name;
+        }
         if (null !== $this->serviceMeshId) {
             $res['ServiceMeshId'] = $this->serviceMeshId;
         }
-        if (null !== $this->namespace) {
-            $res['Namespace'] = $this->namespace;
-        }
-        if (null !== $this->serviceName) {
-            $res['ServiceName'] = $this->serviceName;
+        if (null !== $this->type) {
+            $res['Type'] = $this->type;
         }
 
         return $res;
@@ -51,19 +51,19 @@ class RemoveVmAppFromMeshRequest extends Model
     /**
      * @param array $map
      *
-     * @return RemoveVmAppFromMeshRequest
+     * @return DeleteExtensionProviderRequest
      */
     public static function fromMap($map = [])
     {
         $model = new self();
+        if (isset($map['Name'])) {
+            $model->name = $map['Name'];
+        }
         if (isset($map['ServiceMeshId'])) {
             $model->serviceMeshId = $map['ServiceMeshId'];
         }
-        if (isset($map['Namespace'])) {
-            $model->namespace = $map['Namespace'];
-        }
-        if (isset($map['ServiceName'])) {
-            $model->serviceName = $map['ServiceName'];
+        if (isset($map['Type'])) {
+            $model->type = $map['Type'];
         }
 
         return $model;

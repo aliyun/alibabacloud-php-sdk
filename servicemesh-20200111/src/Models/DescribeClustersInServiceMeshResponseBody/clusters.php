@@ -10,44 +10,9 @@ use AlibabaCloud\Tea\Model;
 class clusters extends Model
 {
     /**
-     * @var string
-     */
-    public $sgId;
-
-    /**
-     * @var string
-     */
-    public $vpcId;
-
-    /**
-     * @var string
-     */
-    public $creationTime;
-
-    /**
-     * @var string
-     */
-    public $updateTime;
-
-    /**
-     * @var string
-     */
-    public $errorMessage;
-
-    /**
-     * @var string
-     */
-    public $state;
-
-    /**
      * @var accessLogDashboards[]
      */
     public $accessLogDashboards;
-
-    /**
-     * @var string
-     */
-    public $regionId;
 
     /**
      * @var string
@@ -57,7 +22,7 @@ class clusters extends Model
     /**
      * @var string
      */
-    public $version;
+    public $clusterId;
 
     /**
      * @var string
@@ -67,26 +32,67 @@ class clusters extends Model
     /**
      * @var string
      */
+    public $creationTime;
+
+    /**
+     * @var string
+     */
+    public $errorMessage;
+
+    /**
+     * @var string
+     */
+    public $logtailInstalledState;
+
+    /**
+     * @var string
+     */
     public $name;
 
     /**
      * @var string
      */
-    public $clusterId;
+    public $regionId;
+
+    /**
+     * @var string
+     */
+    public $sgId;
+
+    /**
+     * @var string
+     */
+    public $state;
+
+    /**
+     * @var string
+     */
+    public $updateTime;
+
+    /**
+     * @var string
+     */
+    public $version;
+
+    /**
+     * @var string
+     */
+    public $vpcId;
     protected $_name = [
-        'sgId'                => 'SgId',
-        'vpcId'               => 'VpcId',
-        'creationTime'        => 'CreationTime',
-        'updateTime'          => 'UpdateTime',
-        'errorMessage'        => 'ErrorMessage',
-        'state'               => 'State',
-        'accessLogDashboards' => 'AccessLogDashboards',
-        'regionId'            => 'RegionId',
-        'clusterDomain'       => 'ClusterDomain',
-        'version'             => 'Version',
-        'clusterType'         => 'ClusterType',
-        'name'                => 'Name',
-        'clusterId'           => 'ClusterId',
+        'accessLogDashboards'   => 'AccessLogDashboards',
+        'clusterDomain'         => 'ClusterDomain',
+        'clusterId'             => 'ClusterId',
+        'clusterType'           => 'ClusterType',
+        'creationTime'          => 'CreationTime',
+        'errorMessage'          => 'ErrorMessage',
+        'logtailInstalledState' => 'LogtailInstalledState',
+        'name'                  => 'Name',
+        'regionId'              => 'RegionId',
+        'sgId'                  => 'SgId',
+        'state'                 => 'State',
+        'updateTime'            => 'UpdateTime',
+        'version'               => 'Version',
+        'vpcId'                 => 'VpcId',
     ];
 
     public function validate()
@@ -96,24 +102,6 @@ class clusters extends Model
     public function toMap()
     {
         $res = [];
-        if (null !== $this->sgId) {
-            $res['SgId'] = $this->sgId;
-        }
-        if (null !== $this->vpcId) {
-            $res['VpcId'] = $this->vpcId;
-        }
-        if (null !== $this->creationTime) {
-            $res['CreationTime'] = $this->creationTime;
-        }
-        if (null !== $this->updateTime) {
-            $res['UpdateTime'] = $this->updateTime;
-        }
-        if (null !== $this->errorMessage) {
-            $res['ErrorMessage'] = $this->errorMessage;
-        }
-        if (null !== $this->state) {
-            $res['State'] = $this->state;
-        }
         if (null !== $this->accessLogDashboards) {
             $res['AccessLogDashboards'] = [];
             if (null !== $this->accessLogDashboards && \is_array($this->accessLogDashboards)) {
@@ -123,23 +111,44 @@ class clusters extends Model
                 }
             }
         }
-        if (null !== $this->regionId) {
-            $res['RegionId'] = $this->regionId;
-        }
         if (null !== $this->clusterDomain) {
             $res['ClusterDomain'] = $this->clusterDomain;
         }
-        if (null !== $this->version) {
-            $res['Version'] = $this->version;
+        if (null !== $this->clusterId) {
+            $res['ClusterId'] = $this->clusterId;
         }
         if (null !== $this->clusterType) {
             $res['ClusterType'] = $this->clusterType;
         }
+        if (null !== $this->creationTime) {
+            $res['CreationTime'] = $this->creationTime;
+        }
+        if (null !== $this->errorMessage) {
+            $res['ErrorMessage'] = $this->errorMessage;
+        }
+        if (null !== $this->logtailInstalledState) {
+            $res['LogtailInstalledState'] = $this->logtailInstalledState;
+        }
         if (null !== $this->name) {
             $res['Name'] = $this->name;
         }
-        if (null !== $this->clusterId) {
-            $res['ClusterId'] = $this->clusterId;
+        if (null !== $this->regionId) {
+            $res['RegionId'] = $this->regionId;
+        }
+        if (null !== $this->sgId) {
+            $res['SgId'] = $this->sgId;
+        }
+        if (null !== $this->state) {
+            $res['State'] = $this->state;
+        }
+        if (null !== $this->updateTime) {
+            $res['UpdateTime'] = $this->updateTime;
+        }
+        if (null !== $this->version) {
+            $res['Version'] = $this->version;
+        }
+        if (null !== $this->vpcId) {
+            $res['VpcId'] = $this->vpcId;
         }
 
         return $res;
@@ -153,24 +162,6 @@ class clusters extends Model
     public static function fromMap($map = [])
     {
         $model = new self();
-        if (isset($map['SgId'])) {
-            $model->sgId = $map['SgId'];
-        }
-        if (isset($map['VpcId'])) {
-            $model->vpcId = $map['VpcId'];
-        }
-        if (isset($map['CreationTime'])) {
-            $model->creationTime = $map['CreationTime'];
-        }
-        if (isset($map['UpdateTime'])) {
-            $model->updateTime = $map['UpdateTime'];
-        }
-        if (isset($map['ErrorMessage'])) {
-            $model->errorMessage = $map['ErrorMessage'];
-        }
-        if (isset($map['State'])) {
-            $model->state = $map['State'];
-        }
         if (isset($map['AccessLogDashboards'])) {
             if (!empty($map['AccessLogDashboards'])) {
                 $model->accessLogDashboards = [];
@@ -180,23 +171,44 @@ class clusters extends Model
                 }
             }
         }
-        if (isset($map['RegionId'])) {
-            $model->regionId = $map['RegionId'];
-        }
         if (isset($map['ClusterDomain'])) {
             $model->clusterDomain = $map['ClusterDomain'];
         }
-        if (isset($map['Version'])) {
-            $model->version = $map['Version'];
+        if (isset($map['ClusterId'])) {
+            $model->clusterId = $map['ClusterId'];
         }
         if (isset($map['ClusterType'])) {
             $model->clusterType = $map['ClusterType'];
         }
+        if (isset($map['CreationTime'])) {
+            $model->creationTime = $map['CreationTime'];
+        }
+        if (isset($map['ErrorMessage'])) {
+            $model->errorMessage = $map['ErrorMessage'];
+        }
+        if (isset($map['LogtailInstalledState'])) {
+            $model->logtailInstalledState = $map['LogtailInstalledState'];
+        }
         if (isset($map['Name'])) {
             $model->name = $map['Name'];
         }
-        if (isset($map['ClusterId'])) {
-            $model->clusterId = $map['ClusterId'];
+        if (isset($map['RegionId'])) {
+            $model->regionId = $map['RegionId'];
+        }
+        if (isset($map['SgId'])) {
+            $model->sgId = $map['SgId'];
+        }
+        if (isset($map['State'])) {
+            $model->state = $map['State'];
+        }
+        if (isset($map['UpdateTime'])) {
+            $model->updateTime = $map['UpdateTime'];
+        }
+        if (isset($map['Version'])) {
+            $model->version = $map['Version'];
+        }
+        if (isset($map['VpcId'])) {
+            $model->vpcId = $map['VpcId'];
         }
 
         return $model;

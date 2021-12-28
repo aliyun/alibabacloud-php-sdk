@@ -11,15 +11,15 @@ class ListBuiltinEnvoyFilterRequest extends Model
     /**
      * @var string
      */
-    public $serviceMeshId;
+    public $id;
 
     /**
      * @var string
      */
-    public $id;
+    public $serviceMeshId;
     protected $_name = [
-        'serviceMeshId' => 'ServiceMeshId',
         'id'            => 'Id',
+        'serviceMeshId' => 'ServiceMeshId',
     ];
 
     public function validate()
@@ -29,11 +29,11 @@ class ListBuiltinEnvoyFilterRequest extends Model
     public function toMap()
     {
         $res = [];
-        if (null !== $this->serviceMeshId) {
-            $res['ServiceMeshId'] = $this->serviceMeshId;
-        }
         if (null !== $this->id) {
             $res['Id'] = $this->id;
+        }
+        if (null !== $this->serviceMeshId) {
+            $res['ServiceMeshId'] = $this->serviceMeshId;
         }
 
         return $res;
@@ -47,11 +47,11 @@ class ListBuiltinEnvoyFilterRequest extends Model
     public static function fromMap($map = [])
     {
         $model = new self();
-        if (isset($map['ServiceMeshId'])) {
-            $model->serviceMeshId = $map['ServiceMeshId'];
-        }
         if (isset($map['Id'])) {
             $model->id = $map['Id'];
+        }
+        if (isset($map['ServiceMeshId'])) {
+            $model->serviceMeshId = $map['ServiceMeshId'];
         }
 
         return $model;

@@ -10,11 +10,6 @@ use AlibabaCloud\Tea\Model;
 class DescribeGuestClusterAccessLogDashboardsResponseBody extends Model
 {
     /**
-     * @var string
-     */
-    public $requestId;
-
-    /**
      * @var dashboards[]
      */
     public $dashboards;
@@ -23,10 +18,15 @@ class DescribeGuestClusterAccessLogDashboardsResponseBody extends Model
      * @var string
      */
     public $k8sClusterId;
+
+    /**
+     * @var string
+     */
+    public $requestId;
     protected $_name = [
-        'requestId'    => 'RequestId',
         'dashboards'   => 'Dashboards',
         'k8sClusterId' => 'K8sClusterId',
+        'requestId'    => 'RequestId',
     ];
 
     public function validate()
@@ -36,9 +36,6 @@ class DescribeGuestClusterAccessLogDashboardsResponseBody extends Model
     public function toMap()
     {
         $res = [];
-        if (null !== $this->requestId) {
-            $res['RequestId'] = $this->requestId;
-        }
         if (null !== $this->dashboards) {
             $res['Dashboards'] = [];
             if (null !== $this->dashboards && \is_array($this->dashboards)) {
@@ -50,6 +47,9 @@ class DescribeGuestClusterAccessLogDashboardsResponseBody extends Model
         }
         if (null !== $this->k8sClusterId) {
             $res['K8sClusterId'] = $this->k8sClusterId;
+        }
+        if (null !== $this->requestId) {
+            $res['RequestId'] = $this->requestId;
         }
 
         return $res;
@@ -63,9 +63,6 @@ class DescribeGuestClusterAccessLogDashboardsResponseBody extends Model
     public static function fromMap($map = [])
     {
         $model = new self();
-        if (isset($map['RequestId'])) {
-            $model->requestId = $map['RequestId'];
-        }
         if (isset($map['Dashboards'])) {
             if (!empty($map['Dashboards'])) {
                 $model->dashboards = [];
@@ -77,6 +74,9 @@ class DescribeGuestClusterAccessLogDashboardsResponseBody extends Model
         }
         if (isset($map['K8sClusterId'])) {
             $model->k8sClusterId = $map['K8sClusterId'];
+        }
+        if (isset($map['RequestId'])) {
+            $model->requestId = $map['RequestId'];
         }
 
         return $model;

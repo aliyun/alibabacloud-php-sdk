@@ -12,12 +12,22 @@ class sidecarInjector extends Model
     /**
      * @var bool
      */
+    public $autoInjectionPolicyEnabled;
+
+    /**
+     * @var bool
+     */
     public $enableNamespacesByDefault;
+
+    /**
+     * @var initCNIConfiguration
+     */
+    public $initCNIConfiguration;
 
     /**
      * @var string
      */
-    public $requestMemory;
+    public $limitCPU;
 
     /**
      * @var string
@@ -30,32 +40,22 @@ class sidecarInjector extends Model
     public $requestCPU;
 
     /**
-     * @var bool
-     */
-    public $autoInjectionPolicyEnabled;
-
-    /**
      * @var string
      */
-    public $limitCPU;
-
-    /**
-     * @var initCNIConfiguration
-     */
-    public $initCNIConfiguration;
+    public $requestMemory;
 
     /**
      * @var string
      */
     public $sidecarInjectorWebhookAsYaml;
     protected $_name = [
+        'autoInjectionPolicyEnabled'   => 'AutoInjectionPolicyEnabled',
         'enableNamespacesByDefault'    => 'EnableNamespacesByDefault',
-        'requestMemory'                => 'RequestMemory',
+        'initCNIConfiguration'         => 'InitCNIConfiguration',
+        'limitCPU'                     => 'LimitCPU',
         'limitMemory'                  => 'LimitMemory',
         'requestCPU'                   => 'RequestCPU',
-        'autoInjectionPolicyEnabled'   => 'AutoInjectionPolicyEnabled',
-        'limitCPU'                     => 'LimitCPU',
-        'initCNIConfiguration'         => 'InitCNIConfiguration',
+        'requestMemory'                => 'RequestMemory',
         'sidecarInjectorWebhookAsYaml' => 'SidecarInjectorWebhookAsYaml',
     ];
 
@@ -66,11 +66,17 @@ class sidecarInjector extends Model
     public function toMap()
     {
         $res = [];
+        if (null !== $this->autoInjectionPolicyEnabled) {
+            $res['AutoInjectionPolicyEnabled'] = $this->autoInjectionPolicyEnabled;
+        }
         if (null !== $this->enableNamespacesByDefault) {
             $res['EnableNamespacesByDefault'] = $this->enableNamespacesByDefault;
         }
-        if (null !== $this->requestMemory) {
-            $res['RequestMemory'] = $this->requestMemory;
+        if (null !== $this->initCNIConfiguration) {
+            $res['InitCNIConfiguration'] = null !== $this->initCNIConfiguration ? $this->initCNIConfiguration->toMap() : null;
+        }
+        if (null !== $this->limitCPU) {
+            $res['LimitCPU'] = $this->limitCPU;
         }
         if (null !== $this->limitMemory) {
             $res['LimitMemory'] = $this->limitMemory;
@@ -78,14 +84,8 @@ class sidecarInjector extends Model
         if (null !== $this->requestCPU) {
             $res['RequestCPU'] = $this->requestCPU;
         }
-        if (null !== $this->autoInjectionPolicyEnabled) {
-            $res['AutoInjectionPolicyEnabled'] = $this->autoInjectionPolicyEnabled;
-        }
-        if (null !== $this->limitCPU) {
-            $res['LimitCPU'] = $this->limitCPU;
-        }
-        if (null !== $this->initCNIConfiguration) {
-            $res['InitCNIConfiguration'] = null !== $this->initCNIConfiguration ? $this->initCNIConfiguration->toMap() : null;
+        if (null !== $this->requestMemory) {
+            $res['RequestMemory'] = $this->requestMemory;
         }
         if (null !== $this->sidecarInjectorWebhookAsYaml) {
             $res['SidecarInjectorWebhookAsYaml'] = $this->sidecarInjectorWebhookAsYaml;
@@ -102,11 +102,17 @@ class sidecarInjector extends Model
     public static function fromMap($map = [])
     {
         $model = new self();
+        if (isset($map['AutoInjectionPolicyEnabled'])) {
+            $model->autoInjectionPolicyEnabled = $map['AutoInjectionPolicyEnabled'];
+        }
         if (isset($map['EnableNamespacesByDefault'])) {
             $model->enableNamespacesByDefault = $map['EnableNamespacesByDefault'];
         }
-        if (isset($map['RequestMemory'])) {
-            $model->requestMemory = $map['RequestMemory'];
+        if (isset($map['InitCNIConfiguration'])) {
+            $model->initCNIConfiguration = initCNIConfiguration::fromMap($map['InitCNIConfiguration']);
+        }
+        if (isset($map['LimitCPU'])) {
+            $model->limitCPU = $map['LimitCPU'];
         }
         if (isset($map['LimitMemory'])) {
             $model->limitMemory = $map['LimitMemory'];
@@ -114,14 +120,8 @@ class sidecarInjector extends Model
         if (isset($map['RequestCPU'])) {
             $model->requestCPU = $map['RequestCPU'];
         }
-        if (isset($map['AutoInjectionPolicyEnabled'])) {
-            $model->autoInjectionPolicyEnabled = $map['AutoInjectionPolicyEnabled'];
-        }
-        if (isset($map['LimitCPU'])) {
-            $model->limitCPU = $map['LimitCPU'];
-        }
-        if (isset($map['InitCNIConfiguration'])) {
-            $model->initCNIConfiguration = initCNIConfiguration::fromMap($map['InitCNIConfiguration']);
+        if (isset($map['RequestMemory'])) {
+            $model->requestMemory = $map['RequestMemory'];
         }
         if (isset($map['SidecarInjectorWebhookAsYaml'])) {
             $model->sidecarInjectorWebhookAsYaml = $map['SidecarInjectorWebhookAsYaml'];

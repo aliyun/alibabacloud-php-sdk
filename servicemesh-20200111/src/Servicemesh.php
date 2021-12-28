@@ -12,12 +12,18 @@ use AlibabaCloud\SDK\Servicemesh\V20200111\Models\AddClusterIntoServiceMeshReque
 use AlibabaCloud\SDK\Servicemesh\V20200111\Models\AddClusterIntoServiceMeshResponse;
 use AlibabaCloud\SDK\Servicemesh\V20200111\Models\AddMeshTagToEcsRequest;
 use AlibabaCloud\SDK\Servicemesh\V20200111\Models\AddMeshTagToEcsResponse;
-use AlibabaCloud\SDK\Servicemesh\V20200111\Models\AddVmAppToMeshRequest;
-use AlibabaCloud\SDK\Servicemesh\V20200111\Models\AddVmAppToMeshResponse;
+use AlibabaCloud\SDK\Servicemesh\V20200111\Models\AddVMIntoServiceMeshRequest;
+use AlibabaCloud\SDK\Servicemesh\V20200111\Models\AddVMIntoServiceMeshResponse;
+use AlibabaCloud\SDK\Servicemesh\V20200111\Models\CreateExtensionProviderRequest;
+use AlibabaCloud\SDK\Servicemesh\V20200111\Models\CreateExtensionProviderResponse;
 use AlibabaCloud\SDK\Servicemesh\V20200111\Models\CreateServiceMeshRequest;
 use AlibabaCloud\SDK\Servicemesh\V20200111\Models\CreateServiceMeshResponse;
+use AlibabaCloud\SDK\Servicemesh\V20200111\Models\DeleteExtensionProviderRequest;
+use AlibabaCloud\SDK\Servicemesh\V20200111\Models\DeleteExtensionProviderResponse;
 use AlibabaCloud\SDK\Servicemesh\V20200111\Models\DeleteServiceMeshRequest;
 use AlibabaCloud\SDK\Servicemesh\V20200111\Models\DeleteServiceMeshResponse;
+use AlibabaCloud\SDK\Servicemesh\V20200111\Models\DescribeAlertActionPoliciesRequest;
+use AlibabaCloud\SDK\Servicemesh\V20200111\Models\DescribeAlertActionPoliciesResponse;
 use AlibabaCloud\SDK\Servicemesh\V20200111\Models\DescribeAvailableNacosInstancesRequest;
 use AlibabaCloud\SDK\Servicemesh\V20200111\Models\DescribeAvailableNacosInstancesResponse;
 use AlibabaCloud\SDK\Servicemesh\V20200111\Models\DescribeCensRequest;
@@ -28,23 +34,49 @@ use AlibabaCloud\SDK\Servicemesh\V20200111\Models\DescribeClusterPrometheusReque
 use AlibabaCloud\SDK\Servicemesh\V20200111\Models\DescribeClusterPrometheusResponse;
 use AlibabaCloud\SDK\Servicemesh\V20200111\Models\DescribeClustersInServiceMeshRequest;
 use AlibabaCloud\SDK\Servicemesh\V20200111\Models\DescribeClustersInServiceMeshResponse;
+use AlibabaCloud\SDK\Servicemesh\V20200111\Models\DescribeControlPlaneLogAlertRulesRequest;
+use AlibabaCloud\SDK\Servicemesh\V20200111\Models\DescribeControlPlaneLogAlertRulesResponse;
+use AlibabaCloud\SDK\Servicemesh\V20200111\Models\DescribeCrTemplatesRequest;
+use AlibabaCloud\SDK\Servicemesh\V20200111\Models\DescribeCrTemplatesResponse;
+use AlibabaCloud\SDK\Servicemesh\V20200111\Models\DescribeExtensionProviderRequest;
+use AlibabaCloud\SDK\Servicemesh\V20200111\Models\DescribeExtensionProviderResponse;
 use AlibabaCloud\SDK\Servicemesh\V20200111\Models\DescribeGuestClusterAccessLogDashboardsRequest;
 use AlibabaCloud\SDK\Servicemesh\V20200111\Models\DescribeGuestClusterAccessLogDashboardsResponse;
+use AlibabaCloud\SDK\Servicemesh\V20200111\Models\DescribeGuestClusterNamespacesRequest;
+use AlibabaCloud\SDK\Servicemesh\V20200111\Models\DescribeGuestClusterNamespacesResponse;
+use AlibabaCloud\SDK\Servicemesh\V20200111\Models\DescribeGuestClusterPodsRequest;
+use AlibabaCloud\SDK\Servicemesh\V20200111\Models\DescribeGuestClusterPodsResponse;
 use AlibabaCloud\SDK\Servicemesh\V20200111\Models\DescribeIngressGatewaysRequest;
 use AlibabaCloud\SDK\Servicemesh\V20200111\Models\DescribeIngressGatewaysResponse;
+use AlibabaCloud\SDK\Servicemesh\V20200111\Models\DescribeNamespaceScopeSidecarConfigRequest;
+use AlibabaCloud\SDK\Servicemesh\V20200111\Models\DescribeNamespaceScopeSidecarConfigResponse;
 use AlibabaCloud\SDK\Servicemesh\V20200111\Models\DescribeRegionsRequest;
 use AlibabaCloud\SDK\Servicemesh\V20200111\Models\DescribeRegionsResponse;
 use AlibabaCloud\SDK\Servicemesh\V20200111\Models\DescribeServiceMeshDetailRequest;
 use AlibabaCloud\SDK\Servicemesh\V20200111\Models\DescribeServiceMeshDetailResponse;
 use AlibabaCloud\SDK\Servicemesh\V20200111\Models\DescribeServiceMeshesResponse;
+use AlibabaCloud\SDK\Servicemesh\V20200111\Models\DescribeServiceMeshGatewayPodStatusRequest;
+use AlibabaCloud\SDK\Servicemesh\V20200111\Models\DescribeServiceMeshGatewayPodStatusResponse;
+use AlibabaCloud\SDK\Servicemesh\V20200111\Models\DescribeServiceMeshGatewaySLBStatusRequest;
+use AlibabaCloud\SDK\Servicemesh\V20200111\Models\DescribeServiceMeshGatewaySLBStatusResponse;
 use AlibabaCloud\SDK\Servicemesh\V20200111\Models\DescribeServiceMeshKubeconfigRequest;
 use AlibabaCloud\SDK\Servicemesh\V20200111\Models\DescribeServiceMeshKubeconfigResponse;
+use AlibabaCloud\SDK\Servicemesh\V20200111\Models\DescribeServiceMeshUpgradeStatusRequest;
+use AlibabaCloud\SDK\Servicemesh\V20200111\Models\DescribeServiceMeshUpgradeStatusResponse;
+use AlibabaCloud\SDK\Servicemesh\V20200111\Models\DescribeServiceMeshVMsRequest;
+use AlibabaCloud\SDK\Servicemesh\V20200111\Models\DescribeServiceMeshVMsResponse;
 use AlibabaCloud\SDK\Servicemesh\V20200111\Models\DescribeUpgradeVersionRequest;
 use AlibabaCloud\SDK\Servicemesh\V20200111\Models\DescribeUpgradeVersionResponse;
+use AlibabaCloud\SDK\Servicemesh\V20200111\Models\DescribeVMsInServiceMeshRequest;
+use AlibabaCloud\SDK\Servicemesh\V20200111\Models\DescribeVMsInServiceMeshResponse;
 use AlibabaCloud\SDK\Servicemesh\V20200111\Models\DescribeVpcsRequest;
 use AlibabaCloud\SDK\Servicemesh\V20200111\Models\DescribeVpcsResponse;
 use AlibabaCloud\SDK\Servicemesh\V20200111\Models\DescribeVSwitchesRequest;
 use AlibabaCloud\SDK\Servicemesh\V20200111\Models\DescribeVSwitchesResponse;
+use AlibabaCloud\SDK\Servicemesh\V20200111\Models\DisableControlPlaneLogAlertRequest;
+use AlibabaCloud\SDK\Servicemesh\V20200111\Models\DisableControlPlaneLogAlertResponse;
+use AlibabaCloud\SDK\Servicemesh\V20200111\Models\EnableControlPlaneLogAlertRequest;
+use AlibabaCloud\SDK\Servicemesh\V20200111\Models\EnableControlPlaneLogAlertResponse;
 use AlibabaCloud\SDK\Servicemesh\V20200111\Models\GetAutoInjectionLabelSyncStatusRequest;
 use AlibabaCloud\SDK\Servicemesh\V20200111\Models\GetAutoInjectionLabelSyncStatusResponse;
 use AlibabaCloud\SDK\Servicemesh\V20200111\Models\GetBuiltinEnvoyFilterCatalogRequest;
@@ -78,21 +110,33 @@ use AlibabaCloud\SDK\Servicemesh\V20200111\Models\ListBuiltinEnvoyFilterRequest;
 use AlibabaCloud\SDK\Servicemesh\V20200111\Models\ListBuiltinEnvoyFilterResponse;
 use AlibabaCloud\SDK\Servicemesh\V20200111\Models\ModifyBuiltinEnvoyFilterRequest;
 use AlibabaCloud\SDK\Servicemesh\V20200111\Models\ModifyBuiltinEnvoyFilterResponse;
+use AlibabaCloud\SDK\Servicemesh\V20200111\Models\ModifyServiceMeshNameRequest;
+use AlibabaCloud\SDK\Servicemesh\V20200111\Models\ModifyServiceMeshNameResponse;
+use AlibabaCloud\SDK\Servicemesh\V20200111\Models\ReActivateAuditRequest;
+use AlibabaCloud\SDK\Servicemesh\V20200111\Models\ReActivateAuditResponse;
 use AlibabaCloud\SDK\Servicemesh\V20200111\Models\RemoveBuiltinEnvoyFilterRequest;
 use AlibabaCloud\SDK\Servicemesh\V20200111\Models\RemoveBuiltinEnvoyFilterResponse;
 use AlibabaCloud\SDK\Servicemesh\V20200111\Models\RemoveClusterFromServiceMeshRequest;
 use AlibabaCloud\SDK\Servicemesh\V20200111\Models\RemoveClusterFromServiceMeshResponse;
-use AlibabaCloud\SDK\Servicemesh\V20200111\Models\RemoveVmAppFromMeshRequest;
-use AlibabaCloud\SDK\Servicemesh\V20200111\Models\RemoveVmAppFromMeshResponse;
+use AlibabaCloud\SDK\Servicemesh\V20200111\Models\RemoveVMFromServiceMeshRequest;
+use AlibabaCloud\SDK\Servicemesh\V20200111\Models\RemoveVMFromServiceMeshResponse;
 use AlibabaCloud\SDK\Servicemesh\V20200111\Models\RunDiagnosisRequest;
 use AlibabaCloud\SDK\Servicemesh\V20200111\Models\RunDiagnosisResponse;
 use AlibabaCloud\SDK\Servicemesh\V20200111\Models\SetServiceRegistrySourceRequest;
 use AlibabaCloud\SDK\Servicemesh\V20200111\Models\SetServiceRegistrySourceResponse;
 use AlibabaCloud\SDK\Servicemesh\V20200111\Models\SetServiceRegistrySourceShrinkRequest;
+use AlibabaCloud\SDK\Servicemesh\V20200111\Models\UpdateControlPlaneLogAlertActionPolicyRequest;
+use AlibabaCloud\SDK\Servicemesh\V20200111\Models\UpdateControlPlaneLogAlertActionPolicyResponse;
+use AlibabaCloud\SDK\Servicemesh\V20200111\Models\UpdateControlPlaneLogConfigRequest;
+use AlibabaCloud\SDK\Servicemesh\V20200111\Models\UpdateControlPlaneLogConfigResponse;
+use AlibabaCloud\SDK\Servicemesh\V20200111\Models\UpdateExtensionProviderRequest;
+use AlibabaCloud\SDK\Servicemesh\V20200111\Models\UpdateExtensionProviderResponse;
 use AlibabaCloud\SDK\Servicemesh\V20200111\Models\UpdateIstioInjectionConfigRequest;
 use AlibabaCloud\SDK\Servicemesh\V20200111\Models\UpdateIstioInjectionConfigResponse;
 use AlibabaCloud\SDK\Servicemesh\V20200111\Models\UpdateMeshFeatureRequest;
 use AlibabaCloud\SDK\Servicemesh\V20200111\Models\UpdateMeshFeatureResponse;
+use AlibabaCloud\SDK\Servicemesh\V20200111\Models\UpdateNamespaceScopeSidecarConfigRequest;
+use AlibabaCloud\SDK\Servicemesh\V20200111\Models\UpdateNamespaceScopeSidecarConfigResponse;
 use AlibabaCloud\SDK\Servicemesh\V20200111\Models\UpgradeMeshVersionRequest;
 use AlibabaCloud\SDK\Servicemesh\V20200111\Models\UpgradeMeshVersionResponse;
 use AlibabaCloud\Tea\Utils\Utils;
@@ -134,31 +178,479 @@ class Servicemesh extends OpenApiClient
     }
 
     /**
-     * @param RunDiagnosisRequest $request
-     * @param RuntimeOptions      $runtime
+     * @param AddBuiltinEnvoyFilterRequest $request
+     * @param RuntimeOptions               $runtime
      *
-     * @return RunDiagnosisResponse
+     * @return AddBuiltinEnvoyFilterResponse
      */
-    public function runDiagnosisWithOptions($request, $runtime)
+    public function addBuiltinEnvoyFilterWithOptions($request, $runtime)
     {
         Utils::validateModel($request);
         $req = new OpenApiRequest([
             'body' => Utils::toMap($request),
         ]);
 
-        return RunDiagnosisResponse::fromMap($this->doRPCRequest('RunDiagnosis', '2020-01-11', 'HTTPS', 'POST', 'AK', 'json', $req, $runtime));
+        return AddBuiltinEnvoyFilterResponse::fromMap($this->doRPCRequest('AddBuiltinEnvoyFilter', '2020-01-11', 'HTTPS', 'POST', 'AK', 'json', $req, $runtime));
     }
 
     /**
-     * @param RunDiagnosisRequest $request
+     * @param AddBuiltinEnvoyFilterRequest $request
      *
-     * @return RunDiagnosisResponse
+     * @return AddBuiltinEnvoyFilterResponse
      */
-    public function runDiagnosis($request)
+    public function addBuiltinEnvoyFilter($request)
     {
         $runtime = new RuntimeOptions([]);
 
-        return $this->runDiagnosisWithOptions($request, $runtime);
+        return $this->addBuiltinEnvoyFilterWithOptions($request, $runtime);
+    }
+
+    /**
+     * @param AddClusterIntoServiceMeshRequest $request
+     * @param RuntimeOptions                   $runtime
+     *
+     * @return AddClusterIntoServiceMeshResponse
+     */
+    public function addClusterIntoServiceMeshWithOptions($request, $runtime)
+    {
+        Utils::validateModel($request);
+        $req = new OpenApiRequest([
+            'body' => Utils::toMap($request),
+        ]);
+
+        return AddClusterIntoServiceMeshResponse::fromMap($this->doRPCRequest('AddClusterIntoServiceMesh', '2020-01-11', 'HTTPS', 'POST', 'AK', 'json', $req, $runtime));
+    }
+
+    /**
+     * @param AddClusterIntoServiceMeshRequest $request
+     *
+     * @return AddClusterIntoServiceMeshResponse
+     */
+    public function addClusterIntoServiceMesh($request)
+    {
+        $runtime = new RuntimeOptions([]);
+
+        return $this->addClusterIntoServiceMeshWithOptions($request, $runtime);
+    }
+
+    /**
+     * @param AddMeshTagToEcsRequest $request
+     * @param RuntimeOptions         $runtime
+     *
+     * @return AddMeshTagToEcsResponse
+     */
+    public function addMeshTagToEcsWithOptions($request, $runtime)
+    {
+        Utils::validateModel($request);
+        $req = new OpenApiRequest([
+            'body' => Utils::toMap($request),
+        ]);
+
+        return AddMeshTagToEcsResponse::fromMap($this->doRPCRequest('AddMeshTagToEcs', '2020-01-11', 'HTTPS', 'POST', 'AK', 'json', $req, $runtime));
+    }
+
+    /**
+     * @param AddMeshTagToEcsRequest $request
+     *
+     * @return AddMeshTagToEcsResponse
+     */
+    public function addMeshTagToEcs($request)
+    {
+        $runtime = new RuntimeOptions([]);
+
+        return $this->addMeshTagToEcsWithOptions($request, $runtime);
+    }
+
+    /**
+     * @param AddVMIntoServiceMeshRequest $request
+     * @param RuntimeOptions              $runtime
+     *
+     * @return AddVMIntoServiceMeshResponse
+     */
+    public function addVMIntoServiceMeshWithOptions($request, $runtime)
+    {
+        Utils::validateModel($request);
+        $req = new OpenApiRequest([
+            'body' => Utils::toMap($request),
+        ]);
+
+        return AddVMIntoServiceMeshResponse::fromMap($this->doRPCRequest('AddVMIntoServiceMesh', '2020-01-11', 'HTTPS', 'POST', 'AK', 'json', $req, $runtime));
+    }
+
+    /**
+     * @param AddVMIntoServiceMeshRequest $request
+     *
+     * @return AddVMIntoServiceMeshResponse
+     */
+    public function addVMIntoServiceMesh($request)
+    {
+        $runtime = new RuntimeOptions([]);
+
+        return $this->addVMIntoServiceMeshWithOptions($request, $runtime);
+    }
+
+    /**
+     * @param CreateExtensionProviderRequest $request
+     * @param RuntimeOptions                 $runtime
+     *
+     * @return CreateExtensionProviderResponse
+     */
+    public function createExtensionProviderWithOptions($request, $runtime)
+    {
+        Utils::validateModel($request);
+        $req = new OpenApiRequest([
+            'body' => Utils::toMap($request),
+        ]);
+
+        return CreateExtensionProviderResponse::fromMap($this->doRPCRequest('CreateExtensionProvider', '2020-01-11', 'HTTPS', 'POST', 'AK', 'json', $req, $runtime));
+    }
+
+    /**
+     * @param CreateExtensionProviderRequest $request
+     *
+     * @return CreateExtensionProviderResponse
+     */
+    public function createExtensionProvider($request)
+    {
+        $runtime = new RuntimeOptions([]);
+
+        return $this->createExtensionProviderWithOptions($request, $runtime);
+    }
+
+    /**
+     * @param CreateServiceMeshRequest $request
+     * @param RuntimeOptions           $runtime
+     *
+     * @return CreateServiceMeshResponse
+     */
+    public function createServiceMeshWithOptions($request, $runtime)
+    {
+        Utils::validateModel($request);
+        $req = new OpenApiRequest([
+            'body' => Utils::toMap($request),
+        ]);
+
+        return CreateServiceMeshResponse::fromMap($this->doRPCRequest('CreateServiceMesh', '2020-01-11', 'HTTPS', 'POST', 'AK', 'json', $req, $runtime));
+    }
+
+    /**
+     * @param CreateServiceMeshRequest $request
+     *
+     * @return CreateServiceMeshResponse
+     */
+    public function createServiceMesh($request)
+    {
+        $runtime = new RuntimeOptions([]);
+
+        return $this->createServiceMeshWithOptions($request, $runtime);
+    }
+
+    /**
+     * @param DeleteExtensionProviderRequest $request
+     * @param RuntimeOptions                 $runtime
+     *
+     * @return DeleteExtensionProviderResponse
+     */
+    public function deleteExtensionProviderWithOptions($request, $runtime)
+    {
+        Utils::validateModel($request);
+        $req = new OpenApiRequest([
+            'body' => Utils::toMap($request),
+        ]);
+
+        return DeleteExtensionProviderResponse::fromMap($this->doRPCRequest('DeleteExtensionProvider', '2020-01-11', 'HTTPS', 'POST', 'AK', 'json', $req, $runtime));
+    }
+
+    /**
+     * @param DeleteExtensionProviderRequest $request
+     *
+     * @return DeleteExtensionProviderResponse
+     */
+    public function deleteExtensionProvider($request)
+    {
+        $runtime = new RuntimeOptions([]);
+
+        return $this->deleteExtensionProviderWithOptions($request, $runtime);
+    }
+
+    /**
+     * @param DeleteServiceMeshRequest $request
+     * @param RuntimeOptions           $runtime
+     *
+     * @return DeleteServiceMeshResponse
+     */
+    public function deleteServiceMeshWithOptions($request, $runtime)
+    {
+        Utils::validateModel($request);
+        $req = new OpenApiRequest([
+            'body' => Utils::toMap($request),
+        ]);
+
+        return DeleteServiceMeshResponse::fromMap($this->doRPCRequest('DeleteServiceMesh', '2020-01-11', 'HTTPS', 'POST', 'AK', 'json', $req, $runtime));
+    }
+
+    /**
+     * @param DeleteServiceMeshRequest $request
+     *
+     * @return DeleteServiceMeshResponse
+     */
+    public function deleteServiceMesh($request)
+    {
+        $runtime = new RuntimeOptions([]);
+
+        return $this->deleteServiceMeshWithOptions($request, $runtime);
+    }
+
+    /**
+     * @param DescribeAlertActionPoliciesRequest $request
+     * @param RuntimeOptions                     $runtime
+     *
+     * @return DescribeAlertActionPoliciesResponse
+     */
+    public function describeAlertActionPoliciesWithOptions($request, $runtime)
+    {
+        Utils::validateModel($request);
+        $req = new OpenApiRequest([
+            'body' => Utils::toMap($request),
+        ]);
+
+        return DescribeAlertActionPoliciesResponse::fromMap($this->doRPCRequest('DescribeAlertActionPolicies', '2020-01-11', 'HTTPS', 'POST', 'AK', 'json', $req, $runtime));
+    }
+
+    /**
+     * @param DescribeAlertActionPoliciesRequest $request
+     *
+     * @return DescribeAlertActionPoliciesResponse
+     */
+    public function describeAlertActionPolicies($request)
+    {
+        $runtime = new RuntimeOptions([]);
+
+        return $this->describeAlertActionPoliciesWithOptions($request, $runtime);
+    }
+
+    /**
+     * @param DescribeAvailableNacosInstancesRequest $request
+     * @param RuntimeOptions                         $runtime
+     *
+     * @return DescribeAvailableNacosInstancesResponse
+     */
+    public function describeAvailableNacosInstancesWithOptions($request, $runtime)
+    {
+        Utils::validateModel($request);
+        $req = new OpenApiRequest([
+            'body' => Utils::toMap($request),
+        ]);
+
+        return DescribeAvailableNacosInstancesResponse::fromMap($this->doRPCRequest('DescribeAvailableNacosInstances', '2020-01-11', 'HTTPS', 'POST', 'AK', 'json', $req, $runtime));
+    }
+
+    /**
+     * @param DescribeAvailableNacosInstancesRequest $request
+     *
+     * @return DescribeAvailableNacosInstancesResponse
+     */
+    public function describeAvailableNacosInstances($request)
+    {
+        $runtime = new RuntimeOptions([]);
+
+        return $this->describeAvailableNacosInstancesWithOptions($request, $runtime);
+    }
+
+    /**
+     * @param DescribeCensRequest $request
+     * @param RuntimeOptions      $runtime
+     *
+     * @return DescribeCensResponse
+     */
+    public function describeCensWithOptions($request, $runtime)
+    {
+        Utils::validateModel($request);
+        $req = new OpenApiRequest([
+            'body' => Utils::toMap($request),
+        ]);
+
+        return DescribeCensResponse::fromMap($this->doRPCRequest('DescribeCens', '2020-01-11', 'HTTPS', 'POST', 'AK', 'json', $req, $runtime));
+    }
+
+    /**
+     * @param DescribeCensRequest $request
+     *
+     * @return DescribeCensResponse
+     */
+    public function describeCens($request)
+    {
+        $runtime = new RuntimeOptions([]);
+
+        return $this->describeCensWithOptions($request, $runtime);
+    }
+
+    /**
+     * @param DescribeClusterGrafanaRequest $request
+     * @param RuntimeOptions                $runtime
+     *
+     * @return DescribeClusterGrafanaResponse
+     */
+    public function describeClusterGrafanaWithOptions($request, $runtime)
+    {
+        Utils::validateModel($request);
+        $req = new OpenApiRequest([
+            'body' => Utils::toMap($request),
+        ]);
+
+        return DescribeClusterGrafanaResponse::fromMap($this->doRPCRequest('DescribeClusterGrafana', '2020-01-11', 'HTTPS', 'POST', 'AK', 'json', $req, $runtime));
+    }
+
+    /**
+     * @param DescribeClusterGrafanaRequest $request
+     *
+     * @return DescribeClusterGrafanaResponse
+     */
+    public function describeClusterGrafana($request)
+    {
+        $runtime = new RuntimeOptions([]);
+
+        return $this->describeClusterGrafanaWithOptions($request, $runtime);
+    }
+
+    /**
+     * @param DescribeClusterPrometheusRequest $request
+     * @param RuntimeOptions                   $runtime
+     *
+     * @return DescribeClusterPrometheusResponse
+     */
+    public function describeClusterPrometheusWithOptions($request, $runtime)
+    {
+        Utils::validateModel($request);
+        $req = new OpenApiRequest([
+            'body' => Utils::toMap($request),
+        ]);
+
+        return DescribeClusterPrometheusResponse::fromMap($this->doRPCRequest('DescribeClusterPrometheus', '2020-01-11', 'HTTPS', 'POST', 'AK', 'json', $req, $runtime));
+    }
+
+    /**
+     * @param DescribeClusterPrometheusRequest $request
+     *
+     * @return DescribeClusterPrometheusResponse
+     */
+    public function describeClusterPrometheus($request)
+    {
+        $runtime = new RuntimeOptions([]);
+
+        return $this->describeClusterPrometheusWithOptions($request, $runtime);
+    }
+
+    /**
+     * @param DescribeClustersInServiceMeshRequest $request
+     * @param RuntimeOptions                       $runtime
+     *
+     * @return DescribeClustersInServiceMeshResponse
+     */
+    public function describeClustersInServiceMeshWithOptions($request, $runtime)
+    {
+        Utils::validateModel($request);
+        $req = new OpenApiRequest([
+            'body' => Utils::toMap($request),
+        ]);
+
+        return DescribeClustersInServiceMeshResponse::fromMap($this->doRPCRequest('DescribeClustersInServiceMesh', '2020-01-11', 'HTTPS', 'POST', 'AK', 'json', $req, $runtime));
+    }
+
+    /**
+     * @param DescribeClustersInServiceMeshRequest $request
+     *
+     * @return DescribeClustersInServiceMeshResponse
+     */
+    public function describeClustersInServiceMesh($request)
+    {
+        $runtime = new RuntimeOptions([]);
+
+        return $this->describeClustersInServiceMeshWithOptions($request, $runtime);
+    }
+
+    /**
+     * @param DescribeControlPlaneLogAlertRulesRequest $request
+     * @param RuntimeOptions                           $runtime
+     *
+     * @return DescribeControlPlaneLogAlertRulesResponse
+     */
+    public function describeControlPlaneLogAlertRulesWithOptions($request, $runtime)
+    {
+        Utils::validateModel($request);
+        $req = new OpenApiRequest([
+            'body' => Utils::toMap($request),
+        ]);
+
+        return DescribeControlPlaneLogAlertRulesResponse::fromMap($this->doRPCRequest('DescribeControlPlaneLogAlertRules', '2020-01-11', 'HTTPS', 'POST', 'AK', 'json', $req, $runtime));
+    }
+
+    /**
+     * @param DescribeControlPlaneLogAlertRulesRequest $request
+     *
+     * @return DescribeControlPlaneLogAlertRulesResponse
+     */
+    public function describeControlPlaneLogAlertRules($request)
+    {
+        $runtime = new RuntimeOptions([]);
+
+        return $this->describeControlPlaneLogAlertRulesWithOptions($request, $runtime);
+    }
+
+    /**
+     * @param DescribeCrTemplatesRequest $request
+     * @param RuntimeOptions             $runtime
+     *
+     * @return DescribeCrTemplatesResponse
+     */
+    public function describeCrTemplatesWithOptions($request, $runtime)
+    {
+        Utils::validateModel($request);
+        $req = new OpenApiRequest([
+            'body' => Utils::toMap($request),
+        ]);
+
+        return DescribeCrTemplatesResponse::fromMap($this->doRPCRequest('DescribeCrTemplates', '2020-01-11', 'HTTPS', 'POST', 'AK', 'json', $req, $runtime));
+    }
+
+    /**
+     * @param DescribeCrTemplatesRequest $request
+     *
+     * @return DescribeCrTemplatesResponse
+     */
+    public function describeCrTemplates($request)
+    {
+        $runtime = new RuntimeOptions([]);
+
+        return $this->describeCrTemplatesWithOptions($request, $runtime);
+    }
+
+    /**
+     * @param DescribeExtensionProviderRequest $request
+     * @param RuntimeOptions                   $runtime
+     *
+     * @return DescribeExtensionProviderResponse
+     */
+    public function describeExtensionProviderWithOptions($request, $runtime)
+    {
+        Utils::validateModel($request);
+        $req = new OpenApiRequest([
+            'body' => Utils::toMap($request),
+        ]);
+
+        return DescribeExtensionProviderResponse::fromMap($this->doRPCRequest('DescribeExtensionProvider', '2020-01-11', 'HTTPS', 'POST', 'AK', 'json', $req, $runtime));
+    }
+
+    /**
+     * @param DescribeExtensionProviderRequest $request
+     *
+     * @return DescribeExtensionProviderResponse
+     */
+    public function describeExtensionProvider($request)
+    {
+        $runtime = new RuntimeOptions([]);
+
+        return $this->describeExtensionProviderWithOptions($request, $runtime);
     }
 
     /**
@@ -190,109 +682,59 @@ class Servicemesh extends OpenApiClient
     }
 
     /**
-     * @param ListBuiltinEnvoyFilterRequest $request
-     * @param RuntimeOptions                $runtime
+     * @param DescribeGuestClusterNamespacesRequest $request
+     * @param RuntimeOptions                        $runtime
      *
-     * @return ListBuiltinEnvoyFilterResponse
+     * @return DescribeGuestClusterNamespacesResponse
      */
-    public function listBuiltinEnvoyFilterWithOptions($request, $runtime)
+    public function describeGuestClusterNamespacesWithOptions($request, $runtime)
     {
         Utils::validateModel($request);
         $req = new OpenApiRequest([
             'body' => Utils::toMap($request),
         ]);
 
-        return ListBuiltinEnvoyFilterResponse::fromMap($this->doRPCRequest('ListBuiltinEnvoyFilter', '2020-01-11', 'HTTPS', 'POST', 'AK', 'json', $req, $runtime));
+        return DescribeGuestClusterNamespacesResponse::fromMap($this->doRPCRequest('DescribeGuestClusterNamespaces', '2020-01-11', 'HTTPS', 'POST', 'AK', 'json', $req, $runtime));
     }
 
     /**
-     * @param ListBuiltinEnvoyFilterRequest $request
+     * @param DescribeGuestClusterNamespacesRequest $request
      *
-     * @return ListBuiltinEnvoyFilterResponse
+     * @return DescribeGuestClusterNamespacesResponse
      */
-    public function listBuiltinEnvoyFilter($request)
+    public function describeGuestClusterNamespaces($request)
     {
         $runtime = new RuntimeOptions([]);
 
-        return $this->listBuiltinEnvoyFilterWithOptions($request, $runtime);
+        return $this->describeGuestClusterNamespacesWithOptions($request, $runtime);
     }
 
     /**
-     * @param RuntimeOptions $runtime
-     *
-     * @return DescribeServiceMeshesResponse
-     */
-    public function describeServiceMeshesWithOptions($runtime)
-    {
-        $req = new OpenApiRequest([]);
-
-        return DescribeServiceMeshesResponse::fromMap($this->doRPCRequest('DescribeServiceMeshes', '2020-01-11', 'HTTPS', 'GET', 'AK', 'json', $req, $runtime));
-    }
-
-    /**
-     * @return DescribeServiceMeshesResponse
-     */
-    public function describeServiceMeshes()
-    {
-        $runtime = new RuntimeOptions([]);
-
-        return $this->describeServiceMeshesWithOptions($runtime);
-    }
-
-    /**
-     * @param ModifyBuiltinEnvoyFilterRequest $request
+     * @param DescribeGuestClusterPodsRequest $request
      * @param RuntimeOptions                  $runtime
      *
-     * @return ModifyBuiltinEnvoyFilterResponse
+     * @return DescribeGuestClusterPodsResponse
      */
-    public function modifyBuiltinEnvoyFilterWithOptions($request, $runtime)
+    public function describeGuestClusterPodsWithOptions($request, $runtime)
     {
         Utils::validateModel($request);
         $req = new OpenApiRequest([
             'body' => Utils::toMap($request),
         ]);
 
-        return ModifyBuiltinEnvoyFilterResponse::fromMap($this->doRPCRequest('ModifyBuiltinEnvoyFilter', '2020-01-11', 'HTTPS', 'POST', 'AK', 'json', $req, $runtime));
+        return DescribeGuestClusterPodsResponse::fromMap($this->doRPCRequest('DescribeGuestClusterPods', '2020-01-11', 'HTTPS', 'POST', 'AK', 'json', $req, $runtime));
     }
 
     /**
-     * @param ModifyBuiltinEnvoyFilterRequest $request
+     * @param DescribeGuestClusterPodsRequest $request
      *
-     * @return ModifyBuiltinEnvoyFilterResponse
+     * @return DescribeGuestClusterPodsResponse
      */
-    public function modifyBuiltinEnvoyFilter($request)
+    public function describeGuestClusterPods($request)
     {
         $runtime = new RuntimeOptions([]);
 
-        return $this->modifyBuiltinEnvoyFilterWithOptions($request, $runtime);
-    }
-
-    /**
-     * @param DescribeAvailableNacosInstancesRequest $request
-     * @param RuntimeOptions                         $runtime
-     *
-     * @return DescribeAvailableNacosInstancesResponse
-     */
-    public function describeAvailableNacosInstancesWithOptions($request, $runtime)
-    {
-        Utils::validateModel($request);
-        $req = new OpenApiRequest([
-            'body' => Utils::toMap($request),
-        ]);
-
-        return DescribeAvailableNacosInstancesResponse::fromMap($this->doRPCRequest('DescribeAvailableNacosInstances', '2020-01-11', 'HTTPS', 'POST', 'AK', 'json', $req, $runtime));
-    }
-
-    /**
-     * @param DescribeAvailableNacosInstancesRequest $request
-     *
-     * @return DescribeAvailableNacosInstancesResponse
-     */
-    public function describeAvailableNacosInstances($request)
-    {
-        $runtime = new RuntimeOptions([]);
-
-        return $this->describeAvailableNacosInstancesWithOptions($request, $runtime);
+        return $this->describeGuestClusterPodsWithOptions($request, $runtime);
     }
 
     /**
@@ -325,6 +767,63 @@ class Servicemesh extends OpenApiClient
     }
 
     /**
+     * @param DescribeNamespaceScopeSidecarConfigRequest $request
+     * @param RuntimeOptions                             $runtime
+     *
+     * @return DescribeNamespaceScopeSidecarConfigResponse
+     */
+    public function describeNamespaceScopeSidecarConfigWithOptions($request, $runtime)
+    {
+        Utils::validateModel($request);
+        $req = new OpenApiRequest([
+            'body' => Utils::toMap($request),
+        ]);
+
+        return DescribeNamespaceScopeSidecarConfigResponse::fromMap($this->doRPCRequest('DescribeNamespaceScopeSidecarConfig', '2020-01-11', 'HTTPS', 'POST', 'AK', 'json', $req, $runtime));
+    }
+
+    /**
+     * @param DescribeNamespaceScopeSidecarConfigRequest $request
+     *
+     * @return DescribeNamespaceScopeSidecarConfigResponse
+     */
+    public function describeNamespaceScopeSidecarConfig($request)
+    {
+        $runtime = new RuntimeOptions([]);
+
+        return $this->describeNamespaceScopeSidecarConfigWithOptions($request, $runtime);
+    }
+
+    /**
+     * @param DescribeRegionsRequest $request
+     * @param RuntimeOptions         $runtime
+     *
+     * @return DescribeRegionsResponse
+     */
+    public function describeRegionsWithOptions($request, $runtime)
+    {
+        Utils::validateModel($request);
+        $query = OpenApiUtilClient::query(Utils::toMap($request));
+        $req   = new OpenApiRequest([
+            'query' => $query,
+        ]);
+
+        return DescribeRegionsResponse::fromMap($this->doRPCRequest('DescribeRegions', '2020-01-11', 'HTTPS', 'GET', 'AK', 'json', $req, $runtime));
+    }
+
+    /**
+     * @param DescribeRegionsRequest $request
+     *
+     * @return DescribeRegionsResponse
+     */
+    public function describeRegions($request)
+    {
+        $runtime = new RuntimeOptions([]);
+
+        return $this->describeRegionsWithOptions($request, $runtime);
+    }
+
+    /**
      * @param DescribeServiceMeshDetailRequest $request
      * @param RuntimeOptions                   $runtime
      *
@@ -353,31 +852,59 @@ class Servicemesh extends OpenApiClient
     }
 
     /**
-     * @param UpgradeMeshVersionRequest $request
-     * @param RuntimeOptions            $runtime
+     * @param DescribeServiceMeshGatewayPodStatusRequest $request
+     * @param RuntimeOptions                             $runtime
      *
-     * @return UpgradeMeshVersionResponse
+     * @return DescribeServiceMeshGatewayPodStatusResponse
      */
-    public function upgradeMeshVersionWithOptions($request, $runtime)
+    public function describeServiceMeshGatewayPodStatusWithOptions($request, $runtime)
     {
         Utils::validateModel($request);
         $req = new OpenApiRequest([
             'body' => Utils::toMap($request),
         ]);
 
-        return UpgradeMeshVersionResponse::fromMap($this->doRPCRequest('UpgradeMeshVersion', '2020-01-11', 'HTTPS', 'POST', 'AK', 'json', $req, $runtime));
+        return DescribeServiceMeshGatewayPodStatusResponse::fromMap($this->doRPCRequest('DescribeServiceMeshGatewayPodStatus', '2020-01-11', 'HTTPS', 'POST', 'AK', 'json', $req, $runtime));
     }
 
     /**
-     * @param UpgradeMeshVersionRequest $request
+     * @param DescribeServiceMeshGatewayPodStatusRequest $request
      *
-     * @return UpgradeMeshVersionResponse
+     * @return DescribeServiceMeshGatewayPodStatusResponse
      */
-    public function upgradeMeshVersion($request)
+    public function describeServiceMeshGatewayPodStatus($request)
     {
         $runtime = new RuntimeOptions([]);
 
-        return $this->upgradeMeshVersionWithOptions($request, $runtime);
+        return $this->describeServiceMeshGatewayPodStatusWithOptions($request, $runtime);
+    }
+
+    /**
+     * @param DescribeServiceMeshGatewaySLBStatusRequest $request
+     * @param RuntimeOptions                             $runtime
+     *
+     * @return DescribeServiceMeshGatewaySLBStatusResponse
+     */
+    public function describeServiceMeshGatewaySLBStatusWithOptions($request, $runtime)
+    {
+        Utils::validateModel($request);
+        $req = new OpenApiRequest([
+            'body' => Utils::toMap($request),
+        ]);
+
+        return DescribeServiceMeshGatewaySLBStatusResponse::fromMap($this->doRPCRequest('DescribeServiceMeshGatewaySLBStatus', '2020-01-11', 'HTTPS', 'POST', 'AK', 'json', $req, $runtime));
+    }
+
+    /**
+     * @param DescribeServiceMeshGatewaySLBStatusRequest $request
+     *
+     * @return DescribeServiceMeshGatewaySLBStatusResponse
+     */
+    public function describeServiceMeshGatewaySLBStatus($request)
+    {
+        $runtime = new RuntimeOptions([]);
+
+        return $this->describeServiceMeshGatewaySLBStatusWithOptions($request, $runtime);
     }
 
     /**
@@ -409,143 +936,137 @@ class Servicemesh extends OpenApiClient
     }
 
     /**
-     * @param GetCaCertRequest $request
-     * @param RuntimeOptions   $runtime
+     * @param DescribeServiceMeshUpgradeStatusRequest $request
+     * @param RuntimeOptions                          $runtime
      *
-     * @return GetCaCertResponse
+     * @return DescribeServiceMeshUpgradeStatusResponse
      */
-    public function getCaCertWithOptions($request, $runtime)
+    public function describeServiceMeshUpgradeStatusWithOptions($request, $runtime)
     {
         Utils::validateModel($request);
         $req = new OpenApiRequest([
             'body' => Utils::toMap($request),
         ]);
 
-        return GetCaCertResponse::fromMap($this->doRPCRequest('GetCaCert', '2020-01-11', 'HTTPS', 'POST', 'AK', 'json', $req, $runtime));
+        return DescribeServiceMeshUpgradeStatusResponse::fromMap($this->doRPCRequest('DescribeServiceMeshUpgradeStatus', '2020-01-11', 'HTTPS', 'POST', 'AK', 'json', $req, $runtime));
     }
 
     /**
-     * @param GetCaCertRequest $request
+     * @param DescribeServiceMeshUpgradeStatusRequest $request
      *
-     * @return GetCaCertResponse
+     * @return DescribeServiceMeshUpgradeStatusResponse
      */
-    public function getCaCert($request)
+    public function describeServiceMeshUpgradeStatus($request)
     {
         $runtime = new RuntimeOptions([]);
 
-        return $this->getCaCertWithOptions($request, $runtime);
+        return $this->describeServiceMeshUpgradeStatusWithOptions($request, $runtime);
     }
 
     /**
-     * @param GetServiceMeshSlbRequest $request
-     * @param RuntimeOptions           $runtime
+     * @param DescribeServiceMeshVMsRequest $request
+     * @param RuntimeOptions                $runtime
      *
-     * @return GetServiceMeshSlbResponse
+     * @return DescribeServiceMeshVMsResponse
      */
-    public function getServiceMeshSlbWithOptions($request, $runtime)
+    public function describeServiceMeshVMsWithOptions($request, $runtime)
     {
         Utils::validateModel($request);
         $req = new OpenApiRequest([
             'body' => Utils::toMap($request),
         ]);
 
-        return GetServiceMeshSlbResponse::fromMap($this->doRPCRequest('GetServiceMeshSlb', '2020-01-11', 'HTTPS', 'POST', 'AK', 'json', $req, $runtime));
+        return DescribeServiceMeshVMsResponse::fromMap($this->doRPCRequest('DescribeServiceMeshVMs', '2020-01-11', 'HTTPS', 'POST', 'AK', 'json', $req, $runtime));
     }
 
     /**
-     * @param GetServiceMeshSlbRequest $request
+     * @param DescribeServiceMeshVMsRequest $request
      *
-     * @return GetServiceMeshSlbResponse
+     * @return DescribeServiceMeshVMsResponse
      */
-    public function getServiceMeshSlb($request)
+    public function describeServiceMeshVMs($request)
     {
         $runtime = new RuntimeOptions([]);
 
-        return $this->getServiceMeshSlbWithOptions($request, $runtime);
+        return $this->describeServiceMeshVMsWithOptions($request, $runtime);
     }
 
     /**
-     * @param GetRegisteredServiceEndpointsRequest $request
-     * @param RuntimeOptions                       $runtime
+     * @param RuntimeOptions $runtime
      *
-     * @return GetRegisteredServiceEndpointsResponse
+     * @return DescribeServiceMeshesResponse
      */
-    public function getRegisteredServiceEndpointsWithOptions($request, $runtime)
+    public function describeServiceMeshesWithOptions($runtime)
+    {
+        $req = new OpenApiRequest([]);
+
+        return DescribeServiceMeshesResponse::fromMap($this->doRPCRequest('DescribeServiceMeshes', '2020-01-11', 'HTTPS', 'GET', 'AK', 'json', $req, $runtime));
+    }
+
+    /**
+     * @return DescribeServiceMeshesResponse
+     */
+    public function describeServiceMeshes()
+    {
+        $runtime = new RuntimeOptions([]);
+
+        return $this->describeServiceMeshesWithOptions($runtime);
+    }
+
+    /**
+     * @param DescribeUpgradeVersionRequest $request
+     * @param RuntimeOptions                $runtime
+     *
+     * @return DescribeUpgradeVersionResponse
+     */
+    public function describeUpgradeVersionWithOptions($request, $runtime)
     {
         Utils::validateModel($request);
         $req = new OpenApiRequest([
             'body' => Utils::toMap($request),
         ]);
 
-        return GetRegisteredServiceEndpointsResponse::fromMap($this->doRPCRequest('GetRegisteredServiceEndpoints', '2020-01-11', 'HTTPS', 'POST', 'AK', 'json', $req, $runtime));
+        return DescribeUpgradeVersionResponse::fromMap($this->doRPCRequest('DescribeUpgradeVersion', '2020-01-11', 'HTTPS', 'POST', 'AK', 'json', $req, $runtime));
     }
 
     /**
-     * @param GetRegisteredServiceEndpointsRequest $request
+     * @param DescribeUpgradeVersionRequest $request
      *
-     * @return GetRegisteredServiceEndpointsResponse
+     * @return DescribeUpgradeVersionResponse
      */
-    public function getRegisteredServiceEndpoints($request)
+    public function describeUpgradeVersion($request)
     {
         $runtime = new RuntimeOptions([]);
 
-        return $this->getRegisteredServiceEndpointsWithOptions($request, $runtime);
+        return $this->describeUpgradeVersionWithOptions($request, $runtime);
     }
 
     /**
-     * @param GetAutoInjectionLabelSyncStatusRequest $request
-     * @param RuntimeOptions                         $runtime
+     * @param DescribeVMsInServiceMeshRequest $request
+     * @param RuntimeOptions                  $runtime
      *
-     * @return GetAutoInjectionLabelSyncStatusResponse
+     * @return DescribeVMsInServiceMeshResponse
      */
-    public function getAutoInjectionLabelSyncStatusWithOptions($request, $runtime)
+    public function describeVMsInServiceMeshWithOptions($request, $runtime)
     {
         Utils::validateModel($request);
         $req = new OpenApiRequest([
             'body' => Utils::toMap($request),
         ]);
 
-        return GetAutoInjectionLabelSyncStatusResponse::fromMap($this->doRPCRequest('GetAutoInjectionLabelSyncStatus', '2020-01-11', 'HTTPS', 'POST', 'AK', 'json', $req, $runtime));
+        return DescribeVMsInServiceMeshResponse::fromMap($this->doRPCRequest('DescribeVMsInServiceMesh', '2020-01-11', 'HTTPS', 'POST', 'AK', 'json', $req, $runtime));
     }
 
     /**
-     * @param GetAutoInjectionLabelSyncStatusRequest $request
+     * @param DescribeVMsInServiceMeshRequest $request
      *
-     * @return GetAutoInjectionLabelSyncStatusResponse
+     * @return DescribeVMsInServiceMeshResponse
      */
-    public function getAutoInjectionLabelSyncStatus($request)
+    public function describeVMsInServiceMesh($request)
     {
         $runtime = new RuntimeOptions([]);
 
-        return $this->getAutoInjectionLabelSyncStatusWithOptions($request, $runtime);
-    }
-
-    /**
-     * @param GetRegisteredServiceNamespacesRequest $request
-     * @param RuntimeOptions                        $runtime
-     *
-     * @return GetRegisteredServiceNamespacesResponse
-     */
-    public function getRegisteredServiceNamespacesWithOptions($request, $runtime)
-    {
-        Utils::validateModel($request);
-        $req = new OpenApiRequest([
-            'body' => Utils::toMap($request),
-        ]);
-
-        return GetRegisteredServiceNamespacesResponse::fromMap($this->doRPCRequest('GetRegisteredServiceNamespaces', '2020-01-11', 'HTTPS', 'POST', 'AK', 'json', $req, $runtime));
-    }
-
-    /**
-     * @param GetRegisteredServiceNamespacesRequest $request
-     *
-     * @return GetRegisteredServiceNamespacesResponse
-     */
-    public function getRegisteredServiceNamespaces($request)
-    {
-        $runtime = new RuntimeOptions([]);
-
-        return $this->getRegisteredServiceNamespacesWithOptions($request, $runtime);
+        return $this->describeVMsInServiceMeshWithOptions($request, $runtime);
     }
 
     /**
@@ -605,172 +1126,115 @@ class Servicemesh extends OpenApiClient
     }
 
     /**
-     * @param RemoveVmAppFromMeshRequest $request
-     * @param RuntimeOptions             $runtime
+     * @param DisableControlPlaneLogAlertRequest $request
+     * @param RuntimeOptions                     $runtime
      *
-     * @return RemoveVmAppFromMeshResponse
+     * @return DisableControlPlaneLogAlertResponse
      */
-    public function removeVmAppFromMeshWithOptions($request, $runtime)
+    public function disableControlPlaneLogAlertWithOptions($request, $runtime)
     {
         Utils::validateModel($request);
         $req = new OpenApiRequest([
             'body' => Utils::toMap($request),
         ]);
 
-        return RemoveVmAppFromMeshResponse::fromMap($this->doRPCRequest('RemoveVmAppFromMesh', '2020-01-11', 'HTTPS', 'POST', 'AK', 'json', $req, $runtime));
+        return DisableControlPlaneLogAlertResponse::fromMap($this->doRPCRequest('DisableControlPlaneLogAlert', '2020-01-11', 'HTTPS', 'POST', 'AK', 'json', $req, $runtime));
     }
 
     /**
-     * @param RemoveVmAppFromMeshRequest $request
+     * @param DisableControlPlaneLogAlertRequest $request
      *
-     * @return RemoveVmAppFromMeshResponse
+     * @return DisableControlPlaneLogAlertResponse
      */
-    public function removeVmAppFromMesh($request)
+    public function disableControlPlaneLogAlert($request)
     {
         $runtime = new RuntimeOptions([]);
 
-        return $this->removeVmAppFromMeshWithOptions($request, $runtime);
+        return $this->disableControlPlaneLogAlertWithOptions($request, $runtime);
     }
 
     /**
-     * @param DescribeClusterPrometheusRequest $request
-     * @param RuntimeOptions                   $runtime
-     *
-     * @return DescribeClusterPrometheusResponse
-     */
-    public function describeClusterPrometheusWithOptions($request, $runtime)
-    {
-        Utils::validateModel($request);
-        $req = new OpenApiRequest([
-            'body' => Utils::toMap($request),
-        ]);
-
-        return DescribeClusterPrometheusResponse::fromMap($this->doRPCRequest('DescribeClusterPrometheus', '2020-01-11', 'HTTPS', 'POST', 'AK', 'json', $req, $runtime));
-    }
-
-    /**
-     * @param DescribeClusterPrometheusRequest $request
-     *
-     * @return DescribeClusterPrometheusResponse
-     */
-    public function describeClusterPrometheus($request)
-    {
-        $runtime = new RuntimeOptions([]);
-
-        return $this->describeClusterPrometheusWithOptions($request, $runtime);
-    }
-
-    /**
-     * @param UpdateIstioInjectionConfigRequest $request
+     * @param EnableControlPlaneLogAlertRequest $request
      * @param RuntimeOptions                    $runtime
      *
-     * @return UpdateIstioInjectionConfigResponse
+     * @return EnableControlPlaneLogAlertResponse
      */
-    public function updateIstioInjectionConfigWithOptions($request, $runtime)
+    public function enableControlPlaneLogAlertWithOptions($request, $runtime)
     {
         Utils::validateModel($request);
         $req = new OpenApiRequest([
             'body' => Utils::toMap($request),
         ]);
 
-        return UpdateIstioInjectionConfigResponse::fromMap($this->doRPCRequest('UpdateIstioInjectionConfig', '2020-01-11', 'HTTPS', 'POST', 'AK', 'json', $req, $runtime));
+        return EnableControlPlaneLogAlertResponse::fromMap($this->doRPCRequest('EnableControlPlaneLogAlert', '2020-01-11', 'HTTPS', 'POST', 'AK', 'json', $req, $runtime));
     }
 
     /**
-     * @param UpdateIstioInjectionConfigRequest $request
+     * @param EnableControlPlaneLogAlertRequest $request
      *
-     * @return UpdateIstioInjectionConfigResponse
+     * @return EnableControlPlaneLogAlertResponse
      */
-    public function updateIstioInjectionConfig($request)
+    public function enableControlPlaneLogAlert($request)
     {
         $runtime = new RuntimeOptions([]);
 
-        return $this->updateIstioInjectionConfigWithOptions($request, $runtime);
+        return $this->enableControlPlaneLogAlertWithOptions($request, $runtime);
     }
 
     /**
-     * @param GetVmMetaRequest $request
-     * @param RuntimeOptions   $runtime
+     * @param GetAutoInjectionLabelSyncStatusRequest $request
+     * @param RuntimeOptions                         $runtime
      *
-     * @return GetVmMetaResponse
+     * @return GetAutoInjectionLabelSyncStatusResponse
      */
-    public function getVmMetaWithOptions($request, $runtime)
-    {
-        Utils::validateModel($request);
-        $query = OpenApiUtilClient::query(Utils::toMap($request));
-        $req   = new OpenApiRequest([
-            'query' => $query,
-        ]);
-
-        return GetVmMetaResponse::fromMap($this->doRPCRequest('GetVmMeta', '2020-01-11', 'HTTPS', 'GET', 'AK', 'json', $req, $runtime));
-    }
-
-    /**
-     * @param GetVmMetaRequest $request
-     *
-     * @return GetVmMetaResponse
-     */
-    public function getVmMeta($request)
-    {
-        $runtime = new RuntimeOptions([]);
-
-        return $this->getVmMetaWithOptions($request, $runtime);
-    }
-
-    /**
-     * @param DescribeUpgradeVersionRequest $request
-     * @param RuntimeOptions                $runtime
-     *
-     * @return DescribeUpgradeVersionResponse
-     */
-    public function describeUpgradeVersionWithOptions($request, $runtime)
+    public function getAutoInjectionLabelSyncStatusWithOptions($request, $runtime)
     {
         Utils::validateModel($request);
         $req = new OpenApiRequest([
             'body' => Utils::toMap($request),
         ]);
 
-        return DescribeUpgradeVersionResponse::fromMap($this->doRPCRequest('DescribeUpgradeVersion', '2020-01-11', 'HTTPS', 'POST', 'AK', 'json', $req, $runtime));
+        return GetAutoInjectionLabelSyncStatusResponse::fromMap($this->doRPCRequest('GetAutoInjectionLabelSyncStatus', '2020-01-11', 'HTTPS', 'POST', 'AK', 'json', $req, $runtime));
     }
 
     /**
-     * @param DescribeUpgradeVersionRequest $request
+     * @param GetAutoInjectionLabelSyncStatusRequest $request
      *
-     * @return DescribeUpgradeVersionResponse
+     * @return GetAutoInjectionLabelSyncStatusResponse
      */
-    public function describeUpgradeVersion($request)
+    public function getAutoInjectionLabelSyncStatus($request)
     {
         $runtime = new RuntimeOptions([]);
 
-        return $this->describeUpgradeVersionWithOptions($request, $runtime);
+        return $this->getAutoInjectionLabelSyncStatusWithOptions($request, $runtime);
     }
 
     /**
-     * @param DescribeClustersInServiceMeshRequest $request
-     * @param RuntimeOptions                       $runtime
+     * @param GetBuiltinEnvoyFilterRequest $request
+     * @param RuntimeOptions               $runtime
      *
-     * @return DescribeClustersInServiceMeshResponse
+     * @return GetBuiltinEnvoyFilterResponse
      */
-    public function describeClustersInServiceMeshWithOptions($request, $runtime)
+    public function getBuiltinEnvoyFilterWithOptions($request, $runtime)
     {
         Utils::validateModel($request);
         $req = new OpenApiRequest([
             'body' => Utils::toMap($request),
         ]);
 
-        return DescribeClustersInServiceMeshResponse::fromMap($this->doRPCRequest('DescribeClustersInServiceMesh', '2020-01-11', 'HTTPS', 'POST', 'AK', 'json', $req, $runtime));
+        return GetBuiltinEnvoyFilterResponse::fromMap($this->doRPCRequest('GetBuiltinEnvoyFilter', '2020-01-11', 'HTTPS', 'POST', 'AK', 'json', $req, $runtime));
     }
 
     /**
-     * @param DescribeClustersInServiceMeshRequest $request
+     * @param GetBuiltinEnvoyFilterRequest $request
      *
-     * @return DescribeClustersInServiceMeshResponse
+     * @return GetBuiltinEnvoyFilterResponse
      */
-    public function describeClustersInServiceMesh($request)
+    public function getBuiltinEnvoyFilter($request)
     {
         $runtime = new RuntimeOptions([]);
 
-        return $this->describeClustersInServiceMeshWithOptions($request, $runtime);
+        return $this->getBuiltinEnvoyFilterWithOptions($request, $runtime);
     }
 
     /**
@@ -802,31 +1266,31 @@ class Servicemesh extends OpenApiClient
     }
 
     /**
-     * @param DescribeClusterGrafanaRequest $request
-     * @param RuntimeOptions                $runtime
+     * @param GetCaCertRequest $request
+     * @param RuntimeOptions   $runtime
      *
-     * @return DescribeClusterGrafanaResponse
+     * @return GetCaCertResponse
      */
-    public function describeClusterGrafanaWithOptions($request, $runtime)
+    public function getCaCertWithOptions($request, $runtime)
     {
         Utils::validateModel($request);
         $req = new OpenApiRequest([
             'body' => Utils::toMap($request),
         ]);
 
-        return DescribeClusterGrafanaResponse::fromMap($this->doRPCRequest('DescribeClusterGrafana', '2020-01-11', 'HTTPS', 'POST', 'AK', 'json', $req, $runtime));
+        return GetCaCertResponse::fromMap($this->doRPCRequest('GetCaCert', '2020-01-11', 'HTTPS', 'POST', 'AK', 'json', $req, $runtime));
     }
 
     /**
-     * @param DescribeClusterGrafanaRequest $request
+     * @param GetCaCertRequest $request
      *
-     * @return DescribeClusterGrafanaResponse
+     * @return GetCaCertResponse
      */
-    public function describeClusterGrafana($request)
+    public function getCaCert($request)
     {
         $runtime = new RuntimeOptions([]);
 
-        return $this->describeClusterGrafanaWithOptions($request, $runtime);
+        return $this->getCaCertWithOptions($request, $runtime);
     }
 
     /**
@@ -858,6 +1322,91 @@ class Servicemesh extends OpenApiClient
     }
 
     /**
+     * @param GetEcsListRequest $request
+     * @param RuntimeOptions    $runtime
+     *
+     * @return GetEcsListResponse
+     */
+    public function getEcsListWithOptions($request, $runtime)
+    {
+        Utils::validateModel($request);
+        $query = OpenApiUtilClient::query(Utils::toMap($request));
+        $req   = new OpenApiRequest([
+            'query' => $query,
+        ]);
+
+        return GetEcsListResponse::fromMap($this->doRPCRequest('GetEcsList', '2020-01-11', 'HTTPS', 'GET', 'AK', 'json', $req, $runtime));
+    }
+
+    /**
+     * @param GetEcsListRequest $request
+     *
+     * @return GetEcsListResponse
+     */
+    public function getEcsList($request)
+    {
+        $runtime = new RuntimeOptions([]);
+
+        return $this->getEcsListWithOptions($request, $runtime);
+    }
+
+    /**
+     * @param GetRegisteredServiceEndpointsRequest $request
+     * @param RuntimeOptions                       $runtime
+     *
+     * @return GetRegisteredServiceEndpointsResponse
+     */
+    public function getRegisteredServiceEndpointsWithOptions($request, $runtime)
+    {
+        Utils::validateModel($request);
+        $req = new OpenApiRequest([
+            'body' => Utils::toMap($request),
+        ]);
+
+        return GetRegisteredServiceEndpointsResponse::fromMap($this->doRPCRequest('GetRegisteredServiceEndpoints', '2020-01-11', 'HTTPS', 'POST', 'AK', 'json', $req, $runtime));
+    }
+
+    /**
+     * @param GetRegisteredServiceEndpointsRequest $request
+     *
+     * @return GetRegisteredServiceEndpointsResponse
+     */
+    public function getRegisteredServiceEndpoints($request)
+    {
+        $runtime = new RuntimeOptions([]);
+
+        return $this->getRegisteredServiceEndpointsWithOptions($request, $runtime);
+    }
+
+    /**
+     * @param GetRegisteredServiceNamespacesRequest $request
+     * @param RuntimeOptions                        $runtime
+     *
+     * @return GetRegisteredServiceNamespacesResponse
+     */
+    public function getRegisteredServiceNamespacesWithOptions($request, $runtime)
+    {
+        Utils::validateModel($request);
+        $req = new OpenApiRequest([
+            'body' => Utils::toMap($request),
+        ]);
+
+        return GetRegisteredServiceNamespacesResponse::fromMap($this->doRPCRequest('GetRegisteredServiceNamespaces', '2020-01-11', 'HTTPS', 'POST', 'AK', 'json', $req, $runtime));
+    }
+
+    /**
+     * @param GetRegisteredServiceNamespacesRequest $request
+     *
+     * @return GetRegisteredServiceNamespacesResponse
+     */
+    public function getRegisteredServiceNamespaces($request)
+    {
+        $runtime = new RuntimeOptions([]);
+
+        return $this->getRegisteredServiceNamespacesWithOptions($request, $runtime);
+    }
+
+    /**
      * @param GetRegisteredServicesRequest $request
      * @param RuntimeOptions               $runtime
      *
@@ -886,62 +1435,6 @@ class Servicemesh extends OpenApiClient
     }
 
     /**
-     * @param DescribeCensRequest $request
-     * @param RuntimeOptions      $runtime
-     *
-     * @return DescribeCensResponse
-     */
-    public function describeCensWithOptions($request, $runtime)
-    {
-        Utils::validateModel($request);
-        $req = new OpenApiRequest([
-            'body' => Utils::toMap($request),
-        ]);
-
-        return DescribeCensResponse::fromMap($this->doRPCRequest('DescribeCens', '2020-01-11', 'HTTPS', 'POST', 'AK', 'json', $req, $runtime));
-    }
-
-    /**
-     * @param DescribeCensRequest $request
-     *
-     * @return DescribeCensResponse
-     */
-    public function describeCens($request)
-    {
-        $runtime = new RuntimeOptions([]);
-
-        return $this->describeCensWithOptions($request, $runtime);
-    }
-
-    /**
-     * @param DeleteServiceMeshRequest $request
-     * @param RuntimeOptions           $runtime
-     *
-     * @return DeleteServiceMeshResponse
-     */
-    public function deleteServiceMeshWithOptions($request, $runtime)
-    {
-        Utils::validateModel($request);
-        $req = new OpenApiRequest([
-            'body' => Utils::toMap($request),
-        ]);
-
-        return DeleteServiceMeshResponse::fromMap($this->doRPCRequest('DeleteServiceMesh', '2020-01-11', 'HTTPS', 'POST', 'AK', 'json', $req, $runtime));
-    }
-
-    /**
-     * @param DeleteServiceMeshRequest $request
-     *
-     * @return DeleteServiceMeshResponse
-     */
-    public function deleteServiceMesh($request)
-    {
-        $runtime = new RuntimeOptions([]);
-
-        return $this->deleteServiceMeshWithOptions($request, $runtime);
-    }
-
-    /**
      * @param GetSaTokenRequest $request
      * @param RuntimeOptions    $runtime
      *
@@ -967,6 +1460,62 @@ class Servicemesh extends OpenApiClient
         $runtime = new RuntimeOptions([]);
 
         return $this->getSaTokenWithOptions($request, $runtime);
+    }
+
+    /**
+     * @param GetServiceMeshSlbRequest $request
+     * @param RuntimeOptions           $runtime
+     *
+     * @return GetServiceMeshSlbResponse
+     */
+    public function getServiceMeshSlbWithOptions($request, $runtime)
+    {
+        Utils::validateModel($request);
+        $req = new OpenApiRequest([
+            'body' => Utils::toMap($request),
+        ]);
+
+        return GetServiceMeshSlbResponse::fromMap($this->doRPCRequest('GetServiceMeshSlb', '2020-01-11', 'HTTPS', 'POST', 'AK', 'json', $req, $runtime));
+    }
+
+    /**
+     * @param GetServiceMeshSlbRequest $request
+     *
+     * @return GetServiceMeshSlbResponse
+     */
+    public function getServiceMeshSlb($request)
+    {
+        $runtime = new RuntimeOptions([]);
+
+        return $this->getServiceMeshSlbWithOptions($request, $runtime);
+    }
+
+    /**
+     * @param GetServiceRegistrySourceRequest $request
+     * @param RuntimeOptions                  $runtime
+     *
+     * @return GetServiceRegistrySourceResponse
+     */
+    public function getServiceRegistrySourceWithOptions($request, $runtime)
+    {
+        Utils::validateModel($request);
+        $req = new OpenApiRequest([
+            'body' => Utils::toMap($request),
+        ]);
+
+        return GetServiceRegistrySourceResponse::fromMap($this->doRPCRequest('GetServiceRegistrySource', '2020-01-11', 'HTTPS', 'POST', 'AK', 'json', $req, $runtime));
+    }
+
+    /**
+     * @param GetServiceRegistrySourceRequest $request
+     *
+     * @return GetServiceRegistrySourceResponse
+     */
+    public function getServiceRegistrySource($request)
+    {
+        $runtime = new RuntimeOptions([]);
+
+        return $this->getServiceRegistrySourceWithOptions($request, $runtime);
     }
 
     /**
@@ -999,6 +1548,197 @@ class Servicemesh extends OpenApiClient
     }
 
     /**
+     * @param GetVmMetaRequest $request
+     * @param RuntimeOptions   $runtime
+     *
+     * @return GetVmMetaResponse
+     */
+    public function getVmMetaWithOptions($request, $runtime)
+    {
+        Utils::validateModel($request);
+        $query = OpenApiUtilClient::query(Utils::toMap($request));
+        $req   = new OpenApiRequest([
+            'query' => $query,
+        ]);
+
+        return GetVmMetaResponse::fromMap($this->doRPCRequest('GetVmMeta', '2020-01-11', 'HTTPS', 'GET', 'AK', 'json', $req, $runtime));
+    }
+
+    /**
+     * @param GetVmMetaRequest $request
+     *
+     * @return GetVmMetaResponse
+     */
+    public function getVmMeta($request)
+    {
+        $runtime = new RuntimeOptions([]);
+
+        return $this->getVmMetaWithOptions($request, $runtime);
+    }
+
+    /**
+     * @param RuntimeOptions $runtime
+     *
+     * @return InitializeASMRoleResponse
+     */
+    public function initializeASMRoleWithOptions($runtime)
+    {
+        $req = new OpenApiRequest([]);
+
+        return InitializeASMRoleResponse::fromMap($this->doRPCRequest('InitializeASMRole', '2020-01-11', 'HTTPS', 'POST', 'AK', 'json', $req, $runtime));
+    }
+
+    /**
+     * @return InitializeASMRoleResponse
+     */
+    public function initializeASMRole()
+    {
+        $runtime = new RuntimeOptions([]);
+
+        return $this->initializeASMRoleWithOptions($runtime);
+    }
+
+    /**
+     * @param ListBuiltinEnvoyFilterRequest $request
+     * @param RuntimeOptions                $runtime
+     *
+     * @return ListBuiltinEnvoyFilterResponse
+     */
+    public function listBuiltinEnvoyFilterWithOptions($request, $runtime)
+    {
+        Utils::validateModel($request);
+        $req = new OpenApiRequest([
+            'body' => Utils::toMap($request),
+        ]);
+
+        return ListBuiltinEnvoyFilterResponse::fromMap($this->doRPCRequest('ListBuiltinEnvoyFilter', '2020-01-11', 'HTTPS', 'POST', 'AK', 'json', $req, $runtime));
+    }
+
+    /**
+     * @param ListBuiltinEnvoyFilterRequest $request
+     *
+     * @return ListBuiltinEnvoyFilterResponse
+     */
+    public function listBuiltinEnvoyFilter($request)
+    {
+        $runtime = new RuntimeOptions([]);
+
+        return $this->listBuiltinEnvoyFilterWithOptions($request, $runtime);
+    }
+
+    /**
+     * @param ModifyBuiltinEnvoyFilterRequest $request
+     * @param RuntimeOptions                  $runtime
+     *
+     * @return ModifyBuiltinEnvoyFilterResponse
+     */
+    public function modifyBuiltinEnvoyFilterWithOptions($request, $runtime)
+    {
+        Utils::validateModel($request);
+        $req = new OpenApiRequest([
+            'body' => Utils::toMap($request),
+        ]);
+
+        return ModifyBuiltinEnvoyFilterResponse::fromMap($this->doRPCRequest('ModifyBuiltinEnvoyFilter', '2020-01-11', 'HTTPS', 'POST', 'AK', 'json', $req, $runtime));
+    }
+
+    /**
+     * @param ModifyBuiltinEnvoyFilterRequest $request
+     *
+     * @return ModifyBuiltinEnvoyFilterResponse
+     */
+    public function modifyBuiltinEnvoyFilter($request)
+    {
+        $runtime = new RuntimeOptions([]);
+
+        return $this->modifyBuiltinEnvoyFilterWithOptions($request, $runtime);
+    }
+
+    /**
+     * @param ModifyServiceMeshNameRequest $request
+     * @param RuntimeOptions               $runtime
+     *
+     * @return ModifyServiceMeshNameResponse
+     */
+    public function modifyServiceMeshNameWithOptions($request, $runtime)
+    {
+        Utils::validateModel($request);
+        $req = new OpenApiRequest([
+            'body' => Utils::toMap($request),
+        ]);
+
+        return ModifyServiceMeshNameResponse::fromMap($this->doRPCRequest('ModifyServiceMeshName', '2020-01-11', 'HTTPS', 'POST', 'AK', 'json', $req, $runtime));
+    }
+
+    /**
+     * @param ModifyServiceMeshNameRequest $request
+     *
+     * @return ModifyServiceMeshNameResponse
+     */
+    public function modifyServiceMeshName($request)
+    {
+        $runtime = new RuntimeOptions([]);
+
+        return $this->modifyServiceMeshNameWithOptions($request, $runtime);
+    }
+
+    /**
+     * @param ReActivateAuditRequest $request
+     * @param RuntimeOptions         $runtime
+     *
+     * @return ReActivateAuditResponse
+     */
+    public function reActivateAuditWithOptions($request, $runtime)
+    {
+        Utils::validateModel($request);
+        $req = new OpenApiRequest([
+            'body' => Utils::toMap($request),
+        ]);
+
+        return ReActivateAuditResponse::fromMap($this->doRPCRequest('ReActivateAudit', '2020-01-11', 'HTTPS', 'POST', 'AK', 'json', $req, $runtime));
+    }
+
+    /**
+     * @param ReActivateAuditRequest $request
+     *
+     * @return ReActivateAuditResponse
+     */
+    public function reActivateAudit($request)
+    {
+        $runtime = new RuntimeOptions([]);
+
+        return $this->reActivateAuditWithOptions($request, $runtime);
+    }
+
+    /**
+     * @param RemoveBuiltinEnvoyFilterRequest $request
+     * @param RuntimeOptions                  $runtime
+     *
+     * @return RemoveBuiltinEnvoyFilterResponse
+     */
+    public function removeBuiltinEnvoyFilterWithOptions($request, $runtime)
+    {
+        Utils::validateModel($request);
+        $req = new OpenApiRequest([
+            'body' => Utils::toMap($request),
+        ]);
+
+        return RemoveBuiltinEnvoyFilterResponse::fromMap($this->doRPCRequest('RemoveBuiltinEnvoyFilter', '2020-01-11', 'HTTPS', 'POST', 'AK', 'json', $req, $runtime));
+    }
+
+    /**
+     * @param RemoveBuiltinEnvoyFilterRequest $request
+     *
+     * @return RemoveBuiltinEnvoyFilterResponse
+     */
+    public function removeBuiltinEnvoyFilter($request)
+    {
+        $runtime = new RuntimeOptions([]);
+
+        return $this->removeBuiltinEnvoyFilterWithOptions($request, $runtime);
+    }
+
+    /**
      * @param RemoveClusterFromServiceMeshRequest $request
      * @param RuntimeOptions                      $runtime
      *
@@ -1027,32 +1767,59 @@ class Servicemesh extends OpenApiClient
     }
 
     /**
-     * @param DescribeRegionsRequest $request
-     * @param RuntimeOptions         $runtime
+     * @param RemoveVMFromServiceMeshRequest $request
+     * @param RuntimeOptions                 $runtime
      *
-     * @return DescribeRegionsResponse
+     * @return RemoveVMFromServiceMeshResponse
      */
-    public function describeRegionsWithOptions($request, $runtime)
+    public function removeVMFromServiceMeshWithOptions($request, $runtime)
     {
         Utils::validateModel($request);
-        $query = OpenApiUtilClient::query(Utils::toMap($request));
-        $req   = new OpenApiRequest([
-            'query' => $query,
+        $req = new OpenApiRequest([
+            'body' => Utils::toMap($request),
         ]);
 
-        return DescribeRegionsResponse::fromMap($this->doRPCRequest('DescribeRegions', '2020-01-11', 'HTTPS', 'GET', 'AK', 'json', $req, $runtime));
+        return RemoveVMFromServiceMeshResponse::fromMap($this->doRPCRequest('RemoveVMFromServiceMesh', '2020-01-11', 'HTTPS', 'POST', 'AK', 'json', $req, $runtime));
     }
 
     /**
-     * @param DescribeRegionsRequest $request
+     * @param RemoveVMFromServiceMeshRequest $request
      *
-     * @return DescribeRegionsResponse
+     * @return RemoveVMFromServiceMeshResponse
      */
-    public function describeRegions($request)
+    public function removeVMFromServiceMesh($request)
     {
         $runtime = new RuntimeOptions([]);
 
-        return $this->describeRegionsWithOptions($request, $runtime);
+        return $this->removeVMFromServiceMeshWithOptions($request, $runtime);
+    }
+
+    /**
+     * @param RunDiagnosisRequest $request
+     * @param RuntimeOptions      $runtime
+     *
+     * @return RunDiagnosisResponse
+     */
+    public function runDiagnosisWithOptions($request, $runtime)
+    {
+        Utils::validateModel($request);
+        $req = new OpenApiRequest([
+            'body' => Utils::toMap($request),
+        ]);
+
+        return RunDiagnosisResponse::fromMap($this->doRPCRequest('RunDiagnosis', '2020-01-11', 'HTTPS', 'POST', 'AK', 'json', $req, $runtime));
+    }
+
+    /**
+     * @param RunDiagnosisRequest $request
+     *
+     * @return RunDiagnosisResponse
+     */
+    public function runDiagnosis($request)
+    {
+        $runtime = new RuntimeOptions([]);
+
+        return $this->runDiagnosisWithOptions($request, $runtime);
     }
 
     /**
@@ -1089,88 +1856,115 @@ class Servicemesh extends OpenApiClient
     }
 
     /**
-     * @param AddClusterIntoServiceMeshRequest $request
-     * @param RuntimeOptions                   $runtime
+     * @param UpdateControlPlaneLogAlertActionPolicyRequest $request
+     * @param RuntimeOptions                                $runtime
      *
-     * @return AddClusterIntoServiceMeshResponse
+     * @return UpdateControlPlaneLogAlertActionPolicyResponse
      */
-    public function addClusterIntoServiceMeshWithOptions($request, $runtime)
+    public function updateControlPlaneLogAlertActionPolicyWithOptions($request, $runtime)
     {
         Utils::validateModel($request);
         $req = new OpenApiRequest([
             'body' => Utils::toMap($request),
         ]);
 
-        return AddClusterIntoServiceMeshResponse::fromMap($this->doRPCRequest('AddClusterIntoServiceMesh', '2020-01-11', 'HTTPS', 'POST', 'AK', 'json', $req, $runtime));
+        return UpdateControlPlaneLogAlertActionPolicyResponse::fromMap($this->doRPCRequest('UpdateControlPlaneLogAlertActionPolicy', '2020-01-11', 'HTTPS', 'POST', 'AK', 'json', $req, $runtime));
     }
 
     /**
-     * @param AddClusterIntoServiceMeshRequest $request
+     * @param UpdateControlPlaneLogAlertActionPolicyRequest $request
      *
-     * @return AddClusterIntoServiceMeshResponse
+     * @return UpdateControlPlaneLogAlertActionPolicyResponse
      */
-    public function addClusterIntoServiceMesh($request)
+    public function updateControlPlaneLogAlertActionPolicy($request)
     {
         $runtime = new RuntimeOptions([]);
 
-        return $this->addClusterIntoServiceMeshWithOptions($request, $runtime);
+        return $this->updateControlPlaneLogAlertActionPolicyWithOptions($request, $runtime);
     }
 
     /**
-     * @param AddBuiltinEnvoyFilterRequest $request
-     * @param RuntimeOptions               $runtime
+     * @param UpdateControlPlaneLogConfigRequest $request
+     * @param RuntimeOptions                     $runtime
      *
-     * @return AddBuiltinEnvoyFilterResponse
+     * @return UpdateControlPlaneLogConfigResponse
      */
-    public function addBuiltinEnvoyFilterWithOptions($request, $runtime)
+    public function updateControlPlaneLogConfigWithOptions($request, $runtime)
     {
         Utils::validateModel($request);
         $req = new OpenApiRequest([
             'body' => Utils::toMap($request),
         ]);
 
-        return AddBuiltinEnvoyFilterResponse::fromMap($this->doRPCRequest('AddBuiltinEnvoyFilter', '2020-01-11', 'HTTPS', 'POST', 'AK', 'json', $req, $runtime));
+        return UpdateControlPlaneLogConfigResponse::fromMap($this->doRPCRequest('UpdateControlPlaneLogConfig', '2020-01-11', 'HTTPS', 'POST', 'AK', 'json', $req, $runtime));
     }
 
     /**
-     * @param AddBuiltinEnvoyFilterRequest $request
+     * @param UpdateControlPlaneLogConfigRequest $request
      *
-     * @return AddBuiltinEnvoyFilterResponse
+     * @return UpdateControlPlaneLogConfigResponse
      */
-    public function addBuiltinEnvoyFilter($request)
+    public function updateControlPlaneLogConfig($request)
     {
         $runtime = new RuntimeOptions([]);
 
-        return $this->addBuiltinEnvoyFilterWithOptions($request, $runtime);
+        return $this->updateControlPlaneLogConfigWithOptions($request, $runtime);
     }
 
     /**
-     * @param GetEcsListRequest $request
-     * @param RuntimeOptions    $runtime
+     * @param UpdateExtensionProviderRequest $request
+     * @param RuntimeOptions                 $runtime
      *
-     * @return GetEcsListResponse
+     * @return UpdateExtensionProviderResponse
      */
-    public function getEcsListWithOptions($request, $runtime)
+    public function updateExtensionProviderWithOptions($request, $runtime)
     {
         Utils::validateModel($request);
-        $query = OpenApiUtilClient::query(Utils::toMap($request));
-        $req   = new OpenApiRequest([
-            'query' => $query,
+        $req = new OpenApiRequest([
+            'body' => Utils::toMap($request),
         ]);
 
-        return GetEcsListResponse::fromMap($this->doRPCRequest('GetEcsList', '2020-01-11', 'HTTPS', 'GET', 'AK', 'json', $req, $runtime));
+        return UpdateExtensionProviderResponse::fromMap($this->doRPCRequest('UpdateExtensionProvider', '2020-01-11', 'HTTPS', 'POST', 'AK', 'json', $req, $runtime));
     }
 
     /**
-     * @param GetEcsListRequest $request
+     * @param UpdateExtensionProviderRequest $request
      *
-     * @return GetEcsListResponse
+     * @return UpdateExtensionProviderResponse
      */
-    public function getEcsList($request)
+    public function updateExtensionProvider($request)
     {
         $runtime = new RuntimeOptions([]);
 
-        return $this->getEcsListWithOptions($request, $runtime);
+        return $this->updateExtensionProviderWithOptions($request, $runtime);
+    }
+
+    /**
+     * @param UpdateIstioInjectionConfigRequest $request
+     * @param RuntimeOptions                    $runtime
+     *
+     * @return UpdateIstioInjectionConfigResponse
+     */
+    public function updateIstioInjectionConfigWithOptions($request, $runtime)
+    {
+        Utils::validateModel($request);
+        $req = new OpenApiRequest([
+            'body' => Utils::toMap($request),
+        ]);
+
+        return UpdateIstioInjectionConfigResponse::fromMap($this->doRPCRequest('UpdateIstioInjectionConfig', '2020-01-11', 'HTTPS', 'POST', 'AK', 'json', $req, $runtime));
+    }
+
+    /**
+     * @param UpdateIstioInjectionConfigRequest $request
+     *
+     * @return UpdateIstioInjectionConfigResponse
+     */
+    public function updateIstioInjectionConfig($request)
+    {
+        $runtime = new RuntimeOptions([]);
+
+        return $this->updateIstioInjectionConfigWithOptions($request, $runtime);
     }
 
     /**
@@ -1202,192 +1996,58 @@ class Servicemesh extends OpenApiClient
     }
 
     /**
-     * @param AddVmAppToMeshRequest $request
-     * @param RuntimeOptions        $runtime
+     * @param UpdateNamespaceScopeSidecarConfigRequest $request
+     * @param RuntimeOptions                           $runtime
      *
-     * @return AddVmAppToMeshResponse
+     * @return UpdateNamespaceScopeSidecarConfigResponse
      */
-    public function addVmAppToMeshWithOptions($request, $runtime)
+    public function updateNamespaceScopeSidecarConfigWithOptions($request, $runtime)
     {
         Utils::validateModel($request);
         $req = new OpenApiRequest([
             'body' => Utils::toMap($request),
         ]);
 
-        return AddVmAppToMeshResponse::fromMap($this->doRPCRequest('AddVmAppToMesh', '2020-01-11', 'HTTPS', 'POST', 'AK', 'json', $req, $runtime));
+        return UpdateNamespaceScopeSidecarConfigResponse::fromMap($this->doRPCRequest('UpdateNamespaceScopeSidecarConfig', '2020-01-11', 'HTTPS', 'POST', 'AK', 'json', $req, $runtime));
     }
 
     /**
-     * @param AddVmAppToMeshRequest $request
+     * @param UpdateNamespaceScopeSidecarConfigRequest $request
      *
-     * @return AddVmAppToMeshResponse
+     * @return UpdateNamespaceScopeSidecarConfigResponse
      */
-    public function addVmAppToMesh($request)
+    public function updateNamespaceScopeSidecarConfig($request)
     {
         $runtime = new RuntimeOptions([]);
 
-        return $this->addVmAppToMeshWithOptions($request, $runtime);
+        return $this->updateNamespaceScopeSidecarConfigWithOptions($request, $runtime);
     }
 
     /**
-     * @param CreateServiceMeshRequest $request
-     * @param RuntimeOptions           $runtime
+     * @param UpgradeMeshVersionRequest $request
+     * @param RuntimeOptions            $runtime
      *
-     * @return CreateServiceMeshResponse
+     * @return UpgradeMeshVersionResponse
      */
-    public function createServiceMeshWithOptions($request, $runtime)
+    public function upgradeMeshVersionWithOptions($request, $runtime)
     {
         Utils::validateModel($request);
         $req = new OpenApiRequest([
             'body' => Utils::toMap($request),
         ]);
 
-        return CreateServiceMeshResponse::fromMap($this->doRPCRequest('CreateServiceMesh', '2020-01-11', 'HTTPS', 'POST', 'AK', 'json', $req, $runtime));
+        return UpgradeMeshVersionResponse::fromMap($this->doRPCRequest('UpgradeMeshVersion', '2020-01-11', 'HTTPS', 'POST', 'AK', 'json', $req, $runtime));
     }
 
     /**
-     * @param CreateServiceMeshRequest $request
+     * @param UpgradeMeshVersionRequest $request
      *
-     * @return CreateServiceMeshResponse
+     * @return UpgradeMeshVersionResponse
      */
-    public function createServiceMesh($request)
+    public function upgradeMeshVersion($request)
     {
         $runtime = new RuntimeOptions([]);
 
-        return $this->createServiceMeshWithOptions($request, $runtime);
-    }
-
-    /**
-     * @param GetServiceRegistrySourceRequest $request
-     * @param RuntimeOptions                  $runtime
-     *
-     * @return GetServiceRegistrySourceResponse
-     */
-    public function getServiceRegistrySourceWithOptions($request, $runtime)
-    {
-        Utils::validateModel($request);
-        $req = new OpenApiRequest([
-            'body' => Utils::toMap($request),
-        ]);
-
-        return GetServiceRegistrySourceResponse::fromMap($this->doRPCRequest('GetServiceRegistrySource', '2020-01-11', 'HTTPS', 'POST', 'AK', 'json', $req, $runtime));
-    }
-
-    /**
-     * @param GetServiceRegistrySourceRequest $request
-     *
-     * @return GetServiceRegistrySourceResponse
-     */
-    public function getServiceRegistrySource($request)
-    {
-        $runtime = new RuntimeOptions([]);
-
-        return $this->getServiceRegistrySourceWithOptions($request, $runtime);
-    }
-
-    /**
-     * @param RemoveBuiltinEnvoyFilterRequest $request
-     * @param RuntimeOptions                  $runtime
-     *
-     * @return RemoveBuiltinEnvoyFilterResponse
-     */
-    public function removeBuiltinEnvoyFilterWithOptions($request, $runtime)
-    {
-        Utils::validateModel($request);
-        $req = new OpenApiRequest([
-            'body' => Utils::toMap($request),
-        ]);
-
-        return RemoveBuiltinEnvoyFilterResponse::fromMap($this->doRPCRequest('RemoveBuiltinEnvoyFilter', '2020-01-11', 'HTTPS', 'POST', 'AK', 'json', $req, $runtime));
-    }
-
-    /**
-     * @param RemoveBuiltinEnvoyFilterRequest $request
-     *
-     * @return RemoveBuiltinEnvoyFilterResponse
-     */
-    public function removeBuiltinEnvoyFilter($request)
-    {
-        $runtime = new RuntimeOptions([]);
-
-        return $this->removeBuiltinEnvoyFilterWithOptions($request, $runtime);
-    }
-
-    /**
-     * @param GetBuiltinEnvoyFilterRequest $request
-     * @param RuntimeOptions               $runtime
-     *
-     * @return GetBuiltinEnvoyFilterResponse
-     */
-    public function getBuiltinEnvoyFilterWithOptions($request, $runtime)
-    {
-        Utils::validateModel($request);
-        $req = new OpenApiRequest([
-            'body' => Utils::toMap($request),
-        ]);
-
-        return GetBuiltinEnvoyFilterResponse::fromMap($this->doRPCRequest('GetBuiltinEnvoyFilter', '2020-01-11', 'HTTPS', 'POST', 'AK', 'json', $req, $runtime));
-    }
-
-    /**
-     * @param GetBuiltinEnvoyFilterRequest $request
-     *
-     * @return GetBuiltinEnvoyFilterResponse
-     */
-    public function getBuiltinEnvoyFilter($request)
-    {
-        $runtime = new RuntimeOptions([]);
-
-        return $this->getBuiltinEnvoyFilterWithOptions($request, $runtime);
-    }
-
-    /**
-     * @param RuntimeOptions $runtime
-     *
-     * @return InitializeASMRoleResponse
-     */
-    public function initializeASMRoleWithOptions($runtime)
-    {
-        $req = new OpenApiRequest([]);
-
-        return InitializeASMRoleResponse::fromMap($this->doRPCRequest('InitializeASMRole', '2020-01-11', 'HTTPS', 'POST', 'AK', 'json', $req, $runtime));
-    }
-
-    /**
-     * @return InitializeASMRoleResponse
-     */
-    public function initializeASMRole()
-    {
-        $runtime = new RuntimeOptions([]);
-
-        return $this->initializeASMRoleWithOptions($runtime);
-    }
-
-    /**
-     * @param AddMeshTagToEcsRequest $request
-     * @param RuntimeOptions         $runtime
-     *
-     * @return AddMeshTagToEcsResponse
-     */
-    public function addMeshTagToEcsWithOptions($request, $runtime)
-    {
-        Utils::validateModel($request);
-        $req = new OpenApiRequest([
-            'body' => Utils::toMap($request),
-        ]);
-
-        return AddMeshTagToEcsResponse::fromMap($this->doRPCRequest('AddMeshTagToEcs', '2020-01-11', 'HTTPS', 'POST', 'AK', 'json', $req, $runtime));
-    }
-
-    /**
-     * @param AddMeshTagToEcsRequest $request
-     *
-     * @return AddMeshTagToEcsResponse
-     */
-    public function addMeshTagToEcs($request)
-    {
-        $runtime = new RuntimeOptions([]);
-
-        return $this->addMeshTagToEcsWithOptions($request, $runtime);
+        return $this->upgradeMeshVersionWithOptions($request, $runtime);
     }
 }

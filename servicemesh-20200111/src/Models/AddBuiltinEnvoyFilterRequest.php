@@ -11,12 +11,12 @@ class AddBuiltinEnvoyFilterRequest extends Model
     /**
      * @var string
      */
-    public $serviceMeshId;
+    public $id;
 
     /**
      * @var string
      */
-    public $id;
+    public $istioVersion;
 
     /**
      * @var string
@@ -31,13 +31,13 @@ class AddBuiltinEnvoyFilterRequest extends Model
     /**
      * @var string
      */
-    public $istioVersion;
+    public $serviceMeshId;
     protected $_name = [
-        'serviceMeshId' => 'ServiceMeshId',
         'id'            => 'Id',
+        'istioVersion'  => 'IstioVersion',
         'name'          => 'Name',
         'parameters'    => 'Parameters',
-        'istioVersion'  => 'IstioVersion',
+        'serviceMeshId' => 'ServiceMeshId',
     ];
 
     public function validate()
@@ -47,11 +47,11 @@ class AddBuiltinEnvoyFilterRequest extends Model
     public function toMap()
     {
         $res = [];
-        if (null !== $this->serviceMeshId) {
-            $res['ServiceMeshId'] = $this->serviceMeshId;
-        }
         if (null !== $this->id) {
             $res['Id'] = $this->id;
+        }
+        if (null !== $this->istioVersion) {
+            $res['IstioVersion'] = $this->istioVersion;
         }
         if (null !== $this->name) {
             $res['Name'] = $this->name;
@@ -59,8 +59,8 @@ class AddBuiltinEnvoyFilterRequest extends Model
         if (null !== $this->parameters) {
             $res['Parameters'] = $this->parameters;
         }
-        if (null !== $this->istioVersion) {
-            $res['IstioVersion'] = $this->istioVersion;
+        if (null !== $this->serviceMeshId) {
+            $res['ServiceMeshId'] = $this->serviceMeshId;
         }
 
         return $res;
@@ -74,11 +74,11 @@ class AddBuiltinEnvoyFilterRequest extends Model
     public static function fromMap($map = [])
     {
         $model = new self();
-        if (isset($map['ServiceMeshId'])) {
-            $model->serviceMeshId = $map['ServiceMeshId'];
-        }
         if (isset($map['Id'])) {
             $model->id = $map['Id'];
+        }
+        if (isset($map['IstioVersion'])) {
+            $model->istioVersion = $map['IstioVersion'];
         }
         if (isset($map['Name'])) {
             $model->name = $map['Name'];
@@ -86,8 +86,8 @@ class AddBuiltinEnvoyFilterRequest extends Model
         if (isset($map['Parameters'])) {
             $model->parameters = $map['Parameters'];
         }
-        if (isset($map['IstioVersion'])) {
-            $model->istioVersion = $map['IstioVersion'];
+        if (isset($map['ServiceMeshId'])) {
+            $model->serviceMeshId = $map['ServiceMeshId'];
         }
 
         return $model;

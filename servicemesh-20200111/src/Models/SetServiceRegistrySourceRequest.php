@@ -9,17 +9,17 @@ use AlibabaCloud\Tea\Model;
 class SetServiceRegistrySourceRequest extends Model
 {
     /**
-     * @var string
-     */
-    public $serviceMeshId;
-
-    /**
      * @var mixed[]
      */
     public $config;
+
+    /**
+     * @var string
+     */
+    public $serviceMeshId;
     protected $_name = [
-        'serviceMeshId' => 'ServiceMeshId',
         'config'        => 'Config',
+        'serviceMeshId' => 'ServiceMeshId',
     ];
 
     public function validate()
@@ -29,11 +29,11 @@ class SetServiceRegistrySourceRequest extends Model
     public function toMap()
     {
         $res = [];
-        if (null !== $this->serviceMeshId) {
-            $res['ServiceMeshId'] = $this->serviceMeshId;
-        }
         if (null !== $this->config) {
             $res['Config'] = $this->config;
+        }
+        if (null !== $this->serviceMeshId) {
+            $res['ServiceMeshId'] = $this->serviceMeshId;
         }
 
         return $res;
@@ -47,11 +47,11 @@ class SetServiceRegistrySourceRequest extends Model
     public static function fromMap($map = [])
     {
         $model = new self();
-        if (isset($map['ServiceMeshId'])) {
-            $model->serviceMeshId = $map['ServiceMeshId'];
-        }
         if (isset($map['Config'])) {
             $model->config = $map['Config'];
+        }
+        if (isset($map['ServiceMeshId'])) {
+            $model->serviceMeshId = $map['ServiceMeshId'];
         }
 
         return $model;

@@ -11,12 +11,12 @@ class RemoveBuiltinEnvoyFilterRequest extends Model
     /**
      * @var string
      */
-    public $serviceMeshId;
+    public $id;
 
     /**
      * @var string
      */
-    public $id;
+    public $istioVersion;
 
     /**
      * @var string
@@ -26,12 +26,12 @@ class RemoveBuiltinEnvoyFilterRequest extends Model
     /**
      * @var string
      */
-    public $istioVersion;
+    public $serviceMeshId;
     protected $_name = [
-        'serviceMeshId' => 'ServiceMeshId',
         'id'            => 'Id',
-        'name'          => 'Name',
         'istioVersion'  => 'IstioVersion',
+        'name'          => 'Name',
+        'serviceMeshId' => 'ServiceMeshId',
     ];
 
     public function validate()
@@ -41,17 +41,17 @@ class RemoveBuiltinEnvoyFilterRequest extends Model
     public function toMap()
     {
         $res = [];
-        if (null !== $this->serviceMeshId) {
-            $res['ServiceMeshId'] = $this->serviceMeshId;
-        }
         if (null !== $this->id) {
             $res['Id'] = $this->id;
+        }
+        if (null !== $this->istioVersion) {
+            $res['IstioVersion'] = $this->istioVersion;
         }
         if (null !== $this->name) {
             $res['Name'] = $this->name;
         }
-        if (null !== $this->istioVersion) {
-            $res['IstioVersion'] = $this->istioVersion;
+        if (null !== $this->serviceMeshId) {
+            $res['ServiceMeshId'] = $this->serviceMeshId;
         }
 
         return $res;
@@ -65,17 +65,17 @@ class RemoveBuiltinEnvoyFilterRequest extends Model
     public static function fromMap($map = [])
     {
         $model = new self();
-        if (isset($map['ServiceMeshId'])) {
-            $model->serviceMeshId = $map['ServiceMeshId'];
-        }
         if (isset($map['Id'])) {
             $model->id = $map['Id'];
+        }
+        if (isset($map['IstioVersion'])) {
+            $model->istioVersion = $map['IstioVersion'];
         }
         if (isset($map['Name'])) {
             $model->name = $map['Name'];
         }
-        if (isset($map['IstioVersion'])) {
-            $model->istioVersion = $map['IstioVersion'];
+        if (isset($map['ServiceMeshId'])) {
+            $model->serviceMeshId = $map['ServiceMeshId'];
         }
 
         return $model;

@@ -12,11 +12,6 @@ use AlibabaCloud\Tea\Model;
 class spec extends Model
 {
     /**
-     * @var network
-     */
-    public $network;
-
-    /**
      * @var loadBalancer
      */
     public $loadBalancer;
@@ -25,10 +20,15 @@ class spec extends Model
      * @var meshConfig
      */
     public $meshConfig;
+
+    /**
+     * @var network
+     */
+    public $network;
     protected $_name = [
-        'network'      => 'Network',
         'loadBalancer' => 'LoadBalancer',
         'meshConfig'   => 'MeshConfig',
+        'network'      => 'Network',
     ];
 
     public function validate()
@@ -38,14 +38,14 @@ class spec extends Model
     public function toMap()
     {
         $res = [];
-        if (null !== $this->network) {
-            $res['Network'] = null !== $this->network ? $this->network->toMap() : null;
-        }
         if (null !== $this->loadBalancer) {
             $res['LoadBalancer'] = null !== $this->loadBalancer ? $this->loadBalancer->toMap() : null;
         }
         if (null !== $this->meshConfig) {
             $res['MeshConfig'] = null !== $this->meshConfig ? $this->meshConfig->toMap() : null;
+        }
+        if (null !== $this->network) {
+            $res['Network'] = null !== $this->network ? $this->network->toMap() : null;
         }
 
         return $res;
@@ -59,14 +59,14 @@ class spec extends Model
     public static function fromMap($map = [])
     {
         $model = new self();
-        if (isset($map['Network'])) {
-            $model->network = network::fromMap($map['Network']);
-        }
         if (isset($map['LoadBalancer'])) {
             $model->loadBalancer = loadBalancer::fromMap($map['LoadBalancer']);
         }
         if (isset($map['MeshConfig'])) {
             $model->meshConfig = meshConfig::fromMap($map['MeshConfig']);
+        }
+        if (isset($map['Network'])) {
+            $model->network = network::fromMap($map['Network']);
         }
 
         return $model;

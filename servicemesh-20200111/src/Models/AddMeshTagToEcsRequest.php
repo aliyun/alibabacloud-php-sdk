@@ -11,15 +11,15 @@ class AddMeshTagToEcsRequest extends Model
     /**
      * @var string
      */
-    public $serviceMeshId;
+    public $ecsId;
 
     /**
      * @var string
      */
-    public $ecsId;
+    public $serviceMeshId;
     protected $_name = [
-        'serviceMeshId' => 'ServiceMeshId',
         'ecsId'         => 'EcsId',
+        'serviceMeshId' => 'ServiceMeshId',
     ];
 
     public function validate()
@@ -29,11 +29,11 @@ class AddMeshTagToEcsRequest extends Model
     public function toMap()
     {
         $res = [];
-        if (null !== $this->serviceMeshId) {
-            $res['ServiceMeshId'] = $this->serviceMeshId;
-        }
         if (null !== $this->ecsId) {
             $res['EcsId'] = $this->ecsId;
+        }
+        if (null !== $this->serviceMeshId) {
+            $res['ServiceMeshId'] = $this->serviceMeshId;
         }
 
         return $res;
@@ -47,11 +47,11 @@ class AddMeshTagToEcsRequest extends Model
     public static function fromMap($map = [])
     {
         $model = new self();
-        if (isset($map['ServiceMeshId'])) {
-            $model->serviceMeshId = $map['ServiceMeshId'];
-        }
         if (isset($map['EcsId'])) {
             $model->ecsId = $map['EcsId'];
+        }
+        if (isset($map['ServiceMeshId'])) {
+            $model->serviceMeshId = $map['ServiceMeshId'];
         }
 
         return $model;

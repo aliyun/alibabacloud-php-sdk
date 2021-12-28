@@ -11,15 +11,15 @@ class GetRegisteredServicesRequest extends Model
     /**
      * @var string
      */
-    public $serviceMeshId;
+    public $namespace;
 
     /**
      * @var string
      */
-    public $namespace;
+    public $serviceMeshId;
     protected $_name = [
-        'serviceMeshId' => 'ServiceMeshId',
         'namespace'     => 'Namespace',
+        'serviceMeshId' => 'ServiceMeshId',
     ];
 
     public function validate()
@@ -29,11 +29,11 @@ class GetRegisteredServicesRequest extends Model
     public function toMap()
     {
         $res = [];
-        if (null !== $this->serviceMeshId) {
-            $res['ServiceMeshId'] = $this->serviceMeshId;
-        }
         if (null !== $this->namespace) {
             $res['Namespace'] = $this->namespace;
+        }
+        if (null !== $this->serviceMeshId) {
+            $res['ServiceMeshId'] = $this->serviceMeshId;
         }
 
         return $res;
@@ -47,11 +47,11 @@ class GetRegisteredServicesRequest extends Model
     public static function fromMap($map = [])
     {
         $model = new self();
-        if (isset($map['ServiceMeshId'])) {
-            $model->serviceMeshId = $map['ServiceMeshId'];
-        }
         if (isset($map['Namespace'])) {
             $model->namespace = $map['Namespace'];
+        }
+        if (isset($map['ServiceMeshId'])) {
+            $model->serviceMeshId = $map['ServiceMeshId'];
         }
 
         return $model;

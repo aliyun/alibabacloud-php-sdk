@@ -9,19 +9,19 @@ use AlibabaCloud\Tea\Model;
 class GetCaCertResponseBody extends Model
 {
     /**
-     * @var string
-     */
-    public $requestId;
-
-    /**
      * @description base64 encode format
      *
      * @var string
      */
     public $caCert;
+
+    /**
+     * @var string
+     */
+    public $requestId;
     protected $_name = [
-        'requestId' => 'RequestId',
         'caCert'    => 'CaCert',
+        'requestId' => 'RequestId',
     ];
 
     public function validate()
@@ -31,11 +31,11 @@ class GetCaCertResponseBody extends Model
     public function toMap()
     {
         $res = [];
-        if (null !== $this->requestId) {
-            $res['RequestId'] = $this->requestId;
-        }
         if (null !== $this->caCert) {
             $res['CaCert'] = $this->caCert;
+        }
+        if (null !== $this->requestId) {
+            $res['RequestId'] = $this->requestId;
         }
 
         return $res;
@@ -49,11 +49,11 @@ class GetCaCertResponseBody extends Model
     public static function fromMap($map = [])
     {
         $model = new self();
-        if (isset($map['RequestId'])) {
-            $model->requestId = $map['RequestId'];
-        }
         if (isset($map['CaCert'])) {
             $model->caCert = $map['CaCert'];
+        }
+        if (isset($map['RequestId'])) {
+            $model->requestId = $map['RequestId'];
         }
 
         return $model;

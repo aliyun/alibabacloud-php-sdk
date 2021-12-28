@@ -9,17 +9,17 @@ use AlibabaCloud\Tea\Model;
 class DescribeIngressGatewaysResponseBody extends Model
 {
     /**
-     * @var string
-     */
-    public $requestId;
-
-    /**
      * @var mixed[][]
      */
     public $ingressGateways;
+
+    /**
+     * @var string
+     */
+    public $requestId;
     protected $_name = [
-        'requestId'       => 'RequestId',
         'ingressGateways' => 'IngressGateways',
+        'requestId'       => 'RequestId',
     ];
 
     public function validate()
@@ -29,11 +29,11 @@ class DescribeIngressGatewaysResponseBody extends Model
     public function toMap()
     {
         $res = [];
-        if (null !== $this->requestId) {
-            $res['RequestId'] = $this->requestId;
-        }
         if (null !== $this->ingressGateways) {
             $res['IngressGateways'] = $this->ingressGateways;
+        }
+        if (null !== $this->requestId) {
+            $res['RequestId'] = $this->requestId;
         }
 
         return $res;
@@ -47,13 +47,13 @@ class DescribeIngressGatewaysResponseBody extends Model
     public static function fromMap($map = [])
     {
         $model = new self();
-        if (isset($map['RequestId'])) {
-            $model->requestId = $map['RequestId'];
-        }
         if (isset($map['IngressGateways'])) {
             if (!empty($map['IngressGateways'])) {
                 $model->ingressGateways = $map['IngressGateways'];
             }
+        }
+        if (isset($map['RequestId'])) {
+            $model->requestId = $map['RequestId'];
         }
 
         return $model;

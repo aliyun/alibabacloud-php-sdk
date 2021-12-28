@@ -9,17 +9,17 @@ use AlibabaCloud\Tea\Model;
 class initCNIConfiguration extends Model
 {
     /**
-     * @var string
-     */
-    public $excludeNamespaces;
-
-    /**
      * @var bool
      */
     public $enabled;
+
+    /**
+     * @var string
+     */
+    public $excludeNamespaces;
     protected $_name = [
-        'excludeNamespaces' => 'ExcludeNamespaces',
         'enabled'           => 'Enabled',
+        'excludeNamespaces' => 'ExcludeNamespaces',
     ];
 
     public function validate()
@@ -29,11 +29,11 @@ class initCNIConfiguration extends Model
     public function toMap()
     {
         $res = [];
-        if (null !== $this->excludeNamespaces) {
-            $res['ExcludeNamespaces'] = $this->excludeNamespaces;
-        }
         if (null !== $this->enabled) {
             $res['Enabled'] = $this->enabled;
+        }
+        if (null !== $this->excludeNamespaces) {
+            $res['ExcludeNamespaces'] = $this->excludeNamespaces;
         }
 
         return $res;
@@ -47,11 +47,11 @@ class initCNIConfiguration extends Model
     public static function fromMap($map = [])
     {
         $model = new self();
-        if (isset($map['ExcludeNamespaces'])) {
-            $model->excludeNamespaces = $map['ExcludeNamespaces'];
-        }
         if (isset($map['Enabled'])) {
             $model->enabled = $map['Enabled'];
+        }
+        if (isset($map['ExcludeNamespaces'])) {
+            $model->excludeNamespaces = $map['ExcludeNamespaces'];
         }
 
         return $model;

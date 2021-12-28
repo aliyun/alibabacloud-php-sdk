@@ -10,17 +10,17 @@ use AlibabaCloud\Tea\Model;
 class DescribeClustersInServiceMeshResponseBody extends Model
 {
     /**
-     * @var string
-     */
-    public $requestId;
-
-    /**
      * @var clusters[]
      */
     public $clusters;
+
+    /**
+     * @var string
+     */
+    public $requestId;
     protected $_name = [
-        'requestId' => 'RequestId',
         'clusters'  => 'Clusters',
+        'requestId' => 'RequestId',
     ];
 
     public function validate()
@@ -30,9 +30,6 @@ class DescribeClustersInServiceMeshResponseBody extends Model
     public function toMap()
     {
         $res = [];
-        if (null !== $this->requestId) {
-            $res['RequestId'] = $this->requestId;
-        }
         if (null !== $this->clusters) {
             $res['Clusters'] = [];
             if (null !== $this->clusters && \is_array($this->clusters)) {
@@ -41,6 +38,9 @@ class DescribeClustersInServiceMeshResponseBody extends Model
                     $res['Clusters'][$n++] = null !== $item ? $item->toMap() : $item;
                 }
             }
+        }
+        if (null !== $this->requestId) {
+            $res['RequestId'] = $this->requestId;
         }
 
         return $res;
@@ -54,9 +54,6 @@ class DescribeClustersInServiceMeshResponseBody extends Model
     public static function fromMap($map = [])
     {
         $model = new self();
-        if (isset($map['RequestId'])) {
-            $model->requestId = $map['RequestId'];
-        }
         if (isset($map['Clusters'])) {
             if (!empty($map['Clusters'])) {
                 $model->clusters = [];
@@ -65,6 +62,9 @@ class DescribeClustersInServiceMeshResponseBody extends Model
                     $model->clusters[$n++] = null !== $item ? clusters::fromMap($item) : $item;
                 }
             }
+        }
+        if (isset($map['RequestId'])) {
+            $model->requestId = $map['RequestId'];
         }
 
         return $model;

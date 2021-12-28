@@ -11,15 +11,15 @@ class DescribeRegionsResponseBody extends Model
     /**
      * @var string
      */
-    public $requestId;
+    public $businessLocations;
 
     /**
      * @var string
      */
-    public $businessLocations;
+    public $requestId;
     protected $_name = [
-        'requestId'         => 'RequestId',
         'businessLocations' => 'BusinessLocations',
+        'requestId'         => 'RequestId',
     ];
 
     public function validate()
@@ -29,11 +29,11 @@ class DescribeRegionsResponseBody extends Model
     public function toMap()
     {
         $res = [];
-        if (null !== $this->requestId) {
-            $res['RequestId'] = $this->requestId;
-        }
         if (null !== $this->businessLocations) {
             $res['BusinessLocations'] = $this->businessLocations;
+        }
+        if (null !== $this->requestId) {
+            $res['RequestId'] = $this->requestId;
         }
 
         return $res;
@@ -47,11 +47,11 @@ class DescribeRegionsResponseBody extends Model
     public static function fromMap($map = [])
     {
         $model = new self();
-        if (isset($map['RequestId'])) {
-            $model->requestId = $map['RequestId'];
-        }
         if (isset($map['BusinessLocations'])) {
             $model->businessLocations = $map['BusinessLocations'];
+        }
+        if (isset($map['RequestId'])) {
+            $model->requestId = $map['RequestId'];
         }
 
         return $model;

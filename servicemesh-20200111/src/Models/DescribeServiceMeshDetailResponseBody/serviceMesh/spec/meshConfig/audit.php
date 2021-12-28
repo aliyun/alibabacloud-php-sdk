@@ -9,6 +9,11 @@ use AlibabaCloud\Tea\Model;
 class audit extends Model
 {
     /**
+     * @var string
+     */
+    public $auditProjectStatus;
+
+    /**
      * @var bool
      */
     public $enabled;
@@ -18,8 +23,9 @@ class audit extends Model
      */
     public $project;
     protected $_name = [
-        'enabled' => 'Enabled',
-        'project' => 'Project',
+        'auditProjectStatus' => 'AuditProjectStatus',
+        'enabled'            => 'Enabled',
+        'project'            => 'Project',
     ];
 
     public function validate()
@@ -29,6 +35,9 @@ class audit extends Model
     public function toMap()
     {
         $res = [];
+        if (null !== $this->auditProjectStatus) {
+            $res['AuditProjectStatus'] = $this->auditProjectStatus;
+        }
         if (null !== $this->enabled) {
             $res['Enabled'] = $this->enabled;
         }
@@ -47,6 +56,9 @@ class audit extends Model
     public static function fromMap($map = [])
     {
         $model = new self();
+        if (isset($map['AuditProjectStatus'])) {
+            $model->auditProjectStatus = $map['AuditProjectStatus'];
+        }
         if (isset($map['Enabled'])) {
             $model->enabled = $map['Enabled'];
         }

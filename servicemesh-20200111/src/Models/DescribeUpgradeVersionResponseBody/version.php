@@ -11,21 +11,21 @@ class version extends Model
     /**
      * @var string
      */
-    public $kubernetesVersion;
-
-    /**
-     * @var string
-     */
     public $istioOperatorVersion;
 
     /**
      * @var string
      */
     public $istioVersion;
+
+    /**
+     * @var string
+     */
+    public $kubernetesVersion;
     protected $_name = [
-        'kubernetesVersion'    => 'KubernetesVersion',
         'istioOperatorVersion' => 'IstioOperatorVersion',
         'istioVersion'         => 'IstioVersion',
+        'kubernetesVersion'    => 'KubernetesVersion',
     ];
 
     public function validate()
@@ -35,14 +35,14 @@ class version extends Model
     public function toMap()
     {
         $res = [];
-        if (null !== $this->kubernetesVersion) {
-            $res['KubernetesVersion'] = $this->kubernetesVersion;
-        }
         if (null !== $this->istioOperatorVersion) {
             $res['IstioOperatorVersion'] = $this->istioOperatorVersion;
         }
         if (null !== $this->istioVersion) {
             $res['IstioVersion'] = $this->istioVersion;
+        }
+        if (null !== $this->kubernetesVersion) {
+            $res['KubernetesVersion'] = $this->kubernetesVersion;
         }
 
         return $res;
@@ -56,14 +56,14 @@ class version extends Model
     public static function fromMap($map = [])
     {
         $model = new self();
-        if (isset($map['KubernetesVersion'])) {
-            $model->kubernetesVersion = $map['KubernetesVersion'];
-        }
         if (isset($map['IstioOperatorVersion'])) {
             $model->istioOperatorVersion = $map['IstioOperatorVersion'];
         }
         if (isset($map['IstioVersion'])) {
             $model->istioVersion = $map['IstioVersion'];
+        }
+        if (isset($map['KubernetesVersion'])) {
+            $model->kubernetesVersion = $map['KubernetesVersion'];
         }
 
         return $model;

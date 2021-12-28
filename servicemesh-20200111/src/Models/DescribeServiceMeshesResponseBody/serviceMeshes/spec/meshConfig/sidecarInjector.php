@@ -12,20 +12,20 @@ class sidecarInjector extends Model
     /**
      * @var bool
      */
-    public $enableNamespacesByDefault;
+    public $autoInjectionPolicyEnabled;
 
     /**
      * @var bool
      */
-    public $autoInjectionPolicyEnabled;
+    public $enableNamespacesByDefault;
 
     /**
      * @var initCNIConfiguration
      */
     public $initCNIConfiguration;
     protected $_name = [
-        'enableNamespacesByDefault'  => 'EnableNamespacesByDefault',
         'autoInjectionPolicyEnabled' => 'AutoInjectionPolicyEnabled',
+        'enableNamespacesByDefault'  => 'EnableNamespacesByDefault',
         'initCNIConfiguration'       => 'InitCNIConfiguration',
     ];
 
@@ -36,11 +36,11 @@ class sidecarInjector extends Model
     public function toMap()
     {
         $res = [];
-        if (null !== $this->enableNamespacesByDefault) {
-            $res['EnableNamespacesByDefault'] = $this->enableNamespacesByDefault;
-        }
         if (null !== $this->autoInjectionPolicyEnabled) {
             $res['AutoInjectionPolicyEnabled'] = $this->autoInjectionPolicyEnabled;
+        }
+        if (null !== $this->enableNamespacesByDefault) {
+            $res['EnableNamespacesByDefault'] = $this->enableNamespacesByDefault;
         }
         if (null !== $this->initCNIConfiguration) {
             $res['InitCNIConfiguration'] = null !== $this->initCNIConfiguration ? $this->initCNIConfiguration->toMap() : null;
@@ -57,11 +57,11 @@ class sidecarInjector extends Model
     public static function fromMap($map = [])
     {
         $model = new self();
-        if (isset($map['EnableNamespacesByDefault'])) {
-            $model->enableNamespacesByDefault = $map['EnableNamespacesByDefault'];
-        }
         if (isset($map['AutoInjectionPolicyEnabled'])) {
             $model->autoInjectionPolicyEnabled = $map['AutoInjectionPolicyEnabled'];
+        }
+        if (isset($map['EnableNamespacesByDefault'])) {
+            $model->enableNamespacesByDefault = $map['EnableNamespacesByDefault'];
         }
         if (isset($map['InitCNIConfiguration'])) {
             $model->initCNIConfiguration = initCNIConfiguration::fromMap($map['InitCNIConfiguration']);

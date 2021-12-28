@@ -11,6 +11,11 @@ class protocolSupport extends Model
     /**
      * @var bool
      */
+    public $dubboFilterEnabled;
+
+    /**
+     * @var bool
+     */
     public $mysqlFilterEnabled;
 
     /**
@@ -22,16 +27,11 @@ class protocolSupport extends Model
      * @var bool
      */
     public $thriftFilterEnabled;
-
-    /**
-     * @var bool
-     */
-    public $dubboFilterEnabled;
     protected $_name = [
+        'dubboFilterEnabled'  => 'DubboFilterEnabled',
         'mysqlFilterEnabled'  => 'MysqlFilterEnabled',
         'redisFilterEnabled'  => 'RedisFilterEnabled',
         'thriftFilterEnabled' => 'ThriftFilterEnabled',
-        'dubboFilterEnabled'  => 'DubboFilterEnabled',
     ];
 
     public function validate()
@@ -41,6 +41,9 @@ class protocolSupport extends Model
     public function toMap()
     {
         $res = [];
+        if (null !== $this->dubboFilterEnabled) {
+            $res['DubboFilterEnabled'] = $this->dubboFilterEnabled;
+        }
         if (null !== $this->mysqlFilterEnabled) {
             $res['MysqlFilterEnabled'] = $this->mysqlFilterEnabled;
         }
@@ -49,9 +52,6 @@ class protocolSupport extends Model
         }
         if (null !== $this->thriftFilterEnabled) {
             $res['ThriftFilterEnabled'] = $this->thriftFilterEnabled;
-        }
-        if (null !== $this->dubboFilterEnabled) {
-            $res['DubboFilterEnabled'] = $this->dubboFilterEnabled;
         }
 
         return $res;
@@ -65,6 +65,9 @@ class protocolSupport extends Model
     public static function fromMap($map = [])
     {
         $model = new self();
+        if (isset($map['DubboFilterEnabled'])) {
+            $model->dubboFilterEnabled = $map['DubboFilterEnabled'];
+        }
         if (isset($map['MysqlFilterEnabled'])) {
             $model->mysqlFilterEnabled = $map['MysqlFilterEnabled'];
         }
@@ -73,9 +76,6 @@ class protocolSupport extends Model
         }
         if (isset($map['ThriftFilterEnabled'])) {
             $model->thriftFilterEnabled = $map['ThriftFilterEnabled'];
-        }
-        if (isset($map['DubboFilterEnabled'])) {
-            $model->dubboFilterEnabled = $map['DubboFilterEnabled'];
         }
 
         return $model;

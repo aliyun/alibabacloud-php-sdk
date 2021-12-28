@@ -9,9 +9,14 @@ use AlibabaCloud\Tea\Model;
 class UpdateIstioInjectionConfigRequest extends Model
 {
     /**
-     * @var string
+     * @var bool
      */
-    public $serviceMeshId;
+    public $enableIstioInjection;
+
+    /**
+     * @var bool
+     */
+    public $enableSidecarSetInjection;
 
     /**
      * @var string
@@ -19,13 +24,14 @@ class UpdateIstioInjectionConfigRequest extends Model
     public $namespace;
 
     /**
-     * @var bool
+     * @var string
      */
-    public $enableIstioInjection;
+    public $serviceMeshId;
     protected $_name = [
-        'serviceMeshId'        => 'ServiceMeshId',
-        'namespace'            => 'Namespace',
-        'enableIstioInjection' => 'EnableIstioInjection',
+        'enableIstioInjection'      => 'EnableIstioInjection',
+        'enableSidecarSetInjection' => 'EnableSidecarSetInjection',
+        'namespace'                 => 'Namespace',
+        'serviceMeshId'             => 'ServiceMeshId',
     ];
 
     public function validate()
@@ -35,14 +41,17 @@ class UpdateIstioInjectionConfigRequest extends Model
     public function toMap()
     {
         $res = [];
-        if (null !== $this->serviceMeshId) {
-            $res['ServiceMeshId'] = $this->serviceMeshId;
+        if (null !== $this->enableIstioInjection) {
+            $res['EnableIstioInjection'] = $this->enableIstioInjection;
+        }
+        if (null !== $this->enableSidecarSetInjection) {
+            $res['EnableSidecarSetInjection'] = $this->enableSidecarSetInjection;
         }
         if (null !== $this->namespace) {
             $res['Namespace'] = $this->namespace;
         }
-        if (null !== $this->enableIstioInjection) {
-            $res['EnableIstioInjection'] = $this->enableIstioInjection;
+        if (null !== $this->serviceMeshId) {
+            $res['ServiceMeshId'] = $this->serviceMeshId;
         }
 
         return $res;
@@ -56,14 +65,17 @@ class UpdateIstioInjectionConfigRequest extends Model
     public static function fromMap($map = [])
     {
         $model = new self();
-        if (isset($map['ServiceMeshId'])) {
-            $model->serviceMeshId = $map['ServiceMeshId'];
+        if (isset($map['EnableIstioInjection'])) {
+            $model->enableIstioInjection = $map['EnableIstioInjection'];
+        }
+        if (isset($map['EnableSidecarSetInjection'])) {
+            $model->enableSidecarSetInjection = $map['EnableSidecarSetInjection'];
         }
         if (isset($map['Namespace'])) {
             $model->namespace = $map['Namespace'];
         }
-        if (isset($map['EnableIstioInjection'])) {
-            $model->enableIstioInjection = $map['EnableIstioInjection'];
+        if (isset($map['ServiceMeshId'])) {
+            $model->serviceMeshId = $map['ServiceMeshId'];
         }
 
         return $model;

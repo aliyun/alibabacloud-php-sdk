@@ -6,7 +6,7 @@ namespace AlibabaCloud\SDK\Servicemesh\V20200111\Models;
 
 use AlibabaCloud\Tea\Model;
 
-class AddVmAppToMeshResponse extends Model
+class DescribeVMsInServiceMeshResponse extends Model
 {
     /**
      * @var string[]
@@ -14,7 +14,7 @@ class AddVmAppToMeshResponse extends Model
     public $headers;
 
     /**
-     * @var AddVmAppToMeshResponseBody
+     * @var DescribeVMsInServiceMeshResponseBody
      */
     public $body;
     protected $_name = [
@@ -44,7 +44,7 @@ class AddVmAppToMeshResponse extends Model
     /**
      * @param array $map
      *
-     * @return AddVmAppToMeshResponse
+     * @return DescribeVMsInServiceMeshResponse
      */
     public static function fromMap($map = [])
     {
@@ -53,7 +53,7 @@ class AddVmAppToMeshResponse extends Model
             $model->headers = $map['headers'];
         }
         if (isset($map['body'])) {
-            $model->body = AddVmAppToMeshResponseBody::fromMap($map['body']);
+            $model->body = DescribeVMsInServiceMeshResponseBody::fromMap($map['body']);
         }
 
         return $model;

@@ -9,9 +9,9 @@ use AlibabaCloud\Tea\Model;
 class ecsInstances extends Model
 {
     /**
-     * @var string
+     * @var bool
      */
-    public $instanceId;
+    public $hasTag;
 
     /**
      * @var string
@@ -21,29 +21,29 @@ class ecsInstances extends Model
     /**
      * @var string
      */
-    public $ipAddress;
+    public $instanceId;
 
     /**
      * @var string
      */
-    public $status;
-
-    /**
-     * @var bool
-     */
-    public $hasTag;
+    public $ipAddress;
 
     /**
      * @var string[]
      */
     public $securityGroupIds;
+
+    /**
+     * @var string
+     */
+    public $status;
     protected $_name = [
-        'instanceId'       => 'InstanceId',
-        'hostName'         => 'HostName',
-        'ipAddress'        => 'IpAddress',
-        'status'           => 'Status',
         'hasTag'           => 'HasTag',
+        'hostName'         => 'HostName',
+        'instanceId'       => 'InstanceId',
+        'ipAddress'        => 'IpAddress',
         'securityGroupIds' => 'SecurityGroupIds',
+        'status'           => 'Status',
     ];
 
     public function validate()
@@ -53,23 +53,23 @@ class ecsInstances extends Model
     public function toMap()
     {
         $res = [];
-        if (null !== $this->instanceId) {
-            $res['InstanceId'] = $this->instanceId;
+        if (null !== $this->hasTag) {
+            $res['HasTag'] = $this->hasTag;
         }
         if (null !== $this->hostName) {
             $res['HostName'] = $this->hostName;
         }
+        if (null !== $this->instanceId) {
+            $res['InstanceId'] = $this->instanceId;
+        }
         if (null !== $this->ipAddress) {
             $res['IpAddress'] = $this->ipAddress;
         }
-        if (null !== $this->status) {
-            $res['Status'] = $this->status;
-        }
-        if (null !== $this->hasTag) {
-            $res['HasTag'] = $this->hasTag;
-        }
         if (null !== $this->securityGroupIds) {
             $res['SecurityGroupIds'] = $this->securityGroupIds;
+        }
+        if (null !== $this->status) {
+            $res['Status'] = $this->status;
         }
 
         return $res;
@@ -83,25 +83,25 @@ class ecsInstances extends Model
     public static function fromMap($map = [])
     {
         $model = new self();
-        if (isset($map['InstanceId'])) {
-            $model->instanceId = $map['InstanceId'];
+        if (isset($map['HasTag'])) {
+            $model->hasTag = $map['HasTag'];
         }
         if (isset($map['HostName'])) {
             $model->hostName = $map['HostName'];
         }
+        if (isset($map['InstanceId'])) {
+            $model->instanceId = $map['InstanceId'];
+        }
         if (isset($map['IpAddress'])) {
             $model->ipAddress = $map['IpAddress'];
-        }
-        if (isset($map['Status'])) {
-            $model->status = $map['Status'];
-        }
-        if (isset($map['HasTag'])) {
-            $model->hasTag = $map['HasTag'];
         }
         if (isset($map['SecurityGroupIds'])) {
             if (!empty($map['SecurityGroupIds'])) {
                 $model->securityGroupIds = $map['SecurityGroupIds'];
             }
+        }
+        if (isset($map['Status'])) {
+            $model->status = $map['Status'];
         }
 
         return $model;

@@ -9,17 +9,23 @@ use AlibabaCloud\Tea\Model;
 class DeleteServiceMeshRequest extends Model
 {
     /**
-     * @var string
-     */
-    public $serviceMeshId;
-
-    /**
      * @var bool
      */
     public $force;
+
+    /**
+     * @var string
+     */
+    public $retainResources;
+
+    /**
+     * @var string
+     */
+    public $serviceMeshId;
     protected $_name = [
-        'serviceMeshId' => 'ServiceMeshId',
-        'force'         => 'Force',
+        'force'           => 'Force',
+        'retainResources' => 'RetainResources',
+        'serviceMeshId'   => 'ServiceMeshId',
     ];
 
     public function validate()
@@ -29,11 +35,14 @@ class DeleteServiceMeshRequest extends Model
     public function toMap()
     {
         $res = [];
-        if (null !== $this->serviceMeshId) {
-            $res['ServiceMeshId'] = $this->serviceMeshId;
-        }
         if (null !== $this->force) {
             $res['Force'] = $this->force;
+        }
+        if (null !== $this->retainResources) {
+            $res['RetainResources'] = $this->retainResources;
+        }
+        if (null !== $this->serviceMeshId) {
+            $res['ServiceMeshId'] = $this->serviceMeshId;
         }
 
         return $res;
@@ -47,11 +56,14 @@ class DeleteServiceMeshRequest extends Model
     public static function fromMap($map = [])
     {
         $model = new self();
-        if (isset($map['ServiceMeshId'])) {
-            $model->serviceMeshId = $map['ServiceMeshId'];
-        }
         if (isset($map['Force'])) {
             $model->force = $map['Force'];
+        }
+        if (isset($map['RetainResources'])) {
+            $model->retainResources = $map['RetainResources'];
+        }
+        if (isset($map['ServiceMeshId'])) {
+            $model->serviceMeshId = $map['ServiceMeshId'];
         }
 
         return $model;

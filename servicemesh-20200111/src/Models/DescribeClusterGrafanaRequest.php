@@ -11,15 +11,15 @@ class DescribeClusterGrafanaRequest extends Model
     /**
      * @var string
      */
-    public $serviceMeshId;
+    public $k8sClusterId;
 
     /**
      * @var string
      */
-    public $k8sClusterId;
+    public $serviceMeshId;
     protected $_name = [
-        'serviceMeshId' => 'ServiceMeshId',
         'k8sClusterId'  => 'K8sClusterId',
+        'serviceMeshId' => 'ServiceMeshId',
     ];
 
     public function validate()
@@ -29,11 +29,11 @@ class DescribeClusterGrafanaRequest extends Model
     public function toMap()
     {
         $res = [];
-        if (null !== $this->serviceMeshId) {
-            $res['ServiceMeshId'] = $this->serviceMeshId;
-        }
         if (null !== $this->k8sClusterId) {
             $res['K8sClusterId'] = $this->k8sClusterId;
+        }
+        if (null !== $this->serviceMeshId) {
+            $res['ServiceMeshId'] = $this->serviceMeshId;
         }
 
         return $res;
@@ -47,11 +47,11 @@ class DescribeClusterGrafanaRequest extends Model
     public static function fromMap($map = [])
     {
         $model = new self();
-        if (isset($map['ServiceMeshId'])) {
-            $model->serviceMeshId = $map['ServiceMeshId'];
-        }
         if (isset($map['K8sClusterId'])) {
             $model->k8sClusterId = $map['K8sClusterId'];
+        }
+        if (isset($map['ServiceMeshId'])) {
+            $model->serviceMeshId = $map['ServiceMeshId'];
         }
 
         return $model;

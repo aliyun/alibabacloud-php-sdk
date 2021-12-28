@@ -11,12 +11,12 @@ class GetSaTokenRequest extends Model
     /**
      * @var string
      */
-    public $serviceMeshId;
+    public $namespace;
 
     /**
-     * @var string
+     * @var bool
      */
-    public $namespace;
+    public $needRefresh;
 
     /**
      * @var string
@@ -24,14 +24,14 @@ class GetSaTokenRequest extends Model
     public $serviceAccountName;
 
     /**
-     * @var bool
+     * @var string
      */
-    public $needRefresh;
+    public $serviceMeshId;
     protected $_name = [
-        'serviceMeshId'      => 'ServiceMeshId',
         'namespace'          => 'Namespace',
-        'serviceAccountName' => 'ServiceAccountName',
         'needRefresh'        => 'NeedRefresh',
+        'serviceAccountName' => 'ServiceAccountName',
+        'serviceMeshId'      => 'ServiceMeshId',
     ];
 
     public function validate()
@@ -41,17 +41,17 @@ class GetSaTokenRequest extends Model
     public function toMap()
     {
         $res = [];
-        if (null !== $this->serviceMeshId) {
-            $res['ServiceMeshId'] = $this->serviceMeshId;
-        }
         if (null !== $this->namespace) {
             $res['Namespace'] = $this->namespace;
+        }
+        if (null !== $this->needRefresh) {
+            $res['NeedRefresh'] = $this->needRefresh;
         }
         if (null !== $this->serviceAccountName) {
             $res['ServiceAccountName'] = $this->serviceAccountName;
         }
-        if (null !== $this->needRefresh) {
-            $res['NeedRefresh'] = $this->needRefresh;
+        if (null !== $this->serviceMeshId) {
+            $res['ServiceMeshId'] = $this->serviceMeshId;
         }
 
         return $res;
@@ -65,17 +65,17 @@ class GetSaTokenRequest extends Model
     public static function fromMap($map = [])
     {
         $model = new self();
-        if (isset($map['ServiceMeshId'])) {
-            $model->serviceMeshId = $map['ServiceMeshId'];
-        }
         if (isset($map['Namespace'])) {
             $model->namespace = $map['Namespace'];
+        }
+        if (isset($map['NeedRefresh'])) {
+            $model->needRefresh = $map['NeedRefresh'];
         }
         if (isset($map['ServiceAccountName'])) {
             $model->serviceAccountName = $map['ServiceAccountName'];
         }
-        if (isset($map['NeedRefresh'])) {
-            $model->needRefresh = $map['NeedRefresh'];
+        if (isset($map['ServiceMeshId'])) {
+            $model->serviceMeshId = $map['ServiceMeshId'];
         }
 
         return $model;

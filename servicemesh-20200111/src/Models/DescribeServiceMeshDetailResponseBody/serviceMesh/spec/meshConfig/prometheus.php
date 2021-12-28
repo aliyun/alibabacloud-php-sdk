@@ -9,17 +9,17 @@ use AlibabaCloud\Tea\Model;
 class prometheus extends Model
 {
     /**
-     * @var bool
-     */
-    public $useExternal;
-
-    /**
      * @var string
      */
     public $externalUrl;
+
+    /**
+     * @var bool
+     */
+    public $useExternal;
     protected $_name = [
-        'useExternal' => 'UseExternal',
         'externalUrl' => 'ExternalUrl',
+        'useExternal' => 'UseExternal',
     ];
 
     public function validate()
@@ -29,11 +29,11 @@ class prometheus extends Model
     public function toMap()
     {
         $res = [];
-        if (null !== $this->useExternal) {
-            $res['UseExternal'] = $this->useExternal;
-        }
         if (null !== $this->externalUrl) {
             $res['ExternalUrl'] = $this->externalUrl;
+        }
+        if (null !== $this->useExternal) {
+            $res['UseExternal'] = $this->useExternal;
         }
 
         return $res;
@@ -47,11 +47,11 @@ class prometheus extends Model
     public static function fromMap($map = [])
     {
         $model = new self();
-        if (isset($map['UseExternal'])) {
-            $model->useExternal = $map['UseExternal'];
-        }
         if (isset($map['ExternalUrl'])) {
             $model->externalUrl = $map['ExternalUrl'];
+        }
+        if (isset($map['UseExternal'])) {
+            $model->useExternal = $map['UseExternal'];
         }
 
         return $model;

@@ -9,9 +9,14 @@ use AlibabaCloud\Tea\Model;
 class vSwitches extends Model
 {
     /**
+     * @var bool
+     */
+    public $isDefault;
+
+    /**
      * @var string
      */
-    public $vpcId;
+    public $status;
 
     /**
      * @var string
@@ -21,23 +26,18 @@ class vSwitches extends Model
     /**
      * @var string
      */
-    public $status;
-
-    /**
-     * @var bool
-     */
-    public $isDefault;
+    public $vSwitchName;
 
     /**
      * @var string
      */
-    public $vSwitchName;
+    public $vpcId;
     protected $_name = [
-        'vpcId'       => 'VpcId',
-        'vSwitchId'   => 'VSwitchId',
-        'status'      => 'Status',
         'isDefault'   => 'IsDefault',
+        'status'      => 'Status',
+        'vSwitchId'   => 'VSwitchId',
         'vSwitchName' => 'VSwitchName',
+        'vpcId'       => 'VpcId',
     ];
 
     public function validate()
@@ -47,20 +47,20 @@ class vSwitches extends Model
     public function toMap()
     {
         $res = [];
-        if (null !== $this->vpcId) {
-            $res['VpcId'] = $this->vpcId;
-        }
-        if (null !== $this->vSwitchId) {
-            $res['VSwitchId'] = $this->vSwitchId;
+        if (null !== $this->isDefault) {
+            $res['IsDefault'] = $this->isDefault;
         }
         if (null !== $this->status) {
             $res['Status'] = $this->status;
         }
-        if (null !== $this->isDefault) {
-            $res['IsDefault'] = $this->isDefault;
+        if (null !== $this->vSwitchId) {
+            $res['VSwitchId'] = $this->vSwitchId;
         }
         if (null !== $this->vSwitchName) {
             $res['VSwitchName'] = $this->vSwitchName;
+        }
+        if (null !== $this->vpcId) {
+            $res['VpcId'] = $this->vpcId;
         }
 
         return $res;
@@ -74,20 +74,20 @@ class vSwitches extends Model
     public static function fromMap($map = [])
     {
         $model = new self();
-        if (isset($map['VpcId'])) {
-            $model->vpcId = $map['VpcId'];
-        }
-        if (isset($map['VSwitchId'])) {
-            $model->vSwitchId = $map['VSwitchId'];
+        if (isset($map['IsDefault'])) {
+            $model->isDefault = $map['IsDefault'];
         }
         if (isset($map['Status'])) {
             $model->status = $map['Status'];
         }
-        if (isset($map['IsDefault'])) {
-            $model->isDefault = $map['IsDefault'];
+        if (isset($map['VSwitchId'])) {
+            $model->vSwitchId = $map['VSwitchId'];
         }
         if (isset($map['VSwitchName'])) {
             $model->vSwitchName = $map['VSwitchName'];
+        }
+        if (isset($map['VpcId'])) {
+            $model->vpcId = $map['VpcId'];
         }
 
         return $model;

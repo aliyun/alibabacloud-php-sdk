@@ -11,21 +11,21 @@ class vmMetaInfo extends Model
     /**
      * @var string
      */
+    public $envoyEnvContent;
+
+    /**
+     * @var string
+     */
     public $hostsContent;
 
     /**
      * @var string
      */
     public $tokenContent;
-
-    /**
-     * @var string
-     */
-    public $envoyEnvContent;
     protected $_name = [
+        'envoyEnvContent' => 'EnvoyEnvContent',
         'hostsContent'    => 'HostsContent',
         'tokenContent'    => 'TokenContent',
-        'envoyEnvContent' => 'EnvoyEnvContent',
     ];
 
     public function validate()
@@ -35,14 +35,14 @@ class vmMetaInfo extends Model
     public function toMap()
     {
         $res = [];
+        if (null !== $this->envoyEnvContent) {
+            $res['EnvoyEnvContent'] = $this->envoyEnvContent;
+        }
         if (null !== $this->hostsContent) {
             $res['HostsContent'] = $this->hostsContent;
         }
         if (null !== $this->tokenContent) {
             $res['TokenContent'] = $this->tokenContent;
-        }
-        if (null !== $this->envoyEnvContent) {
-            $res['EnvoyEnvContent'] = $this->envoyEnvContent;
         }
 
         return $res;
@@ -56,14 +56,14 @@ class vmMetaInfo extends Model
     public static function fromMap($map = [])
     {
         $model = new self();
+        if (isset($map['EnvoyEnvContent'])) {
+            $model->envoyEnvContent = $map['EnvoyEnvContent'];
+        }
         if (isset($map['HostsContent'])) {
             $model->hostsContent = $map['HostsContent'];
         }
         if (isset($map['TokenContent'])) {
             $model->tokenContent = $map['TokenContent'];
-        }
-        if (isset($map['EnvoyEnvContent'])) {
-            $model->envoyEnvContent = $map['EnvoyEnvContent'];
         }
 
         return $model;

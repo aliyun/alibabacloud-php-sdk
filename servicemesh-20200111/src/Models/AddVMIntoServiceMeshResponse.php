@@ -6,7 +6,7 @@ namespace AlibabaCloud\SDK\Servicemesh\V20200111\Models;
 
 use AlibabaCloud\Tea\Model;
 
-class RemoveVmAppFromMeshResponse extends Model
+class AddVMIntoServiceMeshResponse extends Model
 {
     /**
      * @var string[]
@@ -14,7 +14,7 @@ class RemoveVmAppFromMeshResponse extends Model
     public $headers;
 
     /**
-     * @var RemoveVmAppFromMeshResponseBody
+     * @var AddVMIntoServiceMeshResponseBody
      */
     public $body;
     protected $_name = [
@@ -44,7 +44,7 @@ class RemoveVmAppFromMeshResponse extends Model
     /**
      * @param array $map
      *
-     * @return RemoveVmAppFromMeshResponse
+     * @return AddVMIntoServiceMeshResponse
      */
     public static function fromMap($map = [])
     {
@@ -53,7 +53,7 @@ class RemoveVmAppFromMeshResponse extends Model
             $model->headers = $map['headers'];
         }
         if (isset($map['body'])) {
-            $model->body = RemoveVmAppFromMeshResponseBody::fromMap($map['body']);
+            $model->body = AddVMIntoServiceMeshResponseBody::fromMap($map['body']);
         }
 
         return $model;

@@ -11,7 +11,7 @@ class GetRegisteredServiceEndpointsRequest extends Model
     /**
      * @var string
      */
-    public $serviceMeshId;
+    public $name;
 
     /**
      * @var string
@@ -21,11 +21,11 @@ class GetRegisteredServiceEndpointsRequest extends Model
     /**
      * @var string
      */
-    public $name;
+    public $serviceMeshId;
     protected $_name = [
-        'serviceMeshId' => 'ServiceMeshId',
-        'namespace'     => 'Namespace',
         'name'          => 'Name',
+        'namespace'     => 'Namespace',
+        'serviceMeshId' => 'ServiceMeshId',
     ];
 
     public function validate()
@@ -35,14 +35,14 @@ class GetRegisteredServiceEndpointsRequest extends Model
     public function toMap()
     {
         $res = [];
-        if (null !== $this->serviceMeshId) {
-            $res['ServiceMeshId'] = $this->serviceMeshId;
+        if (null !== $this->name) {
+            $res['Name'] = $this->name;
         }
         if (null !== $this->namespace) {
             $res['Namespace'] = $this->namespace;
         }
-        if (null !== $this->name) {
-            $res['Name'] = $this->name;
+        if (null !== $this->serviceMeshId) {
+            $res['ServiceMeshId'] = $this->serviceMeshId;
         }
 
         return $res;
@@ -56,14 +56,14 @@ class GetRegisteredServiceEndpointsRequest extends Model
     public static function fromMap($map = [])
     {
         $model = new self();
-        if (isset($map['ServiceMeshId'])) {
-            $model->serviceMeshId = $map['ServiceMeshId'];
+        if (isset($map['Name'])) {
+            $model->name = $map['Name'];
         }
         if (isset($map['Namespace'])) {
             $model->namespace = $map['Namespace'];
         }
-        if (isset($map['Name'])) {
-            $model->name = $map['Name'];
+        if (isset($map['ServiceMeshId'])) {
+            $model->serviceMeshId = $map['ServiceMeshId'];
         }
 
         return $model;

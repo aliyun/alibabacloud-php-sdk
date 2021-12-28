@@ -11,7 +11,7 @@ class data extends Model
     /**
      * @var string
      */
-    public $status;
+    public $loadBalancerId;
 
     /**
      * @var string
@@ -21,11 +21,11 @@ class data extends Model
     /**
      * @var string
      */
-    public $loadBalancerId;
+    public $status;
     protected $_name = [
-        'status'             => 'Status',
-        'serverHealthStatus' => 'ServerHealthStatus',
         'loadBalancerId'     => 'LoadBalancerId',
+        'serverHealthStatus' => 'ServerHealthStatus',
+        'status'             => 'Status',
     ];
 
     public function validate()
@@ -35,14 +35,14 @@ class data extends Model
     public function toMap()
     {
         $res = [];
-        if (null !== $this->status) {
-            $res['Status'] = $this->status;
+        if (null !== $this->loadBalancerId) {
+            $res['LoadBalancerId'] = $this->loadBalancerId;
         }
         if (null !== $this->serverHealthStatus) {
             $res['ServerHealthStatus'] = $this->serverHealthStatus;
         }
-        if (null !== $this->loadBalancerId) {
-            $res['LoadBalancerId'] = $this->loadBalancerId;
+        if (null !== $this->status) {
+            $res['Status'] = $this->status;
         }
 
         return $res;
@@ -56,14 +56,14 @@ class data extends Model
     public static function fromMap($map = [])
     {
         $model = new self();
-        if (isset($map['Status'])) {
-            $model->status = $map['Status'];
+        if (isset($map['LoadBalancerId'])) {
+            $model->loadBalancerId = $map['LoadBalancerId'];
         }
         if (isset($map['ServerHealthStatus'])) {
             $model->serverHealthStatus = $map['ServerHealthStatus'];
         }
-        if (isset($map['LoadBalancerId'])) {
-            $model->loadBalancerId = $map['LoadBalancerId'];
+        if (isset($map['Status'])) {
+            $model->status = $map['Status'];
         }
 
         return $model;
