@@ -69,6 +69,10 @@ use AlibabaCloud\SDK\Config\V20200907\Models\GetAggregateResourceComplianceByCon
 use AlibabaCloud\SDK\Config\V20200907\Models\GetAggregateResourceComplianceByConfigRuleResponse;
 use AlibabaCloud\SDK\Config\V20200907\Models\GetAggregateResourceComplianceByPackRequest;
 use AlibabaCloud\SDK\Config\V20200907\Models\GetAggregateResourceComplianceByPackResponse;
+use AlibabaCloud\SDK\Config\V20200907\Models\GetAggregateResourceComplianceGroupByRegionRequest;
+use AlibabaCloud\SDK\Config\V20200907\Models\GetAggregateResourceComplianceGroupByRegionResponse;
+use AlibabaCloud\SDK\Config\V20200907\Models\GetAggregateResourceComplianceGroupByResourceTypeRequest;
+use AlibabaCloud\SDK\Config\V20200907\Models\GetAggregateResourceComplianceGroupByResourceTypeResponse;
 use AlibabaCloud\SDK\Config\V20200907\Models\GetAggregateResourceComplianceTimelineRequest;
 use AlibabaCloud\SDK\Config\V20200907\Models\GetAggregateResourceComplianceTimelineResponse;
 use AlibabaCloud\SDK\Config\V20200907\Models\GetAggregateResourceConfigurationTimelineRequest;
@@ -87,16 +91,23 @@ use AlibabaCloud\SDK\Config\V20200907\Models\GetConfigRuleComplianceByPackReques
 use AlibabaCloud\SDK\Config\V20200907\Models\GetConfigRuleComplianceByPackResponse;
 use AlibabaCloud\SDK\Config\V20200907\Models\GetConfigRuleRequest;
 use AlibabaCloud\SDK\Config\V20200907\Models\GetConfigRuleResponse;
+use AlibabaCloud\SDK\Config\V20200907\Models\GetConfigRulesReportRequest;
 use AlibabaCloud\SDK\Config\V20200907\Models\GetConfigRulesReportResponse;
 use AlibabaCloud\SDK\Config\V20200907\Models\GetConfigRuleSummaryByRiskLevelResponse;
 use AlibabaCloud\SDK\Config\V20200907\Models\GetDiscoveredResourceCountsGroupByRegionRequest;
 use AlibabaCloud\SDK\Config\V20200907\Models\GetDiscoveredResourceCountsGroupByRegionResponse;
 use AlibabaCloud\SDK\Config\V20200907\Models\GetDiscoveredResourceCountsGroupByResourceTypeRequest;
 use AlibabaCloud\SDK\Config\V20200907\Models\GetDiscoveredResourceCountsGroupByResourceTypeResponse;
+use AlibabaCloud\SDK\Config\V20200907\Models\GetManagedRuleRequest;
+use AlibabaCloud\SDK\Config\V20200907\Models\GetManagedRuleResponse;
 use AlibabaCloud\SDK\Config\V20200907\Models\GetResourceComplianceByConfigRuleRequest;
 use AlibabaCloud\SDK\Config\V20200907\Models\GetResourceComplianceByConfigRuleResponse;
 use AlibabaCloud\SDK\Config\V20200907\Models\GetResourceComplianceByPackRequest;
 use AlibabaCloud\SDK\Config\V20200907\Models\GetResourceComplianceByPackResponse;
+use AlibabaCloud\SDK\Config\V20200907\Models\GetResourceComplianceGroupByRegionRequest;
+use AlibabaCloud\SDK\Config\V20200907\Models\GetResourceComplianceGroupByRegionResponse;
+use AlibabaCloud\SDK\Config\V20200907\Models\GetResourceComplianceGroupByResourceTypeRequest;
+use AlibabaCloud\SDK\Config\V20200907\Models\GetResourceComplianceGroupByResourceTypeResponse;
 use AlibabaCloud\SDK\Config\V20200907\Models\GetResourceComplianceTimelineRequest;
 use AlibabaCloud\SDK\Config\V20200907\Models\GetResourceComplianceTimelineResponse;
 use AlibabaCloud\SDK\Config\V20200907\Models\GetResourceConfigurationTimelineRequest;
@@ -123,6 +134,8 @@ use AlibabaCloud\SDK\Config\V20200907\Models\ListCompliancePackTemplatesRequest;
 use AlibabaCloud\SDK\Config\V20200907\Models\ListCompliancePackTemplatesResponse;
 use AlibabaCloud\SDK\Config\V20200907\Models\ListConfigRuleEvaluationResultsRequest;
 use AlibabaCloud\SDK\Config\V20200907\Models\ListConfigRuleEvaluationResultsResponse;
+use AlibabaCloud\SDK\Config\V20200907\Models\ListManagedRulesRequest;
+use AlibabaCloud\SDK\Config\V20200907\Models\ListManagedRulesResponse;
 use AlibabaCloud\SDK\Config\V20200907\Models\ListResourceEvaluationResultsRequest;
 use AlibabaCloud\SDK\Config\V20200907\Models\ListResourceEvaluationResultsResponse;
 use AlibabaCloud\SDK\Config\V20200907\Models\RevertAggregateEvaluationResultsRequest;
@@ -200,10 +213,14 @@ class Config extends OpenApiClient
     public function activeAggregateConfigRulesWithOptions($request, $runtime)
     {
         Utils::validateModel($request);
-        $query                  = [];
-        $query['AggregatorId']  = $request->aggregatorId;
-        $query['ConfigRuleIds'] = $request->configRuleIds;
-        $req                    = new OpenApiRequest([
+        $query = [];
+        if (!Utils::isUnset($request->aggregatorId)) {
+            $query['AggregatorId'] = $request->aggregatorId;
+        }
+        if (!Utils::isUnset($request->configRuleIds)) {
+            $query['ConfigRuleIds'] = $request->configRuleIds;
+        }
+        $req = new OpenApiRequest([
             'query' => OpenApiUtilClient::query($query),
         ]);
         $params = new Params([
@@ -242,11 +259,17 @@ class Config extends OpenApiClient
     public function attachAggregateConfigRuleToCompliancePackWithOptions($request, $runtime)
     {
         Utils::validateModel($request);
-        $query                     = [];
-        $query['AggregatorId']     = $request->aggregatorId;
-        $query['CompliancePackId'] = $request->compliancePackId;
-        $query['ConfigRuleIds']    = $request->configRuleIds;
-        $req                       = new OpenApiRequest([
+        $query = [];
+        if (!Utils::isUnset($request->aggregatorId)) {
+            $query['AggregatorId'] = $request->aggregatorId;
+        }
+        if (!Utils::isUnset($request->compliancePackId)) {
+            $query['CompliancePackId'] = $request->compliancePackId;
+        }
+        if (!Utils::isUnset($request->configRuleIds)) {
+            $query['ConfigRuleIds'] = $request->configRuleIds;
+        }
+        $req = new OpenApiRequest([
             'query' => OpenApiUtilClient::query($query),
         ]);
         $params = new Params([
@@ -285,10 +308,14 @@ class Config extends OpenApiClient
     public function attachConfigRuleToCompliancePackWithOptions($request, $runtime)
     {
         Utils::validateModel($request);
-        $query                     = [];
-        $query['CompliancePackId'] = $request->compliancePackId;
-        $query['ConfigRuleIds']    = $request->configRuleIds;
-        $req                       = new OpenApiRequest([
+        $query = [];
+        if (!Utils::isUnset($request->compliancePackId)) {
+            $query['CompliancePackId'] = $request->compliancePackId;
+        }
+        if (!Utils::isUnset($request->configRuleIds)) {
+            $query['ConfigRuleIds'] = $request->configRuleIds;
+        }
+        $req = new OpenApiRequest([
             'query' => OpenApiUtilClient::query($query),
         ]);
         $params = new Params([
@@ -332,8 +359,7 @@ class Config extends OpenApiClient
         if (!Utils::isUnset($tmpReq->configRules)) {
             $request->configRulesShrink = OpenApiUtilClient::arrayToStringWithSpecifiedStyle($tmpReq->configRules, 'ConfigRules', 'json');
         }
-        $query = [];
-        $body  = [];
+        $body = [];
         if (!Utils::isUnset($request->aggregatorId)) {
             $body['AggregatorId'] = $request->aggregatorId;
         }
@@ -402,8 +428,7 @@ class Config extends OpenApiClient
         if (!Utils::isUnset($tmpReq->resourceTypesScope)) {
             $request->resourceTypesScopeShrink = OpenApiUtilClient::arrayToStringWithSpecifiedStyle($tmpReq->resourceTypesScope, 'ResourceTypesScope', 'simple');
         }
-        $query = [];
-        $body  = [];
+        $body = [];
         if (!Utils::isUnset($request->aggregatorId)) {
             $body['AggregatorId'] = $request->aggregatorId;
         }
@@ -445,6 +470,9 @@ class Config extends OpenApiClient
         }
         if (!Utils::isUnset($request->sourceOwner)) {
             $body['SourceOwner'] = $request->sourceOwner;
+        }
+        if (!Utils::isUnset($request->tagKeyLogicScope)) {
+            $body['TagKeyLogicScope'] = $request->tagKeyLogicScope;
         }
         if (!Utils::isUnset($request->tagKeyScope)) {
             $body['TagKeyScope'] = $request->tagKeyScope;
@@ -496,8 +524,7 @@ class Config extends OpenApiClient
         if (!Utils::isUnset($tmpReq->aggregatorAccounts)) {
             $request->aggregatorAccountsShrink = OpenApiUtilClient::arrayToStringWithSpecifiedStyle($tmpReq->aggregatorAccounts, 'AggregatorAccounts', 'json');
         }
-        $query = [];
-        $body  = [];
+        $body = [];
         if (!Utils::isUnset($request->aggregatorAccountsShrink)) {
             $body['AggregatorAccounts'] = $request->aggregatorAccountsShrink;
         }
@@ -557,8 +584,7 @@ class Config extends OpenApiClient
         if (!Utils::isUnset($tmpReq->configRules)) {
             $request->configRulesShrink = OpenApiUtilClient::arrayToStringWithSpecifiedStyle($tmpReq->configRules, 'ConfigRules', 'json');
         }
-        $query = [];
-        $body  = [];
+        $body = [];
         if (!Utils::isUnset($request->clientToken)) {
             $body['ClientToken'] = $request->clientToken;
         }
@@ -624,8 +650,7 @@ class Config extends OpenApiClient
         if (!Utils::isUnset($tmpReq->resourceTypesScope)) {
             $request->resourceTypesScopeShrink = OpenApiUtilClient::arrayToStringWithSpecifiedStyle($tmpReq->resourceTypesScope, 'ResourceTypesScope', 'simple');
         }
-        $query = [];
-        $body  = [];
+        $body = [];
         if (!Utils::isUnset($request->clientToken)) {
             $body['ClientToken'] = $request->clientToken;
         }
@@ -664,6 +689,9 @@ class Config extends OpenApiClient
         }
         if (!Utils::isUnset($request->sourceOwner)) {
             $body['SourceOwner'] = $request->sourceOwner;
+        }
+        if (!Utils::isUnset($request->tagKeyLogicScope)) {
+            $body['TagKeyLogicScope'] = $request->tagKeyLogicScope;
         }
         if (!Utils::isUnset($request->tagKeyScope)) {
             $body['TagKeyScope'] = $request->tagKeyScope;
@@ -710,10 +738,14 @@ class Config extends OpenApiClient
     public function deactiveAggregateConfigRulesWithOptions($request, $runtime)
     {
         Utils::validateModel($request);
-        $query                  = [];
-        $query['AggregatorId']  = $request->aggregatorId;
-        $query['ConfigRuleIds'] = $request->configRuleIds;
-        $req                    = new OpenApiRequest([
+        $query = [];
+        if (!Utils::isUnset($request->aggregatorId)) {
+            $query['AggregatorId'] = $request->aggregatorId;
+        }
+        if (!Utils::isUnset($request->configRuleIds)) {
+            $query['ConfigRuleIds'] = $request->configRuleIds;
+        }
+        $req = new OpenApiRequest([
             'query' => OpenApiUtilClient::query($query),
         ]);
         $params = new Params([
@@ -752,9 +784,11 @@ class Config extends OpenApiClient
     public function deactiveConfigRulesWithOptions($request, $runtime)
     {
         Utils::validateModel($request);
-        $query                  = [];
-        $query['ConfigRuleIds'] = $request->configRuleIds;
-        $req                    = new OpenApiRequest([
+        $query = [];
+        if (!Utils::isUnset($request->configRuleIds)) {
+            $query['ConfigRuleIds'] = $request->configRuleIds;
+        }
+        $req = new OpenApiRequest([
             'query' => OpenApiUtilClient::query($query),
         ]);
         $params = new Params([
@@ -793,8 +827,7 @@ class Config extends OpenApiClient
     public function deleteAggregateCompliancePacksWithOptions($request, $runtime)
     {
         Utils::validateModel($request);
-        $query = [];
-        $body  = [];
+        $body = [];
         if (!Utils::isUnset($request->aggregatorId)) {
             $body['AggregatorId'] = $request->aggregatorId;
         }
@@ -846,10 +879,14 @@ class Config extends OpenApiClient
     public function deleteAggregateConfigRulesWithOptions($request, $runtime)
     {
         Utils::validateModel($request);
-        $query                  = [];
-        $query['AggregatorId']  = $request->aggregatorId;
-        $query['ConfigRuleIds'] = $request->configRuleIds;
-        $req                    = new OpenApiRequest([
+        $query = [];
+        if (!Utils::isUnset($request->aggregatorId)) {
+            $query['AggregatorId'] = $request->aggregatorId;
+        }
+        if (!Utils::isUnset($request->configRuleIds)) {
+            $query['ConfigRuleIds'] = $request->configRuleIds;
+        }
+        $req = new OpenApiRequest([
             'query' => OpenApiUtilClient::query($query),
         ]);
         $params = new Params([
@@ -888,8 +925,7 @@ class Config extends OpenApiClient
     public function deleteAggregatorsWithOptions($request, $runtime)
     {
         Utils::validateModel($request);
-        $query = [];
-        $body  = [];
+        $body = [];
         if (!Utils::isUnset($request->aggregatorIds)) {
             $body['AggregatorIds'] = $request->aggregatorIds;
         }
@@ -935,8 +971,7 @@ class Config extends OpenApiClient
     public function deleteCompliancePacksWithOptions($request, $runtime)
     {
         Utils::validateModel($request);
-        $query = [];
-        $body  = [];
+        $body = [];
         if (!Utils::isUnset($request->clientToken)) {
             $body['ClientToken'] = $request->clientToken;
         }
@@ -985,11 +1020,17 @@ class Config extends OpenApiClient
     public function detachAggregateConfigRuleToCompliancePackWithOptions($request, $runtime)
     {
         Utils::validateModel($request);
-        $query                     = [];
-        $query['AggregatorId']     = $request->aggregatorId;
-        $query['CompliancePackId'] = $request->compliancePackId;
-        $query['ConfigRuleIds']    = $request->configRuleIds;
-        $req                       = new OpenApiRequest([
+        $query = [];
+        if (!Utils::isUnset($request->aggregatorId)) {
+            $query['AggregatorId'] = $request->aggregatorId;
+        }
+        if (!Utils::isUnset($request->compliancePackId)) {
+            $query['CompliancePackId'] = $request->compliancePackId;
+        }
+        if (!Utils::isUnset($request->configRuleIds)) {
+            $query['ConfigRuleIds'] = $request->configRuleIds;
+        }
+        $req = new OpenApiRequest([
             'query' => OpenApiUtilClient::query($query),
         ]);
         $params = new Params([
@@ -1028,10 +1069,14 @@ class Config extends OpenApiClient
     public function detachConfigRuleToCompliancePackWithOptions($request, $runtime)
     {
         Utils::validateModel($request);
-        $query                     = [];
-        $query['CompliancePackId'] = $request->compliancePackId;
-        $query['ConfigRuleIds']    = $request->configRuleIds;
-        $req                       = new OpenApiRequest([
+        $query = [];
+        if (!Utils::isUnset($request->compliancePackId)) {
+            $query['CompliancePackId'] = $request->compliancePackId;
+        }
+        if (!Utils::isUnset($request->configRuleIds)) {
+            $query['ConfigRuleIds'] = $request->configRuleIds;
+        }
+        $req = new OpenApiRequest([
             'query' => OpenApiUtilClient::query($query),
         ]);
         $params = new Params([
@@ -1070,8 +1115,7 @@ class Config extends OpenApiClient
     public function generateAggregateCompliancePackReportWithOptions($request, $runtime)
     {
         Utils::validateModel($request);
-        $query = [];
-        $body  = [];
+        $body = [];
         if (!Utils::isUnset($request->aggregatorId)) {
             $body['AggregatorId'] = $request->aggregatorId;
         }
@@ -1120,13 +1164,15 @@ class Config extends OpenApiClient
     public function generateAggregateConfigRulesReportWithOptions($request, $runtime)
     {
         Utils::validateModel($request);
-        $query = [];
-        $body  = [];
+        $body = [];
         if (!Utils::isUnset($request->aggregatorId)) {
             $body['AggregatorId'] = $request->aggregatorId;
         }
         if (!Utils::isUnset($request->clientToken)) {
             $body['ClientToken'] = $request->clientToken;
+        }
+        if (!Utils::isUnset($request->configRuleIds)) {
+            $body['ConfigRuleIds'] = $request->configRuleIds;
         }
         $req = new OpenApiRequest([
             'body' => OpenApiUtilClient::parseToMap($body),
@@ -1167,8 +1213,7 @@ class Config extends OpenApiClient
     public function generateCompliancePackReportWithOptions($request, $runtime)
     {
         Utils::validateModel($request);
-        $query = [];
-        $body  = [];
+        $body = [];
         if (!Utils::isUnset($request->clientToken)) {
             $body['ClientToken'] = $request->clientToken;
         }
@@ -1214,10 +1259,12 @@ class Config extends OpenApiClient
     public function generateConfigRulesReportWithOptions($request, $runtime)
     {
         Utils::validateModel($request);
-        $query = [];
-        $body  = [];
+        $body = [];
         if (!Utils::isUnset($request->clientToken)) {
             $body['ClientToken'] = $request->clientToken;
+        }
+        if (!Utils::isUnset($request->configRuleIds)) {
+            $body['ConfigRuleIds'] = $request->configRuleIds;
         }
         $req = new OpenApiRequest([
             'body' => OpenApiUtilClient::parseToMap($body),
@@ -1378,10 +1425,14 @@ class Config extends OpenApiClient
     public function getAggregateConfigRuleWithOptions($request, $runtime)
     {
         Utils::validateModel($request);
-        $query                 = [];
-        $query['AggregatorId'] = $request->aggregatorId;
-        $query['ConfigRuleId'] = $request->configRuleId;
-        $req                   = new OpenApiRequest([
+        $query = [];
+        if (!Utils::isUnset($request->aggregatorId)) {
+            $query['AggregatorId'] = $request->aggregatorId;
+        }
+        if (!Utils::isUnset($request->configRuleId)) {
+            $query['ConfigRuleId'] = $request->configRuleId;
+        }
+        $req = new OpenApiRequest([
             'query' => OpenApiUtilClient::query($query),
         ]);
         $params = new Params([
@@ -1500,8 +1551,14 @@ class Config extends OpenApiClient
     public function getAggregateConfigRulesReportWithOptions($request, $runtime)
     {
         Utils::validateModel($request);
-        $query = OpenApiUtilClient::query(Utils::toMap($request));
-        $req   = new OpenApiRequest([
+        $query = [];
+        if (!Utils::isUnset($request->aggregatorId)) {
+            $query['AggregatorId'] = $request->aggregatorId;
+        }
+        if (!Utils::isUnset($request->reportId)) {
+            $query['ReportId'] = $request->reportId;
+        }
+        $req = new OpenApiRequest([
             'query' => OpenApiUtilClient::query($query),
         ]);
         $params = new Params([
@@ -1509,7 +1566,7 @@ class Config extends OpenApiClient
             'version'     => '2020-09-07',
             'protocol'    => 'HTTPS',
             'pathname'    => '/',
-            'method'      => 'GET',
+            'method'      => 'POST',
             'authType'    => 'AK',
             'style'       => 'RPC',
             'reqBodyType' => 'formData',
@@ -1540,8 +1597,17 @@ class Config extends OpenApiClient
     public function getAggregateResourceComplianceByConfigRuleWithOptions($request, $runtime)
     {
         Utils::validateModel($request);
-        $query = OpenApiUtilClient::query(Utils::toMap($request));
-        $req   = new OpenApiRequest([
+        $query = [];
+        if (!Utils::isUnset($request->aggregatorId)) {
+            $query['AggregatorId'] = $request->aggregatorId;
+        }
+        if (!Utils::isUnset($request->complianceType)) {
+            $query['ComplianceType'] = $request->complianceType;
+        }
+        if (!Utils::isUnset($request->configRuleId)) {
+            $query['ConfigRuleId'] = $request->configRuleId;
+        }
+        $req = new OpenApiRequest([
             'query' => OpenApiUtilClient::query($query),
         ]);
         $params = new Params([
@@ -1549,7 +1615,7 @@ class Config extends OpenApiClient
             'version'     => '2020-09-07',
             'protocol'    => 'HTTPS',
             'pathname'    => '/',
-            'method'      => 'GET',
+            'method'      => 'POST',
             'authType'    => 'AK',
             'style'       => 'RPC',
             'reqBodyType' => 'formData',
@@ -1609,6 +1675,98 @@ class Config extends OpenApiClient
         $runtime = new RuntimeOptions([]);
 
         return $this->getAggregateResourceComplianceByPackWithOptions($request, $runtime);
+    }
+
+    /**
+     * @param GetAggregateResourceComplianceGroupByRegionRequest $request
+     * @param RuntimeOptions                                     $runtime
+     *
+     * @return GetAggregateResourceComplianceGroupByRegionResponse
+     */
+    public function getAggregateResourceComplianceGroupByRegionWithOptions($request, $runtime)
+    {
+        Utils::validateModel($request);
+        $query = [];
+        if (!Utils::isUnset($request->aggregatorId)) {
+            $query['AggregatorId'] = $request->aggregatorId;
+        }
+        if (!Utils::isUnset($request->configRuleIds)) {
+            $query['ConfigRuleIds'] = $request->configRuleIds;
+        }
+        $req = new OpenApiRequest([
+            'query' => OpenApiUtilClient::query($query),
+        ]);
+        $params = new Params([
+            'action'      => 'GetAggregateResourceComplianceGroupByRegion',
+            'version'     => '2020-09-07',
+            'protocol'    => 'HTTPS',
+            'pathname'    => '/',
+            'method'      => 'POST',
+            'authType'    => 'AK',
+            'style'       => 'RPC',
+            'reqBodyType' => 'formData',
+            'bodyType'    => 'json',
+        ]);
+
+        return GetAggregateResourceComplianceGroupByRegionResponse::fromMap($this->callApi($params, $req, $runtime));
+    }
+
+    /**
+     * @param GetAggregateResourceComplianceGroupByRegionRequest $request
+     *
+     * @return GetAggregateResourceComplianceGroupByRegionResponse
+     */
+    public function getAggregateResourceComplianceGroupByRegion($request)
+    {
+        $runtime = new RuntimeOptions([]);
+
+        return $this->getAggregateResourceComplianceGroupByRegionWithOptions($request, $runtime);
+    }
+
+    /**
+     * @param GetAggregateResourceComplianceGroupByResourceTypeRequest $request
+     * @param RuntimeOptions                                           $runtime
+     *
+     * @return GetAggregateResourceComplianceGroupByResourceTypeResponse
+     */
+    public function getAggregateResourceComplianceGroupByResourceTypeWithOptions($request, $runtime)
+    {
+        Utils::validateModel($request);
+        $query = [];
+        if (!Utils::isUnset($request->aggregatorId)) {
+            $query['AggregatorId'] = $request->aggregatorId;
+        }
+        if (!Utils::isUnset($request->configRuleIds)) {
+            $query['ConfigRuleIds'] = $request->configRuleIds;
+        }
+        $req = new OpenApiRequest([
+            'query' => OpenApiUtilClient::query($query),
+        ]);
+        $params = new Params([
+            'action'      => 'GetAggregateResourceComplianceGroupByResourceType',
+            'version'     => '2020-09-07',
+            'protocol'    => 'HTTPS',
+            'pathname'    => '/',
+            'method'      => 'POST',
+            'authType'    => 'AK',
+            'style'       => 'RPC',
+            'reqBodyType' => 'formData',
+            'bodyType'    => 'json',
+        ]);
+
+        return GetAggregateResourceComplianceGroupByResourceTypeResponse::fromMap($this->callApi($params, $req, $runtime));
+    }
+
+    /**
+     * @param GetAggregateResourceComplianceGroupByResourceTypeRequest $request
+     *
+     * @return GetAggregateResourceComplianceGroupByResourceTypeResponse
+     */
+    public function getAggregateResourceComplianceGroupByResourceType($request)
+    {
+        $runtime = new RuntimeOptions([]);
+
+        return $this->getAggregateResourceComplianceGroupByResourceTypeWithOptions($request, $runtime);
     }
 
     /**
@@ -1900,9 +2058,11 @@ class Config extends OpenApiClient
     public function getConfigRuleWithOptions($request, $runtime)
     {
         Utils::validateModel($request);
-        $query                 = [];
-        $query['ConfigRuleId'] = $request->configRuleId;
-        $req                   = new OpenApiRequest([
+        $query = [];
+        if (!Utils::isUnset($request->configRuleId)) {
+            $query['ConfigRuleId'] = $request->configRuleId;
+        }
+        $req = new OpenApiRequest([
             'query' => OpenApiUtilClient::query($query),
         ]);
         $params = new Params([
@@ -2006,19 +2166,27 @@ class Config extends OpenApiClient
     }
 
     /**
-     * @param RuntimeOptions $runtime
+     * @param GetConfigRulesReportRequest $request
+     * @param RuntimeOptions              $runtime
      *
      * @return GetConfigRulesReportResponse
      */
-    public function getConfigRulesReportWithOptions($runtime)
+    public function getConfigRulesReportWithOptions($request, $runtime)
     {
-        $req    = new OpenApiRequest([]);
+        Utils::validateModel($request);
+        $query = [];
+        if (!Utils::isUnset($request->reportId)) {
+            $query['ReportId'] = $request->reportId;
+        }
+        $req = new OpenApiRequest([
+            'query' => OpenApiUtilClient::query($query),
+        ]);
         $params = new Params([
             'action'      => 'GetConfigRulesReport',
             'version'     => '2020-09-07',
             'protocol'    => 'HTTPS',
             'pathname'    => '/',
-            'method'      => 'GET',
+            'method'      => 'POST',
             'authType'    => 'AK',
             'style'       => 'RPC',
             'reqBodyType' => 'formData',
@@ -2029,13 +2197,15 @@ class Config extends OpenApiClient
     }
 
     /**
+     * @param GetConfigRulesReportRequest $request
+     *
      * @return GetConfigRulesReportResponse
      */
-    public function getConfigRulesReport()
+    public function getConfigRulesReport($request)
     {
         $runtime = new RuntimeOptions([]);
 
-        return $this->getConfigRulesReportWithOptions($runtime);
+        return $this->getConfigRulesReportWithOptions($request, $runtime);
     }
 
     /**
@@ -2119,6 +2289,49 @@ class Config extends OpenApiClient
     }
 
     /**
+     * @param GetManagedRuleRequest $request
+     * @param RuntimeOptions        $runtime
+     *
+     * @return GetManagedRuleResponse
+     */
+    public function getManagedRuleWithOptions($request, $runtime)
+    {
+        Utils::validateModel($request);
+        $query = [];
+        if (!Utils::isUnset($request->identifier)) {
+            $query['Identifier'] = $request->identifier;
+        }
+        $req = new OpenApiRequest([
+            'query' => OpenApiUtilClient::query($query),
+        ]);
+        $params = new Params([
+            'action'      => 'GetManagedRule',
+            'version'     => '2020-09-07',
+            'protocol'    => 'HTTPS',
+            'pathname'    => '/',
+            'method'      => 'POST',
+            'authType'    => 'AK',
+            'style'       => 'RPC',
+            'reqBodyType' => 'formData',
+            'bodyType'    => 'json',
+        ]);
+
+        return GetManagedRuleResponse::fromMap($this->callApi($params, $req, $runtime));
+    }
+
+    /**
+     * @param GetManagedRuleRequest $request
+     *
+     * @return GetManagedRuleResponse
+     */
+    public function getManagedRule($request)
+    {
+        $runtime = new RuntimeOptions([]);
+
+        return $this->getManagedRuleWithOptions($request, $runtime);
+    }
+
+    /**
      * @param GetResourceComplianceByConfigRuleRequest $request
      * @param RuntimeOptions                           $runtime
      *
@@ -2196,6 +2409,92 @@ class Config extends OpenApiClient
         $runtime = new RuntimeOptions([]);
 
         return $this->getResourceComplianceByPackWithOptions($request, $runtime);
+    }
+
+    /**
+     * @param GetResourceComplianceGroupByRegionRequest $request
+     * @param RuntimeOptions                            $runtime
+     *
+     * @return GetResourceComplianceGroupByRegionResponse
+     */
+    public function getResourceComplianceGroupByRegionWithOptions($request, $runtime)
+    {
+        Utils::validateModel($request);
+        $query = [];
+        if (!Utils::isUnset($request->configRuleIds)) {
+            $query['ConfigRuleIds'] = $request->configRuleIds;
+        }
+        $req = new OpenApiRequest([
+            'query' => OpenApiUtilClient::query($query),
+        ]);
+        $params = new Params([
+            'action'      => 'GetResourceComplianceGroupByRegion',
+            'version'     => '2020-09-07',
+            'protocol'    => 'HTTPS',
+            'pathname'    => '/',
+            'method'      => 'POST',
+            'authType'    => 'AK',
+            'style'       => 'RPC',
+            'reqBodyType' => 'formData',
+            'bodyType'    => 'json',
+        ]);
+
+        return GetResourceComplianceGroupByRegionResponse::fromMap($this->callApi($params, $req, $runtime));
+    }
+
+    /**
+     * @param GetResourceComplianceGroupByRegionRequest $request
+     *
+     * @return GetResourceComplianceGroupByRegionResponse
+     */
+    public function getResourceComplianceGroupByRegion($request)
+    {
+        $runtime = new RuntimeOptions([]);
+
+        return $this->getResourceComplianceGroupByRegionWithOptions($request, $runtime);
+    }
+
+    /**
+     * @param GetResourceComplianceGroupByResourceTypeRequest $request
+     * @param RuntimeOptions                                  $runtime
+     *
+     * @return GetResourceComplianceGroupByResourceTypeResponse
+     */
+    public function getResourceComplianceGroupByResourceTypeWithOptions($request, $runtime)
+    {
+        Utils::validateModel($request);
+        $query = [];
+        if (!Utils::isUnset($request->configRuleIds)) {
+            $query['ConfigRuleIds'] = $request->configRuleIds;
+        }
+        $req = new OpenApiRequest([
+            'query' => OpenApiUtilClient::query($query),
+        ]);
+        $params = new Params([
+            'action'      => 'GetResourceComplianceGroupByResourceType',
+            'version'     => '2020-09-07',
+            'protocol'    => 'HTTPS',
+            'pathname'    => '/',
+            'method'      => 'POST',
+            'authType'    => 'AK',
+            'style'       => 'RPC',
+            'reqBodyType' => 'formData',
+            'bodyType'    => 'json',
+        ]);
+
+        return GetResourceComplianceGroupByResourceTypeResponse::fromMap($this->callApi($params, $req, $runtime));
+    }
+
+    /**
+     * @param GetResourceComplianceGroupByResourceTypeRequest $request
+     *
+     * @return GetResourceComplianceGroupByResourceTypeResponse
+     */
+    public function getResourceComplianceGroupByResourceType($request)
+    {
+        $runtime = new RuntimeOptions([]);
+
+        return $this->getResourceComplianceGroupByResourceTypeWithOptions($request, $runtime);
     }
 
     /**
@@ -2292,8 +2591,7 @@ class Config extends OpenApiClient
         if (!Utils::isUnset($tmpReq->resources)) {
             $request->resourcesShrink = OpenApiUtilClient::arrayToStringWithSpecifiedStyle($tmpReq->resources, 'Resources', 'json');
         }
-        $query = [];
-        $body  = [];
+        $body = [];
         if (!Utils::isUnset($request->aggregatorId)) {
             $body['AggregatorId'] = $request->aggregatorId;
         }
@@ -2350,8 +2648,7 @@ class Config extends OpenApiClient
         if (!Utils::isUnset($tmpReq->resources)) {
             $request->resourcesShrink = OpenApiUtilClient::arrayToStringWithSpecifiedStyle($tmpReq->resources, 'Resources', 'json');
         }
-        $query = [];
-        $body  = [];
+        $body = [];
         if (!Utils::isUnset($request->configRuleId)) {
             $body['ConfigRuleId'] = $request->configRuleId;
         }
@@ -2520,8 +2817,29 @@ class Config extends OpenApiClient
     public function listAggregateResourceEvaluationResultsWithOptions($request, $runtime)
     {
         Utils::validateModel($request);
-        $query = OpenApiUtilClient::query(Utils::toMap($request));
-        $req   = new OpenApiRequest([
+        $query = [];
+        if (!Utils::isUnset($request->aggregatorId)) {
+            $query['AggregatorId'] = $request->aggregatorId;
+        }
+        if (!Utils::isUnset($request->complianceType)) {
+            $query['ComplianceType'] = $request->complianceType;
+        }
+        if (!Utils::isUnset($request->maxResults)) {
+            $query['MaxResults'] = $request->maxResults;
+        }
+        if (!Utils::isUnset($request->nextToken)) {
+            $query['NextToken'] = $request->nextToken;
+        }
+        if (!Utils::isUnset($request->region)) {
+            $query['Region'] = $request->region;
+        }
+        if (!Utils::isUnset($request->resourceId)) {
+            $query['ResourceId'] = $request->resourceId;
+        }
+        if (!Utils::isUnset($request->resourceType)) {
+            $query['ResourceType'] = $request->resourceType;
+        }
+        $req = new OpenApiRequest([
             'query' => OpenApiUtilClient::query($query),
         ]);
         $params = new Params([
@@ -2529,7 +2847,7 @@ class Config extends OpenApiClient
             'version'     => '2020-09-07',
             'protocol'    => 'HTTPS',
             'pathname'    => '/',
-            'method'      => 'GET',
+            'method'      => 'POST',
             'authType'    => 'AK',
             'style'       => 'RPC',
             'reqBodyType' => 'formData',
@@ -2712,6 +3030,58 @@ class Config extends OpenApiClient
     }
 
     /**
+     * @param ListManagedRulesRequest $request
+     * @param RuntimeOptions          $runtime
+     *
+     * @return ListManagedRulesResponse
+     */
+    public function listManagedRulesWithOptions($request, $runtime)
+    {
+        Utils::validateModel($request);
+        $query = [];
+        if (!Utils::isUnset($request->keyword)) {
+            $query['Keyword'] = $request->keyword;
+        }
+        if (!Utils::isUnset($request->pageNumber)) {
+            $query['PageNumber'] = $request->pageNumber;
+        }
+        if (!Utils::isUnset($request->pageSize)) {
+            $query['PageSize'] = $request->pageSize;
+        }
+        if (!Utils::isUnset($request->riskLevel)) {
+            $query['RiskLevel'] = $request->riskLevel;
+        }
+        $req = new OpenApiRequest([
+            'query' => OpenApiUtilClient::query($query),
+        ]);
+        $params = new Params([
+            'action'      => 'ListManagedRules',
+            'version'     => '2020-09-07',
+            'protocol'    => 'HTTPS',
+            'pathname'    => '/',
+            'method'      => 'POST',
+            'authType'    => 'AK',
+            'style'       => 'RPC',
+            'reqBodyType' => 'formData',
+            'bodyType'    => 'json',
+        ]);
+
+        return ListManagedRulesResponse::fromMap($this->callApi($params, $req, $runtime));
+    }
+
+    /**
+     * @param ListManagedRulesRequest $request
+     *
+     * @return ListManagedRulesResponse
+     */
+    public function listManagedRules($request)
+    {
+        $runtime = new RuntimeOptions([]);
+
+        return $this->listManagedRulesWithOptions($request, $runtime);
+    }
+
+    /**
      * @param ListResourceEvaluationResultsRequest $request
      * @param RuntimeOptions                       $runtime
      *
@@ -2720,8 +3090,26 @@ class Config extends OpenApiClient
     public function listResourceEvaluationResultsWithOptions($request, $runtime)
     {
         Utils::validateModel($request);
-        $query = OpenApiUtilClient::query(Utils::toMap($request));
-        $req   = new OpenApiRequest([
+        $query = [];
+        if (!Utils::isUnset($request->complianceType)) {
+            $query['ComplianceType'] = $request->complianceType;
+        }
+        if (!Utils::isUnset($request->maxResults)) {
+            $query['MaxResults'] = $request->maxResults;
+        }
+        if (!Utils::isUnset($request->nextToken)) {
+            $query['NextToken'] = $request->nextToken;
+        }
+        if (!Utils::isUnset($request->region)) {
+            $query['Region'] = $request->region;
+        }
+        if (!Utils::isUnset($request->resourceId)) {
+            $query['ResourceId'] = $request->resourceId;
+        }
+        if (!Utils::isUnset($request->resourceType)) {
+            $query['ResourceType'] = $request->resourceType;
+        }
+        $req = new OpenApiRequest([
             'query' => OpenApiUtilClient::query($query),
         ]);
         $params = new Params([
@@ -2729,7 +3117,7 @@ class Config extends OpenApiClient
             'version'     => '2020-09-07',
             'protocol'    => 'HTTPS',
             'pathname'    => '/',
-            'method'      => 'GET',
+            'method'      => 'POST',
             'authType'    => 'AK',
             'style'       => 'RPC',
             'reqBodyType' => 'formData',
@@ -2765,8 +3153,7 @@ class Config extends OpenApiClient
         if (!Utils::isUnset($tmpReq->resources)) {
             $request->resourcesShrink = OpenApiUtilClient::arrayToStringWithSpecifiedStyle($tmpReq->resources, 'Resources', 'json');
         }
-        $query = [];
-        $body  = [];
+        $body = [];
         if (!Utils::isUnset($request->aggregatorId)) {
             $body['AggregatorId'] = $request->aggregatorId;
         }
@@ -2820,8 +3207,7 @@ class Config extends OpenApiClient
         if (!Utils::isUnset($tmpReq->resources)) {
             $request->resourcesShrink = OpenApiUtilClient::arrayToStringWithSpecifiedStyle($tmpReq->resources, 'Resources', 'json');
         }
-        $query = [];
-        $body  = [];
+        $body = [];
         if (!Utils::isUnset($request->configRuleId)) {
             $body['ConfigRuleId'] = $request->configRuleId;
         }
@@ -2867,12 +3253,20 @@ class Config extends OpenApiClient
     public function startAggregateConfigRuleEvaluationWithOptions($request, $runtime)
     {
         Utils::validateModel($request);
-        $query                     = [];
-        $query['AggregatorId']     = $request->aggregatorId;
-        $query['CompliancePackId'] = $request->compliancePackId;
-        $query['ConfigRuleId']     = $request->configRuleId;
-        $query['RevertEvaluation'] = $request->revertEvaluation;
-        $req                       = new OpenApiRequest([
+        $query = [];
+        if (!Utils::isUnset($request->aggregatorId)) {
+            $query['AggregatorId'] = $request->aggregatorId;
+        }
+        if (!Utils::isUnset($request->compliancePackId)) {
+            $query['CompliancePackId'] = $request->compliancePackId;
+        }
+        if (!Utils::isUnset($request->configRuleId)) {
+            $query['ConfigRuleId'] = $request->configRuleId;
+        }
+        if (!Utils::isUnset($request->revertEvaluation)) {
+            $query['RevertEvaluation'] = $request->revertEvaluation;
+        }
+        $req = new OpenApiRequest([
             'query' => OpenApiUtilClient::query($query),
         ]);
         $params = new Params([
@@ -2916,8 +3310,7 @@ class Config extends OpenApiClient
         if (!Utils::isUnset($tmpReq->configRules)) {
             $request->configRulesShrink = OpenApiUtilClient::arrayToStringWithSpecifiedStyle($tmpReq->configRules, 'ConfigRules', 'json');
         }
-        $query = [];
-        $body  = [];
+        $body = [];
         if (!Utils::isUnset($request->aggregatorId)) {
             $body['AggregatorId'] = $request->aggregatorId;
         }
@@ -2986,8 +3379,7 @@ class Config extends OpenApiClient
         if (!Utils::isUnset($tmpReq->resourceTypesScope)) {
             $request->resourceTypesScopeShrink = OpenApiUtilClient::arrayToStringWithSpecifiedStyle($tmpReq->resourceTypesScope, 'ResourceTypesScope', 'simple');
         }
-        $query = [];
-        $body  = [];
+        $body = [];
         if (!Utils::isUnset($request->aggregatorId)) {
             $body['AggregatorId'] = $request->aggregatorId;
         }
@@ -3026,6 +3418,9 @@ class Config extends OpenApiClient
         }
         if (!Utils::isUnset($request->riskLevel)) {
             $body['RiskLevel'] = $request->riskLevel;
+        }
+        if (!Utils::isUnset($request->tagKeyLogicScope)) {
+            $body['TagKeyLogicScope'] = $request->tagKeyLogicScope;
         }
         if (!Utils::isUnset($request->tagKeyScope)) {
             $body['TagKeyScope'] = $request->tagKeyScope;
@@ -3077,8 +3472,7 @@ class Config extends OpenApiClient
         if (!Utils::isUnset($tmpReq->aggregatorAccounts)) {
             $request->aggregatorAccountsShrink = OpenApiUtilClient::arrayToStringWithSpecifiedStyle($tmpReq->aggregatorAccounts, 'AggregatorAccounts', 'json');
         }
-        $query = [];
-        $body  = [];
+        $body = [];
         if (!Utils::isUnset($request->aggregatorAccountsShrink)) {
             $body['AggregatorAccounts'] = $request->aggregatorAccountsShrink;
         }
@@ -3138,8 +3532,7 @@ class Config extends OpenApiClient
         if (!Utils::isUnset($tmpReq->configRules)) {
             $request->configRulesShrink = OpenApiUtilClient::arrayToStringWithSpecifiedStyle($tmpReq->configRules, 'ConfigRules', 'json');
         }
-        $query = [];
-        $body  = [];
+        $body = [];
         if (!Utils::isUnset($request->clientToken)) {
             $body['ClientToken'] = $request->clientToken;
         }
@@ -3205,8 +3598,7 @@ class Config extends OpenApiClient
         if (!Utils::isUnset($tmpReq->resourceTypesScope)) {
             $request->resourceTypesScopeShrink = OpenApiUtilClient::arrayToStringWithSpecifiedStyle($tmpReq->resourceTypesScope, 'ResourceTypesScope', 'simple');
         }
-        $query = [];
-        $body  = [];
+        $body = [];
         if (!Utils::isUnset($request->clientToken)) {
             $body['ClientToken'] = $request->clientToken;
         }
@@ -3242,6 +3634,9 @@ class Config extends OpenApiClient
         }
         if (!Utils::isUnset($request->riskLevel)) {
             $body['RiskLevel'] = $request->riskLevel;
+        }
+        if (!Utils::isUnset($request->tagKeyLogicScope)) {
+            $body['TagKeyLogicScope'] = $request->tagKeyLogicScope;
         }
         if (!Utils::isUnset($request->tagKeyScope)) {
             $body['TagKeyScope'] = $request->tagKeyScope;

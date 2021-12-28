@@ -17,9 +17,15 @@ class GenerateAggregateConfigRulesReportRequest extends Model
      * @var string
      */
     public $clientToken;
+
+    /**
+     * @var string
+     */
+    public $configRuleIds;
     protected $_name = [
-        'aggregatorId' => 'AggregatorId',
-        'clientToken'  => 'ClientToken',
+        'aggregatorId'  => 'AggregatorId',
+        'clientToken'   => 'ClientToken',
+        'configRuleIds' => 'ConfigRuleIds',
     ];
 
     public function validate()
@@ -34,6 +40,9 @@ class GenerateAggregateConfigRulesReportRequest extends Model
         }
         if (null !== $this->clientToken) {
             $res['ClientToken'] = $this->clientToken;
+        }
+        if (null !== $this->configRuleIds) {
+            $res['ConfigRuleIds'] = $this->configRuleIds;
         }
 
         return $res;
@@ -52,6 +61,9 @@ class GenerateAggregateConfigRulesReportRequest extends Model
         }
         if (isset($map['ClientToken'])) {
             $model->clientToken = $map['ClientToken'];
+        }
+        if (isset($map['ConfigRuleIds'])) {
+            $model->configRuleIds = $map['ConfigRuleIds'];
         }
 
         return $model;

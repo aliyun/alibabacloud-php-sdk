@@ -16,9 +16,15 @@ class GenerateAggregateConfigRulesReportResponseBody extends Model
     /**
      * @var string
      */
+    public $reportId;
+
+    /**
+     * @var string
+     */
     public $requestId;
     protected $_name = [
         'aggregatorId' => 'AggregatorId',
+        'reportId'     => 'ReportId',
         'requestId'    => 'RequestId',
     ];
 
@@ -31,6 +37,9 @@ class GenerateAggregateConfigRulesReportResponseBody extends Model
         $res = [];
         if (null !== $this->aggregatorId) {
             $res['AggregatorId'] = $this->aggregatorId;
+        }
+        if (null !== $this->reportId) {
+            $res['ReportId'] = $this->reportId;
         }
         if (null !== $this->requestId) {
             $res['RequestId'] = $this->requestId;
@@ -49,6 +58,9 @@ class GenerateAggregateConfigRulesReportResponseBody extends Model
         $model = new self();
         if (isset($map['AggregatorId'])) {
             $model->aggregatorId = $map['AggregatorId'];
+        }
+        if (isset($map['ReportId'])) {
+            $model->reportId = $map['ReportId'];
         }
         if (isset($map['RequestId'])) {
             $model->requestId = $map['RequestId'];

@@ -6,20 +6,14 @@ namespace AlibabaCloud\SDK\Config\V20200907\Models;
 
 use AlibabaCloud\Tea\Model;
 
-class GenerateConfigRulesReportResponseBody extends Model
+class GetConfigRulesReportRequest extends Model
 {
     /**
      * @var string
      */
     public $reportId;
-
-    /**
-     * @var string
-     */
-    public $requestId;
     protected $_name = [
-        'reportId'  => 'ReportId',
-        'requestId' => 'RequestId',
+        'reportId' => 'ReportId',
     ];
 
     public function validate()
@@ -32,9 +26,6 @@ class GenerateConfigRulesReportResponseBody extends Model
         if (null !== $this->reportId) {
             $res['ReportId'] = $this->reportId;
         }
-        if (null !== $this->requestId) {
-            $res['RequestId'] = $this->requestId;
-        }
 
         return $res;
     }
@@ -42,16 +33,13 @@ class GenerateConfigRulesReportResponseBody extends Model
     /**
      * @param array $map
      *
-     * @return GenerateConfigRulesReportResponseBody
+     * @return GetConfigRulesReportRequest
      */
     public static function fromMap($map = [])
     {
         $model = new self();
         if (isset($map['ReportId'])) {
             $model->reportId = $map['ReportId'];
-        }
-        if (isset($map['RequestId'])) {
-            $model->requestId = $map['RequestId'];
         }
 
         return $model;

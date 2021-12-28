@@ -6,19 +6,19 @@ namespace AlibabaCloud\SDK\Config\V20200907\Models;
 
 use AlibabaCloud\Tea\Model;
 
-class GenerateConfigRulesReportRequest extends Model
+class GetAggregateResourceComplianceGroupByRegionRequest extends Model
 {
     /**
      * @var string
      */
-    public $clientToken;
+    public $aggregatorId;
 
     /**
      * @var string
      */
     public $configRuleIds;
     protected $_name = [
-        'clientToken'   => 'ClientToken',
+        'aggregatorId'  => 'AggregatorId',
         'configRuleIds' => 'ConfigRuleIds',
     ];
 
@@ -29,8 +29,8 @@ class GenerateConfigRulesReportRequest extends Model
     public function toMap()
     {
         $res = [];
-        if (null !== $this->clientToken) {
-            $res['ClientToken'] = $this->clientToken;
+        if (null !== $this->aggregatorId) {
+            $res['AggregatorId'] = $this->aggregatorId;
         }
         if (null !== $this->configRuleIds) {
             $res['ConfigRuleIds'] = $this->configRuleIds;
@@ -42,13 +42,13 @@ class GenerateConfigRulesReportRequest extends Model
     /**
      * @param array $map
      *
-     * @return GenerateConfigRulesReportRequest
+     * @return GetAggregateResourceComplianceGroupByRegionRequest
      */
     public static function fromMap($map = [])
     {
         $model = new self();
-        if (isset($map['ClientToken'])) {
-            $model->clientToken = $map['ClientToken'];
+        if (isset($map['AggregatorId'])) {
+            $model->aggregatorId = $map['AggregatorId'];
         }
         if (isset($map['ConfigRuleIds'])) {
             $model->configRuleIds = $map['ConfigRuleIds'];

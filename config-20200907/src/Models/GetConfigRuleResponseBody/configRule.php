@@ -110,6 +110,11 @@ class configRule extends Model
     /**
      * @var string
      */
+    public $tagKeyLogicScope;
+
+    /**
+     * @var string
+     */
     public $tagKeyScope;
 
     /**
@@ -136,6 +141,7 @@ class configRule extends Model
         'resourceTypesScope'         => 'ResourceTypesScope',
         'riskLevel'                  => 'RiskLevel',
         'source'                     => 'Source',
+        'tagKeyLogicScope'           => 'TagKeyLogicScope',
         'tagKeyScope'                => 'TagKeyScope',
         'tagValueScope'              => 'TagValueScope',
     ];
@@ -203,6 +209,9 @@ class configRule extends Model
         }
         if (null !== $this->source) {
             $res['Source'] = null !== $this->source ? $this->source->toMap() : null;
+        }
+        if (null !== $this->tagKeyLogicScope) {
+            $res['TagKeyLogicScope'] = $this->tagKeyLogicScope;
         }
         if (null !== $this->tagKeyScope) {
             $res['TagKeyScope'] = $this->tagKeyScope;
@@ -278,6 +287,9 @@ class configRule extends Model
         }
         if (isset($map['Source'])) {
             $model->source = source::fromMap($map['Source']);
+        }
+        if (isset($map['TagKeyLogicScope'])) {
+            $model->tagKeyLogicScope = $map['TagKeyLogicScope'];
         }
         if (isset($map['TagKeyScope'])) {
             $model->tagKeyScope = $map['TagKeyScope'];

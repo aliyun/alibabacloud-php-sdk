@@ -76,6 +76,11 @@ class UpdateAggregateConfigRuleRequest extends Model
     /**
      * @var string
      */
+    public $tagKeyLogicScope;
+
+    /**
+     * @var string
+     */
     public $tagKeyScope;
 
     /**
@@ -96,6 +101,7 @@ class UpdateAggregateConfigRuleRequest extends Model
         'resourceGroupIdsScope'     => 'ResourceGroupIdsScope',
         'resourceTypesScope'        => 'ResourceTypesScope',
         'riskLevel'                 => 'RiskLevel',
+        'tagKeyLogicScope'          => 'TagKeyLogicScope',
         'tagKeyScope'               => 'TagKeyScope',
         'tagValueScope'             => 'TagValueScope',
     ];
@@ -145,6 +151,9 @@ class UpdateAggregateConfigRuleRequest extends Model
         }
         if (null !== $this->riskLevel) {
             $res['RiskLevel'] = $this->riskLevel;
+        }
+        if (null !== $this->tagKeyLogicScope) {
+            $res['TagKeyLogicScope'] = $this->tagKeyLogicScope;
         }
         if (null !== $this->tagKeyScope) {
             $res['TagKeyScope'] = $this->tagKeyScope;
@@ -204,6 +213,9 @@ class UpdateAggregateConfigRuleRequest extends Model
         }
         if (isset($map['RiskLevel'])) {
             $model->riskLevel = $map['RiskLevel'];
+        }
+        if (isset($map['TagKeyLogicScope'])) {
+            $model->tagKeyLogicScope = $map['TagKeyLogicScope'];
         }
         if (isset($map['TagKeyScope'])) {
             $model->tagKeyScope = $map['TagKeyScope'];

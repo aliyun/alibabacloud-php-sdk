@@ -81,6 +81,11 @@ class CreateAggregateConfigRuleRequest extends Model
     /**
      * @var string
      */
+    public $tagKeyLogicScope;
+
+    /**
+     * @var string
+     */
     public $tagKeyScope;
 
     /**
@@ -102,6 +107,7 @@ class CreateAggregateConfigRuleRequest extends Model
         'riskLevel'                 => 'RiskLevel',
         'sourceIdentifier'          => 'SourceIdentifier',
         'sourceOwner'               => 'SourceOwner',
+        'tagKeyLogicScope'          => 'TagKeyLogicScope',
         'tagKeyScope'               => 'TagKeyScope',
         'tagValueScope'             => 'TagValueScope',
     ];
@@ -154,6 +160,9 @@ class CreateAggregateConfigRuleRequest extends Model
         }
         if (null !== $this->sourceOwner) {
             $res['SourceOwner'] = $this->sourceOwner;
+        }
+        if (null !== $this->tagKeyLogicScope) {
+            $res['TagKeyLogicScope'] = $this->tagKeyLogicScope;
         }
         if (null !== $this->tagKeyScope) {
             $res['TagKeyScope'] = $this->tagKeyScope;
@@ -216,6 +225,9 @@ class CreateAggregateConfigRuleRequest extends Model
         }
         if (isset($map['SourceOwner'])) {
             $model->sourceOwner = $map['SourceOwner'];
+        }
+        if (isset($map['TagKeyLogicScope'])) {
+            $model->tagKeyLogicScope = $map['TagKeyLogicScope'];
         }
         if (isset($map['TagKeyScope'])) {
             $model->tagKeyScope = $map['TagKeyScope'];

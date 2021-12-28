@@ -12,8 +12,14 @@ class GetAggregateConfigRulesReportRequest extends Model
      * @var string
      */
     public $aggregatorId;
+
+    /**
+     * @var string
+     */
+    public $reportId;
     protected $_name = [
         'aggregatorId' => 'AggregatorId',
+        'reportId'     => 'ReportId',
     ];
 
     public function validate()
@@ -25,6 +31,9 @@ class GetAggregateConfigRulesReportRequest extends Model
         $res = [];
         if (null !== $this->aggregatorId) {
             $res['AggregatorId'] = $this->aggregatorId;
+        }
+        if (null !== $this->reportId) {
+            $res['ReportId'] = $this->reportId;
         }
 
         return $res;
@@ -40,6 +49,9 @@ class GetAggregateConfigRulesReportRequest extends Model
         $model = new self();
         if (isset($map['AggregatorId'])) {
             $model->aggregatorId = $map['AggregatorId'];
+        }
+        if (isset($map['ReportId'])) {
+            $model->reportId = $map['ReportId'];
         }
 
         return $model;

@@ -26,6 +26,11 @@ class configRulesReport extends Model
     /**
      * @var string
      */
+    public $reportId;
+
+    /**
+     * @var string
+     */
     public $reportStatus;
 
     /**
@@ -36,6 +41,7 @@ class configRulesReport extends Model
         'accountId'             => 'AccountId',
         'aggregatorId'          => 'AggregatorId',
         'reportCreateTimestamp' => 'ReportCreateTimestamp',
+        'reportId'              => 'ReportId',
         'reportStatus'          => 'ReportStatus',
         'reportUrl'             => 'ReportUrl',
     ];
@@ -55,6 +61,9 @@ class configRulesReport extends Model
         }
         if (null !== $this->reportCreateTimestamp) {
             $res['ReportCreateTimestamp'] = $this->reportCreateTimestamp;
+        }
+        if (null !== $this->reportId) {
+            $res['ReportId'] = $this->reportId;
         }
         if (null !== $this->reportStatus) {
             $res['ReportStatus'] = $this->reportStatus;
@@ -82,6 +91,9 @@ class configRulesReport extends Model
         }
         if (isset($map['ReportCreateTimestamp'])) {
             $model->reportCreateTimestamp = $map['ReportCreateTimestamp'];
+        }
+        if (isset($map['ReportId'])) {
+            $model->reportId = $map['ReportId'];
         }
         if (isset($map['ReportStatus'])) {
             $model->reportStatus = $map['ReportStatus'];

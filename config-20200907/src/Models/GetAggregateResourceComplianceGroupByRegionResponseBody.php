@@ -4,22 +4,23 @@
 
 namespace AlibabaCloud\SDK\Config\V20200907\Models;
 
+use AlibabaCloud\SDK\Config\V20200907\Models\GetAggregateResourceComplianceGroupByRegionResponseBody\complianceResult;
 use AlibabaCloud\Tea\Model;
 
-class GenerateConfigRulesReportResponseBody extends Model
+class GetAggregateResourceComplianceGroupByRegionResponseBody extends Model
 {
     /**
-     * @var string
+     * @var complianceResult
      */
-    public $reportId;
+    public $complianceResult;
 
     /**
      * @var string
      */
     public $requestId;
     protected $_name = [
-        'reportId'  => 'ReportId',
-        'requestId' => 'RequestId',
+        'complianceResult' => 'ComplianceResult',
+        'requestId'        => 'RequestId',
     ];
 
     public function validate()
@@ -29,8 +30,8 @@ class GenerateConfigRulesReportResponseBody extends Model
     public function toMap()
     {
         $res = [];
-        if (null !== $this->reportId) {
-            $res['ReportId'] = $this->reportId;
+        if (null !== $this->complianceResult) {
+            $res['ComplianceResult'] = null !== $this->complianceResult ? $this->complianceResult->toMap() : null;
         }
         if (null !== $this->requestId) {
             $res['RequestId'] = $this->requestId;
@@ -42,13 +43,13 @@ class GenerateConfigRulesReportResponseBody extends Model
     /**
      * @param array $map
      *
-     * @return GenerateConfigRulesReportResponseBody
+     * @return GetAggregateResourceComplianceGroupByRegionResponseBody
      */
     public static function fromMap($map = [])
     {
         $model = new self();
-        if (isset($map['ReportId'])) {
-            $model->reportId = $map['ReportId'];
+        if (isset($map['ComplianceResult'])) {
+            $model->complianceResult = complianceResult::fromMap($map['ComplianceResult']);
         }
         if (isset($map['RequestId'])) {
             $model->requestId = $map['RequestId'];

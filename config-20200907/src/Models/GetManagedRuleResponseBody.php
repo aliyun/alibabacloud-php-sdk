@@ -4,22 +4,23 @@
 
 namespace AlibabaCloud\SDK\Config\V20200907\Models;
 
+use AlibabaCloud\SDK\Config\V20200907\Models\GetManagedRuleResponseBody\managedRule;
 use AlibabaCloud\Tea\Model;
 
-class GenerateConfigRulesReportResponseBody extends Model
+class GetManagedRuleResponseBody extends Model
 {
     /**
-     * @var string
+     * @var managedRule
      */
-    public $reportId;
+    public $managedRule;
 
     /**
      * @var string
      */
     public $requestId;
     protected $_name = [
-        'reportId'  => 'ReportId',
-        'requestId' => 'RequestId',
+        'managedRule' => 'ManagedRule',
+        'requestId'   => 'RequestId',
     ];
 
     public function validate()
@@ -29,8 +30,8 @@ class GenerateConfigRulesReportResponseBody extends Model
     public function toMap()
     {
         $res = [];
-        if (null !== $this->reportId) {
-            $res['ReportId'] = $this->reportId;
+        if (null !== $this->managedRule) {
+            $res['ManagedRule'] = null !== $this->managedRule ? $this->managedRule->toMap() : null;
         }
         if (null !== $this->requestId) {
             $res['RequestId'] = $this->requestId;
@@ -42,13 +43,13 @@ class GenerateConfigRulesReportResponseBody extends Model
     /**
      * @param array $map
      *
-     * @return GenerateConfigRulesReportResponseBody
+     * @return GetManagedRuleResponseBody
      */
     public static function fromMap($map = [])
     {
         $model = new self();
-        if (isset($map['ReportId'])) {
-            $model->reportId = $map['ReportId'];
+        if (isset($map['ManagedRule'])) {
+            $model->managedRule = managedRule::fromMap($map['ManagedRule']);
         }
         if (isset($map['RequestId'])) {
             $model->requestId = $map['RequestId'];
