@@ -16,22 +16,22 @@ class TriggerNetworkRequest extends Model
     /**
      * @var string
      */
-    public $clientToken;
-
-    /**
-     * @var string
-     */
     public $networkType;
 
     /**
      * @var string
      */
     public $nodeType;
+
+    /**
+     * @var string
+     */
+    public $clientToken;
     protected $_name = [
         'actionType'  => 'actionType',
-        'clientToken' => 'clientToken',
         'networkType' => 'networkType',
         'nodeType'    => 'nodeType',
+        'clientToken' => 'clientToken',
     ];
 
     public function validate()
@@ -44,14 +44,14 @@ class TriggerNetworkRequest extends Model
         if (null !== $this->actionType) {
             $res['actionType'] = $this->actionType;
         }
-        if (null !== $this->clientToken) {
-            $res['clientToken'] = $this->clientToken;
-        }
         if (null !== $this->networkType) {
             $res['networkType'] = $this->networkType;
         }
         if (null !== $this->nodeType) {
             $res['nodeType'] = $this->nodeType;
+        }
+        if (null !== $this->clientToken) {
+            $res['clientToken'] = $this->clientToken;
         }
 
         return $res;
@@ -68,14 +68,14 @@ class TriggerNetworkRequest extends Model
         if (isset($map['actionType'])) {
             $model->actionType = $map['actionType'];
         }
-        if (isset($map['clientToken'])) {
-            $model->clientToken = $map['clientToken'];
-        }
         if (isset($map['networkType'])) {
             $model->networkType = $map['networkType'];
         }
         if (isset($map['nodeType'])) {
             $model->nodeType = $map['nodeType'];
+        }
+        if (isset($map['clientToken'])) {
+            $model->clientToken = $map['clientToken'];
         }
 
         return $model;
