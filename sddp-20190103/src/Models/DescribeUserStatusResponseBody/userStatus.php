@@ -19,11 +19,6 @@ class userStatus extends Model
     public $authed;
 
     /**
-     * @var bool
-     */
-    public $buyed;
-
-    /**
      * @var string
      */
     public $chargeType;
@@ -42,6 +37,11 @@ class userStatus extends Model
      * @var int
      */
     public $labStatus;
+
+    /**
+     * @var bool
+     */
+    public $purchased;
 
     /**
      * @var int
@@ -65,11 +65,11 @@ class userStatus extends Model
     protected $_name = [
         'accessKeyId'    => 'AccessKeyId',
         'authed'         => 'Authed',
-        'buyed'          => 'Buyed',
         'chargeType'     => 'ChargeType',
         'instanceId'     => 'InstanceId',
         'instanceNum'    => 'InstanceNum',
         'labStatus'      => 'LabStatus',
+        'purchased'      => 'Purchased',
         'remainDays'     => 'RemainDays',
         'trail'          => 'Trail',
         'useInstanceNum' => 'UseInstanceNum',
@@ -89,9 +89,6 @@ class userStatus extends Model
         if (null !== $this->authed) {
             $res['Authed'] = $this->authed;
         }
-        if (null !== $this->buyed) {
-            $res['Buyed'] = $this->buyed;
-        }
         if (null !== $this->chargeType) {
             $res['ChargeType'] = $this->chargeType;
         }
@@ -103,6 +100,9 @@ class userStatus extends Model
         }
         if (null !== $this->labStatus) {
             $res['LabStatus'] = $this->labStatus;
+        }
+        if (null !== $this->purchased) {
+            $res['Purchased'] = $this->purchased;
         }
         if (null !== $this->remainDays) {
             $res['RemainDays'] = $this->remainDays;
@@ -134,9 +134,6 @@ class userStatus extends Model
         if (isset($map['Authed'])) {
             $model->authed = $map['Authed'];
         }
-        if (isset($map['Buyed'])) {
-            $model->buyed = $map['Buyed'];
-        }
         if (isset($map['ChargeType'])) {
             $model->chargeType = $map['ChargeType'];
         }
@@ -148,6 +145,9 @@ class userStatus extends Model
         }
         if (isset($map['LabStatus'])) {
             $model->labStatus = $map['LabStatus'];
+        }
+        if (isset($map['Purchased'])) {
+            $model->purchased = $map['Purchased'];
         }
         if (isset($map['RemainDays'])) {
             $model->remainDays = $map['RemainDays'];

@@ -6,13 +6,8 @@ namespace AlibabaCloud\SDK\Sddp\V20190103\Models;
 
 use AlibabaCloud\Tea\Model;
 
-class ExecDatamaskRequest extends Model
+class ModifyReportTaskStatusRequest extends Model
 {
-    /**
-     * @var string
-     */
-    public $data;
-
     /**
      * @var string
      */
@@ -21,11 +16,10 @@ class ExecDatamaskRequest extends Model
     /**
      * @var int
      */
-    public $templateId;
+    public $reportTaskStatus;
     protected $_name = [
-        'data'       => 'Data',
-        'lang'       => 'Lang',
-        'templateId' => 'TemplateId',
+        'lang'             => 'Lang',
+        'reportTaskStatus' => 'ReportTaskStatus',
     ];
 
     public function validate()
@@ -35,14 +29,11 @@ class ExecDatamaskRequest extends Model
     public function toMap()
     {
         $res = [];
-        if (null !== $this->data) {
-            $res['Data'] = $this->data;
-        }
         if (null !== $this->lang) {
             $res['Lang'] = $this->lang;
         }
-        if (null !== $this->templateId) {
-            $res['TemplateId'] = $this->templateId;
+        if (null !== $this->reportTaskStatus) {
+            $res['ReportTaskStatus'] = $this->reportTaskStatus;
         }
 
         return $res;
@@ -51,19 +42,16 @@ class ExecDatamaskRequest extends Model
     /**
      * @param array $map
      *
-     * @return ExecDatamaskRequest
+     * @return ModifyReportTaskStatusRequest
      */
     public static function fromMap($map = [])
     {
         $model = new self();
-        if (isset($map['Data'])) {
-            $model->data = $map['Data'];
-        }
         if (isset($map['Lang'])) {
             $model->lang = $map['Lang'];
         }
-        if (isset($map['TemplateId'])) {
-            $model->templateId = $map['TemplateId'];
+        if (isset($map['ReportTaskStatus'])) {
+            $model->reportTaskStatus = $map['ReportTaskStatus'];
         }
 
         return $model;

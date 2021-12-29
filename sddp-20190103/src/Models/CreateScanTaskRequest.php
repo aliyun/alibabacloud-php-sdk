@@ -21,6 +21,11 @@ class CreateScanTaskRequest extends Model
     /**
      * @var string
      */
+    public $lang;
+
+    /**
+     * @var string
+     */
     public $ossScanPath;
 
     /**
@@ -60,6 +65,7 @@ class CreateScanTaskRequest extends Model
     protected $_name = [
         'dataLimitId'      => 'DataLimitId',
         'intervalDay'      => 'IntervalDay',
+        'lang'             => 'Lang',
         'ossScanPath'      => 'OssScanPath',
         'resourceType'     => 'ResourceType',
         'runHour'          => 'RunHour',
@@ -82,6 +88,9 @@ class CreateScanTaskRequest extends Model
         }
         if (null !== $this->intervalDay) {
             $res['IntervalDay'] = $this->intervalDay;
+        }
+        if (null !== $this->lang) {
+            $res['Lang'] = $this->lang;
         }
         if (null !== $this->ossScanPath) {
             $res['OssScanPath'] = $this->ossScanPath;
@@ -124,6 +133,9 @@ class CreateScanTaskRequest extends Model
         }
         if (isset($map['IntervalDay'])) {
             $model->intervalDay = $map['IntervalDay'];
+        }
+        if (isset($map['Lang'])) {
+            $model->lang = $map['Lang'];
         }
         if (isset($map['OssScanPath'])) {
             $model->ossScanPath = $map['OssScanPath'];

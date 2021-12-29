@@ -5,6 +5,7 @@
 namespace AlibabaCloud\SDK\Sddp\V20190103;
 
 use AlibabaCloud\Endpoint\Endpoint;
+use AlibabaCloud\OpenApiUtil\OpenApiUtilClient;
 use AlibabaCloud\SDK\Sddp\V20190103\Models\CreateConfigRequest;
 use AlibabaCloud\SDK\Sddp\V20190103\Models\CreateConfigResponse;
 use AlibabaCloud\SDK\Sddp\V20190103\Models\CreateDataLimitRequest;
@@ -13,6 +14,8 @@ use AlibabaCloud\SDK\Sddp\V20190103\Models\CreateRuleRequest;
 use AlibabaCloud\SDK\Sddp\V20190103\Models\CreateRuleResponse;
 use AlibabaCloud\SDK\Sddp\V20190103\Models\CreateScanTaskRequest;
 use AlibabaCloud\SDK\Sddp\V20190103\Models\CreateScanTaskResponse;
+use AlibabaCloud\SDK\Sddp\V20190103\Models\CreateSlrRoleRequest;
+use AlibabaCloud\SDK\Sddp\V20190103\Models\CreateSlrRoleResponse;
 use AlibabaCloud\SDK\Sddp\V20190103\Models\DeleteDataLimitRequest;
 use AlibabaCloud\SDK\Sddp\V20190103\Models\DeleteDataLimitResponse;
 use AlibabaCloud\SDK\Sddp\V20190103\Models\DeleteRuleRequest;
@@ -73,6 +76,8 @@ use AlibabaCloud\SDK\Sddp\V20190103\Models\ModifyEventStatusRequest;
 use AlibabaCloud\SDK\Sddp\V20190103\Models\ModifyEventStatusResponse;
 use AlibabaCloud\SDK\Sddp\V20190103\Models\ModifyEventTypeStatusRequest;
 use AlibabaCloud\SDK\Sddp\V20190103\Models\ModifyEventTypeStatusResponse;
+use AlibabaCloud\SDK\Sddp\V20190103\Models\ModifyReportTaskStatusRequest;
+use AlibabaCloud\SDK\Sddp\V20190103\Models\ModifyReportTaskStatusResponse;
 use AlibabaCloud\SDK\Sddp\V20190103\Models\ModifyRuleRequest;
 use AlibabaCloud\SDK\Sddp\V20190103\Models\ModifyRuleResponse;
 use AlibabaCloud\SDK\Sddp\V20190103\Models\ModifyRuleStatusRequest;
@@ -82,6 +87,7 @@ use AlibabaCloud\SDK\Sddp\V20190103\Models\StopMaskingProcessResponse;
 use AlibabaCloud\Tea\Utils\Utils;
 use AlibabaCloud\Tea\Utils\Utils\RuntimeOptions;
 use Darabonba\OpenApi\Models\OpenApiRequest;
+use Darabonba\OpenApi\Models\Params;
 use Darabonba\OpenApi\OpenApiClient;
 
 class Sddp extends OpenApiClient
@@ -129,11 +135,35 @@ class Sddp extends OpenApiClient
     public function createConfigWithOptions($request, $runtime)
     {
         Utils::validateModel($request);
+        $query = [];
+        if (!Utils::isUnset($request->code)) {
+            $query['Code'] = $request->code;
+        }
+        if (!Utils::isUnset($request->description)) {
+            $query['Description'] = $request->description;
+        }
+        if (!Utils::isUnset($request->lang)) {
+            $query['Lang'] = $request->lang;
+        }
+        if (!Utils::isUnset($request->value)) {
+            $query['Value'] = $request->value;
+        }
         $req = new OpenApiRequest([
-            'body' => Utils::toMap($request),
+            'query' => OpenApiUtilClient::query($query),
+        ]);
+        $params = new Params([
+            'action'      => 'CreateConfig',
+            'version'     => '2019-01-03',
+            'protocol'    => 'HTTPS',
+            'pathname'    => '/',
+            'method'      => 'POST',
+            'authType'    => 'AK',
+            'style'       => 'RPC',
+            'reqBodyType' => 'formData',
+            'bodyType'    => 'json',
         ]);
 
-        return CreateConfigResponse::fromMap($this->doRPCRequest('CreateConfig', '2019-01-03', 'HTTPS', 'POST', 'AK', 'json', $req, $runtime));
+        return CreateConfigResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
@@ -157,11 +187,62 @@ class Sddp extends OpenApiClient
     public function createDataLimitWithOptions($request, $runtime)
     {
         Utils::validateModel($request);
+        $query = [];
+        if (!Utils::isUnset($request->auditStatus)) {
+            $query['AuditStatus'] = $request->auditStatus;
+        }
+        if (!Utils::isUnset($request->autoScan)) {
+            $query['AutoScan'] = $request->autoScan;
+        }
+        if (!Utils::isUnset($request->engineType)) {
+            $query['EngineType'] = $request->engineType;
+        }
+        if (!Utils::isUnset($request->eventStatus)) {
+            $query['EventStatus'] = $request->eventStatus;
+        }
+        if (!Utils::isUnset($request->lang)) {
+            $query['Lang'] = $request->lang;
+        }
+        if (!Utils::isUnset($request->logStoreDay)) {
+            $query['LogStoreDay'] = $request->logStoreDay;
+        }
+        if (!Utils::isUnset($request->ocrStatus)) {
+            $query['OcrStatus'] = $request->ocrStatus;
+        }
+        if (!Utils::isUnset($request->parentId)) {
+            $query['ParentId'] = $request->parentId;
+        }
+        if (!Utils::isUnset($request->password)) {
+            $query['Password'] = $request->password;
+        }
+        if (!Utils::isUnset($request->port)) {
+            $query['Port'] = $request->port;
+        }
+        if (!Utils::isUnset($request->resourceType)) {
+            $query['ResourceType'] = $request->resourceType;
+        }
+        if (!Utils::isUnset($request->serviceRegionId)) {
+            $query['ServiceRegionId'] = $request->serviceRegionId;
+        }
+        if (!Utils::isUnset($request->userName)) {
+            $query['UserName'] = $request->userName;
+        }
         $req = new OpenApiRequest([
-            'body' => Utils::toMap($request),
+            'query' => OpenApiUtilClient::query($query),
+        ]);
+        $params = new Params([
+            'action'      => 'CreateDataLimit',
+            'version'     => '2019-01-03',
+            'protocol'    => 'HTTPS',
+            'pathname'    => '/',
+            'method'      => 'POST',
+            'authType'    => 'AK',
+            'style'       => 'RPC',
+            'reqBodyType' => 'formData',
+            'bodyType'    => 'json',
         ]);
 
-        return CreateDataLimitResponse::fromMap($this->doRPCRequest('CreateDataLimit', '2019-01-03', 'HTTPS', 'POST', 'AK', 'json', $req, $runtime));
+        return CreateDataLimitResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
@@ -185,11 +266,65 @@ class Sddp extends OpenApiClient
     public function createRuleWithOptions($request, $runtime)
     {
         Utils::validateModel($request);
+        $query = [];
+        if (!Utils::isUnset($request->category)) {
+            $query['Category'] = $request->category;
+        }
+        if (!Utils::isUnset($request->content)) {
+            $query['Content'] = $request->content;
+        }
+        if (!Utils::isUnset($request->contentCategory)) {
+            $query['ContentCategory'] = $request->contentCategory;
+        }
+        if (!Utils::isUnset($request->description)) {
+            $query['Description'] = $request->description;
+        }
+        if (!Utils::isUnset($request->lang)) {
+            $query['Lang'] = $request->lang;
+        }
+        if (!Utils::isUnset($request->name)) {
+            $query['Name'] = $request->name;
+        }
+        if (!Utils::isUnset($request->productCode)) {
+            $query['ProductCode'] = $request->productCode;
+        }
+        if (!Utils::isUnset($request->productId)) {
+            $query['ProductId'] = $request->productId;
+        }
+        if (!Utils::isUnset($request->riskLevelId)) {
+            $query['RiskLevelId'] = $request->riskLevelId;
+        }
+        if (!Utils::isUnset($request->ruleType)) {
+            $query['RuleType'] = $request->ruleType;
+        }
+        if (!Utils::isUnset($request->statExpress)) {
+            $query['StatExpress'] = $request->statExpress;
+        }
+        if (!Utils::isUnset($request->status)) {
+            $query['Status'] = $request->status;
+        }
+        if (!Utils::isUnset($request->target)) {
+            $query['Target'] = $request->target;
+        }
+        if (!Utils::isUnset($request->warnLevel)) {
+            $query['WarnLevel'] = $request->warnLevel;
+        }
         $req = new OpenApiRequest([
-            'body' => Utils::toMap($request),
+            'query' => OpenApiUtilClient::query($query),
+        ]);
+        $params = new Params([
+            'action'      => 'CreateRule',
+            'version'     => '2019-01-03',
+            'protocol'    => 'HTTPS',
+            'pathname'    => '/',
+            'method'      => 'POST',
+            'authType'    => 'AK',
+            'style'       => 'RPC',
+            'reqBodyType' => 'formData',
+            'bodyType'    => 'json',
         ]);
 
-        return CreateRuleResponse::fromMap($this->doRPCRequest('CreateRule', '2019-01-03', 'HTTPS', 'POST', 'AK', 'json', $req, $runtime));
+        return CreateRuleResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
@@ -213,11 +348,56 @@ class Sddp extends OpenApiClient
     public function createScanTaskWithOptions($request, $runtime)
     {
         Utils::validateModel($request);
+        $query = [];
+        if (!Utils::isUnset($request->dataLimitId)) {
+            $query['DataLimitId'] = $request->dataLimitId;
+        }
+        if (!Utils::isUnset($request->intervalDay)) {
+            $query['IntervalDay'] = $request->intervalDay;
+        }
+        if (!Utils::isUnset($request->lang)) {
+            $query['Lang'] = $request->lang;
+        }
+        if (!Utils::isUnset($request->ossScanPath)) {
+            $query['OssScanPath'] = $request->ossScanPath;
+        }
+        if (!Utils::isUnset($request->resourceType)) {
+            $query['ResourceType'] = $request->resourceType;
+        }
+        if (!Utils::isUnset($request->runHour)) {
+            $query['RunHour'] = $request->runHour;
+        }
+        if (!Utils::isUnset($request->runMinute)) {
+            $query['RunMinute'] = $request->runMinute;
+        }
+        if (!Utils::isUnset($request->scanRange)) {
+            $query['ScanRange'] = $request->scanRange;
+        }
+        if (!Utils::isUnset($request->scanRangeContent)) {
+            $query['ScanRangeContent'] = $request->scanRangeContent;
+        }
+        if (!Utils::isUnset($request->taskName)) {
+            $query['TaskName'] = $request->taskName;
+        }
+        if (!Utils::isUnset($request->taskUserName)) {
+            $query['TaskUserName'] = $request->taskUserName;
+        }
         $req = new OpenApiRequest([
-            'body' => Utils::toMap($request),
+            'query' => OpenApiUtilClient::query($query),
+        ]);
+        $params = new Params([
+            'action'      => 'CreateScanTask',
+            'version'     => '2019-01-03',
+            'protocol'    => 'HTTPS',
+            'pathname'    => '/',
+            'method'      => 'POST',
+            'authType'    => 'AK',
+            'style'       => 'RPC',
+            'reqBodyType' => 'formData',
+            'bodyType'    => 'json',
         ]);
 
-        return CreateScanTaskResponse::fromMap($this->doRPCRequest('CreateScanTask', '2019-01-03', 'HTTPS', 'POST', 'AK', 'json', $req, $runtime));
+        return CreateScanTaskResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
@@ -233,6 +413,49 @@ class Sddp extends OpenApiClient
     }
 
     /**
+     * @param CreateSlrRoleRequest $request
+     * @param RuntimeOptions       $runtime
+     *
+     * @return CreateSlrRoleResponse
+     */
+    public function createSlrRoleWithOptions($request, $runtime)
+    {
+        Utils::validateModel($request);
+        $query = [];
+        if (!Utils::isUnset($request->lang)) {
+            $query['Lang'] = $request->lang;
+        }
+        $req = new OpenApiRequest([
+            'query' => OpenApiUtilClient::query($query),
+        ]);
+        $params = new Params([
+            'action'      => 'CreateSlrRole',
+            'version'     => '2019-01-03',
+            'protocol'    => 'HTTPS',
+            'pathname'    => '/',
+            'method'      => 'POST',
+            'authType'    => 'AK',
+            'style'       => 'RPC',
+            'reqBodyType' => 'formData',
+            'bodyType'    => 'json',
+        ]);
+
+        return CreateSlrRoleResponse::fromMap($this->callApi($params, $req, $runtime));
+    }
+
+    /**
+     * @param CreateSlrRoleRequest $request
+     *
+     * @return CreateSlrRoleResponse
+     */
+    public function createSlrRole($request)
+    {
+        $runtime = new RuntimeOptions([]);
+
+        return $this->createSlrRoleWithOptions($request, $runtime);
+    }
+
+    /**
      * @param DeleteDataLimitRequest $request
      * @param RuntimeOptions         $runtime
      *
@@ -241,11 +464,29 @@ class Sddp extends OpenApiClient
     public function deleteDataLimitWithOptions($request, $runtime)
     {
         Utils::validateModel($request);
+        $query = [];
+        if (!Utils::isUnset($request->id)) {
+            $query['Id'] = $request->id;
+        }
+        if (!Utils::isUnset($request->lang)) {
+            $query['Lang'] = $request->lang;
+        }
         $req = new OpenApiRequest([
-            'body' => Utils::toMap($request),
+            'query' => OpenApiUtilClient::query($query),
+        ]);
+        $params = new Params([
+            'action'      => 'DeleteDataLimit',
+            'version'     => '2019-01-03',
+            'protocol'    => 'HTTPS',
+            'pathname'    => '/',
+            'method'      => 'POST',
+            'authType'    => 'AK',
+            'style'       => 'RPC',
+            'reqBodyType' => 'formData',
+            'bodyType'    => 'json',
         ]);
 
-        return DeleteDataLimitResponse::fromMap($this->doRPCRequest('DeleteDataLimit', '2019-01-03', 'HTTPS', 'POST', 'AK', 'json', $req, $runtime));
+        return DeleteDataLimitResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
@@ -269,11 +510,29 @@ class Sddp extends OpenApiClient
     public function deleteRuleWithOptions($request, $runtime)
     {
         Utils::validateModel($request);
+        $query = [];
+        if (!Utils::isUnset($request->id)) {
+            $query['Id'] = $request->id;
+        }
+        if (!Utils::isUnset($request->lang)) {
+            $query['Lang'] = $request->lang;
+        }
         $req = new OpenApiRequest([
-            'body' => Utils::toMap($request),
+            'query' => OpenApiUtilClient::query($query),
+        ]);
+        $params = new Params([
+            'action'      => 'DeleteRule',
+            'version'     => '2019-01-03',
+            'protocol'    => 'HTTPS',
+            'pathname'    => '/',
+            'method'      => 'POST',
+            'authType'    => 'AK',
+            'style'       => 'RPC',
+            'reqBodyType' => 'formData',
+            'bodyType'    => 'json',
         ]);
 
-        return DeleteRuleResponse::fromMap($this->doRPCRequest('DeleteRule', '2019-01-03', 'HTTPS', 'POST', 'AK', 'json', $req, $runtime));
+        return DeleteRuleResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
@@ -297,11 +556,38 @@ class Sddp extends OpenApiClient
     public function describeCategoryTemplateRuleListWithOptions($request, $runtime)
     {
         Utils::validateModel($request);
+        $query = [];
+        if (!Utils::isUnset($request->currentPage)) {
+            $query['CurrentPage'] = $request->currentPage;
+        }
+        if (!Utils::isUnset($request->lang)) {
+            $query['Lang'] = $request->lang;
+        }
+        if (!Utils::isUnset($request->pageSize)) {
+            $query['PageSize'] = $request->pageSize;
+        }
+        if (!Utils::isUnset($request->riskLevelId)) {
+            $query['RiskLevelId'] = $request->riskLevelId;
+        }
+        if (!Utils::isUnset($request->status)) {
+            $query['Status'] = $request->status;
+        }
         $req = new OpenApiRequest([
-            'body' => Utils::toMap($request),
+            'query' => OpenApiUtilClient::query($query),
+        ]);
+        $params = new Params([
+            'action'      => 'DescribeCategoryTemplateRuleList',
+            'version'     => '2019-01-03',
+            'protocol'    => 'HTTPS',
+            'pathname'    => '/',
+            'method'      => 'POST',
+            'authType'    => 'AK',
+            'style'       => 'RPC',
+            'reqBodyType' => 'formData',
+            'bodyType'    => 'json',
         ]);
 
-        return DescribeCategoryTemplateRuleListResponse::fromMap($this->doRPCRequest('DescribeCategoryTemplateRuleList', '2019-01-03', 'HTTPS', 'POST', 'AK', 'json', $req, $runtime));
+        return DescribeCategoryTemplateRuleListResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
@@ -325,11 +611,62 @@ class Sddp extends OpenApiClient
     public function describeColumnsWithOptions($request, $runtime)
     {
         Utils::validateModel($request);
+        $query = [];
+        if (!Utils::isUnset($request->currentPage)) {
+            $query['CurrentPage'] = $request->currentPage;
+        }
+        if (!Utils::isUnset($request->instanceId)) {
+            $query['InstanceId'] = $request->instanceId;
+        }
+        if (!Utils::isUnset($request->instanceName)) {
+            $query['InstanceName'] = $request->instanceName;
+        }
+        if (!Utils::isUnset($request->lang)) {
+            $query['Lang'] = $request->lang;
+        }
+        if (!Utils::isUnset($request->name)) {
+            $query['Name'] = $request->name;
+        }
+        if (!Utils::isUnset($request->pageSize)) {
+            $query['PageSize'] = $request->pageSize;
+        }
+        if (!Utils::isUnset($request->productCode)) {
+            $query['ProductCode'] = $request->productCode;
+        }
+        if (!Utils::isUnset($request->riskLevelId)) {
+            $query['RiskLevelId'] = $request->riskLevelId;
+        }
+        if (!Utils::isUnset($request->ruleId)) {
+            $query['RuleId'] = $request->ruleId;
+        }
+        if (!Utils::isUnset($request->ruleName)) {
+            $query['RuleName'] = $request->ruleName;
+        }
+        if (!Utils::isUnset($request->sensLevelName)) {
+            $query['SensLevelName'] = $request->sensLevelName;
+        }
+        if (!Utils::isUnset($request->tableId)) {
+            $query['TableId'] = $request->tableId;
+        }
+        if (!Utils::isUnset($request->tableName)) {
+            $query['TableName'] = $request->tableName;
+        }
         $req = new OpenApiRequest([
-            'body' => Utils::toMap($request),
+            'query' => OpenApiUtilClient::query($query),
+        ]);
+        $params = new Params([
+            'action'      => 'DescribeColumns',
+            'version'     => '2019-01-03',
+            'protocol'    => 'HTTPS',
+            'pathname'    => '/',
+            'method'      => 'POST',
+            'authType'    => 'AK',
+            'style'       => 'RPC',
+            'reqBodyType' => 'formData',
+            'bodyType'    => 'json',
         ]);
 
-        return DescribeColumnsResponse::fromMap($this->doRPCRequest('DescribeColumns', '2019-01-03', 'HTTPS', 'POST', 'AK', 'json', $req, $runtime));
+        return DescribeColumnsResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
@@ -353,11 +690,26 @@ class Sddp extends OpenApiClient
     public function describeConfigsWithOptions($request, $runtime)
     {
         Utils::validateModel($request);
+        $query = [];
+        if (!Utils::isUnset($request->lang)) {
+            $query['Lang'] = $request->lang;
+        }
         $req = new OpenApiRequest([
-            'body' => Utils::toMap($request),
+            'query' => OpenApiUtilClient::query($query),
+        ]);
+        $params = new Params([
+            'action'      => 'DescribeConfigs',
+            'version'     => '2019-01-03',
+            'protocol'    => 'HTTPS',
+            'pathname'    => '/',
+            'method'      => 'POST',
+            'authType'    => 'AK',
+            'style'       => 'RPC',
+            'reqBodyType' => 'formData',
+            'bodyType'    => 'json',
         ]);
 
-        return DescribeConfigsResponse::fromMap($this->doRPCRequest('DescribeConfigs', '2019-01-03', 'HTTPS', 'POST', 'AK', 'json', $req, $runtime));
+        return DescribeConfigsResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
@@ -381,11 +733,44 @@ class Sddp extends OpenApiClient
     public function describeDataAssetsWithOptions($request, $runtime)
     {
         Utils::validateModel($request);
+        $query = [];
+        if (!Utils::isUnset($request->currentPage)) {
+            $query['CurrentPage'] = $request->currentPage;
+        }
+        if (!Utils::isUnset($request->lang)) {
+            $query['Lang'] = $request->lang;
+        }
+        if (!Utils::isUnset($request->name)) {
+            $query['Name'] = $request->name;
+        }
+        if (!Utils::isUnset($request->pageSize)) {
+            $query['PageSize'] = $request->pageSize;
+        }
+        if (!Utils::isUnset($request->rangeId)) {
+            $query['RangeId'] = $request->rangeId;
+        }
+        if (!Utils::isUnset($request->riskLevels)) {
+            $query['RiskLevels'] = $request->riskLevels;
+        }
+        if (!Utils::isUnset($request->ruleId)) {
+            $query['RuleId'] = $request->ruleId;
+        }
         $req = new OpenApiRequest([
-            'body' => Utils::toMap($request),
+            'query' => OpenApiUtilClient::query($query),
+        ]);
+        $params = new Params([
+            'action'      => 'DescribeDataAssets',
+            'version'     => '2019-01-03',
+            'protocol'    => 'HTTPS',
+            'pathname'    => '/',
+            'method'      => 'POST',
+            'authType'    => 'AK',
+            'style'       => 'RPC',
+            'reqBodyType' => 'formData',
+            'bodyType'    => 'json',
         ]);
 
-        return DescribeDataAssetsResponse::fromMap($this->doRPCRequest('DescribeDataAssets', '2019-01-03', 'HTTPS', 'POST', 'AK', 'json', $req, $runtime));
+        return DescribeDataAssetsResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
@@ -409,11 +794,32 @@ class Sddp extends OpenApiClient
     public function describeDataLimitDetailWithOptions($request, $runtime)
     {
         Utils::validateModel($request);
+        $query = [];
+        if (!Utils::isUnset($request->id)) {
+            $query['Id'] = $request->id;
+        }
+        if (!Utils::isUnset($request->lang)) {
+            $query['Lang'] = $request->lang;
+        }
+        if (!Utils::isUnset($request->networkType)) {
+            $query['NetworkType'] = $request->networkType;
+        }
         $req = new OpenApiRequest([
-            'body' => Utils::toMap($request),
+            'query' => OpenApiUtilClient::query($query),
+        ]);
+        $params = new Params([
+            'action'      => 'DescribeDataLimitDetail',
+            'version'     => '2019-01-03',
+            'protocol'    => 'HTTPS',
+            'pathname'    => '/',
+            'method'      => 'POST',
+            'authType'    => 'AK',
+            'style'       => 'RPC',
+            'reqBodyType' => 'formData',
+            'bodyType'    => 'json',
         ]);
 
-        return DescribeDataLimitDetailResponse::fromMap($this->doRPCRequest('DescribeDataLimitDetail', '2019-01-03', 'HTTPS', 'POST', 'AK', 'json', $req, $runtime));
+        return DescribeDataLimitDetailResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
@@ -437,11 +843,32 @@ class Sddp extends OpenApiClient
     public function describeDataLimitSetWithOptions($request, $runtime)
     {
         Utils::validateModel($request);
+        $query = [];
+        if (!Utils::isUnset($request->lang)) {
+            $query['Lang'] = $request->lang;
+        }
+        if (!Utils::isUnset($request->parentId)) {
+            $query['ParentId'] = $request->parentId;
+        }
+        if (!Utils::isUnset($request->resourceType)) {
+            $query['ResourceType'] = $request->resourceType;
+        }
         $req = new OpenApiRequest([
-            'body' => Utils::toMap($request),
+            'query' => OpenApiUtilClient::query($query),
+        ]);
+        $params = new Params([
+            'action'      => 'DescribeDataLimitSet',
+            'version'     => '2019-01-03',
+            'protocol'    => 'HTTPS',
+            'pathname'    => '/',
+            'method'      => 'POST',
+            'authType'    => 'AK',
+            'style'       => 'RPC',
+            'reqBodyType' => 'formData',
+            'bodyType'    => 'json',
         ]);
 
-        return DescribeDataLimitSetResponse::fromMap($this->doRPCRequest('DescribeDataLimitSet', '2019-01-03', 'HTTPS', 'POST', 'AK', 'json', $req, $runtime));
+        return DescribeDataLimitSetResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
@@ -465,11 +892,62 @@ class Sddp extends OpenApiClient
     public function describeDataLimitsWithOptions($request, $runtime)
     {
         Utils::validateModel($request);
+        $query = [];
+        if (!Utils::isUnset($request->auditStatus)) {
+            $query['AuditStatus'] = $request->auditStatus;
+        }
+        if (!Utils::isUnset($request->checkStatus)) {
+            $query['CheckStatus'] = $request->checkStatus;
+        }
+        if (!Utils::isUnset($request->currentPage)) {
+            $query['CurrentPage'] = $request->currentPage;
+        }
+        if (!Utils::isUnset($request->datamaskStatus)) {
+            $query['DatamaskStatus'] = $request->datamaskStatus;
+        }
+        if (!Utils::isUnset($request->enable)) {
+            $query['Enable'] = $request->enable;
+        }
+        if (!Utils::isUnset($request->endTime)) {
+            $query['EndTime'] = $request->endTime;
+        }
+        if (!Utils::isUnset($request->engineType)) {
+            $query['EngineType'] = $request->engineType;
+        }
+        if (!Utils::isUnset($request->lang)) {
+            $query['Lang'] = $request->lang;
+        }
+        if (!Utils::isUnset($request->pageSize)) {
+            $query['PageSize'] = $request->pageSize;
+        }
+        if (!Utils::isUnset($request->parentId)) {
+            $query['ParentId'] = $request->parentId;
+        }
+        if (!Utils::isUnset($request->resourceType)) {
+            $query['ResourceType'] = $request->resourceType;
+        }
+        if (!Utils::isUnset($request->serviceRegionId)) {
+            $query['ServiceRegionId'] = $request->serviceRegionId;
+        }
+        if (!Utils::isUnset($request->startTime)) {
+            $query['StartTime'] = $request->startTime;
+        }
         $req = new OpenApiRequest([
-            'body' => Utils::toMap($request),
+            'query' => OpenApiUtilClient::query($query),
+        ]);
+        $params = new Params([
+            'action'      => 'DescribeDataLimits',
+            'version'     => '2019-01-03',
+            'protocol'    => 'HTTPS',
+            'pathname'    => '/',
+            'method'      => 'POST',
+            'authType'    => 'AK',
+            'style'       => 'RPC',
+            'reqBodyType' => 'formData',
+            'bodyType'    => 'json',
         ]);
 
-        return DescribeDataLimitsResponse::fromMap($this->doRPCRequest('DescribeDataLimits', '2019-01-03', 'HTTPS', 'POST', 'AK', 'json', $req, $runtime));
+        return DescribeDataLimitsResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
@@ -493,11 +971,56 @@ class Sddp extends OpenApiClient
     public function describeDataMaskingRunHistoryWithOptions($request, $runtime)
     {
         Utils::validateModel($request);
+        $query = [];
+        if (!Utils::isUnset($request->currentPage)) {
+            $query['CurrentPage'] = $request->currentPage;
+        }
+        if (!Utils::isUnset($request->dstType)) {
+            $query['DstType'] = $request->dstType;
+        }
+        if (!Utils::isUnset($request->endTime)) {
+            $query['EndTime'] = $request->endTime;
+        }
+        if (!Utils::isUnset($request->lang)) {
+            $query['Lang'] = $request->lang;
+        }
+        if (!Utils::isUnset($request->mainProcessId)) {
+            $query['MainProcessId'] = $request->mainProcessId;
+        }
+        if (!Utils::isUnset($request->pageSize)) {
+            $query['PageSize'] = $request->pageSize;
+        }
+        if (!Utils::isUnset($request->srcTableName)) {
+            $query['SrcTableName'] = $request->srcTableName;
+        }
+        if (!Utils::isUnset($request->srcType)) {
+            $query['SrcType'] = $request->srcType;
+        }
+        if (!Utils::isUnset($request->startTime)) {
+            $query['StartTime'] = $request->startTime;
+        }
+        if (!Utils::isUnset($request->status)) {
+            $query['Status'] = $request->status;
+        }
+        if (!Utils::isUnset($request->taskId)) {
+            $query['TaskId'] = $request->taskId;
+        }
         $req = new OpenApiRequest([
-            'body' => Utils::toMap($request),
+            'query' => OpenApiUtilClient::query($query),
+        ]);
+        $params = new Params([
+            'action'      => 'DescribeDataMaskingRunHistory',
+            'version'     => '2019-01-03',
+            'protocol'    => 'HTTPS',
+            'pathname'    => '/',
+            'method'      => 'POST',
+            'authType'    => 'AK',
+            'style'       => 'RPC',
+            'reqBodyType' => 'formData',
+            'bodyType'    => 'json',
         ]);
 
-        return DescribeDataMaskingRunHistoryResponse::fromMap($this->doRPCRequest('DescribeDataMaskingRunHistory', '2019-01-03', 'HTTPS', 'POST', 'AK', 'json', $req, $runtime));
+        return DescribeDataMaskingRunHistoryResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
@@ -521,11 +1044,44 @@ class Sddp extends OpenApiClient
     public function describeDataMaskingTasksWithOptions($request, $runtime)
     {
         Utils::validateModel($request);
+        $query = [];
+        if (!Utils::isUnset($request->currentPage)) {
+            $query['CurrentPage'] = $request->currentPage;
+        }
+        if (!Utils::isUnset($request->dstType)) {
+            $query['DstType'] = $request->dstType;
+        }
+        if (!Utils::isUnset($request->endTime)) {
+            $query['EndTime'] = $request->endTime;
+        }
+        if (!Utils::isUnset($request->lang)) {
+            $query['Lang'] = $request->lang;
+        }
+        if (!Utils::isUnset($request->pageSize)) {
+            $query['PageSize'] = $request->pageSize;
+        }
+        if (!Utils::isUnset($request->searchKey)) {
+            $query['SearchKey'] = $request->searchKey;
+        }
+        if (!Utils::isUnset($request->startTime)) {
+            $query['StartTime'] = $request->startTime;
+        }
         $req = new OpenApiRequest([
-            'body' => Utils::toMap($request),
+            'query' => OpenApiUtilClient::query($query),
+        ]);
+        $params = new Params([
+            'action'      => 'DescribeDataMaskingTasks',
+            'version'     => '2019-01-03',
+            'protocol'    => 'HTTPS',
+            'pathname'    => '/',
+            'method'      => 'POST',
+            'authType'    => 'AK',
+            'style'       => 'RPC',
+            'reqBodyType' => 'formData',
+            'bodyType'    => 'json',
         ]);
 
-        return DescribeDataMaskingTasksResponse::fromMap($this->doRPCRequest('DescribeDataMaskingTasks', '2019-01-03', 'HTTPS', 'POST', 'AK', 'json', $req, $runtime));
+        return DescribeDataMaskingTasksResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
@@ -549,11 +1105,29 @@ class Sddp extends OpenApiClient
     public function describeEventDetailWithOptions($request, $runtime)
     {
         Utils::validateModel($request);
+        $query = [];
+        if (!Utils::isUnset($request->id)) {
+            $query['Id'] = $request->id;
+        }
+        if (!Utils::isUnset($request->lang)) {
+            $query['Lang'] = $request->lang;
+        }
         $req = new OpenApiRequest([
-            'body' => Utils::toMap($request),
+            'query' => OpenApiUtilClient::query($query),
+        ]);
+        $params = new Params([
+            'action'      => 'DescribeEventDetail',
+            'version'     => '2019-01-03',
+            'protocol'    => 'HTTPS',
+            'pathname'    => '/',
+            'method'      => 'POST',
+            'authType'    => 'AK',
+            'style'       => 'RPC',
+            'reqBodyType' => 'formData',
+            'bodyType'    => 'json',
         ]);
 
-        return DescribeEventDetailResponse::fromMap($this->doRPCRequest('DescribeEventDetail', '2019-01-03', 'HTTPS', 'POST', 'AK', 'json', $req, $runtime));
+        return DescribeEventDetailResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
@@ -577,11 +1151,35 @@ class Sddp extends OpenApiClient
     public function describeEventTypesWithOptions($request, $runtime)
     {
         Utils::validateModel($request);
+        $query = [];
+        if (!Utils::isUnset($request->lang)) {
+            $query['Lang'] = $request->lang;
+        }
+        if (!Utils::isUnset($request->parentTypeId)) {
+            $query['ParentTypeId'] = $request->parentTypeId;
+        }
+        if (!Utils::isUnset($request->resourceId)) {
+            $query['ResourceId'] = $request->resourceId;
+        }
+        if (!Utils::isUnset($request->status)) {
+            $query['Status'] = $request->status;
+        }
         $req = new OpenApiRequest([
-            'body' => Utils::toMap($request),
+            'query' => OpenApiUtilClient::query($query),
+        ]);
+        $params = new Params([
+            'action'      => 'DescribeEventTypes',
+            'version'     => '2019-01-03',
+            'protocol'    => 'HTTPS',
+            'pathname'    => '/',
+            'method'      => 'POST',
+            'authType'    => 'AK',
+            'style'       => 'RPC',
+            'reqBodyType' => 'formData',
+            'bodyType'    => 'json',
         ]);
 
-        return DescribeEventTypesResponse::fromMap($this->doRPCRequest('DescribeEventTypes', '2019-01-03', 'HTTPS', 'POST', 'AK', 'json', $req, $runtime));
+        return DescribeEventTypesResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
@@ -605,11 +1203,68 @@ class Sddp extends OpenApiClient
     public function describeEventsWithOptions($request, $runtime)
     {
         Utils::validateModel($request);
+        $query = [];
+        if (!Utils::isUnset($request->currentPage)) {
+            $query['CurrentPage'] = $request->currentPage;
+        }
+        if (!Utils::isUnset($request->dealUserId)) {
+            $query['DealUserId'] = $request->dealUserId;
+        }
+        if (!Utils::isUnset($request->endTime)) {
+            $query['EndTime'] = $request->endTime;
+        }
+        if (!Utils::isUnset($request->id)) {
+            $query['Id'] = $request->id;
+        }
+        if (!Utils::isUnset($request->instanceName)) {
+            $query['InstanceName'] = $request->instanceName;
+        }
+        if (!Utils::isUnset($request->lang)) {
+            $query['Lang'] = $request->lang;
+        }
+        if (!Utils::isUnset($request->pageSize)) {
+            $query['PageSize'] = $request->pageSize;
+        }
+        if (!Utils::isUnset($request->productCode)) {
+            $query['ProductCode'] = $request->productCode;
+        }
+        if (!Utils::isUnset($request->startTime)) {
+            $query['StartTime'] = $request->startTime;
+        }
+        if (!Utils::isUnset($request->status)) {
+            $query['Status'] = $request->status;
+        }
+        if (!Utils::isUnset($request->subTypeCode)) {
+            $query['SubTypeCode'] = $request->subTypeCode;
+        }
+        if (!Utils::isUnset($request->targetProductCode)) {
+            $query['TargetProductCode'] = $request->targetProductCode;
+        }
+        if (!Utils::isUnset($request->typeCode)) {
+            $query['TypeCode'] = $request->typeCode;
+        }
+        if (!Utils::isUnset($request->userId)) {
+            $query['UserId'] = $request->userId;
+        }
+        if (!Utils::isUnset($request->userName)) {
+            $query['UserName'] = $request->userName;
+        }
         $req = new OpenApiRequest([
-            'body' => Utils::toMap($request),
+            'query' => OpenApiUtilClient::query($query),
+        ]);
+        $params = new Params([
+            'action'      => 'DescribeEvents',
+            'version'     => '2019-01-03',
+            'protocol'    => 'HTTPS',
+            'pathname'    => '/',
+            'method'      => 'POST',
+            'authType'    => 'AK',
+            'style'       => 'RPC',
+            'reqBodyType' => 'formData',
+            'bodyType'    => 'json',
         ]);
 
-        return DescribeEventsResponse::fromMap($this->doRPCRequest('DescribeEvents', '2019-01-03', 'HTTPS', 'POST', 'AK', 'json', $req, $runtime));
+        return DescribeEventsResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
@@ -633,11 +1288,44 @@ class Sddp extends OpenApiClient
     public function describeInstanceSourcesWithOptions($request, $runtime)
     {
         Utils::validateModel($request);
+        $query = [];
+        if (!Utils::isUnset($request->currentPage)) {
+            $query['CurrentPage'] = $request->currentPage;
+        }
+        if (!Utils::isUnset($request->engineType)) {
+            $query['EngineType'] = $request->engineType;
+        }
+        if (!Utils::isUnset($request->instanceId)) {
+            $query['InstanceId'] = $request->instanceId;
+        }
+        if (!Utils::isUnset($request->lang)) {
+            $query['Lang'] = $request->lang;
+        }
+        if (!Utils::isUnset($request->pageSize)) {
+            $query['PageSize'] = $request->pageSize;
+        }
+        if (!Utils::isUnset($request->productId)) {
+            $query['ProductId'] = $request->productId;
+        }
+        if (!Utils::isUnset($request->serviceRegionId)) {
+            $query['ServiceRegionId'] = $request->serviceRegionId;
+        }
         $req = new OpenApiRequest([
-            'body' => Utils::toMap($request),
+            'query' => OpenApiUtilClient::query($query),
+        ]);
+        $params = new Params([
+            'action'      => 'DescribeInstanceSources',
+            'version'     => '2019-01-03',
+            'protocol'    => 'HTTPS',
+            'pathname'    => '/',
+            'method'      => 'POST',
+            'authType'    => 'AK',
+            'style'       => 'RPC',
+            'reqBodyType' => 'formData',
+            'bodyType'    => 'json',
         ]);
 
-        return DescribeInstanceSourcesResponse::fromMap($this->doRPCRequest('DescribeInstanceSources', '2019-01-03', 'HTTPS', 'POST', 'AK', 'json', $req, $runtime));
+        return DescribeInstanceSourcesResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
@@ -661,11 +1349,53 @@ class Sddp extends OpenApiClient
     public function describeInstancesWithOptions($request, $runtime)
     {
         Utils::validateModel($request);
+        $query = [];
+        if (!Utils::isUnset($request->currentPage)) {
+            $query['CurrentPage'] = $request->currentPage;
+        }
+        if (!Utils::isUnset($request->featureType)) {
+            $query['FeatureType'] = $request->featureType;
+        }
+        if (!Utils::isUnset($request->lang)) {
+            $query['Lang'] = $request->lang;
+        }
+        if (!Utils::isUnset($request->name)) {
+            $query['Name'] = $request->name;
+        }
+        if (!Utils::isUnset($request->pageSize)) {
+            $query['PageSize'] = $request->pageSize;
+        }
+        if (!Utils::isUnset($request->productCode)) {
+            $query['ProductCode'] = $request->productCode;
+        }
+        if (!Utils::isUnset($request->productId)) {
+            $query['ProductId'] = $request->productId;
+        }
+        if (!Utils::isUnset($request->riskLevelId)) {
+            $query['RiskLevelId'] = $request->riskLevelId;
+        }
+        if (!Utils::isUnset($request->ruleId)) {
+            $query['RuleId'] = $request->ruleId;
+        }
+        if (!Utils::isUnset($request->serviceRegionId)) {
+            $query['ServiceRegionId'] = $request->serviceRegionId;
+        }
         $req = new OpenApiRequest([
-            'body' => Utils::toMap($request),
+            'query' => OpenApiUtilClient::query($query),
+        ]);
+        $params = new Params([
+            'action'      => 'DescribeInstances',
+            'version'     => '2019-01-03',
+            'protocol'    => 'HTTPS',
+            'pathname'    => '/',
+            'method'      => 'POST',
+            'authType'    => 'AK',
+            'style'       => 'RPC',
+            'reqBodyType' => 'formData',
+            'bodyType'    => 'json',
         ]);
 
-        return DescribeInstancesResponse::fromMap($this->doRPCRequest('DescribeInstances', '2019-01-03', 'HTTPS', 'POST', 'AK', 'json', $req, $runtime));
+        return DescribeInstancesResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
@@ -689,11 +1419,29 @@ class Sddp extends OpenApiClient
     public function describeOssObjectDetailWithOptions($request, $runtime)
     {
         Utils::validateModel($request);
+        $query = [];
+        if (!Utils::isUnset($request->id)) {
+            $query['Id'] = $request->id;
+        }
+        if (!Utils::isUnset($request->lang)) {
+            $query['Lang'] = $request->lang;
+        }
         $req = new OpenApiRequest([
-            'body' => Utils::toMap($request),
+            'query' => OpenApiUtilClient::query($query),
+        ]);
+        $params = new Params([
+            'action'      => 'DescribeOssObjectDetail',
+            'version'     => '2019-01-03',
+            'protocol'    => 'HTTPS',
+            'pathname'    => '/',
+            'method'      => 'POST',
+            'authType'    => 'AK',
+            'style'       => 'RPC',
+            'reqBodyType' => 'formData',
+            'bodyType'    => 'json',
         ]);
 
-        return DescribeOssObjectDetailResponse::fromMap($this->doRPCRequest('DescribeOssObjectDetail', '2019-01-03', 'HTTPS', 'POST', 'AK', 'json', $req, $runtime));
+        return DescribeOssObjectDetailResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
@@ -717,11 +1465,53 @@ class Sddp extends OpenApiClient
     public function describeOssObjectsWithOptions($request, $runtime)
     {
         Utils::validateModel($request);
+        $query = [];
+        if (!Utils::isUnset($request->currentPage)) {
+            $query['CurrentPage'] = $request->currentPage;
+        }
+        if (!Utils::isUnset($request->instanceId)) {
+            $query['InstanceId'] = $request->instanceId;
+        }
+        if (!Utils::isUnset($request->lang)) {
+            $query['Lang'] = $request->lang;
+        }
+        if (!Utils::isUnset($request->lastScanTimeEnd)) {
+            $query['LastScanTimeEnd'] = $request->lastScanTimeEnd;
+        }
+        if (!Utils::isUnset($request->lastScanTimeStart)) {
+            $query['LastScanTimeStart'] = $request->lastScanTimeStart;
+        }
+        if (!Utils::isUnset($request->name)) {
+            $query['Name'] = $request->name;
+        }
+        if (!Utils::isUnset($request->pageSize)) {
+            $query['PageSize'] = $request->pageSize;
+        }
+        if (!Utils::isUnset($request->riskLevelId)) {
+            $query['RiskLevelId'] = $request->riskLevelId;
+        }
+        if (!Utils::isUnset($request->ruleId)) {
+            $query['RuleId'] = $request->ruleId;
+        }
+        if (!Utils::isUnset($request->serviceRegionId)) {
+            $query['ServiceRegionId'] = $request->serviceRegionId;
+        }
         $req = new OpenApiRequest([
-            'body' => Utils::toMap($request),
+            'query' => OpenApiUtilClient::query($query),
+        ]);
+        $params = new Params([
+            'action'      => 'DescribeOssObjects',
+            'version'     => '2019-01-03',
+            'protocol'    => 'HTTPS',
+            'pathname'    => '/',
+            'method'      => 'POST',
+            'authType'    => 'AK',
+            'style'       => 'RPC',
+            'reqBodyType' => 'formData',
+            'bodyType'    => 'json',
         ]);
 
-        return DescribeOssObjectsResponse::fromMap($this->doRPCRequest('DescribeOssObjects', '2019-01-03', 'HTTPS', 'POST', 'AK', 'json', $req, $runtime));
+        return DescribeOssObjectsResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
@@ -745,11 +1535,47 @@ class Sddp extends OpenApiClient
     public function describePackagesWithOptions($request, $runtime)
     {
         Utils::validateModel($request);
+        $query = [];
+        if (!Utils::isUnset($request->currentPage)) {
+            $query['CurrentPage'] = $request->currentPage;
+        }
+        if (!Utils::isUnset($request->instanceId)) {
+            $query['InstanceId'] = $request->instanceId;
+        }
+        if (!Utils::isUnset($request->lang)) {
+            $query['Lang'] = $request->lang;
+        }
+        if (!Utils::isUnset($request->name)) {
+            $query['Name'] = $request->name;
+        }
+        if (!Utils::isUnset($request->pageSize)) {
+            $query['PageSize'] = $request->pageSize;
+        }
+        if (!Utils::isUnset($request->productId)) {
+            $query['ProductId'] = $request->productId;
+        }
+        if (!Utils::isUnset($request->riskLevelId)) {
+            $query['RiskLevelId'] = $request->riskLevelId;
+        }
+        if (!Utils::isUnset($request->ruleId)) {
+            $query['RuleId'] = $request->ruleId;
+        }
         $req = new OpenApiRequest([
-            'body' => Utils::toMap($request),
+            'query' => OpenApiUtilClient::query($query),
+        ]);
+        $params = new Params([
+            'action'      => 'DescribePackages',
+            'version'     => '2019-01-03',
+            'protocol'    => 'HTTPS',
+            'pathname'    => '/',
+            'method'      => 'POST',
+            'authType'    => 'AK',
+            'style'       => 'RPC',
+            'reqBodyType' => 'formData',
+            'bodyType'    => 'json',
         ]);
 
-        return DescribePackagesResponse::fromMap($this->doRPCRequest('DescribePackages', '2019-01-03', 'HTTPS', 'POST', 'AK', 'json', $req, $runtime));
+        return DescribePackagesResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
@@ -773,11 +1599,26 @@ class Sddp extends OpenApiClient
     public function describeRiskLevelsWithOptions($request, $runtime)
     {
         Utils::validateModel($request);
+        $query = [];
+        if (!Utils::isUnset($request->lang)) {
+            $query['Lang'] = $request->lang;
+        }
         $req = new OpenApiRequest([
-            'body' => Utils::toMap($request),
+            'query' => OpenApiUtilClient::query($query),
+        ]);
+        $params = new Params([
+            'action'      => 'DescribeRiskLevels',
+            'version'     => '2019-01-03',
+            'protocol'    => 'HTTPS',
+            'pathname'    => '/',
+            'method'      => 'POST',
+            'authType'    => 'AK',
+            'style'       => 'RPC',
+            'reqBodyType' => 'formData',
+            'bodyType'    => 'json',
         ]);
 
-        return DescribeRiskLevelsResponse::fromMap($this->doRPCRequest('DescribeRiskLevels', '2019-01-03', 'HTTPS', 'POST', 'AK', 'json', $req, $runtime));
+        return DescribeRiskLevelsResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
@@ -801,11 +1642,68 @@ class Sddp extends OpenApiClient
     public function describeRulesWithOptions($request, $runtime)
     {
         Utils::validateModel($request);
+        $query = [];
+        if (!Utils::isUnset($request->category)) {
+            $query['Category'] = $request->category;
+        }
+        if (!Utils::isUnset($request->contentCategory)) {
+            $query['ContentCategory'] = $request->contentCategory;
+        }
+        if (!Utils::isUnset($request->currentPage)) {
+            $query['CurrentPage'] = $request->currentPage;
+        }
+        if (!Utils::isUnset($request->customType)) {
+            $query['CustomType'] = $request->customType;
+        }
+        if (!Utils::isUnset($request->groupId)) {
+            $query['GroupId'] = $request->groupId;
+        }
+        if (!Utils::isUnset($request->keywordCompatible)) {
+            $query['KeywordCompatible'] = $request->keywordCompatible;
+        }
+        if (!Utils::isUnset($request->lang)) {
+            $query['Lang'] = $request->lang;
+        }
+        if (!Utils::isUnset($request->name)) {
+            $query['Name'] = $request->name;
+        }
+        if (!Utils::isUnset($request->pageSize)) {
+            $query['PageSize'] = $request->pageSize;
+        }
+        if (!Utils::isUnset($request->productCode)) {
+            $query['ProductCode'] = $request->productCode;
+        }
+        if (!Utils::isUnset($request->productId)) {
+            $query['ProductId'] = $request->productId;
+        }
+        if (!Utils::isUnset($request->riskLevelId)) {
+            $query['RiskLevelId'] = $request->riskLevelId;
+        }
+        if (!Utils::isUnset($request->ruleType)) {
+            $query['RuleType'] = $request->ruleType;
+        }
+        if (!Utils::isUnset($request->status)) {
+            $query['Status'] = $request->status;
+        }
+        if (!Utils::isUnset($request->warnLevel)) {
+            $query['WarnLevel'] = $request->warnLevel;
+        }
         $req = new OpenApiRequest([
-            'body' => Utils::toMap($request),
+            'query' => OpenApiUtilClient::query($query),
+        ]);
+        $params = new Params([
+            'action'      => 'DescribeRules',
+            'version'     => '2019-01-03',
+            'protocol'    => 'HTTPS',
+            'pathname'    => '/',
+            'method'      => 'POST',
+            'authType'    => 'AK',
+            'style'       => 'RPC',
+            'reqBodyType' => 'formData',
+            'bodyType'    => 'json',
         ]);
 
-        return DescribeRulesResponse::fromMap($this->doRPCRequest('DescribeRules', '2019-01-03', 'HTTPS', 'POST', 'AK', 'json', $req, $runtime));
+        return DescribeRulesResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
@@ -829,11 +1727,56 @@ class Sddp extends OpenApiClient
     public function describeTablesWithOptions($request, $runtime)
     {
         Utils::validateModel($request);
+        $query = [];
+        if (!Utils::isUnset($request->currentPage)) {
+            $query['CurrentPage'] = $request->currentPage;
+        }
+        if (!Utils::isUnset($request->instanceId)) {
+            $query['InstanceId'] = $request->instanceId;
+        }
+        if (!Utils::isUnset($request->lang)) {
+            $query['Lang'] = $request->lang;
+        }
+        if (!Utils::isUnset($request->name)) {
+            $query['Name'] = $request->name;
+        }
+        if (!Utils::isUnset($request->packageId)) {
+            $query['PackageId'] = $request->packageId;
+        }
+        if (!Utils::isUnset($request->pageSize)) {
+            $query['PageSize'] = $request->pageSize;
+        }
+        if (!Utils::isUnset($request->productCode)) {
+            $query['ProductCode'] = $request->productCode;
+        }
+        if (!Utils::isUnset($request->productId)) {
+            $query['ProductId'] = $request->productId;
+        }
+        if (!Utils::isUnset($request->riskLevelId)) {
+            $query['RiskLevelId'] = $request->riskLevelId;
+        }
+        if (!Utils::isUnset($request->ruleId)) {
+            $query['RuleId'] = $request->ruleId;
+        }
+        if (!Utils::isUnset($request->serviceRegionId)) {
+            $query['ServiceRegionId'] = $request->serviceRegionId;
+        }
         $req = new OpenApiRequest([
-            'body' => Utils::toMap($request),
+            'query' => OpenApiUtilClient::query($query),
+        ]);
+        $params = new Params([
+            'action'      => 'DescribeTables',
+            'version'     => '2019-01-03',
+            'protocol'    => 'HTTPS',
+            'pathname'    => '/',
+            'method'      => 'POST',
+            'authType'    => 'AK',
+            'style'       => 'RPC',
+            'reqBodyType' => 'formData',
+            'bodyType'    => 'json',
         ]);
 
-        return DescribeTablesResponse::fromMap($this->doRPCRequest('DescribeTables', '2019-01-03', 'HTTPS', 'POST', 'AK', 'json', $req, $runtime));
+        return DescribeTablesResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
@@ -857,11 +1800,26 @@ class Sddp extends OpenApiClient
     public function describeUserStatusWithOptions($request, $runtime)
     {
         Utils::validateModel($request);
+        $query = [];
+        if (!Utils::isUnset($request->lang)) {
+            $query['Lang'] = $request->lang;
+        }
         $req = new OpenApiRequest([
-            'body' => Utils::toMap($request),
+            'query' => OpenApiUtilClient::query($query),
+        ]);
+        $params = new Params([
+            'action'      => 'DescribeUserStatus',
+            'version'     => '2019-01-03',
+            'protocol'    => 'HTTPS',
+            'pathname'    => '/',
+            'method'      => 'POST',
+            'authType'    => 'AK',
+            'style'       => 'RPC',
+            'reqBodyType' => 'formData',
+            'bodyType'    => 'json',
         ]);
 
-        return DescribeUserStatusResponse::fromMap($this->doRPCRequest('DescribeUserStatus', '2019-01-03', 'HTTPS', 'POST', 'AK', 'json', $req, $runtime));
+        return DescribeUserStatusResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
@@ -885,11 +1843,29 @@ class Sddp extends OpenApiClient
     public function disableUserConfigWithOptions($request, $runtime)
     {
         Utils::validateModel($request);
+        $query = [];
+        if (!Utils::isUnset($request->code)) {
+            $query['Code'] = $request->code;
+        }
+        if (!Utils::isUnset($request->lang)) {
+            $query['Lang'] = $request->lang;
+        }
         $req = new OpenApiRequest([
-            'body' => Utils::toMap($request),
+            'query' => OpenApiUtilClient::query($query),
+        ]);
+        $params = new Params([
+            'action'      => 'DisableUserConfig',
+            'version'     => '2019-01-03',
+            'protocol'    => 'HTTPS',
+            'pathname'    => '/',
+            'method'      => 'POST',
+            'authType'    => 'AK',
+            'style'       => 'RPC',
+            'reqBodyType' => 'formData',
+            'bodyType'    => 'json',
         ]);
 
-        return DisableUserConfigResponse::fromMap($this->doRPCRequest('DisableUserConfig', '2019-01-03', 'HTTPS', 'POST', 'AK', 'json', $req, $runtime));
+        return DisableUserConfigResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
@@ -913,11 +1889,32 @@ class Sddp extends OpenApiClient
     public function execDatamaskWithOptions($request, $runtime)
     {
         Utils::validateModel($request);
+        $query = [];
+        if (!Utils::isUnset($request->data)) {
+            $query['Data'] = $request->data;
+        }
+        if (!Utils::isUnset($request->lang)) {
+            $query['Lang'] = $request->lang;
+        }
+        if (!Utils::isUnset($request->templateId)) {
+            $query['TemplateId'] = $request->templateId;
+        }
         $req = new OpenApiRequest([
-            'body' => Utils::toMap($request),
+            'query' => OpenApiUtilClient::query($query),
+        ]);
+        $params = new Params([
+            'action'      => 'ExecDatamask',
+            'version'     => '2019-01-03',
+            'protocol'    => 'HTTPS',
+            'pathname'    => '/',
+            'method'      => 'POST',
+            'authType'    => 'AK',
+            'style'       => 'RPC',
+            'reqBodyType' => 'formData',
+            'bodyType'    => 'json',
         ]);
 
-        return ExecDatamaskResponse::fromMap($this->doRPCRequest('ExecDatamask', '2019-01-03', 'HTTPS', 'POST', 'AK', 'json', $req, $runtime));
+        return ExecDatamaskResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
@@ -941,11 +1938,29 @@ class Sddp extends OpenApiClient
     public function manualTriggerMaskingProcessWithOptions($request, $runtime)
     {
         Utils::validateModel($request);
+        $query = [];
+        if (!Utils::isUnset($request->id)) {
+            $query['Id'] = $request->id;
+        }
+        if (!Utils::isUnset($request->lang)) {
+            $query['Lang'] = $request->lang;
+        }
         $req = new OpenApiRequest([
-            'body' => Utils::toMap($request),
+            'query' => OpenApiUtilClient::query($query),
+        ]);
+        $params = new Params([
+            'action'      => 'ManualTriggerMaskingProcess',
+            'version'     => '2019-01-03',
+            'protocol'    => 'HTTPS',
+            'pathname'    => '/',
+            'method'      => 'POST',
+            'authType'    => 'AK',
+            'style'       => 'RPC',
+            'reqBodyType' => 'formData',
+            'bodyType'    => 'json',
         ]);
 
-        return ManualTriggerMaskingProcessResponse::fromMap($this->doRPCRequest('ManualTriggerMaskingProcess', '2019-01-03', 'HTTPS', 'POST', 'AK', 'json', $req, $runtime));
+        return ManualTriggerMaskingProcessResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
@@ -969,11 +1984,59 @@ class Sddp extends OpenApiClient
     public function modifyDataLimitWithOptions($request, $runtime)
     {
         Utils::validateModel($request);
+        $query = [];
+        if (!Utils::isUnset($request->auditStatus)) {
+            $query['AuditStatus'] = $request->auditStatus;
+        }
+        if (!Utils::isUnset($request->autoScan)) {
+            $query['AutoScan'] = $request->autoScan;
+        }
+        if (!Utils::isUnset($request->engineType)) {
+            $query['EngineType'] = $request->engineType;
+        }
+        if (!Utils::isUnset($request->id)) {
+            $query['Id'] = $request->id;
+        }
+        if (!Utils::isUnset($request->lang)) {
+            $query['Lang'] = $request->lang;
+        }
+        if (!Utils::isUnset($request->logStoreDay)) {
+            $query['LogStoreDay'] = $request->logStoreDay;
+        }
+        if (!Utils::isUnset($request->modifyPassword)) {
+            $query['ModifyPassword'] = $request->modifyPassword;
+        }
+        if (!Utils::isUnset($request->password)) {
+            $query['Password'] = $request->password;
+        }
+        if (!Utils::isUnset($request->port)) {
+            $query['Port'] = $request->port;
+        }
+        if (!Utils::isUnset($request->resourceType)) {
+            $query['ResourceType'] = $request->resourceType;
+        }
+        if (!Utils::isUnset($request->serviceRegionId)) {
+            $query['ServiceRegionId'] = $request->serviceRegionId;
+        }
+        if (!Utils::isUnset($request->userName)) {
+            $query['UserName'] = $request->userName;
+        }
         $req = new OpenApiRequest([
-            'body' => Utils::toMap($request),
+            'query' => OpenApiUtilClient::query($query),
+        ]);
+        $params = new Params([
+            'action'      => 'ModifyDataLimit',
+            'version'     => '2019-01-03',
+            'protocol'    => 'HTTPS',
+            'pathname'    => '/',
+            'method'      => 'POST',
+            'authType'    => 'AK',
+            'style'       => 'RPC',
+            'reqBodyType' => 'formData',
+            'bodyType'    => 'json',
         ]);
 
-        return ModifyDataLimitResponse::fromMap($this->doRPCRequest('ModifyDataLimit', '2019-01-03', 'HTTPS', 'POST', 'AK', 'json', $req, $runtime));
+        return ModifyDataLimitResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
@@ -997,11 +2060,32 @@ class Sddp extends OpenApiClient
     public function modifyDefaultLevelWithOptions($request, $runtime)
     {
         Utils::validateModel($request);
+        $query = [];
+        if (!Utils::isUnset($request->defaultId)) {
+            $query['DefaultId'] = $request->defaultId;
+        }
+        if (!Utils::isUnset($request->lang)) {
+            $query['Lang'] = $request->lang;
+        }
+        if (!Utils::isUnset($request->sensitiveIds)) {
+            $query['SensitiveIds'] = $request->sensitiveIds;
+        }
         $req = new OpenApiRequest([
-            'body' => Utils::toMap($request),
+            'query' => OpenApiUtilClient::query($query),
+        ]);
+        $params = new Params([
+            'action'      => 'ModifyDefaultLevel',
+            'version'     => '2019-01-03',
+            'protocol'    => 'HTTPS',
+            'pathname'    => '/',
+            'method'      => 'POST',
+            'authType'    => 'AK',
+            'style'       => 'RPC',
+            'reqBodyType' => 'formData',
+            'bodyType'    => 'json',
         ]);
 
-        return ModifyDefaultLevelResponse::fromMap($this->doRPCRequest('ModifyDefaultLevel', '2019-01-03', 'HTTPS', 'POST', 'AK', 'json', $req, $runtime));
+        return ModifyDefaultLevelResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
@@ -1025,11 +2109,38 @@ class Sddp extends OpenApiClient
     public function modifyEventStatusWithOptions($request, $runtime)
     {
         Utils::validateModel($request);
+        $query = [];
+        if (!Utils::isUnset($request->backed)) {
+            $query['Backed'] = $request->backed;
+        }
+        if (!Utils::isUnset($request->dealReason)) {
+            $query['DealReason'] = $request->dealReason;
+        }
+        if (!Utils::isUnset($request->id)) {
+            $query['Id'] = $request->id;
+        }
+        if (!Utils::isUnset($request->lang)) {
+            $query['Lang'] = $request->lang;
+        }
+        if (!Utils::isUnset($request->status)) {
+            $query['Status'] = $request->status;
+        }
         $req = new OpenApiRequest([
-            'body' => Utils::toMap($request),
+            'query' => OpenApiUtilClient::query($query),
+        ]);
+        $params = new Params([
+            'action'      => 'ModifyEventStatus',
+            'version'     => '2019-01-03',
+            'protocol'    => 'HTTPS',
+            'pathname'    => '/',
+            'method'      => 'POST',
+            'authType'    => 'AK',
+            'style'       => 'RPC',
+            'reqBodyType' => 'formData',
+            'bodyType'    => 'json',
         ]);
 
-        return ModifyEventStatusResponse::fromMap($this->doRPCRequest('ModifyEventStatus', '2019-01-03', 'HTTPS', 'POST', 'AK', 'json', $req, $runtime));
+        return ModifyEventStatusResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
@@ -1053,11 +2164,29 @@ class Sddp extends OpenApiClient
     public function modifyEventTypeStatusWithOptions($request, $runtime)
     {
         Utils::validateModel($request);
+        $query = [];
+        if (!Utils::isUnset($request->lang)) {
+            $query['Lang'] = $request->lang;
+        }
+        if (!Utils::isUnset($request->subTypeIds)) {
+            $query['SubTypeIds'] = $request->subTypeIds;
+        }
         $req = new OpenApiRequest([
-            'body' => Utils::toMap($request),
+            'query' => OpenApiUtilClient::query($query),
+        ]);
+        $params = new Params([
+            'action'      => 'ModifyEventTypeStatus',
+            'version'     => '2019-01-03',
+            'protocol'    => 'HTTPS',
+            'pathname'    => '/',
+            'method'      => 'POST',
+            'authType'    => 'AK',
+            'style'       => 'RPC',
+            'reqBodyType' => 'formData',
+            'bodyType'    => 'json',
         ]);
 
-        return ModifyEventTypeStatusResponse::fromMap($this->doRPCRequest('ModifyEventTypeStatus', '2019-01-03', 'HTTPS', 'POST', 'AK', 'json', $req, $runtime));
+        return ModifyEventTypeStatusResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
@@ -1073,6 +2202,52 @@ class Sddp extends OpenApiClient
     }
 
     /**
+     * @param ModifyReportTaskStatusRequest $request
+     * @param RuntimeOptions                $runtime
+     *
+     * @return ModifyReportTaskStatusResponse
+     */
+    public function modifyReportTaskStatusWithOptions($request, $runtime)
+    {
+        Utils::validateModel($request);
+        $query = [];
+        if (!Utils::isUnset($request->lang)) {
+            $query['Lang'] = $request->lang;
+        }
+        if (!Utils::isUnset($request->reportTaskStatus)) {
+            $query['ReportTaskStatus'] = $request->reportTaskStatus;
+        }
+        $req = new OpenApiRequest([
+            'query' => OpenApiUtilClient::query($query),
+        ]);
+        $params = new Params([
+            'action'      => 'ModifyReportTaskStatus',
+            'version'     => '2019-01-03',
+            'protocol'    => 'HTTPS',
+            'pathname'    => '/',
+            'method'      => 'POST',
+            'authType'    => 'AK',
+            'style'       => 'RPC',
+            'reqBodyType' => 'formData',
+            'bodyType'    => 'json',
+        ]);
+
+        return ModifyReportTaskStatusResponse::fromMap($this->callApi($params, $req, $runtime));
+    }
+
+    /**
+     * @param ModifyReportTaskStatusRequest $request
+     *
+     * @return ModifyReportTaskStatusResponse
+     */
+    public function modifyReportTaskStatus($request)
+    {
+        $runtime = new RuntimeOptions([]);
+
+        return $this->modifyReportTaskStatusWithOptions($request, $runtime);
+    }
+
+    /**
      * @param ModifyRuleRequest $request
      * @param RuntimeOptions    $runtime
      *
@@ -1081,11 +2256,53 @@ class Sddp extends OpenApiClient
     public function modifyRuleWithOptions($request, $runtime)
     {
         Utils::validateModel($request);
+        $query = [];
+        if (!Utils::isUnset($request->category)) {
+            $query['Category'] = $request->category;
+        }
+        if (!Utils::isUnset($request->content)) {
+            $query['Content'] = $request->content;
+        }
+        if (!Utils::isUnset($request->id)) {
+            $query['Id'] = $request->id;
+        }
+        if (!Utils::isUnset($request->lang)) {
+            $query['Lang'] = $request->lang;
+        }
+        if (!Utils::isUnset($request->name)) {
+            $query['Name'] = $request->name;
+        }
+        if (!Utils::isUnset($request->productCode)) {
+            $query['ProductCode'] = $request->productCode;
+        }
+        if (!Utils::isUnset($request->productId)) {
+            $query['ProductId'] = $request->productId;
+        }
+        if (!Utils::isUnset($request->riskLevelId)) {
+            $query['RiskLevelId'] = $request->riskLevelId;
+        }
+        if (!Utils::isUnset($request->ruleType)) {
+            $query['RuleType'] = $request->ruleType;
+        }
+        if (!Utils::isUnset($request->warnLevel)) {
+            $query['WarnLevel'] = $request->warnLevel;
+        }
         $req = new OpenApiRequest([
-            'body' => Utils::toMap($request),
+            'query' => OpenApiUtilClient::query($query),
+        ]);
+        $params = new Params([
+            'action'      => 'ModifyRule',
+            'version'     => '2019-01-03',
+            'protocol'    => 'HTTPS',
+            'pathname'    => '/',
+            'method'      => 'POST',
+            'authType'    => 'AK',
+            'style'       => 'RPC',
+            'reqBodyType' => 'formData',
+            'bodyType'    => 'json',
         ]);
 
-        return ModifyRuleResponse::fromMap($this->doRPCRequest('ModifyRule', '2019-01-03', 'HTTPS', 'POST', 'AK', 'json', $req, $runtime));
+        return ModifyRuleResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
@@ -1109,11 +2326,35 @@ class Sddp extends OpenApiClient
     public function modifyRuleStatusWithOptions($request, $runtime)
     {
         Utils::validateModel($request);
+        $query = [];
+        if (!Utils::isUnset($request->id)) {
+            $query['Id'] = $request->id;
+        }
+        if (!Utils::isUnset($request->ids)) {
+            $query['Ids'] = $request->ids;
+        }
+        if (!Utils::isUnset($request->lang)) {
+            $query['Lang'] = $request->lang;
+        }
+        if (!Utils::isUnset($request->status)) {
+            $query['Status'] = $request->status;
+        }
         $req = new OpenApiRequest([
-            'body' => Utils::toMap($request),
+            'query' => OpenApiUtilClient::query($query),
+        ]);
+        $params = new Params([
+            'action'      => 'ModifyRuleStatus',
+            'version'     => '2019-01-03',
+            'protocol'    => 'HTTPS',
+            'pathname'    => '/',
+            'method'      => 'POST',
+            'authType'    => 'AK',
+            'style'       => 'RPC',
+            'reqBodyType' => 'formData',
+            'bodyType'    => 'json',
         ]);
 
-        return ModifyRuleStatusResponse::fromMap($this->doRPCRequest('ModifyRuleStatus', '2019-01-03', 'HTTPS', 'POST', 'AK', 'json', $req, $runtime));
+        return ModifyRuleStatusResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
@@ -1137,11 +2378,29 @@ class Sddp extends OpenApiClient
     public function stopMaskingProcessWithOptions($request, $runtime)
     {
         Utils::validateModel($request);
+        $query = [];
+        if (!Utils::isUnset($request->id)) {
+            $query['Id'] = $request->id;
+        }
+        if (!Utils::isUnset($request->lang)) {
+            $query['Lang'] = $request->lang;
+        }
         $req = new OpenApiRequest([
-            'body' => Utils::toMap($request),
+            'query' => OpenApiUtilClient::query($query),
+        ]);
+        $params = new Params([
+            'action'      => 'StopMaskingProcess',
+            'version'     => '2019-01-03',
+            'protocol'    => 'HTTPS',
+            'pathname'    => '/',
+            'method'      => 'POST',
+            'authType'    => 'AK',
+            'style'       => 'RPC',
+            'reqBodyType' => 'formData',
+            'bodyType'    => 'json',
         ]);
 
-        return StopMaskingProcessResponse::fromMap($this->doRPCRequest('StopMaskingProcess', '2019-01-03', 'HTTPS', 'POST', 'AK', 'json', $req, $runtime));
+        return StopMaskingProcessResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
