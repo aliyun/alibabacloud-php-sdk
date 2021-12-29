@@ -28,18 +28,10 @@ class GetLiveDomainStatusRequest extends Model
      * @var string
      */
     public $liveDomainType;
-
-    /**
-     * @description 地域
-     *
-     * @var string
-     */
-    public $regionId;
     protected $_name = [
         'appId'          => 'AppId',
         'liveDomainList' => 'LiveDomainList',
         'liveDomainType' => 'LiveDomainType',
-        'regionId'       => 'RegionId',
     ];
 
     public function validate()
@@ -57,9 +49,6 @@ class GetLiveDomainStatusRequest extends Model
         }
         if (null !== $this->liveDomainType) {
             $res['LiveDomainType'] = $this->liveDomainType;
-        }
-        if (null !== $this->regionId) {
-            $res['RegionId'] = $this->regionId;
         }
 
         return $res;
@@ -83,9 +72,6 @@ class GetLiveDomainStatusRequest extends Model
         }
         if (isset($map['LiveDomainType'])) {
             $model->liveDomainType = $map['LiveDomainType'];
-        }
-        if (isset($map['RegionId'])) {
-            $model->regionId = $map['RegionId'];
         }
 
         return $model;

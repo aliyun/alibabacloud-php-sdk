@@ -28,18 +28,10 @@ class UpdateAppRequest extends Model
      * @var string
      */
     public $appStatus;
-
-    /**
-     * @description 地域
-     *
-     * @var string
-     */
-    public $regionId;
     protected $_name = [
         'appId'     => 'AppId',
         'appName'   => 'AppName',
         'appStatus' => 'AppStatus',
-        'regionId'  => 'RegionId',
     ];
 
     public function validate()
@@ -57,9 +49,6 @@ class UpdateAppRequest extends Model
         }
         if (null !== $this->appStatus) {
             $res['AppStatus'] = $this->appStatus;
-        }
-        if (null !== $this->regionId) {
-            $res['RegionId'] = $this->regionId;
         }
 
         return $res;
@@ -81,9 +70,6 @@ class UpdateAppRequest extends Model
         }
         if (isset($map['AppStatus'])) {
             $model->appStatus = $map['AppStatus'];
-        }
-        if (isset($map['RegionId'])) {
-            $model->regionId = $map['RegionId'];
         }
 
         return $model;

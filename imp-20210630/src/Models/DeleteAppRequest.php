@@ -14,16 +14,8 @@ class DeleteAppRequest extends Model
      * @var string
      */
     public $appId;
-
-    /**
-     * @description 地域
-     *
-     * @var string
-     */
-    public $regionId;
     protected $_name = [
-        'appId'    => 'AppId',
-        'regionId' => 'RegionId',
+        'appId' => 'AppId',
     ];
 
     public function validate()
@@ -35,9 +27,6 @@ class DeleteAppRequest extends Model
         $res = [];
         if (null !== $this->appId) {
             $res['AppId'] = $this->appId;
-        }
-        if (null !== $this->regionId) {
-            $res['RegionId'] = $this->regionId;
         }
 
         return $res;
@@ -53,9 +42,6 @@ class DeleteAppRequest extends Model
         $model = new self();
         if (isset($map['AppId'])) {
             $model->appId = $map['AppId'];
-        }
-        if (isset($map['RegionId'])) {
-            $model->regionId = $map['RegionId'];
         }
 
         return $model;

@@ -30,13 +30,6 @@ class CreateAppTemplateRequest extends Model
     public $integrationMode;
 
     /**
-     * @description 地域
-     *
-     * @var string
-     */
-    public $regionId;
-
-    /**
      * @description 应用模板场景，电商business，课堂classroom
      *
      * @var string
@@ -46,7 +39,6 @@ class CreateAppTemplateRequest extends Model
         'appTemplateName' => 'AppTemplateName',
         'componentList'   => 'ComponentList',
         'integrationMode' => 'IntegrationMode',
-        'regionId'        => 'RegionId',
         'scene'           => 'Scene',
     ];
 
@@ -65,9 +57,6 @@ class CreateAppTemplateRequest extends Model
         }
         if (null !== $this->integrationMode) {
             $res['IntegrationMode'] = $this->integrationMode;
-        }
-        if (null !== $this->regionId) {
-            $res['RegionId'] = $this->regionId;
         }
         if (null !== $this->scene) {
             $res['Scene'] = $this->scene;
@@ -94,9 +83,6 @@ class CreateAppTemplateRequest extends Model
         }
         if (isset($map['IntegrationMode'])) {
             $model->integrationMode = $map['IntegrationMode'];
-        }
-        if (isset($map['RegionId'])) {
-            $model->regionId = $map['RegionId'];
         }
         if (isset($map['Scene'])) {
             $model->scene = $map['Scene'];

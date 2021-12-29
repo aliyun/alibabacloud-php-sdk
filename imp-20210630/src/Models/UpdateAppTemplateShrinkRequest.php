@@ -28,18 +28,10 @@ class UpdateAppTemplateShrinkRequest extends Model
      * @var string
      */
     public $componentListShrink;
-
-    /**
-     * @description 地域
-     *
-     * @var string
-     */
-    public $regionId;
     protected $_name = [
         'appTemplateId'       => 'AppTemplateId',
         'appTemplateName'     => 'AppTemplateName',
         'componentListShrink' => 'ComponentList',
-        'regionId'            => 'RegionId',
     ];
 
     public function validate()
@@ -57,9 +49,6 @@ class UpdateAppTemplateShrinkRequest extends Model
         }
         if (null !== $this->componentListShrink) {
             $res['ComponentList'] = $this->componentListShrink;
-        }
-        if (null !== $this->regionId) {
-            $res['RegionId'] = $this->regionId;
         }
 
         return $res;
@@ -81,9 +70,6 @@ class UpdateAppTemplateShrinkRequest extends Model
         }
         if (isset($map['ComponentList'])) {
             $model->componentListShrink = $map['ComponentList'];
-        }
-        if (isset($map['RegionId'])) {
-            $model->regionId = $map['RegionId'];
         }
 
         return $model;

@@ -30,11 +30,6 @@ class ListRoomUsersRequest extends Model
     public $pageSize;
 
     /**
-     * @var string
-     */
-    public $regionId;
-
-    /**
      * @description 房间ID，最大长度36个字符。
      *
      * @var string
@@ -44,7 +39,6 @@ class ListRoomUsersRequest extends Model
         'appId'      => 'AppId',
         'pageNumber' => 'PageNumber',
         'pageSize'   => 'PageSize',
-        'regionId'   => 'RegionId',
         'roomId'     => 'RoomId',
     ];
 
@@ -63,9 +57,6 @@ class ListRoomUsersRequest extends Model
         }
         if (null !== $this->pageSize) {
             $res['PageSize'] = $this->pageSize;
-        }
-        if (null !== $this->regionId) {
-            $res['RegionId'] = $this->regionId;
         }
         if (null !== $this->roomId) {
             $res['RoomId'] = $this->roomId;
@@ -90,9 +81,6 @@ class ListRoomUsersRequest extends Model
         }
         if (isset($map['PageSize'])) {
             $model->pageSize = $map['PageSize'];
-        }
-        if (isset($map['RegionId'])) {
-            $model->regionId = $map['RegionId'];
         }
         if (isset($map['RoomId'])) {
             $model->roomId = $map['RoomId'];

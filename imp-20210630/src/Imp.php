@@ -65,11 +65,12 @@ use AlibabaCloud\SDK\Imp\V20210630\Models\GetAuthTokenRequest;
 use AlibabaCloud\SDK\Imp\V20210630\Models\GetAuthTokenResponse;
 use AlibabaCloud\SDK\Imp\V20210630\Models\GetClassDetailRequest;
 use AlibabaCloud\SDK\Imp\V20210630\Models\GetClassDetailResponse;
+use AlibabaCloud\SDK\Imp\V20210630\Models\GetClassRecordRequest;
+use AlibabaCloud\SDK\Imp\V20210630\Models\GetClassRecordResponse;
 use AlibabaCloud\SDK\Imp\V20210630\Models\GetConferenceRequest;
 use AlibabaCloud\SDK\Imp\V20210630\Models\GetConferenceResponse;
 use AlibabaCloud\SDK\Imp\V20210630\Models\GetDomainOwnerVerifyContentRequest;
 use AlibabaCloud\SDK\Imp\V20210630\Models\GetDomainOwnerVerifyContentResponse;
-use AlibabaCloud\SDK\Imp\V20210630\Models\GetImpProductStatusRequest;
 use AlibabaCloud\SDK\Imp\V20210630\Models\GetImpProductStatusResponse;
 use AlibabaCloud\SDK\Imp\V20210630\Models\GetLiveDomainStatusRequest;
 use AlibabaCloud\SDK\Imp\V20210630\Models\GetLiveDomainStatusResponse;
@@ -157,6 +158,7 @@ use AlibabaCloud\SDK\Imp\V20210630\Models\UpdateRoomResponse;
 use AlibabaCloud\SDK\Imp\V20210630\Models\UpdateRoomShrinkRequest;
 use AlibabaCloud\SDK\Imp\V20210630\Models\VerifyDomainOwnerRequest;
 use AlibabaCloud\SDK\Imp\V20210630\Models\VerifyDomainOwnerResponse;
+use AlibabaCloud\Tea\Tea;
 use AlibabaCloud\Tea\Utils\Utils;
 use AlibabaCloud\Tea\Utils\Utils\RuntimeOptions;
 use Darabonba\OpenApi\Models\OpenApiRequest;
@@ -205,8 +207,18 @@ class Imp extends OpenApiClient
     public function addMemberWithOptions($request, $runtime)
     {
         Utils::validateModel($request);
+        $body = [];
+        if (!Utils::isUnset($request->conferenceId)) {
+            $body['ConferenceId'] = $request->conferenceId;
+        }
+        if (!Utils::isUnset($request->fromUserId)) {
+            $body['FromUserId'] = $request->fromUserId;
+        }
+        if (!Utils::isUnset($request->toUserId)) {
+            $body['ToUserId'] = $request->toUserId;
+        }
         $req = new OpenApiRequest([
-            'body' => Utils::toMap($request),
+            'body' => OpenApiUtilClient::parseToMap($body),
         ]);
         $params = new Params([
             'action'      => 'AddMember',
@@ -244,8 +256,18 @@ class Imp extends OpenApiClient
     public function agreeLinkMicWithOptions($request, $runtime)
     {
         Utils::validateModel($request);
+        $body = [];
+        if (!Utils::isUnset($request->conferenceId)) {
+            $body['ConferenceId'] = $request->conferenceId;
+        }
+        if (!Utils::isUnset($request->fromUserId)) {
+            $body['FromUserId'] = $request->fromUserId;
+        }
+        if (!Utils::isUnset($request->toUserId)) {
+            $body['ToUserId'] = $request->toUserId;
+        }
         $req = new OpenApiRequest([
-            'body' => Utils::toMap($request),
+            'body' => OpenApiUtilClient::parseToMap($body),
         ]);
         $params = new Params([
             'action'      => 'AgreeLinkMic',
@@ -283,8 +305,15 @@ class Imp extends OpenApiClient
     public function applyLinkMicWithOptions($request, $runtime)
     {
         Utils::validateModel($request);
+        $body = [];
+        if (!Utils::isUnset($request->conferenceId)) {
+            $body['ConferenceId'] = $request->conferenceId;
+        }
+        if (!Utils::isUnset($request->userId)) {
+            $body['UserId'] = $request->userId;
+        }
         $req = new OpenApiRequest([
-            'body' => Utils::toMap($request),
+            'body' => OpenApiUtilClient::parseToMap($body),
         ]);
         $params = new Params([
             'action'      => 'ApplyLinkMic',
@@ -322,8 +351,21 @@ class Imp extends OpenApiClient
     public function attachStandardRoomHttpsCertificateWithOptions($request, $runtime)
     {
         Utils::validateModel($request);
+        $body = [];
+        if (!Utils::isUnset($request->appId)) {
+            $body['AppId'] = $request->appId;
+        }
+        if (!Utils::isUnset($request->certificatePrivateKey)) {
+            $body['CertificatePrivateKey'] = $request->certificatePrivateKey;
+        }
+        if (!Utils::isUnset($request->certificatePublicKey)) {
+            $body['CertificatePublicKey'] = $request->certificatePublicKey;
+        }
+        if (!Utils::isUnset($request->domainName)) {
+            $body['DomainName'] = $request->domainName;
+        }
         $req = new OpenApiRequest([
-            'body' => Utils::toMap($request),
+            'body' => OpenApiUtilClient::parseToMap($body),
         ]);
         $params = new Params([
             'action'      => 'AttachStandardRoomHttpsCertificate',
@@ -361,8 +403,18 @@ class Imp extends OpenApiClient
     public function banAllCommentWithOptions($request, $runtime)
     {
         Utils::validateModel($request);
+        $body = [];
+        if (!Utils::isUnset($request->appId)) {
+            $body['AppId'] = $request->appId;
+        }
+        if (!Utils::isUnset($request->roomId)) {
+            $body['RoomId'] = $request->roomId;
+        }
+        if (!Utils::isUnset($request->userId)) {
+            $body['UserId'] = $request->userId;
+        }
         $req = new OpenApiRequest([
-            'body' => Utils::toMap($request),
+            'body' => OpenApiUtilClient::parseToMap($body),
         ]);
         $params = new Params([
             'action'      => 'BanAllComment',
@@ -400,8 +452,24 @@ class Imp extends OpenApiClient
     public function banCommentWithOptions($request, $runtime)
     {
         Utils::validateModel($request);
+        $body = [];
+        if (!Utils::isUnset($request->appId)) {
+            $body['AppId'] = $request->appId;
+        }
+        if (!Utils::isUnset($request->banCommentTime)) {
+            $body['BanCommentTime'] = $request->banCommentTime;
+        }
+        if (!Utils::isUnset($request->banCommentUser)) {
+            $body['BanCommentUser'] = $request->banCommentUser;
+        }
+        if (!Utils::isUnset($request->roomId)) {
+            $body['RoomId'] = $request->roomId;
+        }
+        if (!Utils::isUnset($request->userId)) {
+            $body['UserId'] = $request->userId;
+        }
         $req = new OpenApiRequest([
-            'body' => Utils::toMap($request),
+            'body' => OpenApiUtilClient::parseToMap($body),
         ]);
         $params = new Params([
             'action'      => 'BanComment',
@@ -439,8 +507,15 @@ class Imp extends OpenApiClient
     public function cancelApplyLinkMicWithOptions($request, $runtime)
     {
         Utils::validateModel($request);
+        $body = [];
+        if (!Utils::isUnset($request->conferenceId)) {
+            $body['ConferenceId'] = $request->conferenceId;
+        }
+        if (!Utils::isUnset($request->userId)) {
+            $body['UserId'] = $request->userId;
+        }
         $req = new OpenApiRequest([
-            'body' => Utils::toMap($request),
+            'body' => OpenApiUtilClient::parseToMap($body),
         ]);
         $params = new Params([
             'action'      => 'CancelApplyLinkMic',
@@ -478,8 +553,18 @@ class Imp extends OpenApiClient
     public function cancelBanAllCommentWithOptions($request, $runtime)
     {
         Utils::validateModel($request);
+        $body = [];
+        if (!Utils::isUnset($request->appId)) {
+            $body['AppId'] = $request->appId;
+        }
+        if (!Utils::isUnset($request->roomId)) {
+            $body['RoomId'] = $request->roomId;
+        }
+        if (!Utils::isUnset($request->userId)) {
+            $body['UserId'] = $request->userId;
+        }
         $req = new OpenApiRequest([
-            'body' => Utils::toMap($request),
+            'body' => OpenApiUtilClient::parseToMap($body),
         ]);
         $params = new Params([
             'action'      => 'CancelBanAllComment',
@@ -517,8 +602,21 @@ class Imp extends OpenApiClient
     public function cancelBanCommentWithOptions($request, $runtime)
     {
         Utils::validateModel($request);
+        $body = [];
+        if (!Utils::isUnset($request->appId)) {
+            $body['AppId'] = $request->appId;
+        }
+        if (!Utils::isUnset($request->banCommentUser)) {
+            $body['BanCommentUser'] = $request->banCommentUser;
+        }
+        if (!Utils::isUnset($request->roomId)) {
+            $body['RoomId'] = $request->roomId;
+        }
+        if (!Utils::isUnset($request->userId)) {
+            $body['UserId'] = $request->userId;
+        }
         $req = new OpenApiRequest([
-            'body' => Utils::toMap($request),
+            'body' => OpenApiUtilClient::parseToMap($body),
         ]);
         $params = new Params([
             'action'      => 'CancelBanComment',
@@ -556,8 +654,15 @@ class Imp extends OpenApiClient
     public function createAppWithOptions($request, $runtime)
     {
         Utils::validateModel($request);
+        $body = [];
+        if (!Utils::isUnset($request->appName)) {
+            $body['AppName'] = $request->appName;
+        }
+        if (!Utils::isUnset($request->appTemplateId)) {
+            $body['AppTemplateId'] = $request->appTemplateId;
+        }
         $req = new OpenApiRequest([
-            'body' => Utils::toMap($request),
+            'body' => OpenApiUtilClient::parseToMap($body),
         ]);
         $params = new Params([
             'action'      => 'CreateApp',
@@ -600,8 +705,21 @@ class Imp extends OpenApiClient
         if (!Utils::isUnset($tmpReq->componentList)) {
             $request->componentListShrink = OpenApiUtilClient::arrayToStringWithSpecifiedStyle($tmpReq->componentList, 'ComponentList', 'json');
         }
+        $body = [];
+        if (!Utils::isUnset($request->appTemplateName)) {
+            $body['AppTemplateName'] = $request->appTemplateName;
+        }
+        if (!Utils::isUnset($request->componentListShrink)) {
+            $body['ComponentList'] = $request->componentListShrink;
+        }
+        if (!Utils::isUnset($request->integrationMode)) {
+            $body['IntegrationMode'] = $request->integrationMode;
+        }
+        if (!Utils::isUnset($request->scene)) {
+            $body['Scene'] = $request->scene;
+        }
         $req = new OpenApiRequest([
-            'body' => Utils::toMap($request),
+            'body' => OpenApiUtilClient::parseToMap($body),
         ]);
         $params = new Params([
             'action'      => 'CreateAppTemplate',
@@ -639,8 +757,21 @@ class Imp extends OpenApiClient
     public function createClassWithOptions($request, $runtime)
     {
         Utils::validateModel($request);
+        $body = [];
+        if (!Utils::isUnset($request->appId)) {
+            $body['AppId'] = $request->appId;
+        }
+        if (!Utils::isUnset($request->createNickname)) {
+            $body['CreateNickname'] = $request->createNickname;
+        }
+        if (!Utils::isUnset($request->createUserId)) {
+            $body['CreateUserId'] = $request->createUserId;
+        }
+        if (!Utils::isUnset($request->title)) {
+            $body['Title'] = $request->title;
+        }
         $req = new OpenApiRequest([
-            'body' => Utils::toMap($request),
+            'body' => OpenApiUtilClient::parseToMap($body),
         ]);
         $params = new Params([
             'action'      => 'CreateClass',
@@ -678,8 +809,21 @@ class Imp extends OpenApiClient
     public function createConferenceWithOptions($request, $runtime)
     {
         Utils::validateModel($request);
+        $body = [];
+        if (!Utils::isUnset($request->appId)) {
+            $body['AppId'] = $request->appId;
+        }
+        if (!Utils::isUnset($request->roomId)) {
+            $body['RoomId'] = $request->roomId;
+        }
+        if (!Utils::isUnset($request->title)) {
+            $body['Title'] = $request->title;
+        }
+        if (!Utils::isUnset($request->userId)) {
+            $body['UserId'] = $request->userId;
+        }
         $req = new OpenApiRequest([
-            'body' => Utils::toMap($request),
+            'body' => OpenApiUtilClient::parseToMap($body),
         ]);
         $params = new Params([
             'action'      => 'CreateConference',
@@ -717,8 +861,33 @@ class Imp extends OpenApiClient
     public function createLiveWithOptions($request, $runtime)
     {
         Utils::validateModel($request);
+        $body = [];
+        if (!Utils::isUnset($request->anchorId)) {
+            $body['AnchorId'] = $request->anchorId;
+        }
+        if (!Utils::isUnset($request->appId)) {
+            $body['AppId'] = $request->appId;
+        }
+        if (!Utils::isUnset($request->codeLevel)) {
+            $body['CodeLevel'] = $request->codeLevel;
+        }
+        if (!Utils::isUnset($request->introduction)) {
+            $body['Introduction'] = $request->introduction;
+        }
+        if (!Utils::isUnset($request->liveId)) {
+            $body['LiveId'] = $request->liveId;
+        }
+        if (!Utils::isUnset($request->roomId)) {
+            $body['RoomId'] = $request->roomId;
+        }
+        if (!Utils::isUnset($request->title)) {
+            $body['Title'] = $request->title;
+        }
+        if (!Utils::isUnset($request->userId)) {
+            $body['UserId'] = $request->userId;
+        }
         $req = new OpenApiRequest([
-            'body' => Utils::toMap($request),
+            'body' => OpenApiUtilClient::parseToMap($body),
         ]);
         $params = new Params([
             'action'      => 'CreateLive',
@@ -761,8 +930,33 @@ class Imp extends OpenApiClient
         if (!Utils::isUnset($tmpReq->extension)) {
             $request->extensionShrink = OpenApiUtilClient::arrayToStringWithSpecifiedStyle($tmpReq->extension, 'Extension', 'json');
         }
+        $body = [];
+        if (!Utils::isUnset($request->anchorId)) {
+            $body['AnchorId'] = $request->anchorId;
+        }
+        if (!Utils::isUnset($request->anchorNick)) {
+            $body['AnchorNick'] = $request->anchorNick;
+        }
+        if (!Utils::isUnset($request->appId)) {
+            $body['AppId'] = $request->appId;
+        }
+        if (!Utils::isUnset($request->coverUrl)) {
+            $body['CoverUrl'] = $request->coverUrl;
+        }
+        if (!Utils::isUnset($request->extensionShrink)) {
+            $body['Extension'] = $request->extensionShrink;
+        }
+        if (!Utils::isUnset($request->notice)) {
+            $body['Notice'] = $request->notice;
+        }
+        if (!Utils::isUnset($request->title)) {
+            $body['Title'] = $request->title;
+        }
+        if (!Utils::isUnset($request->userId)) {
+            $body['UserId'] = $request->userId;
+        }
         $req = new OpenApiRequest([
-            'body' => Utils::toMap($request),
+            'body' => OpenApiUtilClient::parseToMap($body),
         ]);
         $params = new Params([
             'action'      => 'CreateLiveRoom',
@@ -805,8 +999,30 @@ class Imp extends OpenApiClient
         if (!Utils::isUnset($tmpReq->extension)) {
             $request->extensionShrink = OpenApiUtilClient::arrayToStringWithSpecifiedStyle($tmpReq->extension, 'Extension', 'json');
         }
+        $body = [];
+        if (!Utils::isUnset($request->appId)) {
+            $body['AppId'] = $request->appId;
+        }
+        if (!Utils::isUnset($request->extensionShrink)) {
+            $body['Extension'] = $request->extensionShrink;
+        }
+        if (!Utils::isUnset($request->notice)) {
+            $body['Notice'] = $request->notice;
+        }
+        if (!Utils::isUnset($request->roomId)) {
+            $body['RoomId'] = $request->roomId;
+        }
+        if (!Utils::isUnset($request->roomOwnerId)) {
+            $body['RoomOwnerId'] = $request->roomOwnerId;
+        }
+        if (!Utils::isUnset($request->templateId)) {
+            $body['TemplateId'] = $request->templateId;
+        }
+        if (!Utils::isUnset($request->title)) {
+            $body['Title'] = $request->title;
+        }
         $req = new OpenApiRequest([
-            'body' => Utils::toMap($request),
+            'body' => OpenApiUtilClient::parseToMap($body),
         ]);
         $params = new Params([
             'action'      => 'CreateRoom',
@@ -844,8 +1060,12 @@ class Imp extends OpenApiClient
     public function deleteAppWithOptions($request, $runtime)
     {
         Utils::validateModel($request);
+        $body = [];
+        if (!Utils::isUnset($request->appId)) {
+            $body['AppId'] = $request->appId;
+        }
         $req = new OpenApiRequest([
-            'body' => Utils::toMap($request),
+            'body' => OpenApiUtilClient::parseToMap($body),
         ]);
         $params = new Params([
             'action'      => 'DeleteApp',
@@ -883,8 +1103,12 @@ class Imp extends OpenApiClient
     public function deleteAppTemplateWithOptions($request, $runtime)
     {
         Utils::validateModel($request);
+        $body = [];
+        if (!Utils::isUnset($request->appTemplateId)) {
+            $body['AppTemplateId'] = $request->appTemplateId;
+        }
         $req = new OpenApiRequest([
-            'body' => Utils::toMap($request),
+            'body' => OpenApiUtilClient::parseToMap($body),
         ]);
         $params = new Params([
             'action'      => 'DeleteAppTemplate',
@@ -922,8 +1146,18 @@ class Imp extends OpenApiClient
     public function deleteClassWithOptions($request, $runtime)
     {
         Utils::validateModel($request);
+        $body = [];
+        if (!Utils::isUnset($request->appId)) {
+            $body['AppId'] = $request->appId;
+        }
+        if (!Utils::isUnset($request->classId)) {
+            $body['ClassId'] = $request->classId;
+        }
+        if (!Utils::isUnset($request->userId)) {
+            $body['UserId'] = $request->userId;
+        }
         $req = new OpenApiRequest([
-            'body' => Utils::toMap($request),
+            'body' => OpenApiUtilClient::parseToMap($body),
         ]);
         $params = new Params([
             'action'      => 'DeleteClass',
@@ -961,8 +1195,23 @@ class Imp extends OpenApiClient
     public function deleteCommentWithOptions($request, $runtime)
     {
         Utils::validateModel($request);
-        $req = new OpenApiRequest([
-            'body' => Utils::toMap($request),
+        $body = [];
+        if (!Utils::isUnset($request->appId)) {
+            $body['AppId'] = $request->appId;
+        }
+        $bodyFlat = [];
+        if (!Utils::isUnset($request->commentIdList)) {
+            $bodyFlat['CommentIdList'] = $request->commentIdList;
+        }
+        if (!Utils::isUnset($request->roomId)) {
+            $body['RoomId'] = $request->roomId;
+        }
+        if (!Utils::isUnset($request->userId)) {
+            $body['UserId'] = $request->userId;
+        }
+        $body = Tea::merge($body, OpenApiUtilClient::query($bodyFlat));
+        $req  = new OpenApiRequest([
+            'body' => OpenApiUtilClient::parseToMap($body),
         ]);
         $params = new Params([
             'action'      => 'DeleteComment',
@@ -1000,8 +1249,21 @@ class Imp extends OpenApiClient
     public function deleteConferenceWithOptions($request, $runtime)
     {
         Utils::validateModel($request);
+        $body = [];
+        if (!Utils::isUnset($request->appId)) {
+            $body['AppId'] = $request->appId;
+        }
+        if (!Utils::isUnset($request->conferenceId)) {
+            $body['ConferenceId'] = $request->conferenceId;
+        }
+        if (!Utils::isUnset($request->roomId)) {
+            $body['RoomId'] = $request->roomId;
+        }
+        if (!Utils::isUnset($request->userId)) {
+            $body['UserId'] = $request->userId;
+        }
         $req = new OpenApiRequest([
-            'body' => Utils::toMap($request),
+            'body' => OpenApiUtilClient::parseToMap($body),
         ]);
         $params = new Params([
             'action'      => 'DeleteConference',
@@ -1039,8 +1301,12 @@ class Imp extends OpenApiClient
     public function deleteLiveWithOptions($request, $runtime)
     {
         Utils::validateModel($request);
+        $body = [];
+        if (!Utils::isUnset($request->liveId)) {
+            $body['LiveId'] = $request->liveId;
+        }
         $req = new OpenApiRequest([
-            'body' => Utils::toMap($request),
+            'body' => OpenApiUtilClient::parseToMap($body),
         ]);
         $params = new Params([
             'action'      => 'DeleteLive',
@@ -1078,8 +1344,18 @@ class Imp extends OpenApiClient
     public function deleteLiveRoomWithOptions($request, $runtime)
     {
         Utils::validateModel($request);
+        $body = [];
+        if (!Utils::isUnset($request->appId)) {
+            $body['AppId'] = $request->appId;
+        }
+        if (!Utils::isUnset($request->liveId)) {
+            $body['LiveId'] = $request->liveId;
+        }
+        if (!Utils::isUnset($request->userId)) {
+            $body['UserId'] = $request->userId;
+        }
         $req = new OpenApiRequest([
-            'body' => Utils::toMap($request),
+            'body' => OpenApiUtilClient::parseToMap($body),
         ]);
         $params = new Params([
             'action'      => 'DeleteLiveRoom',
@@ -1117,8 +1393,15 @@ class Imp extends OpenApiClient
     public function deleteRoomWithOptions($request, $runtime)
     {
         Utils::validateModel($request);
+        $body = [];
+        if (!Utils::isUnset($request->appId)) {
+            $body['AppId'] = $request->appId;
+        }
+        if (!Utils::isUnset($request->roomId)) {
+            $body['RoomId'] = $request->roomId;
+        }
         $req = new OpenApiRequest([
-            'body' => Utils::toMap($request),
+            'body' => OpenApiUtilClient::parseToMap($body),
         ]);
         $params = new Params([
             'action'      => 'DeleteRoom',
@@ -1156,8 +1439,12 @@ class Imp extends OpenApiClient
     public function getAppWithOptions($request, $runtime)
     {
         Utils::validateModel($request);
+        $body = [];
+        if (!Utils::isUnset($request->appId)) {
+            $body['AppId'] = $request->appId;
+        }
         $req = new OpenApiRequest([
-            'body' => Utils::toMap($request),
+            'body' => OpenApiUtilClient::parseToMap($body),
         ]);
         $params = new Params([
             'action'      => 'GetApp',
@@ -1195,8 +1482,12 @@ class Imp extends OpenApiClient
     public function getAppTemplateWithOptions($request, $runtime)
     {
         Utils::validateModel($request);
+        $body = [];
+        if (!Utils::isUnset($request->appTemplateId)) {
+            $body['AppTemplateId'] = $request->appTemplateId;
+        }
         $req = new OpenApiRequest([
-            'body' => Utils::toMap($request),
+            'body' => OpenApiUtilClient::parseToMap($body),
         ]);
         $params = new Params([
             'action'      => 'GetAppTemplate',
@@ -1234,8 +1525,21 @@ class Imp extends OpenApiClient
     public function getAuthTokenWithOptions($request, $runtime)
     {
         Utils::validateModel($request);
+        $body = [];
+        if (!Utils::isUnset($request->appId)) {
+            $body['AppId'] = $request->appId;
+        }
+        if (!Utils::isUnset($request->appKey)) {
+            $body['AppKey'] = $request->appKey;
+        }
+        if (!Utils::isUnset($request->deviceId)) {
+            $body['DeviceId'] = $request->deviceId;
+        }
+        if (!Utils::isUnset($request->userId)) {
+            $body['UserId'] = $request->userId;
+        }
         $req = new OpenApiRequest([
-            'body' => Utils::toMap($request),
+            'body' => OpenApiUtilClient::parseToMap($body),
         ]);
         $params = new Params([
             'action'      => 'GetAuthToken',
@@ -1273,8 +1577,18 @@ class Imp extends OpenApiClient
     public function getClassDetailWithOptions($request, $runtime)
     {
         Utils::validateModel($request);
+        $body = [];
+        if (!Utils::isUnset($request->appId)) {
+            $body['AppId'] = $request->appId;
+        }
+        if (!Utils::isUnset($request->classId)) {
+            $body['ClassId'] = $request->classId;
+        }
+        if (!Utils::isUnset($request->userId)) {
+            $body['UserId'] = $request->userId;
+        }
         $req = new OpenApiRequest([
-            'body' => Utils::toMap($request),
+            'body' => OpenApiUtilClient::parseToMap($body),
         ]);
         $params = new Params([
             'action'      => 'GetClassDetail',
@@ -1304,6 +1618,55 @@ class Imp extends OpenApiClient
     }
 
     /**
+     * @param GetClassRecordRequest $request
+     * @param RuntimeOptions        $runtime
+     *
+     * @return GetClassRecordResponse
+     */
+    public function getClassRecordWithOptions($request, $runtime)
+    {
+        Utils::validateModel($request);
+        $body = [];
+        if (!Utils::isUnset($request->appId)) {
+            $body['AppId'] = $request->appId;
+        }
+        if (!Utils::isUnset($request->classId)) {
+            $body['ClassId'] = $request->classId;
+        }
+        if (!Utils::isUnset($request->userId)) {
+            $body['UserId'] = $request->userId;
+        }
+        $req = new OpenApiRequest([
+            'body' => OpenApiUtilClient::parseToMap($body),
+        ]);
+        $params = new Params([
+            'action'      => 'GetClassRecord',
+            'version'     => '2021-06-30',
+            'protocol'    => 'HTTPS',
+            'pathname'    => '/',
+            'method'      => 'POST',
+            'authType'    => 'AK',
+            'style'       => 'RPC',
+            'reqBodyType' => 'formData',
+            'bodyType'    => 'json',
+        ]);
+
+        return GetClassRecordResponse::fromMap($this->callApi($params, $req, $runtime));
+    }
+
+    /**
+     * @param GetClassRecordRequest $request
+     *
+     * @return GetClassRecordResponse
+     */
+    public function getClassRecord($request)
+    {
+        $runtime = new RuntimeOptions([]);
+
+        return $this->getClassRecordWithOptions($request, $runtime);
+    }
+
+    /**
      * @param GetConferenceRequest $request
      * @param RuntimeOptions       $runtime
      *
@@ -1312,8 +1675,12 @@ class Imp extends OpenApiClient
     public function getConferenceWithOptions($request, $runtime)
     {
         Utils::validateModel($request);
+        $body = [];
+        if (!Utils::isUnset($request->conferenceId)) {
+            $body['ConferenceId'] = $request->conferenceId;
+        }
         $req = new OpenApiRequest([
-            'body' => Utils::toMap($request),
+            'body' => OpenApiUtilClient::parseToMap($body),
         ]);
         $params = new Params([
             'action'      => 'GetConference',
@@ -1351,8 +1718,12 @@ class Imp extends OpenApiClient
     public function getDomainOwnerVerifyContentWithOptions($request, $runtime)
     {
         Utils::validateModel($request);
+        $body = [];
+        if (!Utils::isUnset($request->liveDomainName)) {
+            $body['LiveDomainName'] = $request->liveDomainName;
+        }
         $req = new OpenApiRequest([
-            'body' => Utils::toMap($request),
+            'body' => OpenApiUtilClient::parseToMap($body),
         ]);
         $params = new Params([
             'action'      => 'GetDomainOwnerVerifyContent',
@@ -1382,17 +1753,13 @@ class Imp extends OpenApiClient
     }
 
     /**
-     * @param GetImpProductStatusRequest $request
-     * @param RuntimeOptions             $runtime
+     * @param RuntimeOptions $runtime
      *
      * @return GetImpProductStatusResponse
      */
-    public function getImpProductStatusWithOptions($request, $runtime)
+    public function getImpProductStatusWithOptions($runtime)
     {
-        Utils::validateModel($request);
-        $req = new OpenApiRequest([
-            'body' => Utils::toMap($request),
-        ]);
+        $req    = new OpenApiRequest([]);
         $params = new Params([
             'action'      => 'GetImpProductStatus',
             'version'     => '2021-06-30',
@@ -1401,7 +1768,7 @@ class Imp extends OpenApiClient
             'method'      => 'POST',
             'authType'    => 'AK',
             'style'       => 'RPC',
-            'reqBodyType' => 'json',
+            'reqBodyType' => 'formData',
             'bodyType'    => 'json',
         ]);
 
@@ -1409,15 +1776,13 @@ class Imp extends OpenApiClient
     }
 
     /**
-     * @param GetImpProductStatusRequest $request
-     *
      * @return GetImpProductStatusResponse
      */
-    public function getImpProductStatus($request)
+    public function getImpProductStatus()
     {
         $runtime = new RuntimeOptions([]);
 
-        return $this->getImpProductStatusWithOptions($request, $runtime);
+        return $this->getImpProductStatusWithOptions($runtime);
     }
 
     /**
@@ -1429,8 +1794,12 @@ class Imp extends OpenApiClient
     public function getLiveWithOptions($request, $runtime)
     {
         Utils::validateModel($request);
+        $body = [];
+        if (!Utils::isUnset($request->liveId)) {
+            $body['LiveId'] = $request->liveId;
+        }
         $req = new OpenApiRequest([
-            'body' => Utils::toMap($request),
+            'body' => OpenApiUtilClient::parseToMap($body),
         ]);
         $params = new Params([
             'action'      => 'GetLive',
@@ -1473,8 +1842,18 @@ class Imp extends OpenApiClient
         if (!Utils::isUnset($tmpReq->liveDomainList)) {
             $request->liveDomainListShrink = OpenApiUtilClient::arrayToStringWithSpecifiedStyle($tmpReq->liveDomainList, 'LiveDomainList', 'json');
         }
+        $body = [];
+        if (!Utils::isUnset($request->appId)) {
+            $body['AppId'] = $request->appId;
+        }
+        if (!Utils::isUnset($request->liveDomainListShrink)) {
+            $body['LiveDomainList'] = $request->liveDomainListShrink;
+        }
+        if (!Utils::isUnset($request->liveDomainType)) {
+            $body['LiveDomainType'] = $request->liveDomainType;
+        }
         $req = new OpenApiRequest([
-            'body' => Utils::toMap($request),
+            'body' => OpenApiUtilClient::parseToMap($body),
         ]);
         $params = new Params([
             'action'      => 'GetLiveDomainStatus',
@@ -1512,8 +1891,15 @@ class Imp extends OpenApiClient
     public function getLiveRoomWithOptions($request, $runtime)
     {
         Utils::validateModel($request);
+        $body = [];
+        if (!Utils::isUnset($request->appId)) {
+            $body['AppId'] = $request->appId;
+        }
+        if (!Utils::isUnset($request->liveId)) {
+            $body['LiveId'] = $request->liveId;
+        }
         $req = new OpenApiRequest([
-            'body' => Utils::toMap($request),
+            'body' => OpenApiUtilClient::parseToMap($body),
         ]);
         $params = new Params([
             'action'      => 'GetLiveRoom',
@@ -1551,8 +1937,15 @@ class Imp extends OpenApiClient
     public function getLiveRoomStatisticsWithOptions($request, $runtime)
     {
         Utils::validateModel($request);
+        $body = [];
+        if (!Utils::isUnset($request->appId)) {
+            $body['AppId'] = $request->appId;
+        }
+        if (!Utils::isUnset($request->liveId)) {
+            $body['LiveId'] = $request->liveId;
+        }
         $req = new OpenApiRequest([
-            'body' => Utils::toMap($request),
+            'body' => OpenApiUtilClient::parseToMap($body),
         ]);
         $params = new Params([
             'action'      => 'GetLiveRoomStatistics',
@@ -1590,8 +1983,21 @@ class Imp extends OpenApiClient
     public function getLiveRoomUserStatisticsWithOptions($request, $runtime)
     {
         Utils::validateModel($request);
+        $body = [];
+        if (!Utils::isUnset($request->appId)) {
+            $body['AppId'] = $request->appId;
+        }
+        if (!Utils::isUnset($request->liveId)) {
+            $body['LiveId'] = $request->liveId;
+        }
+        if (!Utils::isUnset($request->pageNumber)) {
+            $body['PageNumber'] = $request->pageNumber;
+        }
+        if (!Utils::isUnset($request->pageSize)) {
+            $body['PageSize'] = $request->pageSize;
+        }
         $req = new OpenApiRequest([
-            'body' => Utils::toMap($request),
+            'body' => OpenApiUtilClient::parseToMap($body),
         ]);
         $params = new Params([
             'action'      => 'GetLiveRoomUserStatistics',
@@ -1629,8 +2035,15 @@ class Imp extends OpenApiClient
     public function getRoomWithOptions($request, $runtime)
     {
         Utils::validateModel($request);
+        $body = [];
+        if (!Utils::isUnset($request->appId)) {
+            $body['AppId'] = $request->appId;
+        }
+        if (!Utils::isUnset($request->roomId)) {
+            $body['RoomId'] = $request->roomId;
+        }
         $req = new OpenApiRequest([
-            'body' => Utils::toMap($request),
+            'body' => OpenApiUtilClient::parseToMap($body),
         ]);
         $params = new Params([
             'action'      => 'GetRoom',
@@ -1668,8 +2081,12 @@ class Imp extends OpenApiClient
     public function getStandardRoomHttpsCertificateWithOptions($request, $runtime)
     {
         Utils::validateModel($request);
+        $body = [];
+        if (!Utils::isUnset($request->certificateId)) {
+            $body['CertificateId'] = $request->certificateId;
+        }
         $req = new OpenApiRequest([
-            'body' => Utils::toMap($request),
+            'body' => OpenApiUtilClient::parseToMap($body),
         ]);
         $params = new Params([
             'action'      => 'GetStandardRoomHttpsCertificate',
@@ -1707,8 +2124,30 @@ class Imp extends OpenApiClient
     public function getStandardRoomJumpUrlWithOptions($request, $runtime)
     {
         Utils::validateModel($request);
+        $body = [];
+        if (!Utils::isUnset($request->appId)) {
+            $body['AppId'] = $request->appId;
+        }
+        if (!Utils::isUnset($request->appKey)) {
+            $body['AppKey'] = $request->appKey;
+        }
+        if (!Utils::isUnset($request->bizId)) {
+            $body['BizId'] = $request->bizId;
+        }
+        if (!Utils::isUnset($request->bizType)) {
+            $body['BizType'] = $request->bizType;
+        }
+        if (!Utils::isUnset($request->platform)) {
+            $body['Platform'] = $request->platform;
+        }
+        if (!Utils::isUnset($request->userId)) {
+            $body['UserId'] = $request->userId;
+        }
+        if (!Utils::isUnset($request->userNick)) {
+            $body['UserNick'] = $request->userNick;
+        }
         $req = new OpenApiRequest([
-            'body' => Utils::toMap($request),
+            'body' => OpenApiUtilClient::parseToMap($body),
         ]);
         $params = new Params([
             'action'      => 'GetStandardRoomJumpUrl',
@@ -1746,8 +2185,15 @@ class Imp extends OpenApiClient
     public function listAppTemplatesWithOptions($request, $runtime)
     {
         Utils::validateModel($request);
+        $body = [];
+        if (!Utils::isUnset($request->pageNumber)) {
+            $body['PageNumber'] = $request->pageNumber;
+        }
+        if (!Utils::isUnset($request->pageSize)) {
+            $body['PageSize'] = $request->pageSize;
+        }
         $req = new OpenApiRequest([
-            'body' => Utils::toMap($request),
+            'body' => OpenApiUtilClient::parseToMap($body),
         ]);
         $params = new Params([
             'action'      => 'ListAppTemplates',
@@ -1785,8 +2231,18 @@ class Imp extends OpenApiClient
     public function listApplyLinkMicUsersWithOptions($request, $runtime)
     {
         Utils::validateModel($request);
+        $body = [];
+        if (!Utils::isUnset($request->conferenceId)) {
+            $body['ConferenceId'] = $request->conferenceId;
+        }
+        if (!Utils::isUnset($request->pageNumber)) {
+            $body['PageNumber'] = $request->pageNumber;
+        }
+        if (!Utils::isUnset($request->pageSize)) {
+            $body['PageSize'] = $request->pageSize;
+        }
         $req = new OpenApiRequest([
-            'body' => Utils::toMap($request),
+            'body' => OpenApiUtilClient::parseToMap($body),
         ]);
         $params = new Params([
             'action'      => 'ListApplyLinkMicUsers',
@@ -1824,8 +2280,21 @@ class Imp extends OpenApiClient
     public function listAppsWithOptions($request, $runtime)
     {
         Utils::validateModel($request);
+        $body = [];
+        if (!Utils::isUnset($request->integrationMode)) {
+            $body['IntegrationMode'] = $request->integrationMode;
+        }
+        if (!Utils::isUnset($request->pageNumber)) {
+            $body['PageNumber'] = $request->pageNumber;
+        }
+        if (!Utils::isUnset($request->pageSize)) {
+            $body['PageSize'] = $request->pageSize;
+        }
+        if (!Utils::isUnset($request->status)) {
+            $body['Status'] = $request->status;
+        }
         $req = new OpenApiRequest([
-            'body' => Utils::toMap($request),
+            'body' => OpenApiUtilClient::parseToMap($body),
         ]);
         $params = new Params([
             'action'      => 'ListApps',
@@ -1863,8 +2332,21 @@ class Imp extends OpenApiClient
     public function listClassesWithOptions($request, $runtime)
     {
         Utils::validateModel($request);
+        $body = [];
+        if (!Utils::isUnset($request->appId)) {
+            $body['AppId'] = $request->appId;
+        }
+        if (!Utils::isUnset($request->pageNumber)) {
+            $body['PageNumber'] = $request->pageNumber;
+        }
+        if (!Utils::isUnset($request->pageSize)) {
+            $body['PageSize'] = $request->pageSize;
+        }
+        if (!Utils::isUnset($request->status)) {
+            $body['Status'] = $request->status;
+        }
         $req = new OpenApiRequest([
-            'body' => Utils::toMap($request),
+            'body' => OpenApiUtilClient::parseToMap($body),
         ]);
         $params = new Params([
             'action'      => 'ListClasses',
@@ -1902,8 +2384,27 @@ class Imp extends OpenApiClient
     public function listCommentsWithOptions($request, $runtime)
     {
         Utils::validateModel($request);
+        $body = [];
+        if (!Utils::isUnset($request->appId)) {
+            $body['AppId'] = $request->appId;
+        }
+        if (!Utils::isUnset($request->pageNum)) {
+            $body['PageNum'] = $request->pageNum;
+        }
+        if (!Utils::isUnset($request->pageSize)) {
+            $body['PageSize'] = $request->pageSize;
+        }
+        if (!Utils::isUnset($request->roomId)) {
+            $body['RoomId'] = $request->roomId;
+        }
+        if (!Utils::isUnset($request->sortType)) {
+            $body['SortType'] = $request->sortType;
+        }
+        if (!Utils::isUnset($request->userId)) {
+            $body['UserId'] = $request->userId;
+        }
         $req = new OpenApiRequest([
-            'body' => Utils::toMap($request),
+            'body' => OpenApiUtilClient::parseToMap($body),
         ]);
         $params = new Params([
             'action'      => 'ListComments',
@@ -1941,8 +2442,15 @@ class Imp extends OpenApiClient
     public function listComponentsWithOptions($request, $runtime)
     {
         Utils::validateModel($request);
+        $body = [];
+        if (!Utils::isUnset($request->appId)) {
+            $body['AppId'] = $request->appId;
+        }
+        if (!Utils::isUnset($request->appTemplateId)) {
+            $body['AppTemplateId'] = $request->appTemplateId;
+        }
         $req = new OpenApiRequest([
-            'body' => Utils::toMap($request),
+            'body' => OpenApiUtilClient::parseToMap($body),
         ]);
         $params = new Params([
             'action'      => 'ListComponents',
@@ -1980,8 +2488,18 @@ class Imp extends OpenApiClient
     public function listConferenceUsersWithOptions($request, $runtime)
     {
         Utils::validateModel($request);
+        $body = [];
+        if (!Utils::isUnset($request->conferenceId)) {
+            $body['ConferenceId'] = $request->conferenceId;
+        }
+        if (!Utils::isUnset($request->pageNumber)) {
+            $body['PageNumber'] = $request->pageNumber;
+        }
+        if (!Utils::isUnset($request->pageSize)) {
+            $body['PageSize'] = $request->pageSize;
+        }
         $req = new OpenApiRequest([
-            'body' => Utils::toMap($request),
+            'body' => OpenApiUtilClient::parseToMap($body),
         ]);
         $params = new Params([
             'action'      => 'ListConferenceUsers',
@@ -2019,8 +2537,21 @@ class Imp extends OpenApiClient
     public function listLiveRoomsWithOptions($request, $runtime)
     {
         Utils::validateModel($request);
+        $body = [];
+        if (!Utils::isUnset($request->appId)) {
+            $body['AppId'] = $request->appId;
+        }
+        if (!Utils::isUnset($request->pageNumber)) {
+            $body['PageNumber'] = $request->pageNumber;
+        }
+        if (!Utils::isUnset($request->pageSize)) {
+            $body['PageSize'] = $request->pageSize;
+        }
+        if (!Utils::isUnset($request->status)) {
+            $body['Status'] = $request->status;
+        }
         $req = new OpenApiRequest([
-            'body' => Utils::toMap($request),
+            'body' => OpenApiUtilClient::parseToMap($body),
         ]);
         $params = new Params([
             'action'      => 'ListLiveRooms',
@@ -2063,8 +2594,15 @@ class Imp extends OpenApiClient
         if (!Utils::isUnset($tmpReq->liveIdList)) {
             $request->liveIdListShrink = OpenApiUtilClient::arrayToStringWithSpecifiedStyle($tmpReq->liveIdList, 'LiveIdList', 'json');
         }
+        $body = [];
+        if (!Utils::isUnset($request->appId)) {
+            $body['AppId'] = $request->appId;
+        }
+        if (!Utils::isUnset($request->liveIdListShrink)) {
+            $body['LiveIdList'] = $request->liveIdListShrink;
+        }
         $req = new OpenApiRequest([
-            'body' => Utils::toMap($request),
+            'body' => OpenApiUtilClient::parseToMap($body),
         ]);
         $params = new Params([
             'action'      => 'ListLiveRoomsById',
@@ -2107,8 +2645,27 @@ class Imp extends OpenApiClient
         if (!Utils::isUnset($tmpReq->roomIdList)) {
             $request->roomIdListShrink = OpenApiUtilClient::arrayToStringWithSpecifiedStyle($tmpReq->roomIdList, 'RoomIdList', 'json');
         }
+        $body = [];
+        if (!Utils::isUnset($request->appId)) {
+            $body['AppId'] = $request->appId;
+        }
+        if (!Utils::isUnset($request->queryTimestamp)) {
+            $body['QueryTimestamp'] = $request->queryTimestamp;
+        }
+        if (!Utils::isUnset($request->roomId)) {
+            $body['RoomId'] = $request->roomId;
+        }
+        if (!Utils::isUnset($request->roomIdListShrink)) {
+            $body['RoomIdList'] = $request->roomIdListShrink;
+        }
+        if (!Utils::isUnset($request->size)) {
+            $body['Size'] = $request->size;
+        }
+        if (!Utils::isUnset($request->status)) {
+            $body['Status'] = $request->status;
+        }
         $req = new OpenApiRequest([
-            'body' => Utils::toMap($request),
+            'body' => OpenApiUtilClient::parseToMap($body),
         ]);
         $params = new Params([
             'action'      => 'ListRoomLives',
@@ -2146,8 +2703,21 @@ class Imp extends OpenApiClient
     public function listRoomUsersWithOptions($request, $runtime)
     {
         Utils::validateModel($request);
+        $body = [];
+        if (!Utils::isUnset($request->appId)) {
+            $body['AppId'] = $request->appId;
+        }
+        if (!Utils::isUnset($request->pageNumber)) {
+            $body['PageNumber'] = $request->pageNumber;
+        }
+        if (!Utils::isUnset($request->pageSize)) {
+            $body['PageSize'] = $request->pageSize;
+        }
+        if (!Utils::isUnset($request->roomId)) {
+            $body['RoomId'] = $request->roomId;
+        }
         $req = new OpenApiRequest([
-            'body' => Utils::toMap($request),
+            'body' => OpenApiUtilClient::parseToMap($body),
         ]);
         $params = new Params([
             'action'      => 'ListRoomUsers',
@@ -2185,8 +2755,18 @@ class Imp extends OpenApiClient
     public function listRoomsWithOptions($request, $runtime)
     {
         Utils::validateModel($request);
+        $body = [];
+        if (!Utils::isUnset($request->appId)) {
+            $body['AppId'] = $request->appId;
+        }
+        if (!Utils::isUnset($request->pageNumber)) {
+            $body['PageNumber'] = $request->pageNumber;
+        }
+        if (!Utils::isUnset($request->pageSize)) {
+            $body['PageSize'] = $request->pageSize;
+        }
         $req = new OpenApiRequest([
-            'body' => Utils::toMap($request),
+            'body' => OpenApiUtilClient::parseToMap($body),
         ]);
         $params = new Params([
             'action'      => 'ListRooms',
@@ -2224,8 +2804,15 @@ class Imp extends OpenApiClient
     public function publishLiveWithOptions($request, $runtime)
     {
         Utils::validateModel($request);
+        $body = [];
+        if (!Utils::isUnset($request->liveId)) {
+            $body['LiveId'] = $request->liveId;
+        }
+        if (!Utils::isUnset($request->userId)) {
+            $body['UserId'] = $request->userId;
+        }
         $req = new OpenApiRequest([
-            'body' => Utils::toMap($request),
+            'body' => OpenApiUtilClient::parseToMap($body),
         ]);
         $params = new Params([
             'action'      => 'PublishLive',
@@ -2263,8 +2850,18 @@ class Imp extends OpenApiClient
     public function publishLiveRoomWithOptions($request, $runtime)
     {
         Utils::validateModel($request);
+        $body = [];
+        if (!Utils::isUnset($request->appId)) {
+            $body['AppId'] = $request->appId;
+        }
+        if (!Utils::isUnset($request->liveId)) {
+            $body['LiveId'] = $request->liveId;
+        }
+        if (!Utils::isUnset($request->userId)) {
+            $body['UserId'] = $request->userId;
+        }
         $req = new OpenApiRequest([
-            'body' => Utils::toMap($request),
+            'body' => OpenApiUtilClient::parseToMap($body),
         ]);
         $params = new Params([
             'action'      => 'PublishLiveRoom',
@@ -2302,8 +2899,18 @@ class Imp extends OpenApiClient
     public function rejectLinkMicWithOptions($request, $runtime)
     {
         Utils::validateModel($request);
+        $body = [];
+        if (!Utils::isUnset($request->conferenceId)) {
+            $body['ConferenceId'] = $request->conferenceId;
+        }
+        if (!Utils::isUnset($request->fromUserId)) {
+            $body['FromUserId'] = $request->fromUserId;
+        }
+        if (!Utils::isUnset($request->toUserId)) {
+            $body['ToUserId'] = $request->toUserId;
+        }
         $req = new OpenApiRequest([
-            'body' => Utils::toMap($request),
+            'body' => OpenApiUtilClient::parseToMap($body),
         ]);
         $params = new Params([
             'action'      => 'RejectLinkMic',
@@ -2341,8 +2948,18 @@ class Imp extends OpenApiClient
     public function removeMemberWithOptions($request, $runtime)
     {
         Utils::validateModel($request);
+        $body = [];
+        if (!Utils::isUnset($request->conferenceId)) {
+            $body['ConferenceId'] = $request->conferenceId;
+        }
+        if (!Utils::isUnset($request->fromUserId)) {
+            $body['FromUserId'] = $request->fromUserId;
+        }
+        if (!Utils::isUnset($request->toUserId)) {
+            $body['ToUserId'] = $request->toUserId;
+        }
         $req = new OpenApiRequest([
-            'body' => Utils::toMap($request),
+            'body' => OpenApiUtilClient::parseToMap($body),
         ]);
         $params = new Params([
             'action'      => 'RemoveMember',
@@ -2385,8 +3002,27 @@ class Imp extends OpenApiClient
         if (!Utils::isUnset($tmpReq->extension)) {
             $request->extensionShrink = OpenApiUtilClient::arrayToStringWithSpecifiedStyle($tmpReq->extension, 'Extension', 'json');
         }
+        $body = [];
+        if (!Utils::isUnset($request->appId)) {
+            $body['AppId'] = $request->appId;
+        }
+        if (!Utils::isUnset($request->content)) {
+            $body['Content'] = $request->content;
+        }
+        if (!Utils::isUnset($request->extensionShrink)) {
+            $body['Extension'] = $request->extensionShrink;
+        }
+        if (!Utils::isUnset($request->roomId)) {
+            $body['RoomId'] = $request->roomId;
+        }
+        if (!Utils::isUnset($request->senderId)) {
+            $body['SenderId'] = $request->senderId;
+        }
+        if (!Utils::isUnset($request->senderNick)) {
+            $body['SenderNick'] = $request->senderNick;
+        }
         $req = new OpenApiRequest([
-            'body' => Utils::toMap($request),
+            'body' => OpenApiUtilClient::parseToMap($body),
         ]);
         $params = new Params([
             'action'      => 'SendComment',
@@ -2424,8 +3060,18 @@ class Imp extends OpenApiClient
     public function sendCustomMessageToAllWithOptions($request, $runtime)
     {
         Utils::validateModel($request);
+        $body = [];
+        if (!Utils::isUnset($request->appId)) {
+            $body['AppId'] = $request->appId;
+        }
+        if (!Utils::isUnset($request->body)) {
+            $body['Body'] = $request->body;
+        }
+        if (!Utils::isUnset($request->roomId)) {
+            $body['RoomId'] = $request->roomId;
+        }
         $req = new OpenApiRequest([
-            'body' => Utils::toMap($request),
+            'body' => OpenApiUtilClient::parseToMap($body),
         ]);
         $params = new Params([
             'action'      => 'SendCustomMessageToAll',
@@ -2463,8 +3109,23 @@ class Imp extends OpenApiClient
     public function sendCustomMessageToUsersWithOptions($request, $runtime)
     {
         Utils::validateModel($request);
-        $req = new OpenApiRequest([
-            'body' => Utils::toMap($request),
+        $body = [];
+        if (!Utils::isUnset($request->appId)) {
+            $body['AppId'] = $request->appId;
+        }
+        if (!Utils::isUnset($request->body)) {
+            $body['Body'] = $request->body;
+        }
+        $bodyFlat = [];
+        if (!Utils::isUnset($request->receiverList)) {
+            $bodyFlat['ReceiverList'] = $request->receiverList;
+        }
+        if (!Utils::isUnset($request->roomId)) {
+            $body['RoomId'] = $request->roomId;
+        }
+        $body = Tea::merge($body, OpenApiUtilClient::query($bodyFlat));
+        $req  = new OpenApiRequest([
+            'body' => OpenApiUtilClient::parseToMap($body),
         ]);
         $params = new Params([
             'action'      => 'SendCustomMessageToUsers',
@@ -2502,8 +3163,18 @@ class Imp extends OpenApiClient
     public function stopClassWithOptions($request, $runtime)
     {
         Utils::validateModel($request);
+        $body = [];
+        if (!Utils::isUnset($request->appId)) {
+            $body['AppId'] = $request->appId;
+        }
+        if (!Utils::isUnset($request->classId)) {
+            $body['ClassId'] = $request->classId;
+        }
+        if (!Utils::isUnset($request->userId)) {
+            $body['UserId'] = $request->userId;
+        }
         $req = new OpenApiRequest([
-            'body' => Utils::toMap($request),
+            'body' => OpenApiUtilClient::parseToMap($body),
         ]);
         $params = new Params([
             'action'      => 'StopClass',
@@ -2541,8 +3212,21 @@ class Imp extends OpenApiClient
     public function stopLiveWithOptions($request, $runtime)
     {
         Utils::validateModel($request);
+        $body = [];
+        if (!Utils::isUnset($request->appId)) {
+            $body['AppId'] = $request->appId;
+        }
+        if (!Utils::isUnset($request->liveId)) {
+            $body['LiveId'] = $request->liveId;
+        }
+        if (!Utils::isUnset($request->roomId)) {
+            $body['RoomId'] = $request->roomId;
+        }
+        if (!Utils::isUnset($request->userId)) {
+            $body['UserId'] = $request->userId;
+        }
         $req = new OpenApiRequest([
-            'body' => Utils::toMap($request),
+            'body' => OpenApiUtilClient::parseToMap($body),
         ]);
         $params = new Params([
             'action'      => 'StopLive',
@@ -2580,8 +3264,18 @@ class Imp extends OpenApiClient
     public function stopLiveRoomWithOptions($request, $runtime)
     {
         Utils::validateModel($request);
+        $body = [];
+        if (!Utils::isUnset($request->appId)) {
+            $body['AppId'] = $request->appId;
+        }
+        if (!Utils::isUnset($request->liveId)) {
+            $body['LiveId'] = $request->liveId;
+        }
+        if (!Utils::isUnset($request->userId)) {
+            $body['UserId'] = $request->userId;
+        }
         $req = new OpenApiRequest([
-            'body' => Utils::toMap($request),
+            'body' => OpenApiUtilClient::parseToMap($body),
         ]);
         $params = new Params([
             'action'      => 'StopLiveRoom',
@@ -2619,8 +3313,18 @@ class Imp extends OpenApiClient
     public function updateAppWithOptions($request, $runtime)
     {
         Utils::validateModel($request);
+        $body = [];
+        if (!Utils::isUnset($request->appId)) {
+            $body['AppId'] = $request->appId;
+        }
+        if (!Utils::isUnset($request->appName)) {
+            $body['AppName'] = $request->appName;
+        }
+        if (!Utils::isUnset($request->appStatus)) {
+            $body['AppStatus'] = $request->appStatus;
+        }
         $req = new OpenApiRequest([
-            'body' => Utils::toMap($request),
+            'body' => OpenApiUtilClient::parseToMap($body),
         ]);
         $params = new Params([
             'action'      => 'UpdateApp',
@@ -2663,8 +3367,18 @@ class Imp extends OpenApiClient
         if (!Utils::isUnset($tmpReq->componentList)) {
             $request->componentListShrink = OpenApiUtilClient::arrayToStringWithSpecifiedStyle($tmpReq->componentList, 'ComponentList', 'json');
         }
+        $body = [];
+        if (!Utils::isUnset($request->appTemplateId)) {
+            $body['AppTemplateId'] = $request->appTemplateId;
+        }
+        if (!Utils::isUnset($request->appTemplateName)) {
+            $body['AppTemplateName'] = $request->appTemplateName;
+        }
+        if (!Utils::isUnset($request->componentListShrink)) {
+            $body['ComponentList'] = $request->componentListShrink;
+        }
         $req = new OpenApiRequest([
-            'body' => Utils::toMap($request),
+            'body' => OpenApiUtilClient::parseToMap($body),
         ]);
         $params = new Params([
             'action'      => 'UpdateAppTemplate',
@@ -2707,8 +3421,15 @@ class Imp extends OpenApiClient
         if (!Utils::isUnset($tmpReq->configList)) {
             $request->configListShrink = OpenApiUtilClient::arrayToStringWithSpecifiedStyle($tmpReq->configList, 'ConfigList', 'json');
         }
+        $body = [];
+        if (!Utils::isUnset($request->appTemplateId)) {
+            $body['AppTemplateId'] = $request->appTemplateId;
+        }
+        if (!Utils::isUnset($request->configListShrink)) {
+            $body['ConfigList'] = $request->configListShrink;
+        }
         $req = new OpenApiRequest([
-            'body' => Utils::toMap($request),
+            'body' => OpenApiUtilClient::parseToMap($body),
         ]);
         $params = new Params([
             'action'      => 'UpdateAppTemplateConfig',
@@ -2746,8 +3467,24 @@ class Imp extends OpenApiClient
     public function updateClassWithOptions($request, $runtime)
     {
         Utils::validateModel($request);
+        $body = [];
+        if (!Utils::isUnset($request->appId)) {
+            $body['AppId'] = $request->appId;
+        }
+        if (!Utils::isUnset($request->classId)) {
+            $body['ClassId'] = $request->classId;
+        }
+        if (!Utils::isUnset($request->createNickname)) {
+            $body['CreateNickname'] = $request->createNickname;
+        }
+        if (!Utils::isUnset($request->createUserId)) {
+            $body['CreateUserId'] = $request->createUserId;
+        }
+        if (!Utils::isUnset($request->title)) {
+            $body['Title'] = $request->title;
+        }
         $req = new OpenApiRequest([
-            'body' => Utils::toMap($request),
+            'body' => OpenApiUtilClient::parseToMap($body),
         ]);
         $params = new Params([
             'action'      => 'UpdateClass',
@@ -2785,8 +3522,15 @@ class Imp extends OpenApiClient
     public function updateConferenceWithOptions($request, $runtime)
     {
         Utils::validateModel($request);
+        $body = [];
+        if (!Utils::isUnset($request->conferenceId)) {
+            $body['ConferenceId'] = $request->conferenceId;
+        }
+        if (!Utils::isUnset($request->title)) {
+            $body['Title'] = $request->title;
+        }
         $req = new OpenApiRequest([
-            'body' => Utils::toMap($request),
+            'body' => OpenApiUtilClient::parseToMap($body),
         ]);
         $params = new Params([
             'action'      => 'UpdateConference',
@@ -2824,8 +3568,18 @@ class Imp extends OpenApiClient
     public function updateLiveWithOptions($request, $runtime)
     {
         Utils::validateModel($request);
+        $body = [];
+        if (!Utils::isUnset($request->introduction)) {
+            $body['Introduction'] = $request->introduction;
+        }
+        if (!Utils::isUnset($request->liveId)) {
+            $body['LiveId'] = $request->liveId;
+        }
+        if (!Utils::isUnset($request->title)) {
+            $body['Title'] = $request->title;
+        }
         $req = new OpenApiRequest([
-            'body' => Utils::toMap($request),
+            'body' => OpenApiUtilClient::parseToMap($body),
         ]);
         $params = new Params([
             'action'      => 'UpdateLive',
@@ -2868,8 +3622,36 @@ class Imp extends OpenApiClient
         if (!Utils::isUnset($tmpReq->extension)) {
             $request->extensionShrink = OpenApiUtilClient::arrayToStringWithSpecifiedStyle($tmpReq->extension, 'Extension', 'json');
         }
+        $body = [];
+        if (!Utils::isUnset($request->anchorId)) {
+            $body['AnchorId'] = $request->anchorId;
+        }
+        if (!Utils::isUnset($request->anchorNick)) {
+            $body['AnchorNick'] = $request->anchorNick;
+        }
+        if (!Utils::isUnset($request->appId)) {
+            $body['AppId'] = $request->appId;
+        }
+        if (!Utils::isUnset($request->coverUrl)) {
+            $body['CoverUrl'] = $request->coverUrl;
+        }
+        if (!Utils::isUnset($request->extensionShrink)) {
+            $body['Extension'] = $request->extensionShrink;
+        }
+        if (!Utils::isUnset($request->liveId)) {
+            $body['LiveId'] = $request->liveId;
+        }
+        if (!Utils::isUnset($request->notice)) {
+            $body['Notice'] = $request->notice;
+        }
+        if (!Utils::isUnset($request->title)) {
+            $body['Title'] = $request->title;
+        }
+        if (!Utils::isUnset($request->userId)) {
+            $body['UserId'] = $request->userId;
+        }
         $req = new OpenApiRequest([
-            'body' => Utils::toMap($request),
+            'body' => OpenApiUtilClient::parseToMap($body),
         ]);
         $params = new Params([
             'action'      => 'UpdateLiveRoom',
@@ -2912,8 +3694,27 @@ class Imp extends OpenApiClient
         if (!Utils::isUnset($tmpReq->extension)) {
             $request->extensionShrink = OpenApiUtilClient::arrayToStringWithSpecifiedStyle($tmpReq->extension, 'Extension', 'json');
         }
+        $body = [];
+        if (!Utils::isUnset($request->appId)) {
+            $body['AppId'] = $request->appId;
+        }
+        if (!Utils::isUnset($request->extensionShrink)) {
+            $body['Extension'] = $request->extensionShrink;
+        }
+        if (!Utils::isUnset($request->notice)) {
+            $body['Notice'] = $request->notice;
+        }
+        if (!Utils::isUnset($request->roomId)) {
+            $body['RoomId'] = $request->roomId;
+        }
+        if (!Utils::isUnset($request->roomOwnerId)) {
+            $body['RoomOwnerId'] = $request->roomOwnerId;
+        }
+        if (!Utils::isUnset($request->title)) {
+            $body['Title'] = $request->title;
+        }
         $req = new OpenApiRequest([
-            'body' => Utils::toMap($request),
+            'body' => OpenApiUtilClient::parseToMap($body),
         ]);
         $params = new Params([
             'action'      => 'UpdateRoom',
@@ -2951,8 +3752,12 @@ class Imp extends OpenApiClient
     public function verifyDomainOwnerWithOptions($request, $runtime)
     {
         Utils::validateModel($request);
+        $body = [];
+        if (!Utils::isUnset($request->liveDomainName)) {
+            $body['LiveDomainName'] = $request->liveDomainName;
+        }
         $req = new OpenApiRequest([
-            'body' => Utils::toMap($request),
+            'body' => OpenApiUtilClient::parseToMap($body),
         ]);
         $params = new Params([
             'action'      => 'VerifyDomainOwner',

@@ -23,13 +23,6 @@ class RemoveMemberRequest extends Model
     public $fromUserId;
 
     /**
-     * @description 地域
-     *
-     * @var string
-     */
-    public $regionId;
-
-    /**
      * @description 被邀请用户ID
      *
      * @var string
@@ -38,7 +31,6 @@ class RemoveMemberRequest extends Model
     protected $_name = [
         'conferenceId' => 'ConferenceId',
         'fromUserId'   => 'FromUserId',
-        'regionId'     => 'RegionId',
         'toUserId'     => 'ToUserId',
     ];
 
@@ -54,9 +46,6 @@ class RemoveMemberRequest extends Model
         }
         if (null !== $this->fromUserId) {
             $res['FromUserId'] = $this->fromUserId;
-        }
-        if (null !== $this->regionId) {
-            $res['RegionId'] = $this->regionId;
         }
         if (null !== $this->toUserId) {
             $res['ToUserId'] = $this->toUserId;
@@ -78,9 +67,6 @@ class RemoveMemberRequest extends Model
         }
         if (isset($map['FromUserId'])) {
             $model->fromUserId = $map['FromUserId'];
-        }
-        if (isset($map['RegionId'])) {
-            $model->regionId = $map['RegionId'];
         }
         if (isset($map['ToUserId'])) {
             $model->toUserId = $map['ToUserId'];

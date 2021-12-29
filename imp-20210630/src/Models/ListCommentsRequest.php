@@ -30,11 +30,6 @@ class ListCommentsRequest extends Model
     public $pageSize;
 
     /**
-     * @var string
-     */
-    public $regionId;
-
-    /**
      * @description 房间的唯一标识，在调用CreateRoom时返回。
      *
      * @var string
@@ -58,7 +53,6 @@ class ListCommentsRequest extends Model
         'appId'    => 'AppId',
         'pageNum'  => 'PageNum',
         'pageSize' => 'PageSize',
-        'regionId' => 'RegionId',
         'roomId'   => 'RoomId',
         'sortType' => 'SortType',
         'userId'   => 'UserId',
@@ -79,9 +73,6 @@ class ListCommentsRequest extends Model
         }
         if (null !== $this->pageSize) {
             $res['PageSize'] = $this->pageSize;
-        }
-        if (null !== $this->regionId) {
-            $res['RegionId'] = $this->regionId;
         }
         if (null !== $this->roomId) {
             $res['RoomId'] = $this->roomId;
@@ -112,9 +103,6 @@ class ListCommentsRequest extends Model
         }
         if (isset($map['PageSize'])) {
             $model->pageSize = $map['PageSize'];
-        }
-        if (isset($map['RegionId'])) {
-            $model->regionId = $map['RegionId'];
         }
         if (isset($map['RoomId'])) {
             $model->roomId = $map['RoomId'];

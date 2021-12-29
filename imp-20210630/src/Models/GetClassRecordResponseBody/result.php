@@ -2,20 +2,18 @@
 
 // This file is auto-generated, don't edit it. Thanks.
 
-namespace AlibabaCloud\SDK\Imp\V20210630\Models;
+namespace AlibabaCloud\SDK\Imp\V20210630\Models\GetClassRecordResponseBody;
 
 use AlibabaCloud\Tea\Model;
 
-class GetImpProductStatusRequest extends Model
+class result extends Model
 {
     /**
-     * @description 地域
-     *
-     * @var string
+     * @var string[][]
      */
-    public $regionId;
+    public $playbackUrlMap;
     protected $_name = [
-        'regionId' => 'RegionId',
+        'playbackUrlMap' => 'PlaybackUrlMap',
     ];
 
     public function validate()
@@ -25,8 +23,8 @@ class GetImpProductStatusRequest extends Model
     public function toMap()
     {
         $res = [];
-        if (null !== $this->regionId) {
-            $res['RegionId'] = $this->regionId;
+        if (null !== $this->playbackUrlMap) {
+            $res['PlaybackUrlMap'] = $this->playbackUrlMap;
         }
 
         return $res;
@@ -35,13 +33,13 @@ class GetImpProductStatusRequest extends Model
     /**
      * @param array $map
      *
-     * @return GetImpProductStatusRequest
+     * @return result
      */
     public static function fromMap($map = [])
     {
         $model = new self();
-        if (isset($map['RegionId'])) {
-            $model->regionId = $map['RegionId'];
+        if (isset($map['PlaybackUrlMap'])) {
+            $model->playbackUrlMap = $map['PlaybackUrlMap'];
         }
 
         return $model;

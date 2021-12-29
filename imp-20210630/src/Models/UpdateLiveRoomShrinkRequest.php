@@ -58,11 +58,6 @@ class UpdateLiveRoomShrinkRequest extends Model
     public $notice;
 
     /**
-     * @var string
-     */
-    public $regionId;
-
-    /**
      * @description 标题，支持中英文，最大长度32位。
      *
      * @var string
@@ -83,7 +78,6 @@ class UpdateLiveRoomShrinkRequest extends Model
         'extensionShrink' => 'Extension',
         'liveId'          => 'LiveId',
         'notice'          => 'Notice',
-        'regionId'        => 'RegionId',
         'title'           => 'Title',
         'userId'          => 'UserId',
     ];
@@ -115,9 +109,6 @@ class UpdateLiveRoomShrinkRequest extends Model
         }
         if (null !== $this->notice) {
             $res['Notice'] = $this->notice;
-        }
-        if (null !== $this->regionId) {
-            $res['RegionId'] = $this->regionId;
         }
         if (null !== $this->title) {
             $res['Title'] = $this->title;
@@ -157,9 +148,6 @@ class UpdateLiveRoomShrinkRequest extends Model
         }
         if (isset($map['Notice'])) {
             $model->notice = $map['Notice'];
-        }
-        if (isset($map['RegionId'])) {
-            $model->regionId = $map['RegionId'];
         }
         if (isset($map['Title'])) {
             $model->title = $map['Title'];

@@ -6,7 +6,7 @@ namespace AlibabaCloud\SDK\Imp\V20210630\Models;
 
 use AlibabaCloud\Tea\Model;
 
-class StopLiveRoomRequest extends Model
+class GetClassRecordRequest extends Model
 {
     /**
      * @description 应用唯一标识，由6位小写字母、数字组成。
@@ -16,22 +16,22 @@ class StopLiveRoomRequest extends Model
     public $appId;
 
     /**
-     * @description 直播ID。
+     * @description 课程唯一标识，由调用CreateClass返回。
      *
      * @var string
      */
-    public $liveId;
+    public $classId;
 
     /**
-     * @description 操作人ID。
+     * @description 操作人用户ID。
      *
      * @var string
      */
     public $userId;
     protected $_name = [
-        'appId'  => 'AppId',
-        'liveId' => 'LiveId',
-        'userId' => 'UserId',
+        'appId'   => 'AppId',
+        'classId' => 'ClassId',
+        'userId'  => 'UserId',
     ];
 
     public function validate()
@@ -44,8 +44,8 @@ class StopLiveRoomRequest extends Model
         if (null !== $this->appId) {
             $res['AppId'] = $this->appId;
         }
-        if (null !== $this->liveId) {
-            $res['LiveId'] = $this->liveId;
+        if (null !== $this->classId) {
+            $res['ClassId'] = $this->classId;
         }
         if (null !== $this->userId) {
             $res['UserId'] = $this->userId;
@@ -57,7 +57,7 @@ class StopLiveRoomRequest extends Model
     /**
      * @param array $map
      *
-     * @return StopLiveRoomRequest
+     * @return GetClassRecordRequest
      */
     public static function fromMap($map = [])
     {
@@ -65,8 +65,8 @@ class StopLiveRoomRequest extends Model
         if (isset($map['AppId'])) {
             $model->appId = $map['AppId'];
         }
-        if (isset($map['LiveId'])) {
-            $model->liveId = $map['LiveId'];
+        if (isset($map['ClassId'])) {
+            $model->classId = $map['ClassId'];
         }
         if (isset($map['UserId'])) {
             $model->userId = $map['UserId'];

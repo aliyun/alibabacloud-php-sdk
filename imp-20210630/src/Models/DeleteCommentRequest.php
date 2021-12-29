@@ -23,11 +23,6 @@ class DeleteCommentRequest extends Model
     public $commentIdList;
 
     /**
-     * @var string
-     */
-    public $regionId;
-
-    /**
      * @description 直播间唯一标识，在调用CreateRoom返回。
      *
      * @var string
@@ -43,7 +38,6 @@ class DeleteCommentRequest extends Model
     protected $_name = [
         'appId'         => 'AppId',
         'commentIdList' => 'CommentIdList',
-        'regionId'      => 'RegionId',
         'roomId'        => 'RoomId',
         'userId'        => 'UserId',
     ];
@@ -60,9 +54,6 @@ class DeleteCommentRequest extends Model
         }
         if (null !== $this->commentIdList) {
             $res['CommentIdList'] = $this->commentIdList;
-        }
-        if (null !== $this->regionId) {
-            $res['RegionId'] = $this->regionId;
         }
         if (null !== $this->roomId) {
             $res['RoomId'] = $this->roomId;
@@ -89,9 +80,6 @@ class DeleteCommentRequest extends Model
             if (!empty($map['CommentIdList'])) {
                 $model->commentIdList = $map['CommentIdList'];
             }
-        }
-        if (isset($map['RegionId'])) {
-            $model->regionId = $map['RegionId'];
         }
         if (isset($map['RoomId'])) {
             $model->roomId = $map['RoomId'];

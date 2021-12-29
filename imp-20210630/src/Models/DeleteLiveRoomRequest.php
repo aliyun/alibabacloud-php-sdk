@@ -23,21 +23,15 @@ class DeleteLiveRoomRequest extends Model
     public $liveId;
 
     /**
-     * @var string
-     */
-    public $regionId;
-
-    /**
      * @description 操作人ID。
      *
      * @var string
      */
     public $userId;
     protected $_name = [
-        'appId'    => 'AppId',
-        'liveId'   => 'LiveId',
-        'regionId' => 'RegionId',
-        'userId'   => 'UserId',
+        'appId'  => 'AppId',
+        'liveId' => 'LiveId',
+        'userId' => 'UserId',
     ];
 
     public function validate()
@@ -52,9 +46,6 @@ class DeleteLiveRoomRequest extends Model
         }
         if (null !== $this->liveId) {
             $res['LiveId'] = $this->liveId;
-        }
-        if (null !== $this->regionId) {
-            $res['RegionId'] = $this->regionId;
         }
         if (null !== $this->userId) {
             $res['UserId'] = $this->userId;
@@ -76,9 +67,6 @@ class DeleteLiveRoomRequest extends Model
         }
         if (isset($map['LiveId'])) {
             $model->liveId = $map['LiveId'];
-        }
-        if (isset($map['RegionId'])) {
-            $model->regionId = $map['RegionId'];
         }
         if (isset($map['UserId'])) {
             $model->userId = $map['UserId'];

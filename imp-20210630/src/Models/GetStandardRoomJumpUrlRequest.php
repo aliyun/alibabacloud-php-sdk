@@ -44,13 +44,6 @@ class GetStandardRoomJumpUrlRequest extends Model
     public $platform;
 
     /**
-     * @description cn-shanghai
-     *
-     * @var string
-     */
-    public $regionId;
-
-    /**
      * @description 用户UserId,在AppId下单独唯一
      *
      * @var string
@@ -69,7 +62,6 @@ class GetStandardRoomJumpUrlRequest extends Model
         'bizId'    => 'BizId',
         'bizType'  => 'BizType',
         'platform' => 'Platform',
-        'regionId' => 'RegionId',
         'userId'   => 'UserId',
         'userNick' => 'UserNick',
     ];
@@ -95,9 +87,6 @@ class GetStandardRoomJumpUrlRequest extends Model
         }
         if (null !== $this->platform) {
             $res['Platform'] = $this->platform;
-        }
-        if (null !== $this->regionId) {
-            $res['RegionId'] = $this->regionId;
         }
         if (null !== $this->userId) {
             $res['UserId'] = $this->userId;
@@ -131,9 +120,6 @@ class GetStandardRoomJumpUrlRequest extends Model
         }
         if (isset($map['Platform'])) {
             $model->platform = $map['Platform'];
-        }
-        if (isset($map['RegionId'])) {
-            $model->regionId = $map['RegionId'];
         }
         if (isset($map['UserId'])) {
             $model->userId = $map['UserId'];

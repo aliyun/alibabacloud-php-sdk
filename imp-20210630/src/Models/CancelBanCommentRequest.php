@@ -23,11 +23,6 @@ class CancelBanCommentRequest extends Model
     public $banCommentUser;
 
     /**
-     * @var string
-     */
-    public $regionId;
-
-    /**
      * @description 房间唯一标识，由调用CreateRoom返回。
      *
      * @var string
@@ -43,7 +38,6 @@ class CancelBanCommentRequest extends Model
     protected $_name = [
         'appId'          => 'AppId',
         'banCommentUser' => 'BanCommentUser',
-        'regionId'       => 'RegionId',
         'roomId'         => 'RoomId',
         'userId'         => 'UserId',
     ];
@@ -60,9 +54,6 @@ class CancelBanCommentRequest extends Model
         }
         if (null !== $this->banCommentUser) {
             $res['BanCommentUser'] = $this->banCommentUser;
-        }
-        if (null !== $this->regionId) {
-            $res['RegionId'] = $this->regionId;
         }
         if (null !== $this->roomId) {
             $res['RoomId'] = $this->roomId;
@@ -87,9 +78,6 @@ class CancelBanCommentRequest extends Model
         }
         if (isset($map['BanCommentUser'])) {
             $model->banCommentUser = $map['BanCommentUser'];
-        }
-        if (isset($map['RegionId'])) {
-            $model->regionId = $map['RegionId'];
         }
         if (isset($map['RoomId'])) {
             $model->roomId = $map['RoomId'];

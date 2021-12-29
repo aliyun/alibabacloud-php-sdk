@@ -30,13 +30,6 @@ class ListAppsRequest extends Model
     public $pageSize;
 
     /**
-     * @description 地域
-     *
-     * @var string
-     */
-    public $regionId;
-
-    /**
      * @description 应用状态
      *
      * @var string
@@ -46,7 +39,6 @@ class ListAppsRequest extends Model
         'integrationMode' => 'IntegrationMode',
         'pageNumber'      => 'PageNumber',
         'pageSize'        => 'PageSize',
-        'regionId'        => 'RegionId',
         'status'          => 'Status',
     ];
 
@@ -65,9 +57,6 @@ class ListAppsRequest extends Model
         }
         if (null !== $this->pageSize) {
             $res['PageSize'] = $this->pageSize;
-        }
-        if (null !== $this->regionId) {
-            $res['RegionId'] = $this->regionId;
         }
         if (null !== $this->status) {
             $res['Status'] = $this->status;
@@ -92,9 +81,6 @@ class ListAppsRequest extends Model
         }
         if (isset($map['PageSize'])) {
             $model->pageSize = $map['PageSize'];
-        }
-        if (isset($map['RegionId'])) {
-            $model->regionId = $map['RegionId'];
         }
         if (isset($map['Status'])) {
             $model->status = $map['Status'];

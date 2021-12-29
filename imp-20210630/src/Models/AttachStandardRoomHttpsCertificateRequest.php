@@ -35,19 +35,11 @@ class AttachStandardRoomHttpsCertificateRequest extends Model
      * @var string
      */
     public $domainName;
-
-    /**
-     * @description 地域
-     *
-     * @var string
-     */
-    public $regionId;
     protected $_name = [
         'appId'                 => 'AppId',
         'certificatePrivateKey' => 'CertificatePrivateKey',
         'certificatePublicKey'  => 'CertificatePublicKey',
         'domainName'            => 'DomainName',
-        'regionId'              => 'RegionId',
     ];
 
     public function validate()
@@ -68,9 +60,6 @@ class AttachStandardRoomHttpsCertificateRequest extends Model
         }
         if (null !== $this->domainName) {
             $res['DomainName'] = $this->domainName;
-        }
-        if (null !== $this->regionId) {
-            $res['RegionId'] = $this->regionId;
         }
 
         return $res;
@@ -95,9 +84,6 @@ class AttachStandardRoomHttpsCertificateRequest extends Model
         }
         if (isset($map['DomainName'])) {
             $model->domainName = $map['DomainName'];
-        }
-        if (isset($map['RegionId'])) {
-            $model->regionId = $map['RegionId'];
         }
 
         return $model;

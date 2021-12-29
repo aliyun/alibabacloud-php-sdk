@@ -14,16 +14,8 @@ class GetConferenceRequest extends Model
      * @var string
      */
     public $conferenceId;
-
-    /**
-     * @description 地域
-     *
-     * @var string
-     */
-    public $regionId;
     protected $_name = [
         'conferenceId' => 'ConferenceId',
-        'regionId'     => 'RegionId',
     ];
 
     public function validate()
@@ -35,9 +27,6 @@ class GetConferenceRequest extends Model
         $res = [];
         if (null !== $this->conferenceId) {
             $res['ConferenceId'] = $this->conferenceId;
-        }
-        if (null !== $this->regionId) {
-            $res['RegionId'] = $this->regionId;
         }
 
         return $res;
@@ -53,9 +42,6 @@ class GetConferenceRequest extends Model
         $model = new self();
         if (isset($map['ConferenceId'])) {
             $model->conferenceId = $map['ConferenceId'];
-        }
-        if (isset($map['RegionId'])) {
-            $model->regionId = $map['RegionId'];
         }
 
         return $model;

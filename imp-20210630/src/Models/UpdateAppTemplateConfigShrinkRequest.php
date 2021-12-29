@@ -21,17 +21,9 @@ class UpdateAppTemplateConfigShrinkRequest extends Model
      * @var string
      */
     public $configListShrink;
-
-    /**
-     * @description 地域
-     *
-     * @var string
-     */
-    public $regionId;
     protected $_name = [
         'appTemplateId'    => 'AppTemplateId',
         'configListShrink' => 'ConfigList',
-        'regionId'         => 'RegionId',
     ];
 
     public function validate()
@@ -46,9 +38,6 @@ class UpdateAppTemplateConfigShrinkRequest extends Model
         }
         if (null !== $this->configListShrink) {
             $res['ConfigList'] = $this->configListShrink;
-        }
-        if (null !== $this->regionId) {
-            $res['RegionId'] = $this->regionId;
         }
 
         return $res;
@@ -67,9 +56,6 @@ class UpdateAppTemplateConfigShrinkRequest extends Model
         }
         if (isset($map['ConfigList'])) {
             $model->configListShrink = $map['ConfigList'];
-        }
-        if (isset($map['RegionId'])) {
-            $model->regionId = $map['RegionId'];
         }
 
         return $model;

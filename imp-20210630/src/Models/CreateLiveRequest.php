@@ -44,11 +44,6 @@ class CreateLiveRequest extends Model
     public $liveId;
 
     /**
-     * @var string
-     */
-    public $regionId;
-
-    /**
      * @description 房间ID，最大长度36个字符，传空值，则随机生成一个房间ID。
      *
      * @var string
@@ -74,7 +69,6 @@ class CreateLiveRequest extends Model
         'codeLevel'    => 'CodeLevel',
         'introduction' => 'Introduction',
         'liveId'       => 'LiveId',
-        'regionId'     => 'RegionId',
         'roomId'       => 'RoomId',
         'title'        => 'Title',
         'userId'       => 'UserId',
@@ -101,9 +95,6 @@ class CreateLiveRequest extends Model
         }
         if (null !== $this->liveId) {
             $res['LiveId'] = $this->liveId;
-        }
-        if (null !== $this->regionId) {
-            $res['RegionId'] = $this->regionId;
         }
         if (null !== $this->roomId) {
             $res['RoomId'] = $this->roomId;
@@ -140,9 +131,6 @@ class CreateLiveRequest extends Model
         }
         if (isset($map['LiveId'])) {
             $model->liveId = $map['LiveId'];
-        }
-        if (isset($map['RegionId'])) {
-            $model->regionId = $map['RegionId'];
         }
         if (isset($map['RoomId'])) {
             $model->roomId = $map['RoomId'];
