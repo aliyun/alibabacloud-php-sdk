@@ -139,12 +139,20 @@ class DBFS extends OpenApiClient
     public function addTagsBatchWithOptions($request, $runtime)
     {
         Utils::validateModel($request);
-        $query                = [];
-        $query['ClientToken'] = $request->clientToken;
-        $query['DbfsList']    = $request->dbfsList;
-        $query['RegionId']    = $request->regionId;
-        $query['Tags']        = $request->tags;
-        $req                  = new OpenApiRequest([
+        $query = [];
+        if (!Utils::isUnset($request->clientToken)) {
+            $query['ClientToken'] = $request->clientToken;
+        }
+        if (!Utils::isUnset($request->dbfsList)) {
+            $query['DbfsList'] = $request->dbfsList;
+        }
+        if (!Utils::isUnset($request->regionId)) {
+            $query['RegionId'] = $request->regionId;
+        }
+        if (!Utils::isUnset($request->tags)) {
+            $query['Tags'] = $request->tags;
+        }
+        $req = new OpenApiRequest([
             'query' => OpenApiUtilClient::query($query),
         ]);
         $params = new Params([
@@ -183,14 +191,26 @@ class DBFS extends OpenApiClient
     public function attachDbfsWithOptions($request, $runtime)
     {
         Utils::validateModel($request);
-        $query                  = [];
-        $query['AttachMode']    = $request->attachMode;
-        $query['AttachPoint']   = $request->attachPoint;
-        $query['ECSInstanceId'] = $request->ECSInstanceId;
-        $query['FsId']          = $request->fsId;
-        $query['RegionId']      = $request->regionId;
-        $query['ServerUrl']     = $request->serverUrl;
-        $req                    = new OpenApiRequest([
+        $query = [];
+        if (!Utils::isUnset($request->attachMode)) {
+            $query['AttachMode'] = $request->attachMode;
+        }
+        if (!Utils::isUnset($request->attachPoint)) {
+            $query['AttachPoint'] = $request->attachPoint;
+        }
+        if (!Utils::isUnset($request->ECSInstanceId)) {
+            $query['ECSInstanceId'] = $request->ECSInstanceId;
+        }
+        if (!Utils::isUnset($request->fsId)) {
+            $query['FsId'] = $request->fsId;
+        }
+        if (!Utils::isUnset($request->regionId)) {
+            $query['RegionId'] = $request->regionId;
+        }
+        if (!Utils::isUnset($request->serverUrl)) {
+            $query['ServerUrl'] = $request->serverUrl;
+        }
+        $req = new OpenApiRequest([
             'query' => OpenApiUtilClient::query($query),
         ]);
         $params = new Params([
@@ -229,23 +249,53 @@ class DBFS extends OpenApiClient
     public function createDbfsWithOptions($request, $runtime)
     {
         Utils::validateModel($request);
-        $query                         = [];
-        $query['Category']             = $request->category;
-        $query['ClientToken']          = $request->clientToken;
-        $query['DeleteSnapshot']       = $request->deleteSnapshot;
-        $query['EnableRaid']           = $request->enableRaid;
-        $query['Encryption']           = $request->encryption;
-        $query['FsName']               = $request->fsName;
-        $query['InstanceType']         = $request->instanceType;
-        $query['KMSKeyId']             = $request->KMSKeyId;
-        $query['PerformanceLevel']     = $request->performanceLevel;
-        $query['RaidStripeUnitNumber'] = $request->raidStripeUnitNumber;
-        $query['RegionId']             = $request->regionId;
-        $query['SizeG']                = $request->sizeG;
-        $query['SnapshotId']           = $request->snapshotId;
-        $query['UsedScene']            = $request->usedScene;
-        $query['ZoneId']               = $request->zoneId;
-        $req                           = new OpenApiRequest([
+        $query = [];
+        if (!Utils::isUnset($request->category)) {
+            $query['Category'] = $request->category;
+        }
+        if (!Utils::isUnset($request->clientToken)) {
+            $query['ClientToken'] = $request->clientToken;
+        }
+        if (!Utils::isUnset($request->deleteSnapshot)) {
+            $query['DeleteSnapshot'] = $request->deleteSnapshot;
+        }
+        if (!Utils::isUnset($request->enableRaid)) {
+            $query['EnableRaid'] = $request->enableRaid;
+        }
+        if (!Utils::isUnset($request->encryption)) {
+            $query['Encryption'] = $request->encryption;
+        }
+        if (!Utils::isUnset($request->fsName)) {
+            $query['FsName'] = $request->fsName;
+        }
+        if (!Utils::isUnset($request->instanceType)) {
+            $query['InstanceType'] = $request->instanceType;
+        }
+        if (!Utils::isUnset($request->KMSKeyId)) {
+            $query['KMSKeyId'] = $request->KMSKeyId;
+        }
+        if (!Utils::isUnset($request->performanceLevel)) {
+            $query['PerformanceLevel'] = $request->performanceLevel;
+        }
+        if (!Utils::isUnset($request->raidStripeUnitNumber)) {
+            $query['RaidStripeUnitNumber'] = $request->raidStripeUnitNumber;
+        }
+        if (!Utils::isUnset($request->regionId)) {
+            $query['RegionId'] = $request->regionId;
+        }
+        if (!Utils::isUnset($request->sizeG)) {
+            $query['SizeG'] = $request->sizeG;
+        }
+        if (!Utils::isUnset($request->snapshotId)) {
+            $query['SnapshotId'] = $request->snapshotId;
+        }
+        if (!Utils::isUnset($request->usedScene)) {
+            $query['UsedScene'] = $request->usedScene;
+        }
+        if (!Utils::isUnset($request->zoneId)) {
+            $query['ZoneId'] = $request->zoneId;
+        }
+        $req = new OpenApiRequest([
             'query' => OpenApiUtilClient::query($query),
         ]);
         $params = new Params([
@@ -284,10 +334,14 @@ class DBFS extends OpenApiClient
     public function createServiceLinkedRoleWithOptions($request, $runtime)
     {
         Utils::validateModel($request);
-        $query                = [];
-        $query['ClientToken'] = $request->clientToken;
-        $query['RegionId']    = $request->regionId;
-        $req                  = new OpenApiRequest([
+        $query = [];
+        if (!Utils::isUnset($request->clientToken)) {
+            $query['ClientToken'] = $request->clientToken;
+        }
+        if (!Utils::isUnset($request->regionId)) {
+            $query['RegionId'] = $request->regionId;
+        }
+        $req = new OpenApiRequest([
             'query' => OpenApiUtilClient::query($query),
         ]);
         $params = new Params([
@@ -326,14 +380,26 @@ class DBFS extends OpenApiClient
     public function createSnapshotWithOptions($request, $runtime)
     {
         Utils::validateModel($request);
-        $query                  = [];
-        $query['ClientToken']   = $request->clientToken;
-        $query['Description']   = $request->description;
-        $query['FsId']          = $request->fsId;
-        $query['RegionId']      = $request->regionId;
-        $query['RetentionDays'] = $request->retentionDays;
-        $query['SnapshotName']  = $request->snapshotName;
-        $req                    = new OpenApiRequest([
+        $query = [];
+        if (!Utils::isUnset($request->clientToken)) {
+            $query['ClientToken'] = $request->clientToken;
+        }
+        if (!Utils::isUnset($request->description)) {
+            $query['Description'] = $request->description;
+        }
+        if (!Utils::isUnset($request->fsId)) {
+            $query['FsId'] = $request->fsId;
+        }
+        if (!Utils::isUnset($request->regionId)) {
+            $query['RegionId'] = $request->regionId;
+        }
+        if (!Utils::isUnset($request->retentionDays)) {
+            $query['RetentionDays'] = $request->retentionDays;
+        }
+        if (!Utils::isUnset($request->snapshotName)) {
+            $query['SnapshotName'] = $request->snapshotName;
+        }
+        $req = new OpenApiRequest([
             'query' => OpenApiUtilClient::query($query),
         ]);
         $params = new Params([
@@ -372,10 +438,14 @@ class DBFS extends OpenApiClient
     public function deleteDbfsWithOptions($request, $runtime)
     {
         Utils::validateModel($request);
-        $query             = [];
-        $query['FsId']     = $request->fsId;
-        $query['RegionId'] = $request->regionId;
-        $req               = new OpenApiRequest([
+        $query = [];
+        if (!Utils::isUnset($request->fsId)) {
+            $query['FsId'] = $request->fsId;
+        }
+        if (!Utils::isUnset($request->regionId)) {
+            $query['RegionId'] = $request->regionId;
+        }
+        $req = new OpenApiRequest([
             'query' => OpenApiUtilClient::query($query),
         ]);
         $params = new Params([
@@ -414,11 +484,17 @@ class DBFS extends OpenApiClient
     public function deleteSnapshotWithOptions($request, $runtime)
     {
         Utils::validateModel($request);
-        $query               = [];
-        $query['Force']      = $request->force;
-        $query['RegionId']   = $request->regionId;
-        $query['SnapshotId'] = $request->snapshotId;
-        $req                 = new OpenApiRequest([
+        $query = [];
+        if (!Utils::isUnset($request->force)) {
+            $query['Force'] = $request->force;
+        }
+        if (!Utils::isUnset($request->regionId)) {
+            $query['RegionId'] = $request->regionId;
+        }
+        if (!Utils::isUnset($request->snapshotId)) {
+            $query['SnapshotId'] = $request->snapshotId;
+        }
+        $req = new OpenApiRequest([
             'query' => OpenApiUtilClient::query($query),
         ]);
         $params = new Params([
@@ -457,11 +533,17 @@ class DBFS extends OpenApiClient
     public function deleteTagsBatchWithOptions($request, $runtime)
     {
         Utils::validateModel($request);
-        $query             = [];
-        $query['DbfsList'] = $request->dbfsList;
-        $query['RegionId'] = $request->regionId;
-        $query['Tags']     = $request->tags;
-        $req               = new OpenApiRequest([
+        $query = [];
+        if (!Utils::isUnset($request->dbfsList)) {
+            $query['DbfsList'] = $request->dbfsList;
+        }
+        if (!Utils::isUnset($request->regionId)) {
+            $query['RegionId'] = $request->regionId;
+        }
+        if (!Utils::isUnset($request->tags)) {
+            $query['Tags'] = $request->tags;
+        }
+        $req = new OpenApiRequest([
             'query' => OpenApiUtilClient::query($query),
         ]);
         $params = new Params([
@@ -500,11 +582,17 @@ class DBFS extends OpenApiClient
     public function describeDbfsSpecificationsWithOptions($request, $runtime)
     {
         Utils::validateModel($request);
-        $query                    = [];
-        $query['Category']        = $request->category;
-        $query['EcsInstanceType'] = $request->ecsInstanceType;
-        $query['RegionId']        = $request->regionId;
-        $req                      = new OpenApiRequest([
+        $query = [];
+        if (!Utils::isUnset($request->category)) {
+            $query['Category'] = $request->category;
+        }
+        if (!Utils::isUnset($request->ecsInstanceType)) {
+            $query['EcsInstanceType'] = $request->ecsInstanceType;
+        }
+        if (!Utils::isUnset($request->regionId)) {
+            $query['RegionId'] = $request->regionId;
+        }
+        $req = new OpenApiRequest([
             'query' => OpenApiUtilClient::query($query),
         ]);
         $params = new Params([
@@ -543,9 +631,11 @@ class DBFS extends OpenApiClient
     public function describeInstanceTypesWithOptions($request, $runtime)
     {
         Utils::validateModel($request);
-        $query             = [];
-        $query['RegionId'] = $request->regionId;
-        $req               = new OpenApiRequest([
+        $query = [];
+        if (!Utils::isUnset($request->regionId)) {
+            $query['RegionId'] = $request->regionId;
+        }
+        $req = new OpenApiRequest([
             'query' => OpenApiUtilClient::query($query),
         ]);
         $params = new Params([
@@ -584,11 +674,17 @@ class DBFS extends OpenApiClient
     public function detachDbfsWithOptions($request, $runtime)
     {
         Utils::validateModel($request);
-        $query                  = [];
-        $query['ECSInstanceId'] = $request->ECSInstanceId;
-        $query['FsId']          = $request->fsId;
-        $query['RegionId']      = $request->regionId;
-        $req                    = new OpenApiRequest([
+        $query = [];
+        if (!Utils::isUnset($request->ECSInstanceId)) {
+            $query['ECSInstanceId'] = $request->ECSInstanceId;
+        }
+        if (!Utils::isUnset($request->fsId)) {
+            $query['FsId'] = $request->fsId;
+        }
+        if (!Utils::isUnset($request->regionId)) {
+            $query['RegionId'] = $request->regionId;
+        }
+        $req = new OpenApiRequest([
             'query' => OpenApiUtilClient::query($query),
         ]);
         $params = new Params([
@@ -627,10 +723,14 @@ class DBFS extends OpenApiClient
     public function getDbfsWithOptions($request, $runtime)
     {
         Utils::validateModel($request);
-        $query             = [];
-        $query['FsId']     = $request->fsId;
-        $query['RegionId'] = $request->regionId;
-        $req               = new OpenApiRequest([
+        $query = [];
+        if (!Utils::isUnset($request->fsId)) {
+            $query['FsId'] = $request->fsId;
+        }
+        if (!Utils::isUnset($request->regionId)) {
+            $query['RegionId'] = $request->regionId;
+        }
+        $req = new OpenApiRequest([
             'query' => OpenApiUtilClient::query($query),
         ]);
         $params = new Params([
@@ -669,9 +769,11 @@ class DBFS extends OpenApiClient
     public function getServiceLinkedRoleWithOptions($request, $runtime)
     {
         Utils::validateModel($request);
-        $query             = [];
-        $query['RegionId'] = $request->regionId;
-        $req               = new OpenApiRequest([
+        $query = [];
+        if (!Utils::isUnset($request->regionId)) {
+            $query['RegionId'] = $request->regionId;
+        }
+        $req = new OpenApiRequest([
             'query' => OpenApiUtilClient::query($query),
         ]);
         $params = new Params([
@@ -710,16 +812,32 @@ class DBFS extends OpenApiClient
     public function listDbfsWithOptions($request, $runtime)
     {
         Utils::validateModel($request);
-        $query                = [];
-        $query['FilterKey']   = $request->filterKey;
-        $query['FilterValue'] = $request->filterValue;
-        $query['PageNumber']  = $request->pageNumber;
-        $query['PageSize']    = $request->pageSize;
-        $query['RegionId']    = $request->regionId;
-        $query['SortKey']     = $request->sortKey;
-        $query['SortType']    = $request->sortType;
-        $query['Tags']        = $request->tags;
-        $req                  = new OpenApiRequest([
+        $query = [];
+        if (!Utils::isUnset($request->filterKey)) {
+            $query['FilterKey'] = $request->filterKey;
+        }
+        if (!Utils::isUnset($request->filterValue)) {
+            $query['FilterValue'] = $request->filterValue;
+        }
+        if (!Utils::isUnset($request->pageNumber)) {
+            $query['PageNumber'] = $request->pageNumber;
+        }
+        if (!Utils::isUnset($request->pageSize)) {
+            $query['PageSize'] = $request->pageSize;
+        }
+        if (!Utils::isUnset($request->regionId)) {
+            $query['RegionId'] = $request->regionId;
+        }
+        if (!Utils::isUnset($request->sortKey)) {
+            $query['SortKey'] = $request->sortKey;
+        }
+        if (!Utils::isUnset($request->sortType)) {
+            $query['SortType'] = $request->sortType;
+        }
+        if (!Utils::isUnset($request->tags)) {
+            $query['Tags'] = $request->tags;
+        }
+        $req = new OpenApiRequest([
             'query' => OpenApiUtilClient::query($query),
         ]);
         $params = new Params([
@@ -758,9 +876,11 @@ class DBFS extends OpenApiClient
     public function listDbfsAttachableEcsInstancesWithOptions($request, $runtime)
     {
         Utils::validateModel($request);
-        $query             = [];
-        $query['RegionId'] = $request->regionId;
-        $req               = new OpenApiRequest([
+        $query = [];
+        if (!Utils::isUnset($request->regionId)) {
+            $query['RegionId'] = $request->regionId;
+        }
+        $req = new OpenApiRequest([
             'query' => OpenApiUtilClient::query($query),
         ]);
         $params = new Params([
@@ -799,10 +919,14 @@ class DBFS extends OpenApiClient
     public function listDbfsAttachedEcsInstancesWithOptions($request, $runtime)
     {
         Utils::validateModel($request);
-        $query             = [];
-        $query['FsId']     = $request->fsId;
-        $query['RegionId'] = $request->regionId;
-        $req               = new OpenApiRequest([
+        $query = [];
+        if (!Utils::isUnset($request->fsId)) {
+            $query['FsId'] = $request->fsId;
+        }
+        if (!Utils::isUnset($request->regionId)) {
+            $query['RegionId'] = $request->regionId;
+        }
+        $req = new OpenApiRequest([
             'query' => OpenApiUtilClient::query($query),
         ]);
         $params = new Params([
@@ -841,20 +965,44 @@ class DBFS extends OpenApiClient
     public function listSnapshotWithOptions($request, $runtime)
     {
         Utils::validateModel($request);
-        $query                 = [];
-        $query['FilterKey']    = $request->filterKey;
-        $query['FilterValue']  = $request->filterValue;
-        $query['FsId']         = $request->fsId;
-        $query['PageNumber']   = $request->pageNumber;
-        $query['PageSize']     = $request->pageSize;
-        $query['RegionId']     = $request->regionId;
-        $query['SnapshotIds']  = $request->snapshotIds;
-        $query['SnapshotName'] = $request->snapshotName;
-        $query['SnapshotType'] = $request->snapshotType;
-        $query['SortKey']      = $request->sortKey;
-        $query['SortType']     = $request->sortType;
-        $query['Status']       = $request->status;
-        $req                   = new OpenApiRequest([
+        $query = [];
+        if (!Utils::isUnset($request->filterKey)) {
+            $query['FilterKey'] = $request->filterKey;
+        }
+        if (!Utils::isUnset($request->filterValue)) {
+            $query['FilterValue'] = $request->filterValue;
+        }
+        if (!Utils::isUnset($request->fsId)) {
+            $query['FsId'] = $request->fsId;
+        }
+        if (!Utils::isUnset($request->pageNumber)) {
+            $query['PageNumber'] = $request->pageNumber;
+        }
+        if (!Utils::isUnset($request->pageSize)) {
+            $query['PageSize'] = $request->pageSize;
+        }
+        if (!Utils::isUnset($request->regionId)) {
+            $query['RegionId'] = $request->regionId;
+        }
+        if (!Utils::isUnset($request->snapshotIds)) {
+            $query['SnapshotIds'] = $request->snapshotIds;
+        }
+        if (!Utils::isUnset($request->snapshotName)) {
+            $query['SnapshotName'] = $request->snapshotName;
+        }
+        if (!Utils::isUnset($request->snapshotType)) {
+            $query['SnapshotType'] = $request->snapshotType;
+        }
+        if (!Utils::isUnset($request->sortKey)) {
+            $query['SortKey'] = $request->sortKey;
+        }
+        if (!Utils::isUnset($request->sortType)) {
+            $query['SortType'] = $request->sortType;
+        }
+        if (!Utils::isUnset($request->status)) {
+            $query['Status'] = $request->status;
+        }
+        $req = new OpenApiRequest([
             'query' => OpenApiUtilClient::query($query),
         ]);
         $params = new Params([
@@ -893,9 +1041,11 @@ class DBFS extends OpenApiClient
     public function listTagKeysWithOptions($request, $runtime)
     {
         Utils::validateModel($request);
-        $query             = [];
-        $query['RegionId'] = $request->regionId;
-        $req               = new OpenApiRequest([
+        $query = [];
+        if (!Utils::isUnset($request->regionId)) {
+            $query['RegionId'] = $request->regionId;
+        }
+        $req = new OpenApiRequest([
             'query' => OpenApiUtilClient::query($query),
         ]);
         $params = new Params([
@@ -934,10 +1084,14 @@ class DBFS extends OpenApiClient
     public function listTagValuesWithOptions($request, $runtime)
     {
         Utils::validateModel($request);
-        $query             = [];
-        $query['RegionId'] = $request->regionId;
-        $query['TagKey']   = $request->tagKey;
-        $req               = new OpenApiRequest([
+        $query = [];
+        if (!Utils::isUnset($request->regionId)) {
+            $query['RegionId'] = $request->regionId;
+        }
+        if (!Utils::isUnset($request->tagKey)) {
+            $query['TagKey'] = $request->tagKey;
+        }
+        $req = new OpenApiRequest([
             'query' => OpenApiUtilClient::query($query),
         ]);
         $params = new Params([
@@ -976,11 +1130,17 @@ class DBFS extends OpenApiClient
     public function renameDbfsWithOptions($request, $runtime)
     {
         Utils::validateModel($request);
-        $query             = [];
-        $query['FsId']     = $request->fsId;
-        $query['FsName']   = $request->fsName;
-        $query['RegionId'] = $request->regionId;
-        $req               = new OpenApiRequest([
+        $query = [];
+        if (!Utils::isUnset($request->fsId)) {
+            $query['FsId'] = $request->fsId;
+        }
+        if (!Utils::isUnset($request->fsName)) {
+            $query['FsName'] = $request->fsName;
+        }
+        if (!Utils::isUnset($request->regionId)) {
+            $query['RegionId'] = $request->regionId;
+        }
+        $req = new OpenApiRequest([
             'query' => OpenApiUtilClient::query($query),
         ]);
         $params = new Params([
@@ -1019,11 +1179,17 @@ class DBFS extends OpenApiClient
     public function resetDbfsWithOptions($request, $runtime)
     {
         Utils::validateModel($request);
-        $query               = [];
-        $query['FsId']       = $request->fsId;
-        $query['RegionId']   = $request->regionId;
-        $query['SnapshotId'] = $request->snapshotId;
-        $req                 = new OpenApiRequest([
+        $query = [];
+        if (!Utils::isUnset($request->fsId)) {
+            $query['FsId'] = $request->fsId;
+        }
+        if (!Utils::isUnset($request->regionId)) {
+            $query['RegionId'] = $request->regionId;
+        }
+        if (!Utils::isUnset($request->snapshotId)) {
+            $query['SnapshotId'] = $request->snapshotId;
+        }
+        $req = new OpenApiRequest([
             'query' => OpenApiUtilClient::query($query),
         ]);
         $params = new Params([
@@ -1062,11 +1228,17 @@ class DBFS extends OpenApiClient
     public function resizeDbfsWithOptions($request, $runtime)
     {
         Utils::validateModel($request);
-        $query             = [];
-        $query['FsId']     = $request->fsId;
-        $query['NewSizeG'] = $request->newSizeG;
-        $query['RegionId'] = $request->regionId;
-        $req               = new OpenApiRequest([
+        $query = [];
+        if (!Utils::isUnset($request->fsId)) {
+            $query['FsId'] = $request->fsId;
+        }
+        if (!Utils::isUnset($request->newSizeG)) {
+            $query['NewSizeG'] = $request->newSizeG;
+        }
+        if (!Utils::isUnset($request->regionId)) {
+            $query['RegionId'] = $request->regionId;
+        }
+        $req = new OpenApiRequest([
             'query' => OpenApiUtilClient::query($query),
         ]);
         $params = new Params([
@@ -1105,11 +1277,17 @@ class DBFS extends OpenApiClient
     public function tagDbfsWithOptions($request, $runtime)
     {
         Utils::validateModel($request);
-        $query             = [];
-        $query['DbfsId']   = $request->dbfsId;
-        $query['RegionId'] = $request->regionId;
-        $query['Tags']     = $request->tags;
-        $req               = new OpenApiRequest([
+        $query = [];
+        if (!Utils::isUnset($request->dbfsId)) {
+            $query['DbfsId'] = $request->dbfsId;
+        }
+        if (!Utils::isUnset($request->regionId)) {
+            $query['RegionId'] = $request->regionId;
+        }
+        if (!Utils::isUnset($request->tags)) {
+            $query['Tags'] = $request->tags;
+        }
+        $req = new OpenApiRequest([
             'query' => OpenApiUtilClient::query($query),
         ]);
         $params = new Params([

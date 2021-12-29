@@ -11,12 +11,22 @@ class ecsLabelInfo extends Model
     /**
      * @var string
      */
+    public $instanceTypeFamily;
+
+    /**
+     * @var string
+     */
     public $mountPoint;
 
     /**
      * @var string
      */
     public $mountedTime;
+
+    /**
+     * @var string
+     */
+    public $OSName;
 
     /**
      * @var string
@@ -28,10 +38,12 @@ class ecsLabelInfo extends Model
      */
     public $value;
     protected $_name = [
-        'mountPoint'  => 'MountPoint',
-        'mountedTime' => 'MountedTime',
-        'label'       => 'label',
-        'value'       => 'value',
+        'instanceTypeFamily' => 'InstanceTypeFamily',
+        'mountPoint'         => 'MountPoint',
+        'mountedTime'        => 'MountedTime',
+        'OSName'             => 'OSName',
+        'label'              => 'label',
+        'value'              => 'value',
     ];
 
     public function validate()
@@ -41,11 +53,17 @@ class ecsLabelInfo extends Model
     public function toMap()
     {
         $res = [];
+        if (null !== $this->instanceTypeFamily) {
+            $res['InstanceTypeFamily'] = $this->instanceTypeFamily;
+        }
         if (null !== $this->mountPoint) {
             $res['MountPoint'] = $this->mountPoint;
         }
         if (null !== $this->mountedTime) {
             $res['MountedTime'] = $this->mountedTime;
+        }
+        if (null !== $this->OSName) {
+            $res['OSName'] = $this->OSName;
         }
         if (null !== $this->label) {
             $res['label'] = $this->label;
@@ -65,11 +83,17 @@ class ecsLabelInfo extends Model
     public static function fromMap($map = [])
     {
         $model = new self();
+        if (isset($map['InstanceTypeFamily'])) {
+            $model->instanceTypeFamily = $map['InstanceTypeFamily'];
+        }
         if (isset($map['MountPoint'])) {
             $model->mountPoint = $map['MountPoint'];
         }
         if (isset($map['MountedTime'])) {
             $model->mountedTime = $map['MountedTime'];
+        }
+        if (isset($map['OSName'])) {
+            $model->OSName = $map['OSName'];
         }
         if (isset($map['label'])) {
             $model->label = $map['label'];

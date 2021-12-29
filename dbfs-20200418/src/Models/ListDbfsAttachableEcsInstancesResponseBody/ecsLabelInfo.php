@@ -11,6 +11,16 @@ class ecsLabelInfo extends Model
     /**
      * @var string
      */
+    public $instanceTypeFamily;
+
+    /**
+     * @var string
+     */
+    public $OSName;
+
+    /**
+     * @var string
+     */
     public $label;
 
     /**
@@ -18,8 +28,10 @@ class ecsLabelInfo extends Model
      */
     public $value;
     protected $_name = [
-        'label' => 'label',
-        'value' => 'value',
+        'instanceTypeFamily' => 'InstanceTypeFamily',
+        'OSName'             => 'OSName',
+        'label'              => 'label',
+        'value'              => 'value',
     ];
 
     public function validate()
@@ -29,6 +41,12 @@ class ecsLabelInfo extends Model
     public function toMap()
     {
         $res = [];
+        if (null !== $this->instanceTypeFamily) {
+            $res['InstanceTypeFamily'] = $this->instanceTypeFamily;
+        }
+        if (null !== $this->OSName) {
+            $res['OSName'] = $this->OSName;
+        }
         if (null !== $this->label) {
             $res['label'] = $this->label;
         }
@@ -47,6 +65,12 @@ class ecsLabelInfo extends Model
     public static function fromMap($map = [])
     {
         $model = new self();
+        if (isset($map['InstanceTypeFamily'])) {
+            $model->instanceTypeFamily = $map['InstanceTypeFamily'];
+        }
+        if (isset($map['OSName'])) {
+            $model->OSName = $map['OSName'];
+        }
         if (isset($map['label'])) {
             $model->label = $map['label'];
         }
