@@ -29,8 +29,14 @@ use AlibabaCloud\SDK\Devops\V20210625\Models\FrozenWorkspaceResponse;
 use AlibabaCloud\SDK\Devops\V20210625\Models\GetFlowTagGroupResponse;
 use AlibabaCloud\SDK\Devops\V20210625\Models\GetHostGroupResponse;
 use AlibabaCloud\SDK\Devops\V20210625\Models\GetOrganizationMemberResponse;
+use AlibabaCloud\SDK\Devops\V20210625\Models\GetPipelineArtifactUrlRequest;
+use AlibabaCloud\SDK\Devops\V20210625\Models\GetPipelineArtifactUrlResponse;
+use AlibabaCloud\SDK\Devops\V20210625\Models\GetPipelineEmasArtifactUrlRequest;
+use AlibabaCloud\SDK\Devops\V20210625\Models\GetPipelineEmasArtifactUrlResponse;
 use AlibabaCloud\SDK\Devops\V20210625\Models\GetPipelineResponse;
 use AlibabaCloud\SDK\Devops\V20210625\Models\GetPipelineRunResponse;
+use AlibabaCloud\SDK\Devops\V20210625\Models\GetPipelineScanReportUrlRequest;
+use AlibabaCloud\SDK\Devops\V20210625\Models\GetPipelineScanReportUrlResponse;
 use AlibabaCloud\SDK\Devops\V20210625\Models\GetProjectInfoResponse;
 use AlibabaCloud\SDK\Devops\V20210625\Models\GetVariableGroupResponse;
 use AlibabaCloud\SDK\Devops\V20210625\Models\GetVMDeployOrderResponse;
@@ -40,6 +46,10 @@ use AlibabaCloud\SDK\Devops\V20210625\Models\ListHostGroupsRequest;
 use AlibabaCloud\SDK\Devops\V20210625\Models\ListHostGroupsResponse;
 use AlibabaCloud\SDK\Devops\V20210625\Models\ListOrganizationMembersRequest;
 use AlibabaCloud\SDK\Devops\V20210625\Models\ListOrganizationMembersResponse;
+use AlibabaCloud\SDK\Devops\V20210625\Models\ListPipelineJobHistorysRequest;
+use AlibabaCloud\SDK\Devops\V20210625\Models\ListPipelineJobHistorysResponse;
+use AlibabaCloud\SDK\Devops\V20210625\Models\ListPipelineJobsRequest;
+use AlibabaCloud\SDK\Devops\V20210625\Models\ListPipelineJobsResponse;
 use AlibabaCloud\SDK\Devops\V20210625\Models\ListPipelineRunsRequest;
 use AlibabaCloud\SDK\Devops\V20210625\Models\ListPipelineRunsResponse;
 use AlibabaCloud\SDK\Devops\V20210625\Models\ListPipelinesRequest;
@@ -1010,6 +1020,119 @@ class Devops extends OpenApiClient
     }
 
     /**
+     * @param string                        $organizationId
+     * @param GetPipelineArtifactUrlRequest $request
+     *
+     * @return GetPipelineArtifactUrlResponse
+     */
+    public function getPipelineArtifactUrl($organizationId, $request)
+    {
+        $runtime = new RuntimeOptions([]);
+        $headers = [];
+
+        return $this->getPipelineArtifactUrlWithOptions($organizationId, $request, $headers, $runtime);
+    }
+
+    /**
+     * @param string                        $organizationId
+     * @param GetPipelineArtifactUrlRequest $request
+     * @param string[]                      $headers
+     * @param RuntimeOptions                $runtime
+     *
+     * @return GetPipelineArtifactUrlResponse
+     */
+    public function getPipelineArtifactUrlWithOptions($organizationId, $request, $headers, $runtime)
+    {
+        Utils::validateModel($request);
+        $organizationId = OpenApiUtilClient::getEncodeParam($organizationId);
+        $query          = [];
+        if (!Utils::isUnset($request->fileName)) {
+            $query['fileName'] = $request->fileName;
+        }
+        if (!Utils::isUnset($request->filePath)) {
+            $query['filePath'] = $request->filePath;
+        }
+        $req = new OpenApiRequest([
+            'headers' => $headers,
+            'query'   => OpenApiUtilClient::query($query),
+        ]);
+        $params = new Params([
+            'action'      => 'GetPipelineArtifactUrl',
+            'version'     => '2021-06-25',
+            'protocol'    => 'HTTPS',
+            'pathname'    => '/organization/' . $organizationId . '/pipeline/getArtifactDownloadUrl',
+            'method'      => 'POST',
+            'authType'    => 'AK',
+            'style'       => 'ROA',
+            'reqBodyType' => 'json',
+            'bodyType'    => 'json',
+        ]);
+
+        return GetPipelineArtifactUrlResponse::fromMap($this->callApi($params, $req, $runtime));
+    }
+
+    /**
+     * @param string                            $organizationId
+     * @param string                            $emasJobInstanceId
+     * @param string                            $md5
+     * @param string                            $pipelineId
+     * @param string                            $pipelineRunId
+     * @param GetPipelineEmasArtifactUrlRequest $request
+     *
+     * @return GetPipelineEmasArtifactUrlResponse
+     */
+    public function getPipelineEmasArtifactUrl($organizationId, $emasJobInstanceId, $md5, $pipelineId, $pipelineRunId, $request)
+    {
+        $runtime = new RuntimeOptions([]);
+        $headers = [];
+
+        return $this->getPipelineEmasArtifactUrlWithOptions($organizationId, $emasJobInstanceId, $md5, $pipelineId, $pipelineRunId, $request, $headers, $runtime);
+    }
+
+    /**
+     * @param string                            $organizationId
+     * @param string                            $emasJobInstanceId
+     * @param string                            $md5
+     * @param string                            $pipelineId
+     * @param string                            $pipelineRunId
+     * @param GetPipelineEmasArtifactUrlRequest $request
+     * @param string[]                          $headers
+     * @param RuntimeOptions                    $runtime
+     *
+     * @return GetPipelineEmasArtifactUrlResponse
+     */
+    public function getPipelineEmasArtifactUrlWithOptions($organizationId, $emasJobInstanceId, $md5, $pipelineId, $pipelineRunId, $request, $headers, $runtime)
+    {
+        Utils::validateModel($request);
+        $organizationId    = OpenApiUtilClient::getEncodeParam($organizationId);
+        $emasJobInstanceId = OpenApiUtilClient::getEncodeParam($emasJobInstanceId);
+        $md5               = OpenApiUtilClient::getEncodeParam($md5);
+        $pipelineId        = OpenApiUtilClient::getEncodeParam($pipelineId);
+        $pipelineRunId     = OpenApiUtilClient::getEncodeParam($pipelineRunId);
+        $query             = [];
+        if (!Utils::isUnset($request->serviceConnectionId)) {
+            $query['serviceConnectionId'] = $request->serviceConnectionId;
+        }
+        $req = new OpenApiRequest([
+            'headers' => $headers,
+            'query'   => OpenApiUtilClient::query($query),
+        ]);
+        $params = new Params([
+            'action'      => 'GetPipelineEmasArtifactUrl',
+            'version'     => '2021-06-25',
+            'protocol'    => 'HTTPS',
+            'pathname'    => '/organization/' . $organizationId . '/pipeline/' . $pipelineId . '/pipelineRun/' . $pipelineRunId . '/emas/artifact/' . $emasJobInstanceId . '/' . $md5 . '',
+            'method'      => 'POST',
+            'authType'    => 'AK',
+            'style'       => 'ROA',
+            'reqBodyType' => 'json',
+            'bodyType'    => 'json',
+        ]);
+
+        return GetPipelineEmasArtifactUrlResponse::fromMap($this->callApi($params, $req, $runtime));
+    }
+
+    /**
      * @param string $organizationId
      * @param string $pipelineId
      * @param string $pipelineRunId
@@ -1054,6 +1177,55 @@ class Devops extends OpenApiClient
         ]);
 
         return GetPipelineRunResponse::fromMap($this->callApi($params, $req, $runtime));
+    }
+
+    /**
+     * @param string                          $organizationId
+     * @param GetPipelineScanReportUrlRequest $request
+     *
+     * @return GetPipelineScanReportUrlResponse
+     */
+    public function getPipelineScanReportUrl($organizationId, $request)
+    {
+        $runtime = new RuntimeOptions([]);
+        $headers = [];
+
+        return $this->getPipelineScanReportUrlWithOptions($organizationId, $request, $headers, $runtime);
+    }
+
+    /**
+     * @param string                          $organizationId
+     * @param GetPipelineScanReportUrlRequest $request
+     * @param string[]                        $headers
+     * @param RuntimeOptions                  $runtime
+     *
+     * @return GetPipelineScanReportUrlResponse
+     */
+    public function getPipelineScanReportUrlWithOptions($organizationId, $request, $headers, $runtime)
+    {
+        Utils::validateModel($request);
+        $organizationId = OpenApiUtilClient::getEncodeParam($organizationId);
+        $body           = [];
+        if (!Utils::isUnset($request->reportPath)) {
+            $body['reportPath'] = $request->reportPath;
+        }
+        $req = new OpenApiRequest([
+            'headers' => $headers,
+            'body'    => OpenApiUtilClient::parseToMap($body),
+        ]);
+        $params = new Params([
+            'action'      => 'GetPipelineScanReportUrl',
+            'version'     => '2021-06-25',
+            'protocol'    => 'HTTPS',
+            'pathname'    => '/organization/' . $organizationId . '/pipeline/getPipelineScanReportUrl',
+            'method'      => 'POST',
+            'authType'    => 'AK',
+            'style'       => 'ROA',
+            'reqBodyType' => 'formData',
+            'bodyType'    => 'json',
+        ]);
+
+        return GetPipelineScanReportUrlResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
@@ -1414,6 +1586,119 @@ class Devops extends OpenApiClient
         ]);
 
         return ListOrganizationMembersResponse::fromMap($this->callApi($params, $req, $runtime));
+    }
+
+    /**
+     * @param string                         $organizationId
+     * @param string                         $pipelineId
+     * @param ListPipelineJobHistorysRequest $request
+     *
+     * @return ListPipelineJobHistorysResponse
+     */
+    public function listPipelineJobHistorys($organizationId, $pipelineId, $request)
+    {
+        $runtime = new RuntimeOptions([]);
+        $headers = [];
+
+        return $this->listPipelineJobHistorysWithOptions($organizationId, $pipelineId, $request, $headers, $runtime);
+    }
+
+    /**
+     * @param string                         $organizationId
+     * @param string                         $pipelineId
+     * @param ListPipelineJobHistorysRequest $request
+     * @param string[]                       $headers
+     * @param RuntimeOptions                 $runtime
+     *
+     * @return ListPipelineJobHistorysResponse
+     */
+    public function listPipelineJobHistorysWithOptions($organizationId, $pipelineId, $request, $headers, $runtime)
+    {
+        Utils::validateModel($request);
+        $organizationId = OpenApiUtilClient::getEncodeParam($organizationId);
+        $pipelineId     = OpenApiUtilClient::getEncodeParam($pipelineId);
+        $query          = [];
+        if (!Utils::isUnset($request->category)) {
+            $query['category'] = $request->category;
+        }
+        if (!Utils::isUnset($request->identifier)) {
+            $query['identifier'] = $request->identifier;
+        }
+        if (!Utils::isUnset($request->maxResults)) {
+            $query['maxResults'] = $request->maxResults;
+        }
+        if (!Utils::isUnset($request->nextToken)) {
+            $query['nextToken'] = $request->nextToken;
+        }
+        $req = new OpenApiRequest([
+            'headers' => $headers,
+            'query'   => OpenApiUtilClient::query($query),
+        ]);
+        $params = new Params([
+            'action'      => 'ListPipelineJobHistorys',
+            'version'     => '2021-06-25',
+            'protocol'    => 'HTTPS',
+            'pathname'    => '/organization/' . $organizationId . '/pipeline/' . $pipelineId . '/job/historys',
+            'method'      => 'POST',
+            'authType'    => 'AK',
+            'style'       => 'ROA',
+            'reqBodyType' => 'json',
+            'bodyType'    => 'json',
+        ]);
+
+        return ListPipelineJobHistorysResponse::fromMap($this->callApi($params, $req, $runtime));
+    }
+
+    /**
+     * @param string                  $organizationId
+     * @param string                  $pipelineId
+     * @param ListPipelineJobsRequest $request
+     *
+     * @return ListPipelineJobsResponse
+     */
+    public function listPipelineJobs($organizationId, $pipelineId, $request)
+    {
+        $runtime = new RuntimeOptions([]);
+        $headers = [];
+
+        return $this->listPipelineJobsWithOptions($organizationId, $pipelineId, $request, $headers, $runtime);
+    }
+
+    /**
+     * @param string                  $organizationId
+     * @param string                  $pipelineId
+     * @param ListPipelineJobsRequest $request
+     * @param string[]                $headers
+     * @param RuntimeOptions          $runtime
+     *
+     * @return ListPipelineJobsResponse
+     */
+    public function listPipelineJobsWithOptions($organizationId, $pipelineId, $request, $headers, $runtime)
+    {
+        Utils::validateModel($request);
+        $organizationId = OpenApiUtilClient::getEncodeParam($organizationId);
+        $pipelineId     = OpenApiUtilClient::getEncodeParam($pipelineId);
+        $query          = [];
+        if (!Utils::isUnset($request->category)) {
+            $query['category'] = $request->category;
+        }
+        $req = new OpenApiRequest([
+            'headers' => $headers,
+            'query'   => OpenApiUtilClient::query($query),
+        ]);
+        $params = new Params([
+            'action'      => 'ListPipelineJobs',
+            'version'     => '2021-06-25',
+            'protocol'    => 'HTTPS',
+            'pathname'    => '/organization/' . $organizationId . '/pipeline/' . $pipelineId . '/jobs',
+            'method'      => 'POST',
+            'authType'    => 'AK',
+            'style'       => 'ROA',
+            'reqBodyType' => 'json',
+            'bodyType'    => 'json',
+        ]);
+
+        return ListPipelineJobsResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
