@@ -21,6 +21,11 @@ class UpdateSmarttagTemplateRequest extends Model
     /**
      * @var string
      */
+    public $faceCustomParamsConfig;
+
+    /**
+     * @var string
+     */
     public $industry;
 
     /**
@@ -83,21 +88,22 @@ class UpdateSmarttagTemplateRequest extends Model
      */
     public $templateName;
     protected $_name = [
-        'analyseTypes'         => 'AnalyseTypes',
-        'faceCategoryIds'      => 'FaceCategoryIds',
-        'industry'             => 'Industry',
-        'isDefault'            => 'IsDefault',
-        'keywordConfig'        => 'KeywordConfig',
-        'knowledgeConfig'      => 'KnowledgeConfig',
-        'labelType'            => 'LabelType',
-        'labelVersion'         => 'LabelVersion',
-        'ownerAccount'         => 'OwnerAccount',
-        'ownerId'              => 'OwnerId',
-        'resourceOwnerAccount' => 'ResourceOwnerAccount',
-        'resourceOwnerId'      => 'ResourceOwnerId',
-        'scene'                => 'Scene',
-        'templateId'           => 'TemplateId',
-        'templateName'         => 'TemplateName',
+        'analyseTypes'           => 'AnalyseTypes',
+        'faceCategoryIds'        => 'FaceCategoryIds',
+        'faceCustomParamsConfig' => 'FaceCustomParamsConfig',
+        'industry'               => 'Industry',
+        'isDefault'              => 'IsDefault',
+        'keywordConfig'          => 'KeywordConfig',
+        'knowledgeConfig'        => 'KnowledgeConfig',
+        'labelType'              => 'LabelType',
+        'labelVersion'           => 'LabelVersion',
+        'ownerAccount'           => 'OwnerAccount',
+        'ownerId'                => 'OwnerId',
+        'resourceOwnerAccount'   => 'ResourceOwnerAccount',
+        'resourceOwnerId'        => 'ResourceOwnerId',
+        'scene'                  => 'Scene',
+        'templateId'             => 'TemplateId',
+        'templateName'           => 'TemplateName',
     ];
 
     public function validate()
@@ -112,6 +118,9 @@ class UpdateSmarttagTemplateRequest extends Model
         }
         if (null !== $this->faceCategoryIds) {
             $res['FaceCategoryIds'] = $this->faceCategoryIds;
+        }
+        if (null !== $this->faceCustomParamsConfig) {
+            $res['FaceCustomParamsConfig'] = $this->faceCustomParamsConfig;
         }
         if (null !== $this->industry) {
             $res['Industry'] = $this->industry;
@@ -169,6 +178,9 @@ class UpdateSmarttagTemplateRequest extends Model
         }
         if (isset($map['FaceCategoryIds'])) {
             $model->faceCategoryIds = $map['FaceCategoryIds'];
+        }
+        if (isset($map['FaceCustomParamsConfig'])) {
+            $model->faceCustomParamsConfig = $map['FaceCustomParamsConfig'];
         }
         if (isset($map['Industry'])) {
             $model->industry = $map['Industry'];

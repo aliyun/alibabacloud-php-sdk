@@ -1,3 +1,6 @@
+2021-12-30 Version: 3.3.40
+- Add faceCustomParamsConfig params for AddSmarttagTemplate,UpdateSmarttagTemplate,QuerySmarttagTemplateList interface.
+
 2021-12-09 Version: 1.1.0
 - Support params for QuerySmarttagJob Api.
 - Support params for AddSmarttagTemplate,UpdateSmarttagTemplate,QuerySmarttagTemplateList Api.

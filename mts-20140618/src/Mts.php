@@ -499,15 +499,24 @@ class Mts extends OpenApiClient
     public function activateMediaWorkflowWithOptions($request, $runtime)
     {
         Utils::validateModel($request);
-        $query                         = [];
-        $query['MediaWorkflowId']      = $request->mediaWorkflowId;
-        $query['OwnerAccount']         = $request->ownerAccount;
-        $query['OwnerId']              = $request->ownerId;
-        $query['ResourceOwnerAccount'] = $request->resourceOwnerAccount;
-        $query['ResourceOwnerId']      = $request->resourceOwnerId;
-        $req                           = new OpenApiRequest([
+        $query = [];
+        if (!Utils::isUnset($request->mediaWorkflowId)) {
+            $query['MediaWorkflowId'] = $request->mediaWorkflowId;
+        }
+        if (!Utils::isUnset($request->ownerAccount)) {
+            $query['OwnerAccount'] = $request->ownerAccount;
+        }
+        if (!Utils::isUnset($request->ownerId)) {
+            $query['OwnerId'] = $request->ownerId;
+        }
+        if (!Utils::isUnset($request->resourceOwnerAccount)) {
+            $query['ResourceOwnerAccount'] = $request->resourceOwnerAccount;
+        }
+        if (!Utils::isUnset($request->resourceOwnerId)) {
+            $query['ResourceOwnerId'] = $request->resourceOwnerId;
+        }
+        $req = new OpenApiRequest([
             'query' => OpenApiUtilClient::query($query),
-            'body'  => Utils::toMap($request),
         ]);
         $params = new Params([
             'action'      => 'ActivateMediaWorkflow',
@@ -517,7 +526,7 @@ class Mts extends OpenApiClient
             'method'      => 'POST',
             'authType'    => 'AK',
             'style'       => 'RPC',
-            'reqBodyType' => 'json',
+            'reqBodyType' => 'formData',
             'bodyType'    => 'json',
         ]);
 
@@ -545,17 +554,30 @@ class Mts extends OpenApiClient
     public function addAsrPipelineWithOptions($request, $runtime)
     {
         Utils::validateModel($request);
-        $query                         = [];
-        $query['Name']                 = $request->name;
-        $query['NotifyConfig']         = $request->notifyConfig;
-        $query['OwnerAccount']         = $request->ownerAccount;
-        $query['OwnerId']              = $request->ownerId;
-        $query['Priority']             = $request->priority;
-        $query['ResourceOwnerAccount'] = $request->resourceOwnerAccount;
-        $query['ResourceOwnerId']      = $request->resourceOwnerId;
-        $req                           = new OpenApiRequest([
+        $query = [];
+        if (!Utils::isUnset($request->name)) {
+            $query['Name'] = $request->name;
+        }
+        if (!Utils::isUnset($request->notifyConfig)) {
+            $query['NotifyConfig'] = $request->notifyConfig;
+        }
+        if (!Utils::isUnset($request->ownerAccount)) {
+            $query['OwnerAccount'] = $request->ownerAccount;
+        }
+        if (!Utils::isUnset($request->ownerId)) {
+            $query['OwnerId'] = $request->ownerId;
+        }
+        if (!Utils::isUnset($request->priority)) {
+            $query['Priority'] = $request->priority;
+        }
+        if (!Utils::isUnset($request->resourceOwnerAccount)) {
+            $query['ResourceOwnerAccount'] = $request->resourceOwnerAccount;
+        }
+        if (!Utils::isUnset($request->resourceOwnerId)) {
+            $query['ResourceOwnerId'] = $request->resourceOwnerId;
+        }
+        $req = new OpenApiRequest([
             'query' => OpenApiUtilClient::query($query),
-            'body'  => Utils::toMap($request),
         ]);
         $params = new Params([
             'action'      => 'AddAsrPipeline',
@@ -565,7 +587,7 @@ class Mts extends OpenApiClient
             'method'      => 'POST',
             'authType'    => 'AK',
             'style'       => 'RPC',
-            'reqBodyType' => 'json',
+            'reqBodyType' => 'formData',
             'bodyType'    => 'json',
         ]);
 
@@ -593,16 +615,27 @@ class Mts extends OpenApiClient
     public function addCategoryWithOptions($request, $runtime)
     {
         Utils::validateModel($request);
-        $query                         = [];
-        $query['CateName']             = $request->cateName;
-        $query['OwnerAccount']         = $request->ownerAccount;
-        $query['OwnerId']              = $request->ownerId;
-        $query['ParentId']             = $request->parentId;
-        $query['ResourceOwnerAccount'] = $request->resourceOwnerAccount;
-        $query['ResourceOwnerId']      = $request->resourceOwnerId;
-        $req                           = new OpenApiRequest([
+        $query = [];
+        if (!Utils::isUnset($request->cateName)) {
+            $query['CateName'] = $request->cateName;
+        }
+        if (!Utils::isUnset($request->ownerAccount)) {
+            $query['OwnerAccount'] = $request->ownerAccount;
+        }
+        if (!Utils::isUnset($request->ownerId)) {
+            $query['OwnerId'] = $request->ownerId;
+        }
+        if (!Utils::isUnset($request->parentId)) {
+            $query['ParentId'] = $request->parentId;
+        }
+        if (!Utils::isUnset($request->resourceOwnerAccount)) {
+            $query['ResourceOwnerAccount'] = $request->resourceOwnerAccount;
+        }
+        if (!Utils::isUnset($request->resourceOwnerId)) {
+            $query['ResourceOwnerId'] = $request->resourceOwnerId;
+        }
+        $req = new OpenApiRequest([
             'query' => OpenApiUtilClient::query($query),
-            'body'  => Utils::toMap($request),
         ]);
         $params = new Params([
             'action'      => 'AddCategory',
@@ -612,7 +645,7 @@ class Mts extends OpenApiClient
             'method'      => 'POST',
             'authType'    => 'AK',
             'style'       => 'RPC',
-            'reqBodyType' => 'json',
+            'reqBodyType' => 'formData',
             'bodyType'    => 'json',
         ]);
 
@@ -640,17 +673,30 @@ class Mts extends OpenApiClient
     public function addCensorPipelineWithOptions($request, $runtime)
     {
         Utils::validateModel($request);
-        $query                         = [];
-        $query['Name']                 = $request->name;
-        $query['NotifyConfig']         = $request->notifyConfig;
-        $query['OwnerAccount']         = $request->ownerAccount;
-        $query['OwnerId']              = $request->ownerId;
-        $query['Priority']             = $request->priority;
-        $query['ResourceOwnerAccount'] = $request->resourceOwnerAccount;
-        $query['ResourceOwnerId']      = $request->resourceOwnerId;
-        $req                           = new OpenApiRequest([
+        $query = [];
+        if (!Utils::isUnset($request->name)) {
+            $query['Name'] = $request->name;
+        }
+        if (!Utils::isUnset($request->notifyConfig)) {
+            $query['NotifyConfig'] = $request->notifyConfig;
+        }
+        if (!Utils::isUnset($request->ownerAccount)) {
+            $query['OwnerAccount'] = $request->ownerAccount;
+        }
+        if (!Utils::isUnset($request->ownerId)) {
+            $query['OwnerId'] = $request->ownerId;
+        }
+        if (!Utils::isUnset($request->priority)) {
+            $query['Priority'] = $request->priority;
+        }
+        if (!Utils::isUnset($request->resourceOwnerAccount)) {
+            $query['ResourceOwnerAccount'] = $request->resourceOwnerAccount;
+        }
+        if (!Utils::isUnset($request->resourceOwnerId)) {
+            $query['ResourceOwnerId'] = $request->resourceOwnerId;
+        }
+        $req = new OpenApiRequest([
             'query' => OpenApiUtilClient::query($query),
-            'body'  => Utils::toMap($request),
         ]);
         $params = new Params([
             'action'      => 'AddCensorPipeline',
@@ -660,7 +706,7 @@ class Mts extends OpenApiClient
             'method'      => 'POST',
             'authType'    => 'AK',
             'style'       => 'RPC',
-            'reqBodyType' => 'json',
+            'reqBodyType' => 'formData',
             'bodyType'    => 'json',
         ]);
 
@@ -688,18 +734,33 @@ class Mts extends OpenApiClient
     public function addCoverPipelineWithOptions($request, $runtime)
     {
         Utils::validateModel($request);
-        $query                         = [];
-        $query['Name']                 = $request->name;
-        $query['NotifyConfig']         = $request->notifyConfig;
-        $query['OwnerAccount']         = $request->ownerAccount;
-        $query['OwnerId']              = $request->ownerId;
-        $query['Priority']             = $request->priority;
-        $query['ResourceOwnerAccount'] = $request->resourceOwnerAccount;
-        $query['ResourceOwnerId']      = $request->resourceOwnerId;
-        $query['Role']                 = $request->role;
-        $req                           = new OpenApiRequest([
+        $query = [];
+        if (!Utils::isUnset($request->name)) {
+            $query['Name'] = $request->name;
+        }
+        if (!Utils::isUnset($request->notifyConfig)) {
+            $query['NotifyConfig'] = $request->notifyConfig;
+        }
+        if (!Utils::isUnset($request->ownerAccount)) {
+            $query['OwnerAccount'] = $request->ownerAccount;
+        }
+        if (!Utils::isUnset($request->ownerId)) {
+            $query['OwnerId'] = $request->ownerId;
+        }
+        if (!Utils::isUnset($request->priority)) {
+            $query['Priority'] = $request->priority;
+        }
+        if (!Utils::isUnset($request->resourceOwnerAccount)) {
+            $query['ResourceOwnerAccount'] = $request->resourceOwnerAccount;
+        }
+        if (!Utils::isUnset($request->resourceOwnerId)) {
+            $query['ResourceOwnerId'] = $request->resourceOwnerId;
+        }
+        if (!Utils::isUnset($request->role)) {
+            $query['Role'] = $request->role;
+        }
+        $req = new OpenApiRequest([
             'query' => OpenApiUtilClient::query($query),
-            'body'  => Utils::toMap($request),
         ]);
         $params = new Params([
             'action'      => 'AddCoverPipeline',
@@ -709,7 +770,7 @@ class Mts extends OpenApiClient
             'method'      => 'POST',
             'authType'    => 'AK',
             'style'       => 'RPC',
-            'reqBodyType' => 'json',
+            'reqBodyType' => 'formData',
             'bodyType'    => 'json',
         ]);
 
@@ -737,25 +798,54 @@ class Mts extends OpenApiClient
     public function addMCTemplateWithOptions($request, $runtime)
     {
         Utils::validateModel($request);
-        $query                         = [];
-        $query['Abuse']                = $request->abuse;
-        $query['Ad']                   = $request->ad;
-        $query['Contraband']           = $request->contraband;
-        $query['Live']                 = $request->live;
-        $query['Logo']                 = $request->logo;
-        $query['Name']                 = $request->name;
-        $query['OwnerAccount']         = $request->ownerAccount;
-        $query['OwnerId']              = $request->ownerId;
-        $query['Politics']             = $request->politics;
-        $query['Porn']                 = $request->porn;
-        $query['Qrcode']               = $request->qrcode;
-        $query['ResourceOwnerAccount'] = $request->resourceOwnerAccount;
-        $query['ResourceOwnerId']      = $request->resourceOwnerId;
-        $query['Terrorism']            = $request->terrorism;
-        $query['spam']                 = $request->spam;
-        $req                           = new OpenApiRequest([
+        $query = [];
+        if (!Utils::isUnset($request->abuse)) {
+            $query['Abuse'] = $request->abuse;
+        }
+        if (!Utils::isUnset($request->ad)) {
+            $query['Ad'] = $request->ad;
+        }
+        if (!Utils::isUnset($request->contraband)) {
+            $query['Contraband'] = $request->contraband;
+        }
+        if (!Utils::isUnset($request->live)) {
+            $query['Live'] = $request->live;
+        }
+        if (!Utils::isUnset($request->logo)) {
+            $query['Logo'] = $request->logo;
+        }
+        if (!Utils::isUnset($request->name)) {
+            $query['Name'] = $request->name;
+        }
+        if (!Utils::isUnset($request->ownerAccount)) {
+            $query['OwnerAccount'] = $request->ownerAccount;
+        }
+        if (!Utils::isUnset($request->ownerId)) {
+            $query['OwnerId'] = $request->ownerId;
+        }
+        if (!Utils::isUnset($request->politics)) {
+            $query['Politics'] = $request->politics;
+        }
+        if (!Utils::isUnset($request->porn)) {
+            $query['Porn'] = $request->porn;
+        }
+        if (!Utils::isUnset($request->qrcode)) {
+            $query['Qrcode'] = $request->qrcode;
+        }
+        if (!Utils::isUnset($request->resourceOwnerAccount)) {
+            $query['ResourceOwnerAccount'] = $request->resourceOwnerAccount;
+        }
+        if (!Utils::isUnset($request->resourceOwnerId)) {
+            $query['ResourceOwnerId'] = $request->resourceOwnerId;
+        }
+        if (!Utils::isUnset($request->terrorism)) {
+            $query['Terrorism'] = $request->terrorism;
+        }
+        if (!Utils::isUnset($request->spam)) {
+            $query['spam'] = $request->spam;
+        }
+        $req = new OpenApiRequest([
             'query' => OpenApiUtilClient::query($query),
-            'body'  => Utils::toMap($request),
         ]);
         $params = new Params([
             'action'      => 'AddMCTemplate',
@@ -765,7 +855,7 @@ class Mts extends OpenApiClient
             'method'      => 'POST',
             'authType'    => 'AK',
             'style'       => 'RPC',
-            'reqBodyType' => 'json',
+            'reqBodyType' => 'formData',
             'bodyType'    => 'json',
         ]);
 
@@ -793,24 +883,51 @@ class Mts extends OpenApiClient
     public function addMediaWithOptions($request, $runtime)
     {
         Utils::validateModel($request);
-        $query                          = [];
-        $query['CateId']                = $request->cateId;
-        $query['CoverURL']              = $request->coverURL;
-        $query['Description']           = $request->description;
-        $query['FileURL']               = $request->fileURL;
-        $query['InputUnbind']           = $request->inputUnbind;
-        $query['MediaWorkflowId']       = $request->mediaWorkflowId;
-        $query['MediaWorkflowUserData'] = $request->mediaWorkflowUserData;
-        $query['OverrideParams']        = $request->overrideParams;
-        $query['OwnerAccount']          = $request->ownerAccount;
-        $query['OwnerId']               = $request->ownerId;
-        $query['ResourceOwnerAccount']  = $request->resourceOwnerAccount;
-        $query['ResourceOwnerId']       = $request->resourceOwnerId;
-        $query['Tags']                  = $request->tags;
-        $query['Title']                 = $request->title;
-        $req                            = new OpenApiRequest([
+        $query = [];
+        if (!Utils::isUnset($request->cateId)) {
+            $query['CateId'] = $request->cateId;
+        }
+        if (!Utils::isUnset($request->coverURL)) {
+            $query['CoverURL'] = $request->coverURL;
+        }
+        if (!Utils::isUnset($request->description)) {
+            $query['Description'] = $request->description;
+        }
+        if (!Utils::isUnset($request->fileURL)) {
+            $query['FileURL'] = $request->fileURL;
+        }
+        if (!Utils::isUnset($request->inputUnbind)) {
+            $query['InputUnbind'] = $request->inputUnbind;
+        }
+        if (!Utils::isUnset($request->mediaWorkflowId)) {
+            $query['MediaWorkflowId'] = $request->mediaWorkflowId;
+        }
+        if (!Utils::isUnset($request->mediaWorkflowUserData)) {
+            $query['MediaWorkflowUserData'] = $request->mediaWorkflowUserData;
+        }
+        if (!Utils::isUnset($request->overrideParams)) {
+            $query['OverrideParams'] = $request->overrideParams;
+        }
+        if (!Utils::isUnset($request->ownerAccount)) {
+            $query['OwnerAccount'] = $request->ownerAccount;
+        }
+        if (!Utils::isUnset($request->ownerId)) {
+            $query['OwnerId'] = $request->ownerId;
+        }
+        if (!Utils::isUnset($request->resourceOwnerAccount)) {
+            $query['ResourceOwnerAccount'] = $request->resourceOwnerAccount;
+        }
+        if (!Utils::isUnset($request->resourceOwnerId)) {
+            $query['ResourceOwnerId'] = $request->resourceOwnerId;
+        }
+        if (!Utils::isUnset($request->tags)) {
+            $query['Tags'] = $request->tags;
+        }
+        if (!Utils::isUnset($request->title)) {
+            $query['Title'] = $request->title;
+        }
+        $req = new OpenApiRequest([
             'query' => OpenApiUtilClient::query($query),
-            'body'  => Utils::toMap($request),
         ]);
         $params = new Params([
             'action'      => 'AddMedia',
@@ -820,7 +937,7 @@ class Mts extends OpenApiClient
             'method'      => 'POST',
             'authType'    => 'AK',
             'style'       => 'RPC',
-            'reqBodyType' => 'json',
+            'reqBodyType' => 'formData',
             'bodyType'    => 'json',
         ]);
 
@@ -848,16 +965,27 @@ class Mts extends OpenApiClient
     public function addMediaTagWithOptions($request, $runtime)
     {
         Utils::validateModel($request);
-        $query                         = [];
-        $query['MediaId']              = $request->mediaId;
-        $query['OwnerAccount']         = $request->ownerAccount;
-        $query['OwnerId']              = $request->ownerId;
-        $query['ResourceOwnerAccount'] = $request->resourceOwnerAccount;
-        $query['ResourceOwnerId']      = $request->resourceOwnerId;
-        $query['Tag']                  = $request->tag;
-        $req                           = new OpenApiRequest([
+        $query = [];
+        if (!Utils::isUnset($request->mediaId)) {
+            $query['MediaId'] = $request->mediaId;
+        }
+        if (!Utils::isUnset($request->ownerAccount)) {
+            $query['OwnerAccount'] = $request->ownerAccount;
+        }
+        if (!Utils::isUnset($request->ownerId)) {
+            $query['OwnerId'] = $request->ownerId;
+        }
+        if (!Utils::isUnset($request->resourceOwnerAccount)) {
+            $query['ResourceOwnerAccount'] = $request->resourceOwnerAccount;
+        }
+        if (!Utils::isUnset($request->resourceOwnerId)) {
+            $query['ResourceOwnerId'] = $request->resourceOwnerId;
+        }
+        if (!Utils::isUnset($request->tag)) {
+            $query['Tag'] = $request->tag;
+        }
+        $req = new OpenApiRequest([
             'query' => OpenApiUtilClient::query($query),
-            'body'  => Utils::toMap($request),
         ]);
         $params = new Params([
             'action'      => 'AddMediaTag',
@@ -867,7 +995,7 @@ class Mts extends OpenApiClient
             'method'      => 'POST',
             'authType'    => 'AK',
             'style'       => 'RPC',
-            'reqBodyType' => 'json',
+            'reqBodyType' => 'formData',
             'bodyType'    => 'json',
         ]);
 
@@ -895,17 +1023,30 @@ class Mts extends OpenApiClient
     public function addMediaWorkflowWithOptions($request, $runtime)
     {
         Utils::validateModel($request);
-        $query                         = [];
-        $query['Name']                 = $request->name;
-        $query['OwnerAccount']         = $request->ownerAccount;
-        $query['OwnerId']              = $request->ownerId;
-        $query['ResourceOwnerAccount'] = $request->resourceOwnerAccount;
-        $query['ResourceOwnerId']      = $request->resourceOwnerId;
-        $query['Topology']             = $request->topology;
-        $query['TriggerMode']          = $request->triggerMode;
-        $req                           = new OpenApiRequest([
+        $query = [];
+        if (!Utils::isUnset($request->name)) {
+            $query['Name'] = $request->name;
+        }
+        if (!Utils::isUnset($request->ownerAccount)) {
+            $query['OwnerAccount'] = $request->ownerAccount;
+        }
+        if (!Utils::isUnset($request->ownerId)) {
+            $query['OwnerId'] = $request->ownerId;
+        }
+        if (!Utils::isUnset($request->resourceOwnerAccount)) {
+            $query['ResourceOwnerAccount'] = $request->resourceOwnerAccount;
+        }
+        if (!Utils::isUnset($request->resourceOwnerId)) {
+            $query['ResourceOwnerId'] = $request->resourceOwnerId;
+        }
+        if (!Utils::isUnset($request->topology)) {
+            $query['Topology'] = $request->topology;
+        }
+        if (!Utils::isUnset($request->triggerMode)) {
+            $query['TriggerMode'] = $request->triggerMode;
+        }
+        $req = new OpenApiRequest([
             'query' => OpenApiUtilClient::query($query),
-            'body'  => Utils::toMap($request),
         ]);
         $params = new Params([
             'action'      => 'AddMediaWorkflow',
@@ -915,7 +1056,7 @@ class Mts extends OpenApiClient
             'method'      => 'POST',
             'authType'    => 'AK',
             'style'       => 'RPC',
-            'reqBodyType' => 'json',
+            'reqBodyType' => 'formData',
             'bodyType'    => 'json',
         ]);
 
@@ -943,19 +1084,36 @@ class Mts extends OpenApiClient
     public function addPipelineWithOptions($request, $runtime)
     {
         Utils::validateModel($request);
-        $query                         = [];
-        $query['Name']                 = $request->name;
-        $query['NotifyConfig']         = $request->notifyConfig;
-        $query['OwnerAccount']         = $request->ownerAccount;
-        $query['OwnerId']              = $request->ownerId;
-        $query['ResourceOwnerAccount'] = $request->resourceOwnerAccount;
-        $query['ResourceOwnerId']      = $request->resourceOwnerId;
-        $query['Role']                 = $request->role;
-        $query['Speed']                = $request->speed;
-        $query['SpeedLevel']           = $request->speedLevel;
-        $req                           = new OpenApiRequest([
+        $query = [];
+        if (!Utils::isUnset($request->name)) {
+            $query['Name'] = $request->name;
+        }
+        if (!Utils::isUnset($request->notifyConfig)) {
+            $query['NotifyConfig'] = $request->notifyConfig;
+        }
+        if (!Utils::isUnset($request->ownerAccount)) {
+            $query['OwnerAccount'] = $request->ownerAccount;
+        }
+        if (!Utils::isUnset($request->ownerId)) {
+            $query['OwnerId'] = $request->ownerId;
+        }
+        if (!Utils::isUnset($request->resourceOwnerAccount)) {
+            $query['ResourceOwnerAccount'] = $request->resourceOwnerAccount;
+        }
+        if (!Utils::isUnset($request->resourceOwnerId)) {
+            $query['ResourceOwnerId'] = $request->resourceOwnerId;
+        }
+        if (!Utils::isUnset($request->role)) {
+            $query['Role'] = $request->role;
+        }
+        if (!Utils::isUnset($request->speed)) {
+            $query['Speed'] = $request->speed;
+        }
+        if (!Utils::isUnset($request->speedLevel)) {
+            $query['SpeedLevel'] = $request->speedLevel;
+        }
+        $req = new OpenApiRequest([
             'query' => OpenApiUtilClient::query($query),
-            'body'  => Utils::toMap($request),
         ]);
         $params = new Params([
             'action'      => 'AddPipeline',
@@ -965,7 +1123,7 @@ class Mts extends OpenApiClient
             'method'      => 'POST',
             'authType'    => 'AK',
             'style'       => 'RPC',
-            'reqBodyType' => 'json',
+            'reqBodyType' => 'formData',
             'bodyType'    => 'json',
         ]);
 
@@ -993,17 +1151,30 @@ class Mts extends OpenApiClient
     public function addPornPipelineWithOptions($request, $runtime)
     {
         Utils::validateModel($request);
-        $query                         = [];
-        $query['Name']                 = $request->name;
-        $query['NotifyConfig']         = $request->notifyConfig;
-        $query['OwnerAccount']         = $request->ownerAccount;
-        $query['OwnerId']              = $request->ownerId;
-        $query['Priority']             = $request->priority;
-        $query['ResourceOwnerAccount'] = $request->resourceOwnerAccount;
-        $query['ResourceOwnerId']      = $request->resourceOwnerId;
-        $req                           = new OpenApiRequest([
+        $query = [];
+        if (!Utils::isUnset($request->name)) {
+            $query['Name'] = $request->name;
+        }
+        if (!Utils::isUnset($request->notifyConfig)) {
+            $query['NotifyConfig'] = $request->notifyConfig;
+        }
+        if (!Utils::isUnset($request->ownerAccount)) {
+            $query['OwnerAccount'] = $request->ownerAccount;
+        }
+        if (!Utils::isUnset($request->ownerId)) {
+            $query['OwnerId'] = $request->ownerId;
+        }
+        if (!Utils::isUnset($request->priority)) {
+            $query['Priority'] = $request->priority;
+        }
+        if (!Utils::isUnset($request->resourceOwnerAccount)) {
+            $query['ResourceOwnerAccount'] = $request->resourceOwnerAccount;
+        }
+        if (!Utils::isUnset($request->resourceOwnerId)) {
+            $query['ResourceOwnerId'] = $request->resourceOwnerId;
+        }
+        $req = new OpenApiRequest([
             'query' => OpenApiUtilClient::query($query),
-            'body'  => Utils::toMap($request),
         ]);
         $params = new Params([
             'action'      => 'AddPornPipeline',
@@ -1013,7 +1184,7 @@ class Mts extends OpenApiClient
             'method'      => 'POST',
             'authType'    => 'AK',
             'style'       => 'RPC',
-            'reqBodyType' => 'json',
+            'reqBodyType' => 'formData',
             'bodyType'    => 'json',
         ]);
 
@@ -1041,24 +1212,54 @@ class Mts extends OpenApiClient
     public function addSmarttagTemplateWithOptions($request, $runtime)
     {
         Utils::validateModel($request);
-        $query                         = [];
-        $query['AnalyseTypes']         = $request->analyseTypes;
-        $query['FaceCategoryIds']      = $request->faceCategoryIds;
-        $query['Industry']             = $request->industry;
-        $query['IsDefault']            = $request->isDefault;
-        $query['KeywordConfig']        = $request->keywordConfig;
-        $query['KnowledgeConfig']      = $request->knowledgeConfig;
-        $query['LabelType']            = $request->labelType;
-        $query['LabelVersion']         = $request->labelVersion;
-        $query['OwnerAccount']         = $request->ownerAccount;
-        $query['OwnerId']              = $request->ownerId;
-        $query['ResourceOwnerAccount'] = $request->resourceOwnerAccount;
-        $query['ResourceOwnerId']      = $request->resourceOwnerId;
-        $query['Scene']                = $request->scene;
-        $query['TemplateName']         = $request->templateName;
-        $req                           = new OpenApiRequest([
+        $query = [];
+        if (!Utils::isUnset($request->analyseTypes)) {
+            $query['AnalyseTypes'] = $request->analyseTypes;
+        }
+        if (!Utils::isUnset($request->faceCategoryIds)) {
+            $query['FaceCategoryIds'] = $request->faceCategoryIds;
+        }
+        if (!Utils::isUnset($request->faceCustomParamsConfig)) {
+            $query['FaceCustomParamsConfig'] = $request->faceCustomParamsConfig;
+        }
+        if (!Utils::isUnset($request->industry)) {
+            $query['Industry'] = $request->industry;
+        }
+        if (!Utils::isUnset($request->isDefault)) {
+            $query['IsDefault'] = $request->isDefault;
+        }
+        if (!Utils::isUnset($request->keywordConfig)) {
+            $query['KeywordConfig'] = $request->keywordConfig;
+        }
+        if (!Utils::isUnset($request->knowledgeConfig)) {
+            $query['KnowledgeConfig'] = $request->knowledgeConfig;
+        }
+        if (!Utils::isUnset($request->labelType)) {
+            $query['LabelType'] = $request->labelType;
+        }
+        if (!Utils::isUnset($request->labelVersion)) {
+            $query['LabelVersion'] = $request->labelVersion;
+        }
+        if (!Utils::isUnset($request->ownerAccount)) {
+            $query['OwnerAccount'] = $request->ownerAccount;
+        }
+        if (!Utils::isUnset($request->ownerId)) {
+            $query['OwnerId'] = $request->ownerId;
+        }
+        if (!Utils::isUnset($request->resourceOwnerAccount)) {
+            $query['ResourceOwnerAccount'] = $request->resourceOwnerAccount;
+        }
+        if (!Utils::isUnset($request->resourceOwnerId)) {
+            $query['ResourceOwnerId'] = $request->resourceOwnerId;
+        }
+        if (!Utils::isUnset($request->scene)) {
+            $query['Scene'] = $request->scene;
+        }
+        if (!Utils::isUnset($request->templateName)) {
+            $query['TemplateName'] = $request->templateName;
+        }
+        $req = new OpenApiRequest([
             'query' => OpenApiUtilClient::query($query),
-            'body'  => Utils::toMap($request),
         ]);
         $params = new Params([
             'action'      => 'AddSmarttagTemplate',
@@ -1068,7 +1269,7 @@ class Mts extends OpenApiClient
             'method'      => 'POST',
             'authType'    => 'AK',
             'style'       => 'RPC',
-            'reqBodyType' => 'json',
+            'reqBodyType' => 'formData',
             'bodyType'    => 'json',
         ]);
 
@@ -1096,20 +1297,39 @@ class Mts extends OpenApiClient
     public function addTemplateWithOptions($request, $runtime)
     {
         Utils::validateModel($request);
-        $query                         = [];
-        $query['Audio']                = $request->audio;
-        $query['Container']            = $request->container;
-        $query['MuxConfig']            = $request->muxConfig;
-        $query['Name']                 = $request->name;
-        $query['OwnerAccount']         = $request->ownerAccount;
-        $query['OwnerId']              = $request->ownerId;
-        $query['ResourceOwnerAccount'] = $request->resourceOwnerAccount;
-        $query['ResourceOwnerId']      = $request->resourceOwnerId;
-        $query['TransConfig']          = $request->transConfig;
-        $query['Video']                = $request->video;
-        $req                           = new OpenApiRequest([
+        $query = [];
+        if (!Utils::isUnset($request->audio)) {
+            $query['Audio'] = $request->audio;
+        }
+        if (!Utils::isUnset($request->container)) {
+            $query['Container'] = $request->container;
+        }
+        if (!Utils::isUnset($request->muxConfig)) {
+            $query['MuxConfig'] = $request->muxConfig;
+        }
+        if (!Utils::isUnset($request->name)) {
+            $query['Name'] = $request->name;
+        }
+        if (!Utils::isUnset($request->ownerAccount)) {
+            $query['OwnerAccount'] = $request->ownerAccount;
+        }
+        if (!Utils::isUnset($request->ownerId)) {
+            $query['OwnerId'] = $request->ownerId;
+        }
+        if (!Utils::isUnset($request->resourceOwnerAccount)) {
+            $query['ResourceOwnerAccount'] = $request->resourceOwnerAccount;
+        }
+        if (!Utils::isUnset($request->resourceOwnerId)) {
+            $query['ResourceOwnerId'] = $request->resourceOwnerId;
+        }
+        if (!Utils::isUnset($request->transConfig)) {
+            $query['TransConfig'] = $request->transConfig;
+        }
+        if (!Utils::isUnset($request->video)) {
+            $query['Video'] = $request->video;
+        }
+        $req = new OpenApiRequest([
             'query' => OpenApiUtilClient::query($query),
-            'body'  => Utils::toMap($request),
         ]);
         $params = new Params([
             'action'      => 'AddTemplate',
@@ -1119,7 +1339,7 @@ class Mts extends OpenApiClient
             'method'      => 'POST',
             'authType'    => 'AK',
             'style'       => 'RPC',
-            'reqBodyType' => 'json',
+            'reqBodyType' => 'formData',
             'bodyType'    => 'json',
         ]);
 
@@ -1147,17 +1367,30 @@ class Mts extends OpenApiClient
     public function addTerrorismPipelineWithOptions($request, $runtime)
     {
         Utils::validateModel($request);
-        $query                         = [];
-        $query['Name']                 = $request->name;
-        $query['NotifyConfig']         = $request->notifyConfig;
-        $query['OwnerAccount']         = $request->ownerAccount;
-        $query['OwnerId']              = $request->ownerId;
-        $query['Priority']             = $request->priority;
-        $query['ResourceOwnerAccount'] = $request->resourceOwnerAccount;
-        $query['ResourceOwnerId']      = $request->resourceOwnerId;
-        $req                           = new OpenApiRequest([
+        $query = [];
+        if (!Utils::isUnset($request->name)) {
+            $query['Name'] = $request->name;
+        }
+        if (!Utils::isUnset($request->notifyConfig)) {
+            $query['NotifyConfig'] = $request->notifyConfig;
+        }
+        if (!Utils::isUnset($request->ownerAccount)) {
+            $query['OwnerAccount'] = $request->ownerAccount;
+        }
+        if (!Utils::isUnset($request->ownerId)) {
+            $query['OwnerId'] = $request->ownerId;
+        }
+        if (!Utils::isUnset($request->priority)) {
+            $query['Priority'] = $request->priority;
+        }
+        if (!Utils::isUnset($request->resourceOwnerAccount)) {
+            $query['ResourceOwnerAccount'] = $request->resourceOwnerAccount;
+        }
+        if (!Utils::isUnset($request->resourceOwnerId)) {
+            $query['ResourceOwnerId'] = $request->resourceOwnerId;
+        }
+        $req = new OpenApiRequest([
             'query' => OpenApiUtilClient::query($query),
-            'body'  => Utils::toMap($request),
         ]);
         $params = new Params([
             'action'      => 'AddTerrorismPipeline',
@@ -1167,7 +1400,7 @@ class Mts extends OpenApiClient
             'method'      => 'POST',
             'authType'    => 'AK',
             'style'       => 'RPC',
-            'reqBodyType' => 'json',
+            'reqBodyType' => 'formData',
             'bodyType'    => 'json',
         ]);
 
@@ -1195,16 +1428,27 @@ class Mts extends OpenApiClient
     public function addWaterMarkTemplateWithOptions($request, $runtime)
     {
         Utils::validateModel($request);
-        $query                         = [];
-        $query['Config']               = $request->config;
-        $query['Name']                 = $request->name;
-        $query['OwnerAccount']         = $request->ownerAccount;
-        $query['OwnerId']              = $request->ownerId;
-        $query['ResourceOwnerAccount'] = $request->resourceOwnerAccount;
-        $query['ResourceOwnerId']      = $request->resourceOwnerId;
-        $req                           = new OpenApiRequest([
+        $query = [];
+        if (!Utils::isUnset($request->config)) {
+            $query['Config'] = $request->config;
+        }
+        if (!Utils::isUnset($request->name)) {
+            $query['Name'] = $request->name;
+        }
+        if (!Utils::isUnset($request->ownerAccount)) {
+            $query['OwnerAccount'] = $request->ownerAccount;
+        }
+        if (!Utils::isUnset($request->ownerId)) {
+            $query['OwnerId'] = $request->ownerId;
+        }
+        if (!Utils::isUnset($request->resourceOwnerAccount)) {
+            $query['ResourceOwnerAccount'] = $request->resourceOwnerAccount;
+        }
+        if (!Utils::isUnset($request->resourceOwnerId)) {
+            $query['ResourceOwnerId'] = $request->resourceOwnerId;
+        }
+        $req = new OpenApiRequest([
             'query' => OpenApiUtilClient::query($query),
-            'body'  => Utils::toMap($request),
         ]);
         $params = new Params([
             'action'      => 'AddWaterMarkTemplate',
@@ -1214,7 +1458,7 @@ class Mts extends OpenApiClient
             'method'      => 'POST',
             'authType'    => 'AK',
             'style'       => 'RPC',
-            'reqBodyType' => 'json',
+            'reqBodyType' => 'formData',
             'bodyType'    => 'json',
         ]);
 
@@ -1242,16 +1486,27 @@ class Mts extends OpenApiClient
     public function bindInputBucketWithOptions($request, $runtime)
     {
         Utils::validateModel($request);
-        $query                         = [];
-        $query['Bucket']               = $request->bucket;
-        $query['OwnerAccount']         = $request->ownerAccount;
-        $query['OwnerId']              = $request->ownerId;
-        $query['ResourceOwnerAccount'] = $request->resourceOwnerAccount;
-        $query['ResourceOwnerId']      = $request->resourceOwnerId;
-        $query['RoleArn']              = $request->roleArn;
-        $req                           = new OpenApiRequest([
+        $query = [];
+        if (!Utils::isUnset($request->bucket)) {
+            $query['Bucket'] = $request->bucket;
+        }
+        if (!Utils::isUnset($request->ownerAccount)) {
+            $query['OwnerAccount'] = $request->ownerAccount;
+        }
+        if (!Utils::isUnset($request->ownerId)) {
+            $query['OwnerId'] = $request->ownerId;
+        }
+        if (!Utils::isUnset($request->resourceOwnerAccount)) {
+            $query['ResourceOwnerAccount'] = $request->resourceOwnerAccount;
+        }
+        if (!Utils::isUnset($request->resourceOwnerId)) {
+            $query['ResourceOwnerId'] = $request->resourceOwnerId;
+        }
+        if (!Utils::isUnset($request->roleArn)) {
+            $query['RoleArn'] = $request->roleArn;
+        }
+        $req = new OpenApiRequest([
             'query' => OpenApiUtilClient::query($query),
-            'body'  => Utils::toMap($request),
         ]);
         $params = new Params([
             'action'      => 'BindInputBucket',
@@ -1261,7 +1516,7 @@ class Mts extends OpenApiClient
             'method'      => 'POST',
             'authType'    => 'AK',
             'style'       => 'RPC',
-            'reqBodyType' => 'json',
+            'reqBodyType' => 'formData',
             'bodyType'    => 'json',
         ]);
 
@@ -1289,16 +1544,27 @@ class Mts extends OpenApiClient
     public function bindOutputBucketWithOptions($request, $runtime)
     {
         Utils::validateModel($request);
-        $query                         = [];
-        $query['Bucket']               = $request->bucket;
-        $query['OwnerAccount']         = $request->ownerAccount;
-        $query['OwnerId']              = $request->ownerId;
-        $query['ResourceOwnerAccount'] = $request->resourceOwnerAccount;
-        $query['ResourceOwnerId']      = $request->resourceOwnerId;
-        $query['RoleArn']              = $request->roleArn;
-        $req                           = new OpenApiRequest([
+        $query = [];
+        if (!Utils::isUnset($request->bucket)) {
+            $query['Bucket'] = $request->bucket;
+        }
+        if (!Utils::isUnset($request->ownerAccount)) {
+            $query['OwnerAccount'] = $request->ownerAccount;
+        }
+        if (!Utils::isUnset($request->ownerId)) {
+            $query['OwnerId'] = $request->ownerId;
+        }
+        if (!Utils::isUnset($request->resourceOwnerAccount)) {
+            $query['ResourceOwnerAccount'] = $request->resourceOwnerAccount;
+        }
+        if (!Utils::isUnset($request->resourceOwnerId)) {
+            $query['ResourceOwnerId'] = $request->resourceOwnerId;
+        }
+        if (!Utils::isUnset($request->roleArn)) {
+            $query['RoleArn'] = $request->roleArn;
+        }
+        $req = new OpenApiRequest([
             'query' => OpenApiUtilClient::query($query),
-            'body'  => Utils::toMap($request),
         ]);
         $params = new Params([
             'action'      => 'BindOutputBucket',
@@ -1308,7 +1574,7 @@ class Mts extends OpenApiClient
             'method'      => 'POST',
             'authType'    => 'AK',
             'style'       => 'RPC',
-            'reqBodyType' => 'json',
+            'reqBodyType' => 'formData',
             'bodyType'    => 'json',
         ]);
 
@@ -1336,15 +1602,24 @@ class Mts extends OpenApiClient
     public function cancelJobWithOptions($request, $runtime)
     {
         Utils::validateModel($request);
-        $query                         = [];
-        $query['JobId']                = $request->jobId;
-        $query['OwnerAccount']         = $request->ownerAccount;
-        $query['OwnerId']              = $request->ownerId;
-        $query['ResourceOwnerAccount'] = $request->resourceOwnerAccount;
-        $query['ResourceOwnerId']      = $request->resourceOwnerId;
-        $req                           = new OpenApiRequest([
+        $query = [];
+        if (!Utils::isUnset($request->jobId)) {
+            $query['JobId'] = $request->jobId;
+        }
+        if (!Utils::isUnset($request->ownerAccount)) {
+            $query['OwnerAccount'] = $request->ownerAccount;
+        }
+        if (!Utils::isUnset($request->ownerId)) {
+            $query['OwnerId'] = $request->ownerId;
+        }
+        if (!Utils::isUnset($request->resourceOwnerAccount)) {
+            $query['ResourceOwnerAccount'] = $request->resourceOwnerAccount;
+        }
+        if (!Utils::isUnset($request->resourceOwnerId)) {
+            $query['ResourceOwnerId'] = $request->resourceOwnerId;
+        }
+        $req = new OpenApiRequest([
             'query' => OpenApiUtilClient::query($query),
-            'body'  => Utils::toMap($request),
         ]);
         $params = new Params([
             'action'      => 'CancelJob',
@@ -1354,7 +1629,7 @@ class Mts extends OpenApiClient
             'method'      => 'POST',
             'authType'    => 'AK',
             'style'       => 'RPC',
-            'reqBodyType' => 'json',
+            'reqBodyType' => 'formData',
             'bodyType'    => 'json',
         ]);
 
@@ -1382,14 +1657,21 @@ class Mts extends OpenApiClient
     public function categoryTreeWithOptions($request, $runtime)
     {
         Utils::validateModel($request);
-        $query                         = [];
-        $query['OwnerAccount']         = $request->ownerAccount;
-        $query['OwnerId']              = $request->ownerId;
-        $query['ResourceOwnerAccount'] = $request->resourceOwnerAccount;
-        $query['ResourceOwnerId']      = $request->resourceOwnerId;
-        $req                           = new OpenApiRequest([
+        $query = [];
+        if (!Utils::isUnset($request->ownerAccount)) {
+            $query['OwnerAccount'] = $request->ownerAccount;
+        }
+        if (!Utils::isUnset($request->ownerId)) {
+            $query['OwnerId'] = $request->ownerId;
+        }
+        if (!Utils::isUnset($request->resourceOwnerAccount)) {
+            $query['ResourceOwnerAccount'] = $request->resourceOwnerAccount;
+        }
+        if (!Utils::isUnset($request->resourceOwnerId)) {
+            $query['ResourceOwnerId'] = $request->resourceOwnerId;
+        }
+        $req = new OpenApiRequest([
             'query' => OpenApiUtilClient::query($query),
-            'body'  => Utils::toMap($request),
         ]);
         $params = new Params([
             'action'      => 'CategoryTree',
@@ -1399,7 +1681,7 @@ class Mts extends OpenApiClient
             'method'      => 'POST',
             'authType'    => 'AK',
             'style'       => 'RPC',
-            'reqBodyType' => 'json',
+            'reqBodyType' => 'formData',
             'bodyType'    => 'json',
         ]);
 
@@ -1427,24 +1709,51 @@ class Mts extends OpenApiClient
     public function checkResourceWithOptions($request, $runtime)
     {
         Utils::validateModel($request);
-        $query                   = [];
-        $query['Bid']            = $request->bid;
-        $query['Country']        = $request->country;
-        $query['GmtWakeup']      = $request->gmtWakeup;
-        $query['Hid']            = $request->hid;
-        $query['Interrupt']      = $request->interrupt;
-        $query['Invoker']        = $request->invoker;
-        $query['Level']          = $request->level;
-        $query['Message']        = $request->message;
-        $query['Pk']             = $request->pk;
-        $query['Prompt']         = $request->prompt;
-        $query['Success']        = $request->success;
-        $query['TaskExtraData']  = $request->taskExtraData;
-        $query['TaskIdentifier'] = $request->taskIdentifier;
-        $query['Url']            = $request->url;
-        $req                     = new OpenApiRequest([
+        $query = [];
+        if (!Utils::isUnset($request->bid)) {
+            $query['Bid'] = $request->bid;
+        }
+        if (!Utils::isUnset($request->country)) {
+            $query['Country'] = $request->country;
+        }
+        if (!Utils::isUnset($request->gmtWakeup)) {
+            $query['GmtWakeup'] = $request->gmtWakeup;
+        }
+        if (!Utils::isUnset($request->hid)) {
+            $query['Hid'] = $request->hid;
+        }
+        if (!Utils::isUnset($request->interrupt)) {
+            $query['Interrupt'] = $request->interrupt;
+        }
+        if (!Utils::isUnset($request->invoker)) {
+            $query['Invoker'] = $request->invoker;
+        }
+        if (!Utils::isUnset($request->level)) {
+            $query['Level'] = $request->level;
+        }
+        if (!Utils::isUnset($request->message)) {
+            $query['Message'] = $request->message;
+        }
+        if (!Utils::isUnset($request->pk)) {
+            $query['Pk'] = $request->pk;
+        }
+        if (!Utils::isUnset($request->prompt)) {
+            $query['Prompt'] = $request->prompt;
+        }
+        if (!Utils::isUnset($request->success)) {
+            $query['Success'] = $request->success;
+        }
+        if (!Utils::isUnset($request->taskExtraData)) {
+            $query['TaskExtraData'] = $request->taskExtraData;
+        }
+        if (!Utils::isUnset($request->taskIdentifier)) {
+            $query['TaskIdentifier'] = $request->taskIdentifier;
+        }
+        if (!Utils::isUnset($request->url)) {
+            $query['Url'] = $request->url;
+        }
+        $req = new OpenApiRequest([
             'query' => OpenApiUtilClient::query($query),
-            'body'  => Utils::toMap($request),
         ]);
         $params = new Params([
             'action'      => 'CheckResource',
@@ -1454,7 +1763,7 @@ class Mts extends OpenApiClient
             'method'      => 'POST',
             'authType'    => 'AK',
             'style'       => 'RPC',
-            'reqBodyType' => 'json',
+            'reqBodyType' => 'formData',
             'bodyType'    => 'json',
         ]);
 
@@ -1482,18 +1791,33 @@ class Mts extends OpenApiClient
     public function createFpShotDBWithOptions($request, $runtime)
     {
         Utils::validateModel($request);
-        $query                         = [];
-        $query['Config']               = $request->config;
-        $query['Description']          = $request->description;
-        $query['ModelId']              = $request->modelId;
-        $query['Name']                 = $request->name;
-        $query['OwnerAccount']         = $request->ownerAccount;
-        $query['OwnerId']              = $request->ownerId;
-        $query['ResourceOwnerAccount'] = $request->resourceOwnerAccount;
-        $query['ResourceOwnerId']      = $request->resourceOwnerId;
-        $req                           = new OpenApiRequest([
+        $query = [];
+        if (!Utils::isUnset($request->config)) {
+            $query['Config'] = $request->config;
+        }
+        if (!Utils::isUnset($request->description)) {
+            $query['Description'] = $request->description;
+        }
+        if (!Utils::isUnset($request->modelId)) {
+            $query['ModelId'] = $request->modelId;
+        }
+        if (!Utils::isUnset($request->name)) {
+            $query['Name'] = $request->name;
+        }
+        if (!Utils::isUnset($request->ownerAccount)) {
+            $query['OwnerAccount'] = $request->ownerAccount;
+        }
+        if (!Utils::isUnset($request->ownerId)) {
+            $query['OwnerId'] = $request->ownerId;
+        }
+        if (!Utils::isUnset($request->resourceOwnerAccount)) {
+            $query['ResourceOwnerAccount'] = $request->resourceOwnerAccount;
+        }
+        if (!Utils::isUnset($request->resourceOwnerId)) {
+            $query['ResourceOwnerId'] = $request->resourceOwnerId;
+        }
+        $req = new OpenApiRequest([
             'query' => OpenApiUtilClient::query($query),
-            'body'  => Utils::toMap($request),
         ]);
         $params = new Params([
             'action'      => 'CreateFpShotDB',
@@ -1503,7 +1827,7 @@ class Mts extends OpenApiClient
             'method'      => 'POST',
             'authType'    => 'AK',
             'style'       => 'RPC',
-            'reqBodyType' => 'json',
+            'reqBodyType' => 'formData',
             'bodyType'    => 'json',
         ]);
 
@@ -1531,16 +1855,27 @@ class Mts extends OpenApiClient
     public function createInferenceServerWithOptions($request, $runtime)
     {
         Utils::validateModel($request);
-        $query                 = [];
-        $query['FunctionName'] = $request->functionName;
-        $query['ModelPath']    = $request->modelPath;
-        $query['ModelType']    = $request->modelType;
-        $query['PipelineId']   = $request->pipelineId;
-        $query['TestId']       = $request->testId;
-        $query['UserData']     = $request->userData;
-        $req                   = new OpenApiRequest([
+        $query = [];
+        if (!Utils::isUnset($request->functionName)) {
+            $query['FunctionName'] = $request->functionName;
+        }
+        if (!Utils::isUnset($request->modelPath)) {
+            $query['ModelPath'] = $request->modelPath;
+        }
+        if (!Utils::isUnset($request->modelType)) {
+            $query['ModelType'] = $request->modelType;
+        }
+        if (!Utils::isUnset($request->pipelineId)) {
+            $query['PipelineId'] = $request->pipelineId;
+        }
+        if (!Utils::isUnset($request->testId)) {
+            $query['TestId'] = $request->testId;
+        }
+        if (!Utils::isUnset($request->userData)) {
+            $query['UserData'] = $request->userData;
+        }
+        $req = new OpenApiRequest([
             'query' => OpenApiUtilClient::query($query),
-            'body'  => Utils::toMap($request),
         ]);
         $params = new Params([
             'action'      => 'CreateInferenceServer',
@@ -1550,7 +1885,7 @@ class Mts extends OpenApiClient
             'method'      => 'POST',
             'authType'    => 'AK',
             'style'       => 'RPC',
-            'reqBodyType' => 'json',
+            'reqBodyType' => 'formData',
             'bodyType'    => 'json',
         ]);
 
@@ -1578,15 +1913,24 @@ class Mts extends OpenApiClient
     public function createMcuTemplateWithOptions($request, $runtime)
     {
         Utils::validateModel($request);
-        $query                         = [];
-        $query['OwnerAccount']         = $request->ownerAccount;
-        $query['OwnerId']              = $request->ownerId;
-        $query['ResourceOwnerAccount'] = $request->resourceOwnerAccount;
-        $query['ResourceOwnerId']      = $request->resourceOwnerId;
-        $query['Template']             = $request->template;
-        $req                           = new OpenApiRequest([
+        $query = [];
+        if (!Utils::isUnset($request->ownerAccount)) {
+            $query['OwnerAccount'] = $request->ownerAccount;
+        }
+        if (!Utils::isUnset($request->ownerId)) {
+            $query['OwnerId'] = $request->ownerId;
+        }
+        if (!Utils::isUnset($request->resourceOwnerAccount)) {
+            $query['ResourceOwnerAccount'] = $request->resourceOwnerAccount;
+        }
+        if (!Utils::isUnset($request->resourceOwnerId)) {
+            $query['ResourceOwnerId'] = $request->resourceOwnerId;
+        }
+        if (!Utils::isUnset($request->template)) {
+            $query['Template'] = $request->template;
+        }
+        $req = new OpenApiRequest([
             'query' => OpenApiUtilClient::query($query),
-            'body'  => Utils::toMap($request),
         ]);
         $params = new Params([
             'action'      => 'CreateMcuTemplate',
@@ -1596,7 +1940,7 @@ class Mts extends OpenApiClient
             'method'      => 'POST',
             'authType'    => 'AK',
             'style'       => 'RPC',
-            'reqBodyType' => 'json',
+            'reqBodyType' => 'formData',
             'bodyType'    => 'json',
         ]);
 
@@ -1624,17 +1968,30 @@ class Mts extends OpenApiClient
     public function createSessionWithOptions($request, $runtime)
     {
         Utils::validateModel($request);
-        $query                         = [];
-        $query['EndUserId']            = $request->endUserId;
-        $query['MediaId']              = $request->mediaId;
-        $query['OwnerAccount']         = $request->ownerAccount;
-        $query['OwnerId']              = $request->ownerId;
-        $query['ResourceOwnerAccount'] = $request->resourceOwnerAccount;
-        $query['ResourceOwnerId']      = $request->resourceOwnerId;
-        $query['SessionTime']          = $request->sessionTime;
-        $req                           = new OpenApiRequest([
+        $query = [];
+        if (!Utils::isUnset($request->endUserId)) {
+            $query['EndUserId'] = $request->endUserId;
+        }
+        if (!Utils::isUnset($request->mediaId)) {
+            $query['MediaId'] = $request->mediaId;
+        }
+        if (!Utils::isUnset($request->ownerAccount)) {
+            $query['OwnerAccount'] = $request->ownerAccount;
+        }
+        if (!Utils::isUnset($request->ownerId)) {
+            $query['OwnerId'] = $request->ownerId;
+        }
+        if (!Utils::isUnset($request->resourceOwnerAccount)) {
+            $query['ResourceOwnerAccount'] = $request->resourceOwnerAccount;
+        }
+        if (!Utils::isUnset($request->resourceOwnerId)) {
+            $query['ResourceOwnerId'] = $request->resourceOwnerId;
+        }
+        if (!Utils::isUnset($request->sessionTime)) {
+            $query['SessionTime'] = $request->sessionTime;
+        }
+        $req = new OpenApiRequest([
             'query' => OpenApiUtilClient::query($query),
-            'body'  => Utils::toMap($request),
         ]);
         $params = new Params([
             'action'      => 'CreateSession',
@@ -1644,7 +2001,7 @@ class Mts extends OpenApiClient
             'method'      => 'POST',
             'authType'    => 'AK',
             'style'       => 'RPC',
-            'reqBodyType' => 'json',
+            'reqBodyType' => 'formData',
             'bodyType'    => 'json',
         ]);
 
@@ -1672,15 +2029,24 @@ class Mts extends OpenApiClient
     public function deactivateMediaWorkflowWithOptions($request, $runtime)
     {
         Utils::validateModel($request);
-        $query                         = [];
-        $query['MediaWorkflowId']      = $request->mediaWorkflowId;
-        $query['OwnerAccount']         = $request->ownerAccount;
-        $query['OwnerId']              = $request->ownerId;
-        $query['ResourceOwnerAccount'] = $request->resourceOwnerAccount;
-        $query['ResourceOwnerId']      = $request->resourceOwnerId;
-        $req                           = new OpenApiRequest([
+        $query = [];
+        if (!Utils::isUnset($request->mediaWorkflowId)) {
+            $query['MediaWorkflowId'] = $request->mediaWorkflowId;
+        }
+        if (!Utils::isUnset($request->ownerAccount)) {
+            $query['OwnerAccount'] = $request->ownerAccount;
+        }
+        if (!Utils::isUnset($request->ownerId)) {
+            $query['OwnerId'] = $request->ownerId;
+        }
+        if (!Utils::isUnset($request->resourceOwnerAccount)) {
+            $query['ResourceOwnerAccount'] = $request->resourceOwnerAccount;
+        }
+        if (!Utils::isUnset($request->resourceOwnerId)) {
+            $query['ResourceOwnerId'] = $request->resourceOwnerId;
+        }
+        $req = new OpenApiRequest([
             'query' => OpenApiUtilClient::query($query),
-            'body'  => Utils::toMap($request),
         ]);
         $params = new Params([
             'action'      => 'DeactivateMediaWorkflow',
@@ -1690,7 +2056,7 @@ class Mts extends OpenApiClient
             'method'      => 'POST',
             'authType'    => 'AK',
             'style'       => 'RPC',
-            'reqBodyType' => 'json',
+            'reqBodyType' => 'formData',
             'bodyType'    => 'json',
         ]);
 
@@ -1718,16 +2084,27 @@ class Mts extends OpenApiClient
     public function decryptKeyWithOptions($request, $runtime)
     {
         Utils::validateModel($request);
-        $query                         = [];
-        $query['CiphertextBlob']       = $request->ciphertextBlob;
-        $query['OwnerAccount']         = $request->ownerAccount;
-        $query['OwnerId']              = $request->ownerId;
-        $query['Rand']                 = $request->rand;
-        $query['ResourceOwnerAccount'] = $request->resourceOwnerAccount;
-        $query['ResourceOwnerId']      = $request->resourceOwnerId;
-        $req                           = new OpenApiRequest([
+        $query = [];
+        if (!Utils::isUnset($request->ciphertextBlob)) {
+            $query['CiphertextBlob'] = $request->ciphertextBlob;
+        }
+        if (!Utils::isUnset($request->ownerAccount)) {
+            $query['OwnerAccount'] = $request->ownerAccount;
+        }
+        if (!Utils::isUnset($request->ownerId)) {
+            $query['OwnerId'] = $request->ownerId;
+        }
+        if (!Utils::isUnset($request->rand)) {
+            $query['Rand'] = $request->rand;
+        }
+        if (!Utils::isUnset($request->resourceOwnerAccount)) {
+            $query['ResourceOwnerAccount'] = $request->resourceOwnerAccount;
+        }
+        if (!Utils::isUnset($request->resourceOwnerId)) {
+            $query['ResourceOwnerId'] = $request->resourceOwnerId;
+        }
+        $req = new OpenApiRequest([
             'query' => OpenApiUtilClient::query($query),
-            'body'  => Utils::toMap($request),
         ]);
         $params = new Params([
             'action'      => 'DecryptKey',
@@ -1737,7 +2114,7 @@ class Mts extends OpenApiClient
             'method'      => 'POST',
             'authType'    => 'AK',
             'style'       => 'RPC',
-            'reqBodyType' => 'json',
+            'reqBodyType' => 'formData',
             'bodyType'    => 'json',
         ]);
 
@@ -1765,15 +2142,24 @@ class Mts extends OpenApiClient
     public function deleteCategoryWithOptions($request, $runtime)
     {
         Utils::validateModel($request);
-        $query                         = [];
-        $query['CateId']               = $request->cateId;
-        $query['OwnerAccount']         = $request->ownerAccount;
-        $query['OwnerId']              = $request->ownerId;
-        $query['ResourceOwnerAccount'] = $request->resourceOwnerAccount;
-        $query['ResourceOwnerId']      = $request->resourceOwnerId;
-        $req                           = new OpenApiRequest([
+        $query = [];
+        if (!Utils::isUnset($request->cateId)) {
+            $query['CateId'] = $request->cateId;
+        }
+        if (!Utils::isUnset($request->ownerAccount)) {
+            $query['OwnerAccount'] = $request->ownerAccount;
+        }
+        if (!Utils::isUnset($request->ownerId)) {
+            $query['OwnerId'] = $request->ownerId;
+        }
+        if (!Utils::isUnset($request->resourceOwnerAccount)) {
+            $query['ResourceOwnerAccount'] = $request->resourceOwnerAccount;
+        }
+        if (!Utils::isUnset($request->resourceOwnerId)) {
+            $query['ResourceOwnerId'] = $request->resourceOwnerId;
+        }
+        $req = new OpenApiRequest([
             'query' => OpenApiUtilClient::query($query),
-            'body'  => Utils::toMap($request),
         ]);
         $params = new Params([
             'action'      => 'DeleteCategory',
@@ -1783,7 +2169,7 @@ class Mts extends OpenApiClient
             'method'      => 'POST',
             'authType'    => 'AK',
             'style'       => 'RPC',
-            'reqBodyType' => 'json',
+            'reqBodyType' => 'formData',
             'bodyType'    => 'json',
         ]);
 
@@ -1811,15 +2197,24 @@ class Mts extends OpenApiClient
     public function deleteMCTemplateWithOptions($request, $runtime)
     {
         Utils::validateModel($request);
-        $query                         = [];
-        $query['OwnerAccount']         = $request->ownerAccount;
-        $query['OwnerId']              = $request->ownerId;
-        $query['ResourceOwnerAccount'] = $request->resourceOwnerAccount;
-        $query['ResourceOwnerId']      = $request->resourceOwnerId;
-        $query['TemplateId']           = $request->templateId;
-        $req                           = new OpenApiRequest([
+        $query = [];
+        if (!Utils::isUnset($request->ownerAccount)) {
+            $query['OwnerAccount'] = $request->ownerAccount;
+        }
+        if (!Utils::isUnset($request->ownerId)) {
+            $query['OwnerId'] = $request->ownerId;
+        }
+        if (!Utils::isUnset($request->resourceOwnerAccount)) {
+            $query['ResourceOwnerAccount'] = $request->resourceOwnerAccount;
+        }
+        if (!Utils::isUnset($request->resourceOwnerId)) {
+            $query['ResourceOwnerId'] = $request->resourceOwnerId;
+        }
+        if (!Utils::isUnset($request->templateId)) {
+            $query['TemplateId'] = $request->templateId;
+        }
+        $req = new OpenApiRequest([
             'query' => OpenApiUtilClient::query($query),
-            'body'  => Utils::toMap($request),
         ]);
         $params = new Params([
             'action'      => 'DeleteMCTemplate',
@@ -1829,7 +2224,7 @@ class Mts extends OpenApiClient
             'method'      => 'POST',
             'authType'    => 'AK',
             'style'       => 'RPC',
-            'reqBodyType' => 'json',
+            'reqBodyType' => 'formData',
             'bodyType'    => 'json',
         ]);
 
@@ -1857,15 +2252,24 @@ class Mts extends OpenApiClient
     public function deleteMcuJobWithOptions($request, $runtime)
     {
         Utils::validateModel($request);
-        $query                         = [];
-        $query['JobIds']               = $request->jobIds;
-        $query['OwnerAccount']         = $request->ownerAccount;
-        $query['OwnerId']              = $request->ownerId;
-        $query['ResourceOwnerAccount'] = $request->resourceOwnerAccount;
-        $query['ResourceOwnerId']      = $request->resourceOwnerId;
-        $req                           = new OpenApiRequest([
+        $query = [];
+        if (!Utils::isUnset($request->jobIds)) {
+            $query['JobIds'] = $request->jobIds;
+        }
+        if (!Utils::isUnset($request->ownerAccount)) {
+            $query['OwnerAccount'] = $request->ownerAccount;
+        }
+        if (!Utils::isUnset($request->ownerId)) {
+            $query['OwnerId'] = $request->ownerId;
+        }
+        if (!Utils::isUnset($request->resourceOwnerAccount)) {
+            $query['ResourceOwnerAccount'] = $request->resourceOwnerAccount;
+        }
+        if (!Utils::isUnset($request->resourceOwnerId)) {
+            $query['ResourceOwnerId'] = $request->resourceOwnerId;
+        }
+        $req = new OpenApiRequest([
             'query' => OpenApiUtilClient::query($query),
-            'body'  => Utils::toMap($request),
         ]);
         $params = new Params([
             'action'      => 'DeleteMcuJob',
@@ -1875,7 +2279,7 @@ class Mts extends OpenApiClient
             'method'      => 'POST',
             'authType'    => 'AK',
             'style'       => 'RPC',
-            'reqBodyType' => 'json',
+            'reqBodyType' => 'formData',
             'bodyType'    => 'json',
         ]);
 
@@ -1903,15 +2307,24 @@ class Mts extends OpenApiClient
     public function deleteMcuTemplateWithOptions($request, $runtime)
     {
         Utils::validateModel($request);
-        $query                         = [];
-        $query['OwnerAccount']         = $request->ownerAccount;
-        $query['OwnerId']              = $request->ownerId;
-        $query['ResourceOwnerAccount'] = $request->resourceOwnerAccount;
-        $query['ResourceOwnerId']      = $request->resourceOwnerId;
-        $query['TemplateId']           = $request->templateId;
-        $req                           = new OpenApiRequest([
+        $query = [];
+        if (!Utils::isUnset($request->ownerAccount)) {
+            $query['OwnerAccount'] = $request->ownerAccount;
+        }
+        if (!Utils::isUnset($request->ownerId)) {
+            $query['OwnerId'] = $request->ownerId;
+        }
+        if (!Utils::isUnset($request->resourceOwnerAccount)) {
+            $query['ResourceOwnerAccount'] = $request->resourceOwnerAccount;
+        }
+        if (!Utils::isUnset($request->resourceOwnerId)) {
+            $query['ResourceOwnerId'] = $request->resourceOwnerId;
+        }
+        if (!Utils::isUnset($request->templateId)) {
+            $query['TemplateId'] = $request->templateId;
+        }
+        $req = new OpenApiRequest([
             'query' => OpenApiUtilClient::query($query),
-            'body'  => Utils::toMap($request),
         ]);
         $params = new Params([
             'action'      => 'DeleteMcuTemplate',
@@ -1921,7 +2334,7 @@ class Mts extends OpenApiClient
             'method'      => 'POST',
             'authType'    => 'AK',
             'style'       => 'RPC',
-            'reqBodyType' => 'json',
+            'reqBodyType' => 'formData',
             'bodyType'    => 'json',
         ]);
 
@@ -1949,15 +2362,24 @@ class Mts extends OpenApiClient
     public function deleteMediaWithOptions($request, $runtime)
     {
         Utils::validateModel($request);
-        $query                         = [];
-        $query['MediaIds']             = $request->mediaIds;
-        $query['OwnerAccount']         = $request->ownerAccount;
-        $query['OwnerId']              = $request->ownerId;
-        $query['ResourceOwnerAccount'] = $request->resourceOwnerAccount;
-        $query['ResourceOwnerId']      = $request->resourceOwnerId;
-        $req                           = new OpenApiRequest([
+        $query = [];
+        if (!Utils::isUnset($request->mediaIds)) {
+            $query['MediaIds'] = $request->mediaIds;
+        }
+        if (!Utils::isUnset($request->ownerAccount)) {
+            $query['OwnerAccount'] = $request->ownerAccount;
+        }
+        if (!Utils::isUnset($request->ownerId)) {
+            $query['OwnerId'] = $request->ownerId;
+        }
+        if (!Utils::isUnset($request->resourceOwnerAccount)) {
+            $query['ResourceOwnerAccount'] = $request->resourceOwnerAccount;
+        }
+        if (!Utils::isUnset($request->resourceOwnerId)) {
+            $query['ResourceOwnerId'] = $request->resourceOwnerId;
+        }
+        $req = new OpenApiRequest([
             'query' => OpenApiUtilClient::query($query),
-            'body'  => Utils::toMap($request),
         ]);
         $params = new Params([
             'action'      => 'DeleteMedia',
@@ -1967,7 +2389,7 @@ class Mts extends OpenApiClient
             'method'      => 'POST',
             'authType'    => 'AK',
             'style'       => 'RPC',
-            'reqBodyType' => 'json',
+            'reqBodyType' => 'formData',
             'bodyType'    => 'json',
         ]);
 
@@ -1995,16 +2417,27 @@ class Mts extends OpenApiClient
     public function deleteMediaTagWithOptions($request, $runtime)
     {
         Utils::validateModel($request);
-        $query                         = [];
-        $query['MediaId']              = $request->mediaId;
-        $query['OwnerAccount']         = $request->ownerAccount;
-        $query['OwnerId']              = $request->ownerId;
-        $query['ResourceOwnerAccount'] = $request->resourceOwnerAccount;
-        $query['ResourceOwnerId']      = $request->resourceOwnerId;
-        $query['Tag']                  = $request->tag;
-        $req                           = new OpenApiRequest([
+        $query = [];
+        if (!Utils::isUnset($request->mediaId)) {
+            $query['MediaId'] = $request->mediaId;
+        }
+        if (!Utils::isUnset($request->ownerAccount)) {
+            $query['OwnerAccount'] = $request->ownerAccount;
+        }
+        if (!Utils::isUnset($request->ownerId)) {
+            $query['OwnerId'] = $request->ownerId;
+        }
+        if (!Utils::isUnset($request->resourceOwnerAccount)) {
+            $query['ResourceOwnerAccount'] = $request->resourceOwnerAccount;
+        }
+        if (!Utils::isUnset($request->resourceOwnerId)) {
+            $query['ResourceOwnerId'] = $request->resourceOwnerId;
+        }
+        if (!Utils::isUnset($request->tag)) {
+            $query['Tag'] = $request->tag;
+        }
+        $req = new OpenApiRequest([
             'query' => OpenApiUtilClient::query($query),
-            'body'  => Utils::toMap($request),
         ]);
         $params = new Params([
             'action'      => 'DeleteMediaTag',
@@ -2014,7 +2447,7 @@ class Mts extends OpenApiClient
             'method'      => 'POST',
             'authType'    => 'AK',
             'style'       => 'RPC',
-            'reqBodyType' => 'json',
+            'reqBodyType' => 'formData',
             'bodyType'    => 'json',
         ]);
 
@@ -2042,15 +2475,24 @@ class Mts extends OpenApiClient
     public function deleteMediaWorkflowWithOptions($request, $runtime)
     {
         Utils::validateModel($request);
-        $query                         = [];
-        $query['MediaWorkflowId']      = $request->mediaWorkflowId;
-        $query['OwnerAccount']         = $request->ownerAccount;
-        $query['OwnerId']              = $request->ownerId;
-        $query['ResourceOwnerAccount'] = $request->resourceOwnerAccount;
-        $query['ResourceOwnerId']      = $request->resourceOwnerId;
-        $req                           = new OpenApiRequest([
+        $query = [];
+        if (!Utils::isUnset($request->mediaWorkflowId)) {
+            $query['MediaWorkflowId'] = $request->mediaWorkflowId;
+        }
+        if (!Utils::isUnset($request->ownerAccount)) {
+            $query['OwnerAccount'] = $request->ownerAccount;
+        }
+        if (!Utils::isUnset($request->ownerId)) {
+            $query['OwnerId'] = $request->ownerId;
+        }
+        if (!Utils::isUnset($request->resourceOwnerAccount)) {
+            $query['ResourceOwnerAccount'] = $request->resourceOwnerAccount;
+        }
+        if (!Utils::isUnset($request->resourceOwnerId)) {
+            $query['ResourceOwnerId'] = $request->resourceOwnerId;
+        }
+        $req = new OpenApiRequest([
             'query' => OpenApiUtilClient::query($query),
-            'body'  => Utils::toMap($request),
         ]);
         $params = new Params([
             'action'      => 'DeleteMediaWorkflow',
@@ -2060,7 +2502,7 @@ class Mts extends OpenApiClient
             'method'      => 'POST',
             'authType'    => 'AK',
             'style'       => 'RPC',
-            'reqBodyType' => 'json',
+            'reqBodyType' => 'formData',
             'bodyType'    => 'json',
         ]);
 
@@ -2088,15 +2530,24 @@ class Mts extends OpenApiClient
     public function deletePipelineWithOptions($request, $runtime)
     {
         Utils::validateModel($request);
-        $query                         = [];
-        $query['OwnerAccount']         = $request->ownerAccount;
-        $query['OwnerId']              = $request->ownerId;
-        $query['PipelineId']           = $request->pipelineId;
-        $query['ResourceOwnerAccount'] = $request->resourceOwnerAccount;
-        $query['ResourceOwnerId']      = $request->resourceOwnerId;
-        $req                           = new OpenApiRequest([
+        $query = [];
+        if (!Utils::isUnset($request->ownerAccount)) {
+            $query['OwnerAccount'] = $request->ownerAccount;
+        }
+        if (!Utils::isUnset($request->ownerId)) {
+            $query['OwnerId'] = $request->ownerId;
+        }
+        if (!Utils::isUnset($request->pipelineId)) {
+            $query['PipelineId'] = $request->pipelineId;
+        }
+        if (!Utils::isUnset($request->resourceOwnerAccount)) {
+            $query['ResourceOwnerAccount'] = $request->resourceOwnerAccount;
+        }
+        if (!Utils::isUnset($request->resourceOwnerId)) {
+            $query['ResourceOwnerId'] = $request->resourceOwnerId;
+        }
+        $req = new OpenApiRequest([
             'query' => OpenApiUtilClient::query($query),
-            'body'  => Utils::toMap($request),
         ]);
         $params = new Params([
             'action'      => 'DeletePipeline',
@@ -2106,7 +2557,7 @@ class Mts extends OpenApiClient
             'method'      => 'POST',
             'authType'    => 'AK',
             'style'       => 'RPC',
-            'reqBodyType' => 'json',
+            'reqBodyType' => 'formData',
             'bodyType'    => 'json',
         ]);
 
@@ -2134,15 +2585,24 @@ class Mts extends OpenApiClient
     public function deleteSmarttagTemplateWithOptions($request, $runtime)
     {
         Utils::validateModel($request);
-        $query                         = [];
-        $query['OwnerAccount']         = $request->ownerAccount;
-        $query['OwnerId']              = $request->ownerId;
-        $query['ResourceOwnerAccount'] = $request->resourceOwnerAccount;
-        $query['ResourceOwnerId']      = $request->resourceOwnerId;
-        $query['TemplateId']           = $request->templateId;
-        $req                           = new OpenApiRequest([
+        $query = [];
+        if (!Utils::isUnset($request->ownerAccount)) {
+            $query['OwnerAccount'] = $request->ownerAccount;
+        }
+        if (!Utils::isUnset($request->ownerId)) {
+            $query['OwnerId'] = $request->ownerId;
+        }
+        if (!Utils::isUnset($request->resourceOwnerAccount)) {
+            $query['ResourceOwnerAccount'] = $request->resourceOwnerAccount;
+        }
+        if (!Utils::isUnset($request->resourceOwnerId)) {
+            $query['ResourceOwnerId'] = $request->resourceOwnerId;
+        }
+        if (!Utils::isUnset($request->templateId)) {
+            $query['TemplateId'] = $request->templateId;
+        }
+        $req = new OpenApiRequest([
             'query' => OpenApiUtilClient::query($query),
-            'body'  => Utils::toMap($request),
         ]);
         $params = new Params([
             'action'      => 'DeleteSmarttagTemplate',
@@ -2152,7 +2612,7 @@ class Mts extends OpenApiClient
             'method'      => 'POST',
             'authType'    => 'AK',
             'style'       => 'RPC',
-            'reqBodyType' => 'json',
+            'reqBodyType' => 'formData',
             'bodyType'    => 'json',
         ]);
 
@@ -2180,15 +2640,24 @@ class Mts extends OpenApiClient
     public function deleteTemplateWithOptions($request, $runtime)
     {
         Utils::validateModel($request);
-        $query                         = [];
-        $query['OwnerAccount']         = $request->ownerAccount;
-        $query['OwnerId']              = $request->ownerId;
-        $query['ResourceOwnerAccount'] = $request->resourceOwnerAccount;
-        $query['ResourceOwnerId']      = $request->resourceOwnerId;
-        $query['TemplateId']           = $request->templateId;
-        $req                           = new OpenApiRequest([
+        $query = [];
+        if (!Utils::isUnset($request->ownerAccount)) {
+            $query['OwnerAccount'] = $request->ownerAccount;
+        }
+        if (!Utils::isUnset($request->ownerId)) {
+            $query['OwnerId'] = $request->ownerId;
+        }
+        if (!Utils::isUnset($request->resourceOwnerAccount)) {
+            $query['ResourceOwnerAccount'] = $request->resourceOwnerAccount;
+        }
+        if (!Utils::isUnset($request->resourceOwnerId)) {
+            $query['ResourceOwnerId'] = $request->resourceOwnerId;
+        }
+        if (!Utils::isUnset($request->templateId)) {
+            $query['TemplateId'] = $request->templateId;
+        }
+        $req = new OpenApiRequest([
             'query' => OpenApiUtilClient::query($query),
-            'body'  => Utils::toMap($request),
         ]);
         $params = new Params([
             'action'      => 'DeleteTemplate',
@@ -2198,7 +2667,7 @@ class Mts extends OpenApiClient
             'method'      => 'POST',
             'authType'    => 'AK',
             'style'       => 'RPC',
-            'reqBodyType' => 'json',
+            'reqBodyType' => 'formData',
             'bodyType'    => 'json',
         ]);
 
@@ -2226,15 +2695,24 @@ class Mts extends OpenApiClient
     public function deleteWaterMarkTemplateWithOptions($request, $runtime)
     {
         Utils::validateModel($request);
-        $query                         = [];
-        $query['OwnerAccount']         = $request->ownerAccount;
-        $query['OwnerId']              = $request->ownerId;
-        $query['ResourceOwnerAccount'] = $request->resourceOwnerAccount;
-        $query['ResourceOwnerId']      = $request->resourceOwnerId;
-        $query['WaterMarkTemplateId']  = $request->waterMarkTemplateId;
-        $req                           = new OpenApiRequest([
+        $query = [];
+        if (!Utils::isUnset($request->ownerAccount)) {
+            $query['OwnerAccount'] = $request->ownerAccount;
+        }
+        if (!Utils::isUnset($request->ownerId)) {
+            $query['OwnerId'] = $request->ownerId;
+        }
+        if (!Utils::isUnset($request->resourceOwnerAccount)) {
+            $query['ResourceOwnerAccount'] = $request->resourceOwnerAccount;
+        }
+        if (!Utils::isUnset($request->resourceOwnerId)) {
+            $query['ResourceOwnerId'] = $request->resourceOwnerId;
+        }
+        if (!Utils::isUnset($request->waterMarkTemplateId)) {
+            $query['WaterMarkTemplateId'] = $request->waterMarkTemplateId;
+        }
+        $req = new OpenApiRequest([
             'query' => OpenApiUtilClient::query($query),
-            'body'  => Utils::toMap($request),
         ]);
         $params = new Params([
             'action'      => 'DeleteWaterMarkTemplate',
@@ -2244,7 +2722,7 @@ class Mts extends OpenApiClient
             'method'      => 'POST',
             'authType'    => 'AK',
             'style'       => 'RPC',
-            'reqBodyType' => 'json',
+            'reqBodyType' => 'formData',
             'bodyType'    => 'json',
         ]);
 
@@ -2272,12 +2750,15 @@ class Mts extends OpenApiClient
     public function describeMtsUserResourcePackageWithOptions($request, $runtime)
     {
         Utils::validateModel($request);
-        $query                  = [];
-        $query['OwnerId']       = $request->ownerId;
-        $query['SecurityToken'] = $request->securityToken;
-        $req                    = new OpenApiRequest([
+        $query = [];
+        if (!Utils::isUnset($request->ownerId)) {
+            $query['OwnerId'] = $request->ownerId;
+        }
+        if (!Utils::isUnset($request->securityToken)) {
+            $query['SecurityToken'] = $request->securityToken;
+        }
+        $req = new OpenApiRequest([
             'query' => OpenApiUtilClient::query($query),
-            'body'  => Utils::toMap($request),
         ]);
         $params = new Params([
             'action'      => 'DescribeMtsUserResourcePackage',
@@ -2287,7 +2768,7 @@ class Mts extends OpenApiClient
             'method'      => 'POST',
             'authType'    => 'AK',
             'style'       => 'RPC',
-            'reqBodyType' => 'json',
+            'reqBodyType' => 'formData',
             'bodyType'    => 'json',
         ]);
 
@@ -2315,11 +2796,12 @@ class Mts extends OpenApiClient
     public function detectImageSyncWithOptions($request, $runtime)
     {
         Utils::validateModel($request);
-        $query          = [];
-        $query['Image'] = $request->image;
-        $req            = new OpenApiRequest([
+        $query = [];
+        if (!Utils::isUnset($request->image)) {
+            $query['Image'] = $request->image;
+        }
+        $req = new OpenApiRequest([
             'query' => OpenApiUtilClient::query($query),
-            'body'  => Utils::toMap($request),
         ]);
         $params = new Params([
             'action'      => 'DetectImageSync',
@@ -2329,7 +2811,7 @@ class Mts extends OpenApiClient
             'method'      => 'POST',
             'authType'    => 'AK',
             'style'       => 'RPC',
-            'reqBodyType' => 'json',
+            'reqBodyType' => 'formData',
             'bodyType'    => 'json',
         ]);
 
@@ -2369,7 +2851,7 @@ class Mts extends OpenApiClient
             'method'      => 'GET',
             'authType'    => 'AK',
             'style'       => 'RPC',
-            'reqBodyType' => 'json',
+            'reqBodyType' => 'formData',
             'bodyType'    => 'json',
         ]);
 
@@ -2397,19 +2879,36 @@ class Mts extends OpenApiClient
     public function getLicenseWithOptions($request, $runtime)
     {
         Utils::validateModel($request);
-        $query                         = [];
-        $query['Data']                 = $request->data;
-        $query['Header']               = $request->header;
-        $query['LicenseUrl']           = $request->licenseUrl;
-        $query['MediaId']              = $request->mediaId;
-        $query['OwnerAccount']         = $request->ownerAccount;
-        $query['OwnerId']              = $request->ownerId;
-        $query['ResourceOwnerAccount'] = $request->resourceOwnerAccount;
-        $query['ResourceOwnerId']      = $request->resourceOwnerId;
-        $query['Type']                 = $request->type;
-        $req                           = new OpenApiRequest([
+        $query = [];
+        if (!Utils::isUnset($request->data)) {
+            $query['Data'] = $request->data;
+        }
+        if (!Utils::isUnset($request->header)) {
+            $query['Header'] = $request->header;
+        }
+        if (!Utils::isUnset($request->licenseUrl)) {
+            $query['LicenseUrl'] = $request->licenseUrl;
+        }
+        if (!Utils::isUnset($request->mediaId)) {
+            $query['MediaId'] = $request->mediaId;
+        }
+        if (!Utils::isUnset($request->ownerAccount)) {
+            $query['OwnerAccount'] = $request->ownerAccount;
+        }
+        if (!Utils::isUnset($request->ownerId)) {
+            $query['OwnerId'] = $request->ownerId;
+        }
+        if (!Utils::isUnset($request->resourceOwnerAccount)) {
+            $query['ResourceOwnerAccount'] = $request->resourceOwnerAccount;
+        }
+        if (!Utils::isUnset($request->resourceOwnerId)) {
+            $query['ResourceOwnerId'] = $request->resourceOwnerId;
+        }
+        if (!Utils::isUnset($request->type)) {
+            $query['Type'] = $request->type;
+        }
+        $req = new OpenApiRequest([
             'query' => OpenApiUtilClient::query($query),
-            'body'  => Utils::toMap($request),
         ]);
         $params = new Params([
             'action'      => 'GetLicense',
@@ -2419,7 +2918,7 @@ class Mts extends OpenApiClient
             'method'      => 'POST',
             'authType'    => 'AK',
             'style'       => 'RPC',
-            'reqBodyType' => 'json',
+            'reqBodyType' => 'formData',
             'bodyType'    => 'json',
         ]);
 
@@ -2447,15 +2946,24 @@ class Mts extends OpenApiClient
     public function getPackageWithOptions($request, $runtime)
     {
         Utils::validateModel($request);
-        $query                         = [];
-        $query['Data']                 = $request->data;
-        $query['OwnerAccount']         = $request->ownerAccount;
-        $query['OwnerId']              = $request->ownerId;
-        $query['ResourceOwnerAccount'] = $request->resourceOwnerAccount;
-        $query['ResourceOwnerId']      = $request->resourceOwnerId;
-        $req                           = new OpenApiRequest([
+        $query = [];
+        if (!Utils::isUnset($request->data)) {
+            $query['Data'] = $request->data;
+        }
+        if (!Utils::isUnset($request->ownerAccount)) {
+            $query['OwnerAccount'] = $request->ownerAccount;
+        }
+        if (!Utils::isUnset($request->ownerId)) {
+            $query['OwnerId'] = $request->ownerId;
+        }
+        if (!Utils::isUnset($request->resourceOwnerAccount)) {
+            $query['ResourceOwnerAccount'] = $request->resourceOwnerAccount;
+        }
+        if (!Utils::isUnset($request->resourceOwnerId)) {
+            $query['ResourceOwnerId'] = $request->resourceOwnerId;
+        }
+        $req = new OpenApiRequest([
             'query' => OpenApiUtilClient::query($query),
-            'body'  => Utils::toMap($request),
         ]);
         $params = new Params([
             'action'      => 'GetPackage',
@@ -2465,7 +2973,7 @@ class Mts extends OpenApiClient
             'method'      => 'POST',
             'authType'    => 'AK',
             'style'       => 'RPC',
-            'reqBodyType' => 'json',
+            'reqBodyType' => 'formData',
             'bodyType'    => 'json',
         ]);
 
@@ -2493,17 +3001,30 @@ class Mts extends OpenApiClient
     public function imAuditWithOptions($request, $runtime)
     {
         Utils::validateModel($request);
-        $query                         = [];
-        $query['BizType']              = $request->bizType;
-        $query['Contents']             = $request->contents;
-        $query['Images']               = $request->images;
-        $query['OwnerId']              = $request->ownerId;
-        $query['ResourceOwnerAccount'] = $request->resourceOwnerAccount;
-        $query['ResourceOwnerId']      = $request->resourceOwnerId;
-        $query['Scenes']               = $request->scenes;
-        $req                           = new OpenApiRequest([
+        $query = [];
+        if (!Utils::isUnset($request->bizType)) {
+            $query['BizType'] = $request->bizType;
+        }
+        if (!Utils::isUnset($request->contents)) {
+            $query['Contents'] = $request->contents;
+        }
+        if (!Utils::isUnset($request->images)) {
+            $query['Images'] = $request->images;
+        }
+        if (!Utils::isUnset($request->ownerId)) {
+            $query['OwnerId'] = $request->ownerId;
+        }
+        if (!Utils::isUnset($request->resourceOwnerAccount)) {
+            $query['ResourceOwnerAccount'] = $request->resourceOwnerAccount;
+        }
+        if (!Utils::isUnset($request->resourceOwnerId)) {
+            $query['ResourceOwnerId'] = $request->resourceOwnerId;
+        }
+        if (!Utils::isUnset($request->scenes)) {
+            $query['Scenes'] = $request->scenes;
+        }
+        $req = new OpenApiRequest([
             'query' => OpenApiUtilClient::query($query),
-            'body'  => Utils::toMap($request),
         ]);
         $params = new Params([
             'action'      => 'ImAudit',
@@ -2513,7 +3034,7 @@ class Mts extends OpenApiClient
             'method'      => 'POST',
             'authType'    => 'AK',
             'style'       => 'RPC',
-            'reqBodyType' => 'json',
+            'reqBodyType' => 'formData',
             'bodyType'    => 'json',
         ]);
 
@@ -2541,19 +3062,36 @@ class Mts extends OpenApiClient
     public function importFpShotJobWithOptions($request, $runtime)
     {
         Utils::validateModel($request);
-        $query                         = [];
-        $query['FpDBId']               = $request->fpDBId;
-        $query['FpImportConfig']       = $request->fpImportConfig;
-        $query['Input']                = $request->input;
-        $query['OwnerAccount']         = $request->ownerAccount;
-        $query['OwnerId']              = $request->ownerId;
-        $query['PipelineId']           = $request->pipelineId;
-        $query['ResourceOwnerAccount'] = $request->resourceOwnerAccount;
-        $query['ResourceOwnerId']      = $request->resourceOwnerId;
-        $query['UserData']             = $request->userData;
-        $req                           = new OpenApiRequest([
+        $query = [];
+        if (!Utils::isUnset($request->fpDBId)) {
+            $query['FpDBId'] = $request->fpDBId;
+        }
+        if (!Utils::isUnset($request->fpImportConfig)) {
+            $query['FpImportConfig'] = $request->fpImportConfig;
+        }
+        if (!Utils::isUnset($request->input)) {
+            $query['Input'] = $request->input;
+        }
+        if (!Utils::isUnset($request->ownerAccount)) {
+            $query['OwnerAccount'] = $request->ownerAccount;
+        }
+        if (!Utils::isUnset($request->ownerId)) {
+            $query['OwnerId'] = $request->ownerId;
+        }
+        if (!Utils::isUnset($request->pipelineId)) {
+            $query['PipelineId'] = $request->pipelineId;
+        }
+        if (!Utils::isUnset($request->resourceOwnerAccount)) {
+            $query['ResourceOwnerAccount'] = $request->resourceOwnerAccount;
+        }
+        if (!Utils::isUnset($request->resourceOwnerId)) {
+            $query['ResourceOwnerId'] = $request->resourceOwnerId;
+        }
+        if (!Utils::isUnset($request->userData)) {
+            $query['UserData'] = $request->userData;
+        }
+        $req = new OpenApiRequest([
             'query' => OpenApiUtilClient::query($query),
-            'body'  => Utils::toMap($request),
         ]);
         $params = new Params([
             'action'      => 'ImportFpShotJob',
@@ -2563,7 +3101,7 @@ class Mts extends OpenApiClient
             'method'      => 'POST',
             'authType'    => 'AK',
             'style'       => 'RPC',
-            'reqBodyType' => 'json',
+            'reqBodyType' => 'formData',
             'bodyType'    => 'json',
         ]);
 
@@ -2591,14 +3129,21 @@ class Mts extends OpenApiClient
     public function listAllCategoryWithOptions($request, $runtime)
     {
         Utils::validateModel($request);
-        $query                         = [];
-        $query['OwnerAccount']         = $request->ownerAccount;
-        $query['OwnerId']              = $request->ownerId;
-        $query['ResourceOwnerAccount'] = $request->resourceOwnerAccount;
-        $query['ResourceOwnerId']      = $request->resourceOwnerId;
-        $req                           = new OpenApiRequest([
+        $query = [];
+        if (!Utils::isUnset($request->ownerAccount)) {
+            $query['OwnerAccount'] = $request->ownerAccount;
+        }
+        if (!Utils::isUnset($request->ownerId)) {
+            $query['OwnerId'] = $request->ownerId;
+        }
+        if (!Utils::isUnset($request->resourceOwnerAccount)) {
+            $query['ResourceOwnerAccount'] = $request->resourceOwnerAccount;
+        }
+        if (!Utils::isUnset($request->resourceOwnerId)) {
+            $query['ResourceOwnerId'] = $request->resourceOwnerId;
+        }
+        $req = new OpenApiRequest([
             'query' => OpenApiUtilClient::query($query),
-            'body'  => Utils::toMap($request),
         ]);
         $params = new Params([
             'action'      => 'ListAllCategory',
@@ -2608,7 +3153,7 @@ class Mts extends OpenApiClient
             'method'      => 'POST',
             'authType'    => 'AK',
             'style'       => 'RPC',
-            'reqBodyType' => 'json',
+            'reqBodyType' => 'formData',
             'bodyType'    => 'json',
         ]);
 
@@ -2636,16 +3181,27 @@ class Mts extends OpenApiClient
     public function listAllMediaBucketWithOptions($request, $runtime)
     {
         Utils::validateModel($request);
-        $query                         = [];
-        $query['MaximumPageSize']      = $request->maximumPageSize;
-        $query['NextPageToken']        = $request->nextPageToken;
-        $query['OwnerAccount']         = $request->ownerAccount;
-        $query['OwnerId']              = $request->ownerId;
-        $query['ResourceOwnerAccount'] = $request->resourceOwnerAccount;
-        $query['ResourceOwnerId']      = $request->resourceOwnerId;
-        $req                           = new OpenApiRequest([
+        $query = [];
+        if (!Utils::isUnset($request->maximumPageSize)) {
+            $query['MaximumPageSize'] = $request->maximumPageSize;
+        }
+        if (!Utils::isUnset($request->nextPageToken)) {
+            $query['NextPageToken'] = $request->nextPageToken;
+        }
+        if (!Utils::isUnset($request->ownerAccount)) {
+            $query['OwnerAccount'] = $request->ownerAccount;
+        }
+        if (!Utils::isUnset($request->ownerId)) {
+            $query['OwnerId'] = $request->ownerId;
+        }
+        if (!Utils::isUnset($request->resourceOwnerAccount)) {
+            $query['ResourceOwnerAccount'] = $request->resourceOwnerAccount;
+        }
+        if (!Utils::isUnset($request->resourceOwnerId)) {
+            $query['ResourceOwnerId'] = $request->resourceOwnerId;
+        }
+        $req = new OpenApiRequest([
             'query' => OpenApiUtilClient::query($query),
-            'body'  => Utils::toMap($request),
         ]);
         $params = new Params([
             'action'      => 'ListAllMediaBucket',
@@ -2655,7 +3211,7 @@ class Mts extends OpenApiClient
             'method'      => 'POST',
             'authType'    => 'AK',
             'style'       => 'RPC',
-            'reqBodyType' => 'json',
+            'reqBodyType' => 'formData',
             'bodyType'    => 'json',
         ]);
 
@@ -2683,17 +3239,30 @@ class Mts extends OpenApiClient
     public function listAsrPipelineWithOptions($request, $runtime)
     {
         Utils::validateModel($request);
-        $query                         = [];
-        $query['OwnerAccount']         = $request->ownerAccount;
-        $query['OwnerId']              = $request->ownerId;
-        $query['PageNumber']           = $request->pageNumber;
-        $query['PageSize']             = $request->pageSize;
-        $query['ResourceOwnerAccount'] = $request->resourceOwnerAccount;
-        $query['ResourceOwnerId']      = $request->resourceOwnerId;
-        $query['State']                = $request->state;
-        $req                           = new OpenApiRequest([
+        $query = [];
+        if (!Utils::isUnset($request->ownerAccount)) {
+            $query['OwnerAccount'] = $request->ownerAccount;
+        }
+        if (!Utils::isUnset($request->ownerId)) {
+            $query['OwnerId'] = $request->ownerId;
+        }
+        if (!Utils::isUnset($request->pageNumber)) {
+            $query['PageNumber'] = $request->pageNumber;
+        }
+        if (!Utils::isUnset($request->pageSize)) {
+            $query['PageSize'] = $request->pageSize;
+        }
+        if (!Utils::isUnset($request->resourceOwnerAccount)) {
+            $query['ResourceOwnerAccount'] = $request->resourceOwnerAccount;
+        }
+        if (!Utils::isUnset($request->resourceOwnerId)) {
+            $query['ResourceOwnerId'] = $request->resourceOwnerId;
+        }
+        if (!Utils::isUnset($request->state)) {
+            $query['State'] = $request->state;
+        }
+        $req = new OpenApiRequest([
             'query' => OpenApiUtilClient::query($query),
-            'body'  => Utils::toMap($request),
         ]);
         $params = new Params([
             'action'      => 'ListAsrPipeline',
@@ -2703,7 +3272,7 @@ class Mts extends OpenApiClient
             'method'      => 'POST',
             'authType'    => 'AK',
             'style'       => 'RPC',
-            'reqBodyType' => 'json',
+            'reqBodyType' => 'formData',
             'bodyType'    => 'json',
         ]);
 
@@ -2731,17 +3300,30 @@ class Mts extends OpenApiClient
     public function listCensorPipelineWithOptions($request, $runtime)
     {
         Utils::validateModel($request);
-        $query                         = [];
-        $query['OwnerAccount']         = $request->ownerAccount;
-        $query['OwnerId']              = $request->ownerId;
-        $query['PageNumber']           = $request->pageNumber;
-        $query['PageSize']             = $request->pageSize;
-        $query['ResourceOwnerAccount'] = $request->resourceOwnerAccount;
-        $query['ResourceOwnerId']      = $request->resourceOwnerId;
-        $query['State']                = $request->state;
-        $req                           = new OpenApiRequest([
+        $query = [];
+        if (!Utils::isUnset($request->ownerAccount)) {
+            $query['OwnerAccount'] = $request->ownerAccount;
+        }
+        if (!Utils::isUnset($request->ownerId)) {
+            $query['OwnerId'] = $request->ownerId;
+        }
+        if (!Utils::isUnset($request->pageNumber)) {
+            $query['PageNumber'] = $request->pageNumber;
+        }
+        if (!Utils::isUnset($request->pageSize)) {
+            $query['PageSize'] = $request->pageSize;
+        }
+        if (!Utils::isUnset($request->resourceOwnerAccount)) {
+            $query['ResourceOwnerAccount'] = $request->resourceOwnerAccount;
+        }
+        if (!Utils::isUnset($request->resourceOwnerId)) {
+            $query['ResourceOwnerId'] = $request->resourceOwnerId;
+        }
+        if (!Utils::isUnset($request->state)) {
+            $query['State'] = $request->state;
+        }
+        $req = new OpenApiRequest([
             'query' => OpenApiUtilClient::query($query),
-            'body'  => Utils::toMap($request),
         ]);
         $params = new Params([
             'action'      => 'ListCensorPipeline',
@@ -2751,7 +3333,7 @@ class Mts extends OpenApiClient
             'method'      => 'POST',
             'authType'    => 'AK',
             'style'       => 'RPC',
-            'reqBodyType' => 'json',
+            'reqBodyType' => 'formData',
             'bodyType'    => 'json',
         ]);
 
@@ -2779,17 +3361,30 @@ class Mts extends OpenApiClient
     public function listCoverPipelineWithOptions($request, $runtime)
     {
         Utils::validateModel($request);
-        $query                         = [];
-        $query['OwnerAccount']         = $request->ownerAccount;
-        $query['OwnerId']              = $request->ownerId;
-        $query['PageNumber']           = $request->pageNumber;
-        $query['PageSize']             = $request->pageSize;
-        $query['ResourceOwnerAccount'] = $request->resourceOwnerAccount;
-        $query['ResourceOwnerId']      = $request->resourceOwnerId;
-        $query['State']                = $request->state;
-        $req                           = new OpenApiRequest([
+        $query = [];
+        if (!Utils::isUnset($request->ownerAccount)) {
+            $query['OwnerAccount'] = $request->ownerAccount;
+        }
+        if (!Utils::isUnset($request->ownerId)) {
+            $query['OwnerId'] = $request->ownerId;
+        }
+        if (!Utils::isUnset($request->pageNumber)) {
+            $query['PageNumber'] = $request->pageNumber;
+        }
+        if (!Utils::isUnset($request->pageSize)) {
+            $query['PageSize'] = $request->pageSize;
+        }
+        if (!Utils::isUnset($request->resourceOwnerAccount)) {
+            $query['ResourceOwnerAccount'] = $request->resourceOwnerAccount;
+        }
+        if (!Utils::isUnset($request->resourceOwnerId)) {
+            $query['ResourceOwnerId'] = $request->resourceOwnerId;
+        }
+        if (!Utils::isUnset($request->state)) {
+            $query['State'] = $request->state;
+        }
+        $req = new OpenApiRequest([
             'query' => OpenApiUtilClient::query($query),
-            'body'  => Utils::toMap($request),
         ]);
         $params = new Params([
             'action'      => 'ListCoverPipeline',
@@ -2799,7 +3394,7 @@ class Mts extends OpenApiClient
             'method'      => 'POST',
             'authType'    => 'AK',
             'style'       => 'RPC',
-            'reqBodyType' => 'json',
+            'reqBodyType' => 'formData',
             'bodyType'    => 'json',
         ]);
 
@@ -2827,16 +3422,27 @@ class Mts extends OpenApiClient
     public function listCustomPersonsWithOptions($request, $runtime)
     {
         Utils::validateModel($request);
-        $query                         = [];
-        $query['CategoryId']           = $request->categoryId;
-        $query['OwnerAccount']         = $request->ownerAccount;
-        $query['OwnerId']              = $request->ownerId;
-        $query['PersonId']             = $request->personId;
-        $query['ResourceOwnerAccount'] = $request->resourceOwnerAccount;
-        $query['ResourceOwnerId']      = $request->resourceOwnerId;
-        $req                           = new OpenApiRequest([
+        $query = [];
+        if (!Utils::isUnset($request->categoryId)) {
+            $query['CategoryId'] = $request->categoryId;
+        }
+        if (!Utils::isUnset($request->ownerAccount)) {
+            $query['OwnerAccount'] = $request->ownerAccount;
+        }
+        if (!Utils::isUnset($request->ownerId)) {
+            $query['OwnerId'] = $request->ownerId;
+        }
+        if (!Utils::isUnset($request->personId)) {
+            $query['PersonId'] = $request->personId;
+        }
+        if (!Utils::isUnset($request->resourceOwnerAccount)) {
+            $query['ResourceOwnerAccount'] = $request->resourceOwnerAccount;
+        }
+        if (!Utils::isUnset($request->resourceOwnerId)) {
+            $query['ResourceOwnerId'] = $request->resourceOwnerId;
+        }
+        $req = new OpenApiRequest([
             'query' => OpenApiUtilClient::query($query),
-            'body'  => Utils::toMap($request),
         ]);
         $params = new Params([
             'action'      => 'ListCustomPersons',
@@ -2846,7 +3452,7 @@ class Mts extends OpenApiClient
             'method'      => 'POST',
             'authType'    => 'AK',
             'style'       => 'RPC',
-            'reqBodyType' => 'json',
+            'reqBodyType' => 'formData',
             'bodyType'    => 'json',
         ]);
 
@@ -2874,15 +3480,24 @@ class Mts extends OpenApiClient
     public function listFpShotDBWithOptions($request, $runtime)
     {
         Utils::validateModel($request);
-        $query                         = [];
-        $query['FpDBIds']              = $request->fpDBIds;
-        $query['OwnerAccount']         = $request->ownerAccount;
-        $query['OwnerId']              = $request->ownerId;
-        $query['ResourceOwnerAccount'] = $request->resourceOwnerAccount;
-        $query['ResourceOwnerId']      = $request->resourceOwnerId;
-        $req                           = new OpenApiRequest([
+        $query = [];
+        if (!Utils::isUnset($request->fpDBIds)) {
+            $query['FpDBIds'] = $request->fpDBIds;
+        }
+        if (!Utils::isUnset($request->ownerAccount)) {
+            $query['OwnerAccount'] = $request->ownerAccount;
+        }
+        if (!Utils::isUnset($request->ownerId)) {
+            $query['OwnerId'] = $request->ownerId;
+        }
+        if (!Utils::isUnset($request->resourceOwnerAccount)) {
+            $query['ResourceOwnerAccount'] = $request->resourceOwnerAccount;
+        }
+        if (!Utils::isUnset($request->resourceOwnerId)) {
+            $query['ResourceOwnerId'] = $request->resourceOwnerId;
+        }
+        $req = new OpenApiRequest([
             'query' => OpenApiUtilClient::query($query),
-            'body'  => Utils::toMap($request),
         ]);
         $params = new Params([
             'action'      => 'ListFpShotDB',
@@ -2892,7 +3507,7 @@ class Mts extends OpenApiClient
             'method'      => 'POST',
             'authType'    => 'AK',
             'style'       => 'RPC',
-            'reqBodyType' => 'json',
+            'reqBodyType' => 'formData',
             'bodyType'    => 'json',
         ]);
 
@@ -2920,17 +3535,30 @@ class Mts extends OpenApiClient
     public function listFpShotFilesWithOptions($request, $runtime)
     {
         Utils::validateModel($request);
-        $query                         = [];
-        $query['FpDBId']               = $request->fpDBId;
-        $query['NextPageToken']        = $request->nextPageToken;
-        $query['OwnerAccount']         = $request->ownerAccount;
-        $query['OwnerId']              = $request->ownerId;
-        $query['PageSize']             = $request->pageSize;
-        $query['ResourceOwnerAccount'] = $request->resourceOwnerAccount;
-        $query['ResourceOwnerId']      = $request->resourceOwnerId;
-        $req                           = new OpenApiRequest([
+        $query = [];
+        if (!Utils::isUnset($request->fpDBId)) {
+            $query['FpDBId'] = $request->fpDBId;
+        }
+        if (!Utils::isUnset($request->nextPageToken)) {
+            $query['NextPageToken'] = $request->nextPageToken;
+        }
+        if (!Utils::isUnset($request->ownerAccount)) {
+            $query['OwnerAccount'] = $request->ownerAccount;
+        }
+        if (!Utils::isUnset($request->ownerId)) {
+            $query['OwnerId'] = $request->ownerId;
+        }
+        if (!Utils::isUnset($request->pageSize)) {
+            $query['PageSize'] = $request->pageSize;
+        }
+        if (!Utils::isUnset($request->resourceOwnerAccount)) {
+            $query['ResourceOwnerAccount'] = $request->resourceOwnerAccount;
+        }
+        if (!Utils::isUnset($request->resourceOwnerId)) {
+            $query['ResourceOwnerId'] = $request->resourceOwnerId;
+        }
+        $req = new OpenApiRequest([
             'query' => OpenApiUtilClient::query($query),
-            'body'  => Utils::toMap($request),
         ]);
         $params = new Params([
             'action'      => 'ListFpShotFiles',
@@ -2940,7 +3568,7 @@ class Mts extends OpenApiClient
             'method'      => 'POST',
             'authType'    => 'AK',
             'style'       => 'RPC',
-            'reqBodyType' => 'json',
+            'reqBodyType' => 'formData',
             'bodyType'    => 'json',
         ]);
 
@@ -2968,15 +3596,24 @@ class Mts extends OpenApiClient
     public function listFpShotImportJobWithOptions($request, $runtime)
     {
         Utils::validateModel($request);
-        $query                         = [];
-        $query['JobIds']               = $request->jobIds;
-        $query['OwnerAccount']         = $request->ownerAccount;
-        $query['OwnerId']              = $request->ownerId;
-        $query['ResourceOwnerAccount'] = $request->resourceOwnerAccount;
-        $query['ResourceOwnerId']      = $request->resourceOwnerId;
-        $req                           = new OpenApiRequest([
+        $query = [];
+        if (!Utils::isUnset($request->jobIds)) {
+            $query['JobIds'] = $request->jobIds;
+        }
+        if (!Utils::isUnset($request->ownerAccount)) {
+            $query['OwnerAccount'] = $request->ownerAccount;
+        }
+        if (!Utils::isUnset($request->ownerId)) {
+            $query['OwnerId'] = $request->ownerId;
+        }
+        if (!Utils::isUnset($request->resourceOwnerAccount)) {
+            $query['ResourceOwnerAccount'] = $request->resourceOwnerAccount;
+        }
+        if (!Utils::isUnset($request->resourceOwnerId)) {
+            $query['ResourceOwnerId'] = $request->resourceOwnerId;
+        }
+        $req = new OpenApiRequest([
             'query' => OpenApiUtilClient::query($query),
-            'body'  => Utils::toMap($request),
         ]);
         $params = new Params([
             'action'      => 'ListFpShotImportJob',
@@ -2986,7 +3623,7 @@ class Mts extends OpenApiClient
             'method'      => 'POST',
             'authType'    => 'AK',
             'style'       => 'RPC',
-            'reqBodyType' => 'json',
+            'reqBodyType' => 'formData',
             'bodyType'    => 'json',
         ]);
 
@@ -3014,19 +3651,36 @@ class Mts extends OpenApiClient
     public function listFpShotNotaryWithOptions($request, $runtime)
     {
         Utils::validateModel($request);
-        $query                            = [];
-        $query['EndOfCreatedTimeRange']   = $request->endOfCreatedTimeRange;
-        $query['FpDBId']                  = $request->fpDBId;
-        $query['MaximumPageSize']         = $request->maximumPageSize;
-        $query['NextPageToken']           = $request->nextPageToken;
-        $query['OwnerAccount']            = $request->ownerAccount;
-        $query['OwnerId']                 = $request->ownerId;
-        $query['ResourceOwnerAccount']    = $request->resourceOwnerAccount;
-        $query['ResourceOwnerId']         = $request->resourceOwnerId;
-        $query['StartOfCreatedTimeRange'] = $request->startOfCreatedTimeRange;
-        $req                              = new OpenApiRequest([
+        $query = [];
+        if (!Utils::isUnset($request->endOfCreatedTimeRange)) {
+            $query['EndOfCreatedTimeRange'] = $request->endOfCreatedTimeRange;
+        }
+        if (!Utils::isUnset($request->fpDBId)) {
+            $query['FpDBId'] = $request->fpDBId;
+        }
+        if (!Utils::isUnset($request->maximumPageSize)) {
+            $query['MaximumPageSize'] = $request->maximumPageSize;
+        }
+        if (!Utils::isUnset($request->nextPageToken)) {
+            $query['NextPageToken'] = $request->nextPageToken;
+        }
+        if (!Utils::isUnset($request->ownerAccount)) {
+            $query['OwnerAccount'] = $request->ownerAccount;
+        }
+        if (!Utils::isUnset($request->ownerId)) {
+            $query['OwnerId'] = $request->ownerId;
+        }
+        if (!Utils::isUnset($request->resourceOwnerAccount)) {
+            $query['ResourceOwnerAccount'] = $request->resourceOwnerAccount;
+        }
+        if (!Utils::isUnset($request->resourceOwnerId)) {
+            $query['ResourceOwnerId'] = $request->resourceOwnerId;
+        }
+        if (!Utils::isUnset($request->startOfCreatedTimeRange)) {
+            $query['StartOfCreatedTimeRange'] = $request->startOfCreatedTimeRange;
+        }
+        $req = new OpenApiRequest([
             'query' => OpenApiUtilClient::query($query),
-            'body'  => Utils::toMap($request),
         ]);
         $params = new Params([
             'action'      => 'ListFpShotNotary',
@@ -3036,7 +3690,7 @@ class Mts extends OpenApiClient
             'method'      => 'POST',
             'authType'    => 'AK',
             'style'       => 'RPC',
-            'reqBodyType' => 'json',
+            'reqBodyType' => 'formData',
             'bodyType'    => 'json',
         ]);
 
@@ -3064,13 +3718,18 @@ class Mts extends OpenApiClient
     public function listInferenceJobWithOptions($request, $runtime)
     {
         Utils::validateModel($request);
-        $query                = [];
-        $query['MaxPageSize'] = $request->maxPageSize;
-        $query['PageNumber']  = $request->pageNumber;
-        $query['ServerName']  = $request->serverName;
-        $req                  = new OpenApiRequest([
+        $query = [];
+        if (!Utils::isUnset($request->maxPageSize)) {
+            $query['MaxPageSize'] = $request->maxPageSize;
+        }
+        if (!Utils::isUnset($request->pageNumber)) {
+            $query['PageNumber'] = $request->pageNumber;
+        }
+        if (!Utils::isUnset($request->serverName)) {
+            $query['ServerName'] = $request->serverName;
+        }
+        $req = new OpenApiRequest([
             'query' => OpenApiUtilClient::query($query),
-            'body'  => Utils::toMap($request),
         ]);
         $params = new Params([
             'action'      => 'ListInferenceJob',
@@ -3080,7 +3739,7 @@ class Mts extends OpenApiClient
             'method'      => 'POST',
             'authType'    => 'AK',
             'style'       => 'RPC',
-            'reqBodyType' => 'json',
+            'reqBodyType' => 'formData',
             'bodyType'    => 'json',
         ]);
 
@@ -3108,20 +3767,39 @@ class Mts extends OpenApiClient
     public function listJobWithOptions($request, $runtime)
     {
         Utils::validateModel($request);
-        $query                               = [];
-        $query['EndOfJobCreatedTimeRange']   = $request->endOfJobCreatedTimeRange;
-        $query['MaximumPageSize']            = $request->maximumPageSize;
-        $query['NextPageToken']              = $request->nextPageToken;
-        $query['OwnerAccount']               = $request->ownerAccount;
-        $query['OwnerId']                    = $request->ownerId;
-        $query['PipelineId']                 = $request->pipelineId;
-        $query['ResourceOwnerAccount']       = $request->resourceOwnerAccount;
-        $query['ResourceOwnerId']            = $request->resourceOwnerId;
-        $query['StartOfJobCreatedTimeRange'] = $request->startOfJobCreatedTimeRange;
-        $query['State']                      = $request->state;
-        $req                                 = new OpenApiRequest([
+        $query = [];
+        if (!Utils::isUnset($request->endOfJobCreatedTimeRange)) {
+            $query['EndOfJobCreatedTimeRange'] = $request->endOfJobCreatedTimeRange;
+        }
+        if (!Utils::isUnset($request->maximumPageSize)) {
+            $query['MaximumPageSize'] = $request->maximumPageSize;
+        }
+        if (!Utils::isUnset($request->nextPageToken)) {
+            $query['NextPageToken'] = $request->nextPageToken;
+        }
+        if (!Utils::isUnset($request->ownerAccount)) {
+            $query['OwnerAccount'] = $request->ownerAccount;
+        }
+        if (!Utils::isUnset($request->ownerId)) {
+            $query['OwnerId'] = $request->ownerId;
+        }
+        if (!Utils::isUnset($request->pipelineId)) {
+            $query['PipelineId'] = $request->pipelineId;
+        }
+        if (!Utils::isUnset($request->resourceOwnerAccount)) {
+            $query['ResourceOwnerAccount'] = $request->resourceOwnerAccount;
+        }
+        if (!Utils::isUnset($request->resourceOwnerId)) {
+            $query['ResourceOwnerId'] = $request->resourceOwnerId;
+        }
+        if (!Utils::isUnset($request->startOfJobCreatedTimeRange)) {
+            $query['StartOfJobCreatedTimeRange'] = $request->startOfJobCreatedTimeRange;
+        }
+        if (!Utils::isUnset($request->state)) {
+            $query['State'] = $request->state;
+        }
+        $req = new OpenApiRequest([
             'query' => OpenApiUtilClient::query($query),
-            'body'  => Utils::toMap($request),
         ]);
         $params = new Params([
             'action'      => 'ListJob',
@@ -3131,7 +3809,7 @@ class Mts extends OpenApiClient
             'method'      => 'POST',
             'authType'    => 'AK',
             'style'       => 'RPC',
-            'reqBodyType' => 'json',
+            'reqBodyType' => 'formData',
             'bodyType'    => 'json',
         ]);
 
@@ -3159,18 +3837,33 @@ class Mts extends OpenApiClient
     public function listMediaWithOptions($request, $runtime)
     {
         Utils::validateModel($request);
-        $query                         = [];
-        $query['From']                 = $request->from;
-        $query['MaximumPageSize']      = $request->maximumPageSize;
-        $query['NextPageToken']        = $request->nextPageToken;
-        $query['OwnerAccount']         = $request->ownerAccount;
-        $query['OwnerId']              = $request->ownerId;
-        $query['ResourceOwnerAccount'] = $request->resourceOwnerAccount;
-        $query['ResourceOwnerId']      = $request->resourceOwnerId;
-        $query['To']                   = $request->to;
-        $req                           = new OpenApiRequest([
+        $query = [];
+        if (!Utils::isUnset($request->from)) {
+            $query['From'] = $request->from;
+        }
+        if (!Utils::isUnset($request->maximumPageSize)) {
+            $query['MaximumPageSize'] = $request->maximumPageSize;
+        }
+        if (!Utils::isUnset($request->nextPageToken)) {
+            $query['NextPageToken'] = $request->nextPageToken;
+        }
+        if (!Utils::isUnset($request->ownerAccount)) {
+            $query['OwnerAccount'] = $request->ownerAccount;
+        }
+        if (!Utils::isUnset($request->ownerId)) {
+            $query['OwnerId'] = $request->ownerId;
+        }
+        if (!Utils::isUnset($request->resourceOwnerAccount)) {
+            $query['ResourceOwnerAccount'] = $request->resourceOwnerAccount;
+        }
+        if (!Utils::isUnset($request->resourceOwnerId)) {
+            $query['ResourceOwnerId'] = $request->resourceOwnerId;
+        }
+        if (!Utils::isUnset($request->to)) {
+            $query['To'] = $request->to;
+        }
+        $req = new OpenApiRequest([
             'query' => OpenApiUtilClient::query($query),
-            'body'  => Utils::toMap($request),
         ]);
         $params = new Params([
             'action'      => 'ListMedia',
@@ -3180,7 +3873,7 @@ class Mts extends OpenApiClient
             'method'      => 'POST',
             'authType'    => 'AK',
             'style'       => 'RPC',
-            'reqBodyType' => 'json',
+            'reqBodyType' => 'formData',
             'bodyType'    => 'json',
         ]);
 
@@ -3208,19 +3901,36 @@ class Mts extends OpenApiClient
     public function listMediaWorkflowExecutionsWithOptions($request, $runtime)
     {
         Utils::validateModel($request);
-        $query                         = [];
-        $query['InputFileURL']         = $request->inputFileURL;
-        $query['MaximumPageSize']      = $request->maximumPageSize;
-        $query['MediaWorkflowId']      = $request->mediaWorkflowId;
-        $query['MediaWorkflowName']    = $request->mediaWorkflowName;
-        $query['NextPageToken']        = $request->nextPageToken;
-        $query['OwnerAccount']         = $request->ownerAccount;
-        $query['OwnerId']              = $request->ownerId;
-        $query['ResourceOwnerAccount'] = $request->resourceOwnerAccount;
-        $query['ResourceOwnerId']      = $request->resourceOwnerId;
-        $req                           = new OpenApiRequest([
+        $query = [];
+        if (!Utils::isUnset($request->inputFileURL)) {
+            $query['InputFileURL'] = $request->inputFileURL;
+        }
+        if (!Utils::isUnset($request->maximumPageSize)) {
+            $query['MaximumPageSize'] = $request->maximumPageSize;
+        }
+        if (!Utils::isUnset($request->mediaWorkflowId)) {
+            $query['MediaWorkflowId'] = $request->mediaWorkflowId;
+        }
+        if (!Utils::isUnset($request->mediaWorkflowName)) {
+            $query['MediaWorkflowName'] = $request->mediaWorkflowName;
+        }
+        if (!Utils::isUnset($request->nextPageToken)) {
+            $query['NextPageToken'] = $request->nextPageToken;
+        }
+        if (!Utils::isUnset($request->ownerAccount)) {
+            $query['OwnerAccount'] = $request->ownerAccount;
+        }
+        if (!Utils::isUnset($request->ownerId)) {
+            $query['OwnerId'] = $request->ownerId;
+        }
+        if (!Utils::isUnset($request->resourceOwnerAccount)) {
+            $query['ResourceOwnerAccount'] = $request->resourceOwnerAccount;
+        }
+        if (!Utils::isUnset($request->resourceOwnerId)) {
+            $query['ResourceOwnerId'] = $request->resourceOwnerId;
+        }
+        $req = new OpenApiRequest([
             'query' => OpenApiUtilClient::query($query),
-            'body'  => Utils::toMap($request),
         ]);
         $params = new Params([
             'action'      => 'ListMediaWorkflowExecutions',
@@ -3230,7 +3940,7 @@ class Mts extends OpenApiClient
             'method'      => 'POST',
             'authType'    => 'AK',
             'style'       => 'RPC',
-            'reqBodyType' => 'json',
+            'reqBodyType' => 'formData',
             'bodyType'    => 'json',
         ]);
 
@@ -3258,17 +3968,30 @@ class Mts extends OpenApiClient
     public function listPornPipelineWithOptions($request, $runtime)
     {
         Utils::validateModel($request);
-        $query                         = [];
-        $query['OwnerAccount']         = $request->ownerAccount;
-        $query['OwnerId']              = $request->ownerId;
-        $query['PageNumber']           = $request->pageNumber;
-        $query['PageSize']             = $request->pageSize;
-        $query['ResourceOwnerAccount'] = $request->resourceOwnerAccount;
-        $query['ResourceOwnerId']      = $request->resourceOwnerId;
-        $query['State']                = $request->state;
-        $req                           = new OpenApiRequest([
+        $query = [];
+        if (!Utils::isUnset($request->ownerAccount)) {
+            $query['OwnerAccount'] = $request->ownerAccount;
+        }
+        if (!Utils::isUnset($request->ownerId)) {
+            $query['OwnerId'] = $request->ownerId;
+        }
+        if (!Utils::isUnset($request->pageNumber)) {
+            $query['PageNumber'] = $request->pageNumber;
+        }
+        if (!Utils::isUnset($request->pageSize)) {
+            $query['PageSize'] = $request->pageSize;
+        }
+        if (!Utils::isUnset($request->resourceOwnerAccount)) {
+            $query['ResourceOwnerAccount'] = $request->resourceOwnerAccount;
+        }
+        if (!Utils::isUnset($request->resourceOwnerId)) {
+            $query['ResourceOwnerId'] = $request->resourceOwnerId;
+        }
+        if (!Utils::isUnset($request->state)) {
+            $query['State'] = $request->state;
+        }
+        $req = new OpenApiRequest([
             'query' => OpenApiUtilClient::query($query),
-            'body'  => Utils::toMap($request),
         ]);
         $params = new Params([
             'action'      => 'ListPornPipeline',
@@ -3278,7 +4001,7 @@ class Mts extends OpenApiClient
             'method'      => 'POST',
             'authType'    => 'AK',
             'style'       => 'RPC',
-            'reqBodyType' => 'json',
+            'reqBodyType' => 'formData',
             'bodyType'    => 'json',
         ]);
 
@@ -3306,17 +4029,30 @@ class Mts extends OpenApiClient
     public function listTerrorismPipelineWithOptions($request, $runtime)
     {
         Utils::validateModel($request);
-        $query                         = [];
-        $query['OwnerAccount']         = $request->ownerAccount;
-        $query['OwnerId']              = $request->ownerId;
-        $query['PageNumber']           = $request->pageNumber;
-        $query['PageSize']             = $request->pageSize;
-        $query['ResourceOwnerAccount'] = $request->resourceOwnerAccount;
-        $query['ResourceOwnerId']      = $request->resourceOwnerId;
-        $query['State']                = $request->state;
-        $req                           = new OpenApiRequest([
+        $query = [];
+        if (!Utils::isUnset($request->ownerAccount)) {
+            $query['OwnerAccount'] = $request->ownerAccount;
+        }
+        if (!Utils::isUnset($request->ownerId)) {
+            $query['OwnerId'] = $request->ownerId;
+        }
+        if (!Utils::isUnset($request->pageNumber)) {
+            $query['PageNumber'] = $request->pageNumber;
+        }
+        if (!Utils::isUnset($request->pageSize)) {
+            $query['PageSize'] = $request->pageSize;
+        }
+        if (!Utils::isUnset($request->resourceOwnerAccount)) {
+            $query['ResourceOwnerAccount'] = $request->resourceOwnerAccount;
+        }
+        if (!Utils::isUnset($request->resourceOwnerId)) {
+            $query['ResourceOwnerId'] = $request->resourceOwnerId;
+        }
+        if (!Utils::isUnset($request->state)) {
+            $query['State'] = $request->state;
+        }
+        $req = new OpenApiRequest([
             'query' => OpenApiUtilClient::query($query),
-            'body'  => Utils::toMap($request),
         ]);
         $params = new Params([
             'action'      => 'ListTerrorismPipeline',
@@ -3326,7 +4062,7 @@ class Mts extends OpenApiClient
             'method'      => 'POST',
             'authType'    => 'AK',
             'style'       => 'RPC',
-            'reqBodyType' => 'json',
+            'reqBodyType' => 'formData',
             'bodyType'    => 'json',
         ]);
 
@@ -3354,21 +4090,42 @@ class Mts extends OpenApiClient
     public function logicalDeleteResourceWithOptions($request, $runtime)
     {
         Utils::validateModel($request);
-        $query                   = [];
-        $query['Bid']            = $request->bid;
-        $query['Country']        = $request->country;
-        $query['GmtWakeup']      = $request->gmtWakeup;
-        $query['Hid']            = $request->hid;
-        $query['Interrupt']      = $request->interrupt;
-        $query['Invoker']        = $request->invoker;
-        $query['Message']        = $request->message;
-        $query['Pk']             = $request->pk;
-        $query['Success']        = $request->success;
-        $query['TaskExtraData']  = $request->taskExtraData;
-        $query['TaskIdentifier'] = $request->taskIdentifier;
-        $req                     = new OpenApiRequest([
+        $query = [];
+        if (!Utils::isUnset($request->bid)) {
+            $query['Bid'] = $request->bid;
+        }
+        if (!Utils::isUnset($request->country)) {
+            $query['Country'] = $request->country;
+        }
+        if (!Utils::isUnset($request->gmtWakeup)) {
+            $query['GmtWakeup'] = $request->gmtWakeup;
+        }
+        if (!Utils::isUnset($request->hid)) {
+            $query['Hid'] = $request->hid;
+        }
+        if (!Utils::isUnset($request->interrupt)) {
+            $query['Interrupt'] = $request->interrupt;
+        }
+        if (!Utils::isUnset($request->invoker)) {
+            $query['Invoker'] = $request->invoker;
+        }
+        if (!Utils::isUnset($request->message)) {
+            $query['Message'] = $request->message;
+        }
+        if (!Utils::isUnset($request->pk)) {
+            $query['Pk'] = $request->pk;
+        }
+        if (!Utils::isUnset($request->success)) {
+            $query['Success'] = $request->success;
+        }
+        if (!Utils::isUnset($request->taskExtraData)) {
+            $query['TaskExtraData'] = $request->taskExtraData;
+        }
+        if (!Utils::isUnset($request->taskIdentifier)) {
+            $query['TaskIdentifier'] = $request->taskIdentifier;
+        }
+        $req = new OpenApiRequest([
             'query' => OpenApiUtilClient::query($query),
-            'body'  => Utils::toMap($request),
         ]);
         $params = new Params([
             'action'      => 'LogicalDeleteResource',
@@ -3378,7 +4135,7 @@ class Mts extends OpenApiClient
             'method'      => 'POST',
             'authType'    => 'AK',
             'style'       => 'RPC',
-            'reqBodyType' => 'json',
+            'reqBodyType' => 'formData',
             'bodyType'    => 'json',
         ]);
 
@@ -3406,21 +4163,42 @@ class Mts extends OpenApiClient
     public function physicalDeleteResourceWithOptions($request, $runtime)
     {
         Utils::validateModel($request);
-        $query                   = [];
-        $query['Bid']            = $request->bid;
-        $query['Country']        = $request->country;
-        $query['GmtWakeup']      = $request->gmtWakeup;
-        $query['Hid']            = $request->hid;
-        $query['Interrupt']      = $request->interrupt;
-        $query['Invoker']        = $request->invoker;
-        $query['Message']        = $request->message;
-        $query['Pk']             = $request->pk;
-        $query['Success']        = $request->success;
-        $query['TaskExtraData']  = $request->taskExtraData;
-        $query['TaskIdentifier'] = $request->taskIdentifier;
-        $req                     = new OpenApiRequest([
+        $query = [];
+        if (!Utils::isUnset($request->bid)) {
+            $query['Bid'] = $request->bid;
+        }
+        if (!Utils::isUnset($request->country)) {
+            $query['Country'] = $request->country;
+        }
+        if (!Utils::isUnset($request->gmtWakeup)) {
+            $query['GmtWakeup'] = $request->gmtWakeup;
+        }
+        if (!Utils::isUnset($request->hid)) {
+            $query['Hid'] = $request->hid;
+        }
+        if (!Utils::isUnset($request->interrupt)) {
+            $query['Interrupt'] = $request->interrupt;
+        }
+        if (!Utils::isUnset($request->invoker)) {
+            $query['Invoker'] = $request->invoker;
+        }
+        if (!Utils::isUnset($request->message)) {
+            $query['Message'] = $request->message;
+        }
+        if (!Utils::isUnset($request->pk)) {
+            $query['Pk'] = $request->pk;
+        }
+        if (!Utils::isUnset($request->success)) {
+            $query['Success'] = $request->success;
+        }
+        if (!Utils::isUnset($request->taskExtraData)) {
+            $query['TaskExtraData'] = $request->taskExtraData;
+        }
+        if (!Utils::isUnset($request->taskIdentifier)) {
+            $query['TaskIdentifier'] = $request->taskIdentifier;
+        }
+        $req = new OpenApiRequest([
             'query' => OpenApiUtilClient::query($query),
-            'body'  => Utils::toMap($request),
         ]);
         $params = new Params([
             'action'      => 'PhysicalDeleteResource',
@@ -3430,7 +4208,7 @@ class Mts extends OpenApiClient
             'method'      => 'POST',
             'authType'    => 'AK',
             'style'       => 'RPC',
-            'reqBodyType' => 'json',
+            'reqBodyType' => 'formData',
             'bodyType'    => 'json',
         ]);
 
@@ -3458,22 +4236,45 @@ class Mts extends OpenApiClient
     public function playInfoWithOptions($request, $runtime)
     {
         Utils::validateModel($request);
-        $query                         = [];
-        $query['AuthInfo']             = $request->authInfo;
-        $query['AuthTimeout']          = $request->authTimeout;
-        $query['Formats']              = $request->formats;
-        $query['HlsUriToken']          = $request->hlsUriToken;
-        $query['MediaId']              = $request->mediaId;
-        $query['OwnerAccount']         = $request->ownerAccount;
-        $query['OwnerId']              = $request->ownerId;
-        $query['PlayDomain']           = $request->playDomain;
-        $query['Rand']                 = $request->rand;
-        $query['ResourceOwnerAccount'] = $request->resourceOwnerAccount;
-        $query['ResourceOwnerId']      = $request->resourceOwnerId;
-        $query['Terminal']             = $request->terminal;
-        $req                           = new OpenApiRequest([
+        $query = [];
+        if (!Utils::isUnset($request->authInfo)) {
+            $query['AuthInfo'] = $request->authInfo;
+        }
+        if (!Utils::isUnset($request->authTimeout)) {
+            $query['AuthTimeout'] = $request->authTimeout;
+        }
+        if (!Utils::isUnset($request->formats)) {
+            $query['Formats'] = $request->formats;
+        }
+        if (!Utils::isUnset($request->hlsUriToken)) {
+            $query['HlsUriToken'] = $request->hlsUriToken;
+        }
+        if (!Utils::isUnset($request->mediaId)) {
+            $query['MediaId'] = $request->mediaId;
+        }
+        if (!Utils::isUnset($request->ownerAccount)) {
+            $query['OwnerAccount'] = $request->ownerAccount;
+        }
+        if (!Utils::isUnset($request->ownerId)) {
+            $query['OwnerId'] = $request->ownerId;
+        }
+        if (!Utils::isUnset($request->playDomain)) {
+            $query['PlayDomain'] = $request->playDomain;
+        }
+        if (!Utils::isUnset($request->rand)) {
+            $query['Rand'] = $request->rand;
+        }
+        if (!Utils::isUnset($request->resourceOwnerAccount)) {
+            $query['ResourceOwnerAccount'] = $request->resourceOwnerAccount;
+        }
+        if (!Utils::isUnset($request->resourceOwnerId)) {
+            $query['ResourceOwnerId'] = $request->resourceOwnerId;
+        }
+        if (!Utils::isUnset($request->terminal)) {
+            $query['Terminal'] = $request->terminal;
+        }
+        $req = new OpenApiRequest([
             'query' => OpenApiUtilClient::query($query),
-            'body'  => Utils::toMap($request),
         ]);
         $params = new Params([
             'action'      => 'PlayInfo',
@@ -3483,7 +4284,7 @@ class Mts extends OpenApiClient
             'method'      => 'POST',
             'authType'    => 'AK',
             'style'       => 'RPC',
-            'reqBodyType' => 'json',
+            'reqBodyType' => 'formData',
             'bodyType'    => 'json',
         ]);
 
@@ -3511,14 +4312,21 @@ class Mts extends OpenApiClient
     public function playerAuthWithOptions($request, $runtime)
     {
         Utils::validateModel($request);
-        $query                         = [];
-        $query['OwnerAccount']         = $request->ownerAccount;
-        $query['OwnerId']              = $request->ownerId;
-        $query['ResourceOwnerAccount'] = $request->resourceOwnerAccount;
-        $query['ResourceOwnerId']      = $request->resourceOwnerId;
-        $req                           = new OpenApiRequest([
+        $query = [];
+        if (!Utils::isUnset($request->ownerAccount)) {
+            $query['OwnerAccount'] = $request->ownerAccount;
+        }
+        if (!Utils::isUnset($request->ownerId)) {
+            $query['OwnerId'] = $request->ownerId;
+        }
+        if (!Utils::isUnset($request->resourceOwnerAccount)) {
+            $query['ResourceOwnerAccount'] = $request->resourceOwnerAccount;
+        }
+        if (!Utils::isUnset($request->resourceOwnerId)) {
+            $query['ResourceOwnerId'] = $request->resourceOwnerId;
+        }
+        $req = new OpenApiRequest([
             'query' => OpenApiUtilClient::query($query),
-            'body'  => Utils::toMap($request),
         ]);
         $params = new Params([
             'action'      => 'PlayerAuth',
@@ -3528,7 +4336,7 @@ class Mts extends OpenApiClient
             'method'      => 'POST',
             'authType'    => 'AK',
             'style'       => 'RPC',
-            'reqBodyType' => 'json',
+            'reqBodyType' => 'formData',
             'bodyType'    => 'json',
         ]);
 
@@ -3556,15 +4364,24 @@ class Mts extends OpenApiClient
     public function queryAnalysisJobListWithOptions($request, $runtime)
     {
         Utils::validateModel($request);
-        $query                         = [];
-        $query['AnalysisJobIds']       = $request->analysisJobIds;
-        $query['OwnerAccount']         = $request->ownerAccount;
-        $query['OwnerId']              = $request->ownerId;
-        $query['ResourceOwnerAccount'] = $request->resourceOwnerAccount;
-        $query['ResourceOwnerId']      = $request->resourceOwnerId;
-        $req                           = new OpenApiRequest([
+        $query = [];
+        if (!Utils::isUnset($request->analysisJobIds)) {
+            $query['AnalysisJobIds'] = $request->analysisJobIds;
+        }
+        if (!Utils::isUnset($request->ownerAccount)) {
+            $query['OwnerAccount'] = $request->ownerAccount;
+        }
+        if (!Utils::isUnset($request->ownerId)) {
+            $query['OwnerId'] = $request->ownerId;
+        }
+        if (!Utils::isUnset($request->resourceOwnerAccount)) {
+            $query['ResourceOwnerAccount'] = $request->resourceOwnerAccount;
+        }
+        if (!Utils::isUnset($request->resourceOwnerId)) {
+            $query['ResourceOwnerId'] = $request->resourceOwnerId;
+        }
+        $req = new OpenApiRequest([
             'query' => OpenApiUtilClient::query($query),
-            'body'  => Utils::toMap($request),
         ]);
         $params = new Params([
             'action'      => 'QueryAnalysisJobList',
@@ -3574,7 +4391,7 @@ class Mts extends OpenApiClient
             'method'      => 'POST',
             'authType'    => 'AK',
             'style'       => 'RPC',
-            'reqBodyType' => 'json',
+            'reqBodyType' => 'formData',
             'bodyType'    => 'json',
         ]);
 
@@ -3602,15 +4419,24 @@ class Mts extends OpenApiClient
     public function queryAnnotationJobListWithOptions($request, $runtime)
     {
         Utils::validateModel($request);
-        $query                         = [];
-        $query['AnnotationJobIds']     = $request->annotationJobIds;
-        $query['OwnerAccount']         = $request->ownerAccount;
-        $query['OwnerId']              = $request->ownerId;
-        $query['ResourceOwnerAccount'] = $request->resourceOwnerAccount;
-        $query['ResourceOwnerId']      = $request->resourceOwnerId;
-        $req                           = new OpenApiRequest([
+        $query = [];
+        if (!Utils::isUnset($request->annotationJobIds)) {
+            $query['AnnotationJobIds'] = $request->annotationJobIds;
+        }
+        if (!Utils::isUnset($request->ownerAccount)) {
+            $query['OwnerAccount'] = $request->ownerAccount;
+        }
+        if (!Utils::isUnset($request->ownerId)) {
+            $query['OwnerId'] = $request->ownerId;
+        }
+        if (!Utils::isUnset($request->resourceOwnerAccount)) {
+            $query['ResourceOwnerAccount'] = $request->resourceOwnerAccount;
+        }
+        if (!Utils::isUnset($request->resourceOwnerId)) {
+            $query['ResourceOwnerId'] = $request->resourceOwnerId;
+        }
+        $req = new OpenApiRequest([
             'query' => OpenApiUtilClient::query($query),
-            'body'  => Utils::toMap($request),
         ]);
         $params = new Params([
             'action'      => 'QueryAnnotationJobList',
@@ -3620,7 +4446,7 @@ class Mts extends OpenApiClient
             'method'      => 'POST',
             'authType'    => 'AK',
             'style'       => 'RPC',
-            'reqBodyType' => 'json',
+            'reqBodyType' => 'formData',
             'bodyType'    => 'json',
         ]);
 
@@ -3648,15 +4474,24 @@ class Mts extends OpenApiClient
     public function queryAsrJobListWithOptions($request, $runtime)
     {
         Utils::validateModel($request);
-        $query                         = [];
-        $query['JobIds']               = $request->jobIds;
-        $query['OwnerAccount']         = $request->ownerAccount;
-        $query['OwnerId']              = $request->ownerId;
-        $query['ResourceOwnerAccount'] = $request->resourceOwnerAccount;
-        $query['ResourceOwnerId']      = $request->resourceOwnerId;
-        $req                           = new OpenApiRequest([
+        $query = [];
+        if (!Utils::isUnset($request->jobIds)) {
+            $query['JobIds'] = $request->jobIds;
+        }
+        if (!Utils::isUnset($request->ownerAccount)) {
+            $query['OwnerAccount'] = $request->ownerAccount;
+        }
+        if (!Utils::isUnset($request->ownerId)) {
+            $query['OwnerId'] = $request->ownerId;
+        }
+        if (!Utils::isUnset($request->resourceOwnerAccount)) {
+            $query['ResourceOwnerAccount'] = $request->resourceOwnerAccount;
+        }
+        if (!Utils::isUnset($request->resourceOwnerId)) {
+            $query['ResourceOwnerId'] = $request->resourceOwnerId;
+        }
+        $req = new OpenApiRequest([
             'query' => OpenApiUtilClient::query($query),
-            'body'  => Utils::toMap($request),
         ]);
         $params = new Params([
             'action'      => 'QueryAsrJobList',
@@ -3666,7 +4501,7 @@ class Mts extends OpenApiClient
             'method'      => 'POST',
             'authType'    => 'AK',
             'style'       => 'RPC',
-            'reqBodyType' => 'json',
+            'reqBodyType' => 'formData',
             'bodyType'    => 'json',
         ]);
 
@@ -3694,15 +4529,24 @@ class Mts extends OpenApiClient
     public function queryAsrPipelineListWithOptions($request, $runtime)
     {
         Utils::validateModel($request);
-        $query                         = [];
-        $query['OwnerAccount']         = $request->ownerAccount;
-        $query['OwnerId']              = $request->ownerId;
-        $query['PipelineIds']          = $request->pipelineIds;
-        $query['ResourceOwnerAccount'] = $request->resourceOwnerAccount;
-        $query['ResourceOwnerId']      = $request->resourceOwnerId;
-        $req                           = new OpenApiRequest([
+        $query = [];
+        if (!Utils::isUnset($request->ownerAccount)) {
+            $query['OwnerAccount'] = $request->ownerAccount;
+        }
+        if (!Utils::isUnset($request->ownerId)) {
+            $query['OwnerId'] = $request->ownerId;
+        }
+        if (!Utils::isUnset($request->pipelineIds)) {
+            $query['PipelineIds'] = $request->pipelineIds;
+        }
+        if (!Utils::isUnset($request->resourceOwnerAccount)) {
+            $query['ResourceOwnerAccount'] = $request->resourceOwnerAccount;
+        }
+        if (!Utils::isUnset($request->resourceOwnerId)) {
+            $query['ResourceOwnerId'] = $request->resourceOwnerId;
+        }
+        $req = new OpenApiRequest([
             'query' => OpenApiUtilClient::query($query),
-            'body'  => Utils::toMap($request),
         ]);
         $params = new Params([
             'action'      => 'QueryAsrPipelineList',
@@ -3712,7 +4556,7 @@ class Mts extends OpenApiClient
             'method'      => 'POST',
             'authType'    => 'AK',
             'style'       => 'RPC',
-            'reqBodyType' => 'json',
+            'reqBodyType' => 'formData',
             'bodyType'    => 'json',
         ]);
 
@@ -3740,14 +4584,21 @@ class Mts extends OpenApiClient
     public function queryAuthConfigWithOptions($request, $runtime)
     {
         Utils::validateModel($request);
-        $query                         = [];
-        $query['OwnerAccount']         = $request->ownerAccount;
-        $query['OwnerId']              = $request->ownerId;
-        $query['ResourceOwnerAccount'] = $request->resourceOwnerAccount;
-        $query['ResourceOwnerId']      = $request->resourceOwnerId;
-        $req                           = new OpenApiRequest([
+        $query = [];
+        if (!Utils::isUnset($request->ownerAccount)) {
+            $query['OwnerAccount'] = $request->ownerAccount;
+        }
+        if (!Utils::isUnset($request->ownerId)) {
+            $query['OwnerId'] = $request->ownerId;
+        }
+        if (!Utils::isUnset($request->resourceOwnerAccount)) {
+            $query['ResourceOwnerAccount'] = $request->resourceOwnerAccount;
+        }
+        if (!Utils::isUnset($request->resourceOwnerId)) {
+            $query['ResourceOwnerId'] = $request->resourceOwnerId;
+        }
+        $req = new OpenApiRequest([
             'query' => OpenApiUtilClient::query($query),
-            'body'  => Utils::toMap($request),
         ]);
         $params = new Params([
             'action'      => 'QueryAuthConfig',
@@ -3757,7 +4608,7 @@ class Mts extends OpenApiClient
             'method'      => 'POST',
             'authType'    => 'AK',
             'style'       => 'RPC',
-            'reqBodyType' => 'json',
+            'reqBodyType' => 'formData',
             'bodyType'    => 'json',
         ]);
 
@@ -3785,15 +4636,24 @@ class Mts extends OpenApiClient
     public function queryCensorJobListWithOptions($request, $runtime)
     {
         Utils::validateModel($request);
-        $query                         = [];
-        $query['JobIds']               = $request->jobIds;
-        $query['OwnerAccount']         = $request->ownerAccount;
-        $query['OwnerId']              = $request->ownerId;
-        $query['ResourceOwnerAccount'] = $request->resourceOwnerAccount;
-        $query['ResourceOwnerId']      = $request->resourceOwnerId;
-        $req                           = new OpenApiRequest([
+        $query = [];
+        if (!Utils::isUnset($request->jobIds)) {
+            $query['JobIds'] = $request->jobIds;
+        }
+        if (!Utils::isUnset($request->ownerAccount)) {
+            $query['OwnerAccount'] = $request->ownerAccount;
+        }
+        if (!Utils::isUnset($request->ownerId)) {
+            $query['OwnerId'] = $request->ownerId;
+        }
+        if (!Utils::isUnset($request->resourceOwnerAccount)) {
+            $query['ResourceOwnerAccount'] = $request->resourceOwnerAccount;
+        }
+        if (!Utils::isUnset($request->resourceOwnerId)) {
+            $query['ResourceOwnerId'] = $request->resourceOwnerId;
+        }
+        $req = new OpenApiRequest([
             'query' => OpenApiUtilClient::query($query),
-            'body'  => Utils::toMap($request),
         ]);
         $params = new Params([
             'action'      => 'QueryCensorJobList',
@@ -3803,7 +4663,7 @@ class Mts extends OpenApiClient
             'method'      => 'POST',
             'authType'    => 'AK',
             'style'       => 'RPC',
-            'reqBodyType' => 'json',
+            'reqBodyType' => 'formData',
             'bodyType'    => 'json',
         ]);
 
@@ -3831,15 +4691,24 @@ class Mts extends OpenApiClient
     public function queryCensorPipelineListWithOptions($request, $runtime)
     {
         Utils::validateModel($request);
-        $query                         = [];
-        $query['OwnerAccount']         = $request->ownerAccount;
-        $query['OwnerId']              = $request->ownerId;
-        $query['PipelineIds']          = $request->pipelineIds;
-        $query['ResourceOwnerAccount'] = $request->resourceOwnerAccount;
-        $query['ResourceOwnerId']      = $request->resourceOwnerId;
-        $req                           = new OpenApiRequest([
+        $query = [];
+        if (!Utils::isUnset($request->ownerAccount)) {
+            $query['OwnerAccount'] = $request->ownerAccount;
+        }
+        if (!Utils::isUnset($request->ownerId)) {
+            $query['OwnerId'] = $request->ownerId;
+        }
+        if (!Utils::isUnset($request->pipelineIds)) {
+            $query['PipelineIds'] = $request->pipelineIds;
+        }
+        if (!Utils::isUnset($request->resourceOwnerAccount)) {
+            $query['ResourceOwnerAccount'] = $request->resourceOwnerAccount;
+        }
+        if (!Utils::isUnset($request->resourceOwnerId)) {
+            $query['ResourceOwnerId'] = $request->resourceOwnerId;
+        }
+        $req = new OpenApiRequest([
             'query' => OpenApiUtilClient::query($query),
-            'body'  => Utils::toMap($request),
         ]);
         $params = new Params([
             'action'      => 'QueryCensorPipelineList',
@@ -3849,7 +4718,7 @@ class Mts extends OpenApiClient
             'method'      => 'POST',
             'authType'    => 'AK',
             'style'       => 'RPC',
-            'reqBodyType' => 'json',
+            'reqBodyType' => 'formData',
             'bodyType'    => 'json',
         ]);
 
@@ -3877,15 +4746,24 @@ class Mts extends OpenApiClient
     public function queryComplexJobListWithOptions($request, $runtime)
     {
         Utils::validateModel($request);
-        $query                         = [];
-        $query['JobIds']               = $request->jobIds;
-        $query['OwnerAccount']         = $request->ownerAccount;
-        $query['OwnerId']              = $request->ownerId;
-        $query['ResourceOwnerAccount'] = $request->resourceOwnerAccount;
-        $query['ResourceOwnerId']      = $request->resourceOwnerId;
-        $req                           = new OpenApiRequest([
+        $query = [];
+        if (!Utils::isUnset($request->jobIds)) {
+            $query['JobIds'] = $request->jobIds;
+        }
+        if (!Utils::isUnset($request->ownerAccount)) {
+            $query['OwnerAccount'] = $request->ownerAccount;
+        }
+        if (!Utils::isUnset($request->ownerId)) {
+            $query['OwnerId'] = $request->ownerId;
+        }
+        if (!Utils::isUnset($request->resourceOwnerAccount)) {
+            $query['ResourceOwnerAccount'] = $request->resourceOwnerAccount;
+        }
+        if (!Utils::isUnset($request->resourceOwnerId)) {
+            $query['ResourceOwnerId'] = $request->resourceOwnerId;
+        }
+        $req = new OpenApiRequest([
             'query' => OpenApiUtilClient::query($query),
-            'body'  => Utils::toMap($request),
         ]);
         $params = new Params([
             'action'      => 'QueryComplexJobList',
@@ -3895,7 +4773,7 @@ class Mts extends OpenApiClient
             'method'      => 'POST',
             'authType'    => 'AK',
             'style'       => 'RPC',
-            'reqBodyType' => 'json',
+            'reqBodyType' => 'formData',
             'bodyType'    => 'json',
         ]);
 
@@ -3923,21 +4801,42 @@ class Mts extends OpenApiClient
     public function queryCoverJobListWithOptions($request, $runtime)
     {
         Utils::validateModel($request);
-        $query                               = [];
-        $query['CoverJobIds']                = $request->coverJobIds;
-        $query['EndOfJobCreatedTimeRange']   = $request->endOfJobCreatedTimeRange;
-        $query['MaximumPageSize']            = $request->maximumPageSize;
-        $query['NextPageToken']              = $request->nextPageToken;
-        $query['OwnerAccount']               = $request->ownerAccount;
-        $query['OwnerId']                    = $request->ownerId;
-        $query['PipelineId']                 = $request->pipelineId;
-        $query['ResourceOwnerAccount']       = $request->resourceOwnerAccount;
-        $query['ResourceOwnerId']            = $request->resourceOwnerId;
-        $query['StartOfJobCreatedTimeRange'] = $request->startOfJobCreatedTimeRange;
-        $query['State']                      = $request->state;
-        $req                                 = new OpenApiRequest([
+        $query = [];
+        if (!Utils::isUnset($request->coverJobIds)) {
+            $query['CoverJobIds'] = $request->coverJobIds;
+        }
+        if (!Utils::isUnset($request->endOfJobCreatedTimeRange)) {
+            $query['EndOfJobCreatedTimeRange'] = $request->endOfJobCreatedTimeRange;
+        }
+        if (!Utils::isUnset($request->maximumPageSize)) {
+            $query['MaximumPageSize'] = $request->maximumPageSize;
+        }
+        if (!Utils::isUnset($request->nextPageToken)) {
+            $query['NextPageToken'] = $request->nextPageToken;
+        }
+        if (!Utils::isUnset($request->ownerAccount)) {
+            $query['OwnerAccount'] = $request->ownerAccount;
+        }
+        if (!Utils::isUnset($request->ownerId)) {
+            $query['OwnerId'] = $request->ownerId;
+        }
+        if (!Utils::isUnset($request->pipelineId)) {
+            $query['PipelineId'] = $request->pipelineId;
+        }
+        if (!Utils::isUnset($request->resourceOwnerAccount)) {
+            $query['ResourceOwnerAccount'] = $request->resourceOwnerAccount;
+        }
+        if (!Utils::isUnset($request->resourceOwnerId)) {
+            $query['ResourceOwnerId'] = $request->resourceOwnerId;
+        }
+        if (!Utils::isUnset($request->startOfJobCreatedTimeRange)) {
+            $query['StartOfJobCreatedTimeRange'] = $request->startOfJobCreatedTimeRange;
+        }
+        if (!Utils::isUnset($request->state)) {
+            $query['State'] = $request->state;
+        }
+        $req = new OpenApiRequest([
             'query' => OpenApiUtilClient::query($query),
-            'body'  => Utils::toMap($request),
         ]);
         $params = new Params([
             'action'      => 'QueryCoverJobList',
@@ -3947,7 +4846,7 @@ class Mts extends OpenApiClient
             'method'      => 'POST',
             'authType'    => 'AK',
             'style'       => 'RPC',
-            'reqBodyType' => 'json',
+            'reqBodyType' => 'formData',
             'bodyType'    => 'json',
         ]);
 
@@ -3975,15 +4874,24 @@ class Mts extends OpenApiClient
     public function queryCoverPipelineListWithOptions($request, $runtime)
     {
         Utils::validateModel($request);
-        $query                         = [];
-        $query['OwnerAccount']         = $request->ownerAccount;
-        $query['OwnerId']              = $request->ownerId;
-        $query['PipelineIds']          = $request->pipelineIds;
-        $query['ResourceOwnerAccount'] = $request->resourceOwnerAccount;
-        $query['ResourceOwnerId']      = $request->resourceOwnerId;
-        $req                           = new OpenApiRequest([
+        $query = [];
+        if (!Utils::isUnset($request->ownerAccount)) {
+            $query['OwnerAccount'] = $request->ownerAccount;
+        }
+        if (!Utils::isUnset($request->ownerId)) {
+            $query['OwnerId'] = $request->ownerId;
+        }
+        if (!Utils::isUnset($request->pipelineIds)) {
+            $query['PipelineIds'] = $request->pipelineIds;
+        }
+        if (!Utils::isUnset($request->resourceOwnerAccount)) {
+            $query['ResourceOwnerAccount'] = $request->resourceOwnerAccount;
+        }
+        if (!Utils::isUnset($request->resourceOwnerId)) {
+            $query['ResourceOwnerId'] = $request->resourceOwnerId;
+        }
+        $req = new OpenApiRequest([
             'query' => OpenApiUtilClient::query($query),
-            'body'  => Utils::toMap($request),
         ]);
         $params = new Params([
             'action'      => 'QueryCoverPipelineList',
@@ -3993,7 +4901,7 @@ class Mts extends OpenApiClient
             'method'      => 'POST',
             'authType'    => 'AK',
             'style'       => 'RPC',
-            'reqBodyType' => 'json',
+            'reqBodyType' => 'formData',
             'bodyType'    => 'json',
         ]);
 
@@ -4021,15 +4929,24 @@ class Mts extends OpenApiClient
     public function queryEditingJobListWithOptions($request, $runtime)
     {
         Utils::validateModel($request);
-        $query                         = [];
-        $query['JobIds']               = $request->jobIds;
-        $query['OwnerAccount']         = $request->ownerAccount;
-        $query['OwnerId']              = $request->ownerId;
-        $query['ResourceOwnerAccount'] = $request->resourceOwnerAccount;
-        $query['ResourceOwnerId']      = $request->resourceOwnerId;
-        $req                           = new OpenApiRequest([
+        $query = [];
+        if (!Utils::isUnset($request->jobIds)) {
+            $query['JobIds'] = $request->jobIds;
+        }
+        if (!Utils::isUnset($request->ownerAccount)) {
+            $query['OwnerAccount'] = $request->ownerAccount;
+        }
+        if (!Utils::isUnset($request->ownerId)) {
+            $query['OwnerId'] = $request->ownerId;
+        }
+        if (!Utils::isUnset($request->resourceOwnerAccount)) {
+            $query['ResourceOwnerAccount'] = $request->resourceOwnerAccount;
+        }
+        if (!Utils::isUnset($request->resourceOwnerId)) {
+            $query['ResourceOwnerId'] = $request->resourceOwnerId;
+        }
+        $req = new OpenApiRequest([
             'query' => OpenApiUtilClient::query($query),
-            'body'  => Utils::toMap($request),
         ]);
         $params = new Params([
             'action'      => 'QueryEditingJobList',
@@ -4039,7 +4956,7 @@ class Mts extends OpenApiClient
             'method'      => 'POST',
             'authType'    => 'AK',
             'style'       => 'RPC',
-            'reqBodyType' => 'json',
+            'reqBodyType' => 'formData',
             'bodyType'    => 'json',
         ]);
 
@@ -4067,15 +4984,24 @@ class Mts extends OpenApiClient
     public function queryFacerecogJobListWithOptions($request, $runtime)
     {
         Utils::validateModel($request);
-        $query                         = [];
-        $query['FacerecogJobIds']      = $request->facerecogJobIds;
-        $query['OwnerAccount']         = $request->ownerAccount;
-        $query['OwnerId']              = $request->ownerId;
-        $query['ResourceOwnerAccount'] = $request->resourceOwnerAccount;
-        $query['ResourceOwnerId']      = $request->resourceOwnerId;
-        $req                           = new OpenApiRequest([
+        $query = [];
+        if (!Utils::isUnset($request->facerecogJobIds)) {
+            $query['FacerecogJobIds'] = $request->facerecogJobIds;
+        }
+        if (!Utils::isUnset($request->ownerAccount)) {
+            $query['OwnerAccount'] = $request->ownerAccount;
+        }
+        if (!Utils::isUnset($request->ownerId)) {
+            $query['OwnerId'] = $request->ownerId;
+        }
+        if (!Utils::isUnset($request->resourceOwnerAccount)) {
+            $query['ResourceOwnerAccount'] = $request->resourceOwnerAccount;
+        }
+        if (!Utils::isUnset($request->resourceOwnerId)) {
+            $query['ResourceOwnerId'] = $request->resourceOwnerId;
+        }
+        $req = new OpenApiRequest([
             'query' => OpenApiUtilClient::query($query),
-            'body'  => Utils::toMap($request),
         ]);
         $params = new Params([
             'action'      => 'QueryFacerecogJobList',
@@ -4085,7 +5011,7 @@ class Mts extends OpenApiClient
             'method'      => 'POST',
             'authType'    => 'AK',
             'style'       => 'RPC',
-            'reqBodyType' => 'json',
+            'reqBodyType' => 'formData',
             'bodyType'    => 'json',
         ]);
 
@@ -4113,15 +5039,24 @@ class Mts extends OpenApiClient
     public function queryFpCompareJobListWithOptions($request, $runtime)
     {
         Utils::validateModel($request);
-        $query                         = [];
-        $query['JobIds']               = $request->jobIds;
-        $query['OwnerAccount']         = $request->ownerAccount;
-        $query['OwnerId']              = $request->ownerId;
-        $query['ResourceOwnerAccount'] = $request->resourceOwnerAccount;
-        $query['ResourceOwnerId']      = $request->resourceOwnerId;
-        $req                           = new OpenApiRequest([
+        $query = [];
+        if (!Utils::isUnset($request->jobIds)) {
+            $query['JobIds'] = $request->jobIds;
+        }
+        if (!Utils::isUnset($request->ownerAccount)) {
+            $query['OwnerAccount'] = $request->ownerAccount;
+        }
+        if (!Utils::isUnset($request->ownerId)) {
+            $query['OwnerId'] = $request->ownerId;
+        }
+        if (!Utils::isUnset($request->resourceOwnerAccount)) {
+            $query['ResourceOwnerAccount'] = $request->resourceOwnerAccount;
+        }
+        if (!Utils::isUnset($request->resourceOwnerId)) {
+            $query['ResourceOwnerId'] = $request->resourceOwnerId;
+        }
+        $req = new OpenApiRequest([
             'query' => OpenApiUtilClient::query($query),
-            'body'  => Utils::toMap($request),
         ]);
         $params = new Params([
             'action'      => 'QueryFpCompareJobList',
@@ -4131,7 +5066,7 @@ class Mts extends OpenApiClient
             'method'      => 'POST',
             'authType'    => 'AK',
             'style'       => 'RPC',
-            'reqBodyType' => 'json',
+            'reqBodyType' => 'formData',
             'bodyType'    => 'json',
         ]);
 
@@ -4159,15 +5094,24 @@ class Mts extends OpenApiClient
     public function queryFpDBDeleteJobListWithOptions($request, $runtime)
     {
         Utils::validateModel($request);
-        $query                         = [];
-        $query['JobIds']               = $request->jobIds;
-        $query['OwnerAccount']         = $request->ownerAccount;
-        $query['OwnerId']              = $request->ownerId;
-        $query['ResourceOwnerAccount'] = $request->resourceOwnerAccount;
-        $query['ResourceOwnerId']      = $request->resourceOwnerId;
-        $req                           = new OpenApiRequest([
+        $query = [];
+        if (!Utils::isUnset($request->jobIds)) {
+            $query['JobIds'] = $request->jobIds;
+        }
+        if (!Utils::isUnset($request->ownerAccount)) {
+            $query['OwnerAccount'] = $request->ownerAccount;
+        }
+        if (!Utils::isUnset($request->ownerId)) {
+            $query['OwnerId'] = $request->ownerId;
+        }
+        if (!Utils::isUnset($request->resourceOwnerAccount)) {
+            $query['ResourceOwnerAccount'] = $request->resourceOwnerAccount;
+        }
+        if (!Utils::isUnset($request->resourceOwnerId)) {
+            $query['ResourceOwnerId'] = $request->resourceOwnerId;
+        }
+        $req = new OpenApiRequest([
             'query' => OpenApiUtilClient::query($query),
-            'body'  => Utils::toMap($request),
         ]);
         $params = new Params([
             'action'      => 'QueryFpDBDeleteJobList',
@@ -4177,7 +5121,7 @@ class Mts extends OpenApiClient
             'method'      => 'POST',
             'authType'    => 'AK',
             'style'       => 'RPC',
-            'reqBodyType' => 'json',
+            'reqBodyType' => 'formData',
             'bodyType'    => 'json',
         ]);
 
@@ -4205,15 +5149,24 @@ class Mts extends OpenApiClient
     public function queryFpFileDeleteJobListWithOptions($request, $runtime)
     {
         Utils::validateModel($request);
-        $query                         = [];
-        $query['JobIds']               = $request->jobIds;
-        $query['OwnerAccount']         = $request->ownerAccount;
-        $query['OwnerId']              = $request->ownerId;
-        $query['ResourceOwnerAccount'] = $request->resourceOwnerAccount;
-        $query['ResourceOwnerId']      = $request->resourceOwnerId;
-        $req                           = new OpenApiRequest([
+        $query = [];
+        if (!Utils::isUnset($request->jobIds)) {
+            $query['JobIds'] = $request->jobIds;
+        }
+        if (!Utils::isUnset($request->ownerAccount)) {
+            $query['OwnerAccount'] = $request->ownerAccount;
+        }
+        if (!Utils::isUnset($request->ownerId)) {
+            $query['OwnerId'] = $request->ownerId;
+        }
+        if (!Utils::isUnset($request->resourceOwnerAccount)) {
+            $query['ResourceOwnerAccount'] = $request->resourceOwnerAccount;
+        }
+        if (!Utils::isUnset($request->resourceOwnerId)) {
+            $query['ResourceOwnerId'] = $request->resourceOwnerId;
+        }
+        $req = new OpenApiRequest([
             'query' => OpenApiUtilClient::query($query),
-            'body'  => Utils::toMap($request),
         ]);
         $params = new Params([
             'action'      => 'QueryFpFileDeleteJobList',
@@ -4223,7 +5176,7 @@ class Mts extends OpenApiClient
             'method'      => 'POST',
             'authType'    => 'AK',
             'style'       => 'RPC',
-            'reqBodyType' => 'json',
+            'reqBodyType' => 'formData',
             'bodyType'    => 'json',
         ]);
 
@@ -4251,18 +5204,33 @@ class Mts extends OpenApiClient
     public function queryFpImportResultWithOptions($request, $runtime)
     {
         Utils::validateModel($request);
-        $query                         = [];
-        $query['EndTime']              = $request->endTime;
-        $query['OwnerAccount']         = $request->ownerAccount;
-        $query['OwnerId']              = $request->ownerId;
-        $query['PageIndex']            = $request->pageIndex;
-        $query['PageSize']             = $request->pageSize;
-        $query['ResourceOwnerAccount'] = $request->resourceOwnerAccount;
-        $query['ResourceOwnerId']      = $request->resourceOwnerId;
-        $query['StartTime']            = $request->startTime;
-        $req                           = new OpenApiRequest([
+        $query = [];
+        if (!Utils::isUnset($request->endTime)) {
+            $query['EndTime'] = $request->endTime;
+        }
+        if (!Utils::isUnset($request->ownerAccount)) {
+            $query['OwnerAccount'] = $request->ownerAccount;
+        }
+        if (!Utils::isUnset($request->ownerId)) {
+            $query['OwnerId'] = $request->ownerId;
+        }
+        if (!Utils::isUnset($request->pageIndex)) {
+            $query['PageIndex'] = $request->pageIndex;
+        }
+        if (!Utils::isUnset($request->pageSize)) {
+            $query['PageSize'] = $request->pageSize;
+        }
+        if (!Utils::isUnset($request->resourceOwnerAccount)) {
+            $query['ResourceOwnerAccount'] = $request->resourceOwnerAccount;
+        }
+        if (!Utils::isUnset($request->resourceOwnerId)) {
+            $query['ResourceOwnerId'] = $request->resourceOwnerId;
+        }
+        if (!Utils::isUnset($request->startTime)) {
+            $query['StartTime'] = $request->startTime;
+        }
+        $req = new OpenApiRequest([
             'query' => OpenApiUtilClient::query($query),
-            'body'  => Utils::toMap($request),
         ]);
         $params = new Params([
             'action'      => 'QueryFpImportResult',
@@ -4272,7 +5240,7 @@ class Mts extends OpenApiClient
             'method'      => 'POST',
             'authType'    => 'AK',
             'style'       => 'RPC',
-            'reqBodyType' => 'json',
+            'reqBodyType' => 'formData',
             'bodyType'    => 'json',
         ]);
 
@@ -4300,23 +5268,48 @@ class Mts extends OpenApiClient
     public function queryFpShotJobListWithOptions($request, $runtime)
     {
         Utils::validateModel($request);
-        $query                               = [];
-        $query['EndOfJobCreatedTimeRange']   = $request->endOfJobCreatedTimeRange;
-        $query['JobIds']                     = $request->jobIds;
-        $query['MaximumPageSize']            = $request->maximumPageSize;
-        $query['NextPageToken']              = $request->nextPageToken;
-        $query['OwnerAccount']               = $request->ownerAccount;
-        $query['OwnerId']                    = $request->ownerId;
-        $query['PipelineId']                 = $request->pipelineId;
-        $query['PrimaryKeyList']             = $request->primaryKeyList;
-        $query['ResourceOwnerAccount']       = $request->resourceOwnerAccount;
-        $query['ResourceOwnerId']            = $request->resourceOwnerId;
-        $query['StartOfJobCreatedTimeRange'] = $request->startOfJobCreatedTimeRange;
-        $query['State']                      = $request->state;
-        $query['UserData']                   = $request->userData;
-        $req                                 = new OpenApiRequest([
+        $query = [];
+        if (!Utils::isUnset($request->endOfJobCreatedTimeRange)) {
+            $query['EndOfJobCreatedTimeRange'] = $request->endOfJobCreatedTimeRange;
+        }
+        if (!Utils::isUnset($request->jobIds)) {
+            $query['JobIds'] = $request->jobIds;
+        }
+        if (!Utils::isUnset($request->maximumPageSize)) {
+            $query['MaximumPageSize'] = $request->maximumPageSize;
+        }
+        if (!Utils::isUnset($request->nextPageToken)) {
+            $query['NextPageToken'] = $request->nextPageToken;
+        }
+        if (!Utils::isUnset($request->ownerAccount)) {
+            $query['OwnerAccount'] = $request->ownerAccount;
+        }
+        if (!Utils::isUnset($request->ownerId)) {
+            $query['OwnerId'] = $request->ownerId;
+        }
+        if (!Utils::isUnset($request->pipelineId)) {
+            $query['PipelineId'] = $request->pipelineId;
+        }
+        if (!Utils::isUnset($request->primaryKeyList)) {
+            $query['PrimaryKeyList'] = $request->primaryKeyList;
+        }
+        if (!Utils::isUnset($request->resourceOwnerAccount)) {
+            $query['ResourceOwnerAccount'] = $request->resourceOwnerAccount;
+        }
+        if (!Utils::isUnset($request->resourceOwnerId)) {
+            $query['ResourceOwnerId'] = $request->resourceOwnerId;
+        }
+        if (!Utils::isUnset($request->startOfJobCreatedTimeRange)) {
+            $query['StartOfJobCreatedTimeRange'] = $request->startOfJobCreatedTimeRange;
+        }
+        if (!Utils::isUnset($request->state)) {
+            $query['State'] = $request->state;
+        }
+        if (!Utils::isUnset($request->userData)) {
+            $query['UserData'] = $request->userData;
+        }
+        $req = new OpenApiRequest([
             'query' => OpenApiUtilClient::query($query),
-            'body'  => Utils::toMap($request),
         ]);
         $params = new Params([
             'action'      => 'QueryFpShotJobList',
@@ -4326,7 +5319,7 @@ class Mts extends OpenApiClient
             'method'      => 'POST',
             'authType'    => 'AK',
             'style'       => 'RPC',
-            'reqBodyType' => 'json',
+            'reqBodyType' => 'formData',
             'bodyType'    => 'json',
         ]);
 
@@ -4354,15 +5347,24 @@ class Mts extends OpenApiClient
     public function queryIProductionJobWithOptions($request, $runtime)
     {
         Utils::validateModel($request);
-        $query                         = [];
-        $query['JobId']                = $request->jobId;
-        $query['OwnerAccount']         = $request->ownerAccount;
-        $query['OwnerId']              = $request->ownerId;
-        $query['ResourceOwnerAccount'] = $request->resourceOwnerAccount;
-        $query['ResourceOwnerId']      = $request->resourceOwnerId;
-        $req                           = new OpenApiRequest([
+        $query = [];
+        if (!Utils::isUnset($request->jobId)) {
+            $query['JobId'] = $request->jobId;
+        }
+        if (!Utils::isUnset($request->ownerAccount)) {
+            $query['OwnerAccount'] = $request->ownerAccount;
+        }
+        if (!Utils::isUnset($request->ownerId)) {
+            $query['OwnerId'] = $request->ownerId;
+        }
+        if (!Utils::isUnset($request->resourceOwnerAccount)) {
+            $query['ResourceOwnerAccount'] = $request->resourceOwnerAccount;
+        }
+        if (!Utils::isUnset($request->resourceOwnerId)) {
+            $query['ResourceOwnerId'] = $request->resourceOwnerId;
+        }
+        $req = new OpenApiRequest([
             'query' => OpenApiUtilClient::query($query),
-            'body'  => Utils::toMap($request),
         ]);
         $params = new Params([
             'action'      => 'QueryIProductionJob',
@@ -4372,7 +5374,7 @@ class Mts extends OpenApiClient
             'method'      => 'POST',
             'authType'    => 'AK',
             'style'       => 'RPC',
-            'reqBodyType' => 'json',
+            'reqBodyType' => 'formData',
             'bodyType'    => 'json',
         ]);
 
@@ -4400,15 +5402,24 @@ class Mts extends OpenApiClient
     public function queryIProductionJobListWithOptions($request, $runtime)
     {
         Utils::validateModel($request);
-        $query                         = [];
-        $query['IProductionJobIds']    = $request->IProductionJobIds;
-        $query['OwnerAccount']         = $request->ownerAccount;
-        $query['OwnerId']              = $request->ownerId;
-        $query['ResourceOwnerAccount'] = $request->resourceOwnerAccount;
-        $query['ResourceOwnerId']      = $request->resourceOwnerId;
-        $req                           = new OpenApiRequest([
+        $query = [];
+        if (!Utils::isUnset($request->IProductionJobIds)) {
+            $query['IProductionJobIds'] = $request->IProductionJobIds;
+        }
+        if (!Utils::isUnset($request->ownerAccount)) {
+            $query['OwnerAccount'] = $request->ownerAccount;
+        }
+        if (!Utils::isUnset($request->ownerId)) {
+            $query['OwnerId'] = $request->ownerId;
+        }
+        if (!Utils::isUnset($request->resourceOwnerAccount)) {
+            $query['ResourceOwnerAccount'] = $request->resourceOwnerAccount;
+        }
+        if (!Utils::isUnset($request->resourceOwnerId)) {
+            $query['ResourceOwnerId'] = $request->resourceOwnerId;
+        }
+        $req = new OpenApiRequest([
             'query' => OpenApiUtilClient::query($query),
-            'body'  => Utils::toMap($request),
         ]);
         $params = new Params([
             'action'      => 'QueryIProductionJobList',
@@ -4418,7 +5429,7 @@ class Mts extends OpenApiClient
             'method'      => 'POST',
             'authType'    => 'AK',
             'style'       => 'RPC',
-            'reqBodyType' => 'json',
+            'reqBodyType' => 'formData',
             'bodyType'    => 'json',
         ]);
 
@@ -4446,15 +5457,24 @@ class Mts extends OpenApiClient
     public function queryImageSearchJobListWithOptions($request, $runtime)
     {
         Utils::validateModel($request);
-        $query                         = [];
-        $query['JobIds']               = $request->jobIds;
-        $query['OwnerAccount']         = $request->ownerAccount;
-        $query['OwnerId']              = $request->ownerId;
-        $query['ResourceOwnerAccount'] = $request->resourceOwnerAccount;
-        $query['ResourceOwnerId']      = $request->resourceOwnerId;
-        $req                           = new OpenApiRequest([
+        $query = [];
+        if (!Utils::isUnset($request->jobIds)) {
+            $query['JobIds'] = $request->jobIds;
+        }
+        if (!Utils::isUnset($request->ownerAccount)) {
+            $query['OwnerAccount'] = $request->ownerAccount;
+        }
+        if (!Utils::isUnset($request->ownerId)) {
+            $query['OwnerId'] = $request->ownerId;
+        }
+        if (!Utils::isUnset($request->resourceOwnerAccount)) {
+            $query['ResourceOwnerAccount'] = $request->resourceOwnerAccount;
+        }
+        if (!Utils::isUnset($request->resourceOwnerId)) {
+            $query['ResourceOwnerId'] = $request->resourceOwnerId;
+        }
+        $req = new OpenApiRequest([
             'query' => OpenApiUtilClient::query($query),
-            'body'  => Utils::toMap($request),
         ]);
         $params = new Params([
             'action'      => 'QueryImageSearchJobList',
@@ -4464,7 +5484,7 @@ class Mts extends OpenApiClient
             'method'      => 'POST',
             'authType'    => 'AK',
             'style'       => 'RPC',
-            'reqBodyType' => 'json',
+            'reqBodyType' => 'formData',
             'bodyType'    => 'json',
         ]);
 
@@ -4492,11 +5512,12 @@ class Mts extends OpenApiClient
     public function queryInferenceJobWithOptions($request, $runtime)
     {
         Utils::validateModel($request);
-        $query          = [];
-        $query['JobId'] = $request->jobId;
-        $req            = new OpenApiRequest([
+        $query = [];
+        if (!Utils::isUnset($request->jobId)) {
+            $query['JobId'] = $request->jobId;
+        }
+        $req = new OpenApiRequest([
             'query' => OpenApiUtilClient::query($query),
-            'body'  => Utils::toMap($request),
         ]);
         $params = new Params([
             'action'      => 'QueryInferenceJob',
@@ -4506,7 +5527,7 @@ class Mts extends OpenApiClient
             'method'      => 'POST',
             'authType'    => 'AK',
             'style'       => 'RPC',
-            'reqBodyType' => 'json',
+            'reqBodyType' => 'formData',
             'bodyType'    => 'json',
         ]);
 
@@ -4534,14 +5555,21 @@ class Mts extends OpenApiClient
     public function queryInferenceServerWithOptions($request, $runtime)
     {
         Utils::validateModel($request);
-        $query                = [];
-        $query['CreateTime']  = $request->createTime;
-        $query['MaxPageSize'] = $request->maxPageSize;
-        $query['ModelType']   = $request->modelType;
-        $query['PageNumber']  = $request->pageNumber;
-        $req                  = new OpenApiRequest([
+        $query = [];
+        if (!Utils::isUnset($request->createTime)) {
+            $query['CreateTime'] = $request->createTime;
+        }
+        if (!Utils::isUnset($request->maxPageSize)) {
+            $query['MaxPageSize'] = $request->maxPageSize;
+        }
+        if (!Utils::isUnset($request->modelType)) {
+            $query['ModelType'] = $request->modelType;
+        }
+        if (!Utils::isUnset($request->pageNumber)) {
+            $query['PageNumber'] = $request->pageNumber;
+        }
+        $req = new OpenApiRequest([
             'query' => OpenApiUtilClient::query($query),
-            'body'  => Utils::toMap($request),
         ]);
         $params = new Params([
             'action'      => 'QueryInferenceServer',
@@ -4551,7 +5579,7 @@ class Mts extends OpenApiClient
             'method'      => 'POST',
             'authType'    => 'AK',
             'style'       => 'RPC',
-            'reqBodyType' => 'json',
+            'reqBodyType' => 'formData',
             'bodyType'    => 'json',
         ]);
 
@@ -4579,14 +5607,21 @@ class Mts extends OpenApiClient
     public function queryInnerJobWithOptions($request, $runtime)
     {
         Utils::validateModel($request);
-        $query                         = [];
-        $query['JobId']                = $request->jobId;
-        $query['OwnerId']              = $request->ownerId;
-        $query['ResourceOwnerAccount'] = $request->resourceOwnerAccount;
-        $query['ResourceOwnerId']      = $request->resourceOwnerId;
-        $req                           = new OpenApiRequest([
+        $query = [];
+        if (!Utils::isUnset($request->jobId)) {
+            $query['JobId'] = $request->jobId;
+        }
+        if (!Utils::isUnset($request->ownerId)) {
+            $query['OwnerId'] = $request->ownerId;
+        }
+        if (!Utils::isUnset($request->resourceOwnerAccount)) {
+            $query['ResourceOwnerAccount'] = $request->resourceOwnerAccount;
+        }
+        if (!Utils::isUnset($request->resourceOwnerId)) {
+            $query['ResourceOwnerId'] = $request->resourceOwnerId;
+        }
+        $req = new OpenApiRequest([
             'query' => OpenApiUtilClient::query($query),
-            'body'  => Utils::toMap($request),
         ]);
         $params = new Params([
             'action'      => 'QueryInnerJob',
@@ -4596,7 +5631,7 @@ class Mts extends OpenApiClient
             'method'      => 'POST',
             'authType'    => 'AK',
             'style'       => 'RPC',
-            'reqBodyType' => 'json',
+            'reqBodyType' => 'formData',
             'bodyType'    => 'json',
         ]);
 
@@ -4624,15 +5659,24 @@ class Mts extends OpenApiClient
     public function queryJobListWithOptions($request, $runtime)
     {
         Utils::validateModel($request);
-        $query                         = [];
-        $query['JobIds']               = $request->jobIds;
-        $query['OwnerAccount']         = $request->ownerAccount;
-        $query['OwnerId']              = $request->ownerId;
-        $query['ResourceOwnerAccount'] = $request->resourceOwnerAccount;
-        $query['ResourceOwnerId']      = $request->resourceOwnerId;
-        $req                           = new OpenApiRequest([
+        $query = [];
+        if (!Utils::isUnset($request->jobIds)) {
+            $query['JobIds'] = $request->jobIds;
+        }
+        if (!Utils::isUnset($request->ownerAccount)) {
+            $query['OwnerAccount'] = $request->ownerAccount;
+        }
+        if (!Utils::isUnset($request->ownerId)) {
+            $query['OwnerId'] = $request->ownerId;
+        }
+        if (!Utils::isUnset($request->resourceOwnerAccount)) {
+            $query['ResourceOwnerAccount'] = $request->resourceOwnerAccount;
+        }
+        if (!Utils::isUnset($request->resourceOwnerId)) {
+            $query['ResourceOwnerId'] = $request->resourceOwnerId;
+        }
+        $req = new OpenApiRequest([
             'query' => OpenApiUtilClient::query($query),
-            'body'  => Utils::toMap($request),
         ]);
         $params = new Params([
             'action'      => 'QueryJobList',
@@ -4642,7 +5686,7 @@ class Mts extends OpenApiClient
             'method'      => 'POST',
             'authType'    => 'AK',
             'style'       => 'RPC',
-            'reqBodyType' => 'json',
+            'reqBodyType' => 'formData',
             'bodyType'    => 'json',
         ]);
 
@@ -4670,21 +5714,42 @@ class Mts extends OpenApiClient
     public function queryMCJobListWithOptions($request, $runtime)
     {
         Utils::validateModel($request);
-        $query                               = [];
-        $query['EndOfJobCreatedTimeRange']   = $request->endOfJobCreatedTimeRange;
-        $query['JobIds']                     = $request->jobIds;
-        $query['MaximumPageSize']            = $request->maximumPageSize;
-        $query['NextPageToken']              = $request->nextPageToken;
-        $query['OwnerAccount']               = $request->ownerAccount;
-        $query['OwnerId']                    = $request->ownerId;
-        $query['PipelineId']                 = $request->pipelineId;
-        $query['ResourceOwnerAccount']       = $request->resourceOwnerAccount;
-        $query['ResourceOwnerId']            = $request->resourceOwnerId;
-        $query['StartOfJobCreatedTimeRange'] = $request->startOfJobCreatedTimeRange;
-        $query['State']                      = $request->state;
-        $req                                 = new OpenApiRequest([
+        $query = [];
+        if (!Utils::isUnset($request->endOfJobCreatedTimeRange)) {
+            $query['EndOfJobCreatedTimeRange'] = $request->endOfJobCreatedTimeRange;
+        }
+        if (!Utils::isUnset($request->jobIds)) {
+            $query['JobIds'] = $request->jobIds;
+        }
+        if (!Utils::isUnset($request->maximumPageSize)) {
+            $query['MaximumPageSize'] = $request->maximumPageSize;
+        }
+        if (!Utils::isUnset($request->nextPageToken)) {
+            $query['NextPageToken'] = $request->nextPageToken;
+        }
+        if (!Utils::isUnset($request->ownerAccount)) {
+            $query['OwnerAccount'] = $request->ownerAccount;
+        }
+        if (!Utils::isUnset($request->ownerId)) {
+            $query['OwnerId'] = $request->ownerId;
+        }
+        if (!Utils::isUnset($request->pipelineId)) {
+            $query['PipelineId'] = $request->pipelineId;
+        }
+        if (!Utils::isUnset($request->resourceOwnerAccount)) {
+            $query['ResourceOwnerAccount'] = $request->resourceOwnerAccount;
+        }
+        if (!Utils::isUnset($request->resourceOwnerId)) {
+            $query['ResourceOwnerId'] = $request->resourceOwnerId;
+        }
+        if (!Utils::isUnset($request->startOfJobCreatedTimeRange)) {
+            $query['StartOfJobCreatedTimeRange'] = $request->startOfJobCreatedTimeRange;
+        }
+        if (!Utils::isUnset($request->state)) {
+            $query['State'] = $request->state;
+        }
+        $req = new OpenApiRequest([
             'query' => OpenApiUtilClient::query($query),
-            'body'  => Utils::toMap($request),
         ]);
         $params = new Params([
             'action'      => 'QueryMCJobList',
@@ -4694,7 +5759,7 @@ class Mts extends OpenApiClient
             'method'      => 'POST',
             'authType'    => 'AK',
             'style'       => 'RPC',
-            'reqBodyType' => 'json',
+            'reqBodyType' => 'formData',
             'bodyType'    => 'json',
         ]);
 
@@ -4722,15 +5787,24 @@ class Mts extends OpenApiClient
     public function queryMCTemplateListWithOptions($request, $runtime)
     {
         Utils::validateModel($request);
-        $query                         = [];
-        $query['OwnerAccount']         = $request->ownerAccount;
-        $query['OwnerId']              = $request->ownerId;
-        $query['ResourceOwnerAccount'] = $request->resourceOwnerAccount;
-        $query['ResourceOwnerId']      = $request->resourceOwnerId;
-        $query['TemplateIds']          = $request->templateIds;
-        $req                           = new OpenApiRequest([
+        $query = [];
+        if (!Utils::isUnset($request->ownerAccount)) {
+            $query['OwnerAccount'] = $request->ownerAccount;
+        }
+        if (!Utils::isUnset($request->ownerId)) {
+            $query['OwnerId'] = $request->ownerId;
+        }
+        if (!Utils::isUnset($request->resourceOwnerAccount)) {
+            $query['ResourceOwnerAccount'] = $request->resourceOwnerAccount;
+        }
+        if (!Utils::isUnset($request->resourceOwnerId)) {
+            $query['ResourceOwnerId'] = $request->resourceOwnerId;
+        }
+        if (!Utils::isUnset($request->templateIds)) {
+            $query['TemplateIds'] = $request->templateIds;
+        }
+        $req = new OpenApiRequest([
             'query' => OpenApiUtilClient::query($query),
-            'body'  => Utils::toMap($request),
         ]);
         $params = new Params([
             'action'      => 'QueryMCTemplateList',
@@ -4740,7 +5814,7 @@ class Mts extends OpenApiClient
             'method'      => 'POST',
             'authType'    => 'AK',
             'style'       => 'RPC',
-            'reqBodyType' => 'json',
+            'reqBodyType' => 'formData',
             'bodyType'    => 'json',
         ]);
 
@@ -4768,15 +5842,24 @@ class Mts extends OpenApiClient
     public function queryMcuJobWithOptions($request, $runtime)
     {
         Utils::validateModel($request);
-        $query                         = [];
-        $query['JobIds']               = $request->jobIds;
-        $query['OwnerAccount']         = $request->ownerAccount;
-        $query['OwnerId']              = $request->ownerId;
-        $query['ResourceOwnerAccount'] = $request->resourceOwnerAccount;
-        $query['ResourceOwnerId']      = $request->resourceOwnerId;
-        $req                           = new OpenApiRequest([
+        $query = [];
+        if (!Utils::isUnset($request->jobIds)) {
+            $query['JobIds'] = $request->jobIds;
+        }
+        if (!Utils::isUnset($request->ownerAccount)) {
+            $query['OwnerAccount'] = $request->ownerAccount;
+        }
+        if (!Utils::isUnset($request->ownerId)) {
+            $query['OwnerId'] = $request->ownerId;
+        }
+        if (!Utils::isUnset($request->resourceOwnerAccount)) {
+            $query['ResourceOwnerAccount'] = $request->resourceOwnerAccount;
+        }
+        if (!Utils::isUnset($request->resourceOwnerId)) {
+            $query['ResourceOwnerId'] = $request->resourceOwnerId;
+        }
+        $req = new OpenApiRequest([
             'query' => OpenApiUtilClient::query($query),
-            'body'  => Utils::toMap($request),
         ]);
         $params = new Params([
             'action'      => 'QueryMcuJob',
@@ -4786,7 +5869,7 @@ class Mts extends OpenApiClient
             'method'      => 'POST',
             'authType'    => 'AK',
             'style'       => 'RPC',
-            'reqBodyType' => 'json',
+            'reqBodyType' => 'formData',
             'bodyType'    => 'json',
         ]);
 
@@ -4814,15 +5897,24 @@ class Mts extends OpenApiClient
     public function queryMcuTemplateWithOptions($request, $runtime)
     {
         Utils::validateModel($request);
-        $query                         = [];
-        $query['OwnerAccount']         = $request->ownerAccount;
-        $query['OwnerId']              = $request->ownerId;
-        $query['ResourceOwnerAccount'] = $request->resourceOwnerAccount;
-        $query['ResourceOwnerId']      = $request->resourceOwnerId;
-        $query['TemplateId']           = $request->templateId;
-        $req                           = new OpenApiRequest([
+        $query = [];
+        if (!Utils::isUnset($request->ownerAccount)) {
+            $query['OwnerAccount'] = $request->ownerAccount;
+        }
+        if (!Utils::isUnset($request->ownerId)) {
+            $query['OwnerId'] = $request->ownerId;
+        }
+        if (!Utils::isUnset($request->resourceOwnerAccount)) {
+            $query['ResourceOwnerAccount'] = $request->resourceOwnerAccount;
+        }
+        if (!Utils::isUnset($request->resourceOwnerId)) {
+            $query['ResourceOwnerId'] = $request->resourceOwnerId;
+        }
+        if (!Utils::isUnset($request->templateId)) {
+            $query['TemplateId'] = $request->templateId;
+        }
+        $req = new OpenApiRequest([
             'query' => OpenApiUtilClient::query($query),
-            'body'  => Utils::toMap($request),
         ]);
         $params = new Params([
             'action'      => 'QueryMcuTemplate',
@@ -4832,7 +5924,7 @@ class Mts extends OpenApiClient
             'method'      => 'POST',
             'authType'    => 'AK',
             'style'       => 'RPC',
-            'reqBodyType' => 'json',
+            'reqBodyType' => 'formData',
             'bodyType'    => 'json',
         ]);
 
@@ -4860,17 +5952,30 @@ class Mts extends OpenApiClient
     public function queryMediaCensorJobDetailWithOptions($request, $runtime)
     {
         Utils::validateModel($request);
-        $query                         = [];
-        $query['JobId']                = $request->jobId;
-        $query['MaximumPageSize']      = $request->maximumPageSize;
-        $query['NextPageToken']        = $request->nextPageToken;
-        $query['OwnerAccount']         = $request->ownerAccount;
-        $query['OwnerId']              = $request->ownerId;
-        $query['ResourceOwnerAccount'] = $request->resourceOwnerAccount;
-        $query['ResourceOwnerId']      = $request->resourceOwnerId;
-        $req                           = new OpenApiRequest([
+        $query = [];
+        if (!Utils::isUnset($request->jobId)) {
+            $query['JobId'] = $request->jobId;
+        }
+        if (!Utils::isUnset($request->maximumPageSize)) {
+            $query['MaximumPageSize'] = $request->maximumPageSize;
+        }
+        if (!Utils::isUnset($request->nextPageToken)) {
+            $query['NextPageToken'] = $request->nextPageToken;
+        }
+        if (!Utils::isUnset($request->ownerAccount)) {
+            $query['OwnerAccount'] = $request->ownerAccount;
+        }
+        if (!Utils::isUnset($request->ownerId)) {
+            $query['OwnerId'] = $request->ownerId;
+        }
+        if (!Utils::isUnset($request->resourceOwnerAccount)) {
+            $query['ResourceOwnerAccount'] = $request->resourceOwnerAccount;
+        }
+        if (!Utils::isUnset($request->resourceOwnerId)) {
+            $query['ResourceOwnerId'] = $request->resourceOwnerId;
+        }
+        $req = new OpenApiRequest([
             'query' => OpenApiUtilClient::query($query),
-            'body'  => Utils::toMap($request),
         ]);
         $params = new Params([
             'action'      => 'QueryMediaCensorJobDetail',
@@ -4880,7 +5985,7 @@ class Mts extends OpenApiClient
             'method'      => 'POST',
             'authType'    => 'AK',
             'style'       => 'RPC',
-            'reqBodyType' => 'json',
+            'reqBodyType' => 'formData',
             'bodyType'    => 'json',
         ]);
 
@@ -4908,21 +6013,42 @@ class Mts extends OpenApiClient
     public function queryMediaCensorJobListWithOptions($request, $runtime)
     {
         Utils::validateModel($request);
-        $query                               = [];
-        $query['EndOfJobCreatedTimeRange']   = $request->endOfJobCreatedTimeRange;
-        $query['JobId']                      = $request->jobId;
-        $query['MaximumPageSize']            = $request->maximumPageSize;
-        $query['NextPageToken']              = $request->nextPageToken;
-        $query['OwnerAccount']               = $request->ownerAccount;
-        $query['OwnerId']                    = $request->ownerId;
-        $query['PipelineId']                 = $request->pipelineId;
-        $query['ResourceOwnerAccount']       = $request->resourceOwnerAccount;
-        $query['ResourceOwnerId']            = $request->resourceOwnerId;
-        $query['StartOfJobCreatedTimeRange'] = $request->startOfJobCreatedTimeRange;
-        $query['State']                      = $request->state;
-        $req                                 = new OpenApiRequest([
+        $query = [];
+        if (!Utils::isUnset($request->endOfJobCreatedTimeRange)) {
+            $query['EndOfJobCreatedTimeRange'] = $request->endOfJobCreatedTimeRange;
+        }
+        if (!Utils::isUnset($request->jobId)) {
+            $query['JobId'] = $request->jobId;
+        }
+        if (!Utils::isUnset($request->maximumPageSize)) {
+            $query['MaximumPageSize'] = $request->maximumPageSize;
+        }
+        if (!Utils::isUnset($request->nextPageToken)) {
+            $query['NextPageToken'] = $request->nextPageToken;
+        }
+        if (!Utils::isUnset($request->ownerAccount)) {
+            $query['OwnerAccount'] = $request->ownerAccount;
+        }
+        if (!Utils::isUnset($request->ownerId)) {
+            $query['OwnerId'] = $request->ownerId;
+        }
+        if (!Utils::isUnset($request->pipelineId)) {
+            $query['PipelineId'] = $request->pipelineId;
+        }
+        if (!Utils::isUnset($request->resourceOwnerAccount)) {
+            $query['ResourceOwnerAccount'] = $request->resourceOwnerAccount;
+        }
+        if (!Utils::isUnset($request->resourceOwnerId)) {
+            $query['ResourceOwnerId'] = $request->resourceOwnerId;
+        }
+        if (!Utils::isUnset($request->startOfJobCreatedTimeRange)) {
+            $query['StartOfJobCreatedTimeRange'] = $request->startOfJobCreatedTimeRange;
+        }
+        if (!Utils::isUnset($request->state)) {
+            $query['State'] = $request->state;
+        }
+        $req = new OpenApiRequest([
             'query' => OpenApiUtilClient::query($query),
-            'body'  => Utils::toMap($request),
         ]);
         $params = new Params([
             'action'      => 'QueryMediaCensorJobList',
@@ -4932,7 +6058,7 @@ class Mts extends OpenApiClient
             'method'      => 'POST',
             'authType'    => 'AK',
             'style'       => 'RPC',
-            'reqBodyType' => 'json',
+            'reqBodyType' => 'formData',
             'bodyType'    => 'json',
         ]);
 
@@ -4960,15 +6086,24 @@ class Mts extends OpenApiClient
     public function queryMediaDetailJobListWithOptions($request, $runtime)
     {
         Utils::validateModel($request);
-        $query                         = [];
-        $query['JobIds']               = $request->jobIds;
-        $query['OwnerAccount']         = $request->ownerAccount;
-        $query['OwnerId']              = $request->ownerId;
-        $query['ResourceOwnerAccount'] = $request->resourceOwnerAccount;
-        $query['ResourceOwnerId']      = $request->resourceOwnerId;
-        $req                           = new OpenApiRequest([
+        $query = [];
+        if (!Utils::isUnset($request->jobIds)) {
+            $query['JobIds'] = $request->jobIds;
+        }
+        if (!Utils::isUnset($request->ownerAccount)) {
+            $query['OwnerAccount'] = $request->ownerAccount;
+        }
+        if (!Utils::isUnset($request->ownerId)) {
+            $query['OwnerId'] = $request->ownerId;
+        }
+        if (!Utils::isUnset($request->resourceOwnerAccount)) {
+            $query['ResourceOwnerAccount'] = $request->resourceOwnerAccount;
+        }
+        if (!Utils::isUnset($request->resourceOwnerId)) {
+            $query['ResourceOwnerId'] = $request->resourceOwnerId;
+        }
+        $req = new OpenApiRequest([
             'query' => OpenApiUtilClient::query($query),
-            'body'  => Utils::toMap($request),
         ]);
         $params = new Params([
             'action'      => 'QueryMediaDetailJobList',
@@ -4978,7 +6113,7 @@ class Mts extends OpenApiClient
             'method'      => 'POST',
             'authType'    => 'AK',
             'style'       => 'RPC',
-            'reqBodyType' => 'json',
+            'reqBodyType' => 'formData',
             'bodyType'    => 'json',
         ]);
 
@@ -5006,15 +6141,24 @@ class Mts extends OpenApiClient
     public function queryMediaFpDeleteJobListWithOptions($request, $runtime)
     {
         Utils::validateModel($request);
-        $query                         = [];
-        $query['JobIds']               = $request->jobIds;
-        $query['OwnerAccount']         = $request->ownerAccount;
-        $query['OwnerId']              = $request->ownerId;
-        $query['ResourceOwnerAccount'] = $request->resourceOwnerAccount;
-        $query['ResourceOwnerId']      = $request->resourceOwnerId;
-        $req                           = new OpenApiRequest([
+        $query = [];
+        if (!Utils::isUnset($request->jobIds)) {
+            $query['JobIds'] = $request->jobIds;
+        }
+        if (!Utils::isUnset($request->ownerAccount)) {
+            $query['OwnerAccount'] = $request->ownerAccount;
+        }
+        if (!Utils::isUnset($request->ownerId)) {
+            $query['OwnerId'] = $request->ownerId;
+        }
+        if (!Utils::isUnset($request->resourceOwnerAccount)) {
+            $query['ResourceOwnerAccount'] = $request->resourceOwnerAccount;
+        }
+        if (!Utils::isUnset($request->resourceOwnerId)) {
+            $query['ResourceOwnerId'] = $request->resourceOwnerId;
+        }
+        $req = new OpenApiRequest([
             'query' => OpenApiUtilClient::query($query),
-            'body'  => Utils::toMap($request),
         ]);
         $params = new Params([
             'action'      => 'QueryMediaFpDeleteJobList',
@@ -5024,7 +6168,7 @@ class Mts extends OpenApiClient
             'method'      => 'POST',
             'authType'    => 'AK',
             'style'       => 'RPC',
-            'reqBodyType' => 'json',
+            'reqBodyType' => 'formData',
             'bodyType'    => 'json',
         ]);
 
@@ -5052,15 +6196,24 @@ class Mts extends OpenApiClient
     public function queryMediaInfoJobListWithOptions($request, $runtime)
     {
         Utils::validateModel($request);
-        $query                         = [];
-        $query['MediaInfoJobIds']      = $request->mediaInfoJobIds;
-        $query['OwnerAccount']         = $request->ownerAccount;
-        $query['OwnerId']              = $request->ownerId;
-        $query['ResourceOwnerAccount'] = $request->resourceOwnerAccount;
-        $query['ResourceOwnerId']      = $request->resourceOwnerId;
-        $req                           = new OpenApiRequest([
+        $query = [];
+        if (!Utils::isUnset($request->mediaInfoJobIds)) {
+            $query['MediaInfoJobIds'] = $request->mediaInfoJobIds;
+        }
+        if (!Utils::isUnset($request->ownerAccount)) {
+            $query['OwnerAccount'] = $request->ownerAccount;
+        }
+        if (!Utils::isUnset($request->ownerId)) {
+            $query['OwnerId'] = $request->ownerId;
+        }
+        if (!Utils::isUnset($request->resourceOwnerAccount)) {
+            $query['ResourceOwnerAccount'] = $request->resourceOwnerAccount;
+        }
+        if (!Utils::isUnset($request->resourceOwnerId)) {
+            $query['ResourceOwnerId'] = $request->resourceOwnerId;
+        }
+        $req = new OpenApiRequest([
             'query' => OpenApiUtilClient::query($query),
-            'body'  => Utils::toMap($request),
         ]);
         $params = new Params([
             'action'      => 'QueryMediaInfoJobList',
@@ -5070,7 +6223,7 @@ class Mts extends OpenApiClient
             'method'      => 'POST',
             'authType'    => 'AK',
             'style'       => 'RPC',
-            'reqBodyType' => 'json',
+            'reqBodyType' => 'formData',
             'bodyType'    => 'json',
         ]);
 
@@ -5098,19 +6251,36 @@ class Mts extends OpenApiClient
     public function queryMediaListWithOptions($request, $runtime)
     {
         Utils::validateModel($request);
-        $query                         = [];
-        $query['IncludeMediaInfo']     = $request->includeMediaInfo;
-        $query['IncludePlayList']      = $request->includePlayList;
-        $query['IncludeSnapshotList']  = $request->includeSnapshotList;
-        $query['IncludeSummaryList']   = $request->includeSummaryList;
-        $query['MediaIds']             = $request->mediaIds;
-        $query['OwnerAccount']         = $request->ownerAccount;
-        $query['OwnerId']              = $request->ownerId;
-        $query['ResourceOwnerAccount'] = $request->resourceOwnerAccount;
-        $query['ResourceOwnerId']      = $request->resourceOwnerId;
-        $req                           = new OpenApiRequest([
+        $query = [];
+        if (!Utils::isUnset($request->includeMediaInfo)) {
+            $query['IncludeMediaInfo'] = $request->includeMediaInfo;
+        }
+        if (!Utils::isUnset($request->includePlayList)) {
+            $query['IncludePlayList'] = $request->includePlayList;
+        }
+        if (!Utils::isUnset($request->includeSnapshotList)) {
+            $query['IncludeSnapshotList'] = $request->includeSnapshotList;
+        }
+        if (!Utils::isUnset($request->includeSummaryList)) {
+            $query['IncludeSummaryList'] = $request->includeSummaryList;
+        }
+        if (!Utils::isUnset($request->mediaIds)) {
+            $query['MediaIds'] = $request->mediaIds;
+        }
+        if (!Utils::isUnset($request->ownerAccount)) {
+            $query['OwnerAccount'] = $request->ownerAccount;
+        }
+        if (!Utils::isUnset($request->ownerId)) {
+            $query['OwnerId'] = $request->ownerId;
+        }
+        if (!Utils::isUnset($request->resourceOwnerAccount)) {
+            $query['ResourceOwnerAccount'] = $request->resourceOwnerAccount;
+        }
+        if (!Utils::isUnset($request->resourceOwnerId)) {
+            $query['ResourceOwnerId'] = $request->resourceOwnerId;
+        }
+        $req = new OpenApiRequest([
             'query' => OpenApiUtilClient::query($query),
-            'body'  => Utils::toMap($request),
         ]);
         $params = new Params([
             'action'      => 'QueryMediaList',
@@ -5120,7 +6290,7 @@ class Mts extends OpenApiClient
             'method'      => 'POST',
             'authType'    => 'AK',
             'style'       => 'RPC',
-            'reqBodyType' => 'json',
+            'reqBodyType' => 'formData',
             'bodyType'    => 'json',
         ]);
 
@@ -5148,19 +6318,36 @@ class Mts extends OpenApiClient
     public function queryMediaListByURLWithOptions($request, $runtime)
     {
         Utils::validateModel($request);
-        $query                         = [];
-        $query['FileURLs']             = $request->fileURLs;
-        $query['IncludeMediaInfo']     = $request->includeMediaInfo;
-        $query['IncludePlayList']      = $request->includePlayList;
-        $query['IncludeSnapshotList']  = $request->includeSnapshotList;
-        $query['IncludeSummaryList']   = $request->includeSummaryList;
-        $query['OwnerAccount']         = $request->ownerAccount;
-        $query['OwnerId']              = $request->ownerId;
-        $query['ResourceOwnerAccount'] = $request->resourceOwnerAccount;
-        $query['ResourceOwnerId']      = $request->resourceOwnerId;
-        $req                           = new OpenApiRequest([
+        $query = [];
+        if (!Utils::isUnset($request->fileURLs)) {
+            $query['FileURLs'] = $request->fileURLs;
+        }
+        if (!Utils::isUnset($request->includeMediaInfo)) {
+            $query['IncludeMediaInfo'] = $request->includeMediaInfo;
+        }
+        if (!Utils::isUnset($request->includePlayList)) {
+            $query['IncludePlayList'] = $request->includePlayList;
+        }
+        if (!Utils::isUnset($request->includeSnapshotList)) {
+            $query['IncludeSnapshotList'] = $request->includeSnapshotList;
+        }
+        if (!Utils::isUnset($request->includeSummaryList)) {
+            $query['IncludeSummaryList'] = $request->includeSummaryList;
+        }
+        if (!Utils::isUnset($request->ownerAccount)) {
+            $query['OwnerAccount'] = $request->ownerAccount;
+        }
+        if (!Utils::isUnset($request->ownerId)) {
+            $query['OwnerId'] = $request->ownerId;
+        }
+        if (!Utils::isUnset($request->resourceOwnerAccount)) {
+            $query['ResourceOwnerAccount'] = $request->resourceOwnerAccount;
+        }
+        if (!Utils::isUnset($request->resourceOwnerId)) {
+            $query['ResourceOwnerId'] = $request->resourceOwnerId;
+        }
+        $req = new OpenApiRequest([
             'query' => OpenApiUtilClient::query($query),
-            'body'  => Utils::toMap($request),
         ]);
         $params = new Params([
             'action'      => 'QueryMediaListByURL',
@@ -5170,7 +6357,7 @@ class Mts extends OpenApiClient
             'method'      => 'POST',
             'authType'    => 'AK',
             'style'       => 'RPC',
-            'reqBodyType' => 'json',
+            'reqBodyType' => 'formData',
             'bodyType'    => 'json',
         ]);
 
@@ -5198,15 +6385,24 @@ class Mts extends OpenApiClient
     public function queryMediaWorkflowExecutionListWithOptions($request, $runtime)
     {
         Utils::validateModel($request);
-        $query                         = [];
-        $query['OwnerAccount']         = $request->ownerAccount;
-        $query['OwnerId']              = $request->ownerId;
-        $query['ResourceOwnerAccount'] = $request->resourceOwnerAccount;
-        $query['ResourceOwnerId']      = $request->resourceOwnerId;
-        $query['RunIds']               = $request->runIds;
-        $req                           = new OpenApiRequest([
+        $query = [];
+        if (!Utils::isUnset($request->ownerAccount)) {
+            $query['OwnerAccount'] = $request->ownerAccount;
+        }
+        if (!Utils::isUnset($request->ownerId)) {
+            $query['OwnerId'] = $request->ownerId;
+        }
+        if (!Utils::isUnset($request->resourceOwnerAccount)) {
+            $query['ResourceOwnerAccount'] = $request->resourceOwnerAccount;
+        }
+        if (!Utils::isUnset($request->resourceOwnerId)) {
+            $query['ResourceOwnerId'] = $request->resourceOwnerId;
+        }
+        if (!Utils::isUnset($request->runIds)) {
+            $query['RunIds'] = $request->runIds;
+        }
+        $req = new OpenApiRequest([
             'query' => OpenApiUtilClient::query($query),
-            'body'  => Utils::toMap($request),
         ]);
         $params = new Params([
             'action'      => 'QueryMediaWorkflowExecutionList',
@@ -5216,7 +6412,7 @@ class Mts extends OpenApiClient
             'method'      => 'POST',
             'authType'    => 'AK',
             'style'       => 'RPC',
-            'reqBodyType' => 'json',
+            'reqBodyType' => 'formData',
             'bodyType'    => 'json',
         ]);
 
@@ -5244,15 +6440,24 @@ class Mts extends OpenApiClient
     public function queryMediaWorkflowListWithOptions($request, $runtime)
     {
         Utils::validateModel($request);
-        $query                         = [];
-        $query['MediaWorkflowIds']     = $request->mediaWorkflowIds;
-        $query['OwnerAccount']         = $request->ownerAccount;
-        $query['OwnerId']              = $request->ownerId;
-        $query['ResourceOwnerAccount'] = $request->resourceOwnerAccount;
-        $query['ResourceOwnerId']      = $request->resourceOwnerId;
-        $req                           = new OpenApiRequest([
+        $query = [];
+        if (!Utils::isUnset($request->mediaWorkflowIds)) {
+            $query['MediaWorkflowIds'] = $request->mediaWorkflowIds;
+        }
+        if (!Utils::isUnset($request->ownerAccount)) {
+            $query['OwnerAccount'] = $request->ownerAccount;
+        }
+        if (!Utils::isUnset($request->ownerId)) {
+            $query['OwnerId'] = $request->ownerId;
+        }
+        if (!Utils::isUnset($request->resourceOwnerAccount)) {
+            $query['ResourceOwnerAccount'] = $request->resourceOwnerAccount;
+        }
+        if (!Utils::isUnset($request->resourceOwnerId)) {
+            $query['ResourceOwnerId'] = $request->resourceOwnerId;
+        }
+        $req = new OpenApiRequest([
             'query' => OpenApiUtilClient::query($query),
-            'body'  => Utils::toMap($request),
         ]);
         $params = new Params([
             'action'      => 'QueryMediaWorkflowList',
@@ -5262,7 +6467,7 @@ class Mts extends OpenApiClient
             'method'      => 'POST',
             'authType'    => 'AK',
             'style'       => 'RPC',
-            'reqBodyType' => 'json',
+            'reqBodyType' => 'formData',
             'bodyType'    => 'json',
         ]);
 
@@ -5290,15 +6495,24 @@ class Mts extends OpenApiClient
     public function queryPipelineListWithOptions($request, $runtime)
     {
         Utils::validateModel($request);
-        $query                         = [];
-        $query['OwnerAccount']         = $request->ownerAccount;
-        $query['OwnerId']              = $request->ownerId;
-        $query['PipelineIds']          = $request->pipelineIds;
-        $query['ResourceOwnerAccount'] = $request->resourceOwnerAccount;
-        $query['ResourceOwnerId']      = $request->resourceOwnerId;
-        $req                           = new OpenApiRequest([
+        $query = [];
+        if (!Utils::isUnset($request->ownerAccount)) {
+            $query['OwnerAccount'] = $request->ownerAccount;
+        }
+        if (!Utils::isUnset($request->ownerId)) {
+            $query['OwnerId'] = $request->ownerId;
+        }
+        if (!Utils::isUnset($request->pipelineIds)) {
+            $query['PipelineIds'] = $request->pipelineIds;
+        }
+        if (!Utils::isUnset($request->resourceOwnerAccount)) {
+            $query['ResourceOwnerAccount'] = $request->resourceOwnerAccount;
+        }
+        if (!Utils::isUnset($request->resourceOwnerId)) {
+            $query['ResourceOwnerId'] = $request->resourceOwnerId;
+        }
+        $req = new OpenApiRequest([
             'query' => OpenApiUtilClient::query($query),
-            'body'  => Utils::toMap($request),
         ]);
         $params = new Params([
             'action'      => 'QueryPipelineList',
@@ -5308,7 +6522,7 @@ class Mts extends OpenApiClient
             'method'      => 'POST',
             'authType'    => 'AK',
             'style'       => 'RPC',
-            'reqBodyType' => 'json',
+            'reqBodyType' => 'formData',
             'bodyType'    => 'json',
         ]);
 
@@ -5336,15 +6550,24 @@ class Mts extends OpenApiClient
     public function queryPornJobListWithOptions($request, $runtime)
     {
         Utils::validateModel($request);
-        $query                         = [];
-        $query['JobIds']               = $request->jobIds;
-        $query['OwnerAccount']         = $request->ownerAccount;
-        $query['OwnerId']              = $request->ownerId;
-        $query['ResourceOwnerAccount'] = $request->resourceOwnerAccount;
-        $query['ResourceOwnerId']      = $request->resourceOwnerId;
-        $req                           = new OpenApiRequest([
+        $query = [];
+        if (!Utils::isUnset($request->jobIds)) {
+            $query['JobIds'] = $request->jobIds;
+        }
+        if (!Utils::isUnset($request->ownerAccount)) {
+            $query['OwnerAccount'] = $request->ownerAccount;
+        }
+        if (!Utils::isUnset($request->ownerId)) {
+            $query['OwnerId'] = $request->ownerId;
+        }
+        if (!Utils::isUnset($request->resourceOwnerAccount)) {
+            $query['ResourceOwnerAccount'] = $request->resourceOwnerAccount;
+        }
+        if (!Utils::isUnset($request->resourceOwnerId)) {
+            $query['ResourceOwnerId'] = $request->resourceOwnerId;
+        }
+        $req = new OpenApiRequest([
             'query' => OpenApiUtilClient::query($query),
-            'body'  => Utils::toMap($request),
         ]);
         $params = new Params([
             'action'      => 'QueryPornJobList',
@@ -5354,7 +6577,7 @@ class Mts extends OpenApiClient
             'method'      => 'POST',
             'authType'    => 'AK',
             'style'       => 'RPC',
-            'reqBodyType' => 'json',
+            'reqBodyType' => 'formData',
             'bodyType'    => 'json',
         ]);
 
@@ -5382,15 +6605,24 @@ class Mts extends OpenApiClient
     public function queryPornPipelineListWithOptions($request, $runtime)
     {
         Utils::validateModel($request);
-        $query                         = [];
-        $query['OwnerAccount']         = $request->ownerAccount;
-        $query['OwnerId']              = $request->ownerId;
-        $query['PipelineIds']          = $request->pipelineIds;
-        $query['ResourceOwnerAccount'] = $request->resourceOwnerAccount;
-        $query['ResourceOwnerId']      = $request->resourceOwnerId;
-        $req                           = new OpenApiRequest([
+        $query = [];
+        if (!Utils::isUnset($request->ownerAccount)) {
+            $query['OwnerAccount'] = $request->ownerAccount;
+        }
+        if (!Utils::isUnset($request->ownerId)) {
+            $query['OwnerId'] = $request->ownerId;
+        }
+        if (!Utils::isUnset($request->pipelineIds)) {
+            $query['PipelineIds'] = $request->pipelineIds;
+        }
+        if (!Utils::isUnset($request->resourceOwnerAccount)) {
+            $query['ResourceOwnerAccount'] = $request->resourceOwnerAccount;
+        }
+        if (!Utils::isUnset($request->resourceOwnerId)) {
+            $query['ResourceOwnerId'] = $request->resourceOwnerId;
+        }
+        $req = new OpenApiRequest([
             'query' => OpenApiUtilClient::query($query),
-            'body'  => Utils::toMap($request),
         ]);
         $params = new Params([
             'action'      => 'QueryPornPipelineList',
@@ -5400,7 +6632,7 @@ class Mts extends OpenApiClient
             'method'      => 'POST',
             'authType'    => 'AK',
             'style'       => 'RPC',
-            'reqBodyType' => 'json',
+            'reqBodyType' => 'formData',
             'bodyType'    => 'json',
         ]);
 
@@ -5428,16 +6660,27 @@ class Mts extends OpenApiClient
     public function querySmarttagJobWithOptions($request, $runtime)
     {
         Utils::validateModel($request);
-        $query                         = [];
-        $query['JobId']                = $request->jobId;
-        $query['OwnerAccount']         = $request->ownerAccount;
-        $query['OwnerId']              = $request->ownerId;
-        $query['Params']               = $request->params;
-        $query['ResourceOwnerAccount'] = $request->resourceOwnerAccount;
-        $query['ResourceOwnerId']      = $request->resourceOwnerId;
-        $req                           = new OpenApiRequest([
+        $query = [];
+        if (!Utils::isUnset($request->jobId)) {
+            $query['JobId'] = $request->jobId;
+        }
+        if (!Utils::isUnset($request->ownerAccount)) {
+            $query['OwnerAccount'] = $request->ownerAccount;
+        }
+        if (!Utils::isUnset($request->ownerId)) {
+            $query['OwnerId'] = $request->ownerId;
+        }
+        if (!Utils::isUnset($request->params)) {
+            $query['Params'] = $request->params;
+        }
+        if (!Utils::isUnset($request->resourceOwnerAccount)) {
+            $query['ResourceOwnerAccount'] = $request->resourceOwnerAccount;
+        }
+        if (!Utils::isUnset($request->resourceOwnerId)) {
+            $query['ResourceOwnerId'] = $request->resourceOwnerId;
+        }
+        $req = new OpenApiRequest([
             'query' => OpenApiUtilClient::query($query),
-            'body'  => Utils::toMap($request),
         ]);
         $params = new Params([
             'action'      => 'QuerySmarttagJob',
@@ -5447,7 +6690,7 @@ class Mts extends OpenApiClient
             'method'      => 'POST',
             'authType'    => 'AK',
             'style'       => 'RPC',
-            'reqBodyType' => 'json',
+            'reqBodyType' => 'formData',
             'bodyType'    => 'json',
         ]);
 
@@ -5475,20 +6718,39 @@ class Mts extends OpenApiClient
     public function querySmarttagJobListWithOptions($request, $runtime)
     {
         Utils::validateModel($request);
-        $query                               = [];
-        $query['EndOfJobCreatedTimeRange']   = $request->endOfJobCreatedTimeRange;
-        $query['JobIds']                     = $request->jobIds;
-        $query['MaximumPageSize']            = $request->maximumPageSize;
-        $query['NextPageToken']              = $request->nextPageToken;
-        $query['OwnerAccount']               = $request->ownerAccount;
-        $query['OwnerId']                    = $request->ownerId;
-        $query['PipelineId']                 = $request->pipelineId;
-        $query['ResourceOwnerAccount']       = $request->resourceOwnerAccount;
-        $query['ResourceOwnerId']            = $request->resourceOwnerId;
-        $query['StartOfJobCreatedTimeRange'] = $request->startOfJobCreatedTimeRange;
-        $req                                 = new OpenApiRequest([
+        $query = [];
+        if (!Utils::isUnset($request->endOfJobCreatedTimeRange)) {
+            $query['EndOfJobCreatedTimeRange'] = $request->endOfJobCreatedTimeRange;
+        }
+        if (!Utils::isUnset($request->jobIds)) {
+            $query['JobIds'] = $request->jobIds;
+        }
+        if (!Utils::isUnset($request->maximumPageSize)) {
+            $query['MaximumPageSize'] = $request->maximumPageSize;
+        }
+        if (!Utils::isUnset($request->nextPageToken)) {
+            $query['NextPageToken'] = $request->nextPageToken;
+        }
+        if (!Utils::isUnset($request->ownerAccount)) {
+            $query['OwnerAccount'] = $request->ownerAccount;
+        }
+        if (!Utils::isUnset($request->ownerId)) {
+            $query['OwnerId'] = $request->ownerId;
+        }
+        if (!Utils::isUnset($request->pipelineId)) {
+            $query['PipelineId'] = $request->pipelineId;
+        }
+        if (!Utils::isUnset($request->resourceOwnerAccount)) {
+            $query['ResourceOwnerAccount'] = $request->resourceOwnerAccount;
+        }
+        if (!Utils::isUnset($request->resourceOwnerId)) {
+            $query['ResourceOwnerId'] = $request->resourceOwnerId;
+        }
+        if (!Utils::isUnset($request->startOfJobCreatedTimeRange)) {
+            $query['StartOfJobCreatedTimeRange'] = $request->startOfJobCreatedTimeRange;
+        }
+        $req = new OpenApiRequest([
             'query' => OpenApiUtilClient::query($query),
-            'body'  => Utils::toMap($request),
         ]);
         $params = new Params([
             'action'      => 'QuerySmarttagJobList',
@@ -5498,7 +6760,7 @@ class Mts extends OpenApiClient
             'method'      => 'POST',
             'authType'    => 'AK',
             'style'       => 'RPC',
-            'reqBodyType' => 'json',
+            'reqBodyType' => 'formData',
             'bodyType'    => 'json',
         ]);
 
@@ -5526,15 +6788,24 @@ class Mts extends OpenApiClient
     public function querySmarttagTemplateListWithOptions($request, $runtime)
     {
         Utils::validateModel($request);
-        $query                         = [];
-        $query['OwnerAccount']         = $request->ownerAccount;
-        $query['OwnerId']              = $request->ownerId;
-        $query['ResourceOwnerAccount'] = $request->resourceOwnerAccount;
-        $query['ResourceOwnerId']      = $request->resourceOwnerId;
-        $query['TemplateId']           = $request->templateId;
-        $req                           = new OpenApiRequest([
+        $query = [];
+        if (!Utils::isUnset($request->ownerAccount)) {
+            $query['OwnerAccount'] = $request->ownerAccount;
+        }
+        if (!Utils::isUnset($request->ownerId)) {
+            $query['OwnerId'] = $request->ownerId;
+        }
+        if (!Utils::isUnset($request->resourceOwnerAccount)) {
+            $query['ResourceOwnerAccount'] = $request->resourceOwnerAccount;
+        }
+        if (!Utils::isUnset($request->resourceOwnerId)) {
+            $query['ResourceOwnerId'] = $request->resourceOwnerId;
+        }
+        if (!Utils::isUnset($request->templateId)) {
+            $query['TemplateId'] = $request->templateId;
+        }
+        $req = new OpenApiRequest([
             'query' => OpenApiUtilClient::query($query),
-            'body'  => Utils::toMap($request),
         ]);
         $params = new Params([
             'action'      => 'QuerySmarttagTemplateList',
@@ -5544,7 +6815,7 @@ class Mts extends OpenApiClient
             'method'      => 'POST',
             'authType'    => 'AK',
             'style'       => 'RPC',
-            'reqBodyType' => 'json',
+            'reqBodyType' => 'formData',
             'bodyType'    => 'json',
         ]);
 
@@ -5572,21 +6843,42 @@ class Mts extends OpenApiClient
     public function querySnapshotJobListWithOptions($request, $runtime)
     {
         Utils::validateModel($request);
-        $query                               = [];
-        $query['EndOfJobCreatedTimeRange']   = $request->endOfJobCreatedTimeRange;
-        $query['MaximumPageSize']            = $request->maximumPageSize;
-        $query['NextPageToken']              = $request->nextPageToken;
-        $query['OwnerAccount']               = $request->ownerAccount;
-        $query['OwnerId']                    = $request->ownerId;
-        $query['PipelineId']                 = $request->pipelineId;
-        $query['ResourceOwnerAccount']       = $request->resourceOwnerAccount;
-        $query['ResourceOwnerId']            = $request->resourceOwnerId;
-        $query['SnapshotJobIds']             = $request->snapshotJobIds;
-        $query['StartOfJobCreatedTimeRange'] = $request->startOfJobCreatedTimeRange;
-        $query['State']                      = $request->state;
-        $req                                 = new OpenApiRequest([
+        $query = [];
+        if (!Utils::isUnset($request->endOfJobCreatedTimeRange)) {
+            $query['EndOfJobCreatedTimeRange'] = $request->endOfJobCreatedTimeRange;
+        }
+        if (!Utils::isUnset($request->maximumPageSize)) {
+            $query['MaximumPageSize'] = $request->maximumPageSize;
+        }
+        if (!Utils::isUnset($request->nextPageToken)) {
+            $query['NextPageToken'] = $request->nextPageToken;
+        }
+        if (!Utils::isUnset($request->ownerAccount)) {
+            $query['OwnerAccount'] = $request->ownerAccount;
+        }
+        if (!Utils::isUnset($request->ownerId)) {
+            $query['OwnerId'] = $request->ownerId;
+        }
+        if (!Utils::isUnset($request->pipelineId)) {
+            $query['PipelineId'] = $request->pipelineId;
+        }
+        if (!Utils::isUnset($request->resourceOwnerAccount)) {
+            $query['ResourceOwnerAccount'] = $request->resourceOwnerAccount;
+        }
+        if (!Utils::isUnset($request->resourceOwnerId)) {
+            $query['ResourceOwnerId'] = $request->resourceOwnerId;
+        }
+        if (!Utils::isUnset($request->snapshotJobIds)) {
+            $query['SnapshotJobIds'] = $request->snapshotJobIds;
+        }
+        if (!Utils::isUnset($request->startOfJobCreatedTimeRange)) {
+            $query['StartOfJobCreatedTimeRange'] = $request->startOfJobCreatedTimeRange;
+        }
+        if (!Utils::isUnset($request->state)) {
+            $query['State'] = $request->state;
+        }
+        $req = new OpenApiRequest([
             'query' => OpenApiUtilClient::query($query),
-            'body'  => Utils::toMap($request),
         ]);
         $params = new Params([
             'action'      => 'QuerySnapshotJobList',
@@ -5596,7 +6888,7 @@ class Mts extends OpenApiClient
             'method'      => 'POST',
             'authType'    => 'AK',
             'style'       => 'RPC',
-            'reqBodyType' => 'json',
+            'reqBodyType' => 'formData',
             'bodyType'    => 'json',
         ]);
 
@@ -5624,15 +6916,24 @@ class Mts extends OpenApiClient
     public function querySubtitleJobListWithOptions($request, $runtime)
     {
         Utils::validateModel($request);
-        $query                         = [];
-        $query['JobIds']               = $request->jobIds;
-        $query['OwnerAccount']         = $request->ownerAccount;
-        $query['OwnerId']              = $request->ownerId;
-        $query['ResourceOwnerAccount'] = $request->resourceOwnerAccount;
-        $query['ResourceOwnerId']      = $request->resourceOwnerId;
-        $req                           = new OpenApiRequest([
+        $query = [];
+        if (!Utils::isUnset($request->jobIds)) {
+            $query['JobIds'] = $request->jobIds;
+        }
+        if (!Utils::isUnset($request->ownerAccount)) {
+            $query['OwnerAccount'] = $request->ownerAccount;
+        }
+        if (!Utils::isUnset($request->ownerId)) {
+            $query['OwnerId'] = $request->ownerId;
+        }
+        if (!Utils::isUnset($request->resourceOwnerAccount)) {
+            $query['ResourceOwnerAccount'] = $request->resourceOwnerAccount;
+        }
+        if (!Utils::isUnset($request->resourceOwnerId)) {
+            $query['ResourceOwnerId'] = $request->resourceOwnerId;
+        }
+        $req = new OpenApiRequest([
             'query' => OpenApiUtilClient::query($query),
-            'body'  => Utils::toMap($request),
         ]);
         $params = new Params([
             'action'      => 'QuerySubtitleJobList',
@@ -5642,7 +6943,7 @@ class Mts extends OpenApiClient
             'method'      => 'POST',
             'authType'    => 'AK',
             'style'       => 'RPC',
-            'reqBodyType' => 'json',
+            'reqBodyType' => 'formData',
             'bodyType'    => 'json',
         ]);
 
@@ -5670,15 +6971,24 @@ class Mts extends OpenApiClient
     public function queryTagJobListWithOptions($request, $runtime)
     {
         Utils::validateModel($request);
-        $query                         = [];
-        $query['OwnerAccount']         = $request->ownerAccount;
-        $query['OwnerId']              = $request->ownerId;
-        $query['ResourceOwnerAccount'] = $request->resourceOwnerAccount;
-        $query['ResourceOwnerId']      = $request->resourceOwnerId;
-        $query['TagJobIds']            = $request->tagJobIds;
-        $req                           = new OpenApiRequest([
+        $query = [];
+        if (!Utils::isUnset($request->ownerAccount)) {
+            $query['OwnerAccount'] = $request->ownerAccount;
+        }
+        if (!Utils::isUnset($request->ownerId)) {
+            $query['OwnerId'] = $request->ownerId;
+        }
+        if (!Utils::isUnset($request->resourceOwnerAccount)) {
+            $query['ResourceOwnerAccount'] = $request->resourceOwnerAccount;
+        }
+        if (!Utils::isUnset($request->resourceOwnerId)) {
+            $query['ResourceOwnerId'] = $request->resourceOwnerId;
+        }
+        if (!Utils::isUnset($request->tagJobIds)) {
+            $query['TagJobIds'] = $request->tagJobIds;
+        }
+        $req = new OpenApiRequest([
             'query' => OpenApiUtilClient::query($query),
-            'body'  => Utils::toMap($request),
         ]);
         $params = new Params([
             'action'      => 'QueryTagJobList',
@@ -5688,7 +6998,7 @@ class Mts extends OpenApiClient
             'method'      => 'POST',
             'authType'    => 'AK',
             'style'       => 'RPC',
-            'reqBodyType' => 'json',
+            'reqBodyType' => 'formData',
             'bodyType'    => 'json',
         ]);
 
@@ -5716,15 +7026,24 @@ class Mts extends OpenApiClient
     public function queryTemplateListWithOptions($request, $runtime)
     {
         Utils::validateModel($request);
-        $query                         = [];
-        $query['OwnerAccount']         = $request->ownerAccount;
-        $query['OwnerId']              = $request->ownerId;
-        $query['ResourceOwnerAccount'] = $request->resourceOwnerAccount;
-        $query['ResourceOwnerId']      = $request->resourceOwnerId;
-        $query['TemplateIds']          = $request->templateIds;
-        $req                           = new OpenApiRequest([
+        $query = [];
+        if (!Utils::isUnset($request->ownerAccount)) {
+            $query['OwnerAccount'] = $request->ownerAccount;
+        }
+        if (!Utils::isUnset($request->ownerId)) {
+            $query['OwnerId'] = $request->ownerId;
+        }
+        if (!Utils::isUnset($request->resourceOwnerAccount)) {
+            $query['ResourceOwnerAccount'] = $request->resourceOwnerAccount;
+        }
+        if (!Utils::isUnset($request->resourceOwnerId)) {
+            $query['ResourceOwnerId'] = $request->resourceOwnerId;
+        }
+        if (!Utils::isUnset($request->templateIds)) {
+            $query['TemplateIds'] = $request->templateIds;
+        }
+        $req = new OpenApiRequest([
             'query' => OpenApiUtilClient::query($query),
-            'body'  => Utils::toMap($request),
         ]);
         $params = new Params([
             'action'      => 'QueryTemplateList',
@@ -5734,7 +7053,7 @@ class Mts extends OpenApiClient
             'method'      => 'POST',
             'authType'    => 'AK',
             'style'       => 'RPC',
-            'reqBodyType' => 'json',
+            'reqBodyType' => 'formData',
             'bodyType'    => 'json',
         ]);
 
@@ -5762,15 +7081,24 @@ class Mts extends OpenApiClient
     public function queryTerrorismJobListWithOptions($request, $runtime)
     {
         Utils::validateModel($request);
-        $query                         = [];
-        $query['JobIds']               = $request->jobIds;
-        $query['OwnerAccount']         = $request->ownerAccount;
-        $query['OwnerId']              = $request->ownerId;
-        $query['ResourceOwnerAccount'] = $request->resourceOwnerAccount;
-        $query['ResourceOwnerId']      = $request->resourceOwnerId;
-        $req                           = new OpenApiRequest([
+        $query = [];
+        if (!Utils::isUnset($request->jobIds)) {
+            $query['JobIds'] = $request->jobIds;
+        }
+        if (!Utils::isUnset($request->ownerAccount)) {
+            $query['OwnerAccount'] = $request->ownerAccount;
+        }
+        if (!Utils::isUnset($request->ownerId)) {
+            $query['OwnerId'] = $request->ownerId;
+        }
+        if (!Utils::isUnset($request->resourceOwnerAccount)) {
+            $query['ResourceOwnerAccount'] = $request->resourceOwnerAccount;
+        }
+        if (!Utils::isUnset($request->resourceOwnerId)) {
+            $query['ResourceOwnerId'] = $request->resourceOwnerId;
+        }
+        $req = new OpenApiRequest([
             'query' => OpenApiUtilClient::query($query),
-            'body'  => Utils::toMap($request),
         ]);
         $params = new Params([
             'action'      => 'QueryTerrorismJobList',
@@ -5780,7 +7108,7 @@ class Mts extends OpenApiClient
             'method'      => 'POST',
             'authType'    => 'AK',
             'style'       => 'RPC',
-            'reqBodyType' => 'json',
+            'reqBodyType' => 'formData',
             'bodyType'    => 'json',
         ]);
 
@@ -5808,15 +7136,24 @@ class Mts extends OpenApiClient
     public function queryTerrorismPipelineListWithOptions($request, $runtime)
     {
         Utils::validateModel($request);
-        $query                         = [];
-        $query['OwnerAccount']         = $request->ownerAccount;
-        $query['OwnerId']              = $request->ownerId;
-        $query['PipelineIds']          = $request->pipelineIds;
-        $query['ResourceOwnerAccount'] = $request->resourceOwnerAccount;
-        $query['ResourceOwnerId']      = $request->resourceOwnerId;
-        $req                           = new OpenApiRequest([
+        $query = [];
+        if (!Utils::isUnset($request->ownerAccount)) {
+            $query['OwnerAccount'] = $request->ownerAccount;
+        }
+        if (!Utils::isUnset($request->ownerId)) {
+            $query['OwnerId'] = $request->ownerId;
+        }
+        if (!Utils::isUnset($request->pipelineIds)) {
+            $query['PipelineIds'] = $request->pipelineIds;
+        }
+        if (!Utils::isUnset($request->resourceOwnerAccount)) {
+            $query['ResourceOwnerAccount'] = $request->resourceOwnerAccount;
+        }
+        if (!Utils::isUnset($request->resourceOwnerId)) {
+            $query['ResourceOwnerId'] = $request->resourceOwnerId;
+        }
+        $req = new OpenApiRequest([
             'query' => OpenApiUtilClient::query($query),
-            'body'  => Utils::toMap($request),
         ]);
         $params = new Params([
             'action'      => 'QueryTerrorismPipelineList',
@@ -5826,7 +7163,7 @@ class Mts extends OpenApiClient
             'method'      => 'POST',
             'authType'    => 'AK',
             'style'       => 'RPC',
-            'reqBodyType' => 'json',
+            'reqBodyType' => 'formData',
             'bodyType'    => 'json',
         ]);
 
@@ -5854,15 +7191,24 @@ class Mts extends OpenApiClient
     public function queryVideoGifJobListWithOptions($request, $runtime)
     {
         Utils::validateModel($request);
-        $query                         = [];
-        $query['JobIds']               = $request->jobIds;
-        $query['OwnerAccount']         = $request->ownerAccount;
-        $query['OwnerId']              = $request->ownerId;
-        $query['ResourceOwnerAccount'] = $request->resourceOwnerAccount;
-        $query['ResourceOwnerId']      = $request->resourceOwnerId;
-        $req                           = new OpenApiRequest([
+        $query = [];
+        if (!Utils::isUnset($request->jobIds)) {
+            $query['JobIds'] = $request->jobIds;
+        }
+        if (!Utils::isUnset($request->ownerAccount)) {
+            $query['OwnerAccount'] = $request->ownerAccount;
+        }
+        if (!Utils::isUnset($request->ownerId)) {
+            $query['OwnerId'] = $request->ownerId;
+        }
+        if (!Utils::isUnset($request->resourceOwnerAccount)) {
+            $query['ResourceOwnerAccount'] = $request->resourceOwnerAccount;
+        }
+        if (!Utils::isUnset($request->resourceOwnerId)) {
+            $query['ResourceOwnerId'] = $request->resourceOwnerId;
+        }
+        $req = new OpenApiRequest([
             'query' => OpenApiUtilClient::query($query),
-            'body'  => Utils::toMap($request),
         ]);
         $params = new Params([
             'action'      => 'QueryVideoGifJobList',
@@ -5872,7 +7218,7 @@ class Mts extends OpenApiClient
             'method'      => 'POST',
             'authType'    => 'AK',
             'style'       => 'RPC',
-            'reqBodyType' => 'json',
+            'reqBodyType' => 'formData',
             'bodyType'    => 'json',
         ]);
 
@@ -5900,15 +7246,24 @@ class Mts extends OpenApiClient
     public function queryVideoPoseJobListWithOptions($request, $runtime)
     {
         Utils::validateModel($request);
-        $query                         = [];
-        $query['JobIds']               = $request->jobIds;
-        $query['OwnerAccount']         = $request->ownerAccount;
-        $query['OwnerId']              = $request->ownerId;
-        $query['ResourceOwnerAccount'] = $request->resourceOwnerAccount;
-        $query['ResourceOwnerId']      = $request->resourceOwnerId;
-        $req                           = new OpenApiRequest([
+        $query = [];
+        if (!Utils::isUnset($request->jobIds)) {
+            $query['JobIds'] = $request->jobIds;
+        }
+        if (!Utils::isUnset($request->ownerAccount)) {
+            $query['OwnerAccount'] = $request->ownerAccount;
+        }
+        if (!Utils::isUnset($request->ownerId)) {
+            $query['OwnerId'] = $request->ownerId;
+        }
+        if (!Utils::isUnset($request->resourceOwnerAccount)) {
+            $query['ResourceOwnerAccount'] = $request->resourceOwnerAccount;
+        }
+        if (!Utils::isUnset($request->resourceOwnerId)) {
+            $query['ResourceOwnerId'] = $request->resourceOwnerId;
+        }
+        $req = new OpenApiRequest([
             'query' => OpenApiUtilClient::query($query),
-            'body'  => Utils::toMap($request),
         ]);
         $params = new Params([
             'action'      => 'QueryVideoPoseJobList',
@@ -5918,7 +7273,7 @@ class Mts extends OpenApiClient
             'method'      => 'POST',
             'authType'    => 'AK',
             'style'       => 'RPC',
-            'reqBodyType' => 'json',
+            'reqBodyType' => 'formData',
             'bodyType'    => 'json',
         ]);
 
@@ -5946,12 +7301,15 @@ class Mts extends OpenApiClient
     public function queryVideoQualityJobWithOptions($request, $runtime)
     {
         Utils::validateModel($request);
-        $query           = [];
-        $query['JobId']  = $request->jobId;
-        $query['UserId'] = $request->userId;
-        $req             = new OpenApiRequest([
+        $query = [];
+        if (!Utils::isUnset($request->jobId)) {
+            $query['JobId'] = $request->jobId;
+        }
+        if (!Utils::isUnset($request->userId)) {
+            $query['UserId'] = $request->userId;
+        }
+        $req = new OpenApiRequest([
             'query' => OpenApiUtilClient::query($query),
-            'body'  => Utils::toMap($request),
         ]);
         $params = new Params([
             'action'      => 'QueryVideoQualityJob',
@@ -5961,7 +7319,7 @@ class Mts extends OpenApiClient
             'method'      => 'POST',
             'authType'    => 'AK',
             'style'       => 'RPC',
-            'reqBodyType' => 'json',
+            'reqBodyType' => 'formData',
             'bodyType'    => 'json',
         ]);
 
@@ -5989,15 +7347,24 @@ class Mts extends OpenApiClient
     public function queryVideoSplitJobListWithOptions($request, $runtime)
     {
         Utils::validateModel($request);
-        $query                         = [];
-        $query['JobIds']               = $request->jobIds;
-        $query['OwnerAccount']         = $request->ownerAccount;
-        $query['OwnerId']              = $request->ownerId;
-        $query['ResourceOwnerAccount'] = $request->resourceOwnerAccount;
-        $query['ResourceOwnerId']      = $request->resourceOwnerId;
-        $req                           = new OpenApiRequest([
+        $query = [];
+        if (!Utils::isUnset($request->jobIds)) {
+            $query['JobIds'] = $request->jobIds;
+        }
+        if (!Utils::isUnset($request->ownerAccount)) {
+            $query['OwnerAccount'] = $request->ownerAccount;
+        }
+        if (!Utils::isUnset($request->ownerId)) {
+            $query['OwnerId'] = $request->ownerId;
+        }
+        if (!Utils::isUnset($request->resourceOwnerAccount)) {
+            $query['ResourceOwnerAccount'] = $request->resourceOwnerAccount;
+        }
+        if (!Utils::isUnset($request->resourceOwnerId)) {
+            $query['ResourceOwnerId'] = $request->resourceOwnerId;
+        }
+        $req = new OpenApiRequest([
             'query' => OpenApiUtilClient::query($query),
-            'body'  => Utils::toMap($request),
         ]);
         $params = new Params([
             'action'      => 'QueryVideoSplitJobList',
@@ -6007,7 +7374,7 @@ class Mts extends OpenApiClient
             'method'      => 'POST',
             'authType'    => 'AK',
             'style'       => 'RPC',
-            'reqBodyType' => 'json',
+            'reqBodyType' => 'formData',
             'bodyType'    => 'json',
         ]);
 
@@ -6035,15 +7402,24 @@ class Mts extends OpenApiClient
     public function queryVideoSummaryJobListWithOptions($request, $runtime)
     {
         Utils::validateModel($request);
-        $query                         = [];
-        $query['JobIds']               = $request->jobIds;
-        $query['OwnerAccount']         = $request->ownerAccount;
-        $query['OwnerId']              = $request->ownerId;
-        $query['ResourceOwnerAccount'] = $request->resourceOwnerAccount;
-        $query['ResourceOwnerId']      = $request->resourceOwnerId;
-        $req                           = new OpenApiRequest([
+        $query = [];
+        if (!Utils::isUnset($request->jobIds)) {
+            $query['JobIds'] = $request->jobIds;
+        }
+        if (!Utils::isUnset($request->ownerAccount)) {
+            $query['OwnerAccount'] = $request->ownerAccount;
+        }
+        if (!Utils::isUnset($request->ownerId)) {
+            $query['OwnerId'] = $request->ownerId;
+        }
+        if (!Utils::isUnset($request->resourceOwnerAccount)) {
+            $query['ResourceOwnerAccount'] = $request->resourceOwnerAccount;
+        }
+        if (!Utils::isUnset($request->resourceOwnerId)) {
+            $query['ResourceOwnerId'] = $request->resourceOwnerId;
+        }
+        $req = new OpenApiRequest([
             'query' => OpenApiUtilClient::query($query),
-            'body'  => Utils::toMap($request),
         ]);
         $params = new Params([
             'action'      => 'QueryVideoSummaryJobList',
@@ -6053,7 +7429,7 @@ class Mts extends OpenApiClient
             'method'      => 'POST',
             'authType'    => 'AK',
             'style'       => 'RPC',
-            'reqBodyType' => 'json',
+            'reqBodyType' => 'formData',
             'bodyType'    => 'json',
         ]);
 
@@ -6081,15 +7457,24 @@ class Mts extends OpenApiClient
     public function queryWaterMarkTemplateListWithOptions($request, $runtime)
     {
         Utils::validateModel($request);
-        $query                         = [];
-        $query['OwnerAccount']         = $request->ownerAccount;
-        $query['OwnerId']              = $request->ownerId;
-        $query['ResourceOwnerAccount'] = $request->resourceOwnerAccount;
-        $query['ResourceOwnerId']      = $request->resourceOwnerId;
-        $query['WaterMarkTemplateIds'] = $request->waterMarkTemplateIds;
-        $req                           = new OpenApiRequest([
+        $query = [];
+        if (!Utils::isUnset($request->ownerAccount)) {
+            $query['OwnerAccount'] = $request->ownerAccount;
+        }
+        if (!Utils::isUnset($request->ownerId)) {
+            $query['OwnerId'] = $request->ownerId;
+        }
+        if (!Utils::isUnset($request->resourceOwnerAccount)) {
+            $query['ResourceOwnerAccount'] = $request->resourceOwnerAccount;
+        }
+        if (!Utils::isUnset($request->resourceOwnerId)) {
+            $query['ResourceOwnerId'] = $request->resourceOwnerId;
+        }
+        if (!Utils::isUnset($request->waterMarkTemplateIds)) {
+            $query['WaterMarkTemplateIds'] = $request->waterMarkTemplateIds;
+        }
+        $req = new OpenApiRequest([
             'query' => OpenApiUtilClient::query($query),
-            'body'  => Utils::toMap($request),
         ]);
         $params = new Params([
             'action'      => 'QueryWaterMarkTemplateList',
@@ -6099,7 +7484,7 @@ class Mts extends OpenApiClient
             'method'      => 'POST',
             'authType'    => 'AK',
             'style'       => 'RPC',
-            'reqBodyType' => 'json',
+            'reqBodyType' => 'formData',
             'bodyType'    => 'json',
         ]);
 
@@ -6127,15 +7512,24 @@ class Mts extends OpenApiClient
     public function refreshCdnDomainConfigsCacheWithOptions($request, $runtime)
     {
         Utils::validateModel($request);
-        $query                         = [];
-        $query['Domains']              = $request->domains;
-        $query['OwnerAccount']         = $request->ownerAccount;
-        $query['OwnerId']              = $request->ownerId;
-        $query['ResourceOwnerAccount'] = $request->resourceOwnerAccount;
-        $query['ResourceOwnerId']      = $request->resourceOwnerId;
-        $req                           = new OpenApiRequest([
+        $query = [];
+        if (!Utils::isUnset($request->domains)) {
+            $query['Domains'] = $request->domains;
+        }
+        if (!Utils::isUnset($request->ownerAccount)) {
+            $query['OwnerAccount'] = $request->ownerAccount;
+        }
+        if (!Utils::isUnset($request->ownerId)) {
+            $query['OwnerId'] = $request->ownerId;
+        }
+        if (!Utils::isUnset($request->resourceOwnerAccount)) {
+            $query['ResourceOwnerAccount'] = $request->resourceOwnerAccount;
+        }
+        if (!Utils::isUnset($request->resourceOwnerId)) {
+            $query['ResourceOwnerId'] = $request->resourceOwnerId;
+        }
+        $req = new OpenApiRequest([
             'query' => OpenApiUtilClient::query($query),
-            'body'  => Utils::toMap($request),
         ]);
         $params = new Params([
             'action'      => 'RefreshCdnDomainConfigsCache',
@@ -6145,7 +7539,7 @@ class Mts extends OpenApiClient
             'method'      => 'POST',
             'authType'    => 'AK',
             'style'       => 'RPC',
-            'reqBodyType' => 'json',
+            'reqBodyType' => 'formData',
             'bodyType'    => 'json',
         ]);
 
@@ -6173,17 +7567,30 @@ class Mts extends OpenApiClient
     public function registerCustomFaceWithOptions($request, $runtime)
     {
         Utils::validateModel($request);
-        $query                         = [];
-        $query['CategoryId']           = $request->categoryId;
-        $query['ImageUrl']             = $request->imageUrl;
-        $query['OwnerAccount']         = $request->ownerAccount;
-        $query['OwnerId']              = $request->ownerId;
-        $query['PersonId']             = $request->personId;
-        $query['ResourceOwnerAccount'] = $request->resourceOwnerAccount;
-        $query['ResourceOwnerId']      = $request->resourceOwnerId;
-        $req                           = new OpenApiRequest([
+        $query = [];
+        if (!Utils::isUnset($request->categoryId)) {
+            $query['CategoryId'] = $request->categoryId;
+        }
+        if (!Utils::isUnset($request->imageUrl)) {
+            $query['ImageUrl'] = $request->imageUrl;
+        }
+        if (!Utils::isUnset($request->ownerAccount)) {
+            $query['OwnerAccount'] = $request->ownerAccount;
+        }
+        if (!Utils::isUnset($request->ownerId)) {
+            $query['OwnerId'] = $request->ownerId;
+        }
+        if (!Utils::isUnset($request->personId)) {
+            $query['PersonId'] = $request->personId;
+        }
+        if (!Utils::isUnset($request->resourceOwnerAccount)) {
+            $query['ResourceOwnerAccount'] = $request->resourceOwnerAccount;
+        }
+        if (!Utils::isUnset($request->resourceOwnerId)) {
+            $query['ResourceOwnerId'] = $request->resourceOwnerId;
+        }
+        $req = new OpenApiRequest([
             'query' => OpenApiUtilClient::query($query),
-            'body'  => Utils::toMap($request),
         ]);
         $params = new Params([
             'action'      => 'RegisterCustomFace',
@@ -6193,7 +7600,7 @@ class Mts extends OpenApiClient
             'method'      => 'POST',
             'authType'    => 'AK',
             'style'       => 'RPC',
-            'reqBodyType' => 'json',
+            'reqBodyType' => 'formData',
             'bodyType'    => 'json',
         ]);
 
@@ -6221,18 +7628,33 @@ class Mts extends OpenApiClient
     public function registerMediaDetailPersonWithOptions($request, $runtime)
     {
         Utils::validateModel($request);
-        $query                         = [];
-        $query['Category']             = $request->category;
-        $query['Images']               = $request->images;
-        $query['OwnerAccount']         = $request->ownerAccount;
-        $query['OwnerId']              = $request->ownerId;
-        $query['PersonLib']            = $request->personLib;
-        $query['PersonName']           = $request->personName;
-        $query['ResourceOwnerAccount'] = $request->resourceOwnerAccount;
-        $query['ResourceOwnerId']      = $request->resourceOwnerId;
-        $req                           = new OpenApiRequest([
+        $query = [];
+        if (!Utils::isUnset($request->category)) {
+            $query['Category'] = $request->category;
+        }
+        if (!Utils::isUnset($request->images)) {
+            $query['Images'] = $request->images;
+        }
+        if (!Utils::isUnset($request->ownerAccount)) {
+            $query['OwnerAccount'] = $request->ownerAccount;
+        }
+        if (!Utils::isUnset($request->ownerId)) {
+            $query['OwnerId'] = $request->ownerId;
+        }
+        if (!Utils::isUnset($request->personLib)) {
+            $query['PersonLib'] = $request->personLib;
+        }
+        if (!Utils::isUnset($request->personName)) {
+            $query['PersonName'] = $request->personName;
+        }
+        if (!Utils::isUnset($request->resourceOwnerAccount)) {
+            $query['ResourceOwnerAccount'] = $request->resourceOwnerAccount;
+        }
+        if (!Utils::isUnset($request->resourceOwnerId)) {
+            $query['ResourceOwnerId'] = $request->resourceOwnerId;
+        }
+        $req = new OpenApiRequest([
             'query' => OpenApiUtilClient::query($query),
-            'body'  => Utils::toMap($request),
         ]);
         $params = new Params([
             'action'      => 'RegisterMediaDetailPerson',
@@ -6242,7 +7664,7 @@ class Mts extends OpenApiClient
             'method'      => 'POST',
             'authType'    => 'AK',
             'style'       => 'RPC',
-            'reqBodyType' => 'json',
+            'reqBodyType' => 'formData',
             'bodyType'    => 'json',
         ]);
 
@@ -6270,17 +7692,30 @@ class Mts extends OpenApiClient
     public function registerMediaDetailScenarioWithOptions($request, $runtime)
     {
         Utils::validateModel($request);
-        $query                         = [];
-        $query['Description']          = $request->description;
-        $query['JobId']                = $request->jobId;
-        $query['OwnerAccount']         = $request->ownerAccount;
-        $query['OwnerId']              = $request->ownerId;
-        $query['ResourceOwnerAccount'] = $request->resourceOwnerAccount;
-        $query['ResourceOwnerId']      = $request->resourceOwnerId;
-        $query['Scenario']             = $request->scenario;
-        $req                           = new OpenApiRequest([
+        $query = [];
+        if (!Utils::isUnset($request->description)) {
+            $query['Description'] = $request->description;
+        }
+        if (!Utils::isUnset($request->jobId)) {
+            $query['JobId'] = $request->jobId;
+        }
+        if (!Utils::isUnset($request->ownerAccount)) {
+            $query['OwnerAccount'] = $request->ownerAccount;
+        }
+        if (!Utils::isUnset($request->ownerId)) {
+            $query['OwnerId'] = $request->ownerId;
+        }
+        if (!Utils::isUnset($request->resourceOwnerAccount)) {
+            $query['ResourceOwnerAccount'] = $request->resourceOwnerAccount;
+        }
+        if (!Utils::isUnset($request->resourceOwnerId)) {
+            $query['ResourceOwnerId'] = $request->resourceOwnerId;
+        }
+        if (!Utils::isUnset($request->scenario)) {
+            $query['Scenario'] = $request->scenario;
+        }
+        $req = new OpenApiRequest([
             'query' => OpenApiUtilClient::query($query),
-            'body'  => Utils::toMap($request),
         ]);
         $params = new Params([
             'action'      => 'RegisterMediaDetailScenario',
@@ -6290,7 +7725,7 @@ class Mts extends OpenApiClient
             'method'      => 'POST',
             'authType'    => 'AK',
             'style'       => 'RPC',
-            'reqBodyType' => 'json',
+            'reqBodyType' => 'formData',
             'bodyType'    => 'json',
         ]);
 
@@ -6318,17 +7753,30 @@ class Mts extends OpenApiClient
     public function reportAnnotationJobResultWithOptions($request, $runtime)
     {
         Utils::validateModel($request);
-        $query                         = [];
-        $query['Annotation']           = $request->annotation;
-        $query['Details']              = $request->details;
-        $query['JobId']                = $request->jobId;
-        $query['OwnerAccount']         = $request->ownerAccount;
-        $query['OwnerId']              = $request->ownerId;
-        $query['ResourceOwnerAccount'] = $request->resourceOwnerAccount;
-        $query['ResourceOwnerId']      = $request->resourceOwnerId;
-        $req                           = new OpenApiRequest([
+        $query = [];
+        if (!Utils::isUnset($request->annotation)) {
+            $query['Annotation'] = $request->annotation;
+        }
+        if (!Utils::isUnset($request->details)) {
+            $query['Details'] = $request->details;
+        }
+        if (!Utils::isUnset($request->jobId)) {
+            $query['JobId'] = $request->jobId;
+        }
+        if (!Utils::isUnset($request->ownerAccount)) {
+            $query['OwnerAccount'] = $request->ownerAccount;
+        }
+        if (!Utils::isUnset($request->ownerId)) {
+            $query['OwnerId'] = $request->ownerId;
+        }
+        if (!Utils::isUnset($request->resourceOwnerAccount)) {
+            $query['ResourceOwnerAccount'] = $request->resourceOwnerAccount;
+        }
+        if (!Utils::isUnset($request->resourceOwnerId)) {
+            $query['ResourceOwnerId'] = $request->resourceOwnerId;
+        }
+        $req = new OpenApiRequest([
             'query' => OpenApiUtilClient::query($query),
-            'body'  => Utils::toMap($request),
         ]);
         $params = new Params([
             'action'      => 'ReportAnnotationJobResult',
@@ -6338,7 +7786,7 @@ class Mts extends OpenApiClient
             'method'      => 'POST',
             'authType'    => 'AK',
             'style'       => 'RPC',
-            'reqBodyType' => 'json',
+            'reqBodyType' => 'formData',
             'bodyType'    => 'json',
         ]);
 
@@ -6366,17 +7814,30 @@ class Mts extends OpenApiClient
     public function reportCensorJobResultWithOptions($request, $runtime)
     {
         Utils::validateModel($request);
-        $query                         = [];
-        $query['Detail']               = $request->detail;
-        $query['JobId']                = $request->jobId;
-        $query['Label']                = $request->label;
-        $query['OwnerAccount']         = $request->ownerAccount;
-        $query['OwnerId']              = $request->ownerId;
-        $query['ResourceOwnerAccount'] = $request->resourceOwnerAccount;
-        $query['ResourceOwnerId']      = $request->resourceOwnerId;
-        $req                           = new OpenApiRequest([
+        $query = [];
+        if (!Utils::isUnset($request->detail)) {
+            $query['Detail'] = $request->detail;
+        }
+        if (!Utils::isUnset($request->jobId)) {
+            $query['JobId'] = $request->jobId;
+        }
+        if (!Utils::isUnset($request->label)) {
+            $query['Label'] = $request->label;
+        }
+        if (!Utils::isUnset($request->ownerAccount)) {
+            $query['OwnerAccount'] = $request->ownerAccount;
+        }
+        if (!Utils::isUnset($request->ownerId)) {
+            $query['OwnerId'] = $request->ownerId;
+        }
+        if (!Utils::isUnset($request->resourceOwnerAccount)) {
+            $query['ResourceOwnerAccount'] = $request->resourceOwnerAccount;
+        }
+        if (!Utils::isUnset($request->resourceOwnerId)) {
+            $query['ResourceOwnerId'] = $request->resourceOwnerId;
+        }
+        $req = new OpenApiRequest([
             'query' => OpenApiUtilClient::query($query),
-            'body'  => Utils::toMap($request),
         ]);
         $params = new Params([
             'action'      => 'ReportCensorJobResult',
@@ -6386,7 +7847,7 @@ class Mts extends OpenApiClient
             'method'      => 'POST',
             'authType'    => 'AK',
             'style'       => 'RPC',
-            'reqBodyType' => 'json',
+            'reqBodyType' => 'formData',
             'bodyType'    => 'json',
         ]);
 
@@ -6414,16 +7875,27 @@ class Mts extends OpenApiClient
     public function reportCoverJobResultWithOptions($request, $runtime)
     {
         Utils::validateModel($request);
-        $query                         = [];
-        $query['JobId']                = $request->jobId;
-        $query['OwnerAccount']         = $request->ownerAccount;
-        $query['OwnerId']              = $request->ownerId;
-        $query['ResourceOwnerAccount'] = $request->resourceOwnerAccount;
-        $query['ResourceOwnerId']      = $request->resourceOwnerId;
-        $query['Result']               = $request->result;
-        $req                           = new OpenApiRequest([
+        $query = [];
+        if (!Utils::isUnset($request->jobId)) {
+            $query['JobId'] = $request->jobId;
+        }
+        if (!Utils::isUnset($request->ownerAccount)) {
+            $query['OwnerAccount'] = $request->ownerAccount;
+        }
+        if (!Utils::isUnset($request->ownerId)) {
+            $query['OwnerId'] = $request->ownerId;
+        }
+        if (!Utils::isUnset($request->resourceOwnerAccount)) {
+            $query['ResourceOwnerAccount'] = $request->resourceOwnerAccount;
+        }
+        if (!Utils::isUnset($request->resourceOwnerId)) {
+            $query['ResourceOwnerId'] = $request->resourceOwnerId;
+        }
+        if (!Utils::isUnset($request->result)) {
+            $query['Result'] = $request->result;
+        }
+        $req = new OpenApiRequest([
             'query' => OpenApiUtilClient::query($query),
-            'body'  => Utils::toMap($request),
         ]);
         $params = new Params([
             'action'      => 'ReportCoverJobResult',
@@ -6433,7 +7905,7 @@ class Mts extends OpenApiClient
             'method'      => 'POST',
             'authType'    => 'AK',
             'style'       => 'RPC',
-            'reqBodyType' => 'json',
+            'reqBodyType' => 'formData',
             'bodyType'    => 'json',
         ]);
 
@@ -6461,17 +7933,30 @@ class Mts extends OpenApiClient
     public function reportFacerecogJobResultWithOptions($request, $runtime)
     {
         Utils::validateModel($request);
-        $query                         = [];
-        $query['Details']              = $request->details;
-        $query['Facerecog']            = $request->facerecog;
-        $query['JobId']                = $request->jobId;
-        $query['OwnerAccount']         = $request->ownerAccount;
-        $query['OwnerId']              = $request->ownerId;
-        $query['ResourceOwnerAccount'] = $request->resourceOwnerAccount;
-        $query['ResourceOwnerId']      = $request->resourceOwnerId;
-        $req                           = new OpenApiRequest([
+        $query = [];
+        if (!Utils::isUnset($request->details)) {
+            $query['Details'] = $request->details;
+        }
+        if (!Utils::isUnset($request->facerecog)) {
+            $query['Facerecog'] = $request->facerecog;
+        }
+        if (!Utils::isUnset($request->jobId)) {
+            $query['JobId'] = $request->jobId;
+        }
+        if (!Utils::isUnset($request->ownerAccount)) {
+            $query['OwnerAccount'] = $request->ownerAccount;
+        }
+        if (!Utils::isUnset($request->ownerId)) {
+            $query['OwnerId'] = $request->ownerId;
+        }
+        if (!Utils::isUnset($request->resourceOwnerAccount)) {
+            $query['ResourceOwnerAccount'] = $request->resourceOwnerAccount;
+        }
+        if (!Utils::isUnset($request->resourceOwnerId)) {
+            $query['ResourceOwnerId'] = $request->resourceOwnerId;
+        }
+        $req = new OpenApiRequest([
             'query' => OpenApiUtilClient::query($query),
-            'body'  => Utils::toMap($request),
         ]);
         $params = new Params([
             'action'      => 'ReportFacerecogJobResult',
@@ -6481,7 +7966,7 @@ class Mts extends OpenApiClient
             'method'      => 'POST',
             'authType'    => 'AK',
             'style'       => 'RPC',
-            'reqBodyType' => 'json',
+            'reqBodyType' => 'formData',
             'bodyType'    => 'json',
         ]);
 
@@ -6509,17 +7994,30 @@ class Mts extends OpenApiClient
     public function reportFpShotJobResultWithOptions($request, $runtime)
     {
         Utils::validateModel($request);
-        $query                         = [];
-        $query['Details']              = $request->details;
-        $query['JobId']                = $request->jobId;
-        $query['OwnerAccount']         = $request->ownerAccount;
-        $query['OwnerId']              = $request->ownerId;
-        $query['ResourceOwnerAccount'] = $request->resourceOwnerAccount;
-        $query['ResourceOwnerId']      = $request->resourceOwnerId;
-        $query['Result']               = $request->result;
-        $req                           = new OpenApiRequest([
+        $query = [];
+        if (!Utils::isUnset($request->details)) {
+            $query['Details'] = $request->details;
+        }
+        if (!Utils::isUnset($request->jobId)) {
+            $query['JobId'] = $request->jobId;
+        }
+        if (!Utils::isUnset($request->ownerAccount)) {
+            $query['OwnerAccount'] = $request->ownerAccount;
+        }
+        if (!Utils::isUnset($request->ownerId)) {
+            $query['OwnerId'] = $request->ownerId;
+        }
+        if (!Utils::isUnset($request->resourceOwnerAccount)) {
+            $query['ResourceOwnerAccount'] = $request->resourceOwnerAccount;
+        }
+        if (!Utils::isUnset($request->resourceOwnerId)) {
+            $query['ResourceOwnerId'] = $request->resourceOwnerId;
+        }
+        if (!Utils::isUnset($request->result)) {
+            $query['Result'] = $request->result;
+        }
+        $req = new OpenApiRequest([
             'query' => OpenApiUtilClient::query($query),
-            'body'  => Utils::toMap($request),
         ]);
         $params = new Params([
             'action'      => 'ReportFpShotJobResult',
@@ -6529,7 +8027,7 @@ class Mts extends OpenApiClient
             'method'      => 'POST',
             'authType'    => 'AK',
             'style'       => 'RPC',
-            'reqBodyType' => 'json',
+            'reqBodyType' => 'formData',
             'bodyType'    => 'json',
         ]);
 
@@ -6557,17 +8055,30 @@ class Mts extends OpenApiClient
     public function reportMediaDetailJobResultWithOptions($request, $runtime)
     {
         Utils::validateModel($request);
-        $query                         = [];
-        $query['JobId']                = $request->jobId;
-        $query['OwnerAccount']         = $request->ownerAccount;
-        $query['OwnerId']              = $request->ownerId;
-        $query['ResourceOwnerAccount'] = $request->resourceOwnerAccount;
-        $query['ResourceOwnerId']      = $request->resourceOwnerId;
-        $query['Results']              = $request->results;
-        $query['Tag']                  = $request->tag;
-        $req                           = new OpenApiRequest([
+        $query = [];
+        if (!Utils::isUnset($request->jobId)) {
+            $query['JobId'] = $request->jobId;
+        }
+        if (!Utils::isUnset($request->ownerAccount)) {
+            $query['OwnerAccount'] = $request->ownerAccount;
+        }
+        if (!Utils::isUnset($request->ownerId)) {
+            $query['OwnerId'] = $request->ownerId;
+        }
+        if (!Utils::isUnset($request->resourceOwnerAccount)) {
+            $query['ResourceOwnerAccount'] = $request->resourceOwnerAccount;
+        }
+        if (!Utils::isUnset($request->resourceOwnerId)) {
+            $query['ResourceOwnerId'] = $request->resourceOwnerId;
+        }
+        if (!Utils::isUnset($request->results)) {
+            $query['Results'] = $request->results;
+        }
+        if (!Utils::isUnset($request->tag)) {
+            $query['Tag'] = $request->tag;
+        }
+        $req = new OpenApiRequest([
             'query' => OpenApiUtilClient::query($query),
-            'body'  => Utils::toMap($request),
         ]);
         $params = new Params([
             'action'      => 'ReportMediaDetailJobResult',
@@ -6577,7 +8088,7 @@ class Mts extends OpenApiClient
             'method'      => 'POST',
             'authType'    => 'AK',
             'style'       => 'RPC',
-            'reqBodyType' => 'json',
+            'reqBodyType' => 'formData',
             'bodyType'    => 'json',
         ]);
 
@@ -6605,17 +8116,30 @@ class Mts extends OpenApiClient
     public function reportPornJobResultWithOptions($request, $runtime)
     {
         Utils::validateModel($request);
-        $query                         = [];
-        $query['Detail']               = $request->detail;
-        $query['JobId']                = $request->jobId;
-        $query['Label']                = $request->label;
-        $query['OwnerAccount']         = $request->ownerAccount;
-        $query['OwnerId']              = $request->ownerId;
-        $query['ResourceOwnerAccount'] = $request->resourceOwnerAccount;
-        $query['ResourceOwnerId']      = $request->resourceOwnerId;
-        $req                           = new OpenApiRequest([
+        $query = [];
+        if (!Utils::isUnset($request->detail)) {
+            $query['Detail'] = $request->detail;
+        }
+        if (!Utils::isUnset($request->jobId)) {
+            $query['JobId'] = $request->jobId;
+        }
+        if (!Utils::isUnset($request->label)) {
+            $query['Label'] = $request->label;
+        }
+        if (!Utils::isUnset($request->ownerAccount)) {
+            $query['OwnerAccount'] = $request->ownerAccount;
+        }
+        if (!Utils::isUnset($request->ownerId)) {
+            $query['OwnerId'] = $request->ownerId;
+        }
+        if (!Utils::isUnset($request->resourceOwnerAccount)) {
+            $query['ResourceOwnerAccount'] = $request->resourceOwnerAccount;
+        }
+        if (!Utils::isUnset($request->resourceOwnerId)) {
+            $query['ResourceOwnerId'] = $request->resourceOwnerId;
+        }
+        $req = new OpenApiRequest([
             'query' => OpenApiUtilClient::query($query),
-            'body'  => Utils::toMap($request),
         ]);
         $params = new Params([
             'action'      => 'ReportPornJobResult',
@@ -6625,7 +8149,7 @@ class Mts extends OpenApiClient
             'method'      => 'POST',
             'authType'    => 'AK',
             'style'       => 'RPC',
-            'reqBodyType' => 'json',
+            'reqBodyType' => 'formData',
             'bodyType'    => 'json',
         ]);
 
@@ -6653,17 +8177,30 @@ class Mts extends OpenApiClient
     public function reportTagJobResultWithOptions($request, $runtime)
     {
         Utils::validateModel($request);
-        $query                         = [];
-        $query['JobId']                = $request->jobId;
-        $query['OwnerAccount']         = $request->ownerAccount;
-        $query['OwnerId']              = $request->ownerId;
-        $query['ResourceOwnerAccount'] = $request->resourceOwnerAccount;
-        $query['ResourceOwnerId']      = $request->resourceOwnerId;
-        $query['Result']               = $request->result;
-        $query['Tag']                  = $request->tag;
-        $req                           = new OpenApiRequest([
+        $query = [];
+        if (!Utils::isUnset($request->jobId)) {
+            $query['JobId'] = $request->jobId;
+        }
+        if (!Utils::isUnset($request->ownerAccount)) {
+            $query['OwnerAccount'] = $request->ownerAccount;
+        }
+        if (!Utils::isUnset($request->ownerId)) {
+            $query['OwnerId'] = $request->ownerId;
+        }
+        if (!Utils::isUnset($request->resourceOwnerAccount)) {
+            $query['ResourceOwnerAccount'] = $request->resourceOwnerAccount;
+        }
+        if (!Utils::isUnset($request->resourceOwnerId)) {
+            $query['ResourceOwnerId'] = $request->resourceOwnerId;
+        }
+        if (!Utils::isUnset($request->result)) {
+            $query['Result'] = $request->result;
+        }
+        if (!Utils::isUnset($request->tag)) {
+            $query['Tag'] = $request->tag;
+        }
+        $req = new OpenApiRequest([
             'query' => OpenApiUtilClient::query($query),
-            'body'  => Utils::toMap($request),
         ]);
         $params = new Params([
             'action'      => 'ReportTagJobResult',
@@ -6673,7 +8210,7 @@ class Mts extends OpenApiClient
             'method'      => 'POST',
             'authType'    => 'AK',
             'style'       => 'RPC',
-            'reqBodyType' => 'json',
+            'reqBodyType' => 'formData',
             'bodyType'    => 'json',
         ]);
 
@@ -6701,17 +8238,30 @@ class Mts extends OpenApiClient
     public function reportTerrorismJobResultWithOptions($request, $runtime)
     {
         Utils::validateModel($request);
-        $query                         = [];
-        $query['Detail']               = $request->detail;
-        $query['JobId']                = $request->jobId;
-        $query['Label']                = $request->label;
-        $query['OwnerAccount']         = $request->ownerAccount;
-        $query['OwnerId']              = $request->ownerId;
-        $query['ResourceOwnerAccount'] = $request->resourceOwnerAccount;
-        $query['ResourceOwnerId']      = $request->resourceOwnerId;
-        $req                           = new OpenApiRequest([
+        $query = [];
+        if (!Utils::isUnset($request->detail)) {
+            $query['Detail'] = $request->detail;
+        }
+        if (!Utils::isUnset($request->jobId)) {
+            $query['JobId'] = $request->jobId;
+        }
+        if (!Utils::isUnset($request->label)) {
+            $query['Label'] = $request->label;
+        }
+        if (!Utils::isUnset($request->ownerAccount)) {
+            $query['OwnerAccount'] = $request->ownerAccount;
+        }
+        if (!Utils::isUnset($request->ownerId)) {
+            $query['OwnerId'] = $request->ownerId;
+        }
+        if (!Utils::isUnset($request->resourceOwnerAccount)) {
+            $query['ResourceOwnerAccount'] = $request->resourceOwnerAccount;
+        }
+        if (!Utils::isUnset($request->resourceOwnerId)) {
+            $query['ResourceOwnerId'] = $request->resourceOwnerId;
+        }
+        $req = new OpenApiRequest([
             'query' => OpenApiUtilClient::query($query),
-            'body'  => Utils::toMap($request),
         ]);
         $params = new Params([
             'action'      => 'ReportTerrorismJobResult',
@@ -6721,7 +8271,7 @@ class Mts extends OpenApiClient
             'method'      => 'POST',
             'authType'    => 'AK',
             'style'       => 'RPC',
-            'reqBodyType' => 'json',
+            'reqBodyType' => 'formData',
             'bodyType'    => 'json',
         ]);
 
@@ -6749,17 +8299,30 @@ class Mts extends OpenApiClient
     public function reportVideoSplitJobResultWithOptions($request, $runtime)
     {
         Utils::validateModel($request);
-        $query                         = [];
-        $query['Details']              = $request->details;
-        $query['JobId']                = $request->jobId;
-        $query['OwnerAccount']         = $request->ownerAccount;
-        $query['OwnerId']              = $request->ownerId;
-        $query['ResourceOwnerAccount'] = $request->resourceOwnerAccount;
-        $query['ResourceOwnerId']      = $request->resourceOwnerId;
-        $query['Result']               = $request->result;
-        $req                           = new OpenApiRequest([
+        $query = [];
+        if (!Utils::isUnset($request->details)) {
+            $query['Details'] = $request->details;
+        }
+        if (!Utils::isUnset($request->jobId)) {
+            $query['JobId'] = $request->jobId;
+        }
+        if (!Utils::isUnset($request->ownerAccount)) {
+            $query['OwnerAccount'] = $request->ownerAccount;
+        }
+        if (!Utils::isUnset($request->ownerId)) {
+            $query['OwnerId'] = $request->ownerId;
+        }
+        if (!Utils::isUnset($request->resourceOwnerAccount)) {
+            $query['ResourceOwnerAccount'] = $request->resourceOwnerAccount;
+        }
+        if (!Utils::isUnset($request->resourceOwnerId)) {
+            $query['ResourceOwnerId'] = $request->resourceOwnerId;
+        }
+        if (!Utils::isUnset($request->result)) {
+            $query['Result'] = $request->result;
+        }
+        $req = new OpenApiRequest([
             'query' => OpenApiUtilClient::query($query),
-            'body'  => Utils::toMap($request),
         ]);
         $params = new Params([
             'action'      => 'ReportVideoSplitJobResult',
@@ -6769,7 +8332,7 @@ class Mts extends OpenApiClient
             'method'      => 'POST',
             'authType'    => 'AK',
             'style'       => 'RPC',
-            'reqBodyType' => 'json',
+            'reqBodyType' => 'formData',
             'bodyType'    => 'json',
         ]);
 
@@ -6797,24 +8360,51 @@ class Mts extends OpenApiClient
     public function searchMediaWithOptions($request, $runtime)
     {
         Utils::validateModel($request);
-        $query                         = [];
-        $query['CateId']               = $request->cateId;
-        $query['Description']          = $request->description;
-        $query['From']                 = $request->from;
-        $query['KeyWord']              = $request->keyWord;
-        $query['OwnerAccount']         = $request->ownerAccount;
-        $query['OwnerId']              = $request->ownerId;
-        $query['PageNumber']           = $request->pageNumber;
-        $query['PageSize']             = $request->pageSize;
-        $query['ResourceOwnerAccount'] = $request->resourceOwnerAccount;
-        $query['ResourceOwnerId']      = $request->resourceOwnerId;
-        $query['SortBy']               = $request->sortBy;
-        $query['Tag']                  = $request->tag;
-        $query['Title']                = $request->title;
-        $query['To']                   = $request->to;
-        $req                           = new OpenApiRequest([
+        $query = [];
+        if (!Utils::isUnset($request->cateId)) {
+            $query['CateId'] = $request->cateId;
+        }
+        if (!Utils::isUnset($request->description)) {
+            $query['Description'] = $request->description;
+        }
+        if (!Utils::isUnset($request->from)) {
+            $query['From'] = $request->from;
+        }
+        if (!Utils::isUnset($request->keyWord)) {
+            $query['KeyWord'] = $request->keyWord;
+        }
+        if (!Utils::isUnset($request->ownerAccount)) {
+            $query['OwnerAccount'] = $request->ownerAccount;
+        }
+        if (!Utils::isUnset($request->ownerId)) {
+            $query['OwnerId'] = $request->ownerId;
+        }
+        if (!Utils::isUnset($request->pageNumber)) {
+            $query['PageNumber'] = $request->pageNumber;
+        }
+        if (!Utils::isUnset($request->pageSize)) {
+            $query['PageSize'] = $request->pageSize;
+        }
+        if (!Utils::isUnset($request->resourceOwnerAccount)) {
+            $query['ResourceOwnerAccount'] = $request->resourceOwnerAccount;
+        }
+        if (!Utils::isUnset($request->resourceOwnerId)) {
+            $query['ResourceOwnerId'] = $request->resourceOwnerId;
+        }
+        if (!Utils::isUnset($request->sortBy)) {
+            $query['SortBy'] = $request->sortBy;
+        }
+        if (!Utils::isUnset($request->tag)) {
+            $query['Tag'] = $request->tag;
+        }
+        if (!Utils::isUnset($request->title)) {
+            $query['Title'] = $request->title;
+        }
+        if (!Utils::isUnset($request->to)) {
+            $query['To'] = $request->to;
+        }
+        $req = new OpenApiRequest([
             'query' => OpenApiUtilClient::query($query),
-            'body'  => Utils::toMap($request),
         ]);
         $params = new Params([
             'action'      => 'SearchMedia',
@@ -6824,7 +8414,7 @@ class Mts extends OpenApiClient
             'method'      => 'POST',
             'authType'    => 'AK',
             'style'       => 'RPC',
-            'reqBodyType' => 'json',
+            'reqBodyType' => 'formData',
             'bodyType'    => 'json',
         ]);
 
@@ -6852,17 +8442,30 @@ class Mts extends OpenApiClient
     public function searchMediaWorkflowWithOptions($request, $runtime)
     {
         Utils::validateModel($request);
-        $query                         = [];
-        $query['OwnerAccount']         = $request->ownerAccount;
-        $query['OwnerId']              = $request->ownerId;
-        $query['PageNumber']           = $request->pageNumber;
-        $query['PageSize']             = $request->pageSize;
-        $query['ResourceOwnerAccount'] = $request->resourceOwnerAccount;
-        $query['ResourceOwnerId']      = $request->resourceOwnerId;
-        $query['StateList']            = $request->stateList;
-        $req                           = new OpenApiRequest([
+        $query = [];
+        if (!Utils::isUnset($request->ownerAccount)) {
+            $query['OwnerAccount'] = $request->ownerAccount;
+        }
+        if (!Utils::isUnset($request->ownerId)) {
+            $query['OwnerId'] = $request->ownerId;
+        }
+        if (!Utils::isUnset($request->pageNumber)) {
+            $query['PageNumber'] = $request->pageNumber;
+        }
+        if (!Utils::isUnset($request->pageSize)) {
+            $query['PageSize'] = $request->pageSize;
+        }
+        if (!Utils::isUnset($request->resourceOwnerAccount)) {
+            $query['ResourceOwnerAccount'] = $request->resourceOwnerAccount;
+        }
+        if (!Utils::isUnset($request->resourceOwnerId)) {
+            $query['ResourceOwnerId'] = $request->resourceOwnerId;
+        }
+        if (!Utils::isUnset($request->stateList)) {
+            $query['StateList'] = $request->stateList;
+        }
+        $req = new OpenApiRequest([
             'query' => OpenApiUtilClient::query($query),
-            'body'  => Utils::toMap($request),
         ]);
         $params = new Params([
             'action'      => 'SearchMediaWorkflow',
@@ -6872,7 +8475,7 @@ class Mts extends OpenApiClient
             'method'      => 'POST',
             'authType'    => 'AK',
             'style'       => 'RPC',
-            'reqBodyType' => 'json',
+            'reqBodyType' => 'formData',
             'bodyType'    => 'json',
         ]);
 
@@ -6900,17 +8503,30 @@ class Mts extends OpenApiClient
     public function searchPipelineWithOptions($request, $runtime)
     {
         Utils::validateModel($request);
-        $query                         = [];
-        $query['OwnerAccount']         = $request->ownerAccount;
-        $query['OwnerId']              = $request->ownerId;
-        $query['PageNumber']           = $request->pageNumber;
-        $query['PageSize']             = $request->pageSize;
-        $query['ResourceOwnerAccount'] = $request->resourceOwnerAccount;
-        $query['ResourceOwnerId']      = $request->resourceOwnerId;
-        $query['State']                = $request->state;
-        $req                           = new OpenApiRequest([
+        $query = [];
+        if (!Utils::isUnset($request->ownerAccount)) {
+            $query['OwnerAccount'] = $request->ownerAccount;
+        }
+        if (!Utils::isUnset($request->ownerId)) {
+            $query['OwnerId'] = $request->ownerId;
+        }
+        if (!Utils::isUnset($request->pageNumber)) {
+            $query['PageNumber'] = $request->pageNumber;
+        }
+        if (!Utils::isUnset($request->pageSize)) {
+            $query['PageSize'] = $request->pageSize;
+        }
+        if (!Utils::isUnset($request->resourceOwnerAccount)) {
+            $query['ResourceOwnerAccount'] = $request->resourceOwnerAccount;
+        }
+        if (!Utils::isUnset($request->resourceOwnerId)) {
+            $query['ResourceOwnerId'] = $request->resourceOwnerId;
+        }
+        if (!Utils::isUnset($request->state)) {
+            $query['State'] = $request->state;
+        }
+        $req = new OpenApiRequest([
             'query' => OpenApiUtilClient::query($query),
-            'body'  => Utils::toMap($request),
         ]);
         $params = new Params([
             'action'      => 'SearchPipeline',
@@ -6920,7 +8536,7 @@ class Mts extends OpenApiClient
             'method'      => 'POST',
             'authType'    => 'AK',
             'style'       => 'RPC',
-            'reqBodyType' => 'json',
+            'reqBodyType' => 'formData',
             'bodyType'    => 'json',
         ]);
 
@@ -6948,17 +8564,30 @@ class Mts extends OpenApiClient
     public function searchTemplateWithOptions($request, $runtime)
     {
         Utils::validateModel($request);
-        $query                         = [];
-        $query['OwnerAccount']         = $request->ownerAccount;
-        $query['OwnerId']              = $request->ownerId;
-        $query['PageNumber']           = $request->pageNumber;
-        $query['PageSize']             = $request->pageSize;
-        $query['ResourceOwnerAccount'] = $request->resourceOwnerAccount;
-        $query['ResourceOwnerId']      = $request->resourceOwnerId;
-        $query['State']                = $request->state;
-        $req                           = new OpenApiRequest([
+        $query = [];
+        if (!Utils::isUnset($request->ownerAccount)) {
+            $query['OwnerAccount'] = $request->ownerAccount;
+        }
+        if (!Utils::isUnset($request->ownerId)) {
+            $query['OwnerId'] = $request->ownerId;
+        }
+        if (!Utils::isUnset($request->pageNumber)) {
+            $query['PageNumber'] = $request->pageNumber;
+        }
+        if (!Utils::isUnset($request->pageSize)) {
+            $query['PageSize'] = $request->pageSize;
+        }
+        if (!Utils::isUnset($request->resourceOwnerAccount)) {
+            $query['ResourceOwnerAccount'] = $request->resourceOwnerAccount;
+        }
+        if (!Utils::isUnset($request->resourceOwnerId)) {
+            $query['ResourceOwnerId'] = $request->resourceOwnerId;
+        }
+        if (!Utils::isUnset($request->state)) {
+            $query['State'] = $request->state;
+        }
+        $req = new OpenApiRequest([
             'query' => OpenApiUtilClient::query($query),
-            'body'  => Utils::toMap($request),
         ]);
         $params = new Params([
             'action'      => 'SearchTemplate',
@@ -6968,7 +8597,7 @@ class Mts extends OpenApiClient
             'method'      => 'POST',
             'authType'    => 'AK',
             'style'       => 'RPC',
-            'reqBodyType' => 'json',
+            'reqBodyType' => 'formData',
             'bodyType'    => 'json',
         ]);
 
@@ -6996,17 +8625,30 @@ class Mts extends OpenApiClient
     public function searchWaterMarkTemplateWithOptions($request, $runtime)
     {
         Utils::validateModel($request);
-        $query                         = [];
-        $query['OwnerAccount']         = $request->ownerAccount;
-        $query['OwnerId']              = $request->ownerId;
-        $query['PageNumber']           = $request->pageNumber;
-        $query['PageSize']             = $request->pageSize;
-        $query['ResourceOwnerAccount'] = $request->resourceOwnerAccount;
-        $query['ResourceOwnerId']      = $request->resourceOwnerId;
-        $query['State']                = $request->state;
-        $req                           = new OpenApiRequest([
+        $query = [];
+        if (!Utils::isUnset($request->ownerAccount)) {
+            $query['OwnerAccount'] = $request->ownerAccount;
+        }
+        if (!Utils::isUnset($request->ownerId)) {
+            $query['OwnerId'] = $request->ownerId;
+        }
+        if (!Utils::isUnset($request->pageNumber)) {
+            $query['PageNumber'] = $request->pageNumber;
+        }
+        if (!Utils::isUnset($request->pageSize)) {
+            $query['PageSize'] = $request->pageSize;
+        }
+        if (!Utils::isUnset($request->resourceOwnerAccount)) {
+            $query['ResourceOwnerAccount'] = $request->resourceOwnerAccount;
+        }
+        if (!Utils::isUnset($request->resourceOwnerId)) {
+            $query['ResourceOwnerId'] = $request->resourceOwnerId;
+        }
+        if (!Utils::isUnset($request->state)) {
+            $query['State'] = $request->state;
+        }
+        $req = new OpenApiRequest([
             'query' => OpenApiUtilClient::query($query),
-            'body'  => Utils::toMap($request),
         ]);
         $params = new Params([
             'action'      => 'SearchWaterMarkTemplate',
@@ -7016,7 +8658,7 @@ class Mts extends OpenApiClient
             'method'      => 'POST',
             'authType'    => 'AK',
             'style'       => 'RPC',
-            'reqBodyType' => 'json',
+            'reqBodyType' => 'formData',
             'bodyType'    => 'json',
         ]);
 
@@ -7044,16 +8686,27 @@ class Mts extends OpenApiClient
     public function setAuthConfigWithOptions($request, $runtime)
     {
         Utils::validateModel($request);
-        $query                         = [];
-        $query['Key1']                 = $request->key1;
-        $query['Key2']                 = $request->key2;
-        $query['OwnerAccount']         = $request->ownerAccount;
-        $query['OwnerId']              = $request->ownerId;
-        $query['ResourceOwnerAccount'] = $request->resourceOwnerAccount;
-        $query['ResourceOwnerId']      = $request->resourceOwnerId;
-        $req                           = new OpenApiRequest([
+        $query = [];
+        if (!Utils::isUnset($request->key1)) {
+            $query['Key1'] = $request->key1;
+        }
+        if (!Utils::isUnset($request->key2)) {
+            $query['Key2'] = $request->key2;
+        }
+        if (!Utils::isUnset($request->ownerAccount)) {
+            $query['OwnerAccount'] = $request->ownerAccount;
+        }
+        if (!Utils::isUnset($request->ownerId)) {
+            $query['OwnerId'] = $request->ownerId;
+        }
+        if (!Utils::isUnset($request->resourceOwnerAccount)) {
+            $query['ResourceOwnerAccount'] = $request->resourceOwnerAccount;
+        }
+        if (!Utils::isUnset($request->resourceOwnerId)) {
+            $query['ResourceOwnerId'] = $request->resourceOwnerId;
+        }
+        $req = new OpenApiRequest([
             'query' => OpenApiUtilClient::query($query),
-            'body'  => Utils::toMap($request),
         ]);
         $params = new Params([
             'action'      => 'SetAuthConfig',
@@ -7063,7 +8716,7 @@ class Mts extends OpenApiClient
             'method'      => 'POST',
             'authType'    => 'AK',
             'style'       => 'RPC',
-            'reqBodyType' => 'json',
+            'reqBodyType' => 'formData',
             'bodyType'    => 'json',
         ]);
 
@@ -7091,15 +8744,24 @@ class Mts extends OpenApiClient
     public function stopIProductionJobWithOptions($request, $runtime)
     {
         Utils::validateModel($request);
-        $query                         = [];
-        $query['JobId']                = $request->jobId;
-        $query['OwnerAccount']         = $request->ownerAccount;
-        $query['OwnerId']              = $request->ownerId;
-        $query['ResourceOwnerAccount'] = $request->resourceOwnerAccount;
-        $query['ResourceOwnerId']      = $request->resourceOwnerId;
-        $req                           = new OpenApiRequest([
+        $query = [];
+        if (!Utils::isUnset($request->jobId)) {
+            $query['JobId'] = $request->jobId;
+        }
+        if (!Utils::isUnset($request->ownerAccount)) {
+            $query['OwnerAccount'] = $request->ownerAccount;
+        }
+        if (!Utils::isUnset($request->ownerId)) {
+            $query['OwnerId'] = $request->ownerId;
+        }
+        if (!Utils::isUnset($request->resourceOwnerAccount)) {
+            $query['ResourceOwnerAccount'] = $request->resourceOwnerAccount;
+        }
+        if (!Utils::isUnset($request->resourceOwnerId)) {
+            $query['ResourceOwnerId'] = $request->resourceOwnerId;
+        }
+        $req = new OpenApiRequest([
             'query' => OpenApiUtilClient::query($query),
-            'body'  => Utils::toMap($request),
         ]);
         $params = new Params([
             'action'      => 'StopIProductionJob',
@@ -7109,7 +8771,7 @@ class Mts extends OpenApiClient
             'method'      => 'POST',
             'authType'    => 'AK',
             'style'       => 'RPC',
-            'reqBodyType' => 'json',
+            'reqBodyType' => 'formData',
             'bodyType'    => 'json',
         ]);
 
@@ -7137,19 +8799,36 @@ class Mts extends OpenApiClient
     public function submitAnalysisJobWithOptions($request, $runtime)
     {
         Utils::validateModel($request);
-        $query                         = [];
-        $query['AnalysisConfig']       = $request->analysisConfig;
-        $query['Input']                = $request->input;
-        $query['OwnerAccount']         = $request->ownerAccount;
-        $query['OwnerId']              = $request->ownerId;
-        $query['PipelineId']           = $request->pipelineId;
-        $query['Priority']             = $request->priority;
-        $query['ResourceOwnerAccount'] = $request->resourceOwnerAccount;
-        $query['ResourceOwnerId']      = $request->resourceOwnerId;
-        $query['UserData']             = $request->userData;
-        $req                           = new OpenApiRequest([
+        $query = [];
+        if (!Utils::isUnset($request->analysisConfig)) {
+            $query['AnalysisConfig'] = $request->analysisConfig;
+        }
+        if (!Utils::isUnset($request->input)) {
+            $query['Input'] = $request->input;
+        }
+        if (!Utils::isUnset($request->ownerAccount)) {
+            $query['OwnerAccount'] = $request->ownerAccount;
+        }
+        if (!Utils::isUnset($request->ownerId)) {
+            $query['OwnerId'] = $request->ownerId;
+        }
+        if (!Utils::isUnset($request->pipelineId)) {
+            $query['PipelineId'] = $request->pipelineId;
+        }
+        if (!Utils::isUnset($request->priority)) {
+            $query['Priority'] = $request->priority;
+        }
+        if (!Utils::isUnset($request->resourceOwnerAccount)) {
+            $query['ResourceOwnerAccount'] = $request->resourceOwnerAccount;
+        }
+        if (!Utils::isUnset($request->resourceOwnerId)) {
+            $query['ResourceOwnerId'] = $request->resourceOwnerId;
+        }
+        if (!Utils::isUnset($request->userData)) {
+            $query['UserData'] = $request->userData;
+        }
+        $req = new OpenApiRequest([
             'query' => OpenApiUtilClient::query($query),
-            'body'  => Utils::toMap($request),
         ]);
         $params = new Params([
             'action'      => 'SubmitAnalysisJob',
@@ -7159,7 +8838,7 @@ class Mts extends OpenApiClient
             'method'      => 'POST',
             'authType'    => 'AK',
             'style'       => 'RPC',
-            'reqBodyType' => 'json',
+            'reqBodyType' => 'formData',
             'bodyType'    => 'json',
         ]);
 
@@ -7187,18 +8866,33 @@ class Mts extends OpenApiClient
     public function submitAnnotationJobWithOptions($request, $runtime)
     {
         Utils::validateModel($request);
-        $query                         = [];
-        $query['AnnotationConfig']     = $request->annotationConfig;
-        $query['Input']                = $request->input;
-        $query['OwnerAccount']         = $request->ownerAccount;
-        $query['OwnerId']              = $request->ownerId;
-        $query['PipelineId']           = $request->pipelineId;
-        $query['ResourceOwnerAccount'] = $request->resourceOwnerAccount;
-        $query['ResourceOwnerId']      = $request->resourceOwnerId;
-        $query['UserData']             = $request->userData;
-        $req                           = new OpenApiRequest([
+        $query = [];
+        if (!Utils::isUnset($request->annotationConfig)) {
+            $query['AnnotationConfig'] = $request->annotationConfig;
+        }
+        if (!Utils::isUnset($request->input)) {
+            $query['Input'] = $request->input;
+        }
+        if (!Utils::isUnset($request->ownerAccount)) {
+            $query['OwnerAccount'] = $request->ownerAccount;
+        }
+        if (!Utils::isUnset($request->ownerId)) {
+            $query['OwnerId'] = $request->ownerId;
+        }
+        if (!Utils::isUnset($request->pipelineId)) {
+            $query['PipelineId'] = $request->pipelineId;
+        }
+        if (!Utils::isUnset($request->resourceOwnerAccount)) {
+            $query['ResourceOwnerAccount'] = $request->resourceOwnerAccount;
+        }
+        if (!Utils::isUnset($request->resourceOwnerId)) {
+            $query['ResourceOwnerId'] = $request->resourceOwnerId;
+        }
+        if (!Utils::isUnset($request->userData)) {
+            $query['UserData'] = $request->userData;
+        }
+        $req = new OpenApiRequest([
             'query' => OpenApiUtilClient::query($query),
-            'body'  => Utils::toMap($request),
         ]);
         $params = new Params([
             'action'      => 'SubmitAnnotationJob',
@@ -7208,7 +8902,7 @@ class Mts extends OpenApiClient
             'method'      => 'POST',
             'authType'    => 'AK',
             'style'       => 'RPC',
-            'reqBodyType' => 'json',
+            'reqBodyType' => 'formData',
             'bodyType'    => 'json',
         ]);
 
@@ -7236,18 +8930,33 @@ class Mts extends OpenApiClient
     public function submitAsrJobWithOptions($request, $runtime)
     {
         Utils::validateModel($request);
-        $query                         = [];
-        $query['AsrConfig']            = $request->asrConfig;
-        $query['Input']                = $request->input;
-        $query['OwnerAccount']         = $request->ownerAccount;
-        $query['OwnerId']              = $request->ownerId;
-        $query['PipelineId']           = $request->pipelineId;
-        $query['ResourceOwnerAccount'] = $request->resourceOwnerAccount;
-        $query['ResourceOwnerId']      = $request->resourceOwnerId;
-        $query['UserData']             = $request->userData;
-        $req                           = new OpenApiRequest([
+        $query = [];
+        if (!Utils::isUnset($request->asrConfig)) {
+            $query['AsrConfig'] = $request->asrConfig;
+        }
+        if (!Utils::isUnset($request->input)) {
+            $query['Input'] = $request->input;
+        }
+        if (!Utils::isUnset($request->ownerAccount)) {
+            $query['OwnerAccount'] = $request->ownerAccount;
+        }
+        if (!Utils::isUnset($request->ownerId)) {
+            $query['OwnerId'] = $request->ownerId;
+        }
+        if (!Utils::isUnset($request->pipelineId)) {
+            $query['PipelineId'] = $request->pipelineId;
+        }
+        if (!Utils::isUnset($request->resourceOwnerAccount)) {
+            $query['ResourceOwnerAccount'] = $request->resourceOwnerAccount;
+        }
+        if (!Utils::isUnset($request->resourceOwnerId)) {
+            $query['ResourceOwnerId'] = $request->resourceOwnerId;
+        }
+        if (!Utils::isUnset($request->userData)) {
+            $query['UserData'] = $request->userData;
+        }
+        $req = new OpenApiRequest([
             'query' => OpenApiUtilClient::query($query),
-            'body'  => Utils::toMap($request),
         ]);
         $params = new Params([
             'action'      => 'SubmitAsrJob',
@@ -7257,7 +8966,7 @@ class Mts extends OpenApiClient
             'method'      => 'POST',
             'authType'    => 'AK',
             'style'       => 'RPC',
-            'reqBodyType' => 'json',
+            'reqBodyType' => 'formData',
             'bodyType'    => 'json',
         ]);
 
@@ -7285,18 +8994,33 @@ class Mts extends OpenApiClient
     public function submitBeautifyJobsWithOptions($request, $runtime)
     {
         Utils::validateModel($request);
-        $query                         = [];
-        $query['Async']                = $request->async;
-        $query['BeautifyConfig']       = $request->beautifyConfig;
-        $query['OwnerAccount']         = $request->ownerAccount;
-        $query['OwnerId']              = $request->ownerId;
-        $query['PipelineId']           = $request->pipelineId;
-        $query['ResourceOwnerAccount'] = $request->resourceOwnerAccount;
-        $query['ResourceOwnerId']      = $request->resourceOwnerId;
-        $query['UserData']             = $request->userData;
-        $req                           = new OpenApiRequest([
+        $query = [];
+        if (!Utils::isUnset($request->async)) {
+            $query['Async'] = $request->async;
+        }
+        if (!Utils::isUnset($request->beautifyConfig)) {
+            $query['BeautifyConfig'] = $request->beautifyConfig;
+        }
+        if (!Utils::isUnset($request->ownerAccount)) {
+            $query['OwnerAccount'] = $request->ownerAccount;
+        }
+        if (!Utils::isUnset($request->ownerId)) {
+            $query['OwnerId'] = $request->ownerId;
+        }
+        if (!Utils::isUnset($request->pipelineId)) {
+            $query['PipelineId'] = $request->pipelineId;
+        }
+        if (!Utils::isUnset($request->resourceOwnerAccount)) {
+            $query['ResourceOwnerAccount'] = $request->resourceOwnerAccount;
+        }
+        if (!Utils::isUnset($request->resourceOwnerId)) {
+            $query['ResourceOwnerId'] = $request->resourceOwnerId;
+        }
+        if (!Utils::isUnset($request->userData)) {
+            $query['UserData'] = $request->userData;
+        }
+        $req = new OpenApiRequest([
             'query' => OpenApiUtilClient::query($query),
-            'body'  => Utils::toMap($request),
         ]);
         $params = new Params([
             'action'      => 'SubmitBeautifyJobs',
@@ -7306,7 +9030,7 @@ class Mts extends OpenApiClient
             'method'      => 'POST',
             'authType'    => 'AK',
             'style'       => 'RPC',
-            'reqBodyType' => 'json',
+            'reqBodyType' => 'formData',
             'bodyType'    => 'json',
         ]);
 
@@ -7334,21 +9058,42 @@ class Mts extends OpenApiClient
     public function submitComplexJobWithOptions($request, $runtime)
     {
         Utils::validateModel($request);
-        $query                         = [];
-        $query['ComplexConfigs']       = $request->complexConfigs;
-        $query['Inputs']               = $request->inputs;
-        $query['OutputBucket']         = $request->outputBucket;
-        $query['OutputLocation']       = $request->outputLocation;
-        $query['OwnerAccount']         = $request->ownerAccount;
-        $query['OwnerId']              = $request->ownerId;
-        $query['PipelineId']           = $request->pipelineId;
-        $query['ResourceOwnerAccount'] = $request->resourceOwnerAccount;
-        $query['ResourceOwnerId']      = $request->resourceOwnerId;
-        $query['TranscodeOutput']      = $request->transcodeOutput;
-        $query['UserData']             = $request->userData;
-        $req                           = new OpenApiRequest([
+        $query = [];
+        if (!Utils::isUnset($request->complexConfigs)) {
+            $query['ComplexConfigs'] = $request->complexConfigs;
+        }
+        if (!Utils::isUnset($request->inputs)) {
+            $query['Inputs'] = $request->inputs;
+        }
+        if (!Utils::isUnset($request->outputBucket)) {
+            $query['OutputBucket'] = $request->outputBucket;
+        }
+        if (!Utils::isUnset($request->outputLocation)) {
+            $query['OutputLocation'] = $request->outputLocation;
+        }
+        if (!Utils::isUnset($request->ownerAccount)) {
+            $query['OwnerAccount'] = $request->ownerAccount;
+        }
+        if (!Utils::isUnset($request->ownerId)) {
+            $query['OwnerId'] = $request->ownerId;
+        }
+        if (!Utils::isUnset($request->pipelineId)) {
+            $query['PipelineId'] = $request->pipelineId;
+        }
+        if (!Utils::isUnset($request->resourceOwnerAccount)) {
+            $query['ResourceOwnerAccount'] = $request->resourceOwnerAccount;
+        }
+        if (!Utils::isUnset($request->resourceOwnerId)) {
+            $query['ResourceOwnerId'] = $request->resourceOwnerId;
+        }
+        if (!Utils::isUnset($request->transcodeOutput)) {
+            $query['TranscodeOutput'] = $request->transcodeOutput;
+        }
+        if (!Utils::isUnset($request->userData)) {
+            $query['UserData'] = $request->userData;
+        }
+        $req = new OpenApiRequest([
             'query' => OpenApiUtilClient::query($query),
-            'body'  => Utils::toMap($request),
         ]);
         $params = new Params([
             'action'      => 'SubmitComplexJob',
@@ -7358,7 +9103,7 @@ class Mts extends OpenApiClient
             'method'      => 'POST',
             'authType'    => 'AK',
             'style'       => 'RPC',
-            'reqBodyType' => 'json',
+            'reqBodyType' => 'formData',
             'bodyType'    => 'json',
         ]);
 
@@ -7386,18 +9131,33 @@ class Mts extends OpenApiClient
     public function submitCoverJobWithOptions($request, $runtime)
     {
         Utils::validateModel($request);
-        $query                         = [];
-        $query['CoverConfig']          = $request->coverConfig;
-        $query['Input']                = $request->input;
-        $query['OwnerAccount']         = $request->ownerAccount;
-        $query['OwnerId']              = $request->ownerId;
-        $query['PipelineId']           = $request->pipelineId;
-        $query['ResourceOwnerAccount'] = $request->resourceOwnerAccount;
-        $query['ResourceOwnerId']      = $request->resourceOwnerId;
-        $query['UserData']             = $request->userData;
-        $req                           = new OpenApiRequest([
+        $query = [];
+        if (!Utils::isUnset($request->coverConfig)) {
+            $query['CoverConfig'] = $request->coverConfig;
+        }
+        if (!Utils::isUnset($request->input)) {
+            $query['Input'] = $request->input;
+        }
+        if (!Utils::isUnset($request->ownerAccount)) {
+            $query['OwnerAccount'] = $request->ownerAccount;
+        }
+        if (!Utils::isUnset($request->ownerId)) {
+            $query['OwnerId'] = $request->ownerId;
+        }
+        if (!Utils::isUnset($request->pipelineId)) {
+            $query['PipelineId'] = $request->pipelineId;
+        }
+        if (!Utils::isUnset($request->resourceOwnerAccount)) {
+            $query['ResourceOwnerAccount'] = $request->resourceOwnerAccount;
+        }
+        if (!Utils::isUnset($request->resourceOwnerId)) {
+            $query['ResourceOwnerId'] = $request->resourceOwnerId;
+        }
+        if (!Utils::isUnset($request->userData)) {
+            $query['UserData'] = $request->userData;
+        }
+        $req = new OpenApiRequest([
             'query' => OpenApiUtilClient::query($query),
-            'body'  => Utils::toMap($request),
         ]);
         $params = new Params([
             'action'      => 'SubmitCoverJob',
@@ -7407,7 +9167,7 @@ class Mts extends OpenApiClient
             'method'      => 'POST',
             'authType'    => 'AK',
             'style'       => 'RPC',
-            'reqBodyType' => 'json',
+            'reqBodyType' => 'formData',
             'bodyType'    => 'json',
         ]);
 
@@ -7435,22 +9195,45 @@ class Mts extends OpenApiClient
     public function submitEditingJobsWithOptions($request, $runtime)
     {
         Utils::validateModel($request);
-        $query                             = [];
-        $query['EditingInputs']            = $request->editingInputs;
-        $query['EditingJobOssFileRoleArn'] = $request->editingJobOssFileRoleArn;
-        $query['EditingJobOssFileUid']     = $request->editingJobOssFileUid;
-        $query['EditingJobOutputs']        = $request->editingJobOutputs;
-        $query['EditingJobURL']            = $request->editingJobURL;
-        $query['OutputBucket']             = $request->outputBucket;
-        $query['OutputLocation']           = $request->outputLocation;
-        $query['OwnerAccount']             = $request->ownerAccount;
-        $query['OwnerId']                  = $request->ownerId;
-        $query['PipelineId']               = $request->pipelineId;
-        $query['ResourceOwnerAccount']     = $request->resourceOwnerAccount;
-        $query['ResourceOwnerId']          = $request->resourceOwnerId;
-        $req                               = new OpenApiRequest([
+        $query = [];
+        if (!Utils::isUnset($request->editingInputs)) {
+            $query['EditingInputs'] = $request->editingInputs;
+        }
+        if (!Utils::isUnset($request->editingJobOssFileRoleArn)) {
+            $query['EditingJobOssFileRoleArn'] = $request->editingJobOssFileRoleArn;
+        }
+        if (!Utils::isUnset($request->editingJobOssFileUid)) {
+            $query['EditingJobOssFileUid'] = $request->editingJobOssFileUid;
+        }
+        if (!Utils::isUnset($request->editingJobOutputs)) {
+            $query['EditingJobOutputs'] = $request->editingJobOutputs;
+        }
+        if (!Utils::isUnset($request->editingJobURL)) {
+            $query['EditingJobURL'] = $request->editingJobURL;
+        }
+        if (!Utils::isUnset($request->outputBucket)) {
+            $query['OutputBucket'] = $request->outputBucket;
+        }
+        if (!Utils::isUnset($request->outputLocation)) {
+            $query['OutputLocation'] = $request->outputLocation;
+        }
+        if (!Utils::isUnset($request->ownerAccount)) {
+            $query['OwnerAccount'] = $request->ownerAccount;
+        }
+        if (!Utils::isUnset($request->ownerId)) {
+            $query['OwnerId'] = $request->ownerId;
+        }
+        if (!Utils::isUnset($request->pipelineId)) {
+            $query['PipelineId'] = $request->pipelineId;
+        }
+        if (!Utils::isUnset($request->resourceOwnerAccount)) {
+            $query['ResourceOwnerAccount'] = $request->resourceOwnerAccount;
+        }
+        if (!Utils::isUnset($request->resourceOwnerId)) {
+            $query['ResourceOwnerId'] = $request->resourceOwnerId;
+        }
+        $req = new OpenApiRequest([
             'query' => OpenApiUtilClient::query($query),
-            'body'  => Utils::toMap($request),
         ]);
         $params = new Params([
             'action'      => 'SubmitEditingJobs',
@@ -7460,7 +9243,7 @@ class Mts extends OpenApiClient
             'method'      => 'POST',
             'authType'    => 'AK',
             'style'       => 'RPC',
-            'reqBodyType' => 'json',
+            'reqBodyType' => 'formData',
             'bodyType'    => 'json',
         ]);
 
@@ -7488,18 +9271,33 @@ class Mts extends OpenApiClient
     public function submitFacerecogJobWithOptions($request, $runtime)
     {
         Utils::validateModel($request);
-        $query                         = [];
-        $query['FacerecogConfig']      = $request->facerecogConfig;
-        $query['Input']                = $request->input;
-        $query['OwnerAccount']         = $request->ownerAccount;
-        $query['OwnerId']              = $request->ownerId;
-        $query['PipelineId']           = $request->pipelineId;
-        $query['ResourceOwnerAccount'] = $request->resourceOwnerAccount;
-        $query['ResourceOwnerId']      = $request->resourceOwnerId;
-        $query['UserData']             = $request->userData;
-        $req                           = new OpenApiRequest([
+        $query = [];
+        if (!Utils::isUnset($request->facerecogConfig)) {
+            $query['FacerecogConfig'] = $request->facerecogConfig;
+        }
+        if (!Utils::isUnset($request->input)) {
+            $query['Input'] = $request->input;
+        }
+        if (!Utils::isUnset($request->ownerAccount)) {
+            $query['OwnerAccount'] = $request->ownerAccount;
+        }
+        if (!Utils::isUnset($request->ownerId)) {
+            $query['OwnerId'] = $request->ownerId;
+        }
+        if (!Utils::isUnset($request->pipelineId)) {
+            $query['PipelineId'] = $request->pipelineId;
+        }
+        if (!Utils::isUnset($request->resourceOwnerAccount)) {
+            $query['ResourceOwnerAccount'] = $request->resourceOwnerAccount;
+        }
+        if (!Utils::isUnset($request->resourceOwnerId)) {
+            $query['ResourceOwnerId'] = $request->resourceOwnerId;
+        }
+        if (!Utils::isUnset($request->userData)) {
+            $query['UserData'] = $request->userData;
+        }
+        $req = new OpenApiRequest([
             'query' => OpenApiUtilClient::query($query),
-            'body'  => Utils::toMap($request),
         ]);
         $params = new Params([
             'action'      => 'SubmitFacerecogJob',
@@ -7509,7 +9307,7 @@ class Mts extends OpenApiClient
             'method'      => 'POST',
             'authType'    => 'AK',
             'style'       => 'RPC',
-            'reqBodyType' => 'json',
+            'reqBodyType' => 'formData',
             'bodyType'    => 'json',
         ]);
 
@@ -7537,20 +9335,39 @@ class Mts extends OpenApiClient
     public function submitFpCompareJobWithOptions($request, $runtime)
     {
         Utils::validateModel($request);
-        $query                         = [];
-        $query['FpDBId']               = $request->fpDBId;
-        $query['MasterMedia']          = $request->masterMedia;
-        $query['MatchedFrameStorage']  = $request->matchedFrameStorage;
-        $query['OwnerAccount']         = $request->ownerAccount;
-        $query['OwnerId']              = $request->ownerId;
-        $query['PipelineId']           = $request->pipelineId;
-        $query['QueryMedia']           = $request->queryMedia;
-        $query['ResourceOwnerAccount'] = $request->resourceOwnerAccount;
-        $query['ResourceOwnerId']      = $request->resourceOwnerId;
-        $query['UserData']             = $request->userData;
-        $req                           = new OpenApiRequest([
+        $query = [];
+        if (!Utils::isUnset($request->fpDBId)) {
+            $query['FpDBId'] = $request->fpDBId;
+        }
+        if (!Utils::isUnset($request->masterMedia)) {
+            $query['MasterMedia'] = $request->masterMedia;
+        }
+        if (!Utils::isUnset($request->matchedFrameStorage)) {
+            $query['MatchedFrameStorage'] = $request->matchedFrameStorage;
+        }
+        if (!Utils::isUnset($request->ownerAccount)) {
+            $query['OwnerAccount'] = $request->ownerAccount;
+        }
+        if (!Utils::isUnset($request->ownerId)) {
+            $query['OwnerId'] = $request->ownerId;
+        }
+        if (!Utils::isUnset($request->pipelineId)) {
+            $query['PipelineId'] = $request->pipelineId;
+        }
+        if (!Utils::isUnset($request->queryMedia)) {
+            $query['QueryMedia'] = $request->queryMedia;
+        }
+        if (!Utils::isUnset($request->resourceOwnerAccount)) {
+            $query['ResourceOwnerAccount'] = $request->resourceOwnerAccount;
+        }
+        if (!Utils::isUnset($request->resourceOwnerId)) {
+            $query['ResourceOwnerId'] = $request->resourceOwnerId;
+        }
+        if (!Utils::isUnset($request->userData)) {
+            $query['UserData'] = $request->userData;
+        }
+        $req = new OpenApiRequest([
             'query' => OpenApiUtilClient::query($query),
-            'body'  => Utils::toMap($request),
         ]);
         $params = new Params([
             'action'      => 'SubmitFpCompareJob',
@@ -7560,7 +9377,7 @@ class Mts extends OpenApiClient
             'method'      => 'POST',
             'authType'    => 'AK',
             'style'       => 'RPC',
-            'reqBodyType' => 'json',
+            'reqBodyType' => 'formData',
             'bodyType'    => 'json',
         ]);
 
@@ -7588,18 +9405,33 @@ class Mts extends OpenApiClient
     public function submitFpDBDeleteJobWithOptions($request, $runtime)
     {
         Utils::validateModel($request);
-        $query                         = [];
-        $query['DelType']              = $request->delType;
-        $query['FpDBId']               = $request->fpDBId;
-        $query['OwnerAccount']         = $request->ownerAccount;
-        $query['OwnerId']              = $request->ownerId;
-        $query['PipelineId']           = $request->pipelineId;
-        $query['ResourceOwnerAccount'] = $request->resourceOwnerAccount;
-        $query['ResourceOwnerId']      = $request->resourceOwnerId;
-        $query['UserData']             = $request->userData;
-        $req                           = new OpenApiRequest([
+        $query = [];
+        if (!Utils::isUnset($request->delType)) {
+            $query['DelType'] = $request->delType;
+        }
+        if (!Utils::isUnset($request->fpDBId)) {
+            $query['FpDBId'] = $request->fpDBId;
+        }
+        if (!Utils::isUnset($request->ownerAccount)) {
+            $query['OwnerAccount'] = $request->ownerAccount;
+        }
+        if (!Utils::isUnset($request->ownerId)) {
+            $query['OwnerId'] = $request->ownerId;
+        }
+        if (!Utils::isUnset($request->pipelineId)) {
+            $query['PipelineId'] = $request->pipelineId;
+        }
+        if (!Utils::isUnset($request->resourceOwnerAccount)) {
+            $query['ResourceOwnerAccount'] = $request->resourceOwnerAccount;
+        }
+        if (!Utils::isUnset($request->resourceOwnerId)) {
+            $query['ResourceOwnerId'] = $request->resourceOwnerId;
+        }
+        if (!Utils::isUnset($request->userData)) {
+            $query['UserData'] = $request->userData;
+        }
+        $req = new OpenApiRequest([
             'query' => OpenApiUtilClient::query($query),
-            'body'  => Utils::toMap($request),
         ]);
         $params = new Params([
             'action'      => 'SubmitFpDBDeleteJob',
@@ -7609,7 +9441,7 @@ class Mts extends OpenApiClient
             'method'      => 'POST',
             'authType'    => 'AK',
             'style'       => 'RPC',
-            'reqBodyType' => 'json',
+            'reqBodyType' => 'formData',
             'bodyType'    => 'json',
         ]);
 
@@ -7637,18 +9469,33 @@ class Mts extends OpenApiClient
     public function submitFpFileDeleteJobWithOptions($request, $runtime)
     {
         Utils::validateModel($request);
-        $query                         = [];
-        $query['FileIds']              = $request->fileIds;
-        $query['FpDBId']               = $request->fpDBId;
-        $query['OwnerAccount']         = $request->ownerAccount;
-        $query['OwnerId']              = $request->ownerId;
-        $query['PipelineId']           = $request->pipelineId;
-        $query['ResourceOwnerAccount'] = $request->resourceOwnerAccount;
-        $query['ResourceOwnerId']      = $request->resourceOwnerId;
-        $query['UserData']             = $request->userData;
-        $req                           = new OpenApiRequest([
+        $query = [];
+        if (!Utils::isUnset($request->fileIds)) {
+            $query['FileIds'] = $request->fileIds;
+        }
+        if (!Utils::isUnset($request->fpDBId)) {
+            $query['FpDBId'] = $request->fpDBId;
+        }
+        if (!Utils::isUnset($request->ownerAccount)) {
+            $query['OwnerAccount'] = $request->ownerAccount;
+        }
+        if (!Utils::isUnset($request->ownerId)) {
+            $query['OwnerId'] = $request->ownerId;
+        }
+        if (!Utils::isUnset($request->pipelineId)) {
+            $query['PipelineId'] = $request->pipelineId;
+        }
+        if (!Utils::isUnset($request->resourceOwnerAccount)) {
+            $query['ResourceOwnerAccount'] = $request->resourceOwnerAccount;
+        }
+        if (!Utils::isUnset($request->resourceOwnerId)) {
+            $query['ResourceOwnerId'] = $request->resourceOwnerId;
+        }
+        if (!Utils::isUnset($request->userData)) {
+            $query['UserData'] = $request->userData;
+        }
+        $req = new OpenApiRequest([
             'query' => OpenApiUtilClient::query($query),
-            'body'  => Utils::toMap($request),
         ]);
         $params = new Params([
             'action'      => 'SubmitFpFileDeleteJob',
@@ -7658,7 +9505,7 @@ class Mts extends OpenApiClient
             'method'      => 'POST',
             'authType'    => 'AK',
             'style'       => 'RPC',
-            'reqBodyType' => 'json',
+            'reqBodyType' => 'formData',
             'bodyType'    => 'json',
         ]);
 
@@ -7686,18 +9533,33 @@ class Mts extends OpenApiClient
     public function submitFpShotJobWithOptions($request, $runtime)
     {
         Utils::validateModel($request);
-        $query                         = [];
-        $query['FpShotConfig']         = $request->fpShotConfig;
-        $query['Input']                = $request->input;
-        $query['OwnerAccount']         = $request->ownerAccount;
-        $query['OwnerId']              = $request->ownerId;
-        $query['PipelineId']           = $request->pipelineId;
-        $query['ResourceOwnerAccount'] = $request->resourceOwnerAccount;
-        $query['ResourceOwnerId']      = $request->resourceOwnerId;
-        $query['UserData']             = $request->userData;
-        $req                           = new OpenApiRequest([
+        $query = [];
+        if (!Utils::isUnset($request->fpShotConfig)) {
+            $query['FpShotConfig'] = $request->fpShotConfig;
+        }
+        if (!Utils::isUnset($request->input)) {
+            $query['Input'] = $request->input;
+        }
+        if (!Utils::isUnset($request->ownerAccount)) {
+            $query['OwnerAccount'] = $request->ownerAccount;
+        }
+        if (!Utils::isUnset($request->ownerId)) {
+            $query['OwnerId'] = $request->ownerId;
+        }
+        if (!Utils::isUnset($request->pipelineId)) {
+            $query['PipelineId'] = $request->pipelineId;
+        }
+        if (!Utils::isUnset($request->resourceOwnerAccount)) {
+            $query['ResourceOwnerAccount'] = $request->resourceOwnerAccount;
+        }
+        if (!Utils::isUnset($request->resourceOwnerId)) {
+            $query['ResourceOwnerId'] = $request->resourceOwnerId;
+        }
+        if (!Utils::isUnset($request->userData)) {
+            $query['UserData'] = $request->userData;
+        }
+        $req = new OpenApiRequest([
             'query' => OpenApiUtilClient::query($query),
-            'body'  => Utils::toMap($request),
         ]);
         $params = new Params([
             'action'      => 'SubmitFpShotJob',
@@ -7707,7 +9569,7 @@ class Mts extends OpenApiClient
             'method'      => 'POST',
             'authType'    => 'AK',
             'style'       => 'RPC',
-            'reqBodyType' => 'json',
+            'reqBodyType' => 'formData',
             'bodyType'    => 'json',
         ]);
 
@@ -7735,23 +9597,48 @@ class Mts extends OpenApiClient
     public function submitIProductionJobWithOptions($request, $runtime)
     {
         Utils::validateModel($request);
-        $query                         = [];
-        $query['FunctionName']         = $request->functionName;
-        $query['Input']                = $request->input;
-        $query['JobParams']            = $request->jobParams;
-        $query['ModelId']              = $request->modelId;
-        $query['NotifyUrl']            = $request->notifyUrl;
-        $query['Output']               = $request->output;
-        $query['OwnerAccount']         = $request->ownerAccount;
-        $query['OwnerId']              = $request->ownerId;
-        $query['PipelineId']           = $request->pipelineId;
-        $query['ResourceOwnerAccount'] = $request->resourceOwnerAccount;
-        $query['ResourceOwnerId']      = $request->resourceOwnerId;
-        $query['ScheduleParams']       = $request->scheduleParams;
-        $query['UserData']             = $request->userData;
-        $req                           = new OpenApiRequest([
+        $query = [];
+        if (!Utils::isUnset($request->functionName)) {
+            $query['FunctionName'] = $request->functionName;
+        }
+        if (!Utils::isUnset($request->input)) {
+            $query['Input'] = $request->input;
+        }
+        if (!Utils::isUnset($request->jobParams)) {
+            $query['JobParams'] = $request->jobParams;
+        }
+        if (!Utils::isUnset($request->modelId)) {
+            $query['ModelId'] = $request->modelId;
+        }
+        if (!Utils::isUnset($request->notifyUrl)) {
+            $query['NotifyUrl'] = $request->notifyUrl;
+        }
+        if (!Utils::isUnset($request->output)) {
+            $query['Output'] = $request->output;
+        }
+        if (!Utils::isUnset($request->ownerAccount)) {
+            $query['OwnerAccount'] = $request->ownerAccount;
+        }
+        if (!Utils::isUnset($request->ownerId)) {
+            $query['OwnerId'] = $request->ownerId;
+        }
+        if (!Utils::isUnset($request->pipelineId)) {
+            $query['PipelineId'] = $request->pipelineId;
+        }
+        if (!Utils::isUnset($request->resourceOwnerAccount)) {
+            $query['ResourceOwnerAccount'] = $request->resourceOwnerAccount;
+        }
+        if (!Utils::isUnset($request->resourceOwnerId)) {
+            $query['ResourceOwnerId'] = $request->resourceOwnerId;
+        }
+        if (!Utils::isUnset($request->scheduleParams)) {
+            $query['ScheduleParams'] = $request->scheduleParams;
+        }
+        if (!Utils::isUnset($request->userData)) {
+            $query['UserData'] = $request->userData;
+        }
+        $req = new OpenApiRequest([
             'query' => OpenApiUtilClient::query($query),
-            'body'  => Utils::toMap($request),
         ]);
         $params = new Params([
             'action'      => 'SubmitIProductionJob',
@@ -7761,7 +9648,7 @@ class Mts extends OpenApiClient
             'method'      => 'POST',
             'authType'    => 'AK',
             'style'       => 'RPC',
-            'reqBodyType' => 'json',
+            'reqBodyType' => 'formData',
             'bodyType'    => 'json',
         ]);
 
@@ -7789,17 +9676,30 @@ class Mts extends OpenApiClient
     public function submitImageQualityJobWithOptions($request, $runtime)
     {
         Utils::validateModel($request);
-        $query                         = [];
-        $query['Input']                = $request->input;
-        $query['OwnerAccount']         = $request->ownerAccount;
-        $query['OwnerId']              = $request->ownerId;
-        $query['PipelineId']           = $request->pipelineId;
-        $query['ResourceOwnerAccount'] = $request->resourceOwnerAccount;
-        $query['ResourceOwnerId']      = $request->resourceOwnerId;
-        $query['UserData']             = $request->userData;
-        $req                           = new OpenApiRequest([
+        $query = [];
+        if (!Utils::isUnset($request->input)) {
+            $query['Input'] = $request->input;
+        }
+        if (!Utils::isUnset($request->ownerAccount)) {
+            $query['OwnerAccount'] = $request->ownerAccount;
+        }
+        if (!Utils::isUnset($request->ownerId)) {
+            $query['OwnerId'] = $request->ownerId;
+        }
+        if (!Utils::isUnset($request->pipelineId)) {
+            $query['PipelineId'] = $request->pipelineId;
+        }
+        if (!Utils::isUnset($request->resourceOwnerAccount)) {
+            $query['ResourceOwnerAccount'] = $request->resourceOwnerAccount;
+        }
+        if (!Utils::isUnset($request->resourceOwnerId)) {
+            $query['ResourceOwnerId'] = $request->resourceOwnerId;
+        }
+        if (!Utils::isUnset($request->userData)) {
+            $query['UserData'] = $request->userData;
+        }
+        $req = new OpenApiRequest([
             'query' => OpenApiUtilClient::query($query),
-            'body'  => Utils::toMap($request),
         ]);
         $params = new Params([
             'action'      => 'SubmitImageQualityJob',
@@ -7809,7 +9709,7 @@ class Mts extends OpenApiClient
             'method'      => 'POST',
             'authType'    => 'AK',
             'style'       => 'RPC',
-            'reqBodyType' => 'json',
+            'reqBodyType' => 'formData',
             'bodyType'    => 'json',
         ]);
 
@@ -7837,20 +9737,39 @@ class Mts extends OpenApiClient
     public function submitImageSearchJobWithOptions($request, $runtime)
     {
         Utils::validateModel($request);
-        $query                         = [];
-        $query['Config']               = $request->config;
-        $query['FpDBId']               = $request->fpDBId;
-        $query['InputImage']           = $request->inputImage;
-        $query['InputVideo']           = $request->inputVideo;
-        $query['OwnerAccount']         = $request->ownerAccount;
-        $query['OwnerId']              = $request->ownerId;
-        $query['PipelineId']           = $request->pipelineId;
-        $query['ResourceOwnerAccount'] = $request->resourceOwnerAccount;
-        $query['ResourceOwnerId']      = $request->resourceOwnerId;
-        $query['UserData']             = $request->userData;
-        $req                           = new OpenApiRequest([
+        $query = [];
+        if (!Utils::isUnset($request->config)) {
+            $query['Config'] = $request->config;
+        }
+        if (!Utils::isUnset($request->fpDBId)) {
+            $query['FpDBId'] = $request->fpDBId;
+        }
+        if (!Utils::isUnset($request->inputImage)) {
+            $query['InputImage'] = $request->inputImage;
+        }
+        if (!Utils::isUnset($request->inputVideo)) {
+            $query['InputVideo'] = $request->inputVideo;
+        }
+        if (!Utils::isUnset($request->ownerAccount)) {
+            $query['OwnerAccount'] = $request->ownerAccount;
+        }
+        if (!Utils::isUnset($request->ownerId)) {
+            $query['OwnerId'] = $request->ownerId;
+        }
+        if (!Utils::isUnset($request->pipelineId)) {
+            $query['PipelineId'] = $request->pipelineId;
+        }
+        if (!Utils::isUnset($request->resourceOwnerAccount)) {
+            $query['ResourceOwnerAccount'] = $request->resourceOwnerAccount;
+        }
+        if (!Utils::isUnset($request->resourceOwnerId)) {
+            $query['ResourceOwnerId'] = $request->resourceOwnerId;
+        }
+        if (!Utils::isUnset($request->userData)) {
+            $query['UserData'] = $request->userData;
+        }
+        $req = new OpenApiRequest([
             'query' => OpenApiUtilClient::query($query),
-            'body'  => Utils::toMap($request),
         ]);
         $params = new Params([
             'action'      => 'SubmitImageSearchJob',
@@ -7860,7 +9779,7 @@ class Mts extends OpenApiClient
             'method'      => 'POST',
             'authType'    => 'AK',
             'style'       => 'RPC',
-            'reqBodyType' => 'json',
+            'reqBodyType' => 'formData',
             'bodyType'    => 'json',
         ]);
 
@@ -7888,13 +9807,18 @@ class Mts extends OpenApiClient
     public function submitInferenceJobWithOptions($request, $runtime)
     {
         Utils::validateModel($request);
-        $query               = [];
-        $query['Input']      = $request->input;
-        $query['ModelType']  = $request->modelType;
-        $query['ServerName'] = $request->serverName;
-        $req                 = new OpenApiRequest([
+        $query = [];
+        if (!Utils::isUnset($request->input)) {
+            $query['Input'] = $request->input;
+        }
+        if (!Utils::isUnset($request->modelType)) {
+            $query['ModelType'] = $request->modelType;
+        }
+        if (!Utils::isUnset($request->serverName)) {
+            $query['ServerName'] = $request->serverName;
+        }
+        $req = new OpenApiRequest([
             'query' => OpenApiUtilClient::query($query),
-            'body'  => Utils::toMap($request),
         ]);
         $params = new Params([
             'action'      => 'SubmitInferenceJob',
@@ -7904,7 +9828,7 @@ class Mts extends OpenApiClient
             'method'      => 'POST',
             'authType'    => 'AK',
             'style'       => 'RPC',
-            'reqBodyType' => 'json',
+            'reqBodyType' => 'formData',
             'bodyType'    => 'json',
         ]);
 
@@ -7932,18 +9856,33 @@ class Mts extends OpenApiClient
     public function submitInnerJobWithOptions($request, $runtime)
     {
         Utils::validateModel($request);
-        $query                         = [];
-        $query['Config']               = $request->config;
-        $query['Images']               = $request->images;
-        $query['OwnerId']              = $request->ownerId;
-        $query['PipelineId']           = $request->pipelineId;
-        $query['ResourceOwnerAccount'] = $request->resourceOwnerAccount;
-        $query['ResourceOwnerId']      = $request->resourceOwnerId;
-        $query['Uid']                  = $request->uid;
-        $query['Video']                = $request->video;
-        $req                           = new OpenApiRequest([
+        $query = [];
+        if (!Utils::isUnset($request->config)) {
+            $query['Config'] = $request->config;
+        }
+        if (!Utils::isUnset($request->images)) {
+            $query['Images'] = $request->images;
+        }
+        if (!Utils::isUnset($request->ownerId)) {
+            $query['OwnerId'] = $request->ownerId;
+        }
+        if (!Utils::isUnset($request->pipelineId)) {
+            $query['PipelineId'] = $request->pipelineId;
+        }
+        if (!Utils::isUnset($request->resourceOwnerAccount)) {
+            $query['ResourceOwnerAccount'] = $request->resourceOwnerAccount;
+        }
+        if (!Utils::isUnset($request->resourceOwnerId)) {
+            $query['ResourceOwnerId'] = $request->resourceOwnerId;
+        }
+        if (!Utils::isUnset($request->uid)) {
+            $query['Uid'] = $request->uid;
+        }
+        if (!Utils::isUnset($request->video)) {
+            $query['Video'] = $request->video;
+        }
+        $req = new OpenApiRequest([
             'query' => OpenApiUtilClient::query($query),
-            'body'  => Utils::toMap($request),
         ]);
         $params = new Params([
             'action'      => 'SubmitInnerJob',
@@ -7953,7 +9892,7 @@ class Mts extends OpenApiClient
             'method'      => 'POST',
             'authType'    => 'AK',
             'style'       => 'RPC',
-            'reqBodyType' => 'json',
+            'reqBodyType' => 'formData',
             'bodyType'    => 'json',
         ]);
 
@@ -7981,19 +9920,36 @@ class Mts extends OpenApiClient
     public function submitJobsWithOptions($request, $runtime)
     {
         Utils::validateModel($request);
-        $query                         = [];
-        $query['Input']                = $request->input;
-        $query['OutputBucket']         = $request->outputBucket;
-        $query['OutputLocation']       = $request->outputLocation;
-        $query['Outputs']              = $request->outputs;
-        $query['OwnerAccount']         = $request->ownerAccount;
-        $query['OwnerId']              = $request->ownerId;
-        $query['PipelineId']           = $request->pipelineId;
-        $query['ResourceOwnerAccount'] = $request->resourceOwnerAccount;
-        $query['ResourceOwnerId']      = $request->resourceOwnerId;
-        $req                           = new OpenApiRequest([
+        $query = [];
+        if (!Utils::isUnset($request->input)) {
+            $query['Input'] = $request->input;
+        }
+        if (!Utils::isUnset($request->outputBucket)) {
+            $query['OutputBucket'] = $request->outputBucket;
+        }
+        if (!Utils::isUnset($request->outputLocation)) {
+            $query['OutputLocation'] = $request->outputLocation;
+        }
+        if (!Utils::isUnset($request->outputs)) {
+            $query['Outputs'] = $request->outputs;
+        }
+        if (!Utils::isUnset($request->ownerAccount)) {
+            $query['OwnerAccount'] = $request->ownerAccount;
+        }
+        if (!Utils::isUnset($request->ownerId)) {
+            $query['OwnerId'] = $request->ownerId;
+        }
+        if (!Utils::isUnset($request->pipelineId)) {
+            $query['PipelineId'] = $request->pipelineId;
+        }
+        if (!Utils::isUnset($request->resourceOwnerAccount)) {
+            $query['ResourceOwnerAccount'] = $request->resourceOwnerAccount;
+        }
+        if (!Utils::isUnset($request->resourceOwnerId)) {
+            $query['ResourceOwnerId'] = $request->resourceOwnerId;
+        }
+        $req = new OpenApiRequest([
             'query' => OpenApiUtilClient::query($query),
-            'body'  => Utils::toMap($request),
         ]);
         $params = new Params([
             'action'      => 'SubmitJobs',
@@ -8003,7 +9959,7 @@ class Mts extends OpenApiClient
             'method'      => 'POST',
             'authType'    => 'AK',
             'style'       => 'RPC',
-            'reqBodyType' => 'json',
+            'reqBodyType' => 'formData',
             'bodyType'    => 'json',
         ]);
 
@@ -8031,20 +9987,39 @@ class Mts extends OpenApiClient
     public function submitMCJobWithOptions($request, $runtime)
     {
         Utils::validateModel($request);
-        $query                         = [];
-        $query['CensorConfig']         = $request->censorConfig;
-        $query['Images']               = $request->images;
-        $query['OwnerAccount']         = $request->ownerAccount;
-        $query['OwnerId']              = $request->ownerId;
-        $query['PipelineId']           = $request->pipelineId;
-        $query['ResourceOwnerAccount'] = $request->resourceOwnerAccount;
-        $query['ResourceOwnerId']      = $request->resourceOwnerId;
-        $query['Texts']                = $request->texts;
-        $query['UserData']             = $request->userData;
-        $query['Video']                = $request->video;
-        $req                           = new OpenApiRequest([
+        $query = [];
+        if (!Utils::isUnset($request->censorConfig)) {
+            $query['CensorConfig'] = $request->censorConfig;
+        }
+        if (!Utils::isUnset($request->images)) {
+            $query['Images'] = $request->images;
+        }
+        if (!Utils::isUnset($request->ownerAccount)) {
+            $query['OwnerAccount'] = $request->ownerAccount;
+        }
+        if (!Utils::isUnset($request->ownerId)) {
+            $query['OwnerId'] = $request->ownerId;
+        }
+        if (!Utils::isUnset($request->pipelineId)) {
+            $query['PipelineId'] = $request->pipelineId;
+        }
+        if (!Utils::isUnset($request->resourceOwnerAccount)) {
+            $query['ResourceOwnerAccount'] = $request->resourceOwnerAccount;
+        }
+        if (!Utils::isUnset($request->resourceOwnerId)) {
+            $query['ResourceOwnerId'] = $request->resourceOwnerId;
+        }
+        if (!Utils::isUnset($request->texts)) {
+            $query['Texts'] = $request->texts;
+        }
+        if (!Utils::isUnset($request->userData)) {
+            $query['UserData'] = $request->userData;
+        }
+        if (!Utils::isUnset($request->video)) {
+            $query['Video'] = $request->video;
+        }
+        $req = new OpenApiRequest([
             'query' => OpenApiUtilClient::query($query),
-            'body'  => Utils::toMap($request),
         ]);
         $params = new Params([
             'action'      => 'SubmitMCJob',
@@ -8054,7 +10029,7 @@ class Mts extends OpenApiClient
             'method'      => 'POST',
             'authType'    => 'AK',
             'style'       => 'RPC',
-            'reqBodyType' => 'json',
+            'reqBodyType' => 'formData',
             'bodyType'    => 'json',
         ]);
 
@@ -8082,19 +10057,36 @@ class Mts extends OpenApiClient
     public function submitMcuJobWithOptions($request, $runtime)
     {
         Utils::validateModel($request);
-        $query                         = [];
-        $query['Input']                = $request->input;
-        $query['OwnerAccount']         = $request->ownerAccount;
-        $query['OwnerId']              = $request->ownerId;
-        $query['PipelineId']           = $request->pipelineId;
-        $query['ResourceOwnerAccount'] = $request->resourceOwnerAccount;
-        $query['ResourceOwnerId']      = $request->resourceOwnerId;
-        $query['Template']             = $request->template;
-        $query['TemplateId']           = $request->templateId;
-        $query['UserData']             = $request->userData;
-        $req                           = new OpenApiRequest([
+        $query = [];
+        if (!Utils::isUnset($request->input)) {
+            $query['Input'] = $request->input;
+        }
+        if (!Utils::isUnset($request->ownerAccount)) {
+            $query['OwnerAccount'] = $request->ownerAccount;
+        }
+        if (!Utils::isUnset($request->ownerId)) {
+            $query['OwnerId'] = $request->ownerId;
+        }
+        if (!Utils::isUnset($request->pipelineId)) {
+            $query['PipelineId'] = $request->pipelineId;
+        }
+        if (!Utils::isUnset($request->resourceOwnerAccount)) {
+            $query['ResourceOwnerAccount'] = $request->resourceOwnerAccount;
+        }
+        if (!Utils::isUnset($request->resourceOwnerId)) {
+            $query['ResourceOwnerId'] = $request->resourceOwnerId;
+        }
+        if (!Utils::isUnset($request->template)) {
+            $query['Template'] = $request->template;
+        }
+        if (!Utils::isUnset($request->templateId)) {
+            $query['TemplateId'] = $request->templateId;
+        }
+        if (!Utils::isUnset($request->userData)) {
+            $query['UserData'] = $request->userData;
+        }
+        $req = new OpenApiRequest([
             'query' => OpenApiUtilClient::query($query),
-            'body'  => Utils::toMap($request),
         ]);
         $params = new Params([
             'action'      => 'SubmitMcuJob',
@@ -8104,7 +10096,7 @@ class Mts extends OpenApiClient
             'method'      => 'POST',
             'authType'    => 'AK',
             'style'       => 'RPC',
-            'reqBodyType' => 'json',
+            'reqBodyType' => 'formData',
             'bodyType'    => 'json',
         ]);
 
@@ -8132,23 +10124,48 @@ class Mts extends OpenApiClient
     public function submitMediaCensorJobWithOptions($request, $runtime)
     {
         Utils::validateModel($request);
-        $query                         = [];
-        $query['Barrages']             = $request->barrages;
-        $query['CoverImages']          = $request->coverImages;
-        $query['Description']          = $request->description;
-        $query['ExternalUrl']          = $request->externalUrl;
-        $query['Input']                = $request->input;
-        $query['OwnerAccount']         = $request->ownerAccount;
-        $query['OwnerId']              = $request->ownerId;
-        $query['PipelineId']           = $request->pipelineId;
-        $query['ResourceOwnerAccount'] = $request->resourceOwnerAccount;
-        $query['ResourceOwnerId']      = $request->resourceOwnerId;
-        $query['Title']                = $request->title;
-        $query['UserData']             = $request->userData;
-        $query['VideoCensorConfig']    = $request->videoCensorConfig;
-        $req                           = new OpenApiRequest([
+        $query = [];
+        if (!Utils::isUnset($request->barrages)) {
+            $query['Barrages'] = $request->barrages;
+        }
+        if (!Utils::isUnset($request->coverImages)) {
+            $query['CoverImages'] = $request->coverImages;
+        }
+        if (!Utils::isUnset($request->description)) {
+            $query['Description'] = $request->description;
+        }
+        if (!Utils::isUnset($request->externalUrl)) {
+            $query['ExternalUrl'] = $request->externalUrl;
+        }
+        if (!Utils::isUnset($request->input)) {
+            $query['Input'] = $request->input;
+        }
+        if (!Utils::isUnset($request->ownerAccount)) {
+            $query['OwnerAccount'] = $request->ownerAccount;
+        }
+        if (!Utils::isUnset($request->ownerId)) {
+            $query['OwnerId'] = $request->ownerId;
+        }
+        if (!Utils::isUnset($request->pipelineId)) {
+            $query['PipelineId'] = $request->pipelineId;
+        }
+        if (!Utils::isUnset($request->resourceOwnerAccount)) {
+            $query['ResourceOwnerAccount'] = $request->resourceOwnerAccount;
+        }
+        if (!Utils::isUnset($request->resourceOwnerId)) {
+            $query['ResourceOwnerId'] = $request->resourceOwnerId;
+        }
+        if (!Utils::isUnset($request->title)) {
+            $query['Title'] = $request->title;
+        }
+        if (!Utils::isUnset($request->userData)) {
+            $query['UserData'] = $request->userData;
+        }
+        if (!Utils::isUnset($request->videoCensorConfig)) {
+            $query['VideoCensorConfig'] = $request->videoCensorConfig;
+        }
+        $req = new OpenApiRequest([
             'query' => OpenApiUtilClient::query($query),
-            'body'  => Utils::toMap($request),
         ]);
         $params = new Params([
             'action'      => 'SubmitMediaCensorJob',
@@ -8158,7 +10175,7 @@ class Mts extends OpenApiClient
             'method'      => 'POST',
             'authType'    => 'AK',
             'style'       => 'RPC',
-            'reqBodyType' => 'json',
+            'reqBodyType' => 'formData',
             'bodyType'    => 'json',
         ]);
 
@@ -8186,18 +10203,33 @@ class Mts extends OpenApiClient
     public function submitMediaDetailJobWithOptions($request, $runtime)
     {
         Utils::validateModel($request);
-        $query                         = [];
-        $query['Input']                = $request->input;
-        $query['MediaDetailConfig']    = $request->mediaDetailConfig;
-        $query['OwnerAccount']         = $request->ownerAccount;
-        $query['OwnerId']              = $request->ownerId;
-        $query['PipelineId']           = $request->pipelineId;
-        $query['ResourceOwnerAccount'] = $request->resourceOwnerAccount;
-        $query['ResourceOwnerId']      = $request->resourceOwnerId;
-        $query['UserData']             = $request->userData;
-        $req                           = new OpenApiRequest([
+        $query = [];
+        if (!Utils::isUnset($request->input)) {
+            $query['Input'] = $request->input;
+        }
+        if (!Utils::isUnset($request->mediaDetailConfig)) {
+            $query['MediaDetailConfig'] = $request->mediaDetailConfig;
+        }
+        if (!Utils::isUnset($request->ownerAccount)) {
+            $query['OwnerAccount'] = $request->ownerAccount;
+        }
+        if (!Utils::isUnset($request->ownerId)) {
+            $query['OwnerId'] = $request->ownerId;
+        }
+        if (!Utils::isUnset($request->pipelineId)) {
+            $query['PipelineId'] = $request->pipelineId;
+        }
+        if (!Utils::isUnset($request->resourceOwnerAccount)) {
+            $query['ResourceOwnerAccount'] = $request->resourceOwnerAccount;
+        }
+        if (!Utils::isUnset($request->resourceOwnerId)) {
+            $query['ResourceOwnerId'] = $request->resourceOwnerId;
+        }
+        if (!Utils::isUnset($request->userData)) {
+            $query['UserData'] = $request->userData;
+        }
+        $req = new OpenApiRequest([
             'query' => OpenApiUtilClient::query($query),
-            'body'  => Utils::toMap($request),
         ]);
         $params = new Params([
             'action'      => 'SubmitMediaDetailJob',
@@ -8207,7 +10239,7 @@ class Mts extends OpenApiClient
             'method'      => 'POST',
             'authType'    => 'AK',
             'style'       => 'RPC',
-            'reqBodyType' => 'json',
+            'reqBodyType' => 'formData',
             'bodyType'    => 'json',
         ]);
 
@@ -8235,18 +10267,33 @@ class Mts extends OpenApiClient
     public function submitMediaFpDeleteJobWithOptions($request, $runtime)
     {
         Utils::validateModel($request);
-        $query                         = [];
-        $query['FpDBId']               = $request->fpDBId;
-        $query['OwnerAccount']         = $request->ownerAccount;
-        $query['OwnerId']              = $request->ownerId;
-        $query['PipelineId']           = $request->pipelineId;
-        $query['PrimaryKey']           = $request->primaryKey;
-        $query['ResourceOwnerAccount'] = $request->resourceOwnerAccount;
-        $query['ResourceOwnerId']      = $request->resourceOwnerId;
-        $query['UserData']             = $request->userData;
-        $req                           = new OpenApiRequest([
+        $query = [];
+        if (!Utils::isUnset($request->fpDBId)) {
+            $query['FpDBId'] = $request->fpDBId;
+        }
+        if (!Utils::isUnset($request->ownerAccount)) {
+            $query['OwnerAccount'] = $request->ownerAccount;
+        }
+        if (!Utils::isUnset($request->ownerId)) {
+            $query['OwnerId'] = $request->ownerId;
+        }
+        if (!Utils::isUnset($request->pipelineId)) {
+            $query['PipelineId'] = $request->pipelineId;
+        }
+        if (!Utils::isUnset($request->primaryKey)) {
+            $query['PrimaryKey'] = $request->primaryKey;
+        }
+        if (!Utils::isUnset($request->resourceOwnerAccount)) {
+            $query['ResourceOwnerAccount'] = $request->resourceOwnerAccount;
+        }
+        if (!Utils::isUnset($request->resourceOwnerId)) {
+            $query['ResourceOwnerId'] = $request->resourceOwnerId;
+        }
+        if (!Utils::isUnset($request->userData)) {
+            $query['UserData'] = $request->userData;
+        }
+        $req = new OpenApiRequest([
             'query' => OpenApiUtilClient::query($query),
-            'body'  => Utils::toMap($request),
         ]);
         $params = new Params([
             'action'      => 'SubmitMediaFpDeleteJob',
@@ -8256,7 +10303,7 @@ class Mts extends OpenApiClient
             'method'      => 'POST',
             'authType'    => 'AK',
             'style'       => 'RPC',
-            'reqBodyType' => 'json',
+            'reqBodyType' => 'formData',
             'bodyType'    => 'json',
         ]);
 
@@ -8284,18 +10331,33 @@ class Mts extends OpenApiClient
     public function submitMediaInfoJobWithOptions($request, $runtime)
     {
         Utils::validateModel($request);
-        $query                         = [];
-        $query['Async']                = $request->async;
-        $query['Input']                = $request->input;
-        $query['OwnerAccount']         = $request->ownerAccount;
-        $query['OwnerId']              = $request->ownerId;
-        $query['PipelineId']           = $request->pipelineId;
-        $query['ResourceOwnerAccount'] = $request->resourceOwnerAccount;
-        $query['ResourceOwnerId']      = $request->resourceOwnerId;
-        $query['UserData']             = $request->userData;
-        $req                           = new OpenApiRequest([
+        $query = [];
+        if (!Utils::isUnset($request->async)) {
+            $query['Async'] = $request->async;
+        }
+        if (!Utils::isUnset($request->input)) {
+            $query['Input'] = $request->input;
+        }
+        if (!Utils::isUnset($request->ownerAccount)) {
+            $query['OwnerAccount'] = $request->ownerAccount;
+        }
+        if (!Utils::isUnset($request->ownerId)) {
+            $query['OwnerId'] = $request->ownerId;
+        }
+        if (!Utils::isUnset($request->pipelineId)) {
+            $query['PipelineId'] = $request->pipelineId;
+        }
+        if (!Utils::isUnset($request->resourceOwnerAccount)) {
+            $query['ResourceOwnerAccount'] = $request->resourceOwnerAccount;
+        }
+        if (!Utils::isUnset($request->resourceOwnerId)) {
+            $query['ResourceOwnerId'] = $request->resourceOwnerId;
+        }
+        if (!Utils::isUnset($request->userData)) {
+            $query['UserData'] = $request->userData;
+        }
+        $req = new OpenApiRequest([
             'query' => OpenApiUtilClient::query($query),
-            'body'  => Utils::toMap($request),
         ]);
         $params = new Params([
             'action'      => 'SubmitMediaInfoJob',
@@ -8305,7 +10367,7 @@ class Mts extends OpenApiClient
             'method'      => 'POST',
             'authType'    => 'AK',
             'style'       => 'RPC',
-            'reqBodyType' => 'json',
+            'reqBodyType' => 'formData',
             'bodyType'    => 'json',
         ]);
 
@@ -8341,15 +10403,24 @@ class Mts extends OpenApiClient
         if (!Utils::isUnset($tmpReq->targetStorage)) {
             $request->targetStorageShrink = OpenApiUtilClient::arrayToStringWithSpecifiedStyle(Tea::merge($tmpReq->targetStorage), 'TargetStorage', 'json');
         }
-        $query                  = [];
-        $query['Notify']        = $request->notify;
-        $query['Region']        = $request->region;
-        $query['SourceStorage'] = $request->sourceStorageShrink;
-        $query['TargetStorage'] = $request->targetStorageShrink;
-        $query['UserData']      = $request->userData;
-        $req                    = new OpenApiRequest([
+        $query = [];
+        if (!Utils::isUnset($request->notify)) {
+            $query['Notify'] = $request->notify;
+        }
+        if (!Utils::isUnset($request->region)) {
+            $query['Region'] = $request->region;
+        }
+        if (!Utils::isUnset($request->sourceStorageShrink)) {
+            $query['SourceStorage'] = $request->sourceStorageShrink;
+        }
+        if (!Utils::isUnset($request->targetStorageShrink)) {
+            $query['TargetStorage'] = $request->targetStorageShrink;
+        }
+        if (!Utils::isUnset($request->userData)) {
+            $query['UserData'] = $request->userData;
+        }
+        $req = new OpenApiRequest([
             'query' => OpenApiUtilClient::query($query),
-            'body'  => Utils::toMap($request),
         ]);
         $params = new Params([
             'action'      => 'SubmitOssFileCopyJob',
@@ -8359,7 +10430,7 @@ class Mts extends OpenApiClient
             'method'      => 'POST',
             'authType'    => 'AK',
             'style'       => 'RPC',
-            'reqBodyType' => 'json',
+            'reqBodyType' => 'formData',
             'bodyType'    => 'json',
         ]);
 
@@ -8387,18 +10458,33 @@ class Mts extends OpenApiClient
     public function submitPornJobWithOptions($request, $runtime)
     {
         Utils::validateModel($request);
-        $query                         = [];
-        $query['Input']                = $request->input;
-        $query['OwnerAccount']         = $request->ownerAccount;
-        $query['OwnerId']              = $request->ownerId;
-        $query['PipelineId']           = $request->pipelineId;
-        $query['PornConfig']           = $request->pornConfig;
-        $query['ResourceOwnerAccount'] = $request->resourceOwnerAccount;
-        $query['ResourceOwnerId']      = $request->resourceOwnerId;
-        $query['UserData']             = $request->userData;
-        $req                           = new OpenApiRequest([
+        $query = [];
+        if (!Utils::isUnset($request->input)) {
+            $query['Input'] = $request->input;
+        }
+        if (!Utils::isUnset($request->ownerAccount)) {
+            $query['OwnerAccount'] = $request->ownerAccount;
+        }
+        if (!Utils::isUnset($request->ownerId)) {
+            $query['OwnerId'] = $request->ownerId;
+        }
+        if (!Utils::isUnset($request->pipelineId)) {
+            $query['PipelineId'] = $request->pipelineId;
+        }
+        if (!Utils::isUnset($request->pornConfig)) {
+            $query['PornConfig'] = $request->pornConfig;
+        }
+        if (!Utils::isUnset($request->resourceOwnerAccount)) {
+            $query['ResourceOwnerAccount'] = $request->resourceOwnerAccount;
+        }
+        if (!Utils::isUnset($request->resourceOwnerId)) {
+            $query['ResourceOwnerId'] = $request->resourceOwnerId;
+        }
+        if (!Utils::isUnset($request->userData)) {
+            $query['UserData'] = $request->userData;
+        }
+        $req = new OpenApiRequest([
             'query' => OpenApiUtilClient::query($query),
-            'body'  => Utils::toMap($request),
         ]);
         $params = new Params([
             'action'      => 'SubmitPornJob',
@@ -8408,7 +10494,7 @@ class Mts extends OpenApiClient
             'method'      => 'POST',
             'authType'    => 'AK',
             'style'       => 'RPC',
-            'reqBodyType' => 'json',
+            'reqBodyType' => 'formData',
             'bodyType'    => 'json',
         ]);
 
@@ -8436,24 +10522,51 @@ class Mts extends OpenApiClient
     public function submitSmarttagJobWithOptions($request, $runtime)
     {
         Utils::validateModel($request);
-        $query                         = [];
-        $query['Content']              = $request->content;
-        $query['ContentAddr']          = $request->contentAddr;
-        $query['ContentType']          = $request->contentType;
-        $query['Input']                = $request->input;
-        $query['NotifyUrl']            = $request->notifyUrl;
-        $query['OwnerAccount']         = $request->ownerAccount;
-        $query['OwnerId']              = $request->ownerId;
-        $query['Params']               = $request->params;
-        $query['PipelineId']           = $request->pipelineId;
-        $query['ResourceOwnerAccount'] = $request->resourceOwnerAccount;
-        $query['ResourceOwnerId']      = $request->resourceOwnerId;
-        $query['TemplateId']           = $request->templateId;
-        $query['Title']                = $request->title;
-        $query['UserData']             = $request->userData;
-        $req                           = new OpenApiRequest([
+        $query = [];
+        if (!Utils::isUnset($request->content)) {
+            $query['Content'] = $request->content;
+        }
+        if (!Utils::isUnset($request->contentAddr)) {
+            $query['ContentAddr'] = $request->contentAddr;
+        }
+        if (!Utils::isUnset($request->contentType)) {
+            $query['ContentType'] = $request->contentType;
+        }
+        if (!Utils::isUnset($request->input)) {
+            $query['Input'] = $request->input;
+        }
+        if (!Utils::isUnset($request->notifyUrl)) {
+            $query['NotifyUrl'] = $request->notifyUrl;
+        }
+        if (!Utils::isUnset($request->ownerAccount)) {
+            $query['OwnerAccount'] = $request->ownerAccount;
+        }
+        if (!Utils::isUnset($request->ownerId)) {
+            $query['OwnerId'] = $request->ownerId;
+        }
+        if (!Utils::isUnset($request->params)) {
+            $query['Params'] = $request->params;
+        }
+        if (!Utils::isUnset($request->pipelineId)) {
+            $query['PipelineId'] = $request->pipelineId;
+        }
+        if (!Utils::isUnset($request->resourceOwnerAccount)) {
+            $query['ResourceOwnerAccount'] = $request->resourceOwnerAccount;
+        }
+        if (!Utils::isUnset($request->resourceOwnerId)) {
+            $query['ResourceOwnerId'] = $request->resourceOwnerId;
+        }
+        if (!Utils::isUnset($request->templateId)) {
+            $query['TemplateId'] = $request->templateId;
+        }
+        if (!Utils::isUnset($request->title)) {
+            $query['Title'] = $request->title;
+        }
+        if (!Utils::isUnset($request->userData)) {
+            $query['UserData'] = $request->userData;
+        }
+        $req = new OpenApiRequest([
             'query' => OpenApiUtilClient::query($query),
-            'body'  => Utils::toMap($request),
         ]);
         $params = new Params([
             'action'      => 'SubmitSmarttagJob',
@@ -8463,7 +10576,7 @@ class Mts extends OpenApiClient
             'method'      => 'POST',
             'authType'    => 'AK',
             'style'       => 'RPC',
-            'reqBodyType' => 'json',
+            'reqBodyType' => 'formData',
             'bodyType'    => 'json',
         ]);
 
@@ -8491,18 +10604,33 @@ class Mts extends OpenApiClient
     public function submitSnapshotJobWithOptions($request, $runtime)
     {
         Utils::validateModel($request);
-        $query                         = [];
-        $query['Input']                = $request->input;
-        $query['OwnerAccount']         = $request->ownerAccount;
-        $query['OwnerId']              = $request->ownerId;
-        $query['PipelineId']           = $request->pipelineId;
-        $query['ResourceOwnerAccount'] = $request->resourceOwnerAccount;
-        $query['ResourceOwnerId']      = $request->resourceOwnerId;
-        $query['SnapshotConfig']       = $request->snapshotConfig;
-        $query['UserData']             = $request->userData;
-        $req                           = new OpenApiRequest([
+        $query = [];
+        if (!Utils::isUnset($request->input)) {
+            $query['Input'] = $request->input;
+        }
+        if (!Utils::isUnset($request->ownerAccount)) {
+            $query['OwnerAccount'] = $request->ownerAccount;
+        }
+        if (!Utils::isUnset($request->ownerId)) {
+            $query['OwnerId'] = $request->ownerId;
+        }
+        if (!Utils::isUnset($request->pipelineId)) {
+            $query['PipelineId'] = $request->pipelineId;
+        }
+        if (!Utils::isUnset($request->resourceOwnerAccount)) {
+            $query['ResourceOwnerAccount'] = $request->resourceOwnerAccount;
+        }
+        if (!Utils::isUnset($request->resourceOwnerId)) {
+            $query['ResourceOwnerId'] = $request->resourceOwnerId;
+        }
+        if (!Utils::isUnset($request->snapshotConfig)) {
+            $query['SnapshotConfig'] = $request->snapshotConfig;
+        }
+        if (!Utils::isUnset($request->userData)) {
+            $query['UserData'] = $request->userData;
+        }
+        $req = new OpenApiRequest([
             'query' => OpenApiUtilClient::query($query),
-            'body'  => Utils::toMap($request),
         ]);
         $params = new Params([
             'action'      => 'SubmitSnapshotJob',
@@ -8512,7 +10640,7 @@ class Mts extends OpenApiClient
             'method'      => 'POST',
             'authType'    => 'AK',
             'style'       => 'RPC',
-            'reqBodyType' => 'json',
+            'reqBodyType' => 'formData',
             'bodyType'    => 'json',
         ]);
 
@@ -8540,18 +10668,33 @@ class Mts extends OpenApiClient
     public function submitSubtitleJobWithOptions($request, $runtime)
     {
         Utils::validateModel($request);
-        $query                         = [];
-        $query['InputConfig']          = $request->inputConfig;
-        $query['OutputConfig']         = $request->outputConfig;
-        $query['OwnerAccount']         = $request->ownerAccount;
-        $query['OwnerId']              = $request->ownerId;
-        $query['PipelineId']           = $request->pipelineId;
-        $query['ResourceOwnerAccount'] = $request->resourceOwnerAccount;
-        $query['ResourceOwnerId']      = $request->resourceOwnerId;
-        $query['UserData']             = $request->userData;
-        $req                           = new OpenApiRequest([
+        $query = [];
+        if (!Utils::isUnset($request->inputConfig)) {
+            $query['InputConfig'] = $request->inputConfig;
+        }
+        if (!Utils::isUnset($request->outputConfig)) {
+            $query['OutputConfig'] = $request->outputConfig;
+        }
+        if (!Utils::isUnset($request->ownerAccount)) {
+            $query['OwnerAccount'] = $request->ownerAccount;
+        }
+        if (!Utils::isUnset($request->ownerId)) {
+            $query['OwnerId'] = $request->ownerId;
+        }
+        if (!Utils::isUnset($request->pipelineId)) {
+            $query['PipelineId'] = $request->pipelineId;
+        }
+        if (!Utils::isUnset($request->resourceOwnerAccount)) {
+            $query['ResourceOwnerAccount'] = $request->resourceOwnerAccount;
+        }
+        if (!Utils::isUnset($request->resourceOwnerId)) {
+            $query['ResourceOwnerId'] = $request->resourceOwnerId;
+        }
+        if (!Utils::isUnset($request->userData)) {
+            $query['UserData'] = $request->userData;
+        }
+        $req = new OpenApiRequest([
             'query' => OpenApiUtilClient::query($query),
-            'body'  => Utils::toMap($request),
         ]);
         $params = new Params([
             'action'      => 'SubmitSubtitleJob',
@@ -8561,7 +10704,7 @@ class Mts extends OpenApiClient
             'method'      => 'POST',
             'authType'    => 'AK',
             'style'       => 'RPC',
-            'reqBodyType' => 'json',
+            'reqBodyType' => 'formData',
             'bodyType'    => 'json',
         ]);
 
@@ -8589,18 +10732,33 @@ class Mts extends OpenApiClient
     public function submitTagJobWithOptions($request, $runtime)
     {
         Utils::validateModel($request);
-        $query                         = [];
-        $query['Input']                = $request->input;
-        $query['OwnerAccount']         = $request->ownerAccount;
-        $query['OwnerId']              = $request->ownerId;
-        $query['PipelineId']           = $request->pipelineId;
-        $query['ResourceOwnerAccount'] = $request->resourceOwnerAccount;
-        $query['ResourceOwnerId']      = $request->resourceOwnerId;
-        $query['TagConfig']            = $request->tagConfig;
-        $query['UserData']             = $request->userData;
-        $req                           = new OpenApiRequest([
+        $query = [];
+        if (!Utils::isUnset($request->input)) {
+            $query['Input'] = $request->input;
+        }
+        if (!Utils::isUnset($request->ownerAccount)) {
+            $query['OwnerAccount'] = $request->ownerAccount;
+        }
+        if (!Utils::isUnset($request->ownerId)) {
+            $query['OwnerId'] = $request->ownerId;
+        }
+        if (!Utils::isUnset($request->pipelineId)) {
+            $query['PipelineId'] = $request->pipelineId;
+        }
+        if (!Utils::isUnset($request->resourceOwnerAccount)) {
+            $query['ResourceOwnerAccount'] = $request->resourceOwnerAccount;
+        }
+        if (!Utils::isUnset($request->resourceOwnerId)) {
+            $query['ResourceOwnerId'] = $request->resourceOwnerId;
+        }
+        if (!Utils::isUnset($request->tagConfig)) {
+            $query['TagConfig'] = $request->tagConfig;
+        }
+        if (!Utils::isUnset($request->userData)) {
+            $query['UserData'] = $request->userData;
+        }
+        $req = new OpenApiRequest([
             'query' => OpenApiUtilClient::query($query),
-            'body'  => Utils::toMap($request),
         ]);
         $params = new Params([
             'action'      => 'SubmitTagJob',
@@ -8610,7 +10768,7 @@ class Mts extends OpenApiClient
             'method'      => 'POST',
             'authType'    => 'AK',
             'style'       => 'RPC',
-            'reqBodyType' => 'json',
+            'reqBodyType' => 'formData',
             'bodyType'    => 'json',
         ]);
 
@@ -8638,18 +10796,33 @@ class Mts extends OpenApiClient
     public function submitTerrorismJobWithOptions($request, $runtime)
     {
         Utils::validateModel($request);
-        $query                         = [];
-        $query['Input']                = $request->input;
-        $query['OwnerAccount']         = $request->ownerAccount;
-        $query['OwnerId']              = $request->ownerId;
-        $query['PipelineId']           = $request->pipelineId;
-        $query['ResourceOwnerAccount'] = $request->resourceOwnerAccount;
-        $query['ResourceOwnerId']      = $request->resourceOwnerId;
-        $query['TerrorismConfig']      = $request->terrorismConfig;
-        $query['UserData']             = $request->userData;
-        $req                           = new OpenApiRequest([
+        $query = [];
+        if (!Utils::isUnset($request->input)) {
+            $query['Input'] = $request->input;
+        }
+        if (!Utils::isUnset($request->ownerAccount)) {
+            $query['OwnerAccount'] = $request->ownerAccount;
+        }
+        if (!Utils::isUnset($request->ownerId)) {
+            $query['OwnerId'] = $request->ownerId;
+        }
+        if (!Utils::isUnset($request->pipelineId)) {
+            $query['PipelineId'] = $request->pipelineId;
+        }
+        if (!Utils::isUnset($request->resourceOwnerAccount)) {
+            $query['ResourceOwnerAccount'] = $request->resourceOwnerAccount;
+        }
+        if (!Utils::isUnset($request->resourceOwnerId)) {
+            $query['ResourceOwnerId'] = $request->resourceOwnerId;
+        }
+        if (!Utils::isUnset($request->terrorismConfig)) {
+            $query['TerrorismConfig'] = $request->terrorismConfig;
+        }
+        if (!Utils::isUnset($request->userData)) {
+            $query['UserData'] = $request->userData;
+        }
+        $req = new OpenApiRequest([
             'query' => OpenApiUtilClient::query($query),
-            'body'  => Utils::toMap($request),
         ]);
         $params = new Params([
             'action'      => 'SubmitTerrorismJob',
@@ -8659,7 +10832,7 @@ class Mts extends OpenApiClient
             'method'      => 'POST',
             'authType'    => 'AK',
             'style'       => 'RPC',
-            'reqBodyType' => 'json',
+            'reqBodyType' => 'formData',
             'bodyType'    => 'json',
         ]);
 
@@ -8692,15 +10865,24 @@ class Mts extends OpenApiClient
         if (!Utils::isUnset($tmpReq->targetStorage)) {
             $request->targetStorageShrink = OpenApiUtilClient::arrayToStringWithSpecifiedStyle(Tea::merge($tmpReq->targetStorage), 'TargetStorage', 'json');
         }
-        $query                  = [];
-        $query['Notify']        = $request->notify;
-        $query['Region']        = $request->region;
-        $query['SourceFileURL'] = $request->sourceFileURL;
-        $query['TargetStorage'] = $request->targetStorageShrink;
-        $query['UserData']      = $request->userData;
-        $req                    = new OpenApiRequest([
+        $query = [];
+        if (!Utils::isUnset($request->notify)) {
+            $query['Notify'] = $request->notify;
+        }
+        if (!Utils::isUnset($request->region)) {
+            $query['Region'] = $request->region;
+        }
+        if (!Utils::isUnset($request->sourceFileURL)) {
+            $query['SourceFileURL'] = $request->sourceFileURL;
+        }
+        if (!Utils::isUnset($request->targetStorageShrink)) {
+            $query['TargetStorage'] = $request->targetStorageShrink;
+        }
+        if (!Utils::isUnset($request->userData)) {
+            $query['UserData'] = $request->userData;
+        }
+        $req = new OpenApiRequest([
             'query' => OpenApiUtilClient::query($query),
-            'body'  => Utils::toMap($request),
         ]);
         $params = new Params([
             'action'      => 'SubmitURLUploadJob',
@@ -8710,7 +10892,7 @@ class Mts extends OpenApiClient
             'method'      => 'POST',
             'authType'    => 'AK',
             'style'       => 'RPC',
-            'reqBodyType' => 'json',
+            'reqBodyType' => 'formData',
             'bodyType'    => 'json',
         ]);
 
@@ -8738,18 +10920,33 @@ class Mts extends OpenApiClient
     public function submitVideoGifJobWithOptions($request, $runtime)
     {
         Utils::validateModel($request);
-        $query                         = [];
-        $query['Input']                = $request->input;
-        $query['OwnerAccount']         = $request->ownerAccount;
-        $query['OwnerId']              = $request->ownerId;
-        $query['PipelineId']           = $request->pipelineId;
-        $query['ResourceOwnerAccount'] = $request->resourceOwnerAccount;
-        $query['ResourceOwnerId']      = $request->resourceOwnerId;
-        $query['UserData']             = $request->userData;
-        $query['VideoGifConfig']       = $request->videoGifConfig;
-        $req                           = new OpenApiRequest([
+        $query = [];
+        if (!Utils::isUnset($request->input)) {
+            $query['Input'] = $request->input;
+        }
+        if (!Utils::isUnset($request->ownerAccount)) {
+            $query['OwnerAccount'] = $request->ownerAccount;
+        }
+        if (!Utils::isUnset($request->ownerId)) {
+            $query['OwnerId'] = $request->ownerId;
+        }
+        if (!Utils::isUnset($request->pipelineId)) {
+            $query['PipelineId'] = $request->pipelineId;
+        }
+        if (!Utils::isUnset($request->resourceOwnerAccount)) {
+            $query['ResourceOwnerAccount'] = $request->resourceOwnerAccount;
+        }
+        if (!Utils::isUnset($request->resourceOwnerId)) {
+            $query['ResourceOwnerId'] = $request->resourceOwnerId;
+        }
+        if (!Utils::isUnset($request->userData)) {
+            $query['UserData'] = $request->userData;
+        }
+        if (!Utils::isUnset($request->videoGifConfig)) {
+            $query['VideoGifConfig'] = $request->videoGifConfig;
+        }
+        $req = new OpenApiRequest([
             'query' => OpenApiUtilClient::query($query),
-            'body'  => Utils::toMap($request),
         ]);
         $params = new Params([
             'action'      => 'SubmitVideoGifJob',
@@ -8759,7 +10956,7 @@ class Mts extends OpenApiClient
             'method'      => 'POST',
             'authType'    => 'AK',
             'style'       => 'RPC',
-            'reqBodyType' => 'json',
+            'reqBodyType' => 'formData',
             'bodyType'    => 'json',
         ]);
 
@@ -8787,18 +10984,33 @@ class Mts extends OpenApiClient
     public function submitVideoPoseJobWithOptions($request, $runtime)
     {
         Utils::validateModel($request);
-        $query                         = [];
-        $query['Input']                = $request->input;
-        $query['OutputConfig']         = $request->outputConfig;
-        $query['OwnerAccount']         = $request->ownerAccount;
-        $query['OwnerId']              = $request->ownerId;
-        $query['PipelineId']           = $request->pipelineId;
-        $query['ResourceOwnerAccount'] = $request->resourceOwnerAccount;
-        $query['ResourceOwnerId']      = $request->resourceOwnerId;
-        $query['UserData']             = $request->userData;
-        $req                           = new OpenApiRequest([
+        $query = [];
+        if (!Utils::isUnset($request->input)) {
+            $query['Input'] = $request->input;
+        }
+        if (!Utils::isUnset($request->outputConfig)) {
+            $query['OutputConfig'] = $request->outputConfig;
+        }
+        if (!Utils::isUnset($request->ownerAccount)) {
+            $query['OwnerAccount'] = $request->ownerAccount;
+        }
+        if (!Utils::isUnset($request->ownerId)) {
+            $query['OwnerId'] = $request->ownerId;
+        }
+        if (!Utils::isUnset($request->pipelineId)) {
+            $query['PipelineId'] = $request->pipelineId;
+        }
+        if (!Utils::isUnset($request->resourceOwnerAccount)) {
+            $query['ResourceOwnerAccount'] = $request->resourceOwnerAccount;
+        }
+        if (!Utils::isUnset($request->resourceOwnerId)) {
+            $query['ResourceOwnerId'] = $request->resourceOwnerId;
+        }
+        if (!Utils::isUnset($request->userData)) {
+            $query['UserData'] = $request->userData;
+        }
+        $req = new OpenApiRequest([
             'query' => OpenApiUtilClient::query($query),
-            'body'  => Utils::toMap($request),
         ]);
         $params = new Params([
             'action'      => 'SubmitVideoPoseJob',
@@ -8808,7 +11020,7 @@ class Mts extends OpenApiClient
             'method'      => 'POST',
             'authType'    => 'AK',
             'style'       => 'RPC',
-            'reqBodyType' => 'json',
+            'reqBodyType' => 'formData',
             'bodyType'    => 'json',
         ]);
 
@@ -8836,20 +11048,39 @@ class Mts extends OpenApiClient
     public function submitVideoQualityJobWithOptions($request, $runtime)
     {
         Utils::validateModel($request);
-        $query                   = [];
-        $query['Input']          = $request->input;
-        $query['JobParams']      = $request->jobParams;
-        $query['ModelId']        = $request->modelId;
-        $query['NotifyUrl']      = $request->notifyUrl;
-        $query['Output']         = $request->output;
-        $query['PipelineId']     = $request->pipelineId;
-        $query['ScheduleParams'] = $request->scheduleParams;
-        $query['SourceType']     = $request->sourceType;
-        $query['UserData']       = $request->userData;
-        $query['UserId']         = $request->userId;
-        $req                     = new OpenApiRequest([
+        $query = [];
+        if (!Utils::isUnset($request->input)) {
+            $query['Input'] = $request->input;
+        }
+        if (!Utils::isUnset($request->jobParams)) {
+            $query['JobParams'] = $request->jobParams;
+        }
+        if (!Utils::isUnset($request->modelId)) {
+            $query['ModelId'] = $request->modelId;
+        }
+        if (!Utils::isUnset($request->notifyUrl)) {
+            $query['NotifyUrl'] = $request->notifyUrl;
+        }
+        if (!Utils::isUnset($request->output)) {
+            $query['Output'] = $request->output;
+        }
+        if (!Utils::isUnset($request->pipelineId)) {
+            $query['PipelineId'] = $request->pipelineId;
+        }
+        if (!Utils::isUnset($request->scheduleParams)) {
+            $query['ScheduleParams'] = $request->scheduleParams;
+        }
+        if (!Utils::isUnset($request->sourceType)) {
+            $query['SourceType'] = $request->sourceType;
+        }
+        if (!Utils::isUnset($request->userData)) {
+            $query['UserData'] = $request->userData;
+        }
+        if (!Utils::isUnset($request->userId)) {
+            $query['UserId'] = $request->userId;
+        }
+        $req = new OpenApiRequest([
             'query' => OpenApiUtilClient::query($query),
-            'body'  => Utils::toMap($request),
         ]);
         $params = new Params([
             'action'      => 'SubmitVideoQualityJob',
@@ -8859,7 +11090,7 @@ class Mts extends OpenApiClient
             'method'      => 'POST',
             'authType'    => 'AK',
             'style'       => 'RPC',
-            'reqBodyType' => 'json',
+            'reqBodyType' => 'formData',
             'bodyType'    => 'json',
         ]);
 
@@ -8887,18 +11118,33 @@ class Mts extends OpenApiClient
     public function submitVideoSplitJobWithOptions($request, $runtime)
     {
         Utils::validateModel($request);
-        $query                         = [];
-        $query['Input']                = $request->input;
-        $query['OwnerAccount']         = $request->ownerAccount;
-        $query['OwnerId']              = $request->ownerId;
-        $query['PipelineId']           = $request->pipelineId;
-        $query['ResourceOwnerAccount'] = $request->resourceOwnerAccount;
-        $query['ResourceOwnerId']      = $request->resourceOwnerId;
-        $query['UserData']             = $request->userData;
-        $query['VideoSplitConfig']     = $request->videoSplitConfig;
-        $req                           = new OpenApiRequest([
+        $query = [];
+        if (!Utils::isUnset($request->input)) {
+            $query['Input'] = $request->input;
+        }
+        if (!Utils::isUnset($request->ownerAccount)) {
+            $query['OwnerAccount'] = $request->ownerAccount;
+        }
+        if (!Utils::isUnset($request->ownerId)) {
+            $query['OwnerId'] = $request->ownerId;
+        }
+        if (!Utils::isUnset($request->pipelineId)) {
+            $query['PipelineId'] = $request->pipelineId;
+        }
+        if (!Utils::isUnset($request->resourceOwnerAccount)) {
+            $query['ResourceOwnerAccount'] = $request->resourceOwnerAccount;
+        }
+        if (!Utils::isUnset($request->resourceOwnerId)) {
+            $query['ResourceOwnerId'] = $request->resourceOwnerId;
+        }
+        if (!Utils::isUnset($request->userData)) {
+            $query['UserData'] = $request->userData;
+        }
+        if (!Utils::isUnset($request->videoSplitConfig)) {
+            $query['VideoSplitConfig'] = $request->videoSplitConfig;
+        }
+        $req = new OpenApiRequest([
             'query' => OpenApiUtilClient::query($query),
-            'body'  => Utils::toMap($request),
         ]);
         $params = new Params([
             'action'      => 'SubmitVideoSplitJob',
@@ -8908,7 +11154,7 @@ class Mts extends OpenApiClient
             'method'      => 'POST',
             'authType'    => 'AK',
             'style'       => 'RPC',
-            'reqBodyType' => 'json',
+            'reqBodyType' => 'formData',
             'bodyType'    => 'json',
         ]);
 
@@ -8936,18 +11182,33 @@ class Mts extends OpenApiClient
     public function submitVideoSummaryJobWithOptions($request, $runtime)
     {
         Utils::validateModel($request);
-        $query                         = [];
-        $query['Input']                = $request->input;
-        $query['OwnerAccount']         = $request->ownerAccount;
-        $query['OwnerId']              = $request->ownerId;
-        $query['PipelineId']           = $request->pipelineId;
-        $query['ResourceOwnerAccount'] = $request->resourceOwnerAccount;
-        $query['ResourceOwnerId']      = $request->resourceOwnerId;
-        $query['UserData']             = $request->userData;
-        $query['VideoSummaryConfig']   = $request->videoSummaryConfig;
-        $req                           = new OpenApiRequest([
+        $query = [];
+        if (!Utils::isUnset($request->input)) {
+            $query['Input'] = $request->input;
+        }
+        if (!Utils::isUnset($request->ownerAccount)) {
+            $query['OwnerAccount'] = $request->ownerAccount;
+        }
+        if (!Utils::isUnset($request->ownerId)) {
+            $query['OwnerId'] = $request->ownerId;
+        }
+        if (!Utils::isUnset($request->pipelineId)) {
+            $query['PipelineId'] = $request->pipelineId;
+        }
+        if (!Utils::isUnset($request->resourceOwnerAccount)) {
+            $query['ResourceOwnerAccount'] = $request->resourceOwnerAccount;
+        }
+        if (!Utils::isUnset($request->resourceOwnerId)) {
+            $query['ResourceOwnerId'] = $request->resourceOwnerId;
+        }
+        if (!Utils::isUnset($request->userData)) {
+            $query['UserData'] = $request->userData;
+        }
+        if (!Utils::isUnset($request->videoSummaryConfig)) {
+            $query['VideoSummaryConfig'] = $request->videoSummaryConfig;
+        }
+        $req = new OpenApiRequest([
             'query' => OpenApiUtilClient::query($query),
-            'body'  => Utils::toMap($request),
         ]);
         $params = new Params([
             'action'      => 'SubmitVideoSummaryJob',
@@ -8957,7 +11218,7 @@ class Mts extends OpenApiClient
             'method'      => 'POST',
             'authType'    => 'AK',
             'style'       => 'RPC',
-            'reqBodyType' => 'json',
+            'reqBodyType' => 'formData',
             'bodyType'    => 'json',
         ]);
 
@@ -8985,20 +11246,39 @@ class Mts extends OpenApiClient
     public function tagCustomPersonWithOptions($request, $runtime)
     {
         Utils::validateModel($request);
-        $query                         = [];
-        $query['CategoryDescription']  = $request->categoryDescription;
-        $query['CategoryId']           = $request->categoryId;
-        $query['CategoryName']         = $request->categoryName;
-        $query['OwnerAccount']         = $request->ownerAccount;
-        $query['OwnerId']              = $request->ownerId;
-        $query['PersonDescription']    = $request->personDescription;
-        $query['PersonId']             = $request->personId;
-        $query['PersonName']           = $request->personName;
-        $query['ResourceOwnerAccount'] = $request->resourceOwnerAccount;
-        $query['ResourceOwnerId']      = $request->resourceOwnerId;
-        $req                           = new OpenApiRequest([
+        $query = [];
+        if (!Utils::isUnset($request->categoryDescription)) {
+            $query['CategoryDescription'] = $request->categoryDescription;
+        }
+        if (!Utils::isUnset($request->categoryId)) {
+            $query['CategoryId'] = $request->categoryId;
+        }
+        if (!Utils::isUnset($request->categoryName)) {
+            $query['CategoryName'] = $request->categoryName;
+        }
+        if (!Utils::isUnset($request->ownerAccount)) {
+            $query['OwnerAccount'] = $request->ownerAccount;
+        }
+        if (!Utils::isUnset($request->ownerId)) {
+            $query['OwnerId'] = $request->ownerId;
+        }
+        if (!Utils::isUnset($request->personDescription)) {
+            $query['PersonDescription'] = $request->personDescription;
+        }
+        if (!Utils::isUnset($request->personId)) {
+            $query['PersonId'] = $request->personId;
+        }
+        if (!Utils::isUnset($request->personName)) {
+            $query['PersonName'] = $request->personName;
+        }
+        if (!Utils::isUnset($request->resourceOwnerAccount)) {
+            $query['ResourceOwnerAccount'] = $request->resourceOwnerAccount;
+        }
+        if (!Utils::isUnset($request->resourceOwnerId)) {
+            $query['ResourceOwnerId'] = $request->resourceOwnerId;
+        }
+        $req = new OpenApiRequest([
             'query' => OpenApiUtilClient::query($query),
-            'body'  => Utils::toMap($request),
         ]);
         $params = new Params([
             'action'      => 'TagCustomPerson',
@@ -9008,7 +11288,7 @@ class Mts extends OpenApiClient
             'method'      => 'POST',
             'authType'    => 'AK',
             'style'       => 'RPC',
-            'reqBodyType' => 'json',
+            'reqBodyType' => 'formData',
             'bodyType'    => 'json',
         ]);
 
@@ -9036,16 +11316,27 @@ class Mts extends OpenApiClient
     public function unbindInputBucketWithOptions($request, $runtime)
     {
         Utils::validateModel($request);
-        $query                         = [];
-        $query['Bucket']               = $request->bucket;
-        $query['OwnerAccount']         = $request->ownerAccount;
-        $query['OwnerId']              = $request->ownerId;
-        $query['ResourceOwnerAccount'] = $request->resourceOwnerAccount;
-        $query['ResourceOwnerId']      = $request->resourceOwnerId;
-        $query['RoleArn']              = $request->roleArn;
-        $req                           = new OpenApiRequest([
+        $query = [];
+        if (!Utils::isUnset($request->bucket)) {
+            $query['Bucket'] = $request->bucket;
+        }
+        if (!Utils::isUnset($request->ownerAccount)) {
+            $query['OwnerAccount'] = $request->ownerAccount;
+        }
+        if (!Utils::isUnset($request->ownerId)) {
+            $query['OwnerId'] = $request->ownerId;
+        }
+        if (!Utils::isUnset($request->resourceOwnerAccount)) {
+            $query['ResourceOwnerAccount'] = $request->resourceOwnerAccount;
+        }
+        if (!Utils::isUnset($request->resourceOwnerId)) {
+            $query['ResourceOwnerId'] = $request->resourceOwnerId;
+        }
+        if (!Utils::isUnset($request->roleArn)) {
+            $query['RoleArn'] = $request->roleArn;
+        }
+        $req = new OpenApiRequest([
             'query' => OpenApiUtilClient::query($query),
-            'body'  => Utils::toMap($request),
         ]);
         $params = new Params([
             'action'      => 'UnbindInputBucket',
@@ -9055,7 +11346,7 @@ class Mts extends OpenApiClient
             'method'      => 'POST',
             'authType'    => 'AK',
             'style'       => 'RPC',
-            'reqBodyType' => 'json',
+            'reqBodyType' => 'formData',
             'bodyType'    => 'json',
         ]);
 
@@ -9083,15 +11374,24 @@ class Mts extends OpenApiClient
     public function unbindOutputBucketWithOptions($request, $runtime)
     {
         Utils::validateModel($request);
-        $query                         = [];
-        $query['Bucket']               = $request->bucket;
-        $query['OwnerAccount']         = $request->ownerAccount;
-        $query['OwnerId']              = $request->ownerId;
-        $query['ResourceOwnerAccount'] = $request->resourceOwnerAccount;
-        $query['ResourceOwnerId']      = $request->resourceOwnerId;
-        $req                           = new OpenApiRequest([
+        $query = [];
+        if (!Utils::isUnset($request->bucket)) {
+            $query['Bucket'] = $request->bucket;
+        }
+        if (!Utils::isUnset($request->ownerAccount)) {
+            $query['OwnerAccount'] = $request->ownerAccount;
+        }
+        if (!Utils::isUnset($request->ownerId)) {
+            $query['OwnerId'] = $request->ownerId;
+        }
+        if (!Utils::isUnset($request->resourceOwnerAccount)) {
+            $query['ResourceOwnerAccount'] = $request->resourceOwnerAccount;
+        }
+        if (!Utils::isUnset($request->resourceOwnerId)) {
+            $query['ResourceOwnerId'] = $request->resourceOwnerId;
+        }
+        $req = new OpenApiRequest([
             'query' => OpenApiUtilClient::query($query),
-            'body'  => Utils::toMap($request),
         ]);
         $params = new Params([
             'action'      => 'UnbindOutputBucket',
@@ -9101,7 +11401,7 @@ class Mts extends OpenApiClient
             'method'      => 'POST',
             'authType'    => 'AK',
             'style'       => 'RPC',
-            'reqBodyType' => 'json',
+            'reqBodyType' => 'formData',
             'bodyType'    => 'json',
         ]);
 
@@ -9129,17 +11429,30 @@ class Mts extends OpenApiClient
     public function unregisterCustomFaceWithOptions($request, $runtime)
     {
         Utils::validateModel($request);
-        $query                         = [];
-        $query['CategoryId']           = $request->categoryId;
-        $query['FaceId']               = $request->faceId;
-        $query['OwnerAccount']         = $request->ownerAccount;
-        $query['OwnerId']              = $request->ownerId;
-        $query['PersonId']             = $request->personId;
-        $query['ResourceOwnerAccount'] = $request->resourceOwnerAccount;
-        $query['ResourceOwnerId']      = $request->resourceOwnerId;
-        $req                           = new OpenApiRequest([
+        $query = [];
+        if (!Utils::isUnset($request->categoryId)) {
+            $query['CategoryId'] = $request->categoryId;
+        }
+        if (!Utils::isUnset($request->faceId)) {
+            $query['FaceId'] = $request->faceId;
+        }
+        if (!Utils::isUnset($request->ownerAccount)) {
+            $query['OwnerAccount'] = $request->ownerAccount;
+        }
+        if (!Utils::isUnset($request->ownerId)) {
+            $query['OwnerId'] = $request->ownerId;
+        }
+        if (!Utils::isUnset($request->personId)) {
+            $query['PersonId'] = $request->personId;
+        }
+        if (!Utils::isUnset($request->resourceOwnerAccount)) {
+            $query['ResourceOwnerAccount'] = $request->resourceOwnerAccount;
+        }
+        if (!Utils::isUnset($request->resourceOwnerId)) {
+            $query['ResourceOwnerId'] = $request->resourceOwnerId;
+        }
+        $req = new OpenApiRequest([
             'query' => OpenApiUtilClient::query($query),
-            'body'  => Utils::toMap($request),
         ]);
         $params = new Params([
             'action'      => 'UnregisterCustomFace',
@@ -9149,7 +11462,7 @@ class Mts extends OpenApiClient
             'method'      => 'POST',
             'authType'    => 'AK',
             'style'       => 'RPC',
-            'reqBodyType' => 'json',
+            'reqBodyType' => 'formData',
             'bodyType'    => 'json',
         ]);
 
@@ -9177,19 +11490,36 @@ class Mts extends OpenApiClient
     public function updateAsrPipelineWithOptions($request, $runtime)
     {
         Utils::validateModel($request);
-        $query                         = [];
-        $query['Name']                 = $request->name;
-        $query['NotifyConfig']         = $request->notifyConfig;
-        $query['OwnerAccount']         = $request->ownerAccount;
-        $query['OwnerId']              = $request->ownerId;
-        $query['PipelineId']           = $request->pipelineId;
-        $query['Priority']             = $request->priority;
-        $query['ResourceOwnerAccount'] = $request->resourceOwnerAccount;
-        $query['ResourceOwnerId']      = $request->resourceOwnerId;
-        $query['State']                = $request->state;
-        $req                           = new OpenApiRequest([
+        $query = [];
+        if (!Utils::isUnset($request->name)) {
+            $query['Name'] = $request->name;
+        }
+        if (!Utils::isUnset($request->notifyConfig)) {
+            $query['NotifyConfig'] = $request->notifyConfig;
+        }
+        if (!Utils::isUnset($request->ownerAccount)) {
+            $query['OwnerAccount'] = $request->ownerAccount;
+        }
+        if (!Utils::isUnset($request->ownerId)) {
+            $query['OwnerId'] = $request->ownerId;
+        }
+        if (!Utils::isUnset($request->pipelineId)) {
+            $query['PipelineId'] = $request->pipelineId;
+        }
+        if (!Utils::isUnset($request->priority)) {
+            $query['Priority'] = $request->priority;
+        }
+        if (!Utils::isUnset($request->resourceOwnerAccount)) {
+            $query['ResourceOwnerAccount'] = $request->resourceOwnerAccount;
+        }
+        if (!Utils::isUnset($request->resourceOwnerId)) {
+            $query['ResourceOwnerId'] = $request->resourceOwnerId;
+        }
+        if (!Utils::isUnset($request->state)) {
+            $query['State'] = $request->state;
+        }
+        $req = new OpenApiRequest([
             'query' => OpenApiUtilClient::query($query),
-            'body'  => Utils::toMap($request),
         ]);
         $params = new Params([
             'action'      => 'UpdateAsrPipeline',
@@ -9199,7 +11529,7 @@ class Mts extends OpenApiClient
             'method'      => 'POST',
             'authType'    => 'AK',
             'style'       => 'RPC',
-            'reqBodyType' => 'json',
+            'reqBodyType' => 'formData',
             'bodyType'    => 'json',
         ]);
 
@@ -9227,16 +11557,27 @@ class Mts extends OpenApiClient
     public function updateCategoryNameWithOptions($request, $runtime)
     {
         Utils::validateModel($request);
-        $query                         = [];
-        $query['CateId']               = $request->cateId;
-        $query['CateName']             = $request->cateName;
-        $query['OwnerAccount']         = $request->ownerAccount;
-        $query['OwnerId']              = $request->ownerId;
-        $query['ResourceOwnerAccount'] = $request->resourceOwnerAccount;
-        $query['ResourceOwnerId']      = $request->resourceOwnerId;
-        $req                           = new OpenApiRequest([
+        $query = [];
+        if (!Utils::isUnset($request->cateId)) {
+            $query['CateId'] = $request->cateId;
+        }
+        if (!Utils::isUnset($request->cateName)) {
+            $query['CateName'] = $request->cateName;
+        }
+        if (!Utils::isUnset($request->ownerAccount)) {
+            $query['OwnerAccount'] = $request->ownerAccount;
+        }
+        if (!Utils::isUnset($request->ownerId)) {
+            $query['OwnerId'] = $request->ownerId;
+        }
+        if (!Utils::isUnset($request->resourceOwnerAccount)) {
+            $query['ResourceOwnerAccount'] = $request->resourceOwnerAccount;
+        }
+        if (!Utils::isUnset($request->resourceOwnerId)) {
+            $query['ResourceOwnerId'] = $request->resourceOwnerId;
+        }
+        $req = new OpenApiRequest([
             'query' => OpenApiUtilClient::query($query),
-            'body'  => Utils::toMap($request),
         ]);
         $params = new Params([
             'action'      => 'UpdateCategoryName',
@@ -9246,7 +11587,7 @@ class Mts extends OpenApiClient
             'method'      => 'POST',
             'authType'    => 'AK',
             'style'       => 'RPC',
-            'reqBodyType' => 'json',
+            'reqBodyType' => 'formData',
             'bodyType'    => 'json',
         ]);
 
@@ -9274,19 +11615,36 @@ class Mts extends OpenApiClient
     public function updateCensorPipelineWithOptions($request, $runtime)
     {
         Utils::validateModel($request);
-        $query                         = [];
-        $query['Name']                 = $request->name;
-        $query['NotifyConfig']         = $request->notifyConfig;
-        $query['OwnerAccount']         = $request->ownerAccount;
-        $query['OwnerId']              = $request->ownerId;
-        $query['PipelineId']           = $request->pipelineId;
-        $query['Priority']             = $request->priority;
-        $query['ResourceOwnerAccount'] = $request->resourceOwnerAccount;
-        $query['ResourceOwnerId']      = $request->resourceOwnerId;
-        $query['State']                = $request->state;
-        $req                           = new OpenApiRequest([
+        $query = [];
+        if (!Utils::isUnset($request->name)) {
+            $query['Name'] = $request->name;
+        }
+        if (!Utils::isUnset($request->notifyConfig)) {
+            $query['NotifyConfig'] = $request->notifyConfig;
+        }
+        if (!Utils::isUnset($request->ownerAccount)) {
+            $query['OwnerAccount'] = $request->ownerAccount;
+        }
+        if (!Utils::isUnset($request->ownerId)) {
+            $query['OwnerId'] = $request->ownerId;
+        }
+        if (!Utils::isUnset($request->pipelineId)) {
+            $query['PipelineId'] = $request->pipelineId;
+        }
+        if (!Utils::isUnset($request->priority)) {
+            $query['Priority'] = $request->priority;
+        }
+        if (!Utils::isUnset($request->resourceOwnerAccount)) {
+            $query['ResourceOwnerAccount'] = $request->resourceOwnerAccount;
+        }
+        if (!Utils::isUnset($request->resourceOwnerId)) {
+            $query['ResourceOwnerId'] = $request->resourceOwnerId;
+        }
+        if (!Utils::isUnset($request->state)) {
+            $query['State'] = $request->state;
+        }
+        $req = new OpenApiRequest([
             'query' => OpenApiUtilClient::query($query),
-            'body'  => Utils::toMap($request),
         ]);
         $params = new Params([
             'action'      => 'UpdateCensorPipeline',
@@ -9296,7 +11654,7 @@ class Mts extends OpenApiClient
             'method'      => 'POST',
             'authType'    => 'AK',
             'style'       => 'RPC',
-            'reqBodyType' => 'json',
+            'reqBodyType' => 'formData',
             'bodyType'    => 'json',
         ]);
 
@@ -9324,20 +11682,39 @@ class Mts extends OpenApiClient
     public function updateCoverPipelineWithOptions($request, $runtime)
     {
         Utils::validateModel($request);
-        $query                         = [];
-        $query['Name']                 = $request->name;
-        $query['NotifyConfig']         = $request->notifyConfig;
-        $query['OwnerAccount']         = $request->ownerAccount;
-        $query['OwnerId']              = $request->ownerId;
-        $query['PipelineId']           = $request->pipelineId;
-        $query['Priority']             = $request->priority;
-        $query['ResourceOwnerAccount'] = $request->resourceOwnerAccount;
-        $query['ResourceOwnerId']      = $request->resourceOwnerId;
-        $query['Role']                 = $request->role;
-        $query['State']                = $request->state;
-        $req                           = new OpenApiRequest([
+        $query = [];
+        if (!Utils::isUnset($request->name)) {
+            $query['Name'] = $request->name;
+        }
+        if (!Utils::isUnset($request->notifyConfig)) {
+            $query['NotifyConfig'] = $request->notifyConfig;
+        }
+        if (!Utils::isUnset($request->ownerAccount)) {
+            $query['OwnerAccount'] = $request->ownerAccount;
+        }
+        if (!Utils::isUnset($request->ownerId)) {
+            $query['OwnerId'] = $request->ownerId;
+        }
+        if (!Utils::isUnset($request->pipelineId)) {
+            $query['PipelineId'] = $request->pipelineId;
+        }
+        if (!Utils::isUnset($request->priority)) {
+            $query['Priority'] = $request->priority;
+        }
+        if (!Utils::isUnset($request->resourceOwnerAccount)) {
+            $query['ResourceOwnerAccount'] = $request->resourceOwnerAccount;
+        }
+        if (!Utils::isUnset($request->resourceOwnerId)) {
+            $query['ResourceOwnerId'] = $request->resourceOwnerId;
+        }
+        if (!Utils::isUnset($request->role)) {
+            $query['Role'] = $request->role;
+        }
+        if (!Utils::isUnset($request->state)) {
+            $query['State'] = $request->state;
+        }
+        $req = new OpenApiRequest([
             'query' => OpenApiUtilClient::query($query),
-            'body'  => Utils::toMap($request),
         ]);
         $params = new Params([
             'action'      => 'UpdateCoverPipeline',
@@ -9347,7 +11724,7 @@ class Mts extends OpenApiClient
             'method'      => 'POST',
             'authType'    => 'AK',
             'style'       => 'RPC',
-            'reqBodyType' => 'json',
+            'reqBodyType' => 'formData',
             'bodyType'    => 'json',
         ]);
 
@@ -9375,26 +11752,57 @@ class Mts extends OpenApiClient
     public function updateMCTemplateWithOptions($request, $runtime)
     {
         Utils::validateModel($request);
-        $query                         = [];
-        $query['Abuse']                = $request->abuse;
-        $query['Ad']                   = $request->ad;
-        $query['Contraband']           = $request->contraband;
-        $query['Live']                 = $request->live;
-        $query['Logo']                 = $request->logo;
-        $query['Name']                 = $request->name;
-        $query['OwnerAccount']         = $request->ownerAccount;
-        $query['OwnerId']              = $request->ownerId;
-        $query['Politics']             = $request->politics;
-        $query['Porn']                 = $request->porn;
-        $query['Qrcode']               = $request->qrcode;
-        $query['ResourceOwnerAccount'] = $request->resourceOwnerAccount;
-        $query['ResourceOwnerId']      = $request->resourceOwnerId;
-        $query['TemplateId']           = $request->templateId;
-        $query['Terrorism']            = $request->terrorism;
-        $query['spam']                 = $request->spam;
-        $req                           = new OpenApiRequest([
+        $query = [];
+        if (!Utils::isUnset($request->abuse)) {
+            $query['Abuse'] = $request->abuse;
+        }
+        if (!Utils::isUnset($request->ad)) {
+            $query['Ad'] = $request->ad;
+        }
+        if (!Utils::isUnset($request->contraband)) {
+            $query['Contraband'] = $request->contraband;
+        }
+        if (!Utils::isUnset($request->live)) {
+            $query['Live'] = $request->live;
+        }
+        if (!Utils::isUnset($request->logo)) {
+            $query['Logo'] = $request->logo;
+        }
+        if (!Utils::isUnset($request->name)) {
+            $query['Name'] = $request->name;
+        }
+        if (!Utils::isUnset($request->ownerAccount)) {
+            $query['OwnerAccount'] = $request->ownerAccount;
+        }
+        if (!Utils::isUnset($request->ownerId)) {
+            $query['OwnerId'] = $request->ownerId;
+        }
+        if (!Utils::isUnset($request->politics)) {
+            $query['Politics'] = $request->politics;
+        }
+        if (!Utils::isUnset($request->porn)) {
+            $query['Porn'] = $request->porn;
+        }
+        if (!Utils::isUnset($request->qrcode)) {
+            $query['Qrcode'] = $request->qrcode;
+        }
+        if (!Utils::isUnset($request->resourceOwnerAccount)) {
+            $query['ResourceOwnerAccount'] = $request->resourceOwnerAccount;
+        }
+        if (!Utils::isUnset($request->resourceOwnerId)) {
+            $query['ResourceOwnerId'] = $request->resourceOwnerId;
+        }
+        if (!Utils::isUnset($request->templateId)) {
+            $query['TemplateId'] = $request->templateId;
+        }
+        if (!Utils::isUnset($request->terrorism)) {
+            $query['Terrorism'] = $request->terrorism;
+        }
+        if (!Utils::isUnset($request->spam)) {
+            $query['spam'] = $request->spam;
+        }
+        $req = new OpenApiRequest([
             'query' => OpenApiUtilClient::query($query),
-            'body'  => Utils::toMap($request),
         ]);
         $params = new Params([
             'action'      => 'UpdateMCTemplate',
@@ -9404,7 +11812,7 @@ class Mts extends OpenApiClient
             'method'      => 'POST',
             'authType'    => 'AK',
             'style'       => 'RPC',
-            'reqBodyType' => 'json',
+            'reqBodyType' => 'formData',
             'bodyType'    => 'json',
         ]);
 
@@ -9432,16 +11840,27 @@ class Mts extends OpenApiClient
     public function updateMcuTemplateWithOptions($request, $runtime)
     {
         Utils::validateModel($request);
-        $query                         = [];
-        $query['OwnerAccount']         = $request->ownerAccount;
-        $query['OwnerId']              = $request->ownerId;
-        $query['ResourceOwnerAccount'] = $request->resourceOwnerAccount;
-        $query['ResourceOwnerId']      = $request->resourceOwnerId;
-        $query['Template']             = $request->template;
-        $query['TemplateId']           = $request->templateId;
-        $req                           = new OpenApiRequest([
+        $query = [];
+        if (!Utils::isUnset($request->ownerAccount)) {
+            $query['OwnerAccount'] = $request->ownerAccount;
+        }
+        if (!Utils::isUnset($request->ownerId)) {
+            $query['OwnerId'] = $request->ownerId;
+        }
+        if (!Utils::isUnset($request->resourceOwnerAccount)) {
+            $query['ResourceOwnerAccount'] = $request->resourceOwnerAccount;
+        }
+        if (!Utils::isUnset($request->resourceOwnerId)) {
+            $query['ResourceOwnerId'] = $request->resourceOwnerId;
+        }
+        if (!Utils::isUnset($request->template)) {
+            $query['Template'] = $request->template;
+        }
+        if (!Utils::isUnset($request->templateId)) {
+            $query['TemplateId'] = $request->templateId;
+        }
+        $req = new OpenApiRequest([
             'query' => OpenApiUtilClient::query($query),
-            'body'  => Utils::toMap($request),
         ]);
         $params = new Params([
             'action'      => 'UpdateMcuTemplate',
@@ -9451,7 +11870,7 @@ class Mts extends OpenApiClient
             'method'      => 'POST',
             'authType'    => 'AK',
             'style'       => 'RPC',
-            'reqBodyType' => 'json',
+            'reqBodyType' => 'formData',
             'bodyType'    => 'json',
         ]);
 
@@ -9479,20 +11898,39 @@ class Mts extends OpenApiClient
     public function updateMediaWithOptions($request, $runtime)
     {
         Utils::validateModel($request);
-        $query                         = [];
-        $query['CateId']               = $request->cateId;
-        $query['CoverURL']             = $request->coverURL;
-        $query['Description']          = $request->description;
-        $query['MediaId']              = $request->mediaId;
-        $query['OwnerAccount']         = $request->ownerAccount;
-        $query['OwnerId']              = $request->ownerId;
-        $query['ResourceOwnerAccount'] = $request->resourceOwnerAccount;
-        $query['ResourceOwnerId']      = $request->resourceOwnerId;
-        $query['Tags']                 = $request->tags;
-        $query['Title']                = $request->title;
-        $req                           = new OpenApiRequest([
+        $query = [];
+        if (!Utils::isUnset($request->cateId)) {
+            $query['CateId'] = $request->cateId;
+        }
+        if (!Utils::isUnset($request->coverURL)) {
+            $query['CoverURL'] = $request->coverURL;
+        }
+        if (!Utils::isUnset($request->description)) {
+            $query['Description'] = $request->description;
+        }
+        if (!Utils::isUnset($request->mediaId)) {
+            $query['MediaId'] = $request->mediaId;
+        }
+        if (!Utils::isUnset($request->ownerAccount)) {
+            $query['OwnerAccount'] = $request->ownerAccount;
+        }
+        if (!Utils::isUnset($request->ownerId)) {
+            $query['OwnerId'] = $request->ownerId;
+        }
+        if (!Utils::isUnset($request->resourceOwnerAccount)) {
+            $query['ResourceOwnerAccount'] = $request->resourceOwnerAccount;
+        }
+        if (!Utils::isUnset($request->resourceOwnerId)) {
+            $query['ResourceOwnerId'] = $request->resourceOwnerId;
+        }
+        if (!Utils::isUnset($request->tags)) {
+            $query['Tags'] = $request->tags;
+        }
+        if (!Utils::isUnset($request->title)) {
+            $query['Title'] = $request->title;
+        }
+        $req = new OpenApiRequest([
             'query' => OpenApiUtilClient::query($query),
-            'body'  => Utils::toMap($request),
         ]);
         $params = new Params([
             'action'      => 'UpdateMedia',
@@ -9502,7 +11940,7 @@ class Mts extends OpenApiClient
             'method'      => 'POST',
             'authType'    => 'AK',
             'style'       => 'RPC',
-            'reqBodyType' => 'json',
+            'reqBodyType' => 'formData',
             'bodyType'    => 'json',
         ]);
 
@@ -9530,16 +11968,27 @@ class Mts extends OpenApiClient
     public function updateMediaCategoryWithOptions($request, $runtime)
     {
         Utils::validateModel($request);
-        $query                         = [];
-        $query['CateId']               = $request->cateId;
-        $query['MediaId']              = $request->mediaId;
-        $query['OwnerAccount']         = $request->ownerAccount;
-        $query['OwnerId']              = $request->ownerId;
-        $query['ResourceOwnerAccount'] = $request->resourceOwnerAccount;
-        $query['ResourceOwnerId']      = $request->resourceOwnerId;
-        $req                           = new OpenApiRequest([
+        $query = [];
+        if (!Utils::isUnset($request->cateId)) {
+            $query['CateId'] = $request->cateId;
+        }
+        if (!Utils::isUnset($request->mediaId)) {
+            $query['MediaId'] = $request->mediaId;
+        }
+        if (!Utils::isUnset($request->ownerAccount)) {
+            $query['OwnerAccount'] = $request->ownerAccount;
+        }
+        if (!Utils::isUnset($request->ownerId)) {
+            $query['OwnerId'] = $request->ownerId;
+        }
+        if (!Utils::isUnset($request->resourceOwnerAccount)) {
+            $query['ResourceOwnerAccount'] = $request->resourceOwnerAccount;
+        }
+        if (!Utils::isUnset($request->resourceOwnerId)) {
+            $query['ResourceOwnerId'] = $request->resourceOwnerId;
+        }
+        $req = new OpenApiRequest([
             'query' => OpenApiUtilClient::query($query),
-            'body'  => Utils::toMap($request),
         ]);
         $params = new Params([
             'action'      => 'UpdateMediaCategory',
@@ -9549,7 +11998,7 @@ class Mts extends OpenApiClient
             'method'      => 'POST',
             'authType'    => 'AK',
             'style'       => 'RPC',
-            'reqBodyType' => 'json',
+            'reqBodyType' => 'formData',
             'bodyType'    => 'json',
         ]);
 
@@ -9577,16 +12026,27 @@ class Mts extends OpenApiClient
     public function updateMediaCoverWithOptions($request, $runtime)
     {
         Utils::validateModel($request);
-        $query                         = [];
-        $query['CoverURL']             = $request->coverURL;
-        $query['MediaId']              = $request->mediaId;
-        $query['OwnerAccount']         = $request->ownerAccount;
-        $query['OwnerId']              = $request->ownerId;
-        $query['ResourceOwnerAccount'] = $request->resourceOwnerAccount;
-        $query['ResourceOwnerId']      = $request->resourceOwnerId;
-        $req                           = new OpenApiRequest([
+        $query = [];
+        if (!Utils::isUnset($request->coverURL)) {
+            $query['CoverURL'] = $request->coverURL;
+        }
+        if (!Utils::isUnset($request->mediaId)) {
+            $query['MediaId'] = $request->mediaId;
+        }
+        if (!Utils::isUnset($request->ownerAccount)) {
+            $query['OwnerAccount'] = $request->ownerAccount;
+        }
+        if (!Utils::isUnset($request->ownerId)) {
+            $query['OwnerId'] = $request->ownerId;
+        }
+        if (!Utils::isUnset($request->resourceOwnerAccount)) {
+            $query['ResourceOwnerAccount'] = $request->resourceOwnerAccount;
+        }
+        if (!Utils::isUnset($request->resourceOwnerId)) {
+            $query['ResourceOwnerId'] = $request->resourceOwnerId;
+        }
+        $req = new OpenApiRequest([
             'query' => OpenApiUtilClient::query($query),
-            'body'  => Utils::toMap($request),
         ]);
         $params = new Params([
             'action'      => 'UpdateMediaCover',
@@ -9596,7 +12056,7 @@ class Mts extends OpenApiClient
             'method'      => 'POST',
             'authType'    => 'AK',
             'style'       => 'RPC',
-            'reqBodyType' => 'json',
+            'reqBodyType' => 'formData',
             'bodyType'    => 'json',
         ]);
 
@@ -9624,16 +12084,27 @@ class Mts extends OpenApiClient
     public function updateMediaPublishStateWithOptions($request, $runtime)
     {
         Utils::validateModel($request);
-        $query                         = [];
-        $query['MediaId']              = $request->mediaId;
-        $query['OwnerAccount']         = $request->ownerAccount;
-        $query['OwnerId']              = $request->ownerId;
-        $query['Publish']              = $request->publish;
-        $query['ResourceOwnerAccount'] = $request->resourceOwnerAccount;
-        $query['ResourceOwnerId']      = $request->resourceOwnerId;
-        $req                           = new OpenApiRequest([
+        $query = [];
+        if (!Utils::isUnset($request->mediaId)) {
+            $query['MediaId'] = $request->mediaId;
+        }
+        if (!Utils::isUnset($request->ownerAccount)) {
+            $query['OwnerAccount'] = $request->ownerAccount;
+        }
+        if (!Utils::isUnset($request->ownerId)) {
+            $query['OwnerId'] = $request->ownerId;
+        }
+        if (!Utils::isUnset($request->publish)) {
+            $query['Publish'] = $request->publish;
+        }
+        if (!Utils::isUnset($request->resourceOwnerAccount)) {
+            $query['ResourceOwnerAccount'] = $request->resourceOwnerAccount;
+        }
+        if (!Utils::isUnset($request->resourceOwnerId)) {
+            $query['ResourceOwnerId'] = $request->resourceOwnerId;
+        }
+        $req = new OpenApiRequest([
             'query' => OpenApiUtilClient::query($query),
-            'body'  => Utils::toMap($request),
         ]);
         $params = new Params([
             'action'      => 'UpdateMediaPublishState',
@@ -9643,7 +12114,7 @@ class Mts extends OpenApiClient
             'method'      => 'POST',
             'authType'    => 'AK',
             'style'       => 'RPC',
-            'reqBodyType' => 'json',
+            'reqBodyType' => 'formData',
             'bodyType'    => 'json',
         ]);
 
@@ -9671,16 +12142,27 @@ class Mts extends OpenApiClient
     public function updateMediaWorkflowWithOptions($request, $runtime)
     {
         Utils::validateModel($request);
-        $query                         = [];
-        $query['MediaWorkflowId']      = $request->mediaWorkflowId;
-        $query['OwnerAccount']         = $request->ownerAccount;
-        $query['OwnerId']              = $request->ownerId;
-        $query['ResourceOwnerAccount'] = $request->resourceOwnerAccount;
-        $query['ResourceOwnerId']      = $request->resourceOwnerId;
-        $query['Topology']             = $request->topology;
-        $req                           = new OpenApiRequest([
+        $query = [];
+        if (!Utils::isUnset($request->mediaWorkflowId)) {
+            $query['MediaWorkflowId'] = $request->mediaWorkflowId;
+        }
+        if (!Utils::isUnset($request->ownerAccount)) {
+            $query['OwnerAccount'] = $request->ownerAccount;
+        }
+        if (!Utils::isUnset($request->ownerId)) {
+            $query['OwnerId'] = $request->ownerId;
+        }
+        if (!Utils::isUnset($request->resourceOwnerAccount)) {
+            $query['ResourceOwnerAccount'] = $request->resourceOwnerAccount;
+        }
+        if (!Utils::isUnset($request->resourceOwnerId)) {
+            $query['ResourceOwnerId'] = $request->resourceOwnerId;
+        }
+        if (!Utils::isUnset($request->topology)) {
+            $query['Topology'] = $request->topology;
+        }
+        $req = new OpenApiRequest([
             'query' => OpenApiUtilClient::query($query),
-            'body'  => Utils::toMap($request),
         ]);
         $params = new Params([
             'action'      => 'UpdateMediaWorkflow',
@@ -9690,7 +12172,7 @@ class Mts extends OpenApiClient
             'method'      => 'POST',
             'authType'    => 'AK',
             'style'       => 'RPC',
-            'reqBodyType' => 'json',
+            'reqBodyType' => 'formData',
             'bodyType'    => 'json',
         ]);
 
@@ -9718,16 +12200,27 @@ class Mts extends OpenApiClient
     public function updateMediaWorkflowTriggerModeWithOptions($request, $runtime)
     {
         Utils::validateModel($request);
-        $query                         = [];
-        $query['MediaWorkflowId']      = $request->mediaWorkflowId;
-        $query['OwnerAccount']         = $request->ownerAccount;
-        $query['OwnerId']              = $request->ownerId;
-        $query['ResourceOwnerAccount'] = $request->resourceOwnerAccount;
-        $query['ResourceOwnerId']      = $request->resourceOwnerId;
-        $query['TriggerMode']          = $request->triggerMode;
-        $req                           = new OpenApiRequest([
+        $query = [];
+        if (!Utils::isUnset($request->mediaWorkflowId)) {
+            $query['MediaWorkflowId'] = $request->mediaWorkflowId;
+        }
+        if (!Utils::isUnset($request->ownerAccount)) {
+            $query['OwnerAccount'] = $request->ownerAccount;
+        }
+        if (!Utils::isUnset($request->ownerId)) {
+            $query['OwnerId'] = $request->ownerId;
+        }
+        if (!Utils::isUnset($request->resourceOwnerAccount)) {
+            $query['ResourceOwnerAccount'] = $request->resourceOwnerAccount;
+        }
+        if (!Utils::isUnset($request->resourceOwnerId)) {
+            $query['ResourceOwnerId'] = $request->resourceOwnerId;
+        }
+        if (!Utils::isUnset($request->triggerMode)) {
+            $query['TriggerMode'] = $request->triggerMode;
+        }
+        $req = new OpenApiRequest([
             'query' => OpenApiUtilClient::query($query),
-            'body'  => Utils::toMap($request),
         ]);
         $params = new Params([
             'action'      => 'UpdateMediaWorkflowTriggerMode',
@@ -9737,7 +12230,7 @@ class Mts extends OpenApiClient
             'method'      => 'POST',
             'authType'    => 'AK',
             'style'       => 'RPC',
-            'reqBodyType' => 'json',
+            'reqBodyType' => 'formData',
             'bodyType'    => 'json',
         ]);
 
@@ -9765,19 +12258,36 @@ class Mts extends OpenApiClient
     public function updatePipelineWithOptions($request, $runtime)
     {
         Utils::validateModel($request);
-        $query                         = [];
-        $query['Name']                 = $request->name;
-        $query['NotifyConfig']         = $request->notifyConfig;
-        $query['OwnerAccount']         = $request->ownerAccount;
-        $query['OwnerId']              = $request->ownerId;
-        $query['PipelineId']           = $request->pipelineId;
-        $query['ResourceOwnerAccount'] = $request->resourceOwnerAccount;
-        $query['ResourceOwnerId']      = $request->resourceOwnerId;
-        $query['Role']                 = $request->role;
-        $query['State']                = $request->state;
-        $req                           = new OpenApiRequest([
+        $query = [];
+        if (!Utils::isUnset($request->name)) {
+            $query['Name'] = $request->name;
+        }
+        if (!Utils::isUnset($request->notifyConfig)) {
+            $query['NotifyConfig'] = $request->notifyConfig;
+        }
+        if (!Utils::isUnset($request->ownerAccount)) {
+            $query['OwnerAccount'] = $request->ownerAccount;
+        }
+        if (!Utils::isUnset($request->ownerId)) {
+            $query['OwnerId'] = $request->ownerId;
+        }
+        if (!Utils::isUnset($request->pipelineId)) {
+            $query['PipelineId'] = $request->pipelineId;
+        }
+        if (!Utils::isUnset($request->resourceOwnerAccount)) {
+            $query['ResourceOwnerAccount'] = $request->resourceOwnerAccount;
+        }
+        if (!Utils::isUnset($request->resourceOwnerId)) {
+            $query['ResourceOwnerId'] = $request->resourceOwnerId;
+        }
+        if (!Utils::isUnset($request->role)) {
+            $query['Role'] = $request->role;
+        }
+        if (!Utils::isUnset($request->state)) {
+            $query['State'] = $request->state;
+        }
+        $req = new OpenApiRequest([
             'query' => OpenApiUtilClient::query($query),
-            'body'  => Utils::toMap($request),
         ]);
         $params = new Params([
             'action'      => 'UpdatePipeline',
@@ -9787,7 +12297,7 @@ class Mts extends OpenApiClient
             'method'      => 'POST',
             'authType'    => 'AK',
             'style'       => 'RPC',
-            'reqBodyType' => 'json',
+            'reqBodyType' => 'formData',
             'bodyType'    => 'json',
         ]);
 
@@ -9815,19 +12325,36 @@ class Mts extends OpenApiClient
     public function updatePornPipelineWithOptions($request, $runtime)
     {
         Utils::validateModel($request);
-        $query                         = [];
-        $query['Name']                 = $request->name;
-        $query['NotifyConfig']         = $request->notifyConfig;
-        $query['OwnerAccount']         = $request->ownerAccount;
-        $query['OwnerId']              = $request->ownerId;
-        $query['PipelineId']           = $request->pipelineId;
-        $query['Priority']             = $request->priority;
-        $query['ResourceOwnerAccount'] = $request->resourceOwnerAccount;
-        $query['ResourceOwnerId']      = $request->resourceOwnerId;
-        $query['State']                = $request->state;
-        $req                           = new OpenApiRequest([
+        $query = [];
+        if (!Utils::isUnset($request->name)) {
+            $query['Name'] = $request->name;
+        }
+        if (!Utils::isUnset($request->notifyConfig)) {
+            $query['NotifyConfig'] = $request->notifyConfig;
+        }
+        if (!Utils::isUnset($request->ownerAccount)) {
+            $query['OwnerAccount'] = $request->ownerAccount;
+        }
+        if (!Utils::isUnset($request->ownerId)) {
+            $query['OwnerId'] = $request->ownerId;
+        }
+        if (!Utils::isUnset($request->pipelineId)) {
+            $query['PipelineId'] = $request->pipelineId;
+        }
+        if (!Utils::isUnset($request->priority)) {
+            $query['Priority'] = $request->priority;
+        }
+        if (!Utils::isUnset($request->resourceOwnerAccount)) {
+            $query['ResourceOwnerAccount'] = $request->resourceOwnerAccount;
+        }
+        if (!Utils::isUnset($request->resourceOwnerId)) {
+            $query['ResourceOwnerId'] = $request->resourceOwnerId;
+        }
+        if (!Utils::isUnset($request->state)) {
+            $query['State'] = $request->state;
+        }
+        $req = new OpenApiRequest([
             'query' => OpenApiUtilClient::query($query),
-            'body'  => Utils::toMap($request),
         ]);
         $params = new Params([
             'action'      => 'UpdatePornPipeline',
@@ -9837,7 +12364,7 @@ class Mts extends OpenApiClient
             'method'      => 'POST',
             'authType'    => 'AK',
             'style'       => 'RPC',
-            'reqBodyType' => 'json',
+            'reqBodyType' => 'formData',
             'bodyType'    => 'json',
         ]);
 
@@ -9865,25 +12392,57 @@ class Mts extends OpenApiClient
     public function updateSmarttagTemplateWithOptions($request, $runtime)
     {
         Utils::validateModel($request);
-        $query                         = [];
-        $query['AnalyseTypes']         = $request->analyseTypes;
-        $query['FaceCategoryIds']      = $request->faceCategoryIds;
-        $query['Industry']             = $request->industry;
-        $query['IsDefault']            = $request->isDefault;
-        $query['KeywordConfig']        = $request->keywordConfig;
-        $query['KnowledgeConfig']      = $request->knowledgeConfig;
-        $query['LabelType']            = $request->labelType;
-        $query['LabelVersion']         = $request->labelVersion;
-        $query['OwnerAccount']         = $request->ownerAccount;
-        $query['OwnerId']              = $request->ownerId;
-        $query['ResourceOwnerAccount'] = $request->resourceOwnerAccount;
-        $query['ResourceOwnerId']      = $request->resourceOwnerId;
-        $query['Scene']                = $request->scene;
-        $query['TemplateId']           = $request->templateId;
-        $query['TemplateName']         = $request->templateName;
-        $req                           = new OpenApiRequest([
+        $query = [];
+        if (!Utils::isUnset($request->analyseTypes)) {
+            $query['AnalyseTypes'] = $request->analyseTypes;
+        }
+        if (!Utils::isUnset($request->faceCategoryIds)) {
+            $query['FaceCategoryIds'] = $request->faceCategoryIds;
+        }
+        if (!Utils::isUnset($request->faceCustomParamsConfig)) {
+            $query['FaceCustomParamsConfig'] = $request->faceCustomParamsConfig;
+        }
+        if (!Utils::isUnset($request->industry)) {
+            $query['Industry'] = $request->industry;
+        }
+        if (!Utils::isUnset($request->isDefault)) {
+            $query['IsDefault'] = $request->isDefault;
+        }
+        if (!Utils::isUnset($request->keywordConfig)) {
+            $query['KeywordConfig'] = $request->keywordConfig;
+        }
+        if (!Utils::isUnset($request->knowledgeConfig)) {
+            $query['KnowledgeConfig'] = $request->knowledgeConfig;
+        }
+        if (!Utils::isUnset($request->labelType)) {
+            $query['LabelType'] = $request->labelType;
+        }
+        if (!Utils::isUnset($request->labelVersion)) {
+            $query['LabelVersion'] = $request->labelVersion;
+        }
+        if (!Utils::isUnset($request->ownerAccount)) {
+            $query['OwnerAccount'] = $request->ownerAccount;
+        }
+        if (!Utils::isUnset($request->ownerId)) {
+            $query['OwnerId'] = $request->ownerId;
+        }
+        if (!Utils::isUnset($request->resourceOwnerAccount)) {
+            $query['ResourceOwnerAccount'] = $request->resourceOwnerAccount;
+        }
+        if (!Utils::isUnset($request->resourceOwnerId)) {
+            $query['ResourceOwnerId'] = $request->resourceOwnerId;
+        }
+        if (!Utils::isUnset($request->scene)) {
+            $query['Scene'] = $request->scene;
+        }
+        if (!Utils::isUnset($request->templateId)) {
+            $query['TemplateId'] = $request->templateId;
+        }
+        if (!Utils::isUnset($request->templateName)) {
+            $query['TemplateName'] = $request->templateName;
+        }
+        $req = new OpenApiRequest([
             'query' => OpenApiUtilClient::query($query),
-            'body'  => Utils::toMap($request),
         ]);
         $params = new Params([
             'action'      => 'UpdateSmarttagTemplate',
@@ -9893,7 +12452,7 @@ class Mts extends OpenApiClient
             'method'      => 'POST',
             'authType'    => 'AK',
             'style'       => 'RPC',
-            'reqBodyType' => 'json',
+            'reqBodyType' => 'formData',
             'bodyType'    => 'json',
         ]);
 
@@ -9921,21 +12480,42 @@ class Mts extends OpenApiClient
     public function updateTemplateWithOptions($request, $runtime)
     {
         Utils::validateModel($request);
-        $query                         = [];
-        $query['Audio']                = $request->audio;
-        $query['Container']            = $request->container;
-        $query['MuxConfig']            = $request->muxConfig;
-        $query['Name']                 = $request->name;
-        $query['OwnerAccount']         = $request->ownerAccount;
-        $query['OwnerId']              = $request->ownerId;
-        $query['ResourceOwnerAccount'] = $request->resourceOwnerAccount;
-        $query['ResourceOwnerId']      = $request->resourceOwnerId;
-        $query['TemplateId']           = $request->templateId;
-        $query['TransConfig']          = $request->transConfig;
-        $query['Video']                = $request->video;
-        $req                           = new OpenApiRequest([
+        $query = [];
+        if (!Utils::isUnset($request->audio)) {
+            $query['Audio'] = $request->audio;
+        }
+        if (!Utils::isUnset($request->container)) {
+            $query['Container'] = $request->container;
+        }
+        if (!Utils::isUnset($request->muxConfig)) {
+            $query['MuxConfig'] = $request->muxConfig;
+        }
+        if (!Utils::isUnset($request->name)) {
+            $query['Name'] = $request->name;
+        }
+        if (!Utils::isUnset($request->ownerAccount)) {
+            $query['OwnerAccount'] = $request->ownerAccount;
+        }
+        if (!Utils::isUnset($request->ownerId)) {
+            $query['OwnerId'] = $request->ownerId;
+        }
+        if (!Utils::isUnset($request->resourceOwnerAccount)) {
+            $query['ResourceOwnerAccount'] = $request->resourceOwnerAccount;
+        }
+        if (!Utils::isUnset($request->resourceOwnerId)) {
+            $query['ResourceOwnerId'] = $request->resourceOwnerId;
+        }
+        if (!Utils::isUnset($request->templateId)) {
+            $query['TemplateId'] = $request->templateId;
+        }
+        if (!Utils::isUnset($request->transConfig)) {
+            $query['TransConfig'] = $request->transConfig;
+        }
+        if (!Utils::isUnset($request->video)) {
+            $query['Video'] = $request->video;
+        }
+        $req = new OpenApiRequest([
             'query' => OpenApiUtilClient::query($query),
-            'body'  => Utils::toMap($request),
         ]);
         $params = new Params([
             'action'      => 'UpdateTemplate',
@@ -9945,7 +12525,7 @@ class Mts extends OpenApiClient
             'method'      => 'POST',
             'authType'    => 'AK',
             'style'       => 'RPC',
-            'reqBodyType' => 'json',
+            'reqBodyType' => 'formData',
             'bodyType'    => 'json',
         ]);
 
@@ -9973,19 +12553,36 @@ class Mts extends OpenApiClient
     public function updateTerrorismPipelineWithOptions($request, $runtime)
     {
         Utils::validateModel($request);
-        $query                         = [];
-        $query['Name']                 = $request->name;
-        $query['NotifyConfig']         = $request->notifyConfig;
-        $query['OwnerAccount']         = $request->ownerAccount;
-        $query['OwnerId']              = $request->ownerId;
-        $query['PipelineId']           = $request->pipelineId;
-        $query['Priority']             = $request->priority;
-        $query['ResourceOwnerAccount'] = $request->resourceOwnerAccount;
-        $query['ResourceOwnerId']      = $request->resourceOwnerId;
-        $query['State']                = $request->state;
-        $req                           = new OpenApiRequest([
+        $query = [];
+        if (!Utils::isUnset($request->name)) {
+            $query['Name'] = $request->name;
+        }
+        if (!Utils::isUnset($request->notifyConfig)) {
+            $query['NotifyConfig'] = $request->notifyConfig;
+        }
+        if (!Utils::isUnset($request->ownerAccount)) {
+            $query['OwnerAccount'] = $request->ownerAccount;
+        }
+        if (!Utils::isUnset($request->ownerId)) {
+            $query['OwnerId'] = $request->ownerId;
+        }
+        if (!Utils::isUnset($request->pipelineId)) {
+            $query['PipelineId'] = $request->pipelineId;
+        }
+        if (!Utils::isUnset($request->priority)) {
+            $query['Priority'] = $request->priority;
+        }
+        if (!Utils::isUnset($request->resourceOwnerAccount)) {
+            $query['ResourceOwnerAccount'] = $request->resourceOwnerAccount;
+        }
+        if (!Utils::isUnset($request->resourceOwnerId)) {
+            $query['ResourceOwnerId'] = $request->resourceOwnerId;
+        }
+        if (!Utils::isUnset($request->state)) {
+            $query['State'] = $request->state;
+        }
+        $req = new OpenApiRequest([
             'query' => OpenApiUtilClient::query($query),
-            'body'  => Utils::toMap($request),
         ]);
         $params = new Params([
             'action'      => 'UpdateTerrorismPipeline',
@@ -9995,7 +12592,7 @@ class Mts extends OpenApiClient
             'method'      => 'POST',
             'authType'    => 'AK',
             'style'       => 'RPC',
-            'reqBodyType' => 'json',
+            'reqBodyType' => 'formData',
             'bodyType'    => 'json',
         ]);
 
@@ -10023,17 +12620,30 @@ class Mts extends OpenApiClient
     public function updateWaterMarkTemplateWithOptions($request, $runtime)
     {
         Utils::validateModel($request);
-        $query                         = [];
-        $query['Config']               = $request->config;
-        $query['Name']                 = $request->name;
-        $query['OwnerAccount']         = $request->ownerAccount;
-        $query['OwnerId']              = $request->ownerId;
-        $query['ResourceOwnerAccount'] = $request->resourceOwnerAccount;
-        $query['ResourceOwnerId']      = $request->resourceOwnerId;
-        $query['WaterMarkTemplateId']  = $request->waterMarkTemplateId;
-        $req                           = new OpenApiRequest([
+        $query = [];
+        if (!Utils::isUnset($request->config)) {
+            $query['Config'] = $request->config;
+        }
+        if (!Utils::isUnset($request->name)) {
+            $query['Name'] = $request->name;
+        }
+        if (!Utils::isUnset($request->ownerAccount)) {
+            $query['OwnerAccount'] = $request->ownerAccount;
+        }
+        if (!Utils::isUnset($request->ownerId)) {
+            $query['OwnerId'] = $request->ownerId;
+        }
+        if (!Utils::isUnset($request->resourceOwnerAccount)) {
+            $query['ResourceOwnerAccount'] = $request->resourceOwnerAccount;
+        }
+        if (!Utils::isUnset($request->resourceOwnerId)) {
+            $query['ResourceOwnerId'] = $request->resourceOwnerId;
+        }
+        if (!Utils::isUnset($request->waterMarkTemplateId)) {
+            $query['WaterMarkTemplateId'] = $request->waterMarkTemplateId;
+        }
+        $req = new OpenApiRequest([
             'query' => OpenApiUtilClient::query($query),
-            'body'  => Utils::toMap($request),
         ]);
         $params = new Params([
             'action'      => 'UpdateWaterMarkTemplate',
@@ -10043,7 +12653,7 @@ class Mts extends OpenApiClient
             'method'      => 'POST',
             'authType'    => 'AK',
             'style'       => 'RPC',
-            'reqBodyType' => 'json',
+            'reqBodyType' => 'formData',
             'bodyType'    => 'json',
         ]);
 

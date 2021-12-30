@@ -123,30 +123,48 @@ class videoStream extends Model
      * @var string
      */
     public $width;
+
+    /**
+     * @var string
+     */
+    public $bitsPerRawSample;
+
+    /**
+     * @var string
+     */
+    public $colorPrimaries;
+
+    /**
+     * @var string
+     */
+    public $colorTransfer;
     protected $_name = [
-        'avgFPS'         => 'AvgFPS',
-        'bitrate'        => 'Bitrate',
-        'codecLongName'  => 'CodecLongName',
-        'codecName'      => 'CodecName',
-        'codecTag'       => 'CodecTag',
-        'codecTagString' => 'CodecTagString',
-        'codecTimeBase'  => 'CodecTimeBase',
-        'dar'            => 'Dar',
-        'duration'       => 'Duration',
-        'fps'            => 'Fps',
-        'hasBFrames'     => 'HasBFrames',
-        'height'         => 'Height',
-        'index'          => 'Index',
-        'lang'           => 'Lang',
-        'level'          => 'Level',
-        'networkCost'    => 'NetworkCost',
-        'numFrames'      => 'NumFrames',
-        'pixFmt'         => 'PixFmt',
-        'profile'        => 'Profile',
-        'sar'            => 'Sar',
-        'startTime'      => 'StartTime',
-        'timebase'       => 'Timebase',
-        'width'          => 'Width',
+        'avgFPS'           => 'AvgFPS',
+        'bitrate'          => 'Bitrate',
+        'codecLongName'    => 'CodecLongName',
+        'codecName'        => 'CodecName',
+        'codecTag'         => 'CodecTag',
+        'codecTagString'   => 'CodecTagString',
+        'codecTimeBase'    => 'CodecTimeBase',
+        'dar'              => 'Dar',
+        'duration'         => 'Duration',
+        'fps'              => 'Fps',
+        'hasBFrames'       => 'HasBFrames',
+        'height'           => 'Height',
+        'index'            => 'Index',
+        'lang'             => 'Lang',
+        'level'            => 'Level',
+        'networkCost'      => 'NetworkCost',
+        'numFrames'        => 'NumFrames',
+        'pixFmt'           => 'PixFmt',
+        'profile'          => 'Profile',
+        'sar'              => 'Sar',
+        'startTime'        => 'StartTime',
+        'timebase'         => 'Timebase',
+        'width'            => 'Width',
+        'bitsPerRawSample' => 'bitsPerRawSample',
+        'colorPrimaries'   => 'colorPrimaries',
+        'colorTransfer'    => 'colorTransfer',
     ];
 
     public function validate()
@@ -224,6 +242,15 @@ class videoStream extends Model
         }
         if (null !== $this->width) {
             $res['Width'] = $this->width;
+        }
+        if (null !== $this->bitsPerRawSample) {
+            $res['bitsPerRawSample'] = $this->bitsPerRawSample;
+        }
+        if (null !== $this->colorPrimaries) {
+            $res['colorPrimaries'] = $this->colorPrimaries;
+        }
+        if (null !== $this->colorTransfer) {
+            $res['colorTransfer'] = $this->colorTransfer;
         }
 
         return $res;
@@ -305,6 +332,15 @@ class videoStream extends Model
         }
         if (isset($map['Width'])) {
             $model->width = $map['Width'];
+        }
+        if (isset($map['bitsPerRawSample'])) {
+            $model->bitsPerRawSample = $map['bitsPerRawSample'];
+        }
+        if (isset($map['colorPrimaries'])) {
+            $model->colorPrimaries = $map['colorPrimaries'];
+        }
+        if (isset($map['colorTransfer'])) {
+            $model->colorTransfer = $map['colorTransfer'];
         }
 
         return $model;
