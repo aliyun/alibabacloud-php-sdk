@@ -12,13 +12,22 @@ use AlibabaCloud\SDK\Dplus\V20201216\Models\AePredictCategoryResponse;
 use AlibabaCloud\SDK\Dplus\V20201216\Models\AePropRecAdvanceRequest;
 use AlibabaCloud\SDK\Dplus\V20201216\Models\AePropRecRequest;
 use AlibabaCloud\SDK\Dplus\V20201216\Models\AePropRecResponse;
+use AlibabaCloud\SDK\Dplus\V20201216\Models\AlivisionImgdupAdvanceRequest;
+use AlibabaCloud\SDK\Dplus\V20201216\Models\AlivisionImgdupRequest;
+use AlibabaCloud\SDK\Dplus\V20201216\Models\AlivisionImgdupResponse;
 use AlibabaCloud\SDK\Dplus\V20201216\Models\CreateImageAmazonTaskRequest;
 use AlibabaCloud\SDK\Dplus\V20201216\Models\CreateImageAmazonTaskResponse;
 use AlibabaCloud\SDK\Dplus\V20201216\Models\CreateImageAmazonTaskShrinkRequest;
+use AlibabaCloud\SDK\Dplus\V20201216\Models\FaceshifterTAdvanceRequest;
+use AlibabaCloud\SDK\Dplus\V20201216\Models\FaceshifterTRequest;
+use AlibabaCloud\SDK\Dplus\V20201216\Models\FaceshifterTResponse;
 use AlibabaCloud\SDK\Dplus\V20201216\Models\GetTaskResultRequest;
 use AlibabaCloud\SDK\Dplus\V20201216\Models\GetTaskResultResponse;
 use AlibabaCloud\SDK\Dplus\V20201216\Models\GetTaskStatusRequest;
 use AlibabaCloud\SDK\Dplus\V20201216\Models\GetTaskStatusResponse;
+use AlibabaCloud\SDK\Dplus\V20201216\Models\KuajingSegAdvanceRequest;
+use AlibabaCloud\SDK\Dplus\V20201216\Models\KuajingSegRequest;
+use AlibabaCloud\SDK\Dplus\V20201216\Models\KuajingSegResponse;
 use AlibabaCloud\SDK\Dplus\V20201216\Models\RemoveWordsAdvanceRequest;
 use AlibabaCloud\SDK\Dplus\V20201216\Models\RemoveWordsRequest;
 use AlibabaCloud\SDK\Dplus\V20201216\Models\RemoveWordsResponse;
@@ -81,8 +90,7 @@ class Dplus extends OpenApiClient
     public function aePredictCategoryWithOptions($request, $runtime)
     {
         Utils::validateModel($request);
-        $query = [];
-        $body  = [];
+        $body = [];
         if (!Utils::isUnset($request->picUrl)) {
             $body['PicUrl'] = $request->picUrl;
         }
@@ -203,8 +211,7 @@ class Dplus extends OpenApiClient
     public function aePropRecWithOptions($request, $runtime)
     {
         Utils::validateModel($request);
-        $query = [];
-        $body  = [];
+        $body = [];
         if (!Utils::isUnset($request->picUrl)) {
             $body['PicUrl'] = $request->picUrl;
         }
@@ -317,6 +324,139 @@ class Dplus extends OpenApiClient
     }
 
     /**
+     * @param AlivisionImgdupRequest $request
+     * @param RuntimeOptions         $runtime
+     *
+     * @return AlivisionImgdupResponse
+     */
+    public function alivisionImgdupWithOptions($request, $runtime)
+    {
+        Utils::validateModel($request);
+        $body = [];
+        if (!Utils::isUnset($request->imageHeight)) {
+            $body['ImageHeight'] = $request->imageHeight;
+        }
+        if (!Utils::isUnset($request->imageWidth)) {
+            $body['ImageWidth'] = $request->imageWidth;
+        }
+        if (!Utils::isUnset($request->outputImageNum)) {
+            $body['OutputImageNum'] = $request->outputImageNum;
+        }
+        if (!Utils::isUnset($request->picNum)) {
+            $body['PicNum'] = $request->picNum;
+        }
+        if (!Utils::isUnset($request->picUrl)) {
+            $body['PicUrl'] = $request->picUrl;
+        }
+        $req = new OpenApiRequest([
+            'body' => OpenApiUtilClient::parseToMap($body),
+        ]);
+        $params = new Params([
+            'action'      => 'AlivisionImgdup',
+            'version'     => '2020-12-16',
+            'protocol'    => 'HTTPS',
+            'pathname'    => '/',
+            'method'      => 'POST',
+            'authType'    => 'AK',
+            'style'       => 'RPC',
+            'reqBodyType' => 'formData',
+            'bodyType'    => 'json',
+        ]);
+
+        return AlivisionImgdupResponse::fromMap($this->callApi($params, $req, $runtime));
+    }
+
+    /**
+     * @param AlivisionImgdupRequest $request
+     *
+     * @return AlivisionImgdupResponse
+     */
+    public function alivisionImgdup($request)
+    {
+        $runtime = new RuntimeOptions([]);
+
+        return $this->alivisionImgdupWithOptions($request, $runtime);
+    }
+
+    /**
+     * @param AlivisionImgdupAdvanceRequest $request
+     * @param RuntimeOptions                $runtime
+     *
+     * @return AlivisionImgdupResponse
+     */
+    public function alivisionImgdupAdvance($request, $runtime)
+    {
+        // Step 0: init client
+        $accessKeyId          = $this->_credential->getAccessKeyId();
+        $accessKeySecret      = $this->_credential->getAccessKeySecret();
+        $securityToken        = $this->_credential->getSecurityToken();
+        $credentialType       = $this->_credential->getType();
+        $openPlatformEndpoint = $this->_openPlatformEndpoint;
+        if (Utils::isUnset($openPlatformEndpoint)) {
+            $openPlatformEndpoint = 'openplatform.aliyuncs.com';
+        }
+        if (Utils::isUnset($credentialType)) {
+            $credentialType = 'access_key';
+        }
+        $authConfig = new Config([
+            'accessKeyId'     => $accessKeyId,
+            'accessKeySecret' => $accessKeySecret,
+            'securityToken'   => $securityToken,
+            'type'            => $credentialType,
+            'endpoint'        => $openPlatformEndpoint,
+            'protocol'        => $this->_protocol,
+            'regionId'        => $this->_regionId,
+        ]);
+        $authClient  = new OpenPlatform($authConfig);
+        $authRequest = new AuthorizeFileUploadRequest([
+            'product'  => 'dplus',
+            'regionId' => $this->_regionId,
+        ]);
+        $authResponse = new AuthorizeFileUploadResponse([]);
+        $ossConfig    = new \AlibabaCloud\SDK\OSS\OSS\Config([
+            'accessKeySecret' => $accessKeySecret,
+            'type'            => 'access_key',
+            'protocol'        => $this->_protocol,
+            'regionId'        => $this->_regionId,
+        ]);
+        $ossClient     = null;
+        $fileObj       = new FileField([]);
+        $ossHeader     = new header([]);
+        $uploadRequest = new PostObjectRequest([]);
+        $ossRuntime    = new \AlibabaCloud\Tea\OSSUtils\OSSUtils\RuntimeOptions([]);
+        OpenApiUtilClient::convert($runtime, $ossRuntime);
+        $alivisionImgdupReq = new AlivisionImgdupRequest([]);
+        OpenApiUtilClient::convert($request, $alivisionImgdupReq);
+        if (!Utils::isUnset($request->picUrlObject)) {
+            $authResponse           = $authClient->authorizeFileUploadWithOptions($authRequest, $runtime);
+            $ossConfig->accessKeyId = $authResponse->accessKeyId;
+            $ossConfig->endpoint    = OpenApiUtilClient::getEndpoint($authResponse->endpoint, $authResponse->useAccelerate, $this->_endpointType);
+            $ossClient              = new OSS($ossConfig);
+            $fileObj                = new FileField([
+                'filename'    => $authResponse->objectKey,
+                'content'     => $request->picUrlObject,
+                'contentType' => '',
+            ]);
+            $ossHeader = new header([
+                'accessKeyId'         => $authResponse->accessKeyId,
+                'policy'              => $authResponse->encodedPolicy,
+                'signature'           => $authResponse->signature,
+                'key'                 => $authResponse->objectKey,
+                'file'                => $fileObj,
+                'successActionStatus' => '201',
+            ]);
+            $uploadRequest = new PostObjectRequest([
+                'bucketName' => $authResponse->bucket,
+                'header'     => $ossHeader,
+            ]);
+            $ossClient->postObject($uploadRequest, $ossRuntime);
+            $alivisionImgdupReq->picUrl = 'http://' . $authResponse->bucket . '.' . $authResponse->endpoint . '/' . $authResponse->objectKey . '';
+        }
+
+        return $this->alivisionImgdupWithOptions($alivisionImgdupReq, $runtime);
+    }
+
+    /**
      * @param CreateImageAmazonTaskRequest $tmpReq
      * @param RuntimeOptions               $runtime
      *
@@ -333,12 +473,20 @@ class Dplus extends OpenApiClient
         if (!Utils::isUnset($tmpReq->textList)) {
             $request->textListShrink = OpenApiUtilClient::arrayToStringWithSpecifiedStyle($tmpReq->textList, 'TextList', 'json');
         }
-        $query                 = [];
-        $query['Gif']          = $request->gif;
-        $query['ImgUrlList']   = $request->imgUrlListShrink;
-        $query['TemplateMode'] = $request->templateMode;
-        $query['TextList']     = $request->textListShrink;
-        $req                   = new OpenApiRequest([
+        $query = [];
+        if (!Utils::isUnset($request->gif)) {
+            $query['Gif'] = $request->gif;
+        }
+        if (!Utils::isUnset($request->imgUrlListShrink)) {
+            $query['ImgUrlList'] = $request->imgUrlListShrink;
+        }
+        if (!Utils::isUnset($request->templateMode)) {
+            $query['TemplateMode'] = $request->templateMode;
+        }
+        if (!Utils::isUnset($request->textListShrink)) {
+            $query['TextList'] = $request->textListShrink;
+        }
+        $req = new OpenApiRequest([
             'query' => OpenApiUtilClient::query($query),
         ]);
         $params = new Params([
@@ -369,6 +517,136 @@ class Dplus extends OpenApiClient
     }
 
     /**
+     * @param FaceshifterTRequest $request
+     * @param RuntimeOptions      $runtime
+     *
+     * @return FaceshifterTResponse
+     */
+    public function faceshifterTWithOptions($request, $runtime)
+    {
+        Utils::validateModel($request);
+        $body = [];
+        if (!Utils::isUnset($request->age)) {
+            $body['Age'] = $request->age;
+        }
+        if (!Utils::isUnset($request->gender)) {
+            $body['Gender'] = $request->gender;
+        }
+        if (!Utils::isUnset($request->picUrl)) {
+            $body['PicUrl'] = $request->picUrl;
+        }
+        if (!Utils::isUnset($request->race)) {
+            $body['Race'] = $request->race;
+        }
+        $req = new OpenApiRequest([
+            'body' => OpenApiUtilClient::parseToMap($body),
+        ]);
+        $params = new Params([
+            'action'      => 'FaceshifterT',
+            'version'     => '2020-12-16',
+            'protocol'    => 'HTTPS',
+            'pathname'    => '/',
+            'method'      => 'POST',
+            'authType'    => 'AK',
+            'style'       => 'RPC',
+            'reqBodyType' => 'formData',
+            'bodyType'    => 'json',
+        ]);
+
+        return FaceshifterTResponse::fromMap($this->callApi($params, $req, $runtime));
+    }
+
+    /**
+     * @param FaceshifterTRequest $request
+     *
+     * @return FaceshifterTResponse
+     */
+    public function faceshifterT($request)
+    {
+        $runtime = new RuntimeOptions([]);
+
+        return $this->faceshifterTWithOptions($request, $runtime);
+    }
+
+    /**
+     * @param FaceshifterTAdvanceRequest $request
+     * @param RuntimeOptions             $runtime
+     *
+     * @return FaceshifterTResponse
+     */
+    public function faceshifterTAdvance($request, $runtime)
+    {
+        // Step 0: init client
+        $accessKeyId          = $this->_credential->getAccessKeyId();
+        $accessKeySecret      = $this->_credential->getAccessKeySecret();
+        $securityToken        = $this->_credential->getSecurityToken();
+        $credentialType       = $this->_credential->getType();
+        $openPlatformEndpoint = $this->_openPlatformEndpoint;
+        if (Utils::isUnset($openPlatformEndpoint)) {
+            $openPlatformEndpoint = 'openplatform.aliyuncs.com';
+        }
+        if (Utils::isUnset($credentialType)) {
+            $credentialType = 'access_key';
+        }
+        $authConfig = new Config([
+            'accessKeyId'     => $accessKeyId,
+            'accessKeySecret' => $accessKeySecret,
+            'securityToken'   => $securityToken,
+            'type'            => $credentialType,
+            'endpoint'        => $openPlatformEndpoint,
+            'protocol'        => $this->_protocol,
+            'regionId'        => $this->_regionId,
+        ]);
+        $authClient  = new OpenPlatform($authConfig);
+        $authRequest = new AuthorizeFileUploadRequest([
+            'product'  => 'dplus',
+            'regionId' => $this->_regionId,
+        ]);
+        $authResponse = new AuthorizeFileUploadResponse([]);
+        $ossConfig    = new \AlibabaCloud\SDK\OSS\OSS\Config([
+            'accessKeySecret' => $accessKeySecret,
+            'type'            => 'access_key',
+            'protocol'        => $this->_protocol,
+            'regionId'        => $this->_regionId,
+        ]);
+        $ossClient     = null;
+        $fileObj       = new FileField([]);
+        $ossHeader     = new header([]);
+        $uploadRequest = new PostObjectRequest([]);
+        $ossRuntime    = new \AlibabaCloud\Tea\OSSUtils\OSSUtils\RuntimeOptions([]);
+        OpenApiUtilClient::convert($runtime, $ossRuntime);
+        $faceshifterTReq = new FaceshifterTRequest([]);
+        OpenApiUtilClient::convert($request, $faceshifterTReq);
+        if (!Utils::isUnset($request->picUrlObject)) {
+            $authResponse           = $authClient->authorizeFileUploadWithOptions($authRequest, $runtime);
+            $ossConfig->accessKeyId = $authResponse->accessKeyId;
+            $ossConfig->endpoint    = OpenApiUtilClient::getEndpoint($authResponse->endpoint, $authResponse->useAccelerate, $this->_endpointType);
+            $ossClient              = new OSS($ossConfig);
+            $fileObj                = new FileField([
+                'filename'    => $authResponse->objectKey,
+                'content'     => $request->picUrlObject,
+                'contentType' => '',
+            ]);
+            $ossHeader = new header([
+                'accessKeyId'         => $authResponse->accessKeyId,
+                'policy'              => $authResponse->encodedPolicy,
+                'signature'           => $authResponse->signature,
+                'key'                 => $authResponse->objectKey,
+                'file'                => $fileObj,
+                'successActionStatus' => '201',
+            ]);
+            $uploadRequest = new PostObjectRequest([
+                'bucketName' => $authResponse->bucket,
+                'header'     => $ossHeader,
+            ]);
+            $ossClient->postObject($uploadRequest, $ossRuntime);
+            $faceshifterTReq->picUrl = 'http://' . $authResponse->bucket . '.' . $authResponse->endpoint . '/' . $authResponse->objectKey . '';
+        }
+
+        return $this->faceshifterTWithOptions($faceshifterTReq, $runtime);
+    }
+
+    /**
      * @param GetTaskResultRequest $request
      * @param RuntimeOptions       $runtime
      *
@@ -377,9 +655,11 @@ class Dplus extends OpenApiClient
     public function getTaskResultWithOptions($request, $runtime)
     {
         Utils::validateModel($request);
-        $query           = [];
-        $query['TaskId'] = $request->taskId;
-        $req             = new OpenApiRequest([
+        $query = [];
+        if (!Utils::isUnset($request->taskId)) {
+            $query['TaskId'] = $request->taskId;
+        }
+        $req = new OpenApiRequest([
             'query' => OpenApiUtilClient::query($query),
         ]);
         $params = new Params([
@@ -418,9 +698,11 @@ class Dplus extends OpenApiClient
     public function getTaskStatusWithOptions($request, $runtime)
     {
         Utils::validateModel($request);
-        $query           = [];
-        $query['TaskId'] = $request->taskId;
-        $req             = new OpenApiRequest([
+        $query = [];
+        if (!Utils::isUnset($request->taskId)) {
+            $query['TaskId'] = $request->taskId;
+        }
+        $req = new OpenApiRequest([
             'query' => OpenApiUtilClient::query($query),
         ]);
         $params = new Params([
@@ -451,6 +733,133 @@ class Dplus extends OpenApiClient
     }
 
     /**
+     * @param KuajingSegRequest $request
+     * @param RuntimeOptions    $runtime
+     *
+     * @return KuajingSegResponse
+     */
+    public function kuajingSegWithOptions($request, $runtime)
+    {
+        Utils::validateModel($request);
+        $body = [];
+        if (!Utils::isUnset($request->picUrl)) {
+            $body['PicUrl'] = $request->picUrl;
+        }
+        if (!Utils::isUnset($request->returnPicFormat)) {
+            $body['ReturnPicFormat'] = $request->returnPicFormat;
+        }
+        if (!Utils::isUnset($request->returnPicType)) {
+            $body['ReturnPicType'] = $request->returnPicType;
+        }
+        $req = new OpenApiRequest([
+            'body' => OpenApiUtilClient::parseToMap($body),
+        ]);
+        $params = new Params([
+            'action'      => 'KuajingSeg',
+            'version'     => '2020-12-16',
+            'protocol'    => 'HTTPS',
+            'pathname'    => '/',
+            'method'      => 'POST',
+            'authType'    => 'AK',
+            'style'       => 'RPC',
+            'reqBodyType' => 'formData',
+            'bodyType'    => 'json',
+        ]);
+
+        return KuajingSegResponse::fromMap($this->callApi($params, $req, $runtime));
+    }
+
+    /**
+     * @param KuajingSegRequest $request
+     *
+     * @return KuajingSegResponse
+     */
+    public function kuajingSeg($request)
+    {
+        $runtime = new RuntimeOptions([]);
+
+        return $this->kuajingSegWithOptions($request, $runtime);
+    }
+
+    /**
+     * @param KuajingSegAdvanceRequest $request
+     * @param RuntimeOptions           $runtime
+     *
+     * @return KuajingSegResponse
+     */
+    public function kuajingSegAdvance($request, $runtime)
+    {
+        // Step 0: init client
+        $accessKeyId          = $this->_credential->getAccessKeyId();
+        $accessKeySecret      = $this->_credential->getAccessKeySecret();
+        $securityToken        = $this->_credential->getSecurityToken();
+        $credentialType       = $this->_credential->getType();
+        $openPlatformEndpoint = $this->_openPlatformEndpoint;
+        if (Utils::isUnset($openPlatformEndpoint)) {
+            $openPlatformEndpoint = 'openplatform.aliyuncs.com';
+        }
+        if (Utils::isUnset($credentialType)) {
+            $credentialType = 'access_key';
+        }
+        $authConfig = new Config([
+            'accessKeyId'     => $accessKeyId,
+            'accessKeySecret' => $accessKeySecret,
+            'securityToken'   => $securityToken,
+            'type'            => $credentialType,
+            'endpoint'        => $openPlatformEndpoint,
+            'protocol'        => $this->_protocol,
+            'regionId'        => $this->_regionId,
+        ]);
+        $authClient  = new OpenPlatform($authConfig);
+        $authRequest = new AuthorizeFileUploadRequest([
+            'product'  => 'dplus',
+            'regionId' => $this->_regionId,
+        ]);
+        $authResponse = new AuthorizeFileUploadResponse([]);
+        $ossConfig    = new \AlibabaCloud\SDK\OSS\OSS\Config([
+            'accessKeySecret' => $accessKeySecret,
+            'type'            => 'access_key',
+            'protocol'        => $this->_protocol,
+            'regionId'        => $this->_regionId,
+        ]);
+        $ossClient     = null;
+        $fileObj       = new FileField([]);
+        $ossHeader     = new header([]);
+        $uploadRequest = new PostObjectRequest([]);
+        $ossRuntime    = new \AlibabaCloud\Tea\OSSUtils\OSSUtils\RuntimeOptions([]);
+        OpenApiUtilClient::convert($runtime, $ossRuntime);
+        $kuajingSegReq = new KuajingSegRequest([]);
+        OpenApiUtilClient::convert($request, $kuajingSegReq);
+        if (!Utils::isUnset($request->picUrlObject)) {
+            $authResponse           = $authClient->authorizeFileUploadWithOptions($authRequest, $runtime);
+            $ossConfig->accessKeyId = $authResponse->accessKeyId;
+            $ossConfig->endpoint    = OpenApiUtilClient::getEndpoint($authResponse->endpoint, $authResponse->useAccelerate, $this->_endpointType);
+            $ossClient              = new OSS($ossConfig);
+            $fileObj                = new FileField([
+                'filename'    => $authResponse->objectKey,
+                'content'     => $request->picUrlObject,
+                'contentType' => '',
+            ]);
+            $ossHeader = new header([
+                'accessKeyId'         => $authResponse->accessKeyId,
+                'policy'              => $authResponse->encodedPolicy,
+                'signature'           => $authResponse->signature,
+                'key'                 => $authResponse->objectKey,
+                'file'                => $fileObj,
+                'successActionStatus' => '201',
+            ]);
+            $uploadRequest = new PostObjectRequest([
+                'bucketName' => $authResponse->bucket,
+                'header'     => $ossHeader,
+            ]);
+            $ossClient->postObject($uploadRequest, $ossRuntime);
+            $kuajingSegReq->picUrl = 'http://' . $authResponse->bucket . '.' . $authResponse->endpoint . '/' . $authResponse->objectKey . '';
+        }
+
+        return $this->kuajingSegWithOptions($kuajingSegReq, $runtime);
+    }
+
+    /**
      * @param RemoveWordsRequest $request
      * @param RuntimeOptions     $runtime
      *
@@ -459,9 +868,11 @@ class Dplus extends OpenApiClient
     public function removeWordsWithOptions($request, $runtime)
     {
         Utils::validateModel($request);
-        $query           = [];
-        $query['PicUrl'] = $request->picUrl;
-        $req             = new OpenApiRequest([
+        $query = [];
+        if (!Utils::isUnset($request->picUrl)) {
+            $query['PicUrl'] = $request->picUrl;
+        }
+        $req = new OpenApiRequest([
             'query' => OpenApiUtilClient::query($query),
         ]);
         $params = new Params([
@@ -578,12 +989,20 @@ class Dplus extends OpenApiClient
     public function replaceBackgroundWithOptions($request, $runtime)
     {
         Utils::validateModel($request);
-        $query                     = [];
-        $query['BackgroundId']     = $request->backgroundId;
-        $query['Num']              = $request->num;
-        $query['PicBackgroundUrl'] = $request->picBackgroundUrl;
-        $query['PicUrl']           = $request->picUrl;
-        $req                       = new OpenApiRequest([
+        $query = [];
+        if (!Utils::isUnset($request->backgroundId)) {
+            $query['BackgroundId'] = $request->backgroundId;
+        }
+        if (!Utils::isUnset($request->num)) {
+            $query['Num'] = $request->num;
+        }
+        if (!Utils::isUnset($request->picBackgroundUrl)) {
+            $query['PicBackgroundUrl'] = $request->picBackgroundUrl;
+        }
+        if (!Utils::isUnset($request->picUrl)) {
+            $query['PicUrl'] = $request->picUrl;
+        }
+        $req = new OpenApiRequest([
             'query' => OpenApiUtilClient::query($query),
         ]);
         $params = new Params([
