@@ -11,20 +11,20 @@ class GetInstanceUpgradeInfoRequest extends Model
     /**
      * @var string
      */
-    public $lang;
+    public $instanceId;
 
     /**
      * @var string
      */
-    public $instanceId;
+    public $lang;
 
     /**
      * @var string
      */
     public $regionId;
     protected $_name = [
-        'lang'       => 'Lang',
         'instanceId' => 'InstanceId',
+        'lang'       => 'Lang',
         'regionId'   => 'RegionId',
     ];
 
@@ -35,11 +35,11 @@ class GetInstanceUpgradeInfoRequest extends Model
     public function toMap()
     {
         $res = [];
-        if (null !== $this->lang) {
-            $res['Lang'] = $this->lang;
-        }
         if (null !== $this->instanceId) {
             $res['InstanceId'] = $this->instanceId;
+        }
+        if (null !== $this->lang) {
+            $res['Lang'] = $this->lang;
         }
         if (null !== $this->regionId) {
             $res['RegionId'] = $this->regionId;
@@ -56,11 +56,11 @@ class GetInstanceUpgradeInfoRequest extends Model
     public static function fromMap($map = [])
     {
         $model = new self();
-        if (isset($map['Lang'])) {
-            $model->lang = $map['Lang'];
-        }
         if (isset($map['InstanceId'])) {
             $model->instanceId = $map['InstanceId'];
+        }
+        if (isset($map['Lang'])) {
+            $model->lang = $map['Lang'];
         }
         if (isset($map['RegionId'])) {
             $model->regionId = $map['RegionId'];

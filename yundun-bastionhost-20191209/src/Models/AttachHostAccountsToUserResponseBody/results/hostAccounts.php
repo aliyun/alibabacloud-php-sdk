@@ -16,16 +16,16 @@ class hostAccounts extends Model
     /**
      * @var string
      */
-    public $message;
+    public $hostAccountId;
 
     /**
      * @var string
      */
-    public $hostAccountId;
+    public $message;
     protected $_name = [
         'code'          => 'Code',
-        'message'       => 'Message',
         'hostAccountId' => 'HostAccountId',
+        'message'       => 'Message',
     ];
 
     public function validate()
@@ -38,11 +38,11 @@ class hostAccounts extends Model
         if (null !== $this->code) {
             $res['Code'] = $this->code;
         }
-        if (null !== $this->message) {
-            $res['Message'] = $this->message;
-        }
         if (null !== $this->hostAccountId) {
             $res['HostAccountId'] = $this->hostAccountId;
+        }
+        if (null !== $this->message) {
+            $res['Message'] = $this->message;
         }
 
         return $res;
@@ -59,11 +59,11 @@ class hostAccounts extends Model
         if (isset($map['Code'])) {
             $model->code = $map['Code'];
         }
-        if (isset($map['Message'])) {
-            $model->message = $map['Message'];
-        }
         if (isset($map['HostAccountId'])) {
             $model->hostAccountId = $map['HostAccountId'];
+        }
+        if (isset($map['Message'])) {
+            $model->message = $map['Message'];
         }
 
         return $model;

@@ -11,6 +11,11 @@ class DetachHostAccountsFromUserGroupRequest extends Model
     /**
      * @var string
      */
+    public $hosts;
+
+    /**
+     * @var string
+     */
     public $instanceId;
 
     /**
@@ -22,16 +27,11 @@ class DetachHostAccountsFromUserGroupRequest extends Model
      * @var string
      */
     public $userGroupId;
-
-    /**
-     * @var string
-     */
-    public $hosts;
     protected $_name = [
+        'hosts'       => 'Hosts',
         'instanceId'  => 'InstanceId',
         'regionId'    => 'RegionId',
         'userGroupId' => 'UserGroupId',
-        'hosts'       => 'Hosts',
     ];
 
     public function validate()
@@ -41,6 +41,9 @@ class DetachHostAccountsFromUserGroupRequest extends Model
     public function toMap()
     {
         $res = [];
+        if (null !== $this->hosts) {
+            $res['Hosts'] = $this->hosts;
+        }
         if (null !== $this->instanceId) {
             $res['InstanceId'] = $this->instanceId;
         }
@@ -49,9 +52,6 @@ class DetachHostAccountsFromUserGroupRequest extends Model
         }
         if (null !== $this->userGroupId) {
             $res['UserGroupId'] = $this->userGroupId;
-        }
-        if (null !== $this->hosts) {
-            $res['Hosts'] = $this->hosts;
         }
 
         return $res;
@@ -65,6 +65,9 @@ class DetachHostAccountsFromUserGroupRequest extends Model
     public static function fromMap($map = [])
     {
         $model = new self();
+        if (isset($map['Hosts'])) {
+            $model->hosts = $map['Hosts'];
+        }
         if (isset($map['InstanceId'])) {
             $model->instanceId = $map['InstanceId'];
         }
@@ -73,9 +76,6 @@ class DetachHostAccountsFromUserGroupRequest extends Model
         }
         if (isset($map['UserGroupId'])) {
             $model->userGroupId = $map['UserGroupId'];
-        }
-        if (isset($map['Hosts'])) {
-            $model->hosts = $map['Hosts'];
         }
 
         return $model;

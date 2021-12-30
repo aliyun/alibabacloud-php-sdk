@@ -11,12 +11,17 @@ class ListUsersRequest extends Model
     /**
      * @var string
      */
+    public $displayName;
+
+    /**
+     * @var string
+     */
     public $instanceId;
 
     /**
      * @var string
      */
-    public $regionId;
+    public $mobile;
 
     /**
      * @var string
@@ -31,27 +36,12 @@ class ListUsersRequest extends Model
     /**
      * @var string
      */
-    public $userName;
-
-    /**
-     * @var string
-     */
-    public $displayName;
+    public $regionId;
 
     /**
      * @var string
      */
     public $source;
-
-    /**
-     * @var string
-     */
-    public $mobile;
-
-    /**
-     * @var string
-     */
-    public $userState;
 
     /**
      * @var string
@@ -62,18 +52,28 @@ class ListUsersRequest extends Model
      * @var string
      */
     public $userGroupId;
+
+    /**
+     * @var string
+     */
+    public $userName;
+
+    /**
+     * @var string
+     */
+    public $userState;
     protected $_name = [
+        'displayName'  => 'DisplayName',
         'instanceId'   => 'InstanceId',
-        'regionId'     => 'RegionId',
+        'mobile'       => 'Mobile',
         'pageNumber'   => 'PageNumber',
         'pageSize'     => 'PageSize',
-        'userName'     => 'UserName',
-        'displayName'  => 'DisplayName',
+        'regionId'     => 'RegionId',
         'source'       => 'Source',
-        'mobile'       => 'Mobile',
-        'userState'    => 'UserState',
         'sourceUserId' => 'SourceUserId',
         'userGroupId'  => 'UserGroupId',
+        'userName'     => 'UserName',
+        'userState'    => 'UserState',
     ];
 
     public function validate()
@@ -83,11 +83,14 @@ class ListUsersRequest extends Model
     public function toMap()
     {
         $res = [];
+        if (null !== $this->displayName) {
+            $res['DisplayName'] = $this->displayName;
+        }
         if (null !== $this->instanceId) {
             $res['InstanceId'] = $this->instanceId;
         }
-        if (null !== $this->regionId) {
-            $res['RegionId'] = $this->regionId;
+        if (null !== $this->mobile) {
+            $res['Mobile'] = $this->mobile;
         }
         if (null !== $this->pageNumber) {
             $res['PageNumber'] = $this->pageNumber;
@@ -95,26 +98,23 @@ class ListUsersRequest extends Model
         if (null !== $this->pageSize) {
             $res['PageSize'] = $this->pageSize;
         }
-        if (null !== $this->userName) {
-            $res['UserName'] = $this->userName;
-        }
-        if (null !== $this->displayName) {
-            $res['DisplayName'] = $this->displayName;
+        if (null !== $this->regionId) {
+            $res['RegionId'] = $this->regionId;
         }
         if (null !== $this->source) {
             $res['Source'] = $this->source;
-        }
-        if (null !== $this->mobile) {
-            $res['Mobile'] = $this->mobile;
-        }
-        if (null !== $this->userState) {
-            $res['UserState'] = $this->userState;
         }
         if (null !== $this->sourceUserId) {
             $res['SourceUserId'] = $this->sourceUserId;
         }
         if (null !== $this->userGroupId) {
             $res['UserGroupId'] = $this->userGroupId;
+        }
+        if (null !== $this->userName) {
+            $res['UserName'] = $this->userName;
+        }
+        if (null !== $this->userState) {
+            $res['UserState'] = $this->userState;
         }
 
         return $res;
@@ -128,11 +128,14 @@ class ListUsersRequest extends Model
     public static function fromMap($map = [])
     {
         $model = new self();
+        if (isset($map['DisplayName'])) {
+            $model->displayName = $map['DisplayName'];
+        }
         if (isset($map['InstanceId'])) {
             $model->instanceId = $map['InstanceId'];
         }
-        if (isset($map['RegionId'])) {
-            $model->regionId = $map['RegionId'];
+        if (isset($map['Mobile'])) {
+            $model->mobile = $map['Mobile'];
         }
         if (isset($map['PageNumber'])) {
             $model->pageNumber = $map['PageNumber'];
@@ -140,26 +143,23 @@ class ListUsersRequest extends Model
         if (isset($map['PageSize'])) {
             $model->pageSize = $map['PageSize'];
         }
-        if (isset($map['UserName'])) {
-            $model->userName = $map['UserName'];
-        }
-        if (isset($map['DisplayName'])) {
-            $model->displayName = $map['DisplayName'];
+        if (isset($map['RegionId'])) {
+            $model->regionId = $map['RegionId'];
         }
         if (isset($map['Source'])) {
             $model->source = $map['Source'];
-        }
-        if (isset($map['Mobile'])) {
-            $model->mobile = $map['Mobile'];
-        }
-        if (isset($map['UserState'])) {
-            $model->userState = $map['UserState'];
         }
         if (isset($map['SourceUserId'])) {
             $model->sourceUserId = $map['SourceUserId'];
         }
         if (isset($map['UserGroupId'])) {
             $model->userGroupId = $map['UserGroupId'];
+        }
+        if (isset($map['UserName'])) {
+            $model->userName = $map['UserName'];
+        }
+        if (isset($map['UserState'])) {
+            $model->userState = $map['UserState'];
         }
 
         return $model;

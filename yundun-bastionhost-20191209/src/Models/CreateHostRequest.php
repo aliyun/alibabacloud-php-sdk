@@ -11,12 +11,17 @@ class CreateHostRequest extends Model
     /**
      * @var string
      */
-    public $instanceId;
+    public $activeAddressType;
 
     /**
      * @var string
      */
-    public $regionId;
+    public $comment;
+
+    /**
+     * @var string
+     */
+    public $hostName;
 
     /**
      * @var string
@@ -31,17 +36,12 @@ class CreateHostRequest extends Model
     /**
      * @var string
      */
-    public $activeAddressType;
+    public $instanceId;
 
     /**
      * @var string
      */
-    public $hostName;
-
-    /**
-     * @var string
-     */
-    public $source;
+    public $instanceRegionId;
 
     /**
      * @var string
@@ -51,29 +51,29 @@ class CreateHostRequest extends Model
     /**
      * @var string
      */
-    public $comment;
+    public $regionId;
+
+    /**
+     * @var string
+     */
+    public $source;
 
     /**
      * @var string
      */
     public $sourceInstanceId;
-
-    /**
-     * @var string
-     */
-    public $instanceRegionId;
     protected $_name = [
-        'instanceId'         => 'InstanceId',
-        'regionId'           => 'RegionId',
+        'activeAddressType'  => 'ActiveAddressType',
+        'comment'            => 'Comment',
+        'hostName'           => 'HostName',
         'hostPrivateAddress' => 'HostPrivateAddress',
         'hostPublicAddress'  => 'HostPublicAddress',
-        'activeAddressType'  => 'ActiveAddressType',
-        'hostName'           => 'HostName',
-        'source'             => 'Source',
-        'OSType'             => 'OSType',
-        'comment'            => 'Comment',
-        'sourceInstanceId'   => 'SourceInstanceId',
+        'instanceId'         => 'InstanceId',
         'instanceRegionId'   => 'InstanceRegionId',
+        'OSType'             => 'OSType',
+        'regionId'           => 'RegionId',
+        'source'             => 'Source',
+        'sourceInstanceId'   => 'SourceInstanceId',
     ];
 
     public function validate()
@@ -83,11 +83,14 @@ class CreateHostRequest extends Model
     public function toMap()
     {
         $res = [];
-        if (null !== $this->instanceId) {
-            $res['InstanceId'] = $this->instanceId;
+        if (null !== $this->activeAddressType) {
+            $res['ActiveAddressType'] = $this->activeAddressType;
         }
-        if (null !== $this->regionId) {
-            $res['RegionId'] = $this->regionId;
+        if (null !== $this->comment) {
+            $res['Comment'] = $this->comment;
+        }
+        if (null !== $this->hostName) {
+            $res['HostName'] = $this->hostName;
         }
         if (null !== $this->hostPrivateAddress) {
             $res['HostPrivateAddress'] = $this->hostPrivateAddress;
@@ -95,26 +98,23 @@ class CreateHostRequest extends Model
         if (null !== $this->hostPublicAddress) {
             $res['HostPublicAddress'] = $this->hostPublicAddress;
         }
-        if (null !== $this->activeAddressType) {
-            $res['ActiveAddressType'] = $this->activeAddressType;
+        if (null !== $this->instanceId) {
+            $res['InstanceId'] = $this->instanceId;
         }
-        if (null !== $this->hostName) {
-            $res['HostName'] = $this->hostName;
-        }
-        if (null !== $this->source) {
-            $res['Source'] = $this->source;
+        if (null !== $this->instanceRegionId) {
+            $res['InstanceRegionId'] = $this->instanceRegionId;
         }
         if (null !== $this->OSType) {
             $res['OSType'] = $this->OSType;
         }
-        if (null !== $this->comment) {
-            $res['Comment'] = $this->comment;
+        if (null !== $this->regionId) {
+            $res['RegionId'] = $this->regionId;
+        }
+        if (null !== $this->source) {
+            $res['Source'] = $this->source;
         }
         if (null !== $this->sourceInstanceId) {
             $res['SourceInstanceId'] = $this->sourceInstanceId;
-        }
-        if (null !== $this->instanceRegionId) {
-            $res['InstanceRegionId'] = $this->instanceRegionId;
         }
 
         return $res;
@@ -128,11 +128,14 @@ class CreateHostRequest extends Model
     public static function fromMap($map = [])
     {
         $model = new self();
-        if (isset($map['InstanceId'])) {
-            $model->instanceId = $map['InstanceId'];
+        if (isset($map['ActiveAddressType'])) {
+            $model->activeAddressType = $map['ActiveAddressType'];
         }
-        if (isset($map['RegionId'])) {
-            $model->regionId = $map['RegionId'];
+        if (isset($map['Comment'])) {
+            $model->comment = $map['Comment'];
+        }
+        if (isset($map['HostName'])) {
+            $model->hostName = $map['HostName'];
         }
         if (isset($map['HostPrivateAddress'])) {
             $model->hostPrivateAddress = $map['HostPrivateAddress'];
@@ -140,26 +143,23 @@ class CreateHostRequest extends Model
         if (isset($map['HostPublicAddress'])) {
             $model->hostPublicAddress = $map['HostPublicAddress'];
         }
-        if (isset($map['ActiveAddressType'])) {
-            $model->activeAddressType = $map['ActiveAddressType'];
+        if (isset($map['InstanceId'])) {
+            $model->instanceId = $map['InstanceId'];
         }
-        if (isset($map['HostName'])) {
-            $model->hostName = $map['HostName'];
-        }
-        if (isset($map['Source'])) {
-            $model->source = $map['Source'];
+        if (isset($map['InstanceRegionId'])) {
+            $model->instanceRegionId = $map['InstanceRegionId'];
         }
         if (isset($map['OSType'])) {
             $model->OSType = $map['OSType'];
         }
-        if (isset($map['Comment'])) {
-            $model->comment = $map['Comment'];
+        if (isset($map['RegionId'])) {
+            $model->regionId = $map['RegionId'];
+        }
+        if (isset($map['Source'])) {
+            $model->source = $map['Source'];
         }
         if (isset($map['SourceInstanceId'])) {
             $model->sourceInstanceId = $map['SourceInstanceId'];
-        }
-        if (isset($map['InstanceRegionId'])) {
-            $model->instanceRegionId = $map['InstanceRegionId'];
         }
 
         return $model;

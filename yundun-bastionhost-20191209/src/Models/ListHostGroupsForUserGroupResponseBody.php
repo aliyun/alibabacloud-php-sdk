@@ -10,9 +10,9 @@ use AlibabaCloud\Tea\Model;
 class ListHostGroupsForUserGroupResponseBody extends Model
 {
     /**
-     * @var int
+     * @var hostGroups[]
      */
-    public $totalCount;
+    public $hostGroups;
 
     /**
      * @var string
@@ -20,13 +20,13 @@ class ListHostGroupsForUserGroupResponseBody extends Model
     public $requestId;
 
     /**
-     * @var hostGroups[]
+     * @var int
      */
-    public $hostGroups;
+    public $totalCount;
     protected $_name = [
-        'totalCount' => 'TotalCount',
-        'requestId'  => 'RequestId',
         'hostGroups' => 'HostGroups',
+        'requestId'  => 'RequestId',
+        'totalCount' => 'TotalCount',
     ];
 
     public function validate()
@@ -36,12 +36,6 @@ class ListHostGroupsForUserGroupResponseBody extends Model
     public function toMap()
     {
         $res = [];
-        if (null !== $this->totalCount) {
-            $res['TotalCount'] = $this->totalCount;
-        }
-        if (null !== $this->requestId) {
-            $res['RequestId'] = $this->requestId;
-        }
         if (null !== $this->hostGroups) {
             $res['HostGroups'] = [];
             if (null !== $this->hostGroups && \is_array($this->hostGroups)) {
@@ -50,6 +44,12 @@ class ListHostGroupsForUserGroupResponseBody extends Model
                     $res['HostGroups'][$n++] = null !== $item ? $item->toMap() : $item;
                 }
             }
+        }
+        if (null !== $this->requestId) {
+            $res['RequestId'] = $this->requestId;
+        }
+        if (null !== $this->totalCount) {
+            $res['TotalCount'] = $this->totalCount;
         }
 
         return $res;
@@ -63,12 +63,6 @@ class ListHostGroupsForUserGroupResponseBody extends Model
     public static function fromMap($map = [])
     {
         $model = new self();
-        if (isset($map['TotalCount'])) {
-            $model->totalCount = $map['TotalCount'];
-        }
-        if (isset($map['RequestId'])) {
-            $model->requestId = $map['RequestId'];
-        }
         if (isset($map['HostGroups'])) {
             if (!empty($map['HostGroups'])) {
                 $model->hostGroups = [];
@@ -77,6 +71,12 @@ class ListHostGroupsForUserGroupResponseBody extends Model
                     $model->hostGroups[$n++] = null !== $item ? hostGroups::fromMap($item) : $item;
                 }
             }
+        }
+        if (isset($map['RequestId'])) {
+            $model->requestId = $map['RequestId'];
+        }
+        if (isset($map['TotalCount'])) {
+            $model->totalCount = $map['TotalCount'];
         }
 
         return $model;

@@ -11,6 +11,11 @@ class ModifyUserGroupRequest extends Model
     /**
      * @var string
      */
+    public $comment;
+
+    /**
+     * @var string
+     */
     public $instanceId;
 
     /**
@@ -27,17 +32,12 @@ class ModifyUserGroupRequest extends Model
      * @var string
      */
     public $userGroupName;
-
-    /**
-     * @var string
-     */
-    public $comment;
     protected $_name = [
+        'comment'       => 'Comment',
         'instanceId'    => 'InstanceId',
         'regionId'      => 'RegionId',
         'userGroupId'   => 'UserGroupId',
         'userGroupName' => 'UserGroupName',
-        'comment'       => 'Comment',
     ];
 
     public function validate()
@@ -47,6 +47,9 @@ class ModifyUserGroupRequest extends Model
     public function toMap()
     {
         $res = [];
+        if (null !== $this->comment) {
+            $res['Comment'] = $this->comment;
+        }
         if (null !== $this->instanceId) {
             $res['InstanceId'] = $this->instanceId;
         }
@@ -58,9 +61,6 @@ class ModifyUserGroupRequest extends Model
         }
         if (null !== $this->userGroupName) {
             $res['UserGroupName'] = $this->userGroupName;
-        }
-        if (null !== $this->comment) {
-            $res['Comment'] = $this->comment;
         }
 
         return $res;
@@ -74,6 +74,9 @@ class ModifyUserGroupRequest extends Model
     public static function fromMap($map = [])
     {
         $model = new self();
+        if (isset($map['Comment'])) {
+            $model->comment = $map['Comment'];
+        }
         if (isset($map['InstanceId'])) {
             $model->instanceId = $map['InstanceId'];
         }
@@ -85,9 +88,6 @@ class ModifyUserGroupRequest extends Model
         }
         if (isset($map['UserGroupName'])) {
             $model->userGroupName = $map['UserGroupName'];
-        }
-        if (isset($map['Comment'])) {
-            $model->comment = $map['Comment'];
         }
 
         return $model;

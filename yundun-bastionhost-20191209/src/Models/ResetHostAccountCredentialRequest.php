@@ -11,12 +11,7 @@ class ResetHostAccountCredentialRequest extends Model
     /**
      * @var string
      */
-    public $instanceId;
-
-    /**
-     * @var string
-     */
-    public $regionId;
+    public $credentialType;
 
     /**
      * @var string
@@ -26,12 +21,17 @@ class ResetHostAccountCredentialRequest extends Model
     /**
      * @var string
      */
-    public $credentialType;
+    public $instanceId;
+
+    /**
+     * @var string
+     */
+    public $regionId;
     protected $_name = [
+        'credentialType' => 'CredentialType',
+        'hostAccountId'  => 'HostAccountId',
         'instanceId'     => 'InstanceId',
         'regionId'       => 'RegionId',
-        'hostAccountId'  => 'HostAccountId',
-        'credentialType' => 'CredentialType',
     ];
 
     public function validate()
@@ -41,17 +41,17 @@ class ResetHostAccountCredentialRequest extends Model
     public function toMap()
     {
         $res = [];
+        if (null !== $this->credentialType) {
+            $res['CredentialType'] = $this->credentialType;
+        }
+        if (null !== $this->hostAccountId) {
+            $res['HostAccountId'] = $this->hostAccountId;
+        }
         if (null !== $this->instanceId) {
             $res['InstanceId'] = $this->instanceId;
         }
         if (null !== $this->regionId) {
             $res['RegionId'] = $this->regionId;
-        }
-        if (null !== $this->hostAccountId) {
-            $res['HostAccountId'] = $this->hostAccountId;
-        }
-        if (null !== $this->credentialType) {
-            $res['CredentialType'] = $this->credentialType;
         }
 
         return $res;
@@ -65,17 +65,17 @@ class ResetHostAccountCredentialRequest extends Model
     public static function fromMap($map = [])
     {
         $model = new self();
+        if (isset($map['CredentialType'])) {
+            $model->credentialType = $map['CredentialType'];
+        }
+        if (isset($map['HostAccountId'])) {
+            $model->hostAccountId = $map['HostAccountId'];
+        }
         if (isset($map['InstanceId'])) {
             $model->instanceId = $map['InstanceId'];
         }
         if (isset($map['RegionId'])) {
             $model->regionId = $map['RegionId'];
-        }
-        if (isset($map['HostAccountId'])) {
-            $model->hostAccountId = $map['HostAccountId'];
-        }
-        if (isset($map['CredentialType'])) {
-            $model->credentialType = $map['CredentialType'];
         }
 
         return $model;

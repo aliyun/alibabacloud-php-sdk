@@ -11,12 +11,17 @@ class ListHostsForUserGroupRequest extends Model
     /**
      * @var string
      */
-    public $instanceId;
+    public $hostAddress;
 
     /**
      * @var string
      */
-    public $regionId;
+    public $hostName;
+
+    /**
+     * @var string
+     */
+    public $instanceId;
 
     /**
      * @var string
@@ -26,7 +31,7 @@ class ListHostsForUserGroupRequest extends Model
     /**
      * @var string
      */
-    public $userGroupId;
+    public $OSType;
 
     /**
      * @var string
@@ -41,27 +46,22 @@ class ListHostsForUserGroupRequest extends Model
     /**
      * @var string
      */
-    public $hostAddress;
+    public $regionId;
 
     /**
      * @var string
      */
-    public $hostName;
-
-    /**
-     * @var string
-     */
-    public $OSType;
+    public $userGroupId;
     protected $_name = [
-        'instanceId'  => 'InstanceId',
-        'regionId'    => 'RegionId',
-        'mode'        => 'Mode',
-        'userGroupId' => 'UserGroupId',
-        'pageNumber'  => 'PageNumber',
-        'pageSize'    => 'PageSize',
         'hostAddress' => 'HostAddress',
         'hostName'    => 'HostName',
+        'instanceId'  => 'InstanceId',
+        'mode'        => 'Mode',
         'OSType'      => 'OSType',
+        'pageNumber'  => 'PageNumber',
+        'pageSize'    => 'PageSize',
+        'regionId'    => 'RegionId',
+        'userGroupId' => 'UserGroupId',
     ];
 
     public function validate()
@@ -71,17 +71,20 @@ class ListHostsForUserGroupRequest extends Model
     public function toMap()
     {
         $res = [];
+        if (null !== $this->hostAddress) {
+            $res['HostAddress'] = $this->hostAddress;
+        }
+        if (null !== $this->hostName) {
+            $res['HostName'] = $this->hostName;
+        }
         if (null !== $this->instanceId) {
             $res['InstanceId'] = $this->instanceId;
-        }
-        if (null !== $this->regionId) {
-            $res['RegionId'] = $this->regionId;
         }
         if (null !== $this->mode) {
             $res['Mode'] = $this->mode;
         }
-        if (null !== $this->userGroupId) {
-            $res['UserGroupId'] = $this->userGroupId;
+        if (null !== $this->OSType) {
+            $res['OSType'] = $this->OSType;
         }
         if (null !== $this->pageNumber) {
             $res['PageNumber'] = $this->pageNumber;
@@ -89,14 +92,11 @@ class ListHostsForUserGroupRequest extends Model
         if (null !== $this->pageSize) {
             $res['PageSize'] = $this->pageSize;
         }
-        if (null !== $this->hostAddress) {
-            $res['HostAddress'] = $this->hostAddress;
+        if (null !== $this->regionId) {
+            $res['RegionId'] = $this->regionId;
         }
-        if (null !== $this->hostName) {
-            $res['HostName'] = $this->hostName;
-        }
-        if (null !== $this->OSType) {
-            $res['OSType'] = $this->OSType;
+        if (null !== $this->userGroupId) {
+            $res['UserGroupId'] = $this->userGroupId;
         }
 
         return $res;
@@ -110,17 +110,20 @@ class ListHostsForUserGroupRequest extends Model
     public static function fromMap($map = [])
     {
         $model = new self();
+        if (isset($map['HostAddress'])) {
+            $model->hostAddress = $map['HostAddress'];
+        }
+        if (isset($map['HostName'])) {
+            $model->hostName = $map['HostName'];
+        }
         if (isset($map['InstanceId'])) {
             $model->instanceId = $map['InstanceId'];
-        }
-        if (isset($map['RegionId'])) {
-            $model->regionId = $map['RegionId'];
         }
         if (isset($map['Mode'])) {
             $model->mode = $map['Mode'];
         }
-        if (isset($map['UserGroupId'])) {
-            $model->userGroupId = $map['UserGroupId'];
+        if (isset($map['OSType'])) {
+            $model->OSType = $map['OSType'];
         }
         if (isset($map['PageNumber'])) {
             $model->pageNumber = $map['PageNumber'];
@@ -128,14 +131,11 @@ class ListHostsForUserGroupRequest extends Model
         if (isset($map['PageSize'])) {
             $model->pageSize = $map['PageSize'];
         }
-        if (isset($map['HostAddress'])) {
-            $model->hostAddress = $map['HostAddress'];
+        if (isset($map['RegionId'])) {
+            $model->regionId = $map['RegionId'];
         }
-        if (isset($map['HostName'])) {
-            $model->hostName = $map['HostName'];
-        }
-        if (isset($map['OSType'])) {
-            $model->OSType = $map['OSType'];
+        if (isset($map['UserGroupId'])) {
+            $model->userGroupId = $map['UserGroupId'];
         }
 
         return $model;

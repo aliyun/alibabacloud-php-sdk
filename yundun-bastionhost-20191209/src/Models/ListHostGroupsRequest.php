@@ -11,12 +11,12 @@ class ListHostGroupsRequest extends Model
     /**
      * @var string
      */
-    public $instanceId;
+    public $hostGroupName;
 
     /**
      * @var string
      */
-    public $regionId;
+    public $instanceId;
 
     /**
      * @var string
@@ -31,13 +31,13 @@ class ListHostGroupsRequest extends Model
     /**
      * @var string
      */
-    public $hostGroupName;
+    public $regionId;
     protected $_name = [
+        'hostGroupName' => 'HostGroupName',
         'instanceId'    => 'InstanceId',
-        'regionId'      => 'RegionId',
         'pageNumber'    => 'PageNumber',
         'pageSize'      => 'PageSize',
-        'hostGroupName' => 'HostGroupName',
+        'regionId'      => 'RegionId',
     ];
 
     public function validate()
@@ -47,11 +47,11 @@ class ListHostGroupsRequest extends Model
     public function toMap()
     {
         $res = [];
+        if (null !== $this->hostGroupName) {
+            $res['HostGroupName'] = $this->hostGroupName;
+        }
         if (null !== $this->instanceId) {
             $res['InstanceId'] = $this->instanceId;
-        }
-        if (null !== $this->regionId) {
-            $res['RegionId'] = $this->regionId;
         }
         if (null !== $this->pageNumber) {
             $res['PageNumber'] = $this->pageNumber;
@@ -59,8 +59,8 @@ class ListHostGroupsRequest extends Model
         if (null !== $this->pageSize) {
             $res['PageSize'] = $this->pageSize;
         }
-        if (null !== $this->hostGroupName) {
-            $res['HostGroupName'] = $this->hostGroupName;
+        if (null !== $this->regionId) {
+            $res['RegionId'] = $this->regionId;
         }
 
         return $res;
@@ -74,11 +74,11 @@ class ListHostGroupsRequest extends Model
     public static function fromMap($map = [])
     {
         $model = new self();
+        if (isset($map['HostGroupName'])) {
+            $model->hostGroupName = $map['HostGroupName'];
+        }
         if (isset($map['InstanceId'])) {
             $model->instanceId = $map['InstanceId'];
-        }
-        if (isset($map['RegionId'])) {
-            $model->regionId = $map['RegionId'];
         }
         if (isset($map['PageNumber'])) {
             $model->pageNumber = $map['PageNumber'];
@@ -86,8 +86,8 @@ class ListHostGroupsRequest extends Model
         if (isset($map['PageSize'])) {
             $model->pageSize = $map['PageSize'];
         }
-        if (isset($map['HostGroupName'])) {
-            $model->hostGroupName = $map['HostGroupName'];
+        if (isset($map['RegionId'])) {
+            $model->regionId = $map['RegionId'];
         }
 
         return $model;

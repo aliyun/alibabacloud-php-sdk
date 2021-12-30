@@ -11,15 +11,15 @@ class candidatePeriodList extends Model
     /**
      * @var int
      */
-    public $candidateStartTime;
+    public $candidateEndTime;
 
     /**
      * @var int
      */
-    public $candidateEndTime;
+    public $candidateStartTime;
     protected $_name = [
-        'candidateStartTime' => 'CandidateStartTime',
         'candidateEndTime'   => 'CandidateEndTime',
+        'candidateStartTime' => 'CandidateStartTime',
     ];
 
     public function validate()
@@ -29,11 +29,11 @@ class candidatePeriodList extends Model
     public function toMap()
     {
         $res = [];
-        if (null !== $this->candidateStartTime) {
-            $res['CandidateStartTime'] = $this->candidateStartTime;
-        }
         if (null !== $this->candidateEndTime) {
             $res['CandidateEndTime'] = $this->candidateEndTime;
+        }
+        if (null !== $this->candidateStartTime) {
+            $res['CandidateStartTime'] = $this->candidateStartTime;
         }
 
         return $res;
@@ -47,11 +47,11 @@ class candidatePeriodList extends Model
     public static function fromMap($map = [])
     {
         $model = new self();
-        if (isset($map['CandidateStartTime'])) {
-            $model->candidateStartTime = $map['CandidateStartTime'];
-        }
         if (isset($map['CandidateEndTime'])) {
             $model->candidateEndTime = $map['CandidateEndTime'];
+        }
+        if (isset($map['CandidateStartTime'])) {
+            $model->candidateStartTime = $map['CandidateStartTime'];
         }
 
         return $model;

@@ -16,11 +16,6 @@ class ListUserGroupsRequest extends Model
     /**
      * @var string
      */
-    public $regionId;
-
-    /**
-     * @var string
-     */
     public $pageNumber;
 
     /**
@@ -31,12 +26,17 @@ class ListUserGroupsRequest extends Model
     /**
      * @var string
      */
+    public $regionId;
+
+    /**
+     * @var string
+     */
     public $userGroupName;
     protected $_name = [
         'instanceId'    => 'InstanceId',
-        'regionId'      => 'RegionId',
         'pageNumber'    => 'PageNumber',
         'pageSize'      => 'PageSize',
+        'regionId'      => 'RegionId',
         'userGroupName' => 'UserGroupName',
     ];
 
@@ -50,14 +50,14 @@ class ListUserGroupsRequest extends Model
         if (null !== $this->instanceId) {
             $res['InstanceId'] = $this->instanceId;
         }
-        if (null !== $this->regionId) {
-            $res['RegionId'] = $this->regionId;
-        }
         if (null !== $this->pageNumber) {
             $res['PageNumber'] = $this->pageNumber;
         }
         if (null !== $this->pageSize) {
             $res['PageSize'] = $this->pageSize;
+        }
+        if (null !== $this->regionId) {
+            $res['RegionId'] = $this->regionId;
         }
         if (null !== $this->userGroupName) {
             $res['UserGroupName'] = $this->userGroupName;
@@ -77,14 +77,14 @@ class ListUserGroupsRequest extends Model
         if (isset($map['InstanceId'])) {
             $model->instanceId = $map['InstanceId'];
         }
-        if (isset($map['RegionId'])) {
-            $model->regionId = $map['RegionId'];
-        }
         if (isset($map['PageNumber'])) {
             $model->pageNumber = $map['PageNumber'];
         }
         if (isset($map['PageSize'])) {
             $model->pageSize = $map['PageSize'];
+        }
+        if (isset($map['RegionId'])) {
+            $model->regionId = $map['RegionId'];
         }
         if (isset($map['UserGroupName'])) {
             $model->userGroupName = $map['UserGroupName'];

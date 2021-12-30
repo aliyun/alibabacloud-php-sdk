@@ -11,22 +11,27 @@ class ModifyHostAccountRequest extends Model
     /**
      * @var string
      */
-    public $instanceId;
-
-    /**
-     * @var string
-     */
-    public $regionId;
-
-    /**
-     * @var string
-     */
     public $hostAccountId;
 
     /**
      * @var string
      */
     public $hostAccountName;
+
+    /**
+     * @var string
+     */
+    public $hostShareKeyId;
+
+    /**
+     * @var string
+     */
+    public $instanceId;
+
+    /**
+     * @var string
+     */
+    public $passPhrase;
 
     /**
      * @var string
@@ -41,15 +46,16 @@ class ModifyHostAccountRequest extends Model
     /**
      * @var string
      */
-    public $passPhrase;
+    public $regionId;
     protected $_name = [
-        'instanceId'      => 'InstanceId',
-        'regionId'        => 'RegionId',
         'hostAccountId'   => 'HostAccountId',
         'hostAccountName' => 'HostAccountName',
+        'hostShareKeyId'  => 'HostShareKeyId',
+        'instanceId'      => 'InstanceId',
+        'passPhrase'      => 'PassPhrase',
         'password'        => 'Password',
         'privateKey'      => 'PrivateKey',
-        'passPhrase'      => 'PassPhrase',
+        'regionId'        => 'RegionId',
     ];
 
     public function validate()
@@ -59,17 +65,20 @@ class ModifyHostAccountRequest extends Model
     public function toMap()
     {
         $res = [];
-        if (null !== $this->instanceId) {
-            $res['InstanceId'] = $this->instanceId;
-        }
-        if (null !== $this->regionId) {
-            $res['RegionId'] = $this->regionId;
-        }
         if (null !== $this->hostAccountId) {
             $res['HostAccountId'] = $this->hostAccountId;
         }
         if (null !== $this->hostAccountName) {
             $res['HostAccountName'] = $this->hostAccountName;
+        }
+        if (null !== $this->hostShareKeyId) {
+            $res['HostShareKeyId'] = $this->hostShareKeyId;
+        }
+        if (null !== $this->instanceId) {
+            $res['InstanceId'] = $this->instanceId;
+        }
+        if (null !== $this->passPhrase) {
+            $res['PassPhrase'] = $this->passPhrase;
         }
         if (null !== $this->password) {
             $res['Password'] = $this->password;
@@ -77,8 +86,8 @@ class ModifyHostAccountRequest extends Model
         if (null !== $this->privateKey) {
             $res['PrivateKey'] = $this->privateKey;
         }
-        if (null !== $this->passPhrase) {
-            $res['PassPhrase'] = $this->passPhrase;
+        if (null !== $this->regionId) {
+            $res['RegionId'] = $this->regionId;
         }
 
         return $res;
@@ -92,17 +101,20 @@ class ModifyHostAccountRequest extends Model
     public static function fromMap($map = [])
     {
         $model = new self();
-        if (isset($map['InstanceId'])) {
-            $model->instanceId = $map['InstanceId'];
-        }
-        if (isset($map['RegionId'])) {
-            $model->regionId = $map['RegionId'];
-        }
         if (isset($map['HostAccountId'])) {
             $model->hostAccountId = $map['HostAccountId'];
         }
         if (isset($map['HostAccountName'])) {
             $model->hostAccountName = $map['HostAccountName'];
+        }
+        if (isset($map['HostShareKeyId'])) {
+            $model->hostShareKeyId = $map['HostShareKeyId'];
+        }
+        if (isset($map['InstanceId'])) {
+            $model->instanceId = $map['InstanceId'];
+        }
+        if (isset($map['PassPhrase'])) {
+            $model->passPhrase = $map['PassPhrase'];
         }
         if (isset($map['Password'])) {
             $model->password = $map['Password'];
@@ -110,8 +122,8 @@ class ModifyHostAccountRequest extends Model
         if (isset($map['PrivateKey'])) {
             $model->privateKey = $map['PrivateKey'];
         }
-        if (isset($map['PassPhrase'])) {
-            $model->passPhrase = $map['PassPhrase'];
+        if (isset($map['RegionId'])) {
+            $model->regionId = $map['RegionId'];
         }
 
         return $model;

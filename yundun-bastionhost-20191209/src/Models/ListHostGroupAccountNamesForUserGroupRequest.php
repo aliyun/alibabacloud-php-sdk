@@ -11,6 +11,11 @@ class ListHostGroupAccountNamesForUserGroupRequest extends Model
     /**
      * @var string
      */
+    public $hostGroupId;
+
+    /**
+     * @var string
+     */
     public $instanceId;
 
     /**
@@ -22,16 +27,11 @@ class ListHostGroupAccountNamesForUserGroupRequest extends Model
      * @var string
      */
     public $userGroupId;
-
-    /**
-     * @var string
-     */
-    public $hostGroupId;
     protected $_name = [
+        'hostGroupId' => 'HostGroupId',
         'instanceId'  => 'InstanceId',
         'regionId'    => 'RegionId',
         'userGroupId' => 'UserGroupId',
-        'hostGroupId' => 'HostGroupId',
     ];
 
     public function validate()
@@ -41,6 +41,9 @@ class ListHostGroupAccountNamesForUserGroupRequest extends Model
     public function toMap()
     {
         $res = [];
+        if (null !== $this->hostGroupId) {
+            $res['HostGroupId'] = $this->hostGroupId;
+        }
         if (null !== $this->instanceId) {
             $res['InstanceId'] = $this->instanceId;
         }
@@ -49,9 +52,6 @@ class ListHostGroupAccountNamesForUserGroupRequest extends Model
         }
         if (null !== $this->userGroupId) {
             $res['UserGroupId'] = $this->userGroupId;
-        }
-        if (null !== $this->hostGroupId) {
-            $res['HostGroupId'] = $this->hostGroupId;
         }
 
         return $res;
@@ -65,6 +65,9 @@ class ListHostGroupAccountNamesForUserGroupRequest extends Model
     public static function fromMap($map = [])
     {
         $model = new self();
+        if (isset($map['HostGroupId'])) {
+            $model->hostGroupId = $map['HostGroupId'];
+        }
         if (isset($map['InstanceId'])) {
             $model->instanceId = $map['InstanceId'];
         }
@@ -73,9 +76,6 @@ class ListHostGroupAccountNamesForUserGroupRequest extends Model
         }
         if (isset($map['UserGroupId'])) {
             $model->userGroupId = $map['UserGroupId'];
-        }
-        if (isset($map['HostGroupId'])) {
-            $model->hostGroupId = $map['HostGroupId'];
         }
 
         return $model;

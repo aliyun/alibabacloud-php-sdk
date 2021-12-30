@@ -15,9 +15,9 @@ class results extends Model
     public $code;
 
     /**
-     * @var string
+     * @var hostAccountNames[]
      */
-    public $message;
+    public $hostAccountNames;
 
     /**
      * @var string
@@ -27,18 +27,18 @@ class results extends Model
     /**
      * @var string
      */
-    public $userGroupId;
+    public $message;
 
     /**
-     * @var hostAccountNames[]
+     * @var string
      */
-    public $hostAccountNames;
+    public $userGroupId;
     protected $_name = [
         'code'             => 'Code',
-        'message'          => 'Message',
-        'hostGroupId'      => 'HostGroupId',
-        'userGroupId'      => 'UserGroupId',
         'hostAccountNames' => 'HostAccountNames',
+        'hostGroupId'      => 'HostGroupId',
+        'message'          => 'Message',
+        'userGroupId'      => 'UserGroupId',
     ];
 
     public function validate()
@@ -51,15 +51,6 @@ class results extends Model
         if (null !== $this->code) {
             $res['Code'] = $this->code;
         }
-        if (null !== $this->message) {
-            $res['Message'] = $this->message;
-        }
-        if (null !== $this->hostGroupId) {
-            $res['HostGroupId'] = $this->hostGroupId;
-        }
-        if (null !== $this->userGroupId) {
-            $res['UserGroupId'] = $this->userGroupId;
-        }
         if (null !== $this->hostAccountNames) {
             $res['HostAccountNames'] = [];
             if (null !== $this->hostAccountNames && \is_array($this->hostAccountNames)) {
@@ -68,6 +59,15 @@ class results extends Model
                     $res['HostAccountNames'][$n++] = null !== $item ? $item->toMap() : $item;
                 }
             }
+        }
+        if (null !== $this->hostGroupId) {
+            $res['HostGroupId'] = $this->hostGroupId;
+        }
+        if (null !== $this->message) {
+            $res['Message'] = $this->message;
+        }
+        if (null !== $this->userGroupId) {
+            $res['UserGroupId'] = $this->userGroupId;
         }
 
         return $res;
@@ -84,15 +84,6 @@ class results extends Model
         if (isset($map['Code'])) {
             $model->code = $map['Code'];
         }
-        if (isset($map['Message'])) {
-            $model->message = $map['Message'];
-        }
-        if (isset($map['HostGroupId'])) {
-            $model->hostGroupId = $map['HostGroupId'];
-        }
-        if (isset($map['UserGroupId'])) {
-            $model->userGroupId = $map['UserGroupId'];
-        }
         if (isset($map['HostAccountNames'])) {
             if (!empty($map['HostAccountNames'])) {
                 $model->hostAccountNames = [];
@@ -101,6 +92,15 @@ class results extends Model
                     $model->hostAccountNames[$n++] = null !== $item ? hostAccountNames::fromMap($item) : $item;
                 }
             }
+        }
+        if (isset($map['HostGroupId'])) {
+            $model->hostGroupId = $map['HostGroupId'];
+        }
+        if (isset($map['Message'])) {
+            $model->message = $map['Message'];
+        }
+        if (isset($map['UserGroupId'])) {
+            $model->userGroupId = $map['UserGroupId'];
         }
 
         return $model;

@@ -11,12 +11,7 @@ class ModifyHostsActiveAddressTypeRequest extends Model
     /**
      * @var string
      */
-    public $instanceId;
-
-    /**
-     * @var string
-     */
-    public $regionId;
+    public $activeAddressType;
 
     /**
      * @var string
@@ -26,12 +21,17 @@ class ModifyHostsActiveAddressTypeRequest extends Model
     /**
      * @var string
      */
-    public $activeAddressType;
+    public $instanceId;
+
+    /**
+     * @var string
+     */
+    public $regionId;
     protected $_name = [
+        'activeAddressType' => 'ActiveAddressType',
+        'hostIds'           => 'HostIds',
         'instanceId'        => 'InstanceId',
         'regionId'          => 'RegionId',
-        'hostIds'           => 'HostIds',
-        'activeAddressType' => 'ActiveAddressType',
     ];
 
     public function validate()
@@ -41,17 +41,17 @@ class ModifyHostsActiveAddressTypeRequest extends Model
     public function toMap()
     {
         $res = [];
+        if (null !== $this->activeAddressType) {
+            $res['ActiveAddressType'] = $this->activeAddressType;
+        }
+        if (null !== $this->hostIds) {
+            $res['HostIds'] = $this->hostIds;
+        }
         if (null !== $this->instanceId) {
             $res['InstanceId'] = $this->instanceId;
         }
         if (null !== $this->regionId) {
             $res['RegionId'] = $this->regionId;
-        }
-        if (null !== $this->hostIds) {
-            $res['HostIds'] = $this->hostIds;
-        }
-        if (null !== $this->activeAddressType) {
-            $res['ActiveAddressType'] = $this->activeAddressType;
         }
 
         return $res;
@@ -65,17 +65,17 @@ class ModifyHostsActiveAddressTypeRequest extends Model
     public static function fromMap($map = [])
     {
         $model = new self();
+        if (isset($map['ActiveAddressType'])) {
+            $model->activeAddressType = $map['ActiveAddressType'];
+        }
+        if (isset($map['HostIds'])) {
+            $model->hostIds = $map['HostIds'];
+        }
         if (isset($map['InstanceId'])) {
             $model->instanceId = $map['InstanceId'];
         }
         if (isset($map['RegionId'])) {
             $model->regionId = $map['RegionId'];
-        }
-        if (isset($map['HostIds'])) {
-            $model->hostIds = $map['HostIds'];
-        }
-        if (isset($map['ActiveAddressType'])) {
-            $model->activeAddressType = $map['ActiveAddressType'];
         }
 
         return $model;

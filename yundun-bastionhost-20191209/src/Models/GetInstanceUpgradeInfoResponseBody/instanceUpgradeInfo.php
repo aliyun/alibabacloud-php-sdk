@@ -11,24 +11,14 @@ use AlibabaCloud\Tea\Model;
 class instanceUpgradeInfo extends Model
 {
     /**
-     * @var string
-     */
-    public $upgradeMode;
-
-    /**
-     * @var bool
-     */
-    public $operable;
-
-    /**
      * @var int
      */
     public $aliUid;
 
     /**
-     * @var int
+     * @var candidatePeriodList[]
      */
-    public $latestStartTime;
+    public $candidatePeriodList;
 
     /**
      * @var string
@@ -41,6 +31,21 @@ class instanceUpgradeInfo extends Model
     public $instanceId;
 
     /**
+     * @var invalidPeriodList[]
+     */
+    public $invalidPeriodList;
+
+    /**
+     * @var int
+     */
+    public $latestStartTime;
+
+    /**
+     * @var bool
+     */
+    public $operable;
+
+    /**
      * @var int
      */
     public $periodInterval;
@@ -48,34 +53,29 @@ class instanceUpgradeInfo extends Model
     /**
      * @var int
      */
-    public $upgradeStartTime;
+    public $upgradeEndTime;
+
+    /**
+     * @var string
+     */
+    public $upgradeMode;
 
     /**
      * @var int
      */
-    public $upgradeEndTime;
-
-    /**
-     * @var candidatePeriodList[]
-     */
-    public $candidatePeriodList;
-
-    /**
-     * @var invalidPeriodList[]
-     */
-    public $invalidPeriodList;
+    public $upgradeStartTime;
     protected $_name = [
-        'upgradeMode'         => 'UpgradeMode',
-        'operable'            => 'Operable',
         'aliUid'              => 'AliUid',
-        'latestStartTime'     => 'LatestStartTime',
+        'candidatePeriodList' => 'CandidatePeriodList',
         'imageVersion'        => 'ImageVersion',
         'instanceId'          => 'InstanceId',
-        'periodInterval'      => 'PeriodInterval',
-        'upgradeStartTime'    => 'UpgradeStartTime',
-        'upgradeEndTime'      => 'UpgradeEndTime',
-        'candidatePeriodList' => 'CandidatePeriodList',
         'invalidPeriodList'   => 'InvalidPeriodList',
+        'latestStartTime'     => 'LatestStartTime',
+        'operable'            => 'Operable',
+        'periodInterval'      => 'PeriodInterval',
+        'upgradeEndTime'      => 'UpgradeEndTime',
+        'upgradeMode'         => 'UpgradeMode',
+        'upgradeStartTime'    => 'UpgradeStartTime',
     ];
 
     public function validate()
@@ -85,32 +85,8 @@ class instanceUpgradeInfo extends Model
     public function toMap()
     {
         $res = [];
-        if (null !== $this->upgradeMode) {
-            $res['UpgradeMode'] = $this->upgradeMode;
-        }
-        if (null !== $this->operable) {
-            $res['Operable'] = $this->operable;
-        }
         if (null !== $this->aliUid) {
             $res['AliUid'] = $this->aliUid;
-        }
-        if (null !== $this->latestStartTime) {
-            $res['LatestStartTime'] = $this->latestStartTime;
-        }
-        if (null !== $this->imageVersion) {
-            $res['ImageVersion'] = $this->imageVersion;
-        }
-        if (null !== $this->instanceId) {
-            $res['InstanceId'] = $this->instanceId;
-        }
-        if (null !== $this->periodInterval) {
-            $res['PeriodInterval'] = $this->periodInterval;
-        }
-        if (null !== $this->upgradeStartTime) {
-            $res['UpgradeStartTime'] = $this->upgradeStartTime;
-        }
-        if (null !== $this->upgradeEndTime) {
-            $res['UpgradeEndTime'] = $this->upgradeEndTime;
         }
         if (null !== $this->candidatePeriodList) {
             $res['CandidatePeriodList'] = [];
@@ -121,6 +97,12 @@ class instanceUpgradeInfo extends Model
                 }
             }
         }
+        if (null !== $this->imageVersion) {
+            $res['ImageVersion'] = $this->imageVersion;
+        }
+        if (null !== $this->instanceId) {
+            $res['InstanceId'] = $this->instanceId;
+        }
         if (null !== $this->invalidPeriodList) {
             $res['InvalidPeriodList'] = [];
             if (null !== $this->invalidPeriodList && \is_array($this->invalidPeriodList)) {
@@ -129,6 +111,24 @@ class instanceUpgradeInfo extends Model
                     $res['InvalidPeriodList'][$n++] = null !== $item ? $item->toMap() : $item;
                 }
             }
+        }
+        if (null !== $this->latestStartTime) {
+            $res['LatestStartTime'] = $this->latestStartTime;
+        }
+        if (null !== $this->operable) {
+            $res['Operable'] = $this->operable;
+        }
+        if (null !== $this->periodInterval) {
+            $res['PeriodInterval'] = $this->periodInterval;
+        }
+        if (null !== $this->upgradeEndTime) {
+            $res['UpgradeEndTime'] = $this->upgradeEndTime;
+        }
+        if (null !== $this->upgradeMode) {
+            $res['UpgradeMode'] = $this->upgradeMode;
+        }
+        if (null !== $this->upgradeStartTime) {
+            $res['UpgradeStartTime'] = $this->upgradeStartTime;
         }
 
         return $res;
@@ -142,32 +142,8 @@ class instanceUpgradeInfo extends Model
     public static function fromMap($map = [])
     {
         $model = new self();
-        if (isset($map['UpgradeMode'])) {
-            $model->upgradeMode = $map['UpgradeMode'];
-        }
-        if (isset($map['Operable'])) {
-            $model->operable = $map['Operable'];
-        }
         if (isset($map['AliUid'])) {
             $model->aliUid = $map['AliUid'];
-        }
-        if (isset($map['LatestStartTime'])) {
-            $model->latestStartTime = $map['LatestStartTime'];
-        }
-        if (isset($map['ImageVersion'])) {
-            $model->imageVersion = $map['ImageVersion'];
-        }
-        if (isset($map['InstanceId'])) {
-            $model->instanceId = $map['InstanceId'];
-        }
-        if (isset($map['PeriodInterval'])) {
-            $model->periodInterval = $map['PeriodInterval'];
-        }
-        if (isset($map['UpgradeStartTime'])) {
-            $model->upgradeStartTime = $map['UpgradeStartTime'];
-        }
-        if (isset($map['UpgradeEndTime'])) {
-            $model->upgradeEndTime = $map['UpgradeEndTime'];
         }
         if (isset($map['CandidatePeriodList'])) {
             if (!empty($map['CandidatePeriodList'])) {
@@ -178,6 +154,12 @@ class instanceUpgradeInfo extends Model
                 }
             }
         }
+        if (isset($map['ImageVersion'])) {
+            $model->imageVersion = $map['ImageVersion'];
+        }
+        if (isset($map['InstanceId'])) {
+            $model->instanceId = $map['InstanceId'];
+        }
         if (isset($map['InvalidPeriodList'])) {
             if (!empty($map['InvalidPeriodList'])) {
                 $model->invalidPeriodList = [];
@@ -186,6 +168,24 @@ class instanceUpgradeInfo extends Model
                     $model->invalidPeriodList[$n++] = null !== $item ? invalidPeriodList::fromMap($item) : $item;
                 }
             }
+        }
+        if (isset($map['LatestStartTime'])) {
+            $model->latestStartTime = $map['LatestStartTime'];
+        }
+        if (isset($map['Operable'])) {
+            $model->operable = $map['Operable'];
+        }
+        if (isset($map['PeriodInterval'])) {
+            $model->periodInterval = $map['PeriodInterval'];
+        }
+        if (isset($map['UpgradeEndTime'])) {
+            $model->upgradeEndTime = $map['UpgradeEndTime'];
+        }
+        if (isset($map['UpgradeMode'])) {
+            $model->upgradeMode = $map['UpgradeMode'];
+        }
+        if (isset($map['UpgradeStartTime'])) {
+            $model->upgradeStartTime = $map['UpgradeStartTime'];
         }
 
         return $model;

@@ -11,12 +11,12 @@ class user extends Model
     /**
      * @var string
      */
-    public $displayName;
+    public $comment;
 
     /**
      * @var string
      */
-    public $comment;
+    public $displayName;
 
     /**
      * @var string
@@ -36,17 +36,7 @@ class user extends Model
     /**
      * @var string
      */
-    public $userId;
-
-    /**
-     * @var string
-     */
     public $source;
-
-    /**
-     * @var string
-     */
-    public $userName;
 
     /**
      * @var string
@@ -54,19 +44,29 @@ class user extends Model
     public $sourceUserId;
 
     /**
+     * @var string
+     */
+    public $userId;
+
+    /**
+     * @var string
+     */
+    public $userName;
+
+    /**
      * @var string[]
      */
     public $userState;
     protected $_name = [
-        'displayName'       => 'DisplayName',
         'comment'           => 'Comment',
+        'displayName'       => 'DisplayName',
         'email'             => 'Email',
         'mobile'            => 'Mobile',
         'mobileCountryCode' => 'MobileCountryCode',
-        'userId'            => 'UserId',
         'source'            => 'Source',
-        'userName'          => 'UserName',
         'sourceUserId'      => 'SourceUserId',
+        'userId'            => 'UserId',
+        'userName'          => 'UserName',
         'userState'         => 'UserState',
     ];
 
@@ -77,11 +77,11 @@ class user extends Model
     public function toMap()
     {
         $res = [];
-        if (null !== $this->displayName) {
-            $res['DisplayName'] = $this->displayName;
-        }
         if (null !== $this->comment) {
             $res['Comment'] = $this->comment;
+        }
+        if (null !== $this->displayName) {
+            $res['DisplayName'] = $this->displayName;
         }
         if (null !== $this->email) {
             $res['Email'] = $this->email;
@@ -92,17 +92,17 @@ class user extends Model
         if (null !== $this->mobileCountryCode) {
             $res['MobileCountryCode'] = $this->mobileCountryCode;
         }
-        if (null !== $this->userId) {
-            $res['UserId'] = $this->userId;
-        }
         if (null !== $this->source) {
             $res['Source'] = $this->source;
         }
-        if (null !== $this->userName) {
-            $res['UserName'] = $this->userName;
-        }
         if (null !== $this->sourceUserId) {
             $res['SourceUserId'] = $this->sourceUserId;
+        }
+        if (null !== $this->userId) {
+            $res['UserId'] = $this->userId;
+        }
+        if (null !== $this->userName) {
+            $res['UserName'] = $this->userName;
         }
         if (null !== $this->userState) {
             $res['UserState'] = $this->userState;
@@ -119,11 +119,11 @@ class user extends Model
     public static function fromMap($map = [])
     {
         $model = new self();
-        if (isset($map['DisplayName'])) {
-            $model->displayName = $map['DisplayName'];
-        }
         if (isset($map['Comment'])) {
             $model->comment = $map['Comment'];
+        }
+        if (isset($map['DisplayName'])) {
+            $model->displayName = $map['DisplayName'];
         }
         if (isset($map['Email'])) {
             $model->email = $map['Email'];
@@ -134,17 +134,17 @@ class user extends Model
         if (isset($map['MobileCountryCode'])) {
             $model->mobileCountryCode = $map['MobileCountryCode'];
         }
-        if (isset($map['UserId'])) {
-            $model->userId = $map['UserId'];
-        }
         if (isset($map['Source'])) {
             $model->source = $map['Source'];
         }
-        if (isset($map['UserName'])) {
-            $model->userName = $map['UserName'];
-        }
         if (isset($map['SourceUserId'])) {
             $model->sourceUserId = $map['SourceUserId'];
+        }
+        if (isset($map['UserId'])) {
+            $model->userId = $map['UserId'];
+        }
+        if (isset($map['UserName'])) {
+            $model->userName = $map['UserName'];
         }
         if (isset($map['UserState'])) {
             if (!empty($map['UserState'])) {

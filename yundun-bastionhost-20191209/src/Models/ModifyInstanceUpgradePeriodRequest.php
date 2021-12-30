@@ -11,12 +11,12 @@ class ModifyInstanceUpgradePeriodRequest extends Model
     /**
      * @var string
      */
-    public $lang;
+    public $instanceId;
 
     /**
      * @var string
      */
-    public $instanceId;
+    public $lang;
 
     /**
      * @var string
@@ -26,18 +26,18 @@ class ModifyInstanceUpgradePeriodRequest extends Model
     /**
      * @var string
      */
-    public $upgradeStartTime;
+    public $upgradeMode;
 
     /**
      * @var string
      */
-    public $upgradeMode;
+    public $upgradeStartTime;
     protected $_name = [
-        'lang'             => 'Lang',
         'instanceId'       => 'InstanceId',
+        'lang'             => 'Lang',
         'regionId'         => 'RegionId',
-        'upgradeStartTime' => 'UpgradeStartTime',
         'upgradeMode'      => 'UpgradeMode',
+        'upgradeStartTime' => 'UpgradeStartTime',
     ];
 
     public function validate()
@@ -47,20 +47,20 @@ class ModifyInstanceUpgradePeriodRequest extends Model
     public function toMap()
     {
         $res = [];
-        if (null !== $this->lang) {
-            $res['Lang'] = $this->lang;
-        }
         if (null !== $this->instanceId) {
             $res['InstanceId'] = $this->instanceId;
+        }
+        if (null !== $this->lang) {
+            $res['Lang'] = $this->lang;
         }
         if (null !== $this->regionId) {
             $res['RegionId'] = $this->regionId;
         }
-        if (null !== $this->upgradeStartTime) {
-            $res['UpgradeStartTime'] = $this->upgradeStartTime;
-        }
         if (null !== $this->upgradeMode) {
             $res['UpgradeMode'] = $this->upgradeMode;
+        }
+        if (null !== $this->upgradeStartTime) {
+            $res['UpgradeStartTime'] = $this->upgradeStartTime;
         }
 
         return $res;
@@ -74,20 +74,20 @@ class ModifyInstanceUpgradePeriodRequest extends Model
     public static function fromMap($map = [])
     {
         $model = new self();
-        if (isset($map['Lang'])) {
-            $model->lang = $map['Lang'];
-        }
         if (isset($map['InstanceId'])) {
             $model->instanceId = $map['InstanceId'];
+        }
+        if (isset($map['Lang'])) {
+            $model->lang = $map['Lang'];
         }
         if (isset($map['RegionId'])) {
             $model->regionId = $map['RegionId'];
         }
-        if (isset($map['UpgradeStartTime'])) {
-            $model->upgradeStartTime = $map['UpgradeStartTime'];
-        }
         if (isset($map['UpgradeMode'])) {
             $model->upgradeMode = $map['UpgradeMode'];
+        }
+        if (isset($map['UpgradeStartTime'])) {
+            $model->upgradeStartTime = $map['UpgradeStartTime'];
         }
 
         return $model;

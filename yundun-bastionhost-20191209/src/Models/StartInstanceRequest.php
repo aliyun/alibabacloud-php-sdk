@@ -16,22 +16,22 @@ class StartInstanceRequest extends Model
     /**
      * @var string
      */
-    public $vswitchId;
-
-    /**
-     * @var string
-     */
     public $regionId;
 
     /**
      * @var string[]
      */
     public $securityGroupIds;
+
+    /**
+     * @var string
+     */
+    public $vswitchId;
     protected $_name = [
         'instanceId'       => 'InstanceId',
-        'vswitchId'        => 'VswitchId',
         'regionId'         => 'RegionId',
         'securityGroupIds' => 'SecurityGroupIds',
+        'vswitchId'        => 'VswitchId',
     ];
 
     public function validate()
@@ -44,14 +44,14 @@ class StartInstanceRequest extends Model
         if (null !== $this->instanceId) {
             $res['InstanceId'] = $this->instanceId;
         }
-        if (null !== $this->vswitchId) {
-            $res['VswitchId'] = $this->vswitchId;
-        }
         if (null !== $this->regionId) {
             $res['RegionId'] = $this->regionId;
         }
         if (null !== $this->securityGroupIds) {
             $res['SecurityGroupIds'] = $this->securityGroupIds;
+        }
+        if (null !== $this->vswitchId) {
+            $res['VswitchId'] = $this->vswitchId;
         }
 
         return $res;
@@ -68,9 +68,6 @@ class StartInstanceRequest extends Model
         if (isset($map['InstanceId'])) {
             $model->instanceId = $map['InstanceId'];
         }
-        if (isset($map['VswitchId'])) {
-            $model->vswitchId = $map['VswitchId'];
-        }
         if (isset($map['RegionId'])) {
             $model->regionId = $map['RegionId'];
         }
@@ -78,6 +75,9 @@ class StartInstanceRequest extends Model
             if (!empty($map['SecurityGroupIds'])) {
                 $model->securityGroupIds = $map['SecurityGroupIds'];
             }
+        }
+        if (isset($map['VswitchId'])) {
+            $model->vswitchId = $map['VswitchId'];
         }
 
         return $model;

@@ -10,6 +10,16 @@ use AlibabaCloud\Tea\Model;
 class DescribeInstancesRequest extends Model
 {
     /**
+     * @var string[]
+     */
+    public $instanceId;
+
+    /**
+     * @var string
+     */
+    public $instanceStatus;
+
+    /**
      * @var int
      */
     public $pageNumber;
@@ -27,29 +37,19 @@ class DescribeInstancesRequest extends Model
     /**
      * @var string
      */
-    public $instanceStatus;
-
-    /**
-     * @var string
-     */
     public $resourceGroupId;
-
-    /**
-     * @var string[]
-     */
-    public $instanceId;
 
     /**
      * @var tag[]
      */
     public $tag;
     protected $_name = [
+        'instanceId'      => 'InstanceId',
+        'instanceStatus'  => 'InstanceStatus',
         'pageNumber'      => 'PageNumber',
         'pageSize'        => 'PageSize',
         'regionId'        => 'RegionId',
-        'instanceStatus'  => 'InstanceStatus',
         'resourceGroupId' => 'ResourceGroupId',
-        'instanceId'      => 'InstanceId',
         'tag'             => 'Tag',
     ];
 
@@ -60,6 +60,12 @@ class DescribeInstancesRequest extends Model
     public function toMap()
     {
         $res = [];
+        if (null !== $this->instanceId) {
+            $res['InstanceId'] = $this->instanceId;
+        }
+        if (null !== $this->instanceStatus) {
+            $res['InstanceStatus'] = $this->instanceStatus;
+        }
         if (null !== $this->pageNumber) {
             $res['PageNumber'] = $this->pageNumber;
         }
@@ -69,14 +75,8 @@ class DescribeInstancesRequest extends Model
         if (null !== $this->regionId) {
             $res['RegionId'] = $this->regionId;
         }
-        if (null !== $this->instanceStatus) {
-            $res['InstanceStatus'] = $this->instanceStatus;
-        }
         if (null !== $this->resourceGroupId) {
             $res['ResourceGroupId'] = $this->resourceGroupId;
-        }
-        if (null !== $this->instanceId) {
-            $res['InstanceId'] = $this->instanceId;
         }
         if (null !== $this->tag) {
             $res['Tag'] = [];
@@ -99,6 +99,14 @@ class DescribeInstancesRequest extends Model
     public static function fromMap($map = [])
     {
         $model = new self();
+        if (isset($map['InstanceId'])) {
+            if (!empty($map['InstanceId'])) {
+                $model->instanceId = $map['InstanceId'];
+            }
+        }
+        if (isset($map['InstanceStatus'])) {
+            $model->instanceStatus = $map['InstanceStatus'];
+        }
         if (isset($map['PageNumber'])) {
             $model->pageNumber = $map['PageNumber'];
         }
@@ -108,16 +116,8 @@ class DescribeInstancesRequest extends Model
         if (isset($map['RegionId'])) {
             $model->regionId = $map['RegionId'];
         }
-        if (isset($map['InstanceStatus'])) {
-            $model->instanceStatus = $map['InstanceStatus'];
-        }
         if (isset($map['ResourceGroupId'])) {
             $model->resourceGroupId = $map['ResourceGroupId'];
-        }
-        if (isset($map['InstanceId'])) {
-            if (!empty($map['InstanceId'])) {
-                $model->instanceId = $map['InstanceId'];
-            }
         }
         if (isset($map['Tag'])) {
             if (!empty($map['Tag'])) {

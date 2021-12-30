@@ -10,22 +10,22 @@ use AlibabaCloud\Tea\Model;
 class ListUserGroupsResponseBody extends Model
 {
     /**
-     * @var int
-     */
-    public $totalCount;
-
-    /**
      * @var string
      */
     public $requestId;
+
+    /**
+     * @var int
+     */
+    public $totalCount;
 
     /**
      * @var userGroups[]
      */
     public $userGroups;
     protected $_name = [
-        'totalCount' => 'TotalCount',
         'requestId'  => 'RequestId',
+        'totalCount' => 'TotalCount',
         'userGroups' => 'UserGroups',
     ];
 
@@ -36,11 +36,11 @@ class ListUserGroupsResponseBody extends Model
     public function toMap()
     {
         $res = [];
-        if (null !== $this->totalCount) {
-            $res['TotalCount'] = $this->totalCount;
-        }
         if (null !== $this->requestId) {
             $res['RequestId'] = $this->requestId;
+        }
+        if (null !== $this->totalCount) {
+            $res['TotalCount'] = $this->totalCount;
         }
         if (null !== $this->userGroups) {
             $res['UserGroups'] = [];
@@ -63,11 +63,11 @@ class ListUserGroupsResponseBody extends Model
     public static function fromMap($map = [])
     {
         $model = new self();
-        if (isset($map['TotalCount'])) {
-            $model->totalCount = $map['TotalCount'];
-        }
         if (isset($map['RequestId'])) {
             $model->requestId = $map['RequestId'];
+        }
+        if (isset($map['TotalCount'])) {
+            $model->totalCount = $map['TotalCount'];
         }
         if (isset($map['UserGroups'])) {
             if (!empty($map['UserGroups'])) {

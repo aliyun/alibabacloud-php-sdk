@@ -9,9 +9,9 @@ use AlibabaCloud\Tea\Model;
 class hostGroups extends Model
 {
     /**
-     * @var int
+     * @var string
      */
-    public $memberCount;
+    public $comment;
 
     /**
      * @var string
@@ -21,17 +21,17 @@ class hostGroups extends Model
     /**
      * @var string
      */
-    public $comment;
+    public $hostGroupName;
 
     /**
-     * @var string
+     * @var int
      */
-    public $hostGroupName;
+    public $memberCount;
     protected $_name = [
-        'memberCount'   => 'MemberCount',
-        'hostGroupId'   => 'HostGroupId',
         'comment'       => 'Comment',
+        'hostGroupId'   => 'HostGroupId',
         'hostGroupName' => 'HostGroupName',
+        'memberCount'   => 'MemberCount',
     ];
 
     public function validate()
@@ -41,17 +41,17 @@ class hostGroups extends Model
     public function toMap()
     {
         $res = [];
-        if (null !== $this->memberCount) {
-            $res['MemberCount'] = $this->memberCount;
+        if (null !== $this->comment) {
+            $res['Comment'] = $this->comment;
         }
         if (null !== $this->hostGroupId) {
             $res['HostGroupId'] = $this->hostGroupId;
         }
-        if (null !== $this->comment) {
-            $res['Comment'] = $this->comment;
-        }
         if (null !== $this->hostGroupName) {
             $res['HostGroupName'] = $this->hostGroupName;
+        }
+        if (null !== $this->memberCount) {
+            $res['MemberCount'] = $this->memberCount;
         }
 
         return $res;
@@ -65,17 +65,17 @@ class hostGroups extends Model
     public static function fromMap($map = [])
     {
         $model = new self();
-        if (isset($map['MemberCount'])) {
-            $model->memberCount = $map['MemberCount'];
+        if (isset($map['Comment'])) {
+            $model->comment = $map['Comment'];
         }
         if (isset($map['HostGroupId'])) {
             $model->hostGroupId = $map['HostGroupId'];
         }
-        if (isset($map['Comment'])) {
-            $model->comment = $map['Comment'];
-        }
         if (isset($map['HostGroupName'])) {
             $model->hostGroupName = $map['HostGroupName'];
+        }
+        if (isset($map['MemberCount'])) {
+            $model->memberCount = $map['MemberCount'];
         }
 
         return $model;

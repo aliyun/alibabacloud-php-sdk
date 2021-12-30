@@ -9,17 +9,17 @@ use AlibabaCloud\Tea\Model;
 class ListHostGroupAccountNamesForUserResponseBody extends Model
 {
     /**
-     * @var string
-     */
-    public $requestId;
-
-    /**
      * @var string[]
      */
     public $hostAccountNames;
+
+    /**
+     * @var string
+     */
+    public $requestId;
     protected $_name = [
-        'requestId'        => 'RequestId',
         'hostAccountNames' => 'HostAccountNames',
+        'requestId'        => 'RequestId',
     ];
 
     public function validate()
@@ -29,11 +29,11 @@ class ListHostGroupAccountNamesForUserResponseBody extends Model
     public function toMap()
     {
         $res = [];
-        if (null !== $this->requestId) {
-            $res['RequestId'] = $this->requestId;
-        }
         if (null !== $this->hostAccountNames) {
             $res['HostAccountNames'] = $this->hostAccountNames;
+        }
+        if (null !== $this->requestId) {
+            $res['RequestId'] = $this->requestId;
         }
 
         return $res;
@@ -47,13 +47,13 @@ class ListHostGroupAccountNamesForUserResponseBody extends Model
     public static function fromMap($map = [])
     {
         $model = new self();
-        if (isset($map['RequestId'])) {
-            $model->requestId = $map['RequestId'];
-        }
         if (isset($map['HostAccountNames'])) {
             if (!empty($map['HostAccountNames'])) {
                 $model->hostAccountNames = $map['HostAccountNames'];
             }
+        }
+        if (isset($map['RequestId'])) {
+            $model->requestId = $map['RequestId'];
         }
 
         return $model;

@@ -11,17 +11,17 @@ class ListHostAccountsRequest extends Model
     /**
      * @var string
      */
-    public $instanceId;
-
-    /**
-     * @var string
-     */
-    public $regionId;
+    public $hostAccountName;
 
     /**
      * @var string
      */
     public $hostId;
+
+    /**
+     * @var string
+     */
+    public $instanceId;
 
     /**
      * @var string
@@ -36,20 +36,20 @@ class ListHostAccountsRequest extends Model
     /**
      * @var string
      */
-    public $hostAccountName;
+    public $protocolName;
 
     /**
      * @var string
      */
-    public $protocolName;
+    public $regionId;
     protected $_name = [
-        'instanceId'      => 'InstanceId',
-        'regionId'        => 'RegionId',
+        'hostAccountName' => 'HostAccountName',
         'hostId'          => 'HostId',
+        'instanceId'      => 'InstanceId',
         'pageNumber'      => 'PageNumber',
         'pageSize'        => 'PageSize',
-        'hostAccountName' => 'HostAccountName',
         'protocolName'    => 'ProtocolName',
+        'regionId'        => 'RegionId',
     ];
 
     public function validate()
@@ -59,14 +59,14 @@ class ListHostAccountsRequest extends Model
     public function toMap()
     {
         $res = [];
-        if (null !== $this->instanceId) {
-            $res['InstanceId'] = $this->instanceId;
-        }
-        if (null !== $this->regionId) {
-            $res['RegionId'] = $this->regionId;
+        if (null !== $this->hostAccountName) {
+            $res['HostAccountName'] = $this->hostAccountName;
         }
         if (null !== $this->hostId) {
             $res['HostId'] = $this->hostId;
+        }
+        if (null !== $this->instanceId) {
+            $res['InstanceId'] = $this->instanceId;
         }
         if (null !== $this->pageNumber) {
             $res['PageNumber'] = $this->pageNumber;
@@ -74,11 +74,11 @@ class ListHostAccountsRequest extends Model
         if (null !== $this->pageSize) {
             $res['PageSize'] = $this->pageSize;
         }
-        if (null !== $this->hostAccountName) {
-            $res['HostAccountName'] = $this->hostAccountName;
-        }
         if (null !== $this->protocolName) {
             $res['ProtocolName'] = $this->protocolName;
+        }
+        if (null !== $this->regionId) {
+            $res['RegionId'] = $this->regionId;
         }
 
         return $res;
@@ -92,14 +92,14 @@ class ListHostAccountsRequest extends Model
     public static function fromMap($map = [])
     {
         $model = new self();
-        if (isset($map['InstanceId'])) {
-            $model->instanceId = $map['InstanceId'];
-        }
-        if (isset($map['RegionId'])) {
-            $model->regionId = $map['RegionId'];
+        if (isset($map['HostAccountName'])) {
+            $model->hostAccountName = $map['HostAccountName'];
         }
         if (isset($map['HostId'])) {
             $model->hostId = $map['HostId'];
+        }
+        if (isset($map['InstanceId'])) {
+            $model->instanceId = $map['InstanceId'];
         }
         if (isset($map['PageNumber'])) {
             $model->pageNumber = $map['PageNumber'];
@@ -107,11 +107,11 @@ class ListHostAccountsRequest extends Model
         if (isset($map['PageSize'])) {
             $model->pageSize = $map['PageSize'];
         }
-        if (isset($map['HostAccountName'])) {
-            $model->hostAccountName = $map['HostAccountName'];
-        }
         if (isset($map['ProtocolName'])) {
             $model->protocolName = $map['ProtocolName'];
+        }
+        if (isset($map['RegionId'])) {
+            $model->regionId = $map['RegionId'];
         }
 
         return $model;

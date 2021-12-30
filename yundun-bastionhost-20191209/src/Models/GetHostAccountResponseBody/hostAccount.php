@@ -16,12 +16,7 @@ class hostAccount extends Model
     /**
      * @var string
      */
-    public $privateKeyFingerprint;
-
-    /**
-     * @var string
-     */
-    public $protocolName;
+    public $hostAccountId;
 
     /**
      * @var string
@@ -31,19 +26,36 @@ class hostAccount extends Model
     /**
      * @var string
      */
-    public $hostAccountId;
+    public $hostId;
 
     /**
      * @var string
      */
-    public $hostId;
+    public $hostShareKeyId;
+
+    /**
+     * @var string
+     */
+    public $hostShareKeyName;
+
+    /**
+     * @var string
+     */
+    public $privateKeyFingerprint;
+
+    /**
+     * @var string
+     */
+    public $protocolName;
     protected $_name = [
         'hasPassword'           => 'HasPassword',
+        'hostAccountId'         => 'HostAccountId',
+        'hostAccountName'       => 'HostAccountName',
+        'hostId'                => 'HostId',
+        'hostShareKeyId'        => 'HostShareKeyId',
+        'hostShareKeyName'      => 'HostShareKeyName',
         'privateKeyFingerprint' => 'PrivateKeyFingerprint',
         'protocolName'          => 'ProtocolName',
-        'hostAccountName'       => 'HostAccountName',
-        'hostAccountId'         => 'HostAccountId',
-        'hostId'                => 'HostId',
     ];
 
     public function validate()
@@ -56,20 +68,26 @@ class hostAccount extends Model
         if (null !== $this->hasPassword) {
             $res['HasPassword'] = $this->hasPassword;
         }
+        if (null !== $this->hostAccountId) {
+            $res['HostAccountId'] = $this->hostAccountId;
+        }
+        if (null !== $this->hostAccountName) {
+            $res['HostAccountName'] = $this->hostAccountName;
+        }
+        if (null !== $this->hostId) {
+            $res['HostId'] = $this->hostId;
+        }
+        if (null !== $this->hostShareKeyId) {
+            $res['HostShareKeyId'] = $this->hostShareKeyId;
+        }
+        if (null !== $this->hostShareKeyName) {
+            $res['HostShareKeyName'] = $this->hostShareKeyName;
+        }
         if (null !== $this->privateKeyFingerprint) {
             $res['PrivateKeyFingerprint'] = $this->privateKeyFingerprint;
         }
         if (null !== $this->protocolName) {
             $res['ProtocolName'] = $this->protocolName;
-        }
-        if (null !== $this->hostAccountName) {
-            $res['HostAccountName'] = $this->hostAccountName;
-        }
-        if (null !== $this->hostAccountId) {
-            $res['HostAccountId'] = $this->hostAccountId;
-        }
-        if (null !== $this->hostId) {
-            $res['HostId'] = $this->hostId;
         }
 
         return $res;
@@ -86,20 +104,26 @@ class hostAccount extends Model
         if (isset($map['HasPassword'])) {
             $model->hasPassword = $map['HasPassword'];
         }
+        if (isset($map['HostAccountId'])) {
+            $model->hostAccountId = $map['HostAccountId'];
+        }
+        if (isset($map['HostAccountName'])) {
+            $model->hostAccountName = $map['HostAccountName'];
+        }
+        if (isset($map['HostId'])) {
+            $model->hostId = $map['HostId'];
+        }
+        if (isset($map['HostShareKeyId'])) {
+            $model->hostShareKeyId = $map['HostShareKeyId'];
+        }
+        if (isset($map['HostShareKeyName'])) {
+            $model->hostShareKeyName = $map['HostShareKeyName'];
+        }
         if (isset($map['PrivateKeyFingerprint'])) {
             $model->privateKeyFingerprint = $map['PrivateKeyFingerprint'];
         }
         if (isset($map['ProtocolName'])) {
             $model->protocolName = $map['ProtocolName'];
-        }
-        if (isset($map['HostAccountName'])) {
-            $model->hostAccountName = $map['HostAccountName'];
-        }
-        if (isset($map['HostAccountId'])) {
-            $model->hostAccountId = $map['HostAccountId'];
-        }
-        if (isset($map['HostId'])) {
-            $model->hostId = $map['HostId'];
         }
 
         return $model;

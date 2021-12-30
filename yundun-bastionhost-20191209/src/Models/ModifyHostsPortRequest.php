@@ -11,17 +11,17 @@ class ModifyHostsPortRequest extends Model
     /**
      * @var string
      */
+    public $hostIds;
+
+    /**
+     * @var string
+     */
     public $instanceId;
 
     /**
      * @var string
      */
-    public $regionId;
-
-    /**
-     * @var string
-     */
-    public $hostIds;
+    public $port;
 
     /**
      * @var string
@@ -31,13 +31,13 @@ class ModifyHostsPortRequest extends Model
     /**
      * @var string
      */
-    public $port;
+    public $regionId;
     protected $_name = [
-        'instanceId'   => 'InstanceId',
-        'regionId'     => 'RegionId',
         'hostIds'      => 'HostIds',
-        'protocolName' => 'ProtocolName',
+        'instanceId'   => 'InstanceId',
         'port'         => 'Port',
+        'protocolName' => 'ProtocolName',
+        'regionId'     => 'RegionId',
     ];
 
     public function validate()
@@ -47,20 +47,20 @@ class ModifyHostsPortRequest extends Model
     public function toMap()
     {
         $res = [];
+        if (null !== $this->hostIds) {
+            $res['HostIds'] = $this->hostIds;
+        }
         if (null !== $this->instanceId) {
             $res['InstanceId'] = $this->instanceId;
         }
-        if (null !== $this->regionId) {
-            $res['RegionId'] = $this->regionId;
-        }
-        if (null !== $this->hostIds) {
-            $res['HostIds'] = $this->hostIds;
+        if (null !== $this->port) {
+            $res['Port'] = $this->port;
         }
         if (null !== $this->protocolName) {
             $res['ProtocolName'] = $this->protocolName;
         }
-        if (null !== $this->port) {
-            $res['Port'] = $this->port;
+        if (null !== $this->regionId) {
+            $res['RegionId'] = $this->regionId;
         }
 
         return $res;
@@ -74,20 +74,20 @@ class ModifyHostsPortRequest extends Model
     public static function fromMap($map = [])
     {
         $model = new self();
+        if (isset($map['HostIds'])) {
+            $model->hostIds = $map['HostIds'];
+        }
         if (isset($map['InstanceId'])) {
             $model->instanceId = $map['InstanceId'];
         }
-        if (isset($map['RegionId'])) {
-            $model->regionId = $map['RegionId'];
-        }
-        if (isset($map['HostIds'])) {
-            $model->hostIds = $map['HostIds'];
+        if (isset($map['Port'])) {
+            $model->port = $map['Port'];
         }
         if (isset($map['ProtocolName'])) {
             $model->protocolName = $map['ProtocolName'];
         }
-        if (isset($map['Port'])) {
-            $model->port = $map['Port'];
+        if (isset($map['RegionId'])) {
+            $model->regionId = $map['RegionId'];
         }
 
         return $model;

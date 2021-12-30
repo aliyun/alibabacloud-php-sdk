@@ -11,22 +11,12 @@ class hosts extends Model
     /**
      * @var string
      */
-    public $comment;
-
-    /**
-     * @var string
-     */
     public $activeAddressType;
 
     /**
      * @var string
      */
-    public $hostPublicAddress;
-
-    /**
-     * @var string
-     */
-    public $hostName;
+    public $comment;
 
     /**
      * @var int
@@ -36,7 +26,12 @@ class hosts extends Model
     /**
      * @var string
      */
-    public $source;
+    public $hostId;
+
+    /**
+     * @var string
+     */
+    public $hostName;
 
     /**
      * @var string
@@ -46,34 +41,39 @@ class hosts extends Model
     /**
      * @var string
      */
+    public $hostPublicAddress;
+
+    /**
+     * @var string
+     */
     public $OSType;
 
     /**
      * @var string
      */
-    public $hostId;
-
-    /**
-     * @var string
-     */
-    public $sourceInstanceState;
+    public $source;
 
     /**
      * @var string
      */
     public $sourceInstanceId;
+
+    /**
+     * @var string
+     */
+    public $sourceInstanceState;
     protected $_name = [
-        'comment'             => 'Comment',
         'activeAddressType'   => 'ActiveAddressType',
-        'hostPublicAddress'   => 'HostPublicAddress',
-        'hostName'            => 'HostName',
+        'comment'             => 'Comment',
         'hostAccountCount'    => 'HostAccountCount',
-        'source'              => 'Source',
-        'hostPrivateAddress'  => 'HostPrivateAddress',
-        'OSType'              => 'OSType',
         'hostId'              => 'HostId',
-        'sourceInstanceState' => 'SourceInstanceState',
+        'hostName'            => 'HostName',
+        'hostPrivateAddress'  => 'HostPrivateAddress',
+        'hostPublicAddress'   => 'HostPublicAddress',
+        'OSType'              => 'OSType',
+        'source'              => 'Source',
         'sourceInstanceId'    => 'SourceInstanceId',
+        'sourceInstanceState' => 'SourceInstanceState',
     ];
 
     public function validate()
@@ -83,38 +83,38 @@ class hosts extends Model
     public function toMap()
     {
         $res = [];
-        if (null !== $this->comment) {
-            $res['Comment'] = $this->comment;
-        }
         if (null !== $this->activeAddressType) {
             $res['ActiveAddressType'] = $this->activeAddressType;
         }
-        if (null !== $this->hostPublicAddress) {
-            $res['HostPublicAddress'] = $this->hostPublicAddress;
-        }
-        if (null !== $this->hostName) {
-            $res['HostName'] = $this->hostName;
+        if (null !== $this->comment) {
+            $res['Comment'] = $this->comment;
         }
         if (null !== $this->hostAccountCount) {
             $res['HostAccountCount'] = $this->hostAccountCount;
         }
-        if (null !== $this->source) {
-            $res['Source'] = $this->source;
+        if (null !== $this->hostId) {
+            $res['HostId'] = $this->hostId;
+        }
+        if (null !== $this->hostName) {
+            $res['HostName'] = $this->hostName;
         }
         if (null !== $this->hostPrivateAddress) {
             $res['HostPrivateAddress'] = $this->hostPrivateAddress;
         }
+        if (null !== $this->hostPublicAddress) {
+            $res['HostPublicAddress'] = $this->hostPublicAddress;
+        }
         if (null !== $this->OSType) {
             $res['OSType'] = $this->OSType;
         }
-        if (null !== $this->hostId) {
-            $res['HostId'] = $this->hostId;
-        }
-        if (null !== $this->sourceInstanceState) {
-            $res['SourceInstanceState'] = $this->sourceInstanceState;
+        if (null !== $this->source) {
+            $res['Source'] = $this->source;
         }
         if (null !== $this->sourceInstanceId) {
             $res['SourceInstanceId'] = $this->sourceInstanceId;
+        }
+        if (null !== $this->sourceInstanceState) {
+            $res['SourceInstanceState'] = $this->sourceInstanceState;
         }
 
         return $res;
@@ -128,38 +128,38 @@ class hosts extends Model
     public static function fromMap($map = [])
     {
         $model = new self();
-        if (isset($map['Comment'])) {
-            $model->comment = $map['Comment'];
-        }
         if (isset($map['ActiveAddressType'])) {
             $model->activeAddressType = $map['ActiveAddressType'];
         }
-        if (isset($map['HostPublicAddress'])) {
-            $model->hostPublicAddress = $map['HostPublicAddress'];
-        }
-        if (isset($map['HostName'])) {
-            $model->hostName = $map['HostName'];
+        if (isset($map['Comment'])) {
+            $model->comment = $map['Comment'];
         }
         if (isset($map['HostAccountCount'])) {
             $model->hostAccountCount = $map['HostAccountCount'];
         }
-        if (isset($map['Source'])) {
-            $model->source = $map['Source'];
+        if (isset($map['HostId'])) {
+            $model->hostId = $map['HostId'];
+        }
+        if (isset($map['HostName'])) {
+            $model->hostName = $map['HostName'];
         }
         if (isset($map['HostPrivateAddress'])) {
             $model->hostPrivateAddress = $map['HostPrivateAddress'];
         }
+        if (isset($map['HostPublicAddress'])) {
+            $model->hostPublicAddress = $map['HostPublicAddress'];
+        }
         if (isset($map['OSType'])) {
             $model->OSType = $map['OSType'];
         }
-        if (isset($map['HostId'])) {
-            $model->hostId = $map['HostId'];
-        }
-        if (isset($map['SourceInstanceState'])) {
-            $model->sourceInstanceState = $map['SourceInstanceState'];
+        if (isset($map['Source'])) {
+            $model->source = $map['Source'];
         }
         if (isset($map['SourceInstanceId'])) {
             $model->sourceInstanceId = $map['SourceInstanceId'];
+        }
+        if (isset($map['SourceInstanceState'])) {
+            $model->sourceInstanceState = $map['SourceInstanceState'];
         }
 
         return $model;

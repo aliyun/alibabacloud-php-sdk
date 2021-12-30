@@ -11,7 +11,7 @@ class MoveResourceGroupRequest extends Model
     /**
      * @var string
      */
-    public $resourceId;
+    public $regionId;
 
     /**
      * @var string
@@ -21,17 +21,17 @@ class MoveResourceGroupRequest extends Model
     /**
      * @var string
      */
-    public $resourceType;
+    public $resourceId;
 
     /**
      * @var string
      */
-    public $regionId;
+    public $resourceType;
     protected $_name = [
-        'resourceId'      => 'ResourceId',
-        'resourceGroupId' => 'ResourceGroupId',
-        'resourceType'    => 'ResourceType',
         'regionId'        => 'RegionId',
+        'resourceGroupId' => 'ResourceGroupId',
+        'resourceId'      => 'ResourceId',
+        'resourceType'    => 'ResourceType',
     ];
 
     public function validate()
@@ -41,17 +41,17 @@ class MoveResourceGroupRequest extends Model
     public function toMap()
     {
         $res = [];
-        if (null !== $this->resourceId) {
-            $res['ResourceId'] = $this->resourceId;
+        if (null !== $this->regionId) {
+            $res['RegionId'] = $this->regionId;
         }
         if (null !== $this->resourceGroupId) {
             $res['ResourceGroupId'] = $this->resourceGroupId;
         }
+        if (null !== $this->resourceId) {
+            $res['ResourceId'] = $this->resourceId;
+        }
         if (null !== $this->resourceType) {
             $res['ResourceType'] = $this->resourceType;
-        }
-        if (null !== $this->regionId) {
-            $res['RegionId'] = $this->regionId;
         }
 
         return $res;
@@ -65,17 +65,17 @@ class MoveResourceGroupRequest extends Model
     public static function fromMap($map = [])
     {
         $model = new self();
-        if (isset($map['ResourceId'])) {
-            $model->resourceId = $map['ResourceId'];
+        if (isset($map['RegionId'])) {
+            $model->regionId = $map['RegionId'];
         }
         if (isset($map['ResourceGroupId'])) {
             $model->resourceGroupId = $map['ResourceGroupId'];
         }
+        if (isset($map['ResourceId'])) {
+            $model->resourceId = $map['ResourceId'];
+        }
         if (isset($map['ResourceType'])) {
             $model->resourceType = $map['ResourceType'];
-        }
-        if (isset($map['RegionId'])) {
-            $model->regionId = $map['RegionId'];
         }
 
         return $model;

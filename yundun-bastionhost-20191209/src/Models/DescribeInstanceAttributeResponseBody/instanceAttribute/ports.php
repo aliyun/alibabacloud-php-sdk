@@ -11,15 +11,15 @@ class ports extends Model
     /**
      * @var int
      */
-    public $standardPort;
+    public $customPort;
 
     /**
      * @var int
      */
-    public $customPort;
+    public $standardPort;
     protected $_name = [
-        'standardPort' => 'StandardPort',
         'customPort'   => 'CustomPort',
+        'standardPort' => 'StandardPort',
     ];
 
     public function validate()
@@ -29,11 +29,11 @@ class ports extends Model
     public function toMap()
     {
         $res = [];
-        if (null !== $this->standardPort) {
-            $res['StandardPort'] = $this->standardPort;
-        }
         if (null !== $this->customPort) {
             $res['CustomPort'] = $this->customPort;
+        }
+        if (null !== $this->standardPort) {
+            $res['StandardPort'] = $this->standardPort;
         }
 
         return $res;
@@ -47,11 +47,11 @@ class ports extends Model
     public static function fromMap($map = [])
     {
         $model = new self();
-        if (isset($map['StandardPort'])) {
-            $model->standardPort = $map['StandardPort'];
-        }
         if (isset($map['CustomPort'])) {
             $model->customPort = $map['CustomPort'];
+        }
+        if (isset($map['StandardPort'])) {
+            $model->standardPort = $map['StandardPort'];
         }
 
         return $model;

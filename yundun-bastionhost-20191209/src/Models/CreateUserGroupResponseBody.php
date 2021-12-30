@@ -11,15 +11,15 @@ class CreateUserGroupResponseBody extends Model
     /**
      * @var string
      */
-    public $userGroupId;
+    public $requestId;
 
     /**
      * @var string
      */
-    public $requestId;
+    public $userGroupId;
     protected $_name = [
-        'userGroupId' => 'UserGroupId',
         'requestId'   => 'RequestId',
+        'userGroupId' => 'UserGroupId',
     ];
 
     public function validate()
@@ -29,11 +29,11 @@ class CreateUserGroupResponseBody extends Model
     public function toMap()
     {
         $res = [];
-        if (null !== $this->userGroupId) {
-            $res['UserGroupId'] = $this->userGroupId;
-        }
         if (null !== $this->requestId) {
             $res['RequestId'] = $this->requestId;
+        }
+        if (null !== $this->userGroupId) {
+            $res['UserGroupId'] = $this->userGroupId;
         }
 
         return $res;
@@ -47,11 +47,11 @@ class CreateUserGroupResponseBody extends Model
     public static function fromMap($map = [])
     {
         $model = new self();
-        if (isset($map['UserGroupId'])) {
-            $model->userGroupId = $map['UserGroupId'];
-        }
         if (isset($map['RequestId'])) {
             $model->requestId = $map['RequestId'];
+        }
+        if (isset($map['UserGroupId'])) {
+            $model->userGroupId = $map['UserGroupId'];
         }
 
         return $model;

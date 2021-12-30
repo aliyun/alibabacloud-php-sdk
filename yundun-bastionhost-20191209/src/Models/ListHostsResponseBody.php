@@ -10,9 +10,9 @@ use AlibabaCloud\Tea\Model;
 class ListHostsResponseBody extends Model
 {
     /**
-     * @var int
+     * @var hosts[]
      */
-    public $totalCount;
+    public $hosts;
 
     /**
      * @var string
@@ -20,13 +20,13 @@ class ListHostsResponseBody extends Model
     public $requestId;
 
     /**
-     * @var hosts[]
+     * @var int
      */
-    public $hosts;
+    public $totalCount;
     protected $_name = [
-        'totalCount' => 'TotalCount',
-        'requestId'  => 'RequestId',
         'hosts'      => 'Hosts',
+        'requestId'  => 'RequestId',
+        'totalCount' => 'TotalCount',
     ];
 
     public function validate()
@@ -36,12 +36,6 @@ class ListHostsResponseBody extends Model
     public function toMap()
     {
         $res = [];
-        if (null !== $this->totalCount) {
-            $res['TotalCount'] = $this->totalCount;
-        }
-        if (null !== $this->requestId) {
-            $res['RequestId'] = $this->requestId;
-        }
         if (null !== $this->hosts) {
             $res['Hosts'] = [];
             if (null !== $this->hosts && \is_array($this->hosts)) {
@@ -50,6 +44,12 @@ class ListHostsResponseBody extends Model
                     $res['Hosts'][$n++] = null !== $item ? $item->toMap() : $item;
                 }
             }
+        }
+        if (null !== $this->requestId) {
+            $res['RequestId'] = $this->requestId;
+        }
+        if (null !== $this->totalCount) {
+            $res['TotalCount'] = $this->totalCount;
         }
 
         return $res;
@@ -63,12 +63,6 @@ class ListHostsResponseBody extends Model
     public static function fromMap($map = [])
     {
         $model = new self();
-        if (isset($map['TotalCount'])) {
-            $model->totalCount = $map['TotalCount'];
-        }
-        if (isset($map['RequestId'])) {
-            $model->requestId = $map['RequestId'];
-        }
         if (isset($map['Hosts'])) {
             if (!empty($map['Hosts'])) {
                 $model->hosts = [];
@@ -77,6 +71,12 @@ class ListHostsResponseBody extends Model
                     $model->hosts[$n++] = null !== $item ? hosts::fromMap($item) : $item;
                 }
             }
+        }
+        if (isset($map['RequestId'])) {
+            $model->requestId = $map['RequestId'];
+        }
+        if (isset($map['TotalCount'])) {
+            $model->totalCount = $map['TotalCount'];
         }
 
         return $model;

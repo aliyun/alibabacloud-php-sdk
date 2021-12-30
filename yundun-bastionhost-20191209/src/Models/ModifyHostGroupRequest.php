@@ -11,12 +11,7 @@ class ModifyHostGroupRequest extends Model
     /**
      * @var string
      */
-    public $instanceId;
-
-    /**
-     * @var string
-     */
-    public $regionId;
+    public $comment;
 
     /**
      * @var string
@@ -31,13 +26,18 @@ class ModifyHostGroupRequest extends Model
     /**
      * @var string
      */
-    public $comment;
+    public $instanceId;
+
+    /**
+     * @var string
+     */
+    public $regionId;
     protected $_name = [
-        'instanceId'    => 'InstanceId',
-        'regionId'      => 'RegionId',
+        'comment'       => 'Comment',
         'hostGroupId'   => 'HostGroupId',
         'hostGroupName' => 'HostGroupName',
-        'comment'       => 'Comment',
+        'instanceId'    => 'InstanceId',
+        'regionId'      => 'RegionId',
     ];
 
     public function validate()
@@ -47,11 +47,8 @@ class ModifyHostGroupRequest extends Model
     public function toMap()
     {
         $res = [];
-        if (null !== $this->instanceId) {
-            $res['InstanceId'] = $this->instanceId;
-        }
-        if (null !== $this->regionId) {
-            $res['RegionId'] = $this->regionId;
+        if (null !== $this->comment) {
+            $res['Comment'] = $this->comment;
         }
         if (null !== $this->hostGroupId) {
             $res['HostGroupId'] = $this->hostGroupId;
@@ -59,8 +56,11 @@ class ModifyHostGroupRequest extends Model
         if (null !== $this->hostGroupName) {
             $res['HostGroupName'] = $this->hostGroupName;
         }
-        if (null !== $this->comment) {
-            $res['Comment'] = $this->comment;
+        if (null !== $this->instanceId) {
+            $res['InstanceId'] = $this->instanceId;
+        }
+        if (null !== $this->regionId) {
+            $res['RegionId'] = $this->regionId;
         }
 
         return $res;
@@ -74,11 +74,8 @@ class ModifyHostGroupRequest extends Model
     public static function fromMap($map = [])
     {
         $model = new self();
-        if (isset($map['InstanceId'])) {
-            $model->instanceId = $map['InstanceId'];
-        }
-        if (isset($map['RegionId'])) {
-            $model->regionId = $map['RegionId'];
+        if (isset($map['Comment'])) {
+            $model->comment = $map['Comment'];
         }
         if (isset($map['HostGroupId'])) {
             $model->hostGroupId = $map['HostGroupId'];
@@ -86,8 +83,11 @@ class ModifyHostGroupRequest extends Model
         if (isset($map['HostGroupName'])) {
             $model->hostGroupName = $map['HostGroupName'];
         }
-        if (isset($map['Comment'])) {
-            $model->comment = $map['Comment'];
+        if (isset($map['InstanceId'])) {
+            $model->instanceId = $map['InstanceId'];
+        }
+        if (isset($map['RegionId'])) {
+            $model->regionId = $map['RegionId'];
         }
 
         return $model;

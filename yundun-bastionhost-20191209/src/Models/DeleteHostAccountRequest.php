@@ -11,21 +11,21 @@ class DeleteHostAccountRequest extends Model
     /**
      * @var string
      */
+    public $hostAccountId;
+
+    /**
+     * @var string
+     */
     public $instanceId;
 
     /**
      * @var string
      */
     public $regionId;
-
-    /**
-     * @var string
-     */
-    public $hostAccountId;
     protected $_name = [
+        'hostAccountId' => 'HostAccountId',
         'instanceId'    => 'InstanceId',
         'regionId'      => 'RegionId',
-        'hostAccountId' => 'HostAccountId',
     ];
 
     public function validate()
@@ -35,14 +35,14 @@ class DeleteHostAccountRequest extends Model
     public function toMap()
     {
         $res = [];
+        if (null !== $this->hostAccountId) {
+            $res['HostAccountId'] = $this->hostAccountId;
+        }
         if (null !== $this->instanceId) {
             $res['InstanceId'] = $this->instanceId;
         }
         if (null !== $this->regionId) {
             $res['RegionId'] = $this->regionId;
-        }
-        if (null !== $this->hostAccountId) {
-            $res['HostAccountId'] = $this->hostAccountId;
         }
 
         return $res;
@@ -56,14 +56,14 @@ class DeleteHostAccountRequest extends Model
     public static function fromMap($map = [])
     {
         $model = new self();
+        if (isset($map['HostAccountId'])) {
+            $model->hostAccountId = $map['HostAccountId'];
+        }
         if (isset($map['InstanceId'])) {
             $model->instanceId = $map['InstanceId'];
         }
         if (isset($map['RegionId'])) {
             $model->regionId = $map['RegionId'];
-        }
-        if (isset($map['HostAccountId'])) {
-            $model->hostAccountId = $map['HostAccountId'];
         }
 
         return $model;

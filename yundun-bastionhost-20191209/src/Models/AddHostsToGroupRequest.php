@@ -11,27 +11,27 @@ class AddHostsToGroupRequest extends Model
     /**
      * @var string
      */
-    public $instanceId;
-
-    /**
-     * @var string
-     */
-    public $regionId;
-
-    /**
-     * @var string
-     */
     public $hostGroupId;
 
     /**
      * @var string
      */
     public $hostIds;
+
+    /**
+     * @var string
+     */
+    public $instanceId;
+
+    /**
+     * @var string
+     */
+    public $regionId;
     protected $_name = [
-        'instanceId'  => 'InstanceId',
-        'regionId'    => 'RegionId',
         'hostGroupId' => 'HostGroupId',
         'hostIds'     => 'HostIds',
+        'instanceId'  => 'InstanceId',
+        'regionId'    => 'RegionId',
     ];
 
     public function validate()
@@ -41,17 +41,17 @@ class AddHostsToGroupRequest extends Model
     public function toMap()
     {
         $res = [];
-        if (null !== $this->instanceId) {
-            $res['InstanceId'] = $this->instanceId;
-        }
-        if (null !== $this->regionId) {
-            $res['RegionId'] = $this->regionId;
-        }
         if (null !== $this->hostGroupId) {
             $res['HostGroupId'] = $this->hostGroupId;
         }
         if (null !== $this->hostIds) {
             $res['HostIds'] = $this->hostIds;
+        }
+        if (null !== $this->instanceId) {
+            $res['InstanceId'] = $this->instanceId;
+        }
+        if (null !== $this->regionId) {
+            $res['RegionId'] = $this->regionId;
         }
 
         return $res;
@@ -65,17 +65,17 @@ class AddHostsToGroupRequest extends Model
     public static function fromMap($map = [])
     {
         $model = new self();
-        if (isset($map['InstanceId'])) {
-            $model->instanceId = $map['InstanceId'];
-        }
-        if (isset($map['RegionId'])) {
-            $model->regionId = $map['RegionId'];
-        }
         if (isset($map['HostGroupId'])) {
             $model->hostGroupId = $map['HostGroupId'];
         }
         if (isset($map['HostIds'])) {
             $model->hostIds = $map['HostIds'];
+        }
+        if (isset($map['InstanceId'])) {
+            $model->instanceId = $map['InstanceId'];
+        }
+        if (isset($map['RegionId'])) {
+            $model->regionId = $map['RegionId'];
         }
 
         return $model;

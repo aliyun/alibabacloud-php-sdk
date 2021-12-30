@@ -11,12 +11,17 @@ class hostAccounts extends Model
     /**
      * @var string
      */
+    public $hostAccountId;
+
+    /**
+     * @var string
+     */
     public $hostAccountName;
 
     /**
      * @var string
      */
-    public $hostAccountId;
+    public $hostId;
 
     /**
      * @var bool
@@ -27,17 +32,12 @@ class hostAccounts extends Model
      * @var string
      */
     public $protocolName;
-
-    /**
-     * @var string
-     */
-    public $hostId;
     protected $_name = [
-        'hostAccountName' => 'HostAccountName',
         'hostAccountId'   => 'HostAccountId',
+        'hostAccountName' => 'HostAccountName',
+        'hostId'          => 'HostId',
         'isAuthorized'    => 'IsAuthorized',
         'protocolName'    => 'ProtocolName',
-        'hostId'          => 'HostId',
     ];
 
     public function validate()
@@ -47,20 +47,20 @@ class hostAccounts extends Model
     public function toMap()
     {
         $res = [];
+        if (null !== $this->hostAccountId) {
+            $res['HostAccountId'] = $this->hostAccountId;
+        }
         if (null !== $this->hostAccountName) {
             $res['HostAccountName'] = $this->hostAccountName;
         }
-        if (null !== $this->hostAccountId) {
-            $res['HostAccountId'] = $this->hostAccountId;
+        if (null !== $this->hostId) {
+            $res['HostId'] = $this->hostId;
         }
         if (null !== $this->isAuthorized) {
             $res['IsAuthorized'] = $this->isAuthorized;
         }
         if (null !== $this->protocolName) {
             $res['ProtocolName'] = $this->protocolName;
-        }
-        if (null !== $this->hostId) {
-            $res['HostId'] = $this->hostId;
         }
 
         return $res;
@@ -74,20 +74,20 @@ class hostAccounts extends Model
     public static function fromMap($map = [])
     {
         $model = new self();
+        if (isset($map['HostAccountId'])) {
+            $model->hostAccountId = $map['HostAccountId'];
+        }
         if (isset($map['HostAccountName'])) {
             $model->hostAccountName = $map['HostAccountName'];
         }
-        if (isset($map['HostAccountId'])) {
-            $model->hostAccountId = $map['HostAccountId'];
+        if (isset($map['HostId'])) {
+            $model->hostId = $map['HostId'];
         }
         if (isset($map['IsAuthorized'])) {
             $model->isAuthorized = $map['IsAuthorized'];
         }
         if (isset($map['ProtocolName'])) {
             $model->protocolName = $map['ProtocolName'];
-        }
-        if (isset($map['HostId'])) {
-            $model->hostId = $map['HostId'];
         }
 
         return $model;
