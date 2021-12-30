@@ -34,6 +34,11 @@ class CreateEventSubscribeRequest extends Model
     public $events;
 
     /**
+     * @var bool
+     */
+    public $needCallbackAuth;
+
+    /**
      * @var int
      */
     public $ownerId;
@@ -43,13 +48,14 @@ class CreateEventSubscribeRequest extends Model
      */
     public $users;
     protected $_name = [
-        'appId'       => 'AppId',
-        'callbackUrl' => 'CallbackUrl',
-        'channelId'   => 'ChannelId',
-        'clientToken' => 'ClientToken',
-        'events'      => 'Events',
-        'ownerId'     => 'OwnerId',
-        'users'       => 'Users',
+        'appId'            => 'AppId',
+        'callbackUrl'      => 'CallbackUrl',
+        'channelId'        => 'ChannelId',
+        'clientToken'      => 'ClientToken',
+        'events'           => 'Events',
+        'needCallbackAuth' => 'NeedCallbackAuth',
+        'ownerId'          => 'OwnerId',
+        'users'            => 'Users',
     ];
 
     public function validate()
@@ -73,6 +79,9 @@ class CreateEventSubscribeRequest extends Model
         }
         if (null !== $this->events) {
             $res['Events'] = $this->events;
+        }
+        if (null !== $this->needCallbackAuth) {
+            $res['NeedCallbackAuth'] = $this->needCallbackAuth;
         }
         if (null !== $this->ownerId) {
             $res['OwnerId'] = $this->ownerId;
@@ -108,6 +117,9 @@ class CreateEventSubscribeRequest extends Model
             if (!empty($map['Events'])) {
                 $model->events = $map['Events'];
             }
+        }
+        if (isset($map['NeedCallbackAuth'])) {
+            $model->needCallbackAuth = $map['NeedCallbackAuth'];
         }
         if (isset($map['OwnerId'])) {
             $model->ownerId = $map['OwnerId'];

@@ -68,6 +68,7 @@ use AlibabaCloud\SDK\Rtc\V20180111\Models\UpdateRecordTaskRequest;
 use AlibabaCloud\SDK\Rtc\V20180111\Models\UpdateRecordTaskResponse;
 use AlibabaCloud\SDK\Rtc\V20180111\Models\UpdateRecordTemplateRequest;
 use AlibabaCloud\SDK\Rtc\V20180111\Models\UpdateRecordTemplateResponse;
+use AlibabaCloud\Tea\Tea;
 use AlibabaCloud\Tea\Utils\Utils;
 use AlibabaCloud\Tea\Utils\Utils\RuntimeOptions;
 use Darabonba\OpenApi\Models\OpenApiRequest;
@@ -116,28 +117,63 @@ class Rtc extends OpenApiClient
     public function addRecordTemplateWithOptions($request, $runtime)
     {
         Utils::validateModel($request);
-        $query                       = [];
-        $query['AppId']              = $request->appId;
-        $query['BackgroundColor']    = $request->backgroundColor;
-        $query['Backgrounds']        = $request->backgrounds;
-        $query['ClockWidgets']       = $request->clockWidgets;
-        $query['DelayStopTime']      = $request->delayStopTime;
-        $query['EnableM3u8DateTime'] = $request->enableM3u8DateTime;
-        $query['FileSplitInterval']  = $request->fileSplitInterval;
-        $query['Formats']            = $request->formats;
-        $query['HttpCallbackUrl']    = $request->httpCallbackUrl;
-        $query['LayoutIds']          = $request->layoutIds;
-        $query['MediaEncode']        = $request->mediaEncode;
-        $query['MnsQueue']           = $request->mnsQueue;
-        $query['Name']               = $request->name;
-        $query['OssBucket']          = $request->ossBucket;
-        $query['OssFilePrefix']      = $request->ossFilePrefix;
-        $query['OwnerId']            = $request->ownerId;
-        $query['TaskProfile']        = $request->taskProfile;
-        $query['Watermarks']         = $request->watermarks;
-        $req                         = new OpenApiRequest([
+        $query = [];
+        if (!Utils::isUnset($request->appId)) {
+            $query['AppId'] = $request->appId;
+        }
+        if (!Utils::isUnset($request->backgroundColor)) {
+            $query['BackgroundColor'] = $request->backgroundColor;
+        }
+        if (!Utils::isUnset($request->backgrounds)) {
+            $query['Backgrounds'] = $request->backgrounds;
+        }
+        if (!Utils::isUnset($request->clockWidgets)) {
+            $query['ClockWidgets'] = $request->clockWidgets;
+        }
+        if (!Utils::isUnset($request->delayStopTime)) {
+            $query['DelayStopTime'] = $request->delayStopTime;
+        }
+        if (!Utils::isUnset($request->enableM3u8DateTime)) {
+            $query['EnableM3u8DateTime'] = $request->enableM3u8DateTime;
+        }
+        if (!Utils::isUnset($request->fileSplitInterval)) {
+            $query['FileSplitInterval'] = $request->fileSplitInterval;
+        }
+        if (!Utils::isUnset($request->formats)) {
+            $query['Formats'] = $request->formats;
+        }
+        if (!Utils::isUnset($request->httpCallbackUrl)) {
+            $query['HttpCallbackUrl'] = $request->httpCallbackUrl;
+        }
+        if (!Utils::isUnset($request->layoutIds)) {
+            $query['LayoutIds'] = $request->layoutIds;
+        }
+        if (!Utils::isUnset($request->mediaEncode)) {
+            $query['MediaEncode'] = $request->mediaEncode;
+        }
+        if (!Utils::isUnset($request->mnsQueue)) {
+            $query['MnsQueue'] = $request->mnsQueue;
+        }
+        if (!Utils::isUnset($request->name)) {
+            $query['Name'] = $request->name;
+        }
+        if (!Utils::isUnset($request->ossBucket)) {
+            $query['OssBucket'] = $request->ossBucket;
+        }
+        if (!Utils::isUnset($request->ossFilePrefix)) {
+            $query['OssFilePrefix'] = $request->ossFilePrefix;
+        }
+        if (!Utils::isUnset($request->ownerId)) {
+            $query['OwnerId'] = $request->ownerId;
+        }
+        if (!Utils::isUnset($request->taskProfile)) {
+            $query['TaskProfile'] = $request->taskProfile;
+        }
+        if (!Utils::isUnset($request->watermarks)) {
+            $query['Watermarks'] = $request->watermarks;
+        }
+        $req = new OpenApiRequest([
             'query' => OpenApiUtilClient::query($query),
-            'body'  => Utils::toMap($request),
         ]);
         $params = new Params([
             'action'      => 'AddRecordTemplate',
@@ -147,7 +183,7 @@ class Rtc extends OpenApiClient
             'method'      => 'POST',
             'authType'    => 'AK',
             'style'       => 'RPC',
-            'reqBodyType' => 'json',
+            'reqBodyType' => 'formData',
             'bodyType'    => 'json',
         ]);
 
@@ -175,18 +211,33 @@ class Rtc extends OpenApiClient
     public function createAutoLiveStreamRuleWithOptions($request, $runtime)
     {
         Utils::validateModel($request);
-        $query                      = [];
-        $query['AppId']             = $request->appId;
-        $query['CallBack']          = $request->callBack;
-        $query['ChannelIdPrefixes'] = $request->channelIdPrefixes;
-        $query['ChannelIds']        = $request->channelIds;
-        $query['MediaEncode']       = $request->mediaEncode;
-        $query['OwnerId']           = $request->ownerId;
-        $query['PlayDomain']        = $request->playDomain;
-        $query['RuleName']          = $request->ruleName;
-        $req                        = new OpenApiRequest([
+        $query = [];
+        if (!Utils::isUnset($request->appId)) {
+            $query['AppId'] = $request->appId;
+        }
+        if (!Utils::isUnset($request->callBack)) {
+            $query['CallBack'] = $request->callBack;
+        }
+        if (!Utils::isUnset($request->channelIdPrefixes)) {
+            $query['ChannelIdPrefixes'] = $request->channelIdPrefixes;
+        }
+        if (!Utils::isUnset($request->channelIds)) {
+            $query['ChannelIds'] = $request->channelIds;
+        }
+        if (!Utils::isUnset($request->mediaEncode)) {
+            $query['MediaEncode'] = $request->mediaEncode;
+        }
+        if (!Utils::isUnset($request->ownerId)) {
+            $query['OwnerId'] = $request->ownerId;
+        }
+        if (!Utils::isUnset($request->playDomain)) {
+            $query['PlayDomain'] = $request->playDomain;
+        }
+        if (!Utils::isUnset($request->ruleName)) {
+            $query['RuleName'] = $request->ruleName;
+        }
+        $req = new OpenApiRequest([
             'query' => OpenApiUtilClient::query($query),
-            'body'  => Utils::toMap($request),
         ]);
         $params = new Params([
             'action'      => 'CreateAutoLiveStreamRule',
@@ -196,7 +247,7 @@ class Rtc extends OpenApiClient
             'method'      => 'POST',
             'authType'    => 'AK',
             'style'       => 'RPC',
-            'reqBodyType' => 'json',
+            'reqBodyType' => 'formData',
             'bodyType'    => 'json',
         ]);
 
@@ -224,17 +275,33 @@ class Rtc extends OpenApiClient
     public function createEventSubscribeWithOptions($request, $runtime)
     {
         Utils::validateModel($request);
-        $query                = [];
-        $query['AppId']       = $request->appId;
-        $query['CallbackUrl'] = $request->callbackUrl;
-        $query['ChannelId']   = $request->channelId;
-        $query['ClientToken'] = $request->clientToken;
-        $query['Events']      = $request->events;
-        $query['OwnerId']     = $request->ownerId;
-        $query['Users']       = $request->users;
-        $req                  = new OpenApiRequest([
+        $query = [];
+        if (!Utils::isUnset($request->appId)) {
+            $query['AppId'] = $request->appId;
+        }
+        if (!Utils::isUnset($request->callbackUrl)) {
+            $query['CallbackUrl'] = $request->callbackUrl;
+        }
+        if (!Utils::isUnset($request->channelId)) {
+            $query['ChannelId'] = $request->channelId;
+        }
+        if (!Utils::isUnset($request->clientToken)) {
+            $query['ClientToken'] = $request->clientToken;
+        }
+        if (!Utils::isUnset($request->events)) {
+            $query['Events'] = $request->events;
+        }
+        if (!Utils::isUnset($request->needCallbackAuth)) {
+            $query['NeedCallbackAuth'] = $request->needCallbackAuth;
+        }
+        if (!Utils::isUnset($request->ownerId)) {
+            $query['OwnerId'] = $request->ownerId;
+        }
+        if (!Utils::isUnset($request->users)) {
+            $query['Users'] = $request->users;
+        }
+        $req = new OpenApiRequest([
             'query' => OpenApiUtilClient::query($query),
-            'body'  => Utils::toMap($request),
         ]);
         $params = new Params([
             'action'      => 'CreateEventSubscribe',
@@ -244,7 +311,7 @@ class Rtc extends OpenApiClient
             'method'      => 'POST',
             'authType'    => 'AK',
             'style'       => 'RPC',
-            'reqBodyType' => 'json',
+            'reqBodyType' => 'formData',
             'bodyType'    => 'json',
         ]);
 
@@ -272,15 +339,24 @@ class Rtc extends OpenApiClient
     public function createMPULayoutWithOptions($request, $runtime)
     {
         Utils::validateModel($request);
-        $query                  = [];
-        $query['AppId']         = $request->appId;
-        $query['AudioMixCount'] = $request->audioMixCount;
-        $query['Name']          = $request->name;
-        $query['OwnerId']       = $request->ownerId;
-        $query['Panes']         = $request->panes;
-        $req                    = new OpenApiRequest([
+        $query = [];
+        if (!Utils::isUnset($request->appId)) {
+            $query['AppId'] = $request->appId;
+        }
+        if (!Utils::isUnset($request->audioMixCount)) {
+            $query['AudioMixCount'] = $request->audioMixCount;
+        }
+        if (!Utils::isUnset($request->name)) {
+            $query['Name'] = $request->name;
+        }
+        if (!Utils::isUnset($request->ownerId)) {
+            $query['OwnerId'] = $request->ownerId;
+        }
+        if (!Utils::isUnset($request->panes)) {
+            $query['Panes'] = $request->panes;
+        }
+        $req = new OpenApiRequest([
             'query' => OpenApiUtilClient::query($query),
-            'body'  => Utils::toMap($request),
         ]);
         $params = new Params([
             'action'      => 'CreateMPULayout',
@@ -290,7 +366,7 @@ class Rtc extends OpenApiClient
             'method'      => 'POST',
             'authType'    => 'AK',
             'style'       => 'RPC',
-            'reqBodyType' => 'json',
+            'reqBodyType' => 'formData',
             'bodyType'    => 'json',
         ]);
 
@@ -318,13 +394,18 @@ class Rtc extends OpenApiClient
     public function deleteAutoLiveStreamRuleWithOptions($request, $runtime)
     {
         Utils::validateModel($request);
-        $query            = [];
-        $query['AppId']   = $request->appId;
-        $query['OwnerId'] = $request->ownerId;
-        $query['RuleId']  = $request->ruleId;
-        $req              = new OpenApiRequest([
+        $query = [];
+        if (!Utils::isUnset($request->appId)) {
+            $query['AppId'] = $request->appId;
+        }
+        if (!Utils::isUnset($request->ownerId)) {
+            $query['OwnerId'] = $request->ownerId;
+        }
+        if (!Utils::isUnset($request->ruleId)) {
+            $query['RuleId'] = $request->ruleId;
+        }
+        $req = new OpenApiRequest([
             'query' => OpenApiUtilClient::query($query),
-            'body'  => Utils::toMap($request),
         ]);
         $params = new Params([
             'action'      => 'DeleteAutoLiveStreamRule',
@@ -334,7 +415,7 @@ class Rtc extends OpenApiClient
             'method'      => 'POST',
             'authType'    => 'AK',
             'style'       => 'RPC',
-            'reqBodyType' => 'json',
+            'reqBodyType' => 'formData',
             'bodyType'    => 'json',
         ]);
 
@@ -362,13 +443,18 @@ class Rtc extends OpenApiClient
     public function deleteChannelWithOptions($request, $runtime)
     {
         Utils::validateModel($request);
-        $query              = [];
-        $query['AppId']     = $request->appId;
-        $query['ChannelId'] = $request->channelId;
-        $query['OwnerId']   = $request->ownerId;
-        $req                = new OpenApiRequest([
+        $query = [];
+        if (!Utils::isUnset($request->appId)) {
+            $query['AppId'] = $request->appId;
+        }
+        if (!Utils::isUnset($request->channelId)) {
+            $query['ChannelId'] = $request->channelId;
+        }
+        if (!Utils::isUnset($request->ownerId)) {
+            $query['OwnerId'] = $request->ownerId;
+        }
+        $req = new OpenApiRequest([
             'query' => OpenApiUtilClient::query($query),
-            'body'  => Utils::toMap($request),
         ]);
         $params = new Params([
             'action'      => 'DeleteChannel',
@@ -378,7 +464,7 @@ class Rtc extends OpenApiClient
             'method'      => 'POST',
             'authType'    => 'AK',
             'style'       => 'RPC',
-            'reqBodyType' => 'json',
+            'reqBodyType' => 'formData',
             'bodyType'    => 'json',
         ]);
 
@@ -406,13 +492,18 @@ class Rtc extends OpenApiClient
     public function deleteEventSubscribeWithOptions($request, $runtime)
     {
         Utils::validateModel($request);
-        $query                = [];
-        $query['AppId']       = $request->appId;
-        $query['OwnerId']     = $request->ownerId;
-        $query['SubscribeId'] = $request->subscribeId;
-        $req                  = new OpenApiRequest([
+        $query = [];
+        if (!Utils::isUnset($request->appId)) {
+            $query['AppId'] = $request->appId;
+        }
+        if (!Utils::isUnset($request->ownerId)) {
+            $query['OwnerId'] = $request->ownerId;
+        }
+        if (!Utils::isUnset($request->subscribeId)) {
+            $query['SubscribeId'] = $request->subscribeId;
+        }
+        $req = new OpenApiRequest([
             'query' => OpenApiUtilClient::query($query),
-            'body'  => Utils::toMap($request),
         ]);
         $params = new Params([
             'action'      => 'DeleteEventSubscribe',
@@ -422,7 +513,7 @@ class Rtc extends OpenApiClient
             'method'      => 'POST',
             'authType'    => 'AK',
             'style'       => 'RPC',
-            'reqBodyType' => 'json',
+            'reqBodyType' => 'formData',
             'bodyType'    => 'json',
         ]);
 
@@ -450,13 +541,18 @@ class Rtc extends OpenApiClient
     public function deleteMPULayoutWithOptions($request, $runtime)
     {
         Utils::validateModel($request);
-        $query             = [];
-        $query['AppId']    = $request->appId;
-        $query['LayoutId'] = $request->layoutId;
-        $query['OwnerId']  = $request->ownerId;
-        $req               = new OpenApiRequest([
+        $query = [];
+        if (!Utils::isUnset($request->appId)) {
+            $query['AppId'] = $request->appId;
+        }
+        if (!Utils::isUnset($request->layoutId)) {
+            $query['LayoutId'] = $request->layoutId;
+        }
+        if (!Utils::isUnset($request->ownerId)) {
+            $query['OwnerId'] = $request->ownerId;
+        }
+        $req = new OpenApiRequest([
             'query' => OpenApiUtilClient::query($query),
-            'body'  => Utils::toMap($request),
         ]);
         $params = new Params([
             'action'      => 'DeleteMPULayout',
@@ -466,7 +562,7 @@ class Rtc extends OpenApiClient
             'method'      => 'POST',
             'authType'    => 'AK',
             'style'       => 'RPC',
-            'reqBodyType' => 'json',
+            'reqBodyType' => 'formData',
             'bodyType'    => 'json',
         ]);
 
@@ -494,13 +590,18 @@ class Rtc extends OpenApiClient
     public function deleteRecordTemplateWithOptions($request, $runtime)
     {
         Utils::validateModel($request);
-        $query               = [];
-        $query['AppId']      = $request->appId;
-        $query['OwnerId']    = $request->ownerId;
-        $query['TemplateId'] = $request->templateId;
-        $req                 = new OpenApiRequest([
+        $query = [];
+        if (!Utils::isUnset($request->appId)) {
+            $query['AppId'] = $request->appId;
+        }
+        if (!Utils::isUnset($request->ownerId)) {
+            $query['OwnerId'] = $request->ownerId;
+        }
+        if (!Utils::isUnset($request->templateId)) {
+            $query['TemplateId'] = $request->templateId;
+        }
+        $req = new OpenApiRequest([
             'query' => OpenApiUtilClient::query($query),
-            'body'  => Utils::toMap($request),
         ]);
         $params = new Params([
             'action'      => 'DeleteRecordTemplate',
@@ -510,7 +611,7 @@ class Rtc extends OpenApiClient
             'method'      => 'POST',
             'authType'    => 'AK',
             'style'       => 'RPC',
-            'reqBodyType' => 'json',
+            'reqBodyType' => 'formData',
             'bodyType'    => 'json',
         ]);
 
@@ -538,16 +639,27 @@ class Rtc extends OpenApiClient
     public function describeAppsWithOptions($request, $runtime)
     {
         Utils::validateModel($request);
-        $query             = [];
-        $query['AppId']    = $request->appId;
-        $query['Order']    = $request->order;
-        $query['OwnerId']  = $request->ownerId;
-        $query['PageNum']  = $request->pageNum;
-        $query['PageSize'] = $request->pageSize;
-        $query['Status']   = $request->status;
-        $req               = new OpenApiRequest([
+        $query = [];
+        if (!Utils::isUnset($request->appId)) {
+            $query['AppId'] = $request->appId;
+        }
+        if (!Utils::isUnset($request->order)) {
+            $query['Order'] = $request->order;
+        }
+        if (!Utils::isUnset($request->ownerId)) {
+            $query['OwnerId'] = $request->ownerId;
+        }
+        if (!Utils::isUnset($request->pageNum)) {
+            $query['PageNum'] = $request->pageNum;
+        }
+        if (!Utils::isUnset($request->pageSize)) {
+            $query['PageSize'] = $request->pageSize;
+        }
+        if (!Utils::isUnset($request->status)) {
+            $query['Status'] = $request->status;
+        }
+        $req = new OpenApiRequest([
             'query' => OpenApiUtilClient::query($query),
-            'body'  => Utils::toMap($request),
         ]);
         $params = new Params([
             'action'      => 'DescribeApps',
@@ -557,7 +669,7 @@ class Rtc extends OpenApiClient
             'method'      => 'POST',
             'authType'    => 'AK',
             'style'       => 'RPC',
-            'reqBodyType' => 'json',
+            'reqBodyType' => 'formData',
             'bodyType'    => 'json',
         ]);
 
@@ -585,12 +697,15 @@ class Rtc extends OpenApiClient
     public function describeAutoLiveStreamRuleWithOptions($request, $runtime)
     {
         Utils::validateModel($request);
-        $query            = [];
-        $query['AppId']   = $request->appId;
-        $query['OwnerId'] = $request->ownerId;
-        $req              = new OpenApiRequest([
+        $query = [];
+        if (!Utils::isUnset($request->appId)) {
+            $query['AppId'] = $request->appId;
+        }
+        if (!Utils::isUnset($request->ownerId)) {
+            $query['OwnerId'] = $request->ownerId;
+        }
+        $req = new OpenApiRequest([
             'query' => OpenApiUtilClient::query($query),
-            'body'  => Utils::toMap($request),
         ]);
         $params = new Params([
             'action'      => 'DescribeAutoLiveStreamRule',
@@ -600,7 +715,7 @@ class Rtc extends OpenApiClient
             'method'      => 'POST',
             'authType'    => 'AK',
             'style'       => 'RPC',
-            'reqBodyType' => 'json',
+            'reqBodyType' => 'formData',
             'bodyType'    => 'json',
         ]);
 
@@ -628,16 +743,27 @@ class Rtc extends OpenApiClient
     public function describeChannelParticipantsWithOptions($request, $runtime)
     {
         Utils::validateModel($request);
-        $query              = [];
-        $query['AppId']     = $request->appId;
-        $query['ChannelId'] = $request->channelId;
-        $query['Order']     = $request->order;
-        $query['OwnerId']   = $request->ownerId;
-        $query['PageNum']   = $request->pageNum;
-        $query['PageSize']  = $request->pageSize;
-        $req                = new OpenApiRequest([
+        $query = [];
+        if (!Utils::isUnset($request->appId)) {
+            $query['AppId'] = $request->appId;
+        }
+        if (!Utils::isUnset($request->channelId)) {
+            $query['ChannelId'] = $request->channelId;
+        }
+        if (!Utils::isUnset($request->order)) {
+            $query['Order'] = $request->order;
+        }
+        if (!Utils::isUnset($request->ownerId)) {
+            $query['OwnerId'] = $request->ownerId;
+        }
+        if (!Utils::isUnset($request->pageNum)) {
+            $query['PageNum'] = $request->pageNum;
+        }
+        if (!Utils::isUnset($request->pageSize)) {
+            $query['PageSize'] = $request->pageSize;
+        }
+        $req = new OpenApiRequest([
             'query' => OpenApiUtilClient::query($query),
-            'body'  => Utils::toMap($request),
         ]);
         $params = new Params([
             'action'      => 'DescribeChannelParticipants',
@@ -647,7 +773,7 @@ class Rtc extends OpenApiClient
             'method'      => 'POST',
             'authType'    => 'AK',
             'style'       => 'RPC',
-            'reqBodyType' => 'json',
+            'reqBodyType' => 'formData',
             'bodyType'    => 'json',
         ]);
 
@@ -675,13 +801,18 @@ class Rtc extends OpenApiClient
     public function describeChannelUsersWithOptions($request, $runtime)
     {
         Utils::validateModel($request);
-        $query              = [];
-        $query['AppId']     = $request->appId;
-        $query['ChannelId'] = $request->channelId;
-        $query['OwnerId']   = $request->ownerId;
-        $req                = new OpenApiRequest([
+        $query = [];
+        if (!Utils::isUnset($request->appId)) {
+            $query['AppId'] = $request->appId;
+        }
+        if (!Utils::isUnset($request->channelId)) {
+            $query['ChannelId'] = $request->channelId;
+        }
+        if (!Utils::isUnset($request->ownerId)) {
+            $query['OwnerId'] = $request->ownerId;
+        }
+        $req = new OpenApiRequest([
             'query' => OpenApiUtilClient::query($query),
-            'body'  => Utils::toMap($request),
         ]);
         $params = new Params([
             'action'      => 'DescribeChannelUsers',
@@ -691,7 +822,7 @@ class Rtc extends OpenApiClient
             'method'      => 'POST',
             'authType'    => 'AK',
             'style'       => 'RPC',
-            'reqBodyType' => 'json',
+            'reqBodyType' => 'formData',
             'bodyType'    => 'json',
         ]);
 
@@ -719,16 +850,27 @@ class Rtc extends OpenApiClient
     public function describeMPULayoutInfoListWithOptions($request, $runtime)
     {
         Utils::validateModel($request);
-        $query             = [];
-        $query['AppId']    = $request->appId;
-        $query['LayoutId'] = $request->layoutId;
-        $query['Name']     = $request->name;
-        $query['OwnerId']  = $request->ownerId;
-        $query['PageNum']  = $request->pageNum;
-        $query['PageSize'] = $request->pageSize;
-        $req               = new OpenApiRequest([
+        $query = [];
+        if (!Utils::isUnset($request->appId)) {
+            $query['AppId'] = $request->appId;
+        }
+        if (!Utils::isUnset($request->layoutId)) {
+            $query['LayoutId'] = $request->layoutId;
+        }
+        if (!Utils::isUnset($request->name)) {
+            $query['Name'] = $request->name;
+        }
+        if (!Utils::isUnset($request->ownerId)) {
+            $query['OwnerId'] = $request->ownerId;
+        }
+        if (!Utils::isUnset($request->pageNum)) {
+            $query['PageNum'] = $request->pageNum;
+        }
+        if (!Utils::isUnset($request->pageSize)) {
+            $query['PageSize'] = $request->pageSize;
+        }
+        $req = new OpenApiRequest([
             'query' => OpenApiUtilClient::query($query),
-            'body'  => Utils::toMap($request),
         ]);
         $params = new Params([
             'action'      => 'DescribeMPULayoutInfoList',
@@ -738,7 +880,7 @@ class Rtc extends OpenApiClient
             'method'      => 'POST',
             'authType'    => 'AK',
             'style'       => 'RPC',
-            'reqBodyType' => 'json',
+            'reqBodyType' => 'formData',
             'bodyType'    => 'json',
         ]);
 
@@ -766,18 +908,33 @@ class Rtc extends OpenApiClient
     public function describeRecordFilesWithOptions($request, $runtime)
     {
         Utils::validateModel($request);
-        $query              = [];
-        $query['AppId']     = $request->appId;
-        $query['ChannelId'] = $request->channelId;
-        $query['EndTime']   = $request->endTime;
-        $query['OwnerId']   = $request->ownerId;
-        $query['PageNum']   = $request->pageNum;
-        $query['PageSize']  = $request->pageSize;
-        $query['StartTime'] = $request->startTime;
-        $query['TaskIds']   = $request->taskIds;
-        $req                = new OpenApiRequest([
+        $query = [];
+        if (!Utils::isUnset($request->appId)) {
+            $query['AppId'] = $request->appId;
+        }
+        if (!Utils::isUnset($request->channelId)) {
+            $query['ChannelId'] = $request->channelId;
+        }
+        if (!Utils::isUnset($request->endTime)) {
+            $query['EndTime'] = $request->endTime;
+        }
+        if (!Utils::isUnset($request->ownerId)) {
+            $query['OwnerId'] = $request->ownerId;
+        }
+        if (!Utils::isUnset($request->pageNum)) {
+            $query['PageNum'] = $request->pageNum;
+        }
+        if (!Utils::isUnset($request->pageSize)) {
+            $query['PageSize'] = $request->pageSize;
+        }
+        if (!Utils::isUnset($request->startTime)) {
+            $query['StartTime'] = $request->startTime;
+        }
+        if (!Utils::isUnset($request->taskIds)) {
+            $query['TaskIds'] = $request->taskIds;
+        }
+        $req = new OpenApiRequest([
             'query' => OpenApiUtilClient::query($query),
-            'body'  => Utils::toMap($request),
         ]);
         $params = new Params([
             'action'      => 'DescribeRecordFiles',
@@ -787,7 +944,7 @@ class Rtc extends OpenApiClient
             'method'      => 'POST',
             'authType'    => 'AK',
             'style'       => 'RPC',
-            'reqBodyType' => 'json',
+            'reqBodyType' => 'formData',
             'bodyType'    => 'json',
         ]);
 
@@ -815,15 +972,24 @@ class Rtc extends OpenApiClient
     public function describeRecordTemplatesWithOptions($request, $runtime)
     {
         Utils::validateModel($request);
-        $query                = [];
-        $query['AppId']       = $request->appId;
-        $query['OwnerId']     = $request->ownerId;
-        $query['PageNum']     = $request->pageNum;
-        $query['PageSize']    = $request->pageSize;
-        $query['TemplateIds'] = $request->templateIds;
-        $req                  = new OpenApiRequest([
+        $query = [];
+        if (!Utils::isUnset($request->appId)) {
+            $query['AppId'] = $request->appId;
+        }
+        if (!Utils::isUnset($request->ownerId)) {
+            $query['OwnerId'] = $request->ownerId;
+        }
+        if (!Utils::isUnset($request->pageNum)) {
+            $query['PageNum'] = $request->pageNum;
+        }
+        if (!Utils::isUnset($request->pageSize)) {
+            $query['PageSize'] = $request->pageSize;
+        }
+        if (!Utils::isUnset($request->templateIds)) {
+            $query['TemplateIds'] = $request->templateIds;
+        }
+        $req = new OpenApiRequest([
             'query' => OpenApiUtilClient::query($query),
-            'body'  => Utils::toMap($request),
         ]);
         $params = new Params([
             'action'      => 'DescribeRecordTemplates',
@@ -833,7 +999,7 @@ class Rtc extends OpenApiClient
             'method'      => 'POST',
             'authType'    => 'AK',
             'style'       => 'RPC',
-            'reqBodyType' => 'json',
+            'reqBodyType' => 'formData',
             'bodyType'    => 'json',
         ]);
 
@@ -861,14 +1027,21 @@ class Rtc extends OpenApiClient
     public function describeUserInfoInChannelWithOptions($request, $runtime)
     {
         Utils::validateModel($request);
-        $query              = [];
-        $query['AppId']     = $request->appId;
-        $query['ChannelId'] = $request->channelId;
-        $query['OwnerId']   = $request->ownerId;
-        $query['UserId']    = $request->userId;
-        $req                = new OpenApiRequest([
+        $query = [];
+        if (!Utils::isUnset($request->appId)) {
+            $query['AppId'] = $request->appId;
+        }
+        if (!Utils::isUnset($request->channelId)) {
+            $query['ChannelId'] = $request->channelId;
+        }
+        if (!Utils::isUnset($request->ownerId)) {
+            $query['OwnerId'] = $request->ownerId;
+        }
+        if (!Utils::isUnset($request->userId)) {
+            $query['UserId'] = $request->userId;
+        }
+        $req = new OpenApiRequest([
             'query' => OpenApiUtilClient::query($query),
-            'body'  => Utils::toMap($request),
         ]);
         $params = new Params([
             'action'      => 'DescribeUserInfoInChannel',
@@ -878,7 +1051,7 @@ class Rtc extends OpenApiClient
             'method'      => 'POST',
             'authType'    => 'AK',
             'style'       => 'RPC',
-            'reqBodyType' => 'json',
+            'reqBodyType' => 'formData',
             'bodyType'    => 'json',
         ]);
 
@@ -906,13 +1079,18 @@ class Rtc extends OpenApiClient
     public function disableAutoLiveStreamRuleWithOptions($request, $runtime)
     {
         Utils::validateModel($request);
-        $query            = [];
-        $query['AppId']   = $request->appId;
-        $query['OwnerId'] = $request->ownerId;
-        $query['RuleId']  = $request->ruleId;
-        $req              = new OpenApiRequest([
+        $query = [];
+        if (!Utils::isUnset($request->appId)) {
+            $query['AppId'] = $request->appId;
+        }
+        if (!Utils::isUnset($request->ownerId)) {
+            $query['OwnerId'] = $request->ownerId;
+        }
+        if (!Utils::isUnset($request->ruleId)) {
+            $query['RuleId'] = $request->ruleId;
+        }
+        $req = new OpenApiRequest([
             'query' => OpenApiUtilClient::query($query),
-            'body'  => Utils::toMap($request),
         ]);
         $params = new Params([
             'action'      => 'DisableAutoLiveStreamRule',
@@ -922,7 +1100,7 @@ class Rtc extends OpenApiClient
             'method'      => 'POST',
             'authType'    => 'AK',
             'style'       => 'RPC',
-            'reqBodyType' => 'json',
+            'reqBodyType' => 'formData',
             'bodyType'    => 'json',
         ]);
 
@@ -950,13 +1128,18 @@ class Rtc extends OpenApiClient
     public function enableAutoLiveStreamRuleWithOptions($request, $runtime)
     {
         Utils::validateModel($request);
-        $query            = [];
-        $query['AppId']   = $request->appId;
-        $query['OwnerId'] = $request->ownerId;
-        $query['RuleId']  = $request->ruleId;
-        $req              = new OpenApiRequest([
+        $query = [];
+        if (!Utils::isUnset($request->appId)) {
+            $query['AppId'] = $request->appId;
+        }
+        if (!Utils::isUnset($request->ownerId)) {
+            $query['OwnerId'] = $request->ownerId;
+        }
+        if (!Utils::isUnset($request->ruleId)) {
+            $query['RuleId'] = $request->ruleId;
+        }
+        $req = new OpenApiRequest([
             'query' => OpenApiUtilClient::query($query),
-            'body'  => Utils::toMap($request),
         ]);
         $params = new Params([
             'action'      => 'EnableAutoLiveStreamRule',
@@ -966,7 +1149,7 @@ class Rtc extends OpenApiClient
             'method'      => 'POST',
             'authType'    => 'AK',
             'style'       => 'RPC',
-            'reqBodyType' => 'json',
+            'reqBodyType' => 'formData',
             'bodyType'    => 'json',
         ]);
 
@@ -994,13 +1177,18 @@ class Rtc extends OpenApiClient
     public function getMPUTaskStatusWithOptions($request, $runtime)
     {
         Utils::validateModel($request);
-        $query            = [];
-        $query['AppId']   = $request->appId;
-        $query['OwnerId'] = $request->ownerId;
-        $query['TaskId']  = $request->taskId;
-        $req              = new OpenApiRequest([
+        $query = [];
+        if (!Utils::isUnset($request->appId)) {
+            $query['AppId'] = $request->appId;
+        }
+        if (!Utils::isUnset($request->ownerId)) {
+            $query['OwnerId'] = $request->ownerId;
+        }
+        if (!Utils::isUnset($request->taskId)) {
+            $query['TaskId'] = $request->taskId;
+        }
+        $req = new OpenApiRequest([
             'query' => OpenApiUtilClient::query($query),
-            'body'  => Utils::toMap($request),
         ]);
         $params = new Params([
             'action'      => 'GetMPUTaskStatus',
@@ -1010,7 +1198,7 @@ class Rtc extends OpenApiClient
             'method'      => 'POST',
             'authType'    => 'AK',
             'style'       => 'RPC',
-            'reqBodyType' => 'json',
+            'reqBodyType' => 'formData',
             'bodyType'    => 'json',
         ]);
 
@@ -1038,13 +1226,18 @@ class Rtc extends OpenApiClient
     public function modifyAppWithOptions($request, $runtime)
     {
         Utils::validateModel($request);
-        $query            = [];
-        $query['AppId']   = $request->appId;
-        $query['AppName'] = $request->appName;
-        $query['OwnerId'] = $request->ownerId;
-        $req              = new OpenApiRequest([
+        $query = [];
+        if (!Utils::isUnset($request->appId)) {
+            $query['AppId'] = $request->appId;
+        }
+        if (!Utils::isUnset($request->appName)) {
+            $query['AppName'] = $request->appName;
+        }
+        if (!Utils::isUnset($request->ownerId)) {
+            $query['OwnerId'] = $request->ownerId;
+        }
+        $req = new OpenApiRequest([
             'query' => OpenApiUtilClient::query($query),
-            'body'  => Utils::toMap($request),
         ]);
         $params = new Params([
             'action'      => 'ModifyApp',
@@ -1054,7 +1247,7 @@ class Rtc extends OpenApiClient
             'method'      => 'POST',
             'authType'    => 'AK',
             'style'       => 'RPC',
-            'reqBodyType' => 'json',
+            'reqBodyType' => 'formData',
             'bodyType'    => 'json',
         ]);
 
@@ -1082,16 +1275,27 @@ class Rtc extends OpenApiClient
     public function modifyMPULayoutWithOptions($request, $runtime)
     {
         Utils::validateModel($request);
-        $query                  = [];
-        $query['AppId']         = $request->appId;
-        $query['AudioMixCount'] = $request->audioMixCount;
-        $query['LayoutId']      = $request->layoutId;
-        $query['Name']          = $request->name;
-        $query['OwnerId']       = $request->ownerId;
-        $query['Panes']         = $request->panes;
-        $req                    = new OpenApiRequest([
+        $query = [];
+        if (!Utils::isUnset($request->appId)) {
+            $query['AppId'] = $request->appId;
+        }
+        if (!Utils::isUnset($request->audioMixCount)) {
+            $query['AudioMixCount'] = $request->audioMixCount;
+        }
+        if (!Utils::isUnset($request->layoutId)) {
+            $query['LayoutId'] = $request->layoutId;
+        }
+        if (!Utils::isUnset($request->name)) {
+            $query['Name'] = $request->name;
+        }
+        if (!Utils::isUnset($request->ownerId)) {
+            $query['OwnerId'] = $request->ownerId;
+        }
+        if (!Utils::isUnset($request->panes)) {
+            $query['Panes'] = $request->panes;
+        }
+        $req = new OpenApiRequest([
             'query' => OpenApiUtilClient::query($query),
-            'body'  => Utils::toMap($request),
         ]);
         $params = new Params([
             'action'      => 'ModifyMPULayout',
@@ -1101,7 +1305,7 @@ class Rtc extends OpenApiClient
             'method'      => 'POST',
             'authType'    => 'AK',
             'style'       => 'RPC',
-            'reqBodyType' => 'json',
+            'reqBodyType' => 'formData',
             'bodyType'    => 'json',
         ]);
 
@@ -1129,14 +1333,21 @@ class Rtc extends OpenApiClient
     public function removeTerminalsWithOptions($request, $runtime)
     {
         Utils::validateModel($request);
-        $query                = [];
-        $query['AppId']       = $request->appId;
-        $query['ChannelId']   = $request->channelId;
-        $query['OwnerId']     = $request->ownerId;
-        $query['TerminalIds'] = $request->terminalIds;
-        $req                  = new OpenApiRequest([
+        $query = [];
+        if (!Utils::isUnset($request->appId)) {
+            $query['AppId'] = $request->appId;
+        }
+        if (!Utils::isUnset($request->channelId)) {
+            $query['ChannelId'] = $request->channelId;
+        }
+        if (!Utils::isUnset($request->ownerId)) {
+            $query['OwnerId'] = $request->ownerId;
+        }
+        if (!Utils::isUnset($request->terminalIds)) {
+            $query['TerminalIds'] = $request->terminalIds;
+        }
+        $req = new OpenApiRequest([
             'query' => OpenApiUtilClient::query($query),
-            'body'  => Utils::toMap($request),
         ]);
         $params = new Params([
             'action'      => 'RemoveTerminals',
@@ -1146,7 +1357,7 @@ class Rtc extends OpenApiClient
             'method'      => 'POST',
             'authType'    => 'AK',
             'style'       => 'RPC',
-            'reqBodyType' => 'json',
+            'reqBodyType' => 'formData',
             'bodyType'    => 'json',
         ]);
 
@@ -1174,39 +1385,103 @@ class Rtc extends OpenApiClient
     public function startMPUTaskWithOptions($request, $runtime)
     {
         Utils::validateModel($request);
-        $query                              = [];
-        $query['AppId']                     = $request->appId;
-        $query['BackgroundColor']           = $request->backgroundColor;
-        $query['Backgrounds']               = $request->backgrounds;
-        $query['ChannelId']                 = $request->channelId;
-        $query['ClockWidgets']              = $request->clockWidgets;
-        $query['CropMode']                  = $request->cropMode;
-        $query['LayoutIds']                 = $request->layoutIds;
-        $query['MediaEncode']               = $request->mediaEncode;
-        $query['MixMode']                   = $request->mixMode;
-        $query['OwnerId']                   = $request->ownerId;
-        $query['PayloadType']               = $request->payloadType;
-        $query['ReportVad']                 = $request->reportVad;
-        $query['RtpExtInfo']                = $request->rtpExtInfo;
-        $query['SourceType']                = $request->sourceType;
-        $query['StreamType']                = $request->streamType;
-        $query['StreamURL']                 = $request->streamURL;
-        $query['SubSpecAudioUsers']         = $request->subSpecAudioUsers;
-        $query['SubSpecCameraUsers']        = $request->subSpecCameraUsers;
-        $query['SubSpecShareScreenUsers']   = $request->subSpecShareScreenUsers;
-        $query['SubSpecUsers']              = $request->subSpecUsers;
-        $query['TaskId']                    = $request->taskId;
-        $query['TaskType']                  = $request->taskType;
-        $query['TimeStampRef']              = $request->timeStampRef;
-        $query['UnsubSpecAudioUsers']       = $request->unsubSpecAudioUsers;
-        $query['UnsubSpecCameraUsers']      = $request->unsubSpecCameraUsers;
-        $query['UnsubSpecShareScreenUsers'] = $request->unsubSpecShareScreenUsers;
-        $query['UserPanes']                 = $request->userPanes;
-        $query['VadInterval']               = $request->vadInterval;
-        $query['Watermarks']                = $request->watermarks;
-        $req                                = new OpenApiRequest([
+        $query = [];
+        if (!Utils::isUnset($request->appId)) {
+            $query['AppId'] = $request->appId;
+        }
+        if (!Utils::isUnset($request->backgroundColor)) {
+            $query['BackgroundColor'] = $request->backgroundColor;
+        }
+        if (!Utils::isUnset($request->backgrounds)) {
+            $query['Backgrounds'] = $request->backgrounds;
+        }
+        if (!Utils::isUnset($request->channelId)) {
+            $query['ChannelId'] = $request->channelId;
+        }
+        if (!Utils::isUnset($request->clockWidgets)) {
+            $query['ClockWidgets'] = $request->clockWidgets;
+        }
+        if (!Utils::isUnset($request->cropMode)) {
+            $query['CropMode'] = $request->cropMode;
+        }
+        if (!Utils::isUnset($request->layoutIds)) {
+            $query['LayoutIds'] = $request->layoutIds;
+        }
+        if (!Utils::isUnset($request->mediaEncode)) {
+            $query['MediaEncode'] = $request->mediaEncode;
+        }
+        if (!Utils::isUnset($request->mixMode)) {
+            $query['MixMode'] = $request->mixMode;
+        }
+        if (!Utils::isUnset($request->ownerId)) {
+            $query['OwnerId'] = $request->ownerId;
+        }
+        if (!Utils::isUnset($request->payloadType)) {
+            $query['PayloadType'] = $request->payloadType;
+        }
+        if (!Utils::isUnset($request->reportVad)) {
+            $query['ReportVad'] = $request->reportVad;
+        }
+        if (!Utils::isUnset($request->rtpExtInfo)) {
+            $query['RtpExtInfo'] = $request->rtpExtInfo;
+        }
+        if (!Utils::isUnset($request->sourceType)) {
+            $query['SourceType'] = $request->sourceType;
+        }
+        if (!Utils::isUnset($request->streamType)) {
+            $query['StreamType'] = $request->streamType;
+        }
+        if (!Utils::isUnset($request->streamURL)) {
+            $query['StreamURL'] = $request->streamURL;
+        }
+        if (!Utils::isUnset($request->subSpecAudioUsers)) {
+            $query['SubSpecAudioUsers'] = $request->subSpecAudioUsers;
+        }
+        if (!Utils::isUnset($request->subSpecCameraUsers)) {
+            $query['SubSpecCameraUsers'] = $request->subSpecCameraUsers;
+        }
+        if (!Utils::isUnset($request->subSpecShareScreenUsers)) {
+            $query['SubSpecShareScreenUsers'] = $request->subSpecShareScreenUsers;
+        }
+        if (!Utils::isUnset($request->subSpecUsers)) {
+            $query['SubSpecUsers'] = $request->subSpecUsers;
+        }
+        if (!Utils::isUnset($request->taskId)) {
+            $query['TaskId'] = $request->taskId;
+        }
+        if (!Utils::isUnset($request->taskType)) {
+            $query['TaskType'] = $request->taskType;
+        }
+        if (!Utils::isUnset($request->timeStampRef)) {
+            $query['TimeStampRef'] = $request->timeStampRef;
+        }
+        if (!Utils::isUnset($request->unsubSpecAudioUsers)) {
+            $query['UnsubSpecAudioUsers'] = $request->unsubSpecAudioUsers;
+        }
+        if (!Utils::isUnset($request->unsubSpecCameraUsers)) {
+            $query['UnsubSpecCameraUsers'] = $request->unsubSpecCameraUsers;
+        }
+        if (!Utils::isUnset($request->unsubSpecShareScreenUsers)) {
+            $query['UnsubSpecShareScreenUsers'] = $request->unsubSpecShareScreenUsers;
+        }
+        if (!Utils::isUnset($request->userPanes)) {
+            $query['UserPanes'] = $request->userPanes;
+        }
+        if (!Utils::isUnset($request->vadInterval)) {
+            $query['VadInterval'] = $request->vadInterval;
+        }
+        if (!Utils::isUnset($request->watermarks)) {
+            $query['Watermarks'] = $request->watermarks;
+        }
+        $body     = [];
+        $bodyFlat = [];
+        if (!Utils::isUnset($request->enhancedParam)) {
+            $bodyFlat['EnhancedParam'] = $request->enhancedParam;
+        }
+        $body = Tea::merge($body, OpenApiUtilClient::query($bodyFlat));
+        $req  = new OpenApiRequest([
             'query' => OpenApiUtilClient::query($query),
-            'body'  => Utils::toMap($request),
+            'body'  => OpenApiUtilClient::parseToMap($body),
         ]);
         $params = new Params([
             'action'      => 'StartMPUTask',
@@ -1244,30 +1519,69 @@ class Rtc extends OpenApiClient
     public function startRecordTaskWithOptions($request, $runtime)
     {
         Utils::validateModel($request);
-        $query                              = [];
-        $query['AppId']                     = $request->appId;
-        $query['ChannelId']                 = $request->channelId;
-        $query['CropMode']                  = $request->cropMode;
-        $query['LayoutIds']                 = $request->layoutIds;
-        $query['MediaEncode']               = $request->mediaEncode;
-        $query['MixMode']                   = $request->mixMode;
-        $query['OwnerId']                   = $request->ownerId;
-        $query['SourceType']                = $request->sourceType;
-        $query['StreamType']                = $request->streamType;
-        $query['SubSpecAudioUsers']         = $request->subSpecAudioUsers;
-        $query['SubSpecCameraUsers']        = $request->subSpecCameraUsers;
-        $query['SubSpecShareScreenUsers']   = $request->subSpecShareScreenUsers;
-        $query['SubSpecUsers']              = $request->subSpecUsers;
-        $query['TaskId']                    = $request->taskId;
-        $query['TaskProfile']               = $request->taskProfile;
-        $query['TemplateId']                = $request->templateId;
-        $query['UnsubSpecAudioUsers']       = $request->unsubSpecAudioUsers;
-        $query['UnsubSpecCameraUsers']      = $request->unsubSpecCameraUsers;
-        $query['UnsubSpecShareScreenUsers'] = $request->unsubSpecShareScreenUsers;
-        $query['UserPanes']                 = $request->userPanes;
-        $req                                = new OpenApiRequest([
+        $query = [];
+        if (!Utils::isUnset($request->appId)) {
+            $query['AppId'] = $request->appId;
+        }
+        if (!Utils::isUnset($request->channelId)) {
+            $query['ChannelId'] = $request->channelId;
+        }
+        if (!Utils::isUnset($request->cropMode)) {
+            $query['CropMode'] = $request->cropMode;
+        }
+        if (!Utils::isUnset($request->layoutIds)) {
+            $query['LayoutIds'] = $request->layoutIds;
+        }
+        if (!Utils::isUnset($request->mediaEncode)) {
+            $query['MediaEncode'] = $request->mediaEncode;
+        }
+        if (!Utils::isUnset($request->mixMode)) {
+            $query['MixMode'] = $request->mixMode;
+        }
+        if (!Utils::isUnset($request->ownerId)) {
+            $query['OwnerId'] = $request->ownerId;
+        }
+        if (!Utils::isUnset($request->sourceType)) {
+            $query['SourceType'] = $request->sourceType;
+        }
+        if (!Utils::isUnset($request->streamType)) {
+            $query['StreamType'] = $request->streamType;
+        }
+        if (!Utils::isUnset($request->subSpecAudioUsers)) {
+            $query['SubSpecAudioUsers'] = $request->subSpecAudioUsers;
+        }
+        if (!Utils::isUnset($request->subSpecCameraUsers)) {
+            $query['SubSpecCameraUsers'] = $request->subSpecCameraUsers;
+        }
+        if (!Utils::isUnset($request->subSpecShareScreenUsers)) {
+            $query['SubSpecShareScreenUsers'] = $request->subSpecShareScreenUsers;
+        }
+        if (!Utils::isUnset($request->subSpecUsers)) {
+            $query['SubSpecUsers'] = $request->subSpecUsers;
+        }
+        if (!Utils::isUnset($request->taskId)) {
+            $query['TaskId'] = $request->taskId;
+        }
+        if (!Utils::isUnset($request->taskProfile)) {
+            $query['TaskProfile'] = $request->taskProfile;
+        }
+        if (!Utils::isUnset($request->templateId)) {
+            $query['TemplateId'] = $request->templateId;
+        }
+        if (!Utils::isUnset($request->unsubSpecAudioUsers)) {
+            $query['UnsubSpecAudioUsers'] = $request->unsubSpecAudioUsers;
+        }
+        if (!Utils::isUnset($request->unsubSpecCameraUsers)) {
+            $query['UnsubSpecCameraUsers'] = $request->unsubSpecCameraUsers;
+        }
+        if (!Utils::isUnset($request->unsubSpecShareScreenUsers)) {
+            $query['UnsubSpecShareScreenUsers'] = $request->unsubSpecShareScreenUsers;
+        }
+        if (!Utils::isUnset($request->userPanes)) {
+            $query['UserPanes'] = $request->userPanes;
+        }
+        $req = new OpenApiRequest([
             'query' => OpenApiUtilClient::query($query),
-            'body'  => Utils::toMap($request),
         ]);
         $params = new Params([
             'action'      => 'StartRecordTask',
@@ -1277,7 +1591,7 @@ class Rtc extends OpenApiClient
             'method'      => 'POST',
             'authType'    => 'AK',
             'style'       => 'RPC',
-            'reqBodyType' => 'json',
+            'reqBodyType' => 'formData',
             'bodyType'    => 'json',
         ]);
 
@@ -1305,13 +1619,18 @@ class Rtc extends OpenApiClient
     public function stopMPUTaskWithOptions($request, $runtime)
     {
         Utils::validateModel($request);
-        $query            = [];
-        $query['AppId']   = $request->appId;
-        $query['OwnerId'] = $request->ownerId;
-        $query['TaskId']  = $request->taskId;
-        $req              = new OpenApiRequest([
+        $query = [];
+        if (!Utils::isUnset($request->appId)) {
+            $query['AppId'] = $request->appId;
+        }
+        if (!Utils::isUnset($request->ownerId)) {
+            $query['OwnerId'] = $request->ownerId;
+        }
+        if (!Utils::isUnset($request->taskId)) {
+            $query['TaskId'] = $request->taskId;
+        }
+        $req = new OpenApiRequest([
             'query' => OpenApiUtilClient::query($query),
-            'body'  => Utils::toMap($request),
         ]);
         $params = new Params([
             'action'      => 'StopMPUTask',
@@ -1321,7 +1640,7 @@ class Rtc extends OpenApiClient
             'method'      => 'POST',
             'authType'    => 'AK',
             'style'       => 'RPC',
-            'reqBodyType' => 'json',
+            'reqBodyType' => 'formData',
             'bodyType'    => 'json',
         ]);
 
@@ -1349,13 +1668,18 @@ class Rtc extends OpenApiClient
     public function stopRecordTaskWithOptions($request, $runtime)
     {
         Utils::validateModel($request);
-        $query            = [];
-        $query['AppId']   = $request->appId;
-        $query['OwnerId'] = $request->ownerId;
-        $query['TaskId']  = $request->taskId;
-        $req              = new OpenApiRequest([
+        $query = [];
+        if (!Utils::isUnset($request->appId)) {
+            $query['AppId'] = $request->appId;
+        }
+        if (!Utils::isUnset($request->ownerId)) {
+            $query['OwnerId'] = $request->ownerId;
+        }
+        if (!Utils::isUnset($request->taskId)) {
+            $query['TaskId'] = $request->taskId;
+        }
+        $req = new OpenApiRequest([
             'query' => OpenApiUtilClient::query($query),
-            'body'  => Utils::toMap($request),
         ]);
         $params = new Params([
             'action'      => 'StopRecordTask',
@@ -1365,7 +1689,7 @@ class Rtc extends OpenApiClient
             'method'      => 'POST',
             'authType'    => 'AK',
             'style'       => 'RPC',
-            'reqBodyType' => 'json',
+            'reqBodyType' => 'formData',
             'bodyType'    => 'json',
         ]);
 
@@ -1393,19 +1717,36 @@ class Rtc extends OpenApiClient
     public function updateAutoLiveStreamRuleWithOptions($request, $runtime)
     {
         Utils::validateModel($request);
-        $query                      = [];
-        $query['AppId']             = $request->appId;
-        $query['CallBack']          = $request->callBack;
-        $query['ChannelIdPrefixes'] = $request->channelIdPrefixes;
-        $query['ChannelIds']        = $request->channelIds;
-        $query['MediaEncode']       = $request->mediaEncode;
-        $query['OwnerId']           = $request->ownerId;
-        $query['PlayDomain']        = $request->playDomain;
-        $query['RuleId']            = $request->ruleId;
-        $query['RuleName']          = $request->ruleName;
-        $req                        = new OpenApiRequest([
+        $query = [];
+        if (!Utils::isUnset($request->appId)) {
+            $query['AppId'] = $request->appId;
+        }
+        if (!Utils::isUnset($request->callBack)) {
+            $query['CallBack'] = $request->callBack;
+        }
+        if (!Utils::isUnset($request->channelIdPrefixes)) {
+            $query['ChannelIdPrefixes'] = $request->channelIdPrefixes;
+        }
+        if (!Utils::isUnset($request->channelIds)) {
+            $query['ChannelIds'] = $request->channelIds;
+        }
+        if (!Utils::isUnset($request->mediaEncode)) {
+            $query['MediaEncode'] = $request->mediaEncode;
+        }
+        if (!Utils::isUnset($request->ownerId)) {
+            $query['OwnerId'] = $request->ownerId;
+        }
+        if (!Utils::isUnset($request->playDomain)) {
+            $query['PlayDomain'] = $request->playDomain;
+        }
+        if (!Utils::isUnset($request->ruleId)) {
+            $query['RuleId'] = $request->ruleId;
+        }
+        if (!Utils::isUnset($request->ruleName)) {
+            $query['RuleName'] = $request->ruleName;
+        }
+        $req = new OpenApiRequest([
             'query' => OpenApiUtilClient::query($query),
-            'body'  => Utils::toMap($request),
         ]);
         $params = new Params([
             'action'      => 'UpdateAutoLiveStreamRule',
@@ -1415,7 +1756,7 @@ class Rtc extends OpenApiClient
             'method'      => 'POST',
             'authType'    => 'AK',
             'style'       => 'RPC',
-            'reqBodyType' => 'json',
+            'reqBodyType' => 'formData',
             'bodyType'    => 'json',
         ]);
 
@@ -1443,31 +1784,72 @@ class Rtc extends OpenApiClient
     public function updateMPUTaskWithOptions($request, $runtime)
     {
         Utils::validateModel($request);
-        $query                              = [];
-        $query['AppId']                     = $request->appId;
-        $query['BackgroundColor']           = $request->backgroundColor;
-        $query['Backgrounds']               = $request->backgrounds;
-        $query['ClockWidgets']              = $request->clockWidgets;
-        $query['CropMode']                  = $request->cropMode;
-        $query['LayoutIds']                 = $request->layoutIds;
-        $query['MediaEncode']               = $request->mediaEncode;
-        $query['MixMode']                   = $request->mixMode;
-        $query['OwnerId']                   = $request->ownerId;
-        $query['SourceType']                = $request->sourceType;
-        $query['StreamType']                = $request->streamType;
-        $query['SubSpecAudioUsers']         = $request->subSpecAudioUsers;
-        $query['SubSpecCameraUsers']        = $request->subSpecCameraUsers;
-        $query['SubSpecShareScreenUsers']   = $request->subSpecShareScreenUsers;
-        $query['SubSpecUsers']              = $request->subSpecUsers;
-        $query['TaskId']                    = $request->taskId;
-        $query['UnsubSpecAudioUsers']       = $request->unsubSpecAudioUsers;
-        $query['UnsubSpecCameraUsers']      = $request->unsubSpecCameraUsers;
-        $query['UnsubSpecShareScreenUsers'] = $request->unsubSpecShareScreenUsers;
-        $query['UserPanes']                 = $request->userPanes;
-        $query['Watermarks']                = $request->watermarks;
-        $req                                = new OpenApiRequest([
+        $query = [];
+        if (!Utils::isUnset($request->appId)) {
+            $query['AppId'] = $request->appId;
+        }
+        if (!Utils::isUnset($request->backgroundColor)) {
+            $query['BackgroundColor'] = $request->backgroundColor;
+        }
+        if (!Utils::isUnset($request->backgrounds)) {
+            $query['Backgrounds'] = $request->backgrounds;
+        }
+        if (!Utils::isUnset($request->clockWidgets)) {
+            $query['ClockWidgets'] = $request->clockWidgets;
+        }
+        if (!Utils::isUnset($request->cropMode)) {
+            $query['CropMode'] = $request->cropMode;
+        }
+        if (!Utils::isUnset($request->layoutIds)) {
+            $query['LayoutIds'] = $request->layoutIds;
+        }
+        if (!Utils::isUnset($request->mediaEncode)) {
+            $query['MediaEncode'] = $request->mediaEncode;
+        }
+        if (!Utils::isUnset($request->mixMode)) {
+            $query['MixMode'] = $request->mixMode;
+        }
+        if (!Utils::isUnset($request->ownerId)) {
+            $query['OwnerId'] = $request->ownerId;
+        }
+        if (!Utils::isUnset($request->sourceType)) {
+            $query['SourceType'] = $request->sourceType;
+        }
+        if (!Utils::isUnset($request->streamType)) {
+            $query['StreamType'] = $request->streamType;
+        }
+        if (!Utils::isUnset($request->subSpecAudioUsers)) {
+            $query['SubSpecAudioUsers'] = $request->subSpecAudioUsers;
+        }
+        if (!Utils::isUnset($request->subSpecCameraUsers)) {
+            $query['SubSpecCameraUsers'] = $request->subSpecCameraUsers;
+        }
+        if (!Utils::isUnset($request->subSpecShareScreenUsers)) {
+            $query['SubSpecShareScreenUsers'] = $request->subSpecShareScreenUsers;
+        }
+        if (!Utils::isUnset($request->subSpecUsers)) {
+            $query['SubSpecUsers'] = $request->subSpecUsers;
+        }
+        if (!Utils::isUnset($request->taskId)) {
+            $query['TaskId'] = $request->taskId;
+        }
+        if (!Utils::isUnset($request->unsubSpecAudioUsers)) {
+            $query['UnsubSpecAudioUsers'] = $request->unsubSpecAudioUsers;
+        }
+        if (!Utils::isUnset($request->unsubSpecCameraUsers)) {
+            $query['UnsubSpecCameraUsers'] = $request->unsubSpecCameraUsers;
+        }
+        if (!Utils::isUnset($request->unsubSpecShareScreenUsers)) {
+            $query['UnsubSpecShareScreenUsers'] = $request->unsubSpecShareScreenUsers;
+        }
+        if (!Utils::isUnset($request->userPanes)) {
+            $query['UserPanes'] = $request->userPanes;
+        }
+        if (!Utils::isUnset($request->watermarks)) {
+            $query['Watermarks'] = $request->watermarks;
+        }
+        $req = new OpenApiRequest([
             'query' => OpenApiUtilClient::query($query),
-            'body'  => Utils::toMap($request),
         ]);
         $params = new Params([
             'action'      => 'UpdateMPUTask',
@@ -1477,7 +1859,7 @@ class Rtc extends OpenApiClient
             'method'      => 'POST',
             'authType'    => 'AK',
             'style'       => 'RPC',
-            'reqBodyType' => 'json',
+            'reqBodyType' => 'formData',
             'bodyType'    => 'json',
         ]);
 
@@ -1505,24 +1887,51 @@ class Rtc extends OpenApiClient
     public function updateRecordTaskWithOptions($request, $runtime)
     {
         Utils::validateModel($request);
-        $query                              = [];
-        $query['AppId']                     = $request->appId;
-        $query['ChannelId']                 = $request->channelId;
-        $query['LayoutIds']                 = $request->layoutIds;
-        $query['OwnerId']                   = $request->ownerId;
-        $query['SubSpecAudioUsers']         = $request->subSpecAudioUsers;
-        $query['SubSpecCameraUsers']        = $request->subSpecCameraUsers;
-        $query['SubSpecShareScreenUsers']   = $request->subSpecShareScreenUsers;
-        $query['SubSpecUsers']              = $request->subSpecUsers;
-        $query['TaskId']                    = $request->taskId;
-        $query['TemplateId']                = $request->templateId;
-        $query['UnsubSpecAudioUsers']       = $request->unsubSpecAudioUsers;
-        $query['UnsubSpecCameraUsers']      = $request->unsubSpecCameraUsers;
-        $query['UnsubSpecShareScreenUsers'] = $request->unsubSpecShareScreenUsers;
-        $query['UserPanes']                 = $request->userPanes;
-        $req                                = new OpenApiRequest([
+        $query = [];
+        if (!Utils::isUnset($request->appId)) {
+            $query['AppId'] = $request->appId;
+        }
+        if (!Utils::isUnset($request->channelId)) {
+            $query['ChannelId'] = $request->channelId;
+        }
+        if (!Utils::isUnset($request->layoutIds)) {
+            $query['LayoutIds'] = $request->layoutIds;
+        }
+        if (!Utils::isUnset($request->ownerId)) {
+            $query['OwnerId'] = $request->ownerId;
+        }
+        if (!Utils::isUnset($request->subSpecAudioUsers)) {
+            $query['SubSpecAudioUsers'] = $request->subSpecAudioUsers;
+        }
+        if (!Utils::isUnset($request->subSpecCameraUsers)) {
+            $query['SubSpecCameraUsers'] = $request->subSpecCameraUsers;
+        }
+        if (!Utils::isUnset($request->subSpecShareScreenUsers)) {
+            $query['SubSpecShareScreenUsers'] = $request->subSpecShareScreenUsers;
+        }
+        if (!Utils::isUnset($request->subSpecUsers)) {
+            $query['SubSpecUsers'] = $request->subSpecUsers;
+        }
+        if (!Utils::isUnset($request->taskId)) {
+            $query['TaskId'] = $request->taskId;
+        }
+        if (!Utils::isUnset($request->templateId)) {
+            $query['TemplateId'] = $request->templateId;
+        }
+        if (!Utils::isUnset($request->unsubSpecAudioUsers)) {
+            $query['UnsubSpecAudioUsers'] = $request->unsubSpecAudioUsers;
+        }
+        if (!Utils::isUnset($request->unsubSpecCameraUsers)) {
+            $query['UnsubSpecCameraUsers'] = $request->unsubSpecCameraUsers;
+        }
+        if (!Utils::isUnset($request->unsubSpecShareScreenUsers)) {
+            $query['UnsubSpecShareScreenUsers'] = $request->unsubSpecShareScreenUsers;
+        }
+        if (!Utils::isUnset($request->userPanes)) {
+            $query['UserPanes'] = $request->userPanes;
+        }
+        $req = new OpenApiRequest([
             'query' => OpenApiUtilClient::query($query),
-            'body'  => Utils::toMap($request),
         ]);
         $params = new Params([
             'action'      => 'UpdateRecordTask',
@@ -1532,7 +1941,7 @@ class Rtc extends OpenApiClient
             'method'      => 'POST',
             'authType'    => 'AK',
             'style'       => 'RPC',
-            'reqBodyType' => 'json',
+            'reqBodyType' => 'formData',
             'bodyType'    => 'json',
         ]);
 
@@ -1560,29 +1969,66 @@ class Rtc extends OpenApiClient
     public function updateRecordTemplateWithOptions($request, $runtime)
     {
         Utils::validateModel($request);
-        $query                       = [];
-        $query['AppId']              = $request->appId;
-        $query['BackgroundColor']    = $request->backgroundColor;
-        $query['Backgrounds']        = $request->backgrounds;
-        $query['ClockWidgets']       = $request->clockWidgets;
-        $query['DelayStopTime']      = $request->delayStopTime;
-        $query['EnableM3u8DateTime'] = $request->enableM3u8DateTime;
-        $query['FileSplitInterval']  = $request->fileSplitInterval;
-        $query['Formats']            = $request->formats;
-        $query['HttpCallbackUrl']    = $request->httpCallbackUrl;
-        $query['LayoutIds']          = $request->layoutIds;
-        $query['MediaEncode']        = $request->mediaEncode;
-        $query['MnsQueue']           = $request->mnsQueue;
-        $query['Name']               = $request->name;
-        $query['OssBucket']          = $request->ossBucket;
-        $query['OssFilePrefix']      = $request->ossFilePrefix;
-        $query['OwnerId']            = $request->ownerId;
-        $query['TaskProfile']        = $request->taskProfile;
-        $query['TemplateId']         = $request->templateId;
-        $query['Watermarks']         = $request->watermarks;
-        $req                         = new OpenApiRequest([
+        $query = [];
+        if (!Utils::isUnset($request->appId)) {
+            $query['AppId'] = $request->appId;
+        }
+        if (!Utils::isUnset($request->backgroundColor)) {
+            $query['BackgroundColor'] = $request->backgroundColor;
+        }
+        if (!Utils::isUnset($request->backgrounds)) {
+            $query['Backgrounds'] = $request->backgrounds;
+        }
+        if (!Utils::isUnset($request->clockWidgets)) {
+            $query['ClockWidgets'] = $request->clockWidgets;
+        }
+        if (!Utils::isUnset($request->delayStopTime)) {
+            $query['DelayStopTime'] = $request->delayStopTime;
+        }
+        if (!Utils::isUnset($request->enableM3u8DateTime)) {
+            $query['EnableM3u8DateTime'] = $request->enableM3u8DateTime;
+        }
+        if (!Utils::isUnset($request->fileSplitInterval)) {
+            $query['FileSplitInterval'] = $request->fileSplitInterval;
+        }
+        if (!Utils::isUnset($request->formats)) {
+            $query['Formats'] = $request->formats;
+        }
+        if (!Utils::isUnset($request->httpCallbackUrl)) {
+            $query['HttpCallbackUrl'] = $request->httpCallbackUrl;
+        }
+        if (!Utils::isUnset($request->layoutIds)) {
+            $query['LayoutIds'] = $request->layoutIds;
+        }
+        if (!Utils::isUnset($request->mediaEncode)) {
+            $query['MediaEncode'] = $request->mediaEncode;
+        }
+        if (!Utils::isUnset($request->mnsQueue)) {
+            $query['MnsQueue'] = $request->mnsQueue;
+        }
+        if (!Utils::isUnset($request->name)) {
+            $query['Name'] = $request->name;
+        }
+        if (!Utils::isUnset($request->ossBucket)) {
+            $query['OssBucket'] = $request->ossBucket;
+        }
+        if (!Utils::isUnset($request->ossFilePrefix)) {
+            $query['OssFilePrefix'] = $request->ossFilePrefix;
+        }
+        if (!Utils::isUnset($request->ownerId)) {
+            $query['OwnerId'] = $request->ownerId;
+        }
+        if (!Utils::isUnset($request->taskProfile)) {
+            $query['TaskProfile'] = $request->taskProfile;
+        }
+        if (!Utils::isUnset($request->templateId)) {
+            $query['TemplateId'] = $request->templateId;
+        }
+        if (!Utils::isUnset($request->watermarks)) {
+            $query['Watermarks'] = $request->watermarks;
+        }
+        $req = new OpenApiRequest([
             'query' => OpenApiUtilClient::query($query),
-            'body'  => Utils::toMap($request),
         ]);
         $params = new Params([
             'action'      => 'UpdateRecordTemplate',
@@ -1592,7 +2038,7 @@ class Rtc extends OpenApiClient
             'method'      => 'POST',
             'authType'    => 'AK',
             'style'       => 'RPC',
-            'reqBodyType' => 'json',
+            'reqBodyType' => 'formData',
             'bodyType'    => 'json',
         ]);
 
