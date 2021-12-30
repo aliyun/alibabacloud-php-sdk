@@ -9,6 +9,13 @@ use AlibabaCloud\Tea\Model;
 class DescribeDBInstancesRequest extends Model
 {
     /**
+     * @description 实例名称
+     *
+     * @var string
+     */
+    public $instanceId;
+
+    /**
      * @var int
      */
     public $pageNumber;
@@ -22,10 +29,27 @@ class DescribeDBInstancesRequest extends Model
      * @var string
      */
     public $regionId;
+
+    /**
+     * @description 资源组ID
+     *
+     * @var string
+     */
+    public $resourceGroupId;
+
+    /**
+     * @description 标签过滤条件
+     *
+     * @var string
+     */
+    public $tags;
     protected $_name = [
-        'pageNumber' => 'PageNumber',
-        'pageSize'   => 'PageSize',
-        'regionId'   => 'RegionId',
+        'instanceId'      => 'InstanceId',
+        'pageNumber'      => 'PageNumber',
+        'pageSize'        => 'PageSize',
+        'regionId'        => 'RegionId',
+        'resourceGroupId' => 'ResourceGroupId',
+        'tags'            => 'Tags',
     ];
 
     public function validate()
@@ -35,6 +59,9 @@ class DescribeDBInstancesRequest extends Model
     public function toMap()
     {
         $res = [];
+        if (null !== $this->instanceId) {
+            $res['InstanceId'] = $this->instanceId;
+        }
         if (null !== $this->pageNumber) {
             $res['PageNumber'] = $this->pageNumber;
         }
@@ -43,6 +70,12 @@ class DescribeDBInstancesRequest extends Model
         }
         if (null !== $this->regionId) {
             $res['RegionId'] = $this->regionId;
+        }
+        if (null !== $this->resourceGroupId) {
+            $res['ResourceGroupId'] = $this->resourceGroupId;
+        }
+        if (null !== $this->tags) {
+            $res['Tags'] = $this->tags;
         }
 
         return $res;
@@ -56,6 +89,9 @@ class DescribeDBInstancesRequest extends Model
     public static function fromMap($map = [])
     {
         $model = new self();
+        if (isset($map['InstanceId'])) {
+            $model->instanceId = $map['InstanceId'];
+        }
         if (isset($map['PageNumber'])) {
             $model->pageNumber = $map['PageNumber'];
         }
@@ -64,6 +100,12 @@ class DescribeDBInstancesRequest extends Model
         }
         if (isset($map['RegionId'])) {
             $model->regionId = $map['RegionId'];
+        }
+        if (isset($map['ResourceGroupId'])) {
+            $model->resourceGroupId = $map['ResourceGroupId'];
+        }
+        if (isset($map['Tags'])) {
+            $model->tags = $map['Tags'];
         }
 
         return $model;

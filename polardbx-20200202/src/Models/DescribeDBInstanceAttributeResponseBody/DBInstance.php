@@ -6,6 +6,7 @@ namespace AlibabaCloud\SDK\Polardbx\V20200202\Models\DescribeDBInstanceAttribute
 
 use AlibabaCloud\SDK\Polardbx\V20200202\Models\DescribeDBInstanceAttributeResponseBody\DBInstance\connAddrs;
 use AlibabaCloud\SDK\Polardbx\V20200202\Models\DescribeDBInstanceAttributeResponseBody\DBInstance\DBNodes;
+use AlibabaCloud\SDK\Polardbx\V20200202\Models\DescribeDBInstanceAttributeResponseBody\DBInstance\tagSet;
 use AlibabaCloud\Tea\Model;
 
 class DBInstance extends Model
@@ -141,6 +142,13 @@ class DBInstance extends Model
     public $regionId;
 
     /**
+     * @description 资源组ID
+     *
+     * @var string
+     */
+    public $resourceGroupId;
+
+    /**
      * @var bool
      */
     public $rightsSeparationEnabled;
@@ -159,6 +167,13 @@ class DBInstance extends Model
      * @var int
      */
     public $storageUsed;
+
+    /**
+     * @description 标签集合
+     *
+     * @var tagSet[]
+     */
+    public $tagSet;
 
     /**
      * @var string
@@ -206,10 +221,12 @@ class DBInstance extends Model
         'port'                    => 'Port',
         'readDBInstances'         => 'ReadDBInstances',
         'regionId'                => 'RegionId',
+        'resourceGroupId'         => 'ResourceGroupId',
         'rightsSeparationEnabled' => 'RightsSeparationEnabled',
         'rightsSeparationStatus'  => 'RightsSeparationStatus',
         'status'                  => 'Status',
         'storageUsed'             => 'StorageUsed',
+        'tagSet'                  => 'TagSet',
         'type'                    => 'Type',
         'VPCId'                   => 'VPCId',
         'vSwitchId'               => 'VSwitchId',
@@ -313,6 +330,9 @@ class DBInstance extends Model
         if (null !== $this->regionId) {
             $res['RegionId'] = $this->regionId;
         }
+        if (null !== $this->resourceGroupId) {
+            $res['ResourceGroupId'] = $this->resourceGroupId;
+        }
         if (null !== $this->rightsSeparationEnabled) {
             $res['RightsSeparationEnabled'] = $this->rightsSeparationEnabled;
         }
@@ -324,6 +344,15 @@ class DBInstance extends Model
         }
         if (null !== $this->storageUsed) {
             $res['StorageUsed'] = $this->storageUsed;
+        }
+        if (null !== $this->tagSet) {
+            $res['TagSet'] = [];
+            if (null !== $this->tagSet && \is_array($this->tagSet)) {
+                $n = 0;
+                foreach ($this->tagSet as $item) {
+                    $res['TagSet'][$n++] = null !== $item ? $item->toMap() : $item;
+                }
+            }
         }
         if (null !== $this->type) {
             $res['Type'] = $this->type;
@@ -441,6 +470,9 @@ class DBInstance extends Model
         if (isset($map['RegionId'])) {
             $model->regionId = $map['RegionId'];
         }
+        if (isset($map['ResourceGroupId'])) {
+            $model->resourceGroupId = $map['ResourceGroupId'];
+        }
         if (isset($map['RightsSeparationEnabled'])) {
             $model->rightsSeparationEnabled = $map['RightsSeparationEnabled'];
         }
@@ -452,6 +484,15 @@ class DBInstance extends Model
         }
         if (isset($map['StorageUsed'])) {
             $model->storageUsed = $map['StorageUsed'];
+        }
+        if (isset($map['TagSet'])) {
+            if (!empty($map['TagSet'])) {
+                $model->tagSet = [];
+                $n             = 0;
+                foreach ($map['TagSet'] as $item) {
+                    $model->tagSet[$n++] = null !== $item ? tagSet::fromMap($item) : $item;
+                }
+            }
         }
         if (isset($map['Type'])) {
             $model->type = $map['Type'];

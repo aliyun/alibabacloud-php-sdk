@@ -10,8 +10,8 @@ use AlibabaCloud\SDK\Polardbx\V20200202\Models\AllocateInstancePublicConnectionR
 use AlibabaCloud\SDK\Polardbx\V20200202\Models\AllocateInstancePublicConnectionResponse;
 use AlibabaCloud\SDK\Polardbx\V20200202\Models\CancelActiveOperationTasksRequest;
 use AlibabaCloud\SDK\Polardbx\V20200202\Models\CancelActiveOperationTasksResponse;
-use AlibabaCloud\SDK\Polardbx\V20200202\Models\CancelPolarxOrderRequest;
-use AlibabaCloud\SDK\Polardbx\V20200202\Models\CancelPolarxOrderResponse;
+use AlibabaCloud\SDK\Polardbx\V20200202\Models\ChangeResourceGroupRequest;
+use AlibabaCloud\SDK\Polardbx\V20200202\Models\ChangeResourceGroupResponse;
 use AlibabaCloud\SDK\Polardbx\V20200202\Models\CheckCloudResourceAuthorizedRequest;
 use AlibabaCloud\SDK\Polardbx\V20200202\Models\CheckCloudResourceAuthorizedResponse;
 use AlibabaCloud\SDK\Polardbx\V20200202\Models\CreateAccountRequest;
@@ -22,8 +22,6 @@ use AlibabaCloud\SDK\Polardbx\V20200202\Models\CreateDBInstanceRequest;
 use AlibabaCloud\SDK\Polardbx\V20200202\Models\CreateDBInstanceResponse;
 use AlibabaCloud\SDK\Polardbx\V20200202\Models\CreateDBRequest;
 use AlibabaCloud\SDK\Polardbx\V20200202\Models\CreateDBResponse;
-use AlibabaCloud\SDK\Polardbx\V20200202\Models\CreatePolarxOrderRequest;
-use AlibabaCloud\SDK\Polardbx\V20200202\Models\CreatePolarxOrderResponse;
 use AlibabaCloud\SDK\Polardbx\V20200202\Models\CreateSuperAccountRequest;
 use AlibabaCloud\SDK\Polardbx\V20200202\Models\CreateSuperAccountResponse;
 use AlibabaCloud\SDK\Polardbx\V20200202\Models\DeleteAccountRequest;
@@ -72,21 +70,23 @@ use AlibabaCloud\SDK\Polardbx\V20200202\Models\DescribeParametersRequest;
 use AlibabaCloud\SDK\Polardbx\V20200202\Models\DescribeParametersResponse;
 use AlibabaCloud\SDK\Polardbx\V20200202\Models\DescribeParameterTemplatesRequest;
 use AlibabaCloud\SDK\Polardbx\V20200202\Models\DescribeParameterTemplatesResponse;
-use AlibabaCloud\SDK\Polardbx\V20200202\Models\DescribePolarxDataNodesRequest;
-use AlibabaCloud\SDK\Polardbx\V20200202\Models\DescribePolarxDataNodesResponse;
-use AlibabaCloud\SDK\Polardbx\V20200202\Models\DescribePolarxDbInstancesRequest;
-use AlibabaCloud\SDK\Polardbx\V20200202\Models\DescribePolarxDbInstancesResponse;
 use AlibabaCloud\SDK\Polardbx\V20200202\Models\DescribeRegionsResponse;
 use AlibabaCloud\SDK\Polardbx\V20200202\Models\DescribeScaleOutMigrateTaskListRequest;
 use AlibabaCloud\SDK\Polardbx\V20200202\Models\DescribeScaleOutMigrateTaskListResponse;
 use AlibabaCloud\SDK\Polardbx\V20200202\Models\DescribeSecurityIpsRequest;
 use AlibabaCloud\SDK\Polardbx\V20200202\Models\DescribeSecurityIpsResponse;
+use AlibabaCloud\SDK\Polardbx\V20200202\Models\DescribeSlinkTaskInfoRequest;
+use AlibabaCloud\SDK\Polardbx\V20200202\Models\DescribeSlinkTaskInfoResponse;
+use AlibabaCloud\SDK\Polardbx\V20200202\Models\DescribeTagsRequest;
+use AlibabaCloud\SDK\Polardbx\V20200202\Models\DescribeTagsResponse;
 use AlibabaCloud\SDK\Polardbx\V20200202\Models\DescribeTasksRequest;
 use AlibabaCloud\SDK\Polardbx\V20200202\Models\DescribeTasksResponse;
 use AlibabaCloud\SDK\Polardbx\V20200202\Models\DescribeUserEncryptionKeyListRequest;
 use AlibabaCloud\SDK\Polardbx\V20200202\Models\DescribeUserEncryptionKeyListResponse;
-use AlibabaCloud\SDK\Polardbx\V20200202\Models\GetPolarxCommodityRequest;
-use AlibabaCloud\SDK\Polardbx\V20200202\Models\GetPolarxCommodityResponse;
+use AlibabaCloud\SDK\Polardbx\V20200202\Models\InitDBInstanceResourceGroupIdRequest;
+use AlibabaCloud\SDK\Polardbx\V20200202\Models\InitDBInstanceResourceGroupIdResponse;
+use AlibabaCloud\SDK\Polardbx\V20200202\Models\ListTagResourcesRequest;
+use AlibabaCloud\SDK\Polardbx\V20200202\Models\ListTagResourcesResponse;
 use AlibabaCloud\SDK\Polardbx\V20200202\Models\ModifyAccountDescriptionRequest;
 use AlibabaCloud\SDK\Polardbx\V20200202\Models\ModifyAccountDescriptionResponse;
 use AlibabaCloud\SDK\Polardbx\V20200202\Models\ModifyActiveOperationMaintainConfRequest;
@@ -99,6 +99,8 @@ use AlibabaCloud\SDK\Polardbx\V20200202\Models\ModifyDBInstanceClassRequest;
 use AlibabaCloud\SDK\Polardbx\V20200202\Models\ModifyDBInstanceClassResponse;
 use AlibabaCloud\SDK\Polardbx\V20200202\Models\ModifyDBInstanceConfigRequest;
 use AlibabaCloud\SDK\Polardbx\V20200202\Models\ModifyDBInstanceConfigResponse;
+use AlibabaCloud\SDK\Polardbx\V20200202\Models\ModifyDBInstanceConnectionStringRequest;
+use AlibabaCloud\SDK\Polardbx\V20200202\Models\ModifyDBInstanceConnectionStringResponse;
 use AlibabaCloud\SDK\Polardbx\V20200202\Models\ModifyDBInstanceDescriptionRequest;
 use AlibabaCloud\SDK\Polardbx\V20200202\Models\ModifyDBInstanceDescriptionResponse;
 use AlibabaCloud\SDK\Polardbx\V20200202\Models\ModifyParameterRequest;
@@ -109,6 +111,10 @@ use AlibabaCloud\SDK\Polardbx\V20200202\Models\ReleaseInstancePublicConnectionRe
 use AlibabaCloud\SDK\Polardbx\V20200202\Models\ReleaseInstancePublicConnectionResponse;
 use AlibabaCloud\SDK\Polardbx\V20200202\Models\RestartDBInstanceRequest;
 use AlibabaCloud\SDK\Polardbx\V20200202\Models\RestartDBInstanceResponse;
+use AlibabaCloud\SDK\Polardbx\V20200202\Models\TagResourcesRequest;
+use AlibabaCloud\SDK\Polardbx\V20200202\Models\TagResourcesResponse;
+use AlibabaCloud\SDK\Polardbx\V20200202\Models\UntagResourcesRequest;
+use AlibabaCloud\SDK\Polardbx\V20200202\Models\UntagResourcesResponse;
 use AlibabaCloud\SDK\Polardbx\V20200202\Models\UpdateBackupPolicyRequest;
 use AlibabaCloud\SDK\Polardbx\V20200202\Models\UpdateBackupPolicyResponse;
 use AlibabaCloud\SDK\Polardbx\V20200202\Models\UpdateDBInstanceSSLRequest;
@@ -214,18 +220,33 @@ class Polardbx extends OpenApiClient
     public function allocateInstancePublicConnectionWithOptions($request, $runtime)
     {
         Utils::validateModel($request);
-        $query                           = [];
-        $query['ConnectionStringPrefix'] = $request->connectionStringPrefix;
-        $query['DBInstanceName']         = $request->DBInstanceName;
-        $query['OwnerAccount']           = $request->ownerAccount;
-        $query['OwnerId']                = $request->ownerId;
-        $query['Port']                   = $request->port;
-        $query['RegionId']               = $request->regionId;
-        $query['ResourceOwnerAccount']   = $request->resourceOwnerAccount;
-        $query['ResourceOwnerId']        = $request->resourceOwnerId;
-        $req                             = new OpenApiRequest([
+        $query = [];
+        if (!Utils::isUnset($request->connectionStringPrefix)) {
+            $query['ConnectionStringPrefix'] = $request->connectionStringPrefix;
+        }
+        if (!Utils::isUnset($request->DBInstanceName)) {
+            $query['DBInstanceName'] = $request->DBInstanceName;
+        }
+        if (!Utils::isUnset($request->ownerAccount)) {
+            $query['OwnerAccount'] = $request->ownerAccount;
+        }
+        if (!Utils::isUnset($request->ownerId)) {
+            $query['OwnerId'] = $request->ownerId;
+        }
+        if (!Utils::isUnset($request->port)) {
+            $query['Port'] = $request->port;
+        }
+        if (!Utils::isUnset($request->regionId)) {
+            $query['RegionId'] = $request->regionId;
+        }
+        if (!Utils::isUnset($request->resourceOwnerAccount)) {
+            $query['ResourceOwnerAccount'] = $request->resourceOwnerAccount;
+        }
+        if (!Utils::isUnset($request->resourceOwnerId)) {
+            $query['ResourceOwnerId'] = $request->resourceOwnerId;
+        }
+        $req = new OpenApiRequest([
             'query' => OpenApiUtilClient::query($query),
-            'body'  => Utils::toMap($request),
         ]);
         $params = new Params([
             'action'      => 'AllocateInstancePublicConnection',
@@ -235,7 +256,7 @@ class Polardbx extends OpenApiClient
             'method'      => 'POST',
             'authType'    => 'AK',
             'style'       => 'RPC',
-            'reqBodyType' => 'json',
+            'reqBodyType' => 'formData',
             'bodyType'    => 'json',
         ]);
 
@@ -275,7 +296,7 @@ class Polardbx extends OpenApiClient
             'method'      => 'GET',
             'authType'    => 'AK',
             'style'       => 'RPC',
-            'reqBodyType' => 'json',
+            'reqBodyType' => 'formData',
             'bodyType'    => 'json',
         ]);
 
@@ -295,47 +316,55 @@ class Polardbx extends OpenApiClient
     }
 
     /**
-     * @param CancelPolarxOrderRequest $request
-     * @param RuntimeOptions           $runtime
+     * @param ChangeResourceGroupRequest $request
+     * @param RuntimeOptions             $runtime
      *
-     * @return CancelPolarxOrderResponse
+     * @return ChangeResourceGroupResponse
      */
-    public function cancelPolarxOrderWithOptions($request, $runtime)
+    public function changeResourceGroupWithOptions($request, $runtime)
     {
         Utils::validateModel($request);
-        $query                   = [];
-        $query['DBInstanceName'] = $request->DBInstanceName;
-        $query['RegionId']       = $request->regionId;
-        $query['ScaleOutToken']  = $request->scaleOutToken;
-        $req                     = new OpenApiRequest([
+        $query = [];
+        if (!Utils::isUnset($request->newResourceGroupId)) {
+            $query['NewResourceGroupId'] = $request->newResourceGroupId;
+        }
+        if (!Utils::isUnset($request->regionId)) {
+            $query['RegionId'] = $request->regionId;
+        }
+        if (!Utils::isUnset($request->resourceId)) {
+            $query['ResourceId'] = $request->resourceId;
+        }
+        if (!Utils::isUnset($request->resourceType)) {
+            $query['ResourceType'] = $request->resourceType;
+        }
+        $req = new OpenApiRequest([
             'query' => OpenApiUtilClient::query($query),
-            'body'  => Utils::toMap($request),
         ]);
         $params = new Params([
-            'action'      => 'CancelPolarxOrder',
+            'action'      => 'ChangeResourceGroup',
             'version'     => '2020-02-02',
             'protocol'    => 'HTTPS',
             'pathname'    => '/',
             'method'      => 'POST',
             'authType'    => 'AK',
             'style'       => 'RPC',
-            'reqBodyType' => 'json',
+            'reqBodyType' => 'formData',
             'bodyType'    => 'json',
         ]);
 
-        return CancelPolarxOrderResponse::fromMap($this->callApi($params, $req, $runtime));
+        return ChangeResourceGroupResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
-     * @param CancelPolarxOrderRequest $request
+     * @param ChangeResourceGroupRequest $request
      *
-     * @return CancelPolarxOrderResponse
+     * @return ChangeResourceGroupResponse
      */
-    public function cancelPolarxOrder($request)
+    public function changeResourceGroup($request)
     {
         $runtime = new RuntimeOptions([]);
 
-        return $this->cancelPolarxOrderWithOptions($request, $runtime);
+        return $this->changeResourceGroupWithOptions($request, $runtime);
     }
 
     /**
@@ -347,13 +376,18 @@ class Polardbx extends OpenApiClient
     public function checkCloudResourceAuthorizedWithOptions($request, $runtime)
     {
         Utils::validateModel($request);
-        $query                   = [];
-        $query['DBInstanceName'] = $request->DBInstanceName;
-        $query['RegionId']       = $request->regionId;
-        $query['RoleArn']        = $request->roleArn;
-        $req                     = new OpenApiRequest([
+        $query = [];
+        if (!Utils::isUnset($request->DBInstanceName)) {
+            $query['DBInstanceName'] = $request->DBInstanceName;
+        }
+        if (!Utils::isUnset($request->regionId)) {
+            $query['RegionId'] = $request->regionId;
+        }
+        if (!Utils::isUnset($request->roleArn)) {
+            $query['RoleArn'] = $request->roleArn;
+        }
+        $req = new OpenApiRequest([
             'query' => OpenApiUtilClient::query($query),
-            'body'  => Utils::toMap($request),
         ]);
         $params = new Params([
             'action'      => 'CheckCloudResourceAuthorized',
@@ -363,7 +397,7 @@ class Polardbx extends OpenApiClient
             'method'      => 'POST',
             'authType'    => 'AK',
             'style'       => 'RPC',
-            'reqBodyType' => 'json',
+            'reqBodyType' => 'formData',
             'bodyType'    => 'json',
         ]);
 
@@ -391,19 +425,36 @@ class Polardbx extends OpenApiClient
     public function createAccountWithOptions($request, $runtime)
     {
         Utils::validateModel($request);
-        $query                            = [];
-        $query['AccountDescription']      = $request->accountDescription;
-        $query['AccountName']             = $request->accountName;
-        $query['AccountPassword']         = $request->accountPassword;
-        $query['AccountPrivilege']        = $request->accountPrivilege;
-        $query['DBInstanceName']          = $request->DBInstanceName;
-        $query['DBName']                  = $request->DBName;
-        $query['RegionId']                = $request->regionId;
-        $query['SecurityAccountName']     = $request->securityAccountName;
-        $query['SecurityAccountPassword'] = $request->securityAccountPassword;
-        $req                              = new OpenApiRequest([
+        $query = [];
+        if (!Utils::isUnset($request->accountDescription)) {
+            $query['AccountDescription'] = $request->accountDescription;
+        }
+        if (!Utils::isUnset($request->accountName)) {
+            $query['AccountName'] = $request->accountName;
+        }
+        if (!Utils::isUnset($request->accountPassword)) {
+            $query['AccountPassword'] = $request->accountPassword;
+        }
+        if (!Utils::isUnset($request->accountPrivilege)) {
+            $query['AccountPrivilege'] = $request->accountPrivilege;
+        }
+        if (!Utils::isUnset($request->DBInstanceName)) {
+            $query['DBInstanceName'] = $request->DBInstanceName;
+        }
+        if (!Utils::isUnset($request->DBName)) {
+            $query['DBName'] = $request->DBName;
+        }
+        if (!Utils::isUnset($request->regionId)) {
+            $query['RegionId'] = $request->regionId;
+        }
+        if (!Utils::isUnset($request->securityAccountName)) {
+            $query['SecurityAccountName'] = $request->securityAccountName;
+        }
+        if (!Utils::isUnset($request->securityAccountPassword)) {
+            $query['SecurityAccountPassword'] = $request->securityAccountPassword;
+        }
+        $req = new OpenApiRequest([
             'query' => OpenApiUtilClient::query($query),
-            'body'  => Utils::toMap($request),
         ]);
         $params = new Params([
             'action'      => 'CreateAccount',
@@ -413,7 +464,7 @@ class Polardbx extends OpenApiClient
             'method'      => 'POST',
             'authType'    => 'AK',
             'style'       => 'RPC',
-            'reqBodyType' => 'json',
+            'reqBodyType' => 'formData',
             'bodyType'    => 'json',
         ]);
 
@@ -441,13 +492,18 @@ class Polardbx extends OpenApiClient
     public function createBackupWithOptions($request, $runtime)
     {
         Utils::validateModel($request);
-        $query                   = [];
-        $query['BackupType']     = $request->backupType;
-        $query['DBInstanceName'] = $request->DBInstanceName;
-        $query['RegionId']       = $request->regionId;
-        $req                     = new OpenApiRequest([
+        $query = [];
+        if (!Utils::isUnset($request->backupType)) {
+            $query['BackupType'] = $request->backupType;
+        }
+        if (!Utils::isUnset($request->DBInstanceName)) {
+            $query['DBInstanceName'] = $request->DBInstanceName;
+        }
+        if (!Utils::isUnset($request->regionId)) {
+            $query['RegionId'] = $request->regionId;
+        }
+        $req = new OpenApiRequest([
             'query' => OpenApiUtilClient::query($query),
-            'body'  => Utils::toMap($request),
         ]);
         $params = new Params([
             'action'      => 'CreateBackup',
@@ -457,7 +513,7 @@ class Polardbx extends OpenApiClient
             'method'      => 'POST',
             'authType'    => 'AK',
             'style'       => 'RPC',
-            'reqBodyType' => 'json',
+            'reqBodyType' => 'formData',
             'bodyType'    => 'json',
         ]);
 
@@ -485,19 +541,36 @@ class Polardbx extends OpenApiClient
     public function createDBWithOptions($request, $runtime)
     {
         Utils::validateModel($request);
-        $query                            = [];
-        $query['AccountName']             = $request->accountName;
-        $query['AccountPrivilege']        = $request->accountPrivilege;
-        $query['Charset']                 = $request->charset;
-        $query['DBInstanceName']          = $request->DBInstanceName;
-        $query['DbDescription']           = $request->dbDescription;
-        $query['DbName']                  = $request->dbName;
-        $query['RegionId']                = $request->regionId;
-        $query['SecurityAccountName']     = $request->securityAccountName;
-        $query['SecurityAccountPassword'] = $request->securityAccountPassword;
-        $req                              = new OpenApiRequest([
+        $query = [];
+        if (!Utils::isUnset($request->accountName)) {
+            $query['AccountName'] = $request->accountName;
+        }
+        if (!Utils::isUnset($request->accountPrivilege)) {
+            $query['AccountPrivilege'] = $request->accountPrivilege;
+        }
+        if (!Utils::isUnset($request->charset)) {
+            $query['Charset'] = $request->charset;
+        }
+        if (!Utils::isUnset($request->DBInstanceName)) {
+            $query['DBInstanceName'] = $request->DBInstanceName;
+        }
+        if (!Utils::isUnset($request->dbDescription)) {
+            $query['DbDescription'] = $request->dbDescription;
+        }
+        if (!Utils::isUnset($request->dbName)) {
+            $query['DbName'] = $request->dbName;
+        }
+        if (!Utils::isUnset($request->regionId)) {
+            $query['RegionId'] = $request->regionId;
+        }
+        if (!Utils::isUnset($request->securityAccountName)) {
+            $query['SecurityAccountName'] = $request->securityAccountName;
+        }
+        if (!Utils::isUnset($request->securityAccountPassword)) {
+            $query['SecurityAccountPassword'] = $request->securityAccountPassword;
+        }
+        $req = new OpenApiRequest([
             'query' => OpenApiUtilClient::query($query),
-            'body'  => Utils::toMap($request),
         ]);
         $params = new Params([
             'action'      => 'CreateDB',
@@ -507,7 +580,7 @@ class Polardbx extends OpenApiClient
             'method'      => 'POST',
             'authType'    => 'AK',
             'style'       => 'RPC',
-            'reqBodyType' => 'json',
+            'reqBodyType' => 'formData',
             'bodyType'    => 'json',
         ]);
 
@@ -535,26 +608,57 @@ class Polardbx extends OpenApiClient
     public function createDBInstanceWithOptions($request, $runtime)
     {
         Utils::validateModel($request);
-        $query                          = [];
-        $query['AutoRenew']             = $request->autoRenew;
-        $query['ClientToken']           = $request->clientToken;
-        $query['DBNodeClass']           = $request->DBNodeClass;
-        $query['DBNodeCount']           = $request->DBNodeCount;
-        $query['EngineVersion']         = $request->engineVersion;
-        $query['IsReadDBInstance']      = $request->isReadDBInstance;
-        $query['NetworkType']           = $request->networkType;
-        $query['PayType']               = $request->payType;
-        $query['Period']                = $request->period;
-        $query['PrimaryDBInstanceName'] = $request->primaryDBInstanceName;
-        $query['RegionId']              = $request->regionId;
-        $query['ResourceGroupId']       = $request->resourceGroupId;
-        $query['UsedTime']              = $request->usedTime;
-        $query['VPCId']                 = $request->VPCId;
-        $query['VSwitchId']             = $request->vSwitchId;
-        $query['ZoneId']                = $request->zoneId;
-        $req                            = new OpenApiRequest([
+        $query = [];
+        if (!Utils::isUnset($request->autoRenew)) {
+            $query['AutoRenew'] = $request->autoRenew;
+        }
+        if (!Utils::isUnset($request->clientToken)) {
+            $query['ClientToken'] = $request->clientToken;
+        }
+        if (!Utils::isUnset($request->DBNodeClass)) {
+            $query['DBNodeClass'] = $request->DBNodeClass;
+        }
+        if (!Utils::isUnset($request->DBNodeCount)) {
+            $query['DBNodeCount'] = $request->DBNodeCount;
+        }
+        if (!Utils::isUnset($request->engineVersion)) {
+            $query['EngineVersion'] = $request->engineVersion;
+        }
+        if (!Utils::isUnset($request->isReadDBInstance)) {
+            $query['IsReadDBInstance'] = $request->isReadDBInstance;
+        }
+        if (!Utils::isUnset($request->networkType)) {
+            $query['NetworkType'] = $request->networkType;
+        }
+        if (!Utils::isUnset($request->payType)) {
+            $query['PayType'] = $request->payType;
+        }
+        if (!Utils::isUnset($request->period)) {
+            $query['Period'] = $request->period;
+        }
+        if (!Utils::isUnset($request->primaryDBInstanceName)) {
+            $query['PrimaryDBInstanceName'] = $request->primaryDBInstanceName;
+        }
+        if (!Utils::isUnset($request->regionId)) {
+            $query['RegionId'] = $request->regionId;
+        }
+        if (!Utils::isUnset($request->resourceGroupId)) {
+            $query['ResourceGroupId'] = $request->resourceGroupId;
+        }
+        if (!Utils::isUnset($request->usedTime)) {
+            $query['UsedTime'] = $request->usedTime;
+        }
+        if (!Utils::isUnset($request->VPCId)) {
+            $query['VPCId'] = $request->VPCId;
+        }
+        if (!Utils::isUnset($request->vSwitchId)) {
+            $query['VSwitchId'] = $request->vSwitchId;
+        }
+        if (!Utils::isUnset($request->zoneId)) {
+            $query['ZoneId'] = $request->zoneId;
+        }
+        $req = new OpenApiRequest([
             'query' => OpenApiUtilClient::query($query),
-            'body'  => Utils::toMap($request),
         ]);
         $params = new Params([
             'action'      => 'CreateDBInstance',
@@ -564,7 +668,7 @@ class Polardbx extends OpenApiClient
             'method'      => 'POST',
             'authType'    => 'AK',
             'style'       => 'RPC',
-            'reqBodyType' => 'json',
+            'reqBodyType' => 'formData',
             'bodyType'    => 'json',
         ]);
 
@@ -584,50 +688,6 @@ class Polardbx extends OpenApiClient
     }
 
     /**
-     * @param CreatePolarxOrderRequest $request
-     * @param RuntimeOptions           $runtime
-     *
-     * @return CreatePolarxOrderResponse
-     */
-    public function createPolarxOrderWithOptions($request, $runtime)
-    {
-        Utils::validateModel($request);
-        $query                   = [];
-        $query['DBInstanceName'] = $request->DBInstanceName;
-        $query['NodeCount']      = $request->nodeCount;
-        $query['RegionId']       = $request->regionId;
-        $req                     = new OpenApiRequest([
-            'query' => OpenApiUtilClient::query($query),
-            'body'  => Utils::toMap($request),
-        ]);
-        $params = new Params([
-            'action'      => 'CreatePolarxOrder',
-            'version'     => '2020-02-02',
-            'protocol'    => 'HTTPS',
-            'pathname'    => '/',
-            'method'      => 'POST',
-            'authType'    => 'AK',
-            'style'       => 'RPC',
-            'reqBodyType' => 'json',
-            'bodyType'    => 'json',
-        ]);
-
-        return CreatePolarxOrderResponse::fromMap($this->callApi($params, $req, $runtime));
-    }
-
-    /**
-     * @param CreatePolarxOrderRequest $request
-     *
-     * @return CreatePolarxOrderResponse
-     */
-    public function createPolarxOrder($request)
-    {
-        $runtime = new RuntimeOptions([]);
-
-        return $this->createPolarxOrderWithOptions($request, $runtime);
-    }
-
-    /**
      * @param CreateSuperAccountRequest $request
      * @param RuntimeOptions            $runtime
      *
@@ -636,15 +696,24 @@ class Polardbx extends OpenApiClient
     public function createSuperAccountWithOptions($request, $runtime)
     {
         Utils::validateModel($request);
-        $query                       = [];
-        $query['AccountDescription'] = $request->accountDescription;
-        $query['AccountName']        = $request->accountName;
-        $query['AccountPassword']    = $request->accountPassword;
-        $query['DBInstanceName']     = $request->DBInstanceName;
-        $query['RegionId']           = $request->regionId;
-        $req                         = new OpenApiRequest([
+        $query = [];
+        if (!Utils::isUnset($request->accountDescription)) {
+            $query['AccountDescription'] = $request->accountDescription;
+        }
+        if (!Utils::isUnset($request->accountName)) {
+            $query['AccountName'] = $request->accountName;
+        }
+        if (!Utils::isUnset($request->accountPassword)) {
+            $query['AccountPassword'] = $request->accountPassword;
+        }
+        if (!Utils::isUnset($request->DBInstanceName)) {
+            $query['DBInstanceName'] = $request->DBInstanceName;
+        }
+        if (!Utils::isUnset($request->regionId)) {
+            $query['RegionId'] = $request->regionId;
+        }
+        $req = new OpenApiRequest([
             'query' => OpenApiUtilClient::query($query),
-            'body'  => Utils::toMap($request),
         ]);
         $params = new Params([
             'action'      => 'CreateSuperAccount',
@@ -654,7 +723,7 @@ class Polardbx extends OpenApiClient
             'method'      => 'POST',
             'authType'    => 'AK',
             'style'       => 'RPC',
-            'reqBodyType' => 'json',
+            'reqBodyType' => 'formData',
             'bodyType'    => 'json',
         ]);
 
@@ -682,15 +751,24 @@ class Polardbx extends OpenApiClient
     public function deleteAccountWithOptions($request, $runtime)
     {
         Utils::validateModel($request);
-        $query                            = [];
-        $query['AccountName']             = $request->accountName;
-        $query['DBInstanceName']          = $request->DBInstanceName;
-        $query['RegionId']                = $request->regionId;
-        $query['SecurityAccountName']     = $request->securityAccountName;
-        $query['SecurityAccountPassword'] = $request->securityAccountPassword;
-        $req                              = new OpenApiRequest([
+        $query = [];
+        if (!Utils::isUnset($request->accountName)) {
+            $query['AccountName'] = $request->accountName;
+        }
+        if (!Utils::isUnset($request->DBInstanceName)) {
+            $query['DBInstanceName'] = $request->DBInstanceName;
+        }
+        if (!Utils::isUnset($request->regionId)) {
+            $query['RegionId'] = $request->regionId;
+        }
+        if (!Utils::isUnset($request->securityAccountName)) {
+            $query['SecurityAccountName'] = $request->securityAccountName;
+        }
+        if (!Utils::isUnset($request->securityAccountPassword)) {
+            $query['SecurityAccountPassword'] = $request->securityAccountPassword;
+        }
+        $req = new OpenApiRequest([
             'query' => OpenApiUtilClient::query($query),
-            'body'  => Utils::toMap($request),
         ]);
         $params = new Params([
             'action'      => 'DeleteAccount',
@@ -700,7 +778,7 @@ class Polardbx extends OpenApiClient
             'method'      => 'POST',
             'authType'    => 'AK',
             'style'       => 'RPC',
-            'reqBodyType' => 'json',
+            'reqBodyType' => 'formData',
             'bodyType'    => 'json',
         ]);
 
@@ -728,13 +806,18 @@ class Polardbx extends OpenApiClient
     public function deleteDBWithOptions($request, $runtime)
     {
         Utils::validateModel($request);
-        $query                   = [];
-        $query['DBInstanceName'] = $request->DBInstanceName;
-        $query['DbName']         = $request->dbName;
-        $query['RegionId']       = $request->regionId;
-        $req                     = new OpenApiRequest([
+        $query = [];
+        if (!Utils::isUnset($request->DBInstanceName)) {
+            $query['DBInstanceName'] = $request->DBInstanceName;
+        }
+        if (!Utils::isUnset($request->dbName)) {
+            $query['DbName'] = $request->dbName;
+        }
+        if (!Utils::isUnset($request->regionId)) {
+            $query['RegionId'] = $request->regionId;
+        }
+        $req = new OpenApiRequest([
             'query' => OpenApiUtilClient::query($query),
-            'body'  => Utils::toMap($request),
         ]);
         $params = new Params([
             'action'      => 'DeleteDB',
@@ -744,7 +827,7 @@ class Polardbx extends OpenApiClient
             'method'      => 'POST',
             'authType'    => 'AK',
             'style'       => 'RPC',
-            'reqBodyType' => 'json',
+            'reqBodyType' => 'formData',
             'bodyType'    => 'json',
         ]);
 
@@ -772,12 +855,18 @@ class Polardbx extends OpenApiClient
     public function deleteDBInstanceWithOptions($request, $runtime)
     {
         Utils::validateModel($request);
-        $query                   = [];
-        $query['DBInstanceName'] = $request->DBInstanceName;
-        $query['RegionId']       = $request->regionId;
-        $req                     = new OpenApiRequest([
+        $query = [];
+        if (!Utils::isUnset($request->DBInstanceName)) {
+            $query['DBInstanceName'] = $request->DBInstanceName;
+        }
+        if (!Utils::isUnset($request->regionId)) {
+            $query['RegionId'] = $request->regionId;
+        }
+        if (!Utils::isUnset($request->resourceGroupId)) {
+            $query['ResourceGroupId'] = $request->resourceGroupId;
+        }
+        $req = new OpenApiRequest([
             'query' => OpenApiUtilClient::query($query),
-            'body'  => Utils::toMap($request),
         ]);
         $params = new Params([
             'action'      => 'DeleteDBInstance',
@@ -787,7 +876,7 @@ class Polardbx extends OpenApiClient
             'method'      => 'POST',
             'authType'    => 'AK',
             'style'       => 'RPC',
-            'reqBodyType' => 'json',
+            'reqBodyType' => 'formData',
             'bodyType'    => 'json',
         ]);
 
@@ -815,14 +904,21 @@ class Polardbx extends OpenApiClient
     public function describeAccountListWithOptions($request, $runtime)
     {
         Utils::validateModel($request);
-        $query                   = [];
-        $query['AccountName']    = $request->accountName;
-        $query['AccountType']    = $request->accountType;
-        $query['DBInstanceName'] = $request->DBInstanceName;
-        $query['RegionId']       = $request->regionId;
-        $req                     = new OpenApiRequest([
+        $query = [];
+        if (!Utils::isUnset($request->accountName)) {
+            $query['AccountName'] = $request->accountName;
+        }
+        if (!Utils::isUnset($request->accountType)) {
+            $query['AccountType'] = $request->accountType;
+        }
+        if (!Utils::isUnset($request->DBInstanceName)) {
+            $query['DBInstanceName'] = $request->DBInstanceName;
+        }
+        if (!Utils::isUnset($request->regionId)) {
+            $query['RegionId'] = $request->regionId;
+        }
+        $req = new OpenApiRequest([
             'query' => OpenApiUtilClient::query($query),
-            'body'  => Utils::toMap($request),
         ]);
         $params = new Params([
             'action'      => 'DescribeAccountList',
@@ -832,7 +928,7 @@ class Polardbx extends OpenApiClient
             'method'      => 'POST',
             'authType'    => 'AK',
             'style'       => 'RPC',
-            'reqBodyType' => 'json',
+            'reqBodyType' => 'formData',
             'bodyType'    => 'json',
         ]);
 
@@ -860,11 +956,12 @@ class Polardbx extends OpenApiClient
     public function describeActiveOperationMaintainConfWithOptions($request, $runtime)
     {
         Utils::validateModel($request);
-        $query             = [];
-        $query['RegionId'] = $request->regionId;
-        $req               = new OpenApiRequest([
+        $query = [];
+        if (!Utils::isUnset($request->regionId)) {
+            $query['RegionId'] = $request->regionId;
+        }
+        $req = new OpenApiRequest([
             'query' => OpenApiUtilClient::query($query),
-            'body'  => Utils::toMap($request),
         ]);
         $params = new Params([
             'action'      => 'DescribeActiveOperationMaintainConf',
@@ -874,7 +971,7 @@ class Polardbx extends OpenApiClient
             'method'      => 'POST',
             'authType'    => 'AK',
             'style'       => 'RPC',
-            'reqBodyType' => 'json',
+            'reqBodyType' => 'formData',
             'bodyType'    => 'json',
         ]);
 
@@ -914,7 +1011,7 @@ class Polardbx extends OpenApiClient
             'method'      => 'GET',
             'authType'    => 'AK',
             'style'       => 'RPC',
-            'reqBodyType' => 'json',
+            'reqBodyType' => 'formData',
             'bodyType'    => 'json',
         ]);
 
@@ -954,7 +1051,7 @@ class Polardbx extends OpenApiClient
             'method'      => 'GET',
             'authType'    => 'AK',
             'style'       => 'RPC',
-            'reqBodyType' => 'json',
+            'reqBodyType' => 'formData',
             'bodyType'    => 'json',
         ]);
 
@@ -982,12 +1079,15 @@ class Polardbx extends OpenApiClient
     public function describeBackupPolicyWithOptions($request, $runtime)
     {
         Utils::validateModel($request);
-        $query                   = [];
-        $query['DBInstanceName'] = $request->DBInstanceName;
-        $query['RegionId']       = $request->regionId;
-        $req                     = new OpenApiRequest([
+        $query = [];
+        if (!Utils::isUnset($request->DBInstanceName)) {
+            $query['DBInstanceName'] = $request->DBInstanceName;
+        }
+        if (!Utils::isUnset($request->regionId)) {
+            $query['RegionId'] = $request->regionId;
+        }
+        $req = new OpenApiRequest([
             'query' => OpenApiUtilClient::query($query),
-            'body'  => Utils::toMap($request),
         ]);
         $params = new Params([
             'action'      => 'DescribeBackupPolicy',
@@ -997,7 +1097,7 @@ class Polardbx extends OpenApiClient
             'method'      => 'POST',
             'authType'    => 'AK',
             'style'       => 'RPC',
-            'reqBodyType' => 'json',
+            'reqBodyType' => 'formData',
             'bodyType'    => 'json',
         ]);
 
@@ -1037,7 +1137,7 @@ class Polardbx extends OpenApiClient
             'method'      => 'GET',
             'authType'    => 'AK',
             'style'       => 'RPC',
-            'reqBodyType' => 'json',
+            'reqBodyType' => 'formData',
             'bodyType'    => 'json',
         ]);
 
@@ -1065,16 +1165,27 @@ class Polardbx extends OpenApiClient
     public function describeBinaryLogListWithOptions($request, $runtime)
     {
         Utils::validateModel($request);
-        $query                   = [];
-        $query['DBInstanceName'] = $request->DBInstanceName;
-        $query['EndTime']        = $request->endTime;
-        $query['PageNumber']     = $request->pageNumber;
-        $query['PageSize']       = $request->pageSize;
-        $query['RegionId']       = $request->regionId;
-        $query['StartTime']      = $request->startTime;
-        $req                     = new OpenApiRequest([
+        $query = [];
+        if (!Utils::isUnset($request->DBInstanceName)) {
+            $query['DBInstanceName'] = $request->DBInstanceName;
+        }
+        if (!Utils::isUnset($request->endTime)) {
+            $query['EndTime'] = $request->endTime;
+        }
+        if (!Utils::isUnset($request->pageNumber)) {
+            $query['PageNumber'] = $request->pageNumber;
+        }
+        if (!Utils::isUnset($request->pageSize)) {
+            $query['PageSize'] = $request->pageSize;
+        }
+        if (!Utils::isUnset($request->regionId)) {
+            $query['RegionId'] = $request->regionId;
+        }
+        if (!Utils::isUnset($request->startTime)) {
+            $query['StartTime'] = $request->startTime;
+        }
+        $req = new OpenApiRequest([
             'query' => OpenApiUtilClient::query($query),
-            'body'  => Utils::toMap($request),
         ]);
         $params = new Params([
             'action'      => 'DescribeBinaryLogList',
@@ -1084,7 +1195,7 @@ class Polardbx extends OpenApiClient
             'method'      => 'POST',
             'authType'    => 'AK',
             'style'       => 'RPC',
-            'reqBodyType' => 'json',
+            'reqBodyType' => 'formData',
             'bodyType'    => 'json',
         ]);
 
@@ -1112,12 +1223,15 @@ class Polardbx extends OpenApiClient
     public function describeCharacterSetWithOptions($request, $runtime)
     {
         Utils::validateModel($request);
-        $query                   = [];
-        $query['DBInstanceName'] = $request->DBInstanceName;
-        $query['RegionId']       = $request->regionId;
-        $req                     = new OpenApiRequest([
+        $query = [];
+        if (!Utils::isUnset($request->DBInstanceName)) {
+            $query['DBInstanceName'] = $request->DBInstanceName;
+        }
+        if (!Utils::isUnset($request->regionId)) {
+            $query['RegionId'] = $request->regionId;
+        }
+        $req = new OpenApiRequest([
             'query' => OpenApiUtilClient::query($query),
-            'body'  => Utils::toMap($request),
         ]);
         $params = new Params([
             'action'      => 'DescribeCharacterSet',
@@ -1127,7 +1241,7 @@ class Polardbx extends OpenApiClient
             'method'      => 'POST',
             'authType'    => 'AK',
             'style'       => 'RPC',
-            'reqBodyType' => 'json',
+            'reqBodyType' => 'formData',
             'bodyType'    => 'json',
         ]);
 
@@ -1155,12 +1269,18 @@ class Polardbx extends OpenApiClient
     public function describeDBInstanceAttributeWithOptions($request, $runtime)
     {
         Utils::validateModel($request);
-        $query                   = [];
-        $query['DBInstanceName'] = $request->DBInstanceName;
-        $query['RegionId']       = $request->regionId;
-        $req                     = new OpenApiRequest([
+        $query = [];
+        if (!Utils::isUnset($request->DBInstanceName)) {
+            $query['DBInstanceName'] = $request->DBInstanceName;
+        }
+        if (!Utils::isUnset($request->regionId)) {
+            $query['RegionId'] = $request->regionId;
+        }
+        if (!Utils::isUnset($request->resourceGroupId)) {
+            $query['ResourceGroupId'] = $request->resourceGroupId;
+        }
+        $req = new OpenApiRequest([
             'query' => OpenApiUtilClient::query($query),
-            'body'  => Utils::toMap($request),
         ]);
         $params = new Params([
             'action'      => 'DescribeDBInstanceAttribute',
@@ -1170,7 +1290,7 @@ class Polardbx extends OpenApiClient
             'method'      => 'POST',
             'authType'    => 'AK',
             'style'       => 'RPC',
-            'reqBodyType' => 'json',
+            'reqBodyType' => 'formData',
             'bodyType'    => 'json',
         ]);
 
@@ -1198,13 +1318,18 @@ class Polardbx extends OpenApiClient
     public function describeDBInstanceConfigWithOptions($request, $runtime)
     {
         Utils::validateModel($request);
-        $query                   = [];
-        $query['ConfigName']     = $request->configName;
-        $query['DBInstanceName'] = $request->DBInstanceName;
-        $query['RegionId']       = $request->regionId;
-        $req                     = new OpenApiRequest([
+        $query = [];
+        if (!Utils::isUnset($request->configName)) {
+            $query['ConfigName'] = $request->configName;
+        }
+        if (!Utils::isUnset($request->DBInstanceName)) {
+            $query['DBInstanceName'] = $request->DBInstanceName;
+        }
+        if (!Utils::isUnset($request->regionId)) {
+            $query['RegionId'] = $request->regionId;
+        }
+        $req = new OpenApiRequest([
             'query' => OpenApiUtilClient::query($query),
-            'body'  => Utils::toMap($request),
         ]);
         $params = new Params([
             'action'      => 'DescribeDBInstanceConfig',
@@ -1214,7 +1339,7 @@ class Polardbx extends OpenApiClient
             'method'      => 'POST',
             'authType'    => 'AK',
             'style'       => 'RPC',
-            'reqBodyType' => 'json',
+            'reqBodyType' => 'formData',
             'bodyType'    => 'json',
         ]);
 
@@ -1242,12 +1367,15 @@ class Polardbx extends OpenApiClient
     public function describeDBInstanceSSLWithOptions($request, $runtime)
     {
         Utils::validateModel($request);
-        $query                   = [];
-        $query['DBInstanceName'] = $request->DBInstanceName;
-        $query['RegionId']       = $request->regionId;
-        $req                     = new OpenApiRequest([
+        $query = [];
+        if (!Utils::isUnset($request->DBInstanceName)) {
+            $query['DBInstanceName'] = $request->DBInstanceName;
+        }
+        if (!Utils::isUnset($request->regionId)) {
+            $query['RegionId'] = $request->regionId;
+        }
+        $req = new OpenApiRequest([
             'query' => OpenApiUtilClient::query($query),
-            'body'  => Utils::toMap($request),
         ]);
         $params = new Params([
             'action'      => 'DescribeDBInstanceSSL',
@@ -1257,7 +1385,7 @@ class Polardbx extends OpenApiClient
             'method'      => 'POST',
             'authType'    => 'AK',
             'style'       => 'RPC',
-            'reqBodyType' => 'json',
+            'reqBodyType' => 'formData',
             'bodyType'    => 'json',
         ]);
 
@@ -1285,12 +1413,15 @@ class Polardbx extends OpenApiClient
     public function describeDBInstanceTDEWithOptions($request, $runtime)
     {
         Utils::validateModel($request);
-        $query                   = [];
-        $query['DBInstanceName'] = $request->DBInstanceName;
-        $query['RegionId']       = $request->regionId;
-        $req                     = new OpenApiRequest([
+        $query = [];
+        if (!Utils::isUnset($request->DBInstanceName)) {
+            $query['DBInstanceName'] = $request->DBInstanceName;
+        }
+        if (!Utils::isUnset($request->regionId)) {
+            $query['RegionId'] = $request->regionId;
+        }
+        $req = new OpenApiRequest([
             'query' => OpenApiUtilClient::query($query),
-            'body'  => Utils::toMap($request),
         ]);
         $params = new Params([
             'action'      => 'DescribeDBInstanceTDE',
@@ -1300,7 +1431,7 @@ class Polardbx extends OpenApiClient
             'method'      => 'POST',
             'authType'    => 'AK',
             'style'       => 'RPC',
-            'reqBodyType' => 'json',
+            'reqBodyType' => 'formData',
             'bodyType'    => 'json',
         ]);
 
@@ -1328,12 +1459,15 @@ class Polardbx extends OpenApiClient
     public function describeDBInstanceTopologyWithOptions($request, $runtime)
     {
         Utils::validateModel($request);
-        $query                   = [];
-        $query['DBInstanceName'] = $request->DBInstanceName;
-        $query['RegionId']       = $request->regionId;
-        $req                     = new OpenApiRequest([
+        $query = [];
+        if (!Utils::isUnset($request->DBInstanceName)) {
+            $query['DBInstanceName'] = $request->DBInstanceName;
+        }
+        if (!Utils::isUnset($request->regionId)) {
+            $query['RegionId'] = $request->regionId;
+        }
+        $req = new OpenApiRequest([
             'query' => OpenApiUtilClient::query($query),
-            'body'  => Utils::toMap($request),
         ]);
         $params = new Params([
             'action'      => 'DescribeDBInstanceTopology',
@@ -1343,7 +1477,7 @@ class Polardbx extends OpenApiClient
             'method'      => 'POST',
             'authType'    => 'AK',
             'style'       => 'RPC',
-            'reqBodyType' => 'json',
+            'reqBodyType' => 'formData',
             'bodyType'    => 'json',
         ]);
 
@@ -1371,13 +1505,27 @@ class Polardbx extends OpenApiClient
     public function describeDBInstancesWithOptions($request, $runtime)
     {
         Utils::validateModel($request);
-        $query               = [];
-        $query['PageNumber'] = $request->pageNumber;
-        $query['PageSize']   = $request->pageSize;
-        $query['RegionId']   = $request->regionId;
-        $req                 = new OpenApiRequest([
+        $query = [];
+        if (!Utils::isUnset($request->instanceId)) {
+            $query['InstanceId'] = $request->instanceId;
+        }
+        if (!Utils::isUnset($request->pageNumber)) {
+            $query['PageNumber'] = $request->pageNumber;
+        }
+        if (!Utils::isUnset($request->pageSize)) {
+            $query['PageSize'] = $request->pageSize;
+        }
+        if (!Utils::isUnset($request->regionId)) {
+            $query['RegionId'] = $request->regionId;
+        }
+        if (!Utils::isUnset($request->resourceGroupId)) {
+            $query['ResourceGroupId'] = $request->resourceGroupId;
+        }
+        if (!Utils::isUnset($request->tags)) {
+            $query['Tags'] = $request->tags;
+        }
+        $req = new OpenApiRequest([
             'query' => OpenApiUtilClient::query($query),
-            'body'  => Utils::toMap($request),
         ]);
         $params = new Params([
             'action'      => 'DescribeDBInstances',
@@ -1387,7 +1535,7 @@ class Polardbx extends OpenApiClient
             'method'      => 'POST',
             'authType'    => 'AK',
             'style'       => 'RPC',
-            'reqBodyType' => 'json',
+            'reqBodyType' => 'formData',
             'bodyType'    => 'json',
         ]);
 
@@ -1415,18 +1563,33 @@ class Polardbx extends OpenApiClient
     public function describeDBNodePerformanceWithOptions($request, $runtime)
     {
         Utils::validateModel($request);
-        $query                   = [];
-        $query['CharacterType']  = $request->characterType;
-        $query['DBInstanceName'] = $request->DBInstanceName;
-        $query['DBNodeIds']      = $request->DBNodeIds;
-        $query['DBNodeRole']     = $request->DBNodeRole;
-        $query['EndTime']        = $request->endTime;
-        $query['Key']            = $request->key;
-        $query['RegionId']       = $request->regionId;
-        $query['StartTime']      = $request->startTime;
-        $req                     = new OpenApiRequest([
+        $query = [];
+        if (!Utils::isUnset($request->characterType)) {
+            $query['CharacterType'] = $request->characterType;
+        }
+        if (!Utils::isUnset($request->DBInstanceName)) {
+            $query['DBInstanceName'] = $request->DBInstanceName;
+        }
+        if (!Utils::isUnset($request->DBNodeIds)) {
+            $query['DBNodeIds'] = $request->DBNodeIds;
+        }
+        if (!Utils::isUnset($request->DBNodeRole)) {
+            $query['DBNodeRole'] = $request->DBNodeRole;
+        }
+        if (!Utils::isUnset($request->endTime)) {
+            $query['EndTime'] = $request->endTime;
+        }
+        if (!Utils::isUnset($request->key)) {
+            $query['Key'] = $request->key;
+        }
+        if (!Utils::isUnset($request->regionId)) {
+            $query['RegionId'] = $request->regionId;
+        }
+        if (!Utils::isUnset($request->startTime)) {
+            $query['StartTime'] = $request->startTime;
+        }
+        $req = new OpenApiRequest([
             'query' => OpenApiUtilClient::query($query),
-            'body'  => Utils::toMap($request),
         ]);
         $params = new Params([
             'action'      => 'DescribeDBNodePerformance',
@@ -1436,7 +1599,7 @@ class Polardbx extends OpenApiClient
             'method'      => 'POST',
             'authType'    => 'AK',
             'style'       => 'RPC',
-            'reqBodyType' => 'json',
+            'reqBodyType' => 'formData',
             'bodyType'    => 'json',
         ]);
 
@@ -1464,13 +1627,18 @@ class Polardbx extends OpenApiClient
     public function describeDbListWithOptions($request, $runtime)
     {
         Utils::validateModel($request);
-        $query                   = [];
-        $query['DBInstanceName'] = $request->DBInstanceName;
-        $query['DBName']         = $request->DBName;
-        $query['RegionId']       = $request->regionId;
-        $req                     = new OpenApiRequest([
+        $query = [];
+        if (!Utils::isUnset($request->DBInstanceName)) {
+            $query['DBInstanceName'] = $request->DBInstanceName;
+        }
+        if (!Utils::isUnset($request->DBName)) {
+            $query['DBName'] = $request->DBName;
+        }
+        if (!Utils::isUnset($request->regionId)) {
+            $query['RegionId'] = $request->regionId;
+        }
+        $req = new OpenApiRequest([
             'query' => OpenApiUtilClient::query($query),
-            'body'  => Utils::toMap($request),
         ]);
         $params = new Params([
             'action'      => 'DescribeDbList',
@@ -1480,7 +1648,7 @@ class Polardbx extends OpenApiClient
             'method'      => 'POST',
             'authType'    => 'AK',
             'style'       => 'RPC',
-            'reqBodyType' => 'json',
+            'reqBodyType' => 'formData',
             'bodyType'    => 'json',
         ]);
 
@@ -1508,13 +1676,18 @@ class Polardbx extends OpenApiClient
     public function describeDistributeTableListWithOptions($request, $runtime)
     {
         Utils::validateModel($request);
-        $query                   = [];
-        $query['DBInstanceName'] = $request->DBInstanceName;
-        $query['DbName']         = $request->dbName;
-        $query['RegionId']       = $request->regionId;
-        $req                     = new OpenApiRequest([
+        $query = [];
+        if (!Utils::isUnset($request->DBInstanceName)) {
+            $query['DBInstanceName'] = $request->DBInstanceName;
+        }
+        if (!Utils::isUnset($request->dbName)) {
+            $query['DbName'] = $request->dbName;
+        }
+        if (!Utils::isUnset($request->regionId)) {
+            $query['RegionId'] = $request->regionId;
+        }
+        $req = new OpenApiRequest([
             'query' => OpenApiUtilClient::query($query),
-            'body'  => Utils::toMap($request),
         ]);
         $params = new Params([
             'action'      => 'DescribeDistributeTableList',
@@ -1524,7 +1697,7 @@ class Polardbx extends OpenApiClient
             'method'      => 'POST',
             'authType'    => 'AK',
             'style'       => 'RPC',
-            'reqBodyType' => 'json',
+            'reqBodyType' => 'formData',
             'bodyType'    => 'json',
         ]);
 
@@ -1564,7 +1737,7 @@ class Polardbx extends OpenApiClient
             'method'      => 'GET',
             'authType'    => 'AK',
             'style'       => 'RPC',
-            'reqBodyType' => 'json',
+            'reqBodyType' => 'formData',
             'bodyType'    => 'json',
         ]);
 
@@ -1592,13 +1765,18 @@ class Polardbx extends OpenApiClient
     public function describeParameterTemplatesWithOptions($request, $runtime)
     {
         Utils::validateModel($request);
-        $query                 = [];
-        $query['DBInstanceId'] = $request->DBInstanceId;
-        $query['ParamLevel']   = $request->paramLevel;
-        $query['RegionId']     = $request->regionId;
-        $req                   = new OpenApiRequest([
+        $query = [];
+        if (!Utils::isUnset($request->DBInstanceId)) {
+            $query['DBInstanceId'] = $request->DBInstanceId;
+        }
+        if (!Utils::isUnset($request->paramLevel)) {
+            $query['ParamLevel'] = $request->paramLevel;
+        }
+        if (!Utils::isUnset($request->regionId)) {
+            $query['RegionId'] = $request->regionId;
+        }
+        $req = new OpenApiRequest([
             'query' => OpenApiUtilClient::query($query),
-            'body'  => Utils::toMap($request),
         ]);
         $params = new Params([
             'action'      => 'DescribeParameterTemplates',
@@ -1608,7 +1786,7 @@ class Polardbx extends OpenApiClient
             'method'      => 'POST',
             'authType'    => 'AK',
             'style'       => 'RPC',
-            'reqBodyType' => 'json',
+            'reqBodyType' => 'formData',
             'bodyType'    => 'json',
         ]);
 
@@ -1636,13 +1814,18 @@ class Polardbx extends OpenApiClient
     public function describeParametersWithOptions($request, $runtime)
     {
         Utils::validateModel($request);
-        $query                 = [];
-        $query['DBInstanceId'] = $request->DBInstanceId;
-        $query['ParamLevel']   = $request->paramLevel;
-        $query['RegionId']     = $request->regionId;
-        $req                   = new OpenApiRequest([
+        $query = [];
+        if (!Utils::isUnset($request->DBInstanceId)) {
+            $query['DBInstanceId'] = $request->DBInstanceId;
+        }
+        if (!Utils::isUnset($request->paramLevel)) {
+            $query['ParamLevel'] = $request->paramLevel;
+        }
+        if (!Utils::isUnset($request->regionId)) {
+            $query['RegionId'] = $request->regionId;
+        }
+        $req = new OpenApiRequest([
             'query' => OpenApiUtilClient::query($query),
-            'body'  => Utils::toMap($request),
         ]);
         $params = new Params([
             'action'      => 'DescribeParameters',
@@ -1652,7 +1835,7 @@ class Polardbx extends OpenApiClient
             'method'      => 'POST',
             'authType'    => 'AK',
             'style'       => 'RPC',
-            'reqBodyType' => 'json',
+            'reqBodyType' => 'formData',
             'bodyType'    => 'json',
         ]);
 
@@ -1672,95 +1855,6 @@ class Polardbx extends OpenApiClient
     }
 
     /**
-     * @param DescribePolarxDataNodesRequest $request
-     * @param RuntimeOptions                 $runtime
-     *
-     * @return DescribePolarxDataNodesResponse
-     */
-    public function describePolarxDataNodesWithOptions($request, $runtime)
-    {
-        Utils::validateModel($request);
-        $query               = [];
-        $query['PageNumber'] = $request->pageNumber;
-        $query['PageSize']   = $request->pageSize;
-        $query['RegionId']   = $request->regionId;
-        $req                 = new OpenApiRequest([
-            'query' => OpenApiUtilClient::query($query),
-            'body'  => Utils::toMap($request),
-        ]);
-        $params = new Params([
-            'action'      => 'DescribePolarxDataNodes',
-            'version'     => '2020-02-02',
-            'protocol'    => 'HTTPS',
-            'pathname'    => '/',
-            'method'      => 'POST',
-            'authType'    => 'AK',
-            'style'       => 'RPC',
-            'reqBodyType' => 'json',
-            'bodyType'    => 'json',
-        ]);
-
-        return DescribePolarxDataNodesResponse::fromMap($this->callApi($params, $req, $runtime));
-    }
-
-    /**
-     * @param DescribePolarxDataNodesRequest $request
-     *
-     * @return DescribePolarxDataNodesResponse
-     */
-    public function describePolarxDataNodes($request)
-    {
-        $runtime = new RuntimeOptions([]);
-
-        return $this->describePolarxDataNodesWithOptions($request, $runtime);
-    }
-
-    /**
-     * @param DescribePolarxDbInstancesRequest $request
-     * @param RuntimeOptions                   $runtime
-     *
-     * @return DescribePolarxDbInstancesResponse
-     */
-    public function describePolarxDbInstancesWithOptions($request, $runtime)
-    {
-        Utils::validateModel($request);
-        $query                   = [];
-        $query['DbName']         = $request->dbName;
-        $query['DrdsInstanceId'] = $request->drdsInstanceId;
-        $query['PageNumber']     = $request->pageNumber;
-        $query['PageSize']       = $request->pageSize;
-        $req                     = new OpenApiRequest([
-            'query' => OpenApiUtilClient::query($query),
-            'body'  => Utils::toMap($request),
-        ]);
-        $params = new Params([
-            'action'      => 'DescribePolarxDbInstances',
-            'version'     => '2020-02-02',
-            'protocol'    => 'HTTPS',
-            'pathname'    => '/',
-            'method'      => 'POST',
-            'authType'    => 'AK',
-            'style'       => 'RPC',
-            'reqBodyType' => 'json',
-            'bodyType'    => 'json',
-        ]);
-
-        return DescribePolarxDbInstancesResponse::fromMap($this->callApi($params, $req, $runtime));
-    }
-
-    /**
-     * @param DescribePolarxDbInstancesRequest $request
-     *
-     * @return DescribePolarxDbInstancesResponse
-     */
-    public function describePolarxDbInstances($request)
-    {
-        $runtime = new RuntimeOptions([]);
-
-        return $this->describePolarxDbInstancesWithOptions($request, $runtime);
-    }
-
-    /**
      * @param RuntimeOptions $runtime
      *
      * @return DescribeRegionsResponse
@@ -1776,7 +1870,7 @@ class Polardbx extends OpenApiClient
             'method'      => 'POST',
             'authType'    => 'AK',
             'style'       => 'RPC',
-            'reqBodyType' => 'json',
+            'reqBodyType' => 'formData',
             'bodyType'    => 'json',
         ]);
 
@@ -1802,15 +1896,24 @@ class Polardbx extends OpenApiClient
     public function describeScaleOutMigrateTaskListWithOptions($request, $runtime)
     {
         Utils::validateModel($request);
-        $query                         = [];
-        $query['DBInstanceName']       = $request->DBInstanceName;
-        $query['OwnerAccount']         = $request->ownerAccount;
-        $query['OwnerId']              = $request->ownerId;
-        $query['ResourceOwnerAccount'] = $request->resourceOwnerAccount;
-        $query['ResourceOwnerId']      = $request->resourceOwnerId;
-        $req                           = new OpenApiRequest([
+        $query = [];
+        if (!Utils::isUnset($request->DBInstanceName)) {
+            $query['DBInstanceName'] = $request->DBInstanceName;
+        }
+        if (!Utils::isUnset($request->ownerAccount)) {
+            $query['OwnerAccount'] = $request->ownerAccount;
+        }
+        if (!Utils::isUnset($request->ownerId)) {
+            $query['OwnerId'] = $request->ownerId;
+        }
+        if (!Utils::isUnset($request->resourceOwnerAccount)) {
+            $query['ResourceOwnerAccount'] = $request->resourceOwnerAccount;
+        }
+        if (!Utils::isUnset($request->resourceOwnerId)) {
+            $query['ResourceOwnerId'] = $request->resourceOwnerId;
+        }
+        $req = new OpenApiRequest([
             'query' => OpenApiUtilClient::query($query),
-            'body'  => Utils::toMap($request),
         ]);
         $params = new Params([
             'action'      => 'DescribeScaleOutMigrateTaskList',
@@ -1820,7 +1923,7 @@ class Polardbx extends OpenApiClient
             'method'      => 'POST',
             'authType'    => 'AK',
             'style'       => 'RPC',
-            'reqBodyType' => 'json',
+            'reqBodyType' => 'formData',
             'bodyType'    => 'json',
         ]);
 
@@ -1848,12 +1951,15 @@ class Polardbx extends OpenApiClient
     public function describeSecurityIpsWithOptions($request, $runtime)
     {
         Utils::validateModel($request);
-        $query                   = [];
-        $query['DBInstanceName'] = $request->DBInstanceName;
-        $query['RegionId']       = $request->regionId;
-        $req                     = new OpenApiRequest([
+        $query = [];
+        if (!Utils::isUnset($request->DBInstanceName)) {
+            $query['DBInstanceName'] = $request->DBInstanceName;
+        }
+        if (!Utils::isUnset($request->regionId)) {
+            $query['RegionId'] = $request->regionId;
+        }
+        $req = new OpenApiRequest([
             'query' => OpenApiUtilClient::query($query),
-            'body'  => Utils::toMap($request),
         ]);
         $params = new Params([
             'action'      => 'DescribeSecurityIps',
@@ -1863,7 +1969,7 @@ class Polardbx extends OpenApiClient
             'method'      => 'POST',
             'authType'    => 'AK',
             'style'       => 'RPC',
-            'reqBodyType' => 'json',
+            'reqBodyType' => 'formData',
             'bodyType'    => 'json',
         ]);
 
@@ -1883,6 +1989,113 @@ class Polardbx extends OpenApiClient
     }
 
     /**
+     * @param DescribeSlinkTaskInfoRequest $request
+     * @param RuntimeOptions               $runtime
+     *
+     * @return DescribeSlinkTaskInfoResponse
+     */
+    public function describeSlinkTaskInfoWithOptions($request, $runtime)
+    {
+        Utils::validateModel($request);
+        $query = [];
+        if (!Utils::isUnset($request->failPageNumber)) {
+            $query['FailPageNumber'] = $request->failPageNumber;
+        }
+        if (!Utils::isUnset($request->failPageSize)) {
+            $query['FailPageSize'] = $request->failPageSize;
+        }
+        if (!Utils::isUnset($request->regionId)) {
+            $query['RegionId'] = $request->regionId;
+        }
+        if (!Utils::isUnset($request->slinkTaskId)) {
+            $query['SlinkTaskId'] = $request->slinkTaskId;
+        }
+        if (!Utils::isUnset($request->successPageNumber)) {
+            $query['SuccessPageNumber'] = $request->successPageNumber;
+        }
+        if (!Utils::isUnset($request->successPageSize)) {
+            $query['SuccessPageSize'] = $request->successPageSize;
+        }
+        $req = new OpenApiRequest([
+            'query' => OpenApiUtilClient::query($query),
+        ]);
+        $params = new Params([
+            'action'      => 'DescribeSlinkTaskInfo',
+            'version'     => '2020-02-02',
+            'protocol'    => 'HTTPS',
+            'pathname'    => '/',
+            'method'      => 'POST',
+            'authType'    => 'AK',
+            'style'       => 'RPC',
+            'reqBodyType' => 'formData',
+            'bodyType'    => 'json',
+        ]);
+
+        return DescribeSlinkTaskInfoResponse::fromMap($this->callApi($params, $req, $runtime));
+    }
+
+    /**
+     * @param DescribeSlinkTaskInfoRequest $request
+     *
+     * @return DescribeSlinkTaskInfoResponse
+     */
+    public function describeSlinkTaskInfo($request)
+    {
+        $runtime = new RuntimeOptions([]);
+
+        return $this->describeSlinkTaskInfoWithOptions($request, $runtime);
+    }
+
+    /**
+     * @param DescribeTagsRequest $request
+     * @param RuntimeOptions      $runtime
+     *
+     * @return DescribeTagsResponse
+     */
+    public function describeTagsWithOptions($request, $runtime)
+    {
+        Utils::validateModel($request);
+        $query = [];
+        if (!Utils::isUnset($request->DBInstanceName)) {
+            $query['DBInstanceName'] = $request->DBInstanceName;
+        }
+        if (!Utils::isUnset($request->regionId)) {
+            $query['RegionId'] = $request->regionId;
+        }
+        if (!Utils::isUnset($request->tagKey)) {
+            $query['TagKey'] = $request->tagKey;
+        }
+        $req = new OpenApiRequest([
+            'query' => OpenApiUtilClient::query($query),
+        ]);
+        $params = new Params([
+            'action'      => 'DescribeTags',
+            'version'     => '2020-02-02',
+            'protocol'    => 'HTTPS',
+            'pathname'    => '/',
+            'method'      => 'POST',
+            'authType'    => 'AK',
+            'style'       => 'RPC',
+            'reqBodyType' => 'formData',
+            'bodyType'    => 'json',
+        ]);
+
+        return DescribeTagsResponse::fromMap($this->callApi($params, $req, $runtime));
+    }
+
+    /**
+     * @param DescribeTagsRequest $request
+     *
+     * @return DescribeTagsResponse
+     */
+    public function describeTags($request)
+    {
+        $runtime = new RuntimeOptions([]);
+
+        return $this->describeTagsWithOptions($request, $runtime);
+    }
+
+    /**
      * @param DescribeTasksRequest $request
      * @param RuntimeOptions       $runtime
      *
@@ -1891,20 +2104,39 @@ class Polardbx extends OpenApiClient
     public function describeTasksWithOptions($request, $runtime)
     {
         Utils::validateModel($request);
-        $query                         = [];
-        $query['DBInstanceId']         = $request->DBInstanceId;
-        $query['EndTime']              = $request->endTime;
-        $query['OwnerAccount']         = $request->ownerAccount;
-        $query['OwnerId']              = $request->ownerId;
-        $query['PageNumber']           = $request->pageNumber;
-        $query['PageSize']             = $request->pageSize;
-        $query['RegionId']             = $request->regionId;
-        $query['ResourceOwnerAccount'] = $request->resourceOwnerAccount;
-        $query['ResourceOwnerId']      = $request->resourceOwnerId;
-        $query['StartTime']            = $request->startTime;
-        $req                           = new OpenApiRequest([
+        $query = [];
+        if (!Utils::isUnset($request->DBInstanceId)) {
+            $query['DBInstanceId'] = $request->DBInstanceId;
+        }
+        if (!Utils::isUnset($request->endTime)) {
+            $query['EndTime'] = $request->endTime;
+        }
+        if (!Utils::isUnset($request->ownerAccount)) {
+            $query['OwnerAccount'] = $request->ownerAccount;
+        }
+        if (!Utils::isUnset($request->ownerId)) {
+            $query['OwnerId'] = $request->ownerId;
+        }
+        if (!Utils::isUnset($request->pageNumber)) {
+            $query['PageNumber'] = $request->pageNumber;
+        }
+        if (!Utils::isUnset($request->pageSize)) {
+            $query['PageSize'] = $request->pageSize;
+        }
+        if (!Utils::isUnset($request->regionId)) {
+            $query['RegionId'] = $request->regionId;
+        }
+        if (!Utils::isUnset($request->resourceOwnerAccount)) {
+            $query['ResourceOwnerAccount'] = $request->resourceOwnerAccount;
+        }
+        if (!Utils::isUnset($request->resourceOwnerId)) {
+            $query['ResourceOwnerId'] = $request->resourceOwnerId;
+        }
+        if (!Utils::isUnset($request->startTime)) {
+            $query['StartTime'] = $request->startTime;
+        }
+        $req = new OpenApiRequest([
             'query' => OpenApiUtilClient::query($query),
-            'body'  => Utils::toMap($request),
         ]);
         $params = new Params([
             'action'      => 'DescribeTasks',
@@ -1914,7 +2146,7 @@ class Polardbx extends OpenApiClient
             'method'      => 'POST',
             'authType'    => 'AK',
             'style'       => 'RPC',
-            'reqBodyType' => 'json',
+            'reqBodyType' => 'formData',
             'bodyType'    => 'json',
         ]);
 
@@ -1942,12 +2174,15 @@ class Polardbx extends OpenApiClient
     public function describeUserEncryptionKeyListWithOptions($request, $runtime)
     {
         Utils::validateModel($request);
-        $query                   = [];
-        $query['DBInstanceName'] = $request->DBInstanceName;
-        $query['RegionId']       = $request->regionId;
-        $req                     = new OpenApiRequest([
+        $query = [];
+        if (!Utils::isUnset($request->DBInstanceName)) {
+            $query['DBInstanceName'] = $request->DBInstanceName;
+        }
+        if (!Utils::isUnset($request->regionId)) {
+            $query['RegionId'] = $request->regionId;
+        }
+        $req = new OpenApiRequest([
             'query' => OpenApiUtilClient::query($query),
-            'body'  => Utils::toMap($request),
         ]);
         $params = new Params([
             'action'      => 'DescribeUserEncryptionKeyList',
@@ -1957,7 +2192,7 @@ class Polardbx extends OpenApiClient
             'method'      => 'POST',
             'authType'    => 'AK',
             'style'       => 'RPC',
-            'reqBodyType' => 'json',
+            'reqBodyType' => 'formData',
             'bodyType'    => 'json',
         ]);
 
@@ -1977,47 +2212,104 @@ class Polardbx extends OpenApiClient
     }
 
     /**
-     * @param GetPolarxCommodityRequest $request
-     * @param RuntimeOptions            $runtime
+     * @param InitDBInstanceResourceGroupIdRequest $request
+     * @param RuntimeOptions                       $runtime
      *
-     * @return GetPolarxCommodityResponse
+     * @return InitDBInstanceResourceGroupIdResponse
      */
-    public function getPolarxCommodityWithOptions($request, $runtime)
+    public function initDBInstanceResourceGroupIdWithOptions($request, $runtime)
     {
         Utils::validateModel($request);
-        $query                   = [];
-        $query['DBInstanceName'] = $request->DBInstanceName;
-        $query['OrderType']      = $request->orderType;
-        $query['RegionId']       = $request->regionId;
-        $req                     = new OpenApiRequest([
+        $query = [];
+        if (!Utils::isUnset($request->DBInstanceName)) {
+            $query['DBInstanceName'] = $request->DBInstanceName;
+        }
+        if (!Utils::isUnset($request->regionId)) {
+            $query['RegionId'] = $request->regionId;
+        }
+        $req = new OpenApiRequest([
             'query' => OpenApiUtilClient::query($query),
-            'body'  => Utils::toMap($request),
         ]);
         $params = new Params([
-            'action'      => 'GetPolarxCommodity',
+            'action'      => 'InitDBInstanceResourceGroupId',
             'version'     => '2020-02-02',
             'protocol'    => 'HTTPS',
             'pathname'    => '/',
             'method'      => 'POST',
             'authType'    => 'AK',
             'style'       => 'RPC',
-            'reqBodyType' => 'json',
+            'reqBodyType' => 'formData',
             'bodyType'    => 'json',
         ]);
 
-        return GetPolarxCommodityResponse::fromMap($this->callApi($params, $req, $runtime));
+        return InitDBInstanceResourceGroupIdResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
-     * @param GetPolarxCommodityRequest $request
+     * @param InitDBInstanceResourceGroupIdRequest $request
      *
-     * @return GetPolarxCommodityResponse
+     * @return InitDBInstanceResourceGroupIdResponse
      */
-    public function getPolarxCommodity($request)
+    public function initDBInstanceResourceGroupId($request)
     {
         $runtime = new RuntimeOptions([]);
 
-        return $this->getPolarxCommodityWithOptions($request, $runtime);
+        return $this->initDBInstanceResourceGroupIdWithOptions($request, $runtime);
+    }
+
+    /**
+     * @param ListTagResourcesRequest $request
+     * @param RuntimeOptions          $runtime
+     *
+     * @return ListTagResourcesResponse
+     */
+    public function listTagResourcesWithOptions($request, $runtime)
+    {
+        Utils::validateModel($request);
+        $query = [];
+        if (!Utils::isUnset($request->nextToken)) {
+            $query['NextToken'] = $request->nextToken;
+        }
+        if (!Utils::isUnset($request->regionId)) {
+            $query['RegionId'] = $request->regionId;
+        }
+        if (!Utils::isUnset($request->resourceId)) {
+            $query['ResourceId'] = $request->resourceId;
+        }
+        if (!Utils::isUnset($request->resourceType)) {
+            $query['ResourceType'] = $request->resourceType;
+        }
+        if (!Utils::isUnset($request->tag)) {
+            $query['Tag'] = $request->tag;
+        }
+        $req = new OpenApiRequest([
+            'query' => OpenApiUtilClient::query($query),
+        ]);
+        $params = new Params([
+            'action'      => 'ListTagResources',
+            'version'     => '2020-02-02',
+            'protocol'    => 'HTTPS',
+            'pathname'    => '/',
+            'method'      => 'POST',
+            'authType'    => 'AK',
+            'style'       => 'RPC',
+            'reqBodyType' => 'formData',
+            'bodyType'    => 'json',
+        ]);
+
+        return ListTagResourcesResponse::fromMap($this->callApi($params, $req, $runtime));
+    }
+
+    /**
+     * @param ListTagResourcesRequest $request
+     *
+     * @return ListTagResourcesResponse
+     */
+    public function listTagResources($request)
+    {
+        $runtime = new RuntimeOptions([]);
+
+        return $this->listTagResourcesWithOptions($request, $runtime);
     }
 
     /**
@@ -2029,14 +2321,21 @@ class Polardbx extends OpenApiClient
     public function modifyAccountDescriptionWithOptions($request, $runtime)
     {
         Utils::validateModel($request);
-        $query                       = [];
-        $query['AccountDescription'] = $request->accountDescription;
-        $query['AccountName']        = $request->accountName;
-        $query['DBInstanceName']     = $request->DBInstanceName;
-        $query['RegionId']           = $request->regionId;
-        $req                         = new OpenApiRequest([
+        $query = [];
+        if (!Utils::isUnset($request->accountDescription)) {
+            $query['AccountDescription'] = $request->accountDescription;
+        }
+        if (!Utils::isUnset($request->accountName)) {
+            $query['AccountName'] = $request->accountName;
+        }
+        if (!Utils::isUnset($request->DBInstanceName)) {
+            $query['DBInstanceName'] = $request->DBInstanceName;
+        }
+        if (!Utils::isUnset($request->regionId)) {
+            $query['RegionId'] = $request->regionId;
+        }
+        $req = new OpenApiRequest([
             'query' => OpenApiUtilClient::query($query),
-            'body'  => Utils::toMap($request),
         ]);
         $params = new Params([
             'action'      => 'ModifyAccountDescription',
@@ -2046,7 +2345,7 @@ class Polardbx extends OpenApiClient
             'method'      => 'POST',
             'authType'    => 'AK',
             'style'       => 'RPC',
-            'reqBodyType' => 'json',
+            'reqBodyType' => 'formData',
             'bodyType'    => 'json',
         ]);
 
@@ -2086,7 +2385,7 @@ class Polardbx extends OpenApiClient
             'method'      => 'GET',
             'authType'    => 'AK',
             'style'       => 'RPC',
-            'reqBodyType' => 'json',
+            'reqBodyType' => 'formData',
             'bodyType'    => 'json',
         ]);
 
@@ -2114,14 +2413,21 @@ class Polardbx extends OpenApiClient
     public function modifyActiveOperationTasksWithOptions($request, $runtime)
     {
         Utils::validateModel($request);
-        $query                   = [];
-        $query['Ids']            = $request->ids;
-        $query['ImmediateStart'] = $request->immediateStart;
-        $query['RegionId']       = $request->regionId;
-        $query['SwitchTime']     = $request->switchTime;
-        $req                     = new OpenApiRequest([
+        $query = [];
+        if (!Utils::isUnset($request->ids)) {
+            $query['Ids'] = $request->ids;
+        }
+        if (!Utils::isUnset($request->immediateStart)) {
+            $query['ImmediateStart'] = $request->immediateStart;
+        }
+        if (!Utils::isUnset($request->regionId)) {
+            $query['RegionId'] = $request->regionId;
+        }
+        if (!Utils::isUnset($request->switchTime)) {
+            $query['SwitchTime'] = $request->switchTime;
+        }
+        $req = new OpenApiRequest([
             'query' => OpenApiUtilClient::query($query),
-            'body'  => Utils::toMap($request),
         ]);
         $params = new Params([
             'action'      => 'ModifyActiveOperationTasks',
@@ -2131,7 +2437,7 @@ class Polardbx extends OpenApiClient
             'method'      => 'POST',
             'authType'    => 'AK',
             'style'       => 'RPC',
-            'reqBodyType' => 'json',
+            'reqBodyType' => 'formData',
             'bodyType'    => 'json',
         ]);
 
@@ -2159,14 +2465,21 @@ class Polardbx extends OpenApiClient
     public function modifyDBInstanceClassWithOptions($request, $runtime)
     {
         Utils::validateModel($request);
-        $query                          = [];
-        $query['ClientToken']           = $request->clientToken;
-        $query['DBInstanceName']        = $request->DBInstanceName;
-        $query['RegionId']              = $request->regionId;
-        $query['TargetDBInstanceClass'] = $request->targetDBInstanceClass;
-        $req                            = new OpenApiRequest([
+        $query = [];
+        if (!Utils::isUnset($request->clientToken)) {
+            $query['ClientToken'] = $request->clientToken;
+        }
+        if (!Utils::isUnset($request->DBInstanceName)) {
+            $query['DBInstanceName'] = $request->DBInstanceName;
+        }
+        if (!Utils::isUnset($request->regionId)) {
+            $query['RegionId'] = $request->regionId;
+        }
+        if (!Utils::isUnset($request->targetDBInstanceClass)) {
+            $query['TargetDBInstanceClass'] = $request->targetDBInstanceClass;
+        }
+        $req = new OpenApiRequest([
             'query' => OpenApiUtilClient::query($query),
-            'body'  => Utils::toMap($request),
         ]);
         $params = new Params([
             'action'      => 'ModifyDBInstanceClass',
@@ -2176,7 +2489,7 @@ class Polardbx extends OpenApiClient
             'method'      => 'POST',
             'authType'    => 'AK',
             'style'       => 'RPC',
-            'reqBodyType' => 'json',
+            'reqBodyType' => 'formData',
             'bodyType'    => 'json',
         ]);
 
@@ -2204,14 +2517,21 @@ class Polardbx extends OpenApiClient
     public function modifyDBInstanceConfigWithOptions($request, $runtime)
     {
         Utils::validateModel($request);
-        $query                   = [];
-        $query['ConfigName']     = $request->configName;
-        $query['ConfigValue']    = $request->configValue;
-        $query['DBInstanceName'] = $request->DBInstanceName;
-        $query['RegionId']       = $request->regionId;
-        $req                     = new OpenApiRequest([
+        $query = [];
+        if (!Utils::isUnset($request->configName)) {
+            $query['ConfigName'] = $request->configName;
+        }
+        if (!Utils::isUnset($request->configValue)) {
+            $query['ConfigValue'] = $request->configValue;
+        }
+        if (!Utils::isUnset($request->DBInstanceName)) {
+            $query['DBInstanceName'] = $request->DBInstanceName;
+        }
+        if (!Utils::isUnset($request->regionId)) {
+            $query['RegionId'] = $request->regionId;
+        }
+        $req = new OpenApiRequest([
             'query' => OpenApiUtilClient::query($query),
-            'body'  => Utils::toMap($request),
         ]);
         $params = new Params([
             'action'      => 'ModifyDBInstanceConfig',
@@ -2221,7 +2541,7 @@ class Polardbx extends OpenApiClient
             'method'      => 'POST',
             'authType'    => 'AK',
             'style'       => 'RPC',
-            'reqBodyType' => 'json',
+            'reqBodyType' => 'formData',
             'bodyType'    => 'json',
         ]);
 
@@ -2241,6 +2561,61 @@ class Polardbx extends OpenApiClient
     }
 
     /**
+     * @param ModifyDBInstanceConnectionStringRequest $request
+     * @param RuntimeOptions                          $runtime
+     *
+     * @return ModifyDBInstanceConnectionStringResponse
+     */
+    public function modifyDBInstanceConnectionStringWithOptions($request, $runtime)
+    {
+        Utils::validateModel($request);
+        $query = [];
+        if (!Utils::isUnset($request->connectionString)) {
+            $query['ConnectionString'] = $request->connectionString;
+        }
+        if (!Utils::isUnset($request->DBInstanceName)) {
+            $query['DBInstanceName'] = $request->DBInstanceName;
+        }
+        if (!Utils::isUnset($request->newPort)) {
+            $query['NewPort'] = $request->newPort;
+        }
+        if (!Utils::isUnset($request->newPrefix)) {
+            $query['NewPrefix'] = $request->newPrefix;
+        }
+        if (!Utils::isUnset($request->regionId)) {
+            $query['RegionId'] = $request->regionId;
+        }
+        $req = new OpenApiRequest([
+            'query' => OpenApiUtilClient::query($query),
+        ]);
+        $params = new Params([
+            'action'      => 'ModifyDBInstanceConnectionString',
+            'version'     => '2020-02-02',
+            'protocol'    => 'HTTPS',
+            'pathname'    => '/',
+            'method'      => 'POST',
+            'authType'    => 'AK',
+            'style'       => 'RPC',
+            'reqBodyType' => 'formData',
+            'bodyType'    => 'json',
+        ]);
+
+        return ModifyDBInstanceConnectionStringResponse::fromMap($this->callApi($params, $req, $runtime));
+    }
+
+    /**
+     * @param ModifyDBInstanceConnectionStringRequest $request
+     *
+     * @return ModifyDBInstanceConnectionStringResponse
+     */
+    public function modifyDBInstanceConnectionString($request)
+    {
+        $runtime = new RuntimeOptions([]);
+
+        return $this->modifyDBInstanceConnectionStringWithOptions($request, $runtime);
+    }
+
+    /**
      * @param ModifyDBInstanceDescriptionRequest $request
      * @param RuntimeOptions                     $runtime
      *
@@ -2249,13 +2624,18 @@ class Polardbx extends OpenApiClient
     public function modifyDBInstanceDescriptionWithOptions($request, $runtime)
     {
         Utils::validateModel($request);
-        $query                          = [];
-        $query['DBInstanceDescription'] = $request->DBInstanceDescription;
-        $query['DBInstanceName']        = $request->DBInstanceName;
-        $query['RegionId']              = $request->regionId;
-        $req                            = new OpenApiRequest([
+        $query = [];
+        if (!Utils::isUnset($request->DBInstanceDescription)) {
+            $query['DBInstanceDescription'] = $request->DBInstanceDescription;
+        }
+        if (!Utils::isUnset($request->DBInstanceName)) {
+            $query['DBInstanceName'] = $request->DBInstanceName;
+        }
+        if (!Utils::isUnset($request->regionId)) {
+            $query['RegionId'] = $request->regionId;
+        }
+        $req = new OpenApiRequest([
             'query' => OpenApiUtilClient::query($query),
-            'body'  => Utils::toMap($request),
         ]);
         $params = new Params([
             'action'      => 'ModifyDBInstanceDescription',
@@ -2265,7 +2645,7 @@ class Polardbx extends OpenApiClient
             'method'      => 'POST',
             'authType'    => 'AK',
             'style'       => 'RPC',
-            'reqBodyType' => 'json',
+            'reqBodyType' => 'formData',
             'bodyType'    => 'json',
         ]);
 
@@ -2293,14 +2673,21 @@ class Polardbx extends OpenApiClient
     public function modifyDatabaseDescriptionWithOptions($request, $runtime)
     {
         Utils::validateModel($request);
-        $query                   = [];
-        $query['DBInstanceName'] = $request->DBInstanceName;
-        $query['DbDescription']  = $request->dbDescription;
-        $query['DbName']         = $request->dbName;
-        $query['RegionId']       = $request->regionId;
-        $req                     = new OpenApiRequest([
+        $query = [];
+        if (!Utils::isUnset($request->DBInstanceName)) {
+            $query['DBInstanceName'] = $request->DBInstanceName;
+        }
+        if (!Utils::isUnset($request->dbDescription)) {
+            $query['DbDescription'] = $request->dbDescription;
+        }
+        if (!Utils::isUnset($request->dbName)) {
+            $query['DbName'] = $request->dbName;
+        }
+        if (!Utils::isUnset($request->regionId)) {
+            $query['RegionId'] = $request->regionId;
+        }
+        $req = new OpenApiRequest([
             'query' => OpenApiUtilClient::query($query),
-            'body'  => Utils::toMap($request),
         ]);
         $params = new Params([
             'action'      => 'ModifyDatabaseDescription',
@@ -2310,7 +2697,7 @@ class Polardbx extends OpenApiClient
             'method'      => 'POST',
             'authType'    => 'AK',
             'style'       => 'RPC',
-            'reqBodyType' => 'json',
+            'reqBodyType' => 'formData',
             'bodyType'    => 'json',
         ]);
 
@@ -2338,15 +2725,24 @@ class Polardbx extends OpenApiClient
     public function modifyParameterWithOptions($request, $runtime)
     {
         Utils::validateModel($request);
-        $query                 = [];
-        $query['ClientToken']  = $request->clientToken;
-        $query['DBInstanceId'] = $request->DBInstanceId;
-        $query['ParamLevel']   = $request->paramLevel;
-        $query['Parameters']   = $request->parameters;
-        $query['RegionId']     = $request->regionId;
-        $req                   = new OpenApiRequest([
+        $query = [];
+        if (!Utils::isUnset($request->clientToken)) {
+            $query['ClientToken'] = $request->clientToken;
+        }
+        if (!Utils::isUnset($request->DBInstanceId)) {
+            $query['DBInstanceId'] = $request->DBInstanceId;
+        }
+        if (!Utils::isUnset($request->paramLevel)) {
+            $query['ParamLevel'] = $request->paramLevel;
+        }
+        if (!Utils::isUnset($request->parameters)) {
+            $query['Parameters'] = $request->parameters;
+        }
+        if (!Utils::isUnset($request->regionId)) {
+            $query['RegionId'] = $request->regionId;
+        }
+        $req = new OpenApiRequest([
             'query' => OpenApiUtilClient::query($query),
-            'body'  => Utils::toMap($request),
         ]);
         $params = new Params([
             'action'      => 'ModifyParameter',
@@ -2356,7 +2752,7 @@ class Polardbx extends OpenApiClient
             'method'      => 'POST',
             'authType'    => 'AK',
             'style'       => 'RPC',
-            'reqBodyType' => 'json',
+            'reqBodyType' => 'formData',
             'bodyType'    => 'json',
         ]);
 
@@ -2384,15 +2780,24 @@ class Polardbx extends OpenApiClient
     public function modifySecurityIpsWithOptions($request, $runtime)
     {
         Utils::validateModel($request);
-        $query                   = [];
-        $query['DBInstanceName'] = $request->DBInstanceName;
-        $query['GroupName']      = $request->groupName;
-        $query['ModifyMode']     = $request->modifyMode;
-        $query['RegionId']       = $request->regionId;
-        $query['SecurityIPList'] = $request->securityIPList;
-        $req                     = new OpenApiRequest([
+        $query = [];
+        if (!Utils::isUnset($request->DBInstanceName)) {
+            $query['DBInstanceName'] = $request->DBInstanceName;
+        }
+        if (!Utils::isUnset($request->groupName)) {
+            $query['GroupName'] = $request->groupName;
+        }
+        if (!Utils::isUnset($request->modifyMode)) {
+            $query['ModifyMode'] = $request->modifyMode;
+        }
+        if (!Utils::isUnset($request->regionId)) {
+            $query['RegionId'] = $request->regionId;
+        }
+        if (!Utils::isUnset($request->securityIPList)) {
+            $query['SecurityIPList'] = $request->securityIPList;
+        }
+        $req = new OpenApiRequest([
             'query' => OpenApiUtilClient::query($query),
-            'body'  => Utils::toMap($request),
         ]);
         $params = new Params([
             'action'      => 'ModifySecurityIps',
@@ -2402,7 +2807,7 @@ class Polardbx extends OpenApiClient
             'method'      => 'POST',
             'authType'    => 'AK',
             'style'       => 'RPC',
-            'reqBodyType' => 'json',
+            'reqBodyType' => 'formData',
             'bodyType'    => 'json',
         ]);
 
@@ -2430,17 +2835,30 @@ class Polardbx extends OpenApiClient
     public function releaseInstancePublicConnectionWithOptions($request, $runtime)
     {
         Utils::validateModel($request);
-        $query                            = [];
-        $query['CurrentConnectionString'] = $request->currentConnectionString;
-        $query['DBInstanceName']          = $request->DBInstanceName;
-        $query['OwnerAccount']            = $request->ownerAccount;
-        $query['OwnerId']                 = $request->ownerId;
-        $query['RegionId']                = $request->regionId;
-        $query['ResourceOwnerAccount']    = $request->resourceOwnerAccount;
-        $query['ResourceOwnerId']         = $request->resourceOwnerId;
-        $req                              = new OpenApiRequest([
+        $query = [];
+        if (!Utils::isUnset($request->currentConnectionString)) {
+            $query['CurrentConnectionString'] = $request->currentConnectionString;
+        }
+        if (!Utils::isUnset($request->DBInstanceName)) {
+            $query['DBInstanceName'] = $request->DBInstanceName;
+        }
+        if (!Utils::isUnset($request->ownerAccount)) {
+            $query['OwnerAccount'] = $request->ownerAccount;
+        }
+        if (!Utils::isUnset($request->ownerId)) {
+            $query['OwnerId'] = $request->ownerId;
+        }
+        if (!Utils::isUnset($request->regionId)) {
+            $query['RegionId'] = $request->regionId;
+        }
+        if (!Utils::isUnset($request->resourceOwnerAccount)) {
+            $query['ResourceOwnerAccount'] = $request->resourceOwnerAccount;
+        }
+        if (!Utils::isUnset($request->resourceOwnerId)) {
+            $query['ResourceOwnerId'] = $request->resourceOwnerId;
+        }
+        $req = new OpenApiRequest([
             'query' => OpenApiUtilClient::query($query),
-            'body'  => Utils::toMap($request),
         ]);
         $params = new Params([
             'action'      => 'ReleaseInstancePublicConnection',
@@ -2450,7 +2868,7 @@ class Polardbx extends OpenApiClient
             'method'      => 'POST',
             'authType'    => 'AK',
             'style'       => 'RPC',
-            'reqBodyType' => 'json',
+            'reqBodyType' => 'formData',
             'bodyType'    => 'json',
         ]);
 
@@ -2478,12 +2896,15 @@ class Polardbx extends OpenApiClient
     public function restartDBInstanceWithOptions($request, $runtime)
     {
         Utils::validateModel($request);
-        $query                   = [];
-        $query['DBInstanceName'] = $request->DBInstanceName;
-        $query['RegionId']       = $request->regionId;
-        $req                     = new OpenApiRequest([
+        $query = [];
+        if (!Utils::isUnset($request->DBInstanceName)) {
+            $query['DBInstanceName'] = $request->DBInstanceName;
+        }
+        if (!Utils::isUnset($request->regionId)) {
+            $query['RegionId'] = $request->regionId;
+        }
+        $req = new OpenApiRequest([
             'query' => OpenApiUtilClient::query($query),
-            'body'  => Utils::toMap($request),
         ]);
         $params = new Params([
             'action'      => 'RestartDBInstance',
@@ -2493,7 +2914,7 @@ class Polardbx extends OpenApiClient
             'method'      => 'POST',
             'authType'    => 'AK',
             'style'       => 'RPC',
-            'reqBodyType' => 'json',
+            'reqBodyType' => 'formData',
             'bodyType'    => 'json',
         ]);
 
@@ -2513,6 +2934,113 @@ class Polardbx extends OpenApiClient
     }
 
     /**
+     * @param TagResourcesRequest $request
+     * @param RuntimeOptions      $runtime
+     *
+     * @return TagResourcesResponse
+     */
+    public function tagResourcesWithOptions($request, $runtime)
+    {
+        Utils::validateModel($request);
+        $query = [];
+        if (!Utils::isUnset($request->regionId)) {
+            $query['RegionId'] = $request->regionId;
+        }
+        if (!Utils::isUnset($request->resourceId)) {
+            $query['ResourceId'] = $request->resourceId;
+        }
+        if (!Utils::isUnset($request->resourceType)) {
+            $query['ResourceType'] = $request->resourceType;
+        }
+        if (!Utils::isUnset($request->tag)) {
+            $query['Tag'] = $request->tag;
+        }
+        $req = new OpenApiRequest([
+            'query' => OpenApiUtilClient::query($query),
+        ]);
+        $params = new Params([
+            'action'      => 'TagResources',
+            'version'     => '2020-02-02',
+            'protocol'    => 'HTTPS',
+            'pathname'    => '/',
+            'method'      => 'POST',
+            'authType'    => 'AK',
+            'style'       => 'RPC',
+            'reqBodyType' => 'formData',
+            'bodyType'    => 'json',
+        ]);
+
+        return TagResourcesResponse::fromMap($this->callApi($params, $req, $runtime));
+    }
+
+    /**
+     * @param TagResourcesRequest $request
+     *
+     * @return TagResourcesResponse
+     */
+    public function tagResources($request)
+    {
+        $runtime = new RuntimeOptions([]);
+
+        return $this->tagResourcesWithOptions($request, $runtime);
+    }
+
+    /**
+     * @param UntagResourcesRequest $request
+     * @param RuntimeOptions        $runtime
+     *
+     * @return UntagResourcesResponse
+     */
+    public function untagResourcesWithOptions($request, $runtime)
+    {
+        Utils::validateModel($request);
+        $query = [];
+        if (!Utils::isUnset($request->all)) {
+            $query['All'] = $request->all;
+        }
+        if (!Utils::isUnset($request->regionId)) {
+            $query['RegionId'] = $request->regionId;
+        }
+        if (!Utils::isUnset($request->resourceId)) {
+            $query['ResourceId'] = $request->resourceId;
+        }
+        if (!Utils::isUnset($request->resourceType)) {
+            $query['ResourceType'] = $request->resourceType;
+        }
+        if (!Utils::isUnset($request->tagKey)) {
+            $query['TagKey'] = $request->tagKey;
+        }
+        $req = new OpenApiRequest([
+            'query' => OpenApiUtilClient::query($query),
+        ]);
+        $params = new Params([
+            'action'      => 'UntagResources',
+            'version'     => '2020-02-02',
+            'protocol'    => 'HTTPS',
+            'pathname'    => '/',
+            'method'      => 'POST',
+            'authType'    => 'AK',
+            'style'       => 'RPC',
+            'reqBodyType' => 'formData',
+            'bodyType'    => 'json',
+        ]);
+
+        return UntagResourcesResponse::fromMap($this->callApi($params, $req, $runtime));
+    }
+
+    /**
+     * @param UntagResourcesRequest $request
+     *
+     * @return UntagResourcesResponse
+     */
+    public function untagResources($request)
+    {
+        $runtime = new RuntimeOptions([]);
+
+        return $this->untagResourcesWithOptions($request, $runtime);
+    }
+
+    /**
      * @param UpdateBackupPolicyRequest $request
      * @param RuntimeOptions            $runtime
      *
@@ -2521,22 +3049,45 @@ class Polardbx extends OpenApiClient
     public function updateBackupPolicyWithOptions($request, $runtime)
     {
         Utils::validateModel($request);
-        $query                               = [];
-        $query['BackupPeriod']               = $request->backupPeriod;
-        $query['BackupPlanBegin']            = $request->backupPlanBegin;
-        $query['BackupSetRetention']         = $request->backupSetRetention;
-        $query['BackupType']                 = $request->backupType;
-        $query['BackupWay']                  = $request->backupWay;
-        $query['DBInstanceName']             = $request->DBInstanceName;
-        $query['ForceCleanOnHighSpaceUsage'] = $request->forceCleanOnHighSpaceUsage;
-        $query['IsEnabled']                  = $request->isEnabled;
-        $query['LocalLogRetention']          = $request->localLogRetention;
-        $query['LogLocalRetentionSpace']     = $request->logLocalRetentionSpace;
-        $query['RegionId']                   = $request->regionId;
-        $query['RemoveLogRetention']         = $request->removeLogRetention;
-        $req                                 = new OpenApiRequest([
+        $query = [];
+        if (!Utils::isUnset($request->backupPeriod)) {
+            $query['BackupPeriod'] = $request->backupPeriod;
+        }
+        if (!Utils::isUnset($request->backupPlanBegin)) {
+            $query['BackupPlanBegin'] = $request->backupPlanBegin;
+        }
+        if (!Utils::isUnset($request->backupSetRetention)) {
+            $query['BackupSetRetention'] = $request->backupSetRetention;
+        }
+        if (!Utils::isUnset($request->backupType)) {
+            $query['BackupType'] = $request->backupType;
+        }
+        if (!Utils::isUnset($request->backupWay)) {
+            $query['BackupWay'] = $request->backupWay;
+        }
+        if (!Utils::isUnset($request->DBInstanceName)) {
+            $query['DBInstanceName'] = $request->DBInstanceName;
+        }
+        if (!Utils::isUnset($request->forceCleanOnHighSpaceUsage)) {
+            $query['ForceCleanOnHighSpaceUsage'] = $request->forceCleanOnHighSpaceUsage;
+        }
+        if (!Utils::isUnset($request->isEnabled)) {
+            $query['IsEnabled'] = $request->isEnabled;
+        }
+        if (!Utils::isUnset($request->localLogRetention)) {
+            $query['LocalLogRetention'] = $request->localLogRetention;
+        }
+        if (!Utils::isUnset($request->logLocalRetentionSpace)) {
+            $query['LogLocalRetentionSpace'] = $request->logLocalRetentionSpace;
+        }
+        if (!Utils::isUnset($request->regionId)) {
+            $query['RegionId'] = $request->regionId;
+        }
+        if (!Utils::isUnset($request->removeLogRetention)) {
+            $query['RemoveLogRetention'] = $request->removeLogRetention;
+        }
+        $req = new OpenApiRequest([
             'query' => OpenApiUtilClient::query($query),
-            'body'  => Utils::toMap($request),
         ]);
         $params = new Params([
             'action'      => 'UpdateBackupPolicy',
@@ -2546,7 +3097,7 @@ class Polardbx extends OpenApiClient
             'method'      => 'POST',
             'authType'    => 'AK',
             'style'       => 'RPC',
-            'reqBodyType' => 'json',
+            'reqBodyType' => 'formData',
             'bodyType'    => 'json',
         ]);
 
@@ -2574,14 +3125,21 @@ class Polardbx extends OpenApiClient
     public function updateDBInstanceSSLWithOptions($request, $runtime)
     {
         Utils::validateModel($request);
-        $query                   = [];
-        $query['CertCommonName'] = $request->certCommonName;
-        $query['DBInstanceName'] = $request->DBInstanceName;
-        $query['EnableSSL']      = $request->enableSSL;
-        $query['RegionId']       = $request->regionId;
-        $req                     = new OpenApiRequest([
+        $query = [];
+        if (!Utils::isUnset($request->certCommonName)) {
+            $query['CertCommonName'] = $request->certCommonName;
+        }
+        if (!Utils::isUnset($request->DBInstanceName)) {
+            $query['DBInstanceName'] = $request->DBInstanceName;
+        }
+        if (!Utils::isUnset($request->enableSSL)) {
+            $query['EnableSSL'] = $request->enableSSL;
+        }
+        if (!Utils::isUnset($request->regionId)) {
+            $query['RegionId'] = $request->regionId;
+        }
+        $req = new OpenApiRequest([
             'query' => OpenApiUtilClient::query($query),
-            'body'  => Utils::toMap($request),
         ]);
         $params = new Params([
             'action'      => 'UpdateDBInstanceSSL',
@@ -2591,7 +3149,7 @@ class Polardbx extends OpenApiClient
             'method'      => 'POST',
             'authType'    => 'AK',
             'style'       => 'RPC',
-            'reqBodyType' => 'json',
+            'reqBodyType' => 'formData',
             'bodyType'    => 'json',
         ]);
 
@@ -2619,15 +3177,24 @@ class Polardbx extends OpenApiClient
     public function updateDBInstanceTDEWithOptions($request, $runtime)
     {
         Utils::validateModel($request);
-        $query                   = [];
-        $query['DBInstanceName'] = $request->DBInstanceName;
-        $query['EncryptionKey']  = $request->encryptionKey;
-        $query['RegionId']       = $request->regionId;
-        $query['RoleArn']        = $request->roleArn;
-        $query['TDEStatus']      = $request->TDEStatus;
-        $req                     = new OpenApiRequest([
+        $query = [];
+        if (!Utils::isUnset($request->DBInstanceName)) {
+            $query['DBInstanceName'] = $request->DBInstanceName;
+        }
+        if (!Utils::isUnset($request->encryptionKey)) {
+            $query['EncryptionKey'] = $request->encryptionKey;
+        }
+        if (!Utils::isUnset($request->regionId)) {
+            $query['RegionId'] = $request->regionId;
+        }
+        if (!Utils::isUnset($request->roleArn)) {
+            $query['RoleArn'] = $request->roleArn;
+        }
+        if (!Utils::isUnset($request->TDEStatus)) {
+            $query['TDEStatus'] = $request->TDEStatus;
+        }
+        $req = new OpenApiRequest([
             'query' => OpenApiUtilClient::query($query),
-            'body'  => Utils::toMap($request),
         ]);
         $params = new Params([
             'action'      => 'UpdateDBInstanceTDE',
@@ -2637,7 +3204,7 @@ class Polardbx extends OpenApiClient
             'method'      => 'POST',
             'authType'    => 'AK',
             'style'       => 'RPC',
-            'reqBodyType' => 'json',
+            'reqBodyType' => 'formData',
             'bodyType'    => 'json',
         ]);
 
@@ -2665,14 +3232,21 @@ class Polardbx extends OpenApiClient
     public function updatePolarDBXInstanceNodeWithOptions($request, $runtime)
     {
         Utils::validateModel($request);
-        $query                        = [];
-        $query['ClientToken']         = $request->clientToken;
-        $query['DBInstanceName']      = $request->DBInstanceName;
-        $query['DbInstanceNodeCount'] = $request->dbInstanceNodeCount;
-        $query['RegionId']            = $request->regionId;
-        $req                          = new OpenApiRequest([
+        $query = [];
+        if (!Utils::isUnset($request->clientToken)) {
+            $query['ClientToken'] = $request->clientToken;
+        }
+        if (!Utils::isUnset($request->DBInstanceName)) {
+            $query['DBInstanceName'] = $request->DBInstanceName;
+        }
+        if (!Utils::isUnset($request->dbInstanceNodeCount)) {
+            $query['DbInstanceNodeCount'] = $request->dbInstanceNodeCount;
+        }
+        if (!Utils::isUnset($request->regionId)) {
+            $query['RegionId'] = $request->regionId;
+        }
+        $req = new OpenApiRequest([
             'query' => OpenApiUtilClient::query($query),
-            'body'  => Utils::toMap($request),
         ]);
         $params = new Params([
             'action'      => 'UpdatePolarDBXInstanceNode',
@@ -2682,7 +3256,7 @@ class Polardbx extends OpenApiClient
             'method'      => 'POST',
             'authType'    => 'AK',
             'style'       => 'RPC',
-            'reqBodyType' => 'json',
+            'reqBodyType' => 'formData',
             'bodyType'    => 'json',
         ]);
 
@@ -2710,12 +3284,15 @@ class Polardbx extends OpenApiClient
     public function upgradeDBInstanceKernelVersionWithOptions($request, $runtime)
     {
         Utils::validateModel($request);
-        $query                   = [];
-        $query['DBInstanceName'] = $request->DBInstanceName;
-        $query['RegionId']       = $request->regionId;
-        $req                     = new OpenApiRequest([
+        $query = [];
+        if (!Utils::isUnset($request->DBInstanceName)) {
+            $query['DBInstanceName'] = $request->DBInstanceName;
+        }
+        if (!Utils::isUnset($request->regionId)) {
+            $query['RegionId'] = $request->regionId;
+        }
+        $req = new OpenApiRequest([
             'query' => OpenApiUtilClient::query($query),
-            'body'  => Utils::toMap($request),
         ]);
         $params = new Params([
             'action'      => 'UpgradeDBInstanceKernelVersion',
@@ -2725,7 +3302,7 @@ class Polardbx extends OpenApiClient
             'method'      => 'POST',
             'authType'    => 'AK',
             'style'       => 'RPC',
-            'reqBodyType' => 'json',
+            'reqBodyType' => 'formData',
             'bodyType'    => 'json',
         ]);
 

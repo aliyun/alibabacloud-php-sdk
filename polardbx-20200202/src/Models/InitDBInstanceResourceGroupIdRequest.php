@@ -6,28 +6,24 @@ namespace AlibabaCloud\SDK\Polardbx\V20200202\Models;
 
 use AlibabaCloud\Tea\Model;
 
-class DescribeDBInstanceAttributeRequest extends Model
+class InitDBInstanceResourceGroupIdRequest extends Model
 {
     /**
+     * @description 资源类型
+     *
      * @var string
      */
     public $DBInstanceName;
 
     /**
-     * @var string
-     */
-    public $regionId;
-
-    /**
-     * @description 资源组ID
+     * @description 地域
      *
      * @var string
      */
-    public $resourceGroupId;
+    public $regionId;
     protected $_name = [
-        'DBInstanceName'  => 'DBInstanceName',
-        'regionId'        => 'RegionId',
-        'resourceGroupId' => 'ResourceGroupId',
+        'DBInstanceName' => 'DBInstanceName',
+        'regionId'       => 'RegionId',
     ];
 
     public function validate()
@@ -43,9 +39,6 @@ class DescribeDBInstanceAttributeRequest extends Model
         if (null !== $this->regionId) {
             $res['RegionId'] = $this->regionId;
         }
-        if (null !== $this->resourceGroupId) {
-            $res['ResourceGroupId'] = $this->resourceGroupId;
-        }
 
         return $res;
     }
@@ -53,7 +46,7 @@ class DescribeDBInstanceAttributeRequest extends Model
     /**
      * @param array $map
      *
-     * @return DescribeDBInstanceAttributeRequest
+     * @return InitDBInstanceResourceGroupIdRequest
      */
     public static function fromMap($map = [])
     {
@@ -63,9 +56,6 @@ class DescribeDBInstanceAttributeRequest extends Model
         }
         if (isset($map['RegionId'])) {
             $model->regionId = $map['RegionId'];
-        }
-        if (isset($map['ResourceGroupId'])) {
-            $model->resourceGroupId = $map['ResourceGroupId'];
         }
 
         return $model;

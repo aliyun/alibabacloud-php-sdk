@@ -6,28 +6,32 @@ namespace AlibabaCloud\SDK\Polardbx\V20200202\Models;
 
 use AlibabaCloud\Tea\Model;
 
-class DescribeDBInstanceAttributeRequest extends Model
+class DescribeTagsRequest extends Model
 {
     /**
+     * @description 实例名称
+     *
      * @var string
      */
     public $DBInstanceName;
 
     /**
+     * @description 地域
+     *
      * @var string
      */
     public $regionId;
 
     /**
-     * @description 资源组ID
+     * @description 标签Key
      *
      * @var string
      */
-    public $resourceGroupId;
+    public $tagKey;
     protected $_name = [
-        'DBInstanceName'  => 'DBInstanceName',
-        'regionId'        => 'RegionId',
-        'resourceGroupId' => 'ResourceGroupId',
+        'DBInstanceName' => 'DBInstanceName',
+        'regionId'       => 'RegionId',
+        'tagKey'         => 'TagKey',
     ];
 
     public function validate()
@@ -43,8 +47,8 @@ class DescribeDBInstanceAttributeRequest extends Model
         if (null !== $this->regionId) {
             $res['RegionId'] = $this->regionId;
         }
-        if (null !== $this->resourceGroupId) {
-            $res['ResourceGroupId'] = $this->resourceGroupId;
+        if (null !== $this->tagKey) {
+            $res['TagKey'] = $this->tagKey;
         }
 
         return $res;
@@ -53,7 +57,7 @@ class DescribeDBInstanceAttributeRequest extends Model
     /**
      * @param array $map
      *
-     * @return DescribeDBInstanceAttributeRequest
+     * @return DescribeTagsRequest
      */
     public static function fromMap($map = [])
     {
@@ -64,8 +68,8 @@ class DescribeDBInstanceAttributeRequest extends Model
         if (isset($map['RegionId'])) {
             $model->regionId = $map['RegionId'];
         }
-        if (isset($map['ResourceGroupId'])) {
-            $model->resourceGroupId = $map['ResourceGroupId'];
+        if (isset($map['TagKey'])) {
+            $model->tagKey = $map['TagKey'];
         }
 
         return $model;

@@ -5,6 +5,7 @@
 namespace AlibabaCloud\SDK\Polardbx\V20200202\Models\DescribeDBInstancesResponseBody;
 
 use AlibabaCloud\SDK\Polardbx\V20200202\Models\DescribeDBInstancesResponseBody\DBInstances\nodes;
+use AlibabaCloud\SDK\Polardbx\V20200202\Models\DescribeDBInstancesResponseBody\DBInstances\tagSet;
 use AlibabaCloud\Tea\Model;
 
 class DBInstances extends Model
@@ -18,6 +19,13 @@ class DBInstances extends Model
      * @var string
      */
     public $createTime;
+
+    /**
+     * @description 数据库实例名称
+     *
+     * @var string
+     */
+    public $DBInstanceName;
 
     /**
      * @var string
@@ -105,6 +113,13 @@ class DBInstances extends Model
     public $regionId;
 
     /**
+     * @description 资源组ID
+     *
+     * @var string
+     */
+    public $resourceGroupId;
+
+    /**
      * @var string
      */
     public $status;
@@ -113,6 +128,13 @@ class DBInstances extends Model
      * @var int
      */
     public $storageUsed;
+
+    /**
+     * @description 标签集合
+     *
+     * @var tagSet[]
+     */
+    public $tagSet;
 
     /**
      * @var string
@@ -131,6 +153,7 @@ class DBInstances extends Model
     protected $_name = [
         'commodityCode'   => 'CommodityCode',
         'createTime'      => 'CreateTime',
+        'DBInstanceName'  => 'DBInstanceName',
         'DBType'          => 'DBType',
         'DBVersion'       => 'DBVersion',
         'description'     => 'Description',
@@ -148,8 +171,10 @@ class DBInstances extends Model
         'payType'         => 'PayType',
         'readDBInstances' => 'ReadDBInstances',
         'regionId'        => 'RegionId',
+        'resourceGroupId' => 'ResourceGroupId',
         'status'          => 'Status',
         'storageUsed'     => 'StorageUsed',
+        'tagSet'          => 'TagSet',
         'type'            => 'Type',
         'VPCId'           => 'VPCId',
         'zoneId'          => 'ZoneId',
@@ -167,6 +192,9 @@ class DBInstances extends Model
         }
         if (null !== $this->createTime) {
             $res['CreateTime'] = $this->createTime;
+        }
+        if (null !== $this->DBInstanceName) {
+            $res['DBInstanceName'] = $this->DBInstanceName;
         }
         if (null !== $this->DBType) {
             $res['DBType'] = $this->DBType;
@@ -225,11 +253,23 @@ class DBInstances extends Model
         if (null !== $this->regionId) {
             $res['RegionId'] = $this->regionId;
         }
+        if (null !== $this->resourceGroupId) {
+            $res['ResourceGroupId'] = $this->resourceGroupId;
+        }
         if (null !== $this->status) {
             $res['Status'] = $this->status;
         }
         if (null !== $this->storageUsed) {
             $res['StorageUsed'] = $this->storageUsed;
+        }
+        if (null !== $this->tagSet) {
+            $res['TagSet'] = [];
+            if (null !== $this->tagSet && \is_array($this->tagSet)) {
+                $n = 0;
+                foreach ($this->tagSet as $item) {
+                    $res['TagSet'][$n++] = null !== $item ? $item->toMap() : $item;
+                }
+            }
         }
         if (null !== $this->type) {
             $res['Type'] = $this->type;
@@ -257,6 +297,9 @@ class DBInstances extends Model
         }
         if (isset($map['CreateTime'])) {
             $model->createTime = $map['CreateTime'];
+        }
+        if (isset($map['DBInstanceName'])) {
+            $model->DBInstanceName = $map['DBInstanceName'];
         }
         if (isset($map['DBType'])) {
             $model->DBType = $map['DBType'];
@@ -317,11 +360,23 @@ class DBInstances extends Model
         if (isset($map['RegionId'])) {
             $model->regionId = $map['RegionId'];
         }
+        if (isset($map['ResourceGroupId'])) {
+            $model->resourceGroupId = $map['ResourceGroupId'];
+        }
         if (isset($map['Status'])) {
             $model->status = $map['Status'];
         }
         if (isset($map['StorageUsed'])) {
             $model->storageUsed = $map['StorageUsed'];
+        }
+        if (isset($map['TagSet'])) {
+            if (!empty($map['TagSet'])) {
+                $model->tagSet = [];
+                $n             = 0;
+                foreach ($map['TagSet'] as $item) {
+                    $model->tagSet[$n++] = null !== $item ? tagSet::fromMap($item) : $item;
+                }
+            }
         }
         if (isset($map['Type'])) {
             $model->type = $map['Type'];
