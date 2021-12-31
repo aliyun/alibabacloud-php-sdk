@@ -9,17 +9,17 @@ use AlibabaCloud\Tea\Model;
 class ListDeployedAlgorithmModelsRequest extends Model
 {
     /**
-     * @var bool
-     */
-    public $inServiceOnly;
-
-    /**
      * @var string
      */
     public $algorithmType;
+
+    /**
+     * @var bool
+     */
+    public $inServiceOnly;
     protected $_name = [
-        'inServiceOnly' => 'inServiceOnly',
         'algorithmType' => 'algorithmType',
+        'inServiceOnly' => 'inServiceOnly',
     ];
 
     public function validate()
@@ -29,11 +29,11 @@ class ListDeployedAlgorithmModelsRequest extends Model
     public function toMap()
     {
         $res = [];
-        if (null !== $this->inServiceOnly) {
-            $res['inServiceOnly'] = $this->inServiceOnly;
-        }
         if (null !== $this->algorithmType) {
             $res['algorithmType'] = $this->algorithmType;
+        }
+        if (null !== $this->inServiceOnly) {
+            $res['inServiceOnly'] = $this->inServiceOnly;
         }
 
         return $res;
@@ -47,11 +47,11 @@ class ListDeployedAlgorithmModelsRequest extends Model
     public static function fromMap($map = [])
     {
         $model = new self();
-        if (isset($map['inServiceOnly'])) {
-            $model->inServiceOnly = $map['inServiceOnly'];
-        }
         if (isset($map['algorithmType'])) {
             $model->algorithmType = $map['algorithmType'];
+        }
+        if (isset($map['inServiceOnly'])) {
+            $model->inServiceOnly = $map['inServiceOnly'];
         }
 
         return $model;

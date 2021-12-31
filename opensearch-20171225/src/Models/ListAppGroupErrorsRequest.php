@@ -16,28 +16,28 @@ class ListAppGroupErrorsRequest extends Model
     /**
      * @var int
      */
-    public $startTime;
-
-    /**
-     * @var int
-     */
-    public $stopTime;
-
-    /**
-     * @var int
-     */
     public $pageNumber;
 
     /**
      * @var int
      */
     public $pageSize;
+
+    /**
+     * @var int
+     */
+    public $startTime;
+
+    /**
+     * @var int
+     */
+    public $stopTime;
     protected $_name = [
         'appId'      => 'appId',
-        'startTime'  => 'startTime',
-        'stopTime'   => 'stopTime',
         'pageNumber' => 'pageNumber',
         'pageSize'   => 'pageSize',
+        'startTime'  => 'startTime',
+        'stopTime'   => 'stopTime',
     ];
 
     public function validate()
@@ -50,17 +50,17 @@ class ListAppGroupErrorsRequest extends Model
         if (null !== $this->appId) {
             $res['appId'] = $this->appId;
         }
-        if (null !== $this->startTime) {
-            $res['startTime'] = $this->startTime;
-        }
-        if (null !== $this->stopTime) {
-            $res['stopTime'] = $this->stopTime;
-        }
         if (null !== $this->pageNumber) {
             $res['pageNumber'] = $this->pageNumber;
         }
         if (null !== $this->pageSize) {
             $res['pageSize'] = $this->pageSize;
+        }
+        if (null !== $this->startTime) {
+            $res['startTime'] = $this->startTime;
+        }
+        if (null !== $this->stopTime) {
+            $res['stopTime'] = $this->stopTime;
         }
 
         return $res;
@@ -77,17 +77,17 @@ class ListAppGroupErrorsRequest extends Model
         if (isset($map['appId'])) {
             $model->appId = $map['appId'];
         }
-        if (isset($map['startTime'])) {
-            $model->startTime = $map['startTime'];
-        }
-        if (isset($map['stopTime'])) {
-            $model->stopTime = $map['stopTime'];
-        }
         if (isset($map['pageNumber'])) {
             $model->pageNumber = $map['pageNumber'];
         }
         if (isset($map['pageSize'])) {
             $model->pageSize = $map['pageSize'];
+        }
+        if (isset($map['startTime'])) {
+            $model->startTime = $map['startTime'];
+        }
+        if (isset($map['stopTime'])) {
+            $model->stopTime = $map['stopTime'];
         }
 
         return $model;

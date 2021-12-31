@@ -11,7 +11,12 @@ class result extends Model
     /**
      * @var string
      */
-    public $type;
+    public $createTime;
+
+    /**
+     * @var string
+     */
+    public $modifyTime;
 
     /**
      * @var string
@@ -21,23 +26,18 @@ class result extends Model
     /**
      * @var string
      */
-    public $createTime;
-
-    /**
-     * @var string
-     */
     public $status;
 
     /**
      * @var string
      */
-    public $modifyTime;
+    public $type;
     protected $_name = [
-        'type'       => 'type',
-        'scope'      => 'scope',
         'createTime' => 'createTime',
-        'status'     => 'status',
         'modifyTime' => 'modifyTime',
+        'scope'      => 'scope',
+        'status'     => 'status',
+        'type'       => 'type',
     ];
 
     public function validate()
@@ -47,20 +47,20 @@ class result extends Model
     public function toMap()
     {
         $res = [];
-        if (null !== $this->type) {
-            $res['type'] = $this->type;
+        if (null !== $this->createTime) {
+            $res['createTime'] = $this->createTime;
+        }
+        if (null !== $this->modifyTime) {
+            $res['modifyTime'] = $this->modifyTime;
         }
         if (null !== $this->scope) {
             $res['scope'] = $this->scope;
         }
-        if (null !== $this->createTime) {
-            $res['createTime'] = $this->createTime;
-        }
         if (null !== $this->status) {
             $res['status'] = $this->status;
         }
-        if (null !== $this->modifyTime) {
-            $res['modifyTime'] = $this->modifyTime;
+        if (null !== $this->type) {
+            $res['type'] = $this->type;
         }
 
         return $res;
@@ -74,20 +74,20 @@ class result extends Model
     public static function fromMap($map = [])
     {
         $model = new self();
-        if (isset($map['type'])) {
-            $model->type = $map['type'];
+        if (isset($map['createTime'])) {
+            $model->createTime = $map['createTime'];
+        }
+        if (isset($map['modifyTime'])) {
+            $model->modifyTime = $map['modifyTime'];
         }
         if (isset($map['scope'])) {
             $model->scope = $map['scope'];
         }
-        if (isset($map['createTime'])) {
-            $model->createTime = $map['createTime'];
-        }
         if (isset($map['status'])) {
             $model->status = $map['status'];
         }
-        if (isset($map['modifyTime'])) {
-            $model->modifyTime = $map['modifyTime'];
+        if (isset($map['type'])) {
+            $model->type = $map['type'];
         }
 
         return $model;

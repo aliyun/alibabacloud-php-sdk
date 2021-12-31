@@ -9,14 +9,14 @@ use AlibabaCloud\Tea\Model;
 class ListStatisticLogsRequest extends Model
 {
     /**
-     * @var int
+     * @var string
      */
-    public $startTime;
+    public $columns;
 
     /**
-     * @var int
+     * @var bool
      */
-    public $stopTime;
+    public $distinct;
 
     /**
      * @var int
@@ -39,23 +39,23 @@ class ListStatisticLogsRequest extends Model
     public $sortBy;
 
     /**
-     * @var bool
+     * @var int
      */
-    public $distinct;
+    public $startTime;
 
     /**
-     * @var string
+     * @var int
      */
-    public $columns;
+    public $stopTime;
     protected $_name = [
-        'startTime'  => 'startTime',
-        'stopTime'   => 'stopTime',
+        'columns'    => 'columns',
+        'distinct'   => 'distinct',
         'pageNumber' => 'pageNumber',
         'pageSize'   => 'pageSize',
         'query'      => 'query',
         'sortBy'     => 'sortBy',
-        'distinct'   => 'distinct',
-        'columns'    => 'columns',
+        'startTime'  => 'startTime',
+        'stopTime'   => 'stopTime',
     ];
 
     public function validate()
@@ -65,11 +65,11 @@ class ListStatisticLogsRequest extends Model
     public function toMap()
     {
         $res = [];
-        if (null !== $this->startTime) {
-            $res['startTime'] = $this->startTime;
+        if (null !== $this->columns) {
+            $res['columns'] = $this->columns;
         }
-        if (null !== $this->stopTime) {
-            $res['stopTime'] = $this->stopTime;
+        if (null !== $this->distinct) {
+            $res['distinct'] = $this->distinct;
         }
         if (null !== $this->pageNumber) {
             $res['pageNumber'] = $this->pageNumber;
@@ -83,11 +83,11 @@ class ListStatisticLogsRequest extends Model
         if (null !== $this->sortBy) {
             $res['sortBy'] = $this->sortBy;
         }
-        if (null !== $this->distinct) {
-            $res['distinct'] = $this->distinct;
+        if (null !== $this->startTime) {
+            $res['startTime'] = $this->startTime;
         }
-        if (null !== $this->columns) {
-            $res['columns'] = $this->columns;
+        if (null !== $this->stopTime) {
+            $res['stopTime'] = $this->stopTime;
         }
 
         return $res;
@@ -101,11 +101,11 @@ class ListStatisticLogsRequest extends Model
     public static function fromMap($map = [])
     {
         $model = new self();
-        if (isset($map['startTime'])) {
-            $model->startTime = $map['startTime'];
+        if (isset($map['columns'])) {
+            $model->columns = $map['columns'];
         }
-        if (isset($map['stopTime'])) {
-            $model->stopTime = $map['stopTime'];
+        if (isset($map['distinct'])) {
+            $model->distinct = $map['distinct'];
         }
         if (isset($map['pageNumber'])) {
             $model->pageNumber = $map['pageNumber'];
@@ -119,11 +119,11 @@ class ListStatisticLogsRequest extends Model
         if (isset($map['sortBy'])) {
             $model->sortBy = $map['sortBy'];
         }
-        if (isset($map['distinct'])) {
-            $model->distinct = $map['distinct'];
+        if (isset($map['startTime'])) {
+            $model->startTime = $map['startTime'];
         }
-        if (isset($map['columns'])) {
-            $model->columns = $map['columns'];
+        if (isset($map['stopTime'])) {
+            $model->stopTime = $map['stopTime'];
         }
 
         return $model;

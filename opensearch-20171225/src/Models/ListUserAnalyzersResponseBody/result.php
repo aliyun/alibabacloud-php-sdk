@@ -10,19 +10,29 @@ use AlibabaCloud\Tea\Model;
 class result extends Model
 {
     /**
-     * @var int
-     */
-    public $created;
-
-    /**
      * @var bool
      */
     public $available;
 
     /**
+     * @var string
+     */
+    public $business;
+
+    /**
+     * @var int
+     */
+    public $created;
+
+    /**
      * @var dicts[]
      */
     public $dicts;
+
+    /**
+     * @var string
+     */
+    public $id;
 
     /**
      * @var string
@@ -33,24 +43,14 @@ class result extends Model
      * @var int
      */
     public $updated;
-
-    /**
-     * @var string
-     */
-    public $id;
-
-    /**
-     * @var string
-     */
-    public $business;
     protected $_name = [
-        'created'   => 'created',
         'available' => 'available',
+        'business'  => 'business',
+        'created'   => 'created',
         'dicts'     => 'dicts',
+        'id'        => 'id',
         'name'      => 'name',
         'updated'   => 'updated',
-        'id'        => 'id',
-        'business'  => 'business',
     ];
 
     public function validate()
@@ -60,11 +60,14 @@ class result extends Model
     public function toMap()
     {
         $res = [];
-        if (null !== $this->created) {
-            $res['created'] = $this->created;
-        }
         if (null !== $this->available) {
             $res['available'] = $this->available;
+        }
+        if (null !== $this->business) {
+            $res['business'] = $this->business;
+        }
+        if (null !== $this->created) {
+            $res['created'] = $this->created;
         }
         if (null !== $this->dicts) {
             $res['dicts'] = [];
@@ -75,17 +78,14 @@ class result extends Model
                 }
             }
         }
+        if (null !== $this->id) {
+            $res['id'] = $this->id;
+        }
         if (null !== $this->name) {
             $res['name'] = $this->name;
         }
         if (null !== $this->updated) {
             $res['updated'] = $this->updated;
-        }
-        if (null !== $this->id) {
-            $res['id'] = $this->id;
-        }
-        if (null !== $this->business) {
-            $res['business'] = $this->business;
         }
 
         return $res;
@@ -99,11 +99,14 @@ class result extends Model
     public static function fromMap($map = [])
     {
         $model = new self();
-        if (isset($map['created'])) {
-            $model->created = $map['created'];
-        }
         if (isset($map['available'])) {
             $model->available = $map['available'];
+        }
+        if (isset($map['business'])) {
+            $model->business = $map['business'];
+        }
+        if (isset($map['created'])) {
+            $model->created = $map['created'];
         }
         if (isset($map['dicts'])) {
             if (!empty($map['dicts'])) {
@@ -114,17 +117,14 @@ class result extends Model
                 }
             }
         }
+        if (isset($map['id'])) {
+            $model->id = $map['id'];
+        }
         if (isset($map['name'])) {
             $model->name = $map['name'];
         }
         if (isset($map['updated'])) {
             $model->updated = $map['updated'];
-        }
-        if (isset($map['id'])) {
-            $model->id = $map['id'];
-        }
-        if (isset($map['business'])) {
-            $model->business = $map['business'];
         }
 
         return $model;

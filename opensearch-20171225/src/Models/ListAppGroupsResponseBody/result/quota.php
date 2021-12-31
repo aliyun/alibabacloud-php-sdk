@@ -9,9 +9,9 @@ use AlibabaCloud\Tea\Model;
 class quota extends Model
 {
     /**
-     * @var string
+     * @var int
      */
-    public $spec;
+    public $computeResource;
 
     /**
      * @var int
@@ -19,13 +19,13 @@ class quota extends Model
     public $docSize;
 
     /**
-     * @var int
+     * @var string
      */
-    public $computeResource;
+    public $spec;
     protected $_name = [
-        'spec'            => 'spec',
-        'docSize'         => 'docSize',
         'computeResource' => 'computeResource',
+        'docSize'         => 'docSize',
+        'spec'            => 'spec',
     ];
 
     public function validate()
@@ -35,14 +35,14 @@ class quota extends Model
     public function toMap()
     {
         $res = [];
-        if (null !== $this->spec) {
-            $res['spec'] = $this->spec;
+        if (null !== $this->computeResource) {
+            $res['computeResource'] = $this->computeResource;
         }
         if (null !== $this->docSize) {
             $res['docSize'] = $this->docSize;
         }
-        if (null !== $this->computeResource) {
-            $res['computeResource'] = $this->computeResource;
+        if (null !== $this->spec) {
+            $res['spec'] = $this->spec;
         }
 
         return $res;
@@ -56,14 +56,14 @@ class quota extends Model
     public static function fromMap($map = [])
     {
         $model = new self();
-        if (isset($map['spec'])) {
-            $model->spec = $map['spec'];
+        if (isset($map['computeResource'])) {
+            $model->computeResource = $map['computeResource'];
         }
         if (isset($map['docSize'])) {
             $model->docSize = $map['docSize'];
         }
-        if (isset($map['computeResource'])) {
-            $model->computeResource = $map['computeResource'];
+        if (isset($map['spec'])) {
+            $model->spec = $map['spec'];
         }
 
         return $model;

@@ -10,17 +10,17 @@ use AlibabaCloud\Tea\Model;
 class result extends Model
 {
     /**
-     * @var receivedSample[]
-     */
-    public $receivedSample;
-
-    /**
      * @var int
      */
     public $receivedCount;
+
+    /**
+     * @var receivedSample[]
+     */
+    public $receivedSample;
     protected $_name = [
-        'receivedSample' => 'receivedSample',
         'receivedCount'  => 'receivedCount',
+        'receivedSample' => 'receivedSample',
     ];
 
     public function validate()
@@ -30,6 +30,9 @@ class result extends Model
     public function toMap()
     {
         $res = [];
+        if (null !== $this->receivedCount) {
+            $res['receivedCount'] = $this->receivedCount;
+        }
         if (null !== $this->receivedSample) {
             $res['receivedSample'] = [];
             if (null !== $this->receivedSample && \is_array($this->receivedSample)) {
@@ -38,9 +41,6 @@ class result extends Model
                     $res['receivedSample'][$n++] = null !== $item ? $item->toMap() : $item;
                 }
             }
-        }
-        if (null !== $this->receivedCount) {
-            $res['receivedCount'] = $this->receivedCount;
         }
 
         return $res;
@@ -54,6 +54,9 @@ class result extends Model
     public static function fromMap($map = [])
     {
         $model = new self();
+        if (isset($map['receivedCount'])) {
+            $model->receivedCount = $map['receivedCount'];
+        }
         if (isset($map['receivedSample'])) {
             if (!empty($map['receivedSample'])) {
                 $model->receivedSample = [];
@@ -62,9 +65,6 @@ class result extends Model
                     $model->receivedSample[$n++] = null !== $item ? receivedSample::fromMap($item) : $item;
                 }
             }
-        }
-        if (isset($map['receivedCount'])) {
-            $model->receivedCount = $map['receivedCount'];
         }
 
         return $model;

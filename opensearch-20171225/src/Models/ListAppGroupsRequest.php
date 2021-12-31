@@ -9,6 +9,16 @@ use AlibabaCloud\Tea\Model;
 class ListAppGroupsRequest extends Model
 {
     /**
+     * @var string
+     */
+    public $instanceId;
+
+    /**
+     * @var string
+     */
+    public $name;
+
+    /**
      * @var int
      */
     public $pageNumber;
@@ -21,29 +31,25 @@ class ListAppGroupsRequest extends Model
     /**
      * @var string
      */
-    public $instanceId;
-
-    /**
-     * @var string
-     */
-    public $name;
-
-    /**
-     * @var string
-     */
-    public $type;
+    public $resourceGroupId;
 
     /**
      * @var int
      */
     public $sortBy;
+
+    /**
+     * @var string
+     */
+    public $type;
     protected $_name = [
-        'pageNumber' => 'pageNumber',
-        'pageSize'   => 'pageSize',
-        'instanceId' => 'instanceId',
-        'name'       => 'name',
-        'type'       => 'type',
-        'sortBy'     => 'sortBy',
+        'instanceId'      => 'instanceId',
+        'name'            => 'name',
+        'pageNumber'      => 'pageNumber',
+        'pageSize'        => 'pageSize',
+        'resourceGroupId' => 'resourceGroupId',
+        'sortBy'          => 'sortBy',
+        'type'            => 'type',
     ];
 
     public function validate()
@@ -53,23 +59,26 @@ class ListAppGroupsRequest extends Model
     public function toMap()
     {
         $res = [];
-        if (null !== $this->pageNumber) {
-            $res['pageNumber'] = $this->pageNumber;
-        }
-        if (null !== $this->pageSize) {
-            $res['pageSize'] = $this->pageSize;
-        }
         if (null !== $this->instanceId) {
             $res['instanceId'] = $this->instanceId;
         }
         if (null !== $this->name) {
             $res['name'] = $this->name;
         }
-        if (null !== $this->type) {
-            $res['type'] = $this->type;
+        if (null !== $this->pageNumber) {
+            $res['pageNumber'] = $this->pageNumber;
+        }
+        if (null !== $this->pageSize) {
+            $res['pageSize'] = $this->pageSize;
+        }
+        if (null !== $this->resourceGroupId) {
+            $res['resourceGroupId'] = $this->resourceGroupId;
         }
         if (null !== $this->sortBy) {
             $res['sortBy'] = $this->sortBy;
+        }
+        if (null !== $this->type) {
+            $res['type'] = $this->type;
         }
 
         return $res;
@@ -83,23 +92,26 @@ class ListAppGroupsRequest extends Model
     public static function fromMap($map = [])
     {
         $model = new self();
-        if (isset($map['pageNumber'])) {
-            $model->pageNumber = $map['pageNumber'];
-        }
-        if (isset($map['pageSize'])) {
-            $model->pageSize = $map['pageSize'];
-        }
         if (isset($map['instanceId'])) {
             $model->instanceId = $map['instanceId'];
         }
         if (isset($map['name'])) {
             $model->name = $map['name'];
         }
-        if (isset($map['type'])) {
-            $model->type = $map['type'];
+        if (isset($map['pageNumber'])) {
+            $model->pageNumber = $map['pageNumber'];
+        }
+        if (isset($map['pageSize'])) {
+            $model->pageSize = $map['pageSize'];
+        }
+        if (isset($map['resourceGroupId'])) {
+            $model->resourceGroupId = $map['resourceGroupId'];
         }
         if (isset($map['sortBy'])) {
             $model->sortBy = $map['sortBy'];
+        }
+        if (isset($map['type'])) {
+            $model->type = $map['type'];
         }
 
         return $model;

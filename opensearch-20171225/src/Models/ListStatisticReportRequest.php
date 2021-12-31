@@ -9,9 +9,9 @@ use AlibabaCloud\Tea\Model;
 class ListStatisticReportRequest extends Model
 {
     /**
-     * @var int
+     * @var string
      */
-    public $startTime;
+    public $columns;
 
     /**
      * @var int
@@ -31,19 +31,19 @@ class ListStatisticReportRequest extends Model
     /**
      * @var string
      */
-    public $columns;
+    public $query;
 
     /**
-     * @var string
+     * @var int
      */
-    public $query;
+    public $startTime;
     protected $_name = [
-        'startTime'  => 'startTime',
+        'columns'    => 'columns',
         'endTime'    => 'endTime',
         'pageNumber' => 'pageNumber',
         'pageSize'   => 'pageSize',
-        'columns'    => 'columns',
         'query'      => 'query',
+        'startTime'  => 'startTime',
     ];
 
     public function validate()
@@ -53,8 +53,8 @@ class ListStatisticReportRequest extends Model
     public function toMap()
     {
         $res = [];
-        if (null !== $this->startTime) {
-            $res['startTime'] = $this->startTime;
+        if (null !== $this->columns) {
+            $res['columns'] = $this->columns;
         }
         if (null !== $this->endTime) {
             $res['endTime'] = $this->endTime;
@@ -65,11 +65,11 @@ class ListStatisticReportRequest extends Model
         if (null !== $this->pageSize) {
             $res['pageSize'] = $this->pageSize;
         }
-        if (null !== $this->columns) {
-            $res['columns'] = $this->columns;
-        }
         if (null !== $this->query) {
             $res['query'] = $this->query;
+        }
+        if (null !== $this->startTime) {
+            $res['startTime'] = $this->startTime;
         }
 
         return $res;
@@ -83,8 +83,8 @@ class ListStatisticReportRequest extends Model
     public static function fromMap($map = [])
     {
         $model = new self();
-        if (isset($map['startTime'])) {
-            $model->startTime = $map['startTime'];
+        if (isset($map['columns'])) {
+            $model->columns = $map['columns'];
         }
         if (isset($map['endTime'])) {
             $model->endTime = $map['endTime'];
@@ -95,11 +95,11 @@ class ListStatisticReportRequest extends Model
         if (isset($map['pageSize'])) {
             $model->pageSize = $map['pageSize'];
         }
-        if (isset($map['columns'])) {
-            $model->columns = $map['columns'];
-        }
         if (isset($map['query'])) {
             $model->query = $map['query'];
+        }
+        if (isset($map['startTime'])) {
+            $model->startTime = $map['startTime'];
         }
 
         return $model;

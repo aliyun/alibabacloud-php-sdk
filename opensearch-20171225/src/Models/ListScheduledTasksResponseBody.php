@@ -9,22 +9,22 @@ use AlibabaCloud\Tea\Model;
 class ListScheduledTasksResponseBody extends Model
 {
     /**
-     * @var mixed[][]
-     */
-    public $result;
-
-    /**
      * @var string
      */
     public $requestId;
+
+    /**
+     * @var mixed[][]
+     */
+    public $result;
 
     /**
      * @var int
      */
     public $totalCount;
     protected $_name = [
-        'result'     => 'result',
         'requestId'  => 'requestId',
+        'result'     => 'result',
         'totalCount' => 'totalCount',
     ];
 
@@ -35,11 +35,11 @@ class ListScheduledTasksResponseBody extends Model
     public function toMap()
     {
         $res = [];
-        if (null !== $this->result) {
-            $res['result'] = $this->result;
-        }
         if (null !== $this->requestId) {
             $res['requestId'] = $this->requestId;
+        }
+        if (null !== $this->result) {
+            $res['result'] = $this->result;
         }
         if (null !== $this->totalCount) {
             $res['totalCount'] = $this->totalCount;
@@ -56,13 +56,13 @@ class ListScheduledTasksResponseBody extends Model
     public static function fromMap($map = [])
     {
         $model = new self();
+        if (isset($map['requestId'])) {
+            $model->requestId = $map['requestId'];
+        }
         if (isset($map['result'])) {
             if (!empty($map['result'])) {
                 $model->result = $map['result'];
             }
-        }
-        if (isset($map['requestId'])) {
-            $model->requestId = $map['requestId'];
         }
         if (isset($map['totalCount'])) {
             $model->totalCount = $map['totalCount'];

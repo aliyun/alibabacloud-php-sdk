@@ -15,18 +15,18 @@ class result extends Model
     public $active;
 
     /**
-     * @var string
-     */
-    public $name;
-
-    /**
      * @var meta[]
      */
     public $meta;
+
+    /**
+     * @var string
+     */
+    public $name;
     protected $_name = [
         'active' => 'active',
-        'name'   => 'name',
         'meta'   => 'meta',
+        'name'   => 'name',
     ];
 
     public function validate()
@@ -39,9 +39,6 @@ class result extends Model
         if (null !== $this->active) {
             $res['active'] = $this->active;
         }
-        if (null !== $this->name) {
-            $res['name'] = $this->name;
-        }
         if (null !== $this->meta) {
             $res['meta'] = [];
             if (null !== $this->meta && \is_array($this->meta)) {
@@ -50,6 +47,9 @@ class result extends Model
                     $res['meta'][$n++] = null !== $item ? $item->toMap() : $item;
                 }
             }
+        }
+        if (null !== $this->name) {
+            $res['name'] = $this->name;
         }
 
         return $res;
@@ -66,9 +66,6 @@ class result extends Model
         if (isset($map['active'])) {
             $model->active = $map['active'];
         }
-        if (isset($map['name'])) {
-            $model->name = $map['name'];
-        }
         if (isset($map['meta'])) {
             if (!empty($map['meta'])) {
                 $model->meta = [];
@@ -77,6 +74,9 @@ class result extends Model
                     $model->meta[$n++] = null !== $item ? meta::fromMap($item) : $item;
                 }
             }
+        }
+        if (isset($map['name'])) {
+            $model->name = $map['name'];
         }
 
         return $model;

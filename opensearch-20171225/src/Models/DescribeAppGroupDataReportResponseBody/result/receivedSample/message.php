@@ -9,9 +9,9 @@ use AlibabaCloud\Tea\Model;
 class message extends Model
 {
     /**
-     * @var int
+     * @var string
      */
-    public $eventId;
+    public $arg1;
 
     /**
      * @var string
@@ -21,17 +21,17 @@ class message extends Model
     /**
      * @var string
      */
-    public $arg1;
+    public $args;
 
     /**
      * @var string
      */
-    public $sdkVersion;
+    public $clientIp;
 
     /**
-     * @var string
+     * @var int
      */
-    public $userId;
+    public $eventId;
 
     /**
      * @var string
@@ -41,7 +41,12 @@ class message extends Model
     /**
      * @var string
      */
-    public $args;
+    public $sdkType;
+
+    /**
+     * @var string
+     */
+    public $sdkVersion;
 
     /**
      * @var string
@@ -51,23 +56,18 @@ class message extends Model
     /**
      * @var string
      */
-    public $sdkType;
-
-    /**
-     * @var string
-     */
-    public $clientIp;
+    public $userId;
     protected $_name = [
-        'eventId'    => 'eventId',
-        'arg3'       => 'arg3',
         'arg1'       => 'arg1',
-        'sdkVersion' => 'sdkVersion',
-        'userId'     => 'userId',
-        'page'       => 'page',
+        'arg3'       => 'arg3',
         'args'       => 'args',
-        'sessionId'  => 'sessionId',
-        'sdkType'    => 'sdkType',
         'clientIp'   => 'clientIp',
+        'eventId'    => 'eventId',
+        'page'       => 'page',
+        'sdkType'    => 'sdkType',
+        'sdkVersion' => 'sdkVersion',
+        'sessionId'  => 'sessionId',
+        'userId'     => 'userId',
     ];
 
     public function validate()
@@ -77,35 +77,35 @@ class message extends Model
     public function toMap()
     {
         $res = [];
-        if (null !== $this->eventId) {
-            $res['eventId'] = $this->eventId;
+        if (null !== $this->arg1) {
+            $res['arg1'] = $this->arg1;
         }
         if (null !== $this->arg3) {
             $res['arg3'] = $this->arg3;
         }
-        if (null !== $this->arg1) {
-            $res['arg1'] = $this->arg1;
+        if (null !== $this->args) {
+            $res['args'] = $this->args;
         }
-        if (null !== $this->sdkVersion) {
-            $res['sdkVersion'] = $this->sdkVersion;
+        if (null !== $this->clientIp) {
+            $res['clientIp'] = $this->clientIp;
         }
-        if (null !== $this->userId) {
-            $res['userId'] = $this->userId;
+        if (null !== $this->eventId) {
+            $res['eventId'] = $this->eventId;
         }
         if (null !== $this->page) {
             $res['page'] = $this->page;
         }
-        if (null !== $this->args) {
-            $res['args'] = $this->args;
+        if (null !== $this->sdkType) {
+            $res['sdkType'] = $this->sdkType;
+        }
+        if (null !== $this->sdkVersion) {
+            $res['sdkVersion'] = $this->sdkVersion;
         }
         if (null !== $this->sessionId) {
             $res['sessionId'] = $this->sessionId;
         }
-        if (null !== $this->sdkType) {
-            $res['sdkType'] = $this->sdkType;
-        }
-        if (null !== $this->clientIp) {
-            $res['clientIp'] = $this->clientIp;
+        if (null !== $this->userId) {
+            $res['userId'] = $this->userId;
         }
 
         return $res;
@@ -119,35 +119,35 @@ class message extends Model
     public static function fromMap($map = [])
     {
         $model = new self();
-        if (isset($map['eventId'])) {
-            $model->eventId = $map['eventId'];
+        if (isset($map['arg1'])) {
+            $model->arg1 = $map['arg1'];
         }
         if (isset($map['arg3'])) {
             $model->arg3 = $map['arg3'];
         }
-        if (isset($map['arg1'])) {
-            $model->arg1 = $map['arg1'];
+        if (isset($map['args'])) {
+            $model->args = $map['args'];
         }
-        if (isset($map['sdkVersion'])) {
-            $model->sdkVersion = $map['sdkVersion'];
+        if (isset($map['clientIp'])) {
+            $model->clientIp = $map['clientIp'];
         }
-        if (isset($map['userId'])) {
-            $model->userId = $map['userId'];
+        if (isset($map['eventId'])) {
+            $model->eventId = $map['eventId'];
         }
         if (isset($map['page'])) {
             $model->page = $map['page'];
         }
-        if (isset($map['args'])) {
-            $model->args = $map['args'];
+        if (isset($map['sdkType'])) {
+            $model->sdkType = $map['sdkType'];
+        }
+        if (isset($map['sdkVersion'])) {
+            $model->sdkVersion = $map['sdkVersion'];
         }
         if (isset($map['sessionId'])) {
             $model->sessionId = $map['sessionId'];
         }
-        if (isset($map['sdkType'])) {
-            $model->sdkType = $map['sdkType'];
-        }
-        if (isset($map['clientIp'])) {
-            $model->clientIp = $map['clientIp'];
+        if (isset($map['userId'])) {
+            $model->userId = $map['userId'];
         }
 
         return $model;

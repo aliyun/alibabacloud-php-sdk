@@ -11,17 +11,7 @@ class result extends Model
     /**
      * @var float
      */
-    public $zeroHitRate;
-
-    /**
-     * @var float
-     */
     public $ctr;
-
-    /**
-     * @var string
-     */
-    public $experimentName;
 
     /**
      * @var string
@@ -29,9 +19,9 @@ class result extends Model
     public $date;
 
     /**
-     * @var int
+     * @var string
      */
-    public $ipvUv;
+    public $experimentName;
 
     /**
      * @var int
@@ -41,21 +31,31 @@ class result extends Model
     /**
      * @var int
      */
-    public $uv;
+    public $ipvUv;
 
     /**
      * @var int
      */
     public $pv;
+
+    /**
+     * @var int
+     */
+    public $uv;
+
+    /**
+     * @var float
+     */
+    public $zeroHitRate;
     protected $_name = [
-        'zeroHitRate'    => 'zeroHitRate',
         'ctr'            => 'ctr',
-        'experimentName' => 'experimentName',
         'date'           => 'date',
-        'ipvUv'          => 'ipvUv',
+        'experimentName' => 'experimentName',
         'ipv'            => 'ipv',
-        'uv'             => 'uv',
+        'ipvUv'          => 'ipvUv',
         'pv'             => 'pv',
+        'uv'             => 'uv',
+        'zeroHitRate'    => 'zeroHitRate',
     ];
 
     public function validate()
@@ -65,29 +65,29 @@ class result extends Model
     public function toMap()
     {
         $res = [];
-        if (null !== $this->zeroHitRate) {
-            $res['zeroHitRate'] = $this->zeroHitRate;
-        }
         if (null !== $this->ctr) {
             $res['ctr'] = $this->ctr;
-        }
-        if (null !== $this->experimentName) {
-            $res['experimentName'] = $this->experimentName;
         }
         if (null !== $this->date) {
             $res['date'] = $this->date;
         }
-        if (null !== $this->ipvUv) {
-            $res['ipvUv'] = $this->ipvUv;
+        if (null !== $this->experimentName) {
+            $res['experimentName'] = $this->experimentName;
         }
         if (null !== $this->ipv) {
             $res['ipv'] = $this->ipv;
         }
-        if (null !== $this->uv) {
-            $res['uv'] = $this->uv;
+        if (null !== $this->ipvUv) {
+            $res['ipvUv'] = $this->ipvUv;
         }
         if (null !== $this->pv) {
             $res['pv'] = $this->pv;
+        }
+        if (null !== $this->uv) {
+            $res['uv'] = $this->uv;
+        }
+        if (null !== $this->zeroHitRate) {
+            $res['zeroHitRate'] = $this->zeroHitRate;
         }
 
         return $res;
@@ -101,29 +101,29 @@ class result extends Model
     public static function fromMap($map = [])
     {
         $model = new self();
-        if (isset($map['zeroHitRate'])) {
-            $model->zeroHitRate = $map['zeroHitRate'];
-        }
         if (isset($map['ctr'])) {
             $model->ctr = $map['ctr'];
-        }
-        if (isset($map['experimentName'])) {
-            $model->experimentName = $map['experimentName'];
         }
         if (isset($map['date'])) {
             $model->date = $map['date'];
         }
-        if (isset($map['ipvUv'])) {
-            $model->ipvUv = $map['ipvUv'];
+        if (isset($map['experimentName'])) {
+            $model->experimentName = $map['experimentName'];
         }
         if (isset($map['ipv'])) {
             $model->ipv = $map['ipv'];
         }
-        if (isset($map['uv'])) {
-            $model->uv = $map['uv'];
+        if (isset($map['ipvUv'])) {
+            $model->ipvUv = $map['ipvUv'];
         }
         if (isset($map['pv'])) {
             $model->pv = $map['pv'];
+        }
+        if (isset($map['uv'])) {
+            $model->uv = $map['uv'];
+        }
+        if (isset($map['zeroHitRate'])) {
+            $model->zeroHitRate = $map['zeroHitRate'];
         }
 
         return $model;

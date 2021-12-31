@@ -10,22 +10,22 @@ use AlibabaCloud\Tea\Model;
 class ListAppGroupsResponseBody extends Model
 {
     /**
-     * @var result[]
-     */
-    public $result;
-
-    /**
      * @var string
      */
     public $requestId;
+
+    /**
+     * @var result[]
+     */
+    public $result;
 
     /**
      * @var int
      */
     public $totalCount;
     protected $_name = [
-        'result'     => 'result',
         'requestId'  => 'requestId',
+        'result'     => 'result',
         'totalCount' => 'totalCount',
     ];
 
@@ -36,6 +36,9 @@ class ListAppGroupsResponseBody extends Model
     public function toMap()
     {
         $res = [];
+        if (null !== $this->requestId) {
+            $res['requestId'] = $this->requestId;
+        }
         if (null !== $this->result) {
             $res['result'] = [];
             if (null !== $this->result && \is_array($this->result)) {
@@ -44,9 +47,6 @@ class ListAppGroupsResponseBody extends Model
                     $res['result'][$n++] = null !== $item ? $item->toMap() : $item;
                 }
             }
-        }
-        if (null !== $this->requestId) {
-            $res['requestId'] = $this->requestId;
         }
         if (null !== $this->totalCount) {
             $res['totalCount'] = $this->totalCount;
@@ -63,6 +63,9 @@ class ListAppGroupsResponseBody extends Model
     public static function fromMap($map = [])
     {
         $model = new self();
+        if (isset($map['requestId'])) {
+            $model->requestId = $map['requestId'];
+        }
         if (isset($map['result'])) {
             if (!empty($map['result'])) {
                 $model->result = [];
@@ -71,9 +74,6 @@ class ListAppGroupsResponseBody extends Model
                     $model->result[$n++] = null !== $item ? result::fromMap($item) : $item;
                 }
             }
-        }
-        if (isset($map['requestId'])) {
-            $model->requestId = $map['requestId'];
         }
         if (isset($map['totalCount'])) {
             $model->totalCount = $map['totalCount'];

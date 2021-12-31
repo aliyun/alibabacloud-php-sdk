@@ -9,14 +9,9 @@ use AlibabaCloud\Tea\Model;
 class quota extends Model
 {
     /**
-     * @var string
-     */
-    public $spec;
-
-    /**
      * @var int
      */
-    public $qps;
+    public $computeResource;
 
     /**
      * @var int
@@ -26,12 +21,17 @@ class quota extends Model
     /**
      * @var int
      */
-    public $computeResource;
+    public $qps;
+
+    /**
+     * @var string
+     */
+    public $spec;
     protected $_name = [
-        'spec'            => 'spec',
-        'qps'             => 'qps',
-        'docSize'         => 'docSize',
         'computeResource' => 'computeResource',
+        'docSize'         => 'docSize',
+        'qps'             => 'qps',
+        'spec'            => 'spec',
     ];
 
     public function validate()
@@ -41,17 +41,17 @@ class quota extends Model
     public function toMap()
     {
         $res = [];
-        if (null !== $this->spec) {
-            $res['spec'] = $this->spec;
-        }
-        if (null !== $this->qps) {
-            $res['qps'] = $this->qps;
+        if (null !== $this->computeResource) {
+            $res['computeResource'] = $this->computeResource;
         }
         if (null !== $this->docSize) {
             $res['docSize'] = $this->docSize;
         }
-        if (null !== $this->computeResource) {
-            $res['computeResource'] = $this->computeResource;
+        if (null !== $this->qps) {
+            $res['qps'] = $this->qps;
+        }
+        if (null !== $this->spec) {
+            $res['spec'] = $this->spec;
         }
 
         return $res;
@@ -65,17 +65,17 @@ class quota extends Model
     public static function fromMap($map = [])
     {
         $model = new self();
-        if (isset($map['spec'])) {
-            $model->spec = $map['spec'];
-        }
-        if (isset($map['qps'])) {
-            $model->qps = $map['qps'];
+        if (isset($map['computeResource'])) {
+            $model->computeResource = $map['computeResource'];
         }
         if (isset($map['docSize'])) {
             $model->docSize = $map['docSize'];
         }
-        if (isset($map['computeResource'])) {
-            $model->computeResource = $map['computeResource'];
+        if (isset($map['qps'])) {
+            $model->qps = $map['qps'];
+        }
+        if (isset($map['spec'])) {
+            $model->spec = $map['spec'];
         }
 
         return $model;

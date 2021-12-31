@@ -9,19 +9,19 @@ use AlibabaCloud\Tea\Model;
 class result extends Model
 {
     /**
+     * @var string
+     */
+    public $analyzer;
+
+    /**
      * @var int
      */
     public $created;
 
     /**
-     * @var string
+     * @var int
      */
-    public $type;
-
-    /**
-     * @var string
-     */
-    public $analyzer;
+    public $id;
 
     /**
      * @var string
@@ -29,21 +29,21 @@ class result extends Model
     public $name;
 
     /**
-     * @var int
+     * @var string
      */
-    public $updated;
+    public $type;
 
     /**
      * @var int
      */
-    public $id;
+    public $updated;
     protected $_name = [
-        'created'  => 'created',
-        'type'     => 'type',
         'analyzer' => 'analyzer',
-        'name'     => 'name',
-        'updated'  => 'updated',
+        'created'  => 'created',
         'id'       => 'id',
+        'name'     => 'name',
+        'type'     => 'type',
+        'updated'  => 'updated',
     ];
 
     public function validate()
@@ -53,23 +53,23 @@ class result extends Model
     public function toMap()
     {
         $res = [];
+        if (null !== $this->analyzer) {
+            $res['analyzer'] = $this->analyzer;
+        }
         if (null !== $this->created) {
             $res['created'] = $this->created;
         }
-        if (null !== $this->type) {
-            $res['type'] = $this->type;
-        }
-        if (null !== $this->analyzer) {
-            $res['analyzer'] = $this->analyzer;
+        if (null !== $this->id) {
+            $res['id'] = $this->id;
         }
         if (null !== $this->name) {
             $res['name'] = $this->name;
         }
+        if (null !== $this->type) {
+            $res['type'] = $this->type;
+        }
         if (null !== $this->updated) {
             $res['updated'] = $this->updated;
-        }
-        if (null !== $this->id) {
-            $res['id'] = $this->id;
         }
 
         return $res;
@@ -83,23 +83,23 @@ class result extends Model
     public static function fromMap($map = [])
     {
         $model = new self();
+        if (isset($map['analyzer'])) {
+            $model->analyzer = $map['analyzer'];
+        }
         if (isset($map['created'])) {
             $model->created = $map['created'];
         }
-        if (isset($map['type'])) {
-            $model->type = $map['type'];
-        }
-        if (isset($map['analyzer'])) {
-            $model->analyzer = $map['analyzer'];
+        if (isset($map['id'])) {
+            $model->id = $map['id'];
         }
         if (isset($map['name'])) {
             $model->name = $map['name'];
         }
+        if (isset($map['type'])) {
+            $model->type = $map['type'];
+        }
         if (isset($map['updated'])) {
             $model->updated = $map['updated'];
-        }
-        if (isset($map['id'])) {
-            $model->id = $map['id'];
         }
 
         return $model;

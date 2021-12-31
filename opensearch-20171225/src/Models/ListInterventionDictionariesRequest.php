@@ -11,20 +11,20 @@ class ListInterventionDictionariesRequest extends Model
     /**
      * @var int
      */
-    public $pageSize;
+    public $pageNumber;
 
     /**
      * @var int
      */
-    public $pageNumber;
+    public $pageSize;
 
     /**
      * @var string
      */
     public $types;
     protected $_name = [
-        'pageSize'   => 'pageSize',
         'pageNumber' => 'pageNumber',
+        'pageSize'   => 'pageSize',
         'types'      => 'types',
     ];
 
@@ -35,11 +35,11 @@ class ListInterventionDictionariesRequest extends Model
     public function toMap()
     {
         $res = [];
-        if (null !== $this->pageSize) {
-            $res['pageSize'] = $this->pageSize;
-        }
         if (null !== $this->pageNumber) {
             $res['pageNumber'] = $this->pageNumber;
+        }
+        if (null !== $this->pageSize) {
+            $res['pageSize'] = $this->pageSize;
         }
         if (null !== $this->types) {
             $res['types'] = $this->types;
@@ -56,11 +56,11 @@ class ListInterventionDictionariesRequest extends Model
     public static function fromMap($map = [])
     {
         $model = new self();
-        if (isset($map['pageSize'])) {
-            $model->pageSize = $map['pageSize'];
-        }
         if (isset($map['pageNumber'])) {
             $model->pageNumber = $map['pageNumber'];
+        }
+        if (isset($map['pageSize'])) {
+            $model->pageSize = $map['pageSize'];
         }
         if (isset($map['types'])) {
             $model->types = $map['types'];

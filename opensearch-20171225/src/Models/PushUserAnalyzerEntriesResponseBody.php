@@ -9,17 +9,17 @@ use AlibabaCloud\Tea\Model;
 class PushUserAnalyzerEntriesResponseBody extends Model
 {
     /**
-     * @var mixed[]
-     */
-    public $result;
-
-    /**
      * @var string
      */
     public $requestId;
+
+    /**
+     * @var mixed[]
+     */
+    public $result;
     protected $_name = [
-        'result'    => 'result',
         'requestId' => 'RequestId',
+        'result'    => 'result',
     ];
 
     public function validate()
@@ -29,11 +29,11 @@ class PushUserAnalyzerEntriesResponseBody extends Model
     public function toMap()
     {
         $res = [];
-        if (null !== $this->result) {
-            $res['result'] = $this->result;
-        }
         if (null !== $this->requestId) {
             $res['RequestId'] = $this->requestId;
+        }
+        if (null !== $this->result) {
+            $res['result'] = $this->result;
         }
 
         return $res;
@@ -47,11 +47,11 @@ class PushUserAnalyzerEntriesResponseBody extends Model
     public static function fromMap($map = [])
     {
         $model = new self();
-        if (isset($map['result'])) {
-            $model->result = $map['result'];
-        }
         if (isset($map['RequestId'])) {
             $model->requestId = $map['RequestId'];
+        }
+        if (isset($map['result'])) {
+            $model->result = $map['result'];
         }
 
         return $model;

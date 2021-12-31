@@ -20,16 +20,6 @@ class result extends Model
     public $created;
 
     /**
-     * @var string
-     */
-    public $word;
-
-    /**
-     * @var tokens[]
-     */
-    public $tokens;
-
-    /**
      * @var mixed[]
      */
     public $relevance;
@@ -40,17 +30,27 @@ class result extends Model
     public $status;
 
     /**
+     * @var tokens[]
+     */
+    public $tokens;
+
+    /**
      * @var int
      */
     public $updated;
+
+    /**
+     * @var string
+     */
+    public $word;
     protected $_name = [
         'cmd'       => 'cmd',
         'created'   => 'created',
-        'word'      => 'word',
-        'tokens'    => 'tokens',
         'relevance' => 'relevance',
         'status'    => 'status',
+        'tokens'    => 'tokens',
         'updated'   => 'updated',
+        'word'      => 'word',
     ];
 
     public function validate()
@@ -66,8 +66,11 @@ class result extends Model
         if (null !== $this->created) {
             $res['created'] = $this->created;
         }
-        if (null !== $this->word) {
-            $res['word'] = $this->word;
+        if (null !== $this->relevance) {
+            $res['relevance'] = $this->relevance;
+        }
+        if (null !== $this->status) {
+            $res['status'] = $this->status;
         }
         if (null !== $this->tokens) {
             $res['tokens'] = [];
@@ -78,14 +81,11 @@ class result extends Model
                 }
             }
         }
-        if (null !== $this->relevance) {
-            $res['relevance'] = $this->relevance;
-        }
-        if (null !== $this->status) {
-            $res['status'] = $this->status;
-        }
         if (null !== $this->updated) {
             $res['updated'] = $this->updated;
+        }
+        if (null !== $this->word) {
+            $res['word'] = $this->word;
         }
 
         return $res;
@@ -105,8 +105,11 @@ class result extends Model
         if (isset($map['created'])) {
             $model->created = $map['created'];
         }
-        if (isset($map['word'])) {
-            $model->word = $map['word'];
+        if (isset($map['relevance'])) {
+            $model->relevance = $map['relevance'];
+        }
+        if (isset($map['status'])) {
+            $model->status = $map['status'];
         }
         if (isset($map['tokens'])) {
             if (!empty($map['tokens'])) {
@@ -117,14 +120,11 @@ class result extends Model
                 }
             }
         }
-        if (isset($map['relevance'])) {
-            $model->relevance = $map['relevance'];
-        }
-        if (isset($map['status'])) {
-            $model->status = $map['status'];
-        }
         if (isset($map['updated'])) {
             $model->updated = $map['updated'];
+        }
+        if (isset($map['word'])) {
+            $model->word = $map['word'];
         }
 
         return $model;

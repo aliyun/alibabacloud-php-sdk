@@ -11,20 +11,20 @@ class result extends Model
     /**
      * @var string
      */
-    public $fileName;
+    public $createTime;
 
     /**
      * @var string
      */
-    public $createTime;
+    public $fileName;
 
     /**
      * @var string
      */
     public $modifyTime;
     protected $_name = [
-        'fileName'   => 'fileName',
         'createTime' => 'createTime',
+        'fileName'   => 'fileName',
         'modifyTime' => 'modifyTime',
     ];
 
@@ -35,11 +35,11 @@ class result extends Model
     public function toMap()
     {
         $res = [];
-        if (null !== $this->fileName) {
-            $res['fileName'] = $this->fileName;
-        }
         if (null !== $this->createTime) {
             $res['createTime'] = $this->createTime;
+        }
+        if (null !== $this->fileName) {
+            $res['fileName'] = $this->fileName;
         }
         if (null !== $this->modifyTime) {
             $res['modifyTime'] = $this->modifyTime;
@@ -56,11 +56,11 @@ class result extends Model
     public static function fromMap($map = [])
     {
         $model = new self();
-        if (isset($map['fileName'])) {
-            $model->fileName = $map['fileName'];
-        }
         if (isset($map['createTime'])) {
             $model->createTime = $map['createTime'];
+        }
+        if (isset($map['fileName'])) {
+            $model->fileName = $map['fileName'];
         }
         if (isset($map['modifyTime'])) {
             $model->modifyTime = $map['modifyTime'];

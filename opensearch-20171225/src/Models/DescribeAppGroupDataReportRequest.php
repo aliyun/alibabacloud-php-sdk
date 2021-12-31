@@ -11,15 +11,15 @@ class DescribeAppGroupDataReportRequest extends Model
     /**
      * @var string
      */
-    public $startTime;
+    public $endTime;
 
     /**
      * @var string
      */
-    public $endTime;
+    public $startTime;
     protected $_name = [
-        'startTime' => 'startTime',
         'endTime'   => 'endTime',
+        'startTime' => 'startTime',
     ];
 
     public function validate()
@@ -29,11 +29,11 @@ class DescribeAppGroupDataReportRequest extends Model
     public function toMap()
     {
         $res = [];
-        if (null !== $this->startTime) {
-            $res['startTime'] = $this->startTime;
-        }
         if (null !== $this->endTime) {
             $res['endTime'] = $this->endTime;
+        }
+        if (null !== $this->startTime) {
+            $res['startTime'] = $this->startTime;
         }
 
         return $res;
@@ -47,11 +47,11 @@ class DescribeAppGroupDataReportRequest extends Model
     public static function fromMap($map = [])
     {
         $model = new self();
-        if (isset($map['startTime'])) {
-            $model->startTime = $map['startTime'];
-        }
         if (isset($map['endTime'])) {
             $model->endTime = $map['endTime'];
+        }
+        if (isset($map['startTime'])) {
+            $model->startTime = $map['startTime'];
         }
 
         return $model;

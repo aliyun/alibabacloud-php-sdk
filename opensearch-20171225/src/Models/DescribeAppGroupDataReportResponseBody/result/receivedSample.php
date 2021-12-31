@@ -10,17 +10,17 @@ use AlibabaCloud\Tea\Model;
 class receivedSample extends Model
 {
     /**
-     * @var int
-     */
-    public $receivedTimeMs;
-
-    /**
      * @var message
      */
     public $message;
+
+    /**
+     * @var int
+     */
+    public $receivedTimeMs;
     protected $_name = [
-        'receivedTimeMs' => 'receivedTimeMs',
         'message'        => 'message',
+        'receivedTimeMs' => 'receivedTimeMs',
     ];
 
     public function validate()
@@ -30,11 +30,11 @@ class receivedSample extends Model
     public function toMap()
     {
         $res = [];
-        if (null !== $this->receivedTimeMs) {
-            $res['receivedTimeMs'] = $this->receivedTimeMs;
-        }
         if (null !== $this->message) {
             $res['message'] = null !== $this->message ? $this->message->toMap() : null;
+        }
+        if (null !== $this->receivedTimeMs) {
+            $res['receivedTimeMs'] = $this->receivedTimeMs;
         }
 
         return $res;
@@ -48,11 +48,11 @@ class receivedSample extends Model
     public static function fromMap($map = [])
     {
         $model = new self();
-        if (isset($map['receivedTimeMs'])) {
-            $model->receivedTimeMs = $map['receivedTimeMs'];
-        }
         if (isset($map['message'])) {
             $model->message = message::fromMap($map['message']);
+        }
+        if (isset($map['receivedTimeMs'])) {
+            $model->receivedTimeMs = $map['receivedTimeMs'];
         }
 
         return $model;

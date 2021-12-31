@@ -14,11 +14,6 @@ class result extends Model
     public $label;
 
     /**
-     * @var string
-     */
-    public $tag;
-
-    /**
      * @var int
      */
     public $order;
@@ -27,11 +22,16 @@ class result extends Model
      * @var string
      */
     public $priority;
+
+    /**
+     * @var string
+     */
+    public $tag;
     protected $_name = [
         'label'    => 'label',
-        'tag'      => 'tag',
         'order'    => 'order',
         'priority' => 'priority',
+        'tag'      => 'tag',
     ];
 
     public function validate()
@@ -44,14 +44,14 @@ class result extends Model
         if (null !== $this->label) {
             $res['label'] = $this->label;
         }
-        if (null !== $this->tag) {
-            $res['tag'] = $this->tag;
-        }
         if (null !== $this->order) {
             $res['order'] = $this->order;
         }
         if (null !== $this->priority) {
             $res['priority'] = $this->priority;
+        }
+        if (null !== $this->tag) {
+            $res['tag'] = $this->tag;
         }
 
         return $res;
@@ -68,14 +68,14 @@ class result extends Model
         if (isset($map['label'])) {
             $model->label = $map['label'];
         }
-        if (isset($map['tag'])) {
-            $model->tag = $map['tag'];
-        }
         if (isset($map['order'])) {
             $model->order = $map['order'];
         }
         if (isset($map['priority'])) {
             $model->priority = $map['priority'];
+        }
+        if (isset($map['tag'])) {
+            $model->tag = $map['tag'];
         }
 
         return $model;

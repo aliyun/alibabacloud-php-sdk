@@ -9,11 +9,6 @@ use AlibabaCloud\Tea\Model;
 class result extends Model
 {
     /**
-     * @var int
-     */
-    public $index;
-
-    /**
      * @var string
      */
     public $appQuery;
@@ -21,17 +16,22 @@ class result extends Model
     /**
      * @var int
      */
-    public $start;
+    public $end;
 
     /**
      * @var int
      */
-    public $end;
+    public $index;
+
+    /**
+     * @var int
+     */
+    public $start;
     protected $_name = [
-        'index'    => 'index',
         'appQuery' => 'appQuery',
-        'start'    => 'start',
         'end'      => 'end',
+        'index'    => 'index',
+        'start'    => 'start',
     ];
 
     public function validate()
@@ -41,17 +41,17 @@ class result extends Model
     public function toMap()
     {
         $res = [];
-        if (null !== $this->index) {
-            $res['index'] = $this->index;
-        }
         if (null !== $this->appQuery) {
             $res['appQuery'] = $this->appQuery;
         }
-        if (null !== $this->start) {
-            $res['start'] = $this->start;
-        }
         if (null !== $this->end) {
             $res['end'] = $this->end;
+        }
+        if (null !== $this->index) {
+            $res['index'] = $this->index;
+        }
+        if (null !== $this->start) {
+            $res['start'] = $this->start;
         }
 
         return $res;
@@ -65,17 +65,17 @@ class result extends Model
     public static function fromMap($map = [])
     {
         $model = new self();
-        if (isset($map['index'])) {
-            $model->index = $map['index'];
-        }
         if (isset($map['appQuery'])) {
             $model->appQuery = $map['appQuery'];
         }
-        if (isset($map['start'])) {
-            $model->start = $map['start'];
-        }
         if (isset($map['end'])) {
             $model->end = $map['end'];
+        }
+        if (isset($map['index'])) {
+            $model->index = $map['index'];
+        }
+        if (isset($map['start'])) {
+            $model->start = $map['start'];
         }
 
         return $model;

@@ -10,17 +10,17 @@ use AlibabaCloud\Tea\Model;
 class CreateABTestSceneResponseBody extends Model
 {
     /**
-     * @var result
-     */
-    public $result;
-
-    /**
      * @var string
      */
     public $requestId;
+
+    /**
+     * @var result
+     */
+    public $result;
     protected $_name = [
-        'result'    => 'result',
         'requestId' => 'requestId',
+        'result'    => 'result',
     ];
 
     public function validate()
@@ -30,11 +30,11 @@ class CreateABTestSceneResponseBody extends Model
     public function toMap()
     {
         $res = [];
-        if (null !== $this->result) {
-            $res['result'] = null !== $this->result ? $this->result->toMap() : null;
-        }
         if (null !== $this->requestId) {
             $res['requestId'] = $this->requestId;
+        }
+        if (null !== $this->result) {
+            $res['result'] = null !== $this->result ? $this->result->toMap() : null;
         }
 
         return $res;
@@ -48,11 +48,11 @@ class CreateABTestSceneResponseBody extends Model
     public static function fromMap($map = [])
     {
         $model = new self();
-        if (isset($map['result'])) {
-            $model->result = result::fromMap($map['result']);
-        }
         if (isset($map['requestId'])) {
             $model->requestId = $map['requestId'];
+        }
+        if (isset($map['result'])) {
+            $model->result = result::fromMap($map['result']);
         }
 
         return $model;

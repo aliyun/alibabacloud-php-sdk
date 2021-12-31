@@ -9,16 +9,6 @@ use AlibabaCloud\Tea\Model;
 class ListAppGroupMetricsRequest extends Model
 {
     /**
-     * @var string
-     */
-    public $metricType;
-
-    /**
-     * @var int
-     */
-    public $startTime;
-
-    /**
      * @var int
      */
     public $endTime;
@@ -27,11 +17,21 @@ class ListAppGroupMetricsRequest extends Model
      * @var string
      */
     public $indexes;
+
+    /**
+     * @var string
+     */
+    public $metricType;
+
+    /**
+     * @var int
+     */
+    public $startTime;
     protected $_name = [
-        'metricType' => 'metricType',
-        'startTime'  => 'startTime',
         'endTime'    => 'endTime',
         'indexes'    => 'indexes',
+        'metricType' => 'metricType',
+        'startTime'  => 'startTime',
     ];
 
     public function validate()
@@ -41,17 +41,17 @@ class ListAppGroupMetricsRequest extends Model
     public function toMap()
     {
         $res = [];
-        if (null !== $this->metricType) {
-            $res['metricType'] = $this->metricType;
-        }
-        if (null !== $this->startTime) {
-            $res['startTime'] = $this->startTime;
-        }
         if (null !== $this->endTime) {
             $res['endTime'] = $this->endTime;
         }
         if (null !== $this->indexes) {
             $res['indexes'] = $this->indexes;
+        }
+        if (null !== $this->metricType) {
+            $res['metricType'] = $this->metricType;
+        }
+        if (null !== $this->startTime) {
+            $res['startTime'] = $this->startTime;
         }
 
         return $res;
@@ -65,17 +65,17 @@ class ListAppGroupMetricsRequest extends Model
     public static function fromMap($map = [])
     {
         $model = new self();
-        if (isset($map['metricType'])) {
-            $model->metricType = $map['metricType'];
-        }
-        if (isset($map['startTime'])) {
-            $model->startTime = $map['startTime'];
-        }
         if (isset($map['endTime'])) {
             $model->endTime = $map['endTime'];
         }
         if (isset($map['indexes'])) {
             $model->indexes = $map['indexes'];
+        }
+        if (isset($map['metricType'])) {
+            $model->metricType = $map['metricType'];
+        }
+        if (isset($map['startTime'])) {
+            $model->startTime = $map['startTime'];
         }
 
         return $model;

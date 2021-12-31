@@ -9,17 +9,17 @@ use AlibabaCloud\Tea\Model;
 class UpdateSummariesResponseBody extends Model
 {
     /**
-     * @var bool
-     */
-    public $result;
-
-    /**
      * @var string
      */
     public $requestId;
+
+    /**
+     * @var bool
+     */
+    public $result;
     protected $_name = [
-        'result'    => 'result',
         'requestId' => 'requestId',
+        'result'    => 'result',
     ];
 
     public function validate()
@@ -29,11 +29,11 @@ class UpdateSummariesResponseBody extends Model
     public function toMap()
     {
         $res = [];
-        if (null !== $this->result) {
-            $res['result'] = $this->result;
-        }
         if (null !== $this->requestId) {
             $res['requestId'] = $this->requestId;
+        }
+        if (null !== $this->result) {
+            $res['result'] = $this->result;
         }
 
         return $res;
@@ -47,11 +47,11 @@ class UpdateSummariesResponseBody extends Model
     public static function fromMap($map = [])
     {
         $model = new self();
-        if (isset($map['result'])) {
-            $model->result = $map['result'];
-        }
         if (isset($map['requestId'])) {
             $model->requestId = $map['requestId'];
+        }
+        if (isset($map['result'])) {
+            $model->result = $map['result'];
         }
 
         return $model;

@@ -10,6 +10,11 @@ use AlibabaCloud\Tea\Model;
 class result extends Model
 {
     /**
+     * @var string
+     */
+    public $appGroupName;
+
+    /**
      * @var string[]
      */
     public $apps;
@@ -17,27 +22,7 @@ class result extends Model
     /**
      * @var string
      */
-    public $appGroupName;
-
-    /**
-     * @var models[]
-     */
-    public $models;
-
-    /**
-     * @var string
-     */
-    public $gmtModified;
-
-    /**
-     * @var string
-     */
-    public $status;
-
-    /**
-     * @var string
-     */
-    public $scene;
+    public $desc;
 
     /**
      * @var string
@@ -47,22 +32,37 @@ class result extends Model
     /**
      * @var string
      */
-    public $id;
+    public $gmtModified;
 
     /**
      * @var string
      */
-    public $desc;
+    public $id;
+
+    /**
+     * @var models[]
+     */
+    public $models;
+
+    /**
+     * @var string
+     */
+    public $scene;
+
+    /**
+     * @var string
+     */
+    public $status;
     protected $_name = [
-        'apps'         => 'apps',
         'appGroupName' => 'appGroupName',
-        'models'       => 'models',
-        'gmtModified'  => 'gmtModified',
-        'status'       => 'status',
-        'scene'        => 'scene',
-        'gmtCreate'    => 'gmtCreate',
-        'id'           => 'id',
+        'apps'         => 'apps',
         'desc'         => 'desc',
+        'gmtCreate'    => 'gmtCreate',
+        'gmtModified'  => 'gmtModified',
+        'id'           => 'id',
+        'models'       => 'models',
+        'scene'        => 'scene',
+        'status'       => 'status',
     ];
 
     public function validate()
@@ -72,11 +72,23 @@ class result extends Model
     public function toMap()
     {
         $res = [];
+        if (null !== $this->appGroupName) {
+            $res['appGroupName'] = $this->appGroupName;
+        }
         if (null !== $this->apps) {
             $res['apps'] = $this->apps;
         }
-        if (null !== $this->appGroupName) {
-            $res['appGroupName'] = $this->appGroupName;
+        if (null !== $this->desc) {
+            $res['desc'] = $this->desc;
+        }
+        if (null !== $this->gmtCreate) {
+            $res['gmtCreate'] = $this->gmtCreate;
+        }
+        if (null !== $this->gmtModified) {
+            $res['gmtModified'] = $this->gmtModified;
+        }
+        if (null !== $this->id) {
+            $res['id'] = $this->id;
         }
         if (null !== $this->models) {
             $res['models'] = [];
@@ -87,23 +99,11 @@ class result extends Model
                 }
             }
         }
-        if (null !== $this->gmtModified) {
-            $res['gmtModified'] = $this->gmtModified;
-        }
-        if (null !== $this->status) {
-            $res['status'] = $this->status;
-        }
         if (null !== $this->scene) {
             $res['scene'] = $this->scene;
         }
-        if (null !== $this->gmtCreate) {
-            $res['gmtCreate'] = $this->gmtCreate;
-        }
-        if (null !== $this->id) {
-            $res['id'] = $this->id;
-        }
-        if (null !== $this->desc) {
-            $res['desc'] = $this->desc;
+        if (null !== $this->status) {
+            $res['status'] = $this->status;
         }
 
         return $res;
@@ -117,13 +117,25 @@ class result extends Model
     public static function fromMap($map = [])
     {
         $model = new self();
+        if (isset($map['appGroupName'])) {
+            $model->appGroupName = $map['appGroupName'];
+        }
         if (isset($map['apps'])) {
             if (!empty($map['apps'])) {
                 $model->apps = $map['apps'];
             }
         }
-        if (isset($map['appGroupName'])) {
-            $model->appGroupName = $map['appGroupName'];
+        if (isset($map['desc'])) {
+            $model->desc = $map['desc'];
+        }
+        if (isset($map['gmtCreate'])) {
+            $model->gmtCreate = $map['gmtCreate'];
+        }
+        if (isset($map['gmtModified'])) {
+            $model->gmtModified = $map['gmtModified'];
+        }
+        if (isset($map['id'])) {
+            $model->id = $map['id'];
         }
         if (isset($map['models'])) {
             if (!empty($map['models'])) {
@@ -134,23 +146,11 @@ class result extends Model
                 }
             }
         }
-        if (isset($map['gmtModified'])) {
-            $model->gmtModified = $map['gmtModified'];
-        }
-        if (isset($map['status'])) {
-            $model->status = $map['status'];
-        }
         if (isset($map['scene'])) {
             $model->scene = $map['scene'];
         }
-        if (isset($map['gmtCreate'])) {
-            $model->gmtCreate = $map['gmtCreate'];
-        }
-        if (isset($map['id'])) {
-            $model->id = $map['id'];
-        }
-        if (isset($map['desc'])) {
-            $model->desc = $map['desc'];
+        if (isset($map['status'])) {
+            $model->status = $map['status'];
         }
 
         return $model;

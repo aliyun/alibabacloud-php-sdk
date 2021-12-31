@@ -9,14 +9,24 @@ use AlibabaCloud\Tea\Model;
 class result extends Model
 {
     /**
+     * @var bool
+     */
+    public $active;
+
+    /**
      * @var int
      */
     public $created;
 
     /**
-     * @var bool
+     * @var string
      */
-    public $active;
+    public $description;
+
+    /**
+     * @var string
+     */
+    public $id;
 
     /**
      * @var string
@@ -31,12 +41,7 @@ class result extends Model
     /**
      * @var string
      */
-    public $description;
-
-    /**
-     * @var int
-     */
-    public $updated;
+    public $meta;
 
     /**
      * @var string
@@ -44,24 +49,19 @@ class result extends Model
     public $name;
 
     /**
-     * @var string
+     * @var int
      */
-    public $meta;
-
-    /**
-     * @var string
-     */
-    public $id;
+    public $updated;
     protected $_name = [
-        'created'     => 'created',
         'active'      => 'active',
+        'created'     => 'created',
+        'description' => 'description',
+        'id'          => 'id',
         'isDefault'   => 'isDefault',
         'isSys'       => 'isSys',
-        'description' => 'description',
-        'updated'     => 'updated',
-        'name'        => 'name',
         'meta'        => 'meta',
-        'id'          => 'id',
+        'name'        => 'name',
+        'updated'     => 'updated',
     ];
 
     public function validate()
@@ -71,11 +71,17 @@ class result extends Model
     public function toMap()
     {
         $res = [];
+        if (null !== $this->active) {
+            $res['active'] = $this->active;
+        }
         if (null !== $this->created) {
             $res['created'] = $this->created;
         }
-        if (null !== $this->active) {
-            $res['active'] = $this->active;
+        if (null !== $this->description) {
+            $res['description'] = $this->description;
+        }
+        if (null !== $this->id) {
+            $res['id'] = $this->id;
         }
         if (null !== $this->isDefault) {
             $res['isDefault'] = $this->isDefault;
@@ -83,20 +89,14 @@ class result extends Model
         if (null !== $this->isSys) {
             $res['isSys'] = $this->isSys;
         }
-        if (null !== $this->description) {
-            $res['description'] = $this->description;
-        }
-        if (null !== $this->updated) {
-            $res['updated'] = $this->updated;
+        if (null !== $this->meta) {
+            $res['meta'] = $this->meta;
         }
         if (null !== $this->name) {
             $res['name'] = $this->name;
         }
-        if (null !== $this->meta) {
-            $res['meta'] = $this->meta;
-        }
-        if (null !== $this->id) {
-            $res['id'] = $this->id;
+        if (null !== $this->updated) {
+            $res['updated'] = $this->updated;
         }
 
         return $res;
@@ -110,11 +110,17 @@ class result extends Model
     public static function fromMap($map = [])
     {
         $model = new self();
+        if (isset($map['active'])) {
+            $model->active = $map['active'];
+        }
         if (isset($map['created'])) {
             $model->created = $map['created'];
         }
-        if (isset($map['active'])) {
-            $model->active = $map['active'];
+        if (isset($map['description'])) {
+            $model->description = $map['description'];
+        }
+        if (isset($map['id'])) {
+            $model->id = $map['id'];
         }
         if (isset($map['isDefault'])) {
             $model->isDefault = $map['isDefault'];
@@ -122,20 +128,14 @@ class result extends Model
         if (isset($map['isSys'])) {
             $model->isSys = $map['isSys'];
         }
-        if (isset($map['description'])) {
-            $model->description = $map['description'];
-        }
-        if (isset($map['updated'])) {
-            $model->updated = $map['updated'];
+        if (isset($map['meta'])) {
+            $model->meta = $map['meta'];
         }
         if (isset($map['name'])) {
             $model->name = $map['name'];
         }
-        if (isset($map['meta'])) {
-            $model->meta = $map['meta'];
-        }
-        if (isset($map['id'])) {
-            $model->id = $map['id'];
+        if (isset($map['updated'])) {
+            $model->updated = $map['updated'];
         }
 
         return $model;

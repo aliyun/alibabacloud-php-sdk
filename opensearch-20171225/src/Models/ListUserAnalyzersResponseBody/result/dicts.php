@@ -9,6 +9,11 @@ use AlibabaCloud\Tea\Model;
 class dicts extends Model
 {
     /**
+     * @var bool
+     */
+    public $available;
+
+    /**
      * @var int
      */
     public $created;
@@ -19,6 +24,16 @@ class dicts extends Model
     public $entriesCount;
 
     /**
+     * @var int
+     */
+    public $entriesLimit;
+
+    /**
+     * @var string
+     */
+    public $id;
+
+    /**
      * @var string
      */
     public $type;
@@ -26,30 +41,15 @@ class dicts extends Model
     /**
      * @var int
      */
-    public $entriesLimit;
-
-    /**
-     * @var bool
-     */
-    public $available;
-
-    /**
-     * @var int
-     */
     public $updated;
-
-    /**
-     * @var string
-     */
-    public $id;
     protected $_name = [
+        'available'    => 'available',
         'created'      => 'created',
         'entriesCount' => 'entriesCount',
-        'type'         => 'type',
         'entriesLimit' => 'entriesLimit',
-        'available'    => 'available',
-        'updated'      => 'updated',
         'id'           => 'id',
+        'type'         => 'type',
+        'updated'      => 'updated',
     ];
 
     public function validate()
@@ -59,26 +59,26 @@ class dicts extends Model
     public function toMap()
     {
         $res = [];
+        if (null !== $this->available) {
+            $res['available'] = $this->available;
+        }
         if (null !== $this->created) {
             $res['created'] = $this->created;
         }
         if (null !== $this->entriesCount) {
             $res['entriesCount'] = $this->entriesCount;
         }
-        if (null !== $this->type) {
-            $res['type'] = $this->type;
-        }
         if (null !== $this->entriesLimit) {
             $res['entriesLimit'] = $this->entriesLimit;
         }
-        if (null !== $this->available) {
-            $res['available'] = $this->available;
+        if (null !== $this->id) {
+            $res['id'] = $this->id;
+        }
+        if (null !== $this->type) {
+            $res['type'] = $this->type;
         }
         if (null !== $this->updated) {
             $res['updated'] = $this->updated;
-        }
-        if (null !== $this->id) {
-            $res['id'] = $this->id;
         }
 
         return $res;
@@ -92,26 +92,26 @@ class dicts extends Model
     public static function fromMap($map = [])
     {
         $model = new self();
+        if (isset($map['available'])) {
+            $model->available = $map['available'];
+        }
         if (isset($map['created'])) {
             $model->created = $map['created'];
         }
         if (isset($map['entriesCount'])) {
             $model->entriesCount = $map['entriesCount'];
         }
-        if (isset($map['type'])) {
-            $model->type = $map['type'];
-        }
         if (isset($map['entriesLimit'])) {
             $model->entriesLimit = $map['entriesLimit'];
         }
-        if (isset($map['available'])) {
-            $model->available = $map['available'];
+        if (isset($map['id'])) {
+            $model->id = $map['id'];
+        }
+        if (isset($map['type'])) {
+            $model->type = $map['type'];
         }
         if (isset($map['updated'])) {
             $model->updated = $map['updated'];
-        }
-        if (isset($map['id'])) {
-            $model->id = $map['id'];
         }
 
         return $model;

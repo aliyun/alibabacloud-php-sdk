@@ -10,14 +10,14 @@ use AlibabaCloud\Tea\Model;
 class result extends Model
 {
     /**
-     * @var int
-     */
-    public $created;
-
-    /**
      * @var bool
      */
     public $active;
+
+    /**
+     * @var int
+     */
+    public $created;
 
     /**
      * @var string
@@ -25,9 +25,9 @@ class result extends Model
     public $description;
 
     /**
-     * @var int
+     * @var meta[]
      */
-    public $updated;
+    public $meta;
 
     /**
      * @var string
@@ -35,16 +35,16 @@ class result extends Model
     public $name;
 
     /**
-     * @var meta[]
+     * @var int
      */
-    public $meta;
+    public $updated;
     protected $_name = [
-        'created'     => 'created',
         'active'      => 'active',
+        'created'     => 'created',
         'description' => 'description',
-        'updated'     => 'updated',
-        'name'        => 'name',
         'meta'        => 'meta',
+        'name'        => 'name',
+        'updated'     => 'updated',
     ];
 
     public function validate()
@@ -54,20 +54,14 @@ class result extends Model
     public function toMap()
     {
         $res = [];
-        if (null !== $this->created) {
-            $res['created'] = $this->created;
-        }
         if (null !== $this->active) {
             $res['active'] = $this->active;
         }
+        if (null !== $this->created) {
+            $res['created'] = $this->created;
+        }
         if (null !== $this->description) {
             $res['description'] = $this->description;
-        }
-        if (null !== $this->updated) {
-            $res['updated'] = $this->updated;
-        }
-        if (null !== $this->name) {
-            $res['name'] = $this->name;
         }
         if (null !== $this->meta) {
             $res['meta'] = [];
@@ -77,6 +71,12 @@ class result extends Model
                     $res['meta'][$n++] = null !== $item ? $item->toMap() : $item;
                 }
             }
+        }
+        if (null !== $this->name) {
+            $res['name'] = $this->name;
+        }
+        if (null !== $this->updated) {
+            $res['updated'] = $this->updated;
         }
 
         return $res;
@@ -90,20 +90,14 @@ class result extends Model
     public static function fromMap($map = [])
     {
         $model = new self();
-        if (isset($map['created'])) {
-            $model->created = $map['created'];
-        }
         if (isset($map['active'])) {
             $model->active = $map['active'];
         }
+        if (isset($map['created'])) {
+            $model->created = $map['created'];
+        }
         if (isset($map['description'])) {
             $model->description = $map['description'];
-        }
-        if (isset($map['updated'])) {
-            $model->updated = $map['updated'];
-        }
-        if (isset($map['name'])) {
-            $model->name = $map['name'];
         }
         if (isset($map['meta'])) {
             if (!empty($map['meta'])) {
@@ -113,6 +107,12 @@ class result extends Model
                     $model->meta[$n++] = null !== $item ? meta::fromMap($item) : $item;
                 }
             }
+        }
+        if (isset($map['name'])) {
+            $model->name = $map['name'];
+        }
+        if (isset($map['updated'])) {
+            $model->updated = $map['updated'];
         }
 
         return $model;

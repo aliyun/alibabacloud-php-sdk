@@ -11,7 +11,7 @@ class result extends Model
     /**
      * @var string
      */
-    public $regionId;
+    public $consoleUrl;
 
     /**
      * @var string
@@ -26,12 +26,12 @@ class result extends Model
     /**
      * @var string
      */
-    public $consoleUrl;
+    public $regionId;
     protected $_name = [
-        'regionId'   => 'regionId',
+        'consoleUrl' => 'consoleUrl',
         'endpoint'   => 'endpoint',
         'localName'  => 'localName',
-        'consoleUrl' => 'consoleUrl',
+        'regionId'   => 'regionId',
     ];
 
     public function validate()
@@ -41,8 +41,8 @@ class result extends Model
     public function toMap()
     {
         $res = [];
-        if (null !== $this->regionId) {
-            $res['regionId'] = $this->regionId;
+        if (null !== $this->consoleUrl) {
+            $res['consoleUrl'] = $this->consoleUrl;
         }
         if (null !== $this->endpoint) {
             $res['endpoint'] = $this->endpoint;
@@ -50,8 +50,8 @@ class result extends Model
         if (null !== $this->localName) {
             $res['localName'] = $this->localName;
         }
-        if (null !== $this->consoleUrl) {
-            $res['consoleUrl'] = $this->consoleUrl;
+        if (null !== $this->regionId) {
+            $res['regionId'] = $this->regionId;
         }
 
         return $res;
@@ -65,8 +65,8 @@ class result extends Model
     public static function fromMap($map = [])
     {
         $model = new self();
-        if (isset($map['regionId'])) {
-            $model->regionId = $map['regionId'];
+        if (isset($map['consoleUrl'])) {
+            $model->consoleUrl = $map['consoleUrl'];
         }
         if (isset($map['endpoint'])) {
             $model->endpoint = $map['endpoint'];
@@ -74,8 +74,8 @@ class result extends Model
         if (isset($map['localName'])) {
             $model->localName = $map['localName'];
         }
-        if (isset($map['consoleUrl'])) {
-            $model->consoleUrl = $map['consoleUrl'];
+        if (isset($map['regionId'])) {
+            $model->regionId = $map['regionId'];
         }
 
         return $model;

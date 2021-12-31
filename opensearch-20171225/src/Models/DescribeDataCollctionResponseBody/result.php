@@ -21,7 +21,7 @@ class result extends Model
     /**
      * @var string
      */
-    public $type;
+    public $id;
 
     /**
      * @var string
@@ -29,19 +29,14 @@ class result extends Model
     public $industryName;
 
     /**
-     * @var int
-     */
-    public $status;
-
-    /**
-     * @var int
-     */
-    public $updated;
-
-    /**
      * @var string
      */
     public $name;
+
+    /**
+     * @var int
+     */
+    public $status;
 
     /**
      * @var string
@@ -51,17 +46,22 @@ class result extends Model
     /**
      * @var string
      */
-    public $id;
+    public $type;
+
+    /**
+     * @var int
+     */
+    public $updated;
     protected $_name = [
         'created'            => 'created',
         'dataCollectionType' => 'dataCollectionType',
-        'type'               => 'type',
-        'industryName'       => 'industryName',
-        'status'             => 'status',
-        'updated'            => 'updated',
-        'name'               => 'name',
-        'sundialId'          => 'sundialId',
         'id'                 => 'id',
+        'industryName'       => 'industryName',
+        'name'               => 'name',
+        'status'             => 'status',
+        'sundialId'          => 'sundialId',
+        'type'               => 'type',
+        'updated'            => 'updated',
     ];
 
     public function validate()
@@ -77,26 +77,26 @@ class result extends Model
         if (null !== $this->dataCollectionType) {
             $res['dataCollectionType'] = $this->dataCollectionType;
         }
-        if (null !== $this->type) {
-            $res['type'] = $this->type;
+        if (null !== $this->id) {
+            $res['id'] = $this->id;
         }
         if (null !== $this->industryName) {
             $res['industryName'] = $this->industryName;
         }
-        if (null !== $this->status) {
-            $res['status'] = $this->status;
-        }
-        if (null !== $this->updated) {
-            $res['updated'] = $this->updated;
-        }
         if (null !== $this->name) {
             $res['name'] = $this->name;
+        }
+        if (null !== $this->status) {
+            $res['status'] = $this->status;
         }
         if (null !== $this->sundialId) {
             $res['sundialId'] = $this->sundialId;
         }
-        if (null !== $this->id) {
-            $res['id'] = $this->id;
+        if (null !== $this->type) {
+            $res['type'] = $this->type;
+        }
+        if (null !== $this->updated) {
+            $res['updated'] = $this->updated;
         }
 
         return $res;
@@ -116,26 +116,26 @@ class result extends Model
         if (isset($map['dataCollectionType'])) {
             $model->dataCollectionType = $map['dataCollectionType'];
         }
-        if (isset($map['type'])) {
-            $model->type = $map['type'];
+        if (isset($map['id'])) {
+            $model->id = $map['id'];
         }
         if (isset($map['industryName'])) {
             $model->industryName = $map['industryName'];
         }
-        if (isset($map['status'])) {
-            $model->status = $map['status'];
-        }
-        if (isset($map['updated'])) {
-            $model->updated = $map['updated'];
-        }
         if (isset($map['name'])) {
             $model->name = $map['name'];
+        }
+        if (isset($map['status'])) {
+            $model->status = $map['status'];
         }
         if (isset($map['sundialId'])) {
             $model->sundialId = $map['sundialId'];
         }
-        if (isset($map['id'])) {
-            $model->id = $map['id'];
+        if (isset($map['type'])) {
+            $model->type = $map['type'];
+        }
+        if (isset($map['updated'])) {
+            $model->updated = $map['updated'];
         }
 
         return $model;
