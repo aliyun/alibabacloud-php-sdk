@@ -21,6 +21,11 @@ class CreateServerlessDBInstanceRequest extends Model
     /**
      * @var string
      */
+    public $capacityUnit;
+
+    /**
+     * @var string
+     */
     public $clientToken;
 
     /**
@@ -115,6 +120,7 @@ class CreateServerlessDBInstanceRequest extends Model
     protected $_name = [
         'accountPassword'       => 'AccountPassword',
         'autoRenew'             => 'AutoRenew',
+        'capacityUnit'          => 'CapacityUnit',
         'clientToken'           => 'ClientToken',
         'DBInstanceDescription' => 'DBInstanceDescription',
         'DBInstanceStorage'     => 'DBInstanceStorage',
@@ -148,6 +154,9 @@ class CreateServerlessDBInstanceRequest extends Model
         }
         if (null !== $this->autoRenew) {
             $res['AutoRenew'] = $this->autoRenew;
+        }
+        if (null !== $this->capacityUnit) {
+            $res['CapacityUnit'] = $this->capacityUnit;
         }
         if (null !== $this->clientToken) {
             $res['ClientToken'] = $this->clientToken;
@@ -223,6 +232,9 @@ class CreateServerlessDBInstanceRequest extends Model
         }
         if (isset($map['AutoRenew'])) {
             $model->autoRenew = $map['AutoRenew'];
+        }
+        if (isset($map['CapacityUnit'])) {
+            $model->capacityUnit = $map['CapacityUnit'];
         }
         if (isset($map['ClientToken'])) {
             $model->clientToken = $map['ClientToken'];

@@ -94,6 +94,11 @@ class CreateShardingDBInstanceRequest extends Model
     /**
      * @var string
      */
+    public $resourceGroupId;
+
+    /**
+     * @var string
+     */
     public $resourceOwnerAccount;
 
     /**
@@ -157,6 +162,7 @@ class CreateShardingDBInstanceRequest extends Model
         'protocolType'          => 'ProtocolType',
         'regionId'              => 'RegionId',
         'replicaSet'            => 'ReplicaSet',
+        'resourceGroupId'       => 'ResourceGroupId',
         'resourceOwnerAccount'  => 'ResourceOwnerAccount',
         'resourceOwnerId'       => 'ResourceOwnerId',
         'restoreTime'           => 'RestoreTime',
@@ -241,6 +247,9 @@ class CreateShardingDBInstanceRequest extends Model
                     $res['ReplicaSet'][$n++] = null !== $item ? $item->toMap() : $item;
                 }
             }
+        }
+        if (null !== $this->resourceGroupId) {
+            $res['ResourceGroupId'] = $this->resourceGroupId;
         }
         if (null !== $this->resourceOwnerAccount) {
             $res['ResourceOwnerAccount'] = $this->resourceOwnerAccount;
@@ -349,6 +358,9 @@ class CreateShardingDBInstanceRequest extends Model
                     $model->replicaSet[$n++] = null !== $item ? replicaSet::fromMap($item) : $item;
                 }
             }
+        }
+        if (isset($map['ResourceGroupId'])) {
+            $model->resourceGroupId = $map['ResourceGroupId'];
         }
         if (isset($map['ResourceOwnerAccount'])) {
             $model->resourceOwnerAccount = $map['ResourceOwnerAccount'];

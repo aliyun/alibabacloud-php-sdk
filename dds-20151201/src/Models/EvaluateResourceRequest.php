@@ -41,7 +41,17 @@ class EvaluateResourceRequest extends Model
     /**
      * @var string
      */
+    public $readonlyReplicas;
+
+    /**
+     * @var string
+     */
     public $regionId;
+
+    /**
+     * @var string
+     */
+    public $replicationFactor;
 
     /**
      * @var string
@@ -74,7 +84,9 @@ class EvaluateResourceRequest extends Model
         'engineVersion'        => 'EngineVersion',
         'ownerAccount'         => 'OwnerAccount',
         'ownerId'              => 'OwnerId',
+        'readonlyReplicas'     => 'ReadonlyReplicas',
         'regionId'             => 'RegionId',
+        'replicationFactor'    => 'ReplicationFactor',
         'resourceOwnerAccount' => 'ResourceOwnerAccount',
         'resourceOwnerId'      => 'ResourceOwnerId',
         'securityToken'        => 'SecurityToken',
@@ -107,8 +119,14 @@ class EvaluateResourceRequest extends Model
         if (null !== $this->ownerId) {
             $res['OwnerId'] = $this->ownerId;
         }
+        if (null !== $this->readonlyReplicas) {
+            $res['ReadonlyReplicas'] = $this->readonlyReplicas;
+        }
         if (null !== $this->regionId) {
             $res['RegionId'] = $this->regionId;
+        }
+        if (null !== $this->replicationFactor) {
+            $res['ReplicationFactor'] = $this->replicationFactor;
         }
         if (null !== $this->resourceOwnerAccount) {
             $res['ResourceOwnerAccount'] = $this->resourceOwnerAccount;
@@ -155,8 +173,14 @@ class EvaluateResourceRequest extends Model
         if (isset($map['OwnerId'])) {
             $model->ownerId = $map['OwnerId'];
         }
+        if (isset($map['ReadonlyReplicas'])) {
+            $model->readonlyReplicas = $map['ReadonlyReplicas'];
+        }
         if (isset($map['RegionId'])) {
             $model->regionId = $map['RegionId'];
+        }
+        if (isset($map['ReplicationFactor'])) {
+            $model->replicationFactor = $map['ReplicationFactor'];
         }
         if (isset($map['ResourceOwnerAccount'])) {
             $model->resourceOwnerAccount = $map['ResourceOwnerAccount'];
