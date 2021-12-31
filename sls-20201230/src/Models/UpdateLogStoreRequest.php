@@ -24,6 +24,11 @@ class UpdateLogStoreRequest extends Model
     public $enableTracking;
 
     /**
+     * @var EncryptConf
+     */
+    public $encryptConf;
+
+    /**
      * @var string
      */
     public $logstoreName;
@@ -46,6 +51,7 @@ class UpdateLogStoreRequest extends Model
         'appendMeta'     => 'appendMeta',
         'autoSplit'      => 'autoSplit',
         'enableTracking' => 'enable_tracking',
+        'encryptConf'    => 'encrypt_conf',
         'logstoreName'   => 'logstoreName',
         'maxSplitShard'  => 'maxSplitShard',
         'shardCount'     => 'shardCount',
@@ -67,6 +73,9 @@ class UpdateLogStoreRequest extends Model
         }
         if (null !== $this->enableTracking) {
             $res['enable_tracking'] = $this->enableTracking;
+        }
+        if (null !== $this->encryptConf) {
+            $res['encrypt_conf'] = null !== $this->encryptConf ? $this->encryptConf->toMap() : null;
         }
         if (null !== $this->logstoreName) {
             $res['logstoreName'] = $this->logstoreName;
@@ -100,6 +109,9 @@ class UpdateLogStoreRequest extends Model
         }
         if (isset($map['enable_tracking'])) {
             $model->enableTracking = $map['enable_tracking'];
+        }
+        if (isset($map['encrypt_conf'])) {
+            $model->encryptConf = EncryptConf::fromMap($map['encrypt_conf']);
         }
         if (isset($map['logstoreName'])) {
             $model->logstoreName = $map['logstoreName'];
