@@ -339,14 +339,21 @@ class CloudAPI extends OpenApiClient
     public function abolishApiWithOptions($request, $runtime)
     {
         Utils::validateModel($request);
-        $query                  = [];
-        $query['ApiId']         = $request->apiId;
-        $query['GroupId']       = $request->groupId;
-        $query['SecurityToken'] = $request->securityToken;
-        $query['StageName']     = $request->stageName;
-        $req                    = new OpenApiRequest([
+        $query = [];
+        if (!Utils::isUnset($request->apiId)) {
+            $query['ApiId'] = $request->apiId;
+        }
+        if (!Utils::isUnset($request->groupId)) {
+            $query['GroupId'] = $request->groupId;
+        }
+        if (!Utils::isUnset($request->securityToken)) {
+            $query['SecurityToken'] = $request->securityToken;
+        }
+        if (!Utils::isUnset($request->stageName)) {
+            $query['StageName'] = $request->stageName;
+        }
+        $req = new OpenApiRequest([
             'query' => OpenApiUtilClient::query($query),
-            'body'  => Utils::toMap($request),
         ]);
         $params = new Params([
             'action'      => 'AbolishApi',
@@ -356,7 +363,7 @@ class CloudAPI extends OpenApiClient
             'method'      => 'POST',
             'authType'    => 'AK',
             'style'       => 'RPC',
-            'reqBodyType' => 'json',
+            'reqBodyType' => 'formData',
             'bodyType'    => 'json',
         ]);
 
@@ -384,14 +391,21 @@ class CloudAPI extends OpenApiClient
     public function addIpControlPolicyItemWithOptions($request, $runtime)
     {
         Utils::validateModel($request);
-        $query                  = [];
-        $query['AppId']         = $request->appId;
-        $query['CidrIp']        = $request->cidrIp;
-        $query['IpControlId']   = $request->ipControlId;
-        $query['SecurityToken'] = $request->securityToken;
-        $req                    = new OpenApiRequest([
+        $query = [];
+        if (!Utils::isUnset($request->appId)) {
+            $query['AppId'] = $request->appId;
+        }
+        if (!Utils::isUnset($request->cidrIp)) {
+            $query['CidrIp'] = $request->cidrIp;
+        }
+        if (!Utils::isUnset($request->ipControlId)) {
+            $query['IpControlId'] = $request->ipControlId;
+        }
+        if (!Utils::isUnset($request->securityToken)) {
+            $query['SecurityToken'] = $request->securityToken;
+        }
+        $req = new OpenApiRequest([
             'query' => OpenApiUtilClient::query($query),
-            'body'  => Utils::toMap($request),
         ]);
         $params = new Params([
             'action'      => 'AddIpControlPolicyItem',
@@ -401,7 +415,7 @@ class CloudAPI extends OpenApiClient
             'method'      => 'POST',
             'authType'    => 'AK',
             'style'       => 'RPC',
-            'reqBodyType' => 'json',
+            'reqBodyType' => 'formData',
             'bodyType'    => 'json',
         ]);
 
@@ -429,15 +443,24 @@ class CloudAPI extends OpenApiClient
     public function addTrafficSpecialControlWithOptions($request, $runtime)
     {
         Utils::validateModel($request);
-        $query                     = [];
-        $query['SecurityToken']    = $request->securityToken;
-        $query['SpecialKey']       = $request->specialKey;
-        $query['SpecialType']      = $request->specialType;
-        $query['TrafficControlId'] = $request->trafficControlId;
-        $query['TrafficValue']     = $request->trafficValue;
-        $req                       = new OpenApiRequest([
+        $query = [];
+        if (!Utils::isUnset($request->securityToken)) {
+            $query['SecurityToken'] = $request->securityToken;
+        }
+        if (!Utils::isUnset($request->specialKey)) {
+            $query['SpecialKey'] = $request->specialKey;
+        }
+        if (!Utils::isUnset($request->specialType)) {
+            $query['SpecialType'] = $request->specialType;
+        }
+        if (!Utils::isUnset($request->trafficControlId)) {
+            $query['TrafficControlId'] = $request->trafficControlId;
+        }
+        if (!Utils::isUnset($request->trafficValue)) {
+            $query['TrafficValue'] = $request->trafficValue;
+        }
+        $req = new OpenApiRequest([
             'query' => OpenApiUtilClient::query($query),
-            'body'  => Utils::toMap($request),
         ]);
         $params = new Params([
             'action'      => 'AddTrafficSpecialControl',
@@ -447,7 +470,7 @@ class CloudAPI extends OpenApiClient
             'method'      => 'POST',
             'authType'    => 'AK',
             'style'       => 'RPC',
-            'reqBodyType' => 'json',
+            'reqBodyType' => 'formData',
             'bodyType'    => 'json',
         ]);
 
@@ -475,16 +498,27 @@ class CloudAPI extends OpenApiClient
     public function attachPluginWithOptions($request, $runtime)
     {
         Utils::validateModel($request);
-        $query                  = [];
-        $query['ApiId']         = $request->apiId;
-        $query['ApiIds']        = $request->apiIds;
-        $query['GroupId']       = $request->groupId;
-        $query['PluginId']      = $request->pluginId;
-        $query['SecurityToken'] = $request->securityToken;
-        $query['StageName']     = $request->stageName;
-        $req                    = new OpenApiRequest([
+        $query = [];
+        if (!Utils::isUnset($request->apiId)) {
+            $query['ApiId'] = $request->apiId;
+        }
+        if (!Utils::isUnset($request->apiIds)) {
+            $query['ApiIds'] = $request->apiIds;
+        }
+        if (!Utils::isUnset($request->groupId)) {
+            $query['GroupId'] = $request->groupId;
+        }
+        if (!Utils::isUnset($request->pluginId)) {
+            $query['PluginId'] = $request->pluginId;
+        }
+        if (!Utils::isUnset($request->securityToken)) {
+            $query['SecurityToken'] = $request->securityToken;
+        }
+        if (!Utils::isUnset($request->stageName)) {
+            $query['StageName'] = $request->stageName;
+        }
+        $req = new OpenApiRequest([
             'query' => OpenApiUtilClient::query($query),
-            'body'  => Utils::toMap($request),
         ]);
         $params = new Params([
             'action'      => 'AttachPlugin',
@@ -494,7 +528,7 @@ class CloudAPI extends OpenApiClient
             'method'      => 'POST',
             'authType'    => 'AK',
             'style'       => 'RPC',
-            'reqBodyType' => 'json',
+            'reqBodyType' => 'formData',
             'bodyType'    => 'json',
         ]);
 
@@ -522,12 +556,15 @@ class CloudAPI extends OpenApiClient
     public function batchAbolishApisWithOptions($request, $runtime)
     {
         Utils::validateModel($request);
-        $query                  = [];
-        $query['Api']           = $request->api;
-        $query['SecurityToken'] = $request->securityToken;
-        $req                    = new OpenApiRequest([
+        $query = [];
+        if (!Utils::isUnset($request->api)) {
+            $query['Api'] = $request->api;
+        }
+        if (!Utils::isUnset($request->securityToken)) {
+            $query['SecurityToken'] = $request->securityToken;
+        }
+        $req = new OpenApiRequest([
             'query' => OpenApiUtilClient::query($query),
-            'body'  => Utils::toMap($request),
         ]);
         $params = new Params([
             'action'      => 'BatchAbolishApis',
@@ -537,7 +574,7 @@ class CloudAPI extends OpenApiClient
             'method'      => 'POST',
             'authType'    => 'AK',
             'style'       => 'RPC',
-            'reqBodyType' => 'json',
+            'reqBodyType' => 'formData',
             'bodyType'    => 'json',
         ]);
 
@@ -565,14 +602,21 @@ class CloudAPI extends OpenApiClient
     public function batchDeployApisWithOptions($request, $runtime)
     {
         Utils::validateModel($request);
-        $query                  = [];
-        $query['Api']           = $request->api;
-        $query['Description']   = $request->description;
-        $query['SecurityToken'] = $request->securityToken;
-        $query['StageName']     = $request->stageName;
-        $req                    = new OpenApiRequest([
+        $query = [];
+        if (!Utils::isUnset($request->api)) {
+            $query['Api'] = $request->api;
+        }
+        if (!Utils::isUnset($request->description)) {
+            $query['Description'] = $request->description;
+        }
+        if (!Utils::isUnset($request->securityToken)) {
+            $query['SecurityToken'] = $request->securityToken;
+        }
+        if (!Utils::isUnset($request->stageName)) {
+            $query['StageName'] = $request->stageName;
+        }
+        $req = new OpenApiRequest([
             'query' => OpenApiUtilClient::query($query),
-            'body'  => Utils::toMap($request),
         ]);
         $params = new Params([
             'action'      => 'BatchDeployApis',
@@ -582,7 +626,7 @@ class CloudAPI extends OpenApiClient
             'method'      => 'POST',
             'authType'    => 'AK',
             'style'       => 'RPC',
-            'reqBodyType' => 'json',
+            'reqBodyType' => 'formData',
             'bodyType'    => 'json',
         ]);
 
@@ -610,35 +654,84 @@ class CloudAPI extends OpenApiClient
     public function createApiWithOptions($request, $runtime)
     {
         Utils::validateModel($request);
-        $query                         = [];
-        $query['AllowSignatureMethod'] = $request->allowSignatureMethod;
-        $query['ApiName']              = $request->apiName;
-        $query['AppCodeAuthType']      = $request->appCodeAuthType;
-        $query['AuthType']             = $request->authType;
-        $query['ConstantParameters']   = $request->constantParameters;
-        $query['Description']          = $request->description;
-        $query['DisableInternet']      = $request->disableInternet;
-        $query['ErrorCodeSamples']     = $request->errorCodeSamples;
-        $query['FailResultSample']     = $request->failResultSample;
-        $query['ForceNonceCheck']      = $request->forceNonceCheck;
-        $query['GroupId']              = $request->groupId;
-        $query['OpenIdConnectConfig']  = $request->openIdConnectConfig;
-        $query['RequestConfig']        = $request->requestConfig;
-        $query['RequestParameters']    = $request->requestParameters;
-        $query['ResultBodyModel']      = $request->resultBodyModel;
-        $query['ResultDescriptions']   = $request->resultDescriptions;
-        $query['ResultSample']         = $request->resultSample;
-        $query['ResultType']           = $request->resultType;
-        $query['SecurityToken']        = $request->securityToken;
-        $query['ServiceConfig']        = $request->serviceConfig;
-        $query['ServiceParameters']    = $request->serviceParameters;
-        $query['ServiceParametersMap'] = $request->serviceParametersMap;
-        $query['SystemParameters']     = $request->systemParameters;
-        $query['Visibility']           = $request->visibility;
-        $query['WebSocketApiType']     = $request->webSocketApiType;
-        $req                           = new OpenApiRequest([
+        $query = [];
+        if (!Utils::isUnset($request->allowSignatureMethod)) {
+            $query['AllowSignatureMethod'] = $request->allowSignatureMethod;
+        }
+        if (!Utils::isUnset($request->apiName)) {
+            $query['ApiName'] = $request->apiName;
+        }
+        if (!Utils::isUnset($request->appCodeAuthType)) {
+            $query['AppCodeAuthType'] = $request->appCodeAuthType;
+        }
+        if (!Utils::isUnset($request->authType)) {
+            $query['AuthType'] = $request->authType;
+        }
+        if (!Utils::isUnset($request->constantParameters)) {
+            $query['ConstantParameters'] = $request->constantParameters;
+        }
+        if (!Utils::isUnset($request->description)) {
+            $query['Description'] = $request->description;
+        }
+        if (!Utils::isUnset($request->disableInternet)) {
+            $query['DisableInternet'] = $request->disableInternet;
+        }
+        if (!Utils::isUnset($request->errorCodeSamples)) {
+            $query['ErrorCodeSamples'] = $request->errorCodeSamples;
+        }
+        if (!Utils::isUnset($request->failResultSample)) {
+            $query['FailResultSample'] = $request->failResultSample;
+        }
+        if (!Utils::isUnset($request->forceNonceCheck)) {
+            $query['ForceNonceCheck'] = $request->forceNonceCheck;
+        }
+        if (!Utils::isUnset($request->groupId)) {
+            $query['GroupId'] = $request->groupId;
+        }
+        if (!Utils::isUnset($request->openIdConnectConfig)) {
+            $query['OpenIdConnectConfig'] = $request->openIdConnectConfig;
+        }
+        if (!Utils::isUnset($request->requestConfig)) {
+            $query['RequestConfig'] = $request->requestConfig;
+        }
+        if (!Utils::isUnset($request->requestParameters)) {
+            $query['RequestParameters'] = $request->requestParameters;
+        }
+        if (!Utils::isUnset($request->resultBodyModel)) {
+            $query['ResultBodyModel'] = $request->resultBodyModel;
+        }
+        if (!Utils::isUnset($request->resultDescriptions)) {
+            $query['ResultDescriptions'] = $request->resultDescriptions;
+        }
+        if (!Utils::isUnset($request->resultSample)) {
+            $query['ResultSample'] = $request->resultSample;
+        }
+        if (!Utils::isUnset($request->resultType)) {
+            $query['ResultType'] = $request->resultType;
+        }
+        if (!Utils::isUnset($request->securityToken)) {
+            $query['SecurityToken'] = $request->securityToken;
+        }
+        if (!Utils::isUnset($request->serviceConfig)) {
+            $query['ServiceConfig'] = $request->serviceConfig;
+        }
+        if (!Utils::isUnset($request->serviceParameters)) {
+            $query['ServiceParameters'] = $request->serviceParameters;
+        }
+        if (!Utils::isUnset($request->serviceParametersMap)) {
+            $query['ServiceParametersMap'] = $request->serviceParametersMap;
+        }
+        if (!Utils::isUnset($request->systemParameters)) {
+            $query['SystemParameters'] = $request->systemParameters;
+        }
+        if (!Utils::isUnset($request->visibility)) {
+            $query['Visibility'] = $request->visibility;
+        }
+        if (!Utils::isUnset($request->webSocketApiType)) {
+            $query['WebSocketApiType'] = $request->webSocketApiType;
+        }
+        $req = new OpenApiRequest([
             'query' => OpenApiUtilClient::query($query),
-            'body'  => Utils::toMap($request),
         ]);
         $params = new Params([
             'action'      => 'CreateApi',
@@ -648,7 +741,7 @@ class CloudAPI extends OpenApiClient
             'method'      => 'POST',
             'authType'    => 'AK',
             'style'       => 'RPC',
-            'reqBodyType' => 'json',
+            'reqBodyType' => 'formData',
             'bodyType'    => 'json',
         ]);
 
@@ -676,16 +769,27 @@ class CloudAPI extends OpenApiClient
     public function createApiGroupWithOptions($request, $runtime)
     {
         Utils::validateModel($request);
-        $query                  = [];
-        $query['BasePath']      = $request->basePath;
-        $query['Description']   = $request->description;
-        $query['GroupName']     = $request->groupName;
-        $query['InstanceId']    = $request->instanceId;
-        $query['SecurityToken'] = $request->securityToken;
-        $query['Tag']           = $request->tag;
-        $req                    = new OpenApiRequest([
+        $query = [];
+        if (!Utils::isUnset($request->basePath)) {
+            $query['BasePath'] = $request->basePath;
+        }
+        if (!Utils::isUnset($request->description)) {
+            $query['Description'] = $request->description;
+        }
+        if (!Utils::isUnset($request->groupName)) {
+            $query['GroupName'] = $request->groupName;
+        }
+        if (!Utils::isUnset($request->instanceId)) {
+            $query['InstanceId'] = $request->instanceId;
+        }
+        if (!Utils::isUnset($request->securityToken)) {
+            $query['SecurityToken'] = $request->securityToken;
+        }
+        if (!Utils::isUnset($request->tag)) {
+            $query['Tag'] = $request->tag;
+        }
+        $req = new OpenApiRequest([
             'query' => OpenApiUtilClient::query($query),
-            'body'  => Utils::toMap($request),
         ]);
         $params = new Params([
             'action'      => 'CreateApiGroup',
@@ -695,7 +799,7 @@ class CloudAPI extends OpenApiClient
             'method'      => 'POST',
             'authType'    => 'AK',
             'style'       => 'RPC',
-            'reqBodyType' => 'json',
+            'reqBodyType' => 'formData',
             'bodyType'    => 'json',
         ]);
 
@@ -723,17 +827,30 @@ class CloudAPI extends OpenApiClient
     public function createApiStageVariableWithOptions($request, $runtime)
     {
         Utils::validateModel($request);
-        $query                    = [];
-        $query['GroupId']         = $request->groupId;
-        $query['SecurityToken']   = $request->securityToken;
-        $query['StageId']         = $request->stageId;
-        $query['StageRouteModel'] = $request->stageRouteModel;
-        $query['SupportRoute']    = $request->supportRoute;
-        $query['VariableName']    = $request->variableName;
-        $query['VariableValue']   = $request->variableValue;
-        $req                      = new OpenApiRequest([
+        $query = [];
+        if (!Utils::isUnset($request->groupId)) {
+            $query['GroupId'] = $request->groupId;
+        }
+        if (!Utils::isUnset($request->securityToken)) {
+            $query['SecurityToken'] = $request->securityToken;
+        }
+        if (!Utils::isUnset($request->stageId)) {
+            $query['StageId'] = $request->stageId;
+        }
+        if (!Utils::isUnset($request->stageRouteModel)) {
+            $query['StageRouteModel'] = $request->stageRouteModel;
+        }
+        if (!Utils::isUnset($request->supportRoute)) {
+            $query['SupportRoute'] = $request->supportRoute;
+        }
+        if (!Utils::isUnset($request->variableName)) {
+            $query['VariableName'] = $request->variableName;
+        }
+        if (!Utils::isUnset($request->variableValue)) {
+            $query['VariableValue'] = $request->variableValue;
+        }
+        $req = new OpenApiRequest([
             'query' => OpenApiUtilClient::query($query),
-            'body'  => Utils::toMap($request),
         ]);
         $params = new Params([
             'action'      => 'CreateApiStageVariable',
@@ -743,7 +860,7 @@ class CloudAPI extends OpenApiClient
             'method'      => 'POST',
             'authType'    => 'AK',
             'style'       => 'RPC',
-            'reqBodyType' => 'json',
+            'reqBodyType' => 'formData',
             'bodyType'    => 'json',
         ]);
 
@@ -771,15 +888,24 @@ class CloudAPI extends OpenApiClient
     public function createAppWithOptions($request, $runtime)
     {
         Utils::validateModel($request);
-        $query                  = [];
-        $query['AppName']       = $request->appName;
-        $query['Description']   = $request->description;
-        $query['SecurityToken'] = $request->securityToken;
-        $query['Source']        = $request->source;
-        $query['Tag']           = $request->tag;
-        $req                    = new OpenApiRequest([
+        $query = [];
+        if (!Utils::isUnset($request->appName)) {
+            $query['AppName'] = $request->appName;
+        }
+        if (!Utils::isUnset($request->description)) {
+            $query['Description'] = $request->description;
+        }
+        if (!Utils::isUnset($request->securityToken)) {
+            $query['SecurityToken'] = $request->securityToken;
+        }
+        if (!Utils::isUnset($request->source)) {
+            $query['Source'] = $request->source;
+        }
+        if (!Utils::isUnset($request->tag)) {
+            $query['Tag'] = $request->tag;
+        }
+        $req = new OpenApiRequest([
             'query' => OpenApiUtilClient::query($query),
-            'body'  => Utils::toMap($request),
         ]);
         $params = new Params([
             'action'      => 'CreateApp',
@@ -789,7 +915,7 @@ class CloudAPI extends OpenApiClient
             'method'      => 'POST',
             'authType'    => 'AK',
             'style'       => 'RPC',
-            'reqBodyType' => 'json',
+            'reqBodyType' => 'formData',
             'bodyType'    => 'json',
         ]);
 
@@ -817,19 +943,36 @@ class CloudAPI extends OpenApiClient
     public function createInstanceWithOptions($request, $runtime)
     {
         Utils::validateModel($request);
-        $query                 = [];
-        $query['AutoPay']      = $request->autoPay;
-        $query['ChargeType']   = $request->chargeType;
-        $query['Duration']     = $request->duration;
-        $query['HttpsPolicy']  = $request->httpsPolicy;
-        $query['InstanceName'] = $request->instanceName;
-        $query['InstanceSpec'] = $request->instanceSpec;
-        $query['PricingCycle'] = $request->pricingCycle;
-        $query['Token']        = $request->token;
-        $query['ZoneId']       = $request->zoneId;
-        $req                   = new OpenApiRequest([
+        $query = [];
+        if (!Utils::isUnset($request->autoPay)) {
+            $query['AutoPay'] = $request->autoPay;
+        }
+        if (!Utils::isUnset($request->chargeType)) {
+            $query['ChargeType'] = $request->chargeType;
+        }
+        if (!Utils::isUnset($request->duration)) {
+            $query['Duration'] = $request->duration;
+        }
+        if (!Utils::isUnset($request->httpsPolicy)) {
+            $query['HttpsPolicy'] = $request->httpsPolicy;
+        }
+        if (!Utils::isUnset($request->instanceName)) {
+            $query['InstanceName'] = $request->instanceName;
+        }
+        if (!Utils::isUnset($request->instanceSpec)) {
+            $query['InstanceSpec'] = $request->instanceSpec;
+        }
+        if (!Utils::isUnset($request->pricingCycle)) {
+            $query['PricingCycle'] = $request->pricingCycle;
+        }
+        if (!Utils::isUnset($request->token)) {
+            $query['Token'] = $request->token;
+        }
+        if (!Utils::isUnset($request->zoneId)) {
+            $query['ZoneId'] = $request->zoneId;
+        }
+        $req = new OpenApiRequest([
             'query' => OpenApiUtilClient::query($query),
-            'body'  => Utils::toMap($request),
         ]);
         $params = new Params([
             'action'      => 'CreateInstance',
@@ -839,7 +982,7 @@ class CloudAPI extends OpenApiClient
             'method'      => 'POST',
             'authType'    => 'AK',
             'style'       => 'RPC',
-            'reqBodyType' => 'json',
+            'reqBodyType' => 'formData',
             'bodyType'    => 'json',
         ]);
 
@@ -867,12 +1010,15 @@ class CloudAPI extends OpenApiClient
     public function createIntranetDomainWithOptions($request, $runtime)
     {
         Utils::validateModel($request);
-        $query                  = [];
-        $query['GroupId']       = $request->groupId;
-        $query['SecurityToken'] = $request->securityToken;
-        $req                    = new OpenApiRequest([
+        $query = [];
+        if (!Utils::isUnset($request->groupId)) {
+            $query['GroupId'] = $request->groupId;
+        }
+        if (!Utils::isUnset($request->securityToken)) {
+            $query['SecurityToken'] = $request->securityToken;
+        }
+        $req = new OpenApiRequest([
             'query' => OpenApiUtilClient::query($query),
-            'body'  => Utils::toMap($request),
         ]);
         $params = new Params([
             'action'      => 'CreateIntranetDomain',
@@ -882,7 +1028,7 @@ class CloudAPI extends OpenApiClient
             'method'      => 'POST',
             'authType'    => 'AK',
             'style'       => 'RPC',
-            'reqBodyType' => 'json',
+            'reqBodyType' => 'formData',
             'bodyType'    => 'json',
         ]);
 
@@ -910,15 +1056,24 @@ class CloudAPI extends OpenApiClient
     public function createIpControlWithOptions($request, $runtime)
     {
         Utils::validateModel($request);
-        $query                     = [];
-        $query['Description']      = $request->description;
-        $query['IpControlName']    = $request->ipControlName;
-        $query['IpControlPolicys'] = $request->ipControlPolicys;
-        $query['IpControlType']    = $request->ipControlType;
-        $query['SecurityToken']    = $request->securityToken;
-        $req                       = new OpenApiRequest([
+        $query = [];
+        if (!Utils::isUnset($request->description)) {
+            $query['Description'] = $request->description;
+        }
+        if (!Utils::isUnset($request->ipControlName)) {
+            $query['IpControlName'] = $request->ipControlName;
+        }
+        if (!Utils::isUnset($request->ipControlPolicys)) {
+            $query['IpControlPolicys'] = $request->ipControlPolicys;
+        }
+        if (!Utils::isUnset($request->ipControlType)) {
+            $query['IpControlType'] = $request->ipControlType;
+        }
+        if (!Utils::isUnset($request->securityToken)) {
+            $query['SecurityToken'] = $request->securityToken;
+        }
+        $req = new OpenApiRequest([
             'query' => OpenApiUtilClient::query($query),
-            'body'  => Utils::toMap($request),
         ]);
         $params = new Params([
             'action'      => 'CreateIpControl',
@@ -928,7 +1083,7 @@ class CloudAPI extends OpenApiClient
             'method'      => 'POST',
             'authType'    => 'AK',
             'style'       => 'RPC',
-            'reqBodyType' => 'json',
+            'reqBodyType' => 'formData',
             'bodyType'    => 'json',
         ]);
 
@@ -956,14 +1111,21 @@ class CloudAPI extends OpenApiClient
     public function createLogConfigWithOptions($request, $runtime)
     {
         Utils::validateModel($request);
-        $query                  = [];
-        $query['LogType']       = $request->logType;
-        $query['SecurityToken'] = $request->securityToken;
-        $query['SlsLogStore']   = $request->slsLogStore;
-        $query['SlsProject']    = $request->slsProject;
-        $req                    = new OpenApiRequest([
+        $query = [];
+        if (!Utils::isUnset($request->logType)) {
+            $query['LogType'] = $request->logType;
+        }
+        if (!Utils::isUnset($request->securityToken)) {
+            $query['SecurityToken'] = $request->securityToken;
+        }
+        if (!Utils::isUnset($request->slsLogStore)) {
+            $query['SlsLogStore'] = $request->slsLogStore;
+        }
+        if (!Utils::isUnset($request->slsProject)) {
+            $query['SlsProject'] = $request->slsProject;
+        }
+        $req = new OpenApiRequest([
             'query' => OpenApiUtilClient::query($query),
-            'body'  => Utils::toMap($request),
         ]);
         $params = new Params([
             'action'      => 'CreateLogConfig',
@@ -973,7 +1135,7 @@ class CloudAPI extends OpenApiClient
             'method'      => 'POST',
             'authType'    => 'AK',
             'style'       => 'RPC',
-            'reqBodyType' => 'json',
+            'reqBodyType' => 'formData',
             'bodyType'    => 'json',
         ]);
 
@@ -1001,14 +1163,21 @@ class CloudAPI extends OpenApiClient
     public function createModelWithOptions($request, $runtime)
     {
         Utils::validateModel($request);
-        $query                = [];
-        $query['Description'] = $request->description;
-        $query['GroupId']     = $request->groupId;
-        $query['ModelName']   = $request->modelName;
-        $query['Schema']      = $request->schema;
-        $req                  = new OpenApiRequest([
+        $query = [];
+        if (!Utils::isUnset($request->description)) {
+            $query['Description'] = $request->description;
+        }
+        if (!Utils::isUnset($request->groupId)) {
+            $query['GroupId'] = $request->groupId;
+        }
+        if (!Utils::isUnset($request->modelName)) {
+            $query['ModelName'] = $request->modelName;
+        }
+        if (!Utils::isUnset($request->schema)) {
+            $query['Schema'] = $request->schema;
+        }
+        $req = new OpenApiRequest([
             'query' => OpenApiUtilClient::query($query),
-            'body'  => Utils::toMap($request),
         ]);
         $params = new Params([
             'action'      => 'CreateModel',
@@ -1018,7 +1187,7 @@ class CloudAPI extends OpenApiClient
             'method'      => 'POST',
             'authType'    => 'AK',
             'style'       => 'RPC',
-            'reqBodyType' => 'json',
+            'reqBodyType' => 'formData',
             'bodyType'    => 'json',
         ]);
 
@@ -1046,14 +1215,21 @@ class CloudAPI extends OpenApiClient
     public function createMonitorGroupWithOptions($request, $runtime)
     {
         Utils::validateModel($request);
-        $query                      = [];
-        $query['Auth']              = $request->auth;
-        $query['GroupId']           = $request->groupId;
-        $query['RawMonitorGroupId'] = $request->rawMonitorGroupId;
-        $query['SecurityToken']     = $request->securityToken;
-        $req                        = new OpenApiRequest([
+        $query = [];
+        if (!Utils::isUnset($request->auth)) {
+            $query['Auth'] = $request->auth;
+        }
+        if (!Utils::isUnset($request->groupId)) {
+            $query['GroupId'] = $request->groupId;
+        }
+        if (!Utils::isUnset($request->rawMonitorGroupId)) {
+            $query['RawMonitorGroupId'] = $request->rawMonitorGroupId;
+        }
+        if (!Utils::isUnset($request->securityToken)) {
+            $query['SecurityToken'] = $request->securityToken;
+        }
+        $req = new OpenApiRequest([
             'query' => OpenApiUtilClient::query($query),
-            'body'  => Utils::toMap($request),
         ]);
         $params = new Params([
             'action'      => 'CreateMonitorGroup',
@@ -1063,7 +1239,7 @@ class CloudAPI extends OpenApiClient
             'method'      => 'POST',
             'authType'    => 'AK',
             'style'       => 'RPC',
-            'reqBodyType' => 'json',
+            'reqBodyType' => 'formData',
             'bodyType'    => 'json',
         ]);
 
@@ -1091,16 +1267,27 @@ class CloudAPI extends OpenApiClient
     public function createPluginWithOptions($request, $runtime)
     {
         Utils::validateModel($request);
-        $query                  = [];
-        $query['Description']   = $request->description;
-        $query['PluginData']    = $request->pluginData;
-        $query['PluginName']    = $request->pluginName;
-        $query['PluginType']    = $request->pluginType;
-        $query['SecurityToken'] = $request->securityToken;
-        $query['Tag']           = $request->tag;
-        $req                    = new OpenApiRequest([
+        $query = [];
+        if (!Utils::isUnset($request->description)) {
+            $query['Description'] = $request->description;
+        }
+        if (!Utils::isUnset($request->pluginData)) {
+            $query['PluginData'] = $request->pluginData;
+        }
+        if (!Utils::isUnset($request->pluginName)) {
+            $query['PluginName'] = $request->pluginName;
+        }
+        if (!Utils::isUnset($request->pluginType)) {
+            $query['PluginType'] = $request->pluginType;
+        }
+        if (!Utils::isUnset($request->securityToken)) {
+            $query['SecurityToken'] = $request->securityToken;
+        }
+        if (!Utils::isUnset($request->tag)) {
+            $query['Tag'] = $request->tag;
+        }
+        $req = new OpenApiRequest([
             'query' => OpenApiUtilClient::query($query),
-            'body'  => Utils::toMap($request),
         ]);
         $params = new Params([
             'action'      => 'CreatePlugin',
@@ -1110,7 +1297,7 @@ class CloudAPI extends OpenApiClient
             'method'      => 'POST',
             'authType'    => 'AK',
             'style'       => 'RPC',
-            'reqBodyType' => 'json',
+            'reqBodyType' => 'formData',
             'bodyType'    => 'json',
         ]);
 
@@ -1138,14 +1325,21 @@ class CloudAPI extends OpenApiClient
     public function createSignatureWithOptions($request, $runtime)
     {
         Utils::validateModel($request);
-        $query                    = [];
-        $query['SecurityToken']   = $request->securityToken;
-        $query['SignatureKey']    = $request->signatureKey;
-        $query['SignatureName']   = $request->signatureName;
-        $query['SignatureSecret'] = $request->signatureSecret;
-        $req                      = new OpenApiRequest([
+        $query = [];
+        if (!Utils::isUnset($request->securityToken)) {
+            $query['SecurityToken'] = $request->securityToken;
+        }
+        if (!Utils::isUnset($request->signatureKey)) {
+            $query['SignatureKey'] = $request->signatureKey;
+        }
+        if (!Utils::isUnset($request->signatureName)) {
+            $query['SignatureName'] = $request->signatureName;
+        }
+        if (!Utils::isUnset($request->signatureSecret)) {
+            $query['SignatureSecret'] = $request->signatureSecret;
+        }
+        $req = new OpenApiRequest([
             'query' => OpenApiUtilClient::query($query),
-            'body'  => Utils::toMap($request),
         ]);
         $params = new Params([
             'action'      => 'CreateSignature',
@@ -1155,7 +1349,7 @@ class CloudAPI extends OpenApiClient
             'method'      => 'POST',
             'authType'    => 'AK',
             'style'       => 'RPC',
-            'reqBodyType' => 'json',
+            'reqBodyType' => 'formData',
             'bodyType'    => 'json',
         ]);
 
@@ -1183,17 +1377,30 @@ class CloudAPI extends OpenApiClient
     public function createTrafficControlWithOptions($request, $runtime)
     {
         Utils::validateModel($request);
-        $query                       = [];
-        $query['ApiDefault']         = $request->apiDefault;
-        $query['AppDefault']         = $request->appDefault;
-        $query['Description']        = $request->description;
-        $query['SecurityToken']      = $request->securityToken;
-        $query['TrafficControlName'] = $request->trafficControlName;
-        $query['TrafficControlUnit'] = $request->trafficControlUnit;
-        $query['UserDefault']        = $request->userDefault;
-        $req                         = new OpenApiRequest([
+        $query = [];
+        if (!Utils::isUnset($request->apiDefault)) {
+            $query['ApiDefault'] = $request->apiDefault;
+        }
+        if (!Utils::isUnset($request->appDefault)) {
+            $query['AppDefault'] = $request->appDefault;
+        }
+        if (!Utils::isUnset($request->description)) {
+            $query['Description'] = $request->description;
+        }
+        if (!Utils::isUnset($request->securityToken)) {
+            $query['SecurityToken'] = $request->securityToken;
+        }
+        if (!Utils::isUnset($request->trafficControlName)) {
+            $query['TrafficControlName'] = $request->trafficControlName;
+        }
+        if (!Utils::isUnset($request->trafficControlUnit)) {
+            $query['TrafficControlUnit'] = $request->trafficControlUnit;
+        }
+        if (!Utils::isUnset($request->userDefault)) {
+            $query['UserDefault'] = $request->userDefault;
+        }
+        $req = new OpenApiRequest([
             'query' => OpenApiUtilClient::query($query),
-            'body'  => Utils::toMap($request),
         ]);
         $params = new Params([
             'action'      => 'CreateTrafficControl',
@@ -1203,7 +1410,7 @@ class CloudAPI extends OpenApiClient
             'method'      => 'POST',
             'authType'    => 'AK',
             'style'       => 'RPC',
-            'reqBodyType' => 'json',
+            'reqBodyType' => 'formData',
             'bodyType'    => 'json',
         ]);
 
@@ -1231,12 +1438,15 @@ class CloudAPI extends OpenApiClient
     public function deleteAllTrafficSpecialControlWithOptions($request, $runtime)
     {
         Utils::validateModel($request);
-        $query                     = [];
-        $query['SecurityToken']    = $request->securityToken;
-        $query['TrafficControlId'] = $request->trafficControlId;
-        $req                       = new OpenApiRequest([
+        $query = [];
+        if (!Utils::isUnset($request->securityToken)) {
+            $query['SecurityToken'] = $request->securityToken;
+        }
+        if (!Utils::isUnset($request->trafficControlId)) {
+            $query['TrafficControlId'] = $request->trafficControlId;
+        }
+        $req = new OpenApiRequest([
             'query' => OpenApiUtilClient::query($query),
-            'body'  => Utils::toMap($request),
         ]);
         $params = new Params([
             'action'      => 'DeleteAllTrafficSpecialControl',
@@ -1246,7 +1456,7 @@ class CloudAPI extends OpenApiClient
             'method'      => 'POST',
             'authType'    => 'AK',
             'style'       => 'RPC',
-            'reqBodyType' => 'json',
+            'reqBodyType' => 'formData',
             'bodyType'    => 'json',
         ]);
 
@@ -1274,13 +1484,18 @@ class CloudAPI extends OpenApiClient
     public function deleteApiWithOptions($request, $runtime)
     {
         Utils::validateModel($request);
-        $query                  = [];
-        $query['ApiId']         = $request->apiId;
-        $query['GroupId']       = $request->groupId;
-        $query['SecurityToken'] = $request->securityToken;
-        $req                    = new OpenApiRequest([
+        $query = [];
+        if (!Utils::isUnset($request->apiId)) {
+            $query['ApiId'] = $request->apiId;
+        }
+        if (!Utils::isUnset($request->groupId)) {
+            $query['GroupId'] = $request->groupId;
+        }
+        if (!Utils::isUnset($request->securityToken)) {
+            $query['SecurityToken'] = $request->securityToken;
+        }
+        $req = new OpenApiRequest([
             'query' => OpenApiUtilClient::query($query),
-            'body'  => Utils::toMap($request),
         ]);
         $params = new Params([
             'action'      => 'DeleteApi',
@@ -1290,7 +1505,7 @@ class CloudAPI extends OpenApiClient
             'method'      => 'POST',
             'authType'    => 'AK',
             'style'       => 'RPC',
-            'reqBodyType' => 'json',
+            'reqBodyType' => 'formData',
             'bodyType'    => 'json',
         ]);
 
@@ -1318,13 +1533,18 @@ class CloudAPI extends OpenApiClient
     public function deleteApiGroupWithOptions($request, $runtime)
     {
         Utils::validateModel($request);
-        $query                  = [];
-        $query['GroupId']       = $request->groupId;
-        $query['SecurityToken'] = $request->securityToken;
-        $query['Tag']           = $request->tag;
-        $req                    = new OpenApiRequest([
+        $query = [];
+        if (!Utils::isUnset($request->groupId)) {
+            $query['GroupId'] = $request->groupId;
+        }
+        if (!Utils::isUnset($request->securityToken)) {
+            $query['SecurityToken'] = $request->securityToken;
+        }
+        if (!Utils::isUnset($request->tag)) {
+            $query['Tag'] = $request->tag;
+        }
+        $req = new OpenApiRequest([
             'query' => OpenApiUtilClient::query($query),
-            'body'  => Utils::toMap($request),
         ]);
         $params = new Params([
             'action'      => 'DeleteApiGroup',
@@ -1334,7 +1554,7 @@ class CloudAPI extends OpenApiClient
             'method'      => 'POST',
             'authType'    => 'AK',
             'style'       => 'RPC',
-            'reqBodyType' => 'json',
+            'reqBodyType' => 'formData',
             'bodyType'    => 'json',
         ]);
 
@@ -1362,14 +1582,21 @@ class CloudAPI extends OpenApiClient
     public function deleteApiStageVariableWithOptions($request, $runtime)
     {
         Utils::validateModel($request);
-        $query                  = [];
-        $query['GroupId']       = $request->groupId;
-        $query['SecurityToken'] = $request->securityToken;
-        $query['StageId']       = $request->stageId;
-        $query['VariableName']  = $request->variableName;
-        $req                    = new OpenApiRequest([
+        $query = [];
+        if (!Utils::isUnset($request->groupId)) {
+            $query['GroupId'] = $request->groupId;
+        }
+        if (!Utils::isUnset($request->securityToken)) {
+            $query['SecurityToken'] = $request->securityToken;
+        }
+        if (!Utils::isUnset($request->stageId)) {
+            $query['StageId'] = $request->stageId;
+        }
+        if (!Utils::isUnset($request->variableName)) {
+            $query['VariableName'] = $request->variableName;
+        }
+        $req = new OpenApiRequest([
             'query' => OpenApiUtilClient::query($query),
-            'body'  => Utils::toMap($request),
         ]);
         $params = new Params([
             'action'      => 'DeleteApiStageVariable',
@@ -1379,7 +1606,7 @@ class CloudAPI extends OpenApiClient
             'method'      => 'POST',
             'authType'    => 'AK',
             'style'       => 'RPC',
-            'reqBodyType' => 'json',
+            'reqBodyType' => 'formData',
             'bodyType'    => 'json',
         ]);
 
@@ -1407,13 +1634,18 @@ class CloudAPI extends OpenApiClient
     public function deleteAppWithOptions($request, $runtime)
     {
         Utils::validateModel($request);
-        $query                  = [];
-        $query['AppId']         = $request->appId;
-        $query['SecurityToken'] = $request->securityToken;
-        $query['Tag']           = $request->tag;
-        $req                    = new OpenApiRequest([
+        $query = [];
+        if (!Utils::isUnset($request->appId)) {
+            $query['AppId'] = $request->appId;
+        }
+        if (!Utils::isUnset($request->securityToken)) {
+            $query['SecurityToken'] = $request->securityToken;
+        }
+        if (!Utils::isUnset($request->tag)) {
+            $query['Tag'] = $request->tag;
+        }
+        $req = new OpenApiRequest([
             'query' => OpenApiUtilClient::query($query),
-            'body'  => Utils::toMap($request),
         ]);
         $params = new Params([
             'action'      => 'DeleteApp',
@@ -1423,7 +1655,7 @@ class CloudAPI extends OpenApiClient
             'method'      => 'POST',
             'authType'    => 'AK',
             'style'       => 'RPC',
-            'reqBodyType' => 'json',
+            'reqBodyType' => 'formData',
             'bodyType'    => 'json',
         ]);
 
@@ -1451,13 +1683,18 @@ class CloudAPI extends OpenApiClient
     public function deleteDomainWithOptions($request, $runtime)
     {
         Utils::validateModel($request);
-        $query                  = [];
-        $query['DomainName']    = $request->domainName;
-        $query['GroupId']       = $request->groupId;
-        $query['SecurityToken'] = $request->securityToken;
-        $req                    = new OpenApiRequest([
+        $query = [];
+        if (!Utils::isUnset($request->domainName)) {
+            $query['DomainName'] = $request->domainName;
+        }
+        if (!Utils::isUnset($request->groupId)) {
+            $query['GroupId'] = $request->groupId;
+        }
+        if (!Utils::isUnset($request->securityToken)) {
+            $query['SecurityToken'] = $request->securityToken;
+        }
+        $req = new OpenApiRequest([
             'query' => OpenApiUtilClient::query($query),
-            'body'  => Utils::toMap($request),
         ]);
         $params = new Params([
             'action'      => 'DeleteDomain',
@@ -1467,7 +1704,7 @@ class CloudAPI extends OpenApiClient
             'method'      => 'POST',
             'authType'    => 'AK',
             'style'       => 'RPC',
-            'reqBodyType' => 'json',
+            'reqBodyType' => 'formData',
             'bodyType'    => 'json',
         ]);
 
@@ -1495,14 +1732,21 @@ class CloudAPI extends OpenApiClient
     public function deleteDomainCertificateWithOptions($request, $runtime)
     {
         Utils::validateModel($request);
-        $query                  = [];
-        $query['CertificateId'] = $request->certificateId;
-        $query['DomainName']    = $request->domainName;
-        $query['GroupId']       = $request->groupId;
-        $query['SecurityToken'] = $request->securityToken;
-        $req                    = new OpenApiRequest([
+        $query = [];
+        if (!Utils::isUnset($request->certificateId)) {
+            $query['CertificateId'] = $request->certificateId;
+        }
+        if (!Utils::isUnset($request->domainName)) {
+            $query['DomainName'] = $request->domainName;
+        }
+        if (!Utils::isUnset($request->groupId)) {
+            $query['GroupId'] = $request->groupId;
+        }
+        if (!Utils::isUnset($request->securityToken)) {
+            $query['SecurityToken'] = $request->securityToken;
+        }
+        $req = new OpenApiRequest([
             'query' => OpenApiUtilClient::query($query),
-            'body'  => Utils::toMap($request),
         ]);
         $params = new Params([
             'action'      => 'DeleteDomainCertificate',
@@ -1512,7 +1756,7 @@ class CloudAPI extends OpenApiClient
             'method'      => 'POST',
             'authType'    => 'AK',
             'style'       => 'RPC',
-            'reqBodyType' => 'json',
+            'reqBodyType' => 'formData',
             'bodyType'    => 'json',
         ]);
 
@@ -1540,12 +1784,15 @@ class CloudAPI extends OpenApiClient
     public function deleteInstanceWithOptions($request, $runtime)
     {
         Utils::validateModel($request);
-        $query               = [];
-        $query['InstanceId'] = $request->instanceId;
-        $query['Tag']        = $request->tag;
-        $req                 = new OpenApiRequest([
+        $query = [];
+        if (!Utils::isUnset($request->instanceId)) {
+            $query['InstanceId'] = $request->instanceId;
+        }
+        if (!Utils::isUnset($request->tag)) {
+            $query['Tag'] = $request->tag;
+        }
+        $req = new OpenApiRequest([
             'query' => OpenApiUtilClient::query($query),
-            'body'  => Utils::toMap($request),
         ]);
         $params = new Params([
             'action'      => 'DeleteInstance',
@@ -1555,7 +1802,7 @@ class CloudAPI extends OpenApiClient
             'method'      => 'POST',
             'authType'    => 'AK',
             'style'       => 'RPC',
-            'reqBodyType' => 'json',
+            'reqBodyType' => 'formData',
             'bodyType'    => 'json',
         ]);
 
@@ -1583,12 +1830,15 @@ class CloudAPI extends OpenApiClient
     public function deleteIpControlWithOptions($request, $runtime)
     {
         Utils::validateModel($request);
-        $query                  = [];
-        $query['IpControlId']   = $request->ipControlId;
-        $query['SecurityToken'] = $request->securityToken;
-        $req                    = new OpenApiRequest([
+        $query = [];
+        if (!Utils::isUnset($request->ipControlId)) {
+            $query['IpControlId'] = $request->ipControlId;
+        }
+        if (!Utils::isUnset($request->securityToken)) {
+            $query['SecurityToken'] = $request->securityToken;
+        }
+        $req = new OpenApiRequest([
             'query' => OpenApiUtilClient::query($query),
-            'body'  => Utils::toMap($request),
         ]);
         $params = new Params([
             'action'      => 'DeleteIpControl',
@@ -1598,7 +1848,7 @@ class CloudAPI extends OpenApiClient
             'method'      => 'POST',
             'authType'    => 'AK',
             'style'       => 'RPC',
-            'reqBodyType' => 'json',
+            'reqBodyType' => 'formData',
             'bodyType'    => 'json',
         ]);
 
@@ -1626,12 +1876,15 @@ class CloudAPI extends OpenApiClient
     public function deleteLogConfigWithOptions($request, $runtime)
     {
         Utils::validateModel($request);
-        $query                  = [];
-        $query['LogType']       = $request->logType;
-        $query['SecurityToken'] = $request->securityToken;
-        $req                    = new OpenApiRequest([
+        $query = [];
+        if (!Utils::isUnset($request->logType)) {
+            $query['LogType'] = $request->logType;
+        }
+        if (!Utils::isUnset($request->securityToken)) {
+            $query['SecurityToken'] = $request->securityToken;
+        }
+        $req = new OpenApiRequest([
             'query' => OpenApiUtilClient::query($query),
-            'body'  => Utils::toMap($request),
         ]);
         $params = new Params([
             'action'      => 'DeleteLogConfig',
@@ -1641,7 +1894,7 @@ class CloudAPI extends OpenApiClient
             'method'      => 'POST',
             'authType'    => 'AK',
             'style'       => 'RPC',
-            'reqBodyType' => 'json',
+            'reqBodyType' => 'formData',
             'bodyType'    => 'json',
         ]);
 
@@ -1669,12 +1922,15 @@ class CloudAPI extends OpenApiClient
     public function deleteModelWithOptions($request, $runtime)
     {
         Utils::validateModel($request);
-        $query              = [];
-        $query['GroupId']   = $request->groupId;
-        $query['ModelName'] = $request->modelName;
-        $req                = new OpenApiRequest([
+        $query = [];
+        if (!Utils::isUnset($request->groupId)) {
+            $query['GroupId'] = $request->groupId;
+        }
+        if (!Utils::isUnset($request->modelName)) {
+            $query['ModelName'] = $request->modelName;
+        }
+        $req = new OpenApiRequest([
             'query' => OpenApiUtilClient::query($query),
-            'body'  => Utils::toMap($request),
         ]);
         $params = new Params([
             'action'      => 'DeleteModel',
@@ -1684,7 +1940,7 @@ class CloudAPI extends OpenApiClient
             'method'      => 'POST',
             'authType'    => 'AK',
             'style'       => 'RPC',
-            'reqBodyType' => 'json',
+            'reqBodyType' => 'formData',
             'bodyType'    => 'json',
         ]);
 
@@ -1712,13 +1968,18 @@ class CloudAPI extends OpenApiClient
     public function deletePluginWithOptions($request, $runtime)
     {
         Utils::validateModel($request);
-        $query                  = [];
-        $query['PluginId']      = $request->pluginId;
-        $query['SecurityToken'] = $request->securityToken;
-        $query['Tag']           = $request->tag;
-        $req                    = new OpenApiRequest([
+        $query = [];
+        if (!Utils::isUnset($request->pluginId)) {
+            $query['PluginId'] = $request->pluginId;
+        }
+        if (!Utils::isUnset($request->securityToken)) {
+            $query['SecurityToken'] = $request->securityToken;
+        }
+        if (!Utils::isUnset($request->tag)) {
+            $query['Tag'] = $request->tag;
+        }
+        $req = new OpenApiRequest([
             'query' => OpenApiUtilClient::query($query),
-            'body'  => Utils::toMap($request),
         ]);
         $params = new Params([
             'action'      => 'DeletePlugin',
@@ -1728,7 +1989,7 @@ class CloudAPI extends OpenApiClient
             'method'      => 'POST',
             'authType'    => 'AK',
             'style'       => 'RPC',
-            'reqBodyType' => 'json',
+            'reqBodyType' => 'formData',
             'bodyType'    => 'json',
         ]);
 
@@ -1756,12 +2017,15 @@ class CloudAPI extends OpenApiClient
     public function deleteSignatureWithOptions($request, $runtime)
     {
         Utils::validateModel($request);
-        $query                  = [];
-        $query['SecurityToken'] = $request->securityToken;
-        $query['SignatureId']   = $request->signatureId;
-        $req                    = new OpenApiRequest([
+        $query = [];
+        if (!Utils::isUnset($request->securityToken)) {
+            $query['SecurityToken'] = $request->securityToken;
+        }
+        if (!Utils::isUnset($request->signatureId)) {
+            $query['SignatureId'] = $request->signatureId;
+        }
+        $req = new OpenApiRequest([
             'query' => OpenApiUtilClient::query($query),
-            'body'  => Utils::toMap($request),
         ]);
         $params = new Params([
             'action'      => 'DeleteSignature',
@@ -1771,7 +2035,7 @@ class CloudAPI extends OpenApiClient
             'method'      => 'POST',
             'authType'    => 'AK',
             'style'       => 'RPC',
-            'reqBodyType' => 'json',
+            'reqBodyType' => 'formData',
             'bodyType'    => 'json',
         ]);
 
@@ -1799,12 +2063,15 @@ class CloudAPI extends OpenApiClient
     public function deleteTrafficControlWithOptions($request, $runtime)
     {
         Utils::validateModel($request);
-        $query                     = [];
-        $query['SecurityToken']    = $request->securityToken;
-        $query['TrafficControlId'] = $request->trafficControlId;
-        $req                       = new OpenApiRequest([
+        $query = [];
+        if (!Utils::isUnset($request->securityToken)) {
+            $query['SecurityToken'] = $request->securityToken;
+        }
+        if (!Utils::isUnset($request->trafficControlId)) {
+            $query['TrafficControlId'] = $request->trafficControlId;
+        }
+        $req = new OpenApiRequest([
             'query' => OpenApiUtilClient::query($query),
-            'body'  => Utils::toMap($request),
         ]);
         $params = new Params([
             'action'      => 'DeleteTrafficControl',
@@ -1814,7 +2081,7 @@ class CloudAPI extends OpenApiClient
             'method'      => 'POST',
             'authType'    => 'AK',
             'style'       => 'RPC',
-            'reqBodyType' => 'json',
+            'reqBodyType' => 'formData',
             'bodyType'    => 'json',
         ]);
 
@@ -1842,14 +2109,21 @@ class CloudAPI extends OpenApiClient
     public function deleteTrafficSpecialControlWithOptions($request, $runtime)
     {
         Utils::validateModel($request);
-        $query                     = [];
-        $query['SecurityToken']    = $request->securityToken;
-        $query['SpecialKey']       = $request->specialKey;
-        $query['SpecialType']      = $request->specialType;
-        $query['TrafficControlId'] = $request->trafficControlId;
-        $req                       = new OpenApiRequest([
+        $query = [];
+        if (!Utils::isUnset($request->securityToken)) {
+            $query['SecurityToken'] = $request->securityToken;
+        }
+        if (!Utils::isUnset($request->specialKey)) {
+            $query['SpecialKey'] = $request->specialKey;
+        }
+        if (!Utils::isUnset($request->specialType)) {
+            $query['SpecialType'] = $request->specialType;
+        }
+        if (!Utils::isUnset($request->trafficControlId)) {
+            $query['TrafficControlId'] = $request->trafficControlId;
+        }
+        $req = new OpenApiRequest([
             'query' => OpenApiUtilClient::query($query),
-            'body'  => Utils::toMap($request),
         ]);
         $params = new Params([
             'action'      => 'DeleteTrafficSpecialControl',
@@ -1859,7 +2133,7 @@ class CloudAPI extends OpenApiClient
             'method'      => 'POST',
             'authType'    => 'AK',
             'style'       => 'RPC',
-            'reqBodyType' => 'json',
+            'reqBodyType' => 'formData',
             'bodyType'    => 'json',
         ]);
 
@@ -1887,15 +2161,24 @@ class CloudAPI extends OpenApiClient
     public function deployApiWithOptions($request, $runtime)
     {
         Utils::validateModel($request);
-        $query                  = [];
-        $query['ApiId']         = $request->apiId;
-        $query['Description']   = $request->description;
-        $query['GroupId']       = $request->groupId;
-        $query['SecurityToken'] = $request->securityToken;
-        $query['StageName']     = $request->stageName;
-        $req                    = new OpenApiRequest([
+        $query = [];
+        if (!Utils::isUnset($request->apiId)) {
+            $query['ApiId'] = $request->apiId;
+        }
+        if (!Utils::isUnset($request->description)) {
+            $query['Description'] = $request->description;
+        }
+        if (!Utils::isUnset($request->groupId)) {
+            $query['GroupId'] = $request->groupId;
+        }
+        if (!Utils::isUnset($request->securityToken)) {
+            $query['SecurityToken'] = $request->securityToken;
+        }
+        if (!Utils::isUnset($request->stageName)) {
+            $query['StageName'] = $request->stageName;
+        }
+        $req = new OpenApiRequest([
             'query' => OpenApiUtilClient::query($query),
-            'body'  => Utils::toMap($request),
         ]);
         $params = new Params([
             'action'      => 'DeployApi',
@@ -1905,7 +2188,7 @@ class CloudAPI extends OpenApiClient
             'method'      => 'POST',
             'authType'    => 'AK',
             'style'       => 'RPC',
-            'reqBodyType' => 'json',
+            'reqBodyType' => 'formData',
             'bodyType'    => 'json',
         ]);
 
@@ -1933,12 +2216,15 @@ class CloudAPI extends OpenApiClient
     public function describeAbolishApiTaskWithOptions($request, $runtime)
     {
         Utils::validateModel($request);
-        $query                  = [];
-        $query['OperationUid']  = $request->operationUid;
-        $query['SecurityToken'] = $request->securityToken;
-        $req                    = new OpenApiRequest([
+        $query = [];
+        if (!Utils::isUnset($request->operationUid)) {
+            $query['OperationUid'] = $request->operationUid;
+        }
+        if (!Utils::isUnset($request->securityToken)) {
+            $query['SecurityToken'] = $request->securityToken;
+        }
+        $req = new OpenApiRequest([
             'query' => OpenApiUtilClient::query($query),
-            'body'  => Utils::toMap($request),
         ]);
         $params = new Params([
             'action'      => 'DescribeAbolishApiTask',
@@ -1948,7 +2234,7 @@ class CloudAPI extends OpenApiClient
             'method'      => 'POST',
             'authType'    => 'AK',
             'style'       => 'RPC',
-            'reqBodyType' => 'json',
+            'reqBodyType' => 'formData',
             'bodyType'    => 'json',
         ]);
 
@@ -1976,13 +2262,18 @@ class CloudAPI extends OpenApiClient
     public function describeApiWithOptions($request, $runtime)
     {
         Utils::validateModel($request);
-        $query                  = [];
-        $query['ApiId']         = $request->apiId;
-        $query['GroupId']       = $request->groupId;
-        $query['SecurityToken'] = $request->securityToken;
-        $req                    = new OpenApiRequest([
+        $query = [];
+        if (!Utils::isUnset($request->apiId)) {
+            $query['ApiId'] = $request->apiId;
+        }
+        if (!Utils::isUnset($request->groupId)) {
+            $query['GroupId'] = $request->groupId;
+        }
+        if (!Utils::isUnset($request->securityToken)) {
+            $query['SecurityToken'] = $request->securityToken;
+        }
+        $req = new OpenApiRequest([
             'query' => OpenApiUtilClient::query($query),
-            'body'  => Utils::toMap($request),
         ]);
         $params = new Params([
             'action'      => 'DescribeApi',
@@ -1992,7 +2283,7 @@ class CloudAPI extends OpenApiClient
             'method'      => 'POST',
             'authType'    => 'AK',
             'style'       => 'RPC',
-            'reqBodyType' => 'json',
+            'reqBodyType' => 'formData',
             'bodyType'    => 'json',
         ]);
 
@@ -2020,14 +2311,21 @@ class CloudAPI extends OpenApiClient
     public function describeApiDocWithOptions($request, $runtime)
     {
         Utils::validateModel($request);
-        $query                  = [];
-        $query['ApiId']         = $request->apiId;
-        $query['GroupId']       = $request->groupId;
-        $query['SecurityToken'] = $request->securityToken;
-        $query['StageName']     = $request->stageName;
-        $req                    = new OpenApiRequest([
+        $query = [];
+        if (!Utils::isUnset($request->apiId)) {
+            $query['ApiId'] = $request->apiId;
+        }
+        if (!Utils::isUnset($request->groupId)) {
+            $query['GroupId'] = $request->groupId;
+        }
+        if (!Utils::isUnset($request->securityToken)) {
+            $query['SecurityToken'] = $request->securityToken;
+        }
+        if (!Utils::isUnset($request->stageName)) {
+            $query['StageName'] = $request->stageName;
+        }
+        $req = new OpenApiRequest([
             'query' => OpenApiUtilClient::query($query),
-            'body'  => Utils::toMap($request),
         ]);
         $params = new Params([
             'action'      => 'DescribeApiDoc',
@@ -2037,7 +2335,7 @@ class CloudAPI extends OpenApiClient
             'method'      => 'POST',
             'authType'    => 'AK',
             'style'       => 'RPC',
-            'reqBodyType' => 'json',
+            'reqBodyType' => 'formData',
             'bodyType'    => 'json',
         ]);
 
@@ -2065,13 +2363,18 @@ class CloudAPI extends OpenApiClient
     public function describeApiGroupWithOptions($request, $runtime)
     {
         Utils::validateModel($request);
-        $query                  = [];
-        $query['GroupId']       = $request->groupId;
-        $query['SecurityToken'] = $request->securityToken;
-        $query['Tag']           = $request->tag;
-        $req                    = new OpenApiRequest([
+        $query = [];
+        if (!Utils::isUnset($request->groupId)) {
+            $query['GroupId'] = $request->groupId;
+        }
+        if (!Utils::isUnset($request->securityToken)) {
+            $query['SecurityToken'] = $request->securityToken;
+        }
+        if (!Utils::isUnset($request->tag)) {
+            $query['Tag'] = $request->tag;
+        }
+        $req = new OpenApiRequest([
             'query' => OpenApiUtilClient::query($query),
-            'body'  => Utils::toMap($request),
         ]);
         $params = new Params([
             'action'      => 'DescribeApiGroup',
@@ -2081,7 +2384,7 @@ class CloudAPI extends OpenApiClient
             'method'      => 'POST',
             'authType'    => 'AK',
             'style'       => 'RPC',
-            'reqBodyType' => 'json',
+            'reqBodyType' => 'formData',
             'bodyType'    => 'json',
         ]);
 
@@ -2109,12 +2412,15 @@ class CloudAPI extends OpenApiClient
     public function describeApiGroupVpcWhitelistWithOptions($request, $runtime)
     {
         Utils::validateModel($request);
-        $query                  = [];
-        $query['GroupId']       = $request->groupId;
-        $query['SecurityToken'] = $request->securityToken;
-        $req                    = new OpenApiRequest([
+        $query = [];
+        if (!Utils::isUnset($request->groupId)) {
+            $query['GroupId'] = $request->groupId;
+        }
+        if (!Utils::isUnset($request->securityToken)) {
+            $query['SecurityToken'] = $request->securityToken;
+        }
+        $req = new OpenApiRequest([
             'query' => OpenApiUtilClient::query($query),
-            'body'  => Utils::toMap($request),
         ]);
         $params = new Params([
             'action'      => 'DescribeApiGroupVpcWhitelist',
@@ -2124,7 +2430,7 @@ class CloudAPI extends OpenApiClient
             'method'      => 'POST',
             'authType'    => 'AK',
             'style'       => 'RPC',
-            'reqBodyType' => 'json',
+            'reqBodyType' => 'formData',
             'bodyType'    => 'json',
         ]);
 
@@ -2152,19 +2458,36 @@ class CloudAPI extends OpenApiClient
     public function describeApiGroupsWithOptions($request, $runtime)
     {
         Utils::validateModel($request);
-        $query                  = [];
-        $query['EnableTagAuth'] = $request->enableTagAuth;
-        $query['GroupId']       = $request->groupId;
-        $query['GroupName']     = $request->groupName;
-        $query['InstanceId']    = $request->instanceId;
-        $query['PageNumber']    = $request->pageNumber;
-        $query['PageSize']      = $request->pageSize;
-        $query['SecurityToken'] = $request->securityToken;
-        $query['Sort']          = $request->sort;
-        $query['Tag']           = $request->tag;
-        $req                    = new OpenApiRequest([
+        $query = [];
+        if (!Utils::isUnset($request->enableTagAuth)) {
+            $query['EnableTagAuth'] = $request->enableTagAuth;
+        }
+        if (!Utils::isUnset($request->groupId)) {
+            $query['GroupId'] = $request->groupId;
+        }
+        if (!Utils::isUnset($request->groupName)) {
+            $query['GroupName'] = $request->groupName;
+        }
+        if (!Utils::isUnset($request->instanceId)) {
+            $query['InstanceId'] = $request->instanceId;
+        }
+        if (!Utils::isUnset($request->pageNumber)) {
+            $query['PageNumber'] = $request->pageNumber;
+        }
+        if (!Utils::isUnset($request->pageSize)) {
+            $query['PageSize'] = $request->pageSize;
+        }
+        if (!Utils::isUnset($request->securityToken)) {
+            $query['SecurityToken'] = $request->securityToken;
+        }
+        if (!Utils::isUnset($request->sort)) {
+            $query['Sort'] = $request->sort;
+        }
+        if (!Utils::isUnset($request->tag)) {
+            $query['Tag'] = $request->tag;
+        }
+        $req = new OpenApiRequest([
             'query' => OpenApiUtilClient::query($query),
-            'body'  => Utils::toMap($request),
         ]);
         $params = new Params([
             'action'      => 'DescribeApiGroups',
@@ -2174,7 +2497,7 @@ class CloudAPI extends OpenApiClient
             'method'      => 'POST',
             'authType'    => 'AK',
             'style'       => 'RPC',
-            'reqBodyType' => 'json',
+            'reqBodyType' => 'formData',
             'bodyType'    => 'json',
         ]);
 
@@ -2202,17 +2525,30 @@ class CloudAPI extends OpenApiClient
     public function describeApiHistoriesWithOptions($request, $runtime)
     {
         Utils::validateModel($request);
-        $query                  = [];
-        $query['ApiId']         = $request->apiId;
-        $query['ApiName']       = $request->apiName;
-        $query['GroupId']       = $request->groupId;
-        $query['PageNumber']    = $request->pageNumber;
-        $query['PageSize']      = $request->pageSize;
-        $query['SecurityToken'] = $request->securityToken;
-        $query['StageName']     = $request->stageName;
-        $req                    = new OpenApiRequest([
+        $query = [];
+        if (!Utils::isUnset($request->apiId)) {
+            $query['ApiId'] = $request->apiId;
+        }
+        if (!Utils::isUnset($request->apiName)) {
+            $query['ApiName'] = $request->apiName;
+        }
+        if (!Utils::isUnset($request->groupId)) {
+            $query['GroupId'] = $request->groupId;
+        }
+        if (!Utils::isUnset($request->pageNumber)) {
+            $query['PageNumber'] = $request->pageNumber;
+        }
+        if (!Utils::isUnset($request->pageSize)) {
+            $query['PageSize'] = $request->pageSize;
+        }
+        if (!Utils::isUnset($request->securityToken)) {
+            $query['SecurityToken'] = $request->securityToken;
+        }
+        if (!Utils::isUnset($request->stageName)) {
+            $query['StageName'] = $request->stageName;
+        }
+        $req = new OpenApiRequest([
             'query' => OpenApiUtilClient::query($query),
-            'body'  => Utils::toMap($request),
         ]);
         $params = new Params([
             'action'      => 'DescribeApiHistories',
@@ -2222,7 +2558,7 @@ class CloudAPI extends OpenApiClient
             'method'      => 'POST',
             'authType'    => 'AK',
             'style'       => 'RPC',
-            'reqBodyType' => 'json',
+            'reqBodyType' => 'formData',
             'bodyType'    => 'json',
         ]);
 
@@ -2250,15 +2586,24 @@ class CloudAPI extends OpenApiClient
     public function describeApiHistoryWithOptions($request, $runtime)
     {
         Utils::validateModel($request);
-        $query                   = [];
-        $query['ApiId']          = $request->apiId;
-        $query['GroupId']        = $request->groupId;
-        $query['HistoryVersion'] = $request->historyVersion;
-        $query['SecurityToken']  = $request->securityToken;
-        $query['StageName']      = $request->stageName;
-        $req                     = new OpenApiRequest([
+        $query = [];
+        if (!Utils::isUnset($request->apiId)) {
+            $query['ApiId'] = $request->apiId;
+        }
+        if (!Utils::isUnset($request->groupId)) {
+            $query['GroupId'] = $request->groupId;
+        }
+        if (!Utils::isUnset($request->historyVersion)) {
+            $query['HistoryVersion'] = $request->historyVersion;
+        }
+        if (!Utils::isUnset($request->securityToken)) {
+            $query['SecurityToken'] = $request->securityToken;
+        }
+        if (!Utils::isUnset($request->stageName)) {
+            $query['StageName'] = $request->stageName;
+        }
+        $req = new OpenApiRequest([
             'query' => OpenApiUtilClient::query($query),
-            'body'  => Utils::toMap($request),
         ]);
         $params = new Params([
             'action'      => 'DescribeApiHistory',
@@ -2268,7 +2613,7 @@ class CloudAPI extends OpenApiClient
             'method'      => 'POST',
             'authType'    => 'AK',
             'style'       => 'RPC',
-            'reqBodyType' => 'json',
+            'reqBodyType' => 'formData',
             'bodyType'    => 'json',
         ]);
 
@@ -2296,16 +2641,27 @@ class CloudAPI extends OpenApiClient
     public function describeApiIpControlsWithOptions($request, $runtime)
     {
         Utils::validateModel($request);
-        $query                  = [];
-        $query['ApiIds']        = $request->apiIds;
-        $query['GroupId']       = $request->groupId;
-        $query['PageNumber']    = $request->pageNumber;
-        $query['PageSize']      = $request->pageSize;
-        $query['SecurityToken'] = $request->securityToken;
-        $query['StageName']     = $request->stageName;
-        $req                    = new OpenApiRequest([
+        $query = [];
+        if (!Utils::isUnset($request->apiIds)) {
+            $query['ApiIds'] = $request->apiIds;
+        }
+        if (!Utils::isUnset($request->groupId)) {
+            $query['GroupId'] = $request->groupId;
+        }
+        if (!Utils::isUnset($request->pageNumber)) {
+            $query['PageNumber'] = $request->pageNumber;
+        }
+        if (!Utils::isUnset($request->pageSize)) {
+            $query['PageSize'] = $request->pageSize;
+        }
+        if (!Utils::isUnset($request->securityToken)) {
+            $query['SecurityToken'] = $request->securityToken;
+        }
+        if (!Utils::isUnset($request->stageName)) {
+            $query['StageName'] = $request->stageName;
+        }
+        $req = new OpenApiRequest([
             'query' => OpenApiUtilClient::query($query),
-            'body'  => Utils::toMap($request),
         ]);
         $params = new Params([
             'action'      => 'DescribeApiIpControls',
@@ -2315,7 +2671,7 @@ class CloudAPI extends OpenApiClient
             'method'      => 'POST',
             'authType'    => 'AK',
             'style'       => 'RPC',
-            'reqBodyType' => 'json',
+            'reqBodyType' => 'formData',
             'bodyType'    => 'json',
         ]);
 
@@ -2343,16 +2699,27 @@ class CloudAPI extends OpenApiClient
     public function describeApiLatencyDataWithOptions($request, $runtime)
     {
         Utils::validateModel($request);
-        $query                  = [];
-        $query['ApiId']         = $request->apiId;
-        $query['EndTime']       = $request->endTime;
-        $query['GroupId']       = $request->groupId;
-        $query['SecurityToken'] = $request->securityToken;
-        $query['StageName']     = $request->stageName;
-        $query['StartTime']     = $request->startTime;
-        $req                    = new OpenApiRequest([
+        $query = [];
+        if (!Utils::isUnset($request->apiId)) {
+            $query['ApiId'] = $request->apiId;
+        }
+        if (!Utils::isUnset($request->endTime)) {
+            $query['EndTime'] = $request->endTime;
+        }
+        if (!Utils::isUnset($request->groupId)) {
+            $query['GroupId'] = $request->groupId;
+        }
+        if (!Utils::isUnset($request->securityToken)) {
+            $query['SecurityToken'] = $request->securityToken;
+        }
+        if (!Utils::isUnset($request->stageName)) {
+            $query['StageName'] = $request->stageName;
+        }
+        if (!Utils::isUnset($request->startTime)) {
+            $query['StartTime'] = $request->startTime;
+        }
+        $req = new OpenApiRequest([
             'query' => OpenApiUtilClient::query($query),
-            'body'  => Utils::toMap($request),
         ]);
         $params = new Params([
             'action'      => 'DescribeApiLatencyData',
@@ -2362,7 +2729,7 @@ class CloudAPI extends OpenApiClient
             'method'      => 'POST',
             'authType'    => 'AK',
             'style'       => 'RPC',
-            'reqBodyType' => 'json',
+            'reqBodyType' => 'formData',
             'bodyType'    => 'json',
         ]);
 
@@ -2390,13 +2757,18 @@ class CloudAPI extends OpenApiClient
     public function describeApiMarketAttributesWithOptions($request, $runtime)
     {
         Utils::validateModel($request);
-        $query                  = [];
-        $query['ApiId']         = $request->apiId;
-        $query['GroupId']       = $request->groupId;
-        $query['SecurityToken'] = $request->securityToken;
-        $req                    = new OpenApiRequest([
+        $query = [];
+        if (!Utils::isUnset($request->apiId)) {
+            $query['ApiId'] = $request->apiId;
+        }
+        if (!Utils::isUnset($request->groupId)) {
+            $query['GroupId'] = $request->groupId;
+        }
+        if (!Utils::isUnset($request->securityToken)) {
+            $query['SecurityToken'] = $request->securityToken;
+        }
+        $req = new OpenApiRequest([
             'query' => OpenApiUtilClient::query($query),
-            'body'  => Utils::toMap($request),
         ]);
         $params = new Params([
             'action'      => 'DescribeApiMarketAttributes',
@@ -2406,7 +2778,7 @@ class CloudAPI extends OpenApiClient
             'method'      => 'POST',
             'authType'    => 'AK',
             'style'       => 'RPC',
-            'reqBodyType' => 'json',
+            'reqBodyType' => 'formData',
             'bodyType'    => 'json',
         ]);
 
@@ -2434,16 +2806,27 @@ class CloudAPI extends OpenApiClient
     public function describeApiQpsDataWithOptions($request, $runtime)
     {
         Utils::validateModel($request);
-        $query                  = [];
-        $query['ApiId']         = $request->apiId;
-        $query['EndTime']       = $request->endTime;
-        $query['GroupId']       = $request->groupId;
-        $query['SecurityToken'] = $request->securityToken;
-        $query['StageName']     = $request->stageName;
-        $query['StartTime']     = $request->startTime;
-        $req                    = new OpenApiRequest([
+        $query = [];
+        if (!Utils::isUnset($request->apiId)) {
+            $query['ApiId'] = $request->apiId;
+        }
+        if (!Utils::isUnset($request->endTime)) {
+            $query['EndTime'] = $request->endTime;
+        }
+        if (!Utils::isUnset($request->groupId)) {
+            $query['GroupId'] = $request->groupId;
+        }
+        if (!Utils::isUnset($request->securityToken)) {
+            $query['SecurityToken'] = $request->securityToken;
+        }
+        if (!Utils::isUnset($request->stageName)) {
+            $query['StageName'] = $request->stageName;
+        }
+        if (!Utils::isUnset($request->startTime)) {
+            $query['StartTime'] = $request->startTime;
+        }
+        $req = new OpenApiRequest([
             'query' => OpenApiUtilClient::query($query),
-            'body'  => Utils::toMap($request),
         ]);
         $params = new Params([
             'action'      => 'DescribeApiQpsData',
@@ -2453,7 +2836,7 @@ class CloudAPI extends OpenApiClient
             'method'      => 'POST',
             'authType'    => 'AK',
             'style'       => 'RPC',
-            'reqBodyType' => 'json',
+            'reqBodyType' => 'formData',
             'bodyType'    => 'json',
         ]);
 
@@ -2481,16 +2864,27 @@ class CloudAPI extends OpenApiClient
     public function describeApiSignaturesWithOptions($request, $runtime)
     {
         Utils::validateModel($request);
-        $query                  = [];
-        $query['ApiIds']        = $request->apiIds;
-        $query['GroupId']       = $request->groupId;
-        $query['PageNumber']    = $request->pageNumber;
-        $query['PageSize']      = $request->pageSize;
-        $query['SecurityToken'] = $request->securityToken;
-        $query['StageName']     = $request->stageName;
-        $req                    = new OpenApiRequest([
+        $query = [];
+        if (!Utils::isUnset($request->apiIds)) {
+            $query['ApiIds'] = $request->apiIds;
+        }
+        if (!Utils::isUnset($request->groupId)) {
+            $query['GroupId'] = $request->groupId;
+        }
+        if (!Utils::isUnset($request->pageNumber)) {
+            $query['PageNumber'] = $request->pageNumber;
+        }
+        if (!Utils::isUnset($request->pageSize)) {
+            $query['PageSize'] = $request->pageSize;
+        }
+        if (!Utils::isUnset($request->securityToken)) {
+            $query['SecurityToken'] = $request->securityToken;
+        }
+        if (!Utils::isUnset($request->stageName)) {
+            $query['StageName'] = $request->stageName;
+        }
+        $req = new OpenApiRequest([
             'query' => OpenApiUtilClient::query($query),
-            'body'  => Utils::toMap($request),
         ]);
         $params = new Params([
             'action'      => 'DescribeApiSignatures',
@@ -2500,7 +2894,7 @@ class CloudAPI extends OpenApiClient
             'method'      => 'POST',
             'authType'    => 'AK',
             'style'       => 'RPC',
-            'reqBodyType' => 'json',
+            'reqBodyType' => 'formData',
             'bodyType'    => 'json',
         ]);
 
@@ -2528,16 +2922,27 @@ class CloudAPI extends OpenApiClient
     public function describeApiTrafficControlsWithOptions($request, $runtime)
     {
         Utils::validateModel($request);
-        $query                  = [];
-        $query['ApiIds']        = $request->apiIds;
-        $query['GroupId']       = $request->groupId;
-        $query['PageNumber']    = $request->pageNumber;
-        $query['PageSize']      = $request->pageSize;
-        $query['SecurityToken'] = $request->securityToken;
-        $query['StageName']     = $request->stageName;
-        $req                    = new OpenApiRequest([
+        $query = [];
+        if (!Utils::isUnset($request->apiIds)) {
+            $query['ApiIds'] = $request->apiIds;
+        }
+        if (!Utils::isUnset($request->groupId)) {
+            $query['GroupId'] = $request->groupId;
+        }
+        if (!Utils::isUnset($request->pageNumber)) {
+            $query['PageNumber'] = $request->pageNumber;
+        }
+        if (!Utils::isUnset($request->pageSize)) {
+            $query['PageSize'] = $request->pageSize;
+        }
+        if (!Utils::isUnset($request->securityToken)) {
+            $query['SecurityToken'] = $request->securityToken;
+        }
+        if (!Utils::isUnset($request->stageName)) {
+            $query['StageName'] = $request->stageName;
+        }
+        $req = new OpenApiRequest([
             'query' => OpenApiUtilClient::query($query),
-            'body'  => Utils::toMap($request),
         ]);
         $params = new Params([
             'action'      => 'DescribeApiTrafficControls',
@@ -2547,7 +2952,7 @@ class CloudAPI extends OpenApiClient
             'method'      => 'POST',
             'authType'    => 'AK',
             'style'       => 'RPC',
-            'reqBodyType' => 'json',
+            'reqBodyType' => 'formData',
             'bodyType'    => 'json',
         ]);
 
@@ -2575,16 +2980,27 @@ class CloudAPI extends OpenApiClient
     public function describeApiTrafficDataWithOptions($request, $runtime)
     {
         Utils::validateModel($request);
-        $query                  = [];
-        $query['ApiId']         = $request->apiId;
-        $query['EndTime']       = $request->endTime;
-        $query['GroupId']       = $request->groupId;
-        $query['SecurityToken'] = $request->securityToken;
-        $query['StageName']     = $request->stageName;
-        $query['StartTime']     = $request->startTime;
-        $req                    = new OpenApiRequest([
+        $query = [];
+        if (!Utils::isUnset($request->apiId)) {
+            $query['ApiId'] = $request->apiId;
+        }
+        if (!Utils::isUnset($request->endTime)) {
+            $query['EndTime'] = $request->endTime;
+        }
+        if (!Utils::isUnset($request->groupId)) {
+            $query['GroupId'] = $request->groupId;
+        }
+        if (!Utils::isUnset($request->securityToken)) {
+            $query['SecurityToken'] = $request->securityToken;
+        }
+        if (!Utils::isUnset($request->stageName)) {
+            $query['StageName'] = $request->stageName;
+        }
+        if (!Utils::isUnset($request->startTime)) {
+            $query['StartTime'] = $request->startTime;
+        }
+        $req = new OpenApiRequest([
             'query' => OpenApiUtilClient::query($query),
-            'body'  => Utils::toMap($request),
         ]);
         $params = new Params([
             'action'      => 'DescribeApiTrafficData',
@@ -2594,7 +3010,7 @@ class CloudAPI extends OpenApiClient
             'method'      => 'POST',
             'authType'    => 'AK',
             'style'       => 'RPC',
-            'reqBodyType' => 'json',
+            'reqBodyType' => 'formData',
             'bodyType'    => 'json',
         ]);
 
@@ -2622,20 +3038,39 @@ class CloudAPI extends OpenApiClient
     public function describeApisWithOptions($request, $runtime)
     {
         Utils::validateModel($request);
-        $query                  = [];
-        $query['ApiId']         = $request->apiId;
-        $query['ApiName']       = $request->apiName;
-        $query['CatalogId']     = $request->catalogId;
-        $query['EnableTagAuth'] = $request->enableTagAuth;
-        $query['GroupId']       = $request->groupId;
-        $query['PageNumber']    = $request->pageNumber;
-        $query['PageSize']      = $request->pageSize;
-        $query['SecurityToken'] = $request->securityToken;
-        $query['Tag']           = $request->tag;
-        $query['Visibility']    = $request->visibility;
-        $req                    = new OpenApiRequest([
+        $query = [];
+        if (!Utils::isUnset($request->apiId)) {
+            $query['ApiId'] = $request->apiId;
+        }
+        if (!Utils::isUnset($request->apiName)) {
+            $query['ApiName'] = $request->apiName;
+        }
+        if (!Utils::isUnset($request->catalogId)) {
+            $query['CatalogId'] = $request->catalogId;
+        }
+        if (!Utils::isUnset($request->enableTagAuth)) {
+            $query['EnableTagAuth'] = $request->enableTagAuth;
+        }
+        if (!Utils::isUnset($request->groupId)) {
+            $query['GroupId'] = $request->groupId;
+        }
+        if (!Utils::isUnset($request->pageNumber)) {
+            $query['PageNumber'] = $request->pageNumber;
+        }
+        if (!Utils::isUnset($request->pageSize)) {
+            $query['PageSize'] = $request->pageSize;
+        }
+        if (!Utils::isUnset($request->securityToken)) {
+            $query['SecurityToken'] = $request->securityToken;
+        }
+        if (!Utils::isUnset($request->tag)) {
+            $query['Tag'] = $request->tag;
+        }
+        if (!Utils::isUnset($request->visibility)) {
+            $query['Visibility'] = $request->visibility;
+        }
+        $req = new OpenApiRequest([
             'query' => OpenApiUtilClient::query($query),
-            'body'  => Utils::toMap($request),
         ]);
         $params = new Params([
             'action'      => 'DescribeApis',
@@ -2645,7 +3080,7 @@ class CloudAPI extends OpenApiClient
             'method'      => 'POST',
             'authType'    => 'AK',
             'style'       => 'RPC',
-            'reqBodyType' => 'json',
+            'reqBodyType' => 'formData',
             'bodyType'    => 'json',
         ]);
 
@@ -2673,18 +3108,33 @@ class CloudAPI extends OpenApiClient
     public function describeApisByAppWithOptions($request, $runtime)
     {
         Utils::validateModel($request);
-        $query                  = [];
-        $query['ApiName']       = $request->apiName;
-        $query['ApiUid']        = $request->apiUid;
-        $query['AppId']         = $request->appId;
-        $query['Method']        = $request->method;
-        $query['PageNumber']    = $request->pageNumber;
-        $query['PageSize']      = $request->pageSize;
-        $query['Path']          = $request->path;
-        $query['SecurityToken'] = $request->securityToken;
-        $req                    = new OpenApiRequest([
+        $query = [];
+        if (!Utils::isUnset($request->apiName)) {
+            $query['ApiName'] = $request->apiName;
+        }
+        if (!Utils::isUnset($request->apiUid)) {
+            $query['ApiUid'] = $request->apiUid;
+        }
+        if (!Utils::isUnset($request->appId)) {
+            $query['AppId'] = $request->appId;
+        }
+        if (!Utils::isUnset($request->method)) {
+            $query['Method'] = $request->method;
+        }
+        if (!Utils::isUnset($request->pageNumber)) {
+            $query['PageNumber'] = $request->pageNumber;
+        }
+        if (!Utils::isUnset($request->pageSize)) {
+            $query['PageSize'] = $request->pageSize;
+        }
+        if (!Utils::isUnset($request->path)) {
+            $query['Path'] = $request->path;
+        }
+        if (!Utils::isUnset($request->securityToken)) {
+            $query['SecurityToken'] = $request->securityToken;
+        }
+        $req = new OpenApiRequest([
             'query' => OpenApiUtilClient::query($query),
-            'body'  => Utils::toMap($request),
         ]);
         $params = new Params([
             'action'      => 'DescribeApisByApp',
@@ -2694,7 +3144,7 @@ class CloudAPI extends OpenApiClient
             'method'      => 'POST',
             'authType'    => 'AK',
             'style'       => 'RPC',
-            'reqBodyType' => 'json',
+            'reqBodyType' => 'formData',
             'bodyType'    => 'json',
         ]);
 
@@ -2722,14 +3172,21 @@ class CloudAPI extends OpenApiClient
     public function describeApisByIpControlWithOptions($request, $runtime)
     {
         Utils::validateModel($request);
-        $query                  = [];
-        $query['IpControlId']   = $request->ipControlId;
-        $query['PageNumber']    = $request->pageNumber;
-        $query['PageSize']      = $request->pageSize;
-        $query['SecurityToken'] = $request->securityToken;
-        $req                    = new OpenApiRequest([
+        $query = [];
+        if (!Utils::isUnset($request->ipControlId)) {
+            $query['IpControlId'] = $request->ipControlId;
+        }
+        if (!Utils::isUnset($request->pageNumber)) {
+            $query['PageNumber'] = $request->pageNumber;
+        }
+        if (!Utils::isUnset($request->pageSize)) {
+            $query['PageSize'] = $request->pageSize;
+        }
+        if (!Utils::isUnset($request->securityToken)) {
+            $query['SecurityToken'] = $request->securityToken;
+        }
+        $req = new OpenApiRequest([
             'query' => OpenApiUtilClient::query($query),
-            'body'  => Utils::toMap($request),
         ]);
         $params = new Params([
             'action'      => 'DescribeApisByIpControl',
@@ -2739,7 +3196,7 @@ class CloudAPI extends OpenApiClient
             'method'      => 'POST',
             'authType'    => 'AK',
             'style'       => 'RPC',
-            'reqBodyType' => 'json',
+            'reqBodyType' => 'formData',
             'bodyType'    => 'json',
         ]);
 
@@ -2767,14 +3224,21 @@ class CloudAPI extends OpenApiClient
     public function describeApisBySignatureWithOptions($request, $runtime)
     {
         Utils::validateModel($request);
-        $query                  = [];
-        $query['PageNumber']    = $request->pageNumber;
-        $query['PageSize']      = $request->pageSize;
-        $query['SecurityToken'] = $request->securityToken;
-        $query['SignatureId']   = $request->signatureId;
-        $req                    = new OpenApiRequest([
+        $query = [];
+        if (!Utils::isUnset($request->pageNumber)) {
+            $query['PageNumber'] = $request->pageNumber;
+        }
+        if (!Utils::isUnset($request->pageSize)) {
+            $query['PageSize'] = $request->pageSize;
+        }
+        if (!Utils::isUnset($request->securityToken)) {
+            $query['SecurityToken'] = $request->securityToken;
+        }
+        if (!Utils::isUnset($request->signatureId)) {
+            $query['SignatureId'] = $request->signatureId;
+        }
+        $req = new OpenApiRequest([
             'query' => OpenApiUtilClient::query($query),
-            'body'  => Utils::toMap($request),
         ]);
         $params = new Params([
             'action'      => 'DescribeApisBySignature',
@@ -2784,7 +3248,7 @@ class CloudAPI extends OpenApiClient
             'method'      => 'POST',
             'authType'    => 'AK',
             'style'       => 'RPC',
-            'reqBodyType' => 'json',
+            'reqBodyType' => 'formData',
             'bodyType'    => 'json',
         ]);
 
@@ -2812,14 +3276,21 @@ class CloudAPI extends OpenApiClient
     public function describeApisByTrafficControlWithOptions($request, $runtime)
     {
         Utils::validateModel($request);
-        $query                     = [];
-        $query['PageNumber']       = $request->pageNumber;
-        $query['PageSize']         = $request->pageSize;
-        $query['SecurityToken']    = $request->securityToken;
-        $query['TrafficControlId'] = $request->trafficControlId;
-        $req                       = new OpenApiRequest([
+        $query = [];
+        if (!Utils::isUnset($request->pageNumber)) {
+            $query['PageNumber'] = $request->pageNumber;
+        }
+        if (!Utils::isUnset($request->pageSize)) {
+            $query['PageSize'] = $request->pageSize;
+        }
+        if (!Utils::isUnset($request->securityToken)) {
+            $query['SecurityToken'] = $request->securityToken;
+        }
+        if (!Utils::isUnset($request->trafficControlId)) {
+            $query['TrafficControlId'] = $request->trafficControlId;
+        }
+        $req = new OpenApiRequest([
             'query' => OpenApiUtilClient::query($query),
-            'body'  => Utils::toMap($request),
         ]);
         $params = new Params([
             'action'      => 'DescribeApisByTrafficControl',
@@ -2829,7 +3300,7 @@ class CloudAPI extends OpenApiClient
             'method'      => 'POST',
             'authType'    => 'AK',
             'style'       => 'RPC',
-            'reqBodyType' => 'json',
+            'reqBodyType' => 'formData',
             'bodyType'    => 'json',
         ]);
 
@@ -2857,12 +3328,15 @@ class CloudAPI extends OpenApiClient
     public function describeAppWithOptions($request, $runtime)
     {
         Utils::validateModel($request);
-        $query                  = [];
-        $query['AppId']         = $request->appId;
-        $query['SecurityToken'] = $request->securityToken;
-        $req                    = new OpenApiRequest([
+        $query = [];
+        if (!Utils::isUnset($request->appId)) {
+            $query['AppId'] = $request->appId;
+        }
+        if (!Utils::isUnset($request->securityToken)) {
+            $query['SecurityToken'] = $request->securityToken;
+        }
+        $req = new OpenApiRequest([
             'query' => OpenApiUtilClient::query($query),
-            'body'  => Utils::toMap($request),
         ]);
         $params = new Params([
             'action'      => 'DescribeApp',
@@ -2872,7 +3346,7 @@ class CloudAPI extends OpenApiClient
             'method'      => 'POST',
             'authType'    => 'AK',
             'style'       => 'RPC',
-            'reqBodyType' => 'json',
+            'reqBodyType' => 'formData',
             'bodyType'    => 'json',
         ]);
 
@@ -2900,20 +3374,39 @@ class CloudAPI extends OpenApiClient
     public function describeAppAttributesWithOptions($request, $runtime)
     {
         Utils::validateModel($request);
-        $query                  = [];
-        $query['AppCode']       = $request->appCode;
-        $query['AppId']         = $request->appId;
-        $query['AppKey']        = $request->appKey;
-        $query['AppName']       = $request->appName;
-        $query['EnableTagAuth'] = $request->enableTagAuth;
-        $query['PageNumber']    = $request->pageNumber;
-        $query['PageSize']      = $request->pageSize;
-        $query['SecurityToken'] = $request->securityToken;
-        $query['Sort']          = $request->sort;
-        $query['Tag']           = $request->tag;
-        $req                    = new OpenApiRequest([
+        $query = [];
+        if (!Utils::isUnset($request->appCode)) {
+            $query['AppCode'] = $request->appCode;
+        }
+        if (!Utils::isUnset($request->appId)) {
+            $query['AppId'] = $request->appId;
+        }
+        if (!Utils::isUnset($request->appKey)) {
+            $query['AppKey'] = $request->appKey;
+        }
+        if (!Utils::isUnset($request->appName)) {
+            $query['AppName'] = $request->appName;
+        }
+        if (!Utils::isUnset($request->enableTagAuth)) {
+            $query['EnableTagAuth'] = $request->enableTagAuth;
+        }
+        if (!Utils::isUnset($request->pageNumber)) {
+            $query['PageNumber'] = $request->pageNumber;
+        }
+        if (!Utils::isUnset($request->pageSize)) {
+            $query['PageSize'] = $request->pageSize;
+        }
+        if (!Utils::isUnset($request->securityToken)) {
+            $query['SecurityToken'] = $request->securityToken;
+        }
+        if (!Utils::isUnset($request->sort)) {
+            $query['Sort'] = $request->sort;
+        }
+        if (!Utils::isUnset($request->tag)) {
+            $query['Tag'] = $request->tag;
+        }
+        $req = new OpenApiRequest([
             'query' => OpenApiUtilClient::query($query),
-            'body'  => Utils::toMap($request),
         ]);
         $params = new Params([
             'action'      => 'DescribeAppAttributes',
@@ -2923,7 +3416,7 @@ class CloudAPI extends OpenApiClient
             'method'      => 'POST',
             'authType'    => 'AK',
             'style'       => 'RPC',
-            'reqBodyType' => 'json',
+            'reqBodyType' => 'formData',
             'bodyType'    => 'json',
         ]);
 
@@ -2951,13 +3444,18 @@ class CloudAPI extends OpenApiClient
     public function describeAppSecurityWithOptions($request, $runtime)
     {
         Utils::validateModel($request);
-        $query                  = [];
-        $query['AppId']         = $request->appId;
-        $query['SecurityToken'] = $request->securityToken;
-        $query['Tag']           = $request->tag;
-        $req                    = new OpenApiRequest([
+        $query = [];
+        if (!Utils::isUnset($request->appId)) {
+            $query['AppId'] = $request->appId;
+        }
+        if (!Utils::isUnset($request->securityToken)) {
+            $query['SecurityToken'] = $request->securityToken;
+        }
+        if (!Utils::isUnset($request->tag)) {
+            $query['Tag'] = $request->tag;
+        }
+        $req = new OpenApiRequest([
             'query' => OpenApiUtilClient::query($query),
-            'body'  => Utils::toMap($request),
         ]);
         $params = new Params([
             'action'      => 'DescribeAppSecurity',
@@ -2967,7 +3465,7 @@ class CloudAPI extends OpenApiClient
             'method'      => 'POST',
             'authType'    => 'AK',
             'style'       => 'RPC',
-            'reqBodyType' => 'json',
+            'reqBodyType' => 'formData',
             'bodyType'    => 'json',
         ]);
 
@@ -2995,15 +3493,24 @@ class CloudAPI extends OpenApiClient
     public function describeAppsWithOptions($request, $runtime)
     {
         Utils::validateModel($request);
-        $query                  = [];
-        $query['AppId']         = $request->appId;
-        $query['AppOwner']      = $request->appOwner;
-        $query['PageNumber']    = $request->pageNumber;
-        $query['PageSize']      = $request->pageSize;
-        $query['SecurityToken'] = $request->securityToken;
-        $req                    = new OpenApiRequest([
+        $query = [];
+        if (!Utils::isUnset($request->appId)) {
+            $query['AppId'] = $request->appId;
+        }
+        if (!Utils::isUnset($request->appOwner)) {
+            $query['AppOwner'] = $request->appOwner;
+        }
+        if (!Utils::isUnset($request->pageNumber)) {
+            $query['PageNumber'] = $request->pageNumber;
+        }
+        if (!Utils::isUnset($request->pageSize)) {
+            $query['PageSize'] = $request->pageSize;
+        }
+        if (!Utils::isUnset($request->securityToken)) {
+            $query['SecurityToken'] = $request->securityToken;
+        }
+        $req = new OpenApiRequest([
             'query' => OpenApiUtilClient::query($query),
-            'body'  => Utils::toMap($request),
         ]);
         $params = new Params([
             'action'      => 'DescribeApps',
@@ -3013,7 +3520,7 @@ class CloudAPI extends OpenApiClient
             'method'      => 'POST',
             'authType'    => 'AK',
             'style'       => 'RPC',
-            'reqBodyType' => 'json',
+            'reqBodyType' => 'formData',
             'bodyType'    => 'json',
         ]);
 
@@ -3041,14 +3548,21 @@ class CloudAPI extends OpenApiClient
     public function describeAuthorizedApisWithOptions($request, $runtime)
     {
         Utils::validateModel($request);
-        $query                  = [];
-        $query['AppId']         = $request->appId;
-        $query['PageNumber']    = $request->pageNumber;
-        $query['PageSize']      = $request->pageSize;
-        $query['SecurityToken'] = $request->securityToken;
-        $req                    = new OpenApiRequest([
+        $query = [];
+        if (!Utils::isUnset($request->appId)) {
+            $query['AppId'] = $request->appId;
+        }
+        if (!Utils::isUnset($request->pageNumber)) {
+            $query['PageNumber'] = $request->pageNumber;
+        }
+        if (!Utils::isUnset($request->pageSize)) {
+            $query['PageSize'] = $request->pageSize;
+        }
+        if (!Utils::isUnset($request->securityToken)) {
+            $query['SecurityToken'] = $request->securityToken;
+        }
+        $req = new OpenApiRequest([
             'query' => OpenApiUtilClient::query($query),
-            'body'  => Utils::toMap($request),
         ]);
         $params = new Params([
             'action'      => 'DescribeAuthorizedApis',
@@ -3058,7 +3572,7 @@ class CloudAPI extends OpenApiClient
             'method'      => 'POST',
             'authType'    => 'AK',
             'style'       => 'RPC',
-            'reqBodyType' => 'json',
+            'reqBodyType' => 'formData',
             'bodyType'    => 'json',
         ]);
 
@@ -3086,19 +3600,36 @@ class CloudAPI extends OpenApiClient
     public function describeAuthorizedAppsWithOptions($request, $runtime)
     {
         Utils::validateModel($request);
-        $query                  = [];
-        $query['ApiId']         = $request->apiId;
-        $query['AppId']         = $request->appId;
-        $query['AppName']       = $request->appName;
-        $query['AppOwnerId']    = $request->appOwnerId;
-        $query['GroupId']       = $request->groupId;
-        $query['PageNumber']    = $request->pageNumber;
-        $query['PageSize']      = $request->pageSize;
-        $query['SecurityToken'] = $request->securityToken;
-        $query['StageName']     = $request->stageName;
-        $req                    = new OpenApiRequest([
+        $query = [];
+        if (!Utils::isUnset($request->apiId)) {
+            $query['ApiId'] = $request->apiId;
+        }
+        if (!Utils::isUnset($request->appId)) {
+            $query['AppId'] = $request->appId;
+        }
+        if (!Utils::isUnset($request->appName)) {
+            $query['AppName'] = $request->appName;
+        }
+        if (!Utils::isUnset($request->appOwnerId)) {
+            $query['AppOwnerId'] = $request->appOwnerId;
+        }
+        if (!Utils::isUnset($request->groupId)) {
+            $query['GroupId'] = $request->groupId;
+        }
+        if (!Utils::isUnset($request->pageNumber)) {
+            $query['PageNumber'] = $request->pageNumber;
+        }
+        if (!Utils::isUnset($request->pageSize)) {
+            $query['PageSize'] = $request->pageSize;
+        }
+        if (!Utils::isUnset($request->securityToken)) {
+            $query['SecurityToken'] = $request->securityToken;
+        }
+        if (!Utils::isUnset($request->stageName)) {
+            $query['StageName'] = $request->stageName;
+        }
+        $req = new OpenApiRequest([
             'query' => OpenApiUtilClient::query($query),
-            'body'  => Utils::toMap($request),
         ]);
         $params = new Params([
             'action'      => 'DescribeAuthorizedApps',
@@ -3108,7 +3639,7 @@ class CloudAPI extends OpenApiClient
             'method'      => 'POST',
             'authType'    => 'AK',
             'style'       => 'RPC',
-            'reqBodyType' => 'json',
+            'reqBodyType' => 'formData',
             'bodyType'    => 'json',
         ]);
 
@@ -3136,12 +3667,15 @@ class CloudAPI extends OpenApiClient
     public function describeDeployApiTaskWithOptions($request, $runtime)
     {
         Utils::validateModel($request);
-        $query                  = [];
-        $query['OperationUid']  = $request->operationUid;
-        $query['SecurityToken'] = $request->securityToken;
-        $req                    = new OpenApiRequest([
+        $query = [];
+        if (!Utils::isUnset($request->operationUid)) {
+            $query['OperationUid'] = $request->operationUid;
+        }
+        if (!Utils::isUnset($request->securityToken)) {
+            $query['SecurityToken'] = $request->securityToken;
+        }
+        $req = new OpenApiRequest([
             'query' => OpenApiUtilClient::query($query),
-            'body'  => Utils::toMap($request),
         ]);
         $params = new Params([
             'action'      => 'DescribeDeployApiTask',
@@ -3151,7 +3685,7 @@ class CloudAPI extends OpenApiClient
             'method'      => 'POST',
             'authType'    => 'AK',
             'style'       => 'RPC',
-            'reqBodyType' => 'json',
+            'reqBodyType' => 'formData',
             'bodyType'    => 'json',
         ]);
 
@@ -3179,14 +3713,21 @@ class CloudAPI extends OpenApiClient
     public function describeDeployedApiWithOptions($request, $runtime)
     {
         Utils::validateModel($request);
-        $query                  = [];
-        $query['ApiId']         = $request->apiId;
-        $query['GroupId']       = $request->groupId;
-        $query['SecurityToken'] = $request->securityToken;
-        $query['StageName']     = $request->stageName;
-        $req                    = new OpenApiRequest([
+        $query = [];
+        if (!Utils::isUnset($request->apiId)) {
+            $query['ApiId'] = $request->apiId;
+        }
+        if (!Utils::isUnset($request->groupId)) {
+            $query['GroupId'] = $request->groupId;
+        }
+        if (!Utils::isUnset($request->securityToken)) {
+            $query['SecurityToken'] = $request->securityToken;
+        }
+        if (!Utils::isUnset($request->stageName)) {
+            $query['StageName'] = $request->stageName;
+        }
+        $req = new OpenApiRequest([
             'query' => OpenApiUtilClient::query($query),
-            'body'  => Utils::toMap($request),
         ]);
         $params = new Params([
             'action'      => 'DescribeDeployedApi',
@@ -3196,7 +3737,7 @@ class CloudAPI extends OpenApiClient
             'method'      => 'POST',
             'authType'    => 'AK',
             'style'       => 'RPC',
-            'reqBodyType' => 'json',
+            'reqBodyType' => 'formData',
             'bodyType'    => 'json',
         ]);
 
@@ -3224,19 +3765,36 @@ class CloudAPI extends OpenApiClient
     public function describeDeployedApisWithOptions($request, $runtime)
     {
         Utils::validateModel($request);
-        $query                  = [];
-        $query['ApiId']         = $request->apiId;
-        $query['ApiName']       = $request->apiName;
-        $query['EnableTagAuth'] = $request->enableTagAuth;
-        $query['GroupId']       = $request->groupId;
-        $query['PageNumber']    = $request->pageNumber;
-        $query['PageSize']      = $request->pageSize;
-        $query['SecurityToken'] = $request->securityToken;
-        $query['StageName']     = $request->stageName;
-        $query['Tag']           = $request->tag;
-        $req                    = new OpenApiRequest([
+        $query = [];
+        if (!Utils::isUnset($request->apiId)) {
+            $query['ApiId'] = $request->apiId;
+        }
+        if (!Utils::isUnset($request->apiName)) {
+            $query['ApiName'] = $request->apiName;
+        }
+        if (!Utils::isUnset($request->enableTagAuth)) {
+            $query['EnableTagAuth'] = $request->enableTagAuth;
+        }
+        if (!Utils::isUnset($request->groupId)) {
+            $query['GroupId'] = $request->groupId;
+        }
+        if (!Utils::isUnset($request->pageNumber)) {
+            $query['PageNumber'] = $request->pageNumber;
+        }
+        if (!Utils::isUnset($request->pageSize)) {
+            $query['PageSize'] = $request->pageSize;
+        }
+        if (!Utils::isUnset($request->securityToken)) {
+            $query['SecurityToken'] = $request->securityToken;
+        }
+        if (!Utils::isUnset($request->stageName)) {
+            $query['StageName'] = $request->stageName;
+        }
+        if (!Utils::isUnset($request->tag)) {
+            $query['Tag'] = $request->tag;
+        }
+        $req = new OpenApiRequest([
             'query' => OpenApiUtilClient::query($query),
-            'body'  => Utils::toMap($request),
         ]);
         $params = new Params([
             'action'      => 'DescribeDeployedApis',
@@ -3246,7 +3804,7 @@ class CloudAPI extends OpenApiClient
             'method'      => 'POST',
             'authType'    => 'AK',
             'style'       => 'RPC',
-            'reqBodyType' => 'json',
+            'reqBodyType' => 'formData',
             'bodyType'    => 'json',
         ]);
 
@@ -3274,13 +3832,18 @@ class CloudAPI extends OpenApiClient
     public function describeDomainWithOptions($request, $runtime)
     {
         Utils::validateModel($request);
-        $query                  = [];
-        $query['DomainName']    = $request->domainName;
-        $query['GroupId']       = $request->groupId;
-        $query['SecurityToken'] = $request->securityToken;
-        $req                    = new OpenApiRequest([
+        $query = [];
+        if (!Utils::isUnset($request->domainName)) {
+            $query['DomainName'] = $request->domainName;
+        }
+        if (!Utils::isUnset($request->groupId)) {
+            $query['GroupId'] = $request->groupId;
+        }
+        if (!Utils::isUnset($request->securityToken)) {
+            $query['SecurityToken'] = $request->securityToken;
+        }
+        $req = new OpenApiRequest([
             'query' => OpenApiUtilClient::query($query),
-            'body'  => Utils::toMap($request),
         ]);
         $params = new Params([
             'action'      => 'DescribeDomain',
@@ -3290,7 +3853,7 @@ class CloudAPI extends OpenApiClient
             'method'      => 'POST',
             'authType'    => 'AK',
             'style'       => 'RPC',
-            'reqBodyType' => 'json',
+            'reqBodyType' => 'formData',
             'bodyType'    => 'json',
         ]);
 
@@ -3318,17 +3881,30 @@ class CloudAPI extends OpenApiClient
     public function describeHistoryApisWithOptions($request, $runtime)
     {
         Utils::validateModel($request);
-        $query                  = [];
-        $query['ApiId']         = $request->apiId;
-        $query['ApiName']       = $request->apiName;
-        $query['GroupId']       = $request->groupId;
-        $query['PageNumber']    = $request->pageNumber;
-        $query['PageSize']      = $request->pageSize;
-        $query['SecurityToken'] = $request->securityToken;
-        $query['StageName']     = $request->stageName;
-        $req                    = new OpenApiRequest([
+        $query = [];
+        if (!Utils::isUnset($request->apiId)) {
+            $query['ApiId'] = $request->apiId;
+        }
+        if (!Utils::isUnset($request->apiName)) {
+            $query['ApiName'] = $request->apiName;
+        }
+        if (!Utils::isUnset($request->groupId)) {
+            $query['GroupId'] = $request->groupId;
+        }
+        if (!Utils::isUnset($request->pageNumber)) {
+            $query['PageNumber'] = $request->pageNumber;
+        }
+        if (!Utils::isUnset($request->pageSize)) {
+            $query['PageSize'] = $request->pageSize;
+        }
+        if (!Utils::isUnset($request->securityToken)) {
+            $query['SecurityToken'] = $request->securityToken;
+        }
+        if (!Utils::isUnset($request->stageName)) {
+            $query['StageName'] = $request->stageName;
+        }
+        $req = new OpenApiRequest([
             'query' => OpenApiUtilClient::query($query),
-            'body'  => Utils::toMap($request),
         ]);
         $params = new Params([
             'action'      => 'DescribeHistoryApis',
@@ -3338,7 +3914,7 @@ class CloudAPI extends OpenApiClient
             'method'      => 'POST',
             'authType'    => 'AK',
             'style'       => 'RPC',
-            'reqBodyType' => 'json',
+            'reqBodyType' => 'formData',
             'bodyType'    => 'json',
         ]);
 
@@ -3366,15 +3942,24 @@ class CloudAPI extends OpenApiClient
     public function describeIpControlPolicyItemsWithOptions($request, $runtime)
     {
         Utils::validateModel($request);
-        $query                  = [];
-        $query['IpControlId']   = $request->ipControlId;
-        $query['PageNumber']    = $request->pageNumber;
-        $query['PageSize']      = $request->pageSize;
-        $query['PolicyItemId']  = $request->policyItemId;
-        $query['SecurityToken'] = $request->securityToken;
-        $req                    = new OpenApiRequest([
+        $query = [];
+        if (!Utils::isUnset($request->ipControlId)) {
+            $query['IpControlId'] = $request->ipControlId;
+        }
+        if (!Utils::isUnset($request->pageNumber)) {
+            $query['PageNumber'] = $request->pageNumber;
+        }
+        if (!Utils::isUnset($request->pageSize)) {
+            $query['PageSize'] = $request->pageSize;
+        }
+        if (!Utils::isUnset($request->policyItemId)) {
+            $query['PolicyItemId'] = $request->policyItemId;
+        }
+        if (!Utils::isUnset($request->securityToken)) {
+            $query['SecurityToken'] = $request->securityToken;
+        }
+        $req = new OpenApiRequest([
             'query' => OpenApiUtilClient::query($query),
-            'body'  => Utils::toMap($request),
         ]);
         $params = new Params([
             'action'      => 'DescribeIpControlPolicyItems',
@@ -3384,7 +3969,7 @@ class CloudAPI extends OpenApiClient
             'method'      => 'POST',
             'authType'    => 'AK',
             'style'       => 'RPC',
-            'reqBodyType' => 'json',
+            'reqBodyType' => 'formData',
             'bodyType'    => 'json',
         ]);
 
@@ -3412,16 +3997,27 @@ class CloudAPI extends OpenApiClient
     public function describeIpControlsWithOptions($request, $runtime)
     {
         Utils::validateModel($request);
-        $query                  = [];
-        $query['IpControlId']   = $request->ipControlId;
-        $query['IpControlName'] = $request->ipControlName;
-        $query['IpControlType'] = $request->ipControlType;
-        $query['PageNumber']    = $request->pageNumber;
-        $query['PageSize']      = $request->pageSize;
-        $query['SecurityToken'] = $request->securityToken;
-        $req                    = new OpenApiRequest([
+        $query = [];
+        if (!Utils::isUnset($request->ipControlId)) {
+            $query['IpControlId'] = $request->ipControlId;
+        }
+        if (!Utils::isUnset($request->ipControlName)) {
+            $query['IpControlName'] = $request->ipControlName;
+        }
+        if (!Utils::isUnset($request->ipControlType)) {
+            $query['IpControlType'] = $request->ipControlType;
+        }
+        if (!Utils::isUnset($request->pageNumber)) {
+            $query['PageNumber'] = $request->pageNumber;
+        }
+        if (!Utils::isUnset($request->pageSize)) {
+            $query['PageSize'] = $request->pageSize;
+        }
+        if (!Utils::isUnset($request->securityToken)) {
+            $query['SecurityToken'] = $request->securityToken;
+        }
+        $req = new OpenApiRequest([
             'query' => OpenApiUtilClient::query($query),
-            'body'  => Utils::toMap($request),
         ]);
         $params = new Params([
             'action'      => 'DescribeIpControls',
@@ -3431,7 +4027,7 @@ class CloudAPI extends OpenApiClient
             'method'      => 'POST',
             'authType'    => 'AK',
             'style'       => 'RPC',
-            'reqBodyType' => 'json',
+            'reqBodyType' => 'formData',
             'bodyType'    => 'json',
         ]);
 
@@ -3459,12 +4055,15 @@ class CloudAPI extends OpenApiClient
     public function describeLogConfigWithOptions($request, $runtime)
     {
         Utils::validateModel($request);
-        $query                  = [];
-        $query['LogType']       = $request->logType;
-        $query['SecurityToken'] = $request->securityToken;
-        $req                    = new OpenApiRequest([
+        $query = [];
+        if (!Utils::isUnset($request->logType)) {
+            $query['LogType'] = $request->logType;
+        }
+        if (!Utils::isUnset($request->securityToken)) {
+            $query['SecurityToken'] = $request->securityToken;
+        }
+        $req = new OpenApiRequest([
             'query' => OpenApiUtilClient::query($query),
-            'body'  => Utils::toMap($request),
         ]);
         $params = new Params([
             'action'      => 'DescribeLogConfig',
@@ -3474,7 +4073,7 @@ class CloudAPI extends OpenApiClient
             'method'      => 'POST',
             'authType'    => 'AK',
             'style'       => 'RPC',
-            'reqBodyType' => 'json',
+            'reqBodyType' => 'formData',
             'bodyType'    => 'json',
         ]);
 
@@ -3502,12 +4101,15 @@ class CloudAPI extends OpenApiClient
     public function describeMarketRemainsQuotaWithOptions($request, $runtime)
     {
         Utils::validateModel($request);
-        $query                  = [];
-        $query['DomainName']    = $request->domainName;
-        $query['SecurityToken'] = $request->securityToken;
-        $req                    = new OpenApiRequest([
+        $query = [];
+        if (!Utils::isUnset($request->domainName)) {
+            $query['DomainName'] = $request->domainName;
+        }
+        if (!Utils::isUnset($request->securityToken)) {
+            $query['SecurityToken'] = $request->securityToken;
+        }
+        $req = new OpenApiRequest([
             'query' => OpenApiUtilClient::query($query),
-            'body'  => Utils::toMap($request),
         ]);
         $params = new Params([
             'action'      => 'DescribeMarketRemainsQuota',
@@ -3517,7 +4119,7 @@ class CloudAPI extends OpenApiClient
             'method'      => 'POST',
             'authType'    => 'AK',
             'style'       => 'RPC',
-            'reqBodyType' => 'json',
+            'reqBodyType' => 'formData',
             'bodyType'    => 'json',
         ]);
 
@@ -3545,15 +4147,24 @@ class CloudAPI extends OpenApiClient
     public function describeModelsWithOptions($request, $runtime)
     {
         Utils::validateModel($request);
-        $query               = [];
-        $query['GroupId']    = $request->groupId;
-        $query['ModelId']    = $request->modelId;
-        $query['ModelName']  = $request->modelName;
-        $query['PageNumber'] = $request->pageNumber;
-        $query['PageSize']   = $request->pageSize;
-        $req                 = new OpenApiRequest([
+        $query = [];
+        if (!Utils::isUnset($request->groupId)) {
+            $query['GroupId'] = $request->groupId;
+        }
+        if (!Utils::isUnset($request->modelId)) {
+            $query['ModelId'] = $request->modelId;
+        }
+        if (!Utils::isUnset($request->modelName)) {
+            $query['ModelName'] = $request->modelName;
+        }
+        if (!Utils::isUnset($request->pageNumber)) {
+            $query['PageNumber'] = $request->pageNumber;
+        }
+        if (!Utils::isUnset($request->pageSize)) {
+            $query['PageSize'] = $request->pageSize;
+        }
+        $req = new OpenApiRequest([
             'query' => OpenApiUtilClient::query($query),
-            'body'  => Utils::toMap($request),
         ]);
         $params = new Params([
             'action'      => 'DescribeModels',
@@ -3563,7 +4174,7 @@ class CloudAPI extends OpenApiClient
             'method'      => 'POST',
             'authType'    => 'AK',
             'style'       => 'RPC',
-            'reqBodyType' => 'json',
+            'reqBodyType' => 'formData',
             'bodyType'    => 'json',
         ]);
 
@@ -3591,12 +4202,15 @@ class CloudAPI extends OpenApiClient
     public function describePluginSchemasWithOptions($request, $runtime)
     {
         Utils::validateModel($request);
-        $query                  = [];
-        $query['Language']      = $request->language;
-        $query['SecurityToken'] = $request->securityToken;
-        $req                    = new OpenApiRequest([
+        $query = [];
+        if (!Utils::isUnset($request->language)) {
+            $query['Language'] = $request->language;
+        }
+        if (!Utils::isUnset($request->securityToken)) {
+            $query['SecurityToken'] = $request->securityToken;
+        }
+        $req = new OpenApiRequest([
             'query' => OpenApiUtilClient::query($query),
-            'body'  => Utils::toMap($request),
         ]);
         $params = new Params([
             'action'      => 'DescribePluginSchemas',
@@ -3606,7 +4220,7 @@ class CloudAPI extends OpenApiClient
             'method'      => 'POST',
             'authType'    => 'AK',
             'style'       => 'RPC',
-            'reqBodyType' => 'json',
+            'reqBodyType' => 'formData',
             'bodyType'    => 'json',
         ]);
 
@@ -3634,13 +4248,18 @@ class CloudAPI extends OpenApiClient
     public function describePluginTemplatesWithOptions($request, $runtime)
     {
         Utils::validateModel($request);
-        $query                  = [];
-        $query['Language']      = $request->language;
-        $query['PluginName']    = $request->pluginName;
-        $query['SecurityToken'] = $request->securityToken;
-        $req                    = new OpenApiRequest([
+        $query = [];
+        if (!Utils::isUnset($request->language)) {
+            $query['Language'] = $request->language;
+        }
+        if (!Utils::isUnset($request->pluginName)) {
+            $query['PluginName'] = $request->pluginName;
+        }
+        if (!Utils::isUnset($request->securityToken)) {
+            $query['SecurityToken'] = $request->securityToken;
+        }
+        $req = new OpenApiRequest([
             'query' => OpenApiUtilClient::query($query),
-            'body'  => Utils::toMap($request),
         ]);
         $params = new Params([
             'action'      => 'DescribePluginTemplates',
@@ -3650,7 +4269,7 @@ class CloudAPI extends OpenApiClient
             'method'      => 'POST',
             'authType'    => 'AK',
             'style'       => 'RPC',
-            'reqBodyType' => 'json',
+            'reqBodyType' => 'formData',
             'bodyType'    => 'json',
         ]);
 
@@ -3678,17 +4297,30 @@ class CloudAPI extends OpenApiClient
     public function describePluginsWithOptions($request, $runtime)
     {
         Utils::validateModel($request);
-        $query                  = [];
-        $query['PageNumber']    = $request->pageNumber;
-        $query['PageSize']      = $request->pageSize;
-        $query['PluginId']      = $request->pluginId;
-        $query['PluginName']    = $request->pluginName;
-        $query['PluginType']    = $request->pluginType;
-        $query['SecurityToken'] = $request->securityToken;
-        $query['Tag']           = $request->tag;
-        $req                    = new OpenApiRequest([
+        $query = [];
+        if (!Utils::isUnset($request->pageNumber)) {
+            $query['PageNumber'] = $request->pageNumber;
+        }
+        if (!Utils::isUnset($request->pageSize)) {
+            $query['PageSize'] = $request->pageSize;
+        }
+        if (!Utils::isUnset($request->pluginId)) {
+            $query['PluginId'] = $request->pluginId;
+        }
+        if (!Utils::isUnset($request->pluginName)) {
+            $query['PluginName'] = $request->pluginName;
+        }
+        if (!Utils::isUnset($request->pluginType)) {
+            $query['PluginType'] = $request->pluginType;
+        }
+        if (!Utils::isUnset($request->securityToken)) {
+            $query['SecurityToken'] = $request->securityToken;
+        }
+        if (!Utils::isUnset($request->tag)) {
+            $query['Tag'] = $request->tag;
+        }
+        $req = new OpenApiRequest([
             'query' => OpenApiUtilClient::query($query),
-            'body'  => Utils::toMap($request),
         ]);
         $params = new Params([
             'action'      => 'DescribePlugins',
@@ -3698,7 +4330,7 @@ class CloudAPI extends OpenApiClient
             'method'      => 'POST',
             'authType'    => 'AK',
             'style'       => 'RPC',
-            'reqBodyType' => 'json',
+            'reqBodyType' => 'formData',
             'bodyType'    => 'json',
         ]);
 
@@ -3726,14 +4358,21 @@ class CloudAPI extends OpenApiClient
     public function describePluginsByApiWithOptions($request, $runtime)
     {
         Utils::validateModel($request);
-        $query                  = [];
-        $query['ApiId']         = $request->apiId;
-        $query['GroupId']       = $request->groupId;
-        $query['SecurityToken'] = $request->securityToken;
-        $query['StageName']     = $request->stageName;
-        $req                    = new OpenApiRequest([
+        $query = [];
+        if (!Utils::isUnset($request->apiId)) {
+            $query['ApiId'] = $request->apiId;
+        }
+        if (!Utils::isUnset($request->groupId)) {
+            $query['GroupId'] = $request->groupId;
+        }
+        if (!Utils::isUnset($request->securityToken)) {
+            $query['SecurityToken'] = $request->securityToken;
+        }
+        if (!Utils::isUnset($request->stageName)) {
+            $query['StageName'] = $request->stageName;
+        }
+        $req = new OpenApiRequest([
             'query' => OpenApiUtilClient::query($query),
-            'body'  => Utils::toMap($request),
         ]);
         $params = new Params([
             'action'      => 'DescribePluginsByApi',
@@ -3743,7 +4382,7 @@ class CloudAPI extends OpenApiClient
             'method'      => 'POST',
             'authType'    => 'AK',
             'style'       => 'RPC',
-            'reqBodyType' => 'json',
+            'reqBodyType' => 'formData',
             'bodyType'    => 'json',
         ]);
 
@@ -3771,12 +4410,15 @@ class CloudAPI extends OpenApiClient
     public function describePurchasedApiGroupWithOptions($request, $runtime)
     {
         Utils::validateModel($request);
-        $query                  = [];
-        $query['GroupId']       = $request->groupId;
-        $query['SecurityToken'] = $request->securityToken;
-        $req                    = new OpenApiRequest([
+        $query = [];
+        if (!Utils::isUnset($request->groupId)) {
+            $query['GroupId'] = $request->groupId;
+        }
+        if (!Utils::isUnset($request->securityToken)) {
+            $query['SecurityToken'] = $request->securityToken;
+        }
+        $req = new OpenApiRequest([
             'query' => OpenApiUtilClient::query($query),
-            'body'  => Utils::toMap($request),
         ]);
         $params = new Params([
             'action'      => 'DescribePurchasedApiGroup',
@@ -3786,7 +4428,7 @@ class CloudAPI extends OpenApiClient
             'method'      => 'POST',
             'authType'    => 'AK',
             'style'       => 'RPC',
-            'reqBodyType' => 'json',
+            'reqBodyType' => 'formData',
             'bodyType'    => 'json',
         ]);
 
@@ -3814,13 +4456,18 @@ class CloudAPI extends OpenApiClient
     public function describePurchasedApiGroupsWithOptions($request, $runtime)
     {
         Utils::validateModel($request);
-        $query                  = [];
-        $query['PageNumber']    = $request->pageNumber;
-        $query['PageSize']      = $request->pageSize;
-        $query['SecurityToken'] = $request->securityToken;
-        $req                    = new OpenApiRequest([
+        $query = [];
+        if (!Utils::isUnset($request->pageNumber)) {
+            $query['PageNumber'] = $request->pageNumber;
+        }
+        if (!Utils::isUnset($request->pageSize)) {
+            $query['PageSize'] = $request->pageSize;
+        }
+        if (!Utils::isUnset($request->securityToken)) {
+            $query['SecurityToken'] = $request->securityToken;
+        }
+        $req = new OpenApiRequest([
             'query' => OpenApiUtilClient::query($query),
-            'body'  => Utils::toMap($request),
         ]);
         $params = new Params([
             'action'      => 'DescribePurchasedApiGroups',
@@ -3830,7 +4477,7 @@ class CloudAPI extends OpenApiClient
             'method'      => 'POST',
             'authType'    => 'AK',
             'style'       => 'RPC',
-            'reqBodyType' => 'json',
+            'reqBodyType' => 'formData',
             'bodyType'    => 'json',
         ]);
 
@@ -3858,18 +4505,33 @@ class CloudAPI extends OpenApiClient
     public function describePurchasedApisWithOptions($request, $runtime)
     {
         Utils::validateModel($request);
-        $query                  = [];
-        $query['ApiId']         = $request->apiId;
-        $query['ApiName']       = $request->apiName;
-        $query['GroupId']       = $request->groupId;
-        $query['PageNumber']    = $request->pageNumber;
-        $query['PageSize']      = $request->pageSize;
-        $query['SecurityToken'] = $request->securityToken;
-        $query['StageName']     = $request->stageName;
-        $query['Visibility']    = $request->visibility;
-        $req                    = new OpenApiRequest([
+        $query = [];
+        if (!Utils::isUnset($request->apiId)) {
+            $query['ApiId'] = $request->apiId;
+        }
+        if (!Utils::isUnset($request->apiName)) {
+            $query['ApiName'] = $request->apiName;
+        }
+        if (!Utils::isUnset($request->groupId)) {
+            $query['GroupId'] = $request->groupId;
+        }
+        if (!Utils::isUnset($request->pageNumber)) {
+            $query['PageNumber'] = $request->pageNumber;
+        }
+        if (!Utils::isUnset($request->pageSize)) {
+            $query['PageSize'] = $request->pageSize;
+        }
+        if (!Utils::isUnset($request->securityToken)) {
+            $query['SecurityToken'] = $request->securityToken;
+        }
+        if (!Utils::isUnset($request->stageName)) {
+            $query['StageName'] = $request->stageName;
+        }
+        if (!Utils::isUnset($request->visibility)) {
+            $query['Visibility'] = $request->visibility;
+        }
+        $req = new OpenApiRequest([
             'query' => OpenApiUtilClient::query($query),
-            'body'  => Utils::toMap($request),
         ]);
         $params = new Params([
             'action'      => 'DescribePurchasedApis',
@@ -3879,7 +4541,7 @@ class CloudAPI extends OpenApiClient
             'method'      => 'POST',
             'authType'    => 'AK',
             'style'       => 'RPC',
-            'reqBodyType' => 'json',
+            'reqBodyType' => 'formData',
             'bodyType'    => 'json',
         ]);
 
@@ -3907,12 +4569,15 @@ class CloudAPI extends OpenApiClient
     public function describeRegionsWithOptions($request, $runtime)
     {
         Utils::validateModel($request);
-        $query                  = [];
-        $query['Language']      = $request->language;
-        $query['SecurityToken'] = $request->securityToken;
-        $req                    = new OpenApiRequest([
+        $query = [];
+        if (!Utils::isUnset($request->language)) {
+            $query['Language'] = $request->language;
+        }
+        if (!Utils::isUnset($request->securityToken)) {
+            $query['SecurityToken'] = $request->securityToken;
+        }
+        $req = new OpenApiRequest([
             'query' => OpenApiUtilClient::query($query),
-            'body'  => Utils::toMap($request),
         ]);
         $params = new Params([
             'action'      => 'DescribeRegions',
@@ -3922,7 +4587,7 @@ class CloudAPI extends OpenApiClient
             'method'      => 'POST',
             'authType'    => 'AK',
             'style'       => 'RPC',
-            'reqBodyType' => 'json',
+            'reqBodyType' => 'formData',
             'bodyType'    => 'json',
         ]);
 
@@ -3950,15 +4615,24 @@ class CloudAPI extends OpenApiClient
     public function describeSignaturesWithOptions($request, $runtime)
     {
         Utils::validateModel($request);
-        $query                  = [];
-        $query['PageNumber']    = $request->pageNumber;
-        $query['PageSize']      = $request->pageSize;
-        $query['SecurityToken'] = $request->securityToken;
-        $query['SignatureId']   = $request->signatureId;
-        $query['SignatureName'] = $request->signatureName;
-        $req                    = new OpenApiRequest([
+        $query = [];
+        if (!Utils::isUnset($request->pageNumber)) {
+            $query['PageNumber'] = $request->pageNumber;
+        }
+        if (!Utils::isUnset($request->pageSize)) {
+            $query['PageSize'] = $request->pageSize;
+        }
+        if (!Utils::isUnset($request->securityToken)) {
+            $query['SecurityToken'] = $request->securityToken;
+        }
+        if (!Utils::isUnset($request->signatureId)) {
+            $query['SignatureId'] = $request->signatureId;
+        }
+        if (!Utils::isUnset($request->signatureName)) {
+            $query['SignatureName'] = $request->signatureName;
+        }
+        $req = new OpenApiRequest([
             'query' => OpenApiUtilClient::query($query),
-            'body'  => Utils::toMap($request),
         ]);
         $params = new Params([
             'action'      => 'DescribeSignatures',
@@ -3968,7 +4642,7 @@ class CloudAPI extends OpenApiClient
             'method'      => 'POST',
             'authType'    => 'AK',
             'style'       => 'RPC',
-            'reqBodyType' => 'json',
+            'reqBodyType' => 'formData',
             'bodyType'    => 'json',
         ]);
 
@@ -3996,14 +4670,21 @@ class CloudAPI extends OpenApiClient
     public function describeSignaturesByApiWithOptions($request, $runtime)
     {
         Utils::validateModel($request);
-        $query                  = [];
-        $query['ApiId']         = $request->apiId;
-        $query['GroupId']       = $request->groupId;
-        $query['SecurityToken'] = $request->securityToken;
-        $query['StageName']     = $request->stageName;
-        $req                    = new OpenApiRequest([
+        $query = [];
+        if (!Utils::isUnset($request->apiId)) {
+            $query['ApiId'] = $request->apiId;
+        }
+        if (!Utils::isUnset($request->groupId)) {
+            $query['GroupId'] = $request->groupId;
+        }
+        if (!Utils::isUnset($request->securityToken)) {
+            $query['SecurityToken'] = $request->securityToken;
+        }
+        if (!Utils::isUnset($request->stageName)) {
+            $query['StageName'] = $request->stageName;
+        }
+        $req = new OpenApiRequest([
             'query' => OpenApiUtilClient::query($query),
-            'body'  => Utils::toMap($request),
         ]);
         $params = new Params([
             'action'      => 'DescribeSignaturesByApi',
@@ -4013,7 +4694,7 @@ class CloudAPI extends OpenApiClient
             'method'      => 'POST',
             'authType'    => 'AK',
             'style'       => 'RPC',
-            'reqBodyType' => 'json',
+            'reqBodyType' => 'formData',
             'bodyType'    => 'json',
         ]);
 
@@ -4041,11 +4722,12 @@ class CloudAPI extends OpenApiClient
     public function describeSystemParametersWithOptions($request, $runtime)
     {
         Utils::validateModel($request);
-        $query                  = [];
-        $query['SecurityToken'] = $request->securityToken;
-        $req                    = new OpenApiRequest([
+        $query = [];
+        if (!Utils::isUnset($request->securityToken)) {
+            $query['SecurityToken'] = $request->securityToken;
+        }
+        $req = new OpenApiRequest([
             'query' => OpenApiUtilClient::query($query),
-            'body'  => Utils::toMap($request),
         ]);
         $params = new Params([
             'action'      => 'DescribeSystemParameters',
@@ -4055,7 +4737,7 @@ class CloudAPI extends OpenApiClient
             'method'      => 'POST',
             'authType'    => 'AK',
             'style'       => 'RPC',
-            'reqBodyType' => 'json',
+            'reqBodyType' => 'formData',
             'bodyType'    => 'json',
         ]);
 
@@ -4083,18 +4765,33 @@ class CloudAPI extends OpenApiClient
     public function describeTrafficControlsWithOptions($request, $runtime)
     {
         Utils::validateModel($request);
-        $query                       = [];
-        $query['ApiId']              = $request->apiId;
-        $query['GroupId']            = $request->groupId;
-        $query['PageNumber']         = $request->pageNumber;
-        $query['PageSize']           = $request->pageSize;
-        $query['SecurityToken']      = $request->securityToken;
-        $query['StageName']          = $request->stageName;
-        $query['TrafficControlId']   = $request->trafficControlId;
-        $query['TrafficControlName'] = $request->trafficControlName;
-        $req                         = new OpenApiRequest([
+        $query = [];
+        if (!Utils::isUnset($request->apiId)) {
+            $query['ApiId'] = $request->apiId;
+        }
+        if (!Utils::isUnset($request->groupId)) {
+            $query['GroupId'] = $request->groupId;
+        }
+        if (!Utils::isUnset($request->pageNumber)) {
+            $query['PageNumber'] = $request->pageNumber;
+        }
+        if (!Utils::isUnset($request->pageSize)) {
+            $query['PageSize'] = $request->pageSize;
+        }
+        if (!Utils::isUnset($request->securityToken)) {
+            $query['SecurityToken'] = $request->securityToken;
+        }
+        if (!Utils::isUnset($request->stageName)) {
+            $query['StageName'] = $request->stageName;
+        }
+        if (!Utils::isUnset($request->trafficControlId)) {
+            $query['TrafficControlId'] = $request->trafficControlId;
+        }
+        if (!Utils::isUnset($request->trafficControlName)) {
+            $query['TrafficControlName'] = $request->trafficControlName;
+        }
+        $req = new OpenApiRequest([
             'query' => OpenApiUtilClient::query($query),
-            'body'  => Utils::toMap($request),
         ]);
         $params = new Params([
             'action'      => 'DescribeTrafficControls',
@@ -4104,7 +4801,7 @@ class CloudAPI extends OpenApiClient
             'method'      => 'POST',
             'authType'    => 'AK',
             'style'       => 'RPC',
-            'reqBodyType' => 'json',
+            'reqBodyType' => 'formData',
             'bodyType'    => 'json',
         ]);
 
@@ -4132,14 +4829,21 @@ class CloudAPI extends OpenApiClient
     public function describeTrafficControlsByApiWithOptions($request, $runtime)
     {
         Utils::validateModel($request);
-        $query                  = [];
-        $query['ApiId']         = $request->apiId;
-        $query['GroupId']       = $request->groupId;
-        $query['SecurityToken'] = $request->securityToken;
-        $query['StageName']     = $request->stageName;
-        $req                    = new OpenApiRequest([
+        $query = [];
+        if (!Utils::isUnset($request->apiId)) {
+            $query['ApiId'] = $request->apiId;
+        }
+        if (!Utils::isUnset($request->groupId)) {
+            $query['GroupId'] = $request->groupId;
+        }
+        if (!Utils::isUnset($request->securityToken)) {
+            $query['SecurityToken'] = $request->securityToken;
+        }
+        if (!Utils::isUnset($request->stageName)) {
+            $query['StageName'] = $request->stageName;
+        }
+        $req = new OpenApiRequest([
             'query' => OpenApiUtilClient::query($query),
-            'body'  => Utils::toMap($request),
         ]);
         $params = new Params([
             'action'      => 'DescribeTrafficControlsByApi',
@@ -4149,7 +4853,7 @@ class CloudAPI extends OpenApiClient
             'method'      => 'POST',
             'authType'    => 'AK',
             'style'       => 'RPC',
-            'reqBodyType' => 'json',
+            'reqBodyType' => 'formData',
             'bodyType'    => 'json',
         ]);
 
@@ -4177,12 +4881,15 @@ class CloudAPI extends OpenApiClient
     public function describeUpdateVpcInfoTaskWithOptions($request, $runtime)
     {
         Utils::validateModel($request);
-        $query                  = [];
-        $query['OperationUid']  = $request->operationUid;
-        $query['SecurityToken'] = $request->securityToken;
-        $req                    = new OpenApiRequest([
+        $query = [];
+        if (!Utils::isUnset($request->operationUid)) {
+            $query['OperationUid'] = $request->operationUid;
+        }
+        if (!Utils::isUnset($request->securityToken)) {
+            $query['SecurityToken'] = $request->securityToken;
+        }
+        $req = new OpenApiRequest([
             'query' => OpenApiUtilClient::query($query),
-            'body'  => Utils::toMap($request),
         ]);
         $params = new Params([
             'action'      => 'DescribeUpdateVpcInfoTask',
@@ -4192,7 +4899,7 @@ class CloudAPI extends OpenApiClient
             'method'      => 'POST',
             'authType'    => 'AK',
             'style'       => 'RPC',
-            'reqBodyType' => 'json',
+            'reqBodyType' => 'formData',
             'bodyType'    => 'json',
         ]);
 
@@ -4220,15 +4927,33 @@ class CloudAPI extends OpenApiClient
     public function describeVpcAccessesWithOptions($request, $runtime)
     {
         Utils::validateModel($request);
-        $query                  = [];
-        $query['Name']          = $request->name;
-        $query['PageNumber']    = $request->pageNumber;
-        $query['PageSize']      = $request->pageSize;
-        $query['SecurityToken'] = $request->securityToken;
-        $query['VpcAccessId']   = $request->vpcAccessId;
-        $req                    = new OpenApiRequest([
+        $query = [];
+        if (!Utils::isUnset($request->instanceId)) {
+            $query['InstanceId'] = $request->instanceId;
+        }
+        if (!Utils::isUnset($request->name)) {
+            $query['Name'] = $request->name;
+        }
+        if (!Utils::isUnset($request->pageNumber)) {
+            $query['PageNumber'] = $request->pageNumber;
+        }
+        if (!Utils::isUnset($request->pageSize)) {
+            $query['PageSize'] = $request->pageSize;
+        }
+        if (!Utils::isUnset($request->port)) {
+            $query['Port'] = $request->port;
+        }
+        if (!Utils::isUnset($request->securityToken)) {
+            $query['SecurityToken'] = $request->securityToken;
+        }
+        if (!Utils::isUnset($request->vpcAccessId)) {
+            $query['VpcAccessId'] = $request->vpcAccessId;
+        }
+        if (!Utils::isUnset($request->vpcId)) {
+            $query['VpcId'] = $request->vpcId;
+        }
+        $req = new OpenApiRequest([
             'query' => OpenApiUtilClient::query($query),
-            'body'  => Utils::toMap($request),
         ]);
         $params = new Params([
             'action'      => 'DescribeVpcAccesses',
@@ -4238,7 +4963,7 @@ class CloudAPI extends OpenApiClient
             'method'      => 'POST',
             'authType'    => 'AK',
             'style'       => 'RPC',
-            'reqBodyType' => 'json',
+            'reqBodyType' => 'formData',
             'bodyType'    => 'json',
         ]);
 
@@ -4266,12 +4991,15 @@ class CloudAPI extends OpenApiClient
     public function describeZonesWithOptions($request, $runtime)
     {
         Utils::validateModel($request);
-        $query                  = [];
-        $query['Language']      = $request->language;
-        $query['SecurityToken'] = $request->securityToken;
-        $req                    = new OpenApiRequest([
+        $query = [];
+        if (!Utils::isUnset($request->language)) {
+            $query['Language'] = $request->language;
+        }
+        if (!Utils::isUnset($request->securityToken)) {
+            $query['SecurityToken'] = $request->securityToken;
+        }
+        $req = new OpenApiRequest([
             'query' => OpenApiUtilClient::query($query),
-            'body'  => Utils::toMap($request),
         ]);
         $params = new Params([
             'action'      => 'DescribeZones',
@@ -4281,7 +5009,7 @@ class CloudAPI extends OpenApiClient
             'method'      => 'POST',
             'authType'    => 'AK',
             'style'       => 'RPC',
-            'reqBodyType' => 'json',
+            'reqBodyType' => 'formData',
             'bodyType'    => 'json',
         ]);
 
@@ -4314,15 +5042,29 @@ class CloudAPI extends OpenApiClient
         if (!Utils::isUnset($tmpReq->globalCondition)) {
             $request->globalConditionShrink = OpenApiUtilClient::arrayToStringWithSpecifiedStyle($tmpReq->globalCondition, 'GlobalCondition', 'json');
         }
-        $query                    = [];
-        $query['DataFormat']      = $request->dataFormat;
-        $query['GlobalCondition'] = $request->globalConditionShrink;
-        $query['GroupId']         = $request->groupId;
-        $query['Overwrite']       = $request->overwrite;
-        $query['SecurityToken']   = $request->securityToken;
-        $req                      = new OpenApiRequest([
+        $query = [];
+        if (!Utils::isUnset($request->dataFormat)) {
+            $query['DataFormat'] = $request->dataFormat;
+        }
+        if (!Utils::isUnset($request->globalConditionShrink)) {
+            $query['GlobalCondition'] = $request->globalConditionShrink;
+        }
+        if (!Utils::isUnset($request->groupId)) {
+            $query['GroupId'] = $request->groupId;
+        }
+        if (!Utils::isUnset($request->overwrite)) {
+            $query['Overwrite'] = $request->overwrite;
+        }
+        if (!Utils::isUnset($request->securityToken)) {
+            $query['SecurityToken'] = $request->securityToken;
+        }
+        $body = [];
+        if (!Utils::isUnset($request->data)) {
+            $body['Data'] = $request->data;
+        }
+        $req = new OpenApiRequest([
             'query' => OpenApiUtilClient::query($query),
-            'body'  => Utils::toMap($request),
+            'body'  => OpenApiUtilClient::parseToMap($body),
         ]);
         $params = new Params([
             'action'      => 'DryRunSwagger',
@@ -4365,16 +5107,32 @@ class CloudAPI extends OpenApiClient
         if (!Utils::isUnset($tmpReq->globalCondition)) {
             $request->globalConditionShrink = OpenApiUtilClient::arrayToStringWithSpecifiedStyle($tmpReq->globalCondition, 'GlobalCondition', 'json');
         }
-        $query                    = [];
-        $query['DataFormat']      = $request->dataFormat;
-        $query['DryRun']          = $request->dryRun;
-        $query['GlobalCondition'] = $request->globalConditionShrink;
-        $query['GroupId']         = $request->groupId;
-        $query['Overwrite']       = $request->overwrite;
-        $query['SecurityToken']   = $request->securityToken;
-        $req                      = new OpenApiRequest([
+        $query = [];
+        if (!Utils::isUnset($request->dataFormat)) {
+            $query['DataFormat'] = $request->dataFormat;
+        }
+        if (!Utils::isUnset($request->dryRun)) {
+            $query['DryRun'] = $request->dryRun;
+        }
+        if (!Utils::isUnset($request->globalConditionShrink)) {
+            $query['GlobalCondition'] = $request->globalConditionShrink;
+        }
+        if (!Utils::isUnset($request->groupId)) {
+            $query['GroupId'] = $request->groupId;
+        }
+        if (!Utils::isUnset($request->overwrite)) {
+            $query['Overwrite'] = $request->overwrite;
+        }
+        if (!Utils::isUnset($request->securityToken)) {
+            $query['SecurityToken'] = $request->securityToken;
+        }
+        $body = [];
+        if (!Utils::isUnset($request->data)) {
+            $body['Data'] = $request->data;
+        }
+        $req = new OpenApiRequest([
             'query' => OpenApiUtilClient::query($query),
-            'body'  => Utils::toMap($request),
+            'body'  => OpenApiUtilClient::parseToMap($body),
         ]);
         $params = new Params([
             'action'      => 'ImportSwagger',
@@ -4412,14 +5170,21 @@ class CloudAPI extends OpenApiClient
     public function listTagResourcesWithOptions($request, $runtime)
     {
         Utils::validateModel($request);
-        $query                 = [];
-        $query['NextToken']    = $request->nextToken;
-        $query['ResourceId']   = $request->resourceId;
-        $query['ResourceType'] = $request->resourceType;
-        $query['Tag']          = $request->tag;
-        $req                   = new OpenApiRequest([
+        $query = [];
+        if (!Utils::isUnset($request->nextToken)) {
+            $query['NextToken'] = $request->nextToken;
+        }
+        if (!Utils::isUnset($request->resourceId)) {
+            $query['ResourceId'] = $request->resourceId;
+        }
+        if (!Utils::isUnset($request->resourceType)) {
+            $query['ResourceType'] = $request->resourceType;
+        }
+        if (!Utils::isUnset($request->tag)) {
+            $query['Tag'] = $request->tag;
+        }
+        $req = new OpenApiRequest([
             'query' => OpenApiUtilClient::query($query),
-            'body'  => Utils::toMap($request),
         ]);
         $params = new Params([
             'action'      => 'ListTagResources',
@@ -4429,7 +5194,7 @@ class CloudAPI extends OpenApiClient
             'method'      => 'POST',
             'authType'    => 'AK',
             'style'       => 'RPC',
-            'reqBodyType' => 'json',
+            'reqBodyType' => 'formData',
             'bodyType'    => 'json',
         ]);
 
@@ -4457,36 +5222,87 @@ class CloudAPI extends OpenApiClient
     public function modifyApiWithOptions($request, $runtime)
     {
         Utils::validateModel($request);
-        $query                         = [];
-        $query['AllowSignatureMethod'] = $request->allowSignatureMethod;
-        $query['ApiId']                = $request->apiId;
-        $query['ApiName']              = $request->apiName;
-        $query['AppCodeAuthType']      = $request->appCodeAuthType;
-        $query['AuthType']             = $request->authType;
-        $query['ConstantParameters']   = $request->constantParameters;
-        $query['Description']          = $request->description;
-        $query['DisableInternet']      = $request->disableInternet;
-        $query['ErrorCodeSamples']     = $request->errorCodeSamples;
-        $query['FailResultSample']     = $request->failResultSample;
-        $query['ForceNonceCheck']      = $request->forceNonceCheck;
-        $query['GroupId']              = $request->groupId;
-        $query['OpenIdConnectConfig']  = $request->openIdConnectConfig;
-        $query['RequestConfig']        = $request->requestConfig;
-        $query['RequestParameters']    = $request->requestParameters;
-        $query['ResultBodyModel']      = $request->resultBodyModel;
-        $query['ResultDescriptions']   = $request->resultDescriptions;
-        $query['ResultSample']         = $request->resultSample;
-        $query['ResultType']           = $request->resultType;
-        $query['SecurityToken']        = $request->securityToken;
-        $query['ServiceConfig']        = $request->serviceConfig;
-        $query['ServiceParameters']    = $request->serviceParameters;
-        $query['ServiceParametersMap'] = $request->serviceParametersMap;
-        $query['SystemParameters']     = $request->systemParameters;
-        $query['Visibility']           = $request->visibility;
-        $query['WebSocketApiType']     = $request->webSocketApiType;
-        $req                           = new OpenApiRequest([
+        $query = [];
+        if (!Utils::isUnset($request->allowSignatureMethod)) {
+            $query['AllowSignatureMethod'] = $request->allowSignatureMethod;
+        }
+        if (!Utils::isUnset($request->apiId)) {
+            $query['ApiId'] = $request->apiId;
+        }
+        if (!Utils::isUnset($request->apiName)) {
+            $query['ApiName'] = $request->apiName;
+        }
+        if (!Utils::isUnset($request->appCodeAuthType)) {
+            $query['AppCodeAuthType'] = $request->appCodeAuthType;
+        }
+        if (!Utils::isUnset($request->authType)) {
+            $query['AuthType'] = $request->authType;
+        }
+        if (!Utils::isUnset($request->constantParameters)) {
+            $query['ConstantParameters'] = $request->constantParameters;
+        }
+        if (!Utils::isUnset($request->description)) {
+            $query['Description'] = $request->description;
+        }
+        if (!Utils::isUnset($request->disableInternet)) {
+            $query['DisableInternet'] = $request->disableInternet;
+        }
+        if (!Utils::isUnset($request->errorCodeSamples)) {
+            $query['ErrorCodeSamples'] = $request->errorCodeSamples;
+        }
+        if (!Utils::isUnset($request->failResultSample)) {
+            $query['FailResultSample'] = $request->failResultSample;
+        }
+        if (!Utils::isUnset($request->forceNonceCheck)) {
+            $query['ForceNonceCheck'] = $request->forceNonceCheck;
+        }
+        if (!Utils::isUnset($request->groupId)) {
+            $query['GroupId'] = $request->groupId;
+        }
+        if (!Utils::isUnset($request->openIdConnectConfig)) {
+            $query['OpenIdConnectConfig'] = $request->openIdConnectConfig;
+        }
+        if (!Utils::isUnset($request->requestConfig)) {
+            $query['RequestConfig'] = $request->requestConfig;
+        }
+        if (!Utils::isUnset($request->requestParameters)) {
+            $query['RequestParameters'] = $request->requestParameters;
+        }
+        if (!Utils::isUnset($request->resultBodyModel)) {
+            $query['ResultBodyModel'] = $request->resultBodyModel;
+        }
+        if (!Utils::isUnset($request->resultDescriptions)) {
+            $query['ResultDescriptions'] = $request->resultDescriptions;
+        }
+        if (!Utils::isUnset($request->resultSample)) {
+            $query['ResultSample'] = $request->resultSample;
+        }
+        if (!Utils::isUnset($request->resultType)) {
+            $query['ResultType'] = $request->resultType;
+        }
+        if (!Utils::isUnset($request->securityToken)) {
+            $query['SecurityToken'] = $request->securityToken;
+        }
+        if (!Utils::isUnset($request->serviceConfig)) {
+            $query['ServiceConfig'] = $request->serviceConfig;
+        }
+        if (!Utils::isUnset($request->serviceParameters)) {
+            $query['ServiceParameters'] = $request->serviceParameters;
+        }
+        if (!Utils::isUnset($request->serviceParametersMap)) {
+            $query['ServiceParametersMap'] = $request->serviceParametersMap;
+        }
+        if (!Utils::isUnset($request->systemParameters)) {
+            $query['SystemParameters'] = $request->systemParameters;
+        }
+        if (!Utils::isUnset($request->visibility)) {
+            $query['Visibility'] = $request->visibility;
+        }
+        if (!Utils::isUnset($request->webSocketApiType)) {
+            $query['WebSocketApiType'] = $request->webSocketApiType;
+        }
+        $req = new OpenApiRequest([
             'query' => OpenApiUtilClient::query($query),
-            'body'  => Utils::toMap($request),
         ]);
         $params = new Params([
             'action'      => 'ModifyApi',
@@ -4496,7 +5312,7 @@ class CloudAPI extends OpenApiClient
             'method'      => 'POST',
             'authType'    => 'AK',
             'style'       => 'RPC',
-            'reqBodyType' => 'json',
+            'reqBodyType' => 'formData',
             'bodyType'    => 'json',
         ]);
 
@@ -4524,23 +5340,48 @@ class CloudAPI extends OpenApiClient
     public function modifyApiGroupWithOptions($request, $runtime)
     {
         Utils::validateModel($request);
-        $query                       = [];
-        $query['BasePath']           = $request->basePath;
-        $query['CompatibleFlags']    = $request->compatibleFlags;
-        $query['CustomTraceConfig']  = $request->customTraceConfig;
-        $query['CustomerConfigs']    = $request->customerConfigs;
-        $query['DefaultDomain']      = $request->defaultDomain;
-        $query['Description']        = $request->description;
-        $query['GroupId']            = $request->groupId;
-        $query['GroupName']          = $request->groupName;
-        $query['PassthroughHeaders'] = $request->passthroughHeaders;
-        $query['RpcPattern']         = $request->rpcPattern;
-        $query['SecurityToken']      = $request->securityToken;
-        $query['Tag']                = $request->tag;
-        $query['UserLogConfig']      = $request->userLogConfig;
-        $req                         = new OpenApiRequest([
+        $query = [];
+        if (!Utils::isUnset($request->basePath)) {
+            $query['BasePath'] = $request->basePath;
+        }
+        if (!Utils::isUnset($request->compatibleFlags)) {
+            $query['CompatibleFlags'] = $request->compatibleFlags;
+        }
+        if (!Utils::isUnset($request->customTraceConfig)) {
+            $query['CustomTraceConfig'] = $request->customTraceConfig;
+        }
+        if (!Utils::isUnset($request->customerConfigs)) {
+            $query['CustomerConfigs'] = $request->customerConfigs;
+        }
+        if (!Utils::isUnset($request->defaultDomain)) {
+            $query['DefaultDomain'] = $request->defaultDomain;
+        }
+        if (!Utils::isUnset($request->description)) {
+            $query['Description'] = $request->description;
+        }
+        if (!Utils::isUnset($request->groupId)) {
+            $query['GroupId'] = $request->groupId;
+        }
+        if (!Utils::isUnset($request->groupName)) {
+            $query['GroupName'] = $request->groupName;
+        }
+        if (!Utils::isUnset($request->passthroughHeaders)) {
+            $query['PassthroughHeaders'] = $request->passthroughHeaders;
+        }
+        if (!Utils::isUnset($request->rpcPattern)) {
+            $query['RpcPattern'] = $request->rpcPattern;
+        }
+        if (!Utils::isUnset($request->securityToken)) {
+            $query['SecurityToken'] = $request->securityToken;
+        }
+        if (!Utils::isUnset($request->tag)) {
+            $query['Tag'] = $request->tag;
+        }
+        if (!Utils::isUnset($request->userLogConfig)) {
+            $query['UserLogConfig'] = $request->userLogConfig;
+        }
+        $req = new OpenApiRequest([
             'query' => OpenApiUtilClient::query($query),
-            'body'  => Utils::toMap($request),
         ]);
         $params = new Params([
             'action'      => 'ModifyApiGroup',
@@ -4550,7 +5391,7 @@ class CloudAPI extends OpenApiClient
             'method'      => 'POST',
             'authType'    => 'AK',
             'style'       => 'RPC',
-            'reqBodyType' => 'json',
+            'reqBodyType' => 'formData',
             'bodyType'    => 'json',
         ]);
 
@@ -4578,13 +5419,18 @@ class CloudAPI extends OpenApiClient
     public function modifyApiGroupVpcWhitelistWithOptions($request, $runtime)
     {
         Utils::validateModel($request);
-        $query                  = [];
-        $query['GroupId']       = $request->groupId;
-        $query['SecurityToken'] = $request->securityToken;
-        $query['VpcIds']        = $request->vpcIds;
-        $req                    = new OpenApiRequest([
+        $query = [];
+        if (!Utils::isUnset($request->groupId)) {
+            $query['GroupId'] = $request->groupId;
+        }
+        if (!Utils::isUnset($request->securityToken)) {
+            $query['SecurityToken'] = $request->securityToken;
+        }
+        if (!Utils::isUnset($request->vpcIds)) {
+            $query['VpcIds'] = $request->vpcIds;
+        }
+        $req = new OpenApiRequest([
             'query' => OpenApiUtilClient::query($query),
-            'body'  => Utils::toMap($request),
         ]);
         $params = new Params([
             'action'      => 'ModifyApiGroupVpcWhitelist',
@@ -4594,7 +5440,7 @@ class CloudAPI extends OpenApiClient
             'method'      => 'POST',
             'authType'    => 'AK',
             'style'       => 'RPC',
-            'reqBodyType' => 'json',
+            'reqBodyType' => 'formData',
             'bodyType'    => 'json',
         ]);
 
@@ -4622,15 +5468,24 @@ class CloudAPI extends OpenApiClient
     public function modifyAppWithOptions($request, $runtime)
     {
         Utils::validateModel($request);
-        $query                  = [];
-        $query['AppId']         = $request->appId;
-        $query['AppName']       = $request->appName;
-        $query['Description']   = $request->description;
-        $query['SecurityToken'] = $request->securityToken;
-        $query['Tag']           = $request->tag;
-        $req                    = new OpenApiRequest([
+        $query = [];
+        if (!Utils::isUnset($request->appId)) {
+            $query['AppId'] = $request->appId;
+        }
+        if (!Utils::isUnset($request->appName)) {
+            $query['AppName'] = $request->appName;
+        }
+        if (!Utils::isUnset($request->description)) {
+            $query['Description'] = $request->description;
+        }
+        if (!Utils::isUnset($request->securityToken)) {
+            $query['SecurityToken'] = $request->securityToken;
+        }
+        if (!Utils::isUnset($request->tag)) {
+            $query['Tag'] = $request->tag;
+        }
+        $req = new OpenApiRequest([
             'query' => OpenApiUtilClient::query($query),
-            'body'  => Utils::toMap($request),
         ]);
         $params = new Params([
             'action'      => 'ModifyApp',
@@ -4640,7 +5495,7 @@ class CloudAPI extends OpenApiClient
             'method'      => 'POST',
             'authType'    => 'AK',
             'style'       => 'RPC',
-            'reqBodyType' => 'json',
+            'reqBodyType' => 'formData',
             'bodyType'    => 'json',
         ]);
 
@@ -4668,14 +5523,21 @@ class CloudAPI extends OpenApiClient
     public function modifyInstanceSpecWithOptions($request, $runtime)
     {
         Utils::validateModel($request);
-        $query                 = [];
-        $query['AutoPay']      = $request->autoPay;
-        $query['InstanceId']   = $request->instanceId;
-        $query['InstanceSpec'] = $request->instanceSpec;
-        $query['Token']        = $request->token;
-        $req                   = new OpenApiRequest([
+        $query = [];
+        if (!Utils::isUnset($request->autoPay)) {
+            $query['AutoPay'] = $request->autoPay;
+        }
+        if (!Utils::isUnset($request->instanceId)) {
+            $query['InstanceId'] = $request->instanceId;
+        }
+        if (!Utils::isUnset($request->instanceSpec)) {
+            $query['InstanceSpec'] = $request->instanceSpec;
+        }
+        if (!Utils::isUnset($request->token)) {
+            $query['Token'] = $request->token;
+        }
+        $req = new OpenApiRequest([
             'query' => OpenApiUtilClient::query($query),
-            'body'  => Utils::toMap($request),
         ]);
         $params = new Params([
             'action'      => 'ModifyInstanceSpec',
@@ -4685,7 +5547,7 @@ class CloudAPI extends OpenApiClient
             'method'      => 'POST',
             'authType'    => 'AK',
             'style'       => 'RPC',
-            'reqBodyType' => 'json',
+            'reqBodyType' => 'formData',
             'bodyType'    => 'json',
         ]);
 
@@ -4713,14 +5575,21 @@ class CloudAPI extends OpenApiClient
     public function modifyIpControlWithOptions($request, $runtime)
     {
         Utils::validateModel($request);
-        $query                  = [];
-        $query['Description']   = $request->description;
-        $query['IpControlId']   = $request->ipControlId;
-        $query['IpControlName'] = $request->ipControlName;
-        $query['SecurityToken'] = $request->securityToken;
-        $req                    = new OpenApiRequest([
+        $query = [];
+        if (!Utils::isUnset($request->description)) {
+            $query['Description'] = $request->description;
+        }
+        if (!Utils::isUnset($request->ipControlId)) {
+            $query['IpControlId'] = $request->ipControlId;
+        }
+        if (!Utils::isUnset($request->ipControlName)) {
+            $query['IpControlName'] = $request->ipControlName;
+        }
+        if (!Utils::isUnset($request->securityToken)) {
+            $query['SecurityToken'] = $request->securityToken;
+        }
+        $req = new OpenApiRequest([
             'query' => OpenApiUtilClient::query($query),
-            'body'  => Utils::toMap($request),
         ]);
         $params = new Params([
             'action'      => 'ModifyIpControl',
@@ -4730,7 +5599,7 @@ class CloudAPI extends OpenApiClient
             'method'      => 'POST',
             'authType'    => 'AK',
             'style'       => 'RPC',
-            'reqBodyType' => 'json',
+            'reqBodyType' => 'formData',
             'bodyType'    => 'json',
         ]);
 
@@ -4758,15 +5627,24 @@ class CloudAPI extends OpenApiClient
     public function modifyIpControlPolicyItemWithOptions($request, $runtime)
     {
         Utils::validateModel($request);
-        $query                  = [];
-        $query['AppId']         = $request->appId;
-        $query['CidrIp']        = $request->cidrIp;
-        $query['IpControlId']   = $request->ipControlId;
-        $query['PolicyItemId']  = $request->policyItemId;
-        $query['SecurityToken'] = $request->securityToken;
-        $req                    = new OpenApiRequest([
+        $query = [];
+        if (!Utils::isUnset($request->appId)) {
+            $query['AppId'] = $request->appId;
+        }
+        if (!Utils::isUnset($request->cidrIp)) {
+            $query['CidrIp'] = $request->cidrIp;
+        }
+        if (!Utils::isUnset($request->ipControlId)) {
+            $query['IpControlId'] = $request->ipControlId;
+        }
+        if (!Utils::isUnset($request->policyItemId)) {
+            $query['PolicyItemId'] = $request->policyItemId;
+        }
+        if (!Utils::isUnset($request->securityToken)) {
+            $query['SecurityToken'] = $request->securityToken;
+        }
+        $req = new OpenApiRequest([
             'query' => OpenApiUtilClient::query($query),
-            'body'  => Utils::toMap($request),
         ]);
         $params = new Params([
             'action'      => 'ModifyIpControlPolicyItem',
@@ -4776,7 +5654,7 @@ class CloudAPI extends OpenApiClient
             'method'      => 'POST',
             'authType'    => 'AK',
             'style'       => 'RPC',
-            'reqBodyType' => 'json',
+            'reqBodyType' => 'formData',
             'bodyType'    => 'json',
         ]);
 
@@ -4804,14 +5682,21 @@ class CloudAPI extends OpenApiClient
     public function modifyLogConfigWithOptions($request, $runtime)
     {
         Utils::validateModel($request);
-        $query                  = [];
-        $query['LogType']       = $request->logType;
-        $query['SecurityToken'] = $request->securityToken;
-        $query['SlsLogStore']   = $request->slsLogStore;
-        $query['SlsProject']    = $request->slsProject;
-        $req                    = new OpenApiRequest([
+        $query = [];
+        if (!Utils::isUnset($request->logType)) {
+            $query['LogType'] = $request->logType;
+        }
+        if (!Utils::isUnset($request->securityToken)) {
+            $query['SecurityToken'] = $request->securityToken;
+        }
+        if (!Utils::isUnset($request->slsLogStore)) {
+            $query['SlsLogStore'] = $request->slsLogStore;
+        }
+        if (!Utils::isUnset($request->slsProject)) {
+            $query['SlsProject'] = $request->slsProject;
+        }
+        $req = new OpenApiRequest([
             'query' => OpenApiUtilClient::query($query),
-            'body'  => Utils::toMap($request),
         ]);
         $params = new Params([
             'action'      => 'ModifyLogConfig',
@@ -4821,7 +5706,7 @@ class CloudAPI extends OpenApiClient
             'method'      => 'POST',
             'authType'    => 'AK',
             'style'       => 'RPC',
-            'reqBodyType' => 'json',
+            'reqBodyType' => 'formData',
             'bodyType'    => 'json',
         ]);
 
@@ -4849,15 +5734,24 @@ class CloudAPI extends OpenApiClient
     public function modifyModelWithOptions($request, $runtime)
     {
         Utils::validateModel($request);
-        $query                 = [];
-        $query['Description']  = $request->description;
-        $query['GroupId']      = $request->groupId;
-        $query['ModelName']    = $request->modelName;
-        $query['NewModelName'] = $request->newModelName;
-        $query['Schema']       = $request->schema;
-        $req                   = new OpenApiRequest([
+        $query = [];
+        if (!Utils::isUnset($request->description)) {
+            $query['Description'] = $request->description;
+        }
+        if (!Utils::isUnset($request->groupId)) {
+            $query['GroupId'] = $request->groupId;
+        }
+        if (!Utils::isUnset($request->modelName)) {
+            $query['ModelName'] = $request->modelName;
+        }
+        if (!Utils::isUnset($request->newModelName)) {
+            $query['NewModelName'] = $request->newModelName;
+        }
+        if (!Utils::isUnset($request->schema)) {
+            $query['Schema'] = $request->schema;
+        }
+        $req = new OpenApiRequest([
             'query' => OpenApiUtilClient::query($query),
-            'body'  => Utils::toMap($request),
         ]);
         $params = new Params([
             'action'      => 'ModifyModel',
@@ -4867,7 +5761,7 @@ class CloudAPI extends OpenApiClient
             'method'      => 'POST',
             'authType'    => 'AK',
             'style'       => 'RPC',
-            'reqBodyType' => 'json',
+            'reqBodyType' => 'formData',
             'bodyType'    => 'json',
         ]);
 
@@ -4895,16 +5789,27 @@ class CloudAPI extends OpenApiClient
     public function modifyPluginWithOptions($request, $runtime)
     {
         Utils::validateModel($request);
-        $query                  = [];
-        $query['Description']   = $request->description;
-        $query['PluginData']    = $request->pluginData;
-        $query['PluginId']      = $request->pluginId;
-        $query['PluginName']    = $request->pluginName;
-        $query['SecurityToken'] = $request->securityToken;
-        $query['Tag']           = $request->tag;
-        $req                    = new OpenApiRequest([
+        $query = [];
+        if (!Utils::isUnset($request->description)) {
+            $query['Description'] = $request->description;
+        }
+        if (!Utils::isUnset($request->pluginData)) {
+            $query['PluginData'] = $request->pluginData;
+        }
+        if (!Utils::isUnset($request->pluginId)) {
+            $query['PluginId'] = $request->pluginId;
+        }
+        if (!Utils::isUnset($request->pluginName)) {
+            $query['PluginName'] = $request->pluginName;
+        }
+        if (!Utils::isUnset($request->securityToken)) {
+            $query['SecurityToken'] = $request->securityToken;
+        }
+        if (!Utils::isUnset($request->tag)) {
+            $query['Tag'] = $request->tag;
+        }
+        $req = new OpenApiRequest([
             'query' => OpenApiUtilClient::query($query),
-            'body'  => Utils::toMap($request),
         ]);
         $params = new Params([
             'action'      => 'ModifyPlugin',
@@ -4914,7 +5819,7 @@ class CloudAPI extends OpenApiClient
             'method'      => 'POST',
             'authType'    => 'AK',
             'style'       => 'RPC',
-            'reqBodyType' => 'json',
+            'reqBodyType' => 'formData',
             'bodyType'    => 'json',
         ]);
 
@@ -4942,15 +5847,24 @@ class CloudAPI extends OpenApiClient
     public function modifySignatureWithOptions($request, $runtime)
     {
         Utils::validateModel($request);
-        $query                    = [];
-        $query['SecurityToken']   = $request->securityToken;
-        $query['SignatureId']     = $request->signatureId;
-        $query['SignatureKey']    = $request->signatureKey;
-        $query['SignatureName']   = $request->signatureName;
-        $query['SignatureSecret'] = $request->signatureSecret;
-        $req                      = new OpenApiRequest([
+        $query = [];
+        if (!Utils::isUnset($request->securityToken)) {
+            $query['SecurityToken'] = $request->securityToken;
+        }
+        if (!Utils::isUnset($request->signatureId)) {
+            $query['SignatureId'] = $request->signatureId;
+        }
+        if (!Utils::isUnset($request->signatureKey)) {
+            $query['SignatureKey'] = $request->signatureKey;
+        }
+        if (!Utils::isUnset($request->signatureName)) {
+            $query['SignatureName'] = $request->signatureName;
+        }
+        if (!Utils::isUnset($request->signatureSecret)) {
+            $query['SignatureSecret'] = $request->signatureSecret;
+        }
+        $req = new OpenApiRequest([
             'query' => OpenApiUtilClient::query($query),
-            'body'  => Utils::toMap($request),
         ]);
         $params = new Params([
             'action'      => 'ModifySignature',
@@ -4960,7 +5874,7 @@ class CloudAPI extends OpenApiClient
             'method'      => 'POST',
             'authType'    => 'AK',
             'style'       => 'RPC',
-            'reqBodyType' => 'json',
+            'reqBodyType' => 'formData',
             'bodyType'    => 'json',
         ]);
 
@@ -4988,18 +5902,33 @@ class CloudAPI extends OpenApiClient
     public function modifyTrafficControlWithOptions($request, $runtime)
     {
         Utils::validateModel($request);
-        $query                       = [];
-        $query['ApiDefault']         = $request->apiDefault;
-        $query['AppDefault']         = $request->appDefault;
-        $query['Description']        = $request->description;
-        $query['SecurityToken']      = $request->securityToken;
-        $query['TrafficControlId']   = $request->trafficControlId;
-        $query['TrafficControlName'] = $request->trafficControlName;
-        $query['TrafficControlUnit'] = $request->trafficControlUnit;
-        $query['UserDefault']        = $request->userDefault;
-        $req                         = new OpenApiRequest([
+        $query = [];
+        if (!Utils::isUnset($request->apiDefault)) {
+            $query['ApiDefault'] = $request->apiDefault;
+        }
+        if (!Utils::isUnset($request->appDefault)) {
+            $query['AppDefault'] = $request->appDefault;
+        }
+        if (!Utils::isUnset($request->description)) {
+            $query['Description'] = $request->description;
+        }
+        if (!Utils::isUnset($request->securityToken)) {
+            $query['SecurityToken'] = $request->securityToken;
+        }
+        if (!Utils::isUnset($request->trafficControlId)) {
+            $query['TrafficControlId'] = $request->trafficControlId;
+        }
+        if (!Utils::isUnset($request->trafficControlName)) {
+            $query['TrafficControlName'] = $request->trafficControlName;
+        }
+        if (!Utils::isUnset($request->trafficControlUnit)) {
+            $query['TrafficControlUnit'] = $request->trafficControlUnit;
+        }
+        if (!Utils::isUnset($request->userDefault)) {
+            $query['UserDefault'] = $request->userDefault;
+        }
+        $req = new OpenApiRequest([
             'query' => OpenApiUtilClient::query($query),
-            'body'  => Utils::toMap($request),
         ]);
         $params = new Params([
             'action'      => 'ModifyTrafficControl',
@@ -5009,7 +5938,7 @@ class CloudAPI extends OpenApiClient
             'method'      => 'POST',
             'authType'    => 'AK',
             'style'       => 'RPC',
-            'reqBodyType' => 'json',
+            'reqBodyType' => 'formData',
             'bodyType'    => 'json',
         ]);
 
@@ -5044,7 +5973,7 @@ class CloudAPI extends OpenApiClient
             'method'      => 'POST',
             'authType'    => 'AK',
             'style'       => 'RPC',
-            'reqBodyType' => 'json',
+            'reqBodyType' => 'formData',
             'bodyType'    => 'json',
         ]);
 
@@ -5070,13 +5999,18 @@ class CloudAPI extends OpenApiClient
     public function reactivateDomainWithOptions($request, $runtime)
     {
         Utils::validateModel($request);
-        $query                  = [];
-        $query['DomainName']    = $request->domainName;
-        $query['GroupId']       = $request->groupId;
-        $query['SecurityToken'] = $request->securityToken;
-        $req                    = new OpenApiRequest([
+        $query = [];
+        if (!Utils::isUnset($request->domainName)) {
+            $query['DomainName'] = $request->domainName;
+        }
+        if (!Utils::isUnset($request->groupId)) {
+            $query['GroupId'] = $request->groupId;
+        }
+        if (!Utils::isUnset($request->securityToken)) {
+            $query['SecurityToken'] = $request->securityToken;
+        }
+        $req = new OpenApiRequest([
             'query' => OpenApiUtilClient::query($query),
-            'body'  => Utils::toMap($request),
         ]);
         $params = new Params([
             'action'      => 'ReactivateDomain',
@@ -5086,7 +6020,7 @@ class CloudAPI extends OpenApiClient
             'method'      => 'POST',
             'authType'    => 'AK',
             'style'       => 'RPC',
-            'reqBodyType' => 'json',
+            'reqBodyType' => 'formData',
             'bodyType'    => 'json',
         ]);
 
@@ -5114,16 +6048,27 @@ class CloudAPI extends OpenApiClient
     public function removeApisAuthoritiesWithOptions($request, $runtime)
     {
         Utils::validateModel($request);
-        $query                  = [];
-        $query['ApiIds']        = $request->apiIds;
-        $query['AppId']         = $request->appId;
-        $query['Description']   = $request->description;
-        $query['GroupId']       = $request->groupId;
-        $query['SecurityToken'] = $request->securityToken;
-        $query['StageName']     = $request->stageName;
-        $req                    = new OpenApiRequest([
+        $query = [];
+        if (!Utils::isUnset($request->apiIds)) {
+            $query['ApiIds'] = $request->apiIds;
+        }
+        if (!Utils::isUnset($request->appId)) {
+            $query['AppId'] = $request->appId;
+        }
+        if (!Utils::isUnset($request->description)) {
+            $query['Description'] = $request->description;
+        }
+        if (!Utils::isUnset($request->groupId)) {
+            $query['GroupId'] = $request->groupId;
+        }
+        if (!Utils::isUnset($request->securityToken)) {
+            $query['SecurityToken'] = $request->securityToken;
+        }
+        if (!Utils::isUnset($request->stageName)) {
+            $query['StageName'] = $request->stageName;
+        }
+        $req = new OpenApiRequest([
             'query' => OpenApiUtilClient::query($query),
-            'body'  => Utils::toMap($request),
         ]);
         $params = new Params([
             'action'      => 'RemoveApisAuthorities',
@@ -5133,7 +6078,7 @@ class CloudAPI extends OpenApiClient
             'method'      => 'POST',
             'authType'    => 'AK',
             'style'       => 'RPC',
-            'reqBodyType' => 'json',
+            'reqBodyType' => 'formData',
             'bodyType'    => 'json',
         ]);
 
@@ -5161,15 +6106,24 @@ class CloudAPI extends OpenApiClient
     public function removeAppsAuthoritiesWithOptions($request, $runtime)
     {
         Utils::validateModel($request);
-        $query                  = [];
-        $query['ApiId']         = $request->apiId;
-        $query['AppIds']        = $request->appIds;
-        $query['GroupId']       = $request->groupId;
-        $query['SecurityToken'] = $request->securityToken;
-        $query['StageName']     = $request->stageName;
-        $req                    = new OpenApiRequest([
+        $query = [];
+        if (!Utils::isUnset($request->apiId)) {
+            $query['ApiId'] = $request->apiId;
+        }
+        if (!Utils::isUnset($request->appIds)) {
+            $query['AppIds'] = $request->appIds;
+        }
+        if (!Utils::isUnset($request->groupId)) {
+            $query['GroupId'] = $request->groupId;
+        }
+        if (!Utils::isUnset($request->securityToken)) {
+            $query['SecurityToken'] = $request->securityToken;
+        }
+        if (!Utils::isUnset($request->stageName)) {
+            $query['StageName'] = $request->stageName;
+        }
+        $req = new OpenApiRequest([
             'query' => OpenApiUtilClient::query($query),
-            'body'  => Utils::toMap($request),
         ]);
         $params = new Params([
             'action'      => 'RemoveAppsAuthorities',
@@ -5179,7 +6133,7 @@ class CloudAPI extends OpenApiClient
             'method'      => 'POST',
             'authType'    => 'AK',
             'style'       => 'RPC',
-            'reqBodyType' => 'json',
+            'reqBodyType' => 'formData',
             'bodyType'    => 'json',
         ]);
 
@@ -5207,15 +6161,24 @@ class CloudAPI extends OpenApiClient
     public function removeIpControlApisWithOptions($request, $runtime)
     {
         Utils::validateModel($request);
-        $query                  = [];
-        $query['ApiIds']        = $request->apiIds;
-        $query['GroupId']       = $request->groupId;
-        $query['IpControlId']   = $request->ipControlId;
-        $query['SecurityToken'] = $request->securityToken;
-        $query['StageName']     = $request->stageName;
-        $req                    = new OpenApiRequest([
+        $query = [];
+        if (!Utils::isUnset($request->apiIds)) {
+            $query['ApiIds'] = $request->apiIds;
+        }
+        if (!Utils::isUnset($request->groupId)) {
+            $query['GroupId'] = $request->groupId;
+        }
+        if (!Utils::isUnset($request->ipControlId)) {
+            $query['IpControlId'] = $request->ipControlId;
+        }
+        if (!Utils::isUnset($request->securityToken)) {
+            $query['SecurityToken'] = $request->securityToken;
+        }
+        if (!Utils::isUnset($request->stageName)) {
+            $query['StageName'] = $request->stageName;
+        }
+        $req = new OpenApiRequest([
             'query' => OpenApiUtilClient::query($query),
-            'body'  => Utils::toMap($request),
         ]);
         $params = new Params([
             'action'      => 'RemoveIpControlApis',
@@ -5225,7 +6188,7 @@ class CloudAPI extends OpenApiClient
             'method'      => 'POST',
             'authType'    => 'AK',
             'style'       => 'RPC',
-            'reqBodyType' => 'json',
+            'reqBodyType' => 'formData',
             'bodyType'    => 'json',
         ]);
 
@@ -5253,13 +6216,18 @@ class CloudAPI extends OpenApiClient
     public function removeIpControlPolicyItemWithOptions($request, $runtime)
     {
         Utils::validateModel($request);
-        $query                  = [];
-        $query['IpControlId']   = $request->ipControlId;
-        $query['PolicyItemIds'] = $request->policyItemIds;
-        $query['SecurityToken'] = $request->securityToken;
-        $req                    = new OpenApiRequest([
+        $query = [];
+        if (!Utils::isUnset($request->ipControlId)) {
+            $query['IpControlId'] = $request->ipControlId;
+        }
+        if (!Utils::isUnset($request->policyItemIds)) {
+            $query['PolicyItemIds'] = $request->policyItemIds;
+        }
+        if (!Utils::isUnset($request->securityToken)) {
+            $query['SecurityToken'] = $request->securityToken;
+        }
+        $req = new OpenApiRequest([
             'query' => OpenApiUtilClient::query($query),
-            'body'  => Utils::toMap($request),
         ]);
         $params = new Params([
             'action'      => 'RemoveIpControlPolicyItem',
@@ -5269,7 +6237,7 @@ class CloudAPI extends OpenApiClient
             'method'      => 'POST',
             'authType'    => 'AK',
             'style'       => 'RPC',
-            'reqBodyType' => 'json',
+            'reqBodyType' => 'formData',
             'bodyType'    => 'json',
         ]);
 
@@ -5297,15 +6265,24 @@ class CloudAPI extends OpenApiClient
     public function removeSignatureApisWithOptions($request, $runtime)
     {
         Utils::validateModel($request);
-        $query                  = [];
-        $query['ApiIds']        = $request->apiIds;
-        $query['GroupId']       = $request->groupId;
-        $query['SecurityToken'] = $request->securityToken;
-        $query['SignatureId']   = $request->signatureId;
-        $query['StageName']     = $request->stageName;
-        $req                    = new OpenApiRequest([
+        $query = [];
+        if (!Utils::isUnset($request->apiIds)) {
+            $query['ApiIds'] = $request->apiIds;
+        }
+        if (!Utils::isUnset($request->groupId)) {
+            $query['GroupId'] = $request->groupId;
+        }
+        if (!Utils::isUnset($request->securityToken)) {
+            $query['SecurityToken'] = $request->securityToken;
+        }
+        if (!Utils::isUnset($request->signatureId)) {
+            $query['SignatureId'] = $request->signatureId;
+        }
+        if (!Utils::isUnset($request->stageName)) {
+            $query['StageName'] = $request->stageName;
+        }
+        $req = new OpenApiRequest([
             'query' => OpenApiUtilClient::query($query),
-            'body'  => Utils::toMap($request),
         ]);
         $params = new Params([
             'action'      => 'RemoveSignatureApis',
@@ -5315,7 +6292,7 @@ class CloudAPI extends OpenApiClient
             'method'      => 'POST',
             'authType'    => 'AK',
             'style'       => 'RPC',
-            'reqBodyType' => 'json',
+            'reqBodyType' => 'formData',
             'bodyType'    => 'json',
         ]);
 
@@ -5343,15 +6320,24 @@ class CloudAPI extends OpenApiClient
     public function removeTrafficControlApisWithOptions($request, $runtime)
     {
         Utils::validateModel($request);
-        $query                     = [];
-        $query['ApiIds']           = $request->apiIds;
-        $query['GroupId']          = $request->groupId;
-        $query['SecurityToken']    = $request->securityToken;
-        $query['StageName']        = $request->stageName;
-        $query['TrafficControlId'] = $request->trafficControlId;
-        $req                       = new OpenApiRequest([
+        $query = [];
+        if (!Utils::isUnset($request->apiIds)) {
+            $query['ApiIds'] = $request->apiIds;
+        }
+        if (!Utils::isUnset($request->groupId)) {
+            $query['GroupId'] = $request->groupId;
+        }
+        if (!Utils::isUnset($request->securityToken)) {
+            $query['SecurityToken'] = $request->securityToken;
+        }
+        if (!Utils::isUnset($request->stageName)) {
+            $query['StageName'] = $request->stageName;
+        }
+        if (!Utils::isUnset($request->trafficControlId)) {
+            $query['TrafficControlId'] = $request->trafficControlId;
+        }
+        $req = new OpenApiRequest([
             'query' => OpenApiUtilClient::query($query),
-            'body'  => Utils::toMap($request),
         ]);
         $params = new Params([
             'action'      => 'RemoveTrafficControlApis',
@@ -5361,7 +6347,7 @@ class CloudAPI extends OpenApiClient
             'method'      => 'POST',
             'authType'    => 'AK',
             'style'       => 'RPC',
-            'reqBodyType' => 'json',
+            'reqBodyType' => 'formData',
             'bodyType'    => 'json',
         ]);
 
@@ -5389,15 +6375,24 @@ class CloudAPI extends OpenApiClient
     public function removeVpcAccessWithOptions($request, $runtime)
     {
         Utils::validateModel($request);
-        $query                  = [];
-        $query['InstanceId']    = $request->instanceId;
-        $query['NeedBatchWork'] = $request->needBatchWork;
-        $query['Port']          = $request->port;
-        $query['SecurityToken'] = $request->securityToken;
-        $query['VpcId']         = $request->vpcId;
-        $req                    = new OpenApiRequest([
+        $query = [];
+        if (!Utils::isUnset($request->instanceId)) {
+            $query['InstanceId'] = $request->instanceId;
+        }
+        if (!Utils::isUnset($request->needBatchWork)) {
+            $query['NeedBatchWork'] = $request->needBatchWork;
+        }
+        if (!Utils::isUnset($request->port)) {
+            $query['Port'] = $request->port;
+        }
+        if (!Utils::isUnset($request->securityToken)) {
+            $query['SecurityToken'] = $request->securityToken;
+        }
+        if (!Utils::isUnset($request->vpcId)) {
+            $query['VpcId'] = $request->vpcId;
+        }
+        $req = new OpenApiRequest([
             'query' => OpenApiUtilClient::query($query),
-            'body'  => Utils::toMap($request),
         ]);
         $params = new Params([
             'action'      => 'RemoveVpcAccess',
@@ -5407,7 +6402,7 @@ class CloudAPI extends OpenApiClient
             'method'      => 'POST',
             'authType'    => 'AK',
             'style'       => 'RPC',
-            'reqBodyType' => 'json',
+            'reqBodyType' => 'formData',
             'bodyType'    => 'json',
         ]);
 
@@ -5435,15 +6430,24 @@ class CloudAPI extends OpenApiClient
     public function removeVpcAccessAndAbolishApisWithOptions($request, $runtime)
     {
         Utils::validateModel($request);
-        $query                  = [];
-        $query['InstanceId']    = $request->instanceId;
-        $query['NeedBatchWork'] = $request->needBatchWork;
-        $query['Port']          = $request->port;
-        $query['SecurityToken'] = $request->securityToken;
-        $query['VpcId']         = $request->vpcId;
-        $req                    = new OpenApiRequest([
+        $query = [];
+        if (!Utils::isUnset($request->instanceId)) {
+            $query['InstanceId'] = $request->instanceId;
+        }
+        if (!Utils::isUnset($request->needBatchWork)) {
+            $query['NeedBatchWork'] = $request->needBatchWork;
+        }
+        if (!Utils::isUnset($request->port)) {
+            $query['Port'] = $request->port;
+        }
+        if (!Utils::isUnset($request->securityToken)) {
+            $query['SecurityToken'] = $request->securityToken;
+        }
+        if (!Utils::isUnset($request->vpcId)) {
+            $query['VpcId'] = $request->vpcId;
+        }
+        $req = new OpenApiRequest([
             'query' => OpenApiUtilClient::query($query),
-            'body'  => Utils::toMap($request),
         ]);
         $params = new Params([
             'action'      => 'RemoveVpcAccessAndAbolishApis',
@@ -5453,7 +6457,7 @@ class CloudAPI extends OpenApiClient
             'method'      => 'POST',
             'authType'    => 'AK',
             'style'       => 'RPC',
-            'reqBodyType' => 'json',
+            'reqBodyType' => 'formData',
             'bodyType'    => 'json',
         ]);
 
@@ -5481,12 +6485,15 @@ class CloudAPI extends OpenApiClient
     public function resetAppCodeWithOptions($request, $runtime)
     {
         Utils::validateModel($request);
-        $query                  = [];
-        $query['AppCode']       = $request->appCode;
-        $query['SecurityToken'] = $request->securityToken;
-        $req                    = new OpenApiRequest([
+        $query = [];
+        if (!Utils::isUnset($request->appCode)) {
+            $query['AppCode'] = $request->appCode;
+        }
+        if (!Utils::isUnset($request->securityToken)) {
+            $query['SecurityToken'] = $request->securityToken;
+        }
+        $req = new OpenApiRequest([
             'query' => OpenApiUtilClient::query($query),
-            'body'  => Utils::toMap($request),
         ]);
         $params = new Params([
             'action'      => 'ResetAppCode',
@@ -5496,7 +6503,7 @@ class CloudAPI extends OpenApiClient
             'method'      => 'POST',
             'authType'    => 'AK',
             'style'       => 'RPC',
-            'reqBodyType' => 'json',
+            'reqBodyType' => 'formData',
             'bodyType'    => 'json',
         ]);
 
@@ -5524,12 +6531,15 @@ class CloudAPI extends OpenApiClient
     public function resetAppSecretWithOptions($request, $runtime)
     {
         Utils::validateModel($request);
-        $query                  = [];
-        $query['AppKey']        = $request->appKey;
-        $query['SecurityToken'] = $request->securityToken;
-        $req                    = new OpenApiRequest([
+        $query = [];
+        if (!Utils::isUnset($request->appKey)) {
+            $query['AppKey'] = $request->appKey;
+        }
+        if (!Utils::isUnset($request->securityToken)) {
+            $query['SecurityToken'] = $request->securityToken;
+        }
+        $req = new OpenApiRequest([
             'query' => OpenApiUtilClient::query($query),
-            'body'  => Utils::toMap($request),
         ]);
         $params = new Params([
             'action'      => 'ResetAppSecret',
@@ -5539,7 +6549,7 @@ class CloudAPI extends OpenApiClient
             'method'      => 'POST',
             'authType'    => 'AK',
             'style'       => 'RPC',
-            'reqBodyType' => 'json',
+            'reqBodyType' => 'formData',
             'bodyType'    => 'json',
         ]);
 
@@ -5567,13 +6577,18 @@ class CloudAPI extends OpenApiClient
     public function sdkGenerateByAppWithOptions($request, $runtime)
     {
         Utils::validateModel($request);
-        $query                  = [];
-        $query['AppId']         = $request->appId;
-        $query['Language']      = $request->language;
-        $query['SecurityToken'] = $request->securityToken;
-        $req                    = new OpenApiRequest([
+        $query = [];
+        if (!Utils::isUnset($request->appId)) {
+            $query['AppId'] = $request->appId;
+        }
+        if (!Utils::isUnset($request->language)) {
+            $query['Language'] = $request->language;
+        }
+        if (!Utils::isUnset($request->securityToken)) {
+            $query['SecurityToken'] = $request->securityToken;
+        }
+        $req = new OpenApiRequest([
             'query' => OpenApiUtilClient::query($query),
-            'body'  => Utils::toMap($request),
         ]);
         $params = new Params([
             'action'      => 'SdkGenerateByApp',
@@ -5583,7 +6598,7 @@ class CloudAPI extends OpenApiClient
             'method'      => 'POST',
             'authType'    => 'AK',
             'style'       => 'RPC',
-            'reqBodyType' => 'json',
+            'reqBodyType' => 'formData',
             'bodyType'    => 'json',
         ]);
 
@@ -5611,13 +6626,18 @@ class CloudAPI extends OpenApiClient
     public function sdkGenerateByGroupWithOptions($request, $runtime)
     {
         Utils::validateModel($request);
-        $query                  = [];
-        $query['GroupId']       = $request->groupId;
-        $query['Language']      = $request->language;
-        $query['SecurityToken'] = $request->securityToken;
-        $req                    = new OpenApiRequest([
+        $query = [];
+        if (!Utils::isUnset($request->groupId)) {
+            $query['GroupId'] = $request->groupId;
+        }
+        if (!Utils::isUnset($request->language)) {
+            $query['Language'] = $request->language;
+        }
+        if (!Utils::isUnset($request->securityToken)) {
+            $query['SecurityToken'] = $request->securityToken;
+        }
+        $req = new OpenApiRequest([
             'query' => OpenApiUtilClient::query($query),
-            'body'  => Utils::toMap($request),
         ]);
         $params = new Params([
             'action'      => 'SdkGenerateByGroup',
@@ -5627,7 +6647,7 @@ class CloudAPI extends OpenApiClient
             'method'      => 'POST',
             'authType'    => 'AK',
             'style'       => 'RPC',
-            'reqBodyType' => 'json',
+            'reqBodyType' => 'formData',
             'bodyType'    => 'json',
         ]);
 
@@ -5655,17 +6675,30 @@ class CloudAPI extends OpenApiClient
     public function setApisAuthoritiesWithOptions($request, $runtime)
     {
         Utils::validateModel($request);
-        $query                  = [];
-        $query['ApiIds']        = $request->apiIds;
-        $query['AppId']         = $request->appId;
-        $query['AuthValidTime'] = $request->authValidTime;
-        $query['Description']   = $request->description;
-        $query['GroupId']       = $request->groupId;
-        $query['SecurityToken'] = $request->securityToken;
-        $query['StageName']     = $request->stageName;
-        $req                    = new OpenApiRequest([
+        $query = [];
+        if (!Utils::isUnset($request->apiIds)) {
+            $query['ApiIds'] = $request->apiIds;
+        }
+        if (!Utils::isUnset($request->appId)) {
+            $query['AppId'] = $request->appId;
+        }
+        if (!Utils::isUnset($request->authValidTime)) {
+            $query['AuthValidTime'] = $request->authValidTime;
+        }
+        if (!Utils::isUnset($request->description)) {
+            $query['Description'] = $request->description;
+        }
+        if (!Utils::isUnset($request->groupId)) {
+            $query['GroupId'] = $request->groupId;
+        }
+        if (!Utils::isUnset($request->securityToken)) {
+            $query['SecurityToken'] = $request->securityToken;
+        }
+        if (!Utils::isUnset($request->stageName)) {
+            $query['StageName'] = $request->stageName;
+        }
+        $req = new OpenApiRequest([
             'query' => OpenApiUtilClient::query($query),
-            'body'  => Utils::toMap($request),
         ]);
         $params = new Params([
             'action'      => 'SetApisAuthorities',
@@ -5675,7 +6708,7 @@ class CloudAPI extends OpenApiClient
             'method'      => 'POST',
             'authType'    => 'AK',
             'style'       => 'RPC',
-            'reqBodyType' => 'json',
+            'reqBodyType' => 'formData',
             'bodyType'    => 'json',
         ]);
 
@@ -5703,17 +6736,30 @@ class CloudAPI extends OpenApiClient
     public function setAppsAuthoritiesWithOptions($request, $runtime)
     {
         Utils::validateModel($request);
-        $query                  = [];
-        $query['ApiId']         = $request->apiId;
-        $query['AppIds']        = $request->appIds;
-        $query['AuthValidTime'] = $request->authValidTime;
-        $query['Description']   = $request->description;
-        $query['GroupId']       = $request->groupId;
-        $query['SecurityToken'] = $request->securityToken;
-        $query['StageName']     = $request->stageName;
-        $req                    = new OpenApiRequest([
+        $query = [];
+        if (!Utils::isUnset($request->apiId)) {
+            $query['ApiId'] = $request->apiId;
+        }
+        if (!Utils::isUnset($request->appIds)) {
+            $query['AppIds'] = $request->appIds;
+        }
+        if (!Utils::isUnset($request->authValidTime)) {
+            $query['AuthValidTime'] = $request->authValidTime;
+        }
+        if (!Utils::isUnset($request->description)) {
+            $query['Description'] = $request->description;
+        }
+        if (!Utils::isUnset($request->groupId)) {
+            $query['GroupId'] = $request->groupId;
+        }
+        if (!Utils::isUnset($request->securityToken)) {
+            $query['SecurityToken'] = $request->securityToken;
+        }
+        if (!Utils::isUnset($request->stageName)) {
+            $query['StageName'] = $request->stageName;
+        }
+        $req = new OpenApiRequest([
             'query' => OpenApiUtilClient::query($query),
-            'body'  => Utils::toMap($request),
         ]);
         $params = new Params([
             'action'      => 'SetAppsAuthorities',
@@ -5723,7 +6769,7 @@ class CloudAPI extends OpenApiClient
             'method'      => 'POST',
             'authType'    => 'AK',
             'style'       => 'RPC',
-            'reqBodyType' => 'json',
+            'reqBodyType' => 'formData',
             'bodyType'    => 'json',
         ]);
 
@@ -5751,15 +6797,24 @@ class CloudAPI extends OpenApiClient
     public function setDomainWithOptions($request, $runtime)
     {
         Utils::validateModel($request);
-        $query                     = [];
-        $query['BindStageName']    = $request->bindStageName;
-        $query['CustomDomainType'] = $request->customDomainType;
-        $query['DomainName']       = $request->domainName;
-        $query['GroupId']          = $request->groupId;
-        $query['IsForce']          = $request->isForce;
-        $req                       = new OpenApiRequest([
+        $query = [];
+        if (!Utils::isUnset($request->bindStageName)) {
+            $query['BindStageName'] = $request->bindStageName;
+        }
+        if (!Utils::isUnset($request->customDomainType)) {
+            $query['CustomDomainType'] = $request->customDomainType;
+        }
+        if (!Utils::isUnset($request->domainName)) {
+            $query['DomainName'] = $request->domainName;
+        }
+        if (!Utils::isUnset($request->groupId)) {
+            $query['GroupId'] = $request->groupId;
+        }
+        if (!Utils::isUnset($request->isForce)) {
+            $query['IsForce'] = $request->isForce;
+        }
+        $req = new OpenApiRequest([
             'query' => OpenApiUtilClient::query($query),
-            'body'  => Utils::toMap($request),
         ]);
         $params = new Params([
             'action'      => 'SetDomain',
@@ -5769,7 +6824,7 @@ class CloudAPI extends OpenApiClient
             'method'      => 'POST',
             'authType'    => 'AK',
             'style'       => 'RPC',
-            'reqBodyType' => 'json',
+            'reqBodyType' => 'formData',
             'bodyType'    => 'json',
         ]);
 
@@ -5797,17 +6852,30 @@ class CloudAPI extends OpenApiClient
     public function setDomainCertificateWithOptions($request, $runtime)
     {
         Utils::validateModel($request);
-        $query                          = [];
-        $query['CaCertificateBody']     = $request->caCertificateBody;
-        $query['CertificateBody']       = $request->certificateBody;
-        $query['CertificateName']       = $request->certificateName;
-        $query['CertificatePrivateKey'] = $request->certificatePrivateKey;
-        $query['DomainName']            = $request->domainName;
-        $query['GroupId']               = $request->groupId;
-        $query['SecurityToken']         = $request->securityToken;
-        $req                            = new OpenApiRequest([
+        $query = [];
+        if (!Utils::isUnset($request->caCertificateBody)) {
+            $query['CaCertificateBody'] = $request->caCertificateBody;
+        }
+        if (!Utils::isUnset($request->certificateBody)) {
+            $query['CertificateBody'] = $request->certificateBody;
+        }
+        if (!Utils::isUnset($request->certificateName)) {
+            $query['CertificateName'] = $request->certificateName;
+        }
+        if (!Utils::isUnset($request->certificatePrivateKey)) {
+            $query['CertificatePrivateKey'] = $request->certificatePrivateKey;
+        }
+        if (!Utils::isUnset($request->domainName)) {
+            $query['DomainName'] = $request->domainName;
+        }
+        if (!Utils::isUnset($request->groupId)) {
+            $query['GroupId'] = $request->groupId;
+        }
+        if (!Utils::isUnset($request->securityToken)) {
+            $query['SecurityToken'] = $request->securityToken;
+        }
+        $req = new OpenApiRequest([
             'query' => OpenApiUtilClient::query($query),
-            'body'  => Utils::toMap($request),
         ]);
         $params = new Params([
             'action'      => 'SetDomainCertificate',
@@ -5817,7 +6885,7 @@ class CloudAPI extends OpenApiClient
             'method'      => 'POST',
             'authType'    => 'AK',
             'style'       => 'RPC',
-            'reqBodyType' => 'json',
+            'reqBodyType' => 'formData',
             'bodyType'    => 'json',
         ]);
 
@@ -5845,14 +6913,21 @@ class CloudAPI extends OpenApiClient
     public function setDomainWebSocketStatusWithOptions($request, $runtime)
     {
         Utils::validateModel($request);
-        $query                  = [];
-        $query['ActionValue']   = $request->actionValue;
-        $query['DomainName']    = $request->domainName;
-        $query['GroupId']       = $request->groupId;
-        $query['SecurityToken'] = $request->securityToken;
-        $req                    = new OpenApiRequest([
+        $query = [];
+        if (!Utils::isUnset($request->actionValue)) {
+            $query['ActionValue'] = $request->actionValue;
+        }
+        if (!Utils::isUnset($request->domainName)) {
+            $query['DomainName'] = $request->domainName;
+        }
+        if (!Utils::isUnset($request->groupId)) {
+            $query['GroupId'] = $request->groupId;
+        }
+        if (!Utils::isUnset($request->securityToken)) {
+            $query['SecurityToken'] = $request->securityToken;
+        }
+        $req = new OpenApiRequest([
             'query' => OpenApiUtilClient::query($query),
-            'body'  => Utils::toMap($request),
         ]);
         $params = new Params([
             'action'      => 'SetDomainWebSocketStatus',
@@ -5862,7 +6937,7 @@ class CloudAPI extends OpenApiClient
             'method'      => 'POST',
             'authType'    => 'AK',
             'style'       => 'RPC',
-            'reqBodyType' => 'json',
+            'reqBodyType' => 'formData',
             'bodyType'    => 'json',
         ]);
 
@@ -5890,15 +6965,24 @@ class CloudAPI extends OpenApiClient
     public function setIpControlApisWithOptions($request, $runtime)
     {
         Utils::validateModel($request);
-        $query                  = [];
-        $query['ApiIds']        = $request->apiIds;
-        $query['GroupId']       = $request->groupId;
-        $query['IpControlId']   = $request->ipControlId;
-        $query['SecurityToken'] = $request->securityToken;
-        $query['StageName']     = $request->stageName;
-        $req                    = new OpenApiRequest([
+        $query = [];
+        if (!Utils::isUnset($request->apiIds)) {
+            $query['ApiIds'] = $request->apiIds;
+        }
+        if (!Utils::isUnset($request->groupId)) {
+            $query['GroupId'] = $request->groupId;
+        }
+        if (!Utils::isUnset($request->ipControlId)) {
+            $query['IpControlId'] = $request->ipControlId;
+        }
+        if (!Utils::isUnset($request->securityToken)) {
+            $query['SecurityToken'] = $request->securityToken;
+        }
+        if (!Utils::isUnset($request->stageName)) {
+            $query['StageName'] = $request->stageName;
+        }
+        $req = new OpenApiRequest([
             'query' => OpenApiUtilClient::query($query),
-            'body'  => Utils::toMap($request),
         ]);
         $params = new Params([
             'action'      => 'SetIpControlApis',
@@ -5908,7 +6992,7 @@ class CloudAPI extends OpenApiClient
             'method'      => 'POST',
             'authType'    => 'AK',
             'style'       => 'RPC',
-            'reqBodyType' => 'json',
+            'reqBodyType' => 'formData',
             'bodyType'    => 'json',
         ]);
 
@@ -5936,15 +7020,24 @@ class CloudAPI extends OpenApiClient
     public function setSignatureApisWithOptions($request, $runtime)
     {
         Utils::validateModel($request);
-        $query                  = [];
-        $query['ApiIds']        = $request->apiIds;
-        $query['GroupId']       = $request->groupId;
-        $query['SecurityToken'] = $request->securityToken;
-        $query['SignatureId']   = $request->signatureId;
-        $query['StageName']     = $request->stageName;
-        $req                    = new OpenApiRequest([
+        $query = [];
+        if (!Utils::isUnset($request->apiIds)) {
+            $query['ApiIds'] = $request->apiIds;
+        }
+        if (!Utils::isUnset($request->groupId)) {
+            $query['GroupId'] = $request->groupId;
+        }
+        if (!Utils::isUnset($request->securityToken)) {
+            $query['SecurityToken'] = $request->securityToken;
+        }
+        if (!Utils::isUnset($request->signatureId)) {
+            $query['SignatureId'] = $request->signatureId;
+        }
+        if (!Utils::isUnset($request->stageName)) {
+            $query['StageName'] = $request->stageName;
+        }
+        $req = new OpenApiRequest([
             'query' => OpenApiUtilClient::query($query),
-            'body'  => Utils::toMap($request),
         ]);
         $params = new Params([
             'action'      => 'SetSignatureApis',
@@ -5954,7 +7047,7 @@ class CloudAPI extends OpenApiClient
             'method'      => 'POST',
             'authType'    => 'AK',
             'style'       => 'RPC',
-            'reqBodyType' => 'json',
+            'reqBodyType' => 'formData',
             'bodyType'    => 'json',
         ]);
 
@@ -5982,15 +7075,24 @@ class CloudAPI extends OpenApiClient
     public function setTrafficControlApisWithOptions($request, $runtime)
     {
         Utils::validateModel($request);
-        $query                     = [];
-        $query['ApiIds']           = $request->apiIds;
-        $query['GroupId']          = $request->groupId;
-        $query['SecurityToken']    = $request->securityToken;
-        $query['StageName']        = $request->stageName;
-        $query['TrafficControlId'] = $request->trafficControlId;
-        $req                       = new OpenApiRequest([
+        $query = [];
+        if (!Utils::isUnset($request->apiIds)) {
+            $query['ApiIds'] = $request->apiIds;
+        }
+        if (!Utils::isUnset($request->groupId)) {
+            $query['GroupId'] = $request->groupId;
+        }
+        if (!Utils::isUnset($request->securityToken)) {
+            $query['SecurityToken'] = $request->securityToken;
+        }
+        if (!Utils::isUnset($request->stageName)) {
+            $query['StageName'] = $request->stageName;
+        }
+        if (!Utils::isUnset($request->trafficControlId)) {
+            $query['TrafficControlId'] = $request->trafficControlId;
+        }
+        $req = new OpenApiRequest([
             'query' => OpenApiUtilClient::query($query),
-            'body'  => Utils::toMap($request),
         ]);
         $params = new Params([
             'action'      => 'SetTrafficControlApis',
@@ -6000,7 +7102,7 @@ class CloudAPI extends OpenApiClient
             'method'      => 'POST',
             'authType'    => 'AK',
             'style'       => 'RPC',
-            'reqBodyType' => 'json',
+            'reqBodyType' => 'formData',
             'bodyType'    => 'json',
         ]);
 
@@ -6028,16 +7130,27 @@ class CloudAPI extends OpenApiClient
     public function setVpcAccessWithOptions($request, $runtime)
     {
         Utils::validateModel($request);
-        $query                  = [];
-        $query['Description']   = $request->description;
-        $query['InstanceId']    = $request->instanceId;
-        $query['Name']          = $request->name;
-        $query['Port']          = $request->port;
-        $query['SecurityToken'] = $request->securityToken;
-        $query['VpcId']         = $request->vpcId;
-        $req                    = new OpenApiRequest([
+        $query = [];
+        if (!Utils::isUnset($request->description)) {
+            $query['Description'] = $request->description;
+        }
+        if (!Utils::isUnset($request->instanceId)) {
+            $query['InstanceId'] = $request->instanceId;
+        }
+        if (!Utils::isUnset($request->name)) {
+            $query['Name'] = $request->name;
+        }
+        if (!Utils::isUnset($request->port)) {
+            $query['Port'] = $request->port;
+        }
+        if (!Utils::isUnset($request->securityToken)) {
+            $query['SecurityToken'] = $request->securityToken;
+        }
+        if (!Utils::isUnset($request->vpcId)) {
+            $query['VpcId'] = $request->vpcId;
+        }
+        $req = new OpenApiRequest([
             'query' => OpenApiUtilClient::query($query),
-            'body'  => Utils::toMap($request),
         ]);
         $params = new Params([
             'action'      => 'SetVpcAccess',
@@ -6047,7 +7160,7 @@ class CloudAPI extends OpenApiClient
             'method'      => 'POST',
             'authType'    => 'AK',
             'style'       => 'RPC',
-            'reqBodyType' => 'json',
+            'reqBodyType' => 'formData',
             'bodyType'    => 'json',
         ]);
 
@@ -6075,14 +7188,21 @@ class CloudAPI extends OpenApiClient
     public function setWildcardDomainPatternsWithOptions($request, $runtime)
     {
         Utils::validateModel($request);
-        $query                           = [];
-        $query['DomainName']             = $request->domainName;
-        $query['GroupId']                = $request->groupId;
-        $query['SecurityToken']          = $request->securityToken;
-        $query['WildcardDomainPatterns'] = $request->wildcardDomainPatterns;
-        $req                             = new OpenApiRequest([
+        $query = [];
+        if (!Utils::isUnset($request->domainName)) {
+            $query['DomainName'] = $request->domainName;
+        }
+        if (!Utils::isUnset($request->groupId)) {
+            $query['GroupId'] = $request->groupId;
+        }
+        if (!Utils::isUnset($request->securityToken)) {
+            $query['SecurityToken'] = $request->securityToken;
+        }
+        if (!Utils::isUnset($request->wildcardDomainPatterns)) {
+            $query['WildcardDomainPatterns'] = $request->wildcardDomainPatterns;
+        }
+        $req = new OpenApiRequest([
             'query' => OpenApiUtilClient::query($query),
-            'body'  => Utils::toMap($request),
         ]);
         $params = new Params([
             'action'      => 'SetWildcardDomainPatterns',
@@ -6092,7 +7212,7 @@ class CloudAPI extends OpenApiClient
             'method'      => 'POST',
             'authType'    => 'AK',
             'style'       => 'RPC',
-            'reqBodyType' => 'json',
+            'reqBodyType' => 'formData',
             'bodyType'    => 'json',
         ]);
 
@@ -6120,16 +7240,27 @@ class CloudAPI extends OpenApiClient
     public function switchApiWithOptions($request, $runtime)
     {
         Utils::validateModel($request);
-        $query                   = [];
-        $query['ApiId']          = $request->apiId;
-        $query['Description']    = $request->description;
-        $query['GroupId']        = $request->groupId;
-        $query['HistoryVersion'] = $request->historyVersion;
-        $query['SecurityToken']  = $request->securityToken;
-        $query['StageName']      = $request->stageName;
-        $req                     = new OpenApiRequest([
+        $query = [];
+        if (!Utils::isUnset($request->apiId)) {
+            $query['ApiId'] = $request->apiId;
+        }
+        if (!Utils::isUnset($request->description)) {
+            $query['Description'] = $request->description;
+        }
+        if (!Utils::isUnset($request->groupId)) {
+            $query['GroupId'] = $request->groupId;
+        }
+        if (!Utils::isUnset($request->historyVersion)) {
+            $query['HistoryVersion'] = $request->historyVersion;
+        }
+        if (!Utils::isUnset($request->securityToken)) {
+            $query['SecurityToken'] = $request->securityToken;
+        }
+        if (!Utils::isUnset($request->stageName)) {
+            $query['StageName'] = $request->stageName;
+        }
+        $req = new OpenApiRequest([
             'query' => OpenApiUtilClient::query($query),
-            'body'  => Utils::toMap($request),
         ]);
         $params = new Params([
             'action'      => 'SwitchApi',
@@ -6139,7 +7270,7 @@ class CloudAPI extends OpenApiClient
             'method'      => 'POST',
             'authType'    => 'AK',
             'style'       => 'RPC',
-            'reqBodyType' => 'json',
+            'reqBodyType' => 'formData',
             'bodyType'    => 'json',
         ]);
 
@@ -6167,14 +7298,21 @@ class CloudAPI extends OpenApiClient
     public function tagResourcesWithOptions($request, $runtime)
     {
         Utils::validateModel($request);
-        $query                  = [];
-        $query['ResourceId']    = $request->resourceId;
-        $query['ResourceType']  = $request->resourceType;
-        $query['SecurityToken'] = $request->securityToken;
-        $query['Tag']           = $request->tag;
-        $req                    = new OpenApiRequest([
+        $query = [];
+        if (!Utils::isUnset($request->resourceId)) {
+            $query['ResourceId'] = $request->resourceId;
+        }
+        if (!Utils::isUnset($request->resourceType)) {
+            $query['ResourceType'] = $request->resourceType;
+        }
+        if (!Utils::isUnset($request->securityToken)) {
+            $query['SecurityToken'] = $request->securityToken;
+        }
+        if (!Utils::isUnset($request->tag)) {
+            $query['Tag'] = $request->tag;
+        }
+        $req = new OpenApiRequest([
             'query' => OpenApiUtilClient::query($query),
-            'body'  => Utils::toMap($request),
         ]);
         $params = new Params([
             'action'      => 'TagResources',
@@ -6184,7 +7322,7 @@ class CloudAPI extends OpenApiClient
             'method'      => 'POST',
             'authType'    => 'AK',
             'style'       => 'RPC',
-            'reqBodyType' => 'json',
+            'reqBodyType' => 'formData',
             'bodyType'    => 'json',
         ]);
 
@@ -6212,15 +7350,24 @@ class CloudAPI extends OpenApiClient
     public function untagResourcesWithOptions($request, $runtime)
     {
         Utils::validateModel($request);
-        $query                  = [];
-        $query['All']           = $request->all;
-        $query['ResourceId']    = $request->resourceId;
-        $query['ResourceType']  = $request->resourceType;
-        $query['SecurityToken'] = $request->securityToken;
-        $query['TagKey']        = $request->tagKey;
-        $req                    = new OpenApiRequest([
+        $query = [];
+        if (!Utils::isUnset($request->all)) {
+            $query['All'] = $request->all;
+        }
+        if (!Utils::isUnset($request->resourceId)) {
+            $query['ResourceId'] = $request->resourceId;
+        }
+        if (!Utils::isUnset($request->resourceType)) {
+            $query['ResourceType'] = $request->resourceType;
+        }
+        if (!Utils::isUnset($request->securityToken)) {
+            $query['SecurityToken'] = $request->securityToken;
+        }
+        if (!Utils::isUnset($request->tagKey)) {
+            $query['TagKey'] = $request->tagKey;
+        }
+        $req = new OpenApiRequest([
             'query' => OpenApiUtilClient::query($query),
-            'body'  => Utils::toMap($request),
         ]);
         $params = new Params([
             'action'      => 'UntagResources',
@@ -6230,7 +7377,7 @@ class CloudAPI extends OpenApiClient
             'method'      => 'POST',
             'authType'    => 'AK',
             'style'       => 'RPC',
-            'reqBodyType' => 'json',
+            'reqBodyType' => 'formData',
             'bodyType'    => 'json',
         ]);
 

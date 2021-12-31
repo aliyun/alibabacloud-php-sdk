@@ -9,6 +9,13 @@ use AlibabaCloud\Tea\Model;
 class DescribeVpcAccessesRequest extends Model
 {
     /**
+     * @description 实例ID
+     *
+     * @var string
+     */
+    public $instanceId;
+
+    /**
      * @description VPC授权名称
      *
      * @var string
@@ -30,6 +37,13 @@ class DescribeVpcAccessesRequest extends Model
     public $pageSize;
 
     /**
+     * @description 端口号
+     *
+     * @var string
+     */
+    public $port;
+
+    /**
      * @var string
      */
     public $securityToken;
@@ -40,12 +54,22 @@ class DescribeVpcAccessesRequest extends Model
      * @var string
      */
     public $vpcAccessId;
+
+    /**
+     * @description Vpc ID
+     *
+     * @var string
+     */
+    public $vpcId;
     protected $_name = [
+        'instanceId'    => 'InstanceId',
         'name'          => 'Name',
         'pageNumber'    => 'PageNumber',
         'pageSize'      => 'PageSize',
+        'port'          => 'Port',
         'securityToken' => 'SecurityToken',
         'vpcAccessId'   => 'VpcAccessId',
+        'vpcId'         => 'VpcId',
     ];
 
     public function validate()
@@ -55,6 +79,9 @@ class DescribeVpcAccessesRequest extends Model
     public function toMap()
     {
         $res = [];
+        if (null !== $this->instanceId) {
+            $res['InstanceId'] = $this->instanceId;
+        }
         if (null !== $this->name) {
             $res['Name'] = $this->name;
         }
@@ -64,11 +91,17 @@ class DescribeVpcAccessesRequest extends Model
         if (null !== $this->pageSize) {
             $res['PageSize'] = $this->pageSize;
         }
+        if (null !== $this->port) {
+            $res['Port'] = $this->port;
+        }
         if (null !== $this->securityToken) {
             $res['SecurityToken'] = $this->securityToken;
         }
         if (null !== $this->vpcAccessId) {
             $res['VpcAccessId'] = $this->vpcAccessId;
+        }
+        if (null !== $this->vpcId) {
+            $res['VpcId'] = $this->vpcId;
         }
 
         return $res;
@@ -82,6 +115,9 @@ class DescribeVpcAccessesRequest extends Model
     public static function fromMap($map = [])
     {
         $model = new self();
+        if (isset($map['InstanceId'])) {
+            $model->instanceId = $map['InstanceId'];
+        }
         if (isset($map['Name'])) {
             $model->name = $map['Name'];
         }
@@ -91,11 +127,17 @@ class DescribeVpcAccessesRequest extends Model
         if (isset($map['PageSize'])) {
             $model->pageSize = $map['PageSize'];
         }
+        if (isset($map['Port'])) {
+            $model->port = $map['Port'];
+        }
         if (isset($map['SecurityToken'])) {
             $model->securityToken = $map['SecurityToken'];
         }
         if (isset($map['VpcAccessId'])) {
             $model->vpcAccessId = $map['VpcAccessId'];
+        }
+        if (isset($map['VpcId'])) {
+            $model->vpcId = $map['VpcId'];
         }
 
         return $model;

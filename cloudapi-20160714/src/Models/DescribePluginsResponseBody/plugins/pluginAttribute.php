@@ -15,7 +15,7 @@ class pluginAttribute extends Model
     public $createdTime;
 
     /**
-     * @var int
+     * @var string
      */
     public $description;
 
@@ -45,7 +45,7 @@ class pluginAttribute extends Model
     public $pluginType;
 
     /**
-     * @var int
+     * @var string
      */
     public $regionId;
 
