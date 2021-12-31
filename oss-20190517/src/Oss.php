@@ -37,6 +37,8 @@ use AlibabaCloud\SDK\Oss\V20190517\Models\DeleteObjectRequest;
 use AlibabaCloud\SDK\Oss\V20190517\Models\DeleteObjectResponse;
 use AlibabaCloud\SDK\Oss\V20190517\Models\DeleteObjectTaggingRequest;
 use AlibabaCloud\SDK\Oss\V20190517\Models\DeleteObjectTaggingResponse;
+use AlibabaCloud\SDK\Oss\V20190517\Models\DescribeRegionsRequest;
+use AlibabaCloud\SDK\Oss\V20190517\Models\DescribeRegionsResponse;
 use AlibabaCloud\SDK\Oss\V20190517\Models\ExtendBucketWormRequest;
 use AlibabaCloud\SDK\Oss\V20190517\Models\ExtendBucketWormResponse;
 use AlibabaCloud\SDK\Oss\V20190517\Models\GetBucketAclResponse;
@@ -220,7 +222,7 @@ class Oss extends OpenApiClient
             'authType'    => 'AK',
             'style'       => 'ROA',
             'reqBodyType' => 'xml',
-            'bodyType'    => 'xml',
+            'bodyType'    => 'none',
         ]);
 
         return AbortBucketWormResponse::fromMap($this->execute($params, $req, $runtime));
@@ -274,7 +276,7 @@ class Oss extends OpenApiClient
             'authType'    => 'AK',
             'style'       => 'ROA',
             'reqBodyType' => 'xml',
-            'bodyType'    => 'xml',
+            'bodyType'    => 'none',
         ]);
 
         return AbortMultipartUploadResponse::fromMap($this->execute($params, $req, $runtime));
@@ -361,7 +363,7 @@ class Oss extends OpenApiClient
             'authType'    => 'AK',
             'style'       => 'ROA',
             'reqBodyType' => 'binary',
-            'bodyType'    => 'xml',
+            'bodyType'    => 'none',
         ]);
 
         return AppendObjectResponse::fromMap($this->execute($params, $req, $runtime));
@@ -412,7 +414,7 @@ class Oss extends OpenApiClient
             'authType'    => 'AK',
             'style'       => 'ROA',
             'reqBodyType' => 'xml',
-            'bodyType'    => 'xml',
+            'bodyType'    => 'none',
         ]);
 
         return CompleteBucketWormResponse::fromMap($this->execute($params, $req, $runtime));
@@ -619,7 +621,7 @@ class Oss extends OpenApiClient
             'authType'    => 'AK',
             'style'       => 'ROA',
             'reqBodyType' => 'xml',
-            'bodyType'    => 'xml',
+            'bodyType'    => 'none',
         ]);
 
         return DeleteBucketResponse::fromMap($this->execute($params, $req, $runtime));
@@ -662,7 +664,7 @@ class Oss extends OpenApiClient
             'authType'    => 'AK',
             'style'       => 'ROA',
             'reqBodyType' => 'xml',
-            'bodyType'    => 'xml',
+            'bodyType'    => 'none',
         ]);
 
         return DeleteBucketCorsResponse::fromMap($this->execute($params, $req, $runtime));
@@ -705,7 +707,7 @@ class Oss extends OpenApiClient
             'authType'    => 'AK',
             'style'       => 'ROA',
             'reqBodyType' => 'xml',
-            'bodyType'    => 'xml',
+            'bodyType'    => 'none',
         ]);
 
         return DeleteBucketEncryptionResponse::fromMap($this->execute($params, $req, $runtime));
@@ -756,7 +758,7 @@ class Oss extends OpenApiClient
             'authType'    => 'AK',
             'style'       => 'ROA',
             'reqBodyType' => 'xml',
-            'bodyType'    => 'xml',
+            'bodyType'    => 'none',
         ]);
 
         return DeleteBucketInventoryResponse::fromMap($this->execute($params, $req, $runtime));
@@ -799,7 +801,7 @@ class Oss extends OpenApiClient
             'authType'    => 'AK',
             'style'       => 'ROA',
             'reqBodyType' => 'xml',
-            'bodyType'    => 'xml',
+            'bodyType'    => 'none',
         ]);
 
         return DeleteBucketLifecycleResponse::fromMap($this->execute($params, $req, $runtime));
@@ -842,7 +844,7 @@ class Oss extends OpenApiClient
             'authType'    => 'AK',
             'style'       => 'ROA',
             'reqBodyType' => 'xml',
-            'bodyType'    => 'xml',
+            'bodyType'    => 'none',
         ]);
 
         return DeleteBucketLoggingResponse::fromMap($this->execute($params, $req, $runtime));
@@ -885,7 +887,7 @@ class Oss extends OpenApiClient
             'authType'    => 'AK',
             'style'       => 'ROA',
             'reqBodyType' => 'xml',
-            'bodyType'    => 'xml',
+            'bodyType'    => 'none',
         ]);
 
         return DeleteBucketPolicyResponse::fromMap($this->execute($params, $req, $runtime));
@@ -936,7 +938,7 @@ class Oss extends OpenApiClient
             'authType'    => 'AK',
             'style'       => 'ROA',
             'reqBodyType' => 'xml',
-            'bodyType'    => 'xml',
+            'bodyType'    => 'none',
         ]);
 
         return DeleteBucketReplicationResponse::fromMap($this->execute($params, $req, $runtime));
@@ -979,7 +981,7 @@ class Oss extends OpenApiClient
             'authType'    => 'AK',
             'style'       => 'ROA',
             'reqBodyType' => 'xml',
-            'bodyType'    => 'xml',
+            'bodyType'    => 'none',
         ]);
 
         return DeleteBucketTagsResponse::fromMap($this->execute($params, $req, $runtime));
@@ -1022,7 +1024,7 @@ class Oss extends OpenApiClient
             'authType'    => 'AK',
             'style'       => 'ROA',
             'reqBodyType' => 'xml',
-            'bodyType'    => 'xml',
+            'bodyType'    => 'none',
         ]);
 
         return DeleteBucketWebsiteResponse::fromMap($this->execute($params, $req, $runtime));
@@ -1068,7 +1070,7 @@ class Oss extends OpenApiClient
             'authType'    => 'AK',
             'style'       => 'ROA',
             'reqBodyType' => 'xml',
-            'bodyType'    => 'xml',
+            'bodyType'    => 'none',
         ]);
 
         return DeleteLiveChannelResponse::fromMap($this->execute($params, $req, $runtime));
@@ -1173,7 +1175,7 @@ class Oss extends OpenApiClient
             'authType'    => 'AK',
             'style'       => 'ROA',
             'reqBodyType' => 'binary',
-            'bodyType'    => 'binary',
+            'bodyType'    => 'none',
         ]);
 
         return DeleteObjectResponse::fromMap($this->execute($params, $req, $runtime));
@@ -1227,10 +1229,56 @@ class Oss extends OpenApiClient
             'authType'    => 'AK',
             'style'       => 'ROA',
             'reqBodyType' => 'xml',
-            'bodyType'    => 'xml',
+            'bodyType'    => 'none',
         ]);
 
         return DeleteObjectTaggingResponse::fromMap($this->execute($params, $req, $runtime));
+    }
+
+    /**
+     * @param DescribeRegionsRequest $request
+     *
+     * @return DescribeRegionsResponse
+     */
+    public function describeRegions($request)
+    {
+        $runtime = new RuntimeOptions([]);
+        $headers = [];
+
+        return $this->describeRegionsWithOptions($request, $headers, $runtime);
+    }
+
+    /**
+     * @param DescribeRegionsRequest $request
+     * @param string[]               $headers
+     * @param RuntimeOptions         $runtime
+     *
+     * @return DescribeRegionsResponse
+     */
+    public function describeRegionsWithOptions($request, $headers, $runtime)
+    {
+        Utils::validateModel($request);
+        $query = [];
+        if (!Utils::isUnset($request->regions)) {
+            $query['regions'] = $request->regions;
+        }
+        $req = new OpenApiRequest([
+            'headers' => $headers,
+            'query'   => OpenApiUtilClient::query($query),
+        ]);
+        $params = new Params([
+            'action'      => 'DescribeRegions',
+            'version'     => '2019-05-17',
+            'protocol'    => 'HTTPS',
+            'pathname'    => '/?regions',
+            'method'      => 'GET',
+            'authType'    => 'AK',
+            'style'       => 'ROA',
+            'reqBodyType' => 'xml',
+            'bodyType'    => 'xml',
+        ]);
+
+        return DescribeRegionsResponse::fromMap($this->execute($params, $req, $runtime));
     }
 
     /**
@@ -1283,7 +1331,7 @@ class Oss extends OpenApiClient
             'authType'    => 'AK',
             'style'       => 'ROA',
             'reqBodyType' => 'xml',
-            'bodyType'    => 'xml',
+            'bodyType'    => 'none',
         ]);
 
         return ExtendBucketWormResponse::fromMap($this->execute($params, $req, $runtime));
@@ -2516,7 +2564,7 @@ class Oss extends OpenApiClient
             'authType'    => 'AK',
             'style'       => 'ROA',
             'reqBodyType' => 'binary',
-            'bodyType'    => 'xml',
+            'bodyType'    => 'none',
         ]);
 
         return GetObjectMetaResponse::fromMap($this->execute($params, $req, $runtime));
@@ -2676,7 +2724,7 @@ class Oss extends OpenApiClient
             'authType'    => 'AK',
             'style'       => 'ROA',
             'reqBodyType' => 'xml',
-            'bodyType'    => 'xml',
+            'bodyType'    => 'none',
         ]);
 
         return GetSymlinkResponse::fromMap($this->execute($params, $req, $runtime));
@@ -2803,7 +2851,7 @@ class Oss extends OpenApiClient
             'authType'    => 'AK',
             'style'       => 'ROA',
             'reqBodyType' => 'xml',
-            'bodyType'    => 'xml',
+            'bodyType'    => 'none',
         ]);
 
         return HeadObjectResponse::fromMap($this->execute($params, $req, $runtime));
@@ -2854,7 +2902,7 @@ class Oss extends OpenApiClient
             'authType'    => 'AK',
             'style'       => 'ROA',
             'reqBodyType' => 'xml',
-            'bodyType'    => 'xml',
+            'bodyType'    => 'none',
         ]);
 
         return InitiateBucketWormResponse::fromMap($this->execute($params, $req, $runtime));
@@ -3493,7 +3541,7 @@ class Oss extends OpenApiClient
             'authType'    => 'AK',
             'style'       => 'ROA',
             'reqBodyType' => 'xml',
-            'bodyType'    => 'xml',
+            'bodyType'    => 'none',
         ]);
 
         return OptionObjectResponse::fromMap($this->execute($params, $req, $runtime));
@@ -3536,7 +3584,7 @@ class Oss extends OpenApiClient
             'authType'    => 'AK',
             'style'       => 'ROA',
             'reqBodyType' => 'none',
-            'bodyType'    => 'xml',
+            'bodyType'    => 'none',
         ]);
 
         return PostObjectResponse::fromMap($this->execute($params, $req, $runtime));
@@ -3596,7 +3644,7 @@ class Oss extends OpenApiClient
             'authType'    => 'AK',
             'style'       => 'ROA',
             'reqBodyType' => 'xml',
-            'bodyType'    => 'xml',
+            'bodyType'    => 'none',
         ]);
 
         return PostVodPlaylistResponse::fromMap($this->execute($params, $req, $runtime));
@@ -3654,7 +3702,7 @@ class Oss extends OpenApiClient
             'authType'    => 'AK',
             'style'       => 'ROA',
             'reqBodyType' => 'xml',
-            'bodyType'    => 'xml',
+            'bodyType'    => 'none',
         ]);
 
         return PutBucketResponse::fromMap($this->execute($params, $req, $runtime));
@@ -3704,7 +3752,7 @@ class Oss extends OpenApiClient
             'authType'    => 'AK',
             'style'       => 'ROA',
             'reqBodyType' => 'xml',
-            'bodyType'    => 'xml',
+            'bodyType'    => 'none',
         ]);
 
         return PutBucketAclResponse::fromMap($this->execute($params, $req, $runtime));
@@ -3755,7 +3803,7 @@ class Oss extends OpenApiClient
             'authType'    => 'AK',
             'style'       => 'ROA',
             'reqBodyType' => 'xml',
-            'bodyType'    => 'xml',
+            'bodyType'    => 'none',
         ]);
 
         return PutBucketCorsResponse::fromMap($this->execute($params, $req, $runtime));
@@ -3806,7 +3854,7 @@ class Oss extends OpenApiClient
             'authType'    => 'AK',
             'style'       => 'ROA',
             'reqBodyType' => 'xml',
-            'bodyType'    => 'xml',
+            'bodyType'    => 'none',
         ]);
 
         return PutBucketEncryptionResponse::fromMap($this->execute($params, $req, $runtime));
@@ -3862,7 +3910,7 @@ class Oss extends OpenApiClient
             'authType'    => 'AK',
             'style'       => 'ROA',
             'reqBodyType' => 'xml',
-            'bodyType'    => 'xml',
+            'bodyType'    => 'none',
         ]);
 
         return PutBucketInventoryResponse::fromMap($this->execute($params, $req, $runtime));
@@ -3913,7 +3961,7 @@ class Oss extends OpenApiClient
             'authType'    => 'AK',
             'style'       => 'ROA',
             'reqBodyType' => 'xml',
-            'bodyType'    => 'xml',
+            'bodyType'    => 'none',
         ]);
 
         return PutBucketLifecycleResponse::fromMap($this->execute($params, $req, $runtime));
@@ -3964,7 +4012,7 @@ class Oss extends OpenApiClient
             'authType'    => 'AK',
             'style'       => 'ROA',
             'reqBodyType' => 'xml',
-            'bodyType'    => 'xml',
+            'bodyType'    => 'none',
         ]);
 
         return PutBucketLoggingResponse::fromMap($this->execute($params, $req, $runtime));
@@ -4011,7 +4059,7 @@ class Oss extends OpenApiClient
             'authType'    => 'AK',
             'style'       => 'ROA',
             'reqBodyType' => 'json',
-            'bodyType'    => 'json',
+            'bodyType'    => 'none',
         ]);
 
         return PutBucketPolicyResponse::fromMap($this->execute($params, $req, $runtime));
@@ -4062,7 +4110,7 @@ class Oss extends OpenApiClient
             'authType'    => 'AK',
             'style'       => 'ROA',
             'reqBodyType' => 'xml',
-            'bodyType'    => 'xml',
+            'bodyType'    => 'none',
         ]);
 
         return PutBucketRefererResponse::fromMap($this->execute($params, $req, $runtime));
@@ -4113,7 +4161,7 @@ class Oss extends OpenApiClient
             'authType'    => 'AK',
             'style'       => 'ROA',
             'reqBodyType' => 'xml',
-            'bodyType'    => 'xml',
+            'bodyType'    => 'none',
         ]);
 
         return PutBucketReplicationResponse::fromMap($this->execute($params, $req, $runtime));
@@ -4164,7 +4212,7 @@ class Oss extends OpenApiClient
             'authType'    => 'AK',
             'style'       => 'ROA',
             'reqBodyType' => 'xml',
-            'bodyType'    => 'xml',
+            'bodyType'    => 'none',
         ]);
 
         return PutBucketRequestPaymentResponse::fromMap($this->execute($params, $req, $runtime));
@@ -4215,7 +4263,7 @@ class Oss extends OpenApiClient
             'authType'    => 'AK',
             'style'       => 'ROA',
             'reqBodyType' => 'xml',
-            'bodyType'    => 'xml',
+            'bodyType'    => 'none',
         ]);
 
         return PutBucketTagsResponse::fromMap($this->execute($params, $req, $runtime));
@@ -4266,7 +4314,7 @@ class Oss extends OpenApiClient
             'authType'    => 'AK',
             'style'       => 'ROA',
             'reqBodyType' => 'xml',
-            'bodyType'    => 'xml',
+            'bodyType'    => 'none',
         ]);
 
         return PutBucketTransferAccelerationResponse::fromMap($this->execute($params, $req, $runtime));
@@ -4317,7 +4365,7 @@ class Oss extends OpenApiClient
             'authType'    => 'AK',
             'style'       => 'ROA',
             'reqBodyType' => 'xml',
-            'bodyType'    => 'xml',
+            'bodyType'    => 'none',
         ]);
 
         return PutBucketVersioningResponse::fromMap($this->execute($params, $req, $runtime));
@@ -4368,7 +4416,7 @@ class Oss extends OpenApiClient
             'authType'    => 'AK',
             'style'       => 'ROA',
             'reqBodyType' => 'xml',
-            'bodyType'    => 'xml',
+            'bodyType'    => 'none',
         ]);
 
         return PutBucketWebsiteResponse::fromMap($this->execute($params, $req, $runtime));
@@ -4476,7 +4524,7 @@ class Oss extends OpenApiClient
             'authType'    => 'AK',
             'style'       => 'ROA',
             'reqBodyType' => 'xml',
-            'bodyType'    => 'xml',
+            'bodyType'    => 'none',
         ]);
 
         return PutLiveChannelStatusResponse::fromMap($this->execute($params, $req, $runtime));
@@ -4555,7 +4603,7 @@ class Oss extends OpenApiClient
             'authType'    => 'AK',
             'style'       => 'ROA',
             'reqBodyType' => 'binary',
-            'bodyType'    => 'binary',
+            'bodyType'    => 'none',
         ]);
 
         return PutObjectResponse::fromMap($this->execute($params, $req, $runtime));
@@ -4616,7 +4664,7 @@ class Oss extends OpenApiClient
             'authType'    => 'AK',
             'style'       => 'ROA',
             'reqBodyType' => 'xml',
-            'bodyType'    => 'xml',
+            'bodyType'    => 'none',
         ]);
 
         return PutObjectAclResponse::fromMap($this->execute($params, $req, $runtime));
@@ -4675,7 +4723,7 @@ class Oss extends OpenApiClient
             'authType'    => 'AK',
             'style'       => 'ROA',
             'reqBodyType' => 'xml',
-            'bodyType'    => 'xml',
+            'bodyType'    => 'none',
         ]);
 
         return PutObjectTaggingResponse::fromMap($this->execute($params, $req, $runtime));
@@ -4737,7 +4785,7 @@ class Oss extends OpenApiClient
             'authType'    => 'AK',
             'style'       => 'ROA',
             'reqBodyType' => 'xml',
-            'bodyType'    => 'xml',
+            'bodyType'    => 'none',
         ]);
 
         return PutSymlinkResponse::fromMap($this->execute($params, $req, $runtime));
@@ -4796,7 +4844,7 @@ class Oss extends OpenApiClient
             'authType'    => 'AK',
             'style'       => 'ROA',
             'reqBodyType' => 'xml',
-            'bodyType'    => 'xml',
+            'bodyType'    => 'none',
         ]);
 
         return RestoreObjectResponse::fromMap($this->execute($params, $req, $runtime));
@@ -4909,7 +4957,7 @@ class Oss extends OpenApiClient
             'authType'    => 'AK',
             'style'       => 'ROA',
             'reqBodyType' => 'binary',
-            'bodyType'    => 'xml',
+            'bodyType'    => 'none',
         ]);
 
         return UploadPartResponse::fromMap($this->execute($params, $req, $runtime));
