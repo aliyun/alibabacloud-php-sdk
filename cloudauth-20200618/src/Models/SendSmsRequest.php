@@ -16,6 +16,11 @@ class SendSmsRequest extends Model
     /**
      * @var string
      */
+    public $outerOrderNo;
+
+    /**
+     * @var string
+     */
     public $signName;
 
     /**
@@ -27,21 +32,19 @@ class SendSmsRequest extends Model
      * @var string
      */
     public $templateParam;
-
-    /**
-     * @var string
-     */
-    public $outerOrderNo;
     protected $_name = [
         'mobile'        => 'Mobile',
+        'outerOrderNo'  => 'OuterOrderNo',
         'signName'      => 'SignName',
         'templateCode'  => 'TemplateCode',
         'templateParam' => 'TemplateParam',
-        'outerOrderNo'  => 'OuterOrderNo',
     ];
 
     public function validate()
     {
+        Model::validateRequired('mobile', $this->mobile, true);
+        Model::validateRequired('signName', $this->signName, true);
+        Model::validateRequired('templateCode', $this->templateCode, true);
     }
 
     public function toMap()
@@ -49,6 +52,9 @@ class SendSmsRequest extends Model
         $res = [];
         if (null !== $this->mobile) {
             $res['Mobile'] = $this->mobile;
+        }
+        if (null !== $this->outerOrderNo) {
+            $res['OuterOrderNo'] = $this->outerOrderNo;
         }
         if (null !== $this->signName) {
             $res['SignName'] = $this->signName;
@@ -58,9 +64,6 @@ class SendSmsRequest extends Model
         }
         if (null !== $this->templateParam) {
             $res['TemplateParam'] = $this->templateParam;
-        }
-        if (null !== $this->outerOrderNo) {
-            $res['OuterOrderNo'] = $this->outerOrderNo;
         }
 
         return $res;
@@ -77,6 +80,9 @@ class SendSmsRequest extends Model
         if (isset($map['Mobile'])) {
             $model->mobile = $map['Mobile'];
         }
+        if (isset($map['OuterOrderNo'])) {
+            $model->outerOrderNo = $map['OuterOrderNo'];
+        }
         if (isset($map['SignName'])) {
             $model->signName = $map['SignName'];
         }
@@ -85,9 +91,6 @@ class SendSmsRequest extends Model
         }
         if (isset($map['TemplateParam'])) {
             $model->templateParam = $map['TemplateParam'];
-        }
-        if (isset($map['OuterOrderNo'])) {
-            $model->outerOrderNo = $map['OuterOrderNo'];
         }
 
         return $model;

@@ -2,11 +2,11 @@
 
 // This file is auto-generated, don't edit it. Thanks.
 
-namespace AlibabaCloud\SDK\Cloudauth\V20200618\Models;
+namespace AlibabaCloud\SDK\Cloudauth\V20200618\Models\DescribeSmsDetailResponse;
 
 use AlibabaCloud\Tea\Model;
 
-class DescribeSmsDetailRequest extends Model
+class items extends Model
 {
     /**
      * @var string
@@ -14,14 +14,19 @@ class DescribeSmsDetailRequest extends Model
     public $bizId;
 
     /**
-     * @var int
+     * @var string
      */
-    public $currentPage;
+    public $content;
 
     /**
      * @var string
      */
     public $errorCode;
+
+    /**
+     * @var string
+     */
+    public $errorMessage;
 
     /**
      * @var string
@@ -34,9 +39,9 @@ class DescribeSmsDetailRequest extends Model
     public $outerOrderNo;
 
     /**
-     * @var int
+     * @var string
      */
-    public $pageSize;
+    public $receiveDate;
 
     /**
      * @var string
@@ -54,27 +59,50 @@ class DescribeSmsDetailRequest extends Model
     public $signName;
 
     /**
+     * @var int
+     */
+    public $smsSize;
+
+    /**
+     * @var string
+     */
+    public $taskDate;
+
+    /**
      * @var string
      */
     public $templateCode;
     protected $_name = [
         'bizId'        => 'BizId',
-        'currentPage'  => 'CurrentPage',
+        'content'      => 'Content',
         'errorCode'    => 'ErrorCode',
+        'errorMessage' => 'ErrorMessage',
         'mobile'       => 'Mobile',
         'outerOrderNo' => 'OuterOrderNo',
-        'pageSize'     => 'PageSize',
+        'receiveDate'  => 'ReceiveDate',
         'sendDate'     => 'SendDate',
         'sendStatus'   => 'SendStatus',
         'signName'     => 'SignName',
+        'smsSize'      => 'SmsSize',
+        'taskDate'     => 'TaskDate',
         'templateCode' => 'TemplateCode',
     ];
 
     public function validate()
     {
-        Model::validateRequired('currentPage', $this->currentPage, true);
-        Model::validateRequired('pageSize', $this->pageSize, true);
+        Model::validateRequired('bizId', $this->bizId, true);
+        Model::validateRequired('content', $this->content, true);
+        Model::validateRequired('errorCode', $this->errorCode, true);
+        Model::validateRequired('errorMessage', $this->errorMessage, true);
+        Model::validateRequired('mobile', $this->mobile, true);
+        Model::validateRequired('outerOrderNo', $this->outerOrderNo, true);
+        Model::validateRequired('receiveDate', $this->receiveDate, true);
         Model::validateRequired('sendDate', $this->sendDate, true);
+        Model::validateRequired('sendStatus', $this->sendStatus, true);
+        Model::validateRequired('signName', $this->signName, true);
+        Model::validateRequired('smsSize', $this->smsSize, true);
+        Model::validateRequired('taskDate', $this->taskDate, true);
+        Model::validateRequired('templateCode', $this->templateCode, true);
     }
 
     public function toMap()
@@ -83,11 +111,14 @@ class DescribeSmsDetailRequest extends Model
         if (null !== $this->bizId) {
             $res['BizId'] = $this->bizId;
         }
-        if (null !== $this->currentPage) {
-            $res['CurrentPage'] = $this->currentPage;
+        if (null !== $this->content) {
+            $res['Content'] = $this->content;
         }
         if (null !== $this->errorCode) {
             $res['ErrorCode'] = $this->errorCode;
+        }
+        if (null !== $this->errorMessage) {
+            $res['ErrorMessage'] = $this->errorMessage;
         }
         if (null !== $this->mobile) {
             $res['Mobile'] = $this->mobile;
@@ -95,8 +126,8 @@ class DescribeSmsDetailRequest extends Model
         if (null !== $this->outerOrderNo) {
             $res['OuterOrderNo'] = $this->outerOrderNo;
         }
-        if (null !== $this->pageSize) {
-            $res['PageSize'] = $this->pageSize;
+        if (null !== $this->receiveDate) {
+            $res['ReceiveDate'] = $this->receiveDate;
         }
         if (null !== $this->sendDate) {
             $res['SendDate'] = $this->sendDate;
@@ -106,6 +137,12 @@ class DescribeSmsDetailRequest extends Model
         }
         if (null !== $this->signName) {
             $res['SignName'] = $this->signName;
+        }
+        if (null !== $this->smsSize) {
+            $res['SmsSize'] = $this->smsSize;
+        }
+        if (null !== $this->taskDate) {
+            $res['TaskDate'] = $this->taskDate;
         }
         if (null !== $this->templateCode) {
             $res['TemplateCode'] = $this->templateCode;
@@ -117,7 +154,7 @@ class DescribeSmsDetailRequest extends Model
     /**
      * @param array $map
      *
-     * @return DescribeSmsDetailRequest
+     * @return items
      */
     public static function fromMap($map = [])
     {
@@ -125,11 +162,14 @@ class DescribeSmsDetailRequest extends Model
         if (isset($map['BizId'])) {
             $model->bizId = $map['BizId'];
         }
-        if (isset($map['CurrentPage'])) {
-            $model->currentPage = $map['CurrentPage'];
+        if (isset($map['Content'])) {
+            $model->content = $map['Content'];
         }
         if (isset($map['ErrorCode'])) {
             $model->errorCode = $map['ErrorCode'];
+        }
+        if (isset($map['ErrorMessage'])) {
+            $model->errorMessage = $map['ErrorMessage'];
         }
         if (isset($map['Mobile'])) {
             $model->mobile = $map['Mobile'];
@@ -137,8 +177,8 @@ class DescribeSmsDetailRequest extends Model
         if (isset($map['OuterOrderNo'])) {
             $model->outerOrderNo = $map['OuterOrderNo'];
         }
-        if (isset($map['PageSize'])) {
-            $model->pageSize = $map['PageSize'];
+        if (isset($map['ReceiveDate'])) {
+            $model->receiveDate = $map['ReceiveDate'];
         }
         if (isset($map['SendDate'])) {
             $model->sendDate = $map['SendDate'];
@@ -148,6 +188,12 @@ class DescribeSmsDetailRequest extends Model
         }
         if (isset($map['SignName'])) {
             $model->signName = $map['SignName'];
+        }
+        if (isset($map['SmsSize'])) {
+            $model->smsSize = $map['SmsSize'];
+        }
+        if (isset($map['TaskDate'])) {
+            $model->taskDate = $map['TaskDate'];
         }
         if (isset($map['TemplateCode'])) {
             $model->templateCode = $map['TemplateCode'];

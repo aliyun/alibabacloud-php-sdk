@@ -9,44 +9,14 @@ use AlibabaCloud\Tea\Model;
 class InitSmartVerifyRequest extends Model
 {
     /**
-     * @var int
+     * @var string
      */
-    public $sceneId;
+    public $callbackToken;
 
     /**
      * @var string
      */
-    public $outerOrderNo;
-
-    /**
-     * @var string
-     */
-    public $mode;
-
-    /**
-     * @var string
-     */
-    public $certType;
-
-    /**
-     * @var string
-     */
-    public $metaInfo;
-
-    /**
-     * @var string
-     */
-    public $mobile;
-
-    /**
-     * @var string
-     */
-    public $ip;
-
-    /**
-     * @var string
-     */
-    public $userId;
+    public $callbackUrl;
 
     /**
      * @var string
@@ -61,17 +31,12 @@ class InitSmartVerifyRequest extends Model
     /**
      * @var string
      */
-    public $ocr;
+    public $certType;
 
     /**
      * @var string
      */
-    public $callbackUrl;
-
-    /**
-     * @var string
-     */
-    public $callbackToken;
+    public $certifyId;
 
     /**
      * @var string
@@ -86,7 +51,37 @@ class InitSmartVerifyRequest extends Model
     /**
      * @var string
      */
-    public $certifyId;
+    public $idName;
+
+    /**
+     * @var string
+     */
+    public $idNo;
+
+    /**
+     * @var string
+     */
+    public $ip;
+
+    /**
+     * @var string
+     */
+    public $metaInfo;
+
+    /**
+     * @var string
+     */
+    public $mobile;
+
+    /**
+     * @var string
+     */
+    public $mode;
+
+    /**
+     * @var string
+     */
+    public $ocr;
 
     /**
      * @var string
@@ -101,33 +96,38 @@ class InitSmartVerifyRequest extends Model
     /**
      * @var string
      */
-    public $idNo;
+    public $outerOrderNo;
+
+    /**
+     * @var int
+     */
+    public $sceneId;
 
     /**
      * @var string
      */
-    public $idName;
+    public $userId;
     protected $_name = [
-        'sceneId'           => 'SceneId',
-        'outerOrderNo'      => 'OuterOrderNo',
-        'mode'              => 'Mode',
-        'certType'          => 'CertType',
-        'metaInfo'          => 'MetaInfo',
-        'mobile'            => 'Mobile',
-        'ip'                => 'Ip',
-        'userId'            => 'UserId',
+        'callbackToken'     => 'CallbackToken',
+        'callbackUrl'       => 'CallbackUrl',
         'certName'          => 'CertName',
         'certNo'            => 'CertNo',
-        'ocr'               => 'Ocr',
-        'callbackUrl'       => 'CallbackUrl',
-        'callbackToken'     => 'CallbackToken',
+        'certType'          => 'CertType',
+        'certifyId'         => 'CertifyId',
         'facePictureBase64' => 'FacePictureBase64',
         'facePictureUrl'    => 'FacePictureUrl',
-        'certifyId'         => 'CertifyId',
+        'idName'            => 'IdName',
+        'idNo'              => 'IdNo',
+        'ip'                => 'Ip',
+        'metaInfo'          => 'MetaInfo',
+        'mobile'            => 'Mobile',
+        'mode'              => 'Mode',
+        'ocr'               => 'Ocr',
         'ossBucketName'     => 'OssBucketName',
         'ossObjectName'     => 'OssObjectName',
-        'idNo'              => 'IdNo',
-        'idName'            => 'IdName',
+        'outerOrderNo'      => 'OuterOrderNo',
+        'sceneId'           => 'SceneId',
+        'userId'            => 'UserId',
     ];
 
     public function validate()
@@ -137,29 +137,11 @@ class InitSmartVerifyRequest extends Model
     public function toMap()
     {
         $res = [];
-        if (null !== $this->sceneId) {
-            $res['SceneId'] = $this->sceneId;
+        if (null !== $this->callbackToken) {
+            $res['CallbackToken'] = $this->callbackToken;
         }
-        if (null !== $this->outerOrderNo) {
-            $res['OuterOrderNo'] = $this->outerOrderNo;
-        }
-        if (null !== $this->mode) {
-            $res['Mode'] = $this->mode;
-        }
-        if (null !== $this->certType) {
-            $res['CertType'] = $this->certType;
-        }
-        if (null !== $this->metaInfo) {
-            $res['MetaInfo'] = $this->metaInfo;
-        }
-        if (null !== $this->mobile) {
-            $res['Mobile'] = $this->mobile;
-        }
-        if (null !== $this->ip) {
-            $res['Ip'] = $this->ip;
-        }
-        if (null !== $this->userId) {
-            $res['UserId'] = $this->userId;
+        if (null !== $this->callbackUrl) {
+            $res['CallbackUrl'] = $this->callbackUrl;
         }
         if (null !== $this->certName) {
             $res['CertName'] = $this->certName;
@@ -167,14 +149,11 @@ class InitSmartVerifyRequest extends Model
         if (null !== $this->certNo) {
             $res['CertNo'] = $this->certNo;
         }
-        if (null !== $this->ocr) {
-            $res['Ocr'] = $this->ocr;
+        if (null !== $this->certType) {
+            $res['CertType'] = $this->certType;
         }
-        if (null !== $this->callbackUrl) {
-            $res['CallbackUrl'] = $this->callbackUrl;
-        }
-        if (null !== $this->callbackToken) {
-            $res['CallbackToken'] = $this->callbackToken;
+        if (null !== $this->certifyId) {
+            $res['CertifyId'] = $this->certifyId;
         }
         if (null !== $this->facePictureBase64) {
             $res['FacePictureBase64'] = $this->facePictureBase64;
@@ -182,8 +161,26 @@ class InitSmartVerifyRequest extends Model
         if (null !== $this->facePictureUrl) {
             $res['FacePictureUrl'] = $this->facePictureUrl;
         }
-        if (null !== $this->certifyId) {
-            $res['CertifyId'] = $this->certifyId;
+        if (null !== $this->idName) {
+            $res['IdName'] = $this->idName;
+        }
+        if (null !== $this->idNo) {
+            $res['IdNo'] = $this->idNo;
+        }
+        if (null !== $this->ip) {
+            $res['Ip'] = $this->ip;
+        }
+        if (null !== $this->metaInfo) {
+            $res['MetaInfo'] = $this->metaInfo;
+        }
+        if (null !== $this->mobile) {
+            $res['Mobile'] = $this->mobile;
+        }
+        if (null !== $this->mode) {
+            $res['Mode'] = $this->mode;
+        }
+        if (null !== $this->ocr) {
+            $res['Ocr'] = $this->ocr;
         }
         if (null !== $this->ossBucketName) {
             $res['OssBucketName'] = $this->ossBucketName;
@@ -191,11 +188,14 @@ class InitSmartVerifyRequest extends Model
         if (null !== $this->ossObjectName) {
             $res['OssObjectName'] = $this->ossObjectName;
         }
-        if (null !== $this->idNo) {
-            $res['IdNo'] = $this->idNo;
+        if (null !== $this->outerOrderNo) {
+            $res['OuterOrderNo'] = $this->outerOrderNo;
         }
-        if (null !== $this->idName) {
-            $res['IdName'] = $this->idName;
+        if (null !== $this->sceneId) {
+            $res['SceneId'] = $this->sceneId;
+        }
+        if (null !== $this->userId) {
+            $res['UserId'] = $this->userId;
         }
 
         return $res;
@@ -209,29 +209,11 @@ class InitSmartVerifyRequest extends Model
     public static function fromMap($map = [])
     {
         $model = new self();
-        if (isset($map['SceneId'])) {
-            $model->sceneId = $map['SceneId'];
+        if (isset($map['CallbackToken'])) {
+            $model->callbackToken = $map['CallbackToken'];
         }
-        if (isset($map['OuterOrderNo'])) {
-            $model->outerOrderNo = $map['OuterOrderNo'];
-        }
-        if (isset($map['Mode'])) {
-            $model->mode = $map['Mode'];
-        }
-        if (isset($map['CertType'])) {
-            $model->certType = $map['CertType'];
-        }
-        if (isset($map['MetaInfo'])) {
-            $model->metaInfo = $map['MetaInfo'];
-        }
-        if (isset($map['Mobile'])) {
-            $model->mobile = $map['Mobile'];
-        }
-        if (isset($map['Ip'])) {
-            $model->ip = $map['Ip'];
-        }
-        if (isset($map['UserId'])) {
-            $model->userId = $map['UserId'];
+        if (isset($map['CallbackUrl'])) {
+            $model->callbackUrl = $map['CallbackUrl'];
         }
         if (isset($map['CertName'])) {
             $model->certName = $map['CertName'];
@@ -239,14 +221,11 @@ class InitSmartVerifyRequest extends Model
         if (isset($map['CertNo'])) {
             $model->certNo = $map['CertNo'];
         }
-        if (isset($map['Ocr'])) {
-            $model->ocr = $map['Ocr'];
+        if (isset($map['CertType'])) {
+            $model->certType = $map['CertType'];
         }
-        if (isset($map['CallbackUrl'])) {
-            $model->callbackUrl = $map['CallbackUrl'];
-        }
-        if (isset($map['CallbackToken'])) {
-            $model->callbackToken = $map['CallbackToken'];
+        if (isset($map['CertifyId'])) {
+            $model->certifyId = $map['CertifyId'];
         }
         if (isset($map['FacePictureBase64'])) {
             $model->facePictureBase64 = $map['FacePictureBase64'];
@@ -254,8 +233,26 @@ class InitSmartVerifyRequest extends Model
         if (isset($map['FacePictureUrl'])) {
             $model->facePictureUrl = $map['FacePictureUrl'];
         }
-        if (isset($map['CertifyId'])) {
-            $model->certifyId = $map['CertifyId'];
+        if (isset($map['IdName'])) {
+            $model->idName = $map['IdName'];
+        }
+        if (isset($map['IdNo'])) {
+            $model->idNo = $map['IdNo'];
+        }
+        if (isset($map['Ip'])) {
+            $model->ip = $map['Ip'];
+        }
+        if (isset($map['MetaInfo'])) {
+            $model->metaInfo = $map['MetaInfo'];
+        }
+        if (isset($map['Mobile'])) {
+            $model->mobile = $map['Mobile'];
+        }
+        if (isset($map['Mode'])) {
+            $model->mode = $map['Mode'];
+        }
+        if (isset($map['Ocr'])) {
+            $model->ocr = $map['Ocr'];
         }
         if (isset($map['OssBucketName'])) {
             $model->ossBucketName = $map['OssBucketName'];
@@ -263,11 +260,14 @@ class InitSmartVerifyRequest extends Model
         if (isset($map['OssObjectName'])) {
             $model->ossObjectName = $map['OssObjectName'];
         }
-        if (isset($map['IdNo'])) {
-            $model->idNo = $map['IdNo'];
+        if (isset($map['OuterOrderNo'])) {
+            $model->outerOrderNo = $map['OuterOrderNo'];
         }
-        if (isset($map['IdName'])) {
-            $model->idName = $map['IdName'];
+        if (isset($map['SceneId'])) {
+            $model->sceneId = $map['SceneId'];
+        }
+        if (isset($map['UserId'])) {
+            $model->userId = $map['UserId'];
         }
 
         return $model;

@@ -9,24 +9,9 @@ use AlibabaCloud\Tea\Model;
 class ElementSmartVerifyRequest extends Model
 {
     /**
-     * @var int
-     */
-    public $sceneId;
-
-    /**
      * @var string
      */
-    public $outerOrderNo;
-
-    /**
-     * @var string
-     */
-    public $mode;
-
-    /**
-     * @var string
-     */
-    public $certType;
+    public $certFile;
 
     /**
      * @var string
@@ -36,7 +21,17 @@ class ElementSmartVerifyRequest extends Model
     /**
      * @var string
      */
+    public $certNationalEmblemUrl;
+
+    /**
+     * @var string
+     */
     public $certNo;
+
+    /**
+     * @var string
+     */
+    public $certType;
 
     /**
      * @var string
@@ -46,22 +41,27 @@ class ElementSmartVerifyRequest extends Model
     /**
      * @var string
      */
-    public $certFile;
+    public $mode;
 
     /**
      * @var string
      */
-    public $certNationalEmblemUrl;
+    public $outerOrderNo;
+
+    /**
+     * @var int
+     */
+    public $sceneId;
     protected $_name = [
-        'sceneId'               => 'SceneId',
-        'outerOrderNo'          => 'OuterOrderNo',
-        'mode'                  => 'Mode',
-        'certType'              => 'CertType',
-        'certName'              => 'CertName',
-        'certNo'                => 'CertNo',
-        'certUrl'               => 'CertUrl',
         'certFile'              => 'CertFile',
+        'certName'              => 'CertName',
         'certNationalEmblemUrl' => 'CertNationalEmblemUrl',
+        'certNo'                => 'CertNo',
+        'certType'              => 'CertType',
+        'certUrl'               => 'CertUrl',
+        'mode'                  => 'Mode',
+        'outerOrderNo'          => 'OuterOrderNo',
+        'sceneId'               => 'SceneId',
     ];
 
     public function validate()
@@ -71,32 +71,32 @@ class ElementSmartVerifyRequest extends Model
     public function toMap()
     {
         $res = [];
-        if (null !== $this->sceneId) {
-            $res['SceneId'] = $this->sceneId;
-        }
-        if (null !== $this->outerOrderNo) {
-            $res['OuterOrderNo'] = $this->outerOrderNo;
-        }
-        if (null !== $this->mode) {
-            $res['Mode'] = $this->mode;
-        }
-        if (null !== $this->certType) {
-            $res['CertType'] = $this->certType;
+        if (null !== $this->certFile) {
+            $res['CertFile'] = $this->certFile;
         }
         if (null !== $this->certName) {
             $res['CertName'] = $this->certName;
         }
+        if (null !== $this->certNationalEmblemUrl) {
+            $res['CertNationalEmblemUrl'] = $this->certNationalEmblemUrl;
+        }
         if (null !== $this->certNo) {
             $res['CertNo'] = $this->certNo;
+        }
+        if (null !== $this->certType) {
+            $res['CertType'] = $this->certType;
         }
         if (null !== $this->certUrl) {
             $res['CertUrl'] = $this->certUrl;
         }
-        if (null !== $this->certFile) {
-            $res['CertFile'] = $this->certFile;
+        if (null !== $this->mode) {
+            $res['Mode'] = $this->mode;
         }
-        if (null !== $this->certNationalEmblemUrl) {
-            $res['CertNationalEmblemUrl'] = $this->certNationalEmblemUrl;
+        if (null !== $this->outerOrderNo) {
+            $res['OuterOrderNo'] = $this->outerOrderNo;
+        }
+        if (null !== $this->sceneId) {
+            $res['SceneId'] = $this->sceneId;
         }
 
         return $res;
@@ -110,32 +110,32 @@ class ElementSmartVerifyRequest extends Model
     public static function fromMap($map = [])
     {
         $model = new self();
-        if (isset($map['SceneId'])) {
-            $model->sceneId = $map['SceneId'];
-        }
-        if (isset($map['OuterOrderNo'])) {
-            $model->outerOrderNo = $map['OuterOrderNo'];
-        }
-        if (isset($map['Mode'])) {
-            $model->mode = $map['Mode'];
-        }
-        if (isset($map['CertType'])) {
-            $model->certType = $map['CertType'];
+        if (isset($map['CertFile'])) {
+            $model->certFile = $map['CertFile'];
         }
         if (isset($map['CertName'])) {
             $model->certName = $map['CertName'];
         }
+        if (isset($map['CertNationalEmblemUrl'])) {
+            $model->certNationalEmblemUrl = $map['CertNationalEmblemUrl'];
+        }
         if (isset($map['CertNo'])) {
             $model->certNo = $map['CertNo'];
+        }
+        if (isset($map['CertType'])) {
+            $model->certType = $map['CertType'];
         }
         if (isset($map['CertUrl'])) {
             $model->certUrl = $map['CertUrl'];
         }
-        if (isset($map['CertFile'])) {
-            $model->certFile = $map['CertFile'];
+        if (isset($map['Mode'])) {
+            $model->mode = $map['Mode'];
         }
-        if (isset($map['CertNationalEmblemUrl'])) {
-            $model->certNationalEmblemUrl = $map['CertNationalEmblemUrl'];
+        if (isset($map['OuterOrderNo'])) {
+            $model->outerOrderNo = $map['OuterOrderNo'];
+        }
+        if (isset($map['SceneId'])) {
+            $model->sceneId = $map['SceneId'];
         }
 
         return $model;
