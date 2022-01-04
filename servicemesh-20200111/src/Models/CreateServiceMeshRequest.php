@@ -219,11 +219,6 @@ class CreateServiceMeshRequest extends Model
     public $openAgentPolicy;
 
     /**
-     * @var bool
-     */
-    public $pilotPublicEip;
-
-    /**
      * @var string
      */
     public $prometheusUrl;
@@ -335,7 +330,6 @@ class CreateServiceMeshRequest extends Model
         'OPARequestMemory'           => 'OPARequestMemory',
         'opaEnabled'                 => 'OpaEnabled',
         'openAgentPolicy'            => 'OpenAgentPolicy',
-        'pilotPublicEip'             => 'PilotPublicEip',
         'prometheusUrl'              => 'PrometheusUrl',
         'proxyLimitCPU'              => 'ProxyLimitCPU',
         'proxyLimitMemory'           => 'ProxyLimitMemory',
@@ -484,9 +478,6 @@ class CreateServiceMeshRequest extends Model
         }
         if (null !== $this->openAgentPolicy) {
             $res['OpenAgentPolicy'] = $this->openAgentPolicy;
-        }
-        if (null !== $this->pilotPublicEip) {
-            $res['PilotPublicEip'] = $this->pilotPublicEip;
         }
         if (null !== $this->prometheusUrl) {
             $res['PrometheusUrl'] = $this->prometheusUrl;
@@ -667,9 +658,6 @@ class CreateServiceMeshRequest extends Model
         }
         if (isset($map['OpenAgentPolicy'])) {
             $model->openAgentPolicy = $map['OpenAgentPolicy'];
-        }
-        if (isset($map['PilotPublicEip'])) {
-            $model->pilotPublicEip = $map['PilotPublicEip'];
         }
         if (isset($map['PrometheusUrl'])) {
             $model->prometheusUrl = $map['PrometheusUrl'];

@@ -67,6 +67,7 @@ use AlibabaCloud\SDK\Servicemesh\V20200111\Models\DescribeServiceMeshVMsRequest;
 use AlibabaCloud\SDK\Servicemesh\V20200111\Models\DescribeServiceMeshVMsResponse;
 use AlibabaCloud\SDK\Servicemesh\V20200111\Models\DescribeUpgradeVersionRequest;
 use AlibabaCloud\SDK\Servicemesh\V20200111\Models\DescribeUpgradeVersionResponse;
+use AlibabaCloud\SDK\Servicemesh\V20200111\Models\DescribeVersionsResponse;
 use AlibabaCloud\SDK\Servicemesh\V20200111\Models\DescribeVMsInServiceMeshRequest;
 use AlibabaCloud\SDK\Servicemesh\V20200111\Models\DescribeVMsInServiceMeshResponse;
 use AlibabaCloud\SDK\Servicemesh\V20200111\Models\DescribeVpcsRequest;
@@ -120,6 +121,8 @@ use AlibabaCloud\SDK\Servicemesh\V20200111\Models\RemoveClusterFromServiceMeshRe
 use AlibabaCloud\SDK\Servicemesh\V20200111\Models\RemoveClusterFromServiceMeshResponse;
 use AlibabaCloud\SDK\Servicemesh\V20200111\Models\RemoveVMFromServiceMeshRequest;
 use AlibabaCloud\SDK\Servicemesh\V20200111\Models\RemoveVMFromServiceMeshResponse;
+use AlibabaCloud\SDK\Servicemesh\V20200111\Models\RevokeKubeconfigRequest;
+use AlibabaCloud\SDK\Servicemesh\V20200111\Models\RevokeKubeconfigResponse;
 use AlibabaCloud\SDK\Servicemesh\V20200111\Models\RunDiagnosisRequest;
 use AlibabaCloud\SDK\Servicemesh\V20200111\Models\RunDiagnosisResponse;
 use AlibabaCloud\SDK\Servicemesh\V20200111\Models\SetServiceRegistrySourceRequest;
@@ -142,6 +145,7 @@ use AlibabaCloud\SDK\Servicemesh\V20200111\Models\UpgradeMeshVersionResponse;
 use AlibabaCloud\Tea\Utils\Utils;
 use AlibabaCloud\Tea\Utils\Utils\RuntimeOptions;
 use Darabonba\OpenApi\Models\OpenApiRequest;
+use Darabonba\OpenApi\Models\Params;
 use Darabonba\OpenApi\OpenApiClient;
 
 class Servicemesh extends OpenApiClient
@@ -186,11 +190,38 @@ class Servicemesh extends OpenApiClient
     public function addBuiltinEnvoyFilterWithOptions($request, $runtime)
     {
         Utils::validateModel($request);
+        $body = [];
+        if (!Utils::isUnset($request->id)) {
+            $body['Id'] = $request->id;
+        }
+        if (!Utils::isUnset($request->istioVersion)) {
+            $body['IstioVersion'] = $request->istioVersion;
+        }
+        if (!Utils::isUnset($request->name)) {
+            $body['Name'] = $request->name;
+        }
+        if (!Utils::isUnset($request->parameters)) {
+            $body['Parameters'] = $request->parameters;
+        }
+        if (!Utils::isUnset($request->serviceMeshId)) {
+            $body['ServiceMeshId'] = $request->serviceMeshId;
+        }
         $req = new OpenApiRequest([
-            'body' => Utils::toMap($request),
+            'body' => OpenApiUtilClient::parseToMap($body),
+        ]);
+        $params = new Params([
+            'action'      => 'AddBuiltinEnvoyFilter',
+            'version'     => '2020-01-11',
+            'protocol'    => 'HTTPS',
+            'pathname'    => '/',
+            'method'      => 'POST',
+            'authType'    => 'AK',
+            'style'       => 'RPC',
+            'reqBodyType' => 'formData',
+            'bodyType'    => 'json',
         ]);
 
-        return AddBuiltinEnvoyFilterResponse::fromMap($this->doRPCRequest('AddBuiltinEnvoyFilter', '2020-01-11', 'HTTPS', 'POST', 'AK', 'json', $req, $runtime));
+        return AddBuiltinEnvoyFilterResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
@@ -214,11 +245,29 @@ class Servicemesh extends OpenApiClient
     public function addClusterIntoServiceMeshWithOptions($request, $runtime)
     {
         Utils::validateModel($request);
+        $body = [];
+        if (!Utils::isUnset($request->clusterId)) {
+            $body['ClusterId'] = $request->clusterId;
+        }
+        if (!Utils::isUnset($request->serviceMeshId)) {
+            $body['ServiceMeshId'] = $request->serviceMeshId;
+        }
         $req = new OpenApiRequest([
-            'body' => Utils::toMap($request),
+            'body' => OpenApiUtilClient::parseToMap($body),
+        ]);
+        $params = new Params([
+            'action'      => 'AddClusterIntoServiceMesh',
+            'version'     => '2020-01-11',
+            'protocol'    => 'HTTPS',
+            'pathname'    => '/',
+            'method'      => 'POST',
+            'authType'    => 'AK',
+            'style'       => 'RPC',
+            'reqBodyType' => 'formData',
+            'bodyType'    => 'json',
         ]);
 
-        return AddClusterIntoServiceMeshResponse::fromMap($this->doRPCRequest('AddClusterIntoServiceMesh', '2020-01-11', 'HTTPS', 'POST', 'AK', 'json', $req, $runtime));
+        return AddClusterIntoServiceMeshResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
@@ -242,11 +291,29 @@ class Servicemesh extends OpenApiClient
     public function addMeshTagToEcsWithOptions($request, $runtime)
     {
         Utils::validateModel($request);
+        $query = [];
+        if (!Utils::isUnset($request->ecsId)) {
+            $query['EcsId'] = $request->ecsId;
+        }
+        if (!Utils::isUnset($request->serviceMeshId)) {
+            $query['ServiceMeshId'] = $request->serviceMeshId;
+        }
         $req = new OpenApiRequest([
-            'body' => Utils::toMap($request),
+            'query' => OpenApiUtilClient::query($query),
+        ]);
+        $params = new Params([
+            'action'      => 'AddMeshTagToEcs',
+            'version'     => '2020-01-11',
+            'protocol'    => 'HTTPS',
+            'pathname'    => '/',
+            'method'      => 'POST',
+            'authType'    => 'AK',
+            'style'       => 'RPC',
+            'reqBodyType' => 'formData',
+            'bodyType'    => 'json',
         ]);
 
-        return AddMeshTagToEcsResponse::fromMap($this->doRPCRequest('AddMeshTagToEcs', '2020-01-11', 'HTTPS', 'POST', 'AK', 'json', $req, $runtime));
+        return AddMeshTagToEcsResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
@@ -270,11 +337,29 @@ class Servicemesh extends OpenApiClient
     public function addVMIntoServiceMeshWithOptions($request, $runtime)
     {
         Utils::validateModel($request);
+        $query = [];
+        if (!Utils::isUnset($request->ecsId)) {
+            $query['EcsId'] = $request->ecsId;
+        }
+        if (!Utils::isUnset($request->serviceMeshId)) {
+            $query['ServiceMeshId'] = $request->serviceMeshId;
+        }
         $req = new OpenApiRequest([
-            'body' => Utils::toMap($request),
+            'query' => OpenApiUtilClient::query($query),
+        ]);
+        $params = new Params([
+            'action'      => 'AddVMIntoServiceMesh',
+            'version'     => '2020-01-11',
+            'protocol'    => 'HTTPS',
+            'pathname'    => '/',
+            'method'      => 'POST',
+            'authType'    => 'AK',
+            'style'       => 'RPC',
+            'reqBodyType' => 'formData',
+            'bodyType'    => 'json',
         ]);
 
-        return AddVMIntoServiceMeshResponse::fromMap($this->doRPCRequest('AddVMIntoServiceMesh', '2020-01-11', 'HTTPS', 'POST', 'AK', 'json', $req, $runtime));
+        return AddVMIntoServiceMeshResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
@@ -298,11 +383,35 @@ class Servicemesh extends OpenApiClient
     public function createExtensionProviderWithOptions($request, $runtime)
     {
         Utils::validateModel($request);
+        $body = [];
+        if (!Utils::isUnset($request->config)) {
+            $body['Config'] = $request->config;
+        }
+        if (!Utils::isUnset($request->name)) {
+            $body['Name'] = $request->name;
+        }
+        if (!Utils::isUnset($request->serviceMeshId)) {
+            $body['ServiceMeshId'] = $request->serviceMeshId;
+        }
+        if (!Utils::isUnset($request->type)) {
+            $body['Type'] = $request->type;
+        }
         $req = new OpenApiRequest([
-            'body' => Utils::toMap($request),
+            'body' => OpenApiUtilClient::parseToMap($body),
+        ]);
+        $params = new Params([
+            'action'      => 'CreateExtensionProvider',
+            'version'     => '2020-01-11',
+            'protocol'    => 'HTTPS',
+            'pathname'    => '/',
+            'method'      => 'POST',
+            'authType'    => 'AK',
+            'style'       => 'RPC',
+            'reqBodyType' => 'formData',
+            'bodyType'    => 'json',
         ]);
 
-        return CreateExtensionProviderResponse::fromMap($this->doRPCRequest('CreateExtensionProvider', '2020-01-11', 'HTTPS', 'POST', 'AK', 'json', $req, $runtime));
+        return CreateExtensionProviderResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
@@ -326,11 +435,191 @@ class Servicemesh extends OpenApiClient
     public function createServiceMeshWithOptions($request, $runtime)
     {
         Utils::validateModel($request);
+        $body = [];
+        if (!Utils::isUnset($request->accessLogEnabled)) {
+            $body['AccessLogEnabled'] = $request->accessLogEnabled;
+        }
+        if (!Utils::isUnset($request->accessLogFile)) {
+            $body['AccessLogFile'] = $request->accessLogFile;
+        }
+        if (!Utils::isUnset($request->accessLogFormat)) {
+            $body['AccessLogFormat'] = $request->accessLogFormat;
+        }
+        if (!Utils::isUnset($request->accessLogProject)) {
+            $body['AccessLogProject'] = $request->accessLogProject;
+        }
+        if (!Utils::isUnset($request->accessLogServiceEnabled)) {
+            $body['AccessLogServiceEnabled'] = $request->accessLogServiceEnabled;
+        }
+        if (!Utils::isUnset($request->accessLogServiceHost)) {
+            $body['AccessLogServiceHost'] = $request->accessLogServiceHost;
+        }
+        if (!Utils::isUnset($request->accessLogServicePort)) {
+            $body['AccessLogServicePort'] = $request->accessLogServicePort;
+        }
+        if (!Utils::isUnset($request->apiServerPublicEip)) {
+            $body['ApiServerPublicEip'] = $request->apiServerPublicEip;
+        }
+        if (!Utils::isUnset($request->auditProject)) {
+            $body['AuditProject'] = $request->auditProject;
+        }
+        if (!Utils::isUnset($request->CRAggregationEnabled)) {
+            $body['CRAggregationEnabled'] = $request->CRAggregationEnabled;
+        }
+        if (!Utils::isUnset($request->configSourceEnabled)) {
+            $body['ConfigSourceEnabled'] = $request->configSourceEnabled;
+        }
+        if (!Utils::isUnset($request->configSourceNacosID)) {
+            $body['ConfigSourceNacosID'] = $request->configSourceNacosID;
+        }
+        if (!Utils::isUnset($request->controlPlaneLogEnabled)) {
+            $body['ControlPlaneLogEnabled'] = $request->controlPlaneLogEnabled;
+        }
+        if (!Utils::isUnset($request->controlPlaneLogProject)) {
+            $body['ControlPlaneLogProject'] = $request->controlPlaneLogProject;
+        }
+        if (!Utils::isUnset($request->customizedPrometheus)) {
+            $body['CustomizedPrometheus'] = $request->customizedPrometheus;
+        }
+        if (!Utils::isUnset($request->customizedZipkin)) {
+            $body['CustomizedZipkin'] = $request->customizedZipkin;
+        }
+        if (!Utils::isUnset($request->DNSProxyingEnabled)) {
+            $body['DNSProxyingEnabled'] = $request->DNSProxyingEnabled;
+        }
+        if (!Utils::isUnset($request->dubboFilterEnabled)) {
+            $body['DubboFilterEnabled'] = $request->dubboFilterEnabled;
+        }
+        if (!Utils::isUnset($request->edition)) {
+            $body['Edition'] = $request->edition;
+        }
+        if (!Utils::isUnset($request->enableAudit)) {
+            $body['EnableAudit'] = $request->enableAudit;
+        }
+        if (!Utils::isUnset($request->enableCRHistory)) {
+            $body['EnableCRHistory'] = $request->enableCRHistory;
+        }
+        if (!Utils::isUnset($request->enableSDSServer)) {
+            $body['EnableSDSServer'] = $request->enableSDSServer;
+        }
+        if (!Utils::isUnset($request->excludeIPRanges)) {
+            $body['ExcludeIPRanges'] = $request->excludeIPRanges;
+        }
+        if (!Utils::isUnset($request->excludeInboundPorts)) {
+            $body['ExcludeInboundPorts'] = $request->excludeInboundPorts;
+        }
+        if (!Utils::isUnset($request->excludeOutboundPorts)) {
+            $body['ExcludeOutboundPorts'] = $request->excludeOutboundPorts;
+        }
+        if (!Utils::isUnset($request->filterGatewayClusterConfig)) {
+            $body['FilterGatewayClusterConfig'] = $request->filterGatewayClusterConfig;
+        }
+        if (!Utils::isUnset($request->gatewayAPIEnabled)) {
+            $body['GatewayAPIEnabled'] = $request->gatewayAPIEnabled;
+        }
+        if (!Utils::isUnset($request->includeIPRanges)) {
+            $body['IncludeIPRanges'] = $request->includeIPRanges;
+        }
+        if (!Utils::isUnset($request->istioVersion)) {
+            $body['IstioVersion'] = $request->istioVersion;
+        }
+        if (!Utils::isUnset($request->kialiEnabled)) {
+            $body['KialiEnabled'] = $request->kialiEnabled;
+        }
+        if (!Utils::isUnset($request->localityLBConf)) {
+            $body['LocalityLBConf'] = $request->localityLBConf;
+        }
+        if (!Utils::isUnset($request->localityLoadBalancing)) {
+            $body['LocalityLoadBalancing'] = $request->localityLoadBalancing;
+        }
+        if (!Utils::isUnset($request->MSEEnabled)) {
+            $body['MSEEnabled'] = $request->MSEEnabled;
+        }
+        if (!Utils::isUnset($request->mysqlFilterEnabled)) {
+            $body['MysqlFilterEnabled'] = $request->mysqlFilterEnabled;
+        }
+        if (!Utils::isUnset($request->name)) {
+            $body['Name'] = $request->name;
+        }
+        if (!Utils::isUnset($request->OPALimitCPU)) {
+            $body['OPALimitCPU'] = $request->OPALimitCPU;
+        }
+        if (!Utils::isUnset($request->OPALimitMemory)) {
+            $body['OPALimitMemory'] = $request->OPALimitMemory;
+        }
+        if (!Utils::isUnset($request->OPALogLevel)) {
+            $body['OPALogLevel'] = $request->OPALogLevel;
+        }
+        if (!Utils::isUnset($request->OPARequestCPU)) {
+            $body['OPARequestCPU'] = $request->OPARequestCPU;
+        }
+        if (!Utils::isUnset($request->OPARequestMemory)) {
+            $body['OPARequestMemory'] = $request->OPARequestMemory;
+        }
+        if (!Utils::isUnset($request->opaEnabled)) {
+            $body['OpaEnabled'] = $request->opaEnabled;
+        }
+        if (!Utils::isUnset($request->openAgentPolicy)) {
+            $body['OpenAgentPolicy'] = $request->openAgentPolicy;
+        }
+        if (!Utils::isUnset($request->prometheusUrl)) {
+            $body['PrometheusUrl'] = $request->prometheusUrl;
+        }
+        if (!Utils::isUnset($request->proxyLimitCPU)) {
+            $body['ProxyLimitCPU'] = $request->proxyLimitCPU;
+        }
+        if (!Utils::isUnset($request->proxyLimitMemory)) {
+            $body['ProxyLimitMemory'] = $request->proxyLimitMemory;
+        }
+        if (!Utils::isUnset($request->proxyRequestCPU)) {
+            $body['ProxyRequestCPU'] = $request->proxyRequestCPU;
+        }
+        if (!Utils::isUnset($request->proxyRequestMemory)) {
+            $body['ProxyRequestMemory'] = $request->proxyRequestMemory;
+        }
+        if (!Utils::isUnset($request->redisFilterEnabled)) {
+            $body['RedisFilterEnabled'] = $request->redisFilterEnabled;
+        }
+        if (!Utils::isUnset($request->regionId)) {
+            $body['RegionId'] = $request->regionId;
+        }
+        if (!Utils::isUnset($request->telemetry)) {
+            $body['Telemetry'] = $request->telemetry;
+        }
+        if (!Utils::isUnset($request->thriftFilterEnabled)) {
+            $body['ThriftFilterEnabled'] = $request->thriftFilterEnabled;
+        }
+        if (!Utils::isUnset($request->traceSampling)) {
+            $body['TraceSampling'] = $request->traceSampling;
+        }
+        if (!Utils::isUnset($request->tracing)) {
+            $body['Tracing'] = $request->tracing;
+        }
+        if (!Utils::isUnset($request->vSwitches)) {
+            $body['VSwitches'] = $request->vSwitches;
+        }
+        if (!Utils::isUnset($request->vpcId)) {
+            $body['VpcId'] = $request->vpcId;
+        }
+        if (!Utils::isUnset($request->webAssemblyFilterEnabled)) {
+            $body['WebAssemblyFilterEnabled'] = $request->webAssemblyFilterEnabled;
+        }
         $req = new OpenApiRequest([
-            'body' => Utils::toMap($request),
+            'body' => OpenApiUtilClient::parseToMap($body),
+        ]);
+        $params = new Params([
+            'action'      => 'CreateServiceMesh',
+            'version'     => '2020-01-11',
+            'protocol'    => 'HTTPS',
+            'pathname'    => '/',
+            'method'      => 'POST',
+            'authType'    => 'AK',
+            'style'       => 'RPC',
+            'reqBodyType' => 'formData',
+            'bodyType'    => 'json',
         ]);
 
-        return CreateServiceMeshResponse::fromMap($this->doRPCRequest('CreateServiceMesh', '2020-01-11', 'HTTPS', 'POST', 'AK', 'json', $req, $runtime));
+        return CreateServiceMeshResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
@@ -354,11 +643,32 @@ class Servicemesh extends OpenApiClient
     public function deleteExtensionProviderWithOptions($request, $runtime)
     {
         Utils::validateModel($request);
+        $body = [];
+        if (!Utils::isUnset($request->name)) {
+            $body['Name'] = $request->name;
+        }
+        if (!Utils::isUnset($request->serviceMeshId)) {
+            $body['ServiceMeshId'] = $request->serviceMeshId;
+        }
+        if (!Utils::isUnset($request->type)) {
+            $body['Type'] = $request->type;
+        }
         $req = new OpenApiRequest([
-            'body' => Utils::toMap($request),
+            'body' => OpenApiUtilClient::parseToMap($body),
+        ]);
+        $params = new Params([
+            'action'      => 'DeleteExtensionProvider',
+            'version'     => '2020-01-11',
+            'protocol'    => 'HTTPS',
+            'pathname'    => '/',
+            'method'      => 'POST',
+            'authType'    => 'AK',
+            'style'       => 'RPC',
+            'reqBodyType' => 'formData',
+            'bodyType'    => 'json',
         ]);
 
-        return DeleteExtensionProviderResponse::fromMap($this->doRPCRequest('DeleteExtensionProvider', '2020-01-11', 'HTTPS', 'POST', 'AK', 'json', $req, $runtime));
+        return DeleteExtensionProviderResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
@@ -382,11 +692,32 @@ class Servicemesh extends OpenApiClient
     public function deleteServiceMeshWithOptions($request, $runtime)
     {
         Utils::validateModel($request);
+        $body = [];
+        if (!Utils::isUnset($request->force)) {
+            $body['Force'] = $request->force;
+        }
+        if (!Utils::isUnset($request->retainResources)) {
+            $body['RetainResources'] = $request->retainResources;
+        }
+        if (!Utils::isUnset($request->serviceMeshId)) {
+            $body['ServiceMeshId'] = $request->serviceMeshId;
+        }
         $req = new OpenApiRequest([
-            'body' => Utils::toMap($request),
+            'body' => OpenApiUtilClient::parseToMap($body),
+        ]);
+        $params = new Params([
+            'action'      => 'DeleteServiceMesh',
+            'version'     => '2020-01-11',
+            'protocol'    => 'HTTPS',
+            'pathname'    => '/',
+            'method'      => 'POST',
+            'authType'    => 'AK',
+            'style'       => 'RPC',
+            'reqBodyType' => 'formData',
+            'bodyType'    => 'json',
         ]);
 
-        return DeleteServiceMeshResponse::fromMap($this->doRPCRequest('DeleteServiceMesh', '2020-01-11', 'HTTPS', 'POST', 'AK', 'json', $req, $runtime));
+        return DeleteServiceMeshResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
@@ -410,11 +741,26 @@ class Servicemesh extends OpenApiClient
     public function describeAlertActionPoliciesWithOptions($request, $runtime)
     {
         Utils::validateModel($request);
+        $body = [];
+        if (!Utils::isUnset($request->page)) {
+            $body['Page'] = $request->page;
+        }
         $req = new OpenApiRequest([
-            'body' => Utils::toMap($request),
+            'body' => OpenApiUtilClient::parseToMap($body),
+        ]);
+        $params = new Params([
+            'action'      => 'DescribeAlertActionPolicies',
+            'version'     => '2020-01-11',
+            'protocol'    => 'HTTPS',
+            'pathname'    => '/',
+            'method'      => 'POST',
+            'authType'    => 'AK',
+            'style'       => 'RPC',
+            'reqBodyType' => 'formData',
+            'bodyType'    => 'json',
         ]);
 
-        return DescribeAlertActionPoliciesResponse::fromMap($this->doRPCRequest('DescribeAlertActionPolicies', '2020-01-11', 'HTTPS', 'POST', 'AK', 'json', $req, $runtime));
+        return DescribeAlertActionPoliciesResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
@@ -438,11 +784,29 @@ class Servicemesh extends OpenApiClient
     public function describeAvailableNacosInstancesWithOptions($request, $runtime)
     {
         Utils::validateModel($request);
+        $query = [];
+        if (!Utils::isUnset($request->regionId)) {
+            $query['RegionId'] = $request->regionId;
+        }
+        if (!Utils::isUnset($request->vpcId)) {
+            $query['VpcId'] = $request->vpcId;
+        }
         $req = new OpenApiRequest([
-            'body' => Utils::toMap($request),
+            'query' => OpenApiUtilClient::query($query),
+        ]);
+        $params = new Params([
+            'action'      => 'DescribeAvailableNacosInstances',
+            'version'     => '2020-01-11',
+            'protocol'    => 'HTTPS',
+            'pathname'    => '/',
+            'method'      => 'POST',
+            'authType'    => 'AK',
+            'style'       => 'RPC',
+            'reqBodyType' => 'formData',
+            'bodyType'    => 'json',
         ]);
 
-        return DescribeAvailableNacosInstancesResponse::fromMap($this->doRPCRequest('DescribeAvailableNacosInstances', '2020-01-11', 'HTTPS', 'POST', 'AK', 'json', $req, $runtime));
+        return DescribeAvailableNacosInstancesResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
@@ -466,11 +830,26 @@ class Servicemesh extends OpenApiClient
     public function describeCensWithOptions($request, $runtime)
     {
         Utils::validateModel($request);
+        $query = [];
+        if (!Utils::isUnset($request->serviceMeshId)) {
+            $query['ServiceMeshId'] = $request->serviceMeshId;
+        }
         $req = new OpenApiRequest([
-            'body' => Utils::toMap($request),
+            'query' => OpenApiUtilClient::query($query),
+        ]);
+        $params = new Params([
+            'action'      => 'DescribeCens',
+            'version'     => '2020-01-11',
+            'protocol'    => 'HTTPS',
+            'pathname'    => '/',
+            'method'      => 'POST',
+            'authType'    => 'AK',
+            'style'       => 'RPC',
+            'reqBodyType' => 'formData',
+            'bodyType'    => 'json',
         ]);
 
-        return DescribeCensResponse::fromMap($this->doRPCRequest('DescribeCens', '2020-01-11', 'HTTPS', 'POST', 'AK', 'json', $req, $runtime));
+        return DescribeCensResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
@@ -494,11 +873,29 @@ class Servicemesh extends OpenApiClient
     public function describeClusterGrafanaWithOptions($request, $runtime)
     {
         Utils::validateModel($request);
+        $query = [];
+        if (!Utils::isUnset($request->k8sClusterId)) {
+            $query['K8sClusterId'] = $request->k8sClusterId;
+        }
+        if (!Utils::isUnset($request->serviceMeshId)) {
+            $query['ServiceMeshId'] = $request->serviceMeshId;
+        }
         $req = new OpenApiRequest([
-            'body' => Utils::toMap($request),
+            'query' => OpenApiUtilClient::query($query),
+        ]);
+        $params = new Params([
+            'action'      => 'DescribeClusterGrafana',
+            'version'     => '2020-01-11',
+            'protocol'    => 'HTTPS',
+            'pathname'    => '/',
+            'method'      => 'POST',
+            'authType'    => 'AK',
+            'style'       => 'RPC',
+            'reqBodyType' => 'formData',
+            'bodyType'    => 'json',
         ]);
 
-        return DescribeClusterGrafanaResponse::fromMap($this->doRPCRequest('DescribeClusterGrafana', '2020-01-11', 'HTTPS', 'POST', 'AK', 'json', $req, $runtime));
+        return DescribeClusterGrafanaResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
@@ -522,11 +919,32 @@ class Servicemesh extends OpenApiClient
     public function describeClusterPrometheusWithOptions($request, $runtime)
     {
         Utils::validateModel($request);
+        $query = [];
+        if (!Utils::isUnset($request->k8sClusterId)) {
+            $query['K8sClusterId'] = $request->k8sClusterId;
+        }
+        if (!Utils::isUnset($request->k8sClusterRegionId)) {
+            $query['K8sClusterRegionId'] = $request->k8sClusterRegionId;
+        }
+        if (!Utils::isUnset($request->serviceMeshId)) {
+            $query['ServiceMeshId'] = $request->serviceMeshId;
+        }
         $req = new OpenApiRequest([
-            'body' => Utils::toMap($request),
+            'query' => OpenApiUtilClient::query($query),
+        ]);
+        $params = new Params([
+            'action'      => 'DescribeClusterPrometheus',
+            'version'     => '2020-01-11',
+            'protocol'    => 'HTTPS',
+            'pathname'    => '/',
+            'method'      => 'POST',
+            'authType'    => 'AK',
+            'style'       => 'RPC',
+            'reqBodyType' => 'formData',
+            'bodyType'    => 'json',
         ]);
 
-        return DescribeClusterPrometheusResponse::fromMap($this->doRPCRequest('DescribeClusterPrometheus', '2020-01-11', 'HTTPS', 'POST', 'AK', 'json', $req, $runtime));
+        return DescribeClusterPrometheusResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
@@ -550,11 +968,26 @@ class Servicemesh extends OpenApiClient
     public function describeClustersInServiceMeshWithOptions($request, $runtime)
     {
         Utils::validateModel($request);
+        $query = [];
+        if (!Utils::isUnset($request->serviceMeshId)) {
+            $query['ServiceMeshId'] = $request->serviceMeshId;
+        }
         $req = new OpenApiRequest([
-            'body' => Utils::toMap($request),
+            'query' => OpenApiUtilClient::query($query),
+        ]);
+        $params = new Params([
+            'action'      => 'DescribeClustersInServiceMesh',
+            'version'     => '2020-01-11',
+            'protocol'    => 'HTTPS',
+            'pathname'    => '/',
+            'method'      => 'POST',
+            'authType'    => 'AK',
+            'style'       => 'RPC',
+            'reqBodyType' => 'formData',
+            'bodyType'    => 'json',
         ]);
 
-        return DescribeClustersInServiceMeshResponse::fromMap($this->doRPCRequest('DescribeClustersInServiceMesh', '2020-01-11', 'HTTPS', 'POST', 'AK', 'json', $req, $runtime));
+        return DescribeClustersInServiceMeshResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
@@ -578,11 +1011,26 @@ class Servicemesh extends OpenApiClient
     public function describeControlPlaneLogAlertRulesWithOptions($request, $runtime)
     {
         Utils::validateModel($request);
+        $body = [];
+        if (!Utils::isUnset($request->serviceMeshId)) {
+            $body['ServiceMeshId'] = $request->serviceMeshId;
+        }
         $req = new OpenApiRequest([
-            'body' => Utils::toMap($request),
+            'body' => OpenApiUtilClient::parseToMap($body),
+        ]);
+        $params = new Params([
+            'action'      => 'DescribeControlPlaneLogAlertRules',
+            'version'     => '2020-01-11',
+            'protocol'    => 'HTTPS',
+            'pathname'    => '/',
+            'method'      => 'POST',
+            'authType'    => 'AK',
+            'style'       => 'RPC',
+            'reqBodyType' => 'formData',
+            'bodyType'    => 'json',
         ]);
 
-        return DescribeControlPlaneLogAlertRulesResponse::fromMap($this->doRPCRequest('DescribeControlPlaneLogAlertRules', '2020-01-11', 'HTTPS', 'POST', 'AK', 'json', $req, $runtime));
+        return DescribeControlPlaneLogAlertRulesResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
@@ -606,11 +1054,29 @@ class Servicemesh extends OpenApiClient
     public function describeCrTemplatesWithOptions($request, $runtime)
     {
         Utils::validateModel($request);
+        $body = [];
+        if (!Utils::isUnset($request->istioVersion)) {
+            $body['IstioVersion'] = $request->istioVersion;
+        }
+        if (!Utils::isUnset($request->kind)) {
+            $body['Kind'] = $request->kind;
+        }
         $req = new OpenApiRequest([
-            'body' => Utils::toMap($request),
+            'body' => OpenApiUtilClient::parseToMap($body),
+        ]);
+        $params = new Params([
+            'action'      => 'DescribeCrTemplates',
+            'version'     => '2020-01-11',
+            'protocol'    => 'HTTPS',
+            'pathname'    => '/',
+            'method'      => 'POST',
+            'authType'    => 'AK',
+            'style'       => 'RPC',
+            'reqBodyType' => 'formData',
+            'bodyType'    => 'json',
         ]);
 
-        return DescribeCrTemplatesResponse::fromMap($this->doRPCRequest('DescribeCrTemplates', '2020-01-11', 'HTTPS', 'POST', 'AK', 'json', $req, $runtime));
+        return DescribeCrTemplatesResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
@@ -634,11 +1100,29 @@ class Servicemesh extends OpenApiClient
     public function describeExtensionProviderWithOptions($request, $runtime)
     {
         Utils::validateModel($request);
+        $body = [];
+        if (!Utils::isUnset($request->serviceMeshId)) {
+            $body['ServiceMeshId'] = $request->serviceMeshId;
+        }
+        if (!Utils::isUnset($request->type)) {
+            $body['Type'] = $request->type;
+        }
         $req = new OpenApiRequest([
-            'body' => Utils::toMap($request),
+            'body' => OpenApiUtilClient::parseToMap($body),
+        ]);
+        $params = new Params([
+            'action'      => 'DescribeExtensionProvider',
+            'version'     => '2020-01-11',
+            'protocol'    => 'HTTPS',
+            'pathname'    => '/',
+            'method'      => 'POST',
+            'authType'    => 'AK',
+            'style'       => 'RPC',
+            'reqBodyType' => 'formData',
+            'bodyType'    => 'json',
         ]);
 
-        return DescribeExtensionProviderResponse::fromMap($this->doRPCRequest('DescribeExtensionProvider', '2020-01-11', 'HTTPS', 'POST', 'AK', 'json', $req, $runtime));
+        return DescribeExtensionProviderResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
@@ -662,11 +1146,26 @@ class Servicemesh extends OpenApiClient
     public function describeGuestClusterAccessLogDashboardsWithOptions($request, $runtime)
     {
         Utils::validateModel($request);
+        $body = [];
+        if (!Utils::isUnset($request->k8sClusterId)) {
+            $body['K8sClusterId'] = $request->k8sClusterId;
+        }
         $req = new OpenApiRequest([
-            'body' => Utils::toMap($request),
+            'body' => OpenApiUtilClient::parseToMap($body),
+        ]);
+        $params = new Params([
+            'action'      => 'DescribeGuestClusterAccessLogDashboards',
+            'version'     => '2020-01-11',
+            'protocol'    => 'HTTPS',
+            'pathname'    => '/',
+            'method'      => 'POST',
+            'authType'    => 'AK',
+            'style'       => 'RPC',
+            'reqBodyType' => 'formData',
+            'bodyType'    => 'json',
         ]);
 
-        return DescribeGuestClusterAccessLogDashboardsResponse::fromMap($this->doRPCRequest('DescribeGuestClusterAccessLogDashboards', '2020-01-11', 'HTTPS', 'POST', 'AK', 'json', $req, $runtime));
+        return DescribeGuestClusterAccessLogDashboardsResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
@@ -690,11 +1189,29 @@ class Servicemesh extends OpenApiClient
     public function describeGuestClusterNamespacesWithOptions($request, $runtime)
     {
         Utils::validateModel($request);
+        $body = [];
+        if (!Utils::isUnset($request->guestClusterID)) {
+            $body['GuestClusterID'] = $request->guestClusterID;
+        }
+        if (!Utils::isUnset($request->serviceMeshId)) {
+            $body['ServiceMeshId'] = $request->serviceMeshId;
+        }
         $req = new OpenApiRequest([
-            'body' => Utils::toMap($request),
+            'body' => OpenApiUtilClient::parseToMap($body),
+        ]);
+        $params = new Params([
+            'action'      => 'DescribeGuestClusterNamespaces',
+            'version'     => '2020-01-11',
+            'protocol'    => 'HTTPS',
+            'pathname'    => '/',
+            'method'      => 'POST',
+            'authType'    => 'AK',
+            'style'       => 'RPC',
+            'reqBodyType' => 'formData',
+            'bodyType'    => 'json',
         ]);
 
-        return DescribeGuestClusterNamespacesResponse::fromMap($this->doRPCRequest('DescribeGuestClusterNamespaces', '2020-01-11', 'HTTPS', 'POST', 'AK', 'json', $req, $runtime));
+        return DescribeGuestClusterNamespacesResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
@@ -718,11 +1235,32 @@ class Servicemesh extends OpenApiClient
     public function describeGuestClusterPodsWithOptions($request, $runtime)
     {
         Utils::validateModel($request);
+        $body = [];
+        if (!Utils::isUnset($request->guestClusterID)) {
+            $body['GuestClusterID'] = $request->guestClusterID;
+        }
+        if (!Utils::isUnset($request->namespace_)) {
+            $body['Namespace'] = $request->namespace_;
+        }
+        if (!Utils::isUnset($request->serviceMeshId)) {
+            $body['ServiceMeshId'] = $request->serviceMeshId;
+        }
         $req = new OpenApiRequest([
-            'body' => Utils::toMap($request),
+            'body' => OpenApiUtilClient::parseToMap($body),
+        ]);
+        $params = new Params([
+            'action'      => 'DescribeGuestClusterPods',
+            'version'     => '2020-01-11',
+            'protocol'    => 'HTTPS',
+            'pathname'    => '/',
+            'method'      => 'POST',
+            'authType'    => 'AK',
+            'style'       => 'RPC',
+            'reqBodyType' => 'formData',
+            'bodyType'    => 'json',
         ]);
 
-        return DescribeGuestClusterPodsResponse::fromMap($this->doRPCRequest('DescribeGuestClusterPods', '2020-01-11', 'HTTPS', 'POST', 'AK', 'json', $req, $runtime));
+        return DescribeGuestClusterPodsResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
@@ -748,10 +1286,21 @@ class Servicemesh extends OpenApiClient
         Utils::validateModel($request);
         $query = OpenApiUtilClient::query(Utils::toMap($request));
         $req   = new OpenApiRequest([
-            'query' => $query,
+            'query' => OpenApiUtilClient::query($query),
+        ]);
+        $params = new Params([
+            'action'      => 'DescribeIngressGateways',
+            'version'     => '2020-01-11',
+            'protocol'    => 'HTTPS',
+            'pathname'    => '/',
+            'method'      => 'GET',
+            'authType'    => 'AK',
+            'style'       => 'RPC',
+            'reqBodyType' => 'formData',
+            'bodyType'    => 'json',
         ]);
 
-        return DescribeIngressGatewaysResponse::fromMap($this->doRPCRequest('DescribeIngressGateways', '2020-01-11', 'HTTPS', 'GET', 'AK', 'json', $req, $runtime));
+        return DescribeIngressGatewaysResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
@@ -775,11 +1324,29 @@ class Servicemesh extends OpenApiClient
     public function describeNamespaceScopeSidecarConfigWithOptions($request, $runtime)
     {
         Utils::validateModel($request);
+        $body = [];
+        if (!Utils::isUnset($request->namespace_)) {
+            $body['Namespace'] = $request->namespace_;
+        }
+        if (!Utils::isUnset($request->serviceMeshId)) {
+            $body['ServiceMeshId'] = $request->serviceMeshId;
+        }
         $req = new OpenApiRequest([
-            'body' => Utils::toMap($request),
+            'body' => OpenApiUtilClient::parseToMap($body),
+        ]);
+        $params = new Params([
+            'action'      => 'DescribeNamespaceScopeSidecarConfig',
+            'version'     => '2020-01-11',
+            'protocol'    => 'HTTPS',
+            'pathname'    => '/',
+            'method'      => 'POST',
+            'authType'    => 'AK',
+            'style'       => 'RPC',
+            'reqBodyType' => 'formData',
+            'bodyType'    => 'json',
         ]);
 
-        return DescribeNamespaceScopeSidecarConfigResponse::fromMap($this->doRPCRequest('DescribeNamespaceScopeSidecarConfig', '2020-01-11', 'HTTPS', 'POST', 'AK', 'json', $req, $runtime));
+        return DescribeNamespaceScopeSidecarConfigResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
@@ -805,10 +1372,21 @@ class Servicemesh extends OpenApiClient
         Utils::validateModel($request);
         $query = OpenApiUtilClient::query(Utils::toMap($request));
         $req   = new OpenApiRequest([
-            'query' => $query,
+            'query' => OpenApiUtilClient::query($query),
+        ]);
+        $params = new Params([
+            'action'      => 'DescribeRegions',
+            'version'     => '2020-01-11',
+            'protocol'    => 'HTTPS',
+            'pathname'    => '/',
+            'method'      => 'GET',
+            'authType'    => 'AK',
+            'style'       => 'RPC',
+            'reqBodyType' => 'formData',
+            'bodyType'    => 'json',
         ]);
 
-        return DescribeRegionsResponse::fromMap($this->doRPCRequest('DescribeRegions', '2020-01-11', 'HTTPS', 'GET', 'AK', 'json', $req, $runtime));
+        return DescribeRegionsResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
@@ -832,11 +1410,26 @@ class Servicemesh extends OpenApiClient
     public function describeServiceMeshDetailWithOptions($request, $runtime)
     {
         Utils::validateModel($request);
+        $body = [];
+        if (!Utils::isUnset($request->serviceMeshId)) {
+            $body['ServiceMeshId'] = $request->serviceMeshId;
+        }
         $req = new OpenApiRequest([
-            'body' => Utils::toMap($request),
+            'body' => OpenApiUtilClient::parseToMap($body),
+        ]);
+        $params = new Params([
+            'action'      => 'DescribeServiceMeshDetail',
+            'version'     => '2020-01-11',
+            'protocol'    => 'HTTPS',
+            'pathname'    => '/',
+            'method'      => 'POST',
+            'authType'    => 'AK',
+            'style'       => 'RPC',
+            'reqBodyType' => 'formData',
+            'bodyType'    => 'json',
         ]);
 
-        return DescribeServiceMeshDetailResponse::fromMap($this->doRPCRequest('DescribeServiceMeshDetail', '2020-01-11', 'HTTPS', 'POST', 'AK', 'json', $req, $runtime));
+        return DescribeServiceMeshDetailResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
@@ -860,11 +1453,34 @@ class Servicemesh extends OpenApiClient
     public function describeServiceMeshGatewayPodStatusWithOptions($request, $runtime)
     {
         Utils::validateModel($request);
+        $query = [];
+        if (!Utils::isUnset($request->serviceMeshId)) {
+            $query['ServiceMeshId'] = $request->serviceMeshId;
+        }
+        $body = [];
+        if (!Utils::isUnset($request->gatewayFullName)) {
+            $body['GatewayFullName'] = $request->gatewayFullName;
+        }
+        if (!Utils::isUnset($request->guestClusterIds)) {
+            $body['GuestClusterIds'] = $request->guestClusterIds;
+        }
         $req = new OpenApiRequest([
-            'body' => Utils::toMap($request),
+            'query' => OpenApiUtilClient::query($query),
+            'body'  => OpenApiUtilClient::parseToMap($body),
+        ]);
+        $params = new Params([
+            'action'      => 'DescribeServiceMeshGatewayPodStatus',
+            'version'     => '2020-01-11',
+            'protocol'    => 'HTTPS',
+            'pathname'    => '/',
+            'method'      => 'POST',
+            'authType'    => 'AK',
+            'style'       => 'RPC',
+            'reqBodyType' => 'formData',
+            'bodyType'    => 'json',
         ]);
 
-        return DescribeServiceMeshGatewayPodStatusResponse::fromMap($this->doRPCRequest('DescribeServiceMeshGatewayPodStatus', '2020-01-11', 'HTTPS', 'POST', 'AK', 'json', $req, $runtime));
+        return DescribeServiceMeshGatewayPodStatusResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
@@ -888,11 +1504,34 @@ class Servicemesh extends OpenApiClient
     public function describeServiceMeshGatewaySLBStatusWithOptions($request, $runtime)
     {
         Utils::validateModel($request);
+        $query = [];
+        if (!Utils::isUnset($request->serviceMeshId)) {
+            $query['ServiceMeshId'] = $request->serviceMeshId;
+        }
+        $body = [];
+        if (!Utils::isUnset($request->gatewayAddresses)) {
+            $body['GatewayAddresses'] = $request->gatewayAddresses;
+        }
+        if (!Utils::isUnset($request->gatewayFullName)) {
+            $body['GatewayFullName'] = $request->gatewayFullName;
+        }
         $req = new OpenApiRequest([
-            'body' => Utils::toMap($request),
+            'query' => OpenApiUtilClient::query($query),
+            'body'  => OpenApiUtilClient::parseToMap($body),
+        ]);
+        $params = new Params([
+            'action'      => 'DescribeServiceMeshGatewaySLBStatus',
+            'version'     => '2020-01-11',
+            'protocol'    => 'HTTPS',
+            'pathname'    => '/',
+            'method'      => 'POST',
+            'authType'    => 'AK',
+            'style'       => 'RPC',
+            'reqBodyType' => 'formData',
+            'bodyType'    => 'json',
         ]);
 
-        return DescribeServiceMeshGatewaySLBStatusResponse::fromMap($this->doRPCRequest('DescribeServiceMeshGatewaySLBStatus', '2020-01-11', 'HTTPS', 'POST', 'AK', 'json', $req, $runtime));
+        return DescribeServiceMeshGatewaySLBStatusResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
@@ -916,11 +1555,29 @@ class Servicemesh extends OpenApiClient
     public function describeServiceMeshKubeconfigWithOptions($request, $runtime)
     {
         Utils::validateModel($request);
+        $query = [];
+        if (!Utils::isUnset($request->privateIpAddress)) {
+            $query['PrivateIpAddress'] = $request->privateIpAddress;
+        }
+        if (!Utils::isUnset($request->serviceMeshId)) {
+            $query['ServiceMeshId'] = $request->serviceMeshId;
+        }
         $req = new OpenApiRequest([
-            'body' => Utils::toMap($request),
+            'query' => OpenApiUtilClient::query($query),
+        ]);
+        $params = new Params([
+            'action'      => 'DescribeServiceMeshKubeconfig',
+            'version'     => '2020-01-11',
+            'protocol'    => 'HTTPS',
+            'pathname'    => '/',
+            'method'      => 'POST',
+            'authType'    => 'AK',
+            'style'       => 'RPC',
+            'reqBodyType' => 'formData',
+            'bodyType'    => 'json',
         ]);
 
-        return DescribeServiceMeshKubeconfigResponse::fromMap($this->doRPCRequest('DescribeServiceMeshKubeconfig', '2020-01-11', 'HTTPS', 'POST', 'AK', 'json', $req, $runtime));
+        return DescribeServiceMeshKubeconfigResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
@@ -944,11 +1601,34 @@ class Servicemesh extends OpenApiClient
     public function describeServiceMeshUpgradeStatusWithOptions($request, $runtime)
     {
         Utils::validateModel($request);
+        $query = [];
+        if (!Utils::isUnset($request->serviceMeshId)) {
+            $query['ServiceMeshId'] = $request->serviceMeshId;
+        }
+        $body = [];
+        if (!Utils::isUnset($request->allIstioGatewayFullNames)) {
+            $body['AllIstioGatewayFullNames'] = $request->allIstioGatewayFullNames;
+        }
+        if (!Utils::isUnset($request->guestClusterIds)) {
+            $body['GuestClusterIds'] = $request->guestClusterIds;
+        }
         $req = new OpenApiRequest([
-            'body' => Utils::toMap($request),
+            'query' => OpenApiUtilClient::query($query),
+            'body'  => OpenApiUtilClient::parseToMap($body),
+        ]);
+        $params = new Params([
+            'action'      => 'DescribeServiceMeshUpgradeStatus',
+            'version'     => '2020-01-11',
+            'protocol'    => 'HTTPS',
+            'pathname'    => '/',
+            'method'      => 'POST',
+            'authType'    => 'AK',
+            'style'       => 'RPC',
+            'reqBodyType' => 'formData',
+            'bodyType'    => 'json',
         ]);
 
-        return DescribeServiceMeshUpgradeStatusResponse::fromMap($this->doRPCRequest('DescribeServiceMeshUpgradeStatus', '2020-01-11', 'HTTPS', 'POST', 'AK', 'json', $req, $runtime));
+        return DescribeServiceMeshUpgradeStatusResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
@@ -972,11 +1652,26 @@ class Servicemesh extends OpenApiClient
     public function describeServiceMeshVMsWithOptions($request, $runtime)
     {
         Utils::validateModel($request);
+        $query = [];
+        if (!Utils::isUnset($request->serviceMeshId)) {
+            $query['ServiceMeshId'] = $request->serviceMeshId;
+        }
         $req = new OpenApiRequest([
-            'body' => Utils::toMap($request),
+            'query' => OpenApiUtilClient::query($query),
+        ]);
+        $params = new Params([
+            'action'      => 'DescribeServiceMeshVMs',
+            'version'     => '2020-01-11',
+            'protocol'    => 'HTTPS',
+            'pathname'    => '/',
+            'method'      => 'POST',
+            'authType'    => 'AK',
+            'style'       => 'RPC',
+            'reqBodyType' => 'formData',
+            'bodyType'    => 'json',
         ]);
 
-        return DescribeServiceMeshVMsResponse::fromMap($this->doRPCRequest('DescribeServiceMeshVMs', '2020-01-11', 'HTTPS', 'POST', 'AK', 'json', $req, $runtime));
+        return DescribeServiceMeshVMsResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
@@ -998,9 +1693,20 @@ class Servicemesh extends OpenApiClient
      */
     public function describeServiceMeshesWithOptions($runtime)
     {
-        $req = new OpenApiRequest([]);
+        $req    = new OpenApiRequest([]);
+        $params = new Params([
+            'action'      => 'DescribeServiceMeshes',
+            'version'     => '2020-01-11',
+            'protocol'    => 'HTTPS',
+            'pathname'    => '/',
+            'method'      => 'GET',
+            'authType'    => 'AK',
+            'style'       => 'RPC',
+            'reqBodyType' => 'formData',
+            'bodyType'    => 'json',
+        ]);
 
-        return DescribeServiceMeshesResponse::fromMap($this->doRPCRequest('DescribeServiceMeshes', '2020-01-11', 'HTTPS', 'GET', 'AK', 'json', $req, $runtime));
+        return DescribeServiceMeshesResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
@@ -1022,11 +1728,26 @@ class Servicemesh extends OpenApiClient
     public function describeUpgradeVersionWithOptions($request, $runtime)
     {
         Utils::validateModel($request);
+        $query = [];
+        if (!Utils::isUnset($request->serviceMeshId)) {
+            $query['ServiceMeshId'] = $request->serviceMeshId;
+        }
         $req = new OpenApiRequest([
-            'body' => Utils::toMap($request),
+            'query' => OpenApiUtilClient::query($query),
+        ]);
+        $params = new Params([
+            'action'      => 'DescribeUpgradeVersion',
+            'version'     => '2020-01-11',
+            'protocol'    => 'HTTPS',
+            'pathname'    => '/',
+            'method'      => 'POST',
+            'authType'    => 'AK',
+            'style'       => 'RPC',
+            'reqBodyType' => 'formData',
+            'bodyType'    => 'json',
         ]);
 
-        return DescribeUpgradeVersionResponse::fromMap($this->doRPCRequest('DescribeUpgradeVersion', '2020-01-11', 'HTTPS', 'POST', 'AK', 'json', $req, $runtime));
+        return DescribeUpgradeVersionResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
@@ -1050,11 +1771,26 @@ class Servicemesh extends OpenApiClient
     public function describeVMsInServiceMeshWithOptions($request, $runtime)
     {
         Utils::validateModel($request);
+        $query = [];
+        if (!Utils::isUnset($request->serviceMeshId)) {
+            $query['ServiceMeshId'] = $request->serviceMeshId;
+        }
         $req = new OpenApiRequest([
-            'body' => Utils::toMap($request),
+            'query' => OpenApiUtilClient::query($query),
+        ]);
+        $params = new Params([
+            'action'      => 'DescribeVMsInServiceMesh',
+            'version'     => '2020-01-11',
+            'protocol'    => 'HTTPS',
+            'pathname'    => '/',
+            'method'      => 'POST',
+            'authType'    => 'AK',
+            'style'       => 'RPC',
+            'reqBodyType' => 'formData',
+            'bodyType'    => 'json',
         ]);
 
-        return DescribeVMsInServiceMeshResponse::fromMap($this->doRPCRequest('DescribeVMsInServiceMesh', '2020-01-11', 'HTTPS', 'POST', 'AK', 'json', $req, $runtime));
+        return DescribeVMsInServiceMeshResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
@@ -1078,11 +1814,29 @@ class Servicemesh extends OpenApiClient
     public function describeVSwitchesWithOptions($request, $runtime)
     {
         Utils::validateModel($request);
+        $body = [];
+        if (!Utils::isUnset($request->regionId)) {
+            $body['RegionId'] = $request->regionId;
+        }
+        if (!Utils::isUnset($request->vpcId)) {
+            $body['VpcId'] = $request->vpcId;
+        }
         $req = new OpenApiRequest([
-            'body' => Utils::toMap($request),
+            'body' => OpenApiUtilClient::parseToMap($body),
+        ]);
+        $params = new Params([
+            'action'      => 'DescribeVSwitches',
+            'version'     => '2020-01-11',
+            'protocol'    => 'HTTPS',
+            'pathname'    => '/',
+            'method'      => 'POST',
+            'authType'    => 'AK',
+            'style'       => 'RPC',
+            'reqBodyType' => 'formData',
+            'bodyType'    => 'json',
         ]);
 
-        return DescribeVSwitchesResponse::fromMap($this->doRPCRequest('DescribeVSwitches', '2020-01-11', 'HTTPS', 'POST', 'AK', 'json', $req, $runtime));
+        return DescribeVSwitchesResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
@@ -1098,6 +1852,39 @@ class Servicemesh extends OpenApiClient
     }
 
     /**
+     * @param RuntimeOptions $runtime
+     *
+     * @return DescribeVersionsResponse
+     */
+    public function describeVersionsWithOptions($runtime)
+    {
+        $req    = new OpenApiRequest([]);
+        $params = new Params([
+            'action'      => 'DescribeVersions',
+            'version'     => '2020-01-11',
+            'protocol'    => 'HTTPS',
+            'pathname'    => '/',
+            'method'      => 'POST',
+            'authType'    => 'AK',
+            'style'       => 'RPC',
+            'reqBodyType' => 'formData',
+            'bodyType'    => 'json',
+        ]);
+
+        return DescribeVersionsResponse::fromMap($this->callApi($params, $req, $runtime));
+    }
+
+    /**
+     * @return DescribeVersionsResponse
+     */
+    public function describeVersions()
+    {
+        $runtime = new RuntimeOptions([]);
+
+        return $this->describeVersionsWithOptions($runtime);
+    }
+
+    /**
      * @param DescribeVpcsRequest $request
      * @param RuntimeOptions      $runtime
      *
@@ -1106,11 +1893,26 @@ class Servicemesh extends OpenApiClient
     public function describeVpcsWithOptions($request, $runtime)
     {
         Utils::validateModel($request);
+        $body = [];
+        if (!Utils::isUnset($request->regionId)) {
+            $body['RegionId'] = $request->regionId;
+        }
         $req = new OpenApiRequest([
-            'body' => Utils::toMap($request),
+            'body' => OpenApiUtilClient::parseToMap($body),
+        ]);
+        $params = new Params([
+            'action'      => 'DescribeVpcs',
+            'version'     => '2020-01-11',
+            'protocol'    => 'HTTPS',
+            'pathname'    => '/',
+            'method'      => 'POST',
+            'authType'    => 'AK',
+            'style'       => 'RPC',
+            'reqBodyType' => 'formData',
+            'bodyType'    => 'json',
         ]);
 
-        return DescribeVpcsResponse::fromMap($this->doRPCRequest('DescribeVpcs', '2020-01-11', 'HTTPS', 'POST', 'AK', 'json', $req, $runtime));
+        return DescribeVpcsResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
@@ -1134,11 +1936,29 @@ class Servicemesh extends OpenApiClient
     public function disableControlPlaneLogAlertWithOptions($request, $runtime)
     {
         Utils::validateModel($request);
+        $body = [];
+        if (!Utils::isUnset($request->ruleId)) {
+            $body['RuleId'] = $request->ruleId;
+        }
+        if (!Utils::isUnset($request->serviceMeshId)) {
+            $body['ServiceMeshId'] = $request->serviceMeshId;
+        }
         $req = new OpenApiRequest([
-            'body' => Utils::toMap($request),
+            'body' => OpenApiUtilClient::parseToMap($body),
+        ]);
+        $params = new Params([
+            'action'      => 'DisableControlPlaneLogAlert',
+            'version'     => '2020-01-11',
+            'protocol'    => 'HTTPS',
+            'pathname'    => '/',
+            'method'      => 'POST',
+            'authType'    => 'AK',
+            'style'       => 'RPC',
+            'reqBodyType' => 'formData',
+            'bodyType'    => 'json',
         ]);
 
-        return DisableControlPlaneLogAlertResponse::fromMap($this->doRPCRequest('DisableControlPlaneLogAlert', '2020-01-11', 'HTTPS', 'POST', 'AK', 'json', $req, $runtime));
+        return DisableControlPlaneLogAlertResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
@@ -1162,11 +1982,32 @@ class Servicemesh extends OpenApiClient
     public function enableControlPlaneLogAlertWithOptions($request, $runtime)
     {
         Utils::validateModel($request);
+        $body = [];
+        if (!Utils::isUnset($request->actionPolicyId)) {
+            $body['ActionPolicyId'] = $request->actionPolicyId;
+        }
+        if (!Utils::isUnset($request->ruleId)) {
+            $body['RuleId'] = $request->ruleId;
+        }
+        if (!Utils::isUnset($request->serviceMeshId)) {
+            $body['ServiceMeshId'] = $request->serviceMeshId;
+        }
         $req = new OpenApiRequest([
-            'body' => Utils::toMap($request),
+            'body' => OpenApiUtilClient::parseToMap($body),
+        ]);
+        $params = new Params([
+            'action'      => 'EnableControlPlaneLogAlert',
+            'version'     => '2020-01-11',
+            'protocol'    => 'HTTPS',
+            'pathname'    => '/',
+            'method'      => 'POST',
+            'authType'    => 'AK',
+            'style'       => 'RPC',
+            'reqBodyType' => 'formData',
+            'bodyType'    => 'json',
         ]);
 
-        return EnableControlPlaneLogAlertResponse::fromMap($this->doRPCRequest('EnableControlPlaneLogAlert', '2020-01-11', 'HTTPS', 'POST', 'AK', 'json', $req, $runtime));
+        return EnableControlPlaneLogAlertResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
@@ -1190,11 +2031,26 @@ class Servicemesh extends OpenApiClient
     public function getAutoInjectionLabelSyncStatusWithOptions($request, $runtime)
     {
         Utils::validateModel($request);
+        $query = [];
+        if (!Utils::isUnset($request->serviceMeshId)) {
+            $query['ServiceMeshId'] = $request->serviceMeshId;
+        }
         $req = new OpenApiRequest([
-            'body' => Utils::toMap($request),
+            'query' => OpenApiUtilClient::query($query),
+        ]);
+        $params = new Params([
+            'action'      => 'GetAutoInjectionLabelSyncStatus',
+            'version'     => '2020-01-11',
+            'protocol'    => 'HTTPS',
+            'pathname'    => '/',
+            'method'      => 'POST',
+            'authType'    => 'AK',
+            'style'       => 'RPC',
+            'reqBodyType' => 'formData',
+            'bodyType'    => 'json',
         ]);
 
-        return GetAutoInjectionLabelSyncStatusResponse::fromMap($this->doRPCRequest('GetAutoInjectionLabelSyncStatus', '2020-01-11', 'HTTPS', 'POST', 'AK', 'json', $req, $runtime));
+        return GetAutoInjectionLabelSyncStatusResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
@@ -1218,11 +2074,35 @@ class Servicemesh extends OpenApiClient
     public function getBuiltinEnvoyFilterWithOptions($request, $runtime)
     {
         Utils::validateModel($request);
+        $body = [];
+        if (!Utils::isUnset($request->id)) {
+            $body['Id'] = $request->id;
+        }
+        if (!Utils::isUnset($request->istioVersion)) {
+            $body['IstioVersion'] = $request->istioVersion;
+        }
+        if (!Utils::isUnset($request->name)) {
+            $body['Name'] = $request->name;
+        }
+        if (!Utils::isUnset($request->serviceMeshId)) {
+            $body['ServiceMeshId'] = $request->serviceMeshId;
+        }
         $req = new OpenApiRequest([
-            'body' => Utils::toMap($request),
+            'body' => OpenApiUtilClient::parseToMap($body),
+        ]);
+        $params = new Params([
+            'action'      => 'GetBuiltinEnvoyFilter',
+            'version'     => '2020-01-11',
+            'protocol'    => 'HTTPS',
+            'pathname'    => '/',
+            'method'      => 'POST',
+            'authType'    => 'AK',
+            'style'       => 'RPC',
+            'reqBodyType' => 'formData',
+            'bodyType'    => 'json',
         ]);
 
-        return GetBuiltinEnvoyFilterResponse::fromMap($this->doRPCRequest('GetBuiltinEnvoyFilter', '2020-01-11', 'HTTPS', 'POST', 'AK', 'json', $req, $runtime));
+        return GetBuiltinEnvoyFilterResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
@@ -1246,11 +2126,26 @@ class Servicemesh extends OpenApiClient
     public function getBuiltinEnvoyFilterCatalogWithOptions($request, $runtime)
     {
         Utils::validateModel($request);
+        $body = [];
+        if (!Utils::isUnset($request->serviceMeshId)) {
+            $body['ServiceMeshId'] = $request->serviceMeshId;
+        }
         $req = new OpenApiRequest([
-            'body' => Utils::toMap($request),
+            'body' => OpenApiUtilClient::parseToMap($body),
+        ]);
+        $params = new Params([
+            'action'      => 'GetBuiltinEnvoyFilterCatalog',
+            'version'     => '2020-01-11',
+            'protocol'    => 'HTTPS',
+            'pathname'    => '/',
+            'method'      => 'POST',
+            'authType'    => 'AK',
+            'style'       => 'RPC',
+            'reqBodyType' => 'formData',
+            'bodyType'    => 'json',
         ]);
 
-        return GetBuiltinEnvoyFilterCatalogResponse::fromMap($this->doRPCRequest('GetBuiltinEnvoyFilterCatalog', '2020-01-11', 'HTTPS', 'POST', 'AK', 'json', $req, $runtime));
+        return GetBuiltinEnvoyFilterCatalogResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
@@ -1274,11 +2169,26 @@ class Servicemesh extends OpenApiClient
     public function getCaCertWithOptions($request, $runtime)
     {
         Utils::validateModel($request);
+        $body = [];
+        if (!Utils::isUnset($request->serviceMeshId)) {
+            $body['ServiceMeshId'] = $request->serviceMeshId;
+        }
         $req = new OpenApiRequest([
-            'body' => Utils::toMap($request),
+            'body' => OpenApiUtilClient::parseToMap($body),
+        ]);
+        $params = new Params([
+            'action'      => 'GetCaCert',
+            'version'     => '2020-01-11',
+            'protocol'    => 'HTTPS',
+            'pathname'    => '/',
+            'method'      => 'POST',
+            'authType'    => 'AK',
+            'style'       => 'RPC',
+            'reqBodyType' => 'formData',
+            'bodyType'    => 'json',
         ]);
 
-        return GetCaCertResponse::fromMap($this->doRPCRequest('GetCaCert', '2020-01-11', 'HTTPS', 'POST', 'AK', 'json', $req, $runtime));
+        return GetCaCertResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
@@ -1302,11 +2212,26 @@ class Servicemesh extends OpenApiClient
     public function getDiagnosisWithOptions($request, $runtime)
     {
         Utils::validateModel($request);
+        $query = [];
+        if (!Utils::isUnset($request->serviceMeshId)) {
+            $query['ServiceMeshId'] = $request->serviceMeshId;
+        }
         $req = new OpenApiRequest([
-            'body' => Utils::toMap($request),
+            'query' => OpenApiUtilClient::query($query),
+        ]);
+        $params = new Params([
+            'action'      => 'GetDiagnosis',
+            'version'     => '2020-01-11',
+            'protocol'    => 'HTTPS',
+            'pathname'    => '/',
+            'method'      => 'POST',
+            'authType'    => 'AK',
+            'style'       => 'RPC',
+            'reqBodyType' => 'formData',
+            'bodyType'    => 'json',
         ]);
 
-        return GetDiagnosisResponse::fromMap($this->doRPCRequest('GetDiagnosis', '2020-01-11', 'HTTPS', 'POST', 'AK', 'json', $req, $runtime));
+        return GetDiagnosisResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
@@ -1332,10 +2257,21 @@ class Servicemesh extends OpenApiClient
         Utils::validateModel($request);
         $query = OpenApiUtilClient::query(Utils::toMap($request));
         $req   = new OpenApiRequest([
-            'query' => $query,
+            'query' => OpenApiUtilClient::query($query),
+        ]);
+        $params = new Params([
+            'action'      => 'GetEcsList',
+            'version'     => '2020-01-11',
+            'protocol'    => 'HTTPS',
+            'pathname'    => '/',
+            'method'      => 'GET',
+            'authType'    => 'AK',
+            'style'       => 'RPC',
+            'reqBodyType' => 'formData',
+            'bodyType'    => 'json',
         ]);
 
-        return GetEcsListResponse::fromMap($this->doRPCRequest('GetEcsList', '2020-01-11', 'HTTPS', 'GET', 'AK', 'json', $req, $runtime));
+        return GetEcsListResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
@@ -1359,11 +2295,32 @@ class Servicemesh extends OpenApiClient
     public function getRegisteredServiceEndpointsWithOptions($request, $runtime)
     {
         Utils::validateModel($request);
+        $query = [];
+        if (!Utils::isUnset($request->name)) {
+            $query['Name'] = $request->name;
+        }
+        if (!Utils::isUnset($request->namespace_)) {
+            $query['Namespace'] = $request->namespace_;
+        }
+        if (!Utils::isUnset($request->serviceMeshId)) {
+            $query['ServiceMeshId'] = $request->serviceMeshId;
+        }
         $req = new OpenApiRequest([
-            'body' => Utils::toMap($request),
+            'query' => OpenApiUtilClient::query($query),
+        ]);
+        $params = new Params([
+            'action'      => 'GetRegisteredServiceEndpoints',
+            'version'     => '2020-01-11',
+            'protocol'    => 'HTTPS',
+            'pathname'    => '/',
+            'method'      => 'POST',
+            'authType'    => 'AK',
+            'style'       => 'RPC',
+            'reqBodyType' => 'formData',
+            'bodyType'    => 'json',
         ]);
 
-        return GetRegisteredServiceEndpointsResponse::fromMap($this->doRPCRequest('GetRegisteredServiceEndpoints', '2020-01-11', 'HTTPS', 'POST', 'AK', 'json', $req, $runtime));
+        return GetRegisteredServiceEndpointsResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
@@ -1387,11 +2344,26 @@ class Servicemesh extends OpenApiClient
     public function getRegisteredServiceNamespacesWithOptions($request, $runtime)
     {
         Utils::validateModel($request);
+        $body = [];
+        if (!Utils::isUnset($request->serviceMeshId)) {
+            $body['ServiceMeshId'] = $request->serviceMeshId;
+        }
         $req = new OpenApiRequest([
-            'body' => Utils::toMap($request),
+            'body' => OpenApiUtilClient::parseToMap($body),
+        ]);
+        $params = new Params([
+            'action'      => 'GetRegisteredServiceNamespaces',
+            'version'     => '2020-01-11',
+            'protocol'    => 'HTTPS',
+            'pathname'    => '/',
+            'method'      => 'POST',
+            'authType'    => 'AK',
+            'style'       => 'RPC',
+            'reqBodyType' => 'formData',
+            'bodyType'    => 'json',
         ]);
 
-        return GetRegisteredServiceNamespacesResponse::fromMap($this->doRPCRequest('GetRegisteredServiceNamespaces', '2020-01-11', 'HTTPS', 'POST', 'AK', 'json', $req, $runtime));
+        return GetRegisteredServiceNamespacesResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
@@ -1415,11 +2387,29 @@ class Servicemesh extends OpenApiClient
     public function getRegisteredServicesWithOptions($request, $runtime)
     {
         Utils::validateModel($request);
+        $query = [];
+        if (!Utils::isUnset($request->namespace_)) {
+            $query['Namespace'] = $request->namespace_;
+        }
+        if (!Utils::isUnset($request->serviceMeshId)) {
+            $query['ServiceMeshId'] = $request->serviceMeshId;
+        }
         $req = new OpenApiRequest([
-            'body' => Utils::toMap($request),
+            'query' => OpenApiUtilClient::query($query),
+        ]);
+        $params = new Params([
+            'action'      => 'GetRegisteredServices',
+            'version'     => '2020-01-11',
+            'protocol'    => 'HTTPS',
+            'pathname'    => '/',
+            'method'      => 'POST',
+            'authType'    => 'AK',
+            'style'       => 'RPC',
+            'reqBodyType' => 'formData',
+            'bodyType'    => 'json',
         ]);
 
-        return GetRegisteredServicesResponse::fromMap($this->doRPCRequest('GetRegisteredServices', '2020-01-11', 'HTTPS', 'POST', 'AK', 'json', $req, $runtime));
+        return GetRegisteredServicesResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
@@ -1443,11 +2433,35 @@ class Servicemesh extends OpenApiClient
     public function getSaTokenWithOptions($request, $runtime)
     {
         Utils::validateModel($request);
+        $body = [];
+        if (!Utils::isUnset($request->namespace_)) {
+            $body['Namespace'] = $request->namespace_;
+        }
+        if (!Utils::isUnset($request->needRefresh)) {
+            $body['NeedRefresh'] = $request->needRefresh;
+        }
+        if (!Utils::isUnset($request->serviceAccountName)) {
+            $body['ServiceAccountName'] = $request->serviceAccountName;
+        }
+        if (!Utils::isUnset($request->serviceMeshId)) {
+            $body['ServiceMeshId'] = $request->serviceMeshId;
+        }
         $req = new OpenApiRequest([
-            'body' => Utils::toMap($request),
+            'body' => OpenApiUtilClient::parseToMap($body),
+        ]);
+        $params = new Params([
+            'action'      => 'GetSaToken',
+            'version'     => '2020-01-11',
+            'protocol'    => 'HTTPS',
+            'pathname'    => '/',
+            'method'      => 'POST',
+            'authType'    => 'AK',
+            'style'       => 'RPC',
+            'reqBodyType' => 'formData',
+            'bodyType'    => 'json',
         ]);
 
-        return GetSaTokenResponse::fromMap($this->doRPCRequest('GetSaToken', '2020-01-11', 'HTTPS', 'POST', 'AK', 'json', $req, $runtime));
+        return GetSaTokenResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
@@ -1471,11 +2485,26 @@ class Servicemesh extends OpenApiClient
     public function getServiceMeshSlbWithOptions($request, $runtime)
     {
         Utils::validateModel($request);
+        $query = [];
+        if (!Utils::isUnset($request->serviceMeshId)) {
+            $query['ServiceMeshId'] = $request->serviceMeshId;
+        }
         $req = new OpenApiRequest([
-            'body' => Utils::toMap($request),
+            'query' => OpenApiUtilClient::query($query),
+        ]);
+        $params = new Params([
+            'action'      => 'GetServiceMeshSlb',
+            'version'     => '2020-01-11',
+            'protocol'    => 'HTTPS',
+            'pathname'    => '/',
+            'method'      => 'POST',
+            'authType'    => 'AK',
+            'style'       => 'RPC',
+            'reqBodyType' => 'formData',
+            'bodyType'    => 'json',
         ]);
 
-        return GetServiceMeshSlbResponse::fromMap($this->doRPCRequest('GetServiceMeshSlb', '2020-01-11', 'HTTPS', 'POST', 'AK', 'json', $req, $runtime));
+        return GetServiceMeshSlbResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
@@ -1499,11 +2528,26 @@ class Servicemesh extends OpenApiClient
     public function getServiceRegistrySourceWithOptions($request, $runtime)
     {
         Utils::validateModel($request);
+        $query = [];
+        if (!Utils::isUnset($request->serviceMeshId)) {
+            $query['ServiceMeshId'] = $request->serviceMeshId;
+        }
         $req = new OpenApiRequest([
-            'body' => Utils::toMap($request),
+            'query' => OpenApiUtilClient::query($query),
+        ]);
+        $params = new Params([
+            'action'      => 'GetServiceRegistrySource',
+            'version'     => '2020-01-11',
+            'protocol'    => 'HTTPS',
+            'pathname'    => '/',
+            'method'      => 'POST',
+            'authType'    => 'AK',
+            'style'       => 'RPC',
+            'reqBodyType' => 'formData',
+            'bodyType'    => 'json',
         ]);
 
-        return GetServiceRegistrySourceResponse::fromMap($this->doRPCRequest('GetServiceRegistrySource', '2020-01-11', 'HTTPS', 'POST', 'AK', 'json', $req, $runtime));
+        return GetServiceRegistrySourceResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
@@ -1529,10 +2573,21 @@ class Servicemesh extends OpenApiClient
         Utils::validateModel($request);
         $query = OpenApiUtilClient::query(Utils::toMap($request));
         $req   = new OpenApiRequest([
-            'query' => $query,
+            'query' => OpenApiUtilClient::query($query),
+        ]);
+        $params = new Params([
+            'action'      => 'GetVmAppMeshInfo',
+            'version'     => '2020-01-11',
+            'protocol'    => 'HTTPS',
+            'pathname'    => '/',
+            'method'      => 'GET',
+            'authType'    => 'AK',
+            'style'       => 'RPC',
+            'reqBodyType' => 'formData',
+            'bodyType'    => 'json',
         ]);
 
-        return GetVmAppMeshInfoResponse::fromMap($this->doRPCRequest('GetVmAppMeshInfo', '2020-01-11', 'HTTPS', 'GET', 'AK', 'json', $req, $runtime));
+        return GetVmAppMeshInfoResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
@@ -1558,10 +2613,21 @@ class Servicemesh extends OpenApiClient
         Utils::validateModel($request);
         $query = OpenApiUtilClient::query(Utils::toMap($request));
         $req   = new OpenApiRequest([
-            'query' => $query,
+            'query' => OpenApiUtilClient::query($query),
+        ]);
+        $params = new Params([
+            'action'      => 'GetVmMeta',
+            'version'     => '2020-01-11',
+            'protocol'    => 'HTTPS',
+            'pathname'    => '/',
+            'method'      => 'GET',
+            'authType'    => 'AK',
+            'style'       => 'RPC',
+            'reqBodyType' => 'formData',
+            'bodyType'    => 'json',
         ]);
 
-        return GetVmMetaResponse::fromMap($this->doRPCRequest('GetVmMeta', '2020-01-11', 'HTTPS', 'GET', 'AK', 'json', $req, $runtime));
+        return GetVmMetaResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
@@ -1583,9 +2649,20 @@ class Servicemesh extends OpenApiClient
      */
     public function initializeASMRoleWithOptions($runtime)
     {
-        $req = new OpenApiRequest([]);
+        $req    = new OpenApiRequest([]);
+        $params = new Params([
+            'action'      => 'InitializeASMRole',
+            'version'     => '2020-01-11',
+            'protocol'    => 'HTTPS',
+            'pathname'    => '/',
+            'method'      => 'POST',
+            'authType'    => 'AK',
+            'style'       => 'RPC',
+            'reqBodyType' => 'formData',
+            'bodyType'    => 'json',
+        ]);
 
-        return InitializeASMRoleResponse::fromMap($this->doRPCRequest('InitializeASMRole', '2020-01-11', 'HTTPS', 'POST', 'AK', 'json', $req, $runtime));
+        return InitializeASMRoleResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
@@ -1607,11 +2684,29 @@ class Servicemesh extends OpenApiClient
     public function listBuiltinEnvoyFilterWithOptions($request, $runtime)
     {
         Utils::validateModel($request);
+        $body = [];
+        if (!Utils::isUnset($request->id)) {
+            $body['Id'] = $request->id;
+        }
+        if (!Utils::isUnset($request->serviceMeshId)) {
+            $body['ServiceMeshId'] = $request->serviceMeshId;
+        }
         $req = new OpenApiRequest([
-            'body' => Utils::toMap($request),
+            'body' => OpenApiUtilClient::parseToMap($body),
+        ]);
+        $params = new Params([
+            'action'      => 'ListBuiltinEnvoyFilter',
+            'version'     => '2020-01-11',
+            'protocol'    => 'HTTPS',
+            'pathname'    => '/',
+            'method'      => 'POST',
+            'authType'    => 'AK',
+            'style'       => 'RPC',
+            'reqBodyType' => 'formData',
+            'bodyType'    => 'json',
         ]);
 
-        return ListBuiltinEnvoyFilterResponse::fromMap($this->doRPCRequest('ListBuiltinEnvoyFilter', '2020-01-11', 'HTTPS', 'POST', 'AK', 'json', $req, $runtime));
+        return ListBuiltinEnvoyFilterResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
@@ -1635,11 +2730,38 @@ class Servicemesh extends OpenApiClient
     public function modifyBuiltinEnvoyFilterWithOptions($request, $runtime)
     {
         Utils::validateModel($request);
+        $body = [];
+        if (!Utils::isUnset($request->id)) {
+            $body['Id'] = $request->id;
+        }
+        if (!Utils::isUnset($request->istioVersion)) {
+            $body['IstioVersion'] = $request->istioVersion;
+        }
+        if (!Utils::isUnset($request->name)) {
+            $body['Name'] = $request->name;
+        }
+        if (!Utils::isUnset($request->parameters)) {
+            $body['Parameters'] = $request->parameters;
+        }
+        if (!Utils::isUnset($request->serviceMeshId)) {
+            $body['ServiceMeshId'] = $request->serviceMeshId;
+        }
         $req = new OpenApiRequest([
-            'body' => Utils::toMap($request),
+            'body' => OpenApiUtilClient::parseToMap($body),
+        ]);
+        $params = new Params([
+            'action'      => 'ModifyBuiltinEnvoyFilter',
+            'version'     => '2020-01-11',
+            'protocol'    => 'HTTPS',
+            'pathname'    => '/',
+            'method'      => 'POST',
+            'authType'    => 'AK',
+            'style'       => 'RPC',
+            'reqBodyType' => 'formData',
+            'bodyType'    => 'json',
         ]);
 
-        return ModifyBuiltinEnvoyFilterResponse::fromMap($this->doRPCRequest('ModifyBuiltinEnvoyFilter', '2020-01-11', 'HTTPS', 'POST', 'AK', 'json', $req, $runtime));
+        return ModifyBuiltinEnvoyFilterResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
@@ -1663,11 +2785,29 @@ class Servicemesh extends OpenApiClient
     public function modifyServiceMeshNameWithOptions($request, $runtime)
     {
         Utils::validateModel($request);
+        $body = [];
+        if (!Utils::isUnset($request->name)) {
+            $body['Name'] = $request->name;
+        }
+        if (!Utils::isUnset($request->serviceMeshId)) {
+            $body['ServiceMeshId'] = $request->serviceMeshId;
+        }
         $req = new OpenApiRequest([
-            'body' => Utils::toMap($request),
+            'body' => OpenApiUtilClient::parseToMap($body),
+        ]);
+        $params = new Params([
+            'action'      => 'ModifyServiceMeshName',
+            'version'     => '2020-01-11',
+            'protocol'    => 'HTTPS',
+            'pathname'    => '/',
+            'method'      => 'POST',
+            'authType'    => 'AK',
+            'style'       => 'RPC',
+            'reqBodyType' => 'formData',
+            'bodyType'    => 'json',
         ]);
 
-        return ModifyServiceMeshNameResponse::fromMap($this->doRPCRequest('ModifyServiceMeshName', '2020-01-11', 'HTTPS', 'POST', 'AK', 'json', $req, $runtime));
+        return ModifyServiceMeshNameResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
@@ -1691,11 +2831,29 @@ class Servicemesh extends OpenApiClient
     public function reActivateAuditWithOptions($request, $runtime)
     {
         Utils::validateModel($request);
+        $body = [];
+        if (!Utils::isUnset($request->enableAudit)) {
+            $body['EnableAudit'] = $request->enableAudit;
+        }
+        if (!Utils::isUnset($request->serviceMeshId)) {
+            $body['ServiceMeshId'] = $request->serviceMeshId;
+        }
         $req = new OpenApiRequest([
-            'body' => Utils::toMap($request),
+            'body' => OpenApiUtilClient::parseToMap($body),
+        ]);
+        $params = new Params([
+            'action'      => 'ReActivateAudit',
+            'version'     => '2020-01-11',
+            'protocol'    => 'HTTPS',
+            'pathname'    => '/',
+            'method'      => 'POST',
+            'authType'    => 'AK',
+            'style'       => 'RPC',
+            'reqBodyType' => 'formData',
+            'bodyType'    => 'json',
         ]);
 
-        return ReActivateAuditResponse::fromMap($this->doRPCRequest('ReActivateAudit', '2020-01-11', 'HTTPS', 'POST', 'AK', 'json', $req, $runtime));
+        return ReActivateAuditResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
@@ -1719,11 +2877,35 @@ class Servicemesh extends OpenApiClient
     public function removeBuiltinEnvoyFilterWithOptions($request, $runtime)
     {
         Utils::validateModel($request);
+        $body = [];
+        if (!Utils::isUnset($request->id)) {
+            $body['Id'] = $request->id;
+        }
+        if (!Utils::isUnset($request->istioVersion)) {
+            $body['IstioVersion'] = $request->istioVersion;
+        }
+        if (!Utils::isUnset($request->name)) {
+            $body['Name'] = $request->name;
+        }
+        if (!Utils::isUnset($request->serviceMeshId)) {
+            $body['ServiceMeshId'] = $request->serviceMeshId;
+        }
         $req = new OpenApiRequest([
-            'body' => Utils::toMap($request),
+            'body' => OpenApiUtilClient::parseToMap($body),
+        ]);
+        $params = new Params([
+            'action'      => 'RemoveBuiltinEnvoyFilter',
+            'version'     => '2020-01-11',
+            'protocol'    => 'HTTPS',
+            'pathname'    => '/',
+            'method'      => 'POST',
+            'authType'    => 'AK',
+            'style'       => 'RPC',
+            'reqBodyType' => 'formData',
+            'bodyType'    => 'json',
         ]);
 
-        return RemoveBuiltinEnvoyFilterResponse::fromMap($this->doRPCRequest('RemoveBuiltinEnvoyFilter', '2020-01-11', 'HTTPS', 'POST', 'AK', 'json', $req, $runtime));
+        return RemoveBuiltinEnvoyFilterResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
@@ -1747,11 +2929,29 @@ class Servicemesh extends OpenApiClient
     public function removeClusterFromServiceMeshWithOptions($request, $runtime)
     {
         Utils::validateModel($request);
+        $body = [];
+        if (!Utils::isUnset($request->clusterId)) {
+            $body['ClusterId'] = $request->clusterId;
+        }
+        if (!Utils::isUnset($request->serviceMeshId)) {
+            $body['ServiceMeshId'] = $request->serviceMeshId;
+        }
         $req = new OpenApiRequest([
-            'body' => Utils::toMap($request),
+            'body' => OpenApiUtilClient::parseToMap($body),
+        ]);
+        $params = new Params([
+            'action'      => 'RemoveClusterFromServiceMesh',
+            'version'     => '2020-01-11',
+            'protocol'    => 'HTTPS',
+            'pathname'    => '/',
+            'method'      => 'POST',
+            'authType'    => 'AK',
+            'style'       => 'RPC',
+            'reqBodyType' => 'formData',
+            'bodyType'    => 'json',
         ]);
 
-        return RemoveClusterFromServiceMeshResponse::fromMap($this->doRPCRequest('RemoveClusterFromServiceMesh', '2020-01-11', 'HTTPS', 'POST', 'AK', 'json', $req, $runtime));
+        return RemoveClusterFromServiceMeshResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
@@ -1775,11 +2975,29 @@ class Servicemesh extends OpenApiClient
     public function removeVMFromServiceMeshWithOptions($request, $runtime)
     {
         Utils::validateModel($request);
+        $query = [];
+        if (!Utils::isUnset($request->ecsId)) {
+            $query['EcsId'] = $request->ecsId;
+        }
+        if (!Utils::isUnset($request->serviceMeshId)) {
+            $query['ServiceMeshId'] = $request->serviceMeshId;
+        }
         $req = new OpenApiRequest([
-            'body' => Utils::toMap($request),
+            'query' => OpenApiUtilClient::query($query),
+        ]);
+        $params = new Params([
+            'action'      => 'RemoveVMFromServiceMesh',
+            'version'     => '2020-01-11',
+            'protocol'    => 'HTTPS',
+            'pathname'    => '/',
+            'method'      => 'POST',
+            'authType'    => 'AK',
+            'style'       => 'RPC',
+            'reqBodyType' => 'formData',
+            'bodyType'    => 'json',
         ]);
 
-        return RemoveVMFromServiceMeshResponse::fromMap($this->doRPCRequest('RemoveVMFromServiceMesh', '2020-01-11', 'HTTPS', 'POST', 'AK', 'json', $req, $runtime));
+        return RemoveVMFromServiceMeshResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
@@ -1795,6 +3013,52 @@ class Servicemesh extends OpenApiClient
     }
 
     /**
+     * @param RevokeKubeconfigRequest $request
+     * @param RuntimeOptions          $runtime
+     *
+     * @return RevokeKubeconfigResponse
+     */
+    public function revokeKubeconfigWithOptions($request, $runtime)
+    {
+        Utils::validateModel($request);
+        $body = [];
+        if (!Utils::isUnset($request->privateIpAddress)) {
+            $body['PrivateIpAddress'] = $request->privateIpAddress;
+        }
+        if (!Utils::isUnset($request->serviceMeshId)) {
+            $body['ServiceMeshId'] = $request->serviceMeshId;
+        }
+        $req = new OpenApiRequest([
+            'body' => OpenApiUtilClient::parseToMap($body),
+        ]);
+        $params = new Params([
+            'action'      => 'RevokeKubeconfig',
+            'version'     => '2020-01-11',
+            'protocol'    => 'HTTPS',
+            'pathname'    => '/',
+            'method'      => 'POST',
+            'authType'    => 'AK',
+            'style'       => 'RPC',
+            'reqBodyType' => 'formData',
+            'bodyType'    => 'json',
+        ]);
+
+        return RevokeKubeconfigResponse::fromMap($this->callApi($params, $req, $runtime));
+    }
+
+    /**
+     * @param RevokeKubeconfigRequest $request
+     *
+     * @return RevokeKubeconfigResponse
+     */
+    public function revokeKubeconfig($request)
+    {
+        $runtime = new RuntimeOptions([]);
+
+        return $this->revokeKubeconfigWithOptions($request, $runtime);
+    }
+
+    /**
      * @param RunDiagnosisRequest $request
      * @param RuntimeOptions      $runtime
      *
@@ -1803,11 +3067,26 @@ class Servicemesh extends OpenApiClient
     public function runDiagnosisWithOptions($request, $runtime)
     {
         Utils::validateModel($request);
+        $body = [];
+        if (!Utils::isUnset($request->serviceMeshId)) {
+            $body['ServiceMeshId'] = $request->serviceMeshId;
+        }
         $req = new OpenApiRequest([
-            'body' => Utils::toMap($request),
+            'body' => OpenApiUtilClient::parseToMap($body),
+        ]);
+        $params = new Params([
+            'action'      => 'RunDiagnosis',
+            'version'     => '2020-01-11',
+            'protocol'    => 'HTTPS',
+            'pathname'    => '/',
+            'method'      => 'POST',
+            'authType'    => 'AK',
+            'style'       => 'RPC',
+            'reqBodyType' => 'formData',
+            'bodyType'    => 'json',
         ]);
 
-        return RunDiagnosisResponse::fromMap($this->doRPCRequest('RunDiagnosis', '2020-01-11', 'HTTPS', 'POST', 'AK', 'json', $req, $runtime));
+        return RunDiagnosisResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
@@ -1836,11 +3115,29 @@ class Servicemesh extends OpenApiClient
         if (!Utils::isUnset($tmpReq->config)) {
             $request->configShrink = OpenApiUtilClient::arrayToStringWithSpecifiedStyle($tmpReq->config, 'Config', 'json');
         }
+        $body = [];
+        if (!Utils::isUnset($request->configShrink)) {
+            $body['Config'] = $request->configShrink;
+        }
+        if (!Utils::isUnset($request->serviceMeshId)) {
+            $body['ServiceMeshId'] = $request->serviceMeshId;
+        }
         $req = new OpenApiRequest([
-            'body' => Utils::toMap($request),
+            'body' => OpenApiUtilClient::parseToMap($body),
+        ]);
+        $params = new Params([
+            'action'      => 'SetServiceRegistrySource',
+            'version'     => '2020-01-11',
+            'protocol'    => 'HTTPS',
+            'pathname'    => '/',
+            'method'      => 'POST',
+            'authType'    => 'AK',
+            'style'       => 'RPC',
+            'reqBodyType' => 'formData',
+            'bodyType'    => 'json',
         ]);
 
-        return SetServiceRegistrySourceResponse::fromMap($this->doRPCRequest('SetServiceRegistrySource', '2020-01-11', 'HTTPS', 'POST', 'AK', 'json', $req, $runtime));
+        return SetServiceRegistrySourceResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
@@ -1864,11 +3161,32 @@ class Servicemesh extends OpenApiClient
     public function updateControlPlaneLogAlertActionPolicyWithOptions($request, $runtime)
     {
         Utils::validateModel($request);
+        $body = [];
+        if (!Utils::isUnset($request->actionPolicyId)) {
+            $body['ActionPolicyId'] = $request->actionPolicyId;
+        }
+        if (!Utils::isUnset($request->ruleId)) {
+            $body['RuleId'] = $request->ruleId;
+        }
+        if (!Utils::isUnset($request->serviceMeshId)) {
+            $body['ServiceMeshId'] = $request->serviceMeshId;
+        }
         $req = new OpenApiRequest([
-            'body' => Utils::toMap($request),
+            'body' => OpenApiUtilClient::parseToMap($body),
+        ]);
+        $params = new Params([
+            'action'      => 'UpdateControlPlaneLogAlertActionPolicy',
+            'version'     => '2020-01-11',
+            'protocol'    => 'HTTPS',
+            'pathname'    => '/',
+            'method'      => 'POST',
+            'authType'    => 'AK',
+            'style'       => 'RPC',
+            'reqBodyType' => 'formData',
+            'bodyType'    => 'json',
         ]);
 
-        return UpdateControlPlaneLogAlertActionPolicyResponse::fromMap($this->doRPCRequest('UpdateControlPlaneLogAlertActionPolicy', '2020-01-11', 'HTTPS', 'POST', 'AK', 'json', $req, $runtime));
+        return UpdateControlPlaneLogAlertActionPolicyResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
@@ -1892,11 +3210,32 @@ class Servicemesh extends OpenApiClient
     public function updateControlPlaneLogConfigWithOptions($request, $runtime)
     {
         Utils::validateModel($request);
+        $body = [];
+        if (!Utils::isUnset($request->enabled)) {
+            $body['Enabled'] = $request->enabled;
+        }
+        if (!Utils::isUnset($request->project)) {
+            $body['Project'] = $request->project;
+        }
+        if (!Utils::isUnset($request->serviceMeshId)) {
+            $body['ServiceMeshId'] = $request->serviceMeshId;
+        }
         $req = new OpenApiRequest([
-            'body' => Utils::toMap($request),
+            'body' => OpenApiUtilClient::parseToMap($body),
+        ]);
+        $params = new Params([
+            'action'      => 'UpdateControlPlaneLogConfig',
+            'version'     => '2020-01-11',
+            'protocol'    => 'HTTPS',
+            'pathname'    => '/',
+            'method'      => 'POST',
+            'authType'    => 'AK',
+            'style'       => 'RPC',
+            'reqBodyType' => 'formData',
+            'bodyType'    => 'json',
         ]);
 
-        return UpdateControlPlaneLogConfigResponse::fromMap($this->doRPCRequest('UpdateControlPlaneLogConfig', '2020-01-11', 'HTTPS', 'POST', 'AK', 'json', $req, $runtime));
+        return UpdateControlPlaneLogConfigResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
@@ -1920,11 +3259,35 @@ class Servicemesh extends OpenApiClient
     public function updateExtensionProviderWithOptions($request, $runtime)
     {
         Utils::validateModel($request);
+        $body = [];
+        if (!Utils::isUnset($request->config)) {
+            $body['Config'] = $request->config;
+        }
+        if (!Utils::isUnset($request->name)) {
+            $body['Name'] = $request->name;
+        }
+        if (!Utils::isUnset($request->serviceMeshId)) {
+            $body['ServiceMeshId'] = $request->serviceMeshId;
+        }
+        if (!Utils::isUnset($request->type)) {
+            $body['Type'] = $request->type;
+        }
         $req = new OpenApiRequest([
-            'body' => Utils::toMap($request),
+            'body' => OpenApiUtilClient::parseToMap($body),
+        ]);
+        $params = new Params([
+            'action'      => 'UpdateExtensionProvider',
+            'version'     => '2020-01-11',
+            'protocol'    => 'HTTPS',
+            'pathname'    => '/',
+            'method'      => 'POST',
+            'authType'    => 'AK',
+            'style'       => 'RPC',
+            'reqBodyType' => 'formData',
+            'bodyType'    => 'json',
         ]);
 
-        return UpdateExtensionProviderResponse::fromMap($this->doRPCRequest('UpdateExtensionProvider', '2020-01-11', 'HTTPS', 'POST', 'AK', 'json', $req, $runtime));
+        return UpdateExtensionProviderResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
@@ -1948,11 +3311,35 @@ class Servicemesh extends OpenApiClient
     public function updateIstioInjectionConfigWithOptions($request, $runtime)
     {
         Utils::validateModel($request);
+        $body = [];
+        if (!Utils::isUnset($request->enableIstioInjection)) {
+            $body['EnableIstioInjection'] = $request->enableIstioInjection;
+        }
+        if (!Utils::isUnset($request->enableSidecarSetInjection)) {
+            $body['EnableSidecarSetInjection'] = $request->enableSidecarSetInjection;
+        }
+        if (!Utils::isUnset($request->namespace_)) {
+            $body['Namespace'] = $request->namespace_;
+        }
+        if (!Utils::isUnset($request->serviceMeshId)) {
+            $body['ServiceMeshId'] = $request->serviceMeshId;
+        }
         $req = new OpenApiRequest([
-            'body' => Utils::toMap($request),
+            'body' => OpenApiUtilClient::parseToMap($body),
+        ]);
+        $params = new Params([
+            'action'      => 'UpdateIstioInjectionConfig',
+            'version'     => '2020-01-11',
+            'protocol'    => 'HTTPS',
+            'pathname'    => '/',
+            'method'      => 'POST',
+            'authType'    => 'AK',
+            'style'       => 'RPC',
+            'reqBodyType' => 'formData',
+            'bodyType'    => 'json',
         ]);
 
-        return UpdateIstioInjectionConfigResponse::fromMap($this->doRPCRequest('UpdateIstioInjectionConfig', '2020-01-11', 'HTTPS', 'POST', 'AK', 'json', $req, $runtime));
+        return UpdateIstioInjectionConfigResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
@@ -1976,11 +3363,230 @@ class Servicemesh extends OpenApiClient
     public function updateMeshFeatureWithOptions($request, $runtime)
     {
         Utils::validateModel($request);
+        $body = [];
+        if (!Utils::isUnset($request->accessLogEnabled)) {
+            $body['AccessLogEnabled'] = $request->accessLogEnabled;
+        }
+        if (!Utils::isUnset($request->accessLogFile)) {
+            $body['AccessLogFile'] = $request->accessLogFile;
+        }
+        if (!Utils::isUnset($request->accessLogFormat)) {
+            $body['AccessLogFormat'] = $request->accessLogFormat;
+        }
+        if (!Utils::isUnset($request->accessLogProject)) {
+            $body['AccessLogProject'] = $request->accessLogProject;
+        }
+        if (!Utils::isUnset($request->accessLogServiceEnabled)) {
+            $body['AccessLogServiceEnabled'] = $request->accessLogServiceEnabled;
+        }
+        if (!Utils::isUnset($request->accessLogServiceHost)) {
+            $body['AccessLogServiceHost'] = $request->accessLogServiceHost;
+        }
+        if (!Utils::isUnset($request->accessLogServicePort)) {
+            $body['AccessLogServicePort'] = $request->accessLogServicePort;
+        }
+        if (!Utils::isUnset($request->auditProject)) {
+            $body['AuditProject'] = $request->auditProject;
+        }
+        if (!Utils::isUnset($request->autoInjectionPolicyEnabled)) {
+            $body['AutoInjectionPolicyEnabled'] = $request->autoInjectionPolicyEnabled;
+        }
+        if (!Utils::isUnset($request->CRAggregationEnabled)) {
+            $body['CRAggregationEnabled'] = $request->CRAggregationEnabled;
+        }
+        if (!Utils::isUnset($request->cniEnabled)) {
+            $body['CniEnabled'] = $request->cniEnabled;
+        }
+        if (!Utils::isUnset($request->cniExcludeNamespaces)) {
+            $body['CniExcludeNamespaces'] = $request->cniExcludeNamespaces;
+        }
+        if (!Utils::isUnset($request->configSourceEnabled)) {
+            $body['ConfigSourceEnabled'] = $request->configSourceEnabled;
+        }
+        if (!Utils::isUnset($request->configSourceNacosID)) {
+            $body['ConfigSourceNacosID'] = $request->configSourceNacosID;
+        }
+        if (!Utils::isUnset($request->customizedPrometheus)) {
+            $body['CustomizedPrometheus'] = $request->customizedPrometheus;
+        }
+        if (!Utils::isUnset($request->customizedZipkin)) {
+            $body['CustomizedZipkin'] = $request->customizedZipkin;
+        }
+        if (!Utils::isUnset($request->DNSProxyingEnabled)) {
+            $body['DNSProxyingEnabled'] = $request->DNSProxyingEnabled;
+        }
+        if (!Utils::isUnset($request->discoverySelectors)) {
+            $body['DiscoverySelectors'] = $request->discoverySelectors;
+        }
+        if (!Utils::isUnset($request->dubboFilterEnabled)) {
+            $body['DubboFilterEnabled'] = $request->dubboFilterEnabled;
+        }
+        if (!Utils::isUnset($request->enableAudit)) {
+            $body['EnableAudit'] = $request->enableAudit;
+        }
+        if (!Utils::isUnset($request->enableCRHistory)) {
+            $body['EnableCRHistory'] = $request->enableCRHistory;
+        }
+        if (!Utils::isUnset($request->enableNamespacesByDefault)) {
+            $body['EnableNamespacesByDefault'] = $request->enableNamespacesByDefault;
+        }
+        if (!Utils::isUnset($request->enableSDSServer)) {
+            $body['EnableSDSServer'] = $request->enableSDSServer;
+        }
+        if (!Utils::isUnset($request->excludeIPRanges)) {
+            $body['ExcludeIPRanges'] = $request->excludeIPRanges;
+        }
+        if (!Utils::isUnset($request->excludeInboundPorts)) {
+            $body['ExcludeInboundPorts'] = $request->excludeInboundPorts;
+        }
+        if (!Utils::isUnset($request->excludeOutboundPorts)) {
+            $body['ExcludeOutboundPorts'] = $request->excludeOutboundPorts;
+        }
+        if (!Utils::isUnset($request->filterGatewayClusterConfig)) {
+            $body['FilterGatewayClusterConfig'] = $request->filterGatewayClusterConfig;
+        }
+        if (!Utils::isUnset($request->gatewayAPIEnabled)) {
+            $body['GatewayAPIEnabled'] = $request->gatewayAPIEnabled;
+        }
+        if (!Utils::isUnset($request->http10Enabled)) {
+            $body['Http10Enabled'] = $request->http10Enabled;
+        }
+        if (!Utils::isUnset($request->includeIPRanges)) {
+            $body['IncludeIPRanges'] = $request->includeIPRanges;
+        }
+        if (!Utils::isUnset($request->includeInboundPorts)) {
+            $body['IncludeInboundPorts'] = $request->includeInboundPorts;
+        }
+        if (!Utils::isUnset($request->kialiEnabled)) {
+            $body['KialiEnabled'] = $request->kialiEnabled;
+        }
+        if (!Utils::isUnset($request->lifecycle)) {
+            $body['Lifecycle'] = $request->lifecycle;
+        }
+        if (!Utils::isUnset($request->localityLBConf)) {
+            $body['LocalityLBConf'] = $request->localityLBConf;
+        }
+        if (!Utils::isUnset($request->localityLoadBalancing)) {
+            $body['LocalityLoadBalancing'] = $request->localityLoadBalancing;
+        }
+        if (!Utils::isUnset($request->MSEEnabled)) {
+            $body['MSEEnabled'] = $request->MSEEnabled;
+        }
+        if (!Utils::isUnset($request->multiBufferEnabled)) {
+            $body['MultiBufferEnabled'] = $request->multiBufferEnabled;
+        }
+        if (!Utils::isUnset($request->multiBufferPollDelay)) {
+            $body['MultiBufferPollDelay'] = $request->multiBufferPollDelay;
+        }
+        if (!Utils::isUnset($request->mysqlFilterEnabled)) {
+            $body['MysqlFilterEnabled'] = $request->mysqlFilterEnabled;
+        }
+        if (!Utils::isUnset($request->OPALimitCPU)) {
+            $body['OPALimitCPU'] = $request->OPALimitCPU;
+        }
+        if (!Utils::isUnset($request->OPALimitMemory)) {
+            $body['OPALimitMemory'] = $request->OPALimitMemory;
+        }
+        if (!Utils::isUnset($request->OPALogLevel)) {
+            $body['OPALogLevel'] = $request->OPALogLevel;
+        }
+        if (!Utils::isUnset($request->OPARequestCPU)) {
+            $body['OPARequestCPU'] = $request->OPARequestCPU;
+        }
+        if (!Utils::isUnset($request->OPARequestMemory)) {
+            $body['OPARequestMemory'] = $request->OPARequestMemory;
+        }
+        if (!Utils::isUnset($request->opaEnabled)) {
+            $body['OpaEnabled'] = $request->opaEnabled;
+        }
+        if (!Utils::isUnset($request->openAgentPolicy)) {
+            $body['OpenAgentPolicy'] = $request->openAgentPolicy;
+        }
+        if (!Utils::isUnset($request->outboundTrafficPolicy)) {
+            $body['OutboundTrafficPolicy'] = $request->outboundTrafficPolicy;
+        }
+        if (!Utils::isUnset($request->prometheusUrl)) {
+            $body['PrometheusUrl'] = $request->prometheusUrl;
+        }
+        if (!Utils::isUnset($request->proxyInitCPUResourceLimit)) {
+            $body['ProxyInitCPUResourceLimit'] = $request->proxyInitCPUResourceLimit;
+        }
+        if (!Utils::isUnset($request->proxyInitCPUResourceRequest)) {
+            $body['ProxyInitCPUResourceRequest'] = $request->proxyInitCPUResourceRequest;
+        }
+        if (!Utils::isUnset($request->proxyInitMemoryResourceLimit)) {
+            $body['ProxyInitMemoryResourceLimit'] = $request->proxyInitMemoryResourceLimit;
+        }
+        if (!Utils::isUnset($request->proxyInitMemoryResourceRequest)) {
+            $body['ProxyInitMemoryResourceRequest'] = $request->proxyInitMemoryResourceRequest;
+        }
+        if (!Utils::isUnset($request->proxyLimitCPU)) {
+            $body['ProxyLimitCPU'] = $request->proxyLimitCPU;
+        }
+        if (!Utils::isUnset($request->proxyLimitMemory)) {
+            $body['ProxyLimitMemory'] = $request->proxyLimitMemory;
+        }
+        if (!Utils::isUnset($request->proxyRequestCPU)) {
+            $body['ProxyRequestCPU'] = $request->proxyRequestCPU;
+        }
+        if (!Utils::isUnset($request->proxyRequestMemory)) {
+            $body['ProxyRequestMemory'] = $request->proxyRequestMemory;
+        }
+        if (!Utils::isUnset($request->redisFilterEnabled)) {
+            $body['RedisFilterEnabled'] = $request->redisFilterEnabled;
+        }
+        if (!Utils::isUnset($request->serviceMeshId)) {
+            $body['ServiceMeshId'] = $request->serviceMeshId;
+        }
+        if (!Utils::isUnset($request->sidecarInjectorLimitCPU)) {
+            $body['SidecarInjectorLimitCPU'] = $request->sidecarInjectorLimitCPU;
+        }
+        if (!Utils::isUnset($request->sidecarInjectorLimitMemory)) {
+            $body['SidecarInjectorLimitMemory'] = $request->sidecarInjectorLimitMemory;
+        }
+        if (!Utils::isUnset($request->sidecarInjectorRequestCPU)) {
+            $body['SidecarInjectorRequestCPU'] = $request->sidecarInjectorRequestCPU;
+        }
+        if (!Utils::isUnset($request->sidecarInjectorRequestMemory)) {
+            $body['SidecarInjectorRequestMemory'] = $request->sidecarInjectorRequestMemory;
+        }
+        if (!Utils::isUnset($request->sidecarInjectorWebhookAsYaml)) {
+            $body['SidecarInjectorWebhookAsYaml'] = $request->sidecarInjectorWebhookAsYaml;
+        }
+        if (!Utils::isUnset($request->telemetry)) {
+            $body['Telemetry'] = $request->telemetry;
+        }
+        if (!Utils::isUnset($request->terminationDrainDuration)) {
+            $body['TerminationDrainDuration'] = $request->terminationDrainDuration;
+        }
+        if (!Utils::isUnset($request->thriftFilterEnabled)) {
+            $body['ThriftFilterEnabled'] = $request->thriftFilterEnabled;
+        }
+        if (!Utils::isUnset($request->traceSampling)) {
+            $body['TraceSampling'] = $request->traceSampling;
+        }
+        if (!Utils::isUnset($request->tracing)) {
+            $body['Tracing'] = $request->tracing;
+        }
+        if (!Utils::isUnset($request->webAssemblyFilterEnabled)) {
+            $body['WebAssemblyFilterEnabled'] = $request->webAssemblyFilterEnabled;
+        }
         $req = new OpenApiRequest([
-            'body' => Utils::toMap($request),
+            'body' => OpenApiUtilClient::parseToMap($body),
+        ]);
+        $params = new Params([
+            'action'      => 'UpdateMeshFeature',
+            'version'     => '2020-01-11',
+            'protocol'    => 'HTTPS',
+            'pathname'    => '/',
+            'method'      => 'POST',
+            'authType'    => 'AK',
+            'style'       => 'RPC',
+            'reqBodyType' => 'formData',
+            'bodyType'    => 'json',
         ]);
 
-        return UpdateMeshFeatureResponse::fromMap($this->doRPCRequest('UpdateMeshFeature', '2020-01-11', 'HTTPS', 'POST', 'AK', 'json', $req, $runtime));
+        return UpdateMeshFeatureResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
@@ -2004,11 +3610,80 @@ class Servicemesh extends OpenApiClient
     public function updateNamespaceScopeSidecarConfigWithOptions($request, $runtime)
     {
         Utils::validateModel($request);
+        $body = [];
+        if (!Utils::isUnset($request->excludeIPRanges)) {
+            $body['ExcludeIPRanges'] = $request->excludeIPRanges;
+        }
+        if (!Utils::isUnset($request->excludeInboundPorts)) {
+            $body['ExcludeInboundPorts'] = $request->excludeInboundPorts;
+        }
+        if (!Utils::isUnset($request->excludeOutboundPorts)) {
+            $body['ExcludeOutboundPorts'] = $request->excludeOutboundPorts;
+        }
+        if (!Utils::isUnset($request->includeIPRanges)) {
+            $body['IncludeIPRanges'] = $request->includeIPRanges;
+        }
+        if (!Utils::isUnset($request->includeInboundPorts)) {
+            $body['IncludeInboundPorts'] = $request->includeInboundPorts;
+        }
+        if (!Utils::isUnset($request->includeOutboundPorts)) {
+            $body['IncludeOutboundPorts'] = $request->includeOutboundPorts;
+        }
+        if (!Utils::isUnset($request->istioDNSProxyEnabled)) {
+            $body['IstioDNSProxyEnabled'] = $request->istioDNSProxyEnabled;
+        }
+        if (!Utils::isUnset($request->lifecycle)) {
+            $body['Lifecycle'] = $request->lifecycle;
+        }
+        if (!Utils::isUnset($request->namespace_)) {
+            $body['Namespace'] = $request->namespace_;
+        }
+        if (!Utils::isUnset($request->proxyInitCPUResourceLimit)) {
+            $body['ProxyInitCPUResourceLimit'] = $request->proxyInitCPUResourceLimit;
+        }
+        if (!Utils::isUnset($request->proxyInitCPUResourceRequest)) {
+            $body['ProxyInitCPUResourceRequest'] = $request->proxyInitCPUResourceRequest;
+        }
+        if (!Utils::isUnset($request->proxyInitMemoryResourceLimit)) {
+            $body['ProxyInitMemoryResourceLimit'] = $request->proxyInitMemoryResourceLimit;
+        }
+        if (!Utils::isUnset($request->proxyInitMemoryResourceRequest)) {
+            $body['ProxyInitMemoryResourceRequest'] = $request->proxyInitMemoryResourceRequest;
+        }
+        if (!Utils::isUnset($request->serviceMeshId)) {
+            $body['ServiceMeshId'] = $request->serviceMeshId;
+        }
+        if (!Utils::isUnset($request->sidecarProxyCPUResourceLimit)) {
+            $body['SidecarProxyCPUResourceLimit'] = $request->sidecarProxyCPUResourceLimit;
+        }
+        if (!Utils::isUnset($request->sidecarProxyCPUResourceRequest)) {
+            $body['SidecarProxyCPUResourceRequest'] = $request->sidecarProxyCPUResourceRequest;
+        }
+        if (!Utils::isUnset($request->sidecarProxyMemoryResourceLimit)) {
+            $body['SidecarProxyMemoryResourceLimit'] = $request->sidecarProxyMemoryResourceLimit;
+        }
+        if (!Utils::isUnset($request->sidecarProxyMemoryResourceRequest)) {
+            $body['SidecarProxyMemoryResourceRequest'] = $request->sidecarProxyMemoryResourceRequest;
+        }
+        if (!Utils::isUnset($request->terminationDrainDuration)) {
+            $body['TerminationDrainDuration'] = $request->terminationDrainDuration;
+        }
         $req = new OpenApiRequest([
-            'body' => Utils::toMap($request),
+            'body' => OpenApiUtilClient::parseToMap($body),
+        ]);
+        $params = new Params([
+            'action'      => 'UpdateNamespaceScopeSidecarConfig',
+            'version'     => '2020-01-11',
+            'protocol'    => 'HTTPS',
+            'pathname'    => '/',
+            'method'      => 'POST',
+            'authType'    => 'AK',
+            'style'       => 'RPC',
+            'reqBodyType' => 'formData',
+            'bodyType'    => 'json',
         ]);
 
-        return UpdateNamespaceScopeSidecarConfigResponse::fromMap($this->doRPCRequest('UpdateNamespaceScopeSidecarConfig', '2020-01-11', 'HTTPS', 'POST', 'AK', 'json', $req, $runtime));
+        return UpdateNamespaceScopeSidecarConfigResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
@@ -2032,11 +3707,26 @@ class Servicemesh extends OpenApiClient
     public function upgradeMeshVersionWithOptions($request, $runtime)
     {
         Utils::validateModel($request);
+        $query = [];
+        if (!Utils::isUnset($request->serviceMeshId)) {
+            $query['ServiceMeshId'] = $request->serviceMeshId;
+        }
         $req = new OpenApiRequest([
-            'body' => Utils::toMap($request),
+            'query' => OpenApiUtilClient::query($query),
+        ]);
+        $params = new Params([
+            'action'      => 'UpgradeMeshVersion',
+            'version'     => '2020-01-11',
+            'protocol'    => 'HTTPS',
+            'pathname'    => '/',
+            'method'      => 'POST',
+            'authType'    => 'AK',
+            'style'       => 'RPC',
+            'reqBodyType' => 'formData',
+            'bodyType'    => 'json',
         ]);
 
-        return UpgradeMeshVersionResponse::fromMap($this->doRPCRequest('UpgradeMeshVersion', '2020-01-11', 'HTTPS', 'POST', 'AK', 'json', $req, $runtime));
+        return UpgradeMeshVersionResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
