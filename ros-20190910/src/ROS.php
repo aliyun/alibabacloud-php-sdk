@@ -205,11 +205,17 @@ class ROS extends OpenApiClient
     public function cancelUpdateStackWithOptions($request, $runtime)
     {
         Utils::validateModel($request);
-        $query               = [];
-        $query['CancelType'] = $request->cancelType;
-        $query['RegionId']   = $request->regionId;
-        $query['StackId']    = $request->stackId;
-        $req                 = new OpenApiRequest([
+        $query = [];
+        if (!Utils::isUnset($request->cancelType)) {
+            $query['CancelType'] = $request->cancelType;
+        }
+        if (!Utils::isUnset($request->regionId)) {
+            $query['RegionId'] = $request->regionId;
+        }
+        if (!Utils::isUnset($request->stackId)) {
+            $query['StackId'] = $request->stackId;
+        }
+        $req = new OpenApiRequest([
             'query' => OpenApiUtilClient::query($query),
         ]);
         $params = new Params([
@@ -248,20 +254,44 @@ class ROS extends OpenApiClient
     public function continueCreateStackWithOptions($request, $runtime)
     {
         Utils::validateModel($request);
-        $query                        = [];
-        $query['DryRun']              = $request->dryRun;
-        $query['Mode']                = $request->mode;
-        $query['Parallelism']         = $request->parallelism;
-        $query['Parameters']          = $request->parameters;
-        $query['RamRoleName']         = $request->ramRoleName;
-        $query['RecreatingResources'] = $request->recreatingResources;
-        $query['RegionId']            = $request->regionId;
-        $query['StackId']             = $request->stackId;
-        $query['TemplateBody']        = $request->templateBody;
-        $query['TemplateId']          = $request->templateId;
-        $query['TemplateURL']         = $request->templateURL;
-        $query['TemplateVersion']     = $request->templateVersion;
-        $req                          = new OpenApiRequest([
+        $query = [];
+        if (!Utils::isUnset($request->dryRun)) {
+            $query['DryRun'] = $request->dryRun;
+        }
+        if (!Utils::isUnset($request->mode)) {
+            $query['Mode'] = $request->mode;
+        }
+        if (!Utils::isUnset($request->parallelism)) {
+            $query['Parallelism'] = $request->parallelism;
+        }
+        if (!Utils::isUnset($request->parameters)) {
+            $query['Parameters'] = $request->parameters;
+        }
+        if (!Utils::isUnset($request->ramRoleName)) {
+            $query['RamRoleName'] = $request->ramRoleName;
+        }
+        if (!Utils::isUnset($request->recreatingResources)) {
+            $query['RecreatingResources'] = $request->recreatingResources;
+        }
+        if (!Utils::isUnset($request->regionId)) {
+            $query['RegionId'] = $request->regionId;
+        }
+        if (!Utils::isUnset($request->stackId)) {
+            $query['StackId'] = $request->stackId;
+        }
+        if (!Utils::isUnset($request->templateBody)) {
+            $query['TemplateBody'] = $request->templateBody;
+        }
+        if (!Utils::isUnset($request->templateId)) {
+            $query['TemplateId'] = $request->templateId;
+        }
+        if (!Utils::isUnset($request->templateURL)) {
+            $query['TemplateURL'] = $request->templateURL;
+        }
+        if (!Utils::isUnset($request->templateVersion)) {
+            $query['TemplateVersion'] = $request->templateVersion;
+        }
+        $req = new OpenApiRequest([
             'query' => OpenApiUtilClient::query($query),
         ]);
         $params = new Params([
@@ -300,33 +330,83 @@ class ROS extends OpenApiClient
     public function createChangeSetWithOptions($request, $runtime)
     {
         Utils::validateModel($request);
-        $query                                = [];
-        $query['ChangeSetName']               = $request->changeSetName;
-        $query['ChangeSetType']               = $request->changeSetType;
-        $query['ClientToken']                 = $request->clientToken;
-        $query['Description']                 = $request->description;
-        $query['DisableRollback']             = $request->disableRollback;
-        $query['NotificationURLs']            = $request->notificationURLs;
-        $query['Parallelism']                 = $request->parallelism;
-        $query['Parameters']                  = $request->parameters;
-        $query['RamRoleName']                 = $request->ramRoleName;
-        $query['RegionId']                    = $request->regionId;
-        $query['ReplacementOption']           = $request->replacementOption;
-        $query['ResourcesToImport']           = $request->resourcesToImport;
-        $query['StackId']                     = $request->stackId;
-        $query['StackName']                   = $request->stackName;
-        $query['StackPolicyBody']             = $request->stackPolicyBody;
-        $query['StackPolicyDuringUpdateBody'] = $request->stackPolicyDuringUpdateBody;
-        $query['StackPolicyDuringUpdateURL']  = $request->stackPolicyDuringUpdateURL;
-        $query['StackPolicyURL']              = $request->stackPolicyURL;
-        $query['TemplateBody']                = $request->templateBody;
-        $query['TemplateId']                  = $request->templateId;
-        $query['TemplateScratchId']           = $request->templateScratchId;
-        $query['TemplateURL']                 = $request->templateURL;
-        $query['TemplateVersion']             = $request->templateVersion;
-        $query['TimeoutInMinutes']            = $request->timeoutInMinutes;
-        $query['UsePreviousParameters']       = $request->usePreviousParameters;
-        $req                                  = new OpenApiRequest([
+        $query = [];
+        if (!Utils::isUnset($request->changeSetName)) {
+            $query['ChangeSetName'] = $request->changeSetName;
+        }
+        if (!Utils::isUnset($request->changeSetType)) {
+            $query['ChangeSetType'] = $request->changeSetType;
+        }
+        if (!Utils::isUnset($request->clientToken)) {
+            $query['ClientToken'] = $request->clientToken;
+        }
+        if (!Utils::isUnset($request->description)) {
+            $query['Description'] = $request->description;
+        }
+        if (!Utils::isUnset($request->disableRollback)) {
+            $query['DisableRollback'] = $request->disableRollback;
+        }
+        if (!Utils::isUnset($request->notificationURLs)) {
+            $query['NotificationURLs'] = $request->notificationURLs;
+        }
+        if (!Utils::isUnset($request->parallelism)) {
+            $query['Parallelism'] = $request->parallelism;
+        }
+        if (!Utils::isUnset($request->parameters)) {
+            $query['Parameters'] = $request->parameters;
+        }
+        if (!Utils::isUnset($request->ramRoleName)) {
+            $query['RamRoleName'] = $request->ramRoleName;
+        }
+        if (!Utils::isUnset($request->regionId)) {
+            $query['RegionId'] = $request->regionId;
+        }
+        if (!Utils::isUnset($request->replacementOption)) {
+            $query['ReplacementOption'] = $request->replacementOption;
+        }
+        if (!Utils::isUnset($request->resourcesToImport)) {
+            $query['ResourcesToImport'] = $request->resourcesToImport;
+        }
+        if (!Utils::isUnset($request->stackId)) {
+            $query['StackId'] = $request->stackId;
+        }
+        if (!Utils::isUnset($request->stackName)) {
+            $query['StackName'] = $request->stackName;
+        }
+        if (!Utils::isUnset($request->stackPolicyBody)) {
+            $query['StackPolicyBody'] = $request->stackPolicyBody;
+        }
+        if (!Utils::isUnset($request->stackPolicyDuringUpdateBody)) {
+            $query['StackPolicyDuringUpdateBody'] = $request->stackPolicyDuringUpdateBody;
+        }
+        if (!Utils::isUnset($request->stackPolicyDuringUpdateURL)) {
+            $query['StackPolicyDuringUpdateURL'] = $request->stackPolicyDuringUpdateURL;
+        }
+        if (!Utils::isUnset($request->stackPolicyURL)) {
+            $query['StackPolicyURL'] = $request->stackPolicyURL;
+        }
+        if (!Utils::isUnset($request->templateBody)) {
+            $query['TemplateBody'] = $request->templateBody;
+        }
+        if (!Utils::isUnset($request->templateId)) {
+            $query['TemplateId'] = $request->templateId;
+        }
+        if (!Utils::isUnset($request->templateScratchId)) {
+            $query['TemplateScratchId'] = $request->templateScratchId;
+        }
+        if (!Utils::isUnset($request->templateURL)) {
+            $query['TemplateURL'] = $request->templateURL;
+        }
+        if (!Utils::isUnset($request->templateVersion)) {
+            $query['TemplateVersion'] = $request->templateVersion;
+        }
+        if (!Utils::isUnset($request->timeoutInMinutes)) {
+            $query['TimeoutInMinutes'] = $request->timeoutInMinutes;
+        }
+        if (!Utils::isUnset($request->usePreviousParameters)) {
+            $query['UsePreviousParameters'] = $request->usePreviousParameters;
+        }
+        $req = new OpenApiRequest([
             'query' => OpenApiUtilClient::query($query),
         ]);
         $params = new Params([
@@ -365,29 +445,71 @@ class ROS extends OpenApiClient
     public function createStackWithOptions($request, $runtime)
     {
         Utils::validateModel($request);
-        $query                            = [];
-        $query['ClientToken']             = $request->clientToken;
-        $query['CreateOption']            = $request->createOption;
-        $query['DeletionProtection']      = $request->deletionProtection;
-        $query['DisableRollback']         = $request->disableRollback;
-        $query['NotificationURLs']        = $request->notificationURLs;
-        $query['Parallelism']             = $request->parallelism;
-        $query['Parameters']              = $request->parameters;
-        $query['RamRoleName']             = $request->ramRoleName;
-        $query['RegionId']                = $request->regionId;
-        $query['ResourceGroupId']         = $request->resourceGroupId;
-        $query['StackName']               = $request->stackName;
-        $query['StackPolicyBody']         = $request->stackPolicyBody;
-        $query['StackPolicyURL']          = $request->stackPolicyURL;
-        $query['Tags']                    = $request->tags;
-        $query['TemplateBody']            = $request->templateBody;
-        $query['TemplateId']              = $request->templateId;
-        $query['TemplateScratchId']       = $request->templateScratchId;
-        $query['TemplateScratchRegionId'] = $request->templateScratchRegionId;
-        $query['TemplateURL']             = $request->templateURL;
-        $query['TemplateVersion']         = $request->templateVersion;
-        $query['TimeoutInMinutes']        = $request->timeoutInMinutes;
-        $req                              = new OpenApiRequest([
+        $query = [];
+        if (!Utils::isUnset($request->clientToken)) {
+            $query['ClientToken'] = $request->clientToken;
+        }
+        if (!Utils::isUnset($request->createOption)) {
+            $query['CreateOption'] = $request->createOption;
+        }
+        if (!Utils::isUnset($request->deletionProtection)) {
+            $query['DeletionProtection'] = $request->deletionProtection;
+        }
+        if (!Utils::isUnset($request->disableRollback)) {
+            $query['DisableRollback'] = $request->disableRollback;
+        }
+        if (!Utils::isUnset($request->notificationURLs)) {
+            $query['NotificationURLs'] = $request->notificationURLs;
+        }
+        if (!Utils::isUnset($request->parallelism)) {
+            $query['Parallelism'] = $request->parallelism;
+        }
+        if (!Utils::isUnset($request->parameters)) {
+            $query['Parameters'] = $request->parameters;
+        }
+        if (!Utils::isUnset($request->ramRoleName)) {
+            $query['RamRoleName'] = $request->ramRoleName;
+        }
+        if (!Utils::isUnset($request->regionId)) {
+            $query['RegionId'] = $request->regionId;
+        }
+        if (!Utils::isUnset($request->resourceGroupId)) {
+            $query['ResourceGroupId'] = $request->resourceGroupId;
+        }
+        if (!Utils::isUnset($request->stackName)) {
+            $query['StackName'] = $request->stackName;
+        }
+        if (!Utils::isUnset($request->stackPolicyBody)) {
+            $query['StackPolicyBody'] = $request->stackPolicyBody;
+        }
+        if (!Utils::isUnset($request->stackPolicyURL)) {
+            $query['StackPolicyURL'] = $request->stackPolicyURL;
+        }
+        if (!Utils::isUnset($request->tags)) {
+            $query['Tags'] = $request->tags;
+        }
+        if (!Utils::isUnset($request->templateBody)) {
+            $query['TemplateBody'] = $request->templateBody;
+        }
+        if (!Utils::isUnset($request->templateId)) {
+            $query['TemplateId'] = $request->templateId;
+        }
+        if (!Utils::isUnset($request->templateScratchId)) {
+            $query['TemplateScratchId'] = $request->templateScratchId;
+        }
+        if (!Utils::isUnset($request->templateScratchRegionId)) {
+            $query['TemplateScratchRegionId'] = $request->templateScratchRegionId;
+        }
+        if (!Utils::isUnset($request->templateURL)) {
+            $query['TemplateURL'] = $request->templateURL;
+        }
+        if (!Utils::isUnset($request->templateVersion)) {
+            $query['TemplateVersion'] = $request->templateVersion;
+        }
+        if (!Utils::isUnset($request->timeoutInMinutes)) {
+            $query['TimeoutInMinutes'] = $request->timeoutInMinutes;
+        }
+        $req = new OpenApiRequest([
             'query' => OpenApiUtilClient::query($query),
         ]);
         $params = new Params([
@@ -431,22 +553,50 @@ class ROS extends OpenApiClient
         if (!Utils::isUnset($tmpReq->autoDeployment)) {
             $request->autoDeploymentShrink = OpenApiUtilClient::arrayToStringWithSpecifiedStyle(Tea::merge($tmpReq->autoDeployment), 'AutoDeployment', 'json');
         }
-        $query                           = [];
-        $query['AdministrationRoleName'] = $request->administrationRoleName;
-        $query['AutoDeployment']         = $request->autoDeploymentShrink;
-        $query['ClientToken']            = $request->clientToken;
-        $query['Description']            = $request->description;
-        $query['ExecutionRoleName']      = $request->executionRoleName;
-        $query['Parameters']             = $request->parameters;
-        $query['PermissionModel']        = $request->permissionModel;
-        $query['RegionId']               = $request->regionId;
-        $query['ResourceGroupId']        = $request->resourceGroupId;
-        $query['StackGroupName']         = $request->stackGroupName;
-        $query['TemplateBody']           = $request->templateBody;
-        $query['TemplateId']             = $request->templateId;
-        $query['TemplateURL']            = $request->templateURL;
-        $query['TemplateVersion']        = $request->templateVersion;
-        $req                             = new OpenApiRequest([
+        $query = [];
+        if (!Utils::isUnset($request->administrationRoleName)) {
+            $query['AdministrationRoleName'] = $request->administrationRoleName;
+        }
+        if (!Utils::isUnset($request->autoDeploymentShrink)) {
+            $query['AutoDeployment'] = $request->autoDeploymentShrink;
+        }
+        if (!Utils::isUnset($request->clientToken)) {
+            $query['ClientToken'] = $request->clientToken;
+        }
+        if (!Utils::isUnset($request->description)) {
+            $query['Description'] = $request->description;
+        }
+        if (!Utils::isUnset($request->executionRoleName)) {
+            $query['ExecutionRoleName'] = $request->executionRoleName;
+        }
+        if (!Utils::isUnset($request->parameters)) {
+            $query['Parameters'] = $request->parameters;
+        }
+        if (!Utils::isUnset($request->permissionModel)) {
+            $query['PermissionModel'] = $request->permissionModel;
+        }
+        if (!Utils::isUnset($request->regionId)) {
+            $query['RegionId'] = $request->regionId;
+        }
+        if (!Utils::isUnset($request->resourceGroupId)) {
+            $query['ResourceGroupId'] = $request->resourceGroupId;
+        }
+        if (!Utils::isUnset($request->stackGroupName)) {
+            $query['StackGroupName'] = $request->stackGroupName;
+        }
+        if (!Utils::isUnset($request->templateBody)) {
+            $query['TemplateBody'] = $request->templateBody;
+        }
+        if (!Utils::isUnset($request->templateId)) {
+            $query['TemplateId'] = $request->templateId;
+        }
+        if (!Utils::isUnset($request->templateURL)) {
+            $query['TemplateURL'] = $request->templateURL;
+        }
+        if (!Utils::isUnset($request->templateVersion)) {
+            $query['TemplateVersion'] = $request->templateVersion;
+        }
+        $req = new OpenApiRequest([
             'query' => OpenApiUtilClient::query($query),
         ]);
         $params = new Params([
@@ -499,19 +649,41 @@ class ROS extends OpenApiClient
         if (!Utils::isUnset($tmpReq->regionIds)) {
             $request->regionIdsShrink = OpenApiUtilClient::arrayToStringWithSpecifiedStyle($tmpReq->regionIds, 'RegionIds', 'json');
         }
-        $query                         = [];
-        $query['AccountIds']           = $request->accountIdsShrink;
-        $query['ClientToken']          = $request->clientToken;
-        $query['DeploymentTargets']    = $request->deploymentTargetsShrink;
-        $query['DisableRollback']      = $request->disableRollback;
-        $query['OperationDescription'] = $request->operationDescription;
-        $query['OperationPreferences'] = $request->operationPreferencesShrink;
-        $query['ParameterOverrides']   = $request->parameterOverrides;
-        $query['RegionId']             = $request->regionId;
-        $query['RegionIds']            = $request->regionIdsShrink;
-        $query['StackGroupName']       = $request->stackGroupName;
-        $query['TimeoutInMinutes']     = $request->timeoutInMinutes;
-        $req                           = new OpenApiRequest([
+        $query = [];
+        if (!Utils::isUnset($request->accountIdsShrink)) {
+            $query['AccountIds'] = $request->accountIdsShrink;
+        }
+        if (!Utils::isUnset($request->clientToken)) {
+            $query['ClientToken'] = $request->clientToken;
+        }
+        if (!Utils::isUnset($request->deploymentTargetsShrink)) {
+            $query['DeploymentTargets'] = $request->deploymentTargetsShrink;
+        }
+        if (!Utils::isUnset($request->disableRollback)) {
+            $query['DisableRollback'] = $request->disableRollback;
+        }
+        if (!Utils::isUnset($request->operationDescription)) {
+            $query['OperationDescription'] = $request->operationDescription;
+        }
+        if (!Utils::isUnset($request->operationPreferencesShrink)) {
+            $query['OperationPreferences'] = $request->operationPreferencesShrink;
+        }
+        if (!Utils::isUnset($request->parameterOverrides)) {
+            $query['ParameterOverrides'] = $request->parameterOverrides;
+        }
+        if (!Utils::isUnset($request->regionId)) {
+            $query['RegionId'] = $request->regionId;
+        }
+        if (!Utils::isUnset($request->regionIdsShrink)) {
+            $query['RegionIds'] = $request->regionIdsShrink;
+        }
+        if (!Utils::isUnset($request->stackGroupName)) {
+            $query['StackGroupName'] = $request->stackGroupName;
+        }
+        if (!Utils::isUnset($request->timeoutInMinutes)) {
+            $query['TimeoutInMinutes'] = $request->timeoutInMinutes;
+        }
+        $req = new OpenApiRequest([
             'query' => OpenApiUtilClient::query($query),
         ]);
         $params = new Params([
@@ -550,13 +722,23 @@ class ROS extends OpenApiClient
     public function createTemplateWithOptions($request, $runtime)
     {
         Utils::validateModel($request);
-        $query                    = [];
-        $query['Description']     = $request->description;
-        $query['ResourceGroupId'] = $request->resourceGroupId;
-        $query['TemplateBody']    = $request->templateBody;
-        $query['TemplateName']    = $request->templateName;
-        $query['TemplateURL']     = $request->templateURL;
-        $req                      = new OpenApiRequest([
+        $query = [];
+        if (!Utils::isUnset($request->description)) {
+            $query['Description'] = $request->description;
+        }
+        if (!Utils::isUnset($request->resourceGroupId)) {
+            $query['ResourceGroupId'] = $request->resourceGroupId;
+        }
+        if (!Utils::isUnset($request->templateBody)) {
+            $query['TemplateBody'] = $request->templateBody;
+        }
+        if (!Utils::isUnset($request->templateName)) {
+            $query['TemplateName'] = $request->templateName;
+        }
+        if (!Utils::isUnset($request->templateURL)) {
+            $query['TemplateURL'] = $request->templateURL;
+        }
+        $req = new OpenApiRequest([
             'query' => OpenApiUtilClient::query($query),
         ]);
         $params = new Params([
@@ -609,18 +791,38 @@ class ROS extends OpenApiClient
         if (!Utils::isUnset($tmpReq->sourceTag)) {
             $request->sourceTagShrink = OpenApiUtilClient::arrayToStringWithSpecifiedStyle(Tea::merge($tmpReq->sourceTag), 'SourceTag', 'json');
         }
-        $query                         = [];
-        $query['ClientToken']          = $request->clientToken;
-        $query['Description']          = $request->description;
-        $query['ExecutionMode']        = $request->executionMode;
-        $query['LogicalIdStrategy']    = $request->logicalIdStrategy;
-        $query['PreferenceParameters'] = $request->preferenceParametersShrink;
-        $query['RegionId']             = $request->regionId;
-        $query['SourceResourceGroup']  = $request->sourceResourceGroupShrink;
-        $query['SourceResources']      = $request->sourceResourcesShrink;
-        $query['SourceTag']            = $request->sourceTagShrink;
-        $query['TemplateScratchType']  = $request->templateScratchType;
-        $req                           = new OpenApiRequest([
+        $query = [];
+        if (!Utils::isUnset($request->clientToken)) {
+            $query['ClientToken'] = $request->clientToken;
+        }
+        if (!Utils::isUnset($request->description)) {
+            $query['Description'] = $request->description;
+        }
+        if (!Utils::isUnset($request->executionMode)) {
+            $query['ExecutionMode'] = $request->executionMode;
+        }
+        if (!Utils::isUnset($request->logicalIdStrategy)) {
+            $query['LogicalIdStrategy'] = $request->logicalIdStrategy;
+        }
+        if (!Utils::isUnset($request->preferenceParametersShrink)) {
+            $query['PreferenceParameters'] = $request->preferenceParametersShrink;
+        }
+        if (!Utils::isUnset($request->regionId)) {
+            $query['RegionId'] = $request->regionId;
+        }
+        if (!Utils::isUnset($request->sourceResourceGroupShrink)) {
+            $query['SourceResourceGroup'] = $request->sourceResourceGroupShrink;
+        }
+        if (!Utils::isUnset($request->sourceResourcesShrink)) {
+            $query['SourceResources'] = $request->sourceResourcesShrink;
+        }
+        if (!Utils::isUnset($request->sourceTagShrink)) {
+            $query['SourceTag'] = $request->sourceTagShrink;
+        }
+        if (!Utils::isUnset($request->templateScratchType)) {
+            $query['TemplateScratchType'] = $request->templateScratchType;
+        }
+        $req = new OpenApiRequest([
             'query' => OpenApiUtilClient::query($query),
         ]);
         $params = new Params([
@@ -659,10 +861,14 @@ class ROS extends OpenApiClient
     public function deleteChangeSetWithOptions($request, $runtime)
     {
         Utils::validateModel($request);
-        $query                = [];
-        $query['ChangeSetId'] = $request->changeSetId;
-        $query['RegionId']    = $request->regionId;
-        $req                  = new OpenApiRequest([
+        $query = [];
+        if (!Utils::isUnset($request->changeSetId)) {
+            $query['ChangeSetId'] = $request->changeSetId;
+        }
+        if (!Utils::isUnset($request->regionId)) {
+            $query['RegionId'] = $request->regionId;
+        }
+        $req = new OpenApiRequest([
             'query' => OpenApiUtilClient::query($query),
         ]);
         $params = new Params([
@@ -701,13 +907,23 @@ class ROS extends OpenApiClient
     public function deleteStackWithOptions($request, $runtime)
     {
         Utils::validateModel($request);
-        $query                       = [];
-        $query['RamRoleName']        = $request->ramRoleName;
-        $query['RegionId']           = $request->regionId;
-        $query['RetainAllResources'] = $request->retainAllResources;
-        $query['RetainResources']    = $request->retainResources;
-        $query['StackId']            = $request->stackId;
-        $req                         = new OpenApiRequest([
+        $query = [];
+        if (!Utils::isUnset($request->ramRoleName)) {
+            $query['RamRoleName'] = $request->ramRoleName;
+        }
+        if (!Utils::isUnset($request->regionId)) {
+            $query['RegionId'] = $request->regionId;
+        }
+        if (!Utils::isUnset($request->retainAllResources)) {
+            $query['RetainAllResources'] = $request->retainAllResources;
+        }
+        if (!Utils::isUnset($request->retainResources)) {
+            $query['RetainResources'] = $request->retainResources;
+        }
+        if (!Utils::isUnset($request->stackId)) {
+            $query['StackId'] = $request->stackId;
+        }
+        $req = new OpenApiRequest([
             'query' => OpenApiUtilClient::query($query),
         ]);
         $params = new Params([
@@ -746,10 +962,14 @@ class ROS extends OpenApiClient
     public function deleteStackGroupWithOptions($request, $runtime)
     {
         Utils::validateModel($request);
-        $query                   = [];
-        $query['RegionId']       = $request->regionId;
-        $query['StackGroupName'] = $request->stackGroupName;
-        $req                     = new OpenApiRequest([
+        $query = [];
+        if (!Utils::isUnset($request->regionId)) {
+            $query['RegionId'] = $request->regionId;
+        }
+        if (!Utils::isUnset($request->stackGroupName)) {
+            $query['StackGroupName'] = $request->stackGroupName;
+        }
+        $req = new OpenApiRequest([
             'query' => OpenApiUtilClient::query($query),
         ]);
         $params = new Params([
@@ -802,17 +1022,35 @@ class ROS extends OpenApiClient
         if (!Utils::isUnset($tmpReq->regionIds)) {
             $request->regionIdsShrink = OpenApiUtilClient::arrayToStringWithSpecifiedStyle($tmpReq->regionIds, 'RegionIds', 'json');
         }
-        $query                         = [];
-        $query['AccountIds']           = $request->accountIdsShrink;
-        $query['ClientToken']          = $request->clientToken;
-        $query['DeploymentTargets']    = $request->deploymentTargetsShrink;
-        $query['OperationDescription'] = $request->operationDescription;
-        $query['OperationPreferences'] = $request->operationPreferencesShrink;
-        $query['RegionId']             = $request->regionId;
-        $query['RegionIds']            = $request->regionIdsShrink;
-        $query['RetainStacks']         = $request->retainStacks;
-        $query['StackGroupName']       = $request->stackGroupName;
-        $req                           = new OpenApiRequest([
+        $query = [];
+        if (!Utils::isUnset($request->accountIdsShrink)) {
+            $query['AccountIds'] = $request->accountIdsShrink;
+        }
+        if (!Utils::isUnset($request->clientToken)) {
+            $query['ClientToken'] = $request->clientToken;
+        }
+        if (!Utils::isUnset($request->deploymentTargetsShrink)) {
+            $query['DeploymentTargets'] = $request->deploymentTargetsShrink;
+        }
+        if (!Utils::isUnset($request->operationDescription)) {
+            $query['OperationDescription'] = $request->operationDescription;
+        }
+        if (!Utils::isUnset($request->operationPreferencesShrink)) {
+            $query['OperationPreferences'] = $request->operationPreferencesShrink;
+        }
+        if (!Utils::isUnset($request->regionId)) {
+            $query['RegionId'] = $request->regionId;
+        }
+        if (!Utils::isUnset($request->regionIdsShrink)) {
+            $query['RegionIds'] = $request->regionIdsShrink;
+        }
+        if (!Utils::isUnset($request->retainStacks)) {
+            $query['RetainStacks'] = $request->retainStacks;
+        }
+        if (!Utils::isUnset($request->stackGroupName)) {
+            $query['StackGroupName'] = $request->stackGroupName;
+        }
+        $req = new OpenApiRequest([
             'query' => OpenApiUtilClient::query($query),
         ]);
         $params = new Params([
@@ -851,9 +1089,11 @@ class ROS extends OpenApiClient
     public function deleteTemplateWithOptions($request, $runtime)
     {
         Utils::validateModel($request);
-        $query               = [];
-        $query['TemplateId'] = $request->templateId;
-        $req                 = new OpenApiRequest([
+        $query = [];
+        if (!Utils::isUnset($request->templateId)) {
+            $query['TemplateId'] = $request->templateId;
+        }
+        $req = new OpenApiRequest([
             'query' => OpenApiUtilClient::query($query),
         ]);
         $params = new Params([
@@ -892,10 +1132,14 @@ class ROS extends OpenApiClient
     public function deleteTemplateScratchWithOptions($request, $runtime)
     {
         Utils::validateModel($request);
-        $query                      = [];
-        $query['RegionId']          = $request->regionId;
-        $query['TemplateScratchId'] = $request->templateScratchId;
-        $req                        = new OpenApiRequest([
+        $query = [];
+        if (!Utils::isUnset($request->regionId)) {
+            $query['RegionId'] = $request->regionId;
+        }
+        if (!Utils::isUnset($request->templateScratchId)) {
+            $query['TemplateScratchId'] = $request->templateScratchId;
+        }
+        $req = new OpenApiRequest([
             'query' => OpenApiUtilClient::query($query),
         ]);
         $params = new Params([
@@ -934,9 +1178,11 @@ class ROS extends OpenApiClient
     public function describeRegionsWithOptions($request, $runtime)
     {
         Utils::validateModel($request);
-        $query                   = [];
-        $query['AcceptLanguage'] = $request->acceptLanguage;
-        $req                     = new OpenApiRequest([
+        $query = [];
+        if (!Utils::isUnset($request->acceptLanguage)) {
+            $query['AcceptLanguage'] = $request->acceptLanguage;
+        }
+        $req = new OpenApiRequest([
             'query' => OpenApiUtilClient::query($query),
         ]);
         $params = new Params([
@@ -975,12 +1221,20 @@ class ROS extends OpenApiClient
     public function detectStackDriftWithOptions($request, $runtime)
     {
         Utils::validateModel($request);
-        $query                      = [];
-        $query['ClientToken']       = $request->clientToken;
-        $query['LogicalResourceId'] = $request->logicalResourceId;
-        $query['RegionId']          = $request->regionId;
-        $query['StackId']           = $request->stackId;
-        $req                        = new OpenApiRequest([
+        $query = [];
+        if (!Utils::isUnset($request->clientToken)) {
+            $query['ClientToken'] = $request->clientToken;
+        }
+        if (!Utils::isUnset($request->logicalResourceId)) {
+            $query['LogicalResourceId'] = $request->logicalResourceId;
+        }
+        if (!Utils::isUnset($request->regionId)) {
+            $query['RegionId'] = $request->regionId;
+        }
+        if (!Utils::isUnset($request->stackId)) {
+            $query['StackId'] = $request->stackId;
+        }
+        $req = new OpenApiRequest([
             'query' => OpenApiUtilClient::query($query),
         ]);
         $params = new Params([
@@ -1024,12 +1278,20 @@ class ROS extends OpenApiClient
         if (!Utils::isUnset($tmpReq->operationPreferences)) {
             $request->operationPreferencesShrink = OpenApiUtilClient::arrayToStringWithSpecifiedStyle($tmpReq->operationPreferences, 'OperationPreferences', 'json');
         }
-        $query                         = [];
-        $query['ClientToken']          = $request->clientToken;
-        $query['OperationPreferences'] = $request->operationPreferencesShrink;
-        $query['RegionId']             = $request->regionId;
-        $query['StackGroupName']       = $request->stackGroupName;
-        $req                           = new OpenApiRequest([
+        $query = [];
+        if (!Utils::isUnset($request->clientToken)) {
+            $query['ClientToken'] = $request->clientToken;
+        }
+        if (!Utils::isUnset($request->operationPreferencesShrink)) {
+            $query['OperationPreferences'] = $request->operationPreferencesShrink;
+        }
+        if (!Utils::isUnset($request->regionId)) {
+            $query['RegionId'] = $request->regionId;
+        }
+        if (!Utils::isUnset($request->stackGroupName)) {
+            $query['StackGroupName'] = $request->stackGroupName;
+        }
+        $req = new OpenApiRequest([
             'query' => OpenApiUtilClient::query($query),
         ]);
         $params = new Params([
@@ -1068,12 +1330,20 @@ class ROS extends OpenApiClient
     public function detectStackResourceDriftWithOptions($request, $runtime)
     {
         Utils::validateModel($request);
-        $query                      = [];
-        $query['ClientToken']       = $request->clientToken;
-        $query['LogicalResourceId'] = $request->logicalResourceId;
-        $query['RegionId']          = $request->regionId;
-        $query['StackId']           = $request->stackId;
-        $req                        = new OpenApiRequest([
+        $query = [];
+        if (!Utils::isUnset($request->clientToken)) {
+            $query['ClientToken'] = $request->clientToken;
+        }
+        if (!Utils::isUnset($request->logicalResourceId)) {
+            $query['LogicalResourceId'] = $request->logicalResourceId;
+        }
+        if (!Utils::isUnset($request->regionId)) {
+            $query['RegionId'] = $request->regionId;
+        }
+        if (!Utils::isUnset($request->stackId)) {
+            $query['StackId'] = $request->stackId;
+        }
+        $req = new OpenApiRequest([
             'query' => OpenApiUtilClient::query($query),
         ]);
         $params = new Params([
@@ -1112,11 +1382,17 @@ class ROS extends OpenApiClient
     public function executeChangeSetWithOptions($request, $runtime)
     {
         Utils::validateModel($request);
-        $query                = [];
-        $query['ChangeSetId'] = $request->changeSetId;
-        $query['ClientToken'] = $request->clientToken;
-        $query['RegionId']    = $request->regionId;
-        $req                  = new OpenApiRequest([
+        $query = [];
+        if (!Utils::isUnset($request->changeSetId)) {
+            $query['ChangeSetId'] = $request->changeSetId;
+        }
+        if (!Utils::isUnset($request->clientToken)) {
+            $query['ClientToken'] = $request->clientToken;
+        }
+        if (!Utils::isUnset($request->regionId)) {
+            $query['RegionId'] = $request->regionId;
+        }
+        $req = new OpenApiRequest([
             'query' => OpenApiUtilClient::query($query),
         ]);
         $params = new Params([
@@ -1155,11 +1431,17 @@ class ROS extends OpenApiClient
     public function generateTemplateByScratchWithOptions($request, $runtime)
     {
         Utils::validateModel($request);
-        $query                      = [];
-        $query['ProvisionRegionId'] = $request->provisionRegionId;
-        $query['RegionId']          = $request->regionId;
-        $query['TemplateScratchId'] = $request->templateScratchId;
-        $req                        = new OpenApiRequest([
+        $query = [];
+        if (!Utils::isUnset($request->provisionRegionId)) {
+            $query['ProvisionRegionId'] = $request->provisionRegionId;
+        }
+        if (!Utils::isUnset($request->regionId)) {
+            $query['RegionId'] = $request->regionId;
+        }
+        if (!Utils::isUnset($request->templateScratchId)) {
+            $query['TemplateScratchId'] = $request->templateScratchId;
+        }
+        $req = new OpenApiRequest([
             'query' => OpenApiUtilClient::query($query),
         ]);
         $params = new Params([
@@ -1198,12 +1480,20 @@ class ROS extends OpenApiClient
     public function generateTemplatePolicyWithOptions($request, $runtime)
     {
         Utils::validateModel($request);
-        $query                    = [];
-        $query['TemplateBody']    = $request->templateBody;
-        $query['TemplateId']      = $request->templateId;
-        $query['TemplateURL']     = $request->templateURL;
-        $query['TemplateVersion'] = $request->templateVersion;
-        $req                      = new OpenApiRequest([
+        $query = [];
+        if (!Utils::isUnset($request->templateBody)) {
+            $query['TemplateBody'] = $request->templateBody;
+        }
+        if (!Utils::isUnset($request->templateId)) {
+            $query['TemplateId'] = $request->templateId;
+        }
+        if (!Utils::isUnset($request->templateURL)) {
+            $query['TemplateURL'] = $request->templateURL;
+        }
+        if (!Utils::isUnset($request->templateVersion)) {
+            $query['TemplateVersion'] = $request->templateVersion;
+        }
+        $req = new OpenApiRequest([
             'query' => OpenApiUtilClient::query($query),
         ]);
         $params = new Params([
@@ -1242,11 +1532,17 @@ class ROS extends OpenApiClient
     public function getChangeSetWithOptions($request, $runtime)
     {
         Utils::validateModel($request);
-        $query                 = [];
-        $query['ChangeSetId']  = $request->changeSetId;
-        $query['RegionId']     = $request->regionId;
-        $query['ShowTemplate'] = $request->showTemplate;
-        $req                   = new OpenApiRequest([
+        $query = [];
+        if (!Utils::isUnset($request->changeSetId)) {
+            $query['ChangeSetId'] = $request->changeSetId;
+        }
+        if (!Utils::isUnset($request->regionId)) {
+            $query['RegionId'] = $request->regionId;
+        }
+        if (!Utils::isUnset($request->showTemplate)) {
+            $query['ShowTemplate'] = $request->showTemplate;
+        }
+        $req = new OpenApiRequest([
             'query' => OpenApiUtilClient::query($query),
         ]);
         $params = new Params([
@@ -1285,10 +1581,14 @@ class ROS extends OpenApiClient
     public function getFeatureDetailsWithOptions($request, $runtime)
     {
         Utils::validateModel($request);
-        $query             = [];
-        $query['Feature']  = $request->feature;
-        $query['RegionId'] = $request->regionId;
-        $req               = new OpenApiRequest([
+        $query = [];
+        if (!Utils::isUnset($request->feature)) {
+            $query['Feature'] = $request->feature;
+        }
+        if (!Utils::isUnset($request->regionId)) {
+            $query['RegionId'] = $request->regionId;
+        }
+        $req = new OpenApiRequest([
             'query' => OpenApiUtilClient::query($query),
         ]);
         $params = new Params([
@@ -1327,9 +1627,11 @@ class ROS extends OpenApiClient
     public function getResourceTypeWithOptions($request, $runtime)
     {
         Utils::validateModel($request);
-        $query                 = [];
-        $query['ResourceType'] = $request->resourceType;
-        $req                   = new OpenApiRequest([
+        $query = [];
+        if (!Utils::isUnset($request->resourceType)) {
+            $query['ResourceType'] = $request->resourceType;
+        }
+        $req = new OpenApiRequest([
             'query' => OpenApiUtilClient::query($query),
         ]);
         $params = new Params([
@@ -1368,9 +1670,11 @@ class ROS extends OpenApiClient
     public function getResourceTypeTemplateWithOptions($request, $runtime)
     {
         Utils::validateModel($request);
-        $query                 = [];
-        $query['ResourceType'] = $request->resourceType;
-        $req                   = new OpenApiRequest([
+        $query = [];
+        if (!Utils::isUnset($request->resourceType)) {
+            $query['ResourceType'] = $request->resourceType;
+        }
+        $req = new OpenApiRequest([
             'query' => OpenApiUtilClient::query($query),
         ]);
         $params = new Params([
@@ -1409,15 +1713,29 @@ class ROS extends OpenApiClient
     public function getServiceProvisionsWithOptions($request, $runtime)
     {
         Utils::validateModel($request);
-        $query                    = [];
-        $query['Parameters']      = $request->parameters;
-        $query['RegionId']        = $request->regionId;
-        $query['Services']        = $request->services;
-        $query['TemplateBody']    = $request->templateBody;
-        $query['TemplateId']      = $request->templateId;
-        $query['TemplateURL']     = $request->templateURL;
-        $query['TemplateVersion'] = $request->templateVersion;
-        $req                      = new OpenApiRequest([
+        $query = [];
+        if (!Utils::isUnset($request->parameters)) {
+            $query['Parameters'] = $request->parameters;
+        }
+        if (!Utils::isUnset($request->regionId)) {
+            $query['RegionId'] = $request->regionId;
+        }
+        if (!Utils::isUnset($request->services)) {
+            $query['Services'] = $request->services;
+        }
+        if (!Utils::isUnset($request->templateBody)) {
+            $query['TemplateBody'] = $request->templateBody;
+        }
+        if (!Utils::isUnset($request->templateId)) {
+            $query['TemplateId'] = $request->templateId;
+        }
+        if (!Utils::isUnset($request->templateURL)) {
+            $query['TemplateURL'] = $request->templateURL;
+        }
+        if (!Utils::isUnset($request->templateVersion)) {
+            $query['TemplateVersion'] = $request->templateVersion;
+        }
+        $req = new OpenApiRequest([
             'query' => OpenApiUtilClient::query($query),
         ]);
         $params = new Params([
@@ -1456,13 +1774,23 @@ class ROS extends OpenApiClient
     public function getStackWithOptions($request, $runtime)
     {
         Utils::validateModel($request);
-        $query                         = [];
-        $query['ClientToken']          = $request->clientToken;
-        $query['OutputOption']         = $request->outputOption;
-        $query['RegionId']             = $request->regionId;
-        $query['ShowResourceProgress'] = $request->showResourceProgress;
-        $query['StackId']              = $request->stackId;
-        $req                           = new OpenApiRequest([
+        $query = [];
+        if (!Utils::isUnset($request->clientToken)) {
+            $query['ClientToken'] = $request->clientToken;
+        }
+        if (!Utils::isUnset($request->outputOption)) {
+            $query['OutputOption'] = $request->outputOption;
+        }
+        if (!Utils::isUnset($request->regionId)) {
+            $query['RegionId'] = $request->regionId;
+        }
+        if (!Utils::isUnset($request->showResourceProgress)) {
+            $query['ShowResourceProgress'] = $request->showResourceProgress;
+        }
+        if (!Utils::isUnset($request->stackId)) {
+            $query['StackId'] = $request->stackId;
+        }
+        $req = new OpenApiRequest([
             'query' => OpenApiUtilClient::query($query),
         ]);
         $params = new Params([
@@ -1501,10 +1829,14 @@ class ROS extends OpenApiClient
     public function getStackDriftDetectionStatusWithOptions($request, $runtime)
     {
         Utils::validateModel($request);
-        $query                     = [];
-        $query['DriftDetectionId'] = $request->driftDetectionId;
-        $query['RegionId']         = $request->regionId;
-        $req                       = new OpenApiRequest([
+        $query = [];
+        if (!Utils::isUnset($request->driftDetectionId)) {
+            $query['DriftDetectionId'] = $request->driftDetectionId;
+        }
+        if (!Utils::isUnset($request->regionId)) {
+            $query['RegionId'] = $request->regionId;
+        }
+        $req = new OpenApiRequest([
             'query' => OpenApiUtilClient::query($query),
         ]);
         $params = new Params([
@@ -1543,11 +1875,17 @@ class ROS extends OpenApiClient
     public function getStackGroupWithOptions($request, $runtime)
     {
         Utils::validateModel($request);
-        $query                   = [];
-        $query['RegionId']       = $request->regionId;
-        $query['StackGroupId']   = $request->stackGroupId;
-        $query['StackGroupName'] = $request->stackGroupName;
-        $req                     = new OpenApiRequest([
+        $query = [];
+        if (!Utils::isUnset($request->regionId)) {
+            $query['RegionId'] = $request->regionId;
+        }
+        if (!Utils::isUnset($request->stackGroupId)) {
+            $query['StackGroupId'] = $request->stackGroupId;
+        }
+        if (!Utils::isUnset($request->stackGroupName)) {
+            $query['StackGroupName'] = $request->stackGroupName;
+        }
+        $req = new OpenApiRequest([
             'query' => OpenApiUtilClient::query($query),
         ]);
         $params = new Params([
@@ -1586,10 +1924,14 @@ class ROS extends OpenApiClient
     public function getStackGroupOperationWithOptions($request, $runtime)
     {
         Utils::validateModel($request);
-        $query                = [];
-        $query['OperationId'] = $request->operationId;
-        $query['RegionId']    = $request->regionId;
-        $req                  = new OpenApiRequest([
+        $query = [];
+        if (!Utils::isUnset($request->operationId)) {
+            $query['OperationId'] = $request->operationId;
+        }
+        if (!Utils::isUnset($request->regionId)) {
+            $query['RegionId'] = $request->regionId;
+        }
+        $req = new OpenApiRequest([
             'query' => OpenApiUtilClient::query($query),
         ]);
         $params = new Params([
@@ -1628,12 +1970,20 @@ class ROS extends OpenApiClient
     public function getStackInstanceWithOptions($request, $runtime)
     {
         Utils::validateModel($request);
-        $query                           = [];
-        $query['RegionId']               = $request->regionId;
-        $query['StackGroupName']         = $request->stackGroupName;
-        $query['StackInstanceAccountId'] = $request->stackInstanceAccountId;
-        $query['StackInstanceRegionId']  = $request->stackInstanceRegionId;
-        $req                             = new OpenApiRequest([
+        $query = [];
+        if (!Utils::isUnset($request->regionId)) {
+            $query['RegionId'] = $request->regionId;
+        }
+        if (!Utils::isUnset($request->stackGroupName)) {
+            $query['StackGroupName'] = $request->stackGroupName;
+        }
+        if (!Utils::isUnset($request->stackInstanceAccountId)) {
+            $query['StackInstanceAccountId'] = $request->stackInstanceAccountId;
+        }
+        if (!Utils::isUnset($request->stackInstanceRegionId)) {
+            $query['StackInstanceRegionId'] = $request->stackInstanceRegionId;
+        }
+        $req = new OpenApiRequest([
             'query' => OpenApiUtilClient::query($query),
         ]);
         $params = new Params([
@@ -1672,10 +2022,14 @@ class ROS extends OpenApiClient
     public function getStackPolicyWithOptions($request, $runtime)
     {
         Utils::validateModel($request);
-        $query             = [];
-        $query['RegionId'] = $request->regionId;
-        $query['StackId']  = $request->stackId;
-        $req               = new OpenApiRequest([
+        $query = [];
+        if (!Utils::isUnset($request->regionId)) {
+            $query['RegionId'] = $request->regionId;
+        }
+        if (!Utils::isUnset($request->stackId)) {
+            $query['StackId'] = $request->stackId;
+        }
+        $req = new OpenApiRequest([
             'query' => OpenApiUtilClient::query($query),
         ]);
         $params = new Params([
@@ -1714,13 +2068,23 @@ class ROS extends OpenApiClient
     public function getStackResourceWithOptions($request, $runtime)
     {
         Utils::validateModel($request);
-        $query                           = [];
-        $query['ClientToken']            = $request->clientToken;
-        $query['LogicalResourceId']      = $request->logicalResourceId;
-        $query['RegionId']               = $request->regionId;
-        $query['ShowResourceAttributes'] = $request->showResourceAttributes;
-        $query['StackId']                = $request->stackId;
-        $req                             = new OpenApiRequest([
+        $query = [];
+        if (!Utils::isUnset($request->clientToken)) {
+            $query['ClientToken'] = $request->clientToken;
+        }
+        if (!Utils::isUnset($request->logicalResourceId)) {
+            $query['LogicalResourceId'] = $request->logicalResourceId;
+        }
+        if (!Utils::isUnset($request->regionId)) {
+            $query['RegionId'] = $request->regionId;
+        }
+        if (!Utils::isUnset($request->showResourceAttributes)) {
+            $query['ShowResourceAttributes'] = $request->showResourceAttributes;
+        }
+        if (!Utils::isUnset($request->stackId)) {
+            $query['StackId'] = $request->stackId;
+        }
+        $req = new OpenApiRequest([
             'query' => OpenApiUtilClient::query($query),
         ]);
         $params = new Params([
@@ -1759,16 +2123,32 @@ class ROS extends OpenApiClient
     public function getTemplateWithOptions($request, $runtime)
     {
         Utils::validateModel($request);
-        $query                      = [];
-        $query['ChangeSetId']       = $request->changeSetId;
-        $query['IncludePermission'] = $request->includePermission;
-        $query['RegionId']          = $request->regionId;
-        $query['StackGroupName']    = $request->stackGroupName;
-        $query['StackId']           = $request->stackId;
-        $query['TemplateId']        = $request->templateId;
-        $query['TemplateStage']     = $request->templateStage;
-        $query['TemplateVersion']   = $request->templateVersion;
-        $req                        = new OpenApiRequest([
+        $query = [];
+        if (!Utils::isUnset($request->changeSetId)) {
+            $query['ChangeSetId'] = $request->changeSetId;
+        }
+        if (!Utils::isUnset($request->includePermission)) {
+            $query['IncludePermission'] = $request->includePermission;
+        }
+        if (!Utils::isUnset($request->regionId)) {
+            $query['RegionId'] = $request->regionId;
+        }
+        if (!Utils::isUnset($request->stackGroupName)) {
+            $query['StackGroupName'] = $request->stackGroupName;
+        }
+        if (!Utils::isUnset($request->stackId)) {
+            $query['StackId'] = $request->stackId;
+        }
+        if (!Utils::isUnset($request->templateId)) {
+            $query['TemplateId'] = $request->templateId;
+        }
+        if (!Utils::isUnset($request->templateStage)) {
+            $query['TemplateStage'] = $request->templateStage;
+        }
+        if (!Utils::isUnset($request->templateVersion)) {
+            $query['TemplateVersion'] = $request->templateVersion;
+        }
+        $req = new OpenApiRequest([
             'query' => OpenApiUtilClient::query($query),
         ]);
         $params = new Params([
@@ -1807,17 +2187,35 @@ class ROS extends OpenApiClient
     public function getTemplateEstimateCostWithOptions($request, $runtime)
     {
         Utils::validateModel($request);
-        $query                            = [];
-        $query['ClientToken']             = $request->clientToken;
-        $query['Parameters']              = $request->parameters;
-        $query['RegionId']                = $request->regionId;
-        $query['TemplateBody']            = $request->templateBody;
-        $query['TemplateId']              = $request->templateId;
-        $query['TemplateScratchId']       = $request->templateScratchId;
-        $query['TemplateScratchRegionId'] = $request->templateScratchRegionId;
-        $query['TemplateURL']             = $request->templateURL;
-        $query['TemplateVersion']         = $request->templateVersion;
-        $req                              = new OpenApiRequest([
+        $query = [];
+        if (!Utils::isUnset($request->clientToken)) {
+            $query['ClientToken'] = $request->clientToken;
+        }
+        if (!Utils::isUnset($request->parameters)) {
+            $query['Parameters'] = $request->parameters;
+        }
+        if (!Utils::isUnset($request->regionId)) {
+            $query['RegionId'] = $request->regionId;
+        }
+        if (!Utils::isUnset($request->templateBody)) {
+            $query['TemplateBody'] = $request->templateBody;
+        }
+        if (!Utils::isUnset($request->templateId)) {
+            $query['TemplateId'] = $request->templateId;
+        }
+        if (!Utils::isUnset($request->templateScratchId)) {
+            $query['TemplateScratchId'] = $request->templateScratchId;
+        }
+        if (!Utils::isUnset($request->templateScratchRegionId)) {
+            $query['TemplateScratchRegionId'] = $request->templateScratchRegionId;
+        }
+        if (!Utils::isUnset($request->templateURL)) {
+            $query['TemplateURL'] = $request->templateURL;
+        }
+        if (!Utils::isUnset($request->templateVersion)) {
+            $query['TemplateVersion'] = $request->templateVersion;
+        }
+        $req = new OpenApiRequest([
             'query' => OpenApiUtilClient::query($query),
         ]);
         $params = new Params([
@@ -1861,16 +2259,32 @@ class ROS extends OpenApiClient
         if (!Utils::isUnset($tmpReq->parametersKeyFilter)) {
             $request->parametersKeyFilterShrink = OpenApiUtilClient::arrayToStringWithSpecifiedStyle($tmpReq->parametersKeyFilter, 'ParametersKeyFilter', 'json');
         }
-        $query                        = [];
-        $query['ClientToken']         = $request->clientToken;
-        $query['Parameters']          = $request->parameters;
-        $query['ParametersKeyFilter'] = $request->parametersKeyFilterShrink;
-        $query['RegionId']            = $request->regionId;
-        $query['TemplateBody']        = $request->templateBody;
-        $query['TemplateId']          = $request->templateId;
-        $query['TemplateURL']         = $request->templateURL;
-        $query['TemplateVersion']     = $request->templateVersion;
-        $req                          = new OpenApiRequest([
+        $query = [];
+        if (!Utils::isUnset($request->clientToken)) {
+            $query['ClientToken'] = $request->clientToken;
+        }
+        if (!Utils::isUnset($request->parameters)) {
+            $query['Parameters'] = $request->parameters;
+        }
+        if (!Utils::isUnset($request->parametersKeyFilterShrink)) {
+            $query['ParametersKeyFilter'] = $request->parametersKeyFilterShrink;
+        }
+        if (!Utils::isUnset($request->regionId)) {
+            $query['RegionId'] = $request->regionId;
+        }
+        if (!Utils::isUnset($request->templateBody)) {
+            $query['TemplateBody'] = $request->templateBody;
+        }
+        if (!Utils::isUnset($request->templateId)) {
+            $query['TemplateId'] = $request->templateId;
+        }
+        if (!Utils::isUnset($request->templateURL)) {
+            $query['TemplateURL'] = $request->templateURL;
+        }
+        if (!Utils::isUnset($request->templateVersion)) {
+            $query['TemplateVersion'] = $request->templateVersion;
+        }
+        $req = new OpenApiRequest([
             'query' => OpenApiUtilClient::query($query),
         ]);
         $params = new Params([
@@ -1909,11 +2323,17 @@ class ROS extends OpenApiClient
     public function getTemplateScratchWithOptions($request, $runtime)
     {
         Utils::validateModel($request);
-        $query                      = [];
-        $query['RegionId']          = $request->regionId;
-        $query['ShowDataOption']    = $request->showDataOption;
-        $query['TemplateScratchId'] = $request->templateScratchId;
-        $req                        = new OpenApiRequest([
+        $query = [];
+        if (!Utils::isUnset($request->regionId)) {
+            $query['RegionId'] = $request->regionId;
+        }
+        if (!Utils::isUnset($request->showDataOption)) {
+            $query['ShowDataOption'] = $request->showDataOption;
+        }
+        if (!Utils::isUnset($request->templateScratchId)) {
+            $query['TemplateScratchId'] = $request->templateScratchId;
+        }
+        $req = new OpenApiRequest([
             'query' => OpenApiUtilClient::query($query),
         ]);
         $params = new Params([
@@ -1952,16 +2372,32 @@ class ROS extends OpenApiClient
     public function getTemplateSummaryWithOptions($request, $runtime)
     {
         Utils::validateModel($request);
-        $query                    = [];
-        $query['ChangeSetId']     = $request->changeSetId;
-        $query['RegionId']        = $request->regionId;
-        $query['StackGroupName']  = $request->stackGroupName;
-        $query['StackId']         = $request->stackId;
-        $query['TemplateBody']    = $request->templateBody;
-        $query['TemplateId']      = $request->templateId;
-        $query['TemplateURL']     = $request->templateURL;
-        $query['TemplateVersion'] = $request->templateVersion;
-        $req                      = new OpenApiRequest([
+        $query = [];
+        if (!Utils::isUnset($request->changeSetId)) {
+            $query['ChangeSetId'] = $request->changeSetId;
+        }
+        if (!Utils::isUnset($request->regionId)) {
+            $query['RegionId'] = $request->regionId;
+        }
+        if (!Utils::isUnset($request->stackGroupName)) {
+            $query['StackGroupName'] = $request->stackGroupName;
+        }
+        if (!Utils::isUnset($request->stackId)) {
+            $query['StackId'] = $request->stackId;
+        }
+        if (!Utils::isUnset($request->templateBody)) {
+            $query['TemplateBody'] = $request->templateBody;
+        }
+        if (!Utils::isUnset($request->templateId)) {
+            $query['TemplateId'] = $request->templateId;
+        }
+        if (!Utils::isUnset($request->templateURL)) {
+            $query['TemplateURL'] = $request->templateURL;
+        }
+        if (!Utils::isUnset($request->templateVersion)) {
+            $query['TemplateVersion'] = $request->templateVersion;
+        }
+        $req = new OpenApiRequest([
             'query' => OpenApiUtilClient::query($query),
         ]);
         $params = new Params([
@@ -2000,16 +2436,32 @@ class ROS extends OpenApiClient
     public function listChangeSetsWithOptions($request, $runtime)
     {
         Utils::validateModel($request);
-        $query                    = [];
-        $query['ChangeSetId']     = $request->changeSetId;
-        $query['ChangeSetName']   = $request->changeSetName;
-        $query['ExecutionStatus'] = $request->executionStatus;
-        $query['PageNumber']      = $request->pageNumber;
-        $query['PageSize']        = $request->pageSize;
-        $query['RegionId']        = $request->regionId;
-        $query['StackId']         = $request->stackId;
-        $query['Status']          = $request->status;
-        $req                      = new OpenApiRequest([
+        $query = [];
+        if (!Utils::isUnset($request->changeSetId)) {
+            $query['ChangeSetId'] = $request->changeSetId;
+        }
+        if (!Utils::isUnset($request->changeSetName)) {
+            $query['ChangeSetName'] = $request->changeSetName;
+        }
+        if (!Utils::isUnset($request->executionStatus)) {
+            $query['ExecutionStatus'] = $request->executionStatus;
+        }
+        if (!Utils::isUnset($request->pageNumber)) {
+            $query['PageNumber'] = $request->pageNumber;
+        }
+        if (!Utils::isUnset($request->pageSize)) {
+            $query['PageSize'] = $request->pageSize;
+        }
+        if (!Utils::isUnset($request->regionId)) {
+            $query['RegionId'] = $request->regionId;
+        }
+        if (!Utils::isUnset($request->stackId)) {
+            $query['StackId'] = $request->stackId;
+        }
+        if (!Utils::isUnset($request->status)) {
+            $query['Status'] = $request->status;
+        }
+        $req = new OpenApiRequest([
             'query' => OpenApiUtilClient::query($query),
         ]);
         $params = new Params([
@@ -2081,15 +2533,29 @@ class ROS extends OpenApiClient
     public function listStackEventsWithOptions($request, $runtime)
     {
         Utils::validateModel($request);
-        $query                      = [];
-        $query['LogicalResourceId'] = $request->logicalResourceId;
-        $query['PageNumber']        = $request->pageNumber;
-        $query['PageSize']          = $request->pageSize;
-        $query['RegionId']          = $request->regionId;
-        $query['ResourceType']      = $request->resourceType;
-        $query['StackId']           = $request->stackId;
-        $query['Status']            = $request->status;
-        $req                        = new OpenApiRequest([
+        $query = [];
+        if (!Utils::isUnset($request->logicalResourceId)) {
+            $query['LogicalResourceId'] = $request->logicalResourceId;
+        }
+        if (!Utils::isUnset($request->pageNumber)) {
+            $query['PageNumber'] = $request->pageNumber;
+        }
+        if (!Utils::isUnset($request->pageSize)) {
+            $query['PageSize'] = $request->pageSize;
+        }
+        if (!Utils::isUnset($request->regionId)) {
+            $query['RegionId'] = $request->regionId;
+        }
+        if (!Utils::isUnset($request->resourceType)) {
+            $query['ResourceType'] = $request->resourceType;
+        }
+        if (!Utils::isUnset($request->stackId)) {
+            $query['StackId'] = $request->stackId;
+        }
+        if (!Utils::isUnset($request->status)) {
+            $query['Status'] = $request->status;
+        }
+        $req = new OpenApiRequest([
             'query' => OpenApiUtilClient::query($query),
         ]);
         $params = new Params([
@@ -2128,12 +2594,20 @@ class ROS extends OpenApiClient
     public function listStackGroupOperationResultsWithOptions($request, $runtime)
     {
         Utils::validateModel($request);
-        $query                = [];
-        $query['OperationId'] = $request->operationId;
-        $query['PageNumber']  = $request->pageNumber;
-        $query['PageSize']    = $request->pageSize;
-        $query['RegionId']    = $request->regionId;
-        $req                  = new OpenApiRequest([
+        $query = [];
+        if (!Utils::isUnset($request->operationId)) {
+            $query['OperationId'] = $request->operationId;
+        }
+        if (!Utils::isUnset($request->pageNumber)) {
+            $query['PageNumber'] = $request->pageNumber;
+        }
+        if (!Utils::isUnset($request->pageSize)) {
+            $query['PageSize'] = $request->pageSize;
+        }
+        if (!Utils::isUnset($request->regionId)) {
+            $query['RegionId'] = $request->regionId;
+        }
+        $req = new OpenApiRequest([
             'query' => OpenApiUtilClient::query($query),
         ]);
         $params = new Params([
@@ -2172,12 +2646,20 @@ class ROS extends OpenApiClient
     public function listStackGroupOperationsWithOptions($request, $runtime)
     {
         Utils::validateModel($request);
-        $query                   = [];
-        $query['PageNumber']     = $request->pageNumber;
-        $query['PageSize']       = $request->pageSize;
-        $query['RegionId']       = $request->regionId;
-        $query['StackGroupName'] = $request->stackGroupName;
-        $req                     = new OpenApiRequest([
+        $query = [];
+        if (!Utils::isUnset($request->pageNumber)) {
+            $query['PageNumber'] = $request->pageNumber;
+        }
+        if (!Utils::isUnset($request->pageSize)) {
+            $query['PageSize'] = $request->pageSize;
+        }
+        if (!Utils::isUnset($request->regionId)) {
+            $query['RegionId'] = $request->regionId;
+        }
+        if (!Utils::isUnset($request->stackGroupName)) {
+            $query['StackGroupName'] = $request->stackGroupName;
+        }
+        $req = new OpenApiRequest([
             'query' => OpenApiUtilClient::query($query),
         ]);
         $params = new Params([
@@ -2216,13 +2698,23 @@ class ROS extends OpenApiClient
     public function listStackGroupsWithOptions($request, $runtime)
     {
         Utils::validateModel($request);
-        $query                    = [];
-        $query['PageNumber']      = $request->pageNumber;
-        $query['PageSize']        = $request->pageSize;
-        $query['RegionId']        = $request->regionId;
-        $query['ResourceGroupId'] = $request->resourceGroupId;
-        $query['Status']          = $request->status;
-        $req                      = new OpenApiRequest([
+        $query = [];
+        if (!Utils::isUnset($request->pageNumber)) {
+            $query['PageNumber'] = $request->pageNumber;
+        }
+        if (!Utils::isUnset($request->pageSize)) {
+            $query['PageSize'] = $request->pageSize;
+        }
+        if (!Utils::isUnset($request->regionId)) {
+            $query['RegionId'] = $request->regionId;
+        }
+        if (!Utils::isUnset($request->resourceGroupId)) {
+            $query['ResourceGroupId'] = $request->resourceGroupId;
+        }
+        if (!Utils::isUnset($request->status)) {
+            $query['Status'] = $request->status;
+        }
+        $req = new OpenApiRequest([
             'query' => OpenApiUtilClient::query($query),
         ]);
         $params = new Params([
@@ -2261,14 +2753,26 @@ class ROS extends OpenApiClient
     public function listStackInstancesWithOptions($request, $runtime)
     {
         Utils::validateModel($request);
-        $query                           = [];
-        $query['PageNumber']             = $request->pageNumber;
-        $query['PageSize']               = $request->pageSize;
-        $query['RegionId']               = $request->regionId;
-        $query['StackGroupName']         = $request->stackGroupName;
-        $query['StackInstanceAccountId'] = $request->stackInstanceAccountId;
-        $query['StackInstanceRegionId']  = $request->stackInstanceRegionId;
-        $req                             = new OpenApiRequest([
+        $query = [];
+        if (!Utils::isUnset($request->pageNumber)) {
+            $query['PageNumber'] = $request->pageNumber;
+        }
+        if (!Utils::isUnset($request->pageSize)) {
+            $query['PageSize'] = $request->pageSize;
+        }
+        if (!Utils::isUnset($request->regionId)) {
+            $query['RegionId'] = $request->regionId;
+        }
+        if (!Utils::isUnset($request->stackGroupName)) {
+            $query['StackGroupName'] = $request->stackGroupName;
+        }
+        if (!Utils::isUnset($request->stackInstanceAccountId)) {
+            $query['StackInstanceAccountId'] = $request->stackInstanceAccountId;
+        }
+        if (!Utils::isUnset($request->stackInstanceRegionId)) {
+            $query['StackInstanceRegionId'] = $request->stackInstanceRegionId;
+        }
+        $req = new OpenApiRequest([
             'query' => OpenApiUtilClient::query($query),
         ]);
         $params = new Params([
@@ -2307,15 +2811,29 @@ class ROS extends OpenApiClient
     public function listStackOperationRisksWithOptions($request, $runtime)
     {
         Utils::validateModel($request);
-        $query                       = [];
-        $query['ClientToken']        = $request->clientToken;
-        $query['OperationType']      = $request->operationType;
-        $query['RamRoleName']        = $request->ramRoleName;
-        $query['RegionId']           = $request->regionId;
-        $query['RetainAllResources'] = $request->retainAllResources;
-        $query['RetainResources']    = $request->retainResources;
-        $query['StackId']            = $request->stackId;
-        $req                         = new OpenApiRequest([
+        $query = [];
+        if (!Utils::isUnset($request->clientToken)) {
+            $query['ClientToken'] = $request->clientToken;
+        }
+        if (!Utils::isUnset($request->operationType)) {
+            $query['OperationType'] = $request->operationType;
+        }
+        if (!Utils::isUnset($request->ramRoleName)) {
+            $query['RamRoleName'] = $request->ramRoleName;
+        }
+        if (!Utils::isUnset($request->regionId)) {
+            $query['RegionId'] = $request->regionId;
+        }
+        if (!Utils::isUnset($request->retainAllResources)) {
+            $query['RetainAllResources'] = $request->retainAllResources;
+        }
+        if (!Utils::isUnset($request->retainResources)) {
+            $query['RetainResources'] = $request->retainResources;
+        }
+        if (!Utils::isUnset($request->stackId)) {
+            $query['StackId'] = $request->stackId;
+        }
+        $req = new OpenApiRequest([
             'query' => OpenApiUtilClient::query($query),
         ]);
         $params = new Params([
@@ -2354,13 +2872,23 @@ class ROS extends OpenApiClient
     public function listStackResourceDriftsWithOptions($request, $runtime)
     {
         Utils::validateModel($request);
-        $query                        = [];
-        $query['MaxResults']          = $request->maxResults;
-        $query['NextToken']           = $request->nextToken;
-        $query['RegionId']            = $request->regionId;
-        $query['ResourceDriftStatus'] = $request->resourceDriftStatus;
-        $query['StackId']             = $request->stackId;
-        $req                          = new OpenApiRequest([
+        $query = [];
+        if (!Utils::isUnset($request->maxResults)) {
+            $query['MaxResults'] = $request->maxResults;
+        }
+        if (!Utils::isUnset($request->nextToken)) {
+            $query['NextToken'] = $request->nextToken;
+        }
+        if (!Utils::isUnset($request->regionId)) {
+            $query['RegionId'] = $request->regionId;
+        }
+        if (!Utils::isUnset($request->resourceDriftStatus)) {
+            $query['ResourceDriftStatus'] = $request->resourceDriftStatus;
+        }
+        if (!Utils::isUnset($request->stackId)) {
+            $query['StackId'] = $request->stackId;
+        }
+        $req = new OpenApiRequest([
             'query' => OpenApiUtilClient::query($query),
         ]);
         $params = new Params([
@@ -2399,10 +2927,14 @@ class ROS extends OpenApiClient
     public function listStackResourcesWithOptions($request, $runtime)
     {
         Utils::validateModel($request);
-        $query             = [];
-        $query['RegionId'] = $request->regionId;
-        $query['StackId']  = $request->stackId;
-        $req               = new OpenApiRequest([
+        $query = [];
+        if (!Utils::isUnset($request->regionId)) {
+            $query['RegionId'] = $request->regionId;
+        }
+        if (!Utils::isUnset($request->stackId)) {
+            $query['StackId'] = $request->stackId;
+        }
+        $req = new OpenApiRequest([
             'query' => OpenApiUtilClient::query($query),
         ]);
         $params = new Params([
@@ -2441,19 +2973,41 @@ class ROS extends OpenApiClient
     public function listStacksWithOptions($request, $runtime)
     {
         Utils::validateModel($request);
-        $query                    = [];
-        $query['PageNumber']      = $request->pageNumber;
-        $query['PageSize']        = $request->pageSize;
-        $query['ParentStackId']   = $request->parentStackId;
-        $query['RegionId']        = $request->regionId;
-        $query['ResourceGroupId'] = $request->resourceGroupId;
-        $query['ShowNestedStack'] = $request->showNestedStack;
-        $query['StackId']         = $request->stackId;
-        $query['StackIds']        = $request->stackIds;
-        $query['StackName']       = $request->stackName;
-        $query['Status']          = $request->status;
-        $query['Tag']             = $request->tag;
-        $req                      = new OpenApiRequest([
+        $query = [];
+        if (!Utils::isUnset($request->pageNumber)) {
+            $query['PageNumber'] = $request->pageNumber;
+        }
+        if (!Utils::isUnset($request->pageSize)) {
+            $query['PageSize'] = $request->pageSize;
+        }
+        if (!Utils::isUnset($request->parentStackId)) {
+            $query['ParentStackId'] = $request->parentStackId;
+        }
+        if (!Utils::isUnset($request->regionId)) {
+            $query['RegionId'] = $request->regionId;
+        }
+        if (!Utils::isUnset($request->resourceGroupId)) {
+            $query['ResourceGroupId'] = $request->resourceGroupId;
+        }
+        if (!Utils::isUnset($request->showNestedStack)) {
+            $query['ShowNestedStack'] = $request->showNestedStack;
+        }
+        if (!Utils::isUnset($request->stackId)) {
+            $query['StackId'] = $request->stackId;
+        }
+        if (!Utils::isUnset($request->stackIds)) {
+            $query['StackIds'] = $request->stackIds;
+        }
+        if (!Utils::isUnset($request->stackName)) {
+            $query['StackName'] = $request->stackName;
+        }
+        if (!Utils::isUnset($request->status)) {
+            $query['Status'] = $request->status;
+        }
+        if (!Utils::isUnset($request->tag)) {
+            $query['Tag'] = $request->tag;
+        }
+        $req = new OpenApiRequest([
             'query' => OpenApiUtilClient::query($query),
         ]);
         $params = new Params([
@@ -2492,11 +3046,17 @@ class ROS extends OpenApiClient
     public function listTagKeysWithOptions($request, $runtime)
     {
         Utils::validateModel($request);
-        $query                 = [];
-        $query['NextToken']    = $request->nextToken;
-        $query['RegionId']     = $request->regionId;
-        $query['ResourceType'] = $request->resourceType;
-        $req                   = new OpenApiRequest([
+        $query = [];
+        if (!Utils::isUnset($request->nextToken)) {
+            $query['NextToken'] = $request->nextToken;
+        }
+        if (!Utils::isUnset($request->regionId)) {
+            $query['RegionId'] = $request->regionId;
+        }
+        if (!Utils::isUnset($request->resourceType)) {
+            $query['ResourceType'] = $request->resourceType;
+        }
+        $req = new OpenApiRequest([
             'query' => OpenApiUtilClient::query($query),
         ]);
         $params = new Params([
@@ -2535,13 +3095,23 @@ class ROS extends OpenApiClient
     public function listTagResourcesWithOptions($request, $runtime)
     {
         Utils::validateModel($request);
-        $query                 = [];
-        $query['NextToken']    = $request->nextToken;
-        $query['RegionId']     = $request->regionId;
-        $query['ResourceId']   = $request->resourceId;
-        $query['ResourceType'] = $request->resourceType;
-        $query['Tag']          = $request->tag;
-        $req                   = new OpenApiRequest([
+        $query = [];
+        if (!Utils::isUnset($request->nextToken)) {
+            $query['NextToken'] = $request->nextToken;
+        }
+        if (!Utils::isUnset($request->regionId)) {
+            $query['RegionId'] = $request->regionId;
+        }
+        if (!Utils::isUnset($request->resourceId)) {
+            $query['ResourceId'] = $request->resourceId;
+        }
+        if (!Utils::isUnset($request->resourceType)) {
+            $query['ResourceType'] = $request->resourceType;
+        }
+        if (!Utils::isUnset($request->tag)) {
+            $query['Tag'] = $request->tag;
+        }
+        $req = new OpenApiRequest([
             'query' => OpenApiUtilClient::query($query),
         ]);
         $params = new Params([
@@ -2580,12 +3150,20 @@ class ROS extends OpenApiClient
     public function listTagValuesWithOptions($request, $runtime)
     {
         Utils::validateModel($request);
-        $query                 = [];
-        $query['Key']          = $request->key;
-        $query['NextToken']    = $request->nextToken;
-        $query['RegionId']     = $request->regionId;
-        $query['ResourceType'] = $request->resourceType;
-        $req                   = new OpenApiRequest([
+        $query = [];
+        if (!Utils::isUnset($request->key)) {
+            $query['Key'] = $request->key;
+        }
+        if (!Utils::isUnset($request->nextToken)) {
+            $query['NextToken'] = $request->nextToken;
+        }
+        if (!Utils::isUnset($request->regionId)) {
+            $query['RegionId'] = $request->regionId;
+        }
+        if (!Utils::isUnset($request->resourceType)) {
+            $query['ResourceType'] = $request->resourceType;
+        }
+        $req = new OpenApiRequest([
             'query' => OpenApiUtilClient::query($query),
         ]);
         $params = new Params([
@@ -2624,14 +3202,26 @@ class ROS extends OpenApiClient
     public function listTemplateScratchesWithOptions($request, $runtime)
     {
         Utils::validateModel($request);
-        $query                        = [];
-        $query['PageNumber']          = $request->pageNumber;
-        $query['PageSize']            = $request->pageSize;
-        $query['RegionId']            = $request->regionId;
-        $query['Status']              = $request->status;
-        $query['TemplateScratchId']   = $request->templateScratchId;
-        $query['TemplateScratchType'] = $request->templateScratchType;
-        $req                          = new OpenApiRequest([
+        $query = [];
+        if (!Utils::isUnset($request->pageNumber)) {
+            $query['PageNumber'] = $request->pageNumber;
+        }
+        if (!Utils::isUnset($request->pageSize)) {
+            $query['PageSize'] = $request->pageSize;
+        }
+        if (!Utils::isUnset($request->regionId)) {
+            $query['RegionId'] = $request->regionId;
+        }
+        if (!Utils::isUnset($request->status)) {
+            $query['Status'] = $request->status;
+        }
+        if (!Utils::isUnset($request->templateScratchId)) {
+            $query['TemplateScratchId'] = $request->templateScratchId;
+        }
+        if (!Utils::isUnset($request->templateScratchType)) {
+            $query['TemplateScratchType'] = $request->templateScratchType;
+        }
+        $req = new OpenApiRequest([
             'query' => OpenApiUtilClient::query($query),
         ]);
         $params = new Params([
@@ -2670,11 +3260,17 @@ class ROS extends OpenApiClient
     public function listTemplateVersionsWithOptions($request, $runtime)
     {
         Utils::validateModel($request);
-        $query               = [];
-        $query['MaxResults'] = $request->maxResults;
-        $query['NextToken']  = $request->nextToken;
-        $query['TemplateId'] = $request->templateId;
-        $req                 = new OpenApiRequest([
+        $query = [];
+        if (!Utils::isUnset($request->maxResults)) {
+            $query['MaxResults'] = $request->maxResults;
+        }
+        if (!Utils::isUnset($request->nextToken)) {
+            $query['NextToken'] = $request->nextToken;
+        }
+        if (!Utils::isUnset($request->templateId)) {
+            $query['TemplateId'] = $request->templateId;
+        }
+        $req = new OpenApiRequest([
             'query' => OpenApiUtilClient::query($query),
         ]);
         $params = new Params([
@@ -2713,14 +3309,26 @@ class ROS extends OpenApiClient
     public function listTemplatesWithOptions($request, $runtime)
     {
         Utils::validateModel($request);
-        $query                    = [];
-        $query['PageNumber']      = $request->pageNumber;
-        $query['PageSize']        = $request->pageSize;
-        $query['ResourceGroupId'] = $request->resourceGroupId;
-        $query['ShareType']       = $request->shareType;
-        $query['Tag']             = $request->tag;
-        $query['TemplateName']    = $request->templateName;
-        $req                      = new OpenApiRequest([
+        $query = [];
+        if (!Utils::isUnset($request->pageNumber)) {
+            $query['PageNumber'] = $request->pageNumber;
+        }
+        if (!Utils::isUnset($request->pageSize)) {
+            $query['PageSize'] = $request->pageSize;
+        }
+        if (!Utils::isUnset($request->resourceGroupId)) {
+            $query['ResourceGroupId'] = $request->resourceGroupId;
+        }
+        if (!Utils::isUnset($request->shareType)) {
+            $query['ShareType'] = $request->shareType;
+        }
+        if (!Utils::isUnset($request->tag)) {
+            $query['Tag'] = $request->tag;
+        }
+        if (!Utils::isUnset($request->templateName)) {
+            $query['TemplateName'] = $request->templateName;
+        }
+        $req = new OpenApiRequest([
             'query' => OpenApiUtilClient::query($query),
         ]);
         $params = new Params([
@@ -2759,12 +3367,20 @@ class ROS extends OpenApiClient
     public function moveResourceGroupWithOptions($request, $runtime)
     {
         Utils::validateModel($request);
-        $query                       = [];
-        $query['NewResourceGroupId'] = $request->newResourceGroupId;
-        $query['RegionId']           = $request->regionId;
-        $query['ResourceId']         = $request->resourceId;
-        $query['ResourceType']       = $request->resourceType;
-        $req                         = new OpenApiRequest([
+        $query = [];
+        if (!Utils::isUnset($request->newResourceGroupId)) {
+            $query['NewResourceGroupId'] = $request->newResourceGroupId;
+        }
+        if (!Utils::isUnset($request->regionId)) {
+            $query['RegionId'] = $request->regionId;
+        }
+        if (!Utils::isUnset($request->resourceId)) {
+            $query['ResourceId'] = $request->resourceId;
+        }
+        if (!Utils::isUnset($request->resourceType)) {
+            $query['ResourceType'] = $request->resourceType;
+        }
+        $req = new OpenApiRequest([
             'query' => OpenApiUtilClient::query($query),
         ]);
         $params = new Params([
@@ -2803,23 +3419,53 @@ class ROS extends OpenApiClient
     public function previewStackWithOptions($request, $runtime)
     {
         Utils::validateModel($request);
-        $query                            = [];
-        $query['ClientToken']             = $request->clientToken;
-        $query['DisableRollback']         = $request->disableRollback;
-        $query['Parallelism']             = $request->parallelism;
-        $query['Parameters']              = $request->parameters;
-        $query['RegionId']                = $request->regionId;
-        $query['StackName']               = $request->stackName;
-        $query['StackPolicyBody']         = $request->stackPolicyBody;
-        $query['StackPolicyURL']          = $request->stackPolicyURL;
-        $query['TemplateBody']            = $request->templateBody;
-        $query['TemplateId']              = $request->templateId;
-        $query['TemplateScratchId']       = $request->templateScratchId;
-        $query['TemplateScratchRegionId'] = $request->templateScratchRegionId;
-        $query['TemplateURL']             = $request->templateURL;
-        $query['TemplateVersion']         = $request->templateVersion;
-        $query['TimeoutInMinutes']        = $request->timeoutInMinutes;
-        $req                              = new OpenApiRequest([
+        $query = [];
+        if (!Utils::isUnset($request->clientToken)) {
+            $query['ClientToken'] = $request->clientToken;
+        }
+        if (!Utils::isUnset($request->disableRollback)) {
+            $query['DisableRollback'] = $request->disableRollback;
+        }
+        if (!Utils::isUnset($request->parallelism)) {
+            $query['Parallelism'] = $request->parallelism;
+        }
+        if (!Utils::isUnset($request->parameters)) {
+            $query['Parameters'] = $request->parameters;
+        }
+        if (!Utils::isUnset($request->regionId)) {
+            $query['RegionId'] = $request->regionId;
+        }
+        if (!Utils::isUnset($request->stackName)) {
+            $query['StackName'] = $request->stackName;
+        }
+        if (!Utils::isUnset($request->stackPolicyBody)) {
+            $query['StackPolicyBody'] = $request->stackPolicyBody;
+        }
+        if (!Utils::isUnset($request->stackPolicyURL)) {
+            $query['StackPolicyURL'] = $request->stackPolicyURL;
+        }
+        if (!Utils::isUnset($request->templateBody)) {
+            $query['TemplateBody'] = $request->templateBody;
+        }
+        if (!Utils::isUnset($request->templateId)) {
+            $query['TemplateId'] = $request->templateId;
+        }
+        if (!Utils::isUnset($request->templateScratchId)) {
+            $query['TemplateScratchId'] = $request->templateScratchId;
+        }
+        if (!Utils::isUnset($request->templateScratchRegionId)) {
+            $query['TemplateScratchRegionId'] = $request->templateScratchRegionId;
+        }
+        if (!Utils::isUnset($request->templateURL)) {
+            $query['TemplateURL'] = $request->templateURL;
+        }
+        if (!Utils::isUnset($request->templateVersion)) {
+            $query['TemplateVersion'] = $request->templateVersion;
+        }
+        if (!Utils::isUnset($request->timeoutInMinutes)) {
+            $query['TimeoutInMinutes'] = $request->timeoutInMinutes;
+        }
+        $req = new OpenApiRequest([
             'query' => OpenApiUtilClient::query($query),
         ]);
         $params = new Params([
@@ -2858,11 +3504,17 @@ class ROS extends OpenApiClient
     public function setDeletionProtectionWithOptions($request, $runtime)
     {
         Utils::validateModel($request);
-        $query                       = [];
-        $query['DeletionProtection'] = $request->deletionProtection;
-        $query['RegionId']           = $request->regionId;
-        $query['StackId']            = $request->stackId;
-        $req                         = new OpenApiRequest([
+        $query = [];
+        if (!Utils::isUnset($request->deletionProtection)) {
+            $query['DeletionProtection'] = $request->deletionProtection;
+        }
+        if (!Utils::isUnset($request->regionId)) {
+            $query['RegionId'] = $request->regionId;
+        }
+        if (!Utils::isUnset($request->stackId)) {
+            $query['StackId'] = $request->stackId;
+        }
+        $req = new OpenApiRequest([
             'query' => OpenApiUtilClient::query($query),
         ]);
         $params = new Params([
@@ -2901,12 +3553,20 @@ class ROS extends OpenApiClient
     public function setStackPolicyWithOptions($request, $runtime)
     {
         Utils::validateModel($request);
-        $query                    = [];
-        $query['RegionId']        = $request->regionId;
-        $query['StackId']         = $request->stackId;
-        $query['StackPolicyBody'] = $request->stackPolicyBody;
-        $query['StackPolicyURL']  = $request->stackPolicyURL;
-        $req                      = new OpenApiRequest([
+        $query = [];
+        if (!Utils::isUnset($request->regionId)) {
+            $query['RegionId'] = $request->regionId;
+        }
+        if (!Utils::isUnset($request->stackId)) {
+            $query['StackId'] = $request->stackId;
+        }
+        if (!Utils::isUnset($request->stackPolicyBody)) {
+            $query['StackPolicyBody'] = $request->stackPolicyBody;
+        }
+        if (!Utils::isUnset($request->stackPolicyURL)) {
+            $query['StackPolicyURL'] = $request->stackPolicyURL;
+        }
+        $req = new OpenApiRequest([
             'query' => OpenApiUtilClient::query($query),
         ]);
         $params = new Params([
@@ -2945,13 +3605,23 @@ class ROS extends OpenApiClient
     public function setTemplatePermissionWithOptions($request, $runtime)
     {
         Utils::validateModel($request);
-        $query                    = [];
-        $query['AccountIds']      = $request->accountIds;
-        $query['ShareOption']     = $request->shareOption;
-        $query['TemplateId']      = $request->templateId;
-        $query['TemplateVersion'] = $request->templateVersion;
-        $query['VersionOption']   = $request->versionOption;
-        $req                      = new OpenApiRequest([
+        $query = [];
+        if (!Utils::isUnset($request->accountIds)) {
+            $query['AccountIds'] = $request->accountIds;
+        }
+        if (!Utils::isUnset($request->shareOption)) {
+            $query['ShareOption'] = $request->shareOption;
+        }
+        if (!Utils::isUnset($request->templateId)) {
+            $query['TemplateId'] = $request->templateId;
+        }
+        if (!Utils::isUnset($request->templateVersion)) {
+            $query['TemplateVersion'] = $request->templateVersion;
+        }
+        if (!Utils::isUnset($request->versionOption)) {
+            $query['VersionOption'] = $request->versionOption;
+        }
+        $req = new OpenApiRequest([
             'query' => OpenApiUtilClient::query($query),
         ]);
         $params = new Params([
@@ -2990,14 +3660,26 @@ class ROS extends OpenApiClient
     public function signalResourceWithOptions($request, $runtime)
     {
         Utils::validateModel($request);
-        $query                      = [];
-        $query['ClientToken']       = $request->clientToken;
-        $query['LogicalResourceId'] = $request->logicalResourceId;
-        $query['RegionId']          = $request->regionId;
-        $query['StackId']           = $request->stackId;
-        $query['Status']            = $request->status;
-        $query['UniqueId']          = $request->uniqueId;
-        $req                        = new OpenApiRequest([
+        $query = [];
+        if (!Utils::isUnset($request->clientToken)) {
+            $query['ClientToken'] = $request->clientToken;
+        }
+        if (!Utils::isUnset($request->logicalResourceId)) {
+            $query['LogicalResourceId'] = $request->logicalResourceId;
+        }
+        if (!Utils::isUnset($request->regionId)) {
+            $query['RegionId'] = $request->regionId;
+        }
+        if (!Utils::isUnset($request->stackId)) {
+            $query['StackId'] = $request->stackId;
+        }
+        if (!Utils::isUnset($request->status)) {
+            $query['Status'] = $request->status;
+        }
+        if (!Utils::isUnset($request->uniqueId)) {
+            $query['UniqueId'] = $request->uniqueId;
+        }
+        $req = new OpenApiRequest([
             'query' => OpenApiUtilClient::query($query),
         ]);
         $params = new Params([
@@ -3036,10 +3718,14 @@ class ROS extends OpenApiClient
     public function stopStackGroupOperationWithOptions($request, $runtime)
     {
         Utils::validateModel($request);
-        $query                = [];
-        $query['OperationId'] = $request->operationId;
-        $query['RegionId']    = $request->regionId;
-        $req                  = new OpenApiRequest([
+        $query = [];
+        if (!Utils::isUnset($request->operationId)) {
+            $query['OperationId'] = $request->operationId;
+        }
+        if (!Utils::isUnset($request->regionId)) {
+            $query['RegionId'] = $request->regionId;
+        }
+        $req = new OpenApiRequest([
             'query' => OpenApiUtilClient::query($query),
         ]);
         $params = new Params([
@@ -3078,12 +3764,20 @@ class ROS extends OpenApiClient
     public function tagResourcesWithOptions($request, $runtime)
     {
         Utils::validateModel($request);
-        $query                 = [];
-        $query['RegionId']     = $request->regionId;
-        $query['ResourceId']   = $request->resourceId;
-        $query['ResourceType'] = $request->resourceType;
-        $query['Tag']          = $request->tag;
-        $req                   = new OpenApiRequest([
+        $query = [];
+        if (!Utils::isUnset($request->regionId)) {
+            $query['RegionId'] = $request->regionId;
+        }
+        if (!Utils::isUnset($request->resourceId)) {
+            $query['ResourceId'] = $request->resourceId;
+        }
+        if (!Utils::isUnset($request->resourceType)) {
+            $query['ResourceType'] = $request->resourceType;
+        }
+        if (!Utils::isUnset($request->tag)) {
+            $query['Tag'] = $request->tag;
+        }
+        $req = new OpenApiRequest([
             'query' => OpenApiUtilClient::query($query),
         ]);
         $params = new Params([
@@ -3122,13 +3816,23 @@ class ROS extends OpenApiClient
     public function untagResourcesWithOptions($request, $runtime)
     {
         Utils::validateModel($request);
-        $query                 = [];
-        $query['All']          = $request->all;
-        $query['RegionId']     = $request->regionId;
-        $query['ResourceId']   = $request->resourceId;
-        $query['ResourceType'] = $request->resourceType;
-        $query['TagKey']       = $request->tagKey;
-        $req                   = new OpenApiRequest([
+        $query = [];
+        if (!Utils::isUnset($request->all)) {
+            $query['All'] = $request->all;
+        }
+        if (!Utils::isUnset($request->regionId)) {
+            $query['RegionId'] = $request->regionId;
+        }
+        if (!Utils::isUnset($request->resourceId)) {
+            $query['ResourceId'] = $request->resourceId;
+        }
+        if (!Utils::isUnset($request->resourceType)) {
+            $query['ResourceType'] = $request->resourceType;
+        }
+        if (!Utils::isUnset($request->tagKey)) {
+            $query['TagKey'] = $request->tagKey;
+        }
+        $req = new OpenApiRequest([
             'query' => OpenApiUtilClient::query($query),
         ]);
         $params = new Params([
@@ -3167,27 +3871,65 @@ class ROS extends OpenApiClient
     public function updateStackWithOptions($request, $runtime)
     {
         Utils::validateModel($request);
-        $query                                = [];
-        $query['ClientToken']                 = $request->clientToken;
-        $query['DisableRollback']             = $request->disableRollback;
-        $query['Parallelism']                 = $request->parallelism;
-        $query['Parameters']                  = $request->parameters;
-        $query['RamRoleName']                 = $request->ramRoleName;
-        $query['RegionId']                    = $request->regionId;
-        $query['ReplacementOption']           = $request->replacementOption;
-        $query['StackId']                     = $request->stackId;
-        $query['StackPolicyBody']             = $request->stackPolicyBody;
-        $query['StackPolicyDuringUpdateBody'] = $request->stackPolicyDuringUpdateBody;
-        $query['StackPolicyDuringUpdateURL']  = $request->stackPolicyDuringUpdateURL;
-        $query['StackPolicyURL']              = $request->stackPolicyURL;
-        $query['Tags']                        = $request->tags;
-        $query['TemplateBody']                = $request->templateBody;
-        $query['TemplateId']                  = $request->templateId;
-        $query['TemplateURL']                 = $request->templateURL;
-        $query['TemplateVersion']             = $request->templateVersion;
-        $query['TimeoutInMinutes']            = $request->timeoutInMinutes;
-        $query['UsePreviousParameters']       = $request->usePreviousParameters;
-        $req                                  = new OpenApiRequest([
+        $query = [];
+        if (!Utils::isUnset($request->clientToken)) {
+            $query['ClientToken'] = $request->clientToken;
+        }
+        if (!Utils::isUnset($request->disableRollback)) {
+            $query['DisableRollback'] = $request->disableRollback;
+        }
+        if (!Utils::isUnset($request->parallelism)) {
+            $query['Parallelism'] = $request->parallelism;
+        }
+        if (!Utils::isUnset($request->parameters)) {
+            $query['Parameters'] = $request->parameters;
+        }
+        if (!Utils::isUnset($request->ramRoleName)) {
+            $query['RamRoleName'] = $request->ramRoleName;
+        }
+        if (!Utils::isUnset($request->regionId)) {
+            $query['RegionId'] = $request->regionId;
+        }
+        if (!Utils::isUnset($request->replacementOption)) {
+            $query['ReplacementOption'] = $request->replacementOption;
+        }
+        if (!Utils::isUnset($request->stackId)) {
+            $query['StackId'] = $request->stackId;
+        }
+        if (!Utils::isUnset($request->stackPolicyBody)) {
+            $query['StackPolicyBody'] = $request->stackPolicyBody;
+        }
+        if (!Utils::isUnset($request->stackPolicyDuringUpdateBody)) {
+            $query['StackPolicyDuringUpdateBody'] = $request->stackPolicyDuringUpdateBody;
+        }
+        if (!Utils::isUnset($request->stackPolicyDuringUpdateURL)) {
+            $query['StackPolicyDuringUpdateURL'] = $request->stackPolicyDuringUpdateURL;
+        }
+        if (!Utils::isUnset($request->stackPolicyURL)) {
+            $query['StackPolicyURL'] = $request->stackPolicyURL;
+        }
+        if (!Utils::isUnset($request->tags)) {
+            $query['Tags'] = $request->tags;
+        }
+        if (!Utils::isUnset($request->templateBody)) {
+            $query['TemplateBody'] = $request->templateBody;
+        }
+        if (!Utils::isUnset($request->templateId)) {
+            $query['TemplateId'] = $request->templateId;
+        }
+        if (!Utils::isUnset($request->templateURL)) {
+            $query['TemplateURL'] = $request->templateURL;
+        }
+        if (!Utils::isUnset($request->templateVersion)) {
+            $query['TemplateVersion'] = $request->templateVersion;
+        }
+        if (!Utils::isUnset($request->timeoutInMinutes)) {
+            $query['TimeoutInMinutes'] = $request->timeoutInMinutes;
+        }
+        if (!Utils::isUnset($request->usePreviousParameters)) {
+            $query['UsePreviousParameters'] = $request->usePreviousParameters;
+        }
+        $req = new OpenApiRequest([
             'query' => OpenApiUtilClient::query($query),
         ]);
         $params = new Params([
@@ -3243,26 +3985,62 @@ class ROS extends OpenApiClient
         if (!Utils::isUnset($tmpReq->regionIds)) {
             $request->regionIdsShrink = OpenApiUtilClient::arrayToStringWithSpecifiedStyle($tmpReq->regionIds, 'RegionIds', 'json');
         }
-        $query                           = [];
-        $query['AccountIds']             = $request->accountIdsShrink;
-        $query['AdministrationRoleName'] = $request->administrationRoleName;
-        $query['AutoDeployment']         = $request->autoDeploymentShrink;
-        $query['ClientToken']            = $request->clientToken;
-        $query['DeploymentTargets']      = $request->deploymentTargetsShrink;
-        $query['Description']            = $request->description;
-        $query['ExecutionRoleName']      = $request->executionRoleName;
-        $query['OperationDescription']   = $request->operationDescription;
-        $query['OperationPreferences']   = $request->operationPreferencesShrink;
-        $query['Parameters']             = $request->parameters;
-        $query['PermissionModel']        = $request->permissionModel;
-        $query['RegionId']               = $request->regionId;
-        $query['RegionIds']              = $request->regionIdsShrink;
-        $query['StackGroupName']         = $request->stackGroupName;
-        $query['TemplateBody']           = $request->templateBody;
-        $query['TemplateId']             = $request->templateId;
-        $query['TemplateURL']            = $request->templateURL;
-        $query['TemplateVersion']        = $request->templateVersion;
-        $req                             = new OpenApiRequest([
+        $query = [];
+        if (!Utils::isUnset($request->accountIdsShrink)) {
+            $query['AccountIds'] = $request->accountIdsShrink;
+        }
+        if (!Utils::isUnset($request->administrationRoleName)) {
+            $query['AdministrationRoleName'] = $request->administrationRoleName;
+        }
+        if (!Utils::isUnset($request->autoDeploymentShrink)) {
+            $query['AutoDeployment'] = $request->autoDeploymentShrink;
+        }
+        if (!Utils::isUnset($request->clientToken)) {
+            $query['ClientToken'] = $request->clientToken;
+        }
+        if (!Utils::isUnset($request->deploymentTargetsShrink)) {
+            $query['DeploymentTargets'] = $request->deploymentTargetsShrink;
+        }
+        if (!Utils::isUnset($request->description)) {
+            $query['Description'] = $request->description;
+        }
+        if (!Utils::isUnset($request->executionRoleName)) {
+            $query['ExecutionRoleName'] = $request->executionRoleName;
+        }
+        if (!Utils::isUnset($request->operationDescription)) {
+            $query['OperationDescription'] = $request->operationDescription;
+        }
+        if (!Utils::isUnset($request->operationPreferencesShrink)) {
+            $query['OperationPreferences'] = $request->operationPreferencesShrink;
+        }
+        if (!Utils::isUnset($request->parameters)) {
+            $query['Parameters'] = $request->parameters;
+        }
+        if (!Utils::isUnset($request->permissionModel)) {
+            $query['PermissionModel'] = $request->permissionModel;
+        }
+        if (!Utils::isUnset($request->regionId)) {
+            $query['RegionId'] = $request->regionId;
+        }
+        if (!Utils::isUnset($request->regionIdsShrink)) {
+            $query['RegionIds'] = $request->regionIdsShrink;
+        }
+        if (!Utils::isUnset($request->stackGroupName)) {
+            $query['StackGroupName'] = $request->stackGroupName;
+        }
+        if (!Utils::isUnset($request->templateBody)) {
+            $query['TemplateBody'] = $request->templateBody;
+        }
+        if (!Utils::isUnset($request->templateId)) {
+            $query['TemplateId'] = $request->templateId;
+        }
+        if (!Utils::isUnset($request->templateURL)) {
+            $query['TemplateURL'] = $request->templateURL;
+        }
+        if (!Utils::isUnset($request->templateVersion)) {
+            $query['TemplateVersion'] = $request->templateVersion;
+        }
+        $req = new OpenApiRequest([
             'query' => OpenApiUtilClient::query($query),
         ]);
         $params = new Params([
@@ -3315,18 +4093,38 @@ class ROS extends OpenApiClient
         if (!Utils::isUnset($tmpReq->regionIds)) {
             $request->regionIdsShrink = OpenApiUtilClient::arrayToStringWithSpecifiedStyle($tmpReq->regionIds, 'RegionIds', 'json');
         }
-        $query                         = [];
-        $query['AccountIds']           = $request->accountIdsShrink;
-        $query['ClientToken']          = $request->clientToken;
-        $query['DeploymentTargets']    = $request->deploymentTargetsShrink;
-        $query['OperationDescription'] = $request->operationDescription;
-        $query['OperationPreferences'] = $request->operationPreferencesShrink;
-        $query['ParameterOverrides']   = $request->parameterOverrides;
-        $query['RegionId']             = $request->regionId;
-        $query['RegionIds']            = $request->regionIdsShrink;
-        $query['StackGroupName']       = $request->stackGroupName;
-        $query['TimeoutInMinutes']     = $request->timeoutInMinutes;
-        $req                           = new OpenApiRequest([
+        $query = [];
+        if (!Utils::isUnset($request->accountIdsShrink)) {
+            $query['AccountIds'] = $request->accountIdsShrink;
+        }
+        if (!Utils::isUnset($request->clientToken)) {
+            $query['ClientToken'] = $request->clientToken;
+        }
+        if (!Utils::isUnset($request->deploymentTargetsShrink)) {
+            $query['DeploymentTargets'] = $request->deploymentTargetsShrink;
+        }
+        if (!Utils::isUnset($request->operationDescription)) {
+            $query['OperationDescription'] = $request->operationDescription;
+        }
+        if (!Utils::isUnset($request->operationPreferencesShrink)) {
+            $query['OperationPreferences'] = $request->operationPreferencesShrink;
+        }
+        if (!Utils::isUnset($request->parameterOverrides)) {
+            $query['ParameterOverrides'] = $request->parameterOverrides;
+        }
+        if (!Utils::isUnset($request->regionId)) {
+            $query['RegionId'] = $request->regionId;
+        }
+        if (!Utils::isUnset($request->regionIdsShrink)) {
+            $query['RegionIds'] = $request->regionIdsShrink;
+        }
+        if (!Utils::isUnset($request->stackGroupName)) {
+            $query['StackGroupName'] = $request->stackGroupName;
+        }
+        if (!Utils::isUnset($request->timeoutInMinutes)) {
+            $query['TimeoutInMinutes'] = $request->timeoutInMinutes;
+        }
+        $req = new OpenApiRequest([
             'query' => OpenApiUtilClient::query($query),
         ]);
         $params = new Params([
@@ -3365,14 +4163,26 @@ class ROS extends OpenApiClient
     public function updateStackTemplateByResourcesWithOptions($request, $runtime)
     {
         Utils::validateModel($request);
-        $query                      = [];
-        $query['ClientToken']       = $request->clientToken;
-        $query['DryRun']            = $request->dryRun;
-        $query['LogicalResourceId'] = $request->logicalResourceId;
-        $query['RegionId']          = $request->regionId;
-        $query['StackId']           = $request->stackId;
-        $query['TemplateFormat']    = $request->templateFormat;
-        $req                        = new OpenApiRequest([
+        $query = [];
+        if (!Utils::isUnset($request->clientToken)) {
+            $query['ClientToken'] = $request->clientToken;
+        }
+        if (!Utils::isUnset($request->dryRun)) {
+            $query['DryRun'] = $request->dryRun;
+        }
+        if (!Utils::isUnset($request->logicalResourceId)) {
+            $query['LogicalResourceId'] = $request->logicalResourceId;
+        }
+        if (!Utils::isUnset($request->regionId)) {
+            $query['RegionId'] = $request->regionId;
+        }
+        if (!Utils::isUnset($request->stackId)) {
+            $query['StackId'] = $request->stackId;
+        }
+        if (!Utils::isUnset($request->templateFormat)) {
+            $query['TemplateFormat'] = $request->templateFormat;
+        }
+        $req = new OpenApiRequest([
             'query' => OpenApiUtilClient::query($query),
         ]);
         $params = new Params([
@@ -3411,13 +4221,23 @@ class ROS extends OpenApiClient
     public function updateTemplateWithOptions($request, $runtime)
     {
         Utils::validateModel($request);
-        $query                 = [];
-        $query['Description']  = $request->description;
-        $query['TemplateBody'] = $request->templateBody;
-        $query['TemplateId']   = $request->templateId;
-        $query['TemplateName'] = $request->templateName;
-        $query['TemplateURL']  = $request->templateURL;
-        $req                   = new OpenApiRequest([
+        $query = [];
+        if (!Utils::isUnset($request->description)) {
+            $query['Description'] = $request->description;
+        }
+        if (!Utils::isUnset($request->templateBody)) {
+            $query['TemplateBody'] = $request->templateBody;
+        }
+        if (!Utils::isUnset($request->templateId)) {
+            $query['TemplateId'] = $request->templateId;
+        }
+        if (!Utils::isUnset($request->templateName)) {
+            $query['TemplateName'] = $request->templateName;
+        }
+        if (!Utils::isUnset($request->templateURL)) {
+            $query['TemplateURL'] = $request->templateURL;
+        }
+        $req = new OpenApiRequest([
             'query' => OpenApiUtilClient::query($query),
         ]);
         $params = new Params([
@@ -3470,18 +4290,38 @@ class ROS extends OpenApiClient
         if (!Utils::isUnset($tmpReq->sourceTag)) {
             $request->sourceTagShrink = OpenApiUtilClient::arrayToStringWithSpecifiedStyle(Tea::merge($tmpReq->sourceTag), 'SourceTag', 'json');
         }
-        $query                         = [];
-        $query['ClientToken']          = $request->clientToken;
-        $query['Description']          = $request->description;
-        $query['ExecutionMode']        = $request->executionMode;
-        $query['LogicalIdStrategy']    = $request->logicalIdStrategy;
-        $query['PreferenceParameters'] = $request->preferenceParametersShrink;
-        $query['RegionId']             = $request->regionId;
-        $query['SourceResourceGroup']  = $request->sourceResourceGroupShrink;
-        $query['SourceResources']      = $request->sourceResourcesShrink;
-        $query['SourceTag']            = $request->sourceTagShrink;
-        $query['TemplateScratchId']    = $request->templateScratchId;
-        $req                           = new OpenApiRequest([
+        $query = [];
+        if (!Utils::isUnset($request->clientToken)) {
+            $query['ClientToken'] = $request->clientToken;
+        }
+        if (!Utils::isUnset($request->description)) {
+            $query['Description'] = $request->description;
+        }
+        if (!Utils::isUnset($request->executionMode)) {
+            $query['ExecutionMode'] = $request->executionMode;
+        }
+        if (!Utils::isUnset($request->logicalIdStrategy)) {
+            $query['LogicalIdStrategy'] = $request->logicalIdStrategy;
+        }
+        if (!Utils::isUnset($request->preferenceParametersShrink)) {
+            $query['PreferenceParameters'] = $request->preferenceParametersShrink;
+        }
+        if (!Utils::isUnset($request->regionId)) {
+            $query['RegionId'] = $request->regionId;
+        }
+        if (!Utils::isUnset($request->sourceResourceGroupShrink)) {
+            $query['SourceResourceGroup'] = $request->sourceResourceGroupShrink;
+        }
+        if (!Utils::isUnset($request->sourceResourcesShrink)) {
+            $query['SourceResources'] = $request->sourceResourcesShrink;
+        }
+        if (!Utils::isUnset($request->sourceTagShrink)) {
+            $query['SourceTag'] = $request->sourceTagShrink;
+        }
+        if (!Utils::isUnset($request->templateScratchId)) {
+            $query['TemplateScratchId'] = $request->templateScratchId;
+        }
+        $req = new OpenApiRequest([
             'query' => OpenApiUtilClient::query($query),
         ]);
         $params = new Params([
@@ -3520,13 +4360,23 @@ class ROS extends OpenApiClient
     public function validateTemplateWithOptions($request, $runtime)
     {
         Utils::validateModel($request);
-        $query                     = [];
-        $query['ClientToken']      = $request->clientToken;
-        $query['RegionId']         = $request->regionId;
-        $query['TemplateBody']     = $request->templateBody;
-        $query['TemplateURL']      = $request->templateURL;
-        $query['ValidationOption'] = $request->validationOption;
-        $req                       = new OpenApiRequest([
+        $query = [];
+        if (!Utils::isUnset($request->clientToken)) {
+            $query['ClientToken'] = $request->clientToken;
+        }
+        if (!Utils::isUnset($request->regionId)) {
+            $query['RegionId'] = $request->regionId;
+        }
+        if (!Utils::isUnset($request->templateBody)) {
+            $query['TemplateBody'] = $request->templateBody;
+        }
+        if (!Utils::isUnset($request->templateURL)) {
+            $query['TemplateURL'] = $request->templateURL;
+        }
+        if (!Utils::isUnset($request->validationOption)) {
+            $query['ValidationOption'] = $request->validationOption;
+        }
+        $req = new OpenApiRequest([
             'query' => OpenApiUtilClient::query($query),
         ]);
         $params = new Params([
