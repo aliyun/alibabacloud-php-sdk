@@ -11,12 +11,12 @@ class DescribeDBClusterForecastRequest extends Model
     /**
      * @var string
      */
-    public $startTime;
+    public $DBClusterId;
 
     /**
      * @var string
      */
-    public $DBClusterId;
+    public $metricType;
 
     /**
      * @var string
@@ -26,12 +26,12 @@ class DescribeDBClusterForecastRequest extends Model
     /**
      * @var string
      */
-    public $metricType;
+    public $startTime;
     protected $_name = [
-        'startTime'   => 'StartTime',
         'DBClusterId' => 'DBClusterId',
-        'regionId'    => 'RegionId',
         'metricType'  => 'MetricType',
+        'regionId'    => 'RegionId',
+        'startTime'   => 'StartTime',
     ];
 
     public function validate()
@@ -41,17 +41,17 @@ class DescribeDBClusterForecastRequest extends Model
     public function toMap()
     {
         $res = [];
-        if (null !== $this->startTime) {
-            $res['StartTime'] = $this->startTime;
-        }
         if (null !== $this->DBClusterId) {
             $res['DBClusterId'] = $this->DBClusterId;
+        }
+        if (null !== $this->metricType) {
+            $res['MetricType'] = $this->metricType;
         }
         if (null !== $this->regionId) {
             $res['RegionId'] = $this->regionId;
         }
-        if (null !== $this->metricType) {
-            $res['MetricType'] = $this->metricType;
+        if (null !== $this->startTime) {
+            $res['StartTime'] = $this->startTime;
         }
 
         return $res;
@@ -65,17 +65,17 @@ class DescribeDBClusterForecastRequest extends Model
     public static function fromMap($map = [])
     {
         $model = new self();
-        if (isset($map['StartTime'])) {
-            $model->startTime = $map['StartTime'];
-        }
         if (isset($map['DBClusterId'])) {
             $model->DBClusterId = $map['DBClusterId'];
+        }
+        if (isset($map['MetricType'])) {
+            $model->metricType = $map['MetricType'];
         }
         if (isset($map['RegionId'])) {
             $model->regionId = $map['RegionId'];
         }
-        if (isset($map['MetricType'])) {
-            $model->metricType = $map['MetricType'];
+        if (isset($map['StartTime'])) {
+            $model->startTime = $map['StartTime'];
         }
 
         return $model;

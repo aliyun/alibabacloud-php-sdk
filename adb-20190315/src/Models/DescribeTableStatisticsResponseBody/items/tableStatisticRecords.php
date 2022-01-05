@@ -9,19 +9,9 @@ use AlibabaCloud\Tea\Model;
 class tableStatisticRecords extends Model
 {
     /**
-     * @var string
-     */
-    public $schemaName;
-
-    /**
-     * @var string
-     */
-    public $tableName;
-
-    /**
      * @var int
      */
-    public $rowCount;
+    public $coldDataSize;
 
     /**
      * @var int
@@ -36,26 +26,36 @@ class tableStatisticRecords extends Model
     /**
      * @var int
      */
-    public $primaryKeyIndexSize;
-
-    /**
-     * @var int
-     */
     public $partitionCount;
 
     /**
      * @var int
      */
-    public $coldDataSize;
+    public $primaryKeyIndexSize;
+
+    /**
+     * @var int
+     */
+    public $rowCount;
+
+    /**
+     * @var string
+     */
+    public $schemaName;
+
+    /**
+     * @var string
+     */
+    public $tableName;
     protected $_name = [
-        'schemaName'          => 'SchemaName',
-        'tableName'           => 'TableName',
-        'rowCount'            => 'RowCount',
+        'coldDataSize'        => 'ColdDataSize',
         'dataSize'            => 'DataSize',
         'indexSize'           => 'IndexSize',
-        'primaryKeyIndexSize' => 'PrimaryKeyIndexSize',
         'partitionCount'      => 'PartitionCount',
-        'coldDataSize'        => 'ColdDataSize',
+        'primaryKeyIndexSize' => 'PrimaryKeyIndexSize',
+        'rowCount'            => 'RowCount',
+        'schemaName'          => 'SchemaName',
+        'tableName'           => 'TableName',
     ];
 
     public function validate()
@@ -65,14 +65,8 @@ class tableStatisticRecords extends Model
     public function toMap()
     {
         $res = [];
-        if (null !== $this->schemaName) {
-            $res['SchemaName'] = $this->schemaName;
-        }
-        if (null !== $this->tableName) {
-            $res['TableName'] = $this->tableName;
-        }
-        if (null !== $this->rowCount) {
-            $res['RowCount'] = $this->rowCount;
+        if (null !== $this->coldDataSize) {
+            $res['ColdDataSize'] = $this->coldDataSize;
         }
         if (null !== $this->dataSize) {
             $res['DataSize'] = $this->dataSize;
@@ -80,14 +74,20 @@ class tableStatisticRecords extends Model
         if (null !== $this->indexSize) {
             $res['IndexSize'] = $this->indexSize;
         }
-        if (null !== $this->primaryKeyIndexSize) {
-            $res['PrimaryKeyIndexSize'] = $this->primaryKeyIndexSize;
-        }
         if (null !== $this->partitionCount) {
             $res['PartitionCount'] = $this->partitionCount;
         }
-        if (null !== $this->coldDataSize) {
-            $res['ColdDataSize'] = $this->coldDataSize;
+        if (null !== $this->primaryKeyIndexSize) {
+            $res['PrimaryKeyIndexSize'] = $this->primaryKeyIndexSize;
+        }
+        if (null !== $this->rowCount) {
+            $res['RowCount'] = $this->rowCount;
+        }
+        if (null !== $this->schemaName) {
+            $res['SchemaName'] = $this->schemaName;
+        }
+        if (null !== $this->tableName) {
+            $res['TableName'] = $this->tableName;
         }
 
         return $res;
@@ -101,14 +101,8 @@ class tableStatisticRecords extends Model
     public static function fromMap($map = [])
     {
         $model = new self();
-        if (isset($map['SchemaName'])) {
-            $model->schemaName = $map['SchemaName'];
-        }
-        if (isset($map['TableName'])) {
-            $model->tableName = $map['TableName'];
-        }
-        if (isset($map['RowCount'])) {
-            $model->rowCount = $map['RowCount'];
+        if (isset($map['ColdDataSize'])) {
+            $model->coldDataSize = $map['ColdDataSize'];
         }
         if (isset($map['DataSize'])) {
             $model->dataSize = $map['DataSize'];
@@ -116,14 +110,20 @@ class tableStatisticRecords extends Model
         if (isset($map['IndexSize'])) {
             $model->indexSize = $map['IndexSize'];
         }
-        if (isset($map['PrimaryKeyIndexSize'])) {
-            $model->primaryKeyIndexSize = $map['PrimaryKeyIndexSize'];
-        }
         if (isset($map['PartitionCount'])) {
             $model->partitionCount = $map['PartitionCount'];
         }
-        if (isset($map['ColdDataSize'])) {
-            $model->coldDataSize = $map['ColdDataSize'];
+        if (isset($map['PrimaryKeyIndexSize'])) {
+            $model->primaryKeyIndexSize = $map['PrimaryKeyIndexSize'];
+        }
+        if (isset($map['RowCount'])) {
+            $model->rowCount = $map['RowCount'];
+        }
+        if (isset($map['SchemaName'])) {
+            $model->schemaName = $map['SchemaName'];
+        }
+        if (isset($map['TableName'])) {
+            $model->tableName = $map['TableName'];
         }
 
         return $model;

@@ -16,28 +16,28 @@ class DescribeDiagnosisDimensionsResponseBody extends Model
     /**
      * @var string[]
      */
-    public $resourceGroups;
-
-    /**
-     * @var string[]
-     */
-    public $userNames;
-
-    /**
-     * @var string[]
-     */
     public $databases;
 
     /**
      * @var string
      */
     public $requestId;
+
+    /**
+     * @var string[]
+     */
+    public $resourceGroups;
+
+    /**
+     * @var string[]
+     */
+    public $userNames;
     protected $_name = [
         'clientIps'      => 'ClientIps',
-        'resourceGroups' => 'ResourceGroups',
-        'userNames'      => 'UserNames',
         'databases'      => 'Databases',
         'requestId'      => 'RequestId',
+        'resourceGroups' => 'ResourceGroups',
+        'userNames'      => 'UserNames',
     ];
 
     public function validate()
@@ -50,17 +50,17 @@ class DescribeDiagnosisDimensionsResponseBody extends Model
         if (null !== $this->clientIps) {
             $res['ClientIps'] = $this->clientIps;
         }
-        if (null !== $this->resourceGroups) {
-            $res['ResourceGroups'] = $this->resourceGroups;
-        }
-        if (null !== $this->userNames) {
-            $res['UserNames'] = $this->userNames;
-        }
         if (null !== $this->databases) {
             $res['Databases'] = $this->databases;
         }
         if (null !== $this->requestId) {
             $res['RequestId'] = $this->requestId;
+        }
+        if (null !== $this->resourceGroups) {
+            $res['ResourceGroups'] = $this->resourceGroups;
+        }
+        if (null !== $this->userNames) {
+            $res['UserNames'] = $this->userNames;
         }
 
         return $res;
@@ -79,6 +79,14 @@ class DescribeDiagnosisDimensionsResponseBody extends Model
                 $model->clientIps = $map['ClientIps'];
             }
         }
+        if (isset($map['Databases'])) {
+            if (!empty($map['Databases'])) {
+                $model->databases = $map['Databases'];
+            }
+        }
+        if (isset($map['RequestId'])) {
+            $model->requestId = $map['RequestId'];
+        }
         if (isset($map['ResourceGroups'])) {
             if (!empty($map['ResourceGroups'])) {
                 $model->resourceGroups = $map['ResourceGroups'];
@@ -88,14 +96,6 @@ class DescribeDiagnosisDimensionsResponseBody extends Model
             if (!empty($map['UserNames'])) {
                 $model->userNames = $map['UserNames'];
             }
-        }
-        if (isset($map['Databases'])) {
-            if (!empty($map['Databases'])) {
-                $model->databases = $map['Databases'];
-            }
-        }
-        if (isset($map['RequestId'])) {
-            $model->requestId = $map['RequestId'];
         }
 
         return $model;

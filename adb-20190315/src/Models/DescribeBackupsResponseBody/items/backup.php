@@ -11,26 +11,6 @@ class backup extends Model
     /**
      * @var string
      */
-    public $DBClusterId;
-
-    /**
-     * @var string
-     */
-    public $backupType;
-
-    /**
-     * @var string
-     */
-    public $backupStartTime;
-
-    /**
-     * @var int
-     */
-    public $backupSize;
-
-    /**
-     * @var string
-     */
     public $backupEndTime;
 
     /**
@@ -42,14 +22,34 @@ class backup extends Model
      * @var string
      */
     public $backupMethod;
+
+    /**
+     * @var int
+     */
+    public $backupSize;
+
+    /**
+     * @var string
+     */
+    public $backupStartTime;
+
+    /**
+     * @var string
+     */
+    public $backupType;
+
+    /**
+     * @var string
+     */
+    public $DBClusterId;
     protected $_name = [
-        'DBClusterId'     => 'DBClusterId',
-        'backupType'      => 'BackupType',
-        'backupStartTime' => 'BackupStartTime',
-        'backupSize'      => 'BackupSize',
         'backupEndTime'   => 'BackupEndTime',
         'backupId'        => 'BackupId',
         'backupMethod'    => 'BackupMethod',
+        'backupSize'      => 'BackupSize',
+        'backupStartTime' => 'BackupStartTime',
+        'backupType'      => 'BackupType',
+        'DBClusterId'     => 'DBClusterId',
     ];
 
     public function validate()
@@ -59,18 +59,6 @@ class backup extends Model
     public function toMap()
     {
         $res = [];
-        if (null !== $this->DBClusterId) {
-            $res['DBClusterId'] = $this->DBClusterId;
-        }
-        if (null !== $this->backupType) {
-            $res['BackupType'] = $this->backupType;
-        }
-        if (null !== $this->backupStartTime) {
-            $res['BackupStartTime'] = $this->backupStartTime;
-        }
-        if (null !== $this->backupSize) {
-            $res['BackupSize'] = $this->backupSize;
-        }
         if (null !== $this->backupEndTime) {
             $res['BackupEndTime'] = $this->backupEndTime;
         }
@@ -79,6 +67,18 @@ class backup extends Model
         }
         if (null !== $this->backupMethod) {
             $res['BackupMethod'] = $this->backupMethod;
+        }
+        if (null !== $this->backupSize) {
+            $res['BackupSize'] = $this->backupSize;
+        }
+        if (null !== $this->backupStartTime) {
+            $res['BackupStartTime'] = $this->backupStartTime;
+        }
+        if (null !== $this->backupType) {
+            $res['BackupType'] = $this->backupType;
+        }
+        if (null !== $this->DBClusterId) {
+            $res['DBClusterId'] = $this->DBClusterId;
         }
 
         return $res;
@@ -92,18 +92,6 @@ class backup extends Model
     public static function fromMap($map = [])
     {
         $model = new self();
-        if (isset($map['DBClusterId'])) {
-            $model->DBClusterId = $map['DBClusterId'];
-        }
-        if (isset($map['BackupType'])) {
-            $model->backupType = $map['BackupType'];
-        }
-        if (isset($map['BackupStartTime'])) {
-            $model->backupStartTime = $map['BackupStartTime'];
-        }
-        if (isset($map['BackupSize'])) {
-            $model->backupSize = $map['BackupSize'];
-        }
         if (isset($map['BackupEndTime'])) {
             $model->backupEndTime = $map['BackupEndTime'];
         }
@@ -112,6 +100,18 @@ class backup extends Model
         }
         if (isset($map['BackupMethod'])) {
             $model->backupMethod = $map['BackupMethod'];
+        }
+        if (isset($map['BackupSize'])) {
+            $model->backupSize = $map['BackupSize'];
+        }
+        if (isset($map['BackupStartTime'])) {
+            $model->backupStartTime = $map['BackupStartTime'];
+        }
+        if (isset($map['BackupType'])) {
+            $model->backupType = $map['BackupType'];
+        }
+        if (isset($map['DBClusterId'])) {
+            $model->DBClusterId = $map['DBClusterId'];
         }
 
         return $model;

@@ -11,20 +11,20 @@ class ResetAccountPasswordResponseBody extends Model
     /**
      * @var string
      */
-    public $requestId;
+    public $DBClusterId;
 
     /**
      * @var string
      */
-    public $DBClusterId;
+    public $requestId;
 
     /**
      * @var int
      */
     public $taskId;
     protected $_name = [
-        'requestId'   => 'RequestId',
         'DBClusterId' => 'DBClusterId',
+        'requestId'   => 'RequestId',
         'taskId'      => 'TaskId',
     ];
 
@@ -35,11 +35,11 @@ class ResetAccountPasswordResponseBody extends Model
     public function toMap()
     {
         $res = [];
-        if (null !== $this->requestId) {
-            $res['RequestId'] = $this->requestId;
-        }
         if (null !== $this->DBClusterId) {
             $res['DBClusterId'] = $this->DBClusterId;
+        }
+        if (null !== $this->requestId) {
+            $res['RequestId'] = $this->requestId;
         }
         if (null !== $this->taskId) {
             $res['TaskId'] = $this->taskId;
@@ -56,11 +56,11 @@ class ResetAccountPasswordResponseBody extends Model
     public static function fromMap($map = [])
     {
         $model = new self();
-        if (isset($map['RequestId'])) {
-            $model->requestId = $map['RequestId'];
-        }
         if (isset($map['DBClusterId'])) {
             $model->DBClusterId = $map['DBClusterId'];
+        }
+        if (isset($map['RequestId'])) {
+            $model->requestId = $map['RequestId'];
         }
         if (isset($map['TaskId'])) {
             $model->taskId = $map['TaskId'];

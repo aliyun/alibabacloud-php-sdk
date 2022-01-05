@@ -20,19 +20,19 @@ class supportedFlexibleResource extends Model
     public $supportedComputeResource;
 
     /**
-     * @var string[]
-     */
-    public $supportedStorageResource;
-
-    /**
      * @var supportedElasticIOResource
      */
     public $supportedElasticIOResource;
+
+    /**
+     * @var string[]
+     */
+    public $supportedStorageResource;
     protected $_name = [
         'storageType'                => 'StorageType',
         'supportedComputeResource'   => 'SupportedComputeResource',
-        'supportedStorageResource'   => 'SupportedStorageResource',
         'supportedElasticIOResource' => 'SupportedElasticIOResource',
+        'supportedStorageResource'   => 'SupportedStorageResource',
     ];
 
     public function validate()
@@ -48,11 +48,11 @@ class supportedFlexibleResource extends Model
         if (null !== $this->supportedComputeResource) {
             $res['SupportedComputeResource'] = $this->supportedComputeResource;
         }
-        if (null !== $this->supportedStorageResource) {
-            $res['SupportedStorageResource'] = $this->supportedStorageResource;
-        }
         if (null !== $this->supportedElasticIOResource) {
             $res['SupportedElasticIOResource'] = null !== $this->supportedElasticIOResource ? $this->supportedElasticIOResource->toMap() : null;
+        }
+        if (null !== $this->supportedStorageResource) {
+            $res['SupportedStorageResource'] = $this->supportedStorageResource;
         }
 
         return $res;
@@ -74,13 +74,13 @@ class supportedFlexibleResource extends Model
                 $model->supportedComputeResource = $map['SupportedComputeResource'];
             }
         }
+        if (isset($map['SupportedElasticIOResource'])) {
+            $model->supportedElasticIOResource = supportedElasticIOResource::fromMap($map['SupportedElasticIOResource']);
+        }
         if (isset($map['SupportedStorageResource'])) {
             if (!empty($map['SupportedStorageResource'])) {
                 $model->supportedStorageResource = $map['SupportedStorageResource'];
             }
-        }
-        if (isset($map['SupportedElasticIOResource'])) {
-            $model->supportedElasticIOResource = supportedElasticIOResource::fromMap($map['SupportedElasticIOResource']);
         }
 
         return $model;

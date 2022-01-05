@@ -9,11 +9,6 @@ use AlibabaCloud\Tea\Model;
 class records extends Model
 {
     /**
-     * @var string
-     */
-    public $status;
-
-    /**
      * @var int
      */
     public $downloadId;
@@ -26,18 +21,23 @@ class records extends Model
     /**
      * @var string
      */
-    public $url;
+    public $fileName;
 
     /**
      * @var string
      */
-    public $fileName;
+    public $status;
+
+    /**
+     * @var string
+     */
+    public $url;
     protected $_name = [
-        'status'       => 'Status',
         'downloadId'   => 'DownloadId',
         'exceptionMsg' => 'ExceptionMsg',
-        'url'          => 'Url',
         'fileName'     => 'FileName',
+        'status'       => 'Status',
+        'url'          => 'Url',
     ];
 
     public function validate()
@@ -47,20 +47,20 @@ class records extends Model
     public function toMap()
     {
         $res = [];
-        if (null !== $this->status) {
-            $res['Status'] = $this->status;
-        }
         if (null !== $this->downloadId) {
             $res['DownloadId'] = $this->downloadId;
         }
         if (null !== $this->exceptionMsg) {
             $res['ExceptionMsg'] = $this->exceptionMsg;
         }
-        if (null !== $this->url) {
-            $res['Url'] = $this->url;
-        }
         if (null !== $this->fileName) {
             $res['FileName'] = $this->fileName;
+        }
+        if (null !== $this->status) {
+            $res['Status'] = $this->status;
+        }
+        if (null !== $this->url) {
+            $res['Url'] = $this->url;
         }
 
         return $res;
@@ -74,20 +74,20 @@ class records extends Model
     public static function fromMap($map = [])
     {
         $model = new self();
-        if (isset($map['Status'])) {
-            $model->status = $map['Status'];
-        }
         if (isset($map['DownloadId'])) {
             $model->downloadId = $map['DownloadId'];
         }
         if (isset($map['ExceptionMsg'])) {
             $model->exceptionMsg = $map['ExceptionMsg'];
         }
-        if (isset($map['Url'])) {
-            $model->url = $map['Url'];
-        }
         if (isset($map['FileName'])) {
             $model->fileName = $map['FileName'];
+        }
+        if (isset($map['Status'])) {
+            $model->status = $map['Status'];
+        }
+        if (isset($map['Url'])) {
+            $model->url = $map['Url'];
         }
 
         return $model;

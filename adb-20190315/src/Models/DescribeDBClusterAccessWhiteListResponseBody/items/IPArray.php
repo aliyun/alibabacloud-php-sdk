@@ -11,20 +11,20 @@ class IPArray extends Model
     /**
      * @var string
      */
-    public $DBClusterIPArrayName;
+    public $DBClusterIPArrayAttribute;
 
     /**
      * @var string
      */
-    public $DBClusterIPArrayAttribute;
+    public $DBClusterIPArrayName;
 
     /**
      * @var string
      */
     public $securityIPList;
     protected $_name = [
-        'DBClusterIPArrayName'      => 'DBClusterIPArrayName',
         'DBClusterIPArrayAttribute' => 'DBClusterIPArrayAttribute',
+        'DBClusterIPArrayName'      => 'DBClusterIPArrayName',
         'securityIPList'            => 'SecurityIPList',
     ];
 
@@ -35,11 +35,11 @@ class IPArray extends Model
     public function toMap()
     {
         $res = [];
-        if (null !== $this->DBClusterIPArrayName) {
-            $res['DBClusterIPArrayName'] = $this->DBClusterIPArrayName;
-        }
         if (null !== $this->DBClusterIPArrayAttribute) {
             $res['DBClusterIPArrayAttribute'] = $this->DBClusterIPArrayAttribute;
+        }
+        if (null !== $this->DBClusterIPArrayName) {
+            $res['DBClusterIPArrayName'] = $this->DBClusterIPArrayName;
         }
         if (null !== $this->securityIPList) {
             $res['SecurityIPList'] = $this->securityIPList;
@@ -56,11 +56,11 @@ class IPArray extends Model
     public static function fromMap($map = [])
     {
         $model = new self();
-        if (isset($map['DBClusterIPArrayName'])) {
-            $model->DBClusterIPArrayName = $map['DBClusterIPArrayName'];
-        }
         if (isset($map['DBClusterIPArrayAttribute'])) {
             $model->DBClusterIPArrayAttribute = $map['DBClusterIPArrayAttribute'];
+        }
+        if (isset($map['DBClusterIPArrayName'])) {
+            $model->DBClusterIPArrayName = $map['DBClusterIPArrayName'];
         }
         if (isset($map['SecurityIPList'])) {
             $model->securityIPList = $map['SecurityIPList'];

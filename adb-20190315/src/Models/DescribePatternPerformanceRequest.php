@@ -16,12 +16,12 @@ class DescribePatternPerformanceRequest extends Model
     /**
      * @var string
      */
-    public $startTime;
+    public $endTime;
 
     /**
      * @var string
      */
-    public $endTime;
+    public $patternId;
 
     /**
      * @var string
@@ -29,21 +29,15 @@ class DescribePatternPerformanceRequest extends Model
     public $regionId;
 
     /**
-     * @var int
-     */
-    public $patternId;
-
-    /**
      * @var string
      */
-    public $key;
+    public $startTime;
     protected $_name = [
         'DBClusterId' => 'DBClusterId',
-        'startTime'   => 'StartTime',
         'endTime'     => 'EndTime',
-        'regionId'    => 'RegionId',
         'patternId'   => 'PatternId',
-        'key'         => 'Key',
+        'regionId'    => 'RegionId',
+        'startTime'   => 'StartTime',
     ];
 
     public function validate()
@@ -56,20 +50,17 @@ class DescribePatternPerformanceRequest extends Model
         if (null !== $this->DBClusterId) {
             $res['DBClusterId'] = $this->DBClusterId;
         }
-        if (null !== $this->startTime) {
-            $res['StartTime'] = $this->startTime;
-        }
         if (null !== $this->endTime) {
             $res['EndTime'] = $this->endTime;
-        }
-        if (null !== $this->regionId) {
-            $res['RegionId'] = $this->regionId;
         }
         if (null !== $this->patternId) {
             $res['PatternId'] = $this->patternId;
         }
-        if (null !== $this->key) {
-            $res['Key'] = $this->key;
+        if (null !== $this->regionId) {
+            $res['RegionId'] = $this->regionId;
+        }
+        if (null !== $this->startTime) {
+            $res['StartTime'] = $this->startTime;
         }
 
         return $res;
@@ -86,20 +77,17 @@ class DescribePatternPerformanceRequest extends Model
         if (isset($map['DBClusterId'])) {
             $model->DBClusterId = $map['DBClusterId'];
         }
-        if (isset($map['StartTime'])) {
-            $model->startTime = $map['StartTime'];
-        }
         if (isset($map['EndTime'])) {
             $model->endTime = $map['EndTime'];
-        }
-        if (isset($map['RegionId'])) {
-            $model->regionId = $map['RegionId'];
         }
         if (isset($map['PatternId'])) {
             $model->patternId = $map['PatternId'];
         }
-        if (isset($map['Key'])) {
-            $model->key = $map['Key'];
+        if (isset($map['RegionId'])) {
+            $model->regionId = $map['RegionId'];
+        }
+        if (isset($map['StartTime'])) {
+            $model->startTime = $map['StartTime'];
         }
 
         return $model;

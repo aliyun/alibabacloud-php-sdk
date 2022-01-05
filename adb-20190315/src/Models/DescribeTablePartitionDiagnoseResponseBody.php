@@ -10,19 +10,14 @@ use AlibabaCloud\Tea\Model;
 class DescribeTablePartitionDiagnoseResponseBody extends Model
 {
     /**
-     * @var int
-     */
-    public $totalCount;
-
-    /**
      * @var string
      */
-    public $requestId;
+    public $DBClusterId;
 
     /**
-     * @var int
+     * @var items[]
      */
-    public $pageSize;
+    public $items;
 
     /**
      * @var int
@@ -30,9 +25,14 @@ class DescribeTablePartitionDiagnoseResponseBody extends Model
     public $pageNumber;
 
     /**
+     * @var int
+     */
+    public $pageSize;
+
+    /**
      * @var string
      */
-    public $DBClusterId;
+    public $requestId;
 
     /**
      * @var int
@@ -45,18 +45,18 @@ class DescribeTablePartitionDiagnoseResponseBody extends Model
     public $suggestMinRecordsPerPartition;
 
     /**
-     * @var items[]
+     * @var int
      */
-    public $items;
+    public $totalCount;
     protected $_name = [
-        'totalCount'                    => 'TotalCount',
-        'requestId'                     => 'RequestId',
-        'pageSize'                      => 'PageSize',
-        'pageNumber'                    => 'PageNumber',
         'DBClusterId'                   => 'DBClusterId',
+        'items'                         => 'Items',
+        'pageNumber'                    => 'PageNumber',
+        'pageSize'                      => 'PageSize',
+        'requestId'                     => 'RequestId',
         'suggestMaxRecordsPerPartition' => 'SuggestMaxRecordsPerPartition',
         'suggestMinRecordsPerPartition' => 'SuggestMinRecordsPerPartition',
-        'items'                         => 'Items',
+        'totalCount'                    => 'TotalCount',
     ];
 
     public function validate()
@@ -66,26 +66,8 @@ class DescribeTablePartitionDiagnoseResponseBody extends Model
     public function toMap()
     {
         $res = [];
-        if (null !== $this->totalCount) {
-            $res['TotalCount'] = $this->totalCount;
-        }
-        if (null !== $this->requestId) {
-            $res['RequestId'] = $this->requestId;
-        }
-        if (null !== $this->pageSize) {
-            $res['PageSize'] = $this->pageSize;
-        }
-        if (null !== $this->pageNumber) {
-            $res['PageNumber'] = $this->pageNumber;
-        }
         if (null !== $this->DBClusterId) {
             $res['DBClusterId'] = $this->DBClusterId;
-        }
-        if (null !== $this->suggestMaxRecordsPerPartition) {
-            $res['SuggestMaxRecordsPerPartition'] = $this->suggestMaxRecordsPerPartition;
-        }
-        if (null !== $this->suggestMinRecordsPerPartition) {
-            $res['SuggestMinRecordsPerPartition'] = $this->suggestMinRecordsPerPartition;
         }
         if (null !== $this->items) {
             $res['Items'] = [];
@@ -95,6 +77,24 @@ class DescribeTablePartitionDiagnoseResponseBody extends Model
                     $res['Items'][$n++] = null !== $item ? $item->toMap() : $item;
                 }
             }
+        }
+        if (null !== $this->pageNumber) {
+            $res['PageNumber'] = $this->pageNumber;
+        }
+        if (null !== $this->pageSize) {
+            $res['PageSize'] = $this->pageSize;
+        }
+        if (null !== $this->requestId) {
+            $res['RequestId'] = $this->requestId;
+        }
+        if (null !== $this->suggestMaxRecordsPerPartition) {
+            $res['SuggestMaxRecordsPerPartition'] = $this->suggestMaxRecordsPerPartition;
+        }
+        if (null !== $this->suggestMinRecordsPerPartition) {
+            $res['SuggestMinRecordsPerPartition'] = $this->suggestMinRecordsPerPartition;
+        }
+        if (null !== $this->totalCount) {
+            $res['TotalCount'] = $this->totalCount;
         }
 
         return $res;
@@ -108,26 +108,8 @@ class DescribeTablePartitionDiagnoseResponseBody extends Model
     public static function fromMap($map = [])
     {
         $model = new self();
-        if (isset($map['TotalCount'])) {
-            $model->totalCount = $map['TotalCount'];
-        }
-        if (isset($map['RequestId'])) {
-            $model->requestId = $map['RequestId'];
-        }
-        if (isset($map['PageSize'])) {
-            $model->pageSize = $map['PageSize'];
-        }
-        if (isset($map['PageNumber'])) {
-            $model->pageNumber = $map['PageNumber'];
-        }
         if (isset($map['DBClusterId'])) {
             $model->DBClusterId = $map['DBClusterId'];
-        }
-        if (isset($map['SuggestMaxRecordsPerPartition'])) {
-            $model->suggestMaxRecordsPerPartition = $map['SuggestMaxRecordsPerPartition'];
-        }
-        if (isset($map['SuggestMinRecordsPerPartition'])) {
-            $model->suggestMinRecordsPerPartition = $map['SuggestMinRecordsPerPartition'];
         }
         if (isset($map['Items'])) {
             if (!empty($map['Items'])) {
@@ -137,6 +119,24 @@ class DescribeTablePartitionDiagnoseResponseBody extends Model
                     $model->items[$n++] = null !== $item ? items::fromMap($item) : $item;
                 }
             }
+        }
+        if (isset($map['PageNumber'])) {
+            $model->pageNumber = $map['PageNumber'];
+        }
+        if (isset($map['PageSize'])) {
+            $model->pageSize = $map['PageSize'];
+        }
+        if (isset($map['RequestId'])) {
+            $model->requestId = $map['RequestId'];
+        }
+        if (isset($map['SuggestMaxRecordsPerPartition'])) {
+            $model->suggestMaxRecordsPerPartition = $map['SuggestMaxRecordsPerPartition'];
+        }
+        if (isset($map['SuggestMinRecordsPerPartition'])) {
+            $model->suggestMinRecordsPerPartition = $map['SuggestMinRecordsPerPartition'];
+        }
+        if (isset($map['TotalCount'])) {
+            $model->totalCount = $map['TotalCount'];
         }
 
         return $model;

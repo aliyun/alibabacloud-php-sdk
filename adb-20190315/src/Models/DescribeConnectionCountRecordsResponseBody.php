@@ -11,9 +11,9 @@ use AlibabaCloud\Tea\Model;
 class DescribeConnectionCountRecordsResponseBody extends Model
 {
     /**
-     * @var string
+     * @var accessIpRecords[]
      */
-    public $requestId;
+    public $accessIpRecords;
 
     /**
      * @var string
@@ -21,18 +21,18 @@ class DescribeConnectionCountRecordsResponseBody extends Model
     public $DBClusterId;
 
     /**
-     * @var accessIpRecords[]
+     * @var string
      */
-    public $accessIpRecords;
+    public $requestId;
 
     /**
      * @var userRecords[]
      */
     public $userRecords;
     protected $_name = [
-        'requestId'       => 'RequestId',
-        'DBClusterId'     => 'DBClusterId',
         'accessIpRecords' => 'AccessIpRecords',
+        'DBClusterId'     => 'DBClusterId',
+        'requestId'       => 'RequestId',
         'userRecords'     => 'UserRecords',
     ];
 
@@ -43,12 +43,6 @@ class DescribeConnectionCountRecordsResponseBody extends Model
     public function toMap()
     {
         $res = [];
-        if (null !== $this->requestId) {
-            $res['RequestId'] = $this->requestId;
-        }
-        if (null !== $this->DBClusterId) {
-            $res['DBClusterId'] = $this->DBClusterId;
-        }
         if (null !== $this->accessIpRecords) {
             $res['AccessIpRecords'] = [];
             if (null !== $this->accessIpRecords && \is_array($this->accessIpRecords)) {
@@ -57,6 +51,12 @@ class DescribeConnectionCountRecordsResponseBody extends Model
                     $res['AccessIpRecords'][$n++] = null !== $item ? $item->toMap() : $item;
                 }
             }
+        }
+        if (null !== $this->DBClusterId) {
+            $res['DBClusterId'] = $this->DBClusterId;
+        }
+        if (null !== $this->requestId) {
+            $res['RequestId'] = $this->requestId;
         }
         if (null !== $this->userRecords) {
             $res['UserRecords'] = [];
@@ -79,12 +79,6 @@ class DescribeConnectionCountRecordsResponseBody extends Model
     public static function fromMap($map = [])
     {
         $model = new self();
-        if (isset($map['RequestId'])) {
-            $model->requestId = $map['RequestId'];
-        }
-        if (isset($map['DBClusterId'])) {
-            $model->DBClusterId = $map['DBClusterId'];
-        }
         if (isset($map['AccessIpRecords'])) {
             if (!empty($map['AccessIpRecords'])) {
                 $model->accessIpRecords = [];
@@ -93,6 +87,12 @@ class DescribeConnectionCountRecordsResponseBody extends Model
                     $model->accessIpRecords[$n++] = null !== $item ? accessIpRecords::fromMap($item) : $item;
                 }
             }
+        }
+        if (isset($map['DBClusterId'])) {
+            $model->DBClusterId = $map['DBClusterId'];
+        }
+        if (isset($map['RequestId'])) {
+            $model->requestId = $map['RequestId'];
         }
         if (isset($map['UserRecords'])) {
             if (!empty($map['UserRecords'])) {

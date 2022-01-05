@@ -10,17 +10,17 @@ use AlibabaCloud\Tea\Model;
 class availableZoneList extends Model
 {
     /**
-     * @var string
-     */
-    public $zoneId;
-
-    /**
      * @var supportedMode[]
      */
     public $supportedMode;
+
+    /**
+     * @var string
+     */
+    public $zoneId;
     protected $_name = [
-        'zoneId'        => 'ZoneId',
         'supportedMode' => 'SupportedMode',
+        'zoneId'        => 'ZoneId',
     ];
 
     public function validate()
@@ -30,9 +30,6 @@ class availableZoneList extends Model
     public function toMap()
     {
         $res = [];
-        if (null !== $this->zoneId) {
-            $res['ZoneId'] = $this->zoneId;
-        }
         if (null !== $this->supportedMode) {
             $res['SupportedMode'] = [];
             if (null !== $this->supportedMode && \is_array($this->supportedMode)) {
@@ -41,6 +38,9 @@ class availableZoneList extends Model
                     $res['SupportedMode'][$n++] = null !== $item ? $item->toMap() : $item;
                 }
             }
+        }
+        if (null !== $this->zoneId) {
+            $res['ZoneId'] = $this->zoneId;
         }
 
         return $res;
@@ -54,9 +54,6 @@ class availableZoneList extends Model
     public static function fromMap($map = [])
     {
         $model = new self();
-        if (isset($map['ZoneId'])) {
-            $model->zoneId = $map['ZoneId'];
-        }
         if (isset($map['SupportedMode'])) {
             if (!empty($map['SupportedMode'])) {
                 $model->supportedMode = [];
@@ -65,6 +62,9 @@ class availableZoneList extends Model
                     $model->supportedMode[$n++] = null !== $item ? supportedMode::fromMap($item) : $item;
                 }
             }
+        }
+        if (isset($map['ZoneId'])) {
+            $model->zoneId = $map['ZoneId'];
         }
 
         return $model;

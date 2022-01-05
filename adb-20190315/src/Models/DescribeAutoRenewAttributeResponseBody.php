@@ -10,9 +10,9 @@ use AlibabaCloud\Tea\Model;
 class DescribeAutoRenewAttributeResponseBody extends Model
 {
     /**
-     * @var string
+     * @var items
      */
-    public $requestId;
+    public $items;
 
     /**
      * @var int
@@ -25,20 +25,20 @@ class DescribeAutoRenewAttributeResponseBody extends Model
     public $pageRecordCount;
 
     /**
+     * @var string
+     */
+    public $requestId;
+
+    /**
      * @var int
      */
     public $totalRecordCount;
-
-    /**
-     * @var items
-     */
-    public $items;
     protected $_name = [
-        'requestId'        => 'RequestId',
+        'items'            => 'Items',
         'pageNumber'       => 'PageNumber',
         'pageRecordCount'  => 'PageRecordCount',
+        'requestId'        => 'RequestId',
         'totalRecordCount' => 'TotalRecordCount',
-        'items'            => 'Items',
     ];
 
     public function validate()
@@ -48,8 +48,8 @@ class DescribeAutoRenewAttributeResponseBody extends Model
     public function toMap()
     {
         $res = [];
-        if (null !== $this->requestId) {
-            $res['RequestId'] = $this->requestId;
+        if (null !== $this->items) {
+            $res['Items'] = null !== $this->items ? $this->items->toMap() : null;
         }
         if (null !== $this->pageNumber) {
             $res['PageNumber'] = $this->pageNumber;
@@ -57,11 +57,11 @@ class DescribeAutoRenewAttributeResponseBody extends Model
         if (null !== $this->pageRecordCount) {
             $res['PageRecordCount'] = $this->pageRecordCount;
         }
+        if (null !== $this->requestId) {
+            $res['RequestId'] = $this->requestId;
+        }
         if (null !== $this->totalRecordCount) {
             $res['TotalRecordCount'] = $this->totalRecordCount;
-        }
-        if (null !== $this->items) {
-            $res['Items'] = null !== $this->items ? $this->items->toMap() : null;
         }
 
         return $res;
@@ -75,8 +75,8 @@ class DescribeAutoRenewAttributeResponseBody extends Model
     public static function fromMap($map = [])
     {
         $model = new self();
-        if (isset($map['RequestId'])) {
-            $model->requestId = $map['RequestId'];
+        if (isset($map['Items'])) {
+            $model->items = items::fromMap($map['Items']);
         }
         if (isset($map['PageNumber'])) {
             $model->pageNumber = $map['PageNumber'];
@@ -84,11 +84,11 @@ class DescribeAutoRenewAttributeResponseBody extends Model
         if (isset($map['PageRecordCount'])) {
             $model->pageRecordCount = $map['PageRecordCount'];
         }
+        if (isset($map['RequestId'])) {
+            $model->requestId = $map['RequestId'];
+        }
         if (isset($map['TotalRecordCount'])) {
             $model->totalRecordCount = $map['TotalRecordCount'];
-        }
-        if (isset($map['Items'])) {
-            $model->items = items::fromMap($map['Items']);
         }
 
         return $model;

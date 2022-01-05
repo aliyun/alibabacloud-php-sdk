@@ -11,15 +11,15 @@ class shard extends Model
     /**
      * @var int
      */
-    public $size;
+    public $id;
 
     /**
      * @var int
      */
-    public $id;
+    public $size;
     protected $_name = [
-        'size' => 'Size',
         'id'   => 'Id',
+        'size' => 'Size',
     ];
 
     public function validate()
@@ -29,11 +29,11 @@ class shard extends Model
     public function toMap()
     {
         $res = [];
-        if (null !== $this->size) {
-            $res['Size'] = $this->size;
-        }
         if (null !== $this->id) {
             $res['Id'] = $this->id;
+        }
+        if (null !== $this->size) {
+            $res['Size'] = $this->size;
         }
 
         return $res;
@@ -47,11 +47,11 @@ class shard extends Model
     public static function fromMap($map = [])
     {
         $model = new self();
-        if (isset($map['Size'])) {
-            $model->size = $map['Size'];
-        }
         if (isset($map['Id'])) {
             $model->id = $map['Id'];
+        }
+        if (isset($map['Size'])) {
+            $model->size = $map['Size'];
         }
 
         return $model;

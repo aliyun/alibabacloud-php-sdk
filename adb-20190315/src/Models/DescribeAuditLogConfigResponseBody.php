@@ -16,16 +16,16 @@ class DescribeAuditLogConfigResponseBody extends Model
     /**
      * @var string
      */
-    public $requestId;
+    public $DBClusterId;
 
     /**
      * @var string
      */
-    public $DBClusterId;
+    public $requestId;
     protected $_name = [
         'auditLogStatus' => 'AuditLogStatus',
-        'requestId'      => 'RequestId',
         'DBClusterId'    => 'DBClusterId',
+        'requestId'      => 'RequestId',
     ];
 
     public function validate()
@@ -38,11 +38,11 @@ class DescribeAuditLogConfigResponseBody extends Model
         if (null !== $this->auditLogStatus) {
             $res['AuditLogStatus'] = $this->auditLogStatus;
         }
-        if (null !== $this->requestId) {
-            $res['RequestId'] = $this->requestId;
-        }
         if (null !== $this->DBClusterId) {
             $res['DBClusterId'] = $this->DBClusterId;
+        }
+        if (null !== $this->requestId) {
+            $res['RequestId'] = $this->requestId;
         }
 
         return $res;
@@ -59,11 +59,11 @@ class DescribeAuditLogConfigResponseBody extends Model
         if (isset($map['AuditLogStatus'])) {
             $model->auditLogStatus = $map['AuditLogStatus'];
         }
-        if (isset($map['RequestId'])) {
-            $model->requestId = $map['RequestId'];
-        }
         if (isset($map['DBClusterId'])) {
             $model->DBClusterId = $map['DBClusterId'];
+        }
+        if (isset($map['RequestId'])) {
+            $model->requestId = $map['RequestId'];
         }
 
         return $model;

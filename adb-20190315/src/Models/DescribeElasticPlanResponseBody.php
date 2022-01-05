@@ -10,17 +10,17 @@ use AlibabaCloud\Tea\Model;
 class DescribeElasticPlanResponseBody extends Model
 {
     /**
-     * @var string
-     */
-    public $requestId;
-
-    /**
      * @var elasticPlanList[]
      */
     public $elasticPlanList;
+
+    /**
+     * @var string
+     */
+    public $requestId;
     protected $_name = [
-        'requestId'       => 'RequestId',
         'elasticPlanList' => 'ElasticPlanList',
+        'requestId'       => 'RequestId',
     ];
 
     public function validate()
@@ -30,9 +30,6 @@ class DescribeElasticPlanResponseBody extends Model
     public function toMap()
     {
         $res = [];
-        if (null !== $this->requestId) {
-            $res['RequestId'] = $this->requestId;
-        }
         if (null !== $this->elasticPlanList) {
             $res['ElasticPlanList'] = [];
             if (null !== $this->elasticPlanList && \is_array($this->elasticPlanList)) {
@@ -41,6 +38,9 @@ class DescribeElasticPlanResponseBody extends Model
                     $res['ElasticPlanList'][$n++] = null !== $item ? $item->toMap() : $item;
                 }
             }
+        }
+        if (null !== $this->requestId) {
+            $res['RequestId'] = $this->requestId;
         }
 
         return $res;
@@ -54,9 +54,6 @@ class DescribeElasticPlanResponseBody extends Model
     public static function fromMap($map = [])
     {
         $model = new self();
-        if (isset($map['RequestId'])) {
-            $model->requestId = $map['RequestId'];
-        }
         if (isset($map['ElasticPlanList'])) {
             if (!empty($map['ElasticPlanList'])) {
                 $model->elasticPlanList = [];
@@ -65,6 +62,9 @@ class DescribeElasticPlanResponseBody extends Model
                     $model->elasticPlanList[$n++] = null !== $item ? elasticPlanList::fromMap($item) : $item;
                 }
             }
+        }
+        if (isset($map['RequestId'])) {
+            $model->requestId = $map['RequestId'];
         }
 
         return $model;

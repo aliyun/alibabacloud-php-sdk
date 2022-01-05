@@ -15,18 +15,18 @@ class performances extends Model
     public $key;
 
     /**
-     * @var string
-     */
-    public $unit;
-
-    /**
      * @var series[]
      */
     public $series;
+
+    /**
+     * @var string
+     */
+    public $unit;
     protected $_name = [
         'key'    => 'Key',
-        'unit'   => 'Unit',
         'series' => 'Series',
+        'unit'   => 'Unit',
     ];
 
     public function validate()
@@ -39,9 +39,6 @@ class performances extends Model
         if (null !== $this->key) {
             $res['Key'] = $this->key;
         }
-        if (null !== $this->unit) {
-            $res['Unit'] = $this->unit;
-        }
         if (null !== $this->series) {
             $res['Series'] = [];
             if (null !== $this->series && \is_array($this->series)) {
@@ -50,6 +47,9 @@ class performances extends Model
                     $res['Series'][$n++] = null !== $item ? $item->toMap() : $item;
                 }
             }
+        }
+        if (null !== $this->unit) {
+            $res['Unit'] = $this->unit;
         }
 
         return $res;
@@ -66,9 +66,6 @@ class performances extends Model
         if (isset($map['Key'])) {
             $model->key = $map['Key'];
         }
-        if (isset($map['Unit'])) {
-            $model->unit = $map['Unit'];
-        }
         if (isset($map['Series'])) {
             if (!empty($map['Series'])) {
                 $model->series = [];
@@ -77,6 +74,9 @@ class performances extends Model
                     $model->series[$n++] = null !== $item ? series::fromMap($item) : $item;
                 }
             }
+        }
+        if (isset($map['Unit'])) {
+            $model->unit = $map['Unit'];
         }
 
         return $model;

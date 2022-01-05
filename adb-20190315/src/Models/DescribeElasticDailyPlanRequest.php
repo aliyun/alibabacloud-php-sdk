@@ -9,6 +9,31 @@ use AlibabaCloud\Tea\Model;
 class DescribeElasticDailyPlanRequest extends Model
 {
     /**
+     * @var string
+     */
+    public $DBClusterId;
+
+    /**
+     * @var string
+     */
+    public $elasticDailyPlanDay;
+
+    /**
+     * @var string
+     */
+    public $elasticDailyPlanStatusList;
+
+    /**
+     * @var string
+     */
+    public $elasticPlanName;
+
+    /**
+     * @var string
+     */
+    public $ownerAccount;
+
+    /**
      * @var int
      */
     public $ownerId;
@@ -26,42 +51,17 @@ class DescribeElasticDailyPlanRequest extends Model
     /**
      * @var string
      */
-    public $ownerAccount;
-
-    /**
-     * @var string
-     */
-    public $DBClusterId;
-
-    /**
-     * @var string
-     */
-    public $elasticPlanName;
-
-    /**
-     * @var string
-     */
     public $resourcePoolName;
-
-    /**
-     * @var string
-     */
-    public $elasticDailyPlanDay;
-
-    /**
-     * @var string
-     */
-    public $elasticDailyPlanStatusList;
     protected $_name = [
+        'DBClusterId'                => 'DBClusterId',
+        'elasticDailyPlanDay'        => 'ElasticDailyPlanDay',
+        'elasticDailyPlanStatusList' => 'ElasticDailyPlanStatusList',
+        'elasticPlanName'            => 'ElasticPlanName',
+        'ownerAccount'               => 'OwnerAccount',
         'ownerId'                    => 'OwnerId',
         'resourceOwnerAccount'       => 'ResourceOwnerAccount',
         'resourceOwnerId'            => 'ResourceOwnerId',
-        'ownerAccount'               => 'OwnerAccount',
-        'DBClusterId'                => 'DBClusterId',
-        'elasticPlanName'            => 'ElasticPlanName',
         'resourcePoolName'           => 'ResourcePoolName',
-        'elasticDailyPlanDay'        => 'ElasticDailyPlanDay',
-        'elasticDailyPlanStatusList' => 'ElasticDailyPlanStatusList',
     ];
 
     public function validate()
@@ -71,6 +71,21 @@ class DescribeElasticDailyPlanRequest extends Model
     public function toMap()
     {
         $res = [];
+        if (null !== $this->DBClusterId) {
+            $res['DBClusterId'] = $this->DBClusterId;
+        }
+        if (null !== $this->elasticDailyPlanDay) {
+            $res['ElasticDailyPlanDay'] = $this->elasticDailyPlanDay;
+        }
+        if (null !== $this->elasticDailyPlanStatusList) {
+            $res['ElasticDailyPlanStatusList'] = $this->elasticDailyPlanStatusList;
+        }
+        if (null !== $this->elasticPlanName) {
+            $res['ElasticPlanName'] = $this->elasticPlanName;
+        }
+        if (null !== $this->ownerAccount) {
+            $res['OwnerAccount'] = $this->ownerAccount;
+        }
         if (null !== $this->ownerId) {
             $res['OwnerId'] = $this->ownerId;
         }
@@ -80,23 +95,8 @@ class DescribeElasticDailyPlanRequest extends Model
         if (null !== $this->resourceOwnerId) {
             $res['ResourceOwnerId'] = $this->resourceOwnerId;
         }
-        if (null !== $this->ownerAccount) {
-            $res['OwnerAccount'] = $this->ownerAccount;
-        }
-        if (null !== $this->DBClusterId) {
-            $res['DBClusterId'] = $this->DBClusterId;
-        }
-        if (null !== $this->elasticPlanName) {
-            $res['ElasticPlanName'] = $this->elasticPlanName;
-        }
         if (null !== $this->resourcePoolName) {
             $res['ResourcePoolName'] = $this->resourcePoolName;
-        }
-        if (null !== $this->elasticDailyPlanDay) {
-            $res['ElasticDailyPlanDay'] = $this->elasticDailyPlanDay;
-        }
-        if (null !== $this->elasticDailyPlanStatusList) {
-            $res['ElasticDailyPlanStatusList'] = $this->elasticDailyPlanStatusList;
         }
 
         return $res;
@@ -110,6 +110,21 @@ class DescribeElasticDailyPlanRequest extends Model
     public static function fromMap($map = [])
     {
         $model = new self();
+        if (isset($map['DBClusterId'])) {
+            $model->DBClusterId = $map['DBClusterId'];
+        }
+        if (isset($map['ElasticDailyPlanDay'])) {
+            $model->elasticDailyPlanDay = $map['ElasticDailyPlanDay'];
+        }
+        if (isset($map['ElasticDailyPlanStatusList'])) {
+            $model->elasticDailyPlanStatusList = $map['ElasticDailyPlanStatusList'];
+        }
+        if (isset($map['ElasticPlanName'])) {
+            $model->elasticPlanName = $map['ElasticPlanName'];
+        }
+        if (isset($map['OwnerAccount'])) {
+            $model->ownerAccount = $map['OwnerAccount'];
+        }
         if (isset($map['OwnerId'])) {
             $model->ownerId = $map['OwnerId'];
         }
@@ -119,23 +134,8 @@ class DescribeElasticDailyPlanRequest extends Model
         if (isset($map['ResourceOwnerId'])) {
             $model->resourceOwnerId = $map['ResourceOwnerId'];
         }
-        if (isset($map['OwnerAccount'])) {
-            $model->ownerAccount = $map['OwnerAccount'];
-        }
-        if (isset($map['DBClusterId'])) {
-            $model->DBClusterId = $map['DBClusterId'];
-        }
-        if (isset($map['ElasticPlanName'])) {
-            $model->elasticPlanName = $map['ElasticPlanName'];
-        }
         if (isset($map['ResourcePoolName'])) {
             $model->resourcePoolName = $map['ResourcePoolName'];
-        }
-        if (isset($map['ElasticDailyPlanDay'])) {
-            $model->elasticDailyPlanDay = $map['ElasticDailyPlanDay'];
-        }
-        if (isset($map['ElasticDailyPlanStatusList'])) {
-            $model->elasticDailyPlanStatusList = $map['ElasticDailyPlanStatusList'];
         }
 
         return $model;

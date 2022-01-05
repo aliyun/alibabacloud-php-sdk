@@ -9,34 +9,9 @@ use AlibabaCloud\Tea\Model;
 class elasticDailyPlanList extends Model
 {
     /**
-     * @var int
-     */
-    public $status;
-
-    /**
      * @var string
      */
     public $day;
-
-    /**
-     * @var string
-     */
-    public $resourcePoolName;
-
-    /**
-     * @var string
-     */
-    public $startTs;
-
-    /**
-     * @var string
-     */
-    public $planEndTs;
-
-    /**
-     * @var string
-     */
-    public $planStartTs;
 
     /**
      * @var int
@@ -51,17 +26,42 @@ class elasticDailyPlanList extends Model
     /**
      * @var string
      */
+    public $planEndTs;
+
+    /**
+     * @var string
+     */
     public $planName;
+
+    /**
+     * @var string
+     */
+    public $planStartTs;
+
+    /**
+     * @var string
+     */
+    public $resourcePoolName;
+
+    /**
+     * @var string
+     */
+    public $startTs;
+
+    /**
+     * @var int
+     */
+    public $status;
     protected $_name = [
-        'status'           => 'Status',
         'day'              => 'Day',
-        'resourcePoolName' => 'ResourcePoolName',
-        'startTs'          => 'StartTs',
-        'planEndTs'        => 'PlanEndTs',
-        'planStartTs'      => 'PlanStartTs',
         'elasticNodeNum'   => 'ElasticNodeNum',
         'endTs'            => 'EndTs',
+        'planEndTs'        => 'PlanEndTs',
         'planName'         => 'PlanName',
+        'planStartTs'      => 'PlanStartTs',
+        'resourcePoolName' => 'ResourcePoolName',
+        'startTs'          => 'StartTs',
+        'status'           => 'Status',
     ];
 
     public function validate()
@@ -71,23 +71,8 @@ class elasticDailyPlanList extends Model
     public function toMap()
     {
         $res = [];
-        if (null !== $this->status) {
-            $res['Status'] = $this->status;
-        }
         if (null !== $this->day) {
             $res['Day'] = $this->day;
-        }
-        if (null !== $this->resourcePoolName) {
-            $res['ResourcePoolName'] = $this->resourcePoolName;
-        }
-        if (null !== $this->startTs) {
-            $res['StartTs'] = $this->startTs;
-        }
-        if (null !== $this->planEndTs) {
-            $res['PlanEndTs'] = $this->planEndTs;
-        }
-        if (null !== $this->planStartTs) {
-            $res['PlanStartTs'] = $this->planStartTs;
         }
         if (null !== $this->elasticNodeNum) {
             $res['ElasticNodeNum'] = $this->elasticNodeNum;
@@ -95,8 +80,23 @@ class elasticDailyPlanList extends Model
         if (null !== $this->endTs) {
             $res['EndTs'] = $this->endTs;
         }
+        if (null !== $this->planEndTs) {
+            $res['PlanEndTs'] = $this->planEndTs;
+        }
         if (null !== $this->planName) {
             $res['PlanName'] = $this->planName;
+        }
+        if (null !== $this->planStartTs) {
+            $res['PlanStartTs'] = $this->planStartTs;
+        }
+        if (null !== $this->resourcePoolName) {
+            $res['ResourcePoolName'] = $this->resourcePoolName;
+        }
+        if (null !== $this->startTs) {
+            $res['StartTs'] = $this->startTs;
+        }
+        if (null !== $this->status) {
+            $res['Status'] = $this->status;
         }
 
         return $res;
@@ -110,23 +110,8 @@ class elasticDailyPlanList extends Model
     public static function fromMap($map = [])
     {
         $model = new self();
-        if (isset($map['Status'])) {
-            $model->status = $map['Status'];
-        }
         if (isset($map['Day'])) {
             $model->day = $map['Day'];
-        }
-        if (isset($map['ResourcePoolName'])) {
-            $model->resourcePoolName = $map['ResourcePoolName'];
-        }
-        if (isset($map['StartTs'])) {
-            $model->startTs = $map['StartTs'];
-        }
-        if (isset($map['PlanEndTs'])) {
-            $model->planEndTs = $map['PlanEndTs'];
-        }
-        if (isset($map['PlanStartTs'])) {
-            $model->planStartTs = $map['PlanStartTs'];
         }
         if (isset($map['ElasticNodeNum'])) {
             $model->elasticNodeNum = $map['ElasticNodeNum'];
@@ -134,8 +119,23 @@ class elasticDailyPlanList extends Model
         if (isset($map['EndTs'])) {
             $model->endTs = $map['EndTs'];
         }
+        if (isset($map['PlanEndTs'])) {
+            $model->planEndTs = $map['PlanEndTs'];
+        }
         if (isset($map['PlanName'])) {
             $model->planName = $map['PlanName'];
+        }
+        if (isset($map['PlanStartTs'])) {
+            $model->planStartTs = $map['PlanStartTs'];
+        }
+        if (isset($map['ResourcePoolName'])) {
+            $model->resourcePoolName = $map['ResourcePoolName'];
+        }
+        if (isset($map['StartTs'])) {
+            $model->startTs = $map['StartTs'];
+        }
+        if (isset($map['Status'])) {
+            $model->status = $map['Status'];
         }
 
         return $model;

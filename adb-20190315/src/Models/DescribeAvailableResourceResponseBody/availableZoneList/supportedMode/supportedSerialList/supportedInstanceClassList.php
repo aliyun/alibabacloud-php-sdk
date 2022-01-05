@@ -16,9 +16,9 @@ class supportedInstanceClassList extends Model
     public $instanceClass;
 
     /**
-     * @var string
+     * @var supportedExecutorList[]
      */
-    public $tips;
+    public $supportedExecutorList;
 
     /**
      * @var supportedNodeCountList[]
@@ -26,14 +26,14 @@ class supportedInstanceClassList extends Model
     public $supportedNodeCountList;
 
     /**
-     * @var supportedExecutorList[]
+     * @var string
      */
-    public $supportedExecutorList;
+    public $tips;
     protected $_name = [
         'instanceClass'          => 'InstanceClass',
-        'tips'                   => 'Tips',
-        'supportedNodeCountList' => 'SupportedNodeCountList',
         'supportedExecutorList'  => 'SupportedExecutorList',
+        'supportedNodeCountList' => 'SupportedNodeCountList',
+        'tips'                   => 'Tips',
     ];
 
     public function validate()
@@ -46,8 +46,14 @@ class supportedInstanceClassList extends Model
         if (null !== $this->instanceClass) {
             $res['InstanceClass'] = $this->instanceClass;
         }
-        if (null !== $this->tips) {
-            $res['Tips'] = $this->tips;
+        if (null !== $this->supportedExecutorList) {
+            $res['SupportedExecutorList'] = [];
+            if (null !== $this->supportedExecutorList && \is_array($this->supportedExecutorList)) {
+                $n = 0;
+                foreach ($this->supportedExecutorList as $item) {
+                    $res['SupportedExecutorList'][$n++] = null !== $item ? $item->toMap() : $item;
+                }
+            }
         }
         if (null !== $this->supportedNodeCountList) {
             $res['SupportedNodeCountList'] = [];
@@ -58,14 +64,8 @@ class supportedInstanceClassList extends Model
                 }
             }
         }
-        if (null !== $this->supportedExecutorList) {
-            $res['SupportedExecutorList'] = [];
-            if (null !== $this->supportedExecutorList && \is_array($this->supportedExecutorList)) {
-                $n = 0;
-                foreach ($this->supportedExecutorList as $item) {
-                    $res['SupportedExecutorList'][$n++] = null !== $item ? $item->toMap() : $item;
-                }
-            }
+        if (null !== $this->tips) {
+            $res['Tips'] = $this->tips;
         }
 
         return $res;
@@ -82,8 +82,14 @@ class supportedInstanceClassList extends Model
         if (isset($map['InstanceClass'])) {
             $model->instanceClass = $map['InstanceClass'];
         }
-        if (isset($map['Tips'])) {
-            $model->tips = $map['Tips'];
+        if (isset($map['SupportedExecutorList'])) {
+            if (!empty($map['SupportedExecutorList'])) {
+                $model->supportedExecutorList = [];
+                $n                            = 0;
+                foreach ($map['SupportedExecutorList'] as $item) {
+                    $model->supportedExecutorList[$n++] = null !== $item ? supportedExecutorList::fromMap($item) : $item;
+                }
+            }
         }
         if (isset($map['SupportedNodeCountList'])) {
             if (!empty($map['SupportedNodeCountList'])) {
@@ -94,14 +100,8 @@ class supportedInstanceClassList extends Model
                 }
             }
         }
-        if (isset($map['SupportedExecutorList'])) {
-            if (!empty($map['SupportedExecutorList'])) {
-                $model->supportedExecutorList = [];
-                $n                            = 0;
-                foreach ($map['SupportedExecutorList'] as $item) {
-                    $model->supportedExecutorList[$n++] = null !== $item ? supportedExecutorList::fromMap($item) : $item;
-                }
-            }
+        if (isset($map['Tips'])) {
+            $model->tips = $map['Tips'];
         }
 
         return $model;

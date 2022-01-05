@@ -11,12 +11,17 @@ class address extends Model
     /**
      * @var string
      */
-    public $vSwitchId;
+    public $connectionString;
 
     /**
      * @var string
      */
-    public $connectionString;
+    public $connectionStringPrefix;
+
+    /**
+     * @var string
+     */
+    public $IPAddress;
 
     /**
      * @var string
@@ -36,20 +41,15 @@ class address extends Model
     /**
      * @var string
      */
-    public $IPAddress;
-
-    /**
-     * @var string
-     */
-    public $connectionStringPrefix;
+    public $vSwitchId;
     protected $_name = [
-        'vSwitchId'              => 'VSwitchId',
         'connectionString'       => 'ConnectionString',
+        'connectionStringPrefix' => 'ConnectionStringPrefix',
+        'IPAddress'              => 'IPAddress',
         'netType'                => 'NetType',
         'port'                   => 'Port',
         'VPCId'                  => 'VPCId',
-        'IPAddress'              => 'IPAddress',
-        'connectionStringPrefix' => 'ConnectionStringPrefix',
+        'vSwitchId'              => 'VSwitchId',
     ];
 
     public function validate()
@@ -59,11 +59,14 @@ class address extends Model
     public function toMap()
     {
         $res = [];
-        if (null !== $this->vSwitchId) {
-            $res['VSwitchId'] = $this->vSwitchId;
-        }
         if (null !== $this->connectionString) {
             $res['ConnectionString'] = $this->connectionString;
+        }
+        if (null !== $this->connectionStringPrefix) {
+            $res['ConnectionStringPrefix'] = $this->connectionStringPrefix;
+        }
+        if (null !== $this->IPAddress) {
+            $res['IPAddress'] = $this->IPAddress;
         }
         if (null !== $this->netType) {
             $res['NetType'] = $this->netType;
@@ -74,11 +77,8 @@ class address extends Model
         if (null !== $this->VPCId) {
             $res['VPCId'] = $this->VPCId;
         }
-        if (null !== $this->IPAddress) {
-            $res['IPAddress'] = $this->IPAddress;
-        }
-        if (null !== $this->connectionStringPrefix) {
-            $res['ConnectionStringPrefix'] = $this->connectionStringPrefix;
+        if (null !== $this->vSwitchId) {
+            $res['VSwitchId'] = $this->vSwitchId;
         }
 
         return $res;
@@ -92,11 +92,14 @@ class address extends Model
     public static function fromMap($map = [])
     {
         $model = new self();
-        if (isset($map['VSwitchId'])) {
-            $model->vSwitchId = $map['VSwitchId'];
-        }
         if (isset($map['ConnectionString'])) {
             $model->connectionString = $map['ConnectionString'];
+        }
+        if (isset($map['ConnectionStringPrefix'])) {
+            $model->connectionStringPrefix = $map['ConnectionStringPrefix'];
+        }
+        if (isset($map['IPAddress'])) {
+            $model->IPAddress = $map['IPAddress'];
         }
         if (isset($map['NetType'])) {
             $model->netType = $map['NetType'];
@@ -107,11 +110,8 @@ class address extends Model
         if (isset($map['VPCId'])) {
             $model->VPCId = $map['VPCId'];
         }
-        if (isset($map['IPAddress'])) {
-            $model->IPAddress = $map['IPAddress'];
-        }
-        if (isset($map['ConnectionStringPrefix'])) {
-            $model->connectionStringPrefix = $map['ConnectionStringPrefix'];
+        if (isset($map['VSwitchId'])) {
+            $model->vSwitchId = $map['VSwitchId'];
         }
 
         return $model;

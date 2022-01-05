@@ -12,6 +12,11 @@ use AlibabaCloud\Tea\Model;
 class DescribeAllDataSourceResponseBody extends Model
 {
     /**
+     * @var columns
+     */
+    public $columns;
+
+    /**
      * @var string
      */
     public $requestId;
@@ -25,16 +30,11 @@ class DescribeAllDataSourceResponseBody extends Model
      * @var tables
      */
     public $tables;
-
-    /**
-     * @var columns
-     */
-    public $columns;
     protected $_name = [
+        'columns'   => 'Columns',
         'requestId' => 'RequestId',
         'schemas'   => 'Schemas',
         'tables'    => 'Tables',
-        'columns'   => 'Columns',
     ];
 
     public function validate()
@@ -44,6 +44,9 @@ class DescribeAllDataSourceResponseBody extends Model
     public function toMap()
     {
         $res = [];
+        if (null !== $this->columns) {
+            $res['Columns'] = null !== $this->columns ? $this->columns->toMap() : null;
+        }
         if (null !== $this->requestId) {
             $res['RequestId'] = $this->requestId;
         }
@@ -52,9 +55,6 @@ class DescribeAllDataSourceResponseBody extends Model
         }
         if (null !== $this->tables) {
             $res['Tables'] = null !== $this->tables ? $this->tables->toMap() : null;
-        }
-        if (null !== $this->columns) {
-            $res['Columns'] = null !== $this->columns ? $this->columns->toMap() : null;
         }
 
         return $res;
@@ -68,6 +68,9 @@ class DescribeAllDataSourceResponseBody extends Model
     public static function fromMap($map = [])
     {
         $model = new self();
+        if (isset($map['Columns'])) {
+            $model->columns = columns::fromMap($map['Columns']);
+        }
         if (isset($map['RequestId'])) {
             $model->requestId = $map['RequestId'];
         }
@@ -76,9 +79,6 @@ class DescribeAllDataSourceResponseBody extends Model
         }
         if (isset($map['Tables'])) {
             $model->tables = tables::fromMap($map['Tables']);
-        }
-        if (isset($map['Columns'])) {
-            $model->columns = columns::fromMap($map['Columns']);
         }
 
         return $model;

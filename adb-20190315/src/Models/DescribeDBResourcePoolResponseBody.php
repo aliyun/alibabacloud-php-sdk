@@ -10,17 +10,17 @@ use AlibabaCloud\Tea\Model;
 class DescribeDBResourcePoolResponseBody extends Model
 {
     /**
-     * @var string
-     */
-    public $requestId;
-
-    /**
      * @var poolsInfo[]
      */
     public $poolsInfo;
+
+    /**
+     * @var string
+     */
+    public $requestId;
     protected $_name = [
-        'requestId' => 'RequestId',
         'poolsInfo' => 'PoolsInfo',
+        'requestId' => 'RequestId',
     ];
 
     public function validate()
@@ -30,9 +30,6 @@ class DescribeDBResourcePoolResponseBody extends Model
     public function toMap()
     {
         $res = [];
-        if (null !== $this->requestId) {
-            $res['RequestId'] = $this->requestId;
-        }
         if (null !== $this->poolsInfo) {
             $res['PoolsInfo'] = [];
             if (null !== $this->poolsInfo && \is_array($this->poolsInfo)) {
@@ -41,6 +38,9 @@ class DescribeDBResourcePoolResponseBody extends Model
                     $res['PoolsInfo'][$n++] = null !== $item ? $item->toMap() : $item;
                 }
             }
+        }
+        if (null !== $this->requestId) {
+            $res['RequestId'] = $this->requestId;
         }
 
         return $res;
@@ -54,9 +54,6 @@ class DescribeDBResourcePoolResponseBody extends Model
     public static function fromMap($map = [])
     {
         $model = new self();
-        if (isset($map['RequestId'])) {
-            $model->requestId = $map['RequestId'];
-        }
         if (isset($map['PoolsInfo'])) {
             if (!empty($map['PoolsInfo'])) {
                 $model->poolsInfo = [];
@@ -65,6 +62,9 @@ class DescribeDBResourcePoolResponseBody extends Model
                     $model->poolsInfo[$n++] = null !== $item ? poolsInfo::fromMap($item) : $item;
                 }
             }
+        }
+        if (isset($map['RequestId'])) {
+            $model->requestId = $map['RequestId'];
         }
 
         return $model;

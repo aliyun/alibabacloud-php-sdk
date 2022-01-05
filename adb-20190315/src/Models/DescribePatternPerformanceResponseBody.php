@@ -15,6 +15,11 @@ class DescribePatternPerformanceResponseBody extends Model
     public $endTime;
 
     /**
+     * @var performances[]
+     */
+    public $performances;
+
+    /**
      * @var string
      */
     public $requestId;
@@ -23,16 +28,11 @@ class DescribePatternPerformanceResponseBody extends Model
      * @var string
      */
     public $startTime;
-
-    /**
-     * @var performances[]
-     */
-    public $performances;
     protected $_name = [
         'endTime'      => 'EndTime',
+        'performances' => 'Performances',
         'requestId'    => 'RequestId',
         'startTime'    => 'StartTime',
-        'performances' => 'Performances',
     ];
 
     public function validate()
@@ -45,12 +45,6 @@ class DescribePatternPerformanceResponseBody extends Model
         if (null !== $this->endTime) {
             $res['EndTime'] = $this->endTime;
         }
-        if (null !== $this->requestId) {
-            $res['RequestId'] = $this->requestId;
-        }
-        if (null !== $this->startTime) {
-            $res['StartTime'] = $this->startTime;
-        }
         if (null !== $this->performances) {
             $res['Performances'] = [];
             if (null !== $this->performances && \is_array($this->performances)) {
@@ -59,6 +53,12 @@ class DescribePatternPerformanceResponseBody extends Model
                     $res['Performances'][$n++] = null !== $item ? $item->toMap() : $item;
                 }
             }
+        }
+        if (null !== $this->requestId) {
+            $res['RequestId'] = $this->requestId;
+        }
+        if (null !== $this->startTime) {
+            $res['StartTime'] = $this->startTime;
         }
 
         return $res;
@@ -75,12 +75,6 @@ class DescribePatternPerformanceResponseBody extends Model
         if (isset($map['EndTime'])) {
             $model->endTime = $map['EndTime'];
         }
-        if (isset($map['RequestId'])) {
-            $model->requestId = $map['RequestId'];
-        }
-        if (isset($map['StartTime'])) {
-            $model->startTime = $map['StartTime'];
-        }
         if (isset($map['Performances'])) {
             if (!empty($map['Performances'])) {
                 $model->performances = [];
@@ -89,6 +83,12 @@ class DescribePatternPerformanceResponseBody extends Model
                     $model->performances[$n++] = null !== $item ? performances::fromMap($item) : $item;
                 }
             }
+        }
+        if (isset($map['RequestId'])) {
+            $model->requestId = $map['RequestId'];
+        }
+        if (isset($map['StartTime'])) {
+            $model->startTime = $map['StartTime'];
         }
 
         return $model;

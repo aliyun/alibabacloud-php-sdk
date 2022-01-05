@@ -11,12 +11,77 @@ class patternDetails extends Model
     /**
      * @var string
      */
-    public $SQLPattern;
+    public $accessIp;
+
+    /**
+     * @var float
+     */
+    public $averageExecutionTime;
+
+    /**
+     * @var float
+     */
+    public $averagePeakMemory;
+
+    /**
+     * @var float
+     */
+    public $averageQueryTime;
+
+    /**
+     * @var float
+     */
+    public $averageScanSize;
+
+    /**
+     * @var bool
+     */
+    public $blockable;
+
+    /**
+     * @var int
+     */
+    public $failedCount;
+
+    /**
+     * @var int
+     */
+    public $maxExecutionTime;
+
+    /**
+     * @var int
+     */
+    public $maxPeakMemory;
+
+    /**
+     * @var int
+     */
+    public $maxQueryTime;
+
+    /**
+     * @var int
+     */
+    public $maxScanSize;
+
+    /**
+     * @var string
+     */
+    public $patternCreationTime;
 
     /**
      * @var string
      */
     public $patternId;
+
+    /**
+     * @var int
+     */
+    public $queryCount;
+
+    /**
+     * @var string
+     */
+    public $SQLPattern;
 
     /**
      * @var string
@@ -26,66 +91,25 @@ class patternDetails extends Model
     /**
      * @var string
      */
-    public $patternCreationDate;
-
-    /**
-     * @var string
-     */
-    public $totalQueryTime;
-
-    /**
-     * @var string
-     */
-    public $averageQueryTime;
-
-    /**
-     * @var string
-     */
-    public $queryTimePercentage;
-
-    /**
-     * @var string
-     */
-    public $averageMemory;
-
-    /**
-     * @var string
-     */
-    public $totalScanSize;
-
-    /**
-     * @var string
-     */
-    public $scanSizePercentage;
-
-    /**
-     * @var int
-     */
-    public $queryCount;
-
-    /**
-     * @var int
-     */
-    public $errorCount;
-
-    /**
-     * @var bool
-     */
-    public $blockable;
+    public $user;
     protected $_name = [
-        'SQLPattern'          => 'SQLPattern',
-        'patternId'           => 'PatternId',
-        'tables'              => 'Tables',
-        'patternCreationDate' => 'PatternCreationDate',
-        'totalQueryTime'      => 'TotalQueryTime',
-        'averageQueryTime'    => 'AverageQueryTime',
-        'queryTimePercentage' => 'QueryTimePercentage',
-        'averageMemory'       => 'AverageMemory',
-        'totalScanSize'       => 'TotalScanSize',
-        'scanSizePercentage'  => 'ScanSizePercentage',
-        'queryCount'          => 'QueryCount',
-        'errorCount'          => 'ErrorCount',
-        'blockable'           => 'Blockable',
+        'accessIp'             => 'AccessIp',
+        'averageExecutionTime' => 'AverageExecutionTime',
+        'averagePeakMemory'    => 'AveragePeakMemory',
+        'averageQueryTime'     => 'AverageQueryTime',
+        'averageScanSize'      => 'AverageScanSize',
+        'blockable'            => 'Blockable',
+        'failedCount'          => 'FailedCount',
+        'maxExecutionTime'     => 'MaxExecutionTime',
+        'maxPeakMemory'        => 'MaxPeakMemory',
+        'maxQueryTime'         => 'MaxQueryTime',
+        'maxScanSize'          => 'MaxScanSize',
+        'patternCreationTime'  => 'PatternCreationTime',
+        'patternId'            => 'PatternId',
+        'queryCount'           => 'QueryCount',
+        'SQLPattern'           => 'SQLPattern',
+        'tables'               => 'Tables',
+        'user'                 => 'User',
     ];
 
     public function validate()
@@ -95,44 +119,56 @@ class patternDetails extends Model
     public function toMap()
     {
         $res = [];
-        if (null !== $this->SQLPattern) {
-            $res['SQLPattern'] = $this->SQLPattern;
+        if (null !== $this->accessIp) {
+            $res['AccessIp'] = $this->accessIp;
         }
-        if (null !== $this->patternId) {
-            $res['PatternId'] = $this->patternId;
+        if (null !== $this->averageExecutionTime) {
+            $res['AverageExecutionTime'] = $this->averageExecutionTime;
         }
-        if (null !== $this->tables) {
-            $res['Tables'] = $this->tables;
-        }
-        if (null !== $this->patternCreationDate) {
-            $res['PatternCreationDate'] = $this->patternCreationDate;
-        }
-        if (null !== $this->totalQueryTime) {
-            $res['TotalQueryTime'] = $this->totalQueryTime;
+        if (null !== $this->averagePeakMemory) {
+            $res['AveragePeakMemory'] = $this->averagePeakMemory;
         }
         if (null !== $this->averageQueryTime) {
             $res['AverageQueryTime'] = $this->averageQueryTime;
         }
-        if (null !== $this->queryTimePercentage) {
-            $res['QueryTimePercentage'] = $this->queryTimePercentage;
+        if (null !== $this->averageScanSize) {
+            $res['AverageScanSize'] = $this->averageScanSize;
         }
-        if (null !== $this->averageMemory) {
-            $res['AverageMemory'] = $this->averageMemory;
+        if (null !== $this->blockable) {
+            $res['Blockable'] = $this->blockable;
         }
-        if (null !== $this->totalScanSize) {
-            $res['TotalScanSize'] = $this->totalScanSize;
+        if (null !== $this->failedCount) {
+            $res['FailedCount'] = $this->failedCount;
         }
-        if (null !== $this->scanSizePercentage) {
-            $res['ScanSizePercentage'] = $this->scanSizePercentage;
+        if (null !== $this->maxExecutionTime) {
+            $res['MaxExecutionTime'] = $this->maxExecutionTime;
+        }
+        if (null !== $this->maxPeakMemory) {
+            $res['MaxPeakMemory'] = $this->maxPeakMemory;
+        }
+        if (null !== $this->maxQueryTime) {
+            $res['MaxQueryTime'] = $this->maxQueryTime;
+        }
+        if (null !== $this->maxScanSize) {
+            $res['MaxScanSize'] = $this->maxScanSize;
+        }
+        if (null !== $this->patternCreationTime) {
+            $res['PatternCreationTime'] = $this->patternCreationTime;
+        }
+        if (null !== $this->patternId) {
+            $res['PatternId'] = $this->patternId;
         }
         if (null !== $this->queryCount) {
             $res['QueryCount'] = $this->queryCount;
         }
-        if (null !== $this->errorCount) {
-            $res['ErrorCount'] = $this->errorCount;
+        if (null !== $this->SQLPattern) {
+            $res['SQLPattern'] = $this->SQLPattern;
         }
-        if (null !== $this->blockable) {
-            $res['Blockable'] = $this->blockable;
+        if (null !== $this->tables) {
+            $res['Tables'] = $this->tables;
+        }
+        if (null !== $this->user) {
+            $res['User'] = $this->user;
         }
 
         return $res;
@@ -146,44 +182,56 @@ class patternDetails extends Model
     public static function fromMap($map = [])
     {
         $model = new self();
-        if (isset($map['SQLPattern'])) {
-            $model->SQLPattern = $map['SQLPattern'];
+        if (isset($map['AccessIp'])) {
+            $model->accessIp = $map['AccessIp'];
         }
-        if (isset($map['PatternId'])) {
-            $model->patternId = $map['PatternId'];
+        if (isset($map['AverageExecutionTime'])) {
+            $model->averageExecutionTime = $map['AverageExecutionTime'];
         }
-        if (isset($map['Tables'])) {
-            $model->tables = $map['Tables'];
-        }
-        if (isset($map['PatternCreationDate'])) {
-            $model->patternCreationDate = $map['PatternCreationDate'];
-        }
-        if (isset($map['TotalQueryTime'])) {
-            $model->totalQueryTime = $map['TotalQueryTime'];
+        if (isset($map['AveragePeakMemory'])) {
+            $model->averagePeakMemory = $map['AveragePeakMemory'];
         }
         if (isset($map['AverageQueryTime'])) {
             $model->averageQueryTime = $map['AverageQueryTime'];
         }
-        if (isset($map['QueryTimePercentage'])) {
-            $model->queryTimePercentage = $map['QueryTimePercentage'];
+        if (isset($map['AverageScanSize'])) {
+            $model->averageScanSize = $map['AverageScanSize'];
         }
-        if (isset($map['AverageMemory'])) {
-            $model->averageMemory = $map['AverageMemory'];
+        if (isset($map['Blockable'])) {
+            $model->blockable = $map['Blockable'];
         }
-        if (isset($map['TotalScanSize'])) {
-            $model->totalScanSize = $map['TotalScanSize'];
+        if (isset($map['FailedCount'])) {
+            $model->failedCount = $map['FailedCount'];
         }
-        if (isset($map['ScanSizePercentage'])) {
-            $model->scanSizePercentage = $map['ScanSizePercentage'];
+        if (isset($map['MaxExecutionTime'])) {
+            $model->maxExecutionTime = $map['MaxExecutionTime'];
+        }
+        if (isset($map['MaxPeakMemory'])) {
+            $model->maxPeakMemory = $map['MaxPeakMemory'];
+        }
+        if (isset($map['MaxQueryTime'])) {
+            $model->maxQueryTime = $map['MaxQueryTime'];
+        }
+        if (isset($map['MaxScanSize'])) {
+            $model->maxScanSize = $map['MaxScanSize'];
+        }
+        if (isset($map['PatternCreationTime'])) {
+            $model->patternCreationTime = $map['PatternCreationTime'];
+        }
+        if (isset($map['PatternId'])) {
+            $model->patternId = $map['PatternId'];
         }
         if (isset($map['QueryCount'])) {
             $model->queryCount = $map['QueryCount'];
         }
-        if (isset($map['ErrorCount'])) {
-            $model->errorCount = $map['ErrorCount'];
+        if (isset($map['SQLPattern'])) {
+            $model->SQLPattern = $map['SQLPattern'];
         }
-        if (isset($map['Blockable'])) {
-            $model->blockable = $map['Blockable'];
+        if (isset($map['Tables'])) {
+            $model->tables = $map['Tables'];
+        }
+        if (isset($map['User'])) {
+            $model->user = $map['User'];
         }
 
         return $model;

@@ -20,11 +20,6 @@ class DescribeSQLPatternsResponseBody extends Model
     public $pageSize;
 
     /**
-     * @var int
-     */
-    public $totalCount;
-
-    /**
      * @var patternDetails[]
      */
     public $patternDetails;
@@ -33,12 +28,17 @@ class DescribeSQLPatternsResponseBody extends Model
      * @var string
      */
     public $requestId;
+
+    /**
+     * @var int
+     */
+    public $totalCount;
     protected $_name = [
         'pageNumber'     => 'PageNumber',
         'pageSize'       => 'PageSize',
-        'totalCount'     => 'TotalCount',
         'patternDetails' => 'PatternDetails',
         'requestId'      => 'RequestId',
+        'totalCount'     => 'TotalCount',
     ];
 
     public function validate()
@@ -54,9 +54,6 @@ class DescribeSQLPatternsResponseBody extends Model
         if (null !== $this->pageSize) {
             $res['PageSize'] = $this->pageSize;
         }
-        if (null !== $this->totalCount) {
-            $res['TotalCount'] = $this->totalCount;
-        }
         if (null !== $this->patternDetails) {
             $res['PatternDetails'] = [];
             if (null !== $this->patternDetails && \is_array($this->patternDetails)) {
@@ -68,6 +65,9 @@ class DescribeSQLPatternsResponseBody extends Model
         }
         if (null !== $this->requestId) {
             $res['RequestId'] = $this->requestId;
+        }
+        if (null !== $this->totalCount) {
+            $res['TotalCount'] = $this->totalCount;
         }
 
         return $res;
@@ -87,9 +87,6 @@ class DescribeSQLPatternsResponseBody extends Model
         if (isset($map['PageSize'])) {
             $model->pageSize = $map['PageSize'];
         }
-        if (isset($map['TotalCount'])) {
-            $model->totalCount = $map['TotalCount'];
-        }
         if (isset($map['PatternDetails'])) {
             if (!empty($map['PatternDetails'])) {
                 $model->patternDetails = [];
@@ -101,6 +98,9 @@ class DescribeSQLPatternsResponseBody extends Model
         }
         if (isset($map['RequestId'])) {
             $model->requestId = $map['RequestId'];
+        }
+        if (isset($map['TotalCount'])) {
+            $model->totalCount = $map['TotalCount'];
         }
 
         return $model;

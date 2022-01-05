@@ -12,102 +12,7 @@ class DBCluster extends Model
     /**
      * @var string
      */
-    public $creationTime;
-
-    /**
-     * @var bool
-     */
-    public $enableSpark;
-
-    /**
-     * @var string
-     */
-    public $dtsJobId;
-
-    /**
-     * @var int
-     */
-    public $DBNodeCount;
-
-    /**
-     * @var string
-     */
-    public $expired;
-
-    /**
-     * @var string
-     */
-    public $maintainTime;
-
-    /**
-     * @var string
-     */
-    public $payType;
-
-    /**
-     * @var string
-     */
-    public $diskType;
-
-    /**
-     * @var tags
-     */
-    public $tags;
-
-    /**
-     * @var string
-     */
-    public $mode;
-
-    /**
-     * @var int
-     */
-    public $port;
-
-    /**
-     * @var string
-     */
-    public $lockMode;
-
-    /**
-     * @var string
-     */
-    public $engineVersion;
-
-    /**
-     * @var bool
-     */
-    public $enableAirflow;
-
-    /**
-     * @var string
-     */
-    public $executorCount;
-
-    /**
-     * @var string
-     */
-    public $storageResource;
-
-    /**
-     * @var string
-     */
-    public $DBClusterId;
-
-    /**
-     * @var string
-     */
-    public $connectionString;
-
-    /**
-     * @var string
-     */
-    public $rdsInstanceId;
-
-    /**
-     * @var string
-     */
-    public $DBClusterType;
+    public $category;
 
     /**
      * @var string
@@ -117,67 +22,27 @@ class DBCluster extends Model
     /**
      * @var string
      */
-    public $expireTime;
-
-    /**
-     * @var int
-     */
-    public $DBNodeStorage;
-
-    /**
-     * @var string
-     */
-    public $DBNodeClass;
-
-    /**
-     * @var string
-     */
-    public $lockReason;
-
-    /**
-     * @var string
-     */
-    public $VPCId;
-
-    /**
-     * @var string
-     */
     public $computeResource;
 
     /**
      * @var string
      */
-    public $regionId;
-
-    /**
-     * @var int
-     */
-    public $elasticIOResource;
+    public $connectionString;
 
     /**
      * @var string
      */
-    public $vSwitchId;
+    public $creationTime;
 
     /**
      * @var string
      */
-    public $DBVersion;
+    public $DBClusterDescription;
 
     /**
      * @var string
      */
-    public $VPCCloudInstanceId;
-
-    /**
-     * @var string
-     */
-    public $DBClusterStatus;
-
-    /**
-     * @var string
-     */
-    public $resourceGroupId;
+    public $DBClusterId;
 
     /**
      * @var string
@@ -187,22 +52,57 @@ class DBCluster extends Model
     /**
      * @var string
      */
-    public $DBClusterDescription;
+    public $DBClusterStatus;
+
+    /**
+     * @var string
+     */
+    public $DBClusterType;
+
+    /**
+     * @var string
+     */
+    public $DBNodeClass;
+
+    /**
+     * @var int
+     */
+    public $DBNodeCount;
+
+    /**
+     * @var int
+     */
+    public $DBNodeStorage;
+
+    /**
+     * @var string
+     */
+    public $DBVersion;
+
+    /**
+     * @var string
+     */
+    public $diskType;
+
+    /**
+     * @var string
+     */
+    public $dtsJobId;
+
+    /**
+     * @var int
+     */
+    public $elasticIOResource;
 
     /**
      * @var bool
      */
-    public $userENIStatus;
+    public $enableAirflow;
 
     /**
-     * @var string
+     * @var bool
      */
-    public $zoneId;
-
-    /**
-     * @var string
-     */
-    public $category;
+    public $enableSpark;
 
     /**
      * @var string
@@ -212,49 +112,149 @@ class DBCluster extends Model
     /**
      * @var string
      */
+    public $engineVersion;
+
+    /**
+     * @var string
+     */
+    public $executorCount;
+
+    /**
+     * @var string
+     */
+    public $expireTime;
+
+    /**
+     * @var string
+     */
+    public $expired;
+
+    /**
+     * @var string
+     */
     public $kmsId;
+
+    /**
+     * @var string
+     */
+    public $lockMode;
+
+    /**
+     * @var string
+     */
+    public $lockReason;
+
+    /**
+     * @var string
+     */
+    public $maintainTime;
+
+    /**
+     * @var string
+     */
+    public $mode;
+
+    /**
+     * @var string
+     */
+    public $payType;
+
+    /**
+     * @var int
+     */
+    public $port;
+
+    /**
+     * @var string
+     */
+    public $rdsInstanceId;
+
+    /**
+     * @var string
+     */
+    public $regionId;
+
+    /**
+     * @var string
+     */
+    public $resourceGroupId;
+
+    /**
+     * @var string
+     */
+    public $storageResource;
+
+    /**
+     * @var tags
+     */
+    public $tags;
+
+    /**
+     * @var bool
+     */
+    public $userENIStatus;
+
+    /**
+     * @var string
+     */
+    public $VPCCloudInstanceId;
+
+    /**
+     * @var string
+     */
+    public $VPCId;
+
+    /**
+     * @var string
+     */
+    public $vSwitchId;
+
+    /**
+     * @var string
+     */
+    public $zoneId;
     protected $_name = [
-        'creationTime'         => 'CreationTime',
-        'enableSpark'          => 'EnableSpark',
-        'dtsJobId'             => 'DtsJobId',
-        'DBNodeCount'          => 'DBNodeCount',
-        'expired'              => 'Expired',
-        'maintainTime'         => 'MaintainTime',
-        'payType'              => 'PayType',
-        'diskType'             => 'DiskType',
-        'tags'                 => 'Tags',
-        'mode'                 => 'Mode',
-        'port'                 => 'Port',
-        'lockMode'             => 'LockMode',
-        'engineVersion'        => 'EngineVersion',
-        'enableAirflow'        => 'EnableAirflow',
-        'executorCount'        => 'ExecutorCount',
-        'storageResource'      => 'StorageResource',
-        'DBClusterId'          => 'DBClusterId',
-        'connectionString'     => 'ConnectionString',
-        'rdsInstanceId'        => 'RdsInstanceId',
-        'DBClusterType'        => 'DBClusterType',
-        'commodityCode'        => 'CommodityCode',
-        'expireTime'           => 'ExpireTime',
-        'DBNodeStorage'        => 'DBNodeStorage',
-        'DBNodeClass'          => 'DBNodeClass',
-        'lockReason'           => 'LockReason',
-        'VPCId'                => 'VPCId',
-        'computeResource'      => 'ComputeResource',
-        'regionId'             => 'RegionId',
-        'elasticIOResource'    => 'ElasticIOResource',
-        'vSwitchId'            => 'VSwitchId',
-        'DBVersion'            => 'DBVersion',
-        'VPCCloudInstanceId'   => 'VPCCloudInstanceId',
-        'DBClusterStatus'      => 'DBClusterStatus',
-        'resourceGroupId'      => 'ResourceGroupId',
-        'DBClusterNetworkType' => 'DBClusterNetworkType',
-        'DBClusterDescription' => 'DBClusterDescription',
-        'userENIStatus'        => 'UserENIStatus',
-        'zoneId'               => 'ZoneId',
         'category'             => 'Category',
+        'commodityCode'        => 'CommodityCode',
+        'computeResource'      => 'ComputeResource',
+        'connectionString'     => 'ConnectionString',
+        'creationTime'         => 'CreationTime',
+        'DBClusterDescription' => 'DBClusterDescription',
+        'DBClusterId'          => 'DBClusterId',
+        'DBClusterNetworkType' => 'DBClusterNetworkType',
+        'DBClusterStatus'      => 'DBClusterStatus',
+        'DBClusterType'        => 'DBClusterType',
+        'DBNodeClass'          => 'DBNodeClass',
+        'DBNodeCount'          => 'DBNodeCount',
+        'DBNodeStorage'        => 'DBNodeStorage',
+        'DBVersion'            => 'DBVersion',
+        'diskType'             => 'DiskType',
+        'dtsJobId'             => 'DtsJobId',
+        'elasticIOResource'    => 'ElasticIOResource',
+        'enableAirflow'        => 'EnableAirflow',
+        'enableSpark'          => 'EnableSpark',
         'engine'               => 'Engine',
+        'engineVersion'        => 'EngineVersion',
+        'executorCount'        => 'ExecutorCount',
+        'expireTime'           => 'ExpireTime',
+        'expired'              => 'Expired',
         'kmsId'                => 'KmsId',
+        'lockMode'             => 'LockMode',
+        'lockReason'           => 'LockReason',
+        'maintainTime'         => 'MaintainTime',
+        'mode'                 => 'Mode',
+        'payType'              => 'PayType',
+        'port'                 => 'Port',
+        'rdsInstanceId'        => 'RdsInstanceId',
+        'regionId'             => 'RegionId',
+        'resourceGroupId'      => 'ResourceGroupId',
+        'storageResource'      => 'StorageResource',
+        'tags'                 => 'Tags',
+        'userENIStatus'        => 'UserENIStatus',
+        'VPCCloudInstanceId'   => 'VPCCloudInstanceId',
+        'VPCId'                => 'VPCId',
+        'vSwitchId'            => 'VSwitchId',
+        'zoneId'               => 'ZoneId',
     ];
 
     public function validate()
@@ -264,128 +264,128 @@ class DBCluster extends Model
     public function toMap()
     {
         $res = [];
-        if (null !== $this->creationTime) {
-            $res['CreationTime'] = $this->creationTime;
-        }
-        if (null !== $this->enableSpark) {
-            $res['EnableSpark'] = $this->enableSpark;
-        }
-        if (null !== $this->dtsJobId) {
-            $res['DtsJobId'] = $this->dtsJobId;
-        }
-        if (null !== $this->DBNodeCount) {
-            $res['DBNodeCount'] = $this->DBNodeCount;
-        }
-        if (null !== $this->expired) {
-            $res['Expired'] = $this->expired;
-        }
-        if (null !== $this->maintainTime) {
-            $res['MaintainTime'] = $this->maintainTime;
-        }
-        if (null !== $this->payType) {
-            $res['PayType'] = $this->payType;
-        }
-        if (null !== $this->diskType) {
-            $res['DiskType'] = $this->diskType;
-        }
-        if (null !== $this->tags) {
-            $res['Tags'] = null !== $this->tags ? $this->tags->toMap() : null;
-        }
-        if (null !== $this->mode) {
-            $res['Mode'] = $this->mode;
-        }
-        if (null !== $this->port) {
-            $res['Port'] = $this->port;
-        }
-        if (null !== $this->lockMode) {
-            $res['LockMode'] = $this->lockMode;
-        }
-        if (null !== $this->engineVersion) {
-            $res['EngineVersion'] = $this->engineVersion;
-        }
-        if (null !== $this->enableAirflow) {
-            $res['EnableAirflow'] = $this->enableAirflow;
-        }
-        if (null !== $this->executorCount) {
-            $res['ExecutorCount'] = $this->executorCount;
-        }
-        if (null !== $this->storageResource) {
-            $res['StorageResource'] = $this->storageResource;
-        }
-        if (null !== $this->DBClusterId) {
-            $res['DBClusterId'] = $this->DBClusterId;
-        }
-        if (null !== $this->connectionString) {
-            $res['ConnectionString'] = $this->connectionString;
-        }
-        if (null !== $this->rdsInstanceId) {
-            $res['RdsInstanceId'] = $this->rdsInstanceId;
-        }
-        if (null !== $this->DBClusterType) {
-            $res['DBClusterType'] = $this->DBClusterType;
+        if (null !== $this->category) {
+            $res['Category'] = $this->category;
         }
         if (null !== $this->commodityCode) {
             $res['CommodityCode'] = $this->commodityCode;
         }
-        if (null !== $this->expireTime) {
-            $res['ExpireTime'] = $this->expireTime;
-        }
-        if (null !== $this->DBNodeStorage) {
-            $res['DBNodeStorage'] = $this->DBNodeStorage;
-        }
-        if (null !== $this->DBNodeClass) {
-            $res['DBNodeClass'] = $this->DBNodeClass;
-        }
-        if (null !== $this->lockReason) {
-            $res['LockReason'] = $this->lockReason;
-        }
-        if (null !== $this->VPCId) {
-            $res['VPCId'] = $this->VPCId;
-        }
         if (null !== $this->computeResource) {
             $res['ComputeResource'] = $this->computeResource;
         }
-        if (null !== $this->regionId) {
-            $res['RegionId'] = $this->regionId;
+        if (null !== $this->connectionString) {
+            $res['ConnectionString'] = $this->connectionString;
         }
-        if (null !== $this->elasticIOResource) {
-            $res['ElasticIOResource'] = $this->elasticIOResource;
-        }
-        if (null !== $this->vSwitchId) {
-            $res['VSwitchId'] = $this->vSwitchId;
-        }
-        if (null !== $this->DBVersion) {
-            $res['DBVersion'] = $this->DBVersion;
-        }
-        if (null !== $this->VPCCloudInstanceId) {
-            $res['VPCCloudInstanceId'] = $this->VPCCloudInstanceId;
-        }
-        if (null !== $this->DBClusterStatus) {
-            $res['DBClusterStatus'] = $this->DBClusterStatus;
-        }
-        if (null !== $this->resourceGroupId) {
-            $res['ResourceGroupId'] = $this->resourceGroupId;
-        }
-        if (null !== $this->DBClusterNetworkType) {
-            $res['DBClusterNetworkType'] = $this->DBClusterNetworkType;
+        if (null !== $this->creationTime) {
+            $res['CreationTime'] = $this->creationTime;
         }
         if (null !== $this->DBClusterDescription) {
             $res['DBClusterDescription'] = $this->DBClusterDescription;
         }
-        if (null !== $this->userENIStatus) {
-            $res['UserENIStatus'] = $this->userENIStatus;
+        if (null !== $this->DBClusterId) {
+            $res['DBClusterId'] = $this->DBClusterId;
         }
-        if (null !== $this->zoneId) {
-            $res['ZoneId'] = $this->zoneId;
+        if (null !== $this->DBClusterNetworkType) {
+            $res['DBClusterNetworkType'] = $this->DBClusterNetworkType;
         }
-        if (null !== $this->category) {
-            $res['Category'] = $this->category;
+        if (null !== $this->DBClusterStatus) {
+            $res['DBClusterStatus'] = $this->DBClusterStatus;
+        }
+        if (null !== $this->DBClusterType) {
+            $res['DBClusterType'] = $this->DBClusterType;
+        }
+        if (null !== $this->DBNodeClass) {
+            $res['DBNodeClass'] = $this->DBNodeClass;
+        }
+        if (null !== $this->DBNodeCount) {
+            $res['DBNodeCount'] = $this->DBNodeCount;
+        }
+        if (null !== $this->DBNodeStorage) {
+            $res['DBNodeStorage'] = $this->DBNodeStorage;
+        }
+        if (null !== $this->DBVersion) {
+            $res['DBVersion'] = $this->DBVersion;
+        }
+        if (null !== $this->diskType) {
+            $res['DiskType'] = $this->diskType;
+        }
+        if (null !== $this->dtsJobId) {
+            $res['DtsJobId'] = $this->dtsJobId;
+        }
+        if (null !== $this->elasticIOResource) {
+            $res['ElasticIOResource'] = $this->elasticIOResource;
+        }
+        if (null !== $this->enableAirflow) {
+            $res['EnableAirflow'] = $this->enableAirflow;
+        }
+        if (null !== $this->enableSpark) {
+            $res['EnableSpark'] = $this->enableSpark;
         }
         if (null !== $this->engine) {
             $res['Engine'] = $this->engine;
         }
+        if (null !== $this->engineVersion) {
+            $res['EngineVersion'] = $this->engineVersion;
+        }
+        if (null !== $this->executorCount) {
+            $res['ExecutorCount'] = $this->executorCount;
+        }
+        if (null !== $this->expireTime) {
+            $res['ExpireTime'] = $this->expireTime;
+        }
+        if (null !== $this->expired) {
+            $res['Expired'] = $this->expired;
+        }
         if (null !== $this->kmsId) {
             $res['KmsId'] = $this->kmsId;
+        }
+        if (null !== $this->lockMode) {
+            $res['LockMode'] = $this->lockMode;
+        }
+        if (null !== $this->lockReason) {
+            $res['LockReason'] = $this->lockReason;
+        }
+        if (null !== $this->maintainTime) {
+            $res['MaintainTime'] = $this->maintainTime;
+        }
+        if (null !== $this->mode) {
+            $res['Mode'] = $this->mode;
+        }
+        if (null !== $this->payType) {
+            $res['PayType'] = $this->payType;
+        }
+        if (null !== $this->port) {
+            $res['Port'] = $this->port;
+        }
+        if (null !== $this->rdsInstanceId) {
+            $res['RdsInstanceId'] = $this->rdsInstanceId;
+        }
+        if (null !== $this->regionId) {
+            $res['RegionId'] = $this->regionId;
+        }
+        if (null !== $this->resourceGroupId) {
+            $res['ResourceGroupId'] = $this->resourceGroupId;
+        }
+        if (null !== $this->storageResource) {
+            $res['StorageResource'] = $this->storageResource;
+        }
+        if (null !== $this->tags) {
+            $res['Tags'] = null !== $this->tags ? $this->tags->toMap() : null;
+        }
+        if (null !== $this->userENIStatus) {
+            $res['UserENIStatus'] = $this->userENIStatus;
+        }
+        if (null !== $this->VPCCloudInstanceId) {
+            $res['VPCCloudInstanceId'] = $this->VPCCloudInstanceId;
+        }
+        if (null !== $this->VPCId) {
+            $res['VPCId'] = $this->VPCId;
+        }
+        if (null !== $this->vSwitchId) {
+            $res['VSwitchId'] = $this->vSwitchId;
+        }
+        if (null !== $this->zoneId) {
+            $res['ZoneId'] = $this->zoneId;
         }
 
         return $res;
@@ -399,128 +399,128 @@ class DBCluster extends Model
     public static function fromMap($map = [])
     {
         $model = new self();
-        if (isset($map['CreationTime'])) {
-            $model->creationTime = $map['CreationTime'];
-        }
-        if (isset($map['EnableSpark'])) {
-            $model->enableSpark = $map['EnableSpark'];
-        }
-        if (isset($map['DtsJobId'])) {
-            $model->dtsJobId = $map['DtsJobId'];
-        }
-        if (isset($map['DBNodeCount'])) {
-            $model->DBNodeCount = $map['DBNodeCount'];
-        }
-        if (isset($map['Expired'])) {
-            $model->expired = $map['Expired'];
-        }
-        if (isset($map['MaintainTime'])) {
-            $model->maintainTime = $map['MaintainTime'];
-        }
-        if (isset($map['PayType'])) {
-            $model->payType = $map['PayType'];
-        }
-        if (isset($map['DiskType'])) {
-            $model->diskType = $map['DiskType'];
-        }
-        if (isset($map['Tags'])) {
-            $model->tags = tags::fromMap($map['Tags']);
-        }
-        if (isset($map['Mode'])) {
-            $model->mode = $map['Mode'];
-        }
-        if (isset($map['Port'])) {
-            $model->port = $map['Port'];
-        }
-        if (isset($map['LockMode'])) {
-            $model->lockMode = $map['LockMode'];
-        }
-        if (isset($map['EngineVersion'])) {
-            $model->engineVersion = $map['EngineVersion'];
-        }
-        if (isset($map['EnableAirflow'])) {
-            $model->enableAirflow = $map['EnableAirflow'];
-        }
-        if (isset($map['ExecutorCount'])) {
-            $model->executorCount = $map['ExecutorCount'];
-        }
-        if (isset($map['StorageResource'])) {
-            $model->storageResource = $map['StorageResource'];
-        }
-        if (isset($map['DBClusterId'])) {
-            $model->DBClusterId = $map['DBClusterId'];
-        }
-        if (isset($map['ConnectionString'])) {
-            $model->connectionString = $map['ConnectionString'];
-        }
-        if (isset($map['RdsInstanceId'])) {
-            $model->rdsInstanceId = $map['RdsInstanceId'];
-        }
-        if (isset($map['DBClusterType'])) {
-            $model->DBClusterType = $map['DBClusterType'];
+        if (isset($map['Category'])) {
+            $model->category = $map['Category'];
         }
         if (isset($map['CommodityCode'])) {
             $model->commodityCode = $map['CommodityCode'];
         }
-        if (isset($map['ExpireTime'])) {
-            $model->expireTime = $map['ExpireTime'];
-        }
-        if (isset($map['DBNodeStorage'])) {
-            $model->DBNodeStorage = $map['DBNodeStorage'];
-        }
-        if (isset($map['DBNodeClass'])) {
-            $model->DBNodeClass = $map['DBNodeClass'];
-        }
-        if (isset($map['LockReason'])) {
-            $model->lockReason = $map['LockReason'];
-        }
-        if (isset($map['VPCId'])) {
-            $model->VPCId = $map['VPCId'];
-        }
         if (isset($map['ComputeResource'])) {
             $model->computeResource = $map['ComputeResource'];
         }
-        if (isset($map['RegionId'])) {
-            $model->regionId = $map['RegionId'];
+        if (isset($map['ConnectionString'])) {
+            $model->connectionString = $map['ConnectionString'];
         }
-        if (isset($map['ElasticIOResource'])) {
-            $model->elasticIOResource = $map['ElasticIOResource'];
-        }
-        if (isset($map['VSwitchId'])) {
-            $model->vSwitchId = $map['VSwitchId'];
-        }
-        if (isset($map['DBVersion'])) {
-            $model->DBVersion = $map['DBVersion'];
-        }
-        if (isset($map['VPCCloudInstanceId'])) {
-            $model->VPCCloudInstanceId = $map['VPCCloudInstanceId'];
-        }
-        if (isset($map['DBClusterStatus'])) {
-            $model->DBClusterStatus = $map['DBClusterStatus'];
-        }
-        if (isset($map['ResourceGroupId'])) {
-            $model->resourceGroupId = $map['ResourceGroupId'];
-        }
-        if (isset($map['DBClusterNetworkType'])) {
-            $model->DBClusterNetworkType = $map['DBClusterNetworkType'];
+        if (isset($map['CreationTime'])) {
+            $model->creationTime = $map['CreationTime'];
         }
         if (isset($map['DBClusterDescription'])) {
             $model->DBClusterDescription = $map['DBClusterDescription'];
         }
-        if (isset($map['UserENIStatus'])) {
-            $model->userENIStatus = $map['UserENIStatus'];
+        if (isset($map['DBClusterId'])) {
+            $model->DBClusterId = $map['DBClusterId'];
         }
-        if (isset($map['ZoneId'])) {
-            $model->zoneId = $map['ZoneId'];
+        if (isset($map['DBClusterNetworkType'])) {
+            $model->DBClusterNetworkType = $map['DBClusterNetworkType'];
         }
-        if (isset($map['Category'])) {
-            $model->category = $map['Category'];
+        if (isset($map['DBClusterStatus'])) {
+            $model->DBClusterStatus = $map['DBClusterStatus'];
+        }
+        if (isset($map['DBClusterType'])) {
+            $model->DBClusterType = $map['DBClusterType'];
+        }
+        if (isset($map['DBNodeClass'])) {
+            $model->DBNodeClass = $map['DBNodeClass'];
+        }
+        if (isset($map['DBNodeCount'])) {
+            $model->DBNodeCount = $map['DBNodeCount'];
+        }
+        if (isset($map['DBNodeStorage'])) {
+            $model->DBNodeStorage = $map['DBNodeStorage'];
+        }
+        if (isset($map['DBVersion'])) {
+            $model->DBVersion = $map['DBVersion'];
+        }
+        if (isset($map['DiskType'])) {
+            $model->diskType = $map['DiskType'];
+        }
+        if (isset($map['DtsJobId'])) {
+            $model->dtsJobId = $map['DtsJobId'];
+        }
+        if (isset($map['ElasticIOResource'])) {
+            $model->elasticIOResource = $map['ElasticIOResource'];
+        }
+        if (isset($map['EnableAirflow'])) {
+            $model->enableAirflow = $map['EnableAirflow'];
+        }
+        if (isset($map['EnableSpark'])) {
+            $model->enableSpark = $map['EnableSpark'];
         }
         if (isset($map['Engine'])) {
             $model->engine = $map['Engine'];
         }
+        if (isset($map['EngineVersion'])) {
+            $model->engineVersion = $map['EngineVersion'];
+        }
+        if (isset($map['ExecutorCount'])) {
+            $model->executorCount = $map['ExecutorCount'];
+        }
+        if (isset($map['ExpireTime'])) {
+            $model->expireTime = $map['ExpireTime'];
+        }
+        if (isset($map['Expired'])) {
+            $model->expired = $map['Expired'];
+        }
         if (isset($map['KmsId'])) {
             $model->kmsId = $map['KmsId'];
+        }
+        if (isset($map['LockMode'])) {
+            $model->lockMode = $map['LockMode'];
+        }
+        if (isset($map['LockReason'])) {
+            $model->lockReason = $map['LockReason'];
+        }
+        if (isset($map['MaintainTime'])) {
+            $model->maintainTime = $map['MaintainTime'];
+        }
+        if (isset($map['Mode'])) {
+            $model->mode = $map['Mode'];
+        }
+        if (isset($map['PayType'])) {
+            $model->payType = $map['PayType'];
+        }
+        if (isset($map['Port'])) {
+            $model->port = $map['Port'];
+        }
+        if (isset($map['RdsInstanceId'])) {
+            $model->rdsInstanceId = $map['RdsInstanceId'];
+        }
+        if (isset($map['RegionId'])) {
+            $model->regionId = $map['RegionId'];
+        }
+        if (isset($map['ResourceGroupId'])) {
+            $model->resourceGroupId = $map['ResourceGroupId'];
+        }
+        if (isset($map['StorageResource'])) {
+            $model->storageResource = $map['StorageResource'];
+        }
+        if (isset($map['Tags'])) {
+            $model->tags = tags::fromMap($map['Tags']);
+        }
+        if (isset($map['UserENIStatus'])) {
+            $model->userENIStatus = $map['UserENIStatus'];
+        }
+        if (isset($map['VPCCloudInstanceId'])) {
+            $model->VPCCloudInstanceId = $map['VPCCloudInstanceId'];
+        }
+        if (isset($map['VPCId'])) {
+            $model->VPCId = $map['VPCId'];
+        }
+        if (isset($map['VSwitchId'])) {
+            $model->vSwitchId = $map['VSwitchId'];
+        }
+        if (isset($map['ZoneId'])) {
+            $model->zoneId = $map['ZoneId'];
         }
 
         return $model;

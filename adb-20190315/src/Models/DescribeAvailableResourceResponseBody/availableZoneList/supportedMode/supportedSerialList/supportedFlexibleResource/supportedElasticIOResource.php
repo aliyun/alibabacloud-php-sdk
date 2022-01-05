@@ -11,7 +11,7 @@ class supportedElasticIOResource extends Model
     /**
      * @var string
      */
-    public $step;
+    public $maxCount;
 
     /**
      * @var string
@@ -21,11 +21,11 @@ class supportedElasticIOResource extends Model
     /**
      * @var string
      */
-    public $maxCount;
+    public $step;
     protected $_name = [
-        'step'     => 'Step',
-        'minCount' => 'MinCount',
         'maxCount' => 'MaxCount',
+        'minCount' => 'MinCount',
+        'step'     => 'Step',
     ];
 
     public function validate()
@@ -35,14 +35,14 @@ class supportedElasticIOResource extends Model
     public function toMap()
     {
         $res = [];
-        if (null !== $this->step) {
-            $res['Step'] = $this->step;
+        if (null !== $this->maxCount) {
+            $res['MaxCount'] = $this->maxCount;
         }
         if (null !== $this->minCount) {
             $res['MinCount'] = $this->minCount;
         }
-        if (null !== $this->maxCount) {
-            $res['MaxCount'] = $this->maxCount;
+        if (null !== $this->step) {
+            $res['Step'] = $this->step;
         }
 
         return $res;
@@ -56,14 +56,14 @@ class supportedElasticIOResource extends Model
     public static function fromMap($map = [])
     {
         $model = new self();
-        if (isset($map['Step'])) {
-            $model->step = $map['Step'];
+        if (isset($map['MaxCount'])) {
+            $model->maxCount = $map['MaxCount'];
         }
         if (isset($map['MinCount'])) {
             $model->minCount = $map['MinCount'];
         }
-        if (isset($map['MaxCount'])) {
-            $model->maxCount = $map['MaxCount'];
+        if (isset($map['Step'])) {
+            $model->step = $map['Step'];
         }
 
         return $model;

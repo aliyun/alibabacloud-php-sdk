@@ -9,6 +9,21 @@ use AlibabaCloud\Tea\Model;
 class ModifyDBClusterDescriptionRequest extends Model
 {
     /**
+     * @var string
+     */
+    public $DBClusterDescription;
+
+    /**
+     * @var string
+     */
+    public $DBClusterId;
+
+    /**
+     * @var string
+     */
+    public $ownerAccount;
+
+    /**
      * @var int
      */
     public $ownerId;
@@ -22,28 +37,13 @@ class ModifyDBClusterDescriptionRequest extends Model
      * @var int
      */
     public $resourceOwnerId;
-
-    /**
-     * @var string
-     */
-    public $ownerAccount;
-
-    /**
-     * @var string
-     */
-    public $DBClusterId;
-
-    /**
-     * @var string
-     */
-    public $DBClusterDescription;
     protected $_name = [
+        'DBClusterDescription' => 'DBClusterDescription',
+        'DBClusterId'          => 'DBClusterId',
+        'ownerAccount'         => 'OwnerAccount',
         'ownerId'              => 'OwnerId',
         'resourceOwnerAccount' => 'ResourceOwnerAccount',
         'resourceOwnerId'      => 'ResourceOwnerId',
-        'ownerAccount'         => 'OwnerAccount',
-        'DBClusterId'          => 'DBClusterId',
-        'DBClusterDescription' => 'DBClusterDescription',
     ];
 
     public function validate()
@@ -53,6 +53,15 @@ class ModifyDBClusterDescriptionRequest extends Model
     public function toMap()
     {
         $res = [];
+        if (null !== $this->DBClusterDescription) {
+            $res['DBClusterDescription'] = $this->DBClusterDescription;
+        }
+        if (null !== $this->DBClusterId) {
+            $res['DBClusterId'] = $this->DBClusterId;
+        }
+        if (null !== $this->ownerAccount) {
+            $res['OwnerAccount'] = $this->ownerAccount;
+        }
         if (null !== $this->ownerId) {
             $res['OwnerId'] = $this->ownerId;
         }
@@ -61,15 +70,6 @@ class ModifyDBClusterDescriptionRequest extends Model
         }
         if (null !== $this->resourceOwnerId) {
             $res['ResourceOwnerId'] = $this->resourceOwnerId;
-        }
-        if (null !== $this->ownerAccount) {
-            $res['OwnerAccount'] = $this->ownerAccount;
-        }
-        if (null !== $this->DBClusterId) {
-            $res['DBClusterId'] = $this->DBClusterId;
-        }
-        if (null !== $this->DBClusterDescription) {
-            $res['DBClusterDescription'] = $this->DBClusterDescription;
         }
 
         return $res;
@@ -83,6 +83,15 @@ class ModifyDBClusterDescriptionRequest extends Model
     public static function fromMap($map = [])
     {
         $model = new self();
+        if (isset($map['DBClusterDescription'])) {
+            $model->DBClusterDescription = $map['DBClusterDescription'];
+        }
+        if (isset($map['DBClusterId'])) {
+            $model->DBClusterId = $map['DBClusterId'];
+        }
+        if (isset($map['OwnerAccount'])) {
+            $model->ownerAccount = $map['OwnerAccount'];
+        }
         if (isset($map['OwnerId'])) {
             $model->ownerId = $map['OwnerId'];
         }
@@ -91,15 +100,6 @@ class ModifyDBClusterDescriptionRequest extends Model
         }
         if (isset($map['ResourceOwnerId'])) {
             $model->resourceOwnerId = $map['ResourceOwnerId'];
-        }
-        if (isset($map['OwnerAccount'])) {
-            $model->ownerAccount = $map['OwnerAccount'];
-        }
-        if (isset($map['DBClusterId'])) {
-            $model->DBClusterId = $map['DBClusterId'];
-        }
-        if (isset($map['DBClusterDescription'])) {
-            $model->DBClusterDescription = $map['DBClusterDescription'];
         }
 
         return $model;

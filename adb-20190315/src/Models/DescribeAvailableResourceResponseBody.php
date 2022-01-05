@@ -10,6 +10,11 @@ use AlibabaCloud\Tea\Model;
 class DescribeAvailableResourceResponseBody extends Model
 {
     /**
+     * @var availableZoneList[]
+     */
+    public $availableZoneList;
+
+    /**
      * @var string
      */
     public $regionId;
@@ -18,15 +23,10 @@ class DescribeAvailableResourceResponseBody extends Model
      * @var string
      */
     public $requestId;
-
-    /**
-     * @var availableZoneList[]
-     */
-    public $availableZoneList;
     protected $_name = [
+        'availableZoneList' => 'AvailableZoneList',
         'regionId'          => 'RegionId',
         'requestId'         => 'RequestId',
-        'availableZoneList' => 'AvailableZoneList',
     ];
 
     public function validate()
@@ -36,12 +36,6 @@ class DescribeAvailableResourceResponseBody extends Model
     public function toMap()
     {
         $res = [];
-        if (null !== $this->regionId) {
-            $res['RegionId'] = $this->regionId;
-        }
-        if (null !== $this->requestId) {
-            $res['RequestId'] = $this->requestId;
-        }
         if (null !== $this->availableZoneList) {
             $res['AvailableZoneList'] = [];
             if (null !== $this->availableZoneList && \is_array($this->availableZoneList)) {
@@ -50,6 +44,12 @@ class DescribeAvailableResourceResponseBody extends Model
                     $res['AvailableZoneList'][$n++] = null !== $item ? $item->toMap() : $item;
                 }
             }
+        }
+        if (null !== $this->regionId) {
+            $res['RegionId'] = $this->regionId;
+        }
+        if (null !== $this->requestId) {
+            $res['RequestId'] = $this->requestId;
         }
 
         return $res;
@@ -63,12 +63,6 @@ class DescribeAvailableResourceResponseBody extends Model
     public static function fromMap($map = [])
     {
         $model = new self();
-        if (isset($map['RegionId'])) {
-            $model->regionId = $map['RegionId'];
-        }
-        if (isset($map['RequestId'])) {
-            $model->requestId = $map['RequestId'];
-        }
         if (isset($map['AvailableZoneList'])) {
             if (!empty($map['AvailableZoneList'])) {
                 $model->availableZoneList = [];
@@ -77,6 +71,12 @@ class DescribeAvailableResourceResponseBody extends Model
                     $model->availableZoneList[$n++] = null !== $item ? availableZoneList::fromMap($item) : $item;
                 }
             }
+        }
+        if (isset($map['RegionId'])) {
+            $model->regionId = $map['RegionId'];
+        }
+        if (isset($map['RequestId'])) {
+            $model->requestId = $map['RequestId'];
         }
 
         return $model;

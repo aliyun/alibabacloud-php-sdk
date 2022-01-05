@@ -16,16 +16,16 @@ class DescribeDownloadRecordsRequest extends Model
     /**
      * @var string
      */
-    public $regionId;
+    public $lang;
 
     /**
      * @var string
      */
-    public $lang;
+    public $regionId;
     protected $_name = [
         'DBClusterId' => 'DBClusterId',
-        'regionId'    => 'RegionId',
         'lang'        => 'Lang',
+        'regionId'    => 'RegionId',
     ];
 
     public function validate()
@@ -38,11 +38,11 @@ class DescribeDownloadRecordsRequest extends Model
         if (null !== $this->DBClusterId) {
             $res['DBClusterId'] = $this->DBClusterId;
         }
-        if (null !== $this->regionId) {
-            $res['RegionId'] = $this->regionId;
-        }
         if (null !== $this->lang) {
             $res['Lang'] = $this->lang;
+        }
+        if (null !== $this->regionId) {
+            $res['RegionId'] = $this->regionId;
         }
 
         return $res;
@@ -59,11 +59,11 @@ class DescribeDownloadRecordsRequest extends Model
         if (isset($map['DBClusterId'])) {
             $model->DBClusterId = $map['DBClusterId'];
         }
-        if (isset($map['RegionId'])) {
-            $model->regionId = $map['RegionId'];
-        }
         if (isset($map['Lang'])) {
             $model->lang = $map['Lang'];
+        }
+        if (isset($map['RegionId'])) {
+            $model->regionId = $map['RegionId'];
         }
 
         return $model;

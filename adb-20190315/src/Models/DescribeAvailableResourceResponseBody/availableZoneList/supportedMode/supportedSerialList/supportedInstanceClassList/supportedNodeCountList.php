@@ -10,17 +10,17 @@ use AlibabaCloud\Tea\Model;
 class supportedNodeCountList extends Model
 {
     /**
-     * @var string[]
-     */
-    public $storageSize;
-
-    /**
      * @var nodeCount
      */
     public $nodeCount;
+
+    /**
+     * @var string[]
+     */
+    public $storageSize;
     protected $_name = [
-        'storageSize' => 'StorageSize',
         'nodeCount'   => 'NodeCount',
+        'storageSize' => 'StorageSize',
     ];
 
     public function validate()
@@ -30,11 +30,11 @@ class supportedNodeCountList extends Model
     public function toMap()
     {
         $res = [];
-        if (null !== $this->storageSize) {
-            $res['StorageSize'] = $this->storageSize;
-        }
         if (null !== $this->nodeCount) {
             $res['NodeCount'] = null !== $this->nodeCount ? $this->nodeCount->toMap() : null;
+        }
+        if (null !== $this->storageSize) {
+            $res['StorageSize'] = $this->storageSize;
         }
 
         return $res;
@@ -48,13 +48,13 @@ class supportedNodeCountList extends Model
     public static function fromMap($map = [])
     {
         $model = new self();
+        if (isset($map['NodeCount'])) {
+            $model->nodeCount = nodeCount::fromMap($map['NodeCount']);
+        }
         if (isset($map['StorageSize'])) {
             if (!empty($map['StorageSize'])) {
                 $model->storageSize = $map['StorageSize'];
             }
-        }
-        if (isset($map['NodeCount'])) {
-            $model->nodeCount = nodeCount::fromMap($map['NodeCount']);
         }
 
         return $model;

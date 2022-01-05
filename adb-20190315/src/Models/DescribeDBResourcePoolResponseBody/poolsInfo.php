@@ -11,12 +11,12 @@ class poolsInfo extends Model
     /**
      * @var string
      */
-    public $queryType;
+    public $createTime;
 
     /**
-     * @var string
+     * @var int
      */
-    public $updateTime;
+    public $nodeNum;
 
     /**
      * @var string
@@ -26,24 +26,24 @@ class poolsInfo extends Model
     /**
      * @var string
      */
-    public $createTime;
+    public $poolUsers;
 
     /**
      * @var string
      */
-    public $poolUsers;
+    public $queryType;
 
     /**
-     * @var int
+     * @var string
      */
-    public $nodeNum;
+    public $updateTime;
     protected $_name = [
+        'createTime' => 'CreateTime',
+        'nodeNum'    => 'NodeNum',
+        'poolName'   => 'PoolName',
+        'poolUsers'  => 'PoolUsers',
         'queryType'  => 'QueryType',
         'updateTime' => 'UpdateTime',
-        'poolName'   => 'PoolName',
-        'createTime' => 'CreateTime',
-        'poolUsers'  => 'PoolUsers',
-        'nodeNum'    => 'NodeNum',
     ];
 
     public function validate()
@@ -53,23 +53,23 @@ class poolsInfo extends Model
     public function toMap()
     {
         $res = [];
+        if (null !== $this->createTime) {
+            $res['CreateTime'] = $this->createTime;
+        }
+        if (null !== $this->nodeNum) {
+            $res['NodeNum'] = $this->nodeNum;
+        }
+        if (null !== $this->poolName) {
+            $res['PoolName'] = $this->poolName;
+        }
+        if (null !== $this->poolUsers) {
+            $res['PoolUsers'] = $this->poolUsers;
+        }
         if (null !== $this->queryType) {
             $res['QueryType'] = $this->queryType;
         }
         if (null !== $this->updateTime) {
             $res['UpdateTime'] = $this->updateTime;
-        }
-        if (null !== $this->poolName) {
-            $res['PoolName'] = $this->poolName;
-        }
-        if (null !== $this->createTime) {
-            $res['CreateTime'] = $this->createTime;
-        }
-        if (null !== $this->poolUsers) {
-            $res['PoolUsers'] = $this->poolUsers;
-        }
-        if (null !== $this->nodeNum) {
-            $res['NodeNum'] = $this->nodeNum;
         }
 
         return $res;
@@ -83,23 +83,23 @@ class poolsInfo extends Model
     public static function fromMap($map = [])
     {
         $model = new self();
+        if (isset($map['CreateTime'])) {
+            $model->createTime = $map['CreateTime'];
+        }
+        if (isset($map['NodeNum'])) {
+            $model->nodeNum = $map['NodeNum'];
+        }
+        if (isset($map['PoolName'])) {
+            $model->poolName = $map['PoolName'];
+        }
+        if (isset($map['PoolUsers'])) {
+            $model->poolUsers = $map['PoolUsers'];
+        }
         if (isset($map['QueryType'])) {
             $model->queryType = $map['QueryType'];
         }
         if (isset($map['UpdateTime'])) {
             $model->updateTime = $map['UpdateTime'];
-        }
-        if (isset($map['PoolName'])) {
-            $model->poolName = $map['PoolName'];
-        }
-        if (isset($map['CreateTime'])) {
-            $model->createTime = $map['CreateTime'];
-        }
-        if (isset($map['PoolUsers'])) {
-            $model->poolUsers = $map['PoolUsers'];
-        }
-        if (isset($map['NodeNum'])) {
-            $model->nodeNum = $map['NodeNum'];
         }
 
         return $model;

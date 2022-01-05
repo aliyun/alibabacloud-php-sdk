@@ -9,9 +9,9 @@ use AlibabaCloud\Tea\Model;
 class table extends Model
 {
     /**
-     * @var string
+     * @var bool
      */
-    public $type;
+    public $isIncline;
 
     /**
      * @var string
@@ -24,20 +24,20 @@ class table extends Model
     public $schema;
 
     /**
-     * @var bool
-     */
-    public $isIncline;
-
-    /**
      * @var int
      */
     public $size;
+
+    /**
+     * @var string
+     */
+    public $type;
     protected $_name = [
-        'type'      => 'Type',
+        'isIncline' => 'IsIncline',
         'name'      => 'Name',
         'schema'    => 'Schema',
-        'isIncline' => 'IsIncline',
         'size'      => 'Size',
+        'type'      => 'Type',
     ];
 
     public function validate()
@@ -47,8 +47,8 @@ class table extends Model
     public function toMap()
     {
         $res = [];
-        if (null !== $this->type) {
-            $res['Type'] = $this->type;
+        if (null !== $this->isIncline) {
+            $res['IsIncline'] = $this->isIncline;
         }
         if (null !== $this->name) {
             $res['Name'] = $this->name;
@@ -56,11 +56,11 @@ class table extends Model
         if (null !== $this->schema) {
             $res['Schema'] = $this->schema;
         }
-        if (null !== $this->isIncline) {
-            $res['IsIncline'] = $this->isIncline;
-        }
         if (null !== $this->size) {
             $res['Size'] = $this->size;
+        }
+        if (null !== $this->type) {
+            $res['Type'] = $this->type;
         }
 
         return $res;
@@ -74,8 +74,8 @@ class table extends Model
     public static function fromMap($map = [])
     {
         $model = new self();
-        if (isset($map['Type'])) {
-            $model->type = $map['Type'];
+        if (isset($map['IsIncline'])) {
+            $model->isIncline = $map['IsIncline'];
         }
         if (isset($map['Name'])) {
             $model->name = $map['Name'];
@@ -83,11 +83,11 @@ class table extends Model
         if (isset($map['Schema'])) {
             $model->schema = $map['Schema'];
         }
-        if (isset($map['IsIncline'])) {
-            $model->isIncline = $map['IsIncline'];
-        }
         if (isset($map['Size'])) {
             $model->size = $map['Size'];
+        }
+        if (isset($map['Type'])) {
+            $model->type = $map['Type'];
         }
 
         return $model;

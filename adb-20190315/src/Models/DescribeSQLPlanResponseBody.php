@@ -11,6 +11,11 @@ use AlibabaCloud\Tea\Model;
 class DescribeSQLPlanResponseBody extends Model
 {
     /**
+     * @var detail
+     */
+    public $detail;
+
+    /**
      * @var string
      */
     public $originInfo;
@@ -21,18 +26,13 @@ class DescribeSQLPlanResponseBody extends Model
     public $requestId;
 
     /**
-     * @var detail
-     */
-    public $detail;
-
-    /**
      * @var stageList[]
      */
     public $stageList;
     protected $_name = [
+        'detail'     => 'Detail',
         'originInfo' => 'OriginInfo',
         'requestId'  => 'RequestId',
-        'detail'     => 'Detail',
         'stageList'  => 'StageList',
     ];
 
@@ -43,14 +43,14 @@ class DescribeSQLPlanResponseBody extends Model
     public function toMap()
     {
         $res = [];
+        if (null !== $this->detail) {
+            $res['Detail'] = null !== $this->detail ? $this->detail->toMap() : null;
+        }
         if (null !== $this->originInfo) {
             $res['OriginInfo'] = $this->originInfo;
         }
         if (null !== $this->requestId) {
             $res['RequestId'] = $this->requestId;
-        }
-        if (null !== $this->detail) {
-            $res['Detail'] = null !== $this->detail ? $this->detail->toMap() : null;
         }
         if (null !== $this->stageList) {
             $res['StageList'] = [];
@@ -73,14 +73,14 @@ class DescribeSQLPlanResponseBody extends Model
     public static function fromMap($map = [])
     {
         $model = new self();
+        if (isset($map['Detail'])) {
+            $model->detail = detail::fromMap($map['Detail']);
+        }
         if (isset($map['OriginInfo'])) {
             $model->originInfo = $map['OriginInfo'];
         }
         if (isset($map['RequestId'])) {
             $model->requestId = $map['RequestId'];
-        }
-        if (isset($map['Detail'])) {
-            $model->detail = detail::fromMap($map['Detail']);
         }
         if (isset($map['StageList'])) {
             if (!empty($map['StageList'])) {

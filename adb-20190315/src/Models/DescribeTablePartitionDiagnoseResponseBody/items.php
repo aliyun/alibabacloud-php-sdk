@@ -11,12 +11,12 @@ class items extends Model
     /**
      * @var string
      */
-    public $tableName;
+    public $partitionDetail;
 
     /**
-     * @var string
+     * @var int
      */
-    public $partitionDetail;
+    public $partitionNumber;
 
     /**
      * @var string
@@ -24,14 +24,14 @@ class items extends Model
     public $schemaName;
 
     /**
-     * @var int
+     * @var string
      */
-    public $partitionNumber;
+    public $tableName;
     protected $_name = [
-        'tableName'       => 'TableName',
         'partitionDetail' => 'PartitionDetail',
-        'schemaName'      => 'SchemaName',
         'partitionNumber' => 'PartitionNumber',
+        'schemaName'      => 'SchemaName',
+        'tableName'       => 'TableName',
     ];
 
     public function validate()
@@ -41,17 +41,17 @@ class items extends Model
     public function toMap()
     {
         $res = [];
-        if (null !== $this->tableName) {
-            $res['TableName'] = $this->tableName;
-        }
         if (null !== $this->partitionDetail) {
             $res['PartitionDetail'] = $this->partitionDetail;
+        }
+        if (null !== $this->partitionNumber) {
+            $res['PartitionNumber'] = $this->partitionNumber;
         }
         if (null !== $this->schemaName) {
             $res['SchemaName'] = $this->schemaName;
         }
-        if (null !== $this->partitionNumber) {
-            $res['PartitionNumber'] = $this->partitionNumber;
+        if (null !== $this->tableName) {
+            $res['TableName'] = $this->tableName;
         }
 
         return $res;
@@ -65,17 +65,17 @@ class items extends Model
     public static function fromMap($map = [])
     {
         $model = new self();
-        if (isset($map['TableName'])) {
-            $model->tableName = $map['TableName'];
-        }
         if (isset($map['PartitionDetail'])) {
             $model->partitionDetail = $map['PartitionDetail'];
+        }
+        if (isset($map['PartitionNumber'])) {
+            $model->partitionNumber = $map['PartitionNumber'];
         }
         if (isset($map['SchemaName'])) {
             $model->schemaName = $map['SchemaName'];
         }
-        if (isset($map['PartitionNumber'])) {
-            $model->partitionNumber = $map['PartitionNumber'];
+        if (isset($map['TableName'])) {
+            $model->tableName = $map['TableName'];
         }
 
         return $model;

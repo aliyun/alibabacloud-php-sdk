@@ -11,21 +11,21 @@ class table extends Model
     /**
      * @var string
      */
+    public $DBClusterId;
+
+    /**
+     * @var string
+     */
     public $schemaName;
 
     /**
      * @var string
      */
     public $tableName;
-
-    /**
-     * @var string
-     */
-    public $DBClusterId;
     protected $_name = [
+        'DBClusterId' => 'DBClusterId',
         'schemaName'  => 'SchemaName',
         'tableName'   => 'TableName',
-        'DBClusterId' => 'DBClusterId',
     ];
 
     public function validate()
@@ -35,14 +35,14 @@ class table extends Model
     public function toMap()
     {
         $res = [];
+        if (null !== $this->DBClusterId) {
+            $res['DBClusterId'] = $this->DBClusterId;
+        }
         if (null !== $this->schemaName) {
             $res['SchemaName'] = $this->schemaName;
         }
         if (null !== $this->tableName) {
             $res['TableName'] = $this->tableName;
-        }
-        if (null !== $this->DBClusterId) {
-            $res['DBClusterId'] = $this->DBClusterId;
         }
 
         return $res;
@@ -56,14 +56,14 @@ class table extends Model
     public static function fromMap($map = [])
     {
         $model = new self();
+        if (isset($map['DBClusterId'])) {
+            $model->DBClusterId = $map['DBClusterId'];
+        }
         if (isset($map['SchemaName'])) {
             $model->schemaName = $map['SchemaName'];
         }
         if (isset($map['TableName'])) {
             $model->tableName = $map['TableName'];
-        }
-        if (isset($map['DBClusterId'])) {
-            $model->DBClusterId = $map['DBClusterId'];
         }
 
         return $model;

@@ -12,12 +12,17 @@ class DescribeSlowLogTrendResponseBody extends Model
     /**
      * @var string
      */
-    public $endTime;
+    public $DBClusterId;
 
     /**
      * @var string
      */
-    public $startTime;
+    public $endTime;
+
+    /**
+     * @var items
+     */
+    public $items;
 
     /**
      * @var string
@@ -27,18 +32,13 @@ class DescribeSlowLogTrendResponseBody extends Model
     /**
      * @var string
      */
-    public $DBClusterId;
-
-    /**
-     * @var items
-     */
-    public $items;
+    public $startTime;
     protected $_name = [
-        'endTime'     => 'EndTime',
-        'startTime'   => 'StartTime',
-        'requestId'   => 'RequestId',
         'DBClusterId' => 'DBClusterId',
+        'endTime'     => 'EndTime',
         'items'       => 'Items',
+        'requestId'   => 'RequestId',
+        'startTime'   => 'StartTime',
     ];
 
     public function validate()
@@ -48,20 +48,20 @@ class DescribeSlowLogTrendResponseBody extends Model
     public function toMap()
     {
         $res = [];
+        if (null !== $this->DBClusterId) {
+            $res['DBClusterId'] = $this->DBClusterId;
+        }
         if (null !== $this->endTime) {
             $res['EndTime'] = $this->endTime;
         }
-        if (null !== $this->startTime) {
-            $res['StartTime'] = $this->startTime;
+        if (null !== $this->items) {
+            $res['Items'] = null !== $this->items ? $this->items->toMap() : null;
         }
         if (null !== $this->requestId) {
             $res['RequestId'] = $this->requestId;
         }
-        if (null !== $this->DBClusterId) {
-            $res['DBClusterId'] = $this->DBClusterId;
-        }
-        if (null !== $this->items) {
-            $res['Items'] = null !== $this->items ? $this->items->toMap() : null;
+        if (null !== $this->startTime) {
+            $res['StartTime'] = $this->startTime;
         }
 
         return $res;
@@ -75,20 +75,20 @@ class DescribeSlowLogTrendResponseBody extends Model
     public static function fromMap($map = [])
     {
         $model = new self();
+        if (isset($map['DBClusterId'])) {
+            $model->DBClusterId = $map['DBClusterId'];
+        }
         if (isset($map['EndTime'])) {
             $model->endTime = $map['EndTime'];
         }
-        if (isset($map['StartTime'])) {
-            $model->startTime = $map['StartTime'];
+        if (isset($map['Items'])) {
+            $model->items = items::fromMap($map['Items']);
         }
         if (isset($map['RequestId'])) {
             $model->requestId = $map['RequestId'];
         }
-        if (isset($map['DBClusterId'])) {
-            $model->DBClusterId = $map['DBClusterId'];
-        }
-        if (isset($map['Items'])) {
-            $model->items = items::fromMap($map['Items']);
+        if (isset($map['StartTime'])) {
+            $model->startTime = $map['StartTime'];
         }
 
         return $model;

@@ -10,17 +10,17 @@ use AlibabaCloud\Tea\Model;
 class DescribeAllAccountsResponseBody extends Model
 {
     /**
-     * @var string
-     */
-    public $requestId;
-
-    /**
      * @var accountList[]
      */
     public $accountList;
+
+    /**
+     * @var string
+     */
+    public $requestId;
     protected $_name = [
-        'requestId'   => 'RequestId',
         'accountList' => 'AccountList',
+        'requestId'   => 'RequestId',
     ];
 
     public function validate()
@@ -30,9 +30,6 @@ class DescribeAllAccountsResponseBody extends Model
     public function toMap()
     {
         $res = [];
-        if (null !== $this->requestId) {
-            $res['RequestId'] = $this->requestId;
-        }
         if (null !== $this->accountList) {
             $res['AccountList'] = [];
             if (null !== $this->accountList && \is_array($this->accountList)) {
@@ -41,6 +38,9 @@ class DescribeAllAccountsResponseBody extends Model
                     $res['AccountList'][$n++] = null !== $item ? $item->toMap() : $item;
                 }
             }
+        }
+        if (null !== $this->requestId) {
+            $res['RequestId'] = $this->requestId;
         }
 
         return $res;
@@ -54,9 +54,6 @@ class DescribeAllAccountsResponseBody extends Model
     public static function fromMap($map = [])
     {
         $model = new self();
-        if (isset($map['RequestId'])) {
-            $model->requestId = $map['RequestId'];
-        }
         if (isset($map['AccountList'])) {
             if (!empty($map['AccountList'])) {
                 $model->accountList = [];
@@ -65,6 +62,9 @@ class DescribeAllAccountsResponseBody extends Model
                     $model->accountList[$n++] = null !== $item ? accountList::fromMap($item) : $item;
                 }
             }
+        }
+        if (isset($map['RequestId'])) {
+            $model->requestId = $map['RequestId'];
         }
 
         return $model;

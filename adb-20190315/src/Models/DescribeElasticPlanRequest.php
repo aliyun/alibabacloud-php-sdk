@@ -9,6 +9,26 @@ use AlibabaCloud\Tea\Model;
 class DescribeElasticPlanRequest extends Model
 {
     /**
+     * @var string
+     */
+    public $DBClusterId;
+
+    /**
+     * @var bool
+     */
+    public $elasticPlanEnable;
+
+    /**
+     * @var string
+     */
+    public $elasticPlanName;
+
+    /**
+     * @var string
+     */
+    public $ownerAccount;
+
+    /**
      * @var int
      */
     public $ownerId;
@@ -26,36 +46,16 @@ class DescribeElasticPlanRequest extends Model
     /**
      * @var string
      */
-    public $ownerAccount;
-
-    /**
-     * @var string
-     */
-    public $DBClusterId;
-
-    /**
-     * @var string
-     */
-    public $elasticPlanName;
-
-    /**
-     * @var string
-     */
     public $resourcePoolName;
-
-    /**
-     * @var bool
-     */
-    public $elasticPlanEnable;
     protected $_name = [
+        'DBClusterId'          => 'DBClusterId',
+        'elasticPlanEnable'    => 'ElasticPlanEnable',
+        'elasticPlanName'      => 'ElasticPlanName',
+        'ownerAccount'         => 'OwnerAccount',
         'ownerId'              => 'OwnerId',
         'resourceOwnerAccount' => 'ResourceOwnerAccount',
         'resourceOwnerId'      => 'ResourceOwnerId',
-        'ownerAccount'         => 'OwnerAccount',
-        'DBClusterId'          => 'DBClusterId',
-        'elasticPlanName'      => 'ElasticPlanName',
         'resourcePoolName'     => 'ResourcePoolName',
-        'elasticPlanEnable'    => 'ElasticPlanEnable',
     ];
 
     public function validate()
@@ -65,6 +65,18 @@ class DescribeElasticPlanRequest extends Model
     public function toMap()
     {
         $res = [];
+        if (null !== $this->DBClusterId) {
+            $res['DBClusterId'] = $this->DBClusterId;
+        }
+        if (null !== $this->elasticPlanEnable) {
+            $res['ElasticPlanEnable'] = $this->elasticPlanEnable;
+        }
+        if (null !== $this->elasticPlanName) {
+            $res['ElasticPlanName'] = $this->elasticPlanName;
+        }
+        if (null !== $this->ownerAccount) {
+            $res['OwnerAccount'] = $this->ownerAccount;
+        }
         if (null !== $this->ownerId) {
             $res['OwnerId'] = $this->ownerId;
         }
@@ -74,20 +86,8 @@ class DescribeElasticPlanRequest extends Model
         if (null !== $this->resourceOwnerId) {
             $res['ResourceOwnerId'] = $this->resourceOwnerId;
         }
-        if (null !== $this->ownerAccount) {
-            $res['OwnerAccount'] = $this->ownerAccount;
-        }
-        if (null !== $this->DBClusterId) {
-            $res['DBClusterId'] = $this->DBClusterId;
-        }
-        if (null !== $this->elasticPlanName) {
-            $res['ElasticPlanName'] = $this->elasticPlanName;
-        }
         if (null !== $this->resourcePoolName) {
             $res['ResourcePoolName'] = $this->resourcePoolName;
-        }
-        if (null !== $this->elasticPlanEnable) {
-            $res['ElasticPlanEnable'] = $this->elasticPlanEnable;
         }
 
         return $res;
@@ -101,6 +101,18 @@ class DescribeElasticPlanRequest extends Model
     public static function fromMap($map = [])
     {
         $model = new self();
+        if (isset($map['DBClusterId'])) {
+            $model->DBClusterId = $map['DBClusterId'];
+        }
+        if (isset($map['ElasticPlanEnable'])) {
+            $model->elasticPlanEnable = $map['ElasticPlanEnable'];
+        }
+        if (isset($map['ElasticPlanName'])) {
+            $model->elasticPlanName = $map['ElasticPlanName'];
+        }
+        if (isset($map['OwnerAccount'])) {
+            $model->ownerAccount = $map['OwnerAccount'];
+        }
         if (isset($map['OwnerId'])) {
             $model->ownerId = $map['OwnerId'];
         }
@@ -110,20 +122,8 @@ class DescribeElasticPlanRequest extends Model
         if (isset($map['ResourceOwnerId'])) {
             $model->resourceOwnerId = $map['ResourceOwnerId'];
         }
-        if (isset($map['OwnerAccount'])) {
-            $model->ownerAccount = $map['OwnerAccount'];
-        }
-        if (isset($map['DBClusterId'])) {
-            $model->DBClusterId = $map['DBClusterId'];
-        }
-        if (isset($map['ElasticPlanName'])) {
-            $model->elasticPlanName = $map['ElasticPlanName'];
-        }
         if (isset($map['ResourcePoolName'])) {
             $model->resourcePoolName = $map['ResourcePoolName'];
-        }
-        if (isset($map['ElasticPlanEnable'])) {
-            $model->elasticPlanEnable = $map['ElasticPlanEnable'];
         }
 
         return $model;

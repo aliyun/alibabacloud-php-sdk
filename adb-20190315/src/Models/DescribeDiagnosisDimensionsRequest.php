@@ -16,17 +16,12 @@ class DescribeDiagnosisDimensionsRequest extends Model
     /**
      * @var string
      */
-    public $startTime;
-
-    /**
-     * @var string
-     */
     public $endTime;
 
     /**
      * @var string
      */
-    public $regionId;
+    public $lang;
 
     /**
      * @var string
@@ -36,14 +31,19 @@ class DescribeDiagnosisDimensionsRequest extends Model
     /**
      * @var string
      */
-    public $lang;
+    public $regionId;
+
+    /**
+     * @var string
+     */
+    public $startTime;
     protected $_name = [
         'DBClusterId'    => 'DBClusterId',
-        'startTime'      => 'StartTime',
         'endTime'        => 'EndTime',
-        'regionId'       => 'RegionId',
-        'queryCondition' => 'QueryCondition',
         'lang'           => 'Lang',
+        'queryCondition' => 'QueryCondition',
+        'regionId'       => 'RegionId',
+        'startTime'      => 'StartTime',
     ];
 
     public function validate()
@@ -56,20 +56,20 @@ class DescribeDiagnosisDimensionsRequest extends Model
         if (null !== $this->DBClusterId) {
             $res['DBClusterId'] = $this->DBClusterId;
         }
-        if (null !== $this->startTime) {
-            $res['StartTime'] = $this->startTime;
-        }
         if (null !== $this->endTime) {
             $res['EndTime'] = $this->endTime;
         }
-        if (null !== $this->regionId) {
-            $res['RegionId'] = $this->regionId;
+        if (null !== $this->lang) {
+            $res['Lang'] = $this->lang;
         }
         if (null !== $this->queryCondition) {
             $res['QueryCondition'] = $this->queryCondition;
         }
-        if (null !== $this->lang) {
-            $res['Lang'] = $this->lang;
+        if (null !== $this->regionId) {
+            $res['RegionId'] = $this->regionId;
+        }
+        if (null !== $this->startTime) {
+            $res['StartTime'] = $this->startTime;
         }
 
         return $res;
@@ -86,20 +86,20 @@ class DescribeDiagnosisDimensionsRequest extends Model
         if (isset($map['DBClusterId'])) {
             $model->DBClusterId = $map['DBClusterId'];
         }
-        if (isset($map['StartTime'])) {
-            $model->startTime = $map['StartTime'];
-        }
         if (isset($map['EndTime'])) {
             $model->endTime = $map['EndTime'];
         }
-        if (isset($map['RegionId'])) {
-            $model->regionId = $map['RegionId'];
+        if (isset($map['Lang'])) {
+            $model->lang = $map['Lang'];
         }
         if (isset($map['QueryCondition'])) {
             $model->queryCondition = $map['QueryCondition'];
         }
-        if (isset($map['Lang'])) {
-            $model->lang = $map['Lang'];
+        if (isset($map['RegionId'])) {
+            $model->regionId = $map['RegionId'];
+        }
+        if (isset($map['StartTime'])) {
+            $model->startTime = $map['StartTime'];
         }
 
         return $model;

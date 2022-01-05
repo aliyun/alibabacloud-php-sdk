@@ -11,17 +11,17 @@ class items extends Model
     /**
      * @var string
      */
-    public $reportDate;
-
-    /**
-     * @var string
-     */
-    public $tableSchema;
-
-    /**
-     * @var string
-     */
     public $accessCount;
+
+    /**
+     * @var string
+     */
+    public $instanceName;
+
+    /**
+     * @var string
+     */
+    public $reportDate;
 
     /**
      * @var string
@@ -31,13 +31,13 @@ class items extends Model
     /**
      * @var string
      */
-    public $instanceName;
+    public $tableSchema;
     protected $_name = [
-        'reportDate'   => 'ReportDate',
-        'tableSchema'  => 'TableSchema',
         'accessCount'  => 'AccessCount',
-        'tableName'    => 'TableName',
         'instanceName' => 'InstanceName',
+        'reportDate'   => 'ReportDate',
+        'tableName'    => 'TableName',
+        'tableSchema'  => 'TableSchema',
     ];
 
     public function validate()
@@ -47,20 +47,20 @@ class items extends Model
     public function toMap()
     {
         $res = [];
-        if (null !== $this->reportDate) {
-            $res['ReportDate'] = $this->reportDate;
-        }
-        if (null !== $this->tableSchema) {
-            $res['TableSchema'] = $this->tableSchema;
-        }
         if (null !== $this->accessCount) {
             $res['AccessCount'] = $this->accessCount;
+        }
+        if (null !== $this->instanceName) {
+            $res['InstanceName'] = $this->instanceName;
+        }
+        if (null !== $this->reportDate) {
+            $res['ReportDate'] = $this->reportDate;
         }
         if (null !== $this->tableName) {
             $res['TableName'] = $this->tableName;
         }
-        if (null !== $this->instanceName) {
-            $res['InstanceName'] = $this->instanceName;
+        if (null !== $this->tableSchema) {
+            $res['TableSchema'] = $this->tableSchema;
         }
 
         return $res;
@@ -74,20 +74,20 @@ class items extends Model
     public static function fromMap($map = [])
     {
         $model = new self();
-        if (isset($map['ReportDate'])) {
-            $model->reportDate = $map['ReportDate'];
-        }
-        if (isset($map['TableSchema'])) {
-            $model->tableSchema = $map['TableSchema'];
-        }
         if (isset($map['AccessCount'])) {
             $model->accessCount = $map['AccessCount'];
+        }
+        if (isset($map['InstanceName'])) {
+            $model->instanceName = $map['InstanceName'];
+        }
+        if (isset($map['ReportDate'])) {
+            $model->reportDate = $map['ReportDate'];
         }
         if (isset($map['TableName'])) {
             $model->tableName = $map['TableName'];
         }
-        if (isset($map['InstanceName'])) {
-            $model->instanceName = $map['InstanceName'];
+        if (isset($map['TableSchema'])) {
+            $model->tableSchema = $map['TableSchema'];
         }
 
         return $model;

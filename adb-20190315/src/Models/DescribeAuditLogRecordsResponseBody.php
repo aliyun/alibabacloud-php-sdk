@@ -15,14 +15,19 @@ class DescribeAuditLogRecordsResponseBody extends Model
     public $DBClusterId;
 
     /**
-     * @var string
+     * @var items[]
      */
-    public $pageSize;
+    public $items;
 
     /**
      * @var string
      */
     public $pageNumber;
+
+    /**
+     * @var string
+     */
+    public $pageSize;
 
     /**
      * @var string
@@ -33,18 +38,13 @@ class DescribeAuditLogRecordsResponseBody extends Model
      * @var string
      */
     public $totalCount;
-
-    /**
-     * @var items[]
-     */
-    public $items;
     protected $_name = [
         'DBClusterId' => 'DBClusterId',
-        'pageSize'    => 'PageSize',
+        'items'       => 'Items',
         'pageNumber'  => 'PageNumber',
+        'pageSize'    => 'PageSize',
         'requestId'   => 'RequestId',
         'totalCount'  => 'TotalCount',
-        'items'       => 'Items',
     ];
 
     public function validate()
@@ -57,18 +57,6 @@ class DescribeAuditLogRecordsResponseBody extends Model
         if (null !== $this->DBClusterId) {
             $res['DBClusterId'] = $this->DBClusterId;
         }
-        if (null !== $this->pageSize) {
-            $res['PageSize'] = $this->pageSize;
-        }
-        if (null !== $this->pageNumber) {
-            $res['PageNumber'] = $this->pageNumber;
-        }
-        if (null !== $this->requestId) {
-            $res['RequestId'] = $this->requestId;
-        }
-        if (null !== $this->totalCount) {
-            $res['TotalCount'] = $this->totalCount;
-        }
         if (null !== $this->items) {
             $res['Items'] = [];
             if (null !== $this->items && \is_array($this->items)) {
@@ -77,6 +65,18 @@ class DescribeAuditLogRecordsResponseBody extends Model
                     $res['Items'][$n++] = null !== $item ? $item->toMap() : $item;
                 }
             }
+        }
+        if (null !== $this->pageNumber) {
+            $res['PageNumber'] = $this->pageNumber;
+        }
+        if (null !== $this->pageSize) {
+            $res['PageSize'] = $this->pageSize;
+        }
+        if (null !== $this->requestId) {
+            $res['RequestId'] = $this->requestId;
+        }
+        if (null !== $this->totalCount) {
+            $res['TotalCount'] = $this->totalCount;
         }
 
         return $res;
@@ -93,18 +93,6 @@ class DescribeAuditLogRecordsResponseBody extends Model
         if (isset($map['DBClusterId'])) {
             $model->DBClusterId = $map['DBClusterId'];
         }
-        if (isset($map['PageSize'])) {
-            $model->pageSize = $map['PageSize'];
-        }
-        if (isset($map['PageNumber'])) {
-            $model->pageNumber = $map['PageNumber'];
-        }
-        if (isset($map['RequestId'])) {
-            $model->requestId = $map['RequestId'];
-        }
-        if (isset($map['TotalCount'])) {
-            $model->totalCount = $map['TotalCount'];
-        }
         if (isset($map['Items'])) {
             if (!empty($map['Items'])) {
                 $model->items = [];
@@ -113,6 +101,18 @@ class DescribeAuditLogRecordsResponseBody extends Model
                     $model->items[$n++] = null !== $item ? items::fromMap($item) : $item;
                 }
             }
+        }
+        if (isset($map['PageNumber'])) {
+            $model->pageNumber = $map['PageNumber'];
+        }
+        if (isset($map['PageSize'])) {
+            $model->pageSize = $map['PageSize'];
+        }
+        if (isset($map['RequestId'])) {
+            $model->requestId = $map['RequestId'];
+        }
+        if (isset($map['TotalCount'])) {
+            $model->totalCount = $map['TotalCount'];
         }
 
         return $model;

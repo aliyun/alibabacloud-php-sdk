@@ -12,8 +12,14 @@ class ModifyAuditLogConfigResponseBody extends Model
      * @var string
      */
     public $requestId;
+
+    /**
+     * @var bool
+     */
+    public $updateSucceed;
     protected $_name = [
-        'requestId' => 'RequestId',
+        'requestId'     => 'RequestId',
+        'updateSucceed' => 'UpdateSucceed',
     ];
 
     public function validate()
@@ -25,6 +31,9 @@ class ModifyAuditLogConfigResponseBody extends Model
         $res = [];
         if (null !== $this->requestId) {
             $res['RequestId'] = $this->requestId;
+        }
+        if (null !== $this->updateSucceed) {
+            $res['UpdateSucceed'] = $this->updateSucceed;
         }
 
         return $res;
@@ -40,6 +49,9 @@ class ModifyAuditLogConfigResponseBody extends Model
         $model = new self();
         if (isset($map['RequestId'])) {
             $model->requestId = $map['RequestId'];
+        }
+        if (isset($map['UpdateSucceed'])) {
+            $model->updateSucceed = $map['UpdateSucceed'];
         }
 
         return $model;

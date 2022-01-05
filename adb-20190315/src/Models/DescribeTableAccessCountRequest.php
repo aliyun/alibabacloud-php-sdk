@@ -16,16 +16,6 @@ class DescribeTableAccessCountRequest extends Model
     /**
      * @var string
      */
-    public $tableName;
-
-    /**
-     * @var string
-     */
-    public $startTime;
-
-    /**
-     * @var string
-     */
     public $order;
 
     /**
@@ -42,14 +32,24 @@ class DescribeTableAccessCountRequest extends Model
      * @var string
      */
     public $regionId;
+
+    /**
+     * @var string
+     */
+    public $startTime;
+
+    /**
+     * @var string
+     */
+    public $tableName;
     protected $_name = [
         'DBClusterId' => 'DBClusterId',
-        'tableName'   => 'TableName',
-        'startTime'   => 'StartTime',
         'order'       => 'Order',
         'pageNumber'  => 'PageNumber',
         'pageSize'    => 'PageSize',
         'regionId'    => 'RegionId',
+        'startTime'   => 'StartTime',
+        'tableName'   => 'TableName',
     ];
 
     public function validate()
@@ -62,12 +62,6 @@ class DescribeTableAccessCountRequest extends Model
         if (null !== $this->DBClusterId) {
             $res['DBClusterId'] = $this->DBClusterId;
         }
-        if (null !== $this->tableName) {
-            $res['TableName'] = $this->tableName;
-        }
-        if (null !== $this->startTime) {
-            $res['StartTime'] = $this->startTime;
-        }
         if (null !== $this->order) {
             $res['Order'] = $this->order;
         }
@@ -79,6 +73,12 @@ class DescribeTableAccessCountRequest extends Model
         }
         if (null !== $this->regionId) {
             $res['RegionId'] = $this->regionId;
+        }
+        if (null !== $this->startTime) {
+            $res['StartTime'] = $this->startTime;
+        }
+        if (null !== $this->tableName) {
+            $res['TableName'] = $this->tableName;
         }
 
         return $res;
@@ -95,12 +95,6 @@ class DescribeTableAccessCountRequest extends Model
         if (isset($map['DBClusterId'])) {
             $model->DBClusterId = $map['DBClusterId'];
         }
-        if (isset($map['TableName'])) {
-            $model->tableName = $map['TableName'];
-        }
-        if (isset($map['StartTime'])) {
-            $model->startTime = $map['StartTime'];
-        }
         if (isset($map['Order'])) {
             $model->order = $map['Order'];
         }
@@ -112,6 +106,12 @@ class DescribeTableAccessCountRequest extends Model
         }
         if (isset($map['RegionId'])) {
             $model->regionId = $map['RegionId'];
+        }
+        if (isset($map['StartTime'])) {
+            $model->startTime = $map['StartTime'];
+        }
+        if (isset($map['TableName'])) {
+            $model->tableName = $map['TableName'];
         }
 
         return $model;

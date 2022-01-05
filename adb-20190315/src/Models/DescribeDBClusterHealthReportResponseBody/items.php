@@ -11,6 +11,11 @@ class items extends Model
     /**
      * @var string
      */
+    public $avg;
+
+    /**
+     * @var string
+     */
     public $key;
 
     /**
@@ -22,16 +27,11 @@ class items extends Model
      * @var string
      */
     public $name;
-
-    /**
-     * @var string
-     */
-    public $avg;
     protected $_name = [
+        'avg'  => 'Avg',
         'key'  => 'Key',
         'max'  => 'Max',
         'name' => 'Name',
-        'avg'  => 'Avg',
     ];
 
     public function validate()
@@ -41,6 +41,9 @@ class items extends Model
     public function toMap()
     {
         $res = [];
+        if (null !== $this->avg) {
+            $res['Avg'] = $this->avg;
+        }
         if (null !== $this->key) {
             $res['Key'] = $this->key;
         }
@@ -49,9 +52,6 @@ class items extends Model
         }
         if (null !== $this->name) {
             $res['Name'] = $this->name;
-        }
-        if (null !== $this->avg) {
-            $res['Avg'] = $this->avg;
         }
 
         return $res;
@@ -65,6 +65,9 @@ class items extends Model
     public static function fromMap($map = [])
     {
         $model = new self();
+        if (isset($map['Avg'])) {
+            $model->avg = $map['Avg'];
+        }
         if (isset($map['Key'])) {
             $model->key = $map['Key'];
         }
@@ -73,9 +76,6 @@ class items extends Model
         }
         if (isset($map['Name'])) {
             $model->name = $map['Name'];
-        }
-        if (isset($map['Avg'])) {
-            $model->avg = $map['Avg'];
         }
 
         return $model;

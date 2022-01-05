@@ -15,18 +15,18 @@ class slowLogTrendItem extends Model
     public $key;
 
     /**
-     * @var string
-     */
-    public $unit;
-
-    /**
      * @var series
      */
     public $series;
+
+    /**
+     * @var string
+     */
+    public $unit;
     protected $_name = [
         'key'    => 'Key',
-        'unit'   => 'Unit',
         'series' => 'Series',
+        'unit'   => 'Unit',
     ];
 
     public function validate()
@@ -39,11 +39,11 @@ class slowLogTrendItem extends Model
         if (null !== $this->key) {
             $res['Key'] = $this->key;
         }
-        if (null !== $this->unit) {
-            $res['Unit'] = $this->unit;
-        }
         if (null !== $this->series) {
             $res['Series'] = null !== $this->series ? $this->series->toMap() : null;
+        }
+        if (null !== $this->unit) {
+            $res['Unit'] = $this->unit;
         }
 
         return $res;
@@ -60,11 +60,11 @@ class slowLogTrendItem extends Model
         if (isset($map['Key'])) {
             $model->key = $map['Key'];
         }
-        if (isset($map['Unit'])) {
-            $model->unit = $map['Unit'];
-        }
         if (isset($map['Series'])) {
             $model->series = series::fromMap($map['Series']);
+        }
+        if (isset($map['Unit'])) {
+            $model->unit = $map['Unit'];
         }
 
         return $model;
