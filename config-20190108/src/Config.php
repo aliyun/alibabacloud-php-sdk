@@ -108,11 +108,12 @@ class Config extends OpenApiClient
     public function activeConfigRulesWithOptions($request, $runtime)
     {
         Utils::validateModel($request);
-        $query                  = [];
-        $query['ConfigRuleIds'] = $request->configRuleIds;
-        $req                    = new OpenApiRequest([
+        $query = [];
+        if (!Utils::isUnset($request->configRuleIds)) {
+            $query['ConfigRuleIds'] = $request->configRuleIds;
+        }
+        $req = new OpenApiRequest([
             'query' => OpenApiUtilClient::query($query),
-            'body'  => Utils::toMap($request),
         ]);
         $params = new Params([
             'action'      => 'ActiveConfigRules',
@@ -122,7 +123,7 @@ class Config extends OpenApiClient
             'method'      => 'POST',
             'authType'    => 'AK',
             'style'       => 'RPC',
-            'reqBodyType' => 'json',
+            'reqBodyType' => 'formData',
             'bodyType'    => 'json',
         ]);
 
@@ -150,11 +151,12 @@ class Config extends OpenApiClient
     public function deleteConfigRulesWithOptions($request, $runtime)
     {
         Utils::validateModel($request);
-        $query                  = [];
-        $query['ConfigRuleIds'] = $request->configRuleIds;
-        $req                    = new OpenApiRequest([
+        $query = [];
+        if (!Utils::isUnset($request->configRuleIds)) {
+            $query['ConfigRuleIds'] = $request->configRuleIds;
+        }
+        $req = new OpenApiRequest([
             'query' => OpenApiUtilClient::query($query),
-            'body'  => Utils::toMap($request),
         ]);
         $params = new Params([
             'action'      => 'DeleteConfigRules',
@@ -164,7 +166,7 @@ class Config extends OpenApiClient
             'method'      => 'POST',
             'authType'    => 'AK',
             'style'       => 'RPC',
-            'reqBodyType' => 'json',
+            'reqBodyType' => 'formData',
             'bodyType'    => 'json',
         ]);
 
@@ -204,7 +206,7 @@ class Config extends OpenApiClient
             'method'      => 'GET',
             'authType'    => 'AK',
             'style'       => 'RPC',
-            'reqBodyType' => 'json',
+            'reqBodyType' => 'formData',
             'bodyType'    => 'json',
         ]);
 
@@ -244,7 +246,7 @@ class Config extends OpenApiClient
             'method'      => 'GET',
             'authType'    => 'AK',
             'style'       => 'RPC',
-            'reqBodyType' => 'json',
+            'reqBodyType' => 'formData',
             'bodyType'    => 'json',
         ]);
 
@@ -284,7 +286,7 @@ class Config extends OpenApiClient
             'method'      => 'GET',
             'authType'    => 'AK',
             'style'       => 'RPC',
-            'reqBodyType' => 'json',
+            'reqBodyType' => 'formData',
             'bodyType'    => 'json',
         ]);
 
@@ -319,7 +321,7 @@ class Config extends OpenApiClient
             'method'      => 'GET',
             'authType'    => 'AK',
             'style'       => 'RPC',
-            'reqBodyType' => 'json',
+            'reqBodyType' => 'formData',
             'bodyType'    => 'json',
         ]);
 
@@ -357,7 +359,7 @@ class Config extends OpenApiClient
             'method'      => 'GET',
             'authType'    => 'AK',
             'style'       => 'RPC',
-            'reqBodyType' => 'json',
+            'reqBodyType' => 'formData',
             'bodyType'    => 'json',
         ]);
 
@@ -397,7 +399,7 @@ class Config extends OpenApiClient
             'method'      => 'GET',
             'authType'    => 'AK',
             'style'       => 'RPC',
-            'reqBodyType' => 'json',
+            'reqBodyType' => 'formData',
             'bodyType'    => 'json',
         ]);
 
@@ -437,7 +439,7 @@ class Config extends OpenApiClient
             'method'      => 'GET',
             'authType'    => 'AK',
             'style'       => 'RPC',
-            'reqBodyType' => 'json',
+            'reqBodyType' => 'formData',
             'bodyType'    => 'json',
         ]);
 
@@ -477,7 +479,7 @@ class Config extends OpenApiClient
             'method'      => 'GET',
             'authType'    => 'AK',
             'style'       => 'RPC',
-            'reqBodyType' => 'json',
+            'reqBodyType' => 'formData',
             'bodyType'    => 'json',
         ]);
 
@@ -517,7 +519,7 @@ class Config extends OpenApiClient
             'method'      => 'GET',
             'authType'    => 'AK',
             'style'       => 'RPC',
-            'reqBodyType' => 'json',
+            'reqBodyType' => 'formData',
             'bodyType'    => 'json',
         ]);
 
@@ -557,7 +559,7 @@ class Config extends OpenApiClient
             'method'      => 'GET',
             'authType'    => 'AK',
             'style'       => 'RPC',
-            'reqBodyType' => 'json',
+            'reqBodyType' => 'formData',
             'bodyType'    => 'json',
         ]);
 
@@ -597,7 +599,7 @@ class Config extends OpenApiClient
             'method'      => 'GET',
             'authType'    => 'AK',
             'style'       => 'RPC',
-            'reqBodyType' => 'json',
+            'reqBodyType' => 'formData',
             'bodyType'    => 'json',
         ]);
 
@@ -637,7 +639,7 @@ class Config extends OpenApiClient
             'method'      => 'GET',
             'authType'    => 'AK',
             'style'       => 'RPC',
-            'reqBodyType' => 'json',
+            'reqBodyType' => 'formData',
             'bodyType'    => 'json',
         ]);
 
@@ -672,7 +674,7 @@ class Config extends OpenApiClient
             'method'      => 'GET',
             'authType'    => 'AK',
             'style'       => 'RPC',
-            'reqBodyType' => 'json',
+            'reqBodyType' => 'formData',
             'bodyType'    => 'json',
         ]);
 
@@ -698,8 +700,35 @@ class Config extends OpenApiClient
     public function listAggregateDiscoveredResourcesWithOptions($request, $runtime)
     {
         Utils::validateModel($request);
-        $query = OpenApiUtilClient::query(Utils::toMap($request));
-        $req   = new OpenApiRequest([
+        $query = [];
+        if (!Utils::isUnset($request->aggregatorId)) {
+            $query['AggregatorId'] = $request->aggregatorId;
+        }
+        if (!Utils::isUnset($request->folderId)) {
+            $query['FolderId'] = $request->folderId;
+        }
+        if (!Utils::isUnset($request->pageNumber)) {
+            $query['PageNumber'] = $request->pageNumber;
+        }
+        if (!Utils::isUnset($request->pageSize)) {
+            $query['PageSize'] = $request->pageSize;
+        }
+        if (!Utils::isUnset($request->regions)) {
+            $query['Regions'] = $request->regions;
+        }
+        if (!Utils::isUnset($request->resourceDeleted)) {
+            $query['ResourceDeleted'] = $request->resourceDeleted;
+        }
+        if (!Utils::isUnset($request->resourceId)) {
+            $query['ResourceId'] = $request->resourceId;
+        }
+        if (!Utils::isUnset($request->resourceOwnerId)) {
+            $query['ResourceOwnerId'] = $request->resourceOwnerId;
+        }
+        if (!Utils::isUnset($request->resourceTypes)) {
+            $query['ResourceTypes'] = $request->resourceTypes;
+        }
+        $req = new OpenApiRequest([
             'query' => OpenApiUtilClient::query($query),
         ]);
         $params = new Params([
@@ -707,10 +736,10 @@ class Config extends OpenApiClient
             'version'     => '2019-01-08',
             'protocol'    => 'HTTPS',
             'pathname'    => '/',
-            'method'      => 'GET',
+            'method'      => 'POST',
             'authType'    => 'AK',
             'style'       => 'RPC',
-            'reqBodyType' => 'json',
+            'reqBodyType' => 'formData',
             'bodyType'    => 'json',
         ]);
 
@@ -750,7 +779,7 @@ class Config extends OpenApiClient
             'method'      => 'GET',
             'authType'    => 'AK',
             'style'       => 'RPC',
-            'reqBodyType' => 'json',
+            'reqBodyType' => 'formData',
             'bodyType'    => 'json',
         ]);
 
@@ -778,8 +807,32 @@ class Config extends OpenApiClient
     public function listDiscoveredResourcesWithOptions($request, $runtime)
     {
         Utils::validateModel($request);
-        $query = OpenApiUtilClient::query(Utils::toMap($request));
-        $req   = new OpenApiRequest([
+        $query = [];
+        if (!Utils::isUnset($request->memberId)) {
+            $query['MemberId'] = $request->memberId;
+        }
+        if (!Utils::isUnset($request->multiAccount)) {
+            $query['MultiAccount'] = $request->multiAccount;
+        }
+        if (!Utils::isUnset($request->pageNumber)) {
+            $query['PageNumber'] = $request->pageNumber;
+        }
+        if (!Utils::isUnset($request->pageSize)) {
+            $query['PageSize'] = $request->pageSize;
+        }
+        if (!Utils::isUnset($request->regions)) {
+            $query['Regions'] = $request->regions;
+        }
+        if (!Utils::isUnset($request->resourceDeleted)) {
+            $query['ResourceDeleted'] = $request->resourceDeleted;
+        }
+        if (!Utils::isUnset($request->resourceId)) {
+            $query['ResourceId'] = $request->resourceId;
+        }
+        if (!Utils::isUnset($request->resourceTypes)) {
+            $query['ResourceTypes'] = $request->resourceTypes;
+        }
+        $req = new OpenApiRequest([
             'query' => OpenApiUtilClient::query($query),
         ]);
         $params = new Params([
@@ -787,10 +840,10 @@ class Config extends OpenApiClient
             'version'     => '2019-01-08',
             'protocol'    => 'HTTPS',
             'pathname'    => '/',
-            'method'      => 'GET',
+            'method'      => 'POST',
             'authType'    => 'AK',
             'style'       => 'RPC',
-            'reqBodyType' => 'json',
+            'reqBodyType' => 'formData',
             'bodyType'    => 'json',
         ]);
 
@@ -818,12 +871,15 @@ class Config extends OpenApiClient
     public function listRemediationTemplatesWithOptions($request, $runtime)
     {
         Utils::validateModel($request);
-        $query                          = [];
-        $query['ManagedRuleIdentifier'] = $request->managedRuleIdentifier;
-        $query['RemediationType']       = $request->remediationType;
-        $req                            = new OpenApiRequest([
+        $query = [];
+        if (!Utils::isUnset($request->managedRuleIdentifier)) {
+            $query['ManagedRuleIdentifier'] = $request->managedRuleIdentifier;
+        }
+        if (!Utils::isUnset($request->remediationType)) {
+            $query['RemediationType'] = $request->remediationType;
+        }
+        $req = new OpenApiRequest([
             'query' => OpenApiUtilClient::query($query),
-            'body'  => Utils::toMap($request),
         ]);
         $params = new Params([
             'action'      => 'ListRemediationTemplates',
@@ -833,7 +889,7 @@ class Config extends OpenApiClient
             'method'      => 'POST',
             'authType'    => 'AK',
             'style'       => 'RPC',
-            'reqBodyType' => 'json',
+            'reqBodyType' => 'formData',
             'bodyType'    => 'json',
         ]);
 
@@ -861,12 +917,53 @@ class Config extends OpenApiClient
     public function putConfigRuleWithOptions($request, $runtime)
     {
         Utils::validateModel($request);
-        $query                 = [];
-        $query['MemberId']     = $request->memberId;
-        $query['MultiAccount'] = $request->multiAccount;
-        $req                   = new OpenApiRequest([
+        $query = [];
+        if (!Utils::isUnset($request->memberId)) {
+            $query['MemberId'] = $request->memberId;
+        }
+        if (!Utils::isUnset($request->multiAccount)) {
+            $query['MultiAccount'] = $request->multiAccount;
+        }
+        $body = [];
+        if (!Utils::isUnset($request->clientToken)) {
+            $body['ClientToken'] = $request->clientToken;
+        }
+        if (!Utils::isUnset($request->configRuleId)) {
+            $body['ConfigRuleId'] = $request->configRuleId;
+        }
+        if (!Utils::isUnset($request->configRuleName)) {
+            $body['ConfigRuleName'] = $request->configRuleName;
+        }
+        if (!Utils::isUnset($request->description)) {
+            $body['Description'] = $request->description;
+        }
+        if (!Utils::isUnset($request->inputParameters)) {
+            $body['InputParameters'] = $request->inputParameters;
+        }
+        if (!Utils::isUnset($request->riskLevel)) {
+            $body['RiskLevel'] = $request->riskLevel;
+        }
+        if (!Utils::isUnset($request->scopeComplianceResourceId)) {
+            $body['ScopeComplianceResourceId'] = $request->scopeComplianceResourceId;
+        }
+        if (!Utils::isUnset($request->scopeComplianceResourceTypes)) {
+            $body['ScopeComplianceResourceTypes'] = $request->scopeComplianceResourceTypes;
+        }
+        if (!Utils::isUnset($request->sourceDetailMessageType)) {
+            $body['SourceDetailMessageType'] = $request->sourceDetailMessageType;
+        }
+        if (!Utils::isUnset($request->sourceIdentifier)) {
+            $body['SourceIdentifier'] = $request->sourceIdentifier;
+        }
+        if (!Utils::isUnset($request->sourceMaximumExecutionFrequency)) {
+            $body['SourceMaximumExecutionFrequency'] = $request->sourceMaximumExecutionFrequency;
+        }
+        if (!Utils::isUnset($request->sourceOwner)) {
+            $body['SourceOwner'] = $request->sourceOwner;
+        }
+        $req = new OpenApiRequest([
             'query' => OpenApiUtilClient::query($query),
-            'body'  => Utils::toMap($request),
+            'body'  => OpenApiUtilClient::parseToMap($body),
         ]);
         $params = new Params([
             'action'      => 'PutConfigRule',
@@ -904,8 +1001,12 @@ class Config extends OpenApiClient
     public function putConfigurationRecorderWithOptions($request, $runtime)
     {
         Utils::validateModel($request);
+        $body = [];
+        if (!Utils::isUnset($request->resourceTypes)) {
+            $body['ResourceTypes'] = $request->resourceTypes;
+        }
         $req = new OpenApiRequest([
-            'body' => Utils::toMap($request),
+            'body' => OpenApiUtilClient::parseToMap($body),
         ]);
         $params = new Params([
             'action'      => 'PutConfigurationRecorder',
@@ -943,8 +1044,36 @@ class Config extends OpenApiClient
     public function putDeliveryChannelWithOptions($request, $runtime)
     {
         Utils::validateModel($request);
+        $body = [];
+        if (!Utils::isUnset($request->clientToken)) {
+            $body['ClientToken'] = $request->clientToken;
+        }
+        if (!Utils::isUnset($request->deliveryChannelAssumeRoleArn)) {
+            $body['DeliveryChannelAssumeRoleArn'] = $request->deliveryChannelAssumeRoleArn;
+        }
+        if (!Utils::isUnset($request->deliveryChannelCondition)) {
+            $body['DeliveryChannelCondition'] = $request->deliveryChannelCondition;
+        }
+        if (!Utils::isUnset($request->deliveryChannelId)) {
+            $body['DeliveryChannelId'] = $request->deliveryChannelId;
+        }
+        if (!Utils::isUnset($request->deliveryChannelName)) {
+            $body['DeliveryChannelName'] = $request->deliveryChannelName;
+        }
+        if (!Utils::isUnset($request->deliveryChannelTargetArn)) {
+            $body['DeliveryChannelTargetArn'] = $request->deliveryChannelTargetArn;
+        }
+        if (!Utils::isUnset($request->deliveryChannelType)) {
+            $body['DeliveryChannelType'] = $request->deliveryChannelType;
+        }
+        if (!Utils::isUnset($request->description)) {
+            $body['Description'] = $request->description;
+        }
+        if (!Utils::isUnset($request->status)) {
+            $body['Status'] = $request->status;
+        }
         $req = new OpenApiRequest([
-            'body' => Utils::toMap($request),
+            'body' => OpenApiUtilClient::parseToMap($body),
         ]);
         $params = new Params([
             'action'      => 'PutDeliveryChannel',
@@ -982,8 +1111,15 @@ class Config extends OpenApiClient
     public function putEvaluationsWithOptions($request, $runtime)
     {
         Utils::validateModel($request);
+        $body = [];
+        if (!Utils::isUnset($request->evaluations)) {
+            $body['Evaluations'] = $request->evaluations;
+        }
+        if (!Utils::isUnset($request->resultToken)) {
+            $body['ResultToken'] = $request->resultToken;
+        }
         $req = new OpenApiRequest([
-            'body' => Utils::toMap($request),
+            'body' => OpenApiUtilClient::parseToMap($body),
         ]);
         $params = new Params([
             'action'      => 'PutEvaluations',
@@ -1021,13 +1157,18 @@ class Config extends OpenApiClient
     public function startConfigRuleEvaluationWithOptions($request, $runtime)
     {
         Utils::validateModel($request);
-        $query                     = [];
-        $query['CompliancePackId'] = $request->compliancePackId;
-        $query['ConfigRuleId']     = $request->configRuleId;
-        $query['RevertEvaluation'] = $request->revertEvaluation;
-        $req                       = new OpenApiRequest([
+        $query = [];
+        if (!Utils::isUnset($request->compliancePackId)) {
+            $query['CompliancePackId'] = $request->compliancePackId;
+        }
+        if (!Utils::isUnset($request->configRuleId)) {
+            $query['ConfigRuleId'] = $request->configRuleId;
+        }
+        if (!Utils::isUnset($request->revertEvaluation)) {
+            $query['RevertEvaluation'] = $request->revertEvaluation;
+        }
+        $req = new OpenApiRequest([
             'query' => OpenApiUtilClient::query($query),
-            'body'  => Utils::toMap($request),
         ]);
         $params = new Params([
             'action'      => 'StartConfigRuleEvaluation',
@@ -1037,7 +1178,7 @@ class Config extends OpenApiClient
             'method'      => 'POST',
             'authType'    => 'AK',
             'style'       => 'RPC',
-            'reqBodyType' => 'json',
+            'reqBodyType' => 'formData',
             'bodyType'    => 'json',
         ]);
 
@@ -1065,8 +1206,12 @@ class Config extends OpenApiClient
     public function startConfigurationRecorderWithOptions($request, $runtime)
     {
         Utils::validateModel($request);
+        $body = [];
+        if (!Utils::isUnset($request->enterpriseEdition)) {
+            $body['EnterpriseEdition'] = $request->enterpriseEdition;
+        }
         $req = new OpenApiRequest([
-            'body' => Utils::toMap($request),
+            'body' => OpenApiUtilClient::parseToMap($body),
         ]);
         $params = new Params([
             'action'      => 'StartConfigurationRecorder',
@@ -1104,11 +1249,12 @@ class Config extends OpenApiClient
     public function stopConfigRulesWithOptions($request, $runtime)
     {
         Utils::validateModel($request);
-        $query                  = [];
-        $query['ConfigRuleIds'] = $request->configRuleIds;
-        $req                    = new OpenApiRequest([
+        $query = [];
+        if (!Utils::isUnset($request->configRuleIds)) {
+            $query['ConfigRuleIds'] = $request->configRuleIds;
+        }
+        $req = new OpenApiRequest([
             'query' => OpenApiUtilClient::query($query),
-            'body'  => Utils::toMap($request),
         ]);
         $params = new Params([
             'action'      => 'StopConfigRules',
@@ -1118,7 +1264,7 @@ class Config extends OpenApiClient
             'method'      => 'POST',
             'authType'    => 'AK',
             'style'       => 'RPC',
-            'reqBodyType' => 'json',
+            'reqBodyType' => 'formData',
             'bodyType'    => 'json',
         ]);
 

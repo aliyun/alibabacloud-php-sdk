@@ -9,11 +9,6 @@ use AlibabaCloud\Tea\Model;
 class ListDiscoveredResourcesRequest extends Model
 {
     /**
-     * @var string
-     */
-    public $complianceType;
-
-    /**
      * @var int
      */
     public $memberId;
@@ -53,7 +48,6 @@ class ListDiscoveredResourcesRequest extends Model
      */
     public $resourceTypes;
     protected $_name = [
-        'complianceType'  => 'ComplianceType',
         'memberId'        => 'MemberId',
         'multiAccount'    => 'MultiAccount',
         'pageNumber'      => 'PageNumber',
@@ -71,9 +65,6 @@ class ListDiscoveredResourcesRequest extends Model
     public function toMap()
     {
         $res = [];
-        if (null !== $this->complianceType) {
-            $res['ComplianceType'] = $this->complianceType;
-        }
         if (null !== $this->memberId) {
             $res['MemberId'] = $this->memberId;
         }
@@ -110,9 +101,6 @@ class ListDiscoveredResourcesRequest extends Model
     public static function fromMap($map = [])
     {
         $model = new self();
-        if (isset($map['ComplianceType'])) {
-            $model->complianceType = $map['ComplianceType'];
-        }
         if (isset($map['MemberId'])) {
             $model->memberId = $map['MemberId'];
         }
