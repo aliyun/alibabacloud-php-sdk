@@ -46,6 +46,11 @@ class list_ extends Model
     public $primaryAccount;
 
     /**
+     * @var int
+     */
+    public $ramId;
+
+    /**
      * @var string
      */
     public $roleId;
@@ -77,6 +82,7 @@ class list_ extends Model
         'mobile'                     => 'Mobile',
         'personalOutboundNumberList' => 'PersonalOutboundNumberList',
         'primaryAccount'             => 'PrimaryAccount',
+        'ramId'                      => 'RamId',
         'roleId'                     => 'RoleId',
         'roleName'                   => 'RoleName',
         'skillLevelList'             => 'SkillLevelList',
@@ -117,6 +123,9 @@ class list_ extends Model
         }
         if (null !== $this->primaryAccount) {
             $res['PrimaryAccount'] = $this->primaryAccount;
+        }
+        if (null !== $this->ramId) {
+            $res['RamId'] = $this->ramId;
         }
         if (null !== $this->roleId) {
             $res['RoleId'] = $this->roleId;
@@ -177,6 +186,9 @@ class list_ extends Model
         }
         if (isset($map['PrimaryAccount'])) {
             $model->primaryAccount = $map['PrimaryAccount'];
+        }
+        if (isset($map['RamId'])) {
+            $model->ramId = $map['RamId'];
         }
         if (isset($map['RoleId'])) {
             $model->roleId = $map['RoleId'];

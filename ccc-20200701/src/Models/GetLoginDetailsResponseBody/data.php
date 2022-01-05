@@ -47,6 +47,11 @@ class data extends Model
      * @var string
      */
     public $userKey;
+
+    /**
+     * @var string
+     */
+    public $workMode;
     protected $_name = [
         'agentServerUrl' => 'AgentServerUrl',
         'deviceId'       => 'DeviceId',
@@ -56,6 +61,7 @@ class data extends Model
         'sipServerUrl'   => 'SipServerUrl',
         'userId'         => 'UserId',
         'userKey'        => 'UserKey',
+        'workMode'       => 'WorkMode',
     ];
 
     public function validate()
@@ -88,6 +94,9 @@ class data extends Model
         }
         if (null !== $this->userKey) {
             $res['UserKey'] = $this->userKey;
+        }
+        if (null !== $this->workMode) {
+            $res['WorkMode'] = $this->workMode;
         }
 
         return $res;
@@ -124,6 +133,9 @@ class data extends Model
         }
         if (isset($map['UserKey'])) {
             $model->userKey = $map['UserKey'];
+        }
+        if (isset($map['WorkMode'])) {
+            $model->workMode = $map['WorkMode'];
         }
 
         return $model;
