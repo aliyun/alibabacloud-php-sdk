@@ -26,6 +26,8 @@ use AlibabaCloud\SDK\Ga\V20191120\Models\CreateAcceleratorRequest;
 use AlibabaCloud\SDK\Ga\V20191120\Models\CreateAcceleratorResponse;
 use AlibabaCloud\SDK\Ga\V20191120\Models\CreateAclRequest;
 use AlibabaCloud\SDK\Ga\V20191120\Models\CreateAclResponse;
+use AlibabaCloud\SDK\Ga\V20191120\Models\CreateApplicationMonitorRequest;
+use AlibabaCloud\SDK\Ga\V20191120\Models\CreateApplicationMonitorResponse;
 use AlibabaCloud\SDK\Ga\V20191120\Models\CreateBandwidthPackageRequest;
 use AlibabaCloud\SDK\Ga\V20191120\Models\CreateBandwidthPackageResponse;
 use AlibabaCloud\SDK\Ga\V20191120\Models\CreateBasicAcceleratorRequest;
@@ -50,6 +52,8 @@ use AlibabaCloud\SDK\Ga\V20191120\Models\DeleteAcceleratorRequest;
 use AlibabaCloud\SDK\Ga\V20191120\Models\DeleteAcceleratorResponse;
 use AlibabaCloud\SDK\Ga\V20191120\Models\DeleteAclRequest;
 use AlibabaCloud\SDK\Ga\V20191120\Models\DeleteAclResponse;
+use AlibabaCloud\SDK\Ga\V20191120\Models\DeleteApplicationMonitorRequest;
+use AlibabaCloud\SDK\Ga\V20191120\Models\DeleteApplicationMonitorResponse;
 use AlibabaCloud\SDK\Ga\V20191120\Models\DeleteBandwidthPackageRequest;
 use AlibabaCloud\SDK\Ga\V20191120\Models\DeleteBandwidthPackageResponse;
 use AlibabaCloud\SDK\Ga\V20191120\Models\DeleteBasicAcceleratorRequest;
@@ -76,6 +80,8 @@ use AlibabaCloud\SDK\Ga\V20191120\Models\DescribeAcceleratorAutoRenewAttributeRe
 use AlibabaCloud\SDK\Ga\V20191120\Models\DescribeAcceleratorAutoRenewAttributeResponse;
 use AlibabaCloud\SDK\Ga\V20191120\Models\DescribeAcceleratorRequest;
 use AlibabaCloud\SDK\Ga\V20191120\Models\DescribeAcceleratorResponse;
+use AlibabaCloud\SDK\Ga\V20191120\Models\DescribeApplicationMonitorRequest;
+use AlibabaCloud\SDK\Ga\V20191120\Models\DescribeApplicationMonitorResponse;
 use AlibabaCloud\SDK\Ga\V20191120\Models\DescribeBandwidthPackageRequest;
 use AlibabaCloud\SDK\Ga\V20191120\Models\DescribeBandwidthPackageResponse;
 use AlibabaCloud\SDK\Ga\V20191120\Models\DescribeEndpointGroupRequest;
@@ -90,10 +96,16 @@ use AlibabaCloud\SDK\Ga\V20191120\Models\DetachDdosFromAcceleratorRequest;
 use AlibabaCloud\SDK\Ga\V20191120\Models\DetachDdosFromAcceleratorResponse;
 use AlibabaCloud\SDK\Ga\V20191120\Models\DetachLogStoreFromEndpointGroupRequest;
 use AlibabaCloud\SDK\Ga\V20191120\Models\DetachLogStoreFromEndpointGroupResponse;
+use AlibabaCloud\SDK\Ga\V20191120\Models\DetectApplicationMonitorRequest;
+use AlibabaCloud\SDK\Ga\V20191120\Models\DetectApplicationMonitorResponse;
+use AlibabaCloud\SDK\Ga\V20191120\Models\DisableApplicationMonitorRequest;
+use AlibabaCloud\SDK\Ga\V20191120\Models\DisableApplicationMonitorResponse;
 use AlibabaCloud\SDK\Ga\V20191120\Models\DissociateAclsFromListenerRequest;
 use AlibabaCloud\SDK\Ga\V20191120\Models\DissociateAclsFromListenerResponse;
 use AlibabaCloud\SDK\Ga\V20191120\Models\DissociateAdditionalCertificatesFromListenerRequest;
 use AlibabaCloud\SDK\Ga\V20191120\Models\DissociateAdditionalCertificatesFromListenerResponse;
+use AlibabaCloud\SDK\Ga\V20191120\Models\EnableApplicationMonitorRequest;
+use AlibabaCloud\SDK\Ga\V20191120\Models\EnableApplicationMonitorResponse;
 use AlibabaCloud\SDK\Ga\V20191120\Models\GetAclRequest;
 use AlibabaCloud\SDK\Ga\V20191120\Models\GetAclResponse;
 use AlibabaCloud\SDK\Ga\V20191120\Models\GetBasicAcceleratorRequest;
@@ -112,6 +124,10 @@ use AlibabaCloud\SDK\Ga\V20191120\Models\ListAcceleratorsRequest;
 use AlibabaCloud\SDK\Ga\V20191120\Models\ListAcceleratorsResponse;
 use AlibabaCloud\SDK\Ga\V20191120\Models\ListAclsRequest;
 use AlibabaCloud\SDK\Ga\V20191120\Models\ListAclsResponse;
+use AlibabaCloud\SDK\Ga\V20191120\Models\ListApplicationMonitorDetectResultRequest;
+use AlibabaCloud\SDK\Ga\V20191120\Models\ListApplicationMonitorDetectResultResponse;
+use AlibabaCloud\SDK\Ga\V20191120\Models\ListApplicationMonitorRequest;
+use AlibabaCloud\SDK\Ga\V20191120\Models\ListApplicationMonitorResponse;
 use AlibabaCloud\SDK\Ga\V20191120\Models\ListAvailableAccelerateAreasRequest;
 use AlibabaCloud\SDK\Ga\V20191120\Models\ListAvailableAccelerateAreasResponse;
 use AlibabaCloud\SDK\Ga\V20191120\Models\ListAvailableBusiRegionsRequest;
@@ -150,6 +166,8 @@ use AlibabaCloud\SDK\Ga\V20191120\Models\UpdateAcceleratorRequest;
 use AlibabaCloud\SDK\Ga\V20191120\Models\UpdateAcceleratorResponse;
 use AlibabaCloud\SDK\Ga\V20191120\Models\UpdateAclAttributeRequest;
 use AlibabaCloud\SDK\Ga\V20191120\Models\UpdateAclAttributeResponse;
+use AlibabaCloud\SDK\Ga\V20191120\Models\UpdateApplicationMonitorRequest;
+use AlibabaCloud\SDK\Ga\V20191120\Models\UpdateApplicationMonitorResponse;
 use AlibabaCloud\SDK\Ga\V20191120\Models\UpdateBandwidthPackageRequest;
 use AlibabaCloud\SDK\Ga\V20191120\Models\UpdateBandwidthPackageResponse;
 use AlibabaCloud\SDK\Ga\V20191120\Models\UpdateBasicAcceleratorRequest;
@@ -218,13 +236,23 @@ class Ga extends OpenApiClient
     public function addEntriesToAclWithOptions($request, $runtime)
     {
         Utils::validateModel($request);
-        $query                = [];
-        $query['AclEntries']  = $request->aclEntries;
-        $query['AclId']       = $request->aclId;
-        $query['ClientToken'] = $request->clientToken;
-        $query['DryRun']      = $request->dryRun;
-        $query['RegionId']    = $request->regionId;
-        $req                  = new OpenApiRequest([
+        $query = [];
+        if (!Utils::isUnset($request->aclEntries)) {
+            $query['AclEntries'] = $request->aclEntries;
+        }
+        if (!Utils::isUnset($request->aclId)) {
+            $query['AclId'] = $request->aclId;
+        }
+        if (!Utils::isUnset($request->clientToken)) {
+            $query['ClientToken'] = $request->clientToken;
+        }
+        if (!Utils::isUnset($request->dryRun)) {
+            $query['DryRun'] = $request->dryRun;
+        }
+        if (!Utils::isUnset($request->regionId)) {
+            $query['RegionId'] = $request->regionId;
+        }
+        $req = new OpenApiRequest([
             'query' => OpenApiUtilClient::query($query),
         ]);
         $params = new Params([
@@ -263,14 +291,26 @@ class Ga extends OpenApiClient
     public function associateAclsWithListenerWithOptions($request, $runtime)
     {
         Utils::validateModel($request);
-        $query                = [];
-        $query['AclIds']      = $request->aclIds;
-        $query['AclType']     = $request->aclType;
-        $query['ClientToken'] = $request->clientToken;
-        $query['DryRun']      = $request->dryRun;
-        $query['ListenerId']  = $request->listenerId;
-        $query['RegionId']    = $request->regionId;
-        $req                  = new OpenApiRequest([
+        $query = [];
+        if (!Utils::isUnset($request->aclIds)) {
+            $query['AclIds'] = $request->aclIds;
+        }
+        if (!Utils::isUnset($request->aclType)) {
+            $query['AclType'] = $request->aclType;
+        }
+        if (!Utils::isUnset($request->clientToken)) {
+            $query['ClientToken'] = $request->clientToken;
+        }
+        if (!Utils::isUnset($request->dryRun)) {
+            $query['DryRun'] = $request->dryRun;
+        }
+        if (!Utils::isUnset($request->listenerId)) {
+            $query['ListenerId'] = $request->listenerId;
+        }
+        if (!Utils::isUnset($request->regionId)) {
+            $query['RegionId'] = $request->regionId;
+        }
+        $req = new OpenApiRequest([
             'query' => OpenApiUtilClient::query($query),
         ]);
         $params = new Params([
@@ -309,13 +349,23 @@ class Ga extends OpenApiClient
     public function associateAdditionalCertificatesWithListenerWithOptions($request, $runtime)
     {
         Utils::validateModel($request);
-        $query                  = [];
-        $query['AcceleratorId'] = $request->acceleratorId;
-        $query['Certificates']  = $request->certificates;
-        $query['ClientToken']   = $request->clientToken;
-        $query['ListenerId']    = $request->listenerId;
-        $query['RegionId']      = $request->regionId;
-        $req                    = new OpenApiRequest([
+        $query = [];
+        if (!Utils::isUnset($request->acceleratorId)) {
+            $query['AcceleratorId'] = $request->acceleratorId;
+        }
+        if (!Utils::isUnset($request->certificates)) {
+            $query['Certificates'] = $request->certificates;
+        }
+        if (!Utils::isUnset($request->clientToken)) {
+            $query['ClientToken'] = $request->clientToken;
+        }
+        if (!Utils::isUnset($request->listenerId)) {
+            $query['ListenerId'] = $request->listenerId;
+        }
+        if (!Utils::isUnset($request->regionId)) {
+            $query['RegionId'] = $request->regionId;
+        }
+        $req = new OpenApiRequest([
             'query' => OpenApiUtilClient::query($query),
         ]);
         $params = new Params([
@@ -354,12 +404,20 @@ class Ga extends OpenApiClient
     public function attachDdosToAcceleratorWithOptions($request, $runtime)
     {
         Utils::validateModel($request);
-        $query                  = [];
-        $query['AcceleratorId'] = $request->acceleratorId;
-        $query['DdosId']        = $request->ddosId;
-        $query['DdosRegionId']  = $request->ddosRegionId;
-        $query['RegionId']      = $request->regionId;
-        $req                    = new OpenApiRequest([
+        $query = [];
+        if (!Utils::isUnset($request->acceleratorId)) {
+            $query['AcceleratorId'] = $request->acceleratorId;
+        }
+        if (!Utils::isUnset($request->ddosId)) {
+            $query['DdosId'] = $request->ddosId;
+        }
+        if (!Utils::isUnset($request->ddosRegionId)) {
+            $query['DdosRegionId'] = $request->ddosRegionId;
+        }
+        if (!Utils::isUnset($request->regionId)) {
+            $query['RegionId'] = $request->regionId;
+        }
+        $req = new OpenApiRequest([
             'query' => OpenApiUtilClient::query($query),
         ]);
         $params = new Params([
@@ -398,16 +456,32 @@ class Ga extends OpenApiClient
     public function attachLogStoreToEndpointGroupWithOptions($request, $runtime)
     {
         Utils::validateModel($request);
-        $query                     = [];
-        $query['AcceleratorId']    = $request->acceleratorId;
-        $query['ClientToken']      = $request->clientToken;
-        $query['EndpointGroupIds'] = $request->endpointGroupIds;
-        $query['ListenerId']       = $request->listenerId;
-        $query['RegionId']         = $request->regionId;
-        $query['SlsLogStoreName']  = $request->slsLogStoreName;
-        $query['SlsProjectName']   = $request->slsProjectName;
-        $query['SlsRegionId']      = $request->slsRegionId;
-        $req                       = new OpenApiRequest([
+        $query = [];
+        if (!Utils::isUnset($request->acceleratorId)) {
+            $query['AcceleratorId'] = $request->acceleratorId;
+        }
+        if (!Utils::isUnset($request->clientToken)) {
+            $query['ClientToken'] = $request->clientToken;
+        }
+        if (!Utils::isUnset($request->endpointGroupIds)) {
+            $query['EndpointGroupIds'] = $request->endpointGroupIds;
+        }
+        if (!Utils::isUnset($request->listenerId)) {
+            $query['ListenerId'] = $request->listenerId;
+        }
+        if (!Utils::isUnset($request->regionId)) {
+            $query['RegionId'] = $request->regionId;
+        }
+        if (!Utils::isUnset($request->slsLogStoreName)) {
+            $query['SlsLogStoreName'] = $request->slsLogStoreName;
+        }
+        if (!Utils::isUnset($request->slsProjectName)) {
+            $query['SlsProjectName'] = $request->slsProjectName;
+        }
+        if (!Utils::isUnset($request->slsRegionId)) {
+            $query['SlsRegionId'] = $request->slsRegionId;
+        }
+        $req = new OpenApiRequest([
             'query' => OpenApiUtilClient::query($query),
         ]);
         $params = new Params([
@@ -446,11 +520,17 @@ class Ga extends OpenApiClient
     public function bandwidthPackageAddAcceleratorWithOptions($request, $runtime)
     {
         Utils::validateModel($request);
-        $query                       = [];
-        $query['AcceleratorId']      = $request->acceleratorId;
-        $query['BandwidthPackageId'] = $request->bandwidthPackageId;
-        $query['RegionId']           = $request->regionId;
-        $req                         = new OpenApiRequest([
+        $query = [];
+        if (!Utils::isUnset($request->acceleratorId)) {
+            $query['AcceleratorId'] = $request->acceleratorId;
+        }
+        if (!Utils::isUnset($request->bandwidthPackageId)) {
+            $query['BandwidthPackageId'] = $request->bandwidthPackageId;
+        }
+        if (!Utils::isUnset($request->regionId)) {
+            $query['RegionId'] = $request->regionId;
+        }
+        $req = new OpenApiRequest([
             'query' => OpenApiUtilClient::query($query),
         ]);
         $params = new Params([
@@ -489,11 +569,17 @@ class Ga extends OpenApiClient
     public function bandwidthPackageRemoveAcceleratorWithOptions($request, $runtime)
     {
         Utils::validateModel($request);
-        $query                       = [];
-        $query['AcceleratorId']      = $request->acceleratorId;
-        $query['BandwidthPackageId'] = $request->bandwidthPackageId;
-        $query['RegionId']           = $request->regionId;
-        $req                         = new OpenApiRequest([
+        $query = [];
+        if (!Utils::isUnset($request->acceleratorId)) {
+            $query['AcceleratorId'] = $request->acceleratorId;
+        }
+        if (!Utils::isUnset($request->bandwidthPackageId)) {
+            $query['BandwidthPackageId'] = $request->bandwidthPackageId;
+        }
+        if (!Utils::isUnset($request->regionId)) {
+            $query['RegionId'] = $request->regionId;
+        }
+        $req = new OpenApiRequest([
             'query' => OpenApiUtilClient::query($query),
         ]);
         $params = new Params([
@@ -532,16 +618,32 @@ class Ga extends OpenApiClient
     public function configEndpointProbeWithOptions($request, $runtime)
     {
         Utils::validateModel($request);
-        $query                    = [];
-        $query['ClientToken']     = $request->clientToken;
-        $query['Enable']          = $request->enable;
-        $query['Endpoint']        = $request->endpoint;
-        $query['EndpointGroupId'] = $request->endpointGroupId;
-        $query['EndpointType']    = $request->endpointType;
-        $query['ProbePort']       = $request->probePort;
-        $query['ProbeProtocol']   = $request->probeProtocol;
-        $query['RegionId']        = $request->regionId;
-        $req                      = new OpenApiRequest([
+        $query = [];
+        if (!Utils::isUnset($request->clientToken)) {
+            $query['ClientToken'] = $request->clientToken;
+        }
+        if (!Utils::isUnset($request->enable)) {
+            $query['Enable'] = $request->enable;
+        }
+        if (!Utils::isUnset($request->endpoint)) {
+            $query['Endpoint'] = $request->endpoint;
+        }
+        if (!Utils::isUnset($request->endpointGroupId)) {
+            $query['EndpointGroupId'] = $request->endpointGroupId;
+        }
+        if (!Utils::isUnset($request->endpointType)) {
+            $query['EndpointType'] = $request->endpointType;
+        }
+        if (!Utils::isUnset($request->probePort)) {
+            $query['ProbePort'] = $request->probePort;
+        }
+        if (!Utils::isUnset($request->probeProtocol)) {
+            $query['ProbeProtocol'] = $request->probeProtocol;
+        }
+        if (!Utils::isUnset($request->regionId)) {
+            $query['RegionId'] = $request->regionId;
+        }
+        $req = new OpenApiRequest([
             'query' => OpenApiUtilClient::query($query),
         ]);
         $params = new Params([
@@ -580,18 +682,38 @@ class Ga extends OpenApiClient
     public function createAcceleratorWithOptions($request, $runtime)
     {
         Utils::validateModel($request);
-        $query                      = [];
-        $query['AutoPay']           = $request->autoPay;
-        $query['AutoRenew']         = $request->autoRenew;
-        $query['AutoRenewDuration'] = $request->autoRenewDuration;
-        $query['AutoUseCoupon']     = $request->autoUseCoupon;
-        $query['ClientToken']       = $request->clientToken;
-        $query['Duration']          = $request->duration;
-        $query['Name']              = $request->name;
-        $query['PricingCycle']      = $request->pricingCycle;
-        $query['RegionId']          = $request->regionId;
-        $query['Spec']              = $request->spec;
-        $req                        = new OpenApiRequest([
+        $query = [];
+        if (!Utils::isUnset($request->autoPay)) {
+            $query['AutoPay'] = $request->autoPay;
+        }
+        if (!Utils::isUnset($request->autoRenew)) {
+            $query['AutoRenew'] = $request->autoRenew;
+        }
+        if (!Utils::isUnset($request->autoRenewDuration)) {
+            $query['AutoRenewDuration'] = $request->autoRenewDuration;
+        }
+        if (!Utils::isUnset($request->autoUseCoupon)) {
+            $query['AutoUseCoupon'] = $request->autoUseCoupon;
+        }
+        if (!Utils::isUnset($request->clientToken)) {
+            $query['ClientToken'] = $request->clientToken;
+        }
+        if (!Utils::isUnset($request->duration)) {
+            $query['Duration'] = $request->duration;
+        }
+        if (!Utils::isUnset($request->name)) {
+            $query['Name'] = $request->name;
+        }
+        if (!Utils::isUnset($request->pricingCycle)) {
+            $query['PricingCycle'] = $request->pricingCycle;
+        }
+        if (!Utils::isUnset($request->regionId)) {
+            $query['RegionId'] = $request->regionId;
+        }
+        if (!Utils::isUnset($request->spec)) {
+            $query['Spec'] = $request->spec;
+        }
+        $req = new OpenApiRequest([
             'query' => OpenApiUtilClient::query($query),
         ]);
         $params = new Params([
@@ -630,14 +752,26 @@ class Ga extends OpenApiClient
     public function createAclWithOptions($request, $runtime)
     {
         Utils::validateModel($request);
-        $query                     = [];
-        $query['AclEntries']       = $request->aclEntries;
-        $query['AclName']          = $request->aclName;
-        $query['AddressIPVersion'] = $request->addressIPVersion;
-        $query['ClientToken']      = $request->clientToken;
-        $query['DryRun']           = $request->dryRun;
-        $query['RegionId']         = $request->regionId;
-        $req                       = new OpenApiRequest([
+        $query = [];
+        if (!Utils::isUnset($request->aclEntries)) {
+            $query['AclEntries'] = $request->aclEntries;
+        }
+        if (!Utils::isUnset($request->aclName)) {
+            $query['AclName'] = $request->aclName;
+        }
+        if (!Utils::isUnset($request->addressIPVersion)) {
+            $query['AddressIPVersion'] = $request->addressIPVersion;
+        }
+        if (!Utils::isUnset($request->clientToken)) {
+            $query['ClientToken'] = $request->clientToken;
+        }
+        if (!Utils::isUnset($request->dryRun)) {
+            $query['DryRun'] = $request->dryRun;
+        }
+        if (!Utils::isUnset($request->regionId)) {
+            $query['RegionId'] = $request->regionId;
+        }
+        $req = new OpenApiRequest([
             'query' => OpenApiUtilClient::query($query),
         ]);
         $params = new Params([
@@ -668,6 +802,70 @@ class Ga extends OpenApiClient
     }
 
     /**
+     * @param CreateApplicationMonitorRequest $request
+     * @param RuntimeOptions                  $runtime
+     *
+     * @return CreateApplicationMonitorResponse
+     */
+    public function createApplicationMonitorWithOptions($request, $runtime)
+    {
+        Utils::validateModel($request);
+        $query = [];
+        if (!Utils::isUnset($request->acceleratorId)) {
+            $query['AcceleratorId'] = $request->acceleratorId;
+        }
+        if (!Utils::isUnset($request->address)) {
+            $query['Address'] = $request->address;
+        }
+        if (!Utils::isUnset($request->clientToken)) {
+            $query['ClientToken'] = $request->clientToken;
+        }
+        if (!Utils::isUnset($request->detectThreshold)) {
+            $query['DetectThreshold'] = $request->detectThreshold;
+        }
+        if (!Utils::isUnset($request->listenerId)) {
+            $query['ListenerId'] = $request->listenerId;
+        }
+        if (!Utils::isUnset($request->optionsJson)) {
+            $query['OptionsJson'] = $request->optionsJson;
+        }
+        if (!Utils::isUnset($request->regionId)) {
+            $query['RegionId'] = $request->regionId;
+        }
+        if (!Utils::isUnset($request->taskName)) {
+            $query['TaskName'] = $request->taskName;
+        }
+        $req = new OpenApiRequest([
+            'query' => OpenApiUtilClient::query($query),
+        ]);
+        $params = new Params([
+            'action'      => 'CreateApplicationMonitor',
+            'version'     => '2019-11-20',
+            'protocol'    => 'HTTPS',
+            'pathname'    => '/',
+            'method'      => 'POST',
+            'authType'    => 'AK',
+            'style'       => 'RPC',
+            'reqBodyType' => 'formData',
+            'bodyType'    => 'json',
+        ]);
+
+        return CreateApplicationMonitorResponse::fromMap($this->callApi($params, $req, $runtime));
+    }
+
+    /**
+     * @param CreateApplicationMonitorRequest $request
+     *
+     * @return CreateApplicationMonitorResponse
+     */
+    public function createApplicationMonitor($request)
+    {
+        $runtime = new RuntimeOptions([]);
+
+        return $this->createApplicationMonitorWithOptions($request, $runtime);
+    }
+
+    /**
      * @param CreateBandwidthPackageRequest $request
      * @param RuntimeOptions                $runtime
      *
@@ -676,22 +874,50 @@ class Ga extends OpenApiClient
     public function createBandwidthPackageWithOptions($request, $runtime)
     {
         Utils::validateModel($request);
-        $query                           = [];
-        $query['AutoPay']                = $request->autoPay;
-        $query['AutoUseCoupon']          = $request->autoUseCoupon;
-        $query['Bandwidth']              = $request->bandwidth;
-        $query['BandwidthType']          = $request->bandwidthType;
-        $query['BillingType']            = $request->billingType;
-        $query['CbnGeographicRegionIdA'] = $request->cbnGeographicRegionIdA;
-        $query['CbnGeographicRegionIdB'] = $request->cbnGeographicRegionIdB;
-        $query['ChargeType']             = $request->chargeType;
-        $query['ClientToken']            = $request->clientToken;
-        $query['Duration']               = $request->duration;
-        $query['PricingCycle']           = $request->pricingCycle;
-        $query['Ratio']                  = $request->ratio;
-        $query['RegionId']               = $request->regionId;
-        $query['Type']                   = $request->type;
-        $req                             = new OpenApiRequest([
+        $query = [];
+        if (!Utils::isUnset($request->autoPay)) {
+            $query['AutoPay'] = $request->autoPay;
+        }
+        if (!Utils::isUnset($request->autoUseCoupon)) {
+            $query['AutoUseCoupon'] = $request->autoUseCoupon;
+        }
+        if (!Utils::isUnset($request->bandwidth)) {
+            $query['Bandwidth'] = $request->bandwidth;
+        }
+        if (!Utils::isUnset($request->bandwidthType)) {
+            $query['BandwidthType'] = $request->bandwidthType;
+        }
+        if (!Utils::isUnset($request->billingType)) {
+            $query['BillingType'] = $request->billingType;
+        }
+        if (!Utils::isUnset($request->cbnGeographicRegionIdA)) {
+            $query['CbnGeographicRegionIdA'] = $request->cbnGeographicRegionIdA;
+        }
+        if (!Utils::isUnset($request->cbnGeographicRegionIdB)) {
+            $query['CbnGeographicRegionIdB'] = $request->cbnGeographicRegionIdB;
+        }
+        if (!Utils::isUnset($request->chargeType)) {
+            $query['ChargeType'] = $request->chargeType;
+        }
+        if (!Utils::isUnset($request->clientToken)) {
+            $query['ClientToken'] = $request->clientToken;
+        }
+        if (!Utils::isUnset($request->duration)) {
+            $query['Duration'] = $request->duration;
+        }
+        if (!Utils::isUnset($request->pricingCycle)) {
+            $query['PricingCycle'] = $request->pricingCycle;
+        }
+        if (!Utils::isUnset($request->ratio)) {
+            $query['Ratio'] = $request->ratio;
+        }
+        if (!Utils::isUnset($request->regionId)) {
+            $query['RegionId'] = $request->regionId;
+        }
+        if (!Utils::isUnset($request->type)) {
+            $query['Type'] = $request->type;
+        }
+        $req = new OpenApiRequest([
             'query' => OpenApiUtilClient::query($query),
         ]);
         $params = new Params([
@@ -730,16 +956,32 @@ class Ga extends OpenApiClient
     public function createBasicAcceleratorWithOptions($request, $runtime)
     {
         Utils::validateModel($request);
-        $query                      = [];
-        $query['AutoPay']           = $request->autoPay;
-        $query['AutoRenew']         = $request->autoRenew;
-        $query['AutoRenewDuration'] = $request->autoRenewDuration;
-        $query['AutoUseCoupon']     = $request->autoUseCoupon;
-        $query['ClientToken']       = $request->clientToken;
-        $query['Duration']          = $request->duration;
-        $query['PricingCycle']      = $request->pricingCycle;
-        $query['RegionId']          = $request->regionId;
-        $req                        = new OpenApiRequest([
+        $query = [];
+        if (!Utils::isUnset($request->autoPay)) {
+            $query['AutoPay'] = $request->autoPay;
+        }
+        if (!Utils::isUnset($request->autoRenew)) {
+            $query['AutoRenew'] = $request->autoRenew;
+        }
+        if (!Utils::isUnset($request->autoRenewDuration)) {
+            $query['AutoRenewDuration'] = $request->autoRenewDuration;
+        }
+        if (!Utils::isUnset($request->autoUseCoupon)) {
+            $query['AutoUseCoupon'] = $request->autoUseCoupon;
+        }
+        if (!Utils::isUnset($request->clientToken)) {
+            $query['ClientToken'] = $request->clientToken;
+        }
+        if (!Utils::isUnset($request->duration)) {
+            $query['Duration'] = $request->duration;
+        }
+        if (!Utils::isUnset($request->pricingCycle)) {
+            $query['PricingCycle'] = $request->pricingCycle;
+        }
+        if (!Utils::isUnset($request->regionId)) {
+            $query['RegionId'] = $request->regionId;
+        }
+        $req = new OpenApiRequest([
             'query' => OpenApiUtilClient::query($query),
         ]);
         $params = new Params([
@@ -778,16 +1020,32 @@ class Ga extends OpenApiClient
     public function createBasicEndpointGroupWithOptions($request, $runtime)
     {
         Utils::validateModel($request);
-        $query                        = [];
-        $query['AcceleratorId']       = $request->acceleratorId;
-        $query['ClientToken']         = $request->clientToken;
-        $query['Description']         = $request->description;
-        $query['EndpointAddress']     = $request->endpointAddress;
-        $query['EndpointGroupRegion'] = $request->endpointGroupRegion;
-        $query['EndpointType']        = $request->endpointType;
-        $query['Name']                = $request->name;
-        $query['RegionId']            = $request->regionId;
-        $req                          = new OpenApiRequest([
+        $query = [];
+        if (!Utils::isUnset($request->acceleratorId)) {
+            $query['AcceleratorId'] = $request->acceleratorId;
+        }
+        if (!Utils::isUnset($request->clientToken)) {
+            $query['ClientToken'] = $request->clientToken;
+        }
+        if (!Utils::isUnset($request->description)) {
+            $query['Description'] = $request->description;
+        }
+        if (!Utils::isUnset($request->endpointAddress)) {
+            $query['EndpointAddress'] = $request->endpointAddress;
+        }
+        if (!Utils::isUnset($request->endpointGroupRegion)) {
+            $query['EndpointGroupRegion'] = $request->endpointGroupRegion;
+        }
+        if (!Utils::isUnset($request->endpointType)) {
+            $query['EndpointType'] = $request->endpointType;
+        }
+        if (!Utils::isUnset($request->name)) {
+            $query['Name'] = $request->name;
+        }
+        if (!Utils::isUnset($request->regionId)) {
+            $query['RegionId'] = $request->regionId;
+        }
+        $req = new OpenApiRequest([
             'query' => OpenApiUtilClient::query($query),
         ]);
         $params = new Params([
@@ -826,12 +1084,20 @@ class Ga extends OpenApiClient
     public function createBasicIpSetWithOptions($request, $runtime)
     {
         Utils::validateModel($request);
-        $query                       = [];
-        $query['AccelerateRegionId'] = $request->accelerateRegionId;
-        $query['AcceleratorId']      = $request->acceleratorId;
-        $query['ClientToken']        = $request->clientToken;
-        $query['RegionId']           = $request->regionId;
-        $req                         = new OpenApiRequest([
+        $query = [];
+        if (!Utils::isUnset($request->accelerateRegionId)) {
+            $query['AccelerateRegionId'] = $request->accelerateRegionId;
+        }
+        if (!Utils::isUnset($request->acceleratorId)) {
+            $query['AcceleratorId'] = $request->acceleratorId;
+        }
+        if (!Utils::isUnset($request->clientToken)) {
+            $query['ClientToken'] = $request->clientToken;
+        }
+        if (!Utils::isUnset($request->regionId)) {
+            $query['RegionId'] = $request->regionId;
+        }
+        $req = new OpenApiRequest([
             'query' => OpenApiUtilClient::query($query),
         ]);
         $params = new Params([
@@ -870,26 +1136,62 @@ class Ga extends OpenApiClient
     public function createEndpointGroupWithOptions($request, $runtime)
     {
         Utils::validateModel($request);
-        $query                               = [];
-        $query['AcceleratorId']              = $request->acceleratorId;
-        $query['ClientToken']                = $request->clientToken;
-        $query['Description']                = $request->description;
-        $query['EndpointConfigurations']     = $request->endpointConfigurations;
-        $query['EndpointGroupRegion']        = $request->endpointGroupRegion;
-        $query['EndpointGroupType']          = $request->endpointGroupType;
-        $query['EndpointRequestProtocol']    = $request->endpointRequestProtocol;
-        $query['HealthCheckEnabled']         = $request->healthCheckEnabled;
-        $query['HealthCheckIntervalSeconds'] = $request->healthCheckIntervalSeconds;
-        $query['HealthCheckPath']            = $request->healthCheckPath;
-        $query['HealthCheckPort']            = $request->healthCheckPort;
-        $query['HealthCheckProtocol']        = $request->healthCheckProtocol;
-        $query['ListenerId']                 = $request->listenerId;
-        $query['Name']                       = $request->name;
-        $query['PortOverrides']              = $request->portOverrides;
-        $query['RegionId']                   = $request->regionId;
-        $query['ThresholdCount']             = $request->thresholdCount;
-        $query['TrafficPercentage']          = $request->trafficPercentage;
-        $req                                 = new OpenApiRequest([
+        $query = [];
+        if (!Utils::isUnset($request->acceleratorId)) {
+            $query['AcceleratorId'] = $request->acceleratorId;
+        }
+        if (!Utils::isUnset($request->clientToken)) {
+            $query['ClientToken'] = $request->clientToken;
+        }
+        if (!Utils::isUnset($request->description)) {
+            $query['Description'] = $request->description;
+        }
+        if (!Utils::isUnset($request->endpointConfigurations)) {
+            $query['EndpointConfigurations'] = $request->endpointConfigurations;
+        }
+        if (!Utils::isUnset($request->endpointGroupRegion)) {
+            $query['EndpointGroupRegion'] = $request->endpointGroupRegion;
+        }
+        if (!Utils::isUnset($request->endpointGroupType)) {
+            $query['EndpointGroupType'] = $request->endpointGroupType;
+        }
+        if (!Utils::isUnset($request->endpointRequestProtocol)) {
+            $query['EndpointRequestProtocol'] = $request->endpointRequestProtocol;
+        }
+        if (!Utils::isUnset($request->healthCheckEnabled)) {
+            $query['HealthCheckEnabled'] = $request->healthCheckEnabled;
+        }
+        if (!Utils::isUnset($request->healthCheckIntervalSeconds)) {
+            $query['HealthCheckIntervalSeconds'] = $request->healthCheckIntervalSeconds;
+        }
+        if (!Utils::isUnset($request->healthCheckPath)) {
+            $query['HealthCheckPath'] = $request->healthCheckPath;
+        }
+        if (!Utils::isUnset($request->healthCheckPort)) {
+            $query['HealthCheckPort'] = $request->healthCheckPort;
+        }
+        if (!Utils::isUnset($request->healthCheckProtocol)) {
+            $query['HealthCheckProtocol'] = $request->healthCheckProtocol;
+        }
+        if (!Utils::isUnset($request->listenerId)) {
+            $query['ListenerId'] = $request->listenerId;
+        }
+        if (!Utils::isUnset($request->name)) {
+            $query['Name'] = $request->name;
+        }
+        if (!Utils::isUnset($request->portOverrides)) {
+            $query['PortOverrides'] = $request->portOverrides;
+        }
+        if (!Utils::isUnset($request->regionId)) {
+            $query['RegionId'] = $request->regionId;
+        }
+        if (!Utils::isUnset($request->thresholdCount)) {
+            $query['ThresholdCount'] = $request->thresholdCount;
+        }
+        if (!Utils::isUnset($request->trafficPercentage)) {
+            $query['TrafficPercentage'] = $request->trafficPercentage;
+        }
+        $req = new OpenApiRequest([
             'query' => OpenApiUtilClient::query($query),
         ]);
         $params = new Params([
@@ -928,14 +1230,26 @@ class Ga extends OpenApiClient
     public function createEndpointGroupsWithOptions($request, $runtime)
     {
         Utils::validateModel($request);
-        $query                                = [];
-        $query['AcceleratorId']               = $request->acceleratorId;
-        $query['ClientToken']                 = $request->clientToken;
-        $query['DryRun']                      = $request->dryRun;
-        $query['EndpointGroupConfigurations'] = $request->endpointGroupConfigurations;
-        $query['ListenerId']                  = $request->listenerId;
-        $query['RegionId']                    = $request->regionId;
-        $req                                  = new OpenApiRequest([
+        $query = [];
+        if (!Utils::isUnset($request->acceleratorId)) {
+            $query['AcceleratorId'] = $request->acceleratorId;
+        }
+        if (!Utils::isUnset($request->clientToken)) {
+            $query['ClientToken'] = $request->clientToken;
+        }
+        if (!Utils::isUnset($request->dryRun)) {
+            $query['DryRun'] = $request->dryRun;
+        }
+        if (!Utils::isUnset($request->endpointGroupConfigurations)) {
+            $query['EndpointGroupConfigurations'] = $request->endpointGroupConfigurations;
+        }
+        if (!Utils::isUnset($request->listenerId)) {
+            $query['ListenerId'] = $request->listenerId;
+        }
+        if (!Utils::isUnset($request->regionId)) {
+            $query['RegionId'] = $request->regionId;
+        }
+        $req = new OpenApiRequest([
             'query' => OpenApiUtilClient::query($query),
         ]);
         $params = new Params([
@@ -974,13 +1288,23 @@ class Ga extends OpenApiClient
     public function createForwardingRulesWithOptions($request, $runtime)
     {
         Utils::validateModel($request);
-        $query                    = [];
-        $query['AcceleratorId']   = $request->acceleratorId;
-        $query['ClientToken']     = $request->clientToken;
-        $query['ForwardingRules'] = $request->forwardingRules;
-        $query['ListenerId']      = $request->listenerId;
-        $query['RegionId']        = $request->regionId;
-        $req                      = new OpenApiRequest([
+        $query = [];
+        if (!Utils::isUnset($request->acceleratorId)) {
+            $query['AcceleratorId'] = $request->acceleratorId;
+        }
+        if (!Utils::isUnset($request->clientToken)) {
+            $query['ClientToken'] = $request->clientToken;
+        }
+        if (!Utils::isUnset($request->forwardingRules)) {
+            $query['ForwardingRules'] = $request->forwardingRules;
+        }
+        if (!Utils::isUnset($request->listenerId)) {
+            $query['ListenerId'] = $request->listenerId;
+        }
+        if (!Utils::isUnset($request->regionId)) {
+            $query['RegionId'] = $request->regionId;
+        }
+        $req = new OpenApiRequest([
             'query' => OpenApiUtilClient::query($query),
         ]);
         $params = new Params([
@@ -1019,12 +1343,20 @@ class Ga extends OpenApiClient
     public function createIpSetsWithOptions($request, $runtime)
     {
         Utils::validateModel($request);
-        $query                     = [];
-        $query['AccelerateRegion'] = $request->accelerateRegion;
-        $query['AcceleratorId']    = $request->acceleratorId;
-        $query['ClientToken']      = $request->clientToken;
-        $query['RegionId']         = $request->regionId;
-        $req                       = new OpenApiRequest([
+        $query = [];
+        if (!Utils::isUnset($request->accelerateRegion)) {
+            $query['AccelerateRegion'] = $request->accelerateRegion;
+        }
+        if (!Utils::isUnset($request->acceleratorId)) {
+            $query['AcceleratorId'] = $request->acceleratorId;
+        }
+        if (!Utils::isUnset($request->clientToken)) {
+            $query['ClientToken'] = $request->clientToken;
+        }
+        if (!Utils::isUnset($request->regionId)) {
+            $query['RegionId'] = $request->regionId;
+        }
+        $req = new OpenApiRequest([
             'query' => OpenApiUtilClient::query($query),
         ]);
         $params = new Params([
@@ -1063,20 +1395,44 @@ class Ga extends OpenApiClient
     public function createListenerWithOptions($request, $runtime)
     {
         Utils::validateModel($request);
-        $query                        = [];
-        $query['AcceleratorId']       = $request->acceleratorId;
-        $query['Certificates']        = $request->certificates;
-        $query['ClientAffinity']      = $request->clientAffinity;
-        $query['ClientToken']         = $request->clientToken;
-        $query['Description']         = $request->description;
-        $query['Name']                = $request->name;
-        $query['PortRanges']          = $request->portRanges;
-        $query['Protocol']            = $request->protocol;
-        $query['ProxyProtocol']       = $request->proxyProtocol;
-        $query['RegionId']            = $request->regionId;
-        $query['SecurityPolicyId']    = $request->securityPolicyId;
-        $query['XForwardedForConfig'] = $request->XForwardedForConfig;
-        $req                          = new OpenApiRequest([
+        $query = [];
+        if (!Utils::isUnset($request->acceleratorId)) {
+            $query['AcceleratorId'] = $request->acceleratorId;
+        }
+        if (!Utils::isUnset($request->certificates)) {
+            $query['Certificates'] = $request->certificates;
+        }
+        if (!Utils::isUnset($request->clientAffinity)) {
+            $query['ClientAffinity'] = $request->clientAffinity;
+        }
+        if (!Utils::isUnset($request->clientToken)) {
+            $query['ClientToken'] = $request->clientToken;
+        }
+        if (!Utils::isUnset($request->description)) {
+            $query['Description'] = $request->description;
+        }
+        if (!Utils::isUnset($request->name)) {
+            $query['Name'] = $request->name;
+        }
+        if (!Utils::isUnset($request->portRanges)) {
+            $query['PortRanges'] = $request->portRanges;
+        }
+        if (!Utils::isUnset($request->protocol)) {
+            $query['Protocol'] = $request->protocol;
+        }
+        if (!Utils::isUnset($request->proxyProtocol)) {
+            $query['ProxyProtocol'] = $request->proxyProtocol;
+        }
+        if (!Utils::isUnset($request->regionId)) {
+            $query['RegionId'] = $request->regionId;
+        }
+        if (!Utils::isUnset($request->securityPolicyId)) {
+            $query['SecurityPolicyId'] = $request->securityPolicyId;
+        }
+        if (!Utils::isUnset($request->XForwardedForConfig)) {
+            $query['XForwardedForConfig'] = $request->XForwardedForConfig;
+        }
+        $req = new OpenApiRequest([
             'query' => OpenApiUtilClient::query($query),
         ]);
         $params = new Params([
@@ -1115,13 +1471,23 @@ class Ga extends OpenApiClient
     public function createSpareIpsWithOptions($request, $runtime)
     {
         Utils::validateModel($request);
-        $query                  = [];
-        $query['AcceleratorId'] = $request->acceleratorId;
-        $query['ClientToken']   = $request->clientToken;
-        $query['DryRun']        = $request->dryRun;
-        $query['RegionId']      = $request->regionId;
-        $query['SpareIps']      = $request->spareIps;
-        $req                    = new OpenApiRequest([
+        $query = [];
+        if (!Utils::isUnset($request->acceleratorId)) {
+            $query['AcceleratorId'] = $request->acceleratorId;
+        }
+        if (!Utils::isUnset($request->clientToken)) {
+            $query['ClientToken'] = $request->clientToken;
+        }
+        if (!Utils::isUnset($request->dryRun)) {
+            $query['DryRun'] = $request->dryRun;
+        }
+        if (!Utils::isUnset($request->regionId)) {
+            $query['RegionId'] = $request->regionId;
+        }
+        if (!Utils::isUnset($request->spareIps)) {
+            $query['SpareIps'] = $request->spareIps;
+        }
+        $req = new OpenApiRequest([
             'query' => OpenApiUtilClient::query($query),
         ]);
         $params = new Params([
@@ -1160,10 +1526,14 @@ class Ga extends OpenApiClient
     public function deleteAcceleratorWithOptions($request, $runtime)
     {
         Utils::validateModel($request);
-        $query                  = [];
-        $query['AcceleratorId'] = $request->acceleratorId;
-        $query['RegionId']      = $request->regionId;
-        $req                    = new OpenApiRequest([
+        $query = [];
+        if (!Utils::isUnset($request->acceleratorId)) {
+            $query['AcceleratorId'] = $request->acceleratorId;
+        }
+        if (!Utils::isUnset($request->regionId)) {
+            $query['RegionId'] = $request->regionId;
+        }
+        $req = new OpenApiRequest([
             'query' => OpenApiUtilClient::query($query),
         ]);
         $params = new Params([
@@ -1202,12 +1572,20 @@ class Ga extends OpenApiClient
     public function deleteAclWithOptions($request, $runtime)
     {
         Utils::validateModel($request);
-        $query                = [];
-        $query['AclId']       = $request->aclId;
-        $query['ClientToken'] = $request->clientToken;
-        $query['DryRun']      = $request->dryRun;
-        $query['RegionId']    = $request->regionId;
-        $req                  = new OpenApiRequest([
+        $query = [];
+        if (!Utils::isUnset($request->aclId)) {
+            $query['AclId'] = $request->aclId;
+        }
+        if (!Utils::isUnset($request->clientToken)) {
+            $query['ClientToken'] = $request->clientToken;
+        }
+        if (!Utils::isUnset($request->dryRun)) {
+            $query['DryRun'] = $request->dryRun;
+        }
+        if (!Utils::isUnset($request->regionId)) {
+            $query['RegionId'] = $request->regionId;
+        }
+        $req = new OpenApiRequest([
             'query' => OpenApiUtilClient::query($query),
         ]);
         $params = new Params([
@@ -1238,6 +1616,55 @@ class Ga extends OpenApiClient
     }
 
     /**
+     * @param DeleteApplicationMonitorRequest $request
+     * @param RuntimeOptions                  $runtime
+     *
+     * @return DeleteApplicationMonitorResponse
+     */
+    public function deleteApplicationMonitorWithOptions($request, $runtime)
+    {
+        Utils::validateModel($request);
+        $query = [];
+        if (!Utils::isUnset($request->clientToken)) {
+            $query['ClientToken'] = $request->clientToken;
+        }
+        if (!Utils::isUnset($request->regionId)) {
+            $query['RegionId'] = $request->regionId;
+        }
+        if (!Utils::isUnset($request->taskId)) {
+            $query['TaskId'] = $request->taskId;
+        }
+        $req = new OpenApiRequest([
+            'query' => OpenApiUtilClient::query($query),
+        ]);
+        $params = new Params([
+            'action'      => 'DeleteApplicationMonitor',
+            'version'     => '2019-11-20',
+            'protocol'    => 'HTTPS',
+            'pathname'    => '/',
+            'method'      => 'POST',
+            'authType'    => 'AK',
+            'style'       => 'RPC',
+            'reqBodyType' => 'formData',
+            'bodyType'    => 'json',
+        ]);
+
+        return DeleteApplicationMonitorResponse::fromMap($this->callApi($params, $req, $runtime));
+    }
+
+    /**
+     * @param DeleteApplicationMonitorRequest $request
+     *
+     * @return DeleteApplicationMonitorResponse
+     */
+    public function deleteApplicationMonitor($request)
+    {
+        $runtime = new RuntimeOptions([]);
+
+        return $this->deleteApplicationMonitorWithOptions($request, $runtime);
+    }
+
+    /**
      * @param DeleteBandwidthPackageRequest $request
      * @param RuntimeOptions                $runtime
      *
@@ -1246,11 +1673,17 @@ class Ga extends OpenApiClient
     public function deleteBandwidthPackageWithOptions($request, $runtime)
     {
         Utils::validateModel($request);
-        $query                       = [];
-        $query['BandwidthPackageId'] = $request->bandwidthPackageId;
-        $query['ClientToken']        = $request->clientToken;
-        $query['RegionId']           = $request->regionId;
-        $req                         = new OpenApiRequest([
+        $query = [];
+        if (!Utils::isUnset($request->bandwidthPackageId)) {
+            $query['BandwidthPackageId'] = $request->bandwidthPackageId;
+        }
+        if (!Utils::isUnset($request->clientToken)) {
+            $query['ClientToken'] = $request->clientToken;
+        }
+        if (!Utils::isUnset($request->regionId)) {
+            $query['RegionId'] = $request->regionId;
+        }
+        $req = new OpenApiRequest([
             'query' => OpenApiUtilClient::query($query),
         ]);
         $params = new Params([
@@ -1289,10 +1722,14 @@ class Ga extends OpenApiClient
     public function deleteBasicAcceleratorWithOptions($request, $runtime)
     {
         Utils::validateModel($request);
-        $query                  = [];
-        $query['AcceleratorId'] = $request->acceleratorId;
-        $query['RegionId']      = $request->regionId;
-        $req                    = new OpenApiRequest([
+        $query = [];
+        if (!Utils::isUnset($request->acceleratorId)) {
+            $query['AcceleratorId'] = $request->acceleratorId;
+        }
+        if (!Utils::isUnset($request->regionId)) {
+            $query['RegionId'] = $request->regionId;
+        }
+        $req = new OpenApiRequest([
             'query' => OpenApiUtilClient::query($query),
         ]);
         $params = new Params([
@@ -1331,10 +1768,14 @@ class Ga extends OpenApiClient
     public function deleteBasicEndpointGroupWithOptions($request, $runtime)
     {
         Utils::validateModel($request);
-        $query                    = [];
-        $query['ClientToken']     = $request->clientToken;
-        $query['EndpointGroupId'] = $request->endpointGroupId;
-        $req                      = new OpenApiRequest([
+        $query = [];
+        if (!Utils::isUnset($request->clientToken)) {
+            $query['ClientToken'] = $request->clientToken;
+        }
+        if (!Utils::isUnset($request->endpointGroupId)) {
+            $query['EndpointGroupId'] = $request->endpointGroupId;
+        }
+        $req = new OpenApiRequest([
             'query' => OpenApiUtilClient::query($query),
         ]);
         $params = new Params([
@@ -1373,11 +1814,17 @@ class Ga extends OpenApiClient
     public function deleteBasicIpSetWithOptions($request, $runtime)
     {
         Utils::validateModel($request);
-        $query                = [];
-        $query['ClientToken'] = $request->clientToken;
-        $query['IpSetId']     = $request->ipSetId;
-        $query['RegionId']    = $request->regionId;
-        $req                  = new OpenApiRequest([
+        $query = [];
+        if (!Utils::isUnset($request->clientToken)) {
+            $query['ClientToken'] = $request->clientToken;
+        }
+        if (!Utils::isUnset($request->ipSetId)) {
+            $query['IpSetId'] = $request->ipSetId;
+        }
+        if (!Utils::isUnset($request->regionId)) {
+            $query['RegionId'] = $request->regionId;
+        }
+        $req = new OpenApiRequest([
             'query' => OpenApiUtilClient::query($query),
         ]);
         $params = new Params([
@@ -1416,11 +1863,17 @@ class Ga extends OpenApiClient
     public function deleteEndpointGroupWithOptions($request, $runtime)
     {
         Utils::validateModel($request);
-        $query                    = [];
-        $query['AcceleratorId']   = $request->acceleratorId;
-        $query['ClientToken']     = $request->clientToken;
-        $query['EndpointGroupId'] = $request->endpointGroupId;
-        $req                      = new OpenApiRequest([
+        $query = [];
+        if (!Utils::isUnset($request->acceleratorId)) {
+            $query['AcceleratorId'] = $request->acceleratorId;
+        }
+        if (!Utils::isUnset($request->clientToken)) {
+            $query['ClientToken'] = $request->clientToken;
+        }
+        if (!Utils::isUnset($request->endpointGroupId)) {
+            $query['EndpointGroupId'] = $request->endpointGroupId;
+        }
+        $req = new OpenApiRequest([
             'query' => OpenApiUtilClient::query($query),
         ]);
         $params = new Params([
@@ -1459,12 +1912,20 @@ class Ga extends OpenApiClient
     public function deleteEndpointGroupsWithOptions($request, $runtime)
     {
         Utils::validateModel($request);
-        $query                     = [];
-        $query['ClientToken']      = $request->clientToken;
-        $query['DryRun']           = $request->dryRun;
-        $query['EndpointGroupIds'] = $request->endpointGroupIds;
-        $query['RegionId']         = $request->regionId;
-        $req                       = new OpenApiRequest([
+        $query = [];
+        if (!Utils::isUnset($request->clientToken)) {
+            $query['ClientToken'] = $request->clientToken;
+        }
+        if (!Utils::isUnset($request->dryRun)) {
+            $query['DryRun'] = $request->dryRun;
+        }
+        if (!Utils::isUnset($request->endpointGroupIds)) {
+            $query['EndpointGroupIds'] = $request->endpointGroupIds;
+        }
+        if (!Utils::isUnset($request->regionId)) {
+            $query['RegionId'] = $request->regionId;
+        }
+        $req = new OpenApiRequest([
             'query' => OpenApiUtilClient::query($query),
         ]);
         $params = new Params([
@@ -1503,13 +1964,23 @@ class Ga extends OpenApiClient
     public function deleteForwardingRulesWithOptions($request, $runtime)
     {
         Utils::validateModel($request);
-        $query                      = [];
-        $query['AcceleratorId']     = $request->acceleratorId;
-        $query['ClientToken']       = $request->clientToken;
-        $query['ForwardingRuleIds'] = $request->forwardingRuleIds;
-        $query['ListenerId']        = $request->listenerId;
-        $query['RegionId']          = $request->regionId;
-        $req                        = new OpenApiRequest([
+        $query = [];
+        if (!Utils::isUnset($request->acceleratorId)) {
+            $query['AcceleratorId'] = $request->acceleratorId;
+        }
+        if (!Utils::isUnset($request->clientToken)) {
+            $query['ClientToken'] = $request->clientToken;
+        }
+        if (!Utils::isUnset($request->forwardingRuleIds)) {
+            $query['ForwardingRuleIds'] = $request->forwardingRuleIds;
+        }
+        if (!Utils::isUnset($request->listenerId)) {
+            $query['ListenerId'] = $request->listenerId;
+        }
+        if (!Utils::isUnset($request->regionId)) {
+            $query['RegionId'] = $request->regionId;
+        }
+        $req = new OpenApiRequest([
             'query' => OpenApiUtilClient::query($query),
         ]);
         $params = new Params([
@@ -1548,12 +2019,20 @@ class Ga extends OpenApiClient
     public function deleteIpSetWithOptions($request, $runtime)
     {
         Utils::validateModel($request);
-        $query                  = [];
-        $query['AcceleratorId'] = $request->acceleratorId;
-        $query['ClientToken']   = $request->clientToken;
-        $query['IpSetId']       = $request->ipSetId;
-        $query['RegionId']      = $request->regionId;
-        $req                    = new OpenApiRequest([
+        $query = [];
+        if (!Utils::isUnset($request->acceleratorId)) {
+            $query['AcceleratorId'] = $request->acceleratorId;
+        }
+        if (!Utils::isUnset($request->clientToken)) {
+            $query['ClientToken'] = $request->clientToken;
+        }
+        if (!Utils::isUnset($request->ipSetId)) {
+            $query['IpSetId'] = $request->ipSetId;
+        }
+        if (!Utils::isUnset($request->regionId)) {
+            $query['RegionId'] = $request->regionId;
+        }
+        $req = new OpenApiRequest([
             'query' => OpenApiUtilClient::query($query),
         ]);
         $params = new Params([
@@ -1592,10 +2071,14 @@ class Ga extends OpenApiClient
     public function deleteIpSetsWithOptions($request, $runtime)
     {
         Utils::validateModel($request);
-        $query             = [];
-        $query['IpSetIds'] = $request->ipSetIds;
-        $query['RegionId'] = $request->regionId;
-        $req               = new OpenApiRequest([
+        $query = [];
+        if (!Utils::isUnset($request->ipSetIds)) {
+            $query['IpSetIds'] = $request->ipSetIds;
+        }
+        if (!Utils::isUnset($request->regionId)) {
+            $query['RegionId'] = $request->regionId;
+        }
+        $req = new OpenApiRequest([
             'query' => OpenApiUtilClient::query($query),
         ]);
         $params = new Params([
@@ -1634,11 +2117,17 @@ class Ga extends OpenApiClient
     public function deleteListenerWithOptions($request, $runtime)
     {
         Utils::validateModel($request);
-        $query                  = [];
-        $query['AcceleratorId'] = $request->acceleratorId;
-        $query['ClientToken']   = $request->clientToken;
-        $query['ListenerId']    = $request->listenerId;
-        $req                    = new OpenApiRequest([
+        $query = [];
+        if (!Utils::isUnset($request->acceleratorId)) {
+            $query['AcceleratorId'] = $request->acceleratorId;
+        }
+        if (!Utils::isUnset($request->clientToken)) {
+            $query['ClientToken'] = $request->clientToken;
+        }
+        if (!Utils::isUnset($request->listenerId)) {
+            $query['ListenerId'] = $request->listenerId;
+        }
+        $req = new OpenApiRequest([
             'query' => OpenApiUtilClient::query($query),
         ]);
         $params = new Params([
@@ -1677,13 +2166,23 @@ class Ga extends OpenApiClient
     public function deleteSpareIpsWithOptions($request, $runtime)
     {
         Utils::validateModel($request);
-        $query                  = [];
-        $query['AcceleratorId'] = $request->acceleratorId;
-        $query['ClientToken']   = $request->clientToken;
-        $query['DryRun']        = $request->dryRun;
-        $query['RegionId']      = $request->regionId;
-        $query['SpareIps']      = $request->spareIps;
-        $req                    = new OpenApiRequest([
+        $query = [];
+        if (!Utils::isUnset($request->acceleratorId)) {
+            $query['AcceleratorId'] = $request->acceleratorId;
+        }
+        if (!Utils::isUnset($request->clientToken)) {
+            $query['ClientToken'] = $request->clientToken;
+        }
+        if (!Utils::isUnset($request->dryRun)) {
+            $query['DryRun'] = $request->dryRun;
+        }
+        if (!Utils::isUnset($request->regionId)) {
+            $query['RegionId'] = $request->regionId;
+        }
+        if (!Utils::isUnset($request->spareIps)) {
+            $query['SpareIps'] = $request->spareIps;
+        }
+        $req = new OpenApiRequest([
             'query' => OpenApiUtilClient::query($query),
         ]);
         $params = new Params([
@@ -1722,10 +2221,14 @@ class Ga extends OpenApiClient
     public function describeAcceleratorWithOptions($request, $runtime)
     {
         Utils::validateModel($request);
-        $query                  = [];
-        $query['AcceleratorId'] = $request->acceleratorId;
-        $query['RegionId']      = $request->regionId;
-        $req                    = new OpenApiRequest([
+        $query = [];
+        if (!Utils::isUnset($request->acceleratorId)) {
+            $query['AcceleratorId'] = $request->acceleratorId;
+        }
+        if (!Utils::isUnset($request->regionId)) {
+            $query['RegionId'] = $request->regionId;
+        }
+        $req = new OpenApiRequest([
             'query' => OpenApiUtilClient::query($query),
         ]);
         $params = new Params([
@@ -1764,10 +2267,14 @@ class Ga extends OpenApiClient
     public function describeAcceleratorAutoRenewAttributeWithOptions($request, $runtime)
     {
         Utils::validateModel($request);
-        $query                  = [];
-        $query['AcceleratorId'] = $request->acceleratorId;
-        $query['RegionId']      = $request->regionId;
-        $req                    = new OpenApiRequest([
+        $query = [];
+        if (!Utils::isUnset($request->acceleratorId)) {
+            $query['AcceleratorId'] = $request->acceleratorId;
+        }
+        if (!Utils::isUnset($request->regionId)) {
+            $query['RegionId'] = $request->regionId;
+        }
+        $req = new OpenApiRequest([
             'query' => OpenApiUtilClient::query($query),
         ]);
         $params = new Params([
@@ -1798,6 +2305,55 @@ class Ga extends OpenApiClient
     }
 
     /**
+     * @param DescribeApplicationMonitorRequest $request
+     * @param RuntimeOptions                    $runtime
+     *
+     * @return DescribeApplicationMonitorResponse
+     */
+    public function describeApplicationMonitorWithOptions($request, $runtime)
+    {
+        Utils::validateModel($request);
+        $query = [];
+        if (!Utils::isUnset($request->clientToken)) {
+            $query['ClientToken'] = $request->clientToken;
+        }
+        if (!Utils::isUnset($request->regionId)) {
+            $query['RegionId'] = $request->regionId;
+        }
+        if (!Utils::isUnset($request->taskId)) {
+            $query['TaskId'] = $request->taskId;
+        }
+        $req = new OpenApiRequest([
+            'query' => OpenApiUtilClient::query($query),
+        ]);
+        $params = new Params([
+            'action'      => 'DescribeApplicationMonitor',
+            'version'     => '2019-11-20',
+            'protocol'    => 'HTTPS',
+            'pathname'    => '/',
+            'method'      => 'POST',
+            'authType'    => 'AK',
+            'style'       => 'RPC',
+            'reqBodyType' => 'formData',
+            'bodyType'    => 'json',
+        ]);
+
+        return DescribeApplicationMonitorResponse::fromMap($this->callApi($params, $req, $runtime));
+    }
+
+    /**
+     * @param DescribeApplicationMonitorRequest $request
+     *
+     * @return DescribeApplicationMonitorResponse
+     */
+    public function describeApplicationMonitor($request)
+    {
+        $runtime = new RuntimeOptions([]);
+
+        return $this->describeApplicationMonitorWithOptions($request, $runtime);
+    }
+
+    /**
      * @param DescribeBandwidthPackageRequest $request
      * @param RuntimeOptions                  $runtime
      *
@@ -1806,10 +2362,14 @@ class Ga extends OpenApiClient
     public function describeBandwidthPackageWithOptions($request, $runtime)
     {
         Utils::validateModel($request);
-        $query                       = [];
-        $query['BandwidthPackageId'] = $request->bandwidthPackageId;
-        $query['RegionId']           = $request->regionId;
-        $req                         = new OpenApiRequest([
+        $query = [];
+        if (!Utils::isUnset($request->bandwidthPackageId)) {
+            $query['BandwidthPackageId'] = $request->bandwidthPackageId;
+        }
+        if (!Utils::isUnset($request->regionId)) {
+            $query['RegionId'] = $request->regionId;
+        }
+        $req = new OpenApiRequest([
             'query' => OpenApiUtilClient::query($query),
         ]);
         $params = new Params([
@@ -1848,10 +2408,14 @@ class Ga extends OpenApiClient
     public function describeEndpointGroupWithOptions($request, $runtime)
     {
         Utils::validateModel($request);
-        $query                    = [];
-        $query['EndpointGroupId'] = $request->endpointGroupId;
-        $query['RegionId']        = $request->regionId;
-        $req                      = new OpenApiRequest([
+        $query = [];
+        if (!Utils::isUnset($request->endpointGroupId)) {
+            $query['EndpointGroupId'] = $request->endpointGroupId;
+        }
+        if (!Utils::isUnset($request->regionId)) {
+            $query['RegionId'] = $request->regionId;
+        }
+        $req = new OpenApiRequest([
             'query' => OpenApiUtilClient::query($query),
         ]);
         $params = new Params([
@@ -1890,10 +2454,14 @@ class Ga extends OpenApiClient
     public function describeIpSetWithOptions($request, $runtime)
     {
         Utils::validateModel($request);
-        $query             = [];
-        $query['IpSetId']  = $request->ipSetId;
-        $query['RegionId'] = $request->regionId;
-        $req               = new OpenApiRequest([
+        $query = [];
+        if (!Utils::isUnset($request->ipSetId)) {
+            $query['IpSetId'] = $request->ipSetId;
+        }
+        if (!Utils::isUnset($request->regionId)) {
+            $query['RegionId'] = $request->regionId;
+        }
+        $req = new OpenApiRequest([
             'query' => OpenApiUtilClient::query($query),
         ]);
         $params = new Params([
@@ -1932,10 +2500,14 @@ class Ga extends OpenApiClient
     public function describeListenerWithOptions($request, $runtime)
     {
         Utils::validateModel($request);
-        $query               = [];
-        $query['ListenerId'] = $request->listenerId;
-        $query['RegionId']   = $request->regionId;
-        $req                 = new OpenApiRequest([
+        $query = [];
+        if (!Utils::isUnset($request->listenerId)) {
+            $query['ListenerId'] = $request->listenerId;
+        }
+        if (!Utils::isUnset($request->regionId)) {
+            $query['RegionId'] = $request->regionId;
+        }
+        $req = new OpenApiRequest([
             'query' => OpenApiUtilClient::query($query),
         ]);
         $params = new Params([
@@ -1974,9 +2546,11 @@ class Ga extends OpenApiClient
     public function describeRegionsWithOptions($request, $runtime)
     {
         Utils::validateModel($request);
-        $query             = [];
-        $query['RegionId'] = $request->regionId;
-        $req               = new OpenApiRequest([
+        $query = [];
+        if (!Utils::isUnset($request->regionId)) {
+            $query['RegionId'] = $request->regionId;
+        }
+        $req = new OpenApiRequest([
             'query' => OpenApiUtilClient::query($query),
         ]);
         $params = new Params([
@@ -2015,10 +2589,14 @@ class Ga extends OpenApiClient
     public function detachDdosFromAcceleratorWithOptions($request, $runtime)
     {
         Utils::validateModel($request);
-        $query                  = [];
-        $query['AcceleratorId'] = $request->acceleratorId;
-        $query['RegionId']      = $request->regionId;
-        $req                    = new OpenApiRequest([
+        $query = [];
+        if (!Utils::isUnset($request->acceleratorId)) {
+            $query['AcceleratorId'] = $request->acceleratorId;
+        }
+        if (!Utils::isUnset($request->regionId)) {
+            $query['RegionId'] = $request->regionId;
+        }
+        $req = new OpenApiRequest([
             'query' => OpenApiUtilClient::query($query),
         ]);
         $params = new Params([
@@ -2057,13 +2635,23 @@ class Ga extends OpenApiClient
     public function detachLogStoreFromEndpointGroupWithOptions($request, $runtime)
     {
         Utils::validateModel($request);
-        $query                     = [];
-        $query['AcceleratorId']    = $request->acceleratorId;
-        $query['ClientToken']      = $request->clientToken;
-        $query['EndpointGroupIds'] = $request->endpointGroupIds;
-        $query['ListenerId']       = $request->listenerId;
-        $query['RegionId']         = $request->regionId;
-        $req                       = new OpenApiRequest([
+        $query = [];
+        if (!Utils::isUnset($request->acceleratorId)) {
+            $query['AcceleratorId'] = $request->acceleratorId;
+        }
+        if (!Utils::isUnset($request->clientToken)) {
+            $query['ClientToken'] = $request->clientToken;
+        }
+        if (!Utils::isUnset($request->endpointGroupIds)) {
+            $query['EndpointGroupIds'] = $request->endpointGroupIds;
+        }
+        if (!Utils::isUnset($request->listenerId)) {
+            $query['ListenerId'] = $request->listenerId;
+        }
+        if (!Utils::isUnset($request->regionId)) {
+            $query['RegionId'] = $request->regionId;
+        }
+        $req = new OpenApiRequest([
             'query' => OpenApiUtilClient::query($query),
         ]);
         $params = new Params([
@@ -2094,6 +2682,104 @@ class Ga extends OpenApiClient
     }
 
     /**
+     * @param DetectApplicationMonitorRequest $request
+     * @param RuntimeOptions                  $runtime
+     *
+     * @return DetectApplicationMonitorResponse
+     */
+    public function detectApplicationMonitorWithOptions($request, $runtime)
+    {
+        Utils::validateModel($request);
+        $query = [];
+        if (!Utils::isUnset($request->clientToken)) {
+            $query['ClientToken'] = $request->clientToken;
+        }
+        if (!Utils::isUnset($request->regionId)) {
+            $query['RegionId'] = $request->regionId;
+        }
+        if (!Utils::isUnset($request->taskId)) {
+            $query['TaskId'] = $request->taskId;
+        }
+        $req = new OpenApiRequest([
+            'query' => OpenApiUtilClient::query($query),
+        ]);
+        $params = new Params([
+            'action'      => 'DetectApplicationMonitor',
+            'version'     => '2019-11-20',
+            'protocol'    => 'HTTPS',
+            'pathname'    => '/',
+            'method'      => 'POST',
+            'authType'    => 'AK',
+            'style'       => 'RPC',
+            'reqBodyType' => 'formData',
+            'bodyType'    => 'json',
+        ]);
+
+        return DetectApplicationMonitorResponse::fromMap($this->callApi($params, $req, $runtime));
+    }
+
+    /**
+     * @param DetectApplicationMonitorRequest $request
+     *
+     * @return DetectApplicationMonitorResponse
+     */
+    public function detectApplicationMonitor($request)
+    {
+        $runtime = new RuntimeOptions([]);
+
+        return $this->detectApplicationMonitorWithOptions($request, $runtime);
+    }
+
+    /**
+     * @param DisableApplicationMonitorRequest $request
+     * @param RuntimeOptions                   $runtime
+     *
+     * @return DisableApplicationMonitorResponse
+     */
+    public function disableApplicationMonitorWithOptions($request, $runtime)
+    {
+        Utils::validateModel($request);
+        $query = [];
+        if (!Utils::isUnset($request->clientToken)) {
+            $query['ClientToken'] = $request->clientToken;
+        }
+        if (!Utils::isUnset($request->regionId)) {
+            $query['RegionId'] = $request->regionId;
+        }
+        if (!Utils::isUnset($request->taskId)) {
+            $query['TaskId'] = $request->taskId;
+        }
+        $req = new OpenApiRequest([
+            'query' => OpenApiUtilClient::query($query),
+        ]);
+        $params = new Params([
+            'action'      => 'DisableApplicationMonitor',
+            'version'     => '2019-11-20',
+            'protocol'    => 'HTTPS',
+            'pathname'    => '/',
+            'method'      => 'POST',
+            'authType'    => 'AK',
+            'style'       => 'RPC',
+            'reqBodyType' => 'formData',
+            'bodyType'    => 'json',
+        ]);
+
+        return DisableApplicationMonitorResponse::fromMap($this->callApi($params, $req, $runtime));
+    }
+
+    /**
+     * @param DisableApplicationMonitorRequest $request
+     *
+     * @return DisableApplicationMonitorResponse
+     */
+    public function disableApplicationMonitor($request)
+    {
+        $runtime = new RuntimeOptions([]);
+
+        return $this->disableApplicationMonitorWithOptions($request, $runtime);
+    }
+
+    /**
      * @param DissociateAclsFromListenerRequest $request
      * @param RuntimeOptions                    $runtime
      *
@@ -2102,13 +2788,23 @@ class Ga extends OpenApiClient
     public function dissociateAclsFromListenerWithOptions($request, $runtime)
     {
         Utils::validateModel($request);
-        $query                = [];
-        $query['AclIds']      = $request->aclIds;
-        $query['ClientToken'] = $request->clientToken;
-        $query['DryRun']      = $request->dryRun;
-        $query['ListenerId']  = $request->listenerId;
-        $query['RegionId']    = $request->regionId;
-        $req                  = new OpenApiRequest([
+        $query = [];
+        if (!Utils::isUnset($request->aclIds)) {
+            $query['AclIds'] = $request->aclIds;
+        }
+        if (!Utils::isUnset($request->clientToken)) {
+            $query['ClientToken'] = $request->clientToken;
+        }
+        if (!Utils::isUnset($request->dryRun)) {
+            $query['DryRun'] = $request->dryRun;
+        }
+        if (!Utils::isUnset($request->listenerId)) {
+            $query['ListenerId'] = $request->listenerId;
+        }
+        if (!Utils::isUnset($request->regionId)) {
+            $query['RegionId'] = $request->regionId;
+        }
+        $req = new OpenApiRequest([
             'query' => OpenApiUtilClient::query($query),
         ]);
         $params = new Params([
@@ -2147,13 +2843,23 @@ class Ga extends OpenApiClient
     public function dissociateAdditionalCertificatesFromListenerWithOptions($request, $runtime)
     {
         Utils::validateModel($request);
-        $query                  = [];
-        $query['AcceleratorId'] = $request->acceleratorId;
-        $query['ClientToken']   = $request->clientToken;
-        $query['Domains']       = $request->domains;
-        $query['ListenerId']    = $request->listenerId;
-        $query['RegionId']      = $request->regionId;
-        $req                    = new OpenApiRequest([
+        $query = [];
+        if (!Utils::isUnset($request->acceleratorId)) {
+            $query['AcceleratorId'] = $request->acceleratorId;
+        }
+        if (!Utils::isUnset($request->clientToken)) {
+            $query['ClientToken'] = $request->clientToken;
+        }
+        if (!Utils::isUnset($request->domains)) {
+            $query['Domains'] = $request->domains;
+        }
+        if (!Utils::isUnset($request->listenerId)) {
+            $query['ListenerId'] = $request->listenerId;
+        }
+        if (!Utils::isUnset($request->regionId)) {
+            $query['RegionId'] = $request->regionId;
+        }
+        $req = new OpenApiRequest([
             'query' => OpenApiUtilClient::query($query),
         ]);
         $params = new Params([
@@ -2184,6 +2890,55 @@ class Ga extends OpenApiClient
     }
 
     /**
+     * @param EnableApplicationMonitorRequest $request
+     * @param RuntimeOptions                  $runtime
+     *
+     * @return EnableApplicationMonitorResponse
+     */
+    public function enableApplicationMonitorWithOptions($request, $runtime)
+    {
+        Utils::validateModel($request);
+        $query = [];
+        if (!Utils::isUnset($request->clientToken)) {
+            $query['ClientToken'] = $request->clientToken;
+        }
+        if (!Utils::isUnset($request->regionId)) {
+            $query['RegionId'] = $request->regionId;
+        }
+        if (!Utils::isUnset($request->taskId)) {
+            $query['TaskId'] = $request->taskId;
+        }
+        $req = new OpenApiRequest([
+            'query' => OpenApiUtilClient::query($query),
+        ]);
+        $params = new Params([
+            'action'      => 'EnableApplicationMonitor',
+            'version'     => '2019-11-20',
+            'protocol'    => 'HTTPS',
+            'pathname'    => '/',
+            'method'      => 'POST',
+            'authType'    => 'AK',
+            'style'       => 'RPC',
+            'reqBodyType' => 'formData',
+            'bodyType'    => 'json',
+        ]);
+
+        return EnableApplicationMonitorResponse::fromMap($this->callApi($params, $req, $runtime));
+    }
+
+    /**
+     * @param EnableApplicationMonitorRequest $request
+     *
+     * @return EnableApplicationMonitorResponse
+     */
+    public function enableApplicationMonitor($request)
+    {
+        $runtime = new RuntimeOptions([]);
+
+        return $this->enableApplicationMonitorWithOptions($request, $runtime);
+    }
+
+    /**
      * @param GetAclRequest  $request
      * @param RuntimeOptions $runtime
      *
@@ -2192,10 +2947,14 @@ class Ga extends OpenApiClient
     public function getAclWithOptions($request, $runtime)
     {
         Utils::validateModel($request);
-        $query             = [];
-        $query['AclId']    = $request->aclId;
-        $query['RegionId'] = $request->regionId;
-        $req               = new OpenApiRequest([
+        $query = [];
+        if (!Utils::isUnset($request->aclId)) {
+            $query['AclId'] = $request->aclId;
+        }
+        if (!Utils::isUnset($request->regionId)) {
+            $query['RegionId'] = $request->regionId;
+        }
+        $req = new OpenApiRequest([
             'query' => OpenApiUtilClient::query($query),
         ]);
         $params = new Params([
@@ -2234,10 +2993,14 @@ class Ga extends OpenApiClient
     public function getBasicAcceleratorWithOptions($request, $runtime)
     {
         Utils::validateModel($request);
-        $query                  = [];
-        $query['AcceleratorId'] = $request->acceleratorId;
-        $query['RegionId']      = $request->regionId;
-        $req                    = new OpenApiRequest([
+        $query = [];
+        if (!Utils::isUnset($request->acceleratorId)) {
+            $query['AcceleratorId'] = $request->acceleratorId;
+        }
+        if (!Utils::isUnset($request->regionId)) {
+            $query['RegionId'] = $request->regionId;
+        }
+        $req = new OpenApiRequest([
             'query' => OpenApiUtilClient::query($query),
         ]);
         $params = new Params([
@@ -2276,11 +3039,17 @@ class Ga extends OpenApiClient
     public function getBasicEndpointGroupWithOptions($request, $runtime)
     {
         Utils::validateModel($request);
-        $query                    = [];
-        $query['ClientToken']     = $request->clientToken;
-        $query['EndpointGroupId'] = $request->endpointGroupId;
-        $query['RegionId']        = $request->regionId;
-        $req                      = new OpenApiRequest([
+        $query = [];
+        if (!Utils::isUnset($request->clientToken)) {
+            $query['ClientToken'] = $request->clientToken;
+        }
+        if (!Utils::isUnset($request->endpointGroupId)) {
+            $query['EndpointGroupId'] = $request->endpointGroupId;
+        }
+        if (!Utils::isUnset($request->regionId)) {
+            $query['RegionId'] = $request->regionId;
+        }
+        $req = new OpenApiRequest([
             'query' => OpenApiUtilClient::query($query),
         ]);
         $params = new Params([
@@ -2319,11 +3088,17 @@ class Ga extends OpenApiClient
     public function getBasicIpSetWithOptions($request, $runtime)
     {
         Utils::validateModel($request);
-        $query                = [];
-        $query['ClientToken'] = $request->clientToken;
-        $query['IpSetId']     = $request->ipSetId;
-        $query['RegionId']    = $request->regionId;
-        $req                  = new OpenApiRequest([
+        $query = [];
+        if (!Utils::isUnset($request->clientToken)) {
+            $query['ClientToken'] = $request->clientToken;
+        }
+        if (!Utils::isUnset($request->ipSetId)) {
+            $query['IpSetId'] = $request->ipSetId;
+        }
+        if (!Utils::isUnset($request->regionId)) {
+            $query['RegionId'] = $request->regionId;
+        }
+        $req = new OpenApiRequest([
             'query' => OpenApiUtilClient::query($query),
         ]);
         $params = new Params([
@@ -2362,13 +3137,23 @@ class Ga extends OpenApiClient
     public function getHealthStatusWithOptions($request, $runtime)
     {
         Utils::validateModel($request);
-        $query                  = [];
-        $query['AcceleratorId'] = $request->acceleratorId;
-        $query['ClientToken']   = $request->clientToken;
-        $query['DryRun']        = $request->dryRun;
-        $query['ListenerId']    = $request->listenerId;
-        $query['RegionId']      = $request->regionId;
-        $req                    = new OpenApiRequest([
+        $query = [];
+        if (!Utils::isUnset($request->acceleratorId)) {
+            $query['AcceleratorId'] = $request->acceleratorId;
+        }
+        if (!Utils::isUnset($request->clientToken)) {
+            $query['ClientToken'] = $request->clientToken;
+        }
+        if (!Utils::isUnset($request->dryRun)) {
+            $query['DryRun'] = $request->dryRun;
+        }
+        if (!Utils::isUnset($request->listenerId)) {
+            $query['ListenerId'] = $request->listenerId;
+        }
+        if (!Utils::isUnset($request->regionId)) {
+            $query['RegionId'] = $request->regionId;
+        }
+        $req = new OpenApiRequest([
             'query' => OpenApiUtilClient::query($query),
         ]);
         $params = new Params([
@@ -2407,13 +3192,23 @@ class Ga extends OpenApiClient
     public function getSpareIpWithOptions($request, $runtime)
     {
         Utils::validateModel($request);
-        $query                  = [];
-        $query['AcceleratorId'] = $request->acceleratorId;
-        $query['ClientToken']   = $request->clientToken;
-        $query['DryRun']        = $request->dryRun;
-        $query['RegionId']      = $request->regionId;
-        $query['SpareIp']       = $request->spareIp;
-        $req                    = new OpenApiRequest([
+        $query = [];
+        if (!Utils::isUnset($request->acceleratorId)) {
+            $query['AcceleratorId'] = $request->acceleratorId;
+        }
+        if (!Utils::isUnset($request->clientToken)) {
+            $query['ClientToken'] = $request->clientToken;
+        }
+        if (!Utils::isUnset($request->dryRun)) {
+            $query['DryRun'] = $request->dryRun;
+        }
+        if (!Utils::isUnset($request->regionId)) {
+            $query['RegionId'] = $request->regionId;
+        }
+        if (!Utils::isUnset($request->spareIp)) {
+            $query['SpareIp'] = $request->spareIp;
+        }
+        $req = new OpenApiRequest([
             'query' => OpenApiUtilClient::query($query),
         ]);
         $params = new Params([
@@ -2452,9 +3247,11 @@ class Ga extends OpenApiClient
     public function listAccelerateAreasWithOptions($request, $runtime)
     {
         Utils::validateModel($request);
-        $query             = [];
-        $query['RegionId'] = $request->regionId;
-        $req               = new OpenApiRequest([
+        $query = [];
+        if (!Utils::isUnset($request->regionId)) {
+            $query['RegionId'] = $request->regionId;
+        }
+        $req = new OpenApiRequest([
             'query' => OpenApiUtilClient::query($query),
         ]);
         $params = new Params([
@@ -2493,13 +3290,23 @@ class Ga extends OpenApiClient
     public function listAcceleratorsWithOptions($request, $runtime)
     {
         Utils::validateModel($request);
-        $query                  = [];
-        $query['AcceleratorId'] = $request->acceleratorId;
-        $query['PageNumber']    = $request->pageNumber;
-        $query['PageSize']      = $request->pageSize;
-        $query['RegionId']      = $request->regionId;
-        $query['State']         = $request->state;
-        $req                    = new OpenApiRequest([
+        $query = [];
+        if (!Utils::isUnset($request->acceleratorId)) {
+            $query['AcceleratorId'] = $request->acceleratorId;
+        }
+        if (!Utils::isUnset($request->pageNumber)) {
+            $query['PageNumber'] = $request->pageNumber;
+        }
+        if (!Utils::isUnset($request->pageSize)) {
+            $query['PageSize'] = $request->pageSize;
+        }
+        if (!Utils::isUnset($request->regionId)) {
+            $query['RegionId'] = $request->regionId;
+        }
+        if (!Utils::isUnset($request->state)) {
+            $query['State'] = $request->state;
+        }
+        $req = new OpenApiRequest([
             'query' => OpenApiUtilClient::query($query),
         ]);
         $params = new Params([
@@ -2538,14 +3345,26 @@ class Ga extends OpenApiClient
     public function listAclsWithOptions($request, $runtime)
     {
         Utils::validateModel($request);
-        $query                = [];
-        $query['AclIds']      = $request->aclIds;
-        $query['AclName']     = $request->aclName;
-        $query['ClientToken'] = $request->clientToken;
-        $query['MaxResults']  = $request->maxResults;
-        $query['NextToken']   = $request->nextToken;
-        $query['RegionId']    = $request->regionId;
-        $req                  = new OpenApiRequest([
+        $query = [];
+        if (!Utils::isUnset($request->aclIds)) {
+            $query['AclIds'] = $request->aclIds;
+        }
+        if (!Utils::isUnset($request->aclName)) {
+            $query['AclName'] = $request->aclName;
+        }
+        if (!Utils::isUnset($request->clientToken)) {
+            $query['ClientToken'] = $request->clientToken;
+        }
+        if (!Utils::isUnset($request->maxResults)) {
+            $query['MaxResults'] = $request->maxResults;
+        }
+        if (!Utils::isUnset($request->nextToken)) {
+            $query['NextToken'] = $request->nextToken;
+        }
+        if (!Utils::isUnset($request->regionId)) {
+            $query['RegionId'] = $request->regionId;
+        }
+        $req = new OpenApiRequest([
             'query' => OpenApiUtilClient::query($query),
         ]);
         $params = new Params([
@@ -2576,6 +3395,116 @@ class Ga extends OpenApiClient
     }
 
     /**
+     * @param ListApplicationMonitorRequest $request
+     * @param RuntimeOptions                $runtime
+     *
+     * @return ListApplicationMonitorResponse
+     */
+    public function listApplicationMonitorWithOptions($request, $runtime)
+    {
+        Utils::validateModel($request);
+        $query = [];
+        if (!Utils::isUnset($request->pageNumber)) {
+            $query['PageNumber'] = $request->pageNumber;
+        }
+        if (!Utils::isUnset($request->pageSize)) {
+            $query['PageSize'] = $request->pageSize;
+        }
+        if (!Utils::isUnset($request->regionId)) {
+            $query['RegionId'] = $request->regionId;
+        }
+        if (!Utils::isUnset($request->searchValue)) {
+            $query['SearchValue'] = $request->searchValue;
+        }
+        $req = new OpenApiRequest([
+            'query' => OpenApiUtilClient::query($query),
+        ]);
+        $params = new Params([
+            'action'      => 'ListApplicationMonitor',
+            'version'     => '2019-11-20',
+            'protocol'    => 'HTTPS',
+            'pathname'    => '/',
+            'method'      => 'POST',
+            'authType'    => 'AK',
+            'style'       => 'RPC',
+            'reqBodyType' => 'formData',
+            'bodyType'    => 'json',
+        ]);
+
+        return ListApplicationMonitorResponse::fromMap($this->callApi($params, $req, $runtime));
+    }
+
+    /**
+     * @param ListApplicationMonitorRequest $request
+     *
+     * @return ListApplicationMonitorResponse
+     */
+    public function listApplicationMonitor($request)
+    {
+        $runtime = new RuntimeOptions([]);
+
+        return $this->listApplicationMonitorWithOptions($request, $runtime);
+    }
+
+    /**
+     * @param ListApplicationMonitorDetectResultRequest $request
+     * @param RuntimeOptions                            $runtime
+     *
+     * @return ListApplicationMonitorDetectResultResponse
+     */
+    public function listApplicationMonitorDetectResultWithOptions($request, $runtime)
+    {
+        Utils::validateModel($request);
+        $query = [];
+        if (!Utils::isUnset($request->beginTime)) {
+            $query['BeginTime'] = $request->beginTime;
+        }
+        if (!Utils::isUnset($request->endTime)) {
+            $query['EndTime'] = $request->endTime;
+        }
+        if (!Utils::isUnset($request->pageNumber)) {
+            $query['PageNumber'] = $request->pageNumber;
+        }
+        if (!Utils::isUnset($request->pageSize)) {
+            $query['PageSize'] = $request->pageSize;
+        }
+        if (!Utils::isUnset($request->regionId)) {
+            $query['RegionId'] = $request->regionId;
+        }
+        if (!Utils::isUnset($request->taskId)) {
+            $query['TaskId'] = $request->taskId;
+        }
+        $req = new OpenApiRequest([
+            'query' => OpenApiUtilClient::query($query),
+        ]);
+        $params = new Params([
+            'action'      => 'ListApplicationMonitorDetectResult',
+            'version'     => '2019-11-20',
+            'protocol'    => 'HTTPS',
+            'pathname'    => '/',
+            'method'      => 'POST',
+            'authType'    => 'AK',
+            'style'       => 'RPC',
+            'reqBodyType' => 'formData',
+            'bodyType'    => 'json',
+        ]);
+
+        return ListApplicationMonitorDetectResultResponse::fromMap($this->callApi($params, $req, $runtime));
+    }
+
+    /**
+     * @param ListApplicationMonitorDetectResultRequest $request
+     *
+     * @return ListApplicationMonitorDetectResultResponse
+     */
+    public function listApplicationMonitorDetectResult($request)
+    {
+        $runtime = new RuntimeOptions([]);
+
+        return $this->listApplicationMonitorDetectResultWithOptions($request, $runtime);
+    }
+
+    /**
      * @param ListAvailableAccelerateAreasRequest $request
      * @param RuntimeOptions                      $runtime
      *
@@ -2584,10 +3513,14 @@ class Ga extends OpenApiClient
     public function listAvailableAccelerateAreasWithOptions($request, $runtime)
     {
         Utils::validateModel($request);
-        $query                  = [];
-        $query['AcceleratorId'] = $request->acceleratorId;
-        $query['RegionId']      = $request->regionId;
-        $req                    = new OpenApiRequest([
+        $query = [];
+        if (!Utils::isUnset($request->acceleratorId)) {
+            $query['AcceleratorId'] = $request->acceleratorId;
+        }
+        if (!Utils::isUnset($request->regionId)) {
+            $query['RegionId'] = $request->regionId;
+        }
+        $req = new OpenApiRequest([
             'query' => OpenApiUtilClient::query($query),
         ]);
         $params = new Params([
@@ -2626,10 +3559,14 @@ class Ga extends OpenApiClient
     public function listAvailableBusiRegionsWithOptions($request, $runtime)
     {
         Utils::validateModel($request);
-        $query                  = [];
-        $query['AcceleratorId'] = $request->acceleratorId;
-        $query['RegionId']      = $request->regionId;
-        $req                    = new OpenApiRequest([
+        $query = [];
+        if (!Utils::isUnset($request->acceleratorId)) {
+            $query['AcceleratorId'] = $request->acceleratorId;
+        }
+        if (!Utils::isUnset($request->regionId)) {
+            $query['RegionId'] = $request->regionId;
+        }
+        $req = new OpenApiRequest([
             'query' => OpenApiUtilClient::query($query),
         ]);
         $params = new Params([
@@ -2668,14 +3605,26 @@ class Ga extends OpenApiClient
     public function listBandwidthPackagesWithOptions($request, $runtime)
     {
         Utils::validateModel($request);
-        $query                       = [];
-        $query['BandwidthPackageId'] = $request->bandwidthPackageId;
-        $query['PageNumber']         = $request->pageNumber;
-        $query['PageSize']           = $request->pageSize;
-        $query['RegionId']           = $request->regionId;
-        $query['State']              = $request->state;
-        $query['Type']               = $request->type;
-        $req                         = new OpenApiRequest([
+        $query = [];
+        if (!Utils::isUnset($request->bandwidthPackageId)) {
+            $query['BandwidthPackageId'] = $request->bandwidthPackageId;
+        }
+        if (!Utils::isUnset($request->pageNumber)) {
+            $query['PageNumber'] = $request->pageNumber;
+        }
+        if (!Utils::isUnset($request->pageSize)) {
+            $query['PageSize'] = $request->pageSize;
+        }
+        if (!Utils::isUnset($request->regionId)) {
+            $query['RegionId'] = $request->regionId;
+        }
+        if (!Utils::isUnset($request->state)) {
+            $query['State'] = $request->state;
+        }
+        if (!Utils::isUnset($request->type)) {
+            $query['Type'] = $request->type;
+        }
+        $req = new OpenApiRequest([
             'query' => OpenApiUtilClient::query($query),
         ]);
         $params = new Params([
@@ -2714,11 +3663,17 @@ class Ga extends OpenApiClient
     public function listBandwidthackagesWithOptions($request, $runtime)
     {
         Utils::validateModel($request);
-        $query               = [];
-        $query['PageNumber'] = $request->pageNumber;
-        $query['PageSize']   = $request->pageSize;
-        $query['RegionId']   = $request->regionId;
-        $req                 = new OpenApiRequest([
+        $query = [];
+        if (!Utils::isUnset($request->pageNumber)) {
+            $query['PageNumber'] = $request->pageNumber;
+        }
+        if (!Utils::isUnset($request->pageSize)) {
+            $query['PageSize'] = $request->pageSize;
+        }
+        if (!Utils::isUnset($request->regionId)) {
+            $query['RegionId'] = $request->regionId;
+        }
+        $req = new OpenApiRequest([
             'query' => OpenApiUtilClient::query($query),
         ]);
         $params = new Params([
@@ -2757,13 +3712,23 @@ class Ga extends OpenApiClient
     public function listBasicAcceleratorsWithOptions($request, $runtime)
     {
         Utils::validateModel($request);
-        $query                  = [];
-        $query['AcceleratorId'] = $request->acceleratorId;
-        $query['PageNumber']    = $request->pageNumber;
-        $query['PageSize']      = $request->pageSize;
-        $query['RegionId']      = $request->regionId;
-        $query['State']         = $request->state;
-        $req                    = new OpenApiRequest([
+        $query = [];
+        if (!Utils::isUnset($request->acceleratorId)) {
+            $query['AcceleratorId'] = $request->acceleratorId;
+        }
+        if (!Utils::isUnset($request->pageNumber)) {
+            $query['PageNumber'] = $request->pageNumber;
+        }
+        if (!Utils::isUnset($request->pageSize)) {
+            $query['PageSize'] = $request->pageSize;
+        }
+        if (!Utils::isUnset($request->regionId)) {
+            $query['RegionId'] = $request->regionId;
+        }
+        if (!Utils::isUnset($request->state)) {
+            $query['State'] = $request->state;
+        }
+        $req = new OpenApiRequest([
             'query' => OpenApiUtilClient::query($query),
         ]);
         $params = new Params([
@@ -2802,9 +3767,11 @@ class Ga extends OpenApiClient
     public function listBusiRegionsWithOptions($request, $runtime)
     {
         Utils::validateModel($request);
-        $query             = [];
-        $query['RegionId'] = $request->regionId;
-        $req               = new OpenApiRequest([
+        $query = [];
+        if (!Utils::isUnset($request->regionId)) {
+            $query['RegionId'] = $request->regionId;
+        }
+        $req = new OpenApiRequest([
             'query' => OpenApiUtilClient::query($query),
         ]);
         $params = new Params([
@@ -2843,16 +3810,32 @@ class Ga extends OpenApiClient
     public function listEndpointGroupsWithOptions($request, $runtime)
     {
         Utils::validateModel($request);
-        $query                      = [];
-        $query['AcceleratorId']     = $request->acceleratorId;
-        $query['AccessLogSwitch']   = $request->accessLogSwitch;
-        $query['EndpointGroupId']   = $request->endpointGroupId;
-        $query['EndpointGroupType'] = $request->endpointGroupType;
-        $query['ListenerId']        = $request->listenerId;
-        $query['PageNumber']        = $request->pageNumber;
-        $query['PageSize']          = $request->pageSize;
-        $query['RegionId']          = $request->regionId;
-        $req                        = new OpenApiRequest([
+        $query = [];
+        if (!Utils::isUnset($request->acceleratorId)) {
+            $query['AcceleratorId'] = $request->acceleratorId;
+        }
+        if (!Utils::isUnset($request->accessLogSwitch)) {
+            $query['AccessLogSwitch'] = $request->accessLogSwitch;
+        }
+        if (!Utils::isUnset($request->endpointGroupId)) {
+            $query['EndpointGroupId'] = $request->endpointGroupId;
+        }
+        if (!Utils::isUnset($request->endpointGroupType)) {
+            $query['EndpointGroupType'] = $request->endpointGroupType;
+        }
+        if (!Utils::isUnset($request->listenerId)) {
+            $query['ListenerId'] = $request->listenerId;
+        }
+        if (!Utils::isUnset($request->pageNumber)) {
+            $query['PageNumber'] = $request->pageNumber;
+        }
+        if (!Utils::isUnset($request->pageSize)) {
+            $query['PageSize'] = $request->pageSize;
+        }
+        if (!Utils::isUnset($request->regionId)) {
+            $query['RegionId'] = $request->regionId;
+        }
+        $req = new OpenApiRequest([
             'query' => OpenApiUtilClient::query($query),
         ]);
         $params = new Params([
@@ -2891,15 +3874,29 @@ class Ga extends OpenApiClient
     public function listForwardingRulesWithOptions($request, $runtime)
     {
         Utils::validateModel($request);
-        $query                     = [];
-        $query['AcceleratorId']    = $request->acceleratorId;
-        $query['ClientToken']      = $request->clientToken;
-        $query['ForwardingRuleId'] = $request->forwardingRuleId;
-        $query['ListenerId']       = $request->listenerId;
-        $query['MaxResults']       = $request->maxResults;
-        $query['NextToken']        = $request->nextToken;
-        $query['RegionId']         = $request->regionId;
-        $req                       = new OpenApiRequest([
+        $query = [];
+        if (!Utils::isUnset($request->acceleratorId)) {
+            $query['AcceleratorId'] = $request->acceleratorId;
+        }
+        if (!Utils::isUnset($request->clientToken)) {
+            $query['ClientToken'] = $request->clientToken;
+        }
+        if (!Utils::isUnset($request->forwardingRuleId)) {
+            $query['ForwardingRuleId'] = $request->forwardingRuleId;
+        }
+        if (!Utils::isUnset($request->listenerId)) {
+            $query['ListenerId'] = $request->listenerId;
+        }
+        if (!Utils::isUnset($request->maxResults)) {
+            $query['MaxResults'] = $request->maxResults;
+        }
+        if (!Utils::isUnset($request->nextToken)) {
+            $query['NextToken'] = $request->nextToken;
+        }
+        if (!Utils::isUnset($request->regionId)) {
+            $query['RegionId'] = $request->regionId;
+        }
+        $req = new OpenApiRequest([
             'query' => OpenApiUtilClient::query($query),
         ]);
         $params = new Params([
@@ -2938,12 +3935,20 @@ class Ga extends OpenApiClient
     public function listIpSetsWithOptions($request, $runtime)
     {
         Utils::validateModel($request);
-        $query                  = [];
-        $query['AcceleratorId'] = $request->acceleratorId;
-        $query['PageNumber']    = $request->pageNumber;
-        $query['PageSize']      = $request->pageSize;
-        $query['RegionId']      = $request->regionId;
-        $req                    = new OpenApiRequest([
+        $query = [];
+        if (!Utils::isUnset($request->acceleratorId)) {
+            $query['AcceleratorId'] = $request->acceleratorId;
+        }
+        if (!Utils::isUnset($request->pageNumber)) {
+            $query['PageNumber'] = $request->pageNumber;
+        }
+        if (!Utils::isUnset($request->pageSize)) {
+            $query['PageSize'] = $request->pageSize;
+        }
+        if (!Utils::isUnset($request->regionId)) {
+            $query['RegionId'] = $request->regionId;
+        }
+        $req = new OpenApiRequest([
             'query' => OpenApiUtilClient::query($query),
         ]);
         $params = new Params([
@@ -2982,14 +3987,26 @@ class Ga extends OpenApiClient
     public function listListenerCertificatesWithOptions($request, $runtime)
     {
         Utils::validateModel($request);
-        $query                  = [];
-        $query['AcceleratorId'] = $request->acceleratorId;
-        $query['ListenerId']    = $request->listenerId;
-        $query['MaxResults']    = $request->maxResults;
-        $query['NextToken']     = $request->nextToken;
-        $query['RegionId']      = $request->regionId;
-        $query['Role']          = $request->role;
-        $req                    = new OpenApiRequest([
+        $query = [];
+        if (!Utils::isUnset($request->acceleratorId)) {
+            $query['AcceleratorId'] = $request->acceleratorId;
+        }
+        if (!Utils::isUnset($request->listenerId)) {
+            $query['ListenerId'] = $request->listenerId;
+        }
+        if (!Utils::isUnset($request->maxResults)) {
+            $query['MaxResults'] = $request->maxResults;
+        }
+        if (!Utils::isUnset($request->nextToken)) {
+            $query['NextToken'] = $request->nextToken;
+        }
+        if (!Utils::isUnset($request->regionId)) {
+            $query['RegionId'] = $request->regionId;
+        }
+        if (!Utils::isUnset($request->role)) {
+            $query['Role'] = $request->role;
+        }
+        $req = new OpenApiRequest([
             'query' => OpenApiUtilClient::query($query),
         ]);
         $params = new Params([
@@ -3028,12 +4045,20 @@ class Ga extends OpenApiClient
     public function listListenersWithOptions($request, $runtime)
     {
         Utils::validateModel($request);
-        $query                  = [];
-        $query['AcceleratorId'] = $request->acceleratorId;
-        $query['PageNumber']    = $request->pageNumber;
-        $query['PageSize']      = $request->pageSize;
-        $query['RegionId']      = $request->regionId;
-        $req                    = new OpenApiRequest([
+        $query = [];
+        if (!Utils::isUnset($request->acceleratorId)) {
+            $query['AcceleratorId'] = $request->acceleratorId;
+        }
+        if (!Utils::isUnset($request->pageNumber)) {
+            $query['PageNumber'] = $request->pageNumber;
+        }
+        if (!Utils::isUnset($request->pageSize)) {
+            $query['PageSize'] = $request->pageSize;
+        }
+        if (!Utils::isUnset($request->regionId)) {
+            $query['RegionId'] = $request->regionId;
+        }
+        $req = new OpenApiRequest([
             'query' => OpenApiUtilClient::query($query),
         ]);
         $params = new Params([
@@ -3072,12 +4097,20 @@ class Ga extends OpenApiClient
     public function listSpareIpsWithOptions($request, $runtime)
     {
         Utils::validateModel($request);
-        $query                  = [];
-        $query['AcceleratorId'] = $request->acceleratorId;
-        $query['ClientToken']   = $request->clientToken;
-        $query['DryRun']        = $request->dryRun;
-        $query['RegionId']      = $request->regionId;
-        $req                    = new OpenApiRequest([
+        $query = [];
+        if (!Utils::isUnset($request->acceleratorId)) {
+            $query['AcceleratorId'] = $request->acceleratorId;
+        }
+        if (!Utils::isUnset($request->clientToken)) {
+            $query['ClientToken'] = $request->clientToken;
+        }
+        if (!Utils::isUnset($request->dryRun)) {
+            $query['DryRun'] = $request->dryRun;
+        }
+        if (!Utils::isUnset($request->regionId)) {
+            $query['RegionId'] = $request->regionId;
+        }
+        $req = new OpenApiRequest([
             'query' => OpenApiUtilClient::query($query),
         ]);
         $params = new Params([
@@ -3116,11 +4149,17 @@ class Ga extends OpenApiClient
     public function listSystemSecurityPoliciesWithOptions($request, $runtime)
     {
         Utils::validateModel($request);
-        $query               = [];
-        $query['PageNumber'] = $request->pageNumber;
-        $query['PageSize']   = $request->pageSize;
-        $query['RegionId']   = $request->regionId;
-        $req                 = new OpenApiRequest([
+        $query = [];
+        if (!Utils::isUnset($request->pageNumber)) {
+            $query['PageNumber'] = $request->pageNumber;
+        }
+        if (!Utils::isUnset($request->pageSize)) {
+            $query['PageSize'] = $request->pageSize;
+        }
+        if (!Utils::isUnset($request->regionId)) {
+            $query['RegionId'] = $request->regionId;
+        }
+        $req = new OpenApiRequest([
             'query' => OpenApiUtilClient::query($query),
         ]);
         $params = new Params([
@@ -3159,13 +4198,23 @@ class Ga extends OpenApiClient
     public function removeEntriesFromAclWithOptions($request, $runtime)
     {
         Utils::validateModel($request);
-        $query                = [];
-        $query['AclEntries']  = $request->aclEntries;
-        $query['AclId']       = $request->aclId;
-        $query['ClientToken'] = $request->clientToken;
-        $query['DryRun']      = $request->dryRun;
-        $query['RegionId']    = $request->regionId;
-        $req                  = new OpenApiRequest([
+        $query = [];
+        if (!Utils::isUnset($request->aclEntries)) {
+            $query['AclEntries'] = $request->aclEntries;
+        }
+        if (!Utils::isUnset($request->aclId)) {
+            $query['AclId'] = $request->aclId;
+        }
+        if (!Utils::isUnset($request->clientToken)) {
+            $query['ClientToken'] = $request->clientToken;
+        }
+        if (!Utils::isUnset($request->dryRun)) {
+            $query['DryRun'] = $request->dryRun;
+        }
+        if (!Utils::isUnset($request->regionId)) {
+            $query['RegionId'] = $request->regionId;
+        }
+        $req = new OpenApiRequest([
             'query' => OpenApiUtilClient::query($query),
         ]);
         $params = new Params([
@@ -3204,11 +4253,17 @@ class Ga extends OpenApiClient
     public function replaceBandwidthPackageWithOptions($request, $runtime)
     {
         Utils::validateModel($request);
-        $query                             = [];
-        $query['BandwidthPackageId']       = $request->bandwidthPackageId;
-        $query['RegionId']                 = $request->regionId;
-        $query['TargetBandwidthPackageId'] = $request->targetBandwidthPackageId;
-        $req                               = new OpenApiRequest([
+        $query = [];
+        if (!Utils::isUnset($request->bandwidthPackageId)) {
+            $query['BandwidthPackageId'] = $request->bandwidthPackageId;
+        }
+        if (!Utils::isUnset($request->regionId)) {
+            $query['RegionId'] = $request->regionId;
+        }
+        if (!Utils::isUnset($request->targetBandwidthPackageId)) {
+            $query['TargetBandwidthPackageId'] = $request->targetBandwidthPackageId;
+        }
+        $req = new OpenApiRequest([
             'query' => OpenApiUtilClient::query($query),
         ]);
         $params = new Params([
@@ -3247,16 +4302,32 @@ class Ga extends OpenApiClient
     public function updateAcceleratorWithOptions($request, $runtime)
     {
         Utils::validateModel($request);
-        $query                  = [];
-        $query['AcceleratorId'] = $request->acceleratorId;
-        $query['AutoPay']       = $request->autoPay;
-        $query['AutoUseCoupon'] = $request->autoUseCoupon;
-        $query['ClientToken']   = $request->clientToken;
-        $query['Description']   = $request->description;
-        $query['Name']          = $request->name;
-        $query['RegionId']      = $request->regionId;
-        $query['Spec']          = $request->spec;
-        $req                    = new OpenApiRequest([
+        $query = [];
+        if (!Utils::isUnset($request->acceleratorId)) {
+            $query['AcceleratorId'] = $request->acceleratorId;
+        }
+        if (!Utils::isUnset($request->autoPay)) {
+            $query['AutoPay'] = $request->autoPay;
+        }
+        if (!Utils::isUnset($request->autoUseCoupon)) {
+            $query['AutoUseCoupon'] = $request->autoUseCoupon;
+        }
+        if (!Utils::isUnset($request->clientToken)) {
+            $query['ClientToken'] = $request->clientToken;
+        }
+        if (!Utils::isUnset($request->description)) {
+            $query['Description'] = $request->description;
+        }
+        if (!Utils::isUnset($request->name)) {
+            $query['Name'] = $request->name;
+        }
+        if (!Utils::isUnset($request->regionId)) {
+            $query['RegionId'] = $request->regionId;
+        }
+        if (!Utils::isUnset($request->spec)) {
+            $query['Spec'] = $request->spec;
+        }
+        $req = new OpenApiRequest([
             'query' => OpenApiUtilClient::query($query),
         ]);
         $params = new Params([
@@ -3295,15 +4366,29 @@ class Ga extends OpenApiClient
     public function updateAcceleratorAutoRenewAttributeWithOptions($request, $runtime)
     {
         Utils::validateModel($request);
-        $query                      = [];
-        $query['AcceleratorId']     = $request->acceleratorId;
-        $query['AutoRenew']         = $request->autoRenew;
-        $query['AutoRenewDuration'] = $request->autoRenewDuration;
-        $query['ClientToken']       = $request->clientToken;
-        $query['Name']              = $request->name;
-        $query['RegionId']          = $request->regionId;
-        $query['RenewalStatus']     = $request->renewalStatus;
-        $req                        = new OpenApiRequest([
+        $query = [];
+        if (!Utils::isUnset($request->acceleratorId)) {
+            $query['AcceleratorId'] = $request->acceleratorId;
+        }
+        if (!Utils::isUnset($request->autoRenew)) {
+            $query['AutoRenew'] = $request->autoRenew;
+        }
+        if (!Utils::isUnset($request->autoRenewDuration)) {
+            $query['AutoRenewDuration'] = $request->autoRenewDuration;
+        }
+        if (!Utils::isUnset($request->clientToken)) {
+            $query['ClientToken'] = $request->clientToken;
+        }
+        if (!Utils::isUnset($request->name)) {
+            $query['Name'] = $request->name;
+        }
+        if (!Utils::isUnset($request->regionId)) {
+            $query['RegionId'] = $request->regionId;
+        }
+        if (!Utils::isUnset($request->renewalStatus)) {
+            $query['RenewalStatus'] = $request->renewalStatus;
+        }
+        $req = new OpenApiRequest([
             'query' => OpenApiUtilClient::query($query),
         ]);
         $params = new Params([
@@ -3342,10 +4427,14 @@ class Ga extends OpenApiClient
     public function updateAcceleratorConfirmWithOptions($request, $runtime)
     {
         Utils::validateModel($request);
-        $query                  = [];
-        $query['AcceleratorId'] = $request->acceleratorId;
-        $query['RegionId']      = $request->regionId;
-        $req                    = new OpenApiRequest([
+        $query = [];
+        if (!Utils::isUnset($request->acceleratorId)) {
+            $query['AcceleratorId'] = $request->acceleratorId;
+        }
+        if (!Utils::isUnset($request->regionId)) {
+            $query['RegionId'] = $request->regionId;
+        }
+        $req = new OpenApiRequest([
             'query' => OpenApiUtilClient::query($query),
         ]);
         $params = new Params([
@@ -3384,13 +4473,23 @@ class Ga extends OpenApiClient
     public function updateAclAttributeWithOptions($request, $runtime)
     {
         Utils::validateModel($request);
-        $query                = [];
-        $query['AclId']       = $request->aclId;
-        $query['AclName']     = $request->aclName;
-        $query['ClientToken'] = $request->clientToken;
-        $query['DryRun']      = $request->dryRun;
-        $query['RegionId']    = $request->regionId;
-        $req                  = new OpenApiRequest([
+        $query = [];
+        if (!Utils::isUnset($request->aclId)) {
+            $query['AclId'] = $request->aclId;
+        }
+        if (!Utils::isUnset($request->aclName)) {
+            $query['AclName'] = $request->aclName;
+        }
+        if (!Utils::isUnset($request->clientToken)) {
+            $query['ClientToken'] = $request->clientToken;
+        }
+        if (!Utils::isUnset($request->dryRun)) {
+            $query['DryRun'] = $request->dryRun;
+        }
+        if (!Utils::isUnset($request->regionId)) {
+            $query['RegionId'] = $request->regionId;
+        }
+        $req = new OpenApiRequest([
             'query' => OpenApiUtilClient::query($query),
         ]);
         $params = new Params([
@@ -3421,6 +4520,70 @@ class Ga extends OpenApiClient
     }
 
     /**
+     * @param UpdateApplicationMonitorRequest $request
+     * @param RuntimeOptions                  $runtime
+     *
+     * @return UpdateApplicationMonitorResponse
+     */
+    public function updateApplicationMonitorWithOptions($request, $runtime)
+    {
+        Utils::validateModel($request);
+        $query = [];
+        if (!Utils::isUnset($request->address)) {
+            $query['Address'] = $request->address;
+        }
+        if (!Utils::isUnset($request->clientToken)) {
+            $query['ClientToken'] = $request->clientToken;
+        }
+        if (!Utils::isUnset($request->detectThreshold)) {
+            $query['DetectThreshold'] = $request->detectThreshold;
+        }
+        if (!Utils::isUnset($request->listenerId)) {
+            $query['ListenerId'] = $request->listenerId;
+        }
+        if (!Utils::isUnset($request->optionsJson)) {
+            $query['OptionsJson'] = $request->optionsJson;
+        }
+        if (!Utils::isUnset($request->regionId)) {
+            $query['RegionId'] = $request->regionId;
+        }
+        if (!Utils::isUnset($request->taskId)) {
+            $query['TaskId'] = $request->taskId;
+        }
+        if (!Utils::isUnset($request->taskName)) {
+            $query['TaskName'] = $request->taskName;
+        }
+        $req = new OpenApiRequest([
+            'query' => OpenApiUtilClient::query($query),
+        ]);
+        $params = new Params([
+            'action'      => 'UpdateApplicationMonitor',
+            'version'     => '2019-11-20',
+            'protocol'    => 'HTTPS',
+            'pathname'    => '/',
+            'method'      => 'POST',
+            'authType'    => 'AK',
+            'style'       => 'RPC',
+            'reqBodyType' => 'formData',
+            'bodyType'    => 'json',
+        ]);
+
+        return UpdateApplicationMonitorResponse::fromMap($this->callApi($params, $req, $runtime));
+    }
+
+    /**
+     * @param UpdateApplicationMonitorRequest $request
+     *
+     * @return UpdateApplicationMonitorResponse
+     */
+    public function updateApplicationMonitor($request)
+    {
+        $runtime = new RuntimeOptions([]);
+
+        return $this->updateApplicationMonitorWithOptions($request, $runtime);
+    }
+
+    /**
      * @param UpdateBandwidthPackageRequest $request
      * @param RuntimeOptions                $runtime
      *
@@ -3429,16 +4592,32 @@ class Ga extends OpenApiClient
     public function updateBandwidthPackageWithOptions($request, $runtime)
     {
         Utils::validateModel($request);
-        $query                       = [];
-        $query['AutoPay']            = $request->autoPay;
-        $query['AutoUseCoupon']      = $request->autoUseCoupon;
-        $query['Bandwidth']          = $request->bandwidth;
-        $query['BandwidthPackageId'] = $request->bandwidthPackageId;
-        $query['BandwidthType']      = $request->bandwidthType;
-        $query['Description']        = $request->description;
-        $query['Name']               = $request->name;
-        $query['RegionId']           = $request->regionId;
-        $req                         = new OpenApiRequest([
+        $query = [];
+        if (!Utils::isUnset($request->autoPay)) {
+            $query['AutoPay'] = $request->autoPay;
+        }
+        if (!Utils::isUnset($request->autoUseCoupon)) {
+            $query['AutoUseCoupon'] = $request->autoUseCoupon;
+        }
+        if (!Utils::isUnset($request->bandwidth)) {
+            $query['Bandwidth'] = $request->bandwidth;
+        }
+        if (!Utils::isUnset($request->bandwidthPackageId)) {
+            $query['BandwidthPackageId'] = $request->bandwidthPackageId;
+        }
+        if (!Utils::isUnset($request->bandwidthType)) {
+            $query['BandwidthType'] = $request->bandwidthType;
+        }
+        if (!Utils::isUnset($request->description)) {
+            $query['Description'] = $request->description;
+        }
+        if (!Utils::isUnset($request->name)) {
+            $query['Name'] = $request->name;
+        }
+        if (!Utils::isUnset($request->regionId)) {
+            $query['RegionId'] = $request->regionId;
+        }
+        $req = new OpenApiRequest([
             'query' => OpenApiUtilClient::query($query),
         ]);
         $params = new Params([
@@ -3477,13 +4656,23 @@ class Ga extends OpenApiClient
     public function updateBasicAcceleratorWithOptions($request, $runtime)
     {
         Utils::validateModel($request);
-        $query                  = [];
-        $query['AcceleratorId'] = $request->acceleratorId;
-        $query['ClientToken']   = $request->clientToken;
-        $query['Description']   = $request->description;
-        $query['Name']          = $request->name;
-        $query['RegionId']      = $request->regionId;
-        $req                    = new OpenApiRequest([
+        $query = [];
+        if (!Utils::isUnset($request->acceleratorId)) {
+            $query['AcceleratorId'] = $request->acceleratorId;
+        }
+        if (!Utils::isUnset($request->clientToken)) {
+            $query['ClientToken'] = $request->clientToken;
+        }
+        if (!Utils::isUnset($request->description)) {
+            $query['Description'] = $request->description;
+        }
+        if (!Utils::isUnset($request->name)) {
+            $query['Name'] = $request->name;
+        }
+        if (!Utils::isUnset($request->regionId)) {
+            $query['RegionId'] = $request->regionId;
+        }
+        $req = new OpenApiRequest([
             'query' => OpenApiUtilClient::query($query),
         ]);
         $params = new Params([
@@ -3522,15 +4711,29 @@ class Ga extends OpenApiClient
     public function updateBasicEndpointGroupWithOptions($request, $runtime)
     {
         Utils::validateModel($request);
-        $query                    = [];
-        $query['ClientToken']     = $request->clientToken;
-        $query['Description']     = $request->description;
-        $query['EndpointAddress'] = $request->endpointAddress;
-        $query['EndpointGroupId'] = $request->endpointGroupId;
-        $query['EndpointType']    = $request->endpointType;
-        $query['Name']            = $request->name;
-        $query['RegionId']        = $request->regionId;
-        $req                      = new OpenApiRequest([
+        $query = [];
+        if (!Utils::isUnset($request->clientToken)) {
+            $query['ClientToken'] = $request->clientToken;
+        }
+        if (!Utils::isUnset($request->description)) {
+            $query['Description'] = $request->description;
+        }
+        if (!Utils::isUnset($request->endpointAddress)) {
+            $query['EndpointAddress'] = $request->endpointAddress;
+        }
+        if (!Utils::isUnset($request->endpointGroupId)) {
+            $query['EndpointGroupId'] = $request->endpointGroupId;
+        }
+        if (!Utils::isUnset($request->endpointType)) {
+            $query['EndpointType'] = $request->endpointType;
+        }
+        if (!Utils::isUnset($request->name)) {
+            $query['Name'] = $request->name;
+        }
+        if (!Utils::isUnset($request->regionId)) {
+            $query['RegionId'] = $request->regionId;
+        }
+        $req = new OpenApiRequest([
             'query' => OpenApiUtilClient::query($query),
         ]);
         $params = new Params([
@@ -3569,24 +4772,56 @@ class Ga extends OpenApiClient
     public function updateEndpointGroupWithOptions($request, $runtime)
     {
         Utils::validateModel($request);
-        $query                               = [];
-        $query['ClientToken']                = $request->clientToken;
-        $query['Description']                = $request->description;
-        $query['EndpointConfigurations']     = $request->endpointConfigurations;
-        $query['EndpointGroupId']            = $request->endpointGroupId;
-        $query['EndpointGroupRegion']        = $request->endpointGroupRegion;
-        $query['EndpointRequestProtocol']    = $request->endpointRequestProtocol;
-        $query['HealthCheckEnabled']         = $request->healthCheckEnabled;
-        $query['HealthCheckIntervalSeconds'] = $request->healthCheckIntervalSeconds;
-        $query['HealthCheckPath']            = $request->healthCheckPath;
-        $query['HealthCheckPort']            = $request->healthCheckPort;
-        $query['HealthCheckProtocol']        = $request->healthCheckProtocol;
-        $query['Name']                       = $request->name;
-        $query['PortOverrides']              = $request->portOverrides;
-        $query['RegionId']                   = $request->regionId;
-        $query['ThresholdCount']             = $request->thresholdCount;
-        $query['TrafficPercentage']          = $request->trafficPercentage;
-        $req                                 = new OpenApiRequest([
+        $query = [];
+        if (!Utils::isUnset($request->clientToken)) {
+            $query['ClientToken'] = $request->clientToken;
+        }
+        if (!Utils::isUnset($request->description)) {
+            $query['Description'] = $request->description;
+        }
+        if (!Utils::isUnset($request->endpointConfigurations)) {
+            $query['EndpointConfigurations'] = $request->endpointConfigurations;
+        }
+        if (!Utils::isUnset($request->endpointGroupId)) {
+            $query['EndpointGroupId'] = $request->endpointGroupId;
+        }
+        if (!Utils::isUnset($request->endpointGroupRegion)) {
+            $query['EndpointGroupRegion'] = $request->endpointGroupRegion;
+        }
+        if (!Utils::isUnset($request->endpointRequestProtocol)) {
+            $query['EndpointRequestProtocol'] = $request->endpointRequestProtocol;
+        }
+        if (!Utils::isUnset($request->healthCheckEnabled)) {
+            $query['HealthCheckEnabled'] = $request->healthCheckEnabled;
+        }
+        if (!Utils::isUnset($request->healthCheckIntervalSeconds)) {
+            $query['HealthCheckIntervalSeconds'] = $request->healthCheckIntervalSeconds;
+        }
+        if (!Utils::isUnset($request->healthCheckPath)) {
+            $query['HealthCheckPath'] = $request->healthCheckPath;
+        }
+        if (!Utils::isUnset($request->healthCheckPort)) {
+            $query['HealthCheckPort'] = $request->healthCheckPort;
+        }
+        if (!Utils::isUnset($request->healthCheckProtocol)) {
+            $query['HealthCheckProtocol'] = $request->healthCheckProtocol;
+        }
+        if (!Utils::isUnset($request->name)) {
+            $query['Name'] = $request->name;
+        }
+        if (!Utils::isUnset($request->portOverrides)) {
+            $query['PortOverrides'] = $request->portOverrides;
+        }
+        if (!Utils::isUnset($request->regionId)) {
+            $query['RegionId'] = $request->regionId;
+        }
+        if (!Utils::isUnset($request->thresholdCount)) {
+            $query['ThresholdCount'] = $request->thresholdCount;
+        }
+        if (!Utils::isUnset($request->trafficPercentage)) {
+            $query['TrafficPercentage'] = $request->trafficPercentage;
+        }
+        $req = new OpenApiRequest([
             'query' => OpenApiUtilClient::query($query),
         ]);
         $params = new Params([
@@ -3625,13 +4860,23 @@ class Ga extends OpenApiClient
     public function updateEndpointGroupAttributeWithOptions($request, $runtime)
     {
         Utils::validateModel($request);
-        $query                    = [];
-        $query['ClientToken']     = $request->clientToken;
-        $query['Description']     = $request->description;
-        $query['EndpointGroupId'] = $request->endpointGroupId;
-        $query['Name']            = $request->name;
-        $query['RegionId']        = $request->regionId;
-        $req                      = new OpenApiRequest([
+        $query = [];
+        if (!Utils::isUnset($request->clientToken)) {
+            $query['ClientToken'] = $request->clientToken;
+        }
+        if (!Utils::isUnset($request->description)) {
+            $query['Description'] = $request->description;
+        }
+        if (!Utils::isUnset($request->endpointGroupId)) {
+            $query['EndpointGroupId'] = $request->endpointGroupId;
+        }
+        if (!Utils::isUnset($request->name)) {
+            $query['Name'] = $request->name;
+        }
+        if (!Utils::isUnset($request->regionId)) {
+            $query['RegionId'] = $request->regionId;
+        }
+        $req = new OpenApiRequest([
             'query' => OpenApiUtilClient::query($query),
         ]);
         $params = new Params([
@@ -3670,13 +4915,23 @@ class Ga extends OpenApiClient
     public function updateEndpointGroupsWithOptions($request, $runtime)
     {
         Utils::validateModel($request);
-        $query                                = [];
-        $query['ClientToken']                 = $request->clientToken;
-        $query['DryRun']                      = $request->dryRun;
-        $query['EndpointGroupConfigurations'] = $request->endpointGroupConfigurations;
-        $query['ListenerId']                  = $request->listenerId;
-        $query['RegionId']                    = $request->regionId;
-        $req                                  = new OpenApiRequest([
+        $query = [];
+        if (!Utils::isUnset($request->clientToken)) {
+            $query['ClientToken'] = $request->clientToken;
+        }
+        if (!Utils::isUnset($request->dryRun)) {
+            $query['DryRun'] = $request->dryRun;
+        }
+        if (!Utils::isUnset($request->endpointGroupConfigurations)) {
+            $query['EndpointGroupConfigurations'] = $request->endpointGroupConfigurations;
+        }
+        if (!Utils::isUnset($request->listenerId)) {
+            $query['ListenerId'] = $request->listenerId;
+        }
+        if (!Utils::isUnset($request->regionId)) {
+            $query['RegionId'] = $request->regionId;
+        }
+        $req = new OpenApiRequest([
             'query' => OpenApiUtilClient::query($query),
         ]);
         $params = new Params([
@@ -3715,13 +4970,23 @@ class Ga extends OpenApiClient
     public function updateForwardingRulesWithOptions($request, $runtime)
     {
         Utils::validateModel($request);
-        $query                    = [];
-        $query['AcceleratorId']   = $request->acceleratorId;
-        $query['ClientToken']     = $request->clientToken;
-        $query['ForwardingRules'] = $request->forwardingRules;
-        $query['ListenerId']      = $request->listenerId;
-        $query['RegionId']        = $request->regionId;
-        $req                      = new OpenApiRequest([
+        $query = [];
+        if (!Utils::isUnset($request->acceleratorId)) {
+            $query['AcceleratorId'] = $request->acceleratorId;
+        }
+        if (!Utils::isUnset($request->clientToken)) {
+            $query['ClientToken'] = $request->clientToken;
+        }
+        if (!Utils::isUnset($request->forwardingRules)) {
+            $query['ForwardingRules'] = $request->forwardingRules;
+        }
+        if (!Utils::isUnset($request->listenerId)) {
+            $query['ListenerId'] = $request->listenerId;
+        }
+        if (!Utils::isUnset($request->regionId)) {
+            $query['RegionId'] = $request->regionId;
+        }
+        $req = new OpenApiRequest([
             'query' => OpenApiUtilClient::query($query),
         ]);
         $params = new Params([
@@ -3760,12 +5025,20 @@ class Ga extends OpenApiClient
     public function updateIpSetWithOptions($request, $runtime)
     {
         Utils::validateModel($request);
-        $query                = [];
-        $query['Bandwidth']   = $request->bandwidth;
-        $query['ClientToken'] = $request->clientToken;
-        $query['IpSetId']     = $request->ipSetId;
-        $query['RegionId']    = $request->regionId;
-        $req                  = new OpenApiRequest([
+        $query = [];
+        if (!Utils::isUnset($request->bandwidth)) {
+            $query['Bandwidth'] = $request->bandwidth;
+        }
+        if (!Utils::isUnset($request->clientToken)) {
+            $query['ClientToken'] = $request->clientToken;
+        }
+        if (!Utils::isUnset($request->ipSetId)) {
+            $query['IpSetId'] = $request->ipSetId;
+        }
+        if (!Utils::isUnset($request->regionId)) {
+            $query['RegionId'] = $request->regionId;
+        }
+        $req = new OpenApiRequest([
             'query' => OpenApiUtilClient::query($query),
         ]);
         $params = new Params([
@@ -3804,10 +5077,14 @@ class Ga extends OpenApiClient
     public function updateIpSetsWithOptions($request, $runtime)
     {
         Utils::validateModel($request);
-        $query             = [];
-        $query['IpSets']   = $request->ipSets;
-        $query['RegionId'] = $request->regionId;
-        $req               = new OpenApiRequest([
+        $query = [];
+        if (!Utils::isUnset($request->ipSets)) {
+            $query['IpSets'] = $request->ipSets;
+        }
+        if (!Utils::isUnset($request->regionId)) {
+            $query['RegionId'] = $request->regionId;
+        }
+        $req = new OpenApiRequest([
             'query' => OpenApiUtilClient::query($query),
         ]);
         $params = new Params([
@@ -3846,21 +5123,47 @@ class Ga extends OpenApiClient
     public function updateListenerWithOptions($request, $runtime)
     {
         Utils::validateModel($request);
-        $query                        = [];
-        $query['BackendPorts']        = $request->backendPorts;
-        $query['Certificates']        = $request->certificates;
-        $query['ClientAffinity']      = $request->clientAffinity;
-        $query['ClientToken']         = $request->clientToken;
-        $query['Description']         = $request->description;
-        $query['ListenerId']          = $request->listenerId;
-        $query['Name']                = $request->name;
-        $query['PortRanges']          = $request->portRanges;
-        $query['Protocol']            = $request->protocol;
-        $query['ProxyProtocol']       = $request->proxyProtocol;
-        $query['RegionId']            = $request->regionId;
-        $query['SecurityPolicyId']    = $request->securityPolicyId;
-        $query['XForwardedForConfig'] = $request->XForwardedForConfig;
-        $req                          = new OpenApiRequest([
+        $query = [];
+        if (!Utils::isUnset($request->backendPorts)) {
+            $query['BackendPorts'] = $request->backendPorts;
+        }
+        if (!Utils::isUnset($request->certificates)) {
+            $query['Certificates'] = $request->certificates;
+        }
+        if (!Utils::isUnset($request->clientAffinity)) {
+            $query['ClientAffinity'] = $request->clientAffinity;
+        }
+        if (!Utils::isUnset($request->clientToken)) {
+            $query['ClientToken'] = $request->clientToken;
+        }
+        if (!Utils::isUnset($request->description)) {
+            $query['Description'] = $request->description;
+        }
+        if (!Utils::isUnset($request->listenerId)) {
+            $query['ListenerId'] = $request->listenerId;
+        }
+        if (!Utils::isUnset($request->name)) {
+            $query['Name'] = $request->name;
+        }
+        if (!Utils::isUnset($request->portRanges)) {
+            $query['PortRanges'] = $request->portRanges;
+        }
+        if (!Utils::isUnset($request->protocol)) {
+            $query['Protocol'] = $request->protocol;
+        }
+        if (!Utils::isUnset($request->proxyProtocol)) {
+            $query['ProxyProtocol'] = $request->proxyProtocol;
+        }
+        if (!Utils::isUnset($request->regionId)) {
+            $query['RegionId'] = $request->regionId;
+        }
+        if (!Utils::isUnset($request->securityPolicyId)) {
+            $query['SecurityPolicyId'] = $request->securityPolicyId;
+        }
+        if (!Utils::isUnset($request->XForwardedForConfig)) {
+            $query['XForwardedForConfig'] = $request->XForwardedForConfig;
+        }
+        $req = new OpenApiRequest([
             'query' => OpenApiUtilClient::query($query),
         ]);
         $params = new Params([
