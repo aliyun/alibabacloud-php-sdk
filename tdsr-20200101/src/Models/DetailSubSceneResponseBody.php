@@ -51,6 +51,20 @@ class DetailSubSceneResponseBody extends Model
     public $id;
 
     /**
+     * @description 矫正后图的路径
+     *
+     * @var string
+     */
+    public $imageUrl;
+
+    /**
+     * @description 墙线标注数据
+     *
+     * @var string
+     */
+    public $layoutData;
+
+    /**
      * @description 错误消息
      *
      * @var string
@@ -63,6 +77,13 @@ class DetailSubSceneResponseBody extends Model
      * @var string
      */
     public $name;
+
+    /**
+     * @description 原图路径
+     *
+     * @var string
+     */
+    public $originUrl;
 
     /**
      * @description 请求ID，与入参requestId对应
@@ -93,6 +114,13 @@ class DetailSubSceneResponseBody extends Model
     public $success;
 
     /**
+     * @description 资源类型
+     *
+     * @var string
+     */
+    public $type;
+
+    /**
      * @description 图片路径/视频路径
      *
      * @var string
@@ -105,12 +133,16 @@ class DetailSubSceneResponseBody extends Model
         'gmtCreate'   => 'GmtCreate',
         'gmtModified' => 'GmtModified',
         'id'          => 'Id',
+        'imageUrl'    => 'ImageUrl',
+        'layoutData'  => 'LayoutData',
         'message'     => 'Message',
         'name'        => 'Name',
+        'originUrl'   => 'OriginUrl',
         'requestId'   => 'RequestId',
         'resourceId'  => 'ResourceId',
         'status'      => 'Status',
         'success'     => 'Success',
+        'type'        => 'Type',
         'url'         => 'Url',
     ];
 
@@ -139,11 +171,20 @@ class DetailSubSceneResponseBody extends Model
         if (null !== $this->id) {
             $res['Id'] = $this->id;
         }
+        if (null !== $this->imageUrl) {
+            $res['ImageUrl'] = $this->imageUrl;
+        }
+        if (null !== $this->layoutData) {
+            $res['LayoutData'] = $this->layoutData;
+        }
         if (null !== $this->message) {
             $res['Message'] = $this->message;
         }
         if (null !== $this->name) {
             $res['Name'] = $this->name;
+        }
+        if (null !== $this->originUrl) {
+            $res['OriginUrl'] = $this->originUrl;
         }
         if (null !== $this->requestId) {
             $res['RequestId'] = $this->requestId;
@@ -156,6 +197,9 @@ class DetailSubSceneResponseBody extends Model
         }
         if (null !== $this->success) {
             $res['Success'] = $this->success;
+        }
+        if (null !== $this->type) {
+            $res['Type'] = $this->type;
         }
         if (null !== $this->url) {
             $res['Url'] = $this->url;
@@ -190,11 +234,20 @@ class DetailSubSceneResponseBody extends Model
         if (isset($map['Id'])) {
             $model->id = $map['Id'];
         }
+        if (isset($map['ImageUrl'])) {
+            $model->imageUrl = $map['ImageUrl'];
+        }
+        if (isset($map['LayoutData'])) {
+            $model->layoutData = $map['LayoutData'];
+        }
         if (isset($map['Message'])) {
             $model->message = $map['Message'];
         }
         if (isset($map['Name'])) {
             $model->name = $map['Name'];
+        }
+        if (isset($map['OriginUrl'])) {
+            $model->originUrl = $map['OriginUrl'];
         }
         if (isset($map['RequestId'])) {
             $model->requestId = $map['RequestId'];
@@ -207,6 +260,9 @@ class DetailSubSceneResponseBody extends Model
         }
         if (isset($map['Success'])) {
             $model->success = $map['Success'];
+        }
+        if (isset($map['Type'])) {
+            $model->type = $map['Type'];
         }
         if (isset($map['Url'])) {
             $model->url = $map['Url'];
