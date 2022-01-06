@@ -34,6 +34,12 @@ use AlibabaCloud\SDK\Dplus\V20201216\Models\RemoveWordsResponse;
 use AlibabaCloud\SDK\Dplus\V20201216\Models\ReplaceBackgroundAdvanceRequest;
 use AlibabaCloud\SDK\Dplus\V20201216\Models\ReplaceBackgroundRequest;
 use AlibabaCloud\SDK\Dplus\V20201216\Models\ReplaceBackgroundResponse;
+use AlibabaCloud\SDK\Dplus\V20201216\Models\TbPredictCategoryAdvanceRequest;
+use AlibabaCloud\SDK\Dplus\V20201216\Models\TbPredictCategoryRequest;
+use AlibabaCloud\SDK\Dplus\V20201216\Models\TbPredictCategoryResponse;
+use AlibabaCloud\SDK\Dplus\V20201216\Models\TbPropRecAdvanceRequest;
+use AlibabaCloud\SDK\Dplus\V20201216\Models\TbPropRecRequest;
+use AlibabaCloud\SDK\Dplus\V20201216\Models\TbPropRecResponse;
 use AlibabaCloud\SDK\OpenPlatform\V20191219\Models\AuthorizeFileUploadRequest;
 use AlibabaCloud\SDK\OpenPlatform\V20191219\Models\AuthorizeFileUploadResponse;
 use AlibabaCloud\SDK\OpenPlatform\V20191219\OpenPlatform;
@@ -1108,5 +1114,247 @@ class Dplus extends OpenApiClient
         }
 
         return $this->replaceBackgroundWithOptions($replaceBackgroundReq, $runtime);
+    }
+
+    /**
+     * @param TbPredictCategoryRequest $request
+     * @param RuntimeOptions           $runtime
+     *
+     * @return TbPredictCategoryResponse
+     */
+    public function tbPredictCategoryWithOptions($request, $runtime)
+    {
+        Utils::validateModel($request);
+        $body = [];
+        if (!Utils::isUnset($request->picUrl)) {
+            $body['PicUrl'] = $request->picUrl;
+        }
+        $req = new OpenApiRequest([
+            'body' => OpenApiUtilClient::parseToMap($body),
+        ]);
+        $params = new Params([
+            'action'      => 'TbPredictCategory',
+            'version'     => '2020-12-16',
+            'protocol'    => 'HTTPS',
+            'pathname'    => '/',
+            'method'      => 'POST',
+            'authType'    => 'AK',
+            'style'       => 'RPC',
+            'reqBodyType' => 'formData',
+            'bodyType'    => 'json',
+        ]);
+
+        return TbPredictCategoryResponse::fromMap($this->callApi($params, $req, $runtime));
+    }
+
+    /**
+     * @param TbPredictCategoryRequest $request
+     *
+     * @return TbPredictCategoryResponse
+     */
+    public function tbPredictCategory($request)
+    {
+        $runtime = new RuntimeOptions([]);
+
+        return $this->tbPredictCategoryWithOptions($request, $runtime);
+    }
+
+    /**
+     * @param TbPredictCategoryAdvanceRequest $request
+     * @param RuntimeOptions                  $runtime
+     *
+     * @return TbPredictCategoryResponse
+     */
+    public function tbPredictCategoryAdvance($request, $runtime)
+    {
+        // Step 0: init client
+        $accessKeyId          = $this->_credential->getAccessKeyId();
+        $accessKeySecret      = $this->_credential->getAccessKeySecret();
+        $securityToken        = $this->_credential->getSecurityToken();
+        $credentialType       = $this->_credential->getType();
+        $openPlatformEndpoint = $this->_openPlatformEndpoint;
+        if (Utils::isUnset($openPlatformEndpoint)) {
+            $openPlatformEndpoint = 'openplatform.aliyuncs.com';
+        }
+        if (Utils::isUnset($credentialType)) {
+            $credentialType = 'access_key';
+        }
+        $authConfig = new Config([
+            'accessKeyId'     => $accessKeyId,
+            'accessKeySecret' => $accessKeySecret,
+            'securityToken'   => $securityToken,
+            'type'            => $credentialType,
+            'endpoint'        => $openPlatformEndpoint,
+            'protocol'        => $this->_protocol,
+            'regionId'        => $this->_regionId,
+        ]);
+        $authClient  = new OpenPlatform($authConfig);
+        $authRequest = new AuthorizeFileUploadRequest([
+            'product'  => 'dplus',
+            'regionId' => $this->_regionId,
+        ]);
+        $authResponse = new AuthorizeFileUploadResponse([]);
+        $ossConfig    = new \AlibabaCloud\SDK\OSS\OSS\Config([
+            'accessKeySecret' => $accessKeySecret,
+            'type'            => 'access_key',
+            'protocol'        => $this->_protocol,
+            'regionId'        => $this->_regionId,
+        ]);
+        $ossClient     = null;
+        $fileObj       = new FileField([]);
+        $ossHeader     = new header([]);
+        $uploadRequest = new PostObjectRequest([]);
+        $ossRuntime    = new \AlibabaCloud\Tea\OSSUtils\OSSUtils\RuntimeOptions([]);
+        OpenApiUtilClient::convert($runtime, $ossRuntime);
+        $tbPredictCategoryReq = new TbPredictCategoryRequest([]);
+        OpenApiUtilClient::convert($request, $tbPredictCategoryReq);
+        if (!Utils::isUnset($request->picUrlObject)) {
+            $authResponse           = $authClient->authorizeFileUploadWithOptions($authRequest, $runtime);
+            $ossConfig->accessKeyId = $authResponse->accessKeyId;
+            $ossConfig->endpoint    = OpenApiUtilClient::getEndpoint($authResponse->endpoint, $authResponse->useAccelerate, $this->_endpointType);
+            $ossClient              = new OSS($ossConfig);
+            $fileObj                = new FileField([
+                'filename'    => $authResponse->objectKey,
+                'content'     => $request->picUrlObject,
+                'contentType' => '',
+            ]);
+            $ossHeader = new header([
+                'accessKeyId'         => $authResponse->accessKeyId,
+                'policy'              => $authResponse->encodedPolicy,
+                'signature'           => $authResponse->signature,
+                'key'                 => $authResponse->objectKey,
+                'file'                => $fileObj,
+                'successActionStatus' => '201',
+            ]);
+            $uploadRequest = new PostObjectRequest([
+                'bucketName' => $authResponse->bucket,
+                'header'     => $ossHeader,
+            ]);
+            $ossClient->postObject($uploadRequest, $ossRuntime);
+            $tbPredictCategoryReq->picUrl = 'http://' . $authResponse->bucket . '.' . $authResponse->endpoint . '/' . $authResponse->objectKey . '';
+        }
+
+        return $this->tbPredictCategoryWithOptions($tbPredictCategoryReq, $runtime);
+    }
+
+    /**
+     * @param TbPropRecRequest $request
+     * @param RuntimeOptions   $runtime
+     *
+     * @return TbPropRecResponse
+     */
+    public function tbPropRecWithOptions($request, $runtime)
+    {
+        Utils::validateModel($request);
+        $body = [];
+        if (!Utils::isUnset($request->picUrl)) {
+            $body['PicUrl'] = $request->picUrl;
+        }
+        $req = new OpenApiRequest([
+            'body' => OpenApiUtilClient::parseToMap($body),
+        ]);
+        $params = new Params([
+            'action'      => 'TbPropRec',
+            'version'     => '2020-12-16',
+            'protocol'    => 'HTTPS',
+            'pathname'    => '/',
+            'method'      => 'POST',
+            'authType'    => 'AK',
+            'style'       => 'RPC',
+            'reqBodyType' => 'formData',
+            'bodyType'    => 'json',
+        ]);
+
+        return TbPropRecResponse::fromMap($this->callApi($params, $req, $runtime));
+    }
+
+    /**
+     * @param TbPropRecRequest $request
+     *
+     * @return TbPropRecResponse
+     */
+    public function tbPropRec($request)
+    {
+        $runtime = new RuntimeOptions([]);
+
+        return $this->tbPropRecWithOptions($request, $runtime);
+    }
+
+    /**
+     * @param TbPropRecAdvanceRequest $request
+     * @param RuntimeOptions          $runtime
+     *
+     * @return TbPropRecResponse
+     */
+    public function tbPropRecAdvance($request, $runtime)
+    {
+        // Step 0: init client
+        $accessKeyId          = $this->_credential->getAccessKeyId();
+        $accessKeySecret      = $this->_credential->getAccessKeySecret();
+        $securityToken        = $this->_credential->getSecurityToken();
+        $credentialType       = $this->_credential->getType();
+        $openPlatformEndpoint = $this->_openPlatformEndpoint;
+        if (Utils::isUnset($openPlatformEndpoint)) {
+            $openPlatformEndpoint = 'openplatform.aliyuncs.com';
+        }
+        if (Utils::isUnset($credentialType)) {
+            $credentialType = 'access_key';
+        }
+        $authConfig = new Config([
+            'accessKeyId'     => $accessKeyId,
+            'accessKeySecret' => $accessKeySecret,
+            'securityToken'   => $securityToken,
+            'type'            => $credentialType,
+            'endpoint'        => $openPlatformEndpoint,
+            'protocol'        => $this->_protocol,
+            'regionId'        => $this->_regionId,
+        ]);
+        $authClient  = new OpenPlatform($authConfig);
+        $authRequest = new AuthorizeFileUploadRequest([
+            'product'  => 'dplus',
+            'regionId' => $this->_regionId,
+        ]);
+        $authResponse = new AuthorizeFileUploadResponse([]);
+        $ossConfig    = new \AlibabaCloud\SDK\OSS\OSS\Config([
+            'accessKeySecret' => $accessKeySecret,
+            'type'            => 'access_key',
+            'protocol'        => $this->_protocol,
+            'regionId'        => $this->_regionId,
+        ]);
+        $ossClient     = null;
+        $fileObj       = new FileField([]);
+        $ossHeader     = new header([]);
+        $uploadRequest = new PostObjectRequest([]);
+        $ossRuntime    = new \AlibabaCloud\Tea\OSSUtils\OSSUtils\RuntimeOptions([]);
+        OpenApiUtilClient::convert($runtime, $ossRuntime);
+        $tbPropRecReq = new TbPropRecRequest([]);
+        OpenApiUtilClient::convert($request, $tbPropRecReq);
+        if (!Utils::isUnset($request->picUrlObject)) {
+            $authResponse           = $authClient->authorizeFileUploadWithOptions($authRequest, $runtime);
+            $ossConfig->accessKeyId = $authResponse->accessKeyId;
+            $ossConfig->endpoint    = OpenApiUtilClient::getEndpoint($authResponse->endpoint, $authResponse->useAccelerate, $this->_endpointType);
+            $ossClient              = new OSS($ossConfig);
+            $fileObj                = new FileField([
+                'filename'    => $authResponse->objectKey,
+                'content'     => $request->picUrlObject,
+                'contentType' => '',
+            ]);
+            $ossHeader = new header([
+                'accessKeyId'         => $authResponse->accessKeyId,
+                'policy'              => $authResponse->encodedPolicy,
+                'signature'           => $authResponse->signature,
+                'key'                 => $authResponse->objectKey,
+                'file'                => $fileObj,
+                'successActionStatus' => '201',
+            ]);
+            $uploadRequest = new PostObjectRequest([
+                'bucketName' => $authResponse->bucket,
+                'header'     => $ossHeader,
+            ]);
+            $ossClient->postObject($uploadRequest, $ossRuntime);
+            $tbPropRecReq->picUrl = 'http://' . $authResponse->bucket . '.' . $authResponse->endpoint . '/' . $authResponse->objectKey . '';
+        }
+
+        return $this->tbPropRecWithOptions($tbPropRecReq, $runtime);
     }
 }
