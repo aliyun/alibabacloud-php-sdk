@@ -11,12 +11,7 @@ class BatchSetEdgeInstanceDeviceChannelRequest extends Model
     /**
      * @var string
      */
-    public $iotInstanceId;
-
-    /**
-     * @var string
-     */
-    public $instanceId;
+    public $channelId;
 
     /**
      * @var string
@@ -26,18 +21,23 @@ class BatchSetEdgeInstanceDeviceChannelRequest extends Model
     /**
      * @var string
      */
-    public $channelId;
+    public $instanceId;
 
     /**
      * @var string[]
      */
     public $iotIds;
+
+    /**
+     * @var string
+     */
+    public $iotInstanceId;
     protected $_name = [
-        'iotInstanceId' => 'IotInstanceId',
-        'instanceId'    => 'InstanceId',
-        'driverId'      => 'DriverId',
         'channelId'     => 'ChannelId',
+        'driverId'      => 'DriverId',
+        'instanceId'    => 'InstanceId',
         'iotIds'        => 'IotIds',
+        'iotInstanceId' => 'IotInstanceId',
     ];
 
     public function validate()
@@ -47,20 +47,20 @@ class BatchSetEdgeInstanceDeviceChannelRequest extends Model
     public function toMap()
     {
         $res = [];
-        if (null !== $this->iotInstanceId) {
-            $res['IotInstanceId'] = $this->iotInstanceId;
-        }
-        if (null !== $this->instanceId) {
-            $res['InstanceId'] = $this->instanceId;
+        if (null !== $this->channelId) {
+            $res['ChannelId'] = $this->channelId;
         }
         if (null !== $this->driverId) {
             $res['DriverId'] = $this->driverId;
         }
-        if (null !== $this->channelId) {
-            $res['ChannelId'] = $this->channelId;
+        if (null !== $this->instanceId) {
+            $res['InstanceId'] = $this->instanceId;
         }
         if (null !== $this->iotIds) {
             $res['IotIds'] = $this->iotIds;
+        }
+        if (null !== $this->iotInstanceId) {
+            $res['IotInstanceId'] = $this->iotInstanceId;
         }
 
         return $res;
@@ -74,22 +74,22 @@ class BatchSetEdgeInstanceDeviceChannelRequest extends Model
     public static function fromMap($map = [])
     {
         $model = new self();
-        if (isset($map['IotInstanceId'])) {
-            $model->iotInstanceId = $map['IotInstanceId'];
-        }
-        if (isset($map['InstanceId'])) {
-            $model->instanceId = $map['InstanceId'];
+        if (isset($map['ChannelId'])) {
+            $model->channelId = $map['ChannelId'];
         }
         if (isset($map['DriverId'])) {
             $model->driverId = $map['DriverId'];
         }
-        if (isset($map['ChannelId'])) {
-            $model->channelId = $map['ChannelId'];
+        if (isset($map['InstanceId'])) {
+            $model->instanceId = $map['InstanceId'];
         }
         if (isset($map['IotIds'])) {
             if (!empty($map['IotIds'])) {
                 $model->iotIds = $map['IotIds'];
             }
+        }
+        if (isset($map['IotInstanceId'])) {
+            $model->iotInstanceId = $map['IotInstanceId'];
         }
 
         return $model;

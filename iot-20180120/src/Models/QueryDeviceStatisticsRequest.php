@@ -11,21 +11,21 @@ class QueryDeviceStatisticsRequest extends Model
     /**
      * @var string
      */
+    public $groupId;
+
+    /**
+     * @var string
+     */
     public $iotInstanceId;
 
     /**
      * @var string
      */
     public $productKey;
-
-    /**
-     * @var string
-     */
-    public $groupId;
     protected $_name = [
+        'groupId'       => 'GroupId',
         'iotInstanceId' => 'IotInstanceId',
         'productKey'    => 'ProductKey',
-        'groupId'       => 'GroupId',
     ];
 
     public function validate()
@@ -35,14 +35,14 @@ class QueryDeviceStatisticsRequest extends Model
     public function toMap()
     {
         $res = [];
+        if (null !== $this->groupId) {
+            $res['GroupId'] = $this->groupId;
+        }
         if (null !== $this->iotInstanceId) {
             $res['IotInstanceId'] = $this->iotInstanceId;
         }
         if (null !== $this->productKey) {
             $res['ProductKey'] = $this->productKey;
-        }
-        if (null !== $this->groupId) {
-            $res['GroupId'] = $this->groupId;
         }
 
         return $res;
@@ -56,14 +56,14 @@ class QueryDeviceStatisticsRequest extends Model
     public static function fromMap($map = [])
     {
         $model = new self();
+        if (isset($map['GroupId'])) {
+            $model->groupId = $map['GroupId'];
+        }
         if (isset($map['IotInstanceId'])) {
             $model->iotInstanceId = $map['IotInstanceId'];
         }
         if (isset($map['ProductKey'])) {
             $model->productKey = $map['ProductKey'];
-        }
-        if (isset($map['GroupId'])) {
-            $model->groupId = $map['GroupId'];
         }
 
         return $model;

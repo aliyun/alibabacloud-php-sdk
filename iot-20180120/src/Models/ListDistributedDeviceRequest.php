@@ -11,6 +11,16 @@ class ListDistributedDeviceRequest extends Model
     /**
      * @var int
      */
+    public $currentPage;
+
+    /**
+     * @var string
+     */
+    public $deviceName;
+
+    /**
+     * @var int
+     */
     public $pageSize;
 
     /**
@@ -21,29 +31,19 @@ class ListDistributedDeviceRequest extends Model
     /**
      * @var string
      */
-    public $deviceName;
-
-    /**
-     * @var int
-     */
-    public $currentPage;
+    public $sourceInstanceId;
 
     /**
      * @var string
      */
     public $targetUid;
-
-    /**
-     * @var string
-     */
-    public $sourceInstanceId;
     protected $_name = [
+        'currentPage'      => 'CurrentPage',
+        'deviceName'       => 'DeviceName',
         'pageSize'         => 'PageSize',
         'productKey'       => 'ProductKey',
-        'deviceName'       => 'DeviceName',
-        'currentPage'      => 'CurrentPage',
-        'targetUid'        => 'TargetUid',
         'sourceInstanceId' => 'SourceInstanceId',
+        'targetUid'        => 'TargetUid',
     ];
 
     public function validate()
@@ -53,23 +53,23 @@ class ListDistributedDeviceRequest extends Model
     public function toMap()
     {
         $res = [];
+        if (null !== $this->currentPage) {
+            $res['CurrentPage'] = $this->currentPage;
+        }
+        if (null !== $this->deviceName) {
+            $res['DeviceName'] = $this->deviceName;
+        }
         if (null !== $this->pageSize) {
             $res['PageSize'] = $this->pageSize;
         }
         if (null !== $this->productKey) {
             $res['ProductKey'] = $this->productKey;
         }
-        if (null !== $this->deviceName) {
-            $res['DeviceName'] = $this->deviceName;
-        }
-        if (null !== $this->currentPage) {
-            $res['CurrentPage'] = $this->currentPage;
+        if (null !== $this->sourceInstanceId) {
+            $res['SourceInstanceId'] = $this->sourceInstanceId;
         }
         if (null !== $this->targetUid) {
             $res['TargetUid'] = $this->targetUid;
-        }
-        if (null !== $this->sourceInstanceId) {
-            $res['SourceInstanceId'] = $this->sourceInstanceId;
         }
 
         return $res;
@@ -83,23 +83,23 @@ class ListDistributedDeviceRequest extends Model
     public static function fromMap($map = [])
     {
         $model = new self();
+        if (isset($map['CurrentPage'])) {
+            $model->currentPage = $map['CurrentPage'];
+        }
+        if (isset($map['DeviceName'])) {
+            $model->deviceName = $map['DeviceName'];
+        }
         if (isset($map['PageSize'])) {
             $model->pageSize = $map['PageSize'];
         }
         if (isset($map['ProductKey'])) {
             $model->productKey = $map['ProductKey'];
         }
-        if (isset($map['DeviceName'])) {
-            $model->deviceName = $map['DeviceName'];
-        }
-        if (isset($map['CurrentPage'])) {
-            $model->currentPage = $map['CurrentPage'];
+        if (isset($map['SourceInstanceId'])) {
+            $model->sourceInstanceId = $map['SourceInstanceId'];
         }
         if (isset($map['TargetUid'])) {
             $model->targetUid = $map['TargetUid'];
-        }
-        if (isset($map['SourceInstanceId'])) {
-            $model->sourceInstanceId = $map['SourceInstanceId'];
         }
 
         return $model;

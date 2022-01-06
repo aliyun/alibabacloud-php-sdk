@@ -10,9 +10,9 @@ use AlibabaCloud\Tea\Model;
 class BatchSetEdgeInstanceDeviceConfigRequest extends Model
 {
     /**
-     * @var string
+     * @var deviceConfigs[]
      */
-    public $iotInstanceId;
+    public $deviceConfigs;
 
     /**
      * @var string
@@ -20,13 +20,13 @@ class BatchSetEdgeInstanceDeviceConfigRequest extends Model
     public $instanceId;
 
     /**
-     * @var deviceConfigs[]
+     * @var string
      */
-    public $deviceConfigs;
+    public $iotInstanceId;
     protected $_name = [
-        'iotInstanceId' => 'IotInstanceId',
-        'instanceId'    => 'InstanceId',
         'deviceConfigs' => 'DeviceConfigs',
+        'instanceId'    => 'InstanceId',
+        'iotInstanceId' => 'IotInstanceId',
     ];
 
     public function validate()
@@ -36,12 +36,6 @@ class BatchSetEdgeInstanceDeviceConfigRequest extends Model
     public function toMap()
     {
         $res = [];
-        if (null !== $this->iotInstanceId) {
-            $res['IotInstanceId'] = $this->iotInstanceId;
-        }
-        if (null !== $this->instanceId) {
-            $res['InstanceId'] = $this->instanceId;
-        }
         if (null !== $this->deviceConfigs) {
             $res['DeviceConfigs'] = [];
             if (null !== $this->deviceConfigs && \is_array($this->deviceConfigs)) {
@@ -50,6 +44,12 @@ class BatchSetEdgeInstanceDeviceConfigRequest extends Model
                     $res['DeviceConfigs'][$n++] = null !== $item ? $item->toMap() : $item;
                 }
             }
+        }
+        if (null !== $this->instanceId) {
+            $res['InstanceId'] = $this->instanceId;
+        }
+        if (null !== $this->iotInstanceId) {
+            $res['IotInstanceId'] = $this->iotInstanceId;
         }
 
         return $res;
@@ -63,12 +63,6 @@ class BatchSetEdgeInstanceDeviceConfigRequest extends Model
     public static function fromMap($map = [])
     {
         $model = new self();
-        if (isset($map['IotInstanceId'])) {
-            $model->iotInstanceId = $map['IotInstanceId'];
-        }
-        if (isset($map['InstanceId'])) {
-            $model->instanceId = $map['InstanceId'];
-        }
         if (isset($map['DeviceConfigs'])) {
             if (!empty($map['DeviceConfigs'])) {
                 $model->deviceConfigs = [];
@@ -77,6 +71,12 @@ class BatchSetEdgeInstanceDeviceConfigRequest extends Model
                     $model->deviceConfigs[$n++] = null !== $item ? deviceConfigs::fromMap($item) : $item;
                 }
             }
+        }
+        if (isset($map['InstanceId'])) {
+            $model->instanceId = $map['InstanceId'];
+        }
+        if (isset($map['IotInstanceId'])) {
+            $model->iotInstanceId = $map['IotInstanceId'];
         }
 
         return $model;

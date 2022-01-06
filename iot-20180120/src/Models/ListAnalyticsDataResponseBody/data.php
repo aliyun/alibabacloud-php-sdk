@@ -9,19 +9,14 @@ use AlibabaCloud\Tea\Model;
 class data extends Model
 {
     /**
-     * @var bool
-     */
-    public $hasNext;
-
-    /**
-     * @var string
-     */
-    public $resultJson;
-
-    /**
      * @var int
      */
     public $count;
+
+    /**
+     * @var bool
+     */
+    public $hasNext;
 
     /**
      * @var int
@@ -32,12 +27,17 @@ class data extends Model
      * @var int
      */
     public $pageSize;
+
+    /**
+     * @var string
+     */
+    public $resultJson;
     protected $_name = [
-        'hasNext'    => 'HasNext',
-        'resultJson' => 'ResultJson',
         'count'      => 'Count',
+        'hasNext'    => 'HasNext',
         'pageNum'    => 'PageNum',
         'pageSize'   => 'PageSize',
+        'resultJson' => 'ResultJson',
     ];
 
     public function validate()
@@ -47,20 +47,20 @@ class data extends Model
     public function toMap()
     {
         $res = [];
-        if (null !== $this->hasNext) {
-            $res['HasNext'] = $this->hasNext;
-        }
-        if (null !== $this->resultJson) {
-            $res['ResultJson'] = $this->resultJson;
-        }
         if (null !== $this->count) {
             $res['Count'] = $this->count;
+        }
+        if (null !== $this->hasNext) {
+            $res['HasNext'] = $this->hasNext;
         }
         if (null !== $this->pageNum) {
             $res['PageNum'] = $this->pageNum;
         }
         if (null !== $this->pageSize) {
             $res['PageSize'] = $this->pageSize;
+        }
+        if (null !== $this->resultJson) {
+            $res['ResultJson'] = $this->resultJson;
         }
 
         return $res;
@@ -74,20 +74,20 @@ class data extends Model
     public static function fromMap($map = [])
     {
         $model = new self();
-        if (isset($map['HasNext'])) {
-            $model->hasNext = $map['HasNext'];
-        }
-        if (isset($map['ResultJson'])) {
-            $model->resultJson = $map['ResultJson'];
-        }
         if (isset($map['Count'])) {
             $model->count = $map['Count'];
+        }
+        if (isset($map['HasNext'])) {
+            $model->hasNext = $map['HasNext'];
         }
         if (isset($map['PageNum'])) {
             $model->pageNum = $map['PageNum'];
         }
         if (isset($map['PageSize'])) {
             $model->pageSize = $map['PageSize'];
+        }
+        if (isset($map['ResultJson'])) {
+            $model->resultJson = $map['ResultJson'];
         }
 
         return $model;

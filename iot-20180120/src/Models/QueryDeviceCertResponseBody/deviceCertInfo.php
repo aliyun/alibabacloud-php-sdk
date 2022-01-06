@@ -9,9 +9,9 @@ use AlibabaCloud\Tea\Model;
 class deviceCertInfo extends Model
 {
     /**
-     * @var int
+     * @var string
      */
-    public $status;
+    public $certSN;
 
     /**
      * @var string
@@ -24,14 +24,14 @@ class deviceCertInfo extends Model
     public $privateKey;
 
     /**
-     * @var string
+     * @var int
      */
-    public $certSN;
+    public $status;
     protected $_name = [
-        'status'      => 'Status',
+        'certSN'      => 'CertSN',
         'certificate' => 'Certificate',
         'privateKey'  => 'PrivateKey',
-        'certSN'      => 'CertSN',
+        'status'      => 'Status',
     ];
 
     public function validate()
@@ -41,8 +41,8 @@ class deviceCertInfo extends Model
     public function toMap()
     {
         $res = [];
-        if (null !== $this->status) {
-            $res['Status'] = $this->status;
+        if (null !== $this->certSN) {
+            $res['CertSN'] = $this->certSN;
         }
         if (null !== $this->certificate) {
             $res['Certificate'] = $this->certificate;
@@ -50,8 +50,8 @@ class deviceCertInfo extends Model
         if (null !== $this->privateKey) {
             $res['PrivateKey'] = $this->privateKey;
         }
-        if (null !== $this->certSN) {
-            $res['CertSN'] = $this->certSN;
+        if (null !== $this->status) {
+            $res['Status'] = $this->status;
         }
 
         return $res;
@@ -65,8 +65,8 @@ class deviceCertInfo extends Model
     public static function fromMap($map = [])
     {
         $model = new self();
-        if (isset($map['Status'])) {
-            $model->status = $map['Status'];
+        if (isset($map['CertSN'])) {
+            $model->certSN = $map['CertSN'];
         }
         if (isset($map['Certificate'])) {
             $model->certificate = $map['Certificate'];
@@ -74,8 +74,8 @@ class deviceCertInfo extends Model
         if (isset($map['PrivateKey'])) {
             $model->privateKey = $map['PrivateKey'];
         }
-        if (isset($map['CertSN'])) {
-            $model->certSN = $map['CertSN'];
+        if (isset($map['Status'])) {
+            $model->status = $map['Status'];
         }
 
         return $model;

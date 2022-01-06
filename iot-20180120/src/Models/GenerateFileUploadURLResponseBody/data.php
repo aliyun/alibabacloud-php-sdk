@@ -11,17 +11,17 @@ class data extends Model
     /**
      * @var string
      */
-    public $key;
-
-    /**
-     * @var string
-     */
     public $host;
 
     /**
      * @var string
      */
-    public $policy;
+    public $key;
+
+    /**
+     * @var string
+     */
+    public $objectStorage;
 
     /**
      * @var string
@@ -31,19 +31,19 @@ class data extends Model
     /**
      * @var string
      */
-    public $signature;
+    public $policy;
 
     /**
      * @var string
      */
-    public $objectStorage;
+    public $signature;
     protected $_name = [
-        'key'            => 'Key',
         'host'           => 'Host',
-        'policy'         => 'Policy',
-        'ossAccessKeyId' => 'OssAccessKeyId',
-        'signature'      => 'Signature',
+        'key'            => 'Key',
         'objectStorage'  => 'ObjectStorage',
+        'ossAccessKeyId' => 'OssAccessKeyId',
+        'policy'         => 'Policy',
+        'signature'      => 'Signature',
     ];
 
     public function validate()
@@ -53,23 +53,23 @@ class data extends Model
     public function toMap()
     {
         $res = [];
-        if (null !== $this->key) {
-            $res['Key'] = $this->key;
-        }
         if (null !== $this->host) {
             $res['Host'] = $this->host;
         }
-        if (null !== $this->policy) {
-            $res['Policy'] = $this->policy;
+        if (null !== $this->key) {
+            $res['Key'] = $this->key;
+        }
+        if (null !== $this->objectStorage) {
+            $res['ObjectStorage'] = $this->objectStorage;
         }
         if (null !== $this->ossAccessKeyId) {
             $res['OssAccessKeyId'] = $this->ossAccessKeyId;
         }
+        if (null !== $this->policy) {
+            $res['Policy'] = $this->policy;
+        }
         if (null !== $this->signature) {
             $res['Signature'] = $this->signature;
-        }
-        if (null !== $this->objectStorage) {
-            $res['ObjectStorage'] = $this->objectStorage;
         }
 
         return $res;
@@ -83,23 +83,23 @@ class data extends Model
     public static function fromMap($map = [])
     {
         $model = new self();
-        if (isset($map['Key'])) {
-            $model->key = $map['Key'];
-        }
         if (isset($map['Host'])) {
             $model->host = $map['Host'];
         }
-        if (isset($map['Policy'])) {
-            $model->policy = $map['Policy'];
+        if (isset($map['Key'])) {
+            $model->key = $map['Key'];
+        }
+        if (isset($map['ObjectStorage'])) {
+            $model->objectStorage = $map['ObjectStorage'];
         }
         if (isset($map['OssAccessKeyId'])) {
             $model->ossAccessKeyId = $map['OssAccessKeyId'];
         }
+        if (isset($map['Policy'])) {
+            $model->policy = $map['Policy'];
+        }
         if (isset($map['Signature'])) {
             $model->signature = $map['Signature'];
-        }
-        if (isset($map['ObjectStorage'])) {
-            $model->objectStorage = $map['ObjectStorage'];
         }
 
         return $model;

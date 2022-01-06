@@ -14,18 +14,18 @@ class SetProductCertInfoRequest extends Model
     public $iotInstanceId;
 
     /**
-     * @var string
-     */
-    public $productKey;
-
-    /**
      * @var int
      */
     public $issueModel;
+
+    /**
+     * @var string
+     */
+    public $productKey;
     protected $_name = [
         'iotInstanceId' => 'IotInstanceId',
-        'productKey'    => 'ProductKey',
         'issueModel'    => 'IssueModel',
+        'productKey'    => 'ProductKey',
     ];
 
     public function validate()
@@ -38,11 +38,11 @@ class SetProductCertInfoRequest extends Model
         if (null !== $this->iotInstanceId) {
             $res['IotInstanceId'] = $this->iotInstanceId;
         }
-        if (null !== $this->productKey) {
-            $res['ProductKey'] = $this->productKey;
-        }
         if (null !== $this->issueModel) {
             $res['IssueModel'] = $this->issueModel;
+        }
+        if (null !== $this->productKey) {
+            $res['ProductKey'] = $this->productKey;
         }
 
         return $res;
@@ -59,11 +59,11 @@ class SetProductCertInfoRequest extends Model
         if (isset($map['IotInstanceId'])) {
             $model->iotInstanceId = $map['IotInstanceId'];
         }
-        if (isset($map['ProductKey'])) {
-            $model->productKey = $map['ProductKey'];
-        }
         if (isset($map['IssueModel'])) {
             $model->issueModel = $map['IssueModel'];
+        }
+        if (isset($map['ProductKey'])) {
+            $model->productKey = $map['ProductKey'];
         }
 
         return $model;

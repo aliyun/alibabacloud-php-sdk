@@ -12,22 +12,12 @@ class data extends Model
     /**
      * @var string
      */
-    public $apiSrn;
-
-    /**
-     * @var int
-     */
-    public $status;
-
-    /**
-     * @var string
-     */
-    public $displayName;
-
-    /**
-     * @var string
-     */
     public $apiPath;
+
+    /**
+     * @var string
+     */
+    public $apiSrn;
 
     /**
      * @var int
@@ -35,14 +25,24 @@ class data extends Model
     public $createTime;
 
     /**
-     * @var int
+     * @var string
      */
-    public $lastUpdateTime;
+    public $dateFormat;
 
     /**
      * @var string
      */
-    public $dateFormat;
+    public $description;
+
+    /**
+     * @var string
+     */
+    public $displayName;
+
+    /**
+     * @var int
+     */
+    public $lastUpdateTime;
 
     /**
      * @var string
@@ -55,26 +55,26 @@ class data extends Model
     public $requestProtocol;
 
     /**
-     * @var string
-     */
-    public $description;
-
-    /**
      * @var sqlTemplateDTO
      */
     public $sqlTemplateDTO;
+
+    /**
+     * @var int
+     */
+    public $status;
     protected $_name = [
-        'apiSrn'          => 'ApiSrn',
-        'status'          => 'Status',
-        'displayName'     => 'DisplayName',
         'apiPath'         => 'ApiPath',
+        'apiSrn'          => 'ApiSrn',
         'createTime'      => 'CreateTime',
-        'lastUpdateTime'  => 'LastUpdateTime',
         'dateFormat'      => 'DateFormat',
+        'description'     => 'Description',
+        'displayName'     => 'DisplayName',
+        'lastUpdateTime'  => 'LastUpdateTime',
         'requestMethod'   => 'RequestMethod',
         'requestProtocol' => 'RequestProtocol',
-        'description'     => 'Description',
         'sqlTemplateDTO'  => 'SqlTemplateDTO',
+        'status'          => 'Status',
     ];
 
     public function validate()
@@ -84,26 +84,26 @@ class data extends Model
     public function toMap()
     {
         $res = [];
-        if (null !== $this->apiSrn) {
-            $res['ApiSrn'] = $this->apiSrn;
-        }
-        if (null !== $this->status) {
-            $res['Status'] = $this->status;
-        }
-        if (null !== $this->displayName) {
-            $res['DisplayName'] = $this->displayName;
-        }
         if (null !== $this->apiPath) {
             $res['ApiPath'] = $this->apiPath;
+        }
+        if (null !== $this->apiSrn) {
+            $res['ApiSrn'] = $this->apiSrn;
         }
         if (null !== $this->createTime) {
             $res['CreateTime'] = $this->createTime;
         }
-        if (null !== $this->lastUpdateTime) {
-            $res['LastUpdateTime'] = $this->lastUpdateTime;
-        }
         if (null !== $this->dateFormat) {
             $res['DateFormat'] = $this->dateFormat;
+        }
+        if (null !== $this->description) {
+            $res['Description'] = $this->description;
+        }
+        if (null !== $this->displayName) {
+            $res['DisplayName'] = $this->displayName;
+        }
+        if (null !== $this->lastUpdateTime) {
+            $res['LastUpdateTime'] = $this->lastUpdateTime;
         }
         if (null !== $this->requestMethod) {
             $res['RequestMethod'] = $this->requestMethod;
@@ -111,11 +111,11 @@ class data extends Model
         if (null !== $this->requestProtocol) {
             $res['RequestProtocol'] = $this->requestProtocol;
         }
-        if (null !== $this->description) {
-            $res['Description'] = $this->description;
-        }
         if (null !== $this->sqlTemplateDTO) {
             $res['SqlTemplateDTO'] = null !== $this->sqlTemplateDTO ? $this->sqlTemplateDTO->toMap() : null;
+        }
+        if (null !== $this->status) {
+            $res['Status'] = $this->status;
         }
 
         return $res;
@@ -129,26 +129,26 @@ class data extends Model
     public static function fromMap($map = [])
     {
         $model = new self();
-        if (isset($map['ApiSrn'])) {
-            $model->apiSrn = $map['ApiSrn'];
-        }
-        if (isset($map['Status'])) {
-            $model->status = $map['Status'];
-        }
-        if (isset($map['DisplayName'])) {
-            $model->displayName = $map['DisplayName'];
-        }
         if (isset($map['ApiPath'])) {
             $model->apiPath = $map['ApiPath'];
+        }
+        if (isset($map['ApiSrn'])) {
+            $model->apiSrn = $map['ApiSrn'];
         }
         if (isset($map['CreateTime'])) {
             $model->createTime = $map['CreateTime'];
         }
-        if (isset($map['LastUpdateTime'])) {
-            $model->lastUpdateTime = $map['LastUpdateTime'];
-        }
         if (isset($map['DateFormat'])) {
             $model->dateFormat = $map['DateFormat'];
+        }
+        if (isset($map['Description'])) {
+            $model->description = $map['Description'];
+        }
+        if (isset($map['DisplayName'])) {
+            $model->displayName = $map['DisplayName'];
+        }
+        if (isset($map['LastUpdateTime'])) {
+            $model->lastUpdateTime = $map['LastUpdateTime'];
         }
         if (isset($map['RequestMethod'])) {
             $model->requestMethod = $map['RequestMethod'];
@@ -156,11 +156,11 @@ class data extends Model
         if (isset($map['RequestProtocol'])) {
             $model->requestProtocol = $map['RequestProtocol'];
         }
-        if (isset($map['Description'])) {
-            $model->description = $map['Description'];
-        }
         if (isset($map['SqlTemplateDTO'])) {
             $model->sqlTemplateDTO = sqlTemplateDTO::fromMap($map['SqlTemplateDTO']);
+        }
+        if (isset($map['Status'])) {
+            $model->status = $map['Status'];
         }
 
         return $model;

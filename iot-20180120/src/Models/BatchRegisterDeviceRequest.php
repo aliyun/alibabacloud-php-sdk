@@ -9,6 +9,11 @@ use AlibabaCloud\Tea\Model;
 class BatchRegisterDeviceRequest extends Model
 {
     /**
+     * @var int
+     */
+    public $count;
+
+    /**
      * @var string
      */
     public $iotInstanceId;
@@ -17,15 +22,10 @@ class BatchRegisterDeviceRequest extends Model
      * @var string
      */
     public $productKey;
-
-    /**
-     * @var int
-     */
-    public $count;
     protected $_name = [
+        'count'         => 'Count',
         'iotInstanceId' => 'IotInstanceId',
         'productKey'    => 'ProductKey',
-        'count'         => 'Count',
     ];
 
     public function validate()
@@ -35,14 +35,14 @@ class BatchRegisterDeviceRequest extends Model
     public function toMap()
     {
         $res = [];
+        if (null !== $this->count) {
+            $res['Count'] = $this->count;
+        }
         if (null !== $this->iotInstanceId) {
             $res['IotInstanceId'] = $this->iotInstanceId;
         }
         if (null !== $this->productKey) {
             $res['ProductKey'] = $this->productKey;
-        }
-        if (null !== $this->count) {
-            $res['Count'] = $this->count;
         }
 
         return $res;
@@ -56,14 +56,14 @@ class BatchRegisterDeviceRequest extends Model
     public static function fromMap($map = [])
     {
         $model = new self();
+        if (isset($map['Count'])) {
+            $model->count = $map['Count'];
+        }
         if (isset($map['IotInstanceId'])) {
             $model->iotInstanceId = $map['IotInstanceId'];
         }
         if (isset($map['ProductKey'])) {
             $model->productKey = $map['ProductKey'];
-        }
-        if (isset($map['Count'])) {
-            $model->count = $map['Count'];
         }
 
         return $model;

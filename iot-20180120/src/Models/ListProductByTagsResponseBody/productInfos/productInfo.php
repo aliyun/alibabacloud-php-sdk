@@ -9,16 +9,6 @@ use AlibabaCloud\Tea\Model;
 class productInfo extends Model
 {
     /**
-     * @var string
-     */
-    public $productName;
-
-    /**
-     * @var string
-     */
-    public $productKey;
-
-    /**
      * @var int
      */
     public $createTime;
@@ -32,12 +22,22 @@ class productInfo extends Model
      * @var int
      */
     public $nodeType;
+
+    /**
+     * @var string
+     */
+    public $productKey;
+
+    /**
+     * @var string
+     */
+    public $productName;
     protected $_name = [
-        'productName' => 'ProductName',
-        'productKey'  => 'ProductKey',
         'createTime'  => 'CreateTime',
         'description' => 'Description',
         'nodeType'    => 'NodeType',
+        'productKey'  => 'ProductKey',
+        'productName' => 'ProductName',
     ];
 
     public function validate()
@@ -47,12 +47,6 @@ class productInfo extends Model
     public function toMap()
     {
         $res = [];
-        if (null !== $this->productName) {
-            $res['ProductName'] = $this->productName;
-        }
-        if (null !== $this->productKey) {
-            $res['ProductKey'] = $this->productKey;
-        }
         if (null !== $this->createTime) {
             $res['CreateTime'] = $this->createTime;
         }
@@ -61,6 +55,12 @@ class productInfo extends Model
         }
         if (null !== $this->nodeType) {
             $res['NodeType'] = $this->nodeType;
+        }
+        if (null !== $this->productKey) {
+            $res['ProductKey'] = $this->productKey;
+        }
+        if (null !== $this->productName) {
+            $res['ProductName'] = $this->productName;
         }
 
         return $res;
@@ -74,12 +74,6 @@ class productInfo extends Model
     public static function fromMap($map = [])
     {
         $model = new self();
-        if (isset($map['ProductName'])) {
-            $model->productName = $map['ProductName'];
-        }
-        if (isset($map['ProductKey'])) {
-            $model->productKey = $map['ProductKey'];
-        }
         if (isset($map['CreateTime'])) {
             $model->createTime = $map['CreateTime'];
         }
@@ -88,6 +82,12 @@ class productInfo extends Model
         }
         if (isset($map['NodeType'])) {
             $model->nodeType = $map['NodeType'];
+        }
+        if (isset($map['ProductKey'])) {
+            $model->productKey = $map['ProductKey'];
+        }
+        if (isset($map['ProductName'])) {
+            $model->productName = $map['ProductName'];
         }
 
         return $model;

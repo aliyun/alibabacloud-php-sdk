@@ -9,9 +9,9 @@ use AlibabaCloud\Tea\Model;
 class UpdateEdgeInstanceRequest extends Model
 {
     /**
-     * @var string
+     * @var bool
      */
-    public $iotInstanceId;
+    public $bizEnable;
 
     /**
      * @var string
@@ -21,12 +21,12 @@ class UpdateEdgeInstanceRequest extends Model
     /**
      * @var string
      */
-    public $name;
+    public $iotInstanceId;
 
     /**
      * @var string
      */
-    public $tags;
+    public $name;
 
     /**
      * @var int
@@ -34,16 +34,16 @@ class UpdateEdgeInstanceRequest extends Model
     public $spec;
 
     /**
-     * @var bool
+     * @var string
      */
-    public $bizEnable;
+    public $tags;
     protected $_name = [
-        'iotInstanceId' => 'IotInstanceId',
-        'instanceId'    => 'InstanceId',
-        'name'          => 'Name',
-        'tags'          => 'Tags',
-        'spec'          => 'Spec',
         'bizEnable'     => 'BizEnable',
+        'instanceId'    => 'InstanceId',
+        'iotInstanceId' => 'IotInstanceId',
+        'name'          => 'Name',
+        'spec'          => 'Spec',
+        'tags'          => 'Tags',
     ];
 
     public function validate()
@@ -53,23 +53,23 @@ class UpdateEdgeInstanceRequest extends Model
     public function toMap()
     {
         $res = [];
-        if (null !== $this->iotInstanceId) {
-            $res['IotInstanceId'] = $this->iotInstanceId;
+        if (null !== $this->bizEnable) {
+            $res['BizEnable'] = $this->bizEnable;
         }
         if (null !== $this->instanceId) {
             $res['InstanceId'] = $this->instanceId;
         }
+        if (null !== $this->iotInstanceId) {
+            $res['IotInstanceId'] = $this->iotInstanceId;
+        }
         if (null !== $this->name) {
             $res['Name'] = $this->name;
-        }
-        if (null !== $this->tags) {
-            $res['Tags'] = $this->tags;
         }
         if (null !== $this->spec) {
             $res['Spec'] = $this->spec;
         }
-        if (null !== $this->bizEnable) {
-            $res['BizEnable'] = $this->bizEnable;
+        if (null !== $this->tags) {
+            $res['Tags'] = $this->tags;
         }
 
         return $res;
@@ -83,23 +83,23 @@ class UpdateEdgeInstanceRequest extends Model
     public static function fromMap($map = [])
     {
         $model = new self();
-        if (isset($map['IotInstanceId'])) {
-            $model->iotInstanceId = $map['IotInstanceId'];
+        if (isset($map['BizEnable'])) {
+            $model->bizEnable = $map['BizEnable'];
         }
         if (isset($map['InstanceId'])) {
             $model->instanceId = $map['InstanceId'];
         }
+        if (isset($map['IotInstanceId'])) {
+            $model->iotInstanceId = $map['IotInstanceId'];
+        }
         if (isset($map['Name'])) {
             $model->name = $map['Name'];
-        }
-        if (isset($map['Tags'])) {
-            $model->tags = $map['Tags'];
         }
         if (isset($map['Spec'])) {
             $model->spec = $map['Spec'];
         }
-        if (isset($map['BizEnable'])) {
-            $model->bizEnable = $map['BizEnable'];
+        if (isset($map['Tags'])) {
+            $model->tags = $map['Tags'];
         }
 
         return $model;

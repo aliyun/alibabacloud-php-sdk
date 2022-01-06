@@ -9,6 +9,16 @@ use AlibabaCloud\Tea\Model;
 class data extends Model
 {
     /**
+     * @var string
+     */
+    public $aliyunCommodityCode;
+
+    /**
+     * @var string
+     */
+    public $authType;
+
+    /**
      * @var int
      */
     public $dataFormat;
@@ -17,6 +27,11 @@ class data extends Model
      * @var string
      */
     public $description;
+
+    /**
+     * @var bool
+     */
+    public $id2;
 
     /**
      * @var int
@@ -36,38 +51,23 @@ class data extends Model
     /**
      * @var string
      */
-    public $aliyunCommodityCode;
-
-    /**
-     * @var bool
-     */
-    public $id2;
+    public $productSecret;
 
     /**
      * @var string
      */
     public $protocolType;
-
-    /**
-     * @var string
-     */
-    public $authType;
-
-    /**
-     * @var string
-     */
-    public $productSecret;
     protected $_name = [
+        'aliyunCommodityCode' => 'AliyunCommodityCode',
+        'authType'            => 'AuthType',
         'dataFormat'          => 'DataFormat',
         'description'         => 'Description',
+        'id2'                 => 'Id2',
         'nodeType'            => 'NodeType',
         'productKey'          => 'ProductKey',
         'productName'         => 'ProductName',
-        'aliyunCommodityCode' => 'AliyunCommodityCode',
-        'id2'                 => 'Id2',
-        'protocolType'        => 'ProtocolType',
-        'authType'            => 'AuthType',
         'productSecret'       => 'ProductSecret',
+        'protocolType'        => 'ProtocolType',
     ];
 
     public function validate()
@@ -77,11 +77,20 @@ class data extends Model
     public function toMap()
     {
         $res = [];
+        if (null !== $this->aliyunCommodityCode) {
+            $res['AliyunCommodityCode'] = $this->aliyunCommodityCode;
+        }
+        if (null !== $this->authType) {
+            $res['AuthType'] = $this->authType;
+        }
         if (null !== $this->dataFormat) {
             $res['DataFormat'] = $this->dataFormat;
         }
         if (null !== $this->description) {
             $res['Description'] = $this->description;
+        }
+        if (null !== $this->id2) {
+            $res['Id2'] = $this->id2;
         }
         if (null !== $this->nodeType) {
             $res['NodeType'] = $this->nodeType;
@@ -92,20 +101,11 @@ class data extends Model
         if (null !== $this->productName) {
             $res['ProductName'] = $this->productName;
         }
-        if (null !== $this->aliyunCommodityCode) {
-            $res['AliyunCommodityCode'] = $this->aliyunCommodityCode;
-        }
-        if (null !== $this->id2) {
-            $res['Id2'] = $this->id2;
+        if (null !== $this->productSecret) {
+            $res['ProductSecret'] = $this->productSecret;
         }
         if (null !== $this->protocolType) {
             $res['ProtocolType'] = $this->protocolType;
-        }
-        if (null !== $this->authType) {
-            $res['AuthType'] = $this->authType;
-        }
-        if (null !== $this->productSecret) {
-            $res['ProductSecret'] = $this->productSecret;
         }
 
         return $res;
@@ -119,11 +119,20 @@ class data extends Model
     public static function fromMap($map = [])
     {
         $model = new self();
+        if (isset($map['AliyunCommodityCode'])) {
+            $model->aliyunCommodityCode = $map['AliyunCommodityCode'];
+        }
+        if (isset($map['AuthType'])) {
+            $model->authType = $map['AuthType'];
+        }
         if (isset($map['DataFormat'])) {
             $model->dataFormat = $map['DataFormat'];
         }
         if (isset($map['Description'])) {
             $model->description = $map['Description'];
+        }
+        if (isset($map['Id2'])) {
+            $model->id2 = $map['Id2'];
         }
         if (isset($map['NodeType'])) {
             $model->nodeType = $map['NodeType'];
@@ -134,20 +143,11 @@ class data extends Model
         if (isset($map['ProductName'])) {
             $model->productName = $map['ProductName'];
         }
-        if (isset($map['AliyunCommodityCode'])) {
-            $model->aliyunCommodityCode = $map['AliyunCommodityCode'];
-        }
-        if (isset($map['Id2'])) {
-            $model->id2 = $map['Id2'];
+        if (isset($map['ProductSecret'])) {
+            $model->productSecret = $map['ProductSecret'];
         }
         if (isset($map['ProtocolType'])) {
             $model->protocolType = $map['ProtocolType'];
-        }
-        if (isset($map['AuthType'])) {
-            $model->authType = $map['AuthType'];
-        }
-        if (isset($map['ProductSecret'])) {
-            $model->productSecret = $map['ProductSecret'];
         }
 
         return $model;

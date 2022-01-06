@@ -11,12 +11,12 @@ class groupInfo extends Model
     /**
      * @var string
      */
-    public $groupId;
+    public $groupDesc;
 
     /**
      * @var string
      */
-    public $utcCreate;
+    public $groupId;
 
     /**
      * @var string
@@ -26,12 +26,12 @@ class groupInfo extends Model
     /**
      * @var string
      */
-    public $groupDesc;
+    public $utcCreate;
     protected $_name = [
-        'groupId'   => 'GroupId',
-        'utcCreate' => 'UtcCreate',
-        'groupName' => 'GroupName',
         'groupDesc' => 'GroupDesc',
+        'groupId'   => 'GroupId',
+        'groupName' => 'GroupName',
+        'utcCreate' => 'UtcCreate',
     ];
 
     public function validate()
@@ -41,17 +41,17 @@ class groupInfo extends Model
     public function toMap()
     {
         $res = [];
+        if (null !== $this->groupDesc) {
+            $res['GroupDesc'] = $this->groupDesc;
+        }
         if (null !== $this->groupId) {
             $res['GroupId'] = $this->groupId;
-        }
-        if (null !== $this->utcCreate) {
-            $res['UtcCreate'] = $this->utcCreate;
         }
         if (null !== $this->groupName) {
             $res['GroupName'] = $this->groupName;
         }
-        if (null !== $this->groupDesc) {
-            $res['GroupDesc'] = $this->groupDesc;
+        if (null !== $this->utcCreate) {
+            $res['UtcCreate'] = $this->utcCreate;
         }
 
         return $res;
@@ -65,17 +65,17 @@ class groupInfo extends Model
     public static function fromMap($map = [])
     {
         $model = new self();
+        if (isset($map['GroupDesc'])) {
+            $model->groupDesc = $map['GroupDesc'];
+        }
         if (isset($map['GroupId'])) {
             $model->groupId = $map['GroupId'];
-        }
-        if (isset($map['UtcCreate'])) {
-            $model->utcCreate = $map['UtcCreate'];
         }
         if (isset($map['GroupName'])) {
             $model->groupName = $map['GroupName'];
         }
-        if (isset($map['GroupDesc'])) {
-            $model->groupDesc = $map['GroupDesc'];
+        if (isset($map['UtcCreate'])) {
+            $model->utcCreate = $map['UtcCreate'];
         }
 
         return $model;

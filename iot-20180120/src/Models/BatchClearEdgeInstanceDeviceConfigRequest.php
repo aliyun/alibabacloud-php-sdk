@@ -11,21 +11,21 @@ class BatchClearEdgeInstanceDeviceConfigRequest extends Model
     /**
      * @var string
      */
-    public $iotInstanceId;
-
-    /**
-     * @var string
-     */
     public $instanceId;
 
     /**
      * @var string[]
      */
     public $iotIds;
+
+    /**
+     * @var string
+     */
+    public $iotInstanceId;
     protected $_name = [
-        'iotInstanceId' => 'IotInstanceId',
         'instanceId'    => 'InstanceId',
         'iotIds'        => 'IotIds',
+        'iotInstanceId' => 'IotInstanceId',
     ];
 
     public function validate()
@@ -35,14 +35,14 @@ class BatchClearEdgeInstanceDeviceConfigRequest extends Model
     public function toMap()
     {
         $res = [];
-        if (null !== $this->iotInstanceId) {
-            $res['IotInstanceId'] = $this->iotInstanceId;
-        }
         if (null !== $this->instanceId) {
             $res['InstanceId'] = $this->instanceId;
         }
         if (null !== $this->iotIds) {
             $res['IotIds'] = $this->iotIds;
+        }
+        if (null !== $this->iotInstanceId) {
+            $res['IotInstanceId'] = $this->iotInstanceId;
         }
 
         return $res;
@@ -56,9 +56,6 @@ class BatchClearEdgeInstanceDeviceConfigRequest extends Model
     public static function fromMap($map = [])
     {
         $model = new self();
-        if (isset($map['IotInstanceId'])) {
-            $model->iotInstanceId = $map['IotInstanceId'];
-        }
         if (isset($map['InstanceId'])) {
             $model->instanceId = $map['InstanceId'];
         }
@@ -66,6 +63,9 @@ class BatchClearEdgeInstanceDeviceConfigRequest extends Model
             if (!empty($map['IotIds'])) {
                 $model->iotIds = $map['IotIds'];
             }
+        }
+        if (isset($map['IotInstanceId'])) {
+            $model->iotInstanceId = $map['IotInstanceId'];
         }
 
         return $model;

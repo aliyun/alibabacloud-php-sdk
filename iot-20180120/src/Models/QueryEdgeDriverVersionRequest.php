@@ -9,16 +9,6 @@ use AlibabaCloud\Tea\Model;
 class QueryEdgeDriverVersionRequest extends Model
 {
     /**
-     * @var string
-     */
-    public $iotInstanceId;
-
-    /**
-     * @var int
-     */
-    public $pageSize;
-
-    /**
      * @var int
      */
     public $currentPage;
@@ -34,15 +24,25 @@ class QueryEdgeDriverVersionRequest extends Model
     public $driverVersion;
 
     /**
+     * @var string
+     */
+    public $iotInstanceId;
+
+    /**
+     * @var int
+     */
+    public $pageSize;
+
+    /**
      * @var int
      */
     public $versionState;
     protected $_name = [
-        'iotInstanceId' => 'IotInstanceId',
-        'pageSize'      => 'PageSize',
         'currentPage'   => 'CurrentPage',
         'driverId'      => 'DriverId',
         'driverVersion' => 'DriverVersion',
+        'iotInstanceId' => 'IotInstanceId',
+        'pageSize'      => 'PageSize',
         'versionState'  => 'VersionState',
     ];
 
@@ -53,12 +53,6 @@ class QueryEdgeDriverVersionRequest extends Model
     public function toMap()
     {
         $res = [];
-        if (null !== $this->iotInstanceId) {
-            $res['IotInstanceId'] = $this->iotInstanceId;
-        }
-        if (null !== $this->pageSize) {
-            $res['PageSize'] = $this->pageSize;
-        }
         if (null !== $this->currentPage) {
             $res['CurrentPage'] = $this->currentPage;
         }
@@ -67,6 +61,12 @@ class QueryEdgeDriverVersionRequest extends Model
         }
         if (null !== $this->driverVersion) {
             $res['DriverVersion'] = $this->driverVersion;
+        }
+        if (null !== $this->iotInstanceId) {
+            $res['IotInstanceId'] = $this->iotInstanceId;
+        }
+        if (null !== $this->pageSize) {
+            $res['PageSize'] = $this->pageSize;
         }
         if (null !== $this->versionState) {
             $res['VersionState'] = $this->versionState;
@@ -83,12 +83,6 @@ class QueryEdgeDriverVersionRequest extends Model
     public static function fromMap($map = [])
     {
         $model = new self();
-        if (isset($map['IotInstanceId'])) {
-            $model->iotInstanceId = $map['IotInstanceId'];
-        }
-        if (isset($map['PageSize'])) {
-            $model->pageSize = $map['PageSize'];
-        }
         if (isset($map['CurrentPage'])) {
             $model->currentPage = $map['CurrentPage'];
         }
@@ -97,6 +91,12 @@ class QueryEdgeDriverVersionRequest extends Model
         }
         if (isset($map['DriverVersion'])) {
             $model->driverVersion = $map['DriverVersion'];
+        }
+        if (isset($map['IotInstanceId'])) {
+            $model->iotInstanceId = $map['IotInstanceId'];
+        }
+        if (isset($map['PageSize'])) {
+            $model->pageSize = $map['PageSize'];
         }
         if (isset($map['VersionState'])) {
             $model->versionState = $map['VersionState'];

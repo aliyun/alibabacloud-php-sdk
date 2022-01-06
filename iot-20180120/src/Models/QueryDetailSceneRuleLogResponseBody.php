@@ -12,12 +12,12 @@ class QueryDetailSceneRuleLogResponseBody extends Model
     /**
      * @var string
      */
-    public $requestId;
+    public $code;
 
     /**
-     * @var bool
+     * @var data
      */
-    public $success;
+    public $data;
 
     /**
      * @var string
@@ -27,18 +27,18 @@ class QueryDetailSceneRuleLogResponseBody extends Model
     /**
      * @var string
      */
-    public $code;
+    public $requestId;
 
     /**
-     * @var data
+     * @var bool
      */
-    public $data;
+    public $success;
     protected $_name = [
-        'requestId'    => 'RequestId',
-        'success'      => 'Success',
-        'errorMessage' => 'ErrorMessage',
         'code'         => 'Code',
         'data'         => 'Data',
+        'errorMessage' => 'ErrorMessage',
+        'requestId'    => 'RequestId',
+        'success'      => 'Success',
     ];
 
     public function validate()
@@ -48,20 +48,20 @@ class QueryDetailSceneRuleLogResponseBody extends Model
     public function toMap()
     {
         $res = [];
-        if (null !== $this->requestId) {
-            $res['RequestId'] = $this->requestId;
-        }
-        if (null !== $this->success) {
-            $res['Success'] = $this->success;
-        }
-        if (null !== $this->errorMessage) {
-            $res['ErrorMessage'] = $this->errorMessage;
-        }
         if (null !== $this->code) {
             $res['Code'] = $this->code;
         }
         if (null !== $this->data) {
             $res['Data'] = null !== $this->data ? $this->data->toMap() : null;
+        }
+        if (null !== $this->errorMessage) {
+            $res['ErrorMessage'] = $this->errorMessage;
+        }
+        if (null !== $this->requestId) {
+            $res['RequestId'] = $this->requestId;
+        }
+        if (null !== $this->success) {
+            $res['Success'] = $this->success;
         }
 
         return $res;
@@ -75,20 +75,20 @@ class QueryDetailSceneRuleLogResponseBody extends Model
     public static function fromMap($map = [])
     {
         $model = new self();
-        if (isset($map['RequestId'])) {
-            $model->requestId = $map['RequestId'];
-        }
-        if (isset($map['Success'])) {
-            $model->success = $map['Success'];
-        }
-        if (isset($map['ErrorMessage'])) {
-            $model->errorMessage = $map['ErrorMessage'];
-        }
         if (isset($map['Code'])) {
             $model->code = $map['Code'];
         }
         if (isset($map['Data'])) {
             $model->data = data::fromMap($map['Data']);
+        }
+        if (isset($map['ErrorMessage'])) {
+            $model->errorMessage = $map['ErrorMessage'];
+        }
+        if (isset($map['RequestId'])) {
+            $model->requestId = $map['RequestId'];
+        }
+        if (isset($map['Success'])) {
+            $model->success = $map['Success'];
         }
 
         return $model;

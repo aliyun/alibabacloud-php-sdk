@@ -11,12 +11,7 @@ class data extends Model
     /**
      * @var string
      */
-    public $iotId;
-
-    /**
-     * @var string
-     */
-    public $productKey;
+    public $devEui;
 
     /**
      * @var string
@@ -31,7 +26,7 @@ class data extends Model
     /**
      * @var string
      */
-    public $devEui;
+    public $iotId;
 
     /**
      * @var string
@@ -42,14 +37,19 @@ class data extends Model
      * @var string
      */
     public $nickname;
+
+    /**
+     * @var string
+     */
+    public $productKey;
     protected $_name = [
-        'iotId'        => 'IotId',
-        'productKey'   => 'ProductKey',
+        'devEui'       => 'DevEui',
         'deviceName'   => 'DeviceName',
         'deviceSecret' => 'DeviceSecret',
-        'devEui'       => 'DevEui',
+        'iotId'        => 'IotId',
         'joinEui'      => 'JoinEui',
         'nickname'     => 'Nickname',
+        'productKey'   => 'ProductKey',
     ];
 
     public function validate()
@@ -59,11 +59,8 @@ class data extends Model
     public function toMap()
     {
         $res = [];
-        if (null !== $this->iotId) {
-            $res['IotId'] = $this->iotId;
-        }
-        if (null !== $this->productKey) {
-            $res['ProductKey'] = $this->productKey;
+        if (null !== $this->devEui) {
+            $res['DevEui'] = $this->devEui;
         }
         if (null !== $this->deviceName) {
             $res['DeviceName'] = $this->deviceName;
@@ -71,14 +68,17 @@ class data extends Model
         if (null !== $this->deviceSecret) {
             $res['DeviceSecret'] = $this->deviceSecret;
         }
-        if (null !== $this->devEui) {
-            $res['DevEui'] = $this->devEui;
+        if (null !== $this->iotId) {
+            $res['IotId'] = $this->iotId;
         }
         if (null !== $this->joinEui) {
             $res['JoinEui'] = $this->joinEui;
         }
         if (null !== $this->nickname) {
             $res['Nickname'] = $this->nickname;
+        }
+        if (null !== $this->productKey) {
+            $res['ProductKey'] = $this->productKey;
         }
 
         return $res;
@@ -92,11 +92,8 @@ class data extends Model
     public static function fromMap($map = [])
     {
         $model = new self();
-        if (isset($map['IotId'])) {
-            $model->iotId = $map['IotId'];
-        }
-        if (isset($map['ProductKey'])) {
-            $model->productKey = $map['ProductKey'];
+        if (isset($map['DevEui'])) {
+            $model->devEui = $map['DevEui'];
         }
         if (isset($map['DeviceName'])) {
             $model->deviceName = $map['DeviceName'];
@@ -104,14 +101,17 @@ class data extends Model
         if (isset($map['DeviceSecret'])) {
             $model->deviceSecret = $map['DeviceSecret'];
         }
-        if (isset($map['DevEui'])) {
-            $model->devEui = $map['DevEui'];
+        if (isset($map['IotId'])) {
+            $model->iotId = $map['IotId'];
         }
         if (isset($map['JoinEui'])) {
             $model->joinEui = $map['JoinEui'];
         }
         if (isset($map['Nickname'])) {
             $model->nickname = $map['Nickname'];
+        }
+        if (isset($map['ProductKey'])) {
+            $model->productKey = $map['ProductKey'];
         }
 
         return $model;

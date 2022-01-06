@@ -11,7 +11,7 @@ class GetEdgeInstanceDeploymentRequest extends Model
     /**
      * @var string
      */
-    public $iotInstanceId;
+    public $deploymentId;
 
     /**
      * @var string
@@ -21,11 +21,11 @@ class GetEdgeInstanceDeploymentRequest extends Model
     /**
      * @var string
      */
-    public $deploymentId;
+    public $iotInstanceId;
     protected $_name = [
-        'iotInstanceId' => 'IotInstanceId',
-        'instanceId'    => 'InstanceId',
         'deploymentId'  => 'DeploymentId',
+        'instanceId'    => 'InstanceId',
+        'iotInstanceId' => 'IotInstanceId',
     ];
 
     public function validate()
@@ -35,14 +35,14 @@ class GetEdgeInstanceDeploymentRequest extends Model
     public function toMap()
     {
         $res = [];
-        if (null !== $this->iotInstanceId) {
-            $res['IotInstanceId'] = $this->iotInstanceId;
+        if (null !== $this->deploymentId) {
+            $res['DeploymentId'] = $this->deploymentId;
         }
         if (null !== $this->instanceId) {
             $res['InstanceId'] = $this->instanceId;
         }
-        if (null !== $this->deploymentId) {
-            $res['DeploymentId'] = $this->deploymentId;
+        if (null !== $this->iotInstanceId) {
+            $res['IotInstanceId'] = $this->iotInstanceId;
         }
 
         return $res;
@@ -56,14 +56,14 @@ class GetEdgeInstanceDeploymentRequest extends Model
     public static function fromMap($map = [])
     {
         $model = new self();
-        if (isset($map['IotInstanceId'])) {
-            $model->iotInstanceId = $map['IotInstanceId'];
+        if (isset($map['DeploymentId'])) {
+            $model->deploymentId = $map['DeploymentId'];
         }
         if (isset($map['InstanceId'])) {
             $model->instanceId = $map['InstanceId'];
         }
-        if (isset($map['DeploymentId'])) {
-            $model->deploymentId = $map['DeploymentId'];
+        if (isset($map['IotInstanceId'])) {
+            $model->iotInstanceId = $map['IotInstanceId'];
         }
 
         return $model;

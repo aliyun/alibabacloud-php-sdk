@@ -14,32 +14,12 @@ class data extends Model
     /**
      * @var string
      */
-    public $productKey;
-
-    /**
-     * @var string
-     */
-    public $deviceName;
-
-    /**
-     * @var string
-     */
-    public $nickname;
-
-    /**
-     * @var string
-     */
-    public $status;
-
-    /**
-     * @var string
-     */
     public $activeTime;
 
     /**
      * @var string
      */
-    public $iotId;
+    public $deviceName;
 
     /**
      * @var string
@@ -57,26 +37,46 @@ class data extends Model
     public $groups;
 
     /**
-     * @var tags[]
+     * @var string
      */
-    public $tags;
+    public $iotId;
+
+    /**
+     * @var string
+     */
+    public $nickname;
 
     /**
      * @var OTAModules[]
      */
     public $OTAModules;
+
+    /**
+     * @var string
+     */
+    public $productKey;
+
+    /**
+     * @var string
+     */
+    public $status;
+
+    /**
+     * @var tags[]
+     */
+    public $tags;
     protected $_name = [
-        'productKey'  => 'ProductKey',
-        'deviceName'  => 'DeviceName',
-        'nickname'    => 'Nickname',
-        'status'      => 'Status',
         'activeTime'  => 'ActiveTime',
-        'iotId'       => 'IotId',
+        'deviceName'  => 'DeviceName',
         'gmtCreate'   => 'GmtCreate',
         'gmtModified' => 'GmtModified',
         'groups'      => 'Groups',
-        'tags'        => 'Tags',
+        'iotId'       => 'IotId',
+        'nickname'    => 'Nickname',
         'OTAModules'  => 'OTAModules',
+        'productKey'  => 'ProductKey',
+        'status'      => 'Status',
+        'tags'        => 'Tags',
     ];
 
     public function validate()
@@ -86,23 +86,11 @@ class data extends Model
     public function toMap()
     {
         $res = [];
-        if (null !== $this->productKey) {
-            $res['ProductKey'] = $this->productKey;
-        }
-        if (null !== $this->deviceName) {
-            $res['DeviceName'] = $this->deviceName;
-        }
-        if (null !== $this->nickname) {
-            $res['Nickname'] = $this->nickname;
-        }
-        if (null !== $this->status) {
-            $res['Status'] = $this->status;
-        }
         if (null !== $this->activeTime) {
             $res['ActiveTime'] = $this->activeTime;
         }
-        if (null !== $this->iotId) {
-            $res['IotId'] = $this->iotId;
+        if (null !== $this->deviceName) {
+            $res['DeviceName'] = $this->deviceName;
         }
         if (null !== $this->gmtCreate) {
             $res['GmtCreate'] = $this->gmtCreate;
@@ -119,14 +107,11 @@ class data extends Model
                 }
             }
         }
-        if (null !== $this->tags) {
-            $res['Tags'] = [];
-            if (null !== $this->tags && \is_array($this->tags)) {
-                $n = 0;
-                foreach ($this->tags as $item) {
-                    $res['Tags'][$n++] = null !== $item ? $item->toMap() : $item;
-                }
-            }
+        if (null !== $this->iotId) {
+            $res['IotId'] = $this->iotId;
+        }
+        if (null !== $this->nickname) {
+            $res['Nickname'] = $this->nickname;
         }
         if (null !== $this->OTAModules) {
             $res['OTAModules'] = [];
@@ -134,6 +119,21 @@ class data extends Model
                 $n = 0;
                 foreach ($this->OTAModules as $item) {
                     $res['OTAModules'][$n++] = null !== $item ? $item->toMap() : $item;
+                }
+            }
+        }
+        if (null !== $this->productKey) {
+            $res['ProductKey'] = $this->productKey;
+        }
+        if (null !== $this->status) {
+            $res['Status'] = $this->status;
+        }
+        if (null !== $this->tags) {
+            $res['Tags'] = [];
+            if (null !== $this->tags && \is_array($this->tags)) {
+                $n = 0;
+                foreach ($this->tags as $item) {
+                    $res['Tags'][$n++] = null !== $item ? $item->toMap() : $item;
                 }
             }
         }
@@ -149,23 +149,11 @@ class data extends Model
     public static function fromMap($map = [])
     {
         $model = new self();
-        if (isset($map['ProductKey'])) {
-            $model->productKey = $map['ProductKey'];
-        }
-        if (isset($map['DeviceName'])) {
-            $model->deviceName = $map['DeviceName'];
-        }
-        if (isset($map['Nickname'])) {
-            $model->nickname = $map['Nickname'];
-        }
-        if (isset($map['Status'])) {
-            $model->status = $map['Status'];
-        }
         if (isset($map['ActiveTime'])) {
             $model->activeTime = $map['ActiveTime'];
         }
-        if (isset($map['IotId'])) {
-            $model->iotId = $map['IotId'];
+        if (isset($map['DeviceName'])) {
+            $model->deviceName = $map['DeviceName'];
         }
         if (isset($map['GmtCreate'])) {
             $model->gmtCreate = $map['GmtCreate'];
@@ -182,14 +170,11 @@ class data extends Model
                 }
             }
         }
-        if (isset($map['Tags'])) {
-            if (!empty($map['Tags'])) {
-                $model->tags = [];
-                $n           = 0;
-                foreach ($map['Tags'] as $item) {
-                    $model->tags[$n++] = null !== $item ? tags::fromMap($item) : $item;
-                }
-            }
+        if (isset($map['IotId'])) {
+            $model->iotId = $map['IotId'];
+        }
+        if (isset($map['Nickname'])) {
+            $model->nickname = $map['Nickname'];
         }
         if (isset($map['OTAModules'])) {
             if (!empty($map['OTAModules'])) {
@@ -197,6 +182,21 @@ class data extends Model
                 $n                 = 0;
                 foreach ($map['OTAModules'] as $item) {
                     $model->OTAModules[$n++] = null !== $item ? OTAModules::fromMap($item) : $item;
+                }
+            }
+        }
+        if (isset($map['ProductKey'])) {
+            $model->productKey = $map['ProductKey'];
+        }
+        if (isset($map['Status'])) {
+            $model->status = $map['Status'];
+        }
+        if (isset($map['Tags'])) {
+            if (!empty($map['Tags'])) {
+                $model->tags = [];
+                $n           = 0;
+                foreach ($map['Tags'] as $item) {
+                    $model->tags[$n++] = null !== $item ? tags::fromMap($item) : $item;
                 }
             }
         }

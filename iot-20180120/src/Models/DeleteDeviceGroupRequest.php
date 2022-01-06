@@ -11,15 +11,15 @@ class DeleteDeviceGroupRequest extends Model
     /**
      * @var string
      */
-    public $iotInstanceId;
+    public $groupId;
 
     /**
      * @var string
      */
-    public $groupId;
+    public $iotInstanceId;
     protected $_name = [
-        'iotInstanceId' => 'IotInstanceId',
         'groupId'       => 'GroupId',
+        'iotInstanceId' => 'IotInstanceId',
     ];
 
     public function validate()
@@ -29,11 +29,11 @@ class DeleteDeviceGroupRequest extends Model
     public function toMap()
     {
         $res = [];
-        if (null !== $this->iotInstanceId) {
-            $res['IotInstanceId'] = $this->iotInstanceId;
-        }
         if (null !== $this->groupId) {
             $res['GroupId'] = $this->groupId;
+        }
+        if (null !== $this->iotInstanceId) {
+            $res['IotInstanceId'] = $this->iotInstanceId;
         }
 
         return $res;
@@ -47,11 +47,11 @@ class DeleteDeviceGroupRequest extends Model
     public static function fromMap($map = [])
     {
         $model = new self();
-        if (isset($map['IotInstanceId'])) {
-            $model->iotInstanceId = $map['IotInstanceId'];
-        }
         if (isset($map['GroupId'])) {
             $model->groupId = $map['GroupId'];
+        }
+        if (isset($map['IotInstanceId'])) {
+            $model->iotInstanceId = $map['IotInstanceId'];
         }
 
         return $model;

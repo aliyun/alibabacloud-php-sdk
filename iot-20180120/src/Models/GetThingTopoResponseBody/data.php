@@ -12,12 +12,17 @@ class data extends Model
     /**
      * @var int
      */
-    public $total;
+    public $currentPage;
+
+    /**
+     * @var list_
+     */
+    public $list;
 
     /**
      * @var int
      */
-    public $currentPage;
+    public $pageCount;
 
     /**
      * @var int
@@ -27,18 +32,13 @@ class data extends Model
     /**
      * @var int
      */
-    public $pageCount;
-
-    /**
-     * @var list_
-     */
-    public $list;
+    public $total;
     protected $_name = [
-        'total'       => 'Total',
         'currentPage' => 'CurrentPage',
-        'pageSize'    => 'PageSize',
-        'pageCount'   => 'PageCount',
         'list'        => 'List',
+        'pageCount'   => 'PageCount',
+        'pageSize'    => 'PageSize',
+        'total'       => 'Total',
     ];
 
     public function validate()
@@ -48,20 +48,20 @@ class data extends Model
     public function toMap()
     {
         $res = [];
-        if (null !== $this->total) {
-            $res['Total'] = $this->total;
-        }
         if (null !== $this->currentPage) {
             $res['CurrentPage'] = $this->currentPage;
         }
-        if (null !== $this->pageSize) {
-            $res['PageSize'] = $this->pageSize;
+        if (null !== $this->list) {
+            $res['List'] = null !== $this->list ? $this->list->toMap() : null;
         }
         if (null !== $this->pageCount) {
             $res['PageCount'] = $this->pageCount;
         }
-        if (null !== $this->list) {
-            $res['List'] = null !== $this->list ? $this->list->toMap() : null;
+        if (null !== $this->pageSize) {
+            $res['PageSize'] = $this->pageSize;
+        }
+        if (null !== $this->total) {
+            $res['Total'] = $this->total;
         }
 
         return $res;
@@ -75,20 +75,20 @@ class data extends Model
     public static function fromMap($map = [])
     {
         $model = new self();
-        if (isset($map['Total'])) {
-            $model->total = $map['Total'];
-        }
         if (isset($map['CurrentPage'])) {
             $model->currentPage = $map['CurrentPage'];
         }
-        if (isset($map['PageSize'])) {
-            $model->pageSize = $map['PageSize'];
+        if (isset($map['List'])) {
+            $model->list = list_::fromMap($map['List']);
         }
         if (isset($map['PageCount'])) {
             $model->pageCount = $map['PageCount'];
         }
-        if (isset($map['List'])) {
-            $model->list = list_::fromMap($map['List']);
+        if (isset($map['PageSize'])) {
+            $model->pageSize = $map['PageSize'];
+        }
+        if (isset($map['Total'])) {
+            $model->total = $map['Total'];
         }
 
         return $model;

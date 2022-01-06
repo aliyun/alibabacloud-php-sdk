@@ -11,7 +11,22 @@ class data extends Model
     /**
      * @var string
      */
+    public $deviceErrorCode;
+
+    /**
+     * @var string
+     */
+    public $deviceErrorMessage;
+
+    /**
+     * @var string
+     */
     public $id;
+
+    /**
+     * @var int
+     */
+    public $maxRetryCount;
 
     /**
      * @var int
@@ -22,28 +37,13 @@ class data extends Model
      * @var bool
      */
     public $success;
-
-    /**
-     * @var int
-     */
-    public $maxRetryCount;
-
-    /**
-     * @var string
-     */
-    public $deviceErrorCode;
-
-    /**
-     * @var string
-     */
-    public $deviceErrorMessage;
     protected $_name = [
-        'id'                 => 'Id',
-        'retryCount'         => 'RetryCount',
-        'success'            => 'Success',
-        'maxRetryCount'      => 'MaxRetryCount',
         'deviceErrorCode'    => 'DeviceErrorCode',
         'deviceErrorMessage' => 'DeviceErrorMessage',
+        'id'                 => 'Id',
+        'maxRetryCount'      => 'MaxRetryCount',
+        'retryCount'         => 'RetryCount',
+        'success'            => 'Success',
     ];
 
     public function validate()
@@ -53,23 +53,23 @@ class data extends Model
     public function toMap()
     {
         $res = [];
+        if (null !== $this->deviceErrorCode) {
+            $res['DeviceErrorCode'] = $this->deviceErrorCode;
+        }
+        if (null !== $this->deviceErrorMessage) {
+            $res['DeviceErrorMessage'] = $this->deviceErrorMessage;
+        }
         if (null !== $this->id) {
             $res['Id'] = $this->id;
+        }
+        if (null !== $this->maxRetryCount) {
+            $res['MaxRetryCount'] = $this->maxRetryCount;
         }
         if (null !== $this->retryCount) {
             $res['RetryCount'] = $this->retryCount;
         }
         if (null !== $this->success) {
             $res['Success'] = $this->success;
-        }
-        if (null !== $this->maxRetryCount) {
-            $res['MaxRetryCount'] = $this->maxRetryCount;
-        }
-        if (null !== $this->deviceErrorCode) {
-            $res['DeviceErrorCode'] = $this->deviceErrorCode;
-        }
-        if (null !== $this->deviceErrorMessage) {
-            $res['DeviceErrorMessage'] = $this->deviceErrorMessage;
         }
 
         return $res;
@@ -83,23 +83,23 @@ class data extends Model
     public static function fromMap($map = [])
     {
         $model = new self();
+        if (isset($map['DeviceErrorCode'])) {
+            $model->deviceErrorCode = $map['DeviceErrorCode'];
+        }
+        if (isset($map['DeviceErrorMessage'])) {
+            $model->deviceErrorMessage = $map['DeviceErrorMessage'];
+        }
         if (isset($map['Id'])) {
             $model->id = $map['Id'];
+        }
+        if (isset($map['MaxRetryCount'])) {
+            $model->maxRetryCount = $map['MaxRetryCount'];
         }
         if (isset($map['RetryCount'])) {
             $model->retryCount = $map['RetryCount'];
         }
         if (isset($map['Success'])) {
             $model->success = $map['Success'];
-        }
-        if (isset($map['MaxRetryCount'])) {
-            $model->maxRetryCount = $map['MaxRetryCount'];
-        }
-        if (isset($map['DeviceErrorCode'])) {
-            $model->deviceErrorCode = $map['DeviceErrorCode'];
-        }
-        if (isset($map['DeviceErrorMessage'])) {
-            $model->deviceErrorMessage = $map['DeviceErrorMessage'];
         }
 
         return $model;

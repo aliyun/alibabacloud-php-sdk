@@ -11,6 +11,11 @@ class data extends Model
     /**
      * @var string
      */
+    public $downloadUrl;
+
+    /**
+     * @var string
+     */
     public $fileId;
 
     /**
@@ -27,17 +32,12 @@ class data extends Model
      * @var string
      */
     public $utcCreatedOn;
-
-    /**
-     * @var string
-     */
-    public $downloadUrl;
     protected $_name = [
+        'downloadUrl'  => 'DownloadUrl',
         'fileId'       => 'FileId',
         'name'         => 'Name',
         'size'         => 'Size',
         'utcCreatedOn' => 'UtcCreatedOn',
-        'downloadUrl'  => 'DownloadUrl',
     ];
 
     public function validate()
@@ -47,6 +47,9 @@ class data extends Model
     public function toMap()
     {
         $res = [];
+        if (null !== $this->downloadUrl) {
+            $res['DownloadUrl'] = $this->downloadUrl;
+        }
         if (null !== $this->fileId) {
             $res['FileId'] = $this->fileId;
         }
@@ -58,9 +61,6 @@ class data extends Model
         }
         if (null !== $this->utcCreatedOn) {
             $res['UtcCreatedOn'] = $this->utcCreatedOn;
-        }
-        if (null !== $this->downloadUrl) {
-            $res['DownloadUrl'] = $this->downloadUrl;
         }
 
         return $res;
@@ -74,6 +74,9 @@ class data extends Model
     public static function fromMap($map = [])
     {
         $model = new self();
+        if (isset($map['DownloadUrl'])) {
+            $model->downloadUrl = $map['DownloadUrl'];
+        }
         if (isset($map['FileId'])) {
             $model->fileId = $map['FileId'];
         }
@@ -85,9 +88,6 @@ class data extends Model
         }
         if (isset($map['UtcCreatedOn'])) {
             $model->utcCreatedOn = $map['UtcCreatedOn'];
-        }
-        if (isset($map['DownloadUrl'])) {
-            $model->downloadUrl = $map['DownloadUrl'];
         }
 
         return $model;

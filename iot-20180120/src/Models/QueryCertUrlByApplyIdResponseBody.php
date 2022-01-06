@@ -11,12 +11,7 @@ class QueryCertUrlByApplyIdResponseBody extends Model
     /**
      * @var string
      */
-    public $requestId;
-
-    /**
-     * @var bool
-     */
-    public $success;
+    public $certUrl;
 
     /**
      * @var string
@@ -31,13 +26,18 @@ class QueryCertUrlByApplyIdResponseBody extends Model
     /**
      * @var string
      */
-    public $certUrl;
+    public $requestId;
+
+    /**
+     * @var bool
+     */
+    public $success;
     protected $_name = [
-        'requestId'    => 'RequestId',
-        'success'      => 'Success',
+        'certUrl'      => 'CertUrl',
         'code'         => 'Code',
         'errorMessage' => 'ErrorMessage',
-        'certUrl'      => 'CertUrl',
+        'requestId'    => 'RequestId',
+        'success'      => 'Success',
     ];
 
     public function validate()
@@ -47,11 +47,8 @@ class QueryCertUrlByApplyIdResponseBody extends Model
     public function toMap()
     {
         $res = [];
-        if (null !== $this->requestId) {
-            $res['RequestId'] = $this->requestId;
-        }
-        if (null !== $this->success) {
-            $res['Success'] = $this->success;
+        if (null !== $this->certUrl) {
+            $res['CertUrl'] = $this->certUrl;
         }
         if (null !== $this->code) {
             $res['Code'] = $this->code;
@@ -59,8 +56,11 @@ class QueryCertUrlByApplyIdResponseBody extends Model
         if (null !== $this->errorMessage) {
             $res['ErrorMessage'] = $this->errorMessage;
         }
-        if (null !== $this->certUrl) {
-            $res['CertUrl'] = $this->certUrl;
+        if (null !== $this->requestId) {
+            $res['RequestId'] = $this->requestId;
+        }
+        if (null !== $this->success) {
+            $res['Success'] = $this->success;
         }
 
         return $res;
@@ -74,11 +74,8 @@ class QueryCertUrlByApplyIdResponseBody extends Model
     public static function fromMap($map = [])
     {
         $model = new self();
-        if (isset($map['RequestId'])) {
-            $model->requestId = $map['RequestId'];
-        }
-        if (isset($map['Success'])) {
-            $model->success = $map['Success'];
+        if (isset($map['CertUrl'])) {
+            $model->certUrl = $map['CertUrl'];
         }
         if (isset($map['Code'])) {
             $model->code = $map['Code'];
@@ -86,8 +83,11 @@ class QueryCertUrlByApplyIdResponseBody extends Model
         if (isset($map['ErrorMessage'])) {
             $model->errorMessage = $map['ErrorMessage'];
         }
-        if (isset($map['CertUrl'])) {
-            $model->certUrl = $map['CertUrl'];
+        if (isset($map['RequestId'])) {
+            $model->requestId = $map['RequestId'];
+        }
+        if (isset($map['Success'])) {
+            $model->success = $map['Success'];
         }
 
         return $model;

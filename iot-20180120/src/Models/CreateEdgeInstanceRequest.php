@@ -19,19 +19,19 @@ class CreateEdgeInstanceRequest extends Model
     public $name;
 
     /**
-     * @var string
-     */
-    public $tags;
-
-    /**
      * @var int
      */
     public $spec;
+
+    /**
+     * @var string
+     */
+    public $tags;
     protected $_name = [
         'iotInstanceId' => 'IotInstanceId',
         'name'          => 'Name',
-        'tags'          => 'Tags',
         'spec'          => 'Spec',
+        'tags'          => 'Tags',
     ];
 
     public function validate()
@@ -47,11 +47,11 @@ class CreateEdgeInstanceRequest extends Model
         if (null !== $this->name) {
             $res['Name'] = $this->name;
         }
-        if (null !== $this->tags) {
-            $res['Tags'] = $this->tags;
-        }
         if (null !== $this->spec) {
             $res['Spec'] = $this->spec;
+        }
+        if (null !== $this->tags) {
+            $res['Tags'] = $this->tags;
         }
 
         return $res;
@@ -71,11 +71,11 @@ class CreateEdgeInstanceRequest extends Model
         if (isset($map['Name'])) {
             $model->name = $map['Name'];
         }
-        if (isset($map['Tags'])) {
-            $model->tags = $map['Tags'];
-        }
         if (isset($map['Spec'])) {
             $model->spec = $map['Spec'];
+        }
+        if (isset($map['Tags'])) {
+            $model->tags = $map['Tags'];
         }
 
         return $model;

@@ -9,24 +9,9 @@ use AlibabaCloud\Tea\Model;
 class data extends Model
 {
     /**
-     * @var string
+     * @var int
      */
-    public $groupId;
-
-    /**
-     * @var string
-     */
-    public $utcCreate;
-
-    /**
-     * @var string
-     */
-    public $groupName;
-
-    /**
-     * @var string
-     */
-    public $groupDesc;
+    public $deviceActive;
 
     /**
      * @var int
@@ -36,20 +21,35 @@ class data extends Model
     /**
      * @var int
      */
-    public $deviceActive;
+    public $deviceOnline;
 
     /**
-     * @var int
+     * @var string
      */
-    public $deviceOnline;
+    public $groupDesc;
+
+    /**
+     * @var string
+     */
+    public $groupId;
+
+    /**
+     * @var string
+     */
+    public $groupName;
+
+    /**
+     * @var string
+     */
+    public $utcCreate;
     protected $_name = [
-        'groupId'      => 'GroupId',
-        'utcCreate'    => 'UtcCreate',
-        'groupName'    => 'GroupName',
-        'groupDesc'    => 'GroupDesc',
-        'deviceCount'  => 'DeviceCount',
         'deviceActive' => 'DeviceActive',
+        'deviceCount'  => 'DeviceCount',
         'deviceOnline' => 'DeviceOnline',
+        'groupDesc'    => 'GroupDesc',
+        'groupId'      => 'GroupId',
+        'groupName'    => 'GroupName',
+        'utcCreate'    => 'UtcCreate',
     ];
 
     public function validate()
@@ -59,26 +59,26 @@ class data extends Model
     public function toMap()
     {
         $res = [];
-        if (null !== $this->groupId) {
-            $res['GroupId'] = $this->groupId;
-        }
-        if (null !== $this->utcCreate) {
-            $res['UtcCreate'] = $this->utcCreate;
-        }
-        if (null !== $this->groupName) {
-            $res['GroupName'] = $this->groupName;
-        }
-        if (null !== $this->groupDesc) {
-            $res['GroupDesc'] = $this->groupDesc;
+        if (null !== $this->deviceActive) {
+            $res['DeviceActive'] = $this->deviceActive;
         }
         if (null !== $this->deviceCount) {
             $res['DeviceCount'] = $this->deviceCount;
         }
-        if (null !== $this->deviceActive) {
-            $res['DeviceActive'] = $this->deviceActive;
-        }
         if (null !== $this->deviceOnline) {
             $res['DeviceOnline'] = $this->deviceOnline;
+        }
+        if (null !== $this->groupDesc) {
+            $res['GroupDesc'] = $this->groupDesc;
+        }
+        if (null !== $this->groupId) {
+            $res['GroupId'] = $this->groupId;
+        }
+        if (null !== $this->groupName) {
+            $res['GroupName'] = $this->groupName;
+        }
+        if (null !== $this->utcCreate) {
+            $res['UtcCreate'] = $this->utcCreate;
         }
 
         return $res;
@@ -92,26 +92,26 @@ class data extends Model
     public static function fromMap($map = [])
     {
         $model = new self();
-        if (isset($map['GroupId'])) {
-            $model->groupId = $map['GroupId'];
-        }
-        if (isset($map['UtcCreate'])) {
-            $model->utcCreate = $map['UtcCreate'];
-        }
-        if (isset($map['GroupName'])) {
-            $model->groupName = $map['GroupName'];
-        }
-        if (isset($map['GroupDesc'])) {
-            $model->groupDesc = $map['GroupDesc'];
+        if (isset($map['DeviceActive'])) {
+            $model->deviceActive = $map['DeviceActive'];
         }
         if (isset($map['DeviceCount'])) {
             $model->deviceCount = $map['DeviceCount'];
         }
-        if (isset($map['DeviceActive'])) {
-            $model->deviceActive = $map['DeviceActive'];
-        }
         if (isset($map['DeviceOnline'])) {
             $model->deviceOnline = $map['DeviceOnline'];
+        }
+        if (isset($map['GroupDesc'])) {
+            $model->groupDesc = $map['GroupDesc'];
+        }
+        if (isset($map['GroupId'])) {
+            $model->groupId = $map['GroupId'];
+        }
+        if (isset($map['GroupName'])) {
+            $model->groupName = $map['GroupName'];
+        }
+        if (isset($map['UtcCreate'])) {
+            $model->utcCreate = $map['UtcCreate'];
         }
 
         return $model;

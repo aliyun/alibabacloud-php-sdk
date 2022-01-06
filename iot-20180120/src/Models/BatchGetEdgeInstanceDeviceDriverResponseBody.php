@@ -12,17 +12,12 @@ class BatchGetEdgeInstanceDeviceDriverResponseBody extends Model
     /**
      * @var string
      */
-    public $requestId;
-
-    /**
-     * @var bool
-     */
-    public $success;
-
-    /**
-     * @var string
-     */
     public $code;
+
+    /**
+     * @var deviceDriverList[]
+     */
+    public $deviceDriverList;
 
     /**
      * @var string
@@ -30,15 +25,20 @@ class BatchGetEdgeInstanceDeviceDriverResponseBody extends Model
     public $errorMessage;
 
     /**
-     * @var deviceDriverList[]
+     * @var string
      */
-    public $deviceDriverList;
+    public $requestId;
+
+    /**
+     * @var bool
+     */
+    public $success;
     protected $_name = [
+        'code'             => 'Code',
+        'deviceDriverList' => 'DeviceDriverList',
+        'errorMessage'     => 'ErrorMessage',
         'requestId'        => 'RequestId',
         'success'          => 'Success',
-        'code'             => 'Code',
-        'errorMessage'     => 'ErrorMessage',
-        'deviceDriverList' => 'DeviceDriverList',
     ];
 
     public function validate()
@@ -48,17 +48,8 @@ class BatchGetEdgeInstanceDeviceDriverResponseBody extends Model
     public function toMap()
     {
         $res = [];
-        if (null !== $this->requestId) {
-            $res['RequestId'] = $this->requestId;
-        }
-        if (null !== $this->success) {
-            $res['Success'] = $this->success;
-        }
         if (null !== $this->code) {
             $res['Code'] = $this->code;
-        }
-        if (null !== $this->errorMessage) {
-            $res['ErrorMessage'] = $this->errorMessage;
         }
         if (null !== $this->deviceDriverList) {
             $res['DeviceDriverList'] = [];
@@ -68,6 +59,15 @@ class BatchGetEdgeInstanceDeviceDriverResponseBody extends Model
                     $res['DeviceDriverList'][$n++] = null !== $item ? $item->toMap() : $item;
                 }
             }
+        }
+        if (null !== $this->errorMessage) {
+            $res['ErrorMessage'] = $this->errorMessage;
+        }
+        if (null !== $this->requestId) {
+            $res['RequestId'] = $this->requestId;
+        }
+        if (null !== $this->success) {
+            $res['Success'] = $this->success;
         }
 
         return $res;
@@ -81,17 +81,8 @@ class BatchGetEdgeInstanceDeviceDriverResponseBody extends Model
     public static function fromMap($map = [])
     {
         $model = new self();
-        if (isset($map['RequestId'])) {
-            $model->requestId = $map['RequestId'];
-        }
-        if (isset($map['Success'])) {
-            $model->success = $map['Success'];
-        }
         if (isset($map['Code'])) {
             $model->code = $map['Code'];
-        }
-        if (isset($map['ErrorMessage'])) {
-            $model->errorMessage = $map['ErrorMessage'];
         }
         if (isset($map['DeviceDriverList'])) {
             if (!empty($map['DeviceDriverList'])) {
@@ -101,6 +92,15 @@ class BatchGetEdgeInstanceDeviceDriverResponseBody extends Model
                     $model->deviceDriverList[$n++] = null !== $item ? deviceDriverList::fromMap($item) : $item;
                 }
             }
+        }
+        if (isset($map['ErrorMessage'])) {
+            $model->errorMessage = $map['ErrorMessage'];
+        }
+        if (isset($map['RequestId'])) {
+            $model->requestId = $map['RequestId'];
+        }
+        if (isset($map['Success'])) {
+            $model->success = $map['Success'];
         }
 
         return $model;

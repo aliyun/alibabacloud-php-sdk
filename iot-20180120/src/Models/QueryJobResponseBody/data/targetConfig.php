@@ -10,6 +10,11 @@ use AlibabaCloud\Tea\Model;
 class targetConfig extends Model
 {
     /**
+     * @var targetDevices
+     */
+    public $targetDevices;
+
+    /**
      * @var string
      */
     public $targetGroup;
@@ -23,16 +28,11 @@ class targetConfig extends Model
      * @var string
      */
     public $targetType;
-
-    /**
-     * @var targetDevices
-     */
-    public $targetDevices;
     protected $_name = [
+        'targetDevices' => 'TargetDevices',
         'targetGroup'   => 'TargetGroup',
         'targetProduct' => 'TargetProduct',
         'targetType'    => 'TargetType',
-        'targetDevices' => 'TargetDevices',
     ];
 
     public function validate()
@@ -42,6 +42,9 @@ class targetConfig extends Model
     public function toMap()
     {
         $res = [];
+        if (null !== $this->targetDevices) {
+            $res['TargetDevices'] = null !== $this->targetDevices ? $this->targetDevices->toMap() : null;
+        }
         if (null !== $this->targetGroup) {
             $res['TargetGroup'] = $this->targetGroup;
         }
@@ -50,9 +53,6 @@ class targetConfig extends Model
         }
         if (null !== $this->targetType) {
             $res['TargetType'] = $this->targetType;
-        }
-        if (null !== $this->targetDevices) {
-            $res['TargetDevices'] = null !== $this->targetDevices ? $this->targetDevices->toMap() : null;
         }
 
         return $res;
@@ -66,6 +66,9 @@ class targetConfig extends Model
     public static function fromMap($map = [])
     {
         $model = new self();
+        if (isset($map['TargetDevices'])) {
+            $model->targetDevices = targetDevices::fromMap($map['TargetDevices']);
+        }
         if (isset($map['TargetGroup'])) {
             $model->targetGroup = $map['TargetGroup'];
         }
@@ -74,9 +77,6 @@ class targetConfig extends Model
         }
         if (isset($map['TargetType'])) {
             $model->targetType = $map['TargetType'];
-        }
-        if (isset($map['TargetDevices'])) {
-            $model->targetDevices = targetDevices::fromMap($map['TargetDevices']);
         }
 
         return $model;

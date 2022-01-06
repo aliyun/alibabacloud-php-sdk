@@ -11,15 +11,15 @@ class OTAModules extends Model
     /**
      * @var string
      */
-    public $moduleName;
+    public $firmwareVersion;
 
     /**
      * @var string
      */
-    public $firmwareVersion;
+    public $moduleName;
     protected $_name = [
-        'moduleName'      => 'ModuleName',
         'firmwareVersion' => 'FirmwareVersion',
+        'moduleName'      => 'ModuleName',
     ];
 
     public function validate()
@@ -29,11 +29,11 @@ class OTAModules extends Model
     public function toMap()
     {
         $res = [];
-        if (null !== $this->moduleName) {
-            $res['ModuleName'] = $this->moduleName;
-        }
         if (null !== $this->firmwareVersion) {
             $res['FirmwareVersion'] = $this->firmwareVersion;
+        }
+        if (null !== $this->moduleName) {
+            $res['ModuleName'] = $this->moduleName;
         }
 
         return $res;
@@ -47,11 +47,11 @@ class OTAModules extends Model
     public static function fromMap($map = [])
     {
         $model = new self();
-        if (isset($map['ModuleName'])) {
-            $model->moduleName = $map['ModuleName'];
-        }
         if (isset($map['FirmwareVersion'])) {
             $model->firmwareVersion = $map['FirmwareVersion'];
+        }
+        if (isset($map['ModuleName'])) {
+            $model->moduleName = $map['ModuleName'];
         }
 
         return $model;

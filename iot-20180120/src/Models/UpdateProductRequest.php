@@ -11,12 +11,12 @@ class UpdateProductRequest extends Model
     /**
      * @var string
      */
-    public $iotInstanceId;
+    public $description;
 
     /**
      * @var string
      */
-    public $description;
+    public $iotInstanceId;
 
     /**
      * @var string
@@ -28,8 +28,8 @@ class UpdateProductRequest extends Model
      */
     public $productName;
     protected $_name = [
-        'iotInstanceId' => 'IotInstanceId',
         'description'   => 'Description',
+        'iotInstanceId' => 'IotInstanceId',
         'productKey'    => 'ProductKey',
         'productName'   => 'ProductName',
     ];
@@ -41,11 +41,11 @@ class UpdateProductRequest extends Model
     public function toMap()
     {
         $res = [];
-        if (null !== $this->iotInstanceId) {
-            $res['IotInstanceId'] = $this->iotInstanceId;
-        }
         if (null !== $this->description) {
             $res['Description'] = $this->description;
+        }
+        if (null !== $this->iotInstanceId) {
+            $res['IotInstanceId'] = $this->iotInstanceId;
         }
         if (null !== $this->productKey) {
             $res['ProductKey'] = $this->productKey;
@@ -65,11 +65,11 @@ class UpdateProductRequest extends Model
     public static function fromMap($map = [])
     {
         $model = new self();
-        if (isset($map['IotInstanceId'])) {
-            $model->iotInstanceId = $map['IotInstanceId'];
-        }
         if (isset($map['Description'])) {
             $model->description = $map['Description'];
+        }
+        if (isset($map['IotInstanceId'])) {
+            $model->iotInstanceId = $map['IotInstanceId'];
         }
         if (isset($map['ProductKey'])) {
             $model->productKey = $map['ProductKey'];

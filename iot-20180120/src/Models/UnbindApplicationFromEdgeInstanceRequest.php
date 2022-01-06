@@ -11,7 +11,7 @@ class UnbindApplicationFromEdgeInstanceRequest extends Model
     /**
      * @var string
      */
-    public $iotInstanceId;
+    public $applicationId;
 
     /**
      * @var string
@@ -21,11 +21,11 @@ class UnbindApplicationFromEdgeInstanceRequest extends Model
     /**
      * @var string
      */
-    public $applicationId;
+    public $iotInstanceId;
     protected $_name = [
-        'iotInstanceId' => 'IotInstanceId',
-        'instanceId'    => 'InstanceId',
         'applicationId' => 'ApplicationId',
+        'instanceId'    => 'InstanceId',
+        'iotInstanceId' => 'IotInstanceId',
     ];
 
     public function validate()
@@ -35,14 +35,14 @@ class UnbindApplicationFromEdgeInstanceRequest extends Model
     public function toMap()
     {
         $res = [];
-        if (null !== $this->iotInstanceId) {
-            $res['IotInstanceId'] = $this->iotInstanceId;
+        if (null !== $this->applicationId) {
+            $res['ApplicationId'] = $this->applicationId;
         }
         if (null !== $this->instanceId) {
             $res['InstanceId'] = $this->instanceId;
         }
-        if (null !== $this->applicationId) {
-            $res['ApplicationId'] = $this->applicationId;
+        if (null !== $this->iotInstanceId) {
+            $res['IotInstanceId'] = $this->iotInstanceId;
         }
 
         return $res;
@@ -56,14 +56,14 @@ class UnbindApplicationFromEdgeInstanceRequest extends Model
     public static function fromMap($map = [])
     {
         $model = new self();
-        if (isset($map['IotInstanceId'])) {
-            $model->iotInstanceId = $map['IotInstanceId'];
+        if (isset($map['ApplicationId'])) {
+            $model->applicationId = $map['ApplicationId'];
         }
         if (isset($map['InstanceId'])) {
             $model->instanceId = $map['InstanceId'];
         }
-        if (isset($map['ApplicationId'])) {
-            $model->applicationId = $map['ApplicationId'];
+        if (isset($map['IotInstanceId'])) {
+            $model->iotInstanceId = $map['IotInstanceId'];
         }
 
         return $model;

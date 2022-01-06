@@ -10,14 +10,14 @@ use AlibabaCloud\Tea\Model;
 class ListProductByTagsRequest extends Model
 {
     /**
-     * @var string
-     */
-    public $iotInstanceId;
-
-    /**
      * @var int
      */
     public $currentPage;
+
+    /**
+     * @var string
+     */
+    public $iotInstanceId;
 
     /**
      * @var int
@@ -29,8 +29,8 @@ class ListProductByTagsRequest extends Model
      */
     public $productTag;
     protected $_name = [
-        'iotInstanceId' => 'IotInstanceId',
         'currentPage'   => 'CurrentPage',
+        'iotInstanceId' => 'IotInstanceId',
         'pageSize'      => 'PageSize',
         'productTag'    => 'ProductTag',
     ];
@@ -42,11 +42,11 @@ class ListProductByTagsRequest extends Model
     public function toMap()
     {
         $res = [];
-        if (null !== $this->iotInstanceId) {
-            $res['IotInstanceId'] = $this->iotInstanceId;
-        }
         if (null !== $this->currentPage) {
             $res['CurrentPage'] = $this->currentPage;
+        }
+        if (null !== $this->iotInstanceId) {
+            $res['IotInstanceId'] = $this->iotInstanceId;
         }
         if (null !== $this->pageSize) {
             $res['PageSize'] = $this->pageSize;
@@ -72,11 +72,11 @@ class ListProductByTagsRequest extends Model
     public static function fromMap($map = [])
     {
         $model = new self();
-        if (isset($map['IotInstanceId'])) {
-            $model->iotInstanceId = $map['IotInstanceId'];
-        }
         if (isset($map['CurrentPage'])) {
             $model->currentPage = $map['CurrentPage'];
+        }
+        if (isset($map['IotInstanceId'])) {
+            $model->iotInstanceId = $map['IotInstanceId'];
         }
         if (isset($map['PageSize'])) {
             $model->pageSize = $map['PageSize'];

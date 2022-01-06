@@ -11,7 +11,12 @@ class simpleFirmwareInfo extends Model
     /**
      * @var string
      */
-    public $firmwareName;
+    public $destVersion;
+
+    /**
+     * @var string
+     */
+    public $firmwareDesc;
 
     /**
      * @var string
@@ -21,32 +26,7 @@ class simpleFirmwareInfo extends Model
     /**
      * @var string
      */
-    public $srcVersion;
-
-    /**
-     * @var string
-     */
-    public $destVersion;
-
-    /**
-     * @var string
-     */
-    public $utcCreate;
-
-    /**
-     * @var string
-     */
-    public $utcModified;
-
-    /**
-     * @var int
-     */
-    public $status;
-
-    /**
-     * @var string
-     */
-    public $firmwareDesc;
+    public $firmwareName;
 
     /**
      * @var string
@@ -61,7 +41,17 @@ class simpleFirmwareInfo extends Model
     /**
      * @var string
      */
+    public $moduleName;
+
+    /**
+     * @var string
+     */
     public $productKey;
+
+    /**
+     * @var string
+     */
+    public $productName;
 
     /**
      * @var string
@@ -71,7 +61,12 @@ class simpleFirmwareInfo extends Model
     /**
      * @var string
      */
-    public $productName;
+    public $srcVersion;
+
+    /**
+     * @var int
+     */
+    public $status;
 
     /**
      * @var int
@@ -81,23 +76,28 @@ class simpleFirmwareInfo extends Model
     /**
      * @var string
      */
-    public $moduleName;
+    public $utcCreate;
+
+    /**
+     * @var string
+     */
+    public $utcModified;
     protected $_name = [
-        'firmwareName' => 'FirmwareName',
-        'firmwareId'   => 'FirmwareId',
-        'srcVersion'   => 'SrcVersion',
         'destVersion'  => 'DestVersion',
-        'utcCreate'    => 'UtcCreate',
-        'utcModified'  => 'UtcModified',
-        'status'       => 'Status',
         'firmwareDesc' => 'FirmwareDesc',
+        'firmwareId'   => 'FirmwareId',
+        'firmwareName' => 'FirmwareName',
         'firmwareSign' => 'FirmwareSign',
         'firmwareSize' => 'FirmwareSize',
-        'productKey'   => 'ProductKey',
-        'signMethod'   => 'SignMethod',
-        'productName'  => 'ProductName',
-        'type'         => 'Type',
         'moduleName'   => 'ModuleName',
+        'productKey'   => 'ProductKey',
+        'productName'  => 'ProductName',
+        'signMethod'   => 'SignMethod',
+        'srcVersion'   => 'SrcVersion',
+        'status'       => 'Status',
+        'type'         => 'Type',
+        'utcCreate'    => 'UtcCreate',
+        'utcModified'  => 'UtcModified',
     ];
 
     public function validate()
@@ -107,29 +107,17 @@ class simpleFirmwareInfo extends Model
     public function toMap()
     {
         $res = [];
-        if (null !== $this->firmwareName) {
-            $res['FirmwareName'] = $this->firmwareName;
+        if (null !== $this->destVersion) {
+            $res['DestVersion'] = $this->destVersion;
+        }
+        if (null !== $this->firmwareDesc) {
+            $res['FirmwareDesc'] = $this->firmwareDesc;
         }
         if (null !== $this->firmwareId) {
             $res['FirmwareId'] = $this->firmwareId;
         }
-        if (null !== $this->srcVersion) {
-            $res['SrcVersion'] = $this->srcVersion;
-        }
-        if (null !== $this->destVersion) {
-            $res['DestVersion'] = $this->destVersion;
-        }
-        if (null !== $this->utcCreate) {
-            $res['UtcCreate'] = $this->utcCreate;
-        }
-        if (null !== $this->utcModified) {
-            $res['UtcModified'] = $this->utcModified;
-        }
-        if (null !== $this->status) {
-            $res['Status'] = $this->status;
-        }
-        if (null !== $this->firmwareDesc) {
-            $res['FirmwareDesc'] = $this->firmwareDesc;
+        if (null !== $this->firmwareName) {
+            $res['FirmwareName'] = $this->firmwareName;
         }
         if (null !== $this->firmwareSign) {
             $res['FirmwareSign'] = $this->firmwareSign;
@@ -137,20 +125,32 @@ class simpleFirmwareInfo extends Model
         if (null !== $this->firmwareSize) {
             $res['FirmwareSize'] = $this->firmwareSize;
         }
+        if (null !== $this->moduleName) {
+            $res['ModuleName'] = $this->moduleName;
+        }
         if (null !== $this->productKey) {
             $res['ProductKey'] = $this->productKey;
-        }
-        if (null !== $this->signMethod) {
-            $res['SignMethod'] = $this->signMethod;
         }
         if (null !== $this->productName) {
             $res['ProductName'] = $this->productName;
         }
+        if (null !== $this->signMethod) {
+            $res['SignMethod'] = $this->signMethod;
+        }
+        if (null !== $this->srcVersion) {
+            $res['SrcVersion'] = $this->srcVersion;
+        }
+        if (null !== $this->status) {
+            $res['Status'] = $this->status;
+        }
         if (null !== $this->type) {
             $res['Type'] = $this->type;
         }
-        if (null !== $this->moduleName) {
-            $res['ModuleName'] = $this->moduleName;
+        if (null !== $this->utcCreate) {
+            $res['UtcCreate'] = $this->utcCreate;
+        }
+        if (null !== $this->utcModified) {
+            $res['UtcModified'] = $this->utcModified;
         }
 
         return $res;
@@ -164,29 +164,17 @@ class simpleFirmwareInfo extends Model
     public static function fromMap($map = [])
     {
         $model = new self();
-        if (isset($map['FirmwareName'])) {
-            $model->firmwareName = $map['FirmwareName'];
+        if (isset($map['DestVersion'])) {
+            $model->destVersion = $map['DestVersion'];
+        }
+        if (isset($map['FirmwareDesc'])) {
+            $model->firmwareDesc = $map['FirmwareDesc'];
         }
         if (isset($map['FirmwareId'])) {
             $model->firmwareId = $map['FirmwareId'];
         }
-        if (isset($map['SrcVersion'])) {
-            $model->srcVersion = $map['SrcVersion'];
-        }
-        if (isset($map['DestVersion'])) {
-            $model->destVersion = $map['DestVersion'];
-        }
-        if (isset($map['UtcCreate'])) {
-            $model->utcCreate = $map['UtcCreate'];
-        }
-        if (isset($map['UtcModified'])) {
-            $model->utcModified = $map['UtcModified'];
-        }
-        if (isset($map['Status'])) {
-            $model->status = $map['Status'];
-        }
-        if (isset($map['FirmwareDesc'])) {
-            $model->firmwareDesc = $map['FirmwareDesc'];
+        if (isset($map['FirmwareName'])) {
+            $model->firmwareName = $map['FirmwareName'];
         }
         if (isset($map['FirmwareSign'])) {
             $model->firmwareSign = $map['FirmwareSign'];
@@ -194,20 +182,32 @@ class simpleFirmwareInfo extends Model
         if (isset($map['FirmwareSize'])) {
             $model->firmwareSize = $map['FirmwareSize'];
         }
+        if (isset($map['ModuleName'])) {
+            $model->moduleName = $map['ModuleName'];
+        }
         if (isset($map['ProductKey'])) {
             $model->productKey = $map['ProductKey'];
-        }
-        if (isset($map['SignMethod'])) {
-            $model->signMethod = $map['SignMethod'];
         }
         if (isset($map['ProductName'])) {
             $model->productName = $map['ProductName'];
         }
+        if (isset($map['SignMethod'])) {
+            $model->signMethod = $map['SignMethod'];
+        }
+        if (isset($map['SrcVersion'])) {
+            $model->srcVersion = $map['SrcVersion'];
+        }
+        if (isset($map['Status'])) {
+            $model->status = $map['Status'];
+        }
         if (isset($map['Type'])) {
             $model->type = $map['Type'];
         }
-        if (isset($map['ModuleName'])) {
-            $model->moduleName = $map['ModuleName'];
+        if (isset($map['UtcCreate'])) {
+            $model->utcCreate = $map['UtcCreate'];
+        }
+        if (isset($map['UtcModified'])) {
+            $model->utcModified = $map['UtcModified'];
         }
 
         return $model;

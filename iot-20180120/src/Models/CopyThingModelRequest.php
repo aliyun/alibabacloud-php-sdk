@@ -21,23 +21,23 @@ class CopyThingModelRequest extends Model
     /**
      * @var string
      */
+    public $sourceModelVersion;
+
+    /**
+     * @var string
+     */
     public $sourceProductKey;
 
     /**
      * @var string
      */
     public $targetProductKey;
-
-    /**
-     * @var string
-     */
-    public $sourceModelVersion;
     protected $_name = [
         'iotInstanceId'      => 'IotInstanceId',
         'resourceGroupId'    => 'ResourceGroupId',
+        'sourceModelVersion' => 'SourceModelVersion',
         'sourceProductKey'   => 'SourceProductKey',
         'targetProductKey'   => 'TargetProductKey',
-        'sourceModelVersion' => 'SourceModelVersion',
     ];
 
     public function validate()
@@ -53,14 +53,14 @@ class CopyThingModelRequest extends Model
         if (null !== $this->resourceGroupId) {
             $res['ResourceGroupId'] = $this->resourceGroupId;
         }
+        if (null !== $this->sourceModelVersion) {
+            $res['SourceModelVersion'] = $this->sourceModelVersion;
+        }
         if (null !== $this->sourceProductKey) {
             $res['SourceProductKey'] = $this->sourceProductKey;
         }
         if (null !== $this->targetProductKey) {
             $res['TargetProductKey'] = $this->targetProductKey;
-        }
-        if (null !== $this->sourceModelVersion) {
-            $res['SourceModelVersion'] = $this->sourceModelVersion;
         }
 
         return $res;
@@ -80,14 +80,14 @@ class CopyThingModelRequest extends Model
         if (isset($map['ResourceGroupId'])) {
             $model->resourceGroupId = $map['ResourceGroupId'];
         }
+        if (isset($map['SourceModelVersion'])) {
+            $model->sourceModelVersion = $map['SourceModelVersion'];
+        }
         if (isset($map['SourceProductKey'])) {
             $model->sourceProductKey = $map['SourceProductKey'];
         }
         if (isset($map['TargetProductKey'])) {
             $model->targetProductKey = $map['TargetProductKey'];
-        }
-        if (isset($map['SourceModelVersion'])) {
-            $model->sourceModelVersion = $map['SourceModelVersion'];
         }
 
         return $model;

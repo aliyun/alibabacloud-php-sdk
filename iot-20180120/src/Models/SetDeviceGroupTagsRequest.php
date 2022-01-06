@@ -11,20 +11,20 @@ class SetDeviceGroupTagsRequest extends Model
     /**
      * @var string
      */
-    public $iotInstanceId;
+    public $groupId;
 
     /**
      * @var string
      */
-    public $groupId;
+    public $iotInstanceId;
 
     /**
      * @var string
      */
     public $tagString;
     protected $_name = [
-        'iotInstanceId' => 'IotInstanceId',
         'groupId'       => 'GroupId',
+        'iotInstanceId' => 'IotInstanceId',
         'tagString'     => 'TagString',
     ];
 
@@ -35,11 +35,11 @@ class SetDeviceGroupTagsRequest extends Model
     public function toMap()
     {
         $res = [];
-        if (null !== $this->iotInstanceId) {
-            $res['IotInstanceId'] = $this->iotInstanceId;
-        }
         if (null !== $this->groupId) {
             $res['GroupId'] = $this->groupId;
+        }
+        if (null !== $this->iotInstanceId) {
+            $res['IotInstanceId'] = $this->iotInstanceId;
         }
         if (null !== $this->tagString) {
             $res['TagString'] = $this->tagString;
@@ -56,11 +56,11 @@ class SetDeviceGroupTagsRequest extends Model
     public static function fromMap($map = [])
     {
         $model = new self();
-        if (isset($map['IotInstanceId'])) {
-            $model->iotInstanceId = $map['IotInstanceId'];
-        }
         if (isset($map['GroupId'])) {
             $model->groupId = $map['GroupId'];
+        }
+        if (isset($map['IotInstanceId'])) {
+            $model->iotInstanceId = $map['IotInstanceId'];
         }
         if (isset($map['TagString'])) {
             $model->tagString = $map['TagString'];

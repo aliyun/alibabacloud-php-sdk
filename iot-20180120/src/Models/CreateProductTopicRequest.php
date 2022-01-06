@@ -11,7 +11,17 @@ class CreateProductTopicRequest extends Model
     /**
      * @var string
      */
+    public $desc;
+
+    /**
+     * @var string
+     */
     public $iotInstanceId;
+
+    /**
+     * @var string
+     */
+    public $operation;
 
     /**
      * @var string
@@ -22,22 +32,12 @@ class CreateProductTopicRequest extends Model
      * @var string
      */
     public $topicShortName;
-
-    /**
-     * @var string
-     */
-    public $operation;
-
-    /**
-     * @var string
-     */
-    public $desc;
     protected $_name = [
+        'desc'           => 'Desc',
         'iotInstanceId'  => 'IotInstanceId',
+        'operation'      => 'Operation',
         'productKey'     => 'ProductKey',
         'topicShortName' => 'TopicShortName',
-        'operation'      => 'Operation',
-        'desc'           => 'Desc',
     ];
 
     public function validate()
@@ -47,20 +47,20 @@ class CreateProductTopicRequest extends Model
     public function toMap()
     {
         $res = [];
+        if (null !== $this->desc) {
+            $res['Desc'] = $this->desc;
+        }
         if (null !== $this->iotInstanceId) {
             $res['IotInstanceId'] = $this->iotInstanceId;
+        }
+        if (null !== $this->operation) {
+            $res['Operation'] = $this->operation;
         }
         if (null !== $this->productKey) {
             $res['ProductKey'] = $this->productKey;
         }
         if (null !== $this->topicShortName) {
             $res['TopicShortName'] = $this->topicShortName;
-        }
-        if (null !== $this->operation) {
-            $res['Operation'] = $this->operation;
-        }
-        if (null !== $this->desc) {
-            $res['Desc'] = $this->desc;
         }
 
         return $res;
@@ -74,20 +74,20 @@ class CreateProductTopicRequest extends Model
     public static function fromMap($map = [])
     {
         $model = new self();
+        if (isset($map['Desc'])) {
+            $model->desc = $map['Desc'];
+        }
         if (isset($map['IotInstanceId'])) {
             $model->iotInstanceId = $map['IotInstanceId'];
+        }
+        if (isset($map['Operation'])) {
+            $model->operation = $map['Operation'];
         }
         if (isset($map['ProductKey'])) {
             $model->productKey = $map['ProductKey'];
         }
         if (isset($map['TopicShortName'])) {
             $model->topicShortName = $map['TopicShortName'];
-        }
-        if (isset($map['Operation'])) {
-            $model->operation = $map['Operation'];
-        }
-        if (isset($map['Desc'])) {
-            $model->desc = $map['Desc'];
         }
 
         return $model;

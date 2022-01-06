@@ -12,16 +12,6 @@ class QueryOTAFirmwareResponseBody extends Model
     /**
      * @var string
      */
-    public $requestId;
-
-    /**
-     * @var bool
-     */
-    public $success;
-
-    /**
-     * @var string
-     */
     public $code;
 
     /**
@@ -33,12 +23,22 @@ class QueryOTAFirmwareResponseBody extends Model
      * @var firmwareInfo
      */
     public $firmwareInfo;
+
+    /**
+     * @var string
+     */
+    public $requestId;
+
+    /**
+     * @var bool
+     */
+    public $success;
     protected $_name = [
-        'requestId'    => 'RequestId',
-        'success'      => 'Success',
         'code'         => 'Code',
         'errorMessage' => 'ErrorMessage',
         'firmwareInfo' => 'FirmwareInfo',
+        'requestId'    => 'RequestId',
+        'success'      => 'Success',
     ];
 
     public function validate()
@@ -48,12 +48,6 @@ class QueryOTAFirmwareResponseBody extends Model
     public function toMap()
     {
         $res = [];
-        if (null !== $this->requestId) {
-            $res['RequestId'] = $this->requestId;
-        }
-        if (null !== $this->success) {
-            $res['Success'] = $this->success;
-        }
         if (null !== $this->code) {
             $res['Code'] = $this->code;
         }
@@ -62,6 +56,12 @@ class QueryOTAFirmwareResponseBody extends Model
         }
         if (null !== $this->firmwareInfo) {
             $res['FirmwareInfo'] = null !== $this->firmwareInfo ? $this->firmwareInfo->toMap() : null;
+        }
+        if (null !== $this->requestId) {
+            $res['RequestId'] = $this->requestId;
+        }
+        if (null !== $this->success) {
+            $res['Success'] = $this->success;
         }
 
         return $res;
@@ -75,12 +75,6 @@ class QueryOTAFirmwareResponseBody extends Model
     public static function fromMap($map = [])
     {
         $model = new self();
-        if (isset($map['RequestId'])) {
-            $model->requestId = $map['RequestId'];
-        }
-        if (isset($map['Success'])) {
-            $model->success = $map['Success'];
-        }
         if (isset($map['Code'])) {
             $model->code = $map['Code'];
         }
@@ -89,6 +83,12 @@ class QueryOTAFirmwareResponseBody extends Model
         }
         if (isset($map['FirmwareInfo'])) {
             $model->firmwareInfo = firmwareInfo::fromMap($map['FirmwareInfo']);
+        }
+        if (isset($map['RequestId'])) {
+            $model->requestId = $map['RequestId'];
+        }
+        if (isset($map['Success'])) {
+            $model->success = $map['Success'];
         }
 
         return $model;

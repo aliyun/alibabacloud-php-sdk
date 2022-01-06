@@ -6,6 +6,8 @@ namespace AlibabaCloud\SDK\Iot\V20180120;
 
 use AlibabaCloud\Endpoint\Endpoint;
 use AlibabaCloud\OpenApiUtil\OpenApiUtilClient;
+use AlibabaCloud\SDK\Iot\V20180120\Models\AddDataForApiSourceRequest;
+use AlibabaCloud\SDK\Iot\V20180120\Models\AddDataForApiSourceResponse;
 use AlibabaCloud\SDK\Iot\V20180120\Models\BatchAddDeviceGroupRelationsRequest;
 use AlibabaCloud\SDK\Iot\V20180120\Models\BatchAddDeviceGroupRelationsResponse;
 use AlibabaCloud\SDK\Iot\V20180120\Models\BatchAddThingTopoRequest;
@@ -84,6 +86,8 @@ use AlibabaCloud\SDK\Iot\V20180120\Models\ClearEdgeInstanceDriverConfigsRequest;
 use AlibabaCloud\SDK\Iot\V20180120\Models\ClearEdgeInstanceDriverConfigsResponse;
 use AlibabaCloud\SDK\Iot\V20180120\Models\CloseEdgeInstanceDeploymentRequest;
 use AlibabaCloud\SDK\Iot\V20180120\Models\CloseEdgeInstanceDeploymentResponse;
+use AlibabaCloud\SDK\Iot\V20180120\Models\ConfirmOTATaskRequest;
+use AlibabaCloud\SDK\Iot\V20180120\Models\ConfirmOTATaskResponse;
 use AlibabaCloud\SDK\Iot\V20180120\Models\CopyThingModelRequest;
 use AlibabaCloud\SDK\Iot\V20180120\Models\CopyThingModelResponse;
 use AlibabaCloud\SDK\Iot\V20180120\Models\CreateConsumerGroupRequest;
@@ -140,6 +144,10 @@ use AlibabaCloud\SDK\Iot\V20180120\Models\CreateRuleRequest;
 use AlibabaCloud\SDK\Iot\V20180120\Models\CreateRuleResponse;
 use AlibabaCloud\SDK\Iot\V20180120\Models\CreateSceneRuleRequest;
 use AlibabaCloud\SDK\Iot\V20180120\Models\CreateSceneRuleResponse;
+use AlibabaCloud\SDK\Iot\V20180120\Models\CreateSpeechRequest;
+use AlibabaCloud\SDK\Iot\V20180120\Models\CreateSpeechResponse;
+use AlibabaCloud\SDK\Iot\V20180120\Models\CreateStudioAppDomainOpenRequest;
+use AlibabaCloud\SDK\Iot\V20180120\Models\CreateStudioAppDomainOpenResponse;
 use AlibabaCloud\SDK\Iot\V20180120\Models\CreateSubscribeRelationRequest;
 use AlibabaCloud\SDK\Iot\V20180120\Models\CreateSubscribeRelationResponse;
 use AlibabaCloud\SDK\Iot\V20180120\Models\CreateThingModelRequest;
@@ -190,6 +198,8 @@ use AlibabaCloud\SDK\Iot\V20180120\Models\DeleteSceneRuleRequest;
 use AlibabaCloud\SDK\Iot\V20180120\Models\DeleteSceneRuleResponse;
 use AlibabaCloud\SDK\Iot\V20180120\Models\DeleteSpeechRequest;
 use AlibabaCloud\SDK\Iot\V20180120\Models\DeleteSpeechResponse;
+use AlibabaCloud\SDK\Iot\V20180120\Models\DeleteStudioAppDomainOpenRequest;
+use AlibabaCloud\SDK\Iot\V20180120\Models\DeleteStudioAppDomainOpenResponse;
 use AlibabaCloud\SDK\Iot\V20180120\Models\DeleteSubscribeRelationRequest;
 use AlibabaCloud\SDK\Iot\V20180120\Models\DeleteSubscribeRelationResponse;
 use AlibabaCloud\SDK\Iot\V20180120\Models\DeleteThingModelRequest;
@@ -248,6 +258,9 @@ use AlibabaCloud\SDK\Iot\V20180120\Models\GetRuleRequest;
 use AlibabaCloud\SDK\Iot\V20180120\Models\GetRuleResponse;
 use AlibabaCloud\SDK\Iot\V20180120\Models\GetSceneRuleRequest;
 use AlibabaCloud\SDK\Iot\V20180120\Models\GetSceneRuleResponse;
+use AlibabaCloud\SDK\Iot\V20180120\Models\GetSpeechVoiceResponse;
+use AlibabaCloud\SDK\Iot\V20180120\Models\GetStudioAppTokenOpenRequest;
+use AlibabaCloud\SDK\Iot\V20180120\Models\GetStudioAppTokenOpenResponse;
 use AlibabaCloud\SDK\Iot\V20180120\Models\GetThingModelTslPublishedRequest;
 use AlibabaCloud\SDK\Iot\V20180120\Models\GetThingModelTslPublishedResponse;
 use AlibabaCloud\SDK\Iot\V20180120\Models\GetThingModelTslRequest;
@@ -288,6 +301,8 @@ use AlibabaCloud\SDK\Iot\V20180120\Models\ListOTAModuleVersionsByDeviceRequest;
 use AlibabaCloud\SDK\Iot\V20180120\Models\ListOTAModuleVersionsByDeviceResponse;
 use AlibabaCloud\SDK\Iot\V20180120\Models\ListOTATaskByJobRequest;
 use AlibabaCloud\SDK\Iot\V20180120\Models\ListOTATaskByJobResponse;
+use AlibabaCloud\SDK\Iot\V20180120\Models\ListOTAUnfinishedTaskByDeviceRequest;
+use AlibabaCloud\SDK\Iot\V20180120\Models\ListOTAUnfinishedTaskByDeviceResponse;
 use AlibabaCloud\SDK\Iot\V20180120\Models\ListProductByTagsRequest;
 use AlibabaCloud\SDK\Iot\V20180120\Models\ListProductByTagsResponse;
 use AlibabaCloud\SDK\Iot\V20180120\Models\ListProductTagsRequest;
@@ -312,10 +327,14 @@ use AlibabaCloud\SDK\Iot\V20180120\Models\PrintByTemplateRequest;
 use AlibabaCloud\SDK\Iot\V20180120\Models\PrintByTemplateResponse;
 use AlibabaCloud\SDK\Iot\V20180120\Models\PubBroadcastRequest;
 use AlibabaCloud\SDK\Iot\V20180120\Models\PubBroadcastResponse;
+use AlibabaCloud\SDK\Iot\V20180120\Models\PublishStudioAppRequest;
+use AlibabaCloud\SDK\Iot\V20180120\Models\PublishStudioAppResponse;
 use AlibabaCloud\SDK\Iot\V20180120\Models\PublishThingModelRequest;
 use AlibabaCloud\SDK\Iot\V20180120\Models\PublishThingModelResponse;
 use AlibabaCloud\SDK\Iot\V20180120\Models\PubRequest;
 use AlibabaCloud\SDK\Iot\V20180120\Models\PubResponse;
+use AlibabaCloud\SDK\Iot\V20180120\Models\PushSpeechRequest;
+use AlibabaCloud\SDK\Iot\V20180120\Models\PushSpeechResponse;
 use AlibabaCloud\SDK\Iot\V20180120\Models\QueryAppDeviceListRequest;
 use AlibabaCloud\SDK\Iot\V20180120\Models\QueryAppDeviceListResponse;
 use AlibabaCloud\SDK\Iot\V20180120\Models\QueryBatchRegisterDeviceStatusRequest;
@@ -362,6 +381,8 @@ use AlibabaCloud\SDK\Iot\V20180120\Models\QueryDeviceGroupListRequest;
 use AlibabaCloud\SDK\Iot\V20180120\Models\QueryDeviceGroupListResponse;
 use AlibabaCloud\SDK\Iot\V20180120\Models\QueryDeviceGroupTagListRequest;
 use AlibabaCloud\SDK\Iot\V20180120\Models\QueryDeviceGroupTagListResponse;
+use AlibabaCloud\SDK\Iot\V20180120\Models\QueryDeviceInfoRequest;
+use AlibabaCloud\SDK\Iot\V20180120\Models\QueryDeviceInfoResponse;
 use AlibabaCloud\SDK\Iot\V20180120\Models\QueryDeviceListByDeviceGroupRequest;
 use AlibabaCloud\SDK\Iot\V20180120\Models\QueryDeviceListByDeviceGroupResponse;
 use AlibabaCloud\SDK\Iot\V20180120\Models\QueryDeviceOriginalEventDataRequest;
@@ -414,6 +435,8 @@ use AlibabaCloud\SDK\Iot\V20180120\Models\QueryJobStatisticsRequest;
 use AlibabaCloud\SDK\Iot\V20180120\Models\QueryJobStatisticsResponse;
 use AlibabaCloud\SDK\Iot\V20180120\Models\QueryLoRaJoinPermissionsRequest;
 use AlibabaCloud\SDK\Iot\V20180120\Models\QueryLoRaJoinPermissionsResponse;
+use AlibabaCloud\SDK\Iot\V20180120\Models\QueryMessageInfoRequest;
+use AlibabaCloud\SDK\Iot\V20180120\Models\QueryMessageInfoResponse;
 use AlibabaCloud\SDK\Iot\V20180120\Models\QueryOTAFirmwareRequest;
 use AlibabaCloud\SDK\Iot\V20180120\Models\QueryOTAFirmwareResponse;
 use AlibabaCloud\SDK\Iot\V20180120\Models\QueryOTAJobRequest;
@@ -430,6 +453,26 @@ use AlibabaCloud\SDK\Iot\V20180120\Models\QueryProductTopicRequest;
 use AlibabaCloud\SDK\Iot\V20180120\Models\QueryProductTopicResponse;
 use AlibabaCloud\SDK\Iot\V20180120\Models\QuerySceneRuleRequest;
 use AlibabaCloud\SDK\Iot\V20180120\Models\QuerySceneRuleResponse;
+use AlibabaCloud\SDK\Iot\V20180120\Models\QuerySolutionDeviceGroupPageRequest;
+use AlibabaCloud\SDK\Iot\V20180120\Models\QuerySolutionDeviceGroupPageResponse;
+use AlibabaCloud\SDK\Iot\V20180120\Models\QuerySpeechListRequest;
+use AlibabaCloud\SDK\Iot\V20180120\Models\QuerySpeechListResponse;
+use AlibabaCloud\SDK\Iot\V20180120\Models\QuerySpeechPushJobDeviceRequest;
+use AlibabaCloud\SDK\Iot\V20180120\Models\QuerySpeechPushJobDeviceResponse;
+use AlibabaCloud\SDK\Iot\V20180120\Models\QuerySpeechPushJobRequest;
+use AlibabaCloud\SDK\Iot\V20180120\Models\QuerySpeechPushJobResponse;
+use AlibabaCloud\SDK\Iot\V20180120\Models\QuerySpeechPushJobSpeechRequest;
+use AlibabaCloud\SDK\Iot\V20180120\Models\QuerySpeechPushJobSpeechResponse;
+use AlibabaCloud\SDK\Iot\V20180120\Models\QuerySpeechRequest;
+use AlibabaCloud\SDK\Iot\V20180120\Models\QuerySpeechResponse;
+use AlibabaCloud\SDK\Iot\V20180120\Models\QueryStudioAppDomainListOpenRequest;
+use AlibabaCloud\SDK\Iot\V20180120\Models\QueryStudioAppDomainListOpenResponse;
+use AlibabaCloud\SDK\Iot\V20180120\Models\QueryStudioAppListRequest;
+use AlibabaCloud\SDK\Iot\V20180120\Models\QueryStudioAppListResponse;
+use AlibabaCloud\SDK\Iot\V20180120\Models\QueryStudioAppPageListOpenRequest;
+use AlibabaCloud\SDK\Iot\V20180120\Models\QueryStudioAppPageListOpenResponse;
+use AlibabaCloud\SDK\Iot\V20180120\Models\QueryStudioProjectListRequest;
+use AlibabaCloud\SDK\Iot\V20180120\Models\QueryStudioProjectListResponse;
 use AlibabaCloud\SDK\Iot\V20180120\Models\QuerySubscribeRelationRequest;
 use AlibabaCloud\SDK\Iot\V20180120\Models\QuerySubscribeRelationResponse;
 use AlibabaCloud\SDK\Iot\V20180120\Models\QuerySummarySceneRuleLogRequest;
@@ -452,6 +495,8 @@ use AlibabaCloud\SDK\Iot\V20180120\Models\QueryTopicRouteTableRequest;
 use AlibabaCloud\SDK\Iot\V20180120\Models\QueryTopicRouteTableResponse;
 use AlibabaCloud\SDK\Iot\V20180120\Models\RefreshDeviceTunnelSharePasswordRequest;
 use AlibabaCloud\SDK\Iot\V20180120\Models\RefreshDeviceTunnelSharePasswordResponse;
+use AlibabaCloud\SDK\Iot\V20180120\Models\RefreshStudioAppTokenOpenRequest;
+use AlibabaCloud\SDK\Iot\V20180120\Models\RefreshStudioAppTokenOpenResponse;
 use AlibabaCloud\SDK\Iot\V20180120\Models\RegisterDeviceRequest;
 use AlibabaCloud\SDK\Iot\V20180120\Models\RegisterDeviceResponse;
 use AlibabaCloud\SDK\Iot\V20180120\Models\ReleaseEdgeDriverVersionRequest;
@@ -462,6 +507,8 @@ use AlibabaCloud\SDK\Iot\V20180120\Models\RemoveThingTopoRequest;
 use AlibabaCloud\SDK\Iot\V20180120\Models\RemoveThingTopoResponse;
 use AlibabaCloud\SDK\Iot\V20180120\Models\ReplaceEdgeInstanceGatewayRequest;
 use AlibabaCloud\SDK\Iot\V20180120\Models\ReplaceEdgeInstanceGatewayResponse;
+use AlibabaCloud\SDK\Iot\V20180120\Models\RerunJobRequest;
+use AlibabaCloud\SDK\Iot\V20180120\Models\RerunJobResponse;
 use AlibabaCloud\SDK\Iot\V20180120\Models\ResetConsumerGroupPositionRequest;
 use AlibabaCloud\SDK\Iot\V20180120\Models\ResetConsumerGroupPositionResponse;
 use AlibabaCloud\SDK\Iot\V20180120\Models\ResetThingRequest;
@@ -482,6 +529,10 @@ use AlibabaCloud\SDK\Iot\V20180120\Models\SetEdgeInstanceDriverConfigsRequest;
 use AlibabaCloud\SDK\Iot\V20180120\Models\SetEdgeInstanceDriverConfigsResponse;
 use AlibabaCloud\SDK\Iot\V20180120\Models\SetProductCertInfoRequest;
 use AlibabaCloud\SDK\Iot\V20180120\Models\SetProductCertInfoResponse;
+use AlibabaCloud\SDK\Iot\V20180120\Models\SetStudioProjectCooperationRequest;
+use AlibabaCloud\SDK\Iot\V20180120\Models\SetStudioProjectCooperationResponse;
+use AlibabaCloud\SDK\Iot\V20180120\Models\SetupStudioAppAuthModeOpenRequest;
+use AlibabaCloud\SDK\Iot\V20180120\Models\SetupStudioAppAuthModeOpenResponse;
 use AlibabaCloud\SDK\Iot\V20180120\Models\SpeechByCombinationRequest;
 use AlibabaCloud\SDK\Iot\V20180120\Models\SpeechByCombinationResponse;
 use AlibabaCloud\SDK\Iot\V20180120\Models\StartCpuRequest;
@@ -492,6 +543,8 @@ use AlibabaCloud\SDK\Iot\V20180120\Models\StopRuleRequest;
 use AlibabaCloud\SDK\Iot\V20180120\Models\StopRuleResponse;
 use AlibabaCloud\SDK\Iot\V20180120\Models\SyncSpeechByCombinationRequest;
 use AlibabaCloud\SDK\Iot\V20180120\Models\SyncSpeechByCombinationResponse;
+use AlibabaCloud\SDK\Iot\V20180120\Models\TestSpeechRequest;
+use AlibabaCloud\SDK\Iot\V20180120\Models\TestSpeechResponse;
 use AlibabaCloud\SDK\Iot\V20180120\Models\TriggerSceneRuleRequest;
 use AlibabaCloud\SDK\Iot\V20180120\Models\TriggerSceneRuleResponse;
 use AlibabaCloud\SDK\Iot\V20180120\Models\UnbindApplicationFromEdgeInstanceRequest;
@@ -534,6 +587,8 @@ use AlibabaCloud\SDK\Iot\V20180120\Models\UpdateRuleRequest;
 use AlibabaCloud\SDK\Iot\V20180120\Models\UpdateRuleResponse;
 use AlibabaCloud\SDK\Iot\V20180120\Models\UpdateSceneRuleRequest;
 use AlibabaCloud\SDK\Iot\V20180120\Models\UpdateSceneRuleResponse;
+use AlibabaCloud\SDK\Iot\V20180120\Models\UpdateSpeechRequest;
+use AlibabaCloud\SDK\Iot\V20180120\Models\UpdateSpeechResponse;
 use AlibabaCloud\SDK\Iot\V20180120\Models\UpdateSubscribeRelationRequest;
 use AlibabaCloud\SDK\Iot\V20180120\Models\UpdateSubscribeRelationResponse;
 use AlibabaCloud\SDK\Iot\V20180120\Models\UpdateThingModelRequest;
@@ -545,6 +600,7 @@ use AlibabaCloud\SDK\Iot\V20180120\Models\UpdateThingScriptResponse;
 use AlibabaCloud\Tea\Utils\Utils;
 use AlibabaCloud\Tea\Utils\Utils\RuntimeOptions;
 use Darabonba\OpenApi\Models\OpenApiRequest;
+use Darabonba\OpenApi\Models\Params;
 use Darabonba\OpenApi\OpenApiClient;
 
 class Iot extends OpenApiClient
@@ -630,6 +686,55 @@ class Iot extends OpenApiClient
     }
 
     /**
+     * @param AddDataForApiSourceRequest $request
+     * @param RuntimeOptions             $runtime
+     *
+     * @return AddDataForApiSourceResponse
+     */
+    public function addDataForApiSourceWithOptions($request, $runtime)
+    {
+        Utils::validateModel($request);
+        $query = [];
+        if (!Utils::isUnset($request->apiId)) {
+            $query['ApiId'] = $request->apiId;
+        }
+        if (!Utils::isUnset($request->content)) {
+            $query['Content'] = $request->content;
+        }
+        if (!Utils::isUnset($request->iotInstanceId)) {
+            $query['IotInstanceId'] = $request->iotInstanceId;
+        }
+        $req = new OpenApiRequest([
+            'query' => OpenApiUtilClient::query($query),
+        ]);
+        $params = new Params([
+            'action'      => 'AddDataForApiSource',
+            'version'     => '2018-01-20',
+            'protocol'    => 'HTTPS',
+            'pathname'    => '/',
+            'method'      => 'POST',
+            'authType'    => 'AK',
+            'style'       => 'RPC',
+            'reqBodyType' => 'formData',
+            'bodyType'    => 'json',
+        ]);
+
+        return AddDataForApiSourceResponse::fromMap($this->callApi($params, $req, $runtime));
+    }
+
+    /**
+     * @param AddDataForApiSourceRequest $request
+     *
+     * @return AddDataForApiSourceResponse
+     */
+    public function addDataForApiSource($request)
+    {
+        $runtime = new RuntimeOptions([]);
+
+        return $this->addDataForApiSourceWithOptions($request, $runtime);
+    }
+
+    /**
      * @param BatchAddDeviceGroupRelationsRequest $request
      * @param RuntimeOptions                      $runtime
      *
@@ -638,11 +743,32 @@ class Iot extends OpenApiClient
     public function batchAddDeviceGroupRelationsWithOptions($request, $runtime)
     {
         Utils::validateModel($request);
+        $query = [];
+        if (!Utils::isUnset($request->device)) {
+            $query['Device'] = $request->device;
+        }
+        if (!Utils::isUnset($request->groupId)) {
+            $query['GroupId'] = $request->groupId;
+        }
+        if (!Utils::isUnset($request->iotInstanceId)) {
+            $query['IotInstanceId'] = $request->iotInstanceId;
+        }
         $req = new OpenApiRequest([
-            'body' => Utils::toMap($request),
+            'query' => OpenApiUtilClient::query($query),
+        ]);
+        $params = new Params([
+            'action'      => 'BatchAddDeviceGroupRelations',
+            'version'     => '2018-01-20',
+            'protocol'    => 'HTTPS',
+            'pathname'    => '/',
+            'method'      => 'POST',
+            'authType'    => 'AK',
+            'style'       => 'RPC',
+            'reqBodyType' => 'formData',
+            'bodyType'    => 'json',
         ]);
 
-        return BatchAddDeviceGroupRelationsResponse::fromMap($this->doRPCRequest('BatchAddDeviceGroupRelations', '2018-01-20', 'HTTPS', 'POST', 'AK', 'json', $req, $runtime));
+        return BatchAddDeviceGroupRelationsResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
@@ -666,11 +792,35 @@ class Iot extends OpenApiClient
     public function batchAddThingTopoWithOptions($request, $runtime)
     {
         Utils::validateModel($request);
+        $query = [];
+        if (!Utils::isUnset($request->gwDeviceName)) {
+            $query['GwDeviceName'] = $request->gwDeviceName;
+        }
+        if (!Utils::isUnset($request->gwProductKey)) {
+            $query['GwProductKey'] = $request->gwProductKey;
+        }
+        if (!Utils::isUnset($request->iotInstanceId)) {
+            $query['IotInstanceId'] = $request->iotInstanceId;
+        }
+        if (!Utils::isUnset($request->topoAddItem)) {
+            $query['TopoAddItem'] = $request->topoAddItem;
+        }
         $req = new OpenApiRequest([
-            'body' => Utils::toMap($request),
+            'query' => OpenApiUtilClient::query($query),
+        ]);
+        $params = new Params([
+            'action'      => 'BatchAddThingTopo',
+            'version'     => '2018-01-20',
+            'protocol'    => 'HTTPS',
+            'pathname'    => '/',
+            'method'      => 'POST',
+            'authType'    => 'AK',
+            'style'       => 'RPC',
+            'reqBodyType' => 'formData',
+            'bodyType'    => 'json',
         ]);
 
-        return BatchAddThingTopoResponse::fromMap($this->doRPCRequest('BatchAddThingTopo', '2018-01-20', 'HTTPS', 'POST', 'AK', 'json', $req, $runtime));
+        return BatchAddThingTopoResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
@@ -686,34 +836,6 @@ class Iot extends OpenApiClient
     }
 
     /**
-     * @param BatchBindDevicesIntoProjectRequest $request
-     * @param RuntimeOptions                     $runtime
-     *
-     * @return BatchBindDevicesIntoProjectResponse
-     */
-    public function batchBindDevicesIntoProjectWithOptions($request, $runtime)
-    {
-        Utils::validateModel($request);
-        $req = new OpenApiRequest([
-            'body' => Utils::toMap($request),
-        ]);
-
-        return BatchBindDevicesIntoProjectResponse::fromMap($this->doRPCRequest('BatchBindDevicesIntoProject', '2018-01-20', 'HTTPS', 'POST', 'AK', 'json', $req, $runtime));
-    }
-
-    /**
-     * @param BatchBindDevicesIntoProjectRequest $request
-     *
-     * @return BatchBindDevicesIntoProjectResponse
-     */
-    public function batchBindDevicesIntoProject($request)
-    {
-        $runtime = new RuntimeOptions([]);
-
-        return $this->batchBindDevicesIntoProjectWithOptions($request, $runtime);
-    }
-
-    /**
      * @param BatchBindDeviceToEdgeInstanceWithDriverRequest $request
      * @param RuntimeOptions                                 $runtime
      *
@@ -722,11 +844,35 @@ class Iot extends OpenApiClient
     public function batchBindDeviceToEdgeInstanceWithDriverWithOptions($request, $runtime)
     {
         Utils::validateModel($request);
+        $query = [];
+        if (!Utils::isUnset($request->driverId)) {
+            $query['DriverId'] = $request->driverId;
+        }
+        if (!Utils::isUnset($request->instanceId)) {
+            $query['InstanceId'] = $request->instanceId;
+        }
+        if (!Utils::isUnset($request->iotIds)) {
+            $query['IotIds'] = $request->iotIds;
+        }
+        if (!Utils::isUnset($request->iotInstanceId)) {
+            $query['IotInstanceId'] = $request->iotInstanceId;
+        }
         $req = new OpenApiRequest([
-            'body' => Utils::toMap($request),
+            'query' => OpenApiUtilClient::query($query),
+        ]);
+        $params = new Params([
+            'action'      => 'BatchBindDeviceToEdgeInstanceWithDriver',
+            'version'     => '2018-01-20',
+            'protocol'    => 'HTTPS',
+            'pathname'    => '/',
+            'method'      => 'POST',
+            'authType'    => 'AK',
+            'style'       => 'RPC',
+            'reqBodyType' => 'formData',
+            'bodyType'    => 'json',
         ]);
 
-        return BatchBindDeviceToEdgeInstanceWithDriverResponse::fromMap($this->doRPCRequest('BatchBindDeviceToEdgeInstanceWithDriver', '2018-01-20', 'HTTPS', 'POST', 'AK', 'json', $req, $runtime));
+        return BatchBindDeviceToEdgeInstanceWithDriverResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
@@ -742,6 +888,45 @@ class Iot extends OpenApiClient
     }
 
     /**
+     * @param BatchBindDevicesIntoProjectRequest $request
+     * @param RuntimeOptions                     $runtime
+     *
+     * @return BatchBindDevicesIntoProjectResponse
+     */
+    public function batchBindDevicesIntoProjectWithOptions($request, $runtime)
+    {
+        Utils::validateModel($request);
+        $req = new OpenApiRequest([
+            'body' => $request->devices,
+        ]);
+        $params = new Params([
+            'action'      => 'BatchBindDevicesIntoProject',
+            'version'     => '2018-01-20',
+            'protocol'    => 'HTTPS',
+            'pathname'    => '/',
+            'method'      => 'POST',
+            'authType'    => 'AK',
+            'style'       => 'RPC',
+            'reqBodyType' => 'formData',
+            'bodyType'    => 'json',
+        ]);
+
+        return BatchBindDevicesIntoProjectResponse::fromMap($this->callApi($params, $req, $runtime));
+    }
+
+    /**
+     * @param BatchBindDevicesIntoProjectRequest $request
+     *
+     * @return BatchBindDevicesIntoProjectResponse
+     */
+    public function batchBindDevicesIntoProject($request)
+    {
+        $runtime = new RuntimeOptions([]);
+
+        return $this->batchBindDevicesIntoProjectWithOptions($request, $runtime);
+    }
+
+    /**
      * @param BatchBindProductsIntoProjectRequest $request
      * @param RuntimeOptions                      $runtime
      *
@@ -751,10 +936,21 @@ class Iot extends OpenApiClient
     {
         Utils::validateModel($request);
         $req = new OpenApiRequest([
-            'body' => Utils::toMap($request),
+            'body' => $request->iotInstanceId,
+        ]);
+        $params = new Params([
+            'action'      => 'BatchBindProductsIntoProject',
+            'version'     => '2018-01-20',
+            'protocol'    => 'HTTPS',
+            'pathname'    => '/',
+            'method'      => 'POST',
+            'authType'    => 'AK',
+            'style'       => 'RPC',
+            'reqBodyType' => 'formData',
+            'bodyType'    => 'json',
         ]);
 
-        return BatchBindProductsIntoProjectResponse::fromMap($this->doRPCRequest('BatchBindProductsIntoProject', '2018-01-20', 'HTTPS', 'POST', 'AK', 'json', $req, $runtime));
+        return BatchBindProductsIntoProjectResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
@@ -778,11 +974,35 @@ class Iot extends OpenApiClient
     public function batchCheckDeviceNamesWithOptions($request, $runtime)
     {
         Utils::validateModel($request);
+        $query = [];
+        if (!Utils::isUnset($request->deviceName)) {
+            $query['DeviceName'] = $request->deviceName;
+        }
+        if (!Utils::isUnset($request->deviceNameList)) {
+            $query['DeviceNameList'] = $request->deviceNameList;
+        }
+        if (!Utils::isUnset($request->iotInstanceId)) {
+            $query['IotInstanceId'] = $request->iotInstanceId;
+        }
+        if (!Utils::isUnset($request->productKey)) {
+            $query['ProductKey'] = $request->productKey;
+        }
         $req = new OpenApiRequest([
-            'body' => Utils::toMap($request),
+            'query' => OpenApiUtilClient::query($query),
+        ]);
+        $params = new Params([
+            'action'      => 'BatchCheckDeviceNames',
+            'version'     => '2018-01-20',
+            'protocol'    => 'HTTPS',
+            'pathname'    => '/',
+            'method'      => 'POST',
+            'authType'    => 'AK',
+            'style'       => 'RPC',
+            'reqBodyType' => 'formData',
+            'bodyType'    => 'json',
         ]);
 
-        return BatchCheckDeviceNamesResponse::fromMap($this->doRPCRequest('BatchCheckDeviceNames', '2018-01-20', 'HTTPS', 'POST', 'AK', 'json', $req, $runtime));
+        return BatchCheckDeviceNamesResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
@@ -806,11 +1026,32 @@ class Iot extends OpenApiClient
     public function batchClearEdgeInstanceDeviceConfigWithOptions($request, $runtime)
     {
         Utils::validateModel($request);
+        $query = [];
+        if (!Utils::isUnset($request->instanceId)) {
+            $query['InstanceId'] = $request->instanceId;
+        }
+        if (!Utils::isUnset($request->iotIds)) {
+            $query['IotIds'] = $request->iotIds;
+        }
+        if (!Utils::isUnset($request->iotInstanceId)) {
+            $query['IotInstanceId'] = $request->iotInstanceId;
+        }
         $req = new OpenApiRequest([
-            'body' => Utils::toMap($request),
+            'query' => OpenApiUtilClient::query($query),
+        ]);
+        $params = new Params([
+            'action'      => 'BatchClearEdgeInstanceDeviceConfig',
+            'version'     => '2018-01-20',
+            'protocol'    => 'HTTPS',
+            'pathname'    => '/',
+            'method'      => 'POST',
+            'authType'    => 'AK',
+            'style'       => 'RPC',
+            'reqBodyType' => 'formData',
+            'bodyType'    => 'json',
         ]);
 
-        return BatchClearEdgeInstanceDeviceConfigResponse::fromMap($this->doRPCRequest('BatchClearEdgeInstanceDeviceConfig', '2018-01-20', 'HTTPS', 'POST', 'AK', 'json', $req, $runtime));
+        return BatchClearEdgeInstanceDeviceConfigResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
@@ -834,11 +1075,32 @@ class Iot extends OpenApiClient
     public function batchDeleteDeviceGroupRelationsWithOptions($request, $runtime)
     {
         Utils::validateModel($request);
+        $query = [];
+        if (!Utils::isUnset($request->device)) {
+            $query['Device'] = $request->device;
+        }
+        if (!Utils::isUnset($request->groupId)) {
+            $query['GroupId'] = $request->groupId;
+        }
+        if (!Utils::isUnset($request->iotInstanceId)) {
+            $query['IotInstanceId'] = $request->iotInstanceId;
+        }
         $req = new OpenApiRequest([
-            'body' => Utils::toMap($request),
+            'query' => OpenApiUtilClient::query($query),
+        ]);
+        $params = new Params([
+            'action'      => 'BatchDeleteDeviceGroupRelations',
+            'version'     => '2018-01-20',
+            'protocol'    => 'HTTPS',
+            'pathname'    => '/',
+            'method'      => 'POST',
+            'authType'    => 'AK',
+            'style'       => 'RPC',
+            'reqBodyType' => 'formData',
+            'bodyType'    => 'json',
         ]);
 
-        return BatchDeleteDeviceGroupRelationsResponse::fromMap($this->doRPCRequest('BatchDeleteDeviceGroupRelations', '2018-01-20', 'HTTPS', 'POST', 'AK', 'json', $req, $runtime));
+        return BatchDeleteDeviceGroupRelationsResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
@@ -862,11 +1124,35 @@ class Iot extends OpenApiClient
     public function batchDeleteEdgeInstanceChannelWithOptions($request, $runtime)
     {
         Utils::validateModel($request);
+        $query = [];
+        if (!Utils::isUnset($request->channelIds)) {
+            $query['ChannelIds'] = $request->channelIds;
+        }
+        if (!Utils::isUnset($request->driverId)) {
+            $query['DriverId'] = $request->driverId;
+        }
+        if (!Utils::isUnset($request->instanceId)) {
+            $query['InstanceId'] = $request->instanceId;
+        }
+        if (!Utils::isUnset($request->iotInstanceId)) {
+            $query['IotInstanceId'] = $request->iotInstanceId;
+        }
         $req = new OpenApiRequest([
-            'body' => Utils::toMap($request),
+            'query' => OpenApiUtilClient::query($query),
+        ]);
+        $params = new Params([
+            'action'      => 'BatchDeleteEdgeInstanceChannel',
+            'version'     => '2018-01-20',
+            'protocol'    => 'HTTPS',
+            'pathname'    => '/',
+            'method'      => 'POST',
+            'authType'    => 'AK',
+            'style'       => 'RPC',
+            'reqBodyType' => 'formData',
+            'bodyType'    => 'json',
         ]);
 
-        return BatchDeleteEdgeInstanceChannelResponse::fromMap($this->doRPCRequest('BatchDeleteEdgeInstanceChannel', '2018-01-20', 'HTTPS', 'POST', 'AK', 'json', $req, $runtime));
+        return BatchDeleteEdgeInstanceChannelResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
@@ -890,11 +1176,29 @@ class Iot extends OpenApiClient
     public function batchGetDeviceBindStatusWithOptions($request, $runtime)
     {
         Utils::validateModel($request);
+        $query = [];
+        if (!Utils::isUnset($request->iotIds)) {
+            $query['IotIds'] = $request->iotIds;
+        }
+        if (!Utils::isUnset($request->iotInstanceId)) {
+            $query['IotInstanceId'] = $request->iotInstanceId;
+        }
         $req = new OpenApiRequest([
-            'body' => Utils::toMap($request),
+            'query' => OpenApiUtilClient::query($query),
+        ]);
+        $params = new Params([
+            'action'      => 'BatchGetDeviceBindStatus',
+            'version'     => '2018-01-20',
+            'protocol'    => 'HTTPS',
+            'pathname'    => '/',
+            'method'      => 'POST',
+            'authType'    => 'AK',
+            'style'       => 'RPC',
+            'reqBodyType' => 'formData',
+            'bodyType'    => 'json',
         ]);
 
-        return BatchGetDeviceBindStatusResponse::fromMap($this->doRPCRequest('BatchGetDeviceBindStatus', '2018-01-20', 'HTTPS', 'POST', 'AK', 'json', $req, $runtime));
+        return BatchGetDeviceBindStatusResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
@@ -918,11 +1222,35 @@ class Iot extends OpenApiClient
     public function batchGetDeviceStateWithOptions($request, $runtime)
     {
         Utils::validateModel($request);
+        $query = [];
+        if (!Utils::isUnset($request->deviceName)) {
+            $query['DeviceName'] = $request->deviceName;
+        }
+        if (!Utils::isUnset($request->iotId)) {
+            $query['IotId'] = $request->iotId;
+        }
+        if (!Utils::isUnset($request->iotInstanceId)) {
+            $query['IotInstanceId'] = $request->iotInstanceId;
+        }
+        if (!Utils::isUnset($request->productKey)) {
+            $query['ProductKey'] = $request->productKey;
+        }
         $req = new OpenApiRequest([
-            'body' => Utils::toMap($request),
+            'query' => OpenApiUtilClient::query($query),
+        ]);
+        $params = new Params([
+            'action'      => 'BatchGetDeviceState',
+            'version'     => '2018-01-20',
+            'protocol'    => 'HTTPS',
+            'pathname'    => '/',
+            'method'      => 'POST',
+            'authType'    => 'AK',
+            'style'       => 'RPC',
+            'reqBodyType' => 'formData',
+            'bodyType'    => 'json',
         ]);
 
-        return BatchGetDeviceStateResponse::fromMap($this->doRPCRequest('BatchGetDeviceState', '2018-01-20', 'HTTPS', 'POST', 'AK', 'json', $req, $runtime));
+        return BatchGetDeviceStateResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
@@ -946,11 +1274,29 @@ class Iot extends OpenApiClient
     public function batchGetEdgeDriverWithOptions($request, $runtime)
     {
         Utils::validateModel($request);
+        $query = [];
+        if (!Utils::isUnset($request->driverIds)) {
+            $query['DriverIds'] = $request->driverIds;
+        }
+        if (!Utils::isUnset($request->iotInstanceId)) {
+            $query['IotInstanceId'] = $request->iotInstanceId;
+        }
         $req = new OpenApiRequest([
-            'body' => Utils::toMap($request),
+            'query' => OpenApiUtilClient::query($query),
+        ]);
+        $params = new Params([
+            'action'      => 'BatchGetEdgeDriver',
+            'version'     => '2018-01-20',
+            'protocol'    => 'HTTPS',
+            'pathname'    => '/',
+            'method'      => 'POST',
+            'authType'    => 'AK',
+            'style'       => 'RPC',
+            'reqBodyType' => 'formData',
+            'bodyType'    => 'json',
         ]);
 
-        return BatchGetEdgeDriverResponse::fromMap($this->doRPCRequest('BatchGetEdgeDriver', '2018-01-20', 'HTTPS', 'POST', 'AK', 'json', $req, $runtime));
+        return BatchGetEdgeDriverResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
@@ -974,11 +1320,35 @@ class Iot extends OpenApiClient
     public function batchGetEdgeInstanceChannelWithOptions($request, $runtime)
     {
         Utils::validateModel($request);
+        $query = [];
+        if (!Utils::isUnset($request->channelIds)) {
+            $query['ChannelIds'] = $request->channelIds;
+        }
+        if (!Utils::isUnset($request->driverId)) {
+            $query['DriverId'] = $request->driverId;
+        }
+        if (!Utils::isUnset($request->instanceId)) {
+            $query['InstanceId'] = $request->instanceId;
+        }
+        if (!Utils::isUnset($request->iotInstanceId)) {
+            $query['IotInstanceId'] = $request->iotInstanceId;
+        }
         $req = new OpenApiRequest([
-            'body' => Utils::toMap($request),
+            'query' => OpenApiUtilClient::query($query),
+        ]);
+        $params = new Params([
+            'action'      => 'BatchGetEdgeInstanceChannel',
+            'version'     => '2018-01-20',
+            'protocol'    => 'HTTPS',
+            'pathname'    => '/',
+            'method'      => 'POST',
+            'authType'    => 'AK',
+            'style'       => 'RPC',
+            'reqBodyType' => 'formData',
+            'bodyType'    => 'json',
         ]);
 
-        return BatchGetEdgeInstanceChannelResponse::fromMap($this->doRPCRequest('BatchGetEdgeInstanceChannel', '2018-01-20', 'HTTPS', 'POST', 'AK', 'json', $req, $runtime));
+        return BatchGetEdgeInstanceChannelResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
@@ -1002,11 +1372,35 @@ class Iot extends OpenApiClient
     public function batchGetEdgeInstanceDeviceChannelWithOptions($request, $runtime)
     {
         Utils::validateModel($request);
+        $query = [];
+        if (!Utils::isUnset($request->driverId)) {
+            $query['DriverId'] = $request->driverId;
+        }
+        if (!Utils::isUnset($request->instanceId)) {
+            $query['InstanceId'] = $request->instanceId;
+        }
+        if (!Utils::isUnset($request->iotIds)) {
+            $query['IotIds'] = $request->iotIds;
+        }
+        if (!Utils::isUnset($request->iotInstanceId)) {
+            $query['IotInstanceId'] = $request->iotInstanceId;
+        }
         $req = new OpenApiRequest([
-            'body' => Utils::toMap($request),
+            'query' => OpenApiUtilClient::query($query),
+        ]);
+        $params = new Params([
+            'action'      => 'BatchGetEdgeInstanceDeviceChannel',
+            'version'     => '2018-01-20',
+            'protocol'    => 'HTTPS',
+            'pathname'    => '/',
+            'method'      => 'POST',
+            'authType'    => 'AK',
+            'style'       => 'RPC',
+            'reqBodyType' => 'formData',
+            'bodyType'    => 'json',
         ]);
 
-        return BatchGetEdgeInstanceDeviceChannelResponse::fromMap($this->doRPCRequest('BatchGetEdgeInstanceDeviceChannel', '2018-01-20', 'HTTPS', 'POST', 'AK', 'json', $req, $runtime));
+        return BatchGetEdgeInstanceDeviceChannelResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
@@ -1030,11 +1424,32 @@ class Iot extends OpenApiClient
     public function batchGetEdgeInstanceDeviceConfigWithOptions($request, $runtime)
     {
         Utils::validateModel($request);
+        $query = [];
+        if (!Utils::isUnset($request->instanceId)) {
+            $query['InstanceId'] = $request->instanceId;
+        }
+        if (!Utils::isUnset($request->iotIds)) {
+            $query['IotIds'] = $request->iotIds;
+        }
+        if (!Utils::isUnset($request->iotInstanceId)) {
+            $query['IotInstanceId'] = $request->iotInstanceId;
+        }
         $req = new OpenApiRequest([
-            'body' => Utils::toMap($request),
+            'query' => OpenApiUtilClient::query($query),
+        ]);
+        $params = new Params([
+            'action'      => 'BatchGetEdgeInstanceDeviceConfig',
+            'version'     => '2018-01-20',
+            'protocol'    => 'HTTPS',
+            'pathname'    => '/',
+            'method'      => 'POST',
+            'authType'    => 'AK',
+            'style'       => 'RPC',
+            'reqBodyType' => 'formData',
+            'bodyType'    => 'json',
         ]);
 
-        return BatchGetEdgeInstanceDeviceConfigResponse::fromMap($this->doRPCRequest('BatchGetEdgeInstanceDeviceConfig', '2018-01-20', 'HTTPS', 'POST', 'AK', 'json', $req, $runtime));
+        return BatchGetEdgeInstanceDeviceConfigResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
@@ -1058,11 +1473,32 @@ class Iot extends OpenApiClient
     public function batchGetEdgeInstanceDeviceDriverWithOptions($request, $runtime)
     {
         Utils::validateModel($request);
+        $query = [];
+        if (!Utils::isUnset($request->instanceId)) {
+            $query['InstanceId'] = $request->instanceId;
+        }
+        if (!Utils::isUnset($request->iotIds)) {
+            $query['IotIds'] = $request->iotIds;
+        }
+        if (!Utils::isUnset($request->iotInstanceId)) {
+            $query['IotInstanceId'] = $request->iotInstanceId;
+        }
         $req = new OpenApiRequest([
-            'body' => Utils::toMap($request),
+            'query' => OpenApiUtilClient::query($query),
+        ]);
+        $params = new Params([
+            'action'      => 'BatchGetEdgeInstanceDeviceDriver',
+            'version'     => '2018-01-20',
+            'protocol'    => 'HTTPS',
+            'pathname'    => '/',
+            'method'      => 'POST',
+            'authType'    => 'AK',
+            'style'       => 'RPC',
+            'reqBodyType' => 'formData',
+            'bodyType'    => 'json',
         ]);
 
-        return BatchGetEdgeInstanceDeviceDriverResponse::fromMap($this->doRPCRequest('BatchGetEdgeInstanceDeviceDriver', '2018-01-20', 'HTTPS', 'POST', 'AK', 'json', $req, $runtime));
+        return BatchGetEdgeInstanceDeviceDriverResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
@@ -1086,11 +1522,32 @@ class Iot extends OpenApiClient
     public function batchGetEdgeInstanceDriverConfigsWithOptions($request, $runtime)
     {
         Utils::validateModel($request);
+        $query = [];
+        if (!Utils::isUnset($request->driverIds)) {
+            $query['DriverIds'] = $request->driverIds;
+        }
+        if (!Utils::isUnset($request->instanceId)) {
+            $query['InstanceId'] = $request->instanceId;
+        }
+        if (!Utils::isUnset($request->iotInstanceId)) {
+            $query['IotInstanceId'] = $request->iotInstanceId;
+        }
         $req = new OpenApiRequest([
-            'body' => Utils::toMap($request),
+            'query' => OpenApiUtilClient::query($query),
+        ]);
+        $params = new Params([
+            'action'      => 'BatchGetEdgeInstanceDriverConfigs',
+            'version'     => '2018-01-20',
+            'protocol'    => 'HTTPS',
+            'pathname'    => '/',
+            'method'      => 'POST',
+            'authType'    => 'AK',
+            'style'       => 'RPC',
+            'reqBodyType' => 'formData',
+            'bodyType'    => 'json',
         ]);
 
-        return BatchGetEdgeInstanceDriverConfigsResponse::fromMap($this->doRPCRequest('BatchGetEdgeInstanceDriverConfigs', '2018-01-20', 'HTTPS', 'POST', 'AK', 'json', $req, $runtime));
+        return BatchGetEdgeInstanceDriverConfigsResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
@@ -1114,11 +1571,41 @@ class Iot extends OpenApiClient
     public function batchPubWithOptions($request, $runtime)
     {
         Utils::validateModel($request);
+        $query = [];
+        if (!Utils::isUnset($request->deviceName)) {
+            $query['DeviceName'] = $request->deviceName;
+        }
+        if (!Utils::isUnset($request->iotInstanceId)) {
+            $query['IotInstanceId'] = $request->iotInstanceId;
+        }
+        if (!Utils::isUnset($request->messageContent)) {
+            $query['MessageContent'] = $request->messageContent;
+        }
+        if (!Utils::isUnset($request->productKey)) {
+            $query['ProductKey'] = $request->productKey;
+        }
+        if (!Utils::isUnset($request->qos)) {
+            $query['Qos'] = $request->qos;
+        }
+        if (!Utils::isUnset($request->topicShortName)) {
+            $query['TopicShortName'] = $request->topicShortName;
+        }
         $req = new OpenApiRequest([
-            'body' => Utils::toMap($request),
+            'query' => OpenApiUtilClient::query($query),
+        ]);
+        $params = new Params([
+            'action'      => 'BatchPub',
+            'version'     => '2018-01-20',
+            'protocol'    => 'HTTPS',
+            'pathname'    => '/',
+            'method'      => 'POST',
+            'authType'    => 'AK',
+            'style'       => 'RPC',
+            'reqBodyType' => 'formData',
+            'bodyType'    => 'json',
         ]);
 
-        return BatchPubResponse::fromMap($this->doRPCRequest('BatchPub', '2018-01-20', 'HTTPS', 'POST', 'AK', 'json', $req, $runtime));
+        return BatchPubResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
@@ -1142,11 +1629,32 @@ class Iot extends OpenApiClient
     public function batchQueryDeviceDetailWithOptions($request, $runtime)
     {
         Utils::validateModel($request);
+        $query = [];
+        if (!Utils::isUnset($request->deviceName)) {
+            $query['DeviceName'] = $request->deviceName;
+        }
+        if (!Utils::isUnset($request->iotInstanceId)) {
+            $query['IotInstanceId'] = $request->iotInstanceId;
+        }
+        if (!Utils::isUnset($request->productKey)) {
+            $query['ProductKey'] = $request->productKey;
+        }
         $req = new OpenApiRequest([
-            'body' => Utils::toMap($request),
+            'query' => OpenApiUtilClient::query($query),
+        ]);
+        $params = new Params([
+            'action'      => 'BatchQueryDeviceDetail',
+            'version'     => '2018-01-20',
+            'protocol'    => 'HTTPS',
+            'pathname'    => '/',
+            'method'      => 'POST',
+            'authType'    => 'AK',
+            'style'       => 'RPC',
+            'reqBodyType' => 'formData',
+            'bodyType'    => 'json',
         ]);
 
-        return BatchQueryDeviceDetailResponse::fromMap($this->doRPCRequest('BatchQueryDeviceDetail', '2018-01-20', 'HTTPS', 'POST', 'AK', 'json', $req, $runtime));
+        return BatchQueryDeviceDetailResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
@@ -1170,11 +1678,32 @@ class Iot extends OpenApiClient
     public function batchRegisterDeviceWithOptions($request, $runtime)
     {
         Utils::validateModel($request);
+        $query = [];
+        if (!Utils::isUnset($request->count)) {
+            $query['Count'] = $request->count;
+        }
+        if (!Utils::isUnset($request->iotInstanceId)) {
+            $query['IotInstanceId'] = $request->iotInstanceId;
+        }
+        if (!Utils::isUnset($request->productKey)) {
+            $query['ProductKey'] = $request->productKey;
+        }
         $req = new OpenApiRequest([
-            'body' => Utils::toMap($request),
+            'query' => OpenApiUtilClient::query($query),
+        ]);
+        $params = new Params([
+            'action'      => 'BatchRegisterDevice',
+            'version'     => '2018-01-20',
+            'protocol'    => 'HTTPS',
+            'pathname'    => '/',
+            'method'      => 'POST',
+            'authType'    => 'AK',
+            'style'       => 'RPC',
+            'reqBodyType' => 'formData',
+            'bodyType'    => 'json',
         ]);
 
-        return BatchRegisterDeviceResponse::fromMap($this->doRPCRequest('BatchRegisterDevice', '2018-01-20', 'HTTPS', 'POST', 'AK', 'json', $req, $runtime));
+        return BatchRegisterDeviceResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
@@ -1198,11 +1727,32 @@ class Iot extends OpenApiClient
     public function batchRegisterDeviceWithApplyIdWithOptions($request, $runtime)
     {
         Utils::validateModel($request);
+        $query = [];
+        if (!Utils::isUnset($request->applyId)) {
+            $query['ApplyId'] = $request->applyId;
+        }
+        if (!Utils::isUnset($request->iotInstanceId)) {
+            $query['IotInstanceId'] = $request->iotInstanceId;
+        }
+        if (!Utils::isUnset($request->productKey)) {
+            $query['ProductKey'] = $request->productKey;
+        }
         $req = new OpenApiRequest([
-            'body' => Utils::toMap($request),
+            'query' => OpenApiUtilClient::query($query),
+        ]);
+        $params = new Params([
+            'action'      => 'BatchRegisterDeviceWithApplyId',
+            'version'     => '2018-01-20',
+            'protocol'    => 'HTTPS',
+            'pathname'    => '/',
+            'method'      => 'POST',
+            'authType'    => 'AK',
+            'style'       => 'RPC',
+            'reqBodyType' => 'formData',
+            'bodyType'    => 'json',
         ]);
 
-        return BatchRegisterDeviceWithApplyIdResponse::fromMap($this->doRPCRequest('BatchRegisterDeviceWithApplyId', '2018-01-20', 'HTTPS', 'POST', 'AK', 'json', $req, $runtime));
+        return BatchRegisterDeviceWithApplyIdResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
@@ -1226,11 +1776,38 @@ class Iot extends OpenApiClient
     public function batchSetEdgeInstanceDeviceChannelWithOptions($request, $runtime)
     {
         Utils::validateModel($request);
+        $query = [];
+        if (!Utils::isUnset($request->channelId)) {
+            $query['ChannelId'] = $request->channelId;
+        }
+        if (!Utils::isUnset($request->driverId)) {
+            $query['DriverId'] = $request->driverId;
+        }
+        if (!Utils::isUnset($request->instanceId)) {
+            $query['InstanceId'] = $request->instanceId;
+        }
+        if (!Utils::isUnset($request->iotIds)) {
+            $query['IotIds'] = $request->iotIds;
+        }
+        if (!Utils::isUnset($request->iotInstanceId)) {
+            $query['IotInstanceId'] = $request->iotInstanceId;
+        }
         $req = new OpenApiRequest([
-            'body' => Utils::toMap($request),
+            'query' => OpenApiUtilClient::query($query),
+        ]);
+        $params = new Params([
+            'action'      => 'BatchSetEdgeInstanceDeviceChannel',
+            'version'     => '2018-01-20',
+            'protocol'    => 'HTTPS',
+            'pathname'    => '/',
+            'method'      => 'POST',
+            'authType'    => 'AK',
+            'style'       => 'RPC',
+            'reqBodyType' => 'formData',
+            'bodyType'    => 'json',
         ]);
 
-        return BatchSetEdgeInstanceDeviceChannelResponse::fromMap($this->doRPCRequest('BatchSetEdgeInstanceDeviceChannel', '2018-01-20', 'HTTPS', 'POST', 'AK', 'json', $req, $runtime));
+        return BatchSetEdgeInstanceDeviceChannelResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
@@ -1254,11 +1831,32 @@ class Iot extends OpenApiClient
     public function batchSetEdgeInstanceDeviceConfigWithOptions($request, $runtime)
     {
         Utils::validateModel($request);
+        $query = [];
+        if (!Utils::isUnset($request->deviceConfigs)) {
+            $query['DeviceConfigs'] = $request->deviceConfigs;
+        }
+        if (!Utils::isUnset($request->instanceId)) {
+            $query['InstanceId'] = $request->instanceId;
+        }
+        if (!Utils::isUnset($request->iotInstanceId)) {
+            $query['IotInstanceId'] = $request->iotInstanceId;
+        }
         $req = new OpenApiRequest([
-            'body' => Utils::toMap($request),
+            'query' => OpenApiUtilClient::query($query),
+        ]);
+        $params = new Params([
+            'action'      => 'BatchSetEdgeInstanceDeviceConfig',
+            'version'     => '2018-01-20',
+            'protocol'    => 'HTTPS',
+            'pathname'    => '/',
+            'method'      => 'POST',
+            'authType'    => 'AK',
+            'style'       => 'RPC',
+            'reqBodyType' => 'formData',
+            'bodyType'    => 'json',
         ]);
 
-        return BatchSetEdgeInstanceDeviceConfigResponse::fromMap($this->doRPCRequest('BatchSetEdgeInstanceDeviceConfig', '2018-01-20', 'HTTPS', 'POST', 'AK', 'json', $req, $runtime));
+        return BatchSetEdgeInstanceDeviceConfigResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
@@ -1282,11 +1880,32 @@ class Iot extends OpenApiClient
     public function batchUnbindDeviceFromEdgeInstanceWithOptions($request, $runtime)
     {
         Utils::validateModel($request);
+        $query = [];
+        if (!Utils::isUnset($request->instanceId)) {
+            $query['InstanceId'] = $request->instanceId;
+        }
+        if (!Utils::isUnset($request->iotIds)) {
+            $query['IotIds'] = $request->iotIds;
+        }
+        if (!Utils::isUnset($request->iotInstanceId)) {
+            $query['IotInstanceId'] = $request->iotInstanceId;
+        }
         $req = new OpenApiRequest([
-            'body' => Utils::toMap($request),
+            'query' => OpenApiUtilClient::query($query),
+        ]);
+        $params = new Params([
+            'action'      => 'BatchUnbindDeviceFromEdgeInstance',
+            'version'     => '2018-01-20',
+            'protocol'    => 'HTTPS',
+            'pathname'    => '/',
+            'method'      => 'POST',
+            'authType'    => 'AK',
+            'style'       => 'RPC',
+            'reqBodyType' => 'formData',
+            'bodyType'    => 'json',
         ]);
 
-        return BatchUnbindDeviceFromEdgeInstanceResponse::fromMap($this->doRPCRequest('BatchUnbindDeviceFromEdgeInstance', '2018-01-20', 'HTTPS', 'POST', 'AK', 'json', $req, $runtime));
+        return BatchUnbindDeviceFromEdgeInstanceResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
@@ -1311,10 +1930,21 @@ class Iot extends OpenApiClient
     {
         Utils::validateModel($request);
         $req = new OpenApiRequest([
-            'body' => Utils::toMap($request),
+            'body' => $request->devices,
+        ]);
+        $params = new Params([
+            'action'      => 'BatchUnbindProjectDevices',
+            'version'     => '2018-01-20',
+            'protocol'    => 'HTTPS',
+            'pathname'    => '/',
+            'method'      => 'POST',
+            'authType'    => 'AK',
+            'style'       => 'RPC',
+            'reqBodyType' => 'formData',
+            'bodyType'    => 'json',
         ]);
 
-        return BatchUnbindProjectDevicesResponse::fromMap($this->doRPCRequest('BatchUnbindProjectDevices', '2018-01-20', 'HTTPS', 'POST', 'AK', 'json', $req, $runtime));
+        return BatchUnbindProjectDevicesResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
@@ -1339,10 +1969,21 @@ class Iot extends OpenApiClient
     {
         Utils::validateModel($request);
         $req = new OpenApiRequest([
-            'body' => Utils::toMap($request),
+            'body' => $request->iotInstanceId,
+        ]);
+        $params = new Params([
+            'action'      => 'BatchUnbindProjectProducts',
+            'version'     => '2018-01-20',
+            'protocol'    => 'HTTPS',
+            'pathname'    => '/',
+            'method'      => 'POST',
+            'authType'    => 'AK',
+            'style'       => 'RPC',
+            'reqBodyType' => 'formData',
+            'bodyType'    => 'json',
         ]);
 
-        return BatchUnbindProjectProductsResponse::fromMap($this->doRPCRequest('BatchUnbindProjectProducts', '2018-01-20', 'HTTPS', 'POST', 'AK', 'json', $req, $runtime));
+        return BatchUnbindProjectProductsResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
@@ -1366,11 +2007,29 @@ class Iot extends OpenApiClient
     public function batchUpdateDeviceNicknameWithOptions($request, $runtime)
     {
         Utils::validateModel($request);
+        $query = [];
+        if (!Utils::isUnset($request->deviceNicknameInfo)) {
+            $query['DeviceNicknameInfo'] = $request->deviceNicknameInfo;
+        }
+        if (!Utils::isUnset($request->iotInstanceId)) {
+            $query['IotInstanceId'] = $request->iotInstanceId;
+        }
         $req = new OpenApiRequest([
-            'body' => Utils::toMap($request),
+            'query' => OpenApiUtilClient::query($query),
+        ]);
+        $params = new Params([
+            'action'      => 'BatchUpdateDeviceNickname',
+            'version'     => '2018-01-20',
+            'protocol'    => 'HTTPS',
+            'pathname'    => '/',
+            'method'      => 'POST',
+            'authType'    => 'AK',
+            'style'       => 'RPC',
+            'reqBodyType' => 'formData',
+            'bodyType'    => 'json',
         ]);
 
-        return BatchUpdateDeviceNicknameResponse::fromMap($this->doRPCRequest('BatchUpdateDeviceNickname', '2018-01-20', 'HTTPS', 'POST', 'AK', 'json', $req, $runtime));
+        return BatchUpdateDeviceNicknameResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
@@ -1394,11 +2053,35 @@ class Iot extends OpenApiClient
     public function bindApplicationToEdgeInstanceWithOptions($request, $runtime)
     {
         Utils::validateModel($request);
+        $query = [];
+        if (!Utils::isUnset($request->applicationId)) {
+            $query['ApplicationId'] = $request->applicationId;
+        }
+        if (!Utils::isUnset($request->applicationVersion)) {
+            $query['ApplicationVersion'] = $request->applicationVersion;
+        }
+        if (!Utils::isUnset($request->instanceId)) {
+            $query['InstanceId'] = $request->instanceId;
+        }
+        if (!Utils::isUnset($request->iotInstanceId)) {
+            $query['IotInstanceId'] = $request->iotInstanceId;
+        }
         $req = new OpenApiRequest([
-            'body' => Utils::toMap($request),
+            'query' => OpenApiUtilClient::query($query),
+        ]);
+        $params = new Params([
+            'action'      => 'BindApplicationToEdgeInstance',
+            'version'     => '2018-01-20',
+            'protocol'    => 'HTTPS',
+            'pathname'    => '/',
+            'method'      => 'POST',
+            'authType'    => 'AK',
+            'style'       => 'RPC',
+            'reqBodyType' => 'formData',
+            'bodyType'    => 'json',
         ]);
 
-        return BindApplicationToEdgeInstanceResponse::fromMap($this->doRPCRequest('BindApplicationToEdgeInstance', '2018-01-20', 'HTTPS', 'POST', 'AK', 'json', $req, $runtime));
+        return BindApplicationToEdgeInstanceResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
@@ -1422,11 +2105,38 @@ class Iot extends OpenApiClient
     public function bindDriverToEdgeInstanceWithOptions($request, $runtime)
     {
         Utils::validateModel($request);
+        $query = [];
+        if (!Utils::isUnset($request->driverId)) {
+            $query['DriverId'] = $request->driverId;
+        }
+        if (!Utils::isUnset($request->driverVersion)) {
+            $query['DriverVersion'] = $request->driverVersion;
+        }
+        if (!Utils::isUnset($request->instanceId)) {
+            $query['InstanceId'] = $request->instanceId;
+        }
+        if (!Utils::isUnset($request->iotInstanceId)) {
+            $query['IotInstanceId'] = $request->iotInstanceId;
+        }
+        if (!Utils::isUnset($request->orderId)) {
+            $query['OrderId'] = $request->orderId;
+        }
         $req = new OpenApiRequest([
-            'body' => Utils::toMap($request),
+            'query' => OpenApiUtilClient::query($query),
+        ]);
+        $params = new Params([
+            'action'      => 'BindDriverToEdgeInstance',
+            'version'     => '2018-01-20',
+            'protocol'    => 'HTTPS',
+            'pathname'    => '/',
+            'method'      => 'POST',
+            'authType'    => 'AK',
+            'style'       => 'RPC',
+            'reqBodyType' => 'formData',
+            'bodyType'    => 'json',
         ]);
 
-        return BindDriverToEdgeInstanceResponse::fromMap($this->doRPCRequest('BindDriverToEdgeInstance', '2018-01-20', 'HTTPS', 'POST', 'AK', 'json', $req, $runtime));
+        return BindDriverToEdgeInstanceResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
@@ -1450,11 +2160,38 @@ class Iot extends OpenApiClient
     public function bindGatewayToEdgeInstanceWithOptions($request, $runtime)
     {
         Utils::validateModel($request);
+        $query = [];
+        if (!Utils::isUnset($request->deviceName)) {
+            $query['DeviceName'] = $request->deviceName;
+        }
+        if (!Utils::isUnset($request->instanceId)) {
+            $query['InstanceId'] = $request->instanceId;
+        }
+        if (!Utils::isUnset($request->iotId)) {
+            $query['IotId'] = $request->iotId;
+        }
+        if (!Utils::isUnset($request->iotInstanceId)) {
+            $query['IotInstanceId'] = $request->iotInstanceId;
+        }
+        if (!Utils::isUnset($request->productKey)) {
+            $query['ProductKey'] = $request->productKey;
+        }
         $req = new OpenApiRequest([
-            'body' => Utils::toMap($request),
+            'query' => OpenApiUtilClient::query($query),
+        ]);
+        $params = new Params([
+            'action'      => 'BindGatewayToEdgeInstance',
+            'version'     => '2018-01-20',
+            'protocol'    => 'HTTPS',
+            'pathname'    => '/',
+            'method'      => 'POST',
+            'authType'    => 'AK',
+            'style'       => 'RPC',
+            'reqBodyType' => 'formData',
+            'bodyType'    => 'json',
         ]);
 
-        return BindGatewayToEdgeInstanceResponse::fromMap($this->doRPCRequest('BindGatewayToEdgeInstance', '2018-01-20', 'HTTPS', 'POST', 'AK', 'json', $req, $runtime));
+        return BindGatewayToEdgeInstanceResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
@@ -1478,11 +2215,35 @@ class Iot extends OpenApiClient
     public function bindRoleToEdgeInstanceWithOptions($request, $runtime)
     {
         Utils::validateModel($request);
+        $query = [];
+        if (!Utils::isUnset($request->instanceId)) {
+            $query['InstanceId'] = $request->instanceId;
+        }
+        if (!Utils::isUnset($request->iotInstanceId)) {
+            $query['IotInstanceId'] = $request->iotInstanceId;
+        }
+        if (!Utils::isUnset($request->roleArn)) {
+            $query['RoleArn'] = $request->roleArn;
+        }
+        if (!Utils::isUnset($request->roleName)) {
+            $query['RoleName'] = $request->roleName;
+        }
         $req = new OpenApiRequest([
-            'body' => Utils::toMap($request),
+            'query' => OpenApiUtilClient::query($query),
+        ]);
+        $params = new Params([
+            'action'      => 'BindRoleToEdgeInstance',
+            'version'     => '2018-01-20',
+            'protocol'    => 'HTTPS',
+            'pathname'    => '/',
+            'method'      => 'POST',
+            'authType'    => 'AK',
+            'style'       => 'RPC',
+            'reqBodyType' => 'formData',
+            'bodyType'    => 'json',
         ]);
 
-        return BindRoleToEdgeInstanceResponse::fromMap($this->doRPCRequest('BindRoleToEdgeInstance', '2018-01-20', 'HTTPS', 'POST', 'AK', 'json', $req, $runtime));
+        return BindRoleToEdgeInstanceResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
@@ -1506,11 +2267,32 @@ class Iot extends OpenApiClient
     public function bindSceneRuleToEdgeInstanceWithOptions($request, $runtime)
     {
         Utils::validateModel($request);
+        $query = [];
+        if (!Utils::isUnset($request->instanceId)) {
+            $query['InstanceId'] = $request->instanceId;
+        }
+        if (!Utils::isUnset($request->iotInstanceId)) {
+            $query['IotInstanceId'] = $request->iotInstanceId;
+        }
+        if (!Utils::isUnset($request->ruleId)) {
+            $query['RuleId'] = $request->ruleId;
+        }
         $req = new OpenApiRequest([
-            'body' => Utils::toMap($request),
+            'query' => OpenApiUtilClient::query($query),
+        ]);
+        $params = new Params([
+            'action'      => 'BindSceneRuleToEdgeInstance',
+            'version'     => '2018-01-20',
+            'protocol'    => 'HTTPS',
+            'pathname'    => '/',
+            'method'      => 'POST',
+            'authType'    => 'AK',
+            'style'       => 'RPC',
+            'reqBodyType' => 'formData',
+            'bodyType'    => 'json',
         ]);
 
-        return BindSceneRuleToEdgeInstanceResponse::fromMap($this->doRPCRequest('BindSceneRuleToEdgeInstance', '2018-01-20', 'HTTPS', 'POST', 'AK', 'json', $req, $runtime));
+        return BindSceneRuleToEdgeInstanceResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
@@ -1534,11 +2316,29 @@ class Iot extends OpenApiClient
     public function cancelJobWithOptions($request, $runtime)
     {
         Utils::validateModel($request);
+        $query = [];
+        if (!Utils::isUnset($request->iotInstanceId)) {
+            $query['IotInstanceId'] = $request->iotInstanceId;
+        }
+        if (!Utils::isUnset($request->jobId)) {
+            $query['JobId'] = $request->jobId;
+        }
         $req = new OpenApiRequest([
-            'body' => Utils::toMap($request),
+            'query' => OpenApiUtilClient::query($query),
+        ]);
+        $params = new Params([
+            'action'      => 'CancelJob',
+            'version'     => '2018-01-20',
+            'protocol'    => 'HTTPS',
+            'pathname'    => '/',
+            'method'      => 'POST',
+            'authType'    => 'AK',
+            'style'       => 'RPC',
+            'reqBodyType' => 'formData',
+            'bodyType'    => 'json',
         ]);
 
-        return CancelJobResponse::fromMap($this->doRPCRequest('CancelJob', '2018-01-20', 'HTTPS', 'POST', 'AK', 'json', $req, $runtime));
+        return CancelJobResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
@@ -1562,11 +2362,29 @@ class Iot extends OpenApiClient
     public function cancelOTAStrategyByJobWithOptions($request, $runtime)
     {
         Utils::validateModel($request);
+        $query = [];
+        if (!Utils::isUnset($request->iotInstanceId)) {
+            $query['IotInstanceId'] = $request->iotInstanceId;
+        }
+        if (!Utils::isUnset($request->jobId)) {
+            $query['JobId'] = $request->jobId;
+        }
         $req = new OpenApiRequest([
-            'body' => Utils::toMap($request),
+            'query' => OpenApiUtilClient::query($query),
+        ]);
+        $params = new Params([
+            'action'      => 'CancelOTAStrategyByJob',
+            'version'     => '2018-01-20',
+            'protocol'    => 'HTTPS',
+            'pathname'    => '/',
+            'method'      => 'POST',
+            'authType'    => 'AK',
+            'style'       => 'RPC',
+            'reqBodyType' => 'formData',
+            'bodyType'    => 'json',
         ]);
 
-        return CancelOTAStrategyByJobResponse::fromMap($this->doRPCRequest('CancelOTAStrategyByJob', '2018-01-20', 'HTTPS', 'POST', 'AK', 'json', $req, $runtime));
+        return CancelOTAStrategyByJobResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
@@ -1590,11 +2408,38 @@ class Iot extends OpenApiClient
     public function cancelOTATaskByDeviceWithOptions($request, $runtime)
     {
         Utils::validateModel($request);
+        $query = [];
+        if (!Utils::isUnset($request->deviceName)) {
+            $query['DeviceName'] = $request->deviceName;
+        }
+        if (!Utils::isUnset($request->firmwareId)) {
+            $query['FirmwareId'] = $request->firmwareId;
+        }
+        if (!Utils::isUnset($request->iotInstanceId)) {
+            $query['IotInstanceId'] = $request->iotInstanceId;
+        }
+        if (!Utils::isUnset($request->jobId)) {
+            $query['JobId'] = $request->jobId;
+        }
+        if (!Utils::isUnset($request->productKey)) {
+            $query['ProductKey'] = $request->productKey;
+        }
         $req = new OpenApiRequest([
-            'body' => Utils::toMap($request),
+            'query' => OpenApiUtilClient::query($query),
+        ]);
+        $params = new Params([
+            'action'      => 'CancelOTATaskByDevice',
+            'version'     => '2018-01-20',
+            'protocol'    => 'HTTPS',
+            'pathname'    => '/',
+            'method'      => 'POST',
+            'authType'    => 'AK',
+            'style'       => 'RPC',
+            'reqBodyType' => 'formData',
+            'bodyType'    => 'json',
         ]);
 
-        return CancelOTATaskByDeviceResponse::fromMap($this->doRPCRequest('CancelOTATaskByDevice', '2018-01-20', 'HTTPS', 'POST', 'AK', 'json', $req, $runtime));
+        return CancelOTATaskByDeviceResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
@@ -1618,11 +2463,44 @@ class Iot extends OpenApiClient
     public function cancelOTATaskByJobWithOptions($request, $runtime)
     {
         Utils::validateModel($request);
+        $query = [];
+        if (!Utils::isUnset($request->cancelInProgressTask)) {
+            $query['CancelInProgressTask'] = $request->cancelInProgressTask;
+        }
+        if (!Utils::isUnset($request->cancelNotifiedTask)) {
+            $query['CancelNotifiedTask'] = $request->cancelNotifiedTask;
+        }
+        if (!Utils::isUnset($request->cancelQueuedTask)) {
+            $query['CancelQueuedTask'] = $request->cancelQueuedTask;
+        }
+        if (!Utils::isUnset($request->cancelScheduledTask)) {
+            $query['CancelScheduledTask'] = $request->cancelScheduledTask;
+        }
+        if (!Utils::isUnset($request->cancelUnconfirmedTask)) {
+            $query['CancelUnconfirmedTask'] = $request->cancelUnconfirmedTask;
+        }
+        if (!Utils::isUnset($request->iotInstanceId)) {
+            $query['IotInstanceId'] = $request->iotInstanceId;
+        }
+        if (!Utils::isUnset($request->jobId)) {
+            $query['JobId'] = $request->jobId;
+        }
         $req = new OpenApiRequest([
-            'body' => Utils::toMap($request),
+            'query' => OpenApiUtilClient::query($query),
+        ]);
+        $params = new Params([
+            'action'      => 'CancelOTATaskByJob',
+            'version'     => '2018-01-20',
+            'protocol'    => 'HTTPS',
+            'pathname'    => '/',
+            'method'      => 'POST',
+            'authType'    => 'AK',
+            'style'       => 'RPC',
+            'reqBodyType' => 'formData',
+            'bodyType'    => 'json',
         ]);
 
-        return CancelOTATaskByJobResponse::fromMap($this->doRPCRequest('CancelOTATaskByJob', '2018-01-20', 'HTTPS', 'POST', 'AK', 'json', $req, $runtime));
+        return CancelOTATaskByJobResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
@@ -1646,11 +2524,29 @@ class Iot extends OpenApiClient
     public function cancelReleaseProductWithOptions($request, $runtime)
     {
         Utils::validateModel($request);
+        $query = [];
+        if (!Utils::isUnset($request->iotInstanceId)) {
+            $query['IotInstanceId'] = $request->iotInstanceId;
+        }
+        if (!Utils::isUnset($request->productKey)) {
+            $query['ProductKey'] = $request->productKey;
+        }
         $req = new OpenApiRequest([
-            'body' => Utils::toMap($request),
+            'query' => OpenApiUtilClient::query($query),
+        ]);
+        $params = new Params([
+            'action'      => 'CancelReleaseProduct',
+            'version'     => '2018-01-20',
+            'protocol'    => 'HTTPS',
+            'pathname'    => '/',
+            'method'      => 'POST',
+            'authType'    => 'AK',
+            'style'       => 'RPC',
+            'reqBodyType' => 'formData',
+            'bodyType'    => 'json',
         ]);
 
-        return CancelReleaseProductResponse::fromMap($this->doRPCRequest('CancelReleaseProduct', '2018-01-20', 'HTTPS', 'POST', 'AK', 'json', $req, $runtime));
+        return CancelReleaseProductResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
@@ -1674,11 +2570,32 @@ class Iot extends OpenApiClient
     public function clearEdgeInstanceDriverConfigsWithOptions($request, $runtime)
     {
         Utils::validateModel($request);
+        $query = [];
+        if (!Utils::isUnset($request->driverId)) {
+            $query['DriverId'] = $request->driverId;
+        }
+        if (!Utils::isUnset($request->instanceId)) {
+            $query['InstanceId'] = $request->instanceId;
+        }
+        if (!Utils::isUnset($request->iotInstanceId)) {
+            $query['IotInstanceId'] = $request->iotInstanceId;
+        }
         $req = new OpenApiRequest([
-            'body' => Utils::toMap($request),
+            'query' => OpenApiUtilClient::query($query),
+        ]);
+        $params = new Params([
+            'action'      => 'ClearEdgeInstanceDriverConfigs',
+            'version'     => '2018-01-20',
+            'protocol'    => 'HTTPS',
+            'pathname'    => '/',
+            'method'      => 'POST',
+            'authType'    => 'AK',
+            'style'       => 'RPC',
+            'reqBodyType' => 'formData',
+            'bodyType'    => 'json',
         ]);
 
-        return ClearEdgeInstanceDriverConfigsResponse::fromMap($this->doRPCRequest('ClearEdgeInstanceDriverConfigs', '2018-01-20', 'HTTPS', 'POST', 'AK', 'json', $req, $runtime));
+        return ClearEdgeInstanceDriverConfigsResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
@@ -1702,11 +2619,29 @@ class Iot extends OpenApiClient
     public function closeEdgeInstanceDeploymentWithOptions($request, $runtime)
     {
         Utils::validateModel($request);
+        $query = [];
+        if (!Utils::isUnset($request->instanceId)) {
+            $query['InstanceId'] = $request->instanceId;
+        }
+        if (!Utils::isUnset($request->iotInstanceId)) {
+            $query['IotInstanceId'] = $request->iotInstanceId;
+        }
         $req = new OpenApiRequest([
-            'body' => Utils::toMap($request),
+            'query' => OpenApiUtilClient::query($query),
+        ]);
+        $params = new Params([
+            'action'      => 'CloseEdgeInstanceDeployment',
+            'version'     => '2018-01-20',
+            'protocol'    => 'HTTPS',
+            'pathname'    => '/',
+            'method'      => 'POST',
+            'authType'    => 'AK',
+            'style'       => 'RPC',
+            'reqBodyType' => 'formData',
+            'bodyType'    => 'json',
         ]);
 
-        return CloseEdgeInstanceDeploymentResponse::fromMap($this->doRPCRequest('CloseEdgeInstanceDeployment', '2018-01-20', 'HTTPS', 'POST', 'AK', 'json', $req, $runtime));
+        return CloseEdgeInstanceDeploymentResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
@@ -1722,6 +2657,52 @@ class Iot extends OpenApiClient
     }
 
     /**
+     * @param ConfirmOTATaskRequest $request
+     * @param RuntimeOptions        $runtime
+     *
+     * @return ConfirmOTATaskResponse
+     */
+    public function confirmOTATaskWithOptions($request, $runtime)
+    {
+        Utils::validateModel($request);
+        $query = [];
+        if (!Utils::isUnset($request->iotInstanceId)) {
+            $query['IotInstanceId'] = $request->iotInstanceId;
+        }
+        if (!Utils::isUnset($request->taskId)) {
+            $query['TaskId'] = $request->taskId;
+        }
+        $req = new OpenApiRequest([
+            'query' => OpenApiUtilClient::query($query),
+        ]);
+        $params = new Params([
+            'action'      => 'ConfirmOTATask',
+            'version'     => '2018-01-20',
+            'protocol'    => 'HTTPS',
+            'pathname'    => '/',
+            'method'      => 'POST',
+            'authType'    => 'AK',
+            'style'       => 'RPC',
+            'reqBodyType' => 'formData',
+            'bodyType'    => 'json',
+        ]);
+
+        return ConfirmOTATaskResponse::fromMap($this->callApi($params, $req, $runtime));
+    }
+
+    /**
+     * @param ConfirmOTATaskRequest $request
+     *
+     * @return ConfirmOTATaskResponse
+     */
+    public function confirmOTATask($request)
+    {
+        $runtime = new RuntimeOptions([]);
+
+        return $this->confirmOTATaskWithOptions($request, $runtime);
+    }
+
+    /**
      * @param CopyThingModelRequest $request
      * @param RuntimeOptions        $runtime
      *
@@ -1730,11 +2711,38 @@ class Iot extends OpenApiClient
     public function copyThingModelWithOptions($request, $runtime)
     {
         Utils::validateModel($request);
+        $query = [];
+        if (!Utils::isUnset($request->iotInstanceId)) {
+            $query['IotInstanceId'] = $request->iotInstanceId;
+        }
+        if (!Utils::isUnset($request->resourceGroupId)) {
+            $query['ResourceGroupId'] = $request->resourceGroupId;
+        }
+        if (!Utils::isUnset($request->sourceModelVersion)) {
+            $query['SourceModelVersion'] = $request->sourceModelVersion;
+        }
+        if (!Utils::isUnset($request->sourceProductKey)) {
+            $query['SourceProductKey'] = $request->sourceProductKey;
+        }
+        if (!Utils::isUnset($request->targetProductKey)) {
+            $query['TargetProductKey'] = $request->targetProductKey;
+        }
         $req = new OpenApiRequest([
-            'body' => Utils::toMap($request),
+            'query' => OpenApiUtilClient::query($query),
+        ]);
+        $params = new Params([
+            'action'      => 'CopyThingModel',
+            'version'     => '2018-01-20',
+            'protocol'    => 'HTTPS',
+            'pathname'    => '/',
+            'method'      => 'POST',
+            'authType'    => 'AK',
+            'style'       => 'RPC',
+            'reqBodyType' => 'formData',
+            'bodyType'    => 'json',
         ]);
 
-        return CopyThingModelResponse::fromMap($this->doRPCRequest('CopyThingModel', '2018-01-20', 'HTTPS', 'POST', 'AK', 'json', $req, $runtime));
+        return CopyThingModelResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
@@ -1758,11 +2766,29 @@ class Iot extends OpenApiClient
     public function createConsumerGroupWithOptions($request, $runtime)
     {
         Utils::validateModel($request);
+        $query = [];
+        if (!Utils::isUnset($request->groupName)) {
+            $query['GroupName'] = $request->groupName;
+        }
+        if (!Utils::isUnset($request->iotInstanceId)) {
+            $query['IotInstanceId'] = $request->iotInstanceId;
+        }
         $req = new OpenApiRequest([
-            'body' => Utils::toMap($request),
+            'query' => OpenApiUtilClient::query($query),
+        ]);
+        $params = new Params([
+            'action'      => 'CreateConsumerGroup',
+            'version'     => '2018-01-20',
+            'protocol'    => 'HTTPS',
+            'pathname'    => '/',
+            'method'      => 'POST',
+            'authType'    => 'AK',
+            'style'       => 'RPC',
+            'reqBodyType' => 'formData',
+            'bodyType'    => 'json',
         ]);
 
-        return CreateConsumerGroupResponse::fromMap($this->doRPCRequest('CreateConsumerGroup', '2018-01-20', 'HTTPS', 'POST', 'AK', 'json', $req, $runtime));
+        return CreateConsumerGroupResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
@@ -1786,11 +2812,32 @@ class Iot extends OpenApiClient
     public function createConsumerGroupSubscribeRelationWithOptions($request, $runtime)
     {
         Utils::validateModel($request);
+        $query = [];
+        if (!Utils::isUnset($request->consumerGroupId)) {
+            $query['ConsumerGroupId'] = $request->consumerGroupId;
+        }
+        if (!Utils::isUnset($request->iotInstanceId)) {
+            $query['IotInstanceId'] = $request->iotInstanceId;
+        }
+        if (!Utils::isUnset($request->productKey)) {
+            $query['ProductKey'] = $request->productKey;
+        }
         $req = new OpenApiRequest([
-            'body' => Utils::toMap($request),
+            'query' => OpenApiUtilClient::query($query),
+        ]);
+        $params = new Params([
+            'action'      => 'CreateConsumerGroupSubscribeRelation',
+            'version'     => '2018-01-20',
+            'protocol'    => 'HTTPS',
+            'pathname'    => '/',
+            'method'      => 'POST',
+            'authType'    => 'AK',
+            'style'       => 'RPC',
+            'reqBodyType' => 'formData',
+            'bodyType'    => 'json',
         ]);
 
-        return CreateConsumerGroupSubscribeRelationResponse::fromMap($this->doRPCRequest('CreateConsumerGroupSubscribeRelation', '2018-01-20', 'HTTPS', 'POST', 'AK', 'json', $req, $runtime));
+        return CreateConsumerGroupSubscribeRelationResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
@@ -1815,10 +2862,21 @@ class Iot extends OpenApiClient
     {
         Utils::validateModel($request);
         $req = new OpenApiRequest([
-            'body' => Utils::toMap($request),
+            'body' => $request->apiPath,
+        ]);
+        $params = new Params([
+            'action'      => 'CreateDataAPIService',
+            'version'     => '2018-01-20',
+            'protocol'    => 'HTTPS',
+            'pathname'    => '/',
+            'method'      => 'POST',
+            'authType'    => 'AK',
+            'style'       => 'RPC',
+            'reqBodyType' => 'formData',
+            'bodyType'    => 'json',
         ]);
 
-        return CreateDataAPIServiceResponse::fromMap($this->doRPCRequest('CreateDataAPIService', '2018-01-20', 'HTTPS', 'POST', 'AK', 'json', $req, $runtime));
+        return CreateDataAPIServiceResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
@@ -1843,10 +2901,21 @@ class Iot extends OpenApiClient
     {
         Utils::validateModel($request);
         $req = new OpenApiRequest([
-            'body' => Utils::toMap($request),
+            'body' => $request->deviceName,
+        ]);
+        $params = new Params([
+            'action'      => 'CreateDeviceDistributeJob',
+            'version'     => '2018-01-20',
+            'protocol'    => 'HTTPS',
+            'pathname'    => '/',
+            'method'      => 'POST',
+            'authType'    => 'AK',
+            'style'       => 'RPC',
+            'reqBodyType' => 'formData',
+            'bodyType'    => 'json',
         ]);
 
-        return CreateDeviceDistributeJobResponse::fromMap($this->doRPCRequest('CreateDeviceDistributeJob', '2018-01-20', 'HTTPS', 'POST', 'AK', 'json', $req, $runtime));
+        return CreateDeviceDistributeJobResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
@@ -1870,11 +2939,35 @@ class Iot extends OpenApiClient
     public function createDeviceGroupWithOptions($request, $runtime)
     {
         Utils::validateModel($request);
+        $query = [];
+        if (!Utils::isUnset($request->groupDesc)) {
+            $query['GroupDesc'] = $request->groupDesc;
+        }
+        if (!Utils::isUnset($request->groupName)) {
+            $query['GroupName'] = $request->groupName;
+        }
+        if (!Utils::isUnset($request->iotInstanceId)) {
+            $query['IotInstanceId'] = $request->iotInstanceId;
+        }
+        if (!Utils::isUnset($request->superGroupId)) {
+            $query['SuperGroupId'] = $request->superGroupId;
+        }
         $req = new OpenApiRequest([
-            'body' => Utils::toMap($request),
+            'query' => OpenApiUtilClient::query($query),
+        ]);
+        $params = new Params([
+            'action'      => 'CreateDeviceGroup',
+            'version'     => '2018-01-20',
+            'protocol'    => 'HTTPS',
+            'pathname'    => '/',
+            'method'      => 'POST',
+            'authType'    => 'AK',
+            'style'       => 'RPC',
+            'reqBodyType' => 'formData',
+            'bodyType'    => 'json',
         ]);
 
-        return CreateDeviceGroupResponse::fromMap($this->doRPCRequest('CreateDeviceGroup', '2018-01-20', 'HTTPS', 'POST', 'AK', 'json', $req, $runtime));
+        return CreateDeviceGroupResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
@@ -1898,11 +2991,41 @@ class Iot extends OpenApiClient
     public function createEdgeDriverWithOptions($request, $runtime)
     {
         Utils::validateModel($request);
+        $query = [];
+        if (!Utils::isUnset($request->cpuArch)) {
+            $query['CpuArch'] = $request->cpuArch;
+        }
+        if (!Utils::isUnset($request->driverName)) {
+            $query['DriverName'] = $request->driverName;
+        }
+        if (!Utils::isUnset($request->driverProtocol)) {
+            $query['DriverProtocol'] = $request->driverProtocol;
+        }
+        if (!Utils::isUnset($request->iotInstanceId)) {
+            $query['IotInstanceId'] = $request->iotInstanceId;
+        }
+        if (!Utils::isUnset($request->isBuiltIn)) {
+            $query['IsBuiltIn'] = $request->isBuiltIn;
+        }
+        if (!Utils::isUnset($request->runtime)) {
+            $query['Runtime'] = $request->runtime;
+        }
         $req = new OpenApiRequest([
-            'body' => Utils::toMap($request),
+            'query' => OpenApiUtilClient::query($query),
+        ]);
+        $params = new Params([
+            'action'      => 'CreateEdgeDriver',
+            'version'     => '2018-01-20',
+            'protocol'    => 'HTTPS',
+            'pathname'    => '/',
+            'method'      => 'POST',
+            'authType'    => 'AK',
+            'style'       => 'RPC',
+            'reqBodyType' => 'formData',
+            'bodyType'    => 'json',
         ]);
 
-        return CreateEdgeDriverResponse::fromMap($this->doRPCRequest('CreateEdgeDriver', '2018-01-20', 'HTTPS', 'POST', 'AK', 'json', $req, $runtime));
+        return CreateEdgeDriverResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
@@ -1926,11 +3049,53 @@ class Iot extends OpenApiClient
     public function createEdgeDriverVersionWithOptions($request, $runtime)
     {
         Utils::validateModel($request);
+        $query = [];
+        if (!Utils::isUnset($request->argument)) {
+            $query['Argument'] = $request->argument;
+        }
+        if (!Utils::isUnset($request->configCheckRule)) {
+            $query['ConfigCheckRule'] = $request->configCheckRule;
+        }
+        if (!Utils::isUnset($request->containerConfig)) {
+            $query['ContainerConfig'] = $request->containerConfig;
+        }
+        if (!Utils::isUnset($request->description)) {
+            $query['Description'] = $request->description;
+        }
+        if (!Utils::isUnset($request->driverConfig)) {
+            $query['DriverConfig'] = $request->driverConfig;
+        }
+        if (!Utils::isUnset($request->driverId)) {
+            $query['DriverId'] = $request->driverId;
+        }
+        if (!Utils::isUnset($request->driverVersion)) {
+            $query['DriverVersion'] = $request->driverVersion;
+        }
+        if (!Utils::isUnset($request->edgeVersion)) {
+            $query['EdgeVersion'] = $request->edgeVersion;
+        }
+        if (!Utils::isUnset($request->iotInstanceId)) {
+            $query['IotInstanceId'] = $request->iotInstanceId;
+        }
+        if (!Utils::isUnset($request->sourceConfig)) {
+            $query['SourceConfig'] = $request->sourceConfig;
+        }
         $req = new OpenApiRequest([
-            'body' => Utils::toMap($request),
+            'query' => OpenApiUtilClient::query($query),
+        ]);
+        $params = new Params([
+            'action'      => 'CreateEdgeDriverVersion',
+            'version'     => '2018-01-20',
+            'protocol'    => 'HTTPS',
+            'pathname'    => '/',
+            'method'      => 'POST',
+            'authType'    => 'AK',
+            'style'       => 'RPC',
+            'reqBodyType' => 'formData',
+            'bodyType'    => 'json',
         ]);
 
-        return CreateEdgeDriverVersionResponse::fromMap($this->doRPCRequest('CreateEdgeDriverVersion', '2018-01-20', 'HTTPS', 'POST', 'AK', 'json', $req, $runtime));
+        return CreateEdgeDriverVersionResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
@@ -1954,11 +3119,35 @@ class Iot extends OpenApiClient
     public function createEdgeInstanceWithOptions($request, $runtime)
     {
         Utils::validateModel($request);
+        $query = [];
+        if (!Utils::isUnset($request->iotInstanceId)) {
+            $query['IotInstanceId'] = $request->iotInstanceId;
+        }
+        if (!Utils::isUnset($request->name)) {
+            $query['Name'] = $request->name;
+        }
+        if (!Utils::isUnset($request->spec)) {
+            $query['Spec'] = $request->spec;
+        }
+        if (!Utils::isUnset($request->tags)) {
+            $query['Tags'] = $request->tags;
+        }
         $req = new OpenApiRequest([
-            'body' => Utils::toMap($request),
+            'query' => OpenApiUtilClient::query($query),
+        ]);
+        $params = new Params([
+            'action'      => 'CreateEdgeInstance',
+            'version'     => '2018-01-20',
+            'protocol'    => 'HTTPS',
+            'pathname'    => '/',
+            'method'      => 'POST',
+            'authType'    => 'AK',
+            'style'       => 'RPC',
+            'reqBodyType' => 'formData',
+            'bodyType'    => 'json',
         ]);
 
-        return CreateEdgeInstanceResponse::fromMap($this->doRPCRequest('CreateEdgeInstance', '2018-01-20', 'HTTPS', 'POST', 'AK', 'json', $req, $runtime));
+        return CreateEdgeInstanceResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
@@ -1982,11 +3171,38 @@ class Iot extends OpenApiClient
     public function createEdgeInstanceChannelWithOptions($request, $runtime)
     {
         Utils::validateModel($request);
+        $query = [];
+        if (!Utils::isUnset($request->channelName)) {
+            $query['ChannelName'] = $request->channelName;
+        }
+        if (!Utils::isUnset($request->configs)) {
+            $query['Configs'] = $request->configs;
+        }
+        if (!Utils::isUnset($request->driverId)) {
+            $query['DriverId'] = $request->driverId;
+        }
+        if (!Utils::isUnset($request->instanceId)) {
+            $query['InstanceId'] = $request->instanceId;
+        }
+        if (!Utils::isUnset($request->iotInstanceId)) {
+            $query['IotInstanceId'] = $request->iotInstanceId;
+        }
         $req = new OpenApiRequest([
-            'body' => Utils::toMap($request),
+            'query' => OpenApiUtilClient::query($query),
+        ]);
+        $params = new Params([
+            'action'      => 'CreateEdgeInstanceChannel',
+            'version'     => '2018-01-20',
+            'protocol'    => 'HTTPS',
+            'pathname'    => '/',
+            'method'      => 'POST',
+            'authType'    => 'AK',
+            'style'       => 'RPC',
+            'reqBodyType' => 'formData',
+            'bodyType'    => 'json',
         ]);
 
-        return CreateEdgeInstanceChannelResponse::fromMap($this->doRPCRequest('CreateEdgeInstanceChannel', '2018-01-20', 'HTTPS', 'POST', 'AK', 'json', $req, $runtime));
+        return CreateEdgeInstanceChannelResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
@@ -2010,11 +3226,32 @@ class Iot extends OpenApiClient
     public function createEdgeInstanceDeploymentWithOptions($request, $runtime)
     {
         Utils::validateModel($request);
+        $query = [];
+        if (!Utils::isUnset($request->instanceId)) {
+            $query['InstanceId'] = $request->instanceId;
+        }
+        if (!Utils::isUnset($request->iotInstanceId)) {
+            $query['IotInstanceId'] = $request->iotInstanceId;
+        }
+        if (!Utils::isUnset($request->type)) {
+            $query['Type'] = $request->type;
+        }
         $req = new OpenApiRequest([
-            'body' => Utils::toMap($request),
+            'query' => OpenApiUtilClient::query($query),
+        ]);
+        $params = new Params([
+            'action'      => 'CreateEdgeInstanceDeployment',
+            'version'     => '2018-01-20',
+            'protocol'    => 'HTTPS',
+            'pathname'    => '/',
+            'method'      => 'POST',
+            'authType'    => 'AK',
+            'style'       => 'RPC',
+            'reqBodyType' => 'formData',
+            'bodyType'    => 'json',
         ]);
 
-        return CreateEdgeInstanceDeploymentResponse::fromMap($this->doRPCRequest('CreateEdgeInstanceDeployment', '2018-01-20', 'HTTPS', 'POST', 'AK', 'json', $req, $runtime));
+        return CreateEdgeInstanceDeploymentResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
@@ -2038,11 +3275,50 @@ class Iot extends OpenApiClient
     public function createEdgeInstanceMessageRoutingWithOptions($request, $runtime)
     {
         Utils::validateModel($request);
+        $query = [];
+        if (!Utils::isUnset($request->instanceId)) {
+            $query['InstanceId'] = $request->instanceId;
+        }
+        if (!Utils::isUnset($request->iotInstanceId)) {
+            $query['IotInstanceId'] = $request->iotInstanceId;
+        }
+        if (!Utils::isUnset($request->name)) {
+            $query['Name'] = $request->name;
+        }
+        if (!Utils::isUnset($request->sourceData)) {
+            $query['SourceData'] = $request->sourceData;
+        }
+        if (!Utils::isUnset($request->sourceType)) {
+            $query['SourceType'] = $request->sourceType;
+        }
+        if (!Utils::isUnset($request->targetData)) {
+            $query['TargetData'] = $request->targetData;
+        }
+        if (!Utils::isUnset($request->targetIotHubQos)) {
+            $query['TargetIotHubQos'] = $request->targetIotHubQos;
+        }
+        if (!Utils::isUnset($request->targetType)) {
+            $query['TargetType'] = $request->targetType;
+        }
+        if (!Utils::isUnset($request->topicFilter)) {
+            $query['TopicFilter'] = $request->topicFilter;
+        }
         $req = new OpenApiRequest([
-            'body' => Utils::toMap($request),
+            'query' => OpenApiUtilClient::query($query),
+        ]);
+        $params = new Params([
+            'action'      => 'CreateEdgeInstanceMessageRouting',
+            'version'     => '2018-01-20',
+            'protocol'    => 'HTTPS',
+            'pathname'    => '/',
+            'method'      => 'POST',
+            'authType'    => 'AK',
+            'style'       => 'RPC',
+            'reqBodyType' => 'formData',
+            'bodyType'    => 'json',
         ]);
 
-        return CreateEdgeInstanceMessageRoutingResponse::fromMap($this->doRPCRequest('CreateEdgeInstanceMessageRouting', '2018-01-20', 'HTTPS', 'POST', 'AK', 'json', $req, $runtime));
+        return CreateEdgeInstanceMessageRoutingResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
@@ -2066,11 +3342,41 @@ class Iot extends OpenApiClient
     public function createEdgeOssPreSignedAddressWithOptions($request, $runtime)
     {
         Utils::validateModel($request);
+        $query = [];
+        if (!Utils::isUnset($request->fileName)) {
+            $query['FileName'] = $request->fileName;
+        }
+        if (!Utils::isUnset($request->instanceId)) {
+            $query['InstanceId'] = $request->instanceId;
+        }
+        if (!Utils::isUnset($request->iotInstanceId)) {
+            $query['IotInstanceId'] = $request->iotInstanceId;
+        }
+        if (!Utils::isUnset($request->resourceId)) {
+            $query['ResourceId'] = $request->resourceId;
+        }
+        if (!Utils::isUnset($request->resourceVersion)) {
+            $query['ResourceVersion'] = $request->resourceVersion;
+        }
+        if (!Utils::isUnset($request->type)) {
+            $query['Type'] = $request->type;
+        }
         $req = new OpenApiRequest([
-            'body' => Utils::toMap($request),
+            'query' => OpenApiUtilClient::query($query),
+        ]);
+        $params = new Params([
+            'action'      => 'CreateEdgeOssPreSignedAddress',
+            'version'     => '2018-01-20',
+            'protocol'    => 'HTTPS',
+            'pathname'    => '/',
+            'method'      => 'POST',
+            'authType'    => 'AK',
+            'style'       => 'RPC',
+            'reqBodyType' => 'formData',
+            'bodyType'    => 'json',
         ]);
 
-        return CreateEdgeOssPreSignedAddressResponse::fromMap($this->doRPCRequest('CreateEdgeOssPreSignedAddress', '2018-01-20', 'HTTPS', 'POST', 'AK', 'json', $req, $runtime));
+        return CreateEdgeOssPreSignedAddressResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
@@ -2094,11 +3400,53 @@ class Iot extends OpenApiClient
     public function createJobWithOptions($request, $runtime)
     {
         Utils::validateModel($request);
+        $query = [];
+        if (!Utils::isUnset($request->description)) {
+            $query['Description'] = $request->description;
+        }
+        if (!Utils::isUnset($request->iotInstanceId)) {
+            $query['IotInstanceId'] = $request->iotInstanceId;
+        }
+        if (!Utils::isUnset($request->jobDocument)) {
+            $query['JobDocument'] = $request->jobDocument;
+        }
+        if (!Utils::isUnset($request->jobFile)) {
+            $query['JobFile'] = $request->jobFile;
+        }
+        if (!Utils::isUnset($request->jobName)) {
+            $query['JobName'] = $request->jobName;
+        }
+        if (!Utils::isUnset($request->rolloutConfig)) {
+            $query['RolloutConfig'] = $request->rolloutConfig;
+        }
+        if (!Utils::isUnset($request->scheduledTime)) {
+            $query['ScheduledTime'] = $request->scheduledTime;
+        }
+        if (!Utils::isUnset($request->targetConfig)) {
+            $query['TargetConfig'] = $request->targetConfig;
+        }
+        if (!Utils::isUnset($request->timeoutConfig)) {
+            $query['TimeoutConfig'] = $request->timeoutConfig;
+        }
+        if (!Utils::isUnset($request->type)) {
+            $query['Type'] = $request->type;
+        }
         $req = new OpenApiRequest([
-            'body' => Utils::toMap($request),
+            'query' => OpenApiUtilClient::query($query),
+        ]);
+        $params = new Params([
+            'action'      => 'CreateJob',
+            'version'     => '2018-01-20',
+            'protocol'    => 'HTTPS',
+            'pathname'    => '/',
+            'method'      => 'POST',
+            'authType'    => 'AK',
+            'style'       => 'RPC',
+            'reqBodyType' => 'formData',
+            'bodyType'    => 'json',
         ]);
 
-        return CreateJobResponse::fromMap($this->doRPCRequest('CreateJob', '2018-01-20', 'HTTPS', 'POST', 'AK', 'json', $req, $runtime));
+        return CreateJobResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
@@ -2122,11 +3470,32 @@ class Iot extends OpenApiClient
     public function createLoRaNodesTaskWithOptions($request, $runtime)
     {
         Utils::validateModel($request);
+        $query = [];
+        if (!Utils::isUnset($request->deviceInfo)) {
+            $query['DeviceInfo'] = $request->deviceInfo;
+        }
+        if (!Utils::isUnset($request->iotInstanceId)) {
+            $query['IotInstanceId'] = $request->iotInstanceId;
+        }
+        if (!Utils::isUnset($request->productKey)) {
+            $query['ProductKey'] = $request->productKey;
+        }
         $req = new OpenApiRequest([
-            'body' => Utils::toMap($request),
+            'query' => OpenApiUtilClient::query($query),
+        ]);
+        $params = new Params([
+            'action'      => 'CreateLoRaNodesTask',
+            'version'     => '2018-01-20',
+            'protocol'    => 'HTTPS',
+            'pathname'    => '/',
+            'method'      => 'POST',
+            'authType'    => 'AK',
+            'style'       => 'RPC',
+            'reqBodyType' => 'formData',
+            'bodyType'    => 'json',
         ]);
 
-        return CreateLoRaNodesTaskResponse::fromMap($this->doRPCRequest('CreateLoRaNodesTask', '2018-01-20', 'HTTPS', 'POST', 'AK', 'json', $req, $runtime));
+        return CreateLoRaNodesTaskResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
@@ -2150,11 +3519,62 @@ class Iot extends OpenApiClient
     public function createOTADynamicUpgradeJobWithOptions($request, $runtime)
     {
         Utils::validateModel($request);
+        $query = [];
+        if (!Utils::isUnset($request->dynamicMode)) {
+            $query['DynamicMode'] = $request->dynamicMode;
+        }
+        if (!Utils::isUnset($request->firmwareId)) {
+            $query['FirmwareId'] = $request->firmwareId;
+        }
+        if (!Utils::isUnset($request->iotInstanceId)) {
+            $query['IotInstanceId'] = $request->iotInstanceId;
+        }
+        if (!Utils::isUnset($request->maximumPerMinute)) {
+            $query['MaximumPerMinute'] = $request->maximumPerMinute;
+        }
+        if (!Utils::isUnset($request->needConfirm)) {
+            $query['NeedConfirm'] = $request->needConfirm;
+        }
+        if (!Utils::isUnset($request->needPush)) {
+            $query['NeedPush'] = $request->needPush;
+        }
+        if (!Utils::isUnset($request->overwriteMode)) {
+            $query['OverwriteMode'] = $request->overwriteMode;
+        }
+        if (!Utils::isUnset($request->productKey)) {
+            $query['ProductKey'] = $request->productKey;
+        }
+        if (!Utils::isUnset($request->retryCount)) {
+            $query['RetryCount'] = $request->retryCount;
+        }
+        if (!Utils::isUnset($request->retryInterval)) {
+            $query['RetryInterval'] = $request->retryInterval;
+        }
+        if (!Utils::isUnset($request->srcVersion)) {
+            $query['SrcVersion'] = $request->srcVersion;
+        }
+        if (!Utils::isUnset($request->tag)) {
+            $query['Tag'] = $request->tag;
+        }
+        if (!Utils::isUnset($request->timeoutInMinutes)) {
+            $query['TimeoutInMinutes'] = $request->timeoutInMinutes;
+        }
         $req = new OpenApiRequest([
-            'body' => Utils::toMap($request),
+            'query' => OpenApiUtilClient::query($query),
+        ]);
+        $params = new Params([
+            'action'      => 'CreateOTADynamicUpgradeJob',
+            'version'     => '2018-01-20',
+            'protocol'    => 'HTTPS',
+            'pathname'    => '/',
+            'method'      => 'POST',
+            'authType'    => 'AK',
+            'style'       => 'RPC',
+            'reqBodyType' => 'formData',
+            'bodyType'    => 'json',
         ]);
 
-        return CreateOTADynamicUpgradeJobResponse::fromMap($this->doRPCRequest('CreateOTADynamicUpgradeJob', '2018-01-20', 'HTTPS', 'POST', 'AK', 'json', $req, $runtime));
+        return CreateOTADynamicUpgradeJobResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
@@ -2178,11 +3598,65 @@ class Iot extends OpenApiClient
     public function createOTAFirmwareWithOptions($request, $runtime)
     {
         Utils::validateModel($request);
+        $query = [];
+        if (!Utils::isUnset($request->destVersion)) {
+            $query['DestVersion'] = $request->destVersion;
+        }
+        if (!Utils::isUnset($request->firmwareDesc)) {
+            $query['FirmwareDesc'] = $request->firmwareDesc;
+        }
+        if (!Utils::isUnset($request->firmwareName)) {
+            $query['FirmwareName'] = $request->firmwareName;
+        }
+        if (!Utils::isUnset($request->firmwareSign)) {
+            $query['FirmwareSign'] = $request->firmwareSign;
+        }
+        if (!Utils::isUnset($request->firmwareSize)) {
+            $query['FirmwareSize'] = $request->firmwareSize;
+        }
+        if (!Utils::isUnset($request->firmwareUrl)) {
+            $query['FirmwareUrl'] = $request->firmwareUrl;
+        }
+        if (!Utils::isUnset($request->iotInstanceId)) {
+            $query['IotInstanceId'] = $request->iotInstanceId;
+        }
+        if (!Utils::isUnset($request->moduleName)) {
+            $query['ModuleName'] = $request->moduleName;
+        }
+        if (!Utils::isUnset($request->needToVerify)) {
+            $query['NeedToVerify'] = $request->needToVerify;
+        }
+        if (!Utils::isUnset($request->productKey)) {
+            $query['ProductKey'] = $request->productKey;
+        }
+        if (!Utils::isUnset($request->signMethod)) {
+            $query['SignMethod'] = $request->signMethod;
+        }
+        if (!Utils::isUnset($request->srcVersion)) {
+            $query['SrcVersion'] = $request->srcVersion;
+        }
+        if (!Utils::isUnset($request->type)) {
+            $query['Type'] = $request->type;
+        }
+        if (!Utils::isUnset($request->udi)) {
+            $query['Udi'] = $request->udi;
+        }
         $req = new OpenApiRequest([
-            'body' => Utils::toMap($request),
+            'query' => OpenApiUtilClient::query($query),
+        ]);
+        $params = new Params([
+            'action'      => 'CreateOTAFirmware',
+            'version'     => '2018-01-20',
+            'protocol'    => 'HTTPS',
+            'pathname'    => '/',
+            'method'      => 'POST',
+            'authType'    => 'AK',
+            'style'       => 'RPC',
+            'reqBodyType' => 'formData',
+            'bodyType'    => 'json',
         ]);
 
-        return CreateOTAFirmwareResponse::fromMap($this->doRPCRequest('CreateOTAFirmware', '2018-01-20', 'HTTPS', 'POST', 'AK', 'json', $req, $runtime));
+        return CreateOTAFirmwareResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
@@ -2206,11 +3680,38 @@ class Iot extends OpenApiClient
     public function createOTAModuleWithOptions($request, $runtime)
     {
         Utils::validateModel($request);
+        $query = [];
+        if (!Utils::isUnset($request->aliasName)) {
+            $query['AliasName'] = $request->aliasName;
+        }
+        if (!Utils::isUnset($request->desc)) {
+            $query['Desc'] = $request->desc;
+        }
+        if (!Utils::isUnset($request->iotInstanceId)) {
+            $query['IotInstanceId'] = $request->iotInstanceId;
+        }
+        if (!Utils::isUnset($request->moduleName)) {
+            $query['ModuleName'] = $request->moduleName;
+        }
+        if (!Utils::isUnset($request->productKey)) {
+            $query['ProductKey'] = $request->productKey;
+        }
         $req = new OpenApiRequest([
-            'body' => Utils::toMap($request),
+            'query' => OpenApiUtilClient::query($query),
+        ]);
+        $params = new Params([
+            'action'      => 'CreateOTAModule',
+            'version'     => '2018-01-20',
+            'protocol'    => 'HTTPS',
+            'pathname'    => '/',
+            'method'      => 'POST',
+            'authType'    => 'AK',
+            'style'       => 'RPC',
+            'reqBodyType' => 'formData',
+            'bodyType'    => 'json',
         ]);
 
-        return CreateOTAModuleResponse::fromMap($this->doRPCRequest('CreateOTAModule', '2018-01-20', 'HTTPS', 'POST', 'AK', 'json', $req, $runtime));
+        return CreateOTAModuleResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
@@ -2234,11 +3735,77 @@ class Iot extends OpenApiClient
     public function createOTAStaticUpgradeJobWithOptions($request, $runtime)
     {
         Utils::validateModel($request);
+        $query = [];
+        if (!Utils::isUnset($request->dnListFileUrl)) {
+            $query['DnListFileUrl'] = $request->dnListFileUrl;
+        }
+        if (!Utils::isUnset($request->firmwareId)) {
+            $query['FirmwareId'] = $request->firmwareId;
+        }
+        if (!Utils::isUnset($request->grayPercent)) {
+            $query['GrayPercent'] = $request->grayPercent;
+        }
+        if (!Utils::isUnset($request->iotInstanceId)) {
+            $query['IotInstanceId'] = $request->iotInstanceId;
+        }
+        if (!Utils::isUnset($request->maximumPerMinute)) {
+            $query['MaximumPerMinute'] = $request->maximumPerMinute;
+        }
+        if (!Utils::isUnset($request->needConfirm)) {
+            $query['NeedConfirm'] = $request->needConfirm;
+        }
+        if (!Utils::isUnset($request->needPush)) {
+            $query['NeedPush'] = $request->needPush;
+        }
+        if (!Utils::isUnset($request->overwriteMode)) {
+            $query['OverwriteMode'] = $request->overwriteMode;
+        }
+        if (!Utils::isUnset($request->productKey)) {
+            $query['ProductKey'] = $request->productKey;
+        }
+        if (!Utils::isUnset($request->retryCount)) {
+            $query['RetryCount'] = $request->retryCount;
+        }
+        if (!Utils::isUnset($request->retryInterval)) {
+            $query['RetryInterval'] = $request->retryInterval;
+        }
+        if (!Utils::isUnset($request->scheduleFinishTime)) {
+            $query['ScheduleFinishTime'] = $request->scheduleFinishTime;
+        }
+        if (!Utils::isUnset($request->scheduleTime)) {
+            $query['ScheduleTime'] = $request->scheduleTime;
+        }
+        if (!Utils::isUnset($request->srcVersion)) {
+            $query['SrcVersion'] = $request->srcVersion;
+        }
+        if (!Utils::isUnset($request->tag)) {
+            $query['Tag'] = $request->tag;
+        }
+        if (!Utils::isUnset($request->targetDeviceName)) {
+            $query['TargetDeviceName'] = $request->targetDeviceName;
+        }
+        if (!Utils::isUnset($request->targetSelection)) {
+            $query['TargetSelection'] = $request->targetSelection;
+        }
+        if (!Utils::isUnset($request->timeoutInMinutes)) {
+            $query['TimeoutInMinutes'] = $request->timeoutInMinutes;
+        }
         $req = new OpenApiRequest([
-            'body' => Utils::toMap($request),
+            'query' => OpenApiUtilClient::query($query),
+        ]);
+        $params = new Params([
+            'action'      => 'CreateOTAStaticUpgradeJob',
+            'version'     => '2018-01-20',
+            'protocol'    => 'HTTPS',
+            'pathname'    => '/',
+            'method'      => 'POST',
+            'authType'    => 'AK',
+            'style'       => 'RPC',
+            'reqBodyType' => 'formData',
+            'bodyType'    => 'json',
         ]);
 
-        return CreateOTAStaticUpgradeJobResponse::fromMap($this->doRPCRequest('CreateOTAStaticUpgradeJob', '2018-01-20', 'HTTPS', 'POST', 'AK', 'json', $req, $runtime));
+        return CreateOTAStaticUpgradeJobResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
@@ -2262,11 +3829,44 @@ class Iot extends OpenApiClient
     public function createOTAVerifyJobWithOptions($request, $runtime)
     {
         Utils::validateModel($request);
+        $query = [];
+        if (!Utils::isUnset($request->firmwareId)) {
+            $query['FirmwareId'] = $request->firmwareId;
+        }
+        if (!Utils::isUnset($request->iotInstanceId)) {
+            $query['IotInstanceId'] = $request->iotInstanceId;
+        }
+        if (!Utils::isUnset($request->needConfirm)) {
+            $query['NeedConfirm'] = $request->needConfirm;
+        }
+        if (!Utils::isUnset($request->needPush)) {
+            $query['NeedPush'] = $request->needPush;
+        }
+        if (!Utils::isUnset($request->productKey)) {
+            $query['ProductKey'] = $request->productKey;
+        }
+        if (!Utils::isUnset($request->targetDeviceName)) {
+            $query['TargetDeviceName'] = $request->targetDeviceName;
+        }
+        if (!Utils::isUnset($request->timeoutInMinutes)) {
+            $query['TimeoutInMinutes'] = $request->timeoutInMinutes;
+        }
         $req = new OpenApiRequest([
-            'body' => Utils::toMap($request),
+            'query' => OpenApiUtilClient::query($query),
+        ]);
+        $params = new Params([
+            'action'      => 'CreateOTAVerifyJob',
+            'version'     => '2018-01-20',
+            'protocol'    => 'HTTPS',
+            'pathname'    => '/',
+            'method'      => 'POST',
+            'authType'    => 'AK',
+            'style'       => 'RPC',
+            'reqBodyType' => 'formData',
+            'bodyType'    => 'json',
         ]);
 
-        return CreateOTAVerifyJobResponse::fromMap($this->doRPCRequest('CreateOTAVerifyJob', '2018-01-20', 'HTTPS', 'POST', 'AK', 'json', $req, $runtime));
+        return CreateOTAVerifyJobResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
@@ -2290,11 +3890,68 @@ class Iot extends OpenApiClient
     public function createProductWithOptions($request, $runtime)
     {
         Utils::validateModel($request);
+        $query = [];
+        if (!Utils::isUnset($request->aliyunCommodityCode)) {
+            $query['AliyunCommodityCode'] = $request->aliyunCommodityCode;
+        }
+        if (!Utils::isUnset($request->authType)) {
+            $query['AuthType'] = $request->authType;
+        }
+        if (!Utils::isUnset($request->categoryKey)) {
+            $query['CategoryKey'] = $request->categoryKey;
+        }
+        if (!Utils::isUnset($request->dataFormat)) {
+            $query['DataFormat'] = $request->dataFormat;
+        }
+        if (!Utils::isUnset($request->description)) {
+            $query['Description'] = $request->description;
+        }
+        if (!Utils::isUnset($request->id2)) {
+            $query['Id2'] = $request->id2;
+        }
+        if (!Utils::isUnset($request->iotInstanceId)) {
+            $query['IotInstanceId'] = $request->iotInstanceId;
+        }
+        if (!Utils::isUnset($request->joinPermissionId)) {
+            $query['JoinPermissionId'] = $request->joinPermissionId;
+        }
+        if (!Utils::isUnset($request->netType)) {
+            $query['NetType'] = $request->netType;
+        }
+        if (!Utils::isUnset($request->nodeType)) {
+            $query['NodeType'] = $request->nodeType;
+        }
+        if (!Utils::isUnset($request->productName)) {
+            $query['ProductName'] = $request->productName;
+        }
+        if (!Utils::isUnset($request->protocolType)) {
+            $query['ProtocolType'] = $request->protocolType;
+        }
+        if (!Utils::isUnset($request->publishAuto)) {
+            $query['PublishAuto'] = $request->publishAuto;
+        }
+        if (!Utils::isUnset($request->resourceGroupId)) {
+            $query['ResourceGroupId'] = $request->resourceGroupId;
+        }
+        if (!Utils::isUnset($request->validateType)) {
+            $query['ValidateType'] = $request->validateType;
+        }
         $req = new OpenApiRequest([
-            'body' => Utils::toMap($request),
+            'query' => OpenApiUtilClient::query($query),
+        ]);
+        $params = new Params([
+            'action'      => 'CreateProduct',
+            'version'     => '2018-01-20',
+            'protocol'    => 'HTTPS',
+            'pathname'    => '/',
+            'method'      => 'POST',
+            'authType'    => 'AK',
+            'style'       => 'RPC',
+            'reqBodyType' => 'formData',
+            'bodyType'    => 'json',
         ]);
 
-        return CreateProductResponse::fromMap($this->doRPCRequest('CreateProduct', '2018-01-20', 'HTTPS', 'POST', 'AK', 'json', $req, $runtime));
+        return CreateProductResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
@@ -2318,11 +3975,38 @@ class Iot extends OpenApiClient
     public function createProductDistributeJobWithOptions($request, $runtime)
     {
         Utils::validateModel($request);
+        $query = [];
+        if (!Utils::isUnset($request->productKey)) {
+            $query['ProductKey'] = $request->productKey;
+        }
+        if (!Utils::isUnset($request->sourceInstanceId)) {
+            $query['SourceInstanceId'] = $request->sourceInstanceId;
+        }
+        if (!Utils::isUnset($request->targetAliyunId)) {
+            $query['TargetAliyunId'] = $request->targetAliyunId;
+        }
+        if (!Utils::isUnset($request->targetInstanceId)) {
+            $query['TargetInstanceId'] = $request->targetInstanceId;
+        }
+        if (!Utils::isUnset($request->targetUid)) {
+            $query['TargetUid'] = $request->targetUid;
+        }
         $req = new OpenApiRequest([
-            'body' => Utils::toMap($request),
+            'query' => OpenApiUtilClient::query($query),
+        ]);
+        $params = new Params([
+            'action'      => 'CreateProductDistributeJob',
+            'version'     => '2018-01-20',
+            'protocol'    => 'HTTPS',
+            'pathname'    => '/',
+            'method'      => 'POST',
+            'authType'    => 'AK',
+            'style'       => 'RPC',
+            'reqBodyType' => 'formData',
+            'bodyType'    => 'json',
         ]);
 
-        return CreateProductDistributeJobResponse::fromMap($this->doRPCRequest('CreateProductDistributeJob', '2018-01-20', 'HTTPS', 'POST', 'AK', 'json', $req, $runtime));
+        return CreateProductDistributeJobResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
@@ -2346,11 +4030,32 @@ class Iot extends OpenApiClient
     public function createProductTagsWithOptions($request, $runtime)
     {
         Utils::validateModel($request);
+        $query = [];
+        if (!Utils::isUnset($request->iotInstanceId)) {
+            $query['IotInstanceId'] = $request->iotInstanceId;
+        }
+        if (!Utils::isUnset($request->productKey)) {
+            $query['ProductKey'] = $request->productKey;
+        }
+        if (!Utils::isUnset($request->productTag)) {
+            $query['ProductTag'] = $request->productTag;
+        }
         $req = new OpenApiRequest([
-            'body' => Utils::toMap($request),
+            'query' => OpenApiUtilClient::query($query),
+        ]);
+        $params = new Params([
+            'action'      => 'CreateProductTags',
+            'version'     => '2018-01-20',
+            'protocol'    => 'HTTPS',
+            'pathname'    => '/',
+            'method'      => 'POST',
+            'authType'    => 'AK',
+            'style'       => 'RPC',
+            'reqBodyType' => 'formData',
+            'bodyType'    => 'json',
         ]);
 
-        return CreateProductTagsResponse::fromMap($this->doRPCRequest('CreateProductTags', '2018-01-20', 'HTTPS', 'POST', 'AK', 'json', $req, $runtime));
+        return CreateProductTagsResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
@@ -2374,11 +4079,38 @@ class Iot extends OpenApiClient
     public function createProductTopicWithOptions($request, $runtime)
     {
         Utils::validateModel($request);
+        $query = [];
+        if (!Utils::isUnset($request->desc)) {
+            $query['Desc'] = $request->desc;
+        }
+        if (!Utils::isUnset($request->iotInstanceId)) {
+            $query['IotInstanceId'] = $request->iotInstanceId;
+        }
+        if (!Utils::isUnset($request->operation)) {
+            $query['Operation'] = $request->operation;
+        }
+        if (!Utils::isUnset($request->productKey)) {
+            $query['ProductKey'] = $request->productKey;
+        }
+        if (!Utils::isUnset($request->topicShortName)) {
+            $query['TopicShortName'] = $request->topicShortName;
+        }
         $req = new OpenApiRequest([
-            'body' => Utils::toMap($request),
+            'query' => OpenApiUtilClient::query($query),
+        ]);
+        $params = new Params([
+            'action'      => 'CreateProductTopic',
+            'version'     => '2018-01-20',
+            'protocol'    => 'HTTPS',
+            'pathname'    => '/',
+            'method'      => 'POST',
+            'authType'    => 'AK',
+            'style'       => 'RPC',
+            'reqBodyType' => 'formData',
+            'bodyType'    => 'json',
         ]);
 
-        return CreateProductTopicResponse::fromMap($this->doRPCRequest('CreateProductTopic', '2018-01-20', 'HTTPS', 'POST', 'AK', 'json', $req, $runtime));
+        return CreateProductTopicResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
@@ -2402,11 +4134,56 @@ class Iot extends OpenApiClient
     public function createRuleWithOptions($request, $runtime)
     {
         Utils::validateModel($request);
+        $query = [];
+        if (!Utils::isUnset($request->dataType)) {
+            $query['DataType'] = $request->dataType;
+        }
+        if (!Utils::isUnset($request->iotInstanceId)) {
+            $query['IotInstanceId'] = $request->iotInstanceId;
+        }
+        if (!Utils::isUnset($request->name)) {
+            $query['Name'] = $request->name;
+        }
+        if (!Utils::isUnset($request->productKey)) {
+            $query['ProductKey'] = $request->productKey;
+        }
+        if (!Utils::isUnset($request->resourceGroupId)) {
+            $query['ResourceGroupId'] = $request->resourceGroupId;
+        }
+        if (!Utils::isUnset($request->ruleDesc)) {
+            $query['RuleDesc'] = $request->ruleDesc;
+        }
+        if (!Utils::isUnset($request->select)) {
+            $query['Select'] = $request->select;
+        }
+        if (!Utils::isUnset($request->shortTopic)) {
+            $query['ShortTopic'] = $request->shortTopic;
+        }
+        if (!Utils::isUnset($request->topic)) {
+            $query['Topic'] = $request->topic;
+        }
+        if (!Utils::isUnset($request->topicType)) {
+            $query['TopicType'] = $request->topicType;
+        }
+        if (!Utils::isUnset($request->where)) {
+            $query['Where'] = $request->where;
+        }
         $req = new OpenApiRequest([
-            'body' => Utils::toMap($request),
+            'query' => OpenApiUtilClient::query($query),
+        ]);
+        $params = new Params([
+            'action'      => 'CreateRule',
+            'version'     => '2018-01-20',
+            'protocol'    => 'HTTPS',
+            'pathname'    => '/',
+            'method'      => 'POST',
+            'authType'    => 'AK',
+            'style'       => 'RPC',
+            'reqBodyType' => 'formData',
+            'bodyType'    => 'json',
         ]);
 
-        return CreateRuleResponse::fromMap($this->doRPCRequest('CreateRule', '2018-01-20', 'HTTPS', 'POST', 'AK', 'json', $req, $runtime));
+        return CreateRuleResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
@@ -2430,11 +4207,38 @@ class Iot extends OpenApiClient
     public function createRuleActionWithOptions($request, $runtime)
     {
         Utils::validateModel($request);
+        $query = [];
+        if (!Utils::isUnset($request->configuration)) {
+            $query['Configuration'] = $request->configuration;
+        }
+        if (!Utils::isUnset($request->errorActionFlag)) {
+            $query['ErrorActionFlag'] = $request->errorActionFlag;
+        }
+        if (!Utils::isUnset($request->iotInstanceId)) {
+            $query['IotInstanceId'] = $request->iotInstanceId;
+        }
+        if (!Utils::isUnset($request->ruleId)) {
+            $query['RuleId'] = $request->ruleId;
+        }
+        if (!Utils::isUnset($request->type)) {
+            $query['Type'] = $request->type;
+        }
         $req = new OpenApiRequest([
-            'body' => Utils::toMap($request),
+            'query' => OpenApiUtilClient::query($query),
+        ]);
+        $params = new Params([
+            'action'      => 'CreateRuleAction',
+            'version'     => '2018-01-20',
+            'protocol'    => 'HTTPS',
+            'pathname'    => '/',
+            'method'      => 'POST',
+            'authType'    => 'AK',
+            'style'       => 'RPC',
+            'reqBodyType' => 'formData',
+            'bodyType'    => 'json',
         ]);
 
-        return CreateRuleActionResponse::fromMap($this->doRPCRequest('CreateRuleAction', '2018-01-20', 'HTTPS', 'POST', 'AK', 'json', $req, $runtime));
+        return CreateRuleActionResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
@@ -2458,11 +4262,32 @@ class Iot extends OpenApiClient
     public function createRulengDistributeJobWithOptions($request, $runtime)
     {
         Utils::validateModel($request);
+        $query = [];
+        if (!Utils::isUnset($request->productKey)) {
+            $query['ProductKey'] = $request->productKey;
+        }
+        if (!Utils::isUnset($request->sourceInstanceId)) {
+            $query['SourceInstanceId'] = $request->sourceInstanceId;
+        }
+        if (!Utils::isUnset($request->targetInstanceId)) {
+            $query['TargetInstanceId'] = $request->targetInstanceId;
+        }
         $req = new OpenApiRequest([
-            'body' => Utils::toMap($request),
+            'query' => OpenApiUtilClient::query($query),
+        ]);
+        $params = new Params([
+            'action'      => 'CreateRulengDistributeJob',
+            'version'     => '2018-01-20',
+            'protocol'    => 'HTTPS',
+            'pathname'    => '/',
+            'method'      => 'POST',
+            'authType'    => 'AK',
+            'style'       => 'RPC',
+            'reqBodyType' => 'formData',
+            'bodyType'    => 'json',
         ]);
 
-        return CreateRulengDistributeJobResponse::fromMap($this->doRPCRequest('CreateRulengDistributeJob', '2018-01-20', 'HTTPS', 'POST', 'AK', 'json', $req, $runtime));
+        return CreateRulengDistributeJobResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
@@ -2486,11 +4311,35 @@ class Iot extends OpenApiClient
     public function createSceneRuleWithOptions($request, $runtime)
     {
         Utils::validateModel($request);
+        $query = [];
+        if (!Utils::isUnset($request->iotInstanceId)) {
+            $query['IotInstanceId'] = $request->iotInstanceId;
+        }
+        if (!Utils::isUnset($request->ruleContent)) {
+            $query['RuleContent'] = $request->ruleContent;
+        }
+        if (!Utils::isUnset($request->ruleDescription)) {
+            $query['RuleDescription'] = $request->ruleDescription;
+        }
+        if (!Utils::isUnset($request->ruleName)) {
+            $query['RuleName'] = $request->ruleName;
+        }
         $req = new OpenApiRequest([
-            'body' => Utils::toMap($request),
+            'query' => OpenApiUtilClient::query($query),
+        ]);
+        $params = new Params([
+            'action'      => 'CreateSceneRule',
+            'version'     => '2018-01-20',
+            'protocol'    => 'HTTPS',
+            'pathname'    => '/',
+            'method'      => 'POST',
+            'authType'    => 'AK',
+            'style'       => 'RPC',
+            'reqBodyType' => 'formData',
+            'bodyType'    => 'json',
         ]);
 
-        return CreateSceneRuleResponse::fromMap($this->doRPCRequest('CreateSceneRule', '2018-01-20', 'HTTPS', 'POST', 'AK', 'json', $req, $runtime));
+        return CreateSceneRuleResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
@@ -2506,6 +4355,84 @@ class Iot extends OpenApiClient
     }
 
     /**
+     * @param CreateSpeechRequest $request
+     * @param RuntimeOptions      $runtime
+     *
+     * @return CreateSpeechResponse
+     */
+    public function createSpeechWithOptions($request, $runtime)
+    {
+        Utils::validateModel($request);
+        $req = new OpenApiRequest([
+            'body' => $request->bizCode,
+        ]);
+        $params = new Params([
+            'action'      => 'CreateSpeech',
+            'version'     => '2018-01-20',
+            'protocol'    => 'HTTPS',
+            'pathname'    => '/',
+            'method'      => 'POST',
+            'authType'    => 'AK',
+            'style'       => 'RPC',
+            'reqBodyType' => 'formData',
+            'bodyType'    => 'json',
+        ]);
+
+        return CreateSpeechResponse::fromMap($this->callApi($params, $req, $runtime));
+    }
+
+    /**
+     * @param CreateSpeechRequest $request
+     *
+     * @return CreateSpeechResponse
+     */
+    public function createSpeech($request)
+    {
+        $runtime = new RuntimeOptions([]);
+
+        return $this->createSpeechWithOptions($request, $runtime);
+    }
+
+    /**
+     * @param CreateStudioAppDomainOpenRequest $request
+     * @param RuntimeOptions                   $runtime
+     *
+     * @return CreateStudioAppDomainOpenResponse
+     */
+    public function createStudioAppDomainOpenWithOptions($request, $runtime)
+    {
+        Utils::validateModel($request);
+        $req = new OpenApiRequest([
+            'body' => $request->appId,
+        ]);
+        $params = new Params([
+            'action'      => 'CreateStudioAppDomainOpen',
+            'version'     => '2018-01-20',
+            'protocol'    => 'HTTPS',
+            'pathname'    => '/',
+            'method'      => 'POST',
+            'authType'    => 'AK',
+            'style'       => 'RPC',
+            'reqBodyType' => 'formData',
+            'bodyType'    => 'json',
+        ]);
+
+        return CreateStudioAppDomainOpenResponse::fromMap($this->callApi($params, $req, $runtime));
+    }
+
+    /**
+     * @param CreateStudioAppDomainOpenRequest $request
+     *
+     * @return CreateStudioAppDomainOpenResponse
+     */
+    public function createStudioAppDomainOpen($request)
+    {
+        $runtime = new RuntimeOptions([]);
+
+        return $this->createStudioAppDomainOpenWithOptions($request, $runtime);
+    }
+
+    /**
      * @param CreateSubscribeRelationRequest $request
      * @param RuntimeOptions                 $runtime
      *
@@ -2514,11 +4441,68 @@ class Iot extends OpenApiClient
     public function createSubscribeRelationWithOptions($request, $runtime)
     {
         Utils::validateModel($request);
+        $query = [];
+        if (!Utils::isUnset($request->consumerGroupIds)) {
+            $query['ConsumerGroupIds'] = $request->consumerGroupIds;
+        }
+        if (!Utils::isUnset($request->deviceDataFlag)) {
+            $query['DeviceDataFlag'] = $request->deviceDataFlag;
+        }
+        if (!Utils::isUnset($request->deviceLifeCycleFlag)) {
+            $query['DeviceLifeCycleFlag'] = $request->deviceLifeCycleFlag;
+        }
+        if (!Utils::isUnset($request->deviceStatusChangeFlag)) {
+            $query['DeviceStatusChangeFlag'] = $request->deviceStatusChangeFlag;
+        }
+        if (!Utils::isUnset($request->deviceTagFlag)) {
+            $query['DeviceTagFlag'] = $request->deviceTagFlag;
+        }
+        if (!Utils::isUnset($request->deviceTopoLifeCycleFlag)) {
+            $query['DeviceTopoLifeCycleFlag'] = $request->deviceTopoLifeCycleFlag;
+        }
+        if (!Utils::isUnset($request->foundDeviceListFlag)) {
+            $query['FoundDeviceListFlag'] = $request->foundDeviceListFlag;
+        }
+        if (!Utils::isUnset($request->iotInstanceId)) {
+            $query['IotInstanceId'] = $request->iotInstanceId;
+        }
+        if (!Utils::isUnset($request->mnsConfiguration)) {
+            $query['MnsConfiguration'] = $request->mnsConfiguration;
+        }
+        if (!Utils::isUnset($request->otaEventFlag)) {
+            $query['OtaEventFlag'] = $request->otaEventFlag;
+        }
+        if (!Utils::isUnset($request->otaJobFlag)) {
+            $query['OtaJobFlag'] = $request->otaJobFlag;
+        }
+        if (!Utils::isUnset($request->otaVersionFlag)) {
+            $query['OtaVersionFlag'] = $request->otaVersionFlag;
+        }
+        if (!Utils::isUnset($request->productKey)) {
+            $query['ProductKey'] = $request->productKey;
+        }
+        if (!Utils::isUnset($request->thingHistoryFlag)) {
+            $query['ThingHistoryFlag'] = $request->thingHistoryFlag;
+        }
+        if (!Utils::isUnset($request->type)) {
+            $query['Type'] = $request->type;
+        }
         $req = new OpenApiRequest([
-            'body' => Utils::toMap($request),
+            'query' => OpenApiUtilClient::query($query),
+        ]);
+        $params = new Params([
+            'action'      => 'CreateSubscribeRelation',
+            'version'     => '2018-01-20',
+            'protocol'    => 'HTTPS',
+            'pathname'    => '/',
+            'method'      => 'POST',
+            'authType'    => 'AK',
+            'style'       => 'RPC',
+            'reqBodyType' => 'formData',
+            'bodyType'    => 'json',
         ]);
 
-        return CreateSubscribeRelationResponse::fromMap($this->doRPCRequest('CreateSubscribeRelation', '2018-01-20', 'HTTPS', 'POST', 'AK', 'json', $req, $runtime));
+        return CreateSubscribeRelationResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
@@ -2542,11 +4526,38 @@ class Iot extends OpenApiClient
     public function createThingModelWithOptions($request, $runtime)
     {
         Utils::validateModel($request);
+        $query = [];
+        if (!Utils::isUnset($request->functionBlockId)) {
+            $query['FunctionBlockId'] = $request->functionBlockId;
+        }
+        if (!Utils::isUnset($request->functionBlockName)) {
+            $query['FunctionBlockName'] = $request->functionBlockName;
+        }
+        if (!Utils::isUnset($request->iotInstanceId)) {
+            $query['IotInstanceId'] = $request->iotInstanceId;
+        }
+        if (!Utils::isUnset($request->productKey)) {
+            $query['ProductKey'] = $request->productKey;
+        }
+        if (!Utils::isUnset($request->thingModelJson)) {
+            $query['ThingModelJson'] = $request->thingModelJson;
+        }
         $req = new OpenApiRequest([
-            'body' => Utils::toMap($request),
+            'query' => OpenApiUtilClient::query($query),
+        ]);
+        $params = new Params([
+            'action'      => 'CreateThingModel',
+            'version'     => '2018-01-20',
+            'protocol'    => 'HTTPS',
+            'pathname'    => '/',
+            'method'      => 'POST',
+            'authType'    => 'AK',
+            'style'       => 'RPC',
+            'reqBodyType' => 'formData',
+            'bodyType'    => 'json',
         ]);
 
-        return CreateThingModelResponse::fromMap($this->doRPCRequest('CreateThingModel', '2018-01-20', 'HTTPS', 'POST', 'AK', 'json', $req, $runtime));
+        return CreateThingModelResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
@@ -2570,11 +4581,35 @@ class Iot extends OpenApiClient
     public function createThingScriptWithOptions($request, $runtime)
     {
         Utils::validateModel($request);
+        $query = [];
+        if (!Utils::isUnset($request->iotInstanceId)) {
+            $query['IotInstanceId'] = $request->iotInstanceId;
+        }
+        if (!Utils::isUnset($request->productKey)) {
+            $query['ProductKey'] = $request->productKey;
+        }
+        if (!Utils::isUnset($request->scriptContent)) {
+            $query['ScriptContent'] = $request->scriptContent;
+        }
+        if (!Utils::isUnset($request->scriptType)) {
+            $query['ScriptType'] = $request->scriptType;
+        }
         $req = new OpenApiRequest([
-            'body' => Utils::toMap($request),
+            'query' => OpenApiUtilClient::query($query),
+        ]);
+        $params = new Params([
+            'action'      => 'CreateThingScript',
+            'version'     => '2018-01-20',
+            'protocol'    => 'HTTPS',
+            'pathname'    => '/',
+            'method'      => 'POST',
+            'authType'    => 'AK',
+            'style'       => 'RPC',
+            'reqBodyType' => 'formData',
+            'bodyType'    => 'json',
         ]);
 
-        return CreateThingScriptResponse::fromMap($this->doRPCRequest('CreateThingScript', '2018-01-20', 'HTTPS', 'POST', 'AK', 'json', $req, $runtime));
+        return CreateThingScriptResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
@@ -2598,11 +4633,32 @@ class Iot extends OpenApiClient
     public function createTopicRouteTableWithOptions($request, $runtime)
     {
         Utils::validateModel($request);
+        $query = [];
+        if (!Utils::isUnset($request->dstTopic)) {
+            $query['DstTopic'] = $request->dstTopic;
+        }
+        if (!Utils::isUnset($request->iotInstanceId)) {
+            $query['IotInstanceId'] = $request->iotInstanceId;
+        }
+        if (!Utils::isUnset($request->srcTopic)) {
+            $query['SrcTopic'] = $request->srcTopic;
+        }
         $req = new OpenApiRequest([
-            'body' => Utils::toMap($request),
+            'query' => OpenApiUtilClient::query($query),
+        ]);
+        $params = new Params([
+            'action'      => 'CreateTopicRouteTable',
+            'version'     => '2018-01-20',
+            'protocol'    => 'HTTPS',
+            'pathname'    => '/',
+            'method'      => 'POST',
+            'authType'    => 'AK',
+            'style'       => 'RPC',
+            'reqBodyType' => 'formData',
+            'bodyType'    => 'json',
         ]);
 
-        return CreateTopicRouteTableResponse::fromMap($this->doRPCRequest('CreateTopicRouteTable', '2018-01-20', 'HTTPS', 'POST', 'AK', 'json', $req, $runtime));
+        return CreateTopicRouteTableResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
@@ -2626,11 +4682,29 @@ class Iot extends OpenApiClient
     public function deleteConsumerGroupWithOptions($request, $runtime)
     {
         Utils::validateModel($request);
+        $query = [];
+        if (!Utils::isUnset($request->groupId)) {
+            $query['GroupId'] = $request->groupId;
+        }
+        if (!Utils::isUnset($request->iotInstanceId)) {
+            $query['IotInstanceId'] = $request->iotInstanceId;
+        }
         $req = new OpenApiRequest([
-            'body' => Utils::toMap($request),
+            'query' => OpenApiUtilClient::query($query),
+        ]);
+        $params = new Params([
+            'action'      => 'DeleteConsumerGroup',
+            'version'     => '2018-01-20',
+            'protocol'    => 'HTTPS',
+            'pathname'    => '/',
+            'method'      => 'POST',
+            'authType'    => 'AK',
+            'style'       => 'RPC',
+            'reqBodyType' => 'formData',
+            'bodyType'    => 'json',
         ]);
 
-        return DeleteConsumerGroupResponse::fromMap($this->doRPCRequest('DeleteConsumerGroup', '2018-01-20', 'HTTPS', 'POST', 'AK', 'json', $req, $runtime));
+        return DeleteConsumerGroupResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
@@ -2654,11 +4728,32 @@ class Iot extends OpenApiClient
     public function deleteConsumerGroupSubscribeRelationWithOptions($request, $runtime)
     {
         Utils::validateModel($request);
+        $query = [];
+        if (!Utils::isUnset($request->consumerGroupId)) {
+            $query['ConsumerGroupId'] = $request->consumerGroupId;
+        }
+        if (!Utils::isUnset($request->iotInstanceId)) {
+            $query['IotInstanceId'] = $request->iotInstanceId;
+        }
+        if (!Utils::isUnset($request->productKey)) {
+            $query['ProductKey'] = $request->productKey;
+        }
         $req = new OpenApiRequest([
-            'body' => Utils::toMap($request),
+            'query' => OpenApiUtilClient::query($query),
+        ]);
+        $params = new Params([
+            'action'      => 'DeleteConsumerGroupSubscribeRelation',
+            'version'     => '2018-01-20',
+            'protocol'    => 'HTTPS',
+            'pathname'    => '/',
+            'method'      => 'POST',
+            'authType'    => 'AK',
+            'style'       => 'RPC',
+            'reqBodyType' => 'formData',
+            'bodyType'    => 'json',
         ]);
 
-        return DeleteConsumerGroupSubscribeRelationResponse::fromMap($this->doRPCRequest('DeleteConsumerGroupSubscribeRelation', '2018-01-20', 'HTTPS', 'POST', 'AK', 'json', $req, $runtime));
+        return DeleteConsumerGroupSubscribeRelationResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
@@ -2682,11 +4777,35 @@ class Iot extends OpenApiClient
     public function deleteDeviceWithOptions($request, $runtime)
     {
         Utils::validateModel($request);
+        $query = [];
+        if (!Utils::isUnset($request->deviceName)) {
+            $query['DeviceName'] = $request->deviceName;
+        }
+        if (!Utils::isUnset($request->iotId)) {
+            $query['IotId'] = $request->iotId;
+        }
+        if (!Utils::isUnset($request->iotInstanceId)) {
+            $query['IotInstanceId'] = $request->iotInstanceId;
+        }
+        if (!Utils::isUnset($request->productKey)) {
+            $query['ProductKey'] = $request->productKey;
+        }
         $req = new OpenApiRequest([
-            'body' => Utils::toMap($request),
+            'query' => OpenApiUtilClient::query($query),
+        ]);
+        $params = new Params([
+            'action'      => 'DeleteDevice',
+            'version'     => '2018-01-20',
+            'protocol'    => 'HTTPS',
+            'pathname'    => '/',
+            'method'      => 'POST',
+            'authType'    => 'AK',
+            'style'       => 'RPC',
+            'reqBodyType' => 'formData',
+            'bodyType'    => 'json',
         ]);
 
-        return DeleteDeviceResponse::fromMap($this->doRPCRequest('DeleteDevice', '2018-01-20', 'HTTPS', 'POST', 'AK', 'json', $req, $runtime));
+        return DeleteDeviceResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
@@ -2710,11 +4829,26 @@ class Iot extends OpenApiClient
     public function deleteDeviceDistributeJobWithOptions($request, $runtime)
     {
         Utils::validateModel($request);
+        $query = [];
+        if (!Utils::isUnset($request->jobId)) {
+            $query['JobId'] = $request->jobId;
+        }
         $req = new OpenApiRequest([
-            'body' => Utils::toMap($request),
+            'query' => OpenApiUtilClient::query($query),
+        ]);
+        $params = new Params([
+            'action'      => 'DeleteDeviceDistributeJob',
+            'version'     => '2018-01-20',
+            'protocol'    => 'HTTPS',
+            'pathname'    => '/',
+            'method'      => 'POST',
+            'authType'    => 'AK',
+            'style'       => 'RPC',
+            'reqBodyType' => 'formData',
+            'bodyType'    => 'json',
         ]);
 
-        return DeleteDeviceDistributeJobResponse::fromMap($this->doRPCRequest('DeleteDeviceDistributeJob', '2018-01-20', 'HTTPS', 'POST', 'AK', 'json', $req, $runtime));
+        return DeleteDeviceDistributeJobResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
@@ -2738,11 +4872,38 @@ class Iot extends OpenApiClient
     public function deleteDeviceFileWithOptions($request, $runtime)
     {
         Utils::validateModel($request);
+        $query = [];
+        if (!Utils::isUnset($request->deviceName)) {
+            $query['DeviceName'] = $request->deviceName;
+        }
+        if (!Utils::isUnset($request->fileId)) {
+            $query['FileId'] = $request->fileId;
+        }
+        if (!Utils::isUnset($request->iotId)) {
+            $query['IotId'] = $request->iotId;
+        }
+        if (!Utils::isUnset($request->iotInstanceId)) {
+            $query['IotInstanceId'] = $request->iotInstanceId;
+        }
+        if (!Utils::isUnset($request->productKey)) {
+            $query['ProductKey'] = $request->productKey;
+        }
         $req = new OpenApiRequest([
-            'body' => Utils::toMap($request),
+            'query' => OpenApiUtilClient::query($query),
+        ]);
+        $params = new Params([
+            'action'      => 'DeleteDeviceFile',
+            'version'     => '2018-01-20',
+            'protocol'    => 'HTTPS',
+            'pathname'    => '/',
+            'method'      => 'POST',
+            'authType'    => 'AK',
+            'style'       => 'RPC',
+            'reqBodyType' => 'formData',
+            'bodyType'    => 'json',
         ]);
 
-        return DeleteDeviceFileResponse::fromMap($this->doRPCRequest('DeleteDeviceFile', '2018-01-20', 'HTTPS', 'POST', 'AK', 'json', $req, $runtime));
+        return DeleteDeviceFileResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
@@ -2766,11 +4927,29 @@ class Iot extends OpenApiClient
     public function deleteDeviceGroupWithOptions($request, $runtime)
     {
         Utils::validateModel($request);
+        $query = [];
+        if (!Utils::isUnset($request->groupId)) {
+            $query['GroupId'] = $request->groupId;
+        }
+        if (!Utils::isUnset($request->iotInstanceId)) {
+            $query['IotInstanceId'] = $request->iotInstanceId;
+        }
         $req = new OpenApiRequest([
-            'body' => Utils::toMap($request),
+            'query' => OpenApiUtilClient::query($query),
+        ]);
+        $params = new Params([
+            'action'      => 'DeleteDeviceGroup',
+            'version'     => '2018-01-20',
+            'protocol'    => 'HTTPS',
+            'pathname'    => '/',
+            'method'      => 'POST',
+            'authType'    => 'AK',
+            'style'       => 'RPC',
+            'reqBodyType' => 'formData',
+            'bodyType'    => 'json',
         ]);
 
-        return DeleteDeviceGroupResponse::fromMap($this->doRPCRequest('DeleteDeviceGroup', '2018-01-20', 'HTTPS', 'POST', 'AK', 'json', $req, $runtime));
+        return DeleteDeviceGroupResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
@@ -2794,11 +4973,38 @@ class Iot extends OpenApiClient
     public function deleteDevicePropWithOptions($request, $runtime)
     {
         Utils::validateModel($request);
+        $query = [];
+        if (!Utils::isUnset($request->deviceName)) {
+            $query['DeviceName'] = $request->deviceName;
+        }
+        if (!Utils::isUnset($request->iotId)) {
+            $query['IotId'] = $request->iotId;
+        }
+        if (!Utils::isUnset($request->iotInstanceId)) {
+            $query['IotInstanceId'] = $request->iotInstanceId;
+        }
+        if (!Utils::isUnset($request->productKey)) {
+            $query['ProductKey'] = $request->productKey;
+        }
+        if (!Utils::isUnset($request->propKey)) {
+            $query['PropKey'] = $request->propKey;
+        }
         $req = new OpenApiRequest([
-            'body' => Utils::toMap($request),
+            'query' => OpenApiUtilClient::query($query),
+        ]);
+        $params = new Params([
+            'action'      => 'DeleteDeviceProp',
+            'version'     => '2018-01-20',
+            'protocol'    => 'HTTPS',
+            'pathname'    => '/',
+            'method'      => 'POST',
+            'authType'    => 'AK',
+            'style'       => 'RPC',
+            'reqBodyType' => 'formData',
+            'bodyType'    => 'json',
         ]);
 
-        return DeleteDevicePropResponse::fromMap($this->doRPCRequest('DeleteDeviceProp', '2018-01-20', 'HTTPS', 'POST', 'AK', 'json', $req, $runtime));
+        return DeleteDevicePropResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
@@ -2822,11 +5028,29 @@ class Iot extends OpenApiClient
     public function deleteEdgeDriverWithOptions($request, $runtime)
     {
         Utils::validateModel($request);
+        $query = [];
+        if (!Utils::isUnset($request->driverId)) {
+            $query['DriverId'] = $request->driverId;
+        }
+        if (!Utils::isUnset($request->iotInstanceId)) {
+            $query['IotInstanceId'] = $request->iotInstanceId;
+        }
         $req = new OpenApiRequest([
-            'body' => Utils::toMap($request),
+            'query' => OpenApiUtilClient::query($query),
+        ]);
+        $params = new Params([
+            'action'      => 'DeleteEdgeDriver',
+            'version'     => '2018-01-20',
+            'protocol'    => 'HTTPS',
+            'pathname'    => '/',
+            'method'      => 'POST',
+            'authType'    => 'AK',
+            'style'       => 'RPC',
+            'reqBodyType' => 'formData',
+            'bodyType'    => 'json',
         ]);
 
-        return DeleteEdgeDriverResponse::fromMap($this->doRPCRequest('DeleteEdgeDriver', '2018-01-20', 'HTTPS', 'POST', 'AK', 'json', $req, $runtime));
+        return DeleteEdgeDriverResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
@@ -2850,11 +5074,32 @@ class Iot extends OpenApiClient
     public function deleteEdgeDriverVersionWithOptions($request, $runtime)
     {
         Utils::validateModel($request);
+        $query = [];
+        if (!Utils::isUnset($request->driverId)) {
+            $query['DriverId'] = $request->driverId;
+        }
+        if (!Utils::isUnset($request->driverVersion)) {
+            $query['DriverVersion'] = $request->driverVersion;
+        }
+        if (!Utils::isUnset($request->iotInstanceId)) {
+            $query['IotInstanceId'] = $request->iotInstanceId;
+        }
         $req = new OpenApiRequest([
-            'body' => Utils::toMap($request),
+            'query' => OpenApiUtilClient::query($query),
+        ]);
+        $params = new Params([
+            'action'      => 'DeleteEdgeDriverVersion',
+            'version'     => '2018-01-20',
+            'protocol'    => 'HTTPS',
+            'pathname'    => '/',
+            'method'      => 'POST',
+            'authType'    => 'AK',
+            'style'       => 'RPC',
+            'reqBodyType' => 'formData',
+            'bodyType'    => 'json',
         ]);
 
-        return DeleteEdgeDriverVersionResponse::fromMap($this->doRPCRequest('DeleteEdgeDriverVersion', '2018-01-20', 'HTTPS', 'POST', 'AK', 'json', $req, $runtime));
+        return DeleteEdgeDriverVersionResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
@@ -2878,11 +5123,29 @@ class Iot extends OpenApiClient
     public function deleteEdgeInstanceWithOptions($request, $runtime)
     {
         Utils::validateModel($request);
+        $query = [];
+        if (!Utils::isUnset($request->instanceId)) {
+            $query['InstanceId'] = $request->instanceId;
+        }
+        if (!Utils::isUnset($request->iotInstanceId)) {
+            $query['IotInstanceId'] = $request->iotInstanceId;
+        }
         $req = new OpenApiRequest([
-            'body' => Utils::toMap($request),
+            'query' => OpenApiUtilClient::query($query),
+        ]);
+        $params = new Params([
+            'action'      => 'DeleteEdgeInstance',
+            'version'     => '2018-01-20',
+            'protocol'    => 'HTTPS',
+            'pathname'    => '/',
+            'method'      => 'POST',
+            'authType'    => 'AK',
+            'style'       => 'RPC',
+            'reqBodyType' => 'formData',
+            'bodyType'    => 'json',
         ]);
 
-        return DeleteEdgeInstanceResponse::fromMap($this->doRPCRequest('DeleteEdgeInstance', '2018-01-20', 'HTTPS', 'POST', 'AK', 'json', $req, $runtime));
+        return DeleteEdgeInstanceResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
@@ -2906,11 +5169,32 @@ class Iot extends OpenApiClient
     public function deleteEdgeInstanceMessageRoutingWithOptions($request, $runtime)
     {
         Utils::validateModel($request);
+        $query = [];
+        if (!Utils::isUnset($request->instanceId)) {
+            $query['InstanceId'] = $request->instanceId;
+        }
+        if (!Utils::isUnset($request->iotInstanceId)) {
+            $query['IotInstanceId'] = $request->iotInstanceId;
+        }
+        if (!Utils::isUnset($request->routeId)) {
+            $query['RouteId'] = $request->routeId;
+        }
         $req = new OpenApiRequest([
-            'body' => Utils::toMap($request),
+            'query' => OpenApiUtilClient::query($query),
+        ]);
+        $params = new Params([
+            'action'      => 'DeleteEdgeInstanceMessageRouting',
+            'version'     => '2018-01-20',
+            'protocol'    => 'HTTPS',
+            'pathname'    => '/',
+            'method'      => 'POST',
+            'authType'    => 'AK',
+            'style'       => 'RPC',
+            'reqBodyType' => 'formData',
+            'bodyType'    => 'json',
         ]);
 
-        return DeleteEdgeInstanceMessageRoutingResponse::fromMap($this->doRPCRequest('DeleteEdgeInstanceMessageRouting', '2018-01-20', 'HTTPS', 'POST', 'AK', 'json', $req, $runtime));
+        return DeleteEdgeInstanceMessageRoutingResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
@@ -2934,11 +5218,29 @@ class Iot extends OpenApiClient
     public function deleteJobWithOptions($request, $runtime)
     {
         Utils::validateModel($request);
+        $query = [];
+        if (!Utils::isUnset($request->iotInstanceId)) {
+            $query['IotInstanceId'] = $request->iotInstanceId;
+        }
+        if (!Utils::isUnset($request->jobId)) {
+            $query['JobId'] = $request->jobId;
+        }
         $req = new OpenApiRequest([
-            'body' => Utils::toMap($request),
+            'query' => OpenApiUtilClient::query($query),
+        ]);
+        $params = new Params([
+            'action'      => 'DeleteJob',
+            'version'     => '2018-01-20',
+            'protocol'    => 'HTTPS',
+            'pathname'    => '/',
+            'method'      => 'POST',
+            'authType'    => 'AK',
+            'style'       => 'RPC',
+            'reqBodyType' => 'formData',
+            'bodyType'    => 'json',
         ]);
 
-        return DeleteJobResponse::fromMap($this->doRPCRequest('DeleteJob', '2018-01-20', 'HTTPS', 'POST', 'AK', 'json', $req, $runtime));
+        return DeleteJobResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
@@ -2962,11 +5264,29 @@ class Iot extends OpenApiClient
     public function deleteOTAFirmwareWithOptions($request, $runtime)
     {
         Utils::validateModel($request);
+        $query = [];
+        if (!Utils::isUnset($request->firmwareId)) {
+            $query['FirmwareId'] = $request->firmwareId;
+        }
+        if (!Utils::isUnset($request->iotInstanceId)) {
+            $query['IotInstanceId'] = $request->iotInstanceId;
+        }
         $req = new OpenApiRequest([
-            'body' => Utils::toMap($request),
+            'query' => OpenApiUtilClient::query($query),
+        ]);
+        $params = new Params([
+            'action'      => 'DeleteOTAFirmware',
+            'version'     => '2018-01-20',
+            'protocol'    => 'HTTPS',
+            'pathname'    => '/',
+            'method'      => 'POST',
+            'authType'    => 'AK',
+            'style'       => 'RPC',
+            'reqBodyType' => 'formData',
+            'bodyType'    => 'json',
         ]);
 
-        return DeleteOTAFirmwareResponse::fromMap($this->doRPCRequest('DeleteOTAFirmware', '2018-01-20', 'HTTPS', 'POST', 'AK', 'json', $req, $runtime));
+        return DeleteOTAFirmwareResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
@@ -2990,11 +5310,32 @@ class Iot extends OpenApiClient
     public function deleteOTAModuleWithOptions($request, $runtime)
     {
         Utils::validateModel($request);
+        $query = [];
+        if (!Utils::isUnset($request->iotInstanceId)) {
+            $query['IotInstanceId'] = $request->iotInstanceId;
+        }
+        if (!Utils::isUnset($request->moduleName)) {
+            $query['ModuleName'] = $request->moduleName;
+        }
+        if (!Utils::isUnset($request->productKey)) {
+            $query['ProductKey'] = $request->productKey;
+        }
         $req = new OpenApiRequest([
-            'body' => Utils::toMap($request),
+            'query' => OpenApiUtilClient::query($query),
+        ]);
+        $params = new Params([
+            'action'      => 'DeleteOTAModule',
+            'version'     => '2018-01-20',
+            'protocol'    => 'HTTPS',
+            'pathname'    => '/',
+            'method'      => 'POST',
+            'authType'    => 'AK',
+            'style'       => 'RPC',
+            'reqBodyType' => 'formData',
+            'bodyType'    => 'json',
         ]);
 
-        return DeleteOTAModuleResponse::fromMap($this->doRPCRequest('DeleteOTAModule', '2018-01-20', 'HTTPS', 'POST', 'AK', 'json', $req, $runtime));
+        return DeleteOTAModuleResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
@@ -3018,11 +5359,29 @@ class Iot extends OpenApiClient
     public function deleteProductWithOptions($request, $runtime)
     {
         Utils::validateModel($request);
+        $query = [];
+        if (!Utils::isUnset($request->iotInstanceId)) {
+            $query['IotInstanceId'] = $request->iotInstanceId;
+        }
+        if (!Utils::isUnset($request->productKey)) {
+            $query['ProductKey'] = $request->productKey;
+        }
         $req = new OpenApiRequest([
-            'body' => Utils::toMap($request),
+            'query' => OpenApiUtilClient::query($query),
+        ]);
+        $params = new Params([
+            'action'      => 'DeleteProduct',
+            'version'     => '2018-01-20',
+            'protocol'    => 'HTTPS',
+            'pathname'    => '/',
+            'method'      => 'POST',
+            'authType'    => 'AK',
+            'style'       => 'RPC',
+            'reqBodyType' => 'formData',
+            'bodyType'    => 'json',
         ]);
 
-        return DeleteProductResponse::fromMap($this->doRPCRequest('DeleteProduct', '2018-01-20', 'HTTPS', 'POST', 'AK', 'json', $req, $runtime));
+        return DeleteProductResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
@@ -3046,11 +5405,32 @@ class Iot extends OpenApiClient
     public function deleteProductTagsWithOptions($request, $runtime)
     {
         Utils::validateModel($request);
+        $query = [];
+        if (!Utils::isUnset($request->iotInstanceId)) {
+            $query['IotInstanceId'] = $request->iotInstanceId;
+        }
+        if (!Utils::isUnset($request->productKey)) {
+            $query['ProductKey'] = $request->productKey;
+        }
+        if (!Utils::isUnset($request->productTagKey)) {
+            $query['ProductTagKey'] = $request->productTagKey;
+        }
         $req = new OpenApiRequest([
-            'body' => Utils::toMap($request),
+            'query' => OpenApiUtilClient::query($query),
+        ]);
+        $params = new Params([
+            'action'      => 'DeleteProductTags',
+            'version'     => '2018-01-20',
+            'protocol'    => 'HTTPS',
+            'pathname'    => '/',
+            'method'      => 'POST',
+            'authType'    => 'AK',
+            'style'       => 'RPC',
+            'reqBodyType' => 'formData',
+            'bodyType'    => 'json',
         ]);
 
-        return DeleteProductTagsResponse::fromMap($this->doRPCRequest('DeleteProductTags', '2018-01-20', 'HTTPS', 'POST', 'AK', 'json', $req, $runtime));
+        return DeleteProductTagsResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
@@ -3074,11 +5454,29 @@ class Iot extends OpenApiClient
     public function deleteProductTopicWithOptions($request, $runtime)
     {
         Utils::validateModel($request);
+        $query = [];
+        if (!Utils::isUnset($request->iotInstanceId)) {
+            $query['IotInstanceId'] = $request->iotInstanceId;
+        }
+        if (!Utils::isUnset($request->topicId)) {
+            $query['TopicId'] = $request->topicId;
+        }
         $req = new OpenApiRequest([
-            'body' => Utils::toMap($request),
+            'query' => OpenApiUtilClient::query($query),
+        ]);
+        $params = new Params([
+            'action'      => 'DeleteProductTopic',
+            'version'     => '2018-01-20',
+            'protocol'    => 'HTTPS',
+            'pathname'    => '/',
+            'method'      => 'POST',
+            'authType'    => 'AK',
+            'style'       => 'RPC',
+            'reqBodyType' => 'formData',
+            'bodyType'    => 'json',
         ]);
 
-        return DeleteProductTopicResponse::fromMap($this->doRPCRequest('DeleteProductTopic', '2018-01-20', 'HTTPS', 'POST', 'AK', 'json', $req, $runtime));
+        return DeleteProductTopicResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
@@ -3102,11 +5500,29 @@ class Iot extends OpenApiClient
     public function deleteRuleWithOptions($request, $runtime)
     {
         Utils::validateModel($request);
+        $query = [];
+        if (!Utils::isUnset($request->iotInstanceId)) {
+            $query['IotInstanceId'] = $request->iotInstanceId;
+        }
+        if (!Utils::isUnset($request->ruleId)) {
+            $query['RuleId'] = $request->ruleId;
+        }
         $req = new OpenApiRequest([
-            'body' => Utils::toMap($request),
+            'query' => OpenApiUtilClient::query($query),
+        ]);
+        $params = new Params([
+            'action'      => 'DeleteRule',
+            'version'     => '2018-01-20',
+            'protocol'    => 'HTTPS',
+            'pathname'    => '/',
+            'method'      => 'POST',
+            'authType'    => 'AK',
+            'style'       => 'RPC',
+            'reqBodyType' => 'formData',
+            'bodyType'    => 'json',
         ]);
 
-        return DeleteRuleResponse::fromMap($this->doRPCRequest('DeleteRule', '2018-01-20', 'HTTPS', 'POST', 'AK', 'json', $req, $runtime));
+        return DeleteRuleResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
@@ -3130,11 +5546,29 @@ class Iot extends OpenApiClient
     public function deleteRuleActionWithOptions($request, $runtime)
     {
         Utils::validateModel($request);
+        $query = [];
+        if (!Utils::isUnset($request->actionId)) {
+            $query['ActionId'] = $request->actionId;
+        }
+        if (!Utils::isUnset($request->iotInstanceId)) {
+            $query['IotInstanceId'] = $request->iotInstanceId;
+        }
         $req = new OpenApiRequest([
-            'body' => Utils::toMap($request),
+            'query' => OpenApiUtilClient::query($query),
+        ]);
+        $params = new Params([
+            'action'      => 'DeleteRuleAction',
+            'version'     => '2018-01-20',
+            'protocol'    => 'HTTPS',
+            'pathname'    => '/',
+            'method'      => 'POST',
+            'authType'    => 'AK',
+            'style'       => 'RPC',
+            'reqBodyType' => 'formData',
+            'bodyType'    => 'json',
         ]);
 
-        return DeleteRuleActionResponse::fromMap($this->doRPCRequest('DeleteRuleAction', '2018-01-20', 'HTTPS', 'POST', 'AK', 'json', $req, $runtime));
+        return DeleteRuleActionResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
@@ -3158,11 +5592,29 @@ class Iot extends OpenApiClient
     public function deleteSceneRuleWithOptions($request, $runtime)
     {
         Utils::validateModel($request);
+        $query = [];
+        if (!Utils::isUnset($request->iotInstanceId)) {
+            $query['IotInstanceId'] = $request->iotInstanceId;
+        }
+        if (!Utils::isUnset($request->ruleId)) {
+            $query['RuleId'] = $request->ruleId;
+        }
         $req = new OpenApiRequest([
-            'body' => Utils::toMap($request),
+            'query' => OpenApiUtilClient::query($query),
+        ]);
+        $params = new Params([
+            'action'      => 'DeleteSceneRule',
+            'version'     => '2018-01-20',
+            'protocol'    => 'HTTPS',
+            'pathname'    => '/',
+            'method'      => 'POST',
+            'authType'    => 'AK',
+            'style'       => 'RPC',
+            'reqBodyType' => 'formData',
+            'bodyType'    => 'json',
         ]);
 
-        return DeleteSceneRuleResponse::fromMap($this->doRPCRequest('DeleteSceneRule', '2018-01-20', 'HTTPS', 'POST', 'AK', 'json', $req, $runtime));
+        return DeleteSceneRuleResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
@@ -3187,10 +5639,21 @@ class Iot extends OpenApiClient
     {
         Utils::validateModel($request);
         $req = new OpenApiRequest([
-            'body' => Utils::toMap($request),
+            'body' => $request->iotInstanceId,
+        ]);
+        $params = new Params([
+            'action'      => 'DeleteSpeech',
+            'version'     => '2018-01-20',
+            'protocol'    => 'HTTPS',
+            'pathname'    => '/',
+            'method'      => 'POST',
+            'authType'    => 'AK',
+            'style'       => 'RPC',
+            'reqBodyType' => 'formData',
+            'bodyType'    => 'json',
         ]);
 
-        return DeleteSpeechResponse::fromMap($this->doRPCRequest('DeleteSpeech', '2018-01-20', 'HTTPS', 'POST', 'AK', 'json', $req, $runtime));
+        return DeleteSpeechResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
@@ -3206,6 +5669,45 @@ class Iot extends OpenApiClient
     }
 
     /**
+     * @param DeleteStudioAppDomainOpenRequest $request
+     * @param RuntimeOptions                   $runtime
+     *
+     * @return DeleteStudioAppDomainOpenResponse
+     */
+    public function deleteStudioAppDomainOpenWithOptions($request, $runtime)
+    {
+        Utils::validateModel($request);
+        $req = new OpenApiRequest([
+            'body' => $request->appId,
+        ]);
+        $params = new Params([
+            'action'      => 'DeleteStudioAppDomainOpen',
+            'version'     => '2018-01-20',
+            'protocol'    => 'HTTPS',
+            'pathname'    => '/',
+            'method'      => 'POST',
+            'authType'    => 'AK',
+            'style'       => 'RPC',
+            'reqBodyType' => 'formData',
+            'bodyType'    => 'json',
+        ]);
+
+        return DeleteStudioAppDomainOpenResponse::fromMap($this->callApi($params, $req, $runtime));
+    }
+
+    /**
+     * @param DeleteStudioAppDomainOpenRequest $request
+     *
+     * @return DeleteStudioAppDomainOpenResponse
+     */
+    public function deleteStudioAppDomainOpen($request)
+    {
+        $runtime = new RuntimeOptions([]);
+
+        return $this->deleteStudioAppDomainOpenWithOptions($request, $runtime);
+    }
+
+    /**
      * @param DeleteSubscribeRelationRequest $request
      * @param RuntimeOptions                 $runtime
      *
@@ -3214,11 +5716,32 @@ class Iot extends OpenApiClient
     public function deleteSubscribeRelationWithOptions($request, $runtime)
     {
         Utils::validateModel($request);
+        $query = [];
+        if (!Utils::isUnset($request->iotInstanceId)) {
+            $query['IotInstanceId'] = $request->iotInstanceId;
+        }
+        if (!Utils::isUnset($request->productKey)) {
+            $query['ProductKey'] = $request->productKey;
+        }
+        if (!Utils::isUnset($request->type)) {
+            $query['Type'] = $request->type;
+        }
         $req = new OpenApiRequest([
-            'body' => Utils::toMap($request),
+            'query' => OpenApiUtilClient::query($query),
+        ]);
+        $params = new Params([
+            'action'      => 'DeleteSubscribeRelation',
+            'version'     => '2018-01-20',
+            'protocol'    => 'HTTPS',
+            'pathname'    => '/',
+            'method'      => 'POST',
+            'authType'    => 'AK',
+            'style'       => 'RPC',
+            'reqBodyType' => 'formData',
+            'bodyType'    => 'json',
         ]);
 
-        return DeleteSubscribeRelationResponse::fromMap($this->doRPCRequest('DeleteSubscribeRelation', '2018-01-20', 'HTTPS', 'POST', 'AK', 'json', $req, $runtime));
+        return DeleteSubscribeRelationResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
@@ -3242,11 +5765,44 @@ class Iot extends OpenApiClient
     public function deleteThingModelWithOptions($request, $runtime)
     {
         Utils::validateModel($request);
+        $query = [];
+        if (!Utils::isUnset($request->eventIdentifier)) {
+            $query['EventIdentifier'] = $request->eventIdentifier;
+        }
+        if (!Utils::isUnset($request->functionBlockId)) {
+            $query['FunctionBlockId'] = $request->functionBlockId;
+        }
+        if (!Utils::isUnset($request->iotInstanceId)) {
+            $query['IotInstanceId'] = $request->iotInstanceId;
+        }
+        if (!Utils::isUnset($request->productKey)) {
+            $query['ProductKey'] = $request->productKey;
+        }
+        if (!Utils::isUnset($request->propertyIdentifier)) {
+            $query['PropertyIdentifier'] = $request->propertyIdentifier;
+        }
+        if (!Utils::isUnset($request->resourceGroupId)) {
+            $query['ResourceGroupId'] = $request->resourceGroupId;
+        }
+        if (!Utils::isUnset($request->serviceIdentifier)) {
+            $query['ServiceIdentifier'] = $request->serviceIdentifier;
+        }
         $req = new OpenApiRequest([
-            'body' => Utils::toMap($request),
+            'query' => OpenApiUtilClient::query($query),
+        ]);
+        $params = new Params([
+            'action'      => 'DeleteThingModel',
+            'version'     => '2018-01-20',
+            'protocol'    => 'HTTPS',
+            'pathname'    => '/',
+            'method'      => 'POST',
+            'authType'    => 'AK',
+            'style'       => 'RPC',
+            'reqBodyType' => 'formData',
+            'bodyType'    => 'json',
         ]);
 
-        return DeleteThingModelResponse::fromMap($this->doRPCRequest('DeleteThingModel', '2018-01-20', 'HTTPS', 'POST', 'AK', 'json', $req, $runtime));
+        return DeleteThingModelResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
@@ -3270,11 +5826,32 @@ class Iot extends OpenApiClient
     public function deleteTopicRouteTableWithOptions($request, $runtime)
     {
         Utils::validateModel($request);
+        $query = [];
+        if (!Utils::isUnset($request->dstTopic)) {
+            $query['DstTopic'] = $request->dstTopic;
+        }
+        if (!Utils::isUnset($request->iotInstanceId)) {
+            $query['IotInstanceId'] = $request->iotInstanceId;
+        }
+        if (!Utils::isUnset($request->srcTopic)) {
+            $query['SrcTopic'] = $request->srcTopic;
+        }
         $req = new OpenApiRequest([
-            'body' => Utils::toMap($request),
+            'query' => OpenApiUtilClient::query($query),
+        ]);
+        $params = new Params([
+            'action'      => 'DeleteTopicRouteTable',
+            'version'     => '2018-01-20',
+            'protocol'    => 'HTTPS',
+            'pathname'    => '/',
+            'method'      => 'POST',
+            'authType'    => 'AK',
+            'style'       => 'RPC',
+            'reqBodyType' => 'formData',
+            'bodyType'    => 'json',
         ]);
 
-        return DeleteTopicRouteTableResponse::fromMap($this->doRPCRequest('DeleteTopicRouteTable', '2018-01-20', 'HTTPS', 'POST', 'AK', 'json', $req, $runtime));
+        return DeleteTopicRouteTableResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
@@ -3298,11 +5875,32 @@ class Iot extends OpenApiClient
     public function disableDeviceTunnelWithOptions($request, $runtime)
     {
         Utils::validateModel($request);
+        $query = [];
+        if (!Utils::isUnset($request->deviceName)) {
+            $query['DeviceName'] = $request->deviceName;
+        }
+        if (!Utils::isUnset($request->iotInstanceId)) {
+            $query['IotInstanceId'] = $request->iotInstanceId;
+        }
+        if (!Utils::isUnset($request->productKey)) {
+            $query['ProductKey'] = $request->productKey;
+        }
         $req = new OpenApiRequest([
-            'body' => Utils::toMap($request),
+            'query' => OpenApiUtilClient::query($query),
+        ]);
+        $params = new Params([
+            'action'      => 'DisableDeviceTunnel',
+            'version'     => '2018-01-20',
+            'protocol'    => 'HTTPS',
+            'pathname'    => '/',
+            'method'      => 'POST',
+            'authType'    => 'AK',
+            'style'       => 'RPC',
+            'reqBodyType' => 'formData',
+            'bodyType'    => 'json',
         ]);
 
-        return DisableDeviceTunnelResponse::fromMap($this->doRPCRequest('DisableDeviceTunnel', '2018-01-20', 'HTTPS', 'POST', 'AK', 'json', $req, $runtime));
+        return DisableDeviceTunnelResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
@@ -3326,11 +5924,32 @@ class Iot extends OpenApiClient
     public function disableDeviceTunnelShareWithOptions($request, $runtime)
     {
         Utils::validateModel($request);
+        $query = [];
+        if (!Utils::isUnset($request->deviceName)) {
+            $query['DeviceName'] = $request->deviceName;
+        }
+        if (!Utils::isUnset($request->iotInstanceId)) {
+            $query['IotInstanceId'] = $request->iotInstanceId;
+        }
+        if (!Utils::isUnset($request->productKey)) {
+            $query['ProductKey'] = $request->productKey;
+        }
         $req = new OpenApiRequest([
-            'body' => Utils::toMap($request),
+            'query' => OpenApiUtilClient::query($query),
+        ]);
+        $params = new Params([
+            'action'      => 'DisableDeviceTunnelShare',
+            'version'     => '2018-01-20',
+            'protocol'    => 'HTTPS',
+            'pathname'    => '/',
+            'method'      => 'POST',
+            'authType'    => 'AK',
+            'style'       => 'RPC',
+            'reqBodyType' => 'formData',
+            'bodyType'    => 'json',
         ]);
 
-        return DisableDeviceTunnelShareResponse::fromMap($this->doRPCRequest('DisableDeviceTunnelShare', '2018-01-20', 'HTTPS', 'POST', 'AK', 'json', $req, $runtime));
+        return DisableDeviceTunnelShareResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
@@ -3354,11 +5973,29 @@ class Iot extends OpenApiClient
     public function disableSceneRuleWithOptions($request, $runtime)
     {
         Utils::validateModel($request);
+        $query = [];
+        if (!Utils::isUnset($request->iotInstanceId)) {
+            $query['IotInstanceId'] = $request->iotInstanceId;
+        }
+        if (!Utils::isUnset($request->ruleId)) {
+            $query['RuleId'] = $request->ruleId;
+        }
         $req = new OpenApiRequest([
-            'body' => Utils::toMap($request),
+            'query' => OpenApiUtilClient::query($query),
+        ]);
+        $params = new Params([
+            'action'      => 'DisableSceneRule',
+            'version'     => '2018-01-20',
+            'protocol'    => 'HTTPS',
+            'pathname'    => '/',
+            'method'      => 'POST',
+            'authType'    => 'AK',
+            'style'       => 'RPC',
+            'reqBodyType' => 'formData',
+            'bodyType'    => 'json',
         ]);
 
-        return DisableSceneRuleResponse::fromMap($this->doRPCRequest('DisableSceneRule', '2018-01-20', 'HTTPS', 'POST', 'AK', 'json', $req, $runtime));
+        return DisableSceneRuleResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
@@ -3382,11 +6019,35 @@ class Iot extends OpenApiClient
     public function disableThingWithOptions($request, $runtime)
     {
         Utils::validateModel($request);
+        $query = [];
+        if (!Utils::isUnset($request->deviceName)) {
+            $query['DeviceName'] = $request->deviceName;
+        }
+        if (!Utils::isUnset($request->iotId)) {
+            $query['IotId'] = $request->iotId;
+        }
+        if (!Utils::isUnset($request->iotInstanceId)) {
+            $query['IotInstanceId'] = $request->iotInstanceId;
+        }
+        if (!Utils::isUnset($request->productKey)) {
+            $query['ProductKey'] = $request->productKey;
+        }
         $req = new OpenApiRequest([
-            'body' => Utils::toMap($request),
+            'query' => OpenApiUtilClient::query($query),
+        ]);
+        $params = new Params([
+            'action'      => 'DisableThing',
+            'version'     => '2018-01-20',
+            'protocol'    => 'HTTPS',
+            'pathname'    => '/',
+            'method'      => 'POST',
+            'authType'    => 'AK',
+            'style'       => 'RPC',
+            'reqBodyType' => 'formData',
+            'bodyType'    => 'json',
         ]);
 
-        return DisableThingResponse::fromMap($this->doRPCRequest('DisableThing', '2018-01-20', 'HTTPS', 'POST', 'AK', 'json', $req, $runtime));
+        return DisableThingResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
@@ -3410,11 +6071,32 @@ class Iot extends OpenApiClient
     public function enableDeviceTunnelWithOptions($request, $runtime)
     {
         Utils::validateModel($request);
+        $query = [];
+        if (!Utils::isUnset($request->deviceName)) {
+            $query['DeviceName'] = $request->deviceName;
+        }
+        if (!Utils::isUnset($request->iotInstanceId)) {
+            $query['IotInstanceId'] = $request->iotInstanceId;
+        }
+        if (!Utils::isUnset($request->productKey)) {
+            $query['ProductKey'] = $request->productKey;
+        }
         $req = new OpenApiRequest([
-            'body' => Utils::toMap($request),
+            'query' => OpenApiUtilClient::query($query),
+        ]);
+        $params = new Params([
+            'action'      => 'EnableDeviceTunnel',
+            'version'     => '2018-01-20',
+            'protocol'    => 'HTTPS',
+            'pathname'    => '/',
+            'method'      => 'POST',
+            'authType'    => 'AK',
+            'style'       => 'RPC',
+            'reqBodyType' => 'formData',
+            'bodyType'    => 'json',
         ]);
 
-        return EnableDeviceTunnelResponse::fromMap($this->doRPCRequest('EnableDeviceTunnel', '2018-01-20', 'HTTPS', 'POST', 'AK', 'json', $req, $runtime));
+        return EnableDeviceTunnelResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
@@ -3438,11 +6120,32 @@ class Iot extends OpenApiClient
     public function enableDeviceTunnelShareWithOptions($request, $runtime)
     {
         Utils::validateModel($request);
+        $query = [];
+        if (!Utils::isUnset($request->deviceName)) {
+            $query['DeviceName'] = $request->deviceName;
+        }
+        if (!Utils::isUnset($request->iotInstanceId)) {
+            $query['IotInstanceId'] = $request->iotInstanceId;
+        }
+        if (!Utils::isUnset($request->productKey)) {
+            $query['ProductKey'] = $request->productKey;
+        }
         $req = new OpenApiRequest([
-            'body' => Utils::toMap($request),
+            'query' => OpenApiUtilClient::query($query),
+        ]);
+        $params = new Params([
+            'action'      => 'EnableDeviceTunnelShare',
+            'version'     => '2018-01-20',
+            'protocol'    => 'HTTPS',
+            'pathname'    => '/',
+            'method'      => 'POST',
+            'authType'    => 'AK',
+            'style'       => 'RPC',
+            'reqBodyType' => 'formData',
+            'bodyType'    => 'json',
         ]);
 
-        return EnableDeviceTunnelShareResponse::fromMap($this->doRPCRequest('EnableDeviceTunnelShare', '2018-01-20', 'HTTPS', 'POST', 'AK', 'json', $req, $runtime));
+        return EnableDeviceTunnelShareResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
@@ -3466,11 +6169,29 @@ class Iot extends OpenApiClient
     public function enableSceneRuleWithOptions($request, $runtime)
     {
         Utils::validateModel($request);
+        $query = [];
+        if (!Utils::isUnset($request->iotInstanceId)) {
+            $query['IotInstanceId'] = $request->iotInstanceId;
+        }
+        if (!Utils::isUnset($request->ruleId)) {
+            $query['RuleId'] = $request->ruleId;
+        }
         $req = new OpenApiRequest([
-            'body' => Utils::toMap($request),
+            'query' => OpenApiUtilClient::query($query),
+        ]);
+        $params = new Params([
+            'action'      => 'EnableSceneRule',
+            'version'     => '2018-01-20',
+            'protocol'    => 'HTTPS',
+            'pathname'    => '/',
+            'method'      => 'POST',
+            'authType'    => 'AK',
+            'style'       => 'RPC',
+            'reqBodyType' => 'formData',
+            'bodyType'    => 'json',
         ]);
 
-        return EnableSceneRuleResponse::fromMap($this->doRPCRequest('EnableSceneRule', '2018-01-20', 'HTTPS', 'POST', 'AK', 'json', $req, $runtime));
+        return EnableSceneRuleResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
@@ -3494,11 +6215,35 @@ class Iot extends OpenApiClient
     public function enableThingWithOptions($request, $runtime)
     {
         Utils::validateModel($request);
+        $query = [];
+        if (!Utils::isUnset($request->deviceName)) {
+            $query['DeviceName'] = $request->deviceName;
+        }
+        if (!Utils::isUnset($request->iotId)) {
+            $query['IotId'] = $request->iotId;
+        }
+        if (!Utils::isUnset($request->iotInstanceId)) {
+            $query['IotInstanceId'] = $request->iotInstanceId;
+        }
+        if (!Utils::isUnset($request->productKey)) {
+            $query['ProductKey'] = $request->productKey;
+        }
         $req = new OpenApiRequest([
-            'body' => Utils::toMap($request),
+            'query' => OpenApiUtilClient::query($query),
+        ]);
+        $params = new Params([
+            'action'      => 'EnableThing',
+            'version'     => '2018-01-20',
+            'protocol'    => 'HTTPS',
+            'pathname'    => '/',
+            'method'      => 'POST',
+            'authType'    => 'AK',
+            'style'       => 'RPC',
+            'reqBodyType' => 'formData',
+            'bodyType'    => 'json',
         ]);
 
-        return EnableThingResponse::fromMap($this->doRPCRequest('EnableThing', '2018-01-20', 'HTTPS', 'POST', 'AK', 'json', $req, $runtime));
+        return EnableThingResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
@@ -3522,11 +6267,26 @@ class Iot extends OpenApiClient
     public function generateDeviceNameListURLWithOptions($request, $runtime)
     {
         Utils::validateModel($request);
+        $query = [];
+        if (!Utils::isUnset($request->iotInstanceId)) {
+            $query['IotInstanceId'] = $request->iotInstanceId;
+        }
         $req = new OpenApiRequest([
-            'body' => Utils::toMap($request),
+            'query' => OpenApiUtilClient::query($query),
+        ]);
+        $params = new Params([
+            'action'      => 'GenerateDeviceNameListURL',
+            'version'     => '2018-01-20',
+            'protocol'    => 'HTTPS',
+            'pathname'    => '/',
+            'method'      => 'POST',
+            'authType'    => 'AK',
+            'style'       => 'RPC',
+            'reqBodyType' => 'formData',
+            'bodyType'    => 'json',
         ]);
 
-        return GenerateDeviceNameListURLResponse::fromMap($this->doRPCRequest('GenerateDeviceNameListURL', '2018-01-20', 'HTTPS', 'POST', 'AK', 'json', $req, $runtime));
+        return GenerateDeviceNameListURLResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
@@ -3550,11 +6310,35 @@ class Iot extends OpenApiClient
     public function generateFileUploadURLWithOptions($request, $runtime)
     {
         Utils::validateModel($request);
+        $query = [];
+        if (!Utils::isUnset($request->bizCode)) {
+            $query['BizCode'] = $request->bizCode;
+        }
+        if (!Utils::isUnset($request->fileName)) {
+            $query['FileName'] = $request->fileName;
+        }
+        if (!Utils::isUnset($request->fileSuffix)) {
+            $query['FileSuffix'] = $request->fileSuffix;
+        }
+        if (!Utils::isUnset($request->iotInstanceId)) {
+            $query['IotInstanceId'] = $request->iotInstanceId;
+        }
         $req = new OpenApiRequest([
-            'body' => Utils::toMap($request),
+            'query' => OpenApiUtilClient::query($query),
+        ]);
+        $params = new Params([
+            'action'      => 'GenerateFileUploadURL',
+            'version'     => '2018-01-20',
+            'protocol'    => 'HTTPS',
+            'pathname'    => '/',
+            'method'      => 'POST',
+            'authType'    => 'AK',
+            'style'       => 'RPC',
+            'reqBodyType' => 'formData',
+            'bodyType'    => 'json',
         ]);
 
-        return GenerateFileUploadURLResponse::fromMap($this->doRPCRequest('GenerateFileUploadURL', '2018-01-20', 'HTTPS', 'POST', 'AK', 'json', $req, $runtime));
+        return GenerateFileUploadURLResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
@@ -3578,11 +6362,29 @@ class Iot extends OpenApiClient
     public function generateOTAUploadURLWithOptions($request, $runtime)
     {
         Utils::validateModel($request);
+        $query = [];
+        if (!Utils::isUnset($request->fileSuffix)) {
+            $query['FileSuffix'] = $request->fileSuffix;
+        }
+        if (!Utils::isUnset($request->iotInstanceId)) {
+            $query['IotInstanceId'] = $request->iotInstanceId;
+        }
         $req = new OpenApiRequest([
-            'body' => Utils::toMap($request),
+            'query' => OpenApiUtilClient::query($query),
+        ]);
+        $params = new Params([
+            'action'      => 'GenerateOTAUploadURL',
+            'version'     => '2018-01-20',
+            'protocol'    => 'HTTPS',
+            'pathname'    => '/',
+            'method'      => 'POST',
+            'authType'    => 'AK',
+            'style'       => 'RPC',
+            'reqBodyType' => 'formData',
+            'bodyType'    => 'json',
         ]);
 
-        return GenerateOTAUploadURLResponse::fromMap($this->doRPCRequest('GenerateOTAUploadURL', '2018-01-20', 'HTTPS', 'POST', 'AK', 'json', $req, $runtime));
+        return GenerateOTAUploadURLResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
@@ -3607,10 +6409,21 @@ class Iot extends OpenApiClient
     {
         Utils::validateModel($request);
         $req = new OpenApiRequest([
-            'body' => Utils::toMap($request),
+            'body' => $request->apiSrn,
+        ]);
+        $params = new Params([
+            'action'      => 'GetDataAPIServiceDetail',
+            'version'     => '2018-01-20',
+            'protocol'    => 'HTTPS',
+            'pathname'    => '/',
+            'method'      => 'POST',
+            'authType'    => 'AK',
+            'style'       => 'RPC',
+            'reqBodyType' => 'formData',
+            'bodyType'    => 'json',
         ]);
 
-        return GetDataAPIServiceDetailResponse::fromMap($this->doRPCRequest('GetDataAPIServiceDetail', '2018-01-20', 'HTTPS', 'POST', 'AK', 'json', $req, $runtime));
+        return GetDataAPIServiceDetailResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
@@ -3634,11 +6447,32 @@ class Iot extends OpenApiClient
     public function getDeviceShadowWithOptions($request, $runtime)
     {
         Utils::validateModel($request);
+        $query = [];
+        if (!Utils::isUnset($request->deviceName)) {
+            $query['DeviceName'] = $request->deviceName;
+        }
+        if (!Utils::isUnset($request->iotInstanceId)) {
+            $query['IotInstanceId'] = $request->iotInstanceId;
+        }
+        if (!Utils::isUnset($request->productKey)) {
+            $query['ProductKey'] = $request->productKey;
+        }
         $req = new OpenApiRequest([
-            'body' => Utils::toMap($request),
+            'query' => OpenApiUtilClient::query($query),
+        ]);
+        $params = new Params([
+            'action'      => 'GetDeviceShadow',
+            'version'     => '2018-01-20',
+            'protocol'    => 'HTTPS',
+            'pathname'    => '/',
+            'method'      => 'POST',
+            'authType'    => 'AK',
+            'style'       => 'RPC',
+            'reqBodyType' => 'formData',
+            'bodyType'    => 'json',
         ]);
 
-        return GetDeviceShadowResponse::fromMap($this->doRPCRequest('GetDeviceShadow', '2018-01-20', 'HTTPS', 'POST', 'AK', 'json', $req, $runtime));
+        return GetDeviceShadowResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
@@ -3662,11 +6496,35 @@ class Iot extends OpenApiClient
     public function getDeviceStatusWithOptions($request, $runtime)
     {
         Utils::validateModel($request);
+        $query = [];
+        if (!Utils::isUnset($request->deviceName)) {
+            $query['DeviceName'] = $request->deviceName;
+        }
+        if (!Utils::isUnset($request->iotId)) {
+            $query['IotId'] = $request->iotId;
+        }
+        if (!Utils::isUnset($request->iotInstanceId)) {
+            $query['IotInstanceId'] = $request->iotInstanceId;
+        }
+        if (!Utils::isUnset($request->productKey)) {
+            $query['ProductKey'] = $request->productKey;
+        }
         $req = new OpenApiRequest([
-            'body' => Utils::toMap($request),
+            'query' => OpenApiUtilClient::query($query),
+        ]);
+        $params = new Params([
+            'action'      => 'GetDeviceStatus',
+            'version'     => '2018-01-20',
+            'protocol'    => 'HTTPS',
+            'pathname'    => '/',
+            'method'      => 'POST',
+            'authType'    => 'AK',
+            'style'       => 'RPC',
+            'reqBodyType' => 'formData',
+            'bodyType'    => 'json',
         ]);
 
-        return GetDeviceStatusResponse::fromMap($this->doRPCRequest('GetDeviceStatus', '2018-01-20', 'HTTPS', 'POST', 'AK', 'json', $req, $runtime));
+        return GetDeviceStatusResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
@@ -3690,11 +6548,32 @@ class Iot extends OpenApiClient
     public function getDeviceTunnelShareStatusWithOptions($request, $runtime)
     {
         Utils::validateModel($request);
+        $query = [];
+        if (!Utils::isUnset($request->deviceName)) {
+            $query['DeviceName'] = $request->deviceName;
+        }
+        if (!Utils::isUnset($request->iotInstanceId)) {
+            $query['IotInstanceId'] = $request->iotInstanceId;
+        }
+        if (!Utils::isUnset($request->productKey)) {
+            $query['ProductKey'] = $request->productKey;
+        }
         $req = new OpenApiRequest([
-            'body' => Utils::toMap($request),
+            'query' => OpenApiUtilClient::query($query),
+        ]);
+        $params = new Params([
+            'action'      => 'GetDeviceTunnelShareStatus',
+            'version'     => '2018-01-20',
+            'protocol'    => 'HTTPS',
+            'pathname'    => '/',
+            'method'      => 'POST',
+            'authType'    => 'AK',
+            'style'       => 'RPC',
+            'reqBodyType' => 'formData',
+            'bodyType'    => 'json',
         ]);
 
-        return GetDeviceTunnelShareStatusResponse::fromMap($this->doRPCRequest('GetDeviceTunnelShareStatus', '2018-01-20', 'HTTPS', 'POST', 'AK', 'json', $req, $runtime));
+        return GetDeviceTunnelShareStatusResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
@@ -3718,11 +6597,32 @@ class Iot extends OpenApiClient
     public function getDeviceTunnelStatusWithOptions($request, $runtime)
     {
         Utils::validateModel($request);
+        $query = [];
+        if (!Utils::isUnset($request->deviceName)) {
+            $query['DeviceName'] = $request->deviceName;
+        }
+        if (!Utils::isUnset($request->iotInstanceId)) {
+            $query['IotInstanceId'] = $request->iotInstanceId;
+        }
+        if (!Utils::isUnset($request->productKey)) {
+            $query['ProductKey'] = $request->productKey;
+        }
         $req = new OpenApiRequest([
-            'body' => Utils::toMap($request),
+            'query' => OpenApiUtilClient::query($query),
+        ]);
+        $params = new Params([
+            'action'      => 'GetDeviceTunnelStatus',
+            'version'     => '2018-01-20',
+            'protocol'    => 'HTTPS',
+            'pathname'    => '/',
+            'method'      => 'POST',
+            'authType'    => 'AK',
+            'style'       => 'RPC',
+            'reqBodyType' => 'formData',
+            'bodyType'    => 'json',
         ]);
 
-        return GetDeviceTunnelStatusResponse::fromMap($this->doRPCRequest('GetDeviceTunnelStatus', '2018-01-20', 'HTTPS', 'POST', 'AK', 'json', $req, $runtime));
+        return GetDeviceTunnelStatusResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
@@ -3746,11 +6646,32 @@ class Iot extends OpenApiClient
     public function getEdgeDriverVersionWithOptions($request, $runtime)
     {
         Utils::validateModel($request);
+        $query = [];
+        if (!Utils::isUnset($request->driverId)) {
+            $query['DriverId'] = $request->driverId;
+        }
+        if (!Utils::isUnset($request->driverVersion)) {
+            $query['DriverVersion'] = $request->driverVersion;
+        }
+        if (!Utils::isUnset($request->iotInstanceId)) {
+            $query['IotInstanceId'] = $request->iotInstanceId;
+        }
         $req = new OpenApiRequest([
-            'body' => Utils::toMap($request),
+            'query' => OpenApiUtilClient::query($query),
+        ]);
+        $params = new Params([
+            'action'      => 'GetEdgeDriverVersion',
+            'version'     => '2018-01-20',
+            'protocol'    => 'HTTPS',
+            'pathname'    => '/',
+            'method'      => 'POST',
+            'authType'    => 'AK',
+            'style'       => 'RPC',
+            'reqBodyType' => 'formData',
+            'bodyType'    => 'json',
         ]);
 
-        return GetEdgeDriverVersionResponse::fromMap($this->doRPCRequest('GetEdgeDriverVersion', '2018-01-20', 'HTTPS', 'POST', 'AK', 'json', $req, $runtime));
+        return GetEdgeDriverVersionResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
@@ -3774,11 +6695,29 @@ class Iot extends OpenApiClient
     public function getEdgeInstanceWithOptions($request, $runtime)
     {
         Utils::validateModel($request);
+        $query = [];
+        if (!Utils::isUnset($request->instanceId)) {
+            $query['InstanceId'] = $request->instanceId;
+        }
+        if (!Utils::isUnset($request->iotInstanceId)) {
+            $query['IotInstanceId'] = $request->iotInstanceId;
+        }
         $req = new OpenApiRequest([
-            'body' => Utils::toMap($request),
+            'query' => OpenApiUtilClient::query($query),
+        ]);
+        $params = new Params([
+            'action'      => 'GetEdgeInstance',
+            'version'     => '2018-01-20',
+            'protocol'    => 'HTTPS',
+            'pathname'    => '/',
+            'method'      => 'POST',
+            'authType'    => 'AK',
+            'style'       => 'RPC',
+            'reqBodyType' => 'formData',
+            'bodyType'    => 'json',
         ]);
 
-        return GetEdgeInstanceResponse::fromMap($this->doRPCRequest('GetEdgeInstance', '2018-01-20', 'HTTPS', 'POST', 'AK', 'json', $req, $runtime));
+        return GetEdgeInstanceResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
@@ -3802,11 +6741,32 @@ class Iot extends OpenApiClient
     public function getEdgeInstanceDeploymentWithOptions($request, $runtime)
     {
         Utils::validateModel($request);
+        $query = [];
+        if (!Utils::isUnset($request->deploymentId)) {
+            $query['DeploymentId'] = $request->deploymentId;
+        }
+        if (!Utils::isUnset($request->instanceId)) {
+            $query['InstanceId'] = $request->instanceId;
+        }
+        if (!Utils::isUnset($request->iotInstanceId)) {
+            $query['IotInstanceId'] = $request->iotInstanceId;
+        }
         $req = new OpenApiRequest([
-            'body' => Utils::toMap($request),
+            'query' => OpenApiUtilClient::query($query),
+        ]);
+        $params = new Params([
+            'action'      => 'GetEdgeInstanceDeployment',
+            'version'     => '2018-01-20',
+            'protocol'    => 'HTTPS',
+            'pathname'    => '/',
+            'method'      => 'POST',
+            'authType'    => 'AK',
+            'style'       => 'RPC',
+            'reqBodyType' => 'formData',
+            'bodyType'    => 'json',
         ]);
 
-        return GetEdgeInstanceDeploymentResponse::fromMap($this->doRPCRequest('GetEdgeInstanceDeployment', '2018-01-20', 'HTTPS', 'POST', 'AK', 'json', $req, $runtime));
+        return GetEdgeInstanceDeploymentResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
@@ -3830,11 +6790,32 @@ class Iot extends OpenApiClient
     public function getEdgeInstanceMessageRoutingWithOptions($request, $runtime)
     {
         Utils::validateModel($request);
+        $query = [];
+        if (!Utils::isUnset($request->instanceId)) {
+            $query['InstanceId'] = $request->instanceId;
+        }
+        if (!Utils::isUnset($request->iotInstanceId)) {
+            $query['IotInstanceId'] = $request->iotInstanceId;
+        }
+        if (!Utils::isUnset($request->routeId)) {
+            $query['RouteId'] = $request->routeId;
+        }
         $req = new OpenApiRequest([
-            'body' => Utils::toMap($request),
+            'query' => OpenApiUtilClient::query($query),
+        ]);
+        $params = new Params([
+            'action'      => 'GetEdgeInstanceMessageRouting',
+            'version'     => '2018-01-20',
+            'protocol'    => 'HTTPS',
+            'pathname'    => '/',
+            'method'      => 'POST',
+            'authType'    => 'AK',
+            'style'       => 'RPC',
+            'reqBodyType' => 'formData',
+            'bodyType'    => 'json',
         ]);
 
-        return GetEdgeInstanceMessageRoutingResponse::fromMap($this->doRPCRequest('GetEdgeInstanceMessageRouting', '2018-01-20', 'HTTPS', 'POST', 'AK', 'json', $req, $runtime));
+        return GetEdgeInstanceMessageRoutingResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
@@ -3858,11 +6839,35 @@ class Iot extends OpenApiClient
     public function getGatewayBySubDeviceWithOptions($request, $runtime)
     {
         Utils::validateModel($request);
+        $query = [];
+        if (!Utils::isUnset($request->deviceName)) {
+            $query['DeviceName'] = $request->deviceName;
+        }
+        if (!Utils::isUnset($request->iotId)) {
+            $query['IotId'] = $request->iotId;
+        }
+        if (!Utils::isUnset($request->iotInstanceId)) {
+            $query['IotInstanceId'] = $request->iotInstanceId;
+        }
+        if (!Utils::isUnset($request->productKey)) {
+            $query['ProductKey'] = $request->productKey;
+        }
         $req = new OpenApiRequest([
-            'body' => Utils::toMap($request),
+            'query' => OpenApiUtilClient::query($query),
+        ]);
+        $params = new Params([
+            'action'      => 'GetGatewayBySubDevice',
+            'version'     => '2018-01-20',
+            'protocol'    => 'HTTPS',
+            'pathname'    => '/',
+            'method'      => 'POST',
+            'authType'    => 'AK',
+            'style'       => 'RPC',
+            'reqBodyType' => 'formData',
+            'bodyType'    => 'json',
         ]);
 
-        return GetGatewayBySubDeviceResponse::fromMap($this->doRPCRequest('GetGatewayBySubDevice', '2018-01-20', 'HTTPS', 'POST', 'AK', 'json', $req, $runtime));
+        return GetGatewayBySubDeviceResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
@@ -3886,11 +6891,29 @@ class Iot extends OpenApiClient
     public function getLoraNodesTaskWithOptions($request, $runtime)
     {
         Utils::validateModel($request);
+        $query = [];
+        if (!Utils::isUnset($request->iotInstanceId)) {
+            $query['IotInstanceId'] = $request->iotInstanceId;
+        }
+        if (!Utils::isUnset($request->taskId)) {
+            $query['TaskId'] = $request->taskId;
+        }
         $req = new OpenApiRequest([
-            'body' => Utils::toMap($request),
+            'query' => OpenApiUtilClient::query($query),
+        ]);
+        $params = new Params([
+            'action'      => 'GetLoraNodesTask',
+            'version'     => '2018-01-20',
+            'protocol'    => 'HTTPS',
+            'pathname'    => '/',
+            'method'      => 'POST',
+            'authType'    => 'AK',
+            'style'       => 'RPC',
+            'reqBodyType' => 'formData',
+            'bodyType'    => 'json',
         ]);
 
-        return GetLoraNodesTaskResponse::fromMap($this->doRPCRequest('GetLoraNodesTask', '2018-01-20', 'HTTPS', 'POST', 'AK', 'json', $req, $runtime));
+        return GetLoraNodesTaskResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
@@ -3914,11 +6937,29 @@ class Iot extends OpenApiClient
     public function getNodesAddingTaskWithOptions($request, $runtime)
     {
         Utils::validateModel($request);
+        $query = [];
+        if (!Utils::isUnset($request->iotInstanceId)) {
+            $query['IotInstanceId'] = $request->iotInstanceId;
+        }
+        if (!Utils::isUnset($request->taskId)) {
+            $query['TaskId'] = $request->taskId;
+        }
         $req = new OpenApiRequest([
-            'body' => Utils::toMap($request),
+            'query' => OpenApiUtilClient::query($query),
+        ]);
+        $params = new Params([
+            'action'      => 'GetNodesAddingTask',
+            'version'     => '2018-01-20',
+            'protocol'    => 'HTTPS',
+            'pathname'    => '/',
+            'method'      => 'POST',
+            'authType'    => 'AK',
+            'style'       => 'RPC',
+            'reqBodyType' => 'formData',
+            'bodyType'    => 'json',
         ]);
 
-        return GetNodesAddingTaskResponse::fromMap($this->doRPCRequest('GetNodesAddingTask', '2018-01-20', 'HTTPS', 'POST', 'AK', 'json', $req, $runtime));
+        return GetNodesAddingTaskResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
@@ -3942,11 +6983,29 @@ class Iot extends OpenApiClient
     public function getRuleWithOptions($request, $runtime)
     {
         Utils::validateModel($request);
+        $query = [];
+        if (!Utils::isUnset($request->iotInstanceId)) {
+            $query['IotInstanceId'] = $request->iotInstanceId;
+        }
+        if (!Utils::isUnset($request->ruleId)) {
+            $query['RuleId'] = $request->ruleId;
+        }
         $req = new OpenApiRequest([
-            'body' => Utils::toMap($request),
+            'query' => OpenApiUtilClient::query($query),
+        ]);
+        $params = new Params([
+            'action'      => 'GetRule',
+            'version'     => '2018-01-20',
+            'protocol'    => 'HTTPS',
+            'pathname'    => '/',
+            'method'      => 'POST',
+            'authType'    => 'AK',
+            'style'       => 'RPC',
+            'reqBodyType' => 'formData',
+            'bodyType'    => 'json',
         ]);
 
-        return GetRuleResponse::fromMap($this->doRPCRequest('GetRule', '2018-01-20', 'HTTPS', 'POST', 'AK', 'json', $req, $runtime));
+        return GetRuleResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
@@ -3970,11 +7029,29 @@ class Iot extends OpenApiClient
     public function getRuleActionWithOptions($request, $runtime)
     {
         Utils::validateModel($request);
+        $query = [];
+        if (!Utils::isUnset($request->actionId)) {
+            $query['ActionId'] = $request->actionId;
+        }
+        if (!Utils::isUnset($request->iotInstanceId)) {
+            $query['IotInstanceId'] = $request->iotInstanceId;
+        }
         $req = new OpenApiRequest([
-            'body' => Utils::toMap($request),
+            'query' => OpenApiUtilClient::query($query),
+        ]);
+        $params = new Params([
+            'action'      => 'GetRuleAction',
+            'version'     => '2018-01-20',
+            'protocol'    => 'HTTPS',
+            'pathname'    => '/',
+            'method'      => 'POST',
+            'authType'    => 'AK',
+            'style'       => 'RPC',
+            'reqBodyType' => 'formData',
+            'bodyType'    => 'json',
         ]);
 
-        return GetRuleActionResponse::fromMap($this->doRPCRequest('GetRuleAction', '2018-01-20', 'HTTPS', 'POST', 'AK', 'json', $req, $runtime));
+        return GetRuleActionResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
@@ -3998,11 +7075,29 @@ class Iot extends OpenApiClient
     public function getSceneRuleWithOptions($request, $runtime)
     {
         Utils::validateModel($request);
+        $query = [];
+        if (!Utils::isUnset($request->iotInstanceId)) {
+            $query['IotInstanceId'] = $request->iotInstanceId;
+        }
+        if (!Utils::isUnset($request->ruleId)) {
+            $query['RuleId'] = $request->ruleId;
+        }
         $req = new OpenApiRequest([
-            'body' => Utils::toMap($request),
+            'query' => OpenApiUtilClient::query($query),
+        ]);
+        $params = new Params([
+            'action'      => 'GetSceneRule',
+            'version'     => '2018-01-20',
+            'protocol'    => 'HTTPS',
+            'pathname'    => '/',
+            'method'      => 'POST',
+            'authType'    => 'AK',
+            'style'       => 'RPC',
+            'reqBodyType' => 'formData',
+            'bodyType'    => 'json',
         ]);
 
-        return GetSceneRuleResponse::fromMap($this->doRPCRequest('GetSceneRule', '2018-01-20', 'HTTPS', 'POST', 'AK', 'json', $req, $runtime));
+        return GetSceneRuleResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
@@ -4018,6 +7113,78 @@ class Iot extends OpenApiClient
     }
 
     /**
+     * @param RuntimeOptions $runtime
+     *
+     * @return GetSpeechVoiceResponse
+     */
+    public function getSpeechVoiceWithOptions($runtime)
+    {
+        $req    = new OpenApiRequest([]);
+        $params = new Params([
+            'action'      => 'GetSpeechVoice',
+            'version'     => '2018-01-20',
+            'protocol'    => 'HTTPS',
+            'pathname'    => '/',
+            'method'      => 'POST',
+            'authType'    => 'AK',
+            'style'       => 'RPC',
+            'reqBodyType' => 'formData',
+            'bodyType'    => 'json',
+        ]);
+
+        return GetSpeechVoiceResponse::fromMap($this->callApi($params, $req, $runtime));
+    }
+
+    /**
+     * @return GetSpeechVoiceResponse
+     */
+    public function getSpeechVoice()
+    {
+        $runtime = new RuntimeOptions([]);
+
+        return $this->getSpeechVoiceWithOptions($runtime);
+    }
+
+    /**
+     * @param GetStudioAppTokenOpenRequest $request
+     * @param RuntimeOptions               $runtime
+     *
+     * @return GetStudioAppTokenOpenResponse
+     */
+    public function getStudioAppTokenOpenWithOptions($request, $runtime)
+    {
+        Utils::validateModel($request);
+        $req = new OpenApiRequest([
+            'body' => $request->appId,
+        ]);
+        $params = new Params([
+            'action'      => 'GetStudioAppTokenOpen',
+            'version'     => '2018-01-20',
+            'protocol'    => 'HTTPS',
+            'pathname'    => '/',
+            'method'      => 'POST',
+            'authType'    => 'AK',
+            'style'       => 'RPC',
+            'reqBodyType' => 'formData',
+            'bodyType'    => 'json',
+        ]);
+
+        return GetStudioAppTokenOpenResponse::fromMap($this->callApi($params, $req, $runtime));
+    }
+
+    /**
+     * @param GetStudioAppTokenOpenRequest $request
+     *
+     * @return GetStudioAppTokenOpenResponse
+     */
+    public function getStudioAppTokenOpen($request)
+    {
+        $runtime = new RuntimeOptions([]);
+
+        return $this->getStudioAppTokenOpenWithOptions($request, $runtime);
+    }
+
+    /**
      * @param GetThingModelTslRequest $request
      * @param RuntimeOptions          $runtime
      *
@@ -4026,11 +7193,38 @@ class Iot extends OpenApiClient
     public function getThingModelTslWithOptions($request, $runtime)
     {
         Utils::validateModel($request);
+        $query = [];
+        if (!Utils::isUnset($request->functionBlockId)) {
+            $query['FunctionBlockId'] = $request->functionBlockId;
+        }
+        if (!Utils::isUnset($request->iotInstanceId)) {
+            $query['IotInstanceId'] = $request->iotInstanceId;
+        }
+        if (!Utils::isUnset($request->modelVersion)) {
+            $query['ModelVersion'] = $request->modelVersion;
+        }
+        if (!Utils::isUnset($request->productKey)) {
+            $query['ProductKey'] = $request->productKey;
+        }
+        if (!Utils::isUnset($request->simple)) {
+            $query['Simple'] = $request->simple;
+        }
         $req = new OpenApiRequest([
-            'body' => Utils::toMap($request),
+            'query' => OpenApiUtilClient::query($query),
+        ]);
+        $params = new Params([
+            'action'      => 'GetThingModelTsl',
+            'version'     => '2018-01-20',
+            'protocol'    => 'HTTPS',
+            'pathname'    => '/',
+            'method'      => 'POST',
+            'authType'    => 'AK',
+            'style'       => 'RPC',
+            'reqBodyType' => 'formData',
+            'bodyType'    => 'json',
         ]);
 
-        return GetThingModelTslResponse::fromMap($this->doRPCRequest('GetThingModelTsl', '2018-01-20', 'HTTPS', 'POST', 'AK', 'json', $req, $runtime));
+        return GetThingModelTslResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
@@ -4054,11 +7248,41 @@ class Iot extends OpenApiClient
     public function getThingModelTslPublishedWithOptions($request, $runtime)
     {
         Utils::validateModel($request);
+        $query = [];
+        if (!Utils::isUnset($request->functionBlockId)) {
+            $query['FunctionBlockId'] = $request->functionBlockId;
+        }
+        if (!Utils::isUnset($request->iotInstanceId)) {
+            $query['IotInstanceId'] = $request->iotInstanceId;
+        }
+        if (!Utils::isUnset($request->modelVersion)) {
+            $query['ModelVersion'] = $request->modelVersion;
+        }
+        if (!Utils::isUnset($request->productKey)) {
+            $query['ProductKey'] = $request->productKey;
+        }
+        if (!Utils::isUnset($request->resourceGroupId)) {
+            $query['ResourceGroupId'] = $request->resourceGroupId;
+        }
+        if (!Utils::isUnset($request->simple)) {
+            $query['Simple'] = $request->simple;
+        }
         $req = new OpenApiRequest([
-            'body' => Utils::toMap($request),
+            'query' => OpenApiUtilClient::query($query),
+        ]);
+        $params = new Params([
+            'action'      => 'GetThingModelTslPublished',
+            'version'     => '2018-01-20',
+            'protocol'    => 'HTTPS',
+            'pathname'    => '/',
+            'method'      => 'POST',
+            'authType'    => 'AK',
+            'style'       => 'RPC',
+            'reqBodyType' => 'formData',
+            'bodyType'    => 'json',
         ]);
 
-        return GetThingModelTslPublishedResponse::fromMap($this->doRPCRequest('GetThingModelTslPublished', '2018-01-20', 'HTTPS', 'POST', 'AK', 'json', $req, $runtime));
+        return GetThingModelTslPublishedResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
@@ -4082,11 +7306,29 @@ class Iot extends OpenApiClient
     public function getThingScriptWithOptions($request, $runtime)
     {
         Utils::validateModel($request);
+        $query = [];
+        if (!Utils::isUnset($request->iotInstanceId)) {
+            $query['IotInstanceId'] = $request->iotInstanceId;
+        }
+        if (!Utils::isUnset($request->productKey)) {
+            $query['ProductKey'] = $request->productKey;
+        }
         $req = new OpenApiRequest([
-            'body' => Utils::toMap($request),
+            'query' => OpenApiUtilClient::query($query),
+        ]);
+        $params = new Params([
+            'action'      => 'GetThingScript',
+            'version'     => '2018-01-20',
+            'protocol'    => 'HTTPS',
+            'pathname'    => '/',
+            'method'      => 'POST',
+            'authType'    => 'AK',
+            'style'       => 'RPC',
+            'reqBodyType' => 'formData',
+            'bodyType'    => 'json',
         ]);
 
-        return GetThingScriptResponse::fromMap($this->doRPCRequest('GetThingScript', '2018-01-20', 'HTTPS', 'POST', 'AK', 'json', $req, $runtime));
+        return GetThingScriptResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
@@ -4110,11 +7352,32 @@ class Iot extends OpenApiClient
     public function getThingTemplateWithOptions($request, $runtime)
     {
         Utils::validateModel($request);
+        $query = [];
+        if (!Utils::isUnset($request->categoryKey)) {
+            $query['CategoryKey'] = $request->categoryKey;
+        }
+        if (!Utils::isUnset($request->iotInstanceId)) {
+            $query['IotInstanceId'] = $request->iotInstanceId;
+        }
+        if (!Utils::isUnset($request->resourceGroupId)) {
+            $query['ResourceGroupId'] = $request->resourceGroupId;
+        }
         $req = new OpenApiRequest([
-            'body' => Utils::toMap($request),
+            'query' => OpenApiUtilClient::query($query),
+        ]);
+        $params = new Params([
+            'action'      => 'GetThingTemplate',
+            'version'     => '2018-01-20',
+            'protocol'    => 'HTTPS',
+            'pathname'    => '/',
+            'method'      => 'POST',
+            'authType'    => 'AK',
+            'style'       => 'RPC',
+            'reqBodyType' => 'formData',
+            'bodyType'    => 'json',
         ]);
 
-        return GetThingTemplateResponse::fromMap($this->doRPCRequest('GetThingTemplate', '2018-01-20', 'HTTPS', 'POST', 'AK', 'json', $req, $runtime));
+        return GetThingTemplateResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
@@ -4138,11 +7401,41 @@ class Iot extends OpenApiClient
     public function getThingTopoWithOptions($request, $runtime)
     {
         Utils::validateModel($request);
+        $query = [];
+        if (!Utils::isUnset($request->deviceName)) {
+            $query['DeviceName'] = $request->deviceName;
+        }
+        if (!Utils::isUnset($request->iotId)) {
+            $query['IotId'] = $request->iotId;
+        }
+        if (!Utils::isUnset($request->iotInstanceId)) {
+            $query['IotInstanceId'] = $request->iotInstanceId;
+        }
+        if (!Utils::isUnset($request->pageNo)) {
+            $query['PageNo'] = $request->pageNo;
+        }
+        if (!Utils::isUnset($request->pageSize)) {
+            $query['PageSize'] = $request->pageSize;
+        }
+        if (!Utils::isUnset($request->productKey)) {
+            $query['ProductKey'] = $request->productKey;
+        }
         $req = new OpenApiRequest([
-            'body' => Utils::toMap($request),
+            'query' => OpenApiUtilClient::query($query),
+        ]);
+        $params = new Params([
+            'action'      => 'GetThingTopo',
+            'version'     => '2018-01-20',
+            'protocol'    => 'HTTPS',
+            'pathname'    => '/',
+            'method'      => 'POST',
+            'authType'    => 'AK',
+            'style'       => 'RPC',
+            'reqBodyType' => 'formData',
+            'bodyType'    => 'json',
         ]);
 
-        return GetThingTopoResponse::fromMap($this->doRPCRequest('GetThingTopo', '2018-01-20', 'HTTPS', 'POST', 'AK', 'json', $req, $runtime));
+        return GetThingTopoResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
@@ -4166,11 +7459,44 @@ class Iot extends OpenApiClient
     public function importThingModelTslWithOptions($request, $runtime)
     {
         Utils::validateModel($request);
+        $query = [];
+        if (!Utils::isUnset($request->functionBlockId)) {
+            $query['FunctionBlockId'] = $request->functionBlockId;
+        }
+        if (!Utils::isUnset($request->functionBlockName)) {
+            $query['FunctionBlockName'] = $request->functionBlockName;
+        }
+        if (!Utils::isUnset($request->iotInstanceId)) {
+            $query['IotInstanceId'] = $request->iotInstanceId;
+        }
+        if (!Utils::isUnset($request->productKey)) {
+            $query['ProductKey'] = $request->productKey;
+        }
+        if (!Utils::isUnset($request->resourceGroupId)) {
+            $query['ResourceGroupId'] = $request->resourceGroupId;
+        }
+        if (!Utils::isUnset($request->tslStr)) {
+            $query['TslStr'] = $request->tslStr;
+        }
+        if (!Utils::isUnset($request->tslUrl)) {
+            $query['TslUrl'] = $request->tslUrl;
+        }
         $req = new OpenApiRequest([
-            'body' => Utils::toMap($request),
+            'query' => OpenApiUtilClient::query($query),
+        ]);
+        $params = new Params([
+            'action'      => 'ImportThingModelTsl',
+            'version'     => '2018-01-20',
+            'protocol'    => 'HTTPS',
+            'pathname'    => '/',
+            'method'      => 'POST',
+            'authType'    => 'AK',
+            'style'       => 'RPC',
+            'reqBodyType' => 'formData',
+            'bodyType'    => 'json',
         ]);
 
-        return ImportThingModelTslResponse::fromMap($this->doRPCRequest('ImportThingModelTsl', '2018-01-20', 'HTTPS', 'POST', 'AK', 'json', $req, $runtime));
+        return ImportThingModelTslResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
@@ -4195,10 +7521,21 @@ class Iot extends OpenApiClient
     {
         Utils::validateModel($request);
         $req = new OpenApiRequest([
-            'body' => Utils::toMap($request),
+            'body' => Utils::toArray($request->apiSrn),
+        ]);
+        $params = new Params([
+            'action'      => 'InvokeDataAPIService',
+            'version'     => '2018-01-20',
+            'protocol'    => 'HTTPS',
+            'pathname'    => '/',
+            'method'      => 'POST',
+            'authType'    => 'AK',
+            'style'       => 'RPC',
+            'reqBodyType' => 'formData',
+            'bodyType'    => 'json',
         ]);
 
-        return InvokeDataAPIServiceResponse::fromMap($this->doRPCRequest('InvokeDataAPIService', '2018-01-20', 'HTTPS', 'POST', 'AK', 'json', $req, $runtime));
+        return InvokeDataAPIServiceResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
@@ -4222,11 +7559,41 @@ class Iot extends OpenApiClient
     public function invokeThingServiceWithOptions($request, $runtime)
     {
         Utils::validateModel($request);
+        $query = [];
+        if (!Utils::isUnset($request->args)) {
+            $query['Args'] = $request->args;
+        }
+        if (!Utils::isUnset($request->deviceName)) {
+            $query['DeviceName'] = $request->deviceName;
+        }
+        if (!Utils::isUnset($request->identifier)) {
+            $query['Identifier'] = $request->identifier;
+        }
+        if (!Utils::isUnset($request->iotId)) {
+            $query['IotId'] = $request->iotId;
+        }
+        if (!Utils::isUnset($request->iotInstanceId)) {
+            $query['IotInstanceId'] = $request->iotInstanceId;
+        }
+        if (!Utils::isUnset($request->productKey)) {
+            $query['ProductKey'] = $request->productKey;
+        }
         $req = new OpenApiRequest([
-            'body' => Utils::toMap($request),
+            'query' => OpenApiUtilClient::query($query),
+        ]);
+        $params = new Params([
+            'action'      => 'InvokeThingService',
+            'version'     => '2018-01-20',
+            'protocol'    => 'HTTPS',
+            'pathname'    => '/',
+            'method'      => 'POST',
+            'authType'    => 'AK',
+            'style'       => 'RPC',
+            'reqBodyType' => 'formData',
+            'bodyType'    => 'json',
         ]);
 
-        return InvokeThingServiceResponse::fromMap($this->doRPCRequest('InvokeThingService', '2018-01-20', 'HTTPS', 'POST', 'AK', 'json', $req, $runtime));
+        return InvokeThingServiceResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
@@ -4250,11 +7617,38 @@ class Iot extends OpenApiClient
     public function invokeThingsServiceWithOptions($request, $runtime)
     {
         Utils::validateModel($request);
+        $query = [];
+        if (!Utils::isUnset($request->args)) {
+            $query['Args'] = $request->args;
+        }
+        if (!Utils::isUnset($request->deviceName)) {
+            $query['DeviceName'] = $request->deviceName;
+        }
+        if (!Utils::isUnset($request->identifier)) {
+            $query['Identifier'] = $request->identifier;
+        }
+        if (!Utils::isUnset($request->iotInstanceId)) {
+            $query['IotInstanceId'] = $request->iotInstanceId;
+        }
+        if (!Utils::isUnset($request->productKey)) {
+            $query['ProductKey'] = $request->productKey;
+        }
         $req = new OpenApiRequest([
-            'body' => Utils::toMap($request),
+            'query' => OpenApiUtilClient::query($query),
+        ]);
+        $params = new Params([
+            'action'      => 'InvokeThingsService',
+            'version'     => '2018-01-20',
+            'protocol'    => 'HTTPS',
+            'pathname'    => '/',
+            'method'      => 'POST',
+            'authType'    => 'AK',
+            'style'       => 'RPC',
+            'reqBodyType' => 'formData',
+            'bodyType'    => 'json',
         ]);
 
-        return InvokeThingsServiceResponse::fromMap($this->doRPCRequest('InvokeThingsService', '2018-01-20', 'HTTPS', 'POST', 'AK', 'json', $req, $runtime));
+        return InvokeThingsServiceResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
@@ -4278,11 +7672,41 @@ class Iot extends OpenApiClient
     public function listAnalyticsDataWithOptions($request, $runtime)
     {
         Utils::validateModel($request);
+        $query = [];
+        if (!Utils::isUnset($request->apiPath)) {
+            $query['ApiPath'] = $request->apiPath;
+        }
+        if (!Utils::isUnset($request->condition)) {
+            $query['Condition'] = $request->condition;
+        }
+        if (!Utils::isUnset($request->iotInstanceId)) {
+            $query['IotInstanceId'] = $request->iotInstanceId;
+        }
+        if (!Utils::isUnset($request->isoId)) {
+            $query['IsoId'] = $request->isoId;
+        }
+        if (!Utils::isUnset($request->pageNum)) {
+            $query['PageNum'] = $request->pageNum;
+        }
+        if (!Utils::isUnset($request->pageSize)) {
+            $query['PageSize'] = $request->pageSize;
+        }
         $req = new OpenApiRequest([
-            'body' => Utils::toMap($request),
+            'query' => OpenApiUtilClient::query($query),
+        ]);
+        $params = new Params([
+            'action'      => 'ListAnalyticsData',
+            'version'     => '2018-01-20',
+            'protocol'    => 'HTTPS',
+            'pathname'    => '/',
+            'method'      => 'POST',
+            'authType'    => 'AK',
+            'style'       => 'RPC',
+            'reqBodyType' => 'formData',
+            'bodyType'    => 'json',
         ]);
 
-        return ListAnalyticsDataResponse::fromMap($this->doRPCRequest('ListAnalyticsData', '2018-01-20', 'HTTPS', 'POST', 'AK', 'json', $req, $runtime));
+        return ListAnalyticsDataResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
@@ -4306,11 +7730,39 @@ class Iot extends OpenApiClient
     public function listDeviceDistributeJobWithOptions($request, $runtime)
     {
         Utils::validateModel($request);
+        $query = [];
+        if (!Utils::isUnset($request->currentPage)) {
+            $query['CurrentPage'] = $request->currentPage;
+        }
+        if (!Utils::isUnset($request->nextToken)) {
+            $query['NextToken'] = $request->nextToken;
+        }
+        if (!Utils::isUnset($request->pageSize)) {
+            $query['PageSize'] = $request->pageSize;
+        }
+        if (!Utils::isUnset($request->status)) {
+            $query['Status'] = $request->status;
+        }
+        if (!Utils::isUnset($request->targetUid)) {
+            $query['TargetUid'] = $request->targetUid;
+        }
         $req = new OpenApiRequest([
-            'body' => Utils::toMap($request),
+            'query' => OpenApiUtilClient::query($query),
+            'body'  => $request->jobId,
+        ]);
+        $params = new Params([
+            'action'      => 'ListDeviceDistributeJob',
+            'version'     => '2018-01-20',
+            'protocol'    => 'HTTPS',
+            'pathname'    => '/',
+            'method'      => 'POST',
+            'authType'    => 'AK',
+            'style'       => 'RPC',
+            'reqBodyType' => 'formData',
+            'bodyType'    => 'json',
         ]);
 
-        return ListDeviceDistributeJobResponse::fromMap($this->doRPCRequest('ListDeviceDistributeJob', '2018-01-20', 'HTTPS', 'POST', 'AK', 'json', $req, $runtime));
+        return ListDeviceDistributeJobResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
@@ -4334,11 +7786,41 @@ class Iot extends OpenApiClient
     public function listDistributedDeviceWithOptions($request, $runtime)
     {
         Utils::validateModel($request);
+        $query = [];
+        if (!Utils::isUnset($request->currentPage)) {
+            $query['CurrentPage'] = $request->currentPage;
+        }
+        if (!Utils::isUnset($request->deviceName)) {
+            $query['DeviceName'] = $request->deviceName;
+        }
+        if (!Utils::isUnset($request->pageSize)) {
+            $query['PageSize'] = $request->pageSize;
+        }
+        if (!Utils::isUnset($request->productKey)) {
+            $query['ProductKey'] = $request->productKey;
+        }
+        if (!Utils::isUnset($request->sourceInstanceId)) {
+            $query['SourceInstanceId'] = $request->sourceInstanceId;
+        }
+        if (!Utils::isUnset($request->targetUid)) {
+            $query['TargetUid'] = $request->targetUid;
+        }
         $req = new OpenApiRequest([
-            'body' => Utils::toMap($request),
+            'query' => OpenApiUtilClient::query($query),
+        ]);
+        $params = new Params([
+            'action'      => 'ListDistributedDevice',
+            'version'     => '2018-01-20',
+            'protocol'    => 'HTTPS',
+            'pathname'    => '/',
+            'method'      => 'POST',
+            'authType'    => 'AK',
+            'style'       => 'RPC',
+            'reqBodyType' => 'formData',
+            'bodyType'    => 'json',
         ]);
 
-        return ListDistributedDeviceResponse::fromMap($this->doRPCRequest('ListDistributedDevice', '2018-01-20', 'HTTPS', 'POST', 'AK', 'json', $req, $runtime));
+        return ListDistributedDeviceResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
@@ -4362,11 +7844,41 @@ class Iot extends OpenApiClient
     public function listDistributedProductWithOptions($request, $runtime)
     {
         Utils::validateModel($request);
+        $query = [];
+        if (!Utils::isUnset($request->currentPage)) {
+            $query['CurrentPage'] = $request->currentPage;
+        }
+        if (!Utils::isUnset($request->pageSize)) {
+            $query['PageSize'] = $request->pageSize;
+        }
+        if (!Utils::isUnset($request->productKey)) {
+            $query['ProductKey'] = $request->productKey;
+        }
+        if (!Utils::isUnset($request->sourceInstanceId)) {
+            $query['SourceInstanceId'] = $request->sourceInstanceId;
+        }
+        if (!Utils::isUnset($request->targetInstanceId)) {
+            $query['TargetInstanceId'] = $request->targetInstanceId;
+        }
+        if (!Utils::isUnset($request->targetUid)) {
+            $query['TargetUid'] = $request->targetUid;
+        }
         $req = new OpenApiRequest([
-            'body' => Utils::toMap($request),
+            'query' => OpenApiUtilClient::query($query),
+        ]);
+        $params = new Params([
+            'action'      => 'ListDistributedProduct',
+            'version'     => '2018-01-20',
+            'protocol'    => 'HTTPS',
+            'pathname'    => '/',
+            'method'      => 'POST',
+            'authType'    => 'AK',
+            'style'       => 'RPC',
+            'reqBodyType' => 'formData',
+            'bodyType'    => 'json',
         ]);
 
-        return ListDistributedProductResponse::fromMap($this->doRPCRequest('ListDistributedProduct', '2018-01-20', 'HTTPS', 'POST', 'AK', 'json', $req, $runtime));
+        return ListDistributedProductResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
@@ -4390,11 +7902,35 @@ class Iot extends OpenApiClient
     public function listJobWithOptions($request, $runtime)
     {
         Utils::validateModel($request);
+        $query = [];
+        if (!Utils::isUnset($request->currentPage)) {
+            $query['CurrentPage'] = $request->currentPage;
+        }
+        if (!Utils::isUnset($request->iotInstanceId)) {
+            $query['IotInstanceId'] = $request->iotInstanceId;
+        }
+        if (!Utils::isUnset($request->pageSize)) {
+            $query['PageSize'] = $request->pageSize;
+        }
+        if (!Utils::isUnset($request->status)) {
+            $query['Status'] = $request->status;
+        }
         $req = new OpenApiRequest([
-            'body' => Utils::toMap($request),
+            'query' => OpenApiUtilClient::query($query),
+        ]);
+        $params = new Params([
+            'action'      => 'ListJob',
+            'version'     => '2018-01-20',
+            'protocol'    => 'HTTPS',
+            'pathname'    => '/',
+            'method'      => 'POST',
+            'authType'    => 'AK',
+            'style'       => 'RPC',
+            'reqBodyType' => 'formData',
+            'bodyType'    => 'json',
         ]);
 
-        return ListJobResponse::fromMap($this->doRPCRequest('ListJob', '2018-01-20', 'HTTPS', 'POST', 'AK', 'json', $req, $runtime));
+        return ListJobResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
@@ -4418,11 +7954,38 @@ class Iot extends OpenApiClient
     public function listOTAFirmwareWithOptions($request, $runtime)
     {
         Utils::validateModel($request);
+        $query = [];
+        if (!Utils::isUnset($request->currentPage)) {
+            $query['CurrentPage'] = $request->currentPage;
+        }
+        if (!Utils::isUnset($request->destVersion)) {
+            $query['DestVersion'] = $request->destVersion;
+        }
+        if (!Utils::isUnset($request->iotInstanceId)) {
+            $query['IotInstanceId'] = $request->iotInstanceId;
+        }
+        if (!Utils::isUnset($request->pageSize)) {
+            $query['PageSize'] = $request->pageSize;
+        }
+        if (!Utils::isUnset($request->productKey)) {
+            $query['ProductKey'] = $request->productKey;
+        }
         $req = new OpenApiRequest([
-            'body' => Utils::toMap($request),
+            'query' => OpenApiUtilClient::query($query),
+        ]);
+        $params = new Params([
+            'action'      => 'ListOTAFirmware',
+            'version'     => '2018-01-20',
+            'protocol'    => 'HTTPS',
+            'pathname'    => '/',
+            'method'      => 'POST',
+            'authType'    => 'AK',
+            'style'       => 'RPC',
+            'reqBodyType' => 'formData',
+            'bodyType'    => 'json',
         ]);
 
-        return ListOTAFirmwareResponse::fromMap($this->doRPCRequest('ListOTAFirmware', '2018-01-20', 'HTTPS', 'POST', 'AK', 'json', $req, $runtime));
+        return ListOTAFirmwareResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
@@ -4446,11 +8009,41 @@ class Iot extends OpenApiClient
     public function listOTAJobByDeviceWithOptions($request, $runtime)
     {
         Utils::validateModel($request);
+        $query = [];
+        if (!Utils::isUnset($request->currentPage)) {
+            $query['CurrentPage'] = $request->currentPage;
+        }
+        if (!Utils::isUnset($request->deviceName)) {
+            $query['DeviceName'] = $request->deviceName;
+        }
+        if (!Utils::isUnset($request->firmwareId)) {
+            $query['FirmwareId'] = $request->firmwareId;
+        }
+        if (!Utils::isUnset($request->iotInstanceId)) {
+            $query['IotInstanceId'] = $request->iotInstanceId;
+        }
+        if (!Utils::isUnset($request->pageSize)) {
+            $query['PageSize'] = $request->pageSize;
+        }
+        if (!Utils::isUnset($request->productKey)) {
+            $query['ProductKey'] = $request->productKey;
+        }
         $req = new OpenApiRequest([
-            'body' => Utils::toMap($request),
+            'query' => OpenApiUtilClient::query($query),
+        ]);
+        $params = new Params([
+            'action'      => 'ListOTAJobByDevice',
+            'version'     => '2018-01-20',
+            'protocol'    => 'HTTPS',
+            'pathname'    => '/',
+            'method'      => 'POST',
+            'authType'    => 'AK',
+            'style'       => 'RPC',
+            'reqBodyType' => 'formData',
+            'bodyType'    => 'json',
         ]);
 
-        return ListOTAJobByDeviceResponse::fromMap($this->doRPCRequest('ListOTAJobByDevice', '2018-01-20', 'HTTPS', 'POST', 'AK', 'json', $req, $runtime));
+        return ListOTAJobByDeviceResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
@@ -4474,11 +8067,35 @@ class Iot extends OpenApiClient
     public function listOTAJobByFirmwareWithOptions($request, $runtime)
     {
         Utils::validateModel($request);
+        $query = [];
+        if (!Utils::isUnset($request->currentPage)) {
+            $query['CurrentPage'] = $request->currentPage;
+        }
+        if (!Utils::isUnset($request->firmwareId)) {
+            $query['FirmwareId'] = $request->firmwareId;
+        }
+        if (!Utils::isUnset($request->iotInstanceId)) {
+            $query['IotInstanceId'] = $request->iotInstanceId;
+        }
+        if (!Utils::isUnset($request->pageSize)) {
+            $query['PageSize'] = $request->pageSize;
+        }
         $req = new OpenApiRequest([
-            'body' => Utils::toMap($request),
+            'query' => OpenApiUtilClient::query($query),
+        ]);
+        $params = new Params([
+            'action'      => 'ListOTAJobByFirmware',
+            'version'     => '2018-01-20',
+            'protocol'    => 'HTTPS',
+            'pathname'    => '/',
+            'method'      => 'POST',
+            'authType'    => 'AK',
+            'style'       => 'RPC',
+            'reqBodyType' => 'formData',
+            'bodyType'    => 'json',
         ]);
 
-        return ListOTAJobByFirmwareResponse::fromMap($this->doRPCRequest('ListOTAJobByFirmware', '2018-01-20', 'HTTPS', 'POST', 'AK', 'json', $req, $runtime));
+        return ListOTAJobByFirmwareResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
@@ -4504,10 +8121,21 @@ class Iot extends OpenApiClient
         Utils::validateModel($request);
         $query = OpenApiUtilClient::query(Utils::toMap($request));
         $req   = new OpenApiRequest([
-            'query' => $query,
+            'query' => OpenApiUtilClient::query($query),
+        ]);
+        $params = new Params([
+            'action'      => 'ListOTAModuleByProduct',
+            'version'     => '2018-01-20',
+            'protocol'    => 'HTTPS',
+            'pathname'    => '/',
+            'method'      => 'GET',
+            'authType'    => 'AK',
+            'style'       => 'RPC',
+            'reqBodyType' => 'formData',
+            'bodyType'    => 'json',
         ]);
 
-        return ListOTAModuleByProductResponse::fromMap($this->doRPCRequest('ListOTAModuleByProduct', '2018-01-20', 'HTTPS', 'GET', 'AK', 'json', $req, $runtime));
+        return ListOTAModuleByProductResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
@@ -4531,11 +8159,41 @@ class Iot extends OpenApiClient
     public function listOTAModuleVersionsByDeviceWithOptions($request, $runtime)
     {
         Utils::validateModel($request);
+        $query = [];
+        if (!Utils::isUnset($request->currentPage)) {
+            $query['CurrentPage'] = $request->currentPage;
+        }
+        if (!Utils::isUnset($request->deviceName)) {
+            $query['DeviceName'] = $request->deviceName;
+        }
+        if (!Utils::isUnset($request->iotId)) {
+            $query['IotId'] = $request->iotId;
+        }
+        if (!Utils::isUnset($request->iotInstanceId)) {
+            $query['IotInstanceId'] = $request->iotInstanceId;
+        }
+        if (!Utils::isUnset($request->pageSize)) {
+            $query['PageSize'] = $request->pageSize;
+        }
+        if (!Utils::isUnset($request->productKey)) {
+            $query['ProductKey'] = $request->productKey;
+        }
         $req = new OpenApiRequest([
-            'body' => Utils::toMap($request),
+            'query' => OpenApiUtilClient::query($query),
+        ]);
+        $params = new Params([
+            'action'      => 'ListOTAModuleVersionsByDevice',
+            'version'     => '2018-01-20',
+            'protocol'    => 'HTTPS',
+            'pathname'    => '/',
+            'method'      => 'POST',
+            'authType'    => 'AK',
+            'style'       => 'RPC',
+            'reqBodyType' => 'formData',
+            'bodyType'    => 'json',
         ]);
 
-        return ListOTAModuleVersionsByDeviceResponse::fromMap($this->doRPCRequest('ListOTAModuleVersionsByDevice', '2018-01-20', 'HTTPS', 'POST', 'AK', 'json', $req, $runtime));
+        return ListOTAModuleVersionsByDeviceResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
@@ -4559,11 +8217,41 @@ class Iot extends OpenApiClient
     public function listOTATaskByJobWithOptions($request, $runtime)
     {
         Utils::validateModel($request);
+        $query = [];
+        if (!Utils::isUnset($request->currentPage)) {
+            $query['CurrentPage'] = $request->currentPage;
+        }
+        if (!Utils::isUnset($request->deviceNames)) {
+            $query['DeviceNames'] = $request->deviceNames;
+        }
+        if (!Utils::isUnset($request->iotInstanceId)) {
+            $query['IotInstanceId'] = $request->iotInstanceId;
+        }
+        if (!Utils::isUnset($request->jobId)) {
+            $query['JobId'] = $request->jobId;
+        }
+        if (!Utils::isUnset($request->pageSize)) {
+            $query['PageSize'] = $request->pageSize;
+        }
+        if (!Utils::isUnset($request->taskStatus)) {
+            $query['TaskStatus'] = $request->taskStatus;
+        }
         $req = new OpenApiRequest([
-            'body' => Utils::toMap($request),
+            'query' => OpenApiUtilClient::query($query),
+        ]);
+        $params = new Params([
+            'action'      => 'ListOTATaskByJob',
+            'version'     => '2018-01-20',
+            'protocol'    => 'HTTPS',
+            'pathname'    => '/',
+            'method'      => 'POST',
+            'authType'    => 'AK',
+            'style'       => 'RPC',
+            'reqBodyType' => 'formData',
+            'bodyType'    => 'json',
         ]);
 
-        return ListOTATaskByJobResponse::fromMap($this->doRPCRequest('ListOTATaskByJob', '2018-01-20', 'HTTPS', 'POST', 'AK', 'json', $req, $runtime));
+        return ListOTATaskByJobResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
@@ -4579,6 +8267,64 @@ class Iot extends OpenApiClient
     }
 
     /**
+     * @param ListOTAUnfinishedTaskByDeviceRequest $request
+     * @param RuntimeOptions                       $runtime
+     *
+     * @return ListOTAUnfinishedTaskByDeviceResponse
+     */
+    public function listOTAUnfinishedTaskByDeviceWithOptions($request, $runtime)
+    {
+        Utils::validateModel($request);
+        $query = [];
+        if (!Utils::isUnset($request->deviceName)) {
+            $query['DeviceName'] = $request->deviceName;
+        }
+        if (!Utils::isUnset($request->iotId)) {
+            $query['IotId'] = $request->iotId;
+        }
+        if (!Utils::isUnset($request->iotInstanceId)) {
+            $query['IotInstanceId'] = $request->iotInstanceId;
+        }
+        if (!Utils::isUnset($request->moduleName)) {
+            $query['ModuleName'] = $request->moduleName;
+        }
+        if (!Utils::isUnset($request->productKey)) {
+            $query['ProductKey'] = $request->productKey;
+        }
+        if (!Utils::isUnset($request->taskStatus)) {
+            $query['TaskStatus'] = $request->taskStatus;
+        }
+        $req = new OpenApiRequest([
+            'query' => OpenApiUtilClient::query($query),
+        ]);
+        $params = new Params([
+            'action'      => 'ListOTAUnfinishedTaskByDevice',
+            'version'     => '2018-01-20',
+            'protocol'    => 'HTTPS',
+            'pathname'    => '/',
+            'method'      => 'POST',
+            'authType'    => 'AK',
+            'style'       => 'RPC',
+            'reqBodyType' => 'formData',
+            'bodyType'    => 'json',
+        ]);
+
+        return ListOTAUnfinishedTaskByDeviceResponse::fromMap($this->callApi($params, $req, $runtime));
+    }
+
+    /**
+     * @param ListOTAUnfinishedTaskByDeviceRequest $request
+     *
+     * @return ListOTAUnfinishedTaskByDeviceResponse
+     */
+    public function listOTAUnfinishedTaskByDevice($request)
+    {
+        $runtime = new RuntimeOptions([]);
+
+        return $this->listOTAUnfinishedTaskByDeviceWithOptions($request, $runtime);
+    }
+
+    /**
      * @param ListProductByTagsRequest $request
      * @param RuntimeOptions           $runtime
      *
@@ -4587,11 +8333,35 @@ class Iot extends OpenApiClient
     public function listProductByTagsWithOptions($request, $runtime)
     {
         Utils::validateModel($request);
+        $query = [];
+        if (!Utils::isUnset($request->currentPage)) {
+            $query['CurrentPage'] = $request->currentPage;
+        }
+        if (!Utils::isUnset($request->iotInstanceId)) {
+            $query['IotInstanceId'] = $request->iotInstanceId;
+        }
+        if (!Utils::isUnset($request->pageSize)) {
+            $query['PageSize'] = $request->pageSize;
+        }
+        if (!Utils::isUnset($request->productTag)) {
+            $query['ProductTag'] = $request->productTag;
+        }
         $req = new OpenApiRequest([
-            'body' => Utils::toMap($request),
+            'query' => OpenApiUtilClient::query($query),
+        ]);
+        $params = new Params([
+            'action'      => 'ListProductByTags',
+            'version'     => '2018-01-20',
+            'protocol'    => 'HTTPS',
+            'pathname'    => '/',
+            'method'      => 'POST',
+            'authType'    => 'AK',
+            'style'       => 'RPC',
+            'reqBodyType' => 'formData',
+            'bodyType'    => 'json',
         ]);
 
-        return ListProductByTagsResponse::fromMap($this->doRPCRequest('ListProductByTags', '2018-01-20', 'HTTPS', 'POST', 'AK', 'json', $req, $runtime));
+        return ListProductByTagsResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
@@ -4615,11 +8385,29 @@ class Iot extends OpenApiClient
     public function listProductTagsWithOptions($request, $runtime)
     {
         Utils::validateModel($request);
+        $query = [];
+        if (!Utils::isUnset($request->iotInstanceId)) {
+            $query['IotInstanceId'] = $request->iotInstanceId;
+        }
+        if (!Utils::isUnset($request->productKey)) {
+            $query['ProductKey'] = $request->productKey;
+        }
         $req = new OpenApiRequest([
-            'body' => Utils::toMap($request),
+            'query' => OpenApiUtilClient::query($query),
+        ]);
+        $params = new Params([
+            'action'      => 'ListProductTags',
+            'version'     => '2018-01-20',
+            'protocol'    => 'HTTPS',
+            'pathname'    => '/',
+            'method'      => 'POST',
+            'authType'    => 'AK',
+            'style'       => 'RPC',
+            'reqBodyType' => 'formData',
+            'bodyType'    => 'json',
         ]);
 
-        return ListProductTagsResponse::fromMap($this->doRPCRequest('ListProductTags', '2018-01-20', 'HTTPS', 'POST', 'AK', 'json', $req, $runtime));
+        return ListProductTagsResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
@@ -4643,11 +8431,35 @@ class Iot extends OpenApiClient
     public function listRuleWithOptions($request, $runtime)
     {
         Utils::validateModel($request);
+        $query = [];
+        if (!Utils::isUnset($request->currentPage)) {
+            $query['CurrentPage'] = $request->currentPage;
+        }
+        if (!Utils::isUnset($request->iotInstanceId)) {
+            $query['IotInstanceId'] = $request->iotInstanceId;
+        }
+        if (!Utils::isUnset($request->pageSize)) {
+            $query['PageSize'] = $request->pageSize;
+        }
+        if (!Utils::isUnset($request->resourceGroupId)) {
+            $query['ResourceGroupId'] = $request->resourceGroupId;
+        }
         $req = new OpenApiRequest([
-            'body' => Utils::toMap($request),
+            'query' => OpenApiUtilClient::query($query),
+        ]);
+        $params = new Params([
+            'action'      => 'ListRule',
+            'version'     => '2018-01-20',
+            'protocol'    => 'HTTPS',
+            'pathname'    => '/',
+            'method'      => 'POST',
+            'authType'    => 'AK',
+            'style'       => 'RPC',
+            'reqBodyType' => 'formData',
+            'bodyType'    => 'json',
         ]);
 
-        return ListRuleResponse::fromMap($this->doRPCRequest('ListRule', '2018-01-20', 'HTTPS', 'POST', 'AK', 'json', $req, $runtime));
+        return ListRuleResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
@@ -4671,11 +8483,29 @@ class Iot extends OpenApiClient
     public function listRuleActionsWithOptions($request, $runtime)
     {
         Utils::validateModel($request);
+        $query = [];
+        if (!Utils::isUnset($request->iotInstanceId)) {
+            $query['IotInstanceId'] = $request->iotInstanceId;
+        }
+        if (!Utils::isUnset($request->ruleId)) {
+            $query['RuleId'] = $request->ruleId;
+        }
         $req = new OpenApiRequest([
-            'body' => Utils::toMap($request),
+            'query' => OpenApiUtilClient::query($query),
+        ]);
+        $params = new Params([
+            'action'      => 'ListRuleActions',
+            'version'     => '2018-01-20',
+            'protocol'    => 'HTTPS',
+            'pathname'    => '/',
+            'method'      => 'POST',
+            'authType'    => 'AK',
+            'style'       => 'RPC',
+            'reqBodyType' => 'formData',
+            'bodyType'    => 'json',
         ]);
 
-        return ListRuleActionsResponse::fromMap($this->doRPCRequest('ListRuleActions', '2018-01-20', 'HTTPS', 'POST', 'AK', 'json', $req, $runtime));
+        return ListRuleActionsResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
@@ -4699,11 +8529,41 @@ class Iot extends OpenApiClient
     public function listTaskWithOptions($request, $runtime)
     {
         Utils::validateModel($request);
+        $query = [];
+        if (!Utils::isUnset($request->device)) {
+            $query['Device'] = $request->device;
+        }
+        if (!Utils::isUnset($request->iotInstanceId)) {
+            $query['IotInstanceId'] = $request->iotInstanceId;
+        }
+        if (!Utils::isUnset($request->jobId)) {
+            $query['JobId'] = $request->jobId;
+        }
+        if (!Utils::isUnset($request->limit)) {
+            $query['Limit'] = $request->limit;
+        }
+        if (!Utils::isUnset($request->nextToken)) {
+            $query['NextToken'] = $request->nextToken;
+        }
+        if (!Utils::isUnset($request->status)) {
+            $query['Status'] = $request->status;
+        }
         $req = new OpenApiRequest([
-            'body' => Utils::toMap($request),
+            'query' => OpenApiUtilClient::query($query),
+        ]);
+        $params = new Params([
+            'action'      => 'ListTask',
+            'version'     => '2018-01-20',
+            'protocol'    => 'HTTPS',
+            'pathname'    => '/',
+            'method'      => 'POST',
+            'authType'    => 'AK',
+            'style'       => 'RPC',
+            'reqBodyType' => 'formData',
+            'bodyType'    => 'json',
         ]);
 
-        return ListTaskResponse::fromMap($this->doRPCRequest('ListTask', '2018-01-20', 'HTTPS', 'POST', 'AK', 'json', $req, $runtime));
+        return ListTaskResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
@@ -4727,11 +8587,47 @@ class Iot extends OpenApiClient
     public function listTaskByPageWithOptions($request, $runtime)
     {
         Utils::validateModel($request);
+        $query = [];
+        if (!Utils::isUnset($request->device)) {
+            $query['Device'] = $request->device;
+        }
+        if (!Utils::isUnset($request->deviceName)) {
+            $query['DeviceName'] = $request->deviceName;
+        }
+        if (!Utils::isUnset($request->iotInstanceId)) {
+            $query['IotInstanceId'] = $request->iotInstanceId;
+        }
+        if (!Utils::isUnset($request->jobId)) {
+            $query['JobId'] = $request->jobId;
+        }
+        if (!Utils::isUnset($request->jobName)) {
+            $query['JobName'] = $request->jobName;
+        }
+        if (!Utils::isUnset($request->pageNo)) {
+            $query['PageNo'] = $request->pageNo;
+        }
+        if (!Utils::isUnset($request->pageSize)) {
+            $query['PageSize'] = $request->pageSize;
+        }
+        if (!Utils::isUnset($request->status)) {
+            $query['Status'] = $request->status;
+        }
         $req = new OpenApiRequest([
-            'body' => Utils::toMap($request),
+            'query' => OpenApiUtilClient::query($query),
+        ]);
+        $params = new Params([
+            'action'      => 'ListTaskByPage',
+            'version'     => '2018-01-20',
+            'protocol'    => 'HTTPS',
+            'pathname'    => '/',
+            'method'      => 'POST',
+            'authType'    => 'AK',
+            'style'       => 'RPC',
+            'reqBodyType' => 'formData',
+            'bodyType'    => 'json',
         ]);
 
-        return ListTaskByPageResponse::fromMap($this->doRPCRequest('ListTaskByPage', '2018-01-20', 'HTTPS', 'POST', 'AK', 'json', $req, $runtime));
+        return ListTaskByPageResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
@@ -4755,11 +8651,29 @@ class Iot extends OpenApiClient
     public function listThingModelVersionWithOptions($request, $runtime)
     {
         Utils::validateModel($request);
+        $query = [];
+        if (!Utils::isUnset($request->iotInstanceId)) {
+            $query['IotInstanceId'] = $request->iotInstanceId;
+        }
+        if (!Utils::isUnset($request->productKey)) {
+            $query['ProductKey'] = $request->productKey;
+        }
         $req = new OpenApiRequest([
-            'body' => Utils::toMap($request),
+            'query' => OpenApiUtilClient::query($query),
+        ]);
+        $params = new Params([
+            'action'      => 'ListThingModelVersion',
+            'version'     => '2018-01-20',
+            'protocol'    => 'HTTPS',
+            'pathname'    => '/',
+            'method'      => 'POST',
+            'authType'    => 'AK',
+            'style'       => 'RPC',
+            'reqBodyType' => 'formData',
+            'bodyType'    => 'json',
         ]);
 
-        return ListThingModelVersionResponse::fromMap($this->doRPCRequest('ListThingModelVersion', '2018-01-20', 'HTTPS', 'POST', 'AK', 'json', $req, $runtime));
+        return ListThingModelVersionResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
@@ -4783,11 +8697,26 @@ class Iot extends OpenApiClient
     public function listThingTemplatesWithOptions($request, $runtime)
     {
         Utils::validateModel($request);
+        $query = [];
+        if (!Utils::isUnset($request->iotInstanceId)) {
+            $query['IotInstanceId'] = $request->iotInstanceId;
+        }
         $req = new OpenApiRequest([
-            'body' => Utils::toMap($request),
+            'query' => OpenApiUtilClient::query($query),
+        ]);
+        $params = new Params([
+            'action'      => 'ListThingTemplates',
+            'version'     => '2018-01-20',
+            'protocol'    => 'HTTPS',
+            'pathname'    => '/',
+            'method'      => 'POST',
+            'authType'    => 'AK',
+            'style'       => 'RPC',
+            'reqBodyType' => 'formData',
+            'bodyType'    => 'json',
         ]);
 
-        return ListThingTemplatesResponse::fromMap($this->doRPCRequest('ListThingTemplates', '2018-01-20', 'HTTPS', 'POST', 'AK', 'json', $req, $runtime));
+        return ListThingTemplatesResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
@@ -4811,11 +8740,38 @@ class Iot extends OpenApiClient
     public function notifyAddThingTopoWithOptions($request, $runtime)
     {
         Utils::validateModel($request);
+        $query = [];
+        if (!Utils::isUnset($request->deviceListStr)) {
+            $query['DeviceListStr'] = $request->deviceListStr;
+        }
+        if (!Utils::isUnset($request->gwDeviceName)) {
+            $query['GwDeviceName'] = $request->gwDeviceName;
+        }
+        if (!Utils::isUnset($request->gwIotId)) {
+            $query['GwIotId'] = $request->gwIotId;
+        }
+        if (!Utils::isUnset($request->gwProductKey)) {
+            $query['GwProductKey'] = $request->gwProductKey;
+        }
+        if (!Utils::isUnset($request->iotInstanceId)) {
+            $query['IotInstanceId'] = $request->iotInstanceId;
+        }
         $req = new OpenApiRequest([
-            'body' => Utils::toMap($request),
+            'query' => OpenApiUtilClient::query($query),
+        ]);
+        $params = new Params([
+            'action'      => 'NotifyAddThingTopo',
+            'version'     => '2018-01-20',
+            'protocol'    => 'HTTPS',
+            'pathname'    => '/',
+            'method'      => 'POST',
+            'authType'    => 'AK',
+            'style'       => 'RPC',
+            'reqBodyType' => 'formData',
+            'bodyType'    => 'json',
         ]);
 
-        return NotifyAddThingTopoResponse::fromMap($this->doRPCRequest('NotifyAddThingTopo', '2018-01-20', 'HTTPS', 'POST', 'AK', 'json', $req, $runtime));
+        return NotifyAddThingTopoResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
@@ -4839,11 +8795,26 @@ class Iot extends OpenApiClient
     public function openIotServiceWithOptions($request, $runtime)
     {
         Utils::validateModel($request);
+        $query = [];
+        if (!Utils::isUnset($request->ownerId)) {
+            $query['OwnerId'] = $request->ownerId;
+        }
         $req = new OpenApiRequest([
-            'body' => Utils::toMap($request),
+            'query' => OpenApiUtilClient::query($query),
+        ]);
+        $params = new Params([
+            'action'      => 'OpenIotService',
+            'version'     => '2018-01-20',
+            'protocol'    => 'HTTPS',
+            'pathname'    => '/',
+            'method'      => 'POST',
+            'authType'    => 'AK',
+            'style'       => 'RPC',
+            'reqBodyType' => 'formData',
+            'bodyType'    => 'json',
         ]);
 
-        return OpenIotServiceResponse::fromMap($this->doRPCRequest('OpenIotService', '2018-01-20', 'HTTPS', 'POST', 'AK', 'json', $req, $runtime));
+        return OpenIotServiceResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
@@ -4868,10 +8839,21 @@ class Iot extends OpenApiClient
     {
         Utils::validateModel($request);
         $req = new OpenApiRequest([
-            'body' => Utils::toMap($request),
+            'body' => $request->deviceName,
+        ]);
+        $params = new Params([
+            'action'      => 'PrintByTemplate',
+            'version'     => '2018-01-20',
+            'protocol'    => 'HTTPS',
+            'pathname'    => '/',
+            'method'      => 'POST',
+            'authType'    => 'AK',
+            'style'       => 'RPC',
+            'reqBodyType' => 'formData',
+            'bodyType'    => 'json',
         ]);
 
-        return PrintByTemplateResponse::fromMap($this->doRPCRequest('PrintByTemplate', '2018-01-20', 'HTTPS', 'POST', 'AK', 'json', $req, $runtime));
+        return PrintByTemplateResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
@@ -4895,11 +8877,47 @@ class Iot extends OpenApiClient
     public function pubWithOptions($request, $runtime)
     {
         Utils::validateModel($request);
+        $query = [];
+        if (!Utils::isUnset($request->correlationData)) {
+            $query['CorrelationData'] = $request->correlationData;
+        }
+        if (!Utils::isUnset($request->iotInstanceId)) {
+            $query['IotInstanceId'] = $request->iotInstanceId;
+        }
+        if (!Utils::isUnset($request->messageContent)) {
+            $query['MessageContent'] = $request->messageContent;
+        }
+        if (!Utils::isUnset($request->productKey)) {
+            $query['ProductKey'] = $request->productKey;
+        }
+        if (!Utils::isUnset($request->qos)) {
+            $query['Qos'] = $request->qos;
+        }
+        if (!Utils::isUnset($request->responseTopic)) {
+            $query['ResponseTopic'] = $request->responseTopic;
+        }
+        if (!Utils::isUnset($request->topicFullName)) {
+            $query['TopicFullName'] = $request->topicFullName;
+        }
+        if (!Utils::isUnset($request->userProp)) {
+            $query['UserProp'] = $request->userProp;
+        }
         $req = new OpenApiRequest([
-            'body' => Utils::toMap($request),
+            'query' => OpenApiUtilClient::query($query),
+        ]);
+        $params = new Params([
+            'action'      => 'Pub',
+            'version'     => '2018-01-20',
+            'protocol'    => 'HTTPS',
+            'pathname'    => '/',
+            'method'      => 'POST',
+            'authType'    => 'AK',
+            'style'       => 'RPC',
+            'reqBodyType' => 'formData',
+            'bodyType'    => 'json',
         ]);
 
-        return PubResponse::fromMap($this->doRPCRequest('Pub', '2018-01-20', 'HTTPS', 'POST', 'AK', 'json', $req, $runtime));
+        return PubResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
@@ -4923,11 +8941,35 @@ class Iot extends OpenApiClient
     public function pubBroadcastWithOptions($request, $runtime)
     {
         Utils::validateModel($request);
+        $query = [];
+        if (!Utils::isUnset($request->iotInstanceId)) {
+            $query['IotInstanceId'] = $request->iotInstanceId;
+        }
+        if (!Utils::isUnset($request->messageContent)) {
+            $query['MessageContent'] = $request->messageContent;
+        }
+        if (!Utils::isUnset($request->productKey)) {
+            $query['ProductKey'] = $request->productKey;
+        }
+        if (!Utils::isUnset($request->topicFullName)) {
+            $query['TopicFullName'] = $request->topicFullName;
+        }
         $req = new OpenApiRequest([
-            'body' => Utils::toMap($request),
+            'query' => OpenApiUtilClient::query($query),
+        ]);
+        $params = new Params([
+            'action'      => 'PubBroadcast',
+            'version'     => '2018-01-20',
+            'protocol'    => 'HTTPS',
+            'pathname'    => '/',
+            'method'      => 'POST',
+            'authType'    => 'AK',
+            'style'       => 'RPC',
+            'reqBodyType' => 'formData',
+            'bodyType'    => 'json',
         ]);
 
-        return PubBroadcastResponse::fromMap($this->doRPCRequest('PubBroadcast', '2018-01-20', 'HTTPS', 'POST', 'AK', 'json', $req, $runtime));
+        return PubBroadcastResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
@@ -4943,6 +8985,45 @@ class Iot extends OpenApiClient
     }
 
     /**
+     * @param PublishStudioAppRequest $request
+     * @param RuntimeOptions          $runtime
+     *
+     * @return PublishStudioAppResponse
+     */
+    public function publishStudioAppWithOptions($request, $runtime)
+    {
+        Utils::validateModel($request);
+        $req = new OpenApiRequest([
+            'body' => $request->appId,
+        ]);
+        $params = new Params([
+            'action'      => 'PublishStudioApp',
+            'version'     => '2018-01-20',
+            'protocol'    => 'HTTPS',
+            'pathname'    => '/',
+            'method'      => 'POST',
+            'authType'    => 'AK',
+            'style'       => 'RPC',
+            'reqBodyType' => 'formData',
+            'bodyType'    => 'json',
+        ]);
+
+        return PublishStudioAppResponse::fromMap($this->callApi($params, $req, $runtime));
+    }
+
+    /**
+     * @param PublishStudioAppRequest $request
+     *
+     * @return PublishStudioAppResponse
+     */
+    public function publishStudioApp($request)
+    {
+        $runtime = new RuntimeOptions([]);
+
+        return $this->publishStudioAppWithOptions($request, $runtime);
+    }
+
+    /**
      * @param PublishThingModelRequest $request
      * @param RuntimeOptions           $runtime
      *
@@ -4951,11 +9032,38 @@ class Iot extends OpenApiClient
     public function publishThingModelWithOptions($request, $runtime)
     {
         Utils::validateModel($request);
+        $query = [];
+        if (!Utils::isUnset($request->description)) {
+            $query['Description'] = $request->description;
+        }
+        if (!Utils::isUnset($request->iotInstanceId)) {
+            $query['IotInstanceId'] = $request->iotInstanceId;
+        }
+        if (!Utils::isUnset($request->modelVersion)) {
+            $query['ModelVersion'] = $request->modelVersion;
+        }
+        if (!Utils::isUnset($request->productKey)) {
+            $query['ProductKey'] = $request->productKey;
+        }
+        if (!Utils::isUnset($request->resourceGroupId)) {
+            $query['ResourceGroupId'] = $request->resourceGroupId;
+        }
         $req = new OpenApiRequest([
-            'body' => Utils::toMap($request),
+            'query' => OpenApiUtilClient::query($query),
+        ]);
+        $params = new Params([
+            'action'      => 'PublishThingModel',
+            'version'     => '2018-01-20',
+            'protocol'    => 'HTTPS',
+            'pathname'    => '/',
+            'method'      => 'POST',
+            'authType'    => 'AK',
+            'style'       => 'RPC',
+            'reqBodyType' => 'formData',
+            'bodyType'    => 'json',
         ]);
 
-        return PublishThingModelResponse::fromMap($this->doRPCRequest('PublishThingModel', '2018-01-20', 'HTTPS', 'POST', 'AK', 'json', $req, $runtime));
+        return PublishThingModelResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
@@ -4971,6 +9079,50 @@ class Iot extends OpenApiClient
     }
 
     /**
+     * @param PushSpeechRequest $request
+     * @param RuntimeOptions    $runtime
+     *
+     * @return PushSpeechResponse
+     */
+    public function pushSpeechWithOptions($request, $runtime)
+    {
+        Utils::validateModel($request);
+        $query = [];
+        if (!Utils::isUnset($request->groupId)) {
+            $query['GroupId'] = $request->groupId;
+        }
+        $req = new OpenApiRequest([
+            'query' => OpenApiUtilClient::query($query),
+            'body'  => $request->deviceName,
+        ]);
+        $params = new Params([
+            'action'      => 'PushSpeech',
+            'version'     => '2018-01-20',
+            'protocol'    => 'HTTPS',
+            'pathname'    => '/',
+            'method'      => 'POST',
+            'authType'    => 'AK',
+            'style'       => 'RPC',
+            'reqBodyType' => 'formData',
+            'bodyType'    => 'json',
+        ]);
+
+        return PushSpeechResponse::fromMap($this->callApi($params, $req, $runtime));
+    }
+
+    /**
+     * @param PushSpeechRequest $request
+     *
+     * @return PushSpeechResponse
+     */
+    public function pushSpeech($request)
+    {
+        $runtime = new RuntimeOptions([]);
+
+        return $this->pushSpeechWithOptions($request, $runtime);
+    }
+
+    /**
      * @param QueryAppDeviceListRequest $request
      * @param RuntimeOptions            $runtime
      *
@@ -4979,11 +9131,44 @@ class Iot extends OpenApiClient
     public function queryAppDeviceListWithOptions($request, $runtime)
     {
         Utils::validateModel($request);
+        $query = [];
+        if (!Utils::isUnset($request->appKey)) {
+            $query['AppKey'] = $request->appKey;
+        }
+        if (!Utils::isUnset($request->categoryKeyList)) {
+            $query['CategoryKeyList'] = $request->categoryKeyList;
+        }
+        if (!Utils::isUnset($request->currentPage)) {
+            $query['CurrentPage'] = $request->currentPage;
+        }
+        if (!Utils::isUnset($request->iotInstanceId)) {
+            $query['IotInstanceId'] = $request->iotInstanceId;
+        }
+        if (!Utils::isUnset($request->pageSize)) {
+            $query['PageSize'] = $request->pageSize;
+        }
+        if (!Utils::isUnset($request->productKeyList)) {
+            $query['ProductKeyList'] = $request->productKeyList;
+        }
+        if (!Utils::isUnset($request->tagList)) {
+            $query['TagList'] = $request->tagList;
+        }
         $req = new OpenApiRequest([
-            'body' => Utils::toMap($request),
+            'query' => OpenApiUtilClient::query($query),
+        ]);
+        $params = new Params([
+            'action'      => 'QueryAppDeviceList',
+            'version'     => '2018-01-20',
+            'protocol'    => 'HTTPS',
+            'pathname'    => '/',
+            'method'      => 'POST',
+            'authType'    => 'AK',
+            'style'       => 'RPC',
+            'reqBodyType' => 'formData',
+            'bodyType'    => 'json',
         ]);
 
-        return QueryAppDeviceListResponse::fromMap($this->doRPCRequest('QueryAppDeviceList', '2018-01-20', 'HTTPS', 'POST', 'AK', 'json', $req, $runtime));
+        return QueryAppDeviceListResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
@@ -5007,11 +9192,32 @@ class Iot extends OpenApiClient
     public function queryBatchRegisterDeviceStatusWithOptions($request, $runtime)
     {
         Utils::validateModel($request);
+        $query = [];
+        if (!Utils::isUnset($request->applyId)) {
+            $query['ApplyId'] = $request->applyId;
+        }
+        if (!Utils::isUnset($request->iotInstanceId)) {
+            $query['IotInstanceId'] = $request->iotInstanceId;
+        }
+        if (!Utils::isUnset($request->productKey)) {
+            $query['ProductKey'] = $request->productKey;
+        }
         $req = new OpenApiRequest([
-            'body' => Utils::toMap($request),
+            'query' => OpenApiUtilClient::query($query),
+        ]);
+        $params = new Params([
+            'action'      => 'QueryBatchRegisterDeviceStatus',
+            'version'     => '2018-01-20',
+            'protocol'    => 'HTTPS',
+            'pathname'    => '/',
+            'method'      => 'POST',
+            'authType'    => 'AK',
+            'style'       => 'RPC',
+            'reqBodyType' => 'formData',
+            'bodyType'    => 'json',
         ]);
 
-        return QueryBatchRegisterDeviceStatusResponse::fromMap($this->doRPCRequest('QueryBatchRegisterDeviceStatus', '2018-01-20', 'HTTPS', 'POST', 'AK', 'json', $req, $runtime));
+        return QueryBatchRegisterDeviceStatusResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
@@ -5035,11 +9241,29 @@ class Iot extends OpenApiClient
     public function queryCertUrlByApplyIdWithOptions($request, $runtime)
     {
         Utils::validateModel($request);
+        $query = [];
+        if (!Utils::isUnset($request->applyId)) {
+            $query['ApplyId'] = $request->applyId;
+        }
+        if (!Utils::isUnset($request->iotInstanceId)) {
+            $query['IotInstanceId'] = $request->iotInstanceId;
+        }
         $req = new OpenApiRequest([
-            'body' => Utils::toMap($request),
+            'query' => OpenApiUtilClient::query($query),
+        ]);
+        $params = new Params([
+            'action'      => 'QueryCertUrlByApplyId',
+            'version'     => '2018-01-20',
+            'protocol'    => 'HTTPS',
+            'pathname'    => '/',
+            'method'      => 'POST',
+            'authType'    => 'AK',
+            'style'       => 'RPC',
+            'reqBodyType' => 'formData',
+            'bodyType'    => 'json',
         ]);
 
-        return QueryCertUrlByApplyIdResponse::fromMap($this->doRPCRequest('QueryCertUrlByApplyId', '2018-01-20', 'HTTPS', 'POST', 'AK', 'json', $req, $runtime));
+        return QueryCertUrlByApplyIdResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
@@ -5063,11 +9287,29 @@ class Iot extends OpenApiClient
     public function queryConsumerGroupByGroupIdWithOptions($request, $runtime)
     {
         Utils::validateModel($request);
+        $query = [];
+        if (!Utils::isUnset($request->groupId)) {
+            $query['GroupId'] = $request->groupId;
+        }
+        if (!Utils::isUnset($request->iotInstanceId)) {
+            $query['IotInstanceId'] = $request->iotInstanceId;
+        }
         $req = new OpenApiRequest([
-            'body' => Utils::toMap($request),
+            'query' => OpenApiUtilClient::query($query),
+        ]);
+        $params = new Params([
+            'action'      => 'QueryConsumerGroupByGroupId',
+            'version'     => '2018-01-20',
+            'protocol'    => 'HTTPS',
+            'pathname'    => '/',
+            'method'      => 'POST',
+            'authType'    => 'AK',
+            'style'       => 'RPC',
+            'reqBodyType' => 'formData',
+            'bodyType'    => 'json',
         ]);
 
-        return QueryConsumerGroupByGroupIdResponse::fromMap($this->doRPCRequest('QueryConsumerGroupByGroupId', '2018-01-20', 'HTTPS', 'POST', 'AK', 'json', $req, $runtime));
+        return QueryConsumerGroupByGroupIdResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
@@ -5091,11 +9333,38 @@ class Iot extends OpenApiClient
     public function queryConsumerGroupListWithOptions($request, $runtime)
     {
         Utils::validateModel($request);
+        $query = [];
+        if (!Utils::isUnset($request->currentPage)) {
+            $query['CurrentPage'] = $request->currentPage;
+        }
+        if (!Utils::isUnset($request->fuzzy)) {
+            $query['Fuzzy'] = $request->fuzzy;
+        }
+        if (!Utils::isUnset($request->groupName)) {
+            $query['GroupName'] = $request->groupName;
+        }
+        if (!Utils::isUnset($request->iotInstanceId)) {
+            $query['IotInstanceId'] = $request->iotInstanceId;
+        }
+        if (!Utils::isUnset($request->pageSize)) {
+            $query['PageSize'] = $request->pageSize;
+        }
         $req = new OpenApiRequest([
-            'body' => Utils::toMap($request),
+            'query' => OpenApiUtilClient::query($query),
+        ]);
+        $params = new Params([
+            'action'      => 'QueryConsumerGroupList',
+            'version'     => '2018-01-20',
+            'protocol'    => 'HTTPS',
+            'pathname'    => '/',
+            'method'      => 'POST',
+            'authType'    => 'AK',
+            'style'       => 'RPC',
+            'reqBodyType' => 'formData',
+            'bodyType'    => 'json',
         ]);
 
-        return QueryConsumerGroupListResponse::fromMap($this->doRPCRequest('QueryConsumerGroupList', '2018-01-20', 'HTTPS', 'POST', 'AK', 'json', $req, $runtime));
+        return QueryConsumerGroupListResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
@@ -5119,11 +9388,29 @@ class Iot extends OpenApiClient
     public function queryConsumerGroupStatusWithOptions($request, $runtime)
     {
         Utils::validateModel($request);
+        $query = [];
+        if (!Utils::isUnset($request->groupId)) {
+            $query['GroupId'] = $request->groupId;
+        }
+        if (!Utils::isUnset($request->iotInstanceId)) {
+            $query['IotInstanceId'] = $request->iotInstanceId;
+        }
         $req = new OpenApiRequest([
-            'body' => Utils::toMap($request),
+            'query' => OpenApiUtilClient::query($query),
+        ]);
+        $params = new Params([
+            'action'      => 'QueryConsumerGroupStatus',
+            'version'     => '2018-01-20',
+            'protocol'    => 'HTTPS',
+            'pathname'    => '/',
+            'method'      => 'POST',
+            'authType'    => 'AK',
+            'style'       => 'RPC',
+            'reqBodyType' => 'formData',
+            'bodyType'    => 'json',
         ]);
 
-        return QueryConsumerGroupStatusResponse::fromMap($this->doRPCRequest('QueryConsumerGroupStatus', '2018-01-20', 'HTTPS', 'POST', 'AK', 'json', $req, $runtime));
+        return QueryConsumerGroupStatusResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
@@ -5147,11 +9434,44 @@ class Iot extends OpenApiClient
     public function queryDetailSceneRuleLogWithOptions($request, $runtime)
     {
         Utils::validateModel($request);
+        $query = [];
+        if (!Utils::isUnset($request->currentPage)) {
+            $query['CurrentPage'] = $request->currentPage;
+        }
+        if (!Utils::isUnset($request->endTime)) {
+            $query['EndTime'] = $request->endTime;
+        }
+        if (!Utils::isUnset($request->iotInstanceId)) {
+            $query['IotInstanceId'] = $request->iotInstanceId;
+        }
+        if (!Utils::isUnset($request->pageSize)) {
+            $query['PageSize'] = $request->pageSize;
+        }
+        if (!Utils::isUnset($request->ruleId)) {
+            $query['RuleId'] = $request->ruleId;
+        }
+        if (!Utils::isUnset($request->startTime)) {
+            $query['StartTime'] = $request->startTime;
+        }
+        if (!Utils::isUnset($request->traceId)) {
+            $query['TraceId'] = $request->traceId;
+        }
         $req = new OpenApiRequest([
-            'body' => Utils::toMap($request),
+            'query' => OpenApiUtilClient::query($query),
+        ]);
+        $params = new Params([
+            'action'      => 'QueryDetailSceneRuleLog',
+            'version'     => '2018-01-20',
+            'protocol'    => 'HTTPS',
+            'pathname'    => '/',
+            'method'      => 'POST',
+            'authType'    => 'AK',
+            'style'       => 'RPC',
+            'reqBodyType' => 'formData',
+            'bodyType'    => 'json',
         ]);
 
-        return QueryDetailSceneRuleLogResponse::fromMap($this->doRPCRequest('QueryDetailSceneRuleLog', '2018-01-20', 'HTTPS', 'POST', 'AK', 'json', $req, $runtime));
+        return QueryDetailSceneRuleLogResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
@@ -5175,11 +9495,38 @@ class Iot extends OpenApiClient
     public function queryDeviceWithOptions($request, $runtime)
     {
         Utils::validateModel($request);
+        $query = [];
+        if (!Utils::isUnset($request->currentPage)) {
+            $query['CurrentPage'] = $request->currentPage;
+        }
+        if (!Utils::isUnset($request->iotInstanceId)) {
+            $query['IotInstanceId'] = $request->iotInstanceId;
+        }
+        if (!Utils::isUnset($request->nextToken)) {
+            $query['NextToken'] = $request->nextToken;
+        }
+        if (!Utils::isUnset($request->pageSize)) {
+            $query['PageSize'] = $request->pageSize;
+        }
+        if (!Utils::isUnset($request->productKey)) {
+            $query['ProductKey'] = $request->productKey;
+        }
         $req = new OpenApiRequest([
-            'body' => Utils::toMap($request),
+            'query' => OpenApiUtilClient::query($query),
+        ]);
+        $params = new Params([
+            'action'      => 'QueryDevice',
+            'version'     => '2018-01-20',
+            'protocol'    => 'HTTPS',
+            'pathname'    => '/',
+            'method'      => 'POST',
+            'authType'    => 'AK',
+            'style'       => 'RPC',
+            'reqBodyType' => 'formData',
+            'bodyType'    => 'json',
         ]);
 
-        return QueryDeviceResponse::fromMap($this->doRPCRequest('QueryDevice', '2018-01-20', 'HTTPS', 'POST', 'AK', 'json', $req, $runtime));
+        return QueryDeviceResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
@@ -5203,11 +9550,29 @@ class Iot extends OpenApiClient
     public function queryDeviceBySQLWithOptions($request, $runtime)
     {
         Utils::validateModel($request);
+        $query = [];
+        if (!Utils::isUnset($request->iotInstanceId)) {
+            $query['IotInstanceId'] = $request->iotInstanceId;
+        }
+        if (!Utils::isUnset($request->SQL)) {
+            $query['SQL'] = $request->SQL;
+        }
         $req = new OpenApiRequest([
-            'body' => Utils::toMap($request),
+            'query' => OpenApiUtilClient::query($query),
+        ]);
+        $params = new Params([
+            'action'      => 'QueryDeviceBySQL',
+            'version'     => '2018-01-20',
+            'protocol'    => 'HTTPS',
+            'pathname'    => '/',
+            'method'      => 'POST',
+            'authType'    => 'AK',
+            'style'       => 'RPC',
+            'reqBodyType' => 'formData',
+            'bodyType'    => 'json',
         ]);
 
-        return QueryDeviceBySQLResponse::fromMap($this->doRPCRequest('QueryDeviceBySQL', '2018-01-20', 'HTTPS', 'POST', 'AK', 'json', $req, $runtime));
+        return QueryDeviceBySQLResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
@@ -5231,11 +9596,41 @@ class Iot extends OpenApiClient
     public function queryDeviceByStatusWithOptions($request, $runtime)
     {
         Utils::validateModel($request);
+        $query = [];
+        if (!Utils::isUnset($request->currentPage)) {
+            $query['CurrentPage'] = $request->currentPage;
+        }
+        if (!Utils::isUnset($request->iotInstanceId)) {
+            $query['IotInstanceId'] = $request->iotInstanceId;
+        }
+        if (!Utils::isUnset($request->pageSize)) {
+            $query['PageSize'] = $request->pageSize;
+        }
+        if (!Utils::isUnset($request->productKey)) {
+            $query['ProductKey'] = $request->productKey;
+        }
+        if (!Utils::isUnset($request->resourceGroupId)) {
+            $query['ResourceGroupId'] = $request->resourceGroupId;
+        }
+        if (!Utils::isUnset($request->status)) {
+            $query['Status'] = $request->status;
+        }
         $req = new OpenApiRequest([
-            'body' => Utils::toMap($request),
+            'query' => OpenApiUtilClient::query($query),
+        ]);
+        $params = new Params([
+            'action'      => 'QueryDeviceByStatus',
+            'version'     => '2018-01-20',
+            'protocol'    => 'HTTPS',
+            'pathname'    => '/',
+            'method'      => 'POST',
+            'authType'    => 'AK',
+            'style'       => 'RPC',
+            'reqBodyType' => 'formData',
+            'bodyType'    => 'json',
         ]);
 
-        return QueryDeviceByStatusResponse::fromMap($this->doRPCRequest('QueryDeviceByStatus', '2018-01-20', 'HTTPS', 'POST', 'AK', 'json', $req, $runtime));
+        return QueryDeviceByStatusResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
@@ -5259,11 +9654,35 @@ class Iot extends OpenApiClient
     public function queryDeviceByTagsWithOptions($request, $runtime)
     {
         Utils::validateModel($request);
+        $query = [];
+        if (!Utils::isUnset($request->currentPage)) {
+            $query['CurrentPage'] = $request->currentPage;
+        }
+        if (!Utils::isUnset($request->iotInstanceId)) {
+            $query['IotInstanceId'] = $request->iotInstanceId;
+        }
+        if (!Utils::isUnset($request->pageSize)) {
+            $query['PageSize'] = $request->pageSize;
+        }
+        if (!Utils::isUnset($request->tag)) {
+            $query['Tag'] = $request->tag;
+        }
         $req = new OpenApiRequest([
-            'body' => Utils::toMap($request),
+            'query' => OpenApiUtilClient::query($query),
+        ]);
+        $params = new Params([
+            'action'      => 'QueryDeviceByTags',
+            'version'     => '2018-01-20',
+            'protocol'    => 'HTTPS',
+            'pathname'    => '/',
+            'method'      => 'POST',
+            'authType'    => 'AK',
+            'style'       => 'RPC',
+            'reqBodyType' => 'formData',
+            'bodyType'    => 'json',
         ]);
 
-        return QueryDeviceByTagsResponse::fromMap($this->doRPCRequest('QueryDeviceByTags', '2018-01-20', 'HTTPS', 'POST', 'AK', 'json', $req, $runtime));
+        return QueryDeviceByTagsResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
@@ -5287,11 +9706,32 @@ class Iot extends OpenApiClient
     public function queryDeviceCertWithOptions($request, $runtime)
     {
         Utils::validateModel($request);
+        $query = [];
+        if (!Utils::isUnset($request->deviceName)) {
+            $query['DeviceName'] = $request->deviceName;
+        }
+        if (!Utils::isUnset($request->iotInstanceId)) {
+            $query['IotInstanceId'] = $request->iotInstanceId;
+        }
+        if (!Utils::isUnset($request->productKey)) {
+            $query['ProductKey'] = $request->productKey;
+        }
         $req = new OpenApiRequest([
-            'body' => Utils::toMap($request),
+            'query' => OpenApiUtilClient::query($query),
+        ]);
+        $params = new Params([
+            'action'      => 'QueryDeviceCert',
+            'version'     => '2018-01-20',
+            'protocol'    => 'HTTPS',
+            'pathname'    => '/',
+            'method'      => 'POST',
+            'authType'    => 'AK',
+            'style'       => 'RPC',
+            'reqBodyType' => 'formData',
+            'bodyType'    => 'json',
         ]);
 
-        return QueryDeviceCertResponse::fromMap($this->doRPCRequest('QueryDeviceCert', '2018-01-20', 'HTTPS', 'POST', 'AK', 'json', $req, $runtime));
+        return QueryDeviceCertResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
@@ -5315,11 +9755,41 @@ class Iot extends OpenApiClient
     public function queryDeviceDesiredPropertyWithOptions($request, $runtime)
     {
         Utils::validateModel($request);
+        $query = [];
+        if (!Utils::isUnset($request->deviceName)) {
+            $query['DeviceName'] = $request->deviceName;
+        }
+        if (!Utils::isUnset($request->functionBlockId)) {
+            $query['FunctionBlockId'] = $request->functionBlockId;
+        }
+        if (!Utils::isUnset($request->identifier)) {
+            $query['Identifier'] = $request->identifier;
+        }
+        if (!Utils::isUnset($request->iotId)) {
+            $query['IotId'] = $request->iotId;
+        }
+        if (!Utils::isUnset($request->iotInstanceId)) {
+            $query['IotInstanceId'] = $request->iotInstanceId;
+        }
+        if (!Utils::isUnset($request->productKey)) {
+            $query['ProductKey'] = $request->productKey;
+        }
         $req = new OpenApiRequest([
-            'body' => Utils::toMap($request),
+            'query' => OpenApiUtilClient::query($query),
+        ]);
+        $params = new Params([
+            'action'      => 'QueryDeviceDesiredProperty',
+            'version'     => '2018-01-20',
+            'protocol'    => 'HTTPS',
+            'pathname'    => '/',
+            'method'      => 'POST',
+            'authType'    => 'AK',
+            'style'       => 'RPC',
+            'reqBodyType' => 'formData',
+            'bodyType'    => 'json',
         ]);
 
-        return QueryDeviceDesiredPropertyResponse::fromMap($this->doRPCRequest('QueryDeviceDesiredProperty', '2018-01-20', 'HTTPS', 'POST', 'AK', 'json', $req, $runtime));
+        return QueryDeviceDesiredPropertyResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
@@ -5343,11 +9813,35 @@ class Iot extends OpenApiClient
     public function queryDeviceDetailWithOptions($request, $runtime)
     {
         Utils::validateModel($request);
+        $query = [];
+        if (!Utils::isUnset($request->deviceName)) {
+            $query['DeviceName'] = $request->deviceName;
+        }
+        if (!Utils::isUnset($request->iotId)) {
+            $query['IotId'] = $request->iotId;
+        }
+        if (!Utils::isUnset($request->iotInstanceId)) {
+            $query['IotInstanceId'] = $request->iotInstanceId;
+        }
+        if (!Utils::isUnset($request->productKey)) {
+            $query['ProductKey'] = $request->productKey;
+        }
         $req = new OpenApiRequest([
-            'body' => Utils::toMap($request),
+            'query' => OpenApiUtilClient::query($query),
+        ]);
+        $params = new Params([
+            'action'      => 'QueryDeviceDetail',
+            'version'     => '2018-01-20',
+            'protocol'    => 'HTTPS',
+            'pathname'    => '/',
+            'method'      => 'POST',
+            'authType'    => 'AK',
+            'style'       => 'RPC',
+            'reqBodyType' => 'formData',
+            'bodyType'    => 'json',
         ]);
 
-        return QueryDeviceDetailResponse::fromMap($this->doRPCRequest('QueryDeviceDetail', '2018-01-20', 'HTTPS', 'POST', 'AK', 'json', $req, $runtime));
+        return QueryDeviceDetailResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
@@ -5371,11 +9865,26 @@ class Iot extends OpenApiClient
     public function queryDeviceDistributeDetailWithOptions($request, $runtime)
     {
         Utils::validateModel($request);
+        $query = [];
+        if (!Utils::isUnset($request->jobId)) {
+            $query['JobId'] = $request->jobId;
+        }
         $req = new OpenApiRequest([
-            'body' => Utils::toMap($request),
+            'query' => OpenApiUtilClient::query($query),
+        ]);
+        $params = new Params([
+            'action'      => 'QueryDeviceDistributeDetail',
+            'version'     => '2018-01-20',
+            'protocol'    => 'HTTPS',
+            'pathname'    => '/',
+            'method'      => 'POST',
+            'authType'    => 'AK',
+            'style'       => 'RPC',
+            'reqBodyType' => 'formData',
+            'bodyType'    => 'json',
         ]);
 
-        return QueryDeviceDistributeDetailResponse::fromMap($this->doRPCRequest('QueryDeviceDistributeDetail', '2018-01-20', 'HTTPS', 'POST', 'AK', 'json', $req, $runtime));
+        return QueryDeviceDistributeDetailResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
@@ -5399,11 +9908,26 @@ class Iot extends OpenApiClient
     public function queryDeviceDistributeJobWithOptions($request, $runtime)
     {
         Utils::validateModel($request);
+        $query = [];
+        if (!Utils::isUnset($request->jobId)) {
+            $query['JobId'] = $request->jobId;
+        }
         $req = new OpenApiRequest([
-            'body' => Utils::toMap($request),
+            'query' => OpenApiUtilClient::query($query),
+        ]);
+        $params = new Params([
+            'action'      => 'QueryDeviceDistributeJob',
+            'version'     => '2018-01-20',
+            'protocol'    => 'HTTPS',
+            'pathname'    => '/',
+            'method'      => 'POST',
+            'authType'    => 'AK',
+            'style'       => 'RPC',
+            'reqBodyType' => 'formData',
+            'bodyType'    => 'json',
         ]);
 
-        return QueryDeviceDistributeJobResponse::fromMap($this->doRPCRequest('QueryDeviceDistributeJob', '2018-01-20', 'HTTPS', 'POST', 'AK', 'json', $req, $runtime));
+        return QueryDeviceDistributeJobResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
@@ -5427,11 +9951,53 @@ class Iot extends OpenApiClient
     public function queryDeviceEventDataWithOptions($request, $runtime)
     {
         Utils::validateModel($request);
+        $query = [];
+        if (!Utils::isUnset($request->asc)) {
+            $query['Asc'] = $request->asc;
+        }
+        if (!Utils::isUnset($request->deviceName)) {
+            $query['DeviceName'] = $request->deviceName;
+        }
+        if (!Utils::isUnset($request->endTime)) {
+            $query['EndTime'] = $request->endTime;
+        }
+        if (!Utils::isUnset($request->eventType)) {
+            $query['EventType'] = $request->eventType;
+        }
+        if (!Utils::isUnset($request->identifier)) {
+            $query['Identifier'] = $request->identifier;
+        }
+        if (!Utils::isUnset($request->iotId)) {
+            $query['IotId'] = $request->iotId;
+        }
+        if (!Utils::isUnset($request->iotInstanceId)) {
+            $query['IotInstanceId'] = $request->iotInstanceId;
+        }
+        if (!Utils::isUnset($request->pageSize)) {
+            $query['PageSize'] = $request->pageSize;
+        }
+        if (!Utils::isUnset($request->productKey)) {
+            $query['ProductKey'] = $request->productKey;
+        }
+        if (!Utils::isUnset($request->startTime)) {
+            $query['StartTime'] = $request->startTime;
+        }
         $req = new OpenApiRequest([
-            'body' => Utils::toMap($request),
+            'query' => OpenApiUtilClient::query($query),
+        ]);
+        $params = new Params([
+            'action'      => 'QueryDeviceEventData',
+            'version'     => '2018-01-20',
+            'protocol'    => 'HTTPS',
+            'pathname'    => '/',
+            'method'      => 'POST',
+            'authType'    => 'AK',
+            'style'       => 'RPC',
+            'reqBodyType' => 'formData',
+            'bodyType'    => 'json',
         ]);
 
-        return QueryDeviceEventDataResponse::fromMap($this->doRPCRequest('QueryDeviceEventData', '2018-01-20', 'HTTPS', 'POST', 'AK', 'json', $req, $runtime));
+        return QueryDeviceEventDataResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
@@ -5455,11 +10021,38 @@ class Iot extends OpenApiClient
     public function queryDeviceFileWithOptions($request, $runtime)
     {
         Utils::validateModel($request);
+        $query = [];
+        if (!Utils::isUnset($request->deviceName)) {
+            $query['DeviceName'] = $request->deviceName;
+        }
+        if (!Utils::isUnset($request->fileId)) {
+            $query['FileId'] = $request->fileId;
+        }
+        if (!Utils::isUnset($request->iotId)) {
+            $query['IotId'] = $request->iotId;
+        }
+        if (!Utils::isUnset($request->iotInstanceId)) {
+            $query['IotInstanceId'] = $request->iotInstanceId;
+        }
+        if (!Utils::isUnset($request->productKey)) {
+            $query['ProductKey'] = $request->productKey;
+        }
         $req = new OpenApiRequest([
-            'body' => Utils::toMap($request),
+            'query' => OpenApiUtilClient::query($query),
+        ]);
+        $params = new Params([
+            'action'      => 'QueryDeviceFile',
+            'version'     => '2018-01-20',
+            'protocol'    => 'HTTPS',
+            'pathname'    => '/',
+            'method'      => 'POST',
+            'authType'    => 'AK',
+            'style'       => 'RPC',
+            'reqBodyType' => 'formData',
+            'bodyType'    => 'json',
         ]);
 
-        return QueryDeviceFileResponse::fromMap($this->doRPCRequest('QueryDeviceFile', '2018-01-20', 'HTTPS', 'POST', 'AK', 'json', $req, $runtime));
+        return QueryDeviceFileResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
@@ -5483,11 +10076,41 @@ class Iot extends OpenApiClient
     public function queryDeviceFileListWithOptions($request, $runtime)
     {
         Utils::validateModel($request);
+        $query = [];
+        if (!Utils::isUnset($request->currentPage)) {
+            $query['CurrentPage'] = $request->currentPage;
+        }
+        if (!Utils::isUnset($request->deviceName)) {
+            $query['DeviceName'] = $request->deviceName;
+        }
+        if (!Utils::isUnset($request->iotId)) {
+            $query['IotId'] = $request->iotId;
+        }
+        if (!Utils::isUnset($request->iotInstanceId)) {
+            $query['IotInstanceId'] = $request->iotInstanceId;
+        }
+        if (!Utils::isUnset($request->pageSize)) {
+            $query['PageSize'] = $request->pageSize;
+        }
+        if (!Utils::isUnset($request->productKey)) {
+            $query['ProductKey'] = $request->productKey;
+        }
         $req = new OpenApiRequest([
-            'body' => Utils::toMap($request),
+            'query' => OpenApiUtilClient::query($query),
+        ]);
+        $params = new Params([
+            'action'      => 'QueryDeviceFileList',
+            'version'     => '2018-01-20',
+            'protocol'    => 'HTTPS',
+            'pathname'    => '/',
+            'method'      => 'POST',
+            'authType'    => 'AK',
+            'style'       => 'RPC',
+            'reqBodyType' => 'formData',
+            'bodyType'    => 'json',
         ]);
 
-        return QueryDeviceFileListResponse::fromMap($this->doRPCRequest('QueryDeviceFileList', '2018-01-20', 'HTTPS', 'POST', 'AK', 'json', $req, $runtime));
+        return QueryDeviceFileListResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
@@ -5511,11 +10134,32 @@ class Iot extends OpenApiClient
     public function queryDeviceGroupByDeviceWithOptions($request, $runtime)
     {
         Utils::validateModel($request);
+        $query = [];
+        if (!Utils::isUnset($request->deviceName)) {
+            $query['DeviceName'] = $request->deviceName;
+        }
+        if (!Utils::isUnset($request->iotInstanceId)) {
+            $query['IotInstanceId'] = $request->iotInstanceId;
+        }
+        if (!Utils::isUnset($request->productKey)) {
+            $query['ProductKey'] = $request->productKey;
+        }
         $req = new OpenApiRequest([
-            'body' => Utils::toMap($request),
+            'query' => OpenApiUtilClient::query($query),
+        ]);
+        $params = new Params([
+            'action'      => 'QueryDeviceGroupByDevice',
+            'version'     => '2018-01-20',
+            'protocol'    => 'HTTPS',
+            'pathname'    => '/',
+            'method'      => 'POST',
+            'authType'    => 'AK',
+            'style'       => 'RPC',
+            'reqBodyType' => 'formData',
+            'bodyType'    => 'json',
         ]);
 
-        return QueryDeviceGroupByDeviceResponse::fromMap($this->doRPCRequest('QueryDeviceGroupByDevice', '2018-01-20', 'HTTPS', 'POST', 'AK', 'json', $req, $runtime));
+        return QueryDeviceGroupByDeviceResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
@@ -5539,11 +10183,35 @@ class Iot extends OpenApiClient
     public function queryDeviceGroupByTagsWithOptions($request, $runtime)
     {
         Utils::validateModel($request);
+        $query = [];
+        if (!Utils::isUnset($request->currentPage)) {
+            $query['CurrentPage'] = $request->currentPage;
+        }
+        if (!Utils::isUnset($request->iotInstanceId)) {
+            $query['IotInstanceId'] = $request->iotInstanceId;
+        }
+        if (!Utils::isUnset($request->pageSize)) {
+            $query['PageSize'] = $request->pageSize;
+        }
+        if (!Utils::isUnset($request->tag)) {
+            $query['Tag'] = $request->tag;
+        }
         $req = new OpenApiRequest([
-            'body' => Utils::toMap($request),
+            'query' => OpenApiUtilClient::query($query),
+        ]);
+        $params = new Params([
+            'action'      => 'QueryDeviceGroupByTags',
+            'version'     => '2018-01-20',
+            'protocol'    => 'HTTPS',
+            'pathname'    => '/',
+            'method'      => 'POST',
+            'authType'    => 'AK',
+            'style'       => 'RPC',
+            'reqBodyType' => 'formData',
+            'bodyType'    => 'json',
         ]);
 
-        return QueryDeviceGroupByTagsResponse::fromMap($this->doRPCRequest('QueryDeviceGroupByTags', '2018-01-20', 'HTTPS', 'POST', 'AK', 'json', $req, $runtime));
+        return QueryDeviceGroupByTagsResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
@@ -5567,11 +10235,29 @@ class Iot extends OpenApiClient
     public function queryDeviceGroupInfoWithOptions($request, $runtime)
     {
         Utils::validateModel($request);
+        $query = [];
+        if (!Utils::isUnset($request->groupId)) {
+            $query['GroupId'] = $request->groupId;
+        }
+        if (!Utils::isUnset($request->iotInstanceId)) {
+            $query['IotInstanceId'] = $request->iotInstanceId;
+        }
         $req = new OpenApiRequest([
-            'body' => Utils::toMap($request),
+            'query' => OpenApiUtilClient::query($query),
+        ]);
+        $params = new Params([
+            'action'      => 'QueryDeviceGroupInfo',
+            'version'     => '2018-01-20',
+            'protocol'    => 'HTTPS',
+            'pathname'    => '/',
+            'method'      => 'POST',
+            'authType'    => 'AK',
+            'style'       => 'RPC',
+            'reqBodyType' => 'formData',
+            'bodyType'    => 'json',
         ]);
 
-        return QueryDeviceGroupInfoResponse::fromMap($this->doRPCRequest('QueryDeviceGroupInfo', '2018-01-20', 'HTTPS', 'POST', 'AK', 'json', $req, $runtime));
+        return QueryDeviceGroupInfoResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
@@ -5595,11 +10281,38 @@ class Iot extends OpenApiClient
     public function queryDeviceGroupListWithOptions($request, $runtime)
     {
         Utils::validateModel($request);
+        $query = [];
+        if (!Utils::isUnset($request->currentPage)) {
+            $query['CurrentPage'] = $request->currentPage;
+        }
+        if (!Utils::isUnset($request->groupName)) {
+            $query['GroupName'] = $request->groupName;
+        }
+        if (!Utils::isUnset($request->iotInstanceId)) {
+            $query['IotInstanceId'] = $request->iotInstanceId;
+        }
+        if (!Utils::isUnset($request->pageSize)) {
+            $query['PageSize'] = $request->pageSize;
+        }
+        if (!Utils::isUnset($request->superGroupId)) {
+            $query['SuperGroupId'] = $request->superGroupId;
+        }
         $req = new OpenApiRequest([
-            'body' => Utils::toMap($request),
+            'query' => OpenApiUtilClient::query($query),
+        ]);
+        $params = new Params([
+            'action'      => 'QueryDeviceGroupList',
+            'version'     => '2018-01-20',
+            'protocol'    => 'HTTPS',
+            'pathname'    => '/',
+            'method'      => 'POST',
+            'authType'    => 'AK',
+            'style'       => 'RPC',
+            'reqBodyType' => 'formData',
+            'bodyType'    => 'json',
         ]);
 
-        return QueryDeviceGroupListResponse::fromMap($this->doRPCRequest('QueryDeviceGroupList', '2018-01-20', 'HTTPS', 'POST', 'AK', 'json', $req, $runtime));
+        return QueryDeviceGroupListResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
@@ -5623,11 +10336,29 @@ class Iot extends OpenApiClient
     public function queryDeviceGroupTagListWithOptions($request, $runtime)
     {
         Utils::validateModel($request);
+        $query = [];
+        if (!Utils::isUnset($request->groupId)) {
+            $query['GroupId'] = $request->groupId;
+        }
+        if (!Utils::isUnset($request->iotInstanceId)) {
+            $query['IotInstanceId'] = $request->iotInstanceId;
+        }
         $req = new OpenApiRequest([
-            'body' => Utils::toMap($request),
+            'query' => OpenApiUtilClient::query($query),
+        ]);
+        $params = new Params([
+            'action'      => 'QueryDeviceGroupTagList',
+            'version'     => '2018-01-20',
+            'protocol'    => 'HTTPS',
+            'pathname'    => '/',
+            'method'      => 'POST',
+            'authType'    => 'AK',
+            'style'       => 'RPC',
+            'reqBodyType' => 'formData',
+            'bodyType'    => 'json',
         ]);
 
-        return QueryDeviceGroupTagListResponse::fromMap($this->doRPCRequest('QueryDeviceGroupTagList', '2018-01-20', 'HTTPS', 'POST', 'AK', 'json', $req, $runtime));
+        return QueryDeviceGroupTagListResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
@@ -5643,6 +10374,58 @@ class Iot extends OpenApiClient
     }
 
     /**
+     * @param QueryDeviceInfoRequest $request
+     * @param RuntimeOptions         $runtime
+     *
+     * @return QueryDeviceInfoResponse
+     */
+    public function queryDeviceInfoWithOptions($request, $runtime)
+    {
+        Utils::validateModel($request);
+        $query = [];
+        if (!Utils::isUnset($request->deviceName)) {
+            $query['DeviceName'] = $request->deviceName;
+        }
+        if (!Utils::isUnset($request->iotId)) {
+            $query['IotId'] = $request->iotId;
+        }
+        if (!Utils::isUnset($request->iotInstanceId)) {
+            $query['IotInstanceId'] = $request->iotInstanceId;
+        }
+        if (!Utils::isUnset($request->productKey)) {
+            $query['ProductKey'] = $request->productKey;
+        }
+        $req = new OpenApiRequest([
+            'query' => OpenApiUtilClient::query($query),
+        ]);
+        $params = new Params([
+            'action'      => 'QueryDeviceInfo',
+            'version'     => '2018-01-20',
+            'protocol'    => 'HTTPS',
+            'pathname'    => '/',
+            'method'      => 'POST',
+            'authType'    => 'AK',
+            'style'       => 'RPC',
+            'reqBodyType' => 'formData',
+            'bodyType'    => 'json',
+        ]);
+
+        return QueryDeviceInfoResponse::fromMap($this->callApi($params, $req, $runtime));
+    }
+
+    /**
+     * @param QueryDeviceInfoRequest $request
+     *
+     * @return QueryDeviceInfoResponse
+     */
+    public function queryDeviceInfo($request)
+    {
+        $runtime = new RuntimeOptions([]);
+
+        return $this->queryDeviceInfoWithOptions($request, $runtime);
+    }
+
+    /**
      * @param QueryDeviceListByDeviceGroupRequest $request
      * @param RuntimeOptions                      $runtime
      *
@@ -5651,11 +10434,35 @@ class Iot extends OpenApiClient
     public function queryDeviceListByDeviceGroupWithOptions($request, $runtime)
     {
         Utils::validateModel($request);
+        $query = [];
+        if (!Utils::isUnset($request->currentPage)) {
+            $query['CurrentPage'] = $request->currentPage;
+        }
+        if (!Utils::isUnset($request->groupId)) {
+            $query['GroupId'] = $request->groupId;
+        }
+        if (!Utils::isUnset($request->iotInstanceId)) {
+            $query['IotInstanceId'] = $request->iotInstanceId;
+        }
+        if (!Utils::isUnset($request->pageSize)) {
+            $query['PageSize'] = $request->pageSize;
+        }
         $req = new OpenApiRequest([
-            'body' => Utils::toMap($request),
+            'query' => OpenApiUtilClient::query($query),
+        ]);
+        $params = new Params([
+            'action'      => 'QueryDeviceListByDeviceGroup',
+            'version'     => '2018-01-20',
+            'protocol'    => 'HTTPS',
+            'pathname'    => '/',
+            'method'      => 'POST',
+            'authType'    => 'AK',
+            'style'       => 'RPC',
+            'reqBodyType' => 'formData',
+            'bodyType'    => 'json',
         ]);
 
-        return QueryDeviceListByDeviceGroupResponse::fromMap($this->doRPCRequest('QueryDeviceListByDeviceGroup', '2018-01-20', 'HTTPS', 'POST', 'AK', 'json', $req, $runtime));
+        return QueryDeviceListByDeviceGroupResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
@@ -5679,11 +10486,53 @@ class Iot extends OpenApiClient
     public function queryDeviceOriginalEventDataWithOptions($request, $runtime)
     {
         Utils::validateModel($request);
+        $query = [];
+        if (!Utils::isUnset($request->asc)) {
+            $query['Asc'] = $request->asc;
+        }
+        if (!Utils::isUnset($request->deviceName)) {
+            $query['DeviceName'] = $request->deviceName;
+        }
+        if (!Utils::isUnset($request->endTime)) {
+            $query['EndTime'] = $request->endTime;
+        }
+        if (!Utils::isUnset($request->identifier)) {
+            $query['Identifier'] = $request->identifier;
+        }
+        if (!Utils::isUnset($request->iotId)) {
+            $query['IotId'] = $request->iotId;
+        }
+        if (!Utils::isUnset($request->iotInstanceId)) {
+            $query['IotInstanceId'] = $request->iotInstanceId;
+        }
+        if (!Utils::isUnset($request->nextPageToken)) {
+            $query['NextPageToken'] = $request->nextPageToken;
+        }
+        if (!Utils::isUnset($request->pageSize)) {
+            $query['PageSize'] = $request->pageSize;
+        }
+        if (!Utils::isUnset($request->productKey)) {
+            $query['ProductKey'] = $request->productKey;
+        }
+        if (!Utils::isUnset($request->startTime)) {
+            $query['StartTime'] = $request->startTime;
+        }
         $req = new OpenApiRequest([
-            'body' => Utils::toMap($request),
+            'query' => OpenApiUtilClient::query($query),
+        ]);
+        $params = new Params([
+            'action'      => 'QueryDeviceOriginalEventData',
+            'version'     => '2018-01-20',
+            'protocol'    => 'HTTPS',
+            'pathname'    => '/',
+            'method'      => 'POST',
+            'authType'    => 'AK',
+            'style'       => 'RPC',
+            'reqBodyType' => 'formData',
+            'bodyType'    => 'json',
         ]);
 
-        return QueryDeviceOriginalEventDataResponse::fromMap($this->doRPCRequest('QueryDeviceOriginalEventData', '2018-01-20', 'HTTPS', 'POST', 'AK', 'json', $req, $runtime));
+        return QueryDeviceOriginalEventDataResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
@@ -5707,11 +10556,53 @@ class Iot extends OpenApiClient
     public function queryDeviceOriginalPropertyDataWithOptions($request, $runtime)
     {
         Utils::validateModel($request);
+        $query = [];
+        if (!Utils::isUnset($request->asc)) {
+            $query['Asc'] = $request->asc;
+        }
+        if (!Utils::isUnset($request->deviceName)) {
+            $query['DeviceName'] = $request->deviceName;
+        }
+        if (!Utils::isUnset($request->endTime)) {
+            $query['EndTime'] = $request->endTime;
+        }
+        if (!Utils::isUnset($request->identifier)) {
+            $query['Identifier'] = $request->identifier;
+        }
+        if (!Utils::isUnset($request->iotId)) {
+            $query['IotId'] = $request->iotId;
+        }
+        if (!Utils::isUnset($request->iotInstanceId)) {
+            $query['IotInstanceId'] = $request->iotInstanceId;
+        }
+        if (!Utils::isUnset($request->nextPageToken)) {
+            $query['NextPageToken'] = $request->nextPageToken;
+        }
+        if (!Utils::isUnset($request->pageSize)) {
+            $query['PageSize'] = $request->pageSize;
+        }
+        if (!Utils::isUnset($request->productKey)) {
+            $query['ProductKey'] = $request->productKey;
+        }
+        if (!Utils::isUnset($request->startTime)) {
+            $query['StartTime'] = $request->startTime;
+        }
         $req = new OpenApiRequest([
-            'body' => Utils::toMap($request),
+            'query' => OpenApiUtilClient::query($query),
+        ]);
+        $params = new Params([
+            'action'      => 'QueryDeviceOriginalPropertyData',
+            'version'     => '2018-01-20',
+            'protocol'    => 'HTTPS',
+            'pathname'    => '/',
+            'method'      => 'POST',
+            'authType'    => 'AK',
+            'style'       => 'RPC',
+            'reqBodyType' => 'formData',
+            'bodyType'    => 'json',
         ]);
 
-        return QueryDeviceOriginalPropertyDataResponse::fromMap($this->doRPCRequest('QueryDeviceOriginalPropertyData', '2018-01-20', 'HTTPS', 'POST', 'AK', 'json', $req, $runtime));
+        return QueryDeviceOriginalPropertyDataResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
@@ -5735,11 +10626,44 @@ class Iot extends OpenApiClient
     public function queryDeviceOriginalPropertyStatusWithOptions($request, $runtime)
     {
         Utils::validateModel($request);
+        $query = [];
+        if (!Utils::isUnset($request->asc)) {
+            $query['Asc'] = $request->asc;
+        }
+        if (!Utils::isUnset($request->deviceName)) {
+            $query['DeviceName'] = $request->deviceName;
+        }
+        if (!Utils::isUnset($request->iotId)) {
+            $query['IotId'] = $request->iotId;
+        }
+        if (!Utils::isUnset($request->iotInstanceId)) {
+            $query['IotInstanceId'] = $request->iotInstanceId;
+        }
+        if (!Utils::isUnset($request->nextPageToken)) {
+            $query['NextPageToken'] = $request->nextPageToken;
+        }
+        if (!Utils::isUnset($request->pageSize)) {
+            $query['PageSize'] = $request->pageSize;
+        }
+        if (!Utils::isUnset($request->productKey)) {
+            $query['ProductKey'] = $request->productKey;
+        }
         $req = new OpenApiRequest([
-            'body' => Utils::toMap($request),
+            'query' => OpenApiUtilClient::query($query),
+        ]);
+        $params = new Params([
+            'action'      => 'QueryDeviceOriginalPropertyStatus',
+            'version'     => '2018-01-20',
+            'protocol'    => 'HTTPS',
+            'pathname'    => '/',
+            'method'      => 'POST',
+            'authType'    => 'AK',
+            'style'       => 'RPC',
+            'reqBodyType' => 'formData',
+            'bodyType'    => 'json',
         ]);
 
-        return QueryDeviceOriginalPropertyStatusResponse::fromMap($this->doRPCRequest('QueryDeviceOriginalPropertyStatus', '2018-01-20', 'HTTPS', 'POST', 'AK', 'json', $req, $runtime));
+        return QueryDeviceOriginalPropertyStatusResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
@@ -5763,11 +10687,53 @@ class Iot extends OpenApiClient
     public function queryDeviceOriginalServiceDataWithOptions($request, $runtime)
     {
         Utils::validateModel($request);
+        $query = [];
+        if (!Utils::isUnset($request->asc)) {
+            $query['Asc'] = $request->asc;
+        }
+        if (!Utils::isUnset($request->deviceName)) {
+            $query['DeviceName'] = $request->deviceName;
+        }
+        if (!Utils::isUnset($request->endTime)) {
+            $query['EndTime'] = $request->endTime;
+        }
+        if (!Utils::isUnset($request->identifier)) {
+            $query['Identifier'] = $request->identifier;
+        }
+        if (!Utils::isUnset($request->iotId)) {
+            $query['IotId'] = $request->iotId;
+        }
+        if (!Utils::isUnset($request->iotInstanceId)) {
+            $query['IotInstanceId'] = $request->iotInstanceId;
+        }
+        if (!Utils::isUnset($request->nextPageToken)) {
+            $query['NextPageToken'] = $request->nextPageToken;
+        }
+        if (!Utils::isUnset($request->pageSize)) {
+            $query['PageSize'] = $request->pageSize;
+        }
+        if (!Utils::isUnset($request->productKey)) {
+            $query['ProductKey'] = $request->productKey;
+        }
+        if (!Utils::isUnset($request->startTime)) {
+            $query['StartTime'] = $request->startTime;
+        }
         $req = new OpenApiRequest([
-            'body' => Utils::toMap($request),
+            'query' => OpenApiUtilClient::query($query),
+        ]);
+        $params = new Params([
+            'action'      => 'QueryDeviceOriginalServiceData',
+            'version'     => '2018-01-20',
+            'protocol'    => 'HTTPS',
+            'pathname'    => '/',
+            'method'      => 'POST',
+            'authType'    => 'AK',
+            'style'       => 'RPC',
+            'reqBodyType' => 'formData',
+            'bodyType'    => 'json',
         ]);
 
-        return QueryDeviceOriginalServiceDataResponse::fromMap($this->doRPCRequest('QueryDeviceOriginalServiceData', '2018-01-20', 'HTTPS', 'POST', 'AK', 'json', $req, $runtime));
+        return QueryDeviceOriginalServiceDataResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
@@ -5791,11 +10757,35 @@ class Iot extends OpenApiClient
     public function queryDevicePropWithOptions($request, $runtime)
     {
         Utils::validateModel($request);
+        $query = [];
+        if (!Utils::isUnset($request->deviceName)) {
+            $query['DeviceName'] = $request->deviceName;
+        }
+        if (!Utils::isUnset($request->iotId)) {
+            $query['IotId'] = $request->iotId;
+        }
+        if (!Utils::isUnset($request->iotInstanceId)) {
+            $query['IotInstanceId'] = $request->iotInstanceId;
+        }
+        if (!Utils::isUnset($request->productKey)) {
+            $query['ProductKey'] = $request->productKey;
+        }
         $req = new OpenApiRequest([
-            'body' => Utils::toMap($request),
+            'query' => OpenApiUtilClient::query($query),
+        ]);
+        $params = new Params([
+            'action'      => 'QueryDeviceProp',
+            'version'     => '2018-01-20',
+            'protocol'    => 'HTTPS',
+            'pathname'    => '/',
+            'method'      => 'POST',
+            'authType'    => 'AK',
+            'style'       => 'RPC',
+            'reqBodyType' => 'formData',
+            'bodyType'    => 'json',
         ]);
 
-        return QueryDevicePropResponse::fromMap($this->doRPCRequest('QueryDeviceProp', '2018-01-20', 'HTTPS', 'POST', 'AK', 'json', $req, $runtime));
+        return QueryDevicePropResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
@@ -5819,11 +10809,50 @@ class Iot extends OpenApiClient
     public function queryDevicePropertiesDataWithOptions($request, $runtime)
     {
         Utils::validateModel($request);
+        $query = [];
+        if (!Utils::isUnset($request->asc)) {
+            $query['Asc'] = $request->asc;
+        }
+        if (!Utils::isUnset($request->deviceName)) {
+            $query['DeviceName'] = $request->deviceName;
+        }
+        if (!Utils::isUnset($request->endTime)) {
+            $query['EndTime'] = $request->endTime;
+        }
+        if (!Utils::isUnset($request->identifier)) {
+            $query['Identifier'] = $request->identifier;
+        }
+        if (!Utils::isUnset($request->iotId)) {
+            $query['IotId'] = $request->iotId;
+        }
+        if (!Utils::isUnset($request->iotInstanceId)) {
+            $query['IotInstanceId'] = $request->iotInstanceId;
+        }
+        if (!Utils::isUnset($request->pageSize)) {
+            $query['PageSize'] = $request->pageSize;
+        }
+        if (!Utils::isUnset($request->productKey)) {
+            $query['ProductKey'] = $request->productKey;
+        }
+        if (!Utils::isUnset($request->startTime)) {
+            $query['StartTime'] = $request->startTime;
+        }
         $req = new OpenApiRequest([
-            'body' => Utils::toMap($request),
+            'query' => OpenApiUtilClient::query($query),
+        ]);
+        $params = new Params([
+            'action'      => 'QueryDevicePropertiesData',
+            'version'     => '2018-01-20',
+            'protocol'    => 'HTTPS',
+            'pathname'    => '/',
+            'method'      => 'POST',
+            'authType'    => 'AK',
+            'style'       => 'RPC',
+            'reqBodyType' => 'formData',
+            'bodyType'    => 'json',
         ]);
 
-        return QueryDevicePropertiesDataResponse::fromMap($this->doRPCRequest('QueryDevicePropertiesData', '2018-01-20', 'HTTPS', 'POST', 'AK', 'json', $req, $runtime));
+        return QueryDevicePropertiesDataResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
@@ -5847,11 +10876,50 @@ class Iot extends OpenApiClient
     public function queryDevicePropertyDataWithOptions($request, $runtime)
     {
         Utils::validateModel($request);
+        $query = [];
+        if (!Utils::isUnset($request->asc)) {
+            $query['Asc'] = $request->asc;
+        }
+        if (!Utils::isUnset($request->deviceName)) {
+            $query['DeviceName'] = $request->deviceName;
+        }
+        if (!Utils::isUnset($request->endTime)) {
+            $query['EndTime'] = $request->endTime;
+        }
+        if (!Utils::isUnset($request->identifier)) {
+            $query['Identifier'] = $request->identifier;
+        }
+        if (!Utils::isUnset($request->iotId)) {
+            $query['IotId'] = $request->iotId;
+        }
+        if (!Utils::isUnset($request->iotInstanceId)) {
+            $query['IotInstanceId'] = $request->iotInstanceId;
+        }
+        if (!Utils::isUnset($request->pageSize)) {
+            $query['PageSize'] = $request->pageSize;
+        }
+        if (!Utils::isUnset($request->productKey)) {
+            $query['ProductKey'] = $request->productKey;
+        }
+        if (!Utils::isUnset($request->startTime)) {
+            $query['StartTime'] = $request->startTime;
+        }
         $req = new OpenApiRequest([
-            'body' => Utils::toMap($request),
+            'query' => OpenApiUtilClient::query($query),
+        ]);
+        $params = new Params([
+            'action'      => 'QueryDevicePropertyData',
+            'version'     => '2018-01-20',
+            'protocol'    => 'HTTPS',
+            'pathname'    => '/',
+            'method'      => 'POST',
+            'authType'    => 'AK',
+            'style'       => 'RPC',
+            'reqBodyType' => 'formData',
+            'bodyType'    => 'json',
         ]);
 
-        return QueryDevicePropertyDataResponse::fromMap($this->doRPCRequest('QueryDevicePropertyData', '2018-01-20', 'HTTPS', 'POST', 'AK', 'json', $req, $runtime));
+        return QueryDevicePropertyDataResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
@@ -5875,11 +10943,38 @@ class Iot extends OpenApiClient
     public function queryDevicePropertyStatusWithOptions($request, $runtime)
     {
         Utils::validateModel($request);
+        $query = [];
+        if (!Utils::isUnset($request->deviceName)) {
+            $query['DeviceName'] = $request->deviceName;
+        }
+        if (!Utils::isUnset($request->functionBlockId)) {
+            $query['FunctionBlockId'] = $request->functionBlockId;
+        }
+        if (!Utils::isUnset($request->iotId)) {
+            $query['IotId'] = $request->iotId;
+        }
+        if (!Utils::isUnset($request->iotInstanceId)) {
+            $query['IotInstanceId'] = $request->iotInstanceId;
+        }
+        if (!Utils::isUnset($request->productKey)) {
+            $query['ProductKey'] = $request->productKey;
+        }
         $req = new OpenApiRequest([
-            'body' => Utils::toMap($request),
+            'query' => OpenApiUtilClient::query($query),
+        ]);
+        $params = new Params([
+            'action'      => 'QueryDevicePropertyStatus',
+            'version'     => '2018-01-20',
+            'protocol'    => 'HTTPS',
+            'pathname'    => '/',
+            'method'      => 'POST',
+            'authType'    => 'AK',
+            'style'       => 'RPC',
+            'reqBodyType' => 'formData',
+            'bodyType'    => 'json',
         ]);
 
-        return QueryDevicePropertyStatusResponse::fromMap($this->doRPCRequest('QueryDevicePropertyStatus', '2018-01-20', 'HTTPS', 'POST', 'AK', 'json', $req, $runtime));
+        return QueryDevicePropertyStatusResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
@@ -5903,11 +10998,50 @@ class Iot extends OpenApiClient
     public function queryDeviceServiceDataWithOptions($request, $runtime)
     {
         Utils::validateModel($request);
+        $query = [];
+        if (!Utils::isUnset($request->asc)) {
+            $query['Asc'] = $request->asc;
+        }
+        if (!Utils::isUnset($request->deviceName)) {
+            $query['DeviceName'] = $request->deviceName;
+        }
+        if (!Utils::isUnset($request->endTime)) {
+            $query['EndTime'] = $request->endTime;
+        }
+        if (!Utils::isUnset($request->identifier)) {
+            $query['Identifier'] = $request->identifier;
+        }
+        if (!Utils::isUnset($request->iotId)) {
+            $query['IotId'] = $request->iotId;
+        }
+        if (!Utils::isUnset($request->iotInstanceId)) {
+            $query['IotInstanceId'] = $request->iotInstanceId;
+        }
+        if (!Utils::isUnset($request->pageSize)) {
+            $query['PageSize'] = $request->pageSize;
+        }
+        if (!Utils::isUnset($request->productKey)) {
+            $query['ProductKey'] = $request->productKey;
+        }
+        if (!Utils::isUnset($request->startTime)) {
+            $query['StartTime'] = $request->startTime;
+        }
         $req = new OpenApiRequest([
-            'body' => Utils::toMap($request),
+            'query' => OpenApiUtilClient::query($query),
+        ]);
+        $params = new Params([
+            'action'      => 'QueryDeviceServiceData',
+            'version'     => '2018-01-20',
+            'protocol'    => 'HTTPS',
+            'pathname'    => '/',
+            'method'      => 'POST',
+            'authType'    => 'AK',
+            'style'       => 'RPC',
+            'reqBodyType' => 'formData',
+            'bodyType'    => 'json',
         ]);
 
-        return QueryDeviceServiceDataResponse::fromMap($this->doRPCRequest('QueryDeviceServiceData', '2018-01-20', 'HTTPS', 'POST', 'AK', 'json', $req, $runtime));
+        return QueryDeviceServiceDataResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
@@ -5931,11 +11065,32 @@ class Iot extends OpenApiClient
     public function queryDeviceStatisticsWithOptions($request, $runtime)
     {
         Utils::validateModel($request);
+        $query = [];
+        if (!Utils::isUnset($request->groupId)) {
+            $query['GroupId'] = $request->groupId;
+        }
+        if (!Utils::isUnset($request->iotInstanceId)) {
+            $query['IotInstanceId'] = $request->iotInstanceId;
+        }
+        if (!Utils::isUnset($request->productKey)) {
+            $query['ProductKey'] = $request->productKey;
+        }
         $req = new OpenApiRequest([
-            'body' => Utils::toMap($request),
+            'query' => OpenApiUtilClient::query($query),
+        ]);
+        $params = new Params([
+            'action'      => 'QueryDeviceStatistics',
+            'version'     => '2018-01-20',
+            'protocol'    => 'HTTPS',
+            'pathname'    => '/',
+            'method'      => 'POST',
+            'authType'    => 'AK',
+            'style'       => 'RPC',
+            'reqBodyType' => 'formData',
+            'bodyType'    => 'json',
         ]);
 
-        return QueryDeviceStatisticsResponse::fromMap($this->doRPCRequest('QueryDeviceStatistics', '2018-01-20', 'HTTPS', 'POST', 'AK', 'json', $req, $runtime));
+        return QueryDeviceStatisticsResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
@@ -5959,11 +11114,38 @@ class Iot extends OpenApiClient
     public function queryEdgeDriverWithOptions($request, $runtime)
     {
         Utils::validateModel($request);
+        $query = [];
+        if (!Utils::isUnset($request->currentPage)) {
+            $query['CurrentPage'] = $request->currentPage;
+        }
+        if (!Utils::isUnset($request->driverName)) {
+            $query['DriverName'] = $request->driverName;
+        }
+        if (!Utils::isUnset($request->iotInstanceId)) {
+            $query['IotInstanceId'] = $request->iotInstanceId;
+        }
+        if (!Utils::isUnset($request->pageSize)) {
+            $query['PageSize'] = $request->pageSize;
+        }
+        if (!Utils::isUnset($request->type)) {
+            $query['Type'] = $request->type;
+        }
         $req = new OpenApiRequest([
-            'body' => Utils::toMap($request),
+            'query' => OpenApiUtilClient::query($query),
+        ]);
+        $params = new Params([
+            'action'      => 'QueryEdgeDriver',
+            'version'     => '2018-01-20',
+            'protocol'    => 'HTTPS',
+            'pathname'    => '/',
+            'method'      => 'POST',
+            'authType'    => 'AK',
+            'style'       => 'RPC',
+            'reqBodyType' => 'formData',
+            'bodyType'    => 'json',
         ]);
 
-        return QueryEdgeDriverResponse::fromMap($this->doRPCRequest('QueryEdgeDriver', '2018-01-20', 'HTTPS', 'POST', 'AK', 'json', $req, $runtime));
+        return QueryEdgeDriverResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
@@ -5987,11 +11169,41 @@ class Iot extends OpenApiClient
     public function queryEdgeDriverVersionWithOptions($request, $runtime)
     {
         Utils::validateModel($request);
+        $query = [];
+        if (!Utils::isUnset($request->currentPage)) {
+            $query['CurrentPage'] = $request->currentPage;
+        }
+        if (!Utils::isUnset($request->driverId)) {
+            $query['DriverId'] = $request->driverId;
+        }
+        if (!Utils::isUnset($request->driverVersion)) {
+            $query['DriverVersion'] = $request->driverVersion;
+        }
+        if (!Utils::isUnset($request->iotInstanceId)) {
+            $query['IotInstanceId'] = $request->iotInstanceId;
+        }
+        if (!Utils::isUnset($request->pageSize)) {
+            $query['PageSize'] = $request->pageSize;
+        }
+        if (!Utils::isUnset($request->versionState)) {
+            $query['VersionState'] = $request->versionState;
+        }
         $req = new OpenApiRequest([
-            'body' => Utils::toMap($request),
+            'query' => OpenApiUtilClient::query($query),
+        ]);
+        $params = new Params([
+            'action'      => 'QueryEdgeDriverVersion',
+            'version'     => '2018-01-20',
+            'protocol'    => 'HTTPS',
+            'pathname'    => '/',
+            'method'      => 'POST',
+            'authType'    => 'AK',
+            'style'       => 'RPC',
+            'reqBodyType' => 'formData',
+            'bodyType'    => 'json',
         ]);
 
-        return QueryEdgeDriverVersionResponse::fromMap($this->doRPCRequest('QueryEdgeDriverVersion', '2018-01-20', 'HTTPS', 'POST', 'AK', 'json', $req, $runtime));
+        return QueryEdgeDriverVersionResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
@@ -6015,11 +11227,35 @@ class Iot extends OpenApiClient
     public function queryEdgeInstanceWithOptions($request, $runtime)
     {
         Utils::validateModel($request);
+        $query = [];
+        if (!Utils::isUnset($request->currentPage)) {
+            $query['CurrentPage'] = $request->currentPage;
+        }
+        if (!Utils::isUnset($request->iotInstanceId)) {
+            $query['IotInstanceId'] = $request->iotInstanceId;
+        }
+        if (!Utils::isUnset($request->name)) {
+            $query['Name'] = $request->name;
+        }
+        if (!Utils::isUnset($request->pageSize)) {
+            $query['PageSize'] = $request->pageSize;
+        }
         $req = new OpenApiRequest([
-            'body' => Utils::toMap($request),
+            'query' => OpenApiUtilClient::query($query),
+        ]);
+        $params = new Params([
+            'action'      => 'QueryEdgeInstance',
+            'version'     => '2018-01-20',
+            'protocol'    => 'HTTPS',
+            'pathname'    => '/',
+            'method'      => 'POST',
+            'authType'    => 'AK',
+            'style'       => 'RPC',
+            'reqBodyType' => 'formData',
+            'bodyType'    => 'json',
         ]);
 
-        return QueryEdgeInstanceResponse::fromMap($this->doRPCRequest('QueryEdgeInstance', '2018-01-20', 'HTTPS', 'POST', 'AK', 'json', $req, $runtime));
+        return QueryEdgeInstanceResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
@@ -6043,11 +11279,41 @@ class Iot extends OpenApiClient
     public function queryEdgeInstanceChannelWithOptions($request, $runtime)
     {
         Utils::validateModel($request);
+        $query = [];
+        if (!Utils::isUnset($request->channelName)) {
+            $query['ChannelName'] = $request->channelName;
+        }
+        if (!Utils::isUnset($request->currentPage)) {
+            $query['CurrentPage'] = $request->currentPage;
+        }
+        if (!Utils::isUnset($request->driverId)) {
+            $query['DriverId'] = $request->driverId;
+        }
+        if (!Utils::isUnset($request->instanceId)) {
+            $query['InstanceId'] = $request->instanceId;
+        }
+        if (!Utils::isUnset($request->iotInstanceId)) {
+            $query['IotInstanceId'] = $request->iotInstanceId;
+        }
+        if (!Utils::isUnset($request->pageSize)) {
+            $query['PageSize'] = $request->pageSize;
+        }
         $req = new OpenApiRequest([
-            'body' => Utils::toMap($request),
+            'query' => OpenApiUtilClient::query($query),
+        ]);
+        $params = new Params([
+            'action'      => 'QueryEdgeInstanceChannel',
+            'version'     => '2018-01-20',
+            'protocol'    => 'HTTPS',
+            'pathname'    => '/',
+            'method'      => 'POST',
+            'authType'    => 'AK',
+            'style'       => 'RPC',
+            'reqBodyType' => 'formData',
+            'bodyType'    => 'json',
         ]);
 
-        return QueryEdgeInstanceChannelResponse::fromMap($this->doRPCRequest('QueryEdgeInstanceChannel', '2018-01-20', 'HTTPS', 'POST', 'AK', 'json', $req, $runtime));
+        return QueryEdgeInstanceChannelResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
@@ -6071,11 +11337,35 @@ class Iot extends OpenApiClient
     public function queryEdgeInstanceDeviceWithOptions($request, $runtime)
     {
         Utils::validateModel($request);
+        $query = [];
+        if (!Utils::isUnset($request->currentPage)) {
+            $query['CurrentPage'] = $request->currentPage;
+        }
+        if (!Utils::isUnset($request->instanceId)) {
+            $query['InstanceId'] = $request->instanceId;
+        }
+        if (!Utils::isUnset($request->iotInstanceId)) {
+            $query['IotInstanceId'] = $request->iotInstanceId;
+        }
+        if (!Utils::isUnset($request->pageSize)) {
+            $query['PageSize'] = $request->pageSize;
+        }
         $req = new OpenApiRequest([
-            'body' => Utils::toMap($request),
+            'query' => OpenApiUtilClient::query($query),
+        ]);
+        $params = new Params([
+            'action'      => 'QueryEdgeInstanceDevice',
+            'version'     => '2018-01-20',
+            'protocol'    => 'HTTPS',
+            'pathname'    => '/',
+            'method'      => 'POST',
+            'authType'    => 'AK',
+            'style'       => 'RPC',
+            'reqBodyType' => 'formData',
+            'bodyType'    => 'json',
         ]);
 
-        return QueryEdgeInstanceDeviceResponse::fromMap($this->doRPCRequest('QueryEdgeInstanceDevice', '2018-01-20', 'HTTPS', 'POST', 'AK', 'json', $req, $runtime));
+        return QueryEdgeInstanceDeviceResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
@@ -6099,11 +11389,41 @@ class Iot extends OpenApiClient
     public function queryEdgeInstanceDeviceByDriverWithOptions($request, $runtime)
     {
         Utils::validateModel($request);
+        $query = [];
+        if (!Utils::isUnset($request->channelId)) {
+            $query['ChannelId'] = $request->channelId;
+        }
+        if (!Utils::isUnset($request->currentPage)) {
+            $query['CurrentPage'] = $request->currentPage;
+        }
+        if (!Utils::isUnset($request->driverId)) {
+            $query['DriverId'] = $request->driverId;
+        }
+        if (!Utils::isUnset($request->instanceId)) {
+            $query['InstanceId'] = $request->instanceId;
+        }
+        if (!Utils::isUnset($request->iotInstanceId)) {
+            $query['IotInstanceId'] = $request->iotInstanceId;
+        }
+        if (!Utils::isUnset($request->pageSize)) {
+            $query['PageSize'] = $request->pageSize;
+        }
         $req = new OpenApiRequest([
-            'body' => Utils::toMap($request),
+            'query' => OpenApiUtilClient::query($query),
+        ]);
+        $params = new Params([
+            'action'      => 'QueryEdgeInstanceDeviceByDriver',
+            'version'     => '2018-01-20',
+            'protocol'    => 'HTTPS',
+            'pathname'    => '/',
+            'method'      => 'POST',
+            'authType'    => 'AK',
+            'style'       => 'RPC',
+            'reqBodyType' => 'formData',
+            'bodyType'    => 'json',
         ]);
 
-        return QueryEdgeInstanceDeviceByDriverResponse::fromMap($this->doRPCRequest('QueryEdgeInstanceDeviceByDriver', '2018-01-20', 'HTTPS', 'POST', 'AK', 'json', $req, $runtime));
+        return QueryEdgeInstanceDeviceByDriverResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
@@ -6127,11 +11447,35 @@ class Iot extends OpenApiClient
     public function queryEdgeInstanceDriverWithOptions($request, $runtime)
     {
         Utils::validateModel($request);
+        $query = [];
+        if (!Utils::isUnset($request->currentPage)) {
+            $query['CurrentPage'] = $request->currentPage;
+        }
+        if (!Utils::isUnset($request->instanceId)) {
+            $query['InstanceId'] = $request->instanceId;
+        }
+        if (!Utils::isUnset($request->iotInstanceId)) {
+            $query['IotInstanceId'] = $request->iotInstanceId;
+        }
+        if (!Utils::isUnset($request->pageSize)) {
+            $query['PageSize'] = $request->pageSize;
+        }
         $req = new OpenApiRequest([
-            'body' => Utils::toMap($request),
+            'query' => OpenApiUtilClient::query($query),
+        ]);
+        $params = new Params([
+            'action'      => 'QueryEdgeInstanceDriver',
+            'version'     => '2018-01-20',
+            'protocol'    => 'HTTPS',
+            'pathname'    => '/',
+            'method'      => 'POST',
+            'authType'    => 'AK',
+            'style'       => 'RPC',
+            'reqBodyType' => 'formData',
+            'bodyType'    => 'json',
         ]);
 
-        return QueryEdgeInstanceDriverResponse::fromMap($this->doRPCRequest('QueryEdgeInstanceDriver', '2018-01-20', 'HTTPS', 'POST', 'AK', 'json', $req, $runtime));
+        return QueryEdgeInstanceDriverResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
@@ -6155,11 +11499,29 @@ class Iot extends OpenApiClient
     public function queryEdgeInstanceGatewayWithOptions($request, $runtime)
     {
         Utils::validateModel($request);
+        $query = [];
+        if (!Utils::isUnset($request->instanceId)) {
+            $query['InstanceId'] = $request->instanceId;
+        }
+        if (!Utils::isUnset($request->iotInstanceId)) {
+            $query['IotInstanceId'] = $request->iotInstanceId;
+        }
         $req = new OpenApiRequest([
-            'body' => Utils::toMap($request),
+            'query' => OpenApiUtilClient::query($query),
+        ]);
+        $params = new Params([
+            'action'      => 'QueryEdgeInstanceGateway',
+            'version'     => '2018-01-20',
+            'protocol'    => 'HTTPS',
+            'pathname'    => '/',
+            'method'      => 'POST',
+            'authType'    => 'AK',
+            'style'       => 'RPC',
+            'reqBodyType' => 'formData',
+            'bodyType'    => 'json',
         ]);
 
-        return QueryEdgeInstanceGatewayResponse::fromMap($this->doRPCRequest('QueryEdgeInstanceGateway', '2018-01-20', 'HTTPS', 'POST', 'AK', 'json', $req, $runtime));
+        return QueryEdgeInstanceGatewayResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
@@ -6183,11 +11545,41 @@ class Iot extends OpenApiClient
     public function queryEdgeInstanceHistoricDeploymentWithOptions($request, $runtime)
     {
         Utils::validateModel($request);
+        $query = [];
+        if (!Utils::isUnset($request->currentPage)) {
+            $query['CurrentPage'] = $request->currentPage;
+        }
+        if (!Utils::isUnset($request->endTime)) {
+            $query['EndTime'] = $request->endTime;
+        }
+        if (!Utils::isUnset($request->instanceId)) {
+            $query['InstanceId'] = $request->instanceId;
+        }
+        if (!Utils::isUnset($request->iotInstanceId)) {
+            $query['IotInstanceId'] = $request->iotInstanceId;
+        }
+        if (!Utils::isUnset($request->pageSize)) {
+            $query['PageSize'] = $request->pageSize;
+        }
+        if (!Utils::isUnset($request->startTime)) {
+            $query['StartTime'] = $request->startTime;
+        }
         $req = new OpenApiRequest([
-            'body' => Utils::toMap($request),
+            'query' => OpenApiUtilClient::query($query),
+        ]);
+        $params = new Params([
+            'action'      => 'QueryEdgeInstanceHistoricDeployment',
+            'version'     => '2018-01-20',
+            'protocol'    => 'HTTPS',
+            'pathname'    => '/',
+            'method'      => 'POST',
+            'authType'    => 'AK',
+            'style'       => 'RPC',
+            'reqBodyType' => 'formData',
+            'bodyType'    => 'json',
         ]);
 
-        return QueryEdgeInstanceHistoricDeploymentResponse::fromMap($this->doRPCRequest('QueryEdgeInstanceHistoricDeployment', '2018-01-20', 'HTTPS', 'POST', 'AK', 'json', $req, $runtime));
+        return QueryEdgeInstanceHistoricDeploymentResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
@@ -6211,11 +11603,35 @@ class Iot extends OpenApiClient
     public function queryEdgeInstanceMessageRoutingWithOptions($request, $runtime)
     {
         Utils::validateModel($request);
+        $query = [];
+        if (!Utils::isUnset($request->currentPage)) {
+            $query['CurrentPage'] = $request->currentPage;
+        }
+        if (!Utils::isUnset($request->instanceId)) {
+            $query['InstanceId'] = $request->instanceId;
+        }
+        if (!Utils::isUnset($request->iotInstanceId)) {
+            $query['IotInstanceId'] = $request->iotInstanceId;
+        }
+        if (!Utils::isUnset($request->pageSize)) {
+            $query['PageSize'] = $request->pageSize;
+        }
         $req = new OpenApiRequest([
-            'body' => Utils::toMap($request),
+            'query' => OpenApiUtilClient::query($query),
+        ]);
+        $params = new Params([
+            'action'      => 'QueryEdgeInstanceMessageRouting',
+            'version'     => '2018-01-20',
+            'protocol'    => 'HTTPS',
+            'pathname'    => '/',
+            'method'      => 'POST',
+            'authType'    => 'AK',
+            'style'       => 'RPC',
+            'reqBodyType' => 'formData',
+            'bodyType'    => 'json',
         ]);
 
-        return QueryEdgeInstanceMessageRoutingResponse::fromMap($this->doRPCRequest('QueryEdgeInstanceMessageRouting', '2018-01-20', 'HTTPS', 'POST', 'AK', 'json', $req, $runtime));
+        return QueryEdgeInstanceMessageRoutingResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
@@ -6239,11 +11655,35 @@ class Iot extends OpenApiClient
     public function queryEdgeInstanceSceneRuleWithOptions($request, $runtime)
     {
         Utils::validateModel($request);
+        $query = [];
+        if (!Utils::isUnset($request->currentPage)) {
+            $query['CurrentPage'] = $request->currentPage;
+        }
+        if (!Utils::isUnset($request->instanceId)) {
+            $query['InstanceId'] = $request->instanceId;
+        }
+        if (!Utils::isUnset($request->iotInstanceId)) {
+            $query['IotInstanceId'] = $request->iotInstanceId;
+        }
+        if (!Utils::isUnset($request->pageSize)) {
+            $query['PageSize'] = $request->pageSize;
+        }
         $req = new OpenApiRequest([
-            'body' => Utils::toMap($request),
+            'query' => OpenApiUtilClient::query($query),
+        ]);
+        $params = new Params([
+            'action'      => 'QueryEdgeInstanceSceneRule',
+            'version'     => '2018-01-20',
+            'protocol'    => 'HTTPS',
+            'pathname'    => '/',
+            'method'      => 'POST',
+            'authType'    => 'AK',
+            'style'       => 'RPC',
+            'reqBodyType' => 'formData',
+            'bodyType'    => 'json',
         ]);
 
-        return QueryEdgeInstanceSceneRuleResponse::fromMap($this->doRPCRequest('QueryEdgeInstanceSceneRule', '2018-01-20', 'HTTPS', 'POST', 'AK', 'json', $req, $runtime));
+        return QueryEdgeInstanceSceneRuleResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
@@ -6267,11 +11707,29 @@ class Iot extends OpenApiClient
     public function queryJobWithOptions($request, $runtime)
     {
         Utils::validateModel($request);
+        $query = [];
+        if (!Utils::isUnset($request->iotInstanceId)) {
+            $query['IotInstanceId'] = $request->iotInstanceId;
+        }
+        if (!Utils::isUnset($request->jobId)) {
+            $query['JobId'] = $request->jobId;
+        }
         $req = new OpenApiRequest([
-            'body' => Utils::toMap($request),
+            'query' => OpenApiUtilClient::query($query),
+        ]);
+        $params = new Params([
+            'action'      => 'QueryJob',
+            'version'     => '2018-01-20',
+            'protocol'    => 'HTTPS',
+            'pathname'    => '/',
+            'method'      => 'POST',
+            'authType'    => 'AK',
+            'style'       => 'RPC',
+            'reqBodyType' => 'formData',
+            'bodyType'    => 'json',
         ]);
 
-        return QueryJobResponse::fromMap($this->doRPCRequest('QueryJob', '2018-01-20', 'HTTPS', 'POST', 'AK', 'json', $req, $runtime));
+        return QueryJobResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
@@ -6297,10 +11755,21 @@ class Iot extends OpenApiClient
         Utils::validateModel($request);
         $query = OpenApiUtilClient::query(Utils::toMap($request));
         $req   = new OpenApiRequest([
-            'query' => $query,
+            'query' => OpenApiUtilClient::query($query),
+        ]);
+        $params = new Params([
+            'action'      => 'QueryJobStatistics',
+            'version'     => '2018-01-20',
+            'protocol'    => 'HTTPS',
+            'pathname'    => '/',
+            'method'      => 'GET',
+            'authType'    => 'AK',
+            'style'       => 'RPC',
+            'reqBodyType' => 'formData',
+            'bodyType'    => 'json',
         ]);
 
-        return QueryJobStatisticsResponse::fromMap($this->doRPCRequest('QueryJobStatistics', '2018-01-20', 'HTTPS', 'GET', 'AK', 'json', $req, $runtime));
+        return QueryJobStatisticsResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
@@ -6324,11 +11793,26 @@ class Iot extends OpenApiClient
     public function queryLoRaJoinPermissionsWithOptions($request, $runtime)
     {
         Utils::validateModel($request);
+        $query = [];
+        if (!Utils::isUnset($request->iotInstanceId)) {
+            $query['IotInstanceId'] = $request->iotInstanceId;
+        }
         $req = new OpenApiRequest([
-            'body' => Utils::toMap($request),
+            'query' => OpenApiUtilClient::query($query),
+        ]);
+        $params = new Params([
+            'action'      => 'QueryLoRaJoinPermissions',
+            'version'     => '2018-01-20',
+            'protocol'    => 'HTTPS',
+            'pathname'    => '/',
+            'method'      => 'POST',
+            'authType'    => 'AK',
+            'style'       => 'RPC',
+            'reqBodyType' => 'formData',
+            'bodyType'    => 'json',
         ]);
 
-        return QueryLoRaJoinPermissionsResponse::fromMap($this->doRPCRequest('QueryLoRaJoinPermissions', '2018-01-20', 'HTTPS', 'POST', 'AK', 'json', $req, $runtime));
+        return QueryLoRaJoinPermissionsResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
@@ -6344,6 +11828,52 @@ class Iot extends OpenApiClient
     }
 
     /**
+     * @param QueryMessageInfoRequest $request
+     * @param RuntimeOptions          $runtime
+     *
+     * @return QueryMessageInfoResponse
+     */
+    public function queryMessageInfoWithOptions($request, $runtime)
+    {
+        Utils::validateModel($request);
+        $query = [];
+        if (!Utils::isUnset($request->iotInstanceId)) {
+            $query['IotInstanceId'] = $request->iotInstanceId;
+        }
+        if (!Utils::isUnset($request->uniMsgId)) {
+            $query['UniMsgId'] = $request->uniMsgId;
+        }
+        $req = new OpenApiRequest([
+            'query' => OpenApiUtilClient::query($query),
+        ]);
+        $params = new Params([
+            'action'      => 'QueryMessageInfo',
+            'version'     => '2018-01-20',
+            'protocol'    => 'HTTPS',
+            'pathname'    => '/',
+            'method'      => 'POST',
+            'authType'    => 'AK',
+            'style'       => 'RPC',
+            'reqBodyType' => 'formData',
+            'bodyType'    => 'json',
+        ]);
+
+        return QueryMessageInfoResponse::fromMap($this->callApi($params, $req, $runtime));
+    }
+
+    /**
+     * @param QueryMessageInfoRequest $request
+     *
+     * @return QueryMessageInfoResponse
+     */
+    public function queryMessageInfo($request)
+    {
+        $runtime = new RuntimeOptions([]);
+
+        return $this->queryMessageInfoWithOptions($request, $runtime);
+    }
+
+    /**
      * @param QueryOTAFirmwareRequest $request
      * @param RuntimeOptions          $runtime
      *
@@ -6352,11 +11882,29 @@ class Iot extends OpenApiClient
     public function queryOTAFirmwareWithOptions($request, $runtime)
     {
         Utils::validateModel($request);
+        $query = [];
+        if (!Utils::isUnset($request->firmwareId)) {
+            $query['FirmwareId'] = $request->firmwareId;
+        }
+        if (!Utils::isUnset($request->iotInstanceId)) {
+            $query['IotInstanceId'] = $request->iotInstanceId;
+        }
         $req = new OpenApiRequest([
-            'body' => Utils::toMap($request),
+            'query' => OpenApiUtilClient::query($query),
+        ]);
+        $params = new Params([
+            'action'      => 'QueryOTAFirmware',
+            'version'     => '2018-01-20',
+            'protocol'    => 'HTTPS',
+            'pathname'    => '/',
+            'method'      => 'POST',
+            'authType'    => 'AK',
+            'style'       => 'RPC',
+            'reqBodyType' => 'formData',
+            'bodyType'    => 'json',
         ]);
 
-        return QueryOTAFirmwareResponse::fromMap($this->doRPCRequest('QueryOTAFirmware', '2018-01-20', 'HTTPS', 'POST', 'AK', 'json', $req, $runtime));
+        return QueryOTAFirmwareResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
@@ -6380,11 +11928,29 @@ class Iot extends OpenApiClient
     public function queryOTAJobWithOptions($request, $runtime)
     {
         Utils::validateModel($request);
+        $query = [];
+        if (!Utils::isUnset($request->iotInstanceId)) {
+            $query['IotInstanceId'] = $request->iotInstanceId;
+        }
+        if (!Utils::isUnset($request->jobId)) {
+            $query['JobId'] = $request->jobId;
+        }
         $req = new OpenApiRequest([
-            'body' => Utils::toMap($request),
+            'query' => OpenApiUtilClient::query($query),
+        ]);
+        $params = new Params([
+            'action'      => 'QueryOTAJob',
+            'version'     => '2018-01-20',
+            'protocol'    => 'HTTPS',
+            'pathname'    => '/',
+            'method'      => 'POST',
+            'authType'    => 'AK',
+            'style'       => 'RPC',
+            'reqBodyType' => 'formData',
+            'bodyType'    => 'json',
         ]);
 
-        return QueryOTAJobResponse::fromMap($this->doRPCRequest('QueryOTAJob', '2018-01-20', 'HTTPS', 'POST', 'AK', 'json', $req, $runtime));
+        return QueryOTAJobResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
@@ -6408,11 +11974,35 @@ class Iot extends OpenApiClient
     public function queryPageByApplyIdWithOptions($request, $runtime)
     {
         Utils::validateModel($request);
+        $query = [];
+        if (!Utils::isUnset($request->applyId)) {
+            $query['ApplyId'] = $request->applyId;
+        }
+        if (!Utils::isUnset($request->currentPage)) {
+            $query['CurrentPage'] = $request->currentPage;
+        }
+        if (!Utils::isUnset($request->iotInstanceId)) {
+            $query['IotInstanceId'] = $request->iotInstanceId;
+        }
+        if (!Utils::isUnset($request->pageSize)) {
+            $query['PageSize'] = $request->pageSize;
+        }
         $req = new OpenApiRequest([
-            'body' => Utils::toMap($request),
+            'query' => OpenApiUtilClient::query($query),
+        ]);
+        $params = new Params([
+            'action'      => 'QueryPageByApplyId',
+            'version'     => '2018-01-20',
+            'protocol'    => 'HTTPS',
+            'pathname'    => '/',
+            'method'      => 'POST',
+            'authType'    => 'AK',
+            'style'       => 'RPC',
+            'reqBodyType' => 'formData',
+            'bodyType'    => 'json',
         ]);
 
-        return QueryPageByApplyIdResponse::fromMap($this->doRPCRequest('QueryPageByApplyId', '2018-01-20', 'HTTPS', 'POST', 'AK', 'json', $req, $runtime));
+        return QueryPageByApplyIdResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
@@ -6436,11 +12026,29 @@ class Iot extends OpenApiClient
     public function queryProductWithOptions($request, $runtime)
     {
         Utils::validateModel($request);
+        $query = [];
+        if (!Utils::isUnset($request->iotInstanceId)) {
+            $query['IotInstanceId'] = $request->iotInstanceId;
+        }
+        if (!Utils::isUnset($request->productKey)) {
+            $query['ProductKey'] = $request->productKey;
+        }
         $req = new OpenApiRequest([
-            'body' => Utils::toMap($request),
+            'query' => OpenApiUtilClient::query($query),
+        ]);
+        $params = new Params([
+            'action'      => 'QueryProduct',
+            'version'     => '2018-01-20',
+            'protocol'    => 'HTTPS',
+            'pathname'    => '/',
+            'method'      => 'POST',
+            'authType'    => 'AK',
+            'style'       => 'RPC',
+            'reqBodyType' => 'formData',
+            'bodyType'    => 'json',
         ]);
 
-        return QueryProductResponse::fromMap($this->doRPCRequest('QueryProduct', '2018-01-20', 'HTTPS', 'POST', 'AK', 'json', $req, $runtime));
+        return QueryProductResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
@@ -6464,11 +12072,29 @@ class Iot extends OpenApiClient
     public function queryProductCertInfoWithOptions($request, $runtime)
     {
         Utils::validateModel($request);
+        $query = [];
+        if (!Utils::isUnset($request->iotInstanceId)) {
+            $query['IotInstanceId'] = $request->iotInstanceId;
+        }
+        if (!Utils::isUnset($request->productKey)) {
+            $query['ProductKey'] = $request->productKey;
+        }
         $req = new OpenApiRequest([
-            'body' => Utils::toMap($request),
+            'query' => OpenApiUtilClient::query($query),
+        ]);
+        $params = new Params([
+            'action'      => 'QueryProductCertInfo',
+            'version'     => '2018-01-20',
+            'protocol'    => 'HTTPS',
+            'pathname'    => '/',
+            'method'      => 'POST',
+            'authType'    => 'AK',
+            'style'       => 'RPC',
+            'reqBodyType' => 'formData',
+            'bodyType'    => 'json',
         ]);
 
-        return QueryProductCertInfoResponse::fromMap($this->doRPCRequest('QueryProductCertInfo', '2018-01-20', 'HTTPS', 'POST', 'AK', 'json', $req, $runtime));
+        return QueryProductCertInfoResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
@@ -6492,11 +12118,38 @@ class Iot extends OpenApiClient
     public function queryProductListWithOptions($request, $runtime)
     {
         Utils::validateModel($request);
+        $query = [];
+        if (!Utils::isUnset($request->aliyunCommodityCode)) {
+            $query['AliyunCommodityCode'] = $request->aliyunCommodityCode;
+        }
+        if (!Utils::isUnset($request->currentPage)) {
+            $query['CurrentPage'] = $request->currentPage;
+        }
+        if (!Utils::isUnset($request->iotInstanceId)) {
+            $query['IotInstanceId'] = $request->iotInstanceId;
+        }
+        if (!Utils::isUnset($request->pageSize)) {
+            $query['PageSize'] = $request->pageSize;
+        }
+        if (!Utils::isUnset($request->resourceGroupId)) {
+            $query['ResourceGroupId'] = $request->resourceGroupId;
+        }
         $req = new OpenApiRequest([
-            'body' => Utils::toMap($request),
+            'query' => OpenApiUtilClient::query($query),
+        ]);
+        $params = new Params([
+            'action'      => 'QueryProductList',
+            'version'     => '2018-01-20',
+            'protocol'    => 'HTTPS',
+            'pathname'    => '/',
+            'method'      => 'POST',
+            'authType'    => 'AK',
+            'style'       => 'RPC',
+            'reqBodyType' => 'formData',
+            'bodyType'    => 'json',
         ]);
 
-        return QueryProductListResponse::fromMap($this->doRPCRequest('QueryProductList', '2018-01-20', 'HTTPS', 'POST', 'AK', 'json', $req, $runtime));
+        return QueryProductListResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
@@ -6520,11 +12173,29 @@ class Iot extends OpenApiClient
     public function queryProductTopicWithOptions($request, $runtime)
     {
         Utils::validateModel($request);
+        $query = [];
+        if (!Utils::isUnset($request->iotInstanceId)) {
+            $query['IotInstanceId'] = $request->iotInstanceId;
+        }
+        if (!Utils::isUnset($request->productKey)) {
+            $query['ProductKey'] = $request->productKey;
+        }
         $req = new OpenApiRequest([
-            'body' => Utils::toMap($request),
+            'query' => OpenApiUtilClient::query($query),
+        ]);
+        $params = new Params([
+            'action'      => 'QueryProductTopic',
+            'version'     => '2018-01-20',
+            'protocol'    => 'HTTPS',
+            'pathname'    => '/',
+            'method'      => 'POST',
+            'authType'    => 'AK',
+            'style'       => 'RPC',
+            'reqBodyType' => 'formData',
+            'bodyType'    => 'json',
         ]);
 
-        return QueryProductTopicResponse::fromMap($this->doRPCRequest('QueryProductTopic', '2018-01-20', 'HTTPS', 'POST', 'AK', 'json', $req, $runtime));
+        return QueryProductTopicResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
@@ -6548,11 +12219,35 @@ class Iot extends OpenApiClient
     public function querySceneRuleWithOptions($request, $runtime)
     {
         Utils::validateModel($request);
+        $query = [];
+        if (!Utils::isUnset($request->currentPage)) {
+            $query['CurrentPage'] = $request->currentPage;
+        }
+        if (!Utils::isUnset($request->iotInstanceId)) {
+            $query['IotInstanceId'] = $request->iotInstanceId;
+        }
+        if (!Utils::isUnset($request->pageSize)) {
+            $query['PageSize'] = $request->pageSize;
+        }
+        if (!Utils::isUnset($request->ruleName)) {
+            $query['RuleName'] = $request->ruleName;
+        }
         $req = new OpenApiRequest([
-            'body' => Utils::toMap($request),
+            'query' => OpenApiUtilClient::query($query),
+        ]);
+        $params = new Params([
+            'action'      => 'QuerySceneRule',
+            'version'     => '2018-01-20',
+            'protocol'    => 'HTTPS',
+            'pathname'    => '/',
+            'method'      => 'POST',
+            'authType'    => 'AK',
+            'style'       => 'RPC',
+            'reqBodyType' => 'formData',
+            'bodyType'    => 'json',
         ]);
 
-        return QuerySceneRuleResponse::fromMap($this->doRPCRequest('QuerySceneRule', '2018-01-20', 'HTTPS', 'POST', 'AK', 'json', $req, $runtime));
+        return QuerySceneRuleResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
@@ -6568,6 +12263,417 @@ class Iot extends OpenApiClient
     }
 
     /**
+     * @param QuerySolutionDeviceGroupPageRequest $request
+     * @param RuntimeOptions                      $runtime
+     *
+     * @return QuerySolutionDeviceGroupPageResponse
+     */
+    public function querySolutionDeviceGroupPageWithOptions($request, $runtime)
+    {
+        Utils::validateModel($request);
+        $query = [];
+        if (!Utils::isUnset($request->fuzzyGroupName)) {
+            $query['FuzzyGroupName'] = $request->fuzzyGroupName;
+        }
+        if (!Utils::isUnset($request->iotInstanceId)) {
+            $query['IotInstanceId'] = $request->iotInstanceId;
+        }
+        if (!Utils::isUnset($request->pageId)) {
+            $query['PageId'] = $request->pageId;
+        }
+        if (!Utils::isUnset($request->pageSize)) {
+            $query['PageSize'] = $request->pageSize;
+        }
+        if (!Utils::isUnset($request->projectCode)) {
+            $query['ProjectCode'] = $request->projectCode;
+        }
+        $req = new OpenApiRequest([
+            'query' => OpenApiUtilClient::query($query),
+        ]);
+        $params = new Params([
+            'action'      => 'QuerySolutionDeviceGroupPage',
+            'version'     => '2018-01-20',
+            'protocol'    => 'HTTPS',
+            'pathname'    => '/',
+            'method'      => 'POST',
+            'authType'    => 'AK',
+            'style'       => 'RPC',
+            'reqBodyType' => 'formData',
+            'bodyType'    => 'json',
+        ]);
+
+        return QuerySolutionDeviceGroupPageResponse::fromMap($this->callApi($params, $req, $runtime));
+    }
+
+    /**
+     * @param QuerySolutionDeviceGroupPageRequest $request
+     *
+     * @return QuerySolutionDeviceGroupPageResponse
+     */
+    public function querySolutionDeviceGroupPage($request)
+    {
+        $runtime = new RuntimeOptions([]);
+
+        return $this->querySolutionDeviceGroupPageWithOptions($request, $runtime);
+    }
+
+    /**
+     * @param QuerySpeechRequest $request
+     * @param RuntimeOptions     $runtime
+     *
+     * @return QuerySpeechResponse
+     */
+    public function querySpeechWithOptions($request, $runtime)
+    {
+        Utils::validateModel($request);
+        $req = new OpenApiRequest([
+            'body' => $request->iotInstanceId,
+        ]);
+        $params = new Params([
+            'action'      => 'QuerySpeech',
+            'version'     => '2018-01-20',
+            'protocol'    => 'HTTPS',
+            'pathname'    => '/',
+            'method'      => 'POST',
+            'authType'    => 'AK',
+            'style'       => 'RPC',
+            'reqBodyType' => 'formData',
+            'bodyType'    => 'json',
+        ]);
+
+        return QuerySpeechResponse::fromMap($this->callApi($params, $req, $runtime));
+    }
+
+    /**
+     * @param QuerySpeechRequest $request
+     *
+     * @return QuerySpeechResponse
+     */
+    public function querySpeech($request)
+    {
+        $runtime = new RuntimeOptions([]);
+
+        return $this->querySpeechWithOptions($request, $runtime);
+    }
+
+    /**
+     * @param QuerySpeechListRequest $request
+     * @param RuntimeOptions         $runtime
+     *
+     * @return QuerySpeechListResponse
+     */
+    public function querySpeechListWithOptions($request, $runtime)
+    {
+        Utils::validateModel($request);
+        $req = new OpenApiRequest([
+            'body' => $request->iotInstanceId,
+        ]);
+        $params = new Params([
+            'action'      => 'QuerySpeechList',
+            'version'     => '2018-01-20',
+            'protocol'    => 'HTTPS',
+            'pathname'    => '/',
+            'method'      => 'POST',
+            'authType'    => 'AK',
+            'style'       => 'RPC',
+            'reqBodyType' => 'formData',
+            'bodyType'    => 'json',
+        ]);
+
+        return QuerySpeechListResponse::fromMap($this->callApi($params, $req, $runtime));
+    }
+
+    /**
+     * @param QuerySpeechListRequest $request
+     *
+     * @return QuerySpeechListResponse
+     */
+    public function querySpeechList($request)
+    {
+        $runtime = new RuntimeOptions([]);
+
+        return $this->querySpeechListWithOptions($request, $runtime);
+    }
+
+    /**
+     * @param QuerySpeechPushJobRequest $request
+     * @param RuntimeOptions            $runtime
+     *
+     * @return QuerySpeechPushJobResponse
+     */
+    public function querySpeechPushJobWithOptions($request, $runtime)
+    {
+        Utils::validateModel($request);
+        $query = [];
+        if (!Utils::isUnset($request->jobCode)) {
+            $query['JobCode'] = $request->jobCode;
+        }
+        $req = new OpenApiRequest([
+            'query' => OpenApiUtilClient::query($query),
+            'body'  => $request->iotInstanceId,
+        ]);
+        $params = new Params([
+            'action'      => 'QuerySpeechPushJob',
+            'version'     => '2018-01-20',
+            'protocol'    => 'HTTPS',
+            'pathname'    => '/',
+            'method'      => 'POST',
+            'authType'    => 'AK',
+            'style'       => 'RPC',
+            'reqBodyType' => 'formData',
+            'bodyType'    => 'json',
+        ]);
+
+        return QuerySpeechPushJobResponse::fromMap($this->callApi($params, $req, $runtime));
+    }
+
+    /**
+     * @param QuerySpeechPushJobRequest $request
+     *
+     * @return QuerySpeechPushJobResponse
+     */
+    public function querySpeechPushJob($request)
+    {
+        $runtime = new RuntimeOptions([]);
+
+        return $this->querySpeechPushJobWithOptions($request, $runtime);
+    }
+
+    /**
+     * @param QuerySpeechPushJobDeviceRequest $request
+     * @param RuntimeOptions                  $runtime
+     *
+     * @return QuerySpeechPushJobDeviceResponse
+     */
+    public function querySpeechPushJobDeviceWithOptions($request, $runtime)
+    {
+        Utils::validateModel($request);
+        $req = new OpenApiRequest([
+            'body' => $request->deviceName,
+        ]);
+        $params = new Params([
+            'action'      => 'QuerySpeechPushJobDevice',
+            'version'     => '2018-01-20',
+            'protocol'    => 'HTTPS',
+            'pathname'    => '/',
+            'method'      => 'POST',
+            'authType'    => 'AK',
+            'style'       => 'RPC',
+            'reqBodyType' => 'formData',
+            'bodyType'    => 'json',
+        ]);
+
+        return QuerySpeechPushJobDeviceResponse::fromMap($this->callApi($params, $req, $runtime));
+    }
+
+    /**
+     * @param QuerySpeechPushJobDeviceRequest $request
+     *
+     * @return QuerySpeechPushJobDeviceResponse
+     */
+    public function querySpeechPushJobDevice($request)
+    {
+        $runtime = new RuntimeOptions([]);
+
+        return $this->querySpeechPushJobDeviceWithOptions($request, $runtime);
+    }
+
+    /**
+     * @param QuerySpeechPushJobSpeechRequest $request
+     * @param RuntimeOptions                  $runtime
+     *
+     * @return QuerySpeechPushJobSpeechResponse
+     */
+    public function querySpeechPushJobSpeechWithOptions($request, $runtime)
+    {
+        Utils::validateModel($request);
+        $req = new OpenApiRequest([
+            'body' => $request->iotInstanceId,
+        ]);
+        $params = new Params([
+            'action'      => 'QuerySpeechPushJobSpeech',
+            'version'     => '2018-01-20',
+            'protocol'    => 'HTTPS',
+            'pathname'    => '/',
+            'method'      => 'POST',
+            'authType'    => 'AK',
+            'style'       => 'RPC',
+            'reqBodyType' => 'formData',
+            'bodyType'    => 'json',
+        ]);
+
+        return QuerySpeechPushJobSpeechResponse::fromMap($this->callApi($params, $req, $runtime));
+    }
+
+    /**
+     * @param QuerySpeechPushJobSpeechRequest $request
+     *
+     * @return QuerySpeechPushJobSpeechResponse
+     */
+    public function querySpeechPushJobSpeech($request)
+    {
+        $runtime = new RuntimeOptions([]);
+
+        return $this->querySpeechPushJobSpeechWithOptions($request, $runtime);
+    }
+
+    /**
+     * @param QueryStudioAppDomainListOpenRequest $request
+     * @param RuntimeOptions                      $runtime
+     *
+     * @return QueryStudioAppDomainListOpenResponse
+     */
+    public function queryStudioAppDomainListOpenWithOptions($request, $runtime)
+    {
+        Utils::validateModel($request);
+        $req = new OpenApiRequest([
+            'body' => $request->appId,
+        ]);
+        $params = new Params([
+            'action'      => 'QueryStudioAppDomainListOpen',
+            'version'     => '2018-01-20',
+            'protocol'    => 'HTTPS',
+            'pathname'    => '/',
+            'method'      => 'POST',
+            'authType'    => 'AK',
+            'style'       => 'RPC',
+            'reqBodyType' => 'formData',
+            'bodyType'    => 'json',
+        ]);
+
+        return QueryStudioAppDomainListOpenResponse::fromMap($this->callApi($params, $req, $runtime));
+    }
+
+    /**
+     * @param QueryStudioAppDomainListOpenRequest $request
+     *
+     * @return QueryStudioAppDomainListOpenResponse
+     */
+    public function queryStudioAppDomainListOpen($request)
+    {
+        $runtime = new RuntimeOptions([]);
+
+        return $this->queryStudioAppDomainListOpenWithOptions($request, $runtime);
+    }
+
+    /**
+     * @param QueryStudioAppListRequest $request
+     * @param RuntimeOptions            $runtime
+     *
+     * @return QueryStudioAppListResponse
+     */
+    public function queryStudioAppListWithOptions($request, $runtime)
+    {
+        Utils::validateModel($request);
+        $req = new OpenApiRequest([
+            'body' => $request->fuzzyName,
+        ]);
+        $params = new Params([
+            'action'      => 'QueryStudioAppList',
+            'version'     => '2018-01-20',
+            'protocol'    => 'HTTPS',
+            'pathname'    => '/',
+            'method'      => 'POST',
+            'authType'    => 'AK',
+            'style'       => 'RPC',
+            'reqBodyType' => 'formData',
+            'bodyType'    => 'json',
+        ]);
+
+        return QueryStudioAppListResponse::fromMap($this->callApi($params, $req, $runtime));
+    }
+
+    /**
+     * @param QueryStudioAppListRequest $request
+     *
+     * @return QueryStudioAppListResponse
+     */
+    public function queryStudioAppList($request)
+    {
+        $runtime = new RuntimeOptions([]);
+
+        return $this->queryStudioAppListWithOptions($request, $runtime);
+    }
+
+    /**
+     * @param QueryStudioAppPageListOpenRequest $request
+     * @param RuntimeOptions                    $runtime
+     *
+     * @return QueryStudioAppPageListOpenResponse
+     */
+    public function queryStudioAppPageListOpenWithOptions($request, $runtime)
+    {
+        Utils::validateModel($request);
+        $req = new OpenApiRequest([
+            'body' => $request->appId,
+        ]);
+        $params = new Params([
+            'action'      => 'QueryStudioAppPageListOpen',
+            'version'     => '2018-01-20',
+            'protocol'    => 'HTTPS',
+            'pathname'    => '/',
+            'method'      => 'POST',
+            'authType'    => 'AK',
+            'style'       => 'RPC',
+            'reqBodyType' => 'formData',
+            'bodyType'    => 'json',
+        ]);
+
+        return QueryStudioAppPageListOpenResponse::fromMap($this->callApi($params, $req, $runtime));
+    }
+
+    /**
+     * @param QueryStudioAppPageListOpenRequest $request
+     *
+     * @return QueryStudioAppPageListOpenResponse
+     */
+    public function queryStudioAppPageListOpen($request)
+    {
+        $runtime = new RuntimeOptions([]);
+
+        return $this->queryStudioAppPageListOpenWithOptions($request, $runtime);
+    }
+
+    /**
+     * @param QueryStudioProjectListRequest $request
+     * @param RuntimeOptions                $runtime
+     *
+     * @return QueryStudioProjectListResponse
+     */
+    public function queryStudioProjectListWithOptions($request, $runtime)
+    {
+        Utils::validateModel($request);
+        $req = new OpenApiRequest([
+            'body' => $request->iotInstanceId,
+        ]);
+        $params = new Params([
+            'action'      => 'QueryStudioProjectList',
+            'version'     => '2018-01-20',
+            'protocol'    => 'HTTPS',
+            'pathname'    => '/',
+            'method'      => 'POST',
+            'authType'    => 'AK',
+            'style'       => 'RPC',
+            'reqBodyType' => 'formData',
+            'bodyType'    => 'json',
+        ]);
+
+        return QueryStudioProjectListResponse::fromMap($this->callApi($params, $req, $runtime));
+    }
+
+    /**
+     * @param QueryStudioProjectListRequest $request
+     *
+     * @return QueryStudioProjectListResponse
+     */
+    public function queryStudioProjectList($request)
+    {
+        $runtime = new RuntimeOptions([]);
+
+        return $this->queryStudioProjectListWithOptions($request, $runtime);
+    }
+
+    /**
      * @param QuerySubscribeRelationRequest $request
      * @param RuntimeOptions                $runtime
      *
@@ -6576,11 +12682,32 @@ class Iot extends OpenApiClient
     public function querySubscribeRelationWithOptions($request, $runtime)
     {
         Utils::validateModel($request);
+        $query = [];
+        if (!Utils::isUnset($request->iotInstanceId)) {
+            $query['IotInstanceId'] = $request->iotInstanceId;
+        }
+        if (!Utils::isUnset($request->productKey)) {
+            $query['ProductKey'] = $request->productKey;
+        }
+        if (!Utils::isUnset($request->type)) {
+            $query['Type'] = $request->type;
+        }
         $req = new OpenApiRequest([
-            'body' => Utils::toMap($request),
+            'query' => OpenApiUtilClient::query($query),
+        ]);
+        $params = new Params([
+            'action'      => 'QuerySubscribeRelation',
+            'version'     => '2018-01-20',
+            'protocol'    => 'HTTPS',
+            'pathname'    => '/',
+            'method'      => 'POST',
+            'authType'    => 'AK',
+            'style'       => 'RPC',
+            'reqBodyType' => 'formData',
+            'bodyType'    => 'json',
         ]);
 
-        return QuerySubscribeRelationResponse::fromMap($this->doRPCRequest('QuerySubscribeRelation', '2018-01-20', 'HTTPS', 'POST', 'AK', 'json', $req, $runtime));
+        return QuerySubscribeRelationResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
@@ -6604,11 +12731,44 @@ class Iot extends OpenApiClient
     public function querySummarySceneRuleLogWithOptions($request, $runtime)
     {
         Utils::validateModel($request);
+        $query = [];
+        if (!Utils::isUnset($request->currentPage)) {
+            $query['CurrentPage'] = $request->currentPage;
+        }
+        if (!Utils::isUnset($request->endTime)) {
+            $query['EndTime'] = $request->endTime;
+        }
+        if (!Utils::isUnset($request->iotInstanceId)) {
+            $query['IotInstanceId'] = $request->iotInstanceId;
+        }
+        if (!Utils::isUnset($request->pageSize)) {
+            $query['PageSize'] = $request->pageSize;
+        }
+        if (!Utils::isUnset($request->ruleId)) {
+            $query['RuleId'] = $request->ruleId;
+        }
+        if (!Utils::isUnset($request->startTime)) {
+            $query['StartTime'] = $request->startTime;
+        }
+        if (!Utils::isUnset($request->status)) {
+            $query['Status'] = $request->status;
+        }
         $req = new OpenApiRequest([
-            'body' => Utils::toMap($request),
+            'query' => OpenApiUtilClient::query($query),
+        ]);
+        $params = new Params([
+            'action'      => 'QuerySummarySceneRuleLog',
+            'version'     => '2018-01-20',
+            'protocol'    => 'HTTPS',
+            'pathname'    => '/',
+            'method'      => 'POST',
+            'authType'    => 'AK',
+            'style'       => 'RPC',
+            'reqBodyType' => 'formData',
+            'bodyType'    => 'json',
         ]);
 
-        return QuerySummarySceneRuleLogResponse::fromMap($this->doRPCRequest('QuerySummarySceneRuleLog', '2018-01-20', 'HTTPS', 'POST', 'AK', 'json', $req, $runtime));
+        return QuerySummarySceneRuleLogResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
@@ -6632,11 +12792,29 @@ class Iot extends OpenApiClient
     public function querySuperDeviceGroupWithOptions($request, $runtime)
     {
         Utils::validateModel($request);
+        $query = [];
+        if (!Utils::isUnset($request->groupId)) {
+            $query['GroupId'] = $request->groupId;
+        }
+        if (!Utils::isUnset($request->iotInstanceId)) {
+            $query['IotInstanceId'] = $request->iotInstanceId;
+        }
         $req = new OpenApiRequest([
-            'body' => Utils::toMap($request),
+            'query' => OpenApiUtilClient::query($query),
+        ]);
+        $params = new Params([
+            'action'      => 'QuerySuperDeviceGroup',
+            'version'     => '2018-01-20',
+            'protocol'    => 'HTTPS',
+            'pathname'    => '/',
+            'method'      => 'POST',
+            'authType'    => 'AK',
+            'style'       => 'RPC',
+            'reqBodyType' => 'formData',
+            'bodyType'    => 'json',
         ]);
 
-        return QuerySuperDeviceGroupResponse::fromMap($this->doRPCRequest('QuerySuperDeviceGroup', '2018-01-20', 'HTTPS', 'POST', 'AK', 'json', $req, $runtime));
+        return QuerySuperDeviceGroupResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
@@ -6660,11 +12838,29 @@ class Iot extends OpenApiClient
     public function queryTaskWithOptions($request, $runtime)
     {
         Utils::validateModel($request);
+        $query = [];
+        if (!Utils::isUnset($request->iotInstanceId)) {
+            $query['IotInstanceId'] = $request->iotInstanceId;
+        }
+        if (!Utils::isUnset($request->taskId)) {
+            $query['TaskId'] = $request->taskId;
+        }
         $req = new OpenApiRequest([
-            'body' => Utils::toMap($request),
+            'query' => OpenApiUtilClient::query($query),
+        ]);
+        $params = new Params([
+            'action'      => 'QueryTask',
+            'version'     => '2018-01-20',
+            'protocol'    => 'HTTPS',
+            'pathname'    => '/',
+            'method'      => 'POST',
+            'authType'    => 'AK',
+            'style'       => 'RPC',
+            'reqBodyType' => 'formData',
+            'bodyType'    => 'json',
         ]);
 
-        return QueryTaskResponse::fromMap($this->doRPCRequest('QueryTask', '2018-01-20', 'HTTPS', 'POST', 'AK', 'json', $req, $runtime));
+        return QueryTaskResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
@@ -6688,11 +12884,38 @@ class Iot extends OpenApiClient
     public function queryThingModelWithOptions($request, $runtime)
     {
         Utils::validateModel($request);
+        $query = [];
+        if (!Utils::isUnset($request->functionBlockId)) {
+            $query['FunctionBlockId'] = $request->functionBlockId;
+        }
+        if (!Utils::isUnset($request->iotInstanceId)) {
+            $query['IotInstanceId'] = $request->iotInstanceId;
+        }
+        if (!Utils::isUnset($request->modelVersion)) {
+            $query['ModelVersion'] = $request->modelVersion;
+        }
+        if (!Utils::isUnset($request->productKey)) {
+            $query['ProductKey'] = $request->productKey;
+        }
+        if (!Utils::isUnset($request->resourceGroupId)) {
+            $query['ResourceGroupId'] = $request->resourceGroupId;
+        }
         $req = new OpenApiRequest([
-            'body' => Utils::toMap($request),
+            'query' => OpenApiUtilClient::query($query),
+        ]);
+        $params = new Params([
+            'action'      => 'QueryThingModel',
+            'version'     => '2018-01-20',
+            'protocol'    => 'HTTPS',
+            'pathname'    => '/',
+            'method'      => 'POST',
+            'authType'    => 'AK',
+            'style'       => 'RPC',
+            'reqBodyType' => 'formData',
+            'bodyType'    => 'json',
         ]);
 
-        return QueryThingModelResponse::fromMap($this->doRPCRequest('QueryThingModel', '2018-01-20', 'HTTPS', 'POST', 'AK', 'json', $req, $runtime));
+        return QueryThingModelResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
@@ -6716,11 +12939,38 @@ class Iot extends OpenApiClient
     public function queryThingModelExtendConfigWithOptions($request, $runtime)
     {
         Utils::validateModel($request);
+        $query = [];
+        if (!Utils::isUnset($request->functionBlockId)) {
+            $query['FunctionBlockId'] = $request->functionBlockId;
+        }
+        if (!Utils::isUnset($request->iotInstanceId)) {
+            $query['IotInstanceId'] = $request->iotInstanceId;
+        }
+        if (!Utils::isUnset($request->modelVersion)) {
+            $query['ModelVersion'] = $request->modelVersion;
+        }
+        if (!Utils::isUnset($request->productKey)) {
+            $query['ProductKey'] = $request->productKey;
+        }
+        if (!Utils::isUnset($request->resourceGroupId)) {
+            $query['ResourceGroupId'] = $request->resourceGroupId;
+        }
         $req = new OpenApiRequest([
-            'body' => Utils::toMap($request),
+            'query' => OpenApiUtilClient::query($query),
+        ]);
+        $params = new Params([
+            'action'      => 'QueryThingModelExtendConfig',
+            'version'     => '2018-01-20',
+            'protocol'    => 'HTTPS',
+            'pathname'    => '/',
+            'method'      => 'POST',
+            'authType'    => 'AK',
+            'style'       => 'RPC',
+            'reqBodyType' => 'formData',
+            'bodyType'    => 'json',
         ]);
 
-        return QueryThingModelExtendConfigResponse::fromMap($this->doRPCRequest('QueryThingModelExtendConfig', '2018-01-20', 'HTTPS', 'POST', 'AK', 'json', $req, $runtime));
+        return QueryThingModelExtendConfigResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
@@ -6744,11 +12994,35 @@ class Iot extends OpenApiClient
     public function queryThingModelExtendConfigPublishedWithOptions($request, $runtime)
     {
         Utils::validateModel($request);
+        $query = [];
+        if (!Utils::isUnset($request->functionBlockId)) {
+            $query['FunctionBlockId'] = $request->functionBlockId;
+        }
+        if (!Utils::isUnset($request->iotInstanceId)) {
+            $query['IotInstanceId'] = $request->iotInstanceId;
+        }
+        if (!Utils::isUnset($request->modelVersion)) {
+            $query['ModelVersion'] = $request->modelVersion;
+        }
+        if (!Utils::isUnset($request->productKey)) {
+            $query['ProductKey'] = $request->productKey;
+        }
         $req = new OpenApiRequest([
-            'body' => Utils::toMap($request),
+            'query' => OpenApiUtilClient::query($query),
+        ]);
+        $params = new Params([
+            'action'      => 'QueryThingModelExtendConfigPublished',
+            'version'     => '2018-01-20',
+            'protocol'    => 'HTTPS',
+            'pathname'    => '/',
+            'method'      => 'POST',
+            'authType'    => 'AK',
+            'style'       => 'RPC',
+            'reqBodyType' => 'formData',
+            'bodyType'    => 'json',
         ]);
 
-        return QueryThingModelExtendConfigPublishedResponse::fromMap($this->doRPCRequest('QueryThingModelExtendConfigPublished', '2018-01-20', 'HTTPS', 'POST', 'AK', 'json', $req, $runtime));
+        return QueryThingModelExtendConfigPublishedResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
@@ -6772,11 +13046,38 @@ class Iot extends OpenApiClient
     public function queryThingModelPublishedWithOptions($request, $runtime)
     {
         Utils::validateModel($request);
+        $query = [];
+        if (!Utils::isUnset($request->functionBlockId)) {
+            $query['FunctionBlockId'] = $request->functionBlockId;
+        }
+        if (!Utils::isUnset($request->iotInstanceId)) {
+            $query['IotInstanceId'] = $request->iotInstanceId;
+        }
+        if (!Utils::isUnset($request->modelVersion)) {
+            $query['ModelVersion'] = $request->modelVersion;
+        }
+        if (!Utils::isUnset($request->productKey)) {
+            $query['ProductKey'] = $request->productKey;
+        }
+        if (!Utils::isUnset($request->resourceGroupId)) {
+            $query['ResourceGroupId'] = $request->resourceGroupId;
+        }
         $req = new OpenApiRequest([
-            'body' => Utils::toMap($request),
+            'query' => OpenApiUtilClient::query($query),
+        ]);
+        $params = new Params([
+            'action'      => 'QueryThingModelPublished',
+            'version'     => '2018-01-20',
+            'protocol'    => 'HTTPS',
+            'pathname'    => '/',
+            'method'      => 'POST',
+            'authType'    => 'AK',
+            'style'       => 'RPC',
+            'reqBodyType' => 'formData',
+            'bodyType'    => 'json',
         ]);
 
-        return QueryThingModelPublishedResponse::fromMap($this->doRPCRequest('QueryThingModelPublished', '2018-01-20', 'HTTPS', 'POST', 'AK', 'json', $req, $runtime));
+        return QueryThingModelPublishedResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
@@ -6800,11 +13101,32 @@ class Iot extends OpenApiClient
     public function queryTopicReverseRouteTableWithOptions($request, $runtime)
     {
         Utils::validateModel($request);
+        $query = [];
+        if (!Utils::isUnset($request->iotInstanceId)) {
+            $query['IotInstanceId'] = $request->iotInstanceId;
+        }
+        if (!Utils::isUnset($request->regionId)) {
+            $query['RegionId'] = $request->regionId;
+        }
+        if (!Utils::isUnset($request->topic)) {
+            $query['Topic'] = $request->topic;
+        }
         $req = new OpenApiRequest([
-            'body' => Utils::toMap($request),
+            'query' => OpenApiUtilClient::query($query),
+        ]);
+        $params = new Params([
+            'action'      => 'QueryTopicReverseRouteTable',
+            'version'     => '2018-01-20',
+            'protocol'    => 'HTTPS',
+            'pathname'    => '/',
+            'method'      => 'POST',
+            'authType'    => 'AK',
+            'style'       => 'RPC',
+            'reqBodyType' => 'formData',
+            'bodyType'    => 'json',
         ]);
 
-        return QueryTopicReverseRouteTableResponse::fromMap($this->doRPCRequest('QueryTopicReverseRouteTable', '2018-01-20', 'HTTPS', 'POST', 'AK', 'json', $req, $runtime));
+        return QueryTopicReverseRouteTableResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
@@ -6828,11 +13150,29 @@ class Iot extends OpenApiClient
     public function queryTopicRouteTableWithOptions($request, $runtime)
     {
         Utils::validateModel($request);
+        $query = [];
+        if (!Utils::isUnset($request->iotInstanceId)) {
+            $query['IotInstanceId'] = $request->iotInstanceId;
+        }
+        if (!Utils::isUnset($request->topic)) {
+            $query['Topic'] = $request->topic;
+        }
         $req = new OpenApiRequest([
-            'body' => Utils::toMap($request),
+            'query' => OpenApiUtilClient::query($query),
+        ]);
+        $params = new Params([
+            'action'      => 'QueryTopicRouteTable',
+            'version'     => '2018-01-20',
+            'protocol'    => 'HTTPS',
+            'pathname'    => '/',
+            'method'      => 'POST',
+            'authType'    => 'AK',
+            'style'       => 'RPC',
+            'reqBodyType' => 'formData',
+            'bodyType'    => 'json',
         ]);
 
-        return QueryTopicRouteTableResponse::fromMap($this->doRPCRequest('QueryTopicRouteTable', '2018-01-20', 'HTTPS', 'POST', 'AK', 'json', $req, $runtime));
+        return QueryTopicRouteTableResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
@@ -6848,6 +13188,64 @@ class Iot extends OpenApiClient
     }
 
     /**
+     * @param RRpcRequest    $request
+     * @param RuntimeOptions $runtime
+     *
+     * @return RRpcResponse
+     */
+    public function rRpcWithOptions($request, $runtime)
+    {
+        Utils::validateModel($request);
+        $query = [];
+        if (!Utils::isUnset($request->deviceName)) {
+            $query['DeviceName'] = $request->deviceName;
+        }
+        if (!Utils::isUnset($request->iotInstanceId)) {
+            $query['IotInstanceId'] = $request->iotInstanceId;
+        }
+        if (!Utils::isUnset($request->productKey)) {
+            $query['ProductKey'] = $request->productKey;
+        }
+        if (!Utils::isUnset($request->requestBase64Byte)) {
+            $query['RequestBase64Byte'] = $request->requestBase64Byte;
+        }
+        if (!Utils::isUnset($request->timeout)) {
+            $query['Timeout'] = $request->timeout;
+        }
+        if (!Utils::isUnset($request->topic)) {
+            $query['Topic'] = $request->topic;
+        }
+        $req = new OpenApiRequest([
+            'query' => OpenApiUtilClient::query($query),
+        ]);
+        $params = new Params([
+            'action'      => 'RRpc',
+            'version'     => '2018-01-20',
+            'protocol'    => 'HTTPS',
+            'pathname'    => '/',
+            'method'      => 'POST',
+            'authType'    => 'AK',
+            'style'       => 'RPC',
+            'reqBodyType' => 'formData',
+            'bodyType'    => 'json',
+        ]);
+
+        return RRpcResponse::fromMap($this->callApi($params, $req, $runtime));
+    }
+
+    /**
+     * @param RRpcRequest $request
+     *
+     * @return RRpcResponse
+     */
+    public function rRpc($request)
+    {
+        $runtime = new RuntimeOptions([]);
+
+        return $this->rRpcWithOptions($request, $runtime);
+    }
+
+    /**
      * @param RefreshDeviceTunnelSharePasswordRequest $request
      * @param RuntimeOptions                          $runtime
      *
@@ -6856,11 +13254,32 @@ class Iot extends OpenApiClient
     public function refreshDeviceTunnelSharePasswordWithOptions($request, $runtime)
     {
         Utils::validateModel($request);
+        $query = [];
+        if (!Utils::isUnset($request->deviceName)) {
+            $query['DeviceName'] = $request->deviceName;
+        }
+        if (!Utils::isUnset($request->iotInstanceId)) {
+            $query['IotInstanceId'] = $request->iotInstanceId;
+        }
+        if (!Utils::isUnset($request->productKey)) {
+            $query['ProductKey'] = $request->productKey;
+        }
         $req = new OpenApiRequest([
-            'body' => Utils::toMap($request),
+            'query' => OpenApiUtilClient::query($query),
+        ]);
+        $params = new Params([
+            'action'      => 'RefreshDeviceTunnelSharePassword',
+            'version'     => '2018-01-20',
+            'protocol'    => 'HTTPS',
+            'pathname'    => '/',
+            'method'      => 'POST',
+            'authType'    => 'AK',
+            'style'       => 'RPC',
+            'reqBodyType' => 'formData',
+            'bodyType'    => 'json',
         ]);
 
-        return RefreshDeviceTunnelSharePasswordResponse::fromMap($this->doRPCRequest('RefreshDeviceTunnelSharePassword', '2018-01-20', 'HTTPS', 'POST', 'AK', 'json', $req, $runtime));
+        return RefreshDeviceTunnelSharePasswordResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
@@ -6876,6 +13295,45 @@ class Iot extends OpenApiClient
     }
 
     /**
+     * @param RefreshStudioAppTokenOpenRequest $request
+     * @param RuntimeOptions                   $runtime
+     *
+     * @return RefreshStudioAppTokenOpenResponse
+     */
+    public function refreshStudioAppTokenOpenWithOptions($request, $runtime)
+    {
+        Utils::validateModel($request);
+        $req = new OpenApiRequest([
+            'body' => $request->appId,
+        ]);
+        $params = new Params([
+            'action'      => 'RefreshStudioAppTokenOpen',
+            'version'     => '2018-01-20',
+            'protocol'    => 'HTTPS',
+            'pathname'    => '/',
+            'method'      => 'POST',
+            'authType'    => 'AK',
+            'style'       => 'RPC',
+            'reqBodyType' => 'formData',
+            'bodyType'    => 'json',
+        ]);
+
+        return RefreshStudioAppTokenOpenResponse::fromMap($this->callApi($params, $req, $runtime));
+    }
+
+    /**
+     * @param RefreshStudioAppTokenOpenRequest $request
+     *
+     * @return RefreshStudioAppTokenOpenResponse
+     */
+    public function refreshStudioAppTokenOpen($request)
+    {
+        $runtime = new RuntimeOptions([]);
+
+        return $this->refreshStudioAppTokenOpenWithOptions($request, $runtime);
+    }
+
+    /**
      * @param RegisterDeviceRequest $request
      * @param RuntimeOptions        $runtime
      *
@@ -6884,11 +13342,50 @@ class Iot extends OpenApiClient
     public function registerDeviceWithOptions($request, $runtime)
     {
         Utils::validateModel($request);
+        $query = [];
+        if (!Utils::isUnset($request->appKey)) {
+            $query['AppKey'] = $request->appKey;
+        }
+        if (!Utils::isUnset($request->devEui)) {
+            $query['DevEui'] = $request->devEui;
+        }
+        if (!Utils::isUnset($request->deviceName)) {
+            $query['DeviceName'] = $request->deviceName;
+        }
+        if (!Utils::isUnset($request->iotInstanceId)) {
+            $query['IotInstanceId'] = $request->iotInstanceId;
+        }
+        if (!Utils::isUnset($request->joinEui)) {
+            $query['JoinEui'] = $request->joinEui;
+        }
+        if (!Utils::isUnset($request->loraNodeType)) {
+            $query['LoraNodeType'] = $request->loraNodeType;
+        }
+        if (!Utils::isUnset($request->nickname)) {
+            $query['Nickname'] = $request->nickname;
+        }
+        if (!Utils::isUnset($request->pinCode)) {
+            $query['PinCode'] = $request->pinCode;
+        }
+        if (!Utils::isUnset($request->productKey)) {
+            $query['ProductKey'] = $request->productKey;
+        }
         $req = new OpenApiRequest([
-            'body' => Utils::toMap($request),
+            'query' => OpenApiUtilClient::query($query),
+        ]);
+        $params = new Params([
+            'action'      => 'RegisterDevice',
+            'version'     => '2018-01-20',
+            'protocol'    => 'HTTPS',
+            'pathname'    => '/',
+            'method'      => 'POST',
+            'authType'    => 'AK',
+            'style'       => 'RPC',
+            'reqBodyType' => 'formData',
+            'bodyType'    => 'json',
         ]);
 
-        return RegisterDeviceResponse::fromMap($this->doRPCRequest('RegisterDevice', '2018-01-20', 'HTTPS', 'POST', 'AK', 'json', $req, $runtime));
+        return RegisterDeviceResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
@@ -6912,11 +13409,32 @@ class Iot extends OpenApiClient
     public function releaseEdgeDriverVersionWithOptions($request, $runtime)
     {
         Utils::validateModel($request);
+        $query = [];
+        if (!Utils::isUnset($request->driverId)) {
+            $query['DriverId'] = $request->driverId;
+        }
+        if (!Utils::isUnset($request->driverVersion)) {
+            $query['DriverVersion'] = $request->driverVersion;
+        }
+        if (!Utils::isUnset($request->iotInstanceId)) {
+            $query['IotInstanceId'] = $request->iotInstanceId;
+        }
         $req = new OpenApiRequest([
-            'body' => Utils::toMap($request),
+            'query' => OpenApiUtilClient::query($query),
+        ]);
+        $params = new Params([
+            'action'      => 'ReleaseEdgeDriverVersion',
+            'version'     => '2018-01-20',
+            'protocol'    => 'HTTPS',
+            'pathname'    => '/',
+            'method'      => 'POST',
+            'authType'    => 'AK',
+            'style'       => 'RPC',
+            'reqBodyType' => 'formData',
+            'bodyType'    => 'json',
         ]);
 
-        return ReleaseEdgeDriverVersionResponse::fromMap($this->doRPCRequest('ReleaseEdgeDriverVersion', '2018-01-20', 'HTTPS', 'POST', 'AK', 'json', $req, $runtime));
+        return ReleaseEdgeDriverVersionResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
@@ -6940,11 +13458,29 @@ class Iot extends OpenApiClient
     public function releaseProductWithOptions($request, $runtime)
     {
         Utils::validateModel($request);
+        $query = [];
+        if (!Utils::isUnset($request->iotInstanceId)) {
+            $query['IotInstanceId'] = $request->iotInstanceId;
+        }
+        if (!Utils::isUnset($request->productKey)) {
+            $query['ProductKey'] = $request->productKey;
+        }
         $req = new OpenApiRequest([
-            'body' => Utils::toMap($request),
+            'query' => OpenApiUtilClient::query($query),
+        ]);
+        $params = new Params([
+            'action'      => 'ReleaseProduct',
+            'version'     => '2018-01-20',
+            'protocol'    => 'HTTPS',
+            'pathname'    => '/',
+            'method'      => 'POST',
+            'authType'    => 'AK',
+            'style'       => 'RPC',
+            'reqBodyType' => 'formData',
+            'bodyType'    => 'json',
         ]);
 
-        return ReleaseProductResponse::fromMap($this->doRPCRequest('ReleaseProduct', '2018-01-20', 'HTTPS', 'POST', 'AK', 'json', $req, $runtime));
+        return ReleaseProductResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
@@ -6968,11 +13504,35 @@ class Iot extends OpenApiClient
     public function removeThingTopoWithOptions($request, $runtime)
     {
         Utils::validateModel($request);
+        $query = [];
+        if (!Utils::isUnset($request->deviceName)) {
+            $query['DeviceName'] = $request->deviceName;
+        }
+        if (!Utils::isUnset($request->iotId)) {
+            $query['IotId'] = $request->iotId;
+        }
+        if (!Utils::isUnset($request->iotInstanceId)) {
+            $query['IotInstanceId'] = $request->iotInstanceId;
+        }
+        if (!Utils::isUnset($request->productKey)) {
+            $query['ProductKey'] = $request->productKey;
+        }
         $req = new OpenApiRequest([
-            'body' => Utils::toMap($request),
+            'query' => OpenApiUtilClient::query($query),
+        ]);
+        $params = new Params([
+            'action'      => 'RemoveThingTopo',
+            'version'     => '2018-01-20',
+            'protocol'    => 'HTTPS',
+            'pathname'    => '/',
+            'method'      => 'POST',
+            'authType'    => 'AK',
+            'style'       => 'RPC',
+            'reqBodyType' => 'formData',
+            'bodyType'    => 'json',
         ]);
 
-        return RemoveThingTopoResponse::fromMap($this->doRPCRequest('RemoveThingTopo', '2018-01-20', 'HTTPS', 'POST', 'AK', 'json', $req, $runtime));
+        return RemoveThingTopoResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
@@ -6996,11 +13556,35 @@ class Iot extends OpenApiClient
     public function replaceEdgeInstanceGatewayWithOptions($request, $runtime)
     {
         Utils::validateModel($request);
+        $query = [];
+        if (!Utils::isUnset($request->currentGatewayId)) {
+            $query['CurrentGatewayId'] = $request->currentGatewayId;
+        }
+        if (!Utils::isUnset($request->instanceId)) {
+            $query['InstanceId'] = $request->instanceId;
+        }
+        if (!Utils::isUnset($request->iotInstanceId)) {
+            $query['IotInstanceId'] = $request->iotInstanceId;
+        }
+        if (!Utils::isUnset($request->newGatewayId)) {
+            $query['NewGatewayId'] = $request->newGatewayId;
+        }
         $req = new OpenApiRequest([
-            'body' => Utils::toMap($request),
+            'query' => OpenApiUtilClient::query($query),
+        ]);
+        $params = new Params([
+            'action'      => 'ReplaceEdgeInstanceGateway',
+            'version'     => '2018-01-20',
+            'protocol'    => 'HTTPS',
+            'pathname'    => '/',
+            'method'      => 'POST',
+            'authType'    => 'AK',
+            'style'       => 'RPC',
+            'reqBodyType' => 'formData',
+            'bodyType'    => 'json',
         ]);
 
-        return ReplaceEdgeInstanceGatewayResponse::fromMap($this->doRPCRequest('ReplaceEdgeInstanceGateway', '2018-01-20', 'HTTPS', 'POST', 'AK', 'json', $req, $runtime));
+        return ReplaceEdgeInstanceGatewayResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
@@ -7016,6 +13600,52 @@ class Iot extends OpenApiClient
     }
 
     /**
+     * @param RerunJobRequest $request
+     * @param RuntimeOptions  $runtime
+     *
+     * @return RerunJobResponse
+     */
+    public function rerunJobWithOptions($request, $runtime)
+    {
+        Utils::validateModel($request);
+        $query = [];
+        if (!Utils::isUnset($request->iotInstanceId)) {
+            $query['IotInstanceId'] = $request->iotInstanceId;
+        }
+        if (!Utils::isUnset($request->jobId)) {
+            $query['JobId'] = $request->jobId;
+        }
+        $req = new OpenApiRequest([
+            'query' => OpenApiUtilClient::query($query),
+        ]);
+        $params = new Params([
+            'action'      => 'RerunJob',
+            'version'     => '2018-01-20',
+            'protocol'    => 'HTTPS',
+            'pathname'    => '/',
+            'method'      => 'POST',
+            'authType'    => 'AK',
+            'style'       => 'RPC',
+            'reqBodyType' => 'formData',
+            'bodyType'    => 'json',
+        ]);
+
+        return RerunJobResponse::fromMap($this->callApi($params, $req, $runtime));
+    }
+
+    /**
+     * @param RerunJobRequest $request
+     *
+     * @return RerunJobResponse
+     */
+    public function rerunJob($request)
+    {
+        $runtime = new RuntimeOptions([]);
+
+        return $this->rerunJobWithOptions($request, $runtime);
+    }
+
+    /**
      * @param ResetConsumerGroupPositionRequest $request
      * @param RuntimeOptions                    $runtime
      *
@@ -7024,11 +13654,29 @@ class Iot extends OpenApiClient
     public function resetConsumerGroupPositionWithOptions($request, $runtime)
     {
         Utils::validateModel($request);
+        $query = [];
+        if (!Utils::isUnset($request->groupId)) {
+            $query['GroupId'] = $request->groupId;
+        }
+        if (!Utils::isUnset($request->iotInstanceId)) {
+            $query['IotInstanceId'] = $request->iotInstanceId;
+        }
         $req = new OpenApiRequest([
-            'body' => Utils::toMap($request),
+            'query' => OpenApiUtilClient::query($query),
+        ]);
+        $params = new Params([
+            'action'      => 'ResetConsumerGroupPosition',
+            'version'     => '2018-01-20',
+            'protocol'    => 'HTTPS',
+            'pathname'    => '/',
+            'method'      => 'POST',
+            'authType'    => 'AK',
+            'style'       => 'RPC',
+            'reqBodyType' => 'formData',
+            'bodyType'    => 'json',
         ]);
 
-        return ResetConsumerGroupPositionResponse::fromMap($this->doRPCRequest('ResetConsumerGroupPosition', '2018-01-20', 'HTTPS', 'POST', 'AK', 'json', $req, $runtime));
+        return ResetConsumerGroupPositionResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
@@ -7052,11 +13700,35 @@ class Iot extends OpenApiClient
     public function resetThingWithOptions($request, $runtime)
     {
         Utils::validateModel($request);
+        $query = [];
+        if (!Utils::isUnset($request->deviceName)) {
+            $query['DeviceName'] = $request->deviceName;
+        }
+        if (!Utils::isUnset($request->iotId)) {
+            $query['IotId'] = $request->iotId;
+        }
+        if (!Utils::isUnset($request->iotInstanceId)) {
+            $query['IotInstanceId'] = $request->iotInstanceId;
+        }
+        if (!Utils::isUnset($request->productKey)) {
+            $query['ProductKey'] = $request->productKey;
+        }
         $req = new OpenApiRequest([
-            'body' => Utils::toMap($request),
+            'query' => OpenApiUtilClient::query($query),
+        ]);
+        $params = new Params([
+            'action'      => 'ResetThing',
+            'version'     => '2018-01-20',
+            'protocol'    => 'HTTPS',
+            'pathname'    => '/',
+            'method'      => 'POST',
+            'authType'    => 'AK',
+            'style'       => 'RPC',
+            'reqBodyType' => 'formData',
+            'bodyType'    => 'json',
         ]);
 
-        return ResetThingResponse::fromMap($this->doRPCRequest('ResetThing', '2018-01-20', 'HTTPS', 'POST', 'AK', 'json', $req, $runtime));
+        return ResetThingResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
@@ -7072,34 +13744,6 @@ class Iot extends OpenApiClient
     }
 
     /**
-     * @param RRpcRequest    $request
-     * @param RuntimeOptions $runtime
-     *
-     * @return RRpcResponse
-     */
-    public function rRpcWithOptions($request, $runtime)
-    {
-        Utils::validateModel($request);
-        $req = new OpenApiRequest([
-            'body' => Utils::toMap($request),
-        ]);
-
-        return RRpcResponse::fromMap($this->doRPCRequest('RRpc', '2018-01-20', 'HTTPS', 'POST', 'AK', 'json', $req, $runtime));
-    }
-
-    /**
-     * @param RRpcRequest $request
-     *
-     * @return RRpcResponse
-     */
-    public function rRpc($request)
-    {
-        $runtime = new RuntimeOptions([]);
-
-        return $this->rRpcWithOptions($request, $runtime);
-    }
-
-    /**
      * @param SaveDevicePropRequest $request
      * @param RuntimeOptions        $runtime
      *
@@ -7108,11 +13752,38 @@ class Iot extends OpenApiClient
     public function saveDevicePropWithOptions($request, $runtime)
     {
         Utils::validateModel($request);
+        $query = [];
+        if (!Utils::isUnset($request->deviceName)) {
+            $query['DeviceName'] = $request->deviceName;
+        }
+        if (!Utils::isUnset($request->iotId)) {
+            $query['IotId'] = $request->iotId;
+        }
+        if (!Utils::isUnset($request->iotInstanceId)) {
+            $query['IotInstanceId'] = $request->iotInstanceId;
+        }
+        if (!Utils::isUnset($request->productKey)) {
+            $query['ProductKey'] = $request->productKey;
+        }
+        if (!Utils::isUnset($request->props)) {
+            $query['Props'] = $request->props;
+        }
         $req = new OpenApiRequest([
-            'body' => Utils::toMap($request),
+            'query' => OpenApiUtilClient::query($query),
+        ]);
+        $params = new Params([
+            'action'      => 'SaveDeviceProp',
+            'version'     => '2018-01-20',
+            'protocol'    => 'HTTPS',
+            'pathname'    => '/',
+            'method'      => 'POST',
+            'authType'    => 'AK',
+            'style'       => 'RPC',
+            'reqBodyType' => 'formData',
+            'bodyType'    => 'json',
         ]);
 
-        return SaveDevicePropResponse::fromMap($this->doRPCRequest('SaveDeviceProp', '2018-01-20', 'HTTPS', 'POST', 'AK', 'json', $req, $runtime));
+        return SaveDevicePropResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
@@ -7136,11 +13807,41 @@ class Iot extends OpenApiClient
     public function setDeviceDesiredPropertyWithOptions($request, $runtime)
     {
         Utils::validateModel($request);
+        $query = [];
+        if (!Utils::isUnset($request->deviceName)) {
+            $query['DeviceName'] = $request->deviceName;
+        }
+        if (!Utils::isUnset($request->iotId)) {
+            $query['IotId'] = $request->iotId;
+        }
+        if (!Utils::isUnset($request->iotInstanceId)) {
+            $query['IotInstanceId'] = $request->iotInstanceId;
+        }
+        if (!Utils::isUnset($request->items)) {
+            $query['Items'] = $request->items;
+        }
+        if (!Utils::isUnset($request->productKey)) {
+            $query['ProductKey'] = $request->productKey;
+        }
+        if (!Utils::isUnset($request->versions)) {
+            $query['Versions'] = $request->versions;
+        }
         $req = new OpenApiRequest([
-            'body' => Utils::toMap($request),
+            'query' => OpenApiUtilClient::query($query),
+        ]);
+        $params = new Params([
+            'action'      => 'SetDeviceDesiredProperty',
+            'version'     => '2018-01-20',
+            'protocol'    => 'HTTPS',
+            'pathname'    => '/',
+            'method'      => 'POST',
+            'authType'    => 'AK',
+            'style'       => 'RPC',
+            'reqBodyType' => 'formData',
+            'bodyType'    => 'json',
         ]);
 
-        return SetDeviceDesiredPropertyResponse::fromMap($this->doRPCRequest('SetDeviceDesiredProperty', '2018-01-20', 'HTTPS', 'POST', 'AK', 'json', $req, $runtime));
+        return SetDeviceDesiredPropertyResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
@@ -7164,11 +13865,32 @@ class Iot extends OpenApiClient
     public function setDeviceGroupTagsWithOptions($request, $runtime)
     {
         Utils::validateModel($request);
+        $query = [];
+        if (!Utils::isUnset($request->groupId)) {
+            $query['GroupId'] = $request->groupId;
+        }
+        if (!Utils::isUnset($request->iotInstanceId)) {
+            $query['IotInstanceId'] = $request->iotInstanceId;
+        }
+        if (!Utils::isUnset($request->tagString)) {
+            $query['TagString'] = $request->tagString;
+        }
         $req = new OpenApiRequest([
-            'body' => Utils::toMap($request),
+            'query' => OpenApiUtilClient::query($query),
+        ]);
+        $params = new Params([
+            'action'      => 'SetDeviceGroupTags',
+            'version'     => '2018-01-20',
+            'protocol'    => 'HTTPS',
+            'pathname'    => '/',
+            'method'      => 'POST',
+            'authType'    => 'AK',
+            'style'       => 'RPC',
+            'reqBodyType' => 'formData',
+            'bodyType'    => 'json',
         ]);
 
-        return SetDeviceGroupTagsResponse::fromMap($this->doRPCRequest('SetDeviceGroupTags', '2018-01-20', 'HTTPS', 'POST', 'AK', 'json', $req, $runtime));
+        return SetDeviceGroupTagsResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
@@ -7192,11 +13914,38 @@ class Iot extends OpenApiClient
     public function setDevicePropertyWithOptions($request, $runtime)
     {
         Utils::validateModel($request);
+        $query = [];
+        if (!Utils::isUnset($request->deviceName)) {
+            $query['DeviceName'] = $request->deviceName;
+        }
+        if (!Utils::isUnset($request->iotId)) {
+            $query['IotId'] = $request->iotId;
+        }
+        if (!Utils::isUnset($request->iotInstanceId)) {
+            $query['IotInstanceId'] = $request->iotInstanceId;
+        }
+        if (!Utils::isUnset($request->items)) {
+            $query['Items'] = $request->items;
+        }
+        if (!Utils::isUnset($request->productKey)) {
+            $query['ProductKey'] = $request->productKey;
+        }
         $req = new OpenApiRequest([
-            'body' => Utils::toMap($request),
+            'query' => OpenApiUtilClient::query($query),
+        ]);
+        $params = new Params([
+            'action'      => 'SetDeviceProperty',
+            'version'     => '2018-01-20',
+            'protocol'    => 'HTTPS',
+            'pathname'    => '/',
+            'method'      => 'POST',
+            'authType'    => 'AK',
+            'style'       => 'RPC',
+            'reqBodyType' => 'formData',
+            'bodyType'    => 'json',
         ]);
 
-        return SetDevicePropertyResponse::fromMap($this->doRPCRequest('SetDeviceProperty', '2018-01-20', 'HTTPS', 'POST', 'AK', 'json', $req, $runtime));
+        return SetDevicePropertyResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
@@ -7220,11 +13969,35 @@ class Iot extends OpenApiClient
     public function setDevicesPropertyWithOptions($request, $runtime)
     {
         Utils::validateModel($request);
+        $query = [];
+        if (!Utils::isUnset($request->deviceName)) {
+            $query['DeviceName'] = $request->deviceName;
+        }
+        if (!Utils::isUnset($request->iotInstanceId)) {
+            $query['IotInstanceId'] = $request->iotInstanceId;
+        }
+        if (!Utils::isUnset($request->items)) {
+            $query['Items'] = $request->items;
+        }
+        if (!Utils::isUnset($request->productKey)) {
+            $query['ProductKey'] = $request->productKey;
+        }
         $req = new OpenApiRequest([
-            'body' => Utils::toMap($request),
+            'query' => OpenApiUtilClient::query($query),
+        ]);
+        $params = new Params([
+            'action'      => 'SetDevicesProperty',
+            'version'     => '2018-01-20',
+            'protocol'    => 'HTTPS',
+            'pathname'    => '/',
+            'method'      => 'POST',
+            'authType'    => 'AK',
+            'style'       => 'RPC',
+            'reqBodyType' => 'formData',
+            'bodyType'    => 'json',
         ]);
 
-        return SetDevicesPropertyResponse::fromMap($this->doRPCRequest('SetDevicesProperty', '2018-01-20', 'HTTPS', 'POST', 'AK', 'json', $req, $runtime));
+        return SetDevicesPropertyResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
@@ -7248,11 +14021,35 @@ class Iot extends OpenApiClient
     public function setEdgeInstanceDriverConfigsWithOptions($request, $runtime)
     {
         Utils::validateModel($request);
+        $query = [];
+        if (!Utils::isUnset($request->configs)) {
+            $query['Configs'] = $request->configs;
+        }
+        if (!Utils::isUnset($request->driverId)) {
+            $query['DriverId'] = $request->driverId;
+        }
+        if (!Utils::isUnset($request->instanceId)) {
+            $query['InstanceId'] = $request->instanceId;
+        }
+        if (!Utils::isUnset($request->iotInstanceId)) {
+            $query['IotInstanceId'] = $request->iotInstanceId;
+        }
         $req = new OpenApiRequest([
-            'body' => Utils::toMap($request),
+            'query' => OpenApiUtilClient::query($query),
+        ]);
+        $params = new Params([
+            'action'      => 'SetEdgeInstanceDriverConfigs',
+            'version'     => '2018-01-20',
+            'protocol'    => 'HTTPS',
+            'pathname'    => '/',
+            'method'      => 'POST',
+            'authType'    => 'AK',
+            'style'       => 'RPC',
+            'reqBodyType' => 'formData',
+            'bodyType'    => 'json',
         ]);
 
-        return SetEdgeInstanceDriverConfigsResponse::fromMap($this->doRPCRequest('SetEdgeInstanceDriverConfigs', '2018-01-20', 'HTTPS', 'POST', 'AK', 'json', $req, $runtime));
+        return SetEdgeInstanceDriverConfigsResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
@@ -7276,11 +14073,32 @@ class Iot extends OpenApiClient
     public function setProductCertInfoWithOptions($request, $runtime)
     {
         Utils::validateModel($request);
+        $query = [];
+        if (!Utils::isUnset($request->iotInstanceId)) {
+            $query['IotInstanceId'] = $request->iotInstanceId;
+        }
+        if (!Utils::isUnset($request->issueModel)) {
+            $query['IssueModel'] = $request->issueModel;
+        }
+        if (!Utils::isUnset($request->productKey)) {
+            $query['ProductKey'] = $request->productKey;
+        }
         $req = new OpenApiRequest([
-            'body' => Utils::toMap($request),
+            'query' => OpenApiUtilClient::query($query),
+        ]);
+        $params = new Params([
+            'action'      => 'SetProductCertInfo',
+            'version'     => '2018-01-20',
+            'protocol'    => 'HTTPS',
+            'pathname'    => '/',
+            'method'      => 'POST',
+            'authType'    => 'AK',
+            'style'       => 'RPC',
+            'reqBodyType' => 'formData',
+            'bodyType'    => 'json',
         ]);
 
-        return SetProductCertInfoResponse::fromMap($this->doRPCRequest('SetProductCertInfo', '2018-01-20', 'HTTPS', 'POST', 'AK', 'json', $req, $runtime));
+        return SetProductCertInfoResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
@@ -7296,6 +14114,84 @@ class Iot extends OpenApiClient
     }
 
     /**
+     * @param SetStudioProjectCooperationRequest $request
+     * @param RuntimeOptions                     $runtime
+     *
+     * @return SetStudioProjectCooperationResponse
+     */
+    public function setStudioProjectCooperationWithOptions($request, $runtime)
+    {
+        Utils::validateModel($request);
+        $req = new OpenApiRequest([
+            'body' => $request->iotInstanceId,
+        ]);
+        $params = new Params([
+            'action'      => 'SetStudioProjectCooperation',
+            'version'     => '2018-01-20',
+            'protocol'    => 'HTTPS',
+            'pathname'    => '/',
+            'method'      => 'POST',
+            'authType'    => 'AK',
+            'style'       => 'RPC',
+            'reqBodyType' => 'formData',
+            'bodyType'    => 'json',
+        ]);
+
+        return SetStudioProjectCooperationResponse::fromMap($this->callApi($params, $req, $runtime));
+    }
+
+    /**
+     * @param SetStudioProjectCooperationRequest $request
+     *
+     * @return SetStudioProjectCooperationResponse
+     */
+    public function setStudioProjectCooperation($request)
+    {
+        $runtime = new RuntimeOptions([]);
+
+        return $this->setStudioProjectCooperationWithOptions($request, $runtime);
+    }
+
+    /**
+     * @param SetupStudioAppAuthModeOpenRequest $request
+     * @param RuntimeOptions                    $runtime
+     *
+     * @return SetupStudioAppAuthModeOpenResponse
+     */
+    public function setupStudioAppAuthModeOpenWithOptions($request, $runtime)
+    {
+        Utils::validateModel($request);
+        $req = new OpenApiRequest([
+            'body' => $request->appId,
+        ]);
+        $params = new Params([
+            'action'      => 'SetupStudioAppAuthModeOpen',
+            'version'     => '2018-01-20',
+            'protocol'    => 'HTTPS',
+            'pathname'    => '/',
+            'method'      => 'POST',
+            'authType'    => 'AK',
+            'style'       => 'RPC',
+            'reqBodyType' => 'formData',
+            'bodyType'    => 'json',
+        ]);
+
+        return SetupStudioAppAuthModeOpenResponse::fromMap($this->callApi($params, $req, $runtime));
+    }
+
+    /**
+     * @param SetupStudioAppAuthModeOpenRequest $request
+     *
+     * @return SetupStudioAppAuthModeOpenResponse
+     */
+    public function setupStudioAppAuthModeOpen($request)
+    {
+        $runtime = new RuntimeOptions([]);
+
+        return $this->setupStudioAppAuthModeOpenWithOptions($request, $runtime);
+    }
+
+    /**
      * @param SpeechByCombinationRequest $request
      * @param RuntimeOptions             $runtime
      *
@@ -7305,10 +14201,21 @@ class Iot extends OpenApiClient
     {
         Utils::validateModel($request);
         $req = new OpenApiRequest([
-            'body' => Utils::toMap($request),
+            'body' => $request->combinationList,
+        ]);
+        $params = new Params([
+            'action'      => 'SpeechByCombination',
+            'version'     => '2018-01-20',
+            'protocol'    => 'HTTPS',
+            'pathname'    => '/',
+            'method'      => 'POST',
+            'authType'    => 'AK',
+            'style'       => 'RPC',
+            'reqBodyType' => 'formData',
+            'bodyType'    => 'json',
         ]);
 
-        return SpeechByCombinationResponse::fromMap($this->doRPCRequest('SpeechByCombination', '2018-01-20', 'HTTPS', 'POST', 'AK', 'json', $req, $runtime));
+        return SpeechByCombinationResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
@@ -7332,11 +14239,32 @@ class Iot extends OpenApiClient
     public function startCpuWithOptions($request, $runtime)
     {
         Utils::validateModel($request);
+        $query = [];
+        if (!Utils::isUnset($request->iotId)) {
+            $query['IotId'] = $request->iotId;
+        }
+        if (!Utils::isUnset($request->iotInstanceId)) {
+            $query['IotInstanceId'] = $request->iotInstanceId;
+        }
+        if (!Utils::isUnset($request->targetValue)) {
+            $query['TargetValue'] = $request->targetValue;
+        }
         $req = new OpenApiRequest([
-            'body' => Utils::toMap($request),
+            'query' => OpenApiUtilClient::query($query),
+        ]);
+        $params = new Params([
+            'action'      => 'StartCpu',
+            'version'     => '2018-01-20',
+            'protocol'    => 'HTTPS',
+            'pathname'    => '/',
+            'method'      => 'POST',
+            'authType'    => 'AK',
+            'style'       => 'RPC',
+            'reqBodyType' => 'formData',
+            'bodyType'    => 'json',
         ]);
 
-        return StartCpuResponse::fromMap($this->doRPCRequest('StartCpu', '2018-01-20', 'HTTPS', 'POST', 'AK', 'json', $req, $runtime));
+        return StartCpuResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
@@ -7360,11 +14288,29 @@ class Iot extends OpenApiClient
     public function startRuleWithOptions($request, $runtime)
     {
         Utils::validateModel($request);
+        $query = [];
+        if (!Utils::isUnset($request->iotInstanceId)) {
+            $query['IotInstanceId'] = $request->iotInstanceId;
+        }
+        if (!Utils::isUnset($request->ruleId)) {
+            $query['RuleId'] = $request->ruleId;
+        }
         $req = new OpenApiRequest([
-            'body' => Utils::toMap($request),
+            'query' => OpenApiUtilClient::query($query),
+        ]);
+        $params = new Params([
+            'action'      => 'StartRule',
+            'version'     => '2018-01-20',
+            'protocol'    => 'HTTPS',
+            'pathname'    => '/',
+            'method'      => 'POST',
+            'authType'    => 'AK',
+            'style'       => 'RPC',
+            'reqBodyType' => 'formData',
+            'bodyType'    => 'json',
         ]);
 
-        return StartRuleResponse::fromMap($this->doRPCRequest('StartRule', '2018-01-20', 'HTTPS', 'POST', 'AK', 'json', $req, $runtime));
+        return StartRuleResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
@@ -7388,11 +14334,29 @@ class Iot extends OpenApiClient
     public function stopRuleWithOptions($request, $runtime)
     {
         Utils::validateModel($request);
+        $query = [];
+        if (!Utils::isUnset($request->iotInstanceId)) {
+            $query['IotInstanceId'] = $request->iotInstanceId;
+        }
+        if (!Utils::isUnset($request->ruleId)) {
+            $query['RuleId'] = $request->ruleId;
+        }
         $req = new OpenApiRequest([
-            'body' => Utils::toMap($request),
+            'query' => OpenApiUtilClient::query($query),
+        ]);
+        $params = new Params([
+            'action'      => 'StopRule',
+            'version'     => '2018-01-20',
+            'protocol'    => 'HTTPS',
+            'pathname'    => '/',
+            'method'      => 'POST',
+            'authType'    => 'AK',
+            'style'       => 'RPC',
+            'reqBodyType' => 'formData',
+            'bodyType'    => 'json',
         ]);
 
-        return StopRuleResponse::fromMap($this->doRPCRequest('StopRule', '2018-01-20', 'HTTPS', 'POST', 'AK', 'json', $req, $runtime));
+        return StopRuleResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
@@ -7417,10 +14381,21 @@ class Iot extends OpenApiClient
     {
         Utils::validateModel($request);
         $req = new OpenApiRequest([
-            'body' => Utils::toMap($request),
+            'body' => $request->combinationList,
+        ]);
+        $params = new Params([
+            'action'      => 'SyncSpeechByCombination',
+            'version'     => '2018-01-20',
+            'protocol'    => 'HTTPS',
+            'pathname'    => '/',
+            'method'      => 'POST',
+            'authType'    => 'AK',
+            'style'       => 'RPC',
+            'reqBodyType' => 'formData',
+            'bodyType'    => 'json',
         ]);
 
-        return SyncSpeechByCombinationResponse::fromMap($this->doRPCRequest('SyncSpeechByCombination', '2018-01-20', 'HTTPS', 'POST', 'AK', 'json', $req, $runtime));
+        return SyncSpeechByCombinationResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
@@ -7436,6 +14411,45 @@ class Iot extends OpenApiClient
     }
 
     /**
+     * @param TestSpeechRequest $request
+     * @param RuntimeOptions    $runtime
+     *
+     * @return TestSpeechResponse
+     */
+    public function testSpeechWithOptions($request, $runtime)
+    {
+        Utils::validateModel($request);
+        $req = new OpenApiRequest([
+            'body' => $request->iotInstanceId,
+        ]);
+        $params = new Params([
+            'action'      => 'TestSpeech',
+            'version'     => '2018-01-20',
+            'protocol'    => 'HTTPS',
+            'pathname'    => '/',
+            'method'      => 'POST',
+            'authType'    => 'AK',
+            'style'       => 'RPC',
+            'reqBodyType' => 'formData',
+            'bodyType'    => 'json',
+        ]);
+
+        return TestSpeechResponse::fromMap($this->callApi($params, $req, $runtime));
+    }
+
+    /**
+     * @param TestSpeechRequest $request
+     *
+     * @return TestSpeechResponse
+     */
+    public function testSpeech($request)
+    {
+        $runtime = new RuntimeOptions([]);
+
+        return $this->testSpeechWithOptions($request, $runtime);
+    }
+
+    /**
      * @param TriggerSceneRuleRequest $request
      * @param RuntimeOptions          $runtime
      *
@@ -7444,11 +14458,32 @@ class Iot extends OpenApiClient
     public function triggerSceneRuleWithOptions($request, $runtime)
     {
         Utils::validateModel($request);
+        $query = [];
+        if (!Utils::isUnset($request->instanceId)) {
+            $query['InstanceId'] = $request->instanceId;
+        }
+        if (!Utils::isUnset($request->iotInstanceId)) {
+            $query['IotInstanceId'] = $request->iotInstanceId;
+        }
+        if (!Utils::isUnset($request->ruleId)) {
+            $query['RuleId'] = $request->ruleId;
+        }
         $req = new OpenApiRequest([
-            'body' => Utils::toMap($request),
+            'query' => OpenApiUtilClient::query($query),
+        ]);
+        $params = new Params([
+            'action'      => 'TriggerSceneRule',
+            'version'     => '2018-01-20',
+            'protocol'    => 'HTTPS',
+            'pathname'    => '/',
+            'method'      => 'POST',
+            'authType'    => 'AK',
+            'style'       => 'RPC',
+            'reqBodyType' => 'formData',
+            'bodyType'    => 'json',
         ]);
 
-        return TriggerSceneRuleResponse::fromMap($this->doRPCRequest('TriggerSceneRule', '2018-01-20', 'HTTPS', 'POST', 'AK', 'json', $req, $runtime));
+        return TriggerSceneRuleResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
@@ -7472,11 +14507,32 @@ class Iot extends OpenApiClient
     public function unbindApplicationFromEdgeInstanceWithOptions($request, $runtime)
     {
         Utils::validateModel($request);
+        $query = [];
+        if (!Utils::isUnset($request->applicationId)) {
+            $query['ApplicationId'] = $request->applicationId;
+        }
+        if (!Utils::isUnset($request->instanceId)) {
+            $query['InstanceId'] = $request->instanceId;
+        }
+        if (!Utils::isUnset($request->iotInstanceId)) {
+            $query['IotInstanceId'] = $request->iotInstanceId;
+        }
         $req = new OpenApiRequest([
-            'body' => Utils::toMap($request),
+            'query' => OpenApiUtilClient::query($query),
+        ]);
+        $params = new Params([
+            'action'      => 'UnbindApplicationFromEdgeInstance',
+            'version'     => '2018-01-20',
+            'protocol'    => 'HTTPS',
+            'pathname'    => '/',
+            'method'      => 'POST',
+            'authType'    => 'AK',
+            'style'       => 'RPC',
+            'reqBodyType' => 'formData',
+            'bodyType'    => 'json',
         ]);
 
-        return UnbindApplicationFromEdgeInstanceResponse::fromMap($this->doRPCRequest('UnbindApplicationFromEdgeInstance', '2018-01-20', 'HTTPS', 'POST', 'AK', 'json', $req, $runtime));
+        return UnbindApplicationFromEdgeInstanceResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
@@ -7500,11 +14556,32 @@ class Iot extends OpenApiClient
     public function unbindDriverFromEdgeInstanceWithOptions($request, $runtime)
     {
         Utils::validateModel($request);
+        $query = [];
+        if (!Utils::isUnset($request->driverId)) {
+            $query['DriverId'] = $request->driverId;
+        }
+        if (!Utils::isUnset($request->instanceId)) {
+            $query['InstanceId'] = $request->instanceId;
+        }
+        if (!Utils::isUnset($request->iotInstanceId)) {
+            $query['IotInstanceId'] = $request->iotInstanceId;
+        }
         $req = new OpenApiRequest([
-            'body' => Utils::toMap($request),
+            'query' => OpenApiUtilClient::query($query),
+        ]);
+        $params = new Params([
+            'action'      => 'UnbindDriverFromEdgeInstance',
+            'version'     => '2018-01-20',
+            'protocol'    => 'HTTPS',
+            'pathname'    => '/',
+            'method'      => 'POST',
+            'authType'    => 'AK',
+            'style'       => 'RPC',
+            'reqBodyType' => 'formData',
+            'bodyType'    => 'json',
         ]);
 
-        return UnbindDriverFromEdgeInstanceResponse::fromMap($this->doRPCRequest('UnbindDriverFromEdgeInstance', '2018-01-20', 'HTTPS', 'POST', 'AK', 'json', $req, $runtime));
+        return UnbindDriverFromEdgeInstanceResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
@@ -7528,11 +14605,29 @@ class Iot extends OpenApiClient
     public function unbindRoleFromEdgeInstanceWithOptions($request, $runtime)
     {
         Utils::validateModel($request);
+        $query = [];
+        if (!Utils::isUnset($request->instanceId)) {
+            $query['InstanceId'] = $request->instanceId;
+        }
+        if (!Utils::isUnset($request->iotInstanceId)) {
+            $query['IotInstanceId'] = $request->iotInstanceId;
+        }
         $req = new OpenApiRequest([
-            'body' => Utils::toMap($request),
+            'query' => OpenApiUtilClient::query($query),
+        ]);
+        $params = new Params([
+            'action'      => 'UnbindRoleFromEdgeInstance',
+            'version'     => '2018-01-20',
+            'protocol'    => 'HTTPS',
+            'pathname'    => '/',
+            'method'      => 'POST',
+            'authType'    => 'AK',
+            'style'       => 'RPC',
+            'reqBodyType' => 'formData',
+            'bodyType'    => 'json',
         ]);
 
-        return UnbindRoleFromEdgeInstanceResponse::fromMap($this->doRPCRequest('UnbindRoleFromEdgeInstance', '2018-01-20', 'HTTPS', 'POST', 'AK', 'json', $req, $runtime));
+        return UnbindRoleFromEdgeInstanceResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
@@ -7556,11 +14651,32 @@ class Iot extends OpenApiClient
     public function unbindSceneRuleFromEdgeInstanceWithOptions($request, $runtime)
     {
         Utils::validateModel($request);
+        $query = [];
+        if (!Utils::isUnset($request->instanceId)) {
+            $query['InstanceId'] = $request->instanceId;
+        }
+        if (!Utils::isUnset($request->iotInstanceId)) {
+            $query['IotInstanceId'] = $request->iotInstanceId;
+        }
+        if (!Utils::isUnset($request->ruleId)) {
+            $query['RuleId'] = $request->ruleId;
+        }
         $req = new OpenApiRequest([
-            'body' => Utils::toMap($request),
+            'query' => OpenApiUtilClient::query($query),
+        ]);
+        $params = new Params([
+            'action'      => 'UnbindSceneRuleFromEdgeInstance',
+            'version'     => '2018-01-20',
+            'protocol'    => 'HTTPS',
+            'pathname'    => '/',
+            'method'      => 'POST',
+            'authType'    => 'AK',
+            'style'       => 'RPC',
+            'reqBodyType' => 'formData',
+            'bodyType'    => 'json',
         ]);
 
-        return UnbindSceneRuleFromEdgeInstanceResponse::fromMap($this->doRPCRequest('UnbindSceneRuleFromEdgeInstance', '2018-01-20', 'HTTPS', 'POST', 'AK', 'json', $req, $runtime));
+        return UnbindSceneRuleFromEdgeInstanceResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
@@ -7584,11 +14700,32 @@ class Iot extends OpenApiClient
     public function updateConsumerGroupWithOptions($request, $runtime)
     {
         Utils::validateModel($request);
+        $query = [];
+        if (!Utils::isUnset($request->groupId)) {
+            $query['GroupId'] = $request->groupId;
+        }
+        if (!Utils::isUnset($request->iotInstanceId)) {
+            $query['IotInstanceId'] = $request->iotInstanceId;
+        }
+        if (!Utils::isUnset($request->newGroupName)) {
+            $query['NewGroupName'] = $request->newGroupName;
+        }
         $req = new OpenApiRequest([
-            'body' => Utils::toMap($request),
+            'query' => OpenApiUtilClient::query($query),
+        ]);
+        $params = new Params([
+            'action'      => 'UpdateConsumerGroup',
+            'version'     => '2018-01-20',
+            'protocol'    => 'HTTPS',
+            'pathname'    => '/',
+            'method'      => 'POST',
+            'authType'    => 'AK',
+            'style'       => 'RPC',
+            'reqBodyType' => 'formData',
+            'bodyType'    => 'json',
         ]);
 
-        return UpdateConsumerGroupResponse::fromMap($this->doRPCRequest('UpdateConsumerGroup', '2018-01-20', 'HTTPS', 'POST', 'AK', 'json', $req, $runtime));
+        return UpdateConsumerGroupResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
@@ -7612,11 +14749,32 @@ class Iot extends OpenApiClient
     public function updateDeviceGroupWithOptions($request, $runtime)
     {
         Utils::validateModel($request);
+        $query = [];
+        if (!Utils::isUnset($request->groupDesc)) {
+            $query['GroupDesc'] = $request->groupDesc;
+        }
+        if (!Utils::isUnset($request->groupId)) {
+            $query['GroupId'] = $request->groupId;
+        }
+        if (!Utils::isUnset($request->iotInstanceId)) {
+            $query['IotInstanceId'] = $request->iotInstanceId;
+        }
         $req = new OpenApiRequest([
-            'body' => Utils::toMap($request),
+            'query' => OpenApiUtilClient::query($query),
+        ]);
+        $params = new Params([
+            'action'      => 'UpdateDeviceGroup',
+            'version'     => '2018-01-20',
+            'protocol'    => 'HTTPS',
+            'pathname'    => '/',
+            'method'      => 'POST',
+            'authType'    => 'AK',
+            'style'       => 'RPC',
+            'reqBodyType' => 'formData',
+            'bodyType'    => 'json',
         ]);
 
-        return UpdateDeviceGroupResponse::fromMap($this->doRPCRequest('UpdateDeviceGroup', '2018-01-20', 'HTTPS', 'POST', 'AK', 'json', $req, $runtime));
+        return UpdateDeviceGroupResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
@@ -7640,11 +14798,38 @@ class Iot extends OpenApiClient
     public function updateDeviceShadowWithOptions($request, $runtime)
     {
         Utils::validateModel($request);
+        $query = [];
+        if (!Utils::isUnset($request->deltaUpdate)) {
+            $query['DeltaUpdate'] = $request->deltaUpdate;
+        }
+        if (!Utils::isUnset($request->deviceName)) {
+            $query['DeviceName'] = $request->deviceName;
+        }
+        if (!Utils::isUnset($request->iotInstanceId)) {
+            $query['IotInstanceId'] = $request->iotInstanceId;
+        }
+        if (!Utils::isUnset($request->productKey)) {
+            $query['ProductKey'] = $request->productKey;
+        }
+        if (!Utils::isUnset($request->shadowMessage)) {
+            $query['ShadowMessage'] = $request->shadowMessage;
+        }
         $req = new OpenApiRequest([
-            'body' => Utils::toMap($request),
+            'query' => OpenApiUtilClient::query($query),
+        ]);
+        $params = new Params([
+            'action'      => 'UpdateDeviceShadow',
+            'version'     => '2018-01-20',
+            'protocol'    => 'HTTPS',
+            'pathname'    => '/',
+            'method'      => 'POST',
+            'authType'    => 'AK',
+            'style'       => 'RPC',
+            'reqBodyType' => 'formData',
+            'bodyType'    => 'json',
         ]);
 
-        return UpdateDeviceShadowResponse::fromMap($this->doRPCRequest('UpdateDeviceShadow', '2018-01-20', 'HTTPS', 'POST', 'AK', 'json', $req, $runtime));
+        return UpdateDeviceShadowResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
@@ -7668,11 +14853,53 @@ class Iot extends OpenApiClient
     public function updateEdgeDriverVersionWithOptions($request, $runtime)
     {
         Utils::validateModel($request);
+        $query = [];
+        if (!Utils::isUnset($request->argument)) {
+            $query['Argument'] = $request->argument;
+        }
+        if (!Utils::isUnset($request->configCheckRule)) {
+            $query['ConfigCheckRule'] = $request->configCheckRule;
+        }
+        if (!Utils::isUnset($request->containerConfig)) {
+            $query['ContainerConfig'] = $request->containerConfig;
+        }
+        if (!Utils::isUnset($request->description)) {
+            $query['Description'] = $request->description;
+        }
+        if (!Utils::isUnset($request->driverConfig)) {
+            $query['DriverConfig'] = $request->driverConfig;
+        }
+        if (!Utils::isUnset($request->driverId)) {
+            $query['DriverId'] = $request->driverId;
+        }
+        if (!Utils::isUnset($request->driverVersion)) {
+            $query['DriverVersion'] = $request->driverVersion;
+        }
+        if (!Utils::isUnset($request->edgeVersion)) {
+            $query['EdgeVersion'] = $request->edgeVersion;
+        }
+        if (!Utils::isUnset($request->iotInstanceId)) {
+            $query['IotInstanceId'] = $request->iotInstanceId;
+        }
+        if (!Utils::isUnset($request->sourceConfig)) {
+            $query['SourceConfig'] = $request->sourceConfig;
+        }
         $req = new OpenApiRequest([
-            'body' => Utils::toMap($request),
+            'query' => OpenApiUtilClient::query($query),
+        ]);
+        $params = new Params([
+            'action'      => 'UpdateEdgeDriverVersion',
+            'version'     => '2018-01-20',
+            'protocol'    => 'HTTPS',
+            'pathname'    => '/',
+            'method'      => 'POST',
+            'authType'    => 'AK',
+            'style'       => 'RPC',
+            'reqBodyType' => 'formData',
+            'bodyType'    => 'json',
         ]);
 
-        return UpdateEdgeDriverVersionResponse::fromMap($this->doRPCRequest('UpdateEdgeDriverVersion', '2018-01-20', 'HTTPS', 'POST', 'AK', 'json', $req, $runtime));
+        return UpdateEdgeDriverVersionResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
@@ -7696,11 +14923,41 @@ class Iot extends OpenApiClient
     public function updateEdgeInstanceWithOptions($request, $runtime)
     {
         Utils::validateModel($request);
+        $query = [];
+        if (!Utils::isUnset($request->bizEnable)) {
+            $query['BizEnable'] = $request->bizEnable;
+        }
+        if (!Utils::isUnset($request->instanceId)) {
+            $query['InstanceId'] = $request->instanceId;
+        }
+        if (!Utils::isUnset($request->iotInstanceId)) {
+            $query['IotInstanceId'] = $request->iotInstanceId;
+        }
+        if (!Utils::isUnset($request->name)) {
+            $query['Name'] = $request->name;
+        }
+        if (!Utils::isUnset($request->spec)) {
+            $query['Spec'] = $request->spec;
+        }
+        if (!Utils::isUnset($request->tags)) {
+            $query['Tags'] = $request->tags;
+        }
         $req = new OpenApiRequest([
-            'body' => Utils::toMap($request),
+            'query' => OpenApiUtilClient::query($query),
+        ]);
+        $params = new Params([
+            'action'      => 'UpdateEdgeInstance',
+            'version'     => '2018-01-20',
+            'protocol'    => 'HTTPS',
+            'pathname'    => '/',
+            'method'      => 'POST',
+            'authType'    => 'AK',
+            'style'       => 'RPC',
+            'reqBodyType' => 'formData',
+            'bodyType'    => 'json',
         ]);
 
-        return UpdateEdgeInstanceResponse::fromMap($this->doRPCRequest('UpdateEdgeInstance', '2018-01-20', 'HTTPS', 'POST', 'AK', 'json', $req, $runtime));
+        return UpdateEdgeInstanceResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
@@ -7724,11 +14981,41 @@ class Iot extends OpenApiClient
     public function updateEdgeInstanceChannelWithOptions($request, $runtime)
     {
         Utils::validateModel($request);
+        $query = [];
+        if (!Utils::isUnset($request->channelId)) {
+            $query['ChannelId'] = $request->channelId;
+        }
+        if (!Utils::isUnset($request->channelName)) {
+            $query['ChannelName'] = $request->channelName;
+        }
+        if (!Utils::isUnset($request->configs)) {
+            $query['Configs'] = $request->configs;
+        }
+        if (!Utils::isUnset($request->driverId)) {
+            $query['DriverId'] = $request->driverId;
+        }
+        if (!Utils::isUnset($request->instanceId)) {
+            $query['InstanceId'] = $request->instanceId;
+        }
+        if (!Utils::isUnset($request->iotInstanceId)) {
+            $query['IotInstanceId'] = $request->iotInstanceId;
+        }
         $req = new OpenApiRequest([
-            'body' => Utils::toMap($request),
+            'query' => OpenApiUtilClient::query($query),
+        ]);
+        $params = new Params([
+            'action'      => 'UpdateEdgeInstanceChannel',
+            'version'     => '2018-01-20',
+            'protocol'    => 'HTTPS',
+            'pathname'    => '/',
+            'method'      => 'POST',
+            'authType'    => 'AK',
+            'style'       => 'RPC',
+            'reqBodyType' => 'formData',
+            'bodyType'    => 'json',
         ]);
 
-        return UpdateEdgeInstanceChannelResponse::fromMap($this->doRPCRequest('UpdateEdgeInstanceChannel', '2018-01-20', 'HTTPS', 'POST', 'AK', 'json', $req, $runtime));
+        return UpdateEdgeInstanceChannelResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
@@ -7752,11 +15039,53 @@ class Iot extends OpenApiClient
     public function updateEdgeInstanceMessageRoutingWithOptions($request, $runtime)
     {
         Utils::validateModel($request);
+        $query = [];
+        if (!Utils::isUnset($request->instanceId)) {
+            $query['InstanceId'] = $request->instanceId;
+        }
+        if (!Utils::isUnset($request->iotInstanceId)) {
+            $query['IotInstanceId'] = $request->iotInstanceId;
+        }
+        if (!Utils::isUnset($request->name)) {
+            $query['Name'] = $request->name;
+        }
+        if (!Utils::isUnset($request->routeId)) {
+            $query['RouteId'] = $request->routeId;
+        }
+        if (!Utils::isUnset($request->sourceData)) {
+            $query['SourceData'] = $request->sourceData;
+        }
+        if (!Utils::isUnset($request->sourceType)) {
+            $query['SourceType'] = $request->sourceType;
+        }
+        if (!Utils::isUnset($request->targetData)) {
+            $query['TargetData'] = $request->targetData;
+        }
+        if (!Utils::isUnset($request->targetIotHubQos)) {
+            $query['TargetIotHubQos'] = $request->targetIotHubQos;
+        }
+        if (!Utils::isUnset($request->targetType)) {
+            $query['TargetType'] = $request->targetType;
+        }
+        if (!Utils::isUnset($request->topicFilter)) {
+            $query['TopicFilter'] = $request->topicFilter;
+        }
         $req = new OpenApiRequest([
-            'body' => Utils::toMap($request),
+            'query' => OpenApiUtilClient::query($query),
+        ]);
+        $params = new Params([
+            'action'      => 'UpdateEdgeInstanceMessageRouting',
+            'version'     => '2018-01-20',
+            'protocol'    => 'HTTPS',
+            'pathname'    => '/',
+            'method'      => 'POST',
+            'authType'    => 'AK',
+            'style'       => 'RPC',
+            'reqBodyType' => 'formData',
+            'bodyType'    => 'json',
         ]);
 
-        return UpdateEdgeInstanceMessageRoutingResponse::fromMap($this->doRPCRequest('UpdateEdgeInstanceMessageRouting', '2018-01-20', 'HTTPS', 'POST', 'AK', 'json', $req, $runtime));
+        return UpdateEdgeInstanceMessageRoutingResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
@@ -7780,11 +15109,38 @@ class Iot extends OpenApiClient
     public function updateJobWithOptions($request, $runtime)
     {
         Utils::validateModel($request);
+        $query = [];
+        if (!Utils::isUnset($request->description)) {
+            $query['Description'] = $request->description;
+        }
+        if (!Utils::isUnset($request->iotInstanceId)) {
+            $query['IotInstanceId'] = $request->iotInstanceId;
+        }
+        if (!Utils::isUnset($request->jobId)) {
+            $query['JobId'] = $request->jobId;
+        }
+        if (!Utils::isUnset($request->rolloutConfig)) {
+            $query['RolloutConfig'] = $request->rolloutConfig;
+        }
+        if (!Utils::isUnset($request->timeoutConfig)) {
+            $query['TimeoutConfig'] = $request->timeoutConfig;
+        }
         $req = new OpenApiRequest([
-            'body' => Utils::toMap($request),
+            'query' => OpenApiUtilClient::query($query),
+        ]);
+        $params = new Params([
+            'action'      => 'UpdateJob',
+            'version'     => '2018-01-20',
+            'protocol'    => 'HTTPS',
+            'pathname'    => '/',
+            'method'      => 'POST',
+            'authType'    => 'AK',
+            'style'       => 'RPC',
+            'reqBodyType' => 'formData',
+            'bodyType'    => 'json',
         ]);
 
-        return UpdateJobResponse::fromMap($this->doRPCRequest('UpdateJob', '2018-01-20', 'HTTPS', 'POST', 'AK', 'json', $req, $runtime));
+        return UpdateJobResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
@@ -7808,11 +15164,38 @@ class Iot extends OpenApiClient
     public function updateOTAModuleWithOptions($request, $runtime)
     {
         Utils::validateModel($request);
+        $query = [];
+        if (!Utils::isUnset($request->aliasName)) {
+            $query['AliasName'] = $request->aliasName;
+        }
+        if (!Utils::isUnset($request->desc)) {
+            $query['Desc'] = $request->desc;
+        }
+        if (!Utils::isUnset($request->iotInstanceId)) {
+            $query['IotInstanceId'] = $request->iotInstanceId;
+        }
+        if (!Utils::isUnset($request->moduleName)) {
+            $query['ModuleName'] = $request->moduleName;
+        }
+        if (!Utils::isUnset($request->productKey)) {
+            $query['ProductKey'] = $request->productKey;
+        }
         $req = new OpenApiRequest([
-            'body' => Utils::toMap($request),
+            'query' => OpenApiUtilClient::query($query),
+        ]);
+        $params = new Params([
+            'action'      => 'UpdateOTAModule',
+            'version'     => '2018-01-20',
+            'protocol'    => 'HTTPS',
+            'pathname'    => '/',
+            'method'      => 'POST',
+            'authType'    => 'AK',
+            'style'       => 'RPC',
+            'reqBodyType' => 'formData',
+            'bodyType'    => 'json',
         ]);
 
-        return UpdateOTAModuleResponse::fromMap($this->doRPCRequest('UpdateOTAModule', '2018-01-20', 'HTTPS', 'POST', 'AK', 'json', $req, $runtime));
+        return UpdateOTAModuleResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
@@ -7836,11 +15219,35 @@ class Iot extends OpenApiClient
     public function updateProductWithOptions($request, $runtime)
     {
         Utils::validateModel($request);
+        $query = [];
+        if (!Utils::isUnset($request->description)) {
+            $query['Description'] = $request->description;
+        }
+        if (!Utils::isUnset($request->iotInstanceId)) {
+            $query['IotInstanceId'] = $request->iotInstanceId;
+        }
+        if (!Utils::isUnset($request->productKey)) {
+            $query['ProductKey'] = $request->productKey;
+        }
+        if (!Utils::isUnset($request->productName)) {
+            $query['ProductName'] = $request->productName;
+        }
         $req = new OpenApiRequest([
-            'body' => Utils::toMap($request),
+            'query' => OpenApiUtilClient::query($query),
+        ]);
+        $params = new Params([
+            'action'      => 'UpdateProduct',
+            'version'     => '2018-01-20',
+            'protocol'    => 'HTTPS',
+            'pathname'    => '/',
+            'method'      => 'POST',
+            'authType'    => 'AK',
+            'style'       => 'RPC',
+            'reqBodyType' => 'formData',
+            'bodyType'    => 'json',
         ]);
 
-        return UpdateProductResponse::fromMap($this->doRPCRequest('UpdateProduct', '2018-01-20', 'HTTPS', 'POST', 'AK', 'json', $req, $runtime));
+        return UpdateProductResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
@@ -7864,11 +15271,35 @@ class Iot extends OpenApiClient
     public function updateProductFilterConfigWithOptions($request, $runtime)
     {
         Utils::validateModel($request);
+        $query = [];
+        if (!Utils::isUnset($request->iotInstanceId)) {
+            $query['IotInstanceId'] = $request->iotInstanceId;
+        }
+        if (!Utils::isUnset($request->productKey)) {
+            $query['ProductKey'] = $request->productKey;
+        }
+        if (!Utils::isUnset($request->propertyTimestampFilter)) {
+            $query['PropertyTimestampFilter'] = $request->propertyTimestampFilter;
+        }
+        if (!Utils::isUnset($request->propertyValueFilter)) {
+            $query['PropertyValueFilter'] = $request->propertyValueFilter;
+        }
         $req = new OpenApiRequest([
-            'body' => Utils::toMap($request),
+            'query' => OpenApiUtilClient::query($query),
+        ]);
+        $params = new Params([
+            'action'      => 'UpdateProductFilterConfig',
+            'version'     => '2018-01-20',
+            'protocol'    => 'HTTPS',
+            'pathname'    => '/',
+            'method'      => 'POST',
+            'authType'    => 'AK',
+            'style'       => 'RPC',
+            'reqBodyType' => 'formData',
+            'bodyType'    => 'json',
         ]);
 
-        return UpdateProductFilterConfigResponse::fromMap($this->doRPCRequest('UpdateProductFilterConfig', '2018-01-20', 'HTTPS', 'POST', 'AK', 'json', $req, $runtime));
+        return UpdateProductFilterConfigResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
@@ -7892,11 +15323,32 @@ class Iot extends OpenApiClient
     public function updateProductTagsWithOptions($request, $runtime)
     {
         Utils::validateModel($request);
+        $query = [];
+        if (!Utils::isUnset($request->iotInstanceId)) {
+            $query['IotInstanceId'] = $request->iotInstanceId;
+        }
+        if (!Utils::isUnset($request->productKey)) {
+            $query['ProductKey'] = $request->productKey;
+        }
+        if (!Utils::isUnset($request->productTag)) {
+            $query['ProductTag'] = $request->productTag;
+        }
         $req = new OpenApiRequest([
-            'body' => Utils::toMap($request),
+            'query' => OpenApiUtilClient::query($query),
+        ]);
+        $params = new Params([
+            'action'      => 'UpdateProductTags',
+            'version'     => '2018-01-20',
+            'protocol'    => 'HTTPS',
+            'pathname'    => '/',
+            'method'      => 'POST',
+            'authType'    => 'AK',
+            'style'       => 'RPC',
+            'reqBodyType' => 'formData',
+            'bodyType'    => 'json',
         ]);
 
-        return UpdateProductTagsResponse::fromMap($this->doRPCRequest('UpdateProductTags', '2018-01-20', 'HTTPS', 'POST', 'AK', 'json', $req, $runtime));
+        return UpdateProductTagsResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
@@ -7920,11 +15372,38 @@ class Iot extends OpenApiClient
     public function updateProductTopicWithOptions($request, $runtime)
     {
         Utils::validateModel($request);
+        $query = [];
+        if (!Utils::isUnset($request->desc)) {
+            $query['Desc'] = $request->desc;
+        }
+        if (!Utils::isUnset($request->iotInstanceId)) {
+            $query['IotInstanceId'] = $request->iotInstanceId;
+        }
+        if (!Utils::isUnset($request->operation)) {
+            $query['Operation'] = $request->operation;
+        }
+        if (!Utils::isUnset($request->topicId)) {
+            $query['TopicId'] = $request->topicId;
+        }
+        if (!Utils::isUnset($request->topicShortName)) {
+            $query['TopicShortName'] = $request->topicShortName;
+        }
         $req = new OpenApiRequest([
-            'body' => Utils::toMap($request),
+            'query' => OpenApiUtilClient::query($query),
+        ]);
+        $params = new Params([
+            'action'      => 'UpdateProductTopic',
+            'version'     => '2018-01-20',
+            'protocol'    => 'HTTPS',
+            'pathname'    => '/',
+            'method'      => 'POST',
+            'authType'    => 'AK',
+            'style'       => 'RPC',
+            'reqBodyType' => 'formData',
+            'bodyType'    => 'json',
         ]);
 
-        return UpdateProductTopicResponse::fromMap($this->doRPCRequest('UpdateProductTopic', '2018-01-20', 'HTTPS', 'POST', 'AK', 'json', $req, $runtime));
+        return UpdateProductTopicResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
@@ -7948,11 +15427,53 @@ class Iot extends OpenApiClient
     public function updateRuleWithOptions($request, $runtime)
     {
         Utils::validateModel($request);
+        $query = [];
+        if (!Utils::isUnset($request->iotInstanceId)) {
+            $query['IotInstanceId'] = $request->iotInstanceId;
+        }
+        if (!Utils::isUnset($request->name)) {
+            $query['Name'] = $request->name;
+        }
+        if (!Utils::isUnset($request->productKey)) {
+            $query['ProductKey'] = $request->productKey;
+        }
+        if (!Utils::isUnset($request->ruleDesc)) {
+            $query['RuleDesc'] = $request->ruleDesc;
+        }
+        if (!Utils::isUnset($request->ruleId)) {
+            $query['RuleId'] = $request->ruleId;
+        }
+        if (!Utils::isUnset($request->select)) {
+            $query['Select'] = $request->select;
+        }
+        if (!Utils::isUnset($request->shortTopic)) {
+            $query['ShortTopic'] = $request->shortTopic;
+        }
+        if (!Utils::isUnset($request->topic)) {
+            $query['Topic'] = $request->topic;
+        }
+        if (!Utils::isUnset($request->topicType)) {
+            $query['TopicType'] = $request->topicType;
+        }
+        if (!Utils::isUnset($request->where)) {
+            $query['Where'] = $request->where;
+        }
         $req = new OpenApiRequest([
-            'body' => Utils::toMap($request),
+            'query' => OpenApiUtilClient::query($query),
+        ]);
+        $params = new Params([
+            'action'      => 'UpdateRule',
+            'version'     => '2018-01-20',
+            'protocol'    => 'HTTPS',
+            'pathname'    => '/',
+            'method'      => 'POST',
+            'authType'    => 'AK',
+            'style'       => 'RPC',
+            'reqBodyType' => 'formData',
+            'bodyType'    => 'json',
         ]);
 
-        return UpdateRuleResponse::fromMap($this->doRPCRequest('UpdateRule', '2018-01-20', 'HTTPS', 'POST', 'AK', 'json', $req, $runtime));
+        return UpdateRuleResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
@@ -7976,11 +15497,35 @@ class Iot extends OpenApiClient
     public function updateRuleActionWithOptions($request, $runtime)
     {
         Utils::validateModel($request);
+        $query = [];
+        if (!Utils::isUnset($request->actionId)) {
+            $query['ActionId'] = $request->actionId;
+        }
+        if (!Utils::isUnset($request->configuration)) {
+            $query['Configuration'] = $request->configuration;
+        }
+        if (!Utils::isUnset($request->iotInstanceId)) {
+            $query['IotInstanceId'] = $request->iotInstanceId;
+        }
+        if (!Utils::isUnset($request->type)) {
+            $query['Type'] = $request->type;
+        }
         $req = new OpenApiRequest([
-            'body' => Utils::toMap($request),
+            'query' => OpenApiUtilClient::query($query),
+        ]);
+        $params = new Params([
+            'action'      => 'UpdateRuleAction',
+            'version'     => '2018-01-20',
+            'protocol'    => 'HTTPS',
+            'pathname'    => '/',
+            'method'      => 'POST',
+            'authType'    => 'AK',
+            'style'       => 'RPC',
+            'reqBodyType' => 'formData',
+            'bodyType'    => 'json',
         ]);
 
-        return UpdateRuleActionResponse::fromMap($this->doRPCRequest('UpdateRuleAction', '2018-01-20', 'HTTPS', 'POST', 'AK', 'json', $req, $runtime));
+        return UpdateRuleActionResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
@@ -8004,11 +15549,38 @@ class Iot extends OpenApiClient
     public function updateSceneRuleWithOptions($request, $runtime)
     {
         Utils::validateModel($request);
+        $query = [];
+        if (!Utils::isUnset($request->iotInstanceId)) {
+            $query['IotInstanceId'] = $request->iotInstanceId;
+        }
+        if (!Utils::isUnset($request->ruleContent)) {
+            $query['RuleContent'] = $request->ruleContent;
+        }
+        if (!Utils::isUnset($request->ruleDescription)) {
+            $query['RuleDescription'] = $request->ruleDescription;
+        }
+        if (!Utils::isUnset($request->ruleId)) {
+            $query['RuleId'] = $request->ruleId;
+        }
+        if (!Utils::isUnset($request->ruleName)) {
+            $query['RuleName'] = $request->ruleName;
+        }
         $req = new OpenApiRequest([
-            'body' => Utils::toMap($request),
+            'query' => OpenApiUtilClient::query($query),
+        ]);
+        $params = new Params([
+            'action'      => 'UpdateSceneRule',
+            'version'     => '2018-01-20',
+            'protocol'    => 'HTTPS',
+            'pathname'    => '/',
+            'method'      => 'POST',
+            'authType'    => 'AK',
+            'style'       => 'RPC',
+            'reqBodyType' => 'formData',
+            'bodyType'    => 'json',
         ]);
 
-        return UpdateSceneRuleResponse::fromMap($this->doRPCRequest('UpdateSceneRule', '2018-01-20', 'HTTPS', 'POST', 'AK', 'json', $req, $runtime));
+        return UpdateSceneRuleResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
@@ -8024,6 +15596,45 @@ class Iot extends OpenApiClient
     }
 
     /**
+     * @param UpdateSpeechRequest $request
+     * @param RuntimeOptions      $runtime
+     *
+     * @return UpdateSpeechResponse
+     */
+    public function updateSpeechWithOptions($request, $runtime)
+    {
+        Utils::validateModel($request);
+        $req = new OpenApiRequest([
+            'body' => $request->iotInstanceId,
+        ]);
+        $params = new Params([
+            'action'      => 'UpdateSpeech',
+            'version'     => '2018-01-20',
+            'protocol'    => 'HTTPS',
+            'pathname'    => '/',
+            'method'      => 'POST',
+            'authType'    => 'AK',
+            'style'       => 'RPC',
+            'reqBodyType' => 'formData',
+            'bodyType'    => 'json',
+        ]);
+
+        return UpdateSpeechResponse::fromMap($this->callApi($params, $req, $runtime));
+    }
+
+    /**
+     * @param UpdateSpeechRequest $request
+     *
+     * @return UpdateSpeechResponse
+     */
+    public function updateSpeech($request)
+    {
+        $runtime = new RuntimeOptions([]);
+
+        return $this->updateSpeechWithOptions($request, $runtime);
+    }
+
+    /**
      * @param UpdateSubscribeRelationRequest $request
      * @param RuntimeOptions                 $runtime
      *
@@ -8032,11 +15643,68 @@ class Iot extends OpenApiClient
     public function updateSubscribeRelationWithOptions($request, $runtime)
     {
         Utils::validateModel($request);
+        $query = [];
+        if (!Utils::isUnset($request->consumerGroupIds)) {
+            $query['ConsumerGroupIds'] = $request->consumerGroupIds;
+        }
+        if (!Utils::isUnset($request->deviceDataFlag)) {
+            $query['DeviceDataFlag'] = $request->deviceDataFlag;
+        }
+        if (!Utils::isUnset($request->deviceLifeCycleFlag)) {
+            $query['DeviceLifeCycleFlag'] = $request->deviceLifeCycleFlag;
+        }
+        if (!Utils::isUnset($request->deviceStatusChangeFlag)) {
+            $query['DeviceStatusChangeFlag'] = $request->deviceStatusChangeFlag;
+        }
+        if (!Utils::isUnset($request->deviceTagFlag)) {
+            $query['DeviceTagFlag'] = $request->deviceTagFlag;
+        }
+        if (!Utils::isUnset($request->deviceTopoLifeCycleFlag)) {
+            $query['DeviceTopoLifeCycleFlag'] = $request->deviceTopoLifeCycleFlag;
+        }
+        if (!Utils::isUnset($request->foundDeviceListFlag)) {
+            $query['FoundDeviceListFlag'] = $request->foundDeviceListFlag;
+        }
+        if (!Utils::isUnset($request->iotInstanceId)) {
+            $query['IotInstanceId'] = $request->iotInstanceId;
+        }
+        if (!Utils::isUnset($request->mnsConfiguration)) {
+            $query['MnsConfiguration'] = $request->mnsConfiguration;
+        }
+        if (!Utils::isUnset($request->otaEventFlag)) {
+            $query['OtaEventFlag'] = $request->otaEventFlag;
+        }
+        if (!Utils::isUnset($request->otaJobFlag)) {
+            $query['OtaJobFlag'] = $request->otaJobFlag;
+        }
+        if (!Utils::isUnset($request->otaVersionFlag)) {
+            $query['OtaVersionFlag'] = $request->otaVersionFlag;
+        }
+        if (!Utils::isUnset($request->productKey)) {
+            $query['ProductKey'] = $request->productKey;
+        }
+        if (!Utils::isUnset($request->thingHistoryFlag)) {
+            $query['ThingHistoryFlag'] = $request->thingHistoryFlag;
+        }
+        if (!Utils::isUnset($request->type)) {
+            $query['Type'] = $request->type;
+        }
         $req = new OpenApiRequest([
-            'body' => Utils::toMap($request),
+            'query' => OpenApiUtilClient::query($query),
+        ]);
+        $params = new Params([
+            'action'      => 'UpdateSubscribeRelation',
+            'version'     => '2018-01-20',
+            'protocol'    => 'HTTPS',
+            'pathname'    => '/',
+            'method'      => 'POST',
+            'authType'    => 'AK',
+            'style'       => 'RPC',
+            'reqBodyType' => 'formData',
+            'bodyType'    => 'json',
         ]);
 
-        return UpdateSubscribeRelationResponse::fromMap($this->doRPCRequest('UpdateSubscribeRelation', '2018-01-20', 'HTTPS', 'POST', 'AK', 'json', $req, $runtime));
+        return UpdateSubscribeRelationResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
@@ -8060,11 +15728,41 @@ class Iot extends OpenApiClient
     public function updateThingModelWithOptions($request, $runtime)
     {
         Utils::validateModel($request);
+        $query = [];
+        if (!Utils::isUnset($request->functionBlockId)) {
+            $query['FunctionBlockId'] = $request->functionBlockId;
+        }
+        if (!Utils::isUnset($request->functionBlockName)) {
+            $query['FunctionBlockName'] = $request->functionBlockName;
+        }
+        if (!Utils::isUnset($request->identifier)) {
+            $query['Identifier'] = $request->identifier;
+        }
+        if (!Utils::isUnset($request->iotInstanceId)) {
+            $query['IotInstanceId'] = $request->iotInstanceId;
+        }
+        if (!Utils::isUnset($request->productKey)) {
+            $query['ProductKey'] = $request->productKey;
+        }
+        if (!Utils::isUnset($request->thingModelJson)) {
+            $query['ThingModelJson'] = $request->thingModelJson;
+        }
         $req = new OpenApiRequest([
-            'body' => Utils::toMap($request),
+            'query' => OpenApiUtilClient::query($query),
+        ]);
+        $params = new Params([
+            'action'      => 'UpdateThingModel',
+            'version'     => '2018-01-20',
+            'protocol'    => 'HTTPS',
+            'pathname'    => '/',
+            'method'      => 'POST',
+            'authType'    => 'AK',
+            'style'       => 'RPC',
+            'reqBodyType' => 'formData',
+            'bodyType'    => 'json',
         ]);
 
-        return UpdateThingModelResponse::fromMap($this->doRPCRequest('UpdateThingModel', '2018-01-20', 'HTTPS', 'POST', 'AK', 'json', $req, $runtime));
+        return UpdateThingModelResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
@@ -8088,11 +15786,32 @@ class Iot extends OpenApiClient
     public function updateThingModelValidationConfigWithOptions($request, $runtime)
     {
         Utils::validateModel($request);
+        $query = [];
+        if (!Utils::isUnset($request->iotInstanceId)) {
+            $query['IotInstanceId'] = $request->iotInstanceId;
+        }
+        if (!Utils::isUnset($request->productKey)) {
+            $query['ProductKey'] = $request->productKey;
+        }
+        if (!Utils::isUnset($request->validateType)) {
+            $query['ValidateType'] = $request->validateType;
+        }
         $req = new OpenApiRequest([
-            'body' => Utils::toMap($request),
+            'query' => OpenApiUtilClient::query($query),
+        ]);
+        $params = new Params([
+            'action'      => 'UpdateThingModelValidationConfig',
+            'version'     => '2018-01-20',
+            'protocol'    => 'HTTPS',
+            'pathname'    => '/',
+            'method'      => 'POST',
+            'authType'    => 'AK',
+            'style'       => 'RPC',
+            'reqBodyType' => 'formData',
+            'bodyType'    => 'json',
         ]);
 
-        return UpdateThingModelValidationConfigResponse::fromMap($this->doRPCRequest('UpdateThingModelValidationConfig', '2018-01-20', 'HTTPS', 'POST', 'AK', 'json', $req, $runtime));
+        return UpdateThingModelValidationConfigResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
@@ -8116,11 +15835,35 @@ class Iot extends OpenApiClient
     public function updateThingScriptWithOptions($request, $runtime)
     {
         Utils::validateModel($request);
+        $query = [];
+        if (!Utils::isUnset($request->iotInstanceId)) {
+            $query['IotInstanceId'] = $request->iotInstanceId;
+        }
+        if (!Utils::isUnset($request->productKey)) {
+            $query['ProductKey'] = $request->productKey;
+        }
+        if (!Utils::isUnset($request->scriptContent)) {
+            $query['ScriptContent'] = $request->scriptContent;
+        }
+        if (!Utils::isUnset($request->scriptType)) {
+            $query['ScriptType'] = $request->scriptType;
+        }
         $req = new OpenApiRequest([
-            'body' => Utils::toMap($request),
+            'query' => OpenApiUtilClient::query($query),
+        ]);
+        $params = new Params([
+            'action'      => 'UpdateThingScript',
+            'version'     => '2018-01-20',
+            'protocol'    => 'HTTPS',
+            'pathname'    => '/',
+            'method'      => 'POST',
+            'authType'    => 'AK',
+            'style'       => 'RPC',
+            'reqBodyType' => 'formData',
+            'bodyType'    => 'json',
         ]);
 
-        return UpdateThingScriptResponse::fromMap($this->doRPCRequest('UpdateThingScript', '2018-01-20', 'HTTPS', 'POST', 'AK', 'json', $req, $runtime));
+        return UpdateThingScriptResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**

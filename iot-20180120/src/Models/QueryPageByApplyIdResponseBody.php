@@ -10,14 +10,9 @@ use AlibabaCloud\Tea\Model;
 class QueryPageByApplyIdResponseBody extends Model
 {
     /**
-     * @var string
+     * @var applyDeviceList
      */
-    public $requestId;
-
-    /**
-     * @var bool
-     */
-    public $success;
+    public $applyDeviceList;
 
     /**
      * @var string
@@ -32,11 +27,6 @@ class QueryPageByApplyIdResponseBody extends Model
     /**
      * @var int
      */
-    public $pageSize;
-
-    /**
-     * @var int
-     */
     public $page;
 
     /**
@@ -47,22 +37,32 @@ class QueryPageByApplyIdResponseBody extends Model
     /**
      * @var int
      */
-    public $total;
+    public $pageSize;
 
     /**
-     * @var applyDeviceList
+     * @var string
      */
-    public $applyDeviceList;
+    public $requestId;
+
+    /**
+     * @var bool
+     */
+    public $success;
+
+    /**
+     * @var int
+     */
+    public $total;
     protected $_name = [
-        'requestId'       => 'RequestId',
-        'success'         => 'Success',
+        'applyDeviceList' => 'ApplyDeviceList',
         'code'            => 'Code',
         'errorMessage'    => 'ErrorMessage',
-        'pageSize'        => 'PageSize',
         'page'            => 'Page',
         'pageCount'       => 'PageCount',
+        'pageSize'        => 'PageSize',
+        'requestId'       => 'RequestId',
+        'success'         => 'Success',
         'total'           => 'Total',
-        'applyDeviceList' => 'ApplyDeviceList',
     ];
 
     public function validate()
@@ -72,11 +72,8 @@ class QueryPageByApplyIdResponseBody extends Model
     public function toMap()
     {
         $res = [];
-        if (null !== $this->requestId) {
-            $res['RequestId'] = $this->requestId;
-        }
-        if (null !== $this->success) {
-            $res['Success'] = $this->success;
+        if (null !== $this->applyDeviceList) {
+            $res['ApplyDeviceList'] = null !== $this->applyDeviceList ? $this->applyDeviceList->toMap() : null;
         }
         if (null !== $this->code) {
             $res['Code'] = $this->code;
@@ -84,20 +81,23 @@ class QueryPageByApplyIdResponseBody extends Model
         if (null !== $this->errorMessage) {
             $res['ErrorMessage'] = $this->errorMessage;
         }
-        if (null !== $this->pageSize) {
-            $res['PageSize'] = $this->pageSize;
-        }
         if (null !== $this->page) {
             $res['Page'] = $this->page;
         }
         if (null !== $this->pageCount) {
             $res['PageCount'] = $this->pageCount;
         }
+        if (null !== $this->pageSize) {
+            $res['PageSize'] = $this->pageSize;
+        }
+        if (null !== $this->requestId) {
+            $res['RequestId'] = $this->requestId;
+        }
+        if (null !== $this->success) {
+            $res['Success'] = $this->success;
+        }
         if (null !== $this->total) {
             $res['Total'] = $this->total;
-        }
-        if (null !== $this->applyDeviceList) {
-            $res['ApplyDeviceList'] = null !== $this->applyDeviceList ? $this->applyDeviceList->toMap() : null;
         }
 
         return $res;
@@ -111,11 +111,8 @@ class QueryPageByApplyIdResponseBody extends Model
     public static function fromMap($map = [])
     {
         $model = new self();
-        if (isset($map['RequestId'])) {
-            $model->requestId = $map['RequestId'];
-        }
-        if (isset($map['Success'])) {
-            $model->success = $map['Success'];
+        if (isset($map['ApplyDeviceList'])) {
+            $model->applyDeviceList = applyDeviceList::fromMap($map['ApplyDeviceList']);
         }
         if (isset($map['Code'])) {
             $model->code = $map['Code'];
@@ -123,20 +120,23 @@ class QueryPageByApplyIdResponseBody extends Model
         if (isset($map['ErrorMessage'])) {
             $model->errorMessage = $map['ErrorMessage'];
         }
-        if (isset($map['PageSize'])) {
-            $model->pageSize = $map['PageSize'];
-        }
         if (isset($map['Page'])) {
             $model->page = $map['Page'];
         }
         if (isset($map['PageCount'])) {
             $model->pageCount = $map['PageCount'];
         }
+        if (isset($map['PageSize'])) {
+            $model->pageSize = $map['PageSize'];
+        }
+        if (isset($map['RequestId'])) {
+            $model->requestId = $map['RequestId'];
+        }
+        if (isset($map['Success'])) {
+            $model->success = $map['Success'];
+        }
         if (isset($map['Total'])) {
             $model->total = $map['Total'];
-        }
-        if (isset($map['ApplyDeviceList'])) {
-            $model->applyDeviceList = applyDeviceList::fromMap($map['ApplyDeviceList']);
         }
 
         return $model;

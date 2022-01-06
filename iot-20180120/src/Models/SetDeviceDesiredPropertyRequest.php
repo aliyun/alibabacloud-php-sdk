@@ -11,7 +11,7 @@ class SetDeviceDesiredPropertyRequest extends Model
     /**
      * @var string
      */
-    public $iotInstanceId;
+    public $deviceName;
 
     /**
      * @var string
@@ -21,12 +21,7 @@ class SetDeviceDesiredPropertyRequest extends Model
     /**
      * @var string
      */
-    public $deviceName;
-
-    /**
-     * @var string
-     */
-    public $productKey;
+    public $iotInstanceId;
 
     /**
      * @var string
@@ -36,13 +31,18 @@ class SetDeviceDesiredPropertyRequest extends Model
     /**
      * @var string
      */
+    public $productKey;
+
+    /**
+     * @var string
+     */
     public $versions;
     protected $_name = [
-        'iotInstanceId' => 'IotInstanceId',
-        'iotId'         => 'IotId',
         'deviceName'    => 'DeviceName',
-        'productKey'    => 'ProductKey',
+        'iotId'         => 'IotId',
+        'iotInstanceId' => 'IotInstanceId',
         'items'         => 'Items',
+        'productKey'    => 'ProductKey',
         'versions'      => 'Versions',
     ];
 
@@ -53,20 +53,20 @@ class SetDeviceDesiredPropertyRequest extends Model
     public function toMap()
     {
         $res = [];
-        if (null !== $this->iotInstanceId) {
-            $res['IotInstanceId'] = $this->iotInstanceId;
+        if (null !== $this->deviceName) {
+            $res['DeviceName'] = $this->deviceName;
         }
         if (null !== $this->iotId) {
             $res['IotId'] = $this->iotId;
         }
-        if (null !== $this->deviceName) {
-            $res['DeviceName'] = $this->deviceName;
-        }
-        if (null !== $this->productKey) {
-            $res['ProductKey'] = $this->productKey;
+        if (null !== $this->iotInstanceId) {
+            $res['IotInstanceId'] = $this->iotInstanceId;
         }
         if (null !== $this->items) {
             $res['Items'] = $this->items;
+        }
+        if (null !== $this->productKey) {
+            $res['ProductKey'] = $this->productKey;
         }
         if (null !== $this->versions) {
             $res['Versions'] = $this->versions;
@@ -83,20 +83,20 @@ class SetDeviceDesiredPropertyRequest extends Model
     public static function fromMap($map = [])
     {
         $model = new self();
-        if (isset($map['IotInstanceId'])) {
-            $model->iotInstanceId = $map['IotInstanceId'];
+        if (isset($map['DeviceName'])) {
+            $model->deviceName = $map['DeviceName'];
         }
         if (isset($map['IotId'])) {
             $model->iotId = $map['IotId'];
         }
-        if (isset($map['DeviceName'])) {
-            $model->deviceName = $map['DeviceName'];
-        }
-        if (isset($map['ProductKey'])) {
-            $model->productKey = $map['ProductKey'];
+        if (isset($map['IotInstanceId'])) {
+            $model->iotInstanceId = $map['IotInstanceId'];
         }
         if (isset($map['Items'])) {
             $model->items = $map['Items'];
+        }
+        if (isset($map['ProductKey'])) {
+            $model->productKey = $map['ProductKey'];
         }
         if (isset($map['Versions'])) {
             $model->versions = $map['Versions'];

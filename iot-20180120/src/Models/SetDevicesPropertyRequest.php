@@ -21,17 +21,17 @@ class SetDevicesPropertyRequest extends Model
     /**
      * @var string
      */
-    public $productKey;
+    public $items;
 
     /**
      * @var string
      */
-    public $items;
+    public $productKey;
     protected $_name = [
         'deviceName'    => 'DeviceName',
         'iotInstanceId' => 'IotInstanceId',
-        'productKey'    => 'ProductKey',
         'items'         => 'Items',
+        'productKey'    => 'ProductKey',
     ];
 
     public function validate()
@@ -47,11 +47,11 @@ class SetDevicesPropertyRequest extends Model
         if (null !== $this->iotInstanceId) {
             $res['IotInstanceId'] = $this->iotInstanceId;
         }
-        if (null !== $this->productKey) {
-            $res['ProductKey'] = $this->productKey;
-        }
         if (null !== $this->items) {
             $res['Items'] = $this->items;
+        }
+        if (null !== $this->productKey) {
+            $res['ProductKey'] = $this->productKey;
         }
 
         return $res;
@@ -73,11 +73,11 @@ class SetDevicesPropertyRequest extends Model
         if (isset($map['IotInstanceId'])) {
             $model->iotInstanceId = $map['IotInstanceId'];
         }
-        if (isset($map['ProductKey'])) {
-            $model->productKey = $map['ProductKey'];
-        }
         if (isset($map['Items'])) {
             $model->items = $map['Items'];
+        }
+        if (isset($map['ProductKey'])) {
+            $model->productKey = $map['ProductKey'];
         }
 
         return $model;

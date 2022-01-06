@@ -11,21 +11,21 @@ class deviceInfo extends Model
     /**
      * @var string
      */
+    public $deviceName;
+
+    /**
+     * @var string
+     */
     public $iotId;
 
     /**
      * @var string
      */
     public $productKey;
-
-    /**
-     * @var string
-     */
-    public $deviceName;
     protected $_name = [
+        'deviceName' => 'DeviceName',
         'iotId'      => 'IotId',
         'productKey' => 'ProductKey',
-        'deviceName' => 'DeviceName',
     ];
 
     public function validate()
@@ -35,14 +35,14 @@ class deviceInfo extends Model
     public function toMap()
     {
         $res = [];
+        if (null !== $this->deviceName) {
+            $res['DeviceName'] = $this->deviceName;
+        }
         if (null !== $this->iotId) {
             $res['IotId'] = $this->iotId;
         }
         if (null !== $this->productKey) {
             $res['ProductKey'] = $this->productKey;
-        }
-        if (null !== $this->deviceName) {
-            $res['DeviceName'] = $this->deviceName;
         }
 
         return $res;
@@ -56,14 +56,14 @@ class deviceInfo extends Model
     public static function fromMap($map = [])
     {
         $model = new self();
+        if (isset($map['DeviceName'])) {
+            $model->deviceName = $map['DeviceName'];
+        }
         if (isset($map['IotId'])) {
             $model->iotId = $map['IotId'];
         }
         if (isset($map['ProductKey'])) {
             $model->productKey = $map['ProductKey'];
-        }
-        if (isset($map['DeviceName'])) {
-            $model->deviceName = $map['DeviceName'];
         }
 
         return $model;

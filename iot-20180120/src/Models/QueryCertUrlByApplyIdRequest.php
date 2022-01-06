@@ -9,17 +9,17 @@ use AlibabaCloud\Tea\Model;
 class QueryCertUrlByApplyIdRequest extends Model
 {
     /**
-     * @var string
-     */
-    public $iotInstanceId;
-
-    /**
      * @var int
      */
     public $applyId;
+
+    /**
+     * @var string
+     */
+    public $iotInstanceId;
     protected $_name = [
-        'iotInstanceId' => 'IotInstanceId',
         'applyId'       => 'ApplyId',
+        'iotInstanceId' => 'IotInstanceId',
     ];
 
     public function validate()
@@ -29,11 +29,11 @@ class QueryCertUrlByApplyIdRequest extends Model
     public function toMap()
     {
         $res = [];
-        if (null !== $this->iotInstanceId) {
-            $res['IotInstanceId'] = $this->iotInstanceId;
-        }
         if (null !== $this->applyId) {
             $res['ApplyId'] = $this->applyId;
+        }
+        if (null !== $this->iotInstanceId) {
+            $res['IotInstanceId'] = $this->iotInstanceId;
         }
 
         return $res;
@@ -47,11 +47,11 @@ class QueryCertUrlByApplyIdRequest extends Model
     public static function fromMap($map = [])
     {
         $model = new self();
-        if (isset($map['IotInstanceId'])) {
-            $model->iotInstanceId = $map['IotInstanceId'];
-        }
         if (isset($map['ApplyId'])) {
             $model->applyId = $map['ApplyId'];
+        }
+        if (isset($map['IotInstanceId'])) {
+            $model->iotInstanceId = $map['IotInstanceId'];
         }
 
         return $model;

@@ -11,6 +11,16 @@ class joinPermission extends Model
     /**
      * @var string
      */
+    public $classMode;
+
+    /**
+     * @var bool
+     */
+    public $enabled;
+
+    /**
+     * @var string
+     */
     public $joinPermissionId;
 
     /**
@@ -27,23 +37,13 @@ class joinPermission extends Model
      * @var string
      */
     public $ownerAliyunPk;
-
-    /**
-     * @var bool
-     */
-    public $enabled;
-
-    /**
-     * @var string
-     */
-    public $classMode;
     protected $_name = [
+        'classMode'          => 'ClassMode',
+        'enabled'            => 'Enabled',
         'joinPermissionId'   => 'JoinPermissionId',
         'joinPermissionName' => 'JoinPermissionName',
         'joinPermissionType' => 'JoinPermissionType',
         'ownerAliyunPk'      => 'OwnerAliyunPk',
-        'enabled'            => 'Enabled',
-        'classMode'          => 'ClassMode',
     ];
 
     public function validate()
@@ -53,6 +53,12 @@ class joinPermission extends Model
     public function toMap()
     {
         $res = [];
+        if (null !== $this->classMode) {
+            $res['ClassMode'] = $this->classMode;
+        }
+        if (null !== $this->enabled) {
+            $res['Enabled'] = $this->enabled;
+        }
         if (null !== $this->joinPermissionId) {
             $res['JoinPermissionId'] = $this->joinPermissionId;
         }
@@ -64,12 +70,6 @@ class joinPermission extends Model
         }
         if (null !== $this->ownerAliyunPk) {
             $res['OwnerAliyunPk'] = $this->ownerAliyunPk;
-        }
-        if (null !== $this->enabled) {
-            $res['Enabled'] = $this->enabled;
-        }
-        if (null !== $this->classMode) {
-            $res['ClassMode'] = $this->classMode;
         }
 
         return $res;
@@ -83,6 +83,12 @@ class joinPermission extends Model
     public static function fromMap($map = [])
     {
         $model = new self();
+        if (isset($map['ClassMode'])) {
+            $model->classMode = $map['ClassMode'];
+        }
+        if (isset($map['Enabled'])) {
+            $model->enabled = $map['Enabled'];
+        }
         if (isset($map['JoinPermissionId'])) {
             $model->joinPermissionId = $map['JoinPermissionId'];
         }
@@ -94,12 +100,6 @@ class joinPermission extends Model
         }
         if (isset($map['OwnerAliyunPk'])) {
             $model->ownerAliyunPk = $map['OwnerAliyunPk'];
-        }
-        if (isset($map['Enabled'])) {
-            $model->enabled = $map['Enabled'];
-        }
-        if (isset($map['ClassMode'])) {
-            $model->classMode = $map['ClassMode'];
         }
 
         return $model;

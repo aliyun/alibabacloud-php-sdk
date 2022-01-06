@@ -21,17 +21,17 @@ class data extends Model
     /**
      * @var string
      */
-    public $timeZone;
+    public $iotInstanceId;
 
     /**
      * @var string
      */
-    public $iotInstanceId;
+    public $timeZone;
     protected $_name = [
         'gmtCreate'     => 'GmtCreate',
         'gmtModified'   => 'GmtModified',
-        'timeZone'      => 'TimeZone',
         'iotInstanceId' => 'IotInstanceId',
+        'timeZone'      => 'TimeZone',
     ];
 
     public function validate()
@@ -47,11 +47,11 @@ class data extends Model
         if (null !== $this->gmtModified) {
             $res['GmtModified'] = $this->gmtModified;
         }
-        if (null !== $this->timeZone) {
-            $res['TimeZone'] = $this->timeZone;
-        }
         if (null !== $this->iotInstanceId) {
             $res['IotInstanceId'] = $this->iotInstanceId;
+        }
+        if (null !== $this->timeZone) {
+            $res['TimeZone'] = $this->timeZone;
         }
 
         return $res;
@@ -71,11 +71,11 @@ class data extends Model
         if (isset($map['GmtModified'])) {
             $model->gmtModified = $map['GmtModified'];
         }
-        if (isset($map['TimeZone'])) {
-            $model->timeZone = $map['TimeZone'];
-        }
         if (isset($map['IotInstanceId'])) {
             $model->iotInstanceId = $map['IotInstanceId'];
+        }
+        if (isset($map['TimeZone'])) {
+            $model->timeZone = $map['TimeZone'];
         }
 
         return $model;

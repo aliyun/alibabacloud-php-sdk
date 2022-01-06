@@ -10,17 +10,23 @@ use AlibabaCloud\Tea\Model;
 class data extends Model
 {
     /**
-     * @var int
-     */
-    public $total;
-
-    /**
      * @var jobInfo
      */
     public $jobInfo;
+
+    /**
+     * @var string
+     */
+    public $nextToken;
+
+    /**
+     * @var int
+     */
+    public $total;
     protected $_name = [
-        'total'   => 'Total',
-        'jobInfo' => 'JobInfo',
+        'jobInfo'   => 'JobInfo',
+        'nextToken' => 'NextToken',
+        'total'     => 'Total',
     ];
 
     public function validate()
@@ -30,11 +36,14 @@ class data extends Model
     public function toMap()
     {
         $res = [];
-        if (null !== $this->total) {
-            $res['Total'] = $this->total;
-        }
         if (null !== $this->jobInfo) {
             $res['JobInfo'] = null !== $this->jobInfo ? $this->jobInfo->toMap() : null;
+        }
+        if (null !== $this->nextToken) {
+            $res['NextToken'] = $this->nextToken;
+        }
+        if (null !== $this->total) {
+            $res['Total'] = $this->total;
         }
 
         return $res;
@@ -48,11 +57,14 @@ class data extends Model
     public static function fromMap($map = [])
     {
         $model = new self();
-        if (isset($map['Total'])) {
-            $model->total = $map['Total'];
-        }
         if (isset($map['JobInfo'])) {
             $model->jobInfo = jobInfo::fromMap($map['JobInfo']);
+        }
+        if (isset($map['NextToken'])) {
+            $model->nextToken = $map['NextToken'];
+        }
+        if (isset($map['Total'])) {
+            $model->total = $map['Total'];
         }
 
         return $model;

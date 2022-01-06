@@ -12,21 +12,6 @@ class data extends Model
     /**
      * @var string
      */
-    public $gmtCreate;
-
-    /**
-     * @var string
-     */
-    public $gmtModified;
-
-    /**
-     * @var string
-     */
-    public $gmtCompleted;
-
-    /**
-     * @var string
-     */
     public $deploymentId;
 
     /**
@@ -35,19 +20,29 @@ class data extends Model
     public $description;
 
     /**
+     * @var string
+     */
+    public $gmtCompleted;
+
+    /**
      * @var int
      */
-    public $status;
+    public $gmtCompletedTimestamp;
 
     /**
      * @var string
      */
-    public $type;
+    public $gmtCreate;
 
     /**
      * @var int
      */
     public $gmtCreateTimestamp;
+
+    /**
+     * @var string
+     */
+    public $gmtModified;
 
     /**
      * @var int
@@ -57,24 +52,29 @@ class data extends Model
     /**
      * @var int
      */
-    public $gmtCompletedTimestamp;
+    public $status;
 
     /**
      * @var taskList[]
      */
     public $taskList;
+
+    /**
+     * @var string
+     */
+    public $type;
     protected $_name = [
-        'gmtCreate'             => 'GmtCreate',
-        'gmtModified'           => 'GmtModified',
-        'gmtCompleted'          => 'GmtCompleted',
         'deploymentId'          => 'DeploymentId',
         'description'           => 'Description',
-        'status'                => 'Status',
-        'type'                  => 'Type',
-        'gmtCreateTimestamp'    => 'GmtCreateTimestamp',
-        'gmtModifiedTimestamp'  => 'GmtModifiedTimestamp',
+        'gmtCompleted'          => 'GmtCompleted',
         'gmtCompletedTimestamp' => 'GmtCompletedTimestamp',
+        'gmtCreate'             => 'GmtCreate',
+        'gmtCreateTimestamp'    => 'GmtCreateTimestamp',
+        'gmtModified'           => 'GmtModified',
+        'gmtModifiedTimestamp'  => 'GmtModifiedTimestamp',
+        'status'                => 'Status',
         'taskList'              => 'TaskList',
+        'type'                  => 'Type',
     ];
 
     public function validate()
@@ -84,35 +84,32 @@ class data extends Model
     public function toMap()
     {
         $res = [];
-        if (null !== $this->gmtCreate) {
-            $res['GmtCreate'] = $this->gmtCreate;
-        }
-        if (null !== $this->gmtModified) {
-            $res['GmtModified'] = $this->gmtModified;
-        }
-        if (null !== $this->gmtCompleted) {
-            $res['GmtCompleted'] = $this->gmtCompleted;
-        }
         if (null !== $this->deploymentId) {
             $res['DeploymentId'] = $this->deploymentId;
         }
         if (null !== $this->description) {
             $res['Description'] = $this->description;
         }
-        if (null !== $this->status) {
-            $res['Status'] = $this->status;
+        if (null !== $this->gmtCompleted) {
+            $res['GmtCompleted'] = $this->gmtCompleted;
         }
-        if (null !== $this->type) {
-            $res['Type'] = $this->type;
+        if (null !== $this->gmtCompletedTimestamp) {
+            $res['GmtCompletedTimestamp'] = $this->gmtCompletedTimestamp;
+        }
+        if (null !== $this->gmtCreate) {
+            $res['GmtCreate'] = $this->gmtCreate;
         }
         if (null !== $this->gmtCreateTimestamp) {
             $res['GmtCreateTimestamp'] = $this->gmtCreateTimestamp;
         }
+        if (null !== $this->gmtModified) {
+            $res['GmtModified'] = $this->gmtModified;
+        }
         if (null !== $this->gmtModifiedTimestamp) {
             $res['GmtModifiedTimestamp'] = $this->gmtModifiedTimestamp;
         }
-        if (null !== $this->gmtCompletedTimestamp) {
-            $res['GmtCompletedTimestamp'] = $this->gmtCompletedTimestamp;
+        if (null !== $this->status) {
+            $res['Status'] = $this->status;
         }
         if (null !== $this->taskList) {
             $res['TaskList'] = [];
@@ -122,6 +119,9 @@ class data extends Model
                     $res['TaskList'][$n++] = null !== $item ? $item->toMap() : $item;
                 }
             }
+        }
+        if (null !== $this->type) {
+            $res['Type'] = $this->type;
         }
 
         return $res;
@@ -135,35 +135,32 @@ class data extends Model
     public static function fromMap($map = [])
     {
         $model = new self();
-        if (isset($map['GmtCreate'])) {
-            $model->gmtCreate = $map['GmtCreate'];
-        }
-        if (isset($map['GmtModified'])) {
-            $model->gmtModified = $map['GmtModified'];
-        }
-        if (isset($map['GmtCompleted'])) {
-            $model->gmtCompleted = $map['GmtCompleted'];
-        }
         if (isset($map['DeploymentId'])) {
             $model->deploymentId = $map['DeploymentId'];
         }
         if (isset($map['Description'])) {
             $model->description = $map['Description'];
         }
-        if (isset($map['Status'])) {
-            $model->status = $map['Status'];
+        if (isset($map['GmtCompleted'])) {
+            $model->gmtCompleted = $map['GmtCompleted'];
         }
-        if (isset($map['Type'])) {
-            $model->type = $map['Type'];
+        if (isset($map['GmtCompletedTimestamp'])) {
+            $model->gmtCompletedTimestamp = $map['GmtCompletedTimestamp'];
+        }
+        if (isset($map['GmtCreate'])) {
+            $model->gmtCreate = $map['GmtCreate'];
         }
         if (isset($map['GmtCreateTimestamp'])) {
             $model->gmtCreateTimestamp = $map['GmtCreateTimestamp'];
         }
+        if (isset($map['GmtModified'])) {
+            $model->gmtModified = $map['GmtModified'];
+        }
         if (isset($map['GmtModifiedTimestamp'])) {
             $model->gmtModifiedTimestamp = $map['GmtModifiedTimestamp'];
         }
-        if (isset($map['GmtCompletedTimestamp'])) {
-            $model->gmtCompletedTimestamp = $map['GmtCompletedTimestamp'];
+        if (isset($map['Status'])) {
+            $model->status = $map['Status'];
         }
         if (isset($map['TaskList'])) {
             if (!empty($map['TaskList'])) {
@@ -173,6 +170,9 @@ class data extends Model
                     $model->taskList[$n++] = null !== $item ? taskList::fromMap($item) : $item;
                 }
             }
+        }
+        if (isset($map['Type'])) {
+            $model->type = $map['Type'];
         }
 
         return $model;

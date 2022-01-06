@@ -9,9 +9,9 @@ use AlibabaCloud\Tea\Model;
 class QueryEdgeInstanceDriverRequest extends Model
 {
     /**
-     * @var string
+     * @var int
      */
-    public $iotInstanceId;
+    public $currentPage;
 
     /**
      * @var string
@@ -19,18 +19,18 @@ class QueryEdgeInstanceDriverRequest extends Model
     public $instanceId;
 
     /**
-     * @var int
+     * @var string
      */
-    public $currentPage;
+    public $iotInstanceId;
 
     /**
      * @var int
      */
     public $pageSize;
     protected $_name = [
-        'iotInstanceId' => 'IotInstanceId',
-        'instanceId'    => 'InstanceId',
         'currentPage'   => 'CurrentPage',
+        'instanceId'    => 'InstanceId',
+        'iotInstanceId' => 'IotInstanceId',
         'pageSize'      => 'PageSize',
     ];
 
@@ -41,14 +41,14 @@ class QueryEdgeInstanceDriverRequest extends Model
     public function toMap()
     {
         $res = [];
-        if (null !== $this->iotInstanceId) {
-            $res['IotInstanceId'] = $this->iotInstanceId;
+        if (null !== $this->currentPage) {
+            $res['CurrentPage'] = $this->currentPage;
         }
         if (null !== $this->instanceId) {
             $res['InstanceId'] = $this->instanceId;
         }
-        if (null !== $this->currentPage) {
-            $res['CurrentPage'] = $this->currentPage;
+        if (null !== $this->iotInstanceId) {
+            $res['IotInstanceId'] = $this->iotInstanceId;
         }
         if (null !== $this->pageSize) {
             $res['PageSize'] = $this->pageSize;
@@ -65,14 +65,14 @@ class QueryEdgeInstanceDriverRequest extends Model
     public static function fromMap($map = [])
     {
         $model = new self();
-        if (isset($map['IotInstanceId'])) {
-            $model->iotInstanceId = $map['IotInstanceId'];
+        if (isset($map['CurrentPage'])) {
+            $model->currentPage = $map['CurrentPage'];
         }
         if (isset($map['InstanceId'])) {
             $model->instanceId = $map['InstanceId'];
         }
-        if (isset($map['CurrentPage'])) {
-            $model->currentPage = $map['CurrentPage'];
+        if (isset($map['IotInstanceId'])) {
+            $model->iotInstanceId = $map['IotInstanceId'];
         }
         if (isset($map['PageSize'])) {
             $model->pageSize = $map['PageSize'];

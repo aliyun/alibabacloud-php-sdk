@@ -11,12 +11,12 @@ class NotifyAddThingTopoRequest extends Model
     /**
      * @var string
      */
-    public $iotInstanceId;
+    public $deviceListStr;
 
     /**
      * @var string
      */
-    public $deviceListStr;
+    public $gwDeviceName;
 
     /**
      * @var string
@@ -31,13 +31,13 @@ class NotifyAddThingTopoRequest extends Model
     /**
      * @var string
      */
-    public $gwDeviceName;
+    public $iotInstanceId;
     protected $_name = [
-        'iotInstanceId' => 'IotInstanceId',
         'deviceListStr' => 'DeviceListStr',
+        'gwDeviceName'  => 'GwDeviceName',
         'gwIotId'       => 'GwIotId',
         'gwProductKey'  => 'GwProductKey',
-        'gwDeviceName'  => 'GwDeviceName',
+        'iotInstanceId' => 'IotInstanceId',
     ];
 
     public function validate()
@@ -47,11 +47,11 @@ class NotifyAddThingTopoRequest extends Model
     public function toMap()
     {
         $res = [];
-        if (null !== $this->iotInstanceId) {
-            $res['IotInstanceId'] = $this->iotInstanceId;
-        }
         if (null !== $this->deviceListStr) {
             $res['DeviceListStr'] = $this->deviceListStr;
+        }
+        if (null !== $this->gwDeviceName) {
+            $res['GwDeviceName'] = $this->gwDeviceName;
         }
         if (null !== $this->gwIotId) {
             $res['GwIotId'] = $this->gwIotId;
@@ -59,8 +59,8 @@ class NotifyAddThingTopoRequest extends Model
         if (null !== $this->gwProductKey) {
             $res['GwProductKey'] = $this->gwProductKey;
         }
-        if (null !== $this->gwDeviceName) {
-            $res['GwDeviceName'] = $this->gwDeviceName;
+        if (null !== $this->iotInstanceId) {
+            $res['IotInstanceId'] = $this->iotInstanceId;
         }
 
         return $res;
@@ -74,11 +74,11 @@ class NotifyAddThingTopoRequest extends Model
     public static function fromMap($map = [])
     {
         $model = new self();
-        if (isset($map['IotInstanceId'])) {
-            $model->iotInstanceId = $map['IotInstanceId'];
-        }
         if (isset($map['DeviceListStr'])) {
             $model->deviceListStr = $map['DeviceListStr'];
+        }
+        if (isset($map['GwDeviceName'])) {
+            $model->gwDeviceName = $map['GwDeviceName'];
         }
         if (isset($map['GwIotId'])) {
             $model->gwIotId = $map['GwIotId'];
@@ -86,8 +86,8 @@ class NotifyAddThingTopoRequest extends Model
         if (isset($map['GwProductKey'])) {
             $model->gwProductKey = $map['GwProductKey'];
         }
-        if (isset($map['GwDeviceName'])) {
-            $model->gwDeviceName = $map['GwDeviceName'];
+        if (isset($map['IotInstanceId'])) {
+            $model->iotInstanceId = $map['IotInstanceId'];
         }
 
         return $model;

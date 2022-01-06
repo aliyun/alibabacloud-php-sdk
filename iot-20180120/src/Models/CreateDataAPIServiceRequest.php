@@ -13,7 +13,22 @@ class CreateDataAPIServiceRequest extends Model
     /**
      * @var string
      */
+    public $apiPath;
+
+    /**
+     * @var string
+     */
+    public $desc;
+
+    /**
+     * @var string
+     */
     public $displayName;
+
+    /**
+     * @var string
+     */
+    public $iotInstanceId;
 
     /**
      * @var string
@@ -26,11 +41,6 @@ class CreateDataAPIServiceRequest extends Model
     public $requestParam;
 
     /**
-     * @var string
-     */
-    public $desc;
-
-    /**
      * @var responseParam[]
      */
     public $responseParam;
@@ -39,25 +49,15 @@ class CreateDataAPIServiceRequest extends Model
      * @var string
      */
     public $templateSql;
-
-    /**
-     * @var string
-     */
-    public $apiPath;
-
-    /**
-     * @var string
-     */
-    public $iotInstanceId;
     protected $_name = [
+        'apiPath'       => 'ApiPath',
+        'desc'          => 'Desc',
         'displayName'   => 'DisplayName',
+        'iotInstanceId' => 'IotInstanceId',
         'originSql'     => 'OriginSql',
         'requestParam'  => 'RequestParam',
-        'desc'          => 'Desc',
         'responseParam' => 'ResponseParam',
         'templateSql'   => 'TemplateSql',
-        'apiPath'       => 'ApiPath',
-        'iotInstanceId' => 'IotInstanceId',
     ];
 
     public function validate()
@@ -67,8 +67,17 @@ class CreateDataAPIServiceRequest extends Model
     public function toMap()
     {
         $res = [];
+        if (null !== $this->apiPath) {
+            $res['ApiPath'] = $this->apiPath;
+        }
+        if (null !== $this->desc) {
+            $res['Desc'] = $this->desc;
+        }
         if (null !== $this->displayName) {
             $res['DisplayName'] = $this->displayName;
+        }
+        if (null !== $this->iotInstanceId) {
+            $res['IotInstanceId'] = $this->iotInstanceId;
         }
         if (null !== $this->originSql) {
             $res['OriginSql'] = $this->originSql;
@@ -82,9 +91,6 @@ class CreateDataAPIServiceRequest extends Model
                 }
             }
         }
-        if (null !== $this->desc) {
-            $res['Desc'] = $this->desc;
-        }
         if (null !== $this->responseParam) {
             $res['ResponseParam'] = [];
             if (null !== $this->responseParam && \is_array($this->responseParam)) {
@@ -96,12 +102,6 @@ class CreateDataAPIServiceRequest extends Model
         }
         if (null !== $this->templateSql) {
             $res['TemplateSql'] = $this->templateSql;
-        }
-        if (null !== $this->apiPath) {
-            $res['ApiPath'] = $this->apiPath;
-        }
-        if (null !== $this->iotInstanceId) {
-            $res['IotInstanceId'] = $this->iotInstanceId;
         }
 
         return $res;
@@ -115,8 +115,17 @@ class CreateDataAPIServiceRequest extends Model
     public static function fromMap($map = [])
     {
         $model = new self();
+        if (isset($map['ApiPath'])) {
+            $model->apiPath = $map['ApiPath'];
+        }
+        if (isset($map['Desc'])) {
+            $model->desc = $map['Desc'];
+        }
         if (isset($map['DisplayName'])) {
             $model->displayName = $map['DisplayName'];
+        }
+        if (isset($map['IotInstanceId'])) {
+            $model->iotInstanceId = $map['IotInstanceId'];
         }
         if (isset($map['OriginSql'])) {
             $model->originSql = $map['OriginSql'];
@@ -130,9 +139,6 @@ class CreateDataAPIServiceRequest extends Model
                 }
             }
         }
-        if (isset($map['Desc'])) {
-            $model->desc = $map['Desc'];
-        }
         if (isset($map['ResponseParam'])) {
             if (!empty($map['ResponseParam'])) {
                 $model->responseParam = [];
@@ -144,12 +150,6 @@ class CreateDataAPIServiceRequest extends Model
         }
         if (isset($map['TemplateSql'])) {
             $model->templateSql = $map['TemplateSql'];
-        }
-        if (isset($map['ApiPath'])) {
-            $model->apiPath = $map['ApiPath'];
-        }
-        if (isset($map['IotInstanceId'])) {
-            $model->iotInstanceId = $map['IotInstanceId'];
         }
 
         return $model;

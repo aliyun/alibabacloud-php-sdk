@@ -11,12 +11,12 @@ class productTopicInfo extends Model
     /**
      * @var string
      */
-    public $productKey;
+    public $desc;
 
     /**
      * @var string
      */
-    public $topicShortName;
+    public $id;
 
     /**
      * @var string
@@ -26,18 +26,18 @@ class productTopicInfo extends Model
     /**
      * @var string
      */
-    public $desc;
+    public $productKey;
 
     /**
      * @var string
      */
-    public $id;
+    public $topicShortName;
     protected $_name = [
-        'productKey'     => 'ProductKey',
-        'topicShortName' => 'TopicShortName',
-        'operation'      => 'Operation',
         'desc'           => 'Desc',
         'id'             => 'Id',
+        'operation'      => 'Operation',
+        'productKey'     => 'ProductKey',
+        'topicShortName' => 'TopicShortName',
     ];
 
     public function validate()
@@ -47,20 +47,20 @@ class productTopicInfo extends Model
     public function toMap()
     {
         $res = [];
-        if (null !== $this->productKey) {
-            $res['ProductKey'] = $this->productKey;
-        }
-        if (null !== $this->topicShortName) {
-            $res['TopicShortName'] = $this->topicShortName;
-        }
-        if (null !== $this->operation) {
-            $res['Operation'] = $this->operation;
-        }
         if (null !== $this->desc) {
             $res['Desc'] = $this->desc;
         }
         if (null !== $this->id) {
             $res['Id'] = $this->id;
+        }
+        if (null !== $this->operation) {
+            $res['Operation'] = $this->operation;
+        }
+        if (null !== $this->productKey) {
+            $res['ProductKey'] = $this->productKey;
+        }
+        if (null !== $this->topicShortName) {
+            $res['TopicShortName'] = $this->topicShortName;
         }
 
         return $res;
@@ -74,20 +74,20 @@ class productTopicInfo extends Model
     public static function fromMap($map = [])
     {
         $model = new self();
-        if (isset($map['ProductKey'])) {
-            $model->productKey = $map['ProductKey'];
-        }
-        if (isset($map['TopicShortName'])) {
-            $model->topicShortName = $map['TopicShortName'];
-        }
-        if (isset($map['Operation'])) {
-            $model->operation = $map['Operation'];
-        }
         if (isset($map['Desc'])) {
             $model->desc = $map['Desc'];
         }
         if (isset($map['Id'])) {
             $model->id = $map['Id'];
+        }
+        if (isset($map['Operation'])) {
+            $model->operation = $map['Operation'];
+        }
+        if (isset($map['ProductKey'])) {
+            $model->productKey = $map['ProductKey'];
+        }
+        if (isset($map['TopicShortName'])) {
+            $model->topicShortName = $map['TopicShortName'];
         }
 
         return $model;

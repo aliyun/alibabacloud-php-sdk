@@ -12,37 +12,12 @@ class simpleOTAJobInfo extends Model
     /**
      * @var string
      */
-    public $jobId;
-
-    /**
-     * @var string
-     */
-    public $utcCreate;
-
-    /**
-     * @var string
-     */
-    public $utcModified;
-
-    /**
-     * @var string
-     */
-    public $productKey;
-
-    /**
-     * @var string
-     */
     public $firmwareId;
 
     /**
      * @var string
      */
-    public $utcStartTime;
-
-    /**
-     * @var string
-     */
-    public $utcEndTime;
+    public $jobId;
 
     /**
      * @var string
@@ -57,7 +32,7 @@ class simpleOTAJobInfo extends Model
     /**
      * @var string
      */
-    public $targetSelection;
+    public $productKey;
 
     /**
      * @var string
@@ -68,19 +43,44 @@ class simpleOTAJobInfo extends Model
      * @var tags
      */
     public $tags;
+
+    /**
+     * @var string
+     */
+    public $targetSelection;
+
+    /**
+     * @var string
+     */
+    public $utcCreate;
+
+    /**
+     * @var string
+     */
+    public $utcEndTime;
+
+    /**
+     * @var string
+     */
+    public $utcModified;
+
+    /**
+     * @var string
+     */
+    public $utcStartTime;
     protected $_name = [
-        'jobId'           => 'JobId',
-        'utcCreate'       => 'UtcCreate',
-        'utcModified'     => 'UtcModified',
-        'productKey'      => 'ProductKey',
         'firmwareId'      => 'FirmwareId',
-        'utcStartTime'    => 'UtcStartTime',
-        'utcEndTime'      => 'UtcEndTime',
+        'jobId'           => 'JobId',
         'jobStatus'       => 'JobStatus',
         'jobType'         => 'JobType',
-        'targetSelection' => 'TargetSelection',
+        'productKey'      => 'ProductKey',
         'selectionType'   => 'SelectionType',
         'tags'            => 'Tags',
+        'targetSelection' => 'TargetSelection',
+        'utcCreate'       => 'UtcCreate',
+        'utcEndTime'      => 'UtcEndTime',
+        'utcModified'     => 'UtcModified',
+        'utcStartTime'    => 'UtcStartTime',
     ];
 
     public function validate()
@@ -90,26 +90,11 @@ class simpleOTAJobInfo extends Model
     public function toMap()
     {
         $res = [];
-        if (null !== $this->jobId) {
-            $res['JobId'] = $this->jobId;
-        }
-        if (null !== $this->utcCreate) {
-            $res['UtcCreate'] = $this->utcCreate;
-        }
-        if (null !== $this->utcModified) {
-            $res['UtcModified'] = $this->utcModified;
-        }
-        if (null !== $this->productKey) {
-            $res['ProductKey'] = $this->productKey;
-        }
         if (null !== $this->firmwareId) {
             $res['FirmwareId'] = $this->firmwareId;
         }
-        if (null !== $this->utcStartTime) {
-            $res['UtcStartTime'] = $this->utcStartTime;
-        }
-        if (null !== $this->utcEndTime) {
-            $res['UtcEndTime'] = $this->utcEndTime;
+        if (null !== $this->jobId) {
+            $res['JobId'] = $this->jobId;
         }
         if (null !== $this->jobStatus) {
             $res['JobStatus'] = $this->jobStatus;
@@ -117,14 +102,29 @@ class simpleOTAJobInfo extends Model
         if (null !== $this->jobType) {
             $res['JobType'] = $this->jobType;
         }
-        if (null !== $this->targetSelection) {
-            $res['TargetSelection'] = $this->targetSelection;
+        if (null !== $this->productKey) {
+            $res['ProductKey'] = $this->productKey;
         }
         if (null !== $this->selectionType) {
             $res['SelectionType'] = $this->selectionType;
         }
         if (null !== $this->tags) {
             $res['Tags'] = null !== $this->tags ? $this->tags->toMap() : null;
+        }
+        if (null !== $this->targetSelection) {
+            $res['TargetSelection'] = $this->targetSelection;
+        }
+        if (null !== $this->utcCreate) {
+            $res['UtcCreate'] = $this->utcCreate;
+        }
+        if (null !== $this->utcEndTime) {
+            $res['UtcEndTime'] = $this->utcEndTime;
+        }
+        if (null !== $this->utcModified) {
+            $res['UtcModified'] = $this->utcModified;
+        }
+        if (null !== $this->utcStartTime) {
+            $res['UtcStartTime'] = $this->utcStartTime;
         }
 
         return $res;
@@ -138,26 +138,11 @@ class simpleOTAJobInfo extends Model
     public static function fromMap($map = [])
     {
         $model = new self();
-        if (isset($map['JobId'])) {
-            $model->jobId = $map['JobId'];
-        }
-        if (isset($map['UtcCreate'])) {
-            $model->utcCreate = $map['UtcCreate'];
-        }
-        if (isset($map['UtcModified'])) {
-            $model->utcModified = $map['UtcModified'];
-        }
-        if (isset($map['ProductKey'])) {
-            $model->productKey = $map['ProductKey'];
-        }
         if (isset($map['FirmwareId'])) {
             $model->firmwareId = $map['FirmwareId'];
         }
-        if (isset($map['UtcStartTime'])) {
-            $model->utcStartTime = $map['UtcStartTime'];
-        }
-        if (isset($map['UtcEndTime'])) {
-            $model->utcEndTime = $map['UtcEndTime'];
+        if (isset($map['JobId'])) {
+            $model->jobId = $map['JobId'];
         }
         if (isset($map['JobStatus'])) {
             $model->jobStatus = $map['JobStatus'];
@@ -165,14 +150,29 @@ class simpleOTAJobInfo extends Model
         if (isset($map['JobType'])) {
             $model->jobType = $map['JobType'];
         }
-        if (isset($map['TargetSelection'])) {
-            $model->targetSelection = $map['TargetSelection'];
+        if (isset($map['ProductKey'])) {
+            $model->productKey = $map['ProductKey'];
         }
         if (isset($map['SelectionType'])) {
             $model->selectionType = $map['SelectionType'];
         }
         if (isset($map['Tags'])) {
             $model->tags = tags::fromMap($map['Tags']);
+        }
+        if (isset($map['TargetSelection'])) {
+            $model->targetSelection = $map['TargetSelection'];
+        }
+        if (isset($map['UtcCreate'])) {
+            $model->utcCreate = $map['UtcCreate'];
+        }
+        if (isset($map['UtcEndTime'])) {
+            $model->utcEndTime = $map['UtcEndTime'];
+        }
+        if (isset($map['UtcModified'])) {
+            $model->utcModified = $map['UtcModified'];
+        }
+        if (isset($map['UtcStartTime'])) {
+            $model->utcStartTime = $map['UtcStartTime'];
         }
 
         return $model;

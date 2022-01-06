@@ -11,17 +11,27 @@ class ImportThingModelTslRequest extends Model
     /**
      * @var string
      */
+    public $functionBlockId;
+
+    /**
+     * @var string
+     */
+    public $functionBlockName;
+
+    /**
+     * @var string
+     */
     public $iotInstanceId;
 
     /**
      * @var string
      */
-    public $resourceGroupId;
+    public $productKey;
 
     /**
      * @var string
      */
-    public $productKey;
+    public $resourceGroupId;
 
     /**
      * @var string
@@ -32,24 +42,14 @@ class ImportThingModelTslRequest extends Model
      * @var string
      */
     public $tslUrl;
-
-    /**
-     * @var string
-     */
-    public $functionBlockId;
-
-    /**
-     * @var string
-     */
-    public $functionBlockName;
     protected $_name = [
-        'iotInstanceId'     => 'IotInstanceId',
-        'resourceGroupId'   => 'ResourceGroupId',
-        'productKey'        => 'ProductKey',
-        'tslStr'            => 'TslStr',
-        'tslUrl'            => 'TslUrl',
         'functionBlockId'   => 'FunctionBlockId',
         'functionBlockName' => 'FunctionBlockName',
+        'iotInstanceId'     => 'IotInstanceId',
+        'productKey'        => 'ProductKey',
+        'resourceGroupId'   => 'ResourceGroupId',
+        'tslStr'            => 'TslStr',
+        'tslUrl'            => 'TslUrl',
     ];
 
     public function validate()
@@ -59,26 +59,26 @@ class ImportThingModelTslRequest extends Model
     public function toMap()
     {
         $res = [];
+        if (null !== $this->functionBlockId) {
+            $res['FunctionBlockId'] = $this->functionBlockId;
+        }
+        if (null !== $this->functionBlockName) {
+            $res['FunctionBlockName'] = $this->functionBlockName;
+        }
         if (null !== $this->iotInstanceId) {
             $res['IotInstanceId'] = $this->iotInstanceId;
         }
-        if (null !== $this->resourceGroupId) {
-            $res['ResourceGroupId'] = $this->resourceGroupId;
-        }
         if (null !== $this->productKey) {
             $res['ProductKey'] = $this->productKey;
+        }
+        if (null !== $this->resourceGroupId) {
+            $res['ResourceGroupId'] = $this->resourceGroupId;
         }
         if (null !== $this->tslStr) {
             $res['TslStr'] = $this->tslStr;
         }
         if (null !== $this->tslUrl) {
             $res['TslUrl'] = $this->tslUrl;
-        }
-        if (null !== $this->functionBlockId) {
-            $res['FunctionBlockId'] = $this->functionBlockId;
-        }
-        if (null !== $this->functionBlockName) {
-            $res['FunctionBlockName'] = $this->functionBlockName;
         }
 
         return $res;
@@ -92,26 +92,26 @@ class ImportThingModelTslRequest extends Model
     public static function fromMap($map = [])
     {
         $model = new self();
+        if (isset($map['FunctionBlockId'])) {
+            $model->functionBlockId = $map['FunctionBlockId'];
+        }
+        if (isset($map['FunctionBlockName'])) {
+            $model->functionBlockName = $map['FunctionBlockName'];
+        }
         if (isset($map['IotInstanceId'])) {
             $model->iotInstanceId = $map['IotInstanceId'];
         }
-        if (isset($map['ResourceGroupId'])) {
-            $model->resourceGroupId = $map['ResourceGroupId'];
-        }
         if (isset($map['ProductKey'])) {
             $model->productKey = $map['ProductKey'];
+        }
+        if (isset($map['ResourceGroupId'])) {
+            $model->resourceGroupId = $map['ResourceGroupId'];
         }
         if (isset($map['TslStr'])) {
             $model->tslStr = $map['TslStr'];
         }
         if (isset($map['TslUrl'])) {
             $model->tslUrl = $map['TslUrl'];
-        }
-        if (isset($map['FunctionBlockId'])) {
-            $model->functionBlockId = $map['FunctionBlockId'];
-        }
-        if (isset($map['FunctionBlockName'])) {
-            $model->functionBlockName = $map['FunctionBlockName'];
         }
 
         return $model;

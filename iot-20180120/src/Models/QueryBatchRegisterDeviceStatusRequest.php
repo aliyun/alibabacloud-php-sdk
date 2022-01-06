@@ -9,6 +9,11 @@ use AlibabaCloud\Tea\Model;
 class QueryBatchRegisterDeviceStatusRequest extends Model
 {
     /**
+     * @var int
+     */
+    public $applyId;
+
+    /**
      * @var string
      */
     public $iotInstanceId;
@@ -17,15 +22,10 @@ class QueryBatchRegisterDeviceStatusRequest extends Model
      * @var string
      */
     public $productKey;
-
-    /**
-     * @var int
-     */
-    public $applyId;
     protected $_name = [
+        'applyId'       => 'ApplyId',
         'iotInstanceId' => 'IotInstanceId',
         'productKey'    => 'ProductKey',
-        'applyId'       => 'ApplyId',
     ];
 
     public function validate()
@@ -35,14 +35,14 @@ class QueryBatchRegisterDeviceStatusRequest extends Model
     public function toMap()
     {
         $res = [];
+        if (null !== $this->applyId) {
+            $res['ApplyId'] = $this->applyId;
+        }
         if (null !== $this->iotInstanceId) {
             $res['IotInstanceId'] = $this->iotInstanceId;
         }
         if (null !== $this->productKey) {
             $res['ProductKey'] = $this->productKey;
-        }
-        if (null !== $this->applyId) {
-            $res['ApplyId'] = $this->applyId;
         }
 
         return $res;
@@ -56,14 +56,14 @@ class QueryBatchRegisterDeviceStatusRequest extends Model
     public static function fromMap($map = [])
     {
         $model = new self();
+        if (isset($map['ApplyId'])) {
+            $model->applyId = $map['ApplyId'];
+        }
         if (isset($map['IotInstanceId'])) {
             $model->iotInstanceId = $map['IotInstanceId'];
         }
         if (isset($map['ProductKey'])) {
             $model->productKey = $map['ProductKey'];
-        }
-        if (isset($map['ApplyId'])) {
-            $model->applyId = $map['ApplyId'];
         }
 
         return $model;

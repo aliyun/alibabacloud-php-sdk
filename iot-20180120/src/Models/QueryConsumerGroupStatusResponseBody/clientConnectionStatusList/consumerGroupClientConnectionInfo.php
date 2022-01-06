@@ -9,6 +9,11 @@ use AlibabaCloud\Tea\Model;
 class consumerGroupClientConnectionInfo extends Model
 {
     /**
+     * @var int
+     */
+    public $accumulatedConsumeCountPerMinute;
+
+    /**
      * @var string
      */
     public $clientId;
@@ -27,17 +32,12 @@ class consumerGroupClientConnectionInfo extends Model
      * @var int
      */
     public $realTimeConsumeCountPerMinute;
-
-    /**
-     * @var int
-     */
-    public $accumulatedConsumeCountPerMinute;
     protected $_name = [
+        'accumulatedConsumeCountPerMinute' => 'AccumulatedConsumeCountPerMinute',
         'clientId'                         => 'ClientId',
         'clientIpPort'                     => 'ClientIpPort',
         'onlineTime'                       => 'OnlineTime',
         'realTimeConsumeCountPerMinute'    => 'RealTimeConsumeCountPerMinute',
-        'accumulatedConsumeCountPerMinute' => 'AccumulatedConsumeCountPerMinute',
     ];
 
     public function validate()
@@ -47,6 +47,9 @@ class consumerGroupClientConnectionInfo extends Model
     public function toMap()
     {
         $res = [];
+        if (null !== $this->accumulatedConsumeCountPerMinute) {
+            $res['AccumulatedConsumeCountPerMinute'] = $this->accumulatedConsumeCountPerMinute;
+        }
         if (null !== $this->clientId) {
             $res['ClientId'] = $this->clientId;
         }
@@ -58,9 +61,6 @@ class consumerGroupClientConnectionInfo extends Model
         }
         if (null !== $this->realTimeConsumeCountPerMinute) {
             $res['RealTimeConsumeCountPerMinute'] = $this->realTimeConsumeCountPerMinute;
-        }
-        if (null !== $this->accumulatedConsumeCountPerMinute) {
-            $res['AccumulatedConsumeCountPerMinute'] = $this->accumulatedConsumeCountPerMinute;
         }
 
         return $res;
@@ -74,6 +74,9 @@ class consumerGroupClientConnectionInfo extends Model
     public static function fromMap($map = [])
     {
         $model = new self();
+        if (isset($map['AccumulatedConsumeCountPerMinute'])) {
+            $model->accumulatedConsumeCountPerMinute = $map['AccumulatedConsumeCountPerMinute'];
+        }
         if (isset($map['ClientId'])) {
             $model->clientId = $map['ClientId'];
         }
@@ -85,9 +88,6 @@ class consumerGroupClientConnectionInfo extends Model
         }
         if (isset($map['RealTimeConsumeCountPerMinute'])) {
             $model->realTimeConsumeCountPerMinute = $map['RealTimeConsumeCountPerMinute'];
-        }
-        if (isset($map['AccumulatedConsumeCountPerMinute'])) {
-            $model->accumulatedConsumeCountPerMinute = $map['AccumulatedConsumeCountPerMinute'];
         }
 
         return $model;

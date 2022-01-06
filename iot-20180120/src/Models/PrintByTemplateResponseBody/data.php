@@ -9,11 +9,6 @@ use AlibabaCloud\Tea\Model;
 class data extends Model
 {
     /**
-     * @var bool
-     */
-    public $success;
-
-    /**
      * @var string
      */
     public $deviceErrorCode;
@@ -31,19 +26,24 @@ class data extends Model
     /**
      * @var int
      */
-    public $retryCount;
+    public $maxRetryCount;
 
     /**
      * @var int
      */
-    public $maxRetryCount;
+    public $retryCount;
+
+    /**
+     * @var bool
+     */
+    public $success;
     protected $_name = [
-        'success'            => 'Success',
         'deviceErrorCode'    => 'DeviceErrorCode',
         'deviceErrorMessage' => 'DeviceErrorMessage',
         'id'                 => 'Id',
-        'retryCount'         => 'RetryCount',
         'maxRetryCount'      => 'MaxRetryCount',
+        'retryCount'         => 'RetryCount',
+        'success'            => 'Success',
     ];
 
     public function validate()
@@ -53,9 +53,6 @@ class data extends Model
     public function toMap()
     {
         $res = [];
-        if (null !== $this->success) {
-            $res['Success'] = $this->success;
-        }
         if (null !== $this->deviceErrorCode) {
             $res['DeviceErrorCode'] = $this->deviceErrorCode;
         }
@@ -65,11 +62,14 @@ class data extends Model
         if (null !== $this->id) {
             $res['Id'] = $this->id;
         }
+        if (null !== $this->maxRetryCount) {
+            $res['MaxRetryCount'] = $this->maxRetryCount;
+        }
         if (null !== $this->retryCount) {
             $res['RetryCount'] = $this->retryCount;
         }
-        if (null !== $this->maxRetryCount) {
-            $res['MaxRetryCount'] = $this->maxRetryCount;
+        if (null !== $this->success) {
+            $res['Success'] = $this->success;
         }
 
         return $res;
@@ -83,9 +83,6 @@ class data extends Model
     public static function fromMap($map = [])
     {
         $model = new self();
-        if (isset($map['Success'])) {
-            $model->success = $map['Success'];
-        }
         if (isset($map['DeviceErrorCode'])) {
             $model->deviceErrorCode = $map['DeviceErrorCode'];
         }
@@ -95,11 +92,14 @@ class data extends Model
         if (isset($map['Id'])) {
             $model->id = $map['Id'];
         }
+        if (isset($map['MaxRetryCount'])) {
+            $model->maxRetryCount = $map['MaxRetryCount'];
+        }
         if (isset($map['RetryCount'])) {
             $model->retryCount = $map['RetryCount'];
         }
-        if (isset($map['MaxRetryCount'])) {
-            $model->maxRetryCount = $map['MaxRetryCount'];
+        if (isset($map['Success'])) {
+            $model->success = $map['Success'];
         }
 
         return $model;

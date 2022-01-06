@@ -9,9 +9,19 @@ use AlibabaCloud\Tea\Model;
 class QueryDeviceRequest extends Model
 {
     /**
+     * @var int
+     */
+    public $currentPage;
+
+    /**
      * @var string
      */
     public $iotInstanceId;
+
+    /**
+     * @var string
+     */
+    public $nextToken;
 
     /**
      * @var int
@@ -22,16 +32,12 @@ class QueryDeviceRequest extends Model
      * @var string
      */
     public $productKey;
-
-    /**
-     * @var int
-     */
-    public $currentPage;
     protected $_name = [
+        'currentPage'   => 'CurrentPage',
         'iotInstanceId' => 'IotInstanceId',
+        'nextToken'     => 'NextToken',
         'pageSize'      => 'PageSize',
         'productKey'    => 'ProductKey',
-        'currentPage'   => 'CurrentPage',
     ];
 
     public function validate()
@@ -41,17 +47,20 @@ class QueryDeviceRequest extends Model
     public function toMap()
     {
         $res = [];
+        if (null !== $this->currentPage) {
+            $res['CurrentPage'] = $this->currentPage;
+        }
         if (null !== $this->iotInstanceId) {
             $res['IotInstanceId'] = $this->iotInstanceId;
+        }
+        if (null !== $this->nextToken) {
+            $res['NextToken'] = $this->nextToken;
         }
         if (null !== $this->pageSize) {
             $res['PageSize'] = $this->pageSize;
         }
         if (null !== $this->productKey) {
             $res['ProductKey'] = $this->productKey;
-        }
-        if (null !== $this->currentPage) {
-            $res['CurrentPage'] = $this->currentPage;
         }
 
         return $res;
@@ -65,17 +74,20 @@ class QueryDeviceRequest extends Model
     public static function fromMap($map = [])
     {
         $model = new self();
+        if (isset($map['CurrentPage'])) {
+            $model->currentPage = $map['CurrentPage'];
+        }
         if (isset($map['IotInstanceId'])) {
             $model->iotInstanceId = $map['IotInstanceId'];
+        }
+        if (isset($map['NextToken'])) {
+            $model->nextToken = $map['NextToken'];
         }
         if (isset($map['PageSize'])) {
             $model->pageSize = $map['PageSize'];
         }
         if (isset($map['ProductKey'])) {
             $model->productKey = $map['ProductKey'];
-        }
-        if (isset($map['CurrentPage'])) {
-            $model->currentPage = $map['CurrentPage'];
         }
 
         return $model;

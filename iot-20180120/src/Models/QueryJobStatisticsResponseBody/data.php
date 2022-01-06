@@ -11,27 +11,7 @@ class data extends Model
     /**
      * @var int
      */
-    public $total;
-
-    /**
-     * @var int
-     */
-    public $queued;
-
-    /**
-     * @var int
-     */
-    public $sent;
-
-    /**
-     * @var int
-     */
-    public $inProgress;
-
-    /**
-     * @var int
-     */
-    public $succeeded;
+    public $cancelled;
 
     /**
      * @var int
@@ -41,7 +21,27 @@ class data extends Model
     /**
      * @var int
      */
+    public $inProgress;
+
+    /**
+     * @var int
+     */
+    public $queued;
+
+    /**
+     * @var int
+     */
     public $rejected;
+
+    /**
+     * @var int
+     */
+    public $sent;
+
+    /**
+     * @var int
+     */
+    public $succeeded;
 
     /**
      * @var int
@@ -51,17 +51,17 @@ class data extends Model
     /**
      * @var int
      */
-    public $cancelled;
+    public $total;
     protected $_name = [
-        'total'      => 'Total',
-        'queued'     => 'Queued',
-        'sent'       => 'Sent',
-        'inProgress' => 'InProgress',
-        'succeeded'  => 'Succeeded',
-        'failed'     => 'Failed',
-        'rejected'   => 'Rejected',
-        'timeOut'    => 'TimeOut',
         'cancelled'  => 'Cancelled',
+        'failed'     => 'Failed',
+        'inProgress' => 'InProgress',
+        'queued'     => 'Queued',
+        'rejected'   => 'Rejected',
+        'sent'       => 'Sent',
+        'succeeded'  => 'Succeeded',
+        'timeOut'    => 'TimeOut',
+        'total'      => 'Total',
     ];
 
     public function validate()
@@ -71,32 +71,32 @@ class data extends Model
     public function toMap()
     {
         $res = [];
-        if (null !== $this->total) {
-            $res['Total'] = $this->total;
-        }
-        if (null !== $this->queued) {
-            $res['Queued'] = $this->queued;
-        }
-        if (null !== $this->sent) {
-            $res['Sent'] = $this->sent;
-        }
-        if (null !== $this->inProgress) {
-            $res['InProgress'] = $this->inProgress;
-        }
-        if (null !== $this->succeeded) {
-            $res['Succeeded'] = $this->succeeded;
+        if (null !== $this->cancelled) {
+            $res['Cancelled'] = $this->cancelled;
         }
         if (null !== $this->failed) {
             $res['Failed'] = $this->failed;
         }
+        if (null !== $this->inProgress) {
+            $res['InProgress'] = $this->inProgress;
+        }
+        if (null !== $this->queued) {
+            $res['Queued'] = $this->queued;
+        }
         if (null !== $this->rejected) {
             $res['Rejected'] = $this->rejected;
+        }
+        if (null !== $this->sent) {
+            $res['Sent'] = $this->sent;
+        }
+        if (null !== $this->succeeded) {
+            $res['Succeeded'] = $this->succeeded;
         }
         if (null !== $this->timeOut) {
             $res['TimeOut'] = $this->timeOut;
         }
-        if (null !== $this->cancelled) {
-            $res['Cancelled'] = $this->cancelled;
+        if (null !== $this->total) {
+            $res['Total'] = $this->total;
         }
 
         return $res;
@@ -110,32 +110,32 @@ class data extends Model
     public static function fromMap($map = [])
     {
         $model = new self();
-        if (isset($map['Total'])) {
-            $model->total = $map['Total'];
-        }
-        if (isset($map['Queued'])) {
-            $model->queued = $map['Queued'];
-        }
-        if (isset($map['Sent'])) {
-            $model->sent = $map['Sent'];
-        }
-        if (isset($map['InProgress'])) {
-            $model->inProgress = $map['InProgress'];
-        }
-        if (isset($map['Succeeded'])) {
-            $model->succeeded = $map['Succeeded'];
+        if (isset($map['Cancelled'])) {
+            $model->cancelled = $map['Cancelled'];
         }
         if (isset($map['Failed'])) {
             $model->failed = $map['Failed'];
         }
+        if (isset($map['InProgress'])) {
+            $model->inProgress = $map['InProgress'];
+        }
+        if (isset($map['Queued'])) {
+            $model->queued = $map['Queued'];
+        }
         if (isset($map['Rejected'])) {
             $model->rejected = $map['Rejected'];
+        }
+        if (isset($map['Sent'])) {
+            $model->sent = $map['Sent'];
+        }
+        if (isset($map['Succeeded'])) {
+            $model->succeeded = $map['Succeeded'];
         }
         if (isset($map['TimeOut'])) {
             $model->timeOut = $map['TimeOut'];
         }
-        if (isset($map['Cancelled'])) {
-            $model->cancelled = $map['Cancelled'];
+        if (isset($map['Total'])) {
+            $model->total = $map['Total'];
         }
 
         return $model;

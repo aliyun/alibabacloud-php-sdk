@@ -11,21 +11,21 @@ class StartCpuRequest extends Model
     /**
      * @var string
      */
-    public $targetValue;
-
-    /**
-     * @var string
-     */
     public $iotId;
 
     /**
      * @var string
      */
     public $iotInstanceId;
+
+    /**
+     * @var string
+     */
+    public $targetValue;
     protected $_name = [
-        'targetValue'   => 'TargetValue',
         'iotId'         => 'IotId',
         'iotInstanceId' => 'IotInstanceId',
+        'targetValue'   => 'TargetValue',
     ];
 
     public function validate()
@@ -35,14 +35,14 @@ class StartCpuRequest extends Model
     public function toMap()
     {
         $res = [];
-        if (null !== $this->targetValue) {
-            $res['TargetValue'] = $this->targetValue;
-        }
         if (null !== $this->iotId) {
             $res['IotId'] = $this->iotId;
         }
         if (null !== $this->iotInstanceId) {
             $res['IotInstanceId'] = $this->iotInstanceId;
+        }
+        if (null !== $this->targetValue) {
+            $res['TargetValue'] = $this->targetValue;
         }
 
         return $res;
@@ -56,14 +56,14 @@ class StartCpuRequest extends Model
     public static function fromMap($map = [])
     {
         $model = new self();
-        if (isset($map['TargetValue'])) {
-            $model->targetValue = $map['TargetValue'];
-        }
         if (isset($map['IotId'])) {
             $model->iotId = $map['IotId'];
         }
         if (isset($map['IotInstanceId'])) {
             $model->iotInstanceId = $map['IotInstanceId'];
+        }
+        if (isset($map['TargetValue'])) {
+            $model->targetValue = $map['TargetValue'];
         }
 
         return $model;

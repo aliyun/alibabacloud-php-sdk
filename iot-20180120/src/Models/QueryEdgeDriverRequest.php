@@ -9,6 +9,16 @@ use AlibabaCloud\Tea\Model;
 class QueryEdgeDriverRequest extends Model
 {
     /**
+     * @var int
+     */
+    public $currentPage;
+
+    /**
+     * @var string
+     */
+    public $driverName;
+
+    /**
      * @var string
      */
     public $iotInstanceId;
@@ -21,23 +31,13 @@ class QueryEdgeDriverRequest extends Model
     /**
      * @var int
      */
-    public $currentPage;
-
-    /**
-     * @var int
-     */
     public $type;
-
-    /**
-     * @var string
-     */
-    public $driverName;
     protected $_name = [
+        'currentPage'   => 'CurrentPage',
+        'driverName'    => 'DriverName',
         'iotInstanceId' => 'IotInstanceId',
         'pageSize'      => 'PageSize',
-        'currentPage'   => 'CurrentPage',
         'type'          => 'Type',
-        'driverName'    => 'DriverName',
     ];
 
     public function validate()
@@ -47,20 +47,20 @@ class QueryEdgeDriverRequest extends Model
     public function toMap()
     {
         $res = [];
+        if (null !== $this->currentPage) {
+            $res['CurrentPage'] = $this->currentPage;
+        }
+        if (null !== $this->driverName) {
+            $res['DriverName'] = $this->driverName;
+        }
         if (null !== $this->iotInstanceId) {
             $res['IotInstanceId'] = $this->iotInstanceId;
         }
         if (null !== $this->pageSize) {
             $res['PageSize'] = $this->pageSize;
         }
-        if (null !== $this->currentPage) {
-            $res['CurrentPage'] = $this->currentPage;
-        }
         if (null !== $this->type) {
             $res['Type'] = $this->type;
-        }
-        if (null !== $this->driverName) {
-            $res['DriverName'] = $this->driverName;
         }
 
         return $res;
@@ -74,20 +74,20 @@ class QueryEdgeDriverRequest extends Model
     public static function fromMap($map = [])
     {
         $model = new self();
+        if (isset($map['CurrentPage'])) {
+            $model->currentPage = $map['CurrentPage'];
+        }
+        if (isset($map['DriverName'])) {
+            $model->driverName = $map['DriverName'];
+        }
         if (isset($map['IotInstanceId'])) {
             $model->iotInstanceId = $map['IotInstanceId'];
         }
         if (isset($map['PageSize'])) {
             $model->pageSize = $map['PageSize'];
         }
-        if (isset($map['CurrentPage'])) {
-            $model->currentPage = $map['CurrentPage'];
-        }
         if (isset($map['Type'])) {
             $model->type = $map['Type'];
-        }
-        if (isset($map['DriverName'])) {
-            $model->driverName = $map['DriverName'];
         }
 
         return $model;

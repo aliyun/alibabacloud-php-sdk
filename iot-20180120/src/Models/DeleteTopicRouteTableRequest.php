@@ -9,11 +9,6 @@ use AlibabaCloud\Tea\Model;
 class DeleteTopicRouteTableRequest extends Model
 {
     /**
-     * @var string
-     */
-    public $iotInstanceId;
-
-    /**
      * @var string[]
      */
     public $dstTopic;
@@ -21,10 +16,15 @@ class DeleteTopicRouteTableRequest extends Model
     /**
      * @var string
      */
+    public $iotInstanceId;
+
+    /**
+     * @var string
+     */
     public $srcTopic;
     protected $_name = [
-        'iotInstanceId' => 'IotInstanceId',
         'dstTopic'      => 'DstTopic',
+        'iotInstanceId' => 'IotInstanceId',
         'srcTopic'      => 'SrcTopic',
     ];
 
@@ -35,11 +35,11 @@ class DeleteTopicRouteTableRequest extends Model
     public function toMap()
     {
         $res = [];
-        if (null !== $this->iotInstanceId) {
-            $res['IotInstanceId'] = $this->iotInstanceId;
-        }
         if (null !== $this->dstTopic) {
             $res['DstTopic'] = $this->dstTopic;
+        }
+        if (null !== $this->iotInstanceId) {
+            $res['IotInstanceId'] = $this->iotInstanceId;
         }
         if (null !== $this->srcTopic) {
             $res['SrcTopic'] = $this->srcTopic;
@@ -56,13 +56,13 @@ class DeleteTopicRouteTableRequest extends Model
     public static function fromMap($map = [])
     {
         $model = new self();
-        if (isset($map['IotInstanceId'])) {
-            $model->iotInstanceId = $map['IotInstanceId'];
-        }
         if (isset($map['DstTopic'])) {
             if (!empty($map['DstTopic'])) {
                 $model->dstTopic = $map['DstTopic'];
             }
+        }
+        if (isset($map['IotInstanceId'])) {
+            $model->iotInstanceId = $map['IotInstanceId'];
         }
         if (isset($map['SrcTopic'])) {
             $model->srcTopic = $map['SrcTopic'];

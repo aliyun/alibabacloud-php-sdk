@@ -9,14 +9,14 @@ use AlibabaCloud\Tea\Model;
 class QuerySceneRuleRequest extends Model
 {
     /**
-     * @var string
+     * @var int
      */
-    public $iotInstanceId;
+    public $currentPage;
 
     /**
      * @var string
      */
-    public $ruleName;
+    public $iotInstanceId;
 
     /**
      * @var int
@@ -24,14 +24,14 @@ class QuerySceneRuleRequest extends Model
     public $pageSize;
 
     /**
-     * @var int
+     * @var string
      */
-    public $currentPage;
+    public $ruleName;
     protected $_name = [
-        'iotInstanceId' => 'IotInstanceId',
-        'ruleName'      => 'RuleName',
-        'pageSize'      => 'PageSize',
         'currentPage'   => 'CurrentPage',
+        'iotInstanceId' => 'IotInstanceId',
+        'pageSize'      => 'PageSize',
+        'ruleName'      => 'RuleName',
     ];
 
     public function validate()
@@ -41,17 +41,17 @@ class QuerySceneRuleRequest extends Model
     public function toMap()
     {
         $res = [];
+        if (null !== $this->currentPage) {
+            $res['CurrentPage'] = $this->currentPage;
+        }
         if (null !== $this->iotInstanceId) {
             $res['IotInstanceId'] = $this->iotInstanceId;
-        }
-        if (null !== $this->ruleName) {
-            $res['RuleName'] = $this->ruleName;
         }
         if (null !== $this->pageSize) {
             $res['PageSize'] = $this->pageSize;
         }
-        if (null !== $this->currentPage) {
-            $res['CurrentPage'] = $this->currentPage;
+        if (null !== $this->ruleName) {
+            $res['RuleName'] = $this->ruleName;
         }
 
         return $res;
@@ -65,17 +65,17 @@ class QuerySceneRuleRequest extends Model
     public static function fromMap($map = [])
     {
         $model = new self();
+        if (isset($map['CurrentPage'])) {
+            $model->currentPage = $map['CurrentPage'];
+        }
         if (isset($map['IotInstanceId'])) {
             $model->iotInstanceId = $map['IotInstanceId'];
-        }
-        if (isset($map['RuleName'])) {
-            $model->ruleName = $map['RuleName'];
         }
         if (isset($map['PageSize'])) {
             $model->pageSize = $map['PageSize'];
         }
-        if (isset($map['CurrentPage'])) {
-            $model->currentPage = $map['CurrentPage'];
+        if (isset($map['RuleName'])) {
+            $model->ruleName = $map['RuleName'];
         }
 
         return $model;

@@ -10,17 +10,17 @@ use AlibabaCloud\Tea\Model;
 class BatchUpdateDeviceNicknameRequest extends Model
 {
     /**
-     * @var string
-     */
-    public $iotInstanceId;
-
-    /**
      * @var deviceNicknameInfo[]
      */
     public $deviceNicknameInfo;
+
+    /**
+     * @var string
+     */
+    public $iotInstanceId;
     protected $_name = [
-        'iotInstanceId'      => 'IotInstanceId',
         'deviceNicknameInfo' => 'DeviceNicknameInfo',
+        'iotInstanceId'      => 'IotInstanceId',
     ];
 
     public function validate()
@@ -30,9 +30,6 @@ class BatchUpdateDeviceNicknameRequest extends Model
     public function toMap()
     {
         $res = [];
-        if (null !== $this->iotInstanceId) {
-            $res['IotInstanceId'] = $this->iotInstanceId;
-        }
         if (null !== $this->deviceNicknameInfo) {
             $res['DeviceNicknameInfo'] = [];
             if (null !== $this->deviceNicknameInfo && \is_array($this->deviceNicknameInfo)) {
@@ -41,6 +38,9 @@ class BatchUpdateDeviceNicknameRequest extends Model
                     $res['DeviceNicknameInfo'][$n++] = null !== $item ? $item->toMap() : $item;
                 }
             }
+        }
+        if (null !== $this->iotInstanceId) {
+            $res['IotInstanceId'] = $this->iotInstanceId;
         }
 
         return $res;
@@ -54,9 +54,6 @@ class BatchUpdateDeviceNicknameRequest extends Model
     public static function fromMap($map = [])
     {
         $model = new self();
-        if (isset($map['IotInstanceId'])) {
-            $model->iotInstanceId = $map['IotInstanceId'];
-        }
         if (isset($map['DeviceNicknameInfo'])) {
             if (!empty($map['DeviceNicknameInfo'])) {
                 $model->deviceNicknameInfo = [];
@@ -65,6 +62,9 @@ class BatchUpdateDeviceNicknameRequest extends Model
                     $model->deviceNicknameInfo[$n++] = null !== $item ? deviceNicknameInfo::fromMap($item) : $item;
                 }
             }
+        }
+        if (isset($map['IotInstanceId'])) {
+            $model->iotInstanceId = $map['IotInstanceId'];
         }
 
         return $model;

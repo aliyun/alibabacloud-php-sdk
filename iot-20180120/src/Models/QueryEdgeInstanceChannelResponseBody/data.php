@@ -10,9 +10,14 @@ use AlibabaCloud\Tea\Model;
 class data extends Model
 {
     /**
+     * @var channelList
+     */
+    public $channelList;
+
+    /**
      * @var int
      */
-    public $total;
+    public $currentPage;
 
     /**
      * @var int
@@ -22,17 +27,12 @@ class data extends Model
     /**
      * @var int
      */
-    public $currentPage;
-
-    /**
-     * @var channelList
-     */
-    public $channelList;
+    public $total;
     protected $_name = [
-        'total'       => 'Total',
-        'pageSize'    => 'PageSize',
-        'currentPage' => 'CurrentPage',
         'channelList' => 'ChannelList',
+        'currentPage' => 'CurrentPage',
+        'pageSize'    => 'PageSize',
+        'total'       => 'Total',
     ];
 
     public function validate()
@@ -42,17 +42,17 @@ class data extends Model
     public function toMap()
     {
         $res = [];
-        if (null !== $this->total) {
-            $res['Total'] = $this->total;
-        }
-        if (null !== $this->pageSize) {
-            $res['PageSize'] = $this->pageSize;
+        if (null !== $this->channelList) {
+            $res['ChannelList'] = null !== $this->channelList ? $this->channelList->toMap() : null;
         }
         if (null !== $this->currentPage) {
             $res['CurrentPage'] = $this->currentPage;
         }
-        if (null !== $this->channelList) {
-            $res['ChannelList'] = null !== $this->channelList ? $this->channelList->toMap() : null;
+        if (null !== $this->pageSize) {
+            $res['PageSize'] = $this->pageSize;
+        }
+        if (null !== $this->total) {
+            $res['Total'] = $this->total;
         }
 
         return $res;
@@ -66,17 +66,17 @@ class data extends Model
     public static function fromMap($map = [])
     {
         $model = new self();
-        if (isset($map['Total'])) {
-            $model->total = $map['Total'];
-        }
-        if (isset($map['PageSize'])) {
-            $model->pageSize = $map['PageSize'];
+        if (isset($map['ChannelList'])) {
+            $model->channelList = channelList::fromMap($map['ChannelList']);
         }
         if (isset($map['CurrentPage'])) {
             $model->currentPage = $map['CurrentPage'];
         }
-        if (isset($map['ChannelList'])) {
-            $model->channelList = channelList::fromMap($map['ChannelList']);
+        if (isset($map['PageSize'])) {
+            $model->pageSize = $map['PageSize'];
+        }
+        if (isset($map['Total'])) {
+            $model->total = $map['Total'];
         }
 
         return $model;

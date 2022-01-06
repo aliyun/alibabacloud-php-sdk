@@ -11,16 +11,6 @@ class data extends Model
     /**
      * @var string
      */
-    public $productKey;
-
-    /**
-     * @var string
-     */
-    public $moduleName;
-
-    /**
-     * @var string
-     */
     public $aliasName;
 
     /**
@@ -37,13 +27,23 @@ class data extends Model
      * @var string
      */
     public $gmtModified;
+
+    /**
+     * @var string
+     */
+    public $moduleName;
+
+    /**
+     * @var string
+     */
+    public $productKey;
     protected $_name = [
-        'productKey'  => 'ProductKey',
-        'moduleName'  => 'ModuleName',
         'aliasName'   => 'AliasName',
         'desc'        => 'Desc',
         'gmtCreate'   => 'GmtCreate',
         'gmtModified' => 'GmtModified',
+        'moduleName'  => 'ModuleName',
+        'productKey'  => 'ProductKey',
     ];
 
     public function validate()
@@ -53,12 +53,6 @@ class data extends Model
     public function toMap()
     {
         $res = [];
-        if (null !== $this->productKey) {
-            $res['ProductKey'] = $this->productKey;
-        }
-        if (null !== $this->moduleName) {
-            $res['ModuleName'] = $this->moduleName;
-        }
         if (null !== $this->aliasName) {
             $res['AliasName'] = $this->aliasName;
         }
@@ -70,6 +64,12 @@ class data extends Model
         }
         if (null !== $this->gmtModified) {
             $res['GmtModified'] = $this->gmtModified;
+        }
+        if (null !== $this->moduleName) {
+            $res['ModuleName'] = $this->moduleName;
+        }
+        if (null !== $this->productKey) {
+            $res['ProductKey'] = $this->productKey;
         }
 
         return $res;
@@ -83,12 +83,6 @@ class data extends Model
     public static function fromMap($map = [])
     {
         $model = new self();
-        if (isset($map['ProductKey'])) {
-            $model->productKey = $map['ProductKey'];
-        }
-        if (isset($map['ModuleName'])) {
-            $model->moduleName = $map['ModuleName'];
-        }
         if (isset($map['AliasName'])) {
             $model->aliasName = $map['AliasName'];
         }
@@ -100,6 +94,12 @@ class data extends Model
         }
         if (isset($map['GmtModified'])) {
             $model->gmtModified = $map['GmtModified'];
+        }
+        if (isset($map['ModuleName'])) {
+            $model->moduleName = $map['ModuleName'];
+        }
+        if (isset($map['ProductKey'])) {
+            $model->productKey = $map['ProductKey'];
         }
 
         return $model;

@@ -11,6 +11,11 @@ class deviceStatus extends Model
     /**
      * @var string
      */
+    public $asAddress;
+
+    /**
+     * @var string
+     */
     public $deviceId;
 
     /**
@@ -21,12 +26,7 @@ class deviceStatus extends Model
     /**
      * @var string
      */
-    public $status;
-
-    /**
-     * @var string
-     */
-    public $asAddress;
+    public $iotId;
 
     /**
      * @var string
@@ -36,14 +36,14 @@ class deviceStatus extends Model
     /**
      * @var string
      */
-    public $iotId;
+    public $status;
     protected $_name = [
+        'asAddress'      => 'AsAddress',
         'deviceId'       => 'DeviceId',
         'deviceName'     => 'DeviceName',
-        'status'         => 'Status',
-        'asAddress'      => 'AsAddress',
-        'lastOnlineTime' => 'LastOnlineTime',
         'iotId'          => 'IotId',
+        'lastOnlineTime' => 'LastOnlineTime',
+        'status'         => 'Status',
     ];
 
     public function validate()
@@ -53,23 +53,23 @@ class deviceStatus extends Model
     public function toMap()
     {
         $res = [];
+        if (null !== $this->asAddress) {
+            $res['AsAddress'] = $this->asAddress;
+        }
         if (null !== $this->deviceId) {
             $res['DeviceId'] = $this->deviceId;
         }
         if (null !== $this->deviceName) {
             $res['DeviceName'] = $this->deviceName;
         }
-        if (null !== $this->status) {
-            $res['Status'] = $this->status;
-        }
-        if (null !== $this->asAddress) {
-            $res['AsAddress'] = $this->asAddress;
+        if (null !== $this->iotId) {
+            $res['IotId'] = $this->iotId;
         }
         if (null !== $this->lastOnlineTime) {
             $res['LastOnlineTime'] = $this->lastOnlineTime;
         }
-        if (null !== $this->iotId) {
-            $res['IotId'] = $this->iotId;
+        if (null !== $this->status) {
+            $res['Status'] = $this->status;
         }
 
         return $res;
@@ -83,23 +83,23 @@ class deviceStatus extends Model
     public static function fromMap($map = [])
     {
         $model = new self();
+        if (isset($map['AsAddress'])) {
+            $model->asAddress = $map['AsAddress'];
+        }
         if (isset($map['DeviceId'])) {
             $model->deviceId = $map['DeviceId'];
         }
         if (isset($map['DeviceName'])) {
             $model->deviceName = $map['DeviceName'];
         }
-        if (isset($map['Status'])) {
-            $model->status = $map['Status'];
-        }
-        if (isset($map['AsAddress'])) {
-            $model->asAddress = $map['AsAddress'];
+        if (isset($map['IotId'])) {
+            $model->iotId = $map['IotId'];
         }
         if (isset($map['LastOnlineTime'])) {
             $model->lastOnlineTime = $map['LastOnlineTime'];
         }
-        if (isset($map['IotId'])) {
-            $model->iotId = $map['IotId'];
+        if (isset($map['Status'])) {
+            $model->status = $map['Status'];
         }
 
         return $model;

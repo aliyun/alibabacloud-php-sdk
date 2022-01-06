@@ -10,9 +10,9 @@ use AlibabaCloud\Tea\Model;
 class CreateOTADynamicUpgradeJobRequest extends Model
 {
     /**
-     * @var string
+     * @var int
      */
-    public $iotInstanceId;
+    public $dynamicMode;
 
     /**
      * @var string
@@ -22,17 +22,32 @@ class CreateOTADynamicUpgradeJobRequest extends Model
     /**
      * @var string
      */
-    public $productKey;
-
-    /**
-     * @var string[]
-     */
-    public $srcVersion;
+    public $iotInstanceId;
 
     /**
      * @var int
      */
-    public $retryInterval;
+    public $maximumPerMinute;
+
+    /**
+     * @var bool
+     */
+    public $needConfirm;
+
+    /**
+     * @var bool
+     */
+    public $needPush;
+
+    /**
+     * @var int
+     */
+    public $overwriteMode;
+
+    /**
+     * @var string
+     */
+    public $productKey;
 
     /**
      * @var int
@@ -42,39 +57,36 @@ class CreateOTADynamicUpgradeJobRequest extends Model
     /**
      * @var int
      */
-    public $timeoutInMinutes;
+    public $retryInterval;
 
     /**
-     * @var int
+     * @var string[]
      */
-    public $maximumPerMinute;
-
-    /**
-     * @var int
-     */
-    public $overwriteMode;
-
-    /**
-     * @var int
-     */
-    public $dynamicMode;
+    public $srcVersion;
 
     /**
      * @var tag[]
      */
     public $tag;
+
+    /**
+     * @var int
+     */
+    public $timeoutInMinutes;
     protected $_name = [
-        'iotInstanceId'    => 'IotInstanceId',
-        'firmwareId'       => 'FirmwareId',
-        'productKey'       => 'ProductKey',
-        'srcVersion'       => 'SrcVersion',
-        'retryInterval'    => 'RetryInterval',
-        'retryCount'       => 'RetryCount',
-        'timeoutInMinutes' => 'TimeoutInMinutes',
-        'maximumPerMinute' => 'MaximumPerMinute',
-        'overwriteMode'    => 'OverwriteMode',
         'dynamicMode'      => 'DynamicMode',
+        'firmwareId'       => 'FirmwareId',
+        'iotInstanceId'    => 'IotInstanceId',
+        'maximumPerMinute' => 'MaximumPerMinute',
+        'needConfirm'      => 'NeedConfirm',
+        'needPush'         => 'NeedPush',
+        'overwriteMode'    => 'OverwriteMode',
+        'productKey'       => 'ProductKey',
+        'retryCount'       => 'RetryCount',
+        'retryInterval'    => 'RetryInterval',
+        'srcVersion'       => 'SrcVersion',
         'tag'              => 'Tag',
+        'timeoutInMinutes' => 'TimeoutInMinutes',
     ];
 
     public function validate()
@@ -84,35 +96,38 @@ class CreateOTADynamicUpgradeJobRequest extends Model
     public function toMap()
     {
         $res = [];
-        if (null !== $this->iotInstanceId) {
-            $res['IotInstanceId'] = $this->iotInstanceId;
+        if (null !== $this->dynamicMode) {
+            $res['DynamicMode'] = $this->dynamicMode;
         }
         if (null !== $this->firmwareId) {
             $res['FirmwareId'] = $this->firmwareId;
         }
-        if (null !== $this->productKey) {
-            $res['ProductKey'] = $this->productKey;
-        }
-        if (null !== $this->srcVersion) {
-            $res['SrcVersion'] = $this->srcVersion;
-        }
-        if (null !== $this->retryInterval) {
-            $res['RetryInterval'] = $this->retryInterval;
-        }
-        if (null !== $this->retryCount) {
-            $res['RetryCount'] = $this->retryCount;
-        }
-        if (null !== $this->timeoutInMinutes) {
-            $res['TimeoutInMinutes'] = $this->timeoutInMinutes;
+        if (null !== $this->iotInstanceId) {
+            $res['IotInstanceId'] = $this->iotInstanceId;
         }
         if (null !== $this->maximumPerMinute) {
             $res['MaximumPerMinute'] = $this->maximumPerMinute;
         }
+        if (null !== $this->needConfirm) {
+            $res['NeedConfirm'] = $this->needConfirm;
+        }
+        if (null !== $this->needPush) {
+            $res['NeedPush'] = $this->needPush;
+        }
         if (null !== $this->overwriteMode) {
             $res['OverwriteMode'] = $this->overwriteMode;
         }
-        if (null !== $this->dynamicMode) {
-            $res['DynamicMode'] = $this->dynamicMode;
+        if (null !== $this->productKey) {
+            $res['ProductKey'] = $this->productKey;
+        }
+        if (null !== $this->retryCount) {
+            $res['RetryCount'] = $this->retryCount;
+        }
+        if (null !== $this->retryInterval) {
+            $res['RetryInterval'] = $this->retryInterval;
+        }
+        if (null !== $this->srcVersion) {
+            $res['SrcVersion'] = $this->srcVersion;
         }
         if (null !== $this->tag) {
             $res['Tag'] = [];
@@ -122,6 +137,9 @@ class CreateOTADynamicUpgradeJobRequest extends Model
                     $res['Tag'][$n++] = null !== $item ? $item->toMap() : $item;
                 }
             }
+        }
+        if (null !== $this->timeoutInMinutes) {
+            $res['TimeoutInMinutes'] = $this->timeoutInMinutes;
         }
 
         return $res;
@@ -135,37 +153,40 @@ class CreateOTADynamicUpgradeJobRequest extends Model
     public static function fromMap($map = [])
     {
         $model = new self();
-        if (isset($map['IotInstanceId'])) {
-            $model->iotInstanceId = $map['IotInstanceId'];
+        if (isset($map['DynamicMode'])) {
+            $model->dynamicMode = $map['DynamicMode'];
         }
         if (isset($map['FirmwareId'])) {
             $model->firmwareId = $map['FirmwareId'];
         }
+        if (isset($map['IotInstanceId'])) {
+            $model->iotInstanceId = $map['IotInstanceId'];
+        }
+        if (isset($map['MaximumPerMinute'])) {
+            $model->maximumPerMinute = $map['MaximumPerMinute'];
+        }
+        if (isset($map['NeedConfirm'])) {
+            $model->needConfirm = $map['NeedConfirm'];
+        }
+        if (isset($map['NeedPush'])) {
+            $model->needPush = $map['NeedPush'];
+        }
+        if (isset($map['OverwriteMode'])) {
+            $model->overwriteMode = $map['OverwriteMode'];
+        }
         if (isset($map['ProductKey'])) {
             $model->productKey = $map['ProductKey'];
+        }
+        if (isset($map['RetryCount'])) {
+            $model->retryCount = $map['RetryCount'];
+        }
+        if (isset($map['RetryInterval'])) {
+            $model->retryInterval = $map['RetryInterval'];
         }
         if (isset($map['SrcVersion'])) {
             if (!empty($map['SrcVersion'])) {
                 $model->srcVersion = $map['SrcVersion'];
             }
-        }
-        if (isset($map['RetryInterval'])) {
-            $model->retryInterval = $map['RetryInterval'];
-        }
-        if (isset($map['RetryCount'])) {
-            $model->retryCount = $map['RetryCount'];
-        }
-        if (isset($map['TimeoutInMinutes'])) {
-            $model->timeoutInMinutes = $map['TimeoutInMinutes'];
-        }
-        if (isset($map['MaximumPerMinute'])) {
-            $model->maximumPerMinute = $map['MaximumPerMinute'];
-        }
-        if (isset($map['OverwriteMode'])) {
-            $model->overwriteMode = $map['OverwriteMode'];
-        }
-        if (isset($map['DynamicMode'])) {
-            $model->dynamicMode = $map['DynamicMode'];
         }
         if (isset($map['Tag'])) {
             if (!empty($map['Tag'])) {
@@ -175,6 +196,9 @@ class CreateOTADynamicUpgradeJobRequest extends Model
                     $model->tag[$n++] = null !== $item ? tag::fromMap($item) : $item;
                 }
             }
+        }
+        if (isset($map['TimeoutInMinutes'])) {
+            $model->timeoutInMinutes = $map['TimeoutInMinutes'];
         }
 
         return $model;

@@ -17,17 +17,12 @@ class items extends Model
     /**
      * @var string
      */
-    public $sourceUid;
-
-    /**
-     * @var string
-     */
-    public $targetUid;
-
-    /**
-     * @var string
-     */
     public $jobId;
+
+    /**
+     * @var string
+     */
+    public $productKey;
 
     /**
      * @var string
@@ -37,12 +32,17 @@ class items extends Model
     /**
      * @var string
      */
-    public $productKey;
+    public $sourceInstanceName;
 
     /**
-     * @var int
+     * @var string
      */
-    public $total;
+    public $sourceRegion;
+
+    /**
+     * @var string
+     */
+    public $sourceUid;
 
     /**
      * @var int
@@ -55,32 +55,32 @@ class items extends Model
     public $strategy;
 
     /**
-     * @var string
-     */
-    public $sourceRegion;
-
-    /**
-     * @var string
-     */
-    public $sourceInstanceName;
-
-    /**
      * @var targetInstanceConfigs
      */
     public $targetInstanceConfigs;
+
+    /**
+     * @var string
+     */
+    public $targetUid;
+
+    /**
+     * @var int
+     */
+    public $total;
     protected $_name = [
         'gmtCreate'             => 'GmtCreate',
-        'sourceUid'             => 'SourceUid',
-        'targetUid'             => 'TargetUid',
         'jobId'                 => 'JobId',
-        'sourceInstanceId'      => 'SourceInstanceId',
         'productKey'            => 'ProductKey',
-        'total'                 => 'Total',
+        'sourceInstanceId'      => 'SourceInstanceId',
+        'sourceInstanceName'    => 'SourceInstanceName',
+        'sourceRegion'          => 'SourceRegion',
+        'sourceUid'             => 'SourceUid',
         'status'                => 'Status',
         'strategy'              => 'Strategy',
-        'sourceRegion'          => 'SourceRegion',
-        'sourceInstanceName'    => 'SourceInstanceName',
         'targetInstanceConfigs' => 'TargetInstanceConfigs',
+        'targetUid'             => 'TargetUid',
+        'total'                 => 'Total',
     ];
 
     public function validate()
@@ -93,23 +93,23 @@ class items extends Model
         if (null !== $this->gmtCreate) {
             $res['GmtCreate'] = $this->gmtCreate;
         }
-        if (null !== $this->sourceUid) {
-            $res['SourceUid'] = $this->sourceUid;
-        }
-        if (null !== $this->targetUid) {
-            $res['TargetUid'] = $this->targetUid;
-        }
         if (null !== $this->jobId) {
             $res['JobId'] = $this->jobId;
-        }
-        if (null !== $this->sourceInstanceId) {
-            $res['SourceInstanceId'] = $this->sourceInstanceId;
         }
         if (null !== $this->productKey) {
             $res['ProductKey'] = $this->productKey;
         }
-        if (null !== $this->total) {
-            $res['Total'] = $this->total;
+        if (null !== $this->sourceInstanceId) {
+            $res['SourceInstanceId'] = $this->sourceInstanceId;
+        }
+        if (null !== $this->sourceInstanceName) {
+            $res['SourceInstanceName'] = $this->sourceInstanceName;
+        }
+        if (null !== $this->sourceRegion) {
+            $res['SourceRegion'] = $this->sourceRegion;
+        }
+        if (null !== $this->sourceUid) {
+            $res['SourceUid'] = $this->sourceUid;
         }
         if (null !== $this->status) {
             $res['Status'] = $this->status;
@@ -117,14 +117,14 @@ class items extends Model
         if (null !== $this->strategy) {
             $res['Strategy'] = $this->strategy;
         }
-        if (null !== $this->sourceRegion) {
-            $res['SourceRegion'] = $this->sourceRegion;
-        }
-        if (null !== $this->sourceInstanceName) {
-            $res['SourceInstanceName'] = $this->sourceInstanceName;
-        }
         if (null !== $this->targetInstanceConfigs) {
             $res['TargetInstanceConfigs'] = null !== $this->targetInstanceConfigs ? $this->targetInstanceConfigs->toMap() : null;
+        }
+        if (null !== $this->targetUid) {
+            $res['TargetUid'] = $this->targetUid;
+        }
+        if (null !== $this->total) {
+            $res['Total'] = $this->total;
         }
 
         return $res;
@@ -141,23 +141,23 @@ class items extends Model
         if (isset($map['GmtCreate'])) {
             $model->gmtCreate = $map['GmtCreate'];
         }
-        if (isset($map['SourceUid'])) {
-            $model->sourceUid = $map['SourceUid'];
-        }
-        if (isset($map['TargetUid'])) {
-            $model->targetUid = $map['TargetUid'];
-        }
         if (isset($map['JobId'])) {
             $model->jobId = $map['JobId'];
-        }
-        if (isset($map['SourceInstanceId'])) {
-            $model->sourceInstanceId = $map['SourceInstanceId'];
         }
         if (isset($map['ProductKey'])) {
             $model->productKey = $map['ProductKey'];
         }
-        if (isset($map['Total'])) {
-            $model->total = $map['Total'];
+        if (isset($map['SourceInstanceId'])) {
+            $model->sourceInstanceId = $map['SourceInstanceId'];
+        }
+        if (isset($map['SourceInstanceName'])) {
+            $model->sourceInstanceName = $map['SourceInstanceName'];
+        }
+        if (isset($map['SourceRegion'])) {
+            $model->sourceRegion = $map['SourceRegion'];
+        }
+        if (isset($map['SourceUid'])) {
+            $model->sourceUid = $map['SourceUid'];
         }
         if (isset($map['Status'])) {
             $model->status = $map['Status'];
@@ -165,14 +165,14 @@ class items extends Model
         if (isset($map['Strategy'])) {
             $model->strategy = $map['Strategy'];
         }
-        if (isset($map['SourceRegion'])) {
-            $model->sourceRegion = $map['SourceRegion'];
-        }
-        if (isset($map['SourceInstanceName'])) {
-            $model->sourceInstanceName = $map['SourceInstanceName'];
-        }
         if (isset($map['TargetInstanceConfigs'])) {
             $model->targetInstanceConfigs = targetInstanceConfigs::fromMap($map['TargetInstanceConfigs']);
+        }
+        if (isset($map['TargetUid'])) {
+            $model->targetUid = $map['TargetUid'];
+        }
+        if (isset($map['Total'])) {
+            $model->total = $map['Total'];
         }
 
         return $model;

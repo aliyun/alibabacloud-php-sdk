@@ -11,7 +11,12 @@ class GenerateFileUploadURLRequest extends Model
     /**
      * @var string
      */
-    public $iotInstanceId;
+    public $bizCode;
+
+    /**
+     * @var string
+     */
+    public $fileName;
 
     /**
      * @var string
@@ -21,17 +26,12 @@ class GenerateFileUploadURLRequest extends Model
     /**
      * @var string
      */
-    public $bizCode;
-
-    /**
-     * @var string
-     */
-    public $fileName;
+    public $iotInstanceId;
     protected $_name = [
-        'iotInstanceId' => 'IotInstanceId',
-        'fileSuffix'    => 'FileSuffix',
         'bizCode'       => 'BizCode',
         'fileName'      => 'FileName',
+        'fileSuffix'    => 'FileSuffix',
+        'iotInstanceId' => 'IotInstanceId',
     ];
 
     public function validate()
@@ -41,17 +41,17 @@ class GenerateFileUploadURLRequest extends Model
     public function toMap()
     {
         $res = [];
-        if (null !== $this->iotInstanceId) {
-            $res['IotInstanceId'] = $this->iotInstanceId;
-        }
-        if (null !== $this->fileSuffix) {
-            $res['FileSuffix'] = $this->fileSuffix;
-        }
         if (null !== $this->bizCode) {
             $res['BizCode'] = $this->bizCode;
         }
         if (null !== $this->fileName) {
             $res['FileName'] = $this->fileName;
+        }
+        if (null !== $this->fileSuffix) {
+            $res['FileSuffix'] = $this->fileSuffix;
+        }
+        if (null !== $this->iotInstanceId) {
+            $res['IotInstanceId'] = $this->iotInstanceId;
         }
 
         return $res;
@@ -65,17 +65,17 @@ class GenerateFileUploadURLRequest extends Model
     public static function fromMap($map = [])
     {
         $model = new self();
-        if (isset($map['IotInstanceId'])) {
-            $model->iotInstanceId = $map['IotInstanceId'];
-        }
-        if (isset($map['FileSuffix'])) {
-            $model->fileSuffix = $map['FileSuffix'];
-        }
         if (isset($map['BizCode'])) {
             $model->bizCode = $map['BizCode'];
         }
         if (isset($map['FileName'])) {
             $model->fileName = $map['FileName'];
+        }
+        if (isset($map['FileSuffix'])) {
+            $model->fileSuffix = $map['FileSuffix'];
+        }
+        if (isset($map['IotInstanceId'])) {
+            $model->iotInstanceId = $map['IotInstanceId'];
         }
 
         return $model;

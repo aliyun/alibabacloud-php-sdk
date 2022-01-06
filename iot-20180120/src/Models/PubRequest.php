@@ -12,7 +12,17 @@ class PubRequest extends Model
     /**
      * @var string
      */
+    public $correlationData;
+
+    /**
+     * @var string
+     */
     public $iotInstanceId;
+
+    /**
+     * @var string
+     */
+    public $messageContent;
 
     /**
      * @var string
@@ -27,35 +37,25 @@ class PubRequest extends Model
     /**
      * @var string
      */
-    public $topicFullName;
-
-    /**
-     * @var string
-     */
-    public $messageContent;
-
-    /**
-     * @var string
-     */
     public $responseTopic;
 
     /**
      * @var string
      */
-    public $correlationData;
+    public $topicFullName;
 
     /**
      * @var userProp[]
      */
     public $userProp;
     protected $_name = [
+        'correlationData' => 'CorrelationData',
         'iotInstanceId'   => 'IotInstanceId',
+        'messageContent'  => 'MessageContent',
         'productKey'      => 'ProductKey',
         'qos'             => 'Qos',
-        'topicFullName'   => 'TopicFullName',
-        'messageContent'  => 'MessageContent',
         'responseTopic'   => 'ResponseTopic',
-        'correlationData' => 'CorrelationData',
+        'topicFullName'   => 'TopicFullName',
         'userProp'        => 'UserProp',
     ];
 
@@ -66,8 +66,14 @@ class PubRequest extends Model
     public function toMap()
     {
         $res = [];
+        if (null !== $this->correlationData) {
+            $res['CorrelationData'] = $this->correlationData;
+        }
         if (null !== $this->iotInstanceId) {
             $res['IotInstanceId'] = $this->iotInstanceId;
+        }
+        if (null !== $this->messageContent) {
+            $res['MessageContent'] = $this->messageContent;
         }
         if (null !== $this->productKey) {
             $res['ProductKey'] = $this->productKey;
@@ -75,17 +81,11 @@ class PubRequest extends Model
         if (null !== $this->qos) {
             $res['Qos'] = $this->qos;
         }
-        if (null !== $this->topicFullName) {
-            $res['TopicFullName'] = $this->topicFullName;
-        }
-        if (null !== $this->messageContent) {
-            $res['MessageContent'] = $this->messageContent;
-        }
         if (null !== $this->responseTopic) {
             $res['ResponseTopic'] = $this->responseTopic;
         }
-        if (null !== $this->correlationData) {
-            $res['CorrelationData'] = $this->correlationData;
+        if (null !== $this->topicFullName) {
+            $res['TopicFullName'] = $this->topicFullName;
         }
         if (null !== $this->userProp) {
             $res['UserProp'] = [];
@@ -108,8 +108,14 @@ class PubRequest extends Model
     public static function fromMap($map = [])
     {
         $model = new self();
+        if (isset($map['CorrelationData'])) {
+            $model->correlationData = $map['CorrelationData'];
+        }
         if (isset($map['IotInstanceId'])) {
             $model->iotInstanceId = $map['IotInstanceId'];
+        }
+        if (isset($map['MessageContent'])) {
+            $model->messageContent = $map['MessageContent'];
         }
         if (isset($map['ProductKey'])) {
             $model->productKey = $map['ProductKey'];
@@ -117,17 +123,11 @@ class PubRequest extends Model
         if (isset($map['Qos'])) {
             $model->qos = $map['Qos'];
         }
-        if (isset($map['TopicFullName'])) {
-            $model->topicFullName = $map['TopicFullName'];
-        }
-        if (isset($map['MessageContent'])) {
-            $model->messageContent = $map['MessageContent'];
-        }
         if (isset($map['ResponseTopic'])) {
             $model->responseTopic = $map['ResponseTopic'];
         }
-        if (isset($map['CorrelationData'])) {
-            $model->correlationData = $map['CorrelationData'];
+        if (isset($map['TopicFullName'])) {
+            $model->topicFullName = $map['TopicFullName'];
         }
         if (isset($map['UserProp'])) {
             if (!empty($map['UserProp'])) {

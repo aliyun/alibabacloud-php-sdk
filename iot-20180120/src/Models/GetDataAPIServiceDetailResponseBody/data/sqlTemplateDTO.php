@@ -16,11 +16,6 @@ class sqlTemplateDTO extends Model
     public $originSql;
 
     /**
-     * @var string
-     */
-    public $templateSql;
-
-    /**
      * @var requestParams
      */
     public $requestParams;
@@ -29,11 +24,16 @@ class sqlTemplateDTO extends Model
      * @var responseParams
      */
     public $responseParams;
+
+    /**
+     * @var string
+     */
+    public $templateSql;
     protected $_name = [
         'originSql'      => 'OriginSql',
-        'templateSql'    => 'TemplateSql',
         'requestParams'  => 'RequestParams',
         'responseParams' => 'ResponseParams',
+        'templateSql'    => 'TemplateSql',
     ];
 
     public function validate()
@@ -46,14 +46,14 @@ class sqlTemplateDTO extends Model
         if (null !== $this->originSql) {
             $res['OriginSql'] = $this->originSql;
         }
-        if (null !== $this->templateSql) {
-            $res['TemplateSql'] = $this->templateSql;
-        }
         if (null !== $this->requestParams) {
             $res['RequestParams'] = null !== $this->requestParams ? $this->requestParams->toMap() : null;
         }
         if (null !== $this->responseParams) {
             $res['ResponseParams'] = null !== $this->responseParams ? $this->responseParams->toMap() : null;
+        }
+        if (null !== $this->templateSql) {
+            $res['TemplateSql'] = $this->templateSql;
         }
 
         return $res;
@@ -70,14 +70,14 @@ class sqlTemplateDTO extends Model
         if (isset($map['OriginSql'])) {
             $model->originSql = $map['OriginSql'];
         }
-        if (isset($map['TemplateSql'])) {
-            $model->templateSql = $map['TemplateSql'];
-        }
         if (isset($map['RequestParams'])) {
             $model->requestParams = requestParams::fromMap($map['RequestParams']);
         }
         if (isset($map['ResponseParams'])) {
             $model->responseParams = responseParams::fromMap($map['ResponseParams']);
+        }
+        if (isset($map['TemplateSql'])) {
+            $model->templateSql = $map['TemplateSql'];
         }
 
         return $model;

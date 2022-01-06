@@ -16,6 +16,11 @@ class UpdateOTAModuleRequest extends Model
     /**
      * @var string
      */
+    public $desc;
+
+    /**
+     * @var string
+     */
     public $iotInstanceId;
 
     /**
@@ -26,17 +31,12 @@ class UpdateOTAModuleRequest extends Model
     /**
      * @var string
      */
-    public $desc;
-
-    /**
-     * @var string
-     */
     public $productKey;
     protected $_name = [
         'aliasName'     => 'AliasName',
+        'desc'          => 'Desc',
         'iotInstanceId' => 'IotInstanceId',
         'moduleName'    => 'ModuleName',
-        'desc'          => 'Desc',
         'productKey'    => 'ProductKey',
     ];
 
@@ -50,14 +50,14 @@ class UpdateOTAModuleRequest extends Model
         if (null !== $this->aliasName) {
             $res['AliasName'] = $this->aliasName;
         }
+        if (null !== $this->desc) {
+            $res['Desc'] = $this->desc;
+        }
         if (null !== $this->iotInstanceId) {
             $res['IotInstanceId'] = $this->iotInstanceId;
         }
         if (null !== $this->moduleName) {
             $res['ModuleName'] = $this->moduleName;
-        }
-        if (null !== $this->desc) {
-            $res['Desc'] = $this->desc;
         }
         if (null !== $this->productKey) {
             $res['ProductKey'] = $this->productKey;
@@ -77,14 +77,14 @@ class UpdateOTAModuleRequest extends Model
         if (isset($map['AliasName'])) {
             $model->aliasName = $map['AliasName'];
         }
+        if (isset($map['Desc'])) {
+            $model->desc = $map['Desc'];
+        }
         if (isset($map['IotInstanceId'])) {
             $model->iotInstanceId = $map['IotInstanceId'];
         }
         if (isset($map['ModuleName'])) {
             $model->moduleName = $map['ModuleName'];
-        }
-        if (isset($map['Desc'])) {
-            $model->desc = $map['Desc'];
         }
         if (isset($map['ProductKey'])) {
             $model->productKey = $map['ProductKey'];

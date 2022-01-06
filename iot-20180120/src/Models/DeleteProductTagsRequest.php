@@ -14,18 +14,18 @@ class DeleteProductTagsRequest extends Model
     public $iotInstanceId;
 
     /**
-     * @var string[]
-     */
-    public $productTagKey;
-
-    /**
      * @var string
      */
     public $productKey;
+
+    /**
+     * @var string[]
+     */
+    public $productTagKey;
     protected $_name = [
         'iotInstanceId' => 'IotInstanceId',
-        'productTagKey' => 'ProductTagKey',
         'productKey'    => 'ProductKey',
+        'productTagKey' => 'ProductTagKey',
     ];
 
     public function validate()
@@ -38,11 +38,11 @@ class DeleteProductTagsRequest extends Model
         if (null !== $this->iotInstanceId) {
             $res['IotInstanceId'] = $this->iotInstanceId;
         }
-        if (null !== $this->productTagKey) {
-            $res['ProductTagKey'] = $this->productTagKey;
-        }
         if (null !== $this->productKey) {
             $res['ProductKey'] = $this->productKey;
+        }
+        if (null !== $this->productTagKey) {
+            $res['ProductTagKey'] = $this->productTagKey;
         }
 
         return $res;
@@ -59,13 +59,13 @@ class DeleteProductTagsRequest extends Model
         if (isset($map['IotInstanceId'])) {
             $model->iotInstanceId = $map['IotInstanceId'];
         }
+        if (isset($map['ProductKey'])) {
+            $model->productKey = $map['ProductKey'];
+        }
         if (isset($map['ProductTagKey'])) {
             if (!empty($map['ProductTagKey'])) {
                 $model->productTagKey = $map['ProductTagKey'];
             }
-        }
-        if (isset($map['ProductKey'])) {
-            $model->productKey = $map['ProductKey'];
         }
 
         return $model;

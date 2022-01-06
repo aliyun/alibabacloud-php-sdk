@@ -11,7 +11,7 @@ class ReplaceEdgeInstanceGatewayRequest extends Model
     /**
      * @var string
      */
-    public $iotInstanceId;
+    public $currentGatewayId;
 
     /**
      * @var string
@@ -21,16 +21,16 @@ class ReplaceEdgeInstanceGatewayRequest extends Model
     /**
      * @var string
      */
-    public $currentGatewayId;
+    public $iotInstanceId;
 
     /**
      * @var string
      */
     public $newGatewayId;
     protected $_name = [
-        'iotInstanceId'    => 'IotInstanceId',
-        'instanceId'       => 'InstanceId',
         'currentGatewayId' => 'CurrentGatewayId',
+        'instanceId'       => 'InstanceId',
+        'iotInstanceId'    => 'IotInstanceId',
         'newGatewayId'     => 'NewGatewayId',
     ];
 
@@ -41,14 +41,14 @@ class ReplaceEdgeInstanceGatewayRequest extends Model
     public function toMap()
     {
         $res = [];
-        if (null !== $this->iotInstanceId) {
-            $res['IotInstanceId'] = $this->iotInstanceId;
+        if (null !== $this->currentGatewayId) {
+            $res['CurrentGatewayId'] = $this->currentGatewayId;
         }
         if (null !== $this->instanceId) {
             $res['InstanceId'] = $this->instanceId;
         }
-        if (null !== $this->currentGatewayId) {
-            $res['CurrentGatewayId'] = $this->currentGatewayId;
+        if (null !== $this->iotInstanceId) {
+            $res['IotInstanceId'] = $this->iotInstanceId;
         }
         if (null !== $this->newGatewayId) {
             $res['NewGatewayId'] = $this->newGatewayId;
@@ -65,14 +65,14 @@ class ReplaceEdgeInstanceGatewayRequest extends Model
     public static function fromMap($map = [])
     {
         $model = new self();
-        if (isset($map['IotInstanceId'])) {
-            $model->iotInstanceId = $map['IotInstanceId'];
+        if (isset($map['CurrentGatewayId'])) {
+            $model->currentGatewayId = $map['CurrentGatewayId'];
         }
         if (isset($map['InstanceId'])) {
             $model->instanceId = $map['InstanceId'];
         }
-        if (isset($map['CurrentGatewayId'])) {
-            $model->currentGatewayId = $map['CurrentGatewayId'];
+        if (isset($map['IotInstanceId'])) {
+            $model->iotInstanceId = $map['IotInstanceId'];
         }
         if (isset($map['NewGatewayId'])) {
             $model->newGatewayId = $map['NewGatewayId'];

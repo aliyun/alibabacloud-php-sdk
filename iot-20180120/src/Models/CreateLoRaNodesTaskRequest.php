@@ -10,6 +10,11 @@ use AlibabaCloud\Tea\Model;
 class CreateLoRaNodesTaskRequest extends Model
 {
     /**
+     * @var deviceInfo[]
+     */
+    public $deviceInfo;
+
+    /**
      * @var string
      */
     public $iotInstanceId;
@@ -18,15 +23,10 @@ class CreateLoRaNodesTaskRequest extends Model
      * @var string
      */
     public $productKey;
-
-    /**
-     * @var deviceInfo[]
-     */
-    public $deviceInfo;
     protected $_name = [
+        'deviceInfo'    => 'DeviceInfo',
         'iotInstanceId' => 'IotInstanceId',
         'productKey'    => 'ProductKey',
-        'deviceInfo'    => 'DeviceInfo',
     ];
 
     public function validate()
@@ -36,12 +36,6 @@ class CreateLoRaNodesTaskRequest extends Model
     public function toMap()
     {
         $res = [];
-        if (null !== $this->iotInstanceId) {
-            $res['IotInstanceId'] = $this->iotInstanceId;
-        }
-        if (null !== $this->productKey) {
-            $res['ProductKey'] = $this->productKey;
-        }
         if (null !== $this->deviceInfo) {
             $res['DeviceInfo'] = [];
             if (null !== $this->deviceInfo && \is_array($this->deviceInfo)) {
@@ -50,6 +44,12 @@ class CreateLoRaNodesTaskRequest extends Model
                     $res['DeviceInfo'][$n++] = null !== $item ? $item->toMap() : $item;
                 }
             }
+        }
+        if (null !== $this->iotInstanceId) {
+            $res['IotInstanceId'] = $this->iotInstanceId;
+        }
+        if (null !== $this->productKey) {
+            $res['ProductKey'] = $this->productKey;
         }
 
         return $res;
@@ -63,12 +63,6 @@ class CreateLoRaNodesTaskRequest extends Model
     public static function fromMap($map = [])
     {
         $model = new self();
-        if (isset($map['IotInstanceId'])) {
-            $model->iotInstanceId = $map['IotInstanceId'];
-        }
-        if (isset($map['ProductKey'])) {
-            $model->productKey = $map['ProductKey'];
-        }
         if (isset($map['DeviceInfo'])) {
             if (!empty($map['DeviceInfo'])) {
                 $model->deviceInfo = [];
@@ -77,6 +71,12 @@ class CreateLoRaNodesTaskRequest extends Model
                     $model->deviceInfo[$n++] = null !== $item ? deviceInfo::fromMap($item) : $item;
                 }
             }
+        }
+        if (isset($map['IotInstanceId'])) {
+            $model->iotInstanceId = $map['IotInstanceId'];
+        }
+        if (isset($map['ProductKey'])) {
+            $model->productKey = $map['ProductKey'];
         }
 
         return $model;

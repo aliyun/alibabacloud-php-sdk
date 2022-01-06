@@ -9,9 +9,9 @@ use AlibabaCloud\Tea\Model;
 class BatchGetEdgeInstanceDriverConfigsRequest extends Model
 {
     /**
-     * @var string
+     * @var string[]
      */
-    public $iotInstanceId;
+    public $driverIds;
 
     /**
      * @var string
@@ -19,13 +19,13 @@ class BatchGetEdgeInstanceDriverConfigsRequest extends Model
     public $instanceId;
 
     /**
-     * @var string[]
+     * @var string
      */
-    public $driverIds;
+    public $iotInstanceId;
     protected $_name = [
-        'iotInstanceId' => 'IotInstanceId',
-        'instanceId'    => 'InstanceId',
         'driverIds'     => 'DriverIds',
+        'instanceId'    => 'InstanceId',
+        'iotInstanceId' => 'IotInstanceId',
     ];
 
     public function validate()
@@ -35,14 +35,14 @@ class BatchGetEdgeInstanceDriverConfigsRequest extends Model
     public function toMap()
     {
         $res = [];
-        if (null !== $this->iotInstanceId) {
-            $res['IotInstanceId'] = $this->iotInstanceId;
+        if (null !== $this->driverIds) {
+            $res['DriverIds'] = $this->driverIds;
         }
         if (null !== $this->instanceId) {
             $res['InstanceId'] = $this->instanceId;
         }
-        if (null !== $this->driverIds) {
-            $res['DriverIds'] = $this->driverIds;
+        if (null !== $this->iotInstanceId) {
+            $res['IotInstanceId'] = $this->iotInstanceId;
         }
 
         return $res;
@@ -56,16 +56,16 @@ class BatchGetEdgeInstanceDriverConfigsRequest extends Model
     public static function fromMap($map = [])
     {
         $model = new self();
-        if (isset($map['IotInstanceId'])) {
-            $model->iotInstanceId = $map['IotInstanceId'];
-        }
-        if (isset($map['InstanceId'])) {
-            $model->instanceId = $map['InstanceId'];
-        }
         if (isset($map['DriverIds'])) {
             if (!empty($map['DriverIds'])) {
                 $model->driverIds = $map['DriverIds'];
             }
+        }
+        if (isset($map['InstanceId'])) {
+            $model->instanceId = $map['InstanceId'];
+        }
+        if (isset($map['IotInstanceId'])) {
+            $model->iotInstanceId = $map['IotInstanceId'];
         }
 
         return $model;

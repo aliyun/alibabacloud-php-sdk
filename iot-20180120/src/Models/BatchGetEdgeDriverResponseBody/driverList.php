@@ -11,6 +11,11 @@ class driverList extends Model
     /**
      * @var string
      */
+    public $cpuArch;
+
+    /**
+     * @var string
+     */
     public $driverId;
 
     /**
@@ -24,26 +29,6 @@ class driverList extends Model
     public $driverProtocol;
 
     /**
-     * @var string
-     */
-    public $runtime;
-
-    /**
-     * @var string
-     */
-    public $cpuArch;
-
-    /**
-     * @var int
-     */
-    public $type;
-
-    /**
-     * @var bool
-     */
-    public $isBuiltIn;
-
-    /**
      * @var int
      */
     public $gmtCreateTimestamp;
@@ -52,16 +37,31 @@ class driverList extends Model
      * @var int
      */
     public $gmtModifiedTimestamp;
+
+    /**
+     * @var bool
+     */
+    public $isBuiltIn;
+
+    /**
+     * @var string
+     */
+    public $runtime;
+
+    /**
+     * @var int
+     */
+    public $type;
     protected $_name = [
+        'cpuArch'              => 'CpuArch',
         'driverId'             => 'DriverId',
         'driverName'           => 'DriverName',
         'driverProtocol'       => 'DriverProtocol',
-        'runtime'              => 'Runtime',
-        'cpuArch'              => 'CpuArch',
-        'type'                 => 'Type',
-        'isBuiltIn'            => 'IsBuiltIn',
         'gmtCreateTimestamp'   => 'GmtCreateTimestamp',
         'gmtModifiedTimestamp' => 'GmtModifiedTimestamp',
+        'isBuiltIn'            => 'IsBuiltIn',
+        'runtime'              => 'Runtime',
+        'type'                 => 'Type',
     ];
 
     public function validate()
@@ -71,6 +71,9 @@ class driverList extends Model
     public function toMap()
     {
         $res = [];
+        if (null !== $this->cpuArch) {
+            $res['CpuArch'] = $this->cpuArch;
+        }
         if (null !== $this->driverId) {
             $res['DriverId'] = $this->driverId;
         }
@@ -80,23 +83,20 @@ class driverList extends Model
         if (null !== $this->driverProtocol) {
             $res['DriverProtocol'] = $this->driverProtocol;
         }
-        if (null !== $this->runtime) {
-            $res['Runtime'] = $this->runtime;
-        }
-        if (null !== $this->cpuArch) {
-            $res['CpuArch'] = $this->cpuArch;
-        }
-        if (null !== $this->type) {
-            $res['Type'] = $this->type;
-        }
-        if (null !== $this->isBuiltIn) {
-            $res['IsBuiltIn'] = $this->isBuiltIn;
-        }
         if (null !== $this->gmtCreateTimestamp) {
             $res['GmtCreateTimestamp'] = $this->gmtCreateTimestamp;
         }
         if (null !== $this->gmtModifiedTimestamp) {
             $res['GmtModifiedTimestamp'] = $this->gmtModifiedTimestamp;
+        }
+        if (null !== $this->isBuiltIn) {
+            $res['IsBuiltIn'] = $this->isBuiltIn;
+        }
+        if (null !== $this->runtime) {
+            $res['Runtime'] = $this->runtime;
+        }
+        if (null !== $this->type) {
+            $res['Type'] = $this->type;
         }
 
         return $res;
@@ -110,6 +110,9 @@ class driverList extends Model
     public static function fromMap($map = [])
     {
         $model = new self();
+        if (isset($map['CpuArch'])) {
+            $model->cpuArch = $map['CpuArch'];
+        }
         if (isset($map['DriverId'])) {
             $model->driverId = $map['DriverId'];
         }
@@ -119,23 +122,20 @@ class driverList extends Model
         if (isset($map['DriverProtocol'])) {
             $model->driverProtocol = $map['DriverProtocol'];
         }
-        if (isset($map['Runtime'])) {
-            $model->runtime = $map['Runtime'];
-        }
-        if (isset($map['CpuArch'])) {
-            $model->cpuArch = $map['CpuArch'];
-        }
-        if (isset($map['Type'])) {
-            $model->type = $map['Type'];
-        }
-        if (isset($map['IsBuiltIn'])) {
-            $model->isBuiltIn = $map['IsBuiltIn'];
-        }
         if (isset($map['GmtCreateTimestamp'])) {
             $model->gmtCreateTimestamp = $map['GmtCreateTimestamp'];
         }
         if (isset($map['GmtModifiedTimestamp'])) {
             $model->gmtModifiedTimestamp = $map['GmtModifiedTimestamp'];
+        }
+        if (isset($map['IsBuiltIn'])) {
+            $model->isBuiltIn = $map['IsBuiltIn'];
+        }
+        if (isset($map['Runtime'])) {
+            $model->runtime = $map['Runtime'];
+        }
+        if (isset($map['Type'])) {
+            $model->type = $map['Type'];
         }
 
         return $model;

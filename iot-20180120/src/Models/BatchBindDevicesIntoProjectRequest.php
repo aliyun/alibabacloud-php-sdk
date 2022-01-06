@@ -10,11 +10,6 @@ use AlibabaCloud\Tea\Model;
 class BatchBindDevicesIntoProjectRequest extends Model
 {
     /**
-     * @var string
-     */
-    public $iotInstanceId;
-
-    /**
      * @var devices[]
      */
     public $devices;
@@ -22,10 +17,15 @@ class BatchBindDevicesIntoProjectRequest extends Model
     /**
      * @var string
      */
+    public $iotInstanceId;
+
+    /**
+     * @var string
+     */
     public $projectId;
     protected $_name = [
-        'iotInstanceId' => 'IotInstanceId',
         'devices'       => 'Devices',
+        'iotInstanceId' => 'IotInstanceId',
         'projectId'     => 'ProjectId',
     ];
 
@@ -36,9 +36,6 @@ class BatchBindDevicesIntoProjectRequest extends Model
     public function toMap()
     {
         $res = [];
-        if (null !== $this->iotInstanceId) {
-            $res['IotInstanceId'] = $this->iotInstanceId;
-        }
         if (null !== $this->devices) {
             $res['Devices'] = [];
             if (null !== $this->devices && \is_array($this->devices)) {
@@ -47,6 +44,9 @@ class BatchBindDevicesIntoProjectRequest extends Model
                     $res['Devices'][$n++] = null !== $item ? $item->toMap() : $item;
                 }
             }
+        }
+        if (null !== $this->iotInstanceId) {
+            $res['IotInstanceId'] = $this->iotInstanceId;
         }
         if (null !== $this->projectId) {
             $res['ProjectId'] = $this->projectId;
@@ -63,9 +63,6 @@ class BatchBindDevicesIntoProjectRequest extends Model
     public static function fromMap($map = [])
     {
         $model = new self();
-        if (isset($map['IotInstanceId'])) {
-            $model->iotInstanceId = $map['IotInstanceId'];
-        }
         if (isset($map['Devices'])) {
             if (!empty($map['Devices'])) {
                 $model->devices = [];
@@ -74,6 +71,9 @@ class BatchBindDevicesIntoProjectRequest extends Model
                     $model->devices[$n++] = null !== $item ? devices::fromMap($item) : $item;
                 }
             }
+        }
+        if (isset($map['IotInstanceId'])) {
+            $model->iotInstanceId = $map['IotInstanceId'];
         }
         if (isset($map['ProjectId'])) {
             $model->projectId = $map['ProjectId'];

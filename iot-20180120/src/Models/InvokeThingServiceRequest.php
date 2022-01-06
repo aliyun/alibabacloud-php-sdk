@@ -11,12 +11,7 @@ class InvokeThingServiceRequest extends Model
     /**
      * @var string
      */
-    public $iotInstanceId;
-
-    /**
-     * @var string
-     */
-    public $productKey;
+    public $args;
 
     /**
      * @var string
@@ -31,19 +26,24 @@ class InvokeThingServiceRequest extends Model
     /**
      * @var string
      */
-    public $args;
+    public $iotId;
 
     /**
      * @var string
      */
-    public $iotId;
+    public $iotInstanceId;
+
+    /**
+     * @var string
+     */
+    public $productKey;
     protected $_name = [
-        'iotInstanceId' => 'IotInstanceId',
-        'productKey'    => 'ProductKey',
+        'args'          => 'Args',
         'deviceName'    => 'DeviceName',
         'identifier'    => 'Identifier',
-        'args'          => 'Args',
         'iotId'         => 'IotId',
+        'iotInstanceId' => 'IotInstanceId',
+        'productKey'    => 'ProductKey',
     ];
 
     public function validate()
@@ -53,11 +53,8 @@ class InvokeThingServiceRequest extends Model
     public function toMap()
     {
         $res = [];
-        if (null !== $this->iotInstanceId) {
-            $res['IotInstanceId'] = $this->iotInstanceId;
-        }
-        if (null !== $this->productKey) {
-            $res['ProductKey'] = $this->productKey;
+        if (null !== $this->args) {
+            $res['Args'] = $this->args;
         }
         if (null !== $this->deviceName) {
             $res['DeviceName'] = $this->deviceName;
@@ -65,11 +62,14 @@ class InvokeThingServiceRequest extends Model
         if (null !== $this->identifier) {
             $res['Identifier'] = $this->identifier;
         }
-        if (null !== $this->args) {
-            $res['Args'] = $this->args;
-        }
         if (null !== $this->iotId) {
             $res['IotId'] = $this->iotId;
+        }
+        if (null !== $this->iotInstanceId) {
+            $res['IotInstanceId'] = $this->iotInstanceId;
+        }
+        if (null !== $this->productKey) {
+            $res['ProductKey'] = $this->productKey;
         }
 
         return $res;
@@ -83,11 +83,8 @@ class InvokeThingServiceRequest extends Model
     public static function fromMap($map = [])
     {
         $model = new self();
-        if (isset($map['IotInstanceId'])) {
-            $model->iotInstanceId = $map['IotInstanceId'];
-        }
-        if (isset($map['ProductKey'])) {
-            $model->productKey = $map['ProductKey'];
+        if (isset($map['Args'])) {
+            $model->args = $map['Args'];
         }
         if (isset($map['DeviceName'])) {
             $model->deviceName = $map['DeviceName'];
@@ -95,11 +92,14 @@ class InvokeThingServiceRequest extends Model
         if (isset($map['Identifier'])) {
             $model->identifier = $map['Identifier'];
         }
-        if (isset($map['Args'])) {
-            $model->args = $map['Args'];
-        }
         if (isset($map['IotId'])) {
             $model->iotId = $map['IotId'];
+        }
+        if (isset($map['IotInstanceId'])) {
+            $model->iotInstanceId = $map['IotInstanceId'];
+        }
+        if (isset($map['ProductKey'])) {
+            $model->productKey = $map['ProductKey'];
         }
 
         return $model;

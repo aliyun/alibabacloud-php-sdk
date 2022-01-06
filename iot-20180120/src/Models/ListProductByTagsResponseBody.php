@@ -12,12 +12,7 @@ class ListProductByTagsResponseBody extends Model
     /**
      * @var string
      */
-    public $requestId;
-
-    /**
-     * @var bool
-     */
-    public $success;
+    public $code;
 
     /**
      * @var string
@@ -25,20 +20,25 @@ class ListProductByTagsResponseBody extends Model
     public $errorMessage;
 
     /**
-     * @var string
-     */
-    public $code;
-
-    /**
      * @var productInfos
      */
     public $productInfos;
+
+    /**
+     * @var string
+     */
+    public $requestId;
+
+    /**
+     * @var bool
+     */
+    public $success;
     protected $_name = [
+        'code'         => 'Code',
+        'errorMessage' => 'ErrorMessage',
+        'productInfos' => 'ProductInfos',
         'requestId'    => 'RequestId',
         'success'      => 'Success',
-        'errorMessage' => 'ErrorMessage',
-        'code'         => 'Code',
-        'productInfos' => 'ProductInfos',
     ];
 
     public function validate()
@@ -48,20 +48,20 @@ class ListProductByTagsResponseBody extends Model
     public function toMap()
     {
         $res = [];
+        if (null !== $this->code) {
+            $res['Code'] = $this->code;
+        }
+        if (null !== $this->errorMessage) {
+            $res['ErrorMessage'] = $this->errorMessage;
+        }
+        if (null !== $this->productInfos) {
+            $res['ProductInfos'] = null !== $this->productInfos ? $this->productInfos->toMap() : null;
+        }
         if (null !== $this->requestId) {
             $res['RequestId'] = $this->requestId;
         }
         if (null !== $this->success) {
             $res['Success'] = $this->success;
-        }
-        if (null !== $this->errorMessage) {
-            $res['ErrorMessage'] = $this->errorMessage;
-        }
-        if (null !== $this->code) {
-            $res['Code'] = $this->code;
-        }
-        if (null !== $this->productInfos) {
-            $res['ProductInfos'] = null !== $this->productInfos ? $this->productInfos->toMap() : null;
         }
 
         return $res;
@@ -75,20 +75,20 @@ class ListProductByTagsResponseBody extends Model
     public static function fromMap($map = [])
     {
         $model = new self();
+        if (isset($map['Code'])) {
+            $model->code = $map['Code'];
+        }
+        if (isset($map['ErrorMessage'])) {
+            $model->errorMessage = $map['ErrorMessage'];
+        }
+        if (isset($map['ProductInfos'])) {
+            $model->productInfos = productInfos::fromMap($map['ProductInfos']);
+        }
         if (isset($map['RequestId'])) {
             $model->requestId = $map['RequestId'];
         }
         if (isset($map['Success'])) {
             $model->success = $map['Success'];
-        }
-        if (isset($map['ErrorMessage'])) {
-            $model->errorMessage = $map['ErrorMessage'];
-        }
-        if (isset($map['Code'])) {
-            $model->code = $map['Code'];
-        }
-        if (isset($map['ProductInfos'])) {
-            $model->productInfos = productInfos::fromMap($map['ProductInfos']);
         }
 
         return $model;

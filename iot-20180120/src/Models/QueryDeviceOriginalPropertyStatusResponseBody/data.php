@@ -10,9 +10,9 @@ use AlibabaCloud\Tea\Model;
 class data extends Model
 {
     /**
-     * @var bool
+     * @var list_
      */
-    public $nextValid;
+    public $list;
 
     /**
      * @var string
@@ -20,13 +20,13 @@ class data extends Model
     public $nextPageToken;
 
     /**
-     * @var list_
+     * @var bool
      */
-    public $list;
+    public $nextValid;
     protected $_name = [
-        'nextValid'     => 'NextValid',
-        'nextPageToken' => 'NextPageToken',
         'list'          => 'List',
+        'nextPageToken' => 'NextPageToken',
+        'nextValid'     => 'NextValid',
     ];
 
     public function validate()
@@ -36,14 +36,14 @@ class data extends Model
     public function toMap()
     {
         $res = [];
-        if (null !== $this->nextValid) {
-            $res['NextValid'] = $this->nextValid;
+        if (null !== $this->list) {
+            $res['List'] = null !== $this->list ? $this->list->toMap() : null;
         }
         if (null !== $this->nextPageToken) {
             $res['NextPageToken'] = $this->nextPageToken;
         }
-        if (null !== $this->list) {
-            $res['List'] = null !== $this->list ? $this->list->toMap() : null;
+        if (null !== $this->nextValid) {
+            $res['NextValid'] = $this->nextValid;
         }
 
         return $res;
@@ -57,14 +57,14 @@ class data extends Model
     public static function fromMap($map = [])
     {
         $model = new self();
-        if (isset($map['NextValid'])) {
-            $model->nextValid = $map['NextValid'];
+        if (isset($map['List'])) {
+            $model->list = list_::fromMap($map['List']);
         }
         if (isset($map['NextPageToken'])) {
             $model->nextPageToken = $map['NextPageToken'];
         }
-        if (isset($map['List'])) {
-            $model->list = list_::fromMap($map['List']);
+        if (isset($map['NextValid'])) {
+            $model->nextValid = $map['NextValid'];
         }
 
         return $model;

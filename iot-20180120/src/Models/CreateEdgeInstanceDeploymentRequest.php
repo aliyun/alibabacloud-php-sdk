@@ -11,20 +11,20 @@ class CreateEdgeInstanceDeploymentRequest extends Model
     /**
      * @var string
      */
-    public $iotInstanceId;
+    public $instanceId;
 
     /**
      * @var string
      */
-    public $instanceId;
+    public $iotInstanceId;
 
     /**
      * @var string
      */
     public $type;
     protected $_name = [
-        'iotInstanceId' => 'IotInstanceId',
         'instanceId'    => 'InstanceId',
+        'iotInstanceId' => 'IotInstanceId',
         'type'          => 'Type',
     ];
 
@@ -35,11 +35,11 @@ class CreateEdgeInstanceDeploymentRequest extends Model
     public function toMap()
     {
         $res = [];
-        if (null !== $this->iotInstanceId) {
-            $res['IotInstanceId'] = $this->iotInstanceId;
-        }
         if (null !== $this->instanceId) {
             $res['InstanceId'] = $this->instanceId;
+        }
+        if (null !== $this->iotInstanceId) {
+            $res['IotInstanceId'] = $this->iotInstanceId;
         }
         if (null !== $this->type) {
             $res['Type'] = $this->type;
@@ -56,11 +56,11 @@ class CreateEdgeInstanceDeploymentRequest extends Model
     public static function fromMap($map = [])
     {
         $model = new self();
-        if (isset($map['IotInstanceId'])) {
-            $model->iotInstanceId = $map['IotInstanceId'];
-        }
         if (isset($map['InstanceId'])) {
             $model->instanceId = $map['InstanceId'];
+        }
+        if (isset($map['IotInstanceId'])) {
+            $model->iotInstanceId = $map['IotInstanceId'];
         }
         if (isset($map['Type'])) {
             $model->type = $map['Type'];

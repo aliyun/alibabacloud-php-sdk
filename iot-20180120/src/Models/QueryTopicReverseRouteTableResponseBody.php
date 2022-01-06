@@ -12,16 +12,6 @@ class QueryTopicReverseRouteTableResponseBody extends Model
     /**
      * @var string
      */
-    public $requestId;
-
-    /**
-     * @var bool
-     */
-    public $success;
-
-    /**
-     * @var string
-     */
     public $code;
 
     /**
@@ -30,15 +20,25 @@ class QueryTopicReverseRouteTableResponseBody extends Model
     public $errorMessage;
 
     /**
+     * @var string
+     */
+    public $requestId;
+
+    /**
      * @var srcTopics
      */
     public $srcTopics;
+
+    /**
+     * @var bool
+     */
+    public $success;
     protected $_name = [
-        'requestId'    => 'RequestId',
-        'success'      => 'Success',
         'code'         => 'Code',
         'errorMessage' => 'ErrorMessage',
+        'requestId'    => 'RequestId',
         'srcTopics'    => 'SrcTopics',
+        'success'      => 'Success',
     ];
 
     public function validate()
@@ -48,20 +48,20 @@ class QueryTopicReverseRouteTableResponseBody extends Model
     public function toMap()
     {
         $res = [];
-        if (null !== $this->requestId) {
-            $res['RequestId'] = $this->requestId;
-        }
-        if (null !== $this->success) {
-            $res['Success'] = $this->success;
-        }
         if (null !== $this->code) {
             $res['Code'] = $this->code;
         }
         if (null !== $this->errorMessage) {
             $res['ErrorMessage'] = $this->errorMessage;
         }
+        if (null !== $this->requestId) {
+            $res['RequestId'] = $this->requestId;
+        }
         if (null !== $this->srcTopics) {
             $res['SrcTopics'] = null !== $this->srcTopics ? $this->srcTopics->toMap() : null;
+        }
+        if (null !== $this->success) {
+            $res['Success'] = $this->success;
         }
 
         return $res;
@@ -75,20 +75,20 @@ class QueryTopicReverseRouteTableResponseBody extends Model
     public static function fromMap($map = [])
     {
         $model = new self();
-        if (isset($map['RequestId'])) {
-            $model->requestId = $map['RequestId'];
-        }
-        if (isset($map['Success'])) {
-            $model->success = $map['Success'];
-        }
         if (isset($map['Code'])) {
             $model->code = $map['Code'];
         }
         if (isset($map['ErrorMessage'])) {
             $model->errorMessage = $map['ErrorMessage'];
         }
+        if (isset($map['RequestId'])) {
+            $model->requestId = $map['RequestId'];
+        }
         if (isset($map['SrcTopics'])) {
             $model->srcTopics = srcTopics::fromMap($map['SrcTopics']);
+        }
+        if (isset($map['Success'])) {
+            $model->success = $map['Success'];
         }
 
         return $model;

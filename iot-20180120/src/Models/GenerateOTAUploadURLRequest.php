@@ -11,15 +11,15 @@ class GenerateOTAUploadURLRequest extends Model
     /**
      * @var string
      */
-    public $iotInstanceId;
+    public $fileSuffix;
 
     /**
      * @var string
      */
-    public $fileSuffix;
+    public $iotInstanceId;
     protected $_name = [
-        'iotInstanceId' => 'IotInstanceId',
         'fileSuffix'    => 'FileSuffix',
+        'iotInstanceId' => 'IotInstanceId',
     ];
 
     public function validate()
@@ -29,11 +29,11 @@ class GenerateOTAUploadURLRequest extends Model
     public function toMap()
     {
         $res = [];
-        if (null !== $this->iotInstanceId) {
-            $res['IotInstanceId'] = $this->iotInstanceId;
-        }
         if (null !== $this->fileSuffix) {
             $res['FileSuffix'] = $this->fileSuffix;
+        }
+        if (null !== $this->iotInstanceId) {
+            $res['IotInstanceId'] = $this->iotInstanceId;
         }
 
         return $res;
@@ -47,11 +47,11 @@ class GenerateOTAUploadURLRequest extends Model
     public static function fromMap($map = [])
     {
         $model = new self();
-        if (isset($map['IotInstanceId'])) {
-            $model->iotInstanceId = $map['IotInstanceId'];
-        }
         if (isset($map['FileSuffix'])) {
             $model->fileSuffix = $map['FileSuffix'];
+        }
+        if (isset($map['IotInstanceId'])) {
+            $model->iotInstanceId = $map['IotInstanceId'];
         }
 
         return $model;

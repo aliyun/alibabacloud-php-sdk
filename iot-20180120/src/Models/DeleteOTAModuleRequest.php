@@ -16,16 +16,16 @@ class DeleteOTAModuleRequest extends Model
     /**
      * @var string
      */
-    public $productKey;
+    public $moduleName;
 
     /**
      * @var string
      */
-    public $moduleName;
+    public $productKey;
     protected $_name = [
         'iotInstanceId' => 'IotInstanceId',
-        'productKey'    => 'ProductKey',
         'moduleName'    => 'ModuleName',
+        'productKey'    => 'ProductKey',
     ];
 
     public function validate()
@@ -38,11 +38,11 @@ class DeleteOTAModuleRequest extends Model
         if (null !== $this->iotInstanceId) {
             $res['IotInstanceId'] = $this->iotInstanceId;
         }
-        if (null !== $this->productKey) {
-            $res['ProductKey'] = $this->productKey;
-        }
         if (null !== $this->moduleName) {
             $res['ModuleName'] = $this->moduleName;
+        }
+        if (null !== $this->productKey) {
+            $res['ProductKey'] = $this->productKey;
         }
 
         return $res;
@@ -59,11 +59,11 @@ class DeleteOTAModuleRequest extends Model
         if (isset($map['IotInstanceId'])) {
             $model->iotInstanceId = $map['IotInstanceId'];
         }
-        if (isset($map['ProductKey'])) {
-            $model->productKey = $map['ProductKey'];
-        }
         if (isset($map['ModuleName'])) {
             $model->moduleName = $map['ModuleName'];
+        }
+        if (isset($map['ProductKey'])) {
+            $model->productKey = $map['ProductKey'];
         }
 
         return $model;

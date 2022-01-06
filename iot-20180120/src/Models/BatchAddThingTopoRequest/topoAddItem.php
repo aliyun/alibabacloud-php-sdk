@@ -11,12 +11,17 @@ class topoAddItem extends Model
     /**
      * @var string
      */
-    public $productKey;
+    public $clientId;
 
     /**
      * @var string
      */
     public $deviceName;
+
+    /**
+     * @var string
+     */
+    public $productKey;
 
     /**
      * @var string
@@ -32,18 +37,13 @@ class topoAddItem extends Model
      * @var string
      */
     public $timestamp;
-
-    /**
-     * @var string
-     */
-    public $clientId;
     protected $_name = [
-        'productKey' => 'ProductKey',
+        'clientId'   => 'ClientId',
         'deviceName' => 'DeviceName',
+        'productKey' => 'ProductKey',
         'sign'       => 'Sign',
         'signMethod' => 'SignMethod',
         'timestamp'  => 'Timestamp',
-        'clientId'   => 'ClientId',
     ];
 
     public function validate()
@@ -53,11 +53,14 @@ class topoAddItem extends Model
     public function toMap()
     {
         $res = [];
-        if (null !== $this->productKey) {
-            $res['ProductKey'] = $this->productKey;
+        if (null !== $this->clientId) {
+            $res['ClientId'] = $this->clientId;
         }
         if (null !== $this->deviceName) {
             $res['DeviceName'] = $this->deviceName;
+        }
+        if (null !== $this->productKey) {
+            $res['ProductKey'] = $this->productKey;
         }
         if (null !== $this->sign) {
             $res['Sign'] = $this->sign;
@@ -67,9 +70,6 @@ class topoAddItem extends Model
         }
         if (null !== $this->timestamp) {
             $res['Timestamp'] = $this->timestamp;
-        }
-        if (null !== $this->clientId) {
-            $res['ClientId'] = $this->clientId;
         }
 
         return $res;
@@ -83,11 +83,14 @@ class topoAddItem extends Model
     public static function fromMap($map = [])
     {
         $model = new self();
-        if (isset($map['ProductKey'])) {
-            $model->productKey = $map['ProductKey'];
+        if (isset($map['ClientId'])) {
+            $model->clientId = $map['ClientId'];
         }
         if (isset($map['DeviceName'])) {
             $model->deviceName = $map['DeviceName'];
+        }
+        if (isset($map['ProductKey'])) {
+            $model->productKey = $map['ProductKey'];
         }
         if (isset($map['Sign'])) {
             $model->sign = $map['Sign'];
@@ -97,9 +100,6 @@ class topoAddItem extends Model
         }
         if (isset($map['Timestamp'])) {
             $model->timestamp = $map['Timestamp'];
-        }
-        if (isset($map['ClientId'])) {
-            $model->clientId = $map['ClientId'];
         }
 
         return $model;

@@ -11,17 +11,12 @@ class CreateEdgeDriverResponseBody extends Model
     /**
      * @var string
      */
-    public $requestId;
-
-    /**
-     * @var bool
-     */
-    public $success;
+    public $code;
 
     /**
      * @var string
      */
-    public $code;
+    public $driverId;
 
     /**
      * @var string
@@ -31,13 +26,18 @@ class CreateEdgeDriverResponseBody extends Model
     /**
      * @var string
      */
-    public $driverId;
+    public $requestId;
+
+    /**
+     * @var bool
+     */
+    public $success;
     protected $_name = [
+        'code'         => 'Code',
+        'driverId'     => 'DriverId',
+        'errorMessage' => 'ErrorMessage',
         'requestId'    => 'RequestId',
         'success'      => 'Success',
-        'code'         => 'Code',
-        'errorMessage' => 'ErrorMessage',
-        'driverId'     => 'DriverId',
     ];
 
     public function validate()
@@ -47,20 +47,20 @@ class CreateEdgeDriverResponseBody extends Model
     public function toMap()
     {
         $res = [];
+        if (null !== $this->code) {
+            $res['Code'] = $this->code;
+        }
+        if (null !== $this->driverId) {
+            $res['DriverId'] = $this->driverId;
+        }
+        if (null !== $this->errorMessage) {
+            $res['ErrorMessage'] = $this->errorMessage;
+        }
         if (null !== $this->requestId) {
             $res['RequestId'] = $this->requestId;
         }
         if (null !== $this->success) {
             $res['Success'] = $this->success;
-        }
-        if (null !== $this->code) {
-            $res['Code'] = $this->code;
-        }
-        if (null !== $this->errorMessage) {
-            $res['ErrorMessage'] = $this->errorMessage;
-        }
-        if (null !== $this->driverId) {
-            $res['DriverId'] = $this->driverId;
         }
 
         return $res;
@@ -74,20 +74,20 @@ class CreateEdgeDriverResponseBody extends Model
     public static function fromMap($map = [])
     {
         $model = new self();
+        if (isset($map['Code'])) {
+            $model->code = $map['Code'];
+        }
+        if (isset($map['DriverId'])) {
+            $model->driverId = $map['DriverId'];
+        }
+        if (isset($map['ErrorMessage'])) {
+            $model->errorMessage = $map['ErrorMessage'];
+        }
         if (isset($map['RequestId'])) {
             $model->requestId = $map['RequestId'];
         }
         if (isset($map['Success'])) {
             $model->success = $map['Success'];
-        }
-        if (isset($map['Code'])) {
-            $model->code = $map['Code'];
-        }
-        if (isset($map['ErrorMessage'])) {
-            $model->errorMessage = $map['ErrorMessage'];
-        }
-        if (isset($map['DriverId'])) {
-            $model->driverId = $map['DriverId'];
         }
 
         return $model;

@@ -9,14 +9,9 @@ use AlibabaCloud\Tea\Model;
 class items extends Model
 {
     /**
-     * @var string
+     * @var int
      */
-    public $sourceUid;
-
-    /**
-     * @var string
-     */
-    public $targetUid;
+    public $gmtCreate;
 
     /**
      * @var string
@@ -31,17 +26,7 @@ class items extends Model
     /**
      * @var string
      */
-    public $targetInstanceId;
-
-    /**
-     * @var int
-     */
-    public $gmtCreate;
-
-    /**
-     * @var string
-     */
-    public $targetAliyunId;
+    public $sourceInstanceName;
 
     /**
      * @var string
@@ -51,29 +36,44 @@ class items extends Model
     /**
      * @var string
      */
-    public $targetRegion;
+    public $sourceUid;
 
     /**
      * @var string
      */
-    public $sourceInstanceName;
+    public $targetAliyunId;
+
+    /**
+     * @var string
+     */
+    public $targetInstanceId;
 
     /**
      * @var string
      */
     public $targetInstanceName;
+
+    /**
+     * @var string
+     */
+    public $targetRegion;
+
+    /**
+     * @var string
+     */
+    public $targetUid;
     protected $_name = [
-        'sourceUid'          => 'SourceUid',
-        'targetUid'          => 'TargetUid',
+        'gmtCreate'          => 'GmtCreate',
         'productKey'         => 'ProductKey',
         'sourceInstanceId'   => 'SourceInstanceId',
-        'targetInstanceId'   => 'TargetInstanceId',
-        'gmtCreate'          => 'GmtCreate',
-        'targetAliyunId'     => 'TargetAliyunId',
-        'sourceRegion'       => 'SourceRegion',
-        'targetRegion'       => 'TargetRegion',
         'sourceInstanceName' => 'SourceInstanceName',
+        'sourceRegion'       => 'SourceRegion',
+        'sourceUid'          => 'SourceUid',
+        'targetAliyunId'     => 'TargetAliyunId',
+        'targetInstanceId'   => 'TargetInstanceId',
         'targetInstanceName' => 'TargetInstanceName',
+        'targetRegion'       => 'TargetRegion',
+        'targetUid'          => 'TargetUid',
     ];
 
     public function validate()
@@ -83,11 +83,8 @@ class items extends Model
     public function toMap()
     {
         $res = [];
-        if (null !== $this->sourceUid) {
-            $res['SourceUid'] = $this->sourceUid;
-        }
-        if (null !== $this->targetUid) {
-            $res['TargetUid'] = $this->targetUid;
+        if (null !== $this->gmtCreate) {
+            $res['GmtCreate'] = $this->gmtCreate;
         }
         if (null !== $this->productKey) {
             $res['ProductKey'] = $this->productKey;
@@ -95,26 +92,29 @@ class items extends Model
         if (null !== $this->sourceInstanceId) {
             $res['SourceInstanceId'] = $this->sourceInstanceId;
         }
-        if (null !== $this->targetInstanceId) {
-            $res['TargetInstanceId'] = $this->targetInstanceId;
-        }
-        if (null !== $this->gmtCreate) {
-            $res['GmtCreate'] = $this->gmtCreate;
-        }
-        if (null !== $this->targetAliyunId) {
-            $res['TargetAliyunId'] = $this->targetAliyunId;
+        if (null !== $this->sourceInstanceName) {
+            $res['SourceInstanceName'] = $this->sourceInstanceName;
         }
         if (null !== $this->sourceRegion) {
             $res['SourceRegion'] = $this->sourceRegion;
         }
-        if (null !== $this->targetRegion) {
-            $res['TargetRegion'] = $this->targetRegion;
+        if (null !== $this->sourceUid) {
+            $res['SourceUid'] = $this->sourceUid;
         }
-        if (null !== $this->sourceInstanceName) {
-            $res['SourceInstanceName'] = $this->sourceInstanceName;
+        if (null !== $this->targetAliyunId) {
+            $res['TargetAliyunId'] = $this->targetAliyunId;
+        }
+        if (null !== $this->targetInstanceId) {
+            $res['TargetInstanceId'] = $this->targetInstanceId;
         }
         if (null !== $this->targetInstanceName) {
             $res['TargetInstanceName'] = $this->targetInstanceName;
+        }
+        if (null !== $this->targetRegion) {
+            $res['TargetRegion'] = $this->targetRegion;
+        }
+        if (null !== $this->targetUid) {
+            $res['TargetUid'] = $this->targetUid;
         }
 
         return $res;
@@ -128,11 +128,8 @@ class items extends Model
     public static function fromMap($map = [])
     {
         $model = new self();
-        if (isset($map['SourceUid'])) {
-            $model->sourceUid = $map['SourceUid'];
-        }
-        if (isset($map['TargetUid'])) {
-            $model->targetUid = $map['TargetUid'];
+        if (isset($map['GmtCreate'])) {
+            $model->gmtCreate = $map['GmtCreate'];
         }
         if (isset($map['ProductKey'])) {
             $model->productKey = $map['ProductKey'];
@@ -140,26 +137,29 @@ class items extends Model
         if (isset($map['SourceInstanceId'])) {
             $model->sourceInstanceId = $map['SourceInstanceId'];
         }
-        if (isset($map['TargetInstanceId'])) {
-            $model->targetInstanceId = $map['TargetInstanceId'];
-        }
-        if (isset($map['GmtCreate'])) {
-            $model->gmtCreate = $map['GmtCreate'];
-        }
-        if (isset($map['TargetAliyunId'])) {
-            $model->targetAliyunId = $map['TargetAliyunId'];
+        if (isset($map['SourceInstanceName'])) {
+            $model->sourceInstanceName = $map['SourceInstanceName'];
         }
         if (isset($map['SourceRegion'])) {
             $model->sourceRegion = $map['SourceRegion'];
         }
-        if (isset($map['TargetRegion'])) {
-            $model->targetRegion = $map['TargetRegion'];
+        if (isset($map['SourceUid'])) {
+            $model->sourceUid = $map['SourceUid'];
         }
-        if (isset($map['SourceInstanceName'])) {
-            $model->sourceInstanceName = $map['SourceInstanceName'];
+        if (isset($map['TargetAliyunId'])) {
+            $model->targetAliyunId = $map['TargetAliyunId'];
+        }
+        if (isset($map['TargetInstanceId'])) {
+            $model->targetInstanceId = $map['TargetInstanceId'];
         }
         if (isset($map['TargetInstanceName'])) {
             $model->targetInstanceName = $map['TargetInstanceName'];
+        }
+        if (isset($map['TargetRegion'])) {
+            $model->targetRegion = $map['TargetRegion'];
+        }
+        if (isset($map['TargetUid'])) {
+            $model->targetUid = $map['TargetUid'];
         }
 
         return $model;

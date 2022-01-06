@@ -21,11 +21,6 @@ class data extends Model
     /**
      * @var string
      */
-    public $ruleName;
-
-    /**
-     * @var string
-     */
     public $ruleContent;
 
     /**
@@ -34,15 +29,20 @@ class data extends Model
     public $ruleDescription;
 
     /**
+     * @var string
+     */
+    public $ruleName;
+
+    /**
      * @var int
      */
     public $ruleStatus;
     protected $_name = [
         'gmtCreate'       => 'GmtCreate',
         'gmtModified'     => 'GmtModified',
-        'ruleName'        => 'RuleName',
         'ruleContent'     => 'RuleContent',
         'ruleDescription' => 'RuleDescription',
+        'ruleName'        => 'RuleName',
         'ruleStatus'      => 'RuleStatus',
     ];
 
@@ -59,14 +59,14 @@ class data extends Model
         if (null !== $this->gmtModified) {
             $res['GmtModified'] = $this->gmtModified;
         }
-        if (null !== $this->ruleName) {
-            $res['RuleName'] = $this->ruleName;
-        }
         if (null !== $this->ruleContent) {
             $res['RuleContent'] = $this->ruleContent;
         }
         if (null !== $this->ruleDescription) {
             $res['RuleDescription'] = $this->ruleDescription;
+        }
+        if (null !== $this->ruleName) {
+            $res['RuleName'] = $this->ruleName;
         }
         if (null !== $this->ruleStatus) {
             $res['RuleStatus'] = $this->ruleStatus;
@@ -89,14 +89,14 @@ class data extends Model
         if (isset($map['GmtModified'])) {
             $model->gmtModified = $map['GmtModified'];
         }
-        if (isset($map['RuleName'])) {
-            $model->ruleName = $map['RuleName'];
-        }
         if (isset($map['RuleContent'])) {
             $model->ruleContent = $map['RuleContent'];
         }
         if (isset($map['RuleDescription'])) {
             $model->ruleDescription = $map['RuleDescription'];
+        }
+        if (isset($map['RuleName'])) {
+            $model->ruleName = $map['RuleName'];
         }
         if (isset($map['RuleStatus'])) {
             $model->ruleStatus = $map['RuleStatus'];

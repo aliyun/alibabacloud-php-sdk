@@ -16,16 +16,16 @@ class BatchQueryDeviceDetailRequest extends Model
     /**
      * @var string
      */
-    public $productKey;
+    public $iotInstanceId;
 
     /**
      * @var string
      */
-    public $iotInstanceId;
+    public $productKey;
     protected $_name = [
         'deviceName'    => 'DeviceName',
-        'productKey'    => 'ProductKey',
         'iotInstanceId' => 'IotInstanceId',
+        'productKey'    => 'ProductKey',
     ];
 
     public function validate()
@@ -38,11 +38,11 @@ class BatchQueryDeviceDetailRequest extends Model
         if (null !== $this->deviceName) {
             $res['DeviceName'] = $this->deviceName;
         }
-        if (null !== $this->productKey) {
-            $res['ProductKey'] = $this->productKey;
-        }
         if (null !== $this->iotInstanceId) {
             $res['IotInstanceId'] = $this->iotInstanceId;
+        }
+        if (null !== $this->productKey) {
+            $res['ProductKey'] = $this->productKey;
         }
 
         return $res;
@@ -61,11 +61,11 @@ class BatchQueryDeviceDetailRequest extends Model
                 $model->deviceName = $map['DeviceName'];
             }
         }
-        if (isset($map['ProductKey'])) {
-            $model->productKey = $map['ProductKey'];
-        }
         if (isset($map['IotInstanceId'])) {
             $model->iotInstanceId = $map['IotInstanceId'];
+        }
+        if (isset($map['ProductKey'])) {
+            $model->productKey = $map['ProductKey'];
         }
 
         return $model;

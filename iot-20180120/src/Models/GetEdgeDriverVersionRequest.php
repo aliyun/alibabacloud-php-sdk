@@ -11,21 +11,21 @@ class GetEdgeDriverVersionRequest extends Model
     /**
      * @var string
      */
-    public $iotInstanceId;
-
-    /**
-     * @var string
-     */
     public $driverId;
 
     /**
      * @var string
      */
     public $driverVersion;
+
+    /**
+     * @var string
+     */
+    public $iotInstanceId;
     protected $_name = [
-        'iotInstanceId' => 'IotInstanceId',
         'driverId'      => 'DriverId',
         'driverVersion' => 'DriverVersion',
+        'iotInstanceId' => 'IotInstanceId',
     ];
 
     public function validate()
@@ -35,14 +35,14 @@ class GetEdgeDriverVersionRequest extends Model
     public function toMap()
     {
         $res = [];
-        if (null !== $this->iotInstanceId) {
-            $res['IotInstanceId'] = $this->iotInstanceId;
-        }
         if (null !== $this->driverId) {
             $res['DriverId'] = $this->driverId;
         }
         if (null !== $this->driverVersion) {
             $res['DriverVersion'] = $this->driverVersion;
+        }
+        if (null !== $this->iotInstanceId) {
+            $res['IotInstanceId'] = $this->iotInstanceId;
         }
 
         return $res;
@@ -56,14 +56,14 @@ class GetEdgeDriverVersionRequest extends Model
     public static function fromMap($map = [])
     {
         $model = new self();
-        if (isset($map['IotInstanceId'])) {
-            $model->iotInstanceId = $map['IotInstanceId'];
-        }
         if (isset($map['DriverId'])) {
             $model->driverId = $map['DriverId'];
         }
         if (isset($map['DriverVersion'])) {
             $model->driverVersion = $map['DriverVersion'];
+        }
+        if (isset($map['IotInstanceId'])) {
+            $model->iotInstanceId = $map['IotInstanceId'];
         }
 
         return $model;

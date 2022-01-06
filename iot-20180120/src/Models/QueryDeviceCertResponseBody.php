@@ -12,17 +12,12 @@ class QueryDeviceCertResponseBody extends Model
     /**
      * @var string
      */
-    public $requestId;
-
-    /**
-     * @var bool
-     */
-    public $success;
-
-    /**
-     * @var string
-     */
     public $code;
+
+    /**
+     * @var deviceCertInfo
+     */
+    public $deviceCertInfo;
 
     /**
      * @var string
@@ -30,15 +25,20 @@ class QueryDeviceCertResponseBody extends Model
     public $errorMessage;
 
     /**
-     * @var deviceCertInfo
+     * @var string
      */
-    public $deviceCertInfo;
+    public $requestId;
+
+    /**
+     * @var bool
+     */
+    public $success;
     protected $_name = [
+        'code'           => 'Code',
+        'deviceCertInfo' => 'DeviceCertInfo',
+        'errorMessage'   => 'ErrorMessage',
         'requestId'      => 'RequestId',
         'success'        => 'Success',
-        'code'           => 'Code',
-        'errorMessage'   => 'ErrorMessage',
-        'deviceCertInfo' => 'DeviceCertInfo',
     ];
 
     public function validate()
@@ -48,20 +48,20 @@ class QueryDeviceCertResponseBody extends Model
     public function toMap()
     {
         $res = [];
+        if (null !== $this->code) {
+            $res['Code'] = $this->code;
+        }
+        if (null !== $this->deviceCertInfo) {
+            $res['DeviceCertInfo'] = null !== $this->deviceCertInfo ? $this->deviceCertInfo->toMap() : null;
+        }
+        if (null !== $this->errorMessage) {
+            $res['ErrorMessage'] = $this->errorMessage;
+        }
         if (null !== $this->requestId) {
             $res['RequestId'] = $this->requestId;
         }
         if (null !== $this->success) {
             $res['Success'] = $this->success;
-        }
-        if (null !== $this->code) {
-            $res['Code'] = $this->code;
-        }
-        if (null !== $this->errorMessage) {
-            $res['ErrorMessage'] = $this->errorMessage;
-        }
-        if (null !== $this->deviceCertInfo) {
-            $res['DeviceCertInfo'] = null !== $this->deviceCertInfo ? $this->deviceCertInfo->toMap() : null;
         }
 
         return $res;
@@ -75,20 +75,20 @@ class QueryDeviceCertResponseBody extends Model
     public static function fromMap($map = [])
     {
         $model = new self();
+        if (isset($map['Code'])) {
+            $model->code = $map['Code'];
+        }
+        if (isset($map['DeviceCertInfo'])) {
+            $model->deviceCertInfo = deviceCertInfo::fromMap($map['DeviceCertInfo']);
+        }
+        if (isset($map['ErrorMessage'])) {
+            $model->errorMessage = $map['ErrorMessage'];
+        }
         if (isset($map['RequestId'])) {
             $model->requestId = $map['RequestId'];
         }
         if (isset($map['Success'])) {
             $model->success = $map['Success'];
-        }
-        if (isset($map['Code'])) {
-            $model->code = $map['Code'];
-        }
-        if (isset($map['ErrorMessage'])) {
-            $model->errorMessage = $map['ErrorMessage'];
-        }
-        if (isset($map['DeviceCertInfo'])) {
-            $model->deviceCertInfo = deviceCertInfo::fromMap($map['DeviceCertInfo']);
         }
 
         return $model;

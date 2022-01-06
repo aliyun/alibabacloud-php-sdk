@@ -11,21 +11,21 @@ class UpdateConsumerGroupRequest extends Model
     /**
      * @var string
      */
+    public $groupId;
+
+    /**
+     * @var string
+     */
     public $iotInstanceId;
 
     /**
      * @var string
      */
     public $newGroupName;
-
-    /**
-     * @var string
-     */
-    public $groupId;
     protected $_name = [
+        'groupId'       => 'GroupId',
         'iotInstanceId' => 'IotInstanceId',
         'newGroupName'  => 'NewGroupName',
-        'groupId'       => 'GroupId',
     ];
 
     public function validate()
@@ -35,14 +35,14 @@ class UpdateConsumerGroupRequest extends Model
     public function toMap()
     {
         $res = [];
+        if (null !== $this->groupId) {
+            $res['GroupId'] = $this->groupId;
+        }
         if (null !== $this->iotInstanceId) {
             $res['IotInstanceId'] = $this->iotInstanceId;
         }
         if (null !== $this->newGroupName) {
             $res['NewGroupName'] = $this->newGroupName;
-        }
-        if (null !== $this->groupId) {
-            $res['GroupId'] = $this->groupId;
         }
 
         return $res;
@@ -56,14 +56,14 @@ class UpdateConsumerGroupRequest extends Model
     public static function fromMap($map = [])
     {
         $model = new self();
+        if (isset($map['GroupId'])) {
+            $model->groupId = $map['GroupId'];
+        }
         if (isset($map['IotInstanceId'])) {
             $model->iotInstanceId = $map['IotInstanceId'];
         }
         if (isset($map['NewGroupName'])) {
             $model->newGroupName = $map['NewGroupName'];
-        }
-        if (isset($map['GroupId'])) {
-            $model->groupId = $map['GroupId'];
         }
 
         return $model;

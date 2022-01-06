@@ -16,16 +16,16 @@ class jobFile extends Model
     /**
      * @var string
      */
-    public $signMethod;
+    public $sign;
 
     /**
      * @var string
      */
-    public $sign;
+    public $signMethod;
     protected $_name = [
         'fileUrl'    => 'FileUrl',
-        'signMethod' => 'SignMethod',
         'sign'       => 'Sign',
+        'signMethod' => 'SignMethod',
     ];
 
     public function validate()
@@ -38,11 +38,11 @@ class jobFile extends Model
         if (null !== $this->fileUrl) {
             $res['FileUrl'] = $this->fileUrl;
         }
-        if (null !== $this->signMethod) {
-            $res['SignMethod'] = $this->signMethod;
-        }
         if (null !== $this->sign) {
             $res['Sign'] = $this->sign;
+        }
+        if (null !== $this->signMethod) {
+            $res['SignMethod'] = $this->signMethod;
         }
 
         return $res;
@@ -59,11 +59,11 @@ class jobFile extends Model
         if (isset($map['FileUrl'])) {
             $model->fileUrl = $map['FileUrl'];
         }
-        if (isset($map['SignMethod'])) {
-            $model->signMethod = $map['SignMethod'];
-        }
         if (isset($map['Sign'])) {
             $model->sign = $map['Sign'];
+        }
+        if (isset($map['SignMethod'])) {
+            $model->signMethod = $map['SignMethod'];
         }
 
         return $model;

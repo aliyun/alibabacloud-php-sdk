@@ -11,7 +11,12 @@ class BindApplicationToEdgeInstanceRequest extends Model
     /**
      * @var string
      */
-    public $iotInstanceId;
+    public $applicationId;
+
+    /**
+     * @var string
+     */
+    public $applicationVersion;
 
     /**
      * @var string
@@ -21,17 +26,12 @@ class BindApplicationToEdgeInstanceRequest extends Model
     /**
      * @var string
      */
-    public $applicationId;
-
-    /**
-     * @var string
-     */
-    public $applicationVersion;
+    public $iotInstanceId;
     protected $_name = [
-        'iotInstanceId'      => 'IotInstanceId',
-        'instanceId'         => 'InstanceId',
         'applicationId'      => 'ApplicationId',
         'applicationVersion' => 'ApplicationVersion',
+        'instanceId'         => 'InstanceId',
+        'iotInstanceId'      => 'IotInstanceId',
     ];
 
     public function validate()
@@ -41,17 +41,17 @@ class BindApplicationToEdgeInstanceRequest extends Model
     public function toMap()
     {
         $res = [];
-        if (null !== $this->iotInstanceId) {
-            $res['IotInstanceId'] = $this->iotInstanceId;
-        }
-        if (null !== $this->instanceId) {
-            $res['InstanceId'] = $this->instanceId;
-        }
         if (null !== $this->applicationId) {
             $res['ApplicationId'] = $this->applicationId;
         }
         if (null !== $this->applicationVersion) {
             $res['ApplicationVersion'] = $this->applicationVersion;
+        }
+        if (null !== $this->instanceId) {
+            $res['InstanceId'] = $this->instanceId;
+        }
+        if (null !== $this->iotInstanceId) {
+            $res['IotInstanceId'] = $this->iotInstanceId;
         }
 
         return $res;
@@ -65,17 +65,17 @@ class BindApplicationToEdgeInstanceRequest extends Model
     public static function fromMap($map = [])
     {
         $model = new self();
-        if (isset($map['IotInstanceId'])) {
-            $model->iotInstanceId = $map['IotInstanceId'];
-        }
-        if (isset($map['InstanceId'])) {
-            $model->instanceId = $map['InstanceId'];
-        }
         if (isset($map['ApplicationId'])) {
             $model->applicationId = $map['ApplicationId'];
         }
         if (isset($map['ApplicationVersion'])) {
             $model->applicationVersion = $map['ApplicationVersion'];
+        }
+        if (isset($map['InstanceId'])) {
+            $model->instanceId = $map['InstanceId'];
+        }
+        if (isset($map['IotInstanceId'])) {
+            $model->iotInstanceId = $map['IotInstanceId'];
         }
 
         return $model;

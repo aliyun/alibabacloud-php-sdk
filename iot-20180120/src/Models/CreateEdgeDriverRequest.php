@@ -11,7 +11,7 @@ class CreateEdgeDriverRequest extends Model
     /**
      * @var string
      */
-    public $iotInstanceId;
+    public $cpuArch;
 
     /**
      * @var string
@@ -26,24 +26,24 @@ class CreateEdgeDriverRequest extends Model
     /**
      * @var string
      */
-    public $runtime;
-
-    /**
-     * @var string
-     */
-    public $cpuArch;
+    public $iotInstanceId;
 
     /**
      * @var bool
      */
     public $isBuiltIn;
+
+    /**
+     * @var string
+     */
+    public $runtime;
     protected $_name = [
-        'iotInstanceId'  => 'IotInstanceId',
+        'cpuArch'        => 'CpuArch',
         'driverName'     => 'DriverName',
         'driverProtocol' => 'DriverProtocol',
-        'runtime'        => 'Runtime',
-        'cpuArch'        => 'CpuArch',
+        'iotInstanceId'  => 'IotInstanceId',
         'isBuiltIn'      => 'IsBuiltIn',
+        'runtime'        => 'Runtime',
     ];
 
     public function validate()
@@ -53,8 +53,8 @@ class CreateEdgeDriverRequest extends Model
     public function toMap()
     {
         $res = [];
-        if (null !== $this->iotInstanceId) {
-            $res['IotInstanceId'] = $this->iotInstanceId;
+        if (null !== $this->cpuArch) {
+            $res['CpuArch'] = $this->cpuArch;
         }
         if (null !== $this->driverName) {
             $res['DriverName'] = $this->driverName;
@@ -62,14 +62,14 @@ class CreateEdgeDriverRequest extends Model
         if (null !== $this->driverProtocol) {
             $res['DriverProtocol'] = $this->driverProtocol;
         }
-        if (null !== $this->runtime) {
-            $res['Runtime'] = $this->runtime;
-        }
-        if (null !== $this->cpuArch) {
-            $res['CpuArch'] = $this->cpuArch;
+        if (null !== $this->iotInstanceId) {
+            $res['IotInstanceId'] = $this->iotInstanceId;
         }
         if (null !== $this->isBuiltIn) {
             $res['IsBuiltIn'] = $this->isBuiltIn;
+        }
+        if (null !== $this->runtime) {
+            $res['Runtime'] = $this->runtime;
         }
 
         return $res;
@@ -83,8 +83,8 @@ class CreateEdgeDriverRequest extends Model
     public static function fromMap($map = [])
     {
         $model = new self();
-        if (isset($map['IotInstanceId'])) {
-            $model->iotInstanceId = $map['IotInstanceId'];
+        if (isset($map['CpuArch'])) {
+            $model->cpuArch = $map['CpuArch'];
         }
         if (isset($map['DriverName'])) {
             $model->driverName = $map['DriverName'];
@@ -92,14 +92,14 @@ class CreateEdgeDriverRequest extends Model
         if (isset($map['DriverProtocol'])) {
             $model->driverProtocol = $map['DriverProtocol'];
         }
-        if (isset($map['Runtime'])) {
-            $model->runtime = $map['Runtime'];
-        }
-        if (isset($map['CpuArch'])) {
-            $model->cpuArch = $map['CpuArch'];
+        if (isset($map['IotInstanceId'])) {
+            $model->iotInstanceId = $map['IotInstanceId'];
         }
         if (isset($map['IsBuiltIn'])) {
             $model->isBuiltIn = $map['IsBuiltIn'];
+        }
+        if (isset($map['Runtime'])) {
+            $model->runtime = $map['Runtime'];
         }
 
         return $model;

@@ -11,6 +11,16 @@ class QueryProductListRequest extends Model
     /**
      * @var string
      */
+    public $aliyunCommodityCode;
+
+    /**
+     * @var int
+     */
+    public $currentPage;
+
+    /**
+     * @var string
+     */
     public $iotInstanceId;
 
     /**
@@ -22,22 +32,12 @@ class QueryProductListRequest extends Model
      * @var string
      */
     public $resourceGroupId;
-
-    /**
-     * @var string
-     */
-    public $aliyunCommodityCode;
-
-    /**
-     * @var int
-     */
-    public $currentPage;
     protected $_name = [
+        'aliyunCommodityCode' => 'AliyunCommodityCode',
+        'currentPage'         => 'CurrentPage',
         'iotInstanceId'       => 'IotInstanceId',
         'pageSize'            => 'PageSize',
         'resourceGroupId'     => 'ResourceGroupId',
-        'aliyunCommodityCode' => 'AliyunCommodityCode',
-        'currentPage'         => 'CurrentPage',
     ];
 
     public function validate()
@@ -47,6 +47,12 @@ class QueryProductListRequest extends Model
     public function toMap()
     {
         $res = [];
+        if (null !== $this->aliyunCommodityCode) {
+            $res['AliyunCommodityCode'] = $this->aliyunCommodityCode;
+        }
+        if (null !== $this->currentPage) {
+            $res['CurrentPage'] = $this->currentPage;
+        }
         if (null !== $this->iotInstanceId) {
             $res['IotInstanceId'] = $this->iotInstanceId;
         }
@@ -55,12 +61,6 @@ class QueryProductListRequest extends Model
         }
         if (null !== $this->resourceGroupId) {
             $res['ResourceGroupId'] = $this->resourceGroupId;
-        }
-        if (null !== $this->aliyunCommodityCode) {
-            $res['AliyunCommodityCode'] = $this->aliyunCommodityCode;
-        }
-        if (null !== $this->currentPage) {
-            $res['CurrentPage'] = $this->currentPage;
         }
 
         return $res;
@@ -74,6 +74,12 @@ class QueryProductListRequest extends Model
     public static function fromMap($map = [])
     {
         $model = new self();
+        if (isset($map['AliyunCommodityCode'])) {
+            $model->aliyunCommodityCode = $map['AliyunCommodityCode'];
+        }
+        if (isset($map['CurrentPage'])) {
+            $model->currentPage = $map['CurrentPage'];
+        }
         if (isset($map['IotInstanceId'])) {
             $model->iotInstanceId = $map['IotInstanceId'];
         }
@@ -82,12 +88,6 @@ class QueryProductListRequest extends Model
         }
         if (isset($map['ResourceGroupId'])) {
             $model->resourceGroupId = $map['ResourceGroupId'];
-        }
-        if (isset($map['AliyunCommodityCode'])) {
-            $model->aliyunCommodityCode = $map['AliyunCommodityCode'];
-        }
-        if (isset($map['CurrentPage'])) {
-            $model->currentPage = $map['CurrentPage'];
         }
 
         return $model;

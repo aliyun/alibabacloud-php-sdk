@@ -9,14 +9,9 @@ use AlibabaCloud\Tea\Model;
 class BatchDeleteDeviceGroupRelationsResponseBody extends Model
 {
     /**
-     * @var string
+     * @var int
      */
-    public $requestId;
-
-    /**
-     * @var bool
-     */
-    public $success;
+    public $alreadyRelatedGroupDeviceCount;
 
     /**
      * @var string
@@ -29,27 +24,32 @@ class BatchDeleteDeviceGroupRelationsResponseBody extends Model
     public $errorMessage;
 
     /**
-     * @var int
+     * @var string
      */
-    public $validDeviceCount;
+    public $requestId;
 
     /**
-     * @var int
+     * @var bool
      */
-    public $alreadyRelatedGroupDeviceCount;
+    public $success;
 
     /**
      * @var int
      */
     public $successDeviceCount;
+
+    /**
+     * @var int
+     */
+    public $validDeviceCount;
     protected $_name = [
-        'requestId'                      => 'RequestId',
-        'success'                        => 'Success',
+        'alreadyRelatedGroupDeviceCount' => 'AlreadyRelatedGroupDeviceCount',
         'code'                           => 'Code',
         'errorMessage'                   => 'ErrorMessage',
-        'validDeviceCount'               => 'ValidDeviceCount',
-        'alreadyRelatedGroupDeviceCount' => 'AlreadyRelatedGroupDeviceCount',
+        'requestId'                      => 'RequestId',
+        'success'                        => 'Success',
         'successDeviceCount'             => 'SuccessDeviceCount',
+        'validDeviceCount'               => 'ValidDeviceCount',
     ];
 
     public function validate()
@@ -59,11 +59,8 @@ class BatchDeleteDeviceGroupRelationsResponseBody extends Model
     public function toMap()
     {
         $res = [];
-        if (null !== $this->requestId) {
-            $res['RequestId'] = $this->requestId;
-        }
-        if (null !== $this->success) {
-            $res['Success'] = $this->success;
+        if (null !== $this->alreadyRelatedGroupDeviceCount) {
+            $res['AlreadyRelatedGroupDeviceCount'] = $this->alreadyRelatedGroupDeviceCount;
         }
         if (null !== $this->code) {
             $res['Code'] = $this->code;
@@ -71,14 +68,17 @@ class BatchDeleteDeviceGroupRelationsResponseBody extends Model
         if (null !== $this->errorMessage) {
             $res['ErrorMessage'] = $this->errorMessage;
         }
-        if (null !== $this->validDeviceCount) {
-            $res['ValidDeviceCount'] = $this->validDeviceCount;
+        if (null !== $this->requestId) {
+            $res['RequestId'] = $this->requestId;
         }
-        if (null !== $this->alreadyRelatedGroupDeviceCount) {
-            $res['AlreadyRelatedGroupDeviceCount'] = $this->alreadyRelatedGroupDeviceCount;
+        if (null !== $this->success) {
+            $res['Success'] = $this->success;
         }
         if (null !== $this->successDeviceCount) {
             $res['SuccessDeviceCount'] = $this->successDeviceCount;
+        }
+        if (null !== $this->validDeviceCount) {
+            $res['ValidDeviceCount'] = $this->validDeviceCount;
         }
 
         return $res;
@@ -92,11 +92,8 @@ class BatchDeleteDeviceGroupRelationsResponseBody extends Model
     public static function fromMap($map = [])
     {
         $model = new self();
-        if (isset($map['RequestId'])) {
-            $model->requestId = $map['RequestId'];
-        }
-        if (isset($map['Success'])) {
-            $model->success = $map['Success'];
+        if (isset($map['AlreadyRelatedGroupDeviceCount'])) {
+            $model->alreadyRelatedGroupDeviceCount = $map['AlreadyRelatedGroupDeviceCount'];
         }
         if (isset($map['Code'])) {
             $model->code = $map['Code'];
@@ -104,14 +101,17 @@ class BatchDeleteDeviceGroupRelationsResponseBody extends Model
         if (isset($map['ErrorMessage'])) {
             $model->errorMessage = $map['ErrorMessage'];
         }
-        if (isset($map['ValidDeviceCount'])) {
-            $model->validDeviceCount = $map['ValidDeviceCount'];
+        if (isset($map['RequestId'])) {
+            $model->requestId = $map['RequestId'];
         }
-        if (isset($map['AlreadyRelatedGroupDeviceCount'])) {
-            $model->alreadyRelatedGroupDeviceCount = $map['AlreadyRelatedGroupDeviceCount'];
+        if (isset($map['Success'])) {
+            $model->success = $map['Success'];
         }
         if (isset($map['SuccessDeviceCount'])) {
             $model->successDeviceCount = $map['SuccessDeviceCount'];
+        }
+        if (isset($map['ValidDeviceCount'])) {
+            $model->validDeviceCount = $map['ValidDeviceCount'];
         }
 
         return $model;

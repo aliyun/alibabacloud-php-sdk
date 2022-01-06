@@ -12,22 +12,7 @@ class CreateTopicRouteTableResponseBody extends Model
     /**
      * @var string
      */
-    public $requestId;
-
-    /**
-     * @var bool
-     */
-    public $success;
-
-    /**
-     * @var string
-     */
     public $code;
-
-    /**
-     * @var bool
-     */
-    public $isAllSucceed;
 
     /**
      * @var string
@@ -38,13 +23,28 @@ class CreateTopicRouteTableResponseBody extends Model
      * @var failureTopics
      */
     public $failureTopics;
+
+    /**
+     * @var bool
+     */
+    public $isAllSucceed;
+
+    /**
+     * @var string
+     */
+    public $requestId;
+
+    /**
+     * @var bool
+     */
+    public $success;
     protected $_name = [
-        'requestId'     => 'RequestId',
-        'success'       => 'Success',
         'code'          => 'Code',
-        'isAllSucceed'  => 'IsAllSucceed',
         'errorMessage'  => 'ErrorMessage',
         'failureTopics' => 'FailureTopics',
+        'isAllSucceed'  => 'IsAllSucceed',
+        'requestId'     => 'RequestId',
+        'success'       => 'Success',
     ];
 
     public function validate()
@@ -54,23 +54,23 @@ class CreateTopicRouteTableResponseBody extends Model
     public function toMap()
     {
         $res = [];
-        if (null !== $this->requestId) {
-            $res['RequestId'] = $this->requestId;
-        }
-        if (null !== $this->success) {
-            $res['Success'] = $this->success;
-        }
         if (null !== $this->code) {
             $res['Code'] = $this->code;
-        }
-        if (null !== $this->isAllSucceed) {
-            $res['IsAllSucceed'] = $this->isAllSucceed;
         }
         if (null !== $this->errorMessage) {
             $res['ErrorMessage'] = $this->errorMessage;
         }
         if (null !== $this->failureTopics) {
             $res['FailureTopics'] = null !== $this->failureTopics ? $this->failureTopics->toMap() : null;
+        }
+        if (null !== $this->isAllSucceed) {
+            $res['IsAllSucceed'] = $this->isAllSucceed;
+        }
+        if (null !== $this->requestId) {
+            $res['RequestId'] = $this->requestId;
+        }
+        if (null !== $this->success) {
+            $res['Success'] = $this->success;
         }
 
         return $res;
@@ -84,23 +84,23 @@ class CreateTopicRouteTableResponseBody extends Model
     public static function fromMap($map = [])
     {
         $model = new self();
-        if (isset($map['RequestId'])) {
-            $model->requestId = $map['RequestId'];
-        }
-        if (isset($map['Success'])) {
-            $model->success = $map['Success'];
-        }
         if (isset($map['Code'])) {
             $model->code = $map['Code'];
-        }
-        if (isset($map['IsAllSucceed'])) {
-            $model->isAllSucceed = $map['IsAllSucceed'];
         }
         if (isset($map['ErrorMessage'])) {
             $model->errorMessage = $map['ErrorMessage'];
         }
         if (isset($map['FailureTopics'])) {
             $model->failureTopics = failureTopics::fromMap($map['FailureTopics']);
+        }
+        if (isset($map['IsAllSucceed'])) {
+            $model->isAllSucceed = $map['IsAllSucceed'];
+        }
+        if (isset($map['RequestId'])) {
+            $model->requestId = $map['RequestId'];
+        }
+        if (isset($map['Success'])) {
+            $model->success = $map['Success'];
         }
 
         return $model;

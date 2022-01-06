@@ -11,21 +11,21 @@ class modelVersions extends Model
     /**
      * @var string
      */
-    public $modelVersion;
-
-    /**
-     * @var string
-     */
     public $description;
 
     /**
      * @var int
      */
     public $gmtCreate;
+
+    /**
+     * @var string
+     */
+    public $modelVersion;
     protected $_name = [
-        'modelVersion' => 'ModelVersion',
         'description'  => 'Description',
         'gmtCreate'    => 'GmtCreate',
+        'modelVersion' => 'ModelVersion',
     ];
 
     public function validate()
@@ -35,14 +35,14 @@ class modelVersions extends Model
     public function toMap()
     {
         $res = [];
-        if (null !== $this->modelVersion) {
-            $res['ModelVersion'] = $this->modelVersion;
-        }
         if (null !== $this->description) {
             $res['Description'] = $this->description;
         }
         if (null !== $this->gmtCreate) {
             $res['GmtCreate'] = $this->gmtCreate;
+        }
+        if (null !== $this->modelVersion) {
+            $res['ModelVersion'] = $this->modelVersion;
         }
 
         return $res;
@@ -56,14 +56,14 @@ class modelVersions extends Model
     public static function fromMap($map = [])
     {
         $model = new self();
-        if (isset($map['ModelVersion'])) {
-            $model->modelVersion = $map['ModelVersion'];
-        }
         if (isset($map['Description'])) {
             $model->description = $map['Description'];
         }
         if (isset($map['GmtCreate'])) {
             $model->gmtCreate = $map['GmtCreate'];
+        }
+        if (isset($map['ModelVersion'])) {
+            $model->modelVersion = $map['ModelVersion'];
         }
 
         return $model;

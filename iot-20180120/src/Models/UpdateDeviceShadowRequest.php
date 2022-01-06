@@ -9,6 +9,16 @@ use AlibabaCloud\Tea\Model;
 class UpdateDeviceShadowRequest extends Model
 {
     /**
+     * @var bool
+     */
+    public $deltaUpdate;
+
+    /**
+     * @var string
+     */
+    public $deviceName;
+
+    /**
      * @var string
      */
     public $iotInstanceId;
@@ -21,23 +31,13 @@ class UpdateDeviceShadowRequest extends Model
     /**
      * @var string
      */
-    public $deviceName;
-
-    /**
-     * @var string
-     */
     public $shadowMessage;
-
-    /**
-     * @var bool
-     */
-    public $deltaUpdate;
     protected $_name = [
+        'deltaUpdate'   => 'DeltaUpdate',
+        'deviceName'    => 'DeviceName',
         'iotInstanceId' => 'IotInstanceId',
         'productKey'    => 'ProductKey',
-        'deviceName'    => 'DeviceName',
         'shadowMessage' => 'ShadowMessage',
-        'deltaUpdate'   => 'DeltaUpdate',
     ];
 
     public function validate()
@@ -47,20 +47,20 @@ class UpdateDeviceShadowRequest extends Model
     public function toMap()
     {
         $res = [];
+        if (null !== $this->deltaUpdate) {
+            $res['DeltaUpdate'] = $this->deltaUpdate;
+        }
+        if (null !== $this->deviceName) {
+            $res['DeviceName'] = $this->deviceName;
+        }
         if (null !== $this->iotInstanceId) {
             $res['IotInstanceId'] = $this->iotInstanceId;
         }
         if (null !== $this->productKey) {
             $res['ProductKey'] = $this->productKey;
         }
-        if (null !== $this->deviceName) {
-            $res['DeviceName'] = $this->deviceName;
-        }
         if (null !== $this->shadowMessage) {
             $res['ShadowMessage'] = $this->shadowMessage;
-        }
-        if (null !== $this->deltaUpdate) {
-            $res['DeltaUpdate'] = $this->deltaUpdate;
         }
 
         return $res;
@@ -74,20 +74,20 @@ class UpdateDeviceShadowRequest extends Model
     public static function fromMap($map = [])
     {
         $model = new self();
+        if (isset($map['DeltaUpdate'])) {
+            $model->deltaUpdate = $map['DeltaUpdate'];
+        }
+        if (isset($map['DeviceName'])) {
+            $model->deviceName = $map['DeviceName'];
+        }
         if (isset($map['IotInstanceId'])) {
             $model->iotInstanceId = $map['IotInstanceId'];
         }
         if (isset($map['ProductKey'])) {
             $model->productKey = $map['ProductKey'];
         }
-        if (isset($map['DeviceName'])) {
-            $model->deviceName = $map['DeviceName'];
-        }
         if (isset($map['ShadowMessage'])) {
             $model->shadowMessage = $map['ShadowMessage'];
-        }
-        if (isset($map['DeltaUpdate'])) {
-            $model->deltaUpdate = $map['DeltaUpdate'];
         }
 
         return $model;

@@ -12,16 +12,6 @@ class QueryDeviceGroupByDeviceResponseBody extends Model
     /**
      * @var string
      */
-    public $requestId;
-
-    /**
-     * @var bool
-     */
-    public $success;
-
-    /**
-     * @var string
-     */
     public $code;
 
     /**
@@ -33,12 +23,22 @@ class QueryDeviceGroupByDeviceResponseBody extends Model
      * @var groupInfos
      */
     public $groupInfos;
+
+    /**
+     * @var string
+     */
+    public $requestId;
+
+    /**
+     * @var bool
+     */
+    public $success;
     protected $_name = [
-        'requestId'    => 'RequestId',
-        'success'      => 'Success',
         'code'         => 'Code',
         'errorMessage' => 'ErrorMessage',
         'groupInfos'   => 'GroupInfos',
+        'requestId'    => 'RequestId',
+        'success'      => 'Success',
     ];
 
     public function validate()
@@ -48,12 +48,6 @@ class QueryDeviceGroupByDeviceResponseBody extends Model
     public function toMap()
     {
         $res = [];
-        if (null !== $this->requestId) {
-            $res['RequestId'] = $this->requestId;
-        }
-        if (null !== $this->success) {
-            $res['Success'] = $this->success;
-        }
         if (null !== $this->code) {
             $res['Code'] = $this->code;
         }
@@ -62,6 +56,12 @@ class QueryDeviceGroupByDeviceResponseBody extends Model
         }
         if (null !== $this->groupInfos) {
             $res['GroupInfos'] = null !== $this->groupInfos ? $this->groupInfos->toMap() : null;
+        }
+        if (null !== $this->requestId) {
+            $res['RequestId'] = $this->requestId;
+        }
+        if (null !== $this->success) {
+            $res['Success'] = $this->success;
         }
 
         return $res;
@@ -75,12 +75,6 @@ class QueryDeviceGroupByDeviceResponseBody extends Model
     public static function fromMap($map = [])
     {
         $model = new self();
-        if (isset($map['RequestId'])) {
-            $model->requestId = $map['RequestId'];
-        }
-        if (isset($map['Success'])) {
-            $model->success = $map['Success'];
-        }
         if (isset($map['Code'])) {
             $model->code = $map['Code'];
         }
@@ -89,6 +83,12 @@ class QueryDeviceGroupByDeviceResponseBody extends Model
         }
         if (isset($map['GroupInfos'])) {
             $model->groupInfos = groupInfos::fromMap($map['GroupInfos']);
+        }
+        if (isset($map['RequestId'])) {
+            $model->requestId = $map['RequestId'];
+        }
+        if (isset($map['Success'])) {
+            $model->success = $map['Success'];
         }
 
         return $model;

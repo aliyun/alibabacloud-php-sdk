@@ -12,17 +12,12 @@ class QueryTopicRouteTableResponseBody extends Model
     /**
      * @var string
      */
-    public $requestId;
-
-    /**
-     * @var bool
-     */
-    public $success;
-
-    /**
-     * @var string
-     */
     public $code;
+
+    /**
+     * @var dstTopics
+     */
+    public $dstTopics;
 
     /**
      * @var string
@@ -30,15 +25,20 @@ class QueryTopicRouteTableResponseBody extends Model
     public $errorMessage;
 
     /**
-     * @var dstTopics
+     * @var string
      */
-    public $dstTopics;
+    public $requestId;
+
+    /**
+     * @var bool
+     */
+    public $success;
     protected $_name = [
+        'code'         => 'Code',
+        'dstTopics'    => 'DstTopics',
+        'errorMessage' => 'ErrorMessage',
         'requestId'    => 'RequestId',
         'success'      => 'Success',
-        'code'         => 'Code',
-        'errorMessage' => 'ErrorMessage',
-        'dstTopics'    => 'DstTopics',
     ];
 
     public function validate()
@@ -48,20 +48,20 @@ class QueryTopicRouteTableResponseBody extends Model
     public function toMap()
     {
         $res = [];
+        if (null !== $this->code) {
+            $res['Code'] = $this->code;
+        }
+        if (null !== $this->dstTopics) {
+            $res['DstTopics'] = null !== $this->dstTopics ? $this->dstTopics->toMap() : null;
+        }
+        if (null !== $this->errorMessage) {
+            $res['ErrorMessage'] = $this->errorMessage;
+        }
         if (null !== $this->requestId) {
             $res['RequestId'] = $this->requestId;
         }
         if (null !== $this->success) {
             $res['Success'] = $this->success;
-        }
-        if (null !== $this->code) {
-            $res['Code'] = $this->code;
-        }
-        if (null !== $this->errorMessage) {
-            $res['ErrorMessage'] = $this->errorMessage;
-        }
-        if (null !== $this->dstTopics) {
-            $res['DstTopics'] = null !== $this->dstTopics ? $this->dstTopics->toMap() : null;
         }
 
         return $res;
@@ -75,20 +75,20 @@ class QueryTopicRouteTableResponseBody extends Model
     public static function fromMap($map = [])
     {
         $model = new self();
+        if (isset($map['Code'])) {
+            $model->code = $map['Code'];
+        }
+        if (isset($map['DstTopics'])) {
+            $model->dstTopics = dstTopics::fromMap($map['DstTopics']);
+        }
+        if (isset($map['ErrorMessage'])) {
+            $model->errorMessage = $map['ErrorMessage'];
+        }
         if (isset($map['RequestId'])) {
             $model->requestId = $map['RequestId'];
         }
         if (isset($map['Success'])) {
             $model->success = $map['Success'];
-        }
-        if (isset($map['Code'])) {
-            $model->code = $map['Code'];
-        }
-        if (isset($map['ErrorMessage'])) {
-            $model->errorMessage = $map['ErrorMessage'];
-        }
-        if (isset($map['DstTopics'])) {
-            $model->dstTopics = dstTopics::fromMap($map['DstTopics']);
         }
 
         return $model;

@@ -12,16 +12,6 @@ class QueryLoRaJoinPermissionsResponseBody extends Model
     /**
      * @var string
      */
-    public $requestId;
-
-    /**
-     * @var bool
-     */
-    public $success;
-
-    /**
-     * @var string
-     */
     public $code;
 
     /**
@@ -30,21 +20,31 @@ class QueryLoRaJoinPermissionsResponseBody extends Model
     public $errorMessage;
 
     /**
+     * @var joinPermissions
+     */
+    public $joinPermissions;
+
+    /**
      * @var string
      */
     public $productKey;
 
     /**
-     * @var joinPermissions
+     * @var string
      */
-    public $joinPermissions;
+    public $requestId;
+
+    /**
+     * @var bool
+     */
+    public $success;
     protected $_name = [
-        'requestId'       => 'RequestId',
-        'success'         => 'Success',
         'code'            => 'Code',
         'errorMessage'    => 'ErrorMessage',
-        'productKey'      => 'ProductKey',
         'joinPermissions' => 'JoinPermissions',
+        'productKey'      => 'ProductKey',
+        'requestId'       => 'RequestId',
+        'success'         => 'Success',
     ];
 
     public function validate()
@@ -54,23 +54,23 @@ class QueryLoRaJoinPermissionsResponseBody extends Model
     public function toMap()
     {
         $res = [];
-        if (null !== $this->requestId) {
-            $res['RequestId'] = $this->requestId;
-        }
-        if (null !== $this->success) {
-            $res['Success'] = $this->success;
-        }
         if (null !== $this->code) {
             $res['Code'] = $this->code;
         }
         if (null !== $this->errorMessage) {
             $res['ErrorMessage'] = $this->errorMessage;
         }
+        if (null !== $this->joinPermissions) {
+            $res['JoinPermissions'] = null !== $this->joinPermissions ? $this->joinPermissions->toMap() : null;
+        }
         if (null !== $this->productKey) {
             $res['ProductKey'] = $this->productKey;
         }
-        if (null !== $this->joinPermissions) {
-            $res['JoinPermissions'] = null !== $this->joinPermissions ? $this->joinPermissions->toMap() : null;
+        if (null !== $this->requestId) {
+            $res['RequestId'] = $this->requestId;
+        }
+        if (null !== $this->success) {
+            $res['Success'] = $this->success;
         }
 
         return $res;
@@ -84,23 +84,23 @@ class QueryLoRaJoinPermissionsResponseBody extends Model
     public static function fromMap($map = [])
     {
         $model = new self();
-        if (isset($map['RequestId'])) {
-            $model->requestId = $map['RequestId'];
-        }
-        if (isset($map['Success'])) {
-            $model->success = $map['Success'];
-        }
         if (isset($map['Code'])) {
             $model->code = $map['Code'];
         }
         if (isset($map['ErrorMessage'])) {
             $model->errorMessage = $map['ErrorMessage'];
         }
+        if (isset($map['JoinPermissions'])) {
+            $model->joinPermissions = joinPermissions::fromMap($map['JoinPermissions']);
+        }
         if (isset($map['ProductKey'])) {
             $model->productKey = $map['ProductKey'];
         }
-        if (isset($map['JoinPermissions'])) {
-            $model->joinPermissions = joinPermissions::fromMap($map['JoinPermissions']);
+        if (isset($map['RequestId'])) {
+            $model->requestId = $map['RequestId'];
+        }
+        if (isset($map['Success'])) {
+            $model->success = $map['Success'];
         }
 
         return $model;

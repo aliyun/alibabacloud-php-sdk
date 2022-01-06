@@ -12,12 +12,12 @@ class CreateEdgeInstanceChannelRequest extends Model
     /**
      * @var string
      */
-    public $iotInstanceId;
+    public $channelName;
 
     /**
-     * @var string
+     * @var configs[]
      */
-    public $instanceId;
+    public $configs;
 
     /**
      * @var string
@@ -27,18 +27,18 @@ class CreateEdgeInstanceChannelRequest extends Model
     /**
      * @var string
      */
-    public $channelName;
+    public $instanceId;
 
     /**
-     * @var configs[]
+     * @var string
      */
-    public $configs;
+    public $iotInstanceId;
     protected $_name = [
-        'iotInstanceId' => 'IotInstanceId',
-        'instanceId'    => 'InstanceId',
-        'driverId'      => 'DriverId',
         'channelName'   => 'ChannelName',
         'configs'       => 'Configs',
+        'driverId'      => 'DriverId',
+        'instanceId'    => 'InstanceId',
+        'iotInstanceId' => 'IotInstanceId',
     ];
 
     public function validate()
@@ -48,15 +48,6 @@ class CreateEdgeInstanceChannelRequest extends Model
     public function toMap()
     {
         $res = [];
-        if (null !== $this->iotInstanceId) {
-            $res['IotInstanceId'] = $this->iotInstanceId;
-        }
-        if (null !== $this->instanceId) {
-            $res['InstanceId'] = $this->instanceId;
-        }
-        if (null !== $this->driverId) {
-            $res['DriverId'] = $this->driverId;
-        }
         if (null !== $this->channelName) {
             $res['ChannelName'] = $this->channelName;
         }
@@ -68,6 +59,15 @@ class CreateEdgeInstanceChannelRequest extends Model
                     $res['Configs'][$n++] = null !== $item ? $item->toMap() : $item;
                 }
             }
+        }
+        if (null !== $this->driverId) {
+            $res['DriverId'] = $this->driverId;
+        }
+        if (null !== $this->instanceId) {
+            $res['InstanceId'] = $this->instanceId;
+        }
+        if (null !== $this->iotInstanceId) {
+            $res['IotInstanceId'] = $this->iotInstanceId;
         }
 
         return $res;
@@ -81,15 +81,6 @@ class CreateEdgeInstanceChannelRequest extends Model
     public static function fromMap($map = [])
     {
         $model = new self();
-        if (isset($map['IotInstanceId'])) {
-            $model->iotInstanceId = $map['IotInstanceId'];
-        }
-        if (isset($map['InstanceId'])) {
-            $model->instanceId = $map['InstanceId'];
-        }
-        if (isset($map['DriverId'])) {
-            $model->driverId = $map['DriverId'];
-        }
         if (isset($map['ChannelName'])) {
             $model->channelName = $map['ChannelName'];
         }
@@ -101,6 +92,15 @@ class CreateEdgeInstanceChannelRequest extends Model
                     $model->configs[$n++] = null !== $item ? configs::fromMap($item) : $item;
                 }
             }
+        }
+        if (isset($map['DriverId'])) {
+            $model->driverId = $map['DriverId'];
+        }
+        if (isset($map['InstanceId'])) {
+            $model->instanceId = $map['InstanceId'];
+        }
+        if (isset($map['IotInstanceId'])) {
+            $model->iotInstanceId = $map['IotInstanceId'];
         }
 
         return $model;

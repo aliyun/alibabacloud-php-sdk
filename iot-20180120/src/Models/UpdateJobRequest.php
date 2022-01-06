@@ -11,17 +11,17 @@ class UpdateJobRequest extends Model
     /**
      * @var string
      */
-    public $iotInstanceId;
-
-    /**
-     * @var string
-     */
     public $description;
 
     /**
      * @var string
      */
-    public $timeoutConfig;
+    public $iotInstanceId;
+
+    /**
+     * @var string
+     */
+    public $jobId;
 
     /**
      * @var string
@@ -31,13 +31,13 @@ class UpdateJobRequest extends Model
     /**
      * @var string
      */
-    public $jobId;
+    public $timeoutConfig;
     protected $_name = [
-        'iotInstanceId' => 'IotInstanceId',
         'description'   => 'Description',
-        'timeoutConfig' => 'TimeoutConfig',
-        'rolloutConfig' => 'RolloutConfig',
+        'iotInstanceId' => 'IotInstanceId',
         'jobId'         => 'JobId',
+        'rolloutConfig' => 'RolloutConfig',
+        'timeoutConfig' => 'TimeoutConfig',
     ];
 
     public function validate()
@@ -47,20 +47,20 @@ class UpdateJobRequest extends Model
     public function toMap()
     {
         $res = [];
-        if (null !== $this->iotInstanceId) {
-            $res['IotInstanceId'] = $this->iotInstanceId;
-        }
         if (null !== $this->description) {
             $res['Description'] = $this->description;
         }
-        if (null !== $this->timeoutConfig) {
-            $res['TimeoutConfig'] = $this->timeoutConfig;
+        if (null !== $this->iotInstanceId) {
+            $res['IotInstanceId'] = $this->iotInstanceId;
+        }
+        if (null !== $this->jobId) {
+            $res['JobId'] = $this->jobId;
         }
         if (null !== $this->rolloutConfig) {
             $res['RolloutConfig'] = $this->rolloutConfig;
         }
-        if (null !== $this->jobId) {
-            $res['JobId'] = $this->jobId;
+        if (null !== $this->timeoutConfig) {
+            $res['TimeoutConfig'] = $this->timeoutConfig;
         }
 
         return $res;
@@ -74,20 +74,20 @@ class UpdateJobRequest extends Model
     public static function fromMap($map = [])
     {
         $model = new self();
-        if (isset($map['IotInstanceId'])) {
-            $model->iotInstanceId = $map['IotInstanceId'];
-        }
         if (isset($map['Description'])) {
             $model->description = $map['Description'];
         }
-        if (isset($map['TimeoutConfig'])) {
-            $model->timeoutConfig = $map['TimeoutConfig'];
+        if (isset($map['IotInstanceId'])) {
+            $model->iotInstanceId = $map['IotInstanceId'];
+        }
+        if (isset($map['JobId'])) {
+            $model->jobId = $map['JobId'];
         }
         if (isset($map['RolloutConfig'])) {
             $model->rolloutConfig = $map['RolloutConfig'];
         }
-        if (isset($map['JobId'])) {
-            $model->jobId = $map['JobId'];
+        if (isset($map['TimeoutConfig'])) {
+            $model->timeoutConfig = $map['TimeoutConfig'];
         }
 
         return $model;

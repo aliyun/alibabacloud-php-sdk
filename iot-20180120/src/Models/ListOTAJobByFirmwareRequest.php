@@ -9,9 +9,9 @@ use AlibabaCloud\Tea\Model;
 class ListOTAJobByFirmwareRequest extends Model
 {
     /**
-     * @var string
+     * @var int
      */
-    public $iotInstanceId;
+    public $currentPage;
 
     /**
      * @var string
@@ -19,19 +19,19 @@ class ListOTAJobByFirmwareRequest extends Model
     public $firmwareId;
 
     /**
-     * @var int
+     * @var string
      */
-    public $pageSize;
+    public $iotInstanceId;
 
     /**
      * @var int
      */
-    public $currentPage;
+    public $pageSize;
     protected $_name = [
-        'iotInstanceId' => 'IotInstanceId',
-        'firmwareId'    => 'FirmwareId',
-        'pageSize'      => 'PageSize',
         'currentPage'   => 'CurrentPage',
+        'firmwareId'    => 'FirmwareId',
+        'iotInstanceId' => 'IotInstanceId',
+        'pageSize'      => 'PageSize',
     ];
 
     public function validate()
@@ -41,17 +41,17 @@ class ListOTAJobByFirmwareRequest extends Model
     public function toMap()
     {
         $res = [];
-        if (null !== $this->iotInstanceId) {
-            $res['IotInstanceId'] = $this->iotInstanceId;
+        if (null !== $this->currentPage) {
+            $res['CurrentPage'] = $this->currentPage;
         }
         if (null !== $this->firmwareId) {
             $res['FirmwareId'] = $this->firmwareId;
         }
+        if (null !== $this->iotInstanceId) {
+            $res['IotInstanceId'] = $this->iotInstanceId;
+        }
         if (null !== $this->pageSize) {
             $res['PageSize'] = $this->pageSize;
-        }
-        if (null !== $this->currentPage) {
-            $res['CurrentPage'] = $this->currentPage;
         }
 
         return $res;
@@ -65,17 +65,17 @@ class ListOTAJobByFirmwareRequest extends Model
     public static function fromMap($map = [])
     {
         $model = new self();
-        if (isset($map['IotInstanceId'])) {
-            $model->iotInstanceId = $map['IotInstanceId'];
+        if (isset($map['CurrentPage'])) {
+            $model->currentPage = $map['CurrentPage'];
         }
         if (isset($map['FirmwareId'])) {
             $model->firmwareId = $map['FirmwareId'];
         }
+        if (isset($map['IotInstanceId'])) {
+            $model->iotInstanceId = $map['IotInstanceId'];
+        }
         if (isset($map['PageSize'])) {
             $model->pageSize = $map['PageSize'];
-        }
-        if (isset($map['CurrentPage'])) {
-            $model->currentPage = $map['CurrentPage'];
         }
 
         return $model;

@@ -9,14 +9,19 @@ use AlibabaCloud\Tea\Model;
 class DeleteThingModelRequest extends Model
 {
     /**
-     * @var string
+     * @var string[]
      */
-    public $iotInstanceId;
+    public $eventIdentifier;
 
     /**
      * @var string
      */
-    public $resourceGroupId;
+    public $functionBlockId;
+
+    /**
+     * @var string
+     */
+    public $iotInstanceId;
 
     /**
      * @var string
@@ -29,27 +34,22 @@ class DeleteThingModelRequest extends Model
     public $propertyIdentifier;
 
     /**
+     * @var string
+     */
+    public $resourceGroupId;
+
+    /**
      * @var string[]
      */
     public $serviceIdentifier;
-
-    /**
-     * @var string[]
-     */
-    public $eventIdentifier;
-
-    /**
-     * @var string
-     */
-    public $functionBlockId;
     protected $_name = [
-        'iotInstanceId'      => 'IotInstanceId',
-        'resourceGroupId'    => 'ResourceGroupId',
-        'productKey'         => 'ProductKey',
-        'propertyIdentifier' => 'PropertyIdentifier',
-        'serviceIdentifier'  => 'ServiceIdentifier',
         'eventIdentifier'    => 'EventIdentifier',
         'functionBlockId'    => 'FunctionBlockId',
+        'iotInstanceId'      => 'IotInstanceId',
+        'productKey'         => 'ProductKey',
+        'propertyIdentifier' => 'PropertyIdentifier',
+        'resourceGroupId'    => 'ResourceGroupId',
+        'serviceIdentifier'  => 'ServiceIdentifier',
     ];
 
     public function validate()
@@ -59,11 +59,14 @@ class DeleteThingModelRequest extends Model
     public function toMap()
     {
         $res = [];
+        if (null !== $this->eventIdentifier) {
+            $res['EventIdentifier'] = $this->eventIdentifier;
+        }
+        if (null !== $this->functionBlockId) {
+            $res['FunctionBlockId'] = $this->functionBlockId;
+        }
         if (null !== $this->iotInstanceId) {
             $res['IotInstanceId'] = $this->iotInstanceId;
-        }
-        if (null !== $this->resourceGroupId) {
-            $res['ResourceGroupId'] = $this->resourceGroupId;
         }
         if (null !== $this->productKey) {
             $res['ProductKey'] = $this->productKey;
@@ -71,14 +74,11 @@ class DeleteThingModelRequest extends Model
         if (null !== $this->propertyIdentifier) {
             $res['PropertyIdentifier'] = $this->propertyIdentifier;
         }
+        if (null !== $this->resourceGroupId) {
+            $res['ResourceGroupId'] = $this->resourceGroupId;
+        }
         if (null !== $this->serviceIdentifier) {
             $res['ServiceIdentifier'] = $this->serviceIdentifier;
-        }
-        if (null !== $this->eventIdentifier) {
-            $res['EventIdentifier'] = $this->eventIdentifier;
-        }
-        if (null !== $this->functionBlockId) {
-            $res['FunctionBlockId'] = $this->functionBlockId;
         }
 
         return $res;
@@ -92,11 +92,16 @@ class DeleteThingModelRequest extends Model
     public static function fromMap($map = [])
     {
         $model = new self();
+        if (isset($map['EventIdentifier'])) {
+            if (!empty($map['EventIdentifier'])) {
+                $model->eventIdentifier = $map['EventIdentifier'];
+            }
+        }
+        if (isset($map['FunctionBlockId'])) {
+            $model->functionBlockId = $map['FunctionBlockId'];
+        }
         if (isset($map['IotInstanceId'])) {
             $model->iotInstanceId = $map['IotInstanceId'];
-        }
-        if (isset($map['ResourceGroupId'])) {
-            $model->resourceGroupId = $map['ResourceGroupId'];
         }
         if (isset($map['ProductKey'])) {
             $model->productKey = $map['ProductKey'];
@@ -106,18 +111,13 @@ class DeleteThingModelRequest extends Model
                 $model->propertyIdentifier = $map['PropertyIdentifier'];
             }
         }
+        if (isset($map['ResourceGroupId'])) {
+            $model->resourceGroupId = $map['ResourceGroupId'];
+        }
         if (isset($map['ServiceIdentifier'])) {
             if (!empty($map['ServiceIdentifier'])) {
                 $model->serviceIdentifier = $map['ServiceIdentifier'];
             }
-        }
-        if (isset($map['EventIdentifier'])) {
-            if (!empty($map['EventIdentifier'])) {
-                $model->eventIdentifier = $map['EventIdentifier'];
-            }
-        }
-        if (isset($map['FunctionBlockId'])) {
-            $model->functionBlockId = $map['FunctionBlockId'];
         }
 
         return $model;

@@ -12,7 +12,12 @@ class data extends Model
     /**
      * @var int
      */
-    public $total;
+    public $currentPage;
+
+    /**
+     * @var driverList[]
+     */
+    public $driverList;
 
     /**
      * @var int
@@ -22,17 +27,12 @@ class data extends Model
     /**
      * @var int
      */
-    public $currentPage;
-
-    /**
-     * @var driverList[]
-     */
-    public $driverList;
+    public $total;
     protected $_name = [
-        'total'       => 'Total',
-        'pageSize'    => 'PageSize',
         'currentPage' => 'CurrentPage',
         'driverList'  => 'DriverList',
+        'pageSize'    => 'PageSize',
+        'total'       => 'Total',
     ];
 
     public function validate()
@@ -42,12 +42,6 @@ class data extends Model
     public function toMap()
     {
         $res = [];
-        if (null !== $this->total) {
-            $res['Total'] = $this->total;
-        }
-        if (null !== $this->pageSize) {
-            $res['PageSize'] = $this->pageSize;
-        }
         if (null !== $this->currentPage) {
             $res['CurrentPage'] = $this->currentPage;
         }
@@ -59,6 +53,12 @@ class data extends Model
                     $res['DriverList'][$n++] = null !== $item ? $item->toMap() : $item;
                 }
             }
+        }
+        if (null !== $this->pageSize) {
+            $res['PageSize'] = $this->pageSize;
+        }
+        if (null !== $this->total) {
+            $res['Total'] = $this->total;
         }
 
         return $res;
@@ -72,12 +72,6 @@ class data extends Model
     public static function fromMap($map = [])
     {
         $model = new self();
-        if (isset($map['Total'])) {
-            $model->total = $map['Total'];
-        }
-        if (isset($map['PageSize'])) {
-            $model->pageSize = $map['PageSize'];
-        }
         if (isset($map['CurrentPage'])) {
             $model->currentPage = $map['CurrentPage'];
         }
@@ -89,6 +83,12 @@ class data extends Model
                     $model->driverList[$n++] = null !== $item ? driverList::fromMap($item) : $item;
                 }
             }
+        }
+        if (isset($map['PageSize'])) {
+            $model->pageSize = $map['PageSize'];
+        }
+        if (isset($map['Total'])) {
+            $model->total = $map['Total'];
         }
 
         return $model;

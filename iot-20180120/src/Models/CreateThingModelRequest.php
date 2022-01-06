@@ -11,6 +11,16 @@ class CreateThingModelRequest extends Model
     /**
      * @var string
      */
+    public $functionBlockId;
+
+    /**
+     * @var string
+     */
+    public $functionBlockName;
+
+    /**
+     * @var string
+     */
     public $iotInstanceId;
 
     /**
@@ -22,22 +32,12 @@ class CreateThingModelRequest extends Model
      * @var string
      */
     public $thingModelJson;
-
-    /**
-     * @var string
-     */
-    public $functionBlockId;
-
-    /**
-     * @var string
-     */
-    public $functionBlockName;
     protected $_name = [
+        'functionBlockId'   => 'FunctionBlockId',
+        'functionBlockName' => 'FunctionBlockName',
         'iotInstanceId'     => 'IotInstanceId',
         'productKey'        => 'ProductKey',
         'thingModelJson'    => 'ThingModelJson',
-        'functionBlockId'   => 'FunctionBlockId',
-        'functionBlockName' => 'FunctionBlockName',
     ];
 
     public function validate()
@@ -47,6 +47,12 @@ class CreateThingModelRequest extends Model
     public function toMap()
     {
         $res = [];
+        if (null !== $this->functionBlockId) {
+            $res['FunctionBlockId'] = $this->functionBlockId;
+        }
+        if (null !== $this->functionBlockName) {
+            $res['FunctionBlockName'] = $this->functionBlockName;
+        }
         if (null !== $this->iotInstanceId) {
             $res['IotInstanceId'] = $this->iotInstanceId;
         }
@@ -55,12 +61,6 @@ class CreateThingModelRequest extends Model
         }
         if (null !== $this->thingModelJson) {
             $res['ThingModelJson'] = $this->thingModelJson;
-        }
-        if (null !== $this->functionBlockId) {
-            $res['FunctionBlockId'] = $this->functionBlockId;
-        }
-        if (null !== $this->functionBlockName) {
-            $res['FunctionBlockName'] = $this->functionBlockName;
         }
 
         return $res;
@@ -74,6 +74,12 @@ class CreateThingModelRequest extends Model
     public static function fromMap($map = [])
     {
         $model = new self();
+        if (isset($map['FunctionBlockId'])) {
+            $model->functionBlockId = $map['FunctionBlockId'];
+        }
+        if (isset($map['FunctionBlockName'])) {
+            $model->functionBlockName = $map['FunctionBlockName'];
+        }
         if (isset($map['IotInstanceId'])) {
             $model->iotInstanceId = $map['IotInstanceId'];
         }
@@ -82,12 +88,6 @@ class CreateThingModelRequest extends Model
         }
         if (isset($map['ThingModelJson'])) {
             $model->thingModelJson = $map['ThingModelJson'];
-        }
-        if (isset($map['FunctionBlockId'])) {
-            $model->functionBlockId = $map['FunctionBlockId'];
-        }
-        if (isset($map['FunctionBlockName'])) {
-            $model->functionBlockName = $map['FunctionBlockName'];
         }
 
         return $model;

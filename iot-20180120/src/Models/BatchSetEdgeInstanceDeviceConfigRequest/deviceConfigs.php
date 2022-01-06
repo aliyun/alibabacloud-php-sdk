@@ -11,15 +11,15 @@ class deviceConfigs extends Model
     /**
      * @var string
      */
-    public $iotId;
+    public $content;
 
     /**
      * @var string
      */
-    public $content;
+    public $iotId;
     protected $_name = [
-        'iotId'   => 'IotId',
         'content' => 'Content',
+        'iotId'   => 'IotId',
     ];
 
     public function validate()
@@ -29,11 +29,11 @@ class deviceConfigs extends Model
     public function toMap()
     {
         $res = [];
-        if (null !== $this->iotId) {
-            $res['IotId'] = $this->iotId;
-        }
         if (null !== $this->content) {
             $res['Content'] = $this->content;
+        }
+        if (null !== $this->iotId) {
+            $res['IotId'] = $this->iotId;
         }
 
         return $res;
@@ -47,11 +47,11 @@ class deviceConfigs extends Model
     public static function fromMap($map = [])
     {
         $model = new self();
-        if (isset($map['IotId'])) {
-            $model->iotId = $map['IotId'];
-        }
         if (isset($map['Content'])) {
             $model->content = $map['Content'];
+        }
+        if (isset($map['IotId'])) {
+            $model->iotId = $map['IotId'];
         }
 
         return $model;

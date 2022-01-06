@@ -11,6 +11,11 @@ use AlibabaCloud\Tea\Model;
 class data extends Model
 {
     /**
+     * @var invalidList
+     */
+    public $invalidList;
+
+    /**
      * @var string
      */
     public $status;
@@ -19,15 +24,10 @@ class data extends Model
      * @var validList
      */
     public $validList;
-
-    /**
-     * @var invalidList
-     */
-    public $invalidList;
     protected $_name = [
+        'invalidList' => 'InvalidList',
         'status'      => 'Status',
         'validList'   => 'ValidList',
-        'invalidList' => 'InvalidList',
     ];
 
     public function validate()
@@ -37,14 +37,14 @@ class data extends Model
     public function toMap()
     {
         $res = [];
+        if (null !== $this->invalidList) {
+            $res['InvalidList'] = null !== $this->invalidList ? $this->invalidList->toMap() : null;
+        }
         if (null !== $this->status) {
             $res['Status'] = $this->status;
         }
         if (null !== $this->validList) {
             $res['ValidList'] = null !== $this->validList ? $this->validList->toMap() : null;
-        }
-        if (null !== $this->invalidList) {
-            $res['InvalidList'] = null !== $this->invalidList ? $this->invalidList->toMap() : null;
         }
 
         return $res;
@@ -58,14 +58,14 @@ class data extends Model
     public static function fromMap($map = [])
     {
         $model = new self();
+        if (isset($map['InvalidList'])) {
+            $model->invalidList = invalidList::fromMap($map['InvalidList']);
+        }
         if (isset($map['Status'])) {
             $model->status = $map['Status'];
         }
         if (isset($map['ValidList'])) {
             $model->validList = validList::fromMap($map['ValidList']);
-        }
-        if (isset($map['InvalidList'])) {
-            $model->invalidList = invalidList::fromMap($map['InvalidList']);
         }
 
         return $model;

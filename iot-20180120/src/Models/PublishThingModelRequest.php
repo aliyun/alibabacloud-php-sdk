@@ -11,17 +11,12 @@ class PublishThingModelRequest extends Model
     /**
      * @var string
      */
+    public $description;
+
+    /**
+     * @var string
+     */
     public $iotInstanceId;
-
-    /**
-     * @var string
-     */
-    public $resourceGroupId;
-
-    /**
-     * @var string
-     */
-    public $productKey;
 
     /**
      * @var string
@@ -31,13 +26,18 @@ class PublishThingModelRequest extends Model
     /**
      * @var string
      */
-    public $description;
+    public $productKey;
+
+    /**
+     * @var string
+     */
+    public $resourceGroupId;
     protected $_name = [
-        'iotInstanceId'   => 'IotInstanceId',
-        'resourceGroupId' => 'ResourceGroupId',
-        'productKey'      => 'ProductKey',
-        'modelVersion'    => 'ModelVersion',
         'description'     => 'Description',
+        'iotInstanceId'   => 'IotInstanceId',
+        'modelVersion'    => 'ModelVersion',
+        'productKey'      => 'ProductKey',
+        'resourceGroupId' => 'ResourceGroupId',
     ];
 
     public function validate()
@@ -47,20 +47,20 @@ class PublishThingModelRequest extends Model
     public function toMap()
     {
         $res = [];
+        if (null !== $this->description) {
+            $res['Description'] = $this->description;
+        }
         if (null !== $this->iotInstanceId) {
             $res['IotInstanceId'] = $this->iotInstanceId;
-        }
-        if (null !== $this->resourceGroupId) {
-            $res['ResourceGroupId'] = $this->resourceGroupId;
-        }
-        if (null !== $this->productKey) {
-            $res['ProductKey'] = $this->productKey;
         }
         if (null !== $this->modelVersion) {
             $res['ModelVersion'] = $this->modelVersion;
         }
-        if (null !== $this->description) {
-            $res['Description'] = $this->description;
+        if (null !== $this->productKey) {
+            $res['ProductKey'] = $this->productKey;
+        }
+        if (null !== $this->resourceGroupId) {
+            $res['ResourceGroupId'] = $this->resourceGroupId;
         }
 
         return $res;
@@ -74,20 +74,20 @@ class PublishThingModelRequest extends Model
     public static function fromMap($map = [])
     {
         $model = new self();
+        if (isset($map['Description'])) {
+            $model->description = $map['Description'];
+        }
         if (isset($map['IotInstanceId'])) {
             $model->iotInstanceId = $map['IotInstanceId'];
-        }
-        if (isset($map['ResourceGroupId'])) {
-            $model->resourceGroupId = $map['ResourceGroupId'];
-        }
-        if (isset($map['ProductKey'])) {
-            $model->productKey = $map['ProductKey'];
         }
         if (isset($map['ModelVersion'])) {
             $model->modelVersion = $map['ModelVersion'];
         }
-        if (isset($map['Description'])) {
-            $model->description = $map['Description'];
+        if (isset($map['ProductKey'])) {
+            $model->productKey = $map['ProductKey'];
+        }
+        if (isset($map['ResourceGroupId'])) {
+            $model->resourceGroupId = $map['ResourceGroupId'];
         }
 
         return $model;

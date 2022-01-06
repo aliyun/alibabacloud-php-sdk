@@ -9,11 +9,6 @@ use AlibabaCloud\Tea\Model;
 class UpdateThingModelValidationConfigRequest extends Model
 {
     /**
-     * @var int
-     */
-    public $validateType;
-
-    /**
      * @var string
      */
     public $iotInstanceId;
@@ -22,10 +17,15 @@ class UpdateThingModelValidationConfigRequest extends Model
      * @var string
      */
     public $productKey;
+
+    /**
+     * @var int
+     */
+    public $validateType;
     protected $_name = [
-        'validateType'  => 'ValidateType',
         'iotInstanceId' => 'IotInstanceId',
         'productKey'    => 'ProductKey',
+        'validateType'  => 'ValidateType',
     ];
 
     public function validate()
@@ -35,14 +35,14 @@ class UpdateThingModelValidationConfigRequest extends Model
     public function toMap()
     {
         $res = [];
-        if (null !== $this->validateType) {
-            $res['ValidateType'] = $this->validateType;
-        }
         if (null !== $this->iotInstanceId) {
             $res['IotInstanceId'] = $this->iotInstanceId;
         }
         if (null !== $this->productKey) {
             $res['ProductKey'] = $this->productKey;
+        }
+        if (null !== $this->validateType) {
+            $res['ValidateType'] = $this->validateType;
         }
 
         return $res;
@@ -56,14 +56,14 @@ class UpdateThingModelValidationConfigRequest extends Model
     public static function fromMap($map = [])
     {
         $model = new self();
-        if (isset($map['ValidateType'])) {
-            $model->validateType = $map['ValidateType'];
-        }
         if (isset($map['IotInstanceId'])) {
             $model->iotInstanceId = $map['IotInstanceId'];
         }
         if (isset($map['ProductKey'])) {
             $model->productKey = $map['ProductKey'];
+        }
+        if (isset($map['ValidateType'])) {
+            $model->validateType = $map['ValidateType'];
         }
 
         return $model;

@@ -11,16 +11,6 @@ class RRpcResponseBody extends Model
     /**
      * @var string
      */
-    public $requestId;
-
-    /**
-     * @var bool
-     */
-    public $success;
-
-    /**
-     * @var string
-     */
     public $code;
 
     /**
@@ -29,9 +19,9 @@ class RRpcResponseBody extends Model
     public $errorMessage;
 
     /**
-     * @var string
+     * @var int
      */
-    public $rrpcCode;
+    public $messageId;
 
     /**
      * @var string
@@ -39,17 +29,27 @@ class RRpcResponseBody extends Model
     public $payloadBase64Byte;
 
     /**
-     * @var int
+     * @var string
      */
-    public $messageId;
+    public $requestId;
+
+    /**
+     * @var string
+     */
+    public $rrpcCode;
+
+    /**
+     * @var bool
+     */
+    public $success;
     protected $_name = [
-        'requestId'         => 'RequestId',
-        'success'           => 'Success',
         'code'              => 'Code',
         'errorMessage'      => 'ErrorMessage',
-        'rrpcCode'          => 'RrpcCode',
-        'payloadBase64Byte' => 'PayloadBase64Byte',
         'messageId'         => 'MessageId',
+        'payloadBase64Byte' => 'PayloadBase64Byte',
+        'requestId'         => 'RequestId',
+        'rrpcCode'          => 'RrpcCode',
+        'success'           => 'Success',
     ];
 
     public function validate()
@@ -59,26 +59,26 @@ class RRpcResponseBody extends Model
     public function toMap()
     {
         $res = [];
-        if (null !== $this->requestId) {
-            $res['RequestId'] = $this->requestId;
-        }
-        if (null !== $this->success) {
-            $res['Success'] = $this->success;
-        }
         if (null !== $this->code) {
             $res['Code'] = $this->code;
         }
         if (null !== $this->errorMessage) {
             $res['ErrorMessage'] = $this->errorMessage;
         }
-        if (null !== $this->rrpcCode) {
-            $res['RrpcCode'] = $this->rrpcCode;
+        if (null !== $this->messageId) {
+            $res['MessageId'] = $this->messageId;
         }
         if (null !== $this->payloadBase64Byte) {
             $res['PayloadBase64Byte'] = $this->payloadBase64Byte;
         }
-        if (null !== $this->messageId) {
-            $res['MessageId'] = $this->messageId;
+        if (null !== $this->requestId) {
+            $res['RequestId'] = $this->requestId;
+        }
+        if (null !== $this->rrpcCode) {
+            $res['RrpcCode'] = $this->rrpcCode;
+        }
+        if (null !== $this->success) {
+            $res['Success'] = $this->success;
         }
 
         return $res;
@@ -92,26 +92,26 @@ class RRpcResponseBody extends Model
     public static function fromMap($map = [])
     {
         $model = new self();
-        if (isset($map['RequestId'])) {
-            $model->requestId = $map['RequestId'];
-        }
-        if (isset($map['Success'])) {
-            $model->success = $map['Success'];
-        }
         if (isset($map['Code'])) {
             $model->code = $map['Code'];
         }
         if (isset($map['ErrorMessage'])) {
             $model->errorMessage = $map['ErrorMessage'];
         }
-        if (isset($map['RrpcCode'])) {
-            $model->rrpcCode = $map['RrpcCode'];
+        if (isset($map['MessageId'])) {
+            $model->messageId = $map['MessageId'];
         }
         if (isset($map['PayloadBase64Byte'])) {
             $model->payloadBase64Byte = $map['PayloadBase64Byte'];
         }
-        if (isset($map['MessageId'])) {
-            $model->messageId = $map['MessageId'];
+        if (isset($map['RequestId'])) {
+            $model->requestId = $map['RequestId'];
+        }
+        if (isset($map['RrpcCode'])) {
+            $model->rrpcCode = $map['RrpcCode'];
+        }
+        if (isset($map['Success'])) {
+            $model->success = $map['Success'];
         }
 
         return $model;

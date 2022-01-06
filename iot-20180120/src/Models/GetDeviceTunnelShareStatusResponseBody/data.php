@@ -9,14 +9,9 @@ use AlibabaCloud\Tea\Model;
 class data extends Model
 {
     /**
-     * @var string
+     * @var int
      */
-    public $shareId;
-
-    /**
-     * @var string
-     */
-    public $password;
+    public $gmtOpened;
 
     /**
      * @var bool
@@ -24,14 +19,19 @@ class data extends Model
     public $isOpen;
 
     /**
-     * @var int
+     * @var string
      */
-    public $gmtOpened;
+    public $password;
+
+    /**
+     * @var string
+     */
+    public $shareId;
     protected $_name = [
-        'shareId'   => 'ShareId',
-        'password'  => 'Password',
-        'isOpen'    => 'IsOpen',
         'gmtOpened' => 'GmtOpened',
+        'isOpen'    => 'IsOpen',
+        'password'  => 'Password',
+        'shareId'   => 'ShareId',
     ];
 
     public function validate()
@@ -41,17 +41,17 @@ class data extends Model
     public function toMap()
     {
         $res = [];
-        if (null !== $this->shareId) {
-            $res['ShareId'] = $this->shareId;
-        }
-        if (null !== $this->password) {
-            $res['Password'] = $this->password;
+        if (null !== $this->gmtOpened) {
+            $res['GmtOpened'] = $this->gmtOpened;
         }
         if (null !== $this->isOpen) {
             $res['IsOpen'] = $this->isOpen;
         }
-        if (null !== $this->gmtOpened) {
-            $res['GmtOpened'] = $this->gmtOpened;
+        if (null !== $this->password) {
+            $res['Password'] = $this->password;
+        }
+        if (null !== $this->shareId) {
+            $res['ShareId'] = $this->shareId;
         }
 
         return $res;
@@ -65,17 +65,17 @@ class data extends Model
     public static function fromMap($map = [])
     {
         $model = new self();
-        if (isset($map['ShareId'])) {
-            $model->shareId = $map['ShareId'];
-        }
-        if (isset($map['Password'])) {
-            $model->password = $map['Password'];
+        if (isset($map['GmtOpened'])) {
+            $model->gmtOpened = $map['GmtOpened'];
         }
         if (isset($map['IsOpen'])) {
             $model->isOpen = $map['IsOpen'];
         }
-        if (isset($map['GmtOpened'])) {
-            $model->gmtOpened = $map['GmtOpened'];
+        if (isset($map['Password'])) {
+            $model->password = $map['Password'];
+        }
+        if (isset($map['ShareId'])) {
+            $model->shareId = $map['ShareId'];
         }
 
         return $model;

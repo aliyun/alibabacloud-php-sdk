@@ -10,19 +10,9 @@ use AlibabaCloud\Tea\Model;
 class data extends Model
 {
     /**
-     * @var string
+     * @var int
      */
-    public $sourceUid;
-
-    /**
-     * @var string
-     */
-    public $targetUid;
-
-    /**
-     * @var string
-     */
-    public $sourceInstanceId;
+    public $gmtCreate;
 
     /**
      * @var string
@@ -35,19 +25,19 @@ class data extends Model
     public $productKey;
 
     /**
-     * @var int
+     * @var string
      */
-    public $total;
+    public $sourceInstanceId;
+
+    /**
+     * @var string
+     */
+    public $sourceUid;
 
     /**
      * @var int
      */
     public $status;
-
-    /**
-     * @var int
-     */
-    public $gmtCreate;
 
     /**
      * @var int
@@ -58,17 +48,27 @@ class data extends Model
      * @var targetInstanceConfigs
      */
     public $targetInstanceConfigs;
+
+    /**
+     * @var string
+     */
+    public $targetUid;
+
+    /**
+     * @var int
+     */
+    public $total;
     protected $_name = [
-        'sourceUid'             => 'SourceUid',
-        'targetUid'             => 'TargetUid',
-        'sourceInstanceId'      => 'SourceInstanceId',
+        'gmtCreate'             => 'GmtCreate',
         'jobId'                 => 'JobId',
         'productKey'            => 'ProductKey',
-        'total'                 => 'Total',
+        'sourceInstanceId'      => 'SourceInstanceId',
+        'sourceUid'             => 'SourceUid',
         'status'                => 'Status',
-        'gmtCreate'             => 'GmtCreate',
         'strategy'              => 'Strategy',
         'targetInstanceConfigs' => 'TargetInstanceConfigs',
+        'targetUid'             => 'TargetUid',
+        'total'                 => 'Total',
     ];
 
     public function validate()
@@ -78,14 +78,8 @@ class data extends Model
     public function toMap()
     {
         $res = [];
-        if (null !== $this->sourceUid) {
-            $res['SourceUid'] = $this->sourceUid;
-        }
-        if (null !== $this->targetUid) {
-            $res['TargetUid'] = $this->targetUid;
-        }
-        if (null !== $this->sourceInstanceId) {
-            $res['SourceInstanceId'] = $this->sourceInstanceId;
+        if (null !== $this->gmtCreate) {
+            $res['GmtCreate'] = $this->gmtCreate;
         }
         if (null !== $this->jobId) {
             $res['JobId'] = $this->jobId;
@@ -93,20 +87,26 @@ class data extends Model
         if (null !== $this->productKey) {
             $res['ProductKey'] = $this->productKey;
         }
-        if (null !== $this->total) {
-            $res['Total'] = $this->total;
+        if (null !== $this->sourceInstanceId) {
+            $res['SourceInstanceId'] = $this->sourceInstanceId;
+        }
+        if (null !== $this->sourceUid) {
+            $res['SourceUid'] = $this->sourceUid;
         }
         if (null !== $this->status) {
             $res['Status'] = $this->status;
-        }
-        if (null !== $this->gmtCreate) {
-            $res['GmtCreate'] = $this->gmtCreate;
         }
         if (null !== $this->strategy) {
             $res['Strategy'] = $this->strategy;
         }
         if (null !== $this->targetInstanceConfigs) {
             $res['TargetInstanceConfigs'] = null !== $this->targetInstanceConfigs ? $this->targetInstanceConfigs->toMap() : null;
+        }
+        if (null !== $this->targetUid) {
+            $res['TargetUid'] = $this->targetUid;
+        }
+        if (null !== $this->total) {
+            $res['Total'] = $this->total;
         }
 
         return $res;
@@ -120,14 +120,8 @@ class data extends Model
     public static function fromMap($map = [])
     {
         $model = new self();
-        if (isset($map['SourceUid'])) {
-            $model->sourceUid = $map['SourceUid'];
-        }
-        if (isset($map['TargetUid'])) {
-            $model->targetUid = $map['TargetUid'];
-        }
-        if (isset($map['SourceInstanceId'])) {
-            $model->sourceInstanceId = $map['SourceInstanceId'];
+        if (isset($map['GmtCreate'])) {
+            $model->gmtCreate = $map['GmtCreate'];
         }
         if (isset($map['JobId'])) {
             $model->jobId = $map['JobId'];
@@ -135,20 +129,26 @@ class data extends Model
         if (isset($map['ProductKey'])) {
             $model->productKey = $map['ProductKey'];
         }
-        if (isset($map['Total'])) {
-            $model->total = $map['Total'];
+        if (isset($map['SourceInstanceId'])) {
+            $model->sourceInstanceId = $map['SourceInstanceId'];
+        }
+        if (isset($map['SourceUid'])) {
+            $model->sourceUid = $map['SourceUid'];
         }
         if (isset($map['Status'])) {
             $model->status = $map['Status'];
-        }
-        if (isset($map['GmtCreate'])) {
-            $model->gmtCreate = $map['GmtCreate'];
         }
         if (isset($map['Strategy'])) {
             $model->strategy = $map['Strategy'];
         }
         if (isset($map['TargetInstanceConfigs'])) {
             $model->targetInstanceConfigs = targetInstanceConfigs::fromMap($map['TargetInstanceConfigs']);
+        }
+        if (isset($map['TargetUid'])) {
+            $model->targetUid = $map['TargetUid'];
+        }
+        if (isset($map['Total'])) {
+            $model->total = $map['Total'];
         }
 
         return $model;

@@ -10,6 +10,11 @@ use AlibabaCloud\Tea\Model;
 class data extends Model
 {
     /**
+     * @var list_
+     */
+    public $list;
+
+    /**
      * @var int
      */
     public $nextTime;
@@ -18,15 +23,10 @@ class data extends Model
      * @var bool
      */
     public $nextValid;
-
-    /**
-     * @var list_
-     */
-    public $list;
     protected $_name = [
+        'list'      => 'List',
         'nextTime'  => 'NextTime',
         'nextValid' => 'NextValid',
-        'list'      => 'List',
     ];
 
     public function validate()
@@ -36,14 +36,14 @@ class data extends Model
     public function toMap()
     {
         $res = [];
+        if (null !== $this->list) {
+            $res['List'] = null !== $this->list ? $this->list->toMap() : null;
+        }
         if (null !== $this->nextTime) {
             $res['NextTime'] = $this->nextTime;
         }
         if (null !== $this->nextValid) {
             $res['NextValid'] = $this->nextValid;
-        }
-        if (null !== $this->list) {
-            $res['List'] = null !== $this->list ? $this->list->toMap() : null;
         }
 
         return $res;
@@ -57,14 +57,14 @@ class data extends Model
     public static function fromMap($map = [])
     {
         $model = new self();
+        if (isset($map['List'])) {
+            $model->list = list_::fromMap($map['List']);
+        }
         if (isset($map['NextTime'])) {
             $model->nextTime = $map['NextTime'];
         }
         if (isset($map['NextValid'])) {
             $model->nextValid = $map['NextValid'];
-        }
-        if (isset($map['List'])) {
-            $model->list = list_::fromMap($map['List']);
         }
 
         return $model;

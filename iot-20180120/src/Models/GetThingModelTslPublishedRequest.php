@@ -11,7 +11,17 @@ class GetThingModelTslPublishedRequest extends Model
     /**
      * @var string
      */
+    public $functionBlockId;
+
+    /**
+     * @var string
+     */
     public $iotInstanceId;
+
+    /**
+     * @var string
+     */
+    public $modelVersion;
 
     /**
      * @var string
@@ -27,23 +37,13 @@ class GetThingModelTslPublishedRequest extends Model
      * @var bool
      */
     public $simple;
-
-    /**
-     * @var string
-     */
-    public $modelVersion;
-
-    /**
-     * @var string
-     */
-    public $functionBlockId;
     protected $_name = [
+        'functionBlockId' => 'FunctionBlockId',
         'iotInstanceId'   => 'IotInstanceId',
+        'modelVersion'    => 'ModelVersion',
         'productKey'      => 'ProductKey',
         'resourceGroupId' => 'ResourceGroupId',
         'simple'          => 'Simple',
-        'modelVersion'    => 'ModelVersion',
-        'functionBlockId' => 'FunctionBlockId',
     ];
 
     public function validate()
@@ -53,8 +53,14 @@ class GetThingModelTslPublishedRequest extends Model
     public function toMap()
     {
         $res = [];
+        if (null !== $this->functionBlockId) {
+            $res['FunctionBlockId'] = $this->functionBlockId;
+        }
         if (null !== $this->iotInstanceId) {
             $res['IotInstanceId'] = $this->iotInstanceId;
+        }
+        if (null !== $this->modelVersion) {
+            $res['ModelVersion'] = $this->modelVersion;
         }
         if (null !== $this->productKey) {
             $res['ProductKey'] = $this->productKey;
@@ -64,12 +70,6 @@ class GetThingModelTslPublishedRequest extends Model
         }
         if (null !== $this->simple) {
             $res['Simple'] = $this->simple;
-        }
-        if (null !== $this->modelVersion) {
-            $res['ModelVersion'] = $this->modelVersion;
-        }
-        if (null !== $this->functionBlockId) {
-            $res['FunctionBlockId'] = $this->functionBlockId;
         }
 
         return $res;
@@ -83,8 +83,14 @@ class GetThingModelTslPublishedRequest extends Model
     public static function fromMap($map = [])
     {
         $model = new self();
+        if (isset($map['FunctionBlockId'])) {
+            $model->functionBlockId = $map['FunctionBlockId'];
+        }
         if (isset($map['IotInstanceId'])) {
             $model->iotInstanceId = $map['IotInstanceId'];
+        }
+        if (isset($map['ModelVersion'])) {
+            $model->modelVersion = $map['ModelVersion'];
         }
         if (isset($map['ProductKey'])) {
             $model->productKey = $map['ProductKey'];
@@ -94,12 +100,6 @@ class GetThingModelTslPublishedRequest extends Model
         }
         if (isset($map['Simple'])) {
             $model->simple = $map['Simple'];
-        }
-        if (isset($map['ModelVersion'])) {
-            $model->modelVersion = $map['ModelVersion'];
-        }
-        if (isset($map['FunctionBlockId'])) {
-            $model->functionBlockId = $map['FunctionBlockId'];
         }
 
         return $model;

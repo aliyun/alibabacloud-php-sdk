@@ -12,17 +12,12 @@ class BatchGetEdgeInstanceDeviceConfigResponseBody extends Model
     /**
      * @var string
      */
-    public $requestId;
-
-    /**
-     * @var bool
-     */
-    public $success;
-
-    /**
-     * @var string
-     */
     public $code;
+
+    /**
+     * @var deviceConfigList[]
+     */
+    public $deviceConfigList;
 
     /**
      * @var string
@@ -30,15 +25,20 @@ class BatchGetEdgeInstanceDeviceConfigResponseBody extends Model
     public $errorMessage;
 
     /**
-     * @var deviceConfigList[]
+     * @var string
      */
-    public $deviceConfigList;
+    public $requestId;
+
+    /**
+     * @var bool
+     */
+    public $success;
     protected $_name = [
+        'code'             => 'Code',
+        'deviceConfigList' => 'DeviceConfigList',
+        'errorMessage'     => 'ErrorMessage',
         'requestId'        => 'RequestId',
         'success'          => 'Success',
-        'code'             => 'Code',
-        'errorMessage'     => 'ErrorMessage',
-        'deviceConfigList' => 'DeviceConfigList',
     ];
 
     public function validate()
@@ -48,17 +48,8 @@ class BatchGetEdgeInstanceDeviceConfigResponseBody extends Model
     public function toMap()
     {
         $res = [];
-        if (null !== $this->requestId) {
-            $res['RequestId'] = $this->requestId;
-        }
-        if (null !== $this->success) {
-            $res['Success'] = $this->success;
-        }
         if (null !== $this->code) {
             $res['Code'] = $this->code;
-        }
-        if (null !== $this->errorMessage) {
-            $res['ErrorMessage'] = $this->errorMessage;
         }
         if (null !== $this->deviceConfigList) {
             $res['DeviceConfigList'] = [];
@@ -68,6 +59,15 @@ class BatchGetEdgeInstanceDeviceConfigResponseBody extends Model
                     $res['DeviceConfigList'][$n++] = null !== $item ? $item->toMap() : $item;
                 }
             }
+        }
+        if (null !== $this->errorMessage) {
+            $res['ErrorMessage'] = $this->errorMessage;
+        }
+        if (null !== $this->requestId) {
+            $res['RequestId'] = $this->requestId;
+        }
+        if (null !== $this->success) {
+            $res['Success'] = $this->success;
         }
 
         return $res;
@@ -81,17 +81,8 @@ class BatchGetEdgeInstanceDeviceConfigResponseBody extends Model
     public static function fromMap($map = [])
     {
         $model = new self();
-        if (isset($map['RequestId'])) {
-            $model->requestId = $map['RequestId'];
-        }
-        if (isset($map['Success'])) {
-            $model->success = $map['Success'];
-        }
         if (isset($map['Code'])) {
             $model->code = $map['Code'];
-        }
-        if (isset($map['ErrorMessage'])) {
-            $model->errorMessage = $map['ErrorMessage'];
         }
         if (isset($map['DeviceConfigList'])) {
             if (!empty($map['DeviceConfigList'])) {
@@ -101,6 +92,15 @@ class BatchGetEdgeInstanceDeviceConfigResponseBody extends Model
                     $model->deviceConfigList[$n++] = null !== $item ? deviceConfigList::fromMap($item) : $item;
                 }
             }
+        }
+        if (isset($map['ErrorMessage'])) {
+            $model->errorMessage = $map['ErrorMessage'];
+        }
+        if (isset($map['RequestId'])) {
+            $model->requestId = $map['RequestId'];
+        }
+        if (isset($map['Success'])) {
+            $model->success = $map['Success'];
         }
 
         return $model;

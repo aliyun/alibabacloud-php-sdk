@@ -9,17 +9,17 @@ use AlibabaCloud\Tea\Model;
 class DeleteRuleActionRequest extends Model
 {
     /**
-     * @var string
-     */
-    public $iotInstanceId;
-
-    /**
      * @var int
      */
     public $actionId;
+
+    /**
+     * @var string
+     */
+    public $iotInstanceId;
     protected $_name = [
-        'iotInstanceId' => 'IotInstanceId',
         'actionId'      => 'ActionId',
+        'iotInstanceId' => 'IotInstanceId',
     ];
 
     public function validate()
@@ -29,11 +29,11 @@ class DeleteRuleActionRequest extends Model
     public function toMap()
     {
         $res = [];
-        if (null !== $this->iotInstanceId) {
-            $res['IotInstanceId'] = $this->iotInstanceId;
-        }
         if (null !== $this->actionId) {
             $res['ActionId'] = $this->actionId;
+        }
+        if (null !== $this->iotInstanceId) {
+            $res['IotInstanceId'] = $this->iotInstanceId;
         }
 
         return $res;
@@ -47,11 +47,11 @@ class DeleteRuleActionRequest extends Model
     public static function fromMap($map = [])
     {
         $model = new self();
-        if (isset($map['IotInstanceId'])) {
-            $model->iotInstanceId = $map['IotInstanceId'];
-        }
         if (isset($map['ActionId'])) {
             $model->actionId = $map['ActionId'];
+        }
+        if (isset($map['IotInstanceId'])) {
+            $model->iotInstanceId = $map['IotInstanceId'];
         }
 
         return $model;

@@ -14,18 +14,18 @@ class propertyStatusDataInfo extends Model
     public $identifier;
 
     /**
-     * @var string
-     */
-    public $value;
-
-    /**
      * @var int
      */
     public $time;
+
+    /**
+     * @var string
+     */
+    public $value;
     protected $_name = [
         'identifier' => 'Identifier',
-        'value'      => 'Value',
         'time'       => 'Time',
+        'value'      => 'Value',
     ];
 
     public function validate()
@@ -38,11 +38,11 @@ class propertyStatusDataInfo extends Model
         if (null !== $this->identifier) {
             $res['Identifier'] = $this->identifier;
         }
-        if (null !== $this->value) {
-            $res['Value'] = $this->value;
-        }
         if (null !== $this->time) {
             $res['Time'] = $this->time;
+        }
+        if (null !== $this->value) {
+            $res['Value'] = $this->value;
         }
 
         return $res;
@@ -59,11 +59,11 @@ class propertyStatusDataInfo extends Model
         if (isset($map['Identifier'])) {
             $model->identifier = $map['Identifier'];
         }
-        if (isset($map['Value'])) {
-            $model->value = $map['Value'];
-        }
         if (isset($map['Time'])) {
             $model->time = $map['Time'];
+        }
+        if (isset($map['Value'])) {
+            $model->value = $map['Value'];
         }
 
         return $model;

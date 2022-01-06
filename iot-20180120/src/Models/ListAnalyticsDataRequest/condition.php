@@ -11,6 +11,16 @@ class condition extends Model
     /**
      * @var string
      */
+    public $betweenEnd;
+
+    /**
+     * @var string
+     */
+    public $betweenStart;
+
+    /**
+     * @var string
+     */
     public $fieldName;
 
     /**
@@ -22,22 +32,12 @@ class condition extends Model
      * @var string
      */
     public $value;
-
-    /**
-     * @var string
-     */
-    public $betweenStart;
-
-    /**
-     * @var string
-     */
-    public $betweenEnd;
     protected $_name = [
+        'betweenEnd'   => 'BetweenEnd',
+        'betweenStart' => 'BetweenStart',
         'fieldName'    => 'FieldName',
         'operate'      => 'Operate',
         'value'        => 'Value',
-        'betweenStart' => 'BetweenStart',
-        'betweenEnd'   => 'BetweenEnd',
     ];
 
     public function validate()
@@ -47,6 +47,12 @@ class condition extends Model
     public function toMap()
     {
         $res = [];
+        if (null !== $this->betweenEnd) {
+            $res['BetweenEnd'] = $this->betweenEnd;
+        }
+        if (null !== $this->betweenStart) {
+            $res['BetweenStart'] = $this->betweenStart;
+        }
         if (null !== $this->fieldName) {
             $res['FieldName'] = $this->fieldName;
         }
@@ -55,12 +61,6 @@ class condition extends Model
         }
         if (null !== $this->value) {
             $res['Value'] = $this->value;
-        }
-        if (null !== $this->betweenStart) {
-            $res['BetweenStart'] = $this->betweenStart;
-        }
-        if (null !== $this->betweenEnd) {
-            $res['BetweenEnd'] = $this->betweenEnd;
         }
 
         return $res;
@@ -74,6 +74,12 @@ class condition extends Model
     public static function fromMap($map = [])
     {
         $model = new self();
+        if (isset($map['BetweenEnd'])) {
+            $model->betweenEnd = $map['BetweenEnd'];
+        }
+        if (isset($map['BetweenStart'])) {
+            $model->betweenStart = $map['BetweenStart'];
+        }
         if (isset($map['FieldName'])) {
             $model->fieldName = $map['FieldName'];
         }
@@ -82,12 +88,6 @@ class condition extends Model
         }
         if (isset($map['Value'])) {
             $model->value = $map['Value'];
-        }
-        if (isset($map['BetweenStart'])) {
-            $model->betweenStart = $map['BetweenStart'];
-        }
-        if (isset($map['BetweenEnd'])) {
-            $model->betweenEnd = $map['BetweenEnd'];
         }
 
         return $model;

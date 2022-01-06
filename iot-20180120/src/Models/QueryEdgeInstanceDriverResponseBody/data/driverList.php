@@ -21,23 +21,23 @@ class driverList extends Model
     /**
      * @var string
      */
-    public $orderId;
-
-    /**
-     * @var string
-     */
     public $gmtCreate;
 
     /**
      * @var string
      */
     public $gmtModified;
+
+    /**
+     * @var string
+     */
+    public $orderId;
     protected $_name = [
         'driverId'      => 'DriverId',
         'driverVersion' => 'DriverVersion',
-        'orderId'       => 'OrderId',
         'gmtCreate'     => 'GmtCreate',
         'gmtModified'   => 'GmtModified',
+        'orderId'       => 'OrderId',
     ];
 
     public function validate()
@@ -53,14 +53,14 @@ class driverList extends Model
         if (null !== $this->driverVersion) {
             $res['DriverVersion'] = $this->driverVersion;
         }
-        if (null !== $this->orderId) {
-            $res['OrderId'] = $this->orderId;
-        }
         if (null !== $this->gmtCreate) {
             $res['GmtCreate'] = $this->gmtCreate;
         }
         if (null !== $this->gmtModified) {
             $res['GmtModified'] = $this->gmtModified;
+        }
+        if (null !== $this->orderId) {
+            $res['OrderId'] = $this->orderId;
         }
 
         return $res;
@@ -80,14 +80,14 @@ class driverList extends Model
         if (isset($map['DriverVersion'])) {
             $model->driverVersion = $map['DriverVersion'];
         }
-        if (isset($map['OrderId'])) {
-            $model->orderId = $map['OrderId'];
-        }
         if (isset($map['GmtCreate'])) {
             $model->gmtCreate = $map['GmtCreate'];
         }
         if (isset($map['GmtModified'])) {
             $model->gmtModified = $map['GmtModified'];
+        }
+        if (isset($map['OrderId'])) {
+            $model->orderId = $map['OrderId'];
         }
 
         return $model;

@@ -11,12 +11,12 @@ class deviceNicknameInfo extends Model
     /**
      * @var string
      */
-    public $productKey;
+    public $deviceName;
 
     /**
      * @var string
      */
-    public $deviceName;
+    public $iotId;
 
     /**
      * @var string
@@ -26,12 +26,12 @@ class deviceNicknameInfo extends Model
     /**
      * @var string
      */
-    public $iotId;
+    public $productKey;
     protected $_name = [
-        'productKey' => 'ProductKey',
         'deviceName' => 'DeviceName',
-        'nickname'   => 'Nickname',
         'iotId'      => 'IotId',
+        'nickname'   => 'Nickname',
+        'productKey' => 'ProductKey',
     ];
 
     public function validate()
@@ -41,17 +41,17 @@ class deviceNicknameInfo extends Model
     public function toMap()
     {
         $res = [];
-        if (null !== $this->productKey) {
-            $res['ProductKey'] = $this->productKey;
-        }
         if (null !== $this->deviceName) {
             $res['DeviceName'] = $this->deviceName;
+        }
+        if (null !== $this->iotId) {
+            $res['IotId'] = $this->iotId;
         }
         if (null !== $this->nickname) {
             $res['Nickname'] = $this->nickname;
         }
-        if (null !== $this->iotId) {
-            $res['IotId'] = $this->iotId;
+        if (null !== $this->productKey) {
+            $res['ProductKey'] = $this->productKey;
         }
 
         return $res;
@@ -65,17 +65,17 @@ class deviceNicknameInfo extends Model
     public static function fromMap($map = [])
     {
         $model = new self();
-        if (isset($map['ProductKey'])) {
-            $model->productKey = $map['ProductKey'];
-        }
         if (isset($map['DeviceName'])) {
             $model->deviceName = $map['DeviceName'];
+        }
+        if (isset($map['IotId'])) {
+            $model->iotId = $map['IotId'];
         }
         if (isset($map['Nickname'])) {
             $model->nickname = $map['Nickname'];
         }
-        if (isset($map['IotId'])) {
-            $model->iotId = $map['IotId'];
+        if (isset($map['ProductKey'])) {
+            $model->productKey = $map['ProductKey'];
         }
 
         return $model;

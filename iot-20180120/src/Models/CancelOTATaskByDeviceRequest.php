@@ -9,9 +9,9 @@ use AlibabaCloud\Tea\Model;
 class CancelOTATaskByDeviceRequest extends Model
 {
     /**
-     * @var string
+     * @var string[]
      */
-    public $iotInstanceId;
+    public $deviceName;
 
     /**
      * @var string
@@ -21,23 +21,23 @@ class CancelOTATaskByDeviceRequest extends Model
     /**
      * @var string
      */
-    public $productKey;
-
-    /**
-     * @var string[]
-     */
-    public $deviceName;
+    public $iotInstanceId;
 
     /**
      * @var string
      */
     public $jobId;
+
+    /**
+     * @var string
+     */
+    public $productKey;
     protected $_name = [
-        'iotInstanceId' => 'IotInstanceId',
-        'firmwareId'    => 'FirmwareId',
-        'productKey'    => 'ProductKey',
         'deviceName'    => 'DeviceName',
+        'firmwareId'    => 'FirmwareId',
+        'iotInstanceId' => 'IotInstanceId',
         'jobId'         => 'JobId',
+        'productKey'    => 'ProductKey',
     ];
 
     public function validate()
@@ -47,20 +47,20 @@ class CancelOTATaskByDeviceRequest extends Model
     public function toMap()
     {
         $res = [];
-        if (null !== $this->iotInstanceId) {
-            $res['IotInstanceId'] = $this->iotInstanceId;
+        if (null !== $this->deviceName) {
+            $res['DeviceName'] = $this->deviceName;
         }
         if (null !== $this->firmwareId) {
             $res['FirmwareId'] = $this->firmwareId;
         }
-        if (null !== $this->productKey) {
-            $res['ProductKey'] = $this->productKey;
-        }
-        if (null !== $this->deviceName) {
-            $res['DeviceName'] = $this->deviceName;
+        if (null !== $this->iotInstanceId) {
+            $res['IotInstanceId'] = $this->iotInstanceId;
         }
         if (null !== $this->jobId) {
             $res['JobId'] = $this->jobId;
+        }
+        if (null !== $this->productKey) {
+            $res['ProductKey'] = $this->productKey;
         }
 
         return $res;
@@ -74,22 +74,22 @@ class CancelOTATaskByDeviceRequest extends Model
     public static function fromMap($map = [])
     {
         $model = new self();
-        if (isset($map['IotInstanceId'])) {
-            $model->iotInstanceId = $map['IotInstanceId'];
-        }
-        if (isset($map['FirmwareId'])) {
-            $model->firmwareId = $map['FirmwareId'];
-        }
-        if (isset($map['ProductKey'])) {
-            $model->productKey = $map['ProductKey'];
-        }
         if (isset($map['DeviceName'])) {
             if (!empty($map['DeviceName'])) {
                 $model->deviceName = $map['DeviceName'];
             }
         }
+        if (isset($map['FirmwareId'])) {
+            $model->firmwareId = $map['FirmwareId'];
+        }
+        if (isset($map['IotInstanceId'])) {
+            $model->iotInstanceId = $map['IotInstanceId'];
+        }
         if (isset($map['JobId'])) {
             $model->jobId = $map['JobId'];
+        }
+        if (isset($map['ProductKey'])) {
+            $model->productKey = $map['ProductKey'];
         }
 
         return $model;

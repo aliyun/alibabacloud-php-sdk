@@ -11,6 +11,11 @@ class groupInfo extends Model
     /**
      * @var string
      */
+    public $groupDesc;
+
+    /**
+     * @var string
+     */
     public $groupId;
 
     /**
@@ -22,16 +27,11 @@ class groupInfo extends Model
      * @var string
      */
     public $utcCreate;
-
-    /**
-     * @var string
-     */
-    public $groupDesc;
     protected $_name = [
+        'groupDesc' => 'GroupDesc',
         'groupId'   => 'GroupId',
         'groupName' => 'GroupName',
         'utcCreate' => 'UtcCreate',
-        'groupDesc' => 'GroupDesc',
     ];
 
     public function validate()
@@ -41,6 +41,9 @@ class groupInfo extends Model
     public function toMap()
     {
         $res = [];
+        if (null !== $this->groupDesc) {
+            $res['GroupDesc'] = $this->groupDesc;
+        }
         if (null !== $this->groupId) {
             $res['GroupId'] = $this->groupId;
         }
@@ -49,9 +52,6 @@ class groupInfo extends Model
         }
         if (null !== $this->utcCreate) {
             $res['UtcCreate'] = $this->utcCreate;
-        }
-        if (null !== $this->groupDesc) {
-            $res['GroupDesc'] = $this->groupDesc;
         }
 
         return $res;
@@ -65,6 +65,9 @@ class groupInfo extends Model
     public static function fromMap($map = [])
     {
         $model = new self();
+        if (isset($map['GroupDesc'])) {
+            $model->groupDesc = $map['GroupDesc'];
+        }
         if (isset($map['GroupId'])) {
             $model->groupId = $map['GroupId'];
         }
@@ -73,9 +76,6 @@ class groupInfo extends Model
         }
         if (isset($map['UtcCreate'])) {
             $model->utcCreate = $map['UtcCreate'];
-        }
-        if (isset($map['GroupDesc'])) {
-            $model->groupDesc = $map['GroupDesc'];
         }
 
         return $model;

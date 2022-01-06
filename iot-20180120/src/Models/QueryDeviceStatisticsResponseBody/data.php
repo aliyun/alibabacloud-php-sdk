@@ -11,21 +11,21 @@ class data extends Model
     /**
      * @var int
      */
+    public $activeCount;
+
+    /**
+     * @var int
+     */
     public $deviceCount;
 
     /**
      * @var int
      */
     public $onlineCount;
-
-    /**
-     * @var int
-     */
-    public $activeCount;
     protected $_name = [
+        'activeCount' => 'activeCount',
         'deviceCount' => 'deviceCount',
         'onlineCount' => 'onlineCount',
-        'activeCount' => 'activeCount',
     ];
 
     public function validate()
@@ -35,14 +35,14 @@ class data extends Model
     public function toMap()
     {
         $res = [];
+        if (null !== $this->activeCount) {
+            $res['activeCount'] = $this->activeCount;
+        }
         if (null !== $this->deviceCount) {
             $res['deviceCount'] = $this->deviceCount;
         }
         if (null !== $this->onlineCount) {
             $res['onlineCount'] = $this->onlineCount;
-        }
-        if (null !== $this->activeCount) {
-            $res['activeCount'] = $this->activeCount;
         }
 
         return $res;
@@ -56,14 +56,14 @@ class data extends Model
     public static function fromMap($map = [])
     {
         $model = new self();
+        if (isset($map['activeCount'])) {
+            $model->activeCount = $map['activeCount'];
+        }
         if (isset($map['deviceCount'])) {
             $model->deviceCount = $map['deviceCount'];
         }
         if (isset($map['onlineCount'])) {
             $model->onlineCount = $map['onlineCount'];
-        }
-        if (isset($map['activeCount'])) {
-            $model->activeCount = $map['activeCount'];
         }
 
         return $model;

@@ -11,21 +11,21 @@ class GetThingTemplateRequest extends Model
     /**
      * @var string
      */
+    public $categoryKey;
+
+    /**
+     * @var string
+     */
     public $iotInstanceId;
 
     /**
      * @var string
      */
     public $resourceGroupId;
-
-    /**
-     * @var string
-     */
-    public $categoryKey;
     protected $_name = [
+        'categoryKey'     => 'CategoryKey',
         'iotInstanceId'   => 'IotInstanceId',
         'resourceGroupId' => 'ResourceGroupId',
-        'categoryKey'     => 'CategoryKey',
     ];
 
     public function validate()
@@ -35,14 +35,14 @@ class GetThingTemplateRequest extends Model
     public function toMap()
     {
         $res = [];
+        if (null !== $this->categoryKey) {
+            $res['CategoryKey'] = $this->categoryKey;
+        }
         if (null !== $this->iotInstanceId) {
             $res['IotInstanceId'] = $this->iotInstanceId;
         }
         if (null !== $this->resourceGroupId) {
             $res['ResourceGroupId'] = $this->resourceGroupId;
-        }
-        if (null !== $this->categoryKey) {
-            $res['CategoryKey'] = $this->categoryKey;
         }
 
         return $res;
@@ -56,14 +56,14 @@ class GetThingTemplateRequest extends Model
     public static function fromMap($map = [])
     {
         $model = new self();
+        if (isset($map['CategoryKey'])) {
+            $model->categoryKey = $map['CategoryKey'];
+        }
         if (isset($map['IotInstanceId'])) {
             $model->iotInstanceId = $map['IotInstanceId'];
         }
         if (isset($map['ResourceGroupId'])) {
             $model->resourceGroupId = $map['ResourceGroupId'];
-        }
-        if (isset($map['CategoryKey'])) {
-            $model->categoryKey = $map['CategoryKey'];
         }
 
         return $model;

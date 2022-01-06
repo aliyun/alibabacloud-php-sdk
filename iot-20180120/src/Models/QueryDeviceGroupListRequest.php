@@ -9,6 +9,16 @@ use AlibabaCloud\Tea\Model;
 class QueryDeviceGroupListRequest extends Model
 {
     /**
+     * @var int
+     */
+    public $currentPage;
+
+    /**
+     * @var string
+     */
+    public $groupName;
+
+    /**
      * @var string
      */
     public $iotInstanceId;
@@ -22,22 +32,12 @@ class QueryDeviceGroupListRequest extends Model
      * @var string
      */
     public $superGroupId;
-
-    /**
-     * @var string
-     */
-    public $groupName;
-
-    /**
-     * @var int
-     */
-    public $currentPage;
     protected $_name = [
+        'currentPage'   => 'CurrentPage',
+        'groupName'     => 'GroupName',
         'iotInstanceId' => 'IotInstanceId',
         'pageSize'      => 'PageSize',
         'superGroupId'  => 'SuperGroupId',
-        'groupName'     => 'GroupName',
-        'currentPage'   => 'CurrentPage',
     ];
 
     public function validate()
@@ -47,6 +47,12 @@ class QueryDeviceGroupListRequest extends Model
     public function toMap()
     {
         $res = [];
+        if (null !== $this->currentPage) {
+            $res['CurrentPage'] = $this->currentPage;
+        }
+        if (null !== $this->groupName) {
+            $res['GroupName'] = $this->groupName;
+        }
         if (null !== $this->iotInstanceId) {
             $res['IotInstanceId'] = $this->iotInstanceId;
         }
@@ -55,12 +61,6 @@ class QueryDeviceGroupListRequest extends Model
         }
         if (null !== $this->superGroupId) {
             $res['SuperGroupId'] = $this->superGroupId;
-        }
-        if (null !== $this->groupName) {
-            $res['GroupName'] = $this->groupName;
-        }
-        if (null !== $this->currentPage) {
-            $res['CurrentPage'] = $this->currentPage;
         }
 
         return $res;
@@ -74,6 +74,12 @@ class QueryDeviceGroupListRequest extends Model
     public static function fromMap($map = [])
     {
         $model = new self();
+        if (isset($map['CurrentPage'])) {
+            $model->currentPage = $map['CurrentPage'];
+        }
+        if (isset($map['GroupName'])) {
+            $model->groupName = $map['GroupName'];
+        }
         if (isset($map['IotInstanceId'])) {
             $model->iotInstanceId = $map['IotInstanceId'];
         }
@@ -82,12 +88,6 @@ class QueryDeviceGroupListRequest extends Model
         }
         if (isset($map['SuperGroupId'])) {
             $model->superGroupId = $map['SuperGroupId'];
-        }
-        if (isset($map['GroupName'])) {
-            $model->groupName = $map['GroupName'];
-        }
-        if (isset($map['CurrentPage'])) {
-            $model->currentPage = $map['CurrentPage'];
         }
 
         return $model;

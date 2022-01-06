@@ -10,17 +10,17 @@ use AlibabaCloud\Tea\Model;
 class driverConfigList extends Model
 {
     /**
-     * @var string
-     */
-    public $driverId;
-
-    /**
      * @var configList[]
      */
     public $configList;
+
+    /**
+     * @var string
+     */
+    public $driverId;
     protected $_name = [
-        'driverId'   => 'DriverId',
         'configList' => 'ConfigList',
+        'driverId'   => 'DriverId',
     ];
 
     public function validate()
@@ -30,9 +30,6 @@ class driverConfigList extends Model
     public function toMap()
     {
         $res = [];
-        if (null !== $this->driverId) {
-            $res['DriverId'] = $this->driverId;
-        }
         if (null !== $this->configList) {
             $res['ConfigList'] = [];
             if (null !== $this->configList && \is_array($this->configList)) {
@@ -41,6 +38,9 @@ class driverConfigList extends Model
                     $res['ConfigList'][$n++] = null !== $item ? $item->toMap() : $item;
                 }
             }
+        }
+        if (null !== $this->driverId) {
+            $res['DriverId'] = $this->driverId;
         }
 
         return $res;
@@ -54,9 +54,6 @@ class driverConfigList extends Model
     public static function fromMap($map = [])
     {
         $model = new self();
-        if (isset($map['DriverId'])) {
-            $model->driverId = $map['DriverId'];
-        }
         if (isset($map['ConfigList'])) {
             if (!empty($map['ConfigList'])) {
                 $model->configList = [];
@@ -65,6 +62,9 @@ class driverConfigList extends Model
                     $model->configList[$n++] = null !== $item ? configList::fromMap($item) : $item;
                 }
             }
+        }
+        if (isset($map['DriverId'])) {
+            $model->driverId = $map['DriverId'];
         }
 
         return $model;

@@ -11,32 +11,12 @@ class QuerySubscribeRelationResponseBody extends Model
     /**
      * @var string
      */
-    public $requestId;
-
-    /**
-     * @var bool
-     */
-    public $success;
-
-    /**
-     * @var string
-     */
     public $code;
 
     /**
-     * @var string
+     * @var string[]
      */
-    public $errorMessage;
-
-    /**
-     * @var string
-     */
-    public $productKey;
-
-    /**
-     * @var string
-     */
-    public $type;
+    public $consumerGroupIds;
 
     /**
      * @var bool
@@ -56,22 +36,22 @@ class QuerySubscribeRelationResponseBody extends Model
     /**
      * @var bool
      */
+    public $deviceTagFlag;
+
+    /**
+     * @var bool
+     */
     public $deviceTopoLifeCycleFlag;
+
+    /**
+     * @var string
+     */
+    public $errorMessage;
 
     /**
      * @var bool
      */
     public $foundDeviceListFlag;
-
-    /**
-     * @var bool
-     */
-    public $otaEventFlag;
-
-    /**
-     * @var bool
-     */
-    public $thingHistoryFlag;
 
     /**
      * @var string
@@ -81,12 +61,7 @@ class QuerySubscribeRelationResponseBody extends Model
     /**
      * @var bool
      */
-    public $deviceTagFlag;
-
-    /**
-     * @var bool
-     */
-    public $otaVersionFlag;
+    public $otaEventFlag;
 
     /**
      * @var bool
@@ -94,28 +69,53 @@ class QuerySubscribeRelationResponseBody extends Model
     public $otaJobFlag;
 
     /**
-     * @var string[]
+     * @var bool
      */
-    public $consumerGroupIds;
+    public $otaVersionFlag;
+
+    /**
+     * @var string
+     */
+    public $productKey;
+
+    /**
+     * @var string
+     */
+    public $requestId;
+
+    /**
+     * @var bool
+     */
+    public $success;
+
+    /**
+     * @var bool
+     */
+    public $thingHistoryFlag;
+
+    /**
+     * @var string
+     */
+    public $type;
     protected $_name = [
-        'requestId'               => 'RequestId',
-        'success'                 => 'Success',
         'code'                    => 'Code',
-        'errorMessage'            => 'ErrorMessage',
-        'productKey'              => 'ProductKey',
-        'type'                    => 'Type',
+        'consumerGroupIds'        => 'ConsumerGroupIds',
         'deviceDataFlag'          => 'DeviceDataFlag',
         'deviceLifeCycleFlag'     => 'DeviceLifeCycleFlag',
         'deviceStatusChangeFlag'  => 'DeviceStatusChangeFlag',
-        'deviceTopoLifeCycleFlag' => 'DeviceTopoLifeCycleFlag',
-        'foundDeviceListFlag'     => 'FoundDeviceListFlag',
-        'otaEventFlag'            => 'OtaEventFlag',
-        'thingHistoryFlag'        => 'ThingHistoryFlag',
-        'mnsConfiguration'        => 'MnsConfiguration',
         'deviceTagFlag'           => 'DeviceTagFlag',
-        'otaVersionFlag'          => 'OtaVersionFlag',
+        'deviceTopoLifeCycleFlag' => 'DeviceTopoLifeCycleFlag',
+        'errorMessage'            => 'ErrorMessage',
+        'foundDeviceListFlag'     => 'FoundDeviceListFlag',
+        'mnsConfiguration'        => 'MnsConfiguration',
+        'otaEventFlag'            => 'OtaEventFlag',
         'otaJobFlag'              => 'OtaJobFlag',
-        'consumerGroupIds'        => 'ConsumerGroupIds',
+        'otaVersionFlag'          => 'OtaVersionFlag',
+        'productKey'              => 'ProductKey',
+        'requestId'               => 'RequestId',
+        'success'                 => 'Success',
+        'thingHistoryFlag'        => 'ThingHistoryFlag',
+        'type'                    => 'Type',
     ];
 
     public function validate()
@@ -125,23 +125,11 @@ class QuerySubscribeRelationResponseBody extends Model
     public function toMap()
     {
         $res = [];
-        if (null !== $this->requestId) {
-            $res['RequestId'] = $this->requestId;
-        }
-        if (null !== $this->success) {
-            $res['Success'] = $this->success;
-        }
         if (null !== $this->code) {
             $res['Code'] = $this->code;
         }
-        if (null !== $this->errorMessage) {
-            $res['ErrorMessage'] = $this->errorMessage;
-        }
-        if (null !== $this->productKey) {
-            $res['ProductKey'] = $this->productKey;
-        }
-        if (null !== $this->type) {
-            $res['Type'] = $this->type;
+        if (null !== $this->consumerGroupIds) {
+            $res['ConsumerGroupIds'] = $this->consumerGroupIds;
         }
         if (null !== $this->deviceDataFlag) {
             $res['DeviceDataFlag'] = $this->deviceDataFlag;
@@ -152,32 +140,44 @@ class QuerySubscribeRelationResponseBody extends Model
         if (null !== $this->deviceStatusChangeFlag) {
             $res['DeviceStatusChangeFlag'] = $this->deviceStatusChangeFlag;
         }
+        if (null !== $this->deviceTagFlag) {
+            $res['DeviceTagFlag'] = $this->deviceTagFlag;
+        }
         if (null !== $this->deviceTopoLifeCycleFlag) {
             $res['DeviceTopoLifeCycleFlag'] = $this->deviceTopoLifeCycleFlag;
+        }
+        if (null !== $this->errorMessage) {
+            $res['ErrorMessage'] = $this->errorMessage;
         }
         if (null !== $this->foundDeviceListFlag) {
             $res['FoundDeviceListFlag'] = $this->foundDeviceListFlag;
         }
-        if (null !== $this->otaEventFlag) {
-            $res['OtaEventFlag'] = $this->otaEventFlag;
-        }
-        if (null !== $this->thingHistoryFlag) {
-            $res['ThingHistoryFlag'] = $this->thingHistoryFlag;
-        }
         if (null !== $this->mnsConfiguration) {
             $res['MnsConfiguration'] = $this->mnsConfiguration;
         }
-        if (null !== $this->deviceTagFlag) {
-            $res['DeviceTagFlag'] = $this->deviceTagFlag;
-        }
-        if (null !== $this->otaVersionFlag) {
-            $res['OtaVersionFlag'] = $this->otaVersionFlag;
+        if (null !== $this->otaEventFlag) {
+            $res['OtaEventFlag'] = $this->otaEventFlag;
         }
         if (null !== $this->otaJobFlag) {
             $res['OtaJobFlag'] = $this->otaJobFlag;
         }
-        if (null !== $this->consumerGroupIds) {
-            $res['ConsumerGroupIds'] = $this->consumerGroupIds;
+        if (null !== $this->otaVersionFlag) {
+            $res['OtaVersionFlag'] = $this->otaVersionFlag;
+        }
+        if (null !== $this->productKey) {
+            $res['ProductKey'] = $this->productKey;
+        }
+        if (null !== $this->requestId) {
+            $res['RequestId'] = $this->requestId;
+        }
+        if (null !== $this->success) {
+            $res['Success'] = $this->success;
+        }
+        if (null !== $this->thingHistoryFlag) {
+            $res['ThingHistoryFlag'] = $this->thingHistoryFlag;
+        }
+        if (null !== $this->type) {
+            $res['Type'] = $this->type;
         }
 
         return $res;
@@ -191,23 +191,13 @@ class QuerySubscribeRelationResponseBody extends Model
     public static function fromMap($map = [])
     {
         $model = new self();
-        if (isset($map['RequestId'])) {
-            $model->requestId = $map['RequestId'];
-        }
-        if (isset($map['Success'])) {
-            $model->success = $map['Success'];
-        }
         if (isset($map['Code'])) {
             $model->code = $map['Code'];
         }
-        if (isset($map['ErrorMessage'])) {
-            $model->errorMessage = $map['ErrorMessage'];
-        }
-        if (isset($map['ProductKey'])) {
-            $model->productKey = $map['ProductKey'];
-        }
-        if (isset($map['Type'])) {
-            $model->type = $map['Type'];
+        if (isset($map['ConsumerGroupIds'])) {
+            if (!empty($map['ConsumerGroupIds'])) {
+                $model->consumerGroupIds = $map['ConsumerGroupIds'];
+            }
         }
         if (isset($map['DeviceDataFlag'])) {
             $model->deviceDataFlag = $map['DeviceDataFlag'];
@@ -218,34 +208,44 @@ class QuerySubscribeRelationResponseBody extends Model
         if (isset($map['DeviceStatusChangeFlag'])) {
             $model->deviceStatusChangeFlag = $map['DeviceStatusChangeFlag'];
         }
+        if (isset($map['DeviceTagFlag'])) {
+            $model->deviceTagFlag = $map['DeviceTagFlag'];
+        }
         if (isset($map['DeviceTopoLifeCycleFlag'])) {
             $model->deviceTopoLifeCycleFlag = $map['DeviceTopoLifeCycleFlag'];
+        }
+        if (isset($map['ErrorMessage'])) {
+            $model->errorMessage = $map['ErrorMessage'];
         }
         if (isset($map['FoundDeviceListFlag'])) {
             $model->foundDeviceListFlag = $map['FoundDeviceListFlag'];
         }
-        if (isset($map['OtaEventFlag'])) {
-            $model->otaEventFlag = $map['OtaEventFlag'];
-        }
-        if (isset($map['ThingHistoryFlag'])) {
-            $model->thingHistoryFlag = $map['ThingHistoryFlag'];
-        }
         if (isset($map['MnsConfiguration'])) {
             $model->mnsConfiguration = $map['MnsConfiguration'];
         }
-        if (isset($map['DeviceTagFlag'])) {
-            $model->deviceTagFlag = $map['DeviceTagFlag'];
-        }
-        if (isset($map['OtaVersionFlag'])) {
-            $model->otaVersionFlag = $map['OtaVersionFlag'];
+        if (isset($map['OtaEventFlag'])) {
+            $model->otaEventFlag = $map['OtaEventFlag'];
         }
         if (isset($map['OtaJobFlag'])) {
             $model->otaJobFlag = $map['OtaJobFlag'];
         }
-        if (isset($map['ConsumerGroupIds'])) {
-            if (!empty($map['ConsumerGroupIds'])) {
-                $model->consumerGroupIds = $map['ConsumerGroupIds'];
-            }
+        if (isset($map['OtaVersionFlag'])) {
+            $model->otaVersionFlag = $map['OtaVersionFlag'];
+        }
+        if (isset($map['ProductKey'])) {
+            $model->productKey = $map['ProductKey'];
+        }
+        if (isset($map['RequestId'])) {
+            $model->requestId = $map['RequestId'];
+        }
+        if (isset($map['Success'])) {
+            $model->success = $map['Success'];
+        }
+        if (isset($map['ThingHistoryFlag'])) {
+            $model->thingHistoryFlag = $map['ThingHistoryFlag'];
+        }
+        if (isset($map['Type'])) {
+            $model->type = $map['Type'];
         }
 
         return $model;

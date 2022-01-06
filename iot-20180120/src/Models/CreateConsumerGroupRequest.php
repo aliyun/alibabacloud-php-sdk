@@ -11,15 +11,15 @@ class CreateConsumerGroupRequest extends Model
     /**
      * @var string
      */
-    public $iotInstanceId;
+    public $groupName;
 
     /**
      * @var string
      */
-    public $groupName;
+    public $iotInstanceId;
     protected $_name = [
-        'iotInstanceId' => 'IotInstanceId',
         'groupName'     => 'GroupName',
+        'iotInstanceId' => 'IotInstanceId',
     ];
 
     public function validate()
@@ -29,11 +29,11 @@ class CreateConsumerGroupRequest extends Model
     public function toMap()
     {
         $res = [];
-        if (null !== $this->iotInstanceId) {
-            $res['IotInstanceId'] = $this->iotInstanceId;
-        }
         if (null !== $this->groupName) {
             $res['GroupName'] = $this->groupName;
+        }
+        if (null !== $this->iotInstanceId) {
+            $res['IotInstanceId'] = $this->iotInstanceId;
         }
 
         return $res;
@@ -47,11 +47,11 @@ class CreateConsumerGroupRequest extends Model
     public static function fromMap($map = [])
     {
         $model = new self();
-        if (isset($map['IotInstanceId'])) {
-            $model->iotInstanceId = $map['IotInstanceId'];
-        }
         if (isset($map['GroupName'])) {
             $model->groupName = $map['GroupName'];
+        }
+        if (isset($map['IotInstanceId'])) {
+            $model->iotInstanceId = $map['IotInstanceId'];
         }
 
         return $model;

@@ -16,22 +16,22 @@ class PubBroadcastRequest extends Model
     /**
      * @var string
      */
+    public $messageContent;
+
+    /**
+     * @var string
+     */
     public $productKey;
 
     /**
      * @var string
      */
     public $topicFullName;
-
-    /**
-     * @var string
-     */
-    public $messageContent;
     protected $_name = [
         'iotInstanceId'  => 'IotInstanceId',
+        'messageContent' => 'MessageContent',
         'productKey'     => 'ProductKey',
         'topicFullName'  => 'TopicFullName',
-        'messageContent' => 'MessageContent',
     ];
 
     public function validate()
@@ -44,14 +44,14 @@ class PubBroadcastRequest extends Model
         if (null !== $this->iotInstanceId) {
             $res['IotInstanceId'] = $this->iotInstanceId;
         }
+        if (null !== $this->messageContent) {
+            $res['MessageContent'] = $this->messageContent;
+        }
         if (null !== $this->productKey) {
             $res['ProductKey'] = $this->productKey;
         }
         if (null !== $this->topicFullName) {
             $res['TopicFullName'] = $this->topicFullName;
-        }
-        if (null !== $this->messageContent) {
-            $res['MessageContent'] = $this->messageContent;
         }
 
         return $res;
@@ -68,14 +68,14 @@ class PubBroadcastRequest extends Model
         if (isset($map['IotInstanceId'])) {
             $model->iotInstanceId = $map['IotInstanceId'];
         }
+        if (isset($map['MessageContent'])) {
+            $model->messageContent = $map['MessageContent'];
+        }
         if (isset($map['ProductKey'])) {
             $model->productKey = $map['ProductKey'];
         }
         if (isset($map['TopicFullName'])) {
             $model->topicFullName = $map['TopicFullName'];
-        }
-        if (isset($map['MessageContent'])) {
-            $model->messageContent = $map['MessageContent'];
         }
 
         return $model;

@@ -11,12 +11,12 @@ class QueryEdgeInstanceChannelRequest extends Model
     /**
      * @var string
      */
-    public $iotInstanceId;
+    public $channelName;
 
     /**
-     * @var string
+     * @var int
      */
-    public $instanceId;
+    public $currentPage;
 
     /**
      * @var string
@@ -26,23 +26,23 @@ class QueryEdgeInstanceChannelRequest extends Model
     /**
      * @var string
      */
-    public $channelName;
+    public $instanceId;
 
     /**
-     * @var int
+     * @var string
      */
-    public $currentPage;
+    public $iotInstanceId;
 
     /**
      * @var int
      */
     public $pageSize;
     protected $_name = [
-        'iotInstanceId' => 'IotInstanceId',
-        'instanceId'    => 'InstanceId',
-        'driverId'      => 'DriverId',
         'channelName'   => 'ChannelName',
         'currentPage'   => 'CurrentPage',
+        'driverId'      => 'DriverId',
+        'instanceId'    => 'InstanceId',
+        'iotInstanceId' => 'IotInstanceId',
         'pageSize'      => 'PageSize',
     ];
 
@@ -53,20 +53,20 @@ class QueryEdgeInstanceChannelRequest extends Model
     public function toMap()
     {
         $res = [];
-        if (null !== $this->iotInstanceId) {
-            $res['IotInstanceId'] = $this->iotInstanceId;
-        }
-        if (null !== $this->instanceId) {
-            $res['InstanceId'] = $this->instanceId;
-        }
-        if (null !== $this->driverId) {
-            $res['DriverId'] = $this->driverId;
-        }
         if (null !== $this->channelName) {
             $res['ChannelName'] = $this->channelName;
         }
         if (null !== $this->currentPage) {
             $res['CurrentPage'] = $this->currentPage;
+        }
+        if (null !== $this->driverId) {
+            $res['DriverId'] = $this->driverId;
+        }
+        if (null !== $this->instanceId) {
+            $res['InstanceId'] = $this->instanceId;
+        }
+        if (null !== $this->iotInstanceId) {
+            $res['IotInstanceId'] = $this->iotInstanceId;
         }
         if (null !== $this->pageSize) {
             $res['PageSize'] = $this->pageSize;
@@ -83,20 +83,20 @@ class QueryEdgeInstanceChannelRequest extends Model
     public static function fromMap($map = [])
     {
         $model = new self();
-        if (isset($map['IotInstanceId'])) {
-            $model->iotInstanceId = $map['IotInstanceId'];
-        }
-        if (isset($map['InstanceId'])) {
-            $model->instanceId = $map['InstanceId'];
-        }
-        if (isset($map['DriverId'])) {
-            $model->driverId = $map['DriverId'];
-        }
         if (isset($map['ChannelName'])) {
             $model->channelName = $map['ChannelName'];
         }
         if (isset($map['CurrentPage'])) {
             $model->currentPage = $map['CurrentPage'];
+        }
+        if (isset($map['DriverId'])) {
+            $model->driverId = $map['DriverId'];
+        }
+        if (isset($map['InstanceId'])) {
+            $model->instanceId = $map['InstanceId'];
+        }
+        if (isset($map['IotInstanceId'])) {
+            $model->iotInstanceId = $map['IotInstanceId'];
         }
         if (isset($map['PageSize'])) {
             $model->pageSize = $map['PageSize'];

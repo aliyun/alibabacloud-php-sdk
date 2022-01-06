@@ -9,6 +9,21 @@ use AlibabaCloud\Tea\Model;
 class ListOTAModuleVersionsByDeviceRequest extends Model
 {
     /**
+     * @var int
+     */
+    public $currentPage;
+
+    /**
+     * @var string
+     */
+    public $deviceName;
+
+    /**
+     * @var string
+     */
+    public $iotId;
+
+    /**
      * @var string
      */
     public $iotInstanceId;
@@ -22,28 +37,13 @@ class ListOTAModuleVersionsByDeviceRequest extends Model
      * @var string
      */
     public $productKey;
-
-    /**
-     * @var string
-     */
-    public $deviceName;
-
-    /**
-     * @var string
-     */
-    public $iotId;
-
-    /**
-     * @var int
-     */
-    public $currentPage;
     protected $_name = [
+        'currentPage'   => 'CurrentPage',
+        'deviceName'    => 'DeviceName',
+        'iotId'         => 'IotId',
         'iotInstanceId' => 'IotInstanceId',
         'pageSize'      => 'PageSize',
         'productKey'    => 'ProductKey',
-        'deviceName'    => 'DeviceName',
-        'iotId'         => 'IotId',
-        'currentPage'   => 'CurrentPage',
     ];
 
     public function validate()
@@ -53,6 +53,15 @@ class ListOTAModuleVersionsByDeviceRequest extends Model
     public function toMap()
     {
         $res = [];
+        if (null !== $this->currentPage) {
+            $res['CurrentPage'] = $this->currentPage;
+        }
+        if (null !== $this->deviceName) {
+            $res['DeviceName'] = $this->deviceName;
+        }
+        if (null !== $this->iotId) {
+            $res['IotId'] = $this->iotId;
+        }
         if (null !== $this->iotInstanceId) {
             $res['IotInstanceId'] = $this->iotInstanceId;
         }
@@ -61,15 +70,6 @@ class ListOTAModuleVersionsByDeviceRequest extends Model
         }
         if (null !== $this->productKey) {
             $res['ProductKey'] = $this->productKey;
-        }
-        if (null !== $this->deviceName) {
-            $res['DeviceName'] = $this->deviceName;
-        }
-        if (null !== $this->iotId) {
-            $res['IotId'] = $this->iotId;
-        }
-        if (null !== $this->currentPage) {
-            $res['CurrentPage'] = $this->currentPage;
         }
 
         return $res;
@@ -83,6 +83,15 @@ class ListOTAModuleVersionsByDeviceRequest extends Model
     public static function fromMap($map = [])
     {
         $model = new self();
+        if (isset($map['CurrentPage'])) {
+            $model->currentPage = $map['CurrentPage'];
+        }
+        if (isset($map['DeviceName'])) {
+            $model->deviceName = $map['DeviceName'];
+        }
+        if (isset($map['IotId'])) {
+            $model->iotId = $map['IotId'];
+        }
         if (isset($map['IotInstanceId'])) {
             $model->iotInstanceId = $map['IotInstanceId'];
         }
@@ -91,15 +100,6 @@ class ListOTAModuleVersionsByDeviceRequest extends Model
         }
         if (isset($map['ProductKey'])) {
             $model->productKey = $map['ProductKey'];
-        }
-        if (isset($map['DeviceName'])) {
-            $model->deviceName = $map['DeviceName'];
-        }
-        if (isset($map['IotId'])) {
-            $model->iotId = $map['IotId'];
-        }
-        if (isset($map['CurrentPage'])) {
-            $model->currentPage = $map['CurrentPage'];
         }
 
         return $model;

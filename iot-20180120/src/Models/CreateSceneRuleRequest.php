@@ -16,22 +16,22 @@ class CreateSceneRuleRequest extends Model
     /**
      * @var string
      */
-    public $ruleName;
-
-    /**
-     * @var string
-     */
     public $ruleContent;
 
     /**
      * @var string
      */
     public $ruleDescription;
+
+    /**
+     * @var string
+     */
+    public $ruleName;
     protected $_name = [
         'iotInstanceId'   => 'IotInstanceId',
-        'ruleName'        => 'RuleName',
         'ruleContent'     => 'RuleContent',
         'ruleDescription' => 'RuleDescription',
+        'ruleName'        => 'RuleName',
     ];
 
     public function validate()
@@ -44,14 +44,14 @@ class CreateSceneRuleRequest extends Model
         if (null !== $this->iotInstanceId) {
             $res['IotInstanceId'] = $this->iotInstanceId;
         }
-        if (null !== $this->ruleName) {
-            $res['RuleName'] = $this->ruleName;
-        }
         if (null !== $this->ruleContent) {
             $res['RuleContent'] = $this->ruleContent;
         }
         if (null !== $this->ruleDescription) {
             $res['RuleDescription'] = $this->ruleDescription;
+        }
+        if (null !== $this->ruleName) {
+            $res['RuleName'] = $this->ruleName;
         }
 
         return $res;
@@ -68,14 +68,14 @@ class CreateSceneRuleRequest extends Model
         if (isset($map['IotInstanceId'])) {
             $model->iotInstanceId = $map['IotInstanceId'];
         }
-        if (isset($map['RuleName'])) {
-            $model->ruleName = $map['RuleName'];
-        }
         if (isset($map['RuleContent'])) {
             $model->ruleContent = $map['RuleContent'];
         }
         if (isset($map['RuleDescription'])) {
             $model->ruleDescription = $map['RuleDescription'];
+        }
+        if (isset($map['RuleName'])) {
+            $model->ruleName = $map['RuleName'];
         }
 
         return $model;

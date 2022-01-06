@@ -9,16 +9,6 @@ use AlibabaCloud\Tea\Model;
 class QueryConsumerGroupListRequest extends Model
 {
     /**
-     * @var string
-     */
-    public $iotInstanceId;
-
-    /**
-     * @var int
-     */
-    public $pageSize;
-
-    /**
      * @var int
      */
     public $currentPage;
@@ -32,12 +22,22 @@ class QueryConsumerGroupListRequest extends Model
      * @var string
      */
     public $groupName;
+
+    /**
+     * @var string
+     */
+    public $iotInstanceId;
+
+    /**
+     * @var int
+     */
+    public $pageSize;
     protected $_name = [
-        'iotInstanceId' => 'IotInstanceId',
-        'pageSize'      => 'PageSize',
         'currentPage'   => 'CurrentPage',
         'fuzzy'         => 'Fuzzy',
         'groupName'     => 'GroupName',
+        'iotInstanceId' => 'IotInstanceId',
+        'pageSize'      => 'PageSize',
     ];
 
     public function validate()
@@ -47,12 +47,6 @@ class QueryConsumerGroupListRequest extends Model
     public function toMap()
     {
         $res = [];
-        if (null !== $this->iotInstanceId) {
-            $res['IotInstanceId'] = $this->iotInstanceId;
-        }
-        if (null !== $this->pageSize) {
-            $res['PageSize'] = $this->pageSize;
-        }
         if (null !== $this->currentPage) {
             $res['CurrentPage'] = $this->currentPage;
         }
@@ -61,6 +55,12 @@ class QueryConsumerGroupListRequest extends Model
         }
         if (null !== $this->groupName) {
             $res['GroupName'] = $this->groupName;
+        }
+        if (null !== $this->iotInstanceId) {
+            $res['IotInstanceId'] = $this->iotInstanceId;
+        }
+        if (null !== $this->pageSize) {
+            $res['PageSize'] = $this->pageSize;
         }
 
         return $res;
@@ -74,12 +74,6 @@ class QueryConsumerGroupListRequest extends Model
     public static function fromMap($map = [])
     {
         $model = new self();
-        if (isset($map['IotInstanceId'])) {
-            $model->iotInstanceId = $map['IotInstanceId'];
-        }
-        if (isset($map['PageSize'])) {
-            $model->pageSize = $map['PageSize'];
-        }
         if (isset($map['CurrentPage'])) {
             $model->currentPage = $map['CurrentPage'];
         }
@@ -88,6 +82,12 @@ class QueryConsumerGroupListRequest extends Model
         }
         if (isset($map['GroupName'])) {
             $model->groupName = $map['GroupName'];
+        }
+        if (isset($map['IotInstanceId'])) {
+            $model->iotInstanceId = $map['IotInstanceId'];
+        }
+        if (isset($map['PageSize'])) {
+            $model->pageSize = $map['PageSize'];
         }
 
         return $model;

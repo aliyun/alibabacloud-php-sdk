@@ -11,12 +11,17 @@ class CreateProductDistributeJobRequest extends Model
     /**
      * @var string
      */
+    public $productKey;
+
+    /**
+     * @var string
+     */
     public $sourceInstanceId;
 
     /**
      * @var string
      */
-    public $productKey;
+    public $targetAliyunId;
 
     /**
      * @var string
@@ -27,17 +32,12 @@ class CreateProductDistributeJobRequest extends Model
      * @var string
      */
     public $targetUid;
-
-    /**
-     * @var string
-     */
-    public $targetAliyunId;
     protected $_name = [
-        'sourceInstanceId' => 'SourceInstanceId',
         'productKey'       => 'ProductKey',
+        'sourceInstanceId' => 'SourceInstanceId',
+        'targetAliyunId'   => 'TargetAliyunId',
         'targetInstanceId' => 'TargetInstanceId',
         'targetUid'        => 'TargetUid',
-        'targetAliyunId'   => 'TargetAliyunId',
     ];
 
     public function validate()
@@ -47,20 +47,20 @@ class CreateProductDistributeJobRequest extends Model
     public function toMap()
     {
         $res = [];
+        if (null !== $this->productKey) {
+            $res['ProductKey'] = $this->productKey;
+        }
         if (null !== $this->sourceInstanceId) {
             $res['SourceInstanceId'] = $this->sourceInstanceId;
         }
-        if (null !== $this->productKey) {
-            $res['ProductKey'] = $this->productKey;
+        if (null !== $this->targetAliyunId) {
+            $res['TargetAliyunId'] = $this->targetAliyunId;
         }
         if (null !== $this->targetInstanceId) {
             $res['TargetInstanceId'] = $this->targetInstanceId;
         }
         if (null !== $this->targetUid) {
             $res['TargetUid'] = $this->targetUid;
-        }
-        if (null !== $this->targetAliyunId) {
-            $res['TargetAliyunId'] = $this->targetAliyunId;
         }
 
         return $res;
@@ -74,20 +74,20 @@ class CreateProductDistributeJobRequest extends Model
     public static function fromMap($map = [])
     {
         $model = new self();
+        if (isset($map['ProductKey'])) {
+            $model->productKey = $map['ProductKey'];
+        }
         if (isset($map['SourceInstanceId'])) {
             $model->sourceInstanceId = $map['SourceInstanceId'];
         }
-        if (isset($map['ProductKey'])) {
-            $model->productKey = $map['ProductKey'];
+        if (isset($map['TargetAliyunId'])) {
+            $model->targetAliyunId = $map['TargetAliyunId'];
         }
         if (isset($map['TargetInstanceId'])) {
             $model->targetInstanceId = $map['TargetInstanceId'];
         }
         if (isset($map['TargetUid'])) {
             $model->targetUid = $map['TargetUid'];
-        }
-        if (isset($map['TargetAliyunId'])) {
-            $model->targetAliyunId = $map['TargetAliyunId'];
         }
 
         return $model;

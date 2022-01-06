@@ -14,6 +14,11 @@ class BatchGetDeviceStateRequest extends Model
     public $deviceName;
 
     /**
+     * @var string[]
+     */
+    public $iotId;
+
+    /**
      * @var string
      */
     public $iotInstanceId;
@@ -22,16 +27,11 @@ class BatchGetDeviceStateRequest extends Model
      * @var string
      */
     public $productKey;
-
-    /**
-     * @var string[]
-     */
-    public $iotId;
     protected $_name = [
         'deviceName'    => 'DeviceName',
+        'iotId'         => 'IotId',
         'iotInstanceId' => 'IotInstanceId',
         'productKey'    => 'ProductKey',
-        'iotId'         => 'IotId',
     ];
 
     public function validate()
@@ -44,14 +44,14 @@ class BatchGetDeviceStateRequest extends Model
         if (null !== $this->deviceName) {
             $res['DeviceName'] = $this->deviceName;
         }
+        if (null !== $this->iotId) {
+            $res['IotId'] = $this->iotId;
+        }
         if (null !== $this->iotInstanceId) {
             $res['IotInstanceId'] = $this->iotInstanceId;
         }
         if (null !== $this->productKey) {
             $res['ProductKey'] = $this->productKey;
-        }
-        if (null !== $this->iotId) {
-            $res['IotId'] = $this->iotId;
         }
 
         return $res;
@@ -70,16 +70,16 @@ class BatchGetDeviceStateRequest extends Model
                 $model->deviceName = $map['DeviceName'];
             }
         }
+        if (isset($map['IotId'])) {
+            if (!empty($map['IotId'])) {
+                $model->iotId = $map['IotId'];
+            }
+        }
         if (isset($map['IotInstanceId'])) {
             $model->iotInstanceId = $map['IotInstanceId'];
         }
         if (isset($map['ProductKey'])) {
             $model->productKey = $map['ProductKey'];
-        }
-        if (isset($map['IotId'])) {
-            if (!empty($map['IotId'])) {
-                $model->iotId = $map['IotId'];
-            }
         }
 
         return $model;

@@ -11,12 +11,12 @@ class gatewayList extends Model
     /**
      * @var string
      */
-    public $productKey;
+    public $deviceName;
 
     /**
      * @var string
      */
-    public $deviceName;
+    public $edgeVersion;
 
     /**
      * @var string
@@ -26,12 +26,12 @@ class gatewayList extends Model
     /**
      * @var string
      */
-    public $edgeVersion;
+    public $productKey;
     protected $_name = [
-        'productKey'  => 'ProductKey',
         'deviceName'  => 'DeviceName',
-        'iotId'       => 'IotId',
         'edgeVersion' => 'EdgeVersion',
+        'iotId'       => 'IotId',
+        'productKey'  => 'ProductKey',
     ];
 
     public function validate()
@@ -41,17 +41,17 @@ class gatewayList extends Model
     public function toMap()
     {
         $res = [];
-        if (null !== $this->productKey) {
-            $res['ProductKey'] = $this->productKey;
-        }
         if (null !== $this->deviceName) {
             $res['DeviceName'] = $this->deviceName;
+        }
+        if (null !== $this->edgeVersion) {
+            $res['EdgeVersion'] = $this->edgeVersion;
         }
         if (null !== $this->iotId) {
             $res['IotId'] = $this->iotId;
         }
-        if (null !== $this->edgeVersion) {
-            $res['EdgeVersion'] = $this->edgeVersion;
+        if (null !== $this->productKey) {
+            $res['ProductKey'] = $this->productKey;
         }
 
         return $res;
@@ -65,17 +65,17 @@ class gatewayList extends Model
     public static function fromMap($map = [])
     {
         $model = new self();
-        if (isset($map['ProductKey'])) {
-            $model->productKey = $map['ProductKey'];
-        }
         if (isset($map['DeviceName'])) {
             $model->deviceName = $map['DeviceName'];
+        }
+        if (isset($map['EdgeVersion'])) {
+            $model->edgeVersion = $map['EdgeVersion'];
         }
         if (isset($map['IotId'])) {
             $model->iotId = $map['IotId'];
         }
-        if (isset($map['EdgeVersion'])) {
-            $model->edgeVersion = $map['EdgeVersion'];
+        if (isset($map['ProductKey'])) {
+            $model->productKey = $map['ProductKey'];
         }
 
         return $model;

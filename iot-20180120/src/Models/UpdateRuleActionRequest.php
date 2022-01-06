@@ -9,11 +9,6 @@ use AlibabaCloud\Tea\Model;
 class UpdateRuleActionRequest extends Model
 {
     /**
-     * @var string
-     */
-    public $iotInstanceId;
-
-    /**
      * @var int
      */
     public $actionId;
@@ -21,17 +16,22 @@ class UpdateRuleActionRequest extends Model
     /**
      * @var string
      */
-    public $type;
+    public $configuration;
 
     /**
      * @var string
      */
-    public $configuration;
+    public $iotInstanceId;
+
+    /**
+     * @var string
+     */
+    public $type;
     protected $_name = [
-        'iotInstanceId' => 'IotInstanceId',
         'actionId'      => 'ActionId',
-        'type'          => 'Type',
         'configuration' => 'Configuration',
+        'iotInstanceId' => 'IotInstanceId',
+        'type'          => 'Type',
     ];
 
     public function validate()
@@ -41,17 +41,17 @@ class UpdateRuleActionRequest extends Model
     public function toMap()
     {
         $res = [];
-        if (null !== $this->iotInstanceId) {
-            $res['IotInstanceId'] = $this->iotInstanceId;
-        }
         if (null !== $this->actionId) {
             $res['ActionId'] = $this->actionId;
         }
-        if (null !== $this->type) {
-            $res['Type'] = $this->type;
-        }
         if (null !== $this->configuration) {
             $res['Configuration'] = $this->configuration;
+        }
+        if (null !== $this->iotInstanceId) {
+            $res['IotInstanceId'] = $this->iotInstanceId;
+        }
+        if (null !== $this->type) {
+            $res['Type'] = $this->type;
         }
 
         return $res;
@@ -65,17 +65,17 @@ class UpdateRuleActionRequest extends Model
     public static function fromMap($map = [])
     {
         $model = new self();
-        if (isset($map['IotInstanceId'])) {
-            $model->iotInstanceId = $map['IotInstanceId'];
-        }
         if (isset($map['ActionId'])) {
             $model->actionId = $map['ActionId'];
         }
-        if (isset($map['Type'])) {
-            $model->type = $map['Type'];
-        }
         if (isset($map['Configuration'])) {
             $model->configuration = $map['Configuration'];
+        }
+        if (isset($map['IotInstanceId'])) {
+            $model->iotInstanceId = $map['IotInstanceId'];
+        }
+        if (isset($map['Type'])) {
+            $model->type = $map['Type'];
         }
 
         return $model;

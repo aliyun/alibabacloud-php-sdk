@@ -12,12 +12,7 @@ class taskList extends Model
     /**
      * @var string
      */
-    public $gmtCreate;
-
-    /**
-     * @var string
-     */
-    public $gmtModified;
+    public $gatewayId;
 
     /**
      * @var string
@@ -25,14 +20,34 @@ class taskList extends Model
     public $gmtCompleted;
 
     /**
-     * @var string
+     * @var int
      */
-    public $gatewayId;
+    public $gmtCompletedTimestamp;
 
     /**
      * @var string
      */
-    public $taskId;
+    public $gmtCreate;
+
+    /**
+     * @var int
+     */
+    public $gmtCreateTimestamp;
+
+    /**
+     * @var string
+     */
+    public $gmtModified;
+
+    /**
+     * @var int
+     */
+    public $gmtModifiedTimestamp;
+
+    /**
+     * @var resourceSnapshotList[]
+     */
+    public $resourceSnapshotList;
 
     /**
      * @var int
@@ -45,36 +60,21 @@ class taskList extends Model
     public $status;
 
     /**
-     * @var int
+     * @var string
      */
-    public $gmtCreateTimestamp;
-
-    /**
-     * @var int
-     */
-    public $gmtModifiedTimestamp;
-
-    /**
-     * @var int
-     */
-    public $gmtCompletedTimestamp;
-
-    /**
-     * @var resourceSnapshotList[]
-     */
-    public $resourceSnapshotList;
+    public $taskId;
     protected $_name = [
-        'gmtCreate'             => 'GmtCreate',
-        'gmtModified'           => 'GmtModified',
-        'gmtCompleted'          => 'GmtCompleted',
         'gatewayId'             => 'GatewayId',
-        'taskId'                => 'TaskId',
+        'gmtCompleted'          => 'GmtCompleted',
+        'gmtCompletedTimestamp' => 'GmtCompletedTimestamp',
+        'gmtCreate'             => 'GmtCreate',
+        'gmtCreateTimestamp'    => 'GmtCreateTimestamp',
+        'gmtModified'           => 'GmtModified',
+        'gmtModifiedTimestamp'  => 'GmtModifiedTimestamp',
+        'resourceSnapshotList'  => 'ResourceSnapshotList',
         'stage'                 => 'Stage',
         'status'                => 'Status',
-        'gmtCreateTimestamp'    => 'GmtCreateTimestamp',
-        'gmtModifiedTimestamp'  => 'GmtModifiedTimestamp',
-        'gmtCompletedTimestamp' => 'GmtCompletedTimestamp',
-        'resourceSnapshotList'  => 'ResourceSnapshotList',
+        'taskId'                => 'TaskId',
     ];
 
     public function validate()
@@ -84,35 +84,26 @@ class taskList extends Model
     public function toMap()
     {
         $res = [];
-        if (null !== $this->gmtCreate) {
-            $res['GmtCreate'] = $this->gmtCreate;
-        }
-        if (null !== $this->gmtModified) {
-            $res['GmtModified'] = $this->gmtModified;
+        if (null !== $this->gatewayId) {
+            $res['GatewayId'] = $this->gatewayId;
         }
         if (null !== $this->gmtCompleted) {
             $res['GmtCompleted'] = $this->gmtCompleted;
         }
-        if (null !== $this->gatewayId) {
-            $res['GatewayId'] = $this->gatewayId;
+        if (null !== $this->gmtCompletedTimestamp) {
+            $res['GmtCompletedTimestamp'] = $this->gmtCompletedTimestamp;
         }
-        if (null !== $this->taskId) {
-            $res['TaskId'] = $this->taskId;
-        }
-        if (null !== $this->stage) {
-            $res['Stage'] = $this->stage;
-        }
-        if (null !== $this->status) {
-            $res['Status'] = $this->status;
+        if (null !== $this->gmtCreate) {
+            $res['GmtCreate'] = $this->gmtCreate;
         }
         if (null !== $this->gmtCreateTimestamp) {
             $res['GmtCreateTimestamp'] = $this->gmtCreateTimestamp;
         }
+        if (null !== $this->gmtModified) {
+            $res['GmtModified'] = $this->gmtModified;
+        }
         if (null !== $this->gmtModifiedTimestamp) {
             $res['GmtModifiedTimestamp'] = $this->gmtModifiedTimestamp;
-        }
-        if (null !== $this->gmtCompletedTimestamp) {
-            $res['GmtCompletedTimestamp'] = $this->gmtCompletedTimestamp;
         }
         if (null !== $this->resourceSnapshotList) {
             $res['ResourceSnapshotList'] = [];
@@ -122,6 +113,15 @@ class taskList extends Model
                     $res['ResourceSnapshotList'][$n++] = null !== $item ? $item->toMap() : $item;
                 }
             }
+        }
+        if (null !== $this->stage) {
+            $res['Stage'] = $this->stage;
+        }
+        if (null !== $this->status) {
+            $res['Status'] = $this->status;
+        }
+        if (null !== $this->taskId) {
+            $res['TaskId'] = $this->taskId;
         }
 
         return $res;
@@ -135,35 +135,26 @@ class taskList extends Model
     public static function fromMap($map = [])
     {
         $model = new self();
-        if (isset($map['GmtCreate'])) {
-            $model->gmtCreate = $map['GmtCreate'];
-        }
-        if (isset($map['GmtModified'])) {
-            $model->gmtModified = $map['GmtModified'];
+        if (isset($map['GatewayId'])) {
+            $model->gatewayId = $map['GatewayId'];
         }
         if (isset($map['GmtCompleted'])) {
             $model->gmtCompleted = $map['GmtCompleted'];
         }
-        if (isset($map['GatewayId'])) {
-            $model->gatewayId = $map['GatewayId'];
+        if (isset($map['GmtCompletedTimestamp'])) {
+            $model->gmtCompletedTimestamp = $map['GmtCompletedTimestamp'];
         }
-        if (isset($map['TaskId'])) {
-            $model->taskId = $map['TaskId'];
-        }
-        if (isset($map['Stage'])) {
-            $model->stage = $map['Stage'];
-        }
-        if (isset($map['Status'])) {
-            $model->status = $map['Status'];
+        if (isset($map['GmtCreate'])) {
+            $model->gmtCreate = $map['GmtCreate'];
         }
         if (isset($map['GmtCreateTimestamp'])) {
             $model->gmtCreateTimestamp = $map['GmtCreateTimestamp'];
         }
+        if (isset($map['GmtModified'])) {
+            $model->gmtModified = $map['GmtModified'];
+        }
         if (isset($map['GmtModifiedTimestamp'])) {
             $model->gmtModifiedTimestamp = $map['GmtModifiedTimestamp'];
-        }
-        if (isset($map['GmtCompletedTimestamp'])) {
-            $model->gmtCompletedTimestamp = $map['GmtCompletedTimestamp'];
         }
         if (isset($map['ResourceSnapshotList'])) {
             if (!empty($map['ResourceSnapshotList'])) {
@@ -173,6 +164,15 @@ class taskList extends Model
                     $model->resourceSnapshotList[$n++] = null !== $item ? resourceSnapshotList::fromMap($item) : $item;
                 }
             }
+        }
+        if (isset($map['Stage'])) {
+            $model->stage = $map['Stage'];
+        }
+        if (isset($map['Status'])) {
+            $model->status = $map['Status'];
+        }
+        if (isset($map['TaskId'])) {
+            $model->taskId = $map['TaskId'];
         }
 
         return $model;

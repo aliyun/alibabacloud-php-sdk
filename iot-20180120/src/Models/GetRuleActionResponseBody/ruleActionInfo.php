@@ -9,6 +9,16 @@ use AlibabaCloud\Tea\Model;
 class ruleActionInfo extends Model
 {
     /**
+     * @var string
+     */
+    public $configuration;
+
+    /**
+     * @var bool
+     */
+    public $errorActionFlag;
+
+    /**
      * @var int
      */
     public $id;
@@ -22,22 +32,12 @@ class ruleActionInfo extends Model
      * @var string
      */
     public $type;
-
-    /**
-     * @var string
-     */
-    public $configuration;
-
-    /**
-     * @var bool
-     */
-    public $errorActionFlag;
     protected $_name = [
+        'configuration'   => 'Configuration',
+        'errorActionFlag' => 'ErrorActionFlag',
         'id'              => 'Id',
         'ruleId'          => 'RuleId',
         'type'            => 'Type',
-        'configuration'   => 'Configuration',
-        'errorActionFlag' => 'ErrorActionFlag',
     ];
 
     public function validate()
@@ -47,6 +47,12 @@ class ruleActionInfo extends Model
     public function toMap()
     {
         $res = [];
+        if (null !== $this->configuration) {
+            $res['Configuration'] = $this->configuration;
+        }
+        if (null !== $this->errorActionFlag) {
+            $res['ErrorActionFlag'] = $this->errorActionFlag;
+        }
         if (null !== $this->id) {
             $res['Id'] = $this->id;
         }
@@ -55,12 +61,6 @@ class ruleActionInfo extends Model
         }
         if (null !== $this->type) {
             $res['Type'] = $this->type;
-        }
-        if (null !== $this->configuration) {
-            $res['Configuration'] = $this->configuration;
-        }
-        if (null !== $this->errorActionFlag) {
-            $res['ErrorActionFlag'] = $this->errorActionFlag;
         }
 
         return $res;
@@ -74,6 +74,12 @@ class ruleActionInfo extends Model
     public static function fromMap($map = [])
     {
         $model = new self();
+        if (isset($map['Configuration'])) {
+            $model->configuration = $map['Configuration'];
+        }
+        if (isset($map['ErrorActionFlag'])) {
+            $model->errorActionFlag = $map['ErrorActionFlag'];
+        }
         if (isset($map['Id'])) {
             $model->id = $map['Id'];
         }
@@ -82,12 +88,6 @@ class ruleActionInfo extends Model
         }
         if (isset($map['Type'])) {
             $model->type = $map['Type'];
-        }
-        if (isset($map['Configuration'])) {
-            $model->configuration = $map['Configuration'];
-        }
-        if (isset($map['ErrorActionFlag'])) {
-            $model->errorActionFlag = $map['ErrorActionFlag'];
         }
 
         return $model;

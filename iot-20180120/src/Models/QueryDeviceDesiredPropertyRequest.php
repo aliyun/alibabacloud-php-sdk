@@ -11,17 +11,12 @@ class QueryDeviceDesiredPropertyRequest extends Model
     /**
      * @var string
      */
-    public $iotInstanceId;
-
-    /**
-     * @var string
-     */
-    public $productKey;
-
-    /**
-     * @var string
-     */
     public $deviceName;
+
+    /**
+     * @var string
+     */
+    public $functionBlockId;
 
     /**
      * @var string[]
@@ -36,14 +31,19 @@ class QueryDeviceDesiredPropertyRequest extends Model
     /**
      * @var string
      */
-    public $functionBlockId;
+    public $iotInstanceId;
+
+    /**
+     * @var string
+     */
+    public $productKey;
     protected $_name = [
-        'iotInstanceId'   => 'IotInstanceId',
-        'productKey'      => 'ProductKey',
         'deviceName'      => 'DeviceName',
+        'functionBlockId' => 'FunctionBlockId',
         'identifier'      => 'Identifier',
         'iotId'           => 'IotId',
-        'functionBlockId' => 'FunctionBlockId',
+        'iotInstanceId'   => 'IotInstanceId',
+        'productKey'      => 'ProductKey',
     ];
 
     public function validate()
@@ -53,14 +53,11 @@ class QueryDeviceDesiredPropertyRequest extends Model
     public function toMap()
     {
         $res = [];
-        if (null !== $this->iotInstanceId) {
-            $res['IotInstanceId'] = $this->iotInstanceId;
-        }
-        if (null !== $this->productKey) {
-            $res['ProductKey'] = $this->productKey;
-        }
         if (null !== $this->deviceName) {
             $res['DeviceName'] = $this->deviceName;
+        }
+        if (null !== $this->functionBlockId) {
+            $res['FunctionBlockId'] = $this->functionBlockId;
         }
         if (null !== $this->identifier) {
             $res['Identifier'] = $this->identifier;
@@ -68,8 +65,11 @@ class QueryDeviceDesiredPropertyRequest extends Model
         if (null !== $this->iotId) {
             $res['IotId'] = $this->iotId;
         }
-        if (null !== $this->functionBlockId) {
-            $res['FunctionBlockId'] = $this->functionBlockId;
+        if (null !== $this->iotInstanceId) {
+            $res['IotInstanceId'] = $this->iotInstanceId;
+        }
+        if (null !== $this->productKey) {
+            $res['ProductKey'] = $this->productKey;
         }
 
         return $res;
@@ -83,14 +83,11 @@ class QueryDeviceDesiredPropertyRequest extends Model
     public static function fromMap($map = [])
     {
         $model = new self();
-        if (isset($map['IotInstanceId'])) {
-            $model->iotInstanceId = $map['IotInstanceId'];
-        }
-        if (isset($map['ProductKey'])) {
-            $model->productKey = $map['ProductKey'];
-        }
         if (isset($map['DeviceName'])) {
             $model->deviceName = $map['DeviceName'];
+        }
+        if (isset($map['FunctionBlockId'])) {
+            $model->functionBlockId = $map['FunctionBlockId'];
         }
         if (isset($map['Identifier'])) {
             if (!empty($map['Identifier'])) {
@@ -100,8 +97,11 @@ class QueryDeviceDesiredPropertyRequest extends Model
         if (isset($map['IotId'])) {
             $model->iotId = $map['IotId'];
         }
-        if (isset($map['FunctionBlockId'])) {
-            $model->functionBlockId = $map['FunctionBlockId'];
+        if (isset($map['IotInstanceId'])) {
+            $model->iotInstanceId = $map['IotInstanceId'];
+        }
+        if (isset($map['ProductKey'])) {
+            $model->productKey = $map['ProductKey'];
         }
 
         return $model;

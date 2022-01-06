@@ -12,6 +12,16 @@ class GetNodesAddingTaskResponseBody extends Model
     /**
      * @var string
      */
+    public $code;
+
+    /**
+     * @var string
+     */
+    public $errorMessage;
+
+    /**
+     * @var string
+     */
     public $requestId;
 
     /**
@@ -20,14 +30,14 @@ class GetNodesAddingTaskResponseBody extends Model
     public $success;
 
     /**
-     * @var string
+     * @var int
      */
-    public $code;
+    public $successCount;
 
     /**
-     * @var string
+     * @var successDevEuis
      */
-    public $errorMessage;
+    public $successDevEuis;
 
     /**
      * @var string
@@ -43,26 +53,16 @@ class GetNodesAddingTaskResponseBody extends Model
      * @var int
      */
     public $totalCount;
-
-    /**
-     * @var int
-     */
-    public $successCount;
-
-    /**
-     * @var successDevEuis
-     */
-    public $successDevEuis;
     protected $_name = [
-        'requestId'      => 'RequestId',
-        'success'        => 'Success',
         'code'           => 'Code',
         'errorMessage'   => 'ErrorMessage',
+        'requestId'      => 'RequestId',
+        'success'        => 'Success',
+        'successCount'   => 'SuccessCount',
+        'successDevEuis' => 'SuccessDevEuis',
         'taskId'         => 'TaskId',
         'taskState'      => 'TaskState',
         'totalCount'     => 'TotalCount',
-        'successCount'   => 'SuccessCount',
-        'successDevEuis' => 'SuccessDevEuis',
     ];
 
     public function validate()
@@ -72,17 +72,23 @@ class GetNodesAddingTaskResponseBody extends Model
     public function toMap()
     {
         $res = [];
+        if (null !== $this->code) {
+            $res['Code'] = $this->code;
+        }
+        if (null !== $this->errorMessage) {
+            $res['ErrorMessage'] = $this->errorMessage;
+        }
         if (null !== $this->requestId) {
             $res['RequestId'] = $this->requestId;
         }
         if (null !== $this->success) {
             $res['Success'] = $this->success;
         }
-        if (null !== $this->code) {
-            $res['Code'] = $this->code;
+        if (null !== $this->successCount) {
+            $res['SuccessCount'] = $this->successCount;
         }
-        if (null !== $this->errorMessage) {
-            $res['ErrorMessage'] = $this->errorMessage;
+        if (null !== $this->successDevEuis) {
+            $res['SuccessDevEuis'] = null !== $this->successDevEuis ? $this->successDevEuis->toMap() : null;
         }
         if (null !== $this->taskId) {
             $res['TaskId'] = $this->taskId;
@@ -92,12 +98,6 @@ class GetNodesAddingTaskResponseBody extends Model
         }
         if (null !== $this->totalCount) {
             $res['TotalCount'] = $this->totalCount;
-        }
-        if (null !== $this->successCount) {
-            $res['SuccessCount'] = $this->successCount;
-        }
-        if (null !== $this->successDevEuis) {
-            $res['SuccessDevEuis'] = null !== $this->successDevEuis ? $this->successDevEuis->toMap() : null;
         }
 
         return $res;
@@ -111,17 +111,23 @@ class GetNodesAddingTaskResponseBody extends Model
     public static function fromMap($map = [])
     {
         $model = new self();
+        if (isset($map['Code'])) {
+            $model->code = $map['Code'];
+        }
+        if (isset($map['ErrorMessage'])) {
+            $model->errorMessage = $map['ErrorMessage'];
+        }
         if (isset($map['RequestId'])) {
             $model->requestId = $map['RequestId'];
         }
         if (isset($map['Success'])) {
             $model->success = $map['Success'];
         }
-        if (isset($map['Code'])) {
-            $model->code = $map['Code'];
+        if (isset($map['SuccessCount'])) {
+            $model->successCount = $map['SuccessCount'];
         }
-        if (isset($map['ErrorMessage'])) {
-            $model->errorMessage = $map['ErrorMessage'];
+        if (isset($map['SuccessDevEuis'])) {
+            $model->successDevEuis = successDevEuis::fromMap($map['SuccessDevEuis']);
         }
         if (isset($map['TaskId'])) {
             $model->taskId = $map['TaskId'];
@@ -131,12 +137,6 @@ class GetNodesAddingTaskResponseBody extends Model
         }
         if (isset($map['TotalCount'])) {
             $model->totalCount = $map['TotalCount'];
-        }
-        if (isset($map['SuccessCount'])) {
-            $model->successCount = $map['SuccessCount'];
-        }
-        if (isset($map['SuccessDevEuis'])) {
-            $model->successDevEuis = successDevEuis::fromMap($map['SuccessDevEuis']);
         }
 
         return $model;

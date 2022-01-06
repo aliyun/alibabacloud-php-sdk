@@ -9,14 +9,19 @@ use AlibabaCloud\Tea\Model;
 class BatchPubRequest extends Model
 {
     /**
+     * @var string[]
+     */
+    public $deviceName;
+
+    /**
      * @var string
      */
     public $iotInstanceId;
 
     /**
-     * @var string[]
+     * @var string
      */
-    public $deviceName;
+    public $messageContent;
 
     /**
      * @var string
@@ -32,18 +37,13 @@ class BatchPubRequest extends Model
      * @var string
      */
     public $topicShortName;
-
-    /**
-     * @var string
-     */
-    public $messageContent;
     protected $_name = [
-        'iotInstanceId'  => 'IotInstanceId',
         'deviceName'     => 'DeviceName',
+        'iotInstanceId'  => 'IotInstanceId',
+        'messageContent' => 'MessageContent',
         'productKey'     => 'ProductKey',
         'qos'            => 'Qos',
         'topicShortName' => 'TopicShortName',
-        'messageContent' => 'MessageContent',
     ];
 
     public function validate()
@@ -53,11 +53,14 @@ class BatchPubRequest extends Model
     public function toMap()
     {
         $res = [];
+        if (null !== $this->deviceName) {
+            $res['DeviceName'] = $this->deviceName;
+        }
         if (null !== $this->iotInstanceId) {
             $res['IotInstanceId'] = $this->iotInstanceId;
         }
-        if (null !== $this->deviceName) {
-            $res['DeviceName'] = $this->deviceName;
+        if (null !== $this->messageContent) {
+            $res['MessageContent'] = $this->messageContent;
         }
         if (null !== $this->productKey) {
             $res['ProductKey'] = $this->productKey;
@@ -67,9 +70,6 @@ class BatchPubRequest extends Model
         }
         if (null !== $this->topicShortName) {
             $res['TopicShortName'] = $this->topicShortName;
-        }
-        if (null !== $this->messageContent) {
-            $res['MessageContent'] = $this->messageContent;
         }
 
         return $res;
@@ -83,13 +83,16 @@ class BatchPubRequest extends Model
     public static function fromMap($map = [])
     {
         $model = new self();
-        if (isset($map['IotInstanceId'])) {
-            $model->iotInstanceId = $map['IotInstanceId'];
-        }
         if (isset($map['DeviceName'])) {
             if (!empty($map['DeviceName'])) {
                 $model->deviceName = $map['DeviceName'];
             }
+        }
+        if (isset($map['IotInstanceId'])) {
+            $model->iotInstanceId = $map['IotInstanceId'];
+        }
+        if (isset($map['MessageContent'])) {
+            $model->messageContent = $map['MessageContent'];
         }
         if (isset($map['ProductKey'])) {
             $model->productKey = $map['ProductKey'];
@@ -99,9 +102,6 @@ class BatchPubRequest extends Model
         }
         if (isset($map['TopicShortName'])) {
             $model->topicShortName = $map['TopicShortName'];
-        }
-        if (isset($map['MessageContent'])) {
-            $model->messageContent = $map['MessageContent'];
         }
 
         return $model;

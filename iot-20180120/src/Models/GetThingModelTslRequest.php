@@ -11,12 +11,12 @@ class GetThingModelTslRequest extends Model
     /**
      * @var string
      */
-    public $iotInstanceId;
+    public $functionBlockId;
 
     /**
      * @var string
      */
-    public $productKey;
+    public $iotInstanceId;
 
     /**
      * @var string
@@ -24,20 +24,20 @@ class GetThingModelTslRequest extends Model
     public $modelVersion;
 
     /**
+     * @var string
+     */
+    public $productKey;
+
+    /**
      * @var bool
      */
     public $simple;
-
-    /**
-     * @var string
-     */
-    public $functionBlockId;
     protected $_name = [
-        'iotInstanceId'   => 'IotInstanceId',
-        'productKey'      => 'ProductKey',
-        'modelVersion'    => 'ModelVersion',
-        'simple'          => 'Simple',
         'functionBlockId' => 'FunctionBlockId',
+        'iotInstanceId'   => 'IotInstanceId',
+        'modelVersion'    => 'ModelVersion',
+        'productKey'      => 'ProductKey',
+        'simple'          => 'Simple',
     ];
 
     public function validate()
@@ -47,20 +47,20 @@ class GetThingModelTslRequest extends Model
     public function toMap()
     {
         $res = [];
+        if (null !== $this->functionBlockId) {
+            $res['FunctionBlockId'] = $this->functionBlockId;
+        }
         if (null !== $this->iotInstanceId) {
             $res['IotInstanceId'] = $this->iotInstanceId;
-        }
-        if (null !== $this->productKey) {
-            $res['ProductKey'] = $this->productKey;
         }
         if (null !== $this->modelVersion) {
             $res['ModelVersion'] = $this->modelVersion;
         }
+        if (null !== $this->productKey) {
+            $res['ProductKey'] = $this->productKey;
+        }
         if (null !== $this->simple) {
             $res['Simple'] = $this->simple;
-        }
-        if (null !== $this->functionBlockId) {
-            $res['FunctionBlockId'] = $this->functionBlockId;
         }
 
         return $res;
@@ -74,20 +74,20 @@ class GetThingModelTslRequest extends Model
     public static function fromMap($map = [])
     {
         $model = new self();
+        if (isset($map['FunctionBlockId'])) {
+            $model->functionBlockId = $map['FunctionBlockId'];
+        }
         if (isset($map['IotInstanceId'])) {
             $model->iotInstanceId = $map['IotInstanceId'];
-        }
-        if (isset($map['ProductKey'])) {
-            $model->productKey = $map['ProductKey'];
         }
         if (isset($map['ModelVersion'])) {
             $model->modelVersion = $map['ModelVersion'];
         }
+        if (isset($map['ProductKey'])) {
+            $model->productKey = $map['ProductKey'];
+        }
         if (isset($map['Simple'])) {
             $model->simple = $map['Simple'];
-        }
-        if (isset($map['FunctionBlockId'])) {
-            $model->functionBlockId = $map['FunctionBlockId'];
         }
 
         return $model;

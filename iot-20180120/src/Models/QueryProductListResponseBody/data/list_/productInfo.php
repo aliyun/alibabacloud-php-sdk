@@ -9,9 +9,9 @@ use AlibabaCloud\Tea\Model;
 class productInfo extends Model
 {
     /**
-     * @var int
+     * @var string
      */
-    public $gmtCreate;
+    public $authType;
 
     /**
      * @var int
@@ -31,6 +31,11 @@ class productInfo extends Model
     /**
      * @var int
      */
+    public $gmtCreate;
+
+    /**
+     * @var int
+     */
     public $nodeType;
 
     /**
@@ -42,20 +47,15 @@ class productInfo extends Model
      * @var string
      */
     public $productName;
-
-    /**
-     * @var string
-     */
-    public $authType;
     protected $_name = [
-        'gmtCreate'   => 'GmtCreate',
+        'authType'    => 'AuthType',
         'dataFormat'  => 'DataFormat',
         'description' => 'Description',
         'deviceCount' => 'DeviceCount',
+        'gmtCreate'   => 'GmtCreate',
         'nodeType'    => 'NodeType',
         'productKey'  => 'ProductKey',
         'productName' => 'ProductName',
-        'authType'    => 'AuthType',
     ];
 
     public function validate()
@@ -65,8 +65,8 @@ class productInfo extends Model
     public function toMap()
     {
         $res = [];
-        if (null !== $this->gmtCreate) {
-            $res['GmtCreate'] = $this->gmtCreate;
+        if (null !== $this->authType) {
+            $res['AuthType'] = $this->authType;
         }
         if (null !== $this->dataFormat) {
             $res['DataFormat'] = $this->dataFormat;
@@ -77,6 +77,9 @@ class productInfo extends Model
         if (null !== $this->deviceCount) {
             $res['DeviceCount'] = $this->deviceCount;
         }
+        if (null !== $this->gmtCreate) {
+            $res['GmtCreate'] = $this->gmtCreate;
+        }
         if (null !== $this->nodeType) {
             $res['NodeType'] = $this->nodeType;
         }
@@ -85,9 +88,6 @@ class productInfo extends Model
         }
         if (null !== $this->productName) {
             $res['ProductName'] = $this->productName;
-        }
-        if (null !== $this->authType) {
-            $res['AuthType'] = $this->authType;
         }
 
         return $res;
@@ -101,8 +101,8 @@ class productInfo extends Model
     public static function fromMap($map = [])
     {
         $model = new self();
-        if (isset($map['GmtCreate'])) {
-            $model->gmtCreate = $map['GmtCreate'];
+        if (isset($map['AuthType'])) {
+            $model->authType = $map['AuthType'];
         }
         if (isset($map['DataFormat'])) {
             $model->dataFormat = $map['DataFormat'];
@@ -113,6 +113,9 @@ class productInfo extends Model
         if (isset($map['DeviceCount'])) {
             $model->deviceCount = $map['DeviceCount'];
         }
+        if (isset($map['GmtCreate'])) {
+            $model->gmtCreate = $map['GmtCreate'];
+        }
         if (isset($map['NodeType'])) {
             $model->nodeType = $map['NodeType'];
         }
@@ -121,9 +124,6 @@ class productInfo extends Model
         }
         if (isset($map['ProductName'])) {
             $model->productName = $map['ProductName'];
-        }
-        if (isset($map['AuthType'])) {
-            $model->authType = $map['AuthType'];
         }
 
         return $model;

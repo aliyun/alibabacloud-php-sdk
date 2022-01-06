@@ -16,12 +16,12 @@ class config extends Model
     /**
      * @var string
      */
-    public $format;
+    public $content;
 
     /**
      * @var string
      */
-    public $content;
+    public $format;
 
     /**
      * @var string
@@ -29,8 +29,8 @@ class config extends Model
     public $key;
     protected $_name = [
         'configId' => 'ConfigId',
-        'format'   => 'Format',
         'content'  => 'Content',
+        'format'   => 'Format',
         'key'      => 'Key',
     ];
 
@@ -44,11 +44,11 @@ class config extends Model
         if (null !== $this->configId) {
             $res['ConfigId'] = $this->configId;
         }
-        if (null !== $this->format) {
-            $res['Format'] = $this->format;
-        }
         if (null !== $this->content) {
             $res['Content'] = $this->content;
+        }
+        if (null !== $this->format) {
+            $res['Format'] = $this->format;
         }
         if (null !== $this->key) {
             $res['Key'] = $this->key;
@@ -68,11 +68,11 @@ class config extends Model
         if (isset($map['ConfigId'])) {
             $model->configId = $map['ConfigId'];
         }
-        if (isset($map['Format'])) {
-            $model->format = $map['Format'];
-        }
         if (isset($map['Content'])) {
             $model->content = $map['Content'];
+        }
+        if (isset($map['Format'])) {
+            $model->format = $map['Format'];
         }
         if (isset($map['Key'])) {
             $model->key = $map['Key'];

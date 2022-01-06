@@ -9,14 +9,19 @@ use AlibabaCloud\Tea\Model;
 class ListDeviceDistributeJobRequest extends Model
 {
     /**
-     * @var string
-     */
-    public $targetUid;
-
-    /**
      * @var int
      */
     public $currentPage;
+
+    /**
+     * @var string
+     */
+    public $jobId;
+
+    /**
+     * @var string
+     */
+    public $nextToken;
 
     /**
      * @var int
@@ -31,13 +36,14 @@ class ListDeviceDistributeJobRequest extends Model
     /**
      * @var string
      */
-    public $jobId;
+    public $targetUid;
     protected $_name = [
-        'targetUid'   => 'TargetUid',
         'currentPage' => 'CurrentPage',
+        'jobId'       => 'JobId',
+        'nextToken'   => 'NextToken',
         'pageSize'    => 'PageSize',
         'status'      => 'Status',
-        'jobId'       => 'JobId',
+        'targetUid'   => 'TargetUid',
     ];
 
     public function validate()
@@ -47,11 +53,14 @@ class ListDeviceDistributeJobRequest extends Model
     public function toMap()
     {
         $res = [];
-        if (null !== $this->targetUid) {
-            $res['TargetUid'] = $this->targetUid;
-        }
         if (null !== $this->currentPage) {
             $res['CurrentPage'] = $this->currentPage;
+        }
+        if (null !== $this->jobId) {
+            $res['JobId'] = $this->jobId;
+        }
+        if (null !== $this->nextToken) {
+            $res['NextToken'] = $this->nextToken;
         }
         if (null !== $this->pageSize) {
             $res['PageSize'] = $this->pageSize;
@@ -59,8 +68,8 @@ class ListDeviceDistributeJobRequest extends Model
         if (null !== $this->status) {
             $res['Status'] = $this->status;
         }
-        if (null !== $this->jobId) {
-            $res['JobId'] = $this->jobId;
+        if (null !== $this->targetUid) {
+            $res['TargetUid'] = $this->targetUid;
         }
 
         return $res;
@@ -74,11 +83,14 @@ class ListDeviceDistributeJobRequest extends Model
     public static function fromMap($map = [])
     {
         $model = new self();
-        if (isset($map['TargetUid'])) {
-            $model->targetUid = $map['TargetUid'];
-        }
         if (isset($map['CurrentPage'])) {
             $model->currentPage = $map['CurrentPage'];
+        }
+        if (isset($map['JobId'])) {
+            $model->jobId = $map['JobId'];
+        }
+        if (isset($map['NextToken'])) {
+            $model->nextToken = $map['NextToken'];
         }
         if (isset($map['PageSize'])) {
             $model->pageSize = $map['PageSize'];
@@ -86,8 +98,8 @@ class ListDeviceDistributeJobRequest extends Model
         if (isset($map['Status'])) {
             $model->status = $map['Status'];
         }
-        if (isset($map['JobId'])) {
-            $model->jobId = $map['JobId'];
+        if (isset($map['TargetUid'])) {
+            $model->targetUid = $map['TargetUid'];
         }
 
         return $model;

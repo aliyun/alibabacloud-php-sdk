@@ -15,6 +15,11 @@ class data extends Model
     public $currentPage;
 
     /**
+     * @var list_
+     */
+    public $list;
+
+    /**
      * @var int
      */
     public $pageCount;
@@ -28,17 +33,12 @@ class data extends Model
      * @var int
      */
     public $total;
-
-    /**
-     * @var list_
-     */
-    public $list;
     protected $_name = [
         'currentPage' => 'CurrentPage',
+        'list'        => 'List',
         'pageCount'   => 'PageCount',
         'pageSize'    => 'PageSize',
         'total'       => 'Total',
-        'list'        => 'List',
     ];
 
     public function validate()
@@ -51,6 +51,9 @@ class data extends Model
         if (null !== $this->currentPage) {
             $res['CurrentPage'] = $this->currentPage;
         }
+        if (null !== $this->list) {
+            $res['List'] = null !== $this->list ? $this->list->toMap() : null;
+        }
         if (null !== $this->pageCount) {
             $res['PageCount'] = $this->pageCount;
         }
@@ -59,9 +62,6 @@ class data extends Model
         }
         if (null !== $this->total) {
             $res['Total'] = $this->total;
-        }
-        if (null !== $this->list) {
-            $res['List'] = null !== $this->list ? $this->list->toMap() : null;
         }
 
         return $res;
@@ -78,6 +78,9 @@ class data extends Model
         if (isset($map['CurrentPage'])) {
             $model->currentPage = $map['CurrentPage'];
         }
+        if (isset($map['List'])) {
+            $model->list = list_::fromMap($map['List']);
+        }
         if (isset($map['PageCount'])) {
             $model->pageCount = $map['PageCount'];
         }
@@ -86,9 +89,6 @@ class data extends Model
         }
         if (isset($map['Total'])) {
             $model->total = $map['Total'];
-        }
-        if (isset($map['List'])) {
-            $model->list = list_::fromMap($map['List']);
         }
 
         return $model;
