@@ -704,9 +704,6 @@ class Config extends OpenApiClient
         if (!Utils::isUnset($request->aggregatorId)) {
             $query['AggregatorId'] = $request->aggregatorId;
         }
-        if (!Utils::isUnset($request->folderId)) {
-            $query['FolderId'] = $request->folderId;
-        }
         if (!Utils::isUnset($request->pageNumber)) {
             $query['PageNumber'] = $request->pageNumber;
         }

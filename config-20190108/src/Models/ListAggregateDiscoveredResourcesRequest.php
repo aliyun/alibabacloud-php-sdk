@@ -14,13 +14,6 @@ class ListAggregateDiscoveredResourcesRequest extends Model
     public $aggregatorId;
 
     /**
-     * @description 资源夹ID
-     *
-     * @var string
-     */
-    public $folderId;
-
-    /**
      * @var int
      */
     public $pageNumber;
@@ -56,7 +49,6 @@ class ListAggregateDiscoveredResourcesRequest extends Model
     public $resourceTypes;
     protected $_name = [
         'aggregatorId'    => 'AggregatorId',
-        'folderId'        => 'FolderId',
         'pageNumber'      => 'PageNumber',
         'pageSize'        => 'PageSize',
         'regions'         => 'Regions',
@@ -75,9 +67,6 @@ class ListAggregateDiscoveredResourcesRequest extends Model
         $res = [];
         if (null !== $this->aggregatorId) {
             $res['AggregatorId'] = $this->aggregatorId;
-        }
-        if (null !== $this->folderId) {
-            $res['FolderId'] = $this->folderId;
         }
         if (null !== $this->pageNumber) {
             $res['PageNumber'] = $this->pageNumber;
@@ -114,9 +103,6 @@ class ListAggregateDiscoveredResourcesRequest extends Model
         $model = new self();
         if (isset($map['AggregatorId'])) {
             $model->aggregatorId = $map['AggregatorId'];
-        }
-        if (isset($map['FolderId'])) {
-            $model->folderId = $map['FolderId'];
         }
         if (isset($map['PageNumber'])) {
             $model->pageNumber = $map['PageNumber'];
