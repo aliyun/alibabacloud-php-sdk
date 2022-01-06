@@ -41,9 +41,6 @@ use AlibabaCloud\SDK\Dcdn\V20180115\Models\CreateRoutineResponse;
 use AlibabaCloud\SDK\Dcdn\V20180115\Models\CreateRoutineShrinkRequest;
 use AlibabaCloud\SDK\Dcdn\V20180115\Models\CreateSlrAndSlsProjectRequest;
 use AlibabaCloud\SDK\Dcdn\V20180115\Models\CreateSlrAndSlsProjectResponse;
-use AlibabaCloud\SDK\Dcdn\V20180115\Models\DcdnHttpRequestTestToolRequest;
-use AlibabaCloud\SDK\Dcdn\V20180115\Models\DcdnHttpRequestTestToolResponse;
-use AlibabaCloud\SDK\Dcdn\V20180115\Models\DcdnHttpRequestTestToolShrinkRequest;
 use AlibabaCloud\SDK\Dcdn\V20180115\Models\DeleteDcdnDeliverTaskRequest;
 use AlibabaCloud\SDK\Dcdn\V20180115\Models\DeleteDcdnDeliverTaskResponse;
 use AlibabaCloud\SDK\Dcdn\V20180115\Models\DeleteDcdnDomainRequest;
@@ -262,8 +259,6 @@ use AlibabaCloud\SDK\Dcdn\V20180115\Models\DescribeUserLogserviceStatusResponse;
 use AlibabaCloud\SDK\Dcdn\V20180115\Models\EditRoutineConfRequest;
 use AlibabaCloud\SDK\Dcdn\V20180115\Models\EditRoutineConfResponse;
 use AlibabaCloud\SDK\Dcdn\V20180115\Models\EditRoutineConfShrinkRequest;
-use AlibabaCloud\SDK\Dcdn\V20180115\Models\ListDcdnEsTemplateInfoRequest;
-use AlibabaCloud\SDK\Dcdn\V20180115\Models\ListDcdnEsTemplateInfoResponse;
 use AlibabaCloud\SDK\Dcdn\V20180115\Models\ListDcdnRealTimeDeliveryProjectRequest;
 use AlibabaCloud\SDK\Dcdn\V20180115\Models\ListDcdnRealTimeDeliveryProjectResponse;
 use AlibabaCloud\SDK\Dcdn\V20180115\Models\ModifyDCdnDomainSchdmByPropertyRequest;
@@ -1400,80 +1395,6 @@ class Dcdn extends OpenApiClient
         $runtime = new RuntimeOptions([]);
 
         return $this->createSlrAndSlsProjectWithOptions($request, $runtime);
-    }
-
-    /**
-     * @param DcdnHttpRequestTestToolRequest $tmpReq
-     * @param RuntimeOptions                 $runtime
-     *
-     * @return DcdnHttpRequestTestToolResponse
-     */
-    public function dcdnHttpRequestTestToolWithOptions($tmpReq, $runtime)
-    {
-        Utils::validateModel($tmpReq);
-        $request = new DcdnHttpRequestTestToolShrinkRequest([]);
-        OpenApiUtilClient::convert($tmpReq, $request);
-        if (!Utils::isUnset($tmpReq->header)) {
-            $request->headerShrink = OpenApiUtilClient::arrayToStringWithSpecifiedStyle($tmpReq->header, 'Header', 'json');
-        }
-        $query = [];
-        if (!Utils::isUnset($request->ownerId)) {
-            $query['OwnerId'] = $request->ownerId;
-        }
-        $body = [];
-        if (!Utils::isUnset($request->args)) {
-            $body['Args'] = $request->args;
-        }
-        if (!Utils::isUnset($request->body)) {
-            $body['Body'] = $request->body;
-        }
-        if (!Utils::isUnset($request->headerShrink)) {
-            $body['Header'] = $request->headerShrink;
-        }
-        if (!Utils::isUnset($request->host)) {
-            $body['Host'] = $request->host;
-        }
-        if (!Utils::isUnset($request->method)) {
-            $body['Method'] = $request->method;
-        }
-        if (!Utils::isUnset($request->proxyIp)) {
-            $body['ProxyIp'] = $request->proxyIp;
-        }
-        if (!Utils::isUnset($request->scheme)) {
-            $body['Scheme'] = $request->scheme;
-        }
-        if (!Utils::isUnset($request->uri)) {
-            $body['Uri'] = $request->uri;
-        }
-        $req = new OpenApiRequest([
-            'query' => OpenApiUtilClient::query($query),
-            'body'  => OpenApiUtilClient::parseToMap($body),
-        ]);
-        $params = new Params([
-            'action'      => 'DcdnHttpRequestTestTool',
-            'version'     => '2018-01-15',
-            'protocol'    => 'HTTP',
-            'pathname'    => '/',
-            'method'      => 'POST',
-            'authType'    => 'AK',
-            'style'       => 'RPC',
-            'reqBodyType' => 'formData',
-            'bodyType'    => 'json',
-        ]);
-
-        return DcdnHttpRequestTestToolResponse::fromMap($this->callApi($params, $req, $runtime));
-    }
-
-    /**
-     * @param DcdnHttpRequestTestToolRequest $request
-     *
-     * @return DcdnHttpRequestTestToolResponse
-     */
-    public function dcdnHttpRequestTestTool($request)
-    {
-        $runtime = new RuntimeOptions([]);
-
-        return $this->dcdnHttpRequestTestToolWithOptions($request, $runtime);
     }
 
     /**
@@ -7028,46 +6949,6 @@ class Dcdn extends OpenApiClient
         $runtime = new RuntimeOptions([]);
 
         return $this->editRoutineConfWithOptions($request, $runtime);
-    }
-
-    /**
-     * @param ListDcdnEsTemplateInfoRequest $request
-     * @param RuntimeOptions                $runtime
-     *
-     * @return ListDcdnEsTemplateInfoResponse
-     */
-    public function listDcdnEsTemplateInfoWithOptions($request, $runtime)
-    {
-        Utils::validateModel($request);
-        $query = OpenApiUtilClient::query(Utils::toMap($request));
-        $req   = new OpenApiRequest([
-            'query' => OpenApiUtilClient::query($query),
-        ]);
-        $params = new Params([
-            'action'      => 'ListDcdnEsTemplateInfo',
-            'version'     => '2018-01-15',
-            'protocol'    => 'HTTP',
-            'pathname'    => '/',
-            'method'      => 'GET',
-            'authType'    => 'AK',
-            'style'       => 'RPC',
-            'reqBodyType' => 'formData',
-            'bodyType'    => 'json',
-        ]);
-
-        return ListDcdnEsTemplateInfoResponse::fromMap($this->callApi($params, $req, $runtime));
-    }
-
-    /**
-     * @param ListDcdnEsTemplateInfoRequest $request
-     *
-     * @return ListDcdnEsTemplateInfoResponse
-     */
-    public function listDcdnEsTemplateInfo($request)
-    {
-        $runtime = new RuntimeOptions([]);
-
-        return $this->listDcdnEsTemplateInfoWithOptions($request, $runtime);
     }
 
     /**
