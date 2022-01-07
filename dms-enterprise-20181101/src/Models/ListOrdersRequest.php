@@ -41,11 +41,6 @@ class ListOrdersRequest extends Model
     /**
      * @var string
      */
-    public $regionId;
-
-    /**
-     * @var string
-     */
     public $searchContent;
 
     /**
@@ -69,7 +64,6 @@ class ListOrdersRequest extends Model
         'pageNumber'      => 'PageNumber',
         'pageSize'        => 'PageSize',
         'pluginType'      => 'PluginType',
-        'regionId'        => 'RegionId',
         'searchContent'   => 'SearchContent',
         'searchDateType'  => 'SearchDateType',
         'startTime'       => 'StartTime',
@@ -100,9 +94,6 @@ class ListOrdersRequest extends Model
         }
         if (null !== $this->pluginType) {
             $res['PluginType'] = $this->pluginType;
-        }
-        if (null !== $this->regionId) {
-            $res['RegionId'] = $this->regionId;
         }
         if (null !== $this->searchContent) {
             $res['SearchContent'] = $this->searchContent;
@@ -145,9 +136,6 @@ class ListOrdersRequest extends Model
         }
         if (isset($map['PluginType'])) {
             $model->pluginType = $map['PluginType'];
-        }
-        if (isset($map['RegionId'])) {
-            $model->regionId = $map['RegionId'];
         }
         if (isset($map['SearchContent'])) {
             $model->searchContent = $map['SearchContent'];

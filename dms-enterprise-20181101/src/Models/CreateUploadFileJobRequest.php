@@ -19,11 +19,6 @@ class CreateUploadFileJobRequest extends Model
     public $fileSource;
 
     /**
-     * @var string
-     */
-    public $regionId;
-
-    /**
      * @var int
      */
     public $tid;
@@ -35,7 +30,6 @@ class CreateUploadFileJobRequest extends Model
     protected $_name = [
         'fileName'   => 'FileName',
         'fileSource' => 'FileSource',
-        'regionId'   => 'RegionId',
         'tid'        => 'Tid',
         'uploadURL'  => 'UploadURL',
     ];
@@ -52,9 +46,6 @@ class CreateUploadFileJobRequest extends Model
         }
         if (null !== $this->fileSource) {
             $res['FileSource'] = $this->fileSource;
-        }
-        if (null !== $this->regionId) {
-            $res['RegionId'] = $this->regionId;
         }
         if (null !== $this->tid) {
             $res['Tid'] = $this->tid;
@@ -79,9 +70,6 @@ class CreateUploadFileJobRequest extends Model
         }
         if (isset($map['FileSource'])) {
             $model->fileSource = $map['FileSource'];
-        }
-        if (isset($map['RegionId'])) {
-            $model->regionId = $map['RegionId'];
         }
         if (isset($map['Tid'])) {
             $model->tid = $map['Tid'];

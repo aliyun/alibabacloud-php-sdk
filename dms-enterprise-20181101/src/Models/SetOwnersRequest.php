@@ -21,11 +21,6 @@ class SetOwnersRequest extends Model
     /**
      * @var string
      */
-    public $regionId;
-
-    /**
-     * @var string
-     */
     public $resourceId;
 
     /**
@@ -35,7 +30,6 @@ class SetOwnersRequest extends Model
     protected $_name = [
         'ownerIds'   => 'OwnerIds',
         'ownerType'  => 'OwnerType',
-        'regionId'   => 'RegionId',
         'resourceId' => 'ResourceId',
         'tid'        => 'Tid',
     ];
@@ -52,9 +46,6 @@ class SetOwnersRequest extends Model
         }
         if (null !== $this->ownerType) {
             $res['OwnerType'] = $this->ownerType;
-        }
-        if (null !== $this->regionId) {
-            $res['RegionId'] = $this->regionId;
         }
         if (null !== $this->resourceId) {
             $res['ResourceId'] = $this->resourceId;
@@ -79,9 +70,6 @@ class SetOwnersRequest extends Model
         }
         if (isset($map['OwnerType'])) {
             $model->ownerType = $map['OwnerType'];
-        }
-        if (isset($map['RegionId'])) {
-            $model->regionId = $map['RegionId'];
         }
         if (isset($map['ResourceId'])) {
             $model->resourceId = $map['ResourceId'];

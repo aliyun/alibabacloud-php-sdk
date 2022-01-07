@@ -31,11 +31,6 @@ class CreateOrderShrinkRequest extends Model
     /**
      * @var string
      */
-    public $regionId;
-
-    /**
-     * @var string
-     */
     public $relatedUserList;
 
     /**
@@ -47,7 +42,6 @@ class CreateOrderShrinkRequest extends Model
         'comment'           => 'Comment',
         'pluginParamShrink' => 'PluginParam',
         'pluginType'        => 'PluginType',
-        'regionId'          => 'RegionId',
         'relatedUserList'   => 'RelatedUserList',
         'tid'               => 'Tid',
     ];
@@ -70,9 +64,6 @@ class CreateOrderShrinkRequest extends Model
         }
         if (null !== $this->pluginType) {
             $res['PluginType'] = $this->pluginType;
-        }
-        if (null !== $this->regionId) {
-            $res['RegionId'] = $this->regionId;
         }
         if (null !== $this->relatedUserList) {
             $res['RelatedUserList'] = $this->relatedUserList;
@@ -103,9 +94,6 @@ class CreateOrderShrinkRequest extends Model
         }
         if (isset($map['PluginType'])) {
             $model->pluginType = $map['PluginType'];
-        }
-        if (isset($map['RegionId'])) {
-            $model->regionId = $map['RegionId'];
         }
         if (isset($map['RelatedUserList'])) {
             $model->relatedUserList = $map['RelatedUserList'];

@@ -36,11 +36,6 @@ class ListProxySQLExecAuditLogRequest extends Model
     /**
      * @var string
      */
-    public $regionId;
-
-    /**
-     * @var string
-     */
     public $SQLType;
 
     /**
@@ -63,7 +58,6 @@ class ListProxySQLExecAuditLogRequest extends Model
         'opUserName' => 'OpUserName',
         'pageNumber' => 'PageNumber',
         'pageSize'   => 'PageSize',
-        'regionId'   => 'RegionId',
         'SQLType'    => 'SQLType',
         'searchName' => 'SearchName',
         'startTime'  => 'StartTime',
@@ -91,9 +85,6 @@ class ListProxySQLExecAuditLogRequest extends Model
         }
         if (null !== $this->pageSize) {
             $res['PageSize'] = $this->pageSize;
-        }
-        if (null !== $this->regionId) {
-            $res['RegionId'] = $this->regionId;
         }
         if (null !== $this->SQLType) {
             $res['SQLType'] = $this->SQLType;
@@ -133,9 +124,6 @@ class ListProxySQLExecAuditLogRequest extends Model
         }
         if (isset($map['PageSize'])) {
             $model->pageSize = $map['PageSize'];
-        }
-        if (isset($map['RegionId'])) {
-            $model->regionId = $map['RegionId'];
         }
         if (isset($map['SQLType'])) {
             $model->SQLType = $map['SQLType'];

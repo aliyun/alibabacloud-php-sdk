@@ -11,11 +11,6 @@ class GetMetaTableDetailInfoRequest extends Model
     /**
      * @var string
      */
-    public $regionId;
-
-    /**
-     * @var string
-     */
     public $tableGuid;
 
     /**
@@ -23,7 +18,6 @@ class GetMetaTableDetailInfoRequest extends Model
      */
     public $tid;
     protected $_name = [
-        'regionId'  => 'RegionId',
         'tableGuid' => 'TableGuid',
         'tid'       => 'Tid',
     ];
@@ -35,9 +29,6 @@ class GetMetaTableDetailInfoRequest extends Model
     public function toMap()
     {
         $res = [];
-        if (null !== $this->regionId) {
-            $res['RegionId'] = $this->regionId;
-        }
         if (null !== $this->tableGuid) {
             $res['TableGuid'] = $this->tableGuid;
         }
@@ -56,9 +47,6 @@ class GetMetaTableDetailInfoRequest extends Model
     public static function fromMap($map = [])
     {
         $model = new self();
-        if (isset($map['RegionId'])) {
-            $model->regionId = $map['RegionId'];
-        }
         if (isset($map['TableGuid'])) {
             $model->tableGuid = $map['TableGuid'];
         }

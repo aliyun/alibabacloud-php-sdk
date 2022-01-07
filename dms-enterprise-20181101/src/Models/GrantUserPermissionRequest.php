@@ -41,11 +41,6 @@ class GrantUserPermissionRequest extends Model
     /**
      * @var string
      */
-    public $regionId;
-
-    /**
-     * @var string
-     */
     public $tableId;
 
     /**
@@ -69,7 +64,6 @@ class GrantUserPermissionRequest extends Model
         'instanceId' => 'InstanceId',
         'logic'      => 'Logic',
         'permTypes'  => 'PermTypes',
-        'regionId'   => 'RegionId',
         'tableId'    => 'TableId',
         'tableName'  => 'TableName',
         'tid'        => 'Tid',
@@ -100,9 +94,6 @@ class GrantUserPermissionRequest extends Model
         }
         if (null !== $this->permTypes) {
             $res['PermTypes'] = $this->permTypes;
-        }
-        if (null !== $this->regionId) {
-            $res['RegionId'] = $this->regionId;
         }
         if (null !== $this->tableId) {
             $res['TableId'] = $this->tableId;
@@ -145,9 +136,6 @@ class GrantUserPermissionRequest extends Model
         }
         if (isset($map['PermTypes'])) {
             $model->permTypes = $map['PermTypes'];
-        }
-        if (isset($map['RegionId'])) {
-            $model->regionId = $map['RegionId'];
         }
         if (isset($map['TableId'])) {
             $model->tableId = $map['TableId'];

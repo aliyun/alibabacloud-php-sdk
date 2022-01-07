@@ -21,11 +21,6 @@ class ExecuteScriptRequest extends Model
     /**
      * @var string
      */
-    public $regionId;
-
-    /**
-     * @var string
-     */
     public $script;
 
     /**
@@ -33,11 +28,10 @@ class ExecuteScriptRequest extends Model
      */
     public $tid;
     protected $_name = [
-        'dbId'     => 'DbId',
-        'logic'    => 'Logic',
-        'regionId' => 'RegionId',
-        'script'   => 'Script',
-        'tid'      => 'Tid',
+        'dbId'   => 'DbId',
+        'logic'  => 'Logic',
+        'script' => 'Script',
+        'tid'    => 'Tid',
     ];
 
     public function validate()
@@ -52,9 +46,6 @@ class ExecuteScriptRequest extends Model
         }
         if (null !== $this->logic) {
             $res['Logic'] = $this->logic;
-        }
-        if (null !== $this->regionId) {
-            $res['RegionId'] = $this->regionId;
         }
         if (null !== $this->script) {
             $res['Script'] = $this->script;
@@ -79,9 +70,6 @@ class ExecuteScriptRequest extends Model
         }
         if (isset($map['Logic'])) {
             $model->logic = $map['Logic'];
-        }
-        if (isset($map['RegionId'])) {
-            $model->regionId = $map['RegionId'];
         }
         if (isset($map['Script'])) {
             $model->script = $map['Script'];

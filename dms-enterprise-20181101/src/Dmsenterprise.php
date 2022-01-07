@@ -121,6 +121,14 @@ use AlibabaCloud\SDK\Dmsenterprise\V20181101\Models\GetPhysicalDatabaseRequest;
 use AlibabaCloud\SDK\Dmsenterprise\V20181101\Models\GetPhysicalDatabaseResponse;
 use AlibabaCloud\SDK\Dmsenterprise\V20181101\Models\GetProxyRequest;
 use AlibabaCloud\SDK\Dmsenterprise\V20181101\Models\GetProxyResponse;
+use AlibabaCloud\SDK\Dmsenterprise\V20181101\Models\GetSparkJobDetailRequest;
+use AlibabaCloud\SDK\Dmsenterprise\V20181101\Models\GetSparkJobDetailResponse;
+use AlibabaCloud\SDK\Dmsenterprise\V20181101\Models\GetSparkJobDriverLogRequest;
+use AlibabaCloud\SDK\Dmsenterprise\V20181101\Models\GetSparkJobDriverLogResponse;
+use AlibabaCloud\SDK\Dmsenterprise\V20181101\Models\GetSparkJobExecutorLogsRequest;
+use AlibabaCloud\SDK\Dmsenterprise\V20181101\Models\GetSparkJobExecutorLogsResponse;
+use AlibabaCloud\SDK\Dmsenterprise\V20181101\Models\GetSparkJobLogRequest;
+use AlibabaCloud\SDK\Dmsenterprise\V20181101\Models\GetSparkJobLogResponse;
 use AlibabaCloud\SDK\Dmsenterprise\V20181101\Models\GetSQLReviewCheckResultStatusRequest;
 use AlibabaCloud\SDK\Dmsenterprise\V20181101\Models\GetSQLReviewCheckResultStatusResponse;
 use AlibabaCloud\SDK\Dmsenterprise\V20181101\Models\GetSQLReviewOptimizeDetailRequest;
@@ -147,6 +155,8 @@ use AlibabaCloud\SDK\Dmsenterprise\V20181101\Models\GrantUserPermissionRequest;
 use AlibabaCloud\SDK\Dmsenterprise\V20181101\Models\GrantUserPermissionResponse;
 use AlibabaCloud\SDK\Dmsenterprise\V20181101\Models\InspectProxyAccessSecretRequest;
 use AlibabaCloud\SDK\Dmsenterprise\V20181101\Models\InspectProxyAccessSecretResponse;
+use AlibabaCloud\SDK\Dmsenterprise\V20181101\Models\KillSparkJobRequest;
+use AlibabaCloud\SDK\Dmsenterprise\V20181101\Models\KillSparkJobResponse;
 use AlibabaCloud\SDK\Dmsenterprise\V20181101\Models\ListColumnsRequest;
 use AlibabaCloud\SDK\Dmsenterprise\V20181101\Models\ListColumnsResponse;
 use AlibabaCloud\SDK\Dmsenterprise\V20181101\Models\ListDatabasesRequest;
@@ -224,6 +234,9 @@ use AlibabaCloud\SDK\Dmsenterprise\V20181101\Models\SetOwnersRequest;
 use AlibabaCloud\SDK\Dmsenterprise\V20181101\Models\SetOwnersResponse;
 use AlibabaCloud\SDK\Dmsenterprise\V20181101\Models\SubmitOrderApprovalRequest;
 use AlibabaCloud\SDK\Dmsenterprise\V20181101\Models\SubmitOrderApprovalResponse;
+use AlibabaCloud\SDK\Dmsenterprise\V20181101\Models\SubmitSparkJobRequest;
+use AlibabaCloud\SDK\Dmsenterprise\V20181101\Models\SubmitSparkJobResponse;
+use AlibabaCloud\SDK\Dmsenterprise\V20181101\Models\SubmitSparkJobShrinkRequest;
 use AlibabaCloud\SDK\Dmsenterprise\V20181101\Models\SubmitStructSyncOrderApprovalRequest;
 use AlibabaCloud\SDK\Dmsenterprise\V20181101\Models\SubmitStructSyncOrderApprovalResponse;
 use AlibabaCloud\SDK\Dmsenterprise\V20181101\Models\SyncDatabaseMetaRequest;
@@ -283,12 +296,20 @@ class Dmsenterprise extends OpenApiClient
     public function addLogicTableRouteConfigWithOptions($request, $runtime)
     {
         Utils::validateModel($request);
-        $query              = [];
-        $query['RouteExpr'] = $request->routeExpr;
-        $query['RouteKey']  = $request->routeKey;
-        $query['TableId']   = $request->tableId;
-        $query['Tid']       = $request->tid;
-        $req                = new OpenApiRequest([
+        $query = [];
+        if (!Utils::isUnset($request->routeExpr)) {
+            $query['RouteExpr'] = $request->routeExpr;
+        }
+        if (!Utils::isUnset($request->routeKey)) {
+            $query['RouteKey'] = $request->routeKey;
+        }
+        if (!Utils::isUnset($request->tableId)) {
+            $query['TableId'] = $request->tableId;
+        }
+        if (!Utils::isUnset($request->tid)) {
+            $query['Tid'] = $request->tid;
+        }
+        $req = new OpenApiRequest([
             'query' => OpenApiUtilClient::query($query),
         ]);
         $params = new Params([
@@ -327,12 +348,20 @@ class Dmsenterprise extends OpenApiClient
     public function approveOrderWithOptions($request, $runtime)
     {
         Utils::validateModel($request);
-        $query                       = [];
-        $query['ApprovalType']       = $request->approvalType;
-        $query['Comment']            = $request->comment;
-        $query['Tid']                = $request->tid;
-        $query['WorkflowInstanceId'] = $request->workflowInstanceId;
-        $req                         = new OpenApiRequest([
+        $query = [];
+        if (!Utils::isUnset($request->approvalType)) {
+            $query['ApprovalType'] = $request->approvalType;
+        }
+        if (!Utils::isUnset($request->comment)) {
+            $query['Comment'] = $request->comment;
+        }
+        if (!Utils::isUnset($request->tid)) {
+            $query['Tid'] = $request->tid;
+        }
+        if (!Utils::isUnset($request->workflowInstanceId)) {
+            $query['WorkflowInstanceId'] = $request->workflowInstanceId;
+        }
+        $req = new OpenApiRequest([
             'query' => OpenApiUtilClient::query($query),
         ]);
         $params = new Params([
@@ -371,15 +400,29 @@ class Dmsenterprise extends OpenApiClient
     public function changeColumnSecLevelWithOptions($request, $runtime)
     {
         Utils::validateModel($request);
-        $query               = [];
-        $query['ColumnName'] = $request->columnName;
-        $query['DbId']       = $request->dbId;
-        $query['IsLogic']    = $request->isLogic;
-        $query['NewLevel']   = $request->newLevel;
-        $query['SchemaName'] = $request->schemaName;
-        $query['TableName']  = $request->tableName;
-        $query['Tid']        = $request->tid;
-        $req                 = new OpenApiRequest([
+        $query = [];
+        if (!Utils::isUnset($request->columnName)) {
+            $query['ColumnName'] = $request->columnName;
+        }
+        if (!Utils::isUnset($request->dbId)) {
+            $query['DbId'] = $request->dbId;
+        }
+        if (!Utils::isUnset($request->isLogic)) {
+            $query['IsLogic'] = $request->isLogic;
+        }
+        if (!Utils::isUnset($request->newLevel)) {
+            $query['NewLevel'] = $request->newLevel;
+        }
+        if (!Utils::isUnset($request->schemaName)) {
+            $query['SchemaName'] = $request->schemaName;
+        }
+        if (!Utils::isUnset($request->tableName)) {
+            $query['TableName'] = $request->tableName;
+        }
+        if (!Utils::isUnset($request->tid)) {
+            $query['Tid'] = $request->tid;
+        }
+        $req = new OpenApiRequest([
             'query' => OpenApiUtilClient::query($query),
         ]);
         $params = new Params([
@@ -418,11 +461,17 @@ class Dmsenterprise extends OpenApiClient
     public function closeOrderWithOptions($request, $runtime)
     {
         Utils::validateModel($request);
-        $query                = [];
-        $query['CloseReason'] = $request->closeReason;
-        $query['OrderId']     = $request->orderId;
-        $query['Tid']         = $request->tid;
-        $req                  = new OpenApiRequest([
+        $query = [];
+        if (!Utils::isUnset($request->closeReason)) {
+            $query['CloseReason'] = $request->closeReason;
+        }
+        if (!Utils::isUnset($request->orderId)) {
+            $query['OrderId'] = $request->orderId;
+        }
+        if (!Utils::isUnset($request->tid)) {
+            $query['Tid'] = $request->tid;
+        }
+        $req = new OpenApiRequest([
             'query' => OpenApiUtilClient::query($query),
         ]);
         $params = new Params([
@@ -469,13 +518,23 @@ class Dmsenterprise extends OpenApiClient
         if (!Utils::isUnset($tmpReq->relatedUserList)) {
             $request->relatedUserListShrink = OpenApiUtilClient::arrayToStringWithSpecifiedStyle($tmpReq->relatedUserList, 'RelatedUserList', 'json');
         }
-        $query                    = [];
-        $query['AttachmentKey']   = $request->attachmentKey;
-        $query['Comment']         = $request->comment;
-        $query['Param']           = $request->paramShrink;
-        $query['RelatedUserList'] = $request->relatedUserListShrink;
-        $query['Tid']             = $request->tid;
-        $req                      = new OpenApiRequest([
+        $query = [];
+        if (!Utils::isUnset($request->attachmentKey)) {
+            $query['AttachmentKey'] = $request->attachmentKey;
+        }
+        if (!Utils::isUnset($request->comment)) {
+            $query['Comment'] = $request->comment;
+        }
+        if (!Utils::isUnset($request->paramShrink)) {
+            $query['Param'] = $request->paramShrink;
+        }
+        if (!Utils::isUnset($request->relatedUserListShrink)) {
+            $query['RelatedUserList'] = $request->relatedUserListShrink;
+        }
+        if (!Utils::isUnset($request->tid)) {
+            $query['Tid'] = $request->tid;
+        }
+        $req = new OpenApiRequest([
             'query' => OpenApiUtilClient::query($query),
         ]);
         $params = new Params([
@@ -522,13 +581,23 @@ class Dmsenterprise extends OpenApiClient
         if (!Utils::isUnset($tmpReq->relatedUserList)) {
             $request->relatedUserListShrink = OpenApiUtilClient::arrayToStringWithSpecifiedStyle($tmpReq->relatedUserList, 'RelatedUserList', 'json');
         }
-        $query                    = [];
-        $query['AttachmentKey']   = $request->attachmentKey;
-        $query['Comment']         = $request->comment;
-        $query['Param']           = $request->paramShrink;
-        $query['RelatedUserList'] = $request->relatedUserListShrink;
-        $query['Tid']             = $request->tid;
-        $req                      = new OpenApiRequest([
+        $query = [];
+        if (!Utils::isUnset($request->attachmentKey)) {
+            $query['AttachmentKey'] = $request->attachmentKey;
+        }
+        if (!Utils::isUnset($request->comment)) {
+            $query['Comment'] = $request->comment;
+        }
+        if (!Utils::isUnset($request->paramShrink)) {
+            $query['Param'] = $request->paramShrink;
+        }
+        if (!Utils::isUnset($request->relatedUserListShrink)) {
+            $query['RelatedUserList'] = $request->relatedUserListShrink;
+        }
+        if (!Utils::isUnset($request->tid)) {
+            $query['Tid'] = $request->tid;
+        }
+        $req = new OpenApiRequest([
             'query' => OpenApiUtilClient::query($query),
         ]);
         $params = new Params([
@@ -575,13 +644,23 @@ class Dmsenterprise extends OpenApiClient
         if (!Utils::isUnset($tmpReq->relatedUserList)) {
             $request->relatedUserListShrink = OpenApiUtilClient::arrayToStringWithSpecifiedStyle($tmpReq->relatedUserList, 'RelatedUserList', 'json');
         }
-        $query                    = [];
-        $query['AttachmentKey']   = $request->attachmentKey;
-        $query['Comment']         = $request->comment;
-        $query['Param']           = $request->paramShrink;
-        $query['RelatedUserList'] = $request->relatedUserListShrink;
-        $query['Tid']             = $request->tid;
-        $req                      = new OpenApiRequest([
+        $query = [];
+        if (!Utils::isUnset($request->attachmentKey)) {
+            $query['AttachmentKey'] = $request->attachmentKey;
+        }
+        if (!Utils::isUnset($request->comment)) {
+            $query['Comment'] = $request->comment;
+        }
+        if (!Utils::isUnset($request->paramShrink)) {
+            $query['Param'] = $request->paramShrink;
+        }
+        if (!Utils::isUnset($request->relatedUserListShrink)) {
+            $query['RelatedUserList'] = $request->relatedUserListShrink;
+        }
+        if (!Utils::isUnset($request->tid)) {
+            $query['Tid'] = $request->tid;
+        }
+        $req = new OpenApiRequest([
             'query' => OpenApiUtilClient::query($query),
         ]);
         $params = new Params([
@@ -628,13 +707,23 @@ class Dmsenterprise extends OpenApiClient
         if (!Utils::isUnset($tmpReq->relatedUserList)) {
             $request->relatedUserListShrink = OpenApiUtilClient::arrayToStringWithSpecifiedStyle($tmpReq->relatedUserList, 'RelatedUserList', 'json');
         }
-        $query                    = [];
-        $query['AttachmentKey']   = $request->attachmentKey;
-        $query['Comment']         = $request->comment;
-        $query['Param']           = $request->paramShrink;
-        $query['RelatedUserList'] = $request->relatedUserListShrink;
-        $query['Tid']             = $request->tid;
-        $req                      = new OpenApiRequest([
+        $query = [];
+        if (!Utils::isUnset($request->attachmentKey)) {
+            $query['AttachmentKey'] = $request->attachmentKey;
+        }
+        if (!Utils::isUnset($request->comment)) {
+            $query['Comment'] = $request->comment;
+        }
+        if (!Utils::isUnset($request->paramShrink)) {
+            $query['Param'] = $request->paramShrink;
+        }
+        if (!Utils::isUnset($request->relatedUserListShrink)) {
+            $query['RelatedUserList'] = $request->relatedUserListShrink;
+        }
+        if (!Utils::isUnset($request->tid)) {
+            $query['Tid'] = $request->tid;
+        }
+        $req = new OpenApiRequest([
             'query' => OpenApiUtilClient::query($query),
         ]);
         $params = new Params([
@@ -678,11 +767,17 @@ class Dmsenterprise extends OpenApiClient
         if (!Utils::isUnset($tmpReq->databaseIds)) {
             $request->databaseIdsShrink = OpenApiUtilClient::arrayToStringWithSpecifiedStyle($tmpReq->databaseIds, 'DatabaseIds', 'json');
         }
-        $query                = [];
-        $query['Alias']       = $request->alias;
-        $query['DatabaseIds'] = $request->databaseIdsShrink;
-        $query['Tid']         = $request->tid;
-        $req                  = new OpenApiRequest([
+        $query = [];
+        if (!Utils::isUnset($request->alias)) {
+            $query['Alias'] = $request->alias;
+        }
+        if (!Utils::isUnset($request->databaseIdsShrink)) {
+            $query['DatabaseIds'] = $request->databaseIdsShrink;
+        }
+        if (!Utils::isUnset($request->tid)) {
+            $query['Tid'] = $request->tid;
+        }
+        $req = new OpenApiRequest([
             'query' => OpenApiUtilClient::query($query),
         ]);
         $params = new Params([
@@ -726,13 +821,23 @@ class Dmsenterprise extends OpenApiClient
         if (!Utils::isUnset($tmpReq->pluginParam)) {
             $request->pluginParamShrink = OpenApiUtilClient::arrayToStringWithSpecifiedStyle($tmpReq->pluginParam, 'PluginParam', 'json');
         }
-        $query                    = [];
-        $query['AttachmentKey']   = $request->attachmentKey;
-        $query['Comment']         = $request->comment;
-        $query['PluginType']      = $request->pluginType;
-        $query['RelatedUserList'] = $request->relatedUserList;
-        $query['Tid']             = $request->tid;
-        $body                     = [];
+        $query = [];
+        if (!Utils::isUnset($request->attachmentKey)) {
+            $query['AttachmentKey'] = $request->attachmentKey;
+        }
+        if (!Utils::isUnset($request->comment)) {
+            $query['Comment'] = $request->comment;
+        }
+        if (!Utils::isUnset($request->pluginType)) {
+            $query['PluginType'] = $request->pluginType;
+        }
+        if (!Utils::isUnset($request->relatedUserList)) {
+            $query['RelatedUserList'] = $request->relatedUserList;
+        }
+        if (!Utils::isUnset($request->tid)) {
+            $query['Tid'] = $request->tid;
+        }
+        $body = [];
         if (!Utils::isUnset($request->pluginParamShrink)) {
             $body['PluginParam'] = $request->pluginParamShrink;
         }
@@ -776,12 +881,20 @@ class Dmsenterprise extends OpenApiClient
     public function createProxyWithOptions($request, $runtime)
     {
         Utils::validateModel($request);
-        $query               = [];
-        $query['InstanceId'] = $request->instanceId;
-        $query['Password']   = $request->password;
-        $query['Tid']        = $request->tid;
-        $query['Username']   = $request->username;
-        $req                 = new OpenApiRequest([
+        $query = [];
+        if (!Utils::isUnset($request->instanceId)) {
+            $query['InstanceId'] = $request->instanceId;
+        }
+        if (!Utils::isUnset($request->password)) {
+            $query['Password'] = $request->password;
+        }
+        if (!Utils::isUnset($request->tid)) {
+            $query['Tid'] = $request->tid;
+        }
+        if (!Utils::isUnset($request->username)) {
+            $query['Username'] = $request->username;
+        }
+        $req = new OpenApiRequest([
             'query' => OpenApiUtilClient::query($query),
         ]);
         $params = new Params([
@@ -820,13 +933,23 @@ class Dmsenterprise extends OpenApiClient
     public function createProxyAccessWithOptions($request, $runtime)
     {
         Utils::validateModel($request);
-        $query                  = [];
-        $query['IndepAccount']  = $request->indepAccount;
-        $query['IndepPassword'] = $request->indepPassword;
-        $query['ProxyId']       = $request->proxyId;
-        $query['Tid']           = $request->tid;
-        $query['UserId']        = $request->userId;
-        $req                    = new OpenApiRequest([
+        $query = [];
+        if (!Utils::isUnset($request->indepAccount)) {
+            $query['IndepAccount'] = $request->indepAccount;
+        }
+        if (!Utils::isUnset($request->indepPassword)) {
+            $query['IndepPassword'] = $request->indepPassword;
+        }
+        if (!Utils::isUnset($request->proxyId)) {
+            $query['ProxyId'] = $request->proxyId;
+        }
+        if (!Utils::isUnset($request->tid)) {
+            $query['Tid'] = $request->tid;
+        }
+        if (!Utils::isUnset($request->userId)) {
+            $query['UserId'] = $request->userId;
+        }
+        $req = new OpenApiRequest([
             'query' => OpenApiUtilClient::query($query),
         ]);
         $params = new Params([
@@ -865,14 +988,26 @@ class Dmsenterprise extends OpenApiClient
     public function createPublishGroupTaskWithOptions($request, $runtime)
     {
         Utils::validateModel($request);
-        $query                    = [];
-        $query['DbId']            = $request->dbId;
-        $query['Logic']           = $request->logic;
-        $query['OrderId']         = $request->orderId;
-        $query['PlanTime']        = $request->planTime;
-        $query['PublishStrategy'] = $request->publishStrategy;
-        $query['Tid']             = $request->tid;
-        $req                      = new OpenApiRequest([
+        $query = [];
+        if (!Utils::isUnset($request->dbId)) {
+            $query['DbId'] = $request->dbId;
+        }
+        if (!Utils::isUnset($request->logic)) {
+            $query['Logic'] = $request->logic;
+        }
+        if (!Utils::isUnset($request->orderId)) {
+            $query['OrderId'] = $request->orderId;
+        }
+        if (!Utils::isUnset($request->planTime)) {
+            $query['PlanTime'] = $request->planTime;
+        }
+        if (!Utils::isUnset($request->publishStrategy)) {
+            $query['PublishStrategy'] = $request->publishStrategy;
+        }
+        if (!Utils::isUnset($request->tid)) {
+            $query['Tid'] = $request->tid;
+        }
+        $req = new OpenApiRequest([
             'query' => OpenApiUtilClient::query($query),
         ]);
         $params = new Params([
@@ -919,12 +1054,20 @@ class Dmsenterprise extends OpenApiClient
         if (!Utils::isUnset($tmpReq->relatedUserList)) {
             $request->relatedUserListShrink = OpenApiUtilClient::arrayToStringWithSpecifiedStyle($tmpReq->relatedUserList, 'RelatedUserList', 'json');
         }
-        $query                    = [];
-        $query['Comment']         = $request->comment;
-        $query['Param']           = $request->paramShrink;
-        $query['RelatedUserList'] = $request->relatedUserListShrink;
-        $query['Tid']             = $request->tid;
-        $req                      = new OpenApiRequest([
+        $query = [];
+        if (!Utils::isUnset($request->comment)) {
+            $query['Comment'] = $request->comment;
+        }
+        if (!Utils::isUnset($request->paramShrink)) {
+            $query['Param'] = $request->paramShrink;
+        }
+        if (!Utils::isUnset($request->relatedUserListShrink)) {
+            $query['RelatedUserList'] = $request->relatedUserListShrink;
+        }
+        if (!Utils::isUnset($request->tid)) {
+            $query['Tid'] = $request->tid;
+        }
+        $req = new OpenApiRequest([
             'query' => OpenApiUtilClient::query($query),
         ]);
         $params = new Params([
@@ -971,13 +1114,23 @@ class Dmsenterprise extends OpenApiClient
         if (!Utils::isUnset($tmpReq->relatedUserList)) {
             $request->relatedUserListShrink = OpenApiUtilClient::arrayToStringWithSpecifiedStyle($tmpReq->relatedUserList, 'RelatedUserList', 'json');
         }
-        $query                    = [];
-        $query['AttachmentKey']   = $request->attachmentKey;
-        $query['Comment']         = $request->comment;
-        $query['Param']           = $request->paramShrink;
-        $query['RelatedUserList'] = $request->relatedUserListShrink;
-        $query['Tid']             = $request->tid;
-        $req                      = new OpenApiRequest([
+        $query = [];
+        if (!Utils::isUnset($request->attachmentKey)) {
+            $query['AttachmentKey'] = $request->attachmentKey;
+        }
+        if (!Utils::isUnset($request->comment)) {
+            $query['Comment'] = $request->comment;
+        }
+        if (!Utils::isUnset($request->paramShrink)) {
+            $query['Param'] = $request->paramShrink;
+        }
+        if (!Utils::isUnset($request->relatedUserListShrink)) {
+            $query['RelatedUserList'] = $request->relatedUserListShrink;
+        }
+        if (!Utils::isUnset($request->tid)) {
+            $query['Tid'] = $request->tid;
+        }
+        $req = new OpenApiRequest([
             'query' => OpenApiUtilClient::query($query),
         ]);
         $params = new Params([
@@ -1016,12 +1169,20 @@ class Dmsenterprise extends OpenApiClient
     public function createUploadFileJobWithOptions($request, $runtime)
     {
         Utils::validateModel($request);
-        $query               = [];
-        $query['FileName']   = $request->fileName;
-        $query['FileSource'] = $request->fileSource;
-        $query['Tid']        = $request->tid;
-        $query['UploadURL']  = $request->uploadURL;
-        $req                 = new OpenApiRequest([
+        $query = [];
+        if (!Utils::isUnset($request->fileName)) {
+            $query['FileName'] = $request->fileName;
+        }
+        if (!Utils::isUnset($request->fileSource)) {
+            $query['FileSource'] = $request->fileSource;
+        }
+        if (!Utils::isUnset($request->tid)) {
+            $query['Tid'] = $request->tid;
+        }
+        if (!Utils::isUnset($request->uploadURL)) {
+            $query['UploadURL'] = $request->uploadURL;
+        }
+        $req = new OpenApiRequest([
             'query' => OpenApiUtilClient::query($query),
         ]);
         $params = new Params([
@@ -1065,12 +1226,20 @@ class Dmsenterprise extends OpenApiClient
         if (!Utils::isUnset($tmpReq->uploadTarget)) {
             $request->uploadTargetShrink = OpenApiUtilClient::arrayToStringWithSpecifiedStyle(Tea::merge($tmpReq->uploadTarget), 'UploadTarget', 'json');
         }
-        $query                 = [];
-        $query['FileName']     = $request->fileName;
-        $query['FileSource']   = $request->fileSource;
-        $query['Tid']          = $request->tid;
-        $query['UploadTarget'] = $request->uploadTargetShrink;
-        $req                   = new OpenApiRequest([
+        $query = [];
+        if (!Utils::isUnset($request->fileName)) {
+            $query['FileName'] = $request->fileName;
+        }
+        if (!Utils::isUnset($request->fileSource)) {
+            $query['FileSource'] = $request->fileSource;
+        }
+        if (!Utils::isUnset($request->tid)) {
+            $query['Tid'] = $request->tid;
+        }
+        if (!Utils::isUnset($request->uploadTargetShrink)) {
+            $query['UploadTarget'] = $request->uploadTargetShrink;
+        }
+        $req = new OpenApiRequest([
             'query' => OpenApiUtilClient::query($query),
         ]);
         $params = new Params([
@@ -1109,12 +1278,20 @@ class Dmsenterprise extends OpenApiClient
     public function deleteInstanceWithOptions($request, $runtime)
     {
         Utils::validateModel($request);
-        $query         = [];
-        $query['Host'] = $request->host;
-        $query['Port'] = $request->port;
-        $query['Sid']  = $request->sid;
-        $query['Tid']  = $request->tid;
-        $req           = new OpenApiRequest([
+        $query = [];
+        if (!Utils::isUnset($request->host)) {
+            $query['Host'] = $request->host;
+        }
+        if (!Utils::isUnset($request->port)) {
+            $query['Port'] = $request->port;
+        }
+        if (!Utils::isUnset($request->sid)) {
+            $query['Sid'] = $request->sid;
+        }
+        if (!Utils::isUnset($request->tid)) {
+            $query['Tid'] = $request->tid;
+        }
+        $req = new OpenApiRequest([
             'query' => OpenApiUtilClient::query($query),
         ]);
         $params = new Params([
@@ -1153,10 +1330,14 @@ class Dmsenterprise extends OpenApiClient
     public function deleteLogicDatabaseWithOptions($request, $runtime)
     {
         Utils::validateModel($request);
-        $query              = [];
-        $query['LogicDbId'] = $request->logicDbId;
-        $query['Tid']       = $request->tid;
-        $req                = new OpenApiRequest([
+        $query = [];
+        if (!Utils::isUnset($request->logicDbId)) {
+            $query['LogicDbId'] = $request->logicDbId;
+        }
+        if (!Utils::isUnset($request->tid)) {
+            $query['Tid'] = $request->tid;
+        }
+        $req = new OpenApiRequest([
             'query' => OpenApiUtilClient::query($query),
         ]);
         $params = new Params([
@@ -1195,11 +1376,17 @@ class Dmsenterprise extends OpenApiClient
     public function deleteLogicTableRouteConfigWithOptions($request, $runtime)
     {
         Utils::validateModel($request);
-        $query             = [];
-        $query['RouteKey'] = $request->routeKey;
-        $query['TableId']  = $request->tableId;
-        $query['Tid']      = $request->tid;
-        $req               = new OpenApiRequest([
+        $query = [];
+        if (!Utils::isUnset($request->routeKey)) {
+            $query['RouteKey'] = $request->routeKey;
+        }
+        if (!Utils::isUnset($request->tableId)) {
+            $query['TableId'] = $request->tableId;
+        }
+        if (!Utils::isUnset($request->tid)) {
+            $query['Tid'] = $request->tid;
+        }
+        $req = new OpenApiRequest([
             'query' => OpenApiUtilClient::query($query),
         ]);
         $params = new Params([
@@ -1238,10 +1425,14 @@ class Dmsenterprise extends OpenApiClient
     public function deleteProxyWithOptions($request, $runtime)
     {
         Utils::validateModel($request);
-        $query            = [];
-        $query['ProxyId'] = $request->proxyId;
-        $query['Tid']     = $request->tid;
-        $req              = new OpenApiRequest([
+        $query = [];
+        if (!Utils::isUnset($request->proxyId)) {
+            $query['ProxyId'] = $request->proxyId;
+        }
+        if (!Utils::isUnset($request->tid)) {
+            $query['Tid'] = $request->tid;
+        }
+        $req = new OpenApiRequest([
             'query' => OpenApiUtilClient::query($query),
         ]);
         $params = new Params([
@@ -1280,10 +1471,14 @@ class Dmsenterprise extends OpenApiClient
     public function deleteProxyAccessWithOptions($request, $runtime)
     {
         Utils::validateModel($request);
-        $query                  = [];
-        $query['ProxyAccessId'] = $request->proxyAccessId;
-        $query['Tid']           = $request->tid;
-        $req                    = new OpenApiRequest([
+        $query = [];
+        if (!Utils::isUnset($request->proxyAccessId)) {
+            $query['ProxyAccessId'] = $request->proxyAccessId;
+        }
+        if (!Utils::isUnset($request->tid)) {
+            $query['Tid'] = $request->tid;
+        }
+        $req = new OpenApiRequest([
             'query' => OpenApiUtilClient::query($query),
         ]);
         $params = new Params([
@@ -1322,10 +1517,14 @@ class Dmsenterprise extends OpenApiClient
     public function deleteUserWithOptions($request, $runtime)
     {
         Utils::validateModel($request);
-        $query        = [];
-        $query['Tid'] = $request->tid;
-        $query['Uid'] = $request->uid;
-        $req          = new OpenApiRequest([
+        $query = [];
+        if (!Utils::isUnset($request->tid)) {
+            $query['Tid'] = $request->tid;
+        }
+        if (!Utils::isUnset($request->uid)) {
+            $query['Uid'] = $request->uid;
+        }
+        $req = new OpenApiRequest([
             'query' => OpenApiUtilClient::query($query),
         ]);
         $params = new Params([
@@ -1364,10 +1563,14 @@ class Dmsenterprise extends OpenApiClient
     public function disableUserWithOptions($request, $runtime)
     {
         Utils::validateModel($request);
-        $query        = [];
-        $query['Tid'] = $request->tid;
-        $query['Uid'] = $request->uid;
-        $req          = new OpenApiRequest([
+        $query = [];
+        if (!Utils::isUnset($request->tid)) {
+            $query['Tid'] = $request->tid;
+        }
+        if (!Utils::isUnset($request->uid)) {
+            $query['Uid'] = $request->uid;
+        }
+        $req = new OpenApiRequest([
             'query' => OpenApiUtilClient::query($query),
         ]);
         $params = new Params([
@@ -1411,12 +1614,20 @@ class Dmsenterprise extends OpenApiClient
         if (!Utils::isUnset($tmpReq->databaseIds)) {
             $request->databaseIdsShrink = OpenApiUtilClient::arrayToStringWithSpecifiedStyle($tmpReq->databaseIds, 'DatabaseIds', 'json');
         }
-        $query                = [];
-        $query['Alias']       = $request->alias;
-        $query['DatabaseIds'] = $request->databaseIdsShrink;
-        $query['LogicDbId']   = $request->logicDbId;
-        $query['Tid']         = $request->tid;
-        $req                  = new OpenApiRequest([
+        $query = [];
+        if (!Utils::isUnset($request->alias)) {
+            $query['Alias'] = $request->alias;
+        }
+        if (!Utils::isUnset($request->databaseIdsShrink)) {
+            $query['DatabaseIds'] = $request->databaseIdsShrink;
+        }
+        if (!Utils::isUnset($request->logicDbId)) {
+            $query['LogicDbId'] = $request->logicDbId;
+        }
+        if (!Utils::isUnset($request->tid)) {
+            $query['Tid'] = $request->tid;
+        }
+        $req = new OpenApiRequest([
             'query' => OpenApiUtilClient::query($query),
         ]);
         $params = new Params([
@@ -1455,10 +1666,14 @@ class Dmsenterprise extends OpenApiClient
     public function enableUserWithOptions($request, $runtime)
     {
         Utils::validateModel($request);
-        $query        = [];
-        $query['Tid'] = $request->tid;
-        $query['Uid'] = $request->uid;
-        $req          = new OpenApiRequest([
+        $query = [];
+        if (!Utils::isUnset($request->tid)) {
+            $query['Tid'] = $request->tid;
+        }
+        if (!Utils::isUnset($request->uid)) {
+            $query['Uid'] = $request->uid;
+        }
+        $req = new OpenApiRequest([
             'query' => OpenApiUtilClient::query($query),
         ]);
         $params = new Params([
@@ -1502,11 +1717,17 @@ class Dmsenterprise extends OpenApiClient
         if (!Utils::isUnset($tmpReq->actionDetail)) {
             $request->actionDetailShrink = OpenApiUtilClient::arrayToStringWithSpecifiedStyle($tmpReq->actionDetail, 'ActionDetail', 'json');
         }
-        $query                 = [];
-        $query['ActionDetail'] = $request->actionDetailShrink;
-        $query['OrderId']      = $request->orderId;
-        $query['Tid']          = $request->tid;
-        $req                   = new OpenApiRequest([
+        $query = [];
+        if (!Utils::isUnset($request->actionDetailShrink)) {
+            $query['ActionDetail'] = $request->actionDetailShrink;
+        }
+        if (!Utils::isUnset($request->orderId)) {
+            $query['OrderId'] = $request->orderId;
+        }
+        if (!Utils::isUnset($request->tid)) {
+            $query['Tid'] = $request->tid;
+        }
+        $req = new OpenApiRequest([
             'query' => OpenApiUtilClient::query($query),
         ]);
         $params = new Params([
@@ -1550,11 +1771,17 @@ class Dmsenterprise extends OpenApiClient
         if (!Utils::isUnset($tmpReq->actionDetail)) {
             $request->actionDetailShrink = OpenApiUtilClient::arrayToStringWithSpecifiedStyle($tmpReq->actionDetail, 'ActionDetail', 'json');
         }
-        $query                 = [];
-        $query['ActionDetail'] = $request->actionDetailShrink;
-        $query['OrderId']      = $request->orderId;
-        $query['Tid']          = $request->tid;
-        $req                   = new OpenApiRequest([
+        $query = [];
+        if (!Utils::isUnset($request->actionDetailShrink)) {
+            $query['ActionDetail'] = $request->actionDetailShrink;
+        }
+        if (!Utils::isUnset($request->orderId)) {
+            $query['OrderId'] = $request->orderId;
+        }
+        if (!Utils::isUnset($request->tid)) {
+            $query['Tid'] = $request->tid;
+        }
+        $req = new OpenApiRequest([
             'query' => OpenApiUtilClient::query($query),
         ]);
         $params = new Params([
@@ -1593,12 +1820,20 @@ class Dmsenterprise extends OpenApiClient
     public function executeScriptWithOptions($request, $runtime)
     {
         Utils::validateModel($request);
-        $query           = [];
-        $query['DbId']   = $request->dbId;
-        $query['Logic']  = $request->logic;
-        $query['Script'] = $request->script;
-        $query['Tid']    = $request->tid;
-        $req             = new OpenApiRequest([
+        $query = [];
+        if (!Utils::isUnset($request->dbId)) {
+            $query['DbId'] = $request->dbId;
+        }
+        if (!Utils::isUnset($request->logic)) {
+            $query['Logic'] = $request->logic;
+        }
+        if (!Utils::isUnset($request->script)) {
+            $query['Script'] = $request->script;
+        }
+        if (!Utils::isUnset($request->tid)) {
+            $query['Tid'] = $request->tid;
+        }
+        $req = new OpenApiRequest([
             'query' => OpenApiUtilClient::query($query),
         ]);
         $params = new Params([
@@ -1637,10 +1872,14 @@ class Dmsenterprise extends OpenApiClient
     public function executeStructSyncWithOptions($request, $runtime)
     {
         Utils::validateModel($request);
-        $query            = [];
-        $query['OrderId'] = $request->orderId;
-        $query['Tid']     = $request->tid;
-        $req              = new OpenApiRequest([
+        $query = [];
+        if (!Utils::isUnset($request->orderId)) {
+            $query['OrderId'] = $request->orderId;
+        }
+        if (!Utils::isUnset($request->tid)) {
+            $query['Tid'] = $request->tid;
+        }
+        $req = new OpenApiRequest([
             'query' => OpenApiUtilClient::query($query),
         ]);
         $params = new Params([
@@ -1679,10 +1918,14 @@ class Dmsenterprise extends OpenApiClient
     public function getApprovalDetailWithOptions($request, $runtime)
     {
         Utils::validateModel($request);
-        $query                       = [];
-        $query['Tid']                = $request->tid;
-        $query['WorkflowInstanceId'] = $request->workflowInstanceId;
-        $req                         = new OpenApiRequest([
+        $query = [];
+        if (!Utils::isUnset($request->tid)) {
+            $query['Tid'] = $request->tid;
+        }
+        if (!Utils::isUnset($request->workflowInstanceId)) {
+            $query['WorkflowInstanceId'] = $request->workflowInstanceId;
+        }
+        $req = new OpenApiRequest([
             'query' => OpenApiUtilClient::query($query),
         ]);
         $params = new Params([
@@ -1721,10 +1964,14 @@ class Dmsenterprise extends OpenApiClient
     public function getDBTaskSQLJobLogWithOptions($request, $runtime)
     {
         Utils::validateModel($request);
-        $query          = [];
-        $query['JobId'] = $request->jobId;
-        $query['Tid']   = $request->tid;
-        $req            = new OpenApiRequest([
+        $query = [];
+        if (!Utils::isUnset($request->jobId)) {
+            $query['JobId'] = $request->jobId;
+        }
+        if (!Utils::isUnset($request->tid)) {
+            $query['Tid'] = $request->tid;
+        }
+        $req = new OpenApiRequest([
             'query' => OpenApiUtilClient::query($query),
         ]);
         $params = new Params([
@@ -1763,10 +2010,14 @@ class Dmsenterprise extends OpenApiClient
     public function getDBTopologyWithOptions($request, $runtime)
     {
         Utils::validateModel($request);
-        $query              = [];
-        $query['LogicDbId'] = $request->logicDbId;
-        $query['Tid']       = $request->tid;
-        $req                = new OpenApiRequest([
+        $query = [];
+        if (!Utils::isUnset($request->logicDbId)) {
+            $query['LogicDbId'] = $request->logicDbId;
+        }
+        if (!Utils::isUnset($request->tid)) {
+            $query['Tid'] = $request->tid;
+        }
+        $req = new OpenApiRequest([
             'query' => OpenApiUtilClient::query($query),
         ]);
         $params = new Params([
@@ -1810,11 +2061,17 @@ class Dmsenterprise extends OpenApiClient
         if (!Utils::isUnset($tmpReq->actionDetail)) {
             $request->actionDetailShrink = OpenApiUtilClient::arrayToStringWithSpecifiedStyle($tmpReq->actionDetail, 'ActionDetail', 'json');
         }
-        $query                 = [];
-        $query['ActionDetail'] = $request->actionDetailShrink;
-        $query['OrderId']      = $request->orderId;
-        $query['Tid']          = $request->tid;
-        $req                   = new OpenApiRequest([
+        $query = [];
+        if (!Utils::isUnset($request->actionDetailShrink)) {
+            $query['ActionDetail'] = $request->actionDetailShrink;
+        }
+        if (!Utils::isUnset($request->orderId)) {
+            $query['OrderId'] = $request->orderId;
+        }
+        if (!Utils::isUnset($request->tid)) {
+            $query['Tid'] = $request->tid;
+        }
+        $req = new OpenApiRequest([
             'query' => OpenApiUtilClient::query($query),
         ]);
         $params = new Params([
@@ -1853,10 +2110,14 @@ class Dmsenterprise extends OpenApiClient
     public function getDataCorrectOrderDetailWithOptions($request, $runtime)
     {
         Utils::validateModel($request);
-        $query            = [];
-        $query['OrderId'] = $request->orderId;
-        $query['Tid']     = $request->tid;
-        $req              = new OpenApiRequest([
+        $query = [];
+        if (!Utils::isUnset($request->orderId)) {
+            $query['OrderId'] = $request->orderId;
+        }
+        if (!Utils::isUnset($request->tid)) {
+            $query['Tid'] = $request->tid;
+        }
+        $req = new OpenApiRequest([
             'query' => OpenApiUtilClient::query($query),
         ]);
         $params = new Params([
@@ -1895,10 +2156,14 @@ class Dmsenterprise extends OpenApiClient
     public function getDataCorrectSQLFileWithOptions($request, $runtime)
     {
         Utils::validateModel($request);
-        $query            = [];
-        $query['OrderId'] = $request->orderId;
-        $query['Tid']     = $request->tid;
-        $req              = new OpenApiRequest([
+        $query = [];
+        if (!Utils::isUnset($request->orderId)) {
+            $query['OrderId'] = $request->orderId;
+        }
+        if (!Utils::isUnset($request->tid)) {
+            $query['Tid'] = $request->tid;
+        }
+        $req = new OpenApiRequest([
             'query' => OpenApiUtilClient::query($query),
         ]);
         $params = new Params([
@@ -1937,10 +2202,14 @@ class Dmsenterprise extends OpenApiClient
     public function getDataCorrectTaskDetailWithOptions($request, $runtime)
     {
         Utils::validateModel($request);
-        $query            = [];
-        $query['OrderId'] = $request->orderId;
-        $query['Tid']     = $request->tid;
-        $req              = new OpenApiRequest([
+        $query = [];
+        if (!Utils::isUnset($request->orderId)) {
+            $query['OrderId'] = $request->orderId;
+        }
+        if (!Utils::isUnset($request->tid)) {
+            $query['Tid'] = $request->tid;
+        }
+        $req = new OpenApiRequest([
             'query' => OpenApiUtilClient::query($query),
         ]);
         $params = new Params([
@@ -1979,12 +2248,20 @@ class Dmsenterprise extends OpenApiClient
     public function getDataCronClearTaskDetailListWithOptions($request, $runtime)
     {
         Utils::validateModel($request);
-        $query               = [];
-        $query['OrderId']    = $request->orderId;
-        $query['PageNumber'] = $request->pageNumber;
-        $query['PageSize']   = $request->pageSize;
-        $query['Tid']        = $request->tid;
-        $req                 = new OpenApiRequest([
+        $query = [];
+        if (!Utils::isUnset($request->orderId)) {
+            $query['OrderId'] = $request->orderId;
+        }
+        if (!Utils::isUnset($request->pageNumber)) {
+            $query['PageNumber'] = $request->pageNumber;
+        }
+        if (!Utils::isUnset($request->pageSize)) {
+            $query['PageSize'] = $request->pageSize;
+        }
+        if (!Utils::isUnset($request->tid)) {
+            $query['Tid'] = $request->tid;
+        }
+        $req = new OpenApiRequest([
             'query' => OpenApiUtilClient::query($query),
         ]);
         $params = new Params([
@@ -2023,10 +2300,14 @@ class Dmsenterprise extends OpenApiClient
     public function getDataExportDownloadURLWithOptions($request, $runtime)
     {
         Utils::validateModel($request);
-        $query            = [];
-        $query['OrderId'] = $request->orderId;
-        $query['Tid']     = $request->tid;
-        $req              = new OpenApiRequest([
+        $query = [];
+        if (!Utils::isUnset($request->orderId)) {
+            $query['OrderId'] = $request->orderId;
+        }
+        if (!Utils::isUnset($request->tid)) {
+            $query['Tid'] = $request->tid;
+        }
+        $req = new OpenApiRequest([
             'query' => OpenApiUtilClient::query($query),
         ]);
         $params = new Params([
@@ -2065,9 +2346,11 @@ class Dmsenterprise extends OpenApiClient
     public function getDataExportOrderDetailWithOptions($request, $runtime)
     {
         Utils::validateModel($request);
-        $query        = [];
-        $query['Tid'] = $request->tid;
-        $body         = [];
+        $query = [];
+        if (!Utils::isUnset($request->tid)) {
+            $query['Tid'] = $request->tid;
+        }
+        $body = [];
         if (!Utils::isUnset($request->orderId)) {
             $body['OrderId'] = $request->orderId;
         }
@@ -2111,13 +2394,23 @@ class Dmsenterprise extends OpenApiClient
     public function getDatabaseWithOptions($request, $runtime)
     {
         Utils::validateModel($request);
-        $query               = [];
-        $query['Host']       = $request->host;
-        $query['Port']       = $request->port;
-        $query['SchemaName'] = $request->schemaName;
-        $query['Sid']        = $request->sid;
-        $query['Tid']        = $request->tid;
-        $req                 = new OpenApiRequest([
+        $query = [];
+        if (!Utils::isUnset($request->host)) {
+            $query['Host'] = $request->host;
+        }
+        if (!Utils::isUnset($request->port)) {
+            $query['Port'] = $request->port;
+        }
+        if (!Utils::isUnset($request->schemaName)) {
+            $query['SchemaName'] = $request->schemaName;
+        }
+        if (!Utils::isUnset($request->sid)) {
+            $query['Sid'] = $request->sid;
+        }
+        if (!Utils::isUnset($request->tid)) {
+            $query['Tid'] = $request->tid;
+        }
+        $req = new OpenApiRequest([
             'query' => OpenApiUtilClient::query($query),
         ]);
         $params = new Params([
@@ -2156,12 +2449,20 @@ class Dmsenterprise extends OpenApiClient
     public function getInstanceWithOptions($request, $runtime)
     {
         Utils::validateModel($request);
-        $query         = [];
-        $query['Host'] = $request->host;
-        $query['Port'] = $request->port;
-        $query['Sid']  = $request->sid;
-        $query['Tid']  = $request->tid;
-        $req           = new OpenApiRequest([
+        $query = [];
+        if (!Utils::isUnset($request->host)) {
+            $query['Host'] = $request->host;
+        }
+        if (!Utils::isUnset($request->port)) {
+            $query['Port'] = $request->port;
+        }
+        if (!Utils::isUnset($request->sid)) {
+            $query['Sid'] = $request->sid;
+        }
+        if (!Utils::isUnset($request->tid)) {
+            $query['Tid'] = $request->tid;
+        }
+        $req = new OpenApiRequest([
             'query' => OpenApiUtilClient::query($query),
         ]);
         $params = new Params([
@@ -2200,10 +2501,14 @@ class Dmsenterprise extends OpenApiClient
     public function getLogicDatabaseWithOptions($request, $runtime)
     {
         Utils::validateModel($request);
-        $query         = [];
-        $query['DbId'] = $request->dbId;
-        $query['Tid']  = $request->tid;
-        $req           = new OpenApiRequest([
+        $query = [];
+        if (!Utils::isUnset($request->dbId)) {
+            $query['DbId'] = $request->dbId;
+        }
+        if (!Utils::isUnset($request->tid)) {
+            $query['Tid'] = $request->tid;
+        }
+        $req = new OpenApiRequest([
             'query' => OpenApiUtilClient::query($query),
         ]);
         $params = new Params([
@@ -2242,10 +2547,14 @@ class Dmsenterprise extends OpenApiClient
     public function getMetaTableColumnWithOptions($request, $runtime)
     {
         Utils::validateModel($request);
-        $query              = [];
-        $query['TableGuid'] = $request->tableGuid;
-        $query['Tid']       = $request->tid;
-        $req                = new OpenApiRequest([
+        $query = [];
+        if (!Utils::isUnset($request->tableGuid)) {
+            $query['TableGuid'] = $request->tableGuid;
+        }
+        if (!Utils::isUnset($request->tid)) {
+            $query['Tid'] = $request->tid;
+        }
+        $req = new OpenApiRequest([
             'query' => OpenApiUtilClient::query($query),
         ]);
         $params = new Params([
@@ -2284,10 +2593,14 @@ class Dmsenterprise extends OpenApiClient
     public function getMetaTableDetailInfoWithOptions($request, $runtime)
     {
         Utils::validateModel($request);
-        $query              = [];
-        $query['TableGuid'] = $request->tableGuid;
-        $query['Tid']       = $request->tid;
-        $req                = new OpenApiRequest([
+        $query = [];
+        if (!Utils::isUnset($request->tableGuid)) {
+            $query['TableGuid'] = $request->tableGuid;
+        }
+        if (!Utils::isUnset($request->tid)) {
+            $query['Tid'] = $request->tid;
+        }
+        $req = new OpenApiRequest([
             'query' => OpenApiUtilClient::query($query),
         ]);
         $params = new Params([
@@ -2326,14 +2639,26 @@ class Dmsenterprise extends OpenApiClient
     public function getOpLogWithOptions($request, $runtime)
     {
         Utils::validateModel($request);
-        $query               = [];
-        $query['EndTime']    = $request->endTime;
-        $query['Module']     = $request->module;
-        $query['PageNumber'] = $request->pageNumber;
-        $query['PageSize']   = $request->pageSize;
-        $query['StartTime']  = $request->startTime;
-        $query['Tid']        = $request->tid;
-        $req                 = new OpenApiRequest([
+        $query = [];
+        if (!Utils::isUnset($request->endTime)) {
+            $query['EndTime'] = $request->endTime;
+        }
+        if (!Utils::isUnset($request->module)) {
+            $query['Module'] = $request->module;
+        }
+        if (!Utils::isUnset($request->pageNumber)) {
+            $query['PageNumber'] = $request->pageNumber;
+        }
+        if (!Utils::isUnset($request->pageSize)) {
+            $query['PageSize'] = $request->pageSize;
+        }
+        if (!Utils::isUnset($request->startTime)) {
+            $query['StartTime'] = $request->startTime;
+        }
+        if (!Utils::isUnset($request->tid)) {
+            $query['Tid'] = $request->tid;
+        }
+        $req = new OpenApiRequest([
             'query' => OpenApiUtilClient::query($query),
         ]);
         $params = new Params([
@@ -2372,10 +2697,14 @@ class Dmsenterprise extends OpenApiClient
     public function getOrderBaseInfoWithOptions($request, $runtime)
     {
         Utils::validateModel($request);
-        $query            = [];
-        $query['OrderId'] = $request->orderId;
-        $query['Tid']     = $request->tid;
-        $req              = new OpenApiRequest([
+        $query = [];
+        if (!Utils::isUnset($request->orderId)) {
+            $query['OrderId'] = $request->orderId;
+        }
+        if (!Utils::isUnset($request->tid)) {
+            $query['Tid'] = $request->tid;
+        }
+        $req = new OpenApiRequest([
             'query' => OpenApiUtilClient::query($query),
         ]);
         $params = new Params([
@@ -2414,10 +2743,14 @@ class Dmsenterprise extends OpenApiClient
     public function getOwnerApplyOrderDetailWithOptions($request, $runtime)
     {
         Utils::validateModel($request);
-        $query            = [];
-        $query['OrderId'] = $request->orderId;
-        $query['Tid']     = $request->tid;
-        $req              = new OpenApiRequest([
+        $query = [];
+        if (!Utils::isUnset($request->orderId)) {
+            $query['OrderId'] = $request->orderId;
+        }
+        if (!Utils::isUnset($request->tid)) {
+            $query['Tid'] = $request->tid;
+        }
+        $req = new OpenApiRequest([
             'query' => OpenApiUtilClient::query($query),
         ]);
         $params = new Params([
@@ -2456,10 +2789,14 @@ class Dmsenterprise extends OpenApiClient
     public function getPermApplyOrderDetailWithOptions($request, $runtime)
     {
         Utils::validateModel($request);
-        $query            = [];
-        $query['OrderId'] = $request->orderId;
-        $query['Tid']     = $request->tid;
-        $req              = new OpenApiRequest([
+        $query = [];
+        if (!Utils::isUnset($request->orderId)) {
+            $query['OrderId'] = $request->orderId;
+        }
+        if (!Utils::isUnset($request->tid)) {
+            $query['Tid'] = $request->tid;
+        }
+        $req = new OpenApiRequest([
             'query' => OpenApiUtilClient::query($query),
         ]);
         $params = new Params([
@@ -2498,10 +2835,14 @@ class Dmsenterprise extends OpenApiClient
     public function getPhysicalDatabaseWithOptions($request, $runtime)
     {
         Utils::validateModel($request);
-        $query         = [];
-        $query['DbId'] = $request->dbId;
-        $query['Tid']  = $request->tid;
-        $req           = new OpenApiRequest([
+        $query = [];
+        if (!Utils::isUnset($request->dbId)) {
+            $query['DbId'] = $request->dbId;
+        }
+        if (!Utils::isUnset($request->tid)) {
+            $query['Tid'] = $request->tid;
+        }
+        $req = new OpenApiRequest([
             'query' => OpenApiUtilClient::query($query),
         ]);
         $params = new Params([
@@ -2540,11 +2881,17 @@ class Dmsenterprise extends OpenApiClient
     public function getProxyWithOptions($request, $runtime)
     {
         Utils::validateModel($request);
-        $query               = [];
-        $query['InstanceId'] = $request->instanceId;
-        $query['ProxyId']    = $request->proxyId;
-        $query['Tid']        = $request->tid;
-        $req                 = new OpenApiRequest([
+        $query = [];
+        if (!Utils::isUnset($request->instanceId)) {
+            $query['InstanceId'] = $request->instanceId;
+        }
+        if (!Utils::isUnset($request->proxyId)) {
+            $query['ProxyId'] = $request->proxyId;
+        }
+        if (!Utils::isUnset($request->tid)) {
+            $query['Tid'] = $request->tid;
+        }
+        $req = new OpenApiRequest([
             'query' => OpenApiUtilClient::query($query),
         ]);
         $params = new Params([
@@ -2583,10 +2930,14 @@ class Dmsenterprise extends OpenApiClient
     public function getSQLReviewCheckResultStatusWithOptions($request, $runtime)
     {
         Utils::validateModel($request);
-        $query            = [];
-        $query['OrderId'] = $request->orderId;
-        $query['Tid']     = $request->tid;
-        $req              = new OpenApiRequest([
+        $query = [];
+        if (!Utils::isUnset($request->orderId)) {
+            $query['OrderId'] = $request->orderId;
+        }
+        if (!Utils::isUnset($request->tid)) {
+            $query['Tid'] = $request->tid;
+        }
+        $req = new OpenApiRequest([
             'query' => OpenApiUtilClient::query($query),
         ]);
         $params = new Params([
@@ -2625,10 +2976,14 @@ class Dmsenterprise extends OpenApiClient
     public function getSQLReviewOptimizeDetailWithOptions($request, $runtime)
     {
         Utils::validateModel($request);
-        $query                      = [];
-        $query['SQLReviewQueryKey'] = $request->SQLReviewQueryKey;
-        $query['Tid']               = $request->tid;
-        $req                        = new OpenApiRequest([
+        $query = [];
+        if (!Utils::isUnset($request->SQLReviewQueryKey)) {
+            $query['SQLReviewQueryKey'] = $request->SQLReviewQueryKey;
+        }
+        if (!Utils::isUnset($request->tid)) {
+            $query['Tid'] = $request->tid;
+        }
+        $req = new OpenApiRequest([
             'query' => OpenApiUtilClient::query($query),
         ]);
         $params = new Params([
@@ -2659,6 +3014,190 @@ class Dmsenterprise extends OpenApiClient
     }
 
     /**
+     * @param GetSparkJobDetailRequest $request
+     * @param RuntimeOptions           $runtime
+     *
+     * @return GetSparkJobDetailResponse
+     */
+    public function getSparkJobDetailWithOptions($request, $runtime)
+    {
+        Utils::validateModel($request);
+        $query = [];
+        if (!Utils::isUnset($request->jobId)) {
+            $query['JobId'] = $request->jobId;
+        }
+        if (!Utils::isUnset($request->tid)) {
+            $query['Tid'] = $request->tid;
+        }
+        $req = new OpenApiRequest([
+            'query' => OpenApiUtilClient::query($query),
+        ]);
+        $params = new Params([
+            'action'      => 'GetSparkJobDetail',
+            'version'     => '2018-11-01',
+            'protocol'    => 'HTTPS',
+            'pathname'    => '/',
+            'method'      => 'POST',
+            'authType'    => 'AK',
+            'style'       => 'RPC',
+            'reqBodyType' => 'formData',
+            'bodyType'    => 'json',
+        ]);
+
+        return GetSparkJobDetailResponse::fromMap($this->callApi($params, $req, $runtime));
+    }
+
+    /**
+     * @param GetSparkJobDetailRequest $request
+     *
+     * @return GetSparkJobDetailResponse
+     */
+    public function getSparkJobDetail($request)
+    {
+        $runtime = new RuntimeOptions([]);
+
+        return $this->getSparkJobDetailWithOptions($request, $runtime);
+    }
+
+    /**
+     * @param GetSparkJobDriverLogRequest $request
+     * @param RuntimeOptions              $runtime
+     *
+     * @return GetSparkJobDriverLogResponse
+     */
+    public function getSparkJobDriverLogWithOptions($request, $runtime)
+    {
+        Utils::validateModel($request);
+        $query = [];
+        if (!Utils::isUnset($request->jobId)) {
+            $query['JobId'] = $request->jobId;
+        }
+        if (!Utils::isUnset($request->tid)) {
+            $query['Tid'] = $request->tid;
+        }
+        $req = new OpenApiRequest([
+            'query' => OpenApiUtilClient::query($query),
+        ]);
+        $params = new Params([
+            'action'      => 'GetSparkJobDriverLog',
+            'version'     => '2018-11-01',
+            'protocol'    => 'HTTPS',
+            'pathname'    => '/',
+            'method'      => 'POST',
+            'authType'    => 'AK',
+            'style'       => 'RPC',
+            'reqBodyType' => 'formData',
+            'bodyType'    => 'json',
+        ]);
+
+        return GetSparkJobDriverLogResponse::fromMap($this->callApi($params, $req, $runtime));
+    }
+
+    /**
+     * @param GetSparkJobDriverLogRequest $request
+     *
+     * @return GetSparkJobDriverLogResponse
+     */
+    public function getSparkJobDriverLog($request)
+    {
+        $runtime = new RuntimeOptions([]);
+
+        return $this->getSparkJobDriverLogWithOptions($request, $runtime);
+    }
+
+    /**
+     * @param GetSparkJobExecutorLogsRequest $request
+     * @param RuntimeOptions                 $runtime
+     *
+     * @return GetSparkJobExecutorLogsResponse
+     */
+    public function getSparkJobExecutorLogsWithOptions($request, $runtime)
+    {
+        Utils::validateModel($request);
+        $query = [];
+        if (!Utils::isUnset($request->jobId)) {
+            $query['JobId'] = $request->jobId;
+        }
+        if (!Utils::isUnset($request->tid)) {
+            $query['Tid'] = $request->tid;
+        }
+        $req = new OpenApiRequest([
+            'query' => OpenApiUtilClient::query($query),
+        ]);
+        $params = new Params([
+            'action'      => 'GetSparkJobExecutorLogs',
+            'version'     => '2018-11-01',
+            'protocol'    => 'HTTPS',
+            'pathname'    => '/',
+            'method'      => 'POST',
+            'authType'    => 'AK',
+            'style'       => 'RPC',
+            'reqBodyType' => 'formData',
+            'bodyType'    => 'json',
+        ]);
+
+        return GetSparkJobExecutorLogsResponse::fromMap($this->callApi($params, $req, $runtime));
+    }
+
+    /**
+     * @param GetSparkJobExecutorLogsRequest $request
+     *
+     * @return GetSparkJobExecutorLogsResponse
+     */
+    public function getSparkJobExecutorLogs($request)
+    {
+        $runtime = new RuntimeOptions([]);
+
+        return $this->getSparkJobExecutorLogsWithOptions($request, $runtime);
+    }
+
+    /**
+     * @param GetSparkJobLogRequest $request
+     * @param RuntimeOptions        $runtime
+     *
+     * @return GetSparkJobLogResponse
+     */
+    public function getSparkJobLogWithOptions($request, $runtime)
+    {
+        Utils::validateModel($request);
+        $query = [];
+        if (!Utils::isUnset($request->jobId)) {
+            $query['JobId'] = $request->jobId;
+        }
+        if (!Utils::isUnset($request->tid)) {
+            $query['Tid'] = $request->tid;
+        }
+        $req = new OpenApiRequest([
+            'query' => OpenApiUtilClient::query($query),
+        ]);
+        $params = new Params([
+            'action'      => 'GetSparkJobLog',
+            'version'     => '2018-11-01',
+            'protocol'    => 'HTTPS',
+            'pathname'    => '/',
+            'method'      => 'POST',
+            'authType'    => 'AK',
+            'style'       => 'RPC',
+            'reqBodyType' => 'formData',
+            'bodyType'    => 'json',
+        ]);
+
+        return GetSparkJobLogResponse::fromMap($this->callApi($params, $req, $runtime));
+    }
+
+    /**
+     * @param GetSparkJobLogRequest $request
+     *
+     * @return GetSparkJobLogResponse
+     */
+    public function getSparkJobLog($request)
+    {
+        $runtime = new RuntimeOptions([]);
+
+        return $this->getSparkJobLogWithOptions($request, $runtime);
+    }
+
+    /**
      * @param GetStructSyncExecSqlDetailRequest $request
      * @param RuntimeOptions                    $runtime
      *
@@ -2667,12 +3206,20 @@ class Dmsenterprise extends OpenApiClient
     public function getStructSyncExecSqlDetailWithOptions($request, $runtime)
     {
         Utils::validateModel($request);
-        $query               = [];
-        $query['OrderId']    = $request->orderId;
-        $query['PageNumber'] = $request->pageNumber;
-        $query['PageSize']   = $request->pageSize;
-        $query['Tid']        = $request->tid;
-        $req                 = new OpenApiRequest([
+        $query = [];
+        if (!Utils::isUnset($request->orderId)) {
+            $query['OrderId'] = $request->orderId;
+        }
+        if (!Utils::isUnset($request->pageNumber)) {
+            $query['PageNumber'] = $request->pageNumber;
+        }
+        if (!Utils::isUnset($request->pageSize)) {
+            $query['PageSize'] = $request->pageSize;
+        }
+        if (!Utils::isUnset($request->tid)) {
+            $query['Tid'] = $request->tid;
+        }
+        $req = new OpenApiRequest([
             'query' => OpenApiUtilClient::query($query),
         ]);
         $params = new Params([
@@ -2711,13 +3258,23 @@ class Dmsenterprise extends OpenApiClient
     public function getStructSyncJobAnalyzeResultWithOptions($request, $runtime)
     {
         Utils::validateModel($request);
-        $query                = [];
-        $query['CompareType'] = $request->compareType;
-        $query['OrderId']     = $request->orderId;
-        $query['PageNumber']  = $request->pageNumber;
-        $query['PageSize']    = $request->pageSize;
-        $query['Tid']         = $request->tid;
-        $req                  = new OpenApiRequest([
+        $query = [];
+        if (!Utils::isUnset($request->compareType)) {
+            $query['CompareType'] = $request->compareType;
+        }
+        if (!Utils::isUnset($request->orderId)) {
+            $query['OrderId'] = $request->orderId;
+        }
+        if (!Utils::isUnset($request->pageNumber)) {
+            $query['PageNumber'] = $request->pageNumber;
+        }
+        if (!Utils::isUnset($request->pageSize)) {
+            $query['PageSize'] = $request->pageSize;
+        }
+        if (!Utils::isUnset($request->tid)) {
+            $query['Tid'] = $request->tid;
+        }
+        $req = new OpenApiRequest([
             'query' => OpenApiUtilClient::query($query),
         ]);
         $params = new Params([
@@ -2756,10 +3313,14 @@ class Dmsenterprise extends OpenApiClient
     public function getStructSyncJobDetailWithOptions($request, $runtime)
     {
         Utils::validateModel($request);
-        $query            = [];
-        $query['OrderId'] = $request->orderId;
-        $query['Tid']     = $request->tid;
-        $req              = new OpenApiRequest([
+        $query = [];
+        if (!Utils::isUnset($request->orderId)) {
+            $query['OrderId'] = $request->orderId;
+        }
+        if (!Utils::isUnset($request->tid)) {
+            $query['Tid'] = $request->tid;
+        }
+        $req = new OpenApiRequest([
             'query' => OpenApiUtilClient::query($query),
         ]);
         $params = new Params([
@@ -2798,10 +3359,14 @@ class Dmsenterprise extends OpenApiClient
     public function getStructSyncOrderDetailWithOptions($request, $runtime)
     {
         Utils::validateModel($request);
-        $query            = [];
-        $query['OrderId'] = $request->orderId;
-        $query['Tid']     = $request->tid;
-        $req              = new OpenApiRequest([
+        $query = [];
+        if (!Utils::isUnset($request->orderId)) {
+            $query['OrderId'] = $request->orderId;
+        }
+        if (!Utils::isUnset($request->tid)) {
+            $query['Tid'] = $request->tid;
+        }
+        $req = new OpenApiRequest([
             'query' => OpenApiUtilClient::query($query),
         ]);
         $params = new Params([
@@ -2840,10 +3405,14 @@ class Dmsenterprise extends OpenApiClient
     public function getTableDBTopologyWithOptions($request, $runtime)
     {
         Utils::validateModel($request);
-        $query              = [];
-        $query['TableGuid'] = $request->tableGuid;
-        $query['Tid']       = $request->tid;
-        $req                = new OpenApiRequest([
+        $query = [];
+        if (!Utils::isUnset($request->tableGuid)) {
+            $query['TableGuid'] = $request->tableGuid;
+        }
+        if (!Utils::isUnset($request->tid)) {
+            $query['Tid'] = $request->tid;
+        }
+        $req = new OpenApiRequest([
             'query' => OpenApiUtilClient::query($query),
         ]);
         $params = new Params([
@@ -2882,10 +3451,14 @@ class Dmsenterprise extends OpenApiClient
     public function getTableTopologyWithOptions($request, $runtime)
     {
         Utils::validateModel($request);
-        $query              = [];
-        $query['TableGuid'] = $request->tableGuid;
-        $query['Tid']       = $request->tid;
-        $req                = new OpenApiRequest([
+        $query = [];
+        if (!Utils::isUnset($request->tableGuid)) {
+            $query['TableGuid'] = $request->tableGuid;
+        }
+        if (!Utils::isUnset($request->tid)) {
+            $query['Tid'] = $request->tid;
+        }
+        $req = new OpenApiRequest([
             'query' => OpenApiUtilClient::query($query),
         ]);
         $params = new Params([
@@ -2924,11 +3497,17 @@ class Dmsenterprise extends OpenApiClient
     public function getUserWithOptions($request, $runtime)
     {
         Utils::validateModel($request);
-        $query           = [];
-        $query['Tid']    = $request->tid;
-        $query['Uid']    = $request->uid;
-        $query['UserId'] = $request->userId;
-        $req             = new OpenApiRequest([
+        $query = [];
+        if (!Utils::isUnset($request->tid)) {
+            $query['Tid'] = $request->tid;
+        }
+        if (!Utils::isUnset($request->uid)) {
+            $query['Uid'] = $request->uid;
+        }
+        if (!Utils::isUnset($request->userId)) {
+            $query['UserId'] = $request->userId;
+        }
+        $req = new OpenApiRequest([
             'query' => OpenApiUtilClient::query($query),
         ]);
         $params = new Params([
@@ -2967,9 +3546,11 @@ class Dmsenterprise extends OpenApiClient
     public function getUserActiveTenantWithOptions($request, $runtime)
     {
         Utils::validateModel($request);
-        $query        = [];
-        $query['Tid'] = $request->tid;
-        $req          = new OpenApiRequest([
+        $query = [];
+        if (!Utils::isUnset($request->tid)) {
+            $query['Tid'] = $request->tid;
+        }
+        $req = new OpenApiRequest([
             'query' => OpenApiUtilClient::query($query),
         ]);
         $params = new Params([
@@ -3008,10 +3589,14 @@ class Dmsenterprise extends OpenApiClient
     public function getUserUploadFileJobWithOptions($request, $runtime)
     {
         Utils::validateModel($request);
-        $query           = [];
-        $query['JobKey'] = $request->jobKey;
-        $query['Tid']    = $request->tid;
-        $req             = new OpenApiRequest([
+        $query = [];
+        if (!Utils::isUnset($request->jobKey)) {
+            $query['JobKey'] = $request->jobKey;
+        }
+        if (!Utils::isUnset($request->tid)) {
+            $query['Tid'] = $request->tid;
+        }
+        $req = new OpenApiRequest([
             'query' => OpenApiUtilClient::query($query),
         ]);
         $params = new Params([
@@ -3050,18 +3635,38 @@ class Dmsenterprise extends OpenApiClient
     public function grantUserPermissionWithOptions($request, $runtime)
     {
         Utils::validateModel($request);
-        $query               = [];
-        $query['DbId']       = $request->dbId;
-        $query['DsType']     = $request->dsType;
-        $query['ExpireDate'] = $request->expireDate;
-        $query['InstanceId'] = $request->instanceId;
-        $query['Logic']      = $request->logic;
-        $query['PermTypes']  = $request->permTypes;
-        $query['TableId']    = $request->tableId;
-        $query['TableName']  = $request->tableName;
-        $query['Tid']        = $request->tid;
-        $query['UserId']     = $request->userId;
-        $req                 = new OpenApiRequest([
+        $query = [];
+        if (!Utils::isUnset($request->dbId)) {
+            $query['DbId'] = $request->dbId;
+        }
+        if (!Utils::isUnset($request->dsType)) {
+            $query['DsType'] = $request->dsType;
+        }
+        if (!Utils::isUnset($request->expireDate)) {
+            $query['ExpireDate'] = $request->expireDate;
+        }
+        if (!Utils::isUnset($request->instanceId)) {
+            $query['InstanceId'] = $request->instanceId;
+        }
+        if (!Utils::isUnset($request->logic)) {
+            $query['Logic'] = $request->logic;
+        }
+        if (!Utils::isUnset($request->permTypes)) {
+            $query['PermTypes'] = $request->permTypes;
+        }
+        if (!Utils::isUnset($request->tableId)) {
+            $query['TableId'] = $request->tableId;
+        }
+        if (!Utils::isUnset($request->tableName)) {
+            $query['TableName'] = $request->tableName;
+        }
+        if (!Utils::isUnset($request->tid)) {
+            $query['Tid'] = $request->tid;
+        }
+        if (!Utils::isUnset($request->userId)) {
+            $query['UserId'] = $request->userId;
+        }
+        $req = new OpenApiRequest([
             'query' => OpenApiUtilClient::query($query),
         ]);
         $params = new Params([
@@ -3100,10 +3705,14 @@ class Dmsenterprise extends OpenApiClient
     public function inspectProxyAccessSecretWithOptions($request, $runtime)
     {
         Utils::validateModel($request);
-        $query                  = [];
-        $query['ProxyAccessId'] = $request->proxyAccessId;
-        $query['Tid']           = $request->tid;
-        $req                    = new OpenApiRequest([
+        $query = [];
+        if (!Utils::isUnset($request->proxyAccessId)) {
+            $query['ProxyAccessId'] = $request->proxyAccessId;
+        }
+        if (!Utils::isUnset($request->tid)) {
+            $query['Tid'] = $request->tid;
+        }
+        $req = new OpenApiRequest([
             'query' => OpenApiUtilClient::query($query),
         ]);
         $params = new Params([
@@ -3134,6 +3743,52 @@ class Dmsenterprise extends OpenApiClient
     }
 
     /**
+     * @param KillSparkJobRequest $request
+     * @param RuntimeOptions      $runtime
+     *
+     * @return KillSparkJobResponse
+     */
+    public function killSparkJobWithOptions($request, $runtime)
+    {
+        Utils::validateModel($request);
+        $query = [];
+        if (!Utils::isUnset($request->jobId)) {
+            $query['JobId'] = $request->jobId;
+        }
+        if (!Utils::isUnset($request->tid)) {
+            $query['Tid'] = $request->tid;
+        }
+        $req = new OpenApiRequest([
+            'query' => OpenApiUtilClient::query($query),
+        ]);
+        $params = new Params([
+            'action'      => 'KillSparkJob',
+            'version'     => '2018-11-01',
+            'protocol'    => 'HTTPS',
+            'pathname'    => '/',
+            'method'      => 'POST',
+            'authType'    => 'AK',
+            'style'       => 'RPC',
+            'reqBodyType' => 'formData',
+            'bodyType'    => 'json',
+        ]);
+
+        return KillSparkJobResponse::fromMap($this->callApi($params, $req, $runtime));
+    }
+
+    /**
+     * @param KillSparkJobRequest $request
+     *
+     * @return KillSparkJobResponse
+     */
+    public function killSparkJob($request)
+    {
+        $runtime = new RuntimeOptions([]);
+
+        return $this->killSparkJobWithOptions($request, $runtime);
+    }
+
+    /**
      * @param ListColumnsRequest $request
      * @param RuntimeOptions     $runtime
      *
@@ -3142,11 +3797,17 @@ class Dmsenterprise extends OpenApiClient
     public function listColumnsWithOptions($request, $runtime)
     {
         Utils::validateModel($request);
-        $query            = [];
-        $query['Logic']   = $request->logic;
-        $query['TableId'] = $request->tableId;
-        $query['Tid']     = $request->tid;
-        $req              = new OpenApiRequest([
+        $query = [];
+        if (!Utils::isUnset($request->logic)) {
+            $query['Logic'] = $request->logic;
+        }
+        if (!Utils::isUnset($request->tableId)) {
+            $query['TableId'] = $request->tableId;
+        }
+        if (!Utils::isUnset($request->tid)) {
+            $query['Tid'] = $request->tid;
+        }
+        $req = new OpenApiRequest([
             'query' => OpenApiUtilClient::query($query),
         ]);
         $params = new Params([
@@ -3185,12 +3846,20 @@ class Dmsenterprise extends OpenApiClient
     public function listDBTaskSQLJobWithOptions($request, $runtime)
     {
         Utils::validateModel($request);
-        $query                  = [];
-        $query['DBTaskGroupId'] = $request->DBTaskGroupId;
-        $query['PageNumber']    = $request->pageNumber;
-        $query['PageSize']      = $request->pageSize;
-        $query['Tid']           = $request->tid;
-        $req                    = new OpenApiRequest([
+        $query = [];
+        if (!Utils::isUnset($request->DBTaskGroupId)) {
+            $query['DBTaskGroupId'] = $request->DBTaskGroupId;
+        }
+        if (!Utils::isUnset($request->pageNumber)) {
+            $query['PageNumber'] = $request->pageNumber;
+        }
+        if (!Utils::isUnset($request->pageSize)) {
+            $query['PageSize'] = $request->pageSize;
+        }
+        if (!Utils::isUnset($request->tid)) {
+            $query['Tid'] = $request->tid;
+        }
+        $req = new OpenApiRequest([
             'query' => OpenApiUtilClient::query($query),
         ]);
         $params = new Params([
@@ -3229,12 +3898,20 @@ class Dmsenterprise extends OpenApiClient
     public function listDBTaskSQLJobDetailWithOptions($request, $runtime)
     {
         Utils::validateModel($request);
-        $query               = [];
-        $query['JobId']      = $request->jobId;
-        $query['PageNumber'] = $request->pageNumber;
-        $query['PageSize']   = $request->pageSize;
-        $query['Tid']        = $request->tid;
-        $req                 = new OpenApiRequest([
+        $query = [];
+        if (!Utils::isUnset($request->jobId)) {
+            $query['JobId'] = $request->jobId;
+        }
+        if (!Utils::isUnset($request->pageNumber)) {
+            $query['PageNumber'] = $request->pageNumber;
+        }
+        if (!Utils::isUnset($request->pageSize)) {
+            $query['PageSize'] = $request->pageSize;
+        }
+        if (!Utils::isUnset($request->tid)) {
+            $query['Tid'] = $request->tid;
+        }
+        $req = new OpenApiRequest([
             'query' => OpenApiUtilClient::query($query),
         ]);
         $params = new Params([
@@ -3273,10 +3950,14 @@ class Dmsenterprise extends OpenApiClient
     public function listDDLPublishRecordsWithOptions($request, $runtime)
     {
         Utils::validateModel($request);
-        $query            = [];
-        $query['OrderId'] = $request->orderId;
-        $query['Tid']     = $request->tid;
-        $req              = new OpenApiRequest([
+        $query = [];
+        if (!Utils::isUnset($request->orderId)) {
+            $query['OrderId'] = $request->orderId;
+        }
+        if (!Utils::isUnset($request->tid)) {
+            $query['Tid'] = $request->tid;
+        }
+        $req = new OpenApiRequest([
             'query' => OpenApiUtilClient::query($query),
         ]);
         $params = new Params([
@@ -3315,12 +3996,20 @@ class Dmsenterprise extends OpenApiClient
     public function listDataCorrectPreCheckDBWithOptions($request, $runtime)
     {
         Utils::validateModel($request);
-        $query               = [];
-        $query['OrderId']    = $request->orderId;
-        $query['PageNumber'] = $request->pageNumber;
-        $query['PageSize']   = $request->pageSize;
-        $query['Tid']        = $request->tid;
-        $req                 = new OpenApiRequest([
+        $query = [];
+        if (!Utils::isUnset($request->orderId)) {
+            $query['OrderId'] = $request->orderId;
+        }
+        if (!Utils::isUnset($request->pageNumber)) {
+            $query['PageNumber'] = $request->pageNumber;
+        }
+        if (!Utils::isUnset($request->pageSize)) {
+            $query['PageSize'] = $request->pageSize;
+        }
+        if (!Utils::isUnset($request->tid)) {
+            $query['Tid'] = $request->tid;
+        }
+        $req = new OpenApiRequest([
             'query' => OpenApiUtilClient::query($query),
         ]);
         $params = new Params([
@@ -3359,13 +4048,23 @@ class Dmsenterprise extends OpenApiClient
     public function listDataCorrectPreCheckSQLWithOptions($request, $runtime)
     {
         Utils::validateModel($request);
-        $query               = [];
-        $query['DbId']       = $request->dbId;
-        $query['OrderId']    = $request->orderId;
-        $query['PageNumber'] = $request->pageNumber;
-        $query['PageSize']   = $request->pageSize;
-        $query['Tid']        = $request->tid;
-        $req                 = new OpenApiRequest([
+        $query = [];
+        if (!Utils::isUnset($request->dbId)) {
+            $query['DbId'] = $request->dbId;
+        }
+        if (!Utils::isUnset($request->orderId)) {
+            $query['OrderId'] = $request->orderId;
+        }
+        if (!Utils::isUnset($request->pageNumber)) {
+            $query['PageNumber'] = $request->pageNumber;
+        }
+        if (!Utils::isUnset($request->pageSize)) {
+            $query['PageSize'] = $request->pageSize;
+        }
+        if (!Utils::isUnset($request->tid)) {
+            $query['Tid'] = $request->tid;
+        }
+        $req = new OpenApiRequest([
             'query' => OpenApiUtilClient::query($query),
         ]);
         $params = new Params([
@@ -3404,15 +4103,29 @@ class Dmsenterprise extends OpenApiClient
     public function listDatabaseUserPermssionsWithOptions($request, $runtime)
     {
         Utils::validateModel($request);
-        $query               = [];
-        $query['DbId']       = $request->dbId;
-        $query['Logic']      = $request->logic;
-        $query['PageNumber'] = $request->pageNumber;
-        $query['PageSize']   = $request->pageSize;
-        $query['PermType']   = $request->permType;
-        $query['Tid']        = $request->tid;
-        $query['UserName']   = $request->userName;
-        $req                 = new OpenApiRequest([
+        $query = [];
+        if (!Utils::isUnset($request->dbId)) {
+            $query['DbId'] = $request->dbId;
+        }
+        if (!Utils::isUnset($request->logic)) {
+            $query['Logic'] = $request->logic;
+        }
+        if (!Utils::isUnset($request->pageNumber)) {
+            $query['PageNumber'] = $request->pageNumber;
+        }
+        if (!Utils::isUnset($request->pageSize)) {
+            $query['PageSize'] = $request->pageSize;
+        }
+        if (!Utils::isUnset($request->permType)) {
+            $query['PermType'] = $request->permType;
+        }
+        if (!Utils::isUnset($request->tid)) {
+            $query['Tid'] = $request->tid;
+        }
+        if (!Utils::isUnset($request->userName)) {
+            $query['UserName'] = $request->userName;
+        }
+        $req = new OpenApiRequest([
             'query' => OpenApiUtilClient::query($query),
         ]);
         $params = new Params([
@@ -3451,12 +4164,20 @@ class Dmsenterprise extends OpenApiClient
     public function listDatabasesWithOptions($request, $runtime)
     {
         Utils::validateModel($request);
-        $query               = [];
-        $query['InstanceId'] = $request->instanceId;
-        $query['PageNumber'] = $request->pageNumber;
-        $query['PageSize']   = $request->pageSize;
-        $query['Tid']        = $request->tid;
-        $req                 = new OpenApiRequest([
+        $query = [];
+        if (!Utils::isUnset($request->instanceId)) {
+            $query['InstanceId'] = $request->instanceId;
+        }
+        if (!Utils::isUnset($request->pageNumber)) {
+            $query['PageNumber'] = $request->pageNumber;
+        }
+        if (!Utils::isUnset($request->pageSize)) {
+            $query['PageSize'] = $request->pageSize;
+        }
+        if (!Utils::isUnset($request->tid)) {
+            $query['Tid'] = $request->tid;
+        }
+        $req = new OpenApiRequest([
             'query' => OpenApiUtilClient::query($query),
         ]);
         $params = new Params([
@@ -3495,11 +4216,17 @@ class Dmsenterprise extends OpenApiClient
     public function listIndexesWithOptions($request, $runtime)
     {
         Utils::validateModel($request);
-        $query            = [];
-        $query['Logic']   = $request->logic;
-        $query['TableId'] = $request->tableId;
-        $query['Tid']     = $request->tid;
-        $req              = new OpenApiRequest([
+        $query = [];
+        if (!Utils::isUnset($request->logic)) {
+            $query['Logic'] = $request->logic;
+        }
+        if (!Utils::isUnset($request->tableId)) {
+            $query['TableId'] = $request->tableId;
+        }
+        if (!Utils::isUnset($request->tid)) {
+            $query['Tid'] = $request->tid;
+        }
+        $req = new OpenApiRequest([
             'query' => OpenApiUtilClient::query($query),
         ]);
         $params = new Params([
@@ -3538,15 +4265,29 @@ class Dmsenterprise extends OpenApiClient
     public function listInstanceLoginAuditLogWithOptions($request, $runtime)
     {
         Utils::validateModel($request);
-        $query               = [];
-        $query['EndTime']    = $request->endTime;
-        $query['OpUserName'] = $request->opUserName;
-        $query['PageNumber'] = $request->pageNumber;
-        $query['PageSize']   = $request->pageSize;
-        $query['SearchName'] = $request->searchName;
-        $query['StartTime']  = $request->startTime;
-        $query['Tid']        = $request->tid;
-        $req                 = new OpenApiRequest([
+        $query = [];
+        if (!Utils::isUnset($request->endTime)) {
+            $query['EndTime'] = $request->endTime;
+        }
+        if (!Utils::isUnset($request->opUserName)) {
+            $query['OpUserName'] = $request->opUserName;
+        }
+        if (!Utils::isUnset($request->pageNumber)) {
+            $query['PageNumber'] = $request->pageNumber;
+        }
+        if (!Utils::isUnset($request->pageSize)) {
+            $query['PageSize'] = $request->pageSize;
+        }
+        if (!Utils::isUnset($request->searchName)) {
+            $query['SearchName'] = $request->searchName;
+        }
+        if (!Utils::isUnset($request->startTime)) {
+            $query['StartTime'] = $request->startTime;
+        }
+        if (!Utils::isUnset($request->tid)) {
+            $query['Tid'] = $request->tid;
+        }
+        $req = new OpenApiRequest([
             'query' => OpenApiUtilClient::query($query),
         ]);
         $params = new Params([
@@ -3585,13 +4326,23 @@ class Dmsenterprise extends OpenApiClient
     public function listInstanceUserPermissionsWithOptions($request, $runtime)
     {
         Utils::validateModel($request);
-        $query               = [];
-        $query['InstanceId'] = $request->instanceId;
-        $query['PageNumber'] = $request->pageNumber;
-        $query['PageSize']   = $request->pageSize;
-        $query['Tid']        = $request->tid;
-        $query['UserName']   = $request->userName;
-        $req                 = new OpenApiRequest([
+        $query = [];
+        if (!Utils::isUnset($request->instanceId)) {
+            $query['InstanceId'] = $request->instanceId;
+        }
+        if (!Utils::isUnset($request->pageNumber)) {
+            $query['PageNumber'] = $request->pageNumber;
+        }
+        if (!Utils::isUnset($request->pageSize)) {
+            $query['PageSize'] = $request->pageSize;
+        }
+        if (!Utils::isUnset($request->tid)) {
+            $query['Tid'] = $request->tid;
+        }
+        if (!Utils::isUnset($request->userName)) {
+            $query['UserName'] = $request->userName;
+        }
+        $req = new OpenApiRequest([
             'query' => OpenApiUtilClient::query($query),
         ]);
         $params = new Params([
@@ -3630,17 +4381,35 @@ class Dmsenterprise extends OpenApiClient
     public function listInstancesWithOptions($request, $runtime)
     {
         Utils::validateModel($request);
-        $query                   = [];
-        $query['DbType']         = $request->dbType;
-        $query['EnvType']        = $request->envType;
-        $query['InstanceSource'] = $request->instanceSource;
-        $query['InstanceState']  = $request->instanceState;
-        $query['NetType']        = $request->netType;
-        $query['PageNumber']     = $request->pageNumber;
-        $query['PageSize']       = $request->pageSize;
-        $query['SearchKey']      = $request->searchKey;
-        $query['Tid']            = $request->tid;
-        $req                     = new OpenApiRequest([
+        $query = [];
+        if (!Utils::isUnset($request->dbType)) {
+            $query['DbType'] = $request->dbType;
+        }
+        if (!Utils::isUnset($request->envType)) {
+            $query['EnvType'] = $request->envType;
+        }
+        if (!Utils::isUnset($request->instanceSource)) {
+            $query['InstanceSource'] = $request->instanceSource;
+        }
+        if (!Utils::isUnset($request->instanceState)) {
+            $query['InstanceState'] = $request->instanceState;
+        }
+        if (!Utils::isUnset($request->netType)) {
+            $query['NetType'] = $request->netType;
+        }
+        if (!Utils::isUnset($request->pageNumber)) {
+            $query['PageNumber'] = $request->pageNumber;
+        }
+        if (!Utils::isUnset($request->pageSize)) {
+            $query['PageSize'] = $request->pageSize;
+        }
+        if (!Utils::isUnset($request->searchKey)) {
+            $query['SearchKey'] = $request->searchKey;
+        }
+        if (!Utils::isUnset($request->tid)) {
+            $query['Tid'] = $request->tid;
+        }
+        $req = new OpenApiRequest([
             'query' => OpenApiUtilClient::query($query),
         ]);
         $params = new Params([
@@ -3679,11 +4448,17 @@ class Dmsenterprise extends OpenApiClient
     public function listLogicDatabasesWithOptions($request, $runtime)
     {
         Utils::validateModel($request);
-        $query               = [];
-        $query['PageNumber'] = $request->pageNumber;
-        $query['PageSize']   = $request->pageSize;
-        $query['Tid']        = $request->tid;
-        $req                 = new OpenApiRequest([
+        $query = [];
+        if (!Utils::isUnset($request->pageNumber)) {
+            $query['PageNumber'] = $request->pageNumber;
+        }
+        if (!Utils::isUnset($request->pageSize)) {
+            $query['PageSize'] = $request->pageSize;
+        }
+        if (!Utils::isUnset($request->tid)) {
+            $query['Tid'] = $request->tid;
+        }
+        $req = new OpenApiRequest([
             'query' => OpenApiUtilClient::query($query),
         ]);
         $params = new Params([
@@ -3722,10 +4497,14 @@ class Dmsenterprise extends OpenApiClient
     public function listLogicTableRouteConfigWithOptions($request, $runtime)
     {
         Utils::validateModel($request);
-        $query            = [];
-        $query['TableId'] = $request->tableId;
-        $query['Tid']     = $request->tid;
-        $req              = new OpenApiRequest([
+        $query = [];
+        if (!Utils::isUnset($request->tableId)) {
+            $query['TableId'] = $request->tableId;
+        }
+        if (!Utils::isUnset($request->tid)) {
+            $query['Tid'] = $request->tid;
+        }
+        $req = new OpenApiRequest([
             'query' => OpenApiUtilClient::query($query),
         ]);
         $params = new Params([
@@ -3764,14 +4543,26 @@ class Dmsenterprise extends OpenApiClient
     public function listLogicTablesWithOptions($request, $runtime)
     {
         Utils::validateModel($request);
-        $query               = [];
-        $query['DatabaseId'] = $request->databaseId;
-        $query['PageNumber'] = $request->pageNumber;
-        $query['PageSize']   = $request->pageSize;
-        $query['ReturnGuid'] = $request->returnGuid;
-        $query['SearchName'] = $request->searchName;
-        $query['Tid']        = $request->tid;
-        $req                 = new OpenApiRequest([
+        $query = [];
+        if (!Utils::isUnset($request->databaseId)) {
+            $query['DatabaseId'] = $request->databaseId;
+        }
+        if (!Utils::isUnset($request->pageNumber)) {
+            $query['PageNumber'] = $request->pageNumber;
+        }
+        if (!Utils::isUnset($request->pageSize)) {
+            $query['PageSize'] = $request->pageSize;
+        }
+        if (!Utils::isUnset($request->returnGuid)) {
+            $query['ReturnGuid'] = $request->returnGuid;
+        }
+        if (!Utils::isUnset($request->searchName)) {
+            $query['SearchName'] = $request->searchName;
+        }
+        if (!Utils::isUnset($request->tid)) {
+            $query['Tid'] = $request->tid;
+        }
+        $req = new OpenApiRequest([
             'query' => OpenApiUtilClient::query($query),
         ]);
         $params = new Params([
@@ -3810,18 +4601,38 @@ class Dmsenterprise extends OpenApiClient
     public function listOrdersWithOptions($request, $runtime)
     {
         Utils::validateModel($request);
-        $query                    = [];
-        $query['EndTime']         = $request->endTime;
-        $query['OrderResultType'] = $request->orderResultType;
-        $query['OrderStatus']     = $request->orderStatus;
-        $query['PageNumber']      = $request->pageNumber;
-        $query['PageSize']        = $request->pageSize;
-        $query['PluginType']      = $request->pluginType;
-        $query['SearchContent']   = $request->searchContent;
-        $query['SearchDateType']  = $request->searchDateType;
-        $query['StartTime']       = $request->startTime;
-        $query['Tid']             = $request->tid;
-        $req                      = new OpenApiRequest([
+        $query = [];
+        if (!Utils::isUnset($request->endTime)) {
+            $query['EndTime'] = $request->endTime;
+        }
+        if (!Utils::isUnset($request->orderResultType)) {
+            $query['OrderResultType'] = $request->orderResultType;
+        }
+        if (!Utils::isUnset($request->orderStatus)) {
+            $query['OrderStatus'] = $request->orderStatus;
+        }
+        if (!Utils::isUnset($request->pageNumber)) {
+            $query['PageNumber'] = $request->pageNumber;
+        }
+        if (!Utils::isUnset($request->pageSize)) {
+            $query['PageSize'] = $request->pageSize;
+        }
+        if (!Utils::isUnset($request->pluginType)) {
+            $query['PluginType'] = $request->pluginType;
+        }
+        if (!Utils::isUnset($request->searchContent)) {
+            $query['SearchContent'] = $request->searchContent;
+        }
+        if (!Utils::isUnset($request->searchDateType)) {
+            $query['SearchDateType'] = $request->searchDateType;
+        }
+        if (!Utils::isUnset($request->startTime)) {
+            $query['StartTime'] = $request->startTime;
+        }
+        if (!Utils::isUnset($request->tid)) {
+            $query['Tid'] = $request->tid;
+        }
+        $req = new OpenApiRequest([
             'query' => OpenApiUtilClient::query($query),
         ]);
         $params = new Params([
@@ -3860,9 +4671,11 @@ class Dmsenterprise extends OpenApiClient
     public function listProxiesWithOptions($request, $runtime)
     {
         Utils::validateModel($request);
-        $query        = [];
-        $query['Tid'] = $request->tid;
-        $req          = new OpenApiRequest([
+        $query = [];
+        if (!Utils::isUnset($request->tid)) {
+            $query['Tid'] = $request->tid;
+        }
+        $req = new OpenApiRequest([
             'query' => OpenApiUtilClient::query($query),
         ]);
         $params = new Params([
@@ -3901,10 +4714,14 @@ class Dmsenterprise extends OpenApiClient
     public function listProxyAccessesWithOptions($request, $runtime)
     {
         Utils::validateModel($request);
-        $query            = [];
-        $query['ProxyId'] = $request->proxyId;
-        $query['Tid']     = $request->tid;
-        $req              = new OpenApiRequest([
+        $query = [];
+        if (!Utils::isUnset($request->proxyId)) {
+            $query['ProxyId'] = $request->proxyId;
+        }
+        if (!Utils::isUnset($request->tid)) {
+            $query['Tid'] = $request->tid;
+        }
+        $req = new OpenApiRequest([
             'query' => OpenApiUtilClient::query($query),
         ]);
         $params = new Params([
@@ -3943,17 +4760,35 @@ class Dmsenterprise extends OpenApiClient
     public function listProxySQLExecAuditLogWithOptions($request, $runtime)
     {
         Utils::validateModel($request);
-        $query               = [];
-        $query['EndTime']    = $request->endTime;
-        $query['ExecState']  = $request->execState;
-        $query['OpUserName'] = $request->opUserName;
-        $query['PageNumber'] = $request->pageNumber;
-        $query['PageSize']   = $request->pageSize;
-        $query['SQLType']    = $request->SQLType;
-        $query['SearchName'] = $request->searchName;
-        $query['StartTime']  = $request->startTime;
-        $query['Tid']        = $request->tid;
-        $req                 = new OpenApiRequest([
+        $query = [];
+        if (!Utils::isUnset($request->endTime)) {
+            $query['EndTime'] = $request->endTime;
+        }
+        if (!Utils::isUnset($request->execState)) {
+            $query['ExecState'] = $request->execState;
+        }
+        if (!Utils::isUnset($request->opUserName)) {
+            $query['OpUserName'] = $request->opUserName;
+        }
+        if (!Utils::isUnset($request->pageNumber)) {
+            $query['PageNumber'] = $request->pageNumber;
+        }
+        if (!Utils::isUnset($request->pageSize)) {
+            $query['PageSize'] = $request->pageSize;
+        }
+        if (!Utils::isUnset($request->SQLType)) {
+            $query['SQLType'] = $request->SQLType;
+        }
+        if (!Utils::isUnset($request->searchName)) {
+            $query['SearchName'] = $request->searchName;
+        }
+        if (!Utils::isUnset($request->startTime)) {
+            $query['StartTime'] = $request->startTime;
+        }
+        if (!Utils::isUnset($request->tid)) {
+            $query['Tid'] = $request->tid;
+        }
+        $req = new OpenApiRequest([
             'query' => OpenApiUtilClient::query($query),
         ]);
         $params = new Params([
@@ -3992,17 +4827,35 @@ class Dmsenterprise extends OpenApiClient
     public function listSQLExecAuditLogWithOptions($request, $runtime)
     {
         Utils::validateModel($request);
-        $query               = [];
-        $query['EndTime']    = $request->endTime;
-        $query['ExecState']  = $request->execState;
-        $query['OpUserName'] = $request->opUserName;
-        $query['PageNumber'] = $request->pageNumber;
-        $query['PageSize']   = $request->pageSize;
-        $query['SearchName'] = $request->searchName;
-        $query['SqlType']    = $request->sqlType;
-        $query['StartTime']  = $request->startTime;
-        $query['Tid']        = $request->tid;
-        $req                 = new OpenApiRequest([
+        $query = [];
+        if (!Utils::isUnset($request->endTime)) {
+            $query['EndTime'] = $request->endTime;
+        }
+        if (!Utils::isUnset($request->execState)) {
+            $query['ExecState'] = $request->execState;
+        }
+        if (!Utils::isUnset($request->opUserName)) {
+            $query['OpUserName'] = $request->opUserName;
+        }
+        if (!Utils::isUnset($request->pageNumber)) {
+            $query['PageNumber'] = $request->pageNumber;
+        }
+        if (!Utils::isUnset($request->pageSize)) {
+            $query['PageSize'] = $request->pageSize;
+        }
+        if (!Utils::isUnset($request->searchName)) {
+            $query['SearchName'] = $request->searchName;
+        }
+        if (!Utils::isUnset($request->sqlType)) {
+            $query['SqlType'] = $request->sqlType;
+        }
+        if (!Utils::isUnset($request->startTime)) {
+            $query['StartTime'] = $request->startTime;
+        }
+        if (!Utils::isUnset($request->tid)) {
+            $query['Tid'] = $request->tid;
+        }
+        $req = new OpenApiRequest([
             'query' => OpenApiUtilClient::query($query),
         ]);
         $params = new Params([
@@ -4046,11 +4899,17 @@ class Dmsenterprise extends OpenApiClient
         if (!Utils::isUnset($tmpReq->orderActionDetail)) {
             $request->orderActionDetailShrink = OpenApiUtilClient::arrayToStringWithSpecifiedStyle(Tea::merge($tmpReq->orderActionDetail), 'OrderActionDetail', 'json');
         }
-        $query                      = [];
-        $query['OrderActionDetail'] = $request->orderActionDetailShrink;
-        $query['OrderId']           = $request->orderId;
-        $query['Tid']               = $request->tid;
-        $req                        = new OpenApiRequest([
+        $query = [];
+        if (!Utils::isUnset($request->orderActionDetailShrink)) {
+            $query['OrderActionDetail'] = $request->orderActionDetailShrink;
+        }
+        if (!Utils::isUnset($request->orderId)) {
+            $query['OrderId'] = $request->orderId;
+        }
+        if (!Utils::isUnset($request->tid)) {
+            $query['Tid'] = $request->tid;
+        }
+        $req = new OpenApiRequest([
             'query' => OpenApiUtilClient::query($query),
         ]);
         $params = new Params([
@@ -4089,17 +4948,35 @@ class Dmsenterprise extends OpenApiClient
     public function listSensitiveColumnsWithOptions($request, $runtime)
     {
         Utils::validateModel($request);
-        $query                  = [];
-        $query['ColumnName']    = $request->columnName;
-        $query['DbId']          = $request->dbId;
-        $query['Logic']         = $request->logic;
-        $query['PageNumber']    = $request->pageNumber;
-        $query['PageSize']      = $request->pageSize;
-        $query['SchemaName']    = $request->schemaName;
-        $query['SecurityLevel'] = $request->securityLevel;
-        $query['TableName']     = $request->tableName;
-        $query['Tid']           = $request->tid;
-        $req                    = new OpenApiRequest([
+        $query = [];
+        if (!Utils::isUnset($request->columnName)) {
+            $query['ColumnName'] = $request->columnName;
+        }
+        if (!Utils::isUnset($request->dbId)) {
+            $query['DbId'] = $request->dbId;
+        }
+        if (!Utils::isUnset($request->logic)) {
+            $query['Logic'] = $request->logic;
+        }
+        if (!Utils::isUnset($request->pageNumber)) {
+            $query['PageNumber'] = $request->pageNumber;
+        }
+        if (!Utils::isUnset($request->pageSize)) {
+            $query['PageSize'] = $request->pageSize;
+        }
+        if (!Utils::isUnset($request->schemaName)) {
+            $query['SchemaName'] = $request->schemaName;
+        }
+        if (!Utils::isUnset($request->securityLevel)) {
+            $query['SecurityLevel'] = $request->securityLevel;
+        }
+        if (!Utils::isUnset($request->tableName)) {
+            $query['TableName'] = $request->tableName;
+        }
+        if (!Utils::isUnset($request->tid)) {
+            $query['Tid'] = $request->tid;
+        }
+        $req = new OpenApiRequest([
             'query' => OpenApiUtilClient::query($query),
         ]);
         $params = new Params([
@@ -4138,14 +5015,26 @@ class Dmsenterprise extends OpenApiClient
     public function listSensitiveColumnsDetailWithOptions($request, $runtime)
     {
         Utils::validateModel($request);
-        $query               = [];
-        $query['ColumnName'] = $request->columnName;
-        $query['DbId']       = $request->dbId;
-        $query['Logic']      = $request->logic;
-        $query['SchemaName'] = $request->schemaName;
-        $query['TableName']  = $request->tableName;
-        $query['Tid']        = $request->tid;
-        $req                 = new OpenApiRequest([
+        $query = [];
+        if (!Utils::isUnset($request->columnName)) {
+            $query['ColumnName'] = $request->columnName;
+        }
+        if (!Utils::isUnset($request->dbId)) {
+            $query['DbId'] = $request->dbId;
+        }
+        if (!Utils::isUnset($request->logic)) {
+            $query['Logic'] = $request->logic;
+        }
+        if (!Utils::isUnset($request->schemaName)) {
+            $query['SchemaName'] = $request->schemaName;
+        }
+        if (!Utils::isUnset($request->tableName)) {
+            $query['TableName'] = $request->tableName;
+        }
+        if (!Utils::isUnset($request->tid)) {
+            $query['Tid'] = $request->tid;
+        }
+        $req = new OpenApiRequest([
             'query' => OpenApiUtilClient::query($query),
         ]);
         $params = new Params([
@@ -4184,14 +5073,26 @@ class Dmsenterprise extends OpenApiClient
     public function listTablesWithOptions($request, $runtime)
     {
         Utils::validateModel($request);
-        $query               = [];
-        $query['DatabaseId'] = $request->databaseId;
-        $query['PageNumber'] = $request->pageNumber;
-        $query['PageSize']   = $request->pageSize;
-        $query['ReturnGuid'] = $request->returnGuid;
-        $query['SearchName'] = $request->searchName;
-        $query['Tid']        = $request->tid;
-        $req                 = new OpenApiRequest([
+        $query = [];
+        if (!Utils::isUnset($request->databaseId)) {
+            $query['DatabaseId'] = $request->databaseId;
+        }
+        if (!Utils::isUnset($request->pageNumber)) {
+            $query['PageNumber'] = $request->pageNumber;
+        }
+        if (!Utils::isUnset($request->pageSize)) {
+            $query['PageSize'] = $request->pageSize;
+        }
+        if (!Utils::isUnset($request->returnGuid)) {
+            $query['ReturnGuid'] = $request->returnGuid;
+        }
+        if (!Utils::isUnset($request->searchName)) {
+            $query['SearchName'] = $request->searchName;
+        }
+        if (!Utils::isUnset($request->tid)) {
+            $query['Tid'] = $request->tid;
+        }
+        $req = new OpenApiRequest([
             'query' => OpenApiUtilClient::query($query),
         ]);
         $params = new Params([
@@ -4230,18 +5131,38 @@ class Dmsenterprise extends OpenApiClient
     public function listUserPermissionsWithOptions($request, $runtime)
     {
         Utils::validateModel($request);
-        $query                 = [];
-        $query['DatabaseName'] = $request->databaseName;
-        $query['DbType']       = $request->dbType;
-        $query['EnvType']      = $request->envType;
-        $query['Logic']        = $request->logic;
-        $query['PageNumber']   = $request->pageNumber;
-        $query['PageSize']     = $request->pageSize;
-        $query['PermType']     = $request->permType;
-        $query['SearchKey']    = $request->searchKey;
-        $query['Tid']          = $request->tid;
-        $query['UserId']       = $request->userId;
-        $req                   = new OpenApiRequest([
+        $query = [];
+        if (!Utils::isUnset($request->databaseName)) {
+            $query['DatabaseName'] = $request->databaseName;
+        }
+        if (!Utils::isUnset($request->dbType)) {
+            $query['DbType'] = $request->dbType;
+        }
+        if (!Utils::isUnset($request->envType)) {
+            $query['EnvType'] = $request->envType;
+        }
+        if (!Utils::isUnset($request->logic)) {
+            $query['Logic'] = $request->logic;
+        }
+        if (!Utils::isUnset($request->pageNumber)) {
+            $query['PageNumber'] = $request->pageNumber;
+        }
+        if (!Utils::isUnset($request->pageSize)) {
+            $query['PageSize'] = $request->pageSize;
+        }
+        if (!Utils::isUnset($request->permType)) {
+            $query['PermType'] = $request->permType;
+        }
+        if (!Utils::isUnset($request->searchKey)) {
+            $query['SearchKey'] = $request->searchKey;
+        }
+        if (!Utils::isUnset($request->tid)) {
+            $query['Tid'] = $request->tid;
+        }
+        if (!Utils::isUnset($request->userId)) {
+            $query['UserId'] = $request->userId;
+        }
+        $req = new OpenApiRequest([
             'query' => OpenApiUtilClient::query($query),
         ]);
         $params = new Params([
@@ -4280,9 +5201,11 @@ class Dmsenterprise extends OpenApiClient
     public function listUserTenantsWithOptions($request, $runtime)
     {
         Utils::validateModel($request);
-        $query        = [];
-        $query['Tid'] = $request->tid;
-        $req          = new OpenApiRequest([
+        $query = [];
+        if (!Utils::isUnset($request->tid)) {
+            $query['Tid'] = $request->tid;
+        }
+        $req = new OpenApiRequest([
             'query' => OpenApiUtilClient::query($query),
         ]);
         $params = new Params([
@@ -4321,14 +5244,26 @@ class Dmsenterprise extends OpenApiClient
     public function listUsersWithOptions($request, $runtime)
     {
         Utils::validateModel($request);
-        $query               = [];
-        $query['PageNumber'] = $request->pageNumber;
-        $query['PageSize']   = $request->pageSize;
-        $query['Role']       = $request->role;
-        $query['SearchKey']  = $request->searchKey;
-        $query['Tid']        = $request->tid;
-        $query['UserState']  = $request->userState;
-        $req                 = new OpenApiRequest([
+        $query = [];
+        if (!Utils::isUnset($request->pageNumber)) {
+            $query['PageNumber'] = $request->pageNumber;
+        }
+        if (!Utils::isUnset($request->pageSize)) {
+            $query['PageSize'] = $request->pageSize;
+        }
+        if (!Utils::isUnset($request->role)) {
+            $query['Role'] = $request->role;
+        }
+        if (!Utils::isUnset($request->searchKey)) {
+            $query['SearchKey'] = $request->searchKey;
+        }
+        if (!Utils::isUnset($request->tid)) {
+            $query['Tid'] = $request->tid;
+        }
+        if (!Utils::isUnset($request->userState)) {
+            $query['UserState'] = $request->userState;
+        }
+        $req = new OpenApiRequest([
             'query' => OpenApiUtilClient::query($query),
         ]);
         $params = new Params([
@@ -4367,10 +5302,14 @@ class Dmsenterprise extends OpenApiClient
     public function listWorkFlowNodesWithOptions($request, $runtime)
     {
         Utils::validateModel($request);
-        $query               = [];
-        $query['SearchName'] = $request->searchName;
-        $query['Tid']        = $request->tid;
-        $req                 = new OpenApiRequest([
+        $query = [];
+        if (!Utils::isUnset($request->searchName)) {
+            $query['SearchName'] = $request->searchName;
+        }
+        if (!Utils::isUnset($request->tid)) {
+            $query['Tid'] = $request->tid;
+        }
+        $req = new OpenApiRequest([
             'query' => OpenApiUtilClient::query($query),
         ]);
         $params = new Params([
@@ -4409,10 +5348,14 @@ class Dmsenterprise extends OpenApiClient
     public function listWorkFlowTemplatesWithOptions($request, $runtime)
     {
         Utils::validateModel($request);
-        $query               = [];
-        $query['SearchName'] = $request->searchName;
-        $query['Tid']        = $request->tid;
-        $req                 = new OpenApiRequest([
+        $query = [];
+        if (!Utils::isUnset($request->searchName)) {
+            $query['SearchName'] = $request->searchName;
+        }
+        if (!Utils::isUnset($request->tid)) {
+            $query['Tid'] = $request->tid;
+        }
+        $req = new OpenApiRequest([
             'query' => OpenApiUtilClient::query($query),
         ]);
         $params = new Params([
@@ -4451,11 +5394,17 @@ class Dmsenterprise extends OpenApiClient
     public function modifyDataCorrectExecSQLWithOptions($request, $runtime)
     {
         Utils::validateModel($request);
-        $query            = [];
-        $query['ExecSQL'] = $request->execSQL;
-        $query['OrderId'] = $request->orderId;
-        $query['Tid']     = $request->tid;
-        $req              = new OpenApiRequest([
+        $query = [];
+        if (!Utils::isUnset($request->execSQL)) {
+            $query['ExecSQL'] = $request->execSQL;
+        }
+        if (!Utils::isUnset($request->orderId)) {
+            $query['OrderId'] = $request->orderId;
+        }
+        if (!Utils::isUnset($request->tid)) {
+            $query['Tid'] = $request->tid;
+        }
+        $req = new OpenApiRequest([
             'query' => OpenApiUtilClient::query($query),
         ]);
         $params = new Params([
@@ -4494,30 +5443,74 @@ class Dmsenterprise extends OpenApiClient
     public function registerInstanceWithOptions($request, $runtime)
     {
         Utils::validateModel($request);
-        $query                     = [];
-        $query['DataLinkName']     = $request->dataLinkName;
-        $query['DatabasePassword'] = $request->databasePassword;
-        $query['DatabaseUser']     = $request->databaseUser;
-        $query['DbaUid']           = $request->dbaUid;
-        $query['DdlOnline']        = $request->ddlOnline;
-        $query['EcsInstanceId']    = $request->ecsInstanceId;
-        $query['EcsRegion']        = $request->ecsRegion;
-        $query['EnvType']          = $request->envType;
-        $query['ExportTimeout']    = $request->exportTimeout;
-        $query['Host']             = $request->host;
-        $query['InstanceAlias']    = $request->instanceAlias;
-        $query['InstanceSource']   = $request->instanceSource;
-        $query['InstanceType']     = $request->instanceType;
-        $query['NetworkType']      = $request->networkType;
-        $query['Port']             = $request->port;
-        $query['QueryTimeout']     = $request->queryTimeout;
-        $query['SafeRule']         = $request->safeRule;
-        $query['Sid']              = $request->sid;
-        $query['SkipTest']         = $request->skipTest;
-        $query['Tid']              = $request->tid;
-        $query['UseDsql']          = $request->useDsql;
-        $query['VpcId']            = $request->vpcId;
-        $req                       = new OpenApiRequest([
+        $query = [];
+        if (!Utils::isUnset($request->dataLinkName)) {
+            $query['DataLinkName'] = $request->dataLinkName;
+        }
+        if (!Utils::isUnset($request->databasePassword)) {
+            $query['DatabasePassword'] = $request->databasePassword;
+        }
+        if (!Utils::isUnset($request->databaseUser)) {
+            $query['DatabaseUser'] = $request->databaseUser;
+        }
+        if (!Utils::isUnset($request->dbaUid)) {
+            $query['DbaUid'] = $request->dbaUid;
+        }
+        if (!Utils::isUnset($request->ddlOnline)) {
+            $query['DdlOnline'] = $request->ddlOnline;
+        }
+        if (!Utils::isUnset($request->ecsInstanceId)) {
+            $query['EcsInstanceId'] = $request->ecsInstanceId;
+        }
+        if (!Utils::isUnset($request->ecsRegion)) {
+            $query['EcsRegion'] = $request->ecsRegion;
+        }
+        if (!Utils::isUnset($request->envType)) {
+            $query['EnvType'] = $request->envType;
+        }
+        if (!Utils::isUnset($request->exportTimeout)) {
+            $query['ExportTimeout'] = $request->exportTimeout;
+        }
+        if (!Utils::isUnset($request->host)) {
+            $query['Host'] = $request->host;
+        }
+        if (!Utils::isUnset($request->instanceAlias)) {
+            $query['InstanceAlias'] = $request->instanceAlias;
+        }
+        if (!Utils::isUnset($request->instanceSource)) {
+            $query['InstanceSource'] = $request->instanceSource;
+        }
+        if (!Utils::isUnset($request->instanceType)) {
+            $query['InstanceType'] = $request->instanceType;
+        }
+        if (!Utils::isUnset($request->networkType)) {
+            $query['NetworkType'] = $request->networkType;
+        }
+        if (!Utils::isUnset($request->port)) {
+            $query['Port'] = $request->port;
+        }
+        if (!Utils::isUnset($request->queryTimeout)) {
+            $query['QueryTimeout'] = $request->queryTimeout;
+        }
+        if (!Utils::isUnset($request->safeRule)) {
+            $query['SafeRule'] = $request->safeRule;
+        }
+        if (!Utils::isUnset($request->sid)) {
+            $query['Sid'] = $request->sid;
+        }
+        if (!Utils::isUnset($request->skipTest)) {
+            $query['SkipTest'] = $request->skipTest;
+        }
+        if (!Utils::isUnset($request->tid)) {
+            $query['Tid'] = $request->tid;
+        }
+        if (!Utils::isUnset($request->useDsql)) {
+            $query['UseDsql'] = $request->useDsql;
+        }
+        if (!Utils::isUnset($request->vpcId)) {
+            $query['VpcId'] = $request->vpcId;
+        }
+        $req = new OpenApiRequest([
             'query' => OpenApiUtilClient::query($query),
         ]);
         $params = new Params([
@@ -4556,13 +5549,23 @@ class Dmsenterprise extends OpenApiClient
     public function registerUserWithOptions($request, $runtime)
     {
         Utils::validateModel($request);
-        $query              = [];
-        $query['Mobile']    = $request->mobile;
-        $query['RoleNames'] = $request->roleNames;
-        $query['Tid']       = $request->tid;
-        $query['Uid']       = $request->uid;
-        $query['UserNick']  = $request->userNick;
-        $req                = new OpenApiRequest([
+        $query = [];
+        if (!Utils::isUnset($request->mobile)) {
+            $query['Mobile'] = $request->mobile;
+        }
+        if (!Utils::isUnset($request->roleNames)) {
+            $query['RoleNames'] = $request->roleNames;
+        }
+        if (!Utils::isUnset($request->tid)) {
+            $query['Tid'] = $request->tid;
+        }
+        if (!Utils::isUnset($request->uid)) {
+            $query['Uid'] = $request->uid;
+        }
+        if (!Utils::isUnset($request->userNick)) {
+            $query['UserNick'] = $request->userNick;
+        }
+        $req = new OpenApiRequest([
             'query' => OpenApiUtilClient::query($query),
         ]);
         $params = new Params([
@@ -4601,10 +5604,14 @@ class Dmsenterprise extends OpenApiClient
     public function retryDataCorrectPreCheckWithOptions($request, $runtime)
     {
         Utils::validateModel($request);
-        $query            = [];
-        $query['OrderId'] = $request->orderId;
-        $query['Tid']     = $request->tid;
-        $req              = new OpenApiRequest([
+        $query = [];
+        if (!Utils::isUnset($request->orderId)) {
+            $query['OrderId'] = $request->orderId;
+        }
+        if (!Utils::isUnset($request->tid)) {
+            $query['Tid'] = $request->tid;
+        }
+        $req = new OpenApiRequest([
             'query' => OpenApiUtilClient::query($query),
         ]);
         $params = new Params([
@@ -4643,18 +5650,38 @@ class Dmsenterprise extends OpenApiClient
     public function revokeUserPermissionWithOptions($request, $runtime)
     {
         Utils::validateModel($request);
-        $query                 = [];
-        $query['DbId']         = $request->dbId;
-        $query['DsType']       = $request->dsType;
-        $query['InstanceId']   = $request->instanceId;
-        $query['Logic']        = $request->logic;
-        $query['PermTypes']    = $request->permTypes;
-        $query['TableId']      = $request->tableId;
-        $query['TableName']    = $request->tableName;
-        $query['Tid']          = $request->tid;
-        $query['UserAccessId'] = $request->userAccessId;
-        $query['UserId']       = $request->userId;
-        $req                   = new OpenApiRequest([
+        $query = [];
+        if (!Utils::isUnset($request->dbId)) {
+            $query['DbId'] = $request->dbId;
+        }
+        if (!Utils::isUnset($request->dsType)) {
+            $query['DsType'] = $request->dsType;
+        }
+        if (!Utils::isUnset($request->instanceId)) {
+            $query['InstanceId'] = $request->instanceId;
+        }
+        if (!Utils::isUnset($request->logic)) {
+            $query['Logic'] = $request->logic;
+        }
+        if (!Utils::isUnset($request->permTypes)) {
+            $query['PermTypes'] = $request->permTypes;
+        }
+        if (!Utils::isUnset($request->tableId)) {
+            $query['TableId'] = $request->tableId;
+        }
+        if (!Utils::isUnset($request->tableName)) {
+            $query['TableName'] = $request->tableName;
+        }
+        if (!Utils::isUnset($request->tid)) {
+            $query['Tid'] = $request->tid;
+        }
+        if (!Utils::isUnset($request->userAccessId)) {
+            $query['UserAccessId'] = $request->userAccessId;
+        }
+        if (!Utils::isUnset($request->userId)) {
+            $query['UserId'] = $request->userId;
+        }
+        $req = new OpenApiRequest([
             'query' => OpenApiUtilClient::query($query),
         ]);
         $params = new Params([
@@ -4693,16 +5720,32 @@ class Dmsenterprise extends OpenApiClient
     public function searchDatabaseWithOptions($request, $runtime)
     {
         Utils::validateModel($request);
-        $query                 = [];
-        $query['DbType']       = $request->dbType;
-        $query['EnvType']      = $request->envType;
-        $query['PageNumber']   = $request->pageNumber;
-        $query['PageSize']     = $request->pageSize;
-        $query['SearchKey']    = $request->searchKey;
-        $query['SearchRange']  = $request->searchRange;
-        $query['SearchTarget'] = $request->searchTarget;
-        $query['Tid']          = $request->tid;
-        $req                   = new OpenApiRequest([
+        $query = [];
+        if (!Utils::isUnset($request->dbType)) {
+            $query['DbType'] = $request->dbType;
+        }
+        if (!Utils::isUnset($request->envType)) {
+            $query['EnvType'] = $request->envType;
+        }
+        if (!Utils::isUnset($request->pageNumber)) {
+            $query['PageNumber'] = $request->pageNumber;
+        }
+        if (!Utils::isUnset($request->pageSize)) {
+            $query['PageSize'] = $request->pageSize;
+        }
+        if (!Utils::isUnset($request->searchKey)) {
+            $query['SearchKey'] = $request->searchKey;
+        }
+        if (!Utils::isUnset($request->searchRange)) {
+            $query['SearchRange'] = $request->searchRange;
+        }
+        if (!Utils::isUnset($request->searchTarget)) {
+            $query['SearchTarget'] = $request->searchTarget;
+        }
+        if (!Utils::isUnset($request->tid)) {
+            $query['Tid'] = $request->tid;
+        }
+        $req = new OpenApiRequest([
             'query' => OpenApiUtilClient::query($query),
         ]);
         $params = new Params([
@@ -4741,17 +5784,35 @@ class Dmsenterprise extends OpenApiClient
     public function searchTableWithOptions($request, $runtime)
     {
         Utils::validateModel($request);
-        $query                 = [];
-        $query['DbType']       = $request->dbType;
-        $query['EnvType']      = $request->envType;
-        $query['PageNumber']   = $request->pageNumber;
-        $query['PageSize']     = $request->pageSize;
-        $query['ReturnGuid']   = $request->returnGuid;
-        $query['SearchKey']    = $request->searchKey;
-        $query['SearchRange']  = $request->searchRange;
-        $query['SearchTarget'] = $request->searchTarget;
-        $query['Tid']          = $request->tid;
-        $req                   = new OpenApiRequest([
+        $query = [];
+        if (!Utils::isUnset($request->dbType)) {
+            $query['DbType'] = $request->dbType;
+        }
+        if (!Utils::isUnset($request->envType)) {
+            $query['EnvType'] = $request->envType;
+        }
+        if (!Utils::isUnset($request->pageNumber)) {
+            $query['PageNumber'] = $request->pageNumber;
+        }
+        if (!Utils::isUnset($request->pageSize)) {
+            $query['PageSize'] = $request->pageSize;
+        }
+        if (!Utils::isUnset($request->returnGuid)) {
+            $query['ReturnGuid'] = $request->returnGuid;
+        }
+        if (!Utils::isUnset($request->searchKey)) {
+            $query['SearchKey'] = $request->searchKey;
+        }
+        if (!Utils::isUnset($request->searchRange)) {
+            $query['SearchRange'] = $request->searchRange;
+        }
+        if (!Utils::isUnset($request->searchTarget)) {
+            $query['SearchTarget'] = $request->searchTarget;
+        }
+        if (!Utils::isUnset($request->tid)) {
+            $query['Tid'] = $request->tid;
+        }
+        $req = new OpenApiRequest([
             'query' => OpenApiUtilClient::query($query),
         ]);
         $params = new Params([
@@ -4790,12 +5851,20 @@ class Dmsenterprise extends OpenApiClient
     public function setOwnersWithOptions($request, $runtime)
     {
         Utils::validateModel($request);
-        $query               = [];
-        $query['OwnerIds']   = $request->ownerIds;
-        $query['OwnerType']  = $request->ownerType;
-        $query['ResourceId'] = $request->resourceId;
-        $query['Tid']        = $request->tid;
-        $req                 = new OpenApiRequest([
+        $query = [];
+        if (!Utils::isUnset($request->ownerIds)) {
+            $query['OwnerIds'] = $request->ownerIds;
+        }
+        if (!Utils::isUnset($request->ownerType)) {
+            $query['OwnerType'] = $request->ownerType;
+        }
+        if (!Utils::isUnset($request->resourceId)) {
+            $query['ResourceId'] = $request->resourceId;
+        }
+        if (!Utils::isUnset($request->tid)) {
+            $query['Tid'] = $request->tid;
+        }
+        $req = new OpenApiRequest([
             'query' => OpenApiUtilClient::query($query),
         ]);
         $params = new Params([
@@ -4834,10 +5903,14 @@ class Dmsenterprise extends OpenApiClient
     public function submitOrderApprovalWithOptions($request, $runtime)
     {
         Utils::validateModel($request);
-        $query            = [];
-        $query['OrderId'] = $request->orderId;
-        $query['Tid']     = $request->tid;
-        $req              = new OpenApiRequest([
+        $query = [];
+        if (!Utils::isUnset($request->orderId)) {
+            $query['OrderId'] = $request->orderId;
+        }
+        if (!Utils::isUnset($request->tid)) {
+            $query['Tid'] = $request->tid;
+        }
+        $req = new OpenApiRequest([
             'query' => OpenApiUtilClient::query($query),
         ]);
         $params = new Params([
@@ -4868,6 +5941,89 @@ class Dmsenterprise extends OpenApiClient
     }
 
     /**
+     * @param SubmitSparkJobRequest $tmpReq
+     * @param RuntimeOptions        $runtime
+     *
+     * @return SubmitSparkJobResponse
+     */
+    public function submitSparkJobWithOptions($tmpReq, $runtime)
+    {
+        Utils::validateModel($tmpReq);
+        $request = new SubmitSparkJobShrinkRequest([]);
+        OpenApiUtilClient::convert($tmpReq, $request);
+        if (!Utils::isUnset($tmpReq->arguments)) {
+            $request->argumentsShrink = OpenApiUtilClient::arrayToStringWithSpecifiedStyle($tmpReq->arguments, 'Arguments', 'json');
+        }
+        if (!Utils::isUnset($tmpReq->configuration)) {
+            $request->configurationShrink = OpenApiUtilClient::arrayToStringWithSpecifiedStyle($tmpReq->configuration, 'Configuration', 'json');
+        }
+        if (!Utils::isUnset($tmpReq->files)) {
+            $request->filesShrink = OpenApiUtilClient::arrayToStringWithSpecifiedStyle($tmpReq->files, 'Files', 'json');
+        }
+        if (!Utils::isUnset($tmpReq->ossInfo)) {
+            $request->ossInfoShrink = OpenApiUtilClient::arrayToStringWithSpecifiedStyle(Tea::merge($tmpReq->ossInfo), 'OssInfo', 'json');
+        }
+        $query = [];
+        if (!Utils::isUnset($request->tid)) {
+            $query['Tid'] = $request->tid;
+        }
+        $body = [];
+        if (!Utils::isUnset($request->appCode)) {
+            $body['AppCode'] = $request->appCode;
+        }
+        if (!Utils::isUnset($request->argumentsShrink)) {
+            $body['Arguments'] = $request->argumentsShrink;
+        }
+        if (!Utils::isUnset($request->configurationShrink)) {
+            $body['Configuration'] = $request->configurationShrink;
+        }
+        if (!Utils::isUnset($request->filesShrink)) {
+            $body['Files'] = $request->filesShrink;
+        }
+        if (!Utils::isUnset($request->mainClass)) {
+            $body['MainClass'] = $request->mainClass;
+        }
+        if (!Utils::isUnset($request->mainFile)) {
+            $body['MainFile'] = $request->mainFile;
+        }
+        if (!Utils::isUnset($request->name)) {
+            $body['Name'] = $request->name;
+        }
+        if (!Utils::isUnset($request->ossInfoShrink)) {
+            $body['OssInfo'] = $request->ossInfoShrink;
+        }
+        $req = new OpenApiRequest([
+            'query' => OpenApiUtilClient::query($query),
+            'body'  => OpenApiUtilClient::parseToMap($body),
+        ]);
+        $params = new Params([
+            'action'      => 'SubmitSparkJob',
+            'version'     => '2018-11-01',
+            'protocol'    => 'HTTPS',
+            'pathname'    => '/',
+            'method'      => 'POST',
+            'authType'    => 'AK',
+            'style'       => 'RPC',
+            'reqBodyType' => 'formData',
+            'bodyType'    => 'json',
+        ]);
+
+        return SubmitSparkJobResponse::fromMap($this->callApi($params, $req, $runtime));
+    }
+
+    /**
+     * @param SubmitSparkJobRequest $request
+     *
+     * @return SubmitSparkJobResponse
+     */
+    public function submitSparkJob($request)
+    {
+        $runtime = new RuntimeOptions([]);
+
+        return $this->submitSparkJobWithOptions($request, $runtime);
+    }
+
+    /**
      * @param SubmitStructSyncOrderApprovalRequest $request
      * @param RuntimeOptions                       $runtime
      *
@@ -4876,10 +6032,14 @@ class Dmsenterprise extends OpenApiClient
     public function submitStructSyncOrderApprovalWithOptions($request, $runtime)
     {
         Utils::validateModel($request);
-        $query            = [];
-        $query['OrderId'] = $request->orderId;
-        $query['Tid']     = $request->tid;
-        $req              = new OpenApiRequest([
+        $query = [];
+        if (!Utils::isUnset($request->orderId)) {
+            $query['OrderId'] = $request->orderId;
+        }
+        if (!Utils::isUnset($request->tid)) {
+            $query['Tid'] = $request->tid;
+        }
+        $req = new OpenApiRequest([
             'query' => OpenApiUtilClient::query($query),
         ]);
         $params = new Params([
@@ -4918,11 +6078,17 @@ class Dmsenterprise extends OpenApiClient
     public function syncDatabaseMetaWithOptions($request, $runtime)
     {
         Utils::validateModel($request);
-        $query          = [];
-        $query['DbId']  = $request->dbId;
-        $query['Logic'] = $request->logic;
-        $query['Tid']   = $request->tid;
-        $req            = new OpenApiRequest([
+        $query = [];
+        if (!Utils::isUnset($request->dbId)) {
+            $query['DbId'] = $request->dbId;
+        }
+        if (!Utils::isUnset($request->logic)) {
+            $query['Logic'] = $request->logic;
+        }
+        if (!Utils::isUnset($request->tid)) {
+            $query['Tid'] = $request->tid;
+        }
+        $req = new OpenApiRequest([
             'query' => OpenApiUtilClient::query($query),
         ]);
         $params = new Params([
@@ -4961,11 +6127,17 @@ class Dmsenterprise extends OpenApiClient
     public function syncInstanceMetaWithOptions($request, $runtime)
     {
         Utils::validateModel($request);
-        $query                = [];
-        $query['IgnoreTable'] = $request->ignoreTable;
-        $query['InstanceId']  = $request->instanceId;
-        $query['Tid']         = $request->tid;
-        $req                  = new OpenApiRequest([
+        $query = [];
+        if (!Utils::isUnset($request->ignoreTable)) {
+            $query['IgnoreTable'] = $request->ignoreTable;
+        }
+        if (!Utils::isUnset($request->instanceId)) {
+            $query['InstanceId'] = $request->instanceId;
+        }
+        if (!Utils::isUnset($request->tid)) {
+            $query['Tid'] = $request->tid;
+        }
+        $req = new OpenApiRequest([
             'query' => OpenApiUtilClient::query($query),
         ]);
         $params = new Params([
@@ -5004,30 +6176,74 @@ class Dmsenterprise extends OpenApiClient
     public function updateInstanceWithOptions($request, $runtime)
     {
         Utils::validateModel($request);
-        $query                     = [];
-        $query['DataLinkName']     = $request->dataLinkName;
-        $query['DatabasePassword'] = $request->databasePassword;
-        $query['DatabaseUser']     = $request->databaseUser;
-        $query['DbaId']            = $request->dbaId;
-        $query['DdlOnline']        = $request->ddlOnline;
-        $query['EcsInstanceId']    = $request->ecsInstanceId;
-        $query['EcsRegion']        = $request->ecsRegion;
-        $query['EnvType']          = $request->envType;
-        $query['ExportTimeout']    = $request->exportTimeout;
-        $query['Host']             = $request->host;
-        $query['InstanceAlias']    = $request->instanceAlias;
-        $query['InstanceId']       = $request->instanceId;
-        $query['InstanceSource']   = $request->instanceSource;
-        $query['InstanceType']     = $request->instanceType;
-        $query['Port']             = $request->port;
-        $query['QueryTimeout']     = $request->queryTimeout;
-        $query['SafeRuleId']       = $request->safeRuleId;
-        $query['Sid']              = $request->sid;
-        $query['SkipTest']         = $request->skipTest;
-        $query['Tid']              = $request->tid;
-        $query['UseDsql']          = $request->useDsql;
-        $query['VpcId']            = $request->vpcId;
-        $req                       = new OpenApiRequest([
+        $query = [];
+        if (!Utils::isUnset($request->dataLinkName)) {
+            $query['DataLinkName'] = $request->dataLinkName;
+        }
+        if (!Utils::isUnset($request->databasePassword)) {
+            $query['DatabasePassword'] = $request->databasePassword;
+        }
+        if (!Utils::isUnset($request->databaseUser)) {
+            $query['DatabaseUser'] = $request->databaseUser;
+        }
+        if (!Utils::isUnset($request->dbaId)) {
+            $query['DbaId'] = $request->dbaId;
+        }
+        if (!Utils::isUnset($request->ddlOnline)) {
+            $query['DdlOnline'] = $request->ddlOnline;
+        }
+        if (!Utils::isUnset($request->ecsInstanceId)) {
+            $query['EcsInstanceId'] = $request->ecsInstanceId;
+        }
+        if (!Utils::isUnset($request->ecsRegion)) {
+            $query['EcsRegion'] = $request->ecsRegion;
+        }
+        if (!Utils::isUnset($request->envType)) {
+            $query['EnvType'] = $request->envType;
+        }
+        if (!Utils::isUnset($request->exportTimeout)) {
+            $query['ExportTimeout'] = $request->exportTimeout;
+        }
+        if (!Utils::isUnset($request->host)) {
+            $query['Host'] = $request->host;
+        }
+        if (!Utils::isUnset($request->instanceAlias)) {
+            $query['InstanceAlias'] = $request->instanceAlias;
+        }
+        if (!Utils::isUnset($request->instanceId)) {
+            $query['InstanceId'] = $request->instanceId;
+        }
+        if (!Utils::isUnset($request->instanceSource)) {
+            $query['InstanceSource'] = $request->instanceSource;
+        }
+        if (!Utils::isUnset($request->instanceType)) {
+            $query['InstanceType'] = $request->instanceType;
+        }
+        if (!Utils::isUnset($request->port)) {
+            $query['Port'] = $request->port;
+        }
+        if (!Utils::isUnset($request->queryTimeout)) {
+            $query['QueryTimeout'] = $request->queryTimeout;
+        }
+        if (!Utils::isUnset($request->safeRuleId)) {
+            $query['SafeRuleId'] = $request->safeRuleId;
+        }
+        if (!Utils::isUnset($request->sid)) {
+            $query['Sid'] = $request->sid;
+        }
+        if (!Utils::isUnset($request->skipTest)) {
+            $query['SkipTest'] = $request->skipTest;
+        }
+        if (!Utils::isUnset($request->tid)) {
+            $query['Tid'] = $request->tid;
+        }
+        if (!Utils::isUnset($request->useDsql)) {
+            $query['UseDsql'] = $request->useDsql;
+        }
+        if (!Utils::isUnset($request->vpcId)) {
+            $query['VpcId'] = $request->vpcId;
+        }
+        $req = new OpenApiRequest([
             'query' => OpenApiUtilClient::query($query),
         ]);
         $params = new Params([
@@ -5066,15 +6282,29 @@ class Dmsenterprise extends OpenApiClient
     public function updateUserWithOptions($request, $runtime)
     {
         Utils::validateModel($request);
-        $query                    = [];
-        $query['MaxExecuteCount'] = $request->maxExecuteCount;
-        $query['MaxResultCount']  = $request->maxResultCount;
-        $query['Mobile']          = $request->mobile;
-        $query['RoleNames']       = $request->roleNames;
-        $query['Tid']             = $request->tid;
-        $query['Uid']             = $request->uid;
-        $query['UserNick']        = $request->userNick;
-        $req                      = new OpenApiRequest([
+        $query = [];
+        if (!Utils::isUnset($request->maxExecuteCount)) {
+            $query['MaxExecuteCount'] = $request->maxExecuteCount;
+        }
+        if (!Utils::isUnset($request->maxResultCount)) {
+            $query['MaxResultCount'] = $request->maxResultCount;
+        }
+        if (!Utils::isUnset($request->mobile)) {
+            $query['Mobile'] = $request->mobile;
+        }
+        if (!Utils::isUnset($request->roleNames)) {
+            $query['RoleNames'] = $request->roleNames;
+        }
+        if (!Utils::isUnset($request->tid)) {
+            $query['Tid'] = $request->tid;
+        }
+        if (!Utils::isUnset($request->uid)) {
+            $query['Uid'] = $request->uid;
+        }
+        if (!Utils::isUnset($request->userNick)) {
+            $query['UserNick'] = $request->userNick;
+        }
+        $req = new OpenApiRequest([
             'query' => OpenApiUtilClient::query($query),
         ]);
         $params = new Params([

@@ -21,11 +21,6 @@ class GetDatabaseRequest extends Model
     /**
      * @var string
      */
-    public $regionId;
-
-    /**
-     * @var string
-     */
     public $schemaName;
 
     /**
@@ -40,7 +35,6 @@ class GetDatabaseRequest extends Model
     protected $_name = [
         'host'       => 'Host',
         'port'       => 'Port',
-        'regionId'   => 'RegionId',
         'schemaName' => 'SchemaName',
         'sid'        => 'Sid',
         'tid'        => 'Tid',
@@ -58,9 +52,6 @@ class GetDatabaseRequest extends Model
         }
         if (null !== $this->port) {
             $res['Port'] = $this->port;
-        }
-        if (null !== $this->regionId) {
-            $res['RegionId'] = $this->regionId;
         }
         if (null !== $this->schemaName) {
             $res['SchemaName'] = $this->schemaName;
@@ -88,9 +79,6 @@ class GetDatabaseRequest extends Model
         }
         if (isset($map['Port'])) {
             $model->port = $map['Port'];
-        }
-        if (isset($map['RegionId'])) {
-            $model->regionId = $map['RegionId'];
         }
         if (isset($map['SchemaName'])) {
             $model->schemaName = $map['SchemaName'];

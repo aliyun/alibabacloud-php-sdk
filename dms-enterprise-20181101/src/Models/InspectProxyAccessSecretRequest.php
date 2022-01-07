@@ -14,17 +14,11 @@ class InspectProxyAccessSecretRequest extends Model
     public $proxyAccessId;
 
     /**
-     * @var string
-     */
-    public $regionId;
-
-    /**
      * @var int
      */
     public $tid;
     protected $_name = [
         'proxyAccessId' => 'ProxyAccessId',
-        'regionId'      => 'RegionId',
         'tid'           => 'Tid',
     ];
 
@@ -37,9 +31,6 @@ class InspectProxyAccessSecretRequest extends Model
         $res = [];
         if (null !== $this->proxyAccessId) {
             $res['ProxyAccessId'] = $this->proxyAccessId;
-        }
-        if (null !== $this->regionId) {
-            $res['RegionId'] = $this->regionId;
         }
         if (null !== $this->tid) {
             $res['Tid'] = $this->tid;
@@ -58,9 +49,6 @@ class InspectProxyAccessSecretRequest extends Model
         $model = new self();
         if (isset($map['ProxyAccessId'])) {
             $model->proxyAccessId = $map['ProxyAccessId'];
-        }
-        if (isset($map['RegionId'])) {
-            $model->regionId = $map['RegionId'];
         }
         if (isset($map['Tid'])) {
             $model->tid = $map['Tid'];

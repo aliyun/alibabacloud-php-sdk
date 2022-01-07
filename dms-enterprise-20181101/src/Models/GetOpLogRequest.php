@@ -31,11 +31,6 @@ class GetOpLogRequest extends Model
     /**
      * @var string
      */
-    public $regionId;
-
-    /**
-     * @var string
-     */
     public $startTime;
 
     /**
@@ -47,7 +42,6 @@ class GetOpLogRequest extends Model
         'module'     => 'Module',
         'pageNumber' => 'PageNumber',
         'pageSize'   => 'PageSize',
-        'regionId'   => 'RegionId',
         'startTime'  => 'StartTime',
         'tid'        => 'Tid',
     ];
@@ -70,9 +64,6 @@ class GetOpLogRequest extends Model
         }
         if (null !== $this->pageSize) {
             $res['PageSize'] = $this->pageSize;
-        }
-        if (null !== $this->regionId) {
-            $res['RegionId'] = $this->regionId;
         }
         if (null !== $this->startTime) {
             $res['StartTime'] = $this->startTime;
@@ -103,9 +94,6 @@ class GetOpLogRequest extends Model
         }
         if (isset($map['PageSize'])) {
             $model->pageSize = $map['PageSize'];
-        }
-        if (isset($map['RegionId'])) {
-            $model->regionId = $map['RegionId'];
         }
         if (isset($map['StartTime'])) {
             $model->startTime = $map['StartTime'];

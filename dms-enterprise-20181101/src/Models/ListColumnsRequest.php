@@ -16,11 +16,6 @@ class ListColumnsRequest extends Model
     /**
      * @var string
      */
-    public $regionId;
-
-    /**
-     * @var string
-     */
     public $tableId;
 
     /**
@@ -28,10 +23,9 @@ class ListColumnsRequest extends Model
      */
     public $tid;
     protected $_name = [
-        'logic'    => 'Logic',
-        'regionId' => 'RegionId',
-        'tableId'  => 'TableId',
-        'tid'      => 'Tid',
+        'logic'   => 'Logic',
+        'tableId' => 'TableId',
+        'tid'     => 'Tid',
     ];
 
     public function validate()
@@ -43,9 +37,6 @@ class ListColumnsRequest extends Model
         $res = [];
         if (null !== $this->logic) {
             $res['Logic'] = $this->logic;
-        }
-        if (null !== $this->regionId) {
-            $res['RegionId'] = $this->regionId;
         }
         if (null !== $this->tableId) {
             $res['TableId'] = $this->tableId;
@@ -67,9 +58,6 @@ class ListColumnsRequest extends Model
         $model = new self();
         if (isset($map['Logic'])) {
             $model->logic = $map['Logic'];
-        }
-        if (isset($map['RegionId'])) {
-            $model->regionId = $map['RegionId'];
         }
         if (isset($map['TableId'])) {
             $model->tableId = $map['TableId'];

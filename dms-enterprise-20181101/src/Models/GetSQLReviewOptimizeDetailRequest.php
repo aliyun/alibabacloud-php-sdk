@@ -11,11 +11,6 @@ class GetSQLReviewOptimizeDetailRequest extends Model
     /**
      * @var string
      */
-    public $regionId;
-
-    /**
-     * @var string
-     */
     public $SQLReviewQueryKey;
 
     /**
@@ -23,7 +18,6 @@ class GetSQLReviewOptimizeDetailRequest extends Model
      */
     public $tid;
     protected $_name = [
-        'regionId'          => 'RegionId',
         'SQLReviewQueryKey' => 'SQLReviewQueryKey',
         'tid'               => 'Tid',
     ];
@@ -35,9 +29,6 @@ class GetSQLReviewOptimizeDetailRequest extends Model
     public function toMap()
     {
         $res = [];
-        if (null !== $this->regionId) {
-            $res['RegionId'] = $this->regionId;
-        }
         if (null !== $this->SQLReviewQueryKey) {
             $res['SQLReviewQueryKey'] = $this->SQLReviewQueryKey;
         }
@@ -56,9 +47,6 @@ class GetSQLReviewOptimizeDetailRequest extends Model
     public static function fromMap($map = [])
     {
         $model = new self();
-        if (isset($map['RegionId'])) {
-            $model->regionId = $map['RegionId'];
-        }
         if (isset($map['SQLReviewQueryKey'])) {
             $model->SQLReviewQueryKey = $map['SQLReviewQueryKey'];
         }

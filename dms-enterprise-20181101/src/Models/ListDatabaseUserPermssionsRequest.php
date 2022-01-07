@@ -34,11 +34,6 @@ class ListDatabaseUserPermssionsRequest extends Model
     public $permType;
 
     /**
-     * @var string
-     */
-    public $regionId;
-
-    /**
      * @var int
      */
     public $tid;
@@ -53,7 +48,6 @@ class ListDatabaseUserPermssionsRequest extends Model
         'pageNumber' => 'PageNumber',
         'pageSize'   => 'PageSize',
         'permType'   => 'PermType',
-        'regionId'   => 'RegionId',
         'tid'        => 'Tid',
         'userName'   => 'UserName',
     ];
@@ -79,9 +73,6 @@ class ListDatabaseUserPermssionsRequest extends Model
         }
         if (null !== $this->permType) {
             $res['PermType'] = $this->permType;
-        }
-        if (null !== $this->regionId) {
-            $res['RegionId'] = $this->regionId;
         }
         if (null !== $this->tid) {
             $res['Tid'] = $this->tid;
@@ -115,9 +106,6 @@ class ListDatabaseUserPermssionsRequest extends Model
         }
         if (isset($map['PermType'])) {
             $model->permType = $map['PermType'];
-        }
-        if (isset($map['RegionId'])) {
-            $model->regionId = $map['RegionId'];
         }
         if (isset($map['Tid'])) {
             $model->tid = $map['Tid'];

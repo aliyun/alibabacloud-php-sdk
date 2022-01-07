@@ -14,18 +14,12 @@ class GetDBTaskSQLJobLogRequest extends Model
     public $jobId;
 
     /**
-     * @var string
-     */
-    public $regionId;
-
-    /**
      * @var int
      */
     public $tid;
     protected $_name = [
-        'jobId'    => 'JobId',
-        'regionId' => 'RegionId',
-        'tid'      => 'Tid',
+        'jobId' => 'JobId',
+        'tid'   => 'Tid',
     ];
 
     public function validate()
@@ -37,9 +31,6 @@ class GetDBTaskSQLJobLogRequest extends Model
         $res = [];
         if (null !== $this->jobId) {
             $res['JobId'] = $this->jobId;
-        }
-        if (null !== $this->regionId) {
-            $res['RegionId'] = $this->regionId;
         }
         if (null !== $this->tid) {
             $res['Tid'] = $this->tid;
@@ -58,9 +49,6 @@ class GetDBTaskSQLJobLogRequest extends Model
         $model = new self();
         if (isset($map['JobId'])) {
             $model->jobId = $map['JobId'];
-        }
-        if (isset($map['RegionId'])) {
-            $model->regionId = $map['RegionId'];
         }
         if (isset($map['Tid'])) {
             $model->tid = $map['Tid'];

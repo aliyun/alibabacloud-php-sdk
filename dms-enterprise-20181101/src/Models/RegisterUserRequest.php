@@ -16,11 +16,6 @@ class RegisterUserRequest extends Model
     /**
      * @var string
      */
-    public $regionId;
-
-    /**
-     * @var string
-     */
     public $roleNames;
 
     /**
@@ -39,7 +34,6 @@ class RegisterUserRequest extends Model
     public $userNick;
     protected $_name = [
         'mobile'    => 'Mobile',
-        'regionId'  => 'RegionId',
         'roleNames' => 'RoleNames',
         'tid'       => 'Tid',
         'uid'       => 'Uid',
@@ -55,9 +49,6 @@ class RegisterUserRequest extends Model
         $res = [];
         if (null !== $this->mobile) {
             $res['Mobile'] = $this->mobile;
-        }
-        if (null !== $this->regionId) {
-            $res['RegionId'] = $this->regionId;
         }
         if (null !== $this->roleNames) {
             $res['RoleNames'] = $this->roleNames;
@@ -85,9 +76,6 @@ class RegisterUserRequest extends Model
         $model = new self();
         if (isset($map['Mobile'])) {
             $model->mobile = $map['Mobile'];
-        }
-        if (isset($map['RegionId'])) {
-            $model->regionId = $map['RegionId'];
         }
         if (isset($map['RoleNames'])) {
             $model->roleNames = $map['RoleNames'];

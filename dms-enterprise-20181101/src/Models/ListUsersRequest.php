@@ -21,11 +21,6 @@ class ListUsersRequest extends Model
     /**
      * @var string
      */
-    public $regionId;
-
-    /**
-     * @var string
-     */
     public $role;
 
     /**
@@ -45,7 +40,6 @@ class ListUsersRequest extends Model
     protected $_name = [
         'pageNumber' => 'PageNumber',
         'pageSize'   => 'PageSize',
-        'regionId'   => 'RegionId',
         'role'       => 'Role',
         'searchKey'  => 'SearchKey',
         'tid'        => 'Tid',
@@ -64,9 +58,6 @@ class ListUsersRequest extends Model
         }
         if (null !== $this->pageSize) {
             $res['PageSize'] = $this->pageSize;
-        }
-        if (null !== $this->regionId) {
-            $res['RegionId'] = $this->regionId;
         }
         if (null !== $this->role) {
             $res['Role'] = $this->role;
@@ -97,9 +88,6 @@ class ListUsersRequest extends Model
         }
         if (isset($map['PageSize'])) {
             $model->pageSize = $map['PageSize'];
-        }
-        if (isset($map['RegionId'])) {
-            $model->regionId = $map['RegionId'];
         }
         if (isset($map['Role'])) {
             $model->role = $map['Role'];

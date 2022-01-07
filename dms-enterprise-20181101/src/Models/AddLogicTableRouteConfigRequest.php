@@ -11,11 +11,6 @@ class AddLogicTableRouteConfigRequest extends Model
     /**
      * @var string
      */
-    public $regionId;
-
-    /**
-     * @var string
-     */
     public $routeExpr;
 
     /**
@@ -33,7 +28,6 @@ class AddLogicTableRouteConfigRequest extends Model
      */
     public $tid;
     protected $_name = [
-        'regionId'  => 'RegionId',
         'routeExpr' => 'RouteExpr',
         'routeKey'  => 'RouteKey',
         'tableId'   => 'TableId',
@@ -47,9 +41,6 @@ class AddLogicTableRouteConfigRequest extends Model
     public function toMap()
     {
         $res = [];
-        if (null !== $this->regionId) {
-            $res['RegionId'] = $this->regionId;
-        }
         if (null !== $this->routeExpr) {
             $res['RouteExpr'] = $this->routeExpr;
         }
@@ -74,9 +65,6 @@ class AddLogicTableRouteConfigRequest extends Model
     public static function fromMap($map = [])
     {
         $model = new self();
-        if (isset($map['RegionId'])) {
-            $model->regionId = $map['RegionId'];
-        }
         if (isset($map['RouteExpr'])) {
             $model->routeExpr = $map['RouteExpr'];
         }

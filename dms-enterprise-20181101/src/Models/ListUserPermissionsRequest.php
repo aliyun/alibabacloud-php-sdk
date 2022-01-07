@@ -46,11 +46,6 @@ class ListUserPermissionsRequest extends Model
     /**
      * @var string
      */
-    public $regionId;
-
-    /**
-     * @var string
-     */
     public $searchKey;
 
     /**
@@ -70,7 +65,6 @@ class ListUserPermissionsRequest extends Model
         'pageNumber'   => 'PageNumber',
         'pageSize'     => 'PageSize',
         'permType'     => 'PermType',
-        'regionId'     => 'RegionId',
         'searchKey'    => 'SearchKey',
         'tid'          => 'Tid',
         'userId'       => 'UserId',
@@ -103,9 +97,6 @@ class ListUserPermissionsRequest extends Model
         }
         if (null !== $this->permType) {
             $res['PermType'] = $this->permType;
-        }
-        if (null !== $this->regionId) {
-            $res['RegionId'] = $this->regionId;
         }
         if (null !== $this->searchKey) {
             $res['SearchKey'] = $this->searchKey;
@@ -148,9 +139,6 @@ class ListUserPermissionsRequest extends Model
         }
         if (isset($map['PermType'])) {
             $model->permType = $map['PermType'];
-        }
-        if (isset($map['RegionId'])) {
-            $model->regionId = $map['RegionId'];
         }
         if (isset($map['SearchKey'])) {
             $model->searchKey = $map['SearchKey'];

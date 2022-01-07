@@ -20,11 +20,6 @@ class CreateSQLReviewOrderRequest extends Model
     public $param;
 
     /**
-     * @var string
-     */
-    public $regionId;
-
-    /**
      * @var int[]
      */
     public $relatedUserList;
@@ -36,7 +31,6 @@ class CreateSQLReviewOrderRequest extends Model
     protected $_name = [
         'comment'         => 'Comment',
         'param'           => 'Param',
-        'regionId'        => 'RegionId',
         'relatedUserList' => 'RelatedUserList',
         'tid'             => 'Tid',
     ];
@@ -53,9 +47,6 @@ class CreateSQLReviewOrderRequest extends Model
         }
         if (null !== $this->param) {
             $res['Param'] = null !== $this->param ? $this->param->toMap() : null;
-        }
-        if (null !== $this->regionId) {
-            $res['RegionId'] = $this->regionId;
         }
         if (null !== $this->relatedUserList) {
             $res['RelatedUserList'] = $this->relatedUserList;
@@ -80,9 +71,6 @@ class CreateSQLReviewOrderRequest extends Model
         }
         if (isset($map['Param'])) {
             $model->param = param::fromMap($map['Param']);
-        }
-        if (isset($map['RegionId'])) {
-            $model->regionId = $map['RegionId'];
         }
         if (isset($map['RelatedUserList'])) {
             if (!empty($map['RelatedUserList'])) {

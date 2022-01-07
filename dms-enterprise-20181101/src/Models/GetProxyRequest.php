@@ -19,18 +19,12 @@ class GetProxyRequest extends Model
     public $proxyId;
 
     /**
-     * @var string
-     */
-    public $regionId;
-
-    /**
      * @var int
      */
     public $tid;
     protected $_name = [
         'instanceId' => 'InstanceId',
         'proxyId'    => 'ProxyId',
-        'regionId'   => 'RegionId',
         'tid'        => 'Tid',
     ];
 
@@ -46,9 +40,6 @@ class GetProxyRequest extends Model
         }
         if (null !== $this->proxyId) {
             $res['ProxyId'] = $this->proxyId;
-        }
-        if (null !== $this->regionId) {
-            $res['RegionId'] = $this->regionId;
         }
         if (null !== $this->tid) {
             $res['Tid'] = $this->tid;
@@ -70,9 +61,6 @@ class GetProxyRequest extends Model
         }
         if (isset($map['ProxyId'])) {
             $model->proxyId = $map['ProxyId'];
-        }
-        if (isset($map['RegionId'])) {
-            $model->regionId = $map['RegionId'];
         }
         if (isset($map['Tid'])) {
             $model->tid = $map['Tid'];

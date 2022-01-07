@@ -11,11 +11,6 @@ class ListWorkFlowTemplatesRequest extends Model
     /**
      * @var string
      */
-    public $regionId;
-
-    /**
-     * @var string
-     */
     public $searchName;
 
     /**
@@ -23,7 +18,6 @@ class ListWorkFlowTemplatesRequest extends Model
      */
     public $tid;
     protected $_name = [
-        'regionId'   => 'RegionId',
         'searchName' => 'SearchName',
         'tid'        => 'Tid',
     ];
@@ -35,9 +29,6 @@ class ListWorkFlowTemplatesRequest extends Model
     public function toMap()
     {
         $res = [];
-        if (null !== $this->regionId) {
-            $res['RegionId'] = $this->regionId;
-        }
         if (null !== $this->searchName) {
             $res['SearchName'] = $this->searchName;
         }
@@ -56,9 +47,6 @@ class ListWorkFlowTemplatesRequest extends Model
     public static function fromMap($map = [])
     {
         $model = new self();
-        if (isset($map['RegionId'])) {
-            $model->regionId = $map['RegionId'];
-        }
         if (isset($map['SearchName'])) {
             $model->searchName = $map['SearchName'];
         }

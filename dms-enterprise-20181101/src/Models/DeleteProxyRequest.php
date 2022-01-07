@@ -14,18 +14,12 @@ class DeleteProxyRequest extends Model
     public $proxyId;
 
     /**
-     * @var string
-     */
-    public $regionId;
-
-    /**
      * @var int
      */
     public $tid;
     protected $_name = [
-        'proxyId'  => 'ProxyId',
-        'regionId' => 'RegionId',
-        'tid'      => 'Tid',
+        'proxyId' => 'ProxyId',
+        'tid'     => 'Tid',
     ];
 
     public function validate()
@@ -37,9 +31,6 @@ class DeleteProxyRequest extends Model
         $res = [];
         if (null !== $this->proxyId) {
             $res['ProxyId'] = $this->proxyId;
-        }
-        if (null !== $this->regionId) {
-            $res['RegionId'] = $this->regionId;
         }
         if (null !== $this->tid) {
             $res['Tid'] = $this->tid;
@@ -58,9 +49,6 @@ class DeleteProxyRequest extends Model
         $model = new self();
         if (isset($map['ProxyId'])) {
             $model->proxyId = $map['ProxyId'];
-        }
-        if (isset($map['RegionId'])) {
-            $model->regionId = $map['RegionId'];
         }
         if (isset($map['Tid'])) {
             $model->tid = $map['Tid'];

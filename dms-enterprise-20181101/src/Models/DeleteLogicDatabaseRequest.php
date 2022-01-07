@@ -14,17 +14,11 @@ class DeleteLogicDatabaseRequest extends Model
     public $logicDbId;
 
     /**
-     * @var string
-     */
-    public $regionId;
-
-    /**
      * @var int
      */
     public $tid;
     protected $_name = [
         'logicDbId' => 'LogicDbId',
-        'regionId'  => 'RegionId',
         'tid'       => 'Tid',
     ];
 
@@ -37,9 +31,6 @@ class DeleteLogicDatabaseRequest extends Model
         $res = [];
         if (null !== $this->logicDbId) {
             $res['LogicDbId'] = $this->logicDbId;
-        }
-        if (null !== $this->regionId) {
-            $res['RegionId'] = $this->regionId;
         }
         if (null !== $this->tid) {
             $res['Tid'] = $this->tid;
@@ -58,9 +49,6 @@ class DeleteLogicDatabaseRequest extends Model
         $model = new self();
         if (isset($map['LogicDbId'])) {
             $model->logicDbId = $map['LogicDbId'];
-        }
-        if (isset($map['RegionId'])) {
-            $model->regionId = $map['RegionId'];
         }
         if (isset($map['Tid'])) {
             $model->tid = $map['Tid'];

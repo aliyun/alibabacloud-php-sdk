@@ -36,11 +36,6 @@ class ListSQLExecAuditLogRequest extends Model
     /**
      * @var string
      */
-    public $regionId;
-
-    /**
-     * @var string
-     */
     public $searchName;
 
     /**
@@ -63,7 +58,6 @@ class ListSQLExecAuditLogRequest extends Model
         'opUserName' => 'OpUserName',
         'pageNumber' => 'PageNumber',
         'pageSize'   => 'PageSize',
-        'regionId'   => 'RegionId',
         'searchName' => 'SearchName',
         'sqlType'    => 'SqlType',
         'startTime'  => 'StartTime',
@@ -91,9 +85,6 @@ class ListSQLExecAuditLogRequest extends Model
         }
         if (null !== $this->pageSize) {
             $res['PageSize'] = $this->pageSize;
-        }
-        if (null !== $this->regionId) {
-            $res['RegionId'] = $this->regionId;
         }
         if (null !== $this->searchName) {
             $res['SearchName'] = $this->searchName;
@@ -133,9 +124,6 @@ class ListSQLExecAuditLogRequest extends Model
         }
         if (isset($map['PageSize'])) {
             $model->pageSize = $map['PageSize'];
-        }
-        if (isset($map['RegionId'])) {
-            $model->regionId = $map['RegionId'];
         }
         if (isset($map['SearchName'])) {
             $model->searchName = $map['SearchName'];

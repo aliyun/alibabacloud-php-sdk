@@ -29,11 +29,6 @@ class ListDataCorrectPreCheckSQLRequest extends Model
     public $pageSize;
 
     /**
-     * @var string
-     */
-    public $regionId;
-
-    /**
      * @var int
      */
     public $tid;
@@ -42,7 +37,6 @@ class ListDataCorrectPreCheckSQLRequest extends Model
         'orderId'    => 'OrderId',
         'pageNumber' => 'PageNumber',
         'pageSize'   => 'PageSize',
-        'regionId'   => 'RegionId',
         'tid'        => 'Tid',
     ];
 
@@ -64,9 +58,6 @@ class ListDataCorrectPreCheckSQLRequest extends Model
         }
         if (null !== $this->pageSize) {
             $res['PageSize'] = $this->pageSize;
-        }
-        if (null !== $this->regionId) {
-            $res['RegionId'] = $this->regionId;
         }
         if (null !== $this->tid) {
             $res['Tid'] = $this->tid;
@@ -94,9 +85,6 @@ class ListDataCorrectPreCheckSQLRequest extends Model
         }
         if (isset($map['PageSize'])) {
             $model->pageSize = $map['PageSize'];
-        }
-        if (isset($map['RegionId'])) {
-            $model->regionId = $map['RegionId'];
         }
         if (isset($map['Tid'])) {
             $model->tid = $map['Tid'];

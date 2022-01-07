@@ -21,11 +21,6 @@ class CreateSQLReviewOrderShrinkRequest extends Model
     /**
      * @var string
      */
-    public $regionId;
-
-    /**
-     * @var string
-     */
     public $relatedUserListShrink;
 
     /**
@@ -35,7 +30,6 @@ class CreateSQLReviewOrderShrinkRequest extends Model
     protected $_name = [
         'comment'               => 'Comment',
         'paramShrink'           => 'Param',
-        'regionId'              => 'RegionId',
         'relatedUserListShrink' => 'RelatedUserList',
         'tid'                   => 'Tid',
     ];
@@ -52,9 +46,6 @@ class CreateSQLReviewOrderShrinkRequest extends Model
         }
         if (null !== $this->paramShrink) {
             $res['Param'] = $this->paramShrink;
-        }
-        if (null !== $this->regionId) {
-            $res['RegionId'] = $this->regionId;
         }
         if (null !== $this->relatedUserListShrink) {
             $res['RelatedUserList'] = $this->relatedUserListShrink;
@@ -79,9 +70,6 @@ class CreateSQLReviewOrderShrinkRequest extends Model
         }
         if (isset($map['Param'])) {
             $model->paramShrink = $map['Param'];
-        }
-        if (isset($map['RegionId'])) {
-            $model->regionId = $map['RegionId'];
         }
         if (isset($map['RelatedUserList'])) {
             $model->relatedUserListShrink = $map['RelatedUserList'];

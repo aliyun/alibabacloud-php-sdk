@@ -14,18 +14,12 @@ class GetUserUploadFileJobRequest extends Model
     public $jobKey;
 
     /**
-     * @var string
-     */
-    public $regionId;
-
-    /**
      * @var int
      */
     public $tid;
     protected $_name = [
-        'jobKey'   => 'JobKey',
-        'regionId' => 'RegionId',
-        'tid'      => 'Tid',
+        'jobKey' => 'JobKey',
+        'tid'    => 'Tid',
     ];
 
     public function validate()
@@ -37,9 +31,6 @@ class GetUserUploadFileJobRequest extends Model
         $res = [];
         if (null !== $this->jobKey) {
             $res['JobKey'] = $this->jobKey;
-        }
-        if (null !== $this->regionId) {
-            $res['RegionId'] = $this->regionId;
         }
         if (null !== $this->tid) {
             $res['Tid'] = $this->tid;
@@ -58,9 +49,6 @@ class GetUserUploadFileJobRequest extends Model
         $model = new self();
         if (isset($map['JobKey'])) {
             $model->jobKey = $map['JobKey'];
-        }
-        if (isset($map['RegionId'])) {
-            $model->regionId = $map['RegionId'];
         }
         if (isset($map['Tid'])) {
             $model->tid = $map['Tid'];

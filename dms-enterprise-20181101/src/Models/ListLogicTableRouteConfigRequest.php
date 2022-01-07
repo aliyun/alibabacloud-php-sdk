@@ -9,11 +9,6 @@ use AlibabaCloud\Tea\Model;
 class ListLogicTableRouteConfigRequest extends Model
 {
     /**
-     * @var string
-     */
-    public $regionId;
-
-    /**
      * @var int
      */
     public $tableId;
@@ -23,9 +18,8 @@ class ListLogicTableRouteConfigRequest extends Model
      */
     public $tid;
     protected $_name = [
-        'regionId' => 'RegionId',
-        'tableId'  => 'TableId',
-        'tid'      => 'Tid',
+        'tableId' => 'TableId',
+        'tid'     => 'Tid',
     ];
 
     public function validate()
@@ -35,9 +29,6 @@ class ListLogicTableRouteConfigRequest extends Model
     public function toMap()
     {
         $res = [];
-        if (null !== $this->regionId) {
-            $res['RegionId'] = $this->regionId;
-        }
         if (null !== $this->tableId) {
             $res['TableId'] = $this->tableId;
         }
@@ -56,9 +47,6 @@ class ListLogicTableRouteConfigRequest extends Model
     public static function fromMap($map = [])
     {
         $model = new self();
-        if (isset($map['RegionId'])) {
-            $model->regionId = $map['RegionId'];
-        }
         if (isset($map['TableId'])) {
             $model->tableId = $map['TableId'];
         }

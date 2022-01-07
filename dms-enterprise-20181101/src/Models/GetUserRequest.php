@@ -9,11 +9,6 @@ use AlibabaCloud\Tea\Model;
 class GetUserRequest extends Model
 {
     /**
-     * @var string
-     */
-    public $regionId;
-
-    /**
      * @var int
      */
     public $tid;
@@ -28,10 +23,9 @@ class GetUserRequest extends Model
      */
     public $userId;
     protected $_name = [
-        'regionId' => 'RegionId',
-        'tid'      => 'Tid',
-        'uid'      => 'Uid',
-        'userId'   => 'UserId',
+        'tid'    => 'Tid',
+        'uid'    => 'Uid',
+        'userId' => 'UserId',
     ];
 
     public function validate()
@@ -41,9 +35,6 @@ class GetUserRequest extends Model
     public function toMap()
     {
         $res = [];
-        if (null !== $this->regionId) {
-            $res['RegionId'] = $this->regionId;
-        }
         if (null !== $this->tid) {
             $res['Tid'] = $this->tid;
         }
@@ -65,9 +56,6 @@ class GetUserRequest extends Model
     public static function fromMap($map = [])
     {
         $model = new self();
-        if (isset($map['RegionId'])) {
-            $model->regionId = $map['RegionId'];
-        }
         if (isset($map['Tid'])) {
             $model->tid = $map['Tid'];
         }
