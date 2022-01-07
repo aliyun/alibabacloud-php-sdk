@@ -9,9 +9,19 @@ use AlibabaCloud\Tea\Model;
 class GetAuthorizationUrlRequest extends Model
 {
     /**
+     * @var string
+     */
+    public $endDate;
+
+    /**
      * @var int
      */
     public $ownerId;
+
+    /**
+     * @var string
+     */
+    public $phoneNo;
 
     /**
      * @var string
@@ -24,26 +34,16 @@ class GetAuthorizationUrlRequest extends Model
     public $resourceOwnerId;
 
     /**
-     * @var string
-     */
-    public $phoneNo;
-
-    /**
      * @var int
      */
     public $schemeId;
-
-    /**
-     * @var string
-     */
-    public $endDate;
     protected $_name = [
+        'endDate'              => 'EndDate',
         'ownerId'              => 'OwnerId',
+        'phoneNo'              => 'PhoneNo',
         'resourceOwnerAccount' => 'ResourceOwnerAccount',
         'resourceOwnerId'      => 'ResourceOwnerId',
-        'phoneNo'              => 'PhoneNo',
         'schemeId'             => 'SchemeId',
-        'endDate'              => 'EndDate',
     ];
 
     public function validate()
@@ -53,8 +53,14 @@ class GetAuthorizationUrlRequest extends Model
     public function toMap()
     {
         $res = [];
+        if (null !== $this->endDate) {
+            $res['EndDate'] = $this->endDate;
+        }
         if (null !== $this->ownerId) {
             $res['OwnerId'] = $this->ownerId;
+        }
+        if (null !== $this->phoneNo) {
+            $res['PhoneNo'] = $this->phoneNo;
         }
         if (null !== $this->resourceOwnerAccount) {
             $res['ResourceOwnerAccount'] = $this->resourceOwnerAccount;
@@ -62,14 +68,8 @@ class GetAuthorizationUrlRequest extends Model
         if (null !== $this->resourceOwnerId) {
             $res['ResourceOwnerId'] = $this->resourceOwnerId;
         }
-        if (null !== $this->phoneNo) {
-            $res['PhoneNo'] = $this->phoneNo;
-        }
         if (null !== $this->schemeId) {
             $res['SchemeId'] = $this->schemeId;
-        }
-        if (null !== $this->endDate) {
-            $res['EndDate'] = $this->endDate;
         }
 
         return $res;
@@ -83,8 +83,14 @@ class GetAuthorizationUrlRequest extends Model
     public static function fromMap($map = [])
     {
         $model = new self();
+        if (isset($map['EndDate'])) {
+            $model->endDate = $map['EndDate'];
+        }
         if (isset($map['OwnerId'])) {
             $model->ownerId = $map['OwnerId'];
+        }
+        if (isset($map['PhoneNo'])) {
+            $model->phoneNo = $map['PhoneNo'];
         }
         if (isset($map['ResourceOwnerAccount'])) {
             $model->resourceOwnerAccount = $map['ResourceOwnerAccount'];
@@ -92,14 +98,8 @@ class GetAuthorizationUrlRequest extends Model
         if (isset($map['ResourceOwnerId'])) {
             $model->resourceOwnerId = $map['ResourceOwnerId'];
         }
-        if (isset($map['PhoneNo'])) {
-            $model->phoneNo = $map['PhoneNo'];
-        }
         if (isset($map['SchemeId'])) {
             $model->schemeId = $map['SchemeId'];
-        }
-        if (isset($map['EndDate'])) {
-            $model->endDate = $map['EndDate'];
         }
 
         return $model;

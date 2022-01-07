@@ -9,6 +9,11 @@ use AlibabaCloud\Tea\Model;
 class GetAuthTokenRequest extends Model
 {
     /**
+     * @var string
+     */
+    public $origin;
+
+    /**
      * @var int
      */
     public $ownerId;
@@ -27,17 +32,12 @@ class GetAuthTokenRequest extends Model
      * @var string
      */
     public $url;
-
-    /**
-     * @var string
-     */
-    public $origin;
     protected $_name = [
+        'origin'               => 'Origin',
         'ownerId'              => 'OwnerId',
         'resourceOwnerAccount' => 'ResourceOwnerAccount',
         'resourceOwnerId'      => 'ResourceOwnerId',
         'url'                  => 'Url',
-        'origin'               => 'Origin',
     ];
 
     public function validate()
@@ -47,6 +47,9 @@ class GetAuthTokenRequest extends Model
     public function toMap()
     {
         $res = [];
+        if (null !== $this->origin) {
+            $res['Origin'] = $this->origin;
+        }
         if (null !== $this->ownerId) {
             $res['OwnerId'] = $this->ownerId;
         }
@@ -58,9 +61,6 @@ class GetAuthTokenRequest extends Model
         }
         if (null !== $this->url) {
             $res['Url'] = $this->url;
-        }
-        if (null !== $this->origin) {
-            $res['Origin'] = $this->origin;
         }
 
         return $res;
@@ -74,6 +74,9 @@ class GetAuthTokenRequest extends Model
     public static function fromMap($map = [])
     {
         $model = new self();
+        if (isset($map['Origin'])) {
+            $model->origin = $map['Origin'];
+        }
         if (isset($map['OwnerId'])) {
             $model->ownerId = $map['OwnerId'];
         }
@@ -85,9 +88,6 @@ class GetAuthTokenRequest extends Model
         }
         if (isset($map['Url'])) {
             $model->url = $map['Url'];
-        }
-        if (isset($map['Origin'])) {
-            $model->origin = $map['Origin'];
         }
 
         return $model;

@@ -6,12 +6,27 @@ namespace AlibabaCloud\SDK\Dypnsapi\V20170525\Models;
 
 use AlibabaCloud\Tea\Model;
 
-class TwiceTelVerifyRequest extends Model
+class QueryGateVerifyBillingPublicRequest extends Model
 {
     /**
      * @var int
      */
+    public $authenticationType;
+
+    /**
+     * @var string
+     */
+    public $month;
+
+    /**
+     * @var int
+     */
     public $ownerId;
+
+    /**
+     * @var string
+     */
+    public $prodCode;
 
     /**
      * @var string
@@ -22,22 +37,13 @@ class TwiceTelVerifyRequest extends Model
      * @var int
      */
     public $resourceOwnerId;
-
-    /**
-     * @var string
-     */
-    public $since;
-
-    /**
-     * @var string
-     */
-    public $phoneNumber;
     protected $_name = [
+        'authenticationType'   => 'AuthenticationType',
+        'month'                => 'Month',
         'ownerId'              => 'OwnerId',
+        'prodCode'             => 'ProdCode',
         'resourceOwnerAccount' => 'ResourceOwnerAccount',
         'resourceOwnerId'      => 'ResourceOwnerId',
-        'since'                => 'Since',
-        'phoneNumber'          => 'PhoneNumber',
     ];
 
     public function validate()
@@ -47,20 +53,23 @@ class TwiceTelVerifyRequest extends Model
     public function toMap()
     {
         $res = [];
+        if (null !== $this->authenticationType) {
+            $res['AuthenticationType'] = $this->authenticationType;
+        }
+        if (null !== $this->month) {
+            $res['Month'] = $this->month;
+        }
         if (null !== $this->ownerId) {
             $res['OwnerId'] = $this->ownerId;
+        }
+        if (null !== $this->prodCode) {
+            $res['ProdCode'] = $this->prodCode;
         }
         if (null !== $this->resourceOwnerAccount) {
             $res['ResourceOwnerAccount'] = $this->resourceOwnerAccount;
         }
         if (null !== $this->resourceOwnerId) {
             $res['ResourceOwnerId'] = $this->resourceOwnerId;
-        }
-        if (null !== $this->since) {
-            $res['Since'] = $this->since;
-        }
-        if (null !== $this->phoneNumber) {
-            $res['PhoneNumber'] = $this->phoneNumber;
         }
 
         return $res;
@@ -69,25 +78,28 @@ class TwiceTelVerifyRequest extends Model
     /**
      * @param array $map
      *
-     * @return TwiceTelVerifyRequest
+     * @return QueryGateVerifyBillingPublicRequest
      */
     public static function fromMap($map = [])
     {
         $model = new self();
+        if (isset($map['AuthenticationType'])) {
+            $model->authenticationType = $map['AuthenticationType'];
+        }
+        if (isset($map['Month'])) {
+            $model->month = $map['Month'];
+        }
         if (isset($map['OwnerId'])) {
             $model->ownerId = $map['OwnerId'];
+        }
+        if (isset($map['ProdCode'])) {
+            $model->prodCode = $map['ProdCode'];
         }
         if (isset($map['ResourceOwnerAccount'])) {
             $model->resourceOwnerAccount = $map['ResourceOwnerAccount'];
         }
         if (isset($map['ResourceOwnerId'])) {
             $model->resourceOwnerId = $map['ResourceOwnerId'];
-        }
-        if (isset($map['Since'])) {
-            $model->since = $map['Since'];
-        }
-        if (isset($map['PhoneNumber'])) {
-            $model->phoneNumber = $map['PhoneNumber'];
         }
 
         return $model;

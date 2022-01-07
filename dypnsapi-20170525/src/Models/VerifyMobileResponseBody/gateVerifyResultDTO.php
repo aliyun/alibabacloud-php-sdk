@@ -11,15 +11,15 @@ class gateVerifyResultDTO extends Model
     /**
      * @var string
      */
-    public $verifyResult;
+    public $verifyId;
 
     /**
      * @var string
      */
-    public $verifyId;
+    public $verifyResult;
     protected $_name = [
-        'verifyResult' => 'VerifyResult',
         'verifyId'     => 'VerifyId',
+        'verifyResult' => 'VerifyResult',
     ];
 
     public function validate()
@@ -29,11 +29,11 @@ class gateVerifyResultDTO extends Model
     public function toMap()
     {
         $res = [];
-        if (null !== $this->verifyResult) {
-            $res['VerifyResult'] = $this->verifyResult;
-        }
         if (null !== $this->verifyId) {
             $res['VerifyId'] = $this->verifyId;
+        }
+        if (null !== $this->verifyResult) {
+            $res['VerifyResult'] = $this->verifyResult;
         }
 
         return $res;
@@ -47,11 +47,11 @@ class gateVerifyResultDTO extends Model
     public static function fromMap($map = [])
     {
         $model = new self();
-        if (isset($map['VerifyResult'])) {
-            $model->verifyResult = $map['VerifyResult'];
-        }
         if (isset($map['VerifyId'])) {
             $model->verifyId = $map['VerifyId'];
+        }
+        if (isset($map['VerifyResult'])) {
+            $model->verifyResult = $map['VerifyResult'];
         }
 
         return $model;

@@ -6,17 +6,17 @@ namespace AlibabaCloud\SDK\Dypnsapi\V20170525\Models;
 
 use AlibabaCloud\Tea\Model;
 
-class GetSmsAuthTokensRequest extends Model
+class QueryGateVerifyStatisticPublicRequest extends Model
 {
-    /**
-     * @var string
-     */
-    public $bundleId;
-
     /**
      * @var int
      */
-    public $expire;
+    public $authenticationType;
+
+    /**
+     * @var string
+     */
+    public $endDate;
 
     /**
      * @var string
@@ -31,7 +31,7 @@ class GetSmsAuthTokensRequest extends Model
     /**
      * @var string
      */
-    public $packageName;
+    public $prodCode;
 
     /**
      * @var string
@@ -51,29 +51,17 @@ class GetSmsAuthTokensRequest extends Model
     /**
      * @var string
      */
-    public $signName;
-
-    /**
-     * @var int
-     */
-    public $smsCodeExpire;
-
-    /**
-     * @var string
-     */
-    public $smsTemplateCode;
+    public $startDate;
     protected $_name = [
-        'bundleId'             => 'BundleId',
-        'expire'               => 'Expire',
+        'authenticationType'   => 'AuthenticationType',
+        'endDate'              => 'EndDate',
         'osType'               => 'OsType',
         'ownerId'              => 'OwnerId',
-        'packageName'          => 'PackageName',
+        'prodCode'             => 'ProdCode',
         'resourceOwnerAccount' => 'ResourceOwnerAccount',
         'resourceOwnerId'      => 'ResourceOwnerId',
         'sceneCode'            => 'SceneCode',
-        'signName'             => 'SignName',
-        'smsCodeExpire'        => 'SmsCodeExpire',
-        'smsTemplateCode'      => 'SmsTemplateCode',
+        'startDate'            => 'StartDate',
     ];
 
     public function validate()
@@ -83,11 +71,11 @@ class GetSmsAuthTokensRequest extends Model
     public function toMap()
     {
         $res = [];
-        if (null !== $this->bundleId) {
-            $res['BundleId'] = $this->bundleId;
+        if (null !== $this->authenticationType) {
+            $res['AuthenticationType'] = $this->authenticationType;
         }
-        if (null !== $this->expire) {
-            $res['Expire'] = $this->expire;
+        if (null !== $this->endDate) {
+            $res['EndDate'] = $this->endDate;
         }
         if (null !== $this->osType) {
             $res['OsType'] = $this->osType;
@@ -95,8 +83,8 @@ class GetSmsAuthTokensRequest extends Model
         if (null !== $this->ownerId) {
             $res['OwnerId'] = $this->ownerId;
         }
-        if (null !== $this->packageName) {
-            $res['PackageName'] = $this->packageName;
+        if (null !== $this->prodCode) {
+            $res['ProdCode'] = $this->prodCode;
         }
         if (null !== $this->resourceOwnerAccount) {
             $res['ResourceOwnerAccount'] = $this->resourceOwnerAccount;
@@ -107,14 +95,8 @@ class GetSmsAuthTokensRequest extends Model
         if (null !== $this->sceneCode) {
             $res['SceneCode'] = $this->sceneCode;
         }
-        if (null !== $this->signName) {
-            $res['SignName'] = $this->signName;
-        }
-        if (null !== $this->smsCodeExpire) {
-            $res['SmsCodeExpire'] = $this->smsCodeExpire;
-        }
-        if (null !== $this->smsTemplateCode) {
-            $res['SmsTemplateCode'] = $this->smsTemplateCode;
+        if (null !== $this->startDate) {
+            $res['StartDate'] = $this->startDate;
         }
 
         return $res;
@@ -123,16 +105,16 @@ class GetSmsAuthTokensRequest extends Model
     /**
      * @param array $map
      *
-     * @return GetSmsAuthTokensRequest
+     * @return QueryGateVerifyStatisticPublicRequest
      */
     public static function fromMap($map = [])
     {
         $model = new self();
-        if (isset($map['BundleId'])) {
-            $model->bundleId = $map['BundleId'];
+        if (isset($map['AuthenticationType'])) {
+            $model->authenticationType = $map['AuthenticationType'];
         }
-        if (isset($map['Expire'])) {
-            $model->expire = $map['Expire'];
+        if (isset($map['EndDate'])) {
+            $model->endDate = $map['EndDate'];
         }
         if (isset($map['OsType'])) {
             $model->osType = $map['OsType'];
@@ -140,8 +122,8 @@ class GetSmsAuthTokensRequest extends Model
         if (isset($map['OwnerId'])) {
             $model->ownerId = $map['OwnerId'];
         }
-        if (isset($map['PackageName'])) {
-            $model->packageName = $map['PackageName'];
+        if (isset($map['ProdCode'])) {
+            $model->prodCode = $map['ProdCode'];
         }
         if (isset($map['ResourceOwnerAccount'])) {
             $model->resourceOwnerAccount = $map['ResourceOwnerAccount'];
@@ -152,14 +134,8 @@ class GetSmsAuthTokensRequest extends Model
         if (isset($map['SceneCode'])) {
             $model->sceneCode = $map['SceneCode'];
         }
-        if (isset($map['SignName'])) {
-            $model->signName = $map['SignName'];
-        }
-        if (isset($map['SmsCodeExpire'])) {
-            $model->smsCodeExpire = $map['SmsCodeExpire'];
-        }
-        if (isset($map['SmsTemplateCode'])) {
-            $model->smsTemplateCode = $map['SmsTemplateCode'];
+        if (isset($map['StartDate'])) {
+            $model->startDate = $map['StartDate'];
         }
 
         return $model;

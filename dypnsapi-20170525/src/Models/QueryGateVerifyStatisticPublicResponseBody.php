@@ -4,10 +4,10 @@
 
 namespace AlibabaCloud\SDK\Dypnsapi\V20170525\Models;
 
-use AlibabaCloud\SDK\Dypnsapi\V20170525\Models\VerifyPhoneWithTokenResponseBody\gateVerify;
+use AlibabaCloud\SDK\Dypnsapi\V20170525\Models\QueryGateVerifyStatisticPublicResponseBody\data;
 use AlibabaCloud\Tea\Model;
 
-class VerifyPhoneWithTokenResponseBody extends Model
+class QueryGateVerifyStatisticPublicResponseBody extends Model
 {
     /**
      * @var string
@@ -15,9 +15,9 @@ class VerifyPhoneWithTokenResponseBody extends Model
     public $code;
 
     /**
-     * @var gateVerify
+     * @var data
      */
-    public $gateVerify;
+    public $data;
 
     /**
      * @var string
@@ -29,10 +29,10 @@ class VerifyPhoneWithTokenResponseBody extends Model
      */
     public $requestId;
     protected $_name = [
-        'code'       => 'Code',
-        'gateVerify' => 'GateVerify',
-        'message'    => 'Message',
-        'requestId'  => 'RequestId',
+        'code'      => 'Code',
+        'data'      => 'Data',
+        'message'   => 'Message',
+        'requestId' => 'RequestId',
     ];
 
     public function validate()
@@ -45,8 +45,8 @@ class VerifyPhoneWithTokenResponseBody extends Model
         if (null !== $this->code) {
             $res['Code'] = $this->code;
         }
-        if (null !== $this->gateVerify) {
-            $res['GateVerify'] = null !== $this->gateVerify ? $this->gateVerify->toMap() : null;
+        if (null !== $this->data) {
+            $res['Data'] = null !== $this->data ? $this->data->toMap() : null;
         }
         if (null !== $this->message) {
             $res['Message'] = $this->message;
@@ -61,7 +61,7 @@ class VerifyPhoneWithTokenResponseBody extends Model
     /**
      * @param array $map
      *
-     * @return VerifyPhoneWithTokenResponseBody
+     * @return QueryGateVerifyStatisticPublicResponseBody
      */
     public static function fromMap($map = [])
     {
@@ -69,8 +69,8 @@ class VerifyPhoneWithTokenResponseBody extends Model
         if (isset($map['Code'])) {
             $model->code = $map['Code'];
         }
-        if (isset($map['GateVerify'])) {
-            $model->gateVerify = gateVerify::fromMap($map['GateVerify']);
+        if (isset($map['Data'])) {
+            $model->data = data::fromMap($map['Data']);
         }
         if (isset($map['Message'])) {
             $model->message = $map['Message'];

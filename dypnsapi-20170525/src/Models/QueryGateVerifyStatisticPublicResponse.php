@@ -6,7 +6,7 @@ namespace AlibabaCloud\SDK\Dypnsapi\V20170525\Models;
 
 use AlibabaCloud\Tea\Model;
 
-class TwiceTelVerifyResponse extends Model
+class QueryGateVerifyStatisticPublicResponse extends Model
 {
     /**
      * @var string[]
@@ -14,7 +14,7 @@ class TwiceTelVerifyResponse extends Model
     public $headers;
 
     /**
-     * @var TwiceTelVerifyResponseBody
+     * @var QueryGateVerifyStatisticPublicResponseBody
      */
     public $body;
     protected $_name = [
@@ -44,7 +44,7 @@ class TwiceTelVerifyResponse extends Model
     /**
      * @param array $map
      *
-     * @return TwiceTelVerifyResponse
+     * @return QueryGateVerifyStatisticPublicResponse
      */
     public static function fromMap($map = [])
     {
@@ -53,7 +53,7 @@ class TwiceTelVerifyResponse extends Model
             $model->headers = $map['headers'];
         }
         if (isset($map['body'])) {
-            $model->body = TwiceTelVerifyResponseBody::fromMap($map['body']);
+            $model->body = QueryGateVerifyStatisticPublicResponseBody::fromMap($map['body']);
         }
 
         return $model;

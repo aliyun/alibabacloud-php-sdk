@@ -15,6 +15,11 @@ class GetCertifyResultResponseBody extends Model
     public $code;
 
     /**
+     * @var data[]
+     */
+    public $data;
+
+    /**
      * @var string
      */
     public $message;
@@ -23,16 +28,11 @@ class GetCertifyResultResponseBody extends Model
      * @var string
      */
     public $requestId;
-
-    /**
-     * @var data[]
-     */
-    public $data;
     protected $_name = [
         'code'      => 'Code',
+        'data'      => 'Data',
         'message'   => 'Message',
         'requestId' => 'RequestId',
-        'data'      => 'Data',
     ];
 
     public function validate()
@@ -45,12 +45,6 @@ class GetCertifyResultResponseBody extends Model
         if (null !== $this->code) {
             $res['Code'] = $this->code;
         }
-        if (null !== $this->message) {
-            $res['Message'] = $this->message;
-        }
-        if (null !== $this->requestId) {
-            $res['RequestId'] = $this->requestId;
-        }
         if (null !== $this->data) {
             $res['Data'] = [];
             if (null !== $this->data && \is_array($this->data)) {
@@ -59,6 +53,12 @@ class GetCertifyResultResponseBody extends Model
                     $res['Data'][$n++] = null !== $item ? $item->toMap() : $item;
                 }
             }
+        }
+        if (null !== $this->message) {
+            $res['Message'] = $this->message;
+        }
+        if (null !== $this->requestId) {
+            $res['RequestId'] = $this->requestId;
         }
 
         return $res;
@@ -75,12 +75,6 @@ class GetCertifyResultResponseBody extends Model
         if (isset($map['Code'])) {
             $model->code = $map['Code'];
         }
-        if (isset($map['Message'])) {
-            $model->message = $map['Message'];
-        }
-        if (isset($map['RequestId'])) {
-            $model->requestId = $map['RequestId'];
-        }
         if (isset($map['Data'])) {
             if (!empty($map['Data'])) {
                 $model->data = [];
@@ -89,6 +83,12 @@ class GetCertifyResultResponseBody extends Model
                     $model->data[$n++] = null !== $item ? data::fromMap($item) : $item;
                 }
             }
+        }
+        if (isset($map['Message'])) {
+            $model->message = $map['Message'];
+        }
+        if (isset($map['RequestId'])) {
+            $model->requestId = $map['RequestId'];
         }
 
         return $model;

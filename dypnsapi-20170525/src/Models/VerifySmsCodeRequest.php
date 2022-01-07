@@ -11,20 +11,20 @@ class VerifySmsCodeRequest extends Model
     /**
      * @var string
      */
-    public $smsCode;
+    public $phoneNumber;
 
     /**
      * @var string
      */
-    public $phoneNumber;
+    public $smsCode;
 
     /**
      * @var string
      */
     public $smsToken;
     protected $_name = [
-        'smsCode'     => 'SmsCode',
         'phoneNumber' => 'PhoneNumber',
+        'smsCode'     => 'SmsCode',
         'smsToken'    => 'SmsToken',
     ];
 
@@ -35,11 +35,11 @@ class VerifySmsCodeRequest extends Model
     public function toMap()
     {
         $res = [];
-        if (null !== $this->smsCode) {
-            $res['SmsCode'] = $this->smsCode;
-        }
         if (null !== $this->phoneNumber) {
             $res['PhoneNumber'] = $this->phoneNumber;
+        }
+        if (null !== $this->smsCode) {
+            $res['SmsCode'] = $this->smsCode;
         }
         if (null !== $this->smsToken) {
             $res['SmsToken'] = $this->smsToken;
@@ -56,11 +56,11 @@ class VerifySmsCodeRequest extends Model
     public static function fromMap($map = [])
     {
         $model = new self();
-        if (isset($map['SmsCode'])) {
-            $model->smsCode = $map['SmsCode'];
-        }
         if (isset($map['PhoneNumber'])) {
             $model->phoneNumber = $map['PhoneNumber'];
+        }
+        if (isset($map['SmsCode'])) {
+            $model->smsCode = $map['SmsCode'];
         }
         if (isset($map['SmsToken'])) {
             $model->smsToken = $map['SmsToken'];

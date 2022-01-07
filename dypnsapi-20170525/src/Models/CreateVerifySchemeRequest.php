@@ -9,9 +9,34 @@ use AlibabaCloud\Tea\Model;
 class CreateVerifySchemeRequest extends Model
 {
     /**
+     * @var string
+     */
+    public $appName;
+
+    /**
+     * @var string
+     */
+    public $bundleId;
+
+    /**
+     * @var string
+     */
+    public $osType;
+
+    /**
      * @var int
      */
     public $ownerId;
+
+    /**
+     * @var string
+     */
+    public $packName;
+
+    /**
+     * @var string
+     */
+    public $packSign;
 
     /**
      * @var string
@@ -27,41 +52,16 @@ class CreateVerifySchemeRequest extends Model
      * @var string
      */
     public $schemeName;
-
-    /**
-     * @var string
-     */
-    public $appName;
-
-    /**
-     * @var string
-     */
-    public $osType;
-
-    /**
-     * @var string
-     */
-    public $packName;
-
-    /**
-     * @var string
-     */
-    public $packSign;
-
-    /**
-     * @var string
-     */
-    public $bundleId;
     protected $_name = [
+        'appName'              => 'AppName',
+        'bundleId'             => 'BundleId',
+        'osType'               => 'OsType',
         'ownerId'              => 'OwnerId',
+        'packName'             => 'PackName',
+        'packSign'             => 'PackSign',
         'resourceOwnerAccount' => 'ResourceOwnerAccount',
         'resourceOwnerId'      => 'ResourceOwnerId',
         'schemeName'           => 'SchemeName',
-        'appName'              => 'AppName',
-        'osType'               => 'OsType',
-        'packName'             => 'PackName',
-        'packSign'             => 'PackSign',
-        'bundleId'             => 'BundleId',
     ];
 
     public function validate()
@@ -71,8 +71,23 @@ class CreateVerifySchemeRequest extends Model
     public function toMap()
     {
         $res = [];
+        if (null !== $this->appName) {
+            $res['AppName'] = $this->appName;
+        }
+        if (null !== $this->bundleId) {
+            $res['BundleId'] = $this->bundleId;
+        }
+        if (null !== $this->osType) {
+            $res['OsType'] = $this->osType;
+        }
         if (null !== $this->ownerId) {
             $res['OwnerId'] = $this->ownerId;
+        }
+        if (null !== $this->packName) {
+            $res['PackName'] = $this->packName;
+        }
+        if (null !== $this->packSign) {
+            $res['PackSign'] = $this->packSign;
         }
         if (null !== $this->resourceOwnerAccount) {
             $res['ResourceOwnerAccount'] = $this->resourceOwnerAccount;
@@ -82,21 +97,6 @@ class CreateVerifySchemeRequest extends Model
         }
         if (null !== $this->schemeName) {
             $res['SchemeName'] = $this->schemeName;
-        }
-        if (null !== $this->appName) {
-            $res['AppName'] = $this->appName;
-        }
-        if (null !== $this->osType) {
-            $res['OsType'] = $this->osType;
-        }
-        if (null !== $this->packName) {
-            $res['PackName'] = $this->packName;
-        }
-        if (null !== $this->packSign) {
-            $res['PackSign'] = $this->packSign;
-        }
-        if (null !== $this->bundleId) {
-            $res['BundleId'] = $this->bundleId;
         }
 
         return $res;
@@ -110,8 +110,23 @@ class CreateVerifySchemeRequest extends Model
     public static function fromMap($map = [])
     {
         $model = new self();
+        if (isset($map['AppName'])) {
+            $model->appName = $map['AppName'];
+        }
+        if (isset($map['BundleId'])) {
+            $model->bundleId = $map['BundleId'];
+        }
+        if (isset($map['OsType'])) {
+            $model->osType = $map['OsType'];
+        }
         if (isset($map['OwnerId'])) {
             $model->ownerId = $map['OwnerId'];
+        }
+        if (isset($map['PackName'])) {
+            $model->packName = $map['PackName'];
+        }
+        if (isset($map['PackSign'])) {
+            $model->packSign = $map['PackSign'];
         }
         if (isset($map['ResourceOwnerAccount'])) {
             $model->resourceOwnerAccount = $map['ResourceOwnerAccount'];
@@ -121,21 +136,6 @@ class CreateVerifySchemeRequest extends Model
         }
         if (isset($map['SchemeName'])) {
             $model->schemeName = $map['SchemeName'];
-        }
-        if (isset($map['AppName'])) {
-            $model->appName = $map['AppName'];
-        }
-        if (isset($map['OsType'])) {
-            $model->osType = $map['OsType'];
-        }
-        if (isset($map['PackName'])) {
-            $model->packName = $map['PackName'];
-        }
-        if (isset($map['PackSign'])) {
-            $model->packSign = $map['PackSign'];
-        }
-        if (isset($map['BundleId'])) {
-            $model->bundleId = $map['BundleId'];
         }
 
         return $model;

@@ -5,6 +5,7 @@
 namespace AlibabaCloud\SDK\Dypnsapi\V20170525;
 
 use AlibabaCloud\Endpoint\Endpoint;
+use AlibabaCloud\OpenApiUtil\OpenApiUtilClient;
 use AlibabaCloud\SDK\Dypnsapi\V20170525\Models\CreateVerifySchemeRequest;
 use AlibabaCloud\SDK\Dypnsapi\V20170525\Models\CreateVerifySchemeResponse;
 use AlibabaCloud\SDK\Dypnsapi\V20170525\Models\DeleteVerifySchemeRequest;
@@ -21,8 +22,10 @@ use AlibabaCloud\SDK\Dypnsapi\V20170525\Models\GetMobileRequest;
 use AlibabaCloud\SDK\Dypnsapi\V20170525\Models\GetMobileResponse;
 use AlibabaCloud\SDK\Dypnsapi\V20170525\Models\GetSmsAuthTokensRequest;
 use AlibabaCloud\SDK\Dypnsapi\V20170525\Models\GetSmsAuthTokensResponse;
-use AlibabaCloud\SDK\Dypnsapi\V20170525\Models\TwiceTelVerifyRequest;
-use AlibabaCloud\SDK\Dypnsapi\V20170525\Models\TwiceTelVerifyResponse;
+use AlibabaCloud\SDK\Dypnsapi\V20170525\Models\QueryGateVerifyBillingPublicRequest;
+use AlibabaCloud\SDK\Dypnsapi\V20170525\Models\QueryGateVerifyBillingPublicResponse;
+use AlibabaCloud\SDK\Dypnsapi\V20170525\Models\QueryGateVerifyStatisticPublicRequest;
+use AlibabaCloud\SDK\Dypnsapi\V20170525\Models\QueryGateVerifyStatisticPublicResponse;
 use AlibabaCloud\SDK\Dypnsapi\V20170525\Models\VerifyMobileRequest;
 use AlibabaCloud\SDK\Dypnsapi\V20170525\Models\VerifyMobileResponse;
 use AlibabaCloud\SDK\Dypnsapi\V20170525\Models\VerifyPhoneWithTokenRequest;
@@ -32,6 +35,7 @@ use AlibabaCloud\SDK\Dypnsapi\V20170525\Models\VerifySmsCodeResponse;
 use AlibabaCloud\Tea\Utils\Utils;
 use AlibabaCloud\Tea\Utils\Utils\RuntimeOptions;
 use Darabonba\OpenApi\Models\OpenApiRequest;
+use Darabonba\OpenApi\Models\Params;
 use Darabonba\OpenApi\OpenApiClient;
 
 class Dypnsapi extends OpenApiClient
@@ -68,62 +72,6 @@ class Dypnsapi extends OpenApiClient
     }
 
     /**
-     * @param GetAuthorizationUrlRequest $request
-     * @param RuntimeOptions             $runtime
-     *
-     * @return GetAuthorizationUrlResponse
-     */
-    public function getAuthorizationUrlWithOptions($request, $runtime)
-    {
-        Utils::validateModel($request);
-        $req = new OpenApiRequest([
-            'body' => Utils::toMap($request),
-        ]);
-
-        return GetAuthorizationUrlResponse::fromMap($this->doRPCRequest('GetAuthorizationUrl', '2017-05-25', 'HTTPS', 'POST', 'AK', 'json', $req, $runtime));
-    }
-
-    /**
-     * @param GetAuthorizationUrlRequest $request
-     *
-     * @return GetAuthorizationUrlResponse
-     */
-    public function getAuthorizationUrl($request)
-    {
-        $runtime = new RuntimeOptions([]);
-
-        return $this->getAuthorizationUrlWithOptions($request, $runtime);
-    }
-
-    /**
-     * @param GetSmsAuthTokensRequest $request
-     * @param RuntimeOptions          $runtime
-     *
-     * @return GetSmsAuthTokensResponse
-     */
-    public function getSmsAuthTokensWithOptions($request, $runtime)
-    {
-        Utils::validateModel($request);
-        $req = new OpenApiRequest([
-            'body' => Utils::toMap($request),
-        ]);
-
-        return GetSmsAuthTokensResponse::fromMap($this->doRPCRequest('GetSmsAuthTokens', '2017-05-25', 'HTTPS', 'POST', 'AK', 'json', $req, $runtime));
-    }
-
-    /**
-     * @param GetSmsAuthTokensRequest $request
-     *
-     * @return GetSmsAuthTokensResponse
-     */
-    public function getSmsAuthTokens($request)
-    {
-        $runtime = new RuntimeOptions([]);
-
-        return $this->getSmsAuthTokensWithOptions($request, $runtime);
-    }
-
-    /**
      * @param CreateVerifySchemeRequest $request
      * @param RuntimeOptions            $runtime
      *
@@ -132,11 +80,50 @@ class Dypnsapi extends OpenApiClient
     public function createVerifySchemeWithOptions($request, $runtime)
     {
         Utils::validateModel($request);
+        $query = [];
+        if (!Utils::isUnset($request->appName)) {
+            $query['AppName'] = $request->appName;
+        }
+        if (!Utils::isUnset($request->bundleId)) {
+            $query['BundleId'] = $request->bundleId;
+        }
+        if (!Utils::isUnset($request->osType)) {
+            $query['OsType'] = $request->osType;
+        }
+        if (!Utils::isUnset($request->ownerId)) {
+            $query['OwnerId'] = $request->ownerId;
+        }
+        if (!Utils::isUnset($request->packName)) {
+            $query['PackName'] = $request->packName;
+        }
+        if (!Utils::isUnset($request->packSign)) {
+            $query['PackSign'] = $request->packSign;
+        }
+        if (!Utils::isUnset($request->resourceOwnerAccount)) {
+            $query['ResourceOwnerAccount'] = $request->resourceOwnerAccount;
+        }
+        if (!Utils::isUnset($request->resourceOwnerId)) {
+            $query['ResourceOwnerId'] = $request->resourceOwnerId;
+        }
+        if (!Utils::isUnset($request->schemeName)) {
+            $query['SchemeName'] = $request->schemeName;
+        }
         $req = new OpenApiRequest([
-            'body' => Utils::toMap($request),
+            'query' => OpenApiUtilClient::query($query),
+        ]);
+        $params = new Params([
+            'action'      => 'CreateVerifyScheme',
+            'version'     => '2017-05-25',
+            'protocol'    => 'HTTPS',
+            'pathname'    => '/',
+            'method'      => 'POST',
+            'authType'    => 'AK',
+            'style'       => 'RPC',
+            'reqBodyType' => 'formData',
+            'bodyType'    => 'json',
         ]);
 
-        return CreateVerifySchemeResponse::fromMap($this->doRPCRequest('CreateVerifyScheme', '2017-05-25', 'HTTPS', 'POST', 'AK', 'json', $req, $runtime));
+        return CreateVerifySchemeResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
@@ -152,34 +139,6 @@ class Dypnsapi extends OpenApiClient
     }
 
     /**
-     * @param VerifySmsCodeRequest $request
-     * @param RuntimeOptions       $runtime
-     *
-     * @return VerifySmsCodeResponse
-     */
-    public function verifySmsCodeWithOptions($request, $runtime)
-    {
-        Utils::validateModel($request);
-        $req = new OpenApiRequest([
-            'body' => Utils::toMap($request),
-        ]);
-
-        return VerifySmsCodeResponse::fromMap($this->doRPCRequest('VerifySmsCode', '2017-05-25', 'HTTPS', 'POST', 'AK', 'json', $req, $runtime));
-    }
-
-    /**
-     * @param VerifySmsCodeRequest $request
-     *
-     * @return VerifySmsCodeResponse
-     */
-    public function verifySmsCode($request)
-    {
-        $runtime = new RuntimeOptions([]);
-
-        return $this->verifySmsCodeWithOptions($request, $runtime);
-    }
-
-    /**
      * @param DeleteVerifySchemeRequest $request
      * @param RuntimeOptions            $runtime
      *
@@ -188,11 +147,38 @@ class Dypnsapi extends OpenApiClient
     public function deleteVerifySchemeWithOptions($request, $runtime)
     {
         Utils::validateModel($request);
+        $query = [];
+        if (!Utils::isUnset($request->customerId)) {
+            $query['CustomerId'] = $request->customerId;
+        }
+        if (!Utils::isUnset($request->ownerId)) {
+            $query['OwnerId'] = $request->ownerId;
+        }
+        if (!Utils::isUnset($request->resourceOwnerAccount)) {
+            $query['ResourceOwnerAccount'] = $request->resourceOwnerAccount;
+        }
+        if (!Utils::isUnset($request->resourceOwnerId)) {
+            $query['ResourceOwnerId'] = $request->resourceOwnerId;
+        }
+        if (!Utils::isUnset($request->schemeCode)) {
+            $query['SchemeCode'] = $request->schemeCode;
+        }
         $req = new OpenApiRequest([
-            'body' => Utils::toMap($request),
+            'query' => OpenApiUtilClient::query($query),
+        ]);
+        $params = new Params([
+            'action'      => 'DeleteVerifyScheme',
+            'version'     => '2017-05-25',
+            'protocol'    => 'HTTPS',
+            'pathname'    => '/',
+            'method'      => 'POST',
+            'authType'    => 'AK',
+            'style'       => 'RPC',
+            'reqBodyType' => 'formData',
+            'bodyType'    => 'json',
         ]);
 
-        return DeleteVerifySchemeResponse::fromMap($this->doRPCRequest('DeleteVerifyScheme', '2017-05-25', 'HTTPS', 'POST', 'AK', 'json', $req, $runtime));
+        return DeleteVerifySchemeResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
@@ -208,118 +194,6 @@ class Dypnsapi extends OpenApiClient
     }
 
     /**
-     * @param VerifyPhoneWithTokenRequest $request
-     * @param RuntimeOptions              $runtime
-     *
-     * @return VerifyPhoneWithTokenResponse
-     */
-    public function verifyPhoneWithTokenWithOptions($request, $runtime)
-    {
-        Utils::validateModel($request);
-        $req = new OpenApiRequest([
-            'body' => Utils::toMap($request),
-        ]);
-
-        return VerifyPhoneWithTokenResponse::fromMap($this->doRPCRequest('VerifyPhoneWithToken', '2017-05-25', 'HTTPS', 'POST', 'AK', 'json', $req, $runtime));
-    }
-
-    /**
-     * @param VerifyPhoneWithTokenRequest $request
-     *
-     * @return VerifyPhoneWithTokenResponse
-     */
-    public function verifyPhoneWithToken($request)
-    {
-        $runtime = new RuntimeOptions([]);
-
-        return $this->verifyPhoneWithTokenWithOptions($request, $runtime);
-    }
-
-    /**
-     * @param GetMobileRequest $request
-     * @param RuntimeOptions   $runtime
-     *
-     * @return GetMobileResponse
-     */
-    public function getMobileWithOptions($request, $runtime)
-    {
-        Utils::validateModel($request);
-        $req = new OpenApiRequest([
-            'body' => Utils::toMap($request),
-        ]);
-
-        return GetMobileResponse::fromMap($this->doRPCRequest('GetMobile', '2017-05-25', 'HTTPS', 'POST', 'AK', 'json', $req, $runtime));
-    }
-
-    /**
-     * @param GetMobileRequest $request
-     *
-     * @return GetMobileResponse
-     */
-    public function getMobile($request)
-    {
-        $runtime = new RuntimeOptions([]);
-
-        return $this->getMobileWithOptions($request, $runtime);
-    }
-
-    /**
-     * @param TwiceTelVerifyRequest $request
-     * @param RuntimeOptions        $runtime
-     *
-     * @return TwiceTelVerifyResponse
-     */
-    public function twiceTelVerifyWithOptions($request, $runtime)
-    {
-        Utils::validateModel($request);
-        $req = new OpenApiRequest([
-            'body' => Utils::toMap($request),
-        ]);
-
-        return TwiceTelVerifyResponse::fromMap($this->doRPCRequest('TwiceTelVerify', '2017-05-25', 'HTTPS', 'POST', 'AK', 'json', $req, $runtime));
-    }
-
-    /**
-     * @param TwiceTelVerifyRequest $request
-     *
-     * @return TwiceTelVerifyResponse
-     */
-    public function twiceTelVerify($request)
-    {
-        $runtime = new RuntimeOptions([]);
-
-        return $this->twiceTelVerifyWithOptions($request, $runtime);
-    }
-
-    /**
-     * @param GetCertifyResultRequest $request
-     * @param RuntimeOptions          $runtime
-     *
-     * @return GetCertifyResultResponse
-     */
-    public function getCertifyResultWithOptions($request, $runtime)
-    {
-        Utils::validateModel($request);
-        $req = new OpenApiRequest([
-            'body' => Utils::toMap($request),
-        ]);
-
-        return GetCertifyResultResponse::fromMap($this->doRPCRequest('GetCertifyResult', '2017-05-25', 'HTTPS', 'POST', 'AK', 'json', $req, $runtime));
-    }
-
-    /**
-     * @param GetCertifyResultRequest $request
-     *
-     * @return GetCertifyResultResponse
-     */
-    public function getCertifyResult($request)
-    {
-        $runtime = new RuntimeOptions([]);
-
-        return $this->getCertifyResultWithOptions($request, $runtime);
-    }
-
-    /**
      * @param DescribeVerifySchemeRequest $request
      * @param RuntimeOptions              $runtime
      *
@@ -328,11 +202,38 @@ class Dypnsapi extends OpenApiClient
     public function describeVerifySchemeWithOptions($request, $runtime)
     {
         Utils::validateModel($request);
+        $query = [];
+        if (!Utils::isUnset($request->customerId)) {
+            $query['CustomerId'] = $request->customerId;
+        }
+        if (!Utils::isUnset($request->ownerId)) {
+            $query['OwnerId'] = $request->ownerId;
+        }
+        if (!Utils::isUnset($request->resourceOwnerAccount)) {
+            $query['ResourceOwnerAccount'] = $request->resourceOwnerAccount;
+        }
+        if (!Utils::isUnset($request->resourceOwnerId)) {
+            $query['ResourceOwnerId'] = $request->resourceOwnerId;
+        }
+        if (!Utils::isUnset($request->schemeCode)) {
+            $query['SchemeCode'] = $request->schemeCode;
+        }
         $req = new OpenApiRequest([
-            'body' => Utils::toMap($request),
+            'query' => OpenApiUtilClient::query($query),
+        ]);
+        $params = new Params([
+            'action'      => 'DescribeVerifyScheme',
+            'version'     => '2017-05-25',
+            'protocol'    => 'HTTPS',
+            'pathname'    => '/',
+            'method'      => 'POST',
+            'authType'    => 'AK',
+            'style'       => 'RPC',
+            'reqBodyType' => 'formData',
+            'bodyType'    => 'json',
         ]);
 
-        return DescribeVerifySchemeResponse::fromMap($this->doRPCRequest('DescribeVerifyScheme', '2017-05-25', 'HTTPS', 'POST', 'AK', 'json', $req, $runtime));
+        return DescribeVerifySchemeResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
@@ -356,11 +257,38 @@ class Dypnsapi extends OpenApiClient
     public function getAuthTokenWithOptions($request, $runtime)
     {
         Utils::validateModel($request);
+        $query = [];
+        if (!Utils::isUnset($request->origin)) {
+            $query['Origin'] = $request->origin;
+        }
+        if (!Utils::isUnset($request->ownerId)) {
+            $query['OwnerId'] = $request->ownerId;
+        }
+        if (!Utils::isUnset($request->resourceOwnerAccount)) {
+            $query['ResourceOwnerAccount'] = $request->resourceOwnerAccount;
+        }
+        if (!Utils::isUnset($request->resourceOwnerId)) {
+            $query['ResourceOwnerId'] = $request->resourceOwnerId;
+        }
+        if (!Utils::isUnset($request->url)) {
+            $query['Url'] = $request->url;
+        }
         $req = new OpenApiRequest([
-            'body' => Utils::toMap($request),
+            'query' => OpenApiUtilClient::query($query),
+        ]);
+        $params = new Params([
+            'action'      => 'GetAuthToken',
+            'version'     => '2017-05-25',
+            'protocol'    => 'HTTPS',
+            'pathname'    => '/',
+            'method'      => 'POST',
+            'authType'    => 'AK',
+            'style'       => 'RPC',
+            'reqBodyType' => 'formData',
+            'bodyType'    => 'json',
         ]);
 
-        return GetAuthTokenResponse::fromMap($this->doRPCRequest('GetAuthToken', '2017-05-25', 'HTTPS', 'POST', 'AK', 'json', $req, $runtime));
+        return GetAuthTokenResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
@@ -376,6 +304,369 @@ class Dypnsapi extends OpenApiClient
     }
 
     /**
+     * @param GetAuthorizationUrlRequest $request
+     * @param RuntimeOptions             $runtime
+     *
+     * @return GetAuthorizationUrlResponse
+     */
+    public function getAuthorizationUrlWithOptions($request, $runtime)
+    {
+        Utils::validateModel($request);
+        $query = [];
+        if (!Utils::isUnset($request->endDate)) {
+            $query['EndDate'] = $request->endDate;
+        }
+        if (!Utils::isUnset($request->ownerId)) {
+            $query['OwnerId'] = $request->ownerId;
+        }
+        if (!Utils::isUnset($request->phoneNo)) {
+            $query['PhoneNo'] = $request->phoneNo;
+        }
+        if (!Utils::isUnset($request->resourceOwnerAccount)) {
+            $query['ResourceOwnerAccount'] = $request->resourceOwnerAccount;
+        }
+        if (!Utils::isUnset($request->resourceOwnerId)) {
+            $query['ResourceOwnerId'] = $request->resourceOwnerId;
+        }
+        if (!Utils::isUnset($request->schemeId)) {
+            $query['SchemeId'] = $request->schemeId;
+        }
+        $req = new OpenApiRequest([
+            'query' => OpenApiUtilClient::query($query),
+        ]);
+        $params = new Params([
+            'action'      => 'GetAuthorizationUrl',
+            'version'     => '2017-05-25',
+            'protocol'    => 'HTTPS',
+            'pathname'    => '/',
+            'method'      => 'POST',
+            'authType'    => 'AK',
+            'style'       => 'RPC',
+            'reqBodyType' => 'formData',
+            'bodyType'    => 'json',
+        ]);
+
+        return GetAuthorizationUrlResponse::fromMap($this->callApi($params, $req, $runtime));
+    }
+
+    /**
+     * @param GetAuthorizationUrlRequest $request
+     *
+     * @return GetAuthorizationUrlResponse
+     */
+    public function getAuthorizationUrl($request)
+    {
+        $runtime = new RuntimeOptions([]);
+
+        return $this->getAuthorizationUrlWithOptions($request, $runtime);
+    }
+
+    /**
+     * @param GetCertifyResultRequest $request
+     * @param RuntimeOptions          $runtime
+     *
+     * @return GetCertifyResultResponse
+     */
+    public function getCertifyResultWithOptions($request, $runtime)
+    {
+        Utils::validateModel($request);
+        $query = [];
+        if (!Utils::isUnset($request->ownerId)) {
+            $query['OwnerId'] = $request->ownerId;
+        }
+        if (!Utils::isUnset($request->resourceOwnerAccount)) {
+            $query['ResourceOwnerAccount'] = $request->resourceOwnerAccount;
+        }
+        if (!Utils::isUnset($request->resourceOwnerId)) {
+            $query['ResourceOwnerId'] = $request->resourceOwnerId;
+        }
+        if (!Utils::isUnset($request->token)) {
+            $query['Token'] = $request->token;
+        }
+        $req = new OpenApiRequest([
+            'query' => OpenApiUtilClient::query($query),
+        ]);
+        $params = new Params([
+            'action'      => 'GetCertifyResult',
+            'version'     => '2017-05-25',
+            'protocol'    => 'HTTPS',
+            'pathname'    => '/',
+            'method'      => 'POST',
+            'authType'    => 'AK',
+            'style'       => 'RPC',
+            'reqBodyType' => 'formData',
+            'bodyType'    => 'json',
+        ]);
+
+        return GetCertifyResultResponse::fromMap($this->callApi($params, $req, $runtime));
+    }
+
+    /**
+     * @param GetCertifyResultRequest $request
+     *
+     * @return GetCertifyResultResponse
+     */
+    public function getCertifyResult($request)
+    {
+        $runtime = new RuntimeOptions([]);
+
+        return $this->getCertifyResultWithOptions($request, $runtime);
+    }
+
+    /**
+     * @param GetMobileRequest $request
+     * @param RuntimeOptions   $runtime
+     *
+     * @return GetMobileResponse
+     */
+    public function getMobileWithOptions($request, $runtime)
+    {
+        Utils::validateModel($request);
+        $query = [];
+        if (!Utils::isUnset($request->accessToken)) {
+            $query['AccessToken'] = $request->accessToken;
+        }
+        if (!Utils::isUnset($request->outId)) {
+            $query['OutId'] = $request->outId;
+        }
+        if (!Utils::isUnset($request->ownerId)) {
+            $query['OwnerId'] = $request->ownerId;
+        }
+        if (!Utils::isUnset($request->resourceOwnerAccount)) {
+            $query['ResourceOwnerAccount'] = $request->resourceOwnerAccount;
+        }
+        if (!Utils::isUnset($request->resourceOwnerId)) {
+            $query['ResourceOwnerId'] = $request->resourceOwnerId;
+        }
+        $req = new OpenApiRequest([
+            'query' => OpenApiUtilClient::query($query),
+        ]);
+        $params = new Params([
+            'action'      => 'GetMobile',
+            'version'     => '2017-05-25',
+            'protocol'    => 'HTTPS',
+            'pathname'    => '/',
+            'method'      => 'POST',
+            'authType'    => 'AK',
+            'style'       => 'RPC',
+            'reqBodyType' => 'formData',
+            'bodyType'    => 'json',
+        ]);
+
+        return GetMobileResponse::fromMap($this->callApi($params, $req, $runtime));
+    }
+
+    /**
+     * @param GetMobileRequest $request
+     *
+     * @return GetMobileResponse
+     */
+    public function getMobile($request)
+    {
+        $runtime = new RuntimeOptions([]);
+
+        return $this->getMobileWithOptions($request, $runtime);
+    }
+
+    /**
+     * @param GetSmsAuthTokensRequest $request
+     * @param RuntimeOptions          $runtime
+     *
+     * @return GetSmsAuthTokensResponse
+     */
+    public function getSmsAuthTokensWithOptions($request, $runtime)
+    {
+        Utils::validateModel($request);
+        $query = [];
+        if (!Utils::isUnset($request->bundleId)) {
+            $query['BundleId'] = $request->bundleId;
+        }
+        if (!Utils::isUnset($request->expire)) {
+            $query['Expire'] = $request->expire;
+        }
+        if (!Utils::isUnset($request->osType)) {
+            $query['OsType'] = $request->osType;
+        }
+        if (!Utils::isUnset($request->ownerId)) {
+            $query['OwnerId'] = $request->ownerId;
+        }
+        if (!Utils::isUnset($request->packageName)) {
+            $query['PackageName'] = $request->packageName;
+        }
+        if (!Utils::isUnset($request->resourceOwnerAccount)) {
+            $query['ResourceOwnerAccount'] = $request->resourceOwnerAccount;
+        }
+        if (!Utils::isUnset($request->resourceOwnerId)) {
+            $query['ResourceOwnerId'] = $request->resourceOwnerId;
+        }
+        if (!Utils::isUnset($request->sceneCode)) {
+            $query['SceneCode'] = $request->sceneCode;
+        }
+        if (!Utils::isUnset($request->signName)) {
+            $query['SignName'] = $request->signName;
+        }
+        if (!Utils::isUnset($request->smsCodeExpire)) {
+            $query['SmsCodeExpire'] = $request->smsCodeExpire;
+        }
+        if (!Utils::isUnset($request->smsTemplateCode)) {
+            $query['SmsTemplateCode'] = $request->smsTemplateCode;
+        }
+        $req = new OpenApiRequest([
+            'query' => OpenApiUtilClient::query($query),
+        ]);
+        $params = new Params([
+            'action'      => 'GetSmsAuthTokens',
+            'version'     => '2017-05-25',
+            'protocol'    => 'HTTPS',
+            'pathname'    => '/',
+            'method'      => 'POST',
+            'authType'    => 'AK',
+            'style'       => 'RPC',
+            'reqBodyType' => 'formData',
+            'bodyType'    => 'json',
+        ]);
+
+        return GetSmsAuthTokensResponse::fromMap($this->callApi($params, $req, $runtime));
+    }
+
+    /**
+     * @param GetSmsAuthTokensRequest $request
+     *
+     * @return GetSmsAuthTokensResponse
+     */
+    public function getSmsAuthTokens($request)
+    {
+        $runtime = new RuntimeOptions([]);
+
+        return $this->getSmsAuthTokensWithOptions($request, $runtime);
+    }
+
+    /**
+     * @param QueryGateVerifyBillingPublicRequest $request
+     * @param RuntimeOptions                      $runtime
+     *
+     * @return QueryGateVerifyBillingPublicResponse
+     */
+    public function queryGateVerifyBillingPublicWithOptions($request, $runtime)
+    {
+        Utils::validateModel($request);
+        $query = [];
+        if (!Utils::isUnset($request->authenticationType)) {
+            $query['AuthenticationType'] = $request->authenticationType;
+        }
+        if (!Utils::isUnset($request->month)) {
+            $query['Month'] = $request->month;
+        }
+        if (!Utils::isUnset($request->ownerId)) {
+            $query['OwnerId'] = $request->ownerId;
+        }
+        if (!Utils::isUnset($request->prodCode)) {
+            $query['ProdCode'] = $request->prodCode;
+        }
+        if (!Utils::isUnset($request->resourceOwnerAccount)) {
+            $query['ResourceOwnerAccount'] = $request->resourceOwnerAccount;
+        }
+        if (!Utils::isUnset($request->resourceOwnerId)) {
+            $query['ResourceOwnerId'] = $request->resourceOwnerId;
+        }
+        $req = new OpenApiRequest([
+            'query' => OpenApiUtilClient::query($query),
+        ]);
+        $params = new Params([
+            'action'      => 'QueryGateVerifyBillingPublic',
+            'version'     => '2017-05-25',
+            'protocol'    => 'HTTPS',
+            'pathname'    => '/',
+            'method'      => 'POST',
+            'authType'    => 'AK',
+            'style'       => 'RPC',
+            'reqBodyType' => 'formData',
+            'bodyType'    => 'json',
+        ]);
+
+        return QueryGateVerifyBillingPublicResponse::fromMap($this->callApi($params, $req, $runtime));
+    }
+
+    /**
+     * @param QueryGateVerifyBillingPublicRequest $request
+     *
+     * @return QueryGateVerifyBillingPublicResponse
+     */
+    public function queryGateVerifyBillingPublic($request)
+    {
+        $runtime = new RuntimeOptions([]);
+
+        return $this->queryGateVerifyBillingPublicWithOptions($request, $runtime);
+    }
+
+    /**
+     * @param QueryGateVerifyStatisticPublicRequest $request
+     * @param RuntimeOptions                        $runtime
+     *
+     * @return QueryGateVerifyStatisticPublicResponse
+     */
+    public function queryGateVerifyStatisticPublicWithOptions($request, $runtime)
+    {
+        Utils::validateModel($request);
+        $query = [];
+        if (!Utils::isUnset($request->authenticationType)) {
+            $query['AuthenticationType'] = $request->authenticationType;
+        }
+        if (!Utils::isUnset($request->endDate)) {
+            $query['EndDate'] = $request->endDate;
+        }
+        if (!Utils::isUnset($request->osType)) {
+            $query['OsType'] = $request->osType;
+        }
+        if (!Utils::isUnset($request->ownerId)) {
+            $query['OwnerId'] = $request->ownerId;
+        }
+        if (!Utils::isUnset($request->prodCode)) {
+            $query['ProdCode'] = $request->prodCode;
+        }
+        if (!Utils::isUnset($request->resourceOwnerAccount)) {
+            $query['ResourceOwnerAccount'] = $request->resourceOwnerAccount;
+        }
+        if (!Utils::isUnset($request->resourceOwnerId)) {
+            $query['ResourceOwnerId'] = $request->resourceOwnerId;
+        }
+        if (!Utils::isUnset($request->sceneCode)) {
+            $query['SceneCode'] = $request->sceneCode;
+        }
+        if (!Utils::isUnset($request->startDate)) {
+            $query['StartDate'] = $request->startDate;
+        }
+        $req = new OpenApiRequest([
+            'query' => OpenApiUtilClient::query($query),
+        ]);
+        $params = new Params([
+            'action'      => 'QueryGateVerifyStatisticPublic',
+            'version'     => '2017-05-25',
+            'protocol'    => 'HTTPS',
+            'pathname'    => '/',
+            'method'      => 'POST',
+            'authType'    => 'AK',
+            'style'       => 'RPC',
+            'reqBodyType' => 'formData',
+            'bodyType'    => 'json',
+        ]);
+
+        return QueryGateVerifyStatisticPublicResponse::fromMap($this->callApi($params, $req, $runtime));
+    }
+
+    /**
+     * @param QueryGateVerifyStatisticPublicRequest $request
+     *
+     * @return QueryGateVerifyStatisticPublicResponse
+     */
+    public function queryGateVerifyStatisticPublic($request)
+    {
+        $runtime = new RuntimeOptions([]);
+
+        return $this->queryGateVerifyStatisticPublicWithOptions($request, $runtime);
+    }
+
+    /**
      * @param VerifyMobileRequest $request
      * @param RuntimeOptions      $runtime
      *
@@ -384,11 +675,41 @@ class Dypnsapi extends OpenApiClient
     public function verifyMobileWithOptions($request, $runtime)
     {
         Utils::validateModel($request);
+        $query = [];
+        if (!Utils::isUnset($request->accessCode)) {
+            $query['AccessCode'] = $request->accessCode;
+        }
+        if (!Utils::isUnset($request->outId)) {
+            $query['OutId'] = $request->outId;
+        }
+        if (!Utils::isUnset($request->ownerId)) {
+            $query['OwnerId'] = $request->ownerId;
+        }
+        if (!Utils::isUnset($request->phoneNumber)) {
+            $query['PhoneNumber'] = $request->phoneNumber;
+        }
+        if (!Utils::isUnset($request->resourceOwnerAccount)) {
+            $query['ResourceOwnerAccount'] = $request->resourceOwnerAccount;
+        }
+        if (!Utils::isUnset($request->resourceOwnerId)) {
+            $query['ResourceOwnerId'] = $request->resourceOwnerId;
+        }
         $req = new OpenApiRequest([
-            'body' => Utils::toMap($request),
+            'query' => OpenApiUtilClient::query($query),
+        ]);
+        $params = new Params([
+            'action'      => 'VerifyMobile',
+            'version'     => '2017-05-25',
+            'protocol'    => 'HTTPS',
+            'pathname'    => '/',
+            'method'      => 'POST',
+            'authType'    => 'AK',
+            'style'       => 'RPC',
+            'reqBodyType' => 'formData',
+            'bodyType'    => 'json',
         ]);
 
-        return VerifyMobileResponse::fromMap($this->doRPCRequest('VerifyMobile', '2017-05-25', 'HTTPS', 'POST', 'AK', 'json', $req, $runtime));
+        return VerifyMobileResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
@@ -401,5 +722,109 @@ class Dypnsapi extends OpenApiClient
         $runtime = new RuntimeOptions([]);
 
         return $this->verifyMobileWithOptions($request, $runtime);
+    }
+
+    /**
+     * @param VerifyPhoneWithTokenRequest $request
+     * @param RuntimeOptions              $runtime
+     *
+     * @return VerifyPhoneWithTokenResponse
+     */
+    public function verifyPhoneWithTokenWithOptions($request, $runtime)
+    {
+        Utils::validateModel($request);
+        $query = [];
+        if (!Utils::isUnset($request->ownerId)) {
+            $query['OwnerId'] = $request->ownerId;
+        }
+        if (!Utils::isUnset($request->phoneNumber)) {
+            $query['PhoneNumber'] = $request->phoneNumber;
+        }
+        if (!Utils::isUnset($request->resourceOwnerAccount)) {
+            $query['ResourceOwnerAccount'] = $request->resourceOwnerAccount;
+        }
+        if (!Utils::isUnset($request->resourceOwnerId)) {
+            $query['ResourceOwnerId'] = $request->resourceOwnerId;
+        }
+        if (!Utils::isUnset($request->spToken)) {
+            $query['SpToken'] = $request->spToken;
+        }
+        $req = new OpenApiRequest([
+            'query' => OpenApiUtilClient::query($query),
+        ]);
+        $params = new Params([
+            'action'      => 'VerifyPhoneWithToken',
+            'version'     => '2017-05-25',
+            'protocol'    => 'HTTPS',
+            'pathname'    => '/',
+            'method'      => 'POST',
+            'authType'    => 'AK',
+            'style'       => 'RPC',
+            'reqBodyType' => 'formData',
+            'bodyType'    => 'json',
+        ]);
+
+        return VerifyPhoneWithTokenResponse::fromMap($this->callApi($params, $req, $runtime));
+    }
+
+    /**
+     * @param VerifyPhoneWithTokenRequest $request
+     *
+     * @return VerifyPhoneWithTokenResponse
+     */
+    public function verifyPhoneWithToken($request)
+    {
+        $runtime = new RuntimeOptions([]);
+
+        return $this->verifyPhoneWithTokenWithOptions($request, $runtime);
+    }
+
+    /**
+     * @param VerifySmsCodeRequest $request
+     * @param RuntimeOptions       $runtime
+     *
+     * @return VerifySmsCodeResponse
+     */
+    public function verifySmsCodeWithOptions($request, $runtime)
+    {
+        Utils::validateModel($request);
+        $query = [];
+        if (!Utils::isUnset($request->phoneNumber)) {
+            $query['PhoneNumber'] = $request->phoneNumber;
+        }
+        if (!Utils::isUnset($request->smsCode)) {
+            $query['SmsCode'] = $request->smsCode;
+        }
+        if (!Utils::isUnset($request->smsToken)) {
+            $query['SmsToken'] = $request->smsToken;
+        }
+        $req = new OpenApiRequest([
+            'query' => OpenApiUtilClient::query($query),
+        ]);
+        $params = new Params([
+            'action'      => 'VerifySmsCode',
+            'version'     => '2017-05-25',
+            'protocol'    => 'HTTPS',
+            'pathname'    => '/',
+            'method'      => 'POST',
+            'authType'    => 'AK',
+            'style'       => 'RPC',
+            'reqBodyType' => 'formData',
+            'bodyType'    => 'json',
+        ]);
+
+        return VerifySmsCodeResponse::fromMap($this->callApi($params, $req, $runtime));
+    }
+
+    /**
+     * @param VerifySmsCodeRequest $request
+     *
+     * @return VerifySmsCodeResponse
+     */
+    public function verifySmsCode($request)
+    {
+        $runtime = new RuntimeOptions([]);
+
+        return $this->verifySmsCodeWithOptions($request, $runtime);
     }
 }

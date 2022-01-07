@@ -15,6 +15,11 @@ class VerifyMobileResponseBody extends Model
     public $code;
 
     /**
+     * @var gateVerifyResultDTO
+     */
+    public $gateVerifyResultDTO;
+
+    /**
      * @var string
      */
     public $message;
@@ -23,16 +28,11 @@ class VerifyMobileResponseBody extends Model
      * @var string
      */
     public $requestId;
-
-    /**
-     * @var gateVerifyResultDTO
-     */
-    public $gateVerifyResultDTO;
     protected $_name = [
         'code'                => 'Code',
+        'gateVerifyResultDTO' => 'GateVerifyResultDTO',
         'message'             => 'Message',
         'requestId'           => 'RequestId',
-        'gateVerifyResultDTO' => 'GateVerifyResultDTO',
     ];
 
     public function validate()
@@ -45,14 +45,14 @@ class VerifyMobileResponseBody extends Model
         if (null !== $this->code) {
             $res['Code'] = $this->code;
         }
+        if (null !== $this->gateVerifyResultDTO) {
+            $res['GateVerifyResultDTO'] = null !== $this->gateVerifyResultDTO ? $this->gateVerifyResultDTO->toMap() : null;
+        }
         if (null !== $this->message) {
             $res['Message'] = $this->message;
         }
         if (null !== $this->requestId) {
             $res['RequestId'] = $this->requestId;
-        }
-        if (null !== $this->gateVerifyResultDTO) {
-            $res['GateVerifyResultDTO'] = null !== $this->gateVerifyResultDTO ? $this->gateVerifyResultDTO->toMap() : null;
         }
 
         return $res;
@@ -69,14 +69,14 @@ class VerifyMobileResponseBody extends Model
         if (isset($map['Code'])) {
             $model->code = $map['Code'];
         }
+        if (isset($map['GateVerifyResultDTO'])) {
+            $model->gateVerifyResultDTO = gateVerifyResultDTO::fromMap($map['GateVerifyResultDTO']);
+        }
         if (isset($map['Message'])) {
             $model->message = $map['Message'];
         }
         if (isset($map['RequestId'])) {
             $model->requestId = $map['RequestId'];
-        }
-        if (isset($map['GateVerifyResultDTO'])) {
-            $model->gateVerifyResultDTO = gateVerifyResultDTO::fromMap($map['GateVerifyResultDTO']);
         }
 
         return $model;

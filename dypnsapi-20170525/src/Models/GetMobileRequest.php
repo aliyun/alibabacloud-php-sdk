@@ -9,6 +9,16 @@ use AlibabaCloud\Tea\Model;
 class GetMobileRequest extends Model
 {
     /**
+     * @var string
+     */
+    public $accessToken;
+
+    /**
+     * @var string
+     */
+    public $outId;
+
+    /**
      * @var int
      */
     public $ownerId;
@@ -22,22 +32,12 @@ class GetMobileRequest extends Model
      * @var int
      */
     public $resourceOwnerId;
-
-    /**
-     * @var string
-     */
-    public $accessToken;
-
-    /**
-     * @var string
-     */
-    public $outId;
     protected $_name = [
+        'accessToken'          => 'AccessToken',
+        'outId'                => 'OutId',
         'ownerId'              => 'OwnerId',
         'resourceOwnerAccount' => 'ResourceOwnerAccount',
         'resourceOwnerId'      => 'ResourceOwnerId',
-        'accessToken'          => 'AccessToken',
-        'outId'                => 'OutId',
     ];
 
     public function validate()
@@ -47,6 +47,12 @@ class GetMobileRequest extends Model
     public function toMap()
     {
         $res = [];
+        if (null !== $this->accessToken) {
+            $res['AccessToken'] = $this->accessToken;
+        }
+        if (null !== $this->outId) {
+            $res['OutId'] = $this->outId;
+        }
         if (null !== $this->ownerId) {
             $res['OwnerId'] = $this->ownerId;
         }
@@ -55,12 +61,6 @@ class GetMobileRequest extends Model
         }
         if (null !== $this->resourceOwnerId) {
             $res['ResourceOwnerId'] = $this->resourceOwnerId;
-        }
-        if (null !== $this->accessToken) {
-            $res['AccessToken'] = $this->accessToken;
-        }
-        if (null !== $this->outId) {
-            $res['OutId'] = $this->outId;
         }
 
         return $res;
@@ -74,6 +74,12 @@ class GetMobileRequest extends Model
     public static function fromMap($map = [])
     {
         $model = new self();
+        if (isset($map['AccessToken'])) {
+            $model->accessToken = $map['AccessToken'];
+        }
+        if (isset($map['OutId'])) {
+            $model->outId = $map['OutId'];
+        }
         if (isset($map['OwnerId'])) {
             $model->ownerId = $map['OwnerId'];
         }
@@ -82,12 +88,6 @@ class GetMobileRequest extends Model
         }
         if (isset($map['ResourceOwnerId'])) {
             $model->resourceOwnerId = $map['ResourceOwnerId'];
-        }
-        if (isset($map['AccessToken'])) {
-            $model->accessToken = $map['AccessToken'];
-        }
-        if (isset($map['OutId'])) {
-            $model->outId = $map['OutId'];
         }
 
         return $model;

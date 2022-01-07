@@ -14,16 +14,6 @@ class data extends Model
     public $bizToken;
 
     /**
-     * @var string
-     */
-    public $stsAccessKeySecret;
-
-    /**
-     * @var string
-     */
-    public $stsAccessKeyId;
-
-    /**
      * @var int
      */
     public $expireTime;
@@ -31,12 +21,22 @@ class data extends Model
     /**
      * @var string
      */
+    public $stsAccessKeyId;
+
+    /**
+     * @var string
+     */
+    public $stsAccessKeySecret;
+
+    /**
+     * @var string
+     */
     public $stsToken;
     protected $_name = [
         'bizToken'           => 'BizToken',
-        'stsAccessKeySecret' => 'StsAccessKeySecret',
-        'stsAccessKeyId'     => 'StsAccessKeyId',
         'expireTime'         => 'ExpireTime',
+        'stsAccessKeyId'     => 'StsAccessKeyId',
+        'stsAccessKeySecret' => 'StsAccessKeySecret',
         'stsToken'           => 'StsToken',
     ];
 
@@ -50,14 +50,14 @@ class data extends Model
         if (null !== $this->bizToken) {
             $res['BizToken'] = $this->bizToken;
         }
-        if (null !== $this->stsAccessKeySecret) {
-            $res['StsAccessKeySecret'] = $this->stsAccessKeySecret;
+        if (null !== $this->expireTime) {
+            $res['ExpireTime'] = $this->expireTime;
         }
         if (null !== $this->stsAccessKeyId) {
             $res['StsAccessKeyId'] = $this->stsAccessKeyId;
         }
-        if (null !== $this->expireTime) {
-            $res['ExpireTime'] = $this->expireTime;
+        if (null !== $this->stsAccessKeySecret) {
+            $res['StsAccessKeySecret'] = $this->stsAccessKeySecret;
         }
         if (null !== $this->stsToken) {
             $res['StsToken'] = $this->stsToken;
@@ -77,14 +77,14 @@ class data extends Model
         if (isset($map['BizToken'])) {
             $model->bizToken = $map['BizToken'];
         }
-        if (isset($map['StsAccessKeySecret'])) {
-            $model->stsAccessKeySecret = $map['StsAccessKeySecret'];
+        if (isset($map['ExpireTime'])) {
+            $model->expireTime = $map['ExpireTime'];
         }
         if (isset($map['StsAccessKeyId'])) {
             $model->stsAccessKeyId = $map['StsAccessKeyId'];
         }
-        if (isset($map['ExpireTime'])) {
-            $model->expireTime = $map['ExpireTime'];
+        if (isset($map['StsAccessKeySecret'])) {
+            $model->stsAccessKeySecret = $map['StsAccessKeySecret'];
         }
         if (isset($map['StsToken'])) {
             $model->stsToken = $map['StsToken'];
