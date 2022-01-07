@@ -46,16 +46,28 @@ class ListVpcEndpointConnectionsRequest extends Model
     /**
      * @var string
      */
+    public $replacedResourceId;
+
+    /**
+     * @var string
+     */
+    public $resourceId;
+
+    /**
+     * @var string
+     */
     public $serviceId;
     protected $_name = [
-        'connectionStatus' => 'ConnectionStatus',
-        'endpointId'       => 'EndpointId',
-        'endpointOwnerId'  => 'EndpointOwnerId',
-        'eniId'            => 'EniId',
-        'maxResults'       => 'MaxResults',
-        'nextToken'        => 'NextToken',
-        'regionId'         => 'RegionId',
-        'serviceId'        => 'ServiceId',
+        'connectionStatus'   => 'ConnectionStatus',
+        'endpointId'         => 'EndpointId',
+        'endpointOwnerId'    => 'EndpointOwnerId',
+        'eniId'              => 'EniId',
+        'maxResults'         => 'MaxResults',
+        'nextToken'          => 'NextToken',
+        'regionId'           => 'RegionId',
+        'replacedResourceId' => 'ReplacedResourceId',
+        'resourceId'         => 'ResourceId',
+        'serviceId'          => 'ServiceId',
     ];
 
     public function validate()
@@ -85,6 +97,12 @@ class ListVpcEndpointConnectionsRequest extends Model
         }
         if (null !== $this->regionId) {
             $res['RegionId'] = $this->regionId;
+        }
+        if (null !== $this->replacedResourceId) {
+            $res['ReplacedResourceId'] = $this->replacedResourceId;
+        }
+        if (null !== $this->resourceId) {
+            $res['ResourceId'] = $this->resourceId;
         }
         if (null !== $this->serviceId) {
             $res['ServiceId'] = $this->serviceId;
@@ -121,6 +139,12 @@ class ListVpcEndpointConnectionsRequest extends Model
         }
         if (isset($map['RegionId'])) {
             $model->regionId = $map['RegionId'];
+        }
+        if (isset($map['ReplacedResourceId'])) {
+            $model->replacedResourceId = $map['ReplacedResourceId'];
+        }
+        if (isset($map['ResourceId'])) {
+            $model->resourceId = $map['ResourceId'];
         }
         if (isset($map['ServiceId'])) {
             $model->serviceId = $map['ServiceId'];

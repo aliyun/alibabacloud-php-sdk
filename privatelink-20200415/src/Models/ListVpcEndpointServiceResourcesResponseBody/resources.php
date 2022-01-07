@@ -9,6 +9,11 @@ use AlibabaCloud\Tea\Model;
 class resources extends Model
 {
     /**
+     * @var bool
+     */
+    public $autoAllocatedEnabled;
+
+    /**
      * @var string
      */
     public $ip;
@@ -17,6 +22,16 @@ class resources extends Model
      * @var string
      */
     public $regionId;
+
+    /**
+     * @var int
+     */
+    public $relatedDeprecatedEndpointCount;
+
+    /**
+     * @var int
+     */
+    public $relatedEndpointCount;
 
     /**
      * @var string
@@ -43,13 +58,16 @@ class resources extends Model
      */
     public $zoneId;
     protected $_name = [
-        'ip'           => 'Ip',
-        'regionId'     => 'RegionId',
-        'resourceId'   => 'ResourceId',
-        'resourceType' => 'ResourceType',
-        'vSwitchId'    => 'VSwitchId',
-        'vpcId'        => 'VpcId',
-        'zoneId'       => 'ZoneId',
+        'autoAllocatedEnabled'           => 'AutoAllocatedEnabled',
+        'ip'                             => 'Ip',
+        'regionId'                       => 'RegionId',
+        'relatedDeprecatedEndpointCount' => 'RelatedDeprecatedEndpointCount',
+        'relatedEndpointCount'           => 'RelatedEndpointCount',
+        'resourceId'                     => 'ResourceId',
+        'resourceType'                   => 'ResourceType',
+        'vSwitchId'                      => 'VSwitchId',
+        'vpcId'                          => 'VpcId',
+        'zoneId'                         => 'ZoneId',
     ];
 
     public function validate()
@@ -59,11 +77,20 @@ class resources extends Model
     public function toMap()
     {
         $res = [];
+        if (null !== $this->autoAllocatedEnabled) {
+            $res['AutoAllocatedEnabled'] = $this->autoAllocatedEnabled;
+        }
         if (null !== $this->ip) {
             $res['Ip'] = $this->ip;
         }
         if (null !== $this->regionId) {
             $res['RegionId'] = $this->regionId;
+        }
+        if (null !== $this->relatedDeprecatedEndpointCount) {
+            $res['RelatedDeprecatedEndpointCount'] = $this->relatedDeprecatedEndpointCount;
+        }
+        if (null !== $this->relatedEndpointCount) {
+            $res['RelatedEndpointCount'] = $this->relatedEndpointCount;
         }
         if (null !== $this->resourceId) {
             $res['ResourceId'] = $this->resourceId;
@@ -92,11 +119,20 @@ class resources extends Model
     public static function fromMap($map = [])
     {
         $model = new self();
+        if (isset($map['AutoAllocatedEnabled'])) {
+            $model->autoAllocatedEnabled = $map['AutoAllocatedEnabled'];
+        }
         if (isset($map['Ip'])) {
             $model->ip = $map['Ip'];
         }
         if (isset($map['RegionId'])) {
             $model->regionId = $map['RegionId'];
+        }
+        if (isset($map['RelatedDeprecatedEndpointCount'])) {
+            $model->relatedDeprecatedEndpointCount = $map['RelatedDeprecatedEndpointCount'];
+        }
+        if (isset($map['RelatedEndpointCount'])) {
+            $model->relatedEndpointCount = $map['RelatedEndpointCount'];
         }
         if (isset($map['ResourceId'])) {
             $model->resourceId = $map['ResourceId'];

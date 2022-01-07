@@ -33,8 +33,12 @@ use AlibabaCloud\SDK\Privatelink\V20200415\Models\DetachSecurityGroupFromVpcEndp
 use AlibabaCloud\SDK\Privatelink\V20200415\Models\DetachSecurityGroupFromVpcEndpointResponse;
 use AlibabaCloud\SDK\Privatelink\V20200415\Models\DisableVpcEndpointConnectionRequest;
 use AlibabaCloud\SDK\Privatelink\V20200415\Models\DisableVpcEndpointConnectionResponse;
+use AlibabaCloud\SDK\Privatelink\V20200415\Models\DisableVpcEndpointZoneConnectionRequest;
+use AlibabaCloud\SDK\Privatelink\V20200415\Models\DisableVpcEndpointZoneConnectionResponse;
 use AlibabaCloud\SDK\Privatelink\V20200415\Models\EnableVpcEndpointConnectionRequest;
 use AlibabaCloud\SDK\Privatelink\V20200415\Models\EnableVpcEndpointConnectionResponse;
+use AlibabaCloud\SDK\Privatelink\V20200415\Models\EnableVpcEndpointZoneConnectionRequest;
+use AlibabaCloud\SDK\Privatelink\V20200415\Models\EnableVpcEndpointZoneConnectionResponse;
 use AlibabaCloud\SDK\Privatelink\V20200415\Models\GetVpcEndpointAttributeRequest;
 use AlibabaCloud\SDK\Privatelink\V20200415\Models\GetVpcEndpointAttributeResponse;
 use AlibabaCloud\SDK\Privatelink\V20200415\Models\GetVpcEndpointServiceAttributeRequest;
@@ -67,6 +71,10 @@ use AlibabaCloud\SDK\Privatelink\V20200415\Models\UpdateVpcEndpointConnectionAtt
 use AlibabaCloud\SDK\Privatelink\V20200415\Models\UpdateVpcEndpointConnectionAttributeResponse;
 use AlibabaCloud\SDK\Privatelink\V20200415\Models\UpdateVpcEndpointServiceAttributeRequest;
 use AlibabaCloud\SDK\Privatelink\V20200415\Models\UpdateVpcEndpointServiceAttributeResponse;
+use AlibabaCloud\SDK\Privatelink\V20200415\Models\UpdateVpcEndpointServiceResourceAttributeRequest;
+use AlibabaCloud\SDK\Privatelink\V20200415\Models\UpdateVpcEndpointServiceResourceAttributeResponse;
+use AlibabaCloud\SDK\Privatelink\V20200415\Models\UpdateVpcEndpointZoneConnectionResourceAttributeRequest;
+use AlibabaCloud\SDK\Privatelink\V20200415\Models\UpdateVpcEndpointZoneConnectionResourceAttributeResponse;
 use AlibabaCloud\Tea\Utils\Utils;
 use AlibabaCloud\Tea\Utils\Utils\RuntimeOptions;
 use Darabonba\OpenApi\Models\OpenApiRequest;
@@ -115,14 +123,26 @@ class Privatelink extends OpenApiClient
     public function addUserToVpcEndpointServiceWithOptions($request, $runtime)
     {
         Utils::validateModel($request);
-        $query                = [];
-        $query['ClientToken'] = $request->clientToken;
-        $query['DryRun']      = $request->dryRun;
-        $query['RegionId']    = $request->regionId;
-        $query['RegionId']    = $request->regionId;
-        $query['ServiceId']   = $request->serviceId;
-        $query['UserId']      = $request->userId;
-        $req                  = new OpenApiRequest([
+        $query = [];
+        if (!Utils::isUnset($request->clientToken)) {
+            $query['ClientToken'] = $request->clientToken;
+        }
+        if (!Utils::isUnset($request->dryRun)) {
+            $query['DryRun'] = $request->dryRun;
+        }
+        if (!Utils::isUnset($request->regionId)) {
+            $query['RegionId'] = $request->regionId;
+        }
+        if (!Utils::isUnset($request->regionId)) {
+            $query['RegionId'] = $request->regionId;
+        }
+        if (!Utils::isUnset($request->serviceId)) {
+            $query['ServiceId'] = $request->serviceId;
+        }
+        if (!Utils::isUnset($request->userId)) {
+            $query['UserId'] = $request->userId;
+        }
+        $req = new OpenApiRequest([
             'query' => OpenApiUtilClient::query($query),
         ]);
         $params = new Params([
@@ -161,16 +181,32 @@ class Privatelink extends OpenApiClient
     public function addZoneToVpcEndpointWithOptions($request, $runtime)
     {
         Utils::validateModel($request);
-        $query                = [];
-        $query['ClientToken'] = $request->clientToken;
-        $query['DryRun']      = $request->dryRun;
-        $query['EndpointId']  = $request->endpointId;
-        $query['RegionId']    = $request->regionId;
-        $query['RegionId']    = $request->regionId;
-        $query['VSwitchId']   = $request->vSwitchId;
-        $query['ZoneId']      = $request->zoneId;
-        $query['ip']          = $request->ip;
-        $req                  = new OpenApiRequest([
+        $query = [];
+        if (!Utils::isUnset($request->clientToken)) {
+            $query['ClientToken'] = $request->clientToken;
+        }
+        if (!Utils::isUnset($request->dryRun)) {
+            $query['DryRun'] = $request->dryRun;
+        }
+        if (!Utils::isUnset($request->endpointId)) {
+            $query['EndpointId'] = $request->endpointId;
+        }
+        if (!Utils::isUnset($request->regionId)) {
+            $query['RegionId'] = $request->regionId;
+        }
+        if (!Utils::isUnset($request->regionId)) {
+            $query['RegionId'] = $request->regionId;
+        }
+        if (!Utils::isUnset($request->vSwitchId)) {
+            $query['VSwitchId'] = $request->vSwitchId;
+        }
+        if (!Utils::isUnset($request->zoneId)) {
+            $query['ZoneId'] = $request->zoneId;
+        }
+        if (!Utils::isUnset($request->ip)) {
+            $query['ip'] = $request->ip;
+        }
+        $req = new OpenApiRequest([
             'query' => OpenApiUtilClient::query($query),
         ]);
         $params = new Params([
@@ -209,15 +245,29 @@ class Privatelink extends OpenApiClient
     public function attachResourceToVpcEndpointServiceWithOptions($request, $runtime)
     {
         Utils::validateModel($request);
-        $query                 = [];
-        $query['ClientToken']  = $request->clientToken;
-        $query['DryRun']       = $request->dryRun;
-        $query['RegionId']     = $request->regionId;
-        $query['RegionId']     = $request->regionId;
-        $query['ResourceId']   = $request->resourceId;
-        $query['ResourceType'] = $request->resourceType;
-        $query['ServiceId']    = $request->serviceId;
-        $req                   = new OpenApiRequest([
+        $query = [];
+        if (!Utils::isUnset($request->clientToken)) {
+            $query['ClientToken'] = $request->clientToken;
+        }
+        if (!Utils::isUnset($request->dryRun)) {
+            $query['DryRun'] = $request->dryRun;
+        }
+        if (!Utils::isUnset($request->regionId)) {
+            $query['RegionId'] = $request->regionId;
+        }
+        if (!Utils::isUnset($request->regionId)) {
+            $query['RegionId'] = $request->regionId;
+        }
+        if (!Utils::isUnset($request->resourceId)) {
+            $query['ResourceId'] = $request->resourceId;
+        }
+        if (!Utils::isUnset($request->resourceType)) {
+            $query['ResourceType'] = $request->resourceType;
+        }
+        if (!Utils::isUnset($request->serviceId)) {
+            $query['ServiceId'] = $request->serviceId;
+        }
+        $req = new OpenApiRequest([
             'query' => OpenApiUtilClient::query($query),
         ]);
         $params = new Params([
@@ -256,14 +306,26 @@ class Privatelink extends OpenApiClient
     public function attachSecurityGroupToVpcEndpointWithOptions($request, $runtime)
     {
         Utils::validateModel($request);
-        $query                    = [];
-        $query['ClientToken']     = $request->clientToken;
-        $query['DryRun']          = $request->dryRun;
-        $query['EndpointId']      = $request->endpointId;
-        $query['RegionId']        = $request->regionId;
-        $query['RegionId']        = $request->regionId;
-        $query['SecurityGroupId'] = $request->securityGroupId;
-        $req                      = new OpenApiRequest([
+        $query = [];
+        if (!Utils::isUnset($request->clientToken)) {
+            $query['ClientToken'] = $request->clientToken;
+        }
+        if (!Utils::isUnset($request->dryRun)) {
+            $query['DryRun'] = $request->dryRun;
+        }
+        if (!Utils::isUnset($request->endpointId)) {
+            $query['EndpointId'] = $request->endpointId;
+        }
+        if (!Utils::isUnset($request->regionId)) {
+            $query['RegionId'] = $request->regionId;
+        }
+        if (!Utils::isUnset($request->regionId)) {
+            $query['RegionId'] = $request->regionId;
+        }
+        if (!Utils::isUnset($request->securityGroupId)) {
+            $query['SecurityGroupId'] = $request->securityGroupId;
+        }
+        $req = new OpenApiRequest([
             'query' => OpenApiUtilClient::query($query),
         ]);
         $params = new Params([
@@ -335,22 +397,50 @@ class Privatelink extends OpenApiClient
     public function createVpcEndpointWithOptions($request, $runtime)
     {
         Utils::validateModel($request);
-        $query                              = [];
-        $query['ClientToken']               = $request->clientToken;
-        $query['DryRun']                    = $request->dryRun;
-        $query['EndpointDescription']       = $request->endpointDescription;
-        $query['EndpointName']              = $request->endpointName;
-        $query['EndpointType']              = $request->endpointType;
-        $query['ProtectedEnabled']          = $request->protectedEnabled;
-        $query['RegionId']                  = $request->regionId;
-        $query['RegionId']                  = $request->regionId;
-        $query['SecurityGroupId']           = $request->securityGroupId;
-        $query['ServiceId']                 = $request->serviceId;
-        $query['ServiceName']               = $request->serviceName;
-        $query['VpcId']                     = $request->vpcId;
-        $query['Zone']                      = $request->zone;
-        $query['ZonePrivateIpAddressCount'] = $request->zonePrivateIpAddressCount;
-        $req                                = new OpenApiRequest([
+        $query = [];
+        if (!Utils::isUnset($request->clientToken)) {
+            $query['ClientToken'] = $request->clientToken;
+        }
+        if (!Utils::isUnset($request->dryRun)) {
+            $query['DryRun'] = $request->dryRun;
+        }
+        if (!Utils::isUnset($request->endpointDescription)) {
+            $query['EndpointDescription'] = $request->endpointDescription;
+        }
+        if (!Utils::isUnset($request->endpointName)) {
+            $query['EndpointName'] = $request->endpointName;
+        }
+        if (!Utils::isUnset($request->endpointType)) {
+            $query['EndpointType'] = $request->endpointType;
+        }
+        if (!Utils::isUnset($request->protectedEnabled)) {
+            $query['ProtectedEnabled'] = $request->protectedEnabled;
+        }
+        if (!Utils::isUnset($request->regionId)) {
+            $query['RegionId'] = $request->regionId;
+        }
+        if (!Utils::isUnset($request->regionId)) {
+            $query['RegionId'] = $request->regionId;
+        }
+        if (!Utils::isUnset($request->securityGroupId)) {
+            $query['SecurityGroupId'] = $request->securityGroupId;
+        }
+        if (!Utils::isUnset($request->serviceId)) {
+            $query['ServiceId'] = $request->serviceId;
+        }
+        if (!Utils::isUnset($request->serviceName)) {
+            $query['ServiceName'] = $request->serviceName;
+        }
+        if (!Utils::isUnset($request->vpcId)) {
+            $query['VpcId'] = $request->vpcId;
+        }
+        if (!Utils::isUnset($request->zone)) {
+            $query['Zone'] = $request->zone;
+        }
+        if (!Utils::isUnset($request->zonePrivateIpAddressCount)) {
+            $query['ZonePrivateIpAddressCount'] = $request->zonePrivateIpAddressCount;
+        }
+        $req = new OpenApiRequest([
             'query' => OpenApiUtilClient::query($query),
         ]);
         $params = new Params([
@@ -389,18 +479,38 @@ class Privatelink extends OpenApiClient
     public function createVpcEndpointServiceWithOptions($request, $runtime)
     {
         Utils::validateModel($request);
-        $query                        = [];
-        $query['AutoAcceptEnabled']   = $request->autoAcceptEnabled;
-        $query['ClientToken']         = $request->clientToken;
-        $query['DryRun']              = $request->dryRun;
-        $query['Payer']               = $request->payer;
-        $query['RegionId']            = $request->regionId;
-        $query['RegionId']            = $request->regionId;
-        $query['Resource']            = $request->resource;
-        $query['ServiceDescription']  = $request->serviceDescription;
-        $query['ServiceResourceType'] = $request->serviceResourceType;
-        $query['ZoneAffinityEnabled'] = $request->zoneAffinityEnabled;
-        $req                          = new OpenApiRequest([
+        $query = [];
+        if (!Utils::isUnset($request->autoAcceptEnabled)) {
+            $query['AutoAcceptEnabled'] = $request->autoAcceptEnabled;
+        }
+        if (!Utils::isUnset($request->clientToken)) {
+            $query['ClientToken'] = $request->clientToken;
+        }
+        if (!Utils::isUnset($request->dryRun)) {
+            $query['DryRun'] = $request->dryRun;
+        }
+        if (!Utils::isUnset($request->payer)) {
+            $query['Payer'] = $request->payer;
+        }
+        if (!Utils::isUnset($request->regionId)) {
+            $query['RegionId'] = $request->regionId;
+        }
+        if (!Utils::isUnset($request->regionId)) {
+            $query['RegionId'] = $request->regionId;
+        }
+        if (!Utils::isUnset($request->resource)) {
+            $query['Resource'] = $request->resource;
+        }
+        if (!Utils::isUnset($request->serviceDescription)) {
+            $query['ServiceDescription'] = $request->serviceDescription;
+        }
+        if (!Utils::isUnset($request->serviceResourceType)) {
+            $query['ServiceResourceType'] = $request->serviceResourceType;
+        }
+        if (!Utils::isUnset($request->zoneAffinityEnabled)) {
+            $query['ZoneAffinityEnabled'] = $request->zoneAffinityEnabled;
+        }
+        $req = new OpenApiRequest([
             'query' => OpenApiUtilClient::query($query),
         ]);
         $params = new Params([
@@ -439,13 +549,23 @@ class Privatelink extends OpenApiClient
     public function deleteVpcEndpointWithOptions($request, $runtime)
     {
         Utils::validateModel($request);
-        $query                = [];
-        $query['ClientToken'] = $request->clientToken;
-        $query['DryRun']      = $request->dryRun;
-        $query['EndpointId']  = $request->endpointId;
-        $query['RegionId']    = $request->regionId;
-        $query['RegionId']    = $request->regionId;
-        $req                  = new OpenApiRequest([
+        $query = [];
+        if (!Utils::isUnset($request->clientToken)) {
+            $query['ClientToken'] = $request->clientToken;
+        }
+        if (!Utils::isUnset($request->dryRun)) {
+            $query['DryRun'] = $request->dryRun;
+        }
+        if (!Utils::isUnset($request->endpointId)) {
+            $query['EndpointId'] = $request->endpointId;
+        }
+        if (!Utils::isUnset($request->regionId)) {
+            $query['RegionId'] = $request->regionId;
+        }
+        if (!Utils::isUnset($request->regionId)) {
+            $query['RegionId'] = $request->regionId;
+        }
+        $req = new OpenApiRequest([
             'query' => OpenApiUtilClient::query($query),
         ]);
         $params = new Params([
@@ -484,13 +604,23 @@ class Privatelink extends OpenApiClient
     public function deleteVpcEndpointServiceWithOptions($request, $runtime)
     {
         Utils::validateModel($request);
-        $query                = [];
-        $query['ClientToken'] = $request->clientToken;
-        $query['DryRun']      = $request->dryRun;
-        $query['RegionId']    = $request->regionId;
-        $query['RegionId']    = $request->regionId;
-        $query['ServiceId']   = $request->serviceId;
-        $req                  = new OpenApiRequest([
+        $query = [];
+        if (!Utils::isUnset($request->clientToken)) {
+            $query['ClientToken'] = $request->clientToken;
+        }
+        if (!Utils::isUnset($request->dryRun)) {
+            $query['DryRun'] = $request->dryRun;
+        }
+        if (!Utils::isUnset($request->regionId)) {
+            $query['RegionId'] = $request->regionId;
+        }
+        if (!Utils::isUnset($request->regionId)) {
+            $query['RegionId'] = $request->regionId;
+        }
+        if (!Utils::isUnset($request->serviceId)) {
+            $query['ServiceId'] = $request->serviceId;
+        }
+        $req = new OpenApiRequest([
             'query' => OpenApiUtilClient::query($query),
         ]);
         $params = new Params([
@@ -529,10 +659,14 @@ class Privatelink extends OpenApiClient
     public function describeRegionsWithOptions($request, $runtime)
     {
         Utils::validateModel($request);
-        $query             = [];
-        $query['RegionId'] = $request->regionId;
-        $query['RegionId'] = $request->regionId;
-        $req               = new OpenApiRequest([
+        $query = [];
+        if (!Utils::isUnset($request->regionId)) {
+            $query['RegionId'] = $request->regionId;
+        }
+        if (!Utils::isUnset($request->regionId)) {
+            $query['RegionId'] = $request->regionId;
+        }
+        $req = new OpenApiRequest([
             'query' => OpenApiUtilClient::query($query),
         ]);
         $params = new Params([
@@ -571,10 +705,14 @@ class Privatelink extends OpenApiClient
     public function describeZonesWithOptions($request, $runtime)
     {
         Utils::validateModel($request);
-        $query             = [];
-        $query['RegionId'] = $request->regionId;
-        $query['RegionId'] = $request->regionId;
-        $req               = new OpenApiRequest([
+        $query = [];
+        if (!Utils::isUnset($request->regionId)) {
+            $query['RegionId'] = $request->regionId;
+        }
+        if (!Utils::isUnset($request->regionId)) {
+            $query['RegionId'] = $request->regionId;
+        }
+        $req = new OpenApiRequest([
             'query' => OpenApiUtilClient::query($query),
         ]);
         $params = new Params([
@@ -613,15 +751,29 @@ class Privatelink extends OpenApiClient
     public function detachResourceFromVpcEndpointServiceWithOptions($request, $runtime)
     {
         Utils::validateModel($request);
-        $query                 = [];
-        $query['ClientToken']  = $request->clientToken;
-        $query['DryRun']       = $request->dryRun;
-        $query['RegionId']     = $request->regionId;
-        $query['RegionId']     = $request->regionId;
-        $query['ResourceId']   = $request->resourceId;
-        $query['ResourceType'] = $request->resourceType;
-        $query['ServiceId']    = $request->serviceId;
-        $req                   = new OpenApiRequest([
+        $query = [];
+        if (!Utils::isUnset($request->clientToken)) {
+            $query['ClientToken'] = $request->clientToken;
+        }
+        if (!Utils::isUnset($request->dryRun)) {
+            $query['DryRun'] = $request->dryRun;
+        }
+        if (!Utils::isUnset($request->regionId)) {
+            $query['RegionId'] = $request->regionId;
+        }
+        if (!Utils::isUnset($request->regionId)) {
+            $query['RegionId'] = $request->regionId;
+        }
+        if (!Utils::isUnset($request->resourceId)) {
+            $query['ResourceId'] = $request->resourceId;
+        }
+        if (!Utils::isUnset($request->resourceType)) {
+            $query['ResourceType'] = $request->resourceType;
+        }
+        if (!Utils::isUnset($request->serviceId)) {
+            $query['ServiceId'] = $request->serviceId;
+        }
+        $req = new OpenApiRequest([
             'query' => OpenApiUtilClient::query($query),
         ]);
         $params = new Params([
@@ -660,14 +812,26 @@ class Privatelink extends OpenApiClient
     public function detachSecurityGroupFromVpcEndpointWithOptions($request, $runtime)
     {
         Utils::validateModel($request);
-        $query                    = [];
-        $query['ClientToken']     = $request->clientToken;
-        $query['DryRun']          = $request->dryRun;
-        $query['EndpointId']      = $request->endpointId;
-        $query['RegionId']        = $request->regionId;
-        $query['RegionId']        = $request->regionId;
-        $query['SecurityGroupId'] = $request->securityGroupId;
-        $req                      = new OpenApiRequest([
+        $query = [];
+        if (!Utils::isUnset($request->clientToken)) {
+            $query['ClientToken'] = $request->clientToken;
+        }
+        if (!Utils::isUnset($request->dryRun)) {
+            $query['DryRun'] = $request->dryRun;
+        }
+        if (!Utils::isUnset($request->endpointId)) {
+            $query['EndpointId'] = $request->endpointId;
+        }
+        if (!Utils::isUnset($request->regionId)) {
+            $query['RegionId'] = $request->regionId;
+        }
+        if (!Utils::isUnset($request->regionId)) {
+            $query['RegionId'] = $request->regionId;
+        }
+        if (!Utils::isUnset($request->securityGroupId)) {
+            $query['SecurityGroupId'] = $request->securityGroupId;
+        }
+        $req = new OpenApiRequest([
             'query' => OpenApiUtilClient::query($query),
         ]);
         $params = new Params([
@@ -706,14 +870,26 @@ class Privatelink extends OpenApiClient
     public function disableVpcEndpointConnectionWithOptions($request, $runtime)
     {
         Utils::validateModel($request);
-        $query                = [];
-        $query['ClientToken'] = $request->clientToken;
-        $query['DryRun']      = $request->dryRun;
-        $query['EndpointId']  = $request->endpointId;
-        $query['RegionId']    = $request->regionId;
-        $query['RegionId']    = $request->regionId;
-        $query['ServiceId']   = $request->serviceId;
-        $req                  = new OpenApiRequest([
+        $query = [];
+        if (!Utils::isUnset($request->clientToken)) {
+            $query['ClientToken'] = $request->clientToken;
+        }
+        if (!Utils::isUnset($request->dryRun)) {
+            $query['DryRun'] = $request->dryRun;
+        }
+        if (!Utils::isUnset($request->endpointId)) {
+            $query['EndpointId'] = $request->endpointId;
+        }
+        if (!Utils::isUnset($request->regionId)) {
+            $query['RegionId'] = $request->regionId;
+        }
+        if (!Utils::isUnset($request->regionId)) {
+            $query['RegionId'] = $request->regionId;
+        }
+        if (!Utils::isUnset($request->serviceId)) {
+            $query['ServiceId'] = $request->serviceId;
+        }
+        $req = new OpenApiRequest([
             'query' => OpenApiUtilClient::query($query),
         ]);
         $params = new Params([
@@ -744,6 +920,70 @@ class Privatelink extends OpenApiClient
     }
 
     /**
+     * @param DisableVpcEndpointZoneConnectionRequest $request
+     * @param RuntimeOptions                          $runtime
+     *
+     * @return DisableVpcEndpointZoneConnectionResponse
+     */
+    public function disableVpcEndpointZoneConnectionWithOptions($request, $runtime)
+    {
+        Utils::validateModel($request);
+        $query = [];
+        if (!Utils::isUnset($request->clientToken)) {
+            $query['ClientToken'] = $request->clientToken;
+        }
+        if (!Utils::isUnset($request->dryRun)) {
+            $query['DryRun'] = $request->dryRun;
+        }
+        if (!Utils::isUnset($request->endpointId)) {
+            $query['EndpointId'] = $request->endpointId;
+        }
+        if (!Utils::isUnset($request->regionId)) {
+            $query['RegionId'] = $request->regionId;
+        }
+        if (!Utils::isUnset($request->regionId)) {
+            $query['RegionId'] = $request->regionId;
+        }
+        if (!Utils::isUnset($request->replacedResource)) {
+            $query['ReplacedResource'] = $request->replacedResource;
+        }
+        if (!Utils::isUnset($request->serviceId)) {
+            $query['ServiceId'] = $request->serviceId;
+        }
+        if (!Utils::isUnset($request->zoneId)) {
+            $query['ZoneId'] = $request->zoneId;
+        }
+        $req = new OpenApiRequest([
+            'query' => OpenApiUtilClient::query($query),
+        ]);
+        $params = new Params([
+            'action'      => 'DisableVpcEndpointZoneConnection',
+            'version'     => '2020-04-15',
+            'protocol'    => 'HTTPS',
+            'pathname'    => '/',
+            'method'      => 'POST',
+            'authType'    => 'AK',
+            'style'       => 'RPC',
+            'reqBodyType' => 'formData',
+            'bodyType'    => 'json',
+        ]);
+
+        return DisableVpcEndpointZoneConnectionResponse::fromMap($this->callApi($params, $req, $runtime));
+    }
+
+    /**
+     * @param DisableVpcEndpointZoneConnectionRequest $request
+     *
+     * @return DisableVpcEndpointZoneConnectionResponse
+     */
+    public function disableVpcEndpointZoneConnection($request)
+    {
+        $runtime = new RuntimeOptions([]);
+
+        return $this->disableVpcEndpointZoneConnectionWithOptions($request, $runtime);
+    }
+
+    /**
      * @param EnableVpcEndpointConnectionRequest $request
      * @param RuntimeOptions                     $runtime
      *
@@ -752,15 +992,29 @@ class Privatelink extends OpenApiClient
     public function enableVpcEndpointConnectionWithOptions($request, $runtime)
     {
         Utils::validateModel($request);
-        $query                = [];
-        $query['Bandwidth']   = $request->bandwidth;
-        $query['ClientToken'] = $request->clientToken;
-        $query['DryRun']      = $request->dryRun;
-        $query['EndpointId']  = $request->endpointId;
-        $query['RegionId']    = $request->regionId;
-        $query['RegionId']    = $request->regionId;
-        $query['ServiceId']   = $request->serviceId;
-        $req                  = new OpenApiRequest([
+        $query = [];
+        if (!Utils::isUnset($request->bandwidth)) {
+            $query['Bandwidth'] = $request->bandwidth;
+        }
+        if (!Utils::isUnset($request->clientToken)) {
+            $query['ClientToken'] = $request->clientToken;
+        }
+        if (!Utils::isUnset($request->dryRun)) {
+            $query['DryRun'] = $request->dryRun;
+        }
+        if (!Utils::isUnset($request->endpointId)) {
+            $query['EndpointId'] = $request->endpointId;
+        }
+        if (!Utils::isUnset($request->regionId)) {
+            $query['RegionId'] = $request->regionId;
+        }
+        if (!Utils::isUnset($request->regionId)) {
+            $query['RegionId'] = $request->regionId;
+        }
+        if (!Utils::isUnset($request->serviceId)) {
+            $query['ServiceId'] = $request->serviceId;
+        }
+        $req = new OpenApiRequest([
             'query' => OpenApiUtilClient::query($query),
         ]);
         $params = new Params([
@@ -791,6 +1045,67 @@ class Privatelink extends OpenApiClient
     }
 
     /**
+     * @param EnableVpcEndpointZoneConnectionRequest $request
+     * @param RuntimeOptions                         $runtime
+     *
+     * @return EnableVpcEndpointZoneConnectionResponse
+     */
+    public function enableVpcEndpointZoneConnectionWithOptions($request, $runtime)
+    {
+        Utils::validateModel($request);
+        $query = [];
+        if (!Utils::isUnset($request->clientToken)) {
+            $query['ClientToken'] = $request->clientToken;
+        }
+        if (!Utils::isUnset($request->dryRun)) {
+            $query['DryRun'] = $request->dryRun;
+        }
+        if (!Utils::isUnset($request->endpointId)) {
+            $query['EndpointId'] = $request->endpointId;
+        }
+        if (!Utils::isUnset($request->regionId)) {
+            $query['RegionId'] = $request->regionId;
+        }
+        if (!Utils::isUnset($request->regionId)) {
+            $query['RegionId'] = $request->regionId;
+        }
+        if (!Utils::isUnset($request->serviceId)) {
+            $query['ServiceId'] = $request->serviceId;
+        }
+        if (!Utils::isUnset($request->zoneId)) {
+            $query['ZoneId'] = $request->zoneId;
+        }
+        $req = new OpenApiRequest([
+            'query' => OpenApiUtilClient::query($query),
+        ]);
+        $params = new Params([
+            'action'      => 'EnableVpcEndpointZoneConnection',
+            'version'     => '2020-04-15',
+            'protocol'    => 'HTTPS',
+            'pathname'    => '/',
+            'method'      => 'POST',
+            'authType'    => 'AK',
+            'style'       => 'RPC',
+            'reqBodyType' => 'formData',
+            'bodyType'    => 'json',
+        ]);
+
+        return EnableVpcEndpointZoneConnectionResponse::fromMap($this->callApi($params, $req, $runtime));
+    }
+
+    /**
+     * @param EnableVpcEndpointZoneConnectionRequest $request
+     *
+     * @return EnableVpcEndpointZoneConnectionResponse
+     */
+    public function enableVpcEndpointZoneConnection($request)
+    {
+        $runtime = new RuntimeOptions([]);
+
+        return $this->enableVpcEndpointZoneConnectionWithOptions($request, $runtime);
+    }
+
+    /**
      * @param GetVpcEndpointAttributeRequest $request
      * @param RuntimeOptions                 $runtime
      *
@@ -799,11 +1114,17 @@ class Privatelink extends OpenApiClient
     public function getVpcEndpointAttributeWithOptions($request, $runtime)
     {
         Utils::validateModel($request);
-        $query               = [];
-        $query['EndpointId'] = $request->endpointId;
-        $query['RegionId']   = $request->regionId;
-        $query['RegionId']   = $request->regionId;
-        $req                 = new OpenApiRequest([
+        $query = [];
+        if (!Utils::isUnset($request->endpointId)) {
+            $query['EndpointId'] = $request->endpointId;
+        }
+        if (!Utils::isUnset($request->regionId)) {
+            $query['RegionId'] = $request->regionId;
+        }
+        if (!Utils::isUnset($request->regionId)) {
+            $query['RegionId'] = $request->regionId;
+        }
+        $req = new OpenApiRequest([
             'query' => OpenApiUtilClient::query($query),
         ]);
         $params = new Params([
@@ -842,11 +1163,17 @@ class Privatelink extends OpenApiClient
     public function getVpcEndpointServiceAttributeWithOptions($request, $runtime)
     {
         Utils::validateModel($request);
-        $query              = [];
-        $query['RegionId']  = $request->regionId;
-        $query['RegionId']  = $request->regionId;
-        $query['ServiceId'] = $request->serviceId;
-        $req                = new OpenApiRequest([
+        $query = [];
+        if (!Utils::isUnset($request->regionId)) {
+            $query['RegionId'] = $request->regionId;
+        }
+        if (!Utils::isUnset($request->regionId)) {
+            $query['RegionId'] = $request->regionId;
+        }
+        if (!Utils::isUnset($request->serviceId)) {
+            $query['ServiceId'] = $request->serviceId;
+        }
+        $req = new OpenApiRequest([
             'query' => OpenApiUtilClient::query($query),
         ]);
         $params = new Params([
@@ -885,17 +1212,41 @@ class Privatelink extends OpenApiClient
     public function listVpcEndpointConnectionsWithOptions($request, $runtime)
     {
         Utils::validateModel($request);
-        $query                     = [];
-        $query['ConnectionStatus'] = $request->connectionStatus;
-        $query['EndpointId']       = $request->endpointId;
-        $query['EndpointOwnerId']  = $request->endpointOwnerId;
-        $query['EniId']            = $request->eniId;
-        $query['MaxResults']       = $request->maxResults;
-        $query['NextToken']        = $request->nextToken;
-        $query['RegionId']         = $request->regionId;
-        $query['RegionId']         = $request->regionId;
-        $query['ServiceId']        = $request->serviceId;
-        $req                       = new OpenApiRequest([
+        $query = [];
+        if (!Utils::isUnset($request->connectionStatus)) {
+            $query['ConnectionStatus'] = $request->connectionStatus;
+        }
+        if (!Utils::isUnset($request->endpointId)) {
+            $query['EndpointId'] = $request->endpointId;
+        }
+        if (!Utils::isUnset($request->endpointOwnerId)) {
+            $query['EndpointOwnerId'] = $request->endpointOwnerId;
+        }
+        if (!Utils::isUnset($request->eniId)) {
+            $query['EniId'] = $request->eniId;
+        }
+        if (!Utils::isUnset($request->maxResults)) {
+            $query['MaxResults'] = $request->maxResults;
+        }
+        if (!Utils::isUnset($request->nextToken)) {
+            $query['NextToken'] = $request->nextToken;
+        }
+        if (!Utils::isUnset($request->regionId)) {
+            $query['RegionId'] = $request->regionId;
+        }
+        if (!Utils::isUnset($request->regionId)) {
+            $query['RegionId'] = $request->regionId;
+        }
+        if (!Utils::isUnset($request->replacedResourceId)) {
+            $query['ReplacedResourceId'] = $request->replacedResourceId;
+        }
+        if (!Utils::isUnset($request->resourceId)) {
+            $query['ResourceId'] = $request->resourceId;
+        }
+        if (!Utils::isUnset($request->serviceId)) {
+            $query['ServiceId'] = $request->serviceId;
+        }
+        $req = new OpenApiRequest([
             'query' => OpenApiUtilClient::query($query),
         ]);
         $params = new Params([
@@ -934,13 +1285,23 @@ class Privatelink extends OpenApiClient
     public function listVpcEndpointSecurityGroupsWithOptions($request, $runtime)
     {
         Utils::validateModel($request);
-        $query               = [];
-        $query['EndpointId'] = $request->endpointId;
-        $query['MaxResults'] = $request->maxResults;
-        $query['NextToken']  = $request->nextToken;
-        $query['RegionId']   = $request->regionId;
-        $query['RegionId']   = $request->regionId;
-        $req                 = new OpenApiRequest([
+        $query = [];
+        if (!Utils::isUnset($request->endpointId)) {
+            $query['EndpointId'] = $request->endpointId;
+        }
+        if (!Utils::isUnset($request->maxResults)) {
+            $query['MaxResults'] = $request->maxResults;
+        }
+        if (!Utils::isUnset($request->nextToken)) {
+            $query['NextToken'] = $request->nextToken;
+        }
+        if (!Utils::isUnset($request->regionId)) {
+            $query['RegionId'] = $request->regionId;
+        }
+        if (!Utils::isUnset($request->regionId)) {
+            $query['RegionId'] = $request->regionId;
+        }
+        $req = new OpenApiRequest([
             'query' => OpenApiUtilClient::query($query),
         ]);
         $params = new Params([
@@ -979,13 +1340,23 @@ class Privatelink extends OpenApiClient
     public function listVpcEndpointServiceResourcesWithOptions($request, $runtime)
     {
         Utils::validateModel($request);
-        $query               = [];
-        $query['MaxResults'] = $request->maxResults;
-        $query['NextToken']  = $request->nextToken;
-        $query['RegionId']   = $request->regionId;
-        $query['RegionId']   = $request->regionId;
-        $query['ServiceId']  = $request->serviceId;
-        $req                 = new OpenApiRequest([
+        $query = [];
+        if (!Utils::isUnset($request->maxResults)) {
+            $query['MaxResults'] = $request->maxResults;
+        }
+        if (!Utils::isUnset($request->nextToken)) {
+            $query['NextToken'] = $request->nextToken;
+        }
+        if (!Utils::isUnset($request->regionId)) {
+            $query['RegionId'] = $request->regionId;
+        }
+        if (!Utils::isUnset($request->regionId)) {
+            $query['RegionId'] = $request->regionId;
+        }
+        if (!Utils::isUnset($request->serviceId)) {
+            $query['ServiceId'] = $request->serviceId;
+        }
+        $req = new OpenApiRequest([
             'query' => OpenApiUtilClient::query($query),
         ]);
         $params = new Params([
@@ -1024,14 +1395,26 @@ class Privatelink extends OpenApiClient
     public function listVpcEndpointServiceUsersWithOptions($request, $runtime)
     {
         Utils::validateModel($request);
-        $query               = [];
-        $query['MaxResults'] = $request->maxResults;
-        $query['NextToken']  = $request->nextToken;
-        $query['RegionId']   = $request->regionId;
-        $query['RegionId']   = $request->regionId;
-        $query['ServiceId']  = $request->serviceId;
-        $query['UserId']     = $request->userId;
-        $req                 = new OpenApiRequest([
+        $query = [];
+        if (!Utils::isUnset($request->maxResults)) {
+            $query['MaxResults'] = $request->maxResults;
+        }
+        if (!Utils::isUnset($request->nextToken)) {
+            $query['NextToken'] = $request->nextToken;
+        }
+        if (!Utils::isUnset($request->regionId)) {
+            $query['RegionId'] = $request->regionId;
+        }
+        if (!Utils::isUnset($request->regionId)) {
+            $query['RegionId'] = $request->regionId;
+        }
+        if (!Utils::isUnset($request->serviceId)) {
+            $query['ServiceId'] = $request->serviceId;
+        }
+        if (!Utils::isUnset($request->userId)) {
+            $query['UserId'] = $request->userId;
+        }
+        $req = new OpenApiRequest([
             'query' => OpenApiUtilClient::query($query),
         ]);
         $params = new Params([
@@ -1070,19 +1453,41 @@ class Privatelink extends OpenApiClient
     public function listVpcEndpointServicesWithOptions($request, $runtime)
     {
         Utils::validateModel($request);
-        $query                          = [];
-        $query['AutoAcceptEnabled']     = $request->autoAcceptEnabled;
-        $query['MaxResults']            = $request->maxResults;
-        $query['NextToken']             = $request->nextToken;
-        $query['RegionId']              = $request->regionId;
-        $query['RegionId']              = $request->regionId;
-        $query['ServiceBusinessStatus'] = $request->serviceBusinessStatus;
-        $query['ServiceId']             = $request->serviceId;
-        $query['ServiceName']           = $request->serviceName;
-        $query['ServiceResourceType']   = $request->serviceResourceType;
-        $query['ServiceStatus']         = $request->serviceStatus;
-        $query['ZoneAffinityEnabled']   = $request->zoneAffinityEnabled;
-        $req                            = new OpenApiRequest([
+        $query = [];
+        if (!Utils::isUnset($request->autoAcceptEnabled)) {
+            $query['AutoAcceptEnabled'] = $request->autoAcceptEnabled;
+        }
+        if (!Utils::isUnset($request->maxResults)) {
+            $query['MaxResults'] = $request->maxResults;
+        }
+        if (!Utils::isUnset($request->nextToken)) {
+            $query['NextToken'] = $request->nextToken;
+        }
+        if (!Utils::isUnset($request->regionId)) {
+            $query['RegionId'] = $request->regionId;
+        }
+        if (!Utils::isUnset($request->regionId)) {
+            $query['RegionId'] = $request->regionId;
+        }
+        if (!Utils::isUnset($request->serviceBusinessStatus)) {
+            $query['ServiceBusinessStatus'] = $request->serviceBusinessStatus;
+        }
+        if (!Utils::isUnset($request->serviceId)) {
+            $query['ServiceId'] = $request->serviceId;
+        }
+        if (!Utils::isUnset($request->serviceName)) {
+            $query['ServiceName'] = $request->serviceName;
+        }
+        if (!Utils::isUnset($request->serviceResourceType)) {
+            $query['ServiceResourceType'] = $request->serviceResourceType;
+        }
+        if (!Utils::isUnset($request->serviceStatus)) {
+            $query['ServiceStatus'] = $request->serviceStatus;
+        }
+        if (!Utils::isUnset($request->zoneAffinityEnabled)) {
+            $query['ZoneAffinityEnabled'] = $request->zoneAffinityEnabled;
+        }
+        $req = new OpenApiRequest([
             'query' => OpenApiUtilClient::query($query),
         ]);
         $params = new Params([
@@ -1121,15 +1526,29 @@ class Privatelink extends OpenApiClient
     public function listVpcEndpointServicesByEndUserWithOptions($request, $runtime)
     {
         Utils::validateModel($request);
-        $query                = [];
-        $query['MaxResults']  = $request->maxResults;
-        $query['NextToken']   = $request->nextToken;
-        $query['RegionId']    = $request->regionId;
-        $query['RegionId']    = $request->regionId;
-        $query['ServiceId']   = $request->serviceId;
-        $query['ServiceName'] = $request->serviceName;
-        $query['ServiceType'] = $request->serviceType;
-        $req                  = new OpenApiRequest([
+        $query = [];
+        if (!Utils::isUnset($request->maxResults)) {
+            $query['MaxResults'] = $request->maxResults;
+        }
+        if (!Utils::isUnset($request->nextToken)) {
+            $query['NextToken'] = $request->nextToken;
+        }
+        if (!Utils::isUnset($request->regionId)) {
+            $query['RegionId'] = $request->regionId;
+        }
+        if (!Utils::isUnset($request->regionId)) {
+            $query['RegionId'] = $request->regionId;
+        }
+        if (!Utils::isUnset($request->serviceId)) {
+            $query['ServiceId'] = $request->serviceId;
+        }
+        if (!Utils::isUnset($request->serviceName)) {
+            $query['ServiceName'] = $request->serviceName;
+        }
+        if (!Utils::isUnset($request->serviceType)) {
+            $query['ServiceType'] = $request->serviceType;
+        }
+        $req = new OpenApiRequest([
             'query' => OpenApiUtilClient::query($query),
         ]);
         $params = new Params([
@@ -1168,13 +1587,23 @@ class Privatelink extends OpenApiClient
     public function listVpcEndpointZonesWithOptions($request, $runtime)
     {
         Utils::validateModel($request);
-        $query               = [];
-        $query['EndpointId'] = $request->endpointId;
-        $query['MaxResults'] = $request->maxResults;
-        $query['NextToken']  = $request->nextToken;
-        $query['RegionId']   = $request->regionId;
-        $query['RegionId']   = $request->regionId;
-        $req                 = new OpenApiRequest([
+        $query = [];
+        if (!Utils::isUnset($request->endpointId)) {
+            $query['EndpointId'] = $request->endpointId;
+        }
+        if (!Utils::isUnset($request->maxResults)) {
+            $query['MaxResults'] = $request->maxResults;
+        }
+        if (!Utils::isUnset($request->nextToken)) {
+            $query['NextToken'] = $request->nextToken;
+        }
+        if (!Utils::isUnset($request->regionId)) {
+            $query['RegionId'] = $request->regionId;
+        }
+        if (!Utils::isUnset($request->regionId)) {
+            $query['RegionId'] = $request->regionId;
+        }
+        $req = new OpenApiRequest([
             'query' => OpenApiUtilClient::query($query),
         ]);
         $params = new Params([
@@ -1213,19 +1642,41 @@ class Privatelink extends OpenApiClient
     public function listVpcEndpointsWithOptions($request, $runtime)
     {
         Utils::validateModel($request);
-        $query                     = [];
-        $query['ConnectionStatus'] = $request->connectionStatus;
-        $query['EndpointId']       = $request->endpointId;
-        $query['EndpointName']     = $request->endpointName;
-        $query['EndpointStatus']   = $request->endpointStatus;
-        $query['EndpointType']     = $request->endpointType;
-        $query['MaxResults']       = $request->maxResults;
-        $query['NextToken']        = $request->nextToken;
-        $query['RegionId']         = $request->regionId;
-        $query['RegionId']         = $request->regionId;
-        $query['ServiceName']      = $request->serviceName;
-        $query['VpcId']            = $request->vpcId;
-        $req                       = new OpenApiRequest([
+        $query = [];
+        if (!Utils::isUnset($request->connectionStatus)) {
+            $query['ConnectionStatus'] = $request->connectionStatus;
+        }
+        if (!Utils::isUnset($request->endpointId)) {
+            $query['EndpointId'] = $request->endpointId;
+        }
+        if (!Utils::isUnset($request->endpointName)) {
+            $query['EndpointName'] = $request->endpointName;
+        }
+        if (!Utils::isUnset($request->endpointStatus)) {
+            $query['EndpointStatus'] = $request->endpointStatus;
+        }
+        if (!Utils::isUnset($request->endpointType)) {
+            $query['EndpointType'] = $request->endpointType;
+        }
+        if (!Utils::isUnset($request->maxResults)) {
+            $query['MaxResults'] = $request->maxResults;
+        }
+        if (!Utils::isUnset($request->nextToken)) {
+            $query['NextToken'] = $request->nextToken;
+        }
+        if (!Utils::isUnset($request->regionId)) {
+            $query['RegionId'] = $request->regionId;
+        }
+        if (!Utils::isUnset($request->regionId)) {
+            $query['RegionId'] = $request->regionId;
+        }
+        if (!Utils::isUnset($request->serviceName)) {
+            $query['ServiceName'] = $request->serviceName;
+        }
+        if (!Utils::isUnset($request->vpcId)) {
+            $query['VpcId'] = $request->vpcId;
+        }
+        $req = new OpenApiRequest([
             'query' => OpenApiUtilClient::query($query),
         ]);
         $params = new Params([
@@ -1264,9 +1715,11 @@ class Privatelink extends OpenApiClient
     public function openPrivateLinkServiceWithOptions($request, $runtime)
     {
         Utils::validateModel($request);
-        $query            = [];
-        $query['OwnerId'] = $request->ownerId;
-        $req              = new OpenApiRequest([
+        $query = [];
+        if (!Utils::isUnset($request->ownerId)) {
+            $query['OwnerId'] = $request->ownerId;
+        }
+        $req = new OpenApiRequest([
             'query' => OpenApiUtilClient::query($query),
         ]);
         $params = new Params([
@@ -1305,14 +1758,26 @@ class Privatelink extends OpenApiClient
     public function removeUserFromVpcEndpointServiceWithOptions($request, $runtime)
     {
         Utils::validateModel($request);
-        $query                = [];
-        $query['ClientToken'] = $request->clientToken;
-        $query['DryRun']      = $request->dryRun;
-        $query['RegionId']    = $request->regionId;
-        $query['RegionId']    = $request->regionId;
-        $query['ServiceId']   = $request->serviceId;
-        $query['UserId']      = $request->userId;
-        $req                  = new OpenApiRequest([
+        $query = [];
+        if (!Utils::isUnset($request->clientToken)) {
+            $query['ClientToken'] = $request->clientToken;
+        }
+        if (!Utils::isUnset($request->dryRun)) {
+            $query['DryRun'] = $request->dryRun;
+        }
+        if (!Utils::isUnset($request->regionId)) {
+            $query['RegionId'] = $request->regionId;
+        }
+        if (!Utils::isUnset($request->regionId)) {
+            $query['RegionId'] = $request->regionId;
+        }
+        if (!Utils::isUnset($request->serviceId)) {
+            $query['ServiceId'] = $request->serviceId;
+        }
+        if (!Utils::isUnset($request->userId)) {
+            $query['UserId'] = $request->userId;
+        }
+        $req = new OpenApiRequest([
             'query' => OpenApiUtilClient::query($query),
         ]);
         $params = new Params([
@@ -1351,14 +1816,26 @@ class Privatelink extends OpenApiClient
     public function removeZoneFromVpcEndpointWithOptions($request, $runtime)
     {
         Utils::validateModel($request);
-        $query                = [];
-        $query['ClientToken'] = $request->clientToken;
-        $query['DryRun']      = $request->dryRun;
-        $query['EndpointId']  = $request->endpointId;
-        $query['RegionId']    = $request->regionId;
-        $query['RegionId']    = $request->regionId;
-        $query['ZoneId']      = $request->zoneId;
-        $req                  = new OpenApiRequest([
+        $query = [];
+        if (!Utils::isUnset($request->clientToken)) {
+            $query['ClientToken'] = $request->clientToken;
+        }
+        if (!Utils::isUnset($request->dryRun)) {
+            $query['DryRun'] = $request->dryRun;
+        }
+        if (!Utils::isUnset($request->endpointId)) {
+            $query['EndpointId'] = $request->endpointId;
+        }
+        if (!Utils::isUnset($request->regionId)) {
+            $query['RegionId'] = $request->regionId;
+        }
+        if (!Utils::isUnset($request->regionId)) {
+            $query['RegionId'] = $request->regionId;
+        }
+        if (!Utils::isUnset($request->zoneId)) {
+            $query['ZoneId'] = $request->zoneId;
+        }
+        $req = new OpenApiRequest([
             'query' => OpenApiUtilClient::query($query),
         ]);
         $params = new Params([
@@ -1397,15 +1874,29 @@ class Privatelink extends OpenApiClient
     public function updateVpcEndpointAttributeWithOptions($request, $runtime)
     {
         Utils::validateModel($request);
-        $query                        = [];
-        $query['ClientToken']         = $request->clientToken;
-        $query['DryRun']              = $request->dryRun;
-        $query['EndpointDescription'] = $request->endpointDescription;
-        $query['EndpointId']          = $request->endpointId;
-        $query['EndpointName']        = $request->endpointName;
-        $query['RegionId']            = $request->regionId;
-        $query['RegionId']            = $request->regionId;
-        $req                          = new OpenApiRequest([
+        $query = [];
+        if (!Utils::isUnset($request->clientToken)) {
+            $query['ClientToken'] = $request->clientToken;
+        }
+        if (!Utils::isUnset($request->dryRun)) {
+            $query['DryRun'] = $request->dryRun;
+        }
+        if (!Utils::isUnset($request->endpointDescription)) {
+            $query['EndpointDescription'] = $request->endpointDescription;
+        }
+        if (!Utils::isUnset($request->endpointId)) {
+            $query['EndpointId'] = $request->endpointId;
+        }
+        if (!Utils::isUnset($request->endpointName)) {
+            $query['EndpointName'] = $request->endpointName;
+        }
+        if (!Utils::isUnset($request->regionId)) {
+            $query['RegionId'] = $request->regionId;
+        }
+        if (!Utils::isUnset($request->regionId)) {
+            $query['RegionId'] = $request->regionId;
+        }
+        $req = new OpenApiRequest([
             'query' => OpenApiUtilClient::query($query),
         ]);
         $params = new Params([
@@ -1444,15 +1935,29 @@ class Privatelink extends OpenApiClient
     public function updateVpcEndpointConnectionAttributeWithOptions($request, $runtime)
     {
         Utils::validateModel($request);
-        $query                = [];
-        $query['Bandwidth']   = $request->bandwidth;
-        $query['ClientToken'] = $request->clientToken;
-        $query['DryRun']      = $request->dryRun;
-        $query['EndpointId']  = $request->endpointId;
-        $query['RegionId']    = $request->regionId;
-        $query['RegionId']    = $request->regionId;
-        $query['ServiceId']   = $request->serviceId;
-        $req                  = new OpenApiRequest([
+        $query = [];
+        if (!Utils::isUnset($request->bandwidth)) {
+            $query['Bandwidth'] = $request->bandwidth;
+        }
+        if (!Utils::isUnset($request->clientToken)) {
+            $query['ClientToken'] = $request->clientToken;
+        }
+        if (!Utils::isUnset($request->dryRun)) {
+            $query['DryRun'] = $request->dryRun;
+        }
+        if (!Utils::isUnset($request->endpointId)) {
+            $query['EndpointId'] = $request->endpointId;
+        }
+        if (!Utils::isUnset($request->regionId)) {
+            $query['RegionId'] = $request->regionId;
+        }
+        if (!Utils::isUnset($request->regionId)) {
+            $query['RegionId'] = $request->regionId;
+        }
+        if (!Utils::isUnset($request->serviceId)) {
+            $query['ServiceId'] = $request->serviceId;
+        }
+        $req = new OpenApiRequest([
             'query' => OpenApiUtilClient::query($query),
         ]);
         $params = new Params([
@@ -1491,17 +1996,35 @@ class Privatelink extends OpenApiClient
     public function updateVpcEndpointServiceAttributeWithOptions($request, $runtime)
     {
         Utils::validateModel($request);
-        $query                        = [];
-        $query['AutoAcceptEnabled']   = $request->autoAcceptEnabled;
-        $query['ClientToken']         = $request->clientToken;
-        $query['ConnectBandwidth']    = $request->connectBandwidth;
-        $query['DryRun']              = $request->dryRun;
-        $query['RegionId']            = $request->regionId;
-        $query['RegionId']            = $request->regionId;
-        $query['ServiceDescription']  = $request->serviceDescription;
-        $query['ServiceId']           = $request->serviceId;
-        $query['ZoneAffinityEnabled'] = $request->zoneAffinityEnabled;
-        $req                          = new OpenApiRequest([
+        $query = [];
+        if (!Utils::isUnset($request->autoAcceptEnabled)) {
+            $query['AutoAcceptEnabled'] = $request->autoAcceptEnabled;
+        }
+        if (!Utils::isUnset($request->clientToken)) {
+            $query['ClientToken'] = $request->clientToken;
+        }
+        if (!Utils::isUnset($request->connectBandwidth)) {
+            $query['ConnectBandwidth'] = $request->connectBandwidth;
+        }
+        if (!Utils::isUnset($request->dryRun)) {
+            $query['DryRun'] = $request->dryRun;
+        }
+        if (!Utils::isUnset($request->regionId)) {
+            $query['RegionId'] = $request->regionId;
+        }
+        if (!Utils::isUnset($request->regionId)) {
+            $query['RegionId'] = $request->regionId;
+        }
+        if (!Utils::isUnset($request->serviceDescription)) {
+            $query['ServiceDescription'] = $request->serviceDescription;
+        }
+        if (!Utils::isUnset($request->serviceId)) {
+            $query['ServiceId'] = $request->serviceId;
+        }
+        if (!Utils::isUnset($request->zoneAffinityEnabled)) {
+            $query['ZoneAffinityEnabled'] = $request->zoneAffinityEnabled;
+        }
+        $req = new OpenApiRequest([
             'query' => OpenApiUtilClient::query($query),
         ]);
         $params = new Params([
@@ -1529,5 +2052,139 @@ class Privatelink extends OpenApiClient
         $runtime = new RuntimeOptions([]);
 
         return $this->updateVpcEndpointServiceAttributeWithOptions($request, $runtime);
+    }
+
+    /**
+     * @param UpdateVpcEndpointServiceResourceAttributeRequest $request
+     * @param RuntimeOptions                                   $runtime
+     *
+     * @return UpdateVpcEndpointServiceResourceAttributeResponse
+     */
+    public function updateVpcEndpointServiceResourceAttributeWithOptions($request, $runtime)
+    {
+        Utils::validateModel($request);
+        $query = [];
+        if (!Utils::isUnset($request->autoAllocatedEnabled)) {
+            $query['AutoAllocatedEnabled'] = $request->autoAllocatedEnabled;
+        }
+        if (!Utils::isUnset($request->clientToken)) {
+            $query['ClientToken'] = $request->clientToken;
+        }
+        if (!Utils::isUnset($request->dryRun)) {
+            $query['DryRun'] = $request->dryRun;
+        }
+        if (!Utils::isUnset($request->regionId)) {
+            $query['RegionId'] = $request->regionId;
+        }
+        if (!Utils::isUnset($request->regionId)) {
+            $query['RegionId'] = $request->regionId;
+        }
+        if (!Utils::isUnset($request->resourceId)) {
+            $query['ResourceId'] = $request->resourceId;
+        }
+        if (!Utils::isUnset($request->serviceId)) {
+            $query['ServiceId'] = $request->serviceId;
+        }
+        $req = new OpenApiRequest([
+            'query' => OpenApiUtilClient::query($query),
+        ]);
+        $params = new Params([
+            'action'      => 'UpdateVpcEndpointServiceResourceAttribute',
+            'version'     => '2020-04-15',
+            'protocol'    => 'HTTPS',
+            'pathname'    => '/',
+            'method'      => 'POST',
+            'authType'    => 'AK',
+            'style'       => 'RPC',
+            'reqBodyType' => 'formData',
+            'bodyType'    => 'json',
+        ]);
+
+        return UpdateVpcEndpointServiceResourceAttributeResponse::fromMap($this->callApi($params, $req, $runtime));
+    }
+
+    /**
+     * @param UpdateVpcEndpointServiceResourceAttributeRequest $request
+     *
+     * @return UpdateVpcEndpointServiceResourceAttributeResponse
+     */
+    public function updateVpcEndpointServiceResourceAttribute($request)
+    {
+        $runtime = new RuntimeOptions([]);
+
+        return $this->updateVpcEndpointServiceResourceAttributeWithOptions($request, $runtime);
+    }
+
+    /**
+     * @param UpdateVpcEndpointZoneConnectionResourceAttributeRequest $request
+     * @param RuntimeOptions                                          $runtime
+     *
+     * @return UpdateVpcEndpointZoneConnectionResourceAttributeResponse
+     */
+    public function updateVpcEndpointZoneConnectionResourceAttributeWithOptions($request, $runtime)
+    {
+        Utils::validateModel($request);
+        $query = [];
+        if (!Utils::isUnset($request->clientToken)) {
+            $query['ClientToken'] = $request->clientToken;
+        }
+        if (!Utils::isUnset($request->dryRun)) {
+            $query['DryRun'] = $request->dryRun;
+        }
+        if (!Utils::isUnset($request->endpointId)) {
+            $query['EndpointId'] = $request->endpointId;
+        }
+        if (!Utils::isUnset($request->regionId)) {
+            $query['RegionId'] = $request->regionId;
+        }
+        if (!Utils::isUnset($request->regionId)) {
+            $query['RegionId'] = $request->regionId;
+        }
+        if (!Utils::isUnset($request->resourceAllocateMode)) {
+            $query['ResourceAllocateMode'] = $request->resourceAllocateMode;
+        }
+        if (!Utils::isUnset($request->resourceId)) {
+            $query['ResourceId'] = $request->resourceId;
+        }
+        if (!Utils::isUnset($request->resourceReplaceMode)) {
+            $query['ResourceReplaceMode'] = $request->resourceReplaceMode;
+        }
+        if (!Utils::isUnset($request->resourceType)) {
+            $query['ResourceType'] = $request->resourceType;
+        }
+        if (!Utils::isUnset($request->serviceId)) {
+            $query['ServiceId'] = $request->serviceId;
+        }
+        if (!Utils::isUnset($request->zoneId)) {
+            $query['ZoneId'] = $request->zoneId;
+        }
+        $req = new OpenApiRequest([
+            'query' => OpenApiUtilClient::query($query),
+        ]);
+        $params = new Params([
+            'action'      => 'UpdateVpcEndpointZoneConnectionResourceAttribute',
+            'version'     => '2020-04-15',
+            'protocol'    => 'HTTPS',
+            'pathname'    => '/',
+            'method'      => 'POST',
+            'authType'    => 'AK',
+            'style'       => 'RPC',
+            'reqBodyType' => 'formData',
+            'bodyType'    => 'json',
+        ]);
+
+        return UpdateVpcEndpointZoneConnectionResourceAttributeResponse::fromMap($this->callApi($params, $req, $runtime));
+    }
+
+    /**
+     * @param UpdateVpcEndpointZoneConnectionResourceAttributeRequest $request
+     *
+     * @return UpdateVpcEndpointZoneConnectionResourceAttributeResponse
+     */
+    public function updateVpcEndpointZoneConnectionResourceAttribute($request)
+    {
+        $runtime = new RuntimeOptions([]);
+
+        return $this->updateVpcEndpointZoneConnectionResourceAttributeWithOptions($request, $runtime);
     }
 }
