@@ -40,6 +40,13 @@ class scalingGroup extends Model
     public $dataDisks;
 
     /**
+     * @description 节点池期望节点数
+     *
+     * @var int
+     */
+    public $desiredSize;
+
+    /**
      * @description 自定义镜像
      *
      * @var string
@@ -211,6 +218,7 @@ class scalingGroup extends Model
         'autoRenewPeriod'                     => 'auto_renew_period',
         'compensateWithOnDemand'              => 'compensate_with_on_demand',
         'dataDisks'                           => 'data_disks',
+        'desiredSize'                         => 'desired_size',
         'imageId'                             => 'image_id',
         'instanceChargeType'                  => 'instance_charge_type',
         'instanceTypes'                       => 'instance_types',
@@ -261,6 +269,9 @@ class scalingGroup extends Model
                     $res['data_disks'][$n++] = null !== $item ? $item->toMap() : $item;
                 }
             }
+        }
+        if (null !== $this->desiredSize) {
+            $res['desired_size'] = $this->desiredSize;
         }
         if (null !== $this->imageId) {
             $res['image_id'] = $this->imageId;
@@ -375,6 +386,9 @@ class scalingGroup extends Model
                     $model->dataDisks[$n++] = null !== $item ? DataDisk::fromMap($item) : $item;
                 }
             }
+        }
+        if (isset($map['desired_size'])) {
+            $model->desiredSize = $map['desired_size'];
         }
         if (isset($map['image_id'])) {
             $model->imageId = $map['image_id'];

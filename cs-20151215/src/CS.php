@@ -692,6 +692,9 @@ class CS extends OpenApiClient
         if (!Utils::isUnset($request->regionId)) {
             $body['region_id'] = $request->regionId;
         }
+        if (!Utils::isUnset($request->resourceGroupId)) {
+            $body['resource_group_id'] = $request->resourceGroupId;
+        }
         if (!Utils::isUnset($request->runtime)) {
             $body['runtime'] = $request->runtime;
         }

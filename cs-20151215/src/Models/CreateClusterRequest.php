@@ -388,6 +388,13 @@ class CreateClusterRequest extends Model
     public $regionId;
 
     /**
+     * @description 集群所属资源组ID
+     *
+     * @var string
+     */
+    public $resourceGroupId;
+
+    /**
      * @var Runtime
      */
     public $runtime;
@@ -642,6 +649,7 @@ class CreateClusterRequest extends Model
         'proxyMode'                        => 'proxy_mode',
         'rdsInstances'                     => 'rds_instances',
         'regionId'                         => 'region_id',
+        'resourceGroupId'                  => 'resource_group_id',
         'runtime'                          => 'runtime',
         'securityGroupId'                  => 'security_group_id',
         'serviceAccountIssuer'             => 'service_account_issuer',
@@ -847,6 +855,9 @@ class CreateClusterRequest extends Model
         }
         if (null !== $this->regionId) {
             $res['region_id'] = $this->regionId;
+        }
+        if (null !== $this->resourceGroupId) {
+            $res['resource_group_id'] = $this->resourceGroupId;
         }
         if (null !== $this->runtime) {
             $res['runtime'] = null !== $this->runtime ? $this->runtime->toMap() : null;
@@ -1144,6 +1155,9 @@ class CreateClusterRequest extends Model
         }
         if (isset($map['region_id'])) {
             $model->regionId = $map['region_id'];
+        }
+        if (isset($map['resource_group_id'])) {
+            $model->resourceGroupId = $map['resource_group_id'];
         }
         if (isset($map['runtime'])) {
             $model->runtime = Runtime::fromMap($map['runtime']);

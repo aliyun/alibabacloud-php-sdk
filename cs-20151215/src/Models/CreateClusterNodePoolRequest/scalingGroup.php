@@ -47,6 +47,13 @@ class scalingGroup extends Model
     public $deploymentsetId;
 
     /**
+     * @description 姐弟池期望节点数
+     *
+     * @var int
+     */
+    public $desiredSize;
+
+    /**
      * @description 自定义镜像。
      *
      * @var string
@@ -240,6 +247,7 @@ class scalingGroup extends Model
         'compensateWithOnDemand'              => 'compensate_with_on_demand',
         'dataDisks'                           => 'data_disks',
         'deploymentsetId'                     => 'deploymentset_id',
+        'desiredSize'                         => 'desired_size',
         'imageId'                             => 'image_id',
         'imageType'                           => 'image_type',
         'instanceChargeType'                  => 'instance_charge_type',
@@ -296,6 +304,9 @@ class scalingGroup extends Model
         }
         if (null !== $this->deploymentsetId) {
             $res['deploymentset_id'] = $this->deploymentsetId;
+        }
+        if (null !== $this->desiredSize) {
+            $res['desired_size'] = $this->desiredSize;
         }
         if (null !== $this->imageId) {
             $res['image_id'] = $this->imageId;
@@ -422,6 +433,9 @@ class scalingGroup extends Model
         }
         if (isset($map['deploymentset_id'])) {
             $model->deploymentsetId = $map['deploymentset_id'];
+        }
+        if (isset($map['desired_size'])) {
+            $model->desiredSize = $map['desired_size'];
         }
         if (isset($map['image_id'])) {
             $model->imageId = $map['image_id'];
