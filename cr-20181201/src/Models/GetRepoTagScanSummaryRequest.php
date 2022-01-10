@@ -21,11 +21,6 @@ class GetRepoTagScanSummaryRequest extends Model
     /**
      * @var string
      */
-    public $regionId;
-
-    /**
-     * @var string
-     */
     public $repoId;
 
     /**
@@ -40,7 +35,6 @@ class GetRepoTagScanSummaryRequest extends Model
     protected $_name = [
         'digest'     => 'Digest',
         'instanceId' => 'InstanceId',
-        'regionId'   => 'RegionId',
         'repoId'     => 'RepoId',
         'scanTaskId' => 'ScanTaskId',
         'tag'        => 'Tag',
@@ -58,9 +52,6 @@ class GetRepoTagScanSummaryRequest extends Model
         }
         if (null !== $this->instanceId) {
             $res['InstanceId'] = $this->instanceId;
-        }
-        if (null !== $this->regionId) {
-            $res['RegionId'] = $this->regionId;
         }
         if (null !== $this->repoId) {
             $res['RepoId'] = $this->repoId;
@@ -88,9 +79,6 @@ class GetRepoTagScanSummaryRequest extends Model
         }
         if (isset($map['InstanceId'])) {
             $model->instanceId = $map['InstanceId'];
-        }
-        if (isset($map['RegionId'])) {
-            $model->regionId = $map['RegionId'];
         }
         if (isset($map['RepoId'])) {
             $model->repoId = $map['RepoId'];

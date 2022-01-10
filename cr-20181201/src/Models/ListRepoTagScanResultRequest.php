@@ -31,11 +31,6 @@ class ListRepoTagScanResultRequest extends Model
     /**
      * @var string
      */
-    public $regionId;
-
-    /**
-     * @var string
-     */
     public $repoId;
 
     /**
@@ -57,7 +52,6 @@ class ListRepoTagScanResultRequest extends Model
         'instanceId' => 'InstanceId',
         'pageNo'     => 'PageNo',
         'pageSize'   => 'PageSize',
-        'regionId'   => 'RegionId',
         'repoId'     => 'RepoId',
         'scanTaskId' => 'ScanTaskId',
         'severity'   => 'Severity',
@@ -82,9 +76,6 @@ class ListRepoTagScanResultRequest extends Model
         }
         if (null !== $this->pageSize) {
             $res['PageSize'] = $this->pageSize;
-        }
-        if (null !== $this->regionId) {
-            $res['RegionId'] = $this->regionId;
         }
         if (null !== $this->repoId) {
             $res['RepoId'] = $this->repoId;
@@ -121,9 +112,6 @@ class ListRepoTagScanResultRequest extends Model
         }
         if (isset($map['PageSize'])) {
             $model->pageSize = $map['PageSize'];
-        }
-        if (isset($map['RegionId'])) {
-            $model->regionId = $map['RegionId'];
         }
         if (isset($map['RepoId'])) {
             $model->repoId = $map['RepoId'];

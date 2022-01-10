@@ -31,11 +31,6 @@ class CreateChainRequest extends Model
     /**
      * @var string
      */
-    public $regionId;
-
-    /**
-     * @var string
-     */
     public $repoName;
 
     /**
@@ -47,7 +42,6 @@ class CreateChainRequest extends Model
         'description'       => 'Description',
         'instanceId'        => 'InstanceId',
         'name'              => 'Name',
-        'regionId'          => 'RegionId',
         'repoName'          => 'RepoName',
         'repoNamespaceName' => 'RepoNamespaceName',
     ];
@@ -70,9 +64,6 @@ class CreateChainRequest extends Model
         }
         if (null !== $this->name) {
             $res['Name'] = $this->name;
-        }
-        if (null !== $this->regionId) {
-            $res['RegionId'] = $this->regionId;
         }
         if (null !== $this->repoName) {
             $res['RepoName'] = $this->repoName;
@@ -103,9 +94,6 @@ class CreateChainRequest extends Model
         }
         if (isset($map['Name'])) {
             $model->name = $map['Name'];
-        }
-        if (isset($map['RegionId'])) {
-            $model->regionId = $map['RegionId'];
         }
         if (isset($map['RepoName'])) {
             $model->repoName = $map['RepoName'];

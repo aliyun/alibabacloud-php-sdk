@@ -78,7 +78,6 @@ use AlibabaCloud\SDK\Cr\V20181201\Models\GetChartNamespaceRequest;
 use AlibabaCloud\SDK\Cr\V20181201\Models\GetChartNamespaceResponse;
 use AlibabaCloud\SDK\Cr\V20181201\Models\GetChartRepositoryRequest;
 use AlibabaCloud\SDK\Cr\V20181201\Models\GetChartRepositoryResponse;
-use AlibabaCloud\SDK\Cr\V20181201\Models\GetInstanceCountRequest;
 use AlibabaCloud\SDK\Cr\V20181201\Models\GetInstanceCountResponse;
 use AlibabaCloud\SDK\Cr\V20181201\Models\GetInstanceEndpointRequest;
 use AlibabaCloud\SDK\Cr\V20181201\Models\GetInstanceEndpointResponse;
@@ -223,10 +222,14 @@ class Cr extends OpenApiClient
     public function cancelArtifactBuildTaskWithOptions($request, $runtime)
     {
         Utils::validateModel($request);
-        $query                = [];
-        $query['BuildTaskId'] = $request->buildTaskId;
-        $query['InstanceId']  = $request->instanceId;
-        $req                  = new OpenApiRequest([
+        $query = [];
+        if (!Utils::isUnset($request->buildTaskId)) {
+            $query['BuildTaskId'] = $request->buildTaskId;
+        }
+        if (!Utils::isUnset($request->instanceId)) {
+            $query['InstanceId'] = $request->instanceId;
+        }
+        $req = new OpenApiRequest([
             'query' => OpenApiUtilClient::query($query),
         ]);
         $params = new Params([
@@ -265,11 +268,17 @@ class Cr extends OpenApiClient
     public function cancelRepoBuildRecordWithOptions($request, $runtime)
     {
         Utils::validateModel($request);
-        $query                  = [];
-        $query['BuildRecordId'] = $request->buildRecordId;
-        $query['InstanceId']    = $request->instanceId;
-        $query['RepoId']        = $request->repoId;
-        $req                    = new OpenApiRequest([
+        $query = [];
+        if (!Utils::isUnset($request->buildRecordId)) {
+            $query['BuildRecordId'] = $request->buildRecordId;
+        }
+        if (!Utils::isUnset($request->instanceId)) {
+            $query['InstanceId'] = $request->instanceId;
+        }
+        if (!Utils::isUnset($request->repoId)) {
+            $query['RepoId'] = $request->repoId;
+        }
+        $req = new OpenApiRequest([
             'query' => OpenApiUtilClient::query($query),
         ]);
         $params = new Params([
@@ -308,11 +317,17 @@ class Cr extends OpenApiClient
     public function createBuildRecordByRuleWithOptions($request, $runtime)
     {
         Utils::validateModel($request);
-        $query                = [];
-        $query['BuildRuleId'] = $request->buildRuleId;
-        $query['InstanceId']  = $request->instanceId;
-        $query['RepoId']      = $request->repoId;
-        $req                  = new OpenApiRequest([
+        $query = [];
+        if (!Utils::isUnset($request->buildRuleId)) {
+            $query['BuildRuleId'] = $request->buildRuleId;
+        }
+        if (!Utils::isUnset($request->instanceId)) {
+            $query['InstanceId'] = $request->instanceId;
+        }
+        if (!Utils::isUnset($request->repoId)) {
+            $query['RepoId'] = $request->repoId;
+        }
+        $req = new OpenApiRequest([
             'query' => OpenApiUtilClient::query($query),
         ]);
         $params = new Params([
@@ -351,14 +366,26 @@ class Cr extends OpenApiClient
     public function createChainWithOptions($request, $runtime)
     {
         Utils::validateModel($request);
-        $query                      = [];
-        $query['ChainConfig']       = $request->chainConfig;
-        $query['Description']       = $request->description;
-        $query['InstanceId']        = $request->instanceId;
-        $query['Name']              = $request->name;
-        $query['RepoName']          = $request->repoName;
-        $query['RepoNamespaceName'] = $request->repoNamespaceName;
-        $req                        = new OpenApiRequest([
+        $query = [];
+        if (!Utils::isUnset($request->chainConfig)) {
+            $query['ChainConfig'] = $request->chainConfig;
+        }
+        if (!Utils::isUnset($request->description)) {
+            $query['Description'] = $request->description;
+        }
+        if (!Utils::isUnset($request->instanceId)) {
+            $query['InstanceId'] = $request->instanceId;
+        }
+        if (!Utils::isUnset($request->name)) {
+            $query['Name'] = $request->name;
+        }
+        if (!Utils::isUnset($request->repoName)) {
+            $query['RepoName'] = $request->repoName;
+        }
+        if (!Utils::isUnset($request->repoNamespaceName)) {
+            $query['RepoNamespaceName'] = $request->repoNamespaceName;
+        }
+        $req = new OpenApiRequest([
             'query' => OpenApiUtilClient::query($query),
         ]);
         $params = new Params([
@@ -397,12 +424,20 @@ class Cr extends OpenApiClient
     public function createChartNamespaceWithOptions($request, $runtime)
     {
         Utils::validateModel($request);
-        $query                    = [];
-        $query['AutoCreateRepo']  = $request->autoCreateRepo;
-        $query['DefaultRepoType'] = $request->defaultRepoType;
-        $query['InstanceId']      = $request->instanceId;
-        $query['NamespaceName']   = $request->namespaceName;
-        $req                      = new OpenApiRequest([
+        $query = [];
+        if (!Utils::isUnset($request->autoCreateRepo)) {
+            $query['AutoCreateRepo'] = $request->autoCreateRepo;
+        }
+        if (!Utils::isUnset($request->defaultRepoType)) {
+            $query['DefaultRepoType'] = $request->defaultRepoType;
+        }
+        if (!Utils::isUnset($request->instanceId)) {
+            $query['InstanceId'] = $request->instanceId;
+        }
+        if (!Utils::isUnset($request->namespaceName)) {
+            $query['NamespaceName'] = $request->namespaceName;
+        }
+        $req = new OpenApiRequest([
             'query' => OpenApiUtilClient::query($query),
         ]);
         $params = new Params([
@@ -441,13 +476,23 @@ class Cr extends OpenApiClient
     public function createChartRepositoryWithOptions($request, $runtime)
     {
         Utils::validateModel($request);
-        $query                      = [];
-        $query['InstanceId']        = $request->instanceId;
-        $query['RepoName']          = $request->repoName;
-        $query['RepoNamespaceName'] = $request->repoNamespaceName;
-        $query['RepoType']          = $request->repoType;
-        $query['Summary']           = $request->summary;
-        $req                        = new OpenApiRequest([
+        $query = [];
+        if (!Utils::isUnset($request->instanceId)) {
+            $query['InstanceId'] = $request->instanceId;
+        }
+        if (!Utils::isUnset($request->repoName)) {
+            $query['RepoName'] = $request->repoName;
+        }
+        if (!Utils::isUnset($request->repoNamespaceName)) {
+            $query['RepoNamespaceName'] = $request->repoNamespaceName;
+        }
+        if (!Utils::isUnset($request->repoType)) {
+            $query['RepoType'] = $request->repoType;
+        }
+        if (!Utils::isUnset($request->summary)) {
+            $query['Summary'] = $request->summary;
+        }
+        $req = new OpenApiRequest([
             'query' => OpenApiUtilClient::query($query),
         ]);
         $params = new Params([
@@ -486,13 +531,23 @@ class Cr extends OpenApiClient
     public function createInstanceEndpointAclPolicyWithOptions($request, $runtime)
     {
         Utils::validateModel($request);
-        $query                 = [];
-        $query['Comment']      = $request->comment;
-        $query['EndpointType'] = $request->endpointType;
-        $query['Entry']        = $request->entry;
-        $query['InstanceId']   = $request->instanceId;
-        $query['ModuleName']   = $request->moduleName;
-        $req                   = new OpenApiRequest([
+        $query = [];
+        if (!Utils::isUnset($request->comment)) {
+            $query['Comment'] = $request->comment;
+        }
+        if (!Utils::isUnset($request->endpointType)) {
+            $query['EndpointType'] = $request->endpointType;
+        }
+        if (!Utils::isUnset($request->entry)) {
+            $query['Entry'] = $request->entry;
+        }
+        if (!Utils::isUnset($request->instanceId)) {
+            $query['InstanceId'] = $request->instanceId;
+        }
+        if (!Utils::isUnset($request->moduleName)) {
+            $query['ModuleName'] = $request->moduleName;
+        }
+        $req = new OpenApiRequest([
             'query' => OpenApiUtilClient::query($query),
         ]);
         $params = new Params([
@@ -531,12 +586,23 @@ class Cr extends OpenApiClient
     public function createInstanceVpcEndpointLinkedVpcWithOptions($request, $runtime)
     {
         Utils::validateModel($request);
-        $query               = [];
-        $query['InstanceId'] = $request->instanceId;
-        $query['ModuleName'] = $request->moduleName;
-        $query['VpcId']      = $request->vpcId;
-        $query['VswitchId']  = $request->vswitchId;
-        $req                 = new OpenApiRequest([
+        $query = [];
+        if (!Utils::isUnset($request->enableCreateDNSRecordInPvzt)) {
+            $query['EnableCreateDNSRecordInPvzt'] = $request->enableCreateDNSRecordInPvzt;
+        }
+        if (!Utils::isUnset($request->instanceId)) {
+            $query['InstanceId'] = $request->instanceId;
+        }
+        if (!Utils::isUnset($request->moduleName)) {
+            $query['ModuleName'] = $request->moduleName;
+        }
+        if (!Utils::isUnset($request->vpcId)) {
+            $query['VpcId'] = $request->vpcId;
+        }
+        if (!Utils::isUnset($request->vswitchId)) {
+            $query['VswitchId'] = $request->vswitchId;
+        }
+        $req = new OpenApiRequest([
             'query' => OpenApiUtilClient::query($query),
         ]);
         $params = new Params([
@@ -575,12 +641,20 @@ class Cr extends OpenApiClient
     public function createNamespaceWithOptions($request, $runtime)
     {
         Utils::validateModel($request);
-        $query                    = [];
-        $query['AutoCreateRepo']  = $request->autoCreateRepo;
-        $query['DefaultRepoType'] = $request->defaultRepoType;
-        $query['InstanceId']      = $request->instanceId;
-        $query['NamespaceName']   = $request->namespaceName;
-        $req                      = new OpenApiRequest([
+        $query = [];
+        if (!Utils::isUnset($request->autoCreateRepo)) {
+            $query['AutoCreateRepo'] = $request->autoCreateRepo;
+        }
+        if (!Utils::isUnset($request->defaultRepoType)) {
+            $query['DefaultRepoType'] = $request->defaultRepoType;
+        }
+        if (!Utils::isUnset($request->instanceId)) {
+            $query['InstanceId'] = $request->instanceId;
+        }
+        if (!Utils::isUnset($request->namespaceName)) {
+            $query['NamespaceName'] = $request->namespaceName;
+        }
+        $req = new OpenApiRequest([
             'query' => OpenApiUtilClient::query($query),
         ]);
         $params = new Params([
@@ -619,15 +693,29 @@ class Cr extends OpenApiClient
     public function createRepoBuildRuleWithOptions($request, $runtime)
     {
         Utils::validateModel($request);
-        $query                       = [];
-        $query['DockerfileLocation'] = $request->dockerfileLocation;
-        $query['DockerfileName']     = $request->dockerfileName;
-        $query['ImageTag']           = $request->imageTag;
-        $query['InstanceId']         = $request->instanceId;
-        $query['PushName']           = $request->pushName;
-        $query['PushType']           = $request->pushType;
-        $query['RepoId']             = $request->repoId;
-        $req                         = new OpenApiRequest([
+        $query = [];
+        if (!Utils::isUnset($request->dockerfileLocation)) {
+            $query['DockerfileLocation'] = $request->dockerfileLocation;
+        }
+        if (!Utils::isUnset($request->dockerfileName)) {
+            $query['DockerfileName'] = $request->dockerfileName;
+        }
+        if (!Utils::isUnset($request->imageTag)) {
+            $query['ImageTag'] = $request->imageTag;
+        }
+        if (!Utils::isUnset($request->instanceId)) {
+            $query['InstanceId'] = $request->instanceId;
+        }
+        if (!Utils::isUnset($request->pushName)) {
+            $query['PushName'] = $request->pushName;
+        }
+        if (!Utils::isUnset($request->pushType)) {
+            $query['PushType'] = $request->pushType;
+        }
+        if (!Utils::isUnset($request->repoId)) {
+            $query['RepoId'] = $request->repoId;
+        }
+        $req = new OpenApiRequest([
             'query' => OpenApiUtilClient::query($query),
         ]);
         $params = new Params([
@@ -666,16 +754,32 @@ class Cr extends OpenApiClient
     public function createRepoSourceCodeRepoWithOptions($request, $runtime)
     {
         Utils::validateModel($request);
-        $query                          = [];
-        $query['AutoBuild']             = $request->autoBuild;
-        $query['CodeRepoName']          = $request->codeRepoName;
-        $query['CodeRepoNamespaceName'] = $request->codeRepoNamespaceName;
-        $query['CodeRepoType']          = $request->codeRepoType;
-        $query['DisableCacheBuild']     = $request->disableCacheBuild;
-        $query['InstanceId']            = $request->instanceId;
-        $query['OverseaBuild']          = $request->overseaBuild;
-        $query['RepoId']                = $request->repoId;
-        $req                            = new OpenApiRequest([
+        $query = [];
+        if (!Utils::isUnset($request->autoBuild)) {
+            $query['AutoBuild'] = $request->autoBuild;
+        }
+        if (!Utils::isUnset($request->codeRepoName)) {
+            $query['CodeRepoName'] = $request->codeRepoName;
+        }
+        if (!Utils::isUnset($request->codeRepoNamespaceName)) {
+            $query['CodeRepoNamespaceName'] = $request->codeRepoNamespaceName;
+        }
+        if (!Utils::isUnset($request->codeRepoType)) {
+            $query['CodeRepoType'] = $request->codeRepoType;
+        }
+        if (!Utils::isUnset($request->disableCacheBuild)) {
+            $query['DisableCacheBuild'] = $request->disableCacheBuild;
+        }
+        if (!Utils::isUnset($request->instanceId)) {
+            $query['InstanceId'] = $request->instanceId;
+        }
+        if (!Utils::isUnset($request->overseaBuild)) {
+            $query['OverseaBuild'] = $request->overseaBuild;
+        }
+        if (!Utils::isUnset($request->repoId)) {
+            $query['RepoId'] = $request->repoId;
+        }
+        $req = new OpenApiRequest([
             'query' => OpenApiUtilClient::query($query),
         ]);
         $params = new Params([
@@ -714,20 +818,44 @@ class Cr extends OpenApiClient
     public function createRepoSyncRuleWithOptions($request, $runtime)
     {
         Utils::validateModel($request);
-        $query                        = [];
-        $query['InstanceId']          = $request->instanceId;
-        $query['NamespaceName']       = $request->namespaceName;
-        $query['RepoName']            = $request->repoName;
-        $query['SyncRuleName']        = $request->syncRuleName;
-        $query['SyncScope']           = $request->syncScope;
-        $query['SyncTrigger']         = $request->syncTrigger;
-        $query['TagFilter']           = $request->tagFilter;
-        $query['TargetInstanceId']    = $request->targetInstanceId;
-        $query['TargetNamespaceName'] = $request->targetNamespaceName;
-        $query['TargetRegionId']      = $request->targetRegionId;
-        $query['TargetRepoName']      = $request->targetRepoName;
-        $query['TargetUserId']        = $request->targetUserId;
-        $req                          = new OpenApiRequest([
+        $query = [];
+        if (!Utils::isUnset($request->instanceId)) {
+            $query['InstanceId'] = $request->instanceId;
+        }
+        if (!Utils::isUnset($request->namespaceName)) {
+            $query['NamespaceName'] = $request->namespaceName;
+        }
+        if (!Utils::isUnset($request->repoName)) {
+            $query['RepoName'] = $request->repoName;
+        }
+        if (!Utils::isUnset($request->syncRuleName)) {
+            $query['SyncRuleName'] = $request->syncRuleName;
+        }
+        if (!Utils::isUnset($request->syncScope)) {
+            $query['SyncScope'] = $request->syncScope;
+        }
+        if (!Utils::isUnset($request->syncTrigger)) {
+            $query['SyncTrigger'] = $request->syncTrigger;
+        }
+        if (!Utils::isUnset($request->tagFilter)) {
+            $query['TagFilter'] = $request->tagFilter;
+        }
+        if (!Utils::isUnset($request->targetInstanceId)) {
+            $query['TargetInstanceId'] = $request->targetInstanceId;
+        }
+        if (!Utils::isUnset($request->targetNamespaceName)) {
+            $query['TargetNamespaceName'] = $request->targetNamespaceName;
+        }
+        if (!Utils::isUnset($request->targetRegionId)) {
+            $query['TargetRegionId'] = $request->targetRegionId;
+        }
+        if (!Utils::isUnset($request->targetRepoName)) {
+            $query['TargetRepoName'] = $request->targetRepoName;
+        }
+        if (!Utils::isUnset($request->targetUserId)) {
+            $query['TargetUserId'] = $request->targetUserId;
+        }
+        $req = new OpenApiRequest([
             'query' => OpenApiUtilClient::query($query),
         ]);
         $params = new Params([
@@ -766,18 +894,38 @@ class Cr extends OpenApiClient
     public function createRepoSyncTaskWithOptions($request, $runtime)
     {
         Utils::validateModel($request);
-        $query                     = [];
-        $query['InstanceId']       = $request->instanceId;
-        $query['Override']         = $request->override;
-        $query['RepoId']           = $request->repoId;
-        $query['Tag']              = $request->tag;
-        $query['TargetInstanceId'] = $request->targetInstanceId;
-        $query['TargetNamespace']  = $request->targetNamespace;
-        $query['TargetRegionId']   = $request->targetRegionId;
-        $query['TargetRepoName']   = $request->targetRepoName;
-        $query['TargetTag']        = $request->targetTag;
-        $query['TargetUserId']     = $request->targetUserId;
-        $req                       = new OpenApiRequest([
+        $query = [];
+        if (!Utils::isUnset($request->instanceId)) {
+            $query['InstanceId'] = $request->instanceId;
+        }
+        if (!Utils::isUnset($request->override)) {
+            $query['Override'] = $request->override;
+        }
+        if (!Utils::isUnset($request->repoId)) {
+            $query['RepoId'] = $request->repoId;
+        }
+        if (!Utils::isUnset($request->tag)) {
+            $query['Tag'] = $request->tag;
+        }
+        if (!Utils::isUnset($request->targetInstanceId)) {
+            $query['TargetInstanceId'] = $request->targetInstanceId;
+        }
+        if (!Utils::isUnset($request->targetNamespace)) {
+            $query['TargetNamespace'] = $request->targetNamespace;
+        }
+        if (!Utils::isUnset($request->targetRegionId)) {
+            $query['TargetRegionId'] = $request->targetRegionId;
+        }
+        if (!Utils::isUnset($request->targetRepoName)) {
+            $query['TargetRepoName'] = $request->targetRepoName;
+        }
+        if (!Utils::isUnset($request->targetTag)) {
+            $query['TargetTag'] = $request->targetTag;
+        }
+        if (!Utils::isUnset($request->targetUserId)) {
+            $query['TargetUserId'] = $request->targetUserId;
+        }
+        $req = new OpenApiRequest([
             'query' => OpenApiUtilClient::query($query),
         ]);
         $params = new Params([
@@ -816,12 +964,20 @@ class Cr extends OpenApiClient
     public function createRepoSyncTaskByRuleWithOptions($request, $runtime)
     {
         Utils::validateModel($request);
-        $query               = [];
-        $query['InstanceId'] = $request->instanceId;
-        $query['RepoId']     = $request->repoId;
-        $query['SyncRuleId'] = $request->syncRuleId;
-        $query['Tag']        = $request->tag;
-        $req                 = new OpenApiRequest([
+        $query = [];
+        if (!Utils::isUnset($request->instanceId)) {
+            $query['InstanceId'] = $request->instanceId;
+        }
+        if (!Utils::isUnset($request->repoId)) {
+            $query['RepoId'] = $request->repoId;
+        }
+        if (!Utils::isUnset($request->syncRuleId)) {
+            $query['SyncRuleId'] = $request->syncRuleId;
+        }
+        if (!Utils::isUnset($request->tag)) {
+            $query['Tag'] = $request->tag;
+        }
+        $req = new OpenApiRequest([
             'query' => OpenApiUtilClient::query($query),
         ]);
         $params = new Params([
@@ -860,13 +1016,23 @@ class Cr extends OpenApiClient
     public function createRepoTagWithOptions($request, $runtime)
     {
         Utils::validateModel($request);
-        $query                  = [];
-        $query['FromTag']       = $request->fromTag;
-        $query['InstanceId']    = $request->instanceId;
-        $query['NamespaceName'] = $request->namespaceName;
-        $query['RepoName']      = $request->repoName;
-        $query['ToTag']         = $request->toTag;
-        $req                    = new OpenApiRequest([
+        $query = [];
+        if (!Utils::isUnset($request->fromTag)) {
+            $query['FromTag'] = $request->fromTag;
+        }
+        if (!Utils::isUnset($request->instanceId)) {
+            $query['InstanceId'] = $request->instanceId;
+        }
+        if (!Utils::isUnset($request->namespaceName)) {
+            $query['NamespaceName'] = $request->namespaceName;
+        }
+        if (!Utils::isUnset($request->repoName)) {
+            $query['RepoName'] = $request->repoName;
+        }
+        if (!Utils::isUnset($request->toTag)) {
+            $query['ToTag'] = $request->toTag;
+        }
+        $req = new OpenApiRequest([
             'query' => OpenApiUtilClient::query($query),
         ]);
         $params = new Params([
@@ -905,13 +1071,23 @@ class Cr extends OpenApiClient
     public function createRepoTagScanTaskWithOptions($request, $runtime)
     {
         Utils::validateModel($request);
-        $query                = [];
-        $query['Digest']      = $request->digest;
-        $query['InstanceId']  = $request->instanceId;
-        $query['RepoId']      = $request->repoId;
-        $query['ScanService'] = $request->scanService;
-        $query['Tag']         = $request->tag;
-        $req                  = new OpenApiRequest([
+        $query = [];
+        if (!Utils::isUnset($request->digest)) {
+            $query['Digest'] = $request->digest;
+        }
+        if (!Utils::isUnset($request->instanceId)) {
+            $query['InstanceId'] = $request->instanceId;
+        }
+        if (!Utils::isUnset($request->repoId)) {
+            $query['RepoId'] = $request->repoId;
+        }
+        if (!Utils::isUnset($request->scanService)) {
+            $query['ScanService'] = $request->scanService;
+        }
+        if (!Utils::isUnset($request->tag)) {
+            $query['Tag'] = $request->tag;
+        }
+        $req = new OpenApiRequest([
             'query' => OpenApiUtilClient::query($query),
         ]);
         $params = new Params([
@@ -950,14 +1126,26 @@ class Cr extends OpenApiClient
     public function createRepoTriggerWithOptions($request, $runtime)
     {
         Utils::validateModel($request);
-        $query                = [];
-        $query['InstanceId']  = $request->instanceId;
-        $query['RepoId']      = $request->repoId;
-        $query['TriggerName'] = $request->triggerName;
-        $query['TriggerTag']  = $request->triggerTag;
-        $query['TriggerType'] = $request->triggerType;
-        $query['TriggerUrl']  = $request->triggerUrl;
-        $req                  = new OpenApiRequest([
+        $query = [];
+        if (!Utils::isUnset($request->instanceId)) {
+            $query['InstanceId'] = $request->instanceId;
+        }
+        if (!Utils::isUnset($request->repoId)) {
+            $query['RepoId'] = $request->repoId;
+        }
+        if (!Utils::isUnset($request->triggerName)) {
+            $query['TriggerName'] = $request->triggerName;
+        }
+        if (!Utils::isUnset($request->triggerTag)) {
+            $query['TriggerTag'] = $request->triggerTag;
+        }
+        if (!Utils::isUnset($request->triggerType)) {
+            $query['TriggerType'] = $request->triggerType;
+        }
+        if (!Utils::isUnset($request->triggerUrl)) {
+            $query['TriggerUrl'] = $request->triggerUrl;
+        }
+        $req = new OpenApiRequest([
             'query' => OpenApiUtilClient::query($query),
         ]);
         $params = new Params([
@@ -996,15 +1184,29 @@ class Cr extends OpenApiClient
     public function createRepositoryWithOptions($request, $runtime)
     {
         Utils::validateModel($request);
-        $query                      = [];
-        $query['Detail']            = $request->detail;
-        $query['InstanceId']        = $request->instanceId;
-        $query['RepoName']          = $request->repoName;
-        $query['RepoNamespaceName'] = $request->repoNamespaceName;
-        $query['RepoType']          = $request->repoType;
-        $query['Summary']           = $request->summary;
-        $query['TagImmutability']   = $request->tagImmutability;
-        $req                        = new OpenApiRequest([
+        $query = [];
+        if (!Utils::isUnset($request->detail)) {
+            $query['Detail'] = $request->detail;
+        }
+        if (!Utils::isUnset($request->instanceId)) {
+            $query['InstanceId'] = $request->instanceId;
+        }
+        if (!Utils::isUnset($request->repoName)) {
+            $query['RepoName'] = $request->repoName;
+        }
+        if (!Utils::isUnset($request->repoNamespaceName)) {
+            $query['RepoNamespaceName'] = $request->repoNamespaceName;
+        }
+        if (!Utils::isUnset($request->repoType)) {
+            $query['RepoType'] = $request->repoType;
+        }
+        if (!Utils::isUnset($request->summary)) {
+            $query['Summary'] = $request->summary;
+        }
+        if (!Utils::isUnset($request->tagImmutability)) {
+            $query['TagImmutability'] = $request->tagImmutability;
+        }
+        $req = new OpenApiRequest([
             'query' => OpenApiUtilClient::query($query),
         ]);
         $params = new Params([
@@ -1043,10 +1245,14 @@ class Cr extends OpenApiClient
     public function deleteChainWithOptions($request, $runtime)
     {
         Utils::validateModel($request);
-        $query               = [];
-        $query['ChainId']    = $request->chainId;
-        $query['InstanceId'] = $request->instanceId;
-        $req                 = new OpenApiRequest([
+        $query = [];
+        if (!Utils::isUnset($request->chainId)) {
+            $query['ChainId'] = $request->chainId;
+        }
+        if (!Utils::isUnset($request->instanceId)) {
+            $query['InstanceId'] = $request->instanceId;
+        }
+        $req = new OpenApiRequest([
             'query' => OpenApiUtilClient::query($query),
         ]);
         $params = new Params([
@@ -1085,10 +1291,14 @@ class Cr extends OpenApiClient
     public function deleteChartNamespaceWithOptions($request, $runtime)
     {
         Utils::validateModel($request);
-        $query                  = [];
-        $query['InstanceId']    = $request->instanceId;
-        $query['NamespaceName'] = $request->namespaceName;
-        $req                    = new OpenApiRequest([
+        $query = [];
+        if (!Utils::isUnset($request->instanceId)) {
+            $query['InstanceId'] = $request->instanceId;
+        }
+        if (!Utils::isUnset($request->namespaceName)) {
+            $query['NamespaceName'] = $request->namespaceName;
+        }
+        $req = new OpenApiRequest([
             'query' => OpenApiUtilClient::query($query),
         ]);
         $params = new Params([
@@ -1127,13 +1337,23 @@ class Cr extends OpenApiClient
     public function deleteChartReleaseWithOptions($request, $runtime)
     {
         Utils::validateModel($request);
-        $query                      = [];
-        $query['Chart']             = $request->chart;
-        $query['InstanceId']        = $request->instanceId;
-        $query['Release']           = $request->release;
-        $query['RepoName']          = $request->repoName;
-        $query['RepoNamespaceName'] = $request->repoNamespaceName;
-        $req                        = new OpenApiRequest([
+        $query = [];
+        if (!Utils::isUnset($request->chart)) {
+            $query['Chart'] = $request->chart;
+        }
+        if (!Utils::isUnset($request->instanceId)) {
+            $query['InstanceId'] = $request->instanceId;
+        }
+        if (!Utils::isUnset($request->release)) {
+            $query['Release'] = $request->release;
+        }
+        if (!Utils::isUnset($request->repoName)) {
+            $query['RepoName'] = $request->repoName;
+        }
+        if (!Utils::isUnset($request->repoNamespaceName)) {
+            $query['RepoNamespaceName'] = $request->repoNamespaceName;
+        }
+        $req = new OpenApiRequest([
             'query' => OpenApiUtilClient::query($query),
         ]);
         $params = new Params([
@@ -1172,11 +1392,17 @@ class Cr extends OpenApiClient
     public function deleteChartRepositoryWithOptions($request, $runtime)
     {
         Utils::validateModel($request);
-        $query                      = [];
-        $query['InstanceId']        = $request->instanceId;
-        $query['RepoName']          = $request->repoName;
-        $query['RepoNamespaceName'] = $request->repoNamespaceName;
-        $req                        = new OpenApiRequest([
+        $query = [];
+        if (!Utils::isUnset($request->instanceId)) {
+            $query['InstanceId'] = $request->instanceId;
+        }
+        if (!Utils::isUnset($request->repoName)) {
+            $query['RepoName'] = $request->repoName;
+        }
+        if (!Utils::isUnset($request->repoNamespaceName)) {
+            $query['RepoNamespaceName'] = $request->repoNamespaceName;
+        }
+        $req = new OpenApiRequest([
             'query' => OpenApiUtilClient::query($query),
         ]);
         $params = new Params([
@@ -1215,10 +1441,14 @@ class Cr extends OpenApiClient
     public function deleteEventCenterRuleWithOptions($request, $runtime)
     {
         Utils::validateModel($request);
-        $query               = [];
-        $query['InstanceId'] = $request->instanceId;
-        $query['RuleId']     = $request->ruleId;
-        $req                 = new OpenApiRequest([
+        $query = [];
+        if (!Utils::isUnset($request->instanceId)) {
+            $query['InstanceId'] = $request->instanceId;
+        }
+        if (!Utils::isUnset($request->ruleId)) {
+            $query['RuleId'] = $request->ruleId;
+        }
+        $req = new OpenApiRequest([
             'query' => OpenApiUtilClient::query($query),
         ]);
         $params = new Params([
@@ -1257,12 +1487,20 @@ class Cr extends OpenApiClient
     public function deleteInstanceEndpointAclPolicyWithOptions($request, $runtime)
     {
         Utils::validateModel($request);
-        $query                 = [];
-        $query['EndpointType'] = $request->endpointType;
-        $query['Entry']        = $request->entry;
-        $query['InstanceId']   = $request->instanceId;
-        $query['ModuleName']   = $request->moduleName;
-        $req                   = new OpenApiRequest([
+        $query = [];
+        if (!Utils::isUnset($request->endpointType)) {
+            $query['EndpointType'] = $request->endpointType;
+        }
+        if (!Utils::isUnset($request->entry)) {
+            $query['Entry'] = $request->entry;
+        }
+        if (!Utils::isUnset($request->instanceId)) {
+            $query['InstanceId'] = $request->instanceId;
+        }
+        if (!Utils::isUnset($request->moduleName)) {
+            $query['ModuleName'] = $request->moduleName;
+        }
+        $req = new OpenApiRequest([
             'query' => OpenApiUtilClient::query($query),
         ]);
         $params = new Params([
@@ -1301,12 +1539,20 @@ class Cr extends OpenApiClient
     public function deleteInstanceVpcEndpointLinkedVpcWithOptions($request, $runtime)
     {
         Utils::validateModel($request);
-        $query               = [];
-        $query['InstanceId'] = $request->instanceId;
-        $query['ModuleName'] = $request->moduleName;
-        $query['VpcId']      = $request->vpcId;
-        $query['VswitchId']  = $request->vswitchId;
-        $req                 = new OpenApiRequest([
+        $query = [];
+        if (!Utils::isUnset($request->instanceId)) {
+            $query['InstanceId'] = $request->instanceId;
+        }
+        if (!Utils::isUnset($request->moduleName)) {
+            $query['ModuleName'] = $request->moduleName;
+        }
+        if (!Utils::isUnset($request->vpcId)) {
+            $query['VpcId'] = $request->vpcId;
+        }
+        if (!Utils::isUnset($request->vswitchId)) {
+            $query['VswitchId'] = $request->vswitchId;
+        }
+        $req = new OpenApiRequest([
             'query' => OpenApiUtilClient::query($query),
         ]);
         $params = new Params([
@@ -1345,10 +1591,14 @@ class Cr extends OpenApiClient
     public function deleteNamespaceWithOptions($request, $runtime)
     {
         Utils::validateModel($request);
-        $query                  = [];
-        $query['InstanceId']    = $request->instanceId;
-        $query['NamespaceName'] = $request->namespaceName;
-        $req                    = new OpenApiRequest([
+        $query = [];
+        if (!Utils::isUnset($request->instanceId)) {
+            $query['InstanceId'] = $request->instanceId;
+        }
+        if (!Utils::isUnset($request->namespaceName)) {
+            $query['NamespaceName'] = $request->namespaceName;
+        }
+        $req = new OpenApiRequest([
             'query' => OpenApiUtilClient::query($query),
         ]);
         $params = new Params([
@@ -1387,11 +1637,17 @@ class Cr extends OpenApiClient
     public function deleteRepoBuildRuleWithOptions($request, $runtime)
     {
         Utils::validateModel($request);
-        $query                = [];
-        $query['BuildRuleId'] = $request->buildRuleId;
-        $query['InstanceId']  = $request->instanceId;
-        $query['RepoId']      = $request->repoId;
-        $req                  = new OpenApiRequest([
+        $query = [];
+        if (!Utils::isUnset($request->buildRuleId)) {
+            $query['BuildRuleId'] = $request->buildRuleId;
+        }
+        if (!Utils::isUnset($request->instanceId)) {
+            $query['InstanceId'] = $request->instanceId;
+        }
+        if (!Utils::isUnset($request->repoId)) {
+            $query['RepoId'] = $request->repoId;
+        }
+        $req = new OpenApiRequest([
             'query' => OpenApiUtilClient::query($query),
         ]);
         $params = new Params([
@@ -1430,10 +1686,14 @@ class Cr extends OpenApiClient
     public function deleteRepoSyncRuleWithOptions($request, $runtime)
     {
         Utils::validateModel($request);
-        $query               = [];
-        $query['InstanceId'] = $request->instanceId;
-        $query['SyncRuleId'] = $request->syncRuleId;
-        $req                 = new OpenApiRequest([
+        $query = [];
+        if (!Utils::isUnset($request->instanceId)) {
+            $query['InstanceId'] = $request->instanceId;
+        }
+        if (!Utils::isUnset($request->syncRuleId)) {
+            $query['SyncRuleId'] = $request->syncRuleId;
+        }
+        $req = new OpenApiRequest([
             'query' => OpenApiUtilClient::query($query),
         ]);
         $params = new Params([
@@ -1472,11 +1732,17 @@ class Cr extends OpenApiClient
     public function deleteRepoTagWithOptions($request, $runtime)
     {
         Utils::validateModel($request);
-        $query               = [];
-        $query['InstanceId'] = $request->instanceId;
-        $query['RepoId']     = $request->repoId;
-        $query['Tag']        = $request->tag;
-        $req                 = new OpenApiRequest([
+        $query = [];
+        if (!Utils::isUnset($request->instanceId)) {
+            $query['InstanceId'] = $request->instanceId;
+        }
+        if (!Utils::isUnset($request->repoId)) {
+            $query['RepoId'] = $request->repoId;
+        }
+        if (!Utils::isUnset($request->tag)) {
+            $query['Tag'] = $request->tag;
+        }
+        $req = new OpenApiRequest([
             'query' => OpenApiUtilClient::query($query),
         ]);
         $params = new Params([
@@ -1515,11 +1781,17 @@ class Cr extends OpenApiClient
     public function deleteRepoTriggerWithOptions($request, $runtime)
     {
         Utils::validateModel($request);
-        $query               = [];
-        $query['InstanceId'] = $request->instanceId;
-        $query['RepoId']     = $request->repoId;
-        $query['TriggerId']  = $request->triggerId;
-        $req                 = new OpenApiRequest([
+        $query = [];
+        if (!Utils::isUnset($request->instanceId)) {
+            $query['InstanceId'] = $request->instanceId;
+        }
+        if (!Utils::isUnset($request->repoId)) {
+            $query['RepoId'] = $request->repoId;
+        }
+        if (!Utils::isUnset($request->triggerId)) {
+            $query['TriggerId'] = $request->triggerId;
+        }
+        $req = new OpenApiRequest([
             'query' => OpenApiUtilClient::query($query),
         ]);
         $params = new Params([
@@ -1558,10 +1830,14 @@ class Cr extends OpenApiClient
     public function deleteRepositoryWithOptions($request, $runtime)
     {
         Utils::validateModel($request);
-        $query               = [];
-        $query['InstanceId'] = $request->instanceId;
-        $query['RepoId']     = $request->repoId;
-        $req                 = new OpenApiRequest([
+        $query = [];
+        if (!Utils::isUnset($request->instanceId)) {
+            $query['InstanceId'] = $request->instanceId;
+        }
+        if (!Utils::isUnset($request->repoId)) {
+            $query['RepoId'] = $request->repoId;
+        }
+        $req = new OpenApiRequest([
             'query' => OpenApiUtilClient::query($query),
         ]);
         $params = new Params([
@@ -1640,9 +1916,11 @@ class Cr extends OpenApiClient
     public function getAuthorizationTokenWithOptions($request, $runtime)
     {
         Utils::validateModel($request);
-        $query               = [];
-        $query['InstanceId'] = $request->instanceId;
-        $req                 = new OpenApiRequest([
+        $query = [];
+        if (!Utils::isUnset($request->instanceId)) {
+            $query['InstanceId'] = $request->instanceId;
+        }
+        $req = new OpenApiRequest([
             'query' => OpenApiUtilClient::query($query),
         ]);
         $params = new Params([
@@ -1681,10 +1959,14 @@ class Cr extends OpenApiClient
     public function getChainWithOptions($request, $runtime)
     {
         Utils::validateModel($request);
-        $query               = [];
-        $query['ChainId']    = $request->chainId;
-        $query['InstanceId'] = $request->instanceId;
-        $req                 = new OpenApiRequest([
+        $query = [];
+        if (!Utils::isUnset($request->chainId)) {
+            $query['ChainId'] = $request->chainId;
+        }
+        if (!Utils::isUnset($request->instanceId)) {
+            $query['InstanceId'] = $request->instanceId;
+        }
+        $req = new OpenApiRequest([
             'query' => OpenApiUtilClient::query($query),
         ]);
         $params = new Params([
@@ -1723,10 +2005,14 @@ class Cr extends OpenApiClient
     public function getChartNamespaceWithOptions($request, $runtime)
     {
         Utils::validateModel($request);
-        $query                  = [];
-        $query['InstanceId']    = $request->instanceId;
-        $query['NamespaceName'] = $request->namespaceName;
-        $req                    = new OpenApiRequest([
+        $query = [];
+        if (!Utils::isUnset($request->instanceId)) {
+            $query['InstanceId'] = $request->instanceId;
+        }
+        if (!Utils::isUnset($request->namespaceName)) {
+            $query['NamespaceName'] = $request->namespaceName;
+        }
+        $req = new OpenApiRequest([
             'query' => OpenApiUtilClient::query($query),
         ]);
         $params = new Params([
@@ -1765,11 +2051,17 @@ class Cr extends OpenApiClient
     public function getChartRepositoryWithOptions($request, $runtime)
     {
         Utils::validateModel($request);
-        $query                      = [];
-        $query['InstanceId']        = $request->instanceId;
-        $query['RepoName']          = $request->repoName;
-        $query['RepoNamespaceName'] = $request->repoNamespaceName;
-        $req                        = new OpenApiRequest([
+        $query = [];
+        if (!Utils::isUnset($request->instanceId)) {
+            $query['InstanceId'] = $request->instanceId;
+        }
+        if (!Utils::isUnset($request->repoName)) {
+            $query['RepoName'] = $request->repoName;
+        }
+        if (!Utils::isUnset($request->repoNamespaceName)) {
+            $query['RepoNamespaceName'] = $request->repoNamespaceName;
+        }
+        $req = new OpenApiRequest([
             'query' => OpenApiUtilClient::query($query),
         ]);
         $params = new Params([
@@ -1808,9 +2100,11 @@ class Cr extends OpenApiClient
     public function getInstanceWithOptions($request, $runtime)
     {
         Utils::validateModel($request);
-        $query               = [];
-        $query['InstanceId'] = $request->instanceId;
-        $req                 = new OpenApiRequest([
+        $query = [];
+        if (!Utils::isUnset($request->instanceId)) {
+            $query['InstanceId'] = $request->instanceId;
+        }
+        $req = new OpenApiRequest([
             'query' => OpenApiUtilClient::query($query),
         ]);
         $params = new Params([
@@ -1841,14 +2135,12 @@ class Cr extends OpenApiClient
     }
 
     /**
-     * @param GetInstanceCountRequest $request
-     * @param RuntimeOptions          $runtime
+     * @param RuntimeOptions $runtime
      *
      * @return GetInstanceCountResponse
      */
-    public function getInstanceCountWithOptions($request, $runtime)
+    public function getInstanceCountWithOptions($runtime)
     {
-        Utils::validateModel($request);
         $req    = new OpenApiRequest([]);
         $params = new Params([
             'action'      => 'GetInstanceCount',
@@ -1866,15 +2158,13 @@ class Cr extends OpenApiClient
     }
 
     /**
-     * @param GetInstanceCountRequest $request
-     *
      * @return GetInstanceCountResponse
      */
-    public function getInstanceCount($request)
+    public function getInstanceCount()
     {
         $runtime = new RuntimeOptions([]);
 
-        return $this->getInstanceCountWithOptions($request, $runtime);
+        return $this->getInstanceCountWithOptions($runtime);
     }
 
     /**
@@ -1886,11 +2176,17 @@ class Cr extends OpenApiClient
     public function getInstanceEndpointWithOptions($request, $runtime)
     {
         Utils::validateModel($request);
-        $query                 = [];
-        $query['EndpointType'] = $request->endpointType;
-        $query['InstanceId']   = $request->instanceId;
-        $query['ModuleName']   = $request->moduleName;
-        $req                   = new OpenApiRequest([
+        $query = [];
+        if (!Utils::isUnset($request->endpointType)) {
+            $query['EndpointType'] = $request->endpointType;
+        }
+        if (!Utils::isUnset($request->instanceId)) {
+            $query['InstanceId'] = $request->instanceId;
+        }
+        if (!Utils::isUnset($request->moduleName)) {
+            $query['ModuleName'] = $request->moduleName;
+        }
+        $req = new OpenApiRequest([
             'query' => OpenApiUtilClient::query($query),
         ]);
         $params = new Params([
@@ -1929,9 +2225,11 @@ class Cr extends OpenApiClient
     public function getInstanceUsageWithOptions($request, $runtime)
     {
         Utils::validateModel($request);
-        $query               = [];
-        $query['InstanceId'] = $request->instanceId;
-        $req                 = new OpenApiRequest([
+        $query = [];
+        if (!Utils::isUnset($request->instanceId)) {
+            $query['InstanceId'] = $request->instanceId;
+        }
+        $req = new OpenApiRequest([
             'query' => OpenApiUtilClient::query($query),
         ]);
         $params = new Params([
@@ -1970,10 +2268,14 @@ class Cr extends OpenApiClient
     public function getInstanceVpcEndpointWithOptions($request, $runtime)
     {
         Utils::validateModel($request);
-        $query               = [];
-        $query['InstanceId'] = $request->instanceId;
-        $query['ModuleName'] = $request->moduleName;
-        $req                 = new OpenApiRequest([
+        $query = [];
+        if (!Utils::isUnset($request->instanceId)) {
+            $query['InstanceId'] = $request->instanceId;
+        }
+        if (!Utils::isUnset($request->moduleName)) {
+            $query['ModuleName'] = $request->moduleName;
+        }
+        $req = new OpenApiRequest([
             'query' => OpenApiUtilClient::query($query),
         ]);
         $params = new Params([
@@ -2012,11 +2314,17 @@ class Cr extends OpenApiClient
     public function getNamespaceWithOptions($request, $runtime)
     {
         Utils::validateModel($request);
-        $query                  = [];
-        $query['InstanceId']    = $request->instanceId;
-        $query['NamespaceId']   = $request->namespaceId;
-        $query['NamespaceName'] = $request->namespaceName;
-        $req                    = new OpenApiRequest([
+        $query = [];
+        if (!Utils::isUnset($request->instanceId)) {
+            $query['InstanceId'] = $request->instanceId;
+        }
+        if (!Utils::isUnset($request->namespaceId)) {
+            $query['NamespaceId'] = $request->namespaceId;
+        }
+        if (!Utils::isUnset($request->namespaceName)) {
+            $query['NamespaceName'] = $request->namespaceName;
+        }
+        $req = new OpenApiRequest([
             'query' => OpenApiUtilClient::query($query),
         ]);
         $params = new Params([
@@ -2055,10 +2363,14 @@ class Cr extends OpenApiClient
     public function getRepoBuildRecordWithOptions($request, $runtime)
     {
         Utils::validateModel($request);
-        $query                  = [];
-        $query['BuildRecordId'] = $request->buildRecordId;
-        $query['InstanceId']    = $request->instanceId;
-        $req                    = new OpenApiRequest([
+        $query = [];
+        if (!Utils::isUnset($request->buildRecordId)) {
+            $query['BuildRecordId'] = $request->buildRecordId;
+        }
+        if (!Utils::isUnset($request->instanceId)) {
+            $query['InstanceId'] = $request->instanceId;
+        }
+        $req = new OpenApiRequest([
             'query' => OpenApiUtilClient::query($query),
         ]);
         $params = new Params([
@@ -2097,11 +2409,17 @@ class Cr extends OpenApiClient
     public function getRepoBuildRecordStatusWithOptions($request, $runtime)
     {
         Utils::validateModel($request);
-        $query                  = [];
-        $query['BuildRecordId'] = $request->buildRecordId;
-        $query['InstanceId']    = $request->instanceId;
-        $query['RepoId']        = $request->repoId;
-        $req                    = new OpenApiRequest([
+        $query = [];
+        if (!Utils::isUnset($request->buildRecordId)) {
+            $query['BuildRecordId'] = $request->buildRecordId;
+        }
+        if (!Utils::isUnset($request->instanceId)) {
+            $query['InstanceId'] = $request->instanceId;
+        }
+        if (!Utils::isUnset($request->repoId)) {
+            $query['RepoId'] = $request->repoId;
+        }
+        $req = new OpenApiRequest([
             'query' => OpenApiUtilClient::query($query),
         ]);
         $params = new Params([
@@ -2140,10 +2458,14 @@ class Cr extends OpenApiClient
     public function getRepoSourceCodeRepoWithOptions($request, $runtime)
     {
         Utils::validateModel($request);
-        $query               = [];
-        $query['InstanceId'] = $request->instanceId;
-        $query['RepoId']     = $request->repoId;
-        $req                 = new OpenApiRequest([
+        $query = [];
+        if (!Utils::isUnset($request->instanceId)) {
+            $query['InstanceId'] = $request->instanceId;
+        }
+        if (!Utils::isUnset($request->repoId)) {
+            $query['RepoId'] = $request->repoId;
+        }
+        $req = new OpenApiRequest([
             'query' => OpenApiUtilClient::query($query),
         ]);
         $params = new Params([
@@ -2182,10 +2504,14 @@ class Cr extends OpenApiClient
     public function getRepoSyncTaskWithOptions($request, $runtime)
     {
         Utils::validateModel($request);
-        $query               = [];
-        $query['InstanceId'] = $request->instanceId;
-        $query['SyncTaskId'] = $request->syncTaskId;
-        $req                 = new OpenApiRequest([
+        $query = [];
+        if (!Utils::isUnset($request->instanceId)) {
+            $query['InstanceId'] = $request->instanceId;
+        }
+        if (!Utils::isUnset($request->syncTaskId)) {
+            $query['SyncTaskId'] = $request->syncTaskId;
+        }
+        $req = new OpenApiRequest([
             'query' => OpenApiUtilClient::query($query),
         ]);
         $params = new Params([
@@ -2264,12 +2590,20 @@ class Cr extends OpenApiClient
     public function getRepoTagLayersWithOptions($request, $runtime)
     {
         Utils::validateModel($request);
-        $query               = [];
-        $query['Digest']     = $request->digest;
-        $query['InstanceId'] = $request->instanceId;
-        $query['RepoId']     = $request->repoId;
-        $query['Tag']        = $request->tag;
-        $req                 = new OpenApiRequest([
+        $query = [];
+        if (!Utils::isUnset($request->digest)) {
+            $query['Digest'] = $request->digest;
+        }
+        if (!Utils::isUnset($request->instanceId)) {
+            $query['InstanceId'] = $request->instanceId;
+        }
+        if (!Utils::isUnset($request->repoId)) {
+            $query['RepoId'] = $request->repoId;
+        }
+        if (!Utils::isUnset($request->tag)) {
+            $query['Tag'] = $request->tag;
+        }
+        $req = new OpenApiRequest([
             'query' => OpenApiUtilClient::query($query),
         ]);
         $params = new Params([
@@ -2308,12 +2642,20 @@ class Cr extends OpenApiClient
     public function getRepoTagManifestWithOptions($request, $runtime)
     {
         Utils::validateModel($request);
-        $query                  = [];
-        $query['InstanceId']    = $request->instanceId;
-        $query['RepoId']        = $request->repoId;
-        $query['SchemaVersion'] = $request->schemaVersion;
-        $query['Tag']           = $request->tag;
-        $req                    = new OpenApiRequest([
+        $query = [];
+        if (!Utils::isUnset($request->instanceId)) {
+            $query['InstanceId'] = $request->instanceId;
+        }
+        if (!Utils::isUnset($request->repoId)) {
+            $query['RepoId'] = $request->repoId;
+        }
+        if (!Utils::isUnset($request->schemaVersion)) {
+            $query['SchemaVersion'] = $request->schemaVersion;
+        }
+        if (!Utils::isUnset($request->tag)) {
+            $query['Tag'] = $request->tag;
+        }
+        $req = new OpenApiRequest([
             'query' => OpenApiUtilClient::query($query),
         ]);
         $params = new Params([
@@ -2352,13 +2694,23 @@ class Cr extends OpenApiClient
     public function getRepoTagScanStatusWithOptions($request, $runtime)
     {
         Utils::validateModel($request);
-        $query               = [];
-        $query['Digest']     = $request->digest;
-        $query['InstanceId'] = $request->instanceId;
-        $query['RepoId']     = $request->repoId;
-        $query['ScanTaskId'] = $request->scanTaskId;
-        $query['Tag']        = $request->tag;
-        $req                 = new OpenApiRequest([
+        $query = [];
+        if (!Utils::isUnset($request->digest)) {
+            $query['Digest'] = $request->digest;
+        }
+        if (!Utils::isUnset($request->instanceId)) {
+            $query['InstanceId'] = $request->instanceId;
+        }
+        if (!Utils::isUnset($request->repoId)) {
+            $query['RepoId'] = $request->repoId;
+        }
+        if (!Utils::isUnset($request->scanTaskId)) {
+            $query['ScanTaskId'] = $request->scanTaskId;
+        }
+        if (!Utils::isUnset($request->tag)) {
+            $query['Tag'] = $request->tag;
+        }
+        $req = new OpenApiRequest([
             'query' => OpenApiUtilClient::query($query),
         ]);
         $params = new Params([
@@ -2397,13 +2749,23 @@ class Cr extends OpenApiClient
     public function getRepoTagScanSummaryWithOptions($request, $runtime)
     {
         Utils::validateModel($request);
-        $query               = [];
-        $query['Digest']     = $request->digest;
-        $query['InstanceId'] = $request->instanceId;
-        $query['RepoId']     = $request->repoId;
-        $query['ScanTaskId'] = $request->scanTaskId;
-        $query['Tag']        = $request->tag;
-        $req                 = new OpenApiRequest([
+        $query = [];
+        if (!Utils::isUnset($request->digest)) {
+            $query['Digest'] = $request->digest;
+        }
+        if (!Utils::isUnset($request->instanceId)) {
+            $query['InstanceId'] = $request->instanceId;
+        }
+        if (!Utils::isUnset($request->repoId)) {
+            $query['RepoId'] = $request->repoId;
+        }
+        if (!Utils::isUnset($request->scanTaskId)) {
+            $query['ScanTaskId'] = $request->scanTaskId;
+        }
+        if (!Utils::isUnset($request->tag)) {
+            $query['Tag'] = $request->tag;
+        }
+        $req = new OpenApiRequest([
             'query' => OpenApiUtilClient::query($query),
         ]);
         $params = new Params([
@@ -2442,12 +2804,20 @@ class Cr extends OpenApiClient
     public function getRepositoryWithOptions($request, $runtime)
     {
         Utils::validateModel($request);
-        $query                      = [];
-        $query['InstanceId']        = $request->instanceId;
-        $query['RepoId']            = $request->repoId;
-        $query['RepoName']          = $request->repoName;
-        $query['RepoNamespaceName'] = $request->repoNamespaceName;
-        $req                        = new OpenApiRequest([
+        $query = [];
+        if (!Utils::isUnset($request->instanceId)) {
+            $query['InstanceId'] = $request->instanceId;
+        }
+        if (!Utils::isUnset($request->repoId)) {
+            $query['RepoId'] = $request->repoId;
+        }
+        if (!Utils::isUnset($request->repoName)) {
+            $query['RepoName'] = $request->repoName;
+        }
+        if (!Utils::isUnset($request->repoNamespaceName)) {
+            $query['RepoNamespaceName'] = $request->repoNamespaceName;
+        }
+        $req = new OpenApiRequest([
             'query' => OpenApiUtilClient::query($query),
         ]);
         $params = new Params([
@@ -2526,13 +2896,23 @@ class Cr extends OpenApiClient
     public function listChainWithOptions($request, $runtime)
     {
         Utils::validateModel($request);
-        $query                      = [];
-        $query['InstanceId']        = $request->instanceId;
-        $query['PageNo']            = $request->pageNo;
-        $query['PageSize']          = $request->pageSize;
-        $query['RepoName']          = $request->repoName;
-        $query['RepoNamespaceName'] = $request->repoNamespaceName;
-        $req                        = new OpenApiRequest([
+        $query = [];
+        if (!Utils::isUnset($request->instanceId)) {
+            $query['InstanceId'] = $request->instanceId;
+        }
+        if (!Utils::isUnset($request->pageNo)) {
+            $query['PageNo'] = $request->pageNo;
+        }
+        if (!Utils::isUnset($request->pageSize)) {
+            $query['PageSize'] = $request->pageSize;
+        }
+        if (!Utils::isUnset($request->repoName)) {
+            $query['RepoName'] = $request->repoName;
+        }
+        if (!Utils::isUnset($request->repoNamespaceName)) {
+            $query['RepoNamespaceName'] = $request->repoNamespaceName;
+        }
+        $req = new OpenApiRequest([
             'query' => OpenApiUtilClient::query($query),
         ]);
         $params = new Params([
@@ -2571,13 +2951,23 @@ class Cr extends OpenApiClient
     public function listChainInstanceWithOptions($request, $runtime)
     {
         Utils::validateModel($request);
-        $query                      = [];
-        $query['InstanceId']        = $request->instanceId;
-        $query['PageNo']            = $request->pageNo;
-        $query['PageSize']          = $request->pageSize;
-        $query['RepoName']          = $request->repoName;
-        $query['RepoNamespaceName'] = $request->repoNamespaceName;
-        $req                        = new OpenApiRequest([
+        $query = [];
+        if (!Utils::isUnset($request->instanceId)) {
+            $query['InstanceId'] = $request->instanceId;
+        }
+        if (!Utils::isUnset($request->pageNo)) {
+            $query['PageNo'] = $request->pageNo;
+        }
+        if (!Utils::isUnset($request->pageSize)) {
+            $query['PageSize'] = $request->pageSize;
+        }
+        if (!Utils::isUnset($request->repoName)) {
+            $query['RepoName'] = $request->repoName;
+        }
+        if (!Utils::isUnset($request->repoNamespaceName)) {
+            $query['RepoNamespaceName'] = $request->repoNamespaceName;
+        }
+        $req = new OpenApiRequest([
             'query' => OpenApiUtilClient::query($query),
         ]);
         $params = new Params([
@@ -2616,13 +3006,23 @@ class Cr extends OpenApiClient
     public function listChartNamespaceWithOptions($request, $runtime)
     {
         Utils::validateModel($request);
-        $query                    = [];
-        $query['InstanceId']      = $request->instanceId;
-        $query['NamespaceName']   = $request->namespaceName;
-        $query['NamespaceStatus'] = $request->namespaceStatus;
-        $query['PageNo']          = $request->pageNo;
-        $query['PageSize']        = $request->pageSize;
-        $req                      = new OpenApiRequest([
+        $query = [];
+        if (!Utils::isUnset($request->instanceId)) {
+            $query['InstanceId'] = $request->instanceId;
+        }
+        if (!Utils::isUnset($request->namespaceName)) {
+            $query['NamespaceName'] = $request->namespaceName;
+        }
+        if (!Utils::isUnset($request->namespaceStatus)) {
+            $query['NamespaceStatus'] = $request->namespaceStatus;
+        }
+        if (!Utils::isUnset($request->pageNo)) {
+            $query['PageNo'] = $request->pageNo;
+        }
+        if (!Utils::isUnset($request->pageSize)) {
+            $query['PageSize'] = $request->pageSize;
+        }
+        $req = new OpenApiRequest([
             'query' => OpenApiUtilClient::query($query),
         ]);
         $params = new Params([
@@ -2661,14 +3061,26 @@ class Cr extends OpenApiClient
     public function listChartReleaseWithOptions($request, $runtime)
     {
         Utils::validateModel($request);
-        $query                      = [];
-        $query['Chart']             = $request->chart;
-        $query['InstanceId']        = $request->instanceId;
-        $query['PageNo']            = $request->pageNo;
-        $query['PageSize']          = $request->pageSize;
-        $query['RepoName']          = $request->repoName;
-        $query['RepoNamespaceName'] = $request->repoNamespaceName;
-        $req                        = new OpenApiRequest([
+        $query = [];
+        if (!Utils::isUnset($request->chart)) {
+            $query['Chart'] = $request->chart;
+        }
+        if (!Utils::isUnset($request->instanceId)) {
+            $query['InstanceId'] = $request->instanceId;
+        }
+        if (!Utils::isUnset($request->pageNo)) {
+            $query['PageNo'] = $request->pageNo;
+        }
+        if (!Utils::isUnset($request->pageSize)) {
+            $query['PageSize'] = $request->pageSize;
+        }
+        if (!Utils::isUnset($request->repoName)) {
+            $query['RepoName'] = $request->repoName;
+        }
+        if (!Utils::isUnset($request->repoNamespaceName)) {
+            $query['RepoNamespaceName'] = $request->repoNamespaceName;
+        }
+        $req = new OpenApiRequest([
             'query' => OpenApiUtilClient::query($query),
         ]);
         $params = new Params([
@@ -2707,14 +3119,26 @@ class Cr extends OpenApiClient
     public function listChartRepositoryWithOptions($request, $runtime)
     {
         Utils::validateModel($request);
-        $query                      = [];
-        $query['InstanceId']        = $request->instanceId;
-        $query['PageNo']            = $request->pageNo;
-        $query['PageSize']          = $request->pageSize;
-        $query['RepoName']          = $request->repoName;
-        $query['RepoNamespaceName'] = $request->repoNamespaceName;
-        $query['RepoStatus']        = $request->repoStatus;
-        $req                        = new OpenApiRequest([
+        $query = [];
+        if (!Utils::isUnset($request->instanceId)) {
+            $query['InstanceId'] = $request->instanceId;
+        }
+        if (!Utils::isUnset($request->pageNo)) {
+            $query['PageNo'] = $request->pageNo;
+        }
+        if (!Utils::isUnset($request->pageSize)) {
+            $query['PageSize'] = $request->pageSize;
+        }
+        if (!Utils::isUnset($request->repoName)) {
+            $query['RepoName'] = $request->repoName;
+        }
+        if (!Utils::isUnset($request->repoNamespaceName)) {
+            $query['RepoNamespaceName'] = $request->repoNamespaceName;
+        }
+        if (!Utils::isUnset($request->repoStatus)) {
+            $query['RepoStatus'] = $request->repoStatus;
+        }
+        $req = new OpenApiRequest([
             'query' => OpenApiUtilClient::query($query),
         ]);
         $params = new Params([
@@ -2833,12 +3257,20 @@ class Cr extends OpenApiClient
     public function listInstanceWithOptions($request, $runtime)
     {
         Utils::validateModel($request);
-        $query                   = [];
-        $query['InstanceName']   = $request->instanceName;
-        $query['InstanceStatus'] = $request->instanceStatus;
-        $query['PageNo']         = $request->pageNo;
-        $query['PageSize']       = $request->pageSize;
-        $req                     = new OpenApiRequest([
+        $query = [];
+        if (!Utils::isUnset($request->instanceName)) {
+            $query['InstanceName'] = $request->instanceName;
+        }
+        if (!Utils::isUnset($request->instanceStatus)) {
+            $query['InstanceStatus'] = $request->instanceStatus;
+        }
+        if (!Utils::isUnset($request->pageNo)) {
+            $query['PageNo'] = $request->pageNo;
+        }
+        if (!Utils::isUnset($request->pageSize)) {
+            $query['PageSize'] = $request->pageSize;
+        }
+        $req = new OpenApiRequest([
             'query' => OpenApiUtilClient::query($query),
         ]);
         $params = new Params([
@@ -2877,10 +3309,14 @@ class Cr extends OpenApiClient
     public function listInstanceEndpointWithOptions($request, $runtime)
     {
         Utils::validateModel($request);
-        $query               = [];
-        $query['InstanceId'] = $request->instanceId;
-        $query['ModuleName'] = $request->moduleName;
-        $req                 = new OpenApiRequest([
+        $query = [];
+        if (!Utils::isUnset($request->instanceId)) {
+            $query['InstanceId'] = $request->instanceId;
+        }
+        if (!Utils::isUnset($request->moduleName)) {
+            $query['ModuleName'] = $request->moduleName;
+        }
+        $req = new OpenApiRequest([
             'query' => OpenApiUtilClient::query($query),
         ]);
         $params = new Params([
@@ -2919,9 +3355,11 @@ class Cr extends OpenApiClient
     public function listInstanceRegionWithOptions($request, $runtime)
     {
         Utils::validateModel($request);
-        $query         = [];
-        $query['Lang'] = $request->lang;
-        $req           = new OpenApiRequest([
+        $query = [];
+        if (!Utils::isUnset($request->lang)) {
+            $query['Lang'] = $request->lang;
+        }
+        $req = new OpenApiRequest([
             'query' => OpenApiUtilClient::query($query),
         ]);
         $params = new Params([
@@ -2960,13 +3398,23 @@ class Cr extends OpenApiClient
     public function listNamespaceWithOptions($request, $runtime)
     {
         Utils::validateModel($request);
-        $query                    = [];
-        $query['InstanceId']      = $request->instanceId;
-        $query['NamespaceName']   = $request->namespaceName;
-        $query['NamespaceStatus'] = $request->namespaceStatus;
-        $query['PageNo']          = $request->pageNo;
-        $query['PageSize']        = $request->pageSize;
-        $req                      = new OpenApiRequest([
+        $query = [];
+        if (!Utils::isUnset($request->instanceId)) {
+            $query['InstanceId'] = $request->instanceId;
+        }
+        if (!Utils::isUnset($request->namespaceName)) {
+            $query['NamespaceName'] = $request->namespaceName;
+        }
+        if (!Utils::isUnset($request->namespaceStatus)) {
+            $query['NamespaceStatus'] = $request->namespaceStatus;
+        }
+        if (!Utils::isUnset($request->pageNo)) {
+            $query['PageNo'] = $request->pageNo;
+        }
+        if (!Utils::isUnset($request->pageSize)) {
+            $query['PageSize'] = $request->pageSize;
+        }
+        $req = new OpenApiRequest([
             'query' => OpenApiUtilClient::query($query),
         ]);
         $params = new Params([
@@ -3005,12 +3453,20 @@ class Cr extends OpenApiClient
     public function listRepoBuildRecordWithOptions($request, $runtime)
     {
         Utils::validateModel($request);
-        $query               = [];
-        $query['InstanceId'] = $request->instanceId;
-        $query['PageNo']     = $request->pageNo;
-        $query['PageSize']   = $request->pageSize;
-        $query['RepoId']     = $request->repoId;
-        $req                 = new OpenApiRequest([
+        $query = [];
+        if (!Utils::isUnset($request->instanceId)) {
+            $query['InstanceId'] = $request->instanceId;
+        }
+        if (!Utils::isUnset($request->pageNo)) {
+            $query['PageNo'] = $request->pageNo;
+        }
+        if (!Utils::isUnset($request->pageSize)) {
+            $query['PageSize'] = $request->pageSize;
+        }
+        if (!Utils::isUnset($request->repoId)) {
+            $query['RepoId'] = $request->repoId;
+        }
+        $req = new OpenApiRequest([
             'query' => OpenApiUtilClient::query($query),
         ]);
         $params = new Params([
@@ -3049,12 +3505,20 @@ class Cr extends OpenApiClient
     public function listRepoBuildRecordLogWithOptions($request, $runtime)
     {
         Utils::validateModel($request);
-        $query                  = [];
-        $query['BuildRecordId'] = $request->buildRecordId;
-        $query['InstanceId']    = $request->instanceId;
-        $query['Offset']        = $request->offset;
-        $query['RepoId']        = $request->repoId;
-        $req                    = new OpenApiRequest([
+        $query = [];
+        if (!Utils::isUnset($request->buildRecordId)) {
+            $query['BuildRecordId'] = $request->buildRecordId;
+        }
+        if (!Utils::isUnset($request->instanceId)) {
+            $query['InstanceId'] = $request->instanceId;
+        }
+        if (!Utils::isUnset($request->offset)) {
+            $query['Offset'] = $request->offset;
+        }
+        if (!Utils::isUnset($request->repoId)) {
+            $query['RepoId'] = $request->repoId;
+        }
+        $req = new OpenApiRequest([
             'query' => OpenApiUtilClient::query($query),
         ]);
         $params = new Params([
@@ -3093,12 +3557,20 @@ class Cr extends OpenApiClient
     public function listRepoBuildRuleWithOptions($request, $runtime)
     {
         Utils::validateModel($request);
-        $query               = [];
-        $query['InstanceId'] = $request->instanceId;
-        $query['PageNo']     = $request->pageNo;
-        $query['PageSize']   = $request->pageSize;
-        $query['RepoId']     = $request->repoId;
-        $req                 = new OpenApiRequest([
+        $query = [];
+        if (!Utils::isUnset($request->instanceId)) {
+            $query['InstanceId'] = $request->instanceId;
+        }
+        if (!Utils::isUnset($request->pageNo)) {
+            $query['PageNo'] = $request->pageNo;
+        }
+        if (!Utils::isUnset($request->pageSize)) {
+            $query['PageSize'] = $request->pageSize;
+        }
+        if (!Utils::isUnset($request->repoId)) {
+            $query['RepoId'] = $request->repoId;
+        }
+        $req = new OpenApiRequest([
             'query' => OpenApiUtilClient::query($query),
         ]);
         $params = new Params([
@@ -3137,15 +3609,29 @@ class Cr extends OpenApiClient
     public function listRepoSyncRuleWithOptions($request, $runtime)
     {
         Utils::validateModel($request);
-        $query                     = [];
-        $query['InstanceId']       = $request->instanceId;
-        $query['NamespaceName']    = $request->namespaceName;
-        $query['PageNo']           = $request->pageNo;
-        $query['PageSize']         = $request->pageSize;
-        $query['RepoName']         = $request->repoName;
-        $query['TargetInstanceId'] = $request->targetInstanceId;
-        $query['TargetRegionId']   = $request->targetRegionId;
-        $req                       = new OpenApiRequest([
+        $query = [];
+        if (!Utils::isUnset($request->instanceId)) {
+            $query['InstanceId'] = $request->instanceId;
+        }
+        if (!Utils::isUnset($request->namespaceName)) {
+            $query['NamespaceName'] = $request->namespaceName;
+        }
+        if (!Utils::isUnset($request->pageNo)) {
+            $query['PageNo'] = $request->pageNo;
+        }
+        if (!Utils::isUnset($request->pageSize)) {
+            $query['PageSize'] = $request->pageSize;
+        }
+        if (!Utils::isUnset($request->repoName)) {
+            $query['RepoName'] = $request->repoName;
+        }
+        if (!Utils::isUnset($request->targetInstanceId)) {
+            $query['TargetInstanceId'] = $request->targetInstanceId;
+        }
+        if (!Utils::isUnset($request->targetRegionId)) {
+            $query['TargetRegionId'] = $request->targetRegionId;
+        }
+        $req = new OpenApiRequest([
             'query' => OpenApiUtilClient::query($query),
         ]);
         $params = new Params([
@@ -3184,15 +3670,29 @@ class Cr extends OpenApiClient
     public function listRepoSyncTaskWithOptions($request, $runtime)
     {
         Utils::validateModel($request);
-        $query                      = [];
-        $query['InstanceId']        = $request->instanceId;
-        $query['PageNo']            = $request->pageNo;
-        $query['PageSize']          = $request->pageSize;
-        $query['RepoName']          = $request->repoName;
-        $query['RepoNamespaceName'] = $request->repoNamespaceName;
-        $query['SyncRecordId']      = $request->syncRecordId;
-        $query['Tag']               = $request->tag;
-        $req                        = new OpenApiRequest([
+        $query = [];
+        if (!Utils::isUnset($request->instanceId)) {
+            $query['InstanceId'] = $request->instanceId;
+        }
+        if (!Utils::isUnset($request->pageNo)) {
+            $query['PageNo'] = $request->pageNo;
+        }
+        if (!Utils::isUnset($request->pageSize)) {
+            $query['PageSize'] = $request->pageSize;
+        }
+        if (!Utils::isUnset($request->repoName)) {
+            $query['RepoName'] = $request->repoName;
+        }
+        if (!Utils::isUnset($request->repoNamespaceName)) {
+            $query['RepoNamespaceName'] = $request->repoNamespaceName;
+        }
+        if (!Utils::isUnset($request->syncRecordId)) {
+            $query['SyncRecordId'] = $request->syncRecordId;
+        }
+        if (!Utils::isUnset($request->tag)) {
+            $query['Tag'] = $request->tag;
+        }
+        $req = new OpenApiRequest([
             'query' => OpenApiUtilClient::query($query),
         ]);
         $params = new Params([
@@ -3231,12 +3731,20 @@ class Cr extends OpenApiClient
     public function listRepoTagWithOptions($request, $runtime)
     {
         Utils::validateModel($request);
-        $query               = [];
-        $query['InstanceId'] = $request->instanceId;
-        $query['PageNo']     = $request->pageNo;
-        $query['PageSize']   = $request->pageSize;
-        $query['RepoId']     = $request->repoId;
-        $req                 = new OpenApiRequest([
+        $query = [];
+        if (!Utils::isUnset($request->instanceId)) {
+            $query['InstanceId'] = $request->instanceId;
+        }
+        if (!Utils::isUnset($request->pageNo)) {
+            $query['PageNo'] = $request->pageNo;
+        }
+        if (!Utils::isUnset($request->pageSize)) {
+            $query['PageSize'] = $request->pageSize;
+        }
+        if (!Utils::isUnset($request->repoId)) {
+            $query['RepoId'] = $request->repoId;
+        }
+        $req = new OpenApiRequest([
             'query' => OpenApiUtilClient::query($query),
         ]);
         $params = new Params([
@@ -3275,16 +3783,32 @@ class Cr extends OpenApiClient
     public function listRepoTagScanResultWithOptions($request, $runtime)
     {
         Utils::validateModel($request);
-        $query               = [];
-        $query['Digest']     = $request->digest;
-        $query['InstanceId'] = $request->instanceId;
-        $query['PageNo']     = $request->pageNo;
-        $query['PageSize']   = $request->pageSize;
-        $query['RepoId']     = $request->repoId;
-        $query['ScanTaskId'] = $request->scanTaskId;
-        $query['Severity']   = $request->severity;
-        $query['Tag']        = $request->tag;
-        $req                 = new OpenApiRequest([
+        $query = [];
+        if (!Utils::isUnset($request->digest)) {
+            $query['Digest'] = $request->digest;
+        }
+        if (!Utils::isUnset($request->instanceId)) {
+            $query['InstanceId'] = $request->instanceId;
+        }
+        if (!Utils::isUnset($request->pageNo)) {
+            $query['PageNo'] = $request->pageNo;
+        }
+        if (!Utils::isUnset($request->pageSize)) {
+            $query['PageSize'] = $request->pageSize;
+        }
+        if (!Utils::isUnset($request->repoId)) {
+            $query['RepoId'] = $request->repoId;
+        }
+        if (!Utils::isUnset($request->scanTaskId)) {
+            $query['ScanTaskId'] = $request->scanTaskId;
+        }
+        if (!Utils::isUnset($request->severity)) {
+            $query['Severity'] = $request->severity;
+        }
+        if (!Utils::isUnset($request->tag)) {
+            $query['Tag'] = $request->tag;
+        }
+        $req = new OpenApiRequest([
             'query' => OpenApiUtilClient::query($query),
         ]);
         $params = new Params([
@@ -3323,10 +3847,14 @@ class Cr extends OpenApiClient
     public function listRepoTriggerWithOptions($request, $runtime)
     {
         Utils::validateModel($request);
-        $query               = [];
-        $query['InstanceId'] = $request->instanceId;
-        $query['RepoId']     = $request->repoId;
-        $req                 = new OpenApiRequest([
+        $query = [];
+        if (!Utils::isUnset($request->instanceId)) {
+            $query['InstanceId'] = $request->instanceId;
+        }
+        if (!Utils::isUnset($request->repoId)) {
+            $query['RepoId'] = $request->repoId;
+        }
+        $req = new OpenApiRequest([
             'query' => OpenApiUtilClient::query($query),
         ]);
         $params = new Params([
@@ -3365,14 +3893,26 @@ class Cr extends OpenApiClient
     public function listRepositoryWithOptions($request, $runtime)
     {
         Utils::validateModel($request);
-        $query                      = [];
-        $query['InstanceId']        = $request->instanceId;
-        $query['PageNo']            = $request->pageNo;
-        $query['PageSize']          = $request->pageSize;
-        $query['RepoName']          = $request->repoName;
-        $query['RepoNamespaceName'] = $request->repoNamespaceName;
-        $query['RepoStatus']        = $request->repoStatus;
-        $req                        = new OpenApiRequest([
+        $query = [];
+        if (!Utils::isUnset($request->instanceId)) {
+            $query['InstanceId'] = $request->instanceId;
+        }
+        if (!Utils::isUnset($request->pageNo)) {
+            $query['PageNo'] = $request->pageNo;
+        }
+        if (!Utils::isUnset($request->pageSize)) {
+            $query['PageSize'] = $request->pageSize;
+        }
+        if (!Utils::isUnset($request->repoName)) {
+            $query['RepoName'] = $request->repoName;
+        }
+        if (!Utils::isUnset($request->repoNamespaceName)) {
+            $query['RepoNamespaceName'] = $request->repoNamespaceName;
+        }
+        if (!Utils::isUnset($request->repoStatus)) {
+            $query['RepoStatus'] = $request->repoStatus;
+        }
+        $req = new OpenApiRequest([
             'query' => OpenApiUtilClient::query($query),
         ]);
         $params = new Params([
@@ -3411,10 +3951,14 @@ class Cr extends OpenApiClient
     public function resetLoginPasswordWithOptions($request, $runtime)
     {
         Utils::validateModel($request);
-        $query               = [];
-        $query['InstanceId'] = $request->instanceId;
-        $query['Password']   = $request->password;
-        $req                 = new OpenApiRequest([
+        $query = [];
+        if (!Utils::isUnset($request->instanceId)) {
+            $query['InstanceId'] = $request->instanceId;
+        }
+        if (!Utils::isUnset($request->password)) {
+            $query['Password'] = $request->password;
+        }
+        $req = new OpenApiRequest([
             'query' => OpenApiUtilClient::query($query),
         ]);
         $params = new Params([
@@ -3453,13 +3997,23 @@ class Cr extends OpenApiClient
     public function updateChainWithOptions($request, $runtime)
     {
         Utils::validateModel($request);
-        $query                = [];
-        $query['ChainConfig'] = $request->chainConfig;
-        $query['ChainId']     = $request->chainId;
-        $query['Description'] = $request->description;
-        $query['InstanceId']  = $request->instanceId;
-        $query['Name']        = $request->name;
-        $req                  = new OpenApiRequest([
+        $query = [];
+        if (!Utils::isUnset($request->chainConfig)) {
+            $query['ChainConfig'] = $request->chainConfig;
+        }
+        if (!Utils::isUnset($request->chainId)) {
+            $query['ChainId'] = $request->chainId;
+        }
+        if (!Utils::isUnset($request->description)) {
+            $query['Description'] = $request->description;
+        }
+        if (!Utils::isUnset($request->instanceId)) {
+            $query['InstanceId'] = $request->instanceId;
+        }
+        if (!Utils::isUnset($request->name)) {
+            $query['Name'] = $request->name;
+        }
+        $req = new OpenApiRequest([
             'query' => OpenApiUtilClient::query($query),
         ]);
         $params = new Params([
@@ -3498,12 +4052,20 @@ class Cr extends OpenApiClient
     public function updateChartNamespaceWithOptions($request, $runtime)
     {
         Utils::validateModel($request);
-        $query                    = [];
-        $query['AutoCreateRepo']  = $request->autoCreateRepo;
-        $query['DefaultRepoType'] = $request->defaultRepoType;
-        $query['InstanceId']      = $request->instanceId;
-        $query['NamespaceName']   = $request->namespaceName;
-        $req                      = new OpenApiRequest([
+        $query = [];
+        if (!Utils::isUnset($request->autoCreateRepo)) {
+            $query['AutoCreateRepo'] = $request->autoCreateRepo;
+        }
+        if (!Utils::isUnset($request->defaultRepoType)) {
+            $query['DefaultRepoType'] = $request->defaultRepoType;
+        }
+        if (!Utils::isUnset($request->instanceId)) {
+            $query['InstanceId'] = $request->instanceId;
+        }
+        if (!Utils::isUnset($request->namespaceName)) {
+            $query['NamespaceName'] = $request->namespaceName;
+        }
+        $req = new OpenApiRequest([
             'query' => OpenApiUtilClient::query($query),
         ]);
         $params = new Params([
@@ -3542,13 +4104,23 @@ class Cr extends OpenApiClient
     public function updateChartRepositoryWithOptions($request, $runtime)
     {
         Utils::validateModel($request);
-        $query                      = [];
-        $query['InstanceId']        = $request->instanceId;
-        $query['RepoName']          = $request->repoName;
-        $query['RepoNamespaceName'] = $request->repoNamespaceName;
-        $query['RepoType']          = $request->repoType;
-        $query['Summary']           = $request->summary;
-        $req                        = new OpenApiRequest([
+        $query = [];
+        if (!Utils::isUnset($request->instanceId)) {
+            $query['InstanceId'] = $request->instanceId;
+        }
+        if (!Utils::isUnset($request->repoName)) {
+            $query['RepoName'] = $request->repoName;
+        }
+        if (!Utils::isUnset($request->repoNamespaceName)) {
+            $query['RepoNamespaceName'] = $request->repoNamespaceName;
+        }
+        if (!Utils::isUnset($request->repoType)) {
+            $query['RepoType'] = $request->repoType;
+        }
+        if (!Utils::isUnset($request->summary)) {
+            $query['Summary'] = $request->summary;
+        }
+        $req = new OpenApiRequest([
             'query' => OpenApiUtilClient::query($query),
         ]);
         $params = new Params([
@@ -3595,18 +4167,38 @@ class Cr extends OpenApiClient
         if (!Utils::isUnset($tmpReq->repoNames)) {
             $request->repoNamesShrink = OpenApiUtilClient::arrayToStringWithSpecifiedStyle($tmpReq->repoNames, 'RepoNames', 'json');
         }
-        $query                         = [];
-        $query['EventChannel']         = $request->eventChannel;
-        $query['EventConfig']          = $request->eventConfig;
-        $query['EventScope']           = $request->eventScope;
-        $query['EventType']            = $request->eventType;
-        $query['InstanceId']           = $request->instanceId;
-        $query['Namespaces']           = $request->namespacesShrink;
-        $query['RepoNames']            = $request->repoNamesShrink;
-        $query['RepoTagFilterPattern'] = $request->repoTagFilterPattern;
-        $query['RuleId']               = $request->ruleId;
-        $query['RuleName']             = $request->ruleName;
-        $req                           = new OpenApiRequest([
+        $query = [];
+        if (!Utils::isUnset($request->eventChannel)) {
+            $query['EventChannel'] = $request->eventChannel;
+        }
+        if (!Utils::isUnset($request->eventConfig)) {
+            $query['EventConfig'] = $request->eventConfig;
+        }
+        if (!Utils::isUnset($request->eventScope)) {
+            $query['EventScope'] = $request->eventScope;
+        }
+        if (!Utils::isUnset($request->eventType)) {
+            $query['EventType'] = $request->eventType;
+        }
+        if (!Utils::isUnset($request->instanceId)) {
+            $query['InstanceId'] = $request->instanceId;
+        }
+        if (!Utils::isUnset($request->namespacesShrink)) {
+            $query['Namespaces'] = $request->namespacesShrink;
+        }
+        if (!Utils::isUnset($request->repoNamesShrink)) {
+            $query['RepoNames'] = $request->repoNamesShrink;
+        }
+        if (!Utils::isUnset($request->repoTagFilterPattern)) {
+            $query['RepoTagFilterPattern'] = $request->repoTagFilterPattern;
+        }
+        if (!Utils::isUnset($request->ruleId)) {
+            $query['RuleId'] = $request->ruleId;
+        }
+        if (!Utils::isUnset($request->ruleName)) {
+            $query['RuleName'] = $request->ruleName;
+        }
+        $req = new OpenApiRequest([
             'query' => OpenApiUtilClient::query($query),
         ]);
         $params = new Params([
@@ -3645,12 +4237,20 @@ class Cr extends OpenApiClient
     public function updateInstanceEndpointStatusWithOptions($request, $runtime)
     {
         Utils::validateModel($request);
-        $query                 = [];
-        $query['Enable']       = $request->enable;
-        $query['EndpointType'] = $request->endpointType;
-        $query['InstanceId']   = $request->instanceId;
-        $query['ModuleName']   = $request->moduleName;
-        $req                   = new OpenApiRequest([
+        $query = [];
+        if (!Utils::isUnset($request->enable)) {
+            $query['Enable'] = $request->enable;
+        }
+        if (!Utils::isUnset($request->endpointType)) {
+            $query['EndpointType'] = $request->endpointType;
+        }
+        if (!Utils::isUnset($request->instanceId)) {
+            $query['InstanceId'] = $request->instanceId;
+        }
+        if (!Utils::isUnset($request->moduleName)) {
+            $query['ModuleName'] = $request->moduleName;
+        }
+        $req = new OpenApiRequest([
             'query' => OpenApiUtilClient::query($query),
         ]);
         $params = new Params([
@@ -3689,12 +4289,20 @@ class Cr extends OpenApiClient
     public function updateNamespaceWithOptions($request, $runtime)
     {
         Utils::validateModel($request);
-        $query                    = [];
-        $query['AutoCreateRepo']  = $request->autoCreateRepo;
-        $query['DefaultRepoType'] = $request->defaultRepoType;
-        $query['InstanceId']      = $request->instanceId;
-        $query['NamespaceName']   = $request->namespaceName;
-        $req                      = new OpenApiRequest([
+        $query = [];
+        if (!Utils::isUnset($request->autoCreateRepo)) {
+            $query['AutoCreateRepo'] = $request->autoCreateRepo;
+        }
+        if (!Utils::isUnset($request->defaultRepoType)) {
+            $query['DefaultRepoType'] = $request->defaultRepoType;
+        }
+        if (!Utils::isUnset($request->instanceId)) {
+            $query['InstanceId'] = $request->instanceId;
+        }
+        if (!Utils::isUnset($request->namespaceName)) {
+            $query['NamespaceName'] = $request->namespaceName;
+        }
+        $req = new OpenApiRequest([
             'query' => OpenApiUtilClient::query($query),
         ]);
         $params = new Params([
@@ -3733,17 +4341,35 @@ class Cr extends OpenApiClient
     public function updateRepoBuildRuleWithOptions($request, $runtime)
     {
         Utils::validateModel($request);
-        $query                       = [];
-        $query['BuildRuleId']        = $request->buildRuleId;
-        $query['DockerfileLocation'] = $request->dockerfileLocation;
-        $query['DockerfileName']     = $request->dockerfileName;
-        $query['ImageTag']           = $request->imageTag;
-        $query['InstanceId']         = $request->instanceId;
-        $query['Platforms']          = $request->platforms;
-        $query['PushName']           = $request->pushName;
-        $query['PushType']           = $request->pushType;
-        $query['RepoId']             = $request->repoId;
-        $req                         = new OpenApiRequest([
+        $query = [];
+        if (!Utils::isUnset($request->buildRuleId)) {
+            $query['BuildRuleId'] = $request->buildRuleId;
+        }
+        if (!Utils::isUnset($request->dockerfileLocation)) {
+            $query['DockerfileLocation'] = $request->dockerfileLocation;
+        }
+        if (!Utils::isUnset($request->dockerfileName)) {
+            $query['DockerfileName'] = $request->dockerfileName;
+        }
+        if (!Utils::isUnset($request->imageTag)) {
+            $query['ImageTag'] = $request->imageTag;
+        }
+        if (!Utils::isUnset($request->instanceId)) {
+            $query['InstanceId'] = $request->instanceId;
+        }
+        if (!Utils::isUnset($request->platforms)) {
+            $query['Platforms'] = $request->platforms;
+        }
+        if (!Utils::isUnset($request->pushName)) {
+            $query['PushName'] = $request->pushName;
+        }
+        if (!Utils::isUnset($request->pushType)) {
+            $query['PushType'] = $request->pushType;
+        }
+        if (!Utils::isUnset($request->repoId)) {
+            $query['RepoId'] = $request->repoId;
+        }
+        $req = new OpenApiRequest([
             'query' => OpenApiUtilClient::query($query),
         ]);
         $params = new Params([
@@ -3782,17 +4408,35 @@ class Cr extends OpenApiClient
     public function updateRepoSourceCodeRepoWithOptions($request, $runtime)
     {
         Utils::validateModel($request);
-        $query                          = [];
-        $query['AutoBuild']             = $request->autoBuild;
-        $query['CodeRepoId']            = $request->codeRepoId;
-        $query['CodeRepoName']          = $request->codeRepoName;
-        $query['CodeRepoNamespaceName'] = $request->codeRepoNamespaceName;
-        $query['CodeRepoType']          = $request->codeRepoType;
-        $query['DisableCacheBuild']     = $request->disableCacheBuild;
-        $query['InstanceId']            = $request->instanceId;
-        $query['OverseaBuild']          = $request->overseaBuild;
-        $query['RepoId']                = $request->repoId;
-        $req                            = new OpenApiRequest([
+        $query = [];
+        if (!Utils::isUnset($request->autoBuild)) {
+            $query['AutoBuild'] = $request->autoBuild;
+        }
+        if (!Utils::isUnset($request->codeRepoId)) {
+            $query['CodeRepoId'] = $request->codeRepoId;
+        }
+        if (!Utils::isUnset($request->codeRepoName)) {
+            $query['CodeRepoName'] = $request->codeRepoName;
+        }
+        if (!Utils::isUnset($request->codeRepoNamespaceName)) {
+            $query['CodeRepoNamespaceName'] = $request->codeRepoNamespaceName;
+        }
+        if (!Utils::isUnset($request->codeRepoType)) {
+            $query['CodeRepoType'] = $request->codeRepoType;
+        }
+        if (!Utils::isUnset($request->disableCacheBuild)) {
+            $query['DisableCacheBuild'] = $request->disableCacheBuild;
+        }
+        if (!Utils::isUnset($request->instanceId)) {
+            $query['InstanceId'] = $request->instanceId;
+        }
+        if (!Utils::isUnset($request->overseaBuild)) {
+            $query['OverseaBuild'] = $request->overseaBuild;
+        }
+        if (!Utils::isUnset($request->repoId)) {
+            $query['RepoId'] = $request->repoId;
+        }
+        $req = new OpenApiRequest([
             'query' => OpenApiUtilClient::query($query),
         ]);
         $params = new Params([
@@ -3831,15 +4475,29 @@ class Cr extends OpenApiClient
     public function updateRepoTriggerWithOptions($request, $runtime)
     {
         Utils::validateModel($request);
-        $query                = [];
-        $query['InstanceId']  = $request->instanceId;
-        $query['RepoId']      = $request->repoId;
-        $query['TriggerId']   = $request->triggerId;
-        $query['TriggerName'] = $request->triggerName;
-        $query['TriggerTag']  = $request->triggerTag;
-        $query['TriggerType'] = $request->triggerType;
-        $query['TriggerUrl']  = $request->triggerUrl;
-        $req                  = new OpenApiRequest([
+        $query = [];
+        if (!Utils::isUnset($request->instanceId)) {
+            $query['InstanceId'] = $request->instanceId;
+        }
+        if (!Utils::isUnset($request->repoId)) {
+            $query['RepoId'] = $request->repoId;
+        }
+        if (!Utils::isUnset($request->triggerId)) {
+            $query['TriggerId'] = $request->triggerId;
+        }
+        if (!Utils::isUnset($request->triggerName)) {
+            $query['TriggerName'] = $request->triggerName;
+        }
+        if (!Utils::isUnset($request->triggerTag)) {
+            $query['TriggerTag'] = $request->triggerTag;
+        }
+        if (!Utils::isUnset($request->triggerType)) {
+            $query['TriggerType'] = $request->triggerType;
+        }
+        if (!Utils::isUnset($request->triggerUrl)) {
+            $query['TriggerUrl'] = $request->triggerUrl;
+        }
+        $req = new OpenApiRequest([
             'query' => OpenApiUtilClient::query($query),
         ]);
         $params = new Params([
@@ -3878,14 +4536,26 @@ class Cr extends OpenApiClient
     public function updateRepositoryWithOptions($request, $runtime)
     {
         Utils::validateModel($request);
-        $query                    = [];
-        $query['Detail']          = $request->detail;
-        $query['InstanceId']      = $request->instanceId;
-        $query['RepoId']          = $request->repoId;
-        $query['RepoType']        = $request->repoType;
-        $query['Summary']         = $request->summary;
-        $query['TagImmutability'] = $request->tagImmutability;
-        $req                      = new OpenApiRequest([
+        $query = [];
+        if (!Utils::isUnset($request->detail)) {
+            $query['Detail'] = $request->detail;
+        }
+        if (!Utils::isUnset($request->instanceId)) {
+            $query['InstanceId'] = $request->instanceId;
+        }
+        if (!Utils::isUnset($request->repoId)) {
+            $query['RepoId'] = $request->repoId;
+        }
+        if (!Utils::isUnset($request->repoType)) {
+            $query['RepoType'] = $request->repoType;
+        }
+        if (!Utils::isUnset($request->summary)) {
+            $query['Summary'] = $request->summary;
+        }
+        if (!Utils::isUnset($request->tagImmutability)) {
+            $query['TagImmutability'] = $request->tagImmutability;
+        }
+        $req = new OpenApiRequest([
             'query' => OpenApiUtilClient::query($query),
         ]);
         $params = new Params([

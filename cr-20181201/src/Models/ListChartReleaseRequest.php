@@ -31,11 +31,6 @@ class ListChartReleaseRequest extends Model
     /**
      * @var string
      */
-    public $regionId;
-
-    /**
-     * @var string
-     */
     public $repoName;
 
     /**
@@ -47,7 +42,6 @@ class ListChartReleaseRequest extends Model
         'instanceId'        => 'InstanceId',
         'pageNo'            => 'PageNo',
         'pageSize'          => 'PageSize',
-        'regionId'          => 'RegionId',
         'repoName'          => 'RepoName',
         'repoNamespaceName' => 'RepoNamespaceName',
     ];
@@ -70,9 +64,6 @@ class ListChartReleaseRequest extends Model
         }
         if (null !== $this->pageSize) {
             $res['PageSize'] = $this->pageSize;
-        }
-        if (null !== $this->regionId) {
-            $res['RegionId'] = $this->regionId;
         }
         if (null !== $this->repoName) {
             $res['RepoName'] = $this->repoName;
@@ -103,9 +94,6 @@ class ListChartReleaseRequest extends Model
         }
         if (isset($map['PageSize'])) {
             $model->pageSize = $map['PageSize'];
-        }
-        if (isset($map['RegionId'])) {
-            $model->regionId = $map['RegionId'];
         }
         if (isset($map['RepoName'])) {
             $model->repoName = $map['RepoName'];

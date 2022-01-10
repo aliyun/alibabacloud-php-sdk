@@ -51,6 +51,11 @@ class syncTasks extends Model
     public $syncTaskId;
 
     /**
+     * @var bool
+     */
+    public $syncTransAccelerate;
+
+    /**
      * @var string
      */
     public $taskStatus;
@@ -60,16 +65,17 @@ class syncTasks extends Model
      */
     public $taskTrigger;
     protected $_name = [
-        'createTime'      => 'CreateTime',
-        'crossUser'       => 'CrossUser',
-        'imageFrom'       => 'ImageFrom',
-        'imageTo'         => 'ImageTo',
-        'modifedTime'     => 'ModifedTime',
-        'syncBatchTaskId' => 'SyncBatchTaskId',
-        'syncRuleId'      => 'SyncRuleId',
-        'syncTaskId'      => 'SyncTaskId',
-        'taskStatus'      => 'TaskStatus',
-        'taskTrigger'     => 'TaskTrigger',
+        'createTime'          => 'CreateTime',
+        'crossUser'           => 'CrossUser',
+        'imageFrom'           => 'ImageFrom',
+        'imageTo'             => 'ImageTo',
+        'modifedTime'         => 'ModifedTime',
+        'syncBatchTaskId'     => 'SyncBatchTaskId',
+        'syncRuleId'          => 'SyncRuleId',
+        'syncTaskId'          => 'SyncTaskId',
+        'syncTransAccelerate' => 'SyncTransAccelerate',
+        'taskStatus'          => 'TaskStatus',
+        'taskTrigger'         => 'TaskTrigger',
     ];
 
     public function validate()
@@ -102,6 +108,9 @@ class syncTasks extends Model
         }
         if (null !== $this->syncTaskId) {
             $res['SyncTaskId'] = $this->syncTaskId;
+        }
+        if (null !== $this->syncTransAccelerate) {
+            $res['SyncTransAccelerate'] = $this->syncTransAccelerate;
         }
         if (null !== $this->taskStatus) {
             $res['TaskStatus'] = $this->taskStatus;
@@ -144,6 +153,9 @@ class syncTasks extends Model
         }
         if (isset($map['SyncTaskId'])) {
             $model->syncTaskId = $map['SyncTaskId'];
+        }
+        if (isset($map['SyncTransAccelerate'])) {
+            $model->syncTransAccelerate = $map['SyncTransAccelerate'];
         }
         if (isset($map['TaskStatus'])) {
             $model->taskStatus = $map['TaskStatus'];

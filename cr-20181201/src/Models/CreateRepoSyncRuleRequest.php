@@ -21,11 +21,6 @@ class CreateRepoSyncRuleRequest extends Model
     /**
      * @var string
      */
-    public $regionId;
-
-    /**
-     * @var string
-     */
     public $repoName;
 
     /**
@@ -75,7 +70,6 @@ class CreateRepoSyncRuleRequest extends Model
     protected $_name = [
         'instanceId'          => 'InstanceId',
         'namespaceName'       => 'NamespaceName',
-        'regionId'            => 'RegionId',
         'repoName'            => 'RepoName',
         'syncRuleName'        => 'SyncRuleName',
         'syncScope'           => 'SyncScope',
@@ -100,9 +94,6 @@ class CreateRepoSyncRuleRequest extends Model
         }
         if (null !== $this->namespaceName) {
             $res['NamespaceName'] = $this->namespaceName;
-        }
-        if (null !== $this->regionId) {
-            $res['RegionId'] = $this->regionId;
         }
         if (null !== $this->repoName) {
             $res['RepoName'] = $this->repoName;
@@ -151,9 +142,6 @@ class CreateRepoSyncRuleRequest extends Model
         }
         if (isset($map['NamespaceName'])) {
             $model->namespaceName = $map['NamespaceName'];
-        }
-        if (isset($map['RegionId'])) {
-            $model->regionId = $map['RegionId'];
         }
         if (isset($map['RepoName'])) {
             $model->repoName = $map['RepoName'];

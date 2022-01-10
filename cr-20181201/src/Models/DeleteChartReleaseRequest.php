@@ -21,11 +21,6 @@ class DeleteChartReleaseRequest extends Model
     /**
      * @var string
      */
-    public $regionId;
-
-    /**
-     * @var string
-     */
     public $release;
 
     /**
@@ -40,7 +35,6 @@ class DeleteChartReleaseRequest extends Model
     protected $_name = [
         'chart'             => 'Chart',
         'instanceId'        => 'InstanceId',
-        'regionId'          => 'RegionId',
         'release'           => 'Release',
         'repoName'          => 'RepoName',
         'repoNamespaceName' => 'RepoNamespaceName',
@@ -58,9 +52,6 @@ class DeleteChartReleaseRequest extends Model
         }
         if (null !== $this->instanceId) {
             $res['InstanceId'] = $this->instanceId;
-        }
-        if (null !== $this->regionId) {
-            $res['RegionId'] = $this->regionId;
         }
         if (null !== $this->release) {
             $res['Release'] = $this->release;
@@ -88,9 +79,6 @@ class DeleteChartReleaseRequest extends Model
         }
         if (isset($map['InstanceId'])) {
             $model->instanceId = $map['InstanceId'];
-        }
-        if (isset($map['RegionId'])) {
-            $model->regionId = $map['RegionId'];
         }
         if (isset($map['Release'])) {
             $model->release = $map['Release'];

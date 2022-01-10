@@ -21,11 +21,6 @@ class CreateRepoSyncTaskRequest extends Model
     /**
      * @var string
      */
-    public $regionId;
-
-    /**
-     * @var string
-     */
     public $repoId;
 
     /**
@@ -65,7 +60,6 @@ class CreateRepoSyncTaskRequest extends Model
     protected $_name = [
         'instanceId'       => 'InstanceId',
         'override'         => 'Override',
-        'regionId'         => 'RegionId',
         'repoId'           => 'RepoId',
         'tag'              => 'Tag',
         'targetInstanceId' => 'TargetInstanceId',
@@ -88,9 +82,6 @@ class CreateRepoSyncTaskRequest extends Model
         }
         if (null !== $this->override) {
             $res['Override'] = $this->override;
-        }
-        if (null !== $this->regionId) {
-            $res['RegionId'] = $this->regionId;
         }
         if (null !== $this->repoId) {
             $res['RepoId'] = $this->repoId;
@@ -133,9 +124,6 @@ class CreateRepoSyncTaskRequest extends Model
         }
         if (isset($map['Override'])) {
             $model->override = $map['Override'];
-        }
-        if (isset($map['RegionId'])) {
-            $model->regionId = $map['RegionId'];
         }
         if (isset($map['RepoId'])) {
             $model->repoId = $map['RepoId'];

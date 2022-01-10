@@ -31,18 +31,12 @@ class ListEventCenterRecordRequest extends Model
     /**
      * @var string
      */
-    public $regionId;
-
-    /**
-     * @var string
-     */
     public $ruleId;
     protected $_name = [
         'eventType'  => 'EventType',
         'instanceId' => 'InstanceId',
         'pageNo'     => 'PageNo',
         'pageSize'   => 'PageSize',
-        'regionId'   => 'RegionId',
         'ruleId'     => 'RuleId',
     ];
 
@@ -64,9 +58,6 @@ class ListEventCenterRecordRequest extends Model
         }
         if (null !== $this->pageSize) {
             $res['PageSize'] = $this->pageSize;
-        }
-        if (null !== $this->regionId) {
-            $res['RegionId'] = $this->regionId;
         }
         if (null !== $this->ruleId) {
             $res['RuleId'] = $this->ruleId;
@@ -94,9 +85,6 @@ class ListEventCenterRecordRequest extends Model
         }
         if (isset($map['PageSize'])) {
             $model->pageSize = $map['PageSize'];
-        }
-        if (isset($map['RegionId'])) {
-            $model->regionId = $map['RegionId'];
         }
         if (isset($map['RuleId'])) {
             $model->ruleId = $map['RuleId'];

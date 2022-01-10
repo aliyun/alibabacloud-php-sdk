@@ -26,11 +26,6 @@ class CreateRepoTagRequest extends Model
     /**
      * @var string
      */
-    public $regionId;
-
-    /**
-     * @var string
-     */
     public $repoName;
 
     /**
@@ -41,7 +36,6 @@ class CreateRepoTagRequest extends Model
         'fromTag'       => 'FromTag',
         'instanceId'    => 'InstanceId',
         'namespaceName' => 'NamespaceName',
-        'regionId'      => 'RegionId',
         'repoName'      => 'RepoName',
         'toTag'         => 'ToTag',
     ];
@@ -61,9 +55,6 @@ class CreateRepoTagRequest extends Model
         }
         if (null !== $this->namespaceName) {
             $res['NamespaceName'] = $this->namespaceName;
-        }
-        if (null !== $this->regionId) {
-            $res['RegionId'] = $this->regionId;
         }
         if (null !== $this->repoName) {
             $res['RepoName'] = $this->repoName;
@@ -91,9 +82,6 @@ class CreateRepoTagRequest extends Model
         }
         if (isset($map['NamespaceName'])) {
             $model->namespaceName = $map['NamespaceName'];
-        }
-        if (isset($map['RegionId'])) {
-            $model->regionId = $map['RegionId'];
         }
         if (isset($map['RepoName'])) {
             $model->repoName = $map['RepoName'];

@@ -51,11 +51,6 @@ class UpdateRepoSourceCodeRepoRequest extends Model
     /**
      * @var string
      */
-    public $regionId;
-
-    /**
-     * @var string
-     */
     public $repoId;
     protected $_name = [
         'autoBuild'             => 'AutoBuild',
@@ -66,7 +61,6 @@ class UpdateRepoSourceCodeRepoRequest extends Model
         'disableCacheBuild'     => 'DisableCacheBuild',
         'instanceId'            => 'InstanceId',
         'overseaBuild'          => 'OverseaBuild',
-        'regionId'              => 'RegionId',
         'repoId'                => 'RepoId',
     ];
 
@@ -100,9 +94,6 @@ class UpdateRepoSourceCodeRepoRequest extends Model
         }
         if (null !== $this->overseaBuild) {
             $res['OverseaBuild'] = $this->overseaBuild;
-        }
-        if (null !== $this->regionId) {
-            $res['RegionId'] = $this->regionId;
         }
         if (null !== $this->repoId) {
             $res['RepoId'] = $this->repoId;
@@ -142,9 +133,6 @@ class UpdateRepoSourceCodeRepoRequest extends Model
         }
         if (isset($map['OverseaBuild'])) {
             $model->overseaBuild = $map['OverseaBuild'];
-        }
-        if (isset($map['RegionId'])) {
-            $model->regionId = $map['RegionId'];
         }
         if (isset($map['RepoId'])) {
             $model->repoId = $map['RepoId'];

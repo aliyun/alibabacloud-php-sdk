@@ -16,15 +16,9 @@ class DeleteRepoSyncRuleRequest extends Model
     /**
      * @var string
      */
-    public $regionId;
-
-    /**
-     * @var string
-     */
     public $syncRuleId;
     protected $_name = [
         'instanceId' => 'InstanceId',
-        'regionId'   => 'RegionId',
         'syncRuleId' => 'SyncRuleId',
     ];
 
@@ -37,9 +31,6 @@ class DeleteRepoSyncRuleRequest extends Model
         $res = [];
         if (null !== $this->instanceId) {
             $res['InstanceId'] = $this->instanceId;
-        }
-        if (null !== $this->regionId) {
-            $res['RegionId'] = $this->regionId;
         }
         if (null !== $this->syncRuleId) {
             $res['SyncRuleId'] = $this->syncRuleId;
@@ -58,9 +49,6 @@ class DeleteRepoSyncRuleRequest extends Model
         $model = new self();
         if (isset($map['InstanceId'])) {
             $model->instanceId = $map['InstanceId'];
-        }
-        if (isset($map['RegionId'])) {
-            $model->regionId = $map['RegionId'];
         }
         if (isset($map['SyncRuleId'])) {
             $model->syncRuleId = $map['SyncRuleId'];

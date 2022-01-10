@@ -16,11 +16,6 @@ class CreateChartRepositoryRequest extends Model
     /**
      * @var string
      */
-    public $regionId;
-
-    /**
-     * @var string
-     */
     public $repoName;
 
     /**
@@ -39,7 +34,6 @@ class CreateChartRepositoryRequest extends Model
     public $summary;
     protected $_name = [
         'instanceId'        => 'InstanceId',
-        'regionId'          => 'RegionId',
         'repoName'          => 'RepoName',
         'repoNamespaceName' => 'RepoNamespaceName',
         'repoType'          => 'RepoType',
@@ -55,9 +49,6 @@ class CreateChartRepositoryRequest extends Model
         $res = [];
         if (null !== $this->instanceId) {
             $res['InstanceId'] = $this->instanceId;
-        }
-        if (null !== $this->regionId) {
-            $res['RegionId'] = $this->regionId;
         }
         if (null !== $this->repoName) {
             $res['RepoName'] = $this->repoName;
@@ -85,9 +76,6 @@ class CreateChartRepositoryRequest extends Model
         $model = new self();
         if (isset($map['InstanceId'])) {
             $model->instanceId = $map['InstanceId'];
-        }
-        if (isset($map['RegionId'])) {
-            $model->regionId = $map['RegionId'];
         }
         if (isset($map['RepoName'])) {
             $model->repoName = $map['RepoName'];

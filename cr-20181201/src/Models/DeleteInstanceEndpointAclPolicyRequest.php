@@ -27,17 +27,11 @@ class DeleteInstanceEndpointAclPolicyRequest extends Model
      * @var string
      */
     public $moduleName;
-
-    /**
-     * @var string
-     */
-    public $regionId;
     protected $_name = [
         'endpointType' => 'EndpointType',
         'entry'        => 'Entry',
         'instanceId'   => 'InstanceId',
         'moduleName'   => 'ModuleName',
-        'regionId'     => 'RegionId',
     ];
 
     public function validate()
@@ -58,9 +52,6 @@ class DeleteInstanceEndpointAclPolicyRequest extends Model
         }
         if (null !== $this->moduleName) {
             $res['ModuleName'] = $this->moduleName;
-        }
-        if (null !== $this->regionId) {
-            $res['RegionId'] = $this->regionId;
         }
 
         return $res;
@@ -85,9 +76,6 @@ class DeleteInstanceEndpointAclPolicyRequest extends Model
         }
         if (isset($map['ModuleName'])) {
             $model->moduleName = $map['ModuleName'];
-        }
-        if (isset($map['RegionId'])) {
-            $model->regionId = $map['RegionId'];
         }
 
         return $model;

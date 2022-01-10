@@ -39,11 +39,6 @@ class UpdateEventCenterRuleRequest extends Model
     public $namespaces;
 
     /**
-     * @var string
-     */
-    public $regionId;
-
-    /**
      * @var string[]
      */
     public $repoNames;
@@ -69,7 +64,6 @@ class UpdateEventCenterRuleRequest extends Model
         'eventType'            => 'EventType',
         'instanceId'           => 'InstanceId',
         'namespaces'           => 'Namespaces',
-        'regionId'             => 'RegionId',
         'repoNames'            => 'RepoNames',
         'repoTagFilterPattern' => 'RepoTagFilterPattern',
         'ruleId'               => 'RuleId',
@@ -100,9 +94,6 @@ class UpdateEventCenterRuleRequest extends Model
         }
         if (null !== $this->namespaces) {
             $res['Namespaces'] = $this->namespaces;
-        }
-        if (null !== $this->regionId) {
-            $res['RegionId'] = $this->regionId;
         }
         if (null !== $this->repoNames) {
             $res['RepoNames'] = $this->repoNames;
@@ -147,9 +138,6 @@ class UpdateEventCenterRuleRequest extends Model
             if (!empty($map['Namespaces'])) {
                 $model->namespaces = $map['Namespaces'];
             }
-        }
-        if (isset($map['RegionId'])) {
-            $model->regionId = $map['RegionId'];
         }
         if (isset($map['RepoNames'])) {
             if (!empty($map['RepoNames'])) {

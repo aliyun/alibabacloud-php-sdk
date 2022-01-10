@@ -32,18 +32,12 @@ class ListNamespaceRequest extends Model
      * @var int
      */
     public $pageSize;
-
-    /**
-     * @var string
-     */
-    public $regionId;
     protected $_name = [
         'instanceId'      => 'InstanceId',
         'namespaceName'   => 'NamespaceName',
         'namespaceStatus' => 'NamespaceStatus',
         'pageNo'          => 'PageNo',
         'pageSize'        => 'PageSize',
-        'regionId'        => 'RegionId',
     ];
 
     public function validate()
@@ -67,9 +61,6 @@ class ListNamespaceRequest extends Model
         }
         if (null !== $this->pageSize) {
             $res['PageSize'] = $this->pageSize;
-        }
-        if (null !== $this->regionId) {
-            $res['RegionId'] = $this->regionId;
         }
 
         return $res;
@@ -97,9 +88,6 @@ class ListNamespaceRequest extends Model
         }
         if (isset($map['PageSize'])) {
             $model->pageSize = $map['PageSize'];
-        }
-        if (isset($map['RegionId'])) {
-            $model->regionId = $map['RegionId'];
         }
 
         return $model;

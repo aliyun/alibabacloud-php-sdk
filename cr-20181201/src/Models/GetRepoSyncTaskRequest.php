@@ -16,15 +16,9 @@ class GetRepoSyncTaskRequest extends Model
     /**
      * @var string
      */
-    public $regionId;
-
-    /**
-     * @var string
-     */
     public $syncTaskId;
     protected $_name = [
         'instanceId' => 'InstanceId',
-        'regionId'   => 'RegionId',
         'syncTaskId' => 'SyncTaskId',
     ];
 
@@ -37,9 +31,6 @@ class GetRepoSyncTaskRequest extends Model
         $res = [];
         if (null !== $this->instanceId) {
             $res['InstanceId'] = $this->instanceId;
-        }
-        if (null !== $this->regionId) {
-            $res['RegionId'] = $this->regionId;
         }
         if (null !== $this->syncTaskId) {
             $res['SyncTaskId'] = $this->syncTaskId;
@@ -58,9 +49,6 @@ class GetRepoSyncTaskRequest extends Model
         $model = new self();
         if (isset($map['InstanceId'])) {
             $model->instanceId = $map['InstanceId'];
-        }
-        if (isset($map['RegionId'])) {
-            $model->regionId = $map['RegionId'];
         }
         if (isset($map['SyncTaskId'])) {
             $model->syncTaskId = $map['SyncTaskId'];

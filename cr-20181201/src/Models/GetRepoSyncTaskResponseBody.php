@@ -17,6 +17,11 @@ class GetRepoSyncTaskResponseBody extends Model
     public $code;
 
     /**
+     * @var bool
+     */
+    public $crossUser;
+
+    /**
      * @var imageFrom
      */
     public $imageFrom;
@@ -62,6 +67,11 @@ class GetRepoSyncTaskResponseBody extends Model
     public $syncTaskId;
 
     /**
+     * @var bool
+     */
+    public $syncTransAccelerate;
+
+    /**
      * @var int
      */
     public $syncedSize;
@@ -76,19 +86,21 @@ class GetRepoSyncTaskResponseBody extends Model
      */
     public $taskTrigger;
     protected $_name = [
-        'code'            => 'Code',
-        'imageFrom'       => 'ImageFrom',
-        'imageTo'         => 'ImageTo',
-        'isSuccess'       => 'IsSuccess',
-        'layerTasks'      => 'LayerTasks',
-        'progress'        => 'Progress',
-        'requestId'       => 'RequestId',
-        'syncBatchTaskId' => 'SyncBatchTaskId',
-        'syncRuleId'      => 'SyncRuleId',
-        'syncTaskId'      => 'SyncTaskId',
-        'syncedSize'      => 'SyncedSize',
-        'taskStatus'      => 'TaskStatus',
-        'taskTrigger'     => 'TaskTrigger',
+        'code'                => 'Code',
+        'crossUser'           => 'CrossUser',
+        'imageFrom'           => 'ImageFrom',
+        'imageTo'             => 'ImageTo',
+        'isSuccess'           => 'IsSuccess',
+        'layerTasks'          => 'LayerTasks',
+        'progress'            => 'Progress',
+        'requestId'           => 'RequestId',
+        'syncBatchTaskId'     => 'SyncBatchTaskId',
+        'syncRuleId'          => 'SyncRuleId',
+        'syncTaskId'          => 'SyncTaskId',
+        'syncTransAccelerate' => 'SyncTransAccelerate',
+        'syncedSize'          => 'SyncedSize',
+        'taskStatus'          => 'TaskStatus',
+        'taskTrigger'         => 'TaskTrigger',
     ];
 
     public function validate()
@@ -100,6 +112,9 @@ class GetRepoSyncTaskResponseBody extends Model
         $res = [];
         if (null !== $this->code) {
             $res['Code'] = $this->code;
+        }
+        if (null !== $this->crossUser) {
+            $res['CrossUser'] = $this->crossUser;
         }
         if (null !== $this->imageFrom) {
             $res['ImageFrom'] = null !== $this->imageFrom ? $this->imageFrom->toMap() : null;
@@ -134,6 +149,9 @@ class GetRepoSyncTaskResponseBody extends Model
         if (null !== $this->syncTaskId) {
             $res['SyncTaskId'] = $this->syncTaskId;
         }
+        if (null !== $this->syncTransAccelerate) {
+            $res['SyncTransAccelerate'] = $this->syncTransAccelerate;
+        }
         if (null !== $this->syncedSize) {
             $res['SyncedSize'] = $this->syncedSize;
         }
@@ -157,6 +175,9 @@ class GetRepoSyncTaskResponseBody extends Model
         $model = new self();
         if (isset($map['Code'])) {
             $model->code = $map['Code'];
+        }
+        if (isset($map['CrossUser'])) {
+            $model->crossUser = $map['CrossUser'];
         }
         if (isset($map['ImageFrom'])) {
             $model->imageFrom = imageFrom::fromMap($map['ImageFrom']);
@@ -190,6 +211,9 @@ class GetRepoSyncTaskResponseBody extends Model
         }
         if (isset($map['SyncTaskId'])) {
             $model->syncTaskId = $map['SyncTaskId'];
+        }
+        if (isset($map['SyncTransAccelerate'])) {
+            $model->syncTransAccelerate = $map['SyncTransAccelerate'];
         }
         if (isset($map['SyncedSize'])) {
             $model->syncedSize = $map['SyncedSize'];

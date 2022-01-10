@@ -27,17 +27,11 @@ class CreateChartNamespaceRequest extends Model
      * @var string
      */
     public $namespaceName;
-
-    /**
-     * @var string
-     */
-    public $regionId;
     protected $_name = [
         'autoCreateRepo'  => 'AutoCreateRepo',
         'defaultRepoType' => 'DefaultRepoType',
         'instanceId'      => 'InstanceId',
         'namespaceName'   => 'NamespaceName',
-        'regionId'        => 'RegionId',
     ];
 
     public function validate()
@@ -58,9 +52,6 @@ class CreateChartNamespaceRequest extends Model
         }
         if (null !== $this->namespaceName) {
             $res['NamespaceName'] = $this->namespaceName;
-        }
-        if (null !== $this->regionId) {
-            $res['RegionId'] = $this->regionId;
         }
 
         return $res;
@@ -85,9 +76,6 @@ class CreateChartNamespaceRequest extends Model
         }
         if (isset($map['NamespaceName'])) {
             $model->namespaceName = $map['NamespaceName'];
-        }
-        if (isset($map['RegionId'])) {
-            $model->regionId = $map['RegionId'];
         }
 
         return $model;

@@ -21,11 +21,6 @@ class CreateRepositoryRequest extends Model
     /**
      * @var string
      */
-    public $regionId;
-
-    /**
-     * @var string
-     */
     public $repoName;
 
     /**
@@ -50,7 +45,6 @@ class CreateRepositoryRequest extends Model
     protected $_name = [
         'detail'            => 'Detail',
         'instanceId'        => 'InstanceId',
-        'regionId'          => 'RegionId',
         'repoName'          => 'RepoName',
         'repoNamespaceName' => 'RepoNamespaceName',
         'repoType'          => 'RepoType',
@@ -70,9 +64,6 @@ class CreateRepositoryRequest extends Model
         }
         if (null !== $this->instanceId) {
             $res['InstanceId'] = $this->instanceId;
-        }
-        if (null !== $this->regionId) {
-            $res['RegionId'] = $this->regionId;
         }
         if (null !== $this->repoName) {
             $res['RepoName'] = $this->repoName;
@@ -106,9 +97,6 @@ class CreateRepositoryRequest extends Model
         }
         if (isset($map['InstanceId'])) {
             $model->instanceId = $map['InstanceId'];
-        }
-        if (isset($map['RegionId'])) {
-            $model->regionId = $map['RegionId'];
         }
         if (isset($map['RepoName'])) {
             $model->repoName = $map['RepoName'];

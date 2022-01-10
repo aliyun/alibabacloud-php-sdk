@@ -17,15 +17,9 @@ class CancelArtifactBuildTaskRequest extends Model
      * @var string
      */
     public $instanceId;
-
-    /**
-     * @var string
-     */
-    public $regionId;
     protected $_name = [
         'buildTaskId' => 'BuildTaskId',
         'instanceId'  => 'InstanceId',
-        'regionId'    => 'RegionId',
     ];
 
     public function validate()
@@ -40,9 +34,6 @@ class CancelArtifactBuildTaskRequest extends Model
         }
         if (null !== $this->instanceId) {
             $res['InstanceId'] = $this->instanceId;
-        }
-        if (null !== $this->regionId) {
-            $res['RegionId'] = $this->regionId;
         }
 
         return $res;
@@ -61,9 +52,6 @@ class CancelArtifactBuildTaskRequest extends Model
         }
         if (isset($map['InstanceId'])) {
             $model->instanceId = $map['InstanceId'];
-        }
-        if (isset($map['RegionId'])) {
-            $model->regionId = $map['RegionId'];
         }
 
         return $model;

@@ -32,18 +32,12 @@ class UpdateChainRequest extends Model
      * @var string
      */
     public $name;
-
-    /**
-     * @var string
-     */
-    public $regionId;
     protected $_name = [
         'chainConfig' => 'ChainConfig',
         'chainId'     => 'ChainId',
         'description' => 'Description',
         'instanceId'  => 'InstanceId',
         'name'        => 'Name',
-        'regionId'    => 'RegionId',
     ];
 
     public function validate()
@@ -67,9 +61,6 @@ class UpdateChainRequest extends Model
         }
         if (null !== $this->name) {
             $res['Name'] = $this->name;
-        }
-        if (null !== $this->regionId) {
-            $res['RegionId'] = $this->regionId;
         }
 
         return $res;
@@ -97,9 +88,6 @@ class UpdateChainRequest extends Model
         }
         if (isset($map['Name'])) {
             $model->name = $map['Name'];
-        }
-        if (isset($map['RegionId'])) {
-            $model->regionId = $map['RegionId'];
         }
 
         return $model;

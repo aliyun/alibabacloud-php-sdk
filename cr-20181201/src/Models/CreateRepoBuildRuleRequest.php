@@ -41,11 +41,6 @@ class CreateRepoBuildRuleRequest extends Model
     /**
      * @var string
      */
-    public $regionId;
-
-    /**
-     * @var string
-     */
     public $repoId;
     protected $_name = [
         'dockerfileLocation' => 'DockerfileLocation',
@@ -54,7 +49,6 @@ class CreateRepoBuildRuleRequest extends Model
         'instanceId'         => 'InstanceId',
         'pushName'           => 'PushName',
         'pushType'           => 'PushType',
-        'regionId'           => 'RegionId',
         'repoId'             => 'RepoId',
     ];
 
@@ -82,9 +76,6 @@ class CreateRepoBuildRuleRequest extends Model
         }
         if (null !== $this->pushType) {
             $res['PushType'] = $this->pushType;
-        }
-        if (null !== $this->regionId) {
-            $res['RegionId'] = $this->regionId;
         }
         if (null !== $this->repoId) {
             $res['RepoId'] = $this->repoId;
@@ -118,9 +109,6 @@ class CreateRepoBuildRuleRequest extends Model
         }
         if (isset($map['PushType'])) {
             $model->pushType = $map['PushType'];
-        }
-        if (isset($map['RegionId'])) {
-            $model->regionId = $map['RegionId'];
         }
         if (isset($map['RepoId'])) {
             $model->repoId = $map['RepoId'];

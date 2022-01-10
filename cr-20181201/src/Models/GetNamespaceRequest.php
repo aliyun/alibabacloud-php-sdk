@@ -22,16 +22,10 @@ class GetNamespaceRequest extends Model
      * @var string
      */
     public $namespaceName;
-
-    /**
-     * @var string
-     */
-    public $regionId;
     protected $_name = [
         'instanceId'    => 'InstanceId',
         'namespaceId'   => 'NamespaceId',
         'namespaceName' => 'NamespaceName',
-        'regionId'      => 'RegionId',
     ];
 
     public function validate()
@@ -49,9 +43,6 @@ class GetNamespaceRequest extends Model
         }
         if (null !== $this->namespaceName) {
             $res['NamespaceName'] = $this->namespaceName;
-        }
-        if (null !== $this->regionId) {
-            $res['RegionId'] = $this->regionId;
         }
 
         return $res;
@@ -73,9 +64,6 @@ class GetNamespaceRequest extends Model
         }
         if (isset($map['NamespaceName'])) {
             $model->namespaceName = $map['NamespaceName'];
-        }
-        if (isset($map['RegionId'])) {
-            $model->regionId = $map['RegionId'];
         }
 
         return $model;

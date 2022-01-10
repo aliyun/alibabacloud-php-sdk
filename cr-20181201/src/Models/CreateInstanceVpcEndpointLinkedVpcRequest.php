@@ -9,6 +9,11 @@ use AlibabaCloud\Tea\Model;
 class CreateInstanceVpcEndpointLinkedVpcRequest extends Model
 {
     /**
+     * @var bool
+     */
+    public $enableCreateDNSRecordInPvzt;
+
+    /**
      * @var string
      */
     public $instanceId;
@@ -21,11 +26,6 @@ class CreateInstanceVpcEndpointLinkedVpcRequest extends Model
     /**
      * @var string
      */
-    public $regionId;
-
-    /**
-     * @var string
-     */
     public $vpcId;
 
     /**
@@ -33,11 +33,11 @@ class CreateInstanceVpcEndpointLinkedVpcRequest extends Model
      */
     public $vswitchId;
     protected $_name = [
-        'instanceId' => 'InstanceId',
-        'moduleName' => 'ModuleName',
-        'regionId'   => 'RegionId',
-        'vpcId'      => 'VpcId',
-        'vswitchId'  => 'VswitchId',
+        'enableCreateDNSRecordInPvzt' => 'EnableCreateDNSRecordInPvzt',
+        'instanceId'                  => 'InstanceId',
+        'moduleName'                  => 'ModuleName',
+        'vpcId'                       => 'VpcId',
+        'vswitchId'                   => 'VswitchId',
     ];
 
     public function validate()
@@ -47,14 +47,14 @@ class CreateInstanceVpcEndpointLinkedVpcRequest extends Model
     public function toMap()
     {
         $res = [];
+        if (null !== $this->enableCreateDNSRecordInPvzt) {
+            $res['EnableCreateDNSRecordInPvzt'] = $this->enableCreateDNSRecordInPvzt;
+        }
         if (null !== $this->instanceId) {
             $res['InstanceId'] = $this->instanceId;
         }
         if (null !== $this->moduleName) {
             $res['ModuleName'] = $this->moduleName;
-        }
-        if (null !== $this->regionId) {
-            $res['RegionId'] = $this->regionId;
         }
         if (null !== $this->vpcId) {
             $res['VpcId'] = $this->vpcId;
@@ -74,14 +74,14 @@ class CreateInstanceVpcEndpointLinkedVpcRequest extends Model
     public static function fromMap($map = [])
     {
         $model = new self();
+        if (isset($map['EnableCreateDNSRecordInPvzt'])) {
+            $model->enableCreateDNSRecordInPvzt = $map['EnableCreateDNSRecordInPvzt'];
+        }
         if (isset($map['InstanceId'])) {
             $model->instanceId = $map['InstanceId'];
         }
         if (isset($map['ModuleName'])) {
             $model->moduleName = $map['ModuleName'];
-        }
-        if (isset($map['RegionId'])) {
-            $model->regionId = $map['RegionId'];
         }
         if (isset($map['VpcId'])) {
             $model->vpcId = $map['VpcId'];
