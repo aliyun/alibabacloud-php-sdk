@@ -81,6 +81,13 @@ class result extends Model
     public $hlsUrl;
 
     /**
+     * @description https协议的原画HLS播放地址。
+     *
+     * @var string
+     */
+    public $hlsUrlHttps;
+
+    /**
      * @description 直播ID。
      *
      * @var string
@@ -93,6 +100,13 @@ class result extends Model
      * @var string
      */
     public $liveUrl;
+
+    /**
+     * @description https协议的直播拉流地址。
+     *
+     * @var string
+     */
+    public $liveUrlHttps;
 
     /**
      * @description 公告。
@@ -114,6 +128,13 @@ class result extends Model
      * @var string
      */
     public $playbackUrl;
+
+    /**
+     * @description https协议的直播回放地址
+     *
+     * @var string
+     */
+    public $playbackUrlHttps;
 
     /**
      * @description 活跃插件列表。
@@ -142,6 +163,13 @@ class result extends Model
      * @var string
      */
     public $roomId;
+
+    /**
+     * @description rtmp协议的播放地址
+     *
+     * @var string
+     */
+    public $rtmpUrl;
 
     /**
      * @description 直播开始时间，单位：毫秒。
@@ -181,15 +209,19 @@ class result extends Model
         'endTime'                => 'EndTime',
         'extension'              => 'Extension',
         'hlsUrl'                 => 'HlsUrl',
+        'hlsUrlHttps'            => 'HlsUrlHttps',
         'liveId'                 => 'LiveId',
         'liveUrl'                => 'LiveUrl',
+        'liveUrlHttps'           => 'LiveUrlHttps',
         'notice'                 => 'Notice',
         'onlineCount'            => 'OnlineCount',
         'playbackUrl'            => 'PlaybackUrl',
+        'playbackUrlHttps'       => 'PlaybackUrlHttps',
         'pluginInstanceInfoList' => 'PluginInstanceInfoList',
         'pushUrl'                => 'PushUrl',
         'pv'                     => 'Pv',
         'roomId'                 => 'RoomId',
+        'rtmpUrl'                => 'RtmpUrl',
         'startTime'              => 'StartTime',
         'status'                 => 'Status',
         'title'                  => 'Title',
@@ -233,11 +265,17 @@ class result extends Model
         if (null !== $this->hlsUrl) {
             $res['HlsUrl'] = $this->hlsUrl;
         }
+        if (null !== $this->hlsUrlHttps) {
+            $res['HlsUrlHttps'] = $this->hlsUrlHttps;
+        }
         if (null !== $this->liveId) {
             $res['LiveId'] = $this->liveId;
         }
         if (null !== $this->liveUrl) {
             $res['LiveUrl'] = $this->liveUrl;
+        }
+        if (null !== $this->liveUrlHttps) {
+            $res['LiveUrlHttps'] = $this->liveUrlHttps;
         }
         if (null !== $this->notice) {
             $res['Notice'] = $this->notice;
@@ -247,6 +285,9 @@ class result extends Model
         }
         if (null !== $this->playbackUrl) {
             $res['PlaybackUrl'] = $this->playbackUrl;
+        }
+        if (null !== $this->playbackUrlHttps) {
+            $res['PlaybackUrlHttps'] = $this->playbackUrlHttps;
         }
         if (null !== $this->pluginInstanceInfoList) {
             $res['PluginInstanceInfoList'] = [];
@@ -265,6 +306,9 @@ class result extends Model
         }
         if (null !== $this->roomId) {
             $res['RoomId'] = $this->roomId;
+        }
+        if (null !== $this->rtmpUrl) {
+            $res['RtmpUrl'] = $this->rtmpUrl;
         }
         if (null !== $this->startTime) {
             $res['StartTime'] = $this->startTime;
@@ -320,11 +364,17 @@ class result extends Model
         if (isset($map['HlsUrl'])) {
             $model->hlsUrl = $map['HlsUrl'];
         }
+        if (isset($map['HlsUrlHttps'])) {
+            $model->hlsUrlHttps = $map['HlsUrlHttps'];
+        }
         if (isset($map['LiveId'])) {
             $model->liveId = $map['LiveId'];
         }
         if (isset($map['LiveUrl'])) {
             $model->liveUrl = $map['LiveUrl'];
+        }
+        if (isset($map['LiveUrlHttps'])) {
+            $model->liveUrlHttps = $map['LiveUrlHttps'];
         }
         if (isset($map['Notice'])) {
             $model->notice = $map['Notice'];
@@ -334,6 +384,9 @@ class result extends Model
         }
         if (isset($map['PlaybackUrl'])) {
             $model->playbackUrl = $map['PlaybackUrl'];
+        }
+        if (isset($map['PlaybackUrlHttps'])) {
+            $model->playbackUrlHttps = $map['PlaybackUrlHttps'];
         }
         if (isset($map['PluginInstanceInfoList'])) {
             if (!empty($map['PluginInstanceInfoList'])) {
@@ -352,6 +405,9 @@ class result extends Model
         }
         if (isset($map['RoomId'])) {
             $model->roomId = $map['RoomId'];
+        }
+        if (isset($map['RtmpUrl'])) {
+            $model->rtmpUrl = $map['RtmpUrl'];
         }
         if (isset($map['StartTime'])) {
             $model->startTime = $map['StartTime'];
