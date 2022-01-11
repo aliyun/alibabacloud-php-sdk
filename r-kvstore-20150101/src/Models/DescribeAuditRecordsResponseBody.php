@@ -12,7 +12,17 @@ class DescribeAuditRecordsResponseBody extends Model
     /**
      * @var string
      */
-    public $requestId;
+    public $endTime;
+
+    /**
+     * @var string
+     */
+    public $instanceName;
+
+    /**
+     * @var items
+     */
+    public $items;
 
     /**
      * @var int
@@ -25,14 +35,9 @@ class DescribeAuditRecordsResponseBody extends Model
     public $pageSize;
 
     /**
-     * @var int
-     */
-    public $totalRecordCount;
-
-    /**
      * @var string
      */
-    public $instanceName;
+    public $requestId;
 
     /**
      * @var string
@@ -40,23 +45,18 @@ class DescribeAuditRecordsResponseBody extends Model
     public $startTime;
 
     /**
-     * @var string
+     * @var int
      */
-    public $endTime;
-
-    /**
-     * @var items
-     */
-    public $items;
+    public $totalRecordCount;
     protected $_name = [
-        'requestId'        => 'RequestId',
+        'endTime'          => 'EndTime',
+        'instanceName'     => 'InstanceName',
+        'items'            => 'Items',
         'pageNumber'       => 'PageNumber',
         'pageSize'         => 'PageSize',
-        'totalRecordCount' => 'TotalRecordCount',
-        'instanceName'     => 'InstanceName',
+        'requestId'        => 'RequestId',
         'startTime'        => 'StartTime',
-        'endTime'          => 'EndTime',
-        'items'            => 'Items',
+        'totalRecordCount' => 'TotalRecordCount',
     ];
 
     public function validate()
@@ -66,8 +66,14 @@ class DescribeAuditRecordsResponseBody extends Model
     public function toMap()
     {
         $res = [];
-        if (null !== $this->requestId) {
-            $res['RequestId'] = $this->requestId;
+        if (null !== $this->endTime) {
+            $res['EndTime'] = $this->endTime;
+        }
+        if (null !== $this->instanceName) {
+            $res['InstanceName'] = $this->instanceName;
+        }
+        if (null !== $this->items) {
+            $res['Items'] = null !== $this->items ? $this->items->toMap() : null;
         }
         if (null !== $this->pageNumber) {
             $res['PageNumber'] = $this->pageNumber;
@@ -75,20 +81,14 @@ class DescribeAuditRecordsResponseBody extends Model
         if (null !== $this->pageSize) {
             $res['PageSize'] = $this->pageSize;
         }
-        if (null !== $this->totalRecordCount) {
-            $res['TotalRecordCount'] = $this->totalRecordCount;
-        }
-        if (null !== $this->instanceName) {
-            $res['InstanceName'] = $this->instanceName;
+        if (null !== $this->requestId) {
+            $res['RequestId'] = $this->requestId;
         }
         if (null !== $this->startTime) {
             $res['StartTime'] = $this->startTime;
         }
-        if (null !== $this->endTime) {
-            $res['EndTime'] = $this->endTime;
-        }
-        if (null !== $this->items) {
-            $res['Items'] = null !== $this->items ? $this->items->toMap() : null;
+        if (null !== $this->totalRecordCount) {
+            $res['TotalRecordCount'] = $this->totalRecordCount;
         }
 
         return $res;
@@ -102,8 +102,14 @@ class DescribeAuditRecordsResponseBody extends Model
     public static function fromMap($map = [])
     {
         $model = new self();
-        if (isset($map['RequestId'])) {
-            $model->requestId = $map['RequestId'];
+        if (isset($map['EndTime'])) {
+            $model->endTime = $map['EndTime'];
+        }
+        if (isset($map['InstanceName'])) {
+            $model->instanceName = $map['InstanceName'];
+        }
+        if (isset($map['Items'])) {
+            $model->items = items::fromMap($map['Items']);
         }
         if (isset($map['PageNumber'])) {
             $model->pageNumber = $map['PageNumber'];
@@ -111,20 +117,14 @@ class DescribeAuditRecordsResponseBody extends Model
         if (isset($map['PageSize'])) {
             $model->pageSize = $map['PageSize'];
         }
-        if (isset($map['TotalRecordCount'])) {
-            $model->totalRecordCount = $map['TotalRecordCount'];
-        }
-        if (isset($map['InstanceName'])) {
-            $model->instanceName = $map['InstanceName'];
+        if (isset($map['RequestId'])) {
+            $model->requestId = $map['RequestId'];
         }
         if (isset($map['StartTime'])) {
             $model->startTime = $map['StartTime'];
         }
-        if (isset($map['EndTime'])) {
-            $model->endTime = $map['EndTime'];
-        }
-        if (isset($map['Items'])) {
-            $model->items = items::fromMap($map['Items']);
+        if (isset($map['TotalRecordCount'])) {
+            $model->totalRecordCount = $map['TotalRecordCount'];
         }
 
         return $model;

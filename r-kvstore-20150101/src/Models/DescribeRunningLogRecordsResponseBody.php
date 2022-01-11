@@ -12,7 +12,7 @@ class DescribeRunningLogRecordsResponseBody extends Model
     /**
      * @var string
      */
-    public $requestId;
+    public $engine;
 
     /**
      * @var string
@@ -20,19 +20,9 @@ class DescribeRunningLogRecordsResponseBody extends Model
     public $instanceId;
 
     /**
-     * @var string
+     * @var items
      */
-    public $startTime;
-
-    /**
-     * @var string
-     */
-    public $engine;
-
-    /**
-     * @var int
-     */
-    public $totalRecordCount;
+    public $items;
 
     /**
      * @var int
@@ -42,27 +32,37 @@ class DescribeRunningLogRecordsResponseBody extends Model
     /**
      * @var int
      */
-    public $pageSize;
+    public $pageRecordCount;
 
     /**
      * @var int
      */
-    public $pageRecordCount;
+    public $pageSize;
 
     /**
-     * @var items
+     * @var string
      */
-    public $items;
+    public $requestId;
+
+    /**
+     * @var string
+     */
+    public $startTime;
+
+    /**
+     * @var int
+     */
+    public $totalRecordCount;
     protected $_name = [
-        'requestId'        => 'RequestId',
-        'instanceId'       => 'InstanceId',
-        'startTime'        => 'StartTime',
         'engine'           => 'Engine',
-        'totalRecordCount' => 'TotalRecordCount',
-        'pageNumber'       => 'PageNumber',
-        'pageSize'         => 'PageSize',
-        'pageRecordCount'  => 'PageRecordCount',
+        'instanceId'       => 'InstanceId',
         'items'            => 'Items',
+        'pageNumber'       => 'PageNumber',
+        'pageRecordCount'  => 'PageRecordCount',
+        'pageSize'         => 'PageSize',
+        'requestId'        => 'RequestId',
+        'startTime'        => 'StartTime',
+        'totalRecordCount' => 'TotalRecordCount',
     ];
 
     public function validate()
@@ -72,32 +72,32 @@ class DescribeRunningLogRecordsResponseBody extends Model
     public function toMap()
     {
         $res = [];
-        if (null !== $this->requestId) {
-            $res['RequestId'] = $this->requestId;
+        if (null !== $this->engine) {
+            $res['Engine'] = $this->engine;
         }
         if (null !== $this->instanceId) {
             $res['InstanceId'] = $this->instanceId;
         }
-        if (null !== $this->startTime) {
-            $res['StartTime'] = $this->startTime;
-        }
-        if (null !== $this->engine) {
-            $res['Engine'] = $this->engine;
-        }
-        if (null !== $this->totalRecordCount) {
-            $res['TotalRecordCount'] = $this->totalRecordCount;
+        if (null !== $this->items) {
+            $res['Items'] = null !== $this->items ? $this->items->toMap() : null;
         }
         if (null !== $this->pageNumber) {
             $res['PageNumber'] = $this->pageNumber;
         }
-        if (null !== $this->pageSize) {
-            $res['PageSize'] = $this->pageSize;
-        }
         if (null !== $this->pageRecordCount) {
             $res['PageRecordCount'] = $this->pageRecordCount;
         }
-        if (null !== $this->items) {
-            $res['Items'] = null !== $this->items ? $this->items->toMap() : null;
+        if (null !== $this->pageSize) {
+            $res['PageSize'] = $this->pageSize;
+        }
+        if (null !== $this->requestId) {
+            $res['RequestId'] = $this->requestId;
+        }
+        if (null !== $this->startTime) {
+            $res['StartTime'] = $this->startTime;
+        }
+        if (null !== $this->totalRecordCount) {
+            $res['TotalRecordCount'] = $this->totalRecordCount;
         }
 
         return $res;
@@ -111,32 +111,32 @@ class DescribeRunningLogRecordsResponseBody extends Model
     public static function fromMap($map = [])
     {
         $model = new self();
-        if (isset($map['RequestId'])) {
-            $model->requestId = $map['RequestId'];
+        if (isset($map['Engine'])) {
+            $model->engine = $map['Engine'];
         }
         if (isset($map['InstanceId'])) {
             $model->instanceId = $map['InstanceId'];
         }
-        if (isset($map['StartTime'])) {
-            $model->startTime = $map['StartTime'];
-        }
-        if (isset($map['Engine'])) {
-            $model->engine = $map['Engine'];
-        }
-        if (isset($map['TotalRecordCount'])) {
-            $model->totalRecordCount = $map['TotalRecordCount'];
+        if (isset($map['Items'])) {
+            $model->items = items::fromMap($map['Items']);
         }
         if (isset($map['PageNumber'])) {
             $model->pageNumber = $map['PageNumber'];
         }
-        if (isset($map['PageSize'])) {
-            $model->pageSize = $map['PageSize'];
-        }
         if (isset($map['PageRecordCount'])) {
             $model->pageRecordCount = $map['PageRecordCount'];
         }
-        if (isset($map['Items'])) {
-            $model->items = items::fromMap($map['Items']);
+        if (isset($map['PageSize'])) {
+            $model->pageSize = $map['PageSize'];
+        }
+        if (isset($map['RequestId'])) {
+            $model->requestId = $map['RequestId'];
+        }
+        if (isset($map['StartTime'])) {
+            $model->startTime = $map['StartTime'];
+        }
+        if (isset($map['TotalRecordCount'])) {
+            $model->totalRecordCount = $map['TotalRecordCount'];
         }
 
         return $model;

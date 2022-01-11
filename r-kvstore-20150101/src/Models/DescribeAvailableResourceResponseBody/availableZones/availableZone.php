@@ -15,6 +15,11 @@ class availableZone extends Model
     public $regionId;
 
     /**
+     * @var supportedEngines
+     */
+    public $supportedEngines;
+
+    /**
      * @var string
      */
     public $zoneId;
@@ -23,16 +28,11 @@ class availableZone extends Model
      * @var string
      */
     public $zoneName;
-
-    /**
-     * @var supportedEngines
-     */
-    public $supportedEngines;
     protected $_name = [
         'regionId'         => 'RegionId',
+        'supportedEngines' => 'SupportedEngines',
         'zoneId'           => 'ZoneId',
         'zoneName'         => 'ZoneName',
-        'supportedEngines' => 'SupportedEngines',
     ];
 
     public function validate()
@@ -45,14 +45,14 @@ class availableZone extends Model
         if (null !== $this->regionId) {
             $res['RegionId'] = $this->regionId;
         }
+        if (null !== $this->supportedEngines) {
+            $res['SupportedEngines'] = null !== $this->supportedEngines ? $this->supportedEngines->toMap() : null;
+        }
         if (null !== $this->zoneId) {
             $res['ZoneId'] = $this->zoneId;
         }
         if (null !== $this->zoneName) {
             $res['ZoneName'] = $this->zoneName;
-        }
-        if (null !== $this->supportedEngines) {
-            $res['SupportedEngines'] = null !== $this->supportedEngines ? $this->supportedEngines->toMap() : null;
         }
 
         return $res;
@@ -69,14 +69,14 @@ class availableZone extends Model
         if (isset($map['RegionId'])) {
             $model->regionId = $map['RegionId'];
         }
+        if (isset($map['SupportedEngines'])) {
+            $model->supportedEngines = supportedEngines::fromMap($map['SupportedEngines']);
+        }
         if (isset($map['ZoneId'])) {
             $model->zoneId = $map['ZoneId'];
         }
         if (isset($map['ZoneName'])) {
             $model->zoneName = $map['ZoneName'];
-        }
-        if (isset($map['SupportedEngines'])) {
-            $model->supportedEngines = supportedEngines::fromMap($map['SupportedEngines']);
         }
 
         return $model;

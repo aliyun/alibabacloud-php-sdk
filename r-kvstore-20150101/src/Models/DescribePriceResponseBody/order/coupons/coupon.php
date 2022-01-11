@@ -16,22 +16,22 @@ class coupon extends Model
     /**
      * @var string
      */
-    public $name;
-
-    /**
-     * @var string
-     */
     public $description;
 
     /**
      * @var string
      */
     public $isSelected;
+
+    /**
+     * @var string
+     */
+    public $name;
     protected $_name = [
         'couponNo'    => 'CouponNo',
-        'name'        => 'Name',
         'description' => 'Description',
         'isSelected'  => 'IsSelected',
+        'name'        => 'Name',
     ];
 
     public function validate()
@@ -44,14 +44,14 @@ class coupon extends Model
         if (null !== $this->couponNo) {
             $res['CouponNo'] = $this->couponNo;
         }
-        if (null !== $this->name) {
-            $res['Name'] = $this->name;
-        }
         if (null !== $this->description) {
             $res['Description'] = $this->description;
         }
         if (null !== $this->isSelected) {
             $res['IsSelected'] = $this->isSelected;
+        }
+        if (null !== $this->name) {
+            $res['Name'] = $this->name;
         }
 
         return $res;
@@ -68,14 +68,14 @@ class coupon extends Model
         if (isset($map['CouponNo'])) {
             $model->couponNo = $map['CouponNo'];
         }
-        if (isset($map['Name'])) {
-            $model->name = $map['Name'];
-        }
         if (isset($map['Description'])) {
             $model->description = $map['Description'];
         }
         if (isset($map['IsSelected'])) {
             $model->isSelected = $map['IsSelected'];
+        }
+        if (isset($map['Name'])) {
+            $model->name = $map['Name'];
         }
 
         return $model;

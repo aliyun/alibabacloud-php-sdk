@@ -9,9 +9,44 @@ use AlibabaCloud\Tea\Model;
 class ModifyNodeSpecRequest extends Model
 {
     /**
+     * @var bool
+     */
+    public $autoPay;
+
+    /**
      * @var string
      */
-    public $securityToken;
+    public $businessInfo;
+
+    /**
+     * @var string
+     */
+    public $couponNo;
+
+    /**
+     * @var string
+     */
+    public $instanceClass;
+
+    /**
+     * @var string
+     */
+    public $instanceId;
+
+    /**
+     * @var string
+     */
+    public $nodeId;
+
+    /**
+     * @var string
+     */
+    public $orderType;
+
+    /**
+     * @var string
+     */
+    public $ownerAccount;
 
     /**
      * @var int
@@ -31,60 +66,25 @@ class ModifyNodeSpecRequest extends Model
     /**
      * @var string
      */
-    public $ownerAccount;
-
-    /**
-     * @var string
-     */
-    public $instanceId;
-
-    /**
-     * @var string
-     */
-    public $instanceClass;
-
-    /**
-     * @var string
-     */
-    public $businessInfo;
-
-    /**
-     * @var string
-     */
-    public $couponNo;
-
-    /**
-     * @var bool
-     */
-    public $autoPay;
-
-    /**
-     * @var string
-     */
-    public $orderType;
-
-    /**
-     * @var string
-     */
-    public $nodeId;
+    public $securityToken;
 
     /**
      * @var string
      */
     public $switchTimeMode;
     protected $_name = [
-        'securityToken'        => 'SecurityToken',
+        'autoPay'              => 'AutoPay',
+        'businessInfo'         => 'BusinessInfo',
+        'couponNo'             => 'CouponNo',
+        'instanceClass'        => 'InstanceClass',
+        'instanceId'           => 'InstanceId',
+        'nodeId'               => 'NodeId',
+        'orderType'            => 'OrderType',
+        'ownerAccount'         => 'OwnerAccount',
         'ownerId'              => 'OwnerId',
         'resourceOwnerAccount' => 'ResourceOwnerAccount',
         'resourceOwnerId'      => 'ResourceOwnerId',
-        'ownerAccount'         => 'OwnerAccount',
-        'instanceId'           => 'InstanceId',
-        'instanceClass'        => 'InstanceClass',
-        'businessInfo'         => 'BusinessInfo',
-        'couponNo'             => 'CouponNo',
-        'autoPay'              => 'AutoPay',
-        'orderType'            => 'OrderType',
-        'nodeId'               => 'NodeId',
+        'securityToken'        => 'SecurityToken',
         'switchTimeMode'       => 'SwitchTimeMode',
     ];
 
@@ -95,8 +95,29 @@ class ModifyNodeSpecRequest extends Model
     public function toMap()
     {
         $res = [];
-        if (null !== $this->securityToken) {
-            $res['SecurityToken'] = $this->securityToken;
+        if (null !== $this->autoPay) {
+            $res['AutoPay'] = $this->autoPay;
+        }
+        if (null !== $this->businessInfo) {
+            $res['BusinessInfo'] = $this->businessInfo;
+        }
+        if (null !== $this->couponNo) {
+            $res['CouponNo'] = $this->couponNo;
+        }
+        if (null !== $this->instanceClass) {
+            $res['InstanceClass'] = $this->instanceClass;
+        }
+        if (null !== $this->instanceId) {
+            $res['InstanceId'] = $this->instanceId;
+        }
+        if (null !== $this->nodeId) {
+            $res['NodeId'] = $this->nodeId;
+        }
+        if (null !== $this->orderType) {
+            $res['OrderType'] = $this->orderType;
+        }
+        if (null !== $this->ownerAccount) {
+            $res['OwnerAccount'] = $this->ownerAccount;
         }
         if (null !== $this->ownerId) {
             $res['OwnerId'] = $this->ownerId;
@@ -107,29 +128,8 @@ class ModifyNodeSpecRequest extends Model
         if (null !== $this->resourceOwnerId) {
             $res['ResourceOwnerId'] = $this->resourceOwnerId;
         }
-        if (null !== $this->ownerAccount) {
-            $res['OwnerAccount'] = $this->ownerAccount;
-        }
-        if (null !== $this->instanceId) {
-            $res['InstanceId'] = $this->instanceId;
-        }
-        if (null !== $this->instanceClass) {
-            $res['InstanceClass'] = $this->instanceClass;
-        }
-        if (null !== $this->businessInfo) {
-            $res['BusinessInfo'] = $this->businessInfo;
-        }
-        if (null !== $this->couponNo) {
-            $res['CouponNo'] = $this->couponNo;
-        }
-        if (null !== $this->autoPay) {
-            $res['AutoPay'] = $this->autoPay;
-        }
-        if (null !== $this->orderType) {
-            $res['OrderType'] = $this->orderType;
-        }
-        if (null !== $this->nodeId) {
-            $res['NodeId'] = $this->nodeId;
+        if (null !== $this->securityToken) {
+            $res['SecurityToken'] = $this->securityToken;
         }
         if (null !== $this->switchTimeMode) {
             $res['SwitchTimeMode'] = $this->switchTimeMode;
@@ -146,8 +146,29 @@ class ModifyNodeSpecRequest extends Model
     public static function fromMap($map = [])
     {
         $model = new self();
-        if (isset($map['SecurityToken'])) {
-            $model->securityToken = $map['SecurityToken'];
+        if (isset($map['AutoPay'])) {
+            $model->autoPay = $map['AutoPay'];
+        }
+        if (isset($map['BusinessInfo'])) {
+            $model->businessInfo = $map['BusinessInfo'];
+        }
+        if (isset($map['CouponNo'])) {
+            $model->couponNo = $map['CouponNo'];
+        }
+        if (isset($map['InstanceClass'])) {
+            $model->instanceClass = $map['InstanceClass'];
+        }
+        if (isset($map['InstanceId'])) {
+            $model->instanceId = $map['InstanceId'];
+        }
+        if (isset($map['NodeId'])) {
+            $model->nodeId = $map['NodeId'];
+        }
+        if (isset($map['OrderType'])) {
+            $model->orderType = $map['OrderType'];
+        }
+        if (isset($map['OwnerAccount'])) {
+            $model->ownerAccount = $map['OwnerAccount'];
         }
         if (isset($map['OwnerId'])) {
             $model->ownerId = $map['OwnerId'];
@@ -158,29 +179,8 @@ class ModifyNodeSpecRequest extends Model
         if (isset($map['ResourceOwnerId'])) {
             $model->resourceOwnerId = $map['ResourceOwnerId'];
         }
-        if (isset($map['OwnerAccount'])) {
-            $model->ownerAccount = $map['OwnerAccount'];
-        }
-        if (isset($map['InstanceId'])) {
-            $model->instanceId = $map['InstanceId'];
-        }
-        if (isset($map['InstanceClass'])) {
-            $model->instanceClass = $map['InstanceClass'];
-        }
-        if (isset($map['BusinessInfo'])) {
-            $model->businessInfo = $map['BusinessInfo'];
-        }
-        if (isset($map['CouponNo'])) {
-            $model->couponNo = $map['CouponNo'];
-        }
-        if (isset($map['AutoPay'])) {
-            $model->autoPay = $map['AutoPay'];
-        }
-        if (isset($map['OrderType'])) {
-            $model->orderType = $map['OrderType'];
-        }
-        if (isset($map['NodeId'])) {
-            $model->nodeId = $map['NodeId'];
+        if (isset($map['SecurityToken'])) {
+            $model->securityToken = $map['SecurityToken'];
         }
         if (isset($map['SwitchTimeMode'])) {
             $model->switchTimeMode = $map['SwitchTimeMode'];

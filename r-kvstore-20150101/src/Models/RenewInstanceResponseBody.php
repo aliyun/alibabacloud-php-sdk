@@ -11,7 +11,7 @@ class RenewInstanceResponseBody extends Model
     /**
      * @var string
      */
-    public $requestId;
+    public $endTime;
 
     /**
      * @var string
@@ -21,11 +21,11 @@ class RenewInstanceResponseBody extends Model
     /**
      * @var string
      */
-    public $endTime;
+    public $requestId;
     protected $_name = [
-        'requestId' => 'RequestId',
-        'orderId'   => 'OrderId',
         'endTime'   => 'EndTime',
+        'orderId'   => 'OrderId',
+        'requestId' => 'RequestId',
     ];
 
     public function validate()
@@ -35,14 +35,14 @@ class RenewInstanceResponseBody extends Model
     public function toMap()
     {
         $res = [];
-        if (null !== $this->requestId) {
-            $res['RequestId'] = $this->requestId;
+        if (null !== $this->endTime) {
+            $res['EndTime'] = $this->endTime;
         }
         if (null !== $this->orderId) {
             $res['OrderId'] = $this->orderId;
         }
-        if (null !== $this->endTime) {
-            $res['EndTime'] = $this->endTime;
+        if (null !== $this->requestId) {
+            $res['RequestId'] = $this->requestId;
         }
 
         return $res;
@@ -56,14 +56,14 @@ class RenewInstanceResponseBody extends Model
     public static function fromMap($map = [])
     {
         $model = new self();
-        if (isset($map['RequestId'])) {
-            $model->requestId = $map['RequestId'];
+        if (isset($map['EndTime'])) {
+            $model->endTime = $map['EndTime'];
         }
         if (isset($map['OrderId'])) {
             $model->orderId = $map['OrderId'];
         }
-        if (isset($map['EndTime'])) {
-            $model->endTime = $map['EndTime'];
+        if (isset($map['RequestId'])) {
+            $model->requestId = $map['RequestId'];
         }
 
         return $model;

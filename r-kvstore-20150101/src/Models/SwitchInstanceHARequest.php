@@ -11,7 +11,17 @@ class SwitchInstanceHARequest extends Model
     /**
      * @var string
      */
-    public $securityToken;
+    public $instanceId;
+
+    /**
+     * @var string
+     */
+    public $nodeId;
+
+    /**
+     * @var string
+     */
+    public $ownerAccount;
 
     /**
      * @var int
@@ -31,17 +41,7 @@ class SwitchInstanceHARequest extends Model
     /**
      * @var string
      */
-    public $ownerAccount;
-
-    /**
-     * @var string
-     */
-    public $instanceId;
-
-    /**
-     * @var string
-     */
-    public $nodeId;
+    public $securityToken;
 
     /**
      * @var int
@@ -53,13 +53,13 @@ class SwitchInstanceHARequest extends Model
      */
     public $switchType;
     protected $_name = [
-        'securityToken'        => 'SecurityToken',
+        'instanceId'           => 'InstanceId',
+        'nodeId'               => 'NodeId',
+        'ownerAccount'         => 'OwnerAccount',
         'ownerId'              => 'OwnerId',
         'resourceOwnerAccount' => 'ResourceOwnerAccount',
         'resourceOwnerId'      => 'ResourceOwnerId',
-        'ownerAccount'         => 'OwnerAccount',
-        'instanceId'           => 'InstanceId',
-        'nodeId'               => 'NodeId',
+        'securityToken'        => 'SecurityToken',
         'switchMode'           => 'SwitchMode',
         'switchType'           => 'SwitchType',
     ];
@@ -71,8 +71,14 @@ class SwitchInstanceHARequest extends Model
     public function toMap()
     {
         $res = [];
-        if (null !== $this->securityToken) {
-            $res['SecurityToken'] = $this->securityToken;
+        if (null !== $this->instanceId) {
+            $res['InstanceId'] = $this->instanceId;
+        }
+        if (null !== $this->nodeId) {
+            $res['NodeId'] = $this->nodeId;
+        }
+        if (null !== $this->ownerAccount) {
+            $res['OwnerAccount'] = $this->ownerAccount;
         }
         if (null !== $this->ownerId) {
             $res['OwnerId'] = $this->ownerId;
@@ -83,14 +89,8 @@ class SwitchInstanceHARequest extends Model
         if (null !== $this->resourceOwnerId) {
             $res['ResourceOwnerId'] = $this->resourceOwnerId;
         }
-        if (null !== $this->ownerAccount) {
-            $res['OwnerAccount'] = $this->ownerAccount;
-        }
-        if (null !== $this->instanceId) {
-            $res['InstanceId'] = $this->instanceId;
-        }
-        if (null !== $this->nodeId) {
-            $res['NodeId'] = $this->nodeId;
+        if (null !== $this->securityToken) {
+            $res['SecurityToken'] = $this->securityToken;
         }
         if (null !== $this->switchMode) {
             $res['SwitchMode'] = $this->switchMode;
@@ -110,8 +110,14 @@ class SwitchInstanceHARequest extends Model
     public static function fromMap($map = [])
     {
         $model = new self();
-        if (isset($map['SecurityToken'])) {
-            $model->securityToken = $map['SecurityToken'];
+        if (isset($map['InstanceId'])) {
+            $model->instanceId = $map['InstanceId'];
+        }
+        if (isset($map['NodeId'])) {
+            $model->nodeId = $map['NodeId'];
+        }
+        if (isset($map['OwnerAccount'])) {
+            $model->ownerAccount = $map['OwnerAccount'];
         }
         if (isset($map['OwnerId'])) {
             $model->ownerId = $map['OwnerId'];
@@ -122,14 +128,8 @@ class SwitchInstanceHARequest extends Model
         if (isset($map['ResourceOwnerId'])) {
             $model->resourceOwnerId = $map['ResourceOwnerId'];
         }
-        if (isset($map['OwnerAccount'])) {
-            $model->ownerAccount = $map['OwnerAccount'];
-        }
-        if (isset($map['InstanceId'])) {
-            $model->instanceId = $map['InstanceId'];
-        }
-        if (isset($map['NodeId'])) {
-            $model->nodeId = $map['NodeId'];
+        if (isset($map['SecurityToken'])) {
+            $model->securityToken = $map['SecurityToken'];
         }
         if (isset($map['SwitchMode'])) {
             $model->switchMode = $map['SwitchMode'];

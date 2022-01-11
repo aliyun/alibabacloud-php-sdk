@@ -9,14 +9,39 @@ use AlibabaCloud\Tea\Model;
 class DescribeCacheAnalysisReportListRequest extends Model
 {
     /**
+     * @var int
+     */
+    public $days;
+
+    /**
      * @var string
      */
-    public $securityToken;
+    public $instanceId;
+
+    /**
+     * @var string
+     */
+    public $nodeId;
+
+    /**
+     * @var string
+     */
+    public $ownerAccount;
 
     /**
      * @var int
      */
     public $ownerId;
+
+    /**
+     * @var int
+     */
+    public $pageNumbers;
+
+    /**
+     * @var int
+     */
+    public $pageSize;
 
     /**
      * @var string
@@ -31,43 +56,18 @@ class DescribeCacheAnalysisReportListRequest extends Model
     /**
      * @var string
      */
-    public $ownerAccount;
-
-    /**
-     * @var string
-     */
-    public $instanceId;
-
-    /**
-     * @var int
-     */
-    public $days;
-
-    /**
-     * @var int
-     */
-    public $pageSize;
-
-    /**
-     * @var int
-     */
-    public $pageNumbers;
-
-    /**
-     * @var string
-     */
-    public $nodeId;
+    public $securityToken;
     protected $_name = [
-        'securityToken'        => 'SecurityToken',
+        'days'                 => 'Days',
+        'instanceId'           => 'InstanceId',
+        'nodeId'               => 'NodeId',
+        'ownerAccount'         => 'OwnerAccount',
         'ownerId'              => 'OwnerId',
+        'pageNumbers'          => 'PageNumbers',
+        'pageSize'             => 'PageSize',
         'resourceOwnerAccount' => 'ResourceOwnerAccount',
         'resourceOwnerId'      => 'ResourceOwnerId',
-        'ownerAccount'         => 'OwnerAccount',
-        'instanceId'           => 'InstanceId',
-        'days'                 => 'Days',
-        'pageSize'             => 'PageSize',
-        'pageNumbers'          => 'PageNumbers',
-        'nodeId'               => 'NodeId',
+        'securityToken'        => 'SecurityToken',
     ];
 
     public function validate()
@@ -77,11 +77,26 @@ class DescribeCacheAnalysisReportListRequest extends Model
     public function toMap()
     {
         $res = [];
-        if (null !== $this->securityToken) {
-            $res['SecurityToken'] = $this->securityToken;
+        if (null !== $this->days) {
+            $res['Days'] = $this->days;
+        }
+        if (null !== $this->instanceId) {
+            $res['InstanceId'] = $this->instanceId;
+        }
+        if (null !== $this->nodeId) {
+            $res['NodeId'] = $this->nodeId;
+        }
+        if (null !== $this->ownerAccount) {
+            $res['OwnerAccount'] = $this->ownerAccount;
         }
         if (null !== $this->ownerId) {
             $res['OwnerId'] = $this->ownerId;
+        }
+        if (null !== $this->pageNumbers) {
+            $res['PageNumbers'] = $this->pageNumbers;
+        }
+        if (null !== $this->pageSize) {
+            $res['PageSize'] = $this->pageSize;
         }
         if (null !== $this->resourceOwnerAccount) {
             $res['ResourceOwnerAccount'] = $this->resourceOwnerAccount;
@@ -89,23 +104,8 @@ class DescribeCacheAnalysisReportListRequest extends Model
         if (null !== $this->resourceOwnerId) {
             $res['ResourceOwnerId'] = $this->resourceOwnerId;
         }
-        if (null !== $this->ownerAccount) {
-            $res['OwnerAccount'] = $this->ownerAccount;
-        }
-        if (null !== $this->instanceId) {
-            $res['InstanceId'] = $this->instanceId;
-        }
-        if (null !== $this->days) {
-            $res['Days'] = $this->days;
-        }
-        if (null !== $this->pageSize) {
-            $res['PageSize'] = $this->pageSize;
-        }
-        if (null !== $this->pageNumbers) {
-            $res['PageNumbers'] = $this->pageNumbers;
-        }
-        if (null !== $this->nodeId) {
-            $res['NodeId'] = $this->nodeId;
+        if (null !== $this->securityToken) {
+            $res['SecurityToken'] = $this->securityToken;
         }
 
         return $res;
@@ -119,11 +119,26 @@ class DescribeCacheAnalysisReportListRequest extends Model
     public static function fromMap($map = [])
     {
         $model = new self();
-        if (isset($map['SecurityToken'])) {
-            $model->securityToken = $map['SecurityToken'];
+        if (isset($map['Days'])) {
+            $model->days = $map['Days'];
+        }
+        if (isset($map['InstanceId'])) {
+            $model->instanceId = $map['InstanceId'];
+        }
+        if (isset($map['NodeId'])) {
+            $model->nodeId = $map['NodeId'];
+        }
+        if (isset($map['OwnerAccount'])) {
+            $model->ownerAccount = $map['OwnerAccount'];
         }
         if (isset($map['OwnerId'])) {
             $model->ownerId = $map['OwnerId'];
+        }
+        if (isset($map['PageNumbers'])) {
+            $model->pageNumbers = $map['PageNumbers'];
+        }
+        if (isset($map['PageSize'])) {
+            $model->pageSize = $map['PageSize'];
         }
         if (isset($map['ResourceOwnerAccount'])) {
             $model->resourceOwnerAccount = $map['ResourceOwnerAccount'];
@@ -131,23 +146,8 @@ class DescribeCacheAnalysisReportListRequest extends Model
         if (isset($map['ResourceOwnerId'])) {
             $model->resourceOwnerId = $map['ResourceOwnerId'];
         }
-        if (isset($map['OwnerAccount'])) {
-            $model->ownerAccount = $map['OwnerAccount'];
-        }
-        if (isset($map['InstanceId'])) {
-            $model->instanceId = $map['InstanceId'];
-        }
-        if (isset($map['Days'])) {
-            $model->days = $map['Days'];
-        }
-        if (isset($map['PageSize'])) {
-            $model->pageSize = $map['PageSize'];
-        }
-        if (isset($map['PageNumbers'])) {
-            $model->pageNumbers = $map['PageNumbers'];
-        }
-        if (isset($map['NodeId'])) {
-            $model->nodeId = $map['NodeId'];
+        if (isset($map['SecurityToken'])) {
+            $model->securityToken = $map['SecurityToken'];
         }
 
         return $model;

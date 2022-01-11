@@ -10,9 +10,9 @@ use AlibabaCloud\Tea\Model;
 class DescribeCacheAnalysisReportListResponseBody extends Model
 {
     /**
-     * @var string
+     * @var dailyTasks
      */
-    public $requestId;
+    public $dailyTasks;
 
     /**
      * @var string
@@ -20,13 +20,13 @@ class DescribeCacheAnalysisReportListResponseBody extends Model
     public $instanceId;
 
     /**
-     * @var dailyTasks
+     * @var string
      */
-    public $dailyTasks;
+    public $requestId;
     protected $_name = [
-        'requestId'  => 'RequestId',
-        'instanceId' => 'InstanceId',
         'dailyTasks' => 'DailyTasks',
+        'instanceId' => 'InstanceId',
+        'requestId'  => 'RequestId',
     ];
 
     public function validate()
@@ -36,14 +36,14 @@ class DescribeCacheAnalysisReportListResponseBody extends Model
     public function toMap()
     {
         $res = [];
-        if (null !== $this->requestId) {
-            $res['RequestId'] = $this->requestId;
+        if (null !== $this->dailyTasks) {
+            $res['DailyTasks'] = null !== $this->dailyTasks ? $this->dailyTasks->toMap() : null;
         }
         if (null !== $this->instanceId) {
             $res['InstanceId'] = $this->instanceId;
         }
-        if (null !== $this->dailyTasks) {
-            $res['DailyTasks'] = null !== $this->dailyTasks ? $this->dailyTasks->toMap() : null;
+        if (null !== $this->requestId) {
+            $res['RequestId'] = $this->requestId;
         }
 
         return $res;
@@ -57,14 +57,14 @@ class DescribeCacheAnalysisReportListResponseBody extends Model
     public static function fromMap($map = [])
     {
         $model = new self();
-        if (isset($map['RequestId'])) {
-            $model->requestId = $map['RequestId'];
+        if (isset($map['DailyTasks'])) {
+            $model->dailyTasks = dailyTasks::fromMap($map['DailyTasks']);
         }
         if (isset($map['InstanceId'])) {
             $model->instanceId = $map['InstanceId'];
         }
-        if (isset($map['DailyTasks'])) {
-            $model->dailyTasks = dailyTasks::fromMap($map['DailyTasks']);
+        if (isset($map['RequestId'])) {
+            $model->requestId = $map['RequestId'];
         }
 
         return $model;

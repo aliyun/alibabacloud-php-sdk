@@ -16,12 +16,12 @@ class subInstances extends Model
     /**
      * @var string
      */
-    public $instanceID;
+    public $instanceClass;
 
     /**
      * @var string
      */
-    public $regionId;
+    public $instanceID;
 
     /**
      * @var string
@@ -31,13 +31,13 @@ class subInstances extends Model
     /**
      * @var string
      */
-    public $instanceClass;
+    public $regionId;
     protected $_name = [
         'globalInstanceId' => 'GlobalInstanceId',
-        'instanceID'       => 'InstanceID',
-        'regionId'         => 'RegionId',
-        'instanceStatus'   => 'InstanceStatus',
         'instanceClass'    => 'InstanceClass',
+        'instanceID'       => 'InstanceID',
+        'instanceStatus'   => 'InstanceStatus',
+        'regionId'         => 'RegionId',
     ];
 
     public function validate()
@@ -50,17 +50,17 @@ class subInstances extends Model
         if (null !== $this->globalInstanceId) {
             $res['GlobalInstanceId'] = $this->globalInstanceId;
         }
+        if (null !== $this->instanceClass) {
+            $res['InstanceClass'] = $this->instanceClass;
+        }
         if (null !== $this->instanceID) {
             $res['InstanceID'] = $this->instanceID;
-        }
-        if (null !== $this->regionId) {
-            $res['RegionId'] = $this->regionId;
         }
         if (null !== $this->instanceStatus) {
             $res['InstanceStatus'] = $this->instanceStatus;
         }
-        if (null !== $this->instanceClass) {
-            $res['InstanceClass'] = $this->instanceClass;
+        if (null !== $this->regionId) {
+            $res['RegionId'] = $this->regionId;
         }
 
         return $res;
@@ -77,17 +77,17 @@ class subInstances extends Model
         if (isset($map['GlobalInstanceId'])) {
             $model->globalInstanceId = $map['GlobalInstanceId'];
         }
+        if (isset($map['InstanceClass'])) {
+            $model->instanceClass = $map['InstanceClass'];
+        }
         if (isset($map['InstanceID'])) {
             $model->instanceID = $map['InstanceID'];
-        }
-        if (isset($map['RegionId'])) {
-            $model->regionId = $map['RegionId'];
         }
         if (isset($map['InstanceStatus'])) {
             $model->instanceStatus = $map['InstanceStatus'];
         }
-        if (isset($map['InstanceClass'])) {
-            $model->instanceClass = $map['InstanceClass'];
+        if (isset($map['RegionId'])) {
+            $model->regionId = $map['RegionId'];
         }
 
         return $model;

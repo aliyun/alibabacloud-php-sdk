@@ -9,19 +9,14 @@ use AlibabaCloud\Tea\Model;
 class DescribeCacheAnalysisReportResponseBody extends Model
 {
     /**
-     * @var string
+     * @var mixed[][]
      */
-    public $requestId;
+    public $bigKeys;
 
     /**
-     * @var int
+     * @var mixed[][]
      */
-    public $totalRecordCount;
-
-    /**
-     * @var int
-     */
-    public $pageSize;
+    public $hotKeys;
 
     /**
      * @var int
@@ -34,22 +29,27 @@ class DescribeCacheAnalysisReportResponseBody extends Model
     public $pageRecordCount;
 
     /**
-     * @var string[][]
+     * @var int
      */
-    public $hotKeys;
+    public $pageSize;
 
     /**
-     * @var string[][]
+     * @var string
      */
-    public $bigKeys;
+    public $requestId;
+
+    /**
+     * @var int
+     */
+    public $totalRecordCount;
     protected $_name = [
-        'requestId'        => 'RequestId',
-        'totalRecordCount' => 'TotalRecordCount',
-        'pageSize'         => 'PageSize',
+        'bigKeys'          => 'BigKeys',
+        'hotKeys'          => 'HotKeys',
         'pageNumber'       => 'PageNumber',
         'pageRecordCount'  => 'PageRecordCount',
-        'hotKeys'          => 'HotKeys',
-        'bigKeys'          => 'BigKeys',
+        'pageSize'         => 'PageSize',
+        'requestId'        => 'RequestId',
+        'totalRecordCount' => 'TotalRecordCount',
     ];
 
     public function validate()
@@ -59,14 +59,11 @@ class DescribeCacheAnalysisReportResponseBody extends Model
     public function toMap()
     {
         $res = [];
-        if (null !== $this->requestId) {
-            $res['RequestId'] = $this->requestId;
+        if (null !== $this->bigKeys) {
+            $res['BigKeys'] = $this->bigKeys;
         }
-        if (null !== $this->totalRecordCount) {
-            $res['TotalRecordCount'] = $this->totalRecordCount;
-        }
-        if (null !== $this->pageSize) {
-            $res['PageSize'] = $this->pageSize;
+        if (null !== $this->hotKeys) {
+            $res['HotKeys'] = $this->hotKeys;
         }
         if (null !== $this->pageNumber) {
             $res['PageNumber'] = $this->pageNumber;
@@ -74,11 +71,14 @@ class DescribeCacheAnalysisReportResponseBody extends Model
         if (null !== $this->pageRecordCount) {
             $res['PageRecordCount'] = $this->pageRecordCount;
         }
-        if (null !== $this->hotKeys) {
-            $res['HotKeys'] = $this->hotKeys;
+        if (null !== $this->pageSize) {
+            $res['PageSize'] = $this->pageSize;
         }
-        if (null !== $this->bigKeys) {
-            $res['BigKeys'] = $this->bigKeys;
+        if (null !== $this->requestId) {
+            $res['RequestId'] = $this->requestId;
+        }
+        if (null !== $this->totalRecordCount) {
+            $res['TotalRecordCount'] = $this->totalRecordCount;
         }
 
         return $res;
@@ -92,14 +92,15 @@ class DescribeCacheAnalysisReportResponseBody extends Model
     public static function fromMap($map = [])
     {
         $model = new self();
-        if (isset($map['RequestId'])) {
-            $model->requestId = $map['RequestId'];
+        if (isset($map['BigKeys'])) {
+            if (!empty($map['BigKeys'])) {
+                $model->bigKeys = $map['BigKeys'];
+            }
         }
-        if (isset($map['TotalRecordCount'])) {
-            $model->totalRecordCount = $map['TotalRecordCount'];
-        }
-        if (isset($map['PageSize'])) {
-            $model->pageSize = $map['PageSize'];
+        if (isset($map['HotKeys'])) {
+            if (!empty($map['HotKeys'])) {
+                $model->hotKeys = $map['HotKeys'];
+            }
         }
         if (isset($map['PageNumber'])) {
             $model->pageNumber = $map['PageNumber'];
@@ -107,15 +108,14 @@ class DescribeCacheAnalysisReportResponseBody extends Model
         if (isset($map['PageRecordCount'])) {
             $model->pageRecordCount = $map['PageRecordCount'];
         }
-        if (isset($map['HotKeys'])) {
-            if (!empty($map['HotKeys'])) {
-                $model->hotKeys = $map['HotKeys'];
-            }
+        if (isset($map['PageSize'])) {
+            $model->pageSize = $map['PageSize'];
         }
-        if (isset($map['BigKeys'])) {
-            if (!empty($map['BigKeys'])) {
-                $model->bigKeys = $map['BigKeys'];
-            }
+        if (isset($map['RequestId'])) {
+            $model->requestId = $map['RequestId'];
+        }
+        if (isset($map['TotalRecordCount'])) {
+            $model->totalRecordCount = $map['TotalRecordCount'];
         }
 
         return $model;

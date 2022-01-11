@@ -11,7 +11,22 @@ class ModifyInstanceMinorVersionRequest extends Model
     /**
      * @var string
      */
-    public $securityToken;
+    public $effectiveTime;
+
+    /**
+     * @var string
+     */
+    public $instanceId;
+
+    /**
+     * @var string
+     */
+    public $minorversion;
+
+    /**
+     * @var string
+     */
+    public $ownerAccount;
 
     /**
      * @var int
@@ -31,31 +46,16 @@ class ModifyInstanceMinorVersionRequest extends Model
     /**
      * @var string
      */
-    public $ownerAccount;
-
-    /**
-     * @var string
-     */
-    public $instanceId;
-
-    /**
-     * @var string
-     */
-    public $minorversion;
-
-    /**
-     * @var string
-     */
-    public $effectiveTime;
+    public $securityToken;
     protected $_name = [
-        'securityToken'        => 'SecurityToken',
+        'effectiveTime'        => 'EffectiveTime',
+        'instanceId'           => 'InstanceId',
+        'minorversion'         => 'Minorversion',
+        'ownerAccount'         => 'OwnerAccount',
         'ownerId'              => 'OwnerId',
         'resourceOwnerAccount' => 'ResourceOwnerAccount',
         'resourceOwnerId'      => 'ResourceOwnerId',
-        'ownerAccount'         => 'OwnerAccount',
-        'instanceId'           => 'InstanceId',
-        'minorversion'         => 'Minorversion',
-        'effectiveTime'        => 'EffectiveTime',
+        'securityToken'        => 'SecurityToken',
     ];
 
     public function validate()
@@ -65,8 +65,17 @@ class ModifyInstanceMinorVersionRequest extends Model
     public function toMap()
     {
         $res = [];
-        if (null !== $this->securityToken) {
-            $res['SecurityToken'] = $this->securityToken;
+        if (null !== $this->effectiveTime) {
+            $res['EffectiveTime'] = $this->effectiveTime;
+        }
+        if (null !== $this->instanceId) {
+            $res['InstanceId'] = $this->instanceId;
+        }
+        if (null !== $this->minorversion) {
+            $res['Minorversion'] = $this->minorversion;
+        }
+        if (null !== $this->ownerAccount) {
+            $res['OwnerAccount'] = $this->ownerAccount;
         }
         if (null !== $this->ownerId) {
             $res['OwnerId'] = $this->ownerId;
@@ -77,17 +86,8 @@ class ModifyInstanceMinorVersionRequest extends Model
         if (null !== $this->resourceOwnerId) {
             $res['ResourceOwnerId'] = $this->resourceOwnerId;
         }
-        if (null !== $this->ownerAccount) {
-            $res['OwnerAccount'] = $this->ownerAccount;
-        }
-        if (null !== $this->instanceId) {
-            $res['InstanceId'] = $this->instanceId;
-        }
-        if (null !== $this->minorversion) {
-            $res['Minorversion'] = $this->minorversion;
-        }
-        if (null !== $this->effectiveTime) {
-            $res['EffectiveTime'] = $this->effectiveTime;
+        if (null !== $this->securityToken) {
+            $res['SecurityToken'] = $this->securityToken;
         }
 
         return $res;
@@ -101,8 +101,17 @@ class ModifyInstanceMinorVersionRequest extends Model
     public static function fromMap($map = [])
     {
         $model = new self();
-        if (isset($map['SecurityToken'])) {
-            $model->securityToken = $map['SecurityToken'];
+        if (isset($map['EffectiveTime'])) {
+            $model->effectiveTime = $map['EffectiveTime'];
+        }
+        if (isset($map['InstanceId'])) {
+            $model->instanceId = $map['InstanceId'];
+        }
+        if (isset($map['Minorversion'])) {
+            $model->minorversion = $map['Minorversion'];
+        }
+        if (isset($map['OwnerAccount'])) {
+            $model->ownerAccount = $map['OwnerAccount'];
         }
         if (isset($map['OwnerId'])) {
             $model->ownerId = $map['OwnerId'];
@@ -113,17 +122,8 @@ class ModifyInstanceMinorVersionRequest extends Model
         if (isset($map['ResourceOwnerId'])) {
             $model->resourceOwnerId = $map['ResourceOwnerId'];
         }
-        if (isset($map['OwnerAccount'])) {
-            $model->ownerAccount = $map['OwnerAccount'];
-        }
-        if (isset($map['InstanceId'])) {
-            $model->instanceId = $map['InstanceId'];
-        }
-        if (isset($map['Minorversion'])) {
-            $model->minorversion = $map['Minorversion'];
-        }
-        if (isset($map['EffectiveTime'])) {
-            $model->effectiveTime = $map['EffectiveTime'];
+        if (isset($map['SecurityToken'])) {
+            $model->securityToken = $map['SecurityToken'];
         }
 
         return $model;

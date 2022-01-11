@@ -12,20 +12,20 @@ class ListTagResourcesResponseBody extends Model
     /**
      * @var string
      */
-    public $requestId;
+    public $nextToken;
 
     /**
      * @var string
      */
-    public $nextToken;
+    public $requestId;
 
     /**
      * @var tagResources
      */
     public $tagResources;
     protected $_name = [
-        'requestId'    => 'RequestId',
         'nextToken'    => 'NextToken',
+        'requestId'    => 'RequestId',
         'tagResources' => 'TagResources',
     ];
 
@@ -36,11 +36,11 @@ class ListTagResourcesResponseBody extends Model
     public function toMap()
     {
         $res = [];
-        if (null !== $this->requestId) {
-            $res['RequestId'] = $this->requestId;
-        }
         if (null !== $this->nextToken) {
             $res['NextToken'] = $this->nextToken;
+        }
+        if (null !== $this->requestId) {
+            $res['RequestId'] = $this->requestId;
         }
         if (null !== $this->tagResources) {
             $res['TagResources'] = null !== $this->tagResources ? $this->tagResources->toMap() : null;
@@ -57,11 +57,11 @@ class ListTagResourcesResponseBody extends Model
     public static function fromMap($map = [])
     {
         $model = new self();
-        if (isset($map['RequestId'])) {
-            $model->requestId = $map['RequestId'];
-        }
         if (isset($map['NextToken'])) {
             $model->nextToken = $map['NextToken'];
+        }
+        if (isset($map['RequestId'])) {
+            $model->requestId = $map['RequestId'];
         }
         if (isset($map['TagResources'])) {
             $model->tagResources = tagResources::fromMap($map['TagResources']);

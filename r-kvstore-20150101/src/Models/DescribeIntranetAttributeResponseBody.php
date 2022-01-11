@@ -9,9 +9,19 @@ use AlibabaCloud\Tea\Model;
 class DescribeIntranetAttributeResponseBody extends Model
 {
     /**
+     * @var bool
+     */
+    public $autoRenewal;
+
+    /**
      * @var string
      */
-    public $requestId;
+    public $bandwidthExpireTime;
+
+    /**
+     * @var string
+     */
+    public $expireTime;
 
     /**
      * @var int
@@ -21,17 +31,13 @@ class DescribeIntranetAttributeResponseBody extends Model
     /**
      * @var string
      */
-    public $expireTime;
-
-    /**
-     * @var string
-     */
-    public $bandwidthExpireTime;
+    public $requestId;
     protected $_name = [
-        'requestId'           => 'RequestId',
-        'intranetBandwidth'   => 'IntranetBandwidth',
-        'expireTime'          => 'ExpireTime',
+        'autoRenewal'         => 'AutoRenewal',
         'bandwidthExpireTime' => 'BandwidthExpireTime',
+        'expireTime'          => 'ExpireTime',
+        'intranetBandwidth'   => 'IntranetBandwidth',
+        'requestId'           => 'RequestId',
     ];
 
     public function validate()
@@ -41,17 +47,20 @@ class DescribeIntranetAttributeResponseBody extends Model
     public function toMap()
     {
         $res = [];
-        if (null !== $this->requestId) {
-            $res['RequestId'] = $this->requestId;
+        if (null !== $this->autoRenewal) {
+            $res['AutoRenewal'] = $this->autoRenewal;
         }
-        if (null !== $this->intranetBandwidth) {
-            $res['IntranetBandwidth'] = $this->intranetBandwidth;
+        if (null !== $this->bandwidthExpireTime) {
+            $res['BandwidthExpireTime'] = $this->bandwidthExpireTime;
         }
         if (null !== $this->expireTime) {
             $res['ExpireTime'] = $this->expireTime;
         }
-        if (null !== $this->bandwidthExpireTime) {
-            $res['BandwidthExpireTime'] = $this->bandwidthExpireTime;
+        if (null !== $this->intranetBandwidth) {
+            $res['IntranetBandwidth'] = $this->intranetBandwidth;
+        }
+        if (null !== $this->requestId) {
+            $res['RequestId'] = $this->requestId;
         }
 
         return $res;
@@ -65,17 +74,20 @@ class DescribeIntranetAttributeResponseBody extends Model
     public static function fromMap($map = [])
     {
         $model = new self();
-        if (isset($map['RequestId'])) {
-            $model->requestId = $map['RequestId'];
+        if (isset($map['AutoRenewal'])) {
+            $model->autoRenewal = $map['AutoRenewal'];
         }
-        if (isset($map['IntranetBandwidth'])) {
-            $model->intranetBandwidth = $map['IntranetBandwidth'];
+        if (isset($map['BandwidthExpireTime'])) {
+            $model->bandwidthExpireTime = $map['BandwidthExpireTime'];
         }
         if (isset($map['ExpireTime'])) {
             $model->expireTime = $map['ExpireTime'];
         }
-        if (isset($map['BandwidthExpireTime'])) {
-            $model->bandwidthExpireTime = $map['BandwidthExpireTime'];
+        if (isset($map['IntranetBandwidth'])) {
+            $model->intranetBandwidth = $map['IntranetBandwidth'];
+        }
+        if (isset($map['RequestId'])) {
+            $model->requestId = $map['RequestId'];
         }
 
         return $model;

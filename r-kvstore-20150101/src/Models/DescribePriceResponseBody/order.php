@@ -11,14 +11,14 @@ use AlibabaCloud\Tea\Model;
 class order extends Model
 {
     /**
-     * @var string
+     * @var coupons
      */
-    public $originalAmount;
+    public $coupons;
 
     /**
      * @var string
      */
-    public $tradeAmount;
+    public $currency;
 
     /**
      * @var string
@@ -28,7 +28,12 @@ class order extends Model
     /**
      * @var string
      */
-    public $currency;
+    public $handlingFeeAmount;
+
+    /**
+     * @var string
+     */
+    public $originalAmount;
 
     /**
      * @var ruleIds
@@ -36,16 +41,17 @@ class order extends Model
     public $ruleIds;
 
     /**
-     * @var coupons
+     * @var string
      */
-    public $coupons;
+    public $tradeAmount;
     protected $_name = [
-        'originalAmount' => 'OriginalAmount',
-        'tradeAmount'    => 'TradeAmount',
-        'discountAmount' => 'DiscountAmount',
-        'currency'       => 'Currency',
-        'ruleIds'        => 'RuleIds',
-        'coupons'        => 'Coupons',
+        'coupons'           => 'Coupons',
+        'currency'          => 'Currency',
+        'discountAmount'    => 'DiscountAmount',
+        'handlingFeeAmount' => 'HandlingFeeAmount',
+        'originalAmount'    => 'OriginalAmount',
+        'ruleIds'           => 'RuleIds',
+        'tradeAmount'       => 'TradeAmount',
     ];
 
     public function validate()
@@ -55,23 +61,26 @@ class order extends Model
     public function toMap()
     {
         $res = [];
-        if (null !== $this->originalAmount) {
-            $res['OriginalAmount'] = $this->originalAmount;
-        }
-        if (null !== $this->tradeAmount) {
-            $res['TradeAmount'] = $this->tradeAmount;
-        }
-        if (null !== $this->discountAmount) {
-            $res['DiscountAmount'] = $this->discountAmount;
+        if (null !== $this->coupons) {
+            $res['Coupons'] = null !== $this->coupons ? $this->coupons->toMap() : null;
         }
         if (null !== $this->currency) {
             $res['Currency'] = $this->currency;
         }
+        if (null !== $this->discountAmount) {
+            $res['DiscountAmount'] = $this->discountAmount;
+        }
+        if (null !== $this->handlingFeeAmount) {
+            $res['HandlingFeeAmount'] = $this->handlingFeeAmount;
+        }
+        if (null !== $this->originalAmount) {
+            $res['OriginalAmount'] = $this->originalAmount;
+        }
         if (null !== $this->ruleIds) {
             $res['RuleIds'] = null !== $this->ruleIds ? $this->ruleIds->toMap() : null;
         }
-        if (null !== $this->coupons) {
-            $res['Coupons'] = null !== $this->coupons ? $this->coupons->toMap() : null;
+        if (null !== $this->tradeAmount) {
+            $res['TradeAmount'] = $this->tradeAmount;
         }
 
         return $res;
@@ -85,23 +94,26 @@ class order extends Model
     public static function fromMap($map = [])
     {
         $model = new self();
-        if (isset($map['OriginalAmount'])) {
-            $model->originalAmount = $map['OriginalAmount'];
-        }
-        if (isset($map['TradeAmount'])) {
-            $model->tradeAmount = $map['TradeAmount'];
-        }
-        if (isset($map['DiscountAmount'])) {
-            $model->discountAmount = $map['DiscountAmount'];
+        if (isset($map['Coupons'])) {
+            $model->coupons = coupons::fromMap($map['Coupons']);
         }
         if (isset($map['Currency'])) {
             $model->currency = $map['Currency'];
         }
+        if (isset($map['DiscountAmount'])) {
+            $model->discountAmount = $map['DiscountAmount'];
+        }
+        if (isset($map['HandlingFeeAmount'])) {
+            $model->handlingFeeAmount = $map['HandlingFeeAmount'];
+        }
+        if (isset($map['OriginalAmount'])) {
+            $model->originalAmount = $map['OriginalAmount'];
+        }
         if (isset($map['RuleIds'])) {
             $model->ruleIds = ruleIds::fromMap($map['RuleIds']);
         }
-        if (isset($map['Coupons'])) {
-            $model->coupons = coupons::fromMap($map['Coupons']);
+        if (isset($map['TradeAmount'])) {
+            $model->tradeAmount = $map['TradeAmount'];
         }
 
         return $model;

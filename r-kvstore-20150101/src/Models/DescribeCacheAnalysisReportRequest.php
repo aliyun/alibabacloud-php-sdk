@@ -11,12 +11,42 @@ class DescribeCacheAnalysisReportRequest extends Model
     /**
      * @var string
      */
-    public $securityToken;
+    public $analysisType;
+
+    /**
+     * @var string
+     */
+    public $date;
+
+    /**
+     * @var string
+     */
+    public $instanceId;
+
+    /**
+     * @var string
+     */
+    public $nodeId;
+
+    /**
+     * @var string
+     */
+    public $ownerAccount;
 
     /**
      * @var int
      */
     public $ownerId;
+
+    /**
+     * @var int
+     */
+    public $pageNumbers;
+
+    /**
+     * @var int
+     */
+    public $pageSize;
 
     /**
      * @var string
@@ -31,49 +61,19 @@ class DescribeCacheAnalysisReportRequest extends Model
     /**
      * @var string
      */
-    public $ownerAccount;
-
-    /**
-     * @var string
-     */
-    public $instanceId;
-
-    /**
-     * @var string
-     */
-    public $date;
-
-    /**
-     * @var string
-     */
-    public $analysisType;
-
-    /**
-     * @var int
-     */
-    public $pageSize;
-
-    /**
-     * @var int
-     */
-    public $pageNumbers;
-
-    /**
-     * @var string
-     */
-    public $nodeId;
+    public $securityToken;
     protected $_name = [
-        'securityToken'        => 'SecurityToken',
+        'analysisType'         => 'AnalysisType',
+        'date'                 => 'Date',
+        'instanceId'           => 'InstanceId',
+        'nodeId'               => 'NodeId',
+        'ownerAccount'         => 'OwnerAccount',
         'ownerId'              => 'OwnerId',
+        'pageNumbers'          => 'PageNumbers',
+        'pageSize'             => 'PageSize',
         'resourceOwnerAccount' => 'ResourceOwnerAccount',
         'resourceOwnerId'      => 'ResourceOwnerId',
-        'ownerAccount'         => 'OwnerAccount',
-        'instanceId'           => 'InstanceId',
-        'date'                 => 'Date',
-        'analysisType'         => 'AnalysisType',
-        'pageSize'             => 'PageSize',
-        'pageNumbers'          => 'PageNumbers',
-        'nodeId'               => 'NodeId',
+        'securityToken'        => 'SecurityToken',
     ];
 
     public function validate()
@@ -83,11 +83,29 @@ class DescribeCacheAnalysisReportRequest extends Model
     public function toMap()
     {
         $res = [];
-        if (null !== $this->securityToken) {
-            $res['SecurityToken'] = $this->securityToken;
+        if (null !== $this->analysisType) {
+            $res['AnalysisType'] = $this->analysisType;
+        }
+        if (null !== $this->date) {
+            $res['Date'] = $this->date;
+        }
+        if (null !== $this->instanceId) {
+            $res['InstanceId'] = $this->instanceId;
+        }
+        if (null !== $this->nodeId) {
+            $res['NodeId'] = $this->nodeId;
+        }
+        if (null !== $this->ownerAccount) {
+            $res['OwnerAccount'] = $this->ownerAccount;
         }
         if (null !== $this->ownerId) {
             $res['OwnerId'] = $this->ownerId;
+        }
+        if (null !== $this->pageNumbers) {
+            $res['PageNumbers'] = $this->pageNumbers;
+        }
+        if (null !== $this->pageSize) {
+            $res['PageSize'] = $this->pageSize;
         }
         if (null !== $this->resourceOwnerAccount) {
             $res['ResourceOwnerAccount'] = $this->resourceOwnerAccount;
@@ -95,26 +113,8 @@ class DescribeCacheAnalysisReportRequest extends Model
         if (null !== $this->resourceOwnerId) {
             $res['ResourceOwnerId'] = $this->resourceOwnerId;
         }
-        if (null !== $this->ownerAccount) {
-            $res['OwnerAccount'] = $this->ownerAccount;
-        }
-        if (null !== $this->instanceId) {
-            $res['InstanceId'] = $this->instanceId;
-        }
-        if (null !== $this->date) {
-            $res['Date'] = $this->date;
-        }
-        if (null !== $this->analysisType) {
-            $res['AnalysisType'] = $this->analysisType;
-        }
-        if (null !== $this->pageSize) {
-            $res['PageSize'] = $this->pageSize;
-        }
-        if (null !== $this->pageNumbers) {
-            $res['PageNumbers'] = $this->pageNumbers;
-        }
-        if (null !== $this->nodeId) {
-            $res['NodeId'] = $this->nodeId;
+        if (null !== $this->securityToken) {
+            $res['SecurityToken'] = $this->securityToken;
         }
 
         return $res;
@@ -128,11 +128,29 @@ class DescribeCacheAnalysisReportRequest extends Model
     public static function fromMap($map = [])
     {
         $model = new self();
-        if (isset($map['SecurityToken'])) {
-            $model->securityToken = $map['SecurityToken'];
+        if (isset($map['AnalysisType'])) {
+            $model->analysisType = $map['AnalysisType'];
+        }
+        if (isset($map['Date'])) {
+            $model->date = $map['Date'];
+        }
+        if (isset($map['InstanceId'])) {
+            $model->instanceId = $map['InstanceId'];
+        }
+        if (isset($map['NodeId'])) {
+            $model->nodeId = $map['NodeId'];
+        }
+        if (isset($map['OwnerAccount'])) {
+            $model->ownerAccount = $map['OwnerAccount'];
         }
         if (isset($map['OwnerId'])) {
             $model->ownerId = $map['OwnerId'];
+        }
+        if (isset($map['PageNumbers'])) {
+            $model->pageNumbers = $map['PageNumbers'];
+        }
+        if (isset($map['PageSize'])) {
+            $model->pageSize = $map['PageSize'];
         }
         if (isset($map['ResourceOwnerAccount'])) {
             $model->resourceOwnerAccount = $map['ResourceOwnerAccount'];
@@ -140,26 +158,8 @@ class DescribeCacheAnalysisReportRequest extends Model
         if (isset($map['ResourceOwnerId'])) {
             $model->resourceOwnerId = $map['ResourceOwnerId'];
         }
-        if (isset($map['OwnerAccount'])) {
-            $model->ownerAccount = $map['OwnerAccount'];
-        }
-        if (isset($map['InstanceId'])) {
-            $model->instanceId = $map['InstanceId'];
-        }
-        if (isset($map['Date'])) {
-            $model->date = $map['Date'];
-        }
-        if (isset($map['AnalysisType'])) {
-            $model->analysisType = $map['AnalysisType'];
-        }
-        if (isset($map['PageSize'])) {
-            $model->pageSize = $map['PageSize'];
-        }
-        if (isset($map['PageNumbers'])) {
-            $model->pageNumbers = $map['PageNumbers'];
-        }
-        if (isset($map['NodeId'])) {
-            $model->nodeId = $map['NodeId'];
+        if (isset($map['SecurityToken'])) {
+            $model->securityToken = $map['SecurityToken'];
         }
 
         return $model;

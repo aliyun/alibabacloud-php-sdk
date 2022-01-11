@@ -26,6 +26,11 @@ class backupJobs extends Model
     /**
      * @var string
      */
+    public $nodeId;
+
+    /**
+     * @var string
+     */
     public $process;
 
     /**
@@ -41,6 +46,7 @@ class backupJobs extends Model
         'backupJobID'          => 'BackupJobID',
         'backupProgressStatus' => 'BackupProgressStatus',
         'jobMode'              => 'JobMode',
+        'nodeId'               => 'NodeId',
         'process'              => 'Process',
         'startTime'            => 'StartTime',
         'taskAction'           => 'TaskAction',
@@ -61,6 +67,9 @@ class backupJobs extends Model
         }
         if (null !== $this->jobMode) {
             $res['JobMode'] = $this->jobMode;
+        }
+        if (null !== $this->nodeId) {
+            $res['NodeId'] = $this->nodeId;
         }
         if (null !== $this->process) {
             $res['Process'] = $this->process;
@@ -91,6 +100,9 @@ class backupJobs extends Model
         }
         if (isset($map['JobMode'])) {
             $model->jobMode = $map['JobMode'];
+        }
+        if (isset($map['NodeId'])) {
+            $model->nodeId = $map['NodeId'];
         }
         if (isset($map['Process'])) {
             $model->process = $map['Process'];

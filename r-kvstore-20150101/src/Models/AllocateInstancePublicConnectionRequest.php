@@ -11,12 +11,27 @@ class AllocateInstancePublicConnectionRequest extends Model
     /**
      * @var string
      */
-    public $securityToken;
+    public $connectionStringPrefix;
+
+    /**
+     * @var string
+     */
+    public $instanceId;
+
+    /**
+     * @var string
+     */
+    public $ownerAccount;
 
     /**
      * @var int
      */
     public $ownerId;
+
+    /**
+     * @var string
+     */
+    public $port;
 
     /**
      * @var string
@@ -31,31 +46,16 @@ class AllocateInstancePublicConnectionRequest extends Model
     /**
      * @var string
      */
-    public $ownerAccount;
-
-    /**
-     * @var string
-     */
-    public $instanceId;
-
-    /**
-     * @var string
-     */
-    public $connectionStringPrefix;
-
-    /**
-     * @var string
-     */
-    public $port;
+    public $securityToken;
     protected $_name = [
-        'securityToken'          => 'SecurityToken',
+        'connectionStringPrefix' => 'ConnectionStringPrefix',
+        'instanceId'             => 'InstanceId',
+        'ownerAccount'           => 'OwnerAccount',
         'ownerId'                => 'OwnerId',
+        'port'                   => 'Port',
         'resourceOwnerAccount'   => 'ResourceOwnerAccount',
         'resourceOwnerId'        => 'ResourceOwnerId',
-        'ownerAccount'           => 'OwnerAccount',
-        'instanceId'             => 'InstanceId',
-        'connectionStringPrefix' => 'ConnectionStringPrefix',
-        'port'                   => 'Port',
+        'securityToken'          => 'SecurityToken',
     ];
 
     public function validate()
@@ -65,11 +65,20 @@ class AllocateInstancePublicConnectionRequest extends Model
     public function toMap()
     {
         $res = [];
-        if (null !== $this->securityToken) {
-            $res['SecurityToken'] = $this->securityToken;
+        if (null !== $this->connectionStringPrefix) {
+            $res['ConnectionStringPrefix'] = $this->connectionStringPrefix;
+        }
+        if (null !== $this->instanceId) {
+            $res['InstanceId'] = $this->instanceId;
+        }
+        if (null !== $this->ownerAccount) {
+            $res['OwnerAccount'] = $this->ownerAccount;
         }
         if (null !== $this->ownerId) {
             $res['OwnerId'] = $this->ownerId;
+        }
+        if (null !== $this->port) {
+            $res['Port'] = $this->port;
         }
         if (null !== $this->resourceOwnerAccount) {
             $res['ResourceOwnerAccount'] = $this->resourceOwnerAccount;
@@ -77,17 +86,8 @@ class AllocateInstancePublicConnectionRequest extends Model
         if (null !== $this->resourceOwnerId) {
             $res['ResourceOwnerId'] = $this->resourceOwnerId;
         }
-        if (null !== $this->ownerAccount) {
-            $res['OwnerAccount'] = $this->ownerAccount;
-        }
-        if (null !== $this->instanceId) {
-            $res['InstanceId'] = $this->instanceId;
-        }
-        if (null !== $this->connectionStringPrefix) {
-            $res['ConnectionStringPrefix'] = $this->connectionStringPrefix;
-        }
-        if (null !== $this->port) {
-            $res['Port'] = $this->port;
+        if (null !== $this->securityToken) {
+            $res['SecurityToken'] = $this->securityToken;
         }
 
         return $res;
@@ -101,11 +101,20 @@ class AllocateInstancePublicConnectionRequest extends Model
     public static function fromMap($map = [])
     {
         $model = new self();
-        if (isset($map['SecurityToken'])) {
-            $model->securityToken = $map['SecurityToken'];
+        if (isset($map['ConnectionStringPrefix'])) {
+            $model->connectionStringPrefix = $map['ConnectionStringPrefix'];
+        }
+        if (isset($map['InstanceId'])) {
+            $model->instanceId = $map['InstanceId'];
+        }
+        if (isset($map['OwnerAccount'])) {
+            $model->ownerAccount = $map['OwnerAccount'];
         }
         if (isset($map['OwnerId'])) {
             $model->ownerId = $map['OwnerId'];
+        }
+        if (isset($map['Port'])) {
+            $model->port = $map['Port'];
         }
         if (isset($map['ResourceOwnerAccount'])) {
             $model->resourceOwnerAccount = $map['ResourceOwnerAccount'];
@@ -113,17 +122,8 @@ class AllocateInstancePublicConnectionRequest extends Model
         if (isset($map['ResourceOwnerId'])) {
             $model->resourceOwnerId = $map['ResourceOwnerId'];
         }
-        if (isset($map['OwnerAccount'])) {
-            $model->ownerAccount = $map['OwnerAccount'];
-        }
-        if (isset($map['InstanceId'])) {
-            $model->instanceId = $map['InstanceId'];
-        }
-        if (isset($map['ConnectionStringPrefix'])) {
-            $model->connectionStringPrefix = $map['ConnectionStringPrefix'];
-        }
-        if (isset($map['Port'])) {
-            $model->port = $map['Port'];
+        if (isset($map['SecurityToken'])) {
+            $model->securityToken = $map['SecurityToken'];
         }
 
         return $model;

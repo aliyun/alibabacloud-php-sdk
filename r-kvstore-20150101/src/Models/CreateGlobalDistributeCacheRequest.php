@@ -11,7 +11,7 @@ class CreateGlobalDistributeCacheRequest extends Model
     /**
      * @var string
      */
-    public $securityToken;
+    public $ownerAccount;
 
     /**
      * @var int
@@ -31,18 +31,18 @@ class CreateGlobalDistributeCacheRequest extends Model
     /**
      * @var string
      */
-    public $ownerAccount;
+    public $securityToken;
 
     /**
      * @var string
      */
     public $seedSubInstanceId;
     protected $_name = [
-        'securityToken'        => 'SecurityToken',
+        'ownerAccount'         => 'OwnerAccount',
         'ownerId'              => 'OwnerId',
         'resourceOwnerAccount' => 'ResourceOwnerAccount',
         'resourceOwnerId'      => 'ResourceOwnerId',
-        'ownerAccount'         => 'OwnerAccount',
+        'securityToken'        => 'SecurityToken',
         'seedSubInstanceId'    => 'SeedSubInstanceId',
     ];
 
@@ -53,8 +53,8 @@ class CreateGlobalDistributeCacheRequest extends Model
     public function toMap()
     {
         $res = [];
-        if (null !== $this->securityToken) {
-            $res['SecurityToken'] = $this->securityToken;
+        if (null !== $this->ownerAccount) {
+            $res['OwnerAccount'] = $this->ownerAccount;
         }
         if (null !== $this->ownerId) {
             $res['OwnerId'] = $this->ownerId;
@@ -65,8 +65,8 @@ class CreateGlobalDistributeCacheRequest extends Model
         if (null !== $this->resourceOwnerId) {
             $res['ResourceOwnerId'] = $this->resourceOwnerId;
         }
-        if (null !== $this->ownerAccount) {
-            $res['OwnerAccount'] = $this->ownerAccount;
+        if (null !== $this->securityToken) {
+            $res['SecurityToken'] = $this->securityToken;
         }
         if (null !== $this->seedSubInstanceId) {
             $res['SeedSubInstanceId'] = $this->seedSubInstanceId;
@@ -83,8 +83,8 @@ class CreateGlobalDistributeCacheRequest extends Model
     public static function fromMap($map = [])
     {
         $model = new self();
-        if (isset($map['SecurityToken'])) {
-            $model->securityToken = $map['SecurityToken'];
+        if (isset($map['OwnerAccount'])) {
+            $model->ownerAccount = $map['OwnerAccount'];
         }
         if (isset($map['OwnerId'])) {
             $model->ownerId = $map['OwnerId'];
@@ -95,8 +95,8 @@ class CreateGlobalDistributeCacheRequest extends Model
         if (isset($map['ResourceOwnerId'])) {
             $model->resourceOwnerId = $map['ResourceOwnerId'];
         }
-        if (isset($map['OwnerAccount'])) {
-            $model->ownerAccount = $map['OwnerAccount'];
+        if (isset($map['SecurityToken'])) {
+            $model->securityToken = $map['SecurityToken'];
         }
         if (isset($map['SeedSubInstanceId'])) {
             $model->seedSubInstanceId = $map['SeedSubInstanceId'];

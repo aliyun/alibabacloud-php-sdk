@@ -11,7 +11,17 @@ class ModifySecurityIpsRequest extends Model
     /**
      * @var string
      */
-    public $securityToken;
+    public $instanceId;
+
+    /**
+     * @var string
+     */
+    public $modifyMode;
+
+    /**
+     * @var string
+     */
+    public $ownerAccount;
 
     /**
      * @var int
@@ -31,17 +41,7 @@ class ModifySecurityIpsRequest extends Model
     /**
      * @var string
      */
-    public $ownerAccount;
-
-    /**
-     * @var string
-     */
-    public $instanceId;
-
-    /**
-     * @var string
-     */
-    public $securityIps;
+    public $securityIpGroupAttribute;
 
     /**
      * @var string
@@ -51,23 +51,23 @@ class ModifySecurityIpsRequest extends Model
     /**
      * @var string
      */
-    public $securityIpGroupAttribute;
+    public $securityIps;
 
     /**
      * @var string
      */
-    public $modifyMode;
+    public $securityToken;
     protected $_name = [
-        'securityToken'            => 'SecurityToken',
+        'instanceId'               => 'InstanceId',
+        'modifyMode'               => 'ModifyMode',
+        'ownerAccount'             => 'OwnerAccount',
         'ownerId'                  => 'OwnerId',
         'resourceOwnerAccount'     => 'ResourceOwnerAccount',
         'resourceOwnerId'          => 'ResourceOwnerId',
-        'ownerAccount'             => 'OwnerAccount',
-        'instanceId'               => 'InstanceId',
-        'securityIps'              => 'SecurityIps',
-        'securityIpGroupName'      => 'SecurityIpGroupName',
         'securityIpGroupAttribute' => 'SecurityIpGroupAttribute',
-        'modifyMode'               => 'ModifyMode',
+        'securityIpGroupName'      => 'SecurityIpGroupName',
+        'securityIps'              => 'SecurityIps',
+        'securityToken'            => 'SecurityToken',
     ];
 
     public function validate()
@@ -77,8 +77,14 @@ class ModifySecurityIpsRequest extends Model
     public function toMap()
     {
         $res = [];
-        if (null !== $this->securityToken) {
-            $res['SecurityToken'] = $this->securityToken;
+        if (null !== $this->instanceId) {
+            $res['InstanceId'] = $this->instanceId;
+        }
+        if (null !== $this->modifyMode) {
+            $res['ModifyMode'] = $this->modifyMode;
+        }
+        if (null !== $this->ownerAccount) {
+            $res['OwnerAccount'] = $this->ownerAccount;
         }
         if (null !== $this->ownerId) {
             $res['OwnerId'] = $this->ownerId;
@@ -89,23 +95,17 @@ class ModifySecurityIpsRequest extends Model
         if (null !== $this->resourceOwnerId) {
             $res['ResourceOwnerId'] = $this->resourceOwnerId;
         }
-        if (null !== $this->ownerAccount) {
-            $res['OwnerAccount'] = $this->ownerAccount;
-        }
-        if (null !== $this->instanceId) {
-            $res['InstanceId'] = $this->instanceId;
-        }
-        if (null !== $this->securityIps) {
-            $res['SecurityIps'] = $this->securityIps;
+        if (null !== $this->securityIpGroupAttribute) {
+            $res['SecurityIpGroupAttribute'] = $this->securityIpGroupAttribute;
         }
         if (null !== $this->securityIpGroupName) {
             $res['SecurityIpGroupName'] = $this->securityIpGroupName;
         }
-        if (null !== $this->securityIpGroupAttribute) {
-            $res['SecurityIpGroupAttribute'] = $this->securityIpGroupAttribute;
+        if (null !== $this->securityIps) {
+            $res['SecurityIps'] = $this->securityIps;
         }
-        if (null !== $this->modifyMode) {
-            $res['ModifyMode'] = $this->modifyMode;
+        if (null !== $this->securityToken) {
+            $res['SecurityToken'] = $this->securityToken;
         }
 
         return $res;
@@ -119,8 +119,14 @@ class ModifySecurityIpsRequest extends Model
     public static function fromMap($map = [])
     {
         $model = new self();
-        if (isset($map['SecurityToken'])) {
-            $model->securityToken = $map['SecurityToken'];
+        if (isset($map['InstanceId'])) {
+            $model->instanceId = $map['InstanceId'];
+        }
+        if (isset($map['ModifyMode'])) {
+            $model->modifyMode = $map['ModifyMode'];
+        }
+        if (isset($map['OwnerAccount'])) {
+            $model->ownerAccount = $map['OwnerAccount'];
         }
         if (isset($map['OwnerId'])) {
             $model->ownerId = $map['OwnerId'];
@@ -131,23 +137,17 @@ class ModifySecurityIpsRequest extends Model
         if (isset($map['ResourceOwnerId'])) {
             $model->resourceOwnerId = $map['ResourceOwnerId'];
         }
-        if (isset($map['OwnerAccount'])) {
-            $model->ownerAccount = $map['OwnerAccount'];
-        }
-        if (isset($map['InstanceId'])) {
-            $model->instanceId = $map['InstanceId'];
-        }
-        if (isset($map['SecurityIps'])) {
-            $model->securityIps = $map['SecurityIps'];
+        if (isset($map['SecurityIpGroupAttribute'])) {
+            $model->securityIpGroupAttribute = $map['SecurityIpGroupAttribute'];
         }
         if (isset($map['SecurityIpGroupName'])) {
             $model->securityIpGroupName = $map['SecurityIpGroupName'];
         }
-        if (isset($map['SecurityIpGroupAttribute'])) {
-            $model->securityIpGroupAttribute = $map['SecurityIpGroupAttribute'];
+        if (isset($map['SecurityIps'])) {
+            $model->securityIps = $map['SecurityIps'];
         }
-        if (isset($map['ModifyMode'])) {
-            $model->modifyMode = $map['ModifyMode'];
+        if (isset($map['SecurityToken'])) {
+            $model->securityToken = $map['SecurityToken'];
         }
 
         return $model;

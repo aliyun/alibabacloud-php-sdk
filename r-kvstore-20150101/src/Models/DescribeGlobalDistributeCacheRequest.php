@@ -11,22 +11,7 @@ class DescribeGlobalDistributeCacheRequest extends Model
     /**
      * @var string
      */
-    public $securityToken;
-
-    /**
-     * @var int
-     */
-    public $ownerId;
-
-    /**
-     * @var string
-     */
-    public $resourceOwnerAccount;
-
-    /**
-     * @var int
-     */
-    public $resourceOwnerId;
+    public $globalInstanceId;
 
     /**
      * @var string
@@ -34,9 +19,9 @@ class DescribeGlobalDistributeCacheRequest extends Model
     public $ownerAccount;
 
     /**
-     * @var string
+     * @var int
      */
-    public $globalInstanceId;
+    public $ownerId;
 
     /**
      * @var string
@@ -51,16 +36,31 @@ class DescribeGlobalDistributeCacheRequest extends Model
     /**
      * @var string
      */
+    public $resourceOwnerAccount;
+
+    /**
+     * @var int
+     */
+    public $resourceOwnerId;
+
+    /**
+     * @var string
+     */
+    public $securityToken;
+
+    /**
+     * @var string
+     */
     public $subInstanceId;
     protected $_name = [
-        'securityToken'        => 'SecurityToken',
-        'ownerId'              => 'OwnerId',
-        'resourceOwnerAccount' => 'ResourceOwnerAccount',
-        'resourceOwnerId'      => 'ResourceOwnerId',
-        'ownerAccount'         => 'OwnerAccount',
         'globalInstanceId'     => 'GlobalInstanceId',
+        'ownerAccount'         => 'OwnerAccount',
+        'ownerId'              => 'OwnerId',
         'pageNumber'           => 'PageNumber',
         'pageSize'             => 'PageSize',
+        'resourceOwnerAccount' => 'ResourceOwnerAccount',
+        'resourceOwnerId'      => 'ResourceOwnerId',
+        'securityToken'        => 'SecurityToken',
         'subInstanceId'        => 'SubInstanceId',
     ];
 
@@ -71,11 +71,20 @@ class DescribeGlobalDistributeCacheRequest extends Model
     public function toMap()
     {
         $res = [];
-        if (null !== $this->securityToken) {
-            $res['SecurityToken'] = $this->securityToken;
+        if (null !== $this->globalInstanceId) {
+            $res['GlobalInstanceId'] = $this->globalInstanceId;
+        }
+        if (null !== $this->ownerAccount) {
+            $res['OwnerAccount'] = $this->ownerAccount;
         }
         if (null !== $this->ownerId) {
             $res['OwnerId'] = $this->ownerId;
+        }
+        if (null !== $this->pageNumber) {
+            $res['PageNumber'] = $this->pageNumber;
+        }
+        if (null !== $this->pageSize) {
+            $res['PageSize'] = $this->pageSize;
         }
         if (null !== $this->resourceOwnerAccount) {
             $res['ResourceOwnerAccount'] = $this->resourceOwnerAccount;
@@ -83,17 +92,8 @@ class DescribeGlobalDistributeCacheRequest extends Model
         if (null !== $this->resourceOwnerId) {
             $res['ResourceOwnerId'] = $this->resourceOwnerId;
         }
-        if (null !== $this->ownerAccount) {
-            $res['OwnerAccount'] = $this->ownerAccount;
-        }
-        if (null !== $this->globalInstanceId) {
-            $res['GlobalInstanceId'] = $this->globalInstanceId;
-        }
-        if (null !== $this->pageNumber) {
-            $res['PageNumber'] = $this->pageNumber;
-        }
-        if (null !== $this->pageSize) {
-            $res['PageSize'] = $this->pageSize;
+        if (null !== $this->securityToken) {
+            $res['SecurityToken'] = $this->securityToken;
         }
         if (null !== $this->subInstanceId) {
             $res['SubInstanceId'] = $this->subInstanceId;
@@ -110,11 +110,20 @@ class DescribeGlobalDistributeCacheRequest extends Model
     public static function fromMap($map = [])
     {
         $model = new self();
-        if (isset($map['SecurityToken'])) {
-            $model->securityToken = $map['SecurityToken'];
+        if (isset($map['GlobalInstanceId'])) {
+            $model->globalInstanceId = $map['GlobalInstanceId'];
+        }
+        if (isset($map['OwnerAccount'])) {
+            $model->ownerAccount = $map['OwnerAccount'];
         }
         if (isset($map['OwnerId'])) {
             $model->ownerId = $map['OwnerId'];
+        }
+        if (isset($map['PageNumber'])) {
+            $model->pageNumber = $map['PageNumber'];
+        }
+        if (isset($map['PageSize'])) {
+            $model->pageSize = $map['PageSize'];
         }
         if (isset($map['ResourceOwnerAccount'])) {
             $model->resourceOwnerAccount = $map['ResourceOwnerAccount'];
@@ -122,17 +131,8 @@ class DescribeGlobalDistributeCacheRequest extends Model
         if (isset($map['ResourceOwnerId'])) {
             $model->resourceOwnerId = $map['ResourceOwnerId'];
         }
-        if (isset($map['OwnerAccount'])) {
-            $model->ownerAccount = $map['OwnerAccount'];
-        }
-        if (isset($map['GlobalInstanceId'])) {
-            $model->globalInstanceId = $map['GlobalInstanceId'];
-        }
-        if (isset($map['PageNumber'])) {
-            $model->pageNumber = $map['PageNumber'];
-        }
-        if (isset($map['PageSize'])) {
-            $model->pageSize = $map['PageSize'];
+        if (isset($map['SecurityToken'])) {
+            $model->securityToken = $map['SecurityToken'];
         }
         if (isset($map['SubInstanceId'])) {
             $model->subInstanceId = $map['SubInstanceId'];

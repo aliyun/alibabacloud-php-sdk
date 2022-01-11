@@ -11,7 +11,22 @@ class RestoreInstanceRequest extends Model
     /**
      * @var string
      */
-    public $securityToken;
+    public $backupId;
+
+    /**
+     * @var string
+     */
+    public $filterKey;
+
+    /**
+     * @var string
+     */
+    public $instanceId;
+
+    /**
+     * @var string
+     */
+    public $ownerAccount;
 
     /**
      * @var int
@@ -31,25 +46,28 @@ class RestoreInstanceRequest extends Model
     /**
      * @var string
      */
-    public $ownerAccount;
+    public $restoreTime;
 
     /**
      * @var string
      */
-    public $instanceId;
+    public $restoreType;
 
     /**
      * @var string
      */
-    public $backupId;
+    public $securityToken;
     protected $_name = [
-        'securityToken'        => 'SecurityToken',
+        'backupId'             => 'BackupId',
+        'filterKey'            => 'FilterKey',
+        'instanceId'           => 'InstanceId',
+        'ownerAccount'         => 'OwnerAccount',
         'ownerId'              => 'OwnerId',
         'resourceOwnerAccount' => 'ResourceOwnerAccount',
         'resourceOwnerId'      => 'ResourceOwnerId',
-        'ownerAccount'         => 'OwnerAccount',
-        'instanceId'           => 'InstanceId',
-        'backupId'             => 'BackupId',
+        'restoreTime'          => 'RestoreTime',
+        'restoreType'          => 'RestoreType',
+        'securityToken'        => 'SecurityToken',
     ];
 
     public function validate()
@@ -59,8 +77,17 @@ class RestoreInstanceRequest extends Model
     public function toMap()
     {
         $res = [];
-        if (null !== $this->securityToken) {
-            $res['SecurityToken'] = $this->securityToken;
+        if (null !== $this->backupId) {
+            $res['BackupId'] = $this->backupId;
+        }
+        if (null !== $this->filterKey) {
+            $res['FilterKey'] = $this->filterKey;
+        }
+        if (null !== $this->instanceId) {
+            $res['InstanceId'] = $this->instanceId;
+        }
+        if (null !== $this->ownerAccount) {
+            $res['OwnerAccount'] = $this->ownerAccount;
         }
         if (null !== $this->ownerId) {
             $res['OwnerId'] = $this->ownerId;
@@ -71,14 +98,14 @@ class RestoreInstanceRequest extends Model
         if (null !== $this->resourceOwnerId) {
             $res['ResourceOwnerId'] = $this->resourceOwnerId;
         }
-        if (null !== $this->ownerAccount) {
-            $res['OwnerAccount'] = $this->ownerAccount;
+        if (null !== $this->restoreTime) {
+            $res['RestoreTime'] = $this->restoreTime;
         }
-        if (null !== $this->instanceId) {
-            $res['InstanceId'] = $this->instanceId;
+        if (null !== $this->restoreType) {
+            $res['RestoreType'] = $this->restoreType;
         }
-        if (null !== $this->backupId) {
-            $res['BackupId'] = $this->backupId;
+        if (null !== $this->securityToken) {
+            $res['SecurityToken'] = $this->securityToken;
         }
 
         return $res;
@@ -92,8 +119,17 @@ class RestoreInstanceRequest extends Model
     public static function fromMap($map = [])
     {
         $model = new self();
-        if (isset($map['SecurityToken'])) {
-            $model->securityToken = $map['SecurityToken'];
+        if (isset($map['BackupId'])) {
+            $model->backupId = $map['BackupId'];
+        }
+        if (isset($map['FilterKey'])) {
+            $model->filterKey = $map['FilterKey'];
+        }
+        if (isset($map['InstanceId'])) {
+            $model->instanceId = $map['InstanceId'];
+        }
+        if (isset($map['OwnerAccount'])) {
+            $model->ownerAccount = $map['OwnerAccount'];
         }
         if (isset($map['OwnerId'])) {
             $model->ownerId = $map['OwnerId'];
@@ -104,14 +140,14 @@ class RestoreInstanceRequest extends Model
         if (isset($map['ResourceOwnerId'])) {
             $model->resourceOwnerId = $map['ResourceOwnerId'];
         }
-        if (isset($map['OwnerAccount'])) {
-            $model->ownerAccount = $map['OwnerAccount'];
+        if (isset($map['RestoreTime'])) {
+            $model->restoreTime = $map['RestoreTime'];
         }
-        if (isset($map['InstanceId'])) {
-            $model->instanceId = $map['InstanceId'];
+        if (isset($map['RestoreType'])) {
+            $model->restoreType = $map['RestoreType'];
         }
-        if (isset($map['BackupId'])) {
-            $model->backupId = $map['BackupId'];
+        if (isset($map['SecurityToken'])) {
+            $model->securityToken = $map['SecurityToken'];
         }
 
         return $model;

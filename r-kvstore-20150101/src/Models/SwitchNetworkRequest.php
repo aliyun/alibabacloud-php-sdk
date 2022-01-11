@@ -11,7 +11,17 @@ class SwitchNetworkRequest extends Model
     /**
      * @var string
      */
-    public $securityToken;
+    public $classicExpiredDays;
+
+    /**
+     * @var string
+     */
+    public $instanceId;
+
+    /**
+     * @var string
+     */
+    public $ownerAccount;
 
     /**
      * @var int
@@ -31,7 +41,12 @@ class SwitchNetworkRequest extends Model
     /**
      * @var string
      */
-    public $ownerAccount;
+    public $retainClassic;
+
+    /**
+     * @var string
+     */
+    public $securityToken;
 
     /**
      * @var string
@@ -41,39 +56,24 @@ class SwitchNetworkRequest extends Model
     /**
      * @var string
      */
-    public $vpcId;
-
-    /**
-     * @var string
-     */
     public $vSwitchId;
 
     /**
      * @var string
      */
-    public $instanceId;
-
-    /**
-     * @var string
-     */
-    public $retainClassic;
-
-    /**
-     * @var string
-     */
-    public $classicExpiredDays;
+    public $vpcId;
     protected $_name = [
-        'securityToken'        => 'SecurityToken',
+        'classicExpiredDays'   => 'ClassicExpiredDays',
+        'instanceId'           => 'InstanceId',
+        'ownerAccount'         => 'OwnerAccount',
         'ownerId'              => 'OwnerId',
         'resourceOwnerAccount' => 'ResourceOwnerAccount',
         'resourceOwnerId'      => 'ResourceOwnerId',
-        'ownerAccount'         => 'OwnerAccount',
-        'targetNetworkType'    => 'TargetNetworkType',
-        'vpcId'                => 'VpcId',
-        'vSwitchId'            => 'VSwitchId',
-        'instanceId'           => 'InstanceId',
         'retainClassic'        => 'RetainClassic',
-        'classicExpiredDays'   => 'ClassicExpiredDays',
+        'securityToken'        => 'SecurityToken',
+        'targetNetworkType'    => 'TargetNetworkType',
+        'vSwitchId'            => 'VSwitchId',
+        'vpcId'                => 'VpcId',
     ];
 
     public function validate()
@@ -83,8 +83,14 @@ class SwitchNetworkRequest extends Model
     public function toMap()
     {
         $res = [];
-        if (null !== $this->securityToken) {
-            $res['SecurityToken'] = $this->securityToken;
+        if (null !== $this->classicExpiredDays) {
+            $res['ClassicExpiredDays'] = $this->classicExpiredDays;
+        }
+        if (null !== $this->instanceId) {
+            $res['InstanceId'] = $this->instanceId;
+        }
+        if (null !== $this->ownerAccount) {
+            $res['OwnerAccount'] = $this->ownerAccount;
         }
         if (null !== $this->ownerId) {
             $res['OwnerId'] = $this->ownerId;
@@ -95,26 +101,20 @@ class SwitchNetworkRequest extends Model
         if (null !== $this->resourceOwnerId) {
             $res['ResourceOwnerId'] = $this->resourceOwnerId;
         }
-        if (null !== $this->ownerAccount) {
-            $res['OwnerAccount'] = $this->ownerAccount;
+        if (null !== $this->retainClassic) {
+            $res['RetainClassic'] = $this->retainClassic;
+        }
+        if (null !== $this->securityToken) {
+            $res['SecurityToken'] = $this->securityToken;
         }
         if (null !== $this->targetNetworkType) {
             $res['TargetNetworkType'] = $this->targetNetworkType;
         }
-        if (null !== $this->vpcId) {
-            $res['VpcId'] = $this->vpcId;
-        }
         if (null !== $this->vSwitchId) {
             $res['VSwitchId'] = $this->vSwitchId;
         }
-        if (null !== $this->instanceId) {
-            $res['InstanceId'] = $this->instanceId;
-        }
-        if (null !== $this->retainClassic) {
-            $res['RetainClassic'] = $this->retainClassic;
-        }
-        if (null !== $this->classicExpiredDays) {
-            $res['ClassicExpiredDays'] = $this->classicExpiredDays;
+        if (null !== $this->vpcId) {
+            $res['VpcId'] = $this->vpcId;
         }
 
         return $res;
@@ -128,8 +128,14 @@ class SwitchNetworkRequest extends Model
     public static function fromMap($map = [])
     {
         $model = new self();
-        if (isset($map['SecurityToken'])) {
-            $model->securityToken = $map['SecurityToken'];
+        if (isset($map['ClassicExpiredDays'])) {
+            $model->classicExpiredDays = $map['ClassicExpiredDays'];
+        }
+        if (isset($map['InstanceId'])) {
+            $model->instanceId = $map['InstanceId'];
+        }
+        if (isset($map['OwnerAccount'])) {
+            $model->ownerAccount = $map['OwnerAccount'];
         }
         if (isset($map['OwnerId'])) {
             $model->ownerId = $map['OwnerId'];
@@ -140,26 +146,20 @@ class SwitchNetworkRequest extends Model
         if (isset($map['ResourceOwnerId'])) {
             $model->resourceOwnerId = $map['ResourceOwnerId'];
         }
-        if (isset($map['OwnerAccount'])) {
-            $model->ownerAccount = $map['OwnerAccount'];
+        if (isset($map['RetainClassic'])) {
+            $model->retainClassic = $map['RetainClassic'];
+        }
+        if (isset($map['SecurityToken'])) {
+            $model->securityToken = $map['SecurityToken'];
         }
         if (isset($map['TargetNetworkType'])) {
             $model->targetNetworkType = $map['TargetNetworkType'];
         }
-        if (isset($map['VpcId'])) {
-            $model->vpcId = $map['VpcId'];
-        }
         if (isset($map['VSwitchId'])) {
             $model->vSwitchId = $map['VSwitchId'];
         }
-        if (isset($map['InstanceId'])) {
-            $model->instanceId = $map['InstanceId'];
-        }
-        if (isset($map['RetainClassic'])) {
-            $model->retainClassic = $map['RetainClassic'];
-        }
-        if (isset($map['ClassicExpiredDays'])) {
-            $model->classicExpiredDays = $map['ClassicExpiredDays'];
+        if (isset($map['VpcId'])) {
+            $model->vpcId = $map['VpcId'];
         }
 
         return $model;

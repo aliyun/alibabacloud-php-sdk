@@ -11,7 +11,22 @@ class DescribeBackupTasksRequest extends Model
     /**
      * @var string
      */
-    public $securityToken;
+    public $backupJobId;
+
+    /**
+     * @var string
+     */
+    public $instanceId;
+
+    /**
+     * @var string
+     */
+    public $jobMode;
+
+    /**
+     * @var string
+     */
+    public $ownerAccount;
 
     /**
      * @var int
@@ -31,31 +46,16 @@ class DescribeBackupTasksRequest extends Model
     /**
      * @var string
      */
-    public $ownerAccount;
-
-    /**
-     * @var string
-     */
-    public $instanceId;
-
-    /**
-     * @var string
-     */
-    public $backupJobId;
-
-    /**
-     * @var string
-     */
-    public $jobMode;
+    public $securityToken;
     protected $_name = [
-        'securityToken'        => 'SecurityToken',
+        'backupJobId'          => 'BackupJobId',
+        'instanceId'           => 'InstanceId',
+        'jobMode'              => 'JobMode',
+        'ownerAccount'         => 'OwnerAccount',
         'ownerId'              => 'OwnerId',
         'resourceOwnerAccount' => 'ResourceOwnerAccount',
         'resourceOwnerId'      => 'ResourceOwnerId',
-        'ownerAccount'         => 'OwnerAccount',
-        'instanceId'           => 'InstanceId',
-        'backupJobId'          => 'BackupJobId',
-        'jobMode'              => 'JobMode',
+        'securityToken'        => 'SecurityToken',
     ];
 
     public function validate()
@@ -65,8 +65,17 @@ class DescribeBackupTasksRequest extends Model
     public function toMap()
     {
         $res = [];
-        if (null !== $this->securityToken) {
-            $res['SecurityToken'] = $this->securityToken;
+        if (null !== $this->backupJobId) {
+            $res['BackupJobId'] = $this->backupJobId;
+        }
+        if (null !== $this->instanceId) {
+            $res['InstanceId'] = $this->instanceId;
+        }
+        if (null !== $this->jobMode) {
+            $res['JobMode'] = $this->jobMode;
+        }
+        if (null !== $this->ownerAccount) {
+            $res['OwnerAccount'] = $this->ownerAccount;
         }
         if (null !== $this->ownerId) {
             $res['OwnerId'] = $this->ownerId;
@@ -77,17 +86,8 @@ class DescribeBackupTasksRequest extends Model
         if (null !== $this->resourceOwnerId) {
             $res['ResourceOwnerId'] = $this->resourceOwnerId;
         }
-        if (null !== $this->ownerAccount) {
-            $res['OwnerAccount'] = $this->ownerAccount;
-        }
-        if (null !== $this->instanceId) {
-            $res['InstanceId'] = $this->instanceId;
-        }
-        if (null !== $this->backupJobId) {
-            $res['BackupJobId'] = $this->backupJobId;
-        }
-        if (null !== $this->jobMode) {
-            $res['JobMode'] = $this->jobMode;
+        if (null !== $this->securityToken) {
+            $res['SecurityToken'] = $this->securityToken;
         }
 
         return $res;
@@ -101,8 +101,17 @@ class DescribeBackupTasksRequest extends Model
     public static function fromMap($map = [])
     {
         $model = new self();
-        if (isset($map['SecurityToken'])) {
-            $model->securityToken = $map['SecurityToken'];
+        if (isset($map['BackupJobId'])) {
+            $model->backupJobId = $map['BackupJobId'];
+        }
+        if (isset($map['InstanceId'])) {
+            $model->instanceId = $map['InstanceId'];
+        }
+        if (isset($map['JobMode'])) {
+            $model->jobMode = $map['JobMode'];
+        }
+        if (isset($map['OwnerAccount'])) {
+            $model->ownerAccount = $map['OwnerAccount'];
         }
         if (isset($map['OwnerId'])) {
             $model->ownerId = $map['OwnerId'];
@@ -113,17 +122,8 @@ class DescribeBackupTasksRequest extends Model
         if (isset($map['ResourceOwnerId'])) {
             $model->resourceOwnerId = $map['ResourceOwnerId'];
         }
-        if (isset($map['OwnerAccount'])) {
-            $model->ownerAccount = $map['OwnerAccount'];
-        }
-        if (isset($map['InstanceId'])) {
-            $model->instanceId = $map['InstanceId'];
-        }
-        if (isset($map['BackupJobId'])) {
-            $model->backupJobId = $map['BackupJobId'];
-        }
-        if (isset($map['JobMode'])) {
-            $model->jobMode = $map['JobMode'];
+        if (isset($map['SecurityToken'])) {
+            $model->securityToken = $map['SecurityToken'];
         }
 
         return $model;

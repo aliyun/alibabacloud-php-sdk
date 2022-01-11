@@ -12,16 +12,6 @@ class KVStoreRegion extends Model
     /**
      * @var string
      */
-    public $regionId;
-
-    /**
-     * @var string
-     */
-    public $zoneIds;
-
-    /**
-     * @var string
-     */
     public $localName;
 
     /**
@@ -30,15 +20,25 @@ class KVStoreRegion extends Model
     public $regionEndpoint;
 
     /**
+     * @var string
+     */
+    public $regionId;
+
+    /**
      * @var zoneIdList
      */
     public $zoneIdList;
+
+    /**
+     * @var string
+     */
+    public $zoneIds;
     protected $_name = [
-        'regionId'       => 'RegionId',
-        'zoneIds'        => 'ZoneIds',
         'localName'      => 'LocalName',
         'regionEndpoint' => 'RegionEndpoint',
+        'regionId'       => 'RegionId',
         'zoneIdList'     => 'ZoneIdList',
+        'zoneIds'        => 'ZoneIds',
     ];
 
     public function validate()
@@ -48,20 +48,20 @@ class KVStoreRegion extends Model
     public function toMap()
     {
         $res = [];
-        if (null !== $this->regionId) {
-            $res['RegionId'] = $this->regionId;
-        }
-        if (null !== $this->zoneIds) {
-            $res['ZoneIds'] = $this->zoneIds;
-        }
         if (null !== $this->localName) {
             $res['LocalName'] = $this->localName;
         }
         if (null !== $this->regionEndpoint) {
             $res['RegionEndpoint'] = $this->regionEndpoint;
         }
+        if (null !== $this->regionId) {
+            $res['RegionId'] = $this->regionId;
+        }
         if (null !== $this->zoneIdList) {
             $res['ZoneIdList'] = null !== $this->zoneIdList ? $this->zoneIdList->toMap() : null;
+        }
+        if (null !== $this->zoneIds) {
+            $res['ZoneIds'] = $this->zoneIds;
         }
 
         return $res;
@@ -75,20 +75,20 @@ class KVStoreRegion extends Model
     public static function fromMap($map = [])
     {
         $model = new self();
-        if (isset($map['RegionId'])) {
-            $model->regionId = $map['RegionId'];
-        }
-        if (isset($map['ZoneIds'])) {
-            $model->zoneIds = $map['ZoneIds'];
-        }
         if (isset($map['LocalName'])) {
             $model->localName = $map['LocalName'];
         }
         if (isset($map['RegionEndpoint'])) {
             $model->regionEndpoint = $map['RegionEndpoint'];
         }
+        if (isset($map['RegionId'])) {
+            $model->regionId = $map['RegionId'];
+        }
         if (isset($map['ZoneIdList'])) {
             $model->zoneIdList = zoneIdList::fromMap($map['ZoneIdList']);
+        }
+        if (isset($map['ZoneIds'])) {
+            $model->zoneIds = $map['ZoneIds'];
         }
 
         return $model;

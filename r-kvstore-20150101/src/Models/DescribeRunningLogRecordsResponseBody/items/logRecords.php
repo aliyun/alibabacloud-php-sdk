@@ -11,21 +11,27 @@ class logRecords extends Model
     /**
      * @var string
      */
-    public $createTime;
-
-    /**
-     * @var string
-     */
     public $content;
 
     /**
      * @var string
      */
+    public $createTime;
+
+    /**
+     * @var string
+     */
     public $instanceId;
+
+    /**
+     * @var string
+     */
+    public $nodeId;
     protected $_name = [
-        'createTime' => 'CreateTime',
         'content'    => 'Content',
+        'createTime' => 'CreateTime',
         'instanceId' => 'InstanceId',
+        'nodeId'     => 'NodeId',
     ];
 
     public function validate()
@@ -35,14 +41,17 @@ class logRecords extends Model
     public function toMap()
     {
         $res = [];
-        if (null !== $this->createTime) {
-            $res['CreateTime'] = $this->createTime;
-        }
         if (null !== $this->content) {
             $res['Content'] = $this->content;
         }
+        if (null !== $this->createTime) {
+            $res['CreateTime'] = $this->createTime;
+        }
         if (null !== $this->instanceId) {
             $res['InstanceId'] = $this->instanceId;
+        }
+        if (null !== $this->nodeId) {
+            $res['NodeId'] = $this->nodeId;
         }
 
         return $res;
@@ -56,14 +65,17 @@ class logRecords extends Model
     public static function fromMap($map = [])
     {
         $model = new self();
-        if (isset($map['CreateTime'])) {
-            $model->createTime = $map['CreateTime'];
-        }
         if (isset($map['Content'])) {
             $model->content = $map['Content'];
         }
+        if (isset($map['CreateTime'])) {
+            $model->createTime = $map['CreateTime'];
+        }
         if (isset($map['InstanceId'])) {
             $model->instanceId = $map['InstanceId'];
+        }
+        if (isset($map['NodeId'])) {
+            $model->nodeId = $map['NodeId'];
         }
 
         return $model;

@@ -9,9 +9,49 @@ use AlibabaCloud\Tea\Model;
 class EnableAdditionalBandwidthRequest extends Model
 {
     /**
+     * @var bool
+     */
+    public $autoPay;
+
+    /**
+     * @var bool
+     */
+    public $autoRenew;
+
+    /**
+     * @var int
+     */
+    public $autoRenewPeriod;
+
+    /**
      * @var string
      */
-    public $securityToken;
+    public $bandwidth;
+
+    /**
+     * @var string
+     */
+    public $couponNo;
+
+    /**
+     * @var string
+     */
+    public $instanceId;
+
+    /**
+     * @var string
+     */
+    public $nodeId;
+
+    /**
+     * @var string
+     */
+    public $orderTimeLength;
+
+    /**
+     * @var string
+     */
+    public $ownerAccount;
 
     /**
      * @var int
@@ -31,54 +71,26 @@ class EnableAdditionalBandwidthRequest extends Model
     /**
      * @var string
      */
-    public $ownerAccount;
-
-    /**
-     * @var string
-     */
-    public $instanceId;
-
-    /**
-     * @var string
-     */
-    public $couponNo;
-
-    /**
-     * @var bool
-     */
-    public $autoPay;
-
-    /**
-     * @var string
-     */
-    public $nodeId;
-
-    /**
-     * @var string
-     */
-    public $bandwidth;
-
-    /**
-     * @var string
-     */
-    public $orderTimeLength;
+    public $securityToken;
 
     /**
      * @var string
      */
     public $sourceBiz;
     protected $_name = [
-        'securityToken'        => 'SecurityToken',
+        'autoPay'              => 'AutoPay',
+        'autoRenew'            => 'AutoRenew',
+        'autoRenewPeriod'      => 'AutoRenewPeriod',
+        'bandwidth'            => 'Bandwidth',
+        'couponNo'             => 'CouponNo',
+        'instanceId'           => 'InstanceId',
+        'nodeId'               => 'NodeId',
+        'orderTimeLength'      => 'OrderTimeLength',
+        'ownerAccount'         => 'OwnerAccount',
         'ownerId'              => 'OwnerId',
         'resourceOwnerAccount' => 'ResourceOwnerAccount',
         'resourceOwnerId'      => 'ResourceOwnerId',
-        'ownerAccount'         => 'OwnerAccount',
-        'instanceId'           => 'InstanceId',
-        'couponNo'             => 'CouponNo',
-        'autoPay'              => 'AutoPay',
-        'nodeId'               => 'NodeId',
-        'bandwidth'            => 'Bandwidth',
-        'orderTimeLength'      => 'OrderTimeLength',
+        'securityToken'        => 'SecurityToken',
         'sourceBiz'            => 'SourceBiz',
     ];
 
@@ -89,8 +101,32 @@ class EnableAdditionalBandwidthRequest extends Model
     public function toMap()
     {
         $res = [];
-        if (null !== $this->securityToken) {
-            $res['SecurityToken'] = $this->securityToken;
+        if (null !== $this->autoPay) {
+            $res['AutoPay'] = $this->autoPay;
+        }
+        if (null !== $this->autoRenew) {
+            $res['AutoRenew'] = $this->autoRenew;
+        }
+        if (null !== $this->autoRenewPeriod) {
+            $res['AutoRenewPeriod'] = $this->autoRenewPeriod;
+        }
+        if (null !== $this->bandwidth) {
+            $res['Bandwidth'] = $this->bandwidth;
+        }
+        if (null !== $this->couponNo) {
+            $res['CouponNo'] = $this->couponNo;
+        }
+        if (null !== $this->instanceId) {
+            $res['InstanceId'] = $this->instanceId;
+        }
+        if (null !== $this->nodeId) {
+            $res['NodeId'] = $this->nodeId;
+        }
+        if (null !== $this->orderTimeLength) {
+            $res['OrderTimeLength'] = $this->orderTimeLength;
+        }
+        if (null !== $this->ownerAccount) {
+            $res['OwnerAccount'] = $this->ownerAccount;
         }
         if (null !== $this->ownerId) {
             $res['OwnerId'] = $this->ownerId;
@@ -101,26 +137,8 @@ class EnableAdditionalBandwidthRequest extends Model
         if (null !== $this->resourceOwnerId) {
             $res['ResourceOwnerId'] = $this->resourceOwnerId;
         }
-        if (null !== $this->ownerAccount) {
-            $res['OwnerAccount'] = $this->ownerAccount;
-        }
-        if (null !== $this->instanceId) {
-            $res['InstanceId'] = $this->instanceId;
-        }
-        if (null !== $this->couponNo) {
-            $res['CouponNo'] = $this->couponNo;
-        }
-        if (null !== $this->autoPay) {
-            $res['AutoPay'] = $this->autoPay;
-        }
-        if (null !== $this->nodeId) {
-            $res['NodeId'] = $this->nodeId;
-        }
-        if (null !== $this->bandwidth) {
-            $res['Bandwidth'] = $this->bandwidth;
-        }
-        if (null !== $this->orderTimeLength) {
-            $res['OrderTimeLength'] = $this->orderTimeLength;
+        if (null !== $this->securityToken) {
+            $res['SecurityToken'] = $this->securityToken;
         }
         if (null !== $this->sourceBiz) {
             $res['SourceBiz'] = $this->sourceBiz;
@@ -137,8 +155,32 @@ class EnableAdditionalBandwidthRequest extends Model
     public static function fromMap($map = [])
     {
         $model = new self();
-        if (isset($map['SecurityToken'])) {
-            $model->securityToken = $map['SecurityToken'];
+        if (isset($map['AutoPay'])) {
+            $model->autoPay = $map['AutoPay'];
+        }
+        if (isset($map['AutoRenew'])) {
+            $model->autoRenew = $map['AutoRenew'];
+        }
+        if (isset($map['AutoRenewPeriod'])) {
+            $model->autoRenewPeriod = $map['AutoRenewPeriod'];
+        }
+        if (isset($map['Bandwidth'])) {
+            $model->bandwidth = $map['Bandwidth'];
+        }
+        if (isset($map['CouponNo'])) {
+            $model->couponNo = $map['CouponNo'];
+        }
+        if (isset($map['InstanceId'])) {
+            $model->instanceId = $map['InstanceId'];
+        }
+        if (isset($map['NodeId'])) {
+            $model->nodeId = $map['NodeId'];
+        }
+        if (isset($map['OrderTimeLength'])) {
+            $model->orderTimeLength = $map['OrderTimeLength'];
+        }
+        if (isset($map['OwnerAccount'])) {
+            $model->ownerAccount = $map['OwnerAccount'];
         }
         if (isset($map['OwnerId'])) {
             $model->ownerId = $map['OwnerId'];
@@ -149,26 +191,8 @@ class EnableAdditionalBandwidthRequest extends Model
         if (isset($map['ResourceOwnerId'])) {
             $model->resourceOwnerId = $map['ResourceOwnerId'];
         }
-        if (isset($map['OwnerAccount'])) {
-            $model->ownerAccount = $map['OwnerAccount'];
-        }
-        if (isset($map['InstanceId'])) {
-            $model->instanceId = $map['InstanceId'];
-        }
-        if (isset($map['CouponNo'])) {
-            $model->couponNo = $map['CouponNo'];
-        }
-        if (isset($map['AutoPay'])) {
-            $model->autoPay = $map['AutoPay'];
-        }
-        if (isset($map['NodeId'])) {
-            $model->nodeId = $map['NodeId'];
-        }
-        if (isset($map['Bandwidth'])) {
-            $model->bandwidth = $map['Bandwidth'];
-        }
-        if (isset($map['OrderTimeLength'])) {
-            $model->orderTimeLength = $map['OrderTimeLength'];
+        if (isset($map['SecurityToken'])) {
+            $model->securityToken = $map['SecurityToken'];
         }
         if (isset($map['SourceBiz'])) {
             $model->sourceBiz = $map['SourceBiz'];

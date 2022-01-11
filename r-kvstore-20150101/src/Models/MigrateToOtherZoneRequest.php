@@ -11,7 +11,17 @@ class MigrateToOtherZoneRequest extends Model
     /**
      * @var string
      */
-    public $securityToken;
+    public $DBInstanceId;
+
+    /**
+     * @var string
+     */
+    public $effectiveTime;
+
+    /**
+     * @var string
+     */
+    public $ownerAccount;
 
     /**
      * @var int
@@ -31,17 +41,12 @@ class MigrateToOtherZoneRequest extends Model
     /**
      * @var string
      */
-    public $ownerAccount;
+    public $secondaryZoneId;
 
     /**
      * @var string
      */
-    public $DBInstanceId;
-
-    /**
-     * @var string
-     */
-    public $zoneId;
+    public $securityToken;
 
     /**
      * @var string
@@ -51,17 +56,18 @@ class MigrateToOtherZoneRequest extends Model
     /**
      * @var string
      */
-    public $effectiveTime;
+    public $zoneId;
     protected $_name = [
-        'securityToken'        => 'SecurityToken',
+        'DBInstanceId'         => 'DBInstanceId',
+        'effectiveTime'        => 'EffectiveTime',
+        'ownerAccount'         => 'OwnerAccount',
         'ownerId'              => 'OwnerId',
         'resourceOwnerAccount' => 'ResourceOwnerAccount',
         'resourceOwnerId'      => 'ResourceOwnerId',
-        'ownerAccount'         => 'OwnerAccount',
-        'DBInstanceId'         => 'DBInstanceId',
-        'zoneId'               => 'ZoneId',
+        'secondaryZoneId'      => 'SecondaryZoneId',
+        'securityToken'        => 'SecurityToken',
         'vSwitchId'            => 'VSwitchId',
-        'effectiveTime'        => 'EffectiveTime',
+        'zoneId'               => 'ZoneId',
     ];
 
     public function validate()
@@ -71,8 +77,14 @@ class MigrateToOtherZoneRequest extends Model
     public function toMap()
     {
         $res = [];
-        if (null !== $this->securityToken) {
-            $res['SecurityToken'] = $this->securityToken;
+        if (null !== $this->DBInstanceId) {
+            $res['DBInstanceId'] = $this->DBInstanceId;
+        }
+        if (null !== $this->effectiveTime) {
+            $res['EffectiveTime'] = $this->effectiveTime;
+        }
+        if (null !== $this->ownerAccount) {
+            $res['OwnerAccount'] = $this->ownerAccount;
         }
         if (null !== $this->ownerId) {
             $res['OwnerId'] = $this->ownerId;
@@ -83,20 +95,17 @@ class MigrateToOtherZoneRequest extends Model
         if (null !== $this->resourceOwnerId) {
             $res['ResourceOwnerId'] = $this->resourceOwnerId;
         }
-        if (null !== $this->ownerAccount) {
-            $res['OwnerAccount'] = $this->ownerAccount;
+        if (null !== $this->secondaryZoneId) {
+            $res['SecondaryZoneId'] = $this->secondaryZoneId;
         }
-        if (null !== $this->DBInstanceId) {
-            $res['DBInstanceId'] = $this->DBInstanceId;
-        }
-        if (null !== $this->zoneId) {
-            $res['ZoneId'] = $this->zoneId;
+        if (null !== $this->securityToken) {
+            $res['SecurityToken'] = $this->securityToken;
         }
         if (null !== $this->vSwitchId) {
             $res['VSwitchId'] = $this->vSwitchId;
         }
-        if (null !== $this->effectiveTime) {
-            $res['EffectiveTime'] = $this->effectiveTime;
+        if (null !== $this->zoneId) {
+            $res['ZoneId'] = $this->zoneId;
         }
 
         return $res;
@@ -110,8 +119,14 @@ class MigrateToOtherZoneRequest extends Model
     public static function fromMap($map = [])
     {
         $model = new self();
-        if (isset($map['SecurityToken'])) {
-            $model->securityToken = $map['SecurityToken'];
+        if (isset($map['DBInstanceId'])) {
+            $model->DBInstanceId = $map['DBInstanceId'];
+        }
+        if (isset($map['EffectiveTime'])) {
+            $model->effectiveTime = $map['EffectiveTime'];
+        }
+        if (isset($map['OwnerAccount'])) {
+            $model->ownerAccount = $map['OwnerAccount'];
         }
         if (isset($map['OwnerId'])) {
             $model->ownerId = $map['OwnerId'];
@@ -122,20 +137,17 @@ class MigrateToOtherZoneRequest extends Model
         if (isset($map['ResourceOwnerId'])) {
             $model->resourceOwnerId = $map['ResourceOwnerId'];
         }
-        if (isset($map['OwnerAccount'])) {
-            $model->ownerAccount = $map['OwnerAccount'];
+        if (isset($map['SecondaryZoneId'])) {
+            $model->secondaryZoneId = $map['SecondaryZoneId'];
         }
-        if (isset($map['DBInstanceId'])) {
-            $model->DBInstanceId = $map['DBInstanceId'];
-        }
-        if (isset($map['ZoneId'])) {
-            $model->zoneId = $map['ZoneId'];
+        if (isset($map['SecurityToken'])) {
+            $model->securityToken = $map['SecurityToken'];
         }
         if (isset($map['VSwitchId'])) {
             $model->vSwitchId = $map['VSwitchId'];
         }
-        if (isset($map['EffectiveTime'])) {
-            $model->effectiveTime = $map['EffectiveTime'];
+        if (isset($map['ZoneId'])) {
+            $model->zoneId = $map['ZoneId'];
         }
 
         return $model;

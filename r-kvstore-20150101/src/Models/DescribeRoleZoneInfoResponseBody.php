@@ -10,9 +10,9 @@ use AlibabaCloud\Tea\Model;
 class DescribeRoleZoneInfoResponseBody extends Model
 {
     /**
-     * @var string
+     * @var node
      */
-    public $requestId;
+    public $node;
 
     /**
      * @var int
@@ -25,20 +25,20 @@ class DescribeRoleZoneInfoResponseBody extends Model
     public $pageSize;
 
     /**
+     * @var string
+     */
+    public $requestId;
+
+    /**
      * @var int
      */
     public $totalCount;
-
-    /**
-     * @var node
-     */
-    public $node;
     protected $_name = [
-        'requestId'  => 'RequestId',
+        'node'       => 'Node',
         'pageNumber' => 'PageNumber',
         'pageSize'   => 'PageSize',
+        'requestId'  => 'RequestId',
         'totalCount' => 'TotalCount',
-        'node'       => 'Node',
     ];
 
     public function validate()
@@ -48,8 +48,8 @@ class DescribeRoleZoneInfoResponseBody extends Model
     public function toMap()
     {
         $res = [];
-        if (null !== $this->requestId) {
-            $res['RequestId'] = $this->requestId;
+        if (null !== $this->node) {
+            $res['Node'] = null !== $this->node ? $this->node->toMap() : null;
         }
         if (null !== $this->pageNumber) {
             $res['PageNumber'] = $this->pageNumber;
@@ -57,11 +57,11 @@ class DescribeRoleZoneInfoResponseBody extends Model
         if (null !== $this->pageSize) {
             $res['PageSize'] = $this->pageSize;
         }
+        if (null !== $this->requestId) {
+            $res['RequestId'] = $this->requestId;
+        }
         if (null !== $this->totalCount) {
             $res['TotalCount'] = $this->totalCount;
-        }
-        if (null !== $this->node) {
-            $res['Node'] = null !== $this->node ? $this->node->toMap() : null;
         }
 
         return $res;
@@ -75,8 +75,8 @@ class DescribeRoleZoneInfoResponseBody extends Model
     public static function fromMap($map = [])
     {
         $model = new self();
-        if (isset($map['RequestId'])) {
-            $model->requestId = $map['RequestId'];
+        if (isset($map['Node'])) {
+            $model->node = node::fromMap($map['Node']);
         }
         if (isset($map['PageNumber'])) {
             $model->pageNumber = $map['PageNumber'];
@@ -84,11 +84,11 @@ class DescribeRoleZoneInfoResponseBody extends Model
         if (isset($map['PageSize'])) {
             $model->pageSize = $map['PageSize'];
         }
+        if (isset($map['RequestId'])) {
+            $model->requestId = $map['RequestId'];
+        }
         if (isset($map['TotalCount'])) {
             $model->totalCount = $map['TotalCount'];
-        }
-        if (isset($map['Node'])) {
-            $model->node = node::fromMap($map['Node']);
         }
 
         return $model;

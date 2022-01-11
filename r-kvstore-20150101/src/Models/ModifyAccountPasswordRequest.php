@@ -11,7 +11,27 @@ class ModifyAccountPasswordRequest extends Model
     /**
      * @var string
      */
-    public $securityToken;
+    public $accountName;
+
+    /**
+     * @var string
+     */
+    public $instanceId;
+
+    /**
+     * @var string
+     */
+    public $newAccountPassword;
+
+    /**
+     * @var string
+     */
+    public $oldAccountPassword;
+
+    /**
+     * @var string
+     */
+    public $ownerAccount;
 
     /**
      * @var int
@@ -31,37 +51,17 @@ class ModifyAccountPasswordRequest extends Model
     /**
      * @var string
      */
-    public $ownerAccount;
-
-    /**
-     * @var string
-     */
-    public $instanceId;
-
-    /**
-     * @var string
-     */
-    public $accountName;
-
-    /**
-     * @var string
-     */
-    public $oldAccountPassword;
-
-    /**
-     * @var string
-     */
-    public $newAccountPassword;
+    public $securityToken;
     protected $_name = [
-        'securityToken'        => 'SecurityToken',
+        'accountName'          => 'AccountName',
+        'instanceId'           => 'InstanceId',
+        'newAccountPassword'   => 'NewAccountPassword',
+        'oldAccountPassword'   => 'OldAccountPassword',
+        'ownerAccount'         => 'OwnerAccount',
         'ownerId'              => 'OwnerId',
         'resourceOwnerAccount' => 'ResourceOwnerAccount',
         'resourceOwnerId'      => 'ResourceOwnerId',
-        'ownerAccount'         => 'OwnerAccount',
-        'instanceId'           => 'InstanceId',
-        'accountName'          => 'AccountName',
-        'oldAccountPassword'   => 'OldAccountPassword',
-        'newAccountPassword'   => 'NewAccountPassword',
+        'securityToken'        => 'SecurityToken',
     ];
 
     public function validate()
@@ -71,8 +71,20 @@ class ModifyAccountPasswordRequest extends Model
     public function toMap()
     {
         $res = [];
-        if (null !== $this->securityToken) {
-            $res['SecurityToken'] = $this->securityToken;
+        if (null !== $this->accountName) {
+            $res['AccountName'] = $this->accountName;
+        }
+        if (null !== $this->instanceId) {
+            $res['InstanceId'] = $this->instanceId;
+        }
+        if (null !== $this->newAccountPassword) {
+            $res['NewAccountPassword'] = $this->newAccountPassword;
+        }
+        if (null !== $this->oldAccountPassword) {
+            $res['OldAccountPassword'] = $this->oldAccountPassword;
+        }
+        if (null !== $this->ownerAccount) {
+            $res['OwnerAccount'] = $this->ownerAccount;
         }
         if (null !== $this->ownerId) {
             $res['OwnerId'] = $this->ownerId;
@@ -83,20 +95,8 @@ class ModifyAccountPasswordRequest extends Model
         if (null !== $this->resourceOwnerId) {
             $res['ResourceOwnerId'] = $this->resourceOwnerId;
         }
-        if (null !== $this->ownerAccount) {
-            $res['OwnerAccount'] = $this->ownerAccount;
-        }
-        if (null !== $this->instanceId) {
-            $res['InstanceId'] = $this->instanceId;
-        }
-        if (null !== $this->accountName) {
-            $res['AccountName'] = $this->accountName;
-        }
-        if (null !== $this->oldAccountPassword) {
-            $res['OldAccountPassword'] = $this->oldAccountPassword;
-        }
-        if (null !== $this->newAccountPassword) {
-            $res['NewAccountPassword'] = $this->newAccountPassword;
+        if (null !== $this->securityToken) {
+            $res['SecurityToken'] = $this->securityToken;
         }
 
         return $res;
@@ -110,8 +110,20 @@ class ModifyAccountPasswordRequest extends Model
     public static function fromMap($map = [])
     {
         $model = new self();
-        if (isset($map['SecurityToken'])) {
-            $model->securityToken = $map['SecurityToken'];
+        if (isset($map['AccountName'])) {
+            $model->accountName = $map['AccountName'];
+        }
+        if (isset($map['InstanceId'])) {
+            $model->instanceId = $map['InstanceId'];
+        }
+        if (isset($map['NewAccountPassword'])) {
+            $model->newAccountPassword = $map['NewAccountPassword'];
+        }
+        if (isset($map['OldAccountPassword'])) {
+            $model->oldAccountPassword = $map['OldAccountPassword'];
+        }
+        if (isset($map['OwnerAccount'])) {
+            $model->ownerAccount = $map['OwnerAccount'];
         }
         if (isset($map['OwnerId'])) {
             $model->ownerId = $map['OwnerId'];
@@ -122,20 +134,8 @@ class ModifyAccountPasswordRequest extends Model
         if (isset($map['ResourceOwnerId'])) {
             $model->resourceOwnerId = $map['ResourceOwnerId'];
         }
-        if (isset($map['OwnerAccount'])) {
-            $model->ownerAccount = $map['OwnerAccount'];
-        }
-        if (isset($map['InstanceId'])) {
-            $model->instanceId = $map['InstanceId'];
-        }
-        if (isset($map['AccountName'])) {
-            $model->accountName = $map['AccountName'];
-        }
-        if (isset($map['OldAccountPassword'])) {
-            $model->oldAccountPassword = $map['OldAccountPassword'];
-        }
-        if (isset($map['NewAccountPassword'])) {
-            $model->newAccountPassword = $map['NewAccountPassword'];
+        if (isset($map['SecurityToken'])) {
+            $model->securityToken = $map['SecurityToken'];
         }
 
         return $model;

@@ -11,27 +11,17 @@ class DescribeRunningLogRecordsRequest extends Model
     /**
      * @var string
      */
-    public $securityToken;
-
-    /**
-     * @var int
-     */
-    public $ownerId;
+    public $characterType;
 
     /**
      * @var string
      */
-    public $resourceOwnerAccount;
-
-    /**
-     * @var int
-     */
-    public $resourceOwnerId;
+    public $DBName;
 
     /**
      * @var string
      */
-    public $ownerAccount;
+    public $endTime;
 
     /**
      * @var string
@@ -46,27 +36,17 @@ class DescribeRunningLogRecordsRequest extends Model
     /**
      * @var string
      */
-    public $startTime;
+    public $orderType;
 
     /**
      * @var string
      */
-    public $endTime;
-
-    /**
-     * @var string
-     */
-    public $DBName;
-
-    /**
-     * @var string
-     */
-    public $roleType;
+    public $ownerAccount;
 
     /**
      * @var int
      */
-    public $pageSize;
+    public $ownerId;
 
     /**
      * @var int
@@ -74,14 +54,9 @@ class DescribeRunningLogRecordsRequest extends Model
     public $pageNumber;
 
     /**
-     * @var string
+     * @var int
      */
-    public $resourceGroupId;
-
-    /**
-     * @var string
-     */
-    public $characterType;
+    public $pageSize;
 
     /**
      * @var string
@@ -91,25 +66,50 @@ class DescribeRunningLogRecordsRequest extends Model
     /**
      * @var string
      */
-    public $orderType;
+    public $resourceGroupId;
+
+    /**
+     * @var string
+     */
+    public $resourceOwnerAccount;
+
+    /**
+     * @var int
+     */
+    public $resourceOwnerId;
+
+    /**
+     * @var string
+     */
+    public $roleType;
+
+    /**
+     * @var string
+     */
+    public $securityToken;
+
+    /**
+     * @var string
+     */
+    public $startTime;
     protected $_name = [
-        'securityToken'        => 'SecurityToken',
-        'ownerId'              => 'OwnerId',
-        'resourceOwnerAccount' => 'ResourceOwnerAccount',
-        'resourceOwnerId'      => 'ResourceOwnerId',
-        'ownerAccount'         => 'OwnerAccount',
+        'characterType'        => 'CharacterType',
+        'DBName'               => 'DBName',
+        'endTime'              => 'EndTime',
         'instanceId'           => 'InstanceId',
         'nodeId'               => 'NodeId',
-        'startTime'            => 'StartTime',
-        'endTime'              => 'EndTime',
-        'DBName'               => 'DBName',
-        'roleType'             => 'RoleType',
-        'pageSize'             => 'PageSize',
-        'pageNumber'           => 'PageNumber',
-        'resourceGroupId'      => 'ResourceGroupId',
-        'characterType'        => 'CharacterType',
-        'queryKeyword'         => 'QueryKeyword',
         'orderType'            => 'OrderType',
+        'ownerAccount'         => 'OwnerAccount',
+        'ownerId'              => 'OwnerId',
+        'pageNumber'           => 'PageNumber',
+        'pageSize'             => 'PageSize',
+        'queryKeyword'         => 'QueryKeyword',
+        'resourceGroupId'      => 'ResourceGroupId',
+        'resourceOwnerAccount' => 'ResourceOwnerAccount',
+        'resourceOwnerId'      => 'ResourceOwnerId',
+        'roleType'             => 'RoleType',
+        'securityToken'        => 'SecurityToken',
+        'startTime'            => 'StartTime',
     ];
 
     public function validate()
@@ -119,20 +119,14 @@ class DescribeRunningLogRecordsRequest extends Model
     public function toMap()
     {
         $res = [];
-        if (null !== $this->securityToken) {
-            $res['SecurityToken'] = $this->securityToken;
+        if (null !== $this->characterType) {
+            $res['CharacterType'] = $this->characterType;
         }
-        if (null !== $this->ownerId) {
-            $res['OwnerId'] = $this->ownerId;
+        if (null !== $this->DBName) {
+            $res['DBName'] = $this->DBName;
         }
-        if (null !== $this->resourceOwnerAccount) {
-            $res['ResourceOwnerAccount'] = $this->resourceOwnerAccount;
-        }
-        if (null !== $this->resourceOwnerId) {
-            $res['ResourceOwnerId'] = $this->resourceOwnerId;
-        }
-        if (null !== $this->ownerAccount) {
-            $res['OwnerAccount'] = $this->ownerAccount;
+        if (null !== $this->endTime) {
+            $res['EndTime'] = $this->endTime;
         }
         if (null !== $this->instanceId) {
             $res['InstanceId'] = $this->instanceId;
@@ -140,35 +134,41 @@ class DescribeRunningLogRecordsRequest extends Model
         if (null !== $this->nodeId) {
             $res['NodeId'] = $this->nodeId;
         }
-        if (null !== $this->startTime) {
-            $res['StartTime'] = $this->startTime;
+        if (null !== $this->orderType) {
+            $res['OrderType'] = $this->orderType;
         }
-        if (null !== $this->endTime) {
-            $res['EndTime'] = $this->endTime;
+        if (null !== $this->ownerAccount) {
+            $res['OwnerAccount'] = $this->ownerAccount;
         }
-        if (null !== $this->DBName) {
-            $res['DBName'] = $this->DBName;
-        }
-        if (null !== $this->roleType) {
-            $res['RoleType'] = $this->roleType;
-        }
-        if (null !== $this->pageSize) {
-            $res['PageSize'] = $this->pageSize;
+        if (null !== $this->ownerId) {
+            $res['OwnerId'] = $this->ownerId;
         }
         if (null !== $this->pageNumber) {
             $res['PageNumber'] = $this->pageNumber;
         }
-        if (null !== $this->resourceGroupId) {
-            $res['ResourceGroupId'] = $this->resourceGroupId;
-        }
-        if (null !== $this->characterType) {
-            $res['CharacterType'] = $this->characterType;
+        if (null !== $this->pageSize) {
+            $res['PageSize'] = $this->pageSize;
         }
         if (null !== $this->queryKeyword) {
             $res['QueryKeyword'] = $this->queryKeyword;
         }
-        if (null !== $this->orderType) {
-            $res['OrderType'] = $this->orderType;
+        if (null !== $this->resourceGroupId) {
+            $res['ResourceGroupId'] = $this->resourceGroupId;
+        }
+        if (null !== $this->resourceOwnerAccount) {
+            $res['ResourceOwnerAccount'] = $this->resourceOwnerAccount;
+        }
+        if (null !== $this->resourceOwnerId) {
+            $res['ResourceOwnerId'] = $this->resourceOwnerId;
+        }
+        if (null !== $this->roleType) {
+            $res['RoleType'] = $this->roleType;
+        }
+        if (null !== $this->securityToken) {
+            $res['SecurityToken'] = $this->securityToken;
+        }
+        if (null !== $this->startTime) {
+            $res['StartTime'] = $this->startTime;
         }
 
         return $res;
@@ -182,20 +182,14 @@ class DescribeRunningLogRecordsRequest extends Model
     public static function fromMap($map = [])
     {
         $model = new self();
-        if (isset($map['SecurityToken'])) {
-            $model->securityToken = $map['SecurityToken'];
+        if (isset($map['CharacterType'])) {
+            $model->characterType = $map['CharacterType'];
         }
-        if (isset($map['OwnerId'])) {
-            $model->ownerId = $map['OwnerId'];
+        if (isset($map['DBName'])) {
+            $model->DBName = $map['DBName'];
         }
-        if (isset($map['ResourceOwnerAccount'])) {
-            $model->resourceOwnerAccount = $map['ResourceOwnerAccount'];
-        }
-        if (isset($map['ResourceOwnerId'])) {
-            $model->resourceOwnerId = $map['ResourceOwnerId'];
-        }
-        if (isset($map['OwnerAccount'])) {
-            $model->ownerAccount = $map['OwnerAccount'];
+        if (isset($map['EndTime'])) {
+            $model->endTime = $map['EndTime'];
         }
         if (isset($map['InstanceId'])) {
             $model->instanceId = $map['InstanceId'];
@@ -203,35 +197,41 @@ class DescribeRunningLogRecordsRequest extends Model
         if (isset($map['NodeId'])) {
             $model->nodeId = $map['NodeId'];
         }
-        if (isset($map['StartTime'])) {
-            $model->startTime = $map['StartTime'];
+        if (isset($map['OrderType'])) {
+            $model->orderType = $map['OrderType'];
         }
-        if (isset($map['EndTime'])) {
-            $model->endTime = $map['EndTime'];
+        if (isset($map['OwnerAccount'])) {
+            $model->ownerAccount = $map['OwnerAccount'];
         }
-        if (isset($map['DBName'])) {
-            $model->DBName = $map['DBName'];
-        }
-        if (isset($map['RoleType'])) {
-            $model->roleType = $map['RoleType'];
-        }
-        if (isset($map['PageSize'])) {
-            $model->pageSize = $map['PageSize'];
+        if (isset($map['OwnerId'])) {
+            $model->ownerId = $map['OwnerId'];
         }
         if (isset($map['PageNumber'])) {
             $model->pageNumber = $map['PageNumber'];
         }
-        if (isset($map['ResourceGroupId'])) {
-            $model->resourceGroupId = $map['ResourceGroupId'];
-        }
-        if (isset($map['CharacterType'])) {
-            $model->characterType = $map['CharacterType'];
+        if (isset($map['PageSize'])) {
+            $model->pageSize = $map['PageSize'];
         }
         if (isset($map['QueryKeyword'])) {
             $model->queryKeyword = $map['QueryKeyword'];
         }
-        if (isset($map['OrderType'])) {
-            $model->orderType = $map['OrderType'];
+        if (isset($map['ResourceGroupId'])) {
+            $model->resourceGroupId = $map['ResourceGroupId'];
+        }
+        if (isset($map['ResourceOwnerAccount'])) {
+            $model->resourceOwnerAccount = $map['ResourceOwnerAccount'];
+        }
+        if (isset($map['ResourceOwnerId'])) {
+            $model->resourceOwnerId = $map['ResourceOwnerId'];
+        }
+        if (isset($map['RoleType'])) {
+            $model->roleType = $map['RoleType'];
+        }
+        if (isset($map['SecurityToken'])) {
+            $model->securityToken = $map['SecurityToken'];
+        }
+        if (isset($map['StartTime'])) {
+            $model->startTime = $map['StartTime'];
         }
 
         return $model;

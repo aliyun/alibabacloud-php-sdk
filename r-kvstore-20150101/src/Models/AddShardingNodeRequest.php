@@ -9,9 +9,29 @@ use AlibabaCloud\Tea\Model;
 class AddShardingNodeRequest extends Model
 {
     /**
+     * @var bool
+     */
+    public $autoPay;
+
+    /**
      * @var string
      */
-    public $securityToken;
+    public $businessInfo;
+
+    /**
+     * @var string
+     */
+    public $couponNo;
+
+    /**
+     * @var string
+     */
+    public $instanceId;
+
+    /**
+     * @var string
+     */
+    public $ownerAccount;
 
     /**
      * @var int
@@ -31,12 +51,12 @@ class AddShardingNodeRequest extends Model
     /**
      * @var string
      */
-    public $ownerAccount;
+    public $securityToken;
 
     /**
      * @var string
      */
-    public $instanceId;
+    public $shardClass;
 
     /**
      * @var int
@@ -46,34 +66,20 @@ class AddShardingNodeRequest extends Model
     /**
      * @var string
      */
-    public $shardClass;
-
-    /**
-     * @var bool
-     */
-    public $autoPay;
-
-    /**
-     * @var string
-     */
-    public $couponNo;
-
-    /**
-     * @var string
-     */
-    public $businessInfo;
+    public $sourceBiz;
     protected $_name = [
-        'securityToken'        => 'SecurityToken',
+        'autoPay'              => 'AutoPay',
+        'businessInfo'         => 'BusinessInfo',
+        'couponNo'             => 'CouponNo',
+        'instanceId'           => 'InstanceId',
+        'ownerAccount'         => 'OwnerAccount',
         'ownerId'              => 'OwnerId',
         'resourceOwnerAccount' => 'ResourceOwnerAccount',
         'resourceOwnerId'      => 'ResourceOwnerId',
-        'ownerAccount'         => 'OwnerAccount',
-        'instanceId'           => 'InstanceId',
-        'shardCount'           => 'ShardCount',
+        'securityToken'        => 'SecurityToken',
         'shardClass'           => 'ShardClass',
-        'autoPay'              => 'AutoPay',
-        'couponNo'             => 'CouponNo',
-        'businessInfo'         => 'BusinessInfo',
+        'shardCount'           => 'ShardCount',
+        'sourceBiz'            => 'SourceBiz',
     ];
 
     public function validate()
@@ -83,8 +89,20 @@ class AddShardingNodeRequest extends Model
     public function toMap()
     {
         $res = [];
-        if (null !== $this->securityToken) {
-            $res['SecurityToken'] = $this->securityToken;
+        if (null !== $this->autoPay) {
+            $res['AutoPay'] = $this->autoPay;
+        }
+        if (null !== $this->businessInfo) {
+            $res['BusinessInfo'] = $this->businessInfo;
+        }
+        if (null !== $this->couponNo) {
+            $res['CouponNo'] = $this->couponNo;
+        }
+        if (null !== $this->instanceId) {
+            $res['InstanceId'] = $this->instanceId;
+        }
+        if (null !== $this->ownerAccount) {
+            $res['OwnerAccount'] = $this->ownerAccount;
         }
         if (null !== $this->ownerId) {
             $res['OwnerId'] = $this->ownerId;
@@ -95,26 +113,17 @@ class AddShardingNodeRequest extends Model
         if (null !== $this->resourceOwnerId) {
             $res['ResourceOwnerId'] = $this->resourceOwnerId;
         }
-        if (null !== $this->ownerAccount) {
-            $res['OwnerAccount'] = $this->ownerAccount;
-        }
-        if (null !== $this->instanceId) {
-            $res['InstanceId'] = $this->instanceId;
-        }
-        if (null !== $this->shardCount) {
-            $res['ShardCount'] = $this->shardCount;
+        if (null !== $this->securityToken) {
+            $res['SecurityToken'] = $this->securityToken;
         }
         if (null !== $this->shardClass) {
             $res['ShardClass'] = $this->shardClass;
         }
-        if (null !== $this->autoPay) {
-            $res['AutoPay'] = $this->autoPay;
+        if (null !== $this->shardCount) {
+            $res['ShardCount'] = $this->shardCount;
         }
-        if (null !== $this->couponNo) {
-            $res['CouponNo'] = $this->couponNo;
-        }
-        if (null !== $this->businessInfo) {
-            $res['BusinessInfo'] = $this->businessInfo;
+        if (null !== $this->sourceBiz) {
+            $res['SourceBiz'] = $this->sourceBiz;
         }
 
         return $res;
@@ -128,8 +137,20 @@ class AddShardingNodeRequest extends Model
     public static function fromMap($map = [])
     {
         $model = new self();
-        if (isset($map['SecurityToken'])) {
-            $model->securityToken = $map['SecurityToken'];
+        if (isset($map['AutoPay'])) {
+            $model->autoPay = $map['AutoPay'];
+        }
+        if (isset($map['BusinessInfo'])) {
+            $model->businessInfo = $map['BusinessInfo'];
+        }
+        if (isset($map['CouponNo'])) {
+            $model->couponNo = $map['CouponNo'];
+        }
+        if (isset($map['InstanceId'])) {
+            $model->instanceId = $map['InstanceId'];
+        }
+        if (isset($map['OwnerAccount'])) {
+            $model->ownerAccount = $map['OwnerAccount'];
         }
         if (isset($map['OwnerId'])) {
             $model->ownerId = $map['OwnerId'];
@@ -140,26 +161,17 @@ class AddShardingNodeRequest extends Model
         if (isset($map['ResourceOwnerId'])) {
             $model->resourceOwnerId = $map['ResourceOwnerId'];
         }
-        if (isset($map['OwnerAccount'])) {
-            $model->ownerAccount = $map['OwnerAccount'];
-        }
-        if (isset($map['InstanceId'])) {
-            $model->instanceId = $map['InstanceId'];
-        }
-        if (isset($map['ShardCount'])) {
-            $model->shardCount = $map['ShardCount'];
+        if (isset($map['SecurityToken'])) {
+            $model->securityToken = $map['SecurityToken'];
         }
         if (isset($map['ShardClass'])) {
             $model->shardClass = $map['ShardClass'];
         }
-        if (isset($map['AutoPay'])) {
-            $model->autoPay = $map['AutoPay'];
+        if (isset($map['ShardCount'])) {
+            $model->shardCount = $map['ShardCount'];
         }
-        if (isset($map['CouponNo'])) {
-            $model->couponNo = $map['CouponNo'];
-        }
-        if (isset($map['BusinessInfo'])) {
-            $model->businessInfo = $map['BusinessInfo'];
+        if (isset($map['SourceBiz'])) {
+            $model->sourceBiz = $map['SourceBiz'];
         }
 
         return $model;

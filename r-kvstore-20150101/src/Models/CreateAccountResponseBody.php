@@ -11,7 +11,7 @@ class CreateAccountResponseBody extends Model
     /**
      * @var string
      */
-    public $requestId;
+    public $acountName;
 
     /**
      * @var string
@@ -21,11 +21,11 @@ class CreateAccountResponseBody extends Model
     /**
      * @var string
      */
-    public $acountName;
+    public $requestId;
     protected $_name = [
-        'requestId'  => 'RequestId',
-        'instanceId' => 'InstanceId',
         'acountName' => 'AcountName',
+        'instanceId' => 'InstanceId',
+        'requestId'  => 'RequestId',
     ];
 
     public function validate()
@@ -35,14 +35,14 @@ class CreateAccountResponseBody extends Model
     public function toMap()
     {
         $res = [];
-        if (null !== $this->requestId) {
-            $res['RequestId'] = $this->requestId;
+        if (null !== $this->acountName) {
+            $res['AcountName'] = $this->acountName;
         }
         if (null !== $this->instanceId) {
             $res['InstanceId'] = $this->instanceId;
         }
-        if (null !== $this->acountName) {
-            $res['AcountName'] = $this->acountName;
+        if (null !== $this->requestId) {
+            $res['RequestId'] = $this->requestId;
         }
 
         return $res;
@@ -56,14 +56,14 @@ class CreateAccountResponseBody extends Model
     public static function fromMap($map = [])
     {
         $model = new self();
-        if (isset($map['RequestId'])) {
-            $model->requestId = $map['RequestId'];
+        if (isset($map['AcountName'])) {
+            $model->acountName = $map['AcountName'];
         }
         if (isset($map['InstanceId'])) {
             $model->instanceId = $map['InstanceId'];
         }
-        if (isset($map['AcountName'])) {
-            $model->acountName = $map['AcountName'];
+        if (isset($map['RequestId'])) {
+            $model->requestId = $map['RequestId'];
         }
 
         return $model;

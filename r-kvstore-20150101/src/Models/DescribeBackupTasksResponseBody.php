@@ -10,9 +10,9 @@ use AlibabaCloud\Tea\Model;
 class DescribeBackupTasksResponseBody extends Model
 {
     /**
-     * @var string
+     * @var backupJobs[]
      */
-    public $requestId;
+    public $backupJobs;
 
     /**
      * @var string
@@ -20,13 +20,13 @@ class DescribeBackupTasksResponseBody extends Model
     public $instanceId;
 
     /**
-     * @var backupJobs[]
+     * @var string
      */
-    public $backupJobs;
+    public $requestId;
     protected $_name = [
-        'requestId'  => 'RequestId',
-        'instanceId' => 'InstanceId',
         'backupJobs' => 'BackupJobs',
+        'instanceId' => 'InstanceId',
+        'requestId'  => 'RequestId',
     ];
 
     public function validate()
@@ -36,12 +36,6 @@ class DescribeBackupTasksResponseBody extends Model
     public function toMap()
     {
         $res = [];
-        if (null !== $this->requestId) {
-            $res['RequestId'] = $this->requestId;
-        }
-        if (null !== $this->instanceId) {
-            $res['InstanceId'] = $this->instanceId;
-        }
         if (null !== $this->backupJobs) {
             $res['BackupJobs'] = [];
             if (null !== $this->backupJobs && \is_array($this->backupJobs)) {
@@ -50,6 +44,12 @@ class DescribeBackupTasksResponseBody extends Model
                     $res['BackupJobs'][$n++] = null !== $item ? $item->toMap() : $item;
                 }
             }
+        }
+        if (null !== $this->instanceId) {
+            $res['InstanceId'] = $this->instanceId;
+        }
+        if (null !== $this->requestId) {
+            $res['RequestId'] = $this->requestId;
         }
 
         return $res;
@@ -63,12 +63,6 @@ class DescribeBackupTasksResponseBody extends Model
     public static function fromMap($map = [])
     {
         $model = new self();
-        if (isset($map['RequestId'])) {
-            $model->requestId = $map['RequestId'];
-        }
-        if (isset($map['InstanceId'])) {
-            $model->instanceId = $map['InstanceId'];
-        }
         if (isset($map['BackupJobs'])) {
             if (!empty($map['BackupJobs'])) {
                 $model->backupJobs = [];
@@ -77,6 +71,12 @@ class DescribeBackupTasksResponseBody extends Model
                     $model->backupJobs[$n++] = null !== $item ? backupJobs::fromMap($item) : $item;
                 }
             }
+        }
+        if (isset($map['InstanceId'])) {
+            $model->instanceId = $map['InstanceId'];
+        }
+        if (isset($map['RequestId'])) {
+            $model->requestId = $map['RequestId'];
         }
 
         return $model;

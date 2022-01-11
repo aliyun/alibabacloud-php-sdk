@@ -11,15 +11,15 @@ class CreateGlobalDistributeCacheResponseBody extends Model
     /**
      * @var string
      */
-    public $requestId;
+    public $globalInstanceId;
 
     /**
      * @var string
      */
-    public $globalInstanceId;
+    public $requestId;
     protected $_name = [
-        'requestId'        => 'RequestId',
         'globalInstanceId' => 'GlobalInstanceId',
+        'requestId'        => 'RequestId',
     ];
 
     public function validate()
@@ -29,11 +29,11 @@ class CreateGlobalDistributeCacheResponseBody extends Model
     public function toMap()
     {
         $res = [];
-        if (null !== $this->requestId) {
-            $res['RequestId'] = $this->requestId;
-        }
         if (null !== $this->globalInstanceId) {
             $res['GlobalInstanceId'] = $this->globalInstanceId;
+        }
+        if (null !== $this->requestId) {
+            $res['RequestId'] = $this->requestId;
         }
 
         return $res;
@@ -47,11 +47,11 @@ class CreateGlobalDistributeCacheResponseBody extends Model
     public static function fromMap($map = [])
     {
         $model = new self();
-        if (isset($map['RequestId'])) {
-            $model->requestId = $map['RequestId'];
-        }
         if (isset($map['GlobalInstanceId'])) {
             $model->globalInstanceId = $map['GlobalInstanceId'];
+        }
+        if (isset($map['RequestId'])) {
+            $model->requestId = $map['RequestId'];
         }
 
         return $model;

@@ -11,20 +11,20 @@ class RestartInstanceResponseBody extends Model
     /**
      * @var string
      */
-    public $requestId;
+    public $instanceId;
 
     /**
      * @var string
      */
-    public $instanceId;
+    public $requestId;
 
     /**
      * @var string
      */
     public $taskId;
     protected $_name = [
-        'requestId'  => 'RequestId',
         'instanceId' => 'InstanceId',
+        'requestId'  => 'RequestId',
         'taskId'     => 'TaskId',
     ];
 
@@ -35,11 +35,11 @@ class RestartInstanceResponseBody extends Model
     public function toMap()
     {
         $res = [];
-        if (null !== $this->requestId) {
-            $res['RequestId'] = $this->requestId;
-        }
         if (null !== $this->instanceId) {
             $res['InstanceId'] = $this->instanceId;
+        }
+        if (null !== $this->requestId) {
+            $res['RequestId'] = $this->requestId;
         }
         if (null !== $this->taskId) {
             $res['TaskId'] = $this->taskId;
@@ -56,11 +56,11 @@ class RestartInstanceResponseBody extends Model
     public static function fromMap($map = [])
     {
         $model = new self();
-        if (isset($map['RequestId'])) {
-            $model->requestId = $map['RequestId'];
-        }
         if (isset($map['InstanceId'])) {
             $model->instanceId = $map['InstanceId'];
+        }
+        if (isset($map['RequestId'])) {
+            $model->requestId = $map['RequestId'];
         }
         if (isset($map['TaskId'])) {
             $model->taskId = $map['TaskId'];

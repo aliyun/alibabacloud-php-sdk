@@ -10,9 +10,9 @@ use AlibabaCloud\Tea\Model;
 class DescribeBackupsResponseBody extends Model
 {
     /**
-     * @var string
+     * @var backups
      */
-    public $requestId;
+    public $backups;
 
     /**
      * @var int
@@ -25,20 +25,20 @@ class DescribeBackupsResponseBody extends Model
     public $pageSize;
 
     /**
+     * @var string
+     */
+    public $requestId;
+
+    /**
      * @var int
      */
     public $totalCount;
-
-    /**
-     * @var backups
-     */
-    public $backups;
     protected $_name = [
-        'requestId'  => 'RequestId',
+        'backups'    => 'Backups',
         'pageNumber' => 'PageNumber',
         'pageSize'   => 'PageSize',
+        'requestId'  => 'RequestId',
         'totalCount' => 'TotalCount',
-        'backups'    => 'Backups',
     ];
 
     public function validate()
@@ -48,8 +48,8 @@ class DescribeBackupsResponseBody extends Model
     public function toMap()
     {
         $res = [];
-        if (null !== $this->requestId) {
-            $res['RequestId'] = $this->requestId;
+        if (null !== $this->backups) {
+            $res['Backups'] = null !== $this->backups ? $this->backups->toMap() : null;
         }
         if (null !== $this->pageNumber) {
             $res['PageNumber'] = $this->pageNumber;
@@ -57,11 +57,11 @@ class DescribeBackupsResponseBody extends Model
         if (null !== $this->pageSize) {
             $res['PageSize'] = $this->pageSize;
         }
+        if (null !== $this->requestId) {
+            $res['RequestId'] = $this->requestId;
+        }
         if (null !== $this->totalCount) {
             $res['TotalCount'] = $this->totalCount;
-        }
-        if (null !== $this->backups) {
-            $res['Backups'] = null !== $this->backups ? $this->backups->toMap() : null;
         }
 
         return $res;
@@ -75,8 +75,8 @@ class DescribeBackupsResponseBody extends Model
     public static function fromMap($map = [])
     {
         $model = new self();
-        if (isset($map['RequestId'])) {
-            $model->requestId = $map['RequestId'];
+        if (isset($map['Backups'])) {
+            $model->backups = backups::fromMap($map['Backups']);
         }
         if (isset($map['PageNumber'])) {
             $model->pageNumber = $map['PageNumber'];
@@ -84,11 +84,11 @@ class DescribeBackupsResponseBody extends Model
         if (isset($map['PageSize'])) {
             $model->pageSize = $map['PageSize'];
         }
+        if (isset($map['RequestId'])) {
+            $model->requestId = $map['RequestId'];
+        }
         if (isset($map['TotalCount'])) {
             $model->totalCount = $map['TotalCount'];
-        }
-        if (isset($map['Backups'])) {
-            $model->backups = backups::fromMap($map['Backups']);
         }
 
         return $model;

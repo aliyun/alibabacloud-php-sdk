@@ -10,17 +10,17 @@ use AlibabaCloud\Tea\Model;
 class supportedEngineVersion extends Model
 {
     /**
-     * @var string
-     */
-    public $version;
-
-    /**
      * @var supportedArchitectureTypes
      */
     public $supportedArchitectureTypes;
+
+    /**
+     * @var string
+     */
+    public $version;
     protected $_name = [
-        'version'                    => 'Version',
         'supportedArchitectureTypes' => 'SupportedArchitectureTypes',
+        'version'                    => 'Version',
     ];
 
     public function validate()
@@ -30,11 +30,11 @@ class supportedEngineVersion extends Model
     public function toMap()
     {
         $res = [];
-        if (null !== $this->version) {
-            $res['Version'] = $this->version;
-        }
         if (null !== $this->supportedArchitectureTypes) {
             $res['SupportedArchitectureTypes'] = null !== $this->supportedArchitectureTypes ? $this->supportedArchitectureTypes->toMap() : null;
+        }
+        if (null !== $this->version) {
+            $res['Version'] = $this->version;
         }
 
         return $res;
@@ -48,11 +48,11 @@ class supportedEngineVersion extends Model
     public static function fromMap($map = [])
     {
         $model = new self();
-        if (isset($map['Version'])) {
-            $model->version = $map['Version'];
-        }
         if (isset($map['SupportedArchitectureTypes'])) {
             $model->supportedArchitectureTypes = supportedArchitectureTypes::fromMap($map['SupportedArchitectureTypes']);
+        }
+        if (isset($map['Version'])) {
+            $model->version = $map['Version'];
         }
 
         return $model;

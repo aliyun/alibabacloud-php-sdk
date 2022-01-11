@@ -10,17 +10,17 @@ use AlibabaCloud\Tea\Model;
 class supportedNodeType extends Model
 {
     /**
-     * @var string
-     */
-    public $supportedNodeType;
-
-    /**
      * @var availableResources
      */
     public $availableResources;
+
+    /**
+     * @var string
+     */
+    public $supportedNodeType;
     protected $_name = [
-        'supportedNodeType'  => 'SupportedNodeType',
         'availableResources' => 'AvailableResources',
+        'supportedNodeType'  => 'SupportedNodeType',
     ];
 
     public function validate()
@@ -30,11 +30,11 @@ class supportedNodeType extends Model
     public function toMap()
     {
         $res = [];
-        if (null !== $this->supportedNodeType) {
-            $res['SupportedNodeType'] = $this->supportedNodeType;
-        }
         if (null !== $this->availableResources) {
             $res['AvailableResources'] = null !== $this->availableResources ? $this->availableResources->toMap() : null;
+        }
+        if (null !== $this->supportedNodeType) {
+            $res['SupportedNodeType'] = $this->supportedNodeType;
         }
 
         return $res;
@@ -48,11 +48,11 @@ class supportedNodeType extends Model
     public static function fromMap($map = [])
     {
         $model = new self();
-        if (isset($map['SupportedNodeType'])) {
-            $model->supportedNodeType = $map['SupportedNodeType'];
-        }
         if (isset($map['AvailableResources'])) {
             $model->availableResources = availableResources::fromMap($map['AvailableResources']);
+        }
+        if (isset($map['SupportedNodeType'])) {
+            $model->supportedNodeType = $map['SupportedNodeType'];
         }
 
         return $model;

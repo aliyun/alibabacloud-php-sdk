@@ -11,12 +11,12 @@ class netInfoItem extends Model
     /**
      * @var string
      */
-    public $DBInstanceNetType;
+    public $connectionString;
 
     /**
      * @var string
      */
-    public $port;
+    public $DBInstanceNetType;
 
     /**
      * @var string
@@ -26,18 +26,18 @@ class netInfoItem extends Model
     /**
      * @var string
      */
-    public $connectionString;
+    public $IPAddress;
 
     /**
      * @var string
      */
-    public $IPAddress;
+    public $port;
     protected $_name = [
-        'DBInstanceNetType' => 'DBInstanceNetType',
-        'port'              => 'Port',
-        'expiredTime'       => 'ExpiredTime',
         'connectionString'  => 'ConnectionString',
+        'DBInstanceNetType' => 'DBInstanceNetType',
+        'expiredTime'       => 'ExpiredTime',
         'IPAddress'         => 'IPAddress',
+        'port'              => 'Port',
     ];
 
     public function validate()
@@ -47,20 +47,20 @@ class netInfoItem extends Model
     public function toMap()
     {
         $res = [];
+        if (null !== $this->connectionString) {
+            $res['ConnectionString'] = $this->connectionString;
+        }
         if (null !== $this->DBInstanceNetType) {
             $res['DBInstanceNetType'] = $this->DBInstanceNetType;
-        }
-        if (null !== $this->port) {
-            $res['Port'] = $this->port;
         }
         if (null !== $this->expiredTime) {
             $res['ExpiredTime'] = $this->expiredTime;
         }
-        if (null !== $this->connectionString) {
-            $res['ConnectionString'] = $this->connectionString;
-        }
         if (null !== $this->IPAddress) {
             $res['IPAddress'] = $this->IPAddress;
+        }
+        if (null !== $this->port) {
+            $res['Port'] = $this->port;
         }
 
         return $res;
@@ -74,20 +74,20 @@ class netInfoItem extends Model
     public static function fromMap($map = [])
     {
         $model = new self();
+        if (isset($map['ConnectionString'])) {
+            $model->connectionString = $map['ConnectionString'];
+        }
         if (isset($map['DBInstanceNetType'])) {
             $model->DBInstanceNetType = $map['DBInstanceNetType'];
-        }
-        if (isset($map['Port'])) {
-            $model->port = $map['Port'];
         }
         if (isset($map['ExpiredTime'])) {
             $model->expiredTime = $map['ExpiredTime'];
         }
-        if (isset($map['ConnectionString'])) {
-            $model->connectionString = $map['ConnectionString'];
-        }
         if (isset($map['IPAddress'])) {
             $model->IPAddress = $map['IPAddress'];
+        }
+        if (isset($map['Port'])) {
+            $model->port = $map['Port'];
         }
 
         return $model;

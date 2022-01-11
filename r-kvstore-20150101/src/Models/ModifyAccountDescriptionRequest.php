@@ -11,7 +11,22 @@ class ModifyAccountDescriptionRequest extends Model
     /**
      * @var string
      */
-    public $securityToken;
+    public $accountDescription;
+
+    /**
+     * @var string
+     */
+    public $accountName;
+
+    /**
+     * @var string
+     */
+    public $instanceId;
+
+    /**
+     * @var string
+     */
+    public $ownerAccount;
 
     /**
      * @var int
@@ -31,31 +46,16 @@ class ModifyAccountDescriptionRequest extends Model
     /**
      * @var string
      */
-    public $ownerAccount;
-
-    /**
-     * @var string
-     */
-    public $instanceId;
-
-    /**
-     * @var string
-     */
-    public $accountName;
-
-    /**
-     * @var string
-     */
-    public $accountDescription;
+    public $securityToken;
     protected $_name = [
-        'securityToken'        => 'SecurityToken',
+        'accountDescription'   => 'AccountDescription',
+        'accountName'          => 'AccountName',
+        'instanceId'           => 'InstanceId',
+        'ownerAccount'         => 'OwnerAccount',
         'ownerId'              => 'OwnerId',
         'resourceOwnerAccount' => 'ResourceOwnerAccount',
         'resourceOwnerId'      => 'ResourceOwnerId',
-        'ownerAccount'         => 'OwnerAccount',
-        'instanceId'           => 'InstanceId',
-        'accountName'          => 'AccountName',
-        'accountDescription'   => 'AccountDescription',
+        'securityToken'        => 'SecurityToken',
     ];
 
     public function validate()
@@ -65,8 +65,17 @@ class ModifyAccountDescriptionRequest extends Model
     public function toMap()
     {
         $res = [];
-        if (null !== $this->securityToken) {
-            $res['SecurityToken'] = $this->securityToken;
+        if (null !== $this->accountDescription) {
+            $res['AccountDescription'] = $this->accountDescription;
+        }
+        if (null !== $this->accountName) {
+            $res['AccountName'] = $this->accountName;
+        }
+        if (null !== $this->instanceId) {
+            $res['InstanceId'] = $this->instanceId;
+        }
+        if (null !== $this->ownerAccount) {
+            $res['OwnerAccount'] = $this->ownerAccount;
         }
         if (null !== $this->ownerId) {
             $res['OwnerId'] = $this->ownerId;
@@ -77,17 +86,8 @@ class ModifyAccountDescriptionRequest extends Model
         if (null !== $this->resourceOwnerId) {
             $res['ResourceOwnerId'] = $this->resourceOwnerId;
         }
-        if (null !== $this->ownerAccount) {
-            $res['OwnerAccount'] = $this->ownerAccount;
-        }
-        if (null !== $this->instanceId) {
-            $res['InstanceId'] = $this->instanceId;
-        }
-        if (null !== $this->accountName) {
-            $res['AccountName'] = $this->accountName;
-        }
-        if (null !== $this->accountDescription) {
-            $res['AccountDescription'] = $this->accountDescription;
+        if (null !== $this->securityToken) {
+            $res['SecurityToken'] = $this->securityToken;
         }
 
         return $res;
@@ -101,8 +101,17 @@ class ModifyAccountDescriptionRequest extends Model
     public static function fromMap($map = [])
     {
         $model = new self();
-        if (isset($map['SecurityToken'])) {
-            $model->securityToken = $map['SecurityToken'];
+        if (isset($map['AccountDescription'])) {
+            $model->accountDescription = $map['AccountDescription'];
+        }
+        if (isset($map['AccountName'])) {
+            $model->accountName = $map['AccountName'];
+        }
+        if (isset($map['InstanceId'])) {
+            $model->instanceId = $map['InstanceId'];
+        }
+        if (isset($map['OwnerAccount'])) {
+            $model->ownerAccount = $map['OwnerAccount'];
         }
         if (isset($map['OwnerId'])) {
             $model->ownerId = $map['OwnerId'];
@@ -113,17 +122,8 @@ class ModifyAccountDescriptionRequest extends Model
         if (isset($map['ResourceOwnerId'])) {
             $model->resourceOwnerId = $map['ResourceOwnerId'];
         }
-        if (isset($map['OwnerAccount'])) {
-            $model->ownerAccount = $map['OwnerAccount'];
-        }
-        if (isset($map['InstanceId'])) {
-            $model->instanceId = $map['InstanceId'];
-        }
-        if (isset($map['AccountName'])) {
-            $model->accountName = $map['AccountName'];
-        }
-        if (isset($map['AccountDescription'])) {
-            $model->accountDescription = $map['AccountDescription'];
+        if (isset($map['SecurityToken'])) {
+            $model->securityToken = $map['SecurityToken'];
         }
 
         return $model;

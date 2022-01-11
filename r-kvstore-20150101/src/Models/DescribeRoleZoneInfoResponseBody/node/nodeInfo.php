@@ -9,6 +9,46 @@ use AlibabaCloud\Tea\Model;
 class nodeInfo extends Model
 {
     /**
+     * @var int
+     */
+    public $currentBandWidth;
+
+    /**
+     * @var string
+     */
+    public $currentMinorVersion;
+
+    /**
+     * @var string
+     */
+    public $custinsId;
+
+    /**
+     * @var int
+     */
+    public $defaultBandWidth;
+
+    /**
+     * @var string
+     */
+    public $insName;
+
+    /**
+     * @var int
+     */
+    public $insType;
+
+    /**
+     * @var int
+     */
+    public $isLatestVersion;
+
+    /**
+     * @var bool
+     */
+    public $isOpenBandWidthService;
+
+    /**
      * @var string
      */
     public $nodeId;
@@ -27,59 +67,19 @@ class nodeInfo extends Model
      * @var string
      */
     public $zoneId;
-
-    /**
-     * @var string
-     */
-    public $custinsId;
-
-    /**
-     * @var int
-     */
-    public $insType;
-
-    /**
-     * @var string
-     */
-    public $insName;
-
-    /**
-     * @var int
-     */
-    public $isLatestVersion;
-
-    /**
-     * @var string
-     */
-    public $currentMinorVersion;
-
-    /**
-     * @var int
-     */
-    public $currentBandWidth;
-
-    /**
-     * @var int
-     */
-    public $defaultBandWidth;
-
-    /**
-     * @var bool
-     */
-    public $isOpenBandWidthService;
     protected $_name = [
+        'currentBandWidth'       => 'CurrentBandWidth',
+        'currentMinorVersion'    => 'CurrentMinorVersion',
+        'custinsId'              => 'CustinsId',
+        'defaultBandWidth'       => 'DefaultBandWidth',
+        'insName'                => 'InsName',
+        'insType'                => 'InsType',
+        'isLatestVersion'        => 'IsLatestVersion',
+        'isOpenBandWidthService' => 'IsOpenBandWidthService',
         'nodeId'                 => 'NodeId',
         'nodeType'               => 'NodeType',
         'role'                   => 'Role',
         'zoneId'                 => 'ZoneId',
-        'custinsId'              => 'CustinsId',
-        'insType'                => 'InsType',
-        'insName'                => 'InsName',
-        'isLatestVersion'        => 'IsLatestVersion',
-        'currentMinorVersion'    => 'CurrentMinorVersion',
-        'currentBandWidth'       => 'CurrentBandWidth',
-        'defaultBandWidth'       => 'DefaultBandWidth',
-        'isOpenBandWidthService' => 'IsOpenBandWidthService',
     ];
 
     public function validate()
@@ -89,6 +89,30 @@ class nodeInfo extends Model
     public function toMap()
     {
         $res = [];
+        if (null !== $this->currentBandWidth) {
+            $res['CurrentBandWidth'] = $this->currentBandWidth;
+        }
+        if (null !== $this->currentMinorVersion) {
+            $res['CurrentMinorVersion'] = $this->currentMinorVersion;
+        }
+        if (null !== $this->custinsId) {
+            $res['CustinsId'] = $this->custinsId;
+        }
+        if (null !== $this->defaultBandWidth) {
+            $res['DefaultBandWidth'] = $this->defaultBandWidth;
+        }
+        if (null !== $this->insName) {
+            $res['InsName'] = $this->insName;
+        }
+        if (null !== $this->insType) {
+            $res['InsType'] = $this->insType;
+        }
+        if (null !== $this->isLatestVersion) {
+            $res['IsLatestVersion'] = $this->isLatestVersion;
+        }
+        if (null !== $this->isOpenBandWidthService) {
+            $res['IsOpenBandWidthService'] = $this->isOpenBandWidthService;
+        }
         if (null !== $this->nodeId) {
             $res['NodeId'] = $this->nodeId;
         }
@@ -100,30 +124,6 @@ class nodeInfo extends Model
         }
         if (null !== $this->zoneId) {
             $res['ZoneId'] = $this->zoneId;
-        }
-        if (null !== $this->custinsId) {
-            $res['CustinsId'] = $this->custinsId;
-        }
-        if (null !== $this->insType) {
-            $res['InsType'] = $this->insType;
-        }
-        if (null !== $this->insName) {
-            $res['InsName'] = $this->insName;
-        }
-        if (null !== $this->isLatestVersion) {
-            $res['IsLatestVersion'] = $this->isLatestVersion;
-        }
-        if (null !== $this->currentMinorVersion) {
-            $res['CurrentMinorVersion'] = $this->currentMinorVersion;
-        }
-        if (null !== $this->currentBandWidth) {
-            $res['CurrentBandWidth'] = $this->currentBandWidth;
-        }
-        if (null !== $this->defaultBandWidth) {
-            $res['DefaultBandWidth'] = $this->defaultBandWidth;
-        }
-        if (null !== $this->isOpenBandWidthService) {
-            $res['IsOpenBandWidthService'] = $this->isOpenBandWidthService;
         }
 
         return $res;
@@ -137,6 +137,30 @@ class nodeInfo extends Model
     public static function fromMap($map = [])
     {
         $model = new self();
+        if (isset($map['CurrentBandWidth'])) {
+            $model->currentBandWidth = $map['CurrentBandWidth'];
+        }
+        if (isset($map['CurrentMinorVersion'])) {
+            $model->currentMinorVersion = $map['CurrentMinorVersion'];
+        }
+        if (isset($map['CustinsId'])) {
+            $model->custinsId = $map['CustinsId'];
+        }
+        if (isset($map['DefaultBandWidth'])) {
+            $model->defaultBandWidth = $map['DefaultBandWidth'];
+        }
+        if (isset($map['InsName'])) {
+            $model->insName = $map['InsName'];
+        }
+        if (isset($map['InsType'])) {
+            $model->insType = $map['InsType'];
+        }
+        if (isset($map['IsLatestVersion'])) {
+            $model->isLatestVersion = $map['IsLatestVersion'];
+        }
+        if (isset($map['IsOpenBandWidthService'])) {
+            $model->isOpenBandWidthService = $map['IsOpenBandWidthService'];
+        }
         if (isset($map['NodeId'])) {
             $model->nodeId = $map['NodeId'];
         }
@@ -148,30 +172,6 @@ class nodeInfo extends Model
         }
         if (isset($map['ZoneId'])) {
             $model->zoneId = $map['ZoneId'];
-        }
-        if (isset($map['CustinsId'])) {
-            $model->custinsId = $map['CustinsId'];
-        }
-        if (isset($map['InsType'])) {
-            $model->insType = $map['InsType'];
-        }
-        if (isset($map['InsName'])) {
-            $model->insName = $map['InsName'];
-        }
-        if (isset($map['IsLatestVersion'])) {
-            $model->isLatestVersion = $map['IsLatestVersion'];
-        }
-        if (isset($map['CurrentMinorVersion'])) {
-            $model->currentMinorVersion = $map['CurrentMinorVersion'];
-        }
-        if (isset($map['CurrentBandWidth'])) {
-            $model->currentBandWidth = $map['CurrentBandWidth'];
-        }
-        if (isset($map['DefaultBandWidth'])) {
-            $model->defaultBandWidth = $map['DefaultBandWidth'];
-        }
-        if (isset($map['IsOpenBandWidthService'])) {
-            $model->isOpenBandWidthService = $map['IsOpenBandWidthService'];
         }
 
         return $model;

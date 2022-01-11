@@ -10,17 +10,17 @@ use AlibabaCloud\Tea\Model;
 class DescribeClusterMemberInfoResponseBody extends Model
 {
     /**
-     * @var string
-     */
-    public $requestId;
-
-    /**
      * @var clusterChildren[]
      */
     public $clusterChildren;
+
+    /**
+     * @var string
+     */
+    public $requestId;
     protected $_name = [
-        'requestId'       => 'RequestId',
         'clusterChildren' => 'ClusterChildren',
+        'requestId'       => 'RequestId',
     ];
 
     public function validate()
@@ -30,9 +30,6 @@ class DescribeClusterMemberInfoResponseBody extends Model
     public function toMap()
     {
         $res = [];
-        if (null !== $this->requestId) {
-            $res['RequestId'] = $this->requestId;
-        }
         if (null !== $this->clusterChildren) {
             $res['ClusterChildren'] = [];
             if (null !== $this->clusterChildren && \is_array($this->clusterChildren)) {
@@ -41,6 +38,9 @@ class DescribeClusterMemberInfoResponseBody extends Model
                     $res['ClusterChildren'][$n++] = null !== $item ? $item->toMap() : $item;
                 }
             }
+        }
+        if (null !== $this->requestId) {
+            $res['RequestId'] = $this->requestId;
         }
 
         return $res;
@@ -54,9 +54,6 @@ class DescribeClusterMemberInfoResponseBody extends Model
     public static function fromMap($map = [])
     {
         $model = new self();
-        if (isset($map['RequestId'])) {
-            $model->requestId = $map['RequestId'];
-        }
         if (isset($map['ClusterChildren'])) {
             if (!empty($map['ClusterChildren'])) {
                 $model->clusterChildren = [];
@@ -65,6 +62,9 @@ class DescribeClusterMemberInfoResponseBody extends Model
                     $model->clusterChildren[$n++] = null !== $item ? clusterChildren::fromMap($item) : $item;
                 }
             }
+        }
+        if (isset($map['RequestId'])) {
+            $model->requestId = $map['RequestId'];
         }
 
         return $model;

@@ -5,12 +5,15 @@
 namespace AlibabaCloud\SDK\Rkvstore\V20150101;
 
 use AlibabaCloud\Endpoint\Endpoint;
+use AlibabaCloud\OpenApiUtil\OpenApiUtilClient;
 use AlibabaCloud\SDK\Rkvstore\V20150101\Models\AddShardingNodeRequest;
 use AlibabaCloud\SDK\Rkvstore\V20150101\Models\AddShardingNodeResponse;
 use AlibabaCloud\SDK\Rkvstore\V20150101\Models\AllocateDirectConnectionRequest;
 use AlibabaCloud\SDK\Rkvstore\V20150101\Models\AllocateDirectConnectionResponse;
 use AlibabaCloud\SDK\Rkvstore\V20150101\Models\AllocateInstancePublicConnectionRequest;
 use AlibabaCloud\SDK\Rkvstore\V20150101\Models\AllocateInstancePublicConnectionResponse;
+use AlibabaCloud\SDK\Rkvstore\V20150101\Models\CheckCloudResourceAuthorizedRequest;
+use AlibabaCloud\SDK\Rkvstore\V20150101\Models\CheckCloudResourceAuthorizedResponse;
 use AlibabaCloud\SDK\Rkvstore\V20150101\Models\CreateAccountRequest;
 use AlibabaCloud\SDK\Rkvstore\V20150101\Models\CreateAccountResponse;
 use AlibabaCloud\SDK\Rkvstore\V20150101\Models\CreateBackupRequest;
@@ -21,22 +24,22 @@ use AlibabaCloud\SDK\Rkvstore\V20150101\Models\CreateGlobalDistributeCacheReques
 use AlibabaCloud\SDK\Rkvstore\V20150101\Models\CreateGlobalDistributeCacheResponse;
 use AlibabaCloud\SDK\Rkvstore\V20150101\Models\CreateInstanceRequest;
 use AlibabaCloud\SDK\Rkvstore\V20150101\Models\CreateInstanceResponse;
+use AlibabaCloud\SDK\Rkvstore\V20150101\Models\CreateInstancesRequest;
+use AlibabaCloud\SDK\Rkvstore\V20150101\Models\CreateInstancesResponse;
 use AlibabaCloud\SDK\Rkvstore\V20150101\Models\CreateTairInstanceRequest;
 use AlibabaCloud\SDK\Rkvstore\V20150101\Models\CreateTairInstanceResponse;
-use AlibabaCloud\SDK\Rkvstore\V20150101\Models\CreateUserClusterHostRequest;
-use AlibabaCloud\SDK\Rkvstore\V20150101\Models\CreateUserClusterHostResponse;
 use AlibabaCloud\SDK\Rkvstore\V20150101\Models\DeleteAccountRequest;
 use AlibabaCloud\SDK\Rkvstore\V20150101\Models\DeleteAccountResponse;
 use AlibabaCloud\SDK\Rkvstore\V20150101\Models\DeleteInstanceRequest;
 use AlibabaCloud\SDK\Rkvstore\V20150101\Models\DeleteInstanceResponse;
 use AlibabaCloud\SDK\Rkvstore\V20150101\Models\DeleteShardingNodeRequest;
 use AlibabaCloud\SDK\Rkvstore\V20150101\Models\DeleteShardingNodeResponse;
-use AlibabaCloud\SDK\Rkvstore\V20150101\Models\DeleteUserClusterHostRequest;
-use AlibabaCloud\SDK\Rkvstore\V20150101\Models\DeleteUserClusterHostResponse;
 use AlibabaCloud\SDK\Rkvstore\V20150101\Models\DescribeAccountsRequest;
 use AlibabaCloud\SDK\Rkvstore\V20150101\Models\DescribeAccountsResponse;
 use AlibabaCloud\SDK\Rkvstore\V20150101\Models\DescribeActiveOperationTaskRequest;
 use AlibabaCloud\SDK\Rkvstore\V20150101\Models\DescribeActiveOperationTaskResponse;
+use AlibabaCloud\SDK\Rkvstore\V20150101\Models\DescribeAuditLogConfigRequest;
+use AlibabaCloud\SDK\Rkvstore\V20150101\Models\DescribeAuditLogConfigResponse;
 use AlibabaCloud\SDK\Rkvstore\V20150101\Models\DescribeAuditRecordsRequest;
 use AlibabaCloud\SDK\Rkvstore\V20150101\Models\DescribeAuditRecordsResponse;
 use AlibabaCloud\SDK\Rkvstore\V20150101\Models\DescribeAvailableResourceRequest;
@@ -57,6 +60,10 @@ use AlibabaCloud\SDK\Rkvstore\V20150101\Models\DescribeDBInstanceNetInfoRequest;
 use AlibabaCloud\SDK\Rkvstore\V20150101\Models\DescribeDBInstanceNetInfoResponse;
 use AlibabaCloud\SDK\Rkvstore\V20150101\Models\DescribeDedicatedClusterInstanceListRequest;
 use AlibabaCloud\SDK\Rkvstore\V20150101\Models\DescribeDedicatedClusterInstanceListResponse;
+use AlibabaCloud\SDK\Rkvstore\V20150101\Models\DescribeEncryptionKeyListRequest;
+use AlibabaCloud\SDK\Rkvstore\V20150101\Models\DescribeEncryptionKeyListResponse;
+use AlibabaCloud\SDK\Rkvstore\V20150101\Models\DescribeEncryptionKeyRequest;
+use AlibabaCloud\SDK\Rkvstore\V20150101\Models\DescribeEncryptionKeyResponse;
 use AlibabaCloud\SDK\Rkvstore\V20150101\Models\DescribeEngineVersionRequest;
 use AlibabaCloud\SDK\Rkvstore\V20150101\Models\DescribeEngineVersionResponse;
 use AlibabaCloud\SDK\Rkvstore\V20150101\Models\DescribeGlobalDistributeCacheRequest;
@@ -69,10 +76,14 @@ use AlibabaCloud\SDK\Rkvstore\V20150101\Models\DescribeInstanceAutoRenewalAttrib
 use AlibabaCloud\SDK\Rkvstore\V20150101\Models\DescribeInstanceAutoRenewalAttributeResponse;
 use AlibabaCloud\SDK\Rkvstore\V20150101\Models\DescribeInstanceConfigRequest;
 use AlibabaCloud\SDK\Rkvstore\V20150101\Models\DescribeInstanceConfigResponse;
+use AlibabaCloud\SDK\Rkvstore\V20150101\Models\DescribeInstancesOverviewRequest;
+use AlibabaCloud\SDK\Rkvstore\V20150101\Models\DescribeInstancesOverviewResponse;
 use AlibabaCloud\SDK\Rkvstore\V20150101\Models\DescribeInstancesRequest;
 use AlibabaCloud\SDK\Rkvstore\V20150101\Models\DescribeInstancesResponse;
 use AlibabaCloud\SDK\Rkvstore\V20150101\Models\DescribeInstanceSSLRequest;
 use AlibabaCloud\SDK\Rkvstore\V20150101\Models\DescribeInstanceSSLResponse;
+use AlibabaCloud\SDK\Rkvstore\V20150101\Models\DescribeInstanceTDEStatusRequest;
+use AlibabaCloud\SDK\Rkvstore\V20150101\Models\DescribeInstanceTDEStatusResponse;
 use AlibabaCloud\SDK\Rkvstore\V20150101\Models\DescribeIntranetAttributeRequest;
 use AlibabaCloud\SDK\Rkvstore\V20150101\Models\DescribeIntranetAttributeResponse;
 use AlibabaCloud\SDK\Rkvstore\V20150101\Models\DescribeLogicInstanceTopologyRequest;
@@ -99,10 +110,6 @@ use AlibabaCloud\SDK\Rkvstore\V20150101\Models\DescribeSlowLogRecordsRequest;
 use AlibabaCloud\SDK\Rkvstore\V20150101\Models\DescribeSlowLogRecordsResponse;
 use AlibabaCloud\SDK\Rkvstore\V20150101\Models\DescribeTasksRequest;
 use AlibabaCloud\SDK\Rkvstore\V20150101\Models\DescribeTasksResponse;
-use AlibabaCloud\SDK\Rkvstore\V20150101\Models\DescribeUserClusterHostInstanceRequest;
-use AlibabaCloud\SDK\Rkvstore\V20150101\Models\DescribeUserClusterHostInstanceResponse;
-use AlibabaCloud\SDK\Rkvstore\V20150101\Models\DescribeUserClusterHostRequest;
-use AlibabaCloud\SDK\Rkvstore\V20150101\Models\DescribeUserClusterHostResponse;
 use AlibabaCloud\SDK\Rkvstore\V20150101\Models\DescribeZonesRequest;
 use AlibabaCloud\SDK\Rkvstore\V20150101\Models\DescribeZonesResponse;
 use AlibabaCloud\SDK\Rkvstore\V20150101\Models\EnableAdditionalBandwidthRequest;
@@ -149,6 +156,8 @@ use AlibabaCloud\SDK\Rkvstore\V20150101\Models\ModifyInstanceSpecRequest;
 use AlibabaCloud\SDK\Rkvstore\V20150101\Models\ModifyInstanceSpecResponse;
 use AlibabaCloud\SDK\Rkvstore\V20150101\Models\ModifyInstanceSSLRequest;
 use AlibabaCloud\SDK\Rkvstore\V20150101\Models\ModifyInstanceSSLResponse;
+use AlibabaCloud\SDK\Rkvstore\V20150101\Models\ModifyInstanceTDERequest;
+use AlibabaCloud\SDK\Rkvstore\V20150101\Models\ModifyInstanceTDEResponse;
 use AlibabaCloud\SDK\Rkvstore\V20150101\Models\ModifyInstanceVpcAuthModeRequest;
 use AlibabaCloud\SDK\Rkvstore\V20150101\Models\ModifyInstanceVpcAuthModeResponse;
 use AlibabaCloud\SDK\Rkvstore\V20150101\Models\ModifyIntranetAttributeRequest;
@@ -161,16 +170,16 @@ use AlibabaCloud\SDK\Rkvstore\V20150101\Models\ModifySecurityGroupConfigurationR
 use AlibabaCloud\SDK\Rkvstore\V20150101\Models\ModifySecurityGroupConfigurationResponse;
 use AlibabaCloud\SDK\Rkvstore\V20150101\Models\ModifySecurityIpsRequest;
 use AlibabaCloud\SDK\Rkvstore\V20150101\Models\ModifySecurityIpsResponse;
-use AlibabaCloud\SDK\Rkvstore\V20150101\Models\ModifyUserClusterHostRequest;
-use AlibabaCloud\SDK\Rkvstore\V20150101\Models\ModifyUserClusterHostResponse;
 use AlibabaCloud\SDK\Rkvstore\V20150101\Models\ReleaseDirectConnectionRequest;
 use AlibabaCloud\SDK\Rkvstore\V20150101\Models\ReleaseDirectConnectionResponse;
 use AlibabaCloud\SDK\Rkvstore\V20150101\Models\ReleaseInstancePublicConnectionRequest;
 use AlibabaCloud\SDK\Rkvstore\V20150101\Models\ReleaseInstancePublicConnectionResponse;
+use AlibabaCloud\SDK\Rkvstore\V20150101\Models\RemoveSubInstanceRequest;
+use AlibabaCloud\SDK\Rkvstore\V20150101\Models\RemoveSubInstanceResponse;
+use AlibabaCloud\SDK\Rkvstore\V20150101\Models\RenewAdditionalBandwidthRequest;
+use AlibabaCloud\SDK\Rkvstore\V20150101\Models\RenewAdditionalBandwidthResponse;
 use AlibabaCloud\SDK\Rkvstore\V20150101\Models\RenewInstanceRequest;
 use AlibabaCloud\SDK\Rkvstore\V20150101\Models\RenewInstanceResponse;
-use AlibabaCloud\SDK\Rkvstore\V20150101\Models\ReplaceUserClusterHostRequest;
-use AlibabaCloud\SDK\Rkvstore\V20150101\Models\ReplaceUserClusterHostResponse;
 use AlibabaCloud\SDK\Rkvstore\V20150101\Models\ResetAccountPasswordRequest;
 use AlibabaCloud\SDK\Rkvstore\V20150101\Models\ResetAccountPasswordResponse;
 use AlibabaCloud\SDK\Rkvstore\V20150101\Models\RestartInstanceRequest;
@@ -179,12 +188,16 @@ use AlibabaCloud\SDK\Rkvstore\V20150101\Models\RestoreInstanceRequest;
 use AlibabaCloud\SDK\Rkvstore\V20150101\Models\RestoreInstanceResponse;
 use AlibabaCloud\SDK\Rkvstore\V20150101\Models\SwitchInstanceHARequest;
 use AlibabaCloud\SDK\Rkvstore\V20150101\Models\SwitchInstanceHAResponse;
+use AlibabaCloud\SDK\Rkvstore\V20150101\Models\SwitchInstanceProxyRequest;
+use AlibabaCloud\SDK\Rkvstore\V20150101\Models\SwitchInstanceProxyResponse;
 use AlibabaCloud\SDK\Rkvstore\V20150101\Models\SwitchNetworkRequest;
 use AlibabaCloud\SDK\Rkvstore\V20150101\Models\SwitchNetworkResponse;
 use AlibabaCloud\SDK\Rkvstore\V20150101\Models\SyncDtsStatusRequest;
 use AlibabaCloud\SDK\Rkvstore\V20150101\Models\SyncDtsStatusResponse;
 use AlibabaCloud\SDK\Rkvstore\V20150101\Models\TagResourcesRequest;
 use AlibabaCloud\SDK\Rkvstore\V20150101\Models\TagResourcesResponse;
+use AlibabaCloud\SDK\Rkvstore\V20150101\Models\TransformInstanceChargeTypeRequest;
+use AlibabaCloud\SDK\Rkvstore\V20150101\Models\TransformInstanceChargeTypeResponse;
 use AlibabaCloud\SDK\Rkvstore\V20150101\Models\TransformToPrePaidRequest;
 use AlibabaCloud\SDK\Rkvstore\V20150101\Models\TransformToPrePaidResponse;
 use AlibabaCloud\SDK\Rkvstore\V20150101\Models\UntagResourcesRequest;
@@ -192,6 +205,7 @@ use AlibabaCloud\SDK\Rkvstore\V20150101\Models\UntagResourcesResponse;
 use AlibabaCloud\Tea\Utils\Utils;
 use AlibabaCloud\Tea\Utils\Utils\RuntimeOptions;
 use Darabonba\OpenApi\Models\OpenApiRequest;
+use Darabonba\OpenApi\Models\Params;
 use Darabonba\OpenApi\OpenApiClient;
 
 class Rkvstore extends OpenApiClient
@@ -283,11 +297,59 @@ class Rkvstore extends OpenApiClient
     public function addShardingNodeWithOptions($request, $runtime)
     {
         Utils::validateModel($request);
+        $query = [];
+        if (!Utils::isUnset($request->autoPay)) {
+            $query['AutoPay'] = $request->autoPay;
+        }
+        if (!Utils::isUnset($request->businessInfo)) {
+            $query['BusinessInfo'] = $request->businessInfo;
+        }
+        if (!Utils::isUnset($request->couponNo)) {
+            $query['CouponNo'] = $request->couponNo;
+        }
+        if (!Utils::isUnset($request->instanceId)) {
+            $query['InstanceId'] = $request->instanceId;
+        }
+        if (!Utils::isUnset($request->ownerAccount)) {
+            $query['OwnerAccount'] = $request->ownerAccount;
+        }
+        if (!Utils::isUnset($request->ownerId)) {
+            $query['OwnerId'] = $request->ownerId;
+        }
+        if (!Utils::isUnset($request->resourceOwnerAccount)) {
+            $query['ResourceOwnerAccount'] = $request->resourceOwnerAccount;
+        }
+        if (!Utils::isUnset($request->resourceOwnerId)) {
+            $query['ResourceOwnerId'] = $request->resourceOwnerId;
+        }
+        if (!Utils::isUnset($request->securityToken)) {
+            $query['SecurityToken'] = $request->securityToken;
+        }
+        if (!Utils::isUnset($request->shardClass)) {
+            $query['ShardClass'] = $request->shardClass;
+        }
+        if (!Utils::isUnset($request->shardCount)) {
+            $query['ShardCount'] = $request->shardCount;
+        }
+        if (!Utils::isUnset($request->sourceBiz)) {
+            $query['SourceBiz'] = $request->sourceBiz;
+        }
         $req = new OpenApiRequest([
-            'body' => Utils::toMap($request),
+            'query' => OpenApiUtilClient::query($query),
+        ]);
+        $params = new Params([
+            'action'      => 'AddShardingNode',
+            'version'     => '2015-01-01',
+            'protocol'    => 'HTTPS',
+            'pathname'    => '/',
+            'method'      => 'POST',
+            'authType'    => 'AK',
+            'style'       => 'RPC',
+            'reqBodyType' => 'formData',
+            'bodyType'    => 'json',
         ]);
 
-        return AddShardingNodeResponse::fromMap($this->doRPCRequest('AddShardingNode', '2015-01-01', 'HTTPS', 'POST', 'AK', 'json', $req, $runtime));
+        return AddShardingNodeResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
@@ -311,11 +373,47 @@ class Rkvstore extends OpenApiClient
     public function allocateDirectConnectionWithOptions($request, $runtime)
     {
         Utils::validateModel($request);
+        $query = [];
+        if (!Utils::isUnset($request->connectionString)) {
+            $query['ConnectionString'] = $request->connectionString;
+        }
+        if (!Utils::isUnset($request->instanceId)) {
+            $query['InstanceId'] = $request->instanceId;
+        }
+        if (!Utils::isUnset($request->ownerAccount)) {
+            $query['OwnerAccount'] = $request->ownerAccount;
+        }
+        if (!Utils::isUnset($request->ownerId)) {
+            $query['OwnerId'] = $request->ownerId;
+        }
+        if (!Utils::isUnset($request->port)) {
+            $query['Port'] = $request->port;
+        }
+        if (!Utils::isUnset($request->resourceOwnerAccount)) {
+            $query['ResourceOwnerAccount'] = $request->resourceOwnerAccount;
+        }
+        if (!Utils::isUnset($request->resourceOwnerId)) {
+            $query['ResourceOwnerId'] = $request->resourceOwnerId;
+        }
+        if (!Utils::isUnset($request->securityToken)) {
+            $query['SecurityToken'] = $request->securityToken;
+        }
         $req = new OpenApiRequest([
-            'body' => Utils::toMap($request),
+            'query' => OpenApiUtilClient::query($query),
+        ]);
+        $params = new Params([
+            'action'      => 'AllocateDirectConnection',
+            'version'     => '2015-01-01',
+            'protocol'    => 'HTTPS',
+            'pathname'    => '/',
+            'method'      => 'POST',
+            'authType'    => 'AK',
+            'style'       => 'RPC',
+            'reqBodyType' => 'formData',
+            'bodyType'    => 'json',
         ]);
 
-        return AllocateDirectConnectionResponse::fromMap($this->doRPCRequest('AllocateDirectConnection', '2015-01-01', 'HTTPS', 'POST', 'AK', 'json', $req, $runtime));
+        return AllocateDirectConnectionResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
@@ -339,11 +437,47 @@ class Rkvstore extends OpenApiClient
     public function allocateInstancePublicConnectionWithOptions($request, $runtime)
     {
         Utils::validateModel($request);
+        $query = [];
+        if (!Utils::isUnset($request->connectionStringPrefix)) {
+            $query['ConnectionStringPrefix'] = $request->connectionStringPrefix;
+        }
+        if (!Utils::isUnset($request->instanceId)) {
+            $query['InstanceId'] = $request->instanceId;
+        }
+        if (!Utils::isUnset($request->ownerAccount)) {
+            $query['OwnerAccount'] = $request->ownerAccount;
+        }
+        if (!Utils::isUnset($request->ownerId)) {
+            $query['OwnerId'] = $request->ownerId;
+        }
+        if (!Utils::isUnset($request->port)) {
+            $query['Port'] = $request->port;
+        }
+        if (!Utils::isUnset($request->resourceOwnerAccount)) {
+            $query['ResourceOwnerAccount'] = $request->resourceOwnerAccount;
+        }
+        if (!Utils::isUnset($request->resourceOwnerId)) {
+            $query['ResourceOwnerId'] = $request->resourceOwnerId;
+        }
+        if (!Utils::isUnset($request->securityToken)) {
+            $query['SecurityToken'] = $request->securityToken;
+        }
         $req = new OpenApiRequest([
-            'body' => Utils::toMap($request),
+            'query' => OpenApiUtilClient::query($query),
+        ]);
+        $params = new Params([
+            'action'      => 'AllocateInstancePublicConnection',
+            'version'     => '2015-01-01',
+            'protocol'    => 'HTTPS',
+            'pathname'    => '/',
+            'method'      => 'POST',
+            'authType'    => 'AK',
+            'style'       => 'RPC',
+            'reqBodyType' => 'formData',
+            'bodyType'    => 'json',
         ]);
 
-        return AllocateInstancePublicConnectionResponse::fromMap($this->doRPCRequest('AllocateInstancePublicConnection', '2015-01-01', 'HTTPS', 'POST', 'AK', 'json', $req, $runtime));
+        return AllocateInstancePublicConnectionResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
@@ -359,6 +493,67 @@ class Rkvstore extends OpenApiClient
     }
 
     /**
+     * @param CheckCloudResourceAuthorizedRequest $request
+     * @param RuntimeOptions                      $runtime
+     *
+     * @return CheckCloudResourceAuthorizedResponse
+     */
+    public function checkCloudResourceAuthorizedWithOptions($request, $runtime)
+    {
+        Utils::validateModel($request);
+        $query = [];
+        if (!Utils::isUnset($request->instanceId)) {
+            $query['InstanceId'] = $request->instanceId;
+        }
+        if (!Utils::isUnset($request->ownerAccount)) {
+            $query['OwnerAccount'] = $request->ownerAccount;
+        }
+        if (!Utils::isUnset($request->ownerId)) {
+            $query['OwnerId'] = $request->ownerId;
+        }
+        if (!Utils::isUnset($request->resourceOwnerAccount)) {
+            $query['ResourceOwnerAccount'] = $request->resourceOwnerAccount;
+        }
+        if (!Utils::isUnset($request->resourceOwnerId)) {
+            $query['ResourceOwnerId'] = $request->resourceOwnerId;
+        }
+        if (!Utils::isUnset($request->roleArn)) {
+            $query['RoleArn'] = $request->roleArn;
+        }
+        if (!Utils::isUnset($request->securityToken)) {
+            $query['SecurityToken'] = $request->securityToken;
+        }
+        $req = new OpenApiRequest([
+            'query' => OpenApiUtilClient::query($query),
+        ]);
+        $params = new Params([
+            'action'      => 'CheckCloudResourceAuthorized',
+            'version'     => '2015-01-01',
+            'protocol'    => 'HTTPS',
+            'pathname'    => '/',
+            'method'      => 'POST',
+            'authType'    => 'AK',
+            'style'       => 'RPC',
+            'reqBodyType' => 'formData',
+            'bodyType'    => 'json',
+        ]);
+
+        return CheckCloudResourceAuthorizedResponse::fromMap($this->callApi($params, $req, $runtime));
+    }
+
+    /**
+     * @param CheckCloudResourceAuthorizedRequest $request
+     *
+     * @return CheckCloudResourceAuthorizedResponse
+     */
+    public function checkCloudResourceAuthorized($request)
+    {
+        $runtime = new RuntimeOptions([]);
+
+        return $this->checkCloudResourceAuthorizedWithOptions($request, $runtime);
+    }
+
+    /**
      * @param CreateAccountRequest $request
      * @param RuntimeOptions       $runtime
      *
@@ -367,11 +562,56 @@ class Rkvstore extends OpenApiClient
     public function createAccountWithOptions($request, $runtime)
     {
         Utils::validateModel($request);
+        $query = [];
+        if (!Utils::isUnset($request->accountDescription)) {
+            $query['AccountDescription'] = $request->accountDescription;
+        }
+        if (!Utils::isUnset($request->accountName)) {
+            $query['AccountName'] = $request->accountName;
+        }
+        if (!Utils::isUnset($request->accountPassword)) {
+            $query['AccountPassword'] = $request->accountPassword;
+        }
+        if (!Utils::isUnset($request->accountPrivilege)) {
+            $query['AccountPrivilege'] = $request->accountPrivilege;
+        }
+        if (!Utils::isUnset($request->accountType)) {
+            $query['AccountType'] = $request->accountType;
+        }
+        if (!Utils::isUnset($request->instanceId)) {
+            $query['InstanceId'] = $request->instanceId;
+        }
+        if (!Utils::isUnset($request->ownerAccount)) {
+            $query['OwnerAccount'] = $request->ownerAccount;
+        }
+        if (!Utils::isUnset($request->ownerId)) {
+            $query['OwnerId'] = $request->ownerId;
+        }
+        if (!Utils::isUnset($request->resourceOwnerAccount)) {
+            $query['ResourceOwnerAccount'] = $request->resourceOwnerAccount;
+        }
+        if (!Utils::isUnset($request->resourceOwnerId)) {
+            $query['ResourceOwnerId'] = $request->resourceOwnerId;
+        }
+        if (!Utils::isUnset($request->securityToken)) {
+            $query['SecurityToken'] = $request->securityToken;
+        }
         $req = new OpenApiRequest([
-            'body' => Utils::toMap($request),
+            'query' => OpenApiUtilClient::query($query),
+        ]);
+        $params = new Params([
+            'action'      => 'CreateAccount',
+            'version'     => '2015-01-01',
+            'protocol'    => 'HTTPS',
+            'pathname'    => '/',
+            'method'      => 'POST',
+            'authType'    => 'AK',
+            'style'       => 'RPC',
+            'reqBodyType' => 'formData',
+            'bodyType'    => 'json',
         ]);
 
-        return CreateAccountResponse::fromMap($this->doRPCRequest('CreateAccount', '2015-01-01', 'HTTPS', 'POST', 'AK', 'json', $req, $runtime));
+        return CreateAccountResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
@@ -395,11 +635,41 @@ class Rkvstore extends OpenApiClient
     public function createBackupWithOptions($request, $runtime)
     {
         Utils::validateModel($request);
+        $query = [];
+        if (!Utils::isUnset($request->instanceId)) {
+            $query['InstanceId'] = $request->instanceId;
+        }
+        if (!Utils::isUnset($request->ownerAccount)) {
+            $query['OwnerAccount'] = $request->ownerAccount;
+        }
+        if (!Utils::isUnset($request->ownerId)) {
+            $query['OwnerId'] = $request->ownerId;
+        }
+        if (!Utils::isUnset($request->resourceOwnerAccount)) {
+            $query['ResourceOwnerAccount'] = $request->resourceOwnerAccount;
+        }
+        if (!Utils::isUnset($request->resourceOwnerId)) {
+            $query['ResourceOwnerId'] = $request->resourceOwnerId;
+        }
+        if (!Utils::isUnset($request->securityToken)) {
+            $query['SecurityToken'] = $request->securityToken;
+        }
         $req = new OpenApiRequest([
-            'body' => Utils::toMap($request),
+            'query' => OpenApiUtilClient::query($query),
+        ]);
+        $params = new Params([
+            'action'      => 'CreateBackup',
+            'version'     => '2015-01-01',
+            'protocol'    => 'HTTPS',
+            'pathname'    => '/',
+            'method'      => 'POST',
+            'authType'    => 'AK',
+            'style'       => 'RPC',
+            'reqBodyType' => 'formData',
+            'bodyType'    => 'json',
         ]);
 
-        return CreateBackupResponse::fromMap($this->doRPCRequest('CreateBackup', '2015-01-01', 'HTTPS', 'POST', 'AK', 'json', $req, $runtime));
+        return CreateBackupResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
@@ -423,11 +693,41 @@ class Rkvstore extends OpenApiClient
     public function createCacheAnalysisTaskWithOptions($request, $runtime)
     {
         Utils::validateModel($request);
+        $query = [];
+        if (!Utils::isUnset($request->instanceId)) {
+            $query['InstanceId'] = $request->instanceId;
+        }
+        if (!Utils::isUnset($request->ownerAccount)) {
+            $query['OwnerAccount'] = $request->ownerAccount;
+        }
+        if (!Utils::isUnset($request->ownerId)) {
+            $query['OwnerId'] = $request->ownerId;
+        }
+        if (!Utils::isUnset($request->resourceOwnerAccount)) {
+            $query['ResourceOwnerAccount'] = $request->resourceOwnerAccount;
+        }
+        if (!Utils::isUnset($request->resourceOwnerId)) {
+            $query['ResourceOwnerId'] = $request->resourceOwnerId;
+        }
+        if (!Utils::isUnset($request->securityToken)) {
+            $query['SecurityToken'] = $request->securityToken;
+        }
         $req = new OpenApiRequest([
-            'body' => Utils::toMap($request),
+            'query' => OpenApiUtilClient::query($query),
+        ]);
+        $params = new Params([
+            'action'      => 'CreateCacheAnalysisTask',
+            'version'     => '2015-01-01',
+            'protocol'    => 'HTTPS',
+            'pathname'    => '/',
+            'method'      => 'POST',
+            'authType'    => 'AK',
+            'style'       => 'RPC',
+            'reqBodyType' => 'formData',
+            'bodyType'    => 'json',
         ]);
 
-        return CreateCacheAnalysisTaskResponse::fromMap($this->doRPCRequest('CreateCacheAnalysisTask', '2015-01-01', 'HTTPS', 'POST', 'AK', 'json', $req, $runtime));
+        return CreateCacheAnalysisTaskResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
@@ -451,11 +751,41 @@ class Rkvstore extends OpenApiClient
     public function createGlobalDistributeCacheWithOptions($request, $runtime)
     {
         Utils::validateModel($request);
+        $query = [];
+        if (!Utils::isUnset($request->ownerAccount)) {
+            $query['OwnerAccount'] = $request->ownerAccount;
+        }
+        if (!Utils::isUnset($request->ownerId)) {
+            $query['OwnerId'] = $request->ownerId;
+        }
+        if (!Utils::isUnset($request->resourceOwnerAccount)) {
+            $query['ResourceOwnerAccount'] = $request->resourceOwnerAccount;
+        }
+        if (!Utils::isUnset($request->resourceOwnerId)) {
+            $query['ResourceOwnerId'] = $request->resourceOwnerId;
+        }
+        if (!Utils::isUnset($request->securityToken)) {
+            $query['SecurityToken'] = $request->securityToken;
+        }
+        if (!Utils::isUnset($request->seedSubInstanceId)) {
+            $query['SeedSubInstanceId'] = $request->seedSubInstanceId;
+        }
         $req = new OpenApiRequest([
-            'body' => Utils::toMap($request),
+            'query' => OpenApiUtilClient::query($query),
+        ]);
+        $params = new Params([
+            'action'      => 'CreateGlobalDistributeCache',
+            'version'     => '2015-01-01',
+            'protocol'    => 'HTTPS',
+            'pathname'    => '/',
+            'method'      => 'POST',
+            'authType'    => 'AK',
+            'style'       => 'RPC',
+            'reqBodyType' => 'formData',
+            'bodyType'    => 'json',
         ]);
 
-        return CreateGlobalDistributeCacheResponse::fromMap($this->doRPCRequest('CreateGlobalDistributeCache', '2015-01-01', 'HTTPS', 'POST', 'AK', 'json', $req, $runtime));
+        return CreateGlobalDistributeCacheResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
@@ -479,11 +809,131 @@ class Rkvstore extends OpenApiClient
     public function createInstanceWithOptions($request, $runtime)
     {
         Utils::validateModel($request);
+        $query = [];
+        if (!Utils::isUnset($request->autoRenew)) {
+            $query['AutoRenew'] = $request->autoRenew;
+        }
+        if (!Utils::isUnset($request->autoRenewPeriod)) {
+            $query['AutoRenewPeriod'] = $request->autoRenewPeriod;
+        }
+        if (!Utils::isUnset($request->autoUseCoupon)) {
+            $query['AutoUseCoupon'] = $request->autoUseCoupon;
+        }
+        if (!Utils::isUnset($request->backupId)) {
+            $query['BackupId'] = $request->backupId;
+        }
+        if (!Utils::isUnset($request->businessInfo)) {
+            $query['BusinessInfo'] = $request->businessInfo;
+        }
+        if (!Utils::isUnset($request->capacity)) {
+            $query['Capacity'] = $request->capacity;
+        }
+        if (!Utils::isUnset($request->chargeType)) {
+            $query['ChargeType'] = $request->chargeType;
+        }
+        if (!Utils::isUnset($request->couponNo)) {
+            $query['CouponNo'] = $request->couponNo;
+        }
+        if (!Utils::isUnset($request->dedicatedHostGroupId)) {
+            $query['DedicatedHostGroupId'] = $request->dedicatedHostGroupId;
+        }
+        if (!Utils::isUnset($request->dryRun)) {
+            $query['DryRun'] = $request->dryRun;
+        }
+        if (!Utils::isUnset($request->engineVersion)) {
+            $query['EngineVersion'] = $request->engineVersion;
+        }
+        if (!Utils::isUnset($request->globalInstance)) {
+            $query['GlobalInstance'] = $request->globalInstance;
+        }
+        if (!Utils::isUnset($request->globalInstanceId)) {
+            $query['GlobalInstanceId'] = $request->globalInstanceId;
+        }
+        if (!Utils::isUnset($request->instanceClass)) {
+            $query['InstanceClass'] = $request->instanceClass;
+        }
+        if (!Utils::isUnset($request->instanceName)) {
+            $query['InstanceName'] = $request->instanceName;
+        }
+        if (!Utils::isUnset($request->instanceType)) {
+            $query['InstanceType'] = $request->instanceType;
+        }
+        if (!Utils::isUnset($request->networkType)) {
+            $query['NetworkType'] = $request->networkType;
+        }
+        if (!Utils::isUnset($request->ownerAccount)) {
+            $query['OwnerAccount'] = $request->ownerAccount;
+        }
+        if (!Utils::isUnset($request->ownerId)) {
+            $query['OwnerId'] = $request->ownerId;
+        }
+        if (!Utils::isUnset($request->password)) {
+            $query['Password'] = $request->password;
+        }
+        if (!Utils::isUnset($request->period)) {
+            $query['Period'] = $request->period;
+        }
+        if (!Utils::isUnset($request->port)) {
+            $query['Port'] = $request->port;
+        }
+        if (!Utils::isUnset($request->privateIpAddress)) {
+            $query['PrivateIpAddress'] = $request->privateIpAddress;
+        }
+        if (!Utils::isUnset($request->regionId)) {
+            $query['RegionId'] = $request->regionId;
+        }
+        if (!Utils::isUnset($request->resourceGroupId)) {
+            $query['ResourceGroupId'] = $request->resourceGroupId;
+        }
+        if (!Utils::isUnset($request->resourceOwnerAccount)) {
+            $query['ResourceOwnerAccount'] = $request->resourceOwnerAccount;
+        }
+        if (!Utils::isUnset($request->resourceOwnerId)) {
+            $query['ResourceOwnerId'] = $request->resourceOwnerId;
+        }
+        if (!Utils::isUnset($request->restoreTime)) {
+            $query['RestoreTime'] = $request->restoreTime;
+        }
+        if (!Utils::isUnset($request->secondaryZoneId)) {
+            $query['SecondaryZoneId'] = $request->secondaryZoneId;
+        }
+        if (!Utils::isUnset($request->securityToken)) {
+            $query['SecurityToken'] = $request->securityToken;
+        }
+        if (!Utils::isUnset($request->srcDBInstanceId)) {
+            $query['SrcDBInstanceId'] = $request->srcDBInstanceId;
+        }
+        if (!Utils::isUnset($request->tag)) {
+            $query['Tag'] = $request->tag;
+        }
+        if (!Utils::isUnset($request->token)) {
+            $query['Token'] = $request->token;
+        }
+        if (!Utils::isUnset($request->vSwitchId)) {
+            $query['VSwitchId'] = $request->vSwitchId;
+        }
+        if (!Utils::isUnset($request->vpcId)) {
+            $query['VpcId'] = $request->vpcId;
+        }
+        if (!Utils::isUnset($request->zoneId)) {
+            $query['ZoneId'] = $request->zoneId;
+        }
         $req = new OpenApiRequest([
-            'body' => Utils::toMap($request),
+            'query' => OpenApiUtilClient::query($query),
+        ]);
+        $params = new Params([
+            'action'      => 'CreateInstance',
+            'version'     => '2015-01-01',
+            'protocol'    => 'HTTPS',
+            'pathname'    => '/',
+            'method'      => 'POST',
+            'authType'    => 'AK',
+            'style'       => 'RPC',
+            'reqBodyType' => 'formData',
+            'bodyType'    => 'json',
         ]);
 
-        return CreateInstanceResponse::fromMap($this->doRPCRequest('CreateInstance', '2015-01-01', 'HTTPS', 'POST', 'AK', 'json', $req, $runtime));
+        return CreateInstanceResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
@@ -499,6 +949,88 @@ class Rkvstore extends OpenApiClient
     }
 
     /**
+     * @param CreateInstancesRequest $request
+     * @param RuntimeOptions         $runtime
+     *
+     * @return CreateInstancesResponse
+     */
+    public function createInstancesWithOptions($request, $runtime)
+    {
+        Utils::validateModel($request);
+        $query = [];
+        if (!Utils::isUnset($request->autoPay)) {
+            $query['AutoPay'] = $request->autoPay;
+        }
+        if (!Utils::isUnset($request->autoRenew)) {
+            $query['AutoRenew'] = $request->autoRenew;
+        }
+        if (!Utils::isUnset($request->businessInfo)) {
+            $query['BusinessInfo'] = $request->businessInfo;
+        }
+        if (!Utils::isUnset($request->couponNo)) {
+            $query['CouponNo'] = $request->couponNo;
+        }
+        if (!Utils::isUnset($request->engineVersion)) {
+            $query['EngineVersion'] = $request->engineVersion;
+        }
+        if (!Utils::isUnset($request->instances)) {
+            $query['Instances'] = $request->instances;
+        }
+        if (!Utils::isUnset($request->ownerAccount)) {
+            $query['OwnerAccount'] = $request->ownerAccount;
+        }
+        if (!Utils::isUnset($request->ownerId)) {
+            $query['OwnerId'] = $request->ownerId;
+        }
+        if (!Utils::isUnset($request->rebuildInstance)) {
+            $query['RebuildInstance'] = $request->rebuildInstance;
+        }
+        if (!Utils::isUnset($request->resourceGroupId)) {
+            $query['ResourceGroupId'] = $request->resourceGroupId;
+        }
+        if (!Utils::isUnset($request->resourceOwnerAccount)) {
+            $query['ResourceOwnerAccount'] = $request->resourceOwnerAccount;
+        }
+        if (!Utils::isUnset($request->resourceOwnerId)) {
+            $query['ResourceOwnerId'] = $request->resourceOwnerId;
+        }
+        if (!Utils::isUnset($request->securityToken)) {
+            $query['SecurityToken'] = $request->securityToken;
+        }
+        if (!Utils::isUnset($request->token)) {
+            $query['Token'] = $request->token;
+        }
+        $req = new OpenApiRequest([
+            'query' => OpenApiUtilClient::query($query),
+        ]);
+        $params = new Params([
+            'action'      => 'CreateInstances',
+            'version'     => '2015-01-01',
+            'protocol'    => 'HTTPS',
+            'pathname'    => '/',
+            'method'      => 'POST',
+            'authType'    => 'AK',
+            'style'       => 'RPC',
+            'reqBodyType' => 'formData',
+            'bodyType'    => 'json',
+        ]);
+
+        return CreateInstancesResponse::fromMap($this->callApi($params, $req, $runtime));
+    }
+
+    /**
+     * @param CreateInstancesRequest $request
+     *
+     * @return CreateInstancesResponse
+     */
+    public function createInstances($request)
+    {
+        $runtime = new RuntimeOptions([]);
+
+        return $this->createInstancesWithOptions($request, $runtime);
+    }
+
+    /**
      * @param CreateTairInstanceRequest $request
      * @param RuntimeOptions            $runtime
      *
@@ -507,11 +1039,122 @@ class Rkvstore extends OpenApiClient
     public function createTairInstanceWithOptions($request, $runtime)
     {
         Utils::validateModel($request);
+        $query = [];
+        if (!Utils::isUnset($request->autoPay)) {
+            $query['AutoPay'] = $request->autoPay;
+        }
+        if (!Utils::isUnset($request->autoRenew)) {
+            $query['AutoRenew'] = $request->autoRenew;
+        }
+        if (!Utils::isUnset($request->autoRenewPeriod)) {
+            $query['AutoRenewPeriod'] = $request->autoRenewPeriod;
+        }
+        if (!Utils::isUnset($request->autoUseCoupon)) {
+            $query['AutoUseCoupon'] = $request->autoUseCoupon;
+        }
+        if (!Utils::isUnset($request->backupId)) {
+            $query['BackupId'] = $request->backupId;
+        }
+        if (!Utils::isUnset($request->businessInfo)) {
+            $query['BusinessInfo'] = $request->businessInfo;
+        }
+        if (!Utils::isUnset($request->chargeType)) {
+            $query['ChargeType'] = $request->chargeType;
+        }
+        if (!Utils::isUnset($request->clientToken)) {
+            $query['ClientToken'] = $request->clientToken;
+        }
+        if (!Utils::isUnset($request->couponNo)) {
+            $query['CouponNo'] = $request->couponNo;
+        }
+        if (!Utils::isUnset($request->engineVersion)) {
+            $query['EngineVersion'] = $request->engineVersion;
+        }
+        if (!Utils::isUnset($request->globalInstanceId)) {
+            $query['GlobalInstanceId'] = $request->globalInstanceId;
+        }
+        if (!Utils::isUnset($request->instanceClass)) {
+            $query['InstanceClass'] = $request->instanceClass;
+        }
+        if (!Utils::isUnset($request->instanceName)) {
+            $query['InstanceName'] = $request->instanceName;
+        }
+        if (!Utils::isUnset($request->instanceType)) {
+            $query['InstanceType'] = $request->instanceType;
+        }
+        if (!Utils::isUnset($request->ownerAccount)) {
+            $query['OwnerAccount'] = $request->ownerAccount;
+        }
+        if (!Utils::isUnset($request->ownerId)) {
+            $query['OwnerId'] = $request->ownerId;
+        }
+        if (!Utils::isUnset($request->password)) {
+            $query['Password'] = $request->password;
+        }
+        if (!Utils::isUnset($request->period)) {
+            $query['Period'] = $request->period;
+        }
+        if (!Utils::isUnset($request->privateIpAddress)) {
+            $query['PrivateIpAddress'] = $request->privateIpAddress;
+        }
+        if (!Utils::isUnset($request->regionId)) {
+            $query['RegionId'] = $request->regionId;
+        }
+        if (!Utils::isUnset($request->resourceGroupId)) {
+            $query['ResourceGroupId'] = $request->resourceGroupId;
+        }
+        if (!Utils::isUnset($request->resourceOwnerAccount)) {
+            $query['ResourceOwnerAccount'] = $request->resourceOwnerAccount;
+        }
+        if (!Utils::isUnset($request->resourceOwnerId)) {
+            $query['ResourceOwnerId'] = $request->resourceOwnerId;
+        }
+        if (!Utils::isUnset($request->secondaryZoneId)) {
+            $query['SecondaryZoneId'] = $request->secondaryZoneId;
+        }
+        if (!Utils::isUnset($request->securityToken)) {
+            $query['SecurityToken'] = $request->securityToken;
+        }
+        if (!Utils::isUnset($request->shardCount)) {
+            $query['ShardCount'] = $request->shardCount;
+        }
+        if (!Utils::isUnset($request->shardType)) {
+            $query['ShardType'] = $request->shardType;
+        }
+        if (!Utils::isUnset($request->srcDBInstanceId)) {
+            $query['SrcDBInstanceId'] = $request->srcDBInstanceId;
+        }
+        if (!Utils::isUnset($request->storage)) {
+            $query['Storage'] = $request->storage;
+        }
+        if (!Utils::isUnset($request->storageType)) {
+            $query['StorageType'] = $request->storageType;
+        }
+        if (!Utils::isUnset($request->vSwitchId)) {
+            $query['VSwitchId'] = $request->vSwitchId;
+        }
+        if (!Utils::isUnset($request->vpcId)) {
+            $query['VpcId'] = $request->vpcId;
+        }
+        if (!Utils::isUnset($request->zoneId)) {
+            $query['ZoneId'] = $request->zoneId;
+        }
         $req = new OpenApiRequest([
-            'body' => Utils::toMap($request),
+            'query' => OpenApiUtilClient::query($query),
+        ]);
+        $params = new Params([
+            'action'      => 'CreateTairInstance',
+            'version'     => '2015-01-01',
+            'protocol'    => 'HTTPS',
+            'pathname'    => '/',
+            'method'      => 'POST',
+            'authType'    => 'AK',
+            'style'       => 'RPC',
+            'reqBodyType' => 'formData',
+            'bodyType'    => 'json',
         ]);
 
-        return CreateTairInstanceResponse::fromMap($this->doRPCRequest('CreateTairInstance', '2015-01-01', 'HTTPS', 'POST', 'AK', 'json', $req, $runtime));
+        return CreateTairInstanceResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
@@ -527,34 +1170,6 @@ class Rkvstore extends OpenApiClient
     }
 
     /**
-     * @param CreateUserClusterHostRequest $request
-     * @param RuntimeOptions               $runtime
-     *
-     * @return CreateUserClusterHostResponse
-     */
-    public function createUserClusterHostWithOptions($request, $runtime)
-    {
-        Utils::validateModel($request);
-        $req = new OpenApiRequest([
-            'body' => Utils::toMap($request),
-        ]);
-
-        return CreateUserClusterHostResponse::fromMap($this->doRPCRequest('CreateUserClusterHost', '2015-01-01', 'HTTPS', 'POST', 'AK', 'json', $req, $runtime));
-    }
-
-    /**
-     * @param CreateUserClusterHostRequest $request
-     *
-     * @return CreateUserClusterHostResponse
-     */
-    public function createUserClusterHost($request)
-    {
-        $runtime = new RuntimeOptions([]);
-
-        return $this->createUserClusterHostWithOptions($request, $runtime);
-    }
-
-    /**
      * @param DeleteAccountRequest $request
      * @param RuntimeOptions       $runtime
      *
@@ -563,11 +1178,44 @@ class Rkvstore extends OpenApiClient
     public function deleteAccountWithOptions($request, $runtime)
     {
         Utils::validateModel($request);
+        $query = [];
+        if (!Utils::isUnset($request->accountName)) {
+            $query['AccountName'] = $request->accountName;
+        }
+        if (!Utils::isUnset($request->instanceId)) {
+            $query['InstanceId'] = $request->instanceId;
+        }
+        if (!Utils::isUnset($request->ownerAccount)) {
+            $query['OwnerAccount'] = $request->ownerAccount;
+        }
+        if (!Utils::isUnset($request->ownerId)) {
+            $query['OwnerId'] = $request->ownerId;
+        }
+        if (!Utils::isUnset($request->resourceOwnerAccount)) {
+            $query['ResourceOwnerAccount'] = $request->resourceOwnerAccount;
+        }
+        if (!Utils::isUnset($request->resourceOwnerId)) {
+            $query['ResourceOwnerId'] = $request->resourceOwnerId;
+        }
+        if (!Utils::isUnset($request->securityToken)) {
+            $query['SecurityToken'] = $request->securityToken;
+        }
         $req = new OpenApiRequest([
-            'body' => Utils::toMap($request),
+            'query' => OpenApiUtilClient::query($query),
+        ]);
+        $params = new Params([
+            'action'      => 'DeleteAccount',
+            'version'     => '2015-01-01',
+            'protocol'    => 'HTTPS',
+            'pathname'    => '/',
+            'method'      => 'POST',
+            'authType'    => 'AK',
+            'style'       => 'RPC',
+            'reqBodyType' => 'formData',
+            'bodyType'    => 'json',
         ]);
 
-        return DeleteAccountResponse::fromMap($this->doRPCRequest('DeleteAccount', '2015-01-01', 'HTTPS', 'POST', 'AK', 'json', $req, $runtime));
+        return DeleteAccountResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
@@ -591,11 +1239,44 @@ class Rkvstore extends OpenApiClient
     public function deleteInstanceWithOptions($request, $runtime)
     {
         Utils::validateModel($request);
+        $query = [];
+        if (!Utils::isUnset($request->globalInstanceId)) {
+            $query['GlobalInstanceId'] = $request->globalInstanceId;
+        }
+        if (!Utils::isUnset($request->instanceId)) {
+            $query['InstanceId'] = $request->instanceId;
+        }
+        if (!Utils::isUnset($request->ownerAccount)) {
+            $query['OwnerAccount'] = $request->ownerAccount;
+        }
+        if (!Utils::isUnset($request->ownerId)) {
+            $query['OwnerId'] = $request->ownerId;
+        }
+        if (!Utils::isUnset($request->resourceOwnerAccount)) {
+            $query['ResourceOwnerAccount'] = $request->resourceOwnerAccount;
+        }
+        if (!Utils::isUnset($request->resourceOwnerId)) {
+            $query['ResourceOwnerId'] = $request->resourceOwnerId;
+        }
+        if (!Utils::isUnset($request->securityToken)) {
+            $query['SecurityToken'] = $request->securityToken;
+        }
         $req = new OpenApiRequest([
-            'body' => Utils::toMap($request),
+            'query' => OpenApiUtilClient::query($query),
+        ]);
+        $params = new Params([
+            'action'      => 'DeleteInstance',
+            'version'     => '2015-01-01',
+            'protocol'    => 'HTTPS',
+            'pathname'    => '/',
+            'method'      => 'POST',
+            'authType'    => 'AK',
+            'style'       => 'RPC',
+            'reqBodyType' => 'formData',
+            'bodyType'    => 'json',
         ]);
 
-        return DeleteInstanceResponse::fromMap($this->doRPCRequest('DeleteInstance', '2015-01-01', 'HTTPS', 'POST', 'AK', 'json', $req, $runtime));
+        return DeleteInstanceResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
@@ -619,11 +1300,44 @@ class Rkvstore extends OpenApiClient
     public function deleteShardingNodeWithOptions($request, $runtime)
     {
         Utils::validateModel($request);
+        $query = [];
+        if (!Utils::isUnset($request->instanceId)) {
+            $query['InstanceId'] = $request->instanceId;
+        }
+        if (!Utils::isUnset($request->nodeId)) {
+            $query['NodeId'] = $request->nodeId;
+        }
+        if (!Utils::isUnset($request->ownerAccount)) {
+            $query['OwnerAccount'] = $request->ownerAccount;
+        }
+        if (!Utils::isUnset($request->ownerId)) {
+            $query['OwnerId'] = $request->ownerId;
+        }
+        if (!Utils::isUnset($request->resourceOwnerAccount)) {
+            $query['ResourceOwnerAccount'] = $request->resourceOwnerAccount;
+        }
+        if (!Utils::isUnset($request->resourceOwnerId)) {
+            $query['ResourceOwnerId'] = $request->resourceOwnerId;
+        }
+        if (!Utils::isUnset($request->securityToken)) {
+            $query['SecurityToken'] = $request->securityToken;
+        }
         $req = new OpenApiRequest([
-            'body' => Utils::toMap($request),
+            'query' => OpenApiUtilClient::query($query),
+        ]);
+        $params = new Params([
+            'action'      => 'DeleteShardingNode',
+            'version'     => '2015-01-01',
+            'protocol'    => 'HTTPS',
+            'pathname'    => '/',
+            'method'      => 'POST',
+            'authType'    => 'AK',
+            'style'       => 'RPC',
+            'reqBodyType' => 'formData',
+            'bodyType'    => 'json',
         ]);
 
-        return DeleteShardingNodeResponse::fromMap($this->doRPCRequest('DeleteShardingNode', '2015-01-01', 'HTTPS', 'POST', 'AK', 'json', $req, $runtime));
+        return DeleteShardingNodeResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
@@ -639,34 +1353,6 @@ class Rkvstore extends OpenApiClient
     }
 
     /**
-     * @param DeleteUserClusterHostRequest $request
-     * @param RuntimeOptions               $runtime
-     *
-     * @return DeleteUserClusterHostResponse
-     */
-    public function deleteUserClusterHostWithOptions($request, $runtime)
-    {
-        Utils::validateModel($request);
-        $req = new OpenApiRequest([
-            'body' => Utils::toMap($request),
-        ]);
-
-        return DeleteUserClusterHostResponse::fromMap($this->doRPCRequest('DeleteUserClusterHost', '2015-01-01', 'HTTPS', 'POST', 'AK', 'json', $req, $runtime));
-    }
-
-    /**
-     * @param DeleteUserClusterHostRequest $request
-     *
-     * @return DeleteUserClusterHostResponse
-     */
-    public function deleteUserClusterHost($request)
-    {
-        $runtime = new RuntimeOptions([]);
-
-        return $this->deleteUserClusterHostWithOptions($request, $runtime);
-    }
-
-    /**
      * @param DescribeAccountsRequest $request
      * @param RuntimeOptions          $runtime
      *
@@ -675,11 +1361,44 @@ class Rkvstore extends OpenApiClient
     public function describeAccountsWithOptions($request, $runtime)
     {
         Utils::validateModel($request);
+        $query = [];
+        if (!Utils::isUnset($request->accountName)) {
+            $query['AccountName'] = $request->accountName;
+        }
+        if (!Utils::isUnset($request->instanceId)) {
+            $query['InstanceId'] = $request->instanceId;
+        }
+        if (!Utils::isUnset($request->ownerAccount)) {
+            $query['OwnerAccount'] = $request->ownerAccount;
+        }
+        if (!Utils::isUnset($request->ownerId)) {
+            $query['OwnerId'] = $request->ownerId;
+        }
+        if (!Utils::isUnset($request->resourceOwnerAccount)) {
+            $query['ResourceOwnerAccount'] = $request->resourceOwnerAccount;
+        }
+        if (!Utils::isUnset($request->resourceOwnerId)) {
+            $query['ResourceOwnerId'] = $request->resourceOwnerId;
+        }
+        if (!Utils::isUnset($request->securityToken)) {
+            $query['SecurityToken'] = $request->securityToken;
+        }
         $req = new OpenApiRequest([
-            'body' => Utils::toMap($request),
+            'query' => OpenApiUtilClient::query($query),
+        ]);
+        $params = new Params([
+            'action'      => 'DescribeAccounts',
+            'version'     => '2015-01-01',
+            'protocol'    => 'HTTPS',
+            'pathname'    => '/',
+            'method'      => 'POST',
+            'authType'    => 'AK',
+            'style'       => 'RPC',
+            'reqBodyType' => 'formData',
+            'bodyType'    => 'json',
         ]);
 
-        return DescribeAccountsResponse::fromMap($this->doRPCRequest('DescribeAccounts', '2015-01-01', 'HTTPS', 'POST', 'AK', 'json', $req, $runtime));
+        return DescribeAccountsResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
@@ -703,11 +1422,53 @@ class Rkvstore extends OpenApiClient
     public function describeActiveOperationTaskWithOptions($request, $runtime)
     {
         Utils::validateModel($request);
+        $query = [];
+        if (!Utils::isUnset($request->isHistory)) {
+            $query['IsHistory'] = $request->isHistory;
+        }
+        if (!Utils::isUnset($request->ownerAccount)) {
+            $query['OwnerAccount'] = $request->ownerAccount;
+        }
+        if (!Utils::isUnset($request->ownerId)) {
+            $query['OwnerId'] = $request->ownerId;
+        }
+        if (!Utils::isUnset($request->pageNumber)) {
+            $query['PageNumber'] = $request->pageNumber;
+        }
+        if (!Utils::isUnset($request->pageSize)) {
+            $query['PageSize'] = $request->pageSize;
+        }
+        if (!Utils::isUnset($request->region)) {
+            $query['Region'] = $request->region;
+        }
+        if (!Utils::isUnset($request->resourceOwnerAccount)) {
+            $query['ResourceOwnerAccount'] = $request->resourceOwnerAccount;
+        }
+        if (!Utils::isUnset($request->resourceOwnerId)) {
+            $query['ResourceOwnerId'] = $request->resourceOwnerId;
+        }
+        if (!Utils::isUnset($request->securityToken)) {
+            $query['SecurityToken'] = $request->securityToken;
+        }
+        if (!Utils::isUnset($request->taskType)) {
+            $query['TaskType'] = $request->taskType;
+        }
         $req = new OpenApiRequest([
-            'body' => Utils::toMap($request),
+            'query' => OpenApiUtilClient::query($query),
+        ]);
+        $params = new Params([
+            'action'      => 'DescribeActiveOperationTask',
+            'version'     => '2015-01-01',
+            'protocol'    => 'HTTPS',
+            'pathname'    => '/',
+            'method'      => 'POST',
+            'authType'    => 'AK',
+            'style'       => 'RPC',
+            'reqBodyType' => 'formData',
+            'bodyType'    => 'json',
         ]);
 
-        return DescribeActiveOperationTaskResponse::fromMap($this->doRPCRequest('DescribeActiveOperationTask', '2015-01-01', 'HTTPS', 'POST', 'AK', 'json', $req, $runtime));
+        return DescribeActiveOperationTaskResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
@@ -723,6 +1484,67 @@ class Rkvstore extends OpenApiClient
     }
 
     /**
+     * @param DescribeAuditLogConfigRequest $request
+     * @param RuntimeOptions                $runtime
+     *
+     * @return DescribeAuditLogConfigResponse
+     */
+    public function describeAuditLogConfigWithOptions($request, $runtime)
+    {
+        Utils::validateModel($request);
+        $query = [];
+        if (!Utils::isUnset($request->instanceId)) {
+            $query['InstanceId'] = $request->instanceId;
+        }
+        if (!Utils::isUnset($request->ownerAccount)) {
+            $query['OwnerAccount'] = $request->ownerAccount;
+        }
+        if (!Utils::isUnset($request->ownerId)) {
+            $query['OwnerId'] = $request->ownerId;
+        }
+        if (!Utils::isUnset($request->regionId)) {
+            $query['RegionId'] = $request->regionId;
+        }
+        if (!Utils::isUnset($request->resourceOwnerAccount)) {
+            $query['ResourceOwnerAccount'] = $request->resourceOwnerAccount;
+        }
+        if (!Utils::isUnset($request->resourceOwnerId)) {
+            $query['ResourceOwnerId'] = $request->resourceOwnerId;
+        }
+        if (!Utils::isUnset($request->securityToken)) {
+            $query['SecurityToken'] = $request->securityToken;
+        }
+        $req = new OpenApiRequest([
+            'query' => OpenApiUtilClient::query($query),
+        ]);
+        $params = new Params([
+            'action'      => 'DescribeAuditLogConfig',
+            'version'     => '2015-01-01',
+            'protocol'    => 'HTTPS',
+            'pathname'    => '/',
+            'method'      => 'POST',
+            'authType'    => 'AK',
+            'style'       => 'RPC',
+            'reqBodyType' => 'formData',
+            'bodyType'    => 'json',
+        ]);
+
+        return DescribeAuditLogConfigResponse::fromMap($this->callApi($params, $req, $runtime));
+    }
+
+    /**
+     * @param DescribeAuditLogConfigRequest $request
+     *
+     * @return DescribeAuditLogConfigResponse
+     */
+    public function describeAuditLogConfig($request)
+    {
+        $runtime = new RuntimeOptions([]);
+
+        return $this->describeAuditLogConfigWithOptions($request, $runtime);
+    }
+
+    /**
      * @param DescribeAuditRecordsRequest $request
      * @param RuntimeOptions              $runtime
      *
@@ -731,11 +1553,68 @@ class Rkvstore extends OpenApiClient
     public function describeAuditRecordsWithOptions($request, $runtime)
     {
         Utils::validateModel($request);
+        $query = [];
+        if (!Utils::isUnset($request->accountName)) {
+            $query['AccountName'] = $request->accountName;
+        }
+        if (!Utils::isUnset($request->databaseName)) {
+            $query['DatabaseName'] = $request->databaseName;
+        }
+        if (!Utils::isUnset($request->endTime)) {
+            $query['EndTime'] = $request->endTime;
+        }
+        if (!Utils::isUnset($request->hostAddress)) {
+            $query['HostAddress'] = $request->hostAddress;
+        }
+        if (!Utils::isUnset($request->instanceId)) {
+            $query['InstanceId'] = $request->instanceId;
+        }
+        if (!Utils::isUnset($request->nodeId)) {
+            $query['NodeId'] = $request->nodeId;
+        }
+        if (!Utils::isUnset($request->ownerAccount)) {
+            $query['OwnerAccount'] = $request->ownerAccount;
+        }
+        if (!Utils::isUnset($request->ownerId)) {
+            $query['OwnerId'] = $request->ownerId;
+        }
+        if (!Utils::isUnset($request->pageNumber)) {
+            $query['PageNumber'] = $request->pageNumber;
+        }
+        if (!Utils::isUnset($request->pageSize)) {
+            $query['PageSize'] = $request->pageSize;
+        }
+        if (!Utils::isUnset($request->queryKeywords)) {
+            $query['QueryKeywords'] = $request->queryKeywords;
+        }
+        if (!Utils::isUnset($request->resourceOwnerAccount)) {
+            $query['ResourceOwnerAccount'] = $request->resourceOwnerAccount;
+        }
+        if (!Utils::isUnset($request->resourceOwnerId)) {
+            $query['ResourceOwnerId'] = $request->resourceOwnerId;
+        }
+        if (!Utils::isUnset($request->securityToken)) {
+            $query['SecurityToken'] = $request->securityToken;
+        }
+        if (!Utils::isUnset($request->startTime)) {
+            $query['StartTime'] = $request->startTime;
+        }
         $req = new OpenApiRequest([
-            'body' => Utils::toMap($request),
+            'query' => OpenApiUtilClient::query($query),
+        ]);
+        $params = new Params([
+            'action'      => 'DescribeAuditRecords',
+            'version'     => '2015-01-01',
+            'protocol'    => 'HTTPS',
+            'pathname'    => '/',
+            'method'      => 'POST',
+            'authType'    => 'AK',
+            'style'       => 'RPC',
+            'reqBodyType' => 'formData',
+            'bodyType'    => 'json',
         ]);
 
-        return DescribeAuditRecordsResponse::fromMap($this->doRPCRequest('DescribeAuditRecords', '2015-01-01', 'HTTPS', 'POST', 'AK', 'json', $req, $runtime));
+        return DescribeAuditRecordsResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
@@ -759,11 +1638,68 @@ class Rkvstore extends OpenApiClient
     public function describeAvailableResourceWithOptions($request, $runtime)
     {
         Utils::validateModel($request);
+        $query = [];
+        if (!Utils::isUnset($request->acceptLanguage)) {
+            $query['AcceptLanguage'] = $request->acceptLanguage;
+        }
+        if (!Utils::isUnset($request->engine)) {
+            $query['Engine'] = $request->engine;
+        }
+        if (!Utils::isUnset($request->instanceChargeType)) {
+            $query['InstanceChargeType'] = $request->instanceChargeType;
+        }
+        if (!Utils::isUnset($request->instanceId)) {
+            $query['InstanceId'] = $request->instanceId;
+        }
+        if (!Utils::isUnset($request->nodeId)) {
+            $query['NodeId'] = $request->nodeId;
+        }
+        if (!Utils::isUnset($request->orderType)) {
+            $query['OrderType'] = $request->orderType;
+        }
+        if (!Utils::isUnset($request->ownerAccount)) {
+            $query['OwnerAccount'] = $request->ownerAccount;
+        }
+        if (!Utils::isUnset($request->ownerId)) {
+            $query['OwnerId'] = $request->ownerId;
+        }
+        if (!Utils::isUnset($request->productType)) {
+            $query['ProductType'] = $request->productType;
+        }
+        if (!Utils::isUnset($request->regionId)) {
+            $query['RegionId'] = $request->regionId;
+        }
+        if (!Utils::isUnset($request->resourceGroupId)) {
+            $query['ResourceGroupId'] = $request->resourceGroupId;
+        }
+        if (!Utils::isUnset($request->resourceOwnerAccount)) {
+            $query['ResourceOwnerAccount'] = $request->resourceOwnerAccount;
+        }
+        if (!Utils::isUnset($request->resourceOwnerId)) {
+            $query['ResourceOwnerId'] = $request->resourceOwnerId;
+        }
+        if (!Utils::isUnset($request->securityToken)) {
+            $query['SecurityToken'] = $request->securityToken;
+        }
+        if (!Utils::isUnset($request->zoneId)) {
+            $query['ZoneId'] = $request->zoneId;
+        }
         $req = new OpenApiRequest([
-            'body' => Utils::toMap($request),
+            'query' => OpenApiUtilClient::query($query),
+        ]);
+        $params = new Params([
+            'action'      => 'DescribeAvailableResource',
+            'version'     => '2015-01-01',
+            'protocol'    => 'HTTPS',
+            'pathname'    => '/',
+            'method'      => 'POST',
+            'authType'    => 'AK',
+            'style'       => 'RPC',
+            'reqBodyType' => 'formData',
+            'bodyType'    => 'json',
         ]);
 
-        return DescribeAvailableResourceResponse::fromMap($this->doRPCRequest('DescribeAvailableResource', '2015-01-01', 'HTTPS', 'POST', 'AK', 'json', $req, $runtime));
+        return DescribeAvailableResourceResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
@@ -787,11 +1723,41 @@ class Rkvstore extends OpenApiClient
     public function describeBackupPolicyWithOptions($request, $runtime)
     {
         Utils::validateModel($request);
+        $query = [];
+        if (!Utils::isUnset($request->instanceId)) {
+            $query['InstanceId'] = $request->instanceId;
+        }
+        if (!Utils::isUnset($request->ownerAccount)) {
+            $query['OwnerAccount'] = $request->ownerAccount;
+        }
+        if (!Utils::isUnset($request->ownerId)) {
+            $query['OwnerId'] = $request->ownerId;
+        }
+        if (!Utils::isUnset($request->resourceOwnerAccount)) {
+            $query['ResourceOwnerAccount'] = $request->resourceOwnerAccount;
+        }
+        if (!Utils::isUnset($request->resourceOwnerId)) {
+            $query['ResourceOwnerId'] = $request->resourceOwnerId;
+        }
+        if (!Utils::isUnset($request->securityToken)) {
+            $query['SecurityToken'] = $request->securityToken;
+        }
         $req = new OpenApiRequest([
-            'body' => Utils::toMap($request),
+            'query' => OpenApiUtilClient::query($query),
+        ]);
+        $params = new Params([
+            'action'      => 'DescribeBackupPolicy',
+            'version'     => '2015-01-01',
+            'protocol'    => 'HTTPS',
+            'pathname'    => '/',
+            'method'      => 'POST',
+            'authType'    => 'AK',
+            'style'       => 'RPC',
+            'reqBodyType' => 'formData',
+            'bodyType'    => 'json',
         ]);
 
-        return DescribeBackupPolicyResponse::fromMap($this->doRPCRequest('DescribeBackupPolicy', '2015-01-01', 'HTTPS', 'POST', 'AK', 'json', $req, $runtime));
+        return DescribeBackupPolicyResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
@@ -807,34 +1773,6 @@ class Rkvstore extends OpenApiClient
     }
 
     /**
-     * @param DescribeBackupsRequest $request
-     * @param RuntimeOptions         $runtime
-     *
-     * @return DescribeBackupsResponse
-     */
-    public function describeBackupsWithOptions($request, $runtime)
-    {
-        Utils::validateModel($request);
-        $req = new OpenApiRequest([
-            'body' => Utils::toMap($request),
-        ]);
-
-        return DescribeBackupsResponse::fromMap($this->doRPCRequest('DescribeBackups', '2015-01-01', 'HTTPS', 'POST', 'AK', 'json', $req, $runtime));
-    }
-
-    /**
-     * @param DescribeBackupsRequest $request
-     *
-     * @return DescribeBackupsResponse
-     */
-    public function describeBackups($request)
-    {
-        $runtime = new RuntimeOptions([]);
-
-        return $this->describeBackupsWithOptions($request, $runtime);
-    }
-
-    /**
      * @param DescribeBackupTasksRequest $request
      * @param RuntimeOptions             $runtime
      *
@@ -843,11 +1781,47 @@ class Rkvstore extends OpenApiClient
     public function describeBackupTasksWithOptions($request, $runtime)
     {
         Utils::validateModel($request);
+        $query = [];
+        if (!Utils::isUnset($request->backupJobId)) {
+            $query['BackupJobId'] = $request->backupJobId;
+        }
+        if (!Utils::isUnset($request->instanceId)) {
+            $query['InstanceId'] = $request->instanceId;
+        }
+        if (!Utils::isUnset($request->jobMode)) {
+            $query['JobMode'] = $request->jobMode;
+        }
+        if (!Utils::isUnset($request->ownerAccount)) {
+            $query['OwnerAccount'] = $request->ownerAccount;
+        }
+        if (!Utils::isUnset($request->ownerId)) {
+            $query['OwnerId'] = $request->ownerId;
+        }
+        if (!Utils::isUnset($request->resourceOwnerAccount)) {
+            $query['ResourceOwnerAccount'] = $request->resourceOwnerAccount;
+        }
+        if (!Utils::isUnset($request->resourceOwnerId)) {
+            $query['ResourceOwnerId'] = $request->resourceOwnerId;
+        }
+        if (!Utils::isUnset($request->securityToken)) {
+            $query['SecurityToken'] = $request->securityToken;
+        }
         $req = new OpenApiRequest([
-            'body' => Utils::toMap($request),
+            'query' => OpenApiUtilClient::query($query),
+        ]);
+        $params = new Params([
+            'action'      => 'DescribeBackupTasks',
+            'version'     => '2015-01-01',
+            'protocol'    => 'HTTPS',
+            'pathname'    => '/',
+            'method'      => 'POST',
+            'authType'    => 'AK',
+            'style'       => 'RPC',
+            'reqBodyType' => 'formData',
+            'bodyType'    => 'json',
         ]);
 
-        return DescribeBackupTasksResponse::fromMap($this->doRPCRequest('DescribeBackupTasks', '2015-01-01', 'HTTPS', 'POST', 'AK', 'json', $req, $runtime));
+        return DescribeBackupTasksResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
@@ -863,6 +1837,82 @@ class Rkvstore extends OpenApiClient
     }
 
     /**
+     * @param DescribeBackupsRequest $request
+     * @param RuntimeOptions         $runtime
+     *
+     * @return DescribeBackupsResponse
+     */
+    public function describeBackupsWithOptions($request, $runtime)
+    {
+        Utils::validateModel($request);
+        $query = [];
+        if (!Utils::isUnset($request->backupId)) {
+            $query['BackupId'] = $request->backupId;
+        }
+        if (!Utils::isUnset($request->endTime)) {
+            $query['EndTime'] = $request->endTime;
+        }
+        if (!Utils::isUnset($request->instanceId)) {
+            $query['InstanceId'] = $request->instanceId;
+        }
+        if (!Utils::isUnset($request->needAof)) {
+            $query['NeedAof'] = $request->needAof;
+        }
+        if (!Utils::isUnset($request->ownerAccount)) {
+            $query['OwnerAccount'] = $request->ownerAccount;
+        }
+        if (!Utils::isUnset($request->ownerId)) {
+            $query['OwnerId'] = $request->ownerId;
+        }
+        if (!Utils::isUnset($request->pageNumber)) {
+            $query['PageNumber'] = $request->pageNumber;
+        }
+        if (!Utils::isUnset($request->pageSize)) {
+            $query['PageSize'] = $request->pageSize;
+        }
+        if (!Utils::isUnset($request->resourceOwnerAccount)) {
+            $query['ResourceOwnerAccount'] = $request->resourceOwnerAccount;
+        }
+        if (!Utils::isUnset($request->resourceOwnerId)) {
+            $query['ResourceOwnerId'] = $request->resourceOwnerId;
+        }
+        if (!Utils::isUnset($request->securityToken)) {
+            $query['SecurityToken'] = $request->securityToken;
+        }
+        if (!Utils::isUnset($request->startTime)) {
+            $query['StartTime'] = $request->startTime;
+        }
+        $req = new OpenApiRequest([
+            'query' => OpenApiUtilClient::query($query),
+        ]);
+        $params = new Params([
+            'action'      => 'DescribeBackups',
+            'version'     => '2015-01-01',
+            'protocol'    => 'HTTPS',
+            'pathname'    => '/',
+            'method'      => 'POST',
+            'authType'    => 'AK',
+            'style'       => 'RPC',
+            'reqBodyType' => 'formData',
+            'bodyType'    => 'json',
+        ]);
+
+        return DescribeBackupsResponse::fromMap($this->callApi($params, $req, $runtime));
+    }
+
+    /**
+     * @param DescribeBackupsRequest $request
+     *
+     * @return DescribeBackupsResponse
+     */
+    public function describeBackups($request)
+    {
+        $runtime = new RuntimeOptions([]);
+
+        return $this->describeBackupsWithOptions($request, $runtime);
+    }
+
+    /**
      * @param DescribeCacheAnalysisReportRequest $request
      * @param RuntimeOptions                     $runtime
      *
@@ -871,11 +1921,56 @@ class Rkvstore extends OpenApiClient
     public function describeCacheAnalysisReportWithOptions($request, $runtime)
     {
         Utils::validateModel($request);
+        $query = [];
+        if (!Utils::isUnset($request->analysisType)) {
+            $query['AnalysisType'] = $request->analysisType;
+        }
+        if (!Utils::isUnset($request->date)) {
+            $query['Date'] = $request->date;
+        }
+        if (!Utils::isUnset($request->instanceId)) {
+            $query['InstanceId'] = $request->instanceId;
+        }
+        if (!Utils::isUnset($request->nodeId)) {
+            $query['NodeId'] = $request->nodeId;
+        }
+        if (!Utils::isUnset($request->ownerAccount)) {
+            $query['OwnerAccount'] = $request->ownerAccount;
+        }
+        if (!Utils::isUnset($request->ownerId)) {
+            $query['OwnerId'] = $request->ownerId;
+        }
+        if (!Utils::isUnset($request->pageNumbers)) {
+            $query['PageNumbers'] = $request->pageNumbers;
+        }
+        if (!Utils::isUnset($request->pageSize)) {
+            $query['PageSize'] = $request->pageSize;
+        }
+        if (!Utils::isUnset($request->resourceOwnerAccount)) {
+            $query['ResourceOwnerAccount'] = $request->resourceOwnerAccount;
+        }
+        if (!Utils::isUnset($request->resourceOwnerId)) {
+            $query['ResourceOwnerId'] = $request->resourceOwnerId;
+        }
+        if (!Utils::isUnset($request->securityToken)) {
+            $query['SecurityToken'] = $request->securityToken;
+        }
         $req = new OpenApiRequest([
-            'body' => Utils::toMap($request),
+            'query' => OpenApiUtilClient::query($query),
+        ]);
+        $params = new Params([
+            'action'      => 'DescribeCacheAnalysisReport',
+            'version'     => '2015-01-01',
+            'protocol'    => 'HTTPS',
+            'pathname'    => '/',
+            'method'      => 'POST',
+            'authType'    => 'AK',
+            'style'       => 'RPC',
+            'reqBodyType' => 'formData',
+            'bodyType'    => 'json',
         ]);
 
-        return DescribeCacheAnalysisReportResponse::fromMap($this->doRPCRequest('DescribeCacheAnalysisReport', '2015-01-01', 'HTTPS', 'POST', 'AK', 'json', $req, $runtime));
+        return DescribeCacheAnalysisReportResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
@@ -899,11 +1994,53 @@ class Rkvstore extends OpenApiClient
     public function describeCacheAnalysisReportListWithOptions($request, $runtime)
     {
         Utils::validateModel($request);
+        $query = [];
+        if (!Utils::isUnset($request->days)) {
+            $query['Days'] = $request->days;
+        }
+        if (!Utils::isUnset($request->instanceId)) {
+            $query['InstanceId'] = $request->instanceId;
+        }
+        if (!Utils::isUnset($request->nodeId)) {
+            $query['NodeId'] = $request->nodeId;
+        }
+        if (!Utils::isUnset($request->ownerAccount)) {
+            $query['OwnerAccount'] = $request->ownerAccount;
+        }
+        if (!Utils::isUnset($request->ownerId)) {
+            $query['OwnerId'] = $request->ownerId;
+        }
+        if (!Utils::isUnset($request->pageNumbers)) {
+            $query['PageNumbers'] = $request->pageNumbers;
+        }
+        if (!Utils::isUnset($request->pageSize)) {
+            $query['PageSize'] = $request->pageSize;
+        }
+        if (!Utils::isUnset($request->resourceOwnerAccount)) {
+            $query['ResourceOwnerAccount'] = $request->resourceOwnerAccount;
+        }
+        if (!Utils::isUnset($request->resourceOwnerId)) {
+            $query['ResourceOwnerId'] = $request->resourceOwnerId;
+        }
+        if (!Utils::isUnset($request->securityToken)) {
+            $query['SecurityToken'] = $request->securityToken;
+        }
         $req = new OpenApiRequest([
-            'body' => Utils::toMap($request),
+            'query' => OpenApiUtilClient::query($query),
+        ]);
+        $params = new Params([
+            'action'      => 'DescribeCacheAnalysisReportList',
+            'version'     => '2015-01-01',
+            'protocol'    => 'HTTPS',
+            'pathname'    => '/',
+            'method'      => 'POST',
+            'authType'    => 'AK',
+            'style'       => 'RPC',
+            'reqBodyType' => 'formData',
+            'bodyType'    => 'json',
         ]);
 
-        return DescribeCacheAnalysisReportListResponse::fromMap($this->doRPCRequest('DescribeCacheAnalysisReportList', '2015-01-01', 'HTTPS', 'POST', 'AK', 'json', $req, $runtime));
+        return DescribeCacheAnalysisReportListResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
@@ -927,11 +2064,41 @@ class Rkvstore extends OpenApiClient
     public function describeClusterMemberInfoWithOptions($request, $runtime)
     {
         Utils::validateModel($request);
+        $query = [];
+        if (!Utils::isUnset($request->instanceId)) {
+            $query['InstanceId'] = $request->instanceId;
+        }
+        if (!Utils::isUnset($request->ownerAccount)) {
+            $query['OwnerAccount'] = $request->ownerAccount;
+        }
+        if (!Utils::isUnset($request->ownerId)) {
+            $query['OwnerId'] = $request->ownerId;
+        }
+        if (!Utils::isUnset($request->resourceOwnerAccount)) {
+            $query['ResourceOwnerAccount'] = $request->resourceOwnerAccount;
+        }
+        if (!Utils::isUnset($request->resourceOwnerId)) {
+            $query['ResourceOwnerId'] = $request->resourceOwnerId;
+        }
+        if (!Utils::isUnset($request->securityToken)) {
+            $query['SecurityToken'] = $request->securityToken;
+        }
         $req = new OpenApiRequest([
-            'body' => Utils::toMap($request),
+            'query' => OpenApiUtilClient::query($query),
+        ]);
+        $params = new Params([
+            'action'      => 'DescribeClusterMemberInfo',
+            'version'     => '2015-01-01',
+            'protocol'    => 'HTTPS',
+            'pathname'    => '/',
+            'method'      => 'POST',
+            'authType'    => 'AK',
+            'style'       => 'RPC',
+            'reqBodyType' => 'formData',
+            'bodyType'    => 'json',
         ]);
 
-        return DescribeClusterMemberInfoResponse::fromMap($this->doRPCRequest('DescribeClusterMemberInfo', '2015-01-01', 'HTTPS', 'POST', 'AK', 'json', $req, $runtime));
+        return DescribeClusterMemberInfoResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
@@ -955,11 +2122,41 @@ class Rkvstore extends OpenApiClient
     public function describeDBInstanceNetInfoWithOptions($request, $runtime)
     {
         Utils::validateModel($request);
+        $query = [];
+        if (!Utils::isUnset($request->instanceId)) {
+            $query['InstanceId'] = $request->instanceId;
+        }
+        if (!Utils::isUnset($request->ownerAccount)) {
+            $query['OwnerAccount'] = $request->ownerAccount;
+        }
+        if (!Utils::isUnset($request->ownerId)) {
+            $query['OwnerId'] = $request->ownerId;
+        }
+        if (!Utils::isUnset($request->resourceOwnerAccount)) {
+            $query['ResourceOwnerAccount'] = $request->resourceOwnerAccount;
+        }
+        if (!Utils::isUnset($request->resourceOwnerId)) {
+            $query['ResourceOwnerId'] = $request->resourceOwnerId;
+        }
+        if (!Utils::isUnset($request->securityToken)) {
+            $query['SecurityToken'] = $request->securityToken;
+        }
         $req = new OpenApiRequest([
-            'body' => Utils::toMap($request),
+            'query' => OpenApiUtilClient::query($query),
+        ]);
+        $params = new Params([
+            'action'      => 'DescribeDBInstanceNetInfo',
+            'version'     => '2015-01-01',
+            'protocol'    => 'HTTPS',
+            'pathname'    => '/',
+            'method'      => 'POST',
+            'authType'    => 'AK',
+            'style'       => 'RPC',
+            'reqBodyType' => 'formData',
+            'bodyType'    => 'json',
         ]);
 
-        return DescribeDBInstanceNetInfoResponse::fromMap($this->doRPCRequest('DescribeDBInstanceNetInfo', '2015-01-01', 'HTTPS', 'POST', 'AK', 'json', $req, $runtime));
+        return DescribeDBInstanceNetInfoResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
@@ -983,11 +2180,71 @@ class Rkvstore extends OpenApiClient
     public function describeDedicatedClusterInstanceListWithOptions($request, $runtime)
     {
         Utils::validateModel($request);
+        $query = [];
+        if (!Utils::isUnset($request->clusterId)) {
+            $query['ClusterId'] = $request->clusterId;
+        }
+        if (!Utils::isUnset($request->dedicatedHostName)) {
+            $query['DedicatedHostName'] = $request->dedicatedHostName;
+        }
+        if (!Utils::isUnset($request->engine)) {
+            $query['Engine'] = $request->engine;
+        }
+        if (!Utils::isUnset($request->engineVersion)) {
+            $query['EngineVersion'] = $request->engineVersion;
+        }
+        if (!Utils::isUnset($request->instanceId)) {
+            $query['InstanceId'] = $request->instanceId;
+        }
+        if (!Utils::isUnset($request->instanceNetType)) {
+            $query['InstanceNetType'] = $request->instanceNetType;
+        }
+        if (!Utils::isUnset($request->instanceStatus)) {
+            $query['InstanceStatus'] = $request->instanceStatus;
+        }
+        if (!Utils::isUnset($request->ownerAccount)) {
+            $query['OwnerAccount'] = $request->ownerAccount;
+        }
+        if (!Utils::isUnset($request->ownerId)) {
+            $query['OwnerId'] = $request->ownerId;
+        }
+        if (!Utils::isUnset($request->pageNumber)) {
+            $query['PageNumber'] = $request->pageNumber;
+        }
+        if (!Utils::isUnset($request->pageSize)) {
+            $query['PageSize'] = $request->pageSize;
+        }
+        if (!Utils::isUnset($request->regionId)) {
+            $query['RegionId'] = $request->regionId;
+        }
+        if (!Utils::isUnset($request->resourceOwnerAccount)) {
+            $query['ResourceOwnerAccount'] = $request->resourceOwnerAccount;
+        }
+        if (!Utils::isUnset($request->resourceOwnerId)) {
+            $query['ResourceOwnerId'] = $request->resourceOwnerId;
+        }
+        if (!Utils::isUnset($request->securityToken)) {
+            $query['SecurityToken'] = $request->securityToken;
+        }
+        if (!Utils::isUnset($request->zoneId)) {
+            $query['ZoneId'] = $request->zoneId;
+        }
         $req = new OpenApiRequest([
-            'body' => Utils::toMap($request),
+            'query' => OpenApiUtilClient::query($query),
+        ]);
+        $params = new Params([
+            'action'      => 'DescribeDedicatedClusterInstanceList',
+            'version'     => '2015-01-01',
+            'protocol'    => 'HTTPS',
+            'pathname'    => '/',
+            'method'      => 'POST',
+            'authType'    => 'AK',
+            'style'       => 'RPC',
+            'reqBodyType' => 'formData',
+            'bodyType'    => 'json',
         ]);
 
-        return DescribeDedicatedClusterInstanceListResponse::fromMap($this->doRPCRequest('DescribeDedicatedClusterInstanceList', '2015-01-01', 'HTTPS', 'POST', 'AK', 'json', $req, $runtime));
+        return DescribeDedicatedClusterInstanceListResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
@@ -1003,6 +2260,125 @@ class Rkvstore extends OpenApiClient
     }
 
     /**
+     * @param DescribeEncryptionKeyRequest $request
+     * @param RuntimeOptions               $runtime
+     *
+     * @return DescribeEncryptionKeyResponse
+     */
+    public function describeEncryptionKeyWithOptions($request, $runtime)
+    {
+        Utils::validateModel($request);
+        $query = [];
+        if (!Utils::isUnset($request->encryptionKey)) {
+            $query['EncryptionKey'] = $request->encryptionKey;
+        }
+        if (!Utils::isUnset($request->instanceId)) {
+            $query['InstanceId'] = $request->instanceId;
+        }
+        if (!Utils::isUnset($request->ownerAccount)) {
+            $query['OwnerAccount'] = $request->ownerAccount;
+        }
+        if (!Utils::isUnset($request->ownerId)) {
+            $query['OwnerId'] = $request->ownerId;
+        }
+        if (!Utils::isUnset($request->resourceOwnerAccount)) {
+            $query['ResourceOwnerAccount'] = $request->resourceOwnerAccount;
+        }
+        if (!Utils::isUnset($request->resourceOwnerId)) {
+            $query['ResourceOwnerId'] = $request->resourceOwnerId;
+        }
+        if (!Utils::isUnset($request->securityToken)) {
+            $query['SecurityToken'] = $request->securityToken;
+        }
+        $req = new OpenApiRequest([
+            'query' => OpenApiUtilClient::query($query),
+        ]);
+        $params = new Params([
+            'action'      => 'DescribeEncryptionKey',
+            'version'     => '2015-01-01',
+            'protocol'    => 'HTTPS',
+            'pathname'    => '/',
+            'method'      => 'POST',
+            'authType'    => 'AK',
+            'style'       => 'RPC',
+            'reqBodyType' => 'formData',
+            'bodyType'    => 'json',
+        ]);
+
+        return DescribeEncryptionKeyResponse::fromMap($this->callApi($params, $req, $runtime));
+    }
+
+    /**
+     * @param DescribeEncryptionKeyRequest $request
+     *
+     * @return DescribeEncryptionKeyResponse
+     */
+    public function describeEncryptionKey($request)
+    {
+        $runtime = new RuntimeOptions([]);
+
+        return $this->describeEncryptionKeyWithOptions($request, $runtime);
+    }
+
+    /**
+     * @param DescribeEncryptionKeyListRequest $request
+     * @param RuntimeOptions                   $runtime
+     *
+     * @return DescribeEncryptionKeyListResponse
+     */
+    public function describeEncryptionKeyListWithOptions($request, $runtime)
+    {
+        Utils::validateModel($request);
+        $query = [];
+        if (!Utils::isUnset($request->instanceId)) {
+            $query['InstanceId'] = $request->instanceId;
+        }
+        if (!Utils::isUnset($request->ownerAccount)) {
+            $query['OwnerAccount'] = $request->ownerAccount;
+        }
+        if (!Utils::isUnset($request->ownerId)) {
+            $query['OwnerId'] = $request->ownerId;
+        }
+        if (!Utils::isUnset($request->resourceOwnerAccount)) {
+            $query['ResourceOwnerAccount'] = $request->resourceOwnerAccount;
+        }
+        if (!Utils::isUnset($request->resourceOwnerId)) {
+            $query['ResourceOwnerId'] = $request->resourceOwnerId;
+        }
+        if (!Utils::isUnset($request->securityToken)) {
+            $query['SecurityToken'] = $request->securityToken;
+        }
+        $req = new OpenApiRequest([
+            'query' => OpenApiUtilClient::query($query),
+        ]);
+        $params = new Params([
+            'action'      => 'DescribeEncryptionKeyList',
+            'version'     => '2015-01-01',
+            'protocol'    => 'HTTPS',
+            'pathname'    => '/',
+            'method'      => 'POST',
+            'authType'    => 'AK',
+            'style'       => 'RPC',
+            'reqBodyType' => 'formData',
+            'bodyType'    => 'json',
+        ]);
+
+        return DescribeEncryptionKeyListResponse::fromMap($this->callApi($params, $req, $runtime));
+    }
+
+    /**
+     * @param DescribeEncryptionKeyListRequest $request
+     *
+     * @return DescribeEncryptionKeyListResponse
+     */
+    public function describeEncryptionKeyList($request)
+    {
+        $runtime = new RuntimeOptions([]);
+
+        return $this->describeEncryptionKeyListWithOptions($request, $runtime);
+    }
+
+    /**
      * @param DescribeEngineVersionRequest $request
      * @param RuntimeOptions               $runtime
      *
@@ -1011,11 +2387,41 @@ class Rkvstore extends OpenApiClient
     public function describeEngineVersionWithOptions($request, $runtime)
     {
         Utils::validateModel($request);
+        $query = [];
+        if (!Utils::isUnset($request->instanceId)) {
+            $query['InstanceId'] = $request->instanceId;
+        }
+        if (!Utils::isUnset($request->ownerAccount)) {
+            $query['OwnerAccount'] = $request->ownerAccount;
+        }
+        if (!Utils::isUnset($request->ownerId)) {
+            $query['OwnerId'] = $request->ownerId;
+        }
+        if (!Utils::isUnset($request->resourceOwnerAccount)) {
+            $query['ResourceOwnerAccount'] = $request->resourceOwnerAccount;
+        }
+        if (!Utils::isUnset($request->resourceOwnerId)) {
+            $query['ResourceOwnerId'] = $request->resourceOwnerId;
+        }
+        if (!Utils::isUnset($request->securityToken)) {
+            $query['SecurityToken'] = $request->securityToken;
+        }
         $req = new OpenApiRequest([
-            'body' => Utils::toMap($request),
+            'query' => OpenApiUtilClient::query($query),
+        ]);
+        $params = new Params([
+            'action'      => 'DescribeEngineVersion',
+            'version'     => '2015-01-01',
+            'protocol'    => 'HTTPS',
+            'pathname'    => '/',
+            'method'      => 'POST',
+            'authType'    => 'AK',
+            'style'       => 'RPC',
+            'reqBodyType' => 'formData',
+            'bodyType'    => 'json',
         ]);
 
-        return DescribeEngineVersionResponse::fromMap($this->doRPCRequest('DescribeEngineVersion', '2015-01-01', 'HTTPS', 'POST', 'AK', 'json', $req, $runtime));
+        return DescribeEngineVersionResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
@@ -1039,11 +2445,50 @@ class Rkvstore extends OpenApiClient
     public function describeGlobalDistributeCacheWithOptions($request, $runtime)
     {
         Utils::validateModel($request);
+        $query = [];
+        if (!Utils::isUnset($request->globalInstanceId)) {
+            $query['GlobalInstanceId'] = $request->globalInstanceId;
+        }
+        if (!Utils::isUnset($request->ownerAccount)) {
+            $query['OwnerAccount'] = $request->ownerAccount;
+        }
+        if (!Utils::isUnset($request->ownerId)) {
+            $query['OwnerId'] = $request->ownerId;
+        }
+        if (!Utils::isUnset($request->pageNumber)) {
+            $query['PageNumber'] = $request->pageNumber;
+        }
+        if (!Utils::isUnset($request->pageSize)) {
+            $query['PageSize'] = $request->pageSize;
+        }
+        if (!Utils::isUnset($request->resourceOwnerAccount)) {
+            $query['ResourceOwnerAccount'] = $request->resourceOwnerAccount;
+        }
+        if (!Utils::isUnset($request->resourceOwnerId)) {
+            $query['ResourceOwnerId'] = $request->resourceOwnerId;
+        }
+        if (!Utils::isUnset($request->securityToken)) {
+            $query['SecurityToken'] = $request->securityToken;
+        }
+        if (!Utils::isUnset($request->subInstanceId)) {
+            $query['SubInstanceId'] = $request->subInstanceId;
+        }
         $req = new OpenApiRequest([
-            'body' => Utils::toMap($request),
+            'query' => OpenApiUtilClient::query($query),
+        ]);
+        $params = new Params([
+            'action'      => 'DescribeGlobalDistributeCache',
+            'version'     => '2015-01-01',
+            'protocol'    => 'HTTPS',
+            'pathname'    => '/',
+            'method'      => 'POST',
+            'authType'    => 'AK',
+            'style'       => 'RPC',
+            'reqBodyType' => 'formData',
+            'bodyType'    => 'json',
         ]);
 
-        return DescribeGlobalDistributeCacheResponse::fromMap($this->doRPCRequest('DescribeGlobalDistributeCache', '2015-01-01', 'HTTPS', 'POST', 'AK', 'json', $req, $runtime));
+        return DescribeGlobalDistributeCacheResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
@@ -1067,11 +2512,56 @@ class Rkvstore extends OpenApiClient
     public function describeHistoryMonitorValuesWithOptions($request, $runtime)
     {
         Utils::validateModel($request);
+        $query = [];
+        if (!Utils::isUnset($request->endTime)) {
+            $query['EndTime'] = $request->endTime;
+        }
+        if (!Utils::isUnset($request->instanceId)) {
+            $query['InstanceId'] = $request->instanceId;
+        }
+        if (!Utils::isUnset($request->intervalForHistory)) {
+            $query['IntervalForHistory'] = $request->intervalForHistory;
+        }
+        if (!Utils::isUnset($request->monitorKeys)) {
+            $query['MonitorKeys'] = $request->monitorKeys;
+        }
+        if (!Utils::isUnset($request->nodeId)) {
+            $query['NodeId'] = $request->nodeId;
+        }
+        if (!Utils::isUnset($request->ownerAccount)) {
+            $query['OwnerAccount'] = $request->ownerAccount;
+        }
+        if (!Utils::isUnset($request->ownerId)) {
+            $query['OwnerId'] = $request->ownerId;
+        }
+        if (!Utils::isUnset($request->resourceOwnerAccount)) {
+            $query['ResourceOwnerAccount'] = $request->resourceOwnerAccount;
+        }
+        if (!Utils::isUnset($request->resourceOwnerId)) {
+            $query['ResourceOwnerId'] = $request->resourceOwnerId;
+        }
+        if (!Utils::isUnset($request->securityToken)) {
+            $query['SecurityToken'] = $request->securityToken;
+        }
+        if (!Utils::isUnset($request->startTime)) {
+            $query['StartTime'] = $request->startTime;
+        }
         $req = new OpenApiRequest([
-            'body' => Utils::toMap($request),
+            'query' => OpenApiUtilClient::query($query),
+        ]);
+        $params = new Params([
+            'action'      => 'DescribeHistoryMonitorValues',
+            'version'     => '2015-01-01',
+            'protocol'    => 'HTTPS',
+            'pathname'    => '/',
+            'method'      => 'POST',
+            'authType'    => 'AK',
+            'style'       => 'RPC',
+            'reqBodyType' => 'formData',
+            'bodyType'    => 'json',
         ]);
 
-        return DescribeHistoryMonitorValuesResponse::fromMap($this->doRPCRequest('DescribeHistoryMonitorValues', '2015-01-01', 'HTTPS', 'POST', 'AK', 'json', $req, $runtime));
+        return DescribeHistoryMonitorValuesResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
@@ -1095,11 +2585,41 @@ class Rkvstore extends OpenApiClient
     public function describeInstanceAttributeWithOptions($request, $runtime)
     {
         Utils::validateModel($request);
+        $query = [];
+        if (!Utils::isUnset($request->instanceId)) {
+            $query['InstanceId'] = $request->instanceId;
+        }
+        if (!Utils::isUnset($request->ownerAccount)) {
+            $query['OwnerAccount'] = $request->ownerAccount;
+        }
+        if (!Utils::isUnset($request->ownerId)) {
+            $query['OwnerId'] = $request->ownerId;
+        }
+        if (!Utils::isUnset($request->resourceOwnerAccount)) {
+            $query['ResourceOwnerAccount'] = $request->resourceOwnerAccount;
+        }
+        if (!Utils::isUnset($request->resourceOwnerId)) {
+            $query['ResourceOwnerId'] = $request->resourceOwnerId;
+        }
+        if (!Utils::isUnset($request->securityToken)) {
+            $query['SecurityToken'] = $request->securityToken;
+        }
         $req = new OpenApiRequest([
-            'body' => Utils::toMap($request),
+            'query' => OpenApiUtilClient::query($query),
+        ]);
+        $params = new Params([
+            'action'      => 'DescribeInstanceAttribute',
+            'version'     => '2015-01-01',
+            'protocol'    => 'HTTPS',
+            'pathname'    => '/',
+            'method'      => 'POST',
+            'authType'    => 'AK',
+            'style'       => 'RPC',
+            'reqBodyType' => 'formData',
+            'bodyType'    => 'json',
         ]);
 
-        return DescribeInstanceAttributeResponse::fromMap($this->doRPCRequest('DescribeInstanceAttribute', '2015-01-01', 'HTTPS', 'POST', 'AK', 'json', $req, $runtime));
+        return DescribeInstanceAttributeResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
@@ -1123,11 +2643,50 @@ class Rkvstore extends OpenApiClient
     public function describeInstanceAutoRenewalAttributeWithOptions($request, $runtime)
     {
         Utils::validateModel($request);
+        $query = [];
+        if (!Utils::isUnset($request->clientToken)) {
+            $query['ClientToken'] = $request->clientToken;
+        }
+        if (!Utils::isUnset($request->DBInstanceId)) {
+            $query['DBInstanceId'] = $request->DBInstanceId;
+        }
+        if (!Utils::isUnset($request->ownerAccount)) {
+            $query['OwnerAccount'] = $request->ownerAccount;
+        }
+        if (!Utils::isUnset($request->ownerId)) {
+            $query['OwnerId'] = $request->ownerId;
+        }
+        if (!Utils::isUnset($request->pageNumber)) {
+            $query['PageNumber'] = $request->pageNumber;
+        }
+        if (!Utils::isUnset($request->pageSize)) {
+            $query['PageSize'] = $request->pageSize;
+        }
+        if (!Utils::isUnset($request->regionId)) {
+            $query['RegionId'] = $request->regionId;
+        }
+        if (!Utils::isUnset($request->resourceOwnerAccount)) {
+            $query['ResourceOwnerAccount'] = $request->resourceOwnerAccount;
+        }
+        if (!Utils::isUnset($request->resourceOwnerId)) {
+            $query['ResourceOwnerId'] = $request->resourceOwnerId;
+        }
         $req = new OpenApiRequest([
-            'body' => Utils::toMap($request),
+            'query' => OpenApiUtilClient::query($query),
+        ]);
+        $params = new Params([
+            'action'      => 'DescribeInstanceAutoRenewalAttribute',
+            'version'     => '2015-01-01',
+            'protocol'    => 'HTTPS',
+            'pathname'    => '/',
+            'method'      => 'POST',
+            'authType'    => 'AK',
+            'style'       => 'RPC',
+            'reqBodyType' => 'formData',
+            'bodyType'    => 'json',
         ]);
 
-        return DescribeInstanceAutoRenewalAttributeResponse::fromMap($this->doRPCRequest('DescribeInstanceAutoRenewalAttribute', '2015-01-01', 'HTTPS', 'POST', 'AK', 'json', $req, $runtime));
+        return DescribeInstanceAutoRenewalAttributeResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
@@ -1151,11 +2710,41 @@ class Rkvstore extends OpenApiClient
     public function describeInstanceConfigWithOptions($request, $runtime)
     {
         Utils::validateModel($request);
+        $query = [];
+        if (!Utils::isUnset($request->instanceId)) {
+            $query['InstanceId'] = $request->instanceId;
+        }
+        if (!Utils::isUnset($request->ownerAccount)) {
+            $query['OwnerAccount'] = $request->ownerAccount;
+        }
+        if (!Utils::isUnset($request->ownerId)) {
+            $query['OwnerId'] = $request->ownerId;
+        }
+        if (!Utils::isUnset($request->resourceOwnerAccount)) {
+            $query['ResourceOwnerAccount'] = $request->resourceOwnerAccount;
+        }
+        if (!Utils::isUnset($request->resourceOwnerId)) {
+            $query['ResourceOwnerId'] = $request->resourceOwnerId;
+        }
+        if (!Utils::isUnset($request->securityToken)) {
+            $query['SecurityToken'] = $request->securityToken;
+        }
         $req = new OpenApiRequest([
-            'body' => Utils::toMap($request),
+            'query' => OpenApiUtilClient::query($query),
+        ]);
+        $params = new Params([
+            'action'      => 'DescribeInstanceConfig',
+            'version'     => '2015-01-01',
+            'protocol'    => 'HTTPS',
+            'pathname'    => '/',
+            'method'      => 'POST',
+            'authType'    => 'AK',
+            'style'       => 'RPC',
+            'reqBodyType' => 'formData',
+            'bodyType'    => 'json',
         ]);
 
-        return DescribeInstanceConfigResponse::fromMap($this->doRPCRequest('DescribeInstanceConfig', '2015-01-01', 'HTTPS', 'POST', 'AK', 'json', $req, $runtime));
+        return DescribeInstanceConfigResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
@@ -1171,34 +2760,6 @@ class Rkvstore extends OpenApiClient
     }
 
     /**
-     * @param DescribeInstancesRequest $request
-     * @param RuntimeOptions           $runtime
-     *
-     * @return DescribeInstancesResponse
-     */
-    public function describeInstancesWithOptions($request, $runtime)
-    {
-        Utils::validateModel($request);
-        $req = new OpenApiRequest([
-            'body' => Utils::toMap($request),
-        ]);
-
-        return DescribeInstancesResponse::fromMap($this->doRPCRequest('DescribeInstances', '2015-01-01', 'HTTPS', 'POST', 'AK', 'json', $req, $runtime));
-    }
-
-    /**
-     * @param DescribeInstancesRequest $request
-     *
-     * @return DescribeInstancesResponse
-     */
-    public function describeInstances($request)
-    {
-        $runtime = new RuntimeOptions([]);
-
-        return $this->describeInstancesWithOptions($request, $runtime);
-    }
-
-    /**
      * @param DescribeInstanceSSLRequest $request
      * @param RuntimeOptions             $runtime
      *
@@ -1207,11 +2768,41 @@ class Rkvstore extends OpenApiClient
     public function describeInstanceSSLWithOptions($request, $runtime)
     {
         Utils::validateModel($request);
+        $query = [];
+        if (!Utils::isUnset($request->instanceId)) {
+            $query['InstanceId'] = $request->instanceId;
+        }
+        if (!Utils::isUnset($request->ownerAccount)) {
+            $query['OwnerAccount'] = $request->ownerAccount;
+        }
+        if (!Utils::isUnset($request->ownerId)) {
+            $query['OwnerId'] = $request->ownerId;
+        }
+        if (!Utils::isUnset($request->resourceOwnerAccount)) {
+            $query['ResourceOwnerAccount'] = $request->resourceOwnerAccount;
+        }
+        if (!Utils::isUnset($request->resourceOwnerId)) {
+            $query['ResourceOwnerId'] = $request->resourceOwnerId;
+        }
+        if (!Utils::isUnset($request->securityToken)) {
+            $query['SecurityToken'] = $request->securityToken;
+        }
         $req = new OpenApiRequest([
-            'body' => Utils::toMap($request),
+            'query' => OpenApiUtilClient::query($query),
+        ]);
+        $params = new Params([
+            'action'      => 'DescribeInstanceSSL',
+            'version'     => '2015-01-01',
+            'protocol'    => 'HTTPS',
+            'pathname'    => '/',
+            'method'      => 'POST',
+            'authType'    => 'AK',
+            'style'       => 'RPC',
+            'reqBodyType' => 'formData',
+            'bodyType'    => 'json',
         ]);
 
-        return DescribeInstanceSSLResponse::fromMap($this->doRPCRequest('DescribeInstanceSSL', '2015-01-01', 'HTTPS', 'POST', 'AK', 'json', $req, $runtime));
+        return DescribeInstanceSSLResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
@@ -1227,6 +2818,285 @@ class Rkvstore extends OpenApiClient
     }
 
     /**
+     * @param DescribeInstanceTDEStatusRequest $request
+     * @param RuntimeOptions                   $runtime
+     *
+     * @return DescribeInstanceTDEStatusResponse
+     */
+    public function describeInstanceTDEStatusWithOptions($request, $runtime)
+    {
+        Utils::validateModel($request);
+        $query = [];
+        if (!Utils::isUnset($request->instanceId)) {
+            $query['InstanceId'] = $request->instanceId;
+        }
+        if (!Utils::isUnset($request->ownerAccount)) {
+            $query['OwnerAccount'] = $request->ownerAccount;
+        }
+        if (!Utils::isUnset($request->ownerId)) {
+            $query['OwnerId'] = $request->ownerId;
+        }
+        if (!Utils::isUnset($request->resourceOwnerAccount)) {
+            $query['ResourceOwnerAccount'] = $request->resourceOwnerAccount;
+        }
+        if (!Utils::isUnset($request->resourceOwnerId)) {
+            $query['ResourceOwnerId'] = $request->resourceOwnerId;
+        }
+        if (!Utils::isUnset($request->securityToken)) {
+            $query['SecurityToken'] = $request->securityToken;
+        }
+        $req = new OpenApiRequest([
+            'query' => OpenApiUtilClient::query($query),
+        ]);
+        $params = new Params([
+            'action'      => 'DescribeInstanceTDEStatus',
+            'version'     => '2015-01-01',
+            'protocol'    => 'HTTPS',
+            'pathname'    => '/',
+            'method'      => 'POST',
+            'authType'    => 'AK',
+            'style'       => 'RPC',
+            'reqBodyType' => 'formData',
+            'bodyType'    => 'json',
+        ]);
+
+        return DescribeInstanceTDEStatusResponse::fromMap($this->callApi($params, $req, $runtime));
+    }
+
+    /**
+     * @param DescribeInstanceTDEStatusRequest $request
+     *
+     * @return DescribeInstanceTDEStatusResponse
+     */
+    public function describeInstanceTDEStatus($request)
+    {
+        $runtime = new RuntimeOptions([]);
+
+        return $this->describeInstanceTDEStatusWithOptions($request, $runtime);
+    }
+
+    /**
+     * @param DescribeInstancesRequest $request
+     * @param RuntimeOptions           $runtime
+     *
+     * @return DescribeInstancesResponse
+     */
+    public function describeInstancesWithOptions($request, $runtime)
+    {
+        Utils::validateModel($request);
+        $query = [];
+        if (!Utils::isUnset($request->architectureType)) {
+            $query['ArchitectureType'] = $request->architectureType;
+        }
+        if (!Utils::isUnset($request->chargeType)) {
+            $query['ChargeType'] = $request->chargeType;
+        }
+        if (!Utils::isUnset($request->editionType)) {
+            $query['EditionType'] = $request->editionType;
+        }
+        if (!Utils::isUnset($request->engineVersion)) {
+            $query['EngineVersion'] = $request->engineVersion;
+        }
+        if (!Utils::isUnset($request->expired)) {
+            $query['Expired'] = $request->expired;
+        }
+        if (!Utils::isUnset($request->globalInstance)) {
+            $query['GlobalInstance'] = $request->globalInstance;
+        }
+        if (!Utils::isUnset($request->instanceClass)) {
+            $query['InstanceClass'] = $request->instanceClass;
+        }
+        if (!Utils::isUnset($request->instanceIds)) {
+            $query['InstanceIds'] = $request->instanceIds;
+        }
+        if (!Utils::isUnset($request->instanceStatus)) {
+            $query['InstanceStatus'] = $request->instanceStatus;
+        }
+        if (!Utils::isUnset($request->instanceType)) {
+            $query['InstanceType'] = $request->instanceType;
+        }
+        if (!Utils::isUnset($request->networkType)) {
+            $query['NetworkType'] = $request->networkType;
+        }
+        if (!Utils::isUnset($request->ownerAccount)) {
+            $query['OwnerAccount'] = $request->ownerAccount;
+        }
+        if (!Utils::isUnset($request->ownerId)) {
+            $query['OwnerId'] = $request->ownerId;
+        }
+        if (!Utils::isUnset($request->pageNumber)) {
+            $query['PageNumber'] = $request->pageNumber;
+        }
+        if (!Utils::isUnset($request->pageSize)) {
+            $query['PageSize'] = $request->pageSize;
+        }
+        if (!Utils::isUnset($request->privateIp)) {
+            $query['PrivateIp'] = $request->privateIp;
+        }
+        if (!Utils::isUnset($request->regionId)) {
+            $query['RegionId'] = $request->regionId;
+        }
+        if (!Utils::isUnset($request->resourceGroupId)) {
+            $query['ResourceGroupId'] = $request->resourceGroupId;
+        }
+        if (!Utils::isUnset($request->resourceOwnerAccount)) {
+            $query['ResourceOwnerAccount'] = $request->resourceOwnerAccount;
+        }
+        if (!Utils::isUnset($request->resourceOwnerId)) {
+            $query['ResourceOwnerId'] = $request->resourceOwnerId;
+        }
+        if (!Utils::isUnset($request->searchKey)) {
+            $query['SearchKey'] = $request->searchKey;
+        }
+        if (!Utils::isUnset($request->securityToken)) {
+            $query['SecurityToken'] = $request->securityToken;
+        }
+        if (!Utils::isUnset($request->tag)) {
+            $query['Tag'] = $request->tag;
+        }
+        if (!Utils::isUnset($request->vSwitchId)) {
+            $query['VSwitchId'] = $request->vSwitchId;
+        }
+        if (!Utils::isUnset($request->vpcId)) {
+            $query['VpcId'] = $request->vpcId;
+        }
+        if (!Utils::isUnset($request->zoneId)) {
+            $query['ZoneId'] = $request->zoneId;
+        }
+        $req = new OpenApiRequest([
+            'query' => OpenApiUtilClient::query($query),
+        ]);
+        $params = new Params([
+            'action'      => 'DescribeInstances',
+            'version'     => '2015-01-01',
+            'protocol'    => 'HTTPS',
+            'pathname'    => '/',
+            'method'      => 'POST',
+            'authType'    => 'AK',
+            'style'       => 'RPC',
+            'reqBodyType' => 'formData',
+            'bodyType'    => 'json',
+        ]);
+
+        return DescribeInstancesResponse::fromMap($this->callApi($params, $req, $runtime));
+    }
+
+    /**
+     * @param DescribeInstancesRequest $request
+     *
+     * @return DescribeInstancesResponse
+     */
+    public function describeInstances($request)
+    {
+        $runtime = new RuntimeOptions([]);
+
+        return $this->describeInstancesWithOptions($request, $runtime);
+    }
+
+    /**
+     * @param DescribeInstancesOverviewRequest $request
+     * @param RuntimeOptions                   $runtime
+     *
+     * @return DescribeInstancesOverviewResponse
+     */
+    public function describeInstancesOverviewWithOptions($request, $runtime)
+    {
+        Utils::validateModel($request);
+        $query = [];
+        if (!Utils::isUnset($request->architectureType)) {
+            $query['ArchitectureType'] = $request->architectureType;
+        }
+        if (!Utils::isUnset($request->chargeType)) {
+            $query['ChargeType'] = $request->chargeType;
+        }
+        if (!Utils::isUnset($request->editionType)) {
+            $query['EditionType'] = $request->editionType;
+        }
+        if (!Utils::isUnset($request->engineVersion)) {
+            $query['EngineVersion'] = $request->engineVersion;
+        }
+        if (!Utils::isUnset($request->instanceClass)) {
+            $query['InstanceClass'] = $request->instanceClass;
+        }
+        if (!Utils::isUnset($request->instanceIds)) {
+            $query['InstanceIds'] = $request->instanceIds;
+        }
+        if (!Utils::isUnset($request->instanceStatus)) {
+            $query['InstanceStatus'] = $request->instanceStatus;
+        }
+        if (!Utils::isUnset($request->instanceType)) {
+            $query['InstanceType'] = $request->instanceType;
+        }
+        if (!Utils::isUnset($request->networkType)) {
+            $query['NetworkType'] = $request->networkType;
+        }
+        if (!Utils::isUnset($request->ownerAccount)) {
+            $query['OwnerAccount'] = $request->ownerAccount;
+        }
+        if (!Utils::isUnset($request->ownerId)) {
+            $query['OwnerId'] = $request->ownerId;
+        }
+        if (!Utils::isUnset($request->privateIp)) {
+            $query['PrivateIp'] = $request->privateIp;
+        }
+        if (!Utils::isUnset($request->regionId)) {
+            $query['RegionId'] = $request->regionId;
+        }
+        if (!Utils::isUnset($request->resourceGroupId)) {
+            $query['ResourceGroupId'] = $request->resourceGroupId;
+        }
+        if (!Utils::isUnset($request->resourceOwnerAccount)) {
+            $query['ResourceOwnerAccount'] = $request->resourceOwnerAccount;
+        }
+        if (!Utils::isUnset($request->resourceOwnerId)) {
+            $query['ResourceOwnerId'] = $request->resourceOwnerId;
+        }
+        if (!Utils::isUnset($request->searchKey)) {
+            $query['SearchKey'] = $request->searchKey;
+        }
+        if (!Utils::isUnset($request->securityToken)) {
+            $query['SecurityToken'] = $request->securityToken;
+        }
+        if (!Utils::isUnset($request->vSwitchId)) {
+            $query['VSwitchId'] = $request->vSwitchId;
+        }
+        if (!Utils::isUnset($request->vpcId)) {
+            $query['VpcId'] = $request->vpcId;
+        }
+        if (!Utils::isUnset($request->zoneId)) {
+            $query['ZoneId'] = $request->zoneId;
+        }
+        $req = new OpenApiRequest([
+            'query' => OpenApiUtilClient::query($query),
+        ]);
+        $params = new Params([
+            'action'      => 'DescribeInstancesOverview',
+            'version'     => '2015-01-01',
+            'protocol'    => 'HTTPS',
+            'pathname'    => '/',
+            'method'      => 'POST',
+            'authType'    => 'AK',
+            'style'       => 'RPC',
+            'reqBodyType' => 'formData',
+            'bodyType'    => 'json',
+        ]);
+
+        return DescribeInstancesOverviewResponse::fromMap($this->callApi($params, $req, $runtime));
+    }
+
+    /**
+     * @param DescribeInstancesOverviewRequest $request
+     *
+     * @return DescribeInstancesOverviewResponse
+     */
+    public function describeInstancesOverview($request)
+    {
+        $runtime = new RuntimeOptions([]);
+
+        return $this->describeInstancesOverviewWithOptions($request, $runtime);
+    }
+
+    /**
      * @param DescribeIntranetAttributeRequest $request
      * @param RuntimeOptions                   $runtime
      *
@@ -1235,11 +3105,44 @@ class Rkvstore extends OpenApiClient
     public function describeIntranetAttributeWithOptions($request, $runtime)
     {
         Utils::validateModel($request);
+        $query = [];
+        if (!Utils::isUnset($request->instanceId)) {
+            $query['InstanceId'] = $request->instanceId;
+        }
+        if (!Utils::isUnset($request->ownerAccount)) {
+            $query['OwnerAccount'] = $request->ownerAccount;
+        }
+        if (!Utils::isUnset($request->ownerId)) {
+            $query['OwnerId'] = $request->ownerId;
+        }
+        if (!Utils::isUnset($request->resourceGroupId)) {
+            $query['ResourceGroupId'] = $request->resourceGroupId;
+        }
+        if (!Utils::isUnset($request->resourceOwnerAccount)) {
+            $query['ResourceOwnerAccount'] = $request->resourceOwnerAccount;
+        }
+        if (!Utils::isUnset($request->resourceOwnerId)) {
+            $query['ResourceOwnerId'] = $request->resourceOwnerId;
+        }
+        if (!Utils::isUnset($request->securityToken)) {
+            $query['SecurityToken'] = $request->securityToken;
+        }
         $req = new OpenApiRequest([
-            'body' => Utils::toMap($request),
+            'query' => OpenApiUtilClient::query($query),
+        ]);
+        $params = new Params([
+            'action'      => 'DescribeIntranetAttribute',
+            'version'     => '2015-01-01',
+            'protocol'    => 'HTTPS',
+            'pathname'    => '/',
+            'method'      => 'POST',
+            'authType'    => 'AK',
+            'style'       => 'RPC',
+            'reqBodyType' => 'formData',
+            'bodyType'    => 'json',
         ]);
 
-        return DescribeIntranetAttributeResponse::fromMap($this->doRPCRequest('DescribeIntranetAttribute', '2015-01-01', 'HTTPS', 'POST', 'AK', 'json', $req, $runtime));
+        return DescribeIntranetAttributeResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
@@ -1263,11 +3166,41 @@ class Rkvstore extends OpenApiClient
     public function describeLogicInstanceTopologyWithOptions($request, $runtime)
     {
         Utils::validateModel($request);
+        $query = [];
+        if (!Utils::isUnset($request->instanceId)) {
+            $query['InstanceId'] = $request->instanceId;
+        }
+        if (!Utils::isUnset($request->ownerAccount)) {
+            $query['OwnerAccount'] = $request->ownerAccount;
+        }
+        if (!Utils::isUnset($request->ownerId)) {
+            $query['OwnerId'] = $request->ownerId;
+        }
+        if (!Utils::isUnset($request->resourceOwnerAccount)) {
+            $query['ResourceOwnerAccount'] = $request->resourceOwnerAccount;
+        }
+        if (!Utils::isUnset($request->resourceOwnerId)) {
+            $query['ResourceOwnerId'] = $request->resourceOwnerId;
+        }
+        if (!Utils::isUnset($request->securityToken)) {
+            $query['SecurityToken'] = $request->securityToken;
+        }
         $req = new OpenApiRequest([
-            'body' => Utils::toMap($request),
+            'query' => OpenApiUtilClient::query($query),
+        ]);
+        $params = new Params([
+            'action'      => 'DescribeLogicInstanceTopology',
+            'version'     => '2015-01-01',
+            'protocol'    => 'HTTPS',
+            'pathname'    => '/',
+            'method'      => 'POST',
+            'authType'    => 'AK',
+            'style'       => 'RPC',
+            'reqBodyType' => 'formData',
+            'bodyType'    => 'json',
         ]);
 
-        return DescribeLogicInstanceTopologyResponse::fromMap($this->doRPCRequest('DescribeLogicInstanceTopology', '2015-01-01', 'HTTPS', 'POST', 'AK', 'json', $req, $runtime));
+        return DescribeLogicInstanceTopologyResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
@@ -1291,11 +3224,38 @@ class Rkvstore extends OpenApiClient
     public function describeMonitorItemsWithOptions($request, $runtime)
     {
         Utils::validateModel($request);
+        $query = [];
+        if (!Utils::isUnset($request->ownerAccount)) {
+            $query['OwnerAccount'] = $request->ownerAccount;
+        }
+        if (!Utils::isUnset($request->ownerId)) {
+            $query['OwnerId'] = $request->ownerId;
+        }
+        if (!Utils::isUnset($request->resourceOwnerAccount)) {
+            $query['ResourceOwnerAccount'] = $request->resourceOwnerAccount;
+        }
+        if (!Utils::isUnset($request->resourceOwnerId)) {
+            $query['ResourceOwnerId'] = $request->resourceOwnerId;
+        }
+        if (!Utils::isUnset($request->securityToken)) {
+            $query['SecurityToken'] = $request->securityToken;
+        }
         $req = new OpenApiRequest([
-            'body' => Utils::toMap($request),
+            'query' => OpenApiUtilClient::query($query),
+        ]);
+        $params = new Params([
+            'action'      => 'DescribeMonitorItems',
+            'version'     => '2015-01-01',
+            'protocol'    => 'HTTPS',
+            'pathname'    => '/',
+            'method'      => 'POST',
+            'authType'    => 'AK',
+            'style'       => 'RPC',
+            'reqBodyType' => 'formData',
+            'bodyType'    => 'json',
         ]);
 
-        return DescribeMonitorItemsResponse::fromMap($this->doRPCRequest('DescribeMonitorItems', '2015-01-01', 'HTTPS', 'POST', 'AK', 'json', $req, $runtime));
+        return DescribeMonitorItemsResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
@@ -1311,34 +3271,6 @@ class Rkvstore extends OpenApiClient
     }
 
     /**
-     * @param DescribeParametersRequest $request
-     * @param RuntimeOptions            $runtime
-     *
-     * @return DescribeParametersResponse
-     */
-    public function describeParametersWithOptions($request, $runtime)
-    {
-        Utils::validateModel($request);
-        $req = new OpenApiRequest([
-            'body' => Utils::toMap($request),
-        ]);
-
-        return DescribeParametersResponse::fromMap($this->doRPCRequest('DescribeParameters', '2015-01-01', 'HTTPS', 'POST', 'AK', 'json', $req, $runtime));
-    }
-
-    /**
-     * @param DescribeParametersRequest $request
-     *
-     * @return DescribeParametersResponse
-     */
-    public function describeParameters($request)
-    {
-        $runtime = new RuntimeOptions([]);
-
-        return $this->describeParametersWithOptions($request, $runtime);
-    }
-
-    /**
      * @param DescribeParameterTemplatesRequest $request
      * @param RuntimeOptions                    $runtime
      *
@@ -1347,11 +3279,53 @@ class Rkvstore extends OpenApiClient
     public function describeParameterTemplatesWithOptions($request, $runtime)
     {
         Utils::validateModel($request);
+        $query = [];
+        if (!Utils::isUnset($request->characterType)) {
+            $query['CharacterType'] = $request->characterType;
+        }
+        if (!Utils::isUnset($request->engine)) {
+            $query['Engine'] = $request->engine;
+        }
+        if (!Utils::isUnset($request->engineVersion)) {
+            $query['EngineVersion'] = $request->engineVersion;
+        }
+        if (!Utils::isUnset($request->instanceId)) {
+            $query['InstanceId'] = $request->instanceId;
+        }
+        if (!Utils::isUnset($request->ownerAccount)) {
+            $query['OwnerAccount'] = $request->ownerAccount;
+        }
+        if (!Utils::isUnset($request->ownerId)) {
+            $query['OwnerId'] = $request->ownerId;
+        }
+        if (!Utils::isUnset($request->resourceGroupId)) {
+            $query['ResourceGroupId'] = $request->resourceGroupId;
+        }
+        if (!Utils::isUnset($request->resourceOwnerAccount)) {
+            $query['ResourceOwnerAccount'] = $request->resourceOwnerAccount;
+        }
+        if (!Utils::isUnset($request->resourceOwnerId)) {
+            $query['ResourceOwnerId'] = $request->resourceOwnerId;
+        }
+        if (!Utils::isUnset($request->securityToken)) {
+            $query['SecurityToken'] = $request->securityToken;
+        }
         $req = new OpenApiRequest([
-            'body' => Utils::toMap($request),
+            'query' => OpenApiUtilClient::query($query),
+        ]);
+        $params = new Params([
+            'action'      => 'DescribeParameterTemplates',
+            'version'     => '2015-01-01',
+            'protocol'    => 'HTTPS',
+            'pathname'    => '/',
+            'method'      => 'POST',
+            'authType'    => 'AK',
+            'style'       => 'RPC',
+            'reqBodyType' => 'formData',
+            'bodyType'    => 'json',
         ]);
 
-        return DescribeParameterTemplatesResponse::fromMap($this->doRPCRequest('DescribeParameterTemplates', '2015-01-01', 'HTTPS', 'POST', 'AK', 'json', $req, $runtime));
+        return DescribeParameterTemplatesResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
@@ -1367,6 +3341,70 @@ class Rkvstore extends OpenApiClient
     }
 
     /**
+     * @param DescribeParametersRequest $request
+     * @param RuntimeOptions            $runtime
+     *
+     * @return DescribeParametersResponse
+     */
+    public function describeParametersWithOptions($request, $runtime)
+    {
+        Utils::validateModel($request);
+        $query = [];
+        if (!Utils::isUnset($request->DBInstanceId)) {
+            $query['DBInstanceId'] = $request->DBInstanceId;
+        }
+        if (!Utils::isUnset($request->nodeId)) {
+            $query['NodeId'] = $request->nodeId;
+        }
+        if (!Utils::isUnset($request->ownerAccount)) {
+            $query['OwnerAccount'] = $request->ownerAccount;
+        }
+        if (!Utils::isUnset($request->ownerId)) {
+            $query['OwnerId'] = $request->ownerId;
+        }
+        if (!Utils::isUnset($request->regionId)) {
+            $query['RegionId'] = $request->regionId;
+        }
+        if (!Utils::isUnset($request->resourceOwnerAccount)) {
+            $query['ResourceOwnerAccount'] = $request->resourceOwnerAccount;
+        }
+        if (!Utils::isUnset($request->resourceOwnerId)) {
+            $query['ResourceOwnerId'] = $request->resourceOwnerId;
+        }
+        if (!Utils::isUnset($request->securityToken)) {
+            $query['SecurityToken'] = $request->securityToken;
+        }
+        $req = new OpenApiRequest([
+            'query' => OpenApiUtilClient::query($query),
+        ]);
+        $params = new Params([
+            'action'      => 'DescribeParameters',
+            'version'     => '2015-01-01',
+            'protocol'    => 'HTTPS',
+            'pathname'    => '/',
+            'method'      => 'POST',
+            'authType'    => 'AK',
+            'style'       => 'RPC',
+            'reqBodyType' => 'formData',
+            'bodyType'    => 'json',
+        ]);
+
+        return DescribeParametersResponse::fromMap($this->callApi($params, $req, $runtime));
+    }
+
+    /**
+     * @param DescribeParametersRequest $request
+     *
+     * @return DescribeParametersResponse
+     */
+    public function describeParameters($request)
+    {
+        $runtime = new RuntimeOptions([]);
+
+        return $this->describeParametersWithOptions($request, $runtime);
+    }
+
+    /**
      * @param DescribePriceRequest $request
      * @param RuntimeOptions       $runtime
      *
@@ -1375,11 +3413,83 @@ class Rkvstore extends OpenApiClient
     public function describePriceWithOptions($request, $runtime)
     {
         Utils::validateModel($request);
+        $query = [];
+        if (!Utils::isUnset($request->businessInfo)) {
+            $query['BusinessInfo'] = $request->businessInfo;
+        }
+        if (!Utils::isUnset($request->capacity)) {
+            $query['Capacity'] = $request->capacity;
+        }
+        if (!Utils::isUnset($request->chargeType)) {
+            $query['ChargeType'] = $request->chargeType;
+        }
+        if (!Utils::isUnset($request->couponNo)) {
+            $query['CouponNo'] = $request->couponNo;
+        }
+        if (!Utils::isUnset($request->forceUpgrade)) {
+            $query['ForceUpgrade'] = $request->forceUpgrade;
+        }
+        if (!Utils::isUnset($request->instanceClass)) {
+            $query['InstanceClass'] = $request->instanceClass;
+        }
+        if (!Utils::isUnset($request->instanceId)) {
+            $query['InstanceId'] = $request->instanceId;
+        }
+        if (!Utils::isUnset($request->instances)) {
+            $query['Instances'] = $request->instances;
+        }
+        if (!Utils::isUnset($request->nodeType)) {
+            $query['NodeType'] = $request->nodeType;
+        }
+        if (!Utils::isUnset($request->orderParamOut)) {
+            $query['OrderParamOut'] = $request->orderParamOut;
+        }
+        if (!Utils::isUnset($request->orderType)) {
+            $query['OrderType'] = $request->orderType;
+        }
+        if (!Utils::isUnset($request->ownerAccount)) {
+            $query['OwnerAccount'] = $request->ownerAccount;
+        }
+        if (!Utils::isUnset($request->ownerId)) {
+            $query['OwnerId'] = $request->ownerId;
+        }
+        if (!Utils::isUnset($request->period)) {
+            $query['Period'] = $request->period;
+        }
+        if (!Utils::isUnset($request->quantity)) {
+            $query['Quantity'] = $request->quantity;
+        }
+        if (!Utils::isUnset($request->regionId)) {
+            $query['RegionId'] = $request->regionId;
+        }
+        if (!Utils::isUnset($request->resourceOwnerAccount)) {
+            $query['ResourceOwnerAccount'] = $request->resourceOwnerAccount;
+        }
+        if (!Utils::isUnset($request->resourceOwnerId)) {
+            $query['ResourceOwnerId'] = $request->resourceOwnerId;
+        }
+        if (!Utils::isUnset($request->securityToken)) {
+            $query['SecurityToken'] = $request->securityToken;
+        }
+        if (!Utils::isUnset($request->zoneId)) {
+            $query['ZoneId'] = $request->zoneId;
+        }
         $req = new OpenApiRequest([
-            'body' => Utils::toMap($request),
+            'query' => OpenApiUtilClient::query($query),
+        ]);
+        $params = new Params([
+            'action'      => 'DescribePrice',
+            'version'     => '2015-01-01',
+            'protocol'    => 'HTTPS',
+            'pathname'    => '/',
+            'method'      => 'POST',
+            'authType'    => 'AK',
+            'style'       => 'RPC',
+            'reqBodyType' => 'formData',
+            'bodyType'    => 'json',
         ]);
 
-        return DescribePriceResponse::fromMap($this->doRPCRequest('DescribePrice', '2015-01-01', 'HTTPS', 'POST', 'AK', 'json', $req, $runtime));
+        return DescribePriceResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
@@ -1403,11 +3513,41 @@ class Rkvstore extends OpenApiClient
     public function describeRegionsWithOptions($request, $runtime)
     {
         Utils::validateModel($request);
+        $query = [];
+        if (!Utils::isUnset($request->acceptLanguage)) {
+            $query['AcceptLanguage'] = $request->acceptLanguage;
+        }
+        if (!Utils::isUnset($request->ownerAccount)) {
+            $query['OwnerAccount'] = $request->ownerAccount;
+        }
+        if (!Utils::isUnset($request->ownerId)) {
+            $query['OwnerId'] = $request->ownerId;
+        }
+        if (!Utils::isUnset($request->resourceOwnerAccount)) {
+            $query['ResourceOwnerAccount'] = $request->resourceOwnerAccount;
+        }
+        if (!Utils::isUnset($request->resourceOwnerId)) {
+            $query['ResourceOwnerId'] = $request->resourceOwnerId;
+        }
+        if (!Utils::isUnset($request->securityToken)) {
+            $query['SecurityToken'] = $request->securityToken;
+        }
         $req = new OpenApiRequest([
-            'body' => Utils::toMap($request),
+            'query' => OpenApiUtilClient::query($query),
+        ]);
+        $params = new Params([
+            'action'      => 'DescribeRegions',
+            'version'     => '2015-01-01',
+            'protocol'    => 'HTTPS',
+            'pathname'    => '/',
+            'method'      => 'POST',
+            'authType'    => 'AK',
+            'style'       => 'RPC',
+            'reqBodyType' => 'formData',
+            'bodyType'    => 'json',
         ]);
 
-        return DescribeRegionsResponse::fromMap($this->doRPCRequest('DescribeRegions', '2015-01-01', 'HTTPS', 'POST', 'AK', 'json', $req, $runtime));
+        return DescribeRegionsResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
@@ -1431,11 +3571,50 @@ class Rkvstore extends OpenApiClient
     public function describeRoleZoneInfoWithOptions($request, $runtime)
     {
         Utils::validateModel($request);
+        $query = [];
+        if (!Utils::isUnset($request->instanceId)) {
+            $query['InstanceId'] = $request->instanceId;
+        }
+        if (!Utils::isUnset($request->ownerAccount)) {
+            $query['OwnerAccount'] = $request->ownerAccount;
+        }
+        if (!Utils::isUnset($request->ownerId)) {
+            $query['OwnerId'] = $request->ownerId;
+        }
+        if (!Utils::isUnset($request->pageNumber)) {
+            $query['PageNumber'] = $request->pageNumber;
+        }
+        if (!Utils::isUnset($request->pageSize)) {
+            $query['PageSize'] = $request->pageSize;
+        }
+        if (!Utils::isUnset($request->queryType)) {
+            $query['QueryType'] = $request->queryType;
+        }
+        if (!Utils::isUnset($request->resourceOwnerAccount)) {
+            $query['ResourceOwnerAccount'] = $request->resourceOwnerAccount;
+        }
+        if (!Utils::isUnset($request->resourceOwnerId)) {
+            $query['ResourceOwnerId'] = $request->resourceOwnerId;
+        }
+        if (!Utils::isUnset($request->securityToken)) {
+            $query['SecurityToken'] = $request->securityToken;
+        }
         $req = new OpenApiRequest([
-            'body' => Utils::toMap($request),
+            'query' => OpenApiUtilClient::query($query),
+        ]);
+        $params = new Params([
+            'action'      => 'DescribeRoleZoneInfo',
+            'version'     => '2015-01-01',
+            'protocol'    => 'HTTPS',
+            'pathname'    => '/',
+            'method'      => 'POST',
+            'authType'    => 'AK',
+            'style'       => 'RPC',
+            'reqBodyType' => 'formData',
+            'bodyType'    => 'json',
         ]);
 
-        return DescribeRoleZoneInfoResponse::fromMap($this->doRPCRequest('DescribeRoleZoneInfo', '2015-01-01', 'HTTPS', 'POST', 'AK', 'json', $req, $runtime));
+        return DescribeRoleZoneInfoResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
@@ -1459,11 +3638,74 @@ class Rkvstore extends OpenApiClient
     public function describeRunningLogRecordsWithOptions($request, $runtime)
     {
         Utils::validateModel($request);
+        $query = [];
+        if (!Utils::isUnset($request->characterType)) {
+            $query['CharacterType'] = $request->characterType;
+        }
+        if (!Utils::isUnset($request->DBName)) {
+            $query['DBName'] = $request->DBName;
+        }
+        if (!Utils::isUnset($request->endTime)) {
+            $query['EndTime'] = $request->endTime;
+        }
+        if (!Utils::isUnset($request->instanceId)) {
+            $query['InstanceId'] = $request->instanceId;
+        }
+        if (!Utils::isUnset($request->nodeId)) {
+            $query['NodeId'] = $request->nodeId;
+        }
+        if (!Utils::isUnset($request->orderType)) {
+            $query['OrderType'] = $request->orderType;
+        }
+        if (!Utils::isUnset($request->ownerAccount)) {
+            $query['OwnerAccount'] = $request->ownerAccount;
+        }
+        if (!Utils::isUnset($request->ownerId)) {
+            $query['OwnerId'] = $request->ownerId;
+        }
+        if (!Utils::isUnset($request->pageNumber)) {
+            $query['PageNumber'] = $request->pageNumber;
+        }
+        if (!Utils::isUnset($request->pageSize)) {
+            $query['PageSize'] = $request->pageSize;
+        }
+        if (!Utils::isUnset($request->queryKeyword)) {
+            $query['QueryKeyword'] = $request->queryKeyword;
+        }
+        if (!Utils::isUnset($request->resourceGroupId)) {
+            $query['ResourceGroupId'] = $request->resourceGroupId;
+        }
+        if (!Utils::isUnset($request->resourceOwnerAccount)) {
+            $query['ResourceOwnerAccount'] = $request->resourceOwnerAccount;
+        }
+        if (!Utils::isUnset($request->resourceOwnerId)) {
+            $query['ResourceOwnerId'] = $request->resourceOwnerId;
+        }
+        if (!Utils::isUnset($request->roleType)) {
+            $query['RoleType'] = $request->roleType;
+        }
+        if (!Utils::isUnset($request->securityToken)) {
+            $query['SecurityToken'] = $request->securityToken;
+        }
+        if (!Utils::isUnset($request->startTime)) {
+            $query['StartTime'] = $request->startTime;
+        }
         $req = new OpenApiRequest([
-            'body' => Utils::toMap($request),
+            'query' => OpenApiUtilClient::query($query),
+        ]);
+        $params = new Params([
+            'action'      => 'DescribeRunningLogRecords',
+            'version'     => '2015-01-01',
+            'protocol'    => 'HTTPS',
+            'pathname'    => '/',
+            'method'      => 'POST',
+            'authType'    => 'AK',
+            'style'       => 'RPC',
+            'reqBodyType' => 'formData',
+            'bodyType'    => 'json',
         ]);
 
-        return DescribeRunningLogRecordsResponse::fromMap($this->doRPCRequest('DescribeRunningLogRecords', '2015-01-01', 'HTTPS', 'POST', 'AK', 'json', $req, $runtime));
+        return DescribeRunningLogRecordsResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
@@ -1487,11 +3729,41 @@ class Rkvstore extends OpenApiClient
     public function describeSecurityGroupConfigurationWithOptions($request, $runtime)
     {
         Utils::validateModel($request);
+        $query = [];
+        if (!Utils::isUnset($request->instanceId)) {
+            $query['InstanceId'] = $request->instanceId;
+        }
+        if (!Utils::isUnset($request->ownerAccount)) {
+            $query['OwnerAccount'] = $request->ownerAccount;
+        }
+        if (!Utils::isUnset($request->ownerId)) {
+            $query['OwnerId'] = $request->ownerId;
+        }
+        if (!Utils::isUnset($request->resourceOwnerAccount)) {
+            $query['ResourceOwnerAccount'] = $request->resourceOwnerAccount;
+        }
+        if (!Utils::isUnset($request->resourceOwnerId)) {
+            $query['ResourceOwnerId'] = $request->resourceOwnerId;
+        }
+        if (!Utils::isUnset($request->securityToken)) {
+            $query['SecurityToken'] = $request->securityToken;
+        }
         $req = new OpenApiRequest([
-            'body' => Utils::toMap($request),
+            'query' => OpenApiUtilClient::query($query),
+        ]);
+        $params = new Params([
+            'action'      => 'DescribeSecurityGroupConfiguration',
+            'version'     => '2015-01-01',
+            'protocol'    => 'HTTPS',
+            'pathname'    => '/',
+            'method'      => 'POST',
+            'authType'    => 'AK',
+            'style'       => 'RPC',
+            'reqBodyType' => 'formData',
+            'bodyType'    => 'json',
         ]);
 
-        return DescribeSecurityGroupConfigurationResponse::fromMap($this->doRPCRequest('DescribeSecurityGroupConfiguration', '2015-01-01', 'HTTPS', 'POST', 'AK', 'json', $req, $runtime));
+        return DescribeSecurityGroupConfigurationResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
@@ -1515,11 +3787,41 @@ class Rkvstore extends OpenApiClient
     public function describeSecurityIpsWithOptions($request, $runtime)
     {
         Utils::validateModel($request);
+        $query = [];
+        if (!Utils::isUnset($request->instanceId)) {
+            $query['InstanceId'] = $request->instanceId;
+        }
+        if (!Utils::isUnset($request->ownerAccount)) {
+            $query['OwnerAccount'] = $request->ownerAccount;
+        }
+        if (!Utils::isUnset($request->ownerId)) {
+            $query['OwnerId'] = $request->ownerId;
+        }
+        if (!Utils::isUnset($request->resourceOwnerAccount)) {
+            $query['ResourceOwnerAccount'] = $request->resourceOwnerAccount;
+        }
+        if (!Utils::isUnset($request->resourceOwnerId)) {
+            $query['ResourceOwnerId'] = $request->resourceOwnerId;
+        }
+        if (!Utils::isUnset($request->securityToken)) {
+            $query['SecurityToken'] = $request->securityToken;
+        }
         $req = new OpenApiRequest([
-            'body' => Utils::toMap($request),
+            'query' => OpenApiUtilClient::query($query),
+        ]);
+        $params = new Params([
+            'action'      => 'DescribeSecurityIps',
+            'version'     => '2015-01-01',
+            'protocol'    => 'HTTPS',
+            'pathname'    => '/',
+            'method'      => 'POST',
+            'authType'    => 'AK',
+            'style'       => 'RPC',
+            'reqBodyType' => 'formData',
+            'bodyType'    => 'json',
         ]);
 
-        return DescribeSecurityIpsResponse::fromMap($this->doRPCRequest('DescribeSecurityIps', '2015-01-01', 'HTTPS', 'POST', 'AK', 'json', $req, $runtime));
+        return DescribeSecurityIpsResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
@@ -1543,11 +3845,71 @@ class Rkvstore extends OpenApiClient
     public function describeSlowLogRecordsWithOptions($request, $runtime)
     {
         Utils::validateModel($request);
+        $query = [];
+        if (!Utils::isUnset($request->DBName)) {
+            $query['DBName'] = $request->DBName;
+        }
+        if (!Utils::isUnset($request->endTime)) {
+            $query['EndTime'] = $request->endTime;
+        }
+        if (!Utils::isUnset($request->instanceId)) {
+            $query['InstanceId'] = $request->instanceId;
+        }
+        if (!Utils::isUnset($request->nodeId)) {
+            $query['NodeId'] = $request->nodeId;
+        }
+        if (!Utils::isUnset($request->orderBy)) {
+            $query['OrderBy'] = $request->orderBy;
+        }
+        if (!Utils::isUnset($request->orderType)) {
+            $query['OrderType'] = $request->orderType;
+        }
+        if (!Utils::isUnset($request->ownerAccount)) {
+            $query['OwnerAccount'] = $request->ownerAccount;
+        }
+        if (!Utils::isUnset($request->ownerId)) {
+            $query['OwnerId'] = $request->ownerId;
+        }
+        if (!Utils::isUnset($request->pageNumber)) {
+            $query['PageNumber'] = $request->pageNumber;
+        }
+        if (!Utils::isUnset($request->pageSize)) {
+            $query['PageSize'] = $request->pageSize;
+        }
+        if (!Utils::isUnset($request->queryKeyword)) {
+            $query['QueryKeyword'] = $request->queryKeyword;
+        }
+        if (!Utils::isUnset($request->resourceOwnerAccount)) {
+            $query['ResourceOwnerAccount'] = $request->resourceOwnerAccount;
+        }
+        if (!Utils::isUnset($request->resourceOwnerId)) {
+            $query['ResourceOwnerId'] = $request->resourceOwnerId;
+        }
+        if (!Utils::isUnset($request->securityToken)) {
+            $query['SecurityToken'] = $request->securityToken;
+        }
+        if (!Utils::isUnset($request->slowLogRecordType)) {
+            $query['SlowLogRecordType'] = $request->slowLogRecordType;
+        }
+        if (!Utils::isUnset($request->startTime)) {
+            $query['StartTime'] = $request->startTime;
+        }
         $req = new OpenApiRequest([
-            'body' => Utils::toMap($request),
+            'query' => OpenApiUtilClient::query($query),
+        ]);
+        $params = new Params([
+            'action'      => 'DescribeSlowLogRecords',
+            'version'     => '2015-01-01',
+            'protocol'    => 'HTTPS',
+            'pathname'    => '/',
+            'method'      => 'POST',
+            'authType'    => 'AK',
+            'style'       => 'RPC',
+            'reqBodyType' => 'formData',
+            'bodyType'    => 'json',
         ]);
 
-        return DescribeSlowLogRecordsResponse::fromMap($this->doRPCRequest('DescribeSlowLogRecords', '2015-01-01', 'HTTPS', 'POST', 'AK', 'json', $req, $runtime));
+        return DescribeSlowLogRecordsResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
@@ -1571,11 +3933,56 @@ class Rkvstore extends OpenApiClient
     public function describeTasksWithOptions($request, $runtime)
     {
         Utils::validateModel($request);
+        $query = [];
+        if (!Utils::isUnset($request->endTime)) {
+            $query['EndTime'] = $request->endTime;
+        }
+        if (!Utils::isUnset($request->instanceId)) {
+            $query['InstanceId'] = $request->instanceId;
+        }
+        if (!Utils::isUnset($request->ownerAccount)) {
+            $query['OwnerAccount'] = $request->ownerAccount;
+        }
+        if (!Utils::isUnset($request->ownerId)) {
+            $query['OwnerId'] = $request->ownerId;
+        }
+        if (!Utils::isUnset($request->pageNumber)) {
+            $query['PageNumber'] = $request->pageNumber;
+        }
+        if (!Utils::isUnset($request->pageSize)) {
+            $query['PageSize'] = $request->pageSize;
+        }
+        if (!Utils::isUnset($request->resourceOwnerAccount)) {
+            $query['ResourceOwnerAccount'] = $request->resourceOwnerAccount;
+        }
+        if (!Utils::isUnset($request->resourceOwnerId)) {
+            $query['ResourceOwnerId'] = $request->resourceOwnerId;
+        }
+        if (!Utils::isUnset($request->securityToken)) {
+            $query['SecurityToken'] = $request->securityToken;
+        }
+        if (!Utils::isUnset($request->startTime)) {
+            $query['StartTime'] = $request->startTime;
+        }
+        if (!Utils::isUnset($request->status)) {
+            $query['Status'] = $request->status;
+        }
         $req = new OpenApiRequest([
-            'body' => Utils::toMap($request),
+            'query' => OpenApiUtilClient::query($query),
+        ]);
+        $params = new Params([
+            'action'      => 'DescribeTasks',
+            'version'     => '2015-01-01',
+            'protocol'    => 'HTTPS',
+            'pathname'    => '/',
+            'method'      => 'POST',
+            'authType'    => 'AK',
+            'style'       => 'RPC',
+            'reqBodyType' => 'formData',
+            'bodyType'    => 'json',
         ]);
 
-        return DescribeTasksResponse::fromMap($this->doRPCRequest('DescribeTasks', '2015-01-01', 'HTTPS', 'POST', 'AK', 'json', $req, $runtime));
+        return DescribeTasksResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
@@ -1591,62 +3998,6 @@ class Rkvstore extends OpenApiClient
     }
 
     /**
-     * @param DescribeUserClusterHostRequest $request
-     * @param RuntimeOptions                 $runtime
-     *
-     * @return DescribeUserClusterHostResponse
-     */
-    public function describeUserClusterHostWithOptions($request, $runtime)
-    {
-        Utils::validateModel($request);
-        $req = new OpenApiRequest([
-            'body' => Utils::toMap($request),
-        ]);
-
-        return DescribeUserClusterHostResponse::fromMap($this->doRPCRequest('DescribeUserClusterHost', '2015-01-01', 'HTTPS', 'POST', 'AK', 'json', $req, $runtime));
-    }
-
-    /**
-     * @param DescribeUserClusterHostRequest $request
-     *
-     * @return DescribeUserClusterHostResponse
-     */
-    public function describeUserClusterHost($request)
-    {
-        $runtime = new RuntimeOptions([]);
-
-        return $this->describeUserClusterHostWithOptions($request, $runtime);
-    }
-
-    /**
-     * @param DescribeUserClusterHostInstanceRequest $request
-     * @param RuntimeOptions                         $runtime
-     *
-     * @return DescribeUserClusterHostInstanceResponse
-     */
-    public function describeUserClusterHostInstanceWithOptions($request, $runtime)
-    {
-        Utils::validateModel($request);
-        $req = new OpenApiRequest([
-            'body' => Utils::toMap($request),
-        ]);
-
-        return DescribeUserClusterHostInstanceResponse::fromMap($this->doRPCRequest('DescribeUserClusterHostInstance', '2015-01-01', 'HTTPS', 'POST', 'AK', 'json', $req, $runtime));
-    }
-
-    /**
-     * @param DescribeUserClusterHostInstanceRequest $request
-     *
-     * @return DescribeUserClusterHostInstanceResponse
-     */
-    public function describeUserClusterHostInstance($request)
-    {
-        $runtime = new RuntimeOptions([]);
-
-        return $this->describeUserClusterHostInstanceWithOptions($request, $runtime);
-    }
-
-    /**
      * @param DescribeZonesRequest $request
      * @param RuntimeOptions       $runtime
      *
@@ -1655,11 +4006,44 @@ class Rkvstore extends OpenApiClient
     public function describeZonesWithOptions($request, $runtime)
     {
         Utils::validateModel($request);
+        $query = [];
+        if (!Utils::isUnset($request->acceptLanguage)) {
+            $query['AcceptLanguage'] = $request->acceptLanguage;
+        }
+        if (!Utils::isUnset($request->ownerAccount)) {
+            $query['OwnerAccount'] = $request->ownerAccount;
+        }
+        if (!Utils::isUnset($request->ownerId)) {
+            $query['OwnerId'] = $request->ownerId;
+        }
+        if (!Utils::isUnset($request->regionId)) {
+            $query['RegionId'] = $request->regionId;
+        }
+        if (!Utils::isUnset($request->resourceOwnerAccount)) {
+            $query['ResourceOwnerAccount'] = $request->resourceOwnerAccount;
+        }
+        if (!Utils::isUnset($request->resourceOwnerId)) {
+            $query['ResourceOwnerId'] = $request->resourceOwnerId;
+        }
+        if (!Utils::isUnset($request->securityToken)) {
+            $query['SecurityToken'] = $request->securityToken;
+        }
         $req = new OpenApiRequest([
-            'body' => Utils::toMap($request),
+            'query' => OpenApiUtilClient::query($query),
+        ]);
+        $params = new Params([
+            'action'      => 'DescribeZones',
+            'version'     => '2015-01-01',
+            'protocol'    => 'HTTPS',
+            'pathname'    => '/',
+            'method'      => 'POST',
+            'authType'    => 'AK',
+            'style'       => 'RPC',
+            'reqBodyType' => 'formData',
+            'bodyType'    => 'json',
         ]);
 
-        return DescribeZonesResponse::fromMap($this->doRPCRequest('DescribeZones', '2015-01-01', 'HTTPS', 'POST', 'AK', 'json', $req, $runtime));
+        return DescribeZonesResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
@@ -1683,11 +4067,65 @@ class Rkvstore extends OpenApiClient
     public function enableAdditionalBandwidthWithOptions($request, $runtime)
     {
         Utils::validateModel($request);
+        $query = [];
+        if (!Utils::isUnset($request->autoPay)) {
+            $query['AutoPay'] = $request->autoPay;
+        }
+        if (!Utils::isUnset($request->autoRenew)) {
+            $query['AutoRenew'] = $request->autoRenew;
+        }
+        if (!Utils::isUnset($request->autoRenewPeriod)) {
+            $query['AutoRenewPeriod'] = $request->autoRenewPeriod;
+        }
+        if (!Utils::isUnset($request->bandwidth)) {
+            $query['Bandwidth'] = $request->bandwidth;
+        }
+        if (!Utils::isUnset($request->couponNo)) {
+            $query['CouponNo'] = $request->couponNo;
+        }
+        if (!Utils::isUnset($request->instanceId)) {
+            $query['InstanceId'] = $request->instanceId;
+        }
+        if (!Utils::isUnset($request->nodeId)) {
+            $query['NodeId'] = $request->nodeId;
+        }
+        if (!Utils::isUnset($request->orderTimeLength)) {
+            $query['OrderTimeLength'] = $request->orderTimeLength;
+        }
+        if (!Utils::isUnset($request->ownerAccount)) {
+            $query['OwnerAccount'] = $request->ownerAccount;
+        }
+        if (!Utils::isUnset($request->ownerId)) {
+            $query['OwnerId'] = $request->ownerId;
+        }
+        if (!Utils::isUnset($request->resourceOwnerAccount)) {
+            $query['ResourceOwnerAccount'] = $request->resourceOwnerAccount;
+        }
+        if (!Utils::isUnset($request->resourceOwnerId)) {
+            $query['ResourceOwnerId'] = $request->resourceOwnerId;
+        }
+        if (!Utils::isUnset($request->securityToken)) {
+            $query['SecurityToken'] = $request->securityToken;
+        }
+        if (!Utils::isUnset($request->sourceBiz)) {
+            $query['SourceBiz'] = $request->sourceBiz;
+        }
         $req = new OpenApiRequest([
-            'body' => Utils::toMap($request),
+            'query' => OpenApiUtilClient::query($query),
+        ]);
+        $params = new Params([
+            'action'      => 'EnableAdditionalBandwidth',
+            'version'     => '2015-01-01',
+            'protocol'    => 'HTTPS',
+            'pathname'    => '/',
+            'method'      => 'POST',
+            'authType'    => 'AK',
+            'style'       => 'RPC',
+            'reqBodyType' => 'formData',
+            'bodyType'    => 'json',
         ]);
 
-        return EnableAdditionalBandwidthResponse::fromMap($this->doRPCRequest('EnableAdditionalBandwidth', '2015-01-01', 'HTTPS', 'POST', 'AK', 'json', $req, $runtime));
+        return EnableAdditionalBandwidthResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
@@ -1711,11 +4149,44 @@ class Rkvstore extends OpenApiClient
     public function flushExpireKeysWithOptions($request, $runtime)
     {
         Utils::validateModel($request);
+        $query = [];
+        if (!Utils::isUnset($request->effectiveTime)) {
+            $query['EffectiveTime'] = $request->effectiveTime;
+        }
+        if (!Utils::isUnset($request->instanceId)) {
+            $query['InstanceId'] = $request->instanceId;
+        }
+        if (!Utils::isUnset($request->ownerAccount)) {
+            $query['OwnerAccount'] = $request->ownerAccount;
+        }
+        if (!Utils::isUnset($request->ownerId)) {
+            $query['OwnerId'] = $request->ownerId;
+        }
+        if (!Utils::isUnset($request->resourceOwnerAccount)) {
+            $query['ResourceOwnerAccount'] = $request->resourceOwnerAccount;
+        }
+        if (!Utils::isUnset($request->resourceOwnerId)) {
+            $query['ResourceOwnerId'] = $request->resourceOwnerId;
+        }
+        if (!Utils::isUnset($request->securityToken)) {
+            $query['SecurityToken'] = $request->securityToken;
+        }
         $req = new OpenApiRequest([
-            'body' => Utils::toMap($request),
+            'query' => OpenApiUtilClient::query($query),
+        ]);
+        $params = new Params([
+            'action'      => 'FlushExpireKeys',
+            'version'     => '2015-01-01',
+            'protocol'    => 'HTTPS',
+            'pathname'    => '/',
+            'method'      => 'POST',
+            'authType'    => 'AK',
+            'style'       => 'RPC',
+            'reqBodyType' => 'formData',
+            'bodyType'    => 'json',
         ]);
 
-        return FlushExpireKeysResponse::fromMap($this->doRPCRequest('FlushExpireKeys', '2015-01-01', 'HTTPS', 'POST', 'AK', 'json', $req, $runtime));
+        return FlushExpireKeysResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
@@ -1739,11 +4210,41 @@ class Rkvstore extends OpenApiClient
     public function flushInstanceWithOptions($request, $runtime)
     {
         Utils::validateModel($request);
+        $query = [];
+        if (!Utils::isUnset($request->instanceId)) {
+            $query['InstanceId'] = $request->instanceId;
+        }
+        if (!Utils::isUnset($request->ownerAccount)) {
+            $query['OwnerAccount'] = $request->ownerAccount;
+        }
+        if (!Utils::isUnset($request->ownerId)) {
+            $query['OwnerId'] = $request->ownerId;
+        }
+        if (!Utils::isUnset($request->resourceOwnerAccount)) {
+            $query['ResourceOwnerAccount'] = $request->resourceOwnerAccount;
+        }
+        if (!Utils::isUnset($request->resourceOwnerId)) {
+            $query['ResourceOwnerId'] = $request->resourceOwnerId;
+        }
+        if (!Utils::isUnset($request->securityToken)) {
+            $query['SecurityToken'] = $request->securityToken;
+        }
         $req = new OpenApiRequest([
-            'body' => Utils::toMap($request),
+            'query' => OpenApiUtilClient::query($query),
+        ]);
+        $params = new Params([
+            'action'      => 'FlushInstance',
+            'version'     => '2015-01-01',
+            'protocol'    => 'HTTPS',
+            'pathname'    => '/',
+            'method'      => 'POST',
+            'authType'    => 'AK',
+            'style'       => 'RPC',
+            'reqBodyType' => 'formData',
+            'bodyType'    => 'json',
         ]);
 
-        return FlushInstanceResponse::fromMap($this->doRPCRequest('FlushInstance', '2015-01-01', 'HTTPS', 'POST', 'AK', 'json', $req, $runtime));
+        return FlushInstanceResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
@@ -1767,11 +4268,47 @@ class Rkvstore extends OpenApiClient
     public function grantAccountPrivilegeWithOptions($request, $runtime)
     {
         Utils::validateModel($request);
+        $query = [];
+        if (!Utils::isUnset($request->accountName)) {
+            $query['AccountName'] = $request->accountName;
+        }
+        if (!Utils::isUnset($request->accountPrivilege)) {
+            $query['AccountPrivilege'] = $request->accountPrivilege;
+        }
+        if (!Utils::isUnset($request->instanceId)) {
+            $query['InstanceId'] = $request->instanceId;
+        }
+        if (!Utils::isUnset($request->ownerAccount)) {
+            $query['OwnerAccount'] = $request->ownerAccount;
+        }
+        if (!Utils::isUnset($request->ownerId)) {
+            $query['OwnerId'] = $request->ownerId;
+        }
+        if (!Utils::isUnset($request->resourceOwnerAccount)) {
+            $query['ResourceOwnerAccount'] = $request->resourceOwnerAccount;
+        }
+        if (!Utils::isUnset($request->resourceOwnerId)) {
+            $query['ResourceOwnerId'] = $request->resourceOwnerId;
+        }
+        if (!Utils::isUnset($request->securityToken)) {
+            $query['SecurityToken'] = $request->securityToken;
+        }
         $req = new OpenApiRequest([
-            'body' => Utils::toMap($request),
+            'query' => OpenApiUtilClient::query($query),
+        ]);
+        $params = new Params([
+            'action'      => 'GrantAccountPrivilege',
+            'version'     => '2015-01-01',
+            'protocol'    => 'HTTPS',
+            'pathname'    => '/',
+            'method'      => 'POST',
+            'authType'    => 'AK',
+            'style'       => 'RPC',
+            'reqBodyType' => 'formData',
+            'bodyType'    => 'json',
         ]);
 
-        return GrantAccountPrivilegeResponse::fromMap($this->doRPCRequest('GrantAccountPrivilege', '2015-01-01', 'HTTPS', 'POST', 'AK', 'json', $req, $runtime));
+        return GrantAccountPrivilegeResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
@@ -1795,11 +4332,41 @@ class Rkvstore extends OpenApiClient
     public function initializeKvstorePermissionWithOptions($request, $runtime)
     {
         Utils::validateModel($request);
+        $query = [];
+        if (!Utils::isUnset($request->ownerAccount)) {
+            $query['OwnerAccount'] = $request->ownerAccount;
+        }
+        if (!Utils::isUnset($request->ownerId)) {
+            $query['OwnerId'] = $request->ownerId;
+        }
+        if (!Utils::isUnset($request->regionId)) {
+            $query['RegionId'] = $request->regionId;
+        }
+        if (!Utils::isUnset($request->resourceOwnerAccount)) {
+            $query['ResourceOwnerAccount'] = $request->resourceOwnerAccount;
+        }
+        if (!Utils::isUnset($request->resourceOwnerId)) {
+            $query['ResourceOwnerId'] = $request->resourceOwnerId;
+        }
+        if (!Utils::isUnset($request->securityToken)) {
+            $query['SecurityToken'] = $request->securityToken;
+        }
         $req = new OpenApiRequest([
-            'body' => Utils::toMap($request),
+            'query' => OpenApiUtilClient::query($query),
+        ]);
+        $params = new Params([
+            'action'      => 'InitializeKvstorePermission',
+            'version'     => '2015-01-01',
+            'protocol'    => 'HTTPS',
+            'pathname'    => '/',
+            'method'      => 'POST',
+            'authType'    => 'AK',
+            'style'       => 'RPC',
+            'reqBodyType' => 'formData',
+            'bodyType'    => 'json',
         ]);
 
-        return InitializeKvstorePermissionResponse::fromMap($this->doRPCRequest('InitializeKvstorePermission', '2015-01-01', 'HTTPS', 'POST', 'AK', 'json', $req, $runtime));
+        return InitializeKvstorePermissionResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
@@ -1823,11 +4390,50 @@ class Rkvstore extends OpenApiClient
     public function listTagResourcesWithOptions($request, $runtime)
     {
         Utils::validateModel($request);
+        $query = [];
+        if (!Utils::isUnset($request->nextToken)) {
+            $query['NextToken'] = $request->nextToken;
+        }
+        if (!Utils::isUnset($request->ownerAccount)) {
+            $query['OwnerAccount'] = $request->ownerAccount;
+        }
+        if (!Utils::isUnset($request->ownerId)) {
+            $query['OwnerId'] = $request->ownerId;
+        }
+        if (!Utils::isUnset($request->regionId)) {
+            $query['RegionId'] = $request->regionId;
+        }
+        if (!Utils::isUnset($request->resourceId)) {
+            $query['ResourceId'] = $request->resourceId;
+        }
+        if (!Utils::isUnset($request->resourceOwnerAccount)) {
+            $query['ResourceOwnerAccount'] = $request->resourceOwnerAccount;
+        }
+        if (!Utils::isUnset($request->resourceOwnerId)) {
+            $query['ResourceOwnerId'] = $request->resourceOwnerId;
+        }
+        if (!Utils::isUnset($request->resourceType)) {
+            $query['ResourceType'] = $request->resourceType;
+        }
+        if (!Utils::isUnset($request->tag)) {
+            $query['Tag'] = $request->tag;
+        }
         $req = new OpenApiRequest([
-            'body' => Utils::toMap($request),
+            'query' => OpenApiUtilClient::query($query),
+        ]);
+        $params = new Params([
+            'action'      => 'ListTagResources',
+            'version'     => '2015-01-01',
+            'protocol'    => 'HTTPS',
+            'pathname'    => '/',
+            'method'      => 'POST',
+            'authType'    => 'AK',
+            'style'       => 'RPC',
+            'reqBodyType' => 'formData',
+            'bodyType'    => 'json',
         ]);
 
-        return ListTagResourcesResponse::fromMap($this->doRPCRequest('ListTagResources', '2015-01-01', 'HTTPS', 'POST', 'AK', 'json', $req, $runtime));
+        return ListTagResourcesResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
@@ -1851,11 +4457,53 @@ class Rkvstore extends OpenApiClient
     public function migrateToOtherZoneWithOptions($request, $runtime)
     {
         Utils::validateModel($request);
+        $query = [];
+        if (!Utils::isUnset($request->DBInstanceId)) {
+            $query['DBInstanceId'] = $request->DBInstanceId;
+        }
+        if (!Utils::isUnset($request->effectiveTime)) {
+            $query['EffectiveTime'] = $request->effectiveTime;
+        }
+        if (!Utils::isUnset($request->ownerAccount)) {
+            $query['OwnerAccount'] = $request->ownerAccount;
+        }
+        if (!Utils::isUnset($request->ownerId)) {
+            $query['OwnerId'] = $request->ownerId;
+        }
+        if (!Utils::isUnset($request->resourceOwnerAccount)) {
+            $query['ResourceOwnerAccount'] = $request->resourceOwnerAccount;
+        }
+        if (!Utils::isUnset($request->resourceOwnerId)) {
+            $query['ResourceOwnerId'] = $request->resourceOwnerId;
+        }
+        if (!Utils::isUnset($request->secondaryZoneId)) {
+            $query['SecondaryZoneId'] = $request->secondaryZoneId;
+        }
+        if (!Utils::isUnset($request->securityToken)) {
+            $query['SecurityToken'] = $request->securityToken;
+        }
+        if (!Utils::isUnset($request->vSwitchId)) {
+            $query['VSwitchId'] = $request->vSwitchId;
+        }
+        if (!Utils::isUnset($request->zoneId)) {
+            $query['ZoneId'] = $request->zoneId;
+        }
         $req = new OpenApiRequest([
-            'body' => Utils::toMap($request),
+            'query' => OpenApiUtilClient::query($query),
+        ]);
+        $params = new Params([
+            'action'      => 'MigrateToOtherZone',
+            'version'     => '2015-01-01',
+            'protocol'    => 'HTTPS',
+            'pathname'    => '/',
+            'method'      => 'POST',
+            'authType'    => 'AK',
+            'style'       => 'RPC',
+            'reqBodyType' => 'formData',
+            'bodyType'    => 'json',
         ]);
 
-        return MigrateToOtherZoneResponse::fromMap($this->doRPCRequest('MigrateToOtherZone', '2015-01-01', 'HTTPS', 'POST', 'AK', 'json', $req, $runtime));
+        return MigrateToOtherZoneResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
@@ -1879,11 +4527,47 @@ class Rkvstore extends OpenApiClient
     public function modifyAccountDescriptionWithOptions($request, $runtime)
     {
         Utils::validateModel($request);
+        $query = [];
+        if (!Utils::isUnset($request->accountDescription)) {
+            $query['AccountDescription'] = $request->accountDescription;
+        }
+        if (!Utils::isUnset($request->accountName)) {
+            $query['AccountName'] = $request->accountName;
+        }
+        if (!Utils::isUnset($request->instanceId)) {
+            $query['InstanceId'] = $request->instanceId;
+        }
+        if (!Utils::isUnset($request->ownerAccount)) {
+            $query['OwnerAccount'] = $request->ownerAccount;
+        }
+        if (!Utils::isUnset($request->ownerId)) {
+            $query['OwnerId'] = $request->ownerId;
+        }
+        if (!Utils::isUnset($request->resourceOwnerAccount)) {
+            $query['ResourceOwnerAccount'] = $request->resourceOwnerAccount;
+        }
+        if (!Utils::isUnset($request->resourceOwnerId)) {
+            $query['ResourceOwnerId'] = $request->resourceOwnerId;
+        }
+        if (!Utils::isUnset($request->securityToken)) {
+            $query['SecurityToken'] = $request->securityToken;
+        }
         $req = new OpenApiRequest([
-            'body' => Utils::toMap($request),
+            'query' => OpenApiUtilClient::query($query),
+        ]);
+        $params = new Params([
+            'action'      => 'ModifyAccountDescription',
+            'version'     => '2015-01-01',
+            'protocol'    => 'HTTPS',
+            'pathname'    => '/',
+            'method'      => 'POST',
+            'authType'    => 'AK',
+            'style'       => 'RPC',
+            'reqBodyType' => 'formData',
+            'bodyType'    => 'json',
         ]);
 
-        return ModifyAccountDescriptionResponse::fromMap($this->doRPCRequest('ModifyAccountDescription', '2015-01-01', 'HTTPS', 'POST', 'AK', 'json', $req, $runtime));
+        return ModifyAccountDescriptionResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
@@ -1907,11 +4591,50 @@ class Rkvstore extends OpenApiClient
     public function modifyAccountPasswordWithOptions($request, $runtime)
     {
         Utils::validateModel($request);
+        $query = [];
+        if (!Utils::isUnset($request->accountName)) {
+            $query['AccountName'] = $request->accountName;
+        }
+        if (!Utils::isUnset($request->instanceId)) {
+            $query['InstanceId'] = $request->instanceId;
+        }
+        if (!Utils::isUnset($request->newAccountPassword)) {
+            $query['NewAccountPassword'] = $request->newAccountPassword;
+        }
+        if (!Utils::isUnset($request->oldAccountPassword)) {
+            $query['OldAccountPassword'] = $request->oldAccountPassword;
+        }
+        if (!Utils::isUnset($request->ownerAccount)) {
+            $query['OwnerAccount'] = $request->ownerAccount;
+        }
+        if (!Utils::isUnset($request->ownerId)) {
+            $query['OwnerId'] = $request->ownerId;
+        }
+        if (!Utils::isUnset($request->resourceOwnerAccount)) {
+            $query['ResourceOwnerAccount'] = $request->resourceOwnerAccount;
+        }
+        if (!Utils::isUnset($request->resourceOwnerId)) {
+            $query['ResourceOwnerId'] = $request->resourceOwnerId;
+        }
+        if (!Utils::isUnset($request->securityToken)) {
+            $query['SecurityToken'] = $request->securityToken;
+        }
         $req = new OpenApiRequest([
-            'body' => Utils::toMap($request),
+            'query' => OpenApiUtilClient::query($query),
+        ]);
+        $params = new Params([
+            'action'      => 'ModifyAccountPassword',
+            'version'     => '2015-01-01',
+            'protocol'    => 'HTTPS',
+            'pathname'    => '/',
+            'method'      => 'POST',
+            'authType'    => 'AK',
+            'style'       => 'RPC',
+            'reqBodyType' => 'formData',
+            'bodyType'    => 'json',
         ]);
 
-        return ModifyAccountPasswordResponse::fromMap($this->doRPCRequest('ModifyAccountPassword', '2015-01-01', 'HTTPS', 'POST', 'AK', 'json', $req, $runtime));
+        return ModifyAccountPasswordResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
@@ -1935,11 +4658,44 @@ class Rkvstore extends OpenApiClient
     public function modifyActiveOperationTaskWithOptions($request, $runtime)
     {
         Utils::validateModel($request);
+        $query = [];
+        if (!Utils::isUnset($request->ids)) {
+            $query['Ids'] = $request->ids;
+        }
+        if (!Utils::isUnset($request->ownerAccount)) {
+            $query['OwnerAccount'] = $request->ownerAccount;
+        }
+        if (!Utils::isUnset($request->ownerId)) {
+            $query['OwnerId'] = $request->ownerId;
+        }
+        if (!Utils::isUnset($request->resourceOwnerAccount)) {
+            $query['ResourceOwnerAccount'] = $request->resourceOwnerAccount;
+        }
+        if (!Utils::isUnset($request->resourceOwnerId)) {
+            $query['ResourceOwnerId'] = $request->resourceOwnerId;
+        }
+        if (!Utils::isUnset($request->securityToken)) {
+            $query['SecurityToken'] = $request->securityToken;
+        }
+        if (!Utils::isUnset($request->switchTime)) {
+            $query['SwitchTime'] = $request->switchTime;
+        }
         $req = new OpenApiRequest([
-            'body' => Utils::toMap($request),
+            'query' => OpenApiUtilClient::query($query),
+        ]);
+        $params = new Params([
+            'action'      => 'ModifyActiveOperationTask',
+            'version'     => '2015-01-01',
+            'protocol'    => 'HTTPS',
+            'pathname'    => '/',
+            'method'      => 'POST',
+            'authType'    => 'AK',
+            'style'       => 'RPC',
+            'reqBodyType' => 'formData',
+            'bodyType'    => 'json',
         ]);
 
-        return ModifyActiveOperationTaskResponse::fromMap($this->doRPCRequest('ModifyActiveOperationTask', '2015-01-01', 'HTTPS', 'POST', 'AK', 'json', $req, $runtime));
+        return ModifyActiveOperationTaskResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
@@ -1963,11 +4719,47 @@ class Rkvstore extends OpenApiClient
     public function modifyAuditLogConfigWithOptions($request, $runtime)
     {
         Utils::validateModel($request);
+        $query = [];
+        if (!Utils::isUnset($request->dbAudit)) {
+            $query['DbAudit'] = $request->dbAudit;
+        }
+        if (!Utils::isUnset($request->instanceId)) {
+            $query['InstanceId'] = $request->instanceId;
+        }
+        if (!Utils::isUnset($request->ownerAccount)) {
+            $query['OwnerAccount'] = $request->ownerAccount;
+        }
+        if (!Utils::isUnset($request->ownerId)) {
+            $query['OwnerId'] = $request->ownerId;
+        }
+        if (!Utils::isUnset($request->resourceOwnerAccount)) {
+            $query['ResourceOwnerAccount'] = $request->resourceOwnerAccount;
+        }
+        if (!Utils::isUnset($request->resourceOwnerId)) {
+            $query['ResourceOwnerId'] = $request->resourceOwnerId;
+        }
+        if (!Utils::isUnset($request->retention)) {
+            $query['Retention'] = $request->retention;
+        }
+        if (!Utils::isUnset($request->securityToken)) {
+            $query['SecurityToken'] = $request->securityToken;
+        }
         $req = new OpenApiRequest([
-            'body' => Utils::toMap($request),
+            'query' => OpenApiUtilClient::query($query),
+        ]);
+        $params = new Params([
+            'action'      => 'ModifyAuditLogConfig',
+            'version'     => '2015-01-01',
+            'protocol'    => 'HTTPS',
+            'pathname'    => '/',
+            'method'      => 'POST',
+            'authType'    => 'AK',
+            'style'       => 'RPC',
+            'reqBodyType' => 'formData',
+            'bodyType'    => 'json',
         ]);
 
-        return ModifyAuditLogConfigResponse::fromMap($this->doRPCRequest('ModifyAuditLogConfig', '2015-01-01', 'HTTPS', 'POST', 'AK', 'json', $req, $runtime));
+        return ModifyAuditLogConfigResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
@@ -1991,11 +4783,50 @@ class Rkvstore extends OpenApiClient
     public function modifyBackupPolicyWithOptions($request, $runtime)
     {
         Utils::validateModel($request);
+        $query = [];
+        if (!Utils::isUnset($request->enableBackupLog)) {
+            $query['EnableBackupLog'] = $request->enableBackupLog;
+        }
+        if (!Utils::isUnset($request->instanceId)) {
+            $query['InstanceId'] = $request->instanceId;
+        }
+        if (!Utils::isUnset($request->ownerAccount)) {
+            $query['OwnerAccount'] = $request->ownerAccount;
+        }
+        if (!Utils::isUnset($request->ownerId)) {
+            $query['OwnerId'] = $request->ownerId;
+        }
+        if (!Utils::isUnset($request->preferredBackupPeriod)) {
+            $query['PreferredBackupPeriod'] = $request->preferredBackupPeriod;
+        }
+        if (!Utils::isUnset($request->preferredBackupTime)) {
+            $query['PreferredBackupTime'] = $request->preferredBackupTime;
+        }
+        if (!Utils::isUnset($request->resourceOwnerAccount)) {
+            $query['ResourceOwnerAccount'] = $request->resourceOwnerAccount;
+        }
+        if (!Utils::isUnset($request->resourceOwnerId)) {
+            $query['ResourceOwnerId'] = $request->resourceOwnerId;
+        }
+        if (!Utils::isUnset($request->securityToken)) {
+            $query['SecurityToken'] = $request->securityToken;
+        }
         $req = new OpenApiRequest([
-            'body' => Utils::toMap($request),
+            'query' => OpenApiUtilClient::query($query),
+        ]);
+        $params = new Params([
+            'action'      => 'ModifyBackupPolicy',
+            'version'     => '2015-01-01',
+            'protocol'    => 'HTTPS',
+            'pathname'    => '/',
+            'method'      => 'POST',
+            'authType'    => 'AK',
+            'style'       => 'RPC',
+            'reqBodyType' => 'formData',
+            'bodyType'    => 'json',
         ]);
 
-        return ModifyBackupPolicyResponse::fromMap($this->doRPCRequest('ModifyBackupPolicy', '2015-01-01', 'HTTPS', 'POST', 'AK', 'json', $req, $runtime));
+        return ModifyBackupPolicyResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
@@ -2019,11 +4850,53 @@ class Rkvstore extends OpenApiClient
     public function modifyDBInstanceConnectionStringWithOptions($request, $runtime)
     {
         Utils::validateModel($request);
+        $query = [];
+        if (!Utils::isUnset($request->currentConnectionString)) {
+            $query['CurrentConnectionString'] = $request->currentConnectionString;
+        }
+        if (!Utils::isUnset($request->DBInstanceId)) {
+            $query['DBInstanceId'] = $request->DBInstanceId;
+        }
+        if (!Utils::isUnset($request->IPType)) {
+            $query['IPType'] = $request->IPType;
+        }
+        if (!Utils::isUnset($request->newConnectionString)) {
+            $query['NewConnectionString'] = $request->newConnectionString;
+        }
+        if (!Utils::isUnset($request->ownerAccount)) {
+            $query['OwnerAccount'] = $request->ownerAccount;
+        }
+        if (!Utils::isUnset($request->ownerId)) {
+            $query['OwnerId'] = $request->ownerId;
+        }
+        if (!Utils::isUnset($request->port)) {
+            $query['Port'] = $request->port;
+        }
+        if (!Utils::isUnset($request->resourceOwnerAccount)) {
+            $query['ResourceOwnerAccount'] = $request->resourceOwnerAccount;
+        }
+        if (!Utils::isUnset($request->resourceOwnerId)) {
+            $query['ResourceOwnerId'] = $request->resourceOwnerId;
+        }
+        if (!Utils::isUnset($request->securityToken)) {
+            $query['SecurityToken'] = $request->securityToken;
+        }
         $req = new OpenApiRequest([
-            'body' => Utils::toMap($request),
+            'query' => OpenApiUtilClient::query($query),
+        ]);
+        $params = new Params([
+            'action'      => 'ModifyDBInstanceConnectionString',
+            'version'     => '2015-01-01',
+            'protocol'    => 'HTTPS',
+            'pathname'    => '/',
+            'method'      => 'POST',
+            'authType'    => 'AK',
+            'style'       => 'RPC',
+            'reqBodyType' => 'formData',
+            'bodyType'    => 'json',
         ]);
 
-        return ModifyDBInstanceConnectionStringResponse::fromMap($this->doRPCRequest('ModifyDBInstanceConnectionString', '2015-01-01', 'HTTPS', 'POST', 'AK', 'json', $req, $runtime));
+        return ModifyDBInstanceConnectionStringResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
@@ -2047,11 +4920,50 @@ class Rkvstore extends OpenApiClient
     public function modifyInstanceAttributeWithOptions($request, $runtime)
     {
         Utils::validateModel($request);
+        $query = [];
+        if (!Utils::isUnset($request->instanceId)) {
+            $query['InstanceId'] = $request->instanceId;
+        }
+        if (!Utils::isUnset($request->instanceName)) {
+            $query['InstanceName'] = $request->instanceName;
+        }
+        if (!Utils::isUnset($request->instanceReleaseProtection)) {
+            $query['InstanceReleaseProtection'] = $request->instanceReleaseProtection;
+        }
+        if (!Utils::isUnset($request->newPassword)) {
+            $query['NewPassword'] = $request->newPassword;
+        }
+        if (!Utils::isUnset($request->ownerAccount)) {
+            $query['OwnerAccount'] = $request->ownerAccount;
+        }
+        if (!Utils::isUnset($request->ownerId)) {
+            $query['OwnerId'] = $request->ownerId;
+        }
+        if (!Utils::isUnset($request->resourceOwnerAccount)) {
+            $query['ResourceOwnerAccount'] = $request->resourceOwnerAccount;
+        }
+        if (!Utils::isUnset($request->resourceOwnerId)) {
+            $query['ResourceOwnerId'] = $request->resourceOwnerId;
+        }
+        if (!Utils::isUnset($request->securityToken)) {
+            $query['SecurityToken'] = $request->securityToken;
+        }
         $req = new OpenApiRequest([
-            'body' => Utils::toMap($request),
+            'query' => OpenApiUtilClient::query($query),
+        ]);
+        $params = new Params([
+            'action'      => 'ModifyInstanceAttribute',
+            'version'     => '2015-01-01',
+            'protocol'    => 'HTTPS',
+            'pathname'    => '/',
+            'method'      => 'POST',
+            'authType'    => 'AK',
+            'style'       => 'RPC',
+            'reqBodyType' => 'formData',
+            'bodyType'    => 'json',
         ]);
 
-        return ModifyInstanceAttributeResponse::fromMap($this->doRPCRequest('ModifyInstanceAttribute', '2015-01-01', 'HTTPS', 'POST', 'AK', 'json', $req, $runtime));
+        return ModifyInstanceAttributeResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
@@ -2075,11 +4987,47 @@ class Rkvstore extends OpenApiClient
     public function modifyInstanceAutoRenewalAttributeWithOptions($request, $runtime)
     {
         Utils::validateModel($request);
+        $query = [];
+        if (!Utils::isUnset($request->autoRenew)) {
+            $query['AutoRenew'] = $request->autoRenew;
+        }
+        if (!Utils::isUnset($request->DBInstanceId)) {
+            $query['DBInstanceId'] = $request->DBInstanceId;
+        }
+        if (!Utils::isUnset($request->duration)) {
+            $query['Duration'] = $request->duration;
+        }
+        if (!Utils::isUnset($request->ownerAccount)) {
+            $query['OwnerAccount'] = $request->ownerAccount;
+        }
+        if (!Utils::isUnset($request->ownerId)) {
+            $query['OwnerId'] = $request->ownerId;
+        }
+        if (!Utils::isUnset($request->resourceOwnerAccount)) {
+            $query['ResourceOwnerAccount'] = $request->resourceOwnerAccount;
+        }
+        if (!Utils::isUnset($request->resourceOwnerId)) {
+            $query['ResourceOwnerId'] = $request->resourceOwnerId;
+        }
+        if (!Utils::isUnset($request->securityToken)) {
+            $query['SecurityToken'] = $request->securityToken;
+        }
         $req = new OpenApiRequest([
-            'body' => Utils::toMap($request),
+            'query' => OpenApiUtilClient::query($query),
+        ]);
+        $params = new Params([
+            'action'      => 'ModifyInstanceAutoRenewalAttribute',
+            'version'     => '2015-01-01',
+            'protocol'    => 'HTTPS',
+            'pathname'    => '/',
+            'method'      => 'POST',
+            'authType'    => 'AK',
+            'style'       => 'RPC',
+            'reqBodyType' => 'formData',
+            'bodyType'    => 'json',
         ]);
 
-        return ModifyInstanceAutoRenewalAttributeResponse::fromMap($this->doRPCRequest('ModifyInstanceAutoRenewalAttribute', '2015-01-01', 'HTTPS', 'POST', 'AK', 'json', $req, $runtime));
+        return ModifyInstanceAutoRenewalAttributeResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
@@ -2103,11 +5051,44 @@ class Rkvstore extends OpenApiClient
     public function modifyInstanceConfigWithOptions($request, $runtime)
     {
         Utils::validateModel($request);
+        $query = [];
+        if (!Utils::isUnset($request->config)) {
+            $query['Config'] = $request->config;
+        }
+        if (!Utils::isUnset($request->instanceId)) {
+            $query['InstanceId'] = $request->instanceId;
+        }
+        if (!Utils::isUnset($request->ownerAccount)) {
+            $query['OwnerAccount'] = $request->ownerAccount;
+        }
+        if (!Utils::isUnset($request->ownerId)) {
+            $query['OwnerId'] = $request->ownerId;
+        }
+        if (!Utils::isUnset($request->resourceOwnerAccount)) {
+            $query['ResourceOwnerAccount'] = $request->resourceOwnerAccount;
+        }
+        if (!Utils::isUnset($request->resourceOwnerId)) {
+            $query['ResourceOwnerId'] = $request->resourceOwnerId;
+        }
+        if (!Utils::isUnset($request->securityToken)) {
+            $query['SecurityToken'] = $request->securityToken;
+        }
         $req = new OpenApiRequest([
-            'body' => Utils::toMap($request),
+            'query' => OpenApiUtilClient::query($query),
+        ]);
+        $params = new Params([
+            'action'      => 'ModifyInstanceConfig',
+            'version'     => '2015-01-01',
+            'protocol'    => 'HTTPS',
+            'pathname'    => '/',
+            'method'      => 'POST',
+            'authType'    => 'AK',
+            'style'       => 'RPC',
+            'reqBodyType' => 'formData',
+            'bodyType'    => 'json',
         ]);
 
-        return ModifyInstanceConfigResponse::fromMap($this->doRPCRequest('ModifyInstanceConfig', '2015-01-01', 'HTTPS', 'POST', 'AK', 'json', $req, $runtime));
+        return ModifyInstanceConfigResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
@@ -2131,11 +5112,47 @@ class Rkvstore extends OpenApiClient
     public function modifyInstanceMaintainTimeWithOptions($request, $runtime)
     {
         Utils::validateModel($request);
+        $query = [];
+        if (!Utils::isUnset($request->instanceId)) {
+            $query['InstanceId'] = $request->instanceId;
+        }
+        if (!Utils::isUnset($request->maintainEndTime)) {
+            $query['MaintainEndTime'] = $request->maintainEndTime;
+        }
+        if (!Utils::isUnset($request->maintainStartTime)) {
+            $query['MaintainStartTime'] = $request->maintainStartTime;
+        }
+        if (!Utils::isUnset($request->ownerAccount)) {
+            $query['OwnerAccount'] = $request->ownerAccount;
+        }
+        if (!Utils::isUnset($request->ownerId)) {
+            $query['OwnerId'] = $request->ownerId;
+        }
+        if (!Utils::isUnset($request->resourceOwnerAccount)) {
+            $query['ResourceOwnerAccount'] = $request->resourceOwnerAccount;
+        }
+        if (!Utils::isUnset($request->resourceOwnerId)) {
+            $query['ResourceOwnerId'] = $request->resourceOwnerId;
+        }
+        if (!Utils::isUnset($request->securityToken)) {
+            $query['SecurityToken'] = $request->securityToken;
+        }
         $req = new OpenApiRequest([
-            'body' => Utils::toMap($request),
+            'query' => OpenApiUtilClient::query($query),
+        ]);
+        $params = new Params([
+            'action'      => 'ModifyInstanceMaintainTime',
+            'version'     => '2015-01-01',
+            'protocol'    => 'HTTPS',
+            'pathname'    => '/',
+            'method'      => 'POST',
+            'authType'    => 'AK',
+            'style'       => 'RPC',
+            'reqBodyType' => 'formData',
+            'bodyType'    => 'json',
         ]);
 
-        return ModifyInstanceMaintainTimeResponse::fromMap($this->doRPCRequest('ModifyInstanceMaintainTime', '2015-01-01', 'HTTPS', 'POST', 'AK', 'json', $req, $runtime));
+        return ModifyInstanceMaintainTimeResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
@@ -2159,11 +5176,47 @@ class Rkvstore extends OpenApiClient
     public function modifyInstanceMajorVersionWithOptions($request, $runtime)
     {
         Utils::validateModel($request);
+        $query = [];
+        if (!Utils::isUnset($request->effectiveTime)) {
+            $query['EffectiveTime'] = $request->effectiveTime;
+        }
+        if (!Utils::isUnset($request->instanceId)) {
+            $query['InstanceId'] = $request->instanceId;
+        }
+        if (!Utils::isUnset($request->majorVersion)) {
+            $query['MajorVersion'] = $request->majorVersion;
+        }
+        if (!Utils::isUnset($request->ownerAccount)) {
+            $query['OwnerAccount'] = $request->ownerAccount;
+        }
+        if (!Utils::isUnset($request->ownerId)) {
+            $query['OwnerId'] = $request->ownerId;
+        }
+        if (!Utils::isUnset($request->resourceOwnerAccount)) {
+            $query['ResourceOwnerAccount'] = $request->resourceOwnerAccount;
+        }
+        if (!Utils::isUnset($request->resourceOwnerId)) {
+            $query['ResourceOwnerId'] = $request->resourceOwnerId;
+        }
+        if (!Utils::isUnset($request->securityToken)) {
+            $query['SecurityToken'] = $request->securityToken;
+        }
         $req = new OpenApiRequest([
-            'body' => Utils::toMap($request),
+            'query' => OpenApiUtilClient::query($query),
+        ]);
+        $params = new Params([
+            'action'      => 'ModifyInstanceMajorVersion',
+            'version'     => '2015-01-01',
+            'protocol'    => 'HTTPS',
+            'pathname'    => '/',
+            'method'      => 'POST',
+            'authType'    => 'AK',
+            'style'       => 'RPC',
+            'reqBodyType' => 'formData',
+            'bodyType'    => 'json',
         ]);
 
-        return ModifyInstanceMajorVersionResponse::fromMap($this->doRPCRequest('ModifyInstanceMajorVersion', '2015-01-01', 'HTTPS', 'POST', 'AK', 'json', $req, $runtime));
+        return ModifyInstanceMajorVersionResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
@@ -2187,11 +5240,47 @@ class Rkvstore extends OpenApiClient
     public function modifyInstanceMinorVersionWithOptions($request, $runtime)
     {
         Utils::validateModel($request);
+        $query = [];
+        if (!Utils::isUnset($request->effectiveTime)) {
+            $query['EffectiveTime'] = $request->effectiveTime;
+        }
+        if (!Utils::isUnset($request->instanceId)) {
+            $query['InstanceId'] = $request->instanceId;
+        }
+        if (!Utils::isUnset($request->minorversion)) {
+            $query['Minorversion'] = $request->minorversion;
+        }
+        if (!Utils::isUnset($request->ownerAccount)) {
+            $query['OwnerAccount'] = $request->ownerAccount;
+        }
+        if (!Utils::isUnset($request->ownerId)) {
+            $query['OwnerId'] = $request->ownerId;
+        }
+        if (!Utils::isUnset($request->resourceOwnerAccount)) {
+            $query['ResourceOwnerAccount'] = $request->resourceOwnerAccount;
+        }
+        if (!Utils::isUnset($request->resourceOwnerId)) {
+            $query['ResourceOwnerId'] = $request->resourceOwnerId;
+        }
+        if (!Utils::isUnset($request->securityToken)) {
+            $query['SecurityToken'] = $request->securityToken;
+        }
         $req = new OpenApiRequest([
-            'body' => Utils::toMap($request),
+            'query' => OpenApiUtilClient::query($query),
+        ]);
+        $params = new Params([
+            'action'      => 'ModifyInstanceMinorVersion',
+            'version'     => '2015-01-01',
+            'protocol'    => 'HTTPS',
+            'pathname'    => '/',
+            'method'      => 'POST',
+            'authType'    => 'AK',
+            'style'       => 'RPC',
+            'reqBodyType' => 'formData',
+            'bodyType'    => 'json',
         ]);
 
-        return ModifyInstanceMinorVersionResponse::fromMap($this->doRPCRequest('ModifyInstanceMinorVersion', '2015-01-01', 'HTTPS', 'POST', 'AK', 'json', $req, $runtime));
+        return ModifyInstanceMinorVersionResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
@@ -2215,11 +5304,47 @@ class Rkvstore extends OpenApiClient
     public function modifyInstanceNetExpireTimeWithOptions($request, $runtime)
     {
         Utils::validateModel($request);
+        $query = [];
+        if (!Utils::isUnset($request->classicExpiredDays)) {
+            $query['ClassicExpiredDays'] = $request->classicExpiredDays;
+        }
+        if (!Utils::isUnset($request->connectionString)) {
+            $query['ConnectionString'] = $request->connectionString;
+        }
+        if (!Utils::isUnset($request->instanceId)) {
+            $query['InstanceId'] = $request->instanceId;
+        }
+        if (!Utils::isUnset($request->ownerAccount)) {
+            $query['OwnerAccount'] = $request->ownerAccount;
+        }
+        if (!Utils::isUnset($request->ownerId)) {
+            $query['OwnerId'] = $request->ownerId;
+        }
+        if (!Utils::isUnset($request->resourceOwnerAccount)) {
+            $query['ResourceOwnerAccount'] = $request->resourceOwnerAccount;
+        }
+        if (!Utils::isUnset($request->resourceOwnerId)) {
+            $query['ResourceOwnerId'] = $request->resourceOwnerId;
+        }
+        if (!Utils::isUnset($request->securityToken)) {
+            $query['SecurityToken'] = $request->securityToken;
+        }
         $req = new OpenApiRequest([
-            'body' => Utils::toMap($request),
+            'query' => OpenApiUtilClient::query($query),
+        ]);
+        $params = new Params([
+            'action'      => 'ModifyInstanceNetExpireTime',
+            'version'     => '2015-01-01',
+            'protocol'    => 'HTTPS',
+            'pathname'    => '/',
+            'method'      => 'POST',
+            'authType'    => 'AK',
+            'style'       => 'RPC',
+            'reqBodyType' => 'formData',
+            'bodyType'    => 'json',
         ]);
 
-        return ModifyInstanceNetExpireTimeResponse::fromMap($this->doRPCRequest('ModifyInstanceNetExpireTime', '2015-01-01', 'HTTPS', 'POST', 'AK', 'json', $req, $runtime));
+        return ModifyInstanceNetExpireTimeResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
@@ -2235,34 +5360,6 @@ class Rkvstore extends OpenApiClient
     }
 
     /**
-     * @param ModifyInstanceSpecRequest $request
-     * @param RuntimeOptions            $runtime
-     *
-     * @return ModifyInstanceSpecResponse
-     */
-    public function modifyInstanceSpecWithOptions($request, $runtime)
-    {
-        Utils::validateModel($request);
-        $req = new OpenApiRequest([
-            'body' => Utils::toMap($request),
-        ]);
-
-        return ModifyInstanceSpecResponse::fromMap($this->doRPCRequest('ModifyInstanceSpec', '2015-01-01', 'HTTPS', 'POST', 'AK', 'json', $req, $runtime));
-    }
-
-    /**
-     * @param ModifyInstanceSpecRequest $request
-     *
-     * @return ModifyInstanceSpecResponse
-     */
-    public function modifyInstanceSpec($request)
-    {
-        $runtime = new RuntimeOptions([]);
-
-        return $this->modifyInstanceSpecWithOptions($request, $runtime);
-    }
-
-    /**
      * @param ModifyInstanceSSLRequest $request
      * @param RuntimeOptions           $runtime
      *
@@ -2271,11 +5368,44 @@ class Rkvstore extends OpenApiClient
     public function modifyInstanceSSLWithOptions($request, $runtime)
     {
         Utils::validateModel($request);
+        $query = [];
+        if (!Utils::isUnset($request->instanceId)) {
+            $query['InstanceId'] = $request->instanceId;
+        }
+        if (!Utils::isUnset($request->ownerAccount)) {
+            $query['OwnerAccount'] = $request->ownerAccount;
+        }
+        if (!Utils::isUnset($request->ownerId)) {
+            $query['OwnerId'] = $request->ownerId;
+        }
+        if (!Utils::isUnset($request->resourceOwnerAccount)) {
+            $query['ResourceOwnerAccount'] = $request->resourceOwnerAccount;
+        }
+        if (!Utils::isUnset($request->resourceOwnerId)) {
+            $query['ResourceOwnerId'] = $request->resourceOwnerId;
+        }
+        if (!Utils::isUnset($request->SSLEnabled)) {
+            $query['SSLEnabled'] = $request->SSLEnabled;
+        }
+        if (!Utils::isUnset($request->securityToken)) {
+            $query['SecurityToken'] = $request->securityToken;
+        }
         $req = new OpenApiRequest([
-            'body' => Utils::toMap($request),
+            'query' => OpenApiUtilClient::query($query),
+        ]);
+        $params = new Params([
+            'action'      => 'ModifyInstanceSSL',
+            'version'     => '2015-01-01',
+            'protocol'    => 'HTTPS',
+            'pathname'    => '/',
+            'method'      => 'POST',
+            'authType'    => 'AK',
+            'style'       => 'RPC',
+            'reqBodyType' => 'formData',
+            'bodyType'    => 'json',
         ]);
 
-        return ModifyInstanceSSLResponse::fromMap($this->doRPCRequest('ModifyInstanceSSL', '2015-01-01', 'HTTPS', 'POST', 'AK', 'json', $req, $runtime));
+        return ModifyInstanceSSLResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
@@ -2291,6 +5421,167 @@ class Rkvstore extends OpenApiClient
     }
 
     /**
+     * @param ModifyInstanceSpecRequest $request
+     * @param RuntimeOptions            $runtime
+     *
+     * @return ModifyInstanceSpecResponse
+     */
+    public function modifyInstanceSpecWithOptions($request, $runtime)
+    {
+        Utils::validateModel($request);
+        $query = [];
+        if (!Utils::isUnset($request->autoPay)) {
+            $query['AutoPay'] = $request->autoPay;
+        }
+        if (!Utils::isUnset($request->businessInfo)) {
+            $query['BusinessInfo'] = $request->businessInfo;
+        }
+        if (!Utils::isUnset($request->clientToken)) {
+            $query['ClientToken'] = $request->clientToken;
+        }
+        if (!Utils::isUnset($request->couponNo)) {
+            $query['CouponNo'] = $request->couponNo;
+        }
+        if (!Utils::isUnset($request->effectiveTime)) {
+            $query['EffectiveTime'] = $request->effectiveTime;
+        }
+        if (!Utils::isUnset($request->forceUpgrade)) {
+            $query['ForceUpgrade'] = $request->forceUpgrade;
+        }
+        if (!Utils::isUnset($request->instanceClass)) {
+            $query['InstanceClass'] = $request->instanceClass;
+        }
+        if (!Utils::isUnset($request->instanceId)) {
+            $query['InstanceId'] = $request->instanceId;
+        }
+        if (!Utils::isUnset($request->majorVersion)) {
+            $query['MajorVersion'] = $request->majorVersion;
+        }
+        if (!Utils::isUnset($request->orderType)) {
+            $query['OrderType'] = $request->orderType;
+        }
+        if (!Utils::isUnset($request->ownerAccount)) {
+            $query['OwnerAccount'] = $request->ownerAccount;
+        }
+        if (!Utils::isUnset($request->ownerId)) {
+            $query['OwnerId'] = $request->ownerId;
+        }
+        if (!Utils::isUnset($request->regionId)) {
+            $query['RegionId'] = $request->regionId;
+        }
+        if (!Utils::isUnset($request->resourceOwnerAccount)) {
+            $query['ResourceOwnerAccount'] = $request->resourceOwnerAccount;
+        }
+        if (!Utils::isUnset($request->resourceOwnerId)) {
+            $query['ResourceOwnerId'] = $request->resourceOwnerId;
+        }
+        if (!Utils::isUnset($request->securityToken)) {
+            $query['SecurityToken'] = $request->securityToken;
+        }
+        if (!Utils::isUnset($request->sourceBiz)) {
+            $query['SourceBiz'] = $request->sourceBiz;
+        }
+        $req = new OpenApiRequest([
+            'query' => OpenApiUtilClient::query($query),
+        ]);
+        $params = new Params([
+            'action'      => 'ModifyInstanceSpec',
+            'version'     => '2015-01-01',
+            'protocol'    => 'HTTPS',
+            'pathname'    => '/',
+            'method'      => 'POST',
+            'authType'    => 'AK',
+            'style'       => 'RPC',
+            'reqBodyType' => 'formData',
+            'bodyType'    => 'json',
+        ]);
+
+        return ModifyInstanceSpecResponse::fromMap($this->callApi($params, $req, $runtime));
+    }
+
+    /**
+     * @param ModifyInstanceSpecRequest $request
+     *
+     * @return ModifyInstanceSpecResponse
+     */
+    public function modifyInstanceSpec($request)
+    {
+        $runtime = new RuntimeOptions([]);
+
+        return $this->modifyInstanceSpecWithOptions($request, $runtime);
+    }
+
+    /**
+     * @param ModifyInstanceTDERequest $request
+     * @param RuntimeOptions           $runtime
+     *
+     * @return ModifyInstanceTDEResponse
+     */
+    public function modifyInstanceTDEWithOptions($request, $runtime)
+    {
+        Utils::validateModel($request);
+        $query = [];
+        if (!Utils::isUnset($request->encryptionKey)) {
+            $query['EncryptionKey'] = $request->encryptionKey;
+        }
+        if (!Utils::isUnset($request->encryptionName)) {
+            $query['EncryptionName'] = $request->encryptionName;
+        }
+        if (!Utils::isUnset($request->instanceId)) {
+            $query['InstanceId'] = $request->instanceId;
+        }
+        if (!Utils::isUnset($request->ownerAccount)) {
+            $query['OwnerAccount'] = $request->ownerAccount;
+        }
+        if (!Utils::isUnset($request->ownerId)) {
+            $query['OwnerId'] = $request->ownerId;
+        }
+        if (!Utils::isUnset($request->resourceOwnerAccount)) {
+            $query['ResourceOwnerAccount'] = $request->resourceOwnerAccount;
+        }
+        if (!Utils::isUnset($request->resourceOwnerId)) {
+            $query['ResourceOwnerId'] = $request->resourceOwnerId;
+        }
+        if (!Utils::isUnset($request->roleArn)) {
+            $query['RoleArn'] = $request->roleArn;
+        }
+        if (!Utils::isUnset($request->securityToken)) {
+            $query['SecurityToken'] = $request->securityToken;
+        }
+        if (!Utils::isUnset($request->TDEStatus)) {
+            $query['TDEStatus'] = $request->TDEStatus;
+        }
+        $req = new OpenApiRequest([
+            'query' => OpenApiUtilClient::query($query),
+        ]);
+        $params = new Params([
+            'action'      => 'ModifyInstanceTDE',
+            'version'     => '2015-01-01',
+            'protocol'    => 'HTTPS',
+            'pathname'    => '/',
+            'method'      => 'POST',
+            'authType'    => 'AK',
+            'style'       => 'RPC',
+            'reqBodyType' => 'formData',
+            'bodyType'    => 'json',
+        ]);
+
+        return ModifyInstanceTDEResponse::fromMap($this->callApi($params, $req, $runtime));
+    }
+
+    /**
+     * @param ModifyInstanceTDERequest $request
+     *
+     * @return ModifyInstanceTDEResponse
+     */
+    public function modifyInstanceTDE($request)
+    {
+        $runtime = new RuntimeOptions([]);
+
+        return $this->modifyInstanceTDEWithOptions($request, $runtime);
+    }
+
+    /**
      * @param ModifyInstanceVpcAuthModeRequest $request
      * @param RuntimeOptions                   $runtime
      *
@@ -2299,11 +5590,44 @@ class Rkvstore extends OpenApiClient
     public function modifyInstanceVpcAuthModeWithOptions($request, $runtime)
     {
         Utils::validateModel($request);
+        $query = [];
+        if (!Utils::isUnset($request->instanceId)) {
+            $query['InstanceId'] = $request->instanceId;
+        }
+        if (!Utils::isUnset($request->ownerAccount)) {
+            $query['OwnerAccount'] = $request->ownerAccount;
+        }
+        if (!Utils::isUnset($request->ownerId)) {
+            $query['OwnerId'] = $request->ownerId;
+        }
+        if (!Utils::isUnset($request->resourceOwnerAccount)) {
+            $query['ResourceOwnerAccount'] = $request->resourceOwnerAccount;
+        }
+        if (!Utils::isUnset($request->resourceOwnerId)) {
+            $query['ResourceOwnerId'] = $request->resourceOwnerId;
+        }
+        if (!Utils::isUnset($request->securityToken)) {
+            $query['SecurityToken'] = $request->securityToken;
+        }
+        if (!Utils::isUnset($request->vpcAuthMode)) {
+            $query['VpcAuthMode'] = $request->vpcAuthMode;
+        }
         $req = new OpenApiRequest([
-            'body' => Utils::toMap($request),
+            'query' => OpenApiUtilClient::query($query),
+        ]);
+        $params = new Params([
+            'action'      => 'ModifyInstanceVpcAuthMode',
+            'version'     => '2015-01-01',
+            'protocol'    => 'HTTPS',
+            'pathname'    => '/',
+            'method'      => 'POST',
+            'authType'    => 'AK',
+            'style'       => 'RPC',
+            'reqBodyType' => 'formData',
+            'bodyType'    => 'json',
         ]);
 
-        return ModifyInstanceVpcAuthModeResponse::fromMap($this->doRPCRequest('ModifyInstanceVpcAuthMode', '2015-01-01', 'HTTPS', 'POST', 'AK', 'json', $req, $runtime));
+        return ModifyInstanceVpcAuthModeResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
@@ -2327,11 +5651,47 @@ class Rkvstore extends OpenApiClient
     public function modifyIntranetAttributeWithOptions($request, $runtime)
     {
         Utils::validateModel($request);
+        $query = [];
+        if (!Utils::isUnset($request->bandWidth)) {
+            $query['BandWidth'] = $request->bandWidth;
+        }
+        if (!Utils::isUnset($request->instanceId)) {
+            $query['InstanceId'] = $request->instanceId;
+        }
+        if (!Utils::isUnset($request->nodeId)) {
+            $query['NodeId'] = $request->nodeId;
+        }
+        if (!Utils::isUnset($request->ownerAccount)) {
+            $query['OwnerAccount'] = $request->ownerAccount;
+        }
+        if (!Utils::isUnset($request->ownerId)) {
+            $query['OwnerId'] = $request->ownerId;
+        }
+        if (!Utils::isUnset($request->resourceOwnerAccount)) {
+            $query['ResourceOwnerAccount'] = $request->resourceOwnerAccount;
+        }
+        if (!Utils::isUnset($request->resourceOwnerId)) {
+            $query['ResourceOwnerId'] = $request->resourceOwnerId;
+        }
+        if (!Utils::isUnset($request->securityToken)) {
+            $query['SecurityToken'] = $request->securityToken;
+        }
         $req = new OpenApiRequest([
-            'body' => Utils::toMap($request),
+            'query' => OpenApiUtilClient::query($query),
+        ]);
+        $params = new Params([
+            'action'      => 'ModifyIntranetAttribute',
+            'version'     => '2015-01-01',
+            'protocol'    => 'HTTPS',
+            'pathname'    => '/',
+            'method'      => 'POST',
+            'authType'    => 'AK',
+            'style'       => 'RPC',
+            'reqBodyType' => 'formData',
+            'bodyType'    => 'json',
         ]);
 
-        return ModifyIntranetAttributeResponse::fromMap($this->doRPCRequest('ModifyIntranetAttribute', '2015-01-01', 'HTTPS', 'POST', 'AK', 'json', $req, $runtime));
+        return ModifyIntranetAttributeResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
@@ -2355,11 +5715,62 @@ class Rkvstore extends OpenApiClient
     public function modifyNodeSpecWithOptions($request, $runtime)
     {
         Utils::validateModel($request);
+        $query = [];
+        if (!Utils::isUnset($request->autoPay)) {
+            $query['AutoPay'] = $request->autoPay;
+        }
+        if (!Utils::isUnset($request->businessInfo)) {
+            $query['BusinessInfo'] = $request->businessInfo;
+        }
+        if (!Utils::isUnset($request->couponNo)) {
+            $query['CouponNo'] = $request->couponNo;
+        }
+        if (!Utils::isUnset($request->instanceClass)) {
+            $query['InstanceClass'] = $request->instanceClass;
+        }
+        if (!Utils::isUnset($request->instanceId)) {
+            $query['InstanceId'] = $request->instanceId;
+        }
+        if (!Utils::isUnset($request->nodeId)) {
+            $query['NodeId'] = $request->nodeId;
+        }
+        if (!Utils::isUnset($request->orderType)) {
+            $query['OrderType'] = $request->orderType;
+        }
+        if (!Utils::isUnset($request->ownerAccount)) {
+            $query['OwnerAccount'] = $request->ownerAccount;
+        }
+        if (!Utils::isUnset($request->ownerId)) {
+            $query['OwnerId'] = $request->ownerId;
+        }
+        if (!Utils::isUnset($request->resourceOwnerAccount)) {
+            $query['ResourceOwnerAccount'] = $request->resourceOwnerAccount;
+        }
+        if (!Utils::isUnset($request->resourceOwnerId)) {
+            $query['ResourceOwnerId'] = $request->resourceOwnerId;
+        }
+        if (!Utils::isUnset($request->securityToken)) {
+            $query['SecurityToken'] = $request->securityToken;
+        }
+        if (!Utils::isUnset($request->switchTimeMode)) {
+            $query['SwitchTimeMode'] = $request->switchTimeMode;
+        }
         $req = new OpenApiRequest([
-            'body' => Utils::toMap($request),
+            'query' => OpenApiUtilClient::query($query),
+        ]);
+        $params = new Params([
+            'action'      => 'ModifyNodeSpec',
+            'version'     => '2015-01-01',
+            'protocol'    => 'HTTPS',
+            'pathname'    => '/',
+            'method'      => 'POST',
+            'authType'    => 'AK',
+            'style'       => 'RPC',
+            'reqBodyType' => 'formData',
+            'bodyType'    => 'json',
         ]);
 
-        return ModifyNodeSpecResponse::fromMap($this->doRPCRequest('ModifyNodeSpec', '2015-01-01', 'HTTPS', 'POST', 'AK', 'json', $req, $runtime));
+        return ModifyNodeSpecResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
@@ -2383,11 +5794,47 @@ class Rkvstore extends OpenApiClient
     public function modifyResourceGroupWithOptions($request, $runtime)
     {
         Utils::validateModel($request);
+        $query = [];
+        if (!Utils::isUnset($request->clientToken)) {
+            $query['ClientToken'] = $request->clientToken;
+        }
+        if (!Utils::isUnset($request->instanceId)) {
+            $query['InstanceId'] = $request->instanceId;
+        }
+        if (!Utils::isUnset($request->ownerAccount)) {
+            $query['OwnerAccount'] = $request->ownerAccount;
+        }
+        if (!Utils::isUnset($request->ownerId)) {
+            $query['OwnerId'] = $request->ownerId;
+        }
+        if (!Utils::isUnset($request->regionId)) {
+            $query['RegionId'] = $request->regionId;
+        }
+        if (!Utils::isUnset($request->resourceGroupId)) {
+            $query['ResourceGroupId'] = $request->resourceGroupId;
+        }
+        if (!Utils::isUnset($request->resourceOwnerAccount)) {
+            $query['ResourceOwnerAccount'] = $request->resourceOwnerAccount;
+        }
+        if (!Utils::isUnset($request->resourceOwnerId)) {
+            $query['ResourceOwnerId'] = $request->resourceOwnerId;
+        }
         $req = new OpenApiRequest([
-            'body' => Utils::toMap($request),
+            'query' => OpenApiUtilClient::query($query),
+        ]);
+        $params = new Params([
+            'action'      => 'ModifyResourceGroup',
+            'version'     => '2015-01-01',
+            'protocol'    => 'HTTPS',
+            'pathname'    => '/',
+            'method'      => 'POST',
+            'authType'    => 'AK',
+            'style'       => 'RPC',
+            'reqBodyType' => 'formData',
+            'bodyType'    => 'json',
         ]);
 
-        return ModifyResourceGroupResponse::fromMap($this->doRPCRequest('ModifyResourceGroup', '2015-01-01', 'HTTPS', 'POST', 'AK', 'json', $req, $runtime));
+        return ModifyResourceGroupResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
@@ -2411,11 +5858,44 @@ class Rkvstore extends OpenApiClient
     public function modifySecurityGroupConfigurationWithOptions($request, $runtime)
     {
         Utils::validateModel($request);
+        $query = [];
+        if (!Utils::isUnset($request->DBInstanceId)) {
+            $query['DBInstanceId'] = $request->DBInstanceId;
+        }
+        if (!Utils::isUnset($request->ownerAccount)) {
+            $query['OwnerAccount'] = $request->ownerAccount;
+        }
+        if (!Utils::isUnset($request->ownerId)) {
+            $query['OwnerId'] = $request->ownerId;
+        }
+        if (!Utils::isUnset($request->resourceOwnerAccount)) {
+            $query['ResourceOwnerAccount'] = $request->resourceOwnerAccount;
+        }
+        if (!Utils::isUnset($request->resourceOwnerId)) {
+            $query['ResourceOwnerId'] = $request->resourceOwnerId;
+        }
+        if (!Utils::isUnset($request->securityGroupId)) {
+            $query['SecurityGroupId'] = $request->securityGroupId;
+        }
+        if (!Utils::isUnset($request->securityToken)) {
+            $query['SecurityToken'] = $request->securityToken;
+        }
         $req = new OpenApiRequest([
-            'body' => Utils::toMap($request),
+            'query' => OpenApiUtilClient::query($query),
+        ]);
+        $params = new Params([
+            'action'      => 'ModifySecurityGroupConfiguration',
+            'version'     => '2015-01-01',
+            'protocol'    => 'HTTPS',
+            'pathname'    => '/',
+            'method'      => 'POST',
+            'authType'    => 'AK',
+            'style'       => 'RPC',
+            'reqBodyType' => 'formData',
+            'bodyType'    => 'json',
         ]);
 
-        return ModifySecurityGroupConfigurationResponse::fromMap($this->doRPCRequest('ModifySecurityGroupConfiguration', '2015-01-01', 'HTTPS', 'POST', 'AK', 'json', $req, $runtime));
+        return ModifySecurityGroupConfigurationResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
@@ -2439,11 +5919,53 @@ class Rkvstore extends OpenApiClient
     public function modifySecurityIpsWithOptions($request, $runtime)
     {
         Utils::validateModel($request);
+        $query = [];
+        if (!Utils::isUnset($request->instanceId)) {
+            $query['InstanceId'] = $request->instanceId;
+        }
+        if (!Utils::isUnset($request->modifyMode)) {
+            $query['ModifyMode'] = $request->modifyMode;
+        }
+        if (!Utils::isUnset($request->ownerAccount)) {
+            $query['OwnerAccount'] = $request->ownerAccount;
+        }
+        if (!Utils::isUnset($request->ownerId)) {
+            $query['OwnerId'] = $request->ownerId;
+        }
+        if (!Utils::isUnset($request->resourceOwnerAccount)) {
+            $query['ResourceOwnerAccount'] = $request->resourceOwnerAccount;
+        }
+        if (!Utils::isUnset($request->resourceOwnerId)) {
+            $query['ResourceOwnerId'] = $request->resourceOwnerId;
+        }
+        if (!Utils::isUnset($request->securityIpGroupAttribute)) {
+            $query['SecurityIpGroupAttribute'] = $request->securityIpGroupAttribute;
+        }
+        if (!Utils::isUnset($request->securityIpGroupName)) {
+            $query['SecurityIpGroupName'] = $request->securityIpGroupName;
+        }
+        if (!Utils::isUnset($request->securityIps)) {
+            $query['SecurityIps'] = $request->securityIps;
+        }
+        if (!Utils::isUnset($request->securityToken)) {
+            $query['SecurityToken'] = $request->securityToken;
+        }
         $req = new OpenApiRequest([
-            'body' => Utils::toMap($request),
+            'query' => OpenApiUtilClient::query($query),
+        ]);
+        $params = new Params([
+            'action'      => 'ModifySecurityIps',
+            'version'     => '2015-01-01',
+            'protocol'    => 'HTTPS',
+            'pathname'    => '/',
+            'method'      => 'POST',
+            'authType'    => 'AK',
+            'style'       => 'RPC',
+            'reqBodyType' => 'formData',
+            'bodyType'    => 'json',
         ]);
 
-        return ModifySecurityIpsResponse::fromMap($this->doRPCRequest('ModifySecurityIps', '2015-01-01', 'HTTPS', 'POST', 'AK', 'json', $req, $runtime));
+        return ModifySecurityIpsResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
@@ -2459,34 +5981,6 @@ class Rkvstore extends OpenApiClient
     }
 
     /**
-     * @param ModifyUserClusterHostRequest $request
-     * @param RuntimeOptions               $runtime
-     *
-     * @return ModifyUserClusterHostResponse
-     */
-    public function modifyUserClusterHostWithOptions($request, $runtime)
-    {
-        Utils::validateModel($request);
-        $req = new OpenApiRequest([
-            'body' => Utils::toMap($request),
-        ]);
-
-        return ModifyUserClusterHostResponse::fromMap($this->doRPCRequest('ModifyUserClusterHost', '2015-01-01', 'HTTPS', 'POST', 'AK', 'json', $req, $runtime));
-    }
-
-    /**
-     * @param ModifyUserClusterHostRequest $request
-     *
-     * @return ModifyUserClusterHostResponse
-     */
-    public function modifyUserClusterHost($request)
-    {
-        $runtime = new RuntimeOptions([]);
-
-        return $this->modifyUserClusterHostWithOptions($request, $runtime);
-    }
-
-    /**
      * @param ReleaseDirectConnectionRequest $request
      * @param RuntimeOptions                 $runtime
      *
@@ -2495,11 +5989,41 @@ class Rkvstore extends OpenApiClient
     public function releaseDirectConnectionWithOptions($request, $runtime)
     {
         Utils::validateModel($request);
+        $query = [];
+        if (!Utils::isUnset($request->instanceId)) {
+            $query['InstanceId'] = $request->instanceId;
+        }
+        if (!Utils::isUnset($request->ownerAccount)) {
+            $query['OwnerAccount'] = $request->ownerAccount;
+        }
+        if (!Utils::isUnset($request->ownerId)) {
+            $query['OwnerId'] = $request->ownerId;
+        }
+        if (!Utils::isUnset($request->resourceOwnerAccount)) {
+            $query['ResourceOwnerAccount'] = $request->resourceOwnerAccount;
+        }
+        if (!Utils::isUnset($request->resourceOwnerId)) {
+            $query['ResourceOwnerId'] = $request->resourceOwnerId;
+        }
+        if (!Utils::isUnset($request->securityToken)) {
+            $query['SecurityToken'] = $request->securityToken;
+        }
         $req = new OpenApiRequest([
-            'body' => Utils::toMap($request),
+            'query' => OpenApiUtilClient::query($query),
+        ]);
+        $params = new Params([
+            'action'      => 'ReleaseDirectConnection',
+            'version'     => '2015-01-01',
+            'protocol'    => 'HTTPS',
+            'pathname'    => '/',
+            'method'      => 'POST',
+            'authType'    => 'AK',
+            'style'       => 'RPC',
+            'reqBodyType' => 'formData',
+            'bodyType'    => 'json',
         ]);
 
-        return ReleaseDirectConnectionResponse::fromMap($this->doRPCRequest('ReleaseDirectConnection', '2015-01-01', 'HTTPS', 'POST', 'AK', 'json', $req, $runtime));
+        return ReleaseDirectConnectionResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
@@ -2523,11 +6047,44 @@ class Rkvstore extends OpenApiClient
     public function releaseInstancePublicConnectionWithOptions($request, $runtime)
     {
         Utils::validateModel($request);
+        $query = [];
+        if (!Utils::isUnset($request->currentConnectionString)) {
+            $query['CurrentConnectionString'] = $request->currentConnectionString;
+        }
+        if (!Utils::isUnset($request->instanceId)) {
+            $query['InstanceId'] = $request->instanceId;
+        }
+        if (!Utils::isUnset($request->ownerAccount)) {
+            $query['OwnerAccount'] = $request->ownerAccount;
+        }
+        if (!Utils::isUnset($request->ownerId)) {
+            $query['OwnerId'] = $request->ownerId;
+        }
+        if (!Utils::isUnset($request->resourceOwnerAccount)) {
+            $query['ResourceOwnerAccount'] = $request->resourceOwnerAccount;
+        }
+        if (!Utils::isUnset($request->resourceOwnerId)) {
+            $query['ResourceOwnerId'] = $request->resourceOwnerId;
+        }
+        if (!Utils::isUnset($request->securityToken)) {
+            $query['SecurityToken'] = $request->securityToken;
+        }
         $req = new OpenApiRequest([
-            'body' => Utils::toMap($request),
+            'query' => OpenApiUtilClient::query($query),
+        ]);
+        $params = new Params([
+            'action'      => 'ReleaseInstancePublicConnection',
+            'version'     => '2015-01-01',
+            'protocol'    => 'HTTPS',
+            'pathname'    => '/',
+            'method'      => 'POST',
+            'authType'    => 'AK',
+            'style'       => 'RPC',
+            'reqBodyType' => 'formData',
+            'bodyType'    => 'json',
         ]);
 
-        return ReleaseInstancePublicConnectionResponse::fromMap($this->doRPCRequest('ReleaseInstancePublicConnection', '2015-01-01', 'HTTPS', 'POST', 'AK', 'json', $req, $runtime));
+        return ReleaseInstancePublicConnectionResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
@@ -2543,6 +6100,134 @@ class Rkvstore extends OpenApiClient
     }
 
     /**
+     * @param RemoveSubInstanceRequest $request
+     * @param RuntimeOptions           $runtime
+     *
+     * @return RemoveSubInstanceResponse
+     */
+    public function removeSubInstanceWithOptions($request, $runtime)
+    {
+        Utils::validateModel($request);
+        $query = [];
+        if (!Utils::isUnset($request->instanceId)) {
+            $query['InstanceId'] = $request->instanceId;
+        }
+        if (!Utils::isUnset($request->ownerAccount)) {
+            $query['OwnerAccount'] = $request->ownerAccount;
+        }
+        if (!Utils::isUnset($request->ownerId)) {
+            $query['OwnerId'] = $request->ownerId;
+        }
+        if (!Utils::isUnset($request->resourceOwnerAccount)) {
+            $query['ResourceOwnerAccount'] = $request->resourceOwnerAccount;
+        }
+        if (!Utils::isUnset($request->resourceOwnerId)) {
+            $query['ResourceOwnerId'] = $request->resourceOwnerId;
+        }
+        if (!Utils::isUnset($request->securityToken)) {
+            $query['SecurityToken'] = $request->securityToken;
+        }
+        $req = new OpenApiRequest([
+            'query' => OpenApiUtilClient::query($query),
+        ]);
+        $params = new Params([
+            'action'      => 'RemoveSubInstance',
+            'version'     => '2015-01-01',
+            'protocol'    => 'HTTPS',
+            'pathname'    => '/',
+            'method'      => 'POST',
+            'authType'    => 'AK',
+            'style'       => 'RPC',
+            'reqBodyType' => 'formData',
+            'bodyType'    => 'json',
+        ]);
+
+        return RemoveSubInstanceResponse::fromMap($this->callApi($params, $req, $runtime));
+    }
+
+    /**
+     * @param RemoveSubInstanceRequest $request
+     *
+     * @return RemoveSubInstanceResponse
+     */
+    public function removeSubInstance($request)
+    {
+        $runtime = new RuntimeOptions([]);
+
+        return $this->removeSubInstanceWithOptions($request, $runtime);
+    }
+
+    /**
+     * @param RenewAdditionalBandwidthRequest $request
+     * @param RuntimeOptions                  $runtime
+     *
+     * @return RenewAdditionalBandwidthResponse
+     */
+    public function renewAdditionalBandwidthWithOptions($request, $runtime)
+    {
+        Utils::validateModel($request);
+        $query = [];
+        if (!Utils::isUnset($request->autoPay)) {
+            $query['AutoPay'] = $request->autoPay;
+        }
+        if (!Utils::isUnset($request->couponNo)) {
+            $query['CouponNo'] = $request->couponNo;
+        }
+        if (!Utils::isUnset($request->instanceId)) {
+            $query['InstanceId'] = $request->instanceId;
+        }
+        if (!Utils::isUnset($request->orderTimeLength)) {
+            $query['OrderTimeLength'] = $request->orderTimeLength;
+        }
+        if (!Utils::isUnset($request->ownerAccount)) {
+            $query['OwnerAccount'] = $request->ownerAccount;
+        }
+        if (!Utils::isUnset($request->ownerId)) {
+            $query['OwnerId'] = $request->ownerId;
+        }
+        if (!Utils::isUnset($request->resourceOwnerAccount)) {
+            $query['ResourceOwnerAccount'] = $request->resourceOwnerAccount;
+        }
+        if (!Utils::isUnset($request->resourceOwnerId)) {
+            $query['ResourceOwnerId'] = $request->resourceOwnerId;
+        }
+        if (!Utils::isUnset($request->securityToken)) {
+            $query['SecurityToken'] = $request->securityToken;
+        }
+        if (!Utils::isUnset($request->sourceBiz)) {
+            $query['SourceBiz'] = $request->sourceBiz;
+        }
+        $req = new OpenApiRequest([
+            'query' => OpenApiUtilClient::query($query),
+        ]);
+        $params = new Params([
+            'action'      => 'RenewAdditionalBandwidth',
+            'version'     => '2015-01-01',
+            'protocol'    => 'HTTPS',
+            'pathname'    => '/',
+            'method'      => 'POST',
+            'authType'    => 'AK',
+            'style'       => 'RPC',
+            'reqBodyType' => 'formData',
+            'bodyType'    => 'json',
+        ]);
+
+        return RenewAdditionalBandwidthResponse::fromMap($this->callApi($params, $req, $runtime));
+    }
+
+    /**
+     * @param RenewAdditionalBandwidthRequest $request
+     *
+     * @return RenewAdditionalBandwidthResponse
+     */
+    public function renewAdditionalBandwidth($request)
+    {
+        $runtime = new RuntimeOptions([]);
+
+        return $this->renewAdditionalBandwidthWithOptions($request, $runtime);
+    }
+
+    /**
      * @param RenewInstanceRequest $request
      * @param RuntimeOptions       $runtime
      *
@@ -2551,11 +6236,62 @@ class Rkvstore extends OpenApiClient
     public function renewInstanceWithOptions($request, $runtime)
     {
         Utils::validateModel($request);
+        $query = [];
+        if (!Utils::isUnset($request->autoPay)) {
+            $query['AutoPay'] = $request->autoPay;
+        }
+        if (!Utils::isUnset($request->businessInfo)) {
+            $query['BusinessInfo'] = $request->businessInfo;
+        }
+        if (!Utils::isUnset($request->capacity)) {
+            $query['Capacity'] = $request->capacity;
+        }
+        if (!Utils::isUnset($request->couponNo)) {
+            $query['CouponNo'] = $request->couponNo;
+        }
+        if (!Utils::isUnset($request->fromApp)) {
+            $query['FromApp'] = $request->fromApp;
+        }
+        if (!Utils::isUnset($request->instanceClass)) {
+            $query['InstanceClass'] = $request->instanceClass;
+        }
+        if (!Utils::isUnset($request->instanceId)) {
+            $query['InstanceId'] = $request->instanceId;
+        }
+        if (!Utils::isUnset($request->ownerAccount)) {
+            $query['OwnerAccount'] = $request->ownerAccount;
+        }
+        if (!Utils::isUnset($request->ownerId)) {
+            $query['OwnerId'] = $request->ownerId;
+        }
+        if (!Utils::isUnset($request->period)) {
+            $query['Period'] = $request->period;
+        }
+        if (!Utils::isUnset($request->resourceOwnerAccount)) {
+            $query['ResourceOwnerAccount'] = $request->resourceOwnerAccount;
+        }
+        if (!Utils::isUnset($request->resourceOwnerId)) {
+            $query['ResourceOwnerId'] = $request->resourceOwnerId;
+        }
+        if (!Utils::isUnset($request->securityToken)) {
+            $query['SecurityToken'] = $request->securityToken;
+        }
         $req = new OpenApiRequest([
-            'body' => Utils::toMap($request),
+            'query' => OpenApiUtilClient::query($query),
+        ]);
+        $params = new Params([
+            'action'      => 'RenewInstance',
+            'version'     => '2015-01-01',
+            'protocol'    => 'HTTPS',
+            'pathname'    => '/',
+            'method'      => 'POST',
+            'authType'    => 'AK',
+            'style'       => 'RPC',
+            'reqBodyType' => 'formData',
+            'bodyType'    => 'json',
         ]);
 
-        return RenewInstanceResponse::fromMap($this->doRPCRequest('RenewInstance', '2015-01-01', 'HTTPS', 'POST', 'AK', 'json', $req, $runtime));
+        return RenewInstanceResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
@@ -2571,34 +6307,6 @@ class Rkvstore extends OpenApiClient
     }
 
     /**
-     * @param ReplaceUserClusterHostRequest $request
-     * @param RuntimeOptions                $runtime
-     *
-     * @return ReplaceUserClusterHostResponse
-     */
-    public function replaceUserClusterHostWithOptions($request, $runtime)
-    {
-        Utils::validateModel($request);
-        $req = new OpenApiRequest([
-            'body' => Utils::toMap($request),
-        ]);
-
-        return ReplaceUserClusterHostResponse::fromMap($this->doRPCRequest('ReplaceUserClusterHost', '2015-01-01', 'HTTPS', 'POST', 'AK', 'json', $req, $runtime));
-    }
-
-    /**
-     * @param ReplaceUserClusterHostRequest $request
-     *
-     * @return ReplaceUserClusterHostResponse
-     */
-    public function replaceUserClusterHost($request)
-    {
-        $runtime = new RuntimeOptions([]);
-
-        return $this->replaceUserClusterHostWithOptions($request, $runtime);
-    }
-
-    /**
      * @param ResetAccountPasswordRequest $request
      * @param RuntimeOptions              $runtime
      *
@@ -2607,11 +6315,47 @@ class Rkvstore extends OpenApiClient
     public function resetAccountPasswordWithOptions($request, $runtime)
     {
         Utils::validateModel($request);
+        $query = [];
+        if (!Utils::isUnset($request->accountName)) {
+            $query['AccountName'] = $request->accountName;
+        }
+        if (!Utils::isUnset($request->accountPassword)) {
+            $query['AccountPassword'] = $request->accountPassword;
+        }
+        if (!Utils::isUnset($request->instanceId)) {
+            $query['InstanceId'] = $request->instanceId;
+        }
+        if (!Utils::isUnset($request->ownerAccount)) {
+            $query['OwnerAccount'] = $request->ownerAccount;
+        }
+        if (!Utils::isUnset($request->ownerId)) {
+            $query['OwnerId'] = $request->ownerId;
+        }
+        if (!Utils::isUnset($request->resourceOwnerAccount)) {
+            $query['ResourceOwnerAccount'] = $request->resourceOwnerAccount;
+        }
+        if (!Utils::isUnset($request->resourceOwnerId)) {
+            $query['ResourceOwnerId'] = $request->resourceOwnerId;
+        }
+        if (!Utils::isUnset($request->securityToken)) {
+            $query['SecurityToken'] = $request->securityToken;
+        }
         $req = new OpenApiRequest([
-            'body' => Utils::toMap($request),
+            'query' => OpenApiUtilClient::query($query),
+        ]);
+        $params = new Params([
+            'action'      => 'ResetAccountPassword',
+            'version'     => '2015-01-01',
+            'protocol'    => 'HTTPS',
+            'pathname'    => '/',
+            'method'      => 'POST',
+            'authType'    => 'AK',
+            'style'       => 'RPC',
+            'reqBodyType' => 'formData',
+            'bodyType'    => 'json',
         ]);
 
-        return ResetAccountPasswordResponse::fromMap($this->doRPCRequest('ResetAccountPassword', '2015-01-01', 'HTTPS', 'POST', 'AK', 'json', $req, $runtime));
+        return ResetAccountPasswordResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
@@ -2635,11 +6379,47 @@ class Rkvstore extends OpenApiClient
     public function restartInstanceWithOptions($request, $runtime)
     {
         Utils::validateModel($request);
+        $query = [];
+        if (!Utils::isUnset($request->effectiveTime)) {
+            $query['EffectiveTime'] = $request->effectiveTime;
+        }
+        if (!Utils::isUnset($request->instanceId)) {
+            $query['InstanceId'] = $request->instanceId;
+        }
+        if (!Utils::isUnset($request->ownerAccount)) {
+            $query['OwnerAccount'] = $request->ownerAccount;
+        }
+        if (!Utils::isUnset($request->ownerId)) {
+            $query['OwnerId'] = $request->ownerId;
+        }
+        if (!Utils::isUnset($request->resourceOwnerAccount)) {
+            $query['ResourceOwnerAccount'] = $request->resourceOwnerAccount;
+        }
+        if (!Utils::isUnset($request->resourceOwnerId)) {
+            $query['ResourceOwnerId'] = $request->resourceOwnerId;
+        }
+        if (!Utils::isUnset($request->securityToken)) {
+            $query['SecurityToken'] = $request->securityToken;
+        }
+        if (!Utils::isUnset($request->upgradeMinorVersion)) {
+            $query['UpgradeMinorVersion'] = $request->upgradeMinorVersion;
+        }
         $req = new OpenApiRequest([
-            'body' => Utils::toMap($request),
+            'query' => OpenApiUtilClient::query($query),
+        ]);
+        $params = new Params([
+            'action'      => 'RestartInstance',
+            'version'     => '2015-01-01',
+            'protocol'    => 'HTTPS',
+            'pathname'    => '/',
+            'method'      => 'POST',
+            'authType'    => 'AK',
+            'style'       => 'RPC',
+            'reqBodyType' => 'formData',
+            'bodyType'    => 'json',
         ]);
 
-        return RestartInstanceResponse::fromMap($this->doRPCRequest('RestartInstance', '2015-01-01', 'HTTPS', 'POST', 'AK', 'json', $req, $runtime));
+        return RestartInstanceResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
@@ -2663,11 +6443,53 @@ class Rkvstore extends OpenApiClient
     public function restoreInstanceWithOptions($request, $runtime)
     {
         Utils::validateModel($request);
+        $query = [];
+        if (!Utils::isUnset($request->backupId)) {
+            $query['BackupId'] = $request->backupId;
+        }
+        if (!Utils::isUnset($request->filterKey)) {
+            $query['FilterKey'] = $request->filterKey;
+        }
+        if (!Utils::isUnset($request->instanceId)) {
+            $query['InstanceId'] = $request->instanceId;
+        }
+        if (!Utils::isUnset($request->ownerAccount)) {
+            $query['OwnerAccount'] = $request->ownerAccount;
+        }
+        if (!Utils::isUnset($request->ownerId)) {
+            $query['OwnerId'] = $request->ownerId;
+        }
+        if (!Utils::isUnset($request->resourceOwnerAccount)) {
+            $query['ResourceOwnerAccount'] = $request->resourceOwnerAccount;
+        }
+        if (!Utils::isUnset($request->resourceOwnerId)) {
+            $query['ResourceOwnerId'] = $request->resourceOwnerId;
+        }
+        if (!Utils::isUnset($request->restoreTime)) {
+            $query['RestoreTime'] = $request->restoreTime;
+        }
+        if (!Utils::isUnset($request->restoreType)) {
+            $query['RestoreType'] = $request->restoreType;
+        }
+        if (!Utils::isUnset($request->securityToken)) {
+            $query['SecurityToken'] = $request->securityToken;
+        }
         $req = new OpenApiRequest([
-            'body' => Utils::toMap($request),
+            'query' => OpenApiUtilClient::query($query),
+        ]);
+        $params = new Params([
+            'action'      => 'RestoreInstance',
+            'version'     => '2015-01-01',
+            'protocol'    => 'HTTPS',
+            'pathname'    => '/',
+            'method'      => 'POST',
+            'authType'    => 'AK',
+            'style'       => 'RPC',
+            'reqBodyType' => 'formData',
+            'bodyType'    => 'json',
         ]);
 
-        return RestoreInstanceResponse::fromMap($this->doRPCRequest('RestoreInstance', '2015-01-01', 'HTTPS', 'POST', 'AK', 'json', $req, $runtime));
+        return RestoreInstanceResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
@@ -2691,11 +6513,50 @@ class Rkvstore extends OpenApiClient
     public function switchInstanceHAWithOptions($request, $runtime)
     {
         Utils::validateModel($request);
+        $query = [];
+        if (!Utils::isUnset($request->instanceId)) {
+            $query['InstanceId'] = $request->instanceId;
+        }
+        if (!Utils::isUnset($request->nodeId)) {
+            $query['NodeId'] = $request->nodeId;
+        }
+        if (!Utils::isUnset($request->ownerAccount)) {
+            $query['OwnerAccount'] = $request->ownerAccount;
+        }
+        if (!Utils::isUnset($request->ownerId)) {
+            $query['OwnerId'] = $request->ownerId;
+        }
+        if (!Utils::isUnset($request->resourceOwnerAccount)) {
+            $query['ResourceOwnerAccount'] = $request->resourceOwnerAccount;
+        }
+        if (!Utils::isUnset($request->resourceOwnerId)) {
+            $query['ResourceOwnerId'] = $request->resourceOwnerId;
+        }
+        if (!Utils::isUnset($request->securityToken)) {
+            $query['SecurityToken'] = $request->securityToken;
+        }
+        if (!Utils::isUnset($request->switchMode)) {
+            $query['SwitchMode'] = $request->switchMode;
+        }
+        if (!Utils::isUnset($request->switchType)) {
+            $query['SwitchType'] = $request->switchType;
+        }
         $req = new OpenApiRequest([
-            'body' => Utils::toMap($request),
+            'query' => OpenApiUtilClient::query($query),
+        ]);
+        $params = new Params([
+            'action'      => 'SwitchInstanceHA',
+            'version'     => '2015-01-01',
+            'protocol'    => 'HTTPS',
+            'pathname'    => '/',
+            'method'      => 'POST',
+            'authType'    => 'AK',
+            'style'       => 'RPC',
+            'reqBodyType' => 'formData',
+            'bodyType'    => 'json',
         ]);
 
-        return SwitchInstanceHAResponse::fromMap($this->doRPCRequest('SwitchInstanceHA', '2015-01-01', 'HTTPS', 'POST', 'AK', 'json', $req, $runtime));
+        return SwitchInstanceHAResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
@@ -2711,6 +6572,64 @@ class Rkvstore extends OpenApiClient
     }
 
     /**
+     * @param SwitchInstanceProxyRequest $request
+     * @param RuntimeOptions             $runtime
+     *
+     * @return SwitchInstanceProxyResponse
+     */
+    public function switchInstanceProxyWithOptions($request, $runtime)
+    {
+        Utils::validateModel($request);
+        $query = [];
+        if (!Utils::isUnset($request->instanceId)) {
+            $query['InstanceId'] = $request->instanceId;
+        }
+        if (!Utils::isUnset($request->ownerAccount)) {
+            $query['OwnerAccount'] = $request->ownerAccount;
+        }
+        if (!Utils::isUnset($request->ownerId)) {
+            $query['OwnerId'] = $request->ownerId;
+        }
+        if (!Utils::isUnset($request->resourceOwnerAccount)) {
+            $query['ResourceOwnerAccount'] = $request->resourceOwnerAccount;
+        }
+        if (!Utils::isUnset($request->resourceOwnerId)) {
+            $query['ResourceOwnerId'] = $request->resourceOwnerId;
+        }
+        if (!Utils::isUnset($request->securityToken)) {
+            $query['SecurityToken'] = $request->securityToken;
+        }
+        $req = new OpenApiRequest([
+            'query' => OpenApiUtilClient::query($query),
+        ]);
+        $params = new Params([
+            'action'      => 'SwitchInstanceProxy',
+            'version'     => '2015-01-01',
+            'protocol'    => 'HTTPS',
+            'pathname'    => '/',
+            'method'      => 'POST',
+            'authType'    => 'AK',
+            'style'       => 'RPC',
+            'reqBodyType' => 'formData',
+            'bodyType'    => 'json',
+        ]);
+
+        return SwitchInstanceProxyResponse::fromMap($this->callApi($params, $req, $runtime));
+    }
+
+    /**
+     * @param SwitchInstanceProxyRequest $request
+     *
+     * @return SwitchInstanceProxyResponse
+     */
+    public function switchInstanceProxy($request)
+    {
+        $runtime = new RuntimeOptions([]);
+
+        return $this->switchInstanceProxyWithOptions($request, $runtime);
+    }
+
+    /**
      * @param SwitchNetworkRequest $request
      * @param RuntimeOptions       $runtime
      *
@@ -2719,11 +6638,56 @@ class Rkvstore extends OpenApiClient
     public function switchNetworkWithOptions($request, $runtime)
     {
         Utils::validateModel($request);
+        $query = [];
+        if (!Utils::isUnset($request->classicExpiredDays)) {
+            $query['ClassicExpiredDays'] = $request->classicExpiredDays;
+        }
+        if (!Utils::isUnset($request->instanceId)) {
+            $query['InstanceId'] = $request->instanceId;
+        }
+        if (!Utils::isUnset($request->ownerAccount)) {
+            $query['OwnerAccount'] = $request->ownerAccount;
+        }
+        if (!Utils::isUnset($request->ownerId)) {
+            $query['OwnerId'] = $request->ownerId;
+        }
+        if (!Utils::isUnset($request->resourceOwnerAccount)) {
+            $query['ResourceOwnerAccount'] = $request->resourceOwnerAccount;
+        }
+        if (!Utils::isUnset($request->resourceOwnerId)) {
+            $query['ResourceOwnerId'] = $request->resourceOwnerId;
+        }
+        if (!Utils::isUnset($request->retainClassic)) {
+            $query['RetainClassic'] = $request->retainClassic;
+        }
+        if (!Utils::isUnset($request->securityToken)) {
+            $query['SecurityToken'] = $request->securityToken;
+        }
+        if (!Utils::isUnset($request->targetNetworkType)) {
+            $query['TargetNetworkType'] = $request->targetNetworkType;
+        }
+        if (!Utils::isUnset($request->vSwitchId)) {
+            $query['VSwitchId'] = $request->vSwitchId;
+        }
+        if (!Utils::isUnset($request->vpcId)) {
+            $query['VpcId'] = $request->vpcId;
+        }
         $req = new OpenApiRequest([
-            'body' => Utils::toMap($request),
+            'query' => OpenApiUtilClient::query($query),
+        ]);
+        $params = new Params([
+            'action'      => 'SwitchNetwork',
+            'version'     => '2015-01-01',
+            'protocol'    => 'HTTPS',
+            'pathname'    => '/',
+            'method'      => 'POST',
+            'authType'    => 'AK',
+            'style'       => 'RPC',
+            'reqBodyType' => 'formData',
+            'bodyType'    => 'json',
         ]);
 
-        return SwitchNetworkResponse::fromMap($this->doRPCRequest('SwitchNetwork', '2015-01-01', 'HTTPS', 'POST', 'AK', 'json', $req, $runtime));
+        return SwitchNetworkResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
@@ -2747,11 +6711,50 @@ class Rkvstore extends OpenApiClient
     public function syncDtsStatusWithOptions($request, $runtime)
     {
         Utils::validateModel($request);
+        $query = [];
+        if (!Utils::isUnset($request->instanceId)) {
+            $query['InstanceId'] = $request->instanceId;
+        }
+        if (!Utils::isUnset($request->ownerAccount)) {
+            $query['OwnerAccount'] = $request->ownerAccount;
+        }
+        if (!Utils::isUnset($request->ownerId)) {
+            $query['OwnerId'] = $request->ownerId;
+        }
+        if (!Utils::isUnset($request->regionId)) {
+            $query['RegionId'] = $request->regionId;
+        }
+        if (!Utils::isUnset($request->resourceOwnerAccount)) {
+            $query['ResourceOwnerAccount'] = $request->resourceOwnerAccount;
+        }
+        if (!Utils::isUnset($request->resourceOwnerId)) {
+            $query['ResourceOwnerId'] = $request->resourceOwnerId;
+        }
+        if (!Utils::isUnset($request->securityToken)) {
+            $query['SecurityToken'] = $request->securityToken;
+        }
+        if (!Utils::isUnset($request->status)) {
+            $query['Status'] = $request->status;
+        }
+        if (!Utils::isUnset($request->taskId)) {
+            $query['TaskId'] = $request->taskId;
+        }
         $req = new OpenApiRequest([
-            'body' => Utils::toMap($request),
+            'query' => OpenApiUtilClient::query($query),
+        ]);
+        $params = new Params([
+            'action'      => 'SyncDtsStatus',
+            'version'     => '2015-01-01',
+            'protocol'    => 'HTTPS',
+            'pathname'    => '/',
+            'method'      => 'POST',
+            'authType'    => 'AK',
+            'style'       => 'RPC',
+            'reqBodyType' => 'formData',
+            'bodyType'    => 'json',
         ]);
 
-        return SyncDtsStatusResponse::fromMap($this->doRPCRequest('SyncDtsStatus', '2015-01-01', 'HTTPS', 'POST', 'AK', 'json', $req, $runtime));
+        return SyncDtsStatusResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
@@ -2775,11 +6778,47 @@ class Rkvstore extends OpenApiClient
     public function tagResourcesWithOptions($request, $runtime)
     {
         Utils::validateModel($request);
+        $query = [];
+        if (!Utils::isUnset($request->ownerAccount)) {
+            $query['OwnerAccount'] = $request->ownerAccount;
+        }
+        if (!Utils::isUnset($request->ownerId)) {
+            $query['OwnerId'] = $request->ownerId;
+        }
+        if (!Utils::isUnset($request->regionId)) {
+            $query['RegionId'] = $request->regionId;
+        }
+        if (!Utils::isUnset($request->resourceId)) {
+            $query['ResourceId'] = $request->resourceId;
+        }
+        if (!Utils::isUnset($request->resourceOwnerAccount)) {
+            $query['ResourceOwnerAccount'] = $request->resourceOwnerAccount;
+        }
+        if (!Utils::isUnset($request->resourceOwnerId)) {
+            $query['ResourceOwnerId'] = $request->resourceOwnerId;
+        }
+        if (!Utils::isUnset($request->resourceType)) {
+            $query['ResourceType'] = $request->resourceType;
+        }
+        if (!Utils::isUnset($request->tag)) {
+            $query['Tag'] = $request->tag;
+        }
         $req = new OpenApiRequest([
-            'body' => Utils::toMap($request),
+            'query' => OpenApiUtilClient::query($query),
+        ]);
+        $params = new Params([
+            'action'      => 'TagResources',
+            'version'     => '2015-01-01',
+            'protocol'    => 'HTTPS',
+            'pathname'    => '/',
+            'method'      => 'POST',
+            'authType'    => 'AK',
+            'style'       => 'RPC',
+            'reqBodyType' => 'formData',
+            'bodyType'    => 'json',
         ]);
 
-        return TagResourcesResponse::fromMap($this->doRPCRequest('TagResources', '2015-01-01', 'HTTPS', 'POST', 'AK', 'json', $req, $runtime));
+        return TagResourcesResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
@@ -2795,6 +6834,73 @@ class Rkvstore extends OpenApiClient
     }
 
     /**
+     * @param TransformInstanceChargeTypeRequest $request
+     * @param RuntimeOptions                     $runtime
+     *
+     * @return TransformInstanceChargeTypeResponse
+     */
+    public function transformInstanceChargeTypeWithOptions($request, $runtime)
+    {
+        Utils::validateModel($request);
+        $query = [];
+        if (!Utils::isUnset($request->autoPay)) {
+            $query['AutoPay'] = $request->autoPay;
+        }
+        if (!Utils::isUnset($request->chargeType)) {
+            $query['ChargeType'] = $request->chargeType;
+        }
+        if (!Utils::isUnset($request->instanceId)) {
+            $query['InstanceId'] = $request->instanceId;
+        }
+        if (!Utils::isUnset($request->ownerAccount)) {
+            $query['OwnerAccount'] = $request->ownerAccount;
+        }
+        if (!Utils::isUnset($request->ownerId)) {
+            $query['OwnerId'] = $request->ownerId;
+        }
+        if (!Utils::isUnset($request->period)) {
+            $query['Period'] = $request->period;
+        }
+        if (!Utils::isUnset($request->resourceOwnerAccount)) {
+            $query['ResourceOwnerAccount'] = $request->resourceOwnerAccount;
+        }
+        if (!Utils::isUnset($request->resourceOwnerId)) {
+            $query['ResourceOwnerId'] = $request->resourceOwnerId;
+        }
+        if (!Utils::isUnset($request->securityToken)) {
+            $query['SecurityToken'] = $request->securityToken;
+        }
+        $req = new OpenApiRequest([
+            'query' => OpenApiUtilClient::query($query),
+        ]);
+        $params = new Params([
+            'action'      => 'TransformInstanceChargeType',
+            'version'     => '2015-01-01',
+            'protocol'    => 'HTTPS',
+            'pathname'    => '/',
+            'method'      => 'POST',
+            'authType'    => 'AK',
+            'style'       => 'RPC',
+            'reqBodyType' => 'formData',
+            'bodyType'    => 'json',
+        ]);
+
+        return TransformInstanceChargeTypeResponse::fromMap($this->callApi($params, $req, $runtime));
+    }
+
+    /**
+     * @param TransformInstanceChargeTypeRequest $request
+     *
+     * @return TransformInstanceChargeTypeResponse
+     */
+    public function transformInstanceChargeType($request)
+    {
+        $runtime = new RuntimeOptions([]);
+
+        return $this->transformInstanceChargeTypeWithOptions($request, $runtime);
+    }
+
+    /**
      * @param TransformToPrePaidRequest $request
      * @param RuntimeOptions            $runtime
      *
@@ -2803,11 +6909,47 @@ class Rkvstore extends OpenApiClient
     public function transformToPrePaidWithOptions($request, $runtime)
     {
         Utils::validateModel($request);
+        $query = [];
+        if (!Utils::isUnset($request->autoPay)) {
+            $query['AutoPay'] = $request->autoPay;
+        }
+        if (!Utils::isUnset($request->instanceId)) {
+            $query['InstanceId'] = $request->instanceId;
+        }
+        if (!Utils::isUnset($request->ownerAccount)) {
+            $query['OwnerAccount'] = $request->ownerAccount;
+        }
+        if (!Utils::isUnset($request->ownerId)) {
+            $query['OwnerId'] = $request->ownerId;
+        }
+        if (!Utils::isUnset($request->period)) {
+            $query['Period'] = $request->period;
+        }
+        if (!Utils::isUnset($request->resourceOwnerAccount)) {
+            $query['ResourceOwnerAccount'] = $request->resourceOwnerAccount;
+        }
+        if (!Utils::isUnset($request->resourceOwnerId)) {
+            $query['ResourceOwnerId'] = $request->resourceOwnerId;
+        }
+        if (!Utils::isUnset($request->securityToken)) {
+            $query['SecurityToken'] = $request->securityToken;
+        }
         $req = new OpenApiRequest([
-            'body' => Utils::toMap($request),
+            'query' => OpenApiUtilClient::query($query),
+        ]);
+        $params = new Params([
+            'action'      => 'TransformToPrePaid',
+            'version'     => '2015-01-01',
+            'protocol'    => 'HTTPS',
+            'pathname'    => '/',
+            'method'      => 'POST',
+            'authType'    => 'AK',
+            'style'       => 'RPC',
+            'reqBodyType' => 'formData',
+            'bodyType'    => 'json',
         ]);
 
-        return TransformToPrePaidResponse::fromMap($this->doRPCRequest('TransformToPrePaid', '2015-01-01', 'HTTPS', 'POST', 'AK', 'json', $req, $runtime));
+        return TransformToPrePaidResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
@@ -2831,11 +6973,50 @@ class Rkvstore extends OpenApiClient
     public function untagResourcesWithOptions($request, $runtime)
     {
         Utils::validateModel($request);
+        $query = [];
+        if (!Utils::isUnset($request->all)) {
+            $query['All'] = $request->all;
+        }
+        if (!Utils::isUnset($request->ownerAccount)) {
+            $query['OwnerAccount'] = $request->ownerAccount;
+        }
+        if (!Utils::isUnset($request->ownerId)) {
+            $query['OwnerId'] = $request->ownerId;
+        }
+        if (!Utils::isUnset($request->regionId)) {
+            $query['RegionId'] = $request->regionId;
+        }
+        if (!Utils::isUnset($request->resourceId)) {
+            $query['ResourceId'] = $request->resourceId;
+        }
+        if (!Utils::isUnset($request->resourceOwnerAccount)) {
+            $query['ResourceOwnerAccount'] = $request->resourceOwnerAccount;
+        }
+        if (!Utils::isUnset($request->resourceOwnerId)) {
+            $query['ResourceOwnerId'] = $request->resourceOwnerId;
+        }
+        if (!Utils::isUnset($request->resourceType)) {
+            $query['ResourceType'] = $request->resourceType;
+        }
+        if (!Utils::isUnset($request->tagKey)) {
+            $query['TagKey'] = $request->tagKey;
+        }
         $req = new OpenApiRequest([
-            'body' => Utils::toMap($request),
+            'query' => OpenApiUtilClient::query($query),
+        ]);
+        $params = new Params([
+            'action'      => 'UntagResources',
+            'version'     => '2015-01-01',
+            'protocol'    => 'HTTPS',
+            'pathname'    => '/',
+            'method'      => 'POST',
+            'authType'    => 'AK',
+            'style'       => 'RPC',
+            'reqBodyType' => 'formData',
+            'bodyType'    => 'json',
         ]);
 
-        return UntagResourcesResponse::fromMap($this->doRPCRequest('UntagResources', '2015-01-01', 'HTTPS', 'POST', 'AK', 'json', $req, $runtime));
+        return UntagResourcesResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**

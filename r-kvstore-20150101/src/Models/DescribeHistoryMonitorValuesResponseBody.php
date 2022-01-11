@@ -11,15 +11,15 @@ class DescribeHistoryMonitorValuesResponseBody extends Model
     /**
      * @var string
      */
-    public $requestId;
+    public $monitorHistory;
 
     /**
      * @var string
      */
-    public $monitorHistory;
+    public $requestId;
     protected $_name = [
-        'requestId'      => 'RequestId',
         'monitorHistory' => 'MonitorHistory',
+        'requestId'      => 'RequestId',
     ];
 
     public function validate()
@@ -29,11 +29,11 @@ class DescribeHistoryMonitorValuesResponseBody extends Model
     public function toMap()
     {
         $res = [];
-        if (null !== $this->requestId) {
-            $res['RequestId'] = $this->requestId;
-        }
         if (null !== $this->monitorHistory) {
             $res['MonitorHistory'] = $this->monitorHistory;
+        }
+        if (null !== $this->requestId) {
+            $res['RequestId'] = $this->requestId;
         }
 
         return $res;
@@ -47,11 +47,11 @@ class DescribeHistoryMonitorValuesResponseBody extends Model
     public static function fromMap($map = [])
     {
         $model = new self();
-        if (isset($map['RequestId'])) {
-            $model->requestId = $map['RequestId'];
-        }
         if (isset($map['MonitorHistory'])) {
             $model->monitorHistory = $map['MonitorHistory'];
+        }
+        if (isset($map['RequestId'])) {
+            $model->requestId = $map['RequestId'];
         }
 
         return $model;

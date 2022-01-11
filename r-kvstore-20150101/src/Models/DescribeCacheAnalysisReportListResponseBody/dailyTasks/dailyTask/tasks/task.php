@@ -11,11 +11,6 @@ class task extends Model
     /**
      * @var string
      */
-    public $taskId;
-
-    /**
-     * @var string
-     */
     public $nodeId;
 
     /**
@@ -27,11 +22,16 @@ class task extends Model
      * @var string
      */
     public $status;
+
+    /**
+     * @var string
+     */
+    public $taskId;
     protected $_name = [
-        'taskId'    => 'TaskId',
         'nodeId'    => 'NodeId',
         'startTime' => 'StartTime',
         'status'    => 'Status',
+        'taskId'    => 'TaskId',
     ];
 
     public function validate()
@@ -41,9 +41,6 @@ class task extends Model
     public function toMap()
     {
         $res = [];
-        if (null !== $this->taskId) {
-            $res['TaskId'] = $this->taskId;
-        }
         if (null !== $this->nodeId) {
             $res['NodeId'] = $this->nodeId;
         }
@@ -52,6 +49,9 @@ class task extends Model
         }
         if (null !== $this->status) {
             $res['Status'] = $this->status;
+        }
+        if (null !== $this->taskId) {
+            $res['TaskId'] = $this->taskId;
         }
 
         return $res;
@@ -65,9 +65,6 @@ class task extends Model
     public static function fromMap($map = [])
     {
         $model = new self();
-        if (isset($map['TaskId'])) {
-            $model->taskId = $map['TaskId'];
-        }
         if (isset($map['NodeId'])) {
             $model->nodeId = $map['NodeId'];
         }
@@ -76,6 +73,9 @@ class task extends Model
         }
         if (isset($map['Status'])) {
             $model->status = $map['Status'];
+        }
+        if (isset($map['TaskId'])) {
+            $model->taskId = $map['TaskId'];
         }
 
         return $model;

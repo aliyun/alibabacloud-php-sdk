@@ -9,9 +9,9 @@ use AlibabaCloud\Tea\Model;
 class AddShardingNodeResponseBody extends Model
 {
     /**
-     * @var string
+     * @var string[]
      */
-    public $requestId;
+    public $nodeIds;
 
     /**
      * @var int
@@ -19,13 +19,13 @@ class AddShardingNodeResponseBody extends Model
     public $orderId;
 
     /**
-     * @var string[]
+     * @var string
      */
-    public $nodeIds;
+    public $requestId;
     protected $_name = [
-        'requestId' => 'RequestId',
-        'orderId'   => 'OrderId',
         'nodeIds'   => 'NodeIds',
+        'orderId'   => 'OrderId',
+        'requestId' => 'RequestId',
     ];
 
     public function validate()
@@ -35,14 +35,14 @@ class AddShardingNodeResponseBody extends Model
     public function toMap()
     {
         $res = [];
-        if (null !== $this->requestId) {
-            $res['RequestId'] = $this->requestId;
+        if (null !== $this->nodeIds) {
+            $res['NodeIds'] = $this->nodeIds;
         }
         if (null !== $this->orderId) {
             $res['OrderId'] = $this->orderId;
         }
-        if (null !== $this->nodeIds) {
-            $res['NodeIds'] = $this->nodeIds;
+        if (null !== $this->requestId) {
+            $res['RequestId'] = $this->requestId;
         }
 
         return $res;
@@ -56,16 +56,16 @@ class AddShardingNodeResponseBody extends Model
     public static function fromMap($map = [])
     {
         $model = new self();
-        if (isset($map['RequestId'])) {
-            $model->requestId = $map['RequestId'];
-        }
-        if (isset($map['OrderId'])) {
-            $model->orderId = $map['OrderId'];
-        }
         if (isset($map['NodeIds'])) {
             if (!empty($map['NodeIds'])) {
                 $model->nodeIds = $map['NodeIds'];
             }
+        }
+        if (isset($map['OrderId'])) {
+            $model->orderId = $map['OrderId'];
+        }
+        if (isset($map['RequestId'])) {
+            $model->requestId = $map['RequestId'];
         }
 
         return $model;

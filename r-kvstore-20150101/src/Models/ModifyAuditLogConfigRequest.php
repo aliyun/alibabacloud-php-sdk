@@ -9,9 +9,19 @@ use AlibabaCloud\Tea\Model;
 class ModifyAuditLogConfigRequest extends Model
 {
     /**
+     * @var bool
+     */
+    public $dbAudit;
+
+    /**
      * @var string
      */
-    public $securityToken;
+    public $instanceId;
+
+    /**
+     * @var string
+     */
+    public $ownerAccount;
 
     /**
      * @var int
@@ -29,33 +39,23 @@ class ModifyAuditLogConfigRequest extends Model
     public $resourceOwnerId;
 
     /**
-     * @var string
-     */
-    public $ownerAccount;
-
-    /**
-     * @var string
-     */
-    public $instanceId;
-
-    /**
      * @var int
      */
     public $retention;
 
     /**
-     * @var bool
+     * @var string
      */
-    public $dbAudit;
+    public $securityToken;
     protected $_name = [
-        'securityToken'        => 'SecurityToken',
+        'dbAudit'              => 'DbAudit',
+        'instanceId'           => 'InstanceId',
+        'ownerAccount'         => 'OwnerAccount',
         'ownerId'              => 'OwnerId',
         'resourceOwnerAccount' => 'ResourceOwnerAccount',
         'resourceOwnerId'      => 'ResourceOwnerId',
-        'ownerAccount'         => 'OwnerAccount',
-        'instanceId'           => 'InstanceId',
         'retention'            => 'Retention',
-        'dbAudit'              => 'DbAudit',
+        'securityToken'        => 'SecurityToken',
     ];
 
     public function validate()
@@ -65,8 +65,14 @@ class ModifyAuditLogConfigRequest extends Model
     public function toMap()
     {
         $res = [];
-        if (null !== $this->securityToken) {
-            $res['SecurityToken'] = $this->securityToken;
+        if (null !== $this->dbAudit) {
+            $res['DbAudit'] = $this->dbAudit;
+        }
+        if (null !== $this->instanceId) {
+            $res['InstanceId'] = $this->instanceId;
+        }
+        if (null !== $this->ownerAccount) {
+            $res['OwnerAccount'] = $this->ownerAccount;
         }
         if (null !== $this->ownerId) {
             $res['OwnerId'] = $this->ownerId;
@@ -77,17 +83,11 @@ class ModifyAuditLogConfigRequest extends Model
         if (null !== $this->resourceOwnerId) {
             $res['ResourceOwnerId'] = $this->resourceOwnerId;
         }
-        if (null !== $this->ownerAccount) {
-            $res['OwnerAccount'] = $this->ownerAccount;
-        }
-        if (null !== $this->instanceId) {
-            $res['InstanceId'] = $this->instanceId;
-        }
         if (null !== $this->retention) {
             $res['Retention'] = $this->retention;
         }
-        if (null !== $this->dbAudit) {
-            $res['DbAudit'] = $this->dbAudit;
+        if (null !== $this->securityToken) {
+            $res['SecurityToken'] = $this->securityToken;
         }
 
         return $res;
@@ -101,8 +101,14 @@ class ModifyAuditLogConfigRequest extends Model
     public static function fromMap($map = [])
     {
         $model = new self();
-        if (isset($map['SecurityToken'])) {
-            $model->securityToken = $map['SecurityToken'];
+        if (isset($map['DbAudit'])) {
+            $model->dbAudit = $map['DbAudit'];
+        }
+        if (isset($map['InstanceId'])) {
+            $model->instanceId = $map['InstanceId'];
+        }
+        if (isset($map['OwnerAccount'])) {
+            $model->ownerAccount = $map['OwnerAccount'];
         }
         if (isset($map['OwnerId'])) {
             $model->ownerId = $map['OwnerId'];
@@ -113,17 +119,11 @@ class ModifyAuditLogConfigRequest extends Model
         if (isset($map['ResourceOwnerId'])) {
             $model->resourceOwnerId = $map['ResourceOwnerId'];
         }
-        if (isset($map['OwnerAccount'])) {
-            $model->ownerAccount = $map['OwnerAccount'];
-        }
-        if (isset($map['InstanceId'])) {
-            $model->instanceId = $map['InstanceId'];
-        }
         if (isset($map['Retention'])) {
             $model->retention = $map['Retention'];
         }
-        if (isset($map['DbAudit'])) {
-            $model->dbAudit = $map['DbAudit'];
+        if (isset($map['SecurityToken'])) {
+            $model->securityToken = $map['SecurityToken'];
         }
 
         return $model;

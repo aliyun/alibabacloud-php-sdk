@@ -9,6 +9,11 @@ use AlibabaCloud\Tea\Model;
 class availableResource extends Model
 {
     /**
+     * @var int
+     */
+    public $capacity;
+
+    /**
      * @var string
      */
     public $instanceClass;
@@ -18,6 +23,7 @@ class availableResource extends Model
      */
     public $instanceClassRemark;
     protected $_name = [
+        'capacity'            => 'Capacity',
         'instanceClass'       => 'InstanceClass',
         'instanceClassRemark' => 'InstanceClassRemark',
     ];
@@ -29,6 +35,9 @@ class availableResource extends Model
     public function toMap()
     {
         $res = [];
+        if (null !== $this->capacity) {
+            $res['Capacity'] = $this->capacity;
+        }
         if (null !== $this->instanceClass) {
             $res['InstanceClass'] = $this->instanceClass;
         }
@@ -47,6 +56,9 @@ class availableResource extends Model
     public static function fromMap($map = [])
     {
         $model = new self();
+        if (isset($map['Capacity'])) {
+            $model->capacity = $map['Capacity'];
+        }
         if (isset($map['InstanceClass'])) {
             $model->instanceClass = $map['InstanceClass'];
         }

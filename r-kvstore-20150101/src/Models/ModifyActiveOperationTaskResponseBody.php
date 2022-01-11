@@ -11,15 +11,15 @@ class ModifyActiveOperationTaskResponseBody extends Model
     /**
      * @var string
      */
-    public $requestId;
+    public $ids;
 
     /**
      * @var string
      */
-    public $ids;
+    public $requestId;
     protected $_name = [
-        'requestId' => 'RequestId',
         'ids'       => 'Ids',
+        'requestId' => 'RequestId',
     ];
 
     public function validate()
@@ -29,11 +29,11 @@ class ModifyActiveOperationTaskResponseBody extends Model
     public function toMap()
     {
         $res = [];
-        if (null !== $this->requestId) {
-            $res['RequestId'] = $this->requestId;
-        }
         if (null !== $this->ids) {
             $res['Ids'] = $this->ids;
+        }
+        if (null !== $this->requestId) {
+            $res['RequestId'] = $this->requestId;
         }
 
         return $res;
@@ -47,11 +47,11 @@ class ModifyActiveOperationTaskResponseBody extends Model
     public static function fromMap($map = [])
     {
         $model = new self();
-        if (isset($map['RequestId'])) {
-            $model->requestId = $map['RequestId'];
-        }
         if (isset($map['Ids'])) {
             $model->ids = $map['Ids'];
+        }
+        if (isset($map['RequestId'])) {
+            $model->requestId = $map['RequestId'];
         }
 
         return $model;

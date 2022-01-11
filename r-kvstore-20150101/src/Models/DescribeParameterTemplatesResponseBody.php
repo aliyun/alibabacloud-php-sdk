@@ -25,20 +25,20 @@ class DescribeParameterTemplatesResponseBody extends Model
     public $parameterCount;
 
     /**
-     * @var string
-     */
-    public $requestId;
-
-    /**
      * @var parameters
      */
     public $parameters;
+
+    /**
+     * @var string
+     */
+    public $requestId;
     protected $_name = [
         'engine'         => 'Engine',
         'engineVersion'  => 'EngineVersion',
         'parameterCount' => 'ParameterCount',
-        'requestId'      => 'RequestId',
         'parameters'     => 'Parameters',
+        'requestId'      => 'RequestId',
     ];
 
     public function validate()
@@ -57,11 +57,11 @@ class DescribeParameterTemplatesResponseBody extends Model
         if (null !== $this->parameterCount) {
             $res['ParameterCount'] = $this->parameterCount;
         }
-        if (null !== $this->requestId) {
-            $res['RequestId'] = $this->requestId;
-        }
         if (null !== $this->parameters) {
             $res['Parameters'] = null !== $this->parameters ? $this->parameters->toMap() : null;
+        }
+        if (null !== $this->requestId) {
+            $res['RequestId'] = $this->requestId;
         }
 
         return $res;
@@ -84,11 +84,11 @@ class DescribeParameterTemplatesResponseBody extends Model
         if (isset($map['ParameterCount'])) {
             $model->parameterCount = $map['ParameterCount'];
         }
-        if (isset($map['RequestId'])) {
-            $model->requestId = $map['RequestId'];
-        }
         if (isset($map['Parameters'])) {
             $model->parameters = parameters::fromMap($map['Parameters']);
+        }
+        if (isset($map['RequestId'])) {
+            $model->requestId = $map['RequestId'];
         }
 
         return $model;
