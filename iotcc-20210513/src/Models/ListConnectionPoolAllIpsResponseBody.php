@@ -32,13 +32,13 @@ class ListConnectionPoolAllIpsResponseBody extends Model
     /**
      * @var int
      */
-    public $totalCount;
+    public $totalIpsCount;
     protected $_name = [
         'connectionPoolIps' => 'ConnectionPoolIps',
         'maxResults'        => 'MaxResults',
         'nextToken'         => 'NextToken',
         'requestId'         => 'RequestId',
-        'totalCount'        => 'TotalCount',
+        'totalIpsCount'     => 'TotalIpsCount',
     ];
 
     public function validate()
@@ -66,8 +66,8 @@ class ListConnectionPoolAllIpsResponseBody extends Model
         if (null !== $this->requestId) {
             $res['RequestId'] = $this->requestId;
         }
-        if (null !== $this->totalCount) {
-            $res['TotalCount'] = $this->totalCount;
+        if (null !== $this->totalIpsCount) {
+            $res['TotalIpsCount'] = $this->totalIpsCount;
         }
 
         return $res;
@@ -99,8 +99,8 @@ class ListConnectionPoolAllIpsResponseBody extends Model
         if (isset($map['RequestId'])) {
             $model->requestId = $map['RequestId'];
         }
-        if (isset($map['TotalCount'])) {
-            $model->totalCount = $map['TotalCount'];
+        if (isset($map['TotalIpsCount'])) {
+            $model->totalIpsCount = $map['TotalIpsCount'];
         }
 
         return $model;

@@ -9,9 +9,19 @@ use AlibabaCloud\Tea\Model;
 class ioTCloudConnectors extends Model
 {
     /**
+     * @var string
+     */
+    public $APN;
+
+    /**
      * @var int
      */
     public $createTime;
+
+    /**
+     * @var string
+     */
+    public $ISP;
 
     /**
      * @var string
@@ -33,7 +43,9 @@ class ioTCloudConnectors extends Model
      */
     public $ioTCloudConnectorStatus;
     protected $_name = [
+        'APN'                          => 'APN',
         'createTime'                   => 'CreateTime',
+        'ISP'                          => 'ISP',
         'ioTCloudConnectorDescription' => 'IoTCloudConnectorDescription',
         'ioTCloudConnectorId'          => 'IoTCloudConnectorId',
         'ioTCloudConnectorName'        => 'IoTCloudConnectorName',
@@ -47,8 +59,14 @@ class ioTCloudConnectors extends Model
     public function toMap()
     {
         $res = [];
+        if (null !== $this->APN) {
+            $res['APN'] = $this->APN;
+        }
         if (null !== $this->createTime) {
             $res['CreateTime'] = $this->createTime;
+        }
+        if (null !== $this->ISP) {
+            $res['ISP'] = $this->ISP;
         }
         if (null !== $this->ioTCloudConnectorDescription) {
             $res['IoTCloudConnectorDescription'] = $this->ioTCloudConnectorDescription;
@@ -74,8 +92,14 @@ class ioTCloudConnectors extends Model
     public static function fromMap($map = [])
     {
         $model = new self();
+        if (isset($map['APN'])) {
+            $model->APN = $map['APN'];
+        }
         if (isset($map['CreateTime'])) {
             $model->createTime = $map['CreateTime'];
+        }
+        if (isset($map['ISP'])) {
+            $model->ISP = $map['ISP'];
         }
         if (isset($map['IoTCloudConnectorDescription'])) {
             $model->ioTCloudConnectorDescription = $map['IoTCloudConnectorDescription'];

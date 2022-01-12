@@ -19,6 +19,11 @@ class ListIoTCloudConnectorsRequest extends Model
     public $ISP;
 
     /**
+     * @var string
+     */
+    public $ioTCloudConnectorGroupId;
+
+    /**
      * @var string[]
      */
     public $ioTCloudConnectorIds;
@@ -58,16 +63,17 @@ class ListIoTCloudConnectorsRequest extends Model
      */
     public $vpcId;
     protected $_name = [
-        'APN'                     => 'APN',
-        'ISP'                     => 'ISP',
-        'ioTCloudConnectorIds'    => 'IoTCloudConnectorIds',
-        'ioTCloudConnectorName'   => 'IoTCloudConnectorName',
-        'ioTCloudConnectorStatus' => 'IoTCloudConnectorStatus',
-        'isInGroup'               => 'IsInGroup',
-        'maxResults'              => 'MaxResults',
-        'nextToken'               => 'NextToken',
-        'regionId'                => 'RegionId',
-        'vpcId'                   => 'VpcId',
+        'APN'                      => 'APN',
+        'ISP'                      => 'ISP',
+        'ioTCloudConnectorGroupId' => 'IoTCloudConnectorGroupId',
+        'ioTCloudConnectorIds'     => 'IoTCloudConnectorIds',
+        'ioTCloudConnectorName'    => 'IoTCloudConnectorName',
+        'ioTCloudConnectorStatus'  => 'IoTCloudConnectorStatus',
+        'isInGroup'                => 'IsInGroup',
+        'maxResults'               => 'MaxResults',
+        'nextToken'                => 'NextToken',
+        'regionId'                 => 'RegionId',
+        'vpcId'                    => 'VpcId',
     ];
 
     public function validate()
@@ -82,6 +88,9 @@ class ListIoTCloudConnectorsRequest extends Model
         }
         if (null !== $this->ISP) {
             $res['ISP'] = $this->ISP;
+        }
+        if (null !== $this->ioTCloudConnectorGroupId) {
+            $res['IoTCloudConnectorGroupId'] = $this->ioTCloudConnectorGroupId;
         }
         if (null !== $this->ioTCloudConnectorIds) {
             $res['IoTCloudConnectorIds'] = $this->ioTCloudConnectorIds;
@@ -128,6 +137,9 @@ class ListIoTCloudConnectorsRequest extends Model
             if (!empty($map['ISP'])) {
                 $model->ISP = $map['ISP'];
             }
+        }
+        if (isset($map['IoTCloudConnectorGroupId'])) {
+            $model->ioTCloudConnectorGroupId = $map['IoTCloudConnectorGroupId'];
         }
         if (isset($map['IoTCloudConnectorIds'])) {
             if (!empty($map['IoTCloudConnectorIds'])) {

@@ -148,14 +148,26 @@ class IoTCC extends OpenApiClient
     public function addCidrToConnectionPoolWithOptions($request, $runtime)
     {
         Utils::validateModel($request);
-        $query                        = [];
-        $query['Cidrs']               = $request->cidrs;
-        $query['ClientToken']         = $request->clientToken;
-        $query['ConnectionPoolId']    = $request->connectionPoolId;
-        $query['DryRun']              = $request->dryRun;
-        $query['IoTCloudConnectorId'] = $request->ioTCloudConnectorId;
-        $query['RegionId']            = $request->regionId;
-        $req                          = new OpenApiRequest([
+        $query = [];
+        if (!Utils::isUnset($request->cidrs)) {
+            $query['Cidrs'] = $request->cidrs;
+        }
+        if (!Utils::isUnset($request->clientToken)) {
+            $query['ClientToken'] = $request->clientToken;
+        }
+        if (!Utils::isUnset($request->connectionPoolId)) {
+            $query['ConnectionPoolId'] = $request->connectionPoolId;
+        }
+        if (!Utils::isUnset($request->dryRun)) {
+            $query['DryRun'] = $request->dryRun;
+        }
+        if (!Utils::isUnset($request->ioTCloudConnectorId)) {
+            $query['IoTCloudConnectorId'] = $request->ioTCloudConnectorId;
+        }
+        if (!Utils::isUnset($request->regionId)) {
+            $query['RegionId'] = $request->regionId;
+        }
+        $req = new OpenApiRequest([
             'query' => OpenApiUtilClient::query($query),
         ]);
         $params = new Params([
@@ -194,13 +206,23 @@ class IoTCC extends OpenApiClient
     public function addIoTCloudConnectorToGroupWithOptions($request, $runtime)
     {
         Utils::validateModel($request);
-        $query                             = [];
-        $query['ClientToken']              = $request->clientToken;
-        $query['DryRun']                   = $request->dryRun;
-        $query['IoTCloudConnectorGroupId'] = $request->ioTCloudConnectorGroupId;
-        $query['IoTCloudConnectorId']      = $request->ioTCloudConnectorId;
-        $query['RegionId']                 = $request->regionId;
-        $req                               = new OpenApiRequest([
+        $query = [];
+        if (!Utils::isUnset($request->clientToken)) {
+            $query['ClientToken'] = $request->clientToken;
+        }
+        if (!Utils::isUnset($request->dryRun)) {
+            $query['DryRun'] = $request->dryRun;
+        }
+        if (!Utils::isUnset($request->ioTCloudConnectorGroupId)) {
+            $query['IoTCloudConnectorGroupId'] = $request->ioTCloudConnectorGroupId;
+        }
+        if (!Utils::isUnset($request->ioTCloudConnectorId)) {
+            $query['IoTCloudConnectorId'] = $request->ioTCloudConnectorId;
+        }
+        if (!Utils::isUnset($request->regionId)) {
+            $query['RegionId'] = $request->regionId;
+        }
+        $req = new OpenApiRequest([
             'query' => OpenApiUtilClient::query($query),
         ]);
         $params = new Params([
@@ -239,15 +261,29 @@ class IoTCC extends OpenApiClient
     public function associateIpWithConnectionPoolWithOptions($request, $runtime)
     {
         Utils::validateModel($request);
-        $query                        = [];
-        $query['ClientToken']         = $request->clientToken;
-        $query['ConnectionPoolId']    = $request->connectionPoolId;
-        $query['DryRun']              = $request->dryRun;
-        $query['IoTCloudConnectorId'] = $request->ioTCloudConnectorId;
-        $query['Ips']                 = $request->ips;
-        $query['IpsFilePath']         = $request->ipsFilePath;
-        $query['RegionId']            = $request->regionId;
-        $req                          = new OpenApiRequest([
+        $query = [];
+        if (!Utils::isUnset($request->clientToken)) {
+            $query['ClientToken'] = $request->clientToken;
+        }
+        if (!Utils::isUnset($request->connectionPoolId)) {
+            $query['ConnectionPoolId'] = $request->connectionPoolId;
+        }
+        if (!Utils::isUnset($request->dryRun)) {
+            $query['DryRun'] = $request->dryRun;
+        }
+        if (!Utils::isUnset($request->ioTCloudConnectorId)) {
+            $query['IoTCloudConnectorId'] = $request->ioTCloudConnectorId;
+        }
+        if (!Utils::isUnset($request->ips)) {
+            $query['Ips'] = $request->ips;
+        }
+        if (!Utils::isUnset($request->ipsFilePath)) {
+            $query['IpsFilePath'] = $request->ipsFilePath;
+        }
+        if (!Utils::isUnset($request->regionId)) {
+            $query['RegionId'] = $request->regionId;
+        }
+        $req = new OpenApiRequest([
             'query' => OpenApiUtilClient::query($query),
         ]);
         $params = new Params([
@@ -286,14 +322,26 @@ class IoTCC extends OpenApiClient
     public function associateVSwitchWithIoTCloudConnectorWithOptions($request, $runtime)
     {
         Utils::validateModel($request);
-        $query                        = [];
-        $query['ClientToken']         = $request->clientToken;
-        $query['DryRun']              = $request->dryRun;
-        $query['IoTCloudConnectorId'] = $request->ioTCloudConnectorId;
-        $query['RegionId']            = $request->regionId;
-        $query['VSwitchList']         = $request->vSwitchList;
-        $query['VpcId']               = $request->vpcId;
-        $req                          = new OpenApiRequest([
+        $query = [];
+        if (!Utils::isUnset($request->clientToken)) {
+            $query['ClientToken'] = $request->clientToken;
+        }
+        if (!Utils::isUnset($request->dryRun)) {
+            $query['DryRun'] = $request->dryRun;
+        }
+        if (!Utils::isUnset($request->ioTCloudConnectorId)) {
+            $query['IoTCloudConnectorId'] = $request->ioTCloudConnectorId;
+        }
+        if (!Utils::isUnset($request->regionId)) {
+            $query['RegionId'] = $request->regionId;
+        }
+        if (!Utils::isUnset($request->vSwitchList)) {
+            $query['VSwitchList'] = $request->vSwitchList;
+        }
+        if (!Utils::isUnset($request->vpcId)) {
+            $query['VpcId'] = $request->vpcId;
+        }
+        $req = new OpenApiRequest([
             'query' => OpenApiUtilClient::query($query),
         ]);
         $params = new Params([
@@ -332,18 +380,38 @@ class IoTCC extends OpenApiClient
     public function createAuthorizationRuleWithOptions($request, $runtime)
     {
         Utils::validateModel($request);
-        $query                                 = [];
-        $query['AuthorizationRuleDescription'] = $request->authorizationRuleDescription;
-        $query['AuthorizationRuleName']        = $request->authorizationRuleName;
-        $query['ClientToken']                  = $request->clientToken;
-        $query['Destination']                  = $request->destination;
-        $query['DestinationType']              = $request->destinationType;
-        $query['DryRun']                       = $request->dryRun;
-        $query['IoTCloudConnectorId']          = $request->ioTCloudConnectorId;
-        $query['Policy']                       = $request->policy;
-        $query['RegionId']                     = $request->regionId;
-        $query['SourceCidrs']                  = $request->sourceCidrs;
-        $req                                   = new OpenApiRequest([
+        $query = [];
+        if (!Utils::isUnset($request->authorizationRuleDescription)) {
+            $query['AuthorizationRuleDescription'] = $request->authorizationRuleDescription;
+        }
+        if (!Utils::isUnset($request->authorizationRuleName)) {
+            $query['AuthorizationRuleName'] = $request->authorizationRuleName;
+        }
+        if (!Utils::isUnset($request->clientToken)) {
+            $query['ClientToken'] = $request->clientToken;
+        }
+        if (!Utils::isUnset($request->destination)) {
+            $query['Destination'] = $request->destination;
+        }
+        if (!Utils::isUnset($request->destinationType)) {
+            $query['DestinationType'] = $request->destinationType;
+        }
+        if (!Utils::isUnset($request->dryRun)) {
+            $query['DryRun'] = $request->dryRun;
+        }
+        if (!Utils::isUnset($request->ioTCloudConnectorId)) {
+            $query['IoTCloudConnectorId'] = $request->ioTCloudConnectorId;
+        }
+        if (!Utils::isUnset($request->policy)) {
+            $query['Policy'] = $request->policy;
+        }
+        if (!Utils::isUnset($request->regionId)) {
+            $query['RegionId'] = $request->regionId;
+        }
+        if (!Utils::isUnset($request->sourceCidrs)) {
+            $query['SourceCidrs'] = $request->sourceCidrs;
+        }
+        $req = new OpenApiRequest([
             'query' => OpenApiUtilClient::query($query),
         ]);
         $params = new Params([
@@ -382,16 +450,32 @@ class IoTCC extends OpenApiClient
     public function createConnectionPoolWithOptions($request, $runtime)
     {
         Utils::validateModel($request);
-        $query                              = [];
-        $query['Cidrs']                     = $request->cidrs;
-        $query['ClientToken']               = $request->clientToken;
-        $query['ConnectionPoolDescription'] = $request->connectionPoolDescription;
-        $query['ConnectionPoolName']        = $request->connectionPoolName;
-        $query['Count']                     = $request->count;
-        $query['DryRun']                    = $request->dryRun;
-        $query['IoTCloudConnectorId']       = $request->ioTCloudConnectorId;
-        $query['RegionId']                  = $request->regionId;
-        $req                                = new OpenApiRequest([
+        $query = [];
+        if (!Utils::isUnset($request->cidrs)) {
+            $query['Cidrs'] = $request->cidrs;
+        }
+        if (!Utils::isUnset($request->clientToken)) {
+            $query['ClientToken'] = $request->clientToken;
+        }
+        if (!Utils::isUnset($request->connectionPoolDescription)) {
+            $query['ConnectionPoolDescription'] = $request->connectionPoolDescription;
+        }
+        if (!Utils::isUnset($request->connectionPoolName)) {
+            $query['ConnectionPoolName'] = $request->connectionPoolName;
+        }
+        if (!Utils::isUnset($request->count)) {
+            $query['Count'] = $request->count;
+        }
+        if (!Utils::isUnset($request->dryRun)) {
+            $query['DryRun'] = $request->dryRun;
+        }
+        if (!Utils::isUnset($request->ioTCloudConnectorId)) {
+            $query['IoTCloudConnectorId'] = $request->ioTCloudConnectorId;
+        }
+        if (!Utils::isUnset($request->regionId)) {
+            $query['RegionId'] = $request->regionId;
+        }
+        $req = new OpenApiRequest([
             'query' => OpenApiUtilClient::query($query),
         ]);
         $params = new Params([
@@ -430,18 +514,38 @@ class IoTCC extends OpenApiClient
     public function createGroupAuthorizationRuleWithOptions($request, $runtime)
     {
         Utils::validateModel($request);
-        $query                                 = [];
-        $query['AuthorizationRuleDescription'] = $request->authorizationRuleDescription;
-        $query['AuthorizationRuleName']        = $request->authorizationRuleName;
-        $query['ClientToken']                  = $request->clientToken;
-        $query['Destination']                  = $request->destination;
-        $query['DestinationType']              = $request->destinationType;
-        $query['DryRun']                       = $request->dryRun;
-        $query['IoTCloudConnectorGroupId']     = $request->ioTCloudConnectorGroupId;
-        $query['Policy']                       = $request->policy;
-        $query['RegionId']                     = $request->regionId;
-        $query['SourceCidrs']                  = $request->sourceCidrs;
-        $req                                   = new OpenApiRequest([
+        $query = [];
+        if (!Utils::isUnset($request->authorizationRuleDescription)) {
+            $query['AuthorizationRuleDescription'] = $request->authorizationRuleDescription;
+        }
+        if (!Utils::isUnset($request->authorizationRuleName)) {
+            $query['AuthorizationRuleName'] = $request->authorizationRuleName;
+        }
+        if (!Utils::isUnset($request->clientToken)) {
+            $query['ClientToken'] = $request->clientToken;
+        }
+        if (!Utils::isUnset($request->destination)) {
+            $query['Destination'] = $request->destination;
+        }
+        if (!Utils::isUnset($request->destinationType)) {
+            $query['DestinationType'] = $request->destinationType;
+        }
+        if (!Utils::isUnset($request->dryRun)) {
+            $query['DryRun'] = $request->dryRun;
+        }
+        if (!Utils::isUnset($request->ioTCloudConnectorGroupId)) {
+            $query['IoTCloudConnectorGroupId'] = $request->ioTCloudConnectorGroupId;
+        }
+        if (!Utils::isUnset($request->policy)) {
+            $query['Policy'] = $request->policy;
+        }
+        if (!Utils::isUnset($request->regionId)) {
+            $query['RegionId'] = $request->regionId;
+        }
+        if (!Utils::isUnset($request->sourceCidrs)) {
+            $query['SourceCidrs'] = $request->sourceCidrs;
+        }
+        $req = new OpenApiRequest([
             'query' => OpenApiUtilClient::query($query),
         ]);
         $params = new Params([
@@ -480,17 +584,35 @@ class IoTCC extends OpenApiClient
     public function createIoTCloudConnectorWithOptions($request, $runtime)
     {
         Utils::validateModel($request);
-        $query                                 = [];
-        $query['APN']                          = $request->APN;
-        $query['ClientToken']                  = $request->clientToken;
-        $query['DryRun']                       = $request->dryRun;
-        $query['ISP']                          = $request->ISP;
-        $query['IoTCloudConnectorDescription'] = $request->ioTCloudConnectorDescription;
-        $query['IoTCloudConnectorName']        = $request->ioTCloudConnectorName;
-        $query['RegionId']                     = $request->regionId;
-        $query['ResourceUid']                  = $request->resourceUid;
-        $query['WildcardDomainEnabled']        = $request->wildcardDomainEnabled;
-        $req                                   = new OpenApiRequest([
+        $query = [];
+        if (!Utils::isUnset($request->APN)) {
+            $query['APN'] = $request->APN;
+        }
+        if (!Utils::isUnset($request->clientToken)) {
+            $query['ClientToken'] = $request->clientToken;
+        }
+        if (!Utils::isUnset($request->dryRun)) {
+            $query['DryRun'] = $request->dryRun;
+        }
+        if (!Utils::isUnset($request->ISP)) {
+            $query['ISP'] = $request->ISP;
+        }
+        if (!Utils::isUnset($request->ioTCloudConnectorDescription)) {
+            $query['IoTCloudConnectorDescription'] = $request->ioTCloudConnectorDescription;
+        }
+        if (!Utils::isUnset($request->ioTCloudConnectorName)) {
+            $query['IoTCloudConnectorName'] = $request->ioTCloudConnectorName;
+        }
+        if (!Utils::isUnset($request->regionId)) {
+            $query['RegionId'] = $request->regionId;
+        }
+        if (!Utils::isUnset($request->resourceUid)) {
+            $query['ResourceUid'] = $request->resourceUid;
+        }
+        if (!Utils::isUnset($request->wildcardDomainEnabled)) {
+            $query['WildcardDomainEnabled'] = $request->wildcardDomainEnabled;
+        }
+        $req = new OpenApiRequest([
             'query' => OpenApiUtilClient::query($query),
         ]);
         $params = new Params([
@@ -529,13 +651,23 @@ class IoTCC extends OpenApiClient
     public function createIoTCloudConnectorGroupWithOptions($request, $runtime)
     {
         Utils::validateModel($request);
-        $query                = [];
-        $query['ClientToken'] = $request->clientToken;
-        $query['Description'] = $request->description;
-        $query['DryRun']      = $request->dryRun;
-        $query['Name']        = $request->name;
-        $query['RegionId']    = $request->regionId;
-        $req                  = new OpenApiRequest([
+        $query = [];
+        if (!Utils::isUnset($request->clientToken)) {
+            $query['ClientToken'] = $request->clientToken;
+        }
+        if (!Utils::isUnset($request->description)) {
+            $query['Description'] = $request->description;
+        }
+        if (!Utils::isUnset($request->dryRun)) {
+            $query['DryRun'] = $request->dryRun;
+        }
+        if (!Utils::isUnset($request->name)) {
+            $query['Name'] = $request->name;
+        }
+        if (!Utils::isUnset($request->regionId)) {
+            $query['RegionId'] = $request->regionId;
+        }
+        $req = new OpenApiRequest([
             'query' => OpenApiUtilClient::query($query),
         ]);
         $params = new Params([
@@ -574,14 +706,26 @@ class IoTCC extends OpenApiClient
     public function createServiceWithOptions($request, $runtime)
     {
         Utils::validateModel($request);
-        $query                        = [];
-        $query['ClientToken']         = $request->clientToken;
-        $query['DryRun']              = $request->dryRun;
-        $query['IoTCloudConnectorId'] = $request->ioTCloudConnectorId;
-        $query['RegionId']            = $request->regionId;
-        $query['ServiceDescription']  = $request->serviceDescription;
-        $query['ServiceName']         = $request->serviceName;
-        $req                          = new OpenApiRequest([
+        $query = [];
+        if (!Utils::isUnset($request->clientToken)) {
+            $query['ClientToken'] = $request->clientToken;
+        }
+        if (!Utils::isUnset($request->dryRun)) {
+            $query['DryRun'] = $request->dryRun;
+        }
+        if (!Utils::isUnset($request->ioTCloudConnectorId)) {
+            $query['IoTCloudConnectorId'] = $request->ioTCloudConnectorId;
+        }
+        if (!Utils::isUnset($request->regionId)) {
+            $query['RegionId'] = $request->regionId;
+        }
+        if (!Utils::isUnset($request->serviceDescription)) {
+            $query['ServiceDescription'] = $request->serviceDescription;
+        }
+        if (!Utils::isUnset($request->serviceName)) {
+            $query['ServiceName'] = $request->serviceName;
+        }
+        $req = new OpenApiRequest([
             'query' => OpenApiUtilClient::query($query),
         ]);
         $params = new Params([
@@ -620,17 +764,35 @@ class IoTCC extends OpenApiClient
     public function createServiceEntryWithOptions($request, $runtime)
     {
         Utils::validateModel($request);
-        $query                            = [];
-        $query['ClientToken']             = $request->clientToken;
-        $query['DryRun']                  = $request->dryRun;
-        $query['IoTCloudConnectorId']     = $request->ioTCloudConnectorId;
-        $query['RegionId']                = $request->regionId;
-        $query['ServiceEntryDescription'] = $request->serviceEntryDescription;
-        $query['ServiceEntryName']        = $request->serviceEntryName;
-        $query['ServiceId']               = $request->serviceId;
-        $query['Target']                  = $request->target;
-        $query['TargetType']              = $request->targetType;
-        $req                              = new OpenApiRequest([
+        $query = [];
+        if (!Utils::isUnset($request->clientToken)) {
+            $query['ClientToken'] = $request->clientToken;
+        }
+        if (!Utils::isUnset($request->dryRun)) {
+            $query['DryRun'] = $request->dryRun;
+        }
+        if (!Utils::isUnset($request->ioTCloudConnectorId)) {
+            $query['IoTCloudConnectorId'] = $request->ioTCloudConnectorId;
+        }
+        if (!Utils::isUnset($request->regionId)) {
+            $query['RegionId'] = $request->regionId;
+        }
+        if (!Utils::isUnset($request->serviceEntryDescription)) {
+            $query['ServiceEntryDescription'] = $request->serviceEntryDescription;
+        }
+        if (!Utils::isUnset($request->serviceEntryName)) {
+            $query['ServiceEntryName'] = $request->serviceEntryName;
+        }
+        if (!Utils::isUnset($request->serviceId)) {
+            $query['ServiceId'] = $request->serviceId;
+        }
+        if (!Utils::isUnset($request->target)) {
+            $query['Target'] = $request->target;
+        }
+        if (!Utils::isUnset($request->targetType)) {
+            $query['TargetType'] = $request->targetType;
+        }
+        $req = new OpenApiRequest([
             'query' => OpenApiUtilClient::query($query),
         ]);
         $params = new Params([
@@ -669,13 +831,23 @@ class IoTCC extends OpenApiClient
     public function deleteAuthorizationRuleWithOptions($request, $runtime)
     {
         Utils::validateModel($request);
-        $query                        = [];
-        $query['AuthorizationRuleId'] = $request->authorizationRuleId;
-        $query['ClientToken']         = $request->clientToken;
-        $query['DryRun']              = $request->dryRun;
-        $query['IoTCloudConnectorId'] = $request->ioTCloudConnectorId;
-        $query['RegionId']            = $request->regionId;
-        $req                          = new OpenApiRequest([
+        $query = [];
+        if (!Utils::isUnset($request->authorizationRuleId)) {
+            $query['AuthorizationRuleId'] = $request->authorizationRuleId;
+        }
+        if (!Utils::isUnset($request->clientToken)) {
+            $query['ClientToken'] = $request->clientToken;
+        }
+        if (!Utils::isUnset($request->dryRun)) {
+            $query['DryRun'] = $request->dryRun;
+        }
+        if (!Utils::isUnset($request->ioTCloudConnectorId)) {
+            $query['IoTCloudConnectorId'] = $request->ioTCloudConnectorId;
+        }
+        if (!Utils::isUnset($request->regionId)) {
+            $query['RegionId'] = $request->regionId;
+        }
+        $req = new OpenApiRequest([
             'query' => OpenApiUtilClient::query($query),
         ]);
         $params = new Params([
@@ -714,13 +886,23 @@ class IoTCC extends OpenApiClient
     public function deleteConnectionPoolWithOptions($request, $runtime)
     {
         Utils::validateModel($request);
-        $query                        = [];
-        $query['ClientToken']         = $request->clientToken;
-        $query['ConnectionPoolId']    = $request->connectionPoolId;
-        $query['DryRun']              = $request->dryRun;
-        $query['IoTCloudConnectorId'] = $request->ioTCloudConnectorId;
-        $query['RegionId']            = $request->regionId;
-        $req                          = new OpenApiRequest([
+        $query = [];
+        if (!Utils::isUnset($request->clientToken)) {
+            $query['ClientToken'] = $request->clientToken;
+        }
+        if (!Utils::isUnset($request->connectionPoolId)) {
+            $query['ConnectionPoolId'] = $request->connectionPoolId;
+        }
+        if (!Utils::isUnset($request->dryRun)) {
+            $query['DryRun'] = $request->dryRun;
+        }
+        if (!Utils::isUnset($request->ioTCloudConnectorId)) {
+            $query['IoTCloudConnectorId'] = $request->ioTCloudConnectorId;
+        }
+        if (!Utils::isUnset($request->regionId)) {
+            $query['RegionId'] = $request->regionId;
+        }
+        $req = new OpenApiRequest([
             'query' => OpenApiUtilClient::query($query),
         ]);
         $params = new Params([
@@ -759,13 +941,23 @@ class IoTCC extends OpenApiClient
     public function deleteGroupAuthorizationRuleWithOptions($request, $runtime)
     {
         Utils::validateModel($request);
-        $query                             = [];
-        $query['AuthorizationRuleId']      = $request->authorizationRuleId;
-        $query['ClientToken']              = $request->clientToken;
-        $query['DryRun']                   = $request->dryRun;
-        $query['IoTCloudConnectorGroupId'] = $request->ioTCloudConnectorGroupId;
-        $query['RegionId']                 = $request->regionId;
-        $req                               = new OpenApiRequest([
+        $query = [];
+        if (!Utils::isUnset($request->authorizationRuleId)) {
+            $query['AuthorizationRuleId'] = $request->authorizationRuleId;
+        }
+        if (!Utils::isUnset($request->clientToken)) {
+            $query['ClientToken'] = $request->clientToken;
+        }
+        if (!Utils::isUnset($request->dryRun)) {
+            $query['DryRun'] = $request->dryRun;
+        }
+        if (!Utils::isUnset($request->ioTCloudConnectorGroupId)) {
+            $query['IoTCloudConnectorGroupId'] = $request->ioTCloudConnectorGroupId;
+        }
+        if (!Utils::isUnset($request->regionId)) {
+            $query['RegionId'] = $request->regionId;
+        }
+        $req = new OpenApiRequest([
             'query' => OpenApiUtilClient::query($query),
         ]);
         $params = new Params([
@@ -804,12 +996,20 @@ class IoTCC extends OpenApiClient
     public function deleteIoTCloudConnectorWithOptions($request, $runtime)
     {
         Utils::validateModel($request);
-        $query                        = [];
-        $query['ClientToken']         = $request->clientToken;
-        $query['DryRun']              = $request->dryRun;
-        $query['IoTCloudConnectorId'] = $request->ioTCloudConnectorId;
-        $query['RegionId']            = $request->regionId;
-        $req                          = new OpenApiRequest([
+        $query = [];
+        if (!Utils::isUnset($request->clientToken)) {
+            $query['ClientToken'] = $request->clientToken;
+        }
+        if (!Utils::isUnset($request->dryRun)) {
+            $query['DryRun'] = $request->dryRun;
+        }
+        if (!Utils::isUnset($request->ioTCloudConnectorId)) {
+            $query['IoTCloudConnectorId'] = $request->ioTCloudConnectorId;
+        }
+        if (!Utils::isUnset($request->regionId)) {
+            $query['RegionId'] = $request->regionId;
+        }
+        $req = new OpenApiRequest([
             'query' => OpenApiUtilClient::query($query),
         ]);
         $params = new Params([
@@ -848,12 +1048,20 @@ class IoTCC extends OpenApiClient
     public function deleteIoTCloudConnectorGroupWithOptions($request, $runtime)
     {
         Utils::validateModel($request);
-        $query                             = [];
-        $query['ClientToken']              = $request->clientToken;
-        $query['DryRun']                   = $request->dryRun;
-        $query['IoTCloudConnectorGroupId'] = $request->ioTCloudConnectorGroupId;
-        $query['RegionId']                 = $request->regionId;
-        $req                               = new OpenApiRequest([
+        $query = [];
+        if (!Utils::isUnset($request->clientToken)) {
+            $query['ClientToken'] = $request->clientToken;
+        }
+        if (!Utils::isUnset($request->dryRun)) {
+            $query['DryRun'] = $request->dryRun;
+        }
+        if (!Utils::isUnset($request->ioTCloudConnectorGroupId)) {
+            $query['IoTCloudConnectorGroupId'] = $request->ioTCloudConnectorGroupId;
+        }
+        if (!Utils::isUnset($request->regionId)) {
+            $query['RegionId'] = $request->regionId;
+        }
+        $req = new OpenApiRequest([
             'query' => OpenApiUtilClient::query($query),
         ]);
         $params = new Params([
@@ -892,13 +1100,23 @@ class IoTCC extends OpenApiClient
     public function deleteServiceWithOptions($request, $runtime)
     {
         Utils::validateModel($request);
-        $query                        = [];
-        $query['ClientToken']         = $request->clientToken;
-        $query['DryRun']              = $request->dryRun;
-        $query['IoTCloudConnectorId'] = $request->ioTCloudConnectorId;
-        $query['RegionId']            = $request->regionId;
-        $query['ServiceId']           = $request->serviceId;
-        $req                          = new OpenApiRequest([
+        $query = [];
+        if (!Utils::isUnset($request->clientToken)) {
+            $query['ClientToken'] = $request->clientToken;
+        }
+        if (!Utils::isUnset($request->dryRun)) {
+            $query['DryRun'] = $request->dryRun;
+        }
+        if (!Utils::isUnset($request->ioTCloudConnectorId)) {
+            $query['IoTCloudConnectorId'] = $request->ioTCloudConnectorId;
+        }
+        if (!Utils::isUnset($request->regionId)) {
+            $query['RegionId'] = $request->regionId;
+        }
+        if (!Utils::isUnset($request->serviceId)) {
+            $query['ServiceId'] = $request->serviceId;
+        }
+        $req = new OpenApiRequest([
             'query' => OpenApiUtilClient::query($query),
         ]);
         $params = new Params([
@@ -937,14 +1155,26 @@ class IoTCC extends OpenApiClient
     public function deleteServiceEntryWithOptions($request, $runtime)
     {
         Utils::validateModel($request);
-        $query                        = [];
-        $query['ClientToken']         = $request->clientToken;
-        $query['DryRun']              = $request->dryRun;
-        $query['IoTCloudConnectorId'] = $request->ioTCloudConnectorId;
-        $query['RegionId']            = $request->regionId;
-        $query['ServiceEntryId']      = $request->serviceEntryId;
-        $query['ServiceId']           = $request->serviceId;
-        $req                          = new OpenApiRequest([
+        $query = [];
+        if (!Utils::isUnset($request->clientToken)) {
+            $query['ClientToken'] = $request->clientToken;
+        }
+        if (!Utils::isUnset($request->dryRun)) {
+            $query['DryRun'] = $request->dryRun;
+        }
+        if (!Utils::isUnset($request->ioTCloudConnectorId)) {
+            $query['IoTCloudConnectorId'] = $request->ioTCloudConnectorId;
+        }
+        if (!Utils::isUnset($request->regionId)) {
+            $query['RegionId'] = $request->regionId;
+        }
+        if (!Utils::isUnset($request->serviceEntryId)) {
+            $query['ServiceEntryId'] = $request->serviceEntryId;
+        }
+        if (!Utils::isUnset($request->serviceId)) {
+            $query['ServiceId'] = $request->serviceId;
+        }
+        $req = new OpenApiRequest([
             'query' => OpenApiUtilClient::query($query),
         ]);
         $params = new Params([
@@ -983,12 +1213,20 @@ class IoTCC extends OpenApiClient
     public function disableIoTCloudConnectorAccessLogWithOptions($request, $runtime)
     {
         Utils::validateModel($request);
-        $query                        = [];
-        $query['ClientToken']         = $request->clientToken;
-        $query['DryRun']              = $request->dryRun;
-        $query['IoTCloudConnectorId'] = $request->ioTCloudConnectorId;
-        $query['RegionId']            = $request->regionId;
-        $req                          = new OpenApiRequest([
+        $query = [];
+        if (!Utils::isUnset($request->clientToken)) {
+            $query['ClientToken'] = $request->clientToken;
+        }
+        if (!Utils::isUnset($request->dryRun)) {
+            $query['DryRun'] = $request->dryRun;
+        }
+        if (!Utils::isUnset($request->ioTCloudConnectorId)) {
+            $query['IoTCloudConnectorId'] = $request->ioTCloudConnectorId;
+        }
+        if (!Utils::isUnset($request->regionId)) {
+            $query['RegionId'] = $request->regionId;
+        }
+        $req = new OpenApiRequest([
             'query' => OpenApiUtilClient::query($query),
         ]);
         $params = new Params([
@@ -1027,15 +1265,29 @@ class IoTCC extends OpenApiClient
     public function dissociateIpFromConnectionPoolWithOptions($request, $runtime)
     {
         Utils::validateModel($request);
-        $query                        = [];
-        $query['ClientToken']         = $request->clientToken;
-        $query['ConnectionPoolId']    = $request->connectionPoolId;
-        $query['DryRun']              = $request->dryRun;
-        $query['IoTCloudConnectorId'] = $request->ioTCloudConnectorId;
-        $query['Ips']                 = $request->ips;
-        $query['IpsFilePath']         = $request->ipsFilePath;
-        $query['RegionId']            = $request->regionId;
-        $req                          = new OpenApiRequest([
+        $query = [];
+        if (!Utils::isUnset($request->clientToken)) {
+            $query['ClientToken'] = $request->clientToken;
+        }
+        if (!Utils::isUnset($request->connectionPoolId)) {
+            $query['ConnectionPoolId'] = $request->connectionPoolId;
+        }
+        if (!Utils::isUnset($request->dryRun)) {
+            $query['DryRun'] = $request->dryRun;
+        }
+        if (!Utils::isUnset($request->ioTCloudConnectorId)) {
+            $query['IoTCloudConnectorId'] = $request->ioTCloudConnectorId;
+        }
+        if (!Utils::isUnset($request->ips)) {
+            $query['Ips'] = $request->ips;
+        }
+        if (!Utils::isUnset($request->ipsFilePath)) {
+            $query['IpsFilePath'] = $request->ipsFilePath;
+        }
+        if (!Utils::isUnset($request->regionId)) {
+            $query['RegionId'] = $request->regionId;
+        }
+        $req = new OpenApiRequest([
             'query' => OpenApiUtilClient::query($query),
         ]);
         $params = new Params([
@@ -1074,12 +1326,20 @@ class IoTCC extends OpenApiClient
     public function dissociateVSwitchFromIoTCloudConnectorWithOptions($request, $runtime)
     {
         Utils::validateModel($request);
-        $query                        = [];
-        $query['ClientToken']         = $request->clientToken;
-        $query['DryRun']              = $request->dryRun;
-        $query['IoTCloudConnectorId'] = $request->ioTCloudConnectorId;
-        $query['RegionId']            = $request->regionId;
-        $req                          = new OpenApiRequest([
+        $query = [];
+        if (!Utils::isUnset($request->clientToken)) {
+            $query['ClientToken'] = $request->clientToken;
+        }
+        if (!Utils::isUnset($request->dryRun)) {
+            $query['DryRun'] = $request->dryRun;
+        }
+        if (!Utils::isUnset($request->ioTCloudConnectorId)) {
+            $query['IoTCloudConnectorId'] = $request->ioTCloudConnectorId;
+        }
+        if (!Utils::isUnset($request->regionId)) {
+            $query['RegionId'] = $request->regionId;
+        }
+        $req = new OpenApiRequest([
             'query' => OpenApiUtilClient::query($query),
         ]);
         $params = new Params([
@@ -1118,14 +1378,26 @@ class IoTCC extends OpenApiClient
     public function enableIoTCloudConnectorAccessLogWithOptions($request, $runtime)
     {
         Utils::validateModel($request);
-        $query                         = [];
-        $query['AccessLogSlsLogStore'] = $request->accessLogSlsLogStore;
-        $query['AccessLogSlsProject']  = $request->accessLogSlsProject;
-        $query['ClientToken']          = $request->clientToken;
-        $query['DryRun']               = $request->dryRun;
-        $query['IoTCloudConnectorId']  = $request->ioTCloudConnectorId;
-        $query['RegionId']             = $request->regionId;
-        $req                           = new OpenApiRequest([
+        $query = [];
+        if (!Utils::isUnset($request->accessLogSlsLogStore)) {
+            $query['AccessLogSlsLogStore'] = $request->accessLogSlsLogStore;
+        }
+        if (!Utils::isUnset($request->accessLogSlsProject)) {
+            $query['AccessLogSlsProject'] = $request->accessLogSlsProject;
+        }
+        if (!Utils::isUnset($request->clientToken)) {
+            $query['ClientToken'] = $request->clientToken;
+        }
+        if (!Utils::isUnset($request->dryRun)) {
+            $query['DryRun'] = $request->dryRun;
+        }
+        if (!Utils::isUnset($request->ioTCloudConnectorId)) {
+            $query['IoTCloudConnectorId'] = $request->ioTCloudConnectorId;
+        }
+        if (!Utils::isUnset($request->regionId)) {
+            $query['RegionId'] = $request->regionId;
+        }
+        $req = new OpenApiRequest([
             'query' => OpenApiUtilClient::query($query),
         ]);
         $params = new Params([
@@ -1164,12 +1436,20 @@ class IoTCC extends OpenApiClient
     public function getConnectionPoolIpOperationResultWithOptions($request, $runtime)
     {
         Utils::validateModel($request);
-        $query                        = [];
-        $query['ConnectionPoolId']    = $request->connectionPoolId;
-        $query['IoTCloudConnectorId'] = $request->ioTCloudConnectorId;
-        $query['QueryRequestId']      = $request->queryRequestId;
-        $query['RegionId']            = $request->regionId;
-        $req                          = new OpenApiRequest([
+        $query = [];
+        if (!Utils::isUnset($request->connectionPoolId)) {
+            $query['ConnectionPoolId'] = $request->connectionPoolId;
+        }
+        if (!Utils::isUnset($request->ioTCloudConnectorId)) {
+            $query['IoTCloudConnectorId'] = $request->ioTCloudConnectorId;
+        }
+        if (!Utils::isUnset($request->queryRequestId)) {
+            $query['QueryRequestId'] = $request->queryRequestId;
+        }
+        if (!Utils::isUnset($request->regionId)) {
+            $query['RegionId'] = $request->regionId;
+        }
+        $req = new OpenApiRequest([
             'query' => OpenApiUtilClient::query($query),
         ]);
         $params = new Params([
@@ -1208,12 +1488,20 @@ class IoTCC extends OpenApiClient
     public function getIoTCloudConnectorAccessLogWithOptions($request, $runtime)
     {
         Utils::validateModel($request);
-        $query                        = [];
-        $query['ClientToken']         = $request->clientToken;
-        $query['DryRun']              = $request->dryRun;
-        $query['IoTCloudConnectorId'] = $request->ioTCloudConnectorId;
-        $query['RegionId']            = $request->regionId;
-        $req                          = new OpenApiRequest([
+        $query = [];
+        if (!Utils::isUnset($request->clientToken)) {
+            $query['ClientToken'] = $request->clientToken;
+        }
+        if (!Utils::isUnset($request->dryRun)) {
+            $query['DryRun'] = $request->dryRun;
+        }
+        if (!Utils::isUnset($request->ioTCloudConnectorId)) {
+            $query['IoTCloudConnectorId'] = $request->ioTCloudConnectorId;
+        }
+        if (!Utils::isUnset($request->regionId)) {
+            $query['RegionId'] = $request->regionId;
+        }
+        $req = new OpenApiRequest([
             'query' => OpenApiUtilClient::query($query),
         ]);
         $params = new Params([
@@ -1252,14 +1540,26 @@ class IoTCC extends OpenApiClient
     public function getStsInfoAndOssPathWithOptions($request, $runtime)
     {
         Utils::validateModel($request);
-        $query                        = [];
-        $query['ClientToken']         = $request->clientToken;
-        $query['ConnectionPoolId']    = $request->connectionPoolId;
-        $query['DryRun']              = $request->dryRun;
-        $query['FileName']            = $request->fileName;
-        $query['IoTCloudConnectorId'] = $request->ioTCloudConnectorId;
-        $query['RegionId']            = $request->regionId;
-        $req                          = new OpenApiRequest([
+        $query = [];
+        if (!Utils::isUnset($request->clientToken)) {
+            $query['ClientToken'] = $request->clientToken;
+        }
+        if (!Utils::isUnset($request->connectionPoolId)) {
+            $query['ConnectionPoolId'] = $request->connectionPoolId;
+        }
+        if (!Utils::isUnset($request->dryRun)) {
+            $query['DryRun'] = $request->dryRun;
+        }
+        if (!Utils::isUnset($request->fileName)) {
+            $query['FileName'] = $request->fileName;
+        }
+        if (!Utils::isUnset($request->ioTCloudConnectorId)) {
+            $query['IoTCloudConnectorId'] = $request->ioTCloudConnectorId;
+        }
+        if (!Utils::isUnset($request->regionId)) {
+            $query['RegionId'] = $request->regionId;
+        }
+        $req = new OpenApiRequest([
             'query' => OpenApiUtilClient::query($query),
         ]);
         $params = new Params([
@@ -1298,10 +1598,14 @@ class IoTCC extends OpenApiClient
     public function grantVirtualBorderRouterWithOptions($request, $runtime)
     {
         Utils::validateModel($request);
-        $query                          = [];
-        $query['RegionId']              = $request->regionId;
-        $query['VirtualBorderRouterId'] = $request->virtualBorderRouterId;
-        $req                            = new OpenApiRequest([
+        $query = [];
+        if (!Utils::isUnset($request->regionId)) {
+            $query['RegionId'] = $request->regionId;
+        }
+        if (!Utils::isUnset($request->virtualBorderRouterId)) {
+            $query['VirtualBorderRouterId'] = $request->virtualBorderRouterId;
+        }
+        $req = new OpenApiRequest([
             'query' => OpenApiUtilClient::query($query),
         ]);
         $params = new Params([
@@ -1340,13 +1644,23 @@ class IoTCC extends OpenApiClient
     public function listAPNsWithOptions($request, $runtime)
     {
         Utils::validateModel($request);
-        $query               = [];
-        $query['APN']        = $request->APN;
-        $query['ISP']        = $request->ISP;
-        $query['MaxResults'] = $request->maxResults;
-        $query['NextToken']  = $request->nextToken;
-        $query['RegionId']   = $request->regionId;
-        $req                 = new OpenApiRequest([
+        $query = [];
+        if (!Utils::isUnset($request->APN)) {
+            $query['APN'] = $request->APN;
+        }
+        if (!Utils::isUnset($request->ISP)) {
+            $query['ISP'] = $request->ISP;
+        }
+        if (!Utils::isUnset($request->maxResults)) {
+            $query['MaxResults'] = $request->maxResults;
+        }
+        if (!Utils::isUnset($request->nextToken)) {
+            $query['NextToken'] = $request->nextToken;
+        }
+        if (!Utils::isUnset($request->regionId)) {
+            $query['RegionId'] = $request->regionId;
+        }
+        $req = new OpenApiRequest([
             'query' => OpenApiUtilClient::query($query),
         ]);
         $params = new Params([
@@ -1385,18 +1699,38 @@ class IoTCC extends OpenApiClient
     public function listAuthorizationRulesWithOptions($request, $runtime)
     {
         Utils::validateModel($request);
-        $query                            = [];
-        $query['AuthorizationRuleIds']    = $request->authorizationRuleIds;
-        $query['AuthorizationRuleName']   = $request->authorizationRuleName;
-        $query['AuthorizationRuleStatus'] = $request->authorizationRuleStatus;
-        $query['Destination']             = $request->destination;
-        $query['DestinationType']         = $request->destinationType;
-        $query['IoTCloudConnectorId']     = $request->ioTCloudConnectorId;
-        $query['MaxResults']              = $request->maxResults;
-        $query['NextToken']               = $request->nextToken;
-        $query['Policy']                  = $request->policy;
-        $query['RegionId']                = $request->regionId;
-        $req                              = new OpenApiRequest([
+        $query = [];
+        if (!Utils::isUnset($request->authorizationRuleIds)) {
+            $query['AuthorizationRuleIds'] = $request->authorizationRuleIds;
+        }
+        if (!Utils::isUnset($request->authorizationRuleName)) {
+            $query['AuthorizationRuleName'] = $request->authorizationRuleName;
+        }
+        if (!Utils::isUnset($request->authorizationRuleStatus)) {
+            $query['AuthorizationRuleStatus'] = $request->authorizationRuleStatus;
+        }
+        if (!Utils::isUnset($request->destination)) {
+            $query['Destination'] = $request->destination;
+        }
+        if (!Utils::isUnset($request->destinationType)) {
+            $query['DestinationType'] = $request->destinationType;
+        }
+        if (!Utils::isUnset($request->ioTCloudConnectorId)) {
+            $query['IoTCloudConnectorId'] = $request->ioTCloudConnectorId;
+        }
+        if (!Utils::isUnset($request->maxResults)) {
+            $query['MaxResults'] = $request->maxResults;
+        }
+        if (!Utils::isUnset($request->nextToken)) {
+            $query['NextToken'] = $request->nextToken;
+        }
+        if (!Utils::isUnset($request->policy)) {
+            $query['Policy'] = $request->policy;
+        }
+        if (!Utils::isUnset($request->regionId)) {
+            $query['RegionId'] = $request->regionId;
+        }
+        $req = new OpenApiRequest([
             'query' => OpenApiUtilClient::query($query),
         ]);
         $params = new Params([
@@ -1435,15 +1769,29 @@ class IoTCC extends OpenApiClient
     public function listConnectionPoolAllIpsWithOptions($request, $runtime)
     {
         Utils::validateModel($request);
-        $query                        = [];
-        $query['ConnectionPoolId']    = $request->connectionPoolId;
-        $query['IoTCloudConnectorId'] = $request->ioTCloudConnectorId;
-        $query['Ip']                  = $request->ip;
-        $query['MaxResults']          = $request->maxResults;
-        $query['NextToken']           = $request->nextToken;
-        $query['RegionId']            = $request->regionId;
-        $query['Type']                = $request->type;
-        $req                          = new OpenApiRequest([
+        $query = [];
+        if (!Utils::isUnset($request->connectionPoolId)) {
+            $query['ConnectionPoolId'] = $request->connectionPoolId;
+        }
+        if (!Utils::isUnset($request->ioTCloudConnectorId)) {
+            $query['IoTCloudConnectorId'] = $request->ioTCloudConnectorId;
+        }
+        if (!Utils::isUnset($request->ip)) {
+            $query['Ip'] = $request->ip;
+        }
+        if (!Utils::isUnset($request->maxResults)) {
+            $query['MaxResults'] = $request->maxResults;
+        }
+        if (!Utils::isUnset($request->nextToken)) {
+            $query['NextToken'] = $request->nextToken;
+        }
+        if (!Utils::isUnset($request->regionId)) {
+            $query['RegionId'] = $request->regionId;
+        }
+        if (!Utils::isUnset($request->type)) {
+            $query['Type'] = $request->type;
+        }
+        $req = new OpenApiRequest([
             'query' => OpenApiUtilClient::query($query),
         ]);
         $params = new Params([
@@ -1482,14 +1830,26 @@ class IoTCC extends OpenApiClient
     public function listConnectionPoolIpsWithOptions($request, $runtime)
     {
         Utils::validateModel($request);
-        $query                        = [];
-        $query['ConnectionPoolId']    = $request->connectionPoolId;
-        $query['IoTCloudConnectorId'] = $request->ioTCloudConnectorId;
-        $query['Ip']                  = $request->ip;
-        $query['MaxResults']          = $request->maxResults;
-        $query['NextToken']           = $request->nextToken;
-        $query['RegionId']            = $request->regionId;
-        $req                          = new OpenApiRequest([
+        $query = [];
+        if (!Utils::isUnset($request->connectionPoolId)) {
+            $query['ConnectionPoolId'] = $request->connectionPoolId;
+        }
+        if (!Utils::isUnset($request->ioTCloudConnectorId)) {
+            $query['IoTCloudConnectorId'] = $request->ioTCloudConnectorId;
+        }
+        if (!Utils::isUnset($request->ip)) {
+            $query['Ip'] = $request->ip;
+        }
+        if (!Utils::isUnset($request->maxResults)) {
+            $query['MaxResults'] = $request->maxResults;
+        }
+        if (!Utils::isUnset($request->nextToken)) {
+            $query['NextToken'] = $request->nextToken;
+        }
+        if (!Utils::isUnset($request->regionId)) {
+            $query['RegionId'] = $request->regionId;
+        }
+        $req = new OpenApiRequest([
             'query' => OpenApiUtilClient::query($query),
         ]);
         $params = new Params([
@@ -1528,15 +1888,29 @@ class IoTCC extends OpenApiClient
     public function listConnectionPoolsWithOptions($request, $runtime)
     {
         Utils::validateModel($request);
-        $query                         = [];
-        $query['ConnectionPoolIds']    = $request->connectionPoolIds;
-        $query['ConnectionPoolName']   = $request->connectionPoolName;
-        $query['ConnectionPoolStatus'] = $request->connectionPoolStatus;
-        $query['IoTCloudConnectorId']  = $request->ioTCloudConnectorId;
-        $query['MaxResults']           = $request->maxResults;
-        $query['NextToken']            = $request->nextToken;
-        $query['RegionId']             = $request->regionId;
-        $req                           = new OpenApiRequest([
+        $query = [];
+        if (!Utils::isUnset($request->connectionPoolIds)) {
+            $query['ConnectionPoolIds'] = $request->connectionPoolIds;
+        }
+        if (!Utils::isUnset($request->connectionPoolName)) {
+            $query['ConnectionPoolName'] = $request->connectionPoolName;
+        }
+        if (!Utils::isUnset($request->connectionPoolStatus)) {
+            $query['ConnectionPoolStatus'] = $request->connectionPoolStatus;
+        }
+        if (!Utils::isUnset($request->ioTCloudConnectorId)) {
+            $query['IoTCloudConnectorId'] = $request->ioTCloudConnectorId;
+        }
+        if (!Utils::isUnset($request->maxResults)) {
+            $query['MaxResults'] = $request->maxResults;
+        }
+        if (!Utils::isUnset($request->nextToken)) {
+            $query['NextToken'] = $request->nextToken;
+        }
+        if (!Utils::isUnset($request->regionId)) {
+            $query['RegionId'] = $request->regionId;
+        }
+        $req = new OpenApiRequest([
             'query' => OpenApiUtilClient::query($query),
         ]);
         $params = new Params([
@@ -1575,18 +1949,38 @@ class IoTCC extends OpenApiClient
     public function listGroupAuthorizationRulesWithOptions($request, $runtime)
     {
         Utils::validateModel($request);
-        $query                             = [];
-        $query['AuthorizationRuleIds']     = $request->authorizationRuleIds;
-        $query['AuthorizationRuleName']    = $request->authorizationRuleName;
-        $query['AuthorizationRuleStatus']  = $request->authorizationRuleStatus;
-        $query['Destination']              = $request->destination;
-        $query['DestinationType']          = $request->destinationType;
-        $query['IoTCloudConnectorGroupId'] = $request->ioTCloudConnectorGroupId;
-        $query['MaxResults']               = $request->maxResults;
-        $query['NextToken']                = $request->nextToken;
-        $query['Policy']                   = $request->policy;
-        $query['RegionId']                 = $request->regionId;
-        $req                               = new OpenApiRequest([
+        $query = [];
+        if (!Utils::isUnset($request->authorizationRuleIds)) {
+            $query['AuthorizationRuleIds'] = $request->authorizationRuleIds;
+        }
+        if (!Utils::isUnset($request->authorizationRuleName)) {
+            $query['AuthorizationRuleName'] = $request->authorizationRuleName;
+        }
+        if (!Utils::isUnset($request->authorizationRuleStatus)) {
+            $query['AuthorizationRuleStatus'] = $request->authorizationRuleStatus;
+        }
+        if (!Utils::isUnset($request->destination)) {
+            $query['Destination'] = $request->destination;
+        }
+        if (!Utils::isUnset($request->destinationType)) {
+            $query['DestinationType'] = $request->destinationType;
+        }
+        if (!Utils::isUnset($request->ioTCloudConnectorGroupId)) {
+            $query['IoTCloudConnectorGroupId'] = $request->ioTCloudConnectorGroupId;
+        }
+        if (!Utils::isUnset($request->maxResults)) {
+            $query['MaxResults'] = $request->maxResults;
+        }
+        if (!Utils::isUnset($request->nextToken)) {
+            $query['NextToken'] = $request->nextToken;
+        }
+        if (!Utils::isUnset($request->policy)) {
+            $query['Policy'] = $request->policy;
+        }
+        if (!Utils::isUnset($request->regionId)) {
+            $query['RegionId'] = $request->regionId;
+        }
+        $req = new OpenApiRequest([
             'query' => OpenApiUtilClient::query($query),
         ]);
         $params = new Params([
@@ -1625,10 +2019,14 @@ class IoTCC extends OpenApiClient
     public function listIoTCloudConnectorAvailableZonesWithOptions($request, $runtime)
     {
         Utils::validateModel($request);
-        $query                        = [];
-        $query['IoTCloudConnectorId'] = $request->ioTCloudConnectorId;
-        $query['RegionId']            = $request->regionId;
-        $req                          = new OpenApiRequest([
+        $query = [];
+        if (!Utils::isUnset($request->ioTCloudConnectorId)) {
+            $query['IoTCloudConnectorId'] = $request->ioTCloudConnectorId;
+        }
+        if (!Utils::isUnset($request->regionId)) {
+            $query['RegionId'] = $request->regionId;
+        }
+        $req = new OpenApiRequest([
             'query' => OpenApiUtilClient::query($query),
         ]);
         $params = new Params([
@@ -1667,14 +2065,26 @@ class IoTCC extends OpenApiClient
     public function listIoTCloudConnectorGroupsWithOptions($request, $runtime)
     {
         Utils::validateModel($request);
-        $query                                 = [];
-        $query['IoTCloudConnectorGroupIds']    = $request->ioTCloudConnectorGroupIds;
-        $query['IoTCloudConnectorGroupName']   = $request->ioTCloudConnectorGroupName;
-        $query['IoTCloudConnectorGroupStatus'] = $request->ioTCloudConnectorGroupStatus;
-        $query['MaxResults']                   = $request->maxResults;
-        $query['NextToken']                    = $request->nextToken;
-        $query['RegionId']                     = $request->regionId;
-        $req                                   = new OpenApiRequest([
+        $query = [];
+        if (!Utils::isUnset($request->ioTCloudConnectorGroupIds)) {
+            $query['IoTCloudConnectorGroupIds'] = $request->ioTCloudConnectorGroupIds;
+        }
+        if (!Utils::isUnset($request->ioTCloudConnectorGroupName)) {
+            $query['IoTCloudConnectorGroupName'] = $request->ioTCloudConnectorGroupName;
+        }
+        if (!Utils::isUnset($request->ioTCloudConnectorGroupStatus)) {
+            $query['IoTCloudConnectorGroupStatus'] = $request->ioTCloudConnectorGroupStatus;
+        }
+        if (!Utils::isUnset($request->maxResults)) {
+            $query['MaxResults'] = $request->maxResults;
+        }
+        if (!Utils::isUnset($request->nextToken)) {
+            $query['NextToken'] = $request->nextToken;
+        }
+        if (!Utils::isUnset($request->regionId)) {
+            $query['RegionId'] = $request->regionId;
+        }
+        $req = new OpenApiRequest([
             'query' => OpenApiUtilClient::query($query),
         ]);
         $params = new Params([
@@ -1713,18 +2123,41 @@ class IoTCC extends OpenApiClient
     public function listIoTCloudConnectorsWithOptions($request, $runtime)
     {
         Utils::validateModel($request);
-        $query                            = [];
-        $query['APN']                     = $request->APN;
-        $query['ISP']                     = $request->ISP;
-        $query['IoTCloudConnectorIds']    = $request->ioTCloudConnectorIds;
-        $query['IoTCloudConnectorName']   = $request->ioTCloudConnectorName;
-        $query['IoTCloudConnectorStatus'] = $request->ioTCloudConnectorStatus;
-        $query['IsInGroup']               = $request->isInGroup;
-        $query['MaxResults']              = $request->maxResults;
-        $query['NextToken']               = $request->nextToken;
-        $query['RegionId']                = $request->regionId;
-        $query['VpcId']                   = $request->vpcId;
-        $req                              = new OpenApiRequest([
+        $query = [];
+        if (!Utils::isUnset($request->APN)) {
+            $query['APN'] = $request->APN;
+        }
+        if (!Utils::isUnset($request->ISP)) {
+            $query['ISP'] = $request->ISP;
+        }
+        if (!Utils::isUnset($request->ioTCloudConnectorGroupId)) {
+            $query['IoTCloudConnectorGroupId'] = $request->ioTCloudConnectorGroupId;
+        }
+        if (!Utils::isUnset($request->ioTCloudConnectorIds)) {
+            $query['IoTCloudConnectorIds'] = $request->ioTCloudConnectorIds;
+        }
+        if (!Utils::isUnset($request->ioTCloudConnectorName)) {
+            $query['IoTCloudConnectorName'] = $request->ioTCloudConnectorName;
+        }
+        if (!Utils::isUnset($request->ioTCloudConnectorStatus)) {
+            $query['IoTCloudConnectorStatus'] = $request->ioTCloudConnectorStatus;
+        }
+        if (!Utils::isUnset($request->isInGroup)) {
+            $query['IsInGroup'] = $request->isInGroup;
+        }
+        if (!Utils::isUnset($request->maxResults)) {
+            $query['MaxResults'] = $request->maxResults;
+        }
+        if (!Utils::isUnset($request->nextToken)) {
+            $query['NextToken'] = $request->nextToken;
+        }
+        if (!Utils::isUnset($request->regionId)) {
+            $query['RegionId'] = $request->regionId;
+        }
+        if (!Utils::isUnset($request->vpcId)) {
+            $query['VpcId'] = $request->vpcId;
+        }
+        $req = new OpenApiRequest([
             'query' => OpenApiUtilClient::query($query),
         ]);
         $params = new Params([
@@ -1763,10 +2196,14 @@ class IoTCC extends OpenApiClient
     public function listRegionsWithOptions($request, $runtime)
     {
         Utils::validateModel($request);
-        $query                   = [];
-        $query['AcceptLanguage'] = $request->acceptLanguage;
-        $query['RegionId']       = $request->regionId;
-        $req                     = new OpenApiRequest([
+        $query = [];
+        if (!Utils::isUnset($request->acceptLanguage)) {
+            $query['AcceptLanguage'] = $request->acceptLanguage;
+        }
+        if (!Utils::isUnset($request->regionId)) {
+            $query['RegionId'] = $request->regionId;
+        }
+        $req = new OpenApiRequest([
             'query' => OpenApiUtilClient::query($query),
         ]);
         $params = new Params([
@@ -1805,15 +2242,29 @@ class IoTCC extends OpenApiClient
     public function listServiceWithOptions($request, $runtime)
     {
         Utils::validateModel($request);
-        $query                        = [];
-        $query['IoTCloudConnectorId'] = $request->ioTCloudConnectorId;
-        $query['MaxResults']          = $request->maxResults;
-        $query['NextToken']           = $request->nextToken;
-        $query['RegionId']            = $request->regionId;
-        $query['ResourceStatuses']    = $request->resourceStatuses;
-        $query['ServiceIds']          = $request->serviceIds;
-        $query['ServiceNames']        = $request->serviceNames;
-        $req                          = new OpenApiRequest([
+        $query = [];
+        if (!Utils::isUnset($request->ioTCloudConnectorId)) {
+            $query['IoTCloudConnectorId'] = $request->ioTCloudConnectorId;
+        }
+        if (!Utils::isUnset($request->maxResults)) {
+            $query['MaxResults'] = $request->maxResults;
+        }
+        if (!Utils::isUnset($request->nextToken)) {
+            $query['NextToken'] = $request->nextToken;
+        }
+        if (!Utils::isUnset($request->regionId)) {
+            $query['RegionId'] = $request->regionId;
+        }
+        if (!Utils::isUnset($request->resourceStatuses)) {
+            $query['ResourceStatuses'] = $request->resourceStatuses;
+        }
+        if (!Utils::isUnset($request->serviceIds)) {
+            $query['ServiceIds'] = $request->serviceIds;
+        }
+        if (!Utils::isUnset($request->serviceNames)) {
+            $query['ServiceNames'] = $request->serviceNames;
+        }
+        $req = new OpenApiRequest([
             'query' => OpenApiUtilClient::query($query),
         ]);
         $params = new Params([
@@ -1852,18 +2303,38 @@ class IoTCC extends OpenApiClient
     public function listServiceEntriesWithOptions($request, $runtime)
     {
         Utils::validateModel($request);
-        $query                        = [];
-        $query['IoTCloudConnectorId'] = $request->ioTCloudConnectorId;
-        $query['MaxResults']          = $request->maxResults;
-        $query['NextToken']           = $request->nextToken;
-        $query['RegionId']            = $request->regionId;
-        $query['ServiceEntryIds']     = $request->serviceEntryIds;
-        $query['ServiceEntryName']    = $request->serviceEntryName;
-        $query['ServiceEntryStatus']  = $request->serviceEntryStatus;
-        $query['ServiceId']           = $request->serviceId;
-        $query['Target']              = $request->target;
-        $query['TargetType']          = $request->targetType;
-        $req                          = new OpenApiRequest([
+        $query = [];
+        if (!Utils::isUnset($request->ioTCloudConnectorId)) {
+            $query['IoTCloudConnectorId'] = $request->ioTCloudConnectorId;
+        }
+        if (!Utils::isUnset($request->maxResults)) {
+            $query['MaxResults'] = $request->maxResults;
+        }
+        if (!Utils::isUnset($request->nextToken)) {
+            $query['NextToken'] = $request->nextToken;
+        }
+        if (!Utils::isUnset($request->regionId)) {
+            $query['RegionId'] = $request->regionId;
+        }
+        if (!Utils::isUnset($request->serviceEntryIds)) {
+            $query['ServiceEntryIds'] = $request->serviceEntryIds;
+        }
+        if (!Utils::isUnset($request->serviceEntryName)) {
+            $query['ServiceEntryName'] = $request->serviceEntryName;
+        }
+        if (!Utils::isUnset($request->serviceEntryStatus)) {
+            $query['ServiceEntryStatus'] = $request->serviceEntryStatus;
+        }
+        if (!Utils::isUnset($request->serviceId)) {
+            $query['ServiceId'] = $request->serviceId;
+        }
+        if (!Utils::isUnset($request->target)) {
+            $query['Target'] = $request->target;
+        }
+        if (!Utils::isUnset($request->targetType)) {
+            $query['TargetType'] = $request->targetType;
+        }
+        $req = new OpenApiRequest([
             'query' => OpenApiUtilClient::query($query),
         ]);
         $params = new Params([
@@ -1902,9 +2373,11 @@ class IoTCC extends OpenApiClient
     public function openIoTCloudConnectorServiceWithOptions($request, $runtime)
     {
         Utils::validateModel($request);
-        $query             = [];
-        $query['RegionId'] = $request->regionId;
-        $req               = new OpenApiRequest([
+        $query = [];
+        if (!Utils::isUnset($request->regionId)) {
+            $query['RegionId'] = $request->regionId;
+        }
+        $req = new OpenApiRequest([
             'query' => OpenApiUtilClient::query($query),
         ]);
         $params = new Params([
@@ -1943,13 +2416,23 @@ class IoTCC extends OpenApiClient
     public function removeIoTCloudConnectorFromGroupWithOptions($request, $runtime)
     {
         Utils::validateModel($request);
-        $query                             = [];
-        $query['ClientToken']              = $request->clientToken;
-        $query['DryRun']                   = $request->dryRun;
-        $query['IoTCloudConnectorGroupId'] = $request->ioTCloudConnectorGroupId;
-        $query['IoTCloudConnectorId']      = $request->ioTCloudConnectorId;
-        $query['RegionId']                 = $request->regionId;
-        $req                               = new OpenApiRequest([
+        $query = [];
+        if (!Utils::isUnset($request->clientToken)) {
+            $query['ClientToken'] = $request->clientToken;
+        }
+        if (!Utils::isUnset($request->dryRun)) {
+            $query['DryRun'] = $request->dryRun;
+        }
+        if (!Utils::isUnset($request->ioTCloudConnectorGroupId)) {
+            $query['IoTCloudConnectorGroupId'] = $request->ioTCloudConnectorGroupId;
+        }
+        if (!Utils::isUnset($request->ioTCloudConnectorId)) {
+            $query['IoTCloudConnectorId'] = $request->ioTCloudConnectorId;
+        }
+        if (!Utils::isUnset($request->regionId)) {
+            $query['RegionId'] = $request->regionId;
+        }
+        $req = new OpenApiRequest([
             'query' => OpenApiUtilClient::query($query),
         ]);
         $params = new Params([
@@ -1988,19 +2471,41 @@ class IoTCC extends OpenApiClient
     public function updateAuthorizationRuleAttributeWithOptions($request, $runtime)
     {
         Utils::validateModel($request);
-        $query                                 = [];
-        $query['AuthorizationRuleDescription'] = $request->authorizationRuleDescription;
-        $query['AuthorizationRuleId']          = $request->authorizationRuleId;
-        $query['AuthorizationRuleName']        = $request->authorizationRuleName;
-        $query['ClientToken']                  = $request->clientToken;
-        $query['Destination']                  = $request->destination;
-        $query['DestinationType']              = $request->destinationType;
-        $query['DryRun']                       = $request->dryRun;
-        $query['IoTCloudConnectorId']          = $request->ioTCloudConnectorId;
-        $query['Policy']                       = $request->policy;
-        $query['RegionId']                     = $request->regionId;
-        $query['SourceCidrs']                  = $request->sourceCidrs;
-        $req                                   = new OpenApiRequest([
+        $query = [];
+        if (!Utils::isUnset($request->authorizationRuleDescription)) {
+            $query['AuthorizationRuleDescription'] = $request->authorizationRuleDescription;
+        }
+        if (!Utils::isUnset($request->authorizationRuleId)) {
+            $query['AuthorizationRuleId'] = $request->authorizationRuleId;
+        }
+        if (!Utils::isUnset($request->authorizationRuleName)) {
+            $query['AuthorizationRuleName'] = $request->authorizationRuleName;
+        }
+        if (!Utils::isUnset($request->clientToken)) {
+            $query['ClientToken'] = $request->clientToken;
+        }
+        if (!Utils::isUnset($request->destination)) {
+            $query['Destination'] = $request->destination;
+        }
+        if (!Utils::isUnset($request->destinationType)) {
+            $query['DestinationType'] = $request->destinationType;
+        }
+        if (!Utils::isUnset($request->dryRun)) {
+            $query['DryRun'] = $request->dryRun;
+        }
+        if (!Utils::isUnset($request->ioTCloudConnectorId)) {
+            $query['IoTCloudConnectorId'] = $request->ioTCloudConnectorId;
+        }
+        if (!Utils::isUnset($request->policy)) {
+            $query['Policy'] = $request->policy;
+        }
+        if (!Utils::isUnset($request->regionId)) {
+            $query['RegionId'] = $request->regionId;
+        }
+        if (!Utils::isUnset($request->sourceCidrs)) {
+            $query['SourceCidrs'] = $request->sourceCidrs;
+        }
+        $req = new OpenApiRequest([
             'query' => OpenApiUtilClient::query($query),
         ]);
         $params = new Params([
@@ -2039,17 +2544,35 @@ class IoTCC extends OpenApiClient
     public function updateConnectionPoolAttributeWithOptions($request, $runtime)
     {
         Utils::validateModel($request);
-        $query                              = [];
-        $query['Cidrs']                     = $request->cidrs;
-        $query['ClientToken']               = $request->clientToken;
-        $query['ConnectionPoolDescription'] = $request->connectionPoolDescription;
-        $query['ConnectionPoolId']          = $request->connectionPoolId;
-        $query['ConnectionPoolName']        = $request->connectionPoolName;
-        $query['Count']                     = $request->count;
-        $query['DryRun']                    = $request->dryRun;
-        $query['IoTCloudConnectorId']       = $request->ioTCloudConnectorId;
-        $query['RegionId']                  = $request->regionId;
-        $req                                = new OpenApiRequest([
+        $query = [];
+        if (!Utils::isUnset($request->cidrs)) {
+            $query['Cidrs'] = $request->cidrs;
+        }
+        if (!Utils::isUnset($request->clientToken)) {
+            $query['ClientToken'] = $request->clientToken;
+        }
+        if (!Utils::isUnset($request->connectionPoolDescription)) {
+            $query['ConnectionPoolDescription'] = $request->connectionPoolDescription;
+        }
+        if (!Utils::isUnset($request->connectionPoolId)) {
+            $query['ConnectionPoolId'] = $request->connectionPoolId;
+        }
+        if (!Utils::isUnset($request->connectionPoolName)) {
+            $query['ConnectionPoolName'] = $request->connectionPoolName;
+        }
+        if (!Utils::isUnset($request->count)) {
+            $query['Count'] = $request->count;
+        }
+        if (!Utils::isUnset($request->dryRun)) {
+            $query['DryRun'] = $request->dryRun;
+        }
+        if (!Utils::isUnset($request->ioTCloudConnectorId)) {
+            $query['IoTCloudConnectorId'] = $request->ioTCloudConnectorId;
+        }
+        if (!Utils::isUnset($request->regionId)) {
+            $query['RegionId'] = $request->regionId;
+        }
+        $req = new OpenApiRequest([
             'query' => OpenApiUtilClient::query($query),
         ]);
         $params = new Params([
@@ -2088,19 +2611,41 @@ class IoTCC extends OpenApiClient
     public function updateGroupAuthorizationRuleAttributeWithOptions($request, $runtime)
     {
         Utils::validateModel($request);
-        $query                                 = [];
-        $query['AuthorizationRuleDescription'] = $request->authorizationRuleDescription;
-        $query['AuthorizationRuleId']          = $request->authorizationRuleId;
-        $query['AuthorizationRuleName']        = $request->authorizationRuleName;
-        $query['ClientToken']                  = $request->clientToken;
-        $query['Destination']                  = $request->destination;
-        $query['DestinationType']              = $request->destinationType;
-        $query['DryRun']                       = $request->dryRun;
-        $query['IoTCloudConnectorGroupId']     = $request->ioTCloudConnectorGroupId;
-        $query['Policy']                       = $request->policy;
-        $query['RegionId']                     = $request->regionId;
-        $query['SourceCidrs']                  = $request->sourceCidrs;
-        $req                                   = new OpenApiRequest([
+        $query = [];
+        if (!Utils::isUnset($request->authorizationRuleDescription)) {
+            $query['AuthorizationRuleDescription'] = $request->authorizationRuleDescription;
+        }
+        if (!Utils::isUnset($request->authorizationRuleId)) {
+            $query['AuthorizationRuleId'] = $request->authorizationRuleId;
+        }
+        if (!Utils::isUnset($request->authorizationRuleName)) {
+            $query['AuthorizationRuleName'] = $request->authorizationRuleName;
+        }
+        if (!Utils::isUnset($request->clientToken)) {
+            $query['ClientToken'] = $request->clientToken;
+        }
+        if (!Utils::isUnset($request->destination)) {
+            $query['Destination'] = $request->destination;
+        }
+        if (!Utils::isUnset($request->destinationType)) {
+            $query['DestinationType'] = $request->destinationType;
+        }
+        if (!Utils::isUnset($request->dryRun)) {
+            $query['DryRun'] = $request->dryRun;
+        }
+        if (!Utils::isUnset($request->ioTCloudConnectorGroupId)) {
+            $query['IoTCloudConnectorGroupId'] = $request->ioTCloudConnectorGroupId;
+        }
+        if (!Utils::isUnset($request->policy)) {
+            $query['Policy'] = $request->policy;
+        }
+        if (!Utils::isUnset($request->regionId)) {
+            $query['RegionId'] = $request->regionId;
+        }
+        if (!Utils::isUnset($request->sourceCidrs)) {
+            $query['SourceCidrs'] = $request->sourceCidrs;
+        }
+        $req = new OpenApiRequest([
             'query' => OpenApiUtilClient::query($query),
         ]);
         $params = new Params([
@@ -2139,15 +2684,29 @@ class IoTCC extends OpenApiClient
     public function updateIoTCloudConnectorAttributeWithOptions($request, $runtime)
     {
         Utils::validateModel($request);
-        $query                                 = [];
-        $query['ClientToken']                  = $request->clientToken;
-        $query['DryRun']                       = $request->dryRun;
-        $query['IoTCloudConnectorDescription'] = $request->ioTCloudConnectorDescription;
-        $query['IoTCloudConnectorId']          = $request->ioTCloudConnectorId;
-        $query['IoTCloudConnectorName']        = $request->ioTCloudConnectorName;
-        $query['RegionId']                     = $request->regionId;
-        $query['WildcardDomainEnabled']        = $request->wildcardDomainEnabled;
-        $req                                   = new OpenApiRequest([
+        $query = [];
+        if (!Utils::isUnset($request->clientToken)) {
+            $query['ClientToken'] = $request->clientToken;
+        }
+        if (!Utils::isUnset($request->dryRun)) {
+            $query['DryRun'] = $request->dryRun;
+        }
+        if (!Utils::isUnset($request->ioTCloudConnectorDescription)) {
+            $query['IoTCloudConnectorDescription'] = $request->ioTCloudConnectorDescription;
+        }
+        if (!Utils::isUnset($request->ioTCloudConnectorId)) {
+            $query['IoTCloudConnectorId'] = $request->ioTCloudConnectorId;
+        }
+        if (!Utils::isUnset($request->ioTCloudConnectorName)) {
+            $query['IoTCloudConnectorName'] = $request->ioTCloudConnectorName;
+        }
+        if (!Utils::isUnset($request->regionId)) {
+            $query['RegionId'] = $request->regionId;
+        }
+        if (!Utils::isUnset($request->wildcardDomainEnabled)) {
+            $query['WildcardDomainEnabled'] = $request->wildcardDomainEnabled;
+        }
+        $req = new OpenApiRequest([
             'query' => OpenApiUtilClient::query($query),
         ]);
         $params = new Params([
@@ -2186,14 +2745,26 @@ class IoTCC extends OpenApiClient
     public function updateIoTCloudConnectorGroupAttributeWithOptions($request, $runtime)
     {
         Utils::validateModel($request);
-        $query                             = [];
-        $query['ClientToken']              = $request->clientToken;
-        $query['Description']              = $request->description;
-        $query['DryRun']                   = $request->dryRun;
-        $query['IoTCloudConnectorGroupId'] = $request->ioTCloudConnectorGroupId;
-        $query['Name']                     = $request->name;
-        $query['RegionId']                 = $request->regionId;
-        $req                               = new OpenApiRequest([
+        $query = [];
+        if (!Utils::isUnset($request->clientToken)) {
+            $query['ClientToken'] = $request->clientToken;
+        }
+        if (!Utils::isUnset($request->description)) {
+            $query['Description'] = $request->description;
+        }
+        if (!Utils::isUnset($request->dryRun)) {
+            $query['DryRun'] = $request->dryRun;
+        }
+        if (!Utils::isUnset($request->ioTCloudConnectorGroupId)) {
+            $query['IoTCloudConnectorGroupId'] = $request->ioTCloudConnectorGroupId;
+        }
+        if (!Utils::isUnset($request->name)) {
+            $query['Name'] = $request->name;
+        }
+        if (!Utils::isUnset($request->regionId)) {
+            $query['RegionId'] = $request->regionId;
+        }
+        $req = new OpenApiRequest([
             'query' => OpenApiUtilClient::query($query),
         ]);
         $params = new Params([
@@ -2232,15 +2803,29 @@ class IoTCC extends OpenApiClient
     public function updateServiceAttributeWithOptions($request, $runtime)
     {
         Utils::validateModel($request);
-        $query                        = [];
-        $query['ClientToken']         = $request->clientToken;
-        $query['DryRun']              = $request->dryRun;
-        $query['IoTCloudConnectorId'] = $request->ioTCloudConnectorId;
-        $query['RegionId']            = $request->regionId;
-        $query['ServiceDescription']  = $request->serviceDescription;
-        $query['ServiceId']           = $request->serviceId;
-        $query['ServiceName']         = $request->serviceName;
-        $req                          = new OpenApiRequest([
+        $query = [];
+        if (!Utils::isUnset($request->clientToken)) {
+            $query['ClientToken'] = $request->clientToken;
+        }
+        if (!Utils::isUnset($request->dryRun)) {
+            $query['DryRun'] = $request->dryRun;
+        }
+        if (!Utils::isUnset($request->ioTCloudConnectorId)) {
+            $query['IoTCloudConnectorId'] = $request->ioTCloudConnectorId;
+        }
+        if (!Utils::isUnset($request->regionId)) {
+            $query['RegionId'] = $request->regionId;
+        }
+        if (!Utils::isUnset($request->serviceDescription)) {
+            $query['ServiceDescription'] = $request->serviceDescription;
+        }
+        if (!Utils::isUnset($request->serviceId)) {
+            $query['ServiceId'] = $request->serviceId;
+        }
+        if (!Utils::isUnset($request->serviceName)) {
+            $query['ServiceName'] = $request->serviceName;
+        }
+        $req = new OpenApiRequest([
             'query' => OpenApiUtilClient::query($query),
         ]);
         $params = new Params([
@@ -2279,16 +2864,32 @@ class IoTCC extends OpenApiClient
     public function updateServiceEntryAttributeWithOptions($request, $runtime)
     {
         Utils::validateModel($request);
-        $query                            = [];
-        $query['ClientToken']             = $request->clientToken;
-        $query['DryRun']                  = $request->dryRun;
-        $query['IoTCloudConnectorId']     = $request->ioTCloudConnectorId;
-        $query['RegionId']                = $request->regionId;
-        $query['ServiceEntryDescription'] = $request->serviceEntryDescription;
-        $query['ServiceEntryId']          = $request->serviceEntryId;
-        $query['ServiceEntryName']        = $request->serviceEntryName;
-        $query['ServiceId']               = $request->serviceId;
-        $req                              = new OpenApiRequest([
+        $query = [];
+        if (!Utils::isUnset($request->clientToken)) {
+            $query['ClientToken'] = $request->clientToken;
+        }
+        if (!Utils::isUnset($request->dryRun)) {
+            $query['DryRun'] = $request->dryRun;
+        }
+        if (!Utils::isUnset($request->ioTCloudConnectorId)) {
+            $query['IoTCloudConnectorId'] = $request->ioTCloudConnectorId;
+        }
+        if (!Utils::isUnset($request->regionId)) {
+            $query['RegionId'] = $request->regionId;
+        }
+        if (!Utils::isUnset($request->serviceEntryDescription)) {
+            $query['ServiceEntryDescription'] = $request->serviceEntryDescription;
+        }
+        if (!Utils::isUnset($request->serviceEntryId)) {
+            $query['ServiceEntryId'] = $request->serviceEntryId;
+        }
+        if (!Utils::isUnset($request->serviceEntryName)) {
+            $query['ServiceEntryName'] = $request->serviceEntryName;
+        }
+        if (!Utils::isUnset($request->serviceId)) {
+            $query['ServiceId'] = $request->serviceId;
+        }
+        $req = new OpenApiRequest([
             'query' => OpenApiUtilClient::query($query),
         ]);
         $params = new Params([
