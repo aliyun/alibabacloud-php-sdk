@@ -23,10 +23,16 @@ class supportedVersions extends Model
      * @var string
      */
     public $transform;
+
+    /**
+     * @var string[]
+     */
+    public $updateAllowedTransforms;
     protected $_name = [
-        'providerVersions' => 'ProviderVersions',
-        'terraformVersion' => 'TerraformVersion',
-        'transform'        => 'Transform',
+        'providerVersions'        => 'ProviderVersions',
+        'terraformVersion'        => 'TerraformVersion',
+        'transform'               => 'Transform',
+        'updateAllowedTransforms' => 'UpdateAllowedTransforms',
     ];
 
     public function validate()
@@ -50,6 +56,9 @@ class supportedVersions extends Model
         }
         if (null !== $this->transform) {
             $res['Transform'] = $this->transform;
+        }
+        if (null !== $this->updateAllowedTransforms) {
+            $res['UpdateAllowedTransforms'] = $this->updateAllowedTransforms;
         }
 
         return $res;
@@ -77,6 +86,11 @@ class supportedVersions extends Model
         }
         if (isset($map['Transform'])) {
             $model->transform = $map['Transform'];
+        }
+        if (isset($map['UpdateAllowedTransforms'])) {
+            if (!empty($map['UpdateAllowedTransforms'])) {
+                $model->updateAllowedTransforms = $map['UpdateAllowedTransforms'];
+            }
         }
 
         return $model;

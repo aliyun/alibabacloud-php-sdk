@@ -133,6 +133,26 @@ class GetStackResponseBody extends Model
     public $templateDescription;
 
     /**
+     * @var string
+     */
+    public $templateId;
+
+    /**
+     * @var string
+     */
+    public $templateScratchId;
+
+    /**
+     * @var string
+     */
+    public $templateURL;
+
+    /**
+     * @var string
+     */
+    public $templateVersion;
+
+    /**
      * @var int
      */
     public $timeoutInMinutes;
@@ -166,6 +186,10 @@ class GetStackResponseBody extends Model
         'statusReason'        => 'StatusReason',
         'tags'                => 'Tags',
         'templateDescription' => 'TemplateDescription',
+        'templateId'          => 'TemplateId',
+        'templateScratchId'   => 'TemplateScratchId',
+        'templateURL'         => 'TemplateURL',
+        'templateVersion'     => 'TemplateVersion',
         'timeoutInMinutes'    => 'TimeoutInMinutes',
         'updateTime'          => 'UpdateTime',
     ];
@@ -260,6 +284,18 @@ class GetStackResponseBody extends Model
         }
         if (null !== $this->templateDescription) {
             $res['TemplateDescription'] = $this->templateDescription;
+        }
+        if (null !== $this->templateId) {
+            $res['TemplateId'] = $this->templateId;
+        }
+        if (null !== $this->templateScratchId) {
+            $res['TemplateScratchId'] = $this->templateScratchId;
+        }
+        if (null !== $this->templateURL) {
+            $res['TemplateURL'] = $this->templateURL;
+        }
+        if (null !== $this->templateVersion) {
+            $res['TemplateVersion'] = $this->templateVersion;
         }
         if (null !== $this->timeoutInMinutes) {
             $res['TimeoutInMinutes'] = $this->timeoutInMinutes;
@@ -366,6 +402,18 @@ class GetStackResponseBody extends Model
         }
         if (isset($map['TemplateDescription'])) {
             $model->templateDescription = $map['TemplateDescription'];
+        }
+        if (isset($map['TemplateId'])) {
+            $model->templateId = $map['TemplateId'];
+        }
+        if (isset($map['TemplateScratchId'])) {
+            $model->templateScratchId = $map['TemplateScratchId'];
+        }
+        if (isset($map['TemplateURL'])) {
+            $model->templateURL = $map['TemplateURL'];
+        }
+        if (isset($map['TemplateVersion'])) {
+            $model->templateVersion = $map['TemplateVersion'];
         }
         if (isset($map['TimeoutInMinutes'])) {
             $model->timeoutInMinutes = $map['TimeoutInMinutes'];
