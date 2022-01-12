@@ -11,22 +11,12 @@ class DescribeDBInstancesOverviewRequest extends Model
     /**
      * @var string
      */
-    public $architectureType;
-
-    /**
-     * @var string
-     */
     public $chargeType;
 
     /**
      * @var string
      */
     public $engineVersion;
-
-    /**
-     * @var string
-     */
-    public $expireTime;
 
     /**
      * @var string
@@ -66,11 +56,6 @@ class DescribeDBInstancesOverviewRequest extends Model
     /**
      * @var string
      */
-    public $regionId;
-
-    /**
-     * @var string
-     */
     public $resourceGroupId;
 
     /**
@@ -82,11 +67,6 @@ class DescribeDBInstancesOverviewRequest extends Model
      * @var int
      */
     public $resourceOwnerId;
-
-    /**
-     * @var string
-     */
-    public $searchKey;
 
     /**
      * @var string
@@ -108,10 +88,8 @@ class DescribeDBInstancesOverviewRequest extends Model
      */
     public $zoneId;
     protected $_name = [
-        'architectureType'     => 'ArchitectureType',
         'chargeType'           => 'ChargeType',
         'engineVersion'        => 'EngineVersion',
-        'expireTime'           => 'ExpireTime',
         'instanceClass'        => 'InstanceClass',
         'instanceIds'          => 'InstanceIds',
         'instanceStatus'       => 'InstanceStatus',
@@ -119,11 +97,9 @@ class DescribeDBInstancesOverviewRequest extends Model
         'networkType'          => 'NetworkType',
         'ownerAccount'         => 'OwnerAccount',
         'ownerId'              => 'OwnerId',
-        'regionId'             => 'RegionId',
         'resourceGroupId'      => 'ResourceGroupId',
         'resourceOwnerAccount' => 'ResourceOwnerAccount',
         'resourceOwnerId'      => 'ResourceOwnerId',
-        'searchKey'            => 'SearchKey',
         'securityToken'        => 'SecurityToken',
         'vSwitchId'            => 'VSwitchId',
         'vpcId'                => 'VpcId',
@@ -137,17 +113,11 @@ class DescribeDBInstancesOverviewRequest extends Model
     public function toMap()
     {
         $res = [];
-        if (null !== $this->architectureType) {
-            $res['ArchitectureType'] = $this->architectureType;
-        }
         if (null !== $this->chargeType) {
             $res['ChargeType'] = $this->chargeType;
         }
         if (null !== $this->engineVersion) {
             $res['EngineVersion'] = $this->engineVersion;
-        }
-        if (null !== $this->expireTime) {
-            $res['ExpireTime'] = $this->expireTime;
         }
         if (null !== $this->instanceClass) {
             $res['InstanceClass'] = $this->instanceClass;
@@ -170,9 +140,6 @@ class DescribeDBInstancesOverviewRequest extends Model
         if (null !== $this->ownerId) {
             $res['OwnerId'] = $this->ownerId;
         }
-        if (null !== $this->regionId) {
-            $res['RegionId'] = $this->regionId;
-        }
         if (null !== $this->resourceGroupId) {
             $res['ResourceGroupId'] = $this->resourceGroupId;
         }
@@ -181,9 +148,6 @@ class DescribeDBInstancesOverviewRequest extends Model
         }
         if (null !== $this->resourceOwnerId) {
             $res['ResourceOwnerId'] = $this->resourceOwnerId;
-        }
-        if (null !== $this->searchKey) {
-            $res['SearchKey'] = $this->searchKey;
         }
         if (null !== $this->securityToken) {
             $res['SecurityToken'] = $this->securityToken;
@@ -209,17 +173,11 @@ class DescribeDBInstancesOverviewRequest extends Model
     public static function fromMap($map = [])
     {
         $model = new self();
-        if (isset($map['ArchitectureType'])) {
-            $model->architectureType = $map['ArchitectureType'];
-        }
         if (isset($map['ChargeType'])) {
             $model->chargeType = $map['ChargeType'];
         }
         if (isset($map['EngineVersion'])) {
             $model->engineVersion = $map['EngineVersion'];
-        }
-        if (isset($map['ExpireTime'])) {
-            $model->expireTime = $map['ExpireTime'];
         }
         if (isset($map['InstanceClass'])) {
             $model->instanceClass = $map['InstanceClass'];
@@ -242,9 +200,6 @@ class DescribeDBInstancesOverviewRequest extends Model
         if (isset($map['OwnerId'])) {
             $model->ownerId = $map['OwnerId'];
         }
-        if (isset($map['RegionId'])) {
-            $model->regionId = $map['RegionId'];
-        }
         if (isset($map['ResourceGroupId'])) {
             $model->resourceGroupId = $map['ResourceGroupId'];
         }
@@ -253,9 +208,6 @@ class DescribeDBInstancesOverviewRequest extends Model
         }
         if (isset($map['ResourceOwnerId'])) {
             $model->resourceOwnerId = $map['ResourceOwnerId'];
-        }
-        if (isset($map['SearchKey'])) {
-            $model->searchKey = $map['SearchKey'];
         }
         if (isset($map['SecurityToken'])) {
             $model->securityToken = $map['SecurityToken'];

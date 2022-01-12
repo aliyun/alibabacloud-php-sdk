@@ -15,14 +15,12 @@ class DescribeDBInstancesOverviewResponseBody extends Model
     public $DBInstances;
 
     /**
-     * @description Id of the request
-     *
      * @var string
      */
     public $requestId;
 
     /**
-     * @var int
+     * @var string
      */
     public $totalCount;
     protected $_name = [

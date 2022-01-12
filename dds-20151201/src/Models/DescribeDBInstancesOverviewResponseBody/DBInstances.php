@@ -14,6 +14,11 @@ class DBInstances extends Model
     /**
      * @var string
      */
+    public $capacityUnit;
+
+    /**
+     * @var string
+     */
     public $chargeType;
 
     /**
@@ -131,6 +136,7 @@ class DBInstances extends Model
      */
     public $zoneId;
     protected $_name = [
+        'capacityUnit'          => 'CapacityUnit',
         'chargeType'            => 'ChargeType',
         'creationTime'          => 'CreationTime',
         'DBInstanceClass'       => 'DBInstanceClass',
@@ -164,6 +170,9 @@ class DBInstances extends Model
     public function toMap()
     {
         $res = [];
+        if (null !== $this->capacityUnit) {
+            $res['CapacityUnit'] = $this->capacityUnit;
+        }
         if (null !== $this->chargeType) {
             $res['ChargeType'] = $this->chargeType;
         }
@@ -266,6 +275,9 @@ class DBInstances extends Model
     public static function fromMap($map = [])
     {
         $model = new self();
+        if (isset($map['CapacityUnit'])) {
+            $model->capacityUnit = $map['CapacityUnit'];
+        }
         if (isset($map['ChargeType'])) {
             $model->chargeType = $map['ChargeType'];
         }

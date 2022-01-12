@@ -2677,17 +2677,11 @@ class Dds extends OpenApiClient
     {
         Utils::validateModel($request);
         $query = [];
-        if (!Utils::isUnset($request->architectureType)) {
-            $query['ArchitectureType'] = $request->architectureType;
-        }
         if (!Utils::isUnset($request->chargeType)) {
             $query['ChargeType'] = $request->chargeType;
         }
         if (!Utils::isUnset($request->engineVersion)) {
             $query['EngineVersion'] = $request->engineVersion;
-        }
-        if (!Utils::isUnset($request->expireTime)) {
-            $query['ExpireTime'] = $request->expireTime;
         }
         if (!Utils::isUnset($request->instanceClass)) {
             $query['InstanceClass'] = $request->instanceClass;
@@ -2710,9 +2704,6 @@ class Dds extends OpenApiClient
         if (!Utils::isUnset($request->ownerId)) {
             $query['OwnerId'] = $request->ownerId;
         }
-        if (!Utils::isUnset($request->regionId)) {
-            $query['RegionId'] = $request->regionId;
-        }
         if (!Utils::isUnset($request->resourceGroupId)) {
             $query['ResourceGroupId'] = $request->resourceGroupId;
         }
@@ -2721,9 +2712,6 @@ class Dds extends OpenApiClient
         }
         if (!Utils::isUnset($request->resourceOwnerId)) {
             $query['ResourceOwnerId'] = $request->resourceOwnerId;
-        }
-        if (!Utils::isUnset($request->searchKey)) {
-            $query['SearchKey'] = $request->searchKey;
         }
         if (!Utils::isUnset($request->securityToken)) {
             $query['SecurityToken'] = $request->securityToken;
