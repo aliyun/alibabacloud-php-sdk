@@ -444,8 +444,17 @@ class Config extends OpenApiClient
         if (!Utils::isUnset($request->description)) {
             $body['Description'] = $request->description;
         }
+        if (!Utils::isUnset($request->excludeAccountIdsScope)) {
+            $body['ExcludeAccountIdsScope'] = $request->excludeAccountIdsScope;
+        }
+        if (!Utils::isUnset($request->excludeFolderIdsScope)) {
+            $body['ExcludeFolderIdsScope'] = $request->excludeFolderIdsScope;
+        }
         if (!Utils::isUnset($request->excludeResourceIdsScope)) {
             $body['ExcludeResourceIdsScope'] = $request->excludeResourceIdsScope;
+        }
+        if (!Utils::isUnset($request->folderIdsScope)) {
+            $body['FolderIdsScope'] = $request->folderIdsScope;
         }
         if (!Utils::isUnset($request->inputParametersShrink)) {
             $body['InputParameters'] = $request->inputParametersShrink;
@@ -3398,8 +3407,17 @@ class Config extends OpenApiClient
         if (!Utils::isUnset($request->description)) {
             $body['Description'] = $request->description;
         }
+        if (!Utils::isUnset($request->excludeAccountIdsScope)) {
+            $body['ExcludeAccountIdsScope'] = $request->excludeAccountIdsScope;
+        }
+        if (!Utils::isUnset($request->excludeFolderIdsScope)) {
+            $body['ExcludeFolderIdsScope'] = $request->excludeFolderIdsScope;
+        }
         if (!Utils::isUnset($request->excludeResourceIdsScope)) {
             $body['ExcludeResourceIdsScope'] = $request->excludeResourceIdsScope;
+        }
+        if (!Utils::isUnset($request->folderIdsScope)) {
+            $body['FolderIdsScope'] = $request->folderIdsScope;
         }
         if (!Utils::isUnset($request->inputParametersShrink)) {
             $body['InputParameters'] = $request->inputParametersShrink;

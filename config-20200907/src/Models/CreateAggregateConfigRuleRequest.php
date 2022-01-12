@@ -36,7 +36,22 @@ class CreateAggregateConfigRuleRequest extends Model
     /**
      * @var string
      */
+    public $excludeAccountIdsScope;
+
+    /**
+     * @var string
+     */
+    public $excludeFolderIdsScope;
+
+    /**
+     * @var string
+     */
     public $excludeResourceIdsScope;
+
+    /**
+     * @var string
+     */
+    public $folderIdsScope;
 
     /**
      * @var mixed[]
@@ -98,7 +113,10 @@ class CreateAggregateConfigRuleRequest extends Model
         'configRuleName'            => 'ConfigRuleName',
         'configRuleTriggerTypes'    => 'ConfigRuleTriggerTypes',
         'description'               => 'Description',
+        'excludeAccountIdsScope'    => 'ExcludeAccountIdsScope',
+        'excludeFolderIdsScope'     => 'ExcludeFolderIdsScope',
         'excludeResourceIdsScope'   => 'ExcludeResourceIdsScope',
+        'folderIdsScope'            => 'FolderIdsScope',
         'inputParameters'           => 'InputParameters',
         'maximumExecutionFrequency' => 'MaximumExecutionFrequency',
         'regionIdsScope'            => 'RegionIdsScope',
@@ -134,8 +152,17 @@ class CreateAggregateConfigRuleRequest extends Model
         if (null !== $this->description) {
             $res['Description'] = $this->description;
         }
+        if (null !== $this->excludeAccountIdsScope) {
+            $res['ExcludeAccountIdsScope'] = $this->excludeAccountIdsScope;
+        }
+        if (null !== $this->excludeFolderIdsScope) {
+            $res['ExcludeFolderIdsScope'] = $this->excludeFolderIdsScope;
+        }
         if (null !== $this->excludeResourceIdsScope) {
             $res['ExcludeResourceIdsScope'] = $this->excludeResourceIdsScope;
+        }
+        if (null !== $this->folderIdsScope) {
+            $res['FolderIdsScope'] = $this->folderIdsScope;
         }
         if (null !== $this->inputParameters) {
             $res['InputParameters'] = $this->inputParameters;
@@ -197,8 +224,17 @@ class CreateAggregateConfigRuleRequest extends Model
         if (isset($map['Description'])) {
             $model->description = $map['Description'];
         }
+        if (isset($map['ExcludeAccountIdsScope'])) {
+            $model->excludeAccountIdsScope = $map['ExcludeAccountIdsScope'];
+        }
+        if (isset($map['ExcludeFolderIdsScope'])) {
+            $model->excludeFolderIdsScope = $map['ExcludeFolderIdsScope'];
+        }
         if (isset($map['ExcludeResourceIdsScope'])) {
             $model->excludeResourceIdsScope = $map['ExcludeResourceIdsScope'];
+        }
+        if (isset($map['FolderIdsScope'])) {
+            $model->folderIdsScope = $map['FolderIdsScope'];
         }
         if (isset($map['InputParameters'])) {
             $model->inputParameters = $map['InputParameters'];
