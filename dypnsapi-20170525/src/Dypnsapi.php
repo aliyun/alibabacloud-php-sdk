@@ -560,14 +560,8 @@ class Dypnsapi extends OpenApiClient
         if (!Utils::isUnset($request->ownerId)) {
             $query['OwnerId'] = $request->ownerId;
         }
-        if (!Utils::isUnset($request->prodCode)) {
-            $query['ProdCode'] = $request->prodCode;
-        }
         if (!Utils::isUnset($request->resourceOwnerAccount)) {
             $query['ResourceOwnerAccount'] = $request->resourceOwnerAccount;
-        }
-        if (!Utils::isUnset($request->resourceOwnerId)) {
-            $query['ResourceOwnerId'] = $request->resourceOwnerId;
         }
         $req = new OpenApiRequest([
             'query' => OpenApiUtilClient::query($query),
@@ -621,14 +615,8 @@ class Dypnsapi extends OpenApiClient
         if (!Utils::isUnset($request->ownerId)) {
             $query['OwnerId'] = $request->ownerId;
         }
-        if (!Utils::isUnset($request->prodCode)) {
-            $query['ProdCode'] = $request->prodCode;
-        }
         if (!Utils::isUnset($request->resourceOwnerAccount)) {
             $query['ResourceOwnerAccount'] = $request->resourceOwnerAccount;
-        }
-        if (!Utils::isUnset($request->resourceOwnerId)) {
-            $query['ResourceOwnerId'] = $request->resourceOwnerId;
         }
         if (!Utils::isUnset($request->sceneCode)) {
             $query['SceneCode'] = $request->sceneCode;

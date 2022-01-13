@@ -31,17 +31,7 @@ class QueryGateVerifyStatisticPublicRequest extends Model
     /**
      * @var string
      */
-    public $prodCode;
-
-    /**
-     * @var string
-     */
     public $resourceOwnerAccount;
-
-    /**
-     * @var int
-     */
-    public $resourceOwnerId;
 
     /**
      * @var string
@@ -57,9 +47,7 @@ class QueryGateVerifyStatisticPublicRequest extends Model
         'endDate'              => 'EndDate',
         'osType'               => 'OsType',
         'ownerId'              => 'OwnerId',
-        'prodCode'             => 'ProdCode',
         'resourceOwnerAccount' => 'ResourceOwnerAccount',
-        'resourceOwnerId'      => 'ResourceOwnerId',
         'sceneCode'            => 'SceneCode',
         'startDate'            => 'StartDate',
     ];
@@ -83,14 +71,8 @@ class QueryGateVerifyStatisticPublicRequest extends Model
         if (null !== $this->ownerId) {
             $res['OwnerId'] = $this->ownerId;
         }
-        if (null !== $this->prodCode) {
-            $res['ProdCode'] = $this->prodCode;
-        }
         if (null !== $this->resourceOwnerAccount) {
             $res['ResourceOwnerAccount'] = $this->resourceOwnerAccount;
-        }
-        if (null !== $this->resourceOwnerId) {
-            $res['ResourceOwnerId'] = $this->resourceOwnerId;
         }
         if (null !== $this->sceneCode) {
             $res['SceneCode'] = $this->sceneCode;
@@ -122,14 +104,8 @@ class QueryGateVerifyStatisticPublicRequest extends Model
         if (isset($map['OwnerId'])) {
             $model->ownerId = $map['OwnerId'];
         }
-        if (isset($map['ProdCode'])) {
-            $model->prodCode = $map['ProdCode'];
-        }
         if (isset($map['ResourceOwnerAccount'])) {
             $model->resourceOwnerAccount = $map['ResourceOwnerAccount'];
-        }
-        if (isset($map['ResourceOwnerId'])) {
-            $model->resourceOwnerId = $map['ResourceOwnerId'];
         }
         if (isset($map['SceneCode'])) {
             $model->sceneCode = $map['SceneCode'];
