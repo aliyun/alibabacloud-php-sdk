@@ -46,6 +46,11 @@ class account extends Model
     /**
      * @var string
      */
+    public $resourceDirectoryPath;
+
+    /**
+     * @var string
+     */
     public $status;
 
     /**
@@ -53,15 +58,16 @@ class account extends Model
      */
     public $type;
     protected $_name = [
-        'accountId'           => 'AccountId',
-        'displayName'         => 'DisplayName',
-        'folderId'            => 'FolderId',
-        'joinMethod'          => 'JoinMethod',
-        'joinTime'            => 'JoinTime',
-        'modifyTime'          => 'ModifyTime',
-        'resourceDirectoryId' => 'ResourceDirectoryId',
-        'status'              => 'Status',
-        'type'                => 'Type',
+        'accountId'             => 'AccountId',
+        'displayName'           => 'DisplayName',
+        'folderId'              => 'FolderId',
+        'joinMethod'            => 'JoinMethod',
+        'joinTime'              => 'JoinTime',
+        'modifyTime'            => 'ModifyTime',
+        'resourceDirectoryId'   => 'ResourceDirectoryId',
+        'resourceDirectoryPath' => 'ResourceDirectoryPath',
+        'status'                => 'Status',
+        'type'                  => 'Type',
     ];
 
     public function validate()
@@ -91,6 +97,9 @@ class account extends Model
         }
         if (null !== $this->resourceDirectoryId) {
             $res['ResourceDirectoryId'] = $this->resourceDirectoryId;
+        }
+        if (null !== $this->resourceDirectoryPath) {
+            $res['ResourceDirectoryPath'] = $this->resourceDirectoryPath;
         }
         if (null !== $this->status) {
             $res['Status'] = $this->status;
@@ -130,6 +139,9 @@ class account extends Model
         }
         if (isset($map['ResourceDirectoryId'])) {
             $model->resourceDirectoryId = $map['ResourceDirectoryId'];
+        }
+        if (isset($map['ResourceDirectoryPath'])) {
+            $model->resourceDirectoryPath = $map['ResourceDirectoryPath'];
         }
         if (isset($map['Status'])) {
             $model->status = $map['Status'];

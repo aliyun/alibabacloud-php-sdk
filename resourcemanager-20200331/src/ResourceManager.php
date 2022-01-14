@@ -5,12 +5,15 @@
 namespace AlibabaCloud\SDK\ResourceManager\V20200331;
 
 use AlibabaCloud\Endpoint\Endpoint;
+use AlibabaCloud\OpenApiUtil\OpenApiUtilClient;
 use AlibabaCloud\SDK\ResourceManager\V20200331\Models\AcceptHandshakeRequest;
 use AlibabaCloud\SDK\ResourceManager\V20200331\Models\AcceptHandshakeResponse;
 use AlibabaCloud\SDK\ResourceManager\V20200331\Models\AttachControlPolicyRequest;
 use AlibabaCloud\SDK\ResourceManager\V20200331\Models\AttachControlPolicyResponse;
 use AlibabaCloud\SDK\ResourceManager\V20200331\Models\AttachPolicyRequest;
 use AlibabaCloud\SDK\ResourceManager\V20200331\Models\AttachPolicyResponse;
+use AlibabaCloud\SDK\ResourceManager\V20200331\Models\BindSecureMobilePhoneRequest;
+use AlibabaCloud\SDK\ResourceManager\V20200331\Models\BindSecureMobilePhoneResponse;
 use AlibabaCloud\SDK\ResourceManager\V20200331\Models\CancelCreateCloudAccountRequest;
 use AlibabaCloud\SDK\ResourceManager\V20200331\Models\CancelCreateCloudAccountResponse;
 use AlibabaCloud\SDK\ResourceManager\V20200331\Models\CancelHandshakeRequest;
@@ -37,8 +40,6 @@ use AlibabaCloud\SDK\ResourceManager\V20200331\Models\CreateServiceLinkedRoleReq
 use AlibabaCloud\SDK\ResourceManager\V20200331\Models\CreateServiceLinkedRoleResponse;
 use AlibabaCloud\SDK\ResourceManager\V20200331\Models\DeclineHandshakeRequest;
 use AlibabaCloud\SDK\ResourceManager\V20200331\Models\DeclineHandshakeResponse;
-use AlibabaCloud\SDK\ResourceManager\V20200331\Models\DeleteAccountRequest;
-use AlibabaCloud\SDK\ResourceManager\V20200331\Models\DeleteAccountResponse;
 use AlibabaCloud\SDK\ResourceManager\V20200331\Models\DeleteControlPolicyRequest;
 use AlibabaCloud\SDK\ResourceManager\V20200331\Models\DeleteControlPolicyResponse;
 use AlibabaCloud\SDK\ResourceManager\V20200331\Models\DeleteFolderRequest;
@@ -62,6 +63,8 @@ use AlibabaCloud\SDK\ResourceManager\V20200331\Models\DetachPolicyRequest;
 use AlibabaCloud\SDK\ResourceManager\V20200331\Models\DetachPolicyResponse;
 use AlibabaCloud\SDK\ResourceManager\V20200331\Models\DisableControlPolicyResponse;
 use AlibabaCloud\SDK\ResourceManager\V20200331\Models\EnableControlPolicyResponse;
+use AlibabaCloud\SDK\ResourceManager\V20200331\Models\EnableResourceDirectoryRequest;
+use AlibabaCloud\SDK\ResourceManager\V20200331\Models\EnableResourceDirectoryResponse;
 use AlibabaCloud\SDK\ResourceManager\V20200331\Models\GetAccountRequest;
 use AlibabaCloud\SDK\ResourceManager\V20200331\Models\GetAccountResponse;
 use AlibabaCloud\SDK\ResourceManager\V20200331\Models\GetControlPolicyEnablementStatusResponse;
@@ -137,6 +140,10 @@ use AlibabaCloud\SDK\ResourceManager\V20200331\Models\ResendCreateCloudAccountEm
 use AlibabaCloud\SDK\ResourceManager\V20200331\Models\ResendCreateCloudAccountEmailResponse;
 use AlibabaCloud\SDK\ResourceManager\V20200331\Models\ResendPromoteResourceAccountEmailRequest;
 use AlibabaCloud\SDK\ResourceManager\V20200331\Models\ResendPromoteResourceAccountEmailResponse;
+use AlibabaCloud\SDK\ResourceManager\V20200331\Models\SendVerificationCodeForBindSecureMobilePhoneRequest;
+use AlibabaCloud\SDK\ResourceManager\V20200331\Models\SendVerificationCodeForBindSecureMobilePhoneResponse;
+use AlibabaCloud\SDK\ResourceManager\V20200331\Models\SendVerificationCodeForEnableRDRequest;
+use AlibabaCloud\SDK\ResourceManager\V20200331\Models\SendVerificationCodeForEnableRDResponse;
 use AlibabaCloud\SDK\ResourceManager\V20200331\Models\SetDefaultPolicyVersionRequest;
 use AlibabaCloud\SDK\ResourceManager\V20200331\Models\SetDefaultPolicyVersionResponse;
 use AlibabaCloud\SDK\ResourceManager\V20200331\Models\UpdateAccountRequest;
@@ -152,6 +159,7 @@ use AlibabaCloud\SDK\ResourceManager\V20200331\Models\UpdateRoleResponse;
 use AlibabaCloud\Tea\Utils\Utils;
 use AlibabaCloud\Tea\Utils\Utils\RuntimeOptions;
 use Darabonba\OpenApi\Models\OpenApiRequest;
+use Darabonba\OpenApi\Models\Params;
 use Darabonba\OpenApi\OpenApiClient;
 
 class ResourceManager extends OpenApiClient
@@ -196,11 +204,26 @@ class ResourceManager extends OpenApiClient
     public function acceptHandshakeWithOptions($request, $runtime)
     {
         Utils::validateModel($request);
+        $query = [];
+        if (!Utils::isUnset($request->handshakeId)) {
+            $query['HandshakeId'] = $request->handshakeId;
+        }
         $req = new OpenApiRequest([
-            'body' => Utils::toMap($request),
+            'query' => OpenApiUtilClient::query($query),
+        ]);
+        $params = new Params([
+            'action'      => 'AcceptHandshake',
+            'version'     => '2020-03-31',
+            'protocol'    => 'HTTPS',
+            'pathname'    => '/',
+            'method'      => 'POST',
+            'authType'    => 'AK',
+            'style'       => 'RPC',
+            'reqBodyType' => 'formData',
+            'bodyType'    => 'json',
         ]);
 
-        return AcceptHandshakeResponse::fromMap($this->doRPCRequest('AcceptHandshake', '2020-03-31', 'HTTPS', 'POST', 'AK', 'json', $req, $runtime));
+        return AcceptHandshakeResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
@@ -224,11 +247,29 @@ class ResourceManager extends OpenApiClient
     public function attachControlPolicyWithOptions($request, $runtime)
     {
         Utils::validateModel($request);
+        $query = [];
+        if (!Utils::isUnset($request->policyId)) {
+            $query['PolicyId'] = $request->policyId;
+        }
+        if (!Utils::isUnset($request->targetId)) {
+            $query['TargetId'] = $request->targetId;
+        }
         $req = new OpenApiRequest([
-            'body' => Utils::toMap($request),
+            'query' => OpenApiUtilClient::query($query),
+        ]);
+        $params = new Params([
+            'action'      => 'AttachControlPolicy',
+            'version'     => '2020-03-31',
+            'protocol'    => 'HTTPS',
+            'pathname'    => '/',
+            'method'      => 'POST',
+            'authType'    => 'AK',
+            'style'       => 'RPC',
+            'reqBodyType' => 'formData',
+            'bodyType'    => 'json',
         ]);
 
-        return AttachControlPolicyResponse::fromMap($this->doRPCRequest('AttachControlPolicy', '2020-03-31', 'HTTPS', 'POST', 'AK', 'json', $req, $runtime));
+        return AttachControlPolicyResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
@@ -252,11 +293,38 @@ class ResourceManager extends OpenApiClient
     public function attachPolicyWithOptions($request, $runtime)
     {
         Utils::validateModel($request);
+        $query = [];
+        if (!Utils::isUnset($request->policyName)) {
+            $query['PolicyName'] = $request->policyName;
+        }
+        if (!Utils::isUnset($request->policyType)) {
+            $query['PolicyType'] = $request->policyType;
+        }
+        if (!Utils::isUnset($request->principalName)) {
+            $query['PrincipalName'] = $request->principalName;
+        }
+        if (!Utils::isUnset($request->principalType)) {
+            $query['PrincipalType'] = $request->principalType;
+        }
+        if (!Utils::isUnset($request->resourceGroupId)) {
+            $query['ResourceGroupId'] = $request->resourceGroupId;
+        }
         $req = new OpenApiRequest([
-            'body' => Utils::toMap($request),
+            'query' => OpenApiUtilClient::query($query),
+        ]);
+        $params = new Params([
+            'action'      => 'AttachPolicy',
+            'version'     => '2020-03-31',
+            'protocol'    => 'HTTPS',
+            'pathname'    => '/',
+            'method'      => 'POST',
+            'authType'    => 'AK',
+            'style'       => 'RPC',
+            'reqBodyType' => 'formData',
+            'bodyType'    => 'json',
         ]);
 
-        return AttachPolicyResponse::fromMap($this->doRPCRequest('AttachPolicy', '2020-03-31', 'HTTPS', 'POST', 'AK', 'json', $req, $runtime));
+        return AttachPolicyResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
@@ -272,6 +340,55 @@ class ResourceManager extends OpenApiClient
     }
 
     /**
+     * @param BindSecureMobilePhoneRequest $request
+     * @param RuntimeOptions               $runtime
+     *
+     * @return BindSecureMobilePhoneResponse
+     */
+    public function bindSecureMobilePhoneWithOptions($request, $runtime)
+    {
+        Utils::validateModel($request);
+        $query = [];
+        if (!Utils::isUnset($request->accountId)) {
+            $query['AccountId'] = $request->accountId;
+        }
+        if (!Utils::isUnset($request->secureMobilePhone)) {
+            $query['SecureMobilePhone'] = $request->secureMobilePhone;
+        }
+        if (!Utils::isUnset($request->verificationCode)) {
+            $query['VerificationCode'] = $request->verificationCode;
+        }
+        $req = new OpenApiRequest([
+            'query' => OpenApiUtilClient::query($query),
+        ]);
+        $params = new Params([
+            'action'      => 'BindSecureMobilePhone',
+            'version'     => '2020-03-31',
+            'protocol'    => 'HTTPS',
+            'pathname'    => '/',
+            'method'      => 'POST',
+            'authType'    => 'AK',
+            'style'       => 'RPC',
+            'reqBodyType' => 'formData',
+            'bodyType'    => 'json',
+        ]);
+
+        return BindSecureMobilePhoneResponse::fromMap($this->callApi($params, $req, $runtime));
+    }
+
+    /**
+     * @param BindSecureMobilePhoneRequest $request
+     *
+     * @return BindSecureMobilePhoneResponse
+     */
+    public function bindSecureMobilePhone($request)
+    {
+        $runtime = new RuntimeOptions([]);
+
+        return $this->bindSecureMobilePhoneWithOptions($request, $runtime);
+    }
+
+    /**
      * @param CancelCreateCloudAccountRequest $request
      * @param RuntimeOptions                  $runtime
      *
@@ -280,11 +397,26 @@ class ResourceManager extends OpenApiClient
     public function cancelCreateCloudAccountWithOptions($request, $runtime)
     {
         Utils::validateModel($request);
+        $query = [];
+        if (!Utils::isUnset($request->recordId)) {
+            $query['RecordId'] = $request->recordId;
+        }
         $req = new OpenApiRequest([
-            'body' => Utils::toMap($request),
+            'query' => OpenApiUtilClient::query($query),
+        ]);
+        $params = new Params([
+            'action'      => 'CancelCreateCloudAccount',
+            'version'     => '2020-03-31',
+            'protocol'    => 'HTTPS',
+            'pathname'    => '/',
+            'method'      => 'POST',
+            'authType'    => 'AK',
+            'style'       => 'RPC',
+            'reqBodyType' => 'formData',
+            'bodyType'    => 'json',
         ]);
 
-        return CancelCreateCloudAccountResponse::fromMap($this->doRPCRequest('CancelCreateCloudAccount', '2020-03-31', 'HTTPS', 'POST', 'AK', 'json', $req, $runtime));
+        return CancelCreateCloudAccountResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
@@ -308,11 +440,26 @@ class ResourceManager extends OpenApiClient
     public function cancelHandshakeWithOptions($request, $runtime)
     {
         Utils::validateModel($request);
+        $query = [];
+        if (!Utils::isUnset($request->handshakeId)) {
+            $query['HandshakeId'] = $request->handshakeId;
+        }
         $req = new OpenApiRequest([
-            'body' => Utils::toMap($request),
+            'query' => OpenApiUtilClient::query($query),
+        ]);
+        $params = new Params([
+            'action'      => 'CancelHandshake',
+            'version'     => '2020-03-31',
+            'protocol'    => 'HTTPS',
+            'pathname'    => '/',
+            'method'      => 'POST',
+            'authType'    => 'AK',
+            'style'       => 'RPC',
+            'reqBodyType' => 'formData',
+            'bodyType'    => 'json',
         ]);
 
-        return CancelHandshakeResponse::fromMap($this->doRPCRequest('CancelHandshake', '2020-03-31', 'HTTPS', 'POST', 'AK', 'json', $req, $runtime));
+        return CancelHandshakeResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
@@ -336,11 +483,26 @@ class ResourceManager extends OpenApiClient
     public function cancelPromoteResourceAccountWithOptions($request, $runtime)
     {
         Utils::validateModel($request);
+        $query = [];
+        if (!Utils::isUnset($request->recordId)) {
+            $query['RecordId'] = $request->recordId;
+        }
         $req = new OpenApiRequest([
-            'body' => Utils::toMap($request),
+            'query' => OpenApiUtilClient::query($query),
+        ]);
+        $params = new Params([
+            'action'      => 'CancelPromoteResourceAccount',
+            'version'     => '2020-03-31',
+            'protocol'    => 'HTTPS',
+            'pathname'    => '/',
+            'method'      => 'POST',
+            'authType'    => 'AK',
+            'style'       => 'RPC',
+            'reqBodyType' => 'formData',
+            'bodyType'    => 'json',
         ]);
 
-        return CancelPromoteResourceAccountResponse::fromMap($this->doRPCRequest('CancelPromoteResourceAccount', '2020-03-31', 'HTTPS', 'POST', 'AK', 'json', $req, $runtime));
+        return CancelPromoteResourceAccountResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
@@ -364,11 +526,35 @@ class ResourceManager extends OpenApiClient
     public function createCloudAccountWithOptions($request, $runtime)
     {
         Utils::validateModel($request);
+        $query = [];
+        if (!Utils::isUnset($request->displayName)) {
+            $query['DisplayName'] = $request->displayName;
+        }
+        if (!Utils::isUnset($request->email)) {
+            $query['Email'] = $request->email;
+        }
+        if (!Utils::isUnset($request->parentFolderId)) {
+            $query['ParentFolderId'] = $request->parentFolderId;
+        }
+        if (!Utils::isUnset($request->payerAccountId)) {
+            $query['PayerAccountId'] = $request->payerAccountId;
+        }
         $req = new OpenApiRequest([
-            'body' => Utils::toMap($request),
+            'query' => OpenApiUtilClient::query($query),
+        ]);
+        $params = new Params([
+            'action'      => 'CreateCloudAccount',
+            'version'     => '2020-03-31',
+            'protocol'    => 'HTTPS',
+            'pathname'    => '/',
+            'method'      => 'POST',
+            'authType'    => 'AK',
+            'style'       => 'RPC',
+            'reqBodyType' => 'formData',
+            'bodyType'    => 'json',
         ]);
 
-        return CreateCloudAccountResponse::fromMap($this->doRPCRequest('CreateCloudAccount', '2020-03-31', 'HTTPS', 'POST', 'AK', 'json', $req, $runtime));
+        return CreateCloudAccountResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
@@ -392,11 +578,35 @@ class ResourceManager extends OpenApiClient
     public function createControlPolicyWithOptions($request, $runtime)
     {
         Utils::validateModel($request);
+        $query = [];
+        if (!Utils::isUnset($request->description)) {
+            $query['Description'] = $request->description;
+        }
+        if (!Utils::isUnset($request->effectScope)) {
+            $query['EffectScope'] = $request->effectScope;
+        }
+        if (!Utils::isUnset($request->policyDocument)) {
+            $query['PolicyDocument'] = $request->policyDocument;
+        }
+        if (!Utils::isUnset($request->policyName)) {
+            $query['PolicyName'] = $request->policyName;
+        }
         $req = new OpenApiRequest([
-            'body' => Utils::toMap($request),
+            'query' => OpenApiUtilClient::query($query),
+        ]);
+        $params = new Params([
+            'action'      => 'CreateControlPolicy',
+            'version'     => '2020-03-31',
+            'protocol'    => 'HTTPS',
+            'pathname'    => '/',
+            'method'      => 'POST',
+            'authType'    => 'AK',
+            'style'       => 'RPC',
+            'reqBodyType' => 'formData',
+            'bodyType'    => 'json',
         ]);
 
-        return CreateControlPolicyResponse::fromMap($this->doRPCRequest('CreateControlPolicy', '2020-03-31', 'HTTPS', 'POST', 'AK', 'json', $req, $runtime));
+        return CreateControlPolicyResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
@@ -420,11 +630,29 @@ class ResourceManager extends OpenApiClient
     public function createFolderWithOptions($request, $runtime)
     {
         Utils::validateModel($request);
+        $query = [];
+        if (!Utils::isUnset($request->folderName)) {
+            $query['FolderName'] = $request->folderName;
+        }
+        if (!Utils::isUnset($request->parentFolderId)) {
+            $query['ParentFolderId'] = $request->parentFolderId;
+        }
         $req = new OpenApiRequest([
-            'body' => Utils::toMap($request),
+            'query' => OpenApiUtilClient::query($query),
+        ]);
+        $params = new Params([
+            'action'      => 'CreateFolder',
+            'version'     => '2020-03-31',
+            'protocol'    => 'HTTPS',
+            'pathname'    => '/',
+            'method'      => 'POST',
+            'authType'    => 'AK',
+            'style'       => 'RPC',
+            'reqBodyType' => 'formData',
+            'bodyType'    => 'json',
         ]);
 
-        return CreateFolderResponse::fromMap($this->doRPCRequest('CreateFolder', '2020-03-31', 'HTTPS', 'POST', 'AK', 'json', $req, $runtime));
+        return CreateFolderResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
@@ -448,11 +676,32 @@ class ResourceManager extends OpenApiClient
     public function createPolicyWithOptions($request, $runtime)
     {
         Utils::validateModel($request);
+        $query = [];
+        if (!Utils::isUnset($request->description)) {
+            $query['Description'] = $request->description;
+        }
+        if (!Utils::isUnset($request->policyDocument)) {
+            $query['PolicyDocument'] = $request->policyDocument;
+        }
+        if (!Utils::isUnset($request->policyName)) {
+            $query['PolicyName'] = $request->policyName;
+        }
         $req = new OpenApiRequest([
-            'body' => Utils::toMap($request),
+            'query' => OpenApiUtilClient::query($query),
+        ]);
+        $params = new Params([
+            'action'      => 'CreatePolicy',
+            'version'     => '2020-03-31',
+            'protocol'    => 'HTTPS',
+            'pathname'    => '/',
+            'method'      => 'POST',
+            'authType'    => 'AK',
+            'style'       => 'RPC',
+            'reqBodyType' => 'formData',
+            'bodyType'    => 'json',
         ]);
 
-        return CreatePolicyResponse::fromMap($this->doRPCRequest('CreatePolicy', '2020-03-31', 'HTTPS', 'POST', 'AK', 'json', $req, $runtime));
+        return CreatePolicyResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
@@ -476,11 +725,32 @@ class ResourceManager extends OpenApiClient
     public function createPolicyVersionWithOptions($request, $runtime)
     {
         Utils::validateModel($request);
+        $query = [];
+        if (!Utils::isUnset($request->policyDocument)) {
+            $query['PolicyDocument'] = $request->policyDocument;
+        }
+        if (!Utils::isUnset($request->policyName)) {
+            $query['PolicyName'] = $request->policyName;
+        }
+        if (!Utils::isUnset($request->setAsDefault)) {
+            $query['SetAsDefault'] = $request->setAsDefault;
+        }
         $req = new OpenApiRequest([
-            'body' => Utils::toMap($request),
+            'query' => OpenApiUtilClient::query($query),
+        ]);
+        $params = new Params([
+            'action'      => 'CreatePolicyVersion',
+            'version'     => '2020-03-31',
+            'protocol'    => 'HTTPS',
+            'pathname'    => '/',
+            'method'      => 'POST',
+            'authType'    => 'AK',
+            'style'       => 'RPC',
+            'reqBodyType' => 'formData',
+            'bodyType'    => 'json',
         ]);
 
-        return CreatePolicyVersionResponse::fromMap($this->doRPCRequest('CreatePolicyVersion', '2020-03-31', 'HTTPS', 'POST', 'AK', 'json', $req, $runtime));
+        return CreatePolicyVersionResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
@@ -504,11 +774,35 @@ class ResourceManager extends OpenApiClient
     public function createResourceAccountWithOptions($request, $runtime)
     {
         Utils::validateModel($request);
+        $query = [];
+        if (!Utils::isUnset($request->accountNamePrefix)) {
+            $query['AccountNamePrefix'] = $request->accountNamePrefix;
+        }
+        if (!Utils::isUnset($request->displayName)) {
+            $query['DisplayName'] = $request->displayName;
+        }
+        if (!Utils::isUnset($request->parentFolderId)) {
+            $query['ParentFolderId'] = $request->parentFolderId;
+        }
+        if (!Utils::isUnset($request->payerAccountId)) {
+            $query['PayerAccountId'] = $request->payerAccountId;
+        }
         $req = new OpenApiRequest([
-            'body' => Utils::toMap($request),
+            'query' => OpenApiUtilClient::query($query),
+        ]);
+        $params = new Params([
+            'action'      => 'CreateResourceAccount',
+            'version'     => '2020-03-31',
+            'protocol'    => 'HTTPS',
+            'pathname'    => '/',
+            'method'      => 'POST',
+            'authType'    => 'AK',
+            'style'       => 'RPC',
+            'reqBodyType' => 'formData',
+            'bodyType'    => 'json',
         ]);
 
-        return CreateResourceAccountResponse::fromMap($this->doRPCRequest('CreateResourceAccount', '2020-03-31', 'HTTPS', 'POST', 'AK', 'json', $req, $runtime));
+        return CreateResourceAccountResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
@@ -532,11 +826,29 @@ class ResourceManager extends OpenApiClient
     public function createResourceGroupWithOptions($request, $runtime)
     {
         Utils::validateModel($request);
+        $query = [];
+        if (!Utils::isUnset($request->displayName)) {
+            $query['DisplayName'] = $request->displayName;
+        }
+        if (!Utils::isUnset($request->name)) {
+            $query['Name'] = $request->name;
+        }
         $req = new OpenApiRequest([
-            'body' => Utils::toMap($request),
+            'query' => OpenApiUtilClient::query($query),
+        ]);
+        $params = new Params([
+            'action'      => 'CreateResourceGroup',
+            'version'     => '2020-03-31',
+            'protocol'    => 'HTTPS',
+            'pathname'    => '/',
+            'method'      => 'POST',
+            'authType'    => 'AK',
+            'style'       => 'RPC',
+            'reqBodyType' => 'formData',
+            'bodyType'    => 'json',
         ]);
 
-        return CreateResourceGroupResponse::fromMap($this->doRPCRequest('CreateResourceGroup', '2020-03-31', 'HTTPS', 'POST', 'AK', 'json', $req, $runtime));
+        return CreateResourceGroupResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
@@ -560,11 +872,35 @@ class ResourceManager extends OpenApiClient
     public function createRoleWithOptions($request, $runtime)
     {
         Utils::validateModel($request);
+        $query = [];
+        if (!Utils::isUnset($request->assumeRolePolicyDocument)) {
+            $query['AssumeRolePolicyDocument'] = $request->assumeRolePolicyDocument;
+        }
+        if (!Utils::isUnset($request->description)) {
+            $query['Description'] = $request->description;
+        }
+        if (!Utils::isUnset($request->maxSessionDuration)) {
+            $query['MaxSessionDuration'] = $request->maxSessionDuration;
+        }
+        if (!Utils::isUnset($request->roleName)) {
+            $query['RoleName'] = $request->roleName;
+        }
         $req = new OpenApiRequest([
-            'body' => Utils::toMap($request),
+            'query' => OpenApiUtilClient::query($query),
+        ]);
+        $params = new Params([
+            'action'      => 'CreateRole',
+            'version'     => '2020-03-31',
+            'protocol'    => 'HTTPS',
+            'pathname'    => '/',
+            'method'      => 'POST',
+            'authType'    => 'AK',
+            'style'       => 'RPC',
+            'reqBodyType' => 'formData',
+            'bodyType'    => 'json',
         ]);
 
-        return CreateRoleResponse::fromMap($this->doRPCRequest('CreateRole', '2020-03-31', 'HTTPS', 'POST', 'AK', 'json', $req, $runtime));
+        return CreateRoleResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
@@ -588,11 +924,32 @@ class ResourceManager extends OpenApiClient
     public function createServiceLinkedRoleWithOptions($request, $runtime)
     {
         Utils::validateModel($request);
+        $query = [];
+        if (!Utils::isUnset($request->customSuffix)) {
+            $query['CustomSuffix'] = $request->customSuffix;
+        }
+        if (!Utils::isUnset($request->description)) {
+            $query['Description'] = $request->description;
+        }
+        if (!Utils::isUnset($request->serviceName)) {
+            $query['ServiceName'] = $request->serviceName;
+        }
         $req = new OpenApiRequest([
-            'body' => Utils::toMap($request),
+            'query' => OpenApiUtilClient::query($query),
+        ]);
+        $params = new Params([
+            'action'      => 'CreateServiceLinkedRole',
+            'version'     => '2020-03-31',
+            'protocol'    => 'HTTPS',
+            'pathname'    => '/',
+            'method'      => 'POST',
+            'authType'    => 'AK',
+            'style'       => 'RPC',
+            'reqBodyType' => 'formData',
+            'bodyType'    => 'json',
         ]);
 
-        return CreateServiceLinkedRoleResponse::fromMap($this->doRPCRequest('CreateServiceLinkedRole', '2020-03-31', 'HTTPS', 'POST', 'AK', 'json', $req, $runtime));
+        return CreateServiceLinkedRoleResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
@@ -616,11 +973,26 @@ class ResourceManager extends OpenApiClient
     public function declineHandshakeWithOptions($request, $runtime)
     {
         Utils::validateModel($request);
+        $query = [];
+        if (!Utils::isUnset($request->handshakeId)) {
+            $query['HandshakeId'] = $request->handshakeId;
+        }
         $req = new OpenApiRequest([
-            'body' => Utils::toMap($request),
+            'query' => OpenApiUtilClient::query($query),
+        ]);
+        $params = new Params([
+            'action'      => 'DeclineHandshake',
+            'version'     => '2020-03-31',
+            'protocol'    => 'HTTPS',
+            'pathname'    => '/',
+            'method'      => 'POST',
+            'authType'    => 'AK',
+            'style'       => 'RPC',
+            'reqBodyType' => 'formData',
+            'bodyType'    => 'json',
         ]);
 
-        return DeclineHandshakeResponse::fromMap($this->doRPCRequest('DeclineHandshake', '2020-03-31', 'HTTPS', 'POST', 'AK', 'json', $req, $runtime));
+        return DeclineHandshakeResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
@@ -636,34 +1008,6 @@ class ResourceManager extends OpenApiClient
     }
 
     /**
-     * @param DeleteAccountRequest $request
-     * @param RuntimeOptions       $runtime
-     *
-     * @return DeleteAccountResponse
-     */
-    public function deleteAccountWithOptions($request, $runtime)
-    {
-        Utils::validateModel($request);
-        $req = new OpenApiRequest([
-            'body' => Utils::toMap($request),
-        ]);
-
-        return DeleteAccountResponse::fromMap($this->doRPCRequest('DeleteAccount', '2020-03-31', 'HTTPS', 'POST', 'AK', 'json', $req, $runtime));
-    }
-
-    /**
-     * @param DeleteAccountRequest $request
-     *
-     * @return DeleteAccountResponse
-     */
-    public function deleteAccount($request)
-    {
-        $runtime = new RuntimeOptions([]);
-
-        return $this->deleteAccountWithOptions($request, $runtime);
-    }
-
-    /**
      * @param DeleteControlPolicyRequest $request
      * @param RuntimeOptions             $runtime
      *
@@ -672,11 +1016,26 @@ class ResourceManager extends OpenApiClient
     public function deleteControlPolicyWithOptions($request, $runtime)
     {
         Utils::validateModel($request);
+        $query = [];
+        if (!Utils::isUnset($request->policyId)) {
+            $query['PolicyId'] = $request->policyId;
+        }
         $req = new OpenApiRequest([
-            'body' => Utils::toMap($request),
+            'query' => OpenApiUtilClient::query($query),
+        ]);
+        $params = new Params([
+            'action'      => 'DeleteControlPolicy',
+            'version'     => '2020-03-31',
+            'protocol'    => 'HTTPS',
+            'pathname'    => '/',
+            'method'      => 'POST',
+            'authType'    => 'AK',
+            'style'       => 'RPC',
+            'reqBodyType' => 'formData',
+            'bodyType'    => 'json',
         ]);
 
-        return DeleteControlPolicyResponse::fromMap($this->doRPCRequest('DeleteControlPolicy', '2020-03-31', 'HTTPS', 'POST', 'AK', 'json', $req, $runtime));
+        return DeleteControlPolicyResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
@@ -700,11 +1059,26 @@ class ResourceManager extends OpenApiClient
     public function deleteFolderWithOptions($request, $runtime)
     {
         Utils::validateModel($request);
+        $query = [];
+        if (!Utils::isUnset($request->folderId)) {
+            $query['FolderId'] = $request->folderId;
+        }
         $req = new OpenApiRequest([
-            'body' => Utils::toMap($request),
+            'query' => OpenApiUtilClient::query($query),
+        ]);
+        $params = new Params([
+            'action'      => 'DeleteFolder',
+            'version'     => '2020-03-31',
+            'protocol'    => 'HTTPS',
+            'pathname'    => '/',
+            'method'      => 'POST',
+            'authType'    => 'AK',
+            'style'       => 'RPC',
+            'reqBodyType' => 'formData',
+            'bodyType'    => 'json',
         ]);
 
-        return DeleteFolderResponse::fromMap($this->doRPCRequest('DeleteFolder', '2020-03-31', 'HTTPS', 'POST', 'AK', 'json', $req, $runtime));
+        return DeleteFolderResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
@@ -728,11 +1102,26 @@ class ResourceManager extends OpenApiClient
     public function deletePolicyWithOptions($request, $runtime)
     {
         Utils::validateModel($request);
+        $query = [];
+        if (!Utils::isUnset($request->policyName)) {
+            $query['PolicyName'] = $request->policyName;
+        }
         $req = new OpenApiRequest([
-            'body' => Utils::toMap($request),
+            'query' => OpenApiUtilClient::query($query),
+        ]);
+        $params = new Params([
+            'action'      => 'DeletePolicy',
+            'version'     => '2020-03-31',
+            'protocol'    => 'HTTPS',
+            'pathname'    => '/',
+            'method'      => 'POST',
+            'authType'    => 'AK',
+            'style'       => 'RPC',
+            'reqBodyType' => 'formData',
+            'bodyType'    => 'json',
         ]);
 
-        return DeletePolicyResponse::fromMap($this->doRPCRequest('DeletePolicy', '2020-03-31', 'HTTPS', 'POST', 'AK', 'json', $req, $runtime));
+        return DeletePolicyResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
@@ -756,11 +1145,29 @@ class ResourceManager extends OpenApiClient
     public function deletePolicyVersionWithOptions($request, $runtime)
     {
         Utils::validateModel($request);
+        $query = [];
+        if (!Utils::isUnset($request->policyName)) {
+            $query['PolicyName'] = $request->policyName;
+        }
+        if (!Utils::isUnset($request->versionId)) {
+            $query['VersionId'] = $request->versionId;
+        }
         $req = new OpenApiRequest([
-            'body' => Utils::toMap($request),
+            'query' => OpenApiUtilClient::query($query),
+        ]);
+        $params = new Params([
+            'action'      => 'DeletePolicyVersion',
+            'version'     => '2020-03-31',
+            'protocol'    => 'HTTPS',
+            'pathname'    => '/',
+            'method'      => 'POST',
+            'authType'    => 'AK',
+            'style'       => 'RPC',
+            'reqBodyType' => 'formData',
+            'bodyType'    => 'json',
         ]);
 
-        return DeletePolicyVersionResponse::fromMap($this->doRPCRequest('DeletePolicyVersion', '2020-03-31', 'HTTPS', 'POST', 'AK', 'json', $req, $runtime));
+        return DeletePolicyVersionResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
@@ -784,11 +1191,26 @@ class ResourceManager extends OpenApiClient
     public function deleteResourceGroupWithOptions($request, $runtime)
     {
         Utils::validateModel($request);
+        $query = [];
+        if (!Utils::isUnset($request->resourceGroupId)) {
+            $query['ResourceGroupId'] = $request->resourceGroupId;
+        }
         $req = new OpenApiRequest([
-            'body' => Utils::toMap($request),
+            'query' => OpenApiUtilClient::query($query),
+        ]);
+        $params = new Params([
+            'action'      => 'DeleteResourceGroup',
+            'version'     => '2020-03-31',
+            'protocol'    => 'HTTPS',
+            'pathname'    => '/',
+            'method'      => 'POST',
+            'authType'    => 'AK',
+            'style'       => 'RPC',
+            'reqBodyType' => 'formData',
+            'bodyType'    => 'json',
         ]);
 
-        return DeleteResourceGroupResponse::fromMap($this->doRPCRequest('DeleteResourceGroup', '2020-03-31', 'HTTPS', 'POST', 'AK', 'json', $req, $runtime));
+        return DeleteResourceGroupResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
@@ -812,11 +1234,26 @@ class ResourceManager extends OpenApiClient
     public function deleteRoleWithOptions($request, $runtime)
     {
         Utils::validateModel($request);
+        $query = [];
+        if (!Utils::isUnset($request->roleName)) {
+            $query['RoleName'] = $request->roleName;
+        }
         $req = new OpenApiRequest([
-            'body' => Utils::toMap($request),
+            'query' => OpenApiUtilClient::query($query),
+        ]);
+        $params = new Params([
+            'action'      => 'DeleteRole',
+            'version'     => '2020-03-31',
+            'protocol'    => 'HTTPS',
+            'pathname'    => '/',
+            'method'      => 'POST',
+            'authType'    => 'AK',
+            'style'       => 'RPC',
+            'reqBodyType' => 'formData',
+            'bodyType'    => 'json',
         ]);
 
-        return DeleteRoleResponse::fromMap($this->doRPCRequest('DeleteRole', '2020-03-31', 'HTTPS', 'POST', 'AK', 'json', $req, $runtime));
+        return DeleteRoleResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
@@ -840,11 +1277,26 @@ class ResourceManager extends OpenApiClient
     public function deleteServiceLinkedRoleWithOptions($request, $runtime)
     {
         Utils::validateModel($request);
+        $query = [];
+        if (!Utils::isUnset($request->roleName)) {
+            $query['RoleName'] = $request->roleName;
+        }
         $req = new OpenApiRequest([
-            'body' => Utils::toMap($request),
+            'query' => OpenApiUtilClient::query($query),
+        ]);
+        $params = new Params([
+            'action'      => 'DeleteServiceLinkedRole',
+            'version'     => '2020-03-31',
+            'protocol'    => 'HTTPS',
+            'pathname'    => '/',
+            'method'      => 'POST',
+            'authType'    => 'AK',
+            'style'       => 'RPC',
+            'reqBodyType' => 'formData',
+            'bodyType'    => 'json',
         ]);
 
-        return DeleteServiceLinkedRoleResponse::fromMap($this->doRPCRequest('DeleteServiceLinkedRole', '2020-03-31', 'HTTPS', 'POST', 'AK', 'json', $req, $runtime));
+        return DeleteServiceLinkedRoleResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
@@ -868,11 +1320,29 @@ class ResourceManager extends OpenApiClient
     public function deregisterDelegatedAdministratorWithOptions($request, $runtime)
     {
         Utils::validateModel($request);
+        $query = [];
+        if (!Utils::isUnset($request->accountId)) {
+            $query['AccountId'] = $request->accountId;
+        }
+        if (!Utils::isUnset($request->servicePrincipal)) {
+            $query['ServicePrincipal'] = $request->servicePrincipal;
+        }
         $req = new OpenApiRequest([
-            'body' => Utils::toMap($request),
+            'query' => OpenApiUtilClient::query($query),
+        ]);
+        $params = new Params([
+            'action'      => 'DeregisterDelegatedAdministrator',
+            'version'     => '2020-03-31',
+            'protocol'    => 'HTTPS',
+            'pathname'    => '/',
+            'method'      => 'POST',
+            'authType'    => 'AK',
+            'style'       => 'RPC',
+            'reqBodyType' => 'formData',
+            'bodyType'    => 'json',
         ]);
 
-        return DeregisterDelegatedAdministratorResponse::fromMap($this->doRPCRequest('DeregisterDelegatedAdministrator', '2020-03-31', 'HTTPS', 'POST', 'AK', 'json', $req, $runtime));
+        return DeregisterDelegatedAdministratorResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
@@ -894,9 +1364,20 @@ class ResourceManager extends OpenApiClient
      */
     public function destroyResourceDirectoryWithOptions($runtime)
     {
-        $req = new OpenApiRequest([]);
+        $req    = new OpenApiRequest([]);
+        $params = new Params([
+            'action'      => 'DestroyResourceDirectory',
+            'version'     => '2020-03-31',
+            'protocol'    => 'HTTPS',
+            'pathname'    => '/',
+            'method'      => 'POST',
+            'authType'    => 'AK',
+            'style'       => 'RPC',
+            'reqBodyType' => 'formData',
+            'bodyType'    => 'json',
+        ]);
 
-        return DestroyResourceDirectoryResponse::fromMap($this->doRPCRequest('DestroyResourceDirectory', '2020-03-31', 'HTTPS', 'POST', 'AK', 'json', $req, $runtime));
+        return DestroyResourceDirectoryResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
@@ -918,11 +1399,29 @@ class ResourceManager extends OpenApiClient
     public function detachControlPolicyWithOptions($request, $runtime)
     {
         Utils::validateModel($request);
+        $query = [];
+        if (!Utils::isUnset($request->policyId)) {
+            $query['PolicyId'] = $request->policyId;
+        }
+        if (!Utils::isUnset($request->targetId)) {
+            $query['TargetId'] = $request->targetId;
+        }
         $req = new OpenApiRequest([
-            'body' => Utils::toMap($request),
+            'query' => OpenApiUtilClient::query($query),
+        ]);
+        $params = new Params([
+            'action'      => 'DetachControlPolicy',
+            'version'     => '2020-03-31',
+            'protocol'    => 'HTTPS',
+            'pathname'    => '/',
+            'method'      => 'POST',
+            'authType'    => 'AK',
+            'style'       => 'RPC',
+            'reqBodyType' => 'formData',
+            'bodyType'    => 'json',
         ]);
 
-        return DetachControlPolicyResponse::fromMap($this->doRPCRequest('DetachControlPolicy', '2020-03-31', 'HTTPS', 'POST', 'AK', 'json', $req, $runtime));
+        return DetachControlPolicyResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
@@ -946,11 +1445,38 @@ class ResourceManager extends OpenApiClient
     public function detachPolicyWithOptions($request, $runtime)
     {
         Utils::validateModel($request);
+        $query = [];
+        if (!Utils::isUnset($request->policyName)) {
+            $query['PolicyName'] = $request->policyName;
+        }
+        if (!Utils::isUnset($request->policyType)) {
+            $query['PolicyType'] = $request->policyType;
+        }
+        if (!Utils::isUnset($request->principalName)) {
+            $query['PrincipalName'] = $request->principalName;
+        }
+        if (!Utils::isUnset($request->principalType)) {
+            $query['PrincipalType'] = $request->principalType;
+        }
+        if (!Utils::isUnset($request->resourceGroupId)) {
+            $query['ResourceGroupId'] = $request->resourceGroupId;
+        }
         $req = new OpenApiRequest([
-            'body' => Utils::toMap($request),
+            'query' => OpenApiUtilClient::query($query),
+        ]);
+        $params = new Params([
+            'action'      => 'DetachPolicy',
+            'version'     => '2020-03-31',
+            'protocol'    => 'HTTPS',
+            'pathname'    => '/',
+            'method'      => 'POST',
+            'authType'    => 'AK',
+            'style'       => 'RPC',
+            'reqBodyType' => 'formData',
+            'bodyType'    => 'json',
         ]);
 
-        return DetachPolicyResponse::fromMap($this->doRPCRequest('DetachPolicy', '2020-03-31', 'HTTPS', 'POST', 'AK', 'json', $req, $runtime));
+        return DetachPolicyResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
@@ -972,9 +1498,20 @@ class ResourceManager extends OpenApiClient
      */
     public function disableControlPolicyWithOptions($runtime)
     {
-        $req = new OpenApiRequest([]);
+        $req    = new OpenApiRequest([]);
+        $params = new Params([
+            'action'      => 'DisableControlPolicy',
+            'version'     => '2020-03-31',
+            'protocol'    => 'HTTPS',
+            'pathname'    => '/',
+            'method'      => 'POST',
+            'authType'    => 'AK',
+            'style'       => 'RPC',
+            'reqBodyType' => 'formData',
+            'bodyType'    => 'json',
+        ]);
 
-        return DisableControlPolicyResponse::fromMap($this->doRPCRequest('DisableControlPolicy', '2020-03-31', 'HTTPS', 'POST', 'AK', 'json', $req, $runtime));
+        return DisableControlPolicyResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
@@ -994,9 +1531,20 @@ class ResourceManager extends OpenApiClient
      */
     public function enableControlPolicyWithOptions($runtime)
     {
-        $req = new OpenApiRequest([]);
+        $req    = new OpenApiRequest([]);
+        $params = new Params([
+            'action'      => 'EnableControlPolicy',
+            'version'     => '2020-03-31',
+            'protocol'    => 'HTTPS',
+            'pathname'    => '/',
+            'method'      => 'POST',
+            'authType'    => 'AK',
+            'style'       => 'RPC',
+            'reqBodyType' => 'formData',
+            'bodyType'    => 'json',
+        ]);
 
-        return EnableControlPolicyResponse::fromMap($this->doRPCRequest('EnableControlPolicy', '2020-03-31', 'HTTPS', 'POST', 'AK', 'json', $req, $runtime));
+        return EnableControlPolicyResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
@@ -1010,6 +1558,58 @@ class ResourceManager extends OpenApiClient
     }
 
     /**
+     * @param EnableResourceDirectoryRequest $request
+     * @param RuntimeOptions                 $runtime
+     *
+     * @return EnableResourceDirectoryResponse
+     */
+    public function enableResourceDirectoryWithOptions($request, $runtime)
+    {
+        Utils::validateModel($request);
+        $query = [];
+        if (!Utils::isUnset($request->enableMode)) {
+            $query['EnableMode'] = $request->enableMode;
+        }
+        if (!Utils::isUnset($request->MAName)) {
+            $query['MAName'] = $request->MAName;
+        }
+        if (!Utils::isUnset($request->MASecureMobilePhone)) {
+            $query['MASecureMobilePhone'] = $request->MASecureMobilePhone;
+        }
+        if (!Utils::isUnset($request->verificationCode)) {
+            $query['VerificationCode'] = $request->verificationCode;
+        }
+        $req = new OpenApiRequest([
+            'query' => OpenApiUtilClient::query($query),
+        ]);
+        $params = new Params([
+            'action'      => 'EnableResourceDirectory',
+            'version'     => '2020-03-31',
+            'protocol'    => 'HTTPS',
+            'pathname'    => '/',
+            'method'      => 'POST',
+            'authType'    => 'AK',
+            'style'       => 'RPC',
+            'reqBodyType' => 'formData',
+            'bodyType'    => 'json',
+        ]);
+
+        return EnableResourceDirectoryResponse::fromMap($this->callApi($params, $req, $runtime));
+    }
+
+    /**
+     * @param EnableResourceDirectoryRequest $request
+     *
+     * @return EnableResourceDirectoryResponse
+     */
+    public function enableResourceDirectory($request)
+    {
+        $runtime = new RuntimeOptions([]);
+
+        return $this->enableResourceDirectoryWithOptions($request, $runtime);
+    }
+
+    /**
      * @param GetAccountRequest $request
      * @param RuntimeOptions    $runtime
      *
@@ -1018,11 +1618,26 @@ class ResourceManager extends OpenApiClient
     public function getAccountWithOptions($request, $runtime)
     {
         Utils::validateModel($request);
+        $query = [];
+        if (!Utils::isUnset($request->accountId)) {
+            $query['AccountId'] = $request->accountId;
+        }
         $req = new OpenApiRequest([
-            'body' => Utils::toMap($request),
+            'query' => OpenApiUtilClient::query($query),
+        ]);
+        $params = new Params([
+            'action'      => 'GetAccount',
+            'version'     => '2020-03-31',
+            'protocol'    => 'HTTPS',
+            'pathname'    => '/',
+            'method'      => 'POST',
+            'authType'    => 'AK',
+            'style'       => 'RPC',
+            'reqBodyType' => 'formData',
+            'bodyType'    => 'json',
         ]);
 
-        return GetAccountResponse::fromMap($this->doRPCRequest('GetAccount', '2020-03-31', 'HTTPS', 'POST', 'AK', 'json', $req, $runtime));
+        return GetAccountResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
@@ -1046,11 +1661,29 @@ class ResourceManager extends OpenApiClient
     public function getControlPolicyWithOptions($request, $runtime)
     {
         Utils::validateModel($request);
+        $query = [];
+        if (!Utils::isUnset($request->language)) {
+            $query['Language'] = $request->language;
+        }
+        if (!Utils::isUnset($request->policyId)) {
+            $query['PolicyId'] = $request->policyId;
+        }
         $req = new OpenApiRequest([
-            'body' => Utils::toMap($request),
+            'query' => OpenApiUtilClient::query($query),
+        ]);
+        $params = new Params([
+            'action'      => 'GetControlPolicy',
+            'version'     => '2020-03-31',
+            'protocol'    => 'HTTPS',
+            'pathname'    => '/',
+            'method'      => 'POST',
+            'authType'    => 'AK',
+            'style'       => 'RPC',
+            'reqBodyType' => 'formData',
+            'bodyType'    => 'json',
         ]);
 
-        return GetControlPolicyResponse::fromMap($this->doRPCRequest('GetControlPolicy', '2020-03-31', 'HTTPS', 'POST', 'AK', 'json', $req, $runtime));
+        return GetControlPolicyResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
@@ -1072,9 +1705,20 @@ class ResourceManager extends OpenApiClient
      */
     public function getControlPolicyEnablementStatusWithOptions($runtime)
     {
-        $req = new OpenApiRequest([]);
+        $req    = new OpenApiRequest([]);
+        $params = new Params([
+            'action'      => 'GetControlPolicyEnablementStatus',
+            'version'     => '2020-03-31',
+            'protocol'    => 'HTTPS',
+            'pathname'    => '/',
+            'method'      => 'POST',
+            'authType'    => 'AK',
+            'style'       => 'RPC',
+            'reqBodyType' => 'formData',
+            'bodyType'    => 'json',
+        ]);
 
-        return GetControlPolicyEnablementStatusResponse::fromMap($this->doRPCRequest('GetControlPolicyEnablementStatus', '2020-03-31', 'HTTPS', 'POST', 'AK', 'json', $req, $runtime));
+        return GetControlPolicyEnablementStatusResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
@@ -1096,11 +1740,26 @@ class ResourceManager extends OpenApiClient
     public function getFolderWithOptions($request, $runtime)
     {
         Utils::validateModel($request);
+        $query = [];
+        if (!Utils::isUnset($request->folderId)) {
+            $query['FolderId'] = $request->folderId;
+        }
         $req = new OpenApiRequest([
-            'body' => Utils::toMap($request),
+            'query' => OpenApiUtilClient::query($query),
+        ]);
+        $params = new Params([
+            'action'      => 'GetFolder',
+            'version'     => '2020-03-31',
+            'protocol'    => 'HTTPS',
+            'pathname'    => '/',
+            'method'      => 'POST',
+            'authType'    => 'AK',
+            'style'       => 'RPC',
+            'reqBodyType' => 'formData',
+            'bodyType'    => 'json',
         ]);
 
-        return GetFolderResponse::fromMap($this->doRPCRequest('GetFolder', '2020-03-31', 'HTTPS', 'POST', 'AK', 'json', $req, $runtime));
+        return GetFolderResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
@@ -1124,11 +1783,26 @@ class ResourceManager extends OpenApiClient
     public function getHandshakeWithOptions($request, $runtime)
     {
         Utils::validateModel($request);
+        $query = [];
+        if (!Utils::isUnset($request->handshakeId)) {
+            $query['HandshakeId'] = $request->handshakeId;
+        }
         $req = new OpenApiRequest([
-            'body' => Utils::toMap($request),
+            'query' => OpenApiUtilClient::query($query),
+        ]);
+        $params = new Params([
+            'action'      => 'GetHandshake',
+            'version'     => '2020-03-31',
+            'protocol'    => 'HTTPS',
+            'pathname'    => '/',
+            'method'      => 'POST',
+            'authType'    => 'AK',
+            'style'       => 'RPC',
+            'reqBodyType' => 'formData',
+            'bodyType'    => 'json',
         ]);
 
-        return GetHandshakeResponse::fromMap($this->doRPCRequest('GetHandshake', '2020-03-31', 'HTTPS', 'POST', 'AK', 'json', $req, $runtime));
+        return GetHandshakeResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
@@ -1152,11 +1826,26 @@ class ResourceManager extends OpenApiClient
     public function getPayerForAccountWithOptions($request, $runtime)
     {
         Utils::validateModel($request);
+        $query = [];
+        if (!Utils::isUnset($request->accountId)) {
+            $query['AccountId'] = $request->accountId;
+        }
         $req = new OpenApiRequest([
-            'body' => Utils::toMap($request),
+            'query' => OpenApiUtilClient::query($query),
+        ]);
+        $params = new Params([
+            'action'      => 'GetPayerForAccount',
+            'version'     => '2020-03-31',
+            'protocol'    => 'HTTPS',
+            'pathname'    => '/',
+            'method'      => 'POST',
+            'authType'    => 'AK',
+            'style'       => 'RPC',
+            'reqBodyType' => 'formData',
+            'bodyType'    => 'json',
         ]);
 
-        return GetPayerForAccountResponse::fromMap($this->doRPCRequest('GetPayerForAccount', '2020-03-31', 'HTTPS', 'POST', 'AK', 'json', $req, $runtime));
+        return GetPayerForAccountResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
@@ -1180,11 +1869,32 @@ class ResourceManager extends OpenApiClient
     public function getPolicyWithOptions($request, $runtime)
     {
         Utils::validateModel($request);
+        $query = [];
+        if (!Utils::isUnset($request->language)) {
+            $query['Language'] = $request->language;
+        }
+        if (!Utils::isUnset($request->policyName)) {
+            $query['PolicyName'] = $request->policyName;
+        }
+        if (!Utils::isUnset($request->policyType)) {
+            $query['PolicyType'] = $request->policyType;
+        }
         $req = new OpenApiRequest([
-            'body' => Utils::toMap($request),
+            'query' => OpenApiUtilClient::query($query),
+        ]);
+        $params = new Params([
+            'action'      => 'GetPolicy',
+            'version'     => '2020-03-31',
+            'protocol'    => 'HTTPS',
+            'pathname'    => '/',
+            'method'      => 'POST',
+            'authType'    => 'AK',
+            'style'       => 'RPC',
+            'reqBodyType' => 'formData',
+            'bodyType'    => 'json',
         ]);
 
-        return GetPolicyResponse::fromMap($this->doRPCRequest('GetPolicy', '2020-03-31', 'HTTPS', 'POST', 'AK', 'json', $req, $runtime));
+        return GetPolicyResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
@@ -1208,11 +1918,32 @@ class ResourceManager extends OpenApiClient
     public function getPolicyVersionWithOptions($request, $runtime)
     {
         Utils::validateModel($request);
+        $query = [];
+        if (!Utils::isUnset($request->policyName)) {
+            $query['PolicyName'] = $request->policyName;
+        }
+        if (!Utils::isUnset($request->policyType)) {
+            $query['PolicyType'] = $request->policyType;
+        }
+        if (!Utils::isUnset($request->versionId)) {
+            $query['VersionId'] = $request->versionId;
+        }
         $req = new OpenApiRequest([
-            'body' => Utils::toMap($request),
+            'query' => OpenApiUtilClient::query($query),
+        ]);
+        $params = new Params([
+            'action'      => 'GetPolicyVersion',
+            'version'     => '2020-03-31',
+            'protocol'    => 'HTTPS',
+            'pathname'    => '/',
+            'method'      => 'POST',
+            'authType'    => 'AK',
+            'style'       => 'RPC',
+            'reqBodyType' => 'formData',
+            'bodyType'    => 'json',
         ]);
 
-        return GetPolicyVersionResponse::fromMap($this->doRPCRequest('GetPolicyVersion', '2020-03-31', 'HTTPS', 'POST', 'AK', 'json', $req, $runtime));
+        return GetPolicyVersionResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
@@ -1234,9 +1965,20 @@ class ResourceManager extends OpenApiClient
      */
     public function getResourceDirectoryWithOptions($runtime)
     {
-        $req = new OpenApiRequest([]);
+        $req    = new OpenApiRequest([]);
+        $params = new Params([
+            'action'      => 'GetResourceDirectory',
+            'version'     => '2020-03-31',
+            'protocol'    => 'HTTPS',
+            'pathname'    => '/',
+            'method'      => 'POST',
+            'authType'    => 'AK',
+            'style'       => 'RPC',
+            'reqBodyType' => 'formData',
+            'bodyType'    => 'json',
+        ]);
 
-        return GetResourceDirectoryResponse::fromMap($this->doRPCRequest('GetResourceDirectory', '2020-03-31', 'HTTPS', 'POST', 'AK', 'json', $req, $runtime));
+        return GetResourceDirectoryResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
@@ -1258,11 +2000,26 @@ class ResourceManager extends OpenApiClient
     public function getResourceGroupWithOptions($request, $runtime)
     {
         Utils::validateModel($request);
+        $query = [];
+        if (!Utils::isUnset($request->resourceGroupId)) {
+            $query['ResourceGroupId'] = $request->resourceGroupId;
+        }
         $req = new OpenApiRequest([
-            'body' => Utils::toMap($request),
+            'query' => OpenApiUtilClient::query($query),
+        ]);
+        $params = new Params([
+            'action'      => 'GetResourceGroup',
+            'version'     => '2020-03-31',
+            'protocol'    => 'HTTPS',
+            'pathname'    => '/',
+            'method'      => 'POST',
+            'authType'    => 'AK',
+            'style'       => 'RPC',
+            'reqBodyType' => 'formData',
+            'bodyType'    => 'json',
         ]);
 
-        return GetResourceGroupResponse::fromMap($this->doRPCRequest('GetResourceGroup', '2020-03-31', 'HTTPS', 'POST', 'AK', 'json', $req, $runtime));
+        return GetResourceGroupResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
@@ -1286,11 +2043,29 @@ class ResourceManager extends OpenApiClient
     public function getRoleWithOptions($request, $runtime)
     {
         Utils::validateModel($request);
+        $query = [];
+        if (!Utils::isUnset($request->language)) {
+            $query['Language'] = $request->language;
+        }
+        if (!Utils::isUnset($request->roleName)) {
+            $query['RoleName'] = $request->roleName;
+        }
         $req = new OpenApiRequest([
-            'body' => Utils::toMap($request),
+            'query' => OpenApiUtilClient::query($query),
+        ]);
+        $params = new Params([
+            'action'      => 'GetRole',
+            'version'     => '2020-03-31',
+            'protocol'    => 'HTTPS',
+            'pathname'    => '/',
+            'method'      => 'POST',
+            'authType'    => 'AK',
+            'style'       => 'RPC',
+            'reqBodyType' => 'formData',
+            'bodyType'    => 'json',
         ]);
 
-        return GetRoleResponse::fromMap($this->doRPCRequest('GetRole', '2020-03-31', 'HTTPS', 'POST', 'AK', 'json', $req, $runtime));
+        return GetRoleResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
@@ -1314,11 +2089,26 @@ class ResourceManager extends OpenApiClient
     public function getServiceLinkedRoleDeletionStatusWithOptions($request, $runtime)
     {
         Utils::validateModel($request);
+        $query = [];
+        if (!Utils::isUnset($request->deletionTaskId)) {
+            $query['DeletionTaskId'] = $request->deletionTaskId;
+        }
         $req = new OpenApiRequest([
-            'body' => Utils::toMap($request),
+            'query' => OpenApiUtilClient::query($query),
+        ]);
+        $params = new Params([
+            'action'      => 'GetServiceLinkedRoleDeletionStatus',
+            'version'     => '2020-03-31',
+            'protocol'    => 'HTTPS',
+            'pathname'    => '/',
+            'method'      => 'POST',
+            'authType'    => 'AK',
+            'style'       => 'RPC',
+            'reqBodyType' => 'formData',
+            'bodyType'    => 'json',
         ]);
 
-        return GetServiceLinkedRoleDeletionStatusResponse::fromMap($this->doRPCRequest('GetServiceLinkedRoleDeletionStatus', '2020-03-31', 'HTTPS', 'POST', 'AK', 'json', $req, $runtime));
+        return GetServiceLinkedRoleDeletionStatusResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
@@ -1340,9 +2130,20 @@ class ResourceManager extends OpenApiClient
      */
     public function initResourceDirectoryWithOptions($runtime)
     {
-        $req = new OpenApiRequest([]);
+        $req    = new OpenApiRequest([]);
+        $params = new Params([
+            'action'      => 'InitResourceDirectory',
+            'version'     => '2020-03-31',
+            'protocol'    => 'HTTPS',
+            'pathname'    => '/',
+            'method'      => 'POST',
+            'authType'    => 'AK',
+            'style'       => 'RPC',
+            'reqBodyType' => 'formData',
+            'bodyType'    => 'json',
+        ]);
 
-        return InitResourceDirectoryResponse::fromMap($this->doRPCRequest('InitResourceDirectory', '2020-03-31', 'HTTPS', 'POST', 'AK', 'json', $req, $runtime));
+        return InitResourceDirectoryResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
@@ -1364,11 +2165,32 @@ class ResourceManager extends OpenApiClient
     public function inviteAccountToResourceDirectoryWithOptions($request, $runtime)
     {
         Utils::validateModel($request);
+        $query = [];
+        if (!Utils::isUnset($request->note)) {
+            $query['Note'] = $request->note;
+        }
+        if (!Utils::isUnset($request->targetEntity)) {
+            $query['TargetEntity'] = $request->targetEntity;
+        }
+        if (!Utils::isUnset($request->targetType)) {
+            $query['TargetType'] = $request->targetType;
+        }
         $req = new OpenApiRequest([
-            'body' => Utils::toMap($request),
+            'query' => OpenApiUtilClient::query($query),
+        ]);
+        $params = new Params([
+            'action'      => 'InviteAccountToResourceDirectory',
+            'version'     => '2020-03-31',
+            'protocol'    => 'HTTPS',
+            'pathname'    => '/',
+            'method'      => 'POST',
+            'authType'    => 'AK',
+            'style'       => 'RPC',
+            'reqBodyType' => 'formData',
+            'bodyType'    => 'json',
         ]);
 
-        return InviteAccountToResourceDirectoryResponse::fromMap($this->doRPCRequest('InviteAccountToResourceDirectory', '2020-03-31', 'HTTPS', 'POST', 'AK', 'json', $req, $runtime));
+        return InviteAccountToResourceDirectoryResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
@@ -1392,11 +2214,29 @@ class ResourceManager extends OpenApiClient
     public function listAccountsWithOptions($request, $runtime)
     {
         Utils::validateModel($request);
+        $query = [];
+        if (!Utils::isUnset($request->pageNumber)) {
+            $query['PageNumber'] = $request->pageNumber;
+        }
+        if (!Utils::isUnset($request->pageSize)) {
+            $query['PageSize'] = $request->pageSize;
+        }
         $req = new OpenApiRequest([
-            'body' => Utils::toMap($request),
+            'query' => OpenApiUtilClient::query($query),
+        ]);
+        $params = new Params([
+            'action'      => 'ListAccounts',
+            'version'     => '2020-03-31',
+            'protocol'    => 'HTTPS',
+            'pathname'    => '/',
+            'method'      => 'POST',
+            'authType'    => 'AK',
+            'style'       => 'RPC',
+            'reqBodyType' => 'formData',
+            'bodyType'    => 'json',
         ]);
 
-        return ListAccountsResponse::fromMap($this->doRPCRequest('ListAccounts', '2020-03-31', 'HTTPS', 'POST', 'AK', 'json', $req, $runtime));
+        return ListAccountsResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
@@ -1420,11 +2260,35 @@ class ResourceManager extends OpenApiClient
     public function listAccountsForParentWithOptions($request, $runtime)
     {
         Utils::validateModel($request);
+        $query = [];
+        if (!Utils::isUnset($request->pageNumber)) {
+            $query['PageNumber'] = $request->pageNumber;
+        }
+        if (!Utils::isUnset($request->pageSize)) {
+            $query['PageSize'] = $request->pageSize;
+        }
+        if (!Utils::isUnset($request->parentFolderId)) {
+            $query['ParentFolderId'] = $request->parentFolderId;
+        }
+        if (!Utils::isUnset($request->queryKeyword)) {
+            $query['QueryKeyword'] = $request->queryKeyword;
+        }
         $req = new OpenApiRequest([
-            'body' => Utils::toMap($request),
+            'query' => OpenApiUtilClient::query($query),
+        ]);
+        $params = new Params([
+            'action'      => 'ListAccountsForParent',
+            'version'     => '2020-03-31',
+            'protocol'    => 'HTTPS',
+            'pathname'    => '/',
+            'method'      => 'POST',
+            'authType'    => 'AK',
+            'style'       => 'RPC',
+            'reqBodyType' => 'formData',
+            'bodyType'    => 'json',
         ]);
 
-        return ListAccountsForParentResponse::fromMap($this->doRPCRequest('ListAccountsForParent', '2020-03-31', 'HTTPS', 'POST', 'AK', 'json', $req, $runtime));
+        return ListAccountsForParentResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
@@ -1448,11 +2312,26 @@ class ResourceManager extends OpenApiClient
     public function listAncestorsWithOptions($request, $runtime)
     {
         Utils::validateModel($request);
+        $query = [];
+        if (!Utils::isUnset($request->childId)) {
+            $query['ChildId'] = $request->childId;
+        }
         $req = new OpenApiRequest([
-            'body' => Utils::toMap($request),
+            'query' => OpenApiUtilClient::query($query),
+        ]);
+        $params = new Params([
+            'action'      => 'ListAncestors',
+            'version'     => '2020-03-31',
+            'protocol'    => 'HTTPS',
+            'pathname'    => '/',
+            'method'      => 'POST',
+            'authType'    => 'AK',
+            'style'       => 'RPC',
+            'reqBodyType' => 'formData',
+            'bodyType'    => 'json',
         ]);
 
-        return ListAncestorsResponse::fromMap($this->doRPCRequest('ListAncestors', '2020-03-31', 'HTTPS', 'POST', 'AK', 'json', $req, $runtime));
+        return ListAncestorsResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
@@ -1476,11 +2355,35 @@ class ResourceManager extends OpenApiClient
     public function listControlPoliciesWithOptions($request, $runtime)
     {
         Utils::validateModel($request);
+        $query = [];
+        if (!Utils::isUnset($request->language)) {
+            $query['Language'] = $request->language;
+        }
+        if (!Utils::isUnset($request->pageNumber)) {
+            $query['PageNumber'] = $request->pageNumber;
+        }
+        if (!Utils::isUnset($request->pageSize)) {
+            $query['PageSize'] = $request->pageSize;
+        }
+        if (!Utils::isUnset($request->policyType)) {
+            $query['PolicyType'] = $request->policyType;
+        }
         $req = new OpenApiRequest([
-            'body' => Utils::toMap($request),
+            'query' => OpenApiUtilClient::query($query),
+        ]);
+        $params = new Params([
+            'action'      => 'ListControlPolicies',
+            'version'     => '2020-03-31',
+            'protocol'    => 'HTTPS',
+            'pathname'    => '/',
+            'method'      => 'POST',
+            'authType'    => 'AK',
+            'style'       => 'RPC',
+            'reqBodyType' => 'formData',
+            'bodyType'    => 'json',
         ]);
 
-        return ListControlPoliciesResponse::fromMap($this->doRPCRequest('ListControlPolicies', '2020-03-31', 'HTTPS', 'POST', 'AK', 'json', $req, $runtime));
+        return ListControlPoliciesResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
@@ -1504,11 +2407,29 @@ class ResourceManager extends OpenApiClient
     public function listControlPolicyAttachmentsForTargetWithOptions($request, $runtime)
     {
         Utils::validateModel($request);
+        $query = [];
+        if (!Utils::isUnset($request->language)) {
+            $query['Language'] = $request->language;
+        }
+        if (!Utils::isUnset($request->targetId)) {
+            $query['TargetId'] = $request->targetId;
+        }
         $req = new OpenApiRequest([
-            'body' => Utils::toMap($request),
+            'query' => OpenApiUtilClient::query($query),
+        ]);
+        $params = new Params([
+            'action'      => 'ListControlPolicyAttachmentsForTarget',
+            'version'     => '2020-03-31',
+            'protocol'    => 'HTTPS',
+            'pathname'    => '/',
+            'method'      => 'POST',
+            'authType'    => 'AK',
+            'style'       => 'RPC',
+            'reqBodyType' => 'formData',
+            'bodyType'    => 'json',
         ]);
 
-        return ListControlPolicyAttachmentsForTargetResponse::fromMap($this->doRPCRequest('ListControlPolicyAttachmentsForTarget', '2020-03-31', 'HTTPS', 'POST', 'AK', 'json', $req, $runtime));
+        return ListControlPolicyAttachmentsForTargetResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
@@ -1532,11 +2453,32 @@ class ResourceManager extends OpenApiClient
     public function listDelegatedAdministratorsWithOptions($request, $runtime)
     {
         Utils::validateModel($request);
+        $query = [];
+        if (!Utils::isUnset($request->pageNumber)) {
+            $query['PageNumber'] = $request->pageNumber;
+        }
+        if (!Utils::isUnset($request->pageSize)) {
+            $query['PageSize'] = $request->pageSize;
+        }
+        if (!Utils::isUnset($request->servicePrincipal)) {
+            $query['ServicePrincipal'] = $request->servicePrincipal;
+        }
         $req = new OpenApiRequest([
-            'body' => Utils::toMap($request),
+            'query' => OpenApiUtilClient::query($query),
+        ]);
+        $params = new Params([
+            'action'      => 'ListDelegatedAdministrators',
+            'version'     => '2020-03-31',
+            'protocol'    => 'HTTPS',
+            'pathname'    => '/',
+            'method'      => 'POST',
+            'authType'    => 'AK',
+            'style'       => 'RPC',
+            'reqBodyType' => 'formData',
+            'bodyType'    => 'json',
         ]);
 
-        return ListDelegatedAdministratorsResponse::fromMap($this->doRPCRequest('ListDelegatedAdministrators', '2020-03-31', 'HTTPS', 'POST', 'AK', 'json', $req, $runtime));
+        return ListDelegatedAdministratorsResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
@@ -1560,11 +2502,26 @@ class ResourceManager extends OpenApiClient
     public function listDelegatedServicesForAccountWithOptions($request, $runtime)
     {
         Utils::validateModel($request);
+        $query = [];
+        if (!Utils::isUnset($request->accountId)) {
+            $query['AccountId'] = $request->accountId;
+        }
         $req = new OpenApiRequest([
-            'body' => Utils::toMap($request),
+            'query' => OpenApiUtilClient::query($query),
+        ]);
+        $params = new Params([
+            'action'      => 'ListDelegatedServicesForAccount',
+            'version'     => '2020-03-31',
+            'protocol'    => 'HTTPS',
+            'pathname'    => '/',
+            'method'      => 'POST',
+            'authType'    => 'AK',
+            'style'       => 'RPC',
+            'reqBodyType' => 'formData',
+            'bodyType'    => 'json',
         ]);
 
-        return ListDelegatedServicesForAccountResponse::fromMap($this->doRPCRequest('ListDelegatedServicesForAccount', '2020-03-31', 'HTTPS', 'POST', 'AK', 'json', $req, $runtime));
+        return ListDelegatedServicesForAccountResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
@@ -1588,11 +2545,35 @@ class ResourceManager extends OpenApiClient
     public function listFoldersForParentWithOptions($request, $runtime)
     {
         Utils::validateModel($request);
+        $query = [];
+        if (!Utils::isUnset($request->pageNumber)) {
+            $query['PageNumber'] = $request->pageNumber;
+        }
+        if (!Utils::isUnset($request->pageSize)) {
+            $query['PageSize'] = $request->pageSize;
+        }
+        if (!Utils::isUnset($request->parentFolderId)) {
+            $query['ParentFolderId'] = $request->parentFolderId;
+        }
+        if (!Utils::isUnset($request->queryKeyword)) {
+            $query['QueryKeyword'] = $request->queryKeyword;
+        }
         $req = new OpenApiRequest([
-            'body' => Utils::toMap($request),
+            'query' => OpenApiUtilClient::query($query),
+        ]);
+        $params = new Params([
+            'action'      => 'ListFoldersForParent',
+            'version'     => '2020-03-31',
+            'protocol'    => 'HTTPS',
+            'pathname'    => '/',
+            'method'      => 'POST',
+            'authType'    => 'AK',
+            'style'       => 'RPC',
+            'reqBodyType' => 'formData',
+            'bodyType'    => 'json',
         ]);
 
-        return ListFoldersForParentResponse::fromMap($this->doRPCRequest('ListFoldersForParent', '2020-03-31', 'HTTPS', 'POST', 'AK', 'json', $req, $runtime));
+        return ListFoldersForParentResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
@@ -1616,11 +2597,29 @@ class ResourceManager extends OpenApiClient
     public function listHandshakesForAccountWithOptions($request, $runtime)
     {
         Utils::validateModel($request);
+        $query = [];
+        if (!Utils::isUnset($request->pageNumber)) {
+            $query['PageNumber'] = $request->pageNumber;
+        }
+        if (!Utils::isUnset($request->pageSize)) {
+            $query['PageSize'] = $request->pageSize;
+        }
         $req = new OpenApiRequest([
-            'body' => Utils::toMap($request),
+            'query' => OpenApiUtilClient::query($query),
+        ]);
+        $params = new Params([
+            'action'      => 'ListHandshakesForAccount',
+            'version'     => '2020-03-31',
+            'protocol'    => 'HTTPS',
+            'pathname'    => '/',
+            'method'      => 'POST',
+            'authType'    => 'AK',
+            'style'       => 'RPC',
+            'reqBodyType' => 'formData',
+            'bodyType'    => 'json',
         ]);
 
-        return ListHandshakesForAccountResponse::fromMap($this->doRPCRequest('ListHandshakesForAccount', '2020-03-31', 'HTTPS', 'POST', 'AK', 'json', $req, $runtime));
+        return ListHandshakesForAccountResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
@@ -1644,11 +2643,29 @@ class ResourceManager extends OpenApiClient
     public function listHandshakesForResourceDirectoryWithOptions($request, $runtime)
     {
         Utils::validateModel($request);
+        $query = [];
+        if (!Utils::isUnset($request->pageNumber)) {
+            $query['PageNumber'] = $request->pageNumber;
+        }
+        if (!Utils::isUnset($request->pageSize)) {
+            $query['PageSize'] = $request->pageSize;
+        }
         $req = new OpenApiRequest([
-            'body' => Utils::toMap($request),
+            'query' => OpenApiUtilClient::query($query),
+        ]);
+        $params = new Params([
+            'action'      => 'ListHandshakesForResourceDirectory',
+            'version'     => '2020-03-31',
+            'protocol'    => 'HTTPS',
+            'pathname'    => '/',
+            'method'      => 'POST',
+            'authType'    => 'AK',
+            'style'       => 'RPC',
+            'reqBodyType' => 'formData',
+            'bodyType'    => 'json',
         ]);
 
-        return ListHandshakesForResourceDirectoryResponse::fromMap($this->doRPCRequest('ListHandshakesForResourceDirectory', '2020-03-31', 'HTTPS', 'POST', 'AK', 'json', $req, $runtime));
+        return ListHandshakesForResourceDirectoryResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
@@ -1672,11 +2689,35 @@ class ResourceManager extends OpenApiClient
     public function listPoliciesWithOptions($request, $runtime)
     {
         Utils::validateModel($request);
+        $query = [];
+        if (!Utils::isUnset($request->language)) {
+            $query['Language'] = $request->language;
+        }
+        if (!Utils::isUnset($request->pageNumber)) {
+            $query['PageNumber'] = $request->pageNumber;
+        }
+        if (!Utils::isUnset($request->pageSize)) {
+            $query['PageSize'] = $request->pageSize;
+        }
+        if (!Utils::isUnset($request->policyType)) {
+            $query['PolicyType'] = $request->policyType;
+        }
         $req = new OpenApiRequest([
-            'body' => Utils::toMap($request),
+            'query' => OpenApiUtilClient::query($query),
+        ]);
+        $params = new Params([
+            'action'      => 'ListPolicies',
+            'version'     => '2020-03-31',
+            'protocol'    => 'HTTPS',
+            'pathname'    => '/',
+            'method'      => 'POST',
+            'authType'    => 'AK',
+            'style'       => 'RPC',
+            'reqBodyType' => 'formData',
+            'bodyType'    => 'json',
         ]);
 
-        return ListPoliciesResponse::fromMap($this->doRPCRequest('ListPolicies', '2020-03-31', 'HTTPS', 'POST', 'AK', 'json', $req, $runtime));
+        return ListPoliciesResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
@@ -1700,11 +2741,47 @@ class ResourceManager extends OpenApiClient
     public function listPolicyAttachmentsWithOptions($request, $runtime)
     {
         Utils::validateModel($request);
+        $query = [];
+        if (!Utils::isUnset($request->language)) {
+            $query['Language'] = $request->language;
+        }
+        if (!Utils::isUnset($request->pageNumber)) {
+            $query['PageNumber'] = $request->pageNumber;
+        }
+        if (!Utils::isUnset($request->pageSize)) {
+            $query['PageSize'] = $request->pageSize;
+        }
+        if (!Utils::isUnset($request->policyName)) {
+            $query['PolicyName'] = $request->policyName;
+        }
+        if (!Utils::isUnset($request->policyType)) {
+            $query['PolicyType'] = $request->policyType;
+        }
+        if (!Utils::isUnset($request->principalName)) {
+            $query['PrincipalName'] = $request->principalName;
+        }
+        if (!Utils::isUnset($request->principalType)) {
+            $query['PrincipalType'] = $request->principalType;
+        }
+        if (!Utils::isUnset($request->resourceGroupId)) {
+            $query['ResourceGroupId'] = $request->resourceGroupId;
+        }
         $req = new OpenApiRequest([
-            'body' => Utils::toMap($request),
+            'query' => OpenApiUtilClient::query($query),
+        ]);
+        $params = new Params([
+            'action'      => 'ListPolicyAttachments',
+            'version'     => '2020-03-31',
+            'protocol'    => 'HTTPS',
+            'pathname'    => '/',
+            'method'      => 'POST',
+            'authType'    => 'AK',
+            'style'       => 'RPC',
+            'reqBodyType' => 'formData',
+            'bodyType'    => 'json',
         ]);
 
-        return ListPolicyAttachmentsResponse::fromMap($this->doRPCRequest('ListPolicyAttachments', '2020-03-31', 'HTTPS', 'POST', 'AK', 'json', $req, $runtime));
+        return ListPolicyAttachmentsResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
@@ -1728,11 +2805,29 @@ class ResourceManager extends OpenApiClient
     public function listPolicyVersionsWithOptions($request, $runtime)
     {
         Utils::validateModel($request);
+        $query = [];
+        if (!Utils::isUnset($request->policyName)) {
+            $query['PolicyName'] = $request->policyName;
+        }
+        if (!Utils::isUnset($request->policyType)) {
+            $query['PolicyType'] = $request->policyType;
+        }
         $req = new OpenApiRequest([
-            'body' => Utils::toMap($request),
+            'query' => OpenApiUtilClient::query($query),
+        ]);
+        $params = new Params([
+            'action'      => 'ListPolicyVersions',
+            'version'     => '2020-03-31',
+            'protocol'    => 'HTTPS',
+            'pathname'    => '/',
+            'method'      => 'POST',
+            'authType'    => 'AK',
+            'style'       => 'RPC',
+            'reqBodyType' => 'formData',
+            'bodyType'    => 'json',
         ]);
 
-        return ListPolicyVersionsResponse::fromMap($this->doRPCRequest('ListPolicyVersions', '2020-03-31', 'HTTPS', 'POST', 'AK', 'json', $req, $runtime));
+        return ListPolicyVersionsResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
@@ -1756,11 +2851,41 @@ class ResourceManager extends OpenApiClient
     public function listResourceGroupsWithOptions($request, $runtime)
     {
         Utils::validateModel($request);
+        $query = [];
+        if (!Utils::isUnset($request->displayName)) {
+            $query['DisplayName'] = $request->displayName;
+        }
+        if (!Utils::isUnset($request->name)) {
+            $query['Name'] = $request->name;
+        }
+        if (!Utils::isUnset($request->pageNumber)) {
+            $query['PageNumber'] = $request->pageNumber;
+        }
+        if (!Utils::isUnset($request->pageSize)) {
+            $query['PageSize'] = $request->pageSize;
+        }
+        if (!Utils::isUnset($request->resourceGroupId)) {
+            $query['ResourceGroupId'] = $request->resourceGroupId;
+        }
+        if (!Utils::isUnset($request->status)) {
+            $query['Status'] = $request->status;
+        }
         $req = new OpenApiRequest([
-            'body' => Utils::toMap($request),
+            'query' => OpenApiUtilClient::query($query),
+        ]);
+        $params = new Params([
+            'action'      => 'ListResourceGroups',
+            'version'     => '2020-03-31',
+            'protocol'    => 'HTTPS',
+            'pathname'    => '/',
+            'method'      => 'POST',
+            'authType'    => 'AK',
+            'style'       => 'RPC',
+            'reqBodyType' => 'formData',
+            'bodyType'    => 'json',
         ]);
 
-        return ListResourceGroupsResponse::fromMap($this->doRPCRequest('ListResourceGroups', '2020-03-31', 'HTTPS', 'POST', 'AK', 'json', $req, $runtime));
+        return ListResourceGroupsResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
@@ -1784,11 +2909,44 @@ class ResourceManager extends OpenApiClient
     public function listResourcesWithOptions($request, $runtime)
     {
         Utils::validateModel($request);
+        $query = [];
+        if (!Utils::isUnset($request->pageNumber)) {
+            $query['PageNumber'] = $request->pageNumber;
+        }
+        if (!Utils::isUnset($request->pageSize)) {
+            $query['PageSize'] = $request->pageSize;
+        }
+        if (!Utils::isUnset($request->region)) {
+            $query['Region'] = $request->region;
+        }
+        if (!Utils::isUnset($request->resourceGroupId)) {
+            $query['ResourceGroupId'] = $request->resourceGroupId;
+        }
+        if (!Utils::isUnset($request->resourceId)) {
+            $query['ResourceId'] = $request->resourceId;
+        }
+        if (!Utils::isUnset($request->resourceType)) {
+            $query['ResourceType'] = $request->resourceType;
+        }
+        if (!Utils::isUnset($request->service)) {
+            $query['Service'] = $request->service;
+        }
         $req = new OpenApiRequest([
-            'body' => Utils::toMap($request),
+            'query' => OpenApiUtilClient::query($query),
+        ]);
+        $params = new Params([
+            'action'      => 'ListResources',
+            'version'     => '2020-03-31',
+            'protocol'    => 'HTTPS',
+            'pathname'    => '/',
+            'method'      => 'POST',
+            'authType'    => 'AK',
+            'style'       => 'RPC',
+            'reqBodyType' => 'formData',
+            'bodyType'    => 'json',
         ]);
 
-        return ListResourcesResponse::fromMap($this->doRPCRequest('ListResources', '2020-03-31', 'HTTPS', 'POST', 'AK', 'json', $req, $runtime));
+        return ListResourcesResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
@@ -1812,11 +2970,32 @@ class ResourceManager extends OpenApiClient
     public function listRolesWithOptions($request, $runtime)
     {
         Utils::validateModel($request);
+        $query = [];
+        if (!Utils::isUnset($request->language)) {
+            $query['Language'] = $request->language;
+        }
+        if (!Utils::isUnset($request->pageNumber)) {
+            $query['PageNumber'] = $request->pageNumber;
+        }
+        if (!Utils::isUnset($request->pageSize)) {
+            $query['PageSize'] = $request->pageSize;
+        }
         $req = new OpenApiRequest([
-            'body' => Utils::toMap($request),
+            'query' => OpenApiUtilClient::query($query),
+        ]);
+        $params = new Params([
+            'action'      => 'ListRoles',
+            'version'     => '2020-03-31',
+            'protocol'    => 'HTTPS',
+            'pathname'    => '/',
+            'method'      => 'POST',
+            'authType'    => 'AK',
+            'style'       => 'RPC',
+            'reqBodyType' => 'formData',
+            'bodyType'    => 'json',
         ]);
 
-        return ListRolesResponse::fromMap($this->doRPCRequest('ListRoles', '2020-03-31', 'HTTPS', 'POST', 'AK', 'json', $req, $runtime));
+        return ListRolesResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
@@ -1840,11 +3019,32 @@ class ResourceManager extends OpenApiClient
     public function listTargetAttachmentsForControlPolicyWithOptions($request, $runtime)
     {
         Utils::validateModel($request);
+        $query = [];
+        if (!Utils::isUnset($request->pageNumber)) {
+            $query['PageNumber'] = $request->pageNumber;
+        }
+        if (!Utils::isUnset($request->pageSize)) {
+            $query['PageSize'] = $request->pageSize;
+        }
+        if (!Utils::isUnset($request->policyId)) {
+            $query['PolicyId'] = $request->policyId;
+        }
         $req = new OpenApiRequest([
-            'body' => Utils::toMap($request),
+            'query' => OpenApiUtilClient::query($query),
+        ]);
+        $params = new Params([
+            'action'      => 'ListTargetAttachmentsForControlPolicy',
+            'version'     => '2020-03-31',
+            'protocol'    => 'HTTPS',
+            'pathname'    => '/',
+            'method'      => 'POST',
+            'authType'    => 'AK',
+            'style'       => 'RPC',
+            'reqBodyType' => 'formData',
+            'bodyType'    => 'json',
         ]);
 
-        return ListTargetAttachmentsForControlPolicyResponse::fromMap($this->doRPCRequest('ListTargetAttachmentsForControlPolicy', '2020-03-31', 'HTTPS', 'POST', 'AK', 'json', $req, $runtime));
+        return ListTargetAttachmentsForControlPolicyResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
@@ -1868,11 +3068,32 @@ class ResourceManager extends OpenApiClient
     public function listTrustedServiceStatusWithOptions($request, $runtime)
     {
         Utils::validateModel($request);
+        $query = [];
+        if (!Utils::isUnset($request->adminAccountId)) {
+            $query['AdminAccountId'] = $request->adminAccountId;
+        }
+        if (!Utils::isUnset($request->pageNumber)) {
+            $query['PageNumber'] = $request->pageNumber;
+        }
+        if (!Utils::isUnset($request->pageSize)) {
+            $query['PageSize'] = $request->pageSize;
+        }
         $req = new OpenApiRequest([
-            'body' => Utils::toMap($request),
+            'query' => OpenApiUtilClient::query($query),
+        ]);
+        $params = new Params([
+            'action'      => 'ListTrustedServiceStatus',
+            'version'     => '2020-03-31',
+            'protocol'    => 'HTTPS',
+            'pathname'    => '/',
+            'method'      => 'POST',
+            'authType'    => 'AK',
+            'style'       => 'RPC',
+            'reqBodyType' => 'formData',
+            'bodyType'    => 'json',
         ]);
 
-        return ListTrustedServiceStatusResponse::fromMap($this->doRPCRequest('ListTrustedServiceStatus', '2020-03-31', 'HTTPS', 'POST', 'AK', 'json', $req, $runtime));
+        return ListTrustedServiceStatusResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
@@ -1896,11 +3117,29 @@ class ResourceManager extends OpenApiClient
     public function moveAccountWithOptions($request, $runtime)
     {
         Utils::validateModel($request);
+        $query = [];
+        if (!Utils::isUnset($request->accountId)) {
+            $query['AccountId'] = $request->accountId;
+        }
+        if (!Utils::isUnset($request->destinationFolderId)) {
+            $query['DestinationFolderId'] = $request->destinationFolderId;
+        }
         $req = new OpenApiRequest([
-            'body' => Utils::toMap($request),
+            'query' => OpenApiUtilClient::query($query),
+        ]);
+        $params = new Params([
+            'action'      => 'MoveAccount',
+            'version'     => '2020-03-31',
+            'protocol'    => 'HTTPS',
+            'pathname'    => '/',
+            'method'      => 'POST',
+            'authType'    => 'AK',
+            'style'       => 'RPC',
+            'reqBodyType' => 'formData',
+            'bodyType'    => 'json',
         ]);
 
-        return MoveAccountResponse::fromMap($this->doRPCRequest('MoveAccount', '2020-03-31', 'HTTPS', 'POST', 'AK', 'json', $req, $runtime));
+        return MoveAccountResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
@@ -1924,11 +3163,29 @@ class ResourceManager extends OpenApiClient
     public function moveResourcesWithOptions($request, $runtime)
     {
         Utils::validateModel($request);
+        $query = [];
+        if (!Utils::isUnset($request->resourceGroupId)) {
+            $query['ResourceGroupId'] = $request->resourceGroupId;
+        }
+        if (!Utils::isUnset($request->resources)) {
+            $query['Resources'] = $request->resources;
+        }
         $req = new OpenApiRequest([
-            'body' => Utils::toMap($request),
+            'query' => OpenApiUtilClient::query($query),
+        ]);
+        $params = new Params([
+            'action'      => 'MoveResources',
+            'version'     => '2020-03-31',
+            'protocol'    => 'HTTPS',
+            'pathname'    => '/',
+            'method'      => 'POST',
+            'authType'    => 'AK',
+            'style'       => 'RPC',
+            'reqBodyType' => 'formData',
+            'bodyType'    => 'json',
         ]);
 
-        return MoveResourcesResponse::fromMap($this->doRPCRequest('MoveResources', '2020-03-31', 'HTTPS', 'POST', 'AK', 'json', $req, $runtime));
+        return MoveResourcesResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
@@ -1952,11 +3209,29 @@ class ResourceManager extends OpenApiClient
     public function promoteResourceAccountWithOptions($request, $runtime)
     {
         Utils::validateModel($request);
+        $query = [];
+        if (!Utils::isUnset($request->accountId)) {
+            $query['AccountId'] = $request->accountId;
+        }
+        if (!Utils::isUnset($request->email)) {
+            $query['Email'] = $request->email;
+        }
         $req = new OpenApiRequest([
-            'body' => Utils::toMap($request),
+            'query' => OpenApiUtilClient::query($query),
+        ]);
+        $params = new Params([
+            'action'      => 'PromoteResourceAccount',
+            'version'     => '2020-03-31',
+            'protocol'    => 'HTTPS',
+            'pathname'    => '/',
+            'method'      => 'POST',
+            'authType'    => 'AK',
+            'style'       => 'RPC',
+            'reqBodyType' => 'formData',
+            'bodyType'    => 'json',
         ]);
 
-        return PromoteResourceAccountResponse::fromMap($this->doRPCRequest('PromoteResourceAccount', '2020-03-31', 'HTTPS', 'POST', 'AK', 'json', $req, $runtime));
+        return PromoteResourceAccountResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
@@ -1980,11 +3255,29 @@ class ResourceManager extends OpenApiClient
     public function registerDelegatedAdministratorWithOptions($request, $runtime)
     {
         Utils::validateModel($request);
+        $query = [];
+        if (!Utils::isUnset($request->accountId)) {
+            $query['AccountId'] = $request->accountId;
+        }
+        if (!Utils::isUnset($request->servicePrincipal)) {
+            $query['ServicePrincipal'] = $request->servicePrincipal;
+        }
         $req = new OpenApiRequest([
-            'body' => Utils::toMap($request),
+            'query' => OpenApiUtilClient::query($query),
+        ]);
+        $params = new Params([
+            'action'      => 'RegisterDelegatedAdministrator',
+            'version'     => '2020-03-31',
+            'protocol'    => 'HTTPS',
+            'pathname'    => '/',
+            'method'      => 'POST',
+            'authType'    => 'AK',
+            'style'       => 'RPC',
+            'reqBodyType' => 'formData',
+            'bodyType'    => 'json',
         ]);
 
-        return RegisterDelegatedAdministratorResponse::fromMap($this->doRPCRequest('RegisterDelegatedAdministrator', '2020-03-31', 'HTTPS', 'POST', 'AK', 'json', $req, $runtime));
+        return RegisterDelegatedAdministratorResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
@@ -2008,11 +3301,26 @@ class ResourceManager extends OpenApiClient
     public function removeCloudAccountWithOptions($request, $runtime)
     {
         Utils::validateModel($request);
+        $query = [];
+        if (!Utils::isUnset($request->accountId)) {
+            $query['AccountId'] = $request->accountId;
+        }
         $req = new OpenApiRequest([
-            'body' => Utils::toMap($request),
+            'query' => OpenApiUtilClient::query($query),
+        ]);
+        $params = new Params([
+            'action'      => 'RemoveCloudAccount',
+            'version'     => '2020-03-31',
+            'protocol'    => 'HTTPS',
+            'pathname'    => '/',
+            'method'      => 'POST',
+            'authType'    => 'AK',
+            'style'       => 'RPC',
+            'reqBodyType' => 'formData',
+            'bodyType'    => 'json',
         ]);
 
-        return RemoveCloudAccountResponse::fromMap($this->doRPCRequest('RemoveCloudAccount', '2020-03-31', 'HTTPS', 'POST', 'AK', 'json', $req, $runtime));
+        return RemoveCloudAccountResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
@@ -2036,11 +3344,26 @@ class ResourceManager extends OpenApiClient
     public function resendCreateCloudAccountEmailWithOptions($request, $runtime)
     {
         Utils::validateModel($request);
+        $query = [];
+        if (!Utils::isUnset($request->recordId)) {
+            $query['RecordId'] = $request->recordId;
+        }
         $req = new OpenApiRequest([
-            'body' => Utils::toMap($request),
+            'query' => OpenApiUtilClient::query($query),
+        ]);
+        $params = new Params([
+            'action'      => 'ResendCreateCloudAccountEmail',
+            'version'     => '2020-03-31',
+            'protocol'    => 'HTTPS',
+            'pathname'    => '/',
+            'method'      => 'POST',
+            'authType'    => 'AK',
+            'style'       => 'RPC',
+            'reqBodyType' => 'formData',
+            'bodyType'    => 'json',
         ]);
 
-        return ResendCreateCloudAccountEmailResponse::fromMap($this->doRPCRequest('ResendCreateCloudAccountEmail', '2020-03-31', 'HTTPS', 'POST', 'AK', 'json', $req, $runtime));
+        return ResendCreateCloudAccountEmailResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
@@ -2064,11 +3387,26 @@ class ResourceManager extends OpenApiClient
     public function resendPromoteResourceAccountEmailWithOptions($request, $runtime)
     {
         Utils::validateModel($request);
+        $query = [];
+        if (!Utils::isUnset($request->recordId)) {
+            $query['RecordId'] = $request->recordId;
+        }
         $req = new OpenApiRequest([
-            'body' => Utils::toMap($request),
+            'query' => OpenApiUtilClient::query($query),
+        ]);
+        $params = new Params([
+            'action'      => 'ResendPromoteResourceAccountEmail',
+            'version'     => '2020-03-31',
+            'protocol'    => 'HTTPS',
+            'pathname'    => '/',
+            'method'      => 'POST',
+            'authType'    => 'AK',
+            'style'       => 'RPC',
+            'reqBodyType' => 'formData',
+            'bodyType'    => 'json',
         ]);
 
-        return ResendPromoteResourceAccountEmailResponse::fromMap($this->doRPCRequest('ResendPromoteResourceAccountEmail', '2020-03-31', 'HTTPS', 'POST', 'AK', 'json', $req, $runtime));
+        return ResendPromoteResourceAccountEmailResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
@@ -2084,6 +3422,95 @@ class ResourceManager extends OpenApiClient
     }
 
     /**
+     * @param SendVerificationCodeForBindSecureMobilePhoneRequest $request
+     * @param RuntimeOptions                                      $runtime
+     *
+     * @return SendVerificationCodeForBindSecureMobilePhoneResponse
+     */
+    public function sendVerificationCodeForBindSecureMobilePhoneWithOptions($request, $runtime)
+    {
+        Utils::validateModel($request);
+        $query = [];
+        if (!Utils::isUnset($request->accountId)) {
+            $query['AccountId'] = $request->accountId;
+        }
+        if (!Utils::isUnset($request->secureMobilePhone)) {
+            $query['SecureMobilePhone'] = $request->secureMobilePhone;
+        }
+        $req = new OpenApiRequest([
+            'query' => OpenApiUtilClient::query($query),
+        ]);
+        $params = new Params([
+            'action'      => 'SendVerificationCodeForBindSecureMobilePhone',
+            'version'     => '2020-03-31',
+            'protocol'    => 'HTTPS',
+            'pathname'    => '/',
+            'method'      => 'POST',
+            'authType'    => 'AK',
+            'style'       => 'RPC',
+            'reqBodyType' => 'formData',
+            'bodyType'    => 'json',
+        ]);
+
+        return SendVerificationCodeForBindSecureMobilePhoneResponse::fromMap($this->callApi($params, $req, $runtime));
+    }
+
+    /**
+     * @param SendVerificationCodeForBindSecureMobilePhoneRequest $request
+     *
+     * @return SendVerificationCodeForBindSecureMobilePhoneResponse
+     */
+    public function sendVerificationCodeForBindSecureMobilePhone($request)
+    {
+        $runtime = new RuntimeOptions([]);
+
+        return $this->sendVerificationCodeForBindSecureMobilePhoneWithOptions($request, $runtime);
+    }
+
+    /**
+     * @param SendVerificationCodeForEnableRDRequest $request
+     * @param RuntimeOptions                         $runtime
+     *
+     * @return SendVerificationCodeForEnableRDResponse
+     */
+    public function sendVerificationCodeForEnableRDWithOptions($request, $runtime)
+    {
+        Utils::validateModel($request);
+        $query = [];
+        if (!Utils::isUnset($request->secureMobilePhone)) {
+            $query['SecureMobilePhone'] = $request->secureMobilePhone;
+        }
+        $req = new OpenApiRequest([
+            'query' => OpenApiUtilClient::query($query),
+        ]);
+        $params = new Params([
+            'action'      => 'SendVerificationCodeForEnableRD',
+            'version'     => '2020-03-31',
+            'protocol'    => 'HTTPS',
+            'pathname'    => '/',
+            'method'      => 'POST',
+            'authType'    => 'AK',
+            'style'       => 'RPC',
+            'reqBodyType' => 'formData',
+            'bodyType'    => 'json',
+        ]);
+
+        return SendVerificationCodeForEnableRDResponse::fromMap($this->callApi($params, $req, $runtime));
+    }
+
+    /**
+     * @param SendVerificationCodeForEnableRDRequest $request
+     *
+     * @return SendVerificationCodeForEnableRDResponse
+     */
+    public function sendVerificationCodeForEnableRD($request)
+    {
+        $runtime = new RuntimeOptions([]);
+
+        return $this->sendVerificationCodeForEnableRDWithOptions($request, $runtime);
+    }
+
+    /**
      * @param SetDefaultPolicyVersionRequest $request
      * @param RuntimeOptions                 $runtime
      *
@@ -2092,11 +3519,29 @@ class ResourceManager extends OpenApiClient
     public function setDefaultPolicyVersionWithOptions($request, $runtime)
     {
         Utils::validateModel($request);
+        $query = [];
+        if (!Utils::isUnset($request->policyName)) {
+            $query['PolicyName'] = $request->policyName;
+        }
+        if (!Utils::isUnset($request->versionId)) {
+            $query['VersionId'] = $request->versionId;
+        }
         $req = new OpenApiRequest([
-            'body' => Utils::toMap($request),
+            'query' => OpenApiUtilClient::query($query),
+        ]);
+        $params = new Params([
+            'action'      => 'SetDefaultPolicyVersion',
+            'version'     => '2020-03-31',
+            'protocol'    => 'HTTPS',
+            'pathname'    => '/',
+            'method'      => 'POST',
+            'authType'    => 'AK',
+            'style'       => 'RPC',
+            'reqBodyType' => 'formData',
+            'bodyType'    => 'json',
         ]);
 
-        return SetDefaultPolicyVersionResponse::fromMap($this->doRPCRequest('SetDefaultPolicyVersion', '2020-03-31', 'HTTPS', 'POST', 'AK', 'json', $req, $runtime));
+        return SetDefaultPolicyVersionResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
@@ -2120,11 +3565,32 @@ class ResourceManager extends OpenApiClient
     public function updateAccountWithOptions($request, $runtime)
     {
         Utils::validateModel($request);
+        $query = [];
+        if (!Utils::isUnset($request->accountId)) {
+            $query['AccountId'] = $request->accountId;
+        }
+        if (!Utils::isUnset($request->newAccountType)) {
+            $query['NewAccountType'] = $request->newAccountType;
+        }
+        if (!Utils::isUnset($request->newDisplayName)) {
+            $query['NewDisplayName'] = $request->newDisplayName;
+        }
         $req = new OpenApiRequest([
-            'body' => Utils::toMap($request),
+            'query' => OpenApiUtilClient::query($query),
+        ]);
+        $params = new Params([
+            'action'      => 'UpdateAccount',
+            'version'     => '2020-03-31',
+            'protocol'    => 'HTTPS',
+            'pathname'    => '/',
+            'method'      => 'POST',
+            'authType'    => 'AK',
+            'style'       => 'RPC',
+            'reqBodyType' => 'formData',
+            'bodyType'    => 'json',
         ]);
 
-        return UpdateAccountResponse::fromMap($this->doRPCRequest('UpdateAccount', '2020-03-31', 'HTTPS', 'POST', 'AK', 'json', $req, $runtime));
+        return UpdateAccountResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
@@ -2148,11 +3614,35 @@ class ResourceManager extends OpenApiClient
     public function updateControlPolicyWithOptions($request, $runtime)
     {
         Utils::validateModel($request);
+        $query = [];
+        if (!Utils::isUnset($request->newDescription)) {
+            $query['NewDescription'] = $request->newDescription;
+        }
+        if (!Utils::isUnset($request->newPolicyDocument)) {
+            $query['NewPolicyDocument'] = $request->newPolicyDocument;
+        }
+        if (!Utils::isUnset($request->newPolicyName)) {
+            $query['NewPolicyName'] = $request->newPolicyName;
+        }
+        if (!Utils::isUnset($request->policyId)) {
+            $query['PolicyId'] = $request->policyId;
+        }
         $req = new OpenApiRequest([
-            'body' => Utils::toMap($request),
+            'query' => OpenApiUtilClient::query($query),
+        ]);
+        $params = new Params([
+            'action'      => 'UpdateControlPolicy',
+            'version'     => '2020-03-31',
+            'protocol'    => 'HTTPS',
+            'pathname'    => '/',
+            'method'      => 'POST',
+            'authType'    => 'AK',
+            'style'       => 'RPC',
+            'reqBodyType' => 'formData',
+            'bodyType'    => 'json',
         ]);
 
-        return UpdateControlPolicyResponse::fromMap($this->doRPCRequest('UpdateControlPolicy', '2020-03-31', 'HTTPS', 'POST', 'AK', 'json', $req, $runtime));
+        return UpdateControlPolicyResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
@@ -2176,11 +3666,29 @@ class ResourceManager extends OpenApiClient
     public function updateFolderWithOptions($request, $runtime)
     {
         Utils::validateModel($request);
+        $query = [];
+        if (!Utils::isUnset($request->folderId)) {
+            $query['FolderId'] = $request->folderId;
+        }
+        if (!Utils::isUnset($request->newFolderName)) {
+            $query['NewFolderName'] = $request->newFolderName;
+        }
         $req = new OpenApiRequest([
-            'body' => Utils::toMap($request),
+            'query' => OpenApiUtilClient::query($query),
+        ]);
+        $params = new Params([
+            'action'      => 'UpdateFolder',
+            'version'     => '2020-03-31',
+            'protocol'    => 'HTTPS',
+            'pathname'    => '/',
+            'method'      => 'POST',
+            'authType'    => 'AK',
+            'style'       => 'RPC',
+            'reqBodyType' => 'formData',
+            'bodyType'    => 'json',
         ]);
 
-        return UpdateFolderResponse::fromMap($this->doRPCRequest('UpdateFolder', '2020-03-31', 'HTTPS', 'POST', 'AK', 'json', $req, $runtime));
+        return UpdateFolderResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
@@ -2204,11 +3712,29 @@ class ResourceManager extends OpenApiClient
     public function updateResourceGroupWithOptions($request, $runtime)
     {
         Utils::validateModel($request);
+        $query = [];
+        if (!Utils::isUnset($request->newDisplayName)) {
+            $query['NewDisplayName'] = $request->newDisplayName;
+        }
+        if (!Utils::isUnset($request->resourceGroupId)) {
+            $query['ResourceGroupId'] = $request->resourceGroupId;
+        }
         $req = new OpenApiRequest([
-            'body' => Utils::toMap($request),
+            'query' => OpenApiUtilClient::query($query),
+        ]);
+        $params = new Params([
+            'action'      => 'UpdateResourceGroup',
+            'version'     => '2020-03-31',
+            'protocol'    => 'HTTPS',
+            'pathname'    => '/',
+            'method'      => 'POST',
+            'authType'    => 'AK',
+            'style'       => 'RPC',
+            'reqBodyType' => 'formData',
+            'bodyType'    => 'json',
         ]);
 
-        return UpdateResourceGroupResponse::fromMap($this->doRPCRequest('UpdateResourceGroup', '2020-03-31', 'HTTPS', 'POST', 'AK', 'json', $req, $runtime));
+        return UpdateResourceGroupResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
@@ -2232,11 +3758,35 @@ class ResourceManager extends OpenApiClient
     public function updateRoleWithOptions($request, $runtime)
     {
         Utils::validateModel($request);
+        $query = [];
+        if (!Utils::isUnset($request->newAssumeRolePolicyDocument)) {
+            $query['NewAssumeRolePolicyDocument'] = $request->newAssumeRolePolicyDocument;
+        }
+        if (!Utils::isUnset($request->newDescription)) {
+            $query['NewDescription'] = $request->newDescription;
+        }
+        if (!Utils::isUnset($request->newMaxSessionDuration)) {
+            $query['NewMaxSessionDuration'] = $request->newMaxSessionDuration;
+        }
+        if (!Utils::isUnset($request->roleName)) {
+            $query['RoleName'] = $request->roleName;
+        }
         $req = new OpenApiRequest([
-            'body' => Utils::toMap($request),
+            'query' => OpenApiUtilClient::query($query),
+        ]);
+        $params = new Params([
+            'action'      => 'UpdateRole',
+            'version'     => '2020-03-31',
+            'protocol'    => 'HTTPS',
+            'pathname'    => '/',
+            'method'      => 'POST',
+            'authType'    => 'AK',
+            'style'       => 'RPC',
+            'reqBodyType' => 'formData',
+            'bodyType'    => 'json',
         ]);
 
-        return UpdateRoleResponse::fromMap($this->doRPCRequest('UpdateRole', '2020-03-31', 'HTTPS', 'POST', 'AK', 'json', $req, $runtime));
+        return UpdateRoleResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**

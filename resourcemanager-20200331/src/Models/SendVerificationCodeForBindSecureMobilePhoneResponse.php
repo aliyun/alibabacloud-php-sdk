@@ -6,7 +6,7 @@ namespace AlibabaCloud\SDK\ResourceManager\V20200331\Models;
 
 use AlibabaCloud\Tea\Model;
 
-class DeleteAccountResponse extends Model
+class SendVerificationCodeForBindSecureMobilePhoneResponse extends Model
 {
     /**
      * @var string[]
@@ -14,7 +14,7 @@ class DeleteAccountResponse extends Model
     public $headers;
 
     /**
-     * @var DeleteAccountResponseBody
+     * @var SendVerificationCodeForBindSecureMobilePhoneResponseBody
      */
     public $body;
     protected $_name = [
@@ -44,7 +44,7 @@ class DeleteAccountResponse extends Model
     /**
      * @param array $map
      *
-     * @return DeleteAccountResponse
+     * @return SendVerificationCodeForBindSecureMobilePhoneResponse
      */
     public static function fromMap($map = [])
     {
@@ -53,7 +53,7 @@ class DeleteAccountResponse extends Model
             $model->headers = $map['headers'];
         }
         if (isset($map['body'])) {
-            $model->body = DeleteAccountResponseBody::fromMap($map['body']);
+            $model->body = SendVerificationCodeForBindSecureMobilePhoneResponseBody::fromMap($map['body']);
         }
 
         return $model;
