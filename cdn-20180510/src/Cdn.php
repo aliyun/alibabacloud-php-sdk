@@ -419,20 +419,39 @@ class Cdn extends OpenApiClient
     public function addCdnDomainWithOptions($request, $runtime)
     {
         Utils::validateModel($request);
-        $query                    = [];
-        $query['CdnType']         = $request->cdnType;
-        $query['CheckUrl']        = $request->checkUrl;
-        $query['DomainName']      = $request->domainName;
-        $query['OwnerAccount']    = $request->ownerAccount;
-        $query['OwnerId']         = $request->ownerId;
-        $query['ResourceGroupId'] = $request->resourceGroupId;
-        $query['Scope']           = $request->scope;
-        $query['SecurityToken']   = $request->securityToken;
-        $query['Sources']         = $request->sources;
-        $query['TopLevelDomain']  = $request->topLevelDomain;
-        $req                      = new OpenApiRequest([
+        $query = [];
+        if (!Utils::isUnset($request->cdnType)) {
+            $query['CdnType'] = $request->cdnType;
+        }
+        if (!Utils::isUnset($request->checkUrl)) {
+            $query['CheckUrl'] = $request->checkUrl;
+        }
+        if (!Utils::isUnset($request->domainName)) {
+            $query['DomainName'] = $request->domainName;
+        }
+        if (!Utils::isUnset($request->ownerAccount)) {
+            $query['OwnerAccount'] = $request->ownerAccount;
+        }
+        if (!Utils::isUnset($request->ownerId)) {
+            $query['OwnerId'] = $request->ownerId;
+        }
+        if (!Utils::isUnset($request->resourceGroupId)) {
+            $query['ResourceGroupId'] = $request->resourceGroupId;
+        }
+        if (!Utils::isUnset($request->scope)) {
+            $query['Scope'] = $request->scope;
+        }
+        if (!Utils::isUnset($request->securityToken)) {
+            $query['SecurityToken'] = $request->securityToken;
+        }
+        if (!Utils::isUnset($request->sources)) {
+            $query['Sources'] = $request->sources;
+        }
+        if (!Utils::isUnset($request->topLevelDomain)) {
+            $query['TopLevelDomain'] = $request->topLevelDomain;
+        }
+        $req = new OpenApiRequest([
             'query' => OpenApiUtilClient::query($query),
-            'body'  => Utils::toMap($request),
         ]);
         $params = new Params([
             'action'      => 'AddCdnDomain',
@@ -442,7 +461,7 @@ class Cdn extends OpenApiClient
             'method'      => 'POST',
             'authType'    => 'AK',
             'style'       => 'RPC',
-            'reqBodyType' => 'json',
+            'reqBodyType' => 'formData',
             'bodyType'    => 'json',
         ]);
 
@@ -470,12 +489,35 @@ class Cdn extends OpenApiClient
     public function addFCTriggerWithOptions($request, $runtime)
     {
         Utils::validateModel($request);
-        $query               = [];
-        $query['OwnerId']    = $request->ownerId;
-        $query['TriggerARN'] = $request->triggerARN;
-        $req                 = new OpenApiRequest([
+        $query = [];
+        if (!Utils::isUnset($request->ownerId)) {
+            $query['OwnerId'] = $request->ownerId;
+        }
+        if (!Utils::isUnset($request->triggerARN)) {
+            $query['TriggerARN'] = $request->triggerARN;
+        }
+        $body = [];
+        if (!Utils::isUnset($request->eventMetaName)) {
+            $body['EventMetaName'] = $request->eventMetaName;
+        }
+        if (!Utils::isUnset($request->eventMetaVersion)) {
+            $body['EventMetaVersion'] = $request->eventMetaVersion;
+        }
+        if (!Utils::isUnset($request->functionARN)) {
+            $body['FunctionARN'] = $request->functionARN;
+        }
+        if (!Utils::isUnset($request->notes)) {
+            $body['Notes'] = $request->notes;
+        }
+        if (!Utils::isUnset($request->roleARN)) {
+            $body['RoleARN'] = $request->roleARN;
+        }
+        if (!Utils::isUnset($request->sourceARN)) {
+            $body['SourceARN'] = $request->sourceARN;
+        }
+        $req = new OpenApiRequest([
             'query' => OpenApiUtilClient::query($query),
-            'body'  => Utils::toMap($request),
+            'body'  => OpenApiUtilClient::parseToMap($body),
         ]);
         $params = new Params([
             'action'      => 'AddFCTrigger',
@@ -513,20 +555,39 @@ class Cdn extends OpenApiClient
     public function batchAddCdnDomainWithOptions($request, $runtime)
     {
         Utils::validateModel($request);
-        $query                    = [];
-        $query['CdnType']         = $request->cdnType;
-        $query['CheckUrl']        = $request->checkUrl;
-        $query['DomainName']      = $request->domainName;
-        $query['OwnerAccount']    = $request->ownerAccount;
-        $query['OwnerId']         = $request->ownerId;
-        $query['ResourceGroupId'] = $request->resourceGroupId;
-        $query['Scope']           = $request->scope;
-        $query['SecurityToken']   = $request->securityToken;
-        $query['Sources']         = $request->sources;
-        $query['TopLevelDomain']  = $request->topLevelDomain;
-        $req                      = new OpenApiRequest([
+        $query = [];
+        if (!Utils::isUnset($request->cdnType)) {
+            $query['CdnType'] = $request->cdnType;
+        }
+        if (!Utils::isUnset($request->checkUrl)) {
+            $query['CheckUrl'] = $request->checkUrl;
+        }
+        if (!Utils::isUnset($request->domainName)) {
+            $query['DomainName'] = $request->domainName;
+        }
+        if (!Utils::isUnset($request->ownerAccount)) {
+            $query['OwnerAccount'] = $request->ownerAccount;
+        }
+        if (!Utils::isUnset($request->ownerId)) {
+            $query['OwnerId'] = $request->ownerId;
+        }
+        if (!Utils::isUnset($request->resourceGroupId)) {
+            $query['ResourceGroupId'] = $request->resourceGroupId;
+        }
+        if (!Utils::isUnset($request->scope)) {
+            $query['Scope'] = $request->scope;
+        }
+        if (!Utils::isUnset($request->securityToken)) {
+            $query['SecurityToken'] = $request->securityToken;
+        }
+        if (!Utils::isUnset($request->sources)) {
+            $query['Sources'] = $request->sources;
+        }
+        if (!Utils::isUnset($request->topLevelDomain)) {
+            $query['TopLevelDomain'] = $request->topLevelDomain;
+        }
+        $req = new OpenApiRequest([
             'query' => OpenApiUtilClient::query($query),
-            'body'  => Utils::toMap($request),
         ]);
         $params = new Params([
             'action'      => 'BatchAddCdnDomain',
@@ -536,7 +597,7 @@ class Cdn extends OpenApiClient
             'method'      => 'POST',
             'authType'    => 'AK',
             'style'       => 'RPC',
-            'reqBodyType' => 'json',
+            'reqBodyType' => 'formData',
             'bodyType'    => 'json',
         ]);
 
@@ -564,15 +625,24 @@ class Cdn extends OpenApiClient
     public function batchDeleteCdnDomainConfigWithOptions($request, $runtime)
     {
         Utils::validateModel($request);
-        $query                  = [];
-        $query['DomainNames']   = $request->domainNames;
-        $query['FunctionNames'] = $request->functionNames;
-        $query['OwnerAccount']  = $request->ownerAccount;
-        $query['OwnerId']       = $request->ownerId;
-        $query['SecurityToken'] = $request->securityToken;
-        $req                    = new OpenApiRequest([
+        $query = [];
+        if (!Utils::isUnset($request->domainNames)) {
+            $query['DomainNames'] = $request->domainNames;
+        }
+        if (!Utils::isUnset($request->functionNames)) {
+            $query['FunctionNames'] = $request->functionNames;
+        }
+        if (!Utils::isUnset($request->ownerAccount)) {
+            $query['OwnerAccount'] = $request->ownerAccount;
+        }
+        if (!Utils::isUnset($request->ownerId)) {
+            $query['OwnerId'] = $request->ownerId;
+        }
+        if (!Utils::isUnset($request->securityToken)) {
+            $query['SecurityToken'] = $request->securityToken;
+        }
+        $req = new OpenApiRequest([
             'query' => OpenApiUtilClient::query($query),
-            'body'  => Utils::toMap($request),
         ]);
         $params = new Params([
             'action'      => 'BatchDeleteCdnDomainConfig',
@@ -582,7 +652,7 @@ class Cdn extends OpenApiClient
             'method'      => 'POST',
             'authType'    => 'AK',
             'style'       => 'RPC',
-            'reqBodyType' => 'json',
+            'reqBodyType' => 'formData',
             'bodyType'    => 'json',
         ]);
 
@@ -610,15 +680,24 @@ class Cdn extends OpenApiClient
     public function batchSetCdnDomainConfigWithOptions($request, $runtime)
     {
         Utils::validateModel($request);
-        $query                  = [];
-        $query['DomainNames']   = $request->domainNames;
-        $query['Functions']     = $request->functions;
-        $query['OwnerAccount']  = $request->ownerAccount;
-        $query['OwnerId']       = $request->ownerId;
-        $query['SecurityToken'] = $request->securityToken;
-        $req                    = new OpenApiRequest([
+        $query = [];
+        if (!Utils::isUnset($request->domainNames)) {
+            $query['DomainNames'] = $request->domainNames;
+        }
+        if (!Utils::isUnset($request->functions)) {
+            $query['Functions'] = $request->functions;
+        }
+        if (!Utils::isUnset($request->ownerAccount)) {
+            $query['OwnerAccount'] = $request->ownerAccount;
+        }
+        if (!Utils::isUnset($request->ownerId)) {
+            $query['OwnerId'] = $request->ownerId;
+        }
+        if (!Utils::isUnset($request->securityToken)) {
+            $query['SecurityToken'] = $request->securityToken;
+        }
+        $req = new OpenApiRequest([
             'query' => OpenApiUtilClient::query($query),
-            'body'  => Utils::toMap($request),
         ]);
         $params = new Params([
             'action'      => 'BatchSetCdnDomainConfig',
@@ -628,7 +707,7 @@ class Cdn extends OpenApiClient
             'method'      => 'POST',
             'authType'    => 'AK',
             'style'       => 'RPC',
-            'reqBodyType' => 'json',
+            'reqBodyType' => 'formData',
             'bodyType'    => 'json',
         ]);
 
@@ -656,20 +735,39 @@ class Cdn extends OpenApiClient
     public function batchSetCdnDomainServerCertificateWithOptions($request, $runtime)
     {
         Utils::validateModel($request);
-        $query                  = [];
-        $query['CertName']      = $request->certName;
-        $query['CertType']      = $request->certType;
-        $query['DomainName']    = $request->domainName;
-        $query['ForceSet']      = $request->forceSet;
-        $query['OwnerId']       = $request->ownerId;
-        $query['Region']        = $request->region;
-        $query['SSLPri']        = $request->SSLPri;
-        $query['SSLProtocol']   = $request->SSLProtocol;
-        $query['SSLPub']        = $request->SSLPub;
-        $query['SecurityToken'] = $request->securityToken;
-        $req                    = new OpenApiRequest([
+        $query = [];
+        if (!Utils::isUnset($request->certName)) {
+            $query['CertName'] = $request->certName;
+        }
+        if (!Utils::isUnset($request->certType)) {
+            $query['CertType'] = $request->certType;
+        }
+        if (!Utils::isUnset($request->domainName)) {
+            $query['DomainName'] = $request->domainName;
+        }
+        if (!Utils::isUnset($request->forceSet)) {
+            $query['ForceSet'] = $request->forceSet;
+        }
+        if (!Utils::isUnset($request->ownerId)) {
+            $query['OwnerId'] = $request->ownerId;
+        }
+        if (!Utils::isUnset($request->region)) {
+            $query['Region'] = $request->region;
+        }
+        if (!Utils::isUnset($request->SSLPri)) {
+            $query['SSLPri'] = $request->SSLPri;
+        }
+        if (!Utils::isUnset($request->SSLProtocol)) {
+            $query['SSLProtocol'] = $request->SSLProtocol;
+        }
+        if (!Utils::isUnset($request->SSLPub)) {
+            $query['SSLPub'] = $request->SSLPub;
+        }
+        if (!Utils::isUnset($request->securityToken)) {
+            $query['SecurityToken'] = $request->securityToken;
+        }
+        $req = new OpenApiRequest([
             'query' => OpenApiUtilClient::query($query),
-            'body'  => Utils::toMap($request),
         ]);
         $params = new Params([
             'action'      => 'BatchSetCdnDomainServerCertificate',
@@ -679,7 +777,7 @@ class Cdn extends OpenApiClient
             'method'      => 'POST',
             'authType'    => 'AK',
             'style'       => 'RPC',
-            'reqBodyType' => 'json',
+            'reqBodyType' => 'formData',
             'bodyType'    => 'json',
         ]);
 
@@ -707,13 +805,18 @@ class Cdn extends OpenApiClient
     public function batchStartCdnDomainWithOptions($request, $runtime)
     {
         Utils::validateModel($request);
-        $query                  = [];
-        $query['DomainNames']   = $request->domainNames;
-        $query['OwnerId']       = $request->ownerId;
-        $query['SecurityToken'] = $request->securityToken;
-        $req                    = new OpenApiRequest([
+        $query = [];
+        if (!Utils::isUnset($request->domainNames)) {
+            $query['DomainNames'] = $request->domainNames;
+        }
+        if (!Utils::isUnset($request->ownerId)) {
+            $query['OwnerId'] = $request->ownerId;
+        }
+        if (!Utils::isUnset($request->securityToken)) {
+            $query['SecurityToken'] = $request->securityToken;
+        }
+        $req = new OpenApiRequest([
             'query' => OpenApiUtilClient::query($query),
-            'body'  => Utils::toMap($request),
         ]);
         $params = new Params([
             'action'      => 'BatchStartCdnDomain',
@@ -723,7 +826,7 @@ class Cdn extends OpenApiClient
             'method'      => 'POST',
             'authType'    => 'AK',
             'style'       => 'RPC',
-            'reqBodyType' => 'json',
+            'reqBodyType' => 'formData',
             'bodyType'    => 'json',
         ]);
 
@@ -751,13 +854,18 @@ class Cdn extends OpenApiClient
     public function batchStopCdnDomainWithOptions($request, $runtime)
     {
         Utils::validateModel($request);
-        $query                  = [];
-        $query['DomainNames']   = $request->domainNames;
-        $query['OwnerId']       = $request->ownerId;
-        $query['SecurityToken'] = $request->securityToken;
-        $req                    = new OpenApiRequest([
+        $query = [];
+        if (!Utils::isUnset($request->domainNames)) {
+            $query['DomainNames'] = $request->domainNames;
+        }
+        if (!Utils::isUnset($request->ownerId)) {
+            $query['OwnerId'] = $request->ownerId;
+        }
+        if (!Utils::isUnset($request->securityToken)) {
+            $query['SecurityToken'] = $request->securityToken;
+        }
+        $req = new OpenApiRequest([
             'query' => OpenApiUtilClient::query($query),
-            'body'  => Utils::toMap($request),
         ]);
         $params = new Params([
             'action'      => 'BatchStopCdnDomain',
@@ -767,7 +875,7 @@ class Cdn extends OpenApiClient
             'method'      => 'POST',
             'authType'    => 'AK',
             'style'       => 'RPC',
-            'reqBodyType' => 'json',
+            'reqBodyType' => 'formData',
             'bodyType'    => 'json',
         ]);
 
@@ -795,16 +903,27 @@ class Cdn extends OpenApiClient
     public function batchUpdateCdnDomainWithOptions($request, $runtime)
     {
         Utils::validateModel($request);
-        $query                    = [];
-        $query['DomainName']      = $request->domainName;
-        $query['OwnerId']         = $request->ownerId;
-        $query['ResourceGroupId'] = $request->resourceGroupId;
-        $query['SecurityToken']   = $request->securityToken;
-        $query['Sources']         = $request->sources;
-        $query['TopLevelDomain']  = $request->topLevelDomain;
-        $req                      = new OpenApiRequest([
+        $query = [];
+        if (!Utils::isUnset($request->domainName)) {
+            $query['DomainName'] = $request->domainName;
+        }
+        if (!Utils::isUnset($request->ownerId)) {
+            $query['OwnerId'] = $request->ownerId;
+        }
+        if (!Utils::isUnset($request->resourceGroupId)) {
+            $query['ResourceGroupId'] = $request->resourceGroupId;
+        }
+        if (!Utils::isUnset($request->securityToken)) {
+            $query['SecurityToken'] = $request->securityToken;
+        }
+        if (!Utils::isUnset($request->sources)) {
+            $query['Sources'] = $request->sources;
+        }
+        if (!Utils::isUnset($request->topLevelDomain)) {
+            $query['TopLevelDomain'] = $request->topLevelDomain;
+        }
+        $req = new OpenApiRequest([
             'query' => OpenApiUtilClient::query($query),
-            'body'  => Utils::toMap($request),
         ]);
         $params = new Params([
             'action'      => 'BatchUpdateCdnDomain',
@@ -814,7 +933,7 @@ class Cdn extends OpenApiClient
             'method'      => 'POST',
             'authType'    => 'AK',
             'style'       => 'RPC',
-            'reqBodyType' => 'json',
+            'reqBodyType' => 'formData',
             'bodyType'    => 'json',
         ]);
 
@@ -842,19 +961,36 @@ class Cdn extends OpenApiClient
     public function createCdnCertificateSigningRequestWithOptions($request, $runtime)
     {
         Utils::validateModel($request);
-        $query                     = [];
-        $query['City']             = $request->city;
-        $query['CommonName']       = $request->commonName;
-        $query['Country']          = $request->country;
-        $query['Email']            = $request->email;
-        $query['Organization']     = $request->organization;
-        $query['OrganizationUnit'] = $request->organizationUnit;
-        $query['OwnerId']          = $request->ownerId;
-        $query['SANs']             = $request->SANs;
-        $query['State']            = $request->state;
-        $req                       = new OpenApiRequest([
+        $query = [];
+        if (!Utils::isUnset($request->city)) {
+            $query['City'] = $request->city;
+        }
+        if (!Utils::isUnset($request->commonName)) {
+            $query['CommonName'] = $request->commonName;
+        }
+        if (!Utils::isUnset($request->country)) {
+            $query['Country'] = $request->country;
+        }
+        if (!Utils::isUnset($request->email)) {
+            $query['Email'] = $request->email;
+        }
+        if (!Utils::isUnset($request->organization)) {
+            $query['Organization'] = $request->organization;
+        }
+        if (!Utils::isUnset($request->organizationUnit)) {
+            $query['OrganizationUnit'] = $request->organizationUnit;
+        }
+        if (!Utils::isUnset($request->ownerId)) {
+            $query['OwnerId'] = $request->ownerId;
+        }
+        if (!Utils::isUnset($request->SANs)) {
+            $query['SANs'] = $request->SANs;
+        }
+        if (!Utils::isUnset($request->state)) {
+            $query['State'] = $request->state;
+        }
+        $req = new OpenApiRequest([
             'query' => OpenApiUtilClient::query($query),
-            'body'  => Utils::toMap($request),
         ]);
         $params = new Params([
             'action'      => 'CreateCdnCertificateSigningRequest',
@@ -864,7 +1000,7 @@ class Cdn extends OpenApiClient
             'method'      => 'POST',
             'authType'    => 'AK',
             'style'       => 'RPC',
-            'reqBodyType' => 'json',
+            'reqBodyType' => 'formData',
             'bodyType'    => 'json',
         ]);
 
@@ -892,11 +1028,29 @@ class Cdn extends OpenApiClient
     public function createCdnDeliverTaskWithOptions($request, $runtime)
     {
         Utils::validateModel($request);
-        $query            = [];
-        $query['OwnerId'] = $request->ownerId;
-        $req              = new OpenApiRequest([
+        $query = [];
+        if (!Utils::isUnset($request->ownerId)) {
+            $query['OwnerId'] = $request->ownerId;
+        }
+        $body = [];
+        if (!Utils::isUnset($request->deliver)) {
+            $body['Deliver'] = $request->deliver;
+        }
+        if (!Utils::isUnset($request->domainName)) {
+            $body['DomainName'] = $request->domainName;
+        }
+        if (!Utils::isUnset($request->name)) {
+            $body['Name'] = $request->name;
+        }
+        if (!Utils::isUnset($request->reports)) {
+            $body['Reports'] = $request->reports;
+        }
+        if (!Utils::isUnset($request->schedule)) {
+            $body['Schedule'] = $request->schedule;
+        }
+        $req = new OpenApiRequest([
             'query' => OpenApiUtilClient::query($query),
-            'body'  => Utils::toMap($request),
+            'body'  => OpenApiUtilClient::parseToMap($body),
         ]);
         $params = new Params([
             'action'      => 'CreateCdnDeliverTask',
@@ -934,11 +1088,20 @@ class Cdn extends OpenApiClient
     public function createCdnSubTaskWithOptions($request, $runtime)
     {
         Utils::validateModel($request);
-        $query            = [];
-        $query['OwnerId'] = $request->ownerId;
-        $req              = new OpenApiRequest([
+        $query = [];
+        if (!Utils::isUnset($request->ownerId)) {
+            $query['OwnerId'] = $request->ownerId;
+        }
+        $body = [];
+        if (!Utils::isUnset($request->domainName)) {
+            $body['DomainName'] = $request->domainName;
+        }
+        if (!Utils::isUnset($request->reportIds)) {
+            $body['ReportIds'] = $request->reportIds;
+        }
+        $req = new OpenApiRequest([
             'query' => OpenApiUtilClient::query($query),
-            'body'  => Utils::toMap($request),
+            'body'  => OpenApiUtilClient::parseToMap($body),
         ]);
         $params = new Params([
             'action'      => 'CreateCdnSubTask',
@@ -976,13 +1139,18 @@ class Cdn extends OpenApiClient
     public function createIllegalUrlExportTaskWithOptions($request, $runtime)
     {
         Utils::validateModel($request);
-        $query              = [];
-        $query['OwnerId']   = $request->ownerId;
-        $query['TaskName']  = $request->taskName;
-        $query['TimePoint'] = $request->timePoint;
-        $req                = new OpenApiRequest([
+        $query = [];
+        if (!Utils::isUnset($request->ownerId)) {
+            $query['OwnerId'] = $request->ownerId;
+        }
+        if (!Utils::isUnset($request->taskName)) {
+            $query['TaskName'] = $request->taskName;
+        }
+        if (!Utils::isUnset($request->timePoint)) {
+            $query['TimePoint'] = $request->timePoint;
+        }
+        $req = new OpenApiRequest([
             'query' => OpenApiUtilClient::query($query),
-            'body'  => Utils::toMap($request),
         ]);
         $params = new Params([
             'action'      => 'CreateIllegalUrlExportTask',
@@ -992,7 +1160,7 @@ class Cdn extends OpenApiClient
             'method'      => 'POST',
             'authType'    => 'AK',
             'style'       => 'RPC',
-            'reqBodyType' => 'json',
+            'reqBodyType' => 'formData',
             'bodyType'    => 'json',
         ]);
 
@@ -1032,7 +1200,7 @@ class Cdn extends OpenApiClient
             'method'      => 'GET',
             'authType'    => 'AK',
             'style'       => 'RPC',
-            'reqBodyType' => 'json',
+            'reqBodyType' => 'formData',
             'bodyType'    => 'json',
         ]);
 
@@ -1060,18 +1228,33 @@ class Cdn extends OpenApiClient
     public function createUsageDetailDataExportTaskWithOptions($request, $runtime)
     {
         Utils::validateModel($request);
-        $query                = [];
-        $query['DomainNames'] = $request->domainNames;
-        $query['EndTime']     = $request->endTime;
-        $query['Group']       = $request->group;
-        $query['Language']    = $request->language;
-        $query['OwnerId']     = $request->ownerId;
-        $query['StartTime']   = $request->startTime;
-        $query['TaskName']    = $request->taskName;
-        $query['Type']        = $request->type;
-        $req                  = new OpenApiRequest([
+        $query = [];
+        if (!Utils::isUnset($request->domainNames)) {
+            $query['DomainNames'] = $request->domainNames;
+        }
+        if (!Utils::isUnset($request->endTime)) {
+            $query['EndTime'] = $request->endTime;
+        }
+        if (!Utils::isUnset($request->group)) {
+            $query['Group'] = $request->group;
+        }
+        if (!Utils::isUnset($request->language)) {
+            $query['Language'] = $request->language;
+        }
+        if (!Utils::isUnset($request->ownerId)) {
+            $query['OwnerId'] = $request->ownerId;
+        }
+        if (!Utils::isUnset($request->startTime)) {
+            $query['StartTime'] = $request->startTime;
+        }
+        if (!Utils::isUnset($request->taskName)) {
+            $query['TaskName'] = $request->taskName;
+        }
+        if (!Utils::isUnset($request->type)) {
+            $query['Type'] = $request->type;
+        }
+        $req = new OpenApiRequest([
             'query' => OpenApiUtilClient::query($query),
-            'body'  => Utils::toMap($request),
         ]);
         $params = new Params([
             'action'      => 'CreateUsageDetailDataExportTask',
@@ -1081,7 +1264,7 @@ class Cdn extends OpenApiClient
             'method'      => 'POST',
             'authType'    => 'AK',
             'style'       => 'RPC',
-            'reqBodyType' => 'json',
+            'reqBodyType' => 'formData',
             'bodyType'    => 'json',
         ]);
 
@@ -1109,15 +1292,24 @@ class Cdn extends OpenApiClient
     public function createUserUsageDataExportTaskWithOptions($request, $runtime)
     {
         Utils::validateModel($request);
-        $query              = [];
-        $query['EndTime']   = $request->endTime;
-        $query['Language']  = $request->language;
-        $query['OwnerId']   = $request->ownerId;
-        $query['StartTime'] = $request->startTime;
-        $query['TaskName']  = $request->taskName;
-        $req                = new OpenApiRequest([
+        $query = [];
+        if (!Utils::isUnset($request->endTime)) {
+            $query['EndTime'] = $request->endTime;
+        }
+        if (!Utils::isUnset($request->language)) {
+            $query['Language'] = $request->language;
+        }
+        if (!Utils::isUnset($request->ownerId)) {
+            $query['OwnerId'] = $request->ownerId;
+        }
+        if (!Utils::isUnset($request->startTime)) {
+            $query['StartTime'] = $request->startTime;
+        }
+        if (!Utils::isUnset($request->taskName)) {
+            $query['TaskName'] = $request->taskName;
+        }
+        $req = new OpenApiRequest([
             'query' => OpenApiUtilClient::query($query),
-            'body'  => Utils::toMap($request),
         ]);
         $params = new Params([
             'action'      => 'CreateUserUsageDataExportTask',
@@ -1127,7 +1319,7 @@ class Cdn extends OpenApiClient
             'method'      => 'POST',
             'authType'    => 'AK',
             'style'       => 'RPC',
-            'reqBodyType' => 'json',
+            'reqBodyType' => 'formData',
             'bodyType'    => 'json',
         ]);
 
@@ -1155,12 +1347,15 @@ class Cdn extends OpenApiClient
     public function deleteCdnDeliverTaskWithOptions($request, $runtime)
     {
         Utils::validateModel($request);
-        $query              = [];
-        $query['DeliverId'] = $request->deliverId;
-        $query['OwnerId']   = $request->ownerId;
-        $req                = new OpenApiRequest([
+        $query = [];
+        if (!Utils::isUnset($request->deliverId)) {
+            $query['DeliverId'] = $request->deliverId;
+        }
+        if (!Utils::isUnset($request->ownerId)) {
+            $query['OwnerId'] = $request->ownerId;
+        }
+        $req = new OpenApiRequest([
             'query' => OpenApiUtilClient::query($query),
-            'body'  => Utils::toMap($request),
         ]);
         $params = new Params([
             'action'      => 'DeleteCdnDeliverTask',
@@ -1170,7 +1365,7 @@ class Cdn extends OpenApiClient
             'method'      => 'POST',
             'authType'    => 'AK',
             'style'       => 'RPC',
-            'reqBodyType' => 'json',
+            'reqBodyType' => 'formData',
             'bodyType'    => 'json',
         ]);
 
@@ -1198,14 +1393,21 @@ class Cdn extends OpenApiClient
     public function deleteCdnDomainWithOptions($request, $runtime)
     {
         Utils::validateModel($request);
-        $query                  = [];
-        $query['DomainName']    = $request->domainName;
-        $query['OwnerAccount']  = $request->ownerAccount;
-        $query['OwnerId']       = $request->ownerId;
-        $query['SecurityToken'] = $request->securityToken;
-        $req                    = new OpenApiRequest([
+        $query = [];
+        if (!Utils::isUnset($request->domainName)) {
+            $query['DomainName'] = $request->domainName;
+        }
+        if (!Utils::isUnset($request->ownerAccount)) {
+            $query['OwnerAccount'] = $request->ownerAccount;
+        }
+        if (!Utils::isUnset($request->ownerId)) {
+            $query['OwnerId'] = $request->ownerId;
+        }
+        if (!Utils::isUnset($request->securityToken)) {
+            $query['SecurityToken'] = $request->securityToken;
+        }
+        $req = new OpenApiRequest([
             'query' => OpenApiUtilClient::query($query),
-            'body'  => Utils::toMap($request),
         ]);
         $params = new Params([
             'action'      => 'DeleteCdnDomain',
@@ -1215,7 +1417,7 @@ class Cdn extends OpenApiClient
             'method'      => 'POST',
             'authType'    => 'AK',
             'style'       => 'RPC',
-            'reqBodyType' => 'json',
+            'reqBodyType' => 'formData',
             'bodyType'    => 'json',
         ]);
 
@@ -1243,11 +1445,12 @@ class Cdn extends OpenApiClient
     public function deleteCdnSubTaskWithOptions($request, $runtime)
     {
         Utils::validateModel($request);
-        $query            = [];
-        $query['OwnerId'] = $request->ownerId;
-        $req              = new OpenApiRequest([
+        $query = [];
+        if (!Utils::isUnset($request->ownerId)) {
+            $query['OwnerId'] = $request->ownerId;
+        }
+        $req = new OpenApiRequest([
             'query' => OpenApiUtilClient::query($query),
-            'body'  => Utils::toMap($request),
         ]);
         $params = new Params([
             'action'      => 'DeleteCdnSubTask',
@@ -1257,7 +1460,7 @@ class Cdn extends OpenApiClient
             'method'      => 'POST',
             'authType'    => 'AK',
             'style'       => 'RPC',
-            'reqBodyType' => 'json',
+            'reqBodyType' => 'formData',
             'bodyType'    => 'json',
         ]);
 
@@ -1285,12 +1488,15 @@ class Cdn extends OpenApiClient
     public function deleteFCTriggerWithOptions($request, $runtime)
     {
         Utils::validateModel($request);
-        $query               = [];
-        $query['OwnerId']    = $request->ownerId;
-        $query['TriggerARN'] = $request->triggerARN;
-        $req                 = new OpenApiRequest([
+        $query = [];
+        if (!Utils::isUnset($request->ownerId)) {
+            $query['OwnerId'] = $request->ownerId;
+        }
+        if (!Utils::isUnset($request->triggerARN)) {
+            $query['TriggerARN'] = $request->triggerARN;
+        }
+        $req = new OpenApiRequest([
             'query' => OpenApiUtilClient::query($query),
-            'body'  => Utils::toMap($request),
         ]);
         $params = new Params([
             'action'      => 'DeleteFCTrigger',
@@ -1300,7 +1506,7 @@ class Cdn extends OpenApiClient
             'method'      => 'POST',
             'authType'    => 'AK',
             'style'       => 'RPC',
-            'reqBodyType' => 'json',
+            'reqBodyType' => 'formData',
             'bodyType'    => 'json',
         ]);
 
@@ -1340,7 +1546,7 @@ class Cdn extends OpenApiClient
             'method'      => 'GET',
             'authType'    => 'AK',
             'style'       => 'RPC',
-            'reqBodyType' => 'json',
+            'reqBodyType' => 'formData',
             'bodyType'    => 'json',
         ]);
 
@@ -1368,14 +1574,21 @@ class Cdn extends OpenApiClient
     public function deleteSpecificConfigWithOptions($request, $runtime)
     {
         Utils::validateModel($request);
-        $query                  = [];
-        $query['ConfigId']      = $request->configId;
-        $query['DomainName']    = $request->domainName;
-        $query['OwnerId']       = $request->ownerId;
-        $query['SecurityToken'] = $request->securityToken;
-        $req                    = new OpenApiRequest([
+        $query = [];
+        if (!Utils::isUnset($request->configId)) {
+            $query['ConfigId'] = $request->configId;
+        }
+        if (!Utils::isUnset($request->domainName)) {
+            $query['DomainName'] = $request->domainName;
+        }
+        if (!Utils::isUnset($request->ownerId)) {
+            $query['OwnerId'] = $request->ownerId;
+        }
+        if (!Utils::isUnset($request->securityToken)) {
+            $query['SecurityToken'] = $request->securityToken;
+        }
+        $req = new OpenApiRequest([
             'query' => OpenApiUtilClient::query($query),
-            'body'  => Utils::toMap($request),
         ]);
         $params = new Params([
             'action'      => 'DeleteSpecificConfig',
@@ -1385,7 +1598,7 @@ class Cdn extends OpenApiClient
             'method'      => 'POST',
             'authType'    => 'AK',
             'style'       => 'RPC',
-            'reqBodyType' => 'json',
+            'reqBodyType' => 'formData',
             'bodyType'    => 'json',
         ]);
 
@@ -1413,14 +1626,21 @@ class Cdn extends OpenApiClient
     public function deleteSpecificStagingConfigWithOptions($request, $runtime)
     {
         Utils::validateModel($request);
-        $query                  = [];
-        $query['ConfigId']      = $request->configId;
-        $query['DomainName']    = $request->domainName;
-        $query['OwnerId']       = $request->ownerId;
-        $query['SecurityToken'] = $request->securityToken;
-        $req                    = new OpenApiRequest([
+        $query = [];
+        if (!Utils::isUnset($request->configId)) {
+            $query['ConfigId'] = $request->configId;
+        }
+        if (!Utils::isUnset($request->domainName)) {
+            $query['DomainName'] = $request->domainName;
+        }
+        if (!Utils::isUnset($request->ownerId)) {
+            $query['OwnerId'] = $request->ownerId;
+        }
+        if (!Utils::isUnset($request->securityToken)) {
+            $query['SecurityToken'] = $request->securityToken;
+        }
+        $req = new OpenApiRequest([
             'query' => OpenApiUtilClient::query($query),
-            'body'  => Utils::toMap($request),
         ]);
         $params = new Params([
             'action'      => 'DeleteSpecificStagingConfig',
@@ -1430,7 +1650,7 @@ class Cdn extends OpenApiClient
             'method'      => 'POST',
             'authType'    => 'AK',
             'style'       => 'RPC',
-            'reqBodyType' => 'json',
+            'reqBodyType' => 'formData',
             'bodyType'    => 'json',
         ]);
 
@@ -1458,12 +1678,15 @@ class Cdn extends OpenApiClient
     public function deleteUsageDetailDataExportTaskWithOptions($request, $runtime)
     {
         Utils::validateModel($request);
-        $query            = [];
-        $query['OwnerId'] = $request->ownerId;
-        $query['TaskId']  = $request->taskId;
-        $req              = new OpenApiRequest([
+        $query = [];
+        if (!Utils::isUnset($request->ownerId)) {
+            $query['OwnerId'] = $request->ownerId;
+        }
+        if (!Utils::isUnset($request->taskId)) {
+            $query['TaskId'] = $request->taskId;
+        }
+        $req = new OpenApiRequest([
             'query' => OpenApiUtilClient::query($query),
-            'body'  => Utils::toMap($request),
         ]);
         $params = new Params([
             'action'      => 'DeleteUsageDetailDataExportTask',
@@ -1473,7 +1696,7 @@ class Cdn extends OpenApiClient
             'method'      => 'POST',
             'authType'    => 'AK',
             'style'       => 'RPC',
-            'reqBodyType' => 'json',
+            'reqBodyType' => 'formData',
             'bodyType'    => 'json',
         ]);
 
@@ -1501,12 +1724,15 @@ class Cdn extends OpenApiClient
     public function deleteUserUsageDataExportTaskWithOptions($request, $runtime)
     {
         Utils::validateModel($request);
-        $query            = [];
-        $query['OwnerId'] = $request->ownerId;
-        $query['TaskId']  = $request->taskId;
-        $req              = new OpenApiRequest([
+        $query = [];
+        if (!Utils::isUnset($request->ownerId)) {
+            $query['OwnerId'] = $request->ownerId;
+        }
+        if (!Utils::isUnset($request->taskId)) {
+            $query['TaskId'] = $request->taskId;
+        }
+        $req = new OpenApiRequest([
             'query' => OpenApiUtilClient::query($query),
-            'body'  => Utils::toMap($request),
         ]);
         $params = new Params([
             'action'      => 'DeleteUserUsageDataExportTask',
@@ -1516,7 +1742,7 @@ class Cdn extends OpenApiClient
             'method'      => 'POST',
             'authType'    => 'AK',
             'style'       => 'RPC',
-            'reqBodyType' => 'json',
+            'reqBodyType' => 'formData',
             'bodyType'    => 'json',
         ]);
 
@@ -1544,13 +1770,18 @@ class Cdn extends OpenApiClient
     public function describeActiveVersionOfConfigGroupWithOptions($request, $runtime)
     {
         Utils::validateModel($request);
-        $query                  = [];
-        $query['ConfigGroupId'] = $request->configGroupId;
-        $query['Env']           = $request->env;
-        $query['OwnerId']       = $request->ownerId;
-        $req                    = new OpenApiRequest([
+        $query = [];
+        if (!Utils::isUnset($request->configGroupId)) {
+            $query['ConfigGroupId'] = $request->configGroupId;
+        }
+        if (!Utils::isUnset($request->env)) {
+            $query['Env'] = $request->env;
+        }
+        if (!Utils::isUnset($request->ownerId)) {
+            $query['OwnerId'] = $request->ownerId;
+        }
+        $req = new OpenApiRequest([
             'query' => OpenApiUtilClient::query($query),
-            'body'  => Utils::toMap($request),
         ]);
         $params = new Params([
             'action'      => 'DescribeActiveVersionOfConfigGroup',
@@ -1560,7 +1791,7 @@ class Cdn extends OpenApiClient
             'method'      => 'POST',
             'authType'    => 'AK',
             'style'       => 'RPC',
-            'reqBodyType' => 'json',
+            'reqBodyType' => 'formData',
             'bodyType'    => 'json',
         ]);
 
@@ -1600,7 +1831,7 @@ class Cdn extends OpenApiClient
             'method'      => 'GET',
             'authType'    => 'AK',
             'style'       => 'RPC',
-            'reqBodyType' => 'json',
+            'reqBodyType' => 'formData',
             'bodyType'    => 'json',
         ]);
 
@@ -1628,13 +1859,18 @@ class Cdn extends OpenApiClient
     public function describeCdnCertificateDetailWithOptions($request, $runtime)
     {
         Utils::validateModel($request);
-        $query                  = [];
-        $query['CertName']      = $request->certName;
-        $query['OwnerId']       = $request->ownerId;
-        $query['SecurityToken'] = $request->securityToken;
-        $req                    = new OpenApiRequest([
+        $query = [];
+        if (!Utils::isUnset($request->certName)) {
+            $query['CertName'] = $request->certName;
+        }
+        if (!Utils::isUnset($request->ownerId)) {
+            $query['OwnerId'] = $request->ownerId;
+        }
+        if (!Utils::isUnset($request->securityToken)) {
+            $query['SecurityToken'] = $request->securityToken;
+        }
+        $req = new OpenApiRequest([
             'query' => OpenApiUtilClient::query($query),
-            'body'  => Utils::toMap($request),
         ]);
         $params = new Params([
             'action'      => 'DescribeCdnCertificateDetail',
@@ -1644,7 +1880,7 @@ class Cdn extends OpenApiClient
             'method'      => 'POST',
             'authType'    => 'AK',
             'style'       => 'RPC',
-            'reqBodyType' => 'json',
+            'reqBodyType' => 'formData',
             'bodyType'    => 'json',
         ]);
 
@@ -1672,13 +1908,18 @@ class Cdn extends OpenApiClient
     public function describeCdnCertificateListWithOptions($request, $runtime)
     {
         Utils::validateModel($request);
-        $query                  = [];
-        $query['DomainName']    = $request->domainName;
-        $query['OwnerId']       = $request->ownerId;
-        $query['SecurityToken'] = $request->securityToken;
-        $req                    = new OpenApiRequest([
+        $query = [];
+        if (!Utils::isUnset($request->domainName)) {
+            $query['DomainName'] = $request->domainName;
+        }
+        if (!Utils::isUnset($request->ownerId)) {
+            $query['OwnerId'] = $request->ownerId;
+        }
+        if (!Utils::isUnset($request->securityToken)) {
+            $query['SecurityToken'] = $request->securityToken;
+        }
+        $req = new OpenApiRequest([
             'query' => OpenApiUtilClient::query($query),
-            'body'  => Utils::toMap($request),
         ]);
         $params = new Params([
             'action'      => 'DescribeCdnCertificateList',
@@ -1688,7 +1929,7 @@ class Cdn extends OpenApiClient
             'method'      => 'POST',
             'authType'    => 'AK',
             'style'       => 'RPC',
-            'reqBodyType' => 'json',
+            'reqBodyType' => 'formData',
             'bodyType'    => 'json',
         ]);
 
@@ -1716,13 +1957,18 @@ class Cdn extends OpenApiClient
     public function describeCdnDeletedDomainsWithOptions($request, $runtime)
     {
         Utils::validateModel($request);
-        $query               = [];
-        $query['OwnerId']    = $request->ownerId;
-        $query['PageNumber'] = $request->pageNumber;
-        $query['PageSize']   = $request->pageSize;
-        $req                 = new OpenApiRequest([
+        $query = [];
+        if (!Utils::isUnset($request->ownerId)) {
+            $query['OwnerId'] = $request->ownerId;
+        }
+        if (!Utils::isUnset($request->pageNumber)) {
+            $query['PageNumber'] = $request->pageNumber;
+        }
+        if (!Utils::isUnset($request->pageSize)) {
+            $query['PageSize'] = $request->pageSize;
+        }
+        $req = new OpenApiRequest([
             'query' => OpenApiUtilClient::query($query),
-            'body'  => Utils::toMap($request),
         ]);
         $params = new Params([
             'action'      => 'DescribeCdnDeletedDomains',
@@ -1732,7 +1978,7 @@ class Cdn extends OpenApiClient
             'method'      => 'POST',
             'authType'    => 'AK',
             'style'       => 'RPC',
-            'reqBodyType' => 'json',
+            'reqBodyType' => 'formData',
             'bodyType'    => 'json',
         ]);
 
@@ -1760,12 +2006,15 @@ class Cdn extends OpenApiClient
     public function describeCdnDeliverListWithOptions($request, $runtime)
     {
         Utils::validateModel($request);
-        $query              = [];
-        $query['DeliverId'] = $request->deliverId;
-        $query['OwnerId']   = $request->ownerId;
-        $req                = new OpenApiRequest([
+        $query = [];
+        if (!Utils::isUnset($request->deliverId)) {
+            $query['DeliverId'] = $request->deliverId;
+        }
+        if (!Utils::isUnset($request->ownerId)) {
+            $query['OwnerId'] = $request->ownerId;
+        }
+        $req = new OpenApiRequest([
             'query' => OpenApiUtilClient::query($query),
-            'body'  => Utils::toMap($request),
         ]);
         $params = new Params([
             'action'      => 'DescribeCdnDeliverList',
@@ -1775,7 +2024,7 @@ class Cdn extends OpenApiClient
             'method'      => 'POST',
             'authType'    => 'AK',
             'style'       => 'RPC',
-            'reqBodyType' => 'json',
+            'reqBodyType' => 'formData',
             'bodyType'    => 'json',
         ]);
 
@@ -1803,12 +2052,15 @@ class Cdn extends OpenApiClient
     public function describeCdnDomainByCertificateWithOptions($request, $runtime)
     {
         Utils::validateModel($request);
-        $query            = [];
-        $query['OwnerId'] = $request->ownerId;
-        $query['SSLPub']  = $request->SSLPub;
-        $req              = new OpenApiRequest([
+        $query = [];
+        if (!Utils::isUnset($request->ownerId)) {
+            $query['OwnerId'] = $request->ownerId;
+        }
+        if (!Utils::isUnset($request->SSLPub)) {
+            $query['SSLPub'] = $request->SSLPub;
+        }
+        $req = new OpenApiRequest([
             'query' => OpenApiUtilClient::query($query),
-            'body'  => Utils::toMap($request),
         ]);
         $params = new Params([
             'action'      => 'DescribeCdnDomainByCertificate',
@@ -1818,7 +2070,7 @@ class Cdn extends OpenApiClient
             'method'      => 'POST',
             'authType'    => 'AK',
             'style'       => 'RPC',
-            'reqBodyType' => 'json',
+            'reqBodyType' => 'formData',
             'bodyType'    => 'json',
         ]);
 
@@ -1846,15 +2098,24 @@ class Cdn extends OpenApiClient
     public function describeCdnDomainConfigsWithOptions($request, $runtime)
     {
         Utils::validateModel($request);
-        $query                  = [];
-        $query['ConfigId']      = $request->configId;
-        $query['DomainName']    = $request->domainName;
-        $query['FunctionNames'] = $request->functionNames;
-        $query['OwnerId']       = $request->ownerId;
-        $query['SecurityToken'] = $request->securityToken;
-        $req                    = new OpenApiRequest([
+        $query = [];
+        if (!Utils::isUnset($request->configId)) {
+            $query['ConfigId'] = $request->configId;
+        }
+        if (!Utils::isUnset($request->domainName)) {
+            $query['DomainName'] = $request->domainName;
+        }
+        if (!Utils::isUnset($request->functionNames)) {
+            $query['FunctionNames'] = $request->functionNames;
+        }
+        if (!Utils::isUnset($request->ownerId)) {
+            $query['OwnerId'] = $request->ownerId;
+        }
+        if (!Utils::isUnset($request->securityToken)) {
+            $query['SecurityToken'] = $request->securityToken;
+        }
+        $req = new OpenApiRequest([
             'query' => OpenApiUtilClient::query($query),
-            'body'  => Utils::toMap($request),
         ]);
         $params = new Params([
             'action'      => 'DescribeCdnDomainConfigs',
@@ -1864,7 +2125,7 @@ class Cdn extends OpenApiClient
             'method'      => 'POST',
             'authType'    => 'AK',
             'style'       => 'RPC',
-            'reqBodyType' => 'json',
+            'reqBodyType' => 'formData',
             'bodyType'    => 'json',
         ]);
 
@@ -1892,13 +2153,18 @@ class Cdn extends OpenApiClient
     public function describeCdnDomainDetailWithOptions($request, $runtime)
     {
         Utils::validateModel($request);
-        $query                  = [];
-        $query['DomainName']    = $request->domainName;
-        $query['OwnerId']       = $request->ownerId;
-        $query['SecurityToken'] = $request->securityToken;
-        $req                    = new OpenApiRequest([
+        $query = [];
+        if (!Utils::isUnset($request->domainName)) {
+            $query['DomainName'] = $request->domainName;
+        }
+        if (!Utils::isUnset($request->ownerId)) {
+            $query['OwnerId'] = $request->ownerId;
+        }
+        if (!Utils::isUnset($request->securityToken)) {
+            $query['SecurityToken'] = $request->securityToken;
+        }
+        $req = new OpenApiRequest([
             'query' => OpenApiUtilClient::query($query),
-            'body'  => Utils::toMap($request),
         ]);
         $params = new Params([
             'action'      => 'DescribeCdnDomainDetail',
@@ -1908,7 +2174,7 @@ class Cdn extends OpenApiClient
             'method'      => 'POST',
             'authType'    => 'AK',
             'style'       => 'RPC',
-            'reqBodyType' => 'json',
+            'reqBodyType' => 'formData',
             'bodyType'    => 'json',
         ]);
 
@@ -1936,16 +2202,27 @@ class Cdn extends OpenApiClient
     public function describeCdnDomainLogsWithOptions($request, $runtime)
     {
         Utils::validateModel($request);
-        $query               = [];
-        $query['DomainName'] = $request->domainName;
-        $query['EndTime']    = $request->endTime;
-        $query['OwnerId']    = $request->ownerId;
-        $query['PageNumber'] = $request->pageNumber;
-        $query['PageSize']   = $request->pageSize;
-        $query['StartTime']  = $request->startTime;
-        $req                 = new OpenApiRequest([
+        $query = [];
+        if (!Utils::isUnset($request->domainName)) {
+            $query['DomainName'] = $request->domainName;
+        }
+        if (!Utils::isUnset($request->endTime)) {
+            $query['EndTime'] = $request->endTime;
+        }
+        if (!Utils::isUnset($request->ownerId)) {
+            $query['OwnerId'] = $request->ownerId;
+        }
+        if (!Utils::isUnset($request->pageNumber)) {
+            $query['PageNumber'] = $request->pageNumber;
+        }
+        if (!Utils::isUnset($request->pageSize)) {
+            $query['PageSize'] = $request->pageSize;
+        }
+        if (!Utils::isUnset($request->startTime)) {
+            $query['StartTime'] = $request->startTime;
+        }
+        $req = new OpenApiRequest([
             'query' => OpenApiUtilClient::query($query),
-            'body'  => Utils::toMap($request),
         ]);
         $params = new Params([
             'action'      => 'DescribeCdnDomainLogs',
@@ -1955,7 +2232,7 @@ class Cdn extends OpenApiClient
             'method'      => 'POST',
             'authType'    => 'AK',
             'style'       => 'RPC',
-            'reqBodyType' => 'json',
+            'reqBodyType' => 'formData',
             'bodyType'    => 'json',
         ]);
 
@@ -1983,13 +2260,18 @@ class Cdn extends OpenApiClient
     public function describeCdnDomainStagingConfigWithOptions($request, $runtime)
     {
         Utils::validateModel($request);
-        $query                  = [];
-        $query['DomainName']    = $request->domainName;
-        $query['FunctionNames'] = $request->functionNames;
-        $query['OwnerId']       = $request->ownerId;
-        $req                    = new OpenApiRequest([
+        $query = [];
+        if (!Utils::isUnset($request->domainName)) {
+            $query['DomainName'] = $request->domainName;
+        }
+        if (!Utils::isUnset($request->functionNames)) {
+            $query['FunctionNames'] = $request->functionNames;
+        }
+        if (!Utils::isUnset($request->ownerId)) {
+            $query['OwnerId'] = $request->ownerId;
+        }
+        $req = new OpenApiRequest([
             'query' => OpenApiUtilClient::query($query),
-            'body'  => Utils::toMap($request),
         ]);
         $params = new Params([
             'action'      => 'DescribeCdnDomainStagingConfig',
@@ -1999,7 +2281,7 @@ class Cdn extends OpenApiClient
             'method'      => 'POST',
             'authType'    => 'AK',
             'style'       => 'RPC',
-            'reqBodyType' => 'json',
+            'reqBodyType' => 'formData',
             'bodyType'    => 'json',
         ]);
 
@@ -2027,14 +2309,21 @@ class Cdn extends OpenApiClient
     public function describeCdnHttpsDomainListWithOptions($request, $runtime)
     {
         Utils::validateModel($request);
-        $query               = [];
-        $query['Keyword']    = $request->keyword;
-        $query['OwnerId']    = $request->ownerId;
-        $query['PageNumber'] = $request->pageNumber;
-        $query['PageSize']   = $request->pageSize;
-        $req                 = new OpenApiRequest([
+        $query = [];
+        if (!Utils::isUnset($request->keyword)) {
+            $query['Keyword'] = $request->keyword;
+        }
+        if (!Utils::isUnset($request->ownerId)) {
+            $query['OwnerId'] = $request->ownerId;
+        }
+        if (!Utils::isUnset($request->pageNumber)) {
+            $query['PageNumber'] = $request->pageNumber;
+        }
+        if (!Utils::isUnset($request->pageSize)) {
+            $query['PageSize'] = $request->pageSize;
+        }
+        $req = new OpenApiRequest([
             'query' => OpenApiUtilClient::query($query),
-            'body'  => Utils::toMap($request),
         ]);
         $params = new Params([
             'action'      => 'DescribeCdnHttpsDomainList',
@@ -2044,7 +2333,7 @@ class Cdn extends OpenApiClient
             'method'      => 'POST',
             'authType'    => 'AK',
             'style'       => 'RPC',
-            'reqBodyType' => 'json',
+            'reqBodyType' => 'formData',
             'bodyType'    => 'json',
         ]);
 
@@ -2072,12 +2361,15 @@ class Cdn extends OpenApiClient
     public function describeCdnRegionAndIspWithOptions($request, $runtime)
     {
         Utils::validateModel($request);
-        $query                  = [];
-        $query['OwnerId']       = $request->ownerId;
-        $query['SecurityToken'] = $request->securityToken;
-        $req                    = new OpenApiRequest([
+        $query = [];
+        if (!Utils::isUnset($request->ownerId)) {
+            $query['OwnerId'] = $request->ownerId;
+        }
+        if (!Utils::isUnset($request->securityToken)) {
+            $query['SecurityToken'] = $request->securityToken;
+        }
+        $req = new OpenApiRequest([
             'query' => OpenApiUtilClient::query($query),
-            'body'  => Utils::toMap($request),
         ]);
         $params = new Params([
             'action'      => 'DescribeCdnRegionAndIsp',
@@ -2087,7 +2379,7 @@ class Cdn extends OpenApiClient
             'method'      => 'POST',
             'authType'    => 'AK',
             'style'       => 'RPC',
-            'reqBodyType' => 'json',
+            'reqBodyType' => 'formData',
             'bodyType'    => 'json',
         ]);
 
@@ -2115,18 +2407,33 @@ class Cdn extends OpenApiClient
     public function describeCdnReportWithOptions($request, $runtime)
     {
         Utils::validateModel($request);
-        $query               = [];
-        $query['Area']       = $request->area;
-        $query['DomainName'] = $request->domainName;
-        $query['EndTime']    = $request->endTime;
-        $query['HttpCode']   = $request->httpCode;
-        $query['IsOverseas'] = $request->isOverseas;
-        $query['OwnerId']    = $request->ownerId;
-        $query['ReportId']   = $request->reportId;
-        $query['StartTime']  = $request->startTime;
-        $req                 = new OpenApiRequest([
+        $query = [];
+        if (!Utils::isUnset($request->area)) {
+            $query['Area'] = $request->area;
+        }
+        if (!Utils::isUnset($request->domainName)) {
+            $query['DomainName'] = $request->domainName;
+        }
+        if (!Utils::isUnset($request->endTime)) {
+            $query['EndTime'] = $request->endTime;
+        }
+        if (!Utils::isUnset($request->httpCode)) {
+            $query['HttpCode'] = $request->httpCode;
+        }
+        if (!Utils::isUnset($request->isOverseas)) {
+            $query['IsOverseas'] = $request->isOverseas;
+        }
+        if (!Utils::isUnset($request->ownerId)) {
+            $query['OwnerId'] = $request->ownerId;
+        }
+        if (!Utils::isUnset($request->reportId)) {
+            $query['ReportId'] = $request->reportId;
+        }
+        if (!Utils::isUnset($request->startTime)) {
+            $query['StartTime'] = $request->startTime;
+        }
+        $req = new OpenApiRequest([
             'query' => OpenApiUtilClient::query($query),
-            'body'  => Utils::toMap($request),
         ]);
         $params = new Params([
             'action'      => 'DescribeCdnReport',
@@ -2136,7 +2443,7 @@ class Cdn extends OpenApiClient
             'method'      => 'POST',
             'authType'    => 'AK',
             'style'       => 'RPC',
-            'reqBodyType' => 'json',
+            'reqBodyType' => 'formData',
             'bodyType'    => 'json',
         ]);
 
@@ -2164,12 +2471,15 @@ class Cdn extends OpenApiClient
     public function describeCdnReportListWithOptions($request, $runtime)
     {
         Utils::validateModel($request);
-        $query             = [];
-        $query['OwnerId']  = $request->ownerId;
-        $query['ReportId'] = $request->reportId;
-        $req               = new OpenApiRequest([
+        $query = [];
+        if (!Utils::isUnset($request->ownerId)) {
+            $query['OwnerId'] = $request->ownerId;
+        }
+        if (!Utils::isUnset($request->reportId)) {
+            $query['ReportId'] = $request->reportId;
+        }
+        $req = new OpenApiRequest([
             'query' => OpenApiUtilClient::query($query),
-            'body'  => Utils::toMap($request),
         ]);
         $params = new Params([
             'action'      => 'DescribeCdnReportList',
@@ -2179,7 +2489,7 @@ class Cdn extends OpenApiClient
             'method'      => 'POST',
             'authType'    => 'AK',
             'style'       => 'RPC',
-            'reqBodyType' => 'json',
+            'reqBodyType' => 'formData',
             'bodyType'    => 'json',
         ]);
 
@@ -2207,13 +2517,18 @@ class Cdn extends OpenApiClient
     public function describeCdnSMCertificateDetailWithOptions($request, $runtime)
     {
         Utils::validateModel($request);
-        $query                   = [];
-        $query['CertIdentifier'] = $request->certIdentifier;
-        $query['OwnerId']        = $request->ownerId;
-        $query['SecurityToken']  = $request->securityToken;
-        $req                     = new OpenApiRequest([
+        $query = [];
+        if (!Utils::isUnset($request->certIdentifier)) {
+            $query['CertIdentifier'] = $request->certIdentifier;
+        }
+        if (!Utils::isUnset($request->ownerId)) {
+            $query['OwnerId'] = $request->ownerId;
+        }
+        if (!Utils::isUnset($request->securityToken)) {
+            $query['SecurityToken'] = $request->securityToken;
+        }
+        $req = new OpenApiRequest([
             'query' => OpenApiUtilClient::query($query),
-            'body'  => Utils::toMap($request),
         ]);
         $params = new Params([
             'action'      => 'DescribeCdnSMCertificateDetail',
@@ -2223,7 +2538,7 @@ class Cdn extends OpenApiClient
             'method'      => 'POST',
             'authType'    => 'AK',
             'style'       => 'RPC',
-            'reqBodyType' => 'json',
+            'reqBodyType' => 'formData',
             'bodyType'    => 'json',
         ]);
 
@@ -2251,13 +2566,18 @@ class Cdn extends OpenApiClient
     public function describeCdnSMCertificateListWithOptions($request, $runtime)
     {
         Utils::validateModel($request);
-        $query                  = [];
-        $query['DomainName']    = $request->domainName;
-        $query['OwnerId']       = $request->ownerId;
-        $query['SecurityToken'] = $request->securityToken;
-        $req                    = new OpenApiRequest([
+        $query = [];
+        if (!Utils::isUnset($request->domainName)) {
+            $query['DomainName'] = $request->domainName;
+        }
+        if (!Utils::isUnset($request->ownerId)) {
+            $query['OwnerId'] = $request->ownerId;
+        }
+        if (!Utils::isUnset($request->securityToken)) {
+            $query['SecurityToken'] = $request->securityToken;
+        }
+        $req = new OpenApiRequest([
             'query' => OpenApiUtilClient::query($query),
-            'body'  => Utils::toMap($request),
         ]);
         $params = new Params([
             'action'      => 'DescribeCdnSMCertificateList',
@@ -2267,7 +2587,7 @@ class Cdn extends OpenApiClient
             'method'      => 'POST',
             'authType'    => 'AK',
             'style'       => 'RPC',
-            'reqBodyType' => 'json',
+            'reqBodyType' => 'formData',
             'bodyType'    => 'json',
         ]);
 
@@ -2295,12 +2615,15 @@ class Cdn extends OpenApiClient
     public function describeCdnServiceWithOptions($request, $runtime)
     {
         Utils::validateModel($request);
-        $query                  = [];
-        $query['OwnerId']       = $request->ownerId;
-        $query['SecurityToken'] = $request->securityToken;
-        $req                    = new OpenApiRequest([
+        $query = [];
+        if (!Utils::isUnset($request->ownerId)) {
+            $query['OwnerId'] = $request->ownerId;
+        }
+        if (!Utils::isUnset($request->securityToken)) {
+            $query['SecurityToken'] = $request->securityToken;
+        }
+        $req = new OpenApiRequest([
             'query' => OpenApiUtilClient::query($query),
-            'body'  => Utils::toMap($request),
         ]);
         $params = new Params([
             'action'      => 'DescribeCdnService',
@@ -2310,7 +2633,7 @@ class Cdn extends OpenApiClient
             'method'      => 'POST',
             'authType'    => 'AK',
             'style'       => 'RPC',
-            'reqBodyType' => 'json',
+            'reqBodyType' => 'formData',
             'bodyType'    => 'json',
         ]);
 
@@ -2338,11 +2661,12 @@ class Cdn extends OpenApiClient
     public function describeCdnSubListWithOptions($request, $runtime)
     {
         Utils::validateModel($request);
-        $query            = [];
-        $query['OwnerId'] = $request->ownerId;
-        $req              = new OpenApiRequest([
+        $query = [];
+        if (!Utils::isUnset($request->ownerId)) {
+            $query['OwnerId'] = $request->ownerId;
+        }
+        $req = new OpenApiRequest([
             'query' => OpenApiUtilClient::query($query),
-            'body'  => Utils::toMap($request),
         ]);
         $params = new Params([
             'action'      => 'DescribeCdnSubList',
@@ -2352,7 +2676,7 @@ class Cdn extends OpenApiClient
             'method'      => 'POST',
             'authType'    => 'AK',
             'style'       => 'RPC',
-            'reqBodyType' => 'json',
+            'reqBodyType' => 'formData',
             'bodyType'    => 'json',
         ]);
 
@@ -2380,13 +2704,18 @@ class Cdn extends OpenApiClient
     public function describeCdnUserBillHistoryWithOptions($request, $runtime)
     {
         Utils::validateModel($request);
-        $query              = [];
-        $query['EndTime']   = $request->endTime;
-        $query['OwnerId']   = $request->ownerId;
-        $query['StartTime'] = $request->startTime;
-        $req                = new OpenApiRequest([
+        $query = [];
+        if (!Utils::isUnset($request->endTime)) {
+            $query['EndTime'] = $request->endTime;
+        }
+        if (!Utils::isUnset($request->ownerId)) {
+            $query['OwnerId'] = $request->ownerId;
+        }
+        if (!Utils::isUnset($request->startTime)) {
+            $query['StartTime'] = $request->startTime;
+        }
+        $req = new OpenApiRequest([
             'query' => OpenApiUtilClient::query($query),
-            'body'  => Utils::toMap($request),
         ]);
         $params = new Params([
             'action'      => 'DescribeCdnUserBillHistory',
@@ -2396,7 +2725,7 @@ class Cdn extends OpenApiClient
             'method'      => 'POST',
             'authType'    => 'AK',
             'style'       => 'RPC',
-            'reqBodyType' => 'json',
+            'reqBodyType' => 'formData',
             'bodyType'    => 'json',
         ]);
 
@@ -2424,15 +2753,24 @@ class Cdn extends OpenApiClient
     public function describeCdnUserBillPredictionWithOptions($request, $runtime)
     {
         Utils::validateModel($request);
-        $query              = [];
-        $query['Area']      = $request->area;
-        $query['Dimension'] = $request->dimension;
-        $query['EndTime']   = $request->endTime;
-        $query['OwnerId']   = $request->ownerId;
-        $query['StartTime'] = $request->startTime;
-        $req                = new OpenApiRequest([
+        $query = [];
+        if (!Utils::isUnset($request->area)) {
+            $query['Area'] = $request->area;
+        }
+        if (!Utils::isUnset($request->dimension)) {
+            $query['Dimension'] = $request->dimension;
+        }
+        if (!Utils::isUnset($request->endTime)) {
+            $query['EndTime'] = $request->endTime;
+        }
+        if (!Utils::isUnset($request->ownerId)) {
+            $query['OwnerId'] = $request->ownerId;
+        }
+        if (!Utils::isUnset($request->startTime)) {
+            $query['StartTime'] = $request->startTime;
+        }
+        $req = new OpenApiRequest([
             'query' => OpenApiUtilClient::query($query),
-            'body'  => Utils::toMap($request),
         ]);
         $params = new Params([
             'action'      => 'DescribeCdnUserBillPrediction',
@@ -2442,7 +2780,7 @@ class Cdn extends OpenApiClient
             'method'      => 'POST',
             'authType'    => 'AK',
             'style'       => 'RPC',
-            'reqBodyType' => 'json',
+            'reqBodyType' => 'formData',
             'bodyType'    => 'json',
         ]);
 
@@ -2470,13 +2808,18 @@ class Cdn extends OpenApiClient
     public function describeCdnUserBillTypeWithOptions($request, $runtime)
     {
         Utils::validateModel($request);
-        $query              = [];
-        $query['EndTime']   = $request->endTime;
-        $query['OwnerId']   = $request->ownerId;
-        $query['StartTime'] = $request->startTime;
-        $req                = new OpenApiRequest([
+        $query = [];
+        if (!Utils::isUnset($request->endTime)) {
+            $query['EndTime'] = $request->endTime;
+        }
+        if (!Utils::isUnset($request->ownerId)) {
+            $query['OwnerId'] = $request->ownerId;
+        }
+        if (!Utils::isUnset($request->startTime)) {
+            $query['StartTime'] = $request->startTime;
+        }
+        $req = new OpenApiRequest([
             'query' => OpenApiUtilClient::query($query),
-            'body'  => Utils::toMap($request),
         ]);
         $params = new Params([
             'action'      => 'DescribeCdnUserBillType',
@@ -2486,7 +2829,7 @@ class Cdn extends OpenApiClient
             'method'      => 'POST',
             'authType'    => 'AK',
             'style'       => 'RPC',
-            'reqBodyType' => 'json',
+            'reqBodyType' => 'formData',
             'bodyType'    => 'json',
         ]);
 
@@ -2514,12 +2857,15 @@ class Cdn extends OpenApiClient
     public function describeCdnUserConfigsWithOptions($request, $runtime)
     {
         Utils::validateModel($request);
-        $query                 = [];
-        $query['FunctionName'] = $request->functionName;
-        $query['OwnerId']      = $request->ownerId;
-        $req                   = new OpenApiRequest([
+        $query = [];
+        if (!Utils::isUnset($request->functionName)) {
+            $query['FunctionName'] = $request->functionName;
+        }
+        if (!Utils::isUnset($request->ownerId)) {
+            $query['OwnerId'] = $request->ownerId;
+        }
+        $req = new OpenApiRequest([
             'query' => OpenApiUtilClient::query($query),
-            'body'  => Utils::toMap($request),
         ]);
         $params = new Params([
             'action'      => 'DescribeCdnUserConfigs',
@@ -2529,7 +2875,7 @@ class Cdn extends OpenApiClient
             'method'      => 'POST',
             'authType'    => 'AK',
             'style'       => 'RPC',
-            'reqBodyType' => 'json',
+            'reqBodyType' => 'formData',
             'bodyType'    => 'json',
         ]);
 
@@ -2557,15 +2903,24 @@ class Cdn extends OpenApiClient
     public function describeCdnUserDomainsByFuncWithOptions($request, $runtime)
     {
         Utils::validateModel($request);
-        $query                    = [];
-        $query['FuncId']          = $request->funcId;
-        $query['OwnerId']         = $request->ownerId;
-        $query['PageNumber']      = $request->pageNumber;
-        $query['PageSize']        = $request->pageSize;
-        $query['ResourceGroupId'] = $request->resourceGroupId;
-        $req                      = new OpenApiRequest([
+        $query = [];
+        if (!Utils::isUnset($request->funcId)) {
+            $query['FuncId'] = $request->funcId;
+        }
+        if (!Utils::isUnset($request->ownerId)) {
+            $query['OwnerId'] = $request->ownerId;
+        }
+        if (!Utils::isUnset($request->pageNumber)) {
+            $query['PageNumber'] = $request->pageNumber;
+        }
+        if (!Utils::isUnset($request->pageSize)) {
+            $query['PageSize'] = $request->pageSize;
+        }
+        if (!Utils::isUnset($request->resourceGroupId)) {
+            $query['ResourceGroupId'] = $request->resourceGroupId;
+        }
+        $req = new OpenApiRequest([
             'query' => OpenApiUtilClient::query($query),
-            'body'  => Utils::toMap($request),
         ]);
         $params = new Params([
             'action'      => 'DescribeCdnUserDomainsByFunc',
@@ -2575,7 +2930,7 @@ class Cdn extends OpenApiClient
             'method'      => 'POST',
             'authType'    => 'AK',
             'style'       => 'RPC',
-            'reqBodyType' => 'json',
+            'reqBodyType' => 'formData',
             'bodyType'    => 'json',
         ]);
 
@@ -2603,12 +2958,15 @@ class Cdn extends OpenApiClient
     public function describeCdnUserQuotaWithOptions($request, $runtime)
     {
         Utils::validateModel($request);
-        $query                  = [];
-        $query['OwnerId']       = $request->ownerId;
-        $query['SecurityToken'] = $request->securityToken;
-        $req                    = new OpenApiRequest([
+        $query = [];
+        if (!Utils::isUnset($request->ownerId)) {
+            $query['OwnerId'] = $request->ownerId;
+        }
+        if (!Utils::isUnset($request->securityToken)) {
+            $query['SecurityToken'] = $request->securityToken;
+        }
+        $req = new OpenApiRequest([
             'query' => OpenApiUtilClient::query($query),
-            'body'  => Utils::toMap($request),
         ]);
         $params = new Params([
             'action'      => 'DescribeCdnUserQuota',
@@ -2618,7 +2976,7 @@ class Cdn extends OpenApiClient
             'method'      => 'POST',
             'authType'    => 'AK',
             'style'       => 'RPC',
-            'reqBodyType' => 'json',
+            'reqBodyType' => 'formData',
             'bodyType'    => 'json',
         ]);
 
@@ -2646,13 +3004,18 @@ class Cdn extends OpenApiClient
     public function describeCdnUserResourcePackageWithOptions($request, $runtime)
     {
         Utils::validateModel($request);
-        $query                  = [];
-        $query['OwnerId']       = $request->ownerId;
-        $query['SecurityToken'] = $request->securityToken;
-        $query['Status']        = $request->status;
-        $req                    = new OpenApiRequest([
+        $query = [];
+        if (!Utils::isUnset($request->ownerId)) {
+            $query['OwnerId'] = $request->ownerId;
+        }
+        if (!Utils::isUnset($request->securityToken)) {
+            $query['SecurityToken'] = $request->securityToken;
+        }
+        if (!Utils::isUnset($request->status)) {
+            $query['Status'] = $request->status;
+        }
+        $req = new OpenApiRequest([
             'query' => OpenApiUtilClient::query($query),
-            'body'  => Utils::toMap($request),
         ]);
         $params = new Params([
             'action'      => 'DescribeCdnUserResourcePackage',
@@ -2662,7 +3025,7 @@ class Cdn extends OpenApiClient
             'method'      => 'POST',
             'authType'    => 'AK',
             'style'       => 'RPC',
-            'reqBodyType' => 'json',
+            'reqBodyType' => 'formData',
             'bodyType'    => 'json',
         ]);
 
@@ -2690,14 +3053,21 @@ class Cdn extends OpenApiClient
     public function describeCdnWafDomainWithOptions($request, $runtime)
     {
         Utils::validateModel($request);
-        $query                    = [];
-        $query['DomainName']      = $request->domainName;
-        $query['OwnerId']         = $request->ownerId;
-        $query['RegionId']        = $request->regionId;
-        $query['ResourceGroupId'] = $request->resourceGroupId;
-        $req                      = new OpenApiRequest([
+        $query = [];
+        if (!Utils::isUnset($request->domainName)) {
+            $query['DomainName'] = $request->domainName;
+        }
+        if (!Utils::isUnset($request->ownerId)) {
+            $query['OwnerId'] = $request->ownerId;
+        }
+        if (!Utils::isUnset($request->regionId)) {
+            $query['RegionId'] = $request->regionId;
+        }
+        if (!Utils::isUnset($request->resourceGroupId)) {
+            $query['ResourceGroupId'] = $request->resourceGroupId;
+        }
+        $req = new OpenApiRequest([
             'query' => OpenApiUtilClient::query($query),
-            'body'  => Utils::toMap($request),
         ]);
         $params = new Params([
             'action'      => 'DescribeCdnWafDomain',
@@ -2707,7 +3077,7 @@ class Cdn extends OpenApiClient
             'method'      => 'POST',
             'authType'    => 'AK',
             'style'       => 'RPC',
-            'reqBodyType' => 'json',
+            'reqBodyType' => 'formData',
             'bodyType'    => 'json',
         ]);
 
@@ -2747,7 +3117,7 @@ class Cdn extends OpenApiClient
             'method'      => 'GET',
             'authType'    => 'AK',
             'style'       => 'RPC',
-            'reqBodyType' => 'json',
+            'reqBodyType' => 'formData',
             'bodyType'    => 'json',
         ]);
 
@@ -2775,13 +3145,18 @@ class Cdn extends OpenApiClient
     public function describeConfigGroupDetailWithOptions($request, $runtime)
     {
         Utils::validateModel($request);
-        $query                    = [];
-        $query['ConfigGroupId']   = $request->configGroupId;
-        $query['ConfigGroupName'] = $request->configGroupName;
-        $query['OwnerId']         = $request->ownerId;
-        $req                      = new OpenApiRequest([
+        $query = [];
+        if (!Utils::isUnset($request->configGroupId)) {
+            $query['ConfigGroupId'] = $request->configGroupId;
+        }
+        if (!Utils::isUnset($request->configGroupName)) {
+            $query['ConfigGroupName'] = $request->configGroupName;
+        }
+        if (!Utils::isUnset($request->ownerId)) {
+            $query['OwnerId'] = $request->ownerId;
+        }
+        $req = new OpenApiRequest([
             'query' => OpenApiUtilClient::query($query),
-            'body'  => Utils::toMap($request),
         ]);
         $params = new Params([
             'action'      => 'DescribeConfigGroupDetail',
@@ -2791,7 +3166,7 @@ class Cdn extends OpenApiClient
             'method'      => 'POST',
             'authType'    => 'AK',
             'style'       => 'RPC',
-            'reqBodyType' => 'json',
+            'reqBodyType' => 'formData',
             'bodyType'    => 'json',
         ]);
 
@@ -2819,16 +3194,27 @@ class Cdn extends OpenApiClient
     public function describeConfigOfVersionWithOptions($request, $runtime)
     {
         Utils::validateModel($request);
-        $query                  = [];
-        $query['FunctionId']    = $request->functionId;
-        $query['FunctionName']  = $request->functionName;
-        $query['GroupId']       = $request->groupId;
-        $query['OwnerId']       = $request->ownerId;
-        $query['SecurityToken'] = $request->securityToken;
-        $query['VersionId']     = $request->versionId;
-        $req                    = new OpenApiRequest([
+        $query = [];
+        if (!Utils::isUnset($request->functionId)) {
+            $query['FunctionId'] = $request->functionId;
+        }
+        if (!Utils::isUnset($request->functionName)) {
+            $query['FunctionName'] = $request->functionName;
+        }
+        if (!Utils::isUnset($request->groupId)) {
+            $query['GroupId'] = $request->groupId;
+        }
+        if (!Utils::isUnset($request->ownerId)) {
+            $query['OwnerId'] = $request->ownerId;
+        }
+        if (!Utils::isUnset($request->securityToken)) {
+            $query['SecurityToken'] = $request->securityToken;
+        }
+        if (!Utils::isUnset($request->versionId)) {
+            $query['VersionId'] = $request->versionId;
+        }
+        $req = new OpenApiRequest([
             'query' => OpenApiUtilClient::query($query),
-            'body'  => Utils::toMap($request),
         ]);
         $params = new Params([
             'action'      => 'DescribeConfigOfVersion',
@@ -2838,7 +3224,7 @@ class Cdn extends OpenApiClient
             'method'      => 'POST',
             'authType'    => 'AK',
             'style'       => 'RPC',
-            'reqBodyType' => 'json',
+            'reqBodyType' => 'formData',
             'bodyType'    => 'json',
         ]);
 
@@ -2878,7 +3264,7 @@ class Cdn extends OpenApiClient
             'method'      => 'GET',
             'authType'    => 'AK',
             'style'       => 'RPC',
-            'reqBodyType' => 'json',
+            'reqBodyType' => 'formData',
             'bodyType'    => 'json',
         ]);
 
@@ -2906,19 +3292,36 @@ class Cdn extends OpenApiClient
     public function describeDomainAverageResponseTimeWithOptions($request, $runtime)
     {
         Utils::validateModel($request);
-        $query                   = [];
-        $query['DomainName']     = $request->domainName;
-        $query['DomainType']     = $request->domainType;
-        $query['EndTime']        = $request->endTime;
-        $query['Interval']       = $request->interval;
-        $query['IspNameEn']      = $request->ispNameEn;
-        $query['LocationNameEn'] = $request->locationNameEn;
-        $query['OwnerId']        = $request->ownerId;
-        $query['StartTime']      = $request->startTime;
-        $query['TimeMerge']      = $request->timeMerge;
-        $req                     = new OpenApiRequest([
+        $query = [];
+        if (!Utils::isUnset($request->domainName)) {
+            $query['DomainName'] = $request->domainName;
+        }
+        if (!Utils::isUnset($request->domainType)) {
+            $query['DomainType'] = $request->domainType;
+        }
+        if (!Utils::isUnset($request->endTime)) {
+            $query['EndTime'] = $request->endTime;
+        }
+        if (!Utils::isUnset($request->interval)) {
+            $query['Interval'] = $request->interval;
+        }
+        if (!Utils::isUnset($request->ispNameEn)) {
+            $query['IspNameEn'] = $request->ispNameEn;
+        }
+        if (!Utils::isUnset($request->locationNameEn)) {
+            $query['LocationNameEn'] = $request->locationNameEn;
+        }
+        if (!Utils::isUnset($request->ownerId)) {
+            $query['OwnerId'] = $request->ownerId;
+        }
+        if (!Utils::isUnset($request->startTime)) {
+            $query['StartTime'] = $request->startTime;
+        }
+        if (!Utils::isUnset($request->timeMerge)) {
+            $query['TimeMerge'] = $request->timeMerge;
+        }
+        $req = new OpenApiRequest([
             'query' => OpenApiUtilClient::query($query),
-            'body'  => Utils::toMap($request),
         ]);
         $params = new Params([
             'action'      => 'DescribeDomainAverageResponseTime',
@@ -2928,7 +3331,7 @@ class Cdn extends OpenApiClient
             'method'      => 'POST',
             'authType'    => 'AK',
             'style'       => 'RPC',
-            'reqBodyType' => 'json',
+            'reqBodyType' => 'formData',
             'bodyType'    => 'json',
         ]);
 
@@ -2956,17 +3359,30 @@ class Cdn extends OpenApiClient
     public function describeDomainBpsDataWithOptions($request, $runtime)
     {
         Utils::validateModel($request);
-        $query                   = [];
-        $query['DomainName']     = $request->domainName;
-        $query['EndTime']        = $request->endTime;
-        $query['Interval']       = $request->interval;
-        $query['IspNameEn']      = $request->ispNameEn;
-        $query['LocationNameEn'] = $request->locationNameEn;
-        $query['OwnerId']        = $request->ownerId;
-        $query['StartTime']      = $request->startTime;
-        $req                     = new OpenApiRequest([
+        $query = [];
+        if (!Utils::isUnset($request->domainName)) {
+            $query['DomainName'] = $request->domainName;
+        }
+        if (!Utils::isUnset($request->endTime)) {
+            $query['EndTime'] = $request->endTime;
+        }
+        if (!Utils::isUnset($request->interval)) {
+            $query['Interval'] = $request->interval;
+        }
+        if (!Utils::isUnset($request->ispNameEn)) {
+            $query['IspNameEn'] = $request->ispNameEn;
+        }
+        if (!Utils::isUnset($request->locationNameEn)) {
+            $query['LocationNameEn'] = $request->locationNameEn;
+        }
+        if (!Utils::isUnset($request->ownerId)) {
+            $query['OwnerId'] = $request->ownerId;
+        }
+        if (!Utils::isUnset($request->startTime)) {
+            $query['StartTime'] = $request->startTime;
+        }
+        $req = new OpenApiRequest([
             'query' => OpenApiUtilClient::query($query),
-            'body'  => Utils::toMap($request),
         ]);
         $params = new Params([
             'action'      => 'DescribeDomainBpsData',
@@ -2976,7 +3392,7 @@ class Cdn extends OpenApiClient
             'method'      => 'POST',
             'authType'    => 'AK',
             'style'       => 'RPC',
-            'reqBodyType' => 'json',
+            'reqBodyType' => 'formData',
             'bodyType'    => 'json',
         ]);
 
@@ -3004,18 +3420,33 @@ class Cdn extends OpenApiClient
     public function describeDomainBpsDataByLayerWithOptions($request, $runtime)
     {
         Utils::validateModel($request);
-        $query                   = [];
-        $query['DomainName']     = $request->domainName;
-        $query['EndTime']        = $request->endTime;
-        $query['Interval']       = $request->interval;
-        $query['IspNameEn']      = $request->ispNameEn;
-        $query['Layer']          = $request->layer;
-        $query['LocationNameEn'] = $request->locationNameEn;
-        $query['OwnerId']        = $request->ownerId;
-        $query['StartTime']      = $request->startTime;
-        $req                     = new OpenApiRequest([
+        $query = [];
+        if (!Utils::isUnset($request->domainName)) {
+            $query['DomainName'] = $request->domainName;
+        }
+        if (!Utils::isUnset($request->endTime)) {
+            $query['EndTime'] = $request->endTime;
+        }
+        if (!Utils::isUnset($request->interval)) {
+            $query['Interval'] = $request->interval;
+        }
+        if (!Utils::isUnset($request->ispNameEn)) {
+            $query['IspNameEn'] = $request->ispNameEn;
+        }
+        if (!Utils::isUnset($request->layer)) {
+            $query['Layer'] = $request->layer;
+        }
+        if (!Utils::isUnset($request->locationNameEn)) {
+            $query['LocationNameEn'] = $request->locationNameEn;
+        }
+        if (!Utils::isUnset($request->ownerId)) {
+            $query['OwnerId'] = $request->ownerId;
+        }
+        if (!Utils::isUnset($request->startTime)) {
+            $query['StartTime'] = $request->startTime;
+        }
+        $req = new OpenApiRequest([
             'query' => OpenApiUtilClient::query($query),
-            'body'  => Utils::toMap($request),
         ]);
         $params = new Params([
             'action'      => 'DescribeDomainBpsDataByLayer',
@@ -3025,7 +3456,7 @@ class Cdn extends OpenApiClient
             'method'      => 'POST',
             'authType'    => 'AK',
             'style'       => 'RPC',
-            'reqBodyType' => 'json',
+            'reqBodyType' => 'formData',
             'bodyType'    => 'json',
         ]);
 
@@ -3053,15 +3484,24 @@ class Cdn extends OpenApiClient
     public function describeDomainBpsDataByTimeStampWithOptions($request, $runtime)
     {
         Utils::validateModel($request);
-        $query                  = [];
-        $query['DomainName']    = $request->domainName;
-        $query['IspNames']      = $request->ispNames;
-        $query['LocationNames'] = $request->locationNames;
-        $query['OwnerId']       = $request->ownerId;
-        $query['TimePoint']     = $request->timePoint;
-        $req                    = new OpenApiRequest([
+        $query = [];
+        if (!Utils::isUnset($request->domainName)) {
+            $query['DomainName'] = $request->domainName;
+        }
+        if (!Utils::isUnset($request->ispNames)) {
+            $query['IspNames'] = $request->ispNames;
+        }
+        if (!Utils::isUnset($request->locationNames)) {
+            $query['LocationNames'] = $request->locationNames;
+        }
+        if (!Utils::isUnset($request->ownerId)) {
+            $query['OwnerId'] = $request->ownerId;
+        }
+        if (!Utils::isUnset($request->timePoint)) {
+            $query['TimePoint'] = $request->timePoint;
+        }
+        $req = new OpenApiRequest([
             'query' => OpenApiUtilClient::query($query),
-            'body'  => Utils::toMap($request),
         ]);
         $params = new Params([
             'action'      => 'DescribeDomainBpsDataByTimeStamp',
@@ -3071,7 +3511,7 @@ class Cdn extends OpenApiClient
             'method'      => 'POST',
             'authType'    => 'AK',
             'style'       => 'RPC',
-            'reqBodyType' => 'json',
+            'reqBodyType' => 'formData',
             'bodyType'    => 'json',
         ]);
 
@@ -3099,19 +3539,36 @@ class Cdn extends OpenApiClient
     public function describeDomainCcActivityLogWithOptions($request, $runtime)
     {
         Utils::validateModel($request);
-        $query                  = [];
-        $query['DomainName']    = $request->domainName;
-        $query['EndTime']       = $request->endTime;
-        $query['OwnerId']       = $request->ownerId;
-        $query['PageNumber']    = $request->pageNumber;
-        $query['PageSize']      = $request->pageSize;
-        $query['RuleName']      = $request->ruleName;
-        $query['StartTime']     = $request->startTime;
-        $query['TriggerObject'] = $request->triggerObject;
-        $query['Value']         = $request->value;
-        $req                    = new OpenApiRequest([
+        $query = [];
+        if (!Utils::isUnset($request->domainName)) {
+            $query['DomainName'] = $request->domainName;
+        }
+        if (!Utils::isUnset($request->endTime)) {
+            $query['EndTime'] = $request->endTime;
+        }
+        if (!Utils::isUnset($request->ownerId)) {
+            $query['OwnerId'] = $request->ownerId;
+        }
+        if (!Utils::isUnset($request->pageNumber)) {
+            $query['PageNumber'] = $request->pageNumber;
+        }
+        if (!Utils::isUnset($request->pageSize)) {
+            $query['PageSize'] = $request->pageSize;
+        }
+        if (!Utils::isUnset($request->ruleName)) {
+            $query['RuleName'] = $request->ruleName;
+        }
+        if (!Utils::isUnset($request->startTime)) {
+            $query['StartTime'] = $request->startTime;
+        }
+        if (!Utils::isUnset($request->triggerObject)) {
+            $query['TriggerObject'] = $request->triggerObject;
+        }
+        if (!Utils::isUnset($request->value)) {
+            $query['Value'] = $request->value;
+        }
+        $req = new OpenApiRequest([
             'query' => OpenApiUtilClient::query($query),
-            'body'  => Utils::toMap($request),
         ]);
         $params = new Params([
             'action'      => 'DescribeDomainCcActivityLog',
@@ -3121,7 +3578,7 @@ class Cdn extends OpenApiClient
             'method'      => 'POST',
             'authType'    => 'AK',
             'style'       => 'RPC',
-            'reqBodyType' => 'json',
+            'reqBodyType' => 'formData',
             'bodyType'    => 'json',
         ]);
 
@@ -3149,12 +3606,15 @@ class Cdn extends OpenApiClient
     public function describeDomainCertificateInfoWithOptions($request, $runtime)
     {
         Utils::validateModel($request);
-        $query               = [];
-        $query['DomainName'] = $request->domainName;
-        $query['OwnerId']    = $request->ownerId;
-        $req                 = new OpenApiRequest([
+        $query = [];
+        if (!Utils::isUnset($request->domainName)) {
+            $query['DomainName'] = $request->domainName;
+        }
+        if (!Utils::isUnset($request->ownerId)) {
+            $query['OwnerId'] = $request->ownerId;
+        }
+        $req = new OpenApiRequest([
             'query' => OpenApiUtilClient::query($query),
-            'body'  => Utils::toMap($request),
         ]);
         $params = new Params([
             'action'      => 'DescribeDomainCertificateInfo',
@@ -3164,7 +3624,7 @@ class Cdn extends OpenApiClient
             'method'      => 'POST',
             'authType'    => 'AK',
             'style'       => 'RPC',
-            'reqBodyType' => 'json',
+            'reqBodyType' => 'formData',
             'bodyType'    => 'json',
         ]);
 
@@ -3204,7 +3664,7 @@ class Cdn extends OpenApiClient
             'method'      => 'GET',
             'authType'    => 'AK',
             'style'       => 'RPC',
-            'reqBodyType' => 'json',
+            'reqBodyType' => 'formData',
             'bodyType'    => 'json',
         ]);
 
@@ -3244,7 +3704,7 @@ class Cdn extends OpenApiClient
             'method'      => 'GET',
             'authType'    => 'AK',
             'style'       => 'RPC',
-            'reqBodyType' => 'json',
+            'reqBodyType' => 'formData',
             'bodyType'    => 'json',
         ]);
 
@@ -3272,15 +3732,24 @@ class Cdn extends OpenApiClient
     public function describeDomainFileSizeProportionDataWithOptions($request, $runtime)
     {
         Utils::validateModel($request);
-        $query                  = [];
-        $query['DomainName']    = $request->domainName;
-        $query['EndTime']       = $request->endTime;
-        $query['OwnerId']       = $request->ownerId;
-        $query['SecurityToken'] = $request->securityToken;
-        $query['StartTime']     = $request->startTime;
-        $req                    = new OpenApiRequest([
+        $query = [];
+        if (!Utils::isUnset($request->domainName)) {
+            $query['DomainName'] = $request->domainName;
+        }
+        if (!Utils::isUnset($request->endTime)) {
+            $query['EndTime'] = $request->endTime;
+        }
+        if (!Utils::isUnset($request->ownerId)) {
+            $query['OwnerId'] = $request->ownerId;
+        }
+        if (!Utils::isUnset($request->securityToken)) {
+            $query['SecurityToken'] = $request->securityToken;
+        }
+        if (!Utils::isUnset($request->startTime)) {
+            $query['StartTime'] = $request->startTime;
+        }
+        $req = new OpenApiRequest([
             'query' => OpenApiUtilClient::query($query),
-            'body'  => Utils::toMap($request),
         ]);
         $params = new Params([
             'action'      => 'DescribeDomainFileSizeProportionData',
@@ -3290,7 +3759,7 @@ class Cdn extends OpenApiClient
             'method'      => 'POST',
             'authType'    => 'AK',
             'style'       => 'RPC',
-            'reqBodyType' => 'json',
+            'reqBodyType' => 'formData',
             'bodyType'    => 'json',
         ]);
 
@@ -3318,15 +3787,24 @@ class Cdn extends OpenApiClient
     public function describeDomainHitRateDataWithOptions($request, $runtime)
     {
         Utils::validateModel($request);
-        $query               = [];
-        $query['DomainName'] = $request->domainName;
-        $query['EndTime']    = $request->endTime;
-        $query['Interval']   = $request->interval;
-        $query['OwnerId']    = $request->ownerId;
-        $query['StartTime']  = $request->startTime;
-        $req                 = new OpenApiRequest([
+        $query = [];
+        if (!Utils::isUnset($request->domainName)) {
+            $query['DomainName'] = $request->domainName;
+        }
+        if (!Utils::isUnset($request->endTime)) {
+            $query['EndTime'] = $request->endTime;
+        }
+        if (!Utils::isUnset($request->interval)) {
+            $query['Interval'] = $request->interval;
+        }
+        if (!Utils::isUnset($request->ownerId)) {
+            $query['OwnerId'] = $request->ownerId;
+        }
+        if (!Utils::isUnset($request->startTime)) {
+            $query['StartTime'] = $request->startTime;
+        }
+        $req = new OpenApiRequest([
             'query' => OpenApiUtilClient::query($query),
-            'body'  => Utils::toMap($request),
         ]);
         $params = new Params([
             'action'      => 'DescribeDomainHitRateData',
@@ -3336,7 +3814,7 @@ class Cdn extends OpenApiClient
             'method'      => 'POST',
             'authType'    => 'AK',
             'style'       => 'RPC',
-            'reqBodyType' => 'json',
+            'reqBodyType' => 'formData',
             'bodyType'    => 'json',
         ]);
 
@@ -3364,15 +3842,24 @@ class Cdn extends OpenApiClient
     public function describeDomainHttpCodeDataWithOptions($request, $runtime)
     {
         Utils::validateModel($request);
-        $query               = [];
-        $query['DomainName'] = $request->domainName;
-        $query['EndTime']    = $request->endTime;
-        $query['Interval']   = $request->interval;
-        $query['OwnerId']    = $request->ownerId;
-        $query['StartTime']  = $request->startTime;
-        $req                 = new OpenApiRequest([
+        $query = [];
+        if (!Utils::isUnset($request->domainName)) {
+            $query['DomainName'] = $request->domainName;
+        }
+        if (!Utils::isUnset($request->endTime)) {
+            $query['EndTime'] = $request->endTime;
+        }
+        if (!Utils::isUnset($request->interval)) {
+            $query['Interval'] = $request->interval;
+        }
+        if (!Utils::isUnset($request->ownerId)) {
+            $query['OwnerId'] = $request->ownerId;
+        }
+        if (!Utils::isUnset($request->startTime)) {
+            $query['StartTime'] = $request->startTime;
+        }
+        $req = new OpenApiRequest([
             'query' => OpenApiUtilClient::query($query),
-            'body'  => Utils::toMap($request),
         ]);
         $params = new Params([
             'action'      => 'DescribeDomainHttpCodeData',
@@ -3382,7 +3869,7 @@ class Cdn extends OpenApiClient
             'method'      => 'POST',
             'authType'    => 'AK',
             'style'       => 'RPC',
-            'reqBodyType' => 'json',
+            'reqBodyType' => 'formData',
             'bodyType'    => 'json',
         ]);
 
@@ -3410,18 +3897,33 @@ class Cdn extends OpenApiClient
     public function describeDomainHttpCodeDataByLayerWithOptions($request, $runtime)
     {
         Utils::validateModel($request);
-        $query                   = [];
-        $query['DomainName']     = $request->domainName;
-        $query['EndTime']        = $request->endTime;
-        $query['Interval']       = $request->interval;
-        $query['IspNameEn']      = $request->ispNameEn;
-        $query['Layer']          = $request->layer;
-        $query['LocationNameEn'] = $request->locationNameEn;
-        $query['OwnerId']        = $request->ownerId;
-        $query['StartTime']      = $request->startTime;
-        $req                     = new OpenApiRequest([
+        $query = [];
+        if (!Utils::isUnset($request->domainName)) {
+            $query['DomainName'] = $request->domainName;
+        }
+        if (!Utils::isUnset($request->endTime)) {
+            $query['EndTime'] = $request->endTime;
+        }
+        if (!Utils::isUnset($request->interval)) {
+            $query['Interval'] = $request->interval;
+        }
+        if (!Utils::isUnset($request->ispNameEn)) {
+            $query['IspNameEn'] = $request->ispNameEn;
+        }
+        if (!Utils::isUnset($request->layer)) {
+            $query['Layer'] = $request->layer;
+        }
+        if (!Utils::isUnset($request->locationNameEn)) {
+            $query['LocationNameEn'] = $request->locationNameEn;
+        }
+        if (!Utils::isUnset($request->ownerId)) {
+            $query['OwnerId'] = $request->ownerId;
+        }
+        if (!Utils::isUnset($request->startTime)) {
+            $query['StartTime'] = $request->startTime;
+        }
+        $req = new OpenApiRequest([
             'query' => OpenApiUtilClient::query($query),
-            'body'  => Utils::toMap($request),
         ]);
         $params = new Params([
             'action'      => 'DescribeDomainHttpCodeDataByLayer',
@@ -3431,7 +3933,7 @@ class Cdn extends OpenApiClient
             'method'      => 'POST',
             'authType'    => 'AK',
             'style'       => 'RPC',
-            'reqBodyType' => 'json',
+            'reqBodyType' => 'formData',
             'bodyType'    => 'json',
         ]);
 
@@ -3459,14 +3961,21 @@ class Cdn extends OpenApiClient
     public function describeDomainISPDataWithOptions($request, $runtime)
     {
         Utils::validateModel($request);
-        $query               = [];
-        $query['DomainName'] = $request->domainName;
-        $query['EndTime']    = $request->endTime;
-        $query['OwnerId']    = $request->ownerId;
-        $query['StartTime']  = $request->startTime;
-        $req                 = new OpenApiRequest([
+        $query = [];
+        if (!Utils::isUnset($request->domainName)) {
+            $query['DomainName'] = $request->domainName;
+        }
+        if (!Utils::isUnset($request->endTime)) {
+            $query['EndTime'] = $request->endTime;
+        }
+        if (!Utils::isUnset($request->ownerId)) {
+            $query['OwnerId'] = $request->ownerId;
+        }
+        if (!Utils::isUnset($request->startTime)) {
+            $query['StartTime'] = $request->startTime;
+        }
+        $req = new OpenApiRequest([
             'query' => OpenApiUtilClient::query($query),
-            'body'  => Utils::toMap($request),
         ]);
         $params = new Params([
             'action'      => 'DescribeDomainISPData',
@@ -3476,7 +3985,7 @@ class Cdn extends OpenApiClient
             'method'      => 'POST',
             'authType'    => 'AK',
             'style'       => 'RPC',
-            'reqBodyType' => 'json',
+            'reqBodyType' => 'formData',
             'bodyType'    => 'json',
         ]);
 
@@ -3504,16 +4013,27 @@ class Cdn extends OpenApiClient
     public function describeDomainMax95BpsDataWithOptions($request, $runtime)
     {
         Utils::validateModel($request);
-        $query               = [];
-        $query['Cycle']      = $request->cycle;
-        $query['DomainName'] = $request->domainName;
-        $query['EndTime']    = $request->endTime;
-        $query['OwnerId']    = $request->ownerId;
-        $query['StartTime']  = $request->startTime;
-        $query['TimePoint']  = $request->timePoint;
-        $req                 = new OpenApiRequest([
+        $query = [];
+        if (!Utils::isUnset($request->cycle)) {
+            $query['Cycle'] = $request->cycle;
+        }
+        if (!Utils::isUnset($request->domainName)) {
+            $query['DomainName'] = $request->domainName;
+        }
+        if (!Utils::isUnset($request->endTime)) {
+            $query['EndTime'] = $request->endTime;
+        }
+        if (!Utils::isUnset($request->ownerId)) {
+            $query['OwnerId'] = $request->ownerId;
+        }
+        if (!Utils::isUnset($request->startTime)) {
+            $query['StartTime'] = $request->startTime;
+        }
+        if (!Utils::isUnset($request->timePoint)) {
+            $query['TimePoint'] = $request->timePoint;
+        }
+        $req = new OpenApiRequest([
             'query' => OpenApiUtilClient::query($query),
-            'body'  => Utils::toMap($request),
         ]);
         $params = new Params([
             'action'      => 'DescribeDomainMax95BpsData',
@@ -3523,7 +4043,7 @@ class Cdn extends OpenApiClient
             'method'      => 'POST',
             'authType'    => 'AK',
             'style'       => 'RPC',
-            'reqBodyType' => 'json',
+            'reqBodyType' => 'formData',
             'bodyType'    => 'json',
         ]);
 
@@ -3551,14 +4071,21 @@ class Cdn extends OpenApiClient
     public function describeDomainMultiUsageDataWithOptions($request, $runtime)
     {
         Utils::validateModel($request);
-        $query               = [];
-        $query['DomainName'] = $request->domainName;
-        $query['EndTime']    = $request->endTime;
-        $query['OwnerId']    = $request->ownerId;
-        $query['StartTime']  = $request->startTime;
-        $req                 = new OpenApiRequest([
+        $query = [];
+        if (!Utils::isUnset($request->domainName)) {
+            $query['DomainName'] = $request->domainName;
+        }
+        if (!Utils::isUnset($request->endTime)) {
+            $query['EndTime'] = $request->endTime;
+        }
+        if (!Utils::isUnset($request->ownerId)) {
+            $query['OwnerId'] = $request->ownerId;
+        }
+        if (!Utils::isUnset($request->startTime)) {
+            $query['StartTime'] = $request->startTime;
+        }
+        $req = new OpenApiRequest([
             'query' => OpenApiUtilClient::query($query),
-            'body'  => Utils::toMap($request),
         ]);
         $params = new Params([
             'action'      => 'DescribeDomainMultiUsageData',
@@ -3568,7 +4095,7 @@ class Cdn extends OpenApiClient
             'method'      => 'POST',
             'authType'    => 'AK',
             'style'       => 'RPC',
-            'reqBodyType' => 'json',
+            'reqBodyType' => 'formData',
             'bodyType'    => 'json',
         ]);
 
@@ -3596,14 +4123,21 @@ class Cdn extends OpenApiClient
     public function describeDomainNamesOfVersionWithOptions($request, $runtime)
     {
         Utils::validateModel($request);
-        $query              = [];
-        $query['OwnerId']   = $request->ownerId;
-        $query['PageIndex'] = $request->pageIndex;
-        $query['PageSize']  = $request->pageSize;
-        $query['VersionId'] = $request->versionId;
-        $req                = new OpenApiRequest([
+        $query = [];
+        if (!Utils::isUnset($request->ownerId)) {
+            $query['OwnerId'] = $request->ownerId;
+        }
+        if (!Utils::isUnset($request->pageIndex)) {
+            $query['PageIndex'] = $request->pageIndex;
+        }
+        if (!Utils::isUnset($request->pageSize)) {
+            $query['PageSize'] = $request->pageSize;
+        }
+        if (!Utils::isUnset($request->versionId)) {
+            $query['VersionId'] = $request->versionId;
+        }
+        $req = new OpenApiRequest([
             'query' => OpenApiUtilClient::query($query),
-            'body'  => Utils::toMap($request),
         ]);
         $params = new Params([
             'action'      => 'DescribeDomainNamesOfVersion',
@@ -3613,7 +4147,7 @@ class Cdn extends OpenApiClient
             'method'      => 'POST',
             'authType'    => 'AK',
             'style'       => 'RPC',
-            'reqBodyType' => 'json',
+            'reqBodyType' => 'formData',
             'bodyType'    => 'json',
         ]);
 
@@ -3653,7 +4187,7 @@ class Cdn extends OpenApiClient
             'method'      => 'GET',
             'authType'    => 'AK',
             'style'       => 'RPC',
-            'reqBodyType' => 'json',
+            'reqBodyType' => 'formData',
             'bodyType'    => 'json',
         ]);
 
@@ -3681,14 +4215,21 @@ class Cdn extends OpenApiClient
     public function describeDomainPvDataWithOptions($request, $runtime)
     {
         Utils::validateModel($request);
-        $query               = [];
-        $query['DomainName'] = $request->domainName;
-        $query['EndTime']    = $request->endTime;
-        $query['OwnerId']    = $request->ownerId;
-        $query['StartTime']  = $request->startTime;
-        $req                 = new OpenApiRequest([
+        $query = [];
+        if (!Utils::isUnset($request->domainName)) {
+            $query['DomainName'] = $request->domainName;
+        }
+        if (!Utils::isUnset($request->endTime)) {
+            $query['EndTime'] = $request->endTime;
+        }
+        if (!Utils::isUnset($request->ownerId)) {
+            $query['OwnerId'] = $request->ownerId;
+        }
+        if (!Utils::isUnset($request->startTime)) {
+            $query['StartTime'] = $request->startTime;
+        }
+        $req = new OpenApiRequest([
             'query' => OpenApiUtilClient::query($query),
-            'body'  => Utils::toMap($request),
         ]);
         $params = new Params([
             'action'      => 'DescribeDomainPvData',
@@ -3698,7 +4239,7 @@ class Cdn extends OpenApiClient
             'method'      => 'POST',
             'authType'    => 'AK',
             'style'       => 'RPC',
-            'reqBodyType' => 'json',
+            'reqBodyType' => 'formData',
             'bodyType'    => 'json',
         ]);
 
@@ -3726,17 +4267,30 @@ class Cdn extends OpenApiClient
     public function describeDomainQpsDataWithOptions($request, $runtime)
     {
         Utils::validateModel($request);
-        $query                   = [];
-        $query['DomainName']     = $request->domainName;
-        $query['EndTime']        = $request->endTime;
-        $query['Interval']       = $request->interval;
-        $query['IspNameEn']      = $request->ispNameEn;
-        $query['LocationNameEn'] = $request->locationNameEn;
-        $query['OwnerId']        = $request->ownerId;
-        $query['StartTime']      = $request->startTime;
-        $req                     = new OpenApiRequest([
+        $query = [];
+        if (!Utils::isUnset($request->domainName)) {
+            $query['DomainName'] = $request->domainName;
+        }
+        if (!Utils::isUnset($request->endTime)) {
+            $query['EndTime'] = $request->endTime;
+        }
+        if (!Utils::isUnset($request->interval)) {
+            $query['Interval'] = $request->interval;
+        }
+        if (!Utils::isUnset($request->ispNameEn)) {
+            $query['IspNameEn'] = $request->ispNameEn;
+        }
+        if (!Utils::isUnset($request->locationNameEn)) {
+            $query['LocationNameEn'] = $request->locationNameEn;
+        }
+        if (!Utils::isUnset($request->ownerId)) {
+            $query['OwnerId'] = $request->ownerId;
+        }
+        if (!Utils::isUnset($request->startTime)) {
+            $query['StartTime'] = $request->startTime;
+        }
+        $req = new OpenApiRequest([
             'query' => OpenApiUtilClient::query($query),
-            'body'  => Utils::toMap($request),
         ]);
         $params = new Params([
             'action'      => 'DescribeDomainQpsData',
@@ -3746,7 +4300,7 @@ class Cdn extends OpenApiClient
             'method'      => 'POST',
             'authType'    => 'AK',
             'style'       => 'RPC',
-            'reqBodyType' => 'json',
+            'reqBodyType' => 'formData',
             'bodyType'    => 'json',
         ]);
 
@@ -3774,18 +4328,33 @@ class Cdn extends OpenApiClient
     public function describeDomainQpsDataByLayerWithOptions($request, $runtime)
     {
         Utils::validateModel($request);
-        $query                   = [];
-        $query['DomainName']     = $request->domainName;
-        $query['EndTime']        = $request->endTime;
-        $query['Interval']       = $request->interval;
-        $query['IspNameEn']      = $request->ispNameEn;
-        $query['Layer']          = $request->layer;
-        $query['LocationNameEn'] = $request->locationNameEn;
-        $query['OwnerId']        = $request->ownerId;
-        $query['StartTime']      = $request->startTime;
-        $req                     = new OpenApiRequest([
+        $query = [];
+        if (!Utils::isUnset($request->domainName)) {
+            $query['DomainName'] = $request->domainName;
+        }
+        if (!Utils::isUnset($request->endTime)) {
+            $query['EndTime'] = $request->endTime;
+        }
+        if (!Utils::isUnset($request->interval)) {
+            $query['Interval'] = $request->interval;
+        }
+        if (!Utils::isUnset($request->ispNameEn)) {
+            $query['IspNameEn'] = $request->ispNameEn;
+        }
+        if (!Utils::isUnset($request->layer)) {
+            $query['Layer'] = $request->layer;
+        }
+        if (!Utils::isUnset($request->locationNameEn)) {
+            $query['LocationNameEn'] = $request->locationNameEn;
+        }
+        if (!Utils::isUnset($request->ownerId)) {
+            $query['OwnerId'] = $request->ownerId;
+        }
+        if (!Utils::isUnset($request->startTime)) {
+            $query['StartTime'] = $request->startTime;
+        }
+        $req = new OpenApiRequest([
             'query' => OpenApiUtilClient::query($query),
-            'body'  => Utils::toMap($request),
         ]);
         $params = new Params([
             'action'      => 'DescribeDomainQpsDataByLayer',
@@ -3795,7 +4364,7 @@ class Cdn extends OpenApiClient
             'method'      => 'POST',
             'authType'    => 'AK',
             'style'       => 'RPC',
-            'reqBodyType' => 'json',
+            'reqBodyType' => 'formData',
             'bodyType'    => 'json',
         ]);
 
@@ -3835,7 +4404,7 @@ class Cdn extends OpenApiClient
             'method'      => 'GET',
             'authType'    => 'AK',
             'style'       => 'RPC',
-            'reqBodyType' => 'json',
+            'reqBodyType' => 'formData',
             'bodyType'    => 'json',
         ]);
 
@@ -3875,7 +4444,7 @@ class Cdn extends OpenApiClient
             'method'      => 'GET',
             'authType'    => 'AK',
             'style'       => 'RPC',
-            'reqBodyType' => 'json',
+            'reqBodyType' => 'formData',
             'bodyType'    => 'json',
         ]);
 
@@ -3915,7 +4484,7 @@ class Cdn extends OpenApiClient
             'method'      => 'GET',
             'authType'    => 'AK',
             'style'       => 'RPC',
-            'reqBodyType' => 'json',
+            'reqBodyType' => 'formData',
             'bodyType'    => 'json',
         ]);
 
@@ -3943,16 +4512,27 @@ class Cdn extends OpenApiClient
     public function describeDomainRealTimeHttpCodeDataWithOptions($request, $runtime)
     {
         Utils::validateModel($request);
-        $query                   = [];
-        $query['DomainName']     = $request->domainName;
-        $query['EndTime']        = $request->endTime;
-        $query['IspNameEn']      = $request->ispNameEn;
-        $query['LocationNameEn'] = $request->locationNameEn;
-        $query['OwnerId']        = $request->ownerId;
-        $query['StartTime']      = $request->startTime;
-        $req                     = new OpenApiRequest([
+        $query = [];
+        if (!Utils::isUnset($request->domainName)) {
+            $query['DomainName'] = $request->domainName;
+        }
+        if (!Utils::isUnset($request->endTime)) {
+            $query['EndTime'] = $request->endTime;
+        }
+        if (!Utils::isUnset($request->ispNameEn)) {
+            $query['IspNameEn'] = $request->ispNameEn;
+        }
+        if (!Utils::isUnset($request->locationNameEn)) {
+            $query['LocationNameEn'] = $request->locationNameEn;
+        }
+        if (!Utils::isUnset($request->ownerId)) {
+            $query['OwnerId'] = $request->ownerId;
+        }
+        if (!Utils::isUnset($request->startTime)) {
+            $query['StartTime'] = $request->startTime;
+        }
+        $req = new OpenApiRequest([
             'query' => OpenApiUtilClient::query($query),
-            'body'  => Utils::toMap($request),
         ]);
         $params = new Params([
             'action'      => 'DescribeDomainRealTimeHttpCodeData',
@@ -3962,7 +4542,7 @@ class Cdn extends OpenApiClient
             'method'      => 'POST',
             'authType'    => 'AK',
             'style'       => 'RPC',
-            'reqBodyType' => 'json',
+            'reqBodyType' => 'formData',
             'bodyType'    => 'json',
         ]);
 
@@ -4002,7 +4582,7 @@ class Cdn extends OpenApiClient
             'method'      => 'GET',
             'authType'    => 'AK',
             'style'       => 'RPC',
-            'reqBodyType' => 'json',
+            'reqBodyType' => 'formData',
             'bodyType'    => 'json',
         ]);
 
@@ -4042,7 +4622,7 @@ class Cdn extends OpenApiClient
             'method'      => 'GET',
             'authType'    => 'AK',
             'style'       => 'RPC',
-            'reqBodyType' => 'json',
+            'reqBodyType' => 'formData',
             'bodyType'    => 'json',
         ]);
 
@@ -4070,14 +4650,21 @@ class Cdn extends OpenApiClient
     public function describeDomainRealTimeSrcBpsDataWithOptions($request, $runtime)
     {
         Utils::validateModel($request);
-        $query               = [];
-        $query['DomainName'] = $request->domainName;
-        $query['EndTime']    = $request->endTime;
-        $query['OwnerId']    = $request->ownerId;
-        $query['StartTime']  = $request->startTime;
-        $req                 = new OpenApiRequest([
+        $query = [];
+        if (!Utils::isUnset($request->domainName)) {
+            $query['DomainName'] = $request->domainName;
+        }
+        if (!Utils::isUnset($request->endTime)) {
+            $query['EndTime'] = $request->endTime;
+        }
+        if (!Utils::isUnset($request->ownerId)) {
+            $query['OwnerId'] = $request->ownerId;
+        }
+        if (!Utils::isUnset($request->startTime)) {
+            $query['StartTime'] = $request->startTime;
+        }
+        $req = new OpenApiRequest([
             'query' => OpenApiUtilClient::query($query),
-            'body'  => Utils::toMap($request),
         ]);
         $params = new Params([
             'action'      => 'DescribeDomainRealTimeSrcBpsData',
@@ -4087,7 +4674,7 @@ class Cdn extends OpenApiClient
             'method'      => 'POST',
             'authType'    => 'AK',
             'style'       => 'RPC',
-            'reqBodyType' => 'json',
+            'reqBodyType' => 'formData',
             'bodyType'    => 'json',
         ]);
 
@@ -4115,16 +4702,27 @@ class Cdn extends OpenApiClient
     public function describeDomainRealTimeSrcHttpCodeDataWithOptions($request, $runtime)
     {
         Utils::validateModel($request);
-        $query                   = [];
-        $query['DomainName']     = $request->domainName;
-        $query['EndTime']        = $request->endTime;
-        $query['IspNameEn']      = $request->ispNameEn;
-        $query['LocationNameEn'] = $request->locationNameEn;
-        $query['OwnerId']        = $request->ownerId;
-        $query['StartTime']      = $request->startTime;
-        $req                     = new OpenApiRequest([
+        $query = [];
+        if (!Utils::isUnset($request->domainName)) {
+            $query['DomainName'] = $request->domainName;
+        }
+        if (!Utils::isUnset($request->endTime)) {
+            $query['EndTime'] = $request->endTime;
+        }
+        if (!Utils::isUnset($request->ispNameEn)) {
+            $query['IspNameEn'] = $request->ispNameEn;
+        }
+        if (!Utils::isUnset($request->locationNameEn)) {
+            $query['LocationNameEn'] = $request->locationNameEn;
+        }
+        if (!Utils::isUnset($request->ownerId)) {
+            $query['OwnerId'] = $request->ownerId;
+        }
+        if (!Utils::isUnset($request->startTime)) {
+            $query['StartTime'] = $request->startTime;
+        }
+        $req = new OpenApiRequest([
             'query' => OpenApiUtilClient::query($query),
-            'body'  => Utils::toMap($request),
         ]);
         $params = new Params([
             'action'      => 'DescribeDomainRealTimeSrcHttpCodeData',
@@ -4134,7 +4732,7 @@ class Cdn extends OpenApiClient
             'method'      => 'POST',
             'authType'    => 'AK',
             'style'       => 'RPC',
-            'reqBodyType' => 'json',
+            'reqBodyType' => 'formData',
             'bodyType'    => 'json',
         ]);
 
@@ -4162,14 +4760,21 @@ class Cdn extends OpenApiClient
     public function describeDomainRealTimeSrcTrafficDataWithOptions($request, $runtime)
     {
         Utils::validateModel($request);
-        $query               = [];
-        $query['DomainName'] = $request->domainName;
-        $query['EndTime']    = $request->endTime;
-        $query['OwnerId']    = $request->ownerId;
-        $query['StartTime']  = $request->startTime;
-        $req                 = new OpenApiRequest([
+        $query = [];
+        if (!Utils::isUnset($request->domainName)) {
+            $query['DomainName'] = $request->domainName;
+        }
+        if (!Utils::isUnset($request->endTime)) {
+            $query['EndTime'] = $request->endTime;
+        }
+        if (!Utils::isUnset($request->ownerId)) {
+            $query['OwnerId'] = $request->ownerId;
+        }
+        if (!Utils::isUnset($request->startTime)) {
+            $query['StartTime'] = $request->startTime;
+        }
+        $req = new OpenApiRequest([
             'query' => OpenApiUtilClient::query($query),
-            'body'  => Utils::toMap($request),
         ]);
         $params = new Params([
             'action'      => 'DescribeDomainRealTimeSrcTrafficData',
@@ -4179,7 +4784,7 @@ class Cdn extends OpenApiClient
             'method'      => 'POST',
             'authType'    => 'AK',
             'style'       => 'RPC',
-            'reqBodyType' => 'json',
+            'reqBodyType' => 'formData',
             'bodyType'    => 'json',
         ]);
 
@@ -4207,16 +4812,27 @@ class Cdn extends OpenApiClient
     public function describeDomainRealTimeTrafficDataWithOptions($request, $runtime)
     {
         Utils::validateModel($request);
-        $query                   = [];
-        $query['DomainName']     = $request->domainName;
-        $query['EndTime']        = $request->endTime;
-        $query['IspNameEn']      = $request->ispNameEn;
-        $query['LocationNameEn'] = $request->locationNameEn;
-        $query['OwnerId']        = $request->ownerId;
-        $query['StartTime']      = $request->startTime;
-        $req                     = new OpenApiRequest([
+        $query = [];
+        if (!Utils::isUnset($request->domainName)) {
+            $query['DomainName'] = $request->domainName;
+        }
+        if (!Utils::isUnset($request->endTime)) {
+            $query['EndTime'] = $request->endTime;
+        }
+        if (!Utils::isUnset($request->ispNameEn)) {
+            $query['IspNameEn'] = $request->ispNameEn;
+        }
+        if (!Utils::isUnset($request->locationNameEn)) {
+            $query['LocationNameEn'] = $request->locationNameEn;
+        }
+        if (!Utils::isUnset($request->ownerId)) {
+            $query['OwnerId'] = $request->ownerId;
+        }
+        if (!Utils::isUnset($request->startTime)) {
+            $query['StartTime'] = $request->startTime;
+        }
+        $req = new OpenApiRequest([
             'query' => OpenApiUtilClient::query($query),
-            'body'  => Utils::toMap($request),
         ]);
         $params = new Params([
             'action'      => 'DescribeDomainRealTimeTrafficData',
@@ -4226,7 +4842,7 @@ class Cdn extends OpenApiClient
             'method'      => 'POST',
             'authType'    => 'AK',
             'style'       => 'RPC',
-            'reqBodyType' => 'json',
+            'reqBodyType' => 'formData',
             'bodyType'    => 'json',
         ]);
 
@@ -4266,7 +4882,7 @@ class Cdn extends OpenApiClient
             'method'      => 'GET',
             'authType'    => 'AK',
             'style'       => 'RPC',
-            'reqBodyType' => 'json',
+            'reqBodyType' => 'formData',
             'bodyType'    => 'json',
         ]);
 
@@ -4294,14 +4910,21 @@ class Cdn extends OpenApiClient
     public function describeDomainRegionDataWithOptions($request, $runtime)
     {
         Utils::validateModel($request);
-        $query               = [];
-        $query['DomainName'] = $request->domainName;
-        $query['EndTime']    = $request->endTime;
-        $query['OwnerId']    = $request->ownerId;
-        $query['StartTime']  = $request->startTime;
-        $req                 = new OpenApiRequest([
+        $query = [];
+        if (!Utils::isUnset($request->domainName)) {
+            $query['DomainName'] = $request->domainName;
+        }
+        if (!Utils::isUnset($request->endTime)) {
+            $query['EndTime'] = $request->endTime;
+        }
+        if (!Utils::isUnset($request->ownerId)) {
+            $query['OwnerId'] = $request->ownerId;
+        }
+        if (!Utils::isUnset($request->startTime)) {
+            $query['StartTime'] = $request->startTime;
+        }
+        $req = new OpenApiRequest([
             'query' => OpenApiUtilClient::query($query),
-            'body'  => Utils::toMap($request),
         ]);
         $params = new Params([
             'action'      => 'DescribeDomainRegionData',
@@ -4311,7 +4934,7 @@ class Cdn extends OpenApiClient
             'method'      => 'POST',
             'authType'    => 'AK',
             'style'       => 'RPC',
-            'reqBodyType' => 'json',
+            'reqBodyType' => 'formData',
             'bodyType'    => 'json',
         ]);
 
@@ -4339,15 +4962,24 @@ class Cdn extends OpenApiClient
     public function describeDomainReqHitRateDataWithOptions($request, $runtime)
     {
         Utils::validateModel($request);
-        $query               = [];
-        $query['DomainName'] = $request->domainName;
-        $query['EndTime']    = $request->endTime;
-        $query['Interval']   = $request->interval;
-        $query['OwnerId']    = $request->ownerId;
-        $query['StartTime']  = $request->startTime;
-        $req                 = new OpenApiRequest([
+        $query = [];
+        if (!Utils::isUnset($request->domainName)) {
+            $query['DomainName'] = $request->domainName;
+        }
+        if (!Utils::isUnset($request->endTime)) {
+            $query['EndTime'] = $request->endTime;
+        }
+        if (!Utils::isUnset($request->interval)) {
+            $query['Interval'] = $request->interval;
+        }
+        if (!Utils::isUnset($request->ownerId)) {
+            $query['OwnerId'] = $request->ownerId;
+        }
+        if (!Utils::isUnset($request->startTime)) {
+            $query['StartTime'] = $request->startTime;
+        }
+        $req = new OpenApiRequest([
             'query' => OpenApiUtilClient::query($query),
-            'body'  => Utils::toMap($request),
         ]);
         $params = new Params([
             'action'      => 'DescribeDomainReqHitRateData',
@@ -4357,7 +4989,7 @@ class Cdn extends OpenApiClient
             'method'      => 'POST',
             'authType'    => 'AK',
             'style'       => 'RPC',
-            'reqBodyType' => 'json',
+            'reqBodyType' => 'formData',
             'bodyType'    => 'json',
         ]);
 
@@ -4385,15 +5017,24 @@ class Cdn extends OpenApiClient
     public function describeDomainSrcBpsDataWithOptions($request, $runtime)
     {
         Utils::validateModel($request);
-        $query               = [];
-        $query['DomainName'] = $request->domainName;
-        $query['EndTime']    = $request->endTime;
-        $query['Interval']   = $request->interval;
-        $query['OwnerId']    = $request->ownerId;
-        $query['StartTime']  = $request->startTime;
-        $req                 = new OpenApiRequest([
+        $query = [];
+        if (!Utils::isUnset($request->domainName)) {
+            $query['DomainName'] = $request->domainName;
+        }
+        if (!Utils::isUnset($request->endTime)) {
+            $query['EndTime'] = $request->endTime;
+        }
+        if (!Utils::isUnset($request->interval)) {
+            $query['Interval'] = $request->interval;
+        }
+        if (!Utils::isUnset($request->ownerId)) {
+            $query['OwnerId'] = $request->ownerId;
+        }
+        if (!Utils::isUnset($request->startTime)) {
+            $query['StartTime'] = $request->startTime;
+        }
+        $req = new OpenApiRequest([
             'query' => OpenApiUtilClient::query($query),
-            'body'  => Utils::toMap($request),
         ]);
         $params = new Params([
             'action'      => 'DescribeDomainSrcBpsData',
@@ -4403,7 +5044,7 @@ class Cdn extends OpenApiClient
             'method'      => 'POST',
             'authType'    => 'AK',
             'style'       => 'RPC',
-            'reqBodyType' => 'json',
+            'reqBodyType' => 'formData',
             'bodyType'    => 'json',
         ]);
 
@@ -4431,15 +5072,24 @@ class Cdn extends OpenApiClient
     public function describeDomainSrcHttpCodeDataWithOptions($request, $runtime)
     {
         Utils::validateModel($request);
-        $query               = [];
-        $query['DomainName'] = $request->domainName;
-        $query['EndTime']    = $request->endTime;
-        $query['Interval']   = $request->interval;
-        $query['OwnerId']    = $request->ownerId;
-        $query['StartTime']  = $request->startTime;
-        $req                 = new OpenApiRequest([
+        $query = [];
+        if (!Utils::isUnset($request->domainName)) {
+            $query['DomainName'] = $request->domainName;
+        }
+        if (!Utils::isUnset($request->endTime)) {
+            $query['EndTime'] = $request->endTime;
+        }
+        if (!Utils::isUnset($request->interval)) {
+            $query['Interval'] = $request->interval;
+        }
+        if (!Utils::isUnset($request->ownerId)) {
+            $query['OwnerId'] = $request->ownerId;
+        }
+        if (!Utils::isUnset($request->startTime)) {
+            $query['StartTime'] = $request->startTime;
+        }
+        $req = new OpenApiRequest([
             'query' => OpenApiUtilClient::query($query),
-            'body'  => Utils::toMap($request),
         ]);
         $params = new Params([
             'action'      => 'DescribeDomainSrcHttpCodeData',
@@ -4449,7 +5099,7 @@ class Cdn extends OpenApiClient
             'method'      => 'POST',
             'authType'    => 'AK',
             'style'       => 'RPC',
-            'reqBodyType' => 'json',
+            'reqBodyType' => 'formData',
             'bodyType'    => 'json',
         ]);
 
@@ -4477,15 +5127,24 @@ class Cdn extends OpenApiClient
     public function describeDomainSrcQpsDataWithOptions($request, $runtime)
     {
         Utils::validateModel($request);
-        $query               = [];
-        $query['DomainName'] = $request->domainName;
-        $query['EndTime']    = $request->endTime;
-        $query['Interval']   = $request->interval;
-        $query['OwnerId']    = $request->ownerId;
-        $query['StartTime']  = $request->startTime;
-        $req                 = new OpenApiRequest([
+        $query = [];
+        if (!Utils::isUnset($request->domainName)) {
+            $query['DomainName'] = $request->domainName;
+        }
+        if (!Utils::isUnset($request->endTime)) {
+            $query['EndTime'] = $request->endTime;
+        }
+        if (!Utils::isUnset($request->interval)) {
+            $query['Interval'] = $request->interval;
+        }
+        if (!Utils::isUnset($request->ownerId)) {
+            $query['OwnerId'] = $request->ownerId;
+        }
+        if (!Utils::isUnset($request->startTime)) {
+            $query['StartTime'] = $request->startTime;
+        }
+        $req = new OpenApiRequest([
             'query' => OpenApiUtilClient::query($query),
-            'body'  => Utils::toMap($request),
         ]);
         $params = new Params([
             'action'      => 'DescribeDomainSrcQpsData',
@@ -4495,7 +5154,7 @@ class Cdn extends OpenApiClient
             'method'      => 'POST',
             'authType'    => 'AK',
             'style'       => 'RPC',
-            'reqBodyType' => 'json',
+            'reqBodyType' => 'formData',
             'bodyType'    => 'json',
         ]);
 
@@ -4523,15 +5182,24 @@ class Cdn extends OpenApiClient
     public function describeDomainSrcTopUrlVisitWithOptions($request, $runtime)
     {
         Utils::validateModel($request);
-        $query               = [];
-        $query['DomainName'] = $request->domainName;
-        $query['EndTime']    = $request->endTime;
-        $query['OwnerId']    = $request->ownerId;
-        $query['SortBy']     = $request->sortBy;
-        $query['StartTime']  = $request->startTime;
-        $req                 = new OpenApiRequest([
+        $query = [];
+        if (!Utils::isUnset($request->domainName)) {
+            $query['DomainName'] = $request->domainName;
+        }
+        if (!Utils::isUnset($request->endTime)) {
+            $query['EndTime'] = $request->endTime;
+        }
+        if (!Utils::isUnset($request->ownerId)) {
+            $query['OwnerId'] = $request->ownerId;
+        }
+        if (!Utils::isUnset($request->sortBy)) {
+            $query['SortBy'] = $request->sortBy;
+        }
+        if (!Utils::isUnset($request->startTime)) {
+            $query['StartTime'] = $request->startTime;
+        }
+        $req = new OpenApiRequest([
             'query' => OpenApiUtilClient::query($query),
-            'body'  => Utils::toMap($request),
         ]);
         $params = new Params([
             'action'      => 'DescribeDomainSrcTopUrlVisit',
@@ -4541,7 +5209,7 @@ class Cdn extends OpenApiClient
             'method'      => 'POST',
             'authType'    => 'AK',
             'style'       => 'RPC',
-            'reqBodyType' => 'json',
+            'reqBodyType' => 'formData',
             'bodyType'    => 'json',
         ]);
 
@@ -4569,15 +5237,24 @@ class Cdn extends OpenApiClient
     public function describeDomainSrcTrafficDataWithOptions($request, $runtime)
     {
         Utils::validateModel($request);
-        $query               = [];
-        $query['DomainName'] = $request->domainName;
-        $query['EndTime']    = $request->endTime;
-        $query['Interval']   = $request->interval;
-        $query['OwnerId']    = $request->ownerId;
-        $query['StartTime']  = $request->startTime;
-        $req                 = new OpenApiRequest([
+        $query = [];
+        if (!Utils::isUnset($request->domainName)) {
+            $query['DomainName'] = $request->domainName;
+        }
+        if (!Utils::isUnset($request->endTime)) {
+            $query['EndTime'] = $request->endTime;
+        }
+        if (!Utils::isUnset($request->interval)) {
+            $query['Interval'] = $request->interval;
+        }
+        if (!Utils::isUnset($request->ownerId)) {
+            $query['OwnerId'] = $request->ownerId;
+        }
+        if (!Utils::isUnset($request->startTime)) {
+            $query['StartTime'] = $request->startTime;
+        }
+        $req = new OpenApiRequest([
             'query' => OpenApiUtilClient::query($query),
-            'body'  => Utils::toMap($request),
         ]);
         $params = new Params([
             'action'      => 'DescribeDomainSrcTrafficData',
@@ -4587,7 +5264,7 @@ class Cdn extends OpenApiClient
             'method'      => 'POST',
             'authType'    => 'AK',
             'style'       => 'RPC',
-            'reqBodyType' => 'json',
+            'reqBodyType' => 'formData',
             'bodyType'    => 'json',
         ]);
 
@@ -4615,17 +5292,30 @@ class Cdn extends OpenApiClient
     public function describeDomainTopClientIpVisitWithOptions($request, $runtime)
     {
         Utils::validateModel($request);
-        $query                   = [];
-        $query['DomainName']     = $request->domainName;
-        $query['EndTime']        = $request->endTime;
-        $query['Limit']          = $request->limit;
-        $query['LocationNameEn'] = $request->locationNameEn;
-        $query['OwnerId']        = $request->ownerId;
-        $query['SortBy']         = $request->sortBy;
-        $query['StartTime']      = $request->startTime;
-        $req                     = new OpenApiRequest([
+        $query = [];
+        if (!Utils::isUnset($request->domainName)) {
+            $query['DomainName'] = $request->domainName;
+        }
+        if (!Utils::isUnset($request->endTime)) {
+            $query['EndTime'] = $request->endTime;
+        }
+        if (!Utils::isUnset($request->limit)) {
+            $query['Limit'] = $request->limit;
+        }
+        if (!Utils::isUnset($request->locationNameEn)) {
+            $query['LocationNameEn'] = $request->locationNameEn;
+        }
+        if (!Utils::isUnset($request->ownerId)) {
+            $query['OwnerId'] = $request->ownerId;
+        }
+        if (!Utils::isUnset($request->sortBy)) {
+            $query['SortBy'] = $request->sortBy;
+        }
+        if (!Utils::isUnset($request->startTime)) {
+            $query['StartTime'] = $request->startTime;
+        }
+        $req = new OpenApiRequest([
             'query' => OpenApiUtilClient::query($query),
-            'body'  => Utils::toMap($request),
         ]);
         $params = new Params([
             'action'      => 'DescribeDomainTopClientIpVisit',
@@ -4635,7 +5325,7 @@ class Cdn extends OpenApiClient
             'method'      => 'POST',
             'authType'    => 'AK',
             'style'       => 'RPC',
-            'reqBodyType' => 'json',
+            'reqBodyType' => 'formData',
             'bodyType'    => 'json',
         ]);
 
@@ -4663,16 +5353,27 @@ class Cdn extends OpenApiClient
     public function describeDomainTopReferVisitWithOptions($request, $runtime)
     {
         Utils::validateModel($request);
-        $query               = [];
-        $query['DomainName'] = $request->domainName;
-        $query['EndTime']    = $request->endTime;
-        $query['OwnerId']    = $request->ownerId;
-        $query['Percent']    = $request->percent;
-        $query['SortBy']     = $request->sortBy;
-        $query['StartTime']  = $request->startTime;
-        $req                 = new OpenApiRequest([
+        $query = [];
+        if (!Utils::isUnset($request->domainName)) {
+            $query['DomainName'] = $request->domainName;
+        }
+        if (!Utils::isUnset($request->endTime)) {
+            $query['EndTime'] = $request->endTime;
+        }
+        if (!Utils::isUnset($request->ownerId)) {
+            $query['OwnerId'] = $request->ownerId;
+        }
+        if (!Utils::isUnset($request->percent)) {
+            $query['Percent'] = $request->percent;
+        }
+        if (!Utils::isUnset($request->sortBy)) {
+            $query['SortBy'] = $request->sortBy;
+        }
+        if (!Utils::isUnset($request->startTime)) {
+            $query['StartTime'] = $request->startTime;
+        }
+        $req = new OpenApiRequest([
             'query' => OpenApiUtilClient::query($query),
-            'body'  => Utils::toMap($request),
         ]);
         $params = new Params([
             'action'      => 'DescribeDomainTopReferVisit',
@@ -4682,7 +5383,7 @@ class Cdn extends OpenApiClient
             'method'      => 'POST',
             'authType'    => 'AK',
             'style'       => 'RPC',
-            'reqBodyType' => 'json',
+            'reqBodyType' => 'formData',
             'bodyType'    => 'json',
         ]);
 
@@ -4710,15 +5411,24 @@ class Cdn extends OpenApiClient
     public function describeDomainTopUrlVisitWithOptions($request, $runtime)
     {
         Utils::validateModel($request);
-        $query               = [];
-        $query['DomainName'] = $request->domainName;
-        $query['EndTime']    = $request->endTime;
-        $query['OwnerId']    = $request->ownerId;
-        $query['SortBy']     = $request->sortBy;
-        $query['StartTime']  = $request->startTime;
-        $req                 = new OpenApiRequest([
+        $query = [];
+        if (!Utils::isUnset($request->domainName)) {
+            $query['DomainName'] = $request->domainName;
+        }
+        if (!Utils::isUnset($request->endTime)) {
+            $query['EndTime'] = $request->endTime;
+        }
+        if (!Utils::isUnset($request->ownerId)) {
+            $query['OwnerId'] = $request->ownerId;
+        }
+        if (!Utils::isUnset($request->sortBy)) {
+            $query['SortBy'] = $request->sortBy;
+        }
+        if (!Utils::isUnset($request->startTime)) {
+            $query['StartTime'] = $request->startTime;
+        }
+        $req = new OpenApiRequest([
             'query' => OpenApiUtilClient::query($query),
-            'body'  => Utils::toMap($request),
         ]);
         $params = new Params([
             'action'      => 'DescribeDomainTopUrlVisit',
@@ -4728,7 +5438,7 @@ class Cdn extends OpenApiClient
             'method'      => 'POST',
             'authType'    => 'AK',
             'style'       => 'RPC',
-            'reqBodyType' => 'json',
+            'reqBodyType' => 'formData',
             'bodyType'    => 'json',
         ]);
 
@@ -4756,17 +5466,30 @@ class Cdn extends OpenApiClient
     public function describeDomainTrafficDataWithOptions($request, $runtime)
     {
         Utils::validateModel($request);
-        $query                   = [];
-        $query['DomainName']     = $request->domainName;
-        $query['EndTime']        = $request->endTime;
-        $query['Interval']       = $request->interval;
-        $query['IspNameEn']      = $request->ispNameEn;
-        $query['LocationNameEn'] = $request->locationNameEn;
-        $query['OwnerId']        = $request->ownerId;
-        $query['StartTime']      = $request->startTime;
-        $req                     = new OpenApiRequest([
+        $query = [];
+        if (!Utils::isUnset($request->domainName)) {
+            $query['DomainName'] = $request->domainName;
+        }
+        if (!Utils::isUnset($request->endTime)) {
+            $query['EndTime'] = $request->endTime;
+        }
+        if (!Utils::isUnset($request->interval)) {
+            $query['Interval'] = $request->interval;
+        }
+        if (!Utils::isUnset($request->ispNameEn)) {
+            $query['IspNameEn'] = $request->ispNameEn;
+        }
+        if (!Utils::isUnset($request->locationNameEn)) {
+            $query['LocationNameEn'] = $request->locationNameEn;
+        }
+        if (!Utils::isUnset($request->ownerId)) {
+            $query['OwnerId'] = $request->ownerId;
+        }
+        if (!Utils::isUnset($request->startTime)) {
+            $query['StartTime'] = $request->startTime;
+        }
+        $req = new OpenApiRequest([
             'query' => OpenApiUtilClient::query($query),
-            'body'  => Utils::toMap($request),
         ]);
         $params = new Params([
             'action'      => 'DescribeDomainTrafficData',
@@ -4776,7 +5499,7 @@ class Cdn extends OpenApiClient
             'method'      => 'POST',
             'authType'    => 'AK',
             'style'       => 'RPC',
-            'reqBodyType' => 'json',
+            'reqBodyType' => 'formData',
             'bodyType'    => 'json',
         ]);
 
@@ -4804,19 +5527,36 @@ class Cdn extends OpenApiClient
     public function describeDomainUsageDataWithOptions($request, $runtime)
     {
         Utils::validateModel($request);
-        $query                 = [];
-        $query['Area']         = $request->area;
-        $query['DataProtocol'] = $request->dataProtocol;
-        $query['DomainName']   = $request->domainName;
-        $query['EndTime']      = $request->endTime;
-        $query['Field']        = $request->field;
-        $query['Interval']     = $request->interval;
-        $query['OwnerId']      = $request->ownerId;
-        $query['StartTime']    = $request->startTime;
-        $query['Type']         = $request->type;
-        $req                   = new OpenApiRequest([
+        $query = [];
+        if (!Utils::isUnset($request->area)) {
+            $query['Area'] = $request->area;
+        }
+        if (!Utils::isUnset($request->dataProtocol)) {
+            $query['DataProtocol'] = $request->dataProtocol;
+        }
+        if (!Utils::isUnset($request->domainName)) {
+            $query['DomainName'] = $request->domainName;
+        }
+        if (!Utils::isUnset($request->endTime)) {
+            $query['EndTime'] = $request->endTime;
+        }
+        if (!Utils::isUnset($request->field)) {
+            $query['Field'] = $request->field;
+        }
+        if (!Utils::isUnset($request->interval)) {
+            $query['Interval'] = $request->interval;
+        }
+        if (!Utils::isUnset($request->ownerId)) {
+            $query['OwnerId'] = $request->ownerId;
+        }
+        if (!Utils::isUnset($request->startTime)) {
+            $query['StartTime'] = $request->startTime;
+        }
+        if (!Utils::isUnset($request->type)) {
+            $query['Type'] = $request->type;
+        }
+        $req = new OpenApiRequest([
             'query' => OpenApiUtilClient::query($query),
-            'body'  => Utils::toMap($request),
         ]);
         $params = new Params([
             'action'      => 'DescribeDomainUsageData',
@@ -4826,7 +5566,7 @@ class Cdn extends OpenApiClient
             'method'      => 'POST',
             'authType'    => 'AK',
             'style'       => 'RPC',
-            'reqBodyType' => 'json',
+            'reqBodyType' => 'formData',
             'bodyType'    => 'json',
         ]);
 
@@ -4854,14 +5594,21 @@ class Cdn extends OpenApiClient
     public function describeDomainUvDataWithOptions($request, $runtime)
     {
         Utils::validateModel($request);
-        $query               = [];
-        $query['DomainName'] = $request->domainName;
-        $query['EndTime']    = $request->endTime;
-        $query['OwnerId']    = $request->ownerId;
-        $query['StartTime']  = $request->startTime;
-        $req                 = new OpenApiRequest([
+        $query = [];
+        if (!Utils::isUnset($request->domainName)) {
+            $query['DomainName'] = $request->domainName;
+        }
+        if (!Utils::isUnset($request->endTime)) {
+            $query['EndTime'] = $request->endTime;
+        }
+        if (!Utils::isUnset($request->ownerId)) {
+            $query['OwnerId'] = $request->ownerId;
+        }
+        if (!Utils::isUnset($request->startTime)) {
+            $query['StartTime'] = $request->startTime;
+        }
+        $req = new OpenApiRequest([
             'query' => OpenApiUtilClient::query($query),
-            'body'  => Utils::toMap($request),
         ]);
         $params = new Params([
             'action'      => 'DescribeDomainUvData',
@@ -4871,7 +5618,7 @@ class Cdn extends OpenApiClient
             'method'      => 'POST',
             'authType'    => 'AK',
             'style'       => 'RPC',
-            'reqBodyType' => 'json',
+            'reqBodyType' => 'formData',
             'bodyType'    => 'json',
         ]);
 
@@ -4899,13 +5646,18 @@ class Cdn extends OpenApiClient
     public function describeDomainsBySourceWithOptions($request, $runtime)
     {
         Utils::validateModel($request);
-        $query                  = [];
-        $query['OwnerId']       = $request->ownerId;
-        $query['SecurityToken'] = $request->securityToken;
-        $query['Sources']       = $request->sources;
-        $req                    = new OpenApiRequest([
+        $query = [];
+        if (!Utils::isUnset($request->ownerId)) {
+            $query['OwnerId'] = $request->ownerId;
+        }
+        if (!Utils::isUnset($request->securityToken)) {
+            $query['SecurityToken'] = $request->securityToken;
+        }
+        if (!Utils::isUnset($request->sources)) {
+            $query['Sources'] = $request->sources;
+        }
+        $req = new OpenApiRequest([
             'query' => OpenApiUtilClient::query($query),
-            'body'  => Utils::toMap($request),
         ]);
         $params = new Params([
             'action'      => 'DescribeDomainsBySource',
@@ -4915,7 +5667,7 @@ class Cdn extends OpenApiClient
             'method'      => 'POST',
             'authType'    => 'AK',
             'style'       => 'RPC',
-            'reqBodyType' => 'json',
+            'reqBodyType' => 'formData',
             'bodyType'    => 'json',
         ]);
 
@@ -4943,14 +5695,21 @@ class Cdn extends OpenApiClient
     public function describeDomainsUsageByDayWithOptions($request, $runtime)
     {
         Utils::validateModel($request);
-        $query               = [];
-        $query['DomainName'] = $request->domainName;
-        $query['EndTime']    = $request->endTime;
-        $query['OwnerId']    = $request->ownerId;
-        $query['StartTime']  = $request->startTime;
-        $req                 = new OpenApiRequest([
+        $query = [];
+        if (!Utils::isUnset($request->domainName)) {
+            $query['DomainName'] = $request->domainName;
+        }
+        if (!Utils::isUnset($request->endTime)) {
+            $query['EndTime'] = $request->endTime;
+        }
+        if (!Utils::isUnset($request->ownerId)) {
+            $query['OwnerId'] = $request->ownerId;
+        }
+        if (!Utils::isUnset($request->startTime)) {
+            $query['StartTime'] = $request->startTime;
+        }
+        $req = new OpenApiRequest([
             'query' => OpenApiUtilClient::query($query),
-            'body'  => Utils::toMap($request),
         ]);
         $params = new Params([
             'action'      => 'DescribeDomainsUsageByDay',
@@ -4960,7 +5719,7 @@ class Cdn extends OpenApiClient
             'method'      => 'POST',
             'authType'    => 'AK',
             'style'       => 'RPC',
-            'reqBodyType' => 'json',
+            'reqBodyType' => 'formData',
             'bodyType'    => 'json',
         ]);
 
@@ -4988,14 +5747,21 @@ class Cdn extends OpenApiClient
     public function describeEsExceptionDataWithOptions($request, $runtime)
     {
         Utils::validateModel($request);
-        $query              = [];
-        $query['EndTime']   = $request->endTime;
-        $query['OwnerId']   = $request->ownerId;
-        $query['RuleId']    = $request->ruleId;
-        $query['StartTime'] = $request->startTime;
-        $req                = new OpenApiRequest([
+        $query = [];
+        if (!Utils::isUnset($request->endTime)) {
+            $query['EndTime'] = $request->endTime;
+        }
+        if (!Utils::isUnset($request->ownerId)) {
+            $query['OwnerId'] = $request->ownerId;
+        }
+        if (!Utils::isUnset($request->ruleId)) {
+            $query['RuleId'] = $request->ruleId;
+        }
+        if (!Utils::isUnset($request->startTime)) {
+            $query['StartTime'] = $request->startTime;
+        }
+        $req = new OpenApiRequest([
             'query' => OpenApiUtilClient::query($query),
-            'body'  => Utils::toMap($request),
         ]);
         $params = new Params([
             'action'      => 'DescribeEsExceptionData',
@@ -5005,7 +5771,7 @@ class Cdn extends OpenApiClient
             'method'      => 'POST',
             'authType'    => 'AK',
             'style'       => 'RPC',
-            'reqBodyType' => 'json',
+            'reqBodyType' => 'formData',
             'bodyType'    => 'json',
         ]);
 
@@ -5033,14 +5799,21 @@ class Cdn extends OpenApiClient
     public function describeEsExecuteDataWithOptions($request, $runtime)
     {
         Utils::validateModel($request);
-        $query              = [];
-        $query['EndTime']   = $request->endTime;
-        $query['OwnerId']   = $request->ownerId;
-        $query['RuleId']    = $request->ruleId;
-        $query['StartTime'] = $request->startTime;
-        $req                = new OpenApiRequest([
+        $query = [];
+        if (!Utils::isUnset($request->endTime)) {
+            $query['EndTime'] = $request->endTime;
+        }
+        if (!Utils::isUnset($request->ownerId)) {
+            $query['OwnerId'] = $request->ownerId;
+        }
+        if (!Utils::isUnset($request->ruleId)) {
+            $query['RuleId'] = $request->ruleId;
+        }
+        if (!Utils::isUnset($request->startTime)) {
+            $query['StartTime'] = $request->startTime;
+        }
+        $req = new OpenApiRequest([
             'query' => OpenApiUtilClient::query($query),
-            'body'  => Utils::toMap($request),
         ]);
         $params = new Params([
             'action'      => 'DescribeEsExecuteData',
@@ -5050,7 +5823,7 @@ class Cdn extends OpenApiClient
             'method'      => 'POST',
             'authType'    => 'AK',
             'style'       => 'RPC',
-            'reqBodyType' => 'json',
+            'reqBodyType' => 'formData',
             'bodyType'    => 'json',
         ]);
 
@@ -5090,7 +5863,7 @@ class Cdn extends OpenApiClient
             'method'      => 'GET',
             'authType'    => 'AK',
             'style'       => 'RPC',
-            'reqBodyType' => 'json',
+            'reqBodyType' => 'formData',
             'bodyType'    => 'json',
         ]);
 
@@ -5118,12 +5891,15 @@ class Cdn extends OpenApiClient
     public function describeIllegalUrlExportTaskWithOptions($request, $runtime)
     {
         Utils::validateModel($request);
-        $query            = [];
-        $query['OwnerId'] = $request->ownerId;
-        $query['TaskId']  = $request->taskId;
-        $req              = new OpenApiRequest([
+        $query = [];
+        if (!Utils::isUnset($request->ownerId)) {
+            $query['OwnerId'] = $request->ownerId;
+        }
+        if (!Utils::isUnset($request->taskId)) {
+            $query['TaskId'] = $request->taskId;
+        }
+        $req = new OpenApiRequest([
             'query' => OpenApiUtilClient::query($query),
-            'body'  => Utils::toMap($request),
         ]);
         $params = new Params([
             'action'      => 'DescribeIllegalUrlExportTask',
@@ -5133,7 +5909,7 @@ class Cdn extends OpenApiClient
             'method'      => 'POST',
             'authType'    => 'AK',
             'style'       => 'RPC',
-            'reqBodyType' => 'json',
+            'reqBodyType' => 'formData',
             'bodyType'    => 'json',
         ]);
 
@@ -5161,13 +5937,18 @@ class Cdn extends OpenApiClient
     public function describeIpInfoWithOptions($request, $runtime)
     {
         Utils::validateModel($request);
-        $query                  = [];
-        $query['IP']            = $request->IP;
-        $query['OwnerId']       = $request->ownerId;
-        $query['SecurityToken'] = $request->securityToken;
-        $req                    = new OpenApiRequest([
+        $query = [];
+        if (!Utils::isUnset($request->IP)) {
+            $query['IP'] = $request->IP;
+        }
+        if (!Utils::isUnset($request->ownerId)) {
+            $query['OwnerId'] = $request->ownerId;
+        }
+        if (!Utils::isUnset($request->securityToken)) {
+            $query['SecurityToken'] = $request->securityToken;
+        }
+        $req = new OpenApiRequest([
             'query' => OpenApiUtilClient::query($query),
-            'body'  => Utils::toMap($request),
         ]);
         $params = new Params([
             'action'      => 'DescribeIpInfo',
@@ -5177,7 +5958,7 @@ class Cdn extends OpenApiClient
             'method'      => 'POST',
             'authType'    => 'AK',
             'style'       => 'RPC',
-            'reqBodyType' => 'json',
+            'reqBodyType' => 'formData',
             'bodyType'    => 'json',
         ]);
 
@@ -5205,13 +5986,18 @@ class Cdn extends OpenApiClient
     public function describeL2VipsByDomainWithOptions($request, $runtime)
     {
         Utils::validateModel($request);
-        $query                  = [];
-        $query['DomainName']    = $request->domainName;
-        $query['OwnerId']       = $request->ownerId;
-        $query['SecurityToken'] = $request->securityToken;
-        $req                    = new OpenApiRequest([
+        $query = [];
+        if (!Utils::isUnset($request->domainName)) {
+            $query['DomainName'] = $request->domainName;
+        }
+        if (!Utils::isUnset($request->ownerId)) {
+            $query['OwnerId'] = $request->ownerId;
+        }
+        if (!Utils::isUnset($request->securityToken)) {
+            $query['SecurityToken'] = $request->securityToken;
+        }
+        $req = new OpenApiRequest([
             'query' => OpenApiUtilClient::query($query),
-            'body'  => Utils::toMap($request),
         ]);
         $params = new Params([
             'action'      => 'DescribeL2VipsByDomain',
@@ -5221,7 +6007,7 @@ class Cdn extends OpenApiClient
             'method'      => 'POST',
             'authType'    => 'AK',
             'style'       => 'RPC',
-            'reqBodyType' => 'json',
+            'reqBodyType' => 'formData',
             'bodyType'    => 'json',
         ]);
 
@@ -5249,16 +6035,27 @@ class Cdn extends OpenApiClient
     public function describeRangeDataByLocateAndIspServiceWithOptions($request, $runtime)
     {
         Utils::validateModel($request);
-        $query                  = [];
-        $query['DomainNames']   = $request->domainNames;
-        $query['EndTime']       = $request->endTime;
-        $query['IspNames']      = $request->ispNames;
-        $query['LocationNames'] = $request->locationNames;
-        $query['OwnerId']       = $request->ownerId;
-        $query['StartTime']     = $request->startTime;
-        $req                    = new OpenApiRequest([
+        $query = [];
+        if (!Utils::isUnset($request->domainNames)) {
+            $query['DomainNames'] = $request->domainNames;
+        }
+        if (!Utils::isUnset($request->endTime)) {
+            $query['EndTime'] = $request->endTime;
+        }
+        if (!Utils::isUnset($request->ispNames)) {
+            $query['IspNames'] = $request->ispNames;
+        }
+        if (!Utils::isUnset($request->locationNames)) {
+            $query['LocationNames'] = $request->locationNames;
+        }
+        if (!Utils::isUnset($request->ownerId)) {
+            $query['OwnerId'] = $request->ownerId;
+        }
+        if (!Utils::isUnset($request->startTime)) {
+            $query['StartTime'] = $request->startTime;
+        }
+        $req = new OpenApiRequest([
             'query' => OpenApiUtilClient::query($query),
-            'body'  => Utils::toMap($request),
         ]);
         $params = new Params([
             'action'      => 'DescribeRangeDataByLocateAndIspService',
@@ -5268,7 +6065,7 @@ class Cdn extends OpenApiClient
             'method'      => 'POST',
             'authType'    => 'AK',
             'style'       => 'RPC',
-            'reqBodyType' => 'json',
+            'reqBodyType' => 'formData',
             'bodyType'    => 'json',
         ]);
 
@@ -5296,16 +6093,27 @@ class Cdn extends OpenApiClient
     public function describeRealtimeDeliveryAccWithOptions($request, $runtime)
     {
         Utils::validateModel($request);
-        $query              = [];
-        $query['EndTime']   = $request->endTime;
-        $query['Interval']  = $request->interval;
-        $query['LogStore']  = $request->logStore;
-        $query['OwnerId']   = $request->ownerId;
-        $query['Project']   = $request->project;
-        $query['StartTime'] = $request->startTime;
-        $req                = new OpenApiRequest([
+        $query = [];
+        if (!Utils::isUnset($request->endTime)) {
+            $query['EndTime'] = $request->endTime;
+        }
+        if (!Utils::isUnset($request->interval)) {
+            $query['Interval'] = $request->interval;
+        }
+        if (!Utils::isUnset($request->logStore)) {
+            $query['LogStore'] = $request->logStore;
+        }
+        if (!Utils::isUnset($request->ownerId)) {
+            $query['OwnerId'] = $request->ownerId;
+        }
+        if (!Utils::isUnset($request->project)) {
+            $query['Project'] = $request->project;
+        }
+        if (!Utils::isUnset($request->startTime)) {
+            $query['StartTime'] = $request->startTime;
+        }
+        $req = new OpenApiRequest([
             'query' => OpenApiUtilClient::query($query),
-            'body'  => Utils::toMap($request),
         ]);
         $params = new Params([
             'action'      => 'DescribeRealtimeDeliveryAcc',
@@ -5315,7 +6123,7 @@ class Cdn extends OpenApiClient
             'method'      => 'POST',
             'authType'    => 'AK',
             'style'       => 'RPC',
-            'reqBodyType' => 'json',
+            'reqBodyType' => 'formData',
             'bodyType'    => 'json',
         ]);
 
@@ -5343,12 +6151,15 @@ class Cdn extends OpenApiClient
     public function describeRefreshQuotaWithOptions($request, $runtime)
     {
         Utils::validateModel($request);
-        $query                  = [];
-        $query['OwnerId']       = $request->ownerId;
-        $query['SecurityToken'] = $request->securityToken;
-        $req                    = new OpenApiRequest([
+        $query = [];
+        if (!Utils::isUnset($request->ownerId)) {
+            $query['OwnerId'] = $request->ownerId;
+        }
+        if (!Utils::isUnset($request->securityToken)) {
+            $query['SecurityToken'] = $request->securityToken;
+        }
+        $req = new OpenApiRequest([
             'query' => OpenApiUtilClient::query($query),
-            'body'  => Utils::toMap($request),
         ]);
         $params = new Params([
             'action'      => 'DescribeRefreshQuota',
@@ -5358,7 +6169,7 @@ class Cdn extends OpenApiClient
             'method'      => 'POST',
             'authType'    => 'AK',
             'style'       => 'RPC',
-            'reqBodyType' => 'json',
+            'reqBodyType' => 'formData',
             'bodyType'    => 'json',
         ]);
 
@@ -5386,12 +6197,15 @@ class Cdn extends OpenApiClient
     public function describeRefreshTaskByIdWithOptions($request, $runtime)
     {
         Utils::validateModel($request);
-        $query            = [];
-        $query['OwnerId'] = $request->ownerId;
-        $query['TaskId']  = $request->taskId;
-        $req              = new OpenApiRequest([
+        $query = [];
+        if (!Utils::isUnset($request->ownerId)) {
+            $query['OwnerId'] = $request->ownerId;
+        }
+        if (!Utils::isUnset($request->taskId)) {
+            $query['TaskId'] = $request->taskId;
+        }
+        $req = new OpenApiRequest([
             'query' => OpenApiUtilClient::query($query),
-            'body'  => Utils::toMap($request),
         ]);
         $params = new Params([
             'action'      => 'DescribeRefreshTaskById',
@@ -5401,7 +6215,7 @@ class Cdn extends OpenApiClient
             'method'      => 'POST',
             'authType'    => 'AK',
             'style'       => 'RPC',
-            'reqBodyType' => 'json',
+            'reqBodyType' => 'formData',
             'bodyType'    => 'json',
         ]);
 
@@ -5429,22 +6243,45 @@ class Cdn extends OpenApiClient
     public function describeRefreshTasksWithOptions($request, $runtime)
     {
         Utils::validateModel($request);
-        $query                    = [];
-        $query['DomainName']      = $request->domainName;
-        $query['EndTime']         = $request->endTime;
-        $query['ObjectPath']      = $request->objectPath;
-        $query['ObjectType']      = $request->objectType;
-        $query['OwnerId']         = $request->ownerId;
-        $query['PageNumber']      = $request->pageNumber;
-        $query['PageSize']        = $request->pageSize;
-        $query['ResourceGroupId'] = $request->resourceGroupId;
-        $query['SecurityToken']   = $request->securityToken;
-        $query['StartTime']       = $request->startTime;
-        $query['Status']          = $request->status;
-        $query['TaskId']          = $request->taskId;
-        $req                      = new OpenApiRequest([
+        $query = [];
+        if (!Utils::isUnset($request->domainName)) {
+            $query['DomainName'] = $request->domainName;
+        }
+        if (!Utils::isUnset($request->endTime)) {
+            $query['EndTime'] = $request->endTime;
+        }
+        if (!Utils::isUnset($request->objectPath)) {
+            $query['ObjectPath'] = $request->objectPath;
+        }
+        if (!Utils::isUnset($request->objectType)) {
+            $query['ObjectType'] = $request->objectType;
+        }
+        if (!Utils::isUnset($request->ownerId)) {
+            $query['OwnerId'] = $request->ownerId;
+        }
+        if (!Utils::isUnset($request->pageNumber)) {
+            $query['PageNumber'] = $request->pageNumber;
+        }
+        if (!Utils::isUnset($request->pageSize)) {
+            $query['PageSize'] = $request->pageSize;
+        }
+        if (!Utils::isUnset($request->resourceGroupId)) {
+            $query['ResourceGroupId'] = $request->resourceGroupId;
+        }
+        if (!Utils::isUnset($request->securityToken)) {
+            $query['SecurityToken'] = $request->securityToken;
+        }
+        if (!Utils::isUnset($request->startTime)) {
+            $query['StartTime'] = $request->startTime;
+        }
+        if (!Utils::isUnset($request->status)) {
+            $query['Status'] = $request->status;
+        }
+        if (!Utils::isUnset($request->taskId)) {
+            $query['TaskId'] = $request->taskId;
+        }
+        $req = new OpenApiRequest([
             'query' => OpenApiUtilClient::query($query),
-            'body'  => Utils::toMap($request),
         ]);
         $params = new Params([
             'action'      => 'DescribeRefreshTasks',
@@ -5454,7 +6291,7 @@ class Cdn extends OpenApiClient
             'method'      => 'POST',
             'authType'    => 'AK',
             'style'       => 'RPC',
-            'reqBodyType' => 'json',
+            'reqBodyType' => 'formData',
             'bodyType'    => 'json',
         ]);
 
@@ -5482,11 +6319,12 @@ class Cdn extends OpenApiClient
     public function describeStagingIpWithOptions($request, $runtime)
     {
         Utils::validateModel($request);
-        $query            = [];
-        $query['OwnerId'] = $request->ownerId;
-        $req              = new OpenApiRequest([
+        $query = [];
+        if (!Utils::isUnset($request->ownerId)) {
+            $query['OwnerId'] = $request->ownerId;
+        }
+        $req = new OpenApiRequest([
             'query' => OpenApiUtilClient::query($query),
-            'body'  => Utils::toMap($request),
         ]);
         $params = new Params([
             'action'      => 'DescribeStagingIp',
@@ -5496,7 +6334,7 @@ class Cdn extends OpenApiClient
             'method'      => 'POST',
             'authType'    => 'AK',
             'style'       => 'RPC',
-            'reqBodyType' => 'json',
+            'reqBodyType' => 'formData',
             'bodyType'    => 'json',
         ]);
 
@@ -5524,14 +6362,21 @@ class Cdn extends OpenApiClient
     public function describeTagResourcesWithOptions($request, $runtime)
     {
         Utils::validateModel($request);
-        $query                 = [];
-        $query['OwnerId']      = $request->ownerId;
-        $query['ResourceId']   = $request->resourceId;
-        $query['ResourceType'] = $request->resourceType;
-        $query['Tag']          = $request->tag;
-        $req                   = new OpenApiRequest([
+        $query = [];
+        if (!Utils::isUnset($request->ownerId)) {
+            $query['OwnerId'] = $request->ownerId;
+        }
+        if (!Utils::isUnset($request->resourceId)) {
+            $query['ResourceId'] = $request->resourceId;
+        }
+        if (!Utils::isUnset($request->resourceType)) {
+            $query['ResourceType'] = $request->resourceType;
+        }
+        if (!Utils::isUnset($request->tag)) {
+            $query['Tag'] = $request->tag;
+        }
+        $req = new OpenApiRequest([
             'query' => OpenApiUtilClient::query($query),
-            'body'  => Utils::toMap($request),
         ]);
         $params = new Params([
             'action'      => 'DescribeTagResources',
@@ -5541,7 +6386,7 @@ class Cdn extends OpenApiClient
             'method'      => 'POST',
             'authType'    => 'AK',
             'style'       => 'RPC',
-            'reqBodyType' => 'json',
+            'reqBodyType' => 'formData',
             'bodyType'    => 'json',
         ]);
 
@@ -5569,14 +6414,21 @@ class Cdn extends OpenApiClient
     public function describeTopDomainsByFlowWithOptions($request, $runtime)
     {
         Utils::validateModel($request);
-        $query              = [];
-        $query['EndTime']   = $request->endTime;
-        $query['Limit']     = $request->limit;
-        $query['OwnerId']   = $request->ownerId;
-        $query['StartTime'] = $request->startTime;
-        $req                = new OpenApiRequest([
+        $query = [];
+        if (!Utils::isUnset($request->endTime)) {
+            $query['EndTime'] = $request->endTime;
+        }
+        if (!Utils::isUnset($request->limit)) {
+            $query['Limit'] = $request->limit;
+        }
+        if (!Utils::isUnset($request->ownerId)) {
+            $query['OwnerId'] = $request->ownerId;
+        }
+        if (!Utils::isUnset($request->startTime)) {
+            $query['StartTime'] = $request->startTime;
+        }
+        $req = new OpenApiRequest([
             'query' => OpenApiUtilClient::query($query),
-            'body'  => Utils::toMap($request),
         ]);
         $params = new Params([
             'action'      => 'DescribeTopDomainsByFlow',
@@ -5586,7 +6438,7 @@ class Cdn extends OpenApiClient
             'method'      => 'POST',
             'authType'    => 'AK',
             'style'       => 'RPC',
-            'reqBodyType' => 'json',
+            'reqBodyType' => 'formData',
             'bodyType'    => 'json',
         ]);
 
@@ -5614,11 +6466,12 @@ class Cdn extends OpenApiClient
     public function describeUserCertificateExpireCountWithOptions($request, $runtime)
     {
         Utils::validateModel($request);
-        $query            = [];
-        $query['OwnerId'] = $request->ownerId;
-        $req              = new OpenApiRequest([
+        $query = [];
+        if (!Utils::isUnset($request->ownerId)) {
+            $query['OwnerId'] = $request->ownerId;
+        }
+        $req = new OpenApiRequest([
             'query' => OpenApiUtilClient::query($query),
-            'body'  => Utils::toMap($request),
         ]);
         $params = new Params([
             'action'      => 'DescribeUserCertificateExpireCount',
@@ -5628,7 +6481,7 @@ class Cdn extends OpenApiClient
             'method'      => 'POST',
             'authType'    => 'AK',
             'style'       => 'RPC',
-            'reqBodyType' => 'json',
+            'reqBodyType' => 'formData',
             'bodyType'    => 'json',
         ]);
 
@@ -5656,13 +6509,18 @@ class Cdn extends OpenApiClient
     public function describeUserConfigsWithOptions($request, $runtime)
     {
         Utils::validateModel($request);
-        $query                  = [];
-        $query['Config']        = $request->config;
-        $query['OwnerId']       = $request->ownerId;
-        $query['SecurityToken'] = $request->securityToken;
-        $req                    = new OpenApiRequest([
+        $query = [];
+        if (!Utils::isUnset($request->config)) {
+            $query['Config'] = $request->config;
+        }
+        if (!Utils::isUnset($request->ownerId)) {
+            $query['OwnerId'] = $request->ownerId;
+        }
+        if (!Utils::isUnset($request->securityToken)) {
+            $query['SecurityToken'] = $request->securityToken;
+        }
+        $req = new OpenApiRequest([
             'query' => OpenApiUtilClient::query($query),
-            'body'  => Utils::toMap($request),
         ]);
         $params = new Params([
             'action'      => 'DescribeUserConfigs',
@@ -5672,7 +6530,7 @@ class Cdn extends OpenApiClient
             'method'      => 'POST',
             'authType'    => 'AK',
             'style'       => 'RPC',
-            'reqBodyType' => 'json',
+            'reqBodyType' => 'formData',
             'bodyType'    => 'json',
         ]);
 
@@ -5700,25 +6558,54 @@ class Cdn extends OpenApiClient
     public function describeUserDomainsWithOptions($request, $runtime)
     {
         Utils::validateModel($request);
-        $query                     = [];
-        $query['CdnType']          = $request->cdnType;
-        $query['ChangeEndTime']    = $request->changeEndTime;
-        $query['ChangeStartTime']  = $request->changeStartTime;
-        $query['CheckDomainShow']  = $request->checkDomainShow;
-        $query['Coverage']         = $request->coverage;
-        $query['DomainName']       = $request->domainName;
-        $query['DomainSearchType'] = $request->domainSearchType;
-        $query['DomainStatus']     = $request->domainStatus;
-        $query['OwnerId']          = $request->ownerId;
-        $query['PageNumber']       = $request->pageNumber;
-        $query['PageSize']         = $request->pageSize;
-        $query['ResourceGroupId']  = $request->resourceGroupId;
-        $query['SecurityToken']    = $request->securityToken;
-        $query['Source']           = $request->source;
-        $query['Tag']              = $request->tag;
-        $req                       = new OpenApiRequest([
+        $query = [];
+        if (!Utils::isUnset($request->cdnType)) {
+            $query['CdnType'] = $request->cdnType;
+        }
+        if (!Utils::isUnset($request->changeEndTime)) {
+            $query['ChangeEndTime'] = $request->changeEndTime;
+        }
+        if (!Utils::isUnset($request->changeStartTime)) {
+            $query['ChangeStartTime'] = $request->changeStartTime;
+        }
+        if (!Utils::isUnset($request->checkDomainShow)) {
+            $query['CheckDomainShow'] = $request->checkDomainShow;
+        }
+        if (!Utils::isUnset($request->coverage)) {
+            $query['Coverage'] = $request->coverage;
+        }
+        if (!Utils::isUnset($request->domainName)) {
+            $query['DomainName'] = $request->domainName;
+        }
+        if (!Utils::isUnset($request->domainSearchType)) {
+            $query['DomainSearchType'] = $request->domainSearchType;
+        }
+        if (!Utils::isUnset($request->domainStatus)) {
+            $query['DomainStatus'] = $request->domainStatus;
+        }
+        if (!Utils::isUnset($request->ownerId)) {
+            $query['OwnerId'] = $request->ownerId;
+        }
+        if (!Utils::isUnset($request->pageNumber)) {
+            $query['PageNumber'] = $request->pageNumber;
+        }
+        if (!Utils::isUnset($request->pageSize)) {
+            $query['PageSize'] = $request->pageSize;
+        }
+        if (!Utils::isUnset($request->resourceGroupId)) {
+            $query['ResourceGroupId'] = $request->resourceGroupId;
+        }
+        if (!Utils::isUnset($request->securityToken)) {
+            $query['SecurityToken'] = $request->securityToken;
+        }
+        if (!Utils::isUnset($request->source)) {
+            $query['Source'] = $request->source;
+        }
+        if (!Utils::isUnset($request->tag)) {
+            $query['Tag'] = $request->tag;
+        }
+        $req = new OpenApiRequest([
             'query' => OpenApiUtilClient::query($query),
-            'body'  => Utils::toMap($request),
         ]);
         $params = new Params([
             'action'      => 'DescribeUserDomains',
@@ -5728,7 +6615,7 @@ class Cdn extends OpenApiClient
             'method'      => 'POST',
             'authType'    => 'AK',
             'style'       => 'RPC',
-            'reqBodyType' => 'json',
+            'reqBodyType' => 'formData',
             'bodyType'    => 'json',
         ]);
 
@@ -5756,11 +6643,12 @@ class Cdn extends OpenApiClient
     public function describeUserTagsWithOptions($request, $runtime)
     {
         Utils::validateModel($request);
-        $query            = [];
-        $query['OwnerId'] = $request->ownerId;
-        $req              = new OpenApiRequest([
+        $query = [];
+        if (!Utils::isUnset($request->ownerId)) {
+            $query['OwnerId'] = $request->ownerId;
+        }
+        $req = new OpenApiRequest([
             'query' => OpenApiUtilClient::query($query),
-            'body'  => Utils::toMap($request),
         ]);
         $params = new Params([
             'action'      => 'DescribeUserTags',
@@ -5770,7 +6658,7 @@ class Cdn extends OpenApiClient
             'method'      => 'POST',
             'authType'    => 'AK',
             'style'       => 'RPC',
-            'reqBodyType' => 'json',
+            'reqBodyType' => 'formData',
             'bodyType'    => 'json',
         ]);
 
@@ -5798,13 +6686,18 @@ class Cdn extends OpenApiClient
     public function describeUserUsageDataExportTaskWithOptions($request, $runtime)
     {
         Utils::validateModel($request);
-        $query               = [];
-        $query['OwnerId']    = $request->ownerId;
-        $query['PageNumber'] = $request->pageNumber;
-        $query['PageSize']   = $request->pageSize;
-        $req                 = new OpenApiRequest([
+        $query = [];
+        if (!Utils::isUnset($request->ownerId)) {
+            $query['OwnerId'] = $request->ownerId;
+        }
+        if (!Utils::isUnset($request->pageNumber)) {
+            $query['PageNumber'] = $request->pageNumber;
+        }
+        if (!Utils::isUnset($request->pageSize)) {
+            $query['PageSize'] = $request->pageSize;
+        }
+        $req = new OpenApiRequest([
             'query' => OpenApiUtilClient::query($query),
-            'body'  => Utils::toMap($request),
         ]);
         $params = new Params([
             'action'      => 'DescribeUserUsageDataExportTask',
@@ -5814,7 +6707,7 @@ class Cdn extends OpenApiClient
             'method'      => 'POST',
             'authType'    => 'AK',
             'style'       => 'RPC',
-            'reqBodyType' => 'json',
+            'reqBodyType' => 'formData',
             'bodyType'    => 'json',
         ]);
 
@@ -5842,13 +6735,18 @@ class Cdn extends OpenApiClient
     public function describeUserUsageDetailDataExportTaskWithOptions($request, $runtime)
     {
         Utils::validateModel($request);
-        $query               = [];
-        $query['OwnerId']    = $request->ownerId;
-        $query['PageNumber'] = $request->pageNumber;
-        $query['PageSize']   = $request->pageSize;
-        $req                 = new OpenApiRequest([
+        $query = [];
+        if (!Utils::isUnset($request->ownerId)) {
+            $query['OwnerId'] = $request->ownerId;
+        }
+        if (!Utils::isUnset($request->pageNumber)) {
+            $query['PageNumber'] = $request->pageNumber;
+        }
+        if (!Utils::isUnset($request->pageSize)) {
+            $query['PageSize'] = $request->pageSize;
+        }
+        $req = new OpenApiRequest([
             'query' => OpenApiUtilClient::query($query),
-            'body'  => Utils::toMap($request),
         ]);
         $params = new Params([
             'action'      => 'DescribeUserUsageDetailDataExportTask',
@@ -5858,7 +6756,7 @@ class Cdn extends OpenApiClient
             'method'      => 'POST',
             'authType'    => 'AK',
             'style'       => 'RPC',
-            'reqBodyType' => 'json',
+            'reqBodyType' => 'formData',
             'bodyType'    => 'json',
         ]);
 
@@ -5898,7 +6796,7 @@ class Cdn extends OpenApiClient
             'method'      => 'GET',
             'authType'    => 'AK',
             'style'       => 'RPC',
-            'reqBodyType' => 'json',
+            'reqBodyType' => 'formData',
             'bodyType'    => 'json',
         ]);
 
@@ -5926,12 +6824,15 @@ class Cdn extends OpenApiClient
     public function describeVerifyContentWithOptions($request, $runtime)
     {
         Utils::validateModel($request);
-        $query               = [];
-        $query['DomainName'] = $request->domainName;
-        $query['OwnerId']    = $request->ownerId;
-        $req                 = new OpenApiRequest([
+        $query = [];
+        if (!Utils::isUnset($request->domainName)) {
+            $query['DomainName'] = $request->domainName;
+        }
+        if (!Utils::isUnset($request->ownerId)) {
+            $query['OwnerId'] = $request->ownerId;
+        }
+        $req = new OpenApiRequest([
             'query' => OpenApiUtilClient::query($query),
-            'body'  => Utils::toMap($request),
         ]);
         $params = new Params([
             'action'      => 'DescribeVerifyContent',
@@ -5941,7 +6842,7 @@ class Cdn extends OpenApiClient
             'method'      => 'POST',
             'authType'    => 'AK',
             'style'       => 'RPC',
-            'reqBodyType' => 'json',
+            'reqBodyType' => 'formData',
             'bodyType'    => 'json',
         ]);
 
@@ -5981,7 +6882,7 @@ class Cdn extends OpenApiClient
             'method'      => 'GET',
             'authType'    => 'AK',
             'style'       => 'RPC',
-            'reqBodyType' => 'json',
+            'reqBodyType' => 'formData',
             'bodyType'    => 'json',
         ]);
 
@@ -6021,7 +6922,7 @@ class Cdn extends OpenApiClient
             'method'      => 'GET',
             'authType'    => 'AK',
             'style'       => 'RPC',
-            'reqBodyType' => 'json',
+            'reqBodyType' => 'formData',
             'bodyType'    => 'json',
         ]);
 
@@ -6061,7 +6962,7 @@ class Cdn extends OpenApiClient
             'method'      => 'GET',
             'authType'    => 'AK',
             'style'       => 'RPC',
-            'reqBodyType' => 'json',
+            'reqBodyType' => 'formData',
             'bodyType'    => 'json',
         ]);
 
@@ -6101,7 +7002,7 @@ class Cdn extends OpenApiClient
             'method'      => 'GET',
             'authType'    => 'AK',
             'style'       => 'RPC',
-            'reqBodyType' => 'json',
+            'reqBodyType' => 'formData',
             'bodyType'    => 'json',
         ]);
 
@@ -6141,7 +7042,7 @@ class Cdn extends OpenApiClient
             'method'      => 'GET',
             'authType'    => 'AK',
             'style'       => 'RPC',
-            'reqBodyType' => 'json',
+            'reqBodyType' => 'formData',
             'bodyType'    => 'json',
         ]);
 
@@ -6181,7 +7082,7 @@ class Cdn extends OpenApiClient
             'method'      => 'GET',
             'authType'    => 'AK',
             'style'       => 'RPC',
-            'reqBodyType' => 'json',
+            'reqBodyType' => 'formData',
             'bodyType'    => 'json',
         ]);
 
@@ -6221,7 +7122,7 @@ class Cdn extends OpenApiClient
             'method'      => 'GET',
             'authType'    => 'AK',
             'style'       => 'RPC',
-            'reqBodyType' => 'json',
+            'reqBodyType' => 'formData',
             'bodyType'    => 'json',
         ]);
 
@@ -6249,16 +7150,27 @@ class Cdn extends OpenApiClient
     public function modifyCdnDomainWithOptions($request, $runtime)
     {
         Utils::validateModel($request);
-        $query                    = [];
-        $query['DomainName']      = $request->domainName;
-        $query['OwnerId']         = $request->ownerId;
-        $query['ResourceGroupId'] = $request->resourceGroupId;
-        $query['SecurityToken']   = $request->securityToken;
-        $query['Sources']         = $request->sources;
-        $query['TopLevelDomain']  = $request->topLevelDomain;
-        $req                      = new OpenApiRequest([
+        $query = [];
+        if (!Utils::isUnset($request->domainName)) {
+            $query['DomainName'] = $request->domainName;
+        }
+        if (!Utils::isUnset($request->ownerId)) {
+            $query['OwnerId'] = $request->ownerId;
+        }
+        if (!Utils::isUnset($request->resourceGroupId)) {
+            $query['ResourceGroupId'] = $request->resourceGroupId;
+        }
+        if (!Utils::isUnset($request->securityToken)) {
+            $query['SecurityToken'] = $request->securityToken;
+        }
+        if (!Utils::isUnset($request->sources)) {
+            $query['Sources'] = $request->sources;
+        }
+        if (!Utils::isUnset($request->topLevelDomain)) {
+            $query['TopLevelDomain'] = $request->topLevelDomain;
+        }
+        $req = new OpenApiRequest([
             'query' => OpenApiUtilClient::query($query),
-            'body'  => Utils::toMap($request),
         ]);
         $params = new Params([
             'action'      => 'ModifyCdnDomain',
@@ -6268,7 +7180,7 @@ class Cdn extends OpenApiClient
             'method'      => 'POST',
             'authType'    => 'AK',
             'style'       => 'RPC',
-            'reqBodyType' => 'json',
+            'reqBodyType' => 'formData',
             'bodyType'    => 'json',
         ]);
 
@@ -6296,13 +7208,18 @@ class Cdn extends OpenApiClient
     public function modifyCdnDomainSchdmByPropertyWithOptions($request, $runtime)
     {
         Utils::validateModel($request);
-        $query               = [];
-        $query['DomainName'] = $request->domainName;
-        $query['OwnerId']    = $request->ownerId;
-        $query['Property']   = $request->property;
-        $req                 = new OpenApiRequest([
+        $query = [];
+        if (!Utils::isUnset($request->domainName)) {
+            $query['DomainName'] = $request->domainName;
+        }
+        if (!Utils::isUnset($request->ownerId)) {
+            $query['OwnerId'] = $request->ownerId;
+        }
+        if (!Utils::isUnset($request->property)) {
+            $query['Property'] = $request->property;
+        }
+        $req = new OpenApiRequest([
             'query' => OpenApiUtilClient::query($query),
-            'body'  => Utils::toMap($request),
         ]);
         $params = new Params([
             'action'      => 'ModifyCdnDomainSchdmByProperty',
@@ -6312,7 +7229,7 @@ class Cdn extends OpenApiClient
             'method'      => 'POST',
             'authType'    => 'AK',
             'style'       => 'RPC',
-            'reqBodyType' => 'json',
+            'reqBodyType' => 'formData',
             'bodyType'    => 'json',
         ]);
 
@@ -6352,7 +7269,7 @@ class Cdn extends OpenApiClient
             'method'      => 'GET',
             'authType'    => 'AK',
             'style'       => 'RPC',
-            'reqBodyType' => 'json',
+            'reqBodyType' => 'formData',
             'bodyType'    => 'json',
         ]);
 
@@ -6392,7 +7309,7 @@ class Cdn extends OpenApiClient
             'method'      => 'GET',
             'authType'    => 'AK',
             'style'       => 'RPC',
-            'reqBodyType' => 'json',
+            'reqBodyType' => 'formData',
             'bodyType'    => 'json',
         ]);
 
@@ -6432,7 +7349,7 @@ class Cdn extends OpenApiClient
             'method'      => 'GET',
             'authType'    => 'AK',
             'style'       => 'RPC',
-            'reqBodyType' => 'json',
+            'reqBodyType' => 'formData',
             'bodyType'    => 'json',
         ]);
 
@@ -6460,13 +7377,18 @@ class Cdn extends OpenApiClient
     public function openCdnServiceWithOptions($request, $runtime)
     {
         Utils::validateModel($request);
-        $query                       = [];
-        $query['InternetChargeType'] = $request->internetChargeType;
-        $query['OwnerId']            = $request->ownerId;
-        $query['SecurityToken']      = $request->securityToken;
-        $req                         = new OpenApiRequest([
+        $query = [];
+        if (!Utils::isUnset($request->internetChargeType)) {
+            $query['InternetChargeType'] = $request->internetChargeType;
+        }
+        if (!Utils::isUnset($request->ownerId)) {
+            $query['OwnerId'] = $request->ownerId;
+        }
+        if (!Utils::isUnset($request->securityToken)) {
+            $query['SecurityToken'] = $request->securityToken;
+        }
+        $req = new OpenApiRequest([
             'query' => OpenApiUtilClient::query($query),
-            'body'  => Utils::toMap($request),
         ]);
         $params = new Params([
             'action'      => 'OpenCdnService',
@@ -6476,7 +7398,7 @@ class Cdn extends OpenApiClient
             'method'      => 'POST',
             'authType'    => 'AK',
             'style'       => 'RPC',
-            'reqBodyType' => 'json',
+            'reqBodyType' => 'formData',
             'bodyType'    => 'json',
         ]);
 
@@ -6504,13 +7426,18 @@ class Cdn extends OpenApiClient
     public function publishStagingConfigToProductionWithOptions($request, $runtime)
     {
         Utils::validateModel($request);
-        $query                 = [];
-        $query['DomainName']   = $request->domainName;
-        $query['FunctionName'] = $request->functionName;
-        $query['OwnerId']      = $request->ownerId;
-        $req                   = new OpenApiRequest([
+        $query = [];
+        if (!Utils::isUnset($request->domainName)) {
+            $query['DomainName'] = $request->domainName;
+        }
+        if (!Utils::isUnset($request->functionName)) {
+            $query['FunctionName'] = $request->functionName;
+        }
+        if (!Utils::isUnset($request->ownerId)) {
+            $query['OwnerId'] = $request->ownerId;
+        }
+        $req = new OpenApiRequest([
             'query' => OpenApiUtilClient::query($query),
-            'body'  => Utils::toMap($request),
         ]);
         $params = new Params([
             'action'      => 'PublishStagingConfigToProduction',
@@ -6520,7 +7447,7 @@ class Cdn extends OpenApiClient
             'method'      => 'POST',
             'authType'    => 'AK',
             'style'       => 'RPC',
-            'reqBodyType' => 'json',
+            'reqBodyType' => 'formData',
             'bodyType'    => 'json',
         ]);
 
@@ -6548,14 +7475,21 @@ class Cdn extends OpenApiClient
     public function pushObjectCacheWithOptions($request, $runtime)
     {
         Utils::validateModel($request);
-        $query                  = [];
-        $query['Area']          = $request->area;
-        $query['ObjectPath']    = $request->objectPath;
-        $query['OwnerId']       = $request->ownerId;
-        $query['SecurityToken'] = $request->securityToken;
-        $req                    = new OpenApiRequest([
+        $query = [];
+        if (!Utils::isUnset($request->area)) {
+            $query['Area'] = $request->area;
+        }
+        if (!Utils::isUnset($request->objectPath)) {
+            $query['ObjectPath'] = $request->objectPath;
+        }
+        if (!Utils::isUnset($request->ownerId)) {
+            $query['OwnerId'] = $request->ownerId;
+        }
+        if (!Utils::isUnset($request->securityToken)) {
+            $query['SecurityToken'] = $request->securityToken;
+        }
+        $req = new OpenApiRequest([
             'query' => OpenApiUtilClient::query($query),
-            'body'  => Utils::toMap($request),
         ]);
         $params = new Params([
             'action'      => 'PushObjectCache',
@@ -6565,7 +7499,7 @@ class Cdn extends OpenApiClient
             'method'      => 'POST',
             'authType'    => 'AK',
             'style'       => 'RPC',
-            'reqBodyType' => 'json',
+            'reqBodyType' => 'formData',
             'bodyType'    => 'json',
         ]);
 
@@ -6593,14 +7527,21 @@ class Cdn extends OpenApiClient
     public function refreshObjectCachesWithOptions($request, $runtime)
     {
         Utils::validateModel($request);
-        $query                  = [];
-        $query['ObjectPath']    = $request->objectPath;
-        $query['ObjectType']    = $request->objectType;
-        $query['OwnerId']       = $request->ownerId;
-        $query['SecurityToken'] = $request->securityToken;
-        $req                    = new OpenApiRequest([
+        $query = [];
+        if (!Utils::isUnset($request->objectPath)) {
+            $query['ObjectPath'] = $request->objectPath;
+        }
+        if (!Utils::isUnset($request->objectType)) {
+            $query['ObjectType'] = $request->objectType;
+        }
+        if (!Utils::isUnset($request->ownerId)) {
+            $query['OwnerId'] = $request->ownerId;
+        }
+        if (!Utils::isUnset($request->securityToken)) {
+            $query['SecurityToken'] = $request->securityToken;
+        }
+        $req = new OpenApiRequest([
             'query' => OpenApiUtilClient::query($query),
-            'body'  => Utils::toMap($request),
         ]);
         $params = new Params([
             'action'      => 'RefreshObjectCaches',
@@ -6610,7 +7551,7 @@ class Cdn extends OpenApiClient
             'method'      => 'POST',
             'authType'    => 'AK',
             'style'       => 'RPC',
-            'reqBodyType' => 'json',
+            'reqBodyType' => 'formData',
             'bodyType'    => 'json',
         ]);
 
@@ -6638,13 +7579,18 @@ class Cdn extends OpenApiClient
     public function rollbackStagingConfigWithOptions($request, $runtime)
     {
         Utils::validateModel($request);
-        $query                 = [];
-        $query['DomainName']   = $request->domainName;
-        $query['FunctionName'] = $request->functionName;
-        $query['OwnerId']      = $request->ownerId;
-        $req                   = new OpenApiRequest([
+        $query = [];
+        if (!Utils::isUnset($request->domainName)) {
+            $query['DomainName'] = $request->domainName;
+        }
+        if (!Utils::isUnset($request->functionName)) {
+            $query['FunctionName'] = $request->functionName;
+        }
+        if (!Utils::isUnset($request->ownerId)) {
+            $query['OwnerId'] = $request->ownerId;
+        }
+        $req = new OpenApiRequest([
             'query' => OpenApiUtilClient::query($query),
-            'body'  => Utils::toMap($request),
         ]);
         $params = new Params([
             'action'      => 'RollbackStagingConfig',
@@ -6654,7 +7600,7 @@ class Cdn extends OpenApiClient
             'method'      => 'POST',
             'authType'    => 'AK',
             'style'       => 'RPC',
-            'reqBodyType' => 'json',
+            'reqBodyType' => 'formData',
             'bodyType'    => 'json',
         ]);
 
@@ -6682,15 +7628,24 @@ class Cdn extends OpenApiClient
     public function setCcConfigWithOptions($request, $runtime)
     {
         Utils::validateModel($request);
-        $query                  = [];
-        $query['AllowIps']      = $request->allowIps;
-        $query['BlockIps']      = $request->blockIps;
-        $query['DomainName']    = $request->domainName;
-        $query['OwnerId']       = $request->ownerId;
-        $query['SecurityToken'] = $request->securityToken;
-        $req                    = new OpenApiRequest([
+        $query = [];
+        if (!Utils::isUnset($request->allowIps)) {
+            $query['AllowIps'] = $request->allowIps;
+        }
+        if (!Utils::isUnset($request->blockIps)) {
+            $query['BlockIps'] = $request->blockIps;
+        }
+        if (!Utils::isUnset($request->domainName)) {
+            $query['DomainName'] = $request->domainName;
+        }
+        if (!Utils::isUnset($request->ownerId)) {
+            $query['OwnerId'] = $request->ownerId;
+        }
+        if (!Utils::isUnset($request->securityToken)) {
+            $query['SecurityToken'] = $request->securityToken;
+        }
+        $req = new OpenApiRequest([
             'query' => OpenApiUtilClient::query($query),
-            'body'  => Utils::toMap($request),
         ]);
         $params = new Params([
             'action'      => 'SetCcConfig',
@@ -6700,7 +7655,7 @@ class Cdn extends OpenApiClient
             'method'      => 'POST',
             'authType'    => 'AK',
             'style'       => 'RPC',
-            'reqBodyType' => 'json',
+            'reqBodyType' => 'formData',
             'bodyType'    => 'json',
         ]);
 
@@ -6728,13 +7683,18 @@ class Cdn extends OpenApiClient
     public function setCdnDomainCSRCertificateWithOptions($request, $runtime)
     {
         Utils::validateModel($request);
-        $query                      = [];
-        $query['DomainName']        = $request->domainName;
-        $query['OwnerId']           = $request->ownerId;
-        $query['ServerCertificate'] = $request->serverCertificate;
-        $req                        = new OpenApiRequest([
+        $query = [];
+        if (!Utils::isUnset($request->domainName)) {
+            $query['DomainName'] = $request->domainName;
+        }
+        if (!Utils::isUnset($request->ownerId)) {
+            $query['OwnerId'] = $request->ownerId;
+        }
+        if (!Utils::isUnset($request->serverCertificate)) {
+            $query['ServerCertificate'] = $request->serverCertificate;
+        }
+        $req = new OpenApiRequest([
             'query' => OpenApiUtilClient::query($query),
-            'body'  => Utils::toMap($request),
         ]);
         $params = new Params([
             'action'      => 'SetCdnDomainCSRCertificate',
@@ -6744,7 +7704,7 @@ class Cdn extends OpenApiClient
             'method'      => 'POST',
             'authType'    => 'AK',
             'style'       => 'RPC',
-            'reqBodyType' => 'json',
+            'reqBodyType' => 'formData',
             'bodyType'    => 'json',
         ]);
 
@@ -6772,15 +7732,24 @@ class Cdn extends OpenApiClient
     public function setCdnDomainSMCertificateWithOptions($request, $runtime)
     {
         Utils::validateModel($request);
-        $query                   = [];
-        $query['CertIdentifier'] = $request->certIdentifier;
-        $query['DomainName']     = $request->domainName;
-        $query['OwnerId']        = $request->ownerId;
-        $query['SSLProtocol']    = $request->SSLProtocol;
-        $query['SecurityToken']  = $request->securityToken;
-        $req                     = new OpenApiRequest([
+        $query = [];
+        if (!Utils::isUnset($request->certIdentifier)) {
+            $query['CertIdentifier'] = $request->certIdentifier;
+        }
+        if (!Utils::isUnset($request->domainName)) {
+            $query['DomainName'] = $request->domainName;
+        }
+        if (!Utils::isUnset($request->ownerId)) {
+            $query['OwnerId'] = $request->ownerId;
+        }
+        if (!Utils::isUnset($request->SSLProtocol)) {
+            $query['SSLProtocol'] = $request->SSLProtocol;
+        }
+        if (!Utils::isUnset($request->securityToken)) {
+            $query['SecurityToken'] = $request->securityToken;
+        }
+        $req = new OpenApiRequest([
             'query' => OpenApiUtilClient::query($query),
-            'body'  => Utils::toMap($request),
         ]);
         $params = new Params([
             'action'      => 'SetCdnDomainSMCertificate',
@@ -6790,7 +7759,7 @@ class Cdn extends OpenApiClient
             'method'      => 'POST',
             'authType'    => 'AK',
             'style'       => 'RPC',
-            'reqBodyType' => 'json',
+            'reqBodyType' => 'formData',
             'bodyType'    => 'json',
         ]);
 
@@ -6818,13 +7787,18 @@ class Cdn extends OpenApiClient
     public function setCdnDomainStagingConfigWithOptions($request, $runtime)
     {
         Utils::validateModel($request);
-        $query               = [];
-        $query['DomainName'] = $request->domainName;
-        $query['Functions']  = $request->functions;
-        $query['OwnerId']    = $request->ownerId;
-        $req                 = new OpenApiRequest([
+        $query = [];
+        if (!Utils::isUnset($request->domainName)) {
+            $query['DomainName'] = $request->domainName;
+        }
+        if (!Utils::isUnset($request->functions)) {
+            $query['Functions'] = $request->functions;
+        }
+        if (!Utils::isUnset($request->ownerId)) {
+            $query['OwnerId'] = $request->ownerId;
+        }
+        $req = new OpenApiRequest([
             'query' => OpenApiUtilClient::query($query),
-            'body'  => Utils::toMap($request),
         ]);
         $params = new Params([
             'action'      => 'SetCdnDomainStagingConfig',
@@ -6834,7 +7808,7 @@ class Cdn extends OpenApiClient
             'method'      => 'POST',
             'authType'    => 'AK',
             'style'       => 'RPC',
-            'reqBodyType' => 'json',
+            'reqBodyType' => 'formData',
             'bodyType'    => 'json',
         ]);
 
@@ -6862,19 +7836,36 @@ class Cdn extends OpenApiClient
     public function setConfigOfVersionWithOptions($request, $runtime)
     {
         Utils::validateModel($request);
-        $query                    = [];
-        $query['ConfigId']        = $request->configId;
-        $query['FunctionArgs']    = $request->functionArgs;
-        $query['FunctionId']      = $request->functionId;
-        $query['FunctionMatches'] = $request->functionMatches;
-        $query['FunctionName']    = $request->functionName;
-        $query['OwnerAccount']    = $request->ownerAccount;
-        $query['OwnerId']         = $request->ownerId;
-        $query['SecurityToken']   = $request->securityToken;
-        $query['VersionId']       = $request->versionId;
-        $req                      = new OpenApiRequest([
+        $query = [];
+        if (!Utils::isUnset($request->configId)) {
+            $query['ConfigId'] = $request->configId;
+        }
+        if (!Utils::isUnset($request->functionArgs)) {
+            $query['FunctionArgs'] = $request->functionArgs;
+        }
+        if (!Utils::isUnset($request->functionId)) {
+            $query['FunctionId'] = $request->functionId;
+        }
+        if (!Utils::isUnset($request->functionMatches)) {
+            $query['FunctionMatches'] = $request->functionMatches;
+        }
+        if (!Utils::isUnset($request->functionName)) {
+            $query['FunctionName'] = $request->functionName;
+        }
+        if (!Utils::isUnset($request->ownerAccount)) {
+            $query['OwnerAccount'] = $request->ownerAccount;
+        }
+        if (!Utils::isUnset($request->ownerId)) {
+            $query['OwnerId'] = $request->ownerId;
+        }
+        if (!Utils::isUnset($request->securityToken)) {
+            $query['SecurityToken'] = $request->securityToken;
+        }
+        if (!Utils::isUnset($request->versionId)) {
+            $query['VersionId'] = $request->versionId;
+        }
+        $req = new OpenApiRequest([
             'query' => OpenApiUtilClient::query($query),
-            'body'  => Utils::toMap($request),
         ]);
         $params = new Params([
             'action'      => 'SetConfigOfVersion',
@@ -6884,7 +7875,7 @@ class Cdn extends OpenApiClient
             'method'      => 'POST',
             'authType'    => 'AK',
             'style'       => 'RPC',
-            'reqBodyType' => 'json',
+            'reqBodyType' => 'formData',
             'bodyType'    => 'json',
         ]);
 
@@ -6912,13 +7903,18 @@ class Cdn extends OpenApiClient
     public function setDomainGreenManagerConfigWithOptions($request, $runtime)
     {
         Utils::validateModel($request);
-        $query               = [];
-        $query['DomainName'] = $request->domainName;
-        $query['Enable']     = $request->enable;
-        $query['OwnerId']    = $request->ownerId;
-        $req                 = new OpenApiRequest([
+        $query = [];
+        if (!Utils::isUnset($request->domainName)) {
+            $query['DomainName'] = $request->domainName;
+        }
+        if (!Utils::isUnset($request->enable)) {
+            $query['Enable'] = $request->enable;
+        }
+        if (!Utils::isUnset($request->ownerId)) {
+            $query['OwnerId'] = $request->ownerId;
+        }
+        $req = new OpenApiRequest([
             'query' => OpenApiUtilClient::query($query),
-            'body'  => Utils::toMap($request),
         ]);
         $params = new Params([
             'action'      => 'SetDomainGreenManagerConfig',
@@ -6928,7 +7924,7 @@ class Cdn extends OpenApiClient
             'method'      => 'POST',
             'authType'    => 'AK',
             'style'       => 'RPC',
-            'reqBodyType' => 'json',
+            'reqBodyType' => 'formData',
             'bodyType'    => 'json',
         ]);
 
@@ -6956,19 +7952,36 @@ class Cdn extends OpenApiClient
     public function setDomainServerCertificateWithOptions($request, $runtime)
     {
         Utils::validateModel($request);
-        $query                            = [];
-        $query['CertName']                = $request->certName;
-        $query['CertType']                = $request->certType;
-        $query['DomainName']              = $request->domainName;
-        $query['ForceSet']                = $request->forceSet;
-        $query['OwnerId']                 = $request->ownerId;
-        $query['PrivateKey']              = $request->privateKey;
-        $query['SecurityToken']           = $request->securityToken;
-        $query['ServerCertificate']       = $request->serverCertificate;
-        $query['ServerCertificateStatus'] = $request->serverCertificateStatus;
-        $req                              = new OpenApiRequest([
+        $query = [];
+        if (!Utils::isUnset($request->certName)) {
+            $query['CertName'] = $request->certName;
+        }
+        if (!Utils::isUnset($request->certType)) {
+            $query['CertType'] = $request->certType;
+        }
+        if (!Utils::isUnset($request->domainName)) {
+            $query['DomainName'] = $request->domainName;
+        }
+        if (!Utils::isUnset($request->forceSet)) {
+            $query['ForceSet'] = $request->forceSet;
+        }
+        if (!Utils::isUnset($request->ownerId)) {
+            $query['OwnerId'] = $request->ownerId;
+        }
+        if (!Utils::isUnset($request->privateKey)) {
+            $query['PrivateKey'] = $request->privateKey;
+        }
+        if (!Utils::isUnset($request->securityToken)) {
+            $query['SecurityToken'] = $request->securityToken;
+        }
+        if (!Utils::isUnset($request->serverCertificate)) {
+            $query['ServerCertificate'] = $request->serverCertificate;
+        }
+        if (!Utils::isUnset($request->serverCertificateStatus)) {
+            $query['ServerCertificateStatus'] = $request->serverCertificateStatus;
+        }
+        $req = new OpenApiRequest([
             'query' => OpenApiUtilClient::query($query),
-            'body'  => Utils::toMap($request),
         ]);
         $params = new Params([
             'action'      => 'SetDomainServerCertificate',
@@ -6978,7 +7991,7 @@ class Cdn extends OpenApiClient
             'method'      => 'POST',
             'authType'    => 'AK',
             'style'       => 'RPC',
-            'reqBodyType' => 'json',
+            'reqBodyType' => 'formData',
             'bodyType'    => 'json',
         ]);
 
@@ -7006,15 +8019,24 @@ class Cdn extends OpenApiClient
     public function setErrorPageConfigWithOptions($request, $runtime)
     {
         Utils::validateModel($request);
-        $query                  = [];
-        $query['CustomPageUrl'] = $request->customPageUrl;
-        $query['DomainName']    = $request->domainName;
-        $query['OwnerId']       = $request->ownerId;
-        $query['PageType']      = $request->pageType;
-        $query['SecurityToken'] = $request->securityToken;
-        $req                    = new OpenApiRequest([
+        $query = [];
+        if (!Utils::isUnset($request->customPageUrl)) {
+            $query['CustomPageUrl'] = $request->customPageUrl;
+        }
+        if (!Utils::isUnset($request->domainName)) {
+            $query['DomainName'] = $request->domainName;
+        }
+        if (!Utils::isUnset($request->ownerId)) {
+            $query['OwnerId'] = $request->ownerId;
+        }
+        if (!Utils::isUnset($request->pageType)) {
+            $query['PageType'] = $request->pageType;
+        }
+        if (!Utils::isUnset($request->securityToken)) {
+            $query['SecurityToken'] = $request->securityToken;
+        }
+        $req = new OpenApiRequest([
             'query' => OpenApiUtilClient::query($query),
-            'body'  => Utils::toMap($request),
         ]);
         $params = new Params([
             'action'      => 'SetErrorPageConfig',
@@ -7024,7 +8046,7 @@ class Cdn extends OpenApiClient
             'method'      => 'POST',
             'authType'    => 'AK',
             'style'       => 'RPC',
-            'reqBodyType' => 'json',
+            'reqBodyType' => 'formData',
             'bodyType'    => 'json',
         ]);
 
@@ -7052,16 +8074,27 @@ class Cdn extends OpenApiClient
     public function setFileCacheExpiredConfigWithOptions($request, $runtime)
     {
         Utils::validateModel($request);
-        $query                  = [];
-        $query['CacheContent']  = $request->cacheContent;
-        $query['DomainName']    = $request->domainName;
-        $query['OwnerId']       = $request->ownerId;
-        $query['SecurityToken'] = $request->securityToken;
-        $query['TTL']           = $request->TTL;
-        $query['Weight']        = $request->weight;
-        $req                    = new OpenApiRequest([
+        $query = [];
+        if (!Utils::isUnset($request->cacheContent)) {
+            $query['CacheContent'] = $request->cacheContent;
+        }
+        if (!Utils::isUnset($request->domainName)) {
+            $query['DomainName'] = $request->domainName;
+        }
+        if (!Utils::isUnset($request->ownerId)) {
+            $query['OwnerId'] = $request->ownerId;
+        }
+        if (!Utils::isUnset($request->securityToken)) {
+            $query['SecurityToken'] = $request->securityToken;
+        }
+        if (!Utils::isUnset($request->TTL)) {
+            $query['TTL'] = $request->TTL;
+        }
+        if (!Utils::isUnset($request->weight)) {
+            $query['Weight'] = $request->weight;
+        }
+        $req = new OpenApiRequest([
             'query' => OpenApiUtilClient::query($query),
-            'body'  => Utils::toMap($request),
         ]);
         $params = new Params([
             'action'      => 'SetFileCacheExpiredConfig',
@@ -7071,7 +8104,7 @@ class Cdn extends OpenApiClient
             'method'      => 'POST',
             'authType'    => 'AK',
             'style'       => 'RPC',
-            'reqBodyType' => 'json',
+            'reqBodyType' => 'formData',
             'bodyType'    => 'json',
         ]);
 
@@ -7099,14 +8132,21 @@ class Cdn extends OpenApiClient
     public function setForceRedirectConfigWithOptions($request, $runtime)
     {
         Utils::validateModel($request);
-        $query                  = [];
-        $query['DomainName']    = $request->domainName;
-        $query['OwnerId']       = $request->ownerId;
-        $query['RedirectType']  = $request->redirectType;
-        $query['SecurityToken'] = $request->securityToken;
-        $req                    = new OpenApiRequest([
+        $query = [];
+        if (!Utils::isUnset($request->domainName)) {
+            $query['DomainName'] = $request->domainName;
+        }
+        if (!Utils::isUnset($request->ownerId)) {
+            $query['OwnerId'] = $request->ownerId;
+        }
+        if (!Utils::isUnset($request->redirectType)) {
+            $query['RedirectType'] = $request->redirectType;
+        }
+        if (!Utils::isUnset($request->securityToken)) {
+            $query['SecurityToken'] = $request->securityToken;
+        }
+        $req = new OpenApiRequest([
             'query' => OpenApiUtilClient::query($query),
-            'body'  => Utils::toMap($request),
         ]);
         $params = new Params([
             'action'      => 'SetForceRedirectConfig',
@@ -7116,7 +8156,7 @@ class Cdn extends OpenApiClient
             'method'      => 'POST',
             'authType'    => 'AK',
             'style'       => 'RPC',
-            'reqBodyType' => 'json',
+            'reqBodyType' => 'formData',
             'bodyType'    => 'json',
         ]);
 
@@ -7144,16 +8184,27 @@ class Cdn extends OpenApiClient
     public function setForwardSchemeConfigWithOptions($request, $runtime)
     {
         Utils::validateModel($request);
-        $query                     = [];
-        $query['ConfigId']         = $request->configId;
-        $query['DomainName']       = $request->domainName;
-        $query['Enable']           = $request->enable;
-        $query['OwnerId']          = $request->ownerId;
-        $query['SchemeOrigin']     = $request->schemeOrigin;
-        $query['SchemeOriginPort'] = $request->schemeOriginPort;
-        $req                       = new OpenApiRequest([
+        $query = [];
+        if (!Utils::isUnset($request->configId)) {
+            $query['ConfigId'] = $request->configId;
+        }
+        if (!Utils::isUnset($request->domainName)) {
+            $query['DomainName'] = $request->domainName;
+        }
+        if (!Utils::isUnset($request->enable)) {
+            $query['Enable'] = $request->enable;
+        }
+        if (!Utils::isUnset($request->ownerId)) {
+            $query['OwnerId'] = $request->ownerId;
+        }
+        if (!Utils::isUnset($request->schemeOrigin)) {
+            $query['SchemeOrigin'] = $request->schemeOrigin;
+        }
+        if (!Utils::isUnset($request->schemeOriginPort)) {
+            $query['SchemeOriginPort'] = $request->schemeOriginPort;
+        }
+        $req = new OpenApiRequest([
             'query' => OpenApiUtilClient::query($query),
-            'body'  => Utils::toMap($request),
         ]);
         $params = new Params([
             'action'      => 'SetForwardSchemeConfig',
@@ -7163,7 +8214,7 @@ class Cdn extends OpenApiClient
             'method'      => 'POST',
             'authType'    => 'AK',
             'style'       => 'RPC',
-            'reqBodyType' => 'json',
+            'reqBodyType' => 'formData',
             'bodyType'    => 'json',
         ]);
 
@@ -7191,15 +8242,24 @@ class Cdn extends OpenApiClient
     public function setHttpErrorPageConfigWithOptions($request, $runtime)
     {
         Utils::validateModel($request);
-        $query               = [];
-        $query['ConfigId']   = $request->configId;
-        $query['DomainName'] = $request->domainName;
-        $query['ErrorCode']  = $request->errorCode;
-        $query['OwnerId']    = $request->ownerId;
-        $query['PageUrl']    = $request->pageUrl;
-        $req                 = new OpenApiRequest([
+        $query = [];
+        if (!Utils::isUnset($request->configId)) {
+            $query['ConfigId'] = $request->configId;
+        }
+        if (!Utils::isUnset($request->domainName)) {
+            $query['DomainName'] = $request->domainName;
+        }
+        if (!Utils::isUnset($request->errorCode)) {
+            $query['ErrorCode'] = $request->errorCode;
+        }
+        if (!Utils::isUnset($request->ownerId)) {
+            $query['OwnerId'] = $request->ownerId;
+        }
+        if (!Utils::isUnset($request->pageUrl)) {
+            $query['PageUrl'] = $request->pageUrl;
+        }
+        $req = new OpenApiRequest([
             'query' => OpenApiUtilClient::query($query),
-            'body'  => Utils::toMap($request),
         ]);
         $params = new Params([
             'action'      => 'SetHttpErrorPageConfig',
@@ -7209,7 +8269,7 @@ class Cdn extends OpenApiClient
             'method'      => 'POST',
             'authType'    => 'AK',
             'style'       => 'RPC',
-            'reqBodyType' => 'json',
+            'reqBodyType' => 'formData',
             'bodyType'    => 'json',
         ]);
 
@@ -7237,16 +8297,27 @@ class Cdn extends OpenApiClient
     public function setHttpHeaderConfigWithOptions($request, $runtime)
     {
         Utils::validateModel($request);
-        $query                  = [];
-        $query['ConfigId']      = $request->configId;
-        $query['DomainName']    = $request->domainName;
-        $query['HeaderKey']     = $request->headerKey;
-        $query['HeaderValue']   = $request->headerValue;
-        $query['OwnerId']       = $request->ownerId;
-        $query['SecurityToken'] = $request->securityToken;
-        $req                    = new OpenApiRequest([
+        $query = [];
+        if (!Utils::isUnset($request->configId)) {
+            $query['ConfigId'] = $request->configId;
+        }
+        if (!Utils::isUnset($request->domainName)) {
+            $query['DomainName'] = $request->domainName;
+        }
+        if (!Utils::isUnset($request->headerKey)) {
+            $query['HeaderKey'] = $request->headerKey;
+        }
+        if (!Utils::isUnset($request->headerValue)) {
+            $query['HeaderValue'] = $request->headerValue;
+        }
+        if (!Utils::isUnset($request->ownerId)) {
+            $query['OwnerId'] = $request->ownerId;
+        }
+        if (!Utils::isUnset($request->securityToken)) {
+            $query['SecurityToken'] = $request->securityToken;
+        }
+        $req = new OpenApiRequest([
             'query' => OpenApiUtilClient::query($query),
-            'body'  => Utils::toMap($request),
         ]);
         $params = new Params([
             'action'      => 'SetHttpHeaderConfig',
@@ -7256,7 +8327,7 @@ class Cdn extends OpenApiClient
             'method'      => 'POST',
             'authType'    => 'AK',
             'style'       => 'RPC',
-            'reqBodyType' => 'json',
+            'reqBodyType' => 'formData',
             'bodyType'    => 'json',
         ]);
 
@@ -7284,14 +8355,21 @@ class Cdn extends OpenApiClient
     public function setHttpsOptionConfigWithOptions($request, $runtime)
     {
         Utils::validateModel($request);
-        $query               = [];
-        $query['ConfigId']   = $request->configId;
-        $query['DomainName'] = $request->domainName;
-        $query['Http2']      = $request->http2;
-        $query['OwnerId']    = $request->ownerId;
-        $req                 = new OpenApiRequest([
+        $query = [];
+        if (!Utils::isUnset($request->configId)) {
+            $query['ConfigId'] = $request->configId;
+        }
+        if (!Utils::isUnset($request->domainName)) {
+            $query['DomainName'] = $request->domainName;
+        }
+        if (!Utils::isUnset($request->http2)) {
+            $query['Http2'] = $request->http2;
+        }
+        if (!Utils::isUnset($request->ownerId)) {
+            $query['OwnerId'] = $request->ownerId;
+        }
+        $req = new OpenApiRequest([
             'query' => OpenApiUtilClient::query($query),
-            'body'  => Utils::toMap($request),
         ]);
         $params = new Params([
             'action'      => 'SetHttpsOptionConfig',
@@ -7301,7 +8379,7 @@ class Cdn extends OpenApiClient
             'method'      => 'POST',
             'authType'    => 'AK',
             'style'       => 'RPC',
-            'reqBodyType' => 'json',
+            'reqBodyType' => 'formData',
             'bodyType'    => 'json',
         ]);
 
@@ -7329,16 +8407,27 @@ class Cdn extends OpenApiClient
     public function setIgnoreQueryStringConfigWithOptions($request, $runtime)
     {
         Utils::validateModel($request);
-        $query                = [];
-        $query['ConfigId']    = $request->configId;
-        $query['DomainName']  = $request->domainName;
-        $query['Enable']      = $request->enable;
-        $query['HashKeyArgs'] = $request->hashKeyArgs;
-        $query['KeepOssArgs'] = $request->keepOssArgs;
-        $query['OwnerId']     = $request->ownerId;
-        $req                  = new OpenApiRequest([
+        $query = [];
+        if (!Utils::isUnset($request->configId)) {
+            $query['ConfigId'] = $request->configId;
+        }
+        if (!Utils::isUnset($request->domainName)) {
+            $query['DomainName'] = $request->domainName;
+        }
+        if (!Utils::isUnset($request->enable)) {
+            $query['Enable'] = $request->enable;
+        }
+        if (!Utils::isUnset($request->hashKeyArgs)) {
+            $query['HashKeyArgs'] = $request->hashKeyArgs;
+        }
+        if (!Utils::isUnset($request->keepOssArgs)) {
+            $query['KeepOssArgs'] = $request->keepOssArgs;
+        }
+        if (!Utils::isUnset($request->ownerId)) {
+            $query['OwnerId'] = $request->ownerId;
+        }
+        $req = new OpenApiRequest([
             'query' => OpenApiUtilClient::query($query),
-            'body'  => Utils::toMap($request),
         ]);
         $params = new Params([
             'action'      => 'SetIgnoreQueryStringConfig',
@@ -7348,7 +8437,7 @@ class Cdn extends OpenApiClient
             'method'      => 'POST',
             'authType'    => 'AK',
             'style'       => 'RPC',
-            'reqBodyType' => 'json',
+            'reqBodyType' => 'formData',
             'bodyType'    => 'json',
         ]);
 
@@ -7376,14 +8465,21 @@ class Cdn extends OpenApiClient
     public function setIpAllowListConfigWithOptions($request, $runtime)
     {
         Utils::validateModel($request);
-        $query                  = [];
-        $query['AllowIps']      = $request->allowIps;
-        $query['DomainName']    = $request->domainName;
-        $query['OwnerId']       = $request->ownerId;
-        $query['SecurityToken'] = $request->securityToken;
-        $req                    = new OpenApiRequest([
+        $query = [];
+        if (!Utils::isUnset($request->allowIps)) {
+            $query['AllowIps'] = $request->allowIps;
+        }
+        if (!Utils::isUnset($request->domainName)) {
+            $query['DomainName'] = $request->domainName;
+        }
+        if (!Utils::isUnset($request->ownerId)) {
+            $query['OwnerId'] = $request->ownerId;
+        }
+        if (!Utils::isUnset($request->securityToken)) {
+            $query['SecurityToken'] = $request->securityToken;
+        }
+        $req = new OpenApiRequest([
             'query' => OpenApiUtilClient::query($query),
-            'body'  => Utils::toMap($request),
         ]);
         $params = new Params([
             'action'      => 'SetIpAllowListConfig',
@@ -7393,7 +8489,7 @@ class Cdn extends OpenApiClient
             'method'      => 'POST',
             'authType'    => 'AK',
             'style'       => 'RPC',
-            'reqBodyType' => 'json',
+            'reqBodyType' => 'formData',
             'bodyType'    => 'json',
         ]);
 
@@ -7421,14 +8517,21 @@ class Cdn extends OpenApiClient
     public function setIpBlackListConfigWithOptions($request, $runtime)
     {
         Utils::validateModel($request);
-        $query               = [];
-        $query['BlockIps']   = $request->blockIps;
-        $query['ConfigId']   = $request->configId;
-        $query['DomainName'] = $request->domainName;
-        $query['OwnerId']    = $request->ownerId;
-        $req                 = new OpenApiRequest([
+        $query = [];
+        if (!Utils::isUnset($request->blockIps)) {
+            $query['BlockIps'] = $request->blockIps;
+        }
+        if (!Utils::isUnset($request->configId)) {
+            $query['ConfigId'] = $request->configId;
+        }
+        if (!Utils::isUnset($request->domainName)) {
+            $query['DomainName'] = $request->domainName;
+        }
+        if (!Utils::isUnset($request->ownerId)) {
+            $query['OwnerId'] = $request->ownerId;
+        }
+        $req = new OpenApiRequest([
             'query' => OpenApiUtilClient::query($query),
-            'body'  => Utils::toMap($request),
         ]);
         $params = new Params([
             'action'      => 'SetIpBlackListConfig',
@@ -7438,7 +8541,7 @@ class Cdn extends OpenApiClient
             'method'      => 'POST',
             'authType'    => 'AK',
             'style'       => 'RPC',
-            'reqBodyType' => 'json',
+            'reqBodyType' => 'formData',
             'bodyType'    => 'json',
         ]);
 
@@ -7466,14 +8569,21 @@ class Cdn extends OpenApiClient
     public function setOptimizeConfigWithOptions($request, $runtime)
     {
         Utils::validateModel($request);
-        $query               = [];
-        $query['ConfigId']   = $request->configId;
-        $query['DomainName'] = $request->domainName;
-        $query['Enable']     = $request->enable;
-        $query['OwnerId']    = $request->ownerId;
-        $req                 = new OpenApiRequest([
+        $query = [];
+        if (!Utils::isUnset($request->configId)) {
+            $query['ConfigId'] = $request->configId;
+        }
+        if (!Utils::isUnset($request->domainName)) {
+            $query['DomainName'] = $request->domainName;
+        }
+        if (!Utils::isUnset($request->enable)) {
+            $query['Enable'] = $request->enable;
+        }
+        if (!Utils::isUnset($request->ownerId)) {
+            $query['OwnerId'] = $request->ownerId;
+        }
+        $req = new OpenApiRequest([
             'query' => OpenApiUtilClient::query($query),
-            'body'  => Utils::toMap($request),
         ]);
         $params = new Params([
             'action'      => 'SetOptimizeConfig',
@@ -7483,7 +8593,7 @@ class Cdn extends OpenApiClient
             'method'      => 'POST',
             'authType'    => 'AK',
             'style'       => 'RPC',
-            'reqBodyType' => 'json',
+            'reqBodyType' => 'formData',
             'bodyType'    => 'json',
         ]);
 
@@ -7511,14 +8621,21 @@ class Cdn extends OpenApiClient
     public function setPageCompressConfigWithOptions($request, $runtime)
     {
         Utils::validateModel($request);
-        $query               = [];
-        $query['ConfigId']   = $request->configId;
-        $query['DomainName'] = $request->domainName;
-        $query['Enable']     = $request->enable;
-        $query['OwnerId']    = $request->ownerId;
-        $req                 = new OpenApiRequest([
+        $query = [];
+        if (!Utils::isUnset($request->configId)) {
+            $query['ConfigId'] = $request->configId;
+        }
+        if (!Utils::isUnset($request->domainName)) {
+            $query['DomainName'] = $request->domainName;
+        }
+        if (!Utils::isUnset($request->enable)) {
+            $query['Enable'] = $request->enable;
+        }
+        if (!Utils::isUnset($request->ownerId)) {
+            $query['OwnerId'] = $request->ownerId;
+        }
+        $req = new OpenApiRequest([
             'query' => OpenApiUtilClient::query($query),
-            'body'  => Utils::toMap($request),
         ]);
         $params = new Params([
             'action'      => 'SetPageCompressConfig',
@@ -7528,7 +8645,7 @@ class Cdn extends OpenApiClient
             'method'      => 'POST',
             'authType'    => 'AK',
             'style'       => 'RPC',
-            'reqBodyType' => 'json',
+            'reqBodyType' => 'formData',
             'bodyType'    => 'json',
         ]);
 
@@ -7556,14 +8673,21 @@ class Cdn extends OpenApiClient
     public function setRangeConfigWithOptions($request, $runtime)
     {
         Utils::validateModel($request);
-        $query               = [];
-        $query['ConfigId']   = $request->configId;
-        $query['DomainName'] = $request->domainName;
-        $query['Enable']     = $request->enable;
-        $query['OwnerId']    = $request->ownerId;
-        $req                 = new OpenApiRequest([
+        $query = [];
+        if (!Utils::isUnset($request->configId)) {
+            $query['ConfigId'] = $request->configId;
+        }
+        if (!Utils::isUnset($request->domainName)) {
+            $query['DomainName'] = $request->domainName;
+        }
+        if (!Utils::isUnset($request->enable)) {
+            $query['Enable'] = $request->enable;
+        }
+        if (!Utils::isUnset($request->ownerId)) {
+            $query['OwnerId'] = $request->ownerId;
+        }
+        $req = new OpenApiRequest([
             'query' => OpenApiUtilClient::query($query),
-            'body'  => Utils::toMap($request),
         ]);
         $params = new Params([
             'action'      => 'SetRangeConfig',
@@ -7573,7 +8697,7 @@ class Cdn extends OpenApiClient
             'method'      => 'POST',
             'authType'    => 'AK',
             'style'       => 'RPC',
-            'reqBodyType' => 'json',
+            'reqBodyType' => 'formData',
             'bodyType'    => 'json',
         ]);
 
@@ -7601,17 +8725,30 @@ class Cdn extends OpenApiClient
     public function setRefererConfigWithOptions($request, $runtime)
     {
         Utils::validateModel($request);
-        $query                  = [];
-        $query['AllowEmpty']    = $request->allowEmpty;
-        $query['DisableAst']    = $request->disableAst;
-        $query['DomainName']    = $request->domainName;
-        $query['OwnerId']       = $request->ownerId;
-        $query['ReferList']     = $request->referList;
-        $query['ReferType']     = $request->referType;
-        $query['SecurityToken'] = $request->securityToken;
-        $req                    = new OpenApiRequest([
+        $query = [];
+        if (!Utils::isUnset($request->allowEmpty)) {
+            $query['AllowEmpty'] = $request->allowEmpty;
+        }
+        if (!Utils::isUnset($request->disableAst)) {
+            $query['DisableAst'] = $request->disableAst;
+        }
+        if (!Utils::isUnset($request->domainName)) {
+            $query['DomainName'] = $request->domainName;
+        }
+        if (!Utils::isUnset($request->ownerId)) {
+            $query['OwnerId'] = $request->ownerId;
+        }
+        if (!Utils::isUnset($request->referList)) {
+            $query['ReferList'] = $request->referList;
+        }
+        if (!Utils::isUnset($request->referType)) {
+            $query['ReferType'] = $request->referType;
+        }
+        if (!Utils::isUnset($request->securityToken)) {
+            $query['SecurityToken'] = $request->securityToken;
+        }
+        $req = new OpenApiRequest([
             'query' => OpenApiUtilClient::query($query),
-            'body'  => Utils::toMap($request),
         ]);
         $params = new Params([
             'action'      => 'SetRefererConfig',
@@ -7621,7 +8758,7 @@ class Cdn extends OpenApiClient
             'method'      => 'POST',
             'authType'    => 'AK',
             'style'       => 'RPC',
-            'reqBodyType' => 'json',
+            'reqBodyType' => 'formData',
             'bodyType'    => 'json',
         ]);
 
@@ -7649,15 +8786,24 @@ class Cdn extends OpenApiClient
     public function setRemoveQueryStringConfigWithOptions($request, $runtime)
     {
         Utils::validateModel($request);
-        $query                  = [];
-        $query['AliRemoveArgs'] = $request->aliRemoveArgs;
-        $query['ConfigId']      = $request->configId;
-        $query['DomainName']    = $request->domainName;
-        $query['KeepOssArgs']   = $request->keepOssArgs;
-        $query['OwnerId']       = $request->ownerId;
-        $req                    = new OpenApiRequest([
+        $query = [];
+        if (!Utils::isUnset($request->aliRemoveArgs)) {
+            $query['AliRemoveArgs'] = $request->aliRemoveArgs;
+        }
+        if (!Utils::isUnset($request->configId)) {
+            $query['ConfigId'] = $request->configId;
+        }
+        if (!Utils::isUnset($request->domainName)) {
+            $query['DomainName'] = $request->domainName;
+        }
+        if (!Utils::isUnset($request->keepOssArgs)) {
+            $query['KeepOssArgs'] = $request->keepOssArgs;
+        }
+        if (!Utils::isUnset($request->ownerId)) {
+            $query['OwnerId'] = $request->ownerId;
+        }
+        $req = new OpenApiRequest([
             'query' => OpenApiUtilClient::query($query),
-            'body'  => Utils::toMap($request),
         ]);
         $params = new Params([
             'action'      => 'SetRemoveQueryStringConfig',
@@ -7667,7 +8813,7 @@ class Cdn extends OpenApiClient
             'method'      => 'POST',
             'authType'    => 'AK',
             'style'       => 'RPC',
-            'reqBodyType' => 'json',
+            'reqBodyType' => 'formData',
             'bodyType'    => 'json',
         ]);
 
@@ -7695,18 +8841,33 @@ class Cdn extends OpenApiClient
     public function setReqAuthConfigWithOptions($request, $runtime)
     {
         Utils::validateModel($request);
-        $query                   = [];
-        $query['AuthRemoteDesc'] = $request->authRemoteDesc;
-        $query['AuthType']       = $request->authType;
-        $query['DomainName']     = $request->domainName;
-        $query['Key1']           = $request->key1;
-        $query['Key2']           = $request->key2;
-        $query['OwnerId']        = $request->ownerId;
-        $query['SecurityToken']  = $request->securityToken;
-        $query['TimeOut']        = $request->timeOut;
-        $req                     = new OpenApiRequest([
+        $query = [];
+        if (!Utils::isUnset($request->authRemoteDesc)) {
+            $query['AuthRemoteDesc'] = $request->authRemoteDesc;
+        }
+        if (!Utils::isUnset($request->authType)) {
+            $query['AuthType'] = $request->authType;
+        }
+        if (!Utils::isUnset($request->domainName)) {
+            $query['DomainName'] = $request->domainName;
+        }
+        if (!Utils::isUnset($request->key1)) {
+            $query['Key1'] = $request->key1;
+        }
+        if (!Utils::isUnset($request->key2)) {
+            $query['Key2'] = $request->key2;
+        }
+        if (!Utils::isUnset($request->ownerId)) {
+            $query['OwnerId'] = $request->ownerId;
+        }
+        if (!Utils::isUnset($request->securityToken)) {
+            $query['SecurityToken'] = $request->securityToken;
+        }
+        if (!Utils::isUnset($request->timeOut)) {
+            $query['TimeOut'] = $request->timeOut;
+        }
+        $req = new OpenApiRequest([
             'query' => OpenApiUtilClient::query($query),
-            'body'  => Utils::toMap($request),
         ]);
         $params = new Params([
             'action'      => 'SetReqAuthConfig',
@@ -7716,7 +8877,7 @@ class Cdn extends OpenApiClient
             'method'      => 'POST',
             'authType'    => 'AK',
             'style'       => 'RPC',
-            'reqBodyType' => 'json',
+            'reqBodyType' => 'formData',
             'bodyType'    => 'json',
         ]);
 
@@ -7744,16 +8905,27 @@ class Cdn extends OpenApiClient
     public function setReqHeaderConfigWithOptions($request, $runtime)
     {
         Utils::validateModel($request);
-        $query                  = [];
-        $query['ConfigId']      = $request->configId;
-        $query['DomainName']    = $request->domainName;
-        $query['Key']           = $request->key;
-        $query['OwnerId']       = $request->ownerId;
-        $query['SecurityToken'] = $request->securityToken;
-        $query['Value']         = $request->value;
-        $req                    = new OpenApiRequest([
+        $query = [];
+        if (!Utils::isUnset($request->configId)) {
+            $query['ConfigId'] = $request->configId;
+        }
+        if (!Utils::isUnset($request->domainName)) {
+            $query['DomainName'] = $request->domainName;
+        }
+        if (!Utils::isUnset($request->key)) {
+            $query['Key'] = $request->key;
+        }
+        if (!Utils::isUnset($request->ownerId)) {
+            $query['OwnerId'] = $request->ownerId;
+        }
+        if (!Utils::isUnset($request->securityToken)) {
+            $query['SecurityToken'] = $request->securityToken;
+        }
+        if (!Utils::isUnset($request->value)) {
+            $query['Value'] = $request->value;
+        }
+        $req = new OpenApiRequest([
             'query' => OpenApiUtilClient::query($query),
-            'body'  => Utils::toMap($request),
         ]);
         $params = new Params([
             'action'      => 'SetReqHeaderConfig',
@@ -7763,7 +8935,7 @@ class Cdn extends OpenApiClient
             'method'      => 'POST',
             'authType'    => 'AK',
             'style'       => 'RPC',
-            'reqBodyType' => 'json',
+            'reqBodyType' => 'formData',
             'bodyType'    => 'json',
         ]);
 
@@ -7791,15 +8963,24 @@ class Cdn extends OpenApiClient
     public function setSourceHostConfigWithOptions($request, $runtime)
     {
         Utils::validateModel($request);
-        $query                  = [];
-        $query['BackSrcDomain'] = $request->backSrcDomain;
-        $query['DomainName']    = $request->domainName;
-        $query['Enable']        = $request->enable;
-        $query['OwnerId']       = $request->ownerId;
-        $query['SecurityToken'] = $request->securityToken;
-        $req                    = new OpenApiRequest([
+        $query = [];
+        if (!Utils::isUnset($request->backSrcDomain)) {
+            $query['BackSrcDomain'] = $request->backSrcDomain;
+        }
+        if (!Utils::isUnset($request->domainName)) {
+            $query['DomainName'] = $request->domainName;
+        }
+        if (!Utils::isUnset($request->enable)) {
+            $query['Enable'] = $request->enable;
+        }
+        if (!Utils::isUnset($request->ownerId)) {
+            $query['OwnerId'] = $request->ownerId;
+        }
+        if (!Utils::isUnset($request->securityToken)) {
+            $query['SecurityToken'] = $request->securityToken;
+        }
+        $req = new OpenApiRequest([
             'query' => OpenApiUtilClient::query($query),
-            'body'  => Utils::toMap($request),
         ]);
         $params = new Params([
             'action'      => 'SetSourceHostConfig',
@@ -7809,7 +8990,7 @@ class Cdn extends OpenApiClient
             'method'      => 'POST',
             'authType'    => 'AK',
             'style'       => 'RPC',
-            'reqBodyType' => 'json',
+            'reqBodyType' => 'formData',
             'bodyType'    => 'json',
         ]);
 
@@ -7837,14 +9018,21 @@ class Cdn extends OpenApiClient
     public function setUserGreenManagerConfigWithOptions($request, $runtime)
     {
         Utils::validateModel($request);
-        $query                  = [];
-        $query['OwnerId']       = $request->ownerId;
-        $query['Quota']         = $request->quota;
-        $query['Ratio']         = $request->ratio;
-        $query['SecurityToken'] = $request->securityToken;
-        $req                    = new OpenApiRequest([
+        $query = [];
+        if (!Utils::isUnset($request->ownerId)) {
+            $query['OwnerId'] = $request->ownerId;
+        }
+        if (!Utils::isUnset($request->quota)) {
+            $query['Quota'] = $request->quota;
+        }
+        if (!Utils::isUnset($request->ratio)) {
+            $query['Ratio'] = $request->ratio;
+        }
+        if (!Utils::isUnset($request->securityToken)) {
+            $query['SecurityToken'] = $request->securityToken;
+        }
+        $req = new OpenApiRequest([
             'query' => OpenApiUtilClient::query($query),
-            'body'  => Utils::toMap($request),
         ]);
         $params = new Params([
             'action'      => 'SetUserGreenManagerConfig',
@@ -7854,7 +9042,7 @@ class Cdn extends OpenApiClient
             'method'      => 'POST',
             'authType'    => 'AK',
             'style'       => 'RPC',
-            'reqBodyType' => 'json',
+            'reqBodyType' => 'formData',
             'bodyType'    => 'json',
         ]);
 
@@ -7882,17 +9070,30 @@ class Cdn extends OpenApiClient
     public function setWaitingRoomConfigWithOptions($request, $runtime)
     {
         Utils::validateModel($request);
-        $query                = [];
-        $query['AllowPct']    = $request->allowPct;
-        $query['DomainName']  = $request->domainName;
-        $query['GapTime']     = $request->gapTime;
-        $query['MaxTimeWait'] = $request->maxTimeWait;
-        $query['OwnerId']     = $request->ownerId;
-        $query['WaitUri']     = $request->waitUri;
-        $query['WaitUrl']     = $request->waitUrl;
-        $req                  = new OpenApiRequest([
+        $query = [];
+        if (!Utils::isUnset($request->allowPct)) {
+            $query['AllowPct'] = $request->allowPct;
+        }
+        if (!Utils::isUnset($request->domainName)) {
+            $query['DomainName'] = $request->domainName;
+        }
+        if (!Utils::isUnset($request->gapTime)) {
+            $query['GapTime'] = $request->gapTime;
+        }
+        if (!Utils::isUnset($request->maxTimeWait)) {
+            $query['MaxTimeWait'] = $request->maxTimeWait;
+        }
+        if (!Utils::isUnset($request->ownerId)) {
+            $query['OwnerId'] = $request->ownerId;
+        }
+        if (!Utils::isUnset($request->waitUri)) {
+            $query['WaitUri'] = $request->waitUri;
+        }
+        if (!Utils::isUnset($request->waitUrl)) {
+            $query['WaitUrl'] = $request->waitUrl;
+        }
+        $req = new OpenApiRequest([
             'query' => OpenApiUtilClient::query($query),
-            'body'  => Utils::toMap($request),
         ]);
         $params = new Params([
             'action'      => 'SetWaitingRoomConfig',
@@ -7902,7 +9103,7 @@ class Cdn extends OpenApiClient
             'method'      => 'POST',
             'authType'    => 'AK',
             'style'       => 'RPC',
-            'reqBodyType' => 'json',
+            'reqBodyType' => 'formData',
             'bodyType'    => 'json',
         ]);
 
@@ -7930,13 +9131,18 @@ class Cdn extends OpenApiClient
     public function startCdnDomainWithOptions($request, $runtime)
     {
         Utils::validateModel($request);
-        $query                  = [];
-        $query['DomainName']    = $request->domainName;
-        $query['OwnerId']       = $request->ownerId;
-        $query['SecurityToken'] = $request->securityToken;
-        $req                    = new OpenApiRequest([
+        $query = [];
+        if (!Utils::isUnset($request->domainName)) {
+            $query['DomainName'] = $request->domainName;
+        }
+        if (!Utils::isUnset($request->ownerId)) {
+            $query['OwnerId'] = $request->ownerId;
+        }
+        if (!Utils::isUnset($request->securityToken)) {
+            $query['SecurityToken'] = $request->securityToken;
+        }
+        $req = new OpenApiRequest([
             'query' => OpenApiUtilClient::query($query),
-            'body'  => Utils::toMap($request),
         ]);
         $params = new Params([
             'action'      => 'StartCdnDomain',
@@ -7946,7 +9152,7 @@ class Cdn extends OpenApiClient
             'method'      => 'POST',
             'authType'    => 'AK',
             'style'       => 'RPC',
-            'reqBodyType' => 'json',
+            'reqBodyType' => 'formData',
             'bodyType'    => 'json',
         ]);
 
@@ -7974,13 +9180,18 @@ class Cdn extends OpenApiClient
     public function stopCdnDomainWithOptions($request, $runtime)
     {
         Utils::validateModel($request);
-        $query                  = [];
-        $query['DomainName']    = $request->domainName;
-        $query['OwnerId']       = $request->ownerId;
-        $query['SecurityToken'] = $request->securityToken;
-        $req                    = new OpenApiRequest([
+        $query = [];
+        if (!Utils::isUnset($request->domainName)) {
+            $query['DomainName'] = $request->domainName;
+        }
+        if (!Utils::isUnset($request->ownerId)) {
+            $query['OwnerId'] = $request->ownerId;
+        }
+        if (!Utils::isUnset($request->securityToken)) {
+            $query['SecurityToken'] = $request->securityToken;
+        }
+        $req = new OpenApiRequest([
             'query' => OpenApiUtilClient::query($query),
-            'body'  => Utils::toMap($request),
         ]);
         $params = new Params([
             'action'      => 'StopCdnDomain',
@@ -7990,7 +9201,7 @@ class Cdn extends OpenApiClient
             'method'      => 'POST',
             'authType'    => 'AK',
             'style'       => 'RPC',
-            'reqBodyType' => 'json',
+            'reqBodyType' => 'formData',
             'bodyType'    => 'json',
         ]);
 
@@ -8018,14 +9229,21 @@ class Cdn extends OpenApiClient
     public function tagResourcesWithOptions($request, $runtime)
     {
         Utils::validateModel($request);
-        $query                 = [];
-        $query['OwnerId']      = $request->ownerId;
-        $query['ResourceId']   = $request->resourceId;
-        $query['ResourceType'] = $request->resourceType;
-        $query['Tag']          = $request->tag;
-        $req                   = new OpenApiRequest([
+        $query = [];
+        if (!Utils::isUnset($request->ownerId)) {
+            $query['OwnerId'] = $request->ownerId;
+        }
+        if (!Utils::isUnset($request->resourceId)) {
+            $query['ResourceId'] = $request->resourceId;
+        }
+        if (!Utils::isUnset($request->resourceType)) {
+            $query['ResourceType'] = $request->resourceType;
+        }
+        if (!Utils::isUnset($request->tag)) {
+            $query['Tag'] = $request->tag;
+        }
+        $req = new OpenApiRequest([
             'query' => OpenApiUtilClient::query($query),
-            'body'  => Utils::toMap($request),
         ]);
         $params = new Params([
             'action'      => 'TagResources',
@@ -8035,7 +9253,7 @@ class Cdn extends OpenApiClient
             'method'      => 'POST',
             'authType'    => 'AK',
             'style'       => 'RPC',
-            'reqBodyType' => 'json',
+            'reqBodyType' => 'formData',
             'bodyType'    => 'json',
         ]);
 
@@ -8063,15 +9281,24 @@ class Cdn extends OpenApiClient
     public function untagResourcesWithOptions($request, $runtime)
     {
         Utils::validateModel($request);
-        $query                 = [];
-        $query['All']          = $request->all;
-        $query['OwnerId']      = $request->ownerId;
-        $query['ResourceId']   = $request->resourceId;
-        $query['ResourceType'] = $request->resourceType;
-        $query['TagKey']       = $request->tagKey;
-        $req                   = new OpenApiRequest([
+        $query = [];
+        if (!Utils::isUnset($request->all)) {
+            $query['All'] = $request->all;
+        }
+        if (!Utils::isUnset($request->ownerId)) {
+            $query['OwnerId'] = $request->ownerId;
+        }
+        if (!Utils::isUnset($request->resourceId)) {
+            $query['ResourceId'] = $request->resourceId;
+        }
+        if (!Utils::isUnset($request->resourceType)) {
+            $query['ResourceType'] = $request->resourceType;
+        }
+        if (!Utils::isUnset($request->tagKey)) {
+            $query['TagKey'] = $request->tagKey;
+        }
+        $req = new OpenApiRequest([
             'query' => OpenApiUtilClient::query($query),
-            'body'  => Utils::toMap($request),
         ]);
         $params = new Params([
             'action'      => 'UntagResources',
@@ -8081,7 +9308,7 @@ class Cdn extends OpenApiClient
             'method'      => 'POST',
             'authType'    => 'AK',
             'style'       => 'RPC',
-            'reqBodyType' => 'json',
+            'reqBodyType' => 'formData',
             'bodyType'    => 'json',
         ]);
 
@@ -8109,11 +9336,32 @@ class Cdn extends OpenApiClient
     public function updateCdnDeliverTaskWithOptions($request, $runtime)
     {
         Utils::validateModel($request);
-        $query            = [];
-        $query['OwnerId'] = $request->ownerId;
-        $req              = new OpenApiRequest([
+        $query = [];
+        if (!Utils::isUnset($request->ownerId)) {
+            $query['OwnerId'] = $request->ownerId;
+        }
+        $body = [];
+        if (!Utils::isUnset($request->deliver)) {
+            $body['Deliver'] = $request->deliver;
+        }
+        if (!Utils::isUnset($request->deliverId)) {
+            $body['DeliverId'] = $request->deliverId;
+        }
+        if (!Utils::isUnset($request->domainName)) {
+            $body['DomainName'] = $request->domainName;
+        }
+        if (!Utils::isUnset($request->name)) {
+            $body['Name'] = $request->name;
+        }
+        if (!Utils::isUnset($request->reports)) {
+            $body['Reports'] = $request->reports;
+        }
+        if (!Utils::isUnset($request->schedule)) {
+            $body['Schedule'] = $request->schedule;
+        }
+        $req = new OpenApiRequest([
             'query' => OpenApiUtilClient::query($query),
-            'body'  => Utils::toMap($request),
+            'body'  => OpenApiUtilClient::parseToMap($body),
         ]);
         $params = new Params([
             'action'      => 'UpdateCdnDeliverTask',
@@ -8151,11 +9399,26 @@ class Cdn extends OpenApiClient
     public function updateCdnSubTaskWithOptions($request, $runtime)
     {
         Utils::validateModel($request);
-        $query            = [];
-        $query['OwnerId'] = $request->ownerId;
-        $req              = new OpenApiRequest([
+        $query = [];
+        if (!Utils::isUnset($request->ownerId)) {
+            $query['OwnerId'] = $request->ownerId;
+        }
+        $body = [];
+        if (!Utils::isUnset($request->domainName)) {
+            $body['DomainName'] = $request->domainName;
+        }
+        if (!Utils::isUnset($request->endTime)) {
+            $body['EndTime'] = $request->endTime;
+        }
+        if (!Utils::isUnset($request->reportIds)) {
+            $body['ReportIds'] = $request->reportIds;
+        }
+        if (!Utils::isUnset($request->startTime)) {
+            $body['StartTime'] = $request->startTime;
+        }
+        $req = new OpenApiRequest([
             'query' => OpenApiUtilClient::query($query),
-            'body'  => Utils::toMap($request),
+            'body'  => OpenApiUtilClient::parseToMap($body),
         ]);
         $params = new Params([
             'action'      => 'UpdateCdnSubTask',
@@ -8193,12 +9456,29 @@ class Cdn extends OpenApiClient
     public function updateFCTriggerWithOptions($request, $runtime)
     {
         Utils::validateModel($request);
-        $query               = [];
-        $query['OwnerId']    = $request->ownerId;
-        $query['TriggerARN'] = $request->triggerARN;
-        $req                 = new OpenApiRequest([
+        $query = [];
+        if (!Utils::isUnset($request->ownerId)) {
+            $query['OwnerId'] = $request->ownerId;
+        }
+        if (!Utils::isUnset($request->triggerARN)) {
+            $query['TriggerARN'] = $request->triggerARN;
+        }
+        $body = [];
+        if (!Utils::isUnset($request->functionARN)) {
+            $body['FunctionARN'] = $request->functionARN;
+        }
+        if (!Utils::isUnset($request->notes)) {
+            $body['Notes'] = $request->notes;
+        }
+        if (!Utils::isUnset($request->roleARN)) {
+            $body['RoleARN'] = $request->roleARN;
+        }
+        if (!Utils::isUnset($request->sourceARN)) {
+            $body['SourceARN'] = $request->sourceARN;
+        }
+        $req = new OpenApiRequest([
             'query' => OpenApiUtilClient::query($query),
-            'body'  => Utils::toMap($request),
+            'body'  => OpenApiUtilClient::parseToMap($body),
         ]);
         $params = new Params([
             'action'      => 'UpdateFCTrigger',
@@ -8236,13 +9516,18 @@ class Cdn extends OpenApiClient
     public function verifyDomainOwnerWithOptions($request, $runtime)
     {
         Utils::validateModel($request);
-        $query               = [];
-        $query['DomainName'] = $request->domainName;
-        $query['OwnerId']    = $request->ownerId;
-        $query['VerifyType'] = $request->verifyType;
-        $req                 = new OpenApiRequest([
+        $query = [];
+        if (!Utils::isUnset($request->domainName)) {
+            $query['DomainName'] = $request->domainName;
+        }
+        if (!Utils::isUnset($request->ownerId)) {
+            $query['OwnerId'] = $request->ownerId;
+        }
+        if (!Utils::isUnset($request->verifyType)) {
+            $query['VerifyType'] = $request->verifyType;
+        }
+        $req = new OpenApiRequest([
             'query' => OpenApiUtilClient::query($query),
-            'body'  => Utils::toMap($request),
         ]);
         $params = new Params([
             'action'      => 'VerifyDomainOwner',
@@ -8252,7 +9537,7 @@ class Cdn extends OpenApiClient
             'method'      => 'POST',
             'authType'    => 'AK',
             'style'       => 'RPC',
-            'reqBodyType' => 'json',
+            'reqBodyType' => 'formData',
             'bodyType'    => 'json',
         ]);
 
