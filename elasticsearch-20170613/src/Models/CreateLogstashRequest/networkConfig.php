@@ -2,7 +2,7 @@
 
 // This file is auto-generated, don't edit it. Thanks.
 
-namespace AlibabaCloud\SDK\Elasticsearch\V20170613\Models\ListLogstashResponseBody\result;
+namespace AlibabaCloud\SDK\Elasticsearch\V20170613\Models\CreateLogstashRequest;
 
 use AlibabaCloud\Tea\Model;
 

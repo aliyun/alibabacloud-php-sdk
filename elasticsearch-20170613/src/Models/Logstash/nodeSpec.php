@@ -2,36 +2,36 @@
 
 // This file is auto-generated, don't edit it. Thanks.
 
-namespace AlibabaCloud\SDK\Elasticsearch\V20170613\Models\ListLogstashResponseBody\result;
+namespace AlibabaCloud\SDK\Elasticsearch\V20170613\Models\Logstash;
 
 use AlibabaCloud\Tea\Model;
 
 class nodeSpec extends Model
 {
     /**
+     * @description Disk
+     *
      * @var int
      */
     public $disk;
 
     /**
-     * @var bool
-     */
-    public $diskEncryption;
-
-    /**
+     * @description DiskType
+     *
      * @var string
      */
     public $diskType;
 
     /**
+     * @description Spec
+     *
      * @var string
      */
     public $spec;
     protected $_name = [
-        'disk'           => 'disk',
-        'diskEncryption' => 'diskEncryption',
-        'diskType'       => 'diskType',
-        'spec'           => 'spec',
+        'disk'     => 'disk',
+        'diskType' => 'diskType',
+        'spec'     => 'spec',
     ];
 
     public function validate()
@@ -43,9 +43,6 @@ class nodeSpec extends Model
         $res = [];
         if (null !== $this->disk) {
             $res['disk'] = $this->disk;
-        }
-        if (null !== $this->diskEncryption) {
-            $res['diskEncryption'] = $this->diskEncryption;
         }
         if (null !== $this->diskType) {
             $res['diskType'] = $this->diskType;
@@ -67,9 +64,6 @@ class nodeSpec extends Model
         $model = new self();
         if (isset($map['disk'])) {
             $model->disk = $map['disk'];
-        }
-        if (isset($map['diskEncryption'])) {
-            $model->diskEncryption = $map['diskEncryption'];
         }
         if (isset($map['diskType'])) {
             $model->diskType = $map['diskType'];

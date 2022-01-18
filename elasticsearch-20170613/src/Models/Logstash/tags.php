@@ -2,24 +2,28 @@
 
 // This file is auto-generated, don't edit it. Thanks.
 
-namespace AlibabaCloud\SDK\Elasticsearch\V20170613\Models\ListLogstashResponseBody\result;
+namespace AlibabaCloud\SDK\Elasticsearch\V20170613\Models\Logstash;
 
 use AlibabaCloud\Tea\Model;
 
 class tags extends Model
 {
     /**
+     * @description TagKey
+     *
      * @var string
      */
     public $tagKey;
 
     /**
+     * @description TagValue
+     *
      * @var string
      */
     public $tagValue;
     protected $_name = [
-        'tagKey'   => 'TagKey',
-        'tagValue' => 'TagValue',
+        'tagKey'   => 'tagKey',
+        'tagValue' => 'tagValue',
     ];
 
     public function validate()
@@ -30,10 +34,10 @@ class tags extends Model
     {
         $res = [];
         if (null !== $this->tagKey) {
-            $res['TagKey'] = $this->tagKey;
+            $res['tagKey'] = $this->tagKey;
         }
         if (null !== $this->tagValue) {
-            $res['TagValue'] = $this->tagValue;
+            $res['tagValue'] = $this->tagValue;
         }
 
         return $res;
@@ -47,11 +51,11 @@ class tags extends Model
     public static function fromMap($map = [])
     {
         $model = new self();
-        if (isset($map['TagKey'])) {
-            $model->tagKey = $map['TagKey'];
+        if (isset($map['tagKey'])) {
+            $model->tagKey = $map['tagKey'];
         }
-        if (isset($map['TagValue'])) {
-            $model->tagValue = $map['TagValue'];
+        if (isset($map['tagValue'])) {
+            $model->tagValue = $map['tagValue'];
         }
 
         return $model;

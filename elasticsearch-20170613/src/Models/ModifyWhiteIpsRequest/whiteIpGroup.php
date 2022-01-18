@@ -9,11 +9,15 @@ use AlibabaCloud\Tea\Model;
 class whiteIpGroup extends Model
 {
     /**
+     * @description 白名单组的组名。如果选填了whiteIpGroup参数，则该参数必填。
+     *
      * @var string
      */
     public $groupName;
 
     /**
+     * @description 白名单组中的IP列表。如果选填了whiteIpGroup参数，则该参数必填。
+     *
      * @var string[]
      */
     public $ips;

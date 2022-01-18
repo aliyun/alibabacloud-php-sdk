@@ -4,14 +4,13 @@
 
 namespace AlibabaCloud\SDK\Elasticsearch\V20170613\Models\ListComponentIndicesResponseBody\result;
 
-use AlibabaCloud\SDK\Elasticsearch\V20170613\Models\ListComponentIndicesResponseBody\result\content\meta;
 use AlibabaCloud\SDK\Elasticsearch\V20170613\Models\ListComponentIndicesResponseBody\result\content\template;
 use AlibabaCloud\Tea\Model;
 
 class content extends Model
 {
     /**
-     * @var meta
+     * @var mixed[]
      */
     public $meta;
 
@@ -38,7 +37,7 @@ class content extends Model
     {
         $res = [];
         if (null !== $this->meta) {
-            $res['_meta'] = null !== $this->meta ? $this->meta->toMap() : null;
+            $res['_meta'] = $this->meta;
         }
         if (null !== $this->template) {
             $res['template'] = null !== $this->template ? $this->template->toMap() : null;
@@ -59,7 +58,7 @@ class content extends Model
     {
         $model = new self();
         if (isset($map['_meta'])) {
-            $model->meta = meta::fromMap($map['_meta']);
+            $model->meta = $map['_meta'];
         }
         if (isset($map['template'])) {
             $model->template = template::fromMap($map['template']);

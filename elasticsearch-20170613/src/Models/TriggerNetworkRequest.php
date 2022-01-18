@@ -9,16 +9,22 @@ use AlibabaCloud\Tea\Model;
 class TriggerNetworkRequest extends Model
 {
     /**
+     * @description 动作类型。CLOSE：关闭; OPEN：开启
+     *
      * @var string
      */
     public $actionType;
 
     /**
+     * @description 网络类型。PUBLIC：公网；PRIVATE：私网
+     *
      * @var string
      */
     public $networkType;
 
     /**
+     * @description 实例类型。KIBANA kibana公私网/WORKER 集群公私网
+     *
      * @var string
      */
     public $nodeType;

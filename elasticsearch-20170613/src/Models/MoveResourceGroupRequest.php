@@ -11,9 +11,15 @@ class MoveResourceGroupRequest extends Model
     /**
      * @var string
      */
+    public $resourceGroupId;
+
+    /**
+     * @var string
+     */
     public $clientToken;
     protected $_name = [
-        'clientToken' => 'clientToken',
+        'resourceGroupId' => 'resourceGroupId',
+        'clientToken'     => 'clientToken',
     ];
 
     public function validate()
@@ -23,6 +29,9 @@ class MoveResourceGroupRequest extends Model
     public function toMap()
     {
         $res = [];
+        if (null !== $this->resourceGroupId) {
+            $res['resourceGroupId'] = $this->resourceGroupId;
+        }
         if (null !== $this->clientToken) {
             $res['clientToken'] = $this->clientToken;
         }
@@ -38,6 +47,9 @@ class MoveResourceGroupRequest extends Model
     public static function fromMap($map = [])
     {
         $model = new self();
+        if (isset($map['resourceGroupId'])) {
+            $model->resourceGroupId = $map['resourceGroupId'];
+        }
         if (isset($map['clientToken'])) {
             $model->clientToken = $map['clientToken'];
         }

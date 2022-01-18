@@ -4,7 +4,6 @@
 
 namespace AlibabaCloud\SDK\Elasticsearch\V20170613\Models;
 
-use AlibabaCloud\SDK\Elasticsearch\V20170613\Models\CreateLogstashResponseBody\result;
 use AlibabaCloud\Tea\Model;
 
 class CreateLogstashResponseBody extends Model
@@ -15,7 +14,7 @@ class CreateLogstashResponseBody extends Model
     public $requestId;
 
     /**
-     * @var result
+     * @var Logstash
      */
     public $result;
     protected $_name = [
@@ -52,7 +51,7 @@ class CreateLogstashResponseBody extends Model
             $model->requestId = $map['RequestId'];
         }
         if (isset($map['Result'])) {
-            $model->result = result::fromMap($map['Result']);
+            $model->result = Logstash::fromMap($map['Result']);
         }
 
         return $model;

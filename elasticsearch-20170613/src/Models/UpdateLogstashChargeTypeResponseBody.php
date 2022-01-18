@@ -9,7 +9,7 @@ use AlibabaCloud\Tea\Model;
 class UpdateLogstashChargeTypeResponseBody extends Model
 {
     /**
-     * @var string
+     * @var Logstash
      */
     public $requestId;
 
@@ -30,7 +30,7 @@ class UpdateLogstashChargeTypeResponseBody extends Model
     {
         $res = [];
         if (null !== $this->requestId) {
-            $res['RequestId'] = $this->requestId;
+            $res['RequestId'] = null !== $this->requestId ? $this->requestId->toMap() : null;
         }
         if (null !== $this->result) {
             $res['Result'] = $this->result;
@@ -48,7 +48,7 @@ class UpdateLogstashChargeTypeResponseBody extends Model
     {
         $model = new self();
         if (isset($map['RequestId'])) {
-            $model->requestId = $map['RequestId'];
+            $model->requestId = Logstash::fromMap($map['RequestId']);
         }
         if (isset($map['Result'])) {
             $model->result = $map['Result'];

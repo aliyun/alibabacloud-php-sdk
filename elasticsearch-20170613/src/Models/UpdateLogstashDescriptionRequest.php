@@ -11,8 +11,14 @@ class UpdateLogstashDescriptionRequest extends Model
     /**
      * @var string
      */
+    public $description;
+
+    /**
+     * @var string
+     */
     public $clientToken;
     protected $_name = [
+        'description' => 'description',
         'clientToken' => 'clientToken',
     ];
 
@@ -23,6 +29,9 @@ class UpdateLogstashDescriptionRequest extends Model
     public function toMap()
     {
         $res = [];
+        if (null !== $this->description) {
+            $res['description'] = $this->description;
+        }
         if (null !== $this->clientToken) {
             $res['clientToken'] = $this->clientToken;
         }
@@ -38,6 +47,9 @@ class UpdateLogstashDescriptionRequest extends Model
     public static function fromMap($map = [])
     {
         $model = new self();
+        if (isset($map['description'])) {
+            $model->description = $map['description'];
+        }
         if (isset($map['clientToken'])) {
             $model->clientToken = $map['clientToken'];
         }
