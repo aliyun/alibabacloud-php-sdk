@@ -90,6 +90,7 @@ use AlibabaCloud\SDK\ROS\V20190910\Models\GetTemplateSummaryRequest;
 use AlibabaCloud\SDK\ROS\V20190910\Models\GetTemplateSummaryResponse;
 use AlibabaCloud\SDK\ROS\V20190910\Models\ListChangeSetsRequest;
 use AlibabaCloud\SDK\ROS\V20190910\Models\ListChangeSetsResponse;
+use AlibabaCloud\SDK\ROS\V20190910\Models\ListResourceTypesRequest;
 use AlibabaCloud\SDK\ROS\V20190910\Models\ListResourceTypesResponse;
 use AlibabaCloud\SDK\ROS\V20190910\Models\ListStackEventsRequest;
 use AlibabaCloud\SDK\ROS\V20190910\Models\ListStackEventsResponse;
@@ -2492,13 +2493,21 @@ class ROS extends OpenApiClient
     }
 
     /**
-     * @param RuntimeOptions $runtime
+     * @param ListResourceTypesRequest $request
+     * @param RuntimeOptions           $runtime
      *
      * @return ListResourceTypesResponse
      */
-    public function listResourceTypesWithOptions($runtime)
+    public function listResourceTypesWithOptions($request, $runtime)
     {
-        $req    = new OpenApiRequest([]);
+        Utils::validateModel($request);
+        $query = [];
+        if (!Utils::isUnset($request->entityType)) {
+            $query['EntityType'] = $request->entityType;
+        }
+        $req = new OpenApiRequest([
+            'query' => OpenApiUtilClient::query($query),
+        ]);
         $params = new Params([
             'action'      => 'ListResourceTypes',
             'version'     => '2019-09-10',
@@ -2515,13 +2524,15 @@ class ROS extends OpenApiClient
     }
 
     /**
+     * @param ListResourceTypesRequest $request
+     *
      * @return ListResourceTypesResponse
      */
-    public function listResourceTypes()
+    public function listResourceTypes($request)
     {
         $runtime = new RuntimeOptions([]);
 
-        return $this->listResourceTypesWithOptions($runtime);
+        return $this->listResourceTypesWithOptions($request, $runtime);
     }
 
     /**

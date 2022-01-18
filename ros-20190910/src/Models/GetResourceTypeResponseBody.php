@@ -14,6 +14,11 @@ class GetResourceTypeResponseBody extends Model
     public $attributes;
 
     /**
+     * @var string
+     */
+    public $entityType;
+
+    /**
      * @var mixed[]
      */
     public $properties;
@@ -39,6 +44,7 @@ class GetResourceTypeResponseBody extends Model
     public $supportScratchDetection;
     protected $_name = [
         'attributes'              => 'Attributes',
+        'entityType'              => 'EntityType',
         'properties'              => 'Properties',
         'requestId'               => 'RequestId',
         'resourceType'            => 'ResourceType',
@@ -55,6 +61,9 @@ class GetResourceTypeResponseBody extends Model
         $res = [];
         if (null !== $this->attributes) {
             $res['Attributes'] = $this->attributes;
+        }
+        if (null !== $this->entityType) {
+            $res['EntityType'] = $this->entityType;
         }
         if (null !== $this->properties) {
             $res['Properties'] = $this->properties;
@@ -85,6 +94,9 @@ class GetResourceTypeResponseBody extends Model
         $model = new self();
         if (isset($map['Attributes'])) {
             $model->attributes = $map['Attributes'];
+        }
+        if (isset($map['EntityType'])) {
+            $model->entityType = $map['EntityType'];
         }
         if (isset($map['Properties'])) {
             $model->properties = $map['Properties'];
