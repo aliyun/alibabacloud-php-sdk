@@ -4,6 +4,7 @@
 
 namespace AlibabaCloud\SDK\Sae\V20190506\Models\CreateApplicationScalingRuleResponseBody;
 
+use AlibabaCloud\SDK\Sae\V20190506\Models\CreateApplicationScalingRuleResponseBody\data\metric;
 use AlibabaCloud\SDK\Sae\V20190506\Models\CreateApplicationScalingRuleResponseBody\data\timer;
 use AlibabaCloud\Tea\Model;
 
@@ -18,6 +19,16 @@ class data extends Model
      * @var int
      */
     public $createTime;
+
+    /**
+     * @var int
+     */
+    public $lastDisableTime;
+
+    /**
+     * @var metric
+     */
+    public $metric;
 
     /**
      * @var bool
@@ -46,6 +57,8 @@ class data extends Model
     protected $_name = [
         'appId'            => 'AppId',
         'createTime'       => 'CreateTime',
+        'lastDisableTime'  => 'LastDisableTime',
+        'metric'           => 'Metric',
         'scaleRuleEnabled' => 'ScaleRuleEnabled',
         'scaleRuleName'    => 'ScaleRuleName',
         'scaleRuleType'    => 'ScaleRuleType',
@@ -65,6 +78,12 @@ class data extends Model
         }
         if (null !== $this->createTime) {
             $res['CreateTime'] = $this->createTime;
+        }
+        if (null !== $this->lastDisableTime) {
+            $res['LastDisableTime'] = $this->lastDisableTime;
+        }
+        if (null !== $this->metric) {
+            $res['Metric'] = null !== $this->metric ? $this->metric->toMap() : null;
         }
         if (null !== $this->scaleRuleEnabled) {
             $res['ScaleRuleEnabled'] = $this->scaleRuleEnabled;
@@ -98,6 +117,12 @@ class data extends Model
         }
         if (isset($map['CreateTime'])) {
             $model->createTime = $map['CreateTime'];
+        }
+        if (isset($map['LastDisableTime'])) {
+            $model->lastDisableTime = $map['LastDisableTime'];
+        }
+        if (isset($map['Metric'])) {
+            $model->metric = metric::fromMap($map['Metric']);
         }
         if (isset($map['ScaleRuleEnabled'])) {
             $model->scaleRuleEnabled = $map['ScaleRuleEnabled'];

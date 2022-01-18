@@ -16,10 +16,16 @@ class RestartApplicationRequest extends Model
     /**
      * @var int
      */
+    public $minReadyInstanceRatio;
+
+    /**
+     * @var int
+     */
     public $minReadyInstances;
     protected $_name = [
-        'appId'             => 'AppId',
-        'minReadyInstances' => 'MinReadyInstances',
+        'appId'                 => 'AppId',
+        'minReadyInstanceRatio' => 'MinReadyInstanceRatio',
+        'minReadyInstances'     => 'MinReadyInstances',
     ];
 
     public function validate()
@@ -31,6 +37,9 @@ class RestartApplicationRequest extends Model
         $res = [];
         if (null !== $this->appId) {
             $res['AppId'] = $this->appId;
+        }
+        if (null !== $this->minReadyInstanceRatio) {
+            $res['MinReadyInstanceRatio'] = $this->minReadyInstanceRatio;
         }
         if (null !== $this->minReadyInstances) {
             $res['MinReadyInstances'] = $this->minReadyInstances;
@@ -49,6 +58,9 @@ class RestartApplicationRequest extends Model
         $model = new self();
         if (isset($map['AppId'])) {
             $model->appId = $map['AppId'];
+        }
+        if (isset($map['MinReadyInstanceRatio'])) {
+            $model->minReadyInstanceRatio = $map['MinReadyInstanceRatio'];
         }
         if (isset($map['MinReadyInstances'])) {
             $model->minReadyInstances = $map['MinReadyInstances'];

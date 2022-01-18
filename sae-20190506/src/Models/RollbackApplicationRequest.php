@@ -26,6 +26,11 @@ class RollbackApplicationRequest extends Model
     /**
      * @var int
      */
+    public $minReadyInstanceRatio;
+
+    /**
+     * @var int
+     */
     public $minReadyInstances;
 
     /**
@@ -41,6 +46,7 @@ class RollbackApplicationRequest extends Model
         'appId'                            => 'AppId',
         'autoEnableApplicationScalingRule' => 'AutoEnableApplicationScalingRule',
         'batchWaitTime'                    => 'BatchWaitTime',
+        'minReadyInstanceRatio'            => 'MinReadyInstanceRatio',
         'minReadyInstances'                => 'MinReadyInstances',
         'updateStrategy'                   => 'UpdateStrategy',
         'versionId'                        => 'VersionId',
@@ -61,6 +67,9 @@ class RollbackApplicationRequest extends Model
         }
         if (null !== $this->batchWaitTime) {
             $res['BatchWaitTime'] = $this->batchWaitTime;
+        }
+        if (null !== $this->minReadyInstanceRatio) {
+            $res['MinReadyInstanceRatio'] = $this->minReadyInstanceRatio;
         }
         if (null !== $this->minReadyInstances) {
             $res['MinReadyInstances'] = $this->minReadyInstances;
@@ -91,6 +100,9 @@ class RollbackApplicationRequest extends Model
         }
         if (isset($map['BatchWaitTime'])) {
             $model->batchWaitTime = $map['BatchWaitTime'];
+        }
+        if (isset($map['MinReadyInstanceRatio'])) {
+            $model->minReadyInstanceRatio = $map['MinReadyInstanceRatio'];
         }
         if (isset($map['MinReadyInstances'])) {
             $model->minReadyInstances = $map['MinReadyInstances'];

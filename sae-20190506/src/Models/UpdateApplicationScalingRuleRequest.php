@@ -14,6 +14,21 @@ class UpdateApplicationScalingRuleRequest extends Model
     public $appId;
 
     /**
+     * @var int
+     */
+    public $minReadyInstanceRatio;
+
+    /**
+     * @var int
+     */
+    public $minReadyInstances;
+
+    /**
+     * @var string
+     */
+    public $scalingRuleMetric;
+
+    /**
      * @var string
      */
     public $scalingRuleName;
@@ -23,9 +38,12 @@ class UpdateApplicationScalingRuleRequest extends Model
      */
     public $scalingRuleTimer;
     protected $_name = [
-        'appId'            => 'AppId',
-        'scalingRuleName'  => 'ScalingRuleName',
-        'scalingRuleTimer' => 'ScalingRuleTimer',
+        'appId'                 => 'AppId',
+        'minReadyInstanceRatio' => 'MinReadyInstanceRatio',
+        'minReadyInstances'     => 'MinReadyInstances',
+        'scalingRuleMetric'     => 'ScalingRuleMetric',
+        'scalingRuleName'       => 'ScalingRuleName',
+        'scalingRuleTimer'      => 'ScalingRuleTimer',
     ];
 
     public function validate()
@@ -37,6 +55,15 @@ class UpdateApplicationScalingRuleRequest extends Model
         $res = [];
         if (null !== $this->appId) {
             $res['AppId'] = $this->appId;
+        }
+        if (null !== $this->minReadyInstanceRatio) {
+            $res['MinReadyInstanceRatio'] = $this->minReadyInstanceRatio;
+        }
+        if (null !== $this->minReadyInstances) {
+            $res['MinReadyInstances'] = $this->minReadyInstances;
+        }
+        if (null !== $this->scalingRuleMetric) {
+            $res['ScalingRuleMetric'] = $this->scalingRuleMetric;
         }
         if (null !== $this->scalingRuleName) {
             $res['ScalingRuleName'] = $this->scalingRuleName;
@@ -58,6 +85,15 @@ class UpdateApplicationScalingRuleRequest extends Model
         $model = new self();
         if (isset($map['AppId'])) {
             $model->appId = $map['AppId'];
+        }
+        if (isset($map['MinReadyInstanceRatio'])) {
+            $model->minReadyInstanceRatio = $map['MinReadyInstanceRatio'];
+        }
+        if (isset($map['MinReadyInstances'])) {
+            $model->minReadyInstances = $map['MinReadyInstances'];
+        }
+        if (isset($map['ScalingRuleMetric'])) {
+            $model->scalingRuleMetric = $map['ScalingRuleMetric'];
         }
         if (isset($map['ScalingRuleName'])) {
             $model->scalingRuleName = $map['ScalingRuleName'];

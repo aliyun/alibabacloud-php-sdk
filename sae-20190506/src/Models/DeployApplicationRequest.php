@@ -117,6 +117,11 @@ class DeployApplicationRequest extends Model
     /**
      * @var int
      */
+    public $minReadyInstanceRatio;
+
+    /**
+     * @var int
+     */
     public $minReadyInstances;
 
     /**
@@ -250,6 +255,7 @@ class DeployApplicationRequest extends Model
         'jarStartOptions'                  => 'JarStartOptions',
         'jdk'                              => 'Jdk',
         'liveness'                         => 'Liveness',
+        'minReadyInstanceRatio'            => 'MinReadyInstanceRatio',
         'minReadyInstances'                => 'MinReadyInstances',
         'mountDesc'                        => 'MountDesc',
         'mountHost'                        => 'MountHost',
@@ -340,6 +346,9 @@ class DeployApplicationRequest extends Model
         }
         if (null !== $this->liveness) {
             $res['Liveness'] = $this->liveness;
+        }
+        if (null !== $this->minReadyInstanceRatio) {
+            $res['MinReadyInstanceRatio'] = $this->minReadyInstanceRatio;
         }
         if (null !== $this->minReadyInstances) {
             $res['MinReadyInstances'] = $this->minReadyInstances;
@@ -478,6 +487,9 @@ class DeployApplicationRequest extends Model
         }
         if (isset($map['Liveness'])) {
             $model->liveness = $map['Liveness'];
+        }
+        if (isset($map['MinReadyInstanceRatio'])) {
+            $model->minReadyInstanceRatio = $map['MinReadyInstanceRatio'];
         }
         if (isset($map['MinReadyInstances'])) {
             $model->minReadyInstances = $map['MinReadyInstances'];

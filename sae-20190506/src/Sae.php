@@ -52,6 +52,8 @@ use AlibabaCloud\SDK\Sae\V20190506\Models\DescribeApplicationImageRequest;
 use AlibabaCloud\SDK\Sae\V20190506\Models\DescribeApplicationImageResponse;
 use AlibabaCloud\SDK\Sae\V20190506\Models\DescribeApplicationInstancesRequest;
 use AlibabaCloud\SDK\Sae\V20190506\Models\DescribeApplicationInstancesResponse;
+use AlibabaCloud\SDK\Sae\V20190506\Models\DescribeApplicationScalingRuleRequest;
+use AlibabaCloud\SDK\Sae\V20190506\Models\DescribeApplicationScalingRuleResponse;
 use AlibabaCloud\SDK\Sae\V20190506\Models\DescribeApplicationScalingRulesRequest;
 use AlibabaCloud\SDK\Sae\V20190506\Models\DescribeApplicationScalingRulesResponse;
 use AlibabaCloud\SDK\Sae\V20190506\Models\DescribeApplicationSlbsRequest;
@@ -66,6 +68,8 @@ use AlibabaCloud\SDK\Sae\V20190506\Models\DescribeComponentsRequest;
 use AlibabaCloud\SDK\Sae\V20190506\Models\DescribeComponentsResponse;
 use AlibabaCloud\SDK\Sae\V20190506\Models\DescribeConfigMapRequest;
 use AlibabaCloud\SDK\Sae\V20190506\Models\DescribeConfigMapResponse;
+use AlibabaCloud\SDK\Sae\V20190506\Models\DescribeConfigurationPriceRequest;
+use AlibabaCloud\SDK\Sae\V20190506\Models\DescribeConfigurationPriceResponse;
 use AlibabaCloud\SDK\Sae\V20190506\Models\DescribeEdasContainersResponse;
 use AlibabaCloud\SDK\Sae\V20190506\Models\DescribeGreyTagRouteRequest;
 use AlibabaCloud\SDK\Sae\V20190506\Models\DescribeGreyTagRouteResponse;
@@ -222,7 +226,7 @@ class Sae extends OpenApiClient
         Utils::validateModel($request);
         $query = [];
         if (!Utils::isUnset($request->changeOrderId)) {
-            @$query['ChangeOrderId'] = $request->changeOrderId;
+            $query['ChangeOrderId'] = $request->changeOrderId;
         }
         $req = new OpenApiRequest([
             'headers' => $headers,
@@ -268,7 +272,7 @@ class Sae extends OpenApiClient
         Utils::validateModel($request);
         $query = [];
         if (!Utils::isUnset($request->changeOrderId)) {
-            @$query['ChangeOrderId'] = $request->changeOrderId;
+            $query['ChangeOrderId'] = $request->changeOrderId;
         }
         $req = new OpenApiRequest([
             'headers' => $headers,
@@ -314,10 +318,10 @@ class Sae extends OpenApiClient
         Utils::validateModel($request);
         $query = [];
         if (!Utils::isUnset($request->appIds)) {
-            @$query['AppIds'] = $request->appIds;
+            $query['AppIds'] = $request->appIds;
         }
         if (!Utils::isUnset($request->namespaceId)) {
-            @$query['NamespaceId'] = $request->namespaceId;
+            $query['NamespaceId'] = $request->namespaceId;
         }
         $req = new OpenApiRequest([
             'headers' => $headers,
@@ -363,10 +367,10 @@ class Sae extends OpenApiClient
         Utils::validateModel($request);
         $query = [];
         if (!Utils::isUnset($request->appIds)) {
-            @$query['AppIds'] = $request->appIds;
+            $query['AppIds'] = $request->appIds;
         }
         if (!Utils::isUnset($request->namespaceId)) {
-            @$query['NamespaceId'] = $request->namespaceId;
+            $query['NamespaceId'] = $request->namespaceId;
         }
         $req = new OpenApiRequest([
             'headers' => $headers,
@@ -412,19 +416,19 @@ class Sae extends OpenApiClient
         Utils::validateModel($request);
         $query = [];
         if (!Utils::isUnset($request->appId)) {
-            @$query['AppId'] = $request->appId;
+            $query['AppId'] = $request->appId;
         }
         if (!Utils::isUnset($request->internet)) {
-            @$query['Internet'] = $request->internet;
+            $query['Internet'] = $request->internet;
         }
         if (!Utils::isUnset($request->internetSlbId)) {
-            @$query['InternetSlbId'] = $request->internetSlbId;
+            $query['InternetSlbId'] = $request->internetSlbId;
         }
         if (!Utils::isUnset($request->intranet)) {
-            @$query['Intranet'] = $request->intranet;
+            $query['Intranet'] = $request->intranet;
         }
         if (!Utils::isUnset($request->intranetSlbId)) {
-            @$query['IntranetSlbId'] = $request->intranetSlbId;
+            $query['IntranetSlbId'] = $request->intranetSlbId;
         }
         $req = new OpenApiRequest([
             'headers' => $headers,
@@ -470,10 +474,10 @@ class Sae extends OpenApiClient
         Utils::validateModel($request);
         $query = [];
         if (!Utils::isUnset($request->confirm)) {
-            @$query['Confirm'] = $request->confirm;
+            $query['Confirm'] = $request->confirm;
         }
         if (!Utils::isUnset($request->pipelineId)) {
-            @$query['PipelineId'] = $request->pipelineId;
+            $query['PipelineId'] = $request->pipelineId;
         }
         $req = new OpenApiRequest([
             'headers' => $headers,
@@ -519,140 +523,143 @@ class Sae extends OpenApiClient
         Utils::validateModel($request);
         $query = [];
         if (!Utils::isUnset($request->acrAssumeRoleArn)) {
-            @$query['AcrAssumeRoleArn'] = $request->acrAssumeRoleArn;
+            $query['AcrAssumeRoleArn'] = $request->acrAssumeRoleArn;
         }
         if (!Utils::isUnset($request->appDescription)) {
-            @$query['AppDescription'] = $request->appDescription;
+            $query['AppDescription'] = $request->appDescription;
         }
         if (!Utils::isUnset($request->appName)) {
-            @$query['AppName'] = $request->appName;
+            $query['AppName'] = $request->appName;
         }
         if (!Utils::isUnset($request->autoConfig)) {
-            @$query['AutoConfig'] = $request->autoConfig;
+            $query['AutoConfig'] = $request->autoConfig;
         }
         if (!Utils::isUnset($request->command)) {
-            @$query['Command'] = $request->command;
+            $query['Command'] = $request->command;
         }
         if (!Utils::isUnset($request->commandArgs)) {
-            @$query['CommandArgs'] = $request->commandArgs;
+            $query['CommandArgs'] = $request->commandArgs;
         }
         if (!Utils::isUnset($request->cpu)) {
-            @$query['Cpu'] = $request->cpu;
+            $query['Cpu'] = $request->cpu;
         }
         if (!Utils::isUnset($request->customHostAlias)) {
-            @$query['CustomHostAlias'] = $request->customHostAlias;
+            $query['CustomHostAlias'] = $request->customHostAlias;
         }
         if (!Utils::isUnset($request->deploy)) {
-            @$query['Deploy'] = $request->deploy;
+            $query['Deploy'] = $request->deploy;
         }
         if (!Utils::isUnset($request->edasContainerVersion)) {
-            @$query['EdasContainerVersion'] = $request->edasContainerVersion;
+            $query['EdasContainerVersion'] = $request->edasContainerVersion;
         }
         if (!Utils::isUnset($request->envs)) {
-            @$query['Envs'] = $request->envs;
+            $query['Envs'] = $request->envs;
         }
         if (!Utils::isUnset($request->imageUrl)) {
-            @$query['ImageUrl'] = $request->imageUrl;
+            $query['ImageUrl'] = $request->imageUrl;
         }
         if (!Utils::isUnset($request->jarStartArgs)) {
-            @$query['JarStartArgs'] = $request->jarStartArgs;
+            $query['JarStartArgs'] = $request->jarStartArgs;
         }
         if (!Utils::isUnset($request->jarStartOptions)) {
-            @$query['JarStartOptions'] = $request->jarStartOptions;
+            $query['JarStartOptions'] = $request->jarStartOptions;
         }
         if (!Utils::isUnset($request->jdk)) {
-            @$query['Jdk'] = $request->jdk;
+            $query['Jdk'] = $request->jdk;
         }
         if (!Utils::isUnset($request->liveness)) {
-            @$query['Liveness'] = $request->liveness;
+            $query['Liveness'] = $request->liveness;
         }
         if (!Utils::isUnset($request->memory)) {
-            @$query['Memory'] = $request->memory;
+            $query['Memory'] = $request->memory;
         }
         if (!Utils::isUnset($request->mountDesc)) {
-            @$query['MountDesc'] = $request->mountDesc;
+            $query['MountDesc'] = $request->mountDesc;
         }
         if (!Utils::isUnset($request->mountHost)) {
-            @$query['MountHost'] = $request->mountHost;
+            $query['MountHost'] = $request->mountHost;
         }
         if (!Utils::isUnset($request->namespaceId)) {
-            @$query['NamespaceId'] = $request->namespaceId;
+            $query['NamespaceId'] = $request->namespaceId;
         }
         if (!Utils::isUnset($request->nasId)) {
-            @$query['NasId'] = $request->nasId;
+            $query['NasId'] = $request->nasId;
         }
         if (!Utils::isUnset($request->packageType)) {
-            @$query['PackageType'] = $request->packageType;
+            $query['PackageType'] = $request->packageType;
         }
         if (!Utils::isUnset($request->packageUrl)) {
-            @$query['PackageUrl'] = $request->packageUrl;
+            $query['PackageUrl'] = $request->packageUrl;
         }
         if (!Utils::isUnset($request->packageVersion)) {
-            @$query['PackageVersion'] = $request->packageVersion;
+            $query['PackageVersion'] = $request->packageVersion;
         }
         if (!Utils::isUnset($request->phpArmsConfigLocation)) {
-            @$query['PhpArmsConfigLocation'] = $request->phpArmsConfigLocation;
+            $query['PhpArmsConfigLocation'] = $request->phpArmsConfigLocation;
         }
         if (!Utils::isUnset($request->phpConfigLocation)) {
-            @$query['PhpConfigLocation'] = $request->phpConfigLocation;
+            $query['PhpConfigLocation'] = $request->phpConfigLocation;
         }
         if (!Utils::isUnset($request->postStart)) {
-            @$query['PostStart'] = $request->postStart;
+            $query['PostStart'] = $request->postStart;
         }
         if (!Utils::isUnset($request->preStop)) {
-            @$query['PreStop'] = $request->preStop;
+            $query['PreStop'] = $request->preStop;
         }
         if (!Utils::isUnset($request->readiness)) {
-            @$query['Readiness'] = $request->readiness;
+            $query['Readiness'] = $request->readiness;
         }
         if (!Utils::isUnset($request->replicas)) {
-            @$query['Replicas'] = $request->replicas;
+            $query['Replicas'] = $request->replicas;
         }
         if (!Utils::isUnset($request->securityGroupId)) {
-            @$query['SecurityGroupId'] = $request->securityGroupId;
+            $query['SecurityGroupId'] = $request->securityGroupId;
         }
         if (!Utils::isUnset($request->slsConfigs)) {
-            @$query['SlsConfigs'] = $request->slsConfigs;
+            $query['SlsConfigs'] = $request->slsConfigs;
         }
         if (!Utils::isUnset($request->terminationGracePeriodSeconds)) {
-            @$query['TerminationGracePeriodSeconds'] = $request->terminationGracePeriodSeconds;
+            $query['TerminationGracePeriodSeconds'] = $request->terminationGracePeriodSeconds;
         }
         if (!Utils::isUnset($request->timezone)) {
-            @$query['Timezone'] = $request->timezone;
+            $query['Timezone'] = $request->timezone;
         }
         if (!Utils::isUnset($request->tomcatConfig)) {
-            @$query['TomcatConfig'] = $request->tomcatConfig;
+            $query['TomcatConfig'] = $request->tomcatConfig;
         }
         if (!Utils::isUnset($request->vSwitchId)) {
-            @$query['VSwitchId'] = $request->vSwitchId;
+            $query['VSwitchId'] = $request->vSwitchId;
         }
         if (!Utils::isUnset($request->vpcId)) {
-            @$query['VpcId'] = $request->vpcId;
+            $query['VpcId'] = $request->vpcId;
         }
         if (!Utils::isUnset($request->warStartOptions)) {
-            @$query['WarStartOptions'] = $request->warStartOptions;
+            $query['WarStartOptions'] = $request->warStartOptions;
         }
         if (!Utils::isUnset($request->webContainer)) {
-            @$query['WebContainer'] = $request->webContainer;
+            $query['WebContainer'] = $request->webContainer;
         }
         $body = [];
+        if (!Utils::isUnset($request->acrInstanceId)) {
+            $body['AcrInstanceId'] = $request->acrInstanceId;
+        }
         if (!Utils::isUnset($request->associateEip)) {
-            @$body['AssociateEip'] = $request->associateEip;
+            $body['AssociateEip'] = $request->associateEip;
         }
         if (!Utils::isUnset($request->configMapMountDesc)) {
-            @$body['ConfigMapMountDesc'] = $request->configMapMountDesc;
+            $body['ConfigMapMountDesc'] = $request->configMapMountDesc;
         }
         if (!Utils::isUnset($request->ossAkId)) {
-            @$body['OssAkId'] = $request->ossAkId;
+            $body['OssAkId'] = $request->ossAkId;
         }
         if (!Utils::isUnset($request->ossAkSecret)) {
-            @$body['OssAkSecret'] = $request->ossAkSecret;
+            $body['OssAkSecret'] = $request->ossAkSecret;
         }
         if (!Utils::isUnset($request->ossMountDescs)) {
-            @$body['OssMountDescs'] = $request->ossMountDescs;
+            $body['OssMountDescs'] = $request->ossMountDescs;
         }
         if (!Utils::isUnset($request->phpConfig)) {
-            @$body['PhpConfig'] = $request->phpConfig;
+            $body['PhpConfig'] = $request->phpConfig;
         }
         $req = new OpenApiRequest([
             'headers' => $headers,
@@ -699,19 +706,28 @@ class Sae extends OpenApiClient
         Utils::validateModel($request);
         $query = [];
         if (!Utils::isUnset($request->appId)) {
-            @$query['AppId'] = $request->appId;
+            $query['AppId'] = $request->appId;
+        }
+        if (!Utils::isUnset($request->minReadyInstanceRatio)) {
+            $query['MinReadyInstanceRatio'] = $request->minReadyInstanceRatio;
+        }
+        if (!Utils::isUnset($request->minReadyInstances)) {
+            $query['MinReadyInstances'] = $request->minReadyInstances;
         }
         if (!Utils::isUnset($request->scalingRuleEnable)) {
-            @$query['ScalingRuleEnable'] = $request->scalingRuleEnable;
+            $query['ScalingRuleEnable'] = $request->scalingRuleEnable;
+        }
+        if (!Utils::isUnset($request->scalingRuleMetric)) {
+            $query['ScalingRuleMetric'] = $request->scalingRuleMetric;
         }
         if (!Utils::isUnset($request->scalingRuleName)) {
-            @$query['ScalingRuleName'] = $request->scalingRuleName;
+            $query['ScalingRuleName'] = $request->scalingRuleName;
         }
         if (!Utils::isUnset($request->scalingRuleTimer)) {
-            @$query['ScalingRuleTimer'] = $request->scalingRuleTimer;
+            $query['ScalingRuleTimer'] = $request->scalingRuleTimer;
         }
         if (!Utils::isUnset($request->scalingRuleType)) {
-            @$query['ScalingRuleType'] = $request->scalingRuleType;
+            $query['ScalingRuleType'] = $request->scalingRuleType;
         }
         $req = new OpenApiRequest([
             'headers' => $headers,
@@ -757,17 +773,17 @@ class Sae extends OpenApiClient
         Utils::validateModel($request);
         $query = [];
         if (!Utils::isUnset($request->description)) {
-            @$query['Description'] = $request->description;
+            $query['Description'] = $request->description;
         }
         if (!Utils::isUnset($request->name)) {
-            @$query['Name'] = $request->name;
+            $query['Name'] = $request->name;
         }
         if (!Utils::isUnset($request->namespaceId)) {
-            @$query['NamespaceId'] = $request->namespaceId;
+            $query['NamespaceId'] = $request->namespaceId;
         }
         $body = [];
         if (!Utils::isUnset($request->data)) {
-            @$body['Data'] = $request->data;
+            $body['Data'] = $request->data;
         }
         $req = new OpenApiRequest([
             'headers' => $headers,
@@ -814,19 +830,19 @@ class Sae extends OpenApiClient
         Utils::validateModel($request);
         $query = [];
         if (!Utils::isUnset($request->appId)) {
-            @$query['AppId'] = $request->appId;
+            $query['AppId'] = $request->appId;
         }
         if (!Utils::isUnset($request->description)) {
-            @$query['Description'] = $request->description;
+            $query['Description'] = $request->description;
         }
         if (!Utils::isUnset($request->dubboRules)) {
-            @$query['DubboRules'] = $request->dubboRules;
+            $query['DubboRules'] = $request->dubboRules;
         }
         if (!Utils::isUnset($request->name)) {
-            @$query['Name'] = $request->name;
+            $query['Name'] = $request->name;
         }
         if (!Utils::isUnset($request->scRules)) {
-            @$query['ScRules'] = $request->scRules;
+            $query['ScRules'] = $request->scRules;
         }
         $req = new OpenApiRequest([
             'headers' => $headers,
@@ -872,26 +888,26 @@ class Sae extends OpenApiClient
         Utils::validateModel($request);
         $query = [];
         if (!Utils::isUnset($request->certId)) {
-            @$query['CertId'] = $request->certId;
+            $query['CertId'] = $request->certId;
         }
         if (!Utils::isUnset($request->defaultRule)) {
-            @$query['DefaultRule'] = $request->defaultRule;
+            $query['DefaultRule'] = $request->defaultRule;
         }
         if (!Utils::isUnset($request->description)) {
-            @$query['Description'] = $request->description;
+            $query['Description'] = $request->description;
         }
         if (!Utils::isUnset($request->listenerPort)) {
-            @$query['ListenerPort'] = $request->listenerPort;
+            $query['ListenerPort'] = $request->listenerPort;
         }
         if (!Utils::isUnset($request->namespaceId)) {
-            @$query['NamespaceId'] = $request->namespaceId;
+            $query['NamespaceId'] = $request->namespaceId;
         }
         if (!Utils::isUnset($request->slbId)) {
-            @$query['SlbId'] = $request->slbId;
+            $query['SlbId'] = $request->slbId;
         }
         $body = [];
         if (!Utils::isUnset($request->rules)) {
-            @$body['Rules'] = $request->rules;
+            $body['Rules'] = $request->rules;
         }
         $req = new OpenApiRequest([
             'headers' => $headers,
@@ -938,13 +954,13 @@ class Sae extends OpenApiClient
         Utils::validateModel($request);
         $query = [];
         if (!Utils::isUnset($request->namespaceDescription)) {
-            @$query['NamespaceDescription'] = $request->namespaceDescription;
+            $query['NamespaceDescription'] = $request->namespaceDescription;
         }
         if (!Utils::isUnset($request->namespaceId)) {
-            @$query['NamespaceId'] = $request->namespaceId;
+            $query['NamespaceId'] = $request->namespaceId;
         }
         if (!Utils::isUnset($request->namespaceName)) {
-            @$query['NamespaceName'] = $request->namespaceName;
+            $query['NamespaceName'] = $request->namespaceName;
         }
         $req = new OpenApiRequest([
             'headers' => $headers,
@@ -990,7 +1006,7 @@ class Sae extends OpenApiClient
         Utils::validateModel($request);
         $query = [];
         if (!Utils::isUnset($request->appId)) {
-            @$query['AppId'] = $request->appId;
+            $query['AppId'] = $request->appId;
         }
         $req = new OpenApiRequest([
             'headers' => $headers,
@@ -1036,10 +1052,10 @@ class Sae extends OpenApiClient
         Utils::validateModel($request);
         $query = [];
         if (!Utils::isUnset($request->appId)) {
-            @$query['AppId'] = $request->appId;
+            $query['AppId'] = $request->appId;
         }
         if (!Utils::isUnset($request->scalingRuleName)) {
-            @$query['ScalingRuleName'] = $request->scalingRuleName;
+            $query['ScalingRuleName'] = $request->scalingRuleName;
         }
         $req = new OpenApiRequest([
             'headers' => $headers,
@@ -1085,7 +1101,7 @@ class Sae extends OpenApiClient
         Utils::validateModel($request);
         $query = [];
         if (!Utils::isUnset($request->configMapId)) {
-            @$query['ConfigMapId'] = $request->configMapId;
+            $query['ConfigMapId'] = $request->configMapId;
         }
         $req = new OpenApiRequest([
             'headers' => $headers,
@@ -1131,7 +1147,7 @@ class Sae extends OpenApiClient
         Utils::validateModel($request);
         $query = [];
         if (!Utils::isUnset($request->greyTagRouteId)) {
-            @$query['GreyTagRouteId'] = $request->greyTagRouteId;
+            $query['GreyTagRouteId'] = $request->greyTagRouteId;
         }
         $req = new OpenApiRequest([
             'headers' => $headers,
@@ -1177,7 +1193,7 @@ class Sae extends OpenApiClient
         Utils::validateModel($request);
         $query = [];
         if (!Utils::isUnset($request->ingressId)) {
-            @$query['IngressId'] = $request->ingressId;
+            $query['IngressId'] = $request->ingressId;
         }
         $req = new OpenApiRequest([
             'headers' => $headers,
@@ -1223,7 +1239,7 @@ class Sae extends OpenApiClient
         Utils::validateModel($request);
         $query = [];
         if (!Utils::isUnset($request->namespaceId)) {
-            @$query['NamespaceId'] = $request->namespaceId;
+            $query['NamespaceId'] = $request->namespaceId;
         }
         $req = new OpenApiRequest([
             'headers' => $headers,
@@ -1269,131 +1285,134 @@ class Sae extends OpenApiClient
         Utils::validateModel($request);
         $query = [];
         if (!Utils::isUnset($request->acrAssumeRoleArn)) {
-            @$query['AcrAssumeRoleArn'] = $request->acrAssumeRoleArn;
+            $query['AcrAssumeRoleArn'] = $request->acrAssumeRoleArn;
         }
         if (!Utils::isUnset($request->appId)) {
-            @$query['AppId'] = $request->appId;
+            $query['AppId'] = $request->appId;
         }
         if (!Utils::isUnset($request->autoEnableApplicationScalingRule)) {
-            @$query['AutoEnableApplicationScalingRule'] = $request->autoEnableApplicationScalingRule;
+            $query['AutoEnableApplicationScalingRule'] = $request->autoEnableApplicationScalingRule;
         }
         if (!Utils::isUnset($request->batchWaitTime)) {
-            @$query['BatchWaitTime'] = $request->batchWaitTime;
+            $query['BatchWaitTime'] = $request->batchWaitTime;
         }
         if (!Utils::isUnset($request->changeOrderDesc)) {
-            @$query['ChangeOrderDesc'] = $request->changeOrderDesc;
+            $query['ChangeOrderDesc'] = $request->changeOrderDesc;
         }
         if (!Utils::isUnset($request->command)) {
-            @$query['Command'] = $request->command;
+            $query['Command'] = $request->command;
         }
         if (!Utils::isUnset($request->commandArgs)) {
-            @$query['CommandArgs'] = $request->commandArgs;
+            $query['CommandArgs'] = $request->commandArgs;
         }
         if (!Utils::isUnset($request->customHostAlias)) {
-            @$query['CustomHostAlias'] = $request->customHostAlias;
+            $query['CustomHostAlias'] = $request->customHostAlias;
         }
         if (!Utils::isUnset($request->edasContainerVersion)) {
-            @$query['EdasContainerVersion'] = $request->edasContainerVersion;
+            $query['EdasContainerVersion'] = $request->edasContainerVersion;
         }
         if (!Utils::isUnset($request->enableAhas)) {
-            @$query['EnableAhas'] = $request->enableAhas;
+            $query['EnableAhas'] = $request->enableAhas;
         }
         if (!Utils::isUnset($request->enableGreyTagRoute)) {
-            @$query['EnableGreyTagRoute'] = $request->enableGreyTagRoute;
+            $query['EnableGreyTagRoute'] = $request->enableGreyTagRoute;
         }
         if (!Utils::isUnset($request->envs)) {
-            @$query['Envs'] = $request->envs;
+            $query['Envs'] = $request->envs;
         }
         if (!Utils::isUnset($request->imageUrl)) {
-            @$query['ImageUrl'] = $request->imageUrl;
+            $query['ImageUrl'] = $request->imageUrl;
         }
         if (!Utils::isUnset($request->jarStartArgs)) {
-            @$query['JarStartArgs'] = $request->jarStartArgs;
+            $query['JarStartArgs'] = $request->jarStartArgs;
         }
         if (!Utils::isUnset($request->jarStartOptions)) {
-            @$query['JarStartOptions'] = $request->jarStartOptions;
+            $query['JarStartOptions'] = $request->jarStartOptions;
         }
         if (!Utils::isUnset($request->jdk)) {
-            @$query['Jdk'] = $request->jdk;
+            $query['Jdk'] = $request->jdk;
         }
         if (!Utils::isUnset($request->liveness)) {
-            @$query['Liveness'] = $request->liveness;
+            $query['Liveness'] = $request->liveness;
+        }
+        if (!Utils::isUnset($request->minReadyInstanceRatio)) {
+            $query['MinReadyInstanceRatio'] = $request->minReadyInstanceRatio;
         }
         if (!Utils::isUnset($request->minReadyInstances)) {
-            @$query['MinReadyInstances'] = $request->minReadyInstances;
+            $query['MinReadyInstances'] = $request->minReadyInstances;
         }
         if (!Utils::isUnset($request->mountDesc)) {
-            @$query['MountDesc'] = $request->mountDesc;
+            $query['MountDesc'] = $request->mountDesc;
         }
         if (!Utils::isUnset($request->mountHost)) {
-            @$query['MountHost'] = $request->mountHost;
+            $query['MountHost'] = $request->mountHost;
         }
         if (!Utils::isUnset($request->nasId)) {
-            @$query['NasId'] = $request->nasId;
+            $query['NasId'] = $request->nasId;
         }
         if (!Utils::isUnset($request->packageUrl)) {
-            @$query['PackageUrl'] = $request->packageUrl;
+            $query['PackageUrl'] = $request->packageUrl;
         }
         if (!Utils::isUnset($request->packageVersion)) {
-            @$query['PackageVersion'] = $request->packageVersion;
+            $query['PackageVersion'] = $request->packageVersion;
         }
         if (!Utils::isUnset($request->phpArmsConfigLocation)) {
-            @$query['PhpArmsConfigLocation'] = $request->phpArmsConfigLocation;
+            $query['PhpArmsConfigLocation'] = $request->phpArmsConfigLocation;
         }
         if (!Utils::isUnset($request->phpConfigLocation)) {
-            @$query['PhpConfigLocation'] = $request->phpConfigLocation;
+            $query['PhpConfigLocation'] = $request->phpConfigLocation;
         }
         if (!Utils::isUnset($request->postStart)) {
-            @$query['PostStart'] = $request->postStart;
+            $query['PostStart'] = $request->postStart;
         }
         if (!Utils::isUnset($request->preStop)) {
-            @$query['PreStop'] = $request->preStop;
+            $query['PreStop'] = $request->preStop;
         }
         if (!Utils::isUnset($request->readiness)) {
-            @$query['Readiness'] = $request->readiness;
+            $query['Readiness'] = $request->readiness;
         }
         if (!Utils::isUnset($request->slsConfigs)) {
-            @$query['SlsConfigs'] = $request->slsConfigs;
+            $query['SlsConfigs'] = $request->slsConfigs;
         }
         if (!Utils::isUnset($request->terminationGracePeriodSeconds)) {
-            @$query['TerminationGracePeriodSeconds'] = $request->terminationGracePeriodSeconds;
+            $query['TerminationGracePeriodSeconds'] = $request->terminationGracePeriodSeconds;
         }
         if (!Utils::isUnset($request->timezone)) {
-            @$query['Timezone'] = $request->timezone;
+            $query['Timezone'] = $request->timezone;
         }
         if (!Utils::isUnset($request->tomcatConfig)) {
-            @$query['TomcatConfig'] = $request->tomcatConfig;
+            $query['TomcatConfig'] = $request->tomcatConfig;
         }
         if (!Utils::isUnset($request->updateStrategy)) {
-            @$query['UpdateStrategy'] = $request->updateStrategy;
+            $query['UpdateStrategy'] = $request->updateStrategy;
         }
         if (!Utils::isUnset($request->warStartOptions)) {
-            @$query['WarStartOptions'] = $request->warStartOptions;
+            $query['WarStartOptions'] = $request->warStartOptions;
         }
         if (!Utils::isUnset($request->webContainer)) {
-            @$query['WebContainer'] = $request->webContainer;
+            $query['WebContainer'] = $request->webContainer;
         }
         $body = [];
         if (!Utils::isUnset($request->acrInstanceId)) {
-            @$body['AcrInstanceId'] = $request->acrInstanceId;
+            $body['AcrInstanceId'] = $request->acrInstanceId;
         }
         if (!Utils::isUnset($request->associateEip)) {
-            @$body['AssociateEip'] = $request->associateEip;
+            $body['AssociateEip'] = $request->associateEip;
         }
         if (!Utils::isUnset($request->configMapMountDesc)) {
-            @$body['ConfigMapMountDesc'] = $request->configMapMountDesc;
+            $body['ConfigMapMountDesc'] = $request->configMapMountDesc;
         }
         if (!Utils::isUnset($request->ossAkId)) {
-            @$body['OssAkId'] = $request->ossAkId;
+            $body['OssAkId'] = $request->ossAkId;
         }
         if (!Utils::isUnset($request->ossAkSecret)) {
-            @$body['OssAkSecret'] = $request->ossAkSecret;
+            $body['OssAkSecret'] = $request->ossAkSecret;
         }
         if (!Utils::isUnset($request->ossMountDescs)) {
-            @$body['OssMountDescs'] = $request->ossMountDescs;
+            $body['OssMountDescs'] = $request->ossMountDescs;
         }
         if (!Utils::isUnset($request->phpConfig)) {
-            @$body['PhpConfig'] = $request->phpConfig;
+            $body['PhpConfig'] = $request->phpConfig;
         }
         $req = new OpenApiRequest([
             'headers' => $headers,
@@ -1440,19 +1459,19 @@ class Sae extends OpenApiClient
         Utils::validateModel($request);
         $query = [];
         if (!Utils::isUnset($request->appId)) {
-            @$query['AppId'] = $request->appId;
+            $query['AppId'] = $request->appId;
         }
         if (!Utils::isUnset($request->serviceGroup)) {
-            @$query['ServiceGroup'] = $request->serviceGroup;
+            $query['ServiceGroup'] = $request->serviceGroup;
         }
         if (!Utils::isUnset($request->serviceName)) {
-            @$query['ServiceName'] = $request->serviceName;
+            $query['ServiceName'] = $request->serviceName;
         }
         if (!Utils::isUnset($request->serviceType)) {
-            @$query['ServiceType'] = $request->serviceType;
+            $query['ServiceType'] = $request->serviceType;
         }
         if (!Utils::isUnset($request->serviceVersion)) {
-            @$query['ServiceVersion'] = $request->serviceVersion;
+            $query['ServiceVersion'] = $request->serviceVersion;
         }
         $req = new OpenApiRequest([
             'headers' => $headers,
@@ -1498,10 +1517,10 @@ class Sae extends OpenApiClient
         Utils::validateModel($request);
         $query = [];
         if (!Utils::isUnset($request->appId)) {
-            @$query['AppId'] = $request->appId;
+            $query['AppId'] = $request->appId;
         }
         if (!Utils::isUnset($request->versionId)) {
-            @$query['VersionId'] = $request->versionId;
+            $query['VersionId'] = $request->versionId;
         }
         $req = new OpenApiRequest([
             'headers' => $headers,
@@ -1547,13 +1566,13 @@ class Sae extends OpenApiClient
         Utils::validateModel($request);
         $query = [];
         if (!Utils::isUnset($request->appId)) {
-            @$query['AppId'] = $request->appId;
+            $query['AppId'] = $request->appId;
         }
         if (!Utils::isUnset($request->currentPage)) {
-            @$query['CurrentPage'] = $request->currentPage;
+            $query['CurrentPage'] = $request->currentPage;
         }
         if (!Utils::isUnset($request->pageSize)) {
-            @$query['PageSize'] = $request->pageSize;
+            $query['PageSize'] = $request->pageSize;
         }
         $req = new OpenApiRequest([
             'headers' => $headers,
@@ -1599,10 +1618,10 @@ class Sae extends OpenApiClient
         Utils::validateModel($request);
         $query = [];
         if (!Utils::isUnset($request->appId)) {
-            @$query['AppId'] = $request->appId;
+            $query['AppId'] = $request->appId;
         }
         if (!Utils::isUnset($request->imageUrl)) {
-            @$query['ImageUrl'] = $request->imageUrl;
+            $query['ImageUrl'] = $request->imageUrl;
         }
         $req = new OpenApiRequest([
             'headers' => $headers,
@@ -1648,19 +1667,19 @@ class Sae extends OpenApiClient
         Utils::validateModel($request);
         $query = [];
         if (!Utils::isUnset($request->appId)) {
-            @$query['AppId'] = $request->appId;
+            $query['AppId'] = $request->appId;
         }
         if (!Utils::isUnset($request->currentPage)) {
-            @$query['CurrentPage'] = $request->currentPage;
+            $query['CurrentPage'] = $request->currentPage;
         }
         if (!Utils::isUnset($request->groupId)) {
-            @$query['GroupId'] = $request->groupId;
+            $query['GroupId'] = $request->groupId;
         }
         if (!Utils::isUnset($request->pageSize)) {
-            @$query['PageSize'] = $request->pageSize;
+            $query['PageSize'] = $request->pageSize;
         }
         if (!Utils::isUnset($request->reverse)) {
-            @$query['Reverse'] = $request->reverse;
+            $query['Reverse'] = $request->reverse;
         }
         $req = new OpenApiRequest([
             'headers' => $headers,
@@ -1679,6 +1698,55 @@ class Sae extends OpenApiClient
         ]);
 
         return DescribeApplicationInstancesResponse::fromMap($this->callApi($params, $req, $runtime));
+    }
+
+    /**
+     * @param DescribeApplicationScalingRuleRequest $request
+     *
+     * @return DescribeApplicationScalingRuleResponse
+     */
+    public function describeApplicationScalingRule($request)
+    {
+        $runtime = new RuntimeOptions([]);
+        $headers = [];
+
+        return $this->describeApplicationScalingRuleWithOptions($request, $headers, $runtime);
+    }
+
+    /**
+     * @param DescribeApplicationScalingRuleRequest $request
+     * @param string[]                              $headers
+     * @param RuntimeOptions                        $runtime
+     *
+     * @return DescribeApplicationScalingRuleResponse
+     */
+    public function describeApplicationScalingRuleWithOptions($request, $headers, $runtime)
+    {
+        Utils::validateModel($request);
+        $query = [];
+        if (!Utils::isUnset($request->appId)) {
+            $query['AppId'] = $request->appId;
+        }
+        if (!Utils::isUnset($request->scalingRuleName)) {
+            $query['ScalingRuleName'] = $request->scalingRuleName;
+        }
+        $req = new OpenApiRequest([
+            'headers' => $headers,
+            'query'   => OpenApiUtilClient::query($query),
+        ]);
+        $params = new Params([
+            'action'      => 'DescribeApplicationScalingRule',
+            'version'     => '2019-05-06',
+            'protocol'    => 'HTTPS',
+            'pathname'    => '/pop/v1/sam/scale/applicationScalingRule',
+            'method'      => 'GET',
+            'authType'    => 'AK',
+            'style'       => 'ROA',
+            'reqBodyType' => 'json',
+            'bodyType'    => 'json',
+        ]);
+
+        return DescribeApplicationScalingRuleResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
@@ -1706,7 +1774,7 @@ class Sae extends OpenApiClient
         Utils::validateModel($request);
         $query = [];
         if (!Utils::isUnset($request->appId)) {
-            @$query['AppId'] = $request->appId;
+            $query['AppId'] = $request->appId;
         }
         $req = new OpenApiRequest([
             'headers' => $headers,
@@ -1752,7 +1820,7 @@ class Sae extends OpenApiClient
         Utils::validateModel($request);
         $query = [];
         if (!Utils::isUnset($request->appId)) {
-            @$query['AppId'] = $request->appId;
+            $query['AppId'] = $request->appId;
         }
         $req = new OpenApiRequest([
             'headers' => $headers,
@@ -1798,7 +1866,7 @@ class Sae extends OpenApiClient
         Utils::validateModel($request);
         $query = [];
         if (!Utils::isUnset($request->appId)) {
-            @$query['AppId'] = $request->appId;
+            $query['AppId'] = $request->appId;
         }
         $req = new OpenApiRequest([
             'headers' => $headers,
@@ -1844,7 +1912,7 @@ class Sae extends OpenApiClient
         Utils::validateModel($request);
         $query = [];
         if (!Utils::isUnset($request->changeOrderId)) {
-            @$query['ChangeOrderId'] = $request->changeOrderId;
+            $query['ChangeOrderId'] = $request->changeOrderId;
         }
         $req = new OpenApiRequest([
             'headers' => $headers,
@@ -1890,10 +1958,10 @@ class Sae extends OpenApiClient
         Utils::validateModel($request);
         $query = [];
         if (!Utils::isUnset($request->appId)) {
-            @$query['AppId'] = $request->appId;
+            $query['AppId'] = $request->appId;
         }
         if (!Utils::isUnset($request->type)) {
-            @$query['Type'] = $request->type;
+            $query['Type'] = $request->type;
         }
         $req = new OpenApiRequest([
             'headers' => $headers,
@@ -1939,7 +2007,7 @@ class Sae extends OpenApiClient
         Utils::validateModel($request);
         $query = [];
         if (!Utils::isUnset($request->configMapId)) {
-            @$query['ConfigMapId'] = $request->configMapId;
+            $query['ConfigMapId'] = $request->configMapId;
         }
         $req = new OpenApiRequest([
             'headers' => $headers,
@@ -1958,6 +2026,55 @@ class Sae extends OpenApiClient
         ]);
 
         return DescribeConfigMapResponse::fromMap($this->callApi($params, $req, $runtime));
+    }
+
+    /**
+     * @param DescribeConfigurationPriceRequest $request
+     *
+     * @return DescribeConfigurationPriceResponse
+     */
+    public function describeConfigurationPrice($request)
+    {
+        $runtime = new RuntimeOptions([]);
+        $headers = [];
+
+        return $this->describeConfigurationPriceWithOptions($request, $headers, $runtime);
+    }
+
+    /**
+     * @param DescribeConfigurationPriceRequest $request
+     * @param string[]                          $headers
+     * @param RuntimeOptions                    $runtime
+     *
+     * @return DescribeConfigurationPriceResponse
+     */
+    public function describeConfigurationPriceWithOptions($request, $headers, $runtime)
+    {
+        Utils::validateModel($request);
+        $query = [];
+        if (!Utils::isUnset($request->cpu)) {
+            $query['Cpu'] = $request->cpu;
+        }
+        if (!Utils::isUnset($request->memory)) {
+            $query['Memory'] = $request->memory;
+        }
+        $req = new OpenApiRequest([
+            'headers' => $headers,
+            'query'   => OpenApiUtilClient::query($query),
+        ]);
+        $params = new Params([
+            'action'      => 'DescribeConfigurationPrice',
+            'version'     => '2019-05-06',
+            'protocol'    => 'HTTPS',
+            'pathname'    => '/pop/v1/paas/configurationPrice',
+            'method'      => 'GET',
+            'authType'    => 'AK',
+            'style'       => 'ROA',
+            'reqBodyType' => 'json',
+            'bodyType'    => 'json',
+        ]);
+
+        return DescribeConfigurationPriceResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
@@ -2022,7 +2139,7 @@ class Sae extends OpenApiClient
         Utils::validateModel($request);
         $query = [];
         if (!Utils::isUnset($request->greyTagRouteId)) {
-            @$query['GreyTagRouteId'] = $request->greyTagRouteId;
+            $query['GreyTagRouteId'] = $request->greyTagRouteId;
         }
         $req = new OpenApiRequest([
             'headers' => $headers,
@@ -2068,7 +2185,7 @@ class Sae extends OpenApiClient
         Utils::validateModel($request);
         $query = [];
         if (!Utils::isUnset($request->ingressId)) {
-            @$query['IngressId'] = $request->ingressId;
+            $query['IngressId'] = $request->ingressId;
         }
         $req = new OpenApiRequest([
             'headers' => $headers,
@@ -2114,7 +2231,7 @@ class Sae extends OpenApiClient
         Utils::validateModel($request);
         $query = [];
         if (!Utils::isUnset($request->instanceId)) {
-            @$query['InstanceId'] = $request->instanceId;
+            $query['InstanceId'] = $request->instanceId;
         }
         $req = new OpenApiRequest([
             'headers' => $headers,
@@ -2197,7 +2314,7 @@ class Sae extends OpenApiClient
         Utils::validateModel($request);
         $query = [];
         if (!Utils::isUnset($request->namespaceId)) {
-            @$query['NamespaceId'] = $request->namespaceId;
+            $query['NamespaceId'] = $request->namespaceId;
         }
         $req = new OpenApiRequest([
             'headers' => $headers,
@@ -2243,10 +2360,10 @@ class Sae extends OpenApiClient
         Utils::validateModel($request);
         $query = [];
         if (!Utils::isUnset($request->containCustom)) {
-            @$query['ContainCustom'] = $request->containCustom;
+            $query['ContainCustom'] = $request->containCustom;
         }
         if (!Utils::isUnset($request->hybridCloudExclude)) {
-            @$query['HybridCloudExclude'] = $request->hybridCloudExclude;
+            $query['HybridCloudExclude'] = $request->hybridCloudExclude;
         }
         $req = new OpenApiRequest([
             'headers' => $headers,
@@ -2292,7 +2409,7 @@ class Sae extends OpenApiClient
         Utils::validateModel($request);
         $query = [];
         if (!Utils::isUnset($request->namespaceId)) {
-            @$query['NamespaceId'] = $request->namespaceId;
+            $query['NamespaceId'] = $request->namespaceId;
         }
         $req = new OpenApiRequest([
             'headers' => $headers,
@@ -2338,10 +2455,10 @@ class Sae extends OpenApiClient
         Utils::validateModel($request);
         $query = [];
         if (!Utils::isUnset($request->currentPage)) {
-            @$query['CurrentPage'] = $request->currentPage;
+            $query['CurrentPage'] = $request->currentPage;
         }
         if (!Utils::isUnset($request->pageSize)) {
-            @$query['PageSize'] = $request->pageSize;
+            $query['PageSize'] = $request->pageSize;
         }
         $req = new OpenApiRequest([
             'headers' => $headers,
@@ -2387,7 +2504,7 @@ class Sae extends OpenApiClient
         Utils::validateModel($request);
         $query = [];
         if (!Utils::isUnset($request->pipelineId)) {
-            @$query['PipelineId'] = $request->pipelineId;
+            $query['PipelineId'] = $request->pipelineId;
         }
         $req = new OpenApiRequest([
             'headers' => $headers,
@@ -2470,10 +2587,10 @@ class Sae extends OpenApiClient
         Utils::validateModel($request);
         $query = [];
         if (!Utils::isUnset($request->appId)) {
-            @$query['AppId'] = $request->appId;
+            $query['AppId'] = $request->appId;
         }
         if (!Utils::isUnset($request->scalingRuleName)) {
-            @$query['ScalingRuleName'] = $request->scalingRuleName;
+            $query['ScalingRuleName'] = $request->scalingRuleName;
         }
         $req = new OpenApiRequest([
             'headers' => $headers,
@@ -2519,13 +2636,13 @@ class Sae extends OpenApiClient
         Utils::validateModel($request);
         $query = [];
         if (!Utils::isUnset($request->appId)) {
-            @$query['AppId'] = $request->appId;
+            $query['AppId'] = $request->appId;
         }
         if (!Utils::isUnset($request->instanceId)) {
-            @$query['InstanceId'] = $request->instanceId;
+            $query['InstanceId'] = $request->instanceId;
         }
         if (!Utils::isUnset($request->localpath)) {
-            @$query['Localpath'] = $request->localpath;
+            $query['Localpath'] = $request->localpath;
         }
         $req = new OpenApiRequest([
             'headers' => $headers,
@@ -2535,7 +2652,7 @@ class Sae extends OpenApiClient
             'action'      => 'DownloadFiles',
             'version'     => '2019-05-06',
             'protocol'    => 'HTTPS',
-            'pathname'    => '/pop/v1/sam/app/downloadFiles.json',
+            'pathname'    => '/pop/v1/sam/app/downloadFiles',
             'method'      => 'POST',
             'authType'    => 'AK',
             'style'       => 'ROA',
@@ -2571,10 +2688,10 @@ class Sae extends OpenApiClient
         Utils::validateModel($request);
         $query = [];
         if (!Utils::isUnset($request->appId)) {
-            @$query['AppId'] = $request->appId;
+            $query['AppId'] = $request->appId;
         }
         if (!Utils::isUnset($request->scalingRuleName)) {
-            @$query['ScalingRuleName'] = $request->scalingRuleName;
+            $query['ScalingRuleName'] = $request->scalingRuleName;
         }
         $req = new OpenApiRequest([
             'headers' => $headers,
@@ -2620,28 +2737,28 @@ class Sae extends OpenApiClient
         Utils::validateModel($request);
         $query = [];
         if (!Utils::isUnset($request->appId)) {
-            @$query['AppId'] = $request->appId;
+            $query['AppId'] = $request->appId;
         }
         if (!Utils::isUnset($request->currentPage)) {
-            @$query['CurrentPage'] = $request->currentPage;
+            $query['CurrentPage'] = $request->currentPage;
         }
         if (!Utils::isUnset($request->eventType)) {
-            @$query['EventType'] = $request->eventType;
+            $query['EventType'] = $request->eventType;
         }
         if (!Utils::isUnset($request->namespace_)) {
-            @$query['Namespace_'] = $request->namespace_;
+            $query['Namespace'] = $request->namespace_;
         }
         if (!Utils::isUnset($request->objectKind)) {
-            @$query['ObjectKind'] = $request->objectKind;
+            $query['ObjectKind'] = $request->objectKind;
         }
         if (!Utils::isUnset($request->objectName)) {
-            @$query['ObjectName'] = $request->objectName;
+            $query['ObjectName'] = $request->objectName;
         }
         if (!Utils::isUnset($request->pageSize)) {
-            @$query['PageSize'] = $request->pageSize;
+            $query['PageSize'] = $request->pageSize;
         }
         if (!Utils::isUnset($request->reason)) {
-            @$query['Reason'] = $request->reason;
+            $query['Reason'] = $request->reason;
         }
         $req = new OpenApiRequest([
             'headers' => $headers,
@@ -2687,16 +2804,16 @@ class Sae extends OpenApiClient
         Utils::validateModel($request);
         $query = [];
         if (!Utils::isUnset($request->appId)) {
-            @$query['AppId'] = $request->appId;
+            $query['AppId'] = $request->appId;
         }
         if (!Utils::isUnset($request->pageNumber)) {
-            @$query['PageNumber'] = $request->pageNumber;
+            $query['PageNumber'] = $request->pageNumber;
         }
         if (!Utils::isUnset($request->pageSize)) {
-            @$query['PageSize'] = $request->pageSize;
+            $query['PageSize'] = $request->pageSize;
         }
         if (!Utils::isUnset($request->serviceType)) {
-            @$query['ServiceType'] = $request->serviceType;
+            $query['ServiceType'] = $request->serviceType;
         }
         $req = new OpenApiRequest([
             'headers' => $headers,
@@ -2742,7 +2859,7 @@ class Sae extends OpenApiClient
         Utils::validateModel($request);
         $query = [];
         if (!Utils::isUnset($request->appId)) {
-            @$query['AppId'] = $request->appId;
+            $query['AppId'] = $request->appId;
         }
         $req = new OpenApiRequest([
             'headers' => $headers,
@@ -2788,31 +2905,31 @@ class Sae extends OpenApiClient
         Utils::validateModel($request);
         $query = [];
         if (!Utils::isUnset($request->appName)) {
-            @$query['AppName'] = $request->appName;
+            $query['AppName'] = $request->appName;
         }
         if (!Utils::isUnset($request->currentPage)) {
-            @$query['CurrentPage'] = $request->currentPage;
+            $query['CurrentPage'] = $request->currentPage;
         }
         if (!Utils::isUnset($request->fieldType)) {
-            @$query['FieldType'] = $request->fieldType;
+            $query['FieldType'] = $request->fieldType;
         }
         if (!Utils::isUnset($request->fieldValue)) {
-            @$query['FieldValue'] = $request->fieldValue;
+            $query['FieldValue'] = $request->fieldValue;
         }
         if (!Utils::isUnset($request->namespaceId)) {
-            @$query['NamespaceId'] = $request->namespaceId;
+            $query['NamespaceId'] = $request->namespaceId;
         }
         if (!Utils::isUnset($request->orderBy)) {
-            @$query['OrderBy'] = $request->orderBy;
+            $query['OrderBy'] = $request->orderBy;
         }
         if (!Utils::isUnset($request->pageSize)) {
-            @$query['PageSize'] = $request->pageSize;
+            $query['PageSize'] = $request->pageSize;
         }
         if (!Utils::isUnset($request->reverse)) {
-            @$query['Reverse'] = $request->reverse;
+            $query['Reverse'] = $request->reverse;
         }
         if (!Utils::isUnset($request->tags)) {
-            @$query['Tags'] = $request->tags;
+            $query['Tags'] = $request->tags;
         }
         $req = new OpenApiRequest([
             'headers' => $headers,
@@ -2858,22 +2975,22 @@ class Sae extends OpenApiClient
         Utils::validateModel($request);
         $query = [];
         if (!Utils::isUnset($request->appId)) {
-            @$query['AppId'] = $request->appId;
+            $query['AppId'] = $request->appId;
         }
         if (!Utils::isUnset($request->coStatus)) {
-            @$query['CoStatus'] = $request->coStatus;
+            $query['CoStatus'] = $request->coStatus;
         }
         if (!Utils::isUnset($request->coType)) {
-            @$query['CoType'] = $request->coType;
+            $query['CoType'] = $request->coType;
         }
         if (!Utils::isUnset($request->currentPage)) {
-            @$query['CurrentPage'] = $request->currentPage;
+            $query['CurrentPage'] = $request->currentPage;
         }
         if (!Utils::isUnset($request->key)) {
-            @$query['Key'] = $request->key;
+            $query['Key'] = $request->key;
         }
         if (!Utils::isUnset($request->pageSize)) {
-            @$query['PageSize'] = $request->pageSize;
+            $query['PageSize'] = $request->pageSize;
         }
         $req = new OpenApiRequest([
             'headers' => $headers,
@@ -2919,7 +3036,7 @@ class Sae extends OpenApiClient
         Utils::validateModel($request);
         $query = [];
         if (!Utils::isUnset($request->appId)) {
-            @$query['AppId'] = $request->appId;
+            $query['AppId'] = $request->appId;
         }
         $req = new OpenApiRequest([
             'headers' => $headers,
@@ -2965,7 +3082,7 @@ class Sae extends OpenApiClient
         Utils::validateModel($request);
         $query = [];
         if (!Utils::isUnset($request->appId)) {
-            @$query['AppId'] = $request->appId;
+            $query['AppId'] = $request->appId;
         }
         $req = new OpenApiRequest([
             'headers' => $headers,
@@ -3011,10 +3128,10 @@ class Sae extends OpenApiClient
         Utils::validateModel($request);
         $query = [];
         if (!Utils::isUnset($request->appId)) {
-            @$query['AppId'] = $request->appId;
+            $query['AppId'] = $request->appId;
         }
         if (!Utils::isUnset($request->namespaceId)) {
-            @$query['NamespaceId'] = $request->namespaceId;
+            $query['NamespaceId'] = $request->namespaceId;
         }
         $req = new OpenApiRequest([
             'headers' => $headers,
@@ -3060,13 +3177,13 @@ class Sae extends OpenApiClient
         Utils::validateModel($request);
         $query = [];
         if (!Utils::isUnset($request->appId)) {
-            @$query['AppId'] = $request->appId;
+            $query['AppId'] = $request->appId;
         }
         if (!Utils::isUnset($request->currentPage)) {
-            @$query['CurrentPage'] = $request->currentPage;
+            $query['CurrentPage'] = $request->currentPage;
         }
         if (!Utils::isUnset($request->pageSize)) {
-            @$query['PageSize'] = $request->pageSize;
+            $query['PageSize'] = $request->pageSize;
         }
         $req = new OpenApiRequest([
             'headers' => $headers,
@@ -3112,22 +3229,22 @@ class Sae extends OpenApiClient
         Utils::validateModel($request);
         $query = [];
         if (!Utils::isUnset($request->coStatus)) {
-            @$query['CoStatus'] = $request->coStatus;
+            $query['CoStatus'] = $request->coStatus;
         }
         if (!Utils::isUnset($request->coType)) {
-            @$query['CoType'] = $request->coType;
+            $query['CoType'] = $request->coType;
         }
         if (!Utils::isUnset($request->currentPage)) {
-            @$query['CurrentPage'] = $request->currentPage;
+            $query['CurrentPage'] = $request->currentPage;
         }
         if (!Utils::isUnset($request->key)) {
-            @$query['Key'] = $request->key;
+            $query['Key'] = $request->key;
         }
         if (!Utils::isUnset($request->namespaceId)) {
-            @$query['NamespaceId'] = $request->namespaceId;
+            $query['NamespaceId'] = $request->namespaceId;
         }
         if (!Utils::isUnset($request->pageSize)) {
-            @$query['PageSize'] = $request->pageSize;
+            $query['PageSize'] = $request->pageSize;
         }
         $req = new OpenApiRequest([
             'headers' => $headers,
@@ -3173,7 +3290,7 @@ class Sae extends OpenApiClient
         Utils::validateModel($request);
         $query = [];
         if (!Utils::isUnset($request->namespaceId)) {
-            @$query['NamespaceId'] = $request->namespaceId;
+            $query['NamespaceId'] = $request->namespaceId;
         }
         $req = new OpenApiRequest([
             'headers' => $headers,
@@ -3219,7 +3336,7 @@ class Sae extends OpenApiClient
         Utils::validateModel($request);
         $query = [];
         if (!Utils::isUnset($request->appId)) {
-            @$query['AppId'] = $request->appId;
+            $query['AppId'] = $request->appId;
         }
         $req = new OpenApiRequest([
             'headers' => $headers,
@@ -3265,19 +3382,19 @@ class Sae extends OpenApiClient
         Utils::validateModel($request);
         $query = [];
         if (!Utils::isUnset($request->nextToken)) {
-            @$query['NextToken'] = $request->nextToken;
+            $query['NextToken'] = $request->nextToken;
         }
         if (!Utils::isUnset($request->regionId)) {
-            @$query['RegionId'] = $request->regionId;
+            $query['RegionId'] = $request->regionId;
         }
         if (!Utils::isUnset($request->resourceIds)) {
-            @$query['ResourceIds'] = $request->resourceIds;
+            $query['ResourceIds'] = $request->resourceIds;
         }
         if (!Utils::isUnset($request->resourceType)) {
-            @$query['ResourceType'] = $request->resourceType;
+            $query['ResourceType'] = $request->resourceType;
         }
         if (!Utils::isUnset($request->tags)) {
-            @$query['Tags'] = $request->tags;
+            $query['Tags'] = $request->tags;
         }
         $req = new OpenApiRequest([
             'headers' => $headers,
@@ -3360,7 +3477,7 @@ class Sae extends OpenApiClient
         Utils::validateModel($request);
         $query = [];
         if (!Utils::isUnset($request->appId)) {
-            @$query['AppId'] = $request->appId;
+            $query['AppId'] = $request->appId;
         }
         $req = new OpenApiRequest([
             'headers' => $headers,
@@ -3406,10 +3523,10 @@ class Sae extends OpenApiClient
         Utils::validateModel($request);
         $query = [];
         if (!Utils::isUnset($request->appId)) {
-            @$query['AppId'] = $request->appId;
+            $query['AppId'] = $request->appId;
         }
         if (!Utils::isUnset($request->instanceIds)) {
-            @$query['InstanceIds'] = $request->instanceIds;
+            $query['InstanceIds'] = $request->instanceIds;
         }
         $req = new OpenApiRequest([
             'headers' => $headers,
@@ -3455,16 +3572,19 @@ class Sae extends OpenApiClient
         Utils::validateModel($request);
         $query = [];
         if (!Utils::isUnset($request->appId)) {
-            @$query['AppId'] = $request->appId;
+            $query['AppId'] = $request->appId;
         }
         if (!Utils::isUnset($request->autoEnableApplicationScalingRule)) {
-            @$query['AutoEnableApplicationScalingRule'] = $request->autoEnableApplicationScalingRule;
+            $query['AutoEnableApplicationScalingRule'] = $request->autoEnableApplicationScalingRule;
+        }
+        if (!Utils::isUnset($request->minReadyInstanceRatio)) {
+            $query['MinReadyInstanceRatio'] = $request->minReadyInstanceRatio;
         }
         if (!Utils::isUnset($request->minReadyInstances)) {
-            @$query['MinReadyInstances'] = $request->minReadyInstances;
+            $query['MinReadyInstances'] = $request->minReadyInstances;
         }
         if (!Utils::isUnset($request->replicas)) {
-            @$query['Replicas'] = $request->replicas;
+            $query['Replicas'] = $request->replicas;
         }
         $req = new OpenApiRequest([
             'headers' => $headers,
@@ -3510,13 +3630,13 @@ class Sae extends OpenApiClient
         Utils::validateModel($request);
         $query = [];
         if (!Utils::isUnset($request->appId)) {
-            @$query['AppId'] = $request->appId;
+            $query['AppId'] = $request->appId;
         }
         if (!Utils::isUnset($request->cpu)) {
-            @$query['Cpu'] = $request->cpu;
+            $query['Cpu'] = $request->cpu;
         }
         if (!Utils::isUnset($request->memory)) {
-            @$query['Memory'] = $request->memory;
+            $query['Memory'] = $request->memory;
         }
         $req = new OpenApiRequest([
             'headers' => $headers,
@@ -3562,10 +3682,13 @@ class Sae extends OpenApiClient
         Utils::validateModel($request);
         $query = [];
         if (!Utils::isUnset($request->appId)) {
-            @$query['AppId'] = $request->appId;
+            $query['AppId'] = $request->appId;
+        }
+        if (!Utils::isUnset($request->minReadyInstanceRatio)) {
+            $query['MinReadyInstanceRatio'] = $request->minReadyInstanceRatio;
         }
         if (!Utils::isUnset($request->minReadyInstances)) {
-            @$query['MinReadyInstances'] = $request->minReadyInstances;
+            $query['MinReadyInstances'] = $request->minReadyInstances;
         }
         $req = new OpenApiRequest([
             'headers' => $headers,
@@ -3611,10 +3734,10 @@ class Sae extends OpenApiClient
         Utils::validateModel($request);
         $query = [];
         if (!Utils::isUnset($request->appId)) {
-            @$query['AppId'] = $request->appId;
+            $query['AppId'] = $request->appId;
         }
         if (!Utils::isUnset($request->instanceIds)) {
-            @$query['InstanceIds'] = $request->instanceIds;
+            $query['InstanceIds'] = $request->instanceIds;
         }
         $req = new OpenApiRequest([
             'headers' => $headers,
@@ -3660,22 +3783,25 @@ class Sae extends OpenApiClient
         Utils::validateModel($request);
         $query = [];
         if (!Utils::isUnset($request->appId)) {
-            @$query['AppId'] = $request->appId;
+            $query['AppId'] = $request->appId;
         }
         if (!Utils::isUnset($request->autoEnableApplicationScalingRule)) {
-            @$query['AutoEnableApplicationScalingRule'] = $request->autoEnableApplicationScalingRule;
+            $query['AutoEnableApplicationScalingRule'] = $request->autoEnableApplicationScalingRule;
         }
         if (!Utils::isUnset($request->batchWaitTime)) {
-            @$query['BatchWaitTime'] = $request->batchWaitTime;
+            $query['BatchWaitTime'] = $request->batchWaitTime;
+        }
+        if (!Utils::isUnset($request->minReadyInstanceRatio)) {
+            $query['MinReadyInstanceRatio'] = $request->minReadyInstanceRatio;
         }
         if (!Utils::isUnset($request->minReadyInstances)) {
-            @$query['MinReadyInstances'] = $request->minReadyInstances;
+            $query['MinReadyInstances'] = $request->minReadyInstances;
         }
         if (!Utils::isUnset($request->updateStrategy)) {
-            @$query['UpdateStrategy'] = $request->updateStrategy;
+            $query['UpdateStrategy'] = $request->updateStrategy;
         }
         if (!Utils::isUnset($request->versionId)) {
-            @$query['VersionId'] = $request->versionId;
+            $query['VersionId'] = $request->versionId;
         }
         $req = new OpenApiRequest([
             'headers' => $headers,
@@ -3721,7 +3847,7 @@ class Sae extends OpenApiClient
         Utils::validateModel($request);
         $query = [];
         if (!Utils::isUnset($request->appId)) {
-            @$query['AppId'] = $request->appId;
+            $query['AppId'] = $request->appId;
         }
         $req = new OpenApiRequest([
             'headers' => $headers,
@@ -3767,7 +3893,7 @@ class Sae extends OpenApiClient
         Utils::validateModel($request);
         $query = [];
         if (!Utils::isUnset($request->appId)) {
-            @$query['AppId'] = $request->appId;
+            $query['AppId'] = $request->appId;
         }
         $req = new OpenApiRequest([
             'headers' => $headers,
@@ -3813,16 +3939,16 @@ class Sae extends OpenApiClient
         Utils::validateModel($request);
         $body = [];
         if (!Utils::isUnset($request->regionId)) {
-            @$body['RegionId'] = $request->regionId;
+            $body['RegionId'] = $request->regionId;
         }
         if (!Utils::isUnset($request->resourceIds)) {
-            @$body['ResourceIds'] = $request->resourceIds;
+            $body['ResourceIds'] = $request->resourceIds;
         }
         if (!Utils::isUnset($request->resourceType)) {
-            @$body['ResourceType'] = $request->resourceType;
+            $body['ResourceType'] = $request->resourceType;
         }
         if (!Utils::isUnset($request->tags)) {
-            @$body['Tags'] = $request->tags;
+            $body['Tags'] = $request->tags;
         }
         $req = new OpenApiRequest([
             'headers' => $headers,
@@ -3868,13 +3994,13 @@ class Sae extends OpenApiClient
         Utils::validateModel($request);
         $query = [];
         if (!Utils::isUnset($request->appId)) {
-            @$query['AppId'] = $request->appId;
+            $query['AppId'] = $request->appId;
         }
         if (!Utils::isUnset($request->internet)) {
-            @$query['Internet'] = $request->internet;
+            $query['Internet'] = $request->internet;
         }
         if (!Utils::isUnset($request->intranet)) {
-            @$query['Intranet'] = $request->intranet;
+            $query['Intranet'] = $request->intranet;
         }
         $req = new OpenApiRequest([
             'headers' => $headers,
@@ -3920,19 +4046,19 @@ class Sae extends OpenApiClient
         Utils::validateModel($request);
         $query = [];
         if (!Utils::isUnset($request->deleteAll)) {
-            @$query['DeleteAll'] = $request->deleteAll;
+            $query['DeleteAll'] = $request->deleteAll;
         }
         if (!Utils::isUnset($request->regionId)) {
-            @$query['RegionId'] = $request->regionId;
+            $query['RegionId'] = $request->regionId;
         }
         if (!Utils::isUnset($request->resourceIds)) {
-            @$query['ResourceIds'] = $request->resourceIds;
+            $query['ResourceIds'] = $request->resourceIds;
         }
         if (!Utils::isUnset($request->resourceType)) {
-            @$query['ResourceType'] = $request->resourceType;
+            $query['ResourceType'] = $request->resourceType;
         }
         if (!Utils::isUnset($request->tagKeys)) {
-            @$query['TagKeys'] = $request->tagKeys;
+            $query['TagKeys'] = $request->tagKeys;
         }
         $req = new OpenApiRequest([
             'headers' => $headers,
@@ -3978,10 +4104,10 @@ class Sae extends OpenApiClient
         Utils::validateModel($request);
         $query = [];
         if (!Utils::isUnset($request->appId)) {
-            @$query['AppId'] = $request->appId;
+            $query['AppId'] = $request->appId;
         }
         if (!Utils::isUnset($request->securityGroupId)) {
-            @$query['SecurityGroupId'] = $request->securityGroupId;
+            $query['SecurityGroupId'] = $request->securityGroupId;
         }
         $req = new OpenApiRequest([
             'headers' => $headers,
@@ -4027,13 +4153,22 @@ class Sae extends OpenApiClient
         Utils::validateModel($request);
         $query = [];
         if (!Utils::isUnset($request->appId)) {
-            @$query['AppId'] = $request->appId;
+            $query['AppId'] = $request->appId;
+        }
+        if (!Utils::isUnset($request->minReadyInstanceRatio)) {
+            $query['MinReadyInstanceRatio'] = $request->minReadyInstanceRatio;
+        }
+        if (!Utils::isUnset($request->minReadyInstances)) {
+            $query['MinReadyInstances'] = $request->minReadyInstances;
+        }
+        if (!Utils::isUnset($request->scalingRuleMetric)) {
+            $query['ScalingRuleMetric'] = $request->scalingRuleMetric;
         }
         if (!Utils::isUnset($request->scalingRuleName)) {
-            @$query['ScalingRuleName'] = $request->scalingRuleName;
+            $query['ScalingRuleName'] = $request->scalingRuleName;
         }
         if (!Utils::isUnset($request->scalingRuleTimer)) {
-            @$query['ScalingRuleTimer'] = $request->scalingRuleTimer;
+            $query['ScalingRuleTimer'] = $request->scalingRuleTimer;
         }
         $req = new OpenApiRequest([
             'headers' => $headers,
@@ -4079,14 +4214,14 @@ class Sae extends OpenApiClient
         Utils::validateModel($request);
         $query = [];
         if (!Utils::isUnset($request->configMapId)) {
-            @$query['ConfigMapId'] = $request->configMapId;
+            $query['ConfigMapId'] = $request->configMapId;
         }
         if (!Utils::isUnset($request->description)) {
-            @$query['Description'] = $request->description;
+            $query['Description'] = $request->description;
         }
         $body = [];
         if (!Utils::isUnset($request->data)) {
-            @$body['Data'] = $request->data;
+            $body['Data'] = $request->data;
         }
         $req = new OpenApiRequest([
             'headers' => $headers,
@@ -4133,16 +4268,16 @@ class Sae extends OpenApiClient
         Utils::validateModel($request);
         $query = [];
         if (!Utils::isUnset($request->description)) {
-            @$query['Description'] = $request->description;
+            $query['Description'] = $request->description;
         }
         if (!Utils::isUnset($request->dubboRules)) {
-            @$query['DubboRules'] = $request->dubboRules;
+            $query['DubboRules'] = $request->dubboRules;
         }
         if (!Utils::isUnset($request->greyTagRouteId)) {
-            @$query['GreyTagRouteId'] = $request->greyTagRouteId;
+            $query['GreyTagRouteId'] = $request->greyTagRouteId;
         }
         if (!Utils::isUnset($request->scRules)) {
-            @$query['ScRules'] = $request->scRules;
+            $query['ScRules'] = $request->scRules;
         }
         $req = new OpenApiRequest([
             'headers' => $headers,
@@ -4188,23 +4323,23 @@ class Sae extends OpenApiClient
         Utils::validateModel($request);
         $query = [];
         if (!Utils::isUnset($request->certId)) {
-            @$query['CertId'] = $request->certId;
+            $query['CertId'] = $request->certId;
         }
         if (!Utils::isUnset($request->defaultRule)) {
-            @$query['DefaultRule'] = $request->defaultRule;
+            $query['DefaultRule'] = $request->defaultRule;
         }
         if (!Utils::isUnset($request->description)) {
-            @$query['Description'] = $request->description;
+            $query['Description'] = $request->description;
         }
         if (!Utils::isUnset($request->ingressId)) {
-            @$query['IngressId'] = $request->ingressId;
+            $query['IngressId'] = $request->ingressId;
         }
         if (!Utils::isUnset($request->listenerPort)) {
-            @$query['ListenerPort'] = $request->listenerPort;
+            $query['ListenerPort'] = $request->listenerPort;
         }
         $body = [];
         if (!Utils::isUnset($request->rules)) {
-            @$body['Rules'] = $request->rules;
+            $body['Rules'] = $request->rules;
         }
         $req = new OpenApiRequest([
             'headers' => $headers,
@@ -4251,13 +4386,13 @@ class Sae extends OpenApiClient
         Utils::validateModel($request);
         $query = [];
         if (!Utils::isUnset($request->namespaceDescription)) {
-            @$query['NamespaceDescription'] = $request->namespaceDescription;
+            $query['NamespaceDescription'] = $request->namespaceDescription;
         }
         if (!Utils::isUnset($request->namespaceId)) {
-            @$query['NamespaceId'] = $request->namespaceId;
+            $query['NamespaceId'] = $request->namespaceId;
         }
         if (!Utils::isUnset($request->namespaceName)) {
-            @$query['NamespaceName'] = $request->namespaceName;
+            $query['NamespaceName'] = $request->namespaceName;
         }
         $req = new OpenApiRequest([
             'headers' => $headers,
@@ -4303,10 +4438,10 @@ class Sae extends OpenApiClient
         Utils::validateModel($request);
         $query = [];
         if (!Utils::isUnset($request->namespaceId)) {
-            @$query['NamespaceId'] = $request->namespaceId;
+            $query['NamespaceId'] = $request->namespaceId;
         }
         if (!Utils::isUnset($request->vpcId)) {
-            @$query['VpcId'] = $request->vpcId;
+            $query['VpcId'] = $request->vpcId;
         }
         $req = new OpenApiRequest([
             'headers' => $headers,
@@ -4352,16 +4487,16 @@ class Sae extends OpenApiClient
         Utils::validateModel($request);
         $query = [];
         if (!Utils::isUnset($request->appId)) {
-            @$query['AppId'] = $request->appId;
+            $query['AppId'] = $request->appId;
         }
         if (!Utils::isUnset($request->cloudUrl)) {
-            @$query['CloudUrl'] = $request->cloudUrl;
+            $query['CloudUrl'] = $request->cloudUrl;
         }
         if (!Utils::isUnset($request->instanceId)) {
-            @$query['InstanceId'] = $request->instanceId;
+            $query['InstanceId'] = $request->instanceId;
         }
         if (!Utils::isUnset($request->localpath)) {
-            @$query['Localpath'] = $request->localpath;
+            $query['Localpath'] = $request->localpath;
         }
         $req = new OpenApiRequest([
             'headers' => $headers,
@@ -4371,7 +4506,7 @@ class Sae extends OpenApiClient
             'action'      => 'UploadFiles',
             'version'     => '2019-05-06',
             'protocol'    => 'HTTPS',
-            'pathname'    => '/pop/v1/sam/app/uploadFiles.json',
+            'pathname'    => '/pop/v1/sam/app/uploadFiles',
             'method'      => 'POST',
             'authType'    => 'AK',
             'style'       => 'ROA',

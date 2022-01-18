@@ -14,9 +14,24 @@ class CreateApplicationScalingRuleRequest extends Model
     public $appId;
 
     /**
+     * @var int
+     */
+    public $minReadyInstanceRatio;
+
+    /**
+     * @var int
+     */
+    public $minReadyInstances;
+
+    /**
      * @var bool
      */
     public $scalingRuleEnable;
+
+    /**
+     * @var string
+     */
+    public $scalingRuleMetric;
 
     /**
      * @var string
@@ -33,11 +48,14 @@ class CreateApplicationScalingRuleRequest extends Model
      */
     public $scalingRuleType;
     protected $_name = [
-        'appId'             => 'AppId',
-        'scalingRuleEnable' => 'ScalingRuleEnable',
-        'scalingRuleName'   => 'ScalingRuleName',
-        'scalingRuleTimer'  => 'ScalingRuleTimer',
-        'scalingRuleType'   => 'ScalingRuleType',
+        'appId'                 => 'AppId',
+        'minReadyInstanceRatio' => 'MinReadyInstanceRatio',
+        'minReadyInstances'     => 'MinReadyInstances',
+        'scalingRuleEnable'     => 'ScalingRuleEnable',
+        'scalingRuleMetric'     => 'ScalingRuleMetric',
+        'scalingRuleName'       => 'ScalingRuleName',
+        'scalingRuleTimer'      => 'ScalingRuleTimer',
+        'scalingRuleType'       => 'ScalingRuleType',
     ];
 
     public function validate()
@@ -50,8 +68,17 @@ class CreateApplicationScalingRuleRequest extends Model
         if (null !== $this->appId) {
             $res['AppId'] = $this->appId;
         }
+        if (null !== $this->minReadyInstanceRatio) {
+            $res['MinReadyInstanceRatio'] = $this->minReadyInstanceRatio;
+        }
+        if (null !== $this->minReadyInstances) {
+            $res['MinReadyInstances'] = $this->minReadyInstances;
+        }
         if (null !== $this->scalingRuleEnable) {
             $res['ScalingRuleEnable'] = $this->scalingRuleEnable;
+        }
+        if (null !== $this->scalingRuleMetric) {
+            $res['ScalingRuleMetric'] = $this->scalingRuleMetric;
         }
         if (null !== $this->scalingRuleName) {
             $res['ScalingRuleName'] = $this->scalingRuleName;
@@ -77,8 +104,17 @@ class CreateApplicationScalingRuleRequest extends Model
         if (isset($map['AppId'])) {
             $model->appId = $map['AppId'];
         }
+        if (isset($map['MinReadyInstanceRatio'])) {
+            $model->minReadyInstanceRatio = $map['MinReadyInstanceRatio'];
+        }
+        if (isset($map['MinReadyInstances'])) {
+            $model->minReadyInstances = $map['MinReadyInstances'];
+        }
         if (isset($map['ScalingRuleEnable'])) {
             $model->scalingRuleEnable = $map['ScalingRuleEnable'];
+        }
+        if (isset($map['ScalingRuleMetric'])) {
+            $model->scalingRuleMetric = $map['ScalingRuleMetric'];
         }
         if (isset($map['ScalingRuleName'])) {
             $model->scalingRuleName = $map['ScalingRuleName'];

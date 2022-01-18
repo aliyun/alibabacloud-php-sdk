@@ -124,6 +124,11 @@ class data extends Model
     /**
      * @var int
      */
+    public $minReadyInstanceRatio;
+
+    /**
+     * @var int
+     */
     public $minReadyInstances;
 
     /**
@@ -305,6 +310,7 @@ class data extends Model
         'jdk'                           => 'Jdk',
         'liveness'                      => 'Liveness',
         'memory'                        => 'Memory',
+        'minReadyInstanceRatio'         => 'MinReadyInstanceRatio',
         'minReadyInstances'             => 'MinReadyInstances',
         'mountDesc'                     => 'MountDesc',
         'mountHost'                     => 'MountHost',
@@ -413,6 +419,9 @@ class data extends Model
         }
         if (null !== $this->memory) {
             $res['Memory'] = $this->memory;
+        }
+        if (null !== $this->minReadyInstanceRatio) {
+            $res['MinReadyInstanceRatio'] = $this->minReadyInstanceRatio;
         }
         if (null !== $this->minReadyInstances) {
             $res['MinReadyInstances'] = $this->minReadyInstances;
@@ -605,6 +614,9 @@ class data extends Model
         }
         if (isset($map['Memory'])) {
             $model->memory = $map['Memory'];
+        }
+        if (isset($map['MinReadyInstanceRatio'])) {
+            $model->minReadyInstanceRatio = $map['MinReadyInstanceRatio'];
         }
         if (isset($map['MinReadyInstances'])) {
             $model->minReadyInstances = $map['MinReadyInstances'];

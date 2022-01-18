@@ -21,6 +21,11 @@ class RescaleApplicationRequest extends Model
     /**
      * @var int
      */
+    public $minReadyInstanceRatio;
+
+    /**
+     * @var int
+     */
     public $minReadyInstances;
 
     /**
@@ -30,6 +35,7 @@ class RescaleApplicationRequest extends Model
     protected $_name = [
         'appId'                            => 'AppId',
         'autoEnableApplicationScalingRule' => 'AutoEnableApplicationScalingRule',
+        'minReadyInstanceRatio'            => 'MinReadyInstanceRatio',
         'minReadyInstances'                => 'MinReadyInstances',
         'replicas'                         => 'Replicas',
     ];
@@ -46,6 +52,9 @@ class RescaleApplicationRequest extends Model
         }
         if (null !== $this->autoEnableApplicationScalingRule) {
             $res['AutoEnableApplicationScalingRule'] = $this->autoEnableApplicationScalingRule;
+        }
+        if (null !== $this->minReadyInstanceRatio) {
+            $res['MinReadyInstanceRatio'] = $this->minReadyInstanceRatio;
         }
         if (null !== $this->minReadyInstances) {
             $res['MinReadyInstances'] = $this->minReadyInstances;
@@ -70,6 +79,9 @@ class RescaleApplicationRequest extends Model
         }
         if (isset($map['AutoEnableApplicationScalingRule'])) {
             $model->autoEnableApplicationScalingRule = $map['AutoEnableApplicationScalingRule'];
+        }
+        if (isset($map['MinReadyInstanceRatio'])) {
+            $model->minReadyInstanceRatio = $map['MinReadyInstanceRatio'];
         }
         if (isset($map['MinReadyInstances'])) {
             $model->minReadyInstances = $map['MinReadyInstances'];

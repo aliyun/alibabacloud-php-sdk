@@ -39,6 +39,11 @@ class data extends Model
     public $enableAgent;
 
     /**
+     * @var int
+     */
+    public $fileSizeLimit;
+
+    /**
      * @var string
      */
     public $lastChangeOrderId;
@@ -69,6 +74,7 @@ class data extends Model
         'createTime'             => 'CreateTime',
         'currentStatus'          => 'CurrentStatus',
         'enableAgent'            => 'EnableAgent',
+        'fileSizeLimit'          => 'FileSizeLimit',
         'lastChangeOrderId'      => 'LastChangeOrderId',
         'lastChangeOrderRunning' => 'LastChangeOrderRunning',
         'lastChangeOrderStatus'  => 'LastChangeOrderStatus',
@@ -100,6 +106,9 @@ class data extends Model
         }
         if (null !== $this->enableAgent) {
             $res['EnableAgent'] = $this->enableAgent;
+        }
+        if (null !== $this->fileSizeLimit) {
+            $res['FileSizeLimit'] = $this->fileSizeLimit;
         }
         if (null !== $this->lastChangeOrderId) {
             $res['LastChangeOrderId'] = $this->lastChangeOrderId;
@@ -145,6 +154,9 @@ class data extends Model
         }
         if (isset($map['EnableAgent'])) {
             $model->enableAgent = $map['EnableAgent'];
+        }
+        if (isset($map['FileSizeLimit'])) {
+            $model->fileSizeLimit = $map['FileSizeLimit'];
         }
         if (isset($map['LastChangeOrderId'])) {
             $model->lastChangeOrderId = $map['LastChangeOrderId'];

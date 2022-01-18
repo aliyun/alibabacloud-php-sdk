@@ -14,6 +14,13 @@ class CreateApplicationRequest extends Model
     public $acrAssumeRoleArn;
 
     /**
+     * @description ACR 企业版实例 ID
+     *
+     * @var string
+     */
+    public $acrInstanceId;
+
+    /**
      * @var string
      */
     public $appDescription;
@@ -242,6 +249,7 @@ class CreateApplicationRequest extends Model
     public $webContainer;
     protected $_name = [
         'acrAssumeRoleArn'              => 'AcrAssumeRoleArn',
+        'acrInstanceId'                 => 'AcrInstanceId',
         'appDescription'                => 'AppDescription',
         'appName'                       => 'AppName',
         'associateEip'                  => 'AssociateEip',
@@ -297,6 +305,9 @@ class CreateApplicationRequest extends Model
         $res = [];
         if (null !== $this->acrAssumeRoleArn) {
             $res['AcrAssumeRoleArn'] = $this->acrAssumeRoleArn;
+        }
+        if (null !== $this->acrInstanceId) {
+            $res['AcrInstanceId'] = $this->acrInstanceId;
         }
         if (null !== $this->appDescription) {
             $res['AppDescription'] = $this->appDescription;
@@ -444,6 +455,9 @@ class CreateApplicationRequest extends Model
         $model = new self();
         if (isset($map['AcrAssumeRoleArn'])) {
             $model->acrAssumeRoleArn = $map['AcrAssumeRoleArn'];
+        }
+        if (isset($map['AcrInstanceId'])) {
+            $model->acrInstanceId = $map['AcrInstanceId'];
         }
         if (isset($map['AppDescription'])) {
             $model->appDescription = $map['AppDescription'];
