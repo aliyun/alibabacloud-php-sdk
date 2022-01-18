@@ -11,11 +11,6 @@ class MoveResourceGroupRequest extends Model
     /**
      * @var string
      */
-    public $regionId;
-
-    /**
-     * @var string
-     */
     public $resourceGroupId;
 
     /**
@@ -28,7 +23,6 @@ class MoveResourceGroupRequest extends Model
      */
     public $resourceType;
     protected $_name = [
-        'regionId'        => 'RegionId',
         'resourceGroupId' => 'ResourceGroupId',
         'resourceId'      => 'ResourceId',
         'resourceType'    => 'ResourceType',
@@ -41,9 +35,6 @@ class MoveResourceGroupRequest extends Model
     public function toMap()
     {
         $res = [];
-        if (null !== $this->regionId) {
-            $res['RegionId'] = $this->regionId;
-        }
         if (null !== $this->resourceGroupId) {
             $res['ResourceGroupId'] = $this->resourceGroupId;
         }
@@ -65,9 +56,6 @@ class MoveResourceGroupRequest extends Model
     public static function fromMap($map = [])
     {
         $model = new self();
-        if (isset($map['RegionId'])) {
-            $model->regionId = $map['RegionId'];
-        }
         if (isset($map['ResourceGroupId'])) {
             $model->resourceGroupId = $map['ResourceGroupId'];
         }

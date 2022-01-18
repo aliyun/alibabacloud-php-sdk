@@ -17,9 +17,15 @@ class DescribeDomainRuleGroupResponseBody extends Model
      * @var int
      */
     public $ruleGroupId;
+
+    /**
+     * @var int
+     */
+    public $wafAiStatus;
     protected $_name = [
         'requestId'   => 'RequestId',
         'ruleGroupId' => 'RuleGroupId',
+        'wafAiStatus' => 'WafAiStatus',
     ];
 
     public function validate()
@@ -34,6 +40,9 @@ class DescribeDomainRuleGroupResponseBody extends Model
         }
         if (null !== $this->ruleGroupId) {
             $res['RuleGroupId'] = $this->ruleGroupId;
+        }
+        if (null !== $this->wafAiStatus) {
+            $res['WafAiStatus'] = $this->wafAiStatus;
         }
 
         return $res;
@@ -52,6 +61,9 @@ class DescribeDomainRuleGroupResponseBody extends Model
         }
         if (isset($map['RuleGroupId'])) {
             $model->ruleGroupId = $map['RuleGroupId'];
+        }
+        if (isset($map['WafAiStatus'])) {
+            $model->wafAiStatus = $map['WafAiStatus'];
         }
 
         return $model;

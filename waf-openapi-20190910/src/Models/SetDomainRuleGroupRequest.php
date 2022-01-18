@@ -31,12 +31,18 @@ class SetDomainRuleGroupRequest extends Model
     /**
      * @var int
      */
+    public $wafAiStatus;
+
+    /**
+     * @var int
+     */
     public $wafVersion;
     protected $_name = [
         'domains'         => 'Domains',
         'instanceId'      => 'InstanceId',
         'resourceGroupId' => 'ResourceGroupId',
         'ruleGroupId'     => 'RuleGroupId',
+        'wafAiStatus'     => 'WafAiStatus',
         'wafVersion'      => 'WafVersion',
     ];
 
@@ -58,6 +64,9 @@ class SetDomainRuleGroupRequest extends Model
         }
         if (null !== $this->ruleGroupId) {
             $res['RuleGroupId'] = $this->ruleGroupId;
+        }
+        if (null !== $this->wafAiStatus) {
+            $res['WafAiStatus'] = $this->wafAiStatus;
         }
         if (null !== $this->wafVersion) {
             $res['WafVersion'] = $this->wafVersion;
@@ -85,6 +94,9 @@ class SetDomainRuleGroupRequest extends Model
         }
         if (isset($map['RuleGroupId'])) {
             $model->ruleGroupId = $map['RuleGroupId'];
+        }
+        if (isset($map['WafAiStatus'])) {
+            $model->wafAiStatus = $map['WafAiStatus'];
         }
         if (isset($map['WafVersion'])) {
             $model->wafVersion = $map['WafVersion'];
