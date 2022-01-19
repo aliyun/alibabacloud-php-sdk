@@ -2,11 +2,11 @@
 
 // This file is auto-generated, don't edit it. Thanks.
 
-namespace AlibabaCloud\SDK\Mse\V20190531\Models;
+namespace AlibabaCloud\SDK\Mse\V20190531\Models\QueryGovernanceKubernetesClusterResponseBody\data;
 
 use AlibabaCloud\Tea\Model;
 
-class CreateGovernanceKubernetesClusterRequest extends Model
+class result extends Model
 {
     /**
      * @var string
@@ -26,24 +26,24 @@ class CreateGovernanceKubernetesClusterRequest extends Model
     /**
      * @var string
      */
-    public $nameSpaceInfos;
+    public $namespaceInfos;
 
     /**
-     * @var int
+     * @var string
      */
     public $pilotStartTime;
 
     /**
      * @var string
      */
-    public $regionId;
+    public $region;
     protected $_name = [
         'clusterId'      => 'ClusterId',
         'clusterName'    => 'ClusterName',
         'k8sVersion'     => 'K8sVersion',
-        'nameSpaceInfos' => 'NameSpaceInfos',
+        'namespaceInfos' => 'NamespaceInfos',
         'pilotStartTime' => 'PilotStartTime',
-        'regionId'       => 'RegionId',
+        'region'         => 'Region',
     ];
 
     public function validate()
@@ -62,14 +62,14 @@ class CreateGovernanceKubernetesClusterRequest extends Model
         if (null !== $this->k8sVersion) {
             $res['K8sVersion'] = $this->k8sVersion;
         }
-        if (null !== $this->nameSpaceInfos) {
-            $res['NameSpaceInfos'] = $this->nameSpaceInfos;
+        if (null !== $this->namespaceInfos) {
+            $res['NamespaceInfos'] = $this->namespaceInfos;
         }
         if (null !== $this->pilotStartTime) {
             $res['PilotStartTime'] = $this->pilotStartTime;
         }
-        if (null !== $this->regionId) {
-            $res['RegionId'] = $this->regionId;
+        if (null !== $this->region) {
+            $res['Region'] = $this->region;
         }
 
         return $res;
@@ -78,7 +78,7 @@ class CreateGovernanceKubernetesClusterRequest extends Model
     /**
      * @param array $map
      *
-     * @return CreateGovernanceKubernetesClusterRequest
+     * @return result
      */
     public static function fromMap($map = [])
     {
@@ -92,14 +92,14 @@ class CreateGovernanceKubernetesClusterRequest extends Model
         if (isset($map['K8sVersion'])) {
             $model->k8sVersion = $map['K8sVersion'];
         }
-        if (isset($map['NameSpaceInfos'])) {
-            $model->nameSpaceInfos = $map['NameSpaceInfos'];
+        if (isset($map['NamespaceInfos'])) {
+            $model->namespaceInfos = $map['NamespaceInfos'];
         }
         if (isset($map['PilotStartTime'])) {
             $model->pilotStartTime = $map['PilotStartTime'];
         }
-        if (isset($map['RegionId'])) {
-            $model->regionId = $map['RegionId'];
+        if (isset($map['Region'])) {
+            $model->region = $map['Region'];
         }
 
         return $model;

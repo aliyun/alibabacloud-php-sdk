@@ -11,6 +11,11 @@ class ListZnodeChildrenRequest extends Model
     /**
      * @var string
      */
+    public $acceptLanguage;
+
+    /**
+     * @var string
+     */
     public $clusterId;
 
     /**
@@ -18,8 +23,9 @@ class ListZnodeChildrenRequest extends Model
      */
     public $path;
     protected $_name = [
-        'clusterId' => 'ClusterId',
-        'path'      => 'Path',
+        'acceptLanguage' => 'AcceptLanguage',
+        'clusterId'      => 'ClusterId',
+        'path'           => 'Path',
     ];
 
     public function validate()
@@ -29,6 +35,9 @@ class ListZnodeChildrenRequest extends Model
     public function toMap()
     {
         $res = [];
+        if (null !== $this->acceptLanguage) {
+            $res['AcceptLanguage'] = $this->acceptLanguage;
+        }
         if (null !== $this->clusterId) {
             $res['ClusterId'] = $this->clusterId;
         }
@@ -47,6 +56,9 @@ class ListZnodeChildrenRequest extends Model
     public static function fromMap($map = [])
     {
         $model = new self();
+        if (isset($map['AcceptLanguage'])) {
+            $model->acceptLanguage = $map['AcceptLanguage'];
+        }
         if (isset($map['ClusterId'])) {
             $model->clusterId = $map['ClusterId'];
         }

@@ -11,6 +11,11 @@ class GetImportFileUrlRequest extends Model
     /**
      * @var string
      */
+    public $acceptLanguage;
+
+    /**
+     * @var string
+     */
     public $contentType;
 
     /**
@@ -23,9 +28,10 @@ class GetImportFileUrlRequest extends Model
      */
     public $namespaceId;
     protected $_name = [
-        'contentType' => 'ContentType',
-        'instanceId'  => 'InstanceId',
-        'namespaceId' => 'NamespaceId',
+        'acceptLanguage' => 'AcceptLanguage',
+        'contentType'    => 'ContentType',
+        'instanceId'     => 'InstanceId',
+        'namespaceId'    => 'NamespaceId',
     ];
 
     public function validate()
@@ -35,6 +41,9 @@ class GetImportFileUrlRequest extends Model
     public function toMap()
     {
         $res = [];
+        if (null !== $this->acceptLanguage) {
+            $res['AcceptLanguage'] = $this->acceptLanguage;
+        }
         if (null !== $this->contentType) {
             $res['ContentType'] = $this->contentType;
         }
@@ -56,6 +65,9 @@ class GetImportFileUrlRequest extends Model
     public static function fromMap($map = [])
     {
         $model = new self();
+        if (isset($map['AcceptLanguage'])) {
+            $model->acceptLanguage = $map['AcceptLanguage'];
+        }
         if (isset($map['ContentType'])) {
             $model->contentType = $map['ContentType'];
         }

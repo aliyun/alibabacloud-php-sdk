@@ -11,6 +11,11 @@ class ListClustersRequest extends Model
     /**
      * @var string
      */
+    public $acceptLanguage;
+
+    /**
+     * @var string
+     */
     public $clusterAliasName;
 
     /**
@@ -33,6 +38,7 @@ class ListClustersRequest extends Model
      */
     public $requestPars;
     protected $_name = [
+        'acceptLanguage'   => 'AcceptLanguage',
         'clusterAliasName' => 'ClusterAliasName',
         'pageNum'          => 'PageNum',
         'pageSize'         => 'PageSize',
@@ -47,6 +53,9 @@ class ListClustersRequest extends Model
     public function toMap()
     {
         $res = [];
+        if (null !== $this->acceptLanguage) {
+            $res['AcceptLanguage'] = $this->acceptLanguage;
+        }
         if (null !== $this->clusterAliasName) {
             $res['ClusterAliasName'] = $this->clusterAliasName;
         }
@@ -74,6 +83,9 @@ class ListClustersRequest extends Model
     public static function fromMap($map = [])
     {
         $model = new self();
+        if (isset($map['AcceptLanguage'])) {
+            $model->acceptLanguage = $map['AcceptLanguage'];
+        }
         if (isset($map['ClusterAliasName'])) {
             $model->clusterAliasName = $map['ClusterAliasName'];
         }

@@ -11,9 +11,15 @@ class ListClusterVersionsRequest extends Model
     /**
      * @var string
      */
+    public $acceptLanguage;
+
+    /**
+     * @var string
+     */
     public $clusterType;
     protected $_name = [
-        'clusterType' => 'ClusterType',
+        'acceptLanguage' => 'AcceptLanguage',
+        'clusterType'    => 'ClusterType',
     ];
 
     public function validate()
@@ -23,6 +29,9 @@ class ListClusterVersionsRequest extends Model
     public function toMap()
     {
         $res = [];
+        if (null !== $this->acceptLanguage) {
+            $res['AcceptLanguage'] = $this->acceptLanguage;
+        }
         if (null !== $this->clusterType) {
             $res['ClusterType'] = $this->clusterType;
         }
@@ -38,6 +47,9 @@ class ListClusterVersionsRequest extends Model
     public static function fromMap($map = [])
     {
         $model = new self();
+        if (isset($map['AcceptLanguage'])) {
+            $model->acceptLanguage = $map['AcceptLanguage'];
+        }
         if (isset($map['ClusterType'])) {
             $model->clusterType = $map['ClusterType'];
         }

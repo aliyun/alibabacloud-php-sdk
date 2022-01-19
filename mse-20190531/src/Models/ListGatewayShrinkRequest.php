@@ -9,6 +9,11 @@ use AlibabaCloud\Tea\Model;
 class ListGatewayShrinkRequest extends Model
 {
     /**
+     * @var string
+     */
+    public $acceptLanguage;
+
+    /**
      * @var bool
      */
     public $descSort;
@@ -33,6 +38,7 @@ class ListGatewayShrinkRequest extends Model
      */
     public $pageSize;
     protected $_name = [
+        'acceptLanguage'     => 'AcceptLanguage',
         'descSort'           => 'DescSort',
         'filterParamsShrink' => 'FilterParams',
         'orderItem'          => 'OrderItem',
@@ -47,6 +53,9 @@ class ListGatewayShrinkRequest extends Model
     public function toMap()
     {
         $res = [];
+        if (null !== $this->acceptLanguage) {
+            $res['AcceptLanguage'] = $this->acceptLanguage;
+        }
         if (null !== $this->descSort) {
             $res['DescSort'] = $this->descSort;
         }
@@ -74,6 +83,9 @@ class ListGatewayShrinkRequest extends Model
     public static function fromMap($map = [])
     {
         $model = new self();
+        if (isset($map['AcceptLanguage'])) {
+            $model->acceptLanguage = $map['AcceptLanguage'];
+        }
         if (isset($map['DescSort'])) {
             $model->descSort = $map['DescSort'];
         }

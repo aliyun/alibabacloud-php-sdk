@@ -11,6 +11,11 @@ class UpdateAclRequest extends Model
     /**
      * @var string
      */
+    public $acceptLanguage;
+
+    /**
+     * @var string
+     */
     public $aclEntryList;
 
     /**
@@ -18,8 +23,9 @@ class UpdateAclRequest extends Model
      */
     public $instanceId;
     protected $_name = [
-        'aclEntryList' => 'AclEntryList',
-        'instanceId'   => 'InstanceId',
+        'acceptLanguage' => 'AcceptLanguage',
+        'aclEntryList'   => 'AclEntryList',
+        'instanceId'     => 'InstanceId',
     ];
 
     public function validate()
@@ -29,6 +35,9 @@ class UpdateAclRequest extends Model
     public function toMap()
     {
         $res = [];
+        if (null !== $this->acceptLanguage) {
+            $res['AcceptLanguage'] = $this->acceptLanguage;
+        }
         if (null !== $this->aclEntryList) {
             $res['AclEntryList'] = $this->aclEntryList;
         }
@@ -47,6 +56,9 @@ class UpdateAclRequest extends Model
     public static function fromMap($map = [])
     {
         $model = new self();
+        if (isset($map['AcceptLanguage'])) {
+            $model->acceptLanguage = $map['AcceptLanguage'];
+        }
         if (isset($map['AclEntryList'])) {
             $model->aclEntryList = $map['AclEntryList'];
         }

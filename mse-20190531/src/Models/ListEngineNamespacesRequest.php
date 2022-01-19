@@ -11,9 +11,15 @@ class ListEngineNamespacesRequest extends Model
     /**
      * @var string
      */
+    public $acceptLanguage;
+
+    /**
+     * @var string
+     */
     public $instanceId;
     protected $_name = [
-        'instanceId' => 'InstanceId',
+        'acceptLanguage' => 'AcceptLanguage',
+        'instanceId'     => 'InstanceId',
     ];
 
     public function validate()
@@ -23,6 +29,9 @@ class ListEngineNamespacesRequest extends Model
     public function toMap()
     {
         $res = [];
+        if (null !== $this->acceptLanguage) {
+            $res['AcceptLanguage'] = $this->acceptLanguage;
+        }
         if (null !== $this->instanceId) {
             $res['InstanceId'] = $this->instanceId;
         }
@@ -38,6 +47,9 @@ class ListEngineNamespacesRequest extends Model
     public static function fromMap($map = [])
     {
         $model = new self();
+        if (isset($map['AcceptLanguage'])) {
+            $model->acceptLanguage = $map['AcceptLanguage'];
+        }
         if (isset($map['InstanceId'])) {
             $model->instanceId = $map['InstanceId'];
         }

@@ -11,6 +11,11 @@ class UpgradeClusterRequest extends Model
     /**
      * @var string
      */
+    public $acceptLanguage;
+
+    /**
+     * @var string
+     */
     public $instanceId;
 
     /**
@@ -23,6 +28,7 @@ class UpgradeClusterRequest extends Model
      */
     public $upgradeVersion;
     protected $_name = [
+        'acceptLanguage' => 'AcceptLanguage',
         'instanceId'     => 'InstanceId',
         'requestPars'    => 'RequestPars',
         'upgradeVersion' => 'UpgradeVersion',
@@ -35,6 +41,9 @@ class UpgradeClusterRequest extends Model
     public function toMap()
     {
         $res = [];
+        if (null !== $this->acceptLanguage) {
+            $res['AcceptLanguage'] = $this->acceptLanguage;
+        }
         if (null !== $this->instanceId) {
             $res['InstanceId'] = $this->instanceId;
         }
@@ -56,6 +65,9 @@ class UpgradeClusterRequest extends Model
     public static function fromMap($map = [])
     {
         $model = new self();
+        if (isset($map['AcceptLanguage'])) {
+            $model->acceptLanguage = $map['AcceptLanguage'];
+        }
         if (isset($map['InstanceId'])) {
             $model->instanceId = $map['InstanceId'];
         }

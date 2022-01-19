@@ -11,6 +11,11 @@ class UpdateNacosConfigRequest extends Model
     /**
      * @var string
      */
+    public $acceptLanguage;
+
+    /**
+     * @var string
+     */
     public $appName;
 
     /**
@@ -68,6 +73,7 @@ class UpdateNacosConfigRequest extends Model
      */
     public $type;
     protected $_name = [
+        'acceptLanguage'   => 'AcceptLanguage',
         'appName'          => 'AppName',
         'betaIps'          => 'BetaIps',
         'content'          => 'Content',
@@ -89,6 +95,9 @@ class UpdateNacosConfigRequest extends Model
     public function toMap()
     {
         $res = [];
+        if (null !== $this->acceptLanguage) {
+            $res['AcceptLanguage'] = $this->acceptLanguage;
+        }
         if (null !== $this->appName) {
             $res['AppName'] = $this->appName;
         }
@@ -137,6 +146,9 @@ class UpdateNacosConfigRequest extends Model
     public static function fromMap($map = [])
     {
         $model = new self();
+        if (isset($map['AcceptLanguage'])) {
+            $model->acceptLanguage = $map['AcceptLanguage'];
+        }
         if (isset($map['AppName'])) {
             $model->appName = $map['AppName'];
         }

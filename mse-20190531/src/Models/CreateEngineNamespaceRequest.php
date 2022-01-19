@@ -11,6 +11,11 @@ class CreateEngineNamespaceRequest extends Model
     /**
      * @var string
      */
+    public $acceptLanguage;
+
+    /**
+     * @var string
+     */
     public $clusterId;
 
     /**
@@ -33,11 +38,12 @@ class CreateEngineNamespaceRequest extends Model
      */
     public $serviceCount;
     protected $_name = [
-        'clusterId'    => 'ClusterId',
-        'desc'         => 'Desc',
-        'instanceId'   => 'InstanceId',
-        'name'         => 'Name',
-        'serviceCount' => 'ServiceCount',
+        'acceptLanguage' => 'AcceptLanguage',
+        'clusterId'      => 'ClusterId',
+        'desc'           => 'Desc',
+        'instanceId'     => 'InstanceId',
+        'name'           => 'Name',
+        'serviceCount'   => 'ServiceCount',
     ];
 
     public function validate()
@@ -47,6 +53,9 @@ class CreateEngineNamespaceRequest extends Model
     public function toMap()
     {
         $res = [];
+        if (null !== $this->acceptLanguage) {
+            $res['AcceptLanguage'] = $this->acceptLanguage;
+        }
         if (null !== $this->clusterId) {
             $res['ClusterId'] = $this->clusterId;
         }
@@ -74,6 +83,9 @@ class CreateEngineNamespaceRequest extends Model
     public static function fromMap($map = [])
     {
         $model = new self();
+        if (isset($map['AcceptLanguage'])) {
+            $model->acceptLanguage = $map['AcceptLanguage'];
+        }
         if (isset($map['ClusterId'])) {
             $model->clusterId = $map['ClusterId'];
         }

@@ -11,6 +11,11 @@ class DeleteNacosConfigsRequest extends Model
     /**
      * @var string
      */
+    public $acceptLanguage;
+
+    /**
+     * @var string
+     */
     public $ids;
 
     /**
@@ -23,9 +28,10 @@ class DeleteNacosConfigsRequest extends Model
      */
     public $namespaceId;
     protected $_name = [
-        'ids'         => 'Ids',
-        'instanceId'  => 'InstanceId',
-        'namespaceId' => 'NamespaceId',
+        'acceptLanguage' => 'AcceptLanguage',
+        'ids'            => 'Ids',
+        'instanceId'     => 'InstanceId',
+        'namespaceId'    => 'NamespaceId',
     ];
 
     public function validate()
@@ -35,6 +41,9 @@ class DeleteNacosConfigsRequest extends Model
     public function toMap()
     {
         $res = [];
+        if (null !== $this->acceptLanguage) {
+            $res['AcceptLanguage'] = $this->acceptLanguage;
+        }
         if (null !== $this->ids) {
             $res['Ids'] = $this->ids;
         }
@@ -56,6 +65,9 @@ class DeleteNacosConfigsRequest extends Model
     public static function fromMap($map = [])
     {
         $model = new self();
+        if (isset($map['AcceptLanguage'])) {
+            $model->acceptLanguage = $map['AcceptLanguage'];
+        }
         if (isset($map['Ids'])) {
             $model->ids = $map['Ids'];
         }

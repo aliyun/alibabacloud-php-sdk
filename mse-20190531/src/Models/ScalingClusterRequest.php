@@ -11,6 +11,11 @@ class ScalingClusterRequest extends Model
     /**
      * @var string
      */
+    public $acceptLanguage;
+
+    /**
+     * @var string
+     */
     public $clusterSpecification;
 
     /**
@@ -33,6 +38,7 @@ class ScalingClusterRequest extends Model
      */
     public $memoryCapacity;
     protected $_name = [
+        'acceptLanguage'       => 'AcceptLanguage',
         'clusterSpecification' => 'ClusterSpecification',
         'cpu'                  => 'Cpu',
         'instanceCount'        => 'InstanceCount',
@@ -47,6 +53,9 @@ class ScalingClusterRequest extends Model
     public function toMap()
     {
         $res = [];
+        if (null !== $this->acceptLanguage) {
+            $res['AcceptLanguage'] = $this->acceptLanguage;
+        }
         if (null !== $this->clusterSpecification) {
             $res['ClusterSpecification'] = $this->clusterSpecification;
         }
@@ -74,6 +83,9 @@ class ScalingClusterRequest extends Model
     public static function fromMap($map = [])
     {
         $model = new self();
+        if (isset($map['AcceptLanguage'])) {
+            $model->acceptLanguage = $map['AcceptLanguage'];
+        }
         if (isset($map['ClusterSpecification'])) {
             $model->clusterSpecification = $map['ClusterSpecification'];
         }

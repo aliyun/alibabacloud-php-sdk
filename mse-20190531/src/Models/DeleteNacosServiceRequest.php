@@ -11,6 +11,11 @@ class DeleteNacosServiceRequest extends Model
     /**
      * @var string
      */
+    public $acceptLanguage;
+
+    /**
+     * @var string
+     */
     public $groupName;
 
     /**
@@ -28,10 +33,11 @@ class DeleteNacosServiceRequest extends Model
      */
     public $serviceName;
     protected $_name = [
-        'groupName'   => 'GroupName',
-        'instanceId'  => 'InstanceId',
-        'namespaceId' => 'NamespaceId',
-        'serviceName' => 'ServiceName',
+        'acceptLanguage' => 'AcceptLanguage',
+        'groupName'      => 'GroupName',
+        'instanceId'     => 'InstanceId',
+        'namespaceId'    => 'NamespaceId',
+        'serviceName'    => 'ServiceName',
     ];
 
     public function validate()
@@ -41,6 +47,9 @@ class DeleteNacosServiceRequest extends Model
     public function toMap()
     {
         $res = [];
+        if (null !== $this->acceptLanguage) {
+            $res['AcceptLanguage'] = $this->acceptLanguage;
+        }
         if (null !== $this->groupName) {
             $res['GroupName'] = $this->groupName;
         }
@@ -65,6 +74,9 @@ class DeleteNacosServiceRequest extends Model
     public static function fromMap($map = [])
     {
         $model = new self();
+        if (isset($map['AcceptLanguage'])) {
+            $model->acceptLanguage = $map['AcceptLanguage'];
+        }
         if (isset($map['GroupName'])) {
             $model->groupName = $map['GroupName'];
         }

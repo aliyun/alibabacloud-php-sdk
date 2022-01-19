@@ -9,6 +9,11 @@ use AlibabaCloud\Tea\Model;
 class UpdateNacosInstanceRequest extends Model
 {
     /**
+     * @var string
+     */
+    public $acceptLanguage;
+
+    /**
      * @description Nacos集群名
      *
      * @var string
@@ -85,17 +90,18 @@ class UpdateNacosInstanceRequest extends Model
      */
     public $weight;
     protected $_name = [
-        'clusterName' => 'ClusterName',
-        'enabled'     => 'Enabled',
-        'ephemeral'   => 'Ephemeral',
-        'groupName'   => 'GroupName',
-        'instanceId'  => 'InstanceId',
-        'ip'          => 'Ip',
-        'metadata'    => 'Metadata',
-        'namespaceId' => 'NamespaceId',
-        'port'        => 'Port',
-        'serviceName' => 'ServiceName',
-        'weight'      => 'Weight',
+        'acceptLanguage' => 'AcceptLanguage',
+        'clusterName'    => 'ClusterName',
+        'enabled'        => 'Enabled',
+        'ephemeral'      => 'Ephemeral',
+        'groupName'      => 'GroupName',
+        'instanceId'     => 'InstanceId',
+        'ip'             => 'Ip',
+        'metadata'       => 'Metadata',
+        'namespaceId'    => 'NamespaceId',
+        'port'           => 'Port',
+        'serviceName'    => 'ServiceName',
+        'weight'         => 'Weight',
     ];
 
     public function validate()
@@ -105,6 +111,9 @@ class UpdateNacosInstanceRequest extends Model
     public function toMap()
     {
         $res = [];
+        if (null !== $this->acceptLanguage) {
+            $res['AcceptLanguage'] = $this->acceptLanguage;
+        }
         if (null !== $this->clusterName) {
             $res['ClusterName'] = $this->clusterName;
         }
@@ -150,6 +159,9 @@ class UpdateNacosInstanceRequest extends Model
     public static function fromMap($map = [])
     {
         $model = new self();
+        if (isset($map['AcceptLanguage'])) {
+            $model->acceptLanguage = $map['AcceptLanguage'];
+        }
         if (isset($map['ClusterName'])) {
             $model->clusterName = $map['ClusterName'];
         }

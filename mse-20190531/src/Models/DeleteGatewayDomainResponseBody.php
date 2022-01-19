@@ -4,9 +4,10 @@
 
 namespace AlibabaCloud\SDK\Mse\V20190531\Models;
 
+use AlibabaCloud\SDK\Mse\V20190531\Models\DeleteGatewayDomainResponseBody\data;
 use AlibabaCloud\Tea\Model;
 
-class CreateGovernanceKubernetesClusterResponseBody extends Model
+class DeleteGatewayDomainResponseBody extends Model
 {
     /**
      * @var int
@@ -14,7 +15,7 @@ class CreateGovernanceKubernetesClusterResponseBody extends Model
     public $code;
 
     /**
-     * @var int
+     * @var data
      */
     public $data;
 
@@ -29,12 +30,14 @@ class CreateGovernanceKubernetesClusterResponseBody extends Model
     public $message;
 
     /**
+     * @description Id of the request
+     *
      * @var string
      */
     public $requestId;
 
     /**
-     * @var string
+     * @var bool
      */
     public $success;
     protected $_name = [
@@ -57,7 +60,7 @@ class CreateGovernanceKubernetesClusterResponseBody extends Model
             $res['Code'] = $this->code;
         }
         if (null !== $this->data) {
-            $res['Data'] = $this->data;
+            $res['Data'] = null !== $this->data ? $this->data->toMap() : null;
         }
         if (null !== $this->httpStatusCode) {
             $res['HttpStatusCode'] = $this->httpStatusCode;
@@ -78,7 +81,7 @@ class CreateGovernanceKubernetesClusterResponseBody extends Model
     /**
      * @param array $map
      *
-     * @return CreateGovernanceKubernetesClusterResponseBody
+     * @return DeleteGatewayDomainResponseBody
      */
     public static function fromMap($map = [])
     {
@@ -87,7 +90,7 @@ class CreateGovernanceKubernetesClusterResponseBody extends Model
             $model->code = $map['Code'];
         }
         if (isset($map['Data'])) {
-            $model->data = $map['Data'];
+            $model->data = data::fromMap($map['Data']);
         }
         if (isset($map['HttpStatusCode'])) {
             $model->httpStatusCode = $map['HttpStatusCode'];

@@ -10,6 +10,11 @@ use AlibabaCloud\Tea\Model;
 class ListGatewayRequest extends Model
 {
     /**
+     * @var string
+     */
+    public $acceptLanguage;
+
+    /**
      * @var bool
      */
     public $descSort;
@@ -34,11 +39,12 @@ class ListGatewayRequest extends Model
      */
     public $pageSize;
     protected $_name = [
-        'descSort'     => 'DescSort',
-        'filterParams' => 'FilterParams',
-        'orderItem'    => 'OrderItem',
-        'pageNumber'   => 'PageNumber',
-        'pageSize'     => 'PageSize',
+        'acceptLanguage' => 'AcceptLanguage',
+        'descSort'       => 'DescSort',
+        'filterParams'   => 'FilterParams',
+        'orderItem'      => 'OrderItem',
+        'pageNumber'     => 'PageNumber',
+        'pageSize'       => 'PageSize',
     ];
 
     public function validate()
@@ -48,6 +54,9 @@ class ListGatewayRequest extends Model
     public function toMap()
     {
         $res = [];
+        if (null !== $this->acceptLanguage) {
+            $res['AcceptLanguage'] = $this->acceptLanguage;
+        }
         if (null !== $this->descSort) {
             $res['DescSort'] = $this->descSort;
         }
@@ -75,6 +84,9 @@ class ListGatewayRequest extends Model
     public static function fromMap($map = [])
     {
         $model = new self();
+        if (isset($map['AcceptLanguage'])) {
+            $model->acceptLanguage = $map['AcceptLanguage'];
+        }
         if (isset($map['DescSort'])) {
             $model->descSort = $map['DescSort'];
         }

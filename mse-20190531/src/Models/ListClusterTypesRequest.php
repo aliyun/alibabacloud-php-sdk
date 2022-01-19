@@ -11,9 +11,15 @@ class ListClusterTypesRequest extends Model
     /**
      * @var string
      */
+    public $acceptLanguage;
+
+    /**
+     * @var string
+     */
     public $regionId;
     protected $_name = [
-        'regionId' => 'RegionId',
+        'acceptLanguage' => 'AcceptLanguage',
+        'regionId'       => 'RegionId',
     ];
 
     public function validate()
@@ -23,6 +29,9 @@ class ListClusterTypesRequest extends Model
     public function toMap()
     {
         $res = [];
+        if (null !== $this->acceptLanguage) {
+            $res['AcceptLanguage'] = $this->acceptLanguage;
+        }
         if (null !== $this->regionId) {
             $res['RegionId'] = $this->regionId;
         }
@@ -38,6 +47,9 @@ class ListClusterTypesRequest extends Model
     public static function fromMap($map = [])
     {
         $model = new self();
+        if (isset($map['AcceptLanguage'])) {
+            $model->acceptLanguage = $map['AcceptLanguage'];
+        }
         if (isset($map['RegionId'])) {
             $model->regionId = $map['RegionId'];
         }

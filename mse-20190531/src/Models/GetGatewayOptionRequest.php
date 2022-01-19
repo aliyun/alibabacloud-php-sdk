@@ -9,11 +9,23 @@ use AlibabaCloud\Tea\Model;
 class GetGatewayOptionRequest extends Model
 {
     /**
+     * @var string
+     */
+    public $acceptLanguage;
+
+    /**
      * @var int
      */
     public $gatewayId;
+
+    /**
+     * @var string
+     */
+    public $gatewayUniqueId;
     protected $_name = [
-        'gatewayId' => 'GatewayId',
+        'acceptLanguage'  => 'AcceptLanguage',
+        'gatewayId'       => 'GatewayId',
+        'gatewayUniqueId' => 'GatewayUniqueId',
     ];
 
     public function validate()
@@ -23,8 +35,14 @@ class GetGatewayOptionRequest extends Model
     public function toMap()
     {
         $res = [];
+        if (null !== $this->acceptLanguage) {
+            $res['AcceptLanguage'] = $this->acceptLanguage;
+        }
         if (null !== $this->gatewayId) {
             $res['GatewayId'] = $this->gatewayId;
+        }
+        if (null !== $this->gatewayUniqueId) {
+            $res['GatewayUniqueId'] = $this->gatewayUniqueId;
         }
 
         return $res;
@@ -38,8 +56,14 @@ class GetGatewayOptionRequest extends Model
     public static function fromMap($map = [])
     {
         $model = new self();
+        if (isset($map['AcceptLanguage'])) {
+            $model->acceptLanguage = $map['AcceptLanguage'];
+        }
         if (isset($map['GatewayId'])) {
             $model->gatewayId = $map['GatewayId'];
+        }
+        if (isset($map['GatewayUniqueId'])) {
+            $model->gatewayUniqueId = $map['GatewayUniqueId'];
         }
 
         return $model;

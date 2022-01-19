@@ -74,6 +74,25 @@ class data extends Model
     public $maxClientCnxns;
 
     /**
+     * @description 最大超时时间
+     *
+     * @var string
+     */
+    public $maxSessionTimeout;
+
+    /**
+     * @description 最小超时时间
+     *
+     * @var string
+     */
+    public $minSessionTimeout;
+
+    /**
+     * @var bool
+     */
+    public $namingCreateServiceSupported;
+
+    /**
      * @var bool
      */
     public $openSuperAcl;
@@ -103,25 +122,28 @@ class data extends Model
      */
     public $userName;
     protected $_name = [
-        'autopurgePurgeInterval'   => 'AutopurgePurgeInterval',
-        'autopurgeSnapRetainCount' => 'AutopurgeSnapRetainCount',
-        'clusterName'              => 'ClusterName',
-        'configAuthEnabled'        => 'ConfigAuthEnabled',
-        'configAuthSupported'      => 'ConfigAuthSupported',
-        'configSecretEnabled'      => 'ConfigSecretEnabled',
-        'configSecretSupported'    => 'ConfigSecretSupported',
-        'initLimit'                => 'InitLimit',
-        'juteMaxbuffer'            => 'JuteMaxbuffer',
-        'jvmFlagsCustom'           => 'JvmFlagsCustom',
-        'MCPEnabled'               => 'MCPEnabled',
-        'MCPSupported'             => 'MCPSupported',
-        'maxClientCnxns'           => 'MaxClientCnxns',
-        'openSuperAcl'             => 'OpenSuperAcl',
-        'passWord'                 => 'PassWord',
-        'restartFlag'              => 'RestartFlag',
-        'syncLimit'                => 'SyncLimit',
-        'tickTime'                 => 'TickTime',
-        'userName'                 => 'UserName',
+        'autopurgePurgeInterval'       => 'AutopurgePurgeInterval',
+        'autopurgeSnapRetainCount'     => 'AutopurgeSnapRetainCount',
+        'clusterName'                  => 'ClusterName',
+        'configAuthEnabled'            => 'ConfigAuthEnabled',
+        'configAuthSupported'          => 'ConfigAuthSupported',
+        'configSecretEnabled'          => 'ConfigSecretEnabled',
+        'configSecretSupported'        => 'ConfigSecretSupported',
+        'initLimit'                    => 'InitLimit',
+        'juteMaxbuffer'                => 'JuteMaxbuffer',
+        'jvmFlagsCustom'               => 'JvmFlagsCustom',
+        'MCPEnabled'                   => 'MCPEnabled',
+        'MCPSupported'                 => 'MCPSupported',
+        'maxClientCnxns'               => 'MaxClientCnxns',
+        'maxSessionTimeout'            => 'MaxSessionTimeout',
+        'minSessionTimeout'            => 'MinSessionTimeout',
+        'namingCreateServiceSupported' => 'NamingCreateServiceSupported',
+        'openSuperAcl'                 => 'OpenSuperAcl',
+        'passWord'                     => 'PassWord',
+        'restartFlag'                  => 'RestartFlag',
+        'syncLimit'                    => 'SyncLimit',
+        'tickTime'                     => 'TickTime',
+        'userName'                     => 'UserName',
     ];
 
     public function validate()
@@ -169,6 +191,15 @@ class data extends Model
         }
         if (null !== $this->maxClientCnxns) {
             $res['MaxClientCnxns'] = $this->maxClientCnxns;
+        }
+        if (null !== $this->maxSessionTimeout) {
+            $res['MaxSessionTimeout'] = $this->maxSessionTimeout;
+        }
+        if (null !== $this->minSessionTimeout) {
+            $res['MinSessionTimeout'] = $this->minSessionTimeout;
+        }
+        if (null !== $this->namingCreateServiceSupported) {
+            $res['NamingCreateServiceSupported'] = $this->namingCreateServiceSupported;
         }
         if (null !== $this->openSuperAcl) {
             $res['OpenSuperAcl'] = $this->openSuperAcl;
@@ -238,6 +269,15 @@ class data extends Model
         }
         if (isset($map['MaxClientCnxns'])) {
             $model->maxClientCnxns = $map['MaxClientCnxns'];
+        }
+        if (isset($map['MaxSessionTimeout'])) {
+            $model->maxSessionTimeout = $map['MaxSessionTimeout'];
+        }
+        if (isset($map['MinSessionTimeout'])) {
+            $model->minSessionTimeout = $map['MinSessionTimeout'];
+        }
+        if (isset($map['NamingCreateServiceSupported'])) {
+            $model->namingCreateServiceSupported = $map['NamingCreateServiceSupported'];
         }
         if (isset($map['OpenSuperAcl'])) {
             $model->openSuperAcl = $map['OpenSuperAcl'];

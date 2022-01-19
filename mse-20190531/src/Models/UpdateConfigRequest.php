@@ -11,6 +11,11 @@ class UpdateConfigRequest extends Model
     /**
      * @var string
      */
+    public $acceptLanguage;
+
+    /**
+     * @var string
+     */
     public $autopurgePurgeInterval;
 
     /**
@@ -64,6 +69,20 @@ class UpdateConfigRequest extends Model
     public $maxClientCnxns;
 
     /**
+     * @description 最大超时时间
+     *
+     * @var string
+     */
+    public $maxSessionTimeout;
+
+    /**
+     * @description 最小超时时间
+     *
+     * @var string
+     */
+    public $minSessionTimeout;
+
+    /**
      * @var string
      */
     public $openSuperAcl;
@@ -93,6 +112,7 @@ class UpdateConfigRequest extends Model
      */
     public $userName;
     protected $_name = [
+        'acceptLanguage'           => 'AcceptLanguage',
         'autopurgePurgeInterval'   => 'AutopurgePurgeInterval',
         'autopurgeSnapRetainCount' => 'AutopurgeSnapRetainCount',
         'clusterId'                => 'ClusterId',
@@ -104,6 +124,8 @@ class UpdateConfigRequest extends Model
         'juteMaxbuffer'            => 'JuteMaxbuffer',
         'MCPEnabled'               => 'MCPEnabled',
         'maxClientCnxns'           => 'MaxClientCnxns',
+        'maxSessionTimeout'        => 'MaxSessionTimeout',
+        'minSessionTimeout'        => 'MinSessionTimeout',
         'openSuperAcl'             => 'OpenSuperAcl',
         'passWord'                 => 'PassWord',
         'requestPars'              => 'RequestPars',
@@ -119,6 +141,9 @@ class UpdateConfigRequest extends Model
     public function toMap()
     {
         $res = [];
+        if (null !== $this->acceptLanguage) {
+            $res['AcceptLanguage'] = $this->acceptLanguage;
+        }
         if (null !== $this->autopurgePurgeInterval) {
             $res['AutopurgePurgeInterval'] = $this->autopurgePurgeInterval;
         }
@@ -152,6 +177,12 @@ class UpdateConfigRequest extends Model
         if (null !== $this->maxClientCnxns) {
             $res['MaxClientCnxns'] = $this->maxClientCnxns;
         }
+        if (null !== $this->maxSessionTimeout) {
+            $res['MaxSessionTimeout'] = $this->maxSessionTimeout;
+        }
+        if (null !== $this->minSessionTimeout) {
+            $res['MinSessionTimeout'] = $this->minSessionTimeout;
+        }
         if (null !== $this->openSuperAcl) {
             $res['OpenSuperAcl'] = $this->openSuperAcl;
         }
@@ -182,6 +213,9 @@ class UpdateConfigRequest extends Model
     public static function fromMap($map = [])
     {
         $model = new self();
+        if (isset($map['AcceptLanguage'])) {
+            $model->acceptLanguage = $map['AcceptLanguage'];
+        }
         if (isset($map['AutopurgePurgeInterval'])) {
             $model->autopurgePurgeInterval = $map['AutopurgePurgeInterval'];
         }
@@ -214,6 +248,12 @@ class UpdateConfigRequest extends Model
         }
         if (isset($map['MaxClientCnxns'])) {
             $model->maxClientCnxns = $map['MaxClientCnxns'];
+        }
+        if (isset($map['MaxSessionTimeout'])) {
+            $model->maxSessionTimeout = $map['MaxSessionTimeout'];
+        }
+        if (isset($map['MinSessionTimeout'])) {
+            $model->minSessionTimeout = $map['MinSessionTimeout'];
         }
         if (isset($map['OpenSuperAcl'])) {
             $model->openSuperAcl = $map['OpenSuperAcl'];

@@ -11,6 +11,11 @@ class ListAnsInstancesRequest extends Model
     /**
      * @var string
      */
+    public $acceptLanguage;
+
+    /**
+     * @var string
+     */
     public $clusterId;
 
     /**
@@ -22,6 +27,11 @@ class ListAnsInstancesRequest extends Model
      * @var string
      */
     public $groupName;
+
+    /**
+     * @var string
+     */
+    public $instanceId;
 
     /**
      * @var string
@@ -48,14 +58,16 @@ class ListAnsInstancesRequest extends Model
      */
     public $serviceName;
     protected $_name = [
-        'clusterId'   => 'ClusterId',
-        'clusterName' => 'ClusterName',
-        'groupName'   => 'GroupName',
-        'namespaceId' => 'NamespaceId',
-        'pageNum'     => 'PageNum',
-        'pageSize'    => 'PageSize',
-        'requestPars' => 'RequestPars',
-        'serviceName' => 'ServiceName',
+        'acceptLanguage' => 'AcceptLanguage',
+        'clusterId'      => 'ClusterId',
+        'clusterName'    => 'ClusterName',
+        'groupName'      => 'GroupName',
+        'instanceId'     => 'InstanceId',
+        'namespaceId'    => 'NamespaceId',
+        'pageNum'        => 'PageNum',
+        'pageSize'       => 'PageSize',
+        'requestPars'    => 'RequestPars',
+        'serviceName'    => 'ServiceName',
     ];
 
     public function validate()
@@ -65,6 +77,9 @@ class ListAnsInstancesRequest extends Model
     public function toMap()
     {
         $res = [];
+        if (null !== $this->acceptLanguage) {
+            $res['AcceptLanguage'] = $this->acceptLanguage;
+        }
         if (null !== $this->clusterId) {
             $res['ClusterId'] = $this->clusterId;
         }
@@ -73,6 +88,9 @@ class ListAnsInstancesRequest extends Model
         }
         if (null !== $this->groupName) {
             $res['GroupName'] = $this->groupName;
+        }
+        if (null !== $this->instanceId) {
+            $res['InstanceId'] = $this->instanceId;
         }
         if (null !== $this->namespaceId) {
             $res['NamespaceId'] = $this->namespaceId;
@@ -101,6 +119,9 @@ class ListAnsInstancesRequest extends Model
     public static function fromMap($map = [])
     {
         $model = new self();
+        if (isset($map['AcceptLanguage'])) {
+            $model->acceptLanguage = $map['AcceptLanguage'];
+        }
         if (isset($map['ClusterId'])) {
             $model->clusterId = $map['ClusterId'];
         }
@@ -109,6 +130,9 @@ class ListAnsInstancesRequest extends Model
         }
         if (isset($map['GroupName'])) {
             $model->groupName = $map['GroupName'];
+        }
+        if (isset($map['InstanceId'])) {
+            $model->instanceId = $map['InstanceId'];
         }
         if (isset($map['NamespaceId'])) {
             $model->namespaceId = $map['NamespaceId'];

@@ -9,6 +9,11 @@ use AlibabaCloud\Tea\Model;
 class DeleteNacosConfigRequest extends Model
 {
     /**
+     * @var string
+     */
+    public $acceptLanguage;
+
+    /**
      * @var bool
      */
     public $beta;
@@ -33,11 +38,12 @@ class DeleteNacosConfigRequest extends Model
      */
     public $namespaceId;
     protected $_name = [
-        'beta'        => 'Beta',
-        'dataId'      => 'DataId',
-        'group'       => 'Group',
-        'instanceId'  => 'InstanceId',
-        'namespaceId' => 'NamespaceId',
+        'acceptLanguage' => 'AcceptLanguage',
+        'beta'           => 'Beta',
+        'dataId'         => 'DataId',
+        'group'          => 'Group',
+        'instanceId'     => 'InstanceId',
+        'namespaceId'    => 'NamespaceId',
     ];
 
     public function validate()
@@ -47,6 +53,9 @@ class DeleteNacosConfigRequest extends Model
     public function toMap()
     {
         $res = [];
+        if (null !== $this->acceptLanguage) {
+            $res['AcceptLanguage'] = $this->acceptLanguage;
+        }
         if (null !== $this->beta) {
             $res['Beta'] = $this->beta;
         }
@@ -74,6 +83,9 @@ class DeleteNacosConfigRequest extends Model
     public static function fromMap($map = [])
     {
         $model = new self();
+        if (isset($map['AcceptLanguage'])) {
+            $model->acceptLanguage = $map['AcceptLanguage'];
+        }
         if (isset($map['Beta'])) {
             $model->beta = $map['Beta'];
         }

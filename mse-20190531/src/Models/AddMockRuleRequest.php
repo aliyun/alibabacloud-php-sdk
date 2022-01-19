@@ -11,6 +11,11 @@ class AddMockRuleRequest extends Model
     /**
      * @var string
      */
+    public $acceptLanguage;
+
+    /**
+     * @var string
+     */
     public $consumerAppIds;
 
     /**
@@ -63,6 +68,7 @@ class AddMockRuleRequest extends Model
      */
     public $source;
     protected $_name = [
+        'acceptLanguage'  => 'AcceptLanguage',
         'consumerAppIds'  => 'ConsumerAppIds',
         'dubboMockItems'  => 'DubboMockItems',
         'enable'          => 'Enable',
@@ -83,6 +89,9 @@ class AddMockRuleRequest extends Model
     public function toMap()
     {
         $res = [];
+        if (null !== $this->acceptLanguage) {
+            $res['AcceptLanguage'] = $this->acceptLanguage;
+        }
         if (null !== $this->consumerAppIds) {
             $res['ConsumerAppIds'] = $this->consumerAppIds;
         }
@@ -128,6 +137,9 @@ class AddMockRuleRequest extends Model
     public static function fromMap($map = [])
     {
         $model = new self();
+        if (isset($map['AcceptLanguage'])) {
+            $model->acceptLanguage = $map['AcceptLanguage'];
+        }
         if (isset($map['ConsumerAppIds'])) {
             $model->consumerAppIds = $map['ConsumerAppIds'];
         }

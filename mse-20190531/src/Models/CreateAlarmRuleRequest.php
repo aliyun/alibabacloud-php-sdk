@@ -11,6 +11,11 @@ class CreateAlarmRuleRequest extends Model
     /**
      * @var string
      */
+    public $acceptLanguage;
+
+    /**
+     * @var string
+     */
     public $aggregates;
 
     /**
@@ -53,6 +58,7 @@ class CreateAlarmRuleRequest extends Model
      */
     public $value;
     protected $_name = [
+        'acceptLanguage'  => 'AcceptLanguage',
         'aggregates'      => 'Aggregates',
         'alarmAliasName'  => 'AlarmAliasName',
         'alarmItem'       => 'AlarmItem',
@@ -71,6 +77,9 @@ class CreateAlarmRuleRequest extends Model
     public function toMap()
     {
         $res = [];
+        if (null !== $this->acceptLanguage) {
+            $res['AcceptLanguage'] = $this->acceptLanguage;
+        }
         if (null !== $this->aggregates) {
             $res['Aggregates'] = $this->aggregates;
         }
@@ -110,6 +119,9 @@ class CreateAlarmRuleRequest extends Model
     public static function fromMap($map = [])
     {
         $model = new self();
+        if (isset($map['AcceptLanguage'])) {
+            $model->acceptLanguage = $map['AcceptLanguage'];
+        }
         if (isset($map['Aggregates'])) {
             $model->aggregates = $map['Aggregates'];
         }

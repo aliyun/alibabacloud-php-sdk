@@ -11,6 +11,11 @@ class ImportNacosConfigRequest extends Model
     /**
      * @var string
      */
+    public $acceptLanguage;
+
+    /**
+     * @var string
+     */
     public $fileUrl;
 
     /**
@@ -28,10 +33,11 @@ class ImportNacosConfigRequest extends Model
      */
     public $policy;
     protected $_name = [
-        'fileUrl'     => 'FileUrl',
-        'instanceId'  => 'InstanceId',
-        'namespaceId' => 'NamespaceId',
-        'policy'      => 'Policy',
+        'acceptLanguage' => 'AcceptLanguage',
+        'fileUrl'        => 'FileUrl',
+        'instanceId'     => 'InstanceId',
+        'namespaceId'    => 'NamespaceId',
+        'policy'         => 'Policy',
     ];
 
     public function validate()
@@ -41,6 +47,9 @@ class ImportNacosConfigRequest extends Model
     public function toMap()
     {
         $res = [];
+        if (null !== $this->acceptLanguage) {
+            $res['AcceptLanguage'] = $this->acceptLanguage;
+        }
         if (null !== $this->fileUrl) {
             $res['FileUrl'] = $this->fileUrl;
         }
@@ -65,6 +74,9 @@ class ImportNacosConfigRequest extends Model
     public static function fromMap($map = [])
     {
         $model = new self();
+        if (isset($map['AcceptLanguage'])) {
+            $model->acceptLanguage = $map['AcceptLanguage'];
+        }
         if (isset($map['FileUrl'])) {
             $model->fileUrl = $map['FileUrl'];
         }

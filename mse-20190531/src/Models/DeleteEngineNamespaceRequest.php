@@ -11,6 +11,11 @@ class DeleteEngineNamespaceRequest extends Model
     /**
      * @var string
      */
+    public $acceptLanguage;
+
+    /**
+     * @var string
+     */
     public $clusterId;
 
     /**
@@ -23,9 +28,10 @@ class DeleteEngineNamespaceRequest extends Model
      */
     public $instanceId;
     protected $_name = [
-        'clusterId'  => 'ClusterId',
-        'id'         => 'Id',
-        'instanceId' => 'InstanceId',
+        'acceptLanguage' => 'AcceptLanguage',
+        'clusterId'      => 'ClusterId',
+        'id'             => 'Id',
+        'instanceId'     => 'InstanceId',
     ];
 
     public function validate()
@@ -35,6 +41,9 @@ class DeleteEngineNamespaceRequest extends Model
     public function toMap()
     {
         $res = [];
+        if (null !== $this->acceptLanguage) {
+            $res['AcceptLanguage'] = $this->acceptLanguage;
+        }
         if (null !== $this->clusterId) {
             $res['ClusterId'] = $this->clusterId;
         }
@@ -56,6 +65,9 @@ class DeleteEngineNamespaceRequest extends Model
     public static function fromMap($map = [])
     {
         $model = new self();
+        if (isset($map['AcceptLanguage'])) {
+            $model->acceptLanguage = $map['AcceptLanguage'];
+        }
         if (isset($map['ClusterId'])) {
             $model->clusterId = $map['ClusterId'];
         }

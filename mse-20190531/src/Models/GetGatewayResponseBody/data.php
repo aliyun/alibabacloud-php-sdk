@@ -11,11 +11,6 @@ use AlibabaCloud\Tea\Model;
 class data extends Model
 {
     /**
-     * @var bool
-     */
-    public $armsOn;
-
-    /**
      * @var string
      */
     public $chargeType;
@@ -24,11 +19,6 @@ class data extends Model
      * @var string
      */
     public $endDate;
-
-    /**
-     * @var string
-     */
-    public $gatewayType;
 
     /**
      * @var string
@@ -115,10 +105,8 @@ class data extends Model
      */
     public $xtraceDetails;
     protected $_name = [
-        'armsOn'           => 'ArmsOn',
         'chargeType'       => 'ChargeType',
         'endDate'          => 'EndDate',
-        'gatewayType'      => 'GatewayType',
         'gatewayUniqueId'  => 'GatewayUniqueId',
         'gmtCreate'        => 'GmtCreate',
         'gmtModified'      => 'GmtModified',
@@ -145,17 +133,11 @@ class data extends Model
     public function toMap()
     {
         $res = [];
-        if (null !== $this->armsOn) {
-            $res['ArmsOn'] = $this->armsOn;
-        }
         if (null !== $this->chargeType) {
             $res['ChargeType'] = $this->chargeType;
         }
         if (null !== $this->endDate) {
             $res['EndDate'] = $this->endDate;
-        }
-        if (null !== $this->gatewayType) {
-            $res['GatewayType'] = $this->gatewayType;
         }
         if (null !== $this->gatewayUniqueId) {
             $res['GatewayUniqueId'] = $this->gatewayUniqueId;
@@ -220,17 +202,11 @@ class data extends Model
     public static function fromMap($map = [])
     {
         $model = new self();
-        if (isset($map['ArmsOn'])) {
-            $model->armsOn = $map['ArmsOn'];
-        }
         if (isset($map['ChargeType'])) {
             $model->chargeType = $map['ChargeType'];
         }
         if (isset($map['EndDate'])) {
             $model->endDate = $map['EndDate'];
-        }
-        if (isset($map['GatewayType'])) {
-            $model->gatewayType = $map['GatewayType'];
         }
         if (isset($map['GatewayUniqueId'])) {
             $model->gatewayUniqueId = $map['GatewayUniqueId'];

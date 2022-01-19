@@ -11,6 +11,11 @@ class QueryClusterDetailRequest extends Model
     /**
      * @var string
      */
+    public $acceptLanguage;
+
+    /**
+     * @var string
+     */
     public $instanceId;
 
     /**
@@ -18,8 +23,9 @@ class QueryClusterDetailRequest extends Model
      */
     public $orderId;
     protected $_name = [
-        'instanceId' => 'InstanceId',
-        'orderId'    => 'OrderId',
+        'acceptLanguage' => 'AcceptLanguage',
+        'instanceId'     => 'InstanceId',
+        'orderId'        => 'OrderId',
     ];
 
     public function validate()
@@ -29,6 +35,9 @@ class QueryClusterDetailRequest extends Model
     public function toMap()
     {
         $res = [];
+        if (null !== $this->acceptLanguage) {
+            $res['AcceptLanguage'] = $this->acceptLanguage;
+        }
         if (null !== $this->instanceId) {
             $res['InstanceId'] = $this->instanceId;
         }
@@ -47,6 +56,9 @@ class QueryClusterDetailRequest extends Model
     public static function fromMap($map = [])
     {
         $model = new self();
+        if (isset($map['AcceptLanguage'])) {
+            $model->acceptLanguage = $map['AcceptLanguage'];
+        }
         if (isset($map['InstanceId'])) {
             $model->instanceId = $map['InstanceId'];
         }

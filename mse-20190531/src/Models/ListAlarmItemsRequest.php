@@ -11,9 +11,15 @@ class ListAlarmItemsRequest extends Model
     /**
      * @var string
      */
+    public $acceptLanguage;
+
+    /**
+     * @var string
+     */
     public $requestPars;
     protected $_name = [
-        'requestPars' => 'RequestPars',
+        'acceptLanguage' => 'AcceptLanguage',
+        'requestPars'    => 'RequestPars',
     ];
 
     public function validate()
@@ -23,6 +29,9 @@ class ListAlarmItemsRequest extends Model
     public function toMap()
     {
         $res = [];
+        if (null !== $this->acceptLanguage) {
+            $res['AcceptLanguage'] = $this->acceptLanguage;
+        }
         if (null !== $this->requestPars) {
             $res['RequestPars'] = $this->requestPars;
         }
@@ -38,6 +47,9 @@ class ListAlarmItemsRequest extends Model
     public static function fromMap($map = [])
     {
         $model = new self();
+        if (isset($map['AcceptLanguage'])) {
+            $model->acceptLanguage = $map['AcceptLanguage'];
+        }
         if (isset($map['RequestPars'])) {
             $model->requestPars = $map['RequestPars'];
         }

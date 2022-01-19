@@ -11,6 +11,11 @@ class ListAlarmHistoriesRequest extends Model
     /**
      * @var string
      */
+    public $acceptLanguage;
+
+    /**
+     * @var string
+     */
     public $alarmMseType;
 
     /**
@@ -43,13 +48,14 @@ class ListAlarmHistoriesRequest extends Model
      */
     public $startTime;
     protected $_name = [
-        'alarmMseType' => 'AlarmMseType',
-        'alarmName'    => 'AlarmName',
-        'endTime'      => 'EndTime',
-        'pageNum'      => 'PageNum',
-        'pageSize'     => 'PageSize',
-        'requestPars'  => 'RequestPars',
-        'startTime'    => 'StartTime',
+        'acceptLanguage' => 'AcceptLanguage',
+        'alarmMseType'   => 'AlarmMseType',
+        'alarmName'      => 'AlarmName',
+        'endTime'        => 'EndTime',
+        'pageNum'        => 'PageNum',
+        'pageSize'       => 'PageSize',
+        'requestPars'    => 'RequestPars',
+        'startTime'      => 'StartTime',
     ];
 
     public function validate()
@@ -59,6 +65,9 @@ class ListAlarmHistoriesRequest extends Model
     public function toMap()
     {
         $res = [];
+        if (null !== $this->acceptLanguage) {
+            $res['AcceptLanguage'] = $this->acceptLanguage;
+        }
         if (null !== $this->alarmMseType) {
             $res['AlarmMseType'] = $this->alarmMseType;
         }
@@ -92,6 +101,9 @@ class ListAlarmHistoriesRequest extends Model
     public static function fromMap($map = [])
     {
         $model = new self();
+        if (isset($map['AcceptLanguage'])) {
+            $model->acceptLanguage = $map['AcceptLanguage'];
+        }
         if (isset($map['AlarmMseType'])) {
             $model->alarmMseType = $map['AlarmMseType'];
         }

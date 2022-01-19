@@ -9,6 +9,11 @@ use AlibabaCloud\Tea\Model;
 class UpdateImageRequest extends Model
 {
     /**
+     * @var string
+     */
+    public $acceptLanguage;
+
+    /**
      * @description 目标集群的id
      *
      * @var string
@@ -22,8 +27,9 @@ class UpdateImageRequest extends Model
      */
     public $versionCode;
     protected $_name = [
-        'clusterId'   => 'ClusterId',
-        'versionCode' => 'VersionCode',
+        'acceptLanguage' => 'AcceptLanguage',
+        'clusterId'      => 'ClusterId',
+        'versionCode'    => 'VersionCode',
     ];
 
     public function validate()
@@ -33,6 +39,9 @@ class UpdateImageRequest extends Model
     public function toMap()
     {
         $res = [];
+        if (null !== $this->acceptLanguage) {
+            $res['AcceptLanguage'] = $this->acceptLanguage;
+        }
         if (null !== $this->clusterId) {
             $res['ClusterId'] = $this->clusterId;
         }
@@ -51,6 +60,9 @@ class UpdateImageRequest extends Model
     public static function fromMap($map = [])
     {
         $model = new self();
+        if (isset($map['AcceptLanguage'])) {
+            $model->acceptLanguage = $map['AcceptLanguage'];
+        }
         if (isset($map['ClusterId'])) {
             $model->clusterId = $map['ClusterId'];
         }

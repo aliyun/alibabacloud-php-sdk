@@ -11,6 +11,11 @@ class GetGovernanceKubernetesClusterListRequest extends Model
     /**
      * @var string
      */
+    public $acceptLanguage;
+
+    /**
+     * @var string
+     */
     public $clusterId;
 
     /**
@@ -28,10 +33,11 @@ class GetGovernanceKubernetesClusterListRequest extends Model
      */
     public $pageSize;
     protected $_name = [
-        'clusterId'   => 'ClusterId',
-        'clusterName' => 'ClusterName',
-        'pageNumber'  => 'PageNumber',
-        'pageSize'    => 'PageSize',
+        'acceptLanguage' => 'AcceptLanguage',
+        'clusterId'      => 'ClusterId',
+        'clusterName'    => 'ClusterName',
+        'pageNumber'     => 'PageNumber',
+        'pageSize'       => 'PageSize',
     ];
 
     public function validate()
@@ -41,6 +47,9 @@ class GetGovernanceKubernetesClusterListRequest extends Model
     public function toMap()
     {
         $res = [];
+        if (null !== $this->acceptLanguage) {
+            $res['AcceptLanguage'] = $this->acceptLanguage;
+        }
         if (null !== $this->clusterId) {
             $res['ClusterId'] = $this->clusterId;
         }
@@ -65,6 +74,9 @@ class GetGovernanceKubernetesClusterListRequest extends Model
     public static function fromMap($map = [])
     {
         $model = new self();
+        if (isset($map['AcceptLanguage'])) {
+            $model->acceptLanguage = $map['AcceptLanguage'];
+        }
         if (isset($map['ClusterId'])) {
             $model->clusterId = $map['ClusterId'];
         }

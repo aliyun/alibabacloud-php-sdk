@@ -11,6 +11,11 @@ class ListNacosConfigsRequest extends Model
     /**
      * @var string
      */
+    public $acceptLanguage;
+
+    /**
+     * @var string
+     */
     public $appName;
 
     /**
@@ -58,16 +63,17 @@ class ListNacosConfigsRequest extends Model
      */
     public $tags;
     protected $_name = [
-        'appName'     => 'AppName',
-        'dataId'      => 'DataId',
-        'group'       => 'Group',
-        'instanceId'  => 'InstanceId',
-        'namespaceId' => 'NamespaceId',
-        'pageNum'     => 'PageNum',
-        'pageSize'    => 'PageSize',
-        'regionId'    => 'RegionId',
-        'requestPars' => 'RequestPars',
-        'tags'        => 'Tags',
+        'acceptLanguage' => 'AcceptLanguage',
+        'appName'        => 'AppName',
+        'dataId'         => 'DataId',
+        'group'          => 'Group',
+        'instanceId'     => 'InstanceId',
+        'namespaceId'    => 'NamespaceId',
+        'pageNum'        => 'PageNum',
+        'pageSize'       => 'PageSize',
+        'regionId'       => 'RegionId',
+        'requestPars'    => 'RequestPars',
+        'tags'           => 'Tags',
     ];
 
     public function validate()
@@ -77,6 +83,9 @@ class ListNacosConfigsRequest extends Model
     public function toMap()
     {
         $res = [];
+        if (null !== $this->acceptLanguage) {
+            $res['AcceptLanguage'] = $this->acceptLanguage;
+        }
         if (null !== $this->appName) {
             $res['AppName'] = $this->appName;
         }
@@ -119,6 +128,9 @@ class ListNacosConfigsRequest extends Model
     public static function fromMap($map = [])
     {
         $model = new self();
+        if (isset($map['AcceptLanguage'])) {
+            $model->acceptLanguage = $map['AcceptLanguage'];
+        }
         if (isset($map['AppName'])) {
             $model->appName = $map['AppName'];
         }

@@ -9,6 +9,11 @@ use AlibabaCloud\Tea\Model;
 class QueryMonitorRequest extends Model
 {
     /**
+     * @var string
+     */
+    public $acceptLanguage;
+
+    /**
      * @var int
      */
     public $endTime;
@@ -38,12 +43,13 @@ class QueryMonitorRequest extends Model
      */
     public $step;
     protected $_name = [
-        'endTime'     => 'EndTime',
-        'instanceId'  => 'InstanceId',
-        'monitorType' => 'MonitorType',
-        'requestPars' => 'RequestPars',
-        'startTime'   => 'StartTime',
-        'step'        => 'Step',
+        'acceptLanguage' => 'AcceptLanguage',
+        'endTime'        => 'EndTime',
+        'instanceId'     => 'InstanceId',
+        'monitorType'    => 'MonitorType',
+        'requestPars'    => 'RequestPars',
+        'startTime'      => 'StartTime',
+        'step'           => 'Step',
     ];
 
     public function validate()
@@ -53,6 +59,9 @@ class QueryMonitorRequest extends Model
     public function toMap()
     {
         $res = [];
+        if (null !== $this->acceptLanguage) {
+            $res['AcceptLanguage'] = $this->acceptLanguage;
+        }
         if (null !== $this->endTime) {
             $res['EndTime'] = $this->endTime;
         }
@@ -83,6 +92,9 @@ class QueryMonitorRequest extends Model
     public static function fromMap($map = [])
     {
         $model = new self();
+        if (isset($map['AcceptLanguage'])) {
+            $model->acceptLanguage = $map['AcceptLanguage'];
+        }
         if (isset($map['EndTime'])) {
             $model->endTime = $map['EndTime'];
         }

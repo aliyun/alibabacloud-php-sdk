@@ -11,6 +11,11 @@ class QueryZnodeDetailRequest extends Model
     /**
      * @var string
      */
+    public $acceptLanguage;
+
+    /**
+     * @var string
+     */
     public $clusterId;
 
     /**
@@ -23,9 +28,10 @@ class QueryZnodeDetailRequest extends Model
      */
     public $requestPars;
     protected $_name = [
-        'clusterId'   => 'ClusterId',
-        'path'        => 'Path',
-        'requestPars' => 'RequestPars',
+        'acceptLanguage' => 'AcceptLanguage',
+        'clusterId'      => 'ClusterId',
+        'path'           => 'Path',
+        'requestPars'    => 'RequestPars',
     ];
 
     public function validate()
@@ -35,6 +41,9 @@ class QueryZnodeDetailRequest extends Model
     public function toMap()
     {
         $res = [];
+        if (null !== $this->acceptLanguage) {
+            $res['AcceptLanguage'] = $this->acceptLanguage;
+        }
         if (null !== $this->clusterId) {
             $res['ClusterId'] = $this->clusterId;
         }
@@ -56,6 +65,9 @@ class QueryZnodeDetailRequest extends Model
     public static function fromMap($map = [])
     {
         $model = new self();
+        if (isset($map['AcceptLanguage'])) {
+            $model->acceptLanguage = $map['AcceptLanguage'];
+        }
         if (isset($map['ClusterId'])) {
             $model->clusterId = $map['ClusterId'];
         }

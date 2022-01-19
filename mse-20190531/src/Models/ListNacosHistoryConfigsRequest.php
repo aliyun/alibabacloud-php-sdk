@@ -11,6 +11,11 @@ class ListNacosHistoryConfigsRequest extends Model
     /**
      * @var string
      */
+    public $acceptLanguage;
+
+    /**
+     * @var string
+     */
     public $dataId;
 
     /**
@@ -48,14 +53,15 @@ class ListNacosHistoryConfigsRequest extends Model
      */
     public $requestPars;
     protected $_name = [
-        'dataId'      => 'DataId',
-        'group'       => 'Group',
-        'instanceId'  => 'InstanceId',
-        'namespaceId' => 'NamespaceId',
-        'pageNum'     => 'PageNum',
-        'pageSize'    => 'PageSize',
-        'regionId'    => 'RegionId',
-        'requestPars' => 'RequestPars',
+        'acceptLanguage' => 'AcceptLanguage',
+        'dataId'         => 'DataId',
+        'group'          => 'Group',
+        'instanceId'     => 'InstanceId',
+        'namespaceId'    => 'NamespaceId',
+        'pageNum'        => 'PageNum',
+        'pageSize'       => 'PageSize',
+        'regionId'       => 'RegionId',
+        'requestPars'    => 'RequestPars',
     ];
 
     public function validate()
@@ -65,6 +71,9 @@ class ListNacosHistoryConfigsRequest extends Model
     public function toMap()
     {
         $res = [];
+        if (null !== $this->acceptLanguage) {
+            $res['AcceptLanguage'] = $this->acceptLanguage;
+        }
         if (null !== $this->dataId) {
             $res['DataId'] = $this->dataId;
         }
@@ -101,6 +110,9 @@ class ListNacosHistoryConfigsRequest extends Model
     public static function fromMap($map = [])
     {
         $model = new self();
+        if (isset($map['AcceptLanguage'])) {
+            $model->acceptLanguage = $map['AcceptLanguage'];
+        }
         if (isset($map['DataId'])) {
             $model->dataId = $map['DataId'];
         }

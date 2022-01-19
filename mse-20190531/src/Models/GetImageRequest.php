@@ -9,13 +9,19 @@ use AlibabaCloud\Tea\Model;
 class GetImageRequest extends Model
 {
     /**
+     * @var string
+     */
+    public $acceptLanguage;
+
+    /**
      * @description 集群版本
      *
      * @var string
      */
     public $versionCode;
     protected $_name = [
-        'versionCode' => 'VersionCode',
+        'acceptLanguage' => 'AcceptLanguage',
+        'versionCode'    => 'VersionCode',
     ];
 
     public function validate()
@@ -25,6 +31,9 @@ class GetImageRequest extends Model
     public function toMap()
     {
         $res = [];
+        if (null !== $this->acceptLanguage) {
+            $res['AcceptLanguage'] = $this->acceptLanguage;
+        }
         if (null !== $this->versionCode) {
             $res['VersionCode'] = $this->versionCode;
         }
@@ -40,6 +49,9 @@ class GetImageRequest extends Model
     public static function fromMap($map = [])
     {
         $model = new self();
+        if (isset($map['AcceptLanguage'])) {
+            $model->acceptLanguage = $map['AcceptLanguage'];
+        }
         if (isset($map['VersionCode'])) {
             $model->versionCode = $map['VersionCode'];
         }

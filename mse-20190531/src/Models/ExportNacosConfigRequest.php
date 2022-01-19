@@ -11,6 +11,11 @@ class ExportNacosConfigRequest extends Model
     /**
      * @var string
      */
+    public $acceptLanguage;
+
+    /**
+     * @var string
+     */
     public $appName;
 
     /**
@@ -38,12 +43,13 @@ class ExportNacosConfigRequest extends Model
      */
     public $namespaceId;
     protected $_name = [
-        'appName'     => 'AppName',
-        'dataId'      => 'DataId',
-        'group'       => 'Group',
-        'ids'         => 'Ids',
-        'instanceId'  => 'InstanceId',
-        'namespaceId' => 'NamespaceId',
+        'acceptLanguage' => 'AcceptLanguage',
+        'appName'        => 'AppName',
+        'dataId'         => 'DataId',
+        'group'          => 'Group',
+        'ids'            => 'Ids',
+        'instanceId'     => 'InstanceId',
+        'namespaceId'    => 'NamespaceId',
     ];
 
     public function validate()
@@ -53,6 +59,9 @@ class ExportNacosConfigRequest extends Model
     public function toMap()
     {
         $res = [];
+        if (null !== $this->acceptLanguage) {
+            $res['AcceptLanguage'] = $this->acceptLanguage;
+        }
         if (null !== $this->appName) {
             $res['AppName'] = $this->appName;
         }
@@ -83,6 +92,9 @@ class ExportNacosConfigRequest extends Model
     public static function fromMap($map = [])
     {
         $model = new self();
+        if (isset($map['AcceptLanguage'])) {
+            $model->acceptLanguage = $map['AcceptLanguage'];
+        }
         if (isset($map['AppName'])) {
             $model->appName = $map['AppName'];
         }

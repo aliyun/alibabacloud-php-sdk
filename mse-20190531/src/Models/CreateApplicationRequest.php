@@ -11,6 +11,11 @@ class CreateApplicationRequest extends Model
     /**
      * @var string
      */
+    public $acceptLanguage;
+
+    /**
+     * @var string
+     */
     public $appName;
 
     /**
@@ -33,11 +38,12 @@ class CreateApplicationRequest extends Model
      */
     public $source;
     protected $_name = [
-        'appName'   => 'AppName',
-        'extraInfo' => 'ExtraInfo',
-        'language'  => 'Language',
-        'region'    => 'Region',
-        'source'    => 'Source',
+        'acceptLanguage' => 'AcceptLanguage',
+        'appName'        => 'AppName',
+        'extraInfo'      => 'ExtraInfo',
+        'language'       => 'Language',
+        'region'         => 'Region',
+        'source'         => 'Source',
     ];
 
     public function validate()
@@ -47,6 +53,9 @@ class CreateApplicationRequest extends Model
     public function toMap()
     {
         $res = [];
+        if (null !== $this->acceptLanguage) {
+            $res['AcceptLanguage'] = $this->acceptLanguage;
+        }
         if (null !== $this->appName) {
             $res['AppName'] = $this->appName;
         }
@@ -74,6 +83,9 @@ class CreateApplicationRequest extends Model
     public static function fromMap($map = [])
     {
         $model = new self();
+        if (isset($map['AcceptLanguage'])) {
+            $model->acceptLanguage = $map['AcceptLanguage'];
+        }
         if (isset($map['AppName'])) {
             $model->appName = $map['AppName'];
         }

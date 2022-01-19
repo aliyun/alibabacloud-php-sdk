@@ -6,7 +6,7 @@ namespace AlibabaCloud\SDK\Mse\V20190531\Models;
 
 use AlibabaCloud\Tea\Model;
 
-class CreateGovernanceKubernetesClusterResponse extends Model
+class ListGatewaySlbResponse extends Model
 {
     /**
      * @var string[]
@@ -14,7 +14,7 @@ class CreateGovernanceKubernetesClusterResponse extends Model
     public $headers;
 
     /**
-     * @var CreateGovernanceKubernetesClusterResponseBody
+     * @var ListGatewaySlbResponseBody
      */
     public $body;
     protected $_name = [
@@ -44,7 +44,7 @@ class CreateGovernanceKubernetesClusterResponse extends Model
     /**
      * @param array $map
      *
-     * @return CreateGovernanceKubernetesClusterResponse
+     * @return ListGatewaySlbResponse
      */
     public static function fromMap($map = [])
     {
@@ -53,7 +53,7 @@ class CreateGovernanceKubernetesClusterResponse extends Model
             $model->headers = $map['headers'];
         }
         if (isset($map['body'])) {
-            $model->body = CreateGovernanceKubernetesClusterResponseBody::fromMap($map['body']);
+            $model->body = ListGatewaySlbResponseBody::fromMap($map['body']);
         }
 
         return $model;

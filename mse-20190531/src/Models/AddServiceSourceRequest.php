@@ -11,27 +11,17 @@ class AddServiceSourceRequest extends Model
     /**
      * @var string
      */
-    public $address;
+    public $acceptLanguage;
 
     /**
-     * @var int
+     * @var string
      */
-    public $gatewayId;
+    public $address;
 
     /**
      * @var string
      */
     public $gatewayUniqueId;
-
-    /**
-     * @var string
-     */
-    public $info1;
-
-    /**
-     * @var string
-     */
-    public $info2;
 
     /**
      * @var string
@@ -48,11 +38,9 @@ class AddServiceSourceRequest extends Model
      */
     public $type;
     protected $_name = [
+        'acceptLanguage'  => 'AcceptLanguage',
         'address'         => 'Address',
-        'gatewayId'       => 'GatewayId',
         'gatewayUniqueId' => 'GatewayUniqueId',
-        'info1'           => 'Info1',
-        'info2'           => 'Info2',
         'name'            => 'Name',
         'source'          => 'Source',
         'type'            => 'Type',
@@ -65,20 +53,14 @@ class AddServiceSourceRequest extends Model
     public function toMap()
     {
         $res = [];
+        if (null !== $this->acceptLanguage) {
+            $res['AcceptLanguage'] = $this->acceptLanguage;
+        }
         if (null !== $this->address) {
             $res['Address'] = $this->address;
         }
-        if (null !== $this->gatewayId) {
-            $res['GatewayId'] = $this->gatewayId;
-        }
         if (null !== $this->gatewayUniqueId) {
             $res['GatewayUniqueId'] = $this->gatewayUniqueId;
-        }
-        if (null !== $this->info1) {
-            $res['Info1'] = $this->info1;
-        }
-        if (null !== $this->info2) {
-            $res['Info2'] = $this->info2;
         }
         if (null !== $this->name) {
             $res['Name'] = $this->name;
@@ -101,20 +83,14 @@ class AddServiceSourceRequest extends Model
     public static function fromMap($map = [])
     {
         $model = new self();
+        if (isset($map['AcceptLanguage'])) {
+            $model->acceptLanguage = $map['AcceptLanguage'];
+        }
         if (isset($map['Address'])) {
             $model->address = $map['Address'];
         }
-        if (isset($map['GatewayId'])) {
-            $model->gatewayId = $map['GatewayId'];
-        }
         if (isset($map['GatewayUniqueId'])) {
             $model->gatewayUniqueId = $map['GatewayUniqueId'];
-        }
-        if (isset($map['Info1'])) {
-            $model->info1 = $map['Info1'];
-        }
-        if (isset($map['Info2'])) {
-            $model->info2 = $map['Info2'];
         }
         if (isset($map['Name'])) {
             $model->name = $map['Name'];

@@ -15,6 +15,11 @@ class data extends Model
     public $clusters;
 
     /**
+     * @var bool
+     */
+    public $ephemeral;
+
+    /**
      * @var string
      */
     public $groupName;
@@ -40,6 +45,7 @@ class data extends Model
     public $selectorType;
     protected $_name = [
         'clusters'         => 'Clusters',
+        'ephemeral'        => 'Ephemeral',
         'groupName'        => 'GroupName',
         'metadata'         => 'Metadata',
         'name'             => 'Name',
@@ -62,6 +68,9 @@ class data extends Model
                     $res['Clusters'][$n++] = null !== $item ? $item->toMap() : $item;
                 }
             }
+        }
+        if (null !== $this->ephemeral) {
+            $res['Ephemeral'] = $this->ephemeral;
         }
         if (null !== $this->groupName) {
             $res['GroupName'] = $this->groupName;
@@ -98,6 +107,9 @@ class data extends Model
                     $model->clusters[$n++] = null !== $item ? clusters::fromMap($item) : $item;
                 }
             }
+        }
+        if (isset($map['Ephemeral'])) {
+            $model->ephemeral = $map['Ephemeral'];
         }
         if (isset($map['GroupName'])) {
             $model->groupName = $map['GroupName'];

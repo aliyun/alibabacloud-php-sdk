@@ -11,6 +11,11 @@ class DeleteAlarmRuleRequest extends Model
     /**
      * @var string
      */
+    public $acceptLanguage;
+
+    /**
+     * @var string
+     */
     public $alarmRuleId;
 
     /**
@@ -18,8 +23,9 @@ class DeleteAlarmRuleRequest extends Model
      */
     public $requestPars;
     protected $_name = [
-        'alarmRuleId' => 'AlarmRuleId',
-        'requestPars' => 'RequestPars',
+        'acceptLanguage' => 'AcceptLanguage',
+        'alarmRuleId'    => 'AlarmRuleId',
+        'requestPars'    => 'RequestPars',
     ];
 
     public function validate()
@@ -29,6 +35,9 @@ class DeleteAlarmRuleRequest extends Model
     public function toMap()
     {
         $res = [];
+        if (null !== $this->acceptLanguage) {
+            $res['AcceptLanguage'] = $this->acceptLanguage;
+        }
         if (null !== $this->alarmRuleId) {
             $res['AlarmRuleId'] = $this->alarmRuleId;
         }
@@ -47,6 +56,9 @@ class DeleteAlarmRuleRequest extends Model
     public static function fromMap($map = [])
     {
         $model = new self();
+        if (isset($map['AcceptLanguage'])) {
+            $model->acceptLanguage = $map['AcceptLanguage'];
+        }
         if (isset($map['AlarmRuleId'])) {
             $model->alarmRuleId = $map['AlarmRuleId'];
         }

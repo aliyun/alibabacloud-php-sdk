@@ -11,6 +11,11 @@ class ListAlarmRulesRequest extends Model
     /**
      * @var string
      */
+    public $acceptLanguage;
+
+    /**
+     * @var string
+     */
     public $alarmMseType;
 
     /**
@@ -28,10 +33,11 @@ class ListAlarmRulesRequest extends Model
      */
     public $requestPars;
     protected $_name = [
-        'alarmMseType' => 'AlarmMseType',
-        'pageNum'      => 'PageNum',
-        'pageSize'     => 'PageSize',
-        'requestPars'  => 'RequestPars',
+        'acceptLanguage' => 'AcceptLanguage',
+        'alarmMseType'   => 'AlarmMseType',
+        'pageNum'        => 'PageNum',
+        'pageSize'       => 'PageSize',
+        'requestPars'    => 'RequestPars',
     ];
 
     public function validate()
@@ -41,6 +47,9 @@ class ListAlarmRulesRequest extends Model
     public function toMap()
     {
         $res = [];
+        if (null !== $this->acceptLanguage) {
+            $res['AcceptLanguage'] = $this->acceptLanguage;
+        }
         if (null !== $this->alarmMseType) {
             $res['AlarmMseType'] = $this->alarmMseType;
         }
@@ -65,6 +74,9 @@ class ListAlarmRulesRequest extends Model
     public static function fromMap($map = [])
     {
         $model = new self();
+        if (isset($map['AcceptLanguage'])) {
+            $model->acceptLanguage = $map['AcceptLanguage'];
+        }
         if (isset($map['AlarmMseType'])) {
             $model->alarmMseType = $map['AlarmMseType'];
         }

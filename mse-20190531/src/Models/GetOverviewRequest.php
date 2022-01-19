@@ -9,6 +9,11 @@ use AlibabaCloud\Tea\Model;
 class GetOverviewRequest extends Model
 {
     /**
+     * @var string
+     */
+    public $acceptLanguage;
+
+    /**
      * @var int
      */
     public $period;
@@ -18,8 +23,9 @@ class GetOverviewRequest extends Model
      */
     public $region;
     protected $_name = [
-        'period' => 'Period',
-        'region' => 'Region',
+        'acceptLanguage' => 'AcceptLanguage',
+        'period'         => 'Period',
+        'region'         => 'Region',
     ];
 
     public function validate()
@@ -29,6 +35,9 @@ class GetOverviewRequest extends Model
     public function toMap()
     {
         $res = [];
+        if (null !== $this->acceptLanguage) {
+            $res['AcceptLanguage'] = $this->acceptLanguage;
+        }
         if (null !== $this->period) {
             $res['Period'] = $this->period;
         }
@@ -47,6 +56,9 @@ class GetOverviewRequest extends Model
     public static function fromMap($map = [])
     {
         $model = new self();
+        if (isset($map['AcceptLanguage'])) {
+            $model->acceptLanguage = $map['AcceptLanguage'];
+        }
         if (isset($map['Period'])) {
             $model->period = $map['Period'];
         }

@@ -11,6 +11,11 @@ class ModifyGovernanceKubernetesClusterRequest extends Model
     /**
      * @var string
      */
+    public $acceptLanguage;
+
+    /**
+     * @var string
+     */
     public $clusterId;
 
     /**
@@ -23,6 +28,7 @@ class ModifyGovernanceKubernetesClusterRequest extends Model
      */
     public $regionId;
     protected $_name = [
+        'acceptLanguage' => 'AcceptLanguage',
         'clusterId'      => 'ClusterId',
         'namespaceInfos' => 'NamespaceInfos',
         'regionId'       => 'RegionId',
@@ -35,6 +41,9 @@ class ModifyGovernanceKubernetesClusterRequest extends Model
     public function toMap()
     {
         $res = [];
+        if (null !== $this->acceptLanguage) {
+            $res['AcceptLanguage'] = $this->acceptLanguage;
+        }
         if (null !== $this->clusterId) {
             $res['ClusterId'] = $this->clusterId;
         }
@@ -56,6 +65,9 @@ class ModifyGovernanceKubernetesClusterRequest extends Model
     public static function fromMap($map = [])
     {
         $model = new self();
+        if (isset($map['AcceptLanguage'])) {
+            $model->acceptLanguage = $map['AcceptLanguage'];
+        }
         if (isset($map['ClusterId'])) {
             $model->clusterId = $map['ClusterId'];
         }

@@ -9,6 +9,11 @@ use AlibabaCloud\Tea\Model;
 class ListAlarmContactGroupsRequest extends Model
 {
     /**
+     * @var string
+     */
+    public $acceptLanguage;
+
+    /**
      * @var int
      */
     public $pageNum;
@@ -23,9 +28,10 @@ class ListAlarmContactGroupsRequest extends Model
      */
     public $requestPars;
     protected $_name = [
-        'pageNum'     => 'PageNum',
-        'pageSize'    => 'PageSize',
-        'requestPars' => 'RequestPars',
+        'acceptLanguage' => 'AcceptLanguage',
+        'pageNum'        => 'PageNum',
+        'pageSize'       => 'PageSize',
+        'requestPars'    => 'RequestPars',
     ];
 
     public function validate()
@@ -35,6 +41,9 @@ class ListAlarmContactGroupsRequest extends Model
     public function toMap()
     {
         $res = [];
+        if (null !== $this->acceptLanguage) {
+            $res['AcceptLanguage'] = $this->acceptLanguage;
+        }
         if (null !== $this->pageNum) {
             $res['PageNum'] = $this->pageNum;
         }
@@ -56,6 +65,9 @@ class ListAlarmContactGroupsRequest extends Model
     public static function fromMap($map = [])
     {
         $model = new self();
+        if (isset($map['AcceptLanguage'])) {
+            $model->acceptLanguage = $map['AcceptLanguage'];
+        }
         if (isset($map['PageNum'])) {
             $model->pageNum = $map['PageNum'];
         }
