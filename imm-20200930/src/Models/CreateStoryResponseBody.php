@@ -6,8 +6,13 @@ namespace AlibabaCloud\SDK\Imm\V20200930\Models;
 
 use AlibabaCloud\Tea\Model;
 
-class ClusterFiguresResponseBody extends Model
+class CreateStoryResponseBody extends Model
 {
+    /**
+     * @var string
+     */
+    public $eventId;
+
     /**
      * @description Id of the request
      *
@@ -20,6 +25,7 @@ class ClusterFiguresResponseBody extends Model
      */
     public $taskId;
     protected $_name = [
+        'eventId'   => 'EventId',
         'requestId' => 'RequestId',
         'taskId'    => 'TaskId',
     ];
@@ -31,6 +37,9 @@ class ClusterFiguresResponseBody extends Model
     public function toMap()
     {
         $res = [];
+        if (null !== $this->eventId) {
+            $res['EventId'] = $this->eventId;
+        }
         if (null !== $this->requestId) {
             $res['RequestId'] = $this->requestId;
         }
@@ -44,11 +53,14 @@ class ClusterFiguresResponseBody extends Model
     /**
      * @param array $map
      *
-     * @return ClusterFiguresResponseBody
+     * @return CreateStoryResponseBody
      */
     public static function fromMap($map = [])
     {
         $model = new self();
+        if (isset($map['EventId'])) {
+            $model->eventId = $map['EventId'];
+        }
         if (isset($map['RequestId'])) {
             $model->requestId = $map['RequestId'];
         }

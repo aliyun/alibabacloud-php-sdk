@@ -6,13 +6,8 @@ namespace AlibabaCloud\SDK\Imm\V20200930\Models;
 
 use AlibabaCloud\Tea\Model;
 
-class ClusterFiguresRequest extends Model
+class CreateFigureClusteringTaskRequest extends Model
 {
-    /**
-     * @var string
-     */
-    public $customMessage;
-
     /**
      * @var string
      */
@@ -21,12 +16,7 @@ class ClusterFiguresRequest extends Model
     /**
      * @var string
      */
-    public $figureType;
-
-    /**
-     * @var string
-     */
-    public $notifyTopicEndpoint;
+    public $notifyEndpoint;
 
     /**
      * @var string
@@ -37,13 +27,17 @@ class ClusterFiguresRequest extends Model
      * @var string
      */
     public $projectName;
+
+    /**
+     * @var string
+     */
+    public $userData;
     protected $_name = [
-        'customMessage'       => 'CustomMessage',
-        'datasetName'         => 'DatasetName',
-        'figureType'          => 'FigureType',
-        'notifyTopicEndpoint' => 'NotifyTopicEndpoint',
-        'notifyTopicName'     => 'NotifyTopicName',
-        'projectName'         => 'ProjectName',
+        'datasetName'     => 'DatasetName',
+        'notifyEndpoint'  => 'NotifyEndpoint',
+        'notifyTopicName' => 'NotifyTopicName',
+        'projectName'     => 'ProjectName',
+        'userData'        => 'UserData',
     ];
 
     public function validate()
@@ -53,23 +47,20 @@ class ClusterFiguresRequest extends Model
     public function toMap()
     {
         $res = [];
-        if (null !== $this->customMessage) {
-            $res['CustomMessage'] = $this->customMessage;
-        }
         if (null !== $this->datasetName) {
             $res['DatasetName'] = $this->datasetName;
         }
-        if (null !== $this->figureType) {
-            $res['FigureType'] = $this->figureType;
-        }
-        if (null !== $this->notifyTopicEndpoint) {
-            $res['NotifyTopicEndpoint'] = $this->notifyTopicEndpoint;
+        if (null !== $this->notifyEndpoint) {
+            $res['NotifyEndpoint'] = $this->notifyEndpoint;
         }
         if (null !== $this->notifyTopicName) {
             $res['NotifyTopicName'] = $this->notifyTopicName;
         }
         if (null !== $this->projectName) {
             $res['ProjectName'] = $this->projectName;
+        }
+        if (null !== $this->userData) {
+            $res['UserData'] = $this->userData;
         }
 
         return $res;
@@ -78,28 +69,25 @@ class ClusterFiguresRequest extends Model
     /**
      * @param array $map
      *
-     * @return ClusterFiguresRequest
+     * @return CreateFigureClusteringTaskRequest
      */
     public static function fromMap($map = [])
     {
         $model = new self();
-        if (isset($map['CustomMessage'])) {
-            $model->customMessage = $map['CustomMessage'];
-        }
         if (isset($map['DatasetName'])) {
             $model->datasetName = $map['DatasetName'];
         }
-        if (isset($map['FigureType'])) {
-            $model->figureType = $map['FigureType'];
-        }
-        if (isset($map['NotifyTopicEndpoint'])) {
-            $model->notifyTopicEndpoint = $map['NotifyTopicEndpoint'];
+        if (isset($map['NotifyEndpoint'])) {
+            $model->notifyEndpoint = $map['NotifyEndpoint'];
         }
         if (isset($map['NotifyTopicName'])) {
             $model->notifyTopicName = $map['NotifyTopicName'];
         }
         if (isset($map['ProjectName'])) {
             $model->projectName = $map['ProjectName'];
+        }
+        if (isset($map['UserData'])) {
+            $model->userData = $map['UserData'];
         }
 
         return $model;

@@ -11,7 +11,7 @@ class VideoStream extends Model
     /**
      * @description AverageFrameRate
      *
-     * @var float
+     * @var string
      */
     public $averageFrameRate;
 
@@ -81,14 +81,14 @@ class VideoStream extends Model
     /**
      * @description FrameRate
      *
-     * @var float
+     * @var string
      */
     public $frameRate;
 
     /**
      * @description HasBFrames
      *
-     * @var string
+     * @var int
      */
     public $hasBFrames;
 
@@ -133,6 +133,13 @@ class VideoStream extends Model
      * @var string
      */
     public $profile;
+
+    /**
+     * @description Rotate
+     *
+     * @var string
+     */
+    public $rotate;
 
     /**
      * @description SampleAspectRatio
@@ -180,6 +187,7 @@ class VideoStream extends Model
         'level'              => 'Level',
         'pixelFormat'        => 'PixelFormat',
         'profile'            => 'Profile',
+        'rotate'             => 'Rotate',
         'sampleAspectRatio'  => 'SampleAspectRatio',
         'startTime'          => 'StartTime',
         'timeBase'           => 'TimeBase',
@@ -246,6 +254,9 @@ class VideoStream extends Model
         }
         if (null !== $this->profile) {
             $res['Profile'] = $this->profile;
+        }
+        if (null !== $this->rotate) {
+            $res['Rotate'] = $this->rotate;
         }
         if (null !== $this->sampleAspectRatio) {
             $res['SampleAspectRatio'] = $this->sampleAspectRatio;
@@ -324,6 +335,9 @@ class VideoStream extends Model
         }
         if (isset($map['Profile'])) {
             $model->profile = $map['Profile'];
+        }
+        if (isset($map['Rotate'])) {
+            $model->rotate = $map['Rotate'];
         }
         if (isset($map['SampleAspectRatio'])) {
             $model->sampleAspectRatio = $map['SampleAspectRatio'];

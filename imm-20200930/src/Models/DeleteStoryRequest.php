@@ -6,34 +6,26 @@ namespace AlibabaCloud\SDK\Imm\V20200930\Models;
 
 use AlibabaCloud\Tea\Model;
 
-class DeleteBindingRequest extends Model
+class DeleteStoryRequest extends Model
 {
-    /**
-     * @var bool
-     */
-    public $cleanup;
-
     /**
      * @var string
      */
     public $datasetName;
 
     /**
-     * @description A short description of struct
-     *
      * @var string
      */
-    public $projectName;
+    public $objectId;
 
     /**
      * @var string
      */
-    public $URI;
+    public $projectName;
     protected $_name = [
-        'cleanup'     => 'Cleanup',
         'datasetName' => 'DatasetName',
+        'objectId'    => 'ObjectId',
         'projectName' => 'ProjectName',
-        'URI'         => 'URI',
     ];
 
     public function validate()
@@ -43,17 +35,14 @@ class DeleteBindingRequest extends Model
     public function toMap()
     {
         $res = [];
-        if (null !== $this->cleanup) {
-            $res['Cleanup'] = $this->cleanup;
-        }
         if (null !== $this->datasetName) {
             $res['DatasetName'] = $this->datasetName;
         }
+        if (null !== $this->objectId) {
+            $res['ObjectId'] = $this->objectId;
+        }
         if (null !== $this->projectName) {
             $res['ProjectName'] = $this->projectName;
-        }
-        if (null !== $this->URI) {
-            $res['URI'] = $this->URI;
         }
 
         return $res;
@@ -62,22 +51,19 @@ class DeleteBindingRequest extends Model
     /**
      * @param array $map
      *
-     * @return DeleteBindingRequest
+     * @return DeleteStoryRequest
      */
     public static function fromMap($map = [])
     {
         $model = new self();
-        if (isset($map['Cleanup'])) {
-            $model->cleanup = $map['Cleanup'];
-        }
         if (isset($map['DatasetName'])) {
             $model->datasetName = $map['DatasetName'];
         }
+        if (isset($map['ObjectId'])) {
+            $model->objectId = $map['ObjectId'];
+        }
         if (isset($map['ProjectName'])) {
             $model->projectName = $map['ProjectName'];
-        }
-        if (isset($map['URI'])) {
-            $model->URI = $map['URI'];
         }
 
         return $model;

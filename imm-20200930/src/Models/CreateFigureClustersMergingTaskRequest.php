@@ -6,47 +6,53 @@ namespace AlibabaCloud\SDK\Imm\V20200930\Models;
 
 use AlibabaCloud\Tea\Model;
 
-class CreateDetectVideoLabelsTaskRequest extends Model
+class CreateFigureClustersMergingTaskRequest extends Model
 {
     /**
-     * @description NotifyEndpoint
+     * @var string
+     */
+    public $datasetName;
+
+    /**
+     * @description 源cluster
      *
+     * @var string
+     */
+    public $from;
+
+    /**
      * @var string
      */
     public $notifyEndpoint;
 
     /**
-     * @description NotifyTopicName
-     *
      * @var string
      */
     public $notifyTopicName;
 
     /**
-     * @description 项目名称
-     *
      * @var string
      */
     public $projectName;
 
     /**
-     * @description SourceURI
+     * @description 目的cluster
      *
      * @var string
      */
-    public $sourceURI;
+    public $to;
 
     /**
-     * @description UserData
-     *
      * @var string
      */
     public $userData;
     protected $_name = [
+        'datasetName'     => 'DatasetName',
+        'from'            => 'From',
         'notifyEndpoint'  => 'NotifyEndpoint',
         'notifyTopicName' => 'NotifyTopicName',
         'projectName'     => 'ProjectName',
-        'sourceURI'       => 'SourceURI',
+        'to'              => 'To',
         'userData'        => 'UserData',
     ];
 
@@ -57,6 +63,12 @@ class CreateDetectVideoLabelsTaskRequest extends Model
     public function toMap()
     {
         $res = [];
+        if (null !== $this->datasetName) {
+            $res['DatasetName'] = $this->datasetName;
+        }
+        if (null !== $this->from) {
+            $res['From'] = $this->from;
+        }
         if (null !== $this->notifyEndpoint) {
             $res['NotifyEndpoint'] = $this->notifyEndpoint;
         }
@@ -66,8 +78,8 @@ class CreateDetectVideoLabelsTaskRequest extends Model
         if (null !== $this->projectName) {
             $res['ProjectName'] = $this->projectName;
         }
-        if (null !== $this->sourceURI) {
-            $res['SourceURI'] = $this->sourceURI;
+        if (null !== $this->to) {
+            $res['To'] = $this->to;
         }
         if (null !== $this->userData) {
             $res['UserData'] = $this->userData;
@@ -79,11 +91,17 @@ class CreateDetectVideoLabelsTaskRequest extends Model
     /**
      * @param array $map
      *
-     * @return CreateDetectVideoLabelsTaskRequest
+     * @return CreateFigureClustersMergingTaskRequest
      */
     public static function fromMap($map = [])
     {
         $model = new self();
+        if (isset($map['DatasetName'])) {
+            $model->datasetName = $map['DatasetName'];
+        }
+        if (isset($map['From'])) {
+            $model->from = $map['From'];
+        }
         if (isset($map['NotifyEndpoint'])) {
             $model->notifyEndpoint = $map['NotifyEndpoint'];
         }
@@ -93,8 +111,8 @@ class CreateDetectVideoLabelsTaskRequest extends Model
         if (isset($map['ProjectName'])) {
             $model->projectName = $map['ProjectName'];
         }
-        if (isset($map['SourceURI'])) {
-            $model->sourceURI = $map['SourceURI'];
+        if (isset($map['To'])) {
+            $model->to = $map['To'];
         }
         if (isset($map['UserData'])) {
             $model->userData = $map['UserData'];

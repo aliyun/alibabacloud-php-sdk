@@ -44,18 +44,11 @@ class File extends Model
     public $albumArtist;
 
     /**
-     * @description Artists
+     * @description Artist
      *
-     * @var string[]
+     * @var string
      */
-    public $artists;
-
-    /**
-     * @description AudioBitrate
-     *
-     * @var float
-     */
-    public $audioBitrate;
+    public $artist;
 
     /**
      * @description AudioCovers
@@ -65,32 +58,11 @@ class File extends Model
     public $audioCovers;
 
     /**
-     * @description AudioDuration
-     *
-     * @var float
-     */
-    public $audioDuration;
-
-    /**
-     * @description AudioLanguage
-     *
-     * @var string
-     */
-    public $audioLanguage;
-
-    /**
      * @description AudioStreams
      *
      * @var AudioStream[]
      */
     public $audioStreams;
-
-    /**
-     * @description AudioTakenTime
-     *
-     * @var string
-     */
-    public $audioTakenTime;
 
     /**
      * @description CacheControl
@@ -280,6 +252,13 @@ class File extends Model
     public $labels;
 
     /**
+     * @description Language
+     *
+     * @var string
+     */
+    public $language;
+
+    /**
      * @description LatLong
      *
      * @var string
@@ -394,7 +373,7 @@ class File extends Model
     /**
      * @description Orientation
      *
-     * @var string
+     * @var int
      */
     public $orientation;
 
@@ -511,20 +490,6 @@ class File extends Model
     public $updateTime;
 
     /**
-     * @description VideoBitrate
-     *
-     * @var int
-     */
-    public $videoBitrate;
-
-    /**
-     * @description VideoDuration
-     *
-     * @var float
-     */
-    public $videoDuration;
-
-    /**
      * @description VideoHeight
      *
      * @var int
@@ -546,13 +511,6 @@ class File extends Model
     public $videoStreams;
 
     /**
-     * @description VideoTakenTime
-     *
-     * @var string
-     */
-    public $videoTakenTime;
-
-    /**
      * @description VideoWidth
      *
      * @var int
@@ -564,13 +522,9 @@ class File extends Model
         'addresses'                             => 'Addresses',
         'album'                                 => 'Album',
         'albumArtist'                           => 'AlbumArtist',
-        'artists'                               => 'Artists',
-        'audioBitrate'                          => 'AudioBitrate',
+        'artist'                                => 'Artist',
         'audioCovers'                           => 'AudioCovers',
-        'audioDuration'                         => 'AudioDuration',
-        'audioLanguage'                         => 'AudioLanguage',
         'audioStreams'                          => 'AudioStreams',
-        'audioTakenTime'                        => 'AudioTakenTime',
         'cacheControl'                          => 'CacheControl',
         'composer'                              => 'Composer',
         'contentDisposition'                    => 'ContentDisposition',
@@ -598,6 +552,7 @@ class File extends Model
         'imageScore'                            => 'ImageScore',
         'imageWidth'                            => 'ImageWidth',
         'labels'                                => 'Labels',
+        'language'                              => 'Language',
         'latLong'                               => 'LatLong',
         'mediaType'                             => 'MediaType',
         'OCRContents'                           => 'OCRContents',
@@ -631,12 +586,9 @@ class File extends Model
         'travelClusterId'                       => 'TravelClusterId',
         'URI'                                   => 'URI',
         'updateTime'                            => 'UpdateTime',
-        'videoBitrate'                          => 'VideoBitrate',
-        'videoDuration'                         => 'VideoDuration',
         'videoHeight'                           => 'VideoHeight',
         'videoStartTime'                        => 'VideoStartTime',
         'videoStreams'                          => 'VideoStreams',
-        'videoTakenTime'                        => 'VideoTakenTime',
         'videoWidth'                            => 'VideoWidth',
     ];
 
@@ -668,11 +620,8 @@ class File extends Model
         if (null !== $this->albumArtist) {
             $res['AlbumArtist'] = $this->albumArtist;
         }
-        if (null !== $this->artists) {
-            $res['Artists'] = $this->artists;
-        }
-        if (null !== $this->audioBitrate) {
-            $res['AudioBitrate'] = $this->audioBitrate;
+        if (null !== $this->artist) {
+            $res['Artist'] = $this->artist;
         }
         if (null !== $this->audioCovers) {
             $res['AudioCovers'] = [];
@@ -683,12 +632,6 @@ class File extends Model
                 }
             }
         }
-        if (null !== $this->audioDuration) {
-            $res['AudioDuration'] = $this->audioDuration;
-        }
-        if (null !== $this->audioLanguage) {
-            $res['AudioLanguage'] = $this->audioLanguage;
-        }
         if (null !== $this->audioStreams) {
             $res['AudioStreams'] = [];
             if (null !== $this->audioStreams && \is_array($this->audioStreams)) {
@@ -697,9 +640,6 @@ class File extends Model
                     $res['AudioStreams'][$n++] = null !== $item ? $item->toMap() : $item;
                 }
             }
-        }
-        if (null !== $this->audioTakenTime) {
-            $res['AudioTakenTime'] = $this->audioTakenTime;
         }
         if (null !== $this->cacheControl) {
             $res['CacheControl'] = $this->cacheControl;
@@ -799,6 +739,9 @@ class File extends Model
                     $res['Labels'][$n++] = null !== $item ? $item->toMap() : $item;
                 }
             }
+        }
+        if (null !== $this->language) {
+            $res['Language'] = $this->language;
         }
         if (null !== $this->latLong) {
             $res['LatLong'] = $this->latLong;
@@ -911,12 +854,6 @@ class File extends Model
         if (null !== $this->updateTime) {
             $res['UpdateTime'] = $this->updateTime;
         }
-        if (null !== $this->videoBitrate) {
-            $res['VideoBitrate'] = $this->videoBitrate;
-        }
-        if (null !== $this->videoDuration) {
-            $res['VideoDuration'] = $this->videoDuration;
-        }
         if (null !== $this->videoHeight) {
             $res['VideoHeight'] = $this->videoHeight;
         }
@@ -931,9 +868,6 @@ class File extends Model
                     $res['VideoStreams'][$n++] = null !== $item ? $item->toMap() : $item;
                 }
             }
-        }
-        if (null !== $this->videoTakenTime) {
-            $res['VideoTakenTime'] = $this->videoTakenTime;
         }
         if (null !== $this->videoWidth) {
             $res['VideoWidth'] = $this->videoWidth;
@@ -971,13 +905,8 @@ class File extends Model
         if (isset($map['AlbumArtist'])) {
             $model->albumArtist = $map['AlbumArtist'];
         }
-        if (isset($map['Artists'])) {
-            if (!empty($map['Artists'])) {
-                $model->artists = $map['Artists'];
-            }
-        }
-        if (isset($map['AudioBitrate'])) {
-            $model->audioBitrate = $map['AudioBitrate'];
+        if (isset($map['Artist'])) {
+            $model->artist = $map['Artist'];
         }
         if (isset($map['AudioCovers'])) {
             if (!empty($map['AudioCovers'])) {
@@ -988,12 +917,6 @@ class File extends Model
                 }
             }
         }
-        if (isset($map['AudioDuration'])) {
-            $model->audioDuration = $map['AudioDuration'];
-        }
-        if (isset($map['AudioLanguage'])) {
-            $model->audioLanguage = $map['AudioLanguage'];
-        }
         if (isset($map['AudioStreams'])) {
             if (!empty($map['AudioStreams'])) {
                 $model->audioStreams = [];
@@ -1002,9 +925,6 @@ class File extends Model
                     $model->audioStreams[$n++] = null !== $item ? AudioStream::fromMap($item) : $item;
                 }
             }
-        }
-        if (isset($map['AudioTakenTime'])) {
-            $model->audioTakenTime = $map['AudioTakenTime'];
         }
         if (isset($map['CacheControl'])) {
             $model->cacheControl = $map['CacheControl'];
@@ -1104,6 +1024,9 @@ class File extends Model
                     $model->labels[$n++] = null !== $item ? Label::fromMap($item) : $item;
                 }
             }
+        }
+        if (isset($map['Language'])) {
+            $model->language = $map['Language'];
         }
         if (isset($map['LatLong'])) {
             $model->latLong = $map['LatLong'];
@@ -1216,12 +1139,6 @@ class File extends Model
         if (isset($map['UpdateTime'])) {
             $model->updateTime = $map['UpdateTime'];
         }
-        if (isset($map['VideoBitrate'])) {
-            $model->videoBitrate = $map['VideoBitrate'];
-        }
-        if (isset($map['VideoDuration'])) {
-            $model->videoDuration = $map['VideoDuration'];
-        }
         if (isset($map['VideoHeight'])) {
             $model->videoHeight = $map['VideoHeight'];
         }
@@ -1236,9 +1153,6 @@ class File extends Model
                     $model->videoStreams[$n++] = null !== $item ? VideoStream::fromMap($item) : $item;
                 }
             }
-        }
-        if (isset($map['VideoTakenTime'])) {
-            $model->videoTakenTime = $map['VideoTakenTime'];
         }
         if (isset($map['VideoWidth'])) {
             $model->videoWidth = $map['VideoWidth'];

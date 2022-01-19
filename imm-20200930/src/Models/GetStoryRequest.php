@@ -6,20 +6,26 @@ namespace AlibabaCloud\SDK\Imm\V20200930\Models;
 
 use AlibabaCloud\Tea\Model;
 
-class GetFileSignedURIRequest extends Model
+class GetStoryRequest extends Model
 {
     /**
      * @var string
      */
-    public $projectName;
+    public $datasetName;
 
     /**
      * @var string
      */
-    public $URI;
+    public $objectId;
+
+    /**
+     * @var string
+     */
+    public $projectName;
     protected $_name = [
+        'datasetName' => 'DatasetName',
+        'objectId'    => 'ObjectId',
         'projectName' => 'ProjectName',
-        'URI'         => 'URI',
     ];
 
     public function validate()
@@ -29,11 +35,14 @@ class GetFileSignedURIRequest extends Model
     public function toMap()
     {
         $res = [];
+        if (null !== $this->datasetName) {
+            $res['DatasetName'] = $this->datasetName;
+        }
+        if (null !== $this->objectId) {
+            $res['ObjectId'] = $this->objectId;
+        }
         if (null !== $this->projectName) {
             $res['ProjectName'] = $this->projectName;
-        }
-        if (null !== $this->URI) {
-            $res['URI'] = $this->URI;
         }
 
         return $res;
@@ -42,16 +51,19 @@ class GetFileSignedURIRequest extends Model
     /**
      * @param array $map
      *
-     * @return GetFileSignedURIRequest
+     * @return GetStoryRequest
      */
     public static function fromMap($map = [])
     {
         $model = new self();
+        if (isset($map['DatasetName'])) {
+            $model->datasetName = $map['DatasetName'];
+        }
+        if (isset($map['ObjectId'])) {
+            $model->objectId = $map['ObjectId'];
+        }
         if (isset($map['ProjectName'])) {
             $model->projectName = $map['ProjectName'];
-        }
-        if (isset($map['URI'])) {
-            $model->URI = $map['URI'];
         }
 
         return $model;

@@ -18,16 +18,20 @@ use AlibabaCloud\SDK\Imm\V20200930\Models\BatchIndexFileMetaShrinkRequest;
 use AlibabaCloud\SDK\Imm\V20200930\Models\BatchUpdateFileMetaRequest;
 use AlibabaCloud\SDK\Imm\V20200930\Models\BatchUpdateFileMetaResponse;
 use AlibabaCloud\SDK\Imm\V20200930\Models\BatchUpdateFileMetaShrinkRequest;
-use AlibabaCloud\SDK\Imm\V20200930\Models\ClusterFiguresRequest;
-use AlibabaCloud\SDK\Imm\V20200930\Models\ClusterFiguresResponse;
 use AlibabaCloud\SDK\Imm\V20200930\Models\CreateBindingRequest;
 use AlibabaCloud\SDK\Imm\V20200930\Models\CreateBindingResponse;
 use AlibabaCloud\SDK\Imm\V20200930\Models\CreateDatasetRequest;
 use AlibabaCloud\SDK\Imm\V20200930\Models\CreateDatasetResponse;
 use AlibabaCloud\SDK\Imm\V20200930\Models\CreateDetectVideoLabelsTaskRequest;
 use AlibabaCloud\SDK\Imm\V20200930\Models\CreateDetectVideoLabelsTaskResponse;
+use AlibabaCloud\SDK\Imm\V20200930\Models\CreateFigureClusteringTaskRequest;
+use AlibabaCloud\SDK\Imm\V20200930\Models\CreateFigureClusteringTaskResponse;
+use AlibabaCloud\SDK\Imm\V20200930\Models\CreateFigureClustersMergingTaskRequest;
+use AlibabaCloud\SDK\Imm\V20200930\Models\CreateFigureClustersMergingTaskResponse;
 use AlibabaCloud\SDK\Imm\V20200930\Models\CreateProjectRequest;
 use AlibabaCloud\SDK\Imm\V20200930\Models\CreateProjectResponse;
+use AlibabaCloud\SDK\Imm\V20200930\Models\CreateStoryRequest;
+use AlibabaCloud\SDK\Imm\V20200930\Models\CreateStoryResponse;
 use AlibabaCloud\SDK\Imm\V20200930\Models\DeleteBindingRequest;
 use AlibabaCloud\SDK\Imm\V20200930\Models\DeleteBindingResponse;
 use AlibabaCloud\SDK\Imm\V20200930\Models\DeleteDatasetRequest;
@@ -36,6 +40,8 @@ use AlibabaCloud\SDK\Imm\V20200930\Models\DeleteFileMetaRequest;
 use AlibabaCloud\SDK\Imm\V20200930\Models\DeleteFileMetaResponse;
 use AlibabaCloud\SDK\Imm\V20200930\Models\DeleteProjectRequest;
 use AlibabaCloud\SDK\Imm\V20200930\Models\DeleteProjectResponse;
+use AlibabaCloud\SDK\Imm\V20200930\Models\DeleteStoryRequest;
+use AlibabaCloud\SDK\Imm\V20200930\Models\DeleteStoryResponse;
 use AlibabaCloud\SDK\Imm\V20200930\Models\DetectImageLabelsRequest;
 use AlibabaCloud\SDK\Imm\V20200930\Models\DetectImageLabelsResponse;
 use AlibabaCloud\SDK\Imm\V20200930\Models\FuzzyQueryRequest;
@@ -50,10 +56,10 @@ use AlibabaCloud\SDK\Imm\V20200930\Models\GetFigureClusterRequest;
 use AlibabaCloud\SDK\Imm\V20200930\Models\GetFigureClusterResponse;
 use AlibabaCloud\SDK\Imm\V20200930\Models\GetFileMetaRequest;
 use AlibabaCloud\SDK\Imm\V20200930\Models\GetFileMetaResponse;
-use AlibabaCloud\SDK\Imm\V20200930\Models\GetFileSignedURIRequest;
-use AlibabaCloud\SDK\Imm\V20200930\Models\GetFileSignedURIResponse;
 use AlibabaCloud\SDK\Imm\V20200930\Models\GetProjectRequest;
 use AlibabaCloud\SDK\Imm\V20200930\Models\GetProjectResponse;
+use AlibabaCloud\SDK\Imm\V20200930\Models\GetStoryRequest;
+use AlibabaCloud\SDK\Imm\V20200930\Models\GetStoryResponse;
 use AlibabaCloud\SDK\Imm\V20200930\Models\GetTaskRequest;
 use AlibabaCloud\SDK\Imm\V20200930\Models\GetTaskResponse;
 use AlibabaCloud\SDK\Imm\V20200930\Models\GetWebofficeURLRequest;
@@ -66,14 +72,17 @@ use AlibabaCloud\SDK\Imm\V20200930\Models\ListBindingsRequest;
 use AlibabaCloud\SDK\Imm\V20200930\Models\ListBindingsResponse;
 use AlibabaCloud\SDK\Imm\V20200930\Models\ListDatasetsRequest;
 use AlibabaCloud\SDK\Imm\V20200930\Models\ListDatasetsResponse;
-use AlibabaCloud\SDK\Imm\V20200930\Models\ListFigureClustersRequest;
-use AlibabaCloud\SDK\Imm\V20200930\Models\ListFigureClustersResponse;
 use AlibabaCloud\SDK\Imm\V20200930\Models\ListProjectsRequest;
 use AlibabaCloud\SDK\Imm\V20200930\Models\ListProjectsResponse;
 use AlibabaCloud\SDK\Imm\V20200930\Models\ListTasksRequest;
 use AlibabaCloud\SDK\Imm\V20200930\Models\ListTasksResponse;
 use AlibabaCloud\SDK\Imm\V20200930\Models\MergeFigureClustersRequest;
 use AlibabaCloud\SDK\Imm\V20200930\Models\MergeFigureClustersResponse;
+use AlibabaCloud\SDK\Imm\V20200930\Models\QueryFigureClustersRequest;
+use AlibabaCloud\SDK\Imm\V20200930\Models\QueryFigureClustersResponse;
+use AlibabaCloud\SDK\Imm\V20200930\Models\QueryStoriesRequest;
+use AlibabaCloud\SDK\Imm\V20200930\Models\QueryStoriesResponse;
+use AlibabaCloud\SDK\Imm\V20200930\Models\QueryStoriesShrinkRequest;
 use AlibabaCloud\SDK\Imm\V20200930\Models\RefreshWebofficeTokenRequest;
 use AlibabaCloud\SDK\Imm\V20200930\Models\RefreshWebofficeTokenResponse;
 use AlibabaCloud\SDK\Imm\V20200930\Models\RefreshWebofficeTokenShrinkRequest;
@@ -153,11 +162,17 @@ class Imm extends OpenApiClient
         if (!Utils::isUnset($tmpReq->URIs)) {
             $request->URIsShrink = OpenApiUtilClient::arrayToStringWithSpecifiedStyle($tmpReq->URIs, 'URIs', 'json');
         }
-        $query                = [];
-        $query['DatasetName'] = $request->datasetName;
-        $query['ProjectName'] = $request->projectName;
-        $query['URIs']        = $request->URIsShrink;
-        $req                  = new OpenApiRequest([
+        $query = [];
+        if (!Utils::isUnset($request->datasetName)) {
+            $query['DatasetName'] = $request->datasetName;
+        }
+        if (!Utils::isUnset($request->projectName)) {
+            $query['ProjectName'] = $request->projectName;
+        }
+        if (!Utils::isUnset($request->URIsShrink)) {
+            $query['URIs'] = $request->URIsShrink;
+        }
+        $req = new OpenApiRequest([
             'query' => OpenApiUtilClient::query($query),
         ]);
         $params = new Params([
@@ -201,11 +216,17 @@ class Imm extends OpenApiClient
         if (!Utils::isUnset($tmpReq->URIs)) {
             $request->URIsShrink = OpenApiUtilClient::arrayToStringWithSpecifiedStyle($tmpReq->URIs, 'URIs', 'json');
         }
-        $query                = [];
-        $query['DatasetName'] = $request->datasetName;
-        $query['ProjectName'] = $request->projectName;
-        $query['URIs']        = $request->URIsShrink;
-        $req                  = new OpenApiRequest([
+        $query = [];
+        if (!Utils::isUnset($request->datasetName)) {
+            $query['DatasetName'] = $request->datasetName;
+        }
+        if (!Utils::isUnset($request->projectName)) {
+            $query['ProjectName'] = $request->projectName;
+        }
+        if (!Utils::isUnset($request->URIsShrink)) {
+            $query['URIs'] = $request->URIsShrink;
+        }
+        $req = new OpenApiRequest([
             'query' => OpenApiUtilClient::query($query),
         ]);
         $params = new Params([
@@ -249,13 +270,23 @@ class Imm extends OpenApiClient
         if (!Utils::isUnset($tmpReq->files)) {
             $request->filesShrink = OpenApiUtilClient::arrayToStringWithSpecifiedStyle($tmpReq->files, 'Files', 'json');
         }
-        $query                    = [];
-        $query['DatasetName']     = $request->datasetName;
-        $query['Files']           = $request->filesShrink;
-        $query['NotifyEndpoint']  = $request->notifyEndpoint;
-        $query['NotifyTopicName'] = $request->notifyTopicName;
-        $query['ProjectName']     = $request->projectName;
-        $req                      = new OpenApiRequest([
+        $query = [];
+        if (!Utils::isUnset($request->datasetName)) {
+            $query['DatasetName'] = $request->datasetName;
+        }
+        if (!Utils::isUnset($request->filesShrink)) {
+            $query['Files'] = $request->filesShrink;
+        }
+        if (!Utils::isUnset($request->notifyEndpoint)) {
+            $query['NotifyEndpoint'] = $request->notifyEndpoint;
+        }
+        if (!Utils::isUnset($request->notifyTopicName)) {
+            $query['NotifyTopicName'] = $request->notifyTopicName;
+        }
+        if (!Utils::isUnset($request->projectName)) {
+            $query['ProjectName'] = $request->projectName;
+        }
+        $req = new OpenApiRequest([
             'query' => OpenApiUtilClient::query($query),
         ]);
         $params = new Params([
@@ -299,11 +330,17 @@ class Imm extends OpenApiClient
         if (!Utils::isUnset($tmpReq->files)) {
             $request->filesShrink = OpenApiUtilClient::arrayToStringWithSpecifiedStyle($tmpReq->files, 'Files', 'json');
         }
-        $query                = [];
-        $query['DatasetName'] = $request->datasetName;
-        $query['Files']       = $request->filesShrink;
-        $query['ProjectName'] = $request->projectName;
-        $req                  = new OpenApiRequest([
+        $query = [];
+        if (!Utils::isUnset($request->datasetName)) {
+            $query['DatasetName'] = $request->datasetName;
+        }
+        if (!Utils::isUnset($request->filesShrink)) {
+            $query['Files'] = $request->filesShrink;
+        }
+        if (!Utils::isUnset($request->projectName)) {
+            $query['ProjectName'] = $request->projectName;
+        }
+        $req = new OpenApiRequest([
             'query' => OpenApiUtilClient::query($query),
         ]);
         $params = new Params([
@@ -334,52 +371,6 @@ class Imm extends OpenApiClient
     }
 
     /**
-     * @param ClusterFiguresRequest $request
-     * @param RuntimeOptions        $runtime
-     *
-     * @return ClusterFiguresResponse
-     */
-    public function clusterFiguresWithOptions($request, $runtime)
-    {
-        Utils::validateModel($request);
-        $query                        = [];
-        $query['CustomMessage']       = $request->customMessage;
-        $query['DatasetName']         = $request->datasetName;
-        $query['FigureType']          = $request->figureType;
-        $query['NotifyTopicEndpoint'] = $request->notifyTopicEndpoint;
-        $query['NotifyTopicName']     = $request->notifyTopicName;
-        $query['ProjectName']         = $request->projectName;
-        $req                          = new OpenApiRequest([
-            'query' => OpenApiUtilClient::query($query),
-        ]);
-        $params = new Params([
-            'action'      => 'ClusterFigures',
-            'version'     => '2020-09-30',
-            'protocol'    => 'HTTPS',
-            'pathname'    => '/',
-            'method'      => 'POST',
-            'authType'    => 'AK',
-            'style'       => 'RPC',
-            'reqBodyType' => 'formData',
-            'bodyType'    => 'json',
-        ]);
-
-        return ClusterFiguresResponse::fromMap($this->callApi($params, $req, $runtime));
-    }
-
-    /**
-     * @param ClusterFiguresRequest $request
-     *
-     * @return ClusterFiguresResponse
-     */
-    public function clusterFigures($request)
-    {
-        $runtime = new RuntimeOptions([]);
-
-        return $this->clusterFiguresWithOptions($request, $runtime);
-    }
-
-    /**
      * @param CreateBindingRequest $request
      * @param RuntimeOptions       $runtime
      *
@@ -388,11 +379,17 @@ class Imm extends OpenApiClient
     public function createBindingWithOptions($request, $runtime)
     {
         Utils::validateModel($request);
-        $query                = [];
-        $query['DatasetName'] = $request->datasetName;
-        $query['ProjectName'] = $request->projectName;
-        $query['URI']         = $request->URI;
-        $req                  = new OpenApiRequest([
+        $query = [];
+        if (!Utils::isUnset($request->datasetName)) {
+            $query['DatasetName'] = $request->datasetName;
+        }
+        if (!Utils::isUnset($request->projectName)) {
+            $query['ProjectName'] = $request->projectName;
+        }
+        if (!Utils::isUnset($request->URI)) {
+            $query['URI'] = $request->URI;
+        }
+        $req = new OpenApiRequest([
             'query' => OpenApiUtilClient::query($query),
         ]);
         $params = new Params([
@@ -431,17 +428,35 @@ class Imm extends OpenApiClient
     public function createDatasetWithOptions($request, $runtime)
     {
         Utils::validateModel($request);
-        $query                            = [];
-        $query['DatasetMaxBindCount']     = $request->datasetMaxBindCount;
-        $query['DatasetMaxEntityCount']   = $request->datasetMaxEntityCount;
-        $query['DatasetMaxFileCount']     = $request->datasetMaxFileCount;
-        $query['DatasetMaxRelationCount'] = $request->datasetMaxRelationCount;
-        $query['DatasetMaxTotalFileSize'] = $request->datasetMaxTotalFileSize;
-        $query['DatasetName']             = $request->datasetName;
-        $query['Description']             = $request->description;
-        $query['ProjectName']             = $request->projectName;
-        $query['TemplateId']              = $request->templateId;
-        $req                              = new OpenApiRequest([
+        $query = [];
+        if (!Utils::isUnset($request->datasetMaxBindCount)) {
+            $query['DatasetMaxBindCount'] = $request->datasetMaxBindCount;
+        }
+        if (!Utils::isUnset($request->datasetMaxEntityCount)) {
+            $query['DatasetMaxEntityCount'] = $request->datasetMaxEntityCount;
+        }
+        if (!Utils::isUnset($request->datasetMaxFileCount)) {
+            $query['DatasetMaxFileCount'] = $request->datasetMaxFileCount;
+        }
+        if (!Utils::isUnset($request->datasetMaxRelationCount)) {
+            $query['DatasetMaxRelationCount'] = $request->datasetMaxRelationCount;
+        }
+        if (!Utils::isUnset($request->datasetMaxTotalFileSize)) {
+            $query['DatasetMaxTotalFileSize'] = $request->datasetMaxTotalFileSize;
+        }
+        if (!Utils::isUnset($request->datasetName)) {
+            $query['DatasetName'] = $request->datasetName;
+        }
+        if (!Utils::isUnset($request->description)) {
+            $query['Description'] = $request->description;
+        }
+        if (!Utils::isUnset($request->projectName)) {
+            $query['ProjectName'] = $request->projectName;
+        }
+        if (!Utils::isUnset($request->templateId)) {
+            $query['TemplateId'] = $request->templateId;
+        }
+        $req = new OpenApiRequest([
             'query' => OpenApiUtilClient::query($query),
         ]);
         $params = new Params([
@@ -480,11 +495,23 @@ class Imm extends OpenApiClient
     public function createDetectVideoLabelsTaskWithOptions($request, $runtime)
     {
         Utils::validateModel($request);
-        $query                = [];
-        $query['ProjectName'] = $request->projectName;
-        $query['SourceURI']   = $request->sourceURI;
-        $query['UserData']    = $request->userData;
-        $req                  = new OpenApiRequest([
+        $query = [];
+        if (!Utils::isUnset($request->notifyEndpoint)) {
+            $query['NotifyEndpoint'] = $request->notifyEndpoint;
+        }
+        if (!Utils::isUnset($request->notifyTopicName)) {
+            $query['NotifyTopicName'] = $request->notifyTopicName;
+        }
+        if (!Utils::isUnset($request->projectName)) {
+            $query['ProjectName'] = $request->projectName;
+        }
+        if (!Utils::isUnset($request->sourceURI)) {
+            $query['SourceURI'] = $request->sourceURI;
+        }
+        if (!Utils::isUnset($request->userData)) {
+            $query['UserData'] = $request->userData;
+        }
+        $req = new OpenApiRequest([
             'query' => OpenApiUtilClient::query($query),
         ]);
         $params = new Params([
@@ -515,6 +542,122 @@ class Imm extends OpenApiClient
     }
 
     /**
+     * @param CreateFigureClusteringTaskRequest $request
+     * @param RuntimeOptions                    $runtime
+     *
+     * @return CreateFigureClusteringTaskResponse
+     */
+    public function createFigureClusteringTaskWithOptions($request, $runtime)
+    {
+        Utils::validateModel($request);
+        $query = [];
+        if (!Utils::isUnset($request->datasetName)) {
+            $query['DatasetName'] = $request->datasetName;
+        }
+        if (!Utils::isUnset($request->notifyEndpoint)) {
+            $query['NotifyEndpoint'] = $request->notifyEndpoint;
+        }
+        if (!Utils::isUnset($request->notifyTopicName)) {
+            $query['NotifyTopicName'] = $request->notifyTopicName;
+        }
+        if (!Utils::isUnset($request->projectName)) {
+            $query['ProjectName'] = $request->projectName;
+        }
+        if (!Utils::isUnset($request->userData)) {
+            $query['UserData'] = $request->userData;
+        }
+        $req = new OpenApiRequest([
+            'query' => OpenApiUtilClient::query($query),
+        ]);
+        $params = new Params([
+            'action'      => 'CreateFigureClusteringTask',
+            'version'     => '2020-09-30',
+            'protocol'    => 'HTTPS',
+            'pathname'    => '/',
+            'method'      => 'POST',
+            'authType'    => 'AK',
+            'style'       => 'RPC',
+            'reqBodyType' => 'formData',
+            'bodyType'    => 'json',
+        ]);
+
+        return CreateFigureClusteringTaskResponse::fromMap($this->callApi($params, $req, $runtime));
+    }
+
+    /**
+     * @param CreateFigureClusteringTaskRequest $request
+     *
+     * @return CreateFigureClusteringTaskResponse
+     */
+    public function createFigureClusteringTask($request)
+    {
+        $runtime = new RuntimeOptions([]);
+
+        return $this->createFigureClusteringTaskWithOptions($request, $runtime);
+    }
+
+    /**
+     * @param CreateFigureClustersMergingTaskRequest $request
+     * @param RuntimeOptions                         $runtime
+     *
+     * @return CreateFigureClustersMergingTaskResponse
+     */
+    public function createFigureClustersMergingTaskWithOptions($request, $runtime)
+    {
+        Utils::validateModel($request);
+        $query = [];
+        if (!Utils::isUnset($request->datasetName)) {
+            $query['DatasetName'] = $request->datasetName;
+        }
+        if (!Utils::isUnset($request->from)) {
+            $query['From'] = $request->from;
+        }
+        if (!Utils::isUnset($request->notifyEndpoint)) {
+            $query['NotifyEndpoint'] = $request->notifyEndpoint;
+        }
+        if (!Utils::isUnset($request->notifyTopicName)) {
+            $query['NotifyTopicName'] = $request->notifyTopicName;
+        }
+        if (!Utils::isUnset($request->projectName)) {
+            $query['ProjectName'] = $request->projectName;
+        }
+        if (!Utils::isUnset($request->to)) {
+            $query['To'] = $request->to;
+        }
+        if (!Utils::isUnset($request->userData)) {
+            $query['UserData'] = $request->userData;
+        }
+        $req = new OpenApiRequest([
+            'query' => OpenApiUtilClient::query($query),
+        ]);
+        $params = new Params([
+            'action'      => 'CreateFigureClustersMergingTask',
+            'version'     => '2020-09-30',
+            'protocol'    => 'HTTPS',
+            'pathname'    => '/',
+            'method'      => 'POST',
+            'authType'    => 'AK',
+            'style'       => 'RPC',
+            'reqBodyType' => 'formData',
+            'bodyType'    => 'json',
+        ]);
+
+        return CreateFigureClustersMergingTaskResponse::fromMap($this->callApi($params, $req, $runtime));
+    }
+
+    /**
+     * @param CreateFigureClustersMergingTaskRequest $request
+     *
+     * @return CreateFigureClustersMergingTaskResponse
+     */
+    public function createFigureClustersMergingTask($request)
+    {
+        $runtime = new RuntimeOptions([]);
+
+        return $this->createFigureClustersMergingTaskWithOptions($request, $runtime);
+    }
+
+    /**
      * @param CreateProjectRequest $request
      * @param RuntimeOptions       $runtime
      *
@@ -523,20 +666,44 @@ class Imm extends OpenApiClient
     public function createProjectWithOptions($request, $runtime)
     {
         Utils::validateModel($request);
-        $query                            = [];
-        $query['DatasetMaxBindCount']     = $request->datasetMaxBindCount;
-        $query['DatasetMaxEntityCount']   = $request->datasetMaxEntityCount;
-        $query['DatasetMaxFileCount']     = $request->datasetMaxFileCount;
-        $query['DatasetMaxRelationCount'] = $request->datasetMaxRelationCount;
-        $query['DatasetMaxTotalFileSize'] = $request->datasetMaxTotalFileSize;
-        $query['Description']             = $request->description;
-        $query['EngineConcurrency']       = $request->engineConcurrency;
-        $query['ProjectMaxDatasetCount']  = $request->projectMaxDatasetCount;
-        $query['ProjectName']             = $request->projectName;
-        $query['ProjectQueriesPerSecond'] = $request->projectQueriesPerSecond;
-        $query['ServiceRole']             = $request->serviceRole;
-        $query['TemplateId']              = $request->templateId;
-        $req                              = new OpenApiRequest([
+        $query = [];
+        if (!Utils::isUnset($request->datasetMaxBindCount)) {
+            $query['DatasetMaxBindCount'] = $request->datasetMaxBindCount;
+        }
+        if (!Utils::isUnset($request->datasetMaxEntityCount)) {
+            $query['DatasetMaxEntityCount'] = $request->datasetMaxEntityCount;
+        }
+        if (!Utils::isUnset($request->datasetMaxFileCount)) {
+            $query['DatasetMaxFileCount'] = $request->datasetMaxFileCount;
+        }
+        if (!Utils::isUnset($request->datasetMaxRelationCount)) {
+            $query['DatasetMaxRelationCount'] = $request->datasetMaxRelationCount;
+        }
+        if (!Utils::isUnset($request->datasetMaxTotalFileSize)) {
+            $query['DatasetMaxTotalFileSize'] = $request->datasetMaxTotalFileSize;
+        }
+        if (!Utils::isUnset($request->description)) {
+            $query['Description'] = $request->description;
+        }
+        if (!Utils::isUnset($request->engineConcurrency)) {
+            $query['EngineConcurrency'] = $request->engineConcurrency;
+        }
+        if (!Utils::isUnset($request->projectMaxDatasetCount)) {
+            $query['ProjectMaxDatasetCount'] = $request->projectMaxDatasetCount;
+        }
+        if (!Utils::isUnset($request->projectName)) {
+            $query['ProjectName'] = $request->projectName;
+        }
+        if (!Utils::isUnset($request->projectQueriesPerSecond)) {
+            $query['ProjectQueriesPerSecond'] = $request->projectQueriesPerSecond;
+        }
+        if (!Utils::isUnset($request->serviceRole)) {
+            $query['ServiceRole'] = $request->serviceRole;
+        }
+        if (!Utils::isUnset($request->templateId)) {
+            $query['TemplateId'] = $request->templateId;
+        }
+        $req = new OpenApiRequest([
             'query' => OpenApiUtilClient::query($query),
         ]);
         $params = new Params([
@@ -567,6 +734,82 @@ class Imm extends OpenApiClient
     }
 
     /**
+     * @param CreateStoryRequest $request
+     * @param RuntimeOptions     $runtime
+     *
+     * @return CreateStoryResponse
+     */
+    public function createStoryWithOptions($request, $runtime)
+    {
+        Utils::validateModel($request);
+        $body = [];
+        if (!Utils::isUnset($request->datasetName)) {
+            $body['DatasetName'] = $request->datasetName;
+        }
+        if (!Utils::isUnset($request->maxFileCount)) {
+            $body['MaxFileCount'] = $request->maxFileCount;
+        }
+        if (!Utils::isUnset($request->minFileCount)) {
+            $body['MinFileCount'] = $request->minFileCount;
+        }
+        if (!Utils::isUnset($request->notifyEndpoint)) {
+            $body['NotifyEndpoint'] = $request->notifyEndpoint;
+        }
+        if (!Utils::isUnset($request->notifyTopicName)) {
+            $body['NotifyTopicName'] = $request->notifyTopicName;
+        }
+        if (!Utils::isUnset($request->objectId)) {
+            $body['ObjectId'] = $request->objectId;
+        }
+        if (!Utils::isUnset($request->projectName)) {
+            $body['ProjectName'] = $request->projectName;
+        }
+        if (!Utils::isUnset($request->storyEndTime)) {
+            $body['StoryEndTime'] = $request->storyEndTime;
+        }
+        if (!Utils::isUnset($request->storyName)) {
+            $body['StoryName'] = $request->storyName;
+        }
+        if (!Utils::isUnset($request->storyStartTime)) {
+            $body['StoryStartTime'] = $request->storyStartTime;
+        }
+        if (!Utils::isUnset($request->storySubType)) {
+            $body['StorySubType'] = $request->storySubType;
+        }
+        if (!Utils::isUnset($request->storyType)) {
+            $body['StoryType'] = $request->storyType;
+        }
+        $req = new OpenApiRequest([
+            'body' => OpenApiUtilClient::parseToMap($body),
+        ]);
+        $params = new Params([
+            'action'      => 'CreateStory',
+            'version'     => '2020-09-30',
+            'protocol'    => 'HTTPS',
+            'pathname'    => '/',
+            'method'      => 'POST',
+            'authType'    => 'AK',
+            'style'       => 'RPC',
+            'reqBodyType' => 'formData',
+            'bodyType'    => 'json',
+        ]);
+
+        return CreateStoryResponse::fromMap($this->callApi($params, $req, $runtime));
+    }
+
+    /**
+     * @param CreateStoryRequest $request
+     *
+     * @return CreateStoryResponse
+     */
+    public function createStory($request)
+    {
+        $runtime = new RuntimeOptions([]);
+
+        return $this->createStoryWithOptions($request, $runtime);
+    }
+
+    /**
      * @param DeleteBindingRequest $request
      * @param RuntimeOptions       $runtime
      *
@@ -575,11 +818,20 @@ class Imm extends OpenApiClient
     public function deleteBindingWithOptions($request, $runtime)
     {
         Utils::validateModel($request);
-        $query                = [];
-        $query['DatasetName'] = $request->datasetName;
-        $query['ProjectName'] = $request->projectName;
-        $query['URI']         = $request->URI;
-        $req                  = new OpenApiRequest([
+        $query = [];
+        if (!Utils::isUnset($request->cleanup)) {
+            $query['Cleanup'] = $request->cleanup;
+        }
+        if (!Utils::isUnset($request->datasetName)) {
+            $query['DatasetName'] = $request->datasetName;
+        }
+        if (!Utils::isUnset($request->projectName)) {
+            $query['ProjectName'] = $request->projectName;
+        }
+        if (!Utils::isUnset($request->URI)) {
+            $query['URI'] = $request->URI;
+        }
+        $req = new OpenApiRequest([
             'query' => OpenApiUtilClient::query($query),
         ]);
         $params = new Params([
@@ -618,10 +870,14 @@ class Imm extends OpenApiClient
     public function deleteDatasetWithOptions($request, $runtime)
     {
         Utils::validateModel($request);
-        $query                = [];
-        $query['DatasetName'] = $request->datasetName;
-        $query['ProjectName'] = $request->projectName;
-        $req                  = new OpenApiRequest([
+        $query = [];
+        if (!Utils::isUnset($request->datasetName)) {
+            $query['DatasetName'] = $request->datasetName;
+        }
+        if (!Utils::isUnset($request->projectName)) {
+            $query['ProjectName'] = $request->projectName;
+        }
+        $req = new OpenApiRequest([
             'query' => OpenApiUtilClient::query($query),
         ]);
         $params = new Params([
@@ -660,11 +916,17 @@ class Imm extends OpenApiClient
     public function deleteFileMetaWithOptions($request, $runtime)
     {
         Utils::validateModel($request);
-        $query                = [];
-        $query['DatasetName'] = $request->datasetName;
-        $query['ProjectName'] = $request->projectName;
-        $query['URI']         = $request->URI;
-        $req                  = new OpenApiRequest([
+        $query = [];
+        if (!Utils::isUnset($request->datasetName)) {
+            $query['DatasetName'] = $request->datasetName;
+        }
+        if (!Utils::isUnset($request->projectName)) {
+            $query['ProjectName'] = $request->projectName;
+        }
+        if (!Utils::isUnset($request->URI)) {
+            $query['URI'] = $request->URI;
+        }
+        $req = new OpenApiRequest([
             'query' => OpenApiUtilClient::query($query),
         ]);
         $params = new Params([
@@ -703,9 +965,11 @@ class Imm extends OpenApiClient
     public function deleteProjectWithOptions($request, $runtime)
     {
         Utils::validateModel($request);
-        $query                = [];
-        $query['ProjectName'] = $request->projectName;
-        $req                  = new OpenApiRequest([
+        $query = [];
+        if (!Utils::isUnset($request->projectName)) {
+            $query['ProjectName'] = $request->projectName;
+        }
+        $req = new OpenApiRequest([
             'query' => OpenApiUtilClient::query($query),
         ]);
         $params = new Params([
@@ -736,6 +1000,55 @@ class Imm extends OpenApiClient
     }
 
     /**
+     * @param DeleteStoryRequest $request
+     * @param RuntimeOptions     $runtime
+     *
+     * @return DeleteStoryResponse
+     */
+    public function deleteStoryWithOptions($request, $runtime)
+    {
+        Utils::validateModel($request);
+        $query = [];
+        if (!Utils::isUnset($request->datasetName)) {
+            $query['DatasetName'] = $request->datasetName;
+        }
+        if (!Utils::isUnset($request->objectId)) {
+            $query['ObjectId'] = $request->objectId;
+        }
+        if (!Utils::isUnset($request->projectName)) {
+            $query['ProjectName'] = $request->projectName;
+        }
+        $req = new OpenApiRequest([
+            'query' => OpenApiUtilClient::query($query),
+        ]);
+        $params = new Params([
+            'action'      => 'DeleteStory',
+            'version'     => '2020-09-30',
+            'protocol'    => 'HTTPS',
+            'pathname'    => '/',
+            'method'      => 'POST',
+            'authType'    => 'AK',
+            'style'       => 'RPC',
+            'reqBodyType' => 'formData',
+            'bodyType'    => 'json',
+        ]);
+
+        return DeleteStoryResponse::fromMap($this->callApi($params, $req, $runtime));
+    }
+
+    /**
+     * @param DeleteStoryRequest $request
+     *
+     * @return DeleteStoryResponse
+     */
+    public function deleteStory($request)
+    {
+        $runtime = new RuntimeOptions([]);
+
+        return $this->deleteStoryWithOptions($request, $runtime);
+    }
+
+    /**
      * @param DetectImageLabelsRequest $request
      * @param RuntimeOptions           $runtime
      *
@@ -744,11 +1057,17 @@ class Imm extends OpenApiClient
     public function detectImageLabelsWithOptions($request, $runtime)
     {
         Utils::validateModel($request);
-        $query                = [];
-        $query['ProjectName'] = $request->projectName;
-        $query['SourceURI']   = $request->sourceURI;
-        $query['Threshold']   = $request->threshold;
-        $req                  = new OpenApiRequest([
+        $query = [];
+        if (!Utils::isUnset($request->projectName)) {
+            $query['ProjectName'] = $request->projectName;
+        }
+        if (!Utils::isUnset($request->sourceURI)) {
+            $query['SourceURI'] = $request->sourceURI;
+        }
+        if (!Utils::isUnset($request->threshold)) {
+            $query['Threshold'] = $request->threshold;
+        }
+        $req = new OpenApiRequest([
             'query' => OpenApiUtilClient::query($query),
         ]);
         $params = new Params([
@@ -787,13 +1106,23 @@ class Imm extends OpenApiClient
     public function fuzzyQueryWithOptions($request, $runtime)
     {
         Utils::validateModel($request);
-        $query                = [];
-        $query['DatasetName'] = $request->datasetName;
-        $query['MaxResults']  = $request->maxResults;
-        $query['NextToken']   = $request->nextToken;
-        $query['ProjectName'] = $request->projectName;
-        $query['Query']       = $request->query;
-        $req                  = new OpenApiRequest([
+        $query = [];
+        if (!Utils::isUnset($request->datasetName)) {
+            $query['DatasetName'] = $request->datasetName;
+        }
+        if (!Utils::isUnset($request->maxResults)) {
+            $query['MaxResults'] = $request->maxResults;
+        }
+        if (!Utils::isUnset($request->nextToken)) {
+            $query['NextToken'] = $request->nextToken;
+        }
+        if (!Utils::isUnset($request->projectName)) {
+            $query['ProjectName'] = $request->projectName;
+        }
+        if (!Utils::isUnset($request->query)) {
+            $query['Query'] = $request->query;
+        }
+        $req = new OpenApiRequest([
             'query' => OpenApiUtilClient::query($query),
         ]);
         $params = new Params([
@@ -832,11 +1161,17 @@ class Imm extends OpenApiClient
     public function getBindingWithOptions($request, $runtime)
     {
         Utils::validateModel($request);
-        $query                = [];
-        $query['DatasetName'] = $request->datasetName;
-        $query['ProjectName'] = $request->projectName;
-        $query['URI']         = $request->URI;
-        $req                  = new OpenApiRequest([
+        $query = [];
+        if (!Utils::isUnset($request->datasetName)) {
+            $query['DatasetName'] = $request->datasetName;
+        }
+        if (!Utils::isUnset($request->projectName)) {
+            $query['ProjectName'] = $request->projectName;
+        }
+        if (!Utils::isUnset($request->URI)) {
+            $query['URI'] = $request->URI;
+        }
+        $req = new OpenApiRequest([
             'query' => OpenApiUtilClient::query($query),
         ]);
         $params = new Params([
@@ -875,11 +1210,17 @@ class Imm extends OpenApiClient
     public function getDatasetWithOptions($request, $runtime)
     {
         Utils::validateModel($request);
-        $query                   = [];
-        $query['DatasetName']    = $request->datasetName;
-        $query['ProjectName']    = $request->projectName;
-        $query['WithStatistics'] = $request->withStatistics;
-        $req                     = new OpenApiRequest([
+        $query = [];
+        if (!Utils::isUnset($request->datasetName)) {
+            $query['DatasetName'] = $request->datasetName;
+        }
+        if (!Utils::isUnset($request->projectName)) {
+            $query['ProjectName'] = $request->projectName;
+        }
+        if (!Utils::isUnset($request->withStatistics)) {
+            $query['WithStatistics'] = $request->withStatistics;
+        }
+        $req = new OpenApiRequest([
             'query' => OpenApiUtilClient::query($query),
         ]);
         $params = new Params([
@@ -918,11 +1259,17 @@ class Imm extends OpenApiClient
     public function getDetectVideoLabelsResultWithOptions($request, $runtime)
     {
         Utils::validateModel($request);
-        $query                = [];
-        $query['ProjectName'] = $request->projectName;
-        $query['TaskId']      = $request->taskId;
-        $query['TaskType']    = $request->taskType;
-        $req                  = new OpenApiRequest([
+        $query = [];
+        if (!Utils::isUnset($request->projectName)) {
+            $query['ProjectName'] = $request->projectName;
+        }
+        if (!Utils::isUnset($request->taskId)) {
+            $query['TaskId'] = $request->taskId;
+        }
+        if (!Utils::isUnset($request->taskType)) {
+            $query['TaskType'] = $request->taskType;
+        }
+        $req = new OpenApiRequest([
             'query' => OpenApiUtilClient::query($query),
         ]);
         $params = new Params([
@@ -961,11 +1308,17 @@ class Imm extends OpenApiClient
     public function getFigureClusterWithOptions($request, $runtime)
     {
         Utils::validateModel($request);
-        $query                    = [];
-        $query['DatasetName']     = $request->datasetName;
-        $query['FigureClusterId'] = $request->figureClusterId;
-        $query['ProjectName']     = $request->projectName;
-        $req                      = new OpenApiRequest([
+        $query = [];
+        if (!Utils::isUnset($request->datasetName)) {
+            $query['DatasetName'] = $request->datasetName;
+        }
+        if (!Utils::isUnset($request->objectId)) {
+            $query['ObjectId'] = $request->objectId;
+        }
+        if (!Utils::isUnset($request->projectName)) {
+            $query['ProjectName'] = $request->projectName;
+        }
+        $req = new OpenApiRequest([
             'query' => OpenApiUtilClient::query($query),
         ]);
         $params = new Params([
@@ -1004,11 +1357,17 @@ class Imm extends OpenApiClient
     public function getFileMetaWithOptions($request, $runtime)
     {
         Utils::validateModel($request);
-        $query                = [];
-        $query['DatasetName'] = $request->datasetName;
-        $query['ProjectName'] = $request->projectName;
-        $query['URI']         = $request->URI;
-        $req                  = new OpenApiRequest([
+        $query = [];
+        if (!Utils::isUnset($request->datasetName)) {
+            $query['DatasetName'] = $request->datasetName;
+        }
+        if (!Utils::isUnset($request->projectName)) {
+            $query['ProjectName'] = $request->projectName;
+        }
+        if (!Utils::isUnset($request->URI)) {
+            $query['URI'] = $request->URI;
+        }
+        $req = new OpenApiRequest([
             'query' => OpenApiUtilClient::query($query),
         ]);
         $params = new Params([
@@ -1039,48 +1398,6 @@ class Imm extends OpenApiClient
     }
 
     /**
-     * @param GetFileSignedURIRequest $request
-     * @param RuntimeOptions          $runtime
-     *
-     * @return GetFileSignedURIResponse
-     */
-    public function getFileSignedURIWithOptions($request, $runtime)
-    {
-        Utils::validateModel($request);
-        $query                = [];
-        $query['ProjectName'] = $request->projectName;
-        $query['URI']         = $request->URI;
-        $req                  = new OpenApiRequest([
-            'query' => OpenApiUtilClient::query($query),
-        ]);
-        $params = new Params([
-            'action'      => 'GetFileSignedURI',
-            'version'     => '2020-09-30',
-            'protocol'    => 'HTTPS',
-            'pathname'    => '/',
-            'method'      => 'POST',
-            'authType'    => 'AK',
-            'style'       => 'RPC',
-            'reqBodyType' => 'formData',
-            'bodyType'    => 'json',
-        ]);
-
-        return GetFileSignedURIResponse::fromMap($this->callApi($params, $req, $runtime));
-    }
-
-    /**
-     * @param GetFileSignedURIRequest $request
-     *
-     * @return GetFileSignedURIResponse
-     */
-    public function getFileSignedURI($request)
-    {
-        $runtime = new RuntimeOptions([]);
-
-        return $this->getFileSignedURIWithOptions($request, $runtime);
-    }
-
-    /**
      * @param GetProjectRequest $request
      * @param RuntimeOptions    $runtime
      *
@@ -1089,10 +1406,14 @@ class Imm extends OpenApiClient
     public function getProjectWithOptions($request, $runtime)
     {
         Utils::validateModel($request);
-        $query                   = [];
-        $query['ProjectName']    = $request->projectName;
-        $query['WithStatistics'] = $request->withStatistics;
-        $req                     = new OpenApiRequest([
+        $query = [];
+        if (!Utils::isUnset($request->projectName)) {
+            $query['ProjectName'] = $request->projectName;
+        }
+        if (!Utils::isUnset($request->withStatistics)) {
+            $query['WithStatistics'] = $request->withStatistics;
+        }
+        $req = new OpenApiRequest([
             'query' => OpenApiUtilClient::query($query),
         ]);
         $params = new Params([
@@ -1123,6 +1444,55 @@ class Imm extends OpenApiClient
     }
 
     /**
+     * @param GetStoryRequest $request
+     * @param RuntimeOptions  $runtime
+     *
+     * @return GetStoryResponse
+     */
+    public function getStoryWithOptions($request, $runtime)
+    {
+        Utils::validateModel($request);
+        $query = [];
+        if (!Utils::isUnset($request->datasetName)) {
+            $query['DatasetName'] = $request->datasetName;
+        }
+        if (!Utils::isUnset($request->objectId)) {
+            $query['ObjectId'] = $request->objectId;
+        }
+        if (!Utils::isUnset($request->projectName)) {
+            $query['ProjectName'] = $request->projectName;
+        }
+        $req = new OpenApiRequest([
+            'query' => OpenApiUtilClient::query($query),
+        ]);
+        $params = new Params([
+            'action'      => 'GetStory',
+            'version'     => '2020-09-30',
+            'protocol'    => 'HTTPS',
+            'pathname'    => '/',
+            'method'      => 'POST',
+            'authType'    => 'AK',
+            'style'       => 'RPC',
+            'reqBodyType' => 'formData',
+            'bodyType'    => 'json',
+        ]);
+
+        return GetStoryResponse::fromMap($this->callApi($params, $req, $runtime));
+    }
+
+    /**
+     * @param GetStoryRequest $request
+     *
+     * @return GetStoryResponse
+     */
+    public function getStory($request)
+    {
+        $runtime = new RuntimeOptions([]);
+
+        return $this->getStoryWithOptions($request, $runtime);
+    }
+
+    /**
      * @param GetTaskRequest $request
      * @param RuntimeOptions $runtime
      *
@@ -1131,11 +1501,17 @@ class Imm extends OpenApiClient
     public function getTaskWithOptions($request, $runtime)
     {
         Utils::validateModel($request);
-        $query                = [];
-        $query['ProjectName'] = $request->projectName;
-        $query['TaskId']      = $request->taskId;
-        $query['TaskType']    = $request->taskType;
-        $req                  = new OpenApiRequest([
+        $query = [];
+        if (!Utils::isUnset($request->projectName)) {
+            $query['ProjectName'] = $request->projectName;
+        }
+        if (!Utils::isUnset($request->taskId)) {
+            $query['TaskId'] = $request->taskId;
+        }
+        if (!Utils::isUnset($request->taskType)) {
+            $query['TaskType'] = $request->taskType;
+        }
+        $req = new OpenApiRequest([
             'query' => OpenApiUtilClient::query($query),
         ]);
         $params = new Params([
@@ -1188,23 +1564,53 @@ class Imm extends OpenApiClient
         if (!Utils::isUnset($tmpReq->watermark)) {
             $request->watermarkShrink = OpenApiUtilClient::arrayToStringWithSpecifiedStyle(Tea::merge($tmpReq->watermark), 'Watermark', 'json');
         }
-        $query                     = [];
-        $query['AssumeRoleChain']  = $request->assumeRoleChainShrink;
-        $query['ExternalUploaded'] = $request->externalUploaded;
-        $query['Filename']         = $request->filename;
-        $query['Hidecmb']          = $request->hidecmb;
-        $query['NotifyEndpoint']   = $request->notifyEndpoint;
-        $query['NotifyTopicName']  = $request->notifyTopicName;
-        $query['Password']         = $request->password;
-        $query['Permission']       = $request->permissionShrink;
-        $query['PreviewPages']     = $request->previewPages;
-        $query['ProjectName']      = $request->projectName;
-        $query['Referer']          = $request->referer;
-        $query['SourceURI']        = $request->sourceURI;
-        $query['User']             = $request->userShrink;
-        $query['UserData']         = $request->userData;
-        $query['Watermark']        = $request->watermarkShrink;
-        $req                       = new OpenApiRequest([
+        $query = [];
+        if (!Utils::isUnset($request->assumeRoleChainShrink)) {
+            $query['AssumeRoleChain'] = $request->assumeRoleChainShrink;
+        }
+        if (!Utils::isUnset($request->externalUploaded)) {
+            $query['ExternalUploaded'] = $request->externalUploaded;
+        }
+        if (!Utils::isUnset($request->filename)) {
+            $query['Filename'] = $request->filename;
+        }
+        if (!Utils::isUnset($request->hidecmb)) {
+            $query['Hidecmb'] = $request->hidecmb;
+        }
+        if (!Utils::isUnset($request->notifyEndpoint)) {
+            $query['NotifyEndpoint'] = $request->notifyEndpoint;
+        }
+        if (!Utils::isUnset($request->notifyTopicName)) {
+            $query['NotifyTopicName'] = $request->notifyTopicName;
+        }
+        if (!Utils::isUnset($request->password)) {
+            $query['Password'] = $request->password;
+        }
+        if (!Utils::isUnset($request->permissionShrink)) {
+            $query['Permission'] = $request->permissionShrink;
+        }
+        if (!Utils::isUnset($request->previewPages)) {
+            $query['PreviewPages'] = $request->previewPages;
+        }
+        if (!Utils::isUnset($request->projectName)) {
+            $query['ProjectName'] = $request->projectName;
+        }
+        if (!Utils::isUnset($request->referer)) {
+            $query['Referer'] = $request->referer;
+        }
+        if (!Utils::isUnset($request->sourceURI)) {
+            $query['SourceURI'] = $request->sourceURI;
+        }
+        if (!Utils::isUnset($request->userShrink)) {
+            $query['User'] = $request->userShrink;
+        }
+        if (!Utils::isUnset($request->userData)) {
+            $query['UserData'] = $request->userData;
+        }
+        if (!Utils::isUnset($request->watermarkShrink)) {
+            $query['Watermark'] = $request->watermarkShrink;
+        }
+        $req = new OpenApiRequest([
             'query' => OpenApiUtilClient::query($query),
         ]);
         $params = new Params([
@@ -1248,13 +1654,23 @@ class Imm extends OpenApiClient
         if (!Utils::isUnset($tmpReq->file)) {
             $request->fileShrink = OpenApiUtilClient::arrayToStringWithSpecifiedStyle(Tea::merge($tmpReq->file), 'File', 'json');
         }
-        $query                    = [];
-        $query['DatasetName']     = $request->datasetName;
-        $query['File']            = $request->fileShrink;
-        $query['NotifyEndpoint']  = $request->notifyEndpoint;
-        $query['NotifyTopicName'] = $request->notifyTopicName;
-        $query['ProjectName']     = $request->projectName;
-        $req                      = new OpenApiRequest([
+        $query = [];
+        if (!Utils::isUnset($request->datasetName)) {
+            $query['DatasetName'] = $request->datasetName;
+        }
+        if (!Utils::isUnset($request->fileShrink)) {
+            $query['File'] = $request->fileShrink;
+        }
+        if (!Utils::isUnset($request->notifyEndpoint)) {
+            $query['NotifyEndpoint'] = $request->notifyEndpoint;
+        }
+        if (!Utils::isUnset($request->notifyTopicName)) {
+            $query['NotifyTopicName'] = $request->notifyTopicName;
+        }
+        if (!Utils::isUnset($request->projectName)) {
+            $query['ProjectName'] = $request->projectName;
+        }
+        $req = new OpenApiRequest([
             'query' => OpenApiUtilClient::query($query),
         ]);
         $params = new Params([
@@ -1293,12 +1709,20 @@ class Imm extends OpenApiClient
     public function listBindingsWithOptions($request, $runtime)
     {
         Utils::validateModel($request);
-        $query                = [];
-        $query['DatasetName'] = $request->datasetName;
-        $query['MaxResults']  = $request->maxResults;
-        $query['NextToken']   = $request->nextToken;
-        $query['ProjectName'] = $request->projectName;
-        $req                  = new OpenApiRequest([
+        $query = [];
+        if (!Utils::isUnset($request->datasetName)) {
+            $query['DatasetName'] = $request->datasetName;
+        }
+        if (!Utils::isUnset($request->maxResults)) {
+            $query['MaxResults'] = $request->maxResults;
+        }
+        if (!Utils::isUnset($request->nextToken)) {
+            $query['NextToken'] = $request->nextToken;
+        }
+        if (!Utils::isUnset($request->projectName)) {
+            $query['ProjectName'] = $request->projectName;
+        }
+        $req = new OpenApiRequest([
             'query' => OpenApiUtilClient::query($query),
         ]);
         $params = new Params([
@@ -1337,12 +1761,20 @@ class Imm extends OpenApiClient
     public function listDatasetsWithOptions($request, $runtime)
     {
         Utils::validateModel($request);
-        $query                = [];
-        $query['MaxResults']  = $request->maxResults;
-        $query['NextToken']   = $request->nextToken;
-        $query['Prefix']      = $request->prefix;
-        $query['ProjectName'] = $request->projectName;
-        $req                  = new OpenApiRequest([
+        $query = [];
+        if (!Utils::isUnset($request->maxResults)) {
+            $query['MaxResults'] = $request->maxResults;
+        }
+        if (!Utils::isUnset($request->nextToken)) {
+            $query['NextToken'] = $request->nextToken;
+        }
+        if (!Utils::isUnset($request->prefix)) {
+            $query['Prefix'] = $request->prefix;
+        }
+        if (!Utils::isUnset($request->projectName)) {
+            $query['ProjectName'] = $request->projectName;
+        }
+        $req = new OpenApiRequest([
             'query' => OpenApiUtilClient::query($query),
         ]);
         $params = new Params([
@@ -1373,53 +1805,6 @@ class Imm extends OpenApiClient
     }
 
     /**
-     * @param ListFigureClustersRequest $request
-     * @param RuntimeOptions            $runtime
-     *
-     * @return ListFigureClustersResponse
-     */
-    public function listFigureClustersWithOptions($request, $runtime)
-    {
-        Utils::validateModel($request);
-        $query                = [];
-        $query['DatasetName'] = $request->datasetName;
-        $query['Labels']      = $request->labels;
-        $query['MaxResults']  = $request->maxResults;
-        $query['NextToken']   = $request->nextToken;
-        $query['Order']       = $request->order;
-        $query['ProjectName'] = $request->projectName;
-        $query['Sort']        = $request->sort;
-        $req                  = new OpenApiRequest([
-            'query' => OpenApiUtilClient::query($query),
-        ]);
-        $params = new Params([
-            'action'      => 'ListFigureClusters',
-            'version'     => '2020-09-30',
-            'protocol'    => 'HTTPS',
-            'pathname'    => '/',
-            'method'      => 'POST',
-            'authType'    => 'AK',
-            'style'       => 'RPC',
-            'reqBodyType' => 'formData',
-            'bodyType'    => 'json',
-        ]);
-
-        return ListFigureClustersResponse::fromMap($this->callApi($params, $req, $runtime));
-    }
-
-    /**
-     * @param ListFigureClustersRequest $request
-     *
-     * @return ListFigureClustersResponse
-     */
-    public function listFigureClusters($request)
-    {
-        $runtime = new RuntimeOptions([]);
-
-        return $this->listFigureClustersWithOptions($request, $runtime);
-    }
-
-    /**
      * @param ListProjectsRequest $request
      * @param RuntimeOptions      $runtime
      *
@@ -1428,11 +1813,17 @@ class Imm extends OpenApiClient
     public function listProjectsWithOptions($request, $runtime)
     {
         Utils::validateModel($request);
-        $query               = [];
-        $query['MaxResults'] = $request->maxResults;
-        $query['NextToken']  = $request->nextToken;
-        $query['Prefix']     = $request->prefix;
-        $req                 = new OpenApiRequest([
+        $query = [];
+        if (!Utils::isUnset($request->maxResults)) {
+            $query['MaxResults'] = $request->maxResults;
+        }
+        if (!Utils::isUnset($request->nextToken)) {
+            $query['NextToken'] = $request->nextToken;
+        }
+        if (!Utils::isUnset($request->prefix)) {
+            $query['Prefix'] = $request->prefix;
+        }
+        $req = new OpenApiRequest([
             'query' => OpenApiUtilClient::query($query),
         ]);
         $params = new Params([
@@ -1471,12 +1862,20 @@ class Imm extends OpenApiClient
     public function listTasksWithOptions($request, $runtime)
     {
         Utils::validateModel($request);
-        $query                = [];
-        $query['MaxResults']  = $request->maxResults;
-        $query['NextToken']   = $request->nextToken;
-        $query['ProjectName'] = $request->projectName;
-        $query['TaskType']    = $request->taskType;
-        $req                  = new OpenApiRequest([
+        $query = [];
+        if (!Utils::isUnset($request->maxResults)) {
+            $query['MaxResults'] = $request->maxResults;
+        }
+        if (!Utils::isUnset($request->nextToken)) {
+            $query['NextToken'] = $request->nextToken;
+        }
+        if (!Utils::isUnset($request->projectName)) {
+            $query['ProjectName'] = $request->projectName;
+        }
+        if (!Utils::isUnset($request->taskType)) {
+            $query['TaskType'] = $request->taskType;
+        }
+        $req = new OpenApiRequest([
             'query' => OpenApiUtilClient::query($query),
         ]);
         $params = new Params([
@@ -1515,16 +1914,32 @@ class Imm extends OpenApiClient
     public function mergeFigureClustersWithOptions($request, $runtime)
     {
         Utils::validateModel($request);
-        $query                        = [];
-        $query['ClusterIdFrom']       = $request->clusterIdFrom;
-        $query['ClusterIdTo']         = $request->clusterIdTo;
-        $query['CustomMessage']       = $request->customMessage;
-        $query['DatasetName']         = $request->datasetName;
-        $query['FigureType']          = $request->figureType;
-        $query['NotifyTopicEndpoint'] = $request->notifyTopicEndpoint;
-        $query['NotifyTopicName']     = $request->notifyTopicName;
-        $query['ProjectName']         = $request->projectName;
-        $req                          = new OpenApiRequest([
+        $query = [];
+        if (!Utils::isUnset($request->clusterIdFrom)) {
+            $query['ClusterIdFrom'] = $request->clusterIdFrom;
+        }
+        if (!Utils::isUnset($request->clusterIdTo)) {
+            $query['ClusterIdTo'] = $request->clusterIdTo;
+        }
+        if (!Utils::isUnset($request->customMessage)) {
+            $query['CustomMessage'] = $request->customMessage;
+        }
+        if (!Utils::isUnset($request->datasetName)) {
+            $query['DatasetName'] = $request->datasetName;
+        }
+        if (!Utils::isUnset($request->figureType)) {
+            $query['FigureType'] = $request->figureType;
+        }
+        if (!Utils::isUnset($request->notifyTopicEndpoint)) {
+            $query['NotifyTopicEndpoint'] = $request->notifyTopicEndpoint;
+        }
+        if (!Utils::isUnset($request->notifyTopicName)) {
+            $query['NotifyTopicName'] = $request->notifyTopicName;
+        }
+        if (!Utils::isUnset($request->projectName)) {
+            $query['ProjectName'] = $request->projectName;
+        }
+        $req = new OpenApiRequest([
             'query' => OpenApiUtilClient::query($query),
         ]);
         $params = new Params([
@@ -1555,6 +1970,157 @@ class Imm extends OpenApiClient
     }
 
     /**
+     * @param QueryFigureClustersRequest $request
+     * @param RuntimeOptions             $runtime
+     *
+     * @return QueryFigureClustersResponse
+     */
+    public function queryFigureClustersWithOptions($request, $runtime)
+    {
+        Utils::validateModel($request);
+        $query = [];
+        if (!Utils::isUnset($request->customLabels)) {
+            $query['CustomLabels'] = $request->customLabels;
+        }
+        if (!Utils::isUnset($request->datasetName)) {
+            $query['DatasetName'] = $request->datasetName;
+        }
+        if (!Utils::isUnset($request->maxResults)) {
+            $query['MaxResults'] = $request->maxResults;
+        }
+        if (!Utils::isUnset($request->nextToken)) {
+            $query['NextToken'] = $request->nextToken;
+        }
+        if (!Utils::isUnset($request->order)) {
+            $query['Order'] = $request->order;
+        }
+        if (!Utils::isUnset($request->projectName)) {
+            $query['ProjectName'] = $request->projectName;
+        }
+        if (!Utils::isUnset($request->sort)) {
+            $query['Sort'] = $request->sort;
+        }
+        $req = new OpenApiRequest([
+            'query' => OpenApiUtilClient::query($query),
+        ]);
+        $params = new Params([
+            'action'      => 'QueryFigureClusters',
+            'version'     => '2020-09-30',
+            'protocol'    => 'HTTPS',
+            'pathname'    => '/',
+            'method'      => 'POST',
+            'authType'    => 'AK',
+            'style'       => 'RPC',
+            'reqBodyType' => 'formData',
+            'bodyType'    => 'json',
+        ]);
+
+        return QueryFigureClustersResponse::fromMap($this->callApi($params, $req, $runtime));
+    }
+
+    /**
+     * @param QueryFigureClustersRequest $request
+     *
+     * @return QueryFigureClustersResponse
+     */
+    public function queryFigureClusters($request)
+    {
+        $runtime = new RuntimeOptions([]);
+
+        return $this->queryFigureClustersWithOptions($request, $runtime);
+    }
+
+    /**
+     * @param QueryStoriesRequest $tmpReq
+     * @param RuntimeOptions      $runtime
+     *
+     * @return QueryStoriesResponse
+     */
+    public function queryStoriesWithOptions($tmpReq, $runtime)
+    {
+        Utils::validateModel($tmpReq);
+        $request = new QueryStoriesShrinkRequest([]);
+        OpenApiUtilClient::convert($tmpReq, $request);
+        if (!Utils::isUnset($tmpReq->createTimeRange)) {
+            $request->createTimeRangeShrink = OpenApiUtilClient::arrayToStringWithSpecifiedStyle(Tea::merge($tmpReq->createTimeRange), 'CreateTimeRange', 'json');
+        }
+        if (!Utils::isUnset($tmpReq->figureClusterIds)) {
+            $request->figureClusterIdsShrink = OpenApiUtilClient::arrayToStringWithSpecifiedStyle($tmpReq->figureClusterIds, 'FigureClusterIds', 'json');
+        }
+        if (!Utils::isUnset($tmpReq->storyEndTimeRange)) {
+            $request->storyEndTimeRangeShrink = OpenApiUtilClient::arrayToStringWithSpecifiedStyle(Tea::merge($tmpReq->storyEndTimeRange), 'StoryEndTimeRange', 'json');
+        }
+        if (!Utils::isUnset($tmpReq->storyStartTimeRange)) {
+            $request->storyStartTimeRangeShrink = OpenApiUtilClient::arrayToStringWithSpecifiedStyle(Tea::merge($tmpReq->storyStartTimeRange), 'StoryStartTimeRange', 'json');
+        }
+        $query = [];
+        if (!Utils::isUnset($request->createTimeRangeShrink)) {
+            $query['CreateTimeRange'] = $request->createTimeRangeShrink;
+        }
+        if (!Utils::isUnset($request->datasetName)) {
+            $query['DatasetName'] = $request->datasetName;
+        }
+        if (!Utils::isUnset($request->figureClusterIdsShrink)) {
+            $query['FigureClusterIds'] = $request->figureClusterIdsShrink;
+        }
+        if (!Utils::isUnset($request->maxResults)) {
+            $query['MaxResults'] = $request->maxResults;
+        }
+        if (!Utils::isUnset($request->nextToken)) {
+            $query['NextToken'] = $request->nextToken;
+        }
+        if (!Utils::isUnset($request->objectId)) {
+            $query['ObjectId'] = $request->objectId;
+        }
+        if (!Utils::isUnset($request->projectName)) {
+            $query['ProjectName'] = $request->projectName;
+        }
+        if (!Utils::isUnset($request->storyEndTimeRangeShrink)) {
+            $query['StoryEndTimeRange'] = $request->storyEndTimeRangeShrink;
+        }
+        if (!Utils::isUnset($request->storyName)) {
+            $query['StoryName'] = $request->storyName;
+        }
+        if (!Utils::isUnset($request->storyStartTimeRangeShrink)) {
+            $query['StoryStartTimeRange'] = $request->storyStartTimeRangeShrink;
+        }
+        if (!Utils::isUnset($request->storySubType)) {
+            $query['StorySubType'] = $request->storySubType;
+        }
+        if (!Utils::isUnset($request->storyType)) {
+            $query['StoryType'] = $request->storyType;
+        }
+        $req = new OpenApiRequest([
+            'query' => OpenApiUtilClient::query($query),
+        ]);
+        $params = new Params([
+            'action'      => 'QueryStories',
+            'version'     => '2020-09-30',
+            'protocol'    => 'HTTPS',
+            'pathname'    => '/',
+            'method'      => 'POST',
+            'authType'    => 'AK',
+            'style'       => 'RPC',
+            'reqBodyType' => 'formData',
+            'bodyType'    => 'json',
+        ]);
+
+        return QueryStoriesResponse::fromMap($this->callApi($params, $req, $runtime));
+    }
+
+    /**
+     * @param QueryStoriesRequest $request
+     *
+     * @return QueryStoriesResponse
+     */
+    public function queryStories($request)
+    {
+        $runtime = new RuntimeOptions([]);
+
+        return $this->queryStoriesWithOptions($request, $runtime);
+    }
+
+    /**
      * @param RefreshWebofficeTokenRequest $tmpReq
      * @param RuntimeOptions               $runtime
      *
@@ -1568,12 +2134,20 @@ class Imm extends OpenApiClient
         if (!Utils::isUnset($tmpReq->assumeRoleChain)) {
             $request->assumeRoleChainShrink = OpenApiUtilClient::arrayToStringWithSpecifiedStyle(Tea::merge($tmpReq->assumeRoleChain), 'AssumeRoleChain', 'json');
         }
-        $query                    = [];
-        $query['AccessToken']     = $request->accessToken;
-        $query['AssumeRoleChain'] = $request->assumeRoleChainShrink;
-        $query['ProjectName']     = $request->projectName;
-        $query['RefreshToken']    = $request->refreshToken;
-        $req                      = new OpenApiRequest([
+        $query = [];
+        if (!Utils::isUnset($request->accessToken)) {
+            $query['AccessToken'] = $request->accessToken;
+        }
+        if (!Utils::isUnset($request->assumeRoleChainShrink)) {
+            $query['AssumeRoleChain'] = $request->assumeRoleChainShrink;
+        }
+        if (!Utils::isUnset($request->projectName)) {
+            $query['ProjectName'] = $request->projectName;
+        }
+        if (!Utils::isUnset($request->refreshToken)) {
+            $query['RefreshToken'] = $request->refreshToken;
+        }
+        $req = new OpenApiRequest([
             'query' => OpenApiUtilClient::query($query),
         ]);
         $params = new Params([
@@ -1612,11 +2186,17 @@ class Imm extends OpenApiClient
     public function resumeBindingWithOptions($request, $runtime)
     {
         Utils::validateModel($request);
-        $query                = [];
-        $query['DatasetName'] = $request->datasetName;
-        $query['ProjectName'] = $request->projectName;
-        $query['URI']         = $request->URI;
-        $req                  = new OpenApiRequest([
+        $query = [];
+        if (!Utils::isUnset($request->datasetName)) {
+            $query['DatasetName'] = $request->datasetName;
+        }
+        if (!Utils::isUnset($request->projectName)) {
+            $query['ProjectName'] = $request->projectName;
+        }
+        if (!Utils::isUnset($request->URI)) {
+            $query['URI'] = $request->URI;
+        }
+        $req = new OpenApiRequest([
             'query' => OpenApiUtilClient::query($query),
         ]);
         $params = new Params([
@@ -1655,13 +2235,23 @@ class Imm extends OpenApiClient
     public function semanticQueryWithOptions($request, $runtime)
     {
         Utils::validateModel($request);
-        $query                = [];
-        $query['DatasetName'] = $request->datasetName;
-        $query['MaxResults']  = $request->maxResults;
-        $query['NextToken']   = $request->nextToken;
-        $query['ProjectName'] = $request->projectName;
-        $query['Query']       = $request->query;
-        $req                  = new OpenApiRequest([
+        $query = [];
+        if (!Utils::isUnset($request->datasetName)) {
+            $query['DatasetName'] = $request->datasetName;
+        }
+        if (!Utils::isUnset($request->maxResults)) {
+            $query['MaxResults'] = $request->maxResults;
+        }
+        if (!Utils::isUnset($request->nextToken)) {
+            $query['NextToken'] = $request->nextToken;
+        }
+        if (!Utils::isUnset($request->projectName)) {
+            $query['ProjectName'] = $request->projectName;
+        }
+        if (!Utils::isUnset($request->query)) {
+            $query['Query'] = $request->query;
+        }
+        $req = new OpenApiRequest([
             'query' => OpenApiUtilClient::query($query),
         ]);
         $params = new Params([
@@ -1708,16 +2298,32 @@ class Imm extends OpenApiClient
         if (!Utils::isUnset($tmpReq->query)) {
             $request->queryShrink = OpenApiUtilClient::arrayToStringWithSpecifiedStyle(Tea::merge($tmpReq->query), 'Query', 'json');
         }
-        $query                 = [];
-        $query['Aggregations'] = $request->aggregationsShrink;
-        $query['DatasetName']  = $request->datasetName;
-        $query['MaxResults']   = $request->maxResults;
-        $query['NextToken']    = $request->nextToken;
-        $query['Order']        = $request->order;
-        $query['ProjectName']  = $request->projectName;
-        $query['Query']        = $request->queryShrink;
-        $query['Sort']         = $request->sort;
-        $req                   = new OpenApiRequest([
+        $query = [];
+        if (!Utils::isUnset($request->aggregationsShrink)) {
+            $query['Aggregations'] = $request->aggregationsShrink;
+        }
+        if (!Utils::isUnset($request->datasetName)) {
+            $query['DatasetName'] = $request->datasetName;
+        }
+        if (!Utils::isUnset($request->maxResults)) {
+            $query['MaxResults'] = $request->maxResults;
+        }
+        if (!Utils::isUnset($request->nextToken)) {
+            $query['NextToken'] = $request->nextToken;
+        }
+        if (!Utils::isUnset($request->order)) {
+            $query['Order'] = $request->order;
+        }
+        if (!Utils::isUnset($request->projectName)) {
+            $query['ProjectName'] = $request->projectName;
+        }
+        if (!Utils::isUnset($request->queryShrink)) {
+            $query['Query'] = $request->queryShrink;
+        }
+        if (!Utils::isUnset($request->sort)) {
+            $query['Sort'] = $request->sort;
+        }
+        $req = new OpenApiRequest([
             'query' => OpenApiUtilClient::query($query),
         ]);
         $params = new Params([
@@ -1756,12 +2362,20 @@ class Imm extends OpenApiClient
     public function stopBindingWithOptions($request, $runtime)
     {
         Utils::validateModel($request);
-        $query                = [];
-        $query['DatasetName'] = $request->datasetName;
-        $query['ProjectName'] = $request->projectName;
-        $query['Reason']      = $request->reason;
-        $query['URI']         = $request->URI;
-        $req                  = new OpenApiRequest([
+        $query = [];
+        if (!Utils::isUnset($request->datasetName)) {
+            $query['DatasetName'] = $request->datasetName;
+        }
+        if (!Utils::isUnset($request->projectName)) {
+            $query['ProjectName'] = $request->projectName;
+        }
+        if (!Utils::isUnset($request->reason)) {
+            $query['Reason'] = $request->reason;
+        }
+        if (!Utils::isUnset($request->URI)) {
+            $query['URI'] = $request->URI;
+        }
+        $req = new OpenApiRequest([
             'query' => OpenApiUtilClient::query($query),
         ]);
         $params = new Params([
@@ -1800,17 +2414,35 @@ class Imm extends OpenApiClient
     public function updateDatasetWithOptions($request, $runtime)
     {
         Utils::validateModel($request);
-        $query                            = [];
-        $query['DatasetMaxBindCount']     = $request->datasetMaxBindCount;
-        $query['DatasetMaxEntityCount']   = $request->datasetMaxEntityCount;
-        $query['DatasetMaxFileCount']     = $request->datasetMaxFileCount;
-        $query['DatasetMaxRelationCount'] = $request->datasetMaxRelationCount;
-        $query['DatasetMaxTotalFileSize'] = $request->datasetMaxTotalFileSize;
-        $query['DatasetName']             = $request->datasetName;
-        $query['Description']             = $request->description;
-        $query['ProjectName']             = $request->projectName;
-        $query['TemplateId']              = $request->templateId;
-        $req                              = new OpenApiRequest([
+        $query = [];
+        if (!Utils::isUnset($request->datasetMaxBindCount)) {
+            $query['DatasetMaxBindCount'] = $request->datasetMaxBindCount;
+        }
+        if (!Utils::isUnset($request->datasetMaxEntityCount)) {
+            $query['DatasetMaxEntityCount'] = $request->datasetMaxEntityCount;
+        }
+        if (!Utils::isUnset($request->datasetMaxFileCount)) {
+            $query['DatasetMaxFileCount'] = $request->datasetMaxFileCount;
+        }
+        if (!Utils::isUnset($request->datasetMaxRelationCount)) {
+            $query['DatasetMaxRelationCount'] = $request->datasetMaxRelationCount;
+        }
+        if (!Utils::isUnset($request->datasetMaxTotalFileSize)) {
+            $query['DatasetMaxTotalFileSize'] = $request->datasetMaxTotalFileSize;
+        }
+        if (!Utils::isUnset($request->datasetName)) {
+            $query['DatasetName'] = $request->datasetName;
+        }
+        if (!Utils::isUnset($request->description)) {
+            $query['Description'] = $request->description;
+        }
+        if (!Utils::isUnset($request->projectName)) {
+            $query['ProjectName'] = $request->projectName;
+        }
+        if (!Utils::isUnset($request->templateId)) {
+            $query['TemplateId'] = $request->templateId;
+        }
+        $req = new OpenApiRequest([
             'query' => OpenApiUtilClient::query($query),
         ]);
         $params = new Params([
@@ -1854,11 +2486,17 @@ class Imm extends OpenApiClient
         if (!Utils::isUnset($tmpReq->figureCluster)) {
             $request->figureClusterShrink = OpenApiUtilClient::arrayToStringWithSpecifiedStyle(Tea::merge($tmpReq->figureCluster), 'FigureCluster', 'json');
         }
-        $query                  = [];
-        $query['DatasetName']   = $request->datasetName;
-        $query['FigureCluster'] = $request->figureClusterShrink;
-        $query['ProjectName']   = $request->projectName;
-        $req                    = new OpenApiRequest([
+        $query = [];
+        if (!Utils::isUnset($request->datasetName)) {
+            $query['DatasetName'] = $request->datasetName;
+        }
+        if (!Utils::isUnset($request->figureClusterShrink)) {
+            $query['FigureCluster'] = $request->figureClusterShrink;
+        }
+        if (!Utils::isUnset($request->projectName)) {
+            $query['ProjectName'] = $request->projectName;
+        }
+        $req = new OpenApiRequest([
             'query' => OpenApiUtilClient::query($query),
         ]);
         $params = new Params([
@@ -1902,11 +2540,17 @@ class Imm extends OpenApiClient
         if (!Utils::isUnset($tmpReq->file)) {
             $request->fileShrink = OpenApiUtilClient::arrayToStringWithSpecifiedStyle(Tea::merge($tmpReq->file), 'File', 'json');
         }
-        $query                = [];
-        $query['DatasetName'] = $request->datasetName;
-        $query['File']        = $request->fileShrink;
-        $query['ProjectName'] = $request->projectName;
-        $req                  = new OpenApiRequest([
+        $query = [];
+        if (!Utils::isUnset($request->datasetName)) {
+            $query['DatasetName'] = $request->datasetName;
+        }
+        if (!Utils::isUnset($request->fileShrink)) {
+            $query['File'] = $request->fileShrink;
+        }
+        if (!Utils::isUnset($request->projectName)) {
+            $query['ProjectName'] = $request->projectName;
+        }
+        $req = new OpenApiRequest([
             'query' => OpenApiUtilClient::query($query),
         ]);
         $params = new Params([
@@ -1945,20 +2589,44 @@ class Imm extends OpenApiClient
     public function updateProjectWithOptions($request, $runtime)
     {
         Utils::validateModel($request);
-        $query                            = [];
-        $query['DatasetMaxBindCount']     = $request->datasetMaxBindCount;
-        $query['DatasetMaxEntityCount']   = $request->datasetMaxEntityCount;
-        $query['DatasetMaxFileCount']     = $request->datasetMaxFileCount;
-        $query['DatasetMaxRelationCount'] = $request->datasetMaxRelationCount;
-        $query['DatasetMaxTotalFileSize'] = $request->datasetMaxTotalFileSize;
-        $query['Description']             = $request->description;
-        $query['EngineConcurrency']       = $request->engineConcurrency;
-        $query['ProjectMaxDatasetCount']  = $request->projectMaxDatasetCount;
-        $query['ProjectName']             = $request->projectName;
-        $query['ProjectQueriesPerSecond'] = $request->projectQueriesPerSecond;
-        $query['ServiceRole']             = $request->serviceRole;
-        $query['TemplateId']              = $request->templateId;
-        $req                              = new OpenApiRequest([
+        $query = [];
+        if (!Utils::isUnset($request->datasetMaxBindCount)) {
+            $query['DatasetMaxBindCount'] = $request->datasetMaxBindCount;
+        }
+        if (!Utils::isUnset($request->datasetMaxEntityCount)) {
+            $query['DatasetMaxEntityCount'] = $request->datasetMaxEntityCount;
+        }
+        if (!Utils::isUnset($request->datasetMaxFileCount)) {
+            $query['DatasetMaxFileCount'] = $request->datasetMaxFileCount;
+        }
+        if (!Utils::isUnset($request->datasetMaxRelationCount)) {
+            $query['DatasetMaxRelationCount'] = $request->datasetMaxRelationCount;
+        }
+        if (!Utils::isUnset($request->datasetMaxTotalFileSize)) {
+            $query['DatasetMaxTotalFileSize'] = $request->datasetMaxTotalFileSize;
+        }
+        if (!Utils::isUnset($request->description)) {
+            $query['Description'] = $request->description;
+        }
+        if (!Utils::isUnset($request->engineConcurrency)) {
+            $query['EngineConcurrency'] = $request->engineConcurrency;
+        }
+        if (!Utils::isUnset($request->projectMaxDatasetCount)) {
+            $query['ProjectMaxDatasetCount'] = $request->projectMaxDatasetCount;
+        }
+        if (!Utils::isUnset($request->projectName)) {
+            $query['ProjectName'] = $request->projectName;
+        }
+        if (!Utils::isUnset($request->projectQueriesPerSecond)) {
+            $query['ProjectQueriesPerSecond'] = $request->projectQueriesPerSecond;
+        }
+        if (!Utils::isUnset($request->serviceRole)) {
+            $query['ServiceRole'] = $request->serviceRole;
+        }
+        if (!Utils::isUnset($request->templateId)) {
+            $query['TemplateId'] = $request->templateId;
+        }
+        $req = new OpenApiRequest([
             'query' => OpenApiUtilClient::query($query),
         ]);
         $params = new Params([

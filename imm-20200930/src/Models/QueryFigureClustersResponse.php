@@ -6,7 +6,7 @@ namespace AlibabaCloud\SDK\Imm\V20200930\Models;
 
 use AlibabaCloud\Tea\Model;
 
-class GetFileSignedURIResponse extends Model
+class QueryFigureClustersResponse extends Model
 {
     /**
      * @var string[]
@@ -14,7 +14,7 @@ class GetFileSignedURIResponse extends Model
     public $headers;
 
     /**
-     * @var GetFileSignedURIResponseBody
+     * @var QueryFigureClustersResponseBody
      */
     public $body;
     protected $_name = [
@@ -44,7 +44,7 @@ class GetFileSignedURIResponse extends Model
     /**
      * @param array $map
      *
-     * @return GetFileSignedURIResponse
+     * @return QueryFigureClustersResponse
      */
     public static function fromMap($map = [])
     {
@@ -53,7 +53,7 @@ class GetFileSignedURIResponse extends Model
             $model->headers = $map['headers'];
         }
         if (isset($map['body'])) {
-            $model->body = GetFileSignedURIResponseBody::fromMap($map['body']);
+            $model->body = QueryFigureClustersResponseBody::fromMap($map['body']);
         }
 
         return $model;

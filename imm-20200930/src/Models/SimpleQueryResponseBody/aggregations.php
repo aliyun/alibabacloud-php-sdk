@@ -31,9 +31,7 @@ class aggregations extends Model
     public $operation;
 
     /**
-     * @description 聚合的统计结果
-     *
-     * @var float
+     * @var string
      */
     public $value;
     protected $_name = [

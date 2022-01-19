@@ -14,7 +14,7 @@ class UpdateFigureClusterRequest extends Model
     public $datasetName;
 
     /**
-     * @var FigureCluster
+     * @var FigureClusterForReq
      */
     public $figureCluster;
 
@@ -60,7 +60,7 @@ class UpdateFigureClusterRequest extends Model
             $model->datasetName = $map['DatasetName'];
         }
         if (isset($map['FigureCluster'])) {
-            $model->figureCluster = FigureCluster::fromMap($map['FigureCluster']);
+            $model->figureCluster = FigureClusterForReq::fromMap($map['FigureCluster']);
         }
         if (isset($map['ProjectName'])) {
             $model->projectName = $map['ProjectName'];

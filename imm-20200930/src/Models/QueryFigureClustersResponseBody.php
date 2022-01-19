@@ -6,7 +6,7 @@ namespace AlibabaCloud\SDK\Imm\V20200930\Models;
 
 use AlibabaCloud\Tea\Model;
 
-class ListFigureClustersResponseBody extends Model
+class QueryFigureClustersResponseBody extends Model
 {
     /**
      * @var FigureCluster[]
@@ -59,7 +59,7 @@ class ListFigureClustersResponseBody extends Model
     /**
      * @param array $map
      *
-     * @return ListFigureClustersResponseBody
+     * @return QueryFigureClustersResponseBody
      */
     public static function fromMap($map = [])
     {

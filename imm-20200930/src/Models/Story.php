@@ -1,0 +1,271 @@
+<?php
+
+// This file is auto-generated, don't edit it. Thanks.
+
+namespace AlibabaCloud\SDK\Imm\V20200930\Models;
+
+use AlibabaCloud\Tea\Model;
+
+class Story extends Model
+{
+    /**
+     * @var File
+     */
+    public $cover;
+
+    /**
+     * @description CreateTime
+     *
+     * @var string
+     */
+    public $createTime;
+
+    /**
+     * @description CustomFields
+     *
+     * @var string
+     */
+    public $customFields;
+
+    /**
+     * @description DatasetName
+     *
+     * @var string
+     */
+    public $datasetName;
+
+    /**
+     * @description FigureClusterIds
+     *
+     * @var string[]
+     */
+    public $figureClusterIds;
+
+    /**
+     * @description Files
+     *
+     * @var File[]
+     */
+    public $files;
+
+    /**
+     * @description ObjectId
+     *
+     * @var string
+     */
+    public $objectId;
+
+    /**
+     * @description ObjectType
+     *
+     * @var string
+     */
+    public $objectType;
+
+    /**
+     * @description OwnerId
+     *
+     * @var string
+     */
+    public $ownerId;
+
+    /**
+     * @description ProjectName
+     *
+     * @var string
+     */
+    public $projectName;
+
+    /**
+     * @description StoryEndTime
+     *
+     * @var string
+     */
+    public $storyEndTime;
+
+    /**
+     * @description StoryName
+     *
+     * @var string
+     */
+    public $storyName;
+
+    /**
+     * @description StoryStartTime
+     *
+     * @var string
+     */
+    public $storyStartTime;
+
+    /**
+     * @description StorySubType
+     *
+     * @var string
+     */
+    public $storySubType;
+
+    /**
+     * @description StoryType
+     *
+     * @var string
+     */
+    public $storyType;
+
+    /**
+     * @description UpdateTime
+     *
+     * @var string
+     */
+    public $updateTime;
+    protected $_name = [
+        'cover'            => 'Cover',
+        'createTime'       => 'CreateTime',
+        'customFields'     => 'CustomFields',
+        'datasetName'      => 'DatasetName',
+        'figureClusterIds' => 'FigureClusterIds',
+        'files'            => 'Files',
+        'objectId'         => 'ObjectId',
+        'objectType'       => 'ObjectType',
+        'ownerId'          => 'OwnerId',
+        'projectName'      => 'ProjectName',
+        'storyEndTime'     => 'StoryEndTime',
+        'storyName'        => 'StoryName',
+        'storyStartTime'   => 'StoryStartTime',
+        'storySubType'     => 'StorySubType',
+        'storyType'        => 'StoryType',
+        'updateTime'       => 'UpdateTime',
+    ];
+
+    public function validate()
+    {
+    }
+
+    public function toMap()
+    {
+        $res = [];
+        if (null !== $this->cover) {
+            $res['Cover'] = null !== $this->cover ? $this->cover->toMap() : null;
+        }
+        if (null !== $this->createTime) {
+            $res['CreateTime'] = $this->createTime;
+        }
+        if (null !== $this->customFields) {
+            $res['CustomFields'] = $this->customFields;
+        }
+        if (null !== $this->datasetName) {
+            $res['DatasetName'] = $this->datasetName;
+        }
+        if (null !== $this->figureClusterIds) {
+            $res['FigureClusterIds'] = $this->figureClusterIds;
+        }
+        if (null !== $this->files) {
+            $res['Files'] = [];
+            if (null !== $this->files && \is_array($this->files)) {
+                $n = 0;
+                foreach ($this->files as $item) {
+                    $res['Files'][$n++] = null !== $item ? $item->toMap() : $item;
+                }
+            }
+        }
+        if (null !== $this->objectId) {
+            $res['ObjectId'] = $this->objectId;
+        }
+        if (null !== $this->objectType) {
+            $res['ObjectType'] = $this->objectType;
+        }
+        if (null !== $this->ownerId) {
+            $res['OwnerId'] = $this->ownerId;
+        }
+        if (null !== $this->projectName) {
+            $res['ProjectName'] = $this->projectName;
+        }
+        if (null !== $this->storyEndTime) {
+            $res['StoryEndTime'] = $this->storyEndTime;
+        }
+        if (null !== $this->storyName) {
+            $res['StoryName'] = $this->storyName;
+        }
+        if (null !== $this->storyStartTime) {
+            $res['StoryStartTime'] = $this->storyStartTime;
+        }
+        if (null !== $this->storySubType) {
+            $res['StorySubType'] = $this->storySubType;
+        }
+        if (null !== $this->storyType) {
+            $res['StoryType'] = $this->storyType;
+        }
+        if (null !== $this->updateTime) {
+            $res['UpdateTime'] = $this->updateTime;
+        }
+
+        return $res;
+    }
+
+    /**
+     * @param array $map
+     *
+     * @return Story
+     */
+    public static function fromMap($map = [])
+    {
+        $model = new self();
+        if (isset($map['Cover'])) {
+            $model->cover = File::fromMap($map['Cover']);
+        }
+        if (isset($map['CreateTime'])) {
+            $model->createTime = $map['CreateTime'];
+        }
+        if (isset($map['CustomFields'])) {
+            $model->customFields = $map['CustomFields'];
+        }
+        if (isset($map['DatasetName'])) {
+            $model->datasetName = $map['DatasetName'];
+        }
+        if (isset($map['FigureClusterIds'])) {
+            if (!empty($map['FigureClusterIds'])) {
+                $model->figureClusterIds = $map['FigureClusterIds'];
+            }
+        }
+        if (isset($map['Files'])) {
+            if (!empty($map['Files'])) {
+                $model->files = [];
+                $n            = 0;
+                foreach ($map['Files'] as $item) {
+                    $model->files[$n++] = null !== $item ? File::fromMap($item) : $item;
+                }
+            }
+        }
+        if (isset($map['ObjectId'])) {
+            $model->objectId = $map['ObjectId'];
+        }
+        if (isset($map['ObjectType'])) {
+            $model->objectType = $map['ObjectType'];
+        }
+        if (isset($map['OwnerId'])) {
+            $model->ownerId = $map['OwnerId'];
+        }
+        if (isset($map['ProjectName'])) {
+            $model->projectName = $map['ProjectName'];
+        }
+        if (isset($map['StoryEndTime'])) {
+            $model->storyEndTime = $map['StoryEndTime'];
+        }
+        if (isset($map['StoryName'])) {
+            $model->storyName = $map['StoryName'];
+        }
+        if (isset($map['StoryStartTime'])) {
+            $model->storyStartTime = $map['StoryStartTime'];
+        }
+        if (isset($map['StorySubType'])) {
+            $model->storySubType = $map['StorySubType'];
+        }
+        if (isset($map['StoryType'])) {
+            $model->storyType = $map['StoryType'];
+        }
+        if (isset($map['UpdateTime'])) {
+            $model->updateTime = $map['UpdateTime'];
+        }
+
+        return $model;
+    }
+}

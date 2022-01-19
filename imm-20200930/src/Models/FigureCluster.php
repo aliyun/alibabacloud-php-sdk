@@ -128,11 +128,11 @@ class FigureCluster extends Model
     public $updateTime;
 
     /**
-     * @description Version
+     * @description VideoCount
      *
-     * @var string
+     * @var int
      */
-    public $version;
+    public $videoCount;
     protected $_name = [
         'averageAge'   => 'AverageAge',
         'cover'        => 'Cover',
@@ -151,7 +151,7 @@ class FigureCluster extends Model
         'ownerId'      => 'OwnerId',
         'projectName'  => 'ProjectName',
         'updateTime'   => 'UpdateTime',
-        'version'      => 'Version',
+        'videoCount'   => 'VideoCount',
     ];
 
     public function validate()
@@ -212,8 +212,8 @@ class FigureCluster extends Model
         if (null !== $this->updateTime) {
             $res['UpdateTime'] = $this->updateTime;
         }
-        if (null !== $this->version) {
-            $res['Version'] = $this->version;
+        if (null !== $this->videoCount) {
+            $res['VideoCount'] = $this->videoCount;
         }
 
         return $res;
@@ -278,8 +278,8 @@ class FigureCluster extends Model
         if (isset($map['UpdateTime'])) {
             $model->updateTime = $map['UpdateTime'];
         }
-        if (isset($map['Version'])) {
-            $model->version = $map['Version'];
+        if (isset($map['VideoCount'])) {
+            $model->videoCount = $map['VideoCount'];
         }
 
         return $model;

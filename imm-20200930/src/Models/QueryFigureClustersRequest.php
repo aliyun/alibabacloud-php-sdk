@@ -6,17 +6,17 @@ namespace AlibabaCloud\SDK\Imm\V20200930\Models;
 
 use AlibabaCloud\Tea\Model;
 
-class ListFigureClustersRequest extends Model
+class QueryFigureClustersRequest extends Model
 {
     /**
      * @var string
      */
-    public $datasetName;
+    public $customLabels;
 
     /**
      * @var string
      */
-    public $labels;
+    public $datasetName;
 
     /**
      * @var int
@@ -29,6 +29,8 @@ class ListFigureClustersRequest extends Model
     public $nextToken;
 
     /**
+     * @description 升降序
+     *
      * @var string
      */
     public $order;
@@ -39,17 +41,19 @@ class ListFigureClustersRequest extends Model
     public $projectName;
 
     /**
+     * @description 排序字段
+     *
      * @var string
      */
     public $sort;
     protected $_name = [
-        'datasetName' => 'DatasetName',
-        'labels'      => 'Labels',
-        'maxResults'  => 'MaxResults',
-        'nextToken'   => 'NextToken',
-        'order'       => 'Order',
-        'projectName' => 'ProjectName',
-        'sort'        => 'Sort',
+        'customLabels' => 'CustomLabels',
+        'datasetName'  => 'DatasetName',
+        'maxResults'   => 'MaxResults',
+        'nextToken'    => 'NextToken',
+        'order'        => 'Order',
+        'projectName'  => 'ProjectName',
+        'sort'         => 'Sort',
     ];
 
     public function validate()
@@ -59,11 +63,11 @@ class ListFigureClustersRequest extends Model
     public function toMap()
     {
         $res = [];
+        if (null !== $this->customLabels) {
+            $res['CustomLabels'] = $this->customLabels;
+        }
         if (null !== $this->datasetName) {
             $res['DatasetName'] = $this->datasetName;
-        }
-        if (null !== $this->labels) {
-            $res['Labels'] = $this->labels;
         }
         if (null !== $this->maxResults) {
             $res['MaxResults'] = $this->maxResults;
@@ -87,16 +91,16 @@ class ListFigureClustersRequest extends Model
     /**
      * @param array $map
      *
-     * @return ListFigureClustersRequest
+     * @return QueryFigureClustersRequest
      */
     public static function fromMap($map = [])
     {
         $model = new self();
+        if (isset($map['CustomLabels'])) {
+            $model->customLabels = $map['CustomLabels'];
+        }
         if (isset($map['DatasetName'])) {
             $model->datasetName = $map['DatasetName'];
-        }
-        if (isset($map['Labels'])) {
-            $model->labels = $map['Labels'];
         }
         if (isset($map['MaxResults'])) {
             $model->maxResults = $map['MaxResults'];

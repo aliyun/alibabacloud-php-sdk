@@ -16,16 +16,16 @@ class GetFigureClusterRequest extends Model
     /**
      * @var string
      */
-    public $figureClusterId;
+    public $objectId;
 
     /**
      * @var string
      */
     public $projectName;
     protected $_name = [
-        'datasetName'     => 'DatasetName',
-        'figureClusterId' => 'FigureClusterId',
-        'projectName'     => 'ProjectName',
+        'datasetName' => 'DatasetName',
+        'objectId'    => 'ObjectId',
+        'projectName' => 'ProjectName',
     ];
 
     public function validate()
@@ -38,8 +38,8 @@ class GetFigureClusterRequest extends Model
         if (null !== $this->datasetName) {
             $res['DatasetName'] = $this->datasetName;
         }
-        if (null !== $this->figureClusterId) {
-            $res['FigureClusterId'] = $this->figureClusterId;
+        if (null !== $this->objectId) {
+            $res['ObjectId'] = $this->objectId;
         }
         if (null !== $this->projectName) {
             $res['ProjectName'] = $this->projectName;
@@ -59,8 +59,8 @@ class GetFigureClusterRequest extends Model
         if (isset($map['DatasetName'])) {
             $model->datasetName = $map['DatasetName'];
         }
-        if (isset($map['FigureClusterId'])) {
-            $model->figureClusterId = $map['FigureClusterId'];
+        if (isset($map['ObjectId'])) {
+            $model->objectId = $map['ObjectId'];
         }
         if (isset($map['ProjectName'])) {
             $model->projectName = $map['ProjectName'];
