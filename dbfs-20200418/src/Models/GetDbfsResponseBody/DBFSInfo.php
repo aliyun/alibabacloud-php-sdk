@@ -79,6 +79,11 @@ class DBFSInfo extends Model
     /**
      * @var string
      */
+    public $lastFailed;
+
+    /**
+     * @var string
+     */
     public $lastMountTime;
 
     /**
@@ -144,6 +149,7 @@ class DBFSInfo extends Model
         'fsName'           => 'FsName',
         'instanceType'     => 'InstanceType',
         'KMSKeyId'         => 'KMSKeyId',
+        'lastFailed'       => 'LastFailed',
         'lastMountTime'    => 'LastMountTime',
         'lastUmountTime'   => 'LastUmountTime',
         'payType'          => 'PayType',
@@ -214,6 +220,9 @@ class DBFSInfo extends Model
         }
         if (null !== $this->KMSKeyId) {
             $res['KMSKeyId'] = $this->KMSKeyId;
+        }
+        if (null !== $this->lastFailed) {
+            $res['LastFailed'] = $this->lastFailed;
         }
         if (null !== $this->lastMountTime) {
             $res['LastMountTime'] = $this->lastMountTime;
@@ -316,6 +325,9 @@ class DBFSInfo extends Model
         }
         if (isset($map['KMSKeyId'])) {
             $model->KMSKeyId = $map['KMSKeyId'];
+        }
+        if (isset($map['LastFailed'])) {
+            $model->lastFailed = $map['LastFailed'];
         }
         if (isset($map['LastMountTime'])) {
             $model->lastMountTime = $map['LastMountTime'];
