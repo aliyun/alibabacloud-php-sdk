@@ -22,6 +22,10 @@ use AlibabaCloud\SDK\Dypnsapi\V20170525\Models\GetMobileRequest;
 use AlibabaCloud\SDK\Dypnsapi\V20170525\Models\GetMobileResponse;
 use AlibabaCloud\SDK\Dypnsapi\V20170525\Models\GetSmsAuthTokensRequest;
 use AlibabaCloud\SDK\Dypnsapi\V20170525\Models\GetSmsAuthTokensResponse;
+use AlibabaCloud\SDK\Dypnsapi\V20170525\Models\JyCreateVerifySchemeRequest;
+use AlibabaCloud\SDK\Dypnsapi\V20170525\Models\JyCreateVerifySchemeResponse;
+use AlibabaCloud\SDK\Dypnsapi\V20170525\Models\JyGetMobileRequest;
+use AlibabaCloud\SDK\Dypnsapi\V20170525\Models\JyGetMobileResponse;
 use AlibabaCloud\SDK\Dypnsapi\V20170525\Models\QueryGateVerifyBillingPublicRequest;
 use AlibabaCloud\SDK\Dypnsapi\V20170525\Models\QueryGateVerifyBillingPublicResponse;
 use AlibabaCloud\SDK\Dypnsapi\V20170525\Models\QueryGateVerifyStatisticPublicRequest;
@@ -539,6 +543,137 @@ class Dypnsapi extends OpenApiClient
         $runtime = new RuntimeOptions([]);
 
         return $this->getSmsAuthTokensWithOptions($request, $runtime);
+    }
+
+    /**
+     * @param JyCreateVerifySchemeRequest $request
+     * @param RuntimeOptions              $runtime
+     *
+     * @return JyCreateVerifySchemeResponse
+     */
+    public function jyCreateVerifySchemeWithOptions($request, $runtime)
+    {
+        Utils::validateModel($request);
+        $query = [];
+        if (!Utils::isUnset($request->appName)) {
+            $query['AppName'] = $request->appName;
+        }
+        if (!Utils::isUnset($request->bundleId)) {
+            $query['BundleId'] = $request->bundleId;
+        }
+        if (!Utils::isUnset($request->cmApiCode)) {
+            $query['CmApiCode'] = $request->cmApiCode;
+        }
+        if (!Utils::isUnset($request->ctApiCode)) {
+            $query['CtApiCode'] = $request->ctApiCode;
+        }
+        if (!Utils::isUnset($request->cuApiCode)) {
+            $query['CuApiCode'] = $request->cuApiCode;
+        }
+        if (!Utils::isUnset($request->osType)) {
+            $query['OsType'] = $request->osType;
+        }
+        if (!Utils::isUnset($request->ownerId)) {
+            $query['OwnerId'] = $request->ownerId;
+        }
+        if (!Utils::isUnset($request->packName)) {
+            $query['PackName'] = $request->packName;
+        }
+        if (!Utils::isUnset($request->packSign)) {
+            $query['PackSign'] = $request->packSign;
+        }
+        if (!Utils::isUnset($request->resourceOwnerAccount)) {
+            $query['ResourceOwnerAccount'] = $request->resourceOwnerAccount;
+        }
+        if (!Utils::isUnset($request->resourceOwnerId)) {
+            $query['ResourceOwnerId'] = $request->resourceOwnerId;
+        }
+        if (!Utils::isUnset($request->schemeName)) {
+            $query['SchemeName'] = $request->schemeName;
+        }
+        $req = new OpenApiRequest([
+            'query' => OpenApiUtilClient::query($query),
+        ]);
+        $params = new Params([
+            'action'      => 'JyCreateVerifyScheme',
+            'version'     => '2017-05-25',
+            'protocol'    => 'HTTPS',
+            'pathname'    => '/',
+            'method'      => 'POST',
+            'authType'    => 'AK',
+            'style'       => 'RPC',
+            'reqBodyType' => 'formData',
+            'bodyType'    => 'json',
+        ]);
+
+        return JyCreateVerifySchemeResponse::fromMap($this->callApi($params, $req, $runtime));
+    }
+
+    /**
+     * @param JyCreateVerifySchemeRequest $request
+     *
+     * @return JyCreateVerifySchemeResponse
+     */
+    public function jyCreateVerifyScheme($request)
+    {
+        $runtime = new RuntimeOptions([]);
+
+        return $this->jyCreateVerifySchemeWithOptions($request, $runtime);
+    }
+
+    /**
+     * @param JyGetMobileRequest $request
+     * @param RuntimeOptions     $runtime
+     *
+     * @return JyGetMobileResponse
+     */
+    public function jyGetMobileWithOptions($request, $runtime)
+    {
+        Utils::validateModel($request);
+        $query = [];
+        if (!Utils::isUnset($request->accessToken)) {
+            $query['AccessToken'] = $request->accessToken;
+        }
+        if (!Utils::isUnset($request->outId)) {
+            $query['OutId'] = $request->outId;
+        }
+        if (!Utils::isUnset($request->ownerId)) {
+            $query['OwnerId'] = $request->ownerId;
+        }
+        if (!Utils::isUnset($request->resourceOwnerAccount)) {
+            $query['ResourceOwnerAccount'] = $request->resourceOwnerAccount;
+        }
+        if (!Utils::isUnset($request->resourceOwnerId)) {
+            $query['ResourceOwnerId'] = $request->resourceOwnerId;
+        }
+        $req = new OpenApiRequest([
+            'query' => OpenApiUtilClient::query($query),
+        ]);
+        $params = new Params([
+            'action'      => 'JyGetMobile',
+            'version'     => '2017-05-25',
+            'protocol'    => 'HTTPS',
+            'pathname'    => '/',
+            'method'      => 'POST',
+            'authType'    => 'AK',
+            'style'       => 'RPC',
+            'reqBodyType' => 'formData',
+            'bodyType'    => 'json',
+        ]);
+
+        return JyGetMobileResponse::fromMap($this->callApi($params, $req, $runtime));
+    }
+
+    /**
+     * @param JyGetMobileRequest $request
+     *
+     * @return JyGetMobileResponse
+     */
+    public function jyGetMobile($request)
+    {
+        $runtime = new RuntimeOptions([]);
+
+        return $this->jyGetMobileWithOptions($request, $runtime);
     }
 
     /**
