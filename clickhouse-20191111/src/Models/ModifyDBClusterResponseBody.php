@@ -4,12 +4,13 @@
 
 namespace AlibabaCloud\SDK\Clickhouse\V20191111\Models;
 
+use AlibabaCloud\SDK\Clickhouse\V20191111\Models\ModifyDBClusterResponseBody\DBCluster;
 use AlibabaCloud\Tea\Model;
 
 class ModifyDBClusterResponseBody extends Model
 {
     /**
-     * @var string
+     * @var DBCluster
      */
     public $DBCluster;
 
@@ -30,7 +31,7 @@ class ModifyDBClusterResponseBody extends Model
     {
         $res = [];
         if (null !== $this->DBCluster) {
-            $res['DBCluster'] = $this->DBCluster;
+            $res['DBCluster'] = null !== $this->DBCluster ? $this->DBCluster->toMap() : null;
         }
         if (null !== $this->requestId) {
             $res['RequestId'] = $this->requestId;
@@ -48,7 +49,7 @@ class ModifyDBClusterResponseBody extends Model
     {
         $model = new self();
         if (isset($map['DBCluster'])) {
-            $model->DBCluster = $map['DBCluster'];
+            $model->DBCluster = DBCluster::fromMap($map['DBCluster']);
         }
         if (isset($map['RequestId'])) {
             $model->requestId = $map['RequestId'];

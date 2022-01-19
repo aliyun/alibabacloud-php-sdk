@@ -11,17 +11,17 @@ class netInfoItem extends Model
     /**
      * @var string
      */
-    public $vpcId;
-
-    /**
-     * @var string
-     */
-    public $vSwitchId;
-
-    /**
-     * @var string
-     */
     public $connectionString;
+
+    /**
+     * @var string
+     */
+    public $httpPort;
+
+    /**
+     * @var string
+     */
+    public $IPAddress;
 
     /**
      * @var string
@@ -36,20 +36,20 @@ class netInfoItem extends Model
     /**
      * @var string
      */
-    public $httpPort;
+    public $vSwitchId;
 
     /**
      * @var string
      */
-    public $IPAddress;
+    public $vpcId;
     protected $_name = [
-        'vpcId'            => 'VpcId',
-        'vSwitchId'        => 'VSwitchId',
         'connectionString' => 'ConnectionString',
-        'jdbcPort'         => 'JdbcPort',
-        'netType'          => 'NetType',
         'httpPort'         => 'HttpPort',
         'IPAddress'        => 'IPAddress',
+        'jdbcPort'         => 'JdbcPort',
+        'netType'          => 'NetType',
+        'vSwitchId'        => 'VSwitchId',
+        'vpcId'            => 'VpcId',
     ];
 
     public function validate()
@@ -59,14 +59,14 @@ class netInfoItem extends Model
     public function toMap()
     {
         $res = [];
-        if (null !== $this->vpcId) {
-            $res['VpcId'] = $this->vpcId;
-        }
-        if (null !== $this->vSwitchId) {
-            $res['VSwitchId'] = $this->vSwitchId;
-        }
         if (null !== $this->connectionString) {
             $res['ConnectionString'] = $this->connectionString;
+        }
+        if (null !== $this->httpPort) {
+            $res['HttpPort'] = $this->httpPort;
+        }
+        if (null !== $this->IPAddress) {
+            $res['IPAddress'] = $this->IPAddress;
         }
         if (null !== $this->jdbcPort) {
             $res['JdbcPort'] = $this->jdbcPort;
@@ -74,11 +74,11 @@ class netInfoItem extends Model
         if (null !== $this->netType) {
             $res['NetType'] = $this->netType;
         }
-        if (null !== $this->httpPort) {
-            $res['HttpPort'] = $this->httpPort;
+        if (null !== $this->vSwitchId) {
+            $res['VSwitchId'] = $this->vSwitchId;
         }
-        if (null !== $this->IPAddress) {
-            $res['IPAddress'] = $this->IPAddress;
+        if (null !== $this->vpcId) {
+            $res['VpcId'] = $this->vpcId;
         }
 
         return $res;
@@ -92,14 +92,14 @@ class netInfoItem extends Model
     public static function fromMap($map = [])
     {
         $model = new self();
-        if (isset($map['VpcId'])) {
-            $model->vpcId = $map['VpcId'];
-        }
-        if (isset($map['VSwitchId'])) {
-            $model->vSwitchId = $map['VSwitchId'];
-        }
         if (isset($map['ConnectionString'])) {
             $model->connectionString = $map['ConnectionString'];
+        }
+        if (isset($map['HttpPort'])) {
+            $model->httpPort = $map['HttpPort'];
+        }
+        if (isset($map['IPAddress'])) {
+            $model->IPAddress = $map['IPAddress'];
         }
         if (isset($map['JdbcPort'])) {
             $model->jdbcPort = $map['JdbcPort'];
@@ -107,11 +107,11 @@ class netInfoItem extends Model
         if (isset($map['NetType'])) {
             $model->netType = $map['NetType'];
         }
-        if (isset($map['HttpPort'])) {
-            $model->httpPort = $map['HttpPort'];
+        if (isset($map['VSwitchId'])) {
+            $model->vSwitchId = $map['VSwitchId'];
         }
-        if (isset($map['IPAddress'])) {
-            $model->IPAddress = $map['IPAddress'];
+        if (isset($map['VpcId'])) {
+            $model->vpcId = $map['VpcId'];
         }
 
         return $model;

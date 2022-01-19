@@ -13,27 +13,12 @@ class DBCluster extends Model
     /**
      * @var string
      */
-    public $regionId;
+    public $aliUid;
 
     /**
      * @var string
      */
-    public $zoneId;
-
-    /**
-     * @var string
-     */
-    public $DBClusterId;
-
-    /**
-     * @var string
-     */
-    public $DBClusterType;
-
-    /**
-     * @var string
-     */
-    public $DBClusterDescription;
+    public $bid;
 
     /**
      * @var string
@@ -43,17 +28,37 @@ class DBCluster extends Model
     /**
      * @var string
      */
-    public $lockMode;
+    public $commodityCode;
 
     /**
      * @var string
      */
-    public $lockReason;
+    public $connectionString;
 
     /**
      * @var string
      */
-    public $payType;
+    public $controlVersion;
+
+    /**
+     * @var string
+     */
+    public $createTime;
+
+    /**
+     * @var string
+     */
+    public $DBClusterDescription;
+
+    /**
+     * @var string
+     */
+    public $DBClusterId;
+
+    /**
+     * @var string
+     */
+    public $DBClusterNetworkType;
 
     /**
      * @var string
@@ -61,9 +66,9 @@ class DBCluster extends Model
     public $DBClusterStatus;
 
     /**
-     * @var int
+     * @var string
      */
-    public $DBNodeStorage;
+    public $DBClusterType;
 
     /**
      * @var string
@@ -76,9 +81,19 @@ class DBCluster extends Model
     public $DBNodeCount;
 
     /**
+     * @var int
+     */
+    public $DBNodeStorage;
+
+    /**
      * @var string
      */
-    public $createTime;
+    public $encryptionKey;
+
+    /**
+     * @var string
+     */
+    public $encryptionType;
 
     /**
      * @var string
@@ -103,37 +118,27 @@ class DBCluster extends Model
     /**
      * @var string
      */
+    public $lockMode;
+
+    /**
+     * @var string
+     */
+    public $lockReason;
+
+    /**
+     * @var string
+     */
     public $maintainTime;
 
     /**
      * @var string
      */
-    public $vpcId;
+    public $payType;
 
     /**
-     * @var string
+     * @var int
      */
-    public $vSwitchId;
-
-    /**
-     * @var string
-     */
-    public $vpcCloudInstanceId;
-
-    /**
-     * @var string
-     */
-    public $commodityCode;
-
-    /**
-     * @var string
-     */
-    public $DBClusterNetworkType;
-
-    /**
-     * @var string
-     */
-    public $storageType;
+    public $port;
 
     /**
      * @var string
@@ -148,32 +153,32 @@ class DBCluster extends Model
     /**
      * @var string
      */
-    public $connectionString;
+    public $regionId;
+
+    /**
+     * @var scaleOutStatus
+     */
+    public $scaleOutStatus;
+
+    /**
+     * @var string
+     */
+    public $storageType;
 
     /**
      * @var int
      */
-    public $port;
+    public $supportBackup;
 
     /**
-     * @var string
+     * @var bool
      */
-    public $aliUid;
+    public $supportHttpsPort;
 
     /**
-     * @var string
+     * @var bool
      */
-    public $bid;
-
-    /**
-     * @var string
-     */
-    public $encryptionKey;
-
-    /**
-     * @var string
-     */
-    public $encryptionType;
+    public $supportMysqlPort;
 
     /**
      * @var tags
@@ -181,45 +186,64 @@ class DBCluster extends Model
     public $tags;
 
     /**
-     * @var scaleOutStatus
+     * @var string
      */
-    public $scaleOutStatus;
+    public $vSwitchId;
+
+    /**
+     * @var string
+     */
+    public $vpcCloudInstanceId;
+
+    /**
+     * @var string
+     */
+    public $vpcId;
+
+    /**
+     * @var string
+     */
+    public $zoneId;
     protected $_name = [
-        'regionId'               => 'RegionId',
-        'zoneId'                 => 'ZoneId',
-        'DBClusterId'            => 'DBClusterId',
-        'DBClusterType'          => 'DBClusterType',
-        'DBClusterDescription'   => 'DBClusterDescription',
+        'aliUid'                 => 'AliUid',
+        'bid'                    => 'Bid',
         'category'               => 'Category',
-        'lockMode'               => 'LockMode',
-        'lockReason'             => 'LockReason',
-        'payType'                => 'PayType',
+        'commodityCode'          => 'CommodityCode',
+        'connectionString'       => 'ConnectionString',
+        'controlVersion'         => 'ControlVersion',
+        'createTime'             => 'CreateTime',
+        'DBClusterDescription'   => 'DBClusterDescription',
+        'DBClusterId'            => 'DBClusterId',
+        'DBClusterNetworkType'   => 'DBClusterNetworkType',
         'DBClusterStatus'        => 'DBClusterStatus',
-        'DBNodeStorage'          => 'DBNodeStorage',
+        'DBClusterType'          => 'DBClusterType',
         'DBNodeClass'            => 'DBNodeClass',
         'DBNodeCount'            => 'DBNodeCount',
-        'createTime'             => 'CreateTime',
+        'DBNodeStorage'          => 'DBNodeStorage',
+        'encryptionKey'          => 'EncryptionKey',
+        'encryptionType'         => 'EncryptionType',
         'engine'                 => 'Engine',
         'engineVersion'          => 'EngineVersion',
         'expireTime'             => 'ExpireTime',
         'isExpired'              => 'IsExpired',
+        'lockMode'               => 'LockMode',
+        'lockReason'             => 'LockReason',
         'maintainTime'           => 'MaintainTime',
-        'vpcId'                  => 'VpcId',
-        'vSwitchId'              => 'VSwitchId',
-        'vpcCloudInstanceId'     => 'VpcCloudInstanceId',
-        'commodityCode'          => 'CommodityCode',
-        'DBClusterNetworkType'   => 'DBClusterNetworkType',
-        'storageType'            => 'StorageType',
+        'payType'                => 'PayType',
+        'port'                   => 'Port',
         'publicConnectionString' => 'PublicConnectionString',
         'publicPort'             => 'PublicPort',
-        'connectionString'       => 'ConnectionString',
-        'port'                   => 'Port',
-        'aliUid'                 => 'AliUid',
-        'bid'                    => 'Bid',
-        'encryptionKey'          => 'EncryptionKey',
-        'encryptionType'         => 'EncryptionType',
-        'tags'                   => 'Tags',
+        'regionId'               => 'RegionId',
         'scaleOutStatus'         => 'ScaleOutStatus',
+        'storageType'            => 'StorageType',
+        'supportBackup'          => 'SupportBackup',
+        'supportHttpsPort'       => 'SupportHttpsPort',
+        'supportMysqlPort'       => 'SupportMysqlPort',
+        'tags'                   => 'Tags',
+        'vSwitchId'              => 'VSwitchId',
+        'vpcCloudInstanceId'     => 'VpcCloudInstanceId',
+        'vpcId'                  => 'VpcId',
+        'zoneId'                 => 'ZoneId',
     ];
 
     public function validate()
@@ -229,38 +253,41 @@ class DBCluster extends Model
     public function toMap()
     {
         $res = [];
-        if (null !== $this->regionId) {
-            $res['RegionId'] = $this->regionId;
+        if (null !== $this->aliUid) {
+            $res['AliUid'] = $this->aliUid;
         }
-        if (null !== $this->zoneId) {
-            $res['ZoneId'] = $this->zoneId;
-        }
-        if (null !== $this->DBClusterId) {
-            $res['DBClusterId'] = $this->DBClusterId;
-        }
-        if (null !== $this->DBClusterType) {
-            $res['DBClusterType'] = $this->DBClusterType;
-        }
-        if (null !== $this->DBClusterDescription) {
-            $res['DBClusterDescription'] = $this->DBClusterDescription;
+        if (null !== $this->bid) {
+            $res['Bid'] = $this->bid;
         }
         if (null !== $this->category) {
             $res['Category'] = $this->category;
         }
-        if (null !== $this->lockMode) {
-            $res['LockMode'] = $this->lockMode;
+        if (null !== $this->commodityCode) {
+            $res['CommodityCode'] = $this->commodityCode;
         }
-        if (null !== $this->lockReason) {
-            $res['LockReason'] = $this->lockReason;
+        if (null !== $this->connectionString) {
+            $res['ConnectionString'] = $this->connectionString;
         }
-        if (null !== $this->payType) {
-            $res['PayType'] = $this->payType;
+        if (null !== $this->controlVersion) {
+            $res['ControlVersion'] = $this->controlVersion;
+        }
+        if (null !== $this->createTime) {
+            $res['CreateTime'] = $this->createTime;
+        }
+        if (null !== $this->DBClusterDescription) {
+            $res['DBClusterDescription'] = $this->DBClusterDescription;
+        }
+        if (null !== $this->DBClusterId) {
+            $res['DBClusterId'] = $this->DBClusterId;
+        }
+        if (null !== $this->DBClusterNetworkType) {
+            $res['DBClusterNetworkType'] = $this->DBClusterNetworkType;
         }
         if (null !== $this->DBClusterStatus) {
             $res['DBClusterStatus'] = $this->DBClusterStatus;
         }
-        if (null !== $this->DBNodeStorage) {
-            $res['DBNodeStorage'] = $this->DBNodeStorage;
+        if (null !== $this->DBClusterType) {
+            $res['DBClusterType'] = $this->DBClusterType;
         }
         if (null !== $this->DBNodeClass) {
             $res['DBNodeClass'] = $this->DBNodeClass;
@@ -268,8 +295,14 @@ class DBCluster extends Model
         if (null !== $this->DBNodeCount) {
             $res['DBNodeCount'] = $this->DBNodeCount;
         }
-        if (null !== $this->createTime) {
-            $res['CreateTime'] = $this->createTime;
+        if (null !== $this->DBNodeStorage) {
+            $res['DBNodeStorage'] = $this->DBNodeStorage;
+        }
+        if (null !== $this->encryptionKey) {
+            $res['EncryptionKey'] = $this->encryptionKey;
+        }
+        if (null !== $this->encryptionType) {
+            $res['EncryptionType'] = $this->encryptionType;
         }
         if (null !== $this->engine) {
             $res['Engine'] = $this->engine;
@@ -283,26 +316,20 @@ class DBCluster extends Model
         if (null !== $this->isExpired) {
             $res['IsExpired'] = $this->isExpired;
         }
+        if (null !== $this->lockMode) {
+            $res['LockMode'] = $this->lockMode;
+        }
+        if (null !== $this->lockReason) {
+            $res['LockReason'] = $this->lockReason;
+        }
         if (null !== $this->maintainTime) {
             $res['MaintainTime'] = $this->maintainTime;
         }
-        if (null !== $this->vpcId) {
-            $res['VpcId'] = $this->vpcId;
+        if (null !== $this->payType) {
+            $res['PayType'] = $this->payType;
         }
-        if (null !== $this->vSwitchId) {
-            $res['VSwitchId'] = $this->vSwitchId;
-        }
-        if (null !== $this->vpcCloudInstanceId) {
-            $res['VpcCloudInstanceId'] = $this->vpcCloudInstanceId;
-        }
-        if (null !== $this->commodityCode) {
-            $res['CommodityCode'] = $this->commodityCode;
-        }
-        if (null !== $this->DBClusterNetworkType) {
-            $res['DBClusterNetworkType'] = $this->DBClusterNetworkType;
-        }
-        if (null !== $this->storageType) {
-            $res['StorageType'] = $this->storageType;
+        if (null !== $this->port) {
+            $res['Port'] = $this->port;
         }
         if (null !== $this->publicConnectionString) {
             $res['PublicConnectionString'] = $this->publicConnectionString;
@@ -310,29 +337,38 @@ class DBCluster extends Model
         if (null !== $this->publicPort) {
             $res['PublicPort'] = $this->publicPort;
         }
-        if (null !== $this->connectionString) {
-            $res['ConnectionString'] = $this->connectionString;
+        if (null !== $this->regionId) {
+            $res['RegionId'] = $this->regionId;
         }
-        if (null !== $this->port) {
-            $res['Port'] = $this->port;
+        if (null !== $this->scaleOutStatus) {
+            $res['ScaleOutStatus'] = null !== $this->scaleOutStatus ? $this->scaleOutStatus->toMap() : null;
         }
-        if (null !== $this->aliUid) {
-            $res['AliUid'] = $this->aliUid;
+        if (null !== $this->storageType) {
+            $res['StorageType'] = $this->storageType;
         }
-        if (null !== $this->bid) {
-            $res['Bid'] = $this->bid;
+        if (null !== $this->supportBackup) {
+            $res['SupportBackup'] = $this->supportBackup;
         }
-        if (null !== $this->encryptionKey) {
-            $res['EncryptionKey'] = $this->encryptionKey;
+        if (null !== $this->supportHttpsPort) {
+            $res['SupportHttpsPort'] = $this->supportHttpsPort;
         }
-        if (null !== $this->encryptionType) {
-            $res['EncryptionType'] = $this->encryptionType;
+        if (null !== $this->supportMysqlPort) {
+            $res['SupportMysqlPort'] = $this->supportMysqlPort;
         }
         if (null !== $this->tags) {
             $res['Tags'] = null !== $this->tags ? $this->tags->toMap() : null;
         }
-        if (null !== $this->scaleOutStatus) {
-            $res['ScaleOutStatus'] = null !== $this->scaleOutStatus ? $this->scaleOutStatus->toMap() : null;
+        if (null !== $this->vSwitchId) {
+            $res['VSwitchId'] = $this->vSwitchId;
+        }
+        if (null !== $this->vpcCloudInstanceId) {
+            $res['VpcCloudInstanceId'] = $this->vpcCloudInstanceId;
+        }
+        if (null !== $this->vpcId) {
+            $res['VpcId'] = $this->vpcId;
+        }
+        if (null !== $this->zoneId) {
+            $res['ZoneId'] = $this->zoneId;
         }
 
         return $res;
@@ -346,38 +382,41 @@ class DBCluster extends Model
     public static function fromMap($map = [])
     {
         $model = new self();
-        if (isset($map['RegionId'])) {
-            $model->regionId = $map['RegionId'];
+        if (isset($map['AliUid'])) {
+            $model->aliUid = $map['AliUid'];
         }
-        if (isset($map['ZoneId'])) {
-            $model->zoneId = $map['ZoneId'];
-        }
-        if (isset($map['DBClusterId'])) {
-            $model->DBClusterId = $map['DBClusterId'];
-        }
-        if (isset($map['DBClusterType'])) {
-            $model->DBClusterType = $map['DBClusterType'];
-        }
-        if (isset($map['DBClusterDescription'])) {
-            $model->DBClusterDescription = $map['DBClusterDescription'];
+        if (isset($map['Bid'])) {
+            $model->bid = $map['Bid'];
         }
         if (isset($map['Category'])) {
             $model->category = $map['Category'];
         }
-        if (isset($map['LockMode'])) {
-            $model->lockMode = $map['LockMode'];
+        if (isset($map['CommodityCode'])) {
+            $model->commodityCode = $map['CommodityCode'];
         }
-        if (isset($map['LockReason'])) {
-            $model->lockReason = $map['LockReason'];
+        if (isset($map['ConnectionString'])) {
+            $model->connectionString = $map['ConnectionString'];
         }
-        if (isset($map['PayType'])) {
-            $model->payType = $map['PayType'];
+        if (isset($map['ControlVersion'])) {
+            $model->controlVersion = $map['ControlVersion'];
+        }
+        if (isset($map['CreateTime'])) {
+            $model->createTime = $map['CreateTime'];
+        }
+        if (isset($map['DBClusterDescription'])) {
+            $model->DBClusterDescription = $map['DBClusterDescription'];
+        }
+        if (isset($map['DBClusterId'])) {
+            $model->DBClusterId = $map['DBClusterId'];
+        }
+        if (isset($map['DBClusterNetworkType'])) {
+            $model->DBClusterNetworkType = $map['DBClusterNetworkType'];
         }
         if (isset($map['DBClusterStatus'])) {
             $model->DBClusterStatus = $map['DBClusterStatus'];
         }
-        if (isset($map['DBNodeStorage'])) {
-            $model->DBNodeStorage = $map['DBNodeStorage'];
+        if (isset($map['DBClusterType'])) {
+            $model->DBClusterType = $map['DBClusterType'];
         }
         if (isset($map['DBNodeClass'])) {
             $model->DBNodeClass = $map['DBNodeClass'];
@@ -385,8 +424,14 @@ class DBCluster extends Model
         if (isset($map['DBNodeCount'])) {
             $model->DBNodeCount = $map['DBNodeCount'];
         }
-        if (isset($map['CreateTime'])) {
-            $model->createTime = $map['CreateTime'];
+        if (isset($map['DBNodeStorage'])) {
+            $model->DBNodeStorage = $map['DBNodeStorage'];
+        }
+        if (isset($map['EncryptionKey'])) {
+            $model->encryptionKey = $map['EncryptionKey'];
+        }
+        if (isset($map['EncryptionType'])) {
+            $model->encryptionType = $map['EncryptionType'];
         }
         if (isset($map['Engine'])) {
             $model->engine = $map['Engine'];
@@ -400,26 +445,20 @@ class DBCluster extends Model
         if (isset($map['IsExpired'])) {
             $model->isExpired = $map['IsExpired'];
         }
+        if (isset($map['LockMode'])) {
+            $model->lockMode = $map['LockMode'];
+        }
+        if (isset($map['LockReason'])) {
+            $model->lockReason = $map['LockReason'];
+        }
         if (isset($map['MaintainTime'])) {
             $model->maintainTime = $map['MaintainTime'];
         }
-        if (isset($map['VpcId'])) {
-            $model->vpcId = $map['VpcId'];
+        if (isset($map['PayType'])) {
+            $model->payType = $map['PayType'];
         }
-        if (isset($map['VSwitchId'])) {
-            $model->vSwitchId = $map['VSwitchId'];
-        }
-        if (isset($map['VpcCloudInstanceId'])) {
-            $model->vpcCloudInstanceId = $map['VpcCloudInstanceId'];
-        }
-        if (isset($map['CommodityCode'])) {
-            $model->commodityCode = $map['CommodityCode'];
-        }
-        if (isset($map['DBClusterNetworkType'])) {
-            $model->DBClusterNetworkType = $map['DBClusterNetworkType'];
-        }
-        if (isset($map['StorageType'])) {
-            $model->storageType = $map['StorageType'];
+        if (isset($map['Port'])) {
+            $model->port = $map['Port'];
         }
         if (isset($map['PublicConnectionString'])) {
             $model->publicConnectionString = $map['PublicConnectionString'];
@@ -427,29 +466,38 @@ class DBCluster extends Model
         if (isset($map['PublicPort'])) {
             $model->publicPort = $map['PublicPort'];
         }
-        if (isset($map['ConnectionString'])) {
-            $model->connectionString = $map['ConnectionString'];
+        if (isset($map['RegionId'])) {
+            $model->regionId = $map['RegionId'];
         }
-        if (isset($map['Port'])) {
-            $model->port = $map['Port'];
+        if (isset($map['ScaleOutStatus'])) {
+            $model->scaleOutStatus = scaleOutStatus::fromMap($map['ScaleOutStatus']);
         }
-        if (isset($map['AliUid'])) {
-            $model->aliUid = $map['AliUid'];
+        if (isset($map['StorageType'])) {
+            $model->storageType = $map['StorageType'];
         }
-        if (isset($map['Bid'])) {
-            $model->bid = $map['Bid'];
+        if (isset($map['SupportBackup'])) {
+            $model->supportBackup = $map['SupportBackup'];
         }
-        if (isset($map['EncryptionKey'])) {
-            $model->encryptionKey = $map['EncryptionKey'];
+        if (isset($map['SupportHttpsPort'])) {
+            $model->supportHttpsPort = $map['SupportHttpsPort'];
         }
-        if (isset($map['EncryptionType'])) {
-            $model->encryptionType = $map['EncryptionType'];
+        if (isset($map['SupportMysqlPort'])) {
+            $model->supportMysqlPort = $map['SupportMysqlPort'];
         }
         if (isset($map['Tags'])) {
             $model->tags = tags::fromMap($map['Tags']);
         }
-        if (isset($map['ScaleOutStatus'])) {
-            $model->scaleOutStatus = scaleOutStatus::fromMap($map['ScaleOutStatus']);
+        if (isset($map['VSwitchId'])) {
+            $model->vSwitchId = $map['VSwitchId'];
+        }
+        if (isset($map['VpcCloudInstanceId'])) {
+            $model->vpcCloudInstanceId = $map['VpcCloudInstanceId'];
+        }
+        if (isset($map['VpcId'])) {
+            $model->vpcId = $map['VpcId'];
+        }
+        if (isset($map['ZoneId'])) {
+            $model->zoneId = $map['ZoneId'];
         }
 
         return $model;

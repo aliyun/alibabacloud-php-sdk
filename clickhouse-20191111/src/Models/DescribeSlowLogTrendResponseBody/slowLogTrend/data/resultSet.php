@@ -11,7 +11,12 @@ class resultSet extends Model
     /**
      * @var string
      */
-    public $queryStartTime;
+    public $avgQueryDurationMs;
+
+    /**
+     * @var string
+     */
+    public $count;
 
     /**
      * @var string
@@ -26,18 +31,13 @@ class resultSet extends Model
     /**
      * @var string
      */
-    public $count;
-
-    /**
-     * @var string
-     */
-    public $avgQueryDurationMs;
+    public $queryStartTime;
     protected $_name = [
-        'queryStartTime'     => 'QueryStartTime',
+        'avgQueryDurationMs' => 'AvgQueryDurationMs',
+        'count'              => 'Count',
         'maxQueryDurationMs' => 'MaxQueryDurationMs',
         'minQueryDurationMs' => 'MinQueryDurationMs',
-        'count'              => 'Count',
-        'avgQueryDurationMs' => 'AvgQueryDurationMs',
+        'queryStartTime'     => 'QueryStartTime',
     ];
 
     public function validate()
@@ -47,8 +47,11 @@ class resultSet extends Model
     public function toMap()
     {
         $res = [];
-        if (null !== $this->queryStartTime) {
-            $res['QueryStartTime'] = $this->queryStartTime;
+        if (null !== $this->avgQueryDurationMs) {
+            $res['AvgQueryDurationMs'] = $this->avgQueryDurationMs;
+        }
+        if (null !== $this->count) {
+            $res['Count'] = $this->count;
         }
         if (null !== $this->maxQueryDurationMs) {
             $res['MaxQueryDurationMs'] = $this->maxQueryDurationMs;
@@ -56,11 +59,8 @@ class resultSet extends Model
         if (null !== $this->minQueryDurationMs) {
             $res['MinQueryDurationMs'] = $this->minQueryDurationMs;
         }
-        if (null !== $this->count) {
-            $res['Count'] = $this->count;
-        }
-        if (null !== $this->avgQueryDurationMs) {
-            $res['AvgQueryDurationMs'] = $this->avgQueryDurationMs;
+        if (null !== $this->queryStartTime) {
+            $res['QueryStartTime'] = $this->queryStartTime;
         }
 
         return $res;
@@ -74,8 +74,11 @@ class resultSet extends Model
     public static function fromMap($map = [])
     {
         $model = new self();
-        if (isset($map['QueryStartTime'])) {
-            $model->queryStartTime = $map['QueryStartTime'];
+        if (isset($map['AvgQueryDurationMs'])) {
+            $model->avgQueryDurationMs = $map['AvgQueryDurationMs'];
+        }
+        if (isset($map['Count'])) {
+            $model->count = $map['Count'];
         }
         if (isset($map['MaxQueryDurationMs'])) {
             $model->maxQueryDurationMs = $map['MaxQueryDurationMs'];
@@ -83,11 +86,8 @@ class resultSet extends Model
         if (isset($map['MinQueryDurationMs'])) {
             $model->minQueryDurationMs = $map['MinQueryDurationMs'];
         }
-        if (isset($map['Count'])) {
-            $model->count = $map['Count'];
-        }
-        if (isset($map['AvgQueryDurationMs'])) {
-            $model->avgQueryDurationMs = $map['AvgQueryDurationMs'];
+        if (isset($map['QueryStartTime'])) {
+            $model->queryStartTime = $map['QueryStartTime'];
         }
 
         return $model;

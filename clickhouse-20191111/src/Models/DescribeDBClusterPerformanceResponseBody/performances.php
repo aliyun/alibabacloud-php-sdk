@@ -17,7 +17,7 @@ class performances extends Model
     /**
      * @var string
      */
-    public $unit;
+    public $name;
 
     /**
      * @var series[]
@@ -27,12 +27,12 @@ class performances extends Model
     /**
      * @var string
      */
-    public $name;
+    public $unit;
     protected $_name = [
         'key'    => 'Key',
-        'unit'   => 'Unit',
-        'series' => 'Series',
         'name'   => 'Name',
+        'series' => 'Series',
+        'unit'   => 'Unit',
     ];
 
     public function validate()
@@ -45,8 +45,8 @@ class performances extends Model
         if (null !== $this->key) {
             $res['Key'] = $this->key;
         }
-        if (null !== $this->unit) {
-            $res['Unit'] = $this->unit;
+        if (null !== $this->name) {
+            $res['Name'] = $this->name;
         }
         if (null !== $this->series) {
             $res['Series'] = [];
@@ -57,8 +57,8 @@ class performances extends Model
                 }
             }
         }
-        if (null !== $this->name) {
-            $res['Name'] = $this->name;
+        if (null !== $this->unit) {
+            $res['Unit'] = $this->unit;
         }
 
         return $res;
@@ -75,8 +75,8 @@ class performances extends Model
         if (isset($map['Key'])) {
             $model->key = $map['Key'];
         }
-        if (isset($map['Unit'])) {
-            $model->unit = $map['Unit'];
+        if (isset($map['Name'])) {
+            $model->name = $map['Name'];
         }
         if (isset($map['Series'])) {
             if (!empty($map['Series'])) {
@@ -87,8 +87,8 @@ class performances extends Model
                 }
             }
         }
-        if (isset($map['Name'])) {
-            $model->name = $map['Name'];
+        if (isset($map['Unit'])) {
+            $model->unit = $map['Unit'];
         }
 
         return $model;

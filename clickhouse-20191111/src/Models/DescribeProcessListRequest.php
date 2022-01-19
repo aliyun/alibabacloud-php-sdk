@@ -9,39 +9,14 @@ use AlibabaCloud\Tea\Model;
 class DescribeProcessListRequest extends Model
 {
     /**
-     * @var int
-     */
-    public $ownerId;
-
-    /**
-     * @var string
-     */
-    public $resourceOwnerAccount;
-
-    /**
-     * @var int
-     */
-    public $resourceOwnerId;
-
-    /**
-     * @var string
-     */
-    public $ownerAccount;
-
-    /**
-     * @var string
-     */
-    public $regionId;
-
-    /**
      * @var string
      */
     public $DBClusterId;
 
     /**
-     * @var int
+     * @var string
      */
-    public $queryDurationMs;
+    public $initialQueryId;
 
     /**
      * @var string
@@ -59,9 +34,14 @@ class DescribeProcessListRequest extends Model
     public $order;
 
     /**
+     * @var string
+     */
+    public $ownerAccount;
+
+    /**
      * @var int
      */
-    public $pageSize;
+    public $ownerId;
 
     /**
      * @var int
@@ -69,23 +49,43 @@ class DescribeProcessListRequest extends Model
     public $pageNumber;
 
     /**
+     * @var int
+     */
+    public $pageSize;
+
+    /**
+     * @var int
+     */
+    public $queryDurationMs;
+
+    /**
      * @var string
      */
-    public $initialQueryId;
+    public $regionId;
+
+    /**
+     * @var string
+     */
+    public $resourceOwnerAccount;
+
+    /**
+     * @var int
+     */
+    public $resourceOwnerId;
     protected $_name = [
-        'ownerId'              => 'OwnerId',
-        'resourceOwnerAccount' => 'ResourceOwnerAccount',
-        'resourceOwnerId'      => 'ResourceOwnerId',
-        'ownerAccount'         => 'OwnerAccount',
-        'regionId'             => 'RegionId',
         'DBClusterId'          => 'DBClusterId',
-        'queryDurationMs'      => 'QueryDurationMs',
+        'initialQueryId'       => 'InitialQueryId',
         'initialUser'          => 'InitialUser',
         'keyword'              => 'Keyword',
         'order'                => 'Order',
-        'pageSize'             => 'PageSize',
+        'ownerAccount'         => 'OwnerAccount',
+        'ownerId'              => 'OwnerId',
         'pageNumber'           => 'PageNumber',
-        'initialQueryId'       => 'InitialQueryId',
+        'pageSize'             => 'PageSize',
+        'queryDurationMs'      => 'QueryDurationMs',
+        'regionId'             => 'RegionId',
+        'resourceOwnerAccount' => 'ResourceOwnerAccount',
+        'resourceOwnerId'      => 'ResourceOwnerId',
     ];
 
     public function validate()
@@ -95,26 +95,11 @@ class DescribeProcessListRequest extends Model
     public function toMap()
     {
         $res = [];
-        if (null !== $this->ownerId) {
-            $res['OwnerId'] = $this->ownerId;
-        }
-        if (null !== $this->resourceOwnerAccount) {
-            $res['ResourceOwnerAccount'] = $this->resourceOwnerAccount;
-        }
-        if (null !== $this->resourceOwnerId) {
-            $res['ResourceOwnerId'] = $this->resourceOwnerId;
-        }
-        if (null !== $this->ownerAccount) {
-            $res['OwnerAccount'] = $this->ownerAccount;
-        }
-        if (null !== $this->regionId) {
-            $res['RegionId'] = $this->regionId;
-        }
         if (null !== $this->DBClusterId) {
             $res['DBClusterId'] = $this->DBClusterId;
         }
-        if (null !== $this->queryDurationMs) {
-            $res['QueryDurationMs'] = $this->queryDurationMs;
+        if (null !== $this->initialQueryId) {
+            $res['InitialQueryId'] = $this->initialQueryId;
         }
         if (null !== $this->initialUser) {
             $res['InitialUser'] = $this->initialUser;
@@ -125,14 +110,29 @@ class DescribeProcessListRequest extends Model
         if (null !== $this->order) {
             $res['Order'] = $this->order;
         }
-        if (null !== $this->pageSize) {
-            $res['PageSize'] = $this->pageSize;
+        if (null !== $this->ownerAccount) {
+            $res['OwnerAccount'] = $this->ownerAccount;
+        }
+        if (null !== $this->ownerId) {
+            $res['OwnerId'] = $this->ownerId;
         }
         if (null !== $this->pageNumber) {
             $res['PageNumber'] = $this->pageNumber;
         }
-        if (null !== $this->initialQueryId) {
-            $res['InitialQueryId'] = $this->initialQueryId;
+        if (null !== $this->pageSize) {
+            $res['PageSize'] = $this->pageSize;
+        }
+        if (null !== $this->queryDurationMs) {
+            $res['QueryDurationMs'] = $this->queryDurationMs;
+        }
+        if (null !== $this->regionId) {
+            $res['RegionId'] = $this->regionId;
+        }
+        if (null !== $this->resourceOwnerAccount) {
+            $res['ResourceOwnerAccount'] = $this->resourceOwnerAccount;
+        }
+        if (null !== $this->resourceOwnerId) {
+            $res['ResourceOwnerId'] = $this->resourceOwnerId;
         }
 
         return $res;
@@ -146,26 +146,11 @@ class DescribeProcessListRequest extends Model
     public static function fromMap($map = [])
     {
         $model = new self();
-        if (isset($map['OwnerId'])) {
-            $model->ownerId = $map['OwnerId'];
-        }
-        if (isset($map['ResourceOwnerAccount'])) {
-            $model->resourceOwnerAccount = $map['ResourceOwnerAccount'];
-        }
-        if (isset($map['ResourceOwnerId'])) {
-            $model->resourceOwnerId = $map['ResourceOwnerId'];
-        }
-        if (isset($map['OwnerAccount'])) {
-            $model->ownerAccount = $map['OwnerAccount'];
-        }
-        if (isset($map['RegionId'])) {
-            $model->regionId = $map['RegionId'];
-        }
         if (isset($map['DBClusterId'])) {
             $model->DBClusterId = $map['DBClusterId'];
         }
-        if (isset($map['QueryDurationMs'])) {
-            $model->queryDurationMs = $map['QueryDurationMs'];
+        if (isset($map['InitialQueryId'])) {
+            $model->initialQueryId = $map['InitialQueryId'];
         }
         if (isset($map['InitialUser'])) {
             $model->initialUser = $map['InitialUser'];
@@ -176,14 +161,29 @@ class DescribeProcessListRequest extends Model
         if (isset($map['Order'])) {
             $model->order = $map['Order'];
         }
-        if (isset($map['PageSize'])) {
-            $model->pageSize = $map['PageSize'];
+        if (isset($map['OwnerAccount'])) {
+            $model->ownerAccount = $map['OwnerAccount'];
+        }
+        if (isset($map['OwnerId'])) {
+            $model->ownerId = $map['OwnerId'];
         }
         if (isset($map['PageNumber'])) {
             $model->pageNumber = $map['PageNumber'];
         }
-        if (isset($map['InitialQueryId'])) {
-            $model->initialQueryId = $map['InitialQueryId'];
+        if (isset($map['PageSize'])) {
+            $model->pageSize = $map['PageSize'];
+        }
+        if (isset($map['QueryDurationMs'])) {
+            $model->queryDurationMs = $map['QueryDurationMs'];
+        }
+        if (isset($map['RegionId'])) {
+            $model->regionId = $map['RegionId'];
+        }
+        if (isset($map['ResourceOwnerAccount'])) {
+            $model->resourceOwnerAccount = $map['ResourceOwnerAccount'];
+        }
+        if (isset($map['ResourceOwnerId'])) {
+            $model->resourceOwnerId = $map['ResourceOwnerId'];
         }
 
         return $model;

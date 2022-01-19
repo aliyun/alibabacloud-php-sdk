@@ -11,7 +11,7 @@ class data extends Model
     /**
      * @var string[]
      */
-    public $values;
+    public $columns;
 
     /**
      * @var string
@@ -26,12 +26,12 @@ class data extends Model
     /**
      * @var string[]
      */
-    public $columns;
+    public $values;
     protected $_name = [
-        'values'  => 'Values',
+        'columns' => 'Columns',
         'name'    => 'Name',
         'taskId'  => 'TaskId',
-        'columns' => 'Columns',
+        'values'  => 'Values',
     ];
 
     public function validate()
@@ -41,8 +41,8 @@ class data extends Model
     public function toMap()
     {
         $res = [];
-        if (null !== $this->values) {
-            $res['Values'] = $this->values;
+        if (null !== $this->columns) {
+            $res['Columns'] = $this->columns;
         }
         if (null !== $this->name) {
             $res['Name'] = $this->name;
@@ -50,8 +50,8 @@ class data extends Model
         if (null !== $this->taskId) {
             $res['TaskId'] = $this->taskId;
         }
-        if (null !== $this->columns) {
-            $res['Columns'] = $this->columns;
+        if (null !== $this->values) {
+            $res['Values'] = $this->values;
         }
 
         return $res;
@@ -65,9 +65,9 @@ class data extends Model
     public static function fromMap($map = [])
     {
         $model = new self();
-        if (isset($map['Values'])) {
-            if (!empty($map['Values'])) {
-                $model->values = $map['Values'];
+        if (isset($map['Columns'])) {
+            if (!empty($map['Columns'])) {
+                $model->columns = $map['Columns'];
             }
         }
         if (isset($map['Name'])) {
@@ -76,9 +76,9 @@ class data extends Model
         if (isset($map['TaskId'])) {
             $model->taskId = $map['TaskId'];
         }
-        if (isset($map['Columns'])) {
-            if (!empty($map['Columns'])) {
-                $model->columns = $map['Columns'];
+        if (isset($map['Values'])) {
+            if (!empty($map['Values'])) {
+                $model->values = $map['Values'];
             }
         }
 

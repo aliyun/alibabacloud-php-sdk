@@ -16,16 +16,16 @@ class IPArray extends Model
     /**
      * @var string
      */
-    public $securityIPList;
+    public $DBClusterIPArrayName;
 
     /**
      * @var string
      */
-    public $DBClusterIPArrayName;
+    public $securityIPList;
     protected $_name = [
         'DBClusterIPArrayAttribute' => 'DBClusterIPArrayAttribute',
-        'securityIPList'            => 'SecurityIPList',
         'DBClusterIPArrayName'      => 'DBClusterIPArrayName',
+        'securityIPList'            => 'SecurityIPList',
     ];
 
     public function validate()
@@ -38,11 +38,11 @@ class IPArray extends Model
         if (null !== $this->DBClusterIPArrayAttribute) {
             $res['DBClusterIPArrayAttribute'] = $this->DBClusterIPArrayAttribute;
         }
-        if (null !== $this->securityIPList) {
-            $res['SecurityIPList'] = $this->securityIPList;
-        }
         if (null !== $this->DBClusterIPArrayName) {
             $res['DBClusterIPArrayName'] = $this->DBClusterIPArrayName;
+        }
+        if (null !== $this->securityIPList) {
+            $res['SecurityIPList'] = $this->securityIPList;
         }
 
         return $res;
@@ -59,11 +59,11 @@ class IPArray extends Model
         if (isset($map['DBClusterIPArrayAttribute'])) {
             $model->DBClusterIPArrayAttribute = $map['DBClusterIPArrayAttribute'];
         }
-        if (isset($map['SecurityIPList'])) {
-            $model->securityIPList = $map['SecurityIPList'];
-        }
         if (isset($map['DBClusterIPArrayName'])) {
             $model->DBClusterIPArrayName = $map['DBClusterIPArrayName'];
+        }
+        if (isset($map['SecurityIPList'])) {
+            $model->securityIPList = $map['SecurityIPList'];
         }
 
         return $model;

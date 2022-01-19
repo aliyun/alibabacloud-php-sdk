@@ -11,15 +11,15 @@ class resultSet extends Model
     /**
      * @var string
      */
-    public $type;
+    public $name;
 
     /**
      * @var string
      */
-    public $name;
+    public $type;
     protected $_name = [
-        'type' => 'Type',
         'name' => 'Name',
+        'type' => 'Type',
     ];
 
     public function validate()
@@ -29,11 +29,11 @@ class resultSet extends Model
     public function toMap()
     {
         $res = [];
-        if (null !== $this->type) {
-            $res['Type'] = $this->type;
-        }
         if (null !== $this->name) {
             $res['Name'] = $this->name;
+        }
+        if (null !== $this->type) {
+            $res['Type'] = $this->type;
         }
 
         return $res;
@@ -47,11 +47,11 @@ class resultSet extends Model
     public static function fromMap($map = [])
     {
         $model = new self();
-        if (isset($map['Type'])) {
-            $model->type = $map['Type'];
-        }
         if (isset($map['Name'])) {
             $model->name = $map['Name'];
+        }
+        if (isset($map['Type'])) {
+            $model->type = $map['Type'];
         }
 
         return $model;

@@ -10,9 +10,9 @@ use AlibabaCloud\Tea\Model;
 class DescribeAvailableResourceResponseBody extends Model
 {
     /**
-     * @var string
+     * @var availableZoneList
      */
-    public $requestId;
+    public $availableZoneList;
 
     /**
      * @var string
@@ -20,13 +20,13 @@ class DescribeAvailableResourceResponseBody extends Model
     public $regionId;
 
     /**
-     * @var availableZoneList
+     * @var string
      */
-    public $availableZoneList;
+    public $requestId;
     protected $_name = [
-        'requestId'         => 'RequestId',
-        'regionId'          => 'RegionId',
         'availableZoneList' => 'AvailableZoneList',
+        'regionId'          => 'RegionId',
+        'requestId'         => 'RequestId',
     ];
 
     public function validate()
@@ -36,14 +36,14 @@ class DescribeAvailableResourceResponseBody extends Model
     public function toMap()
     {
         $res = [];
-        if (null !== $this->requestId) {
-            $res['RequestId'] = $this->requestId;
+        if (null !== $this->availableZoneList) {
+            $res['AvailableZoneList'] = null !== $this->availableZoneList ? $this->availableZoneList->toMap() : null;
         }
         if (null !== $this->regionId) {
             $res['RegionId'] = $this->regionId;
         }
-        if (null !== $this->availableZoneList) {
-            $res['AvailableZoneList'] = null !== $this->availableZoneList ? $this->availableZoneList->toMap() : null;
+        if (null !== $this->requestId) {
+            $res['RequestId'] = $this->requestId;
         }
 
         return $res;
@@ -57,14 +57,14 @@ class DescribeAvailableResourceResponseBody extends Model
     public static function fromMap($map = [])
     {
         $model = new self();
-        if (isset($map['RequestId'])) {
-            $model->requestId = $map['RequestId'];
+        if (isset($map['AvailableZoneList'])) {
+            $model->availableZoneList = availableZoneList::fromMap($map['AvailableZoneList']);
         }
         if (isset($map['RegionId'])) {
             $model->regionId = $map['RegionId'];
         }
-        if (isset($map['AvailableZoneList'])) {
-            $model->availableZoneList = availableZoneList::fromMap($map['AvailableZoneList']);
+        if (isset($map['RequestId'])) {
+            $model->requestId = $map['RequestId'];
         }
 
         return $model;

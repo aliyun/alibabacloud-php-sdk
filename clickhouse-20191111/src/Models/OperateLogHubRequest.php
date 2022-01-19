@@ -10,24 +10,14 @@ use AlibabaCloud\Tea\Model;
 class OperateLogHubRequest extends Model
 {
     /**
-     * @var int
+     * @var string
      */
-    public $ownerId;
+    public $accessKey;
 
     /**
      * @var string
      */
-    public $resourceOwnerAccount;
-
-    /**
-     * @var int
-     */
-    public $resourceOwnerId;
-
-    /**
-     * @var string
-     */
-    public $ownerAccount;
+    public $accessSecret;
 
     /**
      * @var bool
@@ -38,16 +28,6 @@ class OperateLogHubRequest extends Model
      * @var string
      */
     public $DBClusterId;
-
-    /**
-     * @var string
-     */
-    public $projectName;
-
-    /**
-     * @var string
-     */
-    public $logStoreName;
 
     /**
      * @var string
@@ -70,6 +50,51 @@ class OperateLogHubRequest extends Model
     public $domainUrl;
 
     /**
+     * @var bool
+     */
+    public $filterDirtyData;
+
+    /**
+     * @var logHubStores[]
+     */
+    public $logHubStores;
+
+    /**
+     * @var string
+     */
+    public $logStoreName;
+
+    /**
+     * @var string
+     */
+    public $ownerAccount;
+
+    /**
+     * @var int
+     */
+    public $ownerId;
+
+    /**
+     * @var string
+     */
+    public $password;
+
+    /**
+     * @var string
+     */
+    public $projectName;
+
+    /**
+     * @var string
+     */
+    public $resourceOwnerAccount;
+
+    /**
+     * @var int
+     */
+    public $resourceOwnerId;
+
+    /**
      * @var string
      */
     public $schemaName;
@@ -82,27 +107,7 @@ class OperateLogHubRequest extends Model
     /**
      * @var string
      */
-    public $userName;
-
-    /**
-     * @var string
-     */
-    public $password;
-
-    /**
-     * @var bool
-     */
-    public $filterDirtyData;
-
-    /**
-     * @var string
-     */
-    public $accessKey;
-
-    /**
-     * @var string
-     */
-    public $accessSecret;
+    public $taskId;
 
     /**
      * @var bool
@@ -112,35 +117,30 @@ class OperateLogHubRequest extends Model
     /**
      * @var string
      */
-    public $taskId;
-
-    /**
-     * @var logHubStores[]
-     */
-    public $logHubStores;
+    public $userName;
     protected $_name = [
-        'ownerId'              => 'OwnerId',
-        'resourceOwnerAccount' => 'ResourceOwnerAccount',
-        'resourceOwnerId'      => 'ResourceOwnerId',
-        'ownerAccount'         => 'OwnerAccount',
+        'accessKey'            => 'AccessKey',
+        'accessSecret'         => 'AccessSecret',
         'create'               => 'Create',
         'DBClusterId'          => 'DBClusterId',
-        'projectName'          => 'ProjectName',
-        'logStoreName'         => 'LogStoreName',
         'deliverName'          => 'DeliverName',
         'deliverTime'          => 'DeliverTime',
         'description'          => 'Description',
         'domainUrl'            => 'DomainUrl',
+        'filterDirtyData'      => 'FilterDirtyData',
+        'logHubStores'         => 'LogHubStores',
+        'logStoreName'         => 'LogStoreName',
+        'ownerAccount'         => 'OwnerAccount',
+        'ownerId'              => 'OwnerId',
+        'password'             => 'Password',
+        'projectName'          => 'ProjectName',
+        'resourceOwnerAccount' => 'ResourceOwnerAccount',
+        'resourceOwnerId'      => 'ResourceOwnerId',
         'schemaName'           => 'SchemaName',
         'tableName'            => 'TableName',
-        'userName'             => 'UserName',
-        'password'             => 'Password',
-        'filterDirtyData'      => 'FilterDirtyData',
-        'accessKey'            => 'AccessKey',
-        'accessSecret'         => 'AccessSecret',
-        'useLorne'             => 'UseLorne',
         'taskId'               => 'TaskId',
-        'logHubStores'         => 'LogHubStores',
+        'useLorne'             => 'UseLorne',
+        'userName'             => 'UserName',
     ];
 
     public function validate()
@@ -150,29 +150,17 @@ class OperateLogHubRequest extends Model
     public function toMap()
     {
         $res = [];
-        if (null !== $this->ownerId) {
-            $res['OwnerId'] = $this->ownerId;
+        if (null !== $this->accessKey) {
+            $res['AccessKey'] = $this->accessKey;
         }
-        if (null !== $this->resourceOwnerAccount) {
-            $res['ResourceOwnerAccount'] = $this->resourceOwnerAccount;
-        }
-        if (null !== $this->resourceOwnerId) {
-            $res['ResourceOwnerId'] = $this->resourceOwnerId;
-        }
-        if (null !== $this->ownerAccount) {
-            $res['OwnerAccount'] = $this->ownerAccount;
+        if (null !== $this->accessSecret) {
+            $res['AccessSecret'] = $this->accessSecret;
         }
         if (null !== $this->create) {
             $res['Create'] = $this->create;
         }
         if (null !== $this->DBClusterId) {
             $res['DBClusterId'] = $this->DBClusterId;
-        }
-        if (null !== $this->projectName) {
-            $res['ProjectName'] = $this->projectName;
-        }
-        if (null !== $this->logStoreName) {
-            $res['LogStoreName'] = $this->logStoreName;
         }
         if (null !== $this->deliverName) {
             $res['DeliverName'] = $this->deliverName;
@@ -186,32 +174,8 @@ class OperateLogHubRequest extends Model
         if (null !== $this->domainUrl) {
             $res['DomainUrl'] = $this->domainUrl;
         }
-        if (null !== $this->schemaName) {
-            $res['SchemaName'] = $this->schemaName;
-        }
-        if (null !== $this->tableName) {
-            $res['TableName'] = $this->tableName;
-        }
-        if (null !== $this->userName) {
-            $res['UserName'] = $this->userName;
-        }
-        if (null !== $this->password) {
-            $res['Password'] = $this->password;
-        }
         if (null !== $this->filterDirtyData) {
             $res['FilterDirtyData'] = $this->filterDirtyData;
-        }
-        if (null !== $this->accessKey) {
-            $res['AccessKey'] = $this->accessKey;
-        }
-        if (null !== $this->accessSecret) {
-            $res['AccessSecret'] = $this->accessSecret;
-        }
-        if (null !== $this->useLorne) {
-            $res['UseLorne'] = $this->useLorne;
-        }
-        if (null !== $this->taskId) {
-            $res['TaskId'] = $this->taskId;
         }
         if (null !== $this->logHubStores) {
             $res['LogHubStores'] = [];
@@ -221,6 +185,42 @@ class OperateLogHubRequest extends Model
                     $res['LogHubStores'][$n++] = null !== $item ? $item->toMap() : $item;
                 }
             }
+        }
+        if (null !== $this->logStoreName) {
+            $res['LogStoreName'] = $this->logStoreName;
+        }
+        if (null !== $this->ownerAccount) {
+            $res['OwnerAccount'] = $this->ownerAccount;
+        }
+        if (null !== $this->ownerId) {
+            $res['OwnerId'] = $this->ownerId;
+        }
+        if (null !== $this->password) {
+            $res['Password'] = $this->password;
+        }
+        if (null !== $this->projectName) {
+            $res['ProjectName'] = $this->projectName;
+        }
+        if (null !== $this->resourceOwnerAccount) {
+            $res['ResourceOwnerAccount'] = $this->resourceOwnerAccount;
+        }
+        if (null !== $this->resourceOwnerId) {
+            $res['ResourceOwnerId'] = $this->resourceOwnerId;
+        }
+        if (null !== $this->schemaName) {
+            $res['SchemaName'] = $this->schemaName;
+        }
+        if (null !== $this->tableName) {
+            $res['TableName'] = $this->tableName;
+        }
+        if (null !== $this->taskId) {
+            $res['TaskId'] = $this->taskId;
+        }
+        if (null !== $this->useLorne) {
+            $res['UseLorne'] = $this->useLorne;
+        }
+        if (null !== $this->userName) {
+            $res['UserName'] = $this->userName;
         }
 
         return $res;
@@ -234,29 +234,17 @@ class OperateLogHubRequest extends Model
     public static function fromMap($map = [])
     {
         $model = new self();
-        if (isset($map['OwnerId'])) {
-            $model->ownerId = $map['OwnerId'];
+        if (isset($map['AccessKey'])) {
+            $model->accessKey = $map['AccessKey'];
         }
-        if (isset($map['ResourceOwnerAccount'])) {
-            $model->resourceOwnerAccount = $map['ResourceOwnerAccount'];
-        }
-        if (isset($map['ResourceOwnerId'])) {
-            $model->resourceOwnerId = $map['ResourceOwnerId'];
-        }
-        if (isset($map['OwnerAccount'])) {
-            $model->ownerAccount = $map['OwnerAccount'];
+        if (isset($map['AccessSecret'])) {
+            $model->accessSecret = $map['AccessSecret'];
         }
         if (isset($map['Create'])) {
             $model->create = $map['Create'];
         }
         if (isset($map['DBClusterId'])) {
             $model->DBClusterId = $map['DBClusterId'];
-        }
-        if (isset($map['ProjectName'])) {
-            $model->projectName = $map['ProjectName'];
-        }
-        if (isset($map['LogStoreName'])) {
-            $model->logStoreName = $map['LogStoreName'];
         }
         if (isset($map['DeliverName'])) {
             $model->deliverName = $map['DeliverName'];
@@ -270,32 +258,8 @@ class OperateLogHubRequest extends Model
         if (isset($map['DomainUrl'])) {
             $model->domainUrl = $map['DomainUrl'];
         }
-        if (isset($map['SchemaName'])) {
-            $model->schemaName = $map['SchemaName'];
-        }
-        if (isset($map['TableName'])) {
-            $model->tableName = $map['TableName'];
-        }
-        if (isset($map['UserName'])) {
-            $model->userName = $map['UserName'];
-        }
-        if (isset($map['Password'])) {
-            $model->password = $map['Password'];
-        }
         if (isset($map['FilterDirtyData'])) {
             $model->filterDirtyData = $map['FilterDirtyData'];
-        }
-        if (isset($map['AccessKey'])) {
-            $model->accessKey = $map['AccessKey'];
-        }
-        if (isset($map['AccessSecret'])) {
-            $model->accessSecret = $map['AccessSecret'];
-        }
-        if (isset($map['UseLorne'])) {
-            $model->useLorne = $map['UseLorne'];
-        }
-        if (isset($map['TaskId'])) {
-            $model->taskId = $map['TaskId'];
         }
         if (isset($map['LogHubStores'])) {
             if (!empty($map['LogHubStores'])) {
@@ -305,6 +269,42 @@ class OperateLogHubRequest extends Model
                     $model->logHubStores[$n++] = null !== $item ? logHubStores::fromMap($item) : $item;
                 }
             }
+        }
+        if (isset($map['LogStoreName'])) {
+            $model->logStoreName = $map['LogStoreName'];
+        }
+        if (isset($map['OwnerAccount'])) {
+            $model->ownerAccount = $map['OwnerAccount'];
+        }
+        if (isset($map['OwnerId'])) {
+            $model->ownerId = $map['OwnerId'];
+        }
+        if (isset($map['Password'])) {
+            $model->password = $map['Password'];
+        }
+        if (isset($map['ProjectName'])) {
+            $model->projectName = $map['ProjectName'];
+        }
+        if (isset($map['ResourceOwnerAccount'])) {
+            $model->resourceOwnerAccount = $map['ResourceOwnerAccount'];
+        }
+        if (isset($map['ResourceOwnerId'])) {
+            $model->resourceOwnerId = $map['ResourceOwnerId'];
+        }
+        if (isset($map['SchemaName'])) {
+            $model->schemaName = $map['SchemaName'];
+        }
+        if (isset($map['TableName'])) {
+            $model->tableName = $map['TableName'];
+        }
+        if (isset($map['TaskId'])) {
+            $model->taskId = $map['TaskId'];
+        }
+        if (isset($map['UseLorne'])) {
+            $model->useLorne = $map['UseLorne'];
+        }
+        if (isset($map['UserName'])) {
+            $model->userName = $map['UserName'];
         }
 
         return $model;

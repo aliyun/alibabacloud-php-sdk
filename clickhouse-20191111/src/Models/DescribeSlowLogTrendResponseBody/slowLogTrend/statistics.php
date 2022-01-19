@@ -11,7 +11,7 @@ class statistics extends Model
     /**
      * @var int
      */
-    public $rowsRead;
+    public $bytesRead;
 
     /**
      * @var float
@@ -21,11 +21,11 @@ class statistics extends Model
     /**
      * @var int
      */
-    public $bytesRead;
+    public $rowsRead;
     protected $_name = [
-        'rowsRead'    => 'RowsRead',
-        'elapsedTime' => 'ElapsedTime',
         'bytesRead'   => 'BytesRead',
+        'elapsedTime' => 'ElapsedTime',
+        'rowsRead'    => 'RowsRead',
     ];
 
     public function validate()
@@ -35,14 +35,14 @@ class statistics extends Model
     public function toMap()
     {
         $res = [];
-        if (null !== $this->rowsRead) {
-            $res['RowsRead'] = $this->rowsRead;
+        if (null !== $this->bytesRead) {
+            $res['BytesRead'] = $this->bytesRead;
         }
         if (null !== $this->elapsedTime) {
             $res['ElapsedTime'] = $this->elapsedTime;
         }
-        if (null !== $this->bytesRead) {
-            $res['BytesRead'] = $this->bytesRead;
+        if (null !== $this->rowsRead) {
+            $res['RowsRead'] = $this->rowsRead;
         }
 
         return $res;
@@ -56,14 +56,14 @@ class statistics extends Model
     public static function fromMap($map = [])
     {
         $model = new self();
-        if (isset($map['RowsRead'])) {
-            $model->rowsRead = $map['RowsRead'];
+        if (isset($map['BytesRead'])) {
+            $model->bytesRead = $map['BytesRead'];
         }
         if (isset($map['ElapsedTime'])) {
             $model->elapsedTime = $map['ElapsedTime'];
         }
-        if (isset($map['BytesRead'])) {
-            $model->bytesRead = $map['BytesRead'];
+        if (isset($map['RowsRead'])) {
+            $model->rowsRead = $map['RowsRead'];
         }
 
         return $model;

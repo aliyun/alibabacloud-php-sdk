@@ -9,24 +9,14 @@ use AlibabaCloud\Tea\Model;
 class column extends Model
 {
     /**
-     * @var string
+     * @var bool
      */
-    public $type;
+    public $autoIncrementColumn;
 
     /**
      * @var string
      */
     public $columnName;
-
-    /**
-     * @var string
-     */
-    public $tableName;
-
-    /**
-     * @var bool
-     */
-    public $autoIncrementColumn;
 
     /**
      * @var string
@@ -42,14 +32,24 @@ class column extends Model
      * @var string
      */
     public $schemaName;
+
+    /**
+     * @var string
+     */
+    public $tableName;
+
+    /**
+     * @var string
+     */
+    public $type;
     protected $_name = [
-        'type'                => 'Type',
-        'columnName'          => 'ColumnName',
-        'tableName'           => 'TableName',
         'autoIncrementColumn' => 'AutoIncrementColumn',
+        'columnName'          => 'ColumnName',
         'DBClusterId'         => 'DBClusterId',
         'primaryKey'          => 'PrimaryKey',
         'schemaName'          => 'SchemaName',
+        'tableName'           => 'TableName',
+        'type'                => 'Type',
     ];
 
     public function validate()
@@ -59,17 +59,11 @@ class column extends Model
     public function toMap()
     {
         $res = [];
-        if (null !== $this->type) {
-            $res['Type'] = $this->type;
+        if (null !== $this->autoIncrementColumn) {
+            $res['AutoIncrementColumn'] = $this->autoIncrementColumn;
         }
         if (null !== $this->columnName) {
             $res['ColumnName'] = $this->columnName;
-        }
-        if (null !== $this->tableName) {
-            $res['TableName'] = $this->tableName;
-        }
-        if (null !== $this->autoIncrementColumn) {
-            $res['AutoIncrementColumn'] = $this->autoIncrementColumn;
         }
         if (null !== $this->DBClusterId) {
             $res['DBClusterId'] = $this->DBClusterId;
@@ -79,6 +73,12 @@ class column extends Model
         }
         if (null !== $this->schemaName) {
             $res['SchemaName'] = $this->schemaName;
+        }
+        if (null !== $this->tableName) {
+            $res['TableName'] = $this->tableName;
+        }
+        if (null !== $this->type) {
+            $res['Type'] = $this->type;
         }
 
         return $res;
@@ -92,17 +92,11 @@ class column extends Model
     public static function fromMap($map = [])
     {
         $model = new self();
-        if (isset($map['Type'])) {
-            $model->type = $map['Type'];
+        if (isset($map['AutoIncrementColumn'])) {
+            $model->autoIncrementColumn = $map['AutoIncrementColumn'];
         }
         if (isset($map['ColumnName'])) {
             $model->columnName = $map['ColumnName'];
-        }
-        if (isset($map['TableName'])) {
-            $model->tableName = $map['TableName'];
-        }
-        if (isset($map['AutoIncrementColumn'])) {
-            $model->autoIncrementColumn = $map['AutoIncrementColumn'];
         }
         if (isset($map['DBClusterId'])) {
             $model->DBClusterId = $map['DBClusterId'];
@@ -112,6 +106,12 @@ class column extends Model
         }
         if (isset($map['SchemaName'])) {
             $model->schemaName = $map['SchemaName'];
+        }
+        if (isset($map['TableName'])) {
+            $model->tableName = $map['TableName'];
+        }
+        if (isset($map['Type'])) {
+            $model->type = $map['Type'];
         }
 
         return $model;

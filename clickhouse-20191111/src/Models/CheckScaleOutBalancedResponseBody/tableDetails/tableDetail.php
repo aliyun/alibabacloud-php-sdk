@@ -11,11 +11,6 @@ class tableDetail extends Model
     /**
      * @var string
      */
-    public $tableName;
-
-    /**
-     * @var string
-     */
     public $cluster;
 
     /**
@@ -27,11 +22,16 @@ class tableDetail extends Model
      * @var int
      */
     public $detail;
+
+    /**
+     * @var string
+     */
+    public $tableName;
     protected $_name = [
-        'tableName' => 'TableName',
         'cluster'   => 'Cluster',
         'database'  => 'Database',
         'detail'    => 'Detail',
+        'tableName' => 'TableName',
     ];
 
     public function validate()
@@ -41,9 +41,6 @@ class tableDetail extends Model
     public function toMap()
     {
         $res = [];
-        if (null !== $this->tableName) {
-            $res['TableName'] = $this->tableName;
-        }
         if (null !== $this->cluster) {
             $res['Cluster'] = $this->cluster;
         }
@@ -52,6 +49,9 @@ class tableDetail extends Model
         }
         if (null !== $this->detail) {
             $res['Detail'] = $this->detail;
+        }
+        if (null !== $this->tableName) {
+            $res['TableName'] = $this->tableName;
         }
 
         return $res;
@@ -65,9 +65,6 @@ class tableDetail extends Model
     public static function fromMap($map = [])
     {
         $model = new self();
-        if (isset($map['TableName'])) {
-            $model->tableName = $map['TableName'];
-        }
         if (isset($map['Cluster'])) {
             $model->cluster = $map['Cluster'];
         }
@@ -76,6 +73,9 @@ class tableDetail extends Model
         }
         if (isset($map['Detail'])) {
             $model->detail = $map['Detail'];
+        }
+        if (isset($map['TableName'])) {
+            $model->tableName = $map['TableName'];
         }
 
         return $model;

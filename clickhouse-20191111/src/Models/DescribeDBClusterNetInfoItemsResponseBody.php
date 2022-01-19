@@ -10,6 +10,11 @@ use AlibabaCloud\Tea\Model;
 class DescribeDBClusterNetInfoItemsResponseBody extends Model
 {
     /**
+     * @var string
+     */
+    public $clusterNetworkType;
+
+    /**
      * @var netInfoItems
      */
     public $netInfoItems;
@@ -17,15 +22,10 @@ class DescribeDBClusterNetInfoItemsResponseBody extends Model
     /**
      * @var string
      */
-    public $clusterNetworkType;
-
-    /**
-     * @var string
-     */
     public $requestId;
     protected $_name = [
-        'netInfoItems'       => 'NetInfoItems',
         'clusterNetworkType' => 'ClusterNetworkType',
+        'netInfoItems'       => 'NetInfoItems',
         'requestId'          => 'RequestId',
     ];
 
@@ -36,11 +36,11 @@ class DescribeDBClusterNetInfoItemsResponseBody extends Model
     public function toMap()
     {
         $res = [];
-        if (null !== $this->netInfoItems) {
-            $res['NetInfoItems'] = null !== $this->netInfoItems ? $this->netInfoItems->toMap() : null;
-        }
         if (null !== $this->clusterNetworkType) {
             $res['ClusterNetworkType'] = $this->clusterNetworkType;
+        }
+        if (null !== $this->netInfoItems) {
+            $res['NetInfoItems'] = null !== $this->netInfoItems ? $this->netInfoItems->toMap() : null;
         }
         if (null !== $this->requestId) {
             $res['RequestId'] = $this->requestId;
@@ -57,11 +57,11 @@ class DescribeDBClusterNetInfoItemsResponseBody extends Model
     public static function fromMap($map = [])
     {
         $model = new self();
-        if (isset($map['NetInfoItems'])) {
-            $model->netInfoItems = netInfoItems::fromMap($map['NetInfoItems']);
-        }
         if (isset($map['ClusterNetworkType'])) {
             $model->clusterNetworkType = $map['ClusterNetworkType'];
+        }
+        if (isset($map['NetInfoItems'])) {
+            $model->netInfoItems = netInfoItems::fromMap($map['NetInfoItems']);
         }
         if (isset($map['RequestId'])) {
             $model->requestId = $map['RequestId'];

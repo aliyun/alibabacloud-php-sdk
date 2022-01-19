@@ -11,14 +11,14 @@ use AlibabaCloud\Tea\Model;
 class supportedInstanceClass extends Model
 {
     /**
-     * @var supportedExecutorList
-     */
-    public $supportedExecutorList;
-
-    /**
      * @var string
      */
     public $instanceClass;
+
+    /**
+     * @var supportedExecutorList
+     */
+    public $supportedExecutorList;
 
     /**
      * @var supportedNodeCountList
@@ -30,8 +30,8 @@ class supportedInstanceClass extends Model
      */
     public $tips;
     protected $_name = [
-        'supportedExecutorList'  => 'SupportedExecutorList',
         'instanceClass'          => 'InstanceClass',
+        'supportedExecutorList'  => 'SupportedExecutorList',
         'supportedNodeCountList' => 'SupportedNodeCountList',
         'tips'                   => 'Tips',
     ];
@@ -43,11 +43,11 @@ class supportedInstanceClass extends Model
     public function toMap()
     {
         $res = [];
-        if (null !== $this->supportedExecutorList) {
-            $res['SupportedExecutorList'] = null !== $this->supportedExecutorList ? $this->supportedExecutorList->toMap() : null;
-        }
         if (null !== $this->instanceClass) {
             $res['InstanceClass'] = $this->instanceClass;
+        }
+        if (null !== $this->supportedExecutorList) {
+            $res['SupportedExecutorList'] = null !== $this->supportedExecutorList ? $this->supportedExecutorList->toMap() : null;
         }
         if (null !== $this->supportedNodeCountList) {
             $res['SupportedNodeCountList'] = null !== $this->supportedNodeCountList ? $this->supportedNodeCountList->toMap() : null;
@@ -67,11 +67,11 @@ class supportedInstanceClass extends Model
     public static function fromMap($map = [])
     {
         $model = new self();
-        if (isset($map['SupportedExecutorList'])) {
-            $model->supportedExecutorList = supportedExecutorList::fromMap($map['SupportedExecutorList']);
-        }
         if (isset($map['InstanceClass'])) {
             $model->instanceClass = $map['InstanceClass'];
+        }
+        if (isset($map['SupportedExecutorList'])) {
+            $model->supportedExecutorList = supportedExecutorList::fromMap($map['SupportedExecutorList']);
         }
         if (isset($map['SupportedNodeCountList'])) {
             $model->supportedNodeCountList = supportedNodeCountList::fromMap($map['SupportedNodeCountList']);

@@ -9,39 +9,9 @@ use AlibabaCloud\Tea\Model;
 class CreateDBInstanceRequest extends Model
 {
     /**
-     * @var int
-     */
-    public $ownerId;
-
-    /**
      * @var string
      */
-    public $resourceOwnerAccount;
-
-    /**
-     * @var int
-     */
-    public $resourceOwnerId;
-
-    /**
-     * @var string
-     */
-    public $ownerAccount;
-
-    /**
-     * @var string
-     */
-    public $regionId;
-
-    /**
-     * @var string
-     */
-    public $zoneId;
-
-    /**
-     * @var string
-     */
-    public $DBClusterVersion;
+    public $clientToken;
 
     /**
      * @var string
@@ -56,6 +26,21 @@ class CreateDBInstanceRequest extends Model
     /**
      * @var string
      */
+    public $DBClusterDescription;
+
+    /**
+     * @var string
+     */
+    public $DBClusterNetworkType;
+
+    /**
+     * @var string
+     */
+    public $DBClusterVersion;
+
+    /**
+     * @var string
+     */
     public $DBNodeGroupCount;
 
     /**
@@ -66,12 +51,27 @@ class CreateDBInstanceRequest extends Model
     /**
      * @var string
      */
-    public $DBClusterNetworkType;
+    public $dbNodeStorageType;
 
     /**
      * @var string
      */
-    public $DBClusterDescription;
+    public $encryptionKey;
+
+    /**
+     * @var string
+     */
+    public $encryptionType;
+
+    /**
+     * @var string
+     */
+    public $ownerAccount;
+
+    /**
+     * @var int
+     */
+    public $ownerId;
 
     /**
      * @var string
@@ -82,6 +82,21 @@ class CreateDBInstanceRequest extends Model
      * @var string
      */
     public $period;
+
+    /**
+     * @var string
+     */
+    public $regionId;
+
+    /**
+     * @var string
+     */
+    public $resourceOwnerAccount;
+
+    /**
+     * @var int
+     */
+    public $resourceOwnerId;
 
     /**
      * @var string
@@ -101,45 +116,30 @@ class CreateDBInstanceRequest extends Model
     /**
      * @var string
      */
-    public $clientToken;
-
-    /**
-     * @var string
-     */
-    public $dbNodeStorageType;
-
-    /**
-     * @var string
-     */
-    public $encryptionKey;
-
-    /**
-     * @var string
-     */
-    public $encryptionType;
+    public $zoneId;
     protected $_name = [
-        'ownerId'              => 'OwnerId',
-        'resourceOwnerAccount' => 'ResourceOwnerAccount',
-        'resourceOwnerId'      => 'ResourceOwnerId',
-        'ownerAccount'         => 'OwnerAccount',
-        'regionId'             => 'RegionId',
-        'zoneId'               => 'ZoneId',
-        'DBClusterVersion'     => 'DBClusterVersion',
+        'clientToken'          => 'ClientToken',
         'DBClusterCategory'    => 'DBClusterCategory',
         'DBClusterClass'       => 'DBClusterClass',
+        'DBClusterDescription' => 'DBClusterDescription',
+        'DBClusterNetworkType' => 'DBClusterNetworkType',
+        'DBClusterVersion'     => 'DBClusterVersion',
         'DBNodeGroupCount'     => 'DBNodeGroupCount',
         'DBNodeStorage'        => 'DBNodeStorage',
-        'DBClusterNetworkType' => 'DBClusterNetworkType',
-        'DBClusterDescription' => 'DBClusterDescription',
-        'payType'              => 'PayType',
-        'period'               => 'Period',
-        'usedTime'             => 'UsedTime',
-        'VPCId'                => 'VPCId',
-        'vSwitchId'            => 'VSwitchId',
-        'clientToken'          => 'ClientToken',
         'dbNodeStorageType'    => 'DbNodeStorageType',
         'encryptionKey'        => 'EncryptionKey',
         'encryptionType'       => 'EncryptionType',
+        'ownerAccount'         => 'OwnerAccount',
+        'ownerId'              => 'OwnerId',
+        'payType'              => 'PayType',
+        'period'               => 'Period',
+        'regionId'             => 'RegionId',
+        'resourceOwnerAccount' => 'ResourceOwnerAccount',
+        'resourceOwnerId'      => 'ResourceOwnerId',
+        'usedTime'             => 'UsedTime',
+        'VPCId'                => 'VPCId',
+        'vSwitchId'            => 'VSwitchId',
+        'zoneId'               => 'ZoneId',
     ];
 
     public function validate()
@@ -149,26 +149,8 @@ class CreateDBInstanceRequest extends Model
     public function toMap()
     {
         $res = [];
-        if (null !== $this->ownerId) {
-            $res['OwnerId'] = $this->ownerId;
-        }
-        if (null !== $this->resourceOwnerAccount) {
-            $res['ResourceOwnerAccount'] = $this->resourceOwnerAccount;
-        }
-        if (null !== $this->resourceOwnerId) {
-            $res['ResourceOwnerId'] = $this->resourceOwnerId;
-        }
-        if (null !== $this->ownerAccount) {
-            $res['OwnerAccount'] = $this->ownerAccount;
-        }
-        if (null !== $this->regionId) {
-            $res['RegionId'] = $this->regionId;
-        }
-        if (null !== $this->zoneId) {
-            $res['ZoneId'] = $this->zoneId;
-        }
-        if (null !== $this->DBClusterVersion) {
-            $res['DBClusterVersion'] = $this->DBClusterVersion;
+        if (null !== $this->clientToken) {
+            $res['ClientToken'] = $this->clientToken;
         }
         if (null !== $this->DBClusterCategory) {
             $res['DBClusterCategory'] = $this->DBClusterCategory;
@@ -176,23 +158,50 @@ class CreateDBInstanceRequest extends Model
         if (null !== $this->DBClusterClass) {
             $res['DBClusterClass'] = $this->DBClusterClass;
         }
+        if (null !== $this->DBClusterDescription) {
+            $res['DBClusterDescription'] = $this->DBClusterDescription;
+        }
+        if (null !== $this->DBClusterNetworkType) {
+            $res['DBClusterNetworkType'] = $this->DBClusterNetworkType;
+        }
+        if (null !== $this->DBClusterVersion) {
+            $res['DBClusterVersion'] = $this->DBClusterVersion;
+        }
         if (null !== $this->DBNodeGroupCount) {
             $res['DBNodeGroupCount'] = $this->DBNodeGroupCount;
         }
         if (null !== $this->DBNodeStorage) {
             $res['DBNodeStorage'] = $this->DBNodeStorage;
         }
-        if (null !== $this->DBClusterNetworkType) {
-            $res['DBClusterNetworkType'] = $this->DBClusterNetworkType;
+        if (null !== $this->dbNodeStorageType) {
+            $res['DbNodeStorageType'] = $this->dbNodeStorageType;
         }
-        if (null !== $this->DBClusterDescription) {
-            $res['DBClusterDescription'] = $this->DBClusterDescription;
+        if (null !== $this->encryptionKey) {
+            $res['EncryptionKey'] = $this->encryptionKey;
+        }
+        if (null !== $this->encryptionType) {
+            $res['EncryptionType'] = $this->encryptionType;
+        }
+        if (null !== $this->ownerAccount) {
+            $res['OwnerAccount'] = $this->ownerAccount;
+        }
+        if (null !== $this->ownerId) {
+            $res['OwnerId'] = $this->ownerId;
         }
         if (null !== $this->payType) {
             $res['PayType'] = $this->payType;
         }
         if (null !== $this->period) {
             $res['Period'] = $this->period;
+        }
+        if (null !== $this->regionId) {
+            $res['RegionId'] = $this->regionId;
+        }
+        if (null !== $this->resourceOwnerAccount) {
+            $res['ResourceOwnerAccount'] = $this->resourceOwnerAccount;
+        }
+        if (null !== $this->resourceOwnerId) {
+            $res['ResourceOwnerId'] = $this->resourceOwnerId;
         }
         if (null !== $this->usedTime) {
             $res['UsedTime'] = $this->usedTime;
@@ -203,17 +212,8 @@ class CreateDBInstanceRequest extends Model
         if (null !== $this->vSwitchId) {
             $res['VSwitchId'] = $this->vSwitchId;
         }
-        if (null !== $this->clientToken) {
-            $res['ClientToken'] = $this->clientToken;
-        }
-        if (null !== $this->dbNodeStorageType) {
-            $res['DbNodeStorageType'] = $this->dbNodeStorageType;
-        }
-        if (null !== $this->encryptionKey) {
-            $res['EncryptionKey'] = $this->encryptionKey;
-        }
-        if (null !== $this->encryptionType) {
-            $res['EncryptionType'] = $this->encryptionType;
+        if (null !== $this->zoneId) {
+            $res['ZoneId'] = $this->zoneId;
         }
 
         return $res;
@@ -227,26 +227,8 @@ class CreateDBInstanceRequest extends Model
     public static function fromMap($map = [])
     {
         $model = new self();
-        if (isset($map['OwnerId'])) {
-            $model->ownerId = $map['OwnerId'];
-        }
-        if (isset($map['ResourceOwnerAccount'])) {
-            $model->resourceOwnerAccount = $map['ResourceOwnerAccount'];
-        }
-        if (isset($map['ResourceOwnerId'])) {
-            $model->resourceOwnerId = $map['ResourceOwnerId'];
-        }
-        if (isset($map['OwnerAccount'])) {
-            $model->ownerAccount = $map['OwnerAccount'];
-        }
-        if (isset($map['RegionId'])) {
-            $model->regionId = $map['RegionId'];
-        }
-        if (isset($map['ZoneId'])) {
-            $model->zoneId = $map['ZoneId'];
-        }
-        if (isset($map['DBClusterVersion'])) {
-            $model->DBClusterVersion = $map['DBClusterVersion'];
+        if (isset($map['ClientToken'])) {
+            $model->clientToken = $map['ClientToken'];
         }
         if (isset($map['DBClusterCategory'])) {
             $model->DBClusterCategory = $map['DBClusterCategory'];
@@ -254,23 +236,50 @@ class CreateDBInstanceRequest extends Model
         if (isset($map['DBClusterClass'])) {
             $model->DBClusterClass = $map['DBClusterClass'];
         }
+        if (isset($map['DBClusterDescription'])) {
+            $model->DBClusterDescription = $map['DBClusterDescription'];
+        }
+        if (isset($map['DBClusterNetworkType'])) {
+            $model->DBClusterNetworkType = $map['DBClusterNetworkType'];
+        }
+        if (isset($map['DBClusterVersion'])) {
+            $model->DBClusterVersion = $map['DBClusterVersion'];
+        }
         if (isset($map['DBNodeGroupCount'])) {
             $model->DBNodeGroupCount = $map['DBNodeGroupCount'];
         }
         if (isset($map['DBNodeStorage'])) {
             $model->DBNodeStorage = $map['DBNodeStorage'];
         }
-        if (isset($map['DBClusterNetworkType'])) {
-            $model->DBClusterNetworkType = $map['DBClusterNetworkType'];
+        if (isset($map['DbNodeStorageType'])) {
+            $model->dbNodeStorageType = $map['DbNodeStorageType'];
         }
-        if (isset($map['DBClusterDescription'])) {
-            $model->DBClusterDescription = $map['DBClusterDescription'];
+        if (isset($map['EncryptionKey'])) {
+            $model->encryptionKey = $map['EncryptionKey'];
+        }
+        if (isset($map['EncryptionType'])) {
+            $model->encryptionType = $map['EncryptionType'];
+        }
+        if (isset($map['OwnerAccount'])) {
+            $model->ownerAccount = $map['OwnerAccount'];
+        }
+        if (isset($map['OwnerId'])) {
+            $model->ownerId = $map['OwnerId'];
         }
         if (isset($map['PayType'])) {
             $model->payType = $map['PayType'];
         }
         if (isset($map['Period'])) {
             $model->period = $map['Period'];
+        }
+        if (isset($map['RegionId'])) {
+            $model->regionId = $map['RegionId'];
+        }
+        if (isset($map['ResourceOwnerAccount'])) {
+            $model->resourceOwnerAccount = $map['ResourceOwnerAccount'];
+        }
+        if (isset($map['ResourceOwnerId'])) {
+            $model->resourceOwnerId = $map['ResourceOwnerId'];
         }
         if (isset($map['UsedTime'])) {
             $model->usedTime = $map['UsedTime'];
@@ -281,17 +290,8 @@ class CreateDBInstanceRequest extends Model
         if (isset($map['VSwitchId'])) {
             $model->vSwitchId = $map['VSwitchId'];
         }
-        if (isset($map['ClientToken'])) {
-            $model->clientToken = $map['ClientToken'];
-        }
-        if (isset($map['DbNodeStorageType'])) {
-            $model->dbNodeStorageType = $map['DbNodeStorageType'];
-        }
-        if (isset($map['EncryptionKey'])) {
-            $model->encryptionKey = $map['EncryptionKey'];
-        }
-        if (isset($map['EncryptionType'])) {
-            $model->encryptionType = $map['EncryptionType'];
+        if (isset($map['ZoneId'])) {
+            $model->zoneId = $map['ZoneId'];
         }
 
         return $model;

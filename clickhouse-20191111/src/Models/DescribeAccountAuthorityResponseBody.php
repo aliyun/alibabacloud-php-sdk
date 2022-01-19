@@ -9,6 +9,21 @@ use AlibabaCloud\Tea\Model;
 class DescribeAccountAuthorityResponseBody extends Model
 {
     /**
+     * @var string
+     */
+    public $accountName;
+
+    /**
+     * @var string[]
+     */
+    public $allowDatabases;
+
+    /**
+     * @var string[]
+     */
+    public $allowDictionaries;
+
+    /**
      * @var bool
      */
     public $ddlAuthority;
@@ -32,30 +47,15 @@ class DescribeAccountAuthorityResponseBody extends Model
      * @var string[]
      */
     public $totalDictionaries;
-
-    /**
-     * @var string[]
-     */
-    public $allowDictionaries;
-
-    /**
-     * @var string[]
-     */
-    public $allowDatabases;
-
-    /**
-     * @var string
-     */
-    public $accountName;
     protected $_name = [
+        'accountName'       => 'AccountName',
+        'allowDatabases'    => 'AllowDatabases',
+        'allowDictionaries' => 'AllowDictionaries',
         'ddlAuthority'      => 'DdlAuthority',
         'dmlAuthority'      => 'DmlAuthority',
         'requestId'         => 'RequestId',
         'totalDatabases'    => 'TotalDatabases',
         'totalDictionaries' => 'TotalDictionaries',
-        'allowDictionaries' => 'AllowDictionaries',
-        'allowDatabases'    => 'AllowDatabases',
-        'accountName'       => 'AccountName',
     ];
 
     public function validate()
@@ -65,6 +65,15 @@ class DescribeAccountAuthorityResponseBody extends Model
     public function toMap()
     {
         $res = [];
+        if (null !== $this->accountName) {
+            $res['AccountName'] = $this->accountName;
+        }
+        if (null !== $this->allowDatabases) {
+            $res['AllowDatabases'] = $this->allowDatabases;
+        }
+        if (null !== $this->allowDictionaries) {
+            $res['AllowDictionaries'] = $this->allowDictionaries;
+        }
         if (null !== $this->ddlAuthority) {
             $res['DdlAuthority'] = $this->ddlAuthority;
         }
@@ -80,15 +89,6 @@ class DescribeAccountAuthorityResponseBody extends Model
         if (null !== $this->totalDictionaries) {
             $res['TotalDictionaries'] = $this->totalDictionaries;
         }
-        if (null !== $this->allowDictionaries) {
-            $res['AllowDictionaries'] = $this->allowDictionaries;
-        }
-        if (null !== $this->allowDatabases) {
-            $res['AllowDatabases'] = $this->allowDatabases;
-        }
-        if (null !== $this->accountName) {
-            $res['AccountName'] = $this->accountName;
-        }
 
         return $res;
     }
@@ -101,6 +101,19 @@ class DescribeAccountAuthorityResponseBody extends Model
     public static function fromMap($map = [])
     {
         $model = new self();
+        if (isset($map['AccountName'])) {
+            $model->accountName = $map['AccountName'];
+        }
+        if (isset($map['AllowDatabases'])) {
+            if (!empty($map['AllowDatabases'])) {
+                $model->allowDatabases = $map['AllowDatabases'];
+            }
+        }
+        if (isset($map['AllowDictionaries'])) {
+            if (!empty($map['AllowDictionaries'])) {
+                $model->allowDictionaries = $map['AllowDictionaries'];
+            }
+        }
         if (isset($map['DdlAuthority'])) {
             $model->ddlAuthority = $map['DdlAuthority'];
         }
@@ -119,19 +132,6 @@ class DescribeAccountAuthorityResponseBody extends Model
             if (!empty($map['TotalDictionaries'])) {
                 $model->totalDictionaries = $map['TotalDictionaries'];
             }
-        }
-        if (isset($map['AllowDictionaries'])) {
-            if (!empty($map['AllowDictionaries'])) {
-                $model->allowDictionaries = $map['AllowDictionaries'];
-            }
-        }
-        if (isset($map['AllowDatabases'])) {
-            if (!empty($map['AllowDatabases'])) {
-                $model->allowDatabases = $map['AllowDatabases'];
-            }
-        }
-        if (isset($map['AccountName'])) {
-            $model->accountName = $map['AccountName'];
         }
 
         return $model;

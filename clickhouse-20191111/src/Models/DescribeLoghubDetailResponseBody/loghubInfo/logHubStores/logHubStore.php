@@ -11,7 +11,7 @@ class logHubStore extends Model
     /**
      * @var string
      */
-    public $type;
+    public $fieldKey;
 
     /**
      * @var string
@@ -21,11 +21,11 @@ class logHubStore extends Model
     /**
      * @var string
      */
-    public $fieldKey;
+    public $type;
     protected $_name = [
-        'type'     => 'Type',
-        'logKey'   => 'LogKey',
         'fieldKey' => 'FieldKey',
+        'logKey'   => 'LogKey',
+        'type'     => 'Type',
     ];
 
     public function validate()
@@ -35,14 +35,14 @@ class logHubStore extends Model
     public function toMap()
     {
         $res = [];
-        if (null !== $this->type) {
-            $res['Type'] = $this->type;
+        if (null !== $this->fieldKey) {
+            $res['FieldKey'] = $this->fieldKey;
         }
         if (null !== $this->logKey) {
             $res['LogKey'] = $this->logKey;
         }
-        if (null !== $this->fieldKey) {
-            $res['FieldKey'] = $this->fieldKey;
+        if (null !== $this->type) {
+            $res['Type'] = $this->type;
         }
 
         return $res;
@@ -56,14 +56,14 @@ class logHubStore extends Model
     public static function fromMap($map = [])
     {
         $model = new self();
-        if (isset($map['Type'])) {
-            $model->type = $map['Type'];
+        if (isset($map['FieldKey'])) {
+            $model->fieldKey = $map['FieldKey'];
         }
         if (isset($map['LogKey'])) {
             $model->logKey = $map['LogKey'];
         }
-        if (isset($map['FieldKey'])) {
-            $model->fieldKey = $map['FieldKey'];
+        if (isset($map['Type'])) {
+            $model->type = $map['Type'];
         }
 
         return $model;

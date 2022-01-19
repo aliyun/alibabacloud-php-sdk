@@ -10,17 +10,17 @@ use AlibabaCloud\Tea\Model;
 class DescribeLogStoreKeysResponseBody extends Model
 {
     /**
-     * @var string
-     */
-    public $requestId;
-
-    /**
      * @var logStoreKeys
      */
     public $logStoreKeys;
+
+    /**
+     * @var string
+     */
+    public $requestId;
     protected $_name = [
-        'requestId'    => 'RequestId',
         'logStoreKeys' => 'LogStoreKeys',
+        'requestId'    => 'RequestId',
     ];
 
     public function validate()
@@ -30,11 +30,11 @@ class DescribeLogStoreKeysResponseBody extends Model
     public function toMap()
     {
         $res = [];
-        if (null !== $this->requestId) {
-            $res['RequestId'] = $this->requestId;
-        }
         if (null !== $this->logStoreKeys) {
             $res['LogStoreKeys'] = null !== $this->logStoreKeys ? $this->logStoreKeys->toMap() : null;
+        }
+        if (null !== $this->requestId) {
+            $res['RequestId'] = $this->requestId;
         }
 
         return $res;
@@ -48,11 +48,11 @@ class DescribeLogStoreKeysResponseBody extends Model
     public static function fromMap($map = [])
     {
         $model = new self();
-        if (isset($map['RequestId'])) {
-            $model->requestId = $map['RequestId'];
-        }
         if (isset($map['LogStoreKeys'])) {
             $model->logStoreKeys = logStoreKeys::fromMap($map['LogStoreKeys']);
+        }
+        if (isset($map['RequestId'])) {
+            $model->requestId = $map['RequestId'];
         }
 
         return $model;

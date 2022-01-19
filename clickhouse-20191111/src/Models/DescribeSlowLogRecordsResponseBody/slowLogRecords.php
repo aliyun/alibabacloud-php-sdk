@@ -12,11 +12,6 @@ use AlibabaCloud\Tea\Model;
 class slowLogRecords extends Model
 {
     /**
-     * @var tableSchema
-     */
-    public $tableSchema;
-
-    /**
      * @var data
      */
     public $data;
@@ -35,12 +30,17 @@ class slowLogRecords extends Model
      * @var statistics
      */
     public $statistics;
+
+    /**
+     * @var tableSchema
+     */
+    public $tableSchema;
     protected $_name = [
-        'tableSchema'            => 'TableSchema',
         'data'                   => 'Data',
         'rows'                   => 'Rows',
         'rowsBeforeLimitAtLeast' => 'RowsBeforeLimitAtLeast',
         'statistics'             => 'Statistics',
+        'tableSchema'            => 'TableSchema',
     ];
 
     public function validate()
@@ -50,9 +50,6 @@ class slowLogRecords extends Model
     public function toMap()
     {
         $res = [];
-        if (null !== $this->tableSchema) {
-            $res['TableSchema'] = null !== $this->tableSchema ? $this->tableSchema->toMap() : null;
-        }
         if (null !== $this->data) {
             $res['Data'] = null !== $this->data ? $this->data->toMap() : null;
         }
@@ -64,6 +61,9 @@ class slowLogRecords extends Model
         }
         if (null !== $this->statistics) {
             $res['Statistics'] = null !== $this->statistics ? $this->statistics->toMap() : null;
+        }
+        if (null !== $this->tableSchema) {
+            $res['TableSchema'] = null !== $this->tableSchema ? $this->tableSchema->toMap() : null;
         }
 
         return $res;
@@ -77,9 +77,6 @@ class slowLogRecords extends Model
     public static function fromMap($map = [])
     {
         $model = new self();
-        if (isset($map['TableSchema'])) {
-            $model->tableSchema = tableSchema::fromMap($map['TableSchema']);
-        }
         if (isset($map['Data'])) {
             $model->data = data::fromMap($map['Data']);
         }
@@ -91,6 +88,9 @@ class slowLogRecords extends Model
         }
         if (isset($map['Statistics'])) {
             $model->statistics = statistics::fromMap($map['Statistics']);
+        }
+        if (isset($map['TableSchema'])) {
+            $model->tableSchema = tableSchema::fromMap($map['TableSchema']);
         }
 
         return $model;
