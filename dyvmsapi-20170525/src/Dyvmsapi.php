@@ -72,6 +72,8 @@ use AlibabaCloud\SDK\Dyvmsapi\V20170525\Models\QueryVirtualNumberRelationRequest
 use AlibabaCloud\SDK\Dyvmsapi\V20170525\Models\QueryVirtualNumberRelationResponse;
 use AlibabaCloud\SDK\Dyvmsapi\V20170525\Models\QueryVirtualNumberRequest;
 use AlibabaCloud\SDK\Dyvmsapi\V20170525\Models\QueryVirtualNumberResponse;
+use AlibabaCloud\SDK\Dyvmsapi\V20170525\Models\QueryVoiceFileAuditInfoRequest;
+use AlibabaCloud\SDK\Dyvmsapi\V20170525\Models\QueryVoiceFileAuditInfoResponse;
 use AlibabaCloud\SDK\Dyvmsapi\V20170525\Models\RefreshMqttTokenRequest;
 use AlibabaCloud\SDK\Dyvmsapi\V20170525\Models\RefreshMqttTokenResponse;
 use AlibabaCloud\SDK\Dyvmsapi\V20170525\Models\SendVerificationRequest;
@@ -142,14 +144,21 @@ class Dyvmsapi extends OpenApiClient
     public function addRtcAccountWithOptions($request, $runtime)
     {
         Utils::validateModel($request);
-        $query                         = [];
-        $query['DeviceId']             = $request->deviceId;
-        $query['OwnerId']              = $request->ownerId;
-        $query['ResourceOwnerAccount'] = $request->resourceOwnerAccount;
-        $query['ResourceOwnerId']      = $request->resourceOwnerId;
-        $req                           = new OpenApiRequest([
+        $query = [];
+        if (!Utils::isUnset($request->deviceId)) {
+            $query['DeviceId'] = $request->deviceId;
+        }
+        if (!Utils::isUnset($request->ownerId)) {
+            $query['OwnerId'] = $request->ownerId;
+        }
+        if (!Utils::isUnset($request->resourceOwnerAccount)) {
+            $query['ResourceOwnerAccount'] = $request->resourceOwnerAccount;
+        }
+        if (!Utils::isUnset($request->resourceOwnerId)) {
+            $query['ResourceOwnerId'] = $request->resourceOwnerId;
+        }
+        $req = new OpenApiRequest([
             'query' => OpenApiUtilClient::query($query),
-            'body'  => Utils::toMap($request),
         ]);
         $params = new Params([
             'action'      => 'AddRtcAccount',
@@ -159,7 +168,7 @@ class Dyvmsapi extends OpenApiClient
             'method'      => 'POST',
             'authType'    => 'AK',
             'style'       => 'RPC',
-            'reqBodyType' => 'json',
+            'reqBodyType' => 'formData',
             'bodyType'    => 'json',
         ]);
 
@@ -187,18 +196,33 @@ class Dyvmsapi extends OpenApiClient
     public function addVirtualNumberRelationWithOptions($request, $runtime)
     {
         Utils::validateModel($request);
-        $query                         = [];
-        $query['CorpNameList']         = $request->corpNameList;
-        $query['NumberList']           = $request->numberList;
-        $query['OwnerId']              = $request->ownerId;
-        $query['PhoneNum']             = $request->phoneNum;
-        $query['ProdCode']             = $request->prodCode;
-        $query['ResourceOwnerAccount'] = $request->resourceOwnerAccount;
-        $query['ResourceOwnerId']      = $request->resourceOwnerId;
-        $query['RouteType']            = $request->routeType;
-        $req                           = new OpenApiRequest([
+        $query = [];
+        if (!Utils::isUnset($request->corpNameList)) {
+            $query['CorpNameList'] = $request->corpNameList;
+        }
+        if (!Utils::isUnset($request->numberList)) {
+            $query['NumberList'] = $request->numberList;
+        }
+        if (!Utils::isUnset($request->ownerId)) {
+            $query['OwnerId'] = $request->ownerId;
+        }
+        if (!Utils::isUnset($request->phoneNum)) {
+            $query['PhoneNum'] = $request->phoneNum;
+        }
+        if (!Utils::isUnset($request->prodCode)) {
+            $query['ProdCode'] = $request->prodCode;
+        }
+        if (!Utils::isUnset($request->resourceOwnerAccount)) {
+            $query['ResourceOwnerAccount'] = $request->resourceOwnerAccount;
+        }
+        if (!Utils::isUnset($request->resourceOwnerId)) {
+            $query['ResourceOwnerId'] = $request->resourceOwnerId;
+        }
+        if (!Utils::isUnset($request->routeType)) {
+            $query['RouteType'] = $request->routeType;
+        }
+        $req = new OpenApiRequest([
             'query' => OpenApiUtilClient::query($query),
-            'body'  => Utils::toMap($request),
         ]);
         $params = new Params([
             'action'      => 'AddVirtualNumberRelation',
@@ -208,7 +232,7 @@ class Dyvmsapi extends OpenApiClient
             'method'      => 'POST',
             'authType'    => 'AK',
             'style'       => 'RPC',
-            'reqBodyType' => 'json',
+            'reqBodyType' => 'formData',
             'bodyType'    => 'json',
         ]);
 
@@ -236,24 +260,51 @@ class Dyvmsapi extends OpenApiClient
     public function batchRobotSmartCallWithOptions($request, $runtime)
     {
         Utils::validateModel($request);
-        $query                         = [];
-        $query['CalledNumber']         = $request->calledNumber;
-        $query['CalledShowNumber']     = $request->calledShowNumber;
-        $query['CorpName']             = $request->corpName;
-        $query['DialogId']             = $request->dialogId;
-        $query['EarlyMediaAsr']        = $request->earlyMediaAsr;
-        $query['IsSelfLine']           = $request->isSelfLine;
-        $query['OwnerId']              = $request->ownerId;
-        $query['ResourceOwnerAccount'] = $request->resourceOwnerAccount;
-        $query['ResourceOwnerId']      = $request->resourceOwnerId;
-        $query['ScheduleCall']         = $request->scheduleCall;
-        $query['ScheduleTime']         = $request->scheduleTime;
-        $query['TaskName']             = $request->taskName;
-        $query['TtsParam']             = $request->ttsParam;
-        $query['TtsParamHead']         = $request->ttsParamHead;
-        $req                           = new OpenApiRequest([
+        $query = [];
+        if (!Utils::isUnset($request->calledNumber)) {
+            $query['CalledNumber'] = $request->calledNumber;
+        }
+        if (!Utils::isUnset($request->calledShowNumber)) {
+            $query['CalledShowNumber'] = $request->calledShowNumber;
+        }
+        if (!Utils::isUnset($request->corpName)) {
+            $query['CorpName'] = $request->corpName;
+        }
+        if (!Utils::isUnset($request->dialogId)) {
+            $query['DialogId'] = $request->dialogId;
+        }
+        if (!Utils::isUnset($request->earlyMediaAsr)) {
+            $query['EarlyMediaAsr'] = $request->earlyMediaAsr;
+        }
+        if (!Utils::isUnset($request->isSelfLine)) {
+            $query['IsSelfLine'] = $request->isSelfLine;
+        }
+        if (!Utils::isUnset($request->ownerId)) {
+            $query['OwnerId'] = $request->ownerId;
+        }
+        if (!Utils::isUnset($request->resourceOwnerAccount)) {
+            $query['ResourceOwnerAccount'] = $request->resourceOwnerAccount;
+        }
+        if (!Utils::isUnset($request->resourceOwnerId)) {
+            $query['ResourceOwnerId'] = $request->resourceOwnerId;
+        }
+        if (!Utils::isUnset($request->scheduleCall)) {
+            $query['ScheduleCall'] = $request->scheduleCall;
+        }
+        if (!Utils::isUnset($request->scheduleTime)) {
+            $query['ScheduleTime'] = $request->scheduleTime;
+        }
+        if (!Utils::isUnset($request->taskName)) {
+            $query['TaskName'] = $request->taskName;
+        }
+        if (!Utils::isUnset($request->ttsParam)) {
+            $query['TtsParam'] = $request->ttsParam;
+        }
+        if (!Utils::isUnset($request->ttsParamHead)) {
+            $query['TtsParamHead'] = $request->ttsParamHead;
+        }
+        $req = new OpenApiRequest([
             'query' => OpenApiUtilClient::query($query),
-            'body'  => Utils::toMap($request),
         ]);
         $params = new Params([
             'action'      => 'BatchRobotSmartCall',
@@ -263,7 +314,7 @@ class Dyvmsapi extends OpenApiClient
             'method'      => 'POST',
             'authType'    => 'AK',
             'style'       => 'RPC',
-            'reqBodyType' => 'json',
+            'reqBodyType' => 'formData',
             'bodyType'    => 'json',
         ]);
 
@@ -291,14 +342,21 @@ class Dyvmsapi extends OpenApiClient
     public function cancelCallWithOptions($request, $runtime)
     {
         Utils::validateModel($request);
-        $query                         = [];
-        $query['CallId']               = $request->callId;
-        $query['OwnerId']              = $request->ownerId;
-        $query['ResourceOwnerAccount'] = $request->resourceOwnerAccount;
-        $query['ResourceOwnerId']      = $request->resourceOwnerId;
-        $req                           = new OpenApiRequest([
+        $query = [];
+        if (!Utils::isUnset($request->callId)) {
+            $query['CallId'] = $request->callId;
+        }
+        if (!Utils::isUnset($request->ownerId)) {
+            $query['OwnerId'] = $request->ownerId;
+        }
+        if (!Utils::isUnset($request->resourceOwnerAccount)) {
+            $query['ResourceOwnerAccount'] = $request->resourceOwnerAccount;
+        }
+        if (!Utils::isUnset($request->resourceOwnerId)) {
+            $query['ResourceOwnerId'] = $request->resourceOwnerId;
+        }
+        $req = new OpenApiRequest([
             'query' => OpenApiUtilClient::query($query),
-            'body'  => Utils::toMap($request),
         ]);
         $params = new Params([
             'action'      => 'CancelCall',
@@ -308,7 +366,7 @@ class Dyvmsapi extends OpenApiClient
             'method'      => 'POST',
             'authType'    => 'AK',
             'style'       => 'RPC',
-            'reqBodyType' => 'json',
+            'reqBodyType' => 'formData',
             'bodyType'    => 'json',
         ]);
 
@@ -336,14 +394,21 @@ class Dyvmsapi extends OpenApiClient
     public function cancelOrderRobotTaskWithOptions($request, $runtime)
     {
         Utils::validateModel($request);
-        $query                         = [];
-        $query['OwnerId']              = $request->ownerId;
-        $query['ResourceOwnerAccount'] = $request->resourceOwnerAccount;
-        $query['ResourceOwnerId']      = $request->resourceOwnerId;
-        $query['TaskId']               = $request->taskId;
-        $req                           = new OpenApiRequest([
+        $query = [];
+        if (!Utils::isUnset($request->ownerId)) {
+            $query['OwnerId'] = $request->ownerId;
+        }
+        if (!Utils::isUnset($request->resourceOwnerAccount)) {
+            $query['ResourceOwnerAccount'] = $request->resourceOwnerAccount;
+        }
+        if (!Utils::isUnset($request->resourceOwnerId)) {
+            $query['ResourceOwnerId'] = $request->resourceOwnerId;
+        }
+        if (!Utils::isUnset($request->taskId)) {
+            $query['TaskId'] = $request->taskId;
+        }
+        $req = new OpenApiRequest([
             'query' => OpenApiUtilClient::query($query),
-            'body'  => Utils::toMap($request),
         ]);
         $params = new Params([
             'action'      => 'CancelOrderRobotTask',
@@ -353,7 +418,7 @@ class Dyvmsapi extends OpenApiClient
             'method'      => 'POST',
             'authType'    => 'AK',
             'style'       => 'RPC',
-            'reqBodyType' => 'json',
+            'reqBodyType' => 'formData',
             'bodyType'    => 'json',
         ]);
 
@@ -381,14 +446,21 @@ class Dyvmsapi extends OpenApiClient
     public function cancelRobotTaskWithOptions($request, $runtime)
     {
         Utils::validateModel($request);
-        $query                         = [];
-        $query['OwnerId']              = $request->ownerId;
-        $query['ResourceOwnerAccount'] = $request->resourceOwnerAccount;
-        $query['ResourceOwnerId']      = $request->resourceOwnerId;
-        $query['TaskId']               = $request->taskId;
-        $req                           = new OpenApiRequest([
+        $query = [];
+        if (!Utils::isUnset($request->ownerId)) {
+            $query['OwnerId'] = $request->ownerId;
+        }
+        if (!Utils::isUnset($request->resourceOwnerAccount)) {
+            $query['ResourceOwnerAccount'] = $request->resourceOwnerAccount;
+        }
+        if (!Utils::isUnset($request->resourceOwnerId)) {
+            $query['ResourceOwnerId'] = $request->resourceOwnerId;
+        }
+        if (!Utils::isUnset($request->taskId)) {
+            $query['TaskId'] = $request->taskId;
+        }
+        $req = new OpenApiRequest([
             'query' => OpenApiUtilClient::query($query),
-            'body'  => Utils::toMap($request),
         ]);
         $params = new Params([
             'action'      => 'CancelRobotTask',
@@ -398,7 +470,7 @@ class Dyvmsapi extends OpenApiClient
             'method'      => 'POST',
             'authType'    => 'AK',
             'style'       => 'RPC',
-            'reqBodyType' => 'json',
+            'reqBodyType' => 'formData',
             'bodyType'    => 'json',
         ]);
 
@@ -426,22 +498,45 @@ class Dyvmsapi extends OpenApiClient
     public function clickToDialWithOptions($request, $runtime)
     {
         Utils::validateModel($request);
-        $query                         = [];
-        $query['AsrFlag']              = $request->asrFlag;
-        $query['AsrModelId']           = $request->asrModelId;
-        $query['CalledNumber']         = $request->calledNumber;
-        $query['CalledShowNumber']     = $request->calledShowNumber;
-        $query['CallerNumber']         = $request->callerNumber;
-        $query['CallerShowNumber']     = $request->callerShowNumber;
-        $query['OutId']                = $request->outId;
-        $query['OwnerId']              = $request->ownerId;
-        $query['RecordFlag']           = $request->recordFlag;
-        $query['ResourceOwnerAccount'] = $request->resourceOwnerAccount;
-        $query['ResourceOwnerId']      = $request->resourceOwnerId;
-        $query['SessionTimeout']       = $request->sessionTimeout;
-        $req                           = new OpenApiRequest([
+        $query = [];
+        if (!Utils::isUnset($request->asrFlag)) {
+            $query['AsrFlag'] = $request->asrFlag;
+        }
+        if (!Utils::isUnset($request->asrModelId)) {
+            $query['AsrModelId'] = $request->asrModelId;
+        }
+        if (!Utils::isUnset($request->calledNumber)) {
+            $query['CalledNumber'] = $request->calledNumber;
+        }
+        if (!Utils::isUnset($request->calledShowNumber)) {
+            $query['CalledShowNumber'] = $request->calledShowNumber;
+        }
+        if (!Utils::isUnset($request->callerNumber)) {
+            $query['CallerNumber'] = $request->callerNumber;
+        }
+        if (!Utils::isUnset($request->callerShowNumber)) {
+            $query['CallerShowNumber'] = $request->callerShowNumber;
+        }
+        if (!Utils::isUnset($request->outId)) {
+            $query['OutId'] = $request->outId;
+        }
+        if (!Utils::isUnset($request->ownerId)) {
+            $query['OwnerId'] = $request->ownerId;
+        }
+        if (!Utils::isUnset($request->recordFlag)) {
+            $query['RecordFlag'] = $request->recordFlag;
+        }
+        if (!Utils::isUnset($request->resourceOwnerAccount)) {
+            $query['ResourceOwnerAccount'] = $request->resourceOwnerAccount;
+        }
+        if (!Utils::isUnset($request->resourceOwnerId)) {
+            $query['ResourceOwnerId'] = $request->resourceOwnerId;
+        }
+        if (!Utils::isUnset($request->sessionTimeout)) {
+            $query['SessionTimeout'] = $request->sessionTimeout;
+        }
+        $req = new OpenApiRequest([
             'query' => OpenApiUtilClient::query($query),
-            'body'  => Utils::toMap($request),
         ]);
         $params = new Params([
             'action'      => 'ClickToDial',
@@ -451,7 +546,7 @@ class Dyvmsapi extends OpenApiClient
             'method'      => 'POST',
             'authType'    => 'AK',
             'style'       => 'RPC',
-            'reqBodyType' => 'json',
+            'reqBodyType' => 'formData',
             'bodyType'    => 'json',
         ]);
 
@@ -479,24 +574,51 @@ class Dyvmsapi extends OpenApiClient
     public function createCallTaskWithOptions($request, $runtime)
     {
         Utils::validateModel($request);
-        $query                         = [];
-        $query['BizType']              = $request->bizType;
-        $query['Data']                 = $request->data;
-        $query['DataType']             = $request->dataType;
-        $query['FireTime']             = $request->fireTime;
-        $query['OwnerId']              = $request->ownerId;
-        $query['Resource']             = $request->resource;
-        $query['ResourceOwnerAccount'] = $request->resourceOwnerAccount;
-        $query['ResourceOwnerId']      = $request->resourceOwnerId;
-        $query['ResourceType']         = $request->resourceType;
-        $query['ScheduleType']         = $request->scheduleType;
-        $query['StopTime']             = $request->stopTime;
-        $query['TaskName']             = $request->taskName;
-        $query['TemplateCode']         = $request->templateCode;
-        $query['TemplateName']         = $request->templateName;
-        $req                           = new OpenApiRequest([
+        $query = [];
+        if (!Utils::isUnset($request->bizType)) {
+            $query['BizType'] = $request->bizType;
+        }
+        if (!Utils::isUnset($request->data)) {
+            $query['Data'] = $request->data;
+        }
+        if (!Utils::isUnset($request->dataType)) {
+            $query['DataType'] = $request->dataType;
+        }
+        if (!Utils::isUnset($request->fireTime)) {
+            $query['FireTime'] = $request->fireTime;
+        }
+        if (!Utils::isUnset($request->ownerId)) {
+            $query['OwnerId'] = $request->ownerId;
+        }
+        if (!Utils::isUnset($request->resource)) {
+            $query['Resource'] = $request->resource;
+        }
+        if (!Utils::isUnset($request->resourceOwnerAccount)) {
+            $query['ResourceOwnerAccount'] = $request->resourceOwnerAccount;
+        }
+        if (!Utils::isUnset($request->resourceOwnerId)) {
+            $query['ResourceOwnerId'] = $request->resourceOwnerId;
+        }
+        if (!Utils::isUnset($request->resourceType)) {
+            $query['ResourceType'] = $request->resourceType;
+        }
+        if (!Utils::isUnset($request->scheduleType)) {
+            $query['ScheduleType'] = $request->scheduleType;
+        }
+        if (!Utils::isUnset($request->stopTime)) {
+            $query['StopTime'] = $request->stopTime;
+        }
+        if (!Utils::isUnset($request->taskName)) {
+            $query['TaskName'] = $request->taskName;
+        }
+        if (!Utils::isUnset($request->templateCode)) {
+            $query['TemplateCode'] = $request->templateCode;
+        }
+        if (!Utils::isUnset($request->templateName)) {
+            $query['TemplateName'] = $request->templateName;
+        }
+        $req = new OpenApiRequest([
             'query' => OpenApiUtilClient::query($query),
-            'body'  => Utils::toMap($request),
         ]);
         $params = new Params([
             'action'      => 'CreateCallTask',
@@ -506,7 +628,7 @@ class Dyvmsapi extends OpenApiClient
             'method'      => 'POST',
             'authType'    => 'AK',
             'style'       => 'RPC',
-            'reqBodyType' => 'json',
+            'reqBodyType' => 'formData',
             'bodyType'    => 'json',
         ]);
 
@@ -534,23 +656,48 @@ class Dyvmsapi extends OpenApiClient
     public function createRobotTaskWithOptions($request, $runtime)
     {
         Utils::validateModel($request);
-        $query                         = [];
-        $query['Caller']               = $request->caller;
-        $query['CorpName']             = $request->corpName;
-        $query['DialogId']             = $request->dialogId;
-        $query['IsSelfLine']           = $request->isSelfLine;
-        $query['NumberStatusIdent']    = $request->numberStatusIdent;
-        $query['OwnerId']              = $request->ownerId;
-        $query['RecallInterval']       = $request->recallInterval;
-        $query['RecallStateCodes']     = $request->recallStateCodes;
-        $query['RecallTimes']          = $request->recallTimes;
-        $query['ResourceOwnerAccount'] = $request->resourceOwnerAccount;
-        $query['ResourceOwnerId']      = $request->resourceOwnerId;
-        $query['RetryType']            = $request->retryType;
-        $query['TaskName']             = $request->taskName;
-        $req                           = new OpenApiRequest([
+        $query = [];
+        if (!Utils::isUnset($request->caller)) {
+            $query['Caller'] = $request->caller;
+        }
+        if (!Utils::isUnset($request->corpName)) {
+            $query['CorpName'] = $request->corpName;
+        }
+        if (!Utils::isUnset($request->dialogId)) {
+            $query['DialogId'] = $request->dialogId;
+        }
+        if (!Utils::isUnset($request->isSelfLine)) {
+            $query['IsSelfLine'] = $request->isSelfLine;
+        }
+        if (!Utils::isUnset($request->numberStatusIdent)) {
+            $query['NumberStatusIdent'] = $request->numberStatusIdent;
+        }
+        if (!Utils::isUnset($request->ownerId)) {
+            $query['OwnerId'] = $request->ownerId;
+        }
+        if (!Utils::isUnset($request->recallInterval)) {
+            $query['RecallInterval'] = $request->recallInterval;
+        }
+        if (!Utils::isUnset($request->recallStateCodes)) {
+            $query['RecallStateCodes'] = $request->recallStateCodes;
+        }
+        if (!Utils::isUnset($request->recallTimes)) {
+            $query['RecallTimes'] = $request->recallTimes;
+        }
+        if (!Utils::isUnset($request->resourceOwnerAccount)) {
+            $query['ResourceOwnerAccount'] = $request->resourceOwnerAccount;
+        }
+        if (!Utils::isUnset($request->resourceOwnerId)) {
+            $query['ResourceOwnerId'] = $request->resourceOwnerId;
+        }
+        if (!Utils::isUnset($request->retryType)) {
+            $query['RetryType'] = $request->retryType;
+        }
+        if (!Utils::isUnset($request->taskName)) {
+            $query['TaskName'] = $request->taskName;
+        }
+        $req = new OpenApiRequest([
             'query' => OpenApiUtilClient::query($query),
-            'body'  => Utils::toMap($request),
         ]);
         $params = new Params([
             'action'      => 'CreateRobotTask',
@@ -560,7 +707,7 @@ class Dyvmsapi extends OpenApiClient
             'method'      => 'POST',
             'authType'    => 'AK',
             'style'       => 'RPC',
-            'reqBodyType' => 'json',
+            'reqBodyType' => 'formData',
             'bodyType'    => 'json',
         ]);
 
@@ -588,14 +735,21 @@ class Dyvmsapi extends OpenApiClient
     public function deleteRobotTaskWithOptions($request, $runtime)
     {
         Utils::validateModel($request);
-        $query                         = [];
-        $query['OwnerId']              = $request->ownerId;
-        $query['ResourceOwnerAccount'] = $request->resourceOwnerAccount;
-        $query['ResourceOwnerId']      = $request->resourceOwnerId;
-        $query['TaskId']               = $request->taskId;
-        $req                           = new OpenApiRequest([
+        $query = [];
+        if (!Utils::isUnset($request->ownerId)) {
+            $query['OwnerId'] = $request->ownerId;
+        }
+        if (!Utils::isUnset($request->resourceOwnerAccount)) {
+            $query['ResourceOwnerAccount'] = $request->resourceOwnerAccount;
+        }
+        if (!Utils::isUnset($request->resourceOwnerId)) {
+            $query['ResourceOwnerId'] = $request->resourceOwnerId;
+        }
+        if (!Utils::isUnset($request->taskId)) {
+            $query['TaskId'] = $request->taskId;
+        }
+        $req = new OpenApiRequest([
             'query' => OpenApiUtilClient::query($query),
-            'body'  => Utils::toMap($request),
         ]);
         $params = new Params([
             'action'      => 'DeleteRobotTask',
@@ -605,7 +759,7 @@ class Dyvmsapi extends OpenApiClient
             'method'      => 'POST',
             'authType'    => 'AK',
             'style'       => 'RPC',
-            'reqBodyType' => 'json',
+            'reqBodyType' => 'formData',
             'bodyType'    => 'json',
         ]);
 
@@ -633,16 +787,27 @@ class Dyvmsapi extends OpenApiClient
     public function executeCallTaskWithOptions($request, $runtime)
     {
         Utils::validateModel($request);
-        $query                         = [];
-        $query['FireTime']             = $request->fireTime;
-        $query['OwnerId']              = $request->ownerId;
-        $query['ResourceOwnerAccount'] = $request->resourceOwnerAccount;
-        $query['ResourceOwnerId']      = $request->resourceOwnerId;
-        $query['Status']               = $request->status;
-        $query['TaskId']               = $request->taskId;
-        $req                           = new OpenApiRequest([
+        $query = [];
+        if (!Utils::isUnset($request->fireTime)) {
+            $query['FireTime'] = $request->fireTime;
+        }
+        if (!Utils::isUnset($request->ownerId)) {
+            $query['OwnerId'] = $request->ownerId;
+        }
+        if (!Utils::isUnset($request->resourceOwnerAccount)) {
+            $query['ResourceOwnerAccount'] = $request->resourceOwnerAccount;
+        }
+        if (!Utils::isUnset($request->resourceOwnerId)) {
+            $query['ResourceOwnerId'] = $request->resourceOwnerId;
+        }
+        if (!Utils::isUnset($request->status)) {
+            $query['Status'] = $request->status;
+        }
+        if (!Utils::isUnset($request->taskId)) {
+            $query['TaskId'] = $request->taskId;
+        }
+        $req = new OpenApiRequest([
             'query' => OpenApiUtilClient::query($query),
-            'body'  => Utils::toMap($request),
         ]);
         $params = new Params([
             'action'      => 'ExecuteCallTask',
@@ -652,7 +817,7 @@ class Dyvmsapi extends OpenApiClient
             'method'      => 'POST',
             'authType'    => 'AK',
             'style'       => 'RPC',
-            'reqBodyType' => 'json',
+            'reqBodyType' => 'formData',
             'bodyType'    => 'json',
         ]);
 
@@ -680,14 +845,21 @@ class Dyvmsapi extends OpenApiClient
     public function getCallInfoWithOptions($request, $runtime)
     {
         Utils::validateModel($request);
-        $query                         = [];
-        $query['OwnerId']              = $request->ownerId;
-        $query['ResourceOwnerAccount'] = $request->resourceOwnerAccount;
-        $query['ResourceOwnerId']      = $request->resourceOwnerId;
-        $query['RtcId']                = $request->rtcId;
-        $req                           = new OpenApiRequest([
+        $query = [];
+        if (!Utils::isUnset($request->ownerId)) {
+            $query['OwnerId'] = $request->ownerId;
+        }
+        if (!Utils::isUnset($request->resourceOwnerAccount)) {
+            $query['ResourceOwnerAccount'] = $request->resourceOwnerAccount;
+        }
+        if (!Utils::isUnset($request->resourceOwnerId)) {
+            $query['ResourceOwnerId'] = $request->resourceOwnerId;
+        }
+        if (!Utils::isUnset($request->rtcId)) {
+            $query['RtcId'] = $request->rtcId;
+        }
+        $req = new OpenApiRequest([
             'query' => OpenApiUtilClient::query($query),
-            'body'  => Utils::toMap($request),
         ]);
         $params = new Params([
             'action'      => 'GetCallInfo',
@@ -697,7 +869,7 @@ class Dyvmsapi extends OpenApiClient
             'method'      => 'POST',
             'authType'    => 'AK',
             'style'       => 'RPC',
-            'reqBodyType' => 'json',
+            'reqBodyType' => 'formData',
             'bodyType'    => 'json',
         ]);
 
@@ -725,14 +897,21 @@ class Dyvmsapi extends OpenApiClient
     public function getHotlineQualificationByOrderWithOptions($request, $runtime)
     {
         Utils::validateModel($request);
-        $query                         = [];
-        $query['OrderId']              = $request->orderId;
-        $query['OwnerId']              = $request->ownerId;
-        $query['ResourceOwnerAccount'] = $request->resourceOwnerAccount;
-        $query['ResourceOwnerId']      = $request->resourceOwnerId;
-        $req                           = new OpenApiRequest([
+        $query = [];
+        if (!Utils::isUnset($request->orderId)) {
+            $query['OrderId'] = $request->orderId;
+        }
+        if (!Utils::isUnset($request->ownerId)) {
+            $query['OwnerId'] = $request->ownerId;
+        }
+        if (!Utils::isUnset($request->resourceOwnerAccount)) {
+            $query['ResourceOwnerAccount'] = $request->resourceOwnerAccount;
+        }
+        if (!Utils::isUnset($request->resourceOwnerId)) {
+            $query['ResourceOwnerId'] = $request->resourceOwnerId;
+        }
+        $req = new OpenApiRequest([
             'query' => OpenApiUtilClient::query($query),
-            'body'  => Utils::toMap($request),
         ]);
         $params = new Params([
             'action'      => 'GetHotlineQualificationByOrder',
@@ -742,7 +921,7 @@ class Dyvmsapi extends OpenApiClient
             'method'      => 'POST',
             'authType'    => 'AK',
             'style'       => 'RPC',
-            'reqBodyType' => 'json',
+            'reqBodyType' => 'formData',
             'bodyType'    => 'json',
         ]);
 
@@ -770,13 +949,18 @@ class Dyvmsapi extends OpenApiClient
     public function getMqttTokenWithOptions($request, $runtime)
     {
         Utils::validateModel($request);
-        $query                         = [];
-        $query['OwnerId']              = $request->ownerId;
-        $query['ResourceOwnerAccount'] = $request->resourceOwnerAccount;
-        $query['ResourceOwnerId']      = $request->resourceOwnerId;
-        $req                           = new OpenApiRequest([
+        $query = [];
+        if (!Utils::isUnset($request->ownerId)) {
+            $query['OwnerId'] = $request->ownerId;
+        }
+        if (!Utils::isUnset($request->resourceOwnerAccount)) {
+            $query['ResourceOwnerAccount'] = $request->resourceOwnerAccount;
+        }
+        if (!Utils::isUnset($request->resourceOwnerId)) {
+            $query['ResourceOwnerId'] = $request->resourceOwnerId;
+        }
+        $req = new OpenApiRequest([
             'query' => OpenApiUtilClient::query($query),
-            'body'  => Utils::toMap($request),
         ]);
         $params = new Params([
             'action'      => 'GetMqttToken',
@@ -786,7 +970,7 @@ class Dyvmsapi extends OpenApiClient
             'method'      => 'POST',
             'authType'    => 'AK',
             'style'       => 'RPC',
-            'reqBodyType' => 'json',
+            'reqBodyType' => 'formData',
             'bodyType'    => 'json',
         ]);
 
@@ -814,16 +998,27 @@ class Dyvmsapi extends OpenApiClient
     public function getRtcTokenWithOptions($request, $runtime)
     {
         Utils::validateModel($request);
-        $query                         = [];
-        $query['DeviceId']             = $request->deviceId;
-        $query['IsCustomAccount']      = $request->isCustomAccount;
-        $query['OwnerId']              = $request->ownerId;
-        $query['ResourceOwnerAccount'] = $request->resourceOwnerAccount;
-        $query['ResourceOwnerId']      = $request->resourceOwnerId;
-        $query['UserId']               = $request->userId;
-        $req                           = new OpenApiRequest([
+        $query = [];
+        if (!Utils::isUnset($request->deviceId)) {
+            $query['DeviceId'] = $request->deviceId;
+        }
+        if (!Utils::isUnset($request->isCustomAccount)) {
+            $query['IsCustomAccount'] = $request->isCustomAccount;
+        }
+        if (!Utils::isUnset($request->ownerId)) {
+            $query['OwnerId'] = $request->ownerId;
+        }
+        if (!Utils::isUnset($request->resourceOwnerAccount)) {
+            $query['ResourceOwnerAccount'] = $request->resourceOwnerAccount;
+        }
+        if (!Utils::isUnset($request->resourceOwnerId)) {
+            $query['ResourceOwnerId'] = $request->resourceOwnerId;
+        }
+        if (!Utils::isUnset($request->userId)) {
+            $query['UserId'] = $request->userId;
+        }
+        $req = new OpenApiRequest([
             'query' => OpenApiUtilClient::query($query),
-            'body'  => Utils::toMap($request),
         ]);
         $params = new Params([
             'action'      => 'GetRtcToken',
@@ -833,7 +1028,7 @@ class Dyvmsapi extends OpenApiClient
             'method'      => 'POST',
             'authType'    => 'AK',
             'style'       => 'RPC',
-            'reqBodyType' => 'json',
+            'reqBodyType' => 'formData',
             'bodyType'    => 'json',
         ]);
 
@@ -861,14 +1056,21 @@ class Dyvmsapi extends OpenApiClient
     public function getTokenWithOptions($request, $runtime)
     {
         Utils::validateModel($request);
-        $query                         = [];
-        $query['OwnerId']              = $request->ownerId;
-        $query['ResourceOwnerAccount'] = $request->resourceOwnerAccount;
-        $query['ResourceOwnerId']      = $request->resourceOwnerId;
-        $query['TokenType']            = $request->tokenType;
-        $req                           = new OpenApiRequest([
+        $query = [];
+        if (!Utils::isUnset($request->ownerId)) {
+            $query['OwnerId'] = $request->ownerId;
+        }
+        if (!Utils::isUnset($request->resourceOwnerAccount)) {
+            $query['ResourceOwnerAccount'] = $request->resourceOwnerAccount;
+        }
+        if (!Utils::isUnset($request->resourceOwnerId)) {
+            $query['ResourceOwnerId'] = $request->resourceOwnerId;
+        }
+        if (!Utils::isUnset($request->tokenType)) {
+            $query['TokenType'] = $request->tokenType;
+        }
+        $req = new OpenApiRequest([
             'query' => OpenApiUtilClient::query($query),
-            'body'  => Utils::toMap($request),
         ]);
         $params = new Params([
             'action'      => 'GetToken',
@@ -878,7 +1080,7 @@ class Dyvmsapi extends OpenApiClient
             'method'      => 'POST',
             'authType'    => 'AK',
             'style'       => 'RPC',
-            'reqBodyType' => 'json',
+            'reqBodyType' => 'formData',
             'bodyType'    => 'json',
         ]);
 
@@ -906,23 +1108,48 @@ class Dyvmsapi extends OpenApiClient
     public function ivrCallWithOptions($request, $runtime)
     {
         Utils::validateModel($request);
-        $query                         = [];
-        $query['ByeCode']              = $request->byeCode;
-        $query['ByeTtsParams']         = $request->byeTtsParams;
-        $query['CalledNumber']         = $request->calledNumber;
-        $query['CalledShowNumber']     = $request->calledShowNumber;
-        $query['MenuKeyMap']           = $request->menuKeyMap;
-        $query['OutId']                = $request->outId;
-        $query['OwnerId']              = $request->ownerId;
-        $query['PlayTimes']            = $request->playTimes;
-        $query['ResourceOwnerAccount'] = $request->resourceOwnerAccount;
-        $query['ResourceOwnerId']      = $request->resourceOwnerId;
-        $query['StartCode']            = $request->startCode;
-        $query['StartTtsParams']       = $request->startTtsParams;
-        $query['Timeout']              = $request->timeout;
-        $req                           = new OpenApiRequest([
+        $query = [];
+        if (!Utils::isUnset($request->byeCode)) {
+            $query['ByeCode'] = $request->byeCode;
+        }
+        if (!Utils::isUnset($request->byeTtsParams)) {
+            $query['ByeTtsParams'] = $request->byeTtsParams;
+        }
+        if (!Utils::isUnset($request->calledNumber)) {
+            $query['CalledNumber'] = $request->calledNumber;
+        }
+        if (!Utils::isUnset($request->calledShowNumber)) {
+            $query['CalledShowNumber'] = $request->calledShowNumber;
+        }
+        if (!Utils::isUnset($request->menuKeyMap)) {
+            $query['MenuKeyMap'] = $request->menuKeyMap;
+        }
+        if (!Utils::isUnset($request->outId)) {
+            $query['OutId'] = $request->outId;
+        }
+        if (!Utils::isUnset($request->ownerId)) {
+            $query['OwnerId'] = $request->ownerId;
+        }
+        if (!Utils::isUnset($request->playTimes)) {
+            $query['PlayTimes'] = $request->playTimes;
+        }
+        if (!Utils::isUnset($request->resourceOwnerAccount)) {
+            $query['ResourceOwnerAccount'] = $request->resourceOwnerAccount;
+        }
+        if (!Utils::isUnset($request->resourceOwnerId)) {
+            $query['ResourceOwnerId'] = $request->resourceOwnerId;
+        }
+        if (!Utils::isUnset($request->startCode)) {
+            $query['StartCode'] = $request->startCode;
+        }
+        if (!Utils::isUnset($request->startTtsParams)) {
+            $query['StartTtsParams'] = $request->startTtsParams;
+        }
+        if (!Utils::isUnset($request->timeout)) {
+            $query['Timeout'] = $request->timeout;
+        }
+        $req = new OpenApiRequest([
             'query' => OpenApiUtilClient::query($query),
-            'body'  => Utils::toMap($request),
         ]);
         $params = new Params([
             'action'      => 'IvrCall',
@@ -932,7 +1159,7 @@ class Dyvmsapi extends OpenApiClient
             'method'      => 'POST',
             'authType'    => 'AK',
             'style'       => 'RPC',
-            'reqBodyType' => 'json',
+            'reqBodyType' => 'formData',
             'bodyType'    => 'json',
         ]);
 
@@ -960,20 +1187,39 @@ class Dyvmsapi extends OpenApiClient
     public function listCallTaskWithOptions($request, $runtime)
     {
         Utils::validateModel($request);
-        $query                         = [];
-        $query['BizType']              = $request->bizType;
-        $query['OwnerId']              = $request->ownerId;
-        $query['PageNumber']           = $request->pageNumber;
-        $query['PageSize']             = $request->pageSize;
-        $query['ResourceOwnerAccount'] = $request->resourceOwnerAccount;
-        $query['ResourceOwnerId']      = $request->resourceOwnerId;
-        $query['Status']               = $request->status;
-        $query['TaskId']               = $request->taskId;
-        $query['TaskName']             = $request->taskName;
-        $query['TemplateName']         = $request->templateName;
-        $req                           = new OpenApiRequest([
+        $query = [];
+        if (!Utils::isUnset($request->bizType)) {
+            $query['BizType'] = $request->bizType;
+        }
+        if (!Utils::isUnset($request->ownerId)) {
+            $query['OwnerId'] = $request->ownerId;
+        }
+        if (!Utils::isUnset($request->pageNumber)) {
+            $query['PageNumber'] = $request->pageNumber;
+        }
+        if (!Utils::isUnset($request->pageSize)) {
+            $query['PageSize'] = $request->pageSize;
+        }
+        if (!Utils::isUnset($request->resourceOwnerAccount)) {
+            $query['ResourceOwnerAccount'] = $request->resourceOwnerAccount;
+        }
+        if (!Utils::isUnset($request->resourceOwnerId)) {
+            $query['ResourceOwnerId'] = $request->resourceOwnerId;
+        }
+        if (!Utils::isUnset($request->status)) {
+            $query['Status'] = $request->status;
+        }
+        if (!Utils::isUnset($request->taskId)) {
+            $query['TaskId'] = $request->taskId;
+        }
+        if (!Utils::isUnset($request->taskName)) {
+            $query['TaskName'] = $request->taskName;
+        }
+        if (!Utils::isUnset($request->templateName)) {
+            $query['TemplateName'] = $request->templateName;
+        }
+        $req = new OpenApiRequest([
             'query' => OpenApiUtilClient::query($query),
-            'body'  => Utils::toMap($request),
         ]);
         $params = new Params([
             'action'      => 'ListCallTask',
@@ -983,7 +1229,7 @@ class Dyvmsapi extends OpenApiClient
             'method'      => 'POST',
             'authType'    => 'AK',
             'style'       => 'RPC',
-            'reqBodyType' => 'json',
+            'reqBodyType' => 'formData',
             'bodyType'    => 'json',
         ]);
 
@@ -1011,18 +1257,33 @@ class Dyvmsapi extends OpenApiClient
     public function listCallTaskDetailWithOptions($request, $runtime)
     {
         Utils::validateModel($request);
-        $query                         = [];
-        $query['CalledNum']            = $request->calledNum;
-        $query['OwnerId']              = $request->ownerId;
-        $query['PageNumber']           = $request->pageNumber;
-        $query['PageSize']             = $request->pageSize;
-        $query['ResourceOwnerAccount'] = $request->resourceOwnerAccount;
-        $query['ResourceOwnerId']      = $request->resourceOwnerId;
-        $query['Status']               = $request->status;
-        $query['TaskId']               = $request->taskId;
-        $req                           = new OpenApiRequest([
+        $query = [];
+        if (!Utils::isUnset($request->calledNum)) {
+            $query['CalledNum'] = $request->calledNum;
+        }
+        if (!Utils::isUnset($request->ownerId)) {
+            $query['OwnerId'] = $request->ownerId;
+        }
+        if (!Utils::isUnset($request->pageNumber)) {
+            $query['PageNumber'] = $request->pageNumber;
+        }
+        if (!Utils::isUnset($request->pageSize)) {
+            $query['PageSize'] = $request->pageSize;
+        }
+        if (!Utils::isUnset($request->resourceOwnerAccount)) {
+            $query['ResourceOwnerAccount'] = $request->resourceOwnerAccount;
+        }
+        if (!Utils::isUnset($request->resourceOwnerId)) {
+            $query['ResourceOwnerId'] = $request->resourceOwnerId;
+        }
+        if (!Utils::isUnset($request->status)) {
+            $query['Status'] = $request->status;
+        }
+        if (!Utils::isUnset($request->taskId)) {
+            $query['TaskId'] = $request->taskId;
+        }
+        $req = new OpenApiRequest([
             'query' => OpenApiUtilClient::query($query),
-            'body'  => Utils::toMap($request),
         ]);
         $params = new Params([
             'action'      => 'ListCallTaskDetail',
@@ -1032,7 +1293,7 @@ class Dyvmsapi extends OpenApiClient
             'method'      => 'POST',
             'authType'    => 'AK',
             'style'       => 'RPC',
-            'reqBodyType' => 'json',
+            'reqBodyType' => 'formData',
             'bodyType'    => 'json',
         ]);
 
@@ -1060,17 +1321,30 @@ class Dyvmsapi extends OpenApiClient
     public function listHotlineTransferNumberWithOptions($request, $runtime)
     {
         Utils::validateModel($request);
-        $query                         = [];
-        $query['HotlineNumber']        = $request->hotlineNumber;
-        $query['OwnerId']              = $request->ownerId;
-        $query['PageNo']               = $request->pageNo;
-        $query['PageSize']             = $request->pageSize;
-        $query['QualificationId']      = $request->qualificationId;
-        $query['ResourceOwnerAccount'] = $request->resourceOwnerAccount;
-        $query['ResourceOwnerId']      = $request->resourceOwnerId;
-        $req                           = new OpenApiRequest([
+        $query = [];
+        if (!Utils::isUnset($request->hotlineNumber)) {
+            $query['HotlineNumber'] = $request->hotlineNumber;
+        }
+        if (!Utils::isUnset($request->ownerId)) {
+            $query['OwnerId'] = $request->ownerId;
+        }
+        if (!Utils::isUnset($request->pageNo)) {
+            $query['PageNo'] = $request->pageNo;
+        }
+        if (!Utils::isUnset($request->pageSize)) {
+            $query['PageSize'] = $request->pageSize;
+        }
+        if (!Utils::isUnset($request->qualificationId)) {
+            $query['QualificationId'] = $request->qualificationId;
+        }
+        if (!Utils::isUnset($request->resourceOwnerAccount)) {
+            $query['ResourceOwnerAccount'] = $request->resourceOwnerAccount;
+        }
+        if (!Utils::isUnset($request->resourceOwnerId)) {
+            $query['ResourceOwnerId'] = $request->resourceOwnerId;
+        }
+        $req = new OpenApiRequest([
             'query' => OpenApiUtilClient::query($query),
-            'body'  => Utils::toMap($request),
         ]);
         $params = new Params([
             'action'      => 'ListHotlineTransferNumber',
@@ -1080,7 +1354,7 @@ class Dyvmsapi extends OpenApiClient
             'method'      => 'POST',
             'authType'    => 'AK',
             'style'       => 'RPC',
-            'reqBodyType' => 'json',
+            'reqBodyType' => 'formData',
             'bodyType'    => 'json',
         ]);
 
@@ -1108,17 +1382,30 @@ class Dyvmsapi extends OpenApiClient
     public function listHotlineTransferRegisterFileWithOptions($request, $runtime)
     {
         Utils::validateModel($request);
-        $query                         = [];
-        $query['HotlineNumber']        = $request->hotlineNumber;
-        $query['OwnerId']              = $request->ownerId;
-        $query['PageNo']               = $request->pageNo;
-        $query['PageSize']             = $request->pageSize;
-        $query['QualificationId']      = $request->qualificationId;
-        $query['ResourceOwnerAccount'] = $request->resourceOwnerAccount;
-        $query['ResourceOwnerId']      = $request->resourceOwnerId;
-        $req                           = new OpenApiRequest([
+        $query = [];
+        if (!Utils::isUnset($request->hotlineNumber)) {
+            $query['HotlineNumber'] = $request->hotlineNumber;
+        }
+        if (!Utils::isUnset($request->ownerId)) {
+            $query['OwnerId'] = $request->ownerId;
+        }
+        if (!Utils::isUnset($request->pageNo)) {
+            $query['PageNo'] = $request->pageNo;
+        }
+        if (!Utils::isUnset($request->pageSize)) {
+            $query['PageSize'] = $request->pageSize;
+        }
+        if (!Utils::isUnset($request->qualificationId)) {
+            $query['QualificationId'] = $request->qualificationId;
+        }
+        if (!Utils::isUnset($request->resourceOwnerAccount)) {
+            $query['ResourceOwnerAccount'] = $request->resourceOwnerAccount;
+        }
+        if (!Utils::isUnset($request->resourceOwnerId)) {
+            $query['ResourceOwnerId'] = $request->resourceOwnerId;
+        }
+        $req = new OpenApiRequest([
             'query' => OpenApiUtilClient::query($query),
-            'body'  => Utils::toMap($request),
         ]);
         $params = new Params([
             'action'      => 'ListHotlineTransferRegisterFile',
@@ -1128,7 +1415,7 @@ class Dyvmsapi extends OpenApiClient
             'method'      => 'POST',
             'authType'    => 'AK',
             'style'       => 'RPC',
-            'reqBodyType' => 'json',
+            'reqBodyType' => 'formData',
             'bodyType'    => 'json',
         ]);
 
@@ -1156,16 +1443,27 @@ class Dyvmsapi extends OpenApiClient
     public function queryCallDetailByCallIdWithOptions($request, $runtime)
     {
         Utils::validateModel($request);
-        $query                         = [];
-        $query['CallId']               = $request->callId;
-        $query['OwnerId']              = $request->ownerId;
-        $query['ProdId']               = $request->prodId;
-        $query['QueryDate']            = $request->queryDate;
-        $query['ResourceOwnerAccount'] = $request->resourceOwnerAccount;
-        $query['ResourceOwnerId']      = $request->resourceOwnerId;
-        $req                           = new OpenApiRequest([
+        $query = [];
+        if (!Utils::isUnset($request->callId)) {
+            $query['CallId'] = $request->callId;
+        }
+        if (!Utils::isUnset($request->ownerId)) {
+            $query['OwnerId'] = $request->ownerId;
+        }
+        if (!Utils::isUnset($request->prodId)) {
+            $query['ProdId'] = $request->prodId;
+        }
+        if (!Utils::isUnset($request->queryDate)) {
+            $query['QueryDate'] = $request->queryDate;
+        }
+        if (!Utils::isUnset($request->resourceOwnerAccount)) {
+            $query['ResourceOwnerAccount'] = $request->resourceOwnerAccount;
+        }
+        if (!Utils::isUnset($request->resourceOwnerId)) {
+            $query['ResourceOwnerId'] = $request->resourceOwnerId;
+        }
+        $req = new OpenApiRequest([
             'query' => OpenApiUtilClient::query($query),
-            'body'  => Utils::toMap($request),
         ]);
         $params = new Params([
             'action'      => 'QueryCallDetailByCallId',
@@ -1175,7 +1473,7 @@ class Dyvmsapi extends OpenApiClient
             'method'      => 'POST',
             'authType'    => 'AK',
             'style'       => 'RPC',
-            'reqBodyType' => 'json',
+            'reqBodyType' => 'formData',
             'bodyType'    => 'json',
         ]);
 
@@ -1203,16 +1501,27 @@ class Dyvmsapi extends OpenApiClient
     public function queryCallDetailByTaskIdWithOptions($request, $runtime)
     {
         Utils::validateModel($request);
-        $query                         = [];
-        $query['Callee']               = $request->callee;
-        $query['OwnerId']              = $request->ownerId;
-        $query['QueryDate']            = $request->queryDate;
-        $query['ResourceOwnerAccount'] = $request->resourceOwnerAccount;
-        $query['ResourceOwnerId']      = $request->resourceOwnerId;
-        $query['TaskId']               = $request->taskId;
-        $req                           = new OpenApiRequest([
+        $query = [];
+        if (!Utils::isUnset($request->callee)) {
+            $query['Callee'] = $request->callee;
+        }
+        if (!Utils::isUnset($request->ownerId)) {
+            $query['OwnerId'] = $request->ownerId;
+        }
+        if (!Utils::isUnset($request->queryDate)) {
+            $query['QueryDate'] = $request->queryDate;
+        }
+        if (!Utils::isUnset($request->resourceOwnerAccount)) {
+            $query['ResourceOwnerAccount'] = $request->resourceOwnerAccount;
+        }
+        if (!Utils::isUnset($request->resourceOwnerId)) {
+            $query['ResourceOwnerId'] = $request->resourceOwnerId;
+        }
+        if (!Utils::isUnset($request->taskId)) {
+            $query['TaskId'] = $request->taskId;
+        }
+        $req = new OpenApiRequest([
             'query' => OpenApiUtilClient::query($query),
-            'body'  => Utils::toMap($request),
         ]);
         $params = new Params([
             'action'      => 'QueryCallDetailByTaskId',
@@ -1222,7 +1531,7 @@ class Dyvmsapi extends OpenApiClient
             'method'      => 'POST',
             'authType'    => 'AK',
             'style'       => 'RPC',
-            'reqBodyType' => 'json',
+            'reqBodyType' => 'formData',
             'bodyType'    => 'json',
         ]);
 
@@ -1250,14 +1559,21 @@ class Dyvmsapi extends OpenApiClient
     public function queryCallInPoolTransferConfigWithOptions($request, $runtime)
     {
         Utils::validateModel($request);
-        $query                         = [];
-        $query['OwnerId']              = $request->ownerId;
-        $query['PhoneNumber']          = $request->phoneNumber;
-        $query['ResourceOwnerAccount'] = $request->resourceOwnerAccount;
-        $query['ResourceOwnerId']      = $request->resourceOwnerId;
-        $req                           = new OpenApiRequest([
+        $query = [];
+        if (!Utils::isUnset($request->ownerId)) {
+            $query['OwnerId'] = $request->ownerId;
+        }
+        if (!Utils::isUnset($request->phoneNumber)) {
+            $query['PhoneNumber'] = $request->phoneNumber;
+        }
+        if (!Utils::isUnset($request->resourceOwnerAccount)) {
+            $query['ResourceOwnerAccount'] = $request->resourceOwnerAccount;
+        }
+        if (!Utils::isUnset($request->resourceOwnerId)) {
+            $query['ResourceOwnerId'] = $request->resourceOwnerId;
+        }
+        $req = new OpenApiRequest([
             'query' => OpenApiUtilClient::query($query),
-            'body'  => Utils::toMap($request),
         ]);
         $params = new Params([
             'action'      => 'QueryCallInPoolTransferConfig',
@@ -1267,7 +1583,7 @@ class Dyvmsapi extends OpenApiClient
             'method'      => 'POST',
             'authType'    => 'AK',
             'style'       => 'RPC',
-            'reqBodyType' => 'json',
+            'reqBodyType' => 'formData',
             'bodyType'    => 'json',
         ]);
 
@@ -1295,18 +1611,33 @@ class Dyvmsapi extends OpenApiClient
     public function queryCallInTransferRecordWithOptions($request, $runtime)
     {
         Utils::validateModel($request);
-        $query                         = [];
-        $query['CallInCaller']         = $request->callInCaller;
-        $query['OwnerId']              = $request->ownerId;
-        $query['PageNo']               = $request->pageNo;
-        $query['PageSize']             = $request->pageSize;
-        $query['PhoneNumber']          = $request->phoneNumber;
-        $query['QueryDate']            = $request->queryDate;
-        $query['ResourceOwnerAccount'] = $request->resourceOwnerAccount;
-        $query['ResourceOwnerId']      = $request->resourceOwnerId;
-        $req                           = new OpenApiRequest([
+        $query = [];
+        if (!Utils::isUnset($request->callInCaller)) {
+            $query['CallInCaller'] = $request->callInCaller;
+        }
+        if (!Utils::isUnset($request->ownerId)) {
+            $query['OwnerId'] = $request->ownerId;
+        }
+        if (!Utils::isUnset($request->pageNo)) {
+            $query['PageNo'] = $request->pageNo;
+        }
+        if (!Utils::isUnset($request->pageSize)) {
+            $query['PageSize'] = $request->pageSize;
+        }
+        if (!Utils::isUnset($request->phoneNumber)) {
+            $query['PhoneNumber'] = $request->phoneNumber;
+        }
+        if (!Utils::isUnset($request->queryDate)) {
+            $query['QueryDate'] = $request->queryDate;
+        }
+        if (!Utils::isUnset($request->resourceOwnerAccount)) {
+            $query['ResourceOwnerAccount'] = $request->resourceOwnerAccount;
+        }
+        if (!Utils::isUnset($request->resourceOwnerId)) {
+            $query['ResourceOwnerId'] = $request->resourceOwnerId;
+        }
+        $req = new OpenApiRequest([
             'query' => OpenApiUtilClient::query($query),
-            'body'  => Utils::toMap($request),
         ]);
         $params = new Params([
             'action'      => 'QueryCallInTransferRecord',
@@ -1316,7 +1647,7 @@ class Dyvmsapi extends OpenApiClient
             'method'      => 'POST',
             'authType'    => 'AK',
             'style'       => 'RPC',
-            'reqBodyType' => 'json',
+            'reqBodyType' => 'formData',
             'bodyType'    => 'json',
         ]);
 
@@ -1344,14 +1675,21 @@ class Dyvmsapi extends OpenApiClient
     public function queryRobotInfoListWithOptions($request, $runtime)
     {
         Utils::validateModel($request);
-        $query                         = [];
-        $query['AuditStatus']          = $request->auditStatus;
-        $query['OwnerId']              = $request->ownerId;
-        $query['ResourceOwnerAccount'] = $request->resourceOwnerAccount;
-        $query['ResourceOwnerId']      = $request->resourceOwnerId;
-        $req                           = new OpenApiRequest([
+        $query = [];
+        if (!Utils::isUnset($request->auditStatus)) {
+            $query['AuditStatus'] = $request->auditStatus;
+        }
+        if (!Utils::isUnset($request->ownerId)) {
+            $query['OwnerId'] = $request->ownerId;
+        }
+        if (!Utils::isUnset($request->resourceOwnerAccount)) {
+            $query['ResourceOwnerAccount'] = $request->resourceOwnerAccount;
+        }
+        if (!Utils::isUnset($request->resourceOwnerId)) {
+            $query['ResourceOwnerId'] = $request->resourceOwnerId;
+        }
+        $req = new OpenApiRequest([
             'query' => OpenApiUtilClient::query($query),
-            'body'  => Utils::toMap($request),
         ]);
         $params = new Params([
             'action'      => 'QueryRobotInfoList',
@@ -1361,7 +1699,7 @@ class Dyvmsapi extends OpenApiClient
             'method'      => 'POST',
             'authType'    => 'AK',
             'style'       => 'RPC',
-            'reqBodyType' => 'json',
+            'reqBodyType' => 'formData',
             'bodyType'    => 'json',
         ]);
 
@@ -1389,16 +1727,27 @@ class Dyvmsapi extends OpenApiClient
     public function queryRobotTaskCallDetailWithOptions($request, $runtime)
     {
         Utils::validateModel($request);
-        $query                         = [];
-        $query['Callee']               = $request->callee;
-        $query['OwnerId']              = $request->ownerId;
-        $query['QueryDate']            = $request->queryDate;
-        $query['ResourceOwnerAccount'] = $request->resourceOwnerAccount;
-        $query['ResourceOwnerId']      = $request->resourceOwnerId;
-        $query['TaskId']               = $request->taskId;
-        $req                           = new OpenApiRequest([
+        $query = [];
+        if (!Utils::isUnset($request->callee)) {
+            $query['Callee'] = $request->callee;
+        }
+        if (!Utils::isUnset($request->ownerId)) {
+            $query['OwnerId'] = $request->ownerId;
+        }
+        if (!Utils::isUnset($request->queryDate)) {
+            $query['QueryDate'] = $request->queryDate;
+        }
+        if (!Utils::isUnset($request->resourceOwnerAccount)) {
+            $query['ResourceOwnerAccount'] = $request->resourceOwnerAccount;
+        }
+        if (!Utils::isUnset($request->resourceOwnerId)) {
+            $query['ResourceOwnerId'] = $request->resourceOwnerId;
+        }
+        if (!Utils::isUnset($request->taskId)) {
+            $query['TaskId'] = $request->taskId;
+        }
+        $req = new OpenApiRequest([
             'query' => OpenApiUtilClient::query($query),
-            'body'  => Utils::toMap($request),
         ]);
         $params = new Params([
             'action'      => 'QueryRobotTaskCallDetail',
@@ -1408,7 +1757,7 @@ class Dyvmsapi extends OpenApiClient
             'method'      => 'POST',
             'authType'    => 'AK',
             'style'       => 'RPC',
-            'reqBodyType' => 'json',
+            'reqBodyType' => 'formData',
             'bodyType'    => 'json',
         ]);
 
@@ -1436,23 +1785,48 @@ class Dyvmsapi extends OpenApiClient
     public function queryRobotTaskCallListWithOptions($request, $runtime)
     {
         Utils::validateModel($request);
-        $query                         = [];
-        $query['CallResult']           = $request->callResult;
-        $query['Called']               = $request->called;
-        $query['DialogCountFrom']      = $request->dialogCountFrom;
-        $query['DialogCountTo']        = $request->dialogCountTo;
-        $query['DurationFrom']         = $request->durationFrom;
-        $query['DurationTo']           = $request->durationTo;
-        $query['HangupDirection']      = $request->hangupDirection;
-        $query['OwnerId']              = $request->ownerId;
-        $query['PageNo']               = $request->pageNo;
-        $query['PageSize']             = $request->pageSize;
-        $query['ResourceOwnerAccount'] = $request->resourceOwnerAccount;
-        $query['ResourceOwnerId']      = $request->resourceOwnerId;
-        $query['TaskId']               = $request->taskId;
-        $req                           = new OpenApiRequest([
+        $query = [];
+        if (!Utils::isUnset($request->callResult)) {
+            $query['CallResult'] = $request->callResult;
+        }
+        if (!Utils::isUnset($request->called)) {
+            $query['Called'] = $request->called;
+        }
+        if (!Utils::isUnset($request->dialogCountFrom)) {
+            $query['DialogCountFrom'] = $request->dialogCountFrom;
+        }
+        if (!Utils::isUnset($request->dialogCountTo)) {
+            $query['DialogCountTo'] = $request->dialogCountTo;
+        }
+        if (!Utils::isUnset($request->durationFrom)) {
+            $query['DurationFrom'] = $request->durationFrom;
+        }
+        if (!Utils::isUnset($request->durationTo)) {
+            $query['DurationTo'] = $request->durationTo;
+        }
+        if (!Utils::isUnset($request->hangupDirection)) {
+            $query['HangupDirection'] = $request->hangupDirection;
+        }
+        if (!Utils::isUnset($request->ownerId)) {
+            $query['OwnerId'] = $request->ownerId;
+        }
+        if (!Utils::isUnset($request->pageNo)) {
+            $query['PageNo'] = $request->pageNo;
+        }
+        if (!Utils::isUnset($request->pageSize)) {
+            $query['PageSize'] = $request->pageSize;
+        }
+        if (!Utils::isUnset($request->resourceOwnerAccount)) {
+            $query['ResourceOwnerAccount'] = $request->resourceOwnerAccount;
+        }
+        if (!Utils::isUnset($request->resourceOwnerId)) {
+            $query['ResourceOwnerId'] = $request->resourceOwnerId;
+        }
+        if (!Utils::isUnset($request->taskId)) {
+            $query['TaskId'] = $request->taskId;
+        }
+        $req = new OpenApiRequest([
             'query' => OpenApiUtilClient::query($query),
-            'body'  => Utils::toMap($request),
         ]);
         $params = new Params([
             'action'      => 'QueryRobotTaskCallList',
@@ -1462,7 +1836,7 @@ class Dyvmsapi extends OpenApiClient
             'method'      => 'POST',
             'authType'    => 'AK',
             'style'       => 'RPC',
-            'reqBodyType' => 'json',
+            'reqBodyType' => 'formData',
             'bodyType'    => 'json',
         ]);
 
@@ -1490,14 +1864,21 @@ class Dyvmsapi extends OpenApiClient
     public function queryRobotTaskDetailWithOptions($request, $runtime)
     {
         Utils::validateModel($request);
-        $query                         = [];
-        $query['Id']                   = $request->id;
-        $query['OwnerId']              = $request->ownerId;
-        $query['ResourceOwnerAccount'] = $request->resourceOwnerAccount;
-        $query['ResourceOwnerId']      = $request->resourceOwnerId;
-        $req                           = new OpenApiRequest([
+        $query = [];
+        if (!Utils::isUnset($request->id)) {
+            $query['Id'] = $request->id;
+        }
+        if (!Utils::isUnset($request->ownerId)) {
+            $query['OwnerId'] = $request->ownerId;
+        }
+        if (!Utils::isUnset($request->resourceOwnerAccount)) {
+            $query['ResourceOwnerAccount'] = $request->resourceOwnerAccount;
+        }
+        if (!Utils::isUnset($request->resourceOwnerId)) {
+            $query['ResourceOwnerId'] = $request->resourceOwnerId;
+        }
+        $req = new OpenApiRequest([
             'query' => OpenApiUtilClient::query($query),
-            'body'  => Utils::toMap($request),
         ]);
         $params = new Params([
             'action'      => 'QueryRobotTaskDetail',
@@ -1507,7 +1888,7 @@ class Dyvmsapi extends OpenApiClient
             'method'      => 'POST',
             'authType'    => 'AK',
             'style'       => 'RPC',
-            'reqBodyType' => 'json',
+            'reqBodyType' => 'formData',
             'bodyType'    => 'json',
         ]);
 
@@ -1535,18 +1916,33 @@ class Dyvmsapi extends OpenApiClient
     public function queryRobotTaskListWithOptions($request, $runtime)
     {
         Utils::validateModel($request);
-        $query                         = [];
-        $query['OwnerId']              = $request->ownerId;
-        $query['PageNo']               = $request->pageNo;
-        $query['PageSize']             = $request->pageSize;
-        $query['ResourceOwnerAccount'] = $request->resourceOwnerAccount;
-        $query['ResourceOwnerId']      = $request->resourceOwnerId;
-        $query['Status']               = $request->status;
-        $query['TaskName']             = $request->taskName;
-        $query['Time']                 = $request->time;
-        $req                           = new OpenApiRequest([
+        $query = [];
+        if (!Utils::isUnset($request->ownerId)) {
+            $query['OwnerId'] = $request->ownerId;
+        }
+        if (!Utils::isUnset($request->pageNo)) {
+            $query['PageNo'] = $request->pageNo;
+        }
+        if (!Utils::isUnset($request->pageSize)) {
+            $query['PageSize'] = $request->pageSize;
+        }
+        if (!Utils::isUnset($request->resourceOwnerAccount)) {
+            $query['ResourceOwnerAccount'] = $request->resourceOwnerAccount;
+        }
+        if (!Utils::isUnset($request->resourceOwnerId)) {
+            $query['ResourceOwnerId'] = $request->resourceOwnerId;
+        }
+        if (!Utils::isUnset($request->status)) {
+            $query['Status'] = $request->status;
+        }
+        if (!Utils::isUnset($request->taskName)) {
+            $query['TaskName'] = $request->taskName;
+        }
+        if (!Utils::isUnset($request->time)) {
+            $query['Time'] = $request->time;
+        }
+        $req = new OpenApiRequest([
             'query' => OpenApiUtilClient::query($query),
-            'body'  => Utils::toMap($request),
         ]);
         $params = new Params([
             'action'      => 'QueryRobotTaskList',
@@ -1556,7 +1952,7 @@ class Dyvmsapi extends OpenApiClient
             'method'      => 'POST',
             'authType'    => 'AK',
             'style'       => 'RPC',
-            'reqBodyType' => 'json',
+            'reqBodyType' => 'formData',
             'bodyType'    => 'json',
         ]);
 
@@ -1584,13 +1980,18 @@ class Dyvmsapi extends OpenApiClient
     public function queryRobotv2AllListWithOptions($request, $runtime)
     {
         Utils::validateModel($request);
-        $query                         = [];
-        $query['OwnerId']              = $request->ownerId;
-        $query['ResourceOwnerAccount'] = $request->resourceOwnerAccount;
-        $query['ResourceOwnerId']      = $request->resourceOwnerId;
-        $req                           = new OpenApiRequest([
+        $query = [];
+        if (!Utils::isUnset($request->ownerId)) {
+            $query['OwnerId'] = $request->ownerId;
+        }
+        if (!Utils::isUnset($request->resourceOwnerAccount)) {
+            $query['ResourceOwnerAccount'] = $request->resourceOwnerAccount;
+        }
+        if (!Utils::isUnset($request->resourceOwnerId)) {
+            $query['ResourceOwnerId'] = $request->resourceOwnerId;
+        }
+        $req = new OpenApiRequest([
             'query' => OpenApiUtilClient::query($query),
-            'body'  => Utils::toMap($request),
         ]);
         $params = new Params([
             'action'      => 'QueryRobotv2AllList',
@@ -1600,7 +2001,7 @@ class Dyvmsapi extends OpenApiClient
             'method'      => 'POST',
             'authType'    => 'AK',
             'style'       => 'RPC',
-            'reqBodyType' => 'json',
+            'reqBodyType' => 'formData',
             'bodyType'    => 'json',
         ]);
 
@@ -1628,17 +2029,30 @@ class Dyvmsapi extends OpenApiClient
     public function queryVirtualNumberWithOptions($request, $runtime)
     {
         Utils::validateModel($request);
-        $query                         = [];
-        $query['OwnerId']              = $request->ownerId;
-        $query['PageNo']               = $request->pageNo;
-        $query['PageSize']             = $request->pageSize;
-        $query['ProdCode']             = $request->prodCode;
-        $query['ResourceOwnerAccount'] = $request->resourceOwnerAccount;
-        $query['ResourceOwnerId']      = $request->resourceOwnerId;
-        $query['RouteType']            = $request->routeType;
-        $req                           = new OpenApiRequest([
+        $query = [];
+        if (!Utils::isUnset($request->ownerId)) {
+            $query['OwnerId'] = $request->ownerId;
+        }
+        if (!Utils::isUnset($request->pageNo)) {
+            $query['PageNo'] = $request->pageNo;
+        }
+        if (!Utils::isUnset($request->pageSize)) {
+            $query['PageSize'] = $request->pageSize;
+        }
+        if (!Utils::isUnset($request->prodCode)) {
+            $query['ProdCode'] = $request->prodCode;
+        }
+        if (!Utils::isUnset($request->resourceOwnerAccount)) {
+            $query['ResourceOwnerAccount'] = $request->resourceOwnerAccount;
+        }
+        if (!Utils::isUnset($request->resourceOwnerId)) {
+            $query['ResourceOwnerId'] = $request->resourceOwnerId;
+        }
+        if (!Utils::isUnset($request->routeType)) {
+            $query['RouteType'] = $request->routeType;
+        }
+        $req = new OpenApiRequest([
             'query' => OpenApiUtilClient::query($query),
-            'body'  => Utils::toMap($request),
         ]);
         $params = new Params([
             'action'      => 'QueryVirtualNumber',
@@ -1648,7 +2062,7 @@ class Dyvmsapi extends OpenApiClient
             'method'      => 'POST',
             'authType'    => 'AK',
             'style'       => 'RPC',
-            'reqBodyType' => 'json',
+            'reqBodyType' => 'formData',
             'bodyType'    => 'json',
         ]);
 
@@ -1676,22 +2090,45 @@ class Dyvmsapi extends OpenApiClient
     public function queryVirtualNumberRelationWithOptions($request, $runtime)
     {
         Utils::validateModel($request);
-        $query                         = [];
-        $query['OwnerId']              = $request->ownerId;
-        $query['PageNo']               = $request->pageNo;
-        $query['PageSize']             = $request->pageSize;
-        $query['PhoneNum']             = $request->phoneNum;
-        $query['ProdCode']             = $request->prodCode;
-        $query['QualificationId']      = $request->qualificationId;
-        $query['RegionNameCity']       = $request->regionNameCity;
-        $query['RelatedNum']           = $request->relatedNum;
-        $query['ResourceOwnerAccount'] = $request->resourceOwnerAccount;
-        $query['ResourceOwnerId']      = $request->resourceOwnerId;
-        $query['RouteType']            = $request->routeType;
-        $query['SpecId']               = $request->specId;
-        $req                           = new OpenApiRequest([
+        $query = [];
+        if (!Utils::isUnset($request->ownerId)) {
+            $query['OwnerId'] = $request->ownerId;
+        }
+        if (!Utils::isUnset($request->pageNo)) {
+            $query['PageNo'] = $request->pageNo;
+        }
+        if (!Utils::isUnset($request->pageSize)) {
+            $query['PageSize'] = $request->pageSize;
+        }
+        if (!Utils::isUnset($request->phoneNum)) {
+            $query['PhoneNum'] = $request->phoneNum;
+        }
+        if (!Utils::isUnset($request->prodCode)) {
+            $query['ProdCode'] = $request->prodCode;
+        }
+        if (!Utils::isUnset($request->qualificationId)) {
+            $query['QualificationId'] = $request->qualificationId;
+        }
+        if (!Utils::isUnset($request->regionNameCity)) {
+            $query['RegionNameCity'] = $request->regionNameCity;
+        }
+        if (!Utils::isUnset($request->relatedNum)) {
+            $query['RelatedNum'] = $request->relatedNum;
+        }
+        if (!Utils::isUnset($request->resourceOwnerAccount)) {
+            $query['ResourceOwnerAccount'] = $request->resourceOwnerAccount;
+        }
+        if (!Utils::isUnset($request->resourceOwnerId)) {
+            $query['ResourceOwnerId'] = $request->resourceOwnerId;
+        }
+        if (!Utils::isUnset($request->routeType)) {
+            $query['RouteType'] = $request->routeType;
+        }
+        if (!Utils::isUnset($request->specId)) {
+            $query['SpecId'] = $request->specId;
+        }
+        $req = new OpenApiRequest([
             'query' => OpenApiUtilClient::query($query),
-            'body'  => Utils::toMap($request),
         ]);
         $params = new Params([
             'action'      => 'QueryVirtualNumberRelation',
@@ -1701,7 +2138,7 @@ class Dyvmsapi extends OpenApiClient
             'method'      => 'POST',
             'authType'    => 'AK',
             'style'       => 'RPC',
-            'reqBodyType' => 'json',
+            'reqBodyType' => 'formData',
             'bodyType'    => 'json',
         ]);
 
@@ -1721,6 +2158,61 @@ class Dyvmsapi extends OpenApiClient
     }
 
     /**
+     * @param QueryVoiceFileAuditInfoRequest $request
+     * @param RuntimeOptions                 $runtime
+     *
+     * @return QueryVoiceFileAuditInfoResponse
+     */
+    public function queryVoiceFileAuditInfoWithOptions($request, $runtime)
+    {
+        Utils::validateModel($request);
+        $query = [];
+        if (!Utils::isUnset($request->businessType)) {
+            $query['BusinessType'] = $request->businessType;
+        }
+        if (!Utils::isUnset($request->ownerId)) {
+            $query['OwnerId'] = $request->ownerId;
+        }
+        if (!Utils::isUnset($request->resourceOwnerAccount)) {
+            $query['ResourceOwnerAccount'] = $request->resourceOwnerAccount;
+        }
+        if (!Utils::isUnset($request->resourceOwnerId)) {
+            $query['ResourceOwnerId'] = $request->resourceOwnerId;
+        }
+        if (!Utils::isUnset($request->voiceCodes)) {
+            $query['VoiceCodes'] = $request->voiceCodes;
+        }
+        $req = new OpenApiRequest([
+            'query' => OpenApiUtilClient::query($query),
+        ]);
+        $params = new Params([
+            'action'      => 'QueryVoiceFileAuditInfo',
+            'version'     => '2017-05-25',
+            'protocol'    => 'HTTPS',
+            'pathname'    => '/',
+            'method'      => 'POST',
+            'authType'    => 'AK',
+            'style'       => 'RPC',
+            'reqBodyType' => 'formData',
+            'bodyType'    => 'json',
+        ]);
+
+        return QueryVoiceFileAuditInfoResponse::fromMap($this->callApi($params, $req, $runtime));
+    }
+
+    /**
+     * @param QueryVoiceFileAuditInfoRequest $request
+     *
+     * @return QueryVoiceFileAuditInfoResponse
+     */
+    public function queryVoiceFileAuditInfo($request)
+    {
+        $runtime = new RuntimeOptions([]);
+
+        return $this->queryVoiceFileAuditInfoWithOptions($request, $runtime);
+    }
+
+    /**
      * @param RefreshMqttTokenRequest $request
      * @param RuntimeOptions          $runtime
      *
@@ -1729,14 +2221,21 @@ class Dyvmsapi extends OpenApiClient
     public function refreshMqttTokenWithOptions($request, $runtime)
     {
         Utils::validateModel($request);
-        $query                         = [];
-        $query['ClientId']             = $request->clientId;
-        $query['OwnerId']              = $request->ownerId;
-        $query['ResourceOwnerAccount'] = $request->resourceOwnerAccount;
-        $query['ResourceOwnerId']      = $request->resourceOwnerId;
-        $req                           = new OpenApiRequest([
+        $query = [];
+        if (!Utils::isUnset($request->clientId)) {
+            $query['ClientId'] = $request->clientId;
+        }
+        if (!Utils::isUnset($request->ownerId)) {
+            $query['OwnerId'] = $request->ownerId;
+        }
+        if (!Utils::isUnset($request->resourceOwnerAccount)) {
+            $query['ResourceOwnerAccount'] = $request->resourceOwnerAccount;
+        }
+        if (!Utils::isUnset($request->resourceOwnerId)) {
+            $query['ResourceOwnerId'] = $request->resourceOwnerId;
+        }
+        $req = new OpenApiRequest([
             'query' => OpenApiUtilClient::query($query),
-            'body'  => Utils::toMap($request),
         ]);
         $params = new Params([
             'action'      => 'RefreshMqttToken',
@@ -1746,7 +2245,7 @@ class Dyvmsapi extends OpenApiClient
             'method'      => 'POST',
             'authType'    => 'AK',
             'style'       => 'RPC',
-            'reqBodyType' => 'json',
+            'reqBodyType' => 'formData',
             'bodyType'    => 'json',
         ]);
 
@@ -1774,16 +2273,27 @@ class Dyvmsapi extends OpenApiClient
     public function sendVerificationWithOptions($request, $runtime)
     {
         Utils::validateModel($request);
-        $query                         = [];
-        $query['BizType']              = $request->bizType;
-        $query['OwnerId']              = $request->ownerId;
-        $query['ResourceOwnerAccount'] = $request->resourceOwnerAccount;
-        $query['ResourceOwnerId']      = $request->resourceOwnerId;
-        $query['Target']               = $request->target;
-        $query['VerifyType']           = $request->verifyType;
-        $req                           = new OpenApiRequest([
+        $query = [];
+        if (!Utils::isUnset($request->bizType)) {
+            $query['BizType'] = $request->bizType;
+        }
+        if (!Utils::isUnset($request->ownerId)) {
+            $query['OwnerId'] = $request->ownerId;
+        }
+        if (!Utils::isUnset($request->resourceOwnerAccount)) {
+            $query['ResourceOwnerAccount'] = $request->resourceOwnerAccount;
+        }
+        if (!Utils::isUnset($request->resourceOwnerId)) {
+            $query['ResourceOwnerId'] = $request->resourceOwnerId;
+        }
+        if (!Utils::isUnset($request->target)) {
+            $query['Target'] = $request->target;
+        }
+        if (!Utils::isUnset($request->verifyType)) {
+            $query['VerifyType'] = $request->verifyType;
+        }
+        $req = new OpenApiRequest([
             'query' => OpenApiUtilClient::query($query),
-            'body'  => Utils::toMap($request),
         ]);
         $params = new Params([
             'action'      => 'SendVerification',
@@ -1793,7 +2303,7 @@ class Dyvmsapi extends OpenApiClient
             'method'      => 'POST',
             'authType'    => 'AK',
             'style'       => 'RPC',
-            'reqBodyType' => 'json',
+            'reqBodyType' => 'formData',
             'bodyType'    => 'json',
         ]);
 
@@ -1821,17 +2331,30 @@ class Dyvmsapi extends OpenApiClient
     public function setTransferCalleePoolConfigWithOptions($request, $runtime)
     {
         Utils::validateModel($request);
-        $query                         = [];
-        $query['CalledRouteMode']      = $request->calledRouteMode;
-        $query['Details']              = $request->details;
-        $query['OwnerId']              = $request->ownerId;
-        $query['PhoneNumber']          = $request->phoneNumber;
-        $query['QualificationId']      = $request->qualificationId;
-        $query['ResourceOwnerAccount'] = $request->resourceOwnerAccount;
-        $query['ResourceOwnerId']      = $request->resourceOwnerId;
-        $req                           = new OpenApiRequest([
+        $query = [];
+        if (!Utils::isUnset($request->calledRouteMode)) {
+            $query['CalledRouteMode'] = $request->calledRouteMode;
+        }
+        if (!Utils::isUnset($request->details)) {
+            $query['Details'] = $request->details;
+        }
+        if (!Utils::isUnset($request->ownerId)) {
+            $query['OwnerId'] = $request->ownerId;
+        }
+        if (!Utils::isUnset($request->phoneNumber)) {
+            $query['PhoneNumber'] = $request->phoneNumber;
+        }
+        if (!Utils::isUnset($request->qualificationId)) {
+            $query['QualificationId'] = $request->qualificationId;
+        }
+        if (!Utils::isUnset($request->resourceOwnerAccount)) {
+            $query['ResourceOwnerAccount'] = $request->resourceOwnerAccount;
+        }
+        if (!Utils::isUnset($request->resourceOwnerId)) {
+            $query['ResourceOwnerId'] = $request->resourceOwnerId;
+        }
+        $req = new OpenApiRequest([
             'query' => OpenApiUtilClient::query($query),
-            'body'  => Utils::toMap($request),
         ]);
         $params = new Params([
             'action'      => 'SetTransferCalleePoolConfig',
@@ -1841,7 +2364,7 @@ class Dyvmsapi extends OpenApiClient
             'method'      => 'POST',
             'authType'    => 'AK',
             'style'       => 'RPC',
-            'reqBodyType' => 'json',
+            'reqBodyType' => 'formData',
             'bodyType'    => 'json',
         ]);
 
@@ -1869,21 +2392,42 @@ class Dyvmsapi extends OpenApiClient
     public function singleCallByTtsWithOptions($request, $runtime)
     {
         Utils::validateModel($request);
-        $query                         = [];
-        $query['CalledNumber']         = $request->calledNumber;
-        $query['CalledShowNumber']     = $request->calledShowNumber;
-        $query['OutId']                = $request->outId;
-        $query['OwnerId']              = $request->ownerId;
-        $query['PlayTimes']            = $request->playTimes;
-        $query['ResourceOwnerAccount'] = $request->resourceOwnerAccount;
-        $query['ResourceOwnerId']      = $request->resourceOwnerId;
-        $query['Speed']                = $request->speed;
-        $query['TtsCode']              = $request->ttsCode;
-        $query['TtsParam']             = $request->ttsParam;
-        $query['Volume']               = $request->volume;
-        $req                           = new OpenApiRequest([
+        $query = [];
+        if (!Utils::isUnset($request->calledNumber)) {
+            $query['CalledNumber'] = $request->calledNumber;
+        }
+        if (!Utils::isUnset($request->calledShowNumber)) {
+            $query['CalledShowNumber'] = $request->calledShowNumber;
+        }
+        if (!Utils::isUnset($request->outId)) {
+            $query['OutId'] = $request->outId;
+        }
+        if (!Utils::isUnset($request->ownerId)) {
+            $query['OwnerId'] = $request->ownerId;
+        }
+        if (!Utils::isUnset($request->playTimes)) {
+            $query['PlayTimes'] = $request->playTimes;
+        }
+        if (!Utils::isUnset($request->resourceOwnerAccount)) {
+            $query['ResourceOwnerAccount'] = $request->resourceOwnerAccount;
+        }
+        if (!Utils::isUnset($request->resourceOwnerId)) {
+            $query['ResourceOwnerId'] = $request->resourceOwnerId;
+        }
+        if (!Utils::isUnset($request->speed)) {
+            $query['Speed'] = $request->speed;
+        }
+        if (!Utils::isUnset($request->ttsCode)) {
+            $query['TtsCode'] = $request->ttsCode;
+        }
+        if (!Utils::isUnset($request->ttsParam)) {
+            $query['TtsParam'] = $request->ttsParam;
+        }
+        if (!Utils::isUnset($request->volume)) {
+            $query['Volume'] = $request->volume;
+        }
+        $req = new OpenApiRequest([
             'query' => OpenApiUtilClient::query($query),
-            'body'  => Utils::toMap($request),
         ]);
         $params = new Params([
             'action'      => 'SingleCallByTts',
@@ -1893,7 +2437,7 @@ class Dyvmsapi extends OpenApiClient
             'method'      => 'POST',
             'authType'    => 'AK',
             'style'       => 'RPC',
-            'reqBodyType' => 'json',
+            'reqBodyType' => 'formData',
             'bodyType'    => 'json',
         ]);
 
@@ -1921,20 +2465,39 @@ class Dyvmsapi extends OpenApiClient
     public function singleCallByVoiceWithOptions($request, $runtime)
     {
         Utils::validateModel($request);
-        $query                         = [];
-        $query['CalledNumber']         = $request->calledNumber;
-        $query['CalledShowNumber']     = $request->calledShowNumber;
-        $query['OutId']                = $request->outId;
-        $query['OwnerId']              = $request->ownerId;
-        $query['PlayTimes']            = $request->playTimes;
-        $query['ResourceOwnerAccount'] = $request->resourceOwnerAccount;
-        $query['ResourceOwnerId']      = $request->resourceOwnerId;
-        $query['Speed']                = $request->speed;
-        $query['VoiceCode']            = $request->voiceCode;
-        $query['Volume']               = $request->volume;
-        $req                           = new OpenApiRequest([
+        $query = [];
+        if (!Utils::isUnset($request->calledNumber)) {
+            $query['CalledNumber'] = $request->calledNumber;
+        }
+        if (!Utils::isUnset($request->calledShowNumber)) {
+            $query['CalledShowNumber'] = $request->calledShowNumber;
+        }
+        if (!Utils::isUnset($request->outId)) {
+            $query['OutId'] = $request->outId;
+        }
+        if (!Utils::isUnset($request->ownerId)) {
+            $query['OwnerId'] = $request->ownerId;
+        }
+        if (!Utils::isUnset($request->playTimes)) {
+            $query['PlayTimes'] = $request->playTimes;
+        }
+        if (!Utils::isUnset($request->resourceOwnerAccount)) {
+            $query['ResourceOwnerAccount'] = $request->resourceOwnerAccount;
+        }
+        if (!Utils::isUnset($request->resourceOwnerId)) {
+            $query['ResourceOwnerId'] = $request->resourceOwnerId;
+        }
+        if (!Utils::isUnset($request->speed)) {
+            $query['Speed'] = $request->speed;
+        }
+        if (!Utils::isUnset($request->voiceCode)) {
+            $query['VoiceCode'] = $request->voiceCode;
+        }
+        if (!Utils::isUnset($request->volume)) {
+            $query['Volume'] = $request->volume;
+        }
+        $req = new OpenApiRequest([
             'query' => OpenApiUtilClient::query($query),
-            'body'  => Utils::toMap($request),
         ]);
         $params = new Params([
             'action'      => 'SingleCallByVoice',
@@ -1944,7 +2507,7 @@ class Dyvmsapi extends OpenApiClient
             'method'      => 'POST',
             'authType'    => 'AK',
             'style'       => 'RPC',
-            'reqBodyType' => 'json',
+            'reqBodyType' => 'formData',
             'bodyType'    => 'json',
         ]);
 
@@ -1972,39 +2535,96 @@ class Dyvmsapi extends OpenApiClient
     public function smartCallWithOptions($request, $runtime)
     {
         Utils::validateModel($request);
-        $query                         = [];
-        $query['ActionCodeBreak']      = $request->actionCodeBreak;
-        $query['ActionCodeTimeBreak']  = $request->actionCodeTimeBreak;
-        $query['AsrBaseId']            = $request->asrBaseId;
-        $query['AsrModelId']           = $request->asrModelId;
-        $query['BackgroundFileCode']   = $request->backgroundFileCode;
-        $query['BackgroundSpeed']      = $request->backgroundSpeed;
-        $query['BackgroundVolume']     = $request->backgroundVolume;
-        $query['CalledNumber']         = $request->calledNumber;
-        $query['CalledShowNumber']     = $request->calledShowNumber;
-        $query['DynamicId']            = $request->dynamicId;
-        $query['EarlyMediaAsr']        = $request->earlyMediaAsr;
-        $query['EnableITN']            = $request->enableITN;
-        $query['MuteTime']             = $request->muteTime;
-        $query['OutId']                = $request->outId;
-        $query['OwnerId']              = $request->ownerId;
-        $query['PauseTime']            = $request->pauseTime;
-        $query['RecordFlag']           = $request->recordFlag;
-        $query['ResourceOwnerAccount'] = $request->resourceOwnerAccount;
-        $query['ResourceOwnerId']      = $request->resourceOwnerId;
-        $query['SessionTimeout']       = $request->sessionTimeout;
-        $query['Speed']                = $request->speed;
-        $query['StreamAsr']            = $request->streamAsr;
-        $query['TtsConf']              = $request->ttsConf;
-        $query['TtsSpeed']             = $request->ttsSpeed;
-        $query['TtsStyle']             = $request->ttsStyle;
-        $query['TtsVolume']            = $request->ttsVolume;
-        $query['VoiceCode']            = $request->voiceCode;
-        $query['VoiceCodeParam']       = $request->voiceCodeParam;
-        $query['Volume']               = $request->volume;
-        $req                           = new OpenApiRequest([
+        $query = [];
+        if (!Utils::isUnset($request->actionCodeBreak)) {
+            $query['ActionCodeBreak'] = $request->actionCodeBreak;
+        }
+        if (!Utils::isUnset($request->actionCodeTimeBreak)) {
+            $query['ActionCodeTimeBreak'] = $request->actionCodeTimeBreak;
+        }
+        if (!Utils::isUnset($request->asrBaseId)) {
+            $query['AsrBaseId'] = $request->asrBaseId;
+        }
+        if (!Utils::isUnset($request->asrModelId)) {
+            $query['AsrModelId'] = $request->asrModelId;
+        }
+        if (!Utils::isUnset($request->backgroundFileCode)) {
+            $query['BackgroundFileCode'] = $request->backgroundFileCode;
+        }
+        if (!Utils::isUnset($request->backgroundSpeed)) {
+            $query['BackgroundSpeed'] = $request->backgroundSpeed;
+        }
+        if (!Utils::isUnset($request->backgroundVolume)) {
+            $query['BackgroundVolume'] = $request->backgroundVolume;
+        }
+        if (!Utils::isUnset($request->calledNumber)) {
+            $query['CalledNumber'] = $request->calledNumber;
+        }
+        if (!Utils::isUnset($request->calledShowNumber)) {
+            $query['CalledShowNumber'] = $request->calledShowNumber;
+        }
+        if (!Utils::isUnset($request->dynamicId)) {
+            $query['DynamicId'] = $request->dynamicId;
+        }
+        if (!Utils::isUnset($request->earlyMediaAsr)) {
+            $query['EarlyMediaAsr'] = $request->earlyMediaAsr;
+        }
+        if (!Utils::isUnset($request->enableITN)) {
+            $query['EnableITN'] = $request->enableITN;
+        }
+        if (!Utils::isUnset($request->muteTime)) {
+            $query['MuteTime'] = $request->muteTime;
+        }
+        if (!Utils::isUnset($request->outId)) {
+            $query['OutId'] = $request->outId;
+        }
+        if (!Utils::isUnset($request->ownerId)) {
+            $query['OwnerId'] = $request->ownerId;
+        }
+        if (!Utils::isUnset($request->pauseTime)) {
+            $query['PauseTime'] = $request->pauseTime;
+        }
+        if (!Utils::isUnset($request->recordFlag)) {
+            $query['RecordFlag'] = $request->recordFlag;
+        }
+        if (!Utils::isUnset($request->resourceOwnerAccount)) {
+            $query['ResourceOwnerAccount'] = $request->resourceOwnerAccount;
+        }
+        if (!Utils::isUnset($request->resourceOwnerId)) {
+            $query['ResourceOwnerId'] = $request->resourceOwnerId;
+        }
+        if (!Utils::isUnset($request->sessionTimeout)) {
+            $query['SessionTimeout'] = $request->sessionTimeout;
+        }
+        if (!Utils::isUnset($request->speed)) {
+            $query['Speed'] = $request->speed;
+        }
+        if (!Utils::isUnset($request->streamAsr)) {
+            $query['StreamAsr'] = $request->streamAsr;
+        }
+        if (!Utils::isUnset($request->ttsConf)) {
+            $query['TtsConf'] = $request->ttsConf;
+        }
+        if (!Utils::isUnset($request->ttsSpeed)) {
+            $query['TtsSpeed'] = $request->ttsSpeed;
+        }
+        if (!Utils::isUnset($request->ttsStyle)) {
+            $query['TtsStyle'] = $request->ttsStyle;
+        }
+        if (!Utils::isUnset($request->ttsVolume)) {
+            $query['TtsVolume'] = $request->ttsVolume;
+        }
+        if (!Utils::isUnset($request->voiceCode)) {
+            $query['VoiceCode'] = $request->voiceCode;
+        }
+        if (!Utils::isUnset($request->voiceCodeParam)) {
+            $query['VoiceCodeParam'] = $request->voiceCodeParam;
+        }
+        if (!Utils::isUnset($request->volume)) {
+            $query['Volume'] = $request->volume;
+        }
+        $req = new OpenApiRequest([
             'query' => OpenApiUtilClient::query($query),
-            'body'  => Utils::toMap($request),
         ]);
         $params = new Params([
             'action'      => 'SmartCall',
@@ -2014,7 +2634,7 @@ class Dyvmsapi extends OpenApiClient
             'method'      => 'POST',
             'authType'    => 'AK',
             'style'       => 'RPC',
-            'reqBodyType' => 'json',
+            'reqBodyType' => 'formData',
             'bodyType'    => 'json',
         ]);
 
@@ -2042,16 +2662,27 @@ class Dyvmsapi extends OpenApiClient
     public function smartCallOperateWithOptions($request, $runtime)
     {
         Utils::validateModel($request);
-        $query                         = [];
-        $query['CallId']               = $request->callId;
-        $query['Command']              = $request->command;
-        $query['OwnerId']              = $request->ownerId;
-        $query['Param']                = $request->param;
-        $query['ResourceOwnerAccount'] = $request->resourceOwnerAccount;
-        $query['ResourceOwnerId']      = $request->resourceOwnerId;
-        $req                           = new OpenApiRequest([
+        $query = [];
+        if (!Utils::isUnset($request->callId)) {
+            $query['CallId'] = $request->callId;
+        }
+        if (!Utils::isUnset($request->command)) {
+            $query['Command'] = $request->command;
+        }
+        if (!Utils::isUnset($request->ownerId)) {
+            $query['OwnerId'] = $request->ownerId;
+        }
+        if (!Utils::isUnset($request->param)) {
+            $query['Param'] = $request->param;
+        }
+        if (!Utils::isUnset($request->resourceOwnerAccount)) {
+            $query['ResourceOwnerAccount'] = $request->resourceOwnerAccount;
+        }
+        if (!Utils::isUnset($request->resourceOwnerId)) {
+            $query['ResourceOwnerId'] = $request->resourceOwnerId;
+        }
+        $req = new OpenApiRequest([
             'query' => OpenApiUtilClient::query($query),
-            'body'  => Utils::toMap($request),
         ]);
         $params = new Params([
             'action'      => 'SmartCallOperate',
@@ -2061,7 +2692,7 @@ class Dyvmsapi extends OpenApiClient
             'method'      => 'POST',
             'authType'    => 'AK',
             'style'       => 'RPC',
-            'reqBodyType' => 'json',
+            'reqBodyType' => 'formData',
             'bodyType'    => 'json',
         ]);
 
@@ -2089,15 +2720,24 @@ class Dyvmsapi extends OpenApiClient
     public function startRobotTaskWithOptions($request, $runtime)
     {
         Utils::validateModel($request);
-        $query                         = [];
-        $query['OwnerId']              = $request->ownerId;
-        $query['ResourceOwnerAccount'] = $request->resourceOwnerAccount;
-        $query['ResourceOwnerId']      = $request->resourceOwnerId;
-        $query['ScheduleTime']         = $request->scheduleTime;
-        $query['TaskId']               = $request->taskId;
-        $req                           = new OpenApiRequest([
+        $query = [];
+        if (!Utils::isUnset($request->ownerId)) {
+            $query['OwnerId'] = $request->ownerId;
+        }
+        if (!Utils::isUnset($request->resourceOwnerAccount)) {
+            $query['ResourceOwnerAccount'] = $request->resourceOwnerAccount;
+        }
+        if (!Utils::isUnset($request->resourceOwnerId)) {
+            $query['ResourceOwnerId'] = $request->resourceOwnerId;
+        }
+        if (!Utils::isUnset($request->scheduleTime)) {
+            $query['ScheduleTime'] = $request->scheduleTime;
+        }
+        if (!Utils::isUnset($request->taskId)) {
+            $query['TaskId'] = $request->taskId;
+        }
+        $req = new OpenApiRequest([
             'query' => OpenApiUtilClient::query($query),
-            'body'  => Utils::toMap($request),
         ]);
         $params = new Params([
             'action'      => 'StartRobotTask',
@@ -2107,7 +2747,7 @@ class Dyvmsapi extends OpenApiClient
             'method'      => 'POST',
             'authType'    => 'AK',
             'style'       => 'RPC',
-            'reqBodyType' => 'json',
+            'reqBodyType' => 'formData',
             'bodyType'    => 'json',
         ]);
 
@@ -2135,14 +2775,21 @@ class Dyvmsapi extends OpenApiClient
     public function stopRobotTaskWithOptions($request, $runtime)
     {
         Utils::validateModel($request);
-        $query                         = [];
-        $query['OwnerId']              = $request->ownerId;
-        $query['ResourceOwnerAccount'] = $request->resourceOwnerAccount;
-        $query['ResourceOwnerId']      = $request->resourceOwnerId;
-        $query['TaskId']               = $request->taskId;
-        $req                           = new OpenApiRequest([
+        $query = [];
+        if (!Utils::isUnset($request->ownerId)) {
+            $query['OwnerId'] = $request->ownerId;
+        }
+        if (!Utils::isUnset($request->resourceOwnerAccount)) {
+            $query['ResourceOwnerAccount'] = $request->resourceOwnerAccount;
+        }
+        if (!Utils::isUnset($request->resourceOwnerId)) {
+            $query['ResourceOwnerId'] = $request->resourceOwnerId;
+        }
+        if (!Utils::isUnset($request->taskId)) {
+            $query['TaskId'] = $request->taskId;
+        }
+        $req = new OpenApiRequest([
             'query' => OpenApiUtilClient::query($query),
-            'body'  => Utils::toMap($request),
         ]);
         $params = new Params([
             'action'      => 'StopRobotTask',
@@ -2152,7 +2799,7 @@ class Dyvmsapi extends OpenApiClient
             'method'      => 'POST',
             'authType'    => 'AK',
             'style'       => 'RPC',
-            'reqBodyType' => 'json',
+            'reqBodyType' => 'formData',
             'bodyType'    => 'json',
         ]);
 
@@ -2180,23 +2827,48 @@ class Dyvmsapi extends OpenApiClient
     public function submitHotlineTransferRegisterWithOptions($request, $runtime)
     {
         Utils::validateModel($request);
-        $query                             = [];
-        $query['Agreement']                = $request->agreement;
-        $query['HotlineNumber']            = $request->hotlineNumber;
-        $query['OperatorIdentityCard']     = $request->operatorIdentityCard;
-        $query['OperatorMail']             = $request->operatorMail;
-        $query['OperatorMailVerifyCode']   = $request->operatorMailVerifyCode;
-        $query['OperatorMobile']           = $request->operatorMobile;
-        $query['OperatorMobileVerifyCode'] = $request->operatorMobileVerifyCode;
-        $query['OperatorName']             = $request->operatorName;
-        $query['OwnerId']                  = $request->ownerId;
-        $query['QualificationId']          = $request->qualificationId;
-        $query['ResourceOwnerAccount']     = $request->resourceOwnerAccount;
-        $query['ResourceOwnerId']          = $request->resourceOwnerId;
-        $query['TransferPhoneNumberInfos'] = $request->transferPhoneNumberInfos;
-        $req                               = new OpenApiRequest([
+        $query = [];
+        if (!Utils::isUnset($request->agreement)) {
+            $query['Agreement'] = $request->agreement;
+        }
+        if (!Utils::isUnset($request->hotlineNumber)) {
+            $query['HotlineNumber'] = $request->hotlineNumber;
+        }
+        if (!Utils::isUnset($request->operatorIdentityCard)) {
+            $query['OperatorIdentityCard'] = $request->operatorIdentityCard;
+        }
+        if (!Utils::isUnset($request->operatorMail)) {
+            $query['OperatorMail'] = $request->operatorMail;
+        }
+        if (!Utils::isUnset($request->operatorMailVerifyCode)) {
+            $query['OperatorMailVerifyCode'] = $request->operatorMailVerifyCode;
+        }
+        if (!Utils::isUnset($request->operatorMobile)) {
+            $query['OperatorMobile'] = $request->operatorMobile;
+        }
+        if (!Utils::isUnset($request->operatorMobileVerifyCode)) {
+            $query['OperatorMobileVerifyCode'] = $request->operatorMobileVerifyCode;
+        }
+        if (!Utils::isUnset($request->operatorName)) {
+            $query['OperatorName'] = $request->operatorName;
+        }
+        if (!Utils::isUnset($request->ownerId)) {
+            $query['OwnerId'] = $request->ownerId;
+        }
+        if (!Utils::isUnset($request->qualificationId)) {
+            $query['QualificationId'] = $request->qualificationId;
+        }
+        if (!Utils::isUnset($request->resourceOwnerAccount)) {
+            $query['ResourceOwnerAccount'] = $request->resourceOwnerAccount;
+        }
+        if (!Utils::isUnset($request->resourceOwnerId)) {
+            $query['ResourceOwnerId'] = $request->resourceOwnerId;
+        }
+        if (!Utils::isUnset($request->transferPhoneNumberInfos)) {
+            $query['TransferPhoneNumberInfos'] = $request->transferPhoneNumberInfos;
+        }
+        $req = new OpenApiRequest([
             'query' => OpenApiUtilClient::query($query),
-            'body'  => Utils::toMap($request),
         ]);
         $params = new Params([
             'action'      => 'SubmitHotlineTransferRegister',
@@ -2206,7 +2878,7 @@ class Dyvmsapi extends OpenApiClient
             'method'      => 'POST',
             'authType'    => 'AK',
             'style'       => 'RPC',
-            'reqBodyType' => 'json',
+            'reqBodyType' => 'formData',
             'bodyType'    => 'json',
         ]);
 
@@ -2234,17 +2906,30 @@ class Dyvmsapi extends OpenApiClient
     public function uploadRobotTaskCalledFileWithOptions($request, $runtime)
     {
         Utils::validateModel($request);
-        $query                         = [];
-        $query['CalledNumber']         = $request->calledNumber;
-        $query['Id']                   = $request->id;
-        $query['OwnerId']              = $request->ownerId;
-        $query['ResourceOwnerAccount'] = $request->resourceOwnerAccount;
-        $query['ResourceOwnerId']      = $request->resourceOwnerId;
-        $query['TtsParam']             = $request->ttsParam;
-        $query['TtsParamHead']         = $request->ttsParamHead;
-        $req                           = new OpenApiRequest([
+        $query = [];
+        if (!Utils::isUnset($request->calledNumber)) {
+            $query['CalledNumber'] = $request->calledNumber;
+        }
+        if (!Utils::isUnset($request->id)) {
+            $query['Id'] = $request->id;
+        }
+        if (!Utils::isUnset($request->ownerId)) {
+            $query['OwnerId'] = $request->ownerId;
+        }
+        if (!Utils::isUnset($request->resourceOwnerAccount)) {
+            $query['ResourceOwnerAccount'] = $request->resourceOwnerAccount;
+        }
+        if (!Utils::isUnset($request->resourceOwnerId)) {
+            $query['ResourceOwnerId'] = $request->resourceOwnerId;
+        }
+        if (!Utils::isUnset($request->ttsParam)) {
+            $query['TtsParam'] = $request->ttsParam;
+        }
+        if (!Utils::isUnset($request->ttsParamHead)) {
+            $query['TtsParamHead'] = $request->ttsParamHead;
+        }
+        $req = new OpenApiRequest([
             'query' => OpenApiUtilClient::query($query),
-            'body'  => Utils::toMap($request),
         ]);
         $params = new Params([
             'action'      => 'UploadRobotTaskCalledFile',
@@ -2254,7 +2939,7 @@ class Dyvmsapi extends OpenApiClient
             'method'      => 'POST',
             'authType'    => 'AK',
             'style'       => 'RPC',
-            'reqBodyType' => 'json',
+            'reqBodyType' => 'formData',
             'bodyType'    => 'json',
         ]);
 
