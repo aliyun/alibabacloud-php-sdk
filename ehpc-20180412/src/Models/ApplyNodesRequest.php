@@ -82,6 +82,11 @@ class ApplyNodesRequest extends Model
     public $interval;
 
     /**
+     * @var string
+     */
+    public $jobQueue;
+
+    /**
      * @var int
      */
     public $memory;
@@ -155,6 +160,7 @@ class ApplyNodesRequest extends Model
         'internetMaxBandWidthIn'        => 'InternetMaxBandWidthIn',
         'internetMaxBandWidthOut'       => 'InternetMaxBandWidthOut',
         'interval'                      => 'Interval',
+        'jobQueue'                      => 'JobQueue',
         'memory'                        => 'Memory',
         'priorityStrategy'              => 'PriorityStrategy',
         'resourceAmountType'            => 'ResourceAmountType',
@@ -223,6 +229,9 @@ class ApplyNodesRequest extends Model
         }
         if (null !== $this->interval) {
             $res['Interval'] = $this->interval;
+        }
+        if (null !== $this->jobQueue) {
+            $res['JobQueue'] = $this->jobQueue;
         }
         if (null !== $this->memory) {
             $res['Memory'] = $this->memory;
@@ -331,6 +340,9 @@ class ApplyNodesRequest extends Model
         }
         if (isset($map['Interval'])) {
             $model->interval = $map['Interval'];
+        }
+        if (isset($map['JobQueue'])) {
+            $model->jobQueue = $map['JobQueue'];
         }
         if (isset($map['Memory'])) {
             $model->memory = $map['Memory'];

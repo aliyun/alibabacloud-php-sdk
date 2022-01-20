@@ -84,8 +84,6 @@ use AlibabaCloud\SDK\EHPC\V20180412\Models\DescribeNFSClientStatusRequest;
 use AlibabaCloud\SDK\EHPC\V20180412\Models\DescribeNFSClientStatusResponse;
 use AlibabaCloud\SDK\EHPC\V20180412\Models\DescribePriceRequest;
 use AlibabaCloud\SDK\EHPC\V20180412\Models\DescribePriceResponse;
-use AlibabaCloud\SDK\EHPC\V20180412\Models\EcdDeleteDesktopsRequest;
-use AlibabaCloud\SDK\EHPC\V20180412\Models\EcdDeleteDesktopsResponse;
 use AlibabaCloud\SDK\EHPC\V20180412\Models\EditJobTemplateRequest;
 use AlibabaCloud\SDK\EHPC\V20180412\Models\EditJobTemplateResponse;
 use AlibabaCloud\SDK\EHPC\V20180412\Models\GetAccountingReportRequest;
@@ -100,8 +98,6 @@ use AlibabaCloud\SDK\EHPC\V20180412\Models\GetClusterVolumesRequest;
 use AlibabaCloud\SDK\EHPC\V20180412\Models\GetClusterVolumesResponse;
 use AlibabaCloud\SDK\EHPC\V20180412\Models\GetGWSConnectTicketRequest;
 use AlibabaCloud\SDK\EHPC\V20180412\Models\GetGWSConnectTicketResponse;
-use AlibabaCloud\SDK\EHPC\V20180412\Models\GetHealthMonitorLogsRequest;
-use AlibabaCloud\SDK\EHPC\V20180412\Models\GetHealthMonitorLogsResponse;
 use AlibabaCloud\SDK\EHPC\V20180412\Models\GetHybridClusterConfigRequest;
 use AlibabaCloud\SDK\EHPC\V20180412\Models\GetHybridClusterConfigResponse;
 use AlibabaCloud\SDK\EHPC\V20180412\Models\GetIfEcsTypeSupportHtConfigRequest;
@@ -110,8 +106,6 @@ use AlibabaCloud\SDK\EHPC\V20180412\Models\GetSchedulerInfoRequest;
 use AlibabaCloud\SDK\EHPC\V20180412\Models\GetSchedulerInfoResponse;
 use AlibabaCloud\SDK\EHPC\V20180412\Models\GetVisualServiceStatusRequest;
 use AlibabaCloud\SDK\EHPC\V20180412\Models\GetVisualServiceStatusResponse;
-use AlibabaCloud\SDK\EHPC\V20180412\Models\GetWorkbenchTokenRequest;
-use AlibabaCloud\SDK\EHPC\V20180412\Models\GetWorkbenchTokenResponse;
 use AlibabaCloud\SDK\EHPC\V20180412\Models\InitializeEHPCRequest;
 use AlibabaCloud\SDK\EHPC\V20180412\Models\InitializeEHPCResponse;
 use AlibabaCloud\SDK\EHPC\V20180412\Models\InstallSoftwareRequest;
@@ -1449,11 +1443,17 @@ class EHPC extends OpenApiClient
     public function describeGWSClusterPolicyWithOptions($request, $runtime)
     {
         Utils::validateModel($request);
-        $query              = [];
-        $query['AsyncMode'] = $request->asyncMode;
-        $query['ClusterId'] = $request->clusterId;
-        $query['TaskId']    = $request->taskId;
-        $req                = new OpenApiRequest([
+        $query = [];
+        if (!Utils::isUnset($request->asyncMode)) {
+            $query['AsyncMode'] = $request->asyncMode;
+        }
+        if (!Utils::isUnset($request->clusterId)) {
+            $query['ClusterId'] = $request->clusterId;
+        }
+        if (!Utils::isUnset($request->taskId)) {
+            $query['TaskId'] = $request->taskId;
+        }
+        $req = new OpenApiRequest([
             'query' => OpenApiUtilClient::query($query),
         ]);
         $params = new Params([
@@ -1844,46 +1844,6 @@ class EHPC extends OpenApiClient
     }
 
     /**
-     * @param EcdDeleteDesktopsRequest $request
-     * @param RuntimeOptions           $runtime
-     *
-     * @return EcdDeleteDesktopsResponse
-     */
-    public function ecdDeleteDesktopsWithOptions($request, $runtime)
-    {
-        Utils::validateModel($request);
-        $query = OpenApiUtilClient::query(Utils::toMap($request));
-        $req   = new OpenApiRequest([
-            'query' => OpenApiUtilClient::query($query),
-        ]);
-        $params = new Params([
-            'action'      => 'EcdDeleteDesktops',
-            'version'     => '2018-04-12',
-            'protocol'    => 'HTTPS',
-            'pathname'    => '/',
-            'method'      => 'GET',
-            'authType'    => 'AK',
-            'style'       => 'RPC',
-            'reqBodyType' => 'formData',
-            'bodyType'    => 'json',
-        ]);
-
-        return EcdDeleteDesktopsResponse::fromMap($this->callApi($params, $req, $runtime));
-    }
-
-    /**
-     * @param EcdDeleteDesktopsRequest $request
-     *
-     * @return EcdDeleteDesktopsResponse
-     */
-    public function ecdDeleteDesktops($request)
-    {
-        $runtime = new RuntimeOptions([]);
-
-        return $this->ecdDeleteDesktopsWithOptions($request, $runtime);
-    }
-
-    /**
      * @param EditJobTemplateRequest $request
      * @param RuntimeOptions         $runtime
      *
@@ -2164,46 +2124,6 @@ class EHPC extends OpenApiClient
     }
 
     /**
-     * @param GetHealthMonitorLogsRequest $request
-     * @param RuntimeOptions              $runtime
-     *
-     * @return GetHealthMonitorLogsResponse
-     */
-    public function getHealthMonitorLogsWithOptions($request, $runtime)
-    {
-        Utils::validateModel($request);
-        $query = OpenApiUtilClient::query(Utils::toMap($request));
-        $req   = new OpenApiRequest([
-            'query' => OpenApiUtilClient::query($query),
-        ]);
-        $params = new Params([
-            'action'      => 'GetHealthMonitorLogs',
-            'version'     => '2018-04-12',
-            'protocol'    => 'HTTPS',
-            'pathname'    => '/',
-            'method'      => 'GET',
-            'authType'    => 'AK',
-            'style'       => 'RPC',
-            'reqBodyType' => 'formData',
-            'bodyType'    => 'json',
-        ]);
-
-        return GetHealthMonitorLogsResponse::fromMap($this->callApi($params, $req, $runtime));
-    }
-
-    /**
-     * @param GetHealthMonitorLogsRequest $request
-     *
-     * @return GetHealthMonitorLogsResponse
-     */
-    public function getHealthMonitorLogs($request)
-    {
-        $runtime = new RuntimeOptions([]);
-
-        return $this->getHealthMonitorLogsWithOptions($request, $runtime);
-    }
-
-    /**
      * @param GetHybridClusterConfigRequest $request
      * @param RuntimeOptions                $runtime
      *
@@ -2361,46 +2281,6 @@ class EHPC extends OpenApiClient
         $runtime = new RuntimeOptions([]);
 
         return $this->getVisualServiceStatusWithOptions($request, $runtime);
-    }
-
-    /**
-     * @param GetWorkbenchTokenRequest $request
-     * @param RuntimeOptions           $runtime
-     *
-     * @return GetWorkbenchTokenResponse
-     */
-    public function getWorkbenchTokenWithOptions($request, $runtime)
-    {
-        Utils::validateModel($request);
-        $query = OpenApiUtilClient::query(Utils::toMap($request));
-        $req   = new OpenApiRequest([
-            'query' => OpenApiUtilClient::query($query),
-        ]);
-        $params = new Params([
-            'action'      => 'GetWorkbenchToken',
-            'version'     => '2018-04-12',
-            'protocol'    => 'HTTPS',
-            'pathname'    => '/',
-            'method'      => 'GET',
-            'authType'    => 'AK',
-            'style'       => 'RPC',
-            'reqBodyType' => 'formData',
-            'bodyType'    => 'json',
-        ]);
-
-        return GetWorkbenchTokenResponse::fromMap($this->callApi($params, $req, $runtime));
-    }
-
-    /**
-     * @param GetWorkbenchTokenRequest $request
-     *
-     * @return GetWorkbenchTokenResponse
-     */
-    public function getWorkbenchToken($request)
-    {
-        $runtime = new RuntimeOptions([]);
-
-        return $this->getWorkbenchTokenWithOptions($request, $runtime);
     }
 
     /**
@@ -4231,15 +4111,29 @@ class EHPC extends OpenApiClient
     public function setGWSClusterPolicyWithOptions($request, $runtime)
     {
         Utils::validateModel($request);
-        $query                = [];
-        $query['AsyncMode']   = $request->asyncMode;
-        $query['Clipboard']   = $request->clipboard;
-        $query['ClusterId']   = $request->clusterId;
-        $query['LocalDrive']  = $request->localDrive;
-        $query['UdpPort']     = $request->udpPort;
-        $query['UsbRedirect'] = $request->usbRedirect;
-        $query['Watermark']   = $request->watermark;
-        $req                  = new OpenApiRequest([
+        $query = [];
+        if (!Utils::isUnset($request->asyncMode)) {
+            $query['AsyncMode'] = $request->asyncMode;
+        }
+        if (!Utils::isUnset($request->clipboard)) {
+            $query['Clipboard'] = $request->clipboard;
+        }
+        if (!Utils::isUnset($request->clusterId)) {
+            $query['ClusterId'] = $request->clusterId;
+        }
+        if (!Utils::isUnset($request->localDrive)) {
+            $query['LocalDrive'] = $request->localDrive;
+        }
+        if (!Utils::isUnset($request->udpPort)) {
+            $query['UdpPort'] = $request->udpPort;
+        }
+        if (!Utils::isUnset($request->usbRedirect)) {
+            $query['UsbRedirect'] = $request->usbRedirect;
+        }
+        if (!Utils::isUnset($request->watermark)) {
+            $query['Watermark'] = $request->watermark;
+        }
+        $req = new OpenApiRequest([
             'query' => OpenApiUtilClient::query($query),
         ]);
         $params = new Params([

@@ -19,11 +19,6 @@ class ListNodesNoPagingRequest extends Model
     public $hostName;
 
     /**
-     * @var bool
-     */
-    public $onlyDetached;
-
-    /**
      * @var string
      */
     public $role;
@@ -33,11 +28,10 @@ class ListNodesNoPagingRequest extends Model
      */
     public $sequence;
     protected $_name = [
-        'clusterId'    => 'ClusterId',
-        'hostName'     => 'HostName',
-        'onlyDetached' => 'OnlyDetached',
-        'role'         => 'Role',
-        'sequence'     => 'Sequence',
+        'clusterId' => 'ClusterId',
+        'hostName'  => 'HostName',
+        'role'      => 'Role',
+        'sequence'  => 'Sequence',
     ];
 
     public function validate()
@@ -52,9 +46,6 @@ class ListNodesNoPagingRequest extends Model
         }
         if (null !== $this->hostName) {
             $res['HostName'] = $this->hostName;
-        }
-        if (null !== $this->onlyDetached) {
-            $res['OnlyDetached'] = $this->onlyDetached;
         }
         if (null !== $this->role) {
             $res['Role'] = $this->role;
@@ -79,9 +70,6 @@ class ListNodesNoPagingRequest extends Model
         }
         if (isset($map['HostName'])) {
             $model->hostName = $map['HostName'];
-        }
-        if (isset($map['OnlyDetached'])) {
-            $model->onlyDetached = $map['OnlyDetached'];
         }
         if (isset($map['Role'])) {
             $model->role = $map['Role'];

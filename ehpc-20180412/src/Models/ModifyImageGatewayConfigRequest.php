@@ -50,11 +50,6 @@ class ModifyImageGatewayConfigRequest extends Model
     public $pullUpdateTimeout;
 
     /**
-     * @var string
-     */
-    public $regionId;
-
-    /**
      * @var repo[]
      */
     public $repo;
@@ -67,7 +62,6 @@ class ModifyImageGatewayConfigRequest extends Model
         'defaultRepoLocation'    => 'DefaultRepoLocation',
         'imageExpirationTimeout' => 'ImageExpirationTimeout',
         'pullUpdateTimeout'      => 'PullUpdateTimeout',
-        'regionId'               => 'RegionId',
         'repo'                   => 'Repo',
     ];
 
@@ -101,9 +95,6 @@ class ModifyImageGatewayConfigRequest extends Model
         }
         if (null !== $this->pullUpdateTimeout) {
             $res['PullUpdateTimeout'] = $this->pullUpdateTimeout;
-        }
-        if (null !== $this->regionId) {
-            $res['RegionId'] = $this->regionId;
         }
         if (null !== $this->repo) {
             $res['Repo'] = [];
@@ -149,9 +140,6 @@ class ModifyImageGatewayConfigRequest extends Model
         }
         if (isset($map['PullUpdateTimeout'])) {
             $model->pullUpdateTimeout = $map['PullUpdateTimeout'];
-        }
-        if (isset($map['RegionId'])) {
-            $model->regionId = $map['RegionId'];
         }
         if (isset($map['Repo'])) {
             if (!empty($map['Repo'])) {
