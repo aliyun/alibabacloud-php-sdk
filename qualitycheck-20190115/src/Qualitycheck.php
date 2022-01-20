@@ -12,16 +12,10 @@ use AlibabaCloud\SDK\Qualitycheck\V20190115\Models\AddRuleCategoryRequest;
 use AlibabaCloud\SDK\Qualitycheck\V20190115\Models\AddRuleCategoryResponse;
 use AlibabaCloud\SDK\Qualitycheck\V20190115\Models\AddThesaurusForApiRequest;
 use AlibabaCloud\SDK\Qualitycheck\V20190115\Models\AddThesaurusForApiResponse;
-use AlibabaCloud\SDK\Qualitycheck\V20190115\Models\AddUploadDataSetRequest;
-use AlibabaCloud\SDK\Qualitycheck\V20190115\Models\AddUploadDataSetResponse;
 use AlibabaCloud\SDK\Qualitycheck\V20190115\Models\AssignReviewerRequest;
 use AlibabaCloud\SDK\Qualitycheck\V20190115\Models\AssignReviewerResponse;
-use AlibabaCloud\SDK\Qualitycheck\V20190115\Models\ConfigDataSetRequest;
-use AlibabaCloud\SDK\Qualitycheck\V20190115\Models\ConfigDataSetResponse;
 use AlibabaCloud\SDK\Qualitycheck\V20190115\Models\CreateAsrVocabRequest;
 use AlibabaCloud\SDK\Qualitycheck\V20190115\Models\CreateAsrVocabResponse;
-use AlibabaCloud\SDK\Qualitycheck\V20190115\Models\CreateRuleRequest;
-use AlibabaCloud\SDK\Qualitycheck\V20190115\Models\CreateRuleResponse;
 use AlibabaCloud\SDK\Qualitycheck\V20190115\Models\CreateSkillGroupConfigRequest;
 use AlibabaCloud\SDK\Qualitycheck\V20190115\Models\CreateSkillGroupConfigResponse;
 use AlibabaCloud\SDK\Qualitycheck\V20190115\Models\CreateTaskAssignRuleRequest;
@@ -76,14 +70,10 @@ use AlibabaCloud\SDK\Qualitycheck\V20190115\Models\GetResultRequest;
 use AlibabaCloud\SDK\Qualitycheck\V20190115\Models\GetResultResponse;
 use AlibabaCloud\SDK\Qualitycheck\V20190115\Models\GetResultToReviewRequest;
 use AlibabaCloud\SDK\Qualitycheck\V20190115\Models\GetResultToReviewResponse;
-use AlibabaCloud\SDK\Qualitycheck\V20190115\Models\GetReviewInfoRequest;
-use AlibabaCloud\SDK\Qualitycheck\V20190115\Models\GetReviewInfoResponse;
 use AlibabaCloud\SDK\Qualitycheck\V20190115\Models\GetRuleCategoryRequest;
 use AlibabaCloud\SDK\Qualitycheck\V20190115\Models\GetRuleCategoryResponse;
 use AlibabaCloud\SDK\Qualitycheck\V20190115\Models\GetRuleDetailRequest;
 use AlibabaCloud\SDK\Qualitycheck\V20190115\Models\GetRuleDetailResponse;
-use AlibabaCloud\SDK\Qualitycheck\V20190115\Models\GetRuleDimensionRequest;
-use AlibabaCloud\SDK\Qualitycheck\V20190115\Models\GetRuleDimensionResponse;
 use AlibabaCloud\SDK\Qualitycheck\V20190115\Models\GetRuleRequest;
 use AlibabaCloud\SDK\Qualitycheck\V20190115\Models\GetRuleResponse;
 use AlibabaCloud\SDK\Qualitycheck\V20190115\Models\GetScoreInfoRequest;
@@ -92,10 +82,6 @@ use AlibabaCloud\SDK\Qualitycheck\V20190115\Models\GetSkillGroupConfigRequest;
 use AlibabaCloud\SDK\Qualitycheck\V20190115\Models\GetSkillGroupConfigResponse;
 use AlibabaCloud\SDK\Qualitycheck\V20190115\Models\GetSyncResultRequest;
 use AlibabaCloud\SDK\Qualitycheck\V20190115\Models\GetSyncResultResponse;
-use AlibabaCloud\SDK\Qualitycheck\V20190115\Models\GetTaskFileResultListRequest;
-use AlibabaCloud\SDK\Qualitycheck\V20190115\Models\GetTaskFileResultListResponse;
-use AlibabaCloud\SDK\Qualitycheck\V20190115\Models\GetTaskRuleListRequest;
-use AlibabaCloud\SDK\Qualitycheck\V20190115\Models\GetTaskRuleListResponse;
 use AlibabaCloud\SDK\Qualitycheck\V20190115\Models\GetThesaurusBySynonymForApiRequest;
 use AlibabaCloud\SDK\Qualitycheck\V20190115\Models\GetThesaurusBySynonymForApiResponse;
 use AlibabaCloud\SDK\Qualitycheck\V20190115\Models\HandleComplaintRequest;
@@ -108,8 +94,6 @@ use AlibabaCloud\SDK\Qualitycheck\V20190115\Models\InvalidRuleRequest;
 use AlibabaCloud\SDK\Qualitycheck\V20190115\Models\InvalidRuleResponse;
 use AlibabaCloud\SDK\Qualitycheck\V20190115\Models\ListAsrVocabRequest;
 use AlibabaCloud\SDK\Qualitycheck\V20190115\Models\ListAsrVocabResponse;
-use AlibabaCloud\SDK\Qualitycheck\V20190115\Models\ListDataSetTaskRequest;
-use AlibabaCloud\SDK\Qualitycheck\V20190115\Models\ListDataSetTaskResponse;
 use AlibabaCloud\SDK\Qualitycheck\V20190115\Models\ListHotWordsTasksRequest;
 use AlibabaCloud\SDK\Qualitycheck\V20190115\Models\ListHotWordsTasksResponse;
 use AlibabaCloud\SDK\Qualitycheck\V20190115\Models\ListPrecisionTaskRequest;
@@ -126,18 +110,12 @@ use AlibabaCloud\SDK\Qualitycheck\V20190115\Models\ListUsersRequest;
 use AlibabaCloud\SDK\Qualitycheck\V20190115\Models\ListUsersResponse;
 use AlibabaCloud\SDK\Qualitycheck\V20190115\Models\ListWarningConfigRequest;
 use AlibabaCloud\SDK\Qualitycheck\V20190115\Models\ListWarningConfigResponse;
-use AlibabaCloud\SDK\Qualitycheck\V20190115\Models\RemoveAndGetTaskRulesRequest;
-use AlibabaCloud\SDK\Qualitycheck\V20190115\Models\RemoveAndGetTaskRulesResponse;
 use AlibabaCloud\SDK\Qualitycheck\V20190115\Models\RestartAsrTaskRequest;
 use AlibabaCloud\SDK\Qualitycheck\V20190115\Models\RestartAsrTaskResponse;
-use AlibabaCloud\SDK\Qualitycheck\V20190115\Models\ReviewSingleResultByIdRequest;
-use AlibabaCloud\SDK\Qualitycheck\V20190115\Models\ReviewSingleResultByIdResponse;
 use AlibabaCloud\SDK\Qualitycheck\V20190115\Models\SaveConfigDataSetRequest;
 use AlibabaCloud\SDK\Qualitycheck\V20190115\Models\SaveConfigDataSetResponse;
 use AlibabaCloud\SDK\Qualitycheck\V20190115\Models\SubmitComplaintRequest;
 use AlibabaCloud\SDK\Qualitycheck\V20190115\Models\SubmitComplaintResponse;
-use AlibabaCloud\SDK\Qualitycheck\V20190115\Models\SubmitCustomizationConfigRequest;
-use AlibabaCloud\SDK\Qualitycheck\V20190115\Models\SubmitCustomizationConfigResponse;
 use AlibabaCloud\SDK\Qualitycheck\V20190115\Models\SubmitPrecisionTaskRequest;
 use AlibabaCloud\SDK\Qualitycheck\V20190115\Models\SubmitPrecisionTaskResponse;
 use AlibabaCloud\SDK\Qualitycheck\V20190115\Models\SubmitQualityCheckTaskRequest;
@@ -146,12 +124,8 @@ use AlibabaCloud\SDK\Qualitycheck\V20190115\Models\SubmitReviewInfoRequest;
 use AlibabaCloud\SDK\Qualitycheck\V20190115\Models\SubmitReviewInfoResponse;
 use AlibabaCloud\SDK\Qualitycheck\V20190115\Models\SyncQualityCheckRequest;
 use AlibabaCloud\SDK\Qualitycheck\V20190115\Models\SyncQualityCheckResponse;
-use AlibabaCloud\SDK\Qualitycheck\V20190115\Models\TestRuleRequest;
-use AlibabaCloud\SDK\Qualitycheck\V20190115\Models\TestRuleResponse;
 use AlibabaCloud\SDK\Qualitycheck\V20190115\Models\UpdateAsrVocabRequest;
 use AlibabaCloud\SDK\Qualitycheck\V20190115\Models\UpdateAsrVocabResponse;
-use AlibabaCloud\SDK\Qualitycheck\V20190115\Models\UpdateOnPurchaseSuccessRequest;
-use AlibabaCloud\SDK\Qualitycheck\V20190115\Models\UpdateOnPurchaseSuccessResponse;
 use AlibabaCloud\SDK\Qualitycheck\V20190115\Models\UpdateRuleRequest;
 use AlibabaCloud\SDK\Qualitycheck\V20190115\Models\UpdateRuleResponse;
 use AlibabaCloud\SDK\Qualitycheck\V20190115\Models\UpdateScoreForApiRequest;
@@ -230,11 +204,12 @@ class Qualitycheck extends OpenApiClient
     public function addBusinessCategoryWithOptions($request, $runtime)
     {
         Utils::validateModel($request);
-        $query            = [];
-        $query['JsonStr'] = $request->jsonStr;
-        $req              = new OpenApiRequest([
+        $query = [];
+        if (!Utils::isUnset($request->jsonStr)) {
+            $query['JsonStr'] = $request->jsonStr;
+        }
+        $req = new OpenApiRequest([
             'query' => OpenApiUtilClient::query($query),
-            'body'  => Utils::toMap($request),
         ]);
         $params = new Params([
             'action'      => 'AddBusinessCategory',
@@ -244,7 +219,7 @@ class Qualitycheck extends OpenApiClient
             'method'      => 'POST',
             'authType'    => 'AK',
             'style'       => 'RPC',
-            'reqBodyType' => 'json',
+            'reqBodyType' => 'formData',
             'bodyType'    => 'json',
         ]);
 
@@ -272,11 +247,12 @@ class Qualitycheck extends OpenApiClient
     public function addRuleCategoryWithOptions($request, $runtime)
     {
         Utils::validateModel($request);
-        $query            = [];
-        $query['JsonStr'] = $request->jsonStr;
-        $req              = new OpenApiRequest([
+        $query = [];
+        if (!Utils::isUnset($request->jsonStr)) {
+            $query['JsonStr'] = $request->jsonStr;
+        }
+        $req = new OpenApiRequest([
             'query' => OpenApiUtilClient::query($query),
-            'body'  => Utils::toMap($request),
         ]);
         $params = new Params([
             'action'      => 'AddRuleCategory',
@@ -286,7 +262,7 @@ class Qualitycheck extends OpenApiClient
             'method'      => 'POST',
             'authType'    => 'AK',
             'style'       => 'RPC',
-            'reqBodyType' => 'json',
+            'reqBodyType' => 'formData',
             'bodyType'    => 'json',
         ]);
 
@@ -314,11 +290,12 @@ class Qualitycheck extends OpenApiClient
     public function addThesaurusForApiWithOptions($request, $runtime)
     {
         Utils::validateModel($request);
-        $query            = [];
-        $query['JsonStr'] = $request->jsonStr;
-        $req              = new OpenApiRequest([
+        $query = [];
+        if (!Utils::isUnset($request->jsonStr)) {
+            $query['JsonStr'] = $request->jsonStr;
+        }
+        $req = new OpenApiRequest([
             'query' => OpenApiUtilClient::query($query),
-            'body'  => Utils::toMap($request),
         ]);
         $params = new Params([
             'action'      => 'AddThesaurusForApi',
@@ -328,7 +305,7 @@ class Qualitycheck extends OpenApiClient
             'method'      => 'POST',
             'authType'    => 'AK',
             'style'       => 'RPC',
-            'reqBodyType' => 'json',
+            'reqBodyType' => 'formData',
             'bodyType'    => 'json',
         ]);
 
@@ -348,48 +325,6 @@ class Qualitycheck extends OpenApiClient
     }
 
     /**
-     * @param AddUploadDataSetRequest $request
-     * @param RuntimeOptions          $runtime
-     *
-     * @return AddUploadDataSetResponse
-     */
-    public function addUploadDataSetWithOptions($request, $runtime)
-    {
-        Utils::validateModel($request);
-        $query            = [];
-        $query['JsonStr'] = $request->jsonStr;
-        $req              = new OpenApiRequest([
-            'query' => OpenApiUtilClient::query($query),
-            'body'  => Utils::toMap($request),
-        ]);
-        $params = new Params([
-            'action'      => 'AddUploadDataSet',
-            'version'     => '2019-01-15',
-            'protocol'    => 'HTTPS',
-            'pathname'    => '/',
-            'method'      => 'POST',
-            'authType'    => 'AK',
-            'style'       => 'RPC',
-            'reqBodyType' => 'json',
-            'bodyType'    => 'json',
-        ]);
-
-        return AddUploadDataSetResponse::fromMap($this->callApi($params, $req, $runtime));
-    }
-
-    /**
-     * @param AddUploadDataSetRequest $request
-     *
-     * @return AddUploadDataSetResponse
-     */
-    public function addUploadDataSet($request)
-    {
-        $runtime = new RuntimeOptions([]);
-
-        return $this->addUploadDataSetWithOptions($request, $runtime);
-    }
-
-    /**
      * @param AssignReviewerRequest $request
      * @param RuntimeOptions        $runtime
      *
@@ -398,11 +333,12 @@ class Qualitycheck extends OpenApiClient
     public function assignReviewerWithOptions($request, $runtime)
     {
         Utils::validateModel($request);
-        $query            = [];
-        $query['JsonStr'] = $request->jsonStr;
-        $req              = new OpenApiRequest([
+        $query = [];
+        if (!Utils::isUnset($request->jsonStr)) {
+            $query['JsonStr'] = $request->jsonStr;
+        }
+        $req = new OpenApiRequest([
             'query' => OpenApiUtilClient::query($query),
-            'body'  => Utils::toMap($request),
         ]);
         $params = new Params([
             'action'      => 'AssignReviewer',
@@ -412,7 +348,7 @@ class Qualitycheck extends OpenApiClient
             'method'      => 'POST',
             'authType'    => 'AK',
             'style'       => 'RPC',
-            'reqBodyType' => 'json',
+            'reqBodyType' => 'formData',
             'bodyType'    => 'json',
         ]);
 
@@ -432,48 +368,6 @@ class Qualitycheck extends OpenApiClient
     }
 
     /**
-     * @param ConfigDataSetRequest $request
-     * @param RuntimeOptions       $runtime
-     *
-     * @return ConfigDataSetResponse
-     */
-    public function configDataSetWithOptions($request, $runtime)
-    {
-        Utils::validateModel($request);
-        $query            = [];
-        $query['JsonStr'] = $request->jsonStr;
-        $req              = new OpenApiRequest([
-            'query' => OpenApiUtilClient::query($query),
-            'body'  => Utils::toMap($request),
-        ]);
-        $params = new Params([
-            'action'      => 'ConfigDataSet',
-            'version'     => '2019-01-15',
-            'protocol'    => 'HTTPS',
-            'pathname'    => '/',
-            'method'      => 'POST',
-            'authType'    => 'AK',
-            'style'       => 'RPC',
-            'reqBodyType' => 'json',
-            'bodyType'    => 'json',
-        ]);
-
-        return ConfigDataSetResponse::fromMap($this->callApi($params, $req, $runtime));
-    }
-
-    /**
-     * @param ConfigDataSetRequest $request
-     *
-     * @return ConfigDataSetResponse
-     */
-    public function configDataSet($request)
-    {
-        $runtime = new RuntimeOptions([]);
-
-        return $this->configDataSetWithOptions($request, $runtime);
-    }
-
-    /**
      * @param CreateAsrVocabRequest $request
      * @param RuntimeOptions        $runtime
      *
@@ -482,11 +376,12 @@ class Qualitycheck extends OpenApiClient
     public function createAsrVocabWithOptions($request, $runtime)
     {
         Utils::validateModel($request);
-        $query            = [];
-        $query['JsonStr'] = $request->jsonStr;
-        $req              = new OpenApiRequest([
+        $query = [];
+        if (!Utils::isUnset($request->jsonStr)) {
+            $query['JsonStr'] = $request->jsonStr;
+        }
+        $req = new OpenApiRequest([
             'query' => OpenApiUtilClient::query($query),
-            'body'  => Utils::toMap($request),
         ]);
         $params = new Params([
             'action'      => 'CreateAsrVocab',
@@ -496,7 +391,7 @@ class Qualitycheck extends OpenApiClient
             'method'      => 'POST',
             'authType'    => 'AK',
             'style'       => 'RPC',
-            'reqBodyType' => 'json',
+            'reqBodyType' => 'formData',
             'bodyType'    => 'json',
         ]);
 
@@ -516,48 +411,6 @@ class Qualitycheck extends OpenApiClient
     }
 
     /**
-     * @param CreateRuleRequest $request
-     * @param RuntimeOptions    $runtime
-     *
-     * @return CreateRuleResponse
-     */
-    public function createRuleWithOptions($request, $runtime)
-    {
-        Utils::validateModel($request);
-        $query            = [];
-        $query['JsonStr'] = $request->jsonStr;
-        $req              = new OpenApiRequest([
-            'query' => OpenApiUtilClient::query($query),
-            'body'  => Utils::toMap($request),
-        ]);
-        $params = new Params([
-            'action'      => 'CreateRule',
-            'version'     => '2019-01-15',
-            'protocol'    => 'HTTPS',
-            'pathname'    => '/',
-            'method'      => 'POST',
-            'authType'    => 'AK',
-            'style'       => 'RPC',
-            'reqBodyType' => 'json',
-            'bodyType'    => 'json',
-        ]);
-
-        return CreateRuleResponse::fromMap($this->callApi($params, $req, $runtime));
-    }
-
-    /**
-     * @param CreateRuleRequest $request
-     *
-     * @return CreateRuleResponse
-     */
-    public function createRule($request)
-    {
-        $runtime = new RuntimeOptions([]);
-
-        return $this->createRuleWithOptions($request, $runtime);
-    }
-
-    /**
      * @param CreateSkillGroupConfigRequest $request
      * @param RuntimeOptions                $runtime
      *
@@ -566,11 +419,12 @@ class Qualitycheck extends OpenApiClient
     public function createSkillGroupConfigWithOptions($request, $runtime)
     {
         Utils::validateModel($request);
-        $query            = [];
-        $query['JsonStr'] = $request->jsonStr;
-        $req              = new OpenApiRequest([
+        $query = [];
+        if (!Utils::isUnset($request->jsonStr)) {
+            $query['JsonStr'] = $request->jsonStr;
+        }
+        $req = new OpenApiRequest([
             'query' => OpenApiUtilClient::query($query),
-            'body'  => Utils::toMap($request),
         ]);
         $params = new Params([
             'action'      => 'CreateSkillGroupConfig',
@@ -580,7 +434,7 @@ class Qualitycheck extends OpenApiClient
             'method'      => 'POST',
             'authType'    => 'AK',
             'style'       => 'RPC',
-            'reqBodyType' => 'json',
+            'reqBodyType' => 'formData',
             'bodyType'    => 'json',
         ]);
 
@@ -608,11 +462,12 @@ class Qualitycheck extends OpenApiClient
     public function createTaskAssignRuleWithOptions($request, $runtime)
     {
         Utils::validateModel($request);
-        $query            = [];
-        $query['JsonStr'] = $request->jsonStr;
-        $req              = new OpenApiRequest([
+        $query = [];
+        if (!Utils::isUnset($request->jsonStr)) {
+            $query['JsonStr'] = $request->jsonStr;
+        }
+        $req = new OpenApiRequest([
             'query' => OpenApiUtilClient::query($query),
-            'body'  => Utils::toMap($request),
         ]);
         $params = new Params([
             'action'      => 'CreateTaskAssignRule',
@@ -622,7 +477,7 @@ class Qualitycheck extends OpenApiClient
             'method'      => 'POST',
             'authType'    => 'AK',
             'style'       => 'RPC',
-            'reqBodyType' => 'json',
+            'reqBodyType' => 'formData',
             'bodyType'    => 'json',
         ]);
 
@@ -650,11 +505,12 @@ class Qualitycheck extends OpenApiClient
     public function createUserWithOptions($request, $runtime)
     {
         Utils::validateModel($request);
-        $query            = [];
-        $query['JsonStr'] = $request->jsonStr;
-        $req              = new OpenApiRequest([
+        $query = [];
+        if (!Utils::isUnset($request->jsonStr)) {
+            $query['JsonStr'] = $request->jsonStr;
+        }
+        $req = new OpenApiRequest([
             'query' => OpenApiUtilClient::query($query),
-            'body'  => Utils::toMap($request),
         ]);
         $params = new Params([
             'action'      => 'CreateUser',
@@ -664,7 +520,7 @@ class Qualitycheck extends OpenApiClient
             'method'      => 'POST',
             'authType'    => 'AK',
             'style'       => 'RPC',
-            'reqBodyType' => 'json',
+            'reqBodyType' => 'formData',
             'bodyType'    => 'json',
         ]);
 
@@ -692,11 +548,12 @@ class Qualitycheck extends OpenApiClient
     public function createWarningConfigWithOptions($request, $runtime)
     {
         Utils::validateModel($request);
-        $query            = [];
-        $query['JsonStr'] = $request->jsonStr;
-        $req              = new OpenApiRequest([
+        $query = [];
+        if (!Utils::isUnset($request->jsonStr)) {
+            $query['JsonStr'] = $request->jsonStr;
+        }
+        $req = new OpenApiRequest([
             'query' => OpenApiUtilClient::query($query),
-            'body'  => Utils::toMap($request),
         ]);
         $params = new Params([
             'action'      => 'CreateWarningConfig',
@@ -706,7 +563,7 @@ class Qualitycheck extends OpenApiClient
             'method'      => 'POST',
             'authType'    => 'AK',
             'style'       => 'RPC',
-            'reqBodyType' => 'json',
+            'reqBodyType' => 'formData',
             'bodyType'    => 'json',
         ]);
 
@@ -734,11 +591,12 @@ class Qualitycheck extends OpenApiClient
     public function delRuleCategoryWithOptions($request, $runtime)
     {
         Utils::validateModel($request);
-        $query            = [];
-        $query['JsonStr'] = $request->jsonStr;
-        $req              = new OpenApiRequest([
+        $query = [];
+        if (!Utils::isUnset($request->jsonStr)) {
+            $query['JsonStr'] = $request->jsonStr;
+        }
+        $req = new OpenApiRequest([
             'query' => OpenApiUtilClient::query($query),
-            'body'  => Utils::toMap($request),
         ]);
         $params = new Params([
             'action'      => 'DelRuleCategory',
@@ -748,7 +606,7 @@ class Qualitycheck extends OpenApiClient
             'method'      => 'POST',
             'authType'    => 'AK',
             'style'       => 'RPC',
-            'reqBodyType' => 'json',
+            'reqBodyType' => 'formData',
             'bodyType'    => 'json',
         ]);
 
@@ -776,11 +634,12 @@ class Qualitycheck extends OpenApiClient
     public function delThesaurusForApiWithOptions($request, $runtime)
     {
         Utils::validateModel($request);
-        $query            = [];
-        $query['JsonStr'] = $request->jsonStr;
-        $req              = new OpenApiRequest([
+        $query = [];
+        if (!Utils::isUnset($request->jsonStr)) {
+            $query['JsonStr'] = $request->jsonStr;
+        }
+        $req = new OpenApiRequest([
             'query' => OpenApiUtilClient::query($query),
-            'body'  => Utils::toMap($request),
         ]);
         $params = new Params([
             'action'      => 'DelThesaurusForApi',
@@ -790,7 +649,7 @@ class Qualitycheck extends OpenApiClient
             'method'      => 'POST',
             'authType'    => 'AK',
             'style'       => 'RPC',
-            'reqBodyType' => 'json',
+            'reqBodyType' => 'formData',
             'bodyType'    => 'json',
         ]);
 
@@ -818,11 +677,12 @@ class Qualitycheck extends OpenApiClient
     public function deleteAsrVocabWithOptions($request, $runtime)
     {
         Utils::validateModel($request);
-        $query            = [];
-        $query['JsonStr'] = $request->jsonStr;
-        $req              = new OpenApiRequest([
+        $query = [];
+        if (!Utils::isUnset($request->jsonStr)) {
+            $query['JsonStr'] = $request->jsonStr;
+        }
+        $req = new OpenApiRequest([
             'query' => OpenApiUtilClient::query($query),
-            'body'  => Utils::toMap($request),
         ]);
         $params = new Params([
             'action'      => 'DeleteAsrVocab',
@@ -832,7 +692,7 @@ class Qualitycheck extends OpenApiClient
             'method'      => 'POST',
             'authType'    => 'AK',
             'style'       => 'RPC',
-            'reqBodyType' => 'json',
+            'reqBodyType' => 'formData',
             'bodyType'    => 'json',
         ]);
 
@@ -860,11 +720,12 @@ class Qualitycheck extends OpenApiClient
     public function deleteBusinessCategoryWithOptions($request, $runtime)
     {
         Utils::validateModel($request);
-        $query            = [];
-        $query['JsonStr'] = $request->jsonStr;
-        $req              = new OpenApiRequest([
+        $query = [];
+        if (!Utils::isUnset($request->jsonStr)) {
+            $query['JsonStr'] = $request->jsonStr;
+        }
+        $req = new OpenApiRequest([
             'query' => OpenApiUtilClient::query($query),
-            'body'  => Utils::toMap($request),
         ]);
         $params = new Params([
             'action'      => 'DeleteBusinessCategory',
@@ -874,7 +735,7 @@ class Qualitycheck extends OpenApiClient
             'method'      => 'POST',
             'authType'    => 'AK',
             'style'       => 'RPC',
-            'reqBodyType' => 'json',
+            'reqBodyType' => 'formData',
             'bodyType'    => 'json',
         ]);
 
@@ -902,11 +763,12 @@ class Qualitycheck extends OpenApiClient
     public function deleteCustomizationConfigWithOptions($request, $runtime)
     {
         Utils::validateModel($request);
-        $query            = [];
-        $query['JsonStr'] = $request->jsonStr;
-        $req              = new OpenApiRequest([
+        $query = [];
+        if (!Utils::isUnset($request->jsonStr)) {
+            $query['JsonStr'] = $request->jsonStr;
+        }
+        $req = new OpenApiRequest([
             'query' => OpenApiUtilClient::query($query),
-            'body'  => Utils::toMap($request),
         ]);
         $params = new Params([
             'action'      => 'DeleteCustomizationConfig',
@@ -916,7 +778,7 @@ class Qualitycheck extends OpenApiClient
             'method'      => 'POST',
             'authType'    => 'AK',
             'style'       => 'RPC',
-            'reqBodyType' => 'json',
+            'reqBodyType' => 'formData',
             'bodyType'    => 'json',
         ]);
 
@@ -944,11 +806,12 @@ class Qualitycheck extends OpenApiClient
     public function deleteDataSetWithOptions($request, $runtime)
     {
         Utils::validateModel($request);
-        $query            = [];
-        $query['JsonStr'] = $request->jsonStr;
-        $req              = new OpenApiRequest([
+        $query = [];
+        if (!Utils::isUnset($request->jsonStr)) {
+            $query['JsonStr'] = $request->jsonStr;
+        }
+        $req = new OpenApiRequest([
             'query' => OpenApiUtilClient::query($query),
-            'body'  => Utils::toMap($request),
         ]);
         $params = new Params([
             'action'      => 'DeleteDataSet',
@@ -958,7 +821,7 @@ class Qualitycheck extends OpenApiClient
             'method'      => 'POST',
             'authType'    => 'AK',
             'style'       => 'RPC',
-            'reqBodyType' => 'json',
+            'reqBodyType' => 'formData',
             'bodyType'    => 'json',
         ]);
 
@@ -986,11 +849,12 @@ class Qualitycheck extends OpenApiClient
     public function deletePrecisionTaskWithOptions($request, $runtime)
     {
         Utils::validateModel($request);
-        $query            = [];
-        $query['JsonStr'] = $request->jsonStr;
-        $req              = new OpenApiRequest([
+        $query = [];
+        if (!Utils::isUnset($request->jsonStr)) {
+            $query['JsonStr'] = $request->jsonStr;
+        }
+        $req = new OpenApiRequest([
             'query' => OpenApiUtilClient::query($query),
-            'body'  => Utils::toMap($request),
         ]);
         $params = new Params([
             'action'      => 'DeletePrecisionTask',
@@ -1000,7 +864,7 @@ class Qualitycheck extends OpenApiClient
             'method'      => 'POST',
             'authType'    => 'AK',
             'style'       => 'RPC',
-            'reqBodyType' => 'json',
+            'reqBodyType' => 'formData',
             'bodyType'    => 'json',
         ]);
 
@@ -1028,11 +892,12 @@ class Qualitycheck extends OpenApiClient
     public function deleteScoreForApiWithOptions($request, $runtime)
     {
         Utils::validateModel($request);
-        $query            = [];
-        $query['JsonStr'] = $request->jsonStr;
-        $req              = new OpenApiRequest([
+        $query = [];
+        if (!Utils::isUnset($request->jsonStr)) {
+            $query['JsonStr'] = $request->jsonStr;
+        }
+        $req = new OpenApiRequest([
             'query' => OpenApiUtilClient::query($query),
-            'body'  => Utils::toMap($request),
         ]);
         $params = new Params([
             'action'      => 'DeleteScoreForApi',
@@ -1042,7 +907,7 @@ class Qualitycheck extends OpenApiClient
             'method'      => 'POST',
             'authType'    => 'AK',
             'style'       => 'RPC',
-            'reqBodyType' => 'json',
+            'reqBodyType' => 'formData',
             'bodyType'    => 'json',
         ]);
 
@@ -1070,11 +935,12 @@ class Qualitycheck extends OpenApiClient
     public function deleteSkillGroupConfigWithOptions($request, $runtime)
     {
         Utils::validateModel($request);
-        $query            = [];
-        $query['JsonStr'] = $request->jsonStr;
-        $req              = new OpenApiRequest([
+        $query = [];
+        if (!Utils::isUnset($request->jsonStr)) {
+            $query['JsonStr'] = $request->jsonStr;
+        }
+        $req = new OpenApiRequest([
             'query' => OpenApiUtilClient::query($query),
-            'body'  => Utils::toMap($request),
         ]);
         $params = new Params([
             'action'      => 'DeleteSkillGroupConfig',
@@ -1084,7 +950,7 @@ class Qualitycheck extends OpenApiClient
             'method'      => 'POST',
             'authType'    => 'AK',
             'style'       => 'RPC',
-            'reqBodyType' => 'json',
+            'reqBodyType' => 'formData',
             'bodyType'    => 'json',
         ]);
 
@@ -1112,11 +978,12 @@ class Qualitycheck extends OpenApiClient
     public function deleteSubScoreForApiWithOptions($request, $runtime)
     {
         Utils::validateModel($request);
-        $query            = [];
-        $query['JsonStr'] = $request->jsonStr;
-        $req              = new OpenApiRequest([
+        $query = [];
+        if (!Utils::isUnset($request->jsonStr)) {
+            $query['JsonStr'] = $request->jsonStr;
+        }
+        $req = new OpenApiRequest([
             'query' => OpenApiUtilClient::query($query),
-            'body'  => Utils::toMap($request),
         ]);
         $params = new Params([
             'action'      => 'DeleteSubScoreForApi',
@@ -1126,7 +993,7 @@ class Qualitycheck extends OpenApiClient
             'method'      => 'POST',
             'authType'    => 'AK',
             'style'       => 'RPC',
-            'reqBodyType' => 'json',
+            'reqBodyType' => 'formData',
             'bodyType'    => 'json',
         ]);
 
@@ -1154,11 +1021,12 @@ class Qualitycheck extends OpenApiClient
     public function deleteTaskAssignRuleWithOptions($request, $runtime)
     {
         Utils::validateModel($request);
-        $query            = [];
-        $query['JsonStr'] = $request->jsonStr;
-        $req              = new OpenApiRequest([
+        $query = [];
+        if (!Utils::isUnset($request->jsonStr)) {
+            $query['JsonStr'] = $request->jsonStr;
+        }
+        $req = new OpenApiRequest([
             'query' => OpenApiUtilClient::query($query),
-            'body'  => Utils::toMap($request),
         ]);
         $params = new Params([
             'action'      => 'DeleteTaskAssignRule',
@@ -1168,7 +1036,7 @@ class Qualitycheck extends OpenApiClient
             'method'      => 'POST',
             'authType'    => 'AK',
             'style'       => 'RPC',
-            'reqBodyType' => 'json',
+            'reqBodyType' => 'formData',
             'bodyType'    => 'json',
         ]);
 
@@ -1196,11 +1064,12 @@ class Qualitycheck extends OpenApiClient
     public function deleteUserWithOptions($request, $runtime)
     {
         Utils::validateModel($request);
-        $query            = [];
-        $query['JsonStr'] = $request->jsonStr;
-        $req              = new OpenApiRequest([
+        $query = [];
+        if (!Utils::isUnset($request->jsonStr)) {
+            $query['JsonStr'] = $request->jsonStr;
+        }
+        $req = new OpenApiRequest([
             'query' => OpenApiUtilClient::query($query),
-            'body'  => Utils::toMap($request),
         ]);
         $params = new Params([
             'action'      => 'DeleteUser',
@@ -1210,7 +1079,7 @@ class Qualitycheck extends OpenApiClient
             'method'      => 'POST',
             'authType'    => 'AK',
             'style'       => 'RPC',
-            'reqBodyType' => 'json',
+            'reqBodyType' => 'formData',
             'bodyType'    => 'json',
         ]);
 
@@ -1238,11 +1107,12 @@ class Qualitycheck extends OpenApiClient
     public function deleteWarningConfigWithOptions($request, $runtime)
     {
         Utils::validateModel($request);
-        $query            = [];
-        $query['JsonStr'] = $request->jsonStr;
-        $req              = new OpenApiRequest([
+        $query = [];
+        if (!Utils::isUnset($request->jsonStr)) {
+            $query['JsonStr'] = $request->jsonStr;
+        }
+        $req = new OpenApiRequest([
             'query' => OpenApiUtilClient::query($query),
-            'body'  => Utils::toMap($request),
         ]);
         $params = new Params([
             'action'      => 'DeleteWarningConfig',
@@ -1252,7 +1122,7 @@ class Qualitycheck extends OpenApiClient
             'method'      => 'POST',
             'authType'    => 'AK',
             'style'       => 'RPC',
-            'reqBodyType' => 'json',
+            'reqBodyType' => 'formData',
             'bodyType'    => 'json',
         ]);
 
@@ -1280,11 +1150,12 @@ class Qualitycheck extends OpenApiClient
     public function editThesaurusForApiWithOptions($request, $runtime)
     {
         Utils::validateModel($request);
-        $query            = [];
-        $query['JsonStr'] = $request->jsonStr;
-        $req              = new OpenApiRequest([
+        $query = [];
+        if (!Utils::isUnset($request->jsonStr)) {
+            $query['JsonStr'] = $request->jsonStr;
+        }
+        $req = new OpenApiRequest([
             'query' => OpenApiUtilClient::query($query),
-            'body'  => Utils::toMap($request),
         ]);
         $params = new Params([
             'action'      => 'EditThesaurusForApi',
@@ -1294,7 +1165,7 @@ class Qualitycheck extends OpenApiClient
             'method'      => 'POST',
             'authType'    => 'AK',
             'style'       => 'RPC',
-            'reqBodyType' => 'json',
+            'reqBodyType' => 'formData',
             'bodyType'    => 'json',
         ]);
 
@@ -1322,11 +1193,12 @@ class Qualitycheck extends OpenApiClient
     public function getAsrVocabWithOptions($request, $runtime)
     {
         Utils::validateModel($request);
-        $query            = [];
-        $query['JsonStr'] = $request->jsonStr;
-        $req              = new OpenApiRequest([
+        $query = [];
+        if (!Utils::isUnset($request->jsonStr)) {
+            $query['JsonStr'] = $request->jsonStr;
+        }
+        $req = new OpenApiRequest([
             'query' => OpenApiUtilClient::query($query),
-            'body'  => Utils::toMap($request),
         ]);
         $params = new Params([
             'action'      => 'GetAsrVocab',
@@ -1336,7 +1208,7 @@ class Qualitycheck extends OpenApiClient
             'method'      => 'POST',
             'authType'    => 'AK',
             'style'       => 'RPC',
-            'reqBodyType' => 'json',
+            'reqBodyType' => 'formData',
             'bodyType'    => 'json',
         ]);
 
@@ -1364,11 +1236,12 @@ class Qualitycheck extends OpenApiClient
     public function getBusinessCategoryListWithOptions($request, $runtime)
     {
         Utils::validateModel($request);
-        $query            = [];
-        $query['JsonStr'] = $request->jsonStr;
-        $req              = new OpenApiRequest([
+        $query = [];
+        if (!Utils::isUnset($request->jsonStr)) {
+            $query['JsonStr'] = $request->jsonStr;
+        }
+        $req = new OpenApiRequest([
             'query' => OpenApiUtilClient::query($query),
-            'body'  => Utils::toMap($request),
         ]);
         $params = new Params([
             'action'      => 'GetBusinessCategoryList',
@@ -1378,7 +1251,7 @@ class Qualitycheck extends OpenApiClient
             'method'      => 'POST',
             'authType'    => 'AK',
             'style'       => 'RPC',
-            'reqBodyType' => 'json',
+            'reqBodyType' => 'formData',
             'bodyType'    => 'json',
         ]);
 
@@ -1406,11 +1279,12 @@ class Qualitycheck extends OpenApiClient
     public function getCustomizationConfigListWithOptions($request, $runtime)
     {
         Utils::validateModel($request);
-        $query            = [];
-        $query['JsonStr'] = $request->jsonStr;
-        $req              = new OpenApiRequest([
+        $query = [];
+        if (!Utils::isUnset($request->jsonStr)) {
+            $query['JsonStr'] = $request->jsonStr;
+        }
+        $req = new OpenApiRequest([
             'query' => OpenApiUtilClient::query($query),
-            'body'  => Utils::toMap($request),
         ]);
         $params = new Params([
             'action'      => 'GetCustomizationConfigList',
@@ -1420,7 +1294,7 @@ class Qualitycheck extends OpenApiClient
             'method'      => 'POST',
             'authType'    => 'AK',
             'style'       => 'RPC',
-            'reqBodyType' => 'json',
+            'reqBodyType' => 'formData',
             'bodyType'    => 'json',
         ]);
 
@@ -1448,11 +1322,12 @@ class Qualitycheck extends OpenApiClient
     public function getHitResultWithOptions($request, $runtime)
     {
         Utils::validateModel($request);
-        $query            = [];
-        $query['JsonStr'] = $request->jsonStr;
-        $req              = new OpenApiRequest([
+        $query = [];
+        if (!Utils::isUnset($request->jsonStr)) {
+            $query['JsonStr'] = $request->jsonStr;
+        }
+        $req = new OpenApiRequest([
             'query' => OpenApiUtilClient::query($query),
-            'body'  => Utils::toMap($request),
         ]);
         $params = new Params([
             'action'      => 'GetHitResult',
@@ -1462,7 +1337,7 @@ class Qualitycheck extends OpenApiClient
             'method'      => 'POST',
             'authType'    => 'AK',
             'style'       => 'RPC',
-            'reqBodyType' => 'json',
+            'reqBodyType' => 'formData',
             'bodyType'    => 'json',
         ]);
 
@@ -1490,11 +1365,12 @@ class Qualitycheck extends OpenApiClient
     public function getNextResultToVerifyWithOptions($request, $runtime)
     {
         Utils::validateModel($request);
-        $query            = [];
-        $query['JsonStr'] = $request->jsonStr;
-        $req              = new OpenApiRequest([
+        $query = [];
+        if (!Utils::isUnset($request->jsonStr)) {
+            $query['JsonStr'] = $request->jsonStr;
+        }
+        $req = new OpenApiRequest([
             'query' => OpenApiUtilClient::query($query),
-            'body'  => Utils::toMap($request),
         ]);
         $params = new Params([
             'action'      => 'GetNextResultToVerify',
@@ -1504,7 +1380,7 @@ class Qualitycheck extends OpenApiClient
             'method'      => 'POST',
             'authType'    => 'AK',
             'style'       => 'RPC',
-            'reqBodyType' => 'json',
+            'reqBodyType' => 'formData',
             'bodyType'    => 'json',
         ]);
 
@@ -1532,11 +1408,12 @@ class Qualitycheck extends OpenApiClient
     public function getPrecisionTaskWithOptions($request, $runtime)
     {
         Utils::validateModel($request);
-        $query            = [];
-        $query['JsonStr'] = $request->jsonStr;
-        $req              = new OpenApiRequest([
+        $query = [];
+        if (!Utils::isUnset($request->jsonStr)) {
+            $query['JsonStr'] = $request->jsonStr;
+        }
+        $req = new OpenApiRequest([
             'query' => OpenApiUtilClient::query($query),
-            'body'  => Utils::toMap($request),
         ]);
         $params = new Params([
             'action'      => 'GetPrecisionTask',
@@ -1546,7 +1423,7 @@ class Qualitycheck extends OpenApiClient
             'method'      => 'POST',
             'authType'    => 'AK',
             'style'       => 'RPC',
-            'reqBodyType' => 'json',
+            'reqBodyType' => 'formData',
             'bodyType'    => 'json',
         ]);
 
@@ -1574,11 +1451,12 @@ class Qualitycheck extends OpenApiClient
     public function getResultWithOptions($request, $runtime)
     {
         Utils::validateModel($request);
-        $query            = [];
-        $query['JsonStr'] = $request->jsonStr;
-        $req              = new OpenApiRequest([
+        $query = [];
+        if (!Utils::isUnset($request->jsonStr)) {
+            $query['JsonStr'] = $request->jsonStr;
+        }
+        $req = new OpenApiRequest([
             'query' => OpenApiUtilClient::query($query),
-            'body'  => Utils::toMap($request),
         ]);
         $params = new Params([
             'action'      => 'GetResult',
@@ -1588,7 +1466,7 @@ class Qualitycheck extends OpenApiClient
             'method'      => 'POST',
             'authType'    => 'AK',
             'style'       => 'RPC',
-            'reqBodyType' => 'json',
+            'reqBodyType' => 'formData',
             'bodyType'    => 'json',
         ]);
 
@@ -1616,11 +1494,12 @@ class Qualitycheck extends OpenApiClient
     public function getResultCallbackWithOptions($request, $runtime)
     {
         Utils::validateModel($request);
-        $query            = [];
-        $query['JsonStr'] = $request->jsonStr;
-        $req              = new OpenApiRequest([
+        $query = [];
+        if (!Utils::isUnset($request->jsonStr)) {
+            $query['JsonStr'] = $request->jsonStr;
+        }
+        $req = new OpenApiRequest([
             'query' => OpenApiUtilClient::query($query),
-            'body'  => Utils::toMap($request),
         ]);
         $params = new Params([
             'action'      => 'GetResultCallback',
@@ -1630,7 +1509,7 @@ class Qualitycheck extends OpenApiClient
             'method'      => 'POST',
             'authType'    => 'AK',
             'style'       => 'RPC',
-            'reqBodyType' => 'json',
+            'reqBodyType' => 'formData',
             'bodyType'    => 'json',
         ]);
 
@@ -1658,11 +1537,12 @@ class Qualitycheck extends OpenApiClient
     public function getResultToReviewWithOptions($request, $runtime)
     {
         Utils::validateModel($request);
-        $query            = [];
-        $query['JsonStr'] = $request->jsonStr;
-        $req              = new OpenApiRequest([
+        $query = [];
+        if (!Utils::isUnset($request->jsonStr)) {
+            $query['JsonStr'] = $request->jsonStr;
+        }
+        $req = new OpenApiRequest([
             'query' => OpenApiUtilClient::query($query),
-            'body'  => Utils::toMap($request),
         ]);
         $params = new Params([
             'action'      => 'GetResultToReview',
@@ -1672,7 +1552,7 @@ class Qualitycheck extends OpenApiClient
             'method'      => 'POST',
             'authType'    => 'AK',
             'style'       => 'RPC',
-            'reqBodyType' => 'json',
+            'reqBodyType' => 'formData',
             'bodyType'    => 'json',
         ]);
 
@@ -1692,48 +1572,6 @@ class Qualitycheck extends OpenApiClient
     }
 
     /**
-     * @param GetReviewInfoRequest $request
-     * @param RuntimeOptions       $runtime
-     *
-     * @return GetReviewInfoResponse
-     */
-    public function getReviewInfoWithOptions($request, $runtime)
-    {
-        Utils::validateModel($request);
-        $query            = [];
-        $query['JsonStr'] = $request->jsonStr;
-        $req              = new OpenApiRequest([
-            'query' => OpenApiUtilClient::query($query),
-            'body'  => Utils::toMap($request),
-        ]);
-        $params = new Params([
-            'action'      => 'GetReviewInfo',
-            'version'     => '2019-01-15',
-            'protocol'    => 'HTTPS',
-            'pathname'    => '/',
-            'method'      => 'POST',
-            'authType'    => 'AK',
-            'style'       => 'RPC',
-            'reqBodyType' => 'json',
-            'bodyType'    => 'json',
-        ]);
-
-        return GetReviewInfoResponse::fromMap($this->callApi($params, $req, $runtime));
-    }
-
-    /**
-     * @param GetReviewInfoRequest $request
-     *
-     * @return GetReviewInfoResponse
-     */
-    public function getReviewInfo($request)
-    {
-        $runtime = new RuntimeOptions([]);
-
-        return $this->getReviewInfoWithOptions($request, $runtime);
-    }
-
-    /**
      * @param GetRuleRequest $request
      * @param RuntimeOptions $runtime
      *
@@ -1742,11 +1580,12 @@ class Qualitycheck extends OpenApiClient
     public function getRuleWithOptions($request, $runtime)
     {
         Utils::validateModel($request);
-        $query            = [];
-        $query['JsonStr'] = $request->jsonStr;
-        $req              = new OpenApiRequest([
+        $query = [];
+        if (!Utils::isUnset($request->jsonStr)) {
+            $query['JsonStr'] = $request->jsonStr;
+        }
+        $req = new OpenApiRequest([
             'query' => OpenApiUtilClient::query($query),
-            'body'  => Utils::toMap($request),
         ]);
         $params = new Params([
             'action'      => 'GetRule',
@@ -1756,7 +1595,7 @@ class Qualitycheck extends OpenApiClient
             'method'      => 'POST',
             'authType'    => 'AK',
             'style'       => 'RPC',
-            'reqBodyType' => 'json',
+            'reqBodyType' => 'formData',
             'bodyType'    => 'json',
         ]);
 
@@ -1784,11 +1623,12 @@ class Qualitycheck extends OpenApiClient
     public function getRuleCategoryWithOptions($request, $runtime)
     {
         Utils::validateModel($request);
-        $query            = [];
-        $query['JsonStr'] = $request->jsonStr;
-        $req              = new OpenApiRequest([
+        $query = [];
+        if (!Utils::isUnset($request->jsonStr)) {
+            $query['JsonStr'] = $request->jsonStr;
+        }
+        $req = new OpenApiRequest([
             'query' => OpenApiUtilClient::query($query),
-            'body'  => Utils::toMap($request),
         ]);
         $params = new Params([
             'action'      => 'GetRuleCategory',
@@ -1798,7 +1638,7 @@ class Qualitycheck extends OpenApiClient
             'method'      => 'POST',
             'authType'    => 'AK',
             'style'       => 'RPC',
-            'reqBodyType' => 'json',
+            'reqBodyType' => 'formData',
             'bodyType'    => 'json',
         ]);
 
@@ -1826,11 +1666,12 @@ class Qualitycheck extends OpenApiClient
     public function getRuleDetailWithOptions($request, $runtime)
     {
         Utils::validateModel($request);
-        $query            = [];
-        $query['JsonStr'] = $request->jsonStr;
-        $req              = new OpenApiRequest([
+        $query = [];
+        if (!Utils::isUnset($request->jsonStr)) {
+            $query['JsonStr'] = $request->jsonStr;
+        }
+        $req = new OpenApiRequest([
             'query' => OpenApiUtilClient::query($query),
-            'body'  => Utils::toMap($request),
         ]);
         $params = new Params([
             'action'      => 'GetRuleDetail',
@@ -1840,7 +1681,7 @@ class Qualitycheck extends OpenApiClient
             'method'      => 'POST',
             'authType'    => 'AK',
             'style'       => 'RPC',
-            'reqBodyType' => 'json',
+            'reqBodyType' => 'formData',
             'bodyType'    => 'json',
         ]);
 
@@ -1860,48 +1701,6 @@ class Qualitycheck extends OpenApiClient
     }
 
     /**
-     * @param GetRuleDimensionRequest $request
-     * @param RuntimeOptions          $runtime
-     *
-     * @return GetRuleDimensionResponse
-     */
-    public function getRuleDimensionWithOptions($request, $runtime)
-    {
-        Utils::validateModel($request);
-        $query            = [];
-        $query['JsonStr'] = $request->jsonStr;
-        $req              = new OpenApiRequest([
-            'query' => OpenApiUtilClient::query($query),
-            'body'  => Utils::toMap($request),
-        ]);
-        $params = new Params([
-            'action'      => 'GetRuleDimension',
-            'version'     => '2019-01-15',
-            'protocol'    => 'HTTPS',
-            'pathname'    => '/',
-            'method'      => 'POST',
-            'authType'    => 'AK',
-            'style'       => 'RPC',
-            'reqBodyType' => 'json',
-            'bodyType'    => 'json',
-        ]);
-
-        return GetRuleDimensionResponse::fromMap($this->callApi($params, $req, $runtime));
-    }
-
-    /**
-     * @param GetRuleDimensionRequest $request
-     *
-     * @return GetRuleDimensionResponse
-     */
-    public function getRuleDimension($request)
-    {
-        $runtime = new RuntimeOptions([]);
-
-        return $this->getRuleDimensionWithOptions($request, $runtime);
-    }
-
-    /**
      * @param GetScoreInfoRequest $request
      * @param RuntimeOptions      $runtime
      *
@@ -1910,11 +1709,12 @@ class Qualitycheck extends OpenApiClient
     public function getScoreInfoWithOptions($request, $runtime)
     {
         Utils::validateModel($request);
-        $query            = [];
-        $query['JsonStr'] = $request->jsonStr;
-        $req              = new OpenApiRequest([
+        $query = [];
+        if (!Utils::isUnset($request->jsonStr)) {
+            $query['JsonStr'] = $request->jsonStr;
+        }
+        $req = new OpenApiRequest([
             'query' => OpenApiUtilClient::query($query),
-            'body'  => Utils::toMap($request),
         ]);
         $params = new Params([
             'action'      => 'GetScoreInfo',
@@ -1924,7 +1724,7 @@ class Qualitycheck extends OpenApiClient
             'method'      => 'POST',
             'authType'    => 'AK',
             'style'       => 'RPC',
-            'reqBodyType' => 'json',
+            'reqBodyType' => 'formData',
             'bodyType'    => 'json',
         ]);
 
@@ -1952,11 +1752,12 @@ class Qualitycheck extends OpenApiClient
     public function getSkillGroupConfigWithOptions($request, $runtime)
     {
         Utils::validateModel($request);
-        $query            = [];
-        $query['JsonStr'] = $request->jsonStr;
-        $req              = new OpenApiRequest([
+        $query = [];
+        if (!Utils::isUnset($request->jsonStr)) {
+            $query['JsonStr'] = $request->jsonStr;
+        }
+        $req = new OpenApiRequest([
             'query' => OpenApiUtilClient::query($query),
-            'body'  => Utils::toMap($request),
         ]);
         $params = new Params([
             'action'      => 'GetSkillGroupConfig',
@@ -1966,7 +1767,7 @@ class Qualitycheck extends OpenApiClient
             'method'      => 'POST',
             'authType'    => 'AK',
             'style'       => 'RPC',
-            'reqBodyType' => 'json',
+            'reqBodyType' => 'formData',
             'bodyType'    => 'json',
         ]);
 
@@ -1994,11 +1795,12 @@ class Qualitycheck extends OpenApiClient
     public function getSyncResultWithOptions($request, $runtime)
     {
         Utils::validateModel($request);
-        $query            = [];
-        $query['JsonStr'] = $request->jsonStr;
-        $req              = new OpenApiRequest([
+        $query = [];
+        if (!Utils::isUnset($request->jsonStr)) {
+            $query['JsonStr'] = $request->jsonStr;
+        }
+        $req = new OpenApiRequest([
             'query' => OpenApiUtilClient::query($query),
-            'body'  => Utils::toMap($request),
         ]);
         $params = new Params([
             'action'      => 'GetSyncResult',
@@ -2008,7 +1810,7 @@ class Qualitycheck extends OpenApiClient
             'method'      => 'POST',
             'authType'    => 'AK',
             'style'       => 'RPC',
-            'reqBodyType' => 'json',
+            'reqBodyType' => 'formData',
             'bodyType'    => 'json',
         ]);
 
@@ -2028,90 +1830,6 @@ class Qualitycheck extends OpenApiClient
     }
 
     /**
-     * @param GetTaskFileResultListRequest $request
-     * @param RuntimeOptions               $runtime
-     *
-     * @return GetTaskFileResultListResponse
-     */
-    public function getTaskFileResultListWithOptions($request, $runtime)
-    {
-        Utils::validateModel($request);
-        $query            = [];
-        $query['JsonStr'] = $request->jsonStr;
-        $req              = new OpenApiRequest([
-            'query' => OpenApiUtilClient::query($query),
-            'body'  => Utils::toMap($request),
-        ]);
-        $params = new Params([
-            'action'      => 'GetTaskFileResultList',
-            'version'     => '2019-01-15',
-            'protocol'    => 'HTTPS',
-            'pathname'    => '/',
-            'method'      => 'POST',
-            'authType'    => 'AK',
-            'style'       => 'RPC',
-            'reqBodyType' => 'json',
-            'bodyType'    => 'json',
-        ]);
-
-        return GetTaskFileResultListResponse::fromMap($this->callApi($params, $req, $runtime));
-    }
-
-    /**
-     * @param GetTaskFileResultListRequest $request
-     *
-     * @return GetTaskFileResultListResponse
-     */
-    public function getTaskFileResultList($request)
-    {
-        $runtime = new RuntimeOptions([]);
-
-        return $this->getTaskFileResultListWithOptions($request, $runtime);
-    }
-
-    /**
-     * @param GetTaskRuleListRequest $request
-     * @param RuntimeOptions         $runtime
-     *
-     * @return GetTaskRuleListResponse
-     */
-    public function getTaskRuleListWithOptions($request, $runtime)
-    {
-        Utils::validateModel($request);
-        $query            = [];
-        $query['JsonStr'] = $request->jsonStr;
-        $req              = new OpenApiRequest([
-            'query' => OpenApiUtilClient::query($query),
-            'body'  => Utils::toMap($request),
-        ]);
-        $params = new Params([
-            'action'      => 'GetTaskRuleList',
-            'version'     => '2019-01-15',
-            'protocol'    => 'HTTPS',
-            'pathname'    => '/',
-            'method'      => 'POST',
-            'authType'    => 'AK',
-            'style'       => 'RPC',
-            'reqBodyType' => 'json',
-            'bodyType'    => 'json',
-        ]);
-
-        return GetTaskRuleListResponse::fromMap($this->callApi($params, $req, $runtime));
-    }
-
-    /**
-     * @param GetTaskRuleListRequest $request
-     *
-     * @return GetTaskRuleListResponse
-     */
-    public function getTaskRuleList($request)
-    {
-        $runtime = new RuntimeOptions([]);
-
-        return $this->getTaskRuleListWithOptions($request, $runtime);
-    }
-
-    /**
      * @param GetThesaurusBySynonymForApiRequest $request
      * @param RuntimeOptions                     $runtime
      *
@@ -2120,11 +1838,12 @@ class Qualitycheck extends OpenApiClient
     public function getThesaurusBySynonymForApiWithOptions($request, $runtime)
     {
         Utils::validateModel($request);
-        $query            = [];
-        $query['JsonStr'] = $request->jsonStr;
-        $req              = new OpenApiRequest([
+        $query = [];
+        if (!Utils::isUnset($request->jsonStr)) {
+            $query['JsonStr'] = $request->jsonStr;
+        }
+        $req = new OpenApiRequest([
             'query' => OpenApiUtilClient::query($query),
-            'body'  => Utils::toMap($request),
         ]);
         $params = new Params([
             'action'      => 'GetThesaurusBySynonymForApi',
@@ -2134,7 +1853,7 @@ class Qualitycheck extends OpenApiClient
             'method'      => 'POST',
             'authType'    => 'AK',
             'style'       => 'RPC',
-            'reqBodyType' => 'json',
+            'reqBodyType' => 'formData',
             'bodyType'    => 'json',
         ]);
 
@@ -2162,11 +1881,12 @@ class Qualitycheck extends OpenApiClient
     public function handleComplaintWithOptions($request, $runtime)
     {
         Utils::validateModel($request);
-        $query            = [];
-        $query['JsonStr'] = $request->jsonStr;
-        $req              = new OpenApiRequest([
+        $query = [];
+        if (!Utils::isUnset($request->jsonStr)) {
+            $query['JsonStr'] = $request->jsonStr;
+        }
+        $req = new OpenApiRequest([
             'query' => OpenApiUtilClient::query($query),
-            'body'  => Utils::toMap($request),
         ]);
         $params = new Params([
             'action'      => 'HandleComplaint',
@@ -2176,7 +1896,7 @@ class Qualitycheck extends OpenApiClient
             'method'      => 'POST',
             'authType'    => 'AK',
             'style'       => 'RPC',
-            'reqBodyType' => 'json',
+            'reqBodyType' => 'formData',
             'bodyType'    => 'json',
         ]);
 
@@ -2204,11 +1924,12 @@ class Qualitycheck extends OpenApiClient
     public function insertScoreForApiWithOptions($request, $runtime)
     {
         Utils::validateModel($request);
-        $query            = [];
-        $query['JsonStr'] = $request->jsonStr;
-        $req              = new OpenApiRequest([
+        $query = [];
+        if (!Utils::isUnset($request->jsonStr)) {
+            $query['JsonStr'] = $request->jsonStr;
+        }
+        $req = new OpenApiRequest([
             'query' => OpenApiUtilClient::query($query),
-            'body'  => Utils::toMap($request),
         ]);
         $params = new Params([
             'action'      => 'InsertScoreForApi',
@@ -2218,7 +1939,7 @@ class Qualitycheck extends OpenApiClient
             'method'      => 'POST',
             'authType'    => 'AK',
             'style'       => 'RPC',
-            'reqBodyType' => 'json',
+            'reqBodyType' => 'formData',
             'bodyType'    => 'json',
         ]);
 
@@ -2246,11 +1967,12 @@ class Qualitycheck extends OpenApiClient
     public function insertSubScoreForApiWithOptions($request, $runtime)
     {
         Utils::validateModel($request);
-        $query            = [];
-        $query['JsonStr'] = $request->jsonStr;
-        $req              = new OpenApiRequest([
+        $query = [];
+        if (!Utils::isUnset($request->jsonStr)) {
+            $query['JsonStr'] = $request->jsonStr;
+        }
+        $req = new OpenApiRequest([
             'query' => OpenApiUtilClient::query($query),
-            'body'  => Utils::toMap($request),
         ]);
         $params = new Params([
             'action'      => 'InsertSubScoreForApi',
@@ -2260,7 +1982,7 @@ class Qualitycheck extends OpenApiClient
             'method'      => 'POST',
             'authType'    => 'AK',
             'style'       => 'RPC',
-            'reqBodyType' => 'json',
+            'reqBodyType' => 'formData',
             'bodyType'    => 'json',
         ]);
 
@@ -2288,11 +2010,12 @@ class Qualitycheck extends OpenApiClient
     public function invalidRuleWithOptions($request, $runtime)
     {
         Utils::validateModel($request);
-        $query            = [];
-        $query['JsonStr'] = $request->jsonStr;
-        $req              = new OpenApiRequest([
+        $query = [];
+        if (!Utils::isUnset($request->jsonStr)) {
+            $query['JsonStr'] = $request->jsonStr;
+        }
+        $req = new OpenApiRequest([
             'query' => OpenApiUtilClient::query($query),
-            'body'  => Utils::toMap($request),
         ]);
         $params = new Params([
             'action'      => 'InvalidRule',
@@ -2302,7 +2025,7 @@ class Qualitycheck extends OpenApiClient
             'method'      => 'POST',
             'authType'    => 'AK',
             'style'       => 'RPC',
-            'reqBodyType' => 'json',
+            'reqBodyType' => 'formData',
             'bodyType'    => 'json',
         ]);
 
@@ -2330,11 +2053,12 @@ class Qualitycheck extends OpenApiClient
     public function listAsrVocabWithOptions($request, $runtime)
     {
         Utils::validateModel($request);
-        $query            = [];
-        $query['JsonStr'] = $request->jsonStr;
-        $req              = new OpenApiRequest([
+        $query = [];
+        if (!Utils::isUnset($request->jsonStr)) {
+            $query['JsonStr'] = $request->jsonStr;
+        }
+        $req = new OpenApiRequest([
             'query' => OpenApiUtilClient::query($query),
-            'body'  => Utils::toMap($request),
         ]);
         $params = new Params([
             'action'      => 'ListAsrVocab',
@@ -2344,7 +2068,7 @@ class Qualitycheck extends OpenApiClient
             'method'      => 'POST',
             'authType'    => 'AK',
             'style'       => 'RPC',
-            'reqBodyType' => 'json',
+            'reqBodyType' => 'formData',
             'bodyType'    => 'json',
         ]);
 
@@ -2364,48 +2088,6 @@ class Qualitycheck extends OpenApiClient
     }
 
     /**
-     * @param ListDataSetTaskRequest $request
-     * @param RuntimeOptions         $runtime
-     *
-     * @return ListDataSetTaskResponse
-     */
-    public function listDataSetTaskWithOptions($request, $runtime)
-    {
-        Utils::validateModel($request);
-        $query            = [];
-        $query['JsonStr'] = $request->jsonStr;
-        $req              = new OpenApiRequest([
-            'query' => OpenApiUtilClient::query($query),
-            'body'  => Utils::toMap($request),
-        ]);
-        $params = new Params([
-            'action'      => 'ListDataSetTask',
-            'version'     => '2019-01-15',
-            'protocol'    => 'HTTPS',
-            'pathname'    => '/',
-            'method'      => 'POST',
-            'authType'    => 'AK',
-            'style'       => 'RPC',
-            'reqBodyType' => 'json',
-            'bodyType'    => 'json',
-        ]);
-
-        return ListDataSetTaskResponse::fromMap($this->callApi($params, $req, $runtime));
-    }
-
-    /**
-     * @param ListDataSetTaskRequest $request
-     *
-     * @return ListDataSetTaskResponse
-     */
-    public function listDataSetTask($request)
-    {
-        $runtime = new RuntimeOptions([]);
-
-        return $this->listDataSetTaskWithOptions($request, $runtime);
-    }
-
-    /**
      * @param ListHotWordsTasksRequest $request
      * @param RuntimeOptions           $runtime
      *
@@ -2414,11 +2096,12 @@ class Qualitycheck extends OpenApiClient
     public function listHotWordsTasksWithOptions($request, $runtime)
     {
         Utils::validateModel($request);
-        $query            = [];
-        $query['JsonStr'] = $request->jsonStr;
-        $req              = new OpenApiRequest([
+        $query = [];
+        if (!Utils::isUnset($request->jsonStr)) {
+            $query['JsonStr'] = $request->jsonStr;
+        }
+        $req = new OpenApiRequest([
             'query' => OpenApiUtilClient::query($query),
-            'body'  => Utils::toMap($request),
         ]);
         $params = new Params([
             'action'      => 'ListHotWordsTasks',
@@ -2428,7 +2111,7 @@ class Qualitycheck extends OpenApiClient
             'method'      => 'POST',
             'authType'    => 'AK',
             'style'       => 'RPC',
-            'reqBodyType' => 'json',
+            'reqBodyType' => 'formData',
             'bodyType'    => 'json',
         ]);
 
@@ -2456,11 +2139,12 @@ class Qualitycheck extends OpenApiClient
     public function listPrecisionTaskWithOptions($request, $runtime)
     {
         Utils::validateModel($request);
-        $query            = [];
-        $query['JsonStr'] = $request->jsonStr;
-        $req              = new OpenApiRequest([
+        $query = [];
+        if (!Utils::isUnset($request->jsonStr)) {
+            $query['JsonStr'] = $request->jsonStr;
+        }
+        $req = new OpenApiRequest([
             'query' => OpenApiUtilClient::query($query),
-            'body'  => Utils::toMap($request),
         ]);
         $params = new Params([
             'action'      => 'ListPrecisionTask',
@@ -2470,7 +2154,7 @@ class Qualitycheck extends OpenApiClient
             'method'      => 'POST',
             'authType'    => 'AK',
             'style'       => 'RPC',
-            'reqBodyType' => 'json',
+            'reqBodyType' => 'formData',
             'bodyType'    => 'json',
         ]);
 
@@ -2498,11 +2182,12 @@ class Qualitycheck extends OpenApiClient
     public function listRolesWithOptions($request, $runtime)
     {
         Utils::validateModel($request);
-        $query            = [];
-        $query['JsonStr'] = $request->jsonStr;
-        $req              = new OpenApiRequest([
+        $query = [];
+        if (!Utils::isUnset($request->jsonStr)) {
+            $query['JsonStr'] = $request->jsonStr;
+        }
+        $req = new OpenApiRequest([
             'query' => OpenApiUtilClient::query($query),
-            'body'  => Utils::toMap($request),
         ]);
         $params = new Params([
             'action'      => 'ListRoles',
@@ -2512,7 +2197,7 @@ class Qualitycheck extends OpenApiClient
             'method'      => 'POST',
             'authType'    => 'AK',
             'style'       => 'RPC',
-            'reqBodyType' => 'json',
+            'reqBodyType' => 'formData',
             'bodyType'    => 'json',
         ]);
 
@@ -2540,11 +2225,12 @@ class Qualitycheck extends OpenApiClient
     public function listRulesWithOptions($request, $runtime)
     {
         Utils::validateModel($request);
-        $query            = [];
-        $query['JsonStr'] = $request->jsonStr;
-        $req              = new OpenApiRequest([
+        $query = [];
+        if (!Utils::isUnset($request->jsonStr)) {
+            $query['JsonStr'] = $request->jsonStr;
+        }
+        $req = new OpenApiRequest([
             'query' => OpenApiUtilClient::query($query),
-            'body'  => Utils::toMap($request),
         ]);
         $params = new Params([
             'action'      => 'ListRules',
@@ -2554,7 +2240,7 @@ class Qualitycheck extends OpenApiClient
             'method'      => 'POST',
             'authType'    => 'AK',
             'style'       => 'RPC',
-            'reqBodyType' => 'json',
+            'reqBodyType' => 'formData',
             'bodyType'    => 'json',
         ]);
 
@@ -2582,11 +2268,12 @@ class Qualitycheck extends OpenApiClient
     public function listSkillGroupConfigWithOptions($request, $runtime)
     {
         Utils::validateModel($request);
-        $query            = [];
-        $query['JsonStr'] = $request->jsonStr;
-        $req              = new OpenApiRequest([
+        $query = [];
+        if (!Utils::isUnset($request->jsonStr)) {
+            $query['JsonStr'] = $request->jsonStr;
+        }
+        $req = new OpenApiRequest([
             'query' => OpenApiUtilClient::query($query),
-            'body'  => Utils::toMap($request),
         ]);
         $params = new Params([
             'action'      => 'ListSkillGroupConfig',
@@ -2596,7 +2283,7 @@ class Qualitycheck extends OpenApiClient
             'method'      => 'POST',
             'authType'    => 'AK',
             'style'       => 'RPC',
-            'reqBodyType' => 'json',
+            'reqBodyType' => 'formData',
             'bodyType'    => 'json',
         ]);
 
@@ -2624,11 +2311,12 @@ class Qualitycheck extends OpenApiClient
     public function listTaskAssignRulesWithOptions($request, $runtime)
     {
         Utils::validateModel($request);
-        $query            = [];
-        $query['JsonStr'] = $request->jsonStr;
-        $req              = new OpenApiRequest([
+        $query = [];
+        if (!Utils::isUnset($request->jsonStr)) {
+            $query['JsonStr'] = $request->jsonStr;
+        }
+        $req = new OpenApiRequest([
             'query' => OpenApiUtilClient::query($query),
-            'body'  => Utils::toMap($request),
         ]);
         $params = new Params([
             'action'      => 'ListTaskAssignRules',
@@ -2638,7 +2326,7 @@ class Qualitycheck extends OpenApiClient
             'method'      => 'POST',
             'authType'    => 'AK',
             'style'       => 'RPC',
-            'reqBodyType' => 'json',
+            'reqBodyType' => 'formData',
             'bodyType'    => 'json',
         ]);
 
@@ -2666,11 +2354,12 @@ class Qualitycheck extends OpenApiClient
     public function listUsersWithOptions($request, $runtime)
     {
         Utils::validateModel($request);
-        $query            = [];
-        $query['JsonStr'] = $request->jsonStr;
-        $req              = new OpenApiRequest([
+        $query = [];
+        if (!Utils::isUnset($request->jsonStr)) {
+            $query['JsonStr'] = $request->jsonStr;
+        }
+        $req = new OpenApiRequest([
             'query' => OpenApiUtilClient::query($query),
-            'body'  => Utils::toMap($request),
         ]);
         $params = new Params([
             'action'      => 'ListUsers',
@@ -2680,7 +2369,7 @@ class Qualitycheck extends OpenApiClient
             'method'      => 'POST',
             'authType'    => 'AK',
             'style'       => 'RPC',
-            'reqBodyType' => 'json',
+            'reqBodyType' => 'formData',
             'bodyType'    => 'json',
         ]);
 
@@ -2708,11 +2397,12 @@ class Qualitycheck extends OpenApiClient
     public function listWarningConfigWithOptions($request, $runtime)
     {
         Utils::validateModel($request);
-        $query            = [];
-        $query['JsonStr'] = $request->jsonStr;
-        $req              = new OpenApiRequest([
+        $query = [];
+        if (!Utils::isUnset($request->jsonStr)) {
+            $query['JsonStr'] = $request->jsonStr;
+        }
+        $req = new OpenApiRequest([
             'query' => OpenApiUtilClient::query($query),
-            'body'  => Utils::toMap($request),
         ]);
         $params = new Params([
             'action'      => 'ListWarningConfig',
@@ -2722,7 +2412,7 @@ class Qualitycheck extends OpenApiClient
             'method'      => 'POST',
             'authType'    => 'AK',
             'style'       => 'RPC',
-            'reqBodyType' => 'json',
+            'reqBodyType' => 'formData',
             'bodyType'    => 'json',
         ]);
 
@@ -2742,48 +2432,6 @@ class Qualitycheck extends OpenApiClient
     }
 
     /**
-     * @param RemoveAndGetTaskRulesRequest $request
-     * @param RuntimeOptions               $runtime
-     *
-     * @return RemoveAndGetTaskRulesResponse
-     */
-    public function removeAndGetTaskRulesWithOptions($request, $runtime)
-    {
-        Utils::validateModel($request);
-        $query            = [];
-        $query['JsonStr'] = $request->jsonStr;
-        $req              = new OpenApiRequest([
-            'query' => OpenApiUtilClient::query($query),
-            'body'  => Utils::toMap($request),
-        ]);
-        $params = new Params([
-            'action'      => 'RemoveAndGetTaskRules',
-            'version'     => '2019-01-15',
-            'protocol'    => 'HTTPS',
-            'pathname'    => '/',
-            'method'      => 'POST',
-            'authType'    => 'AK',
-            'style'       => 'RPC',
-            'reqBodyType' => 'json',
-            'bodyType'    => 'json',
-        ]);
-
-        return RemoveAndGetTaskRulesResponse::fromMap($this->callApi($params, $req, $runtime));
-    }
-
-    /**
-     * @param RemoveAndGetTaskRulesRequest $request
-     *
-     * @return RemoveAndGetTaskRulesResponse
-     */
-    public function removeAndGetTaskRules($request)
-    {
-        $runtime = new RuntimeOptions([]);
-
-        return $this->removeAndGetTaskRulesWithOptions($request, $runtime);
-    }
-
-    /**
      * @param RestartAsrTaskRequest $request
      * @param RuntimeOptions        $runtime
      *
@@ -2792,11 +2440,12 @@ class Qualitycheck extends OpenApiClient
     public function restartAsrTaskWithOptions($request, $runtime)
     {
         Utils::validateModel($request);
-        $query            = [];
-        $query['JsonStr'] = $request->jsonStr;
-        $req              = new OpenApiRequest([
+        $query = [];
+        if (!Utils::isUnset($request->jsonStr)) {
+            $query['JsonStr'] = $request->jsonStr;
+        }
+        $req = new OpenApiRequest([
             'query' => OpenApiUtilClient::query($query),
-            'body'  => Utils::toMap($request),
         ]);
         $params = new Params([
             'action'      => 'RestartAsrTask',
@@ -2806,7 +2455,7 @@ class Qualitycheck extends OpenApiClient
             'method'      => 'POST',
             'authType'    => 'AK',
             'style'       => 'RPC',
-            'reqBodyType' => 'json',
+            'reqBodyType' => 'formData',
             'bodyType'    => 'json',
         ]);
 
@@ -2826,48 +2475,6 @@ class Qualitycheck extends OpenApiClient
     }
 
     /**
-     * @param ReviewSingleResultByIdRequest $request
-     * @param RuntimeOptions                $runtime
-     *
-     * @return ReviewSingleResultByIdResponse
-     */
-    public function reviewSingleResultByIdWithOptions($request, $runtime)
-    {
-        Utils::validateModel($request);
-        $query            = [];
-        $query['JsonStr'] = $request->jsonStr;
-        $req              = new OpenApiRequest([
-            'query' => OpenApiUtilClient::query($query),
-            'body'  => Utils::toMap($request),
-        ]);
-        $params = new Params([
-            'action'      => 'ReviewSingleResultById',
-            'version'     => '2019-01-15',
-            'protocol'    => 'HTTPS',
-            'pathname'    => '/',
-            'method'      => 'POST',
-            'authType'    => 'AK',
-            'style'       => 'RPC',
-            'reqBodyType' => 'json',
-            'bodyType'    => 'json',
-        ]);
-
-        return ReviewSingleResultByIdResponse::fromMap($this->callApi($params, $req, $runtime));
-    }
-
-    /**
-     * @param ReviewSingleResultByIdRequest $request
-     *
-     * @return ReviewSingleResultByIdResponse
-     */
-    public function reviewSingleResultById($request)
-    {
-        $runtime = new RuntimeOptions([]);
-
-        return $this->reviewSingleResultByIdWithOptions($request, $runtime);
-    }
-
-    /**
      * @param SaveConfigDataSetRequest $request
      * @param RuntimeOptions           $runtime
      *
@@ -2876,11 +2483,12 @@ class Qualitycheck extends OpenApiClient
     public function saveConfigDataSetWithOptions($request, $runtime)
     {
         Utils::validateModel($request);
-        $query            = [];
-        $query['JsonStr'] = $request->jsonStr;
-        $req              = new OpenApiRequest([
+        $query = [];
+        if (!Utils::isUnset($request->jsonStr)) {
+            $query['JsonStr'] = $request->jsonStr;
+        }
+        $req = new OpenApiRequest([
             'query' => OpenApiUtilClient::query($query),
-            'body'  => Utils::toMap($request),
         ]);
         $params = new Params([
             'action'      => 'SaveConfigDataSet',
@@ -2890,7 +2498,7 @@ class Qualitycheck extends OpenApiClient
             'method'      => 'POST',
             'authType'    => 'AK',
             'style'       => 'RPC',
-            'reqBodyType' => 'json',
+            'reqBodyType' => 'formData',
             'bodyType'    => 'json',
         ]);
 
@@ -2918,11 +2526,12 @@ class Qualitycheck extends OpenApiClient
     public function submitComplaintWithOptions($request, $runtime)
     {
         Utils::validateModel($request);
-        $query            = [];
-        $query['JsonStr'] = $request->jsonStr;
-        $req              = new OpenApiRequest([
+        $query = [];
+        if (!Utils::isUnset($request->jsonStr)) {
+            $query['JsonStr'] = $request->jsonStr;
+        }
+        $req = new OpenApiRequest([
             'query' => OpenApiUtilClient::query($query),
-            'body'  => Utils::toMap($request),
         ]);
         $params = new Params([
             'action'      => 'SubmitComplaint',
@@ -2932,7 +2541,7 @@ class Qualitycheck extends OpenApiClient
             'method'      => 'POST',
             'authType'    => 'AK',
             'style'       => 'RPC',
-            'reqBodyType' => 'json',
+            'reqBodyType' => 'formData',
             'bodyType'    => 'json',
         ]);
 
@@ -2952,48 +2561,6 @@ class Qualitycheck extends OpenApiClient
     }
 
     /**
-     * @param SubmitCustomizationConfigRequest $request
-     * @param RuntimeOptions                   $runtime
-     *
-     * @return SubmitCustomizationConfigResponse
-     */
-    public function submitCustomizationConfigWithOptions($request, $runtime)
-    {
-        Utils::validateModel($request);
-        $query            = [];
-        $query['JsonStr'] = $request->jsonStr;
-        $req              = new OpenApiRequest([
-            'query' => OpenApiUtilClient::query($query),
-            'body'  => Utils::toMap($request),
-        ]);
-        $params = new Params([
-            'action'      => 'SubmitCustomizationConfig',
-            'version'     => '2019-01-15',
-            'protocol'    => 'HTTPS',
-            'pathname'    => '/',
-            'method'      => 'POST',
-            'authType'    => 'AK',
-            'style'       => 'RPC',
-            'reqBodyType' => 'json',
-            'bodyType'    => 'json',
-        ]);
-
-        return SubmitCustomizationConfigResponse::fromMap($this->callApi($params, $req, $runtime));
-    }
-
-    /**
-     * @param SubmitCustomizationConfigRequest $request
-     *
-     * @return SubmitCustomizationConfigResponse
-     */
-    public function submitCustomizationConfig($request)
-    {
-        $runtime = new RuntimeOptions([]);
-
-        return $this->submitCustomizationConfigWithOptions($request, $runtime);
-    }
-
-    /**
      * @param SubmitPrecisionTaskRequest $request
      * @param RuntimeOptions             $runtime
      *
@@ -3002,11 +2569,12 @@ class Qualitycheck extends OpenApiClient
     public function submitPrecisionTaskWithOptions($request, $runtime)
     {
         Utils::validateModel($request);
-        $query            = [];
-        $query['JsonStr'] = $request->jsonStr;
-        $req              = new OpenApiRequest([
+        $query = [];
+        if (!Utils::isUnset($request->jsonStr)) {
+            $query['JsonStr'] = $request->jsonStr;
+        }
+        $req = new OpenApiRequest([
             'query' => OpenApiUtilClient::query($query),
-            'body'  => Utils::toMap($request),
         ]);
         $params = new Params([
             'action'      => 'SubmitPrecisionTask',
@@ -3016,7 +2584,7 @@ class Qualitycheck extends OpenApiClient
             'method'      => 'POST',
             'authType'    => 'AK',
             'style'       => 'RPC',
-            'reqBodyType' => 'json',
+            'reqBodyType' => 'formData',
             'bodyType'    => 'json',
         ]);
 
@@ -3044,11 +2612,12 @@ class Qualitycheck extends OpenApiClient
     public function submitQualityCheckTaskWithOptions($request, $runtime)
     {
         Utils::validateModel($request);
-        $query            = [];
-        $query['JsonStr'] = $request->jsonStr;
-        $req              = new OpenApiRequest([
+        $query = [];
+        if (!Utils::isUnset($request->jsonStr)) {
+            $query['JsonStr'] = $request->jsonStr;
+        }
+        $req = new OpenApiRequest([
             'query' => OpenApiUtilClient::query($query),
-            'body'  => Utils::toMap($request),
         ]);
         $params = new Params([
             'action'      => 'SubmitQualityCheckTask',
@@ -3058,7 +2627,7 @@ class Qualitycheck extends OpenApiClient
             'method'      => 'POST',
             'authType'    => 'AK',
             'style'       => 'RPC',
-            'reqBodyType' => 'json',
+            'reqBodyType' => 'formData',
             'bodyType'    => 'json',
         ]);
 
@@ -3086,11 +2655,12 @@ class Qualitycheck extends OpenApiClient
     public function submitReviewInfoWithOptions($request, $runtime)
     {
         Utils::validateModel($request);
-        $query            = [];
-        $query['JsonStr'] = $request->jsonStr;
-        $req              = new OpenApiRequest([
+        $query = [];
+        if (!Utils::isUnset($request->jsonStr)) {
+            $query['JsonStr'] = $request->jsonStr;
+        }
+        $req = new OpenApiRequest([
             'query' => OpenApiUtilClient::query($query),
-            'body'  => Utils::toMap($request),
         ]);
         $params = new Params([
             'action'      => 'SubmitReviewInfo',
@@ -3100,7 +2670,7 @@ class Qualitycheck extends OpenApiClient
             'method'      => 'POST',
             'authType'    => 'AK',
             'style'       => 'RPC',
-            'reqBodyType' => 'json',
+            'reqBodyType' => 'formData',
             'bodyType'    => 'json',
         ]);
 
@@ -3128,11 +2698,12 @@ class Qualitycheck extends OpenApiClient
     public function syncQualityCheckWithOptions($request, $runtime)
     {
         Utils::validateModel($request);
-        $query            = [];
-        $query['JsonStr'] = $request->jsonStr;
-        $req              = new OpenApiRequest([
+        $query = [];
+        if (!Utils::isUnset($request->jsonStr)) {
+            $query['JsonStr'] = $request->jsonStr;
+        }
+        $req = new OpenApiRequest([
             'query' => OpenApiUtilClient::query($query),
-            'body'  => Utils::toMap($request),
         ]);
         $params = new Params([
             'action'      => 'SyncQualityCheck',
@@ -3142,7 +2713,7 @@ class Qualitycheck extends OpenApiClient
             'method'      => 'POST',
             'authType'    => 'AK',
             'style'       => 'RPC',
-            'reqBodyType' => 'json',
+            'reqBodyType' => 'formData',
             'bodyType'    => 'json',
         ]);
 
@@ -3162,48 +2733,6 @@ class Qualitycheck extends OpenApiClient
     }
 
     /**
-     * @param TestRuleRequest $request
-     * @param RuntimeOptions  $runtime
-     *
-     * @return TestRuleResponse
-     */
-    public function testRuleWithOptions($request, $runtime)
-    {
-        Utils::validateModel($request);
-        $query            = [];
-        $query['JsonStr'] = $request->jsonStr;
-        $req              = new OpenApiRequest([
-            'query' => OpenApiUtilClient::query($query),
-            'body'  => Utils::toMap($request),
-        ]);
-        $params = new Params([
-            'action'      => 'TestRule',
-            'version'     => '2019-01-15',
-            'protocol'    => 'HTTPS',
-            'pathname'    => '/',
-            'method'      => 'POST',
-            'authType'    => 'AK',
-            'style'       => 'RPC',
-            'reqBodyType' => 'json',
-            'bodyType'    => 'json',
-        ]);
-
-        return TestRuleResponse::fromMap($this->callApi($params, $req, $runtime));
-    }
-
-    /**
-     * @param TestRuleRequest $request
-     *
-     * @return TestRuleResponse
-     */
-    public function testRule($request)
-    {
-        $runtime = new RuntimeOptions([]);
-
-        return $this->testRuleWithOptions($request, $runtime);
-    }
-
-    /**
      * @param UpdateAsrVocabRequest $request
      * @param RuntimeOptions        $runtime
      *
@@ -3212,11 +2741,12 @@ class Qualitycheck extends OpenApiClient
     public function updateAsrVocabWithOptions($request, $runtime)
     {
         Utils::validateModel($request);
-        $query            = [];
-        $query['JsonStr'] = $request->jsonStr;
-        $req              = new OpenApiRequest([
+        $query = [];
+        if (!Utils::isUnset($request->jsonStr)) {
+            $query['JsonStr'] = $request->jsonStr;
+        }
+        $req = new OpenApiRequest([
             'query' => OpenApiUtilClient::query($query),
-            'body'  => Utils::toMap($request),
         ]);
         $params = new Params([
             'action'      => 'UpdateAsrVocab',
@@ -3226,7 +2756,7 @@ class Qualitycheck extends OpenApiClient
             'method'      => 'POST',
             'authType'    => 'AK',
             'style'       => 'RPC',
-            'reqBodyType' => 'json',
+            'reqBodyType' => 'formData',
             'bodyType'    => 'json',
         ]);
 
@@ -3246,48 +2776,6 @@ class Qualitycheck extends OpenApiClient
     }
 
     /**
-     * @param UpdateOnPurchaseSuccessRequest $request
-     * @param RuntimeOptions                 $runtime
-     *
-     * @return UpdateOnPurchaseSuccessResponse
-     */
-    public function updateOnPurchaseSuccessWithOptions($request, $runtime)
-    {
-        Utils::validateModel($request);
-        $query            = [];
-        $query['JsonStr'] = $request->jsonStr;
-        $req              = new OpenApiRequest([
-            'query' => OpenApiUtilClient::query($query),
-            'body'  => Utils::toMap($request),
-        ]);
-        $params = new Params([
-            'action'      => 'UpdateOnPurchaseSuccess',
-            'version'     => '2019-01-15',
-            'protocol'    => 'HTTPS',
-            'pathname'    => '/',
-            'method'      => 'POST',
-            'authType'    => 'AK',
-            'style'       => 'RPC',
-            'reqBodyType' => 'json',
-            'bodyType'    => 'json',
-        ]);
-
-        return UpdateOnPurchaseSuccessResponse::fromMap($this->callApi($params, $req, $runtime));
-    }
-
-    /**
-     * @param UpdateOnPurchaseSuccessRequest $request
-     *
-     * @return UpdateOnPurchaseSuccessResponse
-     */
-    public function updateOnPurchaseSuccess($request)
-    {
-        $runtime = new RuntimeOptions([]);
-
-        return $this->updateOnPurchaseSuccessWithOptions($request, $runtime);
-    }
-
-    /**
      * @param UpdateRuleRequest $request
      * @param RuntimeOptions    $runtime
      *
@@ -3296,11 +2784,12 @@ class Qualitycheck extends OpenApiClient
     public function updateRuleWithOptions($request, $runtime)
     {
         Utils::validateModel($request);
-        $query            = [];
-        $query['JsonStr'] = $request->jsonStr;
-        $req              = new OpenApiRequest([
+        $query = [];
+        if (!Utils::isUnset($request->jsonStr)) {
+            $query['JsonStr'] = $request->jsonStr;
+        }
+        $req = new OpenApiRequest([
             'query' => OpenApiUtilClient::query($query),
-            'body'  => Utils::toMap($request),
         ]);
         $params = new Params([
             'action'      => 'UpdateRule',
@@ -3310,7 +2799,7 @@ class Qualitycheck extends OpenApiClient
             'method'      => 'POST',
             'authType'    => 'AK',
             'style'       => 'RPC',
-            'reqBodyType' => 'json',
+            'reqBodyType' => 'formData',
             'bodyType'    => 'json',
         ]);
 
@@ -3338,11 +2827,12 @@ class Qualitycheck extends OpenApiClient
     public function updateScoreForApiWithOptions($request, $runtime)
     {
         Utils::validateModel($request);
-        $query            = [];
-        $query['JsonStr'] = $request->jsonStr;
-        $req              = new OpenApiRequest([
+        $query = [];
+        if (!Utils::isUnset($request->jsonStr)) {
+            $query['JsonStr'] = $request->jsonStr;
+        }
+        $req = new OpenApiRequest([
             'query' => OpenApiUtilClient::query($query),
-            'body'  => Utils::toMap($request),
         ]);
         $params = new Params([
             'action'      => 'UpdateScoreForApi',
@@ -3352,7 +2842,7 @@ class Qualitycheck extends OpenApiClient
             'method'      => 'POST',
             'authType'    => 'AK',
             'style'       => 'RPC',
-            'reqBodyType' => 'json',
+            'reqBodyType' => 'formData',
             'bodyType'    => 'json',
         ]);
 
@@ -3380,11 +2870,12 @@ class Qualitycheck extends OpenApiClient
     public function updateSkillGroupConfigWithOptions($request, $runtime)
     {
         Utils::validateModel($request);
-        $query            = [];
-        $query['JsonStr'] = $request->jsonStr;
-        $req              = new OpenApiRequest([
+        $query = [];
+        if (!Utils::isUnset($request->jsonStr)) {
+            $query['JsonStr'] = $request->jsonStr;
+        }
+        $req = new OpenApiRequest([
             'query' => OpenApiUtilClient::query($query),
-            'body'  => Utils::toMap($request),
         ]);
         $params = new Params([
             'action'      => 'UpdateSkillGroupConfig',
@@ -3394,7 +2885,7 @@ class Qualitycheck extends OpenApiClient
             'method'      => 'POST',
             'authType'    => 'AK',
             'style'       => 'RPC',
-            'reqBodyType' => 'json',
+            'reqBodyType' => 'formData',
             'bodyType'    => 'json',
         ]);
 
@@ -3422,11 +2913,12 @@ class Qualitycheck extends OpenApiClient
     public function updateSubScoreForApiWithOptions($request, $runtime)
     {
         Utils::validateModel($request);
-        $query            = [];
-        $query['JsonStr'] = $request->jsonStr;
-        $req              = new OpenApiRequest([
+        $query = [];
+        if (!Utils::isUnset($request->jsonStr)) {
+            $query['JsonStr'] = $request->jsonStr;
+        }
+        $req = new OpenApiRequest([
             'query' => OpenApiUtilClient::query($query),
-            'body'  => Utils::toMap($request),
         ]);
         $params = new Params([
             'action'      => 'UpdateSubScoreForApi',
@@ -3436,7 +2928,7 @@ class Qualitycheck extends OpenApiClient
             'method'      => 'POST',
             'authType'    => 'AK',
             'style'       => 'RPC',
-            'reqBodyType' => 'json',
+            'reqBodyType' => 'formData',
             'bodyType'    => 'json',
         ]);
 
@@ -3464,11 +2956,12 @@ class Qualitycheck extends OpenApiClient
     public function updateSyncQualityCheckDataWithOptions($request, $runtime)
     {
         Utils::validateModel($request);
-        $query            = [];
-        $query['JsonStr'] = $request->jsonStr;
-        $req              = new OpenApiRequest([
+        $query = [];
+        if (!Utils::isUnset($request->jsonStr)) {
+            $query['JsonStr'] = $request->jsonStr;
+        }
+        $req = new OpenApiRequest([
             'query' => OpenApiUtilClient::query($query),
-            'body'  => Utils::toMap($request),
         ]);
         $params = new Params([
             'action'      => 'UpdateSyncQualityCheckData',
@@ -3478,7 +2971,7 @@ class Qualitycheck extends OpenApiClient
             'method'      => 'POST',
             'authType'    => 'AK',
             'style'       => 'RPC',
-            'reqBodyType' => 'json',
+            'reqBodyType' => 'formData',
             'bodyType'    => 'json',
         ]);
 
@@ -3506,11 +2999,12 @@ class Qualitycheck extends OpenApiClient
     public function updateTaskAssignRuleWithOptions($request, $runtime)
     {
         Utils::validateModel($request);
-        $query            = [];
-        $query['JsonStr'] = $request->jsonStr;
-        $req              = new OpenApiRequest([
+        $query = [];
+        if (!Utils::isUnset($request->jsonStr)) {
+            $query['JsonStr'] = $request->jsonStr;
+        }
+        $req = new OpenApiRequest([
             'query' => OpenApiUtilClient::query($query),
-            'body'  => Utils::toMap($request),
         ]);
         $params = new Params([
             'action'      => 'UpdateTaskAssignRule',
@@ -3520,7 +3014,7 @@ class Qualitycheck extends OpenApiClient
             'method'      => 'POST',
             'authType'    => 'AK',
             'style'       => 'RPC',
-            'reqBodyType' => 'json',
+            'reqBodyType' => 'formData',
             'bodyType'    => 'json',
         ]);
 
@@ -3548,11 +3042,12 @@ class Qualitycheck extends OpenApiClient
     public function updateUserWithOptions($request, $runtime)
     {
         Utils::validateModel($request);
-        $query            = [];
-        $query['JsonStr'] = $request->jsonStr;
-        $req              = new OpenApiRequest([
+        $query = [];
+        if (!Utils::isUnset($request->jsonStr)) {
+            $query['JsonStr'] = $request->jsonStr;
+        }
+        $req = new OpenApiRequest([
             'query' => OpenApiUtilClient::query($query),
-            'body'  => Utils::toMap($request),
         ]);
         $params = new Params([
             'action'      => 'UpdateUser',
@@ -3562,7 +3057,7 @@ class Qualitycheck extends OpenApiClient
             'method'      => 'POST',
             'authType'    => 'AK',
             'style'       => 'RPC',
-            'reqBodyType' => 'json',
+            'reqBodyType' => 'formData',
             'bodyType'    => 'json',
         ]);
 
@@ -3590,11 +3085,12 @@ class Qualitycheck extends OpenApiClient
     public function updateUserConfigWithOptions($request, $runtime)
     {
         Utils::validateModel($request);
-        $query            = [];
-        $query['JsonStr'] = $request->jsonStr;
-        $req              = new OpenApiRequest([
+        $query = [];
+        if (!Utils::isUnset($request->jsonStr)) {
+            $query['JsonStr'] = $request->jsonStr;
+        }
+        $req = new OpenApiRequest([
             'query' => OpenApiUtilClient::query($query),
-            'body'  => Utils::toMap($request),
         ]);
         $params = new Params([
             'action'      => 'UpdateUserConfig',
@@ -3604,7 +3100,7 @@ class Qualitycheck extends OpenApiClient
             'method'      => 'POST',
             'authType'    => 'AK',
             'style'       => 'RPC',
-            'reqBodyType' => 'json',
+            'reqBodyType' => 'formData',
             'bodyType'    => 'json',
         ]);
 
@@ -3632,11 +3128,12 @@ class Qualitycheck extends OpenApiClient
     public function updateWarningConfigWithOptions($request, $runtime)
     {
         Utils::validateModel($request);
-        $query            = [];
-        $query['JsonStr'] = $request->jsonStr;
-        $req              = new OpenApiRequest([
+        $query = [];
+        if (!Utils::isUnset($request->jsonStr)) {
+            $query['JsonStr'] = $request->jsonStr;
+        }
+        $req = new OpenApiRequest([
             'query' => OpenApiUtilClient::query($query),
-            'body'  => Utils::toMap($request),
         ]);
         $params = new Params([
             'action'      => 'UpdateWarningConfig',
@@ -3646,7 +3143,7 @@ class Qualitycheck extends OpenApiClient
             'method'      => 'POST',
             'authType'    => 'AK',
             'style'       => 'RPC',
-            'reqBodyType' => 'json',
+            'reqBodyType' => 'formData',
             'bodyType'    => 'json',
         ]);
 
@@ -3674,11 +3171,12 @@ class Qualitycheck extends OpenApiClient
     public function uploadAudioDataWithOptions($request, $runtime)
     {
         Utils::validateModel($request);
-        $query            = [];
-        $query['JsonStr'] = $request->jsonStr;
-        $req              = new OpenApiRequest([
+        $query = [];
+        if (!Utils::isUnset($request->jsonStr)) {
+            $query['JsonStr'] = $request->jsonStr;
+        }
+        $req = new OpenApiRequest([
             'query' => OpenApiUtilClient::query($query),
-            'body'  => Utils::toMap($request),
         ]);
         $params = new Params([
             'action'      => 'UploadAudioData',
@@ -3688,7 +3186,7 @@ class Qualitycheck extends OpenApiClient
             'method'      => 'POST',
             'authType'    => 'AK',
             'style'       => 'RPC',
-            'reqBodyType' => 'json',
+            'reqBodyType' => 'formData',
             'bodyType'    => 'json',
         ]);
 
@@ -3716,11 +3214,12 @@ class Qualitycheck extends OpenApiClient
     public function uploadDataWithOptions($request, $runtime)
     {
         Utils::validateModel($request);
-        $query            = [];
-        $query['JsonStr'] = $request->jsonStr;
-        $req              = new OpenApiRequest([
+        $query = [];
+        if (!Utils::isUnset($request->jsonStr)) {
+            $query['JsonStr'] = $request->jsonStr;
+        }
+        $req = new OpenApiRequest([
             'query' => OpenApiUtilClient::query($query),
-            'body'  => Utils::toMap($request),
         ]);
         $params = new Params([
             'action'      => 'UploadData',
@@ -3730,7 +3229,7 @@ class Qualitycheck extends OpenApiClient
             'method'      => 'POST',
             'authType'    => 'AK',
             'style'       => 'RPC',
-            'reqBodyType' => 'json',
+            'reqBodyType' => 'formData',
             'bodyType'    => 'json',
         ]);
 
@@ -3758,11 +3257,12 @@ class Qualitycheck extends OpenApiClient
     public function uploadDataSyncWithOptions($request, $runtime)
     {
         Utils::validateModel($request);
-        $query            = [];
-        $query['JsonStr'] = $request->jsonStr;
-        $req              = new OpenApiRequest([
+        $query = [];
+        if (!Utils::isUnset($request->jsonStr)) {
+            $query['JsonStr'] = $request->jsonStr;
+        }
+        $req = new OpenApiRequest([
             'query' => OpenApiUtilClient::query($query),
-            'body'  => Utils::toMap($request),
         ]);
         $params = new Params([
             'action'      => 'UploadDataSync',
@@ -3772,7 +3272,7 @@ class Qualitycheck extends OpenApiClient
             'method'      => 'POST',
             'authType'    => 'AK',
             'style'       => 'RPC',
-            'reqBodyType' => 'json',
+            'reqBodyType' => 'formData',
             'bodyType'    => 'json',
         ]);
 
@@ -3800,11 +3300,12 @@ class Qualitycheck extends OpenApiClient
     public function uploadRuleWithOptions($request, $runtime)
     {
         Utils::validateModel($request);
-        $query            = [];
-        $query['JsonStr'] = $request->jsonStr;
-        $req              = new OpenApiRequest([
+        $query = [];
+        if (!Utils::isUnset($request->jsonStr)) {
+            $query['JsonStr'] = $request->jsonStr;
+        }
+        $req = new OpenApiRequest([
             'query' => OpenApiUtilClient::query($query),
-            'body'  => Utils::toMap($request),
         ]);
         $params = new Params([
             'action'      => 'UploadRule',
@@ -3814,7 +3315,7 @@ class Qualitycheck extends OpenApiClient
             'method'      => 'POST',
             'authType'    => 'AK',
             'style'       => 'RPC',
-            'reqBodyType' => 'json',
+            'reqBodyType' => 'formData',
             'bodyType'    => 'json',
         ]);
 
@@ -3842,11 +3343,12 @@ class Qualitycheck extends OpenApiClient
     public function verifyFileWithOptions($request, $runtime)
     {
         Utils::validateModel($request);
-        $query            = [];
-        $query['JsonStr'] = $request->jsonStr;
-        $req              = new OpenApiRequest([
+        $query = [];
+        if (!Utils::isUnset($request->jsonStr)) {
+            $query['JsonStr'] = $request->jsonStr;
+        }
+        $req = new OpenApiRequest([
             'query' => OpenApiUtilClient::query($query),
-            'body'  => Utils::toMap($request),
         ]);
         $params = new Params([
             'action'      => 'VerifyFile',
@@ -3856,7 +3358,7 @@ class Qualitycheck extends OpenApiClient
             'method'      => 'POST',
             'authType'    => 'AK',
             'style'       => 'RPC',
-            'reqBodyType' => 'json',
+            'reqBodyType' => 'formData',
             'bodyType'    => 'json',
         ]);
 
@@ -3884,11 +3386,12 @@ class Qualitycheck extends OpenApiClient
     public function verifySentenceWithOptions($request, $runtime)
     {
         Utils::validateModel($request);
-        $query            = [];
-        $query['JsonStr'] = $request->jsonStr;
-        $req              = new OpenApiRequest([
+        $query = [];
+        if (!Utils::isUnset($request->jsonStr)) {
+            $query['JsonStr'] = $request->jsonStr;
+        }
+        $req = new OpenApiRequest([
             'query' => OpenApiUtilClient::query($query),
-            'body'  => Utils::toMap($request),
         ]);
         $params = new Params([
             'action'      => 'VerifySentence',
@@ -3898,7 +3401,7 @@ class Qualitycheck extends OpenApiClient
             'method'      => 'POST',
             'authType'    => 'AK',
             'style'       => 'RPC',
-            'reqBodyType' => 'json',
+            'reqBodyType' => 'formData',
             'bodyType'    => 'json',
         ]);
 
