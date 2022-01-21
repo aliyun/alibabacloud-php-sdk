@@ -9,26 +9,36 @@ use AlibabaCloud\Tea\Model;
 class ListFlowClusterRequest extends Model
 {
     /**
+     * @description 当前页码，从1开始。
+     *
      * @var int
      */
     public $pageNumber;
 
     /**
+     * @description 分页查询时设置的每页行数。
+     *
      * @var int
      */
     public $pageSize;
 
     /**
+     * @description 项目ID。您可以调用ListFlowProject查看项目的ID。
+     *
      * @var string
      */
     public $projectId;
 
     /**
+     * @description 地域ID。您可以调用DescribeRegions查看最新的阿里云地域列表。
+     *
      * @var string
      */
     public $regionId;
 
     /**
+     * @description 资源组ID。您可以调用ListResourceGroups查看资源组ID。
+     *
      * @var string
      */
     public $resourceGroupId;

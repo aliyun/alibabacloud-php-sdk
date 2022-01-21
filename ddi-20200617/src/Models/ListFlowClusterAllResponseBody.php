@@ -10,26 +10,36 @@ use AlibabaCloud\Tea\Model;
 class ListFlowClusterAllResponseBody extends Model
 {
     /**
+     * @description 集群列表。
+     *
      * @var clusters
      */
     public $clusters;
 
     /**
+     * @description 当前页码，从1开始。
+     *
      * @var int
      */
     public $pageNumber;
 
     /**
+     * @description 分页查询时每页行数。
+     *
      * @var int
      */
     public $pageSize;
 
     /**
+     * @description 请求ID。
+     *
      * @var string
      */
     public $requestId;
 
     /**
+     * @description 总数。
+     *
      * @var int
      */
     public $totalCount;

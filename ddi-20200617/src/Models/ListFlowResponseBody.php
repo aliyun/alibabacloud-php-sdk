@@ -10,26 +10,36 @@ use AlibabaCloud\Tea\Model;
 class ListFlowResponseBody extends Model
 {
     /**
+     * @description 工作流列表
+     *
      * @var flow
      */
     public $flow;
 
     /**
+     * @description 页码。
+     *
      * @var int
      */
     public $pageNumber;
 
     /**
+     * @description 每页数量。
+     *
      * @var int
      */
     public $pageSize;
 
     /**
+     * @description 请求ID。
+     *
      * @var string
      */
     public $requestId;
 
     /**
+     * @description 总数。
+     *
      * @var int
      */
     public $total;

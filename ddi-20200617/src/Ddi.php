@@ -100,8 +100,6 @@ use AlibabaCloud\SDK\Ddi\V20200617\Models\ListFlowProjectUserRequest;
 use AlibabaCloud\SDK\Ddi\V20200617\Models\ListFlowProjectUserResponse;
 use AlibabaCloud\SDK\Ddi\V20200617\Models\ListFlowRequest;
 use AlibabaCloud\SDK\Ddi\V20200617\Models\ListFlowResponse;
-use AlibabaCloud\SDK\Ddi\V20200617\Models\ListFlowsRequest;
-use AlibabaCloud\SDK\Ddi\V20200617\Models\ListFlowsResponse;
 use AlibabaCloud\SDK\Ddi\V20200617\Models\ListMainVersionsRequest;
 use AlibabaCloud\SDK\Ddi\V20200617\Models\ListMainVersionsResponse;
 use AlibabaCloud\SDK\Ddi\V20200617\Models\ModifyFlowCategoryRequest;
@@ -198,11 +196,17 @@ class Ddi extends OpenApiClient
     public function cloneFlowWithOptions($request, $runtime)
     {
         Utils::validateModel($request);
-        $query              = [];
-        $query['Id']        = $request->id;
-        $query['ProjectId'] = $request->projectId;
-        $query['RegionId']  = $request->regionId;
-        $req                = new OpenApiRequest([
+        $query = [];
+        if (!Utils::isUnset($request->id)) {
+            $query['Id'] = $request->id;
+        }
+        if (!Utils::isUnset($request->projectId)) {
+            $query['ProjectId'] = $request->projectId;
+        }
+        if (!Utils::isUnset($request->regionId)) {
+            $query['RegionId'] = $request->regionId;
+        }
+        $req = new OpenApiRequest([
             'query' => OpenApiUtilClient::query($query),
         ]);
         $params = new Params([
@@ -241,12 +245,20 @@ class Ddi extends OpenApiClient
     public function cloneFlowJobWithOptions($request, $runtime)
     {
         Utils::validateModel($request);
-        $query              = [];
-        $query['Id']        = $request->id;
-        $query['Name']      = $request->name;
-        $query['ProjectId'] = $request->projectId;
-        $query['RegionId']  = $request->regionId;
-        $req                = new OpenApiRequest([
+        $query = [];
+        if (!Utils::isUnset($request->id)) {
+            $query['Id'] = $request->id;
+        }
+        if (!Utils::isUnset($request->name)) {
+            $query['Name'] = $request->name;
+        }
+        if (!Utils::isUnset($request->projectId)) {
+            $query['ProjectId'] = $request->projectId;
+        }
+        if (!Utils::isUnset($request->regionId)) {
+            $query['RegionId'] = $request->regionId;
+        }
+        $req = new OpenApiRequest([
             'query' => OpenApiUtilClient::query($query),
         ]);
         $params = new Params([
@@ -285,13 +297,23 @@ class Ddi extends OpenApiClient
     public function commitFlowEntitySnapshotWithOptions($request, $runtime)
     {
         Utils::validateModel($request);
-        $query                    = [];
-        $query['EntityId']        = $request->entityId;
-        $query['EntityType']      = $request->entityType;
-        $query['Message']         = $request->message;
-        $query['RegionId']        = $request->regionId;
-        $query['ResourceOwnerId'] = $request->resourceOwnerId;
-        $req                      = new OpenApiRequest([
+        $query = [];
+        if (!Utils::isUnset($request->entityId)) {
+            $query['EntityId'] = $request->entityId;
+        }
+        if (!Utils::isUnset($request->entityType)) {
+            $query['EntityType'] = $request->entityType;
+        }
+        if (!Utils::isUnset($request->message)) {
+            $query['Message'] = $request->message;
+        }
+        if (!Utils::isUnset($request->regionId)) {
+            $query['RegionId'] = $request->regionId;
+        }
+        if (!Utils::isUnset($request->resourceOwnerId)) {
+            $query['ResourceOwnerId'] = $request->resourceOwnerId;
+        }
+        $req = new OpenApiRequest([
             'query' => OpenApiUtilClient::query($query),
         ]);
         $params = new Params([
@@ -330,55 +352,149 @@ class Ddi extends OpenApiClient
     public function createClusterV2WithOptions($request, $runtime)
     {
         Utils::validateModel($request);
-        $query                           = [];
-        $query['AuthorizeContent']       = $request->authorizeContent;
-        $query['Auto']                   = $request->auto;
-        $query['AutoPayOrder']           = $request->autoPayOrder;
-        $query['BootstrapAction']        = $request->bootstrapAction;
-        $query['ChargeType']             = $request->chargeType;
-        $query['ClickHouseConf']         = $request->clickHouseConf;
-        $query['ClientToken']            = $request->clientToken;
-        $query['ClusterType']            = $request->clusterType;
-        $query['Config']                 = $request->config;
-        $query['Configurations']         = $request->configurations;
-        $query['DepositType']            = $request->depositType;
-        $query['EmrVer']                 = $request->emrVer;
-        $query['EnableEas']              = $request->enableEas;
-        $query['EnableHighAvailability'] = $request->enableHighAvailability;
-        $query['EnableSsh']              = $request->enableSsh;
-        $query['ExtraAttributes']        = $request->extraAttributes;
-        $query['HostComponentInfo']      = $request->hostComponentInfo;
-        $query['HostGroup']              = $request->hostGroup;
-        $query['InitCustomHiveMetaDB']   = $request->initCustomHiveMetaDB;
-        $query['InstanceGeneration']     = $request->instanceGeneration;
-        $query['IsOpenPublicIp']         = $request->isOpenPublicIp;
-        $query['KeyPairName']            = $request->keyPairName;
-        $query['LogPath']                = $request->logPath;
-        $query['MachineType']            = $request->machineType;
-        $query['MasterPwd']              = $request->masterPwd;
-        $query['MetaStoreConf']          = $request->metaStoreConf;
-        $query['MetaStoreType']          = $request->metaStoreType;
-        $query['Name']                   = $request->name;
-        $query['NetType']                = $request->netType;
-        $query['Period']                 = $request->period;
-        $query['PromotionInfo']          = $request->promotionInfo;
-        $query['RegionId']               = $request->regionId;
-        $query['RelatedClusterId']       = $request->relatedClusterId;
-        $query['ResourceGroupId']        = $request->resourceGroupId;
-        $query['ResourceOwnerId']        = $request->resourceOwnerId;
-        $query['SecurityGroupId']        = $request->securityGroupId;
-        $query['SecurityGroupName']      = $request->securityGroupName;
-        $query['ServiceInfo']            = $request->serviceInfo;
-        $query['Tag']                    = $request->tag;
-        $query['UseCustomHiveMetaDB']    = $request->useCustomHiveMetaDB;
-        $query['UseLocalMetaDb']         = $request->useLocalMetaDb;
-        $query['UserDefinedEmrEcsRole']  = $request->userDefinedEmrEcsRole;
-        $query['UserInfo']               = $request->userInfo;
-        $query['VSwitchId']              = $request->vSwitchId;
-        $query['VpcId']                  = $request->vpcId;
-        $query['WhiteListType']          = $request->whiteListType;
-        $query['ZoneId']                 = $request->zoneId;
-        $req                             = new OpenApiRequest([
+        $query = [];
+        if (!Utils::isUnset($request->authorizeContent)) {
+            $query['AuthorizeContent'] = $request->authorizeContent;
+        }
+        if (!Utils::isUnset($request->auto)) {
+            $query['Auto'] = $request->auto;
+        }
+        if (!Utils::isUnset($request->autoPayOrder)) {
+            $query['AutoPayOrder'] = $request->autoPayOrder;
+        }
+        if (!Utils::isUnset($request->bootstrapAction)) {
+            $query['BootstrapAction'] = $request->bootstrapAction;
+        }
+        if (!Utils::isUnset($request->chargeType)) {
+            $query['ChargeType'] = $request->chargeType;
+        }
+        if (!Utils::isUnset($request->clickHouseConf)) {
+            $query['ClickHouseConf'] = $request->clickHouseConf;
+        }
+        if (!Utils::isUnset($request->clientToken)) {
+            $query['ClientToken'] = $request->clientToken;
+        }
+        if (!Utils::isUnset($request->clusterType)) {
+            $query['ClusterType'] = $request->clusterType;
+        }
+        if (!Utils::isUnset($request->config)) {
+            $query['Config'] = $request->config;
+        }
+        if (!Utils::isUnset($request->configurations)) {
+            $query['Configurations'] = $request->configurations;
+        }
+        if (!Utils::isUnset($request->depositType)) {
+            $query['DepositType'] = $request->depositType;
+        }
+        if (!Utils::isUnset($request->emrVer)) {
+            $query['EmrVer'] = $request->emrVer;
+        }
+        if (!Utils::isUnset($request->enableEas)) {
+            $query['EnableEas'] = $request->enableEas;
+        }
+        if (!Utils::isUnset($request->enableHighAvailability)) {
+            $query['EnableHighAvailability'] = $request->enableHighAvailability;
+        }
+        if (!Utils::isUnset($request->enableSsh)) {
+            $query['EnableSsh'] = $request->enableSsh;
+        }
+        if (!Utils::isUnset($request->extraAttributes)) {
+            $query['ExtraAttributes'] = $request->extraAttributes;
+        }
+        if (!Utils::isUnset($request->hostComponentInfo)) {
+            $query['HostComponentInfo'] = $request->hostComponentInfo;
+        }
+        if (!Utils::isUnset($request->hostGroup)) {
+            $query['HostGroup'] = $request->hostGroup;
+        }
+        if (!Utils::isUnset($request->initCustomHiveMetaDB)) {
+            $query['InitCustomHiveMetaDB'] = $request->initCustomHiveMetaDB;
+        }
+        if (!Utils::isUnset($request->instanceGeneration)) {
+            $query['InstanceGeneration'] = $request->instanceGeneration;
+        }
+        if (!Utils::isUnset($request->isOpenPublicIp)) {
+            $query['IsOpenPublicIp'] = $request->isOpenPublicIp;
+        }
+        if (!Utils::isUnset($request->keyPairName)) {
+            $query['KeyPairName'] = $request->keyPairName;
+        }
+        if (!Utils::isUnset($request->logPath)) {
+            $query['LogPath'] = $request->logPath;
+        }
+        if (!Utils::isUnset($request->machineType)) {
+            $query['MachineType'] = $request->machineType;
+        }
+        if (!Utils::isUnset($request->masterPwd)) {
+            $query['MasterPwd'] = $request->masterPwd;
+        }
+        if (!Utils::isUnset($request->metaStoreConf)) {
+            $query['MetaStoreConf'] = $request->metaStoreConf;
+        }
+        if (!Utils::isUnset($request->metaStoreType)) {
+            $query['MetaStoreType'] = $request->metaStoreType;
+        }
+        if (!Utils::isUnset($request->name)) {
+            $query['Name'] = $request->name;
+        }
+        if (!Utils::isUnset($request->netType)) {
+            $query['NetType'] = $request->netType;
+        }
+        if (!Utils::isUnset($request->period)) {
+            $query['Period'] = $request->period;
+        }
+        if (!Utils::isUnset($request->promotionInfo)) {
+            $query['PromotionInfo'] = $request->promotionInfo;
+        }
+        if (!Utils::isUnset($request->regionId)) {
+            $query['RegionId'] = $request->regionId;
+        }
+        if (!Utils::isUnset($request->relatedClusterId)) {
+            $query['RelatedClusterId'] = $request->relatedClusterId;
+        }
+        if (!Utils::isUnset($request->resourceGroupId)) {
+            $query['ResourceGroupId'] = $request->resourceGroupId;
+        }
+        if (!Utils::isUnset($request->resourceOwnerId)) {
+            $query['ResourceOwnerId'] = $request->resourceOwnerId;
+        }
+        if (!Utils::isUnset($request->securityGroupId)) {
+            $query['SecurityGroupId'] = $request->securityGroupId;
+        }
+        if (!Utils::isUnset($request->securityGroupName)) {
+            $query['SecurityGroupName'] = $request->securityGroupName;
+        }
+        if (!Utils::isUnset($request->serviceInfo)) {
+            $query['ServiceInfo'] = $request->serviceInfo;
+        }
+        if (!Utils::isUnset($request->tag)) {
+            $query['Tag'] = $request->tag;
+        }
+        if (!Utils::isUnset($request->useCustomHiveMetaDB)) {
+            $query['UseCustomHiveMetaDB'] = $request->useCustomHiveMetaDB;
+        }
+        if (!Utils::isUnset($request->useLocalMetaDb)) {
+            $query['UseLocalMetaDb'] = $request->useLocalMetaDb;
+        }
+        if (!Utils::isUnset($request->userDefinedEmrEcsRole)) {
+            $query['UserDefinedEmrEcsRole'] = $request->userDefinedEmrEcsRole;
+        }
+        if (!Utils::isUnset($request->userInfo)) {
+            $query['UserInfo'] = $request->userInfo;
+        }
+        if (!Utils::isUnset($request->vSwitchId)) {
+            $query['VSwitchId'] = $request->vSwitchId;
+        }
+        if (!Utils::isUnset($request->vpcId)) {
+            $query['VpcId'] = $request->vpcId;
+        }
+        if (!Utils::isUnset($request->whiteListType)) {
+            $query['WhiteListType'] = $request->whiteListType;
+        }
+        if (!Utils::isUnset($request->zoneId)) {
+            $query['ZoneId'] = $request->zoneId;
+        }
+        $req = new OpenApiRequest([
             'query' => OpenApiUtilClient::query($query),
         ]);
         $params = new Params([
@@ -417,26 +533,62 @@ class Ddi extends OpenApiClient
     public function createFlowWithOptions($request, $runtime)
     {
         Utils::validateModel($request);
-        $query                            = [];
-        $query['AlertConf']               = $request->alertConf;
-        $query['AlertDingDingGroupBizId'] = $request->alertDingDingGroupBizId;
-        $query['AlertUserGroupBizId']     = $request->alertUserGroupBizId;
-        $query['Application']             = $request->application;
-        $query['ClientToken']             = $request->clientToken;
-        $query['ClusterId']               = $request->clusterId;
-        $query['CreateCluster']           = $request->createCluster;
-        $query['CronExpression']          = $request->cronExpression;
-        $query['Description']             = $request->description;
-        $query['EndSchedule']             = $request->endSchedule;
-        $query['HostName']                = $request->hostName;
-        $query['Name']                    = $request->name;
-        $query['Namespace']               = $request->namespace_;
-        $query['ParentCategory']          = $request->parentCategory;
-        $query['ParentFlowList']          = $request->parentFlowList;
-        $query['ProjectId']               = $request->projectId;
-        $query['RegionId']                = $request->regionId;
-        $query['StartSchedule']           = $request->startSchedule;
-        $req                              = new OpenApiRequest([
+        $query = [];
+        if (!Utils::isUnset($request->alertConf)) {
+            $query['AlertConf'] = $request->alertConf;
+        }
+        if (!Utils::isUnset($request->alertDingDingGroupBizId)) {
+            $query['AlertDingDingGroupBizId'] = $request->alertDingDingGroupBizId;
+        }
+        if (!Utils::isUnset($request->alertUserGroupBizId)) {
+            $query['AlertUserGroupBizId'] = $request->alertUserGroupBizId;
+        }
+        if (!Utils::isUnset($request->application)) {
+            $query['Application'] = $request->application;
+        }
+        if (!Utils::isUnset($request->clientToken)) {
+            $query['ClientToken'] = $request->clientToken;
+        }
+        if (!Utils::isUnset($request->clusterId)) {
+            $query['ClusterId'] = $request->clusterId;
+        }
+        if (!Utils::isUnset($request->createCluster)) {
+            $query['CreateCluster'] = $request->createCluster;
+        }
+        if (!Utils::isUnset($request->cronExpression)) {
+            $query['CronExpression'] = $request->cronExpression;
+        }
+        if (!Utils::isUnset($request->description)) {
+            $query['Description'] = $request->description;
+        }
+        if (!Utils::isUnset($request->endSchedule)) {
+            $query['EndSchedule'] = $request->endSchedule;
+        }
+        if (!Utils::isUnset($request->hostName)) {
+            $query['HostName'] = $request->hostName;
+        }
+        if (!Utils::isUnset($request->name)) {
+            $query['Name'] = $request->name;
+        }
+        if (!Utils::isUnset($request->namespace_)) {
+            $query['Namespace'] = $request->namespace_;
+        }
+        if (!Utils::isUnset($request->parentCategory)) {
+            $query['ParentCategory'] = $request->parentCategory;
+        }
+        if (!Utils::isUnset($request->parentFlowList)) {
+            $query['ParentFlowList'] = $request->parentFlowList;
+        }
+        if (!Utils::isUnset($request->projectId)) {
+            $query['ProjectId'] = $request->projectId;
+        }
+        if (!Utils::isUnset($request->regionId)) {
+            $query['RegionId'] = $request->regionId;
+        }
+        if (!Utils::isUnset($request->startSchedule)) {
+            $query['StartSchedule'] = $request->startSchedule;
+        }
+        $req = new OpenApiRequest([
             'query' => OpenApiUtilClient::query($query),
         ]);
         $params = new Params([
@@ -475,14 +627,26 @@ class Ddi extends OpenApiClient
     public function createFlowCategoryWithOptions($request, $runtime)
     {
         Utils::validateModel($request);
-        $query                = [];
-        $query['ClientToken'] = $request->clientToken;
-        $query['Name']        = $request->name;
-        $query['ParentId']    = $request->parentId;
-        $query['ProjectId']   = $request->projectId;
-        $query['RegionId']    = $request->regionId;
-        $query['Type']        = $request->type;
-        $req                  = new OpenApiRequest([
+        $query = [];
+        if (!Utils::isUnset($request->clientToken)) {
+            $query['ClientToken'] = $request->clientToken;
+        }
+        if (!Utils::isUnset($request->name)) {
+            $query['Name'] = $request->name;
+        }
+        if (!Utils::isUnset($request->parentId)) {
+            $query['ParentId'] = $request->parentId;
+        }
+        if (!Utils::isUnset($request->projectId)) {
+            $query['ProjectId'] = $request->projectId;
+        }
+        if (!Utils::isUnset($request->regionId)) {
+            $query['RegionId'] = $request->regionId;
+        }
+        if (!Utils::isUnset($request->type)) {
+            $query['Type'] = $request->type;
+        }
+        $req = new OpenApiRequest([
             'query' => OpenApiUtilClient::query($query),
         ]);
         $params = new Params([
@@ -521,12 +685,20 @@ class Ddi extends OpenApiClient
     public function createFlowEditLockWithOptions($request, $runtime)
     {
         Utils::validateModel($request);
-        $query                    = [];
-        $query['EntityId']        = $request->entityId;
-        $query['Force']           = $request->force;
-        $query['RegionId']        = $request->regionId;
-        $query['ResourceOwnerId'] = $request->resourceOwnerId;
-        $req                      = new OpenApiRequest([
+        $query = [];
+        if (!Utils::isUnset($request->entityId)) {
+            $query['EntityId'] = $request->entityId;
+        }
+        if (!Utils::isUnset($request->force)) {
+            $query['Force'] = $request->force;
+        }
+        if (!Utils::isUnset($request->regionId)) {
+            $query['RegionId'] = $request->regionId;
+        }
+        if (!Utils::isUnset($request->resourceOwnerId)) {
+            $query['ResourceOwnerId'] = $request->resourceOwnerId;
+        }
+        $req = new OpenApiRequest([
             'query' => OpenApiUtilClient::query($query),
         ]);
         $params = new Params([
@@ -565,28 +737,68 @@ class Ddi extends OpenApiClient
     public function createFlowJobWithOptions($request, $runtime)
     {
         Utils::validateModel($request);
-        $query                    = [];
-        $query['Adhoc']           = $request->adhoc;
-        $query['AlertConf']       = $request->alertConf;
-        $query['ClientToken']     = $request->clientToken;
-        $query['ClusterId']       = $request->clusterId;
-        $query['CustomVariables'] = $request->customVariables;
-        $query['Description']     = $request->description;
-        $query['EnvConf']         = $request->envConf;
-        $query['FailAct']         = $request->failAct;
-        $query['Mode']            = $request->mode;
-        $query['MonitorConf']     = $request->monitorConf;
-        $query['Name']            = $request->name;
-        $query['ParamConf']       = $request->paramConf;
-        $query['Params']          = $request->params;
-        $query['ParentCategory']  = $request->parentCategory;
-        $query['ProjectId']       = $request->projectId;
-        $query['RegionId']        = $request->regionId;
-        $query['ResourceList']    = $request->resourceList;
-        $query['RetryPolicy']     = $request->retryPolicy;
-        $query['RunConf']         = $request->runConf;
-        $query['Type']            = $request->type;
-        $req                      = new OpenApiRequest([
+        $query = [];
+        if (!Utils::isUnset($request->adhoc)) {
+            $query['Adhoc'] = $request->adhoc;
+        }
+        if (!Utils::isUnset($request->alertConf)) {
+            $query['AlertConf'] = $request->alertConf;
+        }
+        if (!Utils::isUnset($request->clientToken)) {
+            $query['ClientToken'] = $request->clientToken;
+        }
+        if (!Utils::isUnset($request->clusterId)) {
+            $query['ClusterId'] = $request->clusterId;
+        }
+        if (!Utils::isUnset($request->customVariables)) {
+            $query['CustomVariables'] = $request->customVariables;
+        }
+        if (!Utils::isUnset($request->description)) {
+            $query['Description'] = $request->description;
+        }
+        if (!Utils::isUnset($request->envConf)) {
+            $query['EnvConf'] = $request->envConf;
+        }
+        if (!Utils::isUnset($request->failAct)) {
+            $query['FailAct'] = $request->failAct;
+        }
+        if (!Utils::isUnset($request->mode)) {
+            $query['Mode'] = $request->mode;
+        }
+        if (!Utils::isUnset($request->monitorConf)) {
+            $query['MonitorConf'] = $request->monitorConf;
+        }
+        if (!Utils::isUnset($request->name)) {
+            $query['Name'] = $request->name;
+        }
+        if (!Utils::isUnset($request->paramConf)) {
+            $query['ParamConf'] = $request->paramConf;
+        }
+        if (!Utils::isUnset($request->params)) {
+            $query['Params'] = $request->params;
+        }
+        if (!Utils::isUnset($request->parentCategory)) {
+            $query['ParentCategory'] = $request->parentCategory;
+        }
+        if (!Utils::isUnset($request->projectId)) {
+            $query['ProjectId'] = $request->projectId;
+        }
+        if (!Utils::isUnset($request->regionId)) {
+            $query['RegionId'] = $request->regionId;
+        }
+        if (!Utils::isUnset($request->resourceList)) {
+            $query['ResourceList'] = $request->resourceList;
+        }
+        if (!Utils::isUnset($request->retryPolicy)) {
+            $query['RetryPolicy'] = $request->retryPolicy;
+        }
+        if (!Utils::isUnset($request->runConf)) {
+            $query['RunConf'] = $request->runConf;
+        }
+        if (!Utils::isUnset($request->type)) {
+            $query['Type'] = $request->type;
+        }
+        $req = new OpenApiRequest([
             'query' => OpenApiUtilClient::query($query),
         ]);
         $params = new Params([
@@ -625,14 +837,26 @@ class Ddi extends OpenApiClient
     public function createFlowProjectWithOptions($request, $runtime)
     {
         Utils::validateModel($request);
-        $query                    = [];
-        $query['ClientToken']     = $request->clientToken;
-        $query['Description']     = $request->description;
-        $query['Name']            = $request->name;
-        $query['ProductType']     = $request->productType;
-        $query['RegionId']        = $request->regionId;
-        $query['ResourceGroupId'] = $request->resourceGroupId;
-        $req                      = new OpenApiRequest([
+        $query = [];
+        if (!Utils::isUnset($request->clientToken)) {
+            $query['ClientToken'] = $request->clientToken;
+        }
+        if (!Utils::isUnset($request->description)) {
+            $query['Description'] = $request->description;
+        }
+        if (!Utils::isUnset($request->name)) {
+            $query['Name'] = $request->name;
+        }
+        if (!Utils::isUnset($request->productType)) {
+            $query['ProductType'] = $request->productType;
+        }
+        if (!Utils::isUnset($request->regionId)) {
+            $query['RegionId'] = $request->regionId;
+        }
+        if (!Utils::isUnset($request->resourceGroupId)) {
+            $query['ResourceGroupId'] = $request->resourceGroupId;
+        }
+        $req = new OpenApiRequest([
             'query' => OpenApiUtilClient::query($query),
         ]);
         $params = new Params([
@@ -671,17 +895,35 @@ class Ddi extends OpenApiClient
     public function createFlowProjectClusterSettingWithOptions($request, $runtime)
     {
         Utils::validateModel($request);
-        $query                 = [];
-        $query['ClientToken']  = $request->clientToken;
-        $query['ClusterId']    = $request->clusterId;
-        $query['DefaultQueue'] = $request->defaultQueue;
-        $query['DefaultUser']  = $request->defaultUser;
-        $query['HostList']     = $request->hostList;
-        $query['ProjectId']    = $request->projectId;
-        $query['QueueList']    = $request->queueList;
-        $query['RegionId']     = $request->regionId;
-        $query['UserList']     = $request->userList;
-        $req                   = new OpenApiRequest([
+        $query = [];
+        if (!Utils::isUnset($request->clientToken)) {
+            $query['ClientToken'] = $request->clientToken;
+        }
+        if (!Utils::isUnset($request->clusterId)) {
+            $query['ClusterId'] = $request->clusterId;
+        }
+        if (!Utils::isUnset($request->defaultQueue)) {
+            $query['DefaultQueue'] = $request->defaultQueue;
+        }
+        if (!Utils::isUnset($request->defaultUser)) {
+            $query['DefaultUser'] = $request->defaultUser;
+        }
+        if (!Utils::isUnset($request->hostList)) {
+            $query['HostList'] = $request->hostList;
+        }
+        if (!Utils::isUnset($request->projectId)) {
+            $query['ProjectId'] = $request->projectId;
+        }
+        if (!Utils::isUnset($request->queueList)) {
+            $query['QueueList'] = $request->queueList;
+        }
+        if (!Utils::isUnset($request->regionId)) {
+            $query['RegionId'] = $request->regionId;
+        }
+        if (!Utils::isUnset($request->userList)) {
+            $query['UserList'] = $request->userList;
+        }
+        $req = new OpenApiRequest([
             'query' => OpenApiUtilClient::query($query),
         ]);
         $params = new Params([
@@ -720,12 +962,20 @@ class Ddi extends OpenApiClient
     public function createFlowProjectUserWithOptions($request, $runtime)
     {
         Utils::validateModel($request);
-        $query                = [];
-        $query['ClientToken'] = $request->clientToken;
-        $query['ProjectId']   = $request->projectId;
-        $query['RegionId']    = $request->regionId;
-        $query['User']        = $request->user;
-        $req                  = new OpenApiRequest([
+        $query = [];
+        if (!Utils::isUnset($request->clientToken)) {
+            $query['ClientToken'] = $request->clientToken;
+        }
+        if (!Utils::isUnset($request->projectId)) {
+            $query['ProjectId'] = $request->projectId;
+        }
+        if (!Utils::isUnset($request->regionId)) {
+            $query['RegionId'] = $request->regionId;
+        }
+        if (!Utils::isUnset($request->user)) {
+            $query['User'] = $request->user;
+        }
+        $req = new OpenApiRequest([
             'query' => OpenApiUtilClient::query($query),
         ]);
         $params = new Params([
@@ -764,11 +1014,17 @@ class Ddi extends OpenApiClient
     public function deleteFlowWithOptions($request, $runtime)
     {
         Utils::validateModel($request);
-        $query              = [];
-        $query['Id']        = $request->id;
-        $query['ProjectId'] = $request->projectId;
-        $query['RegionId']  = $request->regionId;
-        $req                = new OpenApiRequest([
+        $query = [];
+        if (!Utils::isUnset($request->id)) {
+            $query['Id'] = $request->id;
+        }
+        if (!Utils::isUnset($request->projectId)) {
+            $query['ProjectId'] = $request->projectId;
+        }
+        if (!Utils::isUnset($request->regionId)) {
+            $query['RegionId'] = $request->regionId;
+        }
+        $req = new OpenApiRequest([
             'query' => OpenApiUtilClient::query($query),
         ]);
         $params = new Params([
@@ -807,11 +1063,17 @@ class Ddi extends OpenApiClient
     public function deleteFlowCategoryWithOptions($request, $runtime)
     {
         Utils::validateModel($request);
-        $query              = [];
-        $query['Id']        = $request->id;
-        $query['ProjectId'] = $request->projectId;
-        $query['RegionId']  = $request->regionId;
-        $req                = new OpenApiRequest([
+        $query = [];
+        if (!Utils::isUnset($request->id)) {
+            $query['Id'] = $request->id;
+        }
+        if (!Utils::isUnset($request->projectId)) {
+            $query['ProjectId'] = $request->projectId;
+        }
+        if (!Utils::isUnset($request->regionId)) {
+            $query['RegionId'] = $request->regionId;
+        }
+        $req = new OpenApiRequest([
             'query' => OpenApiUtilClient::query($query),
         ]);
         $params = new Params([
@@ -850,11 +1112,17 @@ class Ddi extends OpenApiClient
     public function deleteFlowEditLockWithOptions($request, $runtime)
     {
         Utils::validateModel($request);
-        $query                    = [];
-        $query['EntityId']        = $request->entityId;
-        $query['RegionId']        = $request->regionId;
-        $query['ResourceOwnerId'] = $request->resourceOwnerId;
-        $req                      = new OpenApiRequest([
+        $query = [];
+        if (!Utils::isUnset($request->entityId)) {
+            $query['EntityId'] = $request->entityId;
+        }
+        if (!Utils::isUnset($request->regionId)) {
+            $query['RegionId'] = $request->regionId;
+        }
+        if (!Utils::isUnset($request->resourceOwnerId)) {
+            $query['ResourceOwnerId'] = $request->resourceOwnerId;
+        }
+        $req = new OpenApiRequest([
             'query' => OpenApiUtilClient::query($query),
         ]);
         $params = new Params([
@@ -893,10 +1161,14 @@ class Ddi extends OpenApiClient
     public function deleteFlowProjectWithOptions($request, $runtime)
     {
         Utils::validateModel($request);
-        $query              = [];
-        $query['ProjectId'] = $request->projectId;
-        $query['RegionId']  = $request->regionId;
-        $req                = new OpenApiRequest([
+        $query = [];
+        if (!Utils::isUnset($request->projectId)) {
+            $query['ProjectId'] = $request->projectId;
+        }
+        if (!Utils::isUnset($request->regionId)) {
+            $query['RegionId'] = $request->regionId;
+        }
+        $req = new OpenApiRequest([
             'query' => OpenApiUtilClient::query($query),
         ]);
         $params = new Params([
@@ -935,11 +1207,17 @@ class Ddi extends OpenApiClient
     public function deleteFlowProjectClusterSettingWithOptions($request, $runtime)
     {
         Utils::validateModel($request);
-        $query              = [];
-        $query['ClusterId'] = $request->clusterId;
-        $query['ProjectId'] = $request->projectId;
-        $query['RegionId']  = $request->regionId;
-        $req                = new OpenApiRequest([
+        $query = [];
+        if (!Utils::isUnset($request->clusterId)) {
+            $query['ClusterId'] = $request->clusterId;
+        }
+        if (!Utils::isUnset($request->projectId)) {
+            $query['ProjectId'] = $request->projectId;
+        }
+        if (!Utils::isUnset($request->regionId)) {
+            $query['RegionId'] = $request->regionId;
+        }
+        $req = new OpenApiRequest([
             'query' => OpenApiUtilClient::query($query),
         ]);
         $params = new Params([
@@ -978,11 +1256,17 @@ class Ddi extends OpenApiClient
     public function deleteFlowProjectUserWithOptions($request, $runtime)
     {
         Utils::validateModel($request);
-        $query              = [];
-        $query['ProjectId'] = $request->projectId;
-        $query['RegionId']  = $request->regionId;
-        $query['UserName']  = $request->userName;
-        $req                = new OpenApiRequest([
+        $query = [];
+        if (!Utils::isUnset($request->projectId)) {
+            $query['ProjectId'] = $request->projectId;
+        }
+        if (!Utils::isUnset($request->regionId)) {
+            $query['RegionId'] = $request->regionId;
+        }
+        if (!Utils::isUnset($request->userName)) {
+            $query['UserName'] = $request->userName;
+        }
+        $req = new OpenApiRequest([
             'query' => OpenApiUtilClient::query($query),
         ]);
         $params = new Params([
@@ -1021,11 +1305,17 @@ class Ddi extends OpenApiClient
     public function describeClusterV2WithOptions($request, $runtime)
     {
         Utils::validateModel($request);
-        $query                    = [];
-        $query['Id']              = $request->id;
-        $query['RegionId']        = $request->regionId;
-        $query['ResourceOwnerId'] = $request->resourceOwnerId;
-        $req                      = new OpenApiRequest([
+        $query = [];
+        if (!Utils::isUnset($request->id)) {
+            $query['Id'] = $request->id;
+        }
+        if (!Utils::isUnset($request->regionId)) {
+            $query['RegionId'] = $request->regionId;
+        }
+        if (!Utils::isUnset($request->resourceOwnerId)) {
+            $query['ResourceOwnerId'] = $request->resourceOwnerId;
+        }
+        $req = new OpenApiRequest([
             'query' => OpenApiUtilClient::query($query),
         ]);
         $params = new Params([
@@ -1064,11 +1354,17 @@ class Ddi extends OpenApiClient
     public function describeFlowWithOptions($request, $runtime)
     {
         Utils::validateModel($request);
-        $query              = [];
-        $query['Id']        = $request->id;
-        $query['ProjectId'] = $request->projectId;
-        $query['RegionId']  = $request->regionId;
-        $req                = new OpenApiRequest([
+        $query = [];
+        if (!Utils::isUnset($request->id)) {
+            $query['Id'] = $request->id;
+        }
+        if (!Utils::isUnset($request->projectId)) {
+            $query['ProjectId'] = $request->projectId;
+        }
+        if (!Utils::isUnset($request->regionId)) {
+            $query['RegionId'] = $request->regionId;
+        }
+        $req = new OpenApiRequest([
             'query' => OpenApiUtilClient::query($query),
         ]);
         $params = new Params([
@@ -1107,14 +1403,26 @@ class Ddi extends OpenApiClient
     public function describeFlowCategoryTreeWithOptions($request, $runtime)
     {
         Utils::validateModel($request);
-        $query               = [];
-        $query['CategoryId'] = $request->categoryId;
-        $query['Keyword']    = $request->keyword;
-        $query['Mode']       = $request->mode;
-        $query['ProjectId']  = $request->projectId;
-        $query['RegionId']   = $request->regionId;
-        $query['Type']       = $request->type;
-        $req                 = new OpenApiRequest([
+        $query = [];
+        if (!Utils::isUnset($request->categoryId)) {
+            $query['CategoryId'] = $request->categoryId;
+        }
+        if (!Utils::isUnset($request->keyword)) {
+            $query['Keyword'] = $request->keyword;
+        }
+        if (!Utils::isUnset($request->mode)) {
+            $query['Mode'] = $request->mode;
+        }
+        if (!Utils::isUnset($request->projectId)) {
+            $query['ProjectId'] = $request->projectId;
+        }
+        if (!Utils::isUnset($request->regionId)) {
+            $query['RegionId'] = $request->regionId;
+        }
+        if (!Utils::isUnset($request->type)) {
+            $query['Type'] = $request->type;
+        }
+        $req = new OpenApiRequest([
             'query' => OpenApiUtilClient::query($query),
         ]);
         $params = new Params([
@@ -1153,11 +1461,17 @@ class Ddi extends OpenApiClient
     public function describeFlowInstanceWithOptions($request, $runtime)
     {
         Utils::validateModel($request);
-        $query              = [];
-        $query['Id']        = $request->id;
-        $query['ProjectId'] = $request->projectId;
-        $query['RegionId']  = $request->regionId;
-        $req                = new OpenApiRequest([
+        $query = [];
+        if (!Utils::isUnset($request->id)) {
+            $query['Id'] = $request->id;
+        }
+        if (!Utils::isUnset($request->projectId)) {
+            $query['ProjectId'] = $request->projectId;
+        }
+        if (!Utils::isUnset($request->regionId)) {
+            $query['RegionId'] = $request->regionId;
+        }
+        $req = new OpenApiRequest([
             'query' => OpenApiUtilClient::query($query),
         ]);
         $params = new Params([
@@ -1196,11 +1510,17 @@ class Ddi extends OpenApiClient
     public function describeFlowJobWithOptions($request, $runtime)
     {
         Utils::validateModel($request);
-        $query              = [];
-        $query['Id']        = $request->id;
-        $query['ProjectId'] = $request->projectId;
-        $query['RegionId']  = $request->regionId;
-        $req                = new OpenApiRequest([
+        $query = [];
+        if (!Utils::isUnset($request->id)) {
+            $query['Id'] = $request->id;
+        }
+        if (!Utils::isUnset($request->projectId)) {
+            $query['ProjectId'] = $request->projectId;
+        }
+        if (!Utils::isUnset($request->regionId)) {
+            $query['RegionId'] = $request->regionId;
+        }
+        $req = new OpenApiRequest([
             'query' => OpenApiUtilClient::query($query),
         ]);
         $params = new Params([
@@ -1239,11 +1559,17 @@ class Ddi extends OpenApiClient
     public function describeFlowNodeInstanceWithOptions($request, $runtime)
     {
         Utils::validateModel($request);
-        $query              = [];
-        $query['Id']        = $request->id;
-        $query['ProjectId'] = $request->projectId;
-        $query['RegionId']  = $request->regionId;
-        $req                = new OpenApiRequest([
+        $query = [];
+        if (!Utils::isUnset($request->id)) {
+            $query['Id'] = $request->id;
+        }
+        if (!Utils::isUnset($request->projectId)) {
+            $query['ProjectId'] = $request->projectId;
+        }
+        if (!Utils::isUnset($request->regionId)) {
+            $query['RegionId'] = $request->regionId;
+        }
+        $req = new OpenApiRequest([
             'query' => OpenApiUtilClient::query($query),
         ]);
         $params = new Params([
@@ -1282,16 +1608,32 @@ class Ddi extends OpenApiClient
     public function describeFlowNodeInstanceContainerLogWithOptions($request, $runtime)
     {
         Utils::validateModel($request);
-        $query                   = [];
-        $query['AppId']          = $request->appId;
-        $query['ContainerId']    = $request->containerId;
-        $query['Length']         = $request->length;
-        $query['LogName']        = $request->logName;
-        $query['NodeInstanceId'] = $request->nodeInstanceId;
-        $query['Offset']         = $request->offset;
-        $query['ProjectId']      = $request->projectId;
-        $query['RegionId']       = $request->regionId;
-        $req                     = new OpenApiRequest([
+        $query = [];
+        if (!Utils::isUnset($request->appId)) {
+            $query['AppId'] = $request->appId;
+        }
+        if (!Utils::isUnset($request->containerId)) {
+            $query['ContainerId'] = $request->containerId;
+        }
+        if (!Utils::isUnset($request->length)) {
+            $query['Length'] = $request->length;
+        }
+        if (!Utils::isUnset($request->logName)) {
+            $query['LogName'] = $request->logName;
+        }
+        if (!Utils::isUnset($request->nodeInstanceId)) {
+            $query['NodeInstanceId'] = $request->nodeInstanceId;
+        }
+        if (!Utils::isUnset($request->offset)) {
+            $query['Offset'] = $request->offset;
+        }
+        if (!Utils::isUnset($request->projectId)) {
+            $query['ProjectId'] = $request->projectId;
+        }
+        if (!Utils::isUnset($request->regionId)) {
+            $query['RegionId'] = $request->regionId;
+        }
+        $req = new OpenApiRequest([
             'query' => OpenApiUtilClient::query($query),
         ]);
         $params = new Params([
@@ -1330,18 +1672,38 @@ class Ddi extends OpenApiClient
     public function describeFlowNodeInstanceLauncherLogWithOptions($request, $runtime)
     {
         Utils::validateModel($request);
-        $query                   = [];
-        $query['EndTime']        = $request->endTime;
-        $query['Length']         = $request->length;
-        $query['Lines']          = $request->lines;
-        $query['NodeInstanceId'] = $request->nodeInstanceId;
-        $query['Offset']         = $request->offset;
-        $query['ProjectId']      = $request->projectId;
-        $query['RegionId']       = $request->regionId;
-        $query['Reverse']        = $request->reverse;
-        $query['Start']          = $request->start;
-        $query['StartTime']      = $request->startTime;
-        $req                     = new OpenApiRequest([
+        $query = [];
+        if (!Utils::isUnset($request->endTime)) {
+            $query['EndTime'] = $request->endTime;
+        }
+        if (!Utils::isUnset($request->length)) {
+            $query['Length'] = $request->length;
+        }
+        if (!Utils::isUnset($request->lines)) {
+            $query['Lines'] = $request->lines;
+        }
+        if (!Utils::isUnset($request->nodeInstanceId)) {
+            $query['NodeInstanceId'] = $request->nodeInstanceId;
+        }
+        if (!Utils::isUnset($request->offset)) {
+            $query['Offset'] = $request->offset;
+        }
+        if (!Utils::isUnset($request->projectId)) {
+            $query['ProjectId'] = $request->projectId;
+        }
+        if (!Utils::isUnset($request->regionId)) {
+            $query['RegionId'] = $request->regionId;
+        }
+        if (!Utils::isUnset($request->reverse)) {
+            $query['Reverse'] = $request->reverse;
+        }
+        if (!Utils::isUnset($request->start)) {
+            $query['Start'] = $request->start;
+        }
+        if (!Utils::isUnset($request->startTime)) {
+            $query['StartTime'] = $request->startTime;
+        }
+        $req = new OpenApiRequest([
             'query' => OpenApiUtilClient::query($query),
         ]);
         $params = new Params([
@@ -1380,10 +1742,14 @@ class Ddi extends OpenApiClient
     public function describeFlowProjectWithOptions($request, $runtime)
     {
         Utils::validateModel($request);
-        $query              = [];
-        $query['ProjectId'] = $request->projectId;
-        $query['RegionId']  = $request->regionId;
-        $req                = new OpenApiRequest([
+        $query = [];
+        if (!Utils::isUnset($request->projectId)) {
+            $query['ProjectId'] = $request->projectId;
+        }
+        if (!Utils::isUnset($request->regionId)) {
+            $query['RegionId'] = $request->regionId;
+        }
+        $req = new OpenApiRequest([
             'query' => OpenApiUtilClient::query($query),
         ]);
         $params = new Params([
@@ -1422,11 +1788,17 @@ class Ddi extends OpenApiClient
     public function describeFlowProjectClusterSettingWithOptions($request, $runtime)
     {
         Utils::validateModel($request);
-        $query              = [];
-        $query['ClusterId'] = $request->clusterId;
-        $query['ProjectId'] = $request->projectId;
-        $query['RegionId']  = $request->regionId;
-        $req                = new OpenApiRequest([
+        $query = [];
+        if (!Utils::isUnset($request->clusterId)) {
+            $query['ClusterId'] = $request->clusterId;
+        }
+        if (!Utils::isUnset($request->projectId)) {
+            $query['ProjectId'] = $request->projectId;
+        }
+        if (!Utils::isUnset($request->regionId)) {
+            $query['RegionId'] = $request->regionId;
+        }
+        $req = new OpenApiRequest([
             'query' => OpenApiUtilClient::query($query),
         ]);
         $params = new Params([
@@ -1465,17 +1837,35 @@ class Ddi extends OpenApiClient
     public function describeFlowSLAWithOptions($request, $runtime)
     {
         Utils::validateModel($request);
-        $query                    = [];
-        $query['From']            = $request->from;
-        $query['Metrics']         = $request->metrics;
-        $query['PeriodType']      = $request->periodType;
-        $query['ProjectId']       = $request->projectId;
-        $query['RegionId']        = $request->regionId;
-        $query['ResourceGroupId'] = $request->resourceGroupId;
-        $query['ResourceOwnerId'] = $request->resourceOwnerId;
-        $query['To']              = $request->to;
-        $query['Type']            = $request->type;
-        $req                      = new OpenApiRequest([
+        $query = [];
+        if (!Utils::isUnset($request->from)) {
+            $query['From'] = $request->from;
+        }
+        if (!Utils::isUnset($request->metrics)) {
+            $query['Metrics'] = $request->metrics;
+        }
+        if (!Utils::isUnset($request->periodType)) {
+            $query['PeriodType'] = $request->periodType;
+        }
+        if (!Utils::isUnset($request->projectId)) {
+            $query['ProjectId'] = $request->projectId;
+        }
+        if (!Utils::isUnset($request->regionId)) {
+            $query['RegionId'] = $request->regionId;
+        }
+        if (!Utils::isUnset($request->resourceGroupId)) {
+            $query['ResourceGroupId'] = $request->resourceGroupId;
+        }
+        if (!Utils::isUnset($request->resourceOwnerId)) {
+            $query['ResourceOwnerId'] = $request->resourceOwnerId;
+        }
+        if (!Utils::isUnset($request->to)) {
+            $query['To'] = $request->to;
+        }
+        if (!Utils::isUnset($request->type)) {
+            $query['Type'] = $request->type;
+        }
+        $req = new OpenApiRequest([
             'query' => OpenApiUtilClient::query($query),
         ]);
         $params = new Params([
@@ -1514,11 +1904,17 @@ class Ddi extends OpenApiClient
     public function describeFlowVariableCollectionWithOptions($request, $runtime)
     {
         Utils::validateModel($request);
-        $query                    = [];
-        $query['EntityId']        = $request->entityId;
-        $query['RegionId']        = $request->regionId;
-        $query['ResourceGroupId'] = $request->resourceGroupId;
-        $req                      = new OpenApiRequest([
+        $query = [];
+        if (!Utils::isUnset($request->entityId)) {
+            $query['EntityId'] = $request->entityId;
+        }
+        if (!Utils::isUnset($request->regionId)) {
+            $query['RegionId'] = $request->regionId;
+        }
+        if (!Utils::isUnset($request->resourceGroupId)) {
+            $query['ResourceGroupId'] = $request->resourceGroupId;
+        }
+        $req = new OpenApiRequest([
             'query' => OpenApiUtilClient::query($query),
         ]);
         $params = new Params([
@@ -1557,23 +1953,53 @@ class Ddi extends OpenApiClient
     public function getFlowAuditLogsWithOptions($request, $runtime)
     {
         Utils::validateModel($request);
-        $query                    = [];
-        $query['CurrentSize']     = $request->currentSize;
-        $query['EntityGroupId']   = $request->entityGroupId;
-        $query['EntityId']        = $request->entityId;
-        $query['EntityType']      = $request->entityType;
-        $query['Limit']           = $request->limit;
-        $query['Operation']       = $request->operation;
-        $query['OperatorId']      = $request->operatorId;
-        $query['OrderField']      = $request->orderField;
-        $query['OrderMode']       = $request->orderMode;
-        $query['PageCount']       = $request->pageCount;
-        $query['PageNumber']      = $request->pageNumber;
-        $query['PageSize']        = $request->pageSize;
-        $query['RegionId']        = $request->regionId;
-        $query['ResourceOwnerId'] = $request->resourceOwnerId;
-        $query['Status']          = $request->status;
-        $req                      = new OpenApiRequest([
+        $query = [];
+        if (!Utils::isUnset($request->currentSize)) {
+            $query['CurrentSize'] = $request->currentSize;
+        }
+        if (!Utils::isUnset($request->entityGroupId)) {
+            $query['EntityGroupId'] = $request->entityGroupId;
+        }
+        if (!Utils::isUnset($request->entityId)) {
+            $query['EntityId'] = $request->entityId;
+        }
+        if (!Utils::isUnset($request->entityType)) {
+            $query['EntityType'] = $request->entityType;
+        }
+        if (!Utils::isUnset($request->limit)) {
+            $query['Limit'] = $request->limit;
+        }
+        if (!Utils::isUnset($request->operation)) {
+            $query['Operation'] = $request->operation;
+        }
+        if (!Utils::isUnset($request->operatorId)) {
+            $query['OperatorId'] = $request->operatorId;
+        }
+        if (!Utils::isUnset($request->orderField)) {
+            $query['OrderField'] = $request->orderField;
+        }
+        if (!Utils::isUnset($request->orderMode)) {
+            $query['OrderMode'] = $request->orderMode;
+        }
+        if (!Utils::isUnset($request->pageCount)) {
+            $query['PageCount'] = $request->pageCount;
+        }
+        if (!Utils::isUnset($request->pageNumber)) {
+            $query['PageNumber'] = $request->pageNumber;
+        }
+        if (!Utils::isUnset($request->pageSize)) {
+            $query['PageSize'] = $request->pageSize;
+        }
+        if (!Utils::isUnset($request->regionId)) {
+            $query['RegionId'] = $request->regionId;
+        }
+        if (!Utils::isUnset($request->resourceOwnerId)) {
+            $query['ResourceOwnerId'] = $request->resourceOwnerId;
+        }
+        if (!Utils::isUnset($request->status)) {
+            $query['Status'] = $request->status;
+        }
+        $req = new OpenApiRequest([
             'query' => OpenApiUtilClient::query($query),
         ]);
         $params = new Params([
@@ -1612,11 +2038,17 @@ class Ddi extends OpenApiClient
     public function killFlowWithOptions($request, $runtime)
     {
         Utils::validateModel($request);
-        $query                   = [];
-        $query['FlowInstanceId'] = $request->flowInstanceId;
-        $query['ProjectId']      = $request->projectId;
-        $query['RegionId']       = $request->regionId;
-        $req                     = new OpenApiRequest([
+        $query = [];
+        if (!Utils::isUnset($request->flowInstanceId)) {
+            $query['FlowInstanceId'] = $request->flowInstanceId;
+        }
+        if (!Utils::isUnset($request->projectId)) {
+            $query['ProjectId'] = $request->projectId;
+        }
+        if (!Utils::isUnset($request->regionId)) {
+            $query['RegionId'] = $request->regionId;
+        }
+        $req = new OpenApiRequest([
             'query' => OpenApiUtilClient::query($query),
         ]);
         $params = new Params([
@@ -1655,11 +2087,17 @@ class Ddi extends OpenApiClient
     public function killFlowJobWithOptions($request, $runtime)
     {
         Utils::validateModel($request);
-        $query                  = [];
-        $query['JobInstanceId'] = $request->jobInstanceId;
-        $query['ProjectId']     = $request->projectId;
-        $query['RegionId']      = $request->regionId;
-        $req                    = new OpenApiRequest([
+        $query = [];
+        if (!Utils::isUnset($request->jobInstanceId)) {
+            $query['JobInstanceId'] = $request->jobInstanceId;
+        }
+        if (!Utils::isUnset($request->projectId)) {
+            $query['ProjectId'] = $request->projectId;
+        }
+        if (!Utils::isUnset($request->regionId)) {
+            $query['RegionId'] = $request->regionId;
+        }
+        $req = new OpenApiRequest([
             'query' => OpenApiUtilClient::query($query),
         ]);
         $params = new Params([
@@ -1698,23 +2136,53 @@ class Ddi extends OpenApiClient
     public function listClustersWithOptions($request, $runtime)
     {
         Utils::validateModel($request);
-        $query                    = [];
-        $query['ClusterTypeList'] = $request->clusterTypeList;
-        $query['CreateType']      = $request->createType;
-        $query['DefaultStatus']   = $request->defaultStatus;
-        $query['DepositType']     = $request->depositType;
-        $query['ExpiredTagList']  = $request->expiredTagList;
-        $query['IsDesc']          = $request->isDesc;
-        $query['MachineType']     = $request->machineType;
-        $query['Name']            = $request->name;
-        $query['PageNumber']      = $request->pageNumber;
-        $query['PageSize']        = $request->pageSize;
-        $query['RegionId']        = $request->regionId;
-        $query['ResourceGroupId'] = $request->resourceGroupId;
-        $query['ResourceOwnerId'] = $request->resourceOwnerId;
-        $query['StatusList']      = $request->statusList;
-        $query['Tag']             = $request->tag;
-        $req                      = new OpenApiRequest([
+        $query = [];
+        if (!Utils::isUnset($request->clusterTypeList)) {
+            $query['ClusterTypeList'] = $request->clusterTypeList;
+        }
+        if (!Utils::isUnset($request->createType)) {
+            $query['CreateType'] = $request->createType;
+        }
+        if (!Utils::isUnset($request->defaultStatus)) {
+            $query['DefaultStatus'] = $request->defaultStatus;
+        }
+        if (!Utils::isUnset($request->depositType)) {
+            $query['DepositType'] = $request->depositType;
+        }
+        if (!Utils::isUnset($request->expiredTagList)) {
+            $query['ExpiredTagList'] = $request->expiredTagList;
+        }
+        if (!Utils::isUnset($request->isDesc)) {
+            $query['IsDesc'] = $request->isDesc;
+        }
+        if (!Utils::isUnset($request->machineType)) {
+            $query['MachineType'] = $request->machineType;
+        }
+        if (!Utils::isUnset($request->name)) {
+            $query['Name'] = $request->name;
+        }
+        if (!Utils::isUnset($request->pageNumber)) {
+            $query['PageNumber'] = $request->pageNumber;
+        }
+        if (!Utils::isUnset($request->pageSize)) {
+            $query['PageSize'] = $request->pageSize;
+        }
+        if (!Utils::isUnset($request->regionId)) {
+            $query['RegionId'] = $request->regionId;
+        }
+        if (!Utils::isUnset($request->resourceGroupId)) {
+            $query['ResourceGroupId'] = $request->resourceGroupId;
+        }
+        if (!Utils::isUnset($request->resourceOwnerId)) {
+            $query['ResourceOwnerId'] = $request->resourceOwnerId;
+        }
+        if (!Utils::isUnset($request->statusList)) {
+            $query['StatusList'] = $request->statusList;
+        }
+        if (!Utils::isUnset($request->tag)) {
+            $query['Tag'] = $request->tag;
+        }
+        $req = new OpenApiRequest([
             'query' => OpenApiUtilClient::query($query),
         ]);
         $params = new Params([
@@ -1753,18 +2221,38 @@ class Ddi extends OpenApiClient
     public function listFlowWithOptions($request, $runtime)
     {
         Utils::validateModel($request);
-        $query               = [];
-        $query['ClusterId']  = $request->clusterId;
-        $query['Id']         = $request->id;
-        $query['JobId']      = $request->jobId;
-        $query['Name']       = $request->name;
-        $query['PageNumber'] = $request->pageNumber;
-        $query['PageSize']   = $request->pageSize;
-        $query['Periodic']   = $request->periodic;
-        $query['ProjectId']  = $request->projectId;
-        $query['RegionId']   = $request->regionId;
-        $query['Status']     = $request->status;
-        $req                 = new OpenApiRequest([
+        $query = [];
+        if (!Utils::isUnset($request->clusterId)) {
+            $query['ClusterId'] = $request->clusterId;
+        }
+        if (!Utils::isUnset($request->id)) {
+            $query['Id'] = $request->id;
+        }
+        if (!Utils::isUnset($request->jobId)) {
+            $query['JobId'] = $request->jobId;
+        }
+        if (!Utils::isUnset($request->name)) {
+            $query['Name'] = $request->name;
+        }
+        if (!Utils::isUnset($request->pageNumber)) {
+            $query['PageNumber'] = $request->pageNumber;
+        }
+        if (!Utils::isUnset($request->pageSize)) {
+            $query['PageSize'] = $request->pageSize;
+        }
+        if (!Utils::isUnset($request->periodic)) {
+            $query['Periodic'] = $request->periodic;
+        }
+        if (!Utils::isUnset($request->projectId)) {
+            $query['ProjectId'] = $request->projectId;
+        }
+        if (!Utils::isUnset($request->regionId)) {
+            $query['RegionId'] = $request->regionId;
+        }
+        if (!Utils::isUnset($request->status)) {
+            $query['Status'] = $request->status;
+        }
+        $req = new OpenApiRequest([
             'query' => OpenApiUtilClient::query($query),
         ]);
         $params = new Params([
@@ -1803,13 +2291,23 @@ class Ddi extends OpenApiClient
     public function listFlowClusterWithOptions($request, $runtime)
     {
         Utils::validateModel($request);
-        $query                    = [];
-        $query['PageNumber']      = $request->pageNumber;
-        $query['PageSize']        = $request->pageSize;
-        $query['ProjectId']       = $request->projectId;
-        $query['RegionId']        = $request->regionId;
-        $query['ResourceGroupId'] = $request->resourceGroupId;
-        $req                      = new OpenApiRequest([
+        $query = [];
+        if (!Utils::isUnset($request->pageNumber)) {
+            $query['PageNumber'] = $request->pageNumber;
+        }
+        if (!Utils::isUnset($request->pageSize)) {
+            $query['PageSize'] = $request->pageSize;
+        }
+        if (!Utils::isUnset($request->projectId)) {
+            $query['ProjectId'] = $request->projectId;
+        }
+        if (!Utils::isUnset($request->regionId)) {
+            $query['RegionId'] = $request->regionId;
+        }
+        if (!Utils::isUnset($request->resourceGroupId)) {
+            $query['ResourceGroupId'] = $request->resourceGroupId;
+        }
+        $req = new OpenApiRequest([
             'query' => OpenApiUtilClient::query($query),
         ]);
         $params = new Params([
@@ -1848,11 +2346,17 @@ class Ddi extends OpenApiClient
     public function listFlowClusterAllWithOptions($request, $runtime)
     {
         Utils::validateModel($request);
-        $query                    = [];
-        $query['ProductType']     = $request->productType;
-        $query['RegionId']        = $request->regionId;
-        $query['ResourceGroupId'] = $request->resourceGroupId;
-        $req                      = new OpenApiRequest([
+        $query = [];
+        if (!Utils::isUnset($request->productType)) {
+            $query['ProductType'] = $request->productType;
+        }
+        if (!Utils::isUnset($request->regionId)) {
+            $query['RegionId'] = $request->regionId;
+        }
+        if (!Utils::isUnset($request->resourceGroupId)) {
+            $query['ResourceGroupId'] = $request->resourceGroupId;
+        }
+        $req = new OpenApiRequest([
             'query' => OpenApiUtilClient::query($query),
         ]);
         $params = new Params([
@@ -1891,12 +2395,20 @@ class Ddi extends OpenApiClient
     public function listFlowClusterAllHostsWithOptions($request, $runtime)
     {
         Utils::validateModel($request);
-        $query                    = [];
-        $query['ClusterId']       = $request->clusterId;
-        $query['ProjectId']       = $request->projectId;
-        $query['RegionId']        = $request->regionId;
-        $query['ResourceGroupId'] = $request->resourceGroupId;
-        $req                      = new OpenApiRequest([
+        $query = [];
+        if (!Utils::isUnset($request->clusterId)) {
+            $query['ClusterId'] = $request->clusterId;
+        }
+        if (!Utils::isUnset($request->projectId)) {
+            $query['ProjectId'] = $request->projectId;
+        }
+        if (!Utils::isUnset($request->regionId)) {
+            $query['RegionId'] = $request->regionId;
+        }
+        if (!Utils::isUnset($request->resourceGroupId)) {
+            $query['ResourceGroupId'] = $request->resourceGroupId;
+        }
+        $req = new OpenApiRequest([
             'query' => OpenApiUtilClient::query($query),
         ]);
         $params = new Params([
@@ -1935,12 +2447,20 @@ class Ddi extends OpenApiClient
     public function listFlowClusterHostWithOptions($request, $runtime)
     {
         Utils::validateModel($request);
-        $query                    = [];
-        $query['ClusterId']       = $request->clusterId;
-        $query['ProjectId']       = $request->projectId;
-        $query['RegionId']        = $request->regionId;
-        $query['ResourceGroupId'] = $request->resourceGroupId;
-        $req                      = new OpenApiRequest([
+        $query = [];
+        if (!Utils::isUnset($request->clusterId)) {
+            $query['ClusterId'] = $request->clusterId;
+        }
+        if (!Utils::isUnset($request->projectId)) {
+            $query['ProjectId'] = $request->projectId;
+        }
+        if (!Utils::isUnset($request->regionId)) {
+            $query['RegionId'] = $request->regionId;
+        }
+        if (!Utils::isUnset($request->resourceGroupId)) {
+            $query['ResourceGroupId'] = $request->resourceGroupId;
+        }
+        $req = new OpenApiRequest([
             'query' => OpenApiUtilClient::query($query),
         ]);
         $params = new Params([
@@ -1979,22 +2499,50 @@ class Ddi extends OpenApiClient
     public function listFlowEntitySnapshotWithOptions($request, $runtime)
     {
         Utils::validateModel($request);
-        $query                    = [];
-        $query['CommitterId']     = $request->committerId;
-        $query['CurrentSize']     = $request->currentSize;
-        $query['EntityGroupId']   = $request->entityGroupId;
-        $query['EntityId']        = $request->entityId;
-        $query['EntityType']      = $request->entityType;
-        $query['Limit']           = $request->limit;
-        $query['OrderField']      = $request->orderField;
-        $query['OrderMode']       = $request->orderMode;
-        $query['PageCount']       = $request->pageCount;
-        $query['PageNumber']      = $request->pageNumber;
-        $query['PageSize']        = $request->pageSize;
-        $query['RegionId']        = $request->regionId;
-        $query['ResourceOwnerId'] = $request->resourceOwnerId;
-        $query['Revision']        = $request->revision;
-        $req                      = new OpenApiRequest([
+        $query = [];
+        if (!Utils::isUnset($request->committerId)) {
+            $query['CommitterId'] = $request->committerId;
+        }
+        if (!Utils::isUnset($request->currentSize)) {
+            $query['CurrentSize'] = $request->currentSize;
+        }
+        if (!Utils::isUnset($request->entityGroupId)) {
+            $query['EntityGroupId'] = $request->entityGroupId;
+        }
+        if (!Utils::isUnset($request->entityId)) {
+            $query['EntityId'] = $request->entityId;
+        }
+        if (!Utils::isUnset($request->entityType)) {
+            $query['EntityType'] = $request->entityType;
+        }
+        if (!Utils::isUnset($request->limit)) {
+            $query['Limit'] = $request->limit;
+        }
+        if (!Utils::isUnset($request->orderField)) {
+            $query['OrderField'] = $request->orderField;
+        }
+        if (!Utils::isUnset($request->orderMode)) {
+            $query['OrderMode'] = $request->orderMode;
+        }
+        if (!Utils::isUnset($request->pageCount)) {
+            $query['PageCount'] = $request->pageCount;
+        }
+        if (!Utils::isUnset($request->pageNumber)) {
+            $query['PageNumber'] = $request->pageNumber;
+        }
+        if (!Utils::isUnset($request->pageSize)) {
+            $query['PageSize'] = $request->pageSize;
+        }
+        if (!Utils::isUnset($request->regionId)) {
+            $query['RegionId'] = $request->regionId;
+        }
+        if (!Utils::isUnset($request->resourceOwnerId)) {
+            $query['ResourceOwnerId'] = $request->resourceOwnerId;
+        }
+        if (!Utils::isUnset($request->revision)) {
+            $query['Revision'] = $request->revision;
+        }
+        $req = new OpenApiRequest([
             'query' => OpenApiUtilClient::query($query),
         ]);
         $params = new Params([
@@ -2033,21 +2581,47 @@ class Ddi extends OpenApiClient
     public function listFlowInstanceWithOptions($request, $runtime)
     {
         Utils::validateModel($request);
-        $query               = [];
-        $query['FlowId']     = $request->flowId;
-        $query['FlowName']   = $request->flowName;
-        $query['Id']         = $request->id;
-        $query['InstanceId'] = $request->instanceId;
-        $query['OrderBy']    = $request->orderBy;
-        $query['OrderType']  = $request->orderType;
-        $query['Owner']      = $request->owner;
-        $query['PageNumber'] = $request->pageNumber;
-        $query['PageSize']   = $request->pageSize;
-        $query['ProjectId']  = $request->projectId;
-        $query['RegionId']   = $request->regionId;
-        $query['StatusList'] = $request->statusList;
-        $query['TimeRange']  = $request->timeRange;
-        $req                 = new OpenApiRequest([
+        $query = [];
+        if (!Utils::isUnset($request->flowId)) {
+            $query['FlowId'] = $request->flowId;
+        }
+        if (!Utils::isUnset($request->flowName)) {
+            $query['FlowName'] = $request->flowName;
+        }
+        if (!Utils::isUnset($request->id)) {
+            $query['Id'] = $request->id;
+        }
+        if (!Utils::isUnset($request->instanceId)) {
+            $query['InstanceId'] = $request->instanceId;
+        }
+        if (!Utils::isUnset($request->orderBy)) {
+            $query['OrderBy'] = $request->orderBy;
+        }
+        if (!Utils::isUnset($request->orderType)) {
+            $query['OrderType'] = $request->orderType;
+        }
+        if (!Utils::isUnset($request->owner)) {
+            $query['Owner'] = $request->owner;
+        }
+        if (!Utils::isUnset($request->pageNumber)) {
+            $query['PageNumber'] = $request->pageNumber;
+        }
+        if (!Utils::isUnset($request->pageSize)) {
+            $query['PageSize'] = $request->pageSize;
+        }
+        if (!Utils::isUnset($request->projectId)) {
+            $query['ProjectId'] = $request->projectId;
+        }
+        if (!Utils::isUnset($request->regionId)) {
+            $query['RegionId'] = $request->regionId;
+        }
+        if (!Utils::isUnset($request->statusList)) {
+            $query['StatusList'] = $request->statusList;
+        }
+        if (!Utils::isUnset($request->timeRange)) {
+            $query['TimeRange'] = $request->timeRange;
+        }
+        $req = new OpenApiRequest([
             'query' => OpenApiUtilClient::query($query),
         ]);
         $params = new Params([
@@ -2086,17 +2660,35 @@ class Ddi extends OpenApiClient
     public function listFlowJobHistoryWithOptions($request, $runtime)
     {
         Utils::validateModel($request);
-        $query               = [];
-        $query['Id']         = $request->id;
-        $query['InstanceId'] = $request->instanceId;
-        $query['JobType']    = $request->jobType;
-        $query['PageNumber'] = $request->pageNumber;
-        $query['PageSize']   = $request->pageSize;
-        $query['ProjectId']  = $request->projectId;
-        $query['RegionId']   = $request->regionId;
-        $query['StatusList'] = $request->statusList;
-        $query['TimeRange']  = $request->timeRange;
-        $req                 = new OpenApiRequest([
+        $query = [];
+        if (!Utils::isUnset($request->id)) {
+            $query['Id'] = $request->id;
+        }
+        if (!Utils::isUnset($request->instanceId)) {
+            $query['InstanceId'] = $request->instanceId;
+        }
+        if (!Utils::isUnset($request->jobType)) {
+            $query['JobType'] = $request->jobType;
+        }
+        if (!Utils::isUnset($request->pageNumber)) {
+            $query['PageNumber'] = $request->pageNumber;
+        }
+        if (!Utils::isUnset($request->pageSize)) {
+            $query['PageSize'] = $request->pageSize;
+        }
+        if (!Utils::isUnset($request->projectId)) {
+            $query['ProjectId'] = $request->projectId;
+        }
+        if (!Utils::isUnset($request->regionId)) {
+            $query['RegionId'] = $request->regionId;
+        }
+        if (!Utils::isUnset($request->statusList)) {
+            $query['StatusList'] = $request->statusList;
+        }
+        if (!Utils::isUnset($request->timeRange)) {
+            $query['TimeRange'] = $request->timeRange;
+        }
+        $req = new OpenApiRequest([
             'query' => OpenApiUtilClient::query($query),
         ]);
         $params = new Params([
@@ -2135,16 +2727,32 @@ class Ddi extends OpenApiClient
     public function listFlowJobsWithOptions($request, $runtime)
     {
         Utils::validateModel($request);
-        $query               = [];
-        $query['Adhoc']      = $request->adhoc;
-        $query['Id']         = $request->id;
-        $query['Name']       = $request->name;
-        $query['PageNumber'] = $request->pageNumber;
-        $query['PageSize']   = $request->pageSize;
-        $query['ProjectId']  = $request->projectId;
-        $query['RegionId']   = $request->regionId;
-        $query['Type']       = $request->type;
-        $req                 = new OpenApiRequest([
+        $query = [];
+        if (!Utils::isUnset($request->adhoc)) {
+            $query['Adhoc'] = $request->adhoc;
+        }
+        if (!Utils::isUnset($request->id)) {
+            $query['Id'] = $request->id;
+        }
+        if (!Utils::isUnset($request->name)) {
+            $query['Name'] = $request->name;
+        }
+        if (!Utils::isUnset($request->pageNumber)) {
+            $query['PageNumber'] = $request->pageNumber;
+        }
+        if (!Utils::isUnset($request->pageSize)) {
+            $query['PageSize'] = $request->pageSize;
+        }
+        if (!Utils::isUnset($request->projectId)) {
+            $query['ProjectId'] = $request->projectId;
+        }
+        if (!Utils::isUnset($request->regionId)) {
+            $query['RegionId'] = $request->regionId;
+        }
+        if (!Utils::isUnset($request->type)) {
+            $query['Type'] = $request->type;
+        }
+        $req = new OpenApiRequest([
             'query' => OpenApiUtilClient::query($query),
         ]);
         $params = new Params([
@@ -2183,13 +2791,23 @@ class Ddi extends OpenApiClient
     public function listFlowNodeInstanceContainerStatusWithOptions($request, $runtime)
     {
         Utils::validateModel($request);
-        $query                   = [];
-        $query['NodeInstanceId'] = $request->nodeInstanceId;
-        $query['PageNumber']     = $request->pageNumber;
-        $query['PageSize']       = $request->pageSize;
-        $query['ProjectId']      = $request->projectId;
-        $query['RegionId']       = $request->regionId;
-        $req                     = new OpenApiRequest([
+        $query = [];
+        if (!Utils::isUnset($request->nodeInstanceId)) {
+            $query['NodeInstanceId'] = $request->nodeInstanceId;
+        }
+        if (!Utils::isUnset($request->pageNumber)) {
+            $query['PageNumber'] = $request->pageNumber;
+        }
+        if (!Utils::isUnset($request->pageSize)) {
+            $query['PageSize'] = $request->pageSize;
+        }
+        if (!Utils::isUnset($request->projectId)) {
+            $query['ProjectId'] = $request->projectId;
+        }
+        if (!Utils::isUnset($request->regionId)) {
+            $query['RegionId'] = $request->regionId;
+        }
+        $req = new OpenApiRequest([
             'query' => OpenApiUtilClient::query($query),
         ]);
         $params = new Params([
@@ -2228,14 +2846,26 @@ class Ddi extends OpenApiClient
     public function listFlowNodeSqlResultWithOptions($request, $runtime)
     {
         Utils::validateModel($request);
-        $query                   = [];
-        $query['Length']         = $request->length;
-        $query['NodeInstanceId'] = $request->nodeInstanceId;
-        $query['Offset']         = $request->offset;
-        $query['ProjectId']      = $request->projectId;
-        $query['RegionId']       = $request->regionId;
-        $query['SqlIndex']       = $request->sqlIndex;
-        $req                     = new OpenApiRequest([
+        $query = [];
+        if (!Utils::isUnset($request->length)) {
+            $query['Length'] = $request->length;
+        }
+        if (!Utils::isUnset($request->nodeInstanceId)) {
+            $query['NodeInstanceId'] = $request->nodeInstanceId;
+        }
+        if (!Utils::isUnset($request->offset)) {
+            $query['Offset'] = $request->offset;
+        }
+        if (!Utils::isUnset($request->projectId)) {
+            $query['ProjectId'] = $request->projectId;
+        }
+        if (!Utils::isUnset($request->regionId)) {
+            $query['RegionId'] = $request->regionId;
+        }
+        if (!Utils::isUnset($request->sqlIndex)) {
+            $query['SqlIndex'] = $request->sqlIndex;
+        }
+        $req = new OpenApiRequest([
             'query' => OpenApiUtilClient::query($query),
         ]);
         $params = new Params([
@@ -2274,12 +2904,20 @@ class Ddi extends OpenApiClient
     public function listFlowProjectClusterSettingWithOptions($request, $runtime)
     {
         Utils::validateModel($request);
-        $query               = [];
-        $query['PageNumber'] = $request->pageNumber;
-        $query['PageSize']   = $request->pageSize;
-        $query['ProjectId']  = $request->projectId;
-        $query['RegionId']   = $request->regionId;
-        $req                 = new OpenApiRequest([
+        $query = [];
+        if (!Utils::isUnset($request->pageNumber)) {
+            $query['PageNumber'] = $request->pageNumber;
+        }
+        if (!Utils::isUnset($request->pageSize)) {
+            $query['PageSize'] = $request->pageSize;
+        }
+        if (!Utils::isUnset($request->projectId)) {
+            $query['ProjectId'] = $request->projectId;
+        }
+        if (!Utils::isUnset($request->regionId)) {
+            $query['RegionId'] = $request->regionId;
+        }
+        $req = new OpenApiRequest([
             'query' => OpenApiUtilClient::query($query),
         ]);
         $params = new Params([
@@ -2318,12 +2956,20 @@ class Ddi extends OpenApiClient
     public function listFlowProjectUserWithOptions($request, $runtime)
     {
         Utils::validateModel($request);
-        $query               = [];
-        $query['PageNumber'] = $request->pageNumber;
-        $query['PageSize']   = $request->pageSize;
-        $query['ProjectId']  = $request->projectId;
-        $query['RegionId']   = $request->regionId;
-        $req                 = new OpenApiRequest([
+        $query = [];
+        if (!Utils::isUnset($request->pageNumber)) {
+            $query['PageNumber'] = $request->pageNumber;
+        }
+        if (!Utils::isUnset($request->pageSize)) {
+            $query['PageSize'] = $request->pageSize;
+        }
+        if (!Utils::isUnset($request->projectId)) {
+            $query['ProjectId'] = $request->projectId;
+        }
+        if (!Utils::isUnset($request->regionId)) {
+            $query['RegionId'] = $request->regionId;
+        }
+        $req = new OpenApiRequest([
             'query' => OpenApiUtilClient::query($query),
         ]);
         $params = new Params([
@@ -2362,15 +3008,29 @@ class Ddi extends OpenApiClient
     public function listFlowProjectsWithOptions($request, $runtime)
     {
         Utils::validateModel($request);
-        $query                    = [];
-        $query['Name']            = $request->name;
-        $query['PageNumber']      = $request->pageNumber;
-        $query['PageSize']        = $request->pageSize;
-        $query['ProductType']     = $request->productType;
-        $query['ProjectId']       = $request->projectId;
-        $query['RegionId']        = $request->regionId;
-        $query['ResourceGroupId'] = $request->resourceGroupId;
-        $req                      = new OpenApiRequest([
+        $query = [];
+        if (!Utils::isUnset($request->name)) {
+            $query['Name'] = $request->name;
+        }
+        if (!Utils::isUnset($request->pageNumber)) {
+            $query['PageNumber'] = $request->pageNumber;
+        }
+        if (!Utils::isUnset($request->pageSize)) {
+            $query['PageSize'] = $request->pageSize;
+        }
+        if (!Utils::isUnset($request->productType)) {
+            $query['ProductType'] = $request->productType;
+        }
+        if (!Utils::isUnset($request->projectId)) {
+            $query['ProjectId'] = $request->projectId;
+        }
+        if (!Utils::isUnset($request->regionId)) {
+            $query['RegionId'] = $request->regionId;
+        }
+        if (!Utils::isUnset($request->resourceGroupId)) {
+            $query['ResourceGroupId'] = $request->resourceGroupId;
+        }
+        $req = new OpenApiRequest([
             'query' => OpenApiUtilClient::query($query),
         ]);
         $params = new Params([
@@ -2398,56 +3058,6 @@ class Ddi extends OpenApiClient
         $runtime = new RuntimeOptions([]);
 
         return $this->listFlowProjectsWithOptions($request, $runtime);
-    }
-
-    /**
-     * @param ListFlowsRequest $request
-     * @param RuntimeOptions   $runtime
-     *
-     * @return ListFlowsResponse
-     */
-    public function listFlowsWithOptions($request, $runtime)
-    {
-        Utils::validateModel($request);
-        $query               = [];
-        $query['ClusterId']  = $request->clusterId;
-        $query['Id']         = $request->id;
-        $query['JobId']      = $request->jobId;
-        $query['Name']       = $request->name;
-        $query['PageNumber'] = $request->pageNumber;
-        $query['PageSize']   = $request->pageSize;
-        $query['Periodic']   = $request->periodic;
-        $query['ProjectId']  = $request->projectId;
-        $query['RegionId']   = $request->regionId;
-        $query['Status']     = $request->status;
-        $req                 = new OpenApiRequest([
-            'query' => OpenApiUtilClient::query($query),
-        ]);
-        $params = new Params([
-            'action'      => 'ListFlows',
-            'version'     => '2020-06-17',
-            'protocol'    => 'HTTPS',
-            'pathname'    => '/',
-            'method'      => 'POST',
-            'authType'    => 'AK',
-            'style'       => 'RPC',
-            'reqBodyType' => 'formData',
-            'bodyType'    => 'json',
-        ]);
-
-        return ListFlowsResponse::fromMap($this->callApi($params, $req, $runtime));
-    }
-
-    /**
-     * @param ListFlowsRequest $request
-     *
-     * @return ListFlowsResponse
-     */
-    public function listFlows($request)
-    {
-        $runtime = new RuntimeOptions([]);
-
-        return $this->listFlowsWithOptions($request, $runtime);
     }
 
     /**
@@ -2499,27 +3109,65 @@ class Ddi extends OpenApiClient
     public function modifyFlowWithOptions($request, $runtime)
     {
         Utils::validateModel($request);
-        $query                            = [];
-        $query['AlertConf']               = $request->alertConf;
-        $query['AlertDingDingGroupBizId'] = $request->alertDingDingGroupBizId;
-        $query['AlertUserGroupBizId']     = $request->alertUserGroupBizId;
-        $query['Application']             = $request->application;
-        $query['ClusterId']               = $request->clusterId;
-        $query['CreateCluster']           = $request->createCluster;
-        $query['CronExpr']                = $request->cronExpr;
-        $query['Description']             = $request->description;
-        $query['EndSchedule']             = $request->endSchedule;
-        $query['HostName']                = $request->hostName;
-        $query['Id']                      = $request->id;
-        $query['Name']                    = $request->name;
-        $query['ParentCategory']          = $request->parentCategory;
-        $query['ParentFlowList']          = $request->parentFlowList;
-        $query['Periodic']                = $request->periodic;
-        $query['ProjectId']               = $request->projectId;
-        $query['RegionId']                = $request->regionId;
-        $query['StartSchedule']           = $request->startSchedule;
-        $query['Status']                  = $request->status;
-        $req                              = new OpenApiRequest([
+        $query = [];
+        if (!Utils::isUnset($request->alertConf)) {
+            $query['AlertConf'] = $request->alertConf;
+        }
+        if (!Utils::isUnset($request->alertDingDingGroupBizId)) {
+            $query['AlertDingDingGroupBizId'] = $request->alertDingDingGroupBizId;
+        }
+        if (!Utils::isUnset($request->alertUserGroupBizId)) {
+            $query['AlertUserGroupBizId'] = $request->alertUserGroupBizId;
+        }
+        if (!Utils::isUnset($request->application)) {
+            $query['Application'] = $request->application;
+        }
+        if (!Utils::isUnset($request->clusterId)) {
+            $query['ClusterId'] = $request->clusterId;
+        }
+        if (!Utils::isUnset($request->createCluster)) {
+            $query['CreateCluster'] = $request->createCluster;
+        }
+        if (!Utils::isUnset($request->cronExpr)) {
+            $query['CronExpr'] = $request->cronExpr;
+        }
+        if (!Utils::isUnset($request->description)) {
+            $query['Description'] = $request->description;
+        }
+        if (!Utils::isUnset($request->endSchedule)) {
+            $query['EndSchedule'] = $request->endSchedule;
+        }
+        if (!Utils::isUnset($request->hostName)) {
+            $query['HostName'] = $request->hostName;
+        }
+        if (!Utils::isUnset($request->id)) {
+            $query['Id'] = $request->id;
+        }
+        if (!Utils::isUnset($request->name)) {
+            $query['Name'] = $request->name;
+        }
+        if (!Utils::isUnset($request->parentCategory)) {
+            $query['ParentCategory'] = $request->parentCategory;
+        }
+        if (!Utils::isUnset($request->parentFlowList)) {
+            $query['ParentFlowList'] = $request->parentFlowList;
+        }
+        if (!Utils::isUnset($request->periodic)) {
+            $query['Periodic'] = $request->periodic;
+        }
+        if (!Utils::isUnset($request->projectId)) {
+            $query['ProjectId'] = $request->projectId;
+        }
+        if (!Utils::isUnset($request->regionId)) {
+            $query['RegionId'] = $request->regionId;
+        }
+        if (!Utils::isUnset($request->startSchedule)) {
+            $query['StartSchedule'] = $request->startSchedule;
+        }
+        if (!Utils::isUnset($request->status)) {
+            $query['Status'] = $request->status;
+        }
+        $req = new OpenApiRequest([
             'query' => OpenApiUtilClient::query($query),
         ]);
         $params = new Params([
@@ -2558,13 +3206,23 @@ class Ddi extends OpenApiClient
     public function modifyFlowCategoryWithOptions($request, $runtime)
     {
         Utils::validateModel($request);
-        $query              = [];
-        $query['Id']        = $request->id;
-        $query['Name']      = $request->name;
-        $query['ParentId']  = $request->parentId;
-        $query['ProjectId'] = $request->projectId;
-        $query['RegionId']  = $request->regionId;
-        $req                = new OpenApiRequest([
+        $query = [];
+        if (!Utils::isUnset($request->id)) {
+            $query['Id'] = $request->id;
+        }
+        if (!Utils::isUnset($request->name)) {
+            $query['Name'] = $request->name;
+        }
+        if (!Utils::isUnset($request->parentId)) {
+            $query['ParentId'] = $request->parentId;
+        }
+        if (!Utils::isUnset($request->projectId)) {
+            $query['ProjectId'] = $request->projectId;
+        }
+        if (!Utils::isUnset($request->regionId)) {
+            $query['RegionId'] = $request->regionId;
+        }
+        $req = new OpenApiRequest([
             'query' => OpenApiUtilClient::query($query),
         ]);
         $params = new Params([
@@ -2603,28 +3261,68 @@ class Ddi extends OpenApiClient
     public function modifyFlowForWebWithOptions($request, $runtime)
     {
         Utils::validateModel($request);
-        $query                            = [];
-        $query['AlertConf']               = $request->alertConf;
-        $query['AlertDingDingGroupBizId'] = $request->alertDingDingGroupBizId;
-        $query['AlertUserGroupBizId']     = $request->alertUserGroupBizId;
-        $query['ClusterId']               = $request->clusterId;
-        $query['CreateCluster']           = $request->createCluster;
-        $query['CronExpr']                = $request->cronExpr;
-        $query['Description']             = $request->description;
-        $query['EndSchedule']             = $request->endSchedule;
-        $query['Graph']                   = $request->graph;
-        $query['HostName']                = $request->hostName;
-        $query['Id']                      = $request->id;
-        $query['Name']                    = $request->name;
-        $query['Namespace']               = $request->namespace_;
-        $query['ParentCategory']          = $request->parentCategory;
-        $query['ParentFlowList']          = $request->parentFlowList;
-        $query['Periodic']                = $request->periodic;
-        $query['ProjectId']               = $request->projectId;
-        $query['RegionId']                = $request->regionId;
-        $query['StartSchedule']           = $request->startSchedule;
-        $query['Status']                  = $request->status;
-        $req                              = new OpenApiRequest([
+        $query = [];
+        if (!Utils::isUnset($request->alertConf)) {
+            $query['AlertConf'] = $request->alertConf;
+        }
+        if (!Utils::isUnset($request->alertDingDingGroupBizId)) {
+            $query['AlertDingDingGroupBizId'] = $request->alertDingDingGroupBizId;
+        }
+        if (!Utils::isUnset($request->alertUserGroupBizId)) {
+            $query['AlertUserGroupBizId'] = $request->alertUserGroupBizId;
+        }
+        if (!Utils::isUnset($request->clusterId)) {
+            $query['ClusterId'] = $request->clusterId;
+        }
+        if (!Utils::isUnset($request->createCluster)) {
+            $query['CreateCluster'] = $request->createCluster;
+        }
+        if (!Utils::isUnset($request->cronExpr)) {
+            $query['CronExpr'] = $request->cronExpr;
+        }
+        if (!Utils::isUnset($request->description)) {
+            $query['Description'] = $request->description;
+        }
+        if (!Utils::isUnset($request->endSchedule)) {
+            $query['EndSchedule'] = $request->endSchedule;
+        }
+        if (!Utils::isUnset($request->graph)) {
+            $query['Graph'] = $request->graph;
+        }
+        if (!Utils::isUnset($request->hostName)) {
+            $query['HostName'] = $request->hostName;
+        }
+        if (!Utils::isUnset($request->id)) {
+            $query['Id'] = $request->id;
+        }
+        if (!Utils::isUnset($request->name)) {
+            $query['Name'] = $request->name;
+        }
+        if (!Utils::isUnset($request->namespace_)) {
+            $query['Namespace'] = $request->namespace_;
+        }
+        if (!Utils::isUnset($request->parentCategory)) {
+            $query['ParentCategory'] = $request->parentCategory;
+        }
+        if (!Utils::isUnset($request->parentFlowList)) {
+            $query['ParentFlowList'] = $request->parentFlowList;
+        }
+        if (!Utils::isUnset($request->periodic)) {
+            $query['Periodic'] = $request->periodic;
+        }
+        if (!Utils::isUnset($request->projectId)) {
+            $query['ProjectId'] = $request->projectId;
+        }
+        if (!Utils::isUnset($request->regionId)) {
+            $query['RegionId'] = $request->regionId;
+        }
+        if (!Utils::isUnset($request->startSchedule)) {
+            $query['StartSchedule'] = $request->startSchedule;
+        }
+        if (!Utils::isUnset($request->status)) {
+            $query['Status'] = $request->status;
+        }
+        $req = new OpenApiRequest([
             'query' => OpenApiUtilClient::query($query),
         ]);
         $params = new Params([
@@ -2663,27 +3361,65 @@ class Ddi extends OpenApiClient
     public function modifyFlowJobWithOptions($request, $runtime)
     {
         Utils::validateModel($request);
-        $query                    = [];
-        $query['AlertConf']       = $request->alertConf;
-        $query['ClusterId']       = $request->clusterId;
-        $query['CustomVariables'] = $request->customVariables;
-        $query['Description']     = $request->description;
-        $query['EnvConf']         = $request->envConf;
-        $query['FailAct']         = $request->failAct;
-        $query['Id']              = $request->id;
-        $query['KnoxPassword']    = $request->knoxPassword;
-        $query['KnoxUser']        = $request->knoxUser;
-        $query['Mode']            = $request->mode;
-        $query['MonitorConf']     = $request->monitorConf;
-        $query['Name']            = $request->name;
-        $query['ParamConf']       = $request->paramConf;
-        $query['Params']          = $request->params;
-        $query['ProjectId']       = $request->projectId;
-        $query['RegionId']        = $request->regionId;
-        $query['ResourceList']    = $request->resourceList;
-        $query['RetryPolicy']     = $request->retryPolicy;
-        $query['RunConf']         = $request->runConf;
-        $req                      = new OpenApiRequest([
+        $query = [];
+        if (!Utils::isUnset($request->alertConf)) {
+            $query['AlertConf'] = $request->alertConf;
+        }
+        if (!Utils::isUnset($request->clusterId)) {
+            $query['ClusterId'] = $request->clusterId;
+        }
+        if (!Utils::isUnset($request->customVariables)) {
+            $query['CustomVariables'] = $request->customVariables;
+        }
+        if (!Utils::isUnset($request->description)) {
+            $query['Description'] = $request->description;
+        }
+        if (!Utils::isUnset($request->envConf)) {
+            $query['EnvConf'] = $request->envConf;
+        }
+        if (!Utils::isUnset($request->failAct)) {
+            $query['FailAct'] = $request->failAct;
+        }
+        if (!Utils::isUnset($request->id)) {
+            $query['Id'] = $request->id;
+        }
+        if (!Utils::isUnset($request->knoxPassword)) {
+            $query['KnoxPassword'] = $request->knoxPassword;
+        }
+        if (!Utils::isUnset($request->knoxUser)) {
+            $query['KnoxUser'] = $request->knoxUser;
+        }
+        if (!Utils::isUnset($request->mode)) {
+            $query['Mode'] = $request->mode;
+        }
+        if (!Utils::isUnset($request->monitorConf)) {
+            $query['MonitorConf'] = $request->monitorConf;
+        }
+        if (!Utils::isUnset($request->name)) {
+            $query['Name'] = $request->name;
+        }
+        if (!Utils::isUnset($request->paramConf)) {
+            $query['ParamConf'] = $request->paramConf;
+        }
+        if (!Utils::isUnset($request->params)) {
+            $query['Params'] = $request->params;
+        }
+        if (!Utils::isUnset($request->projectId)) {
+            $query['ProjectId'] = $request->projectId;
+        }
+        if (!Utils::isUnset($request->regionId)) {
+            $query['RegionId'] = $request->regionId;
+        }
+        if (!Utils::isUnset($request->resourceList)) {
+            $query['ResourceList'] = $request->resourceList;
+        }
+        if (!Utils::isUnset($request->retryPolicy)) {
+            $query['RetryPolicy'] = $request->retryPolicy;
+        }
+        if (!Utils::isUnset($request->runConf)) {
+            $query['RunConf'] = $request->runConf;
+        }
+        $req = new OpenApiRequest([
             'query' => OpenApiUtilClient::query($query),
         ]);
         $params = new Params([
@@ -2722,12 +3458,20 @@ class Ddi extends OpenApiClient
     public function modifyFlowProjectWithOptions($request, $runtime)
     {
         Utils::validateModel($request);
-        $query                = [];
-        $query['Description'] = $request->description;
-        $query['Name']        = $request->name;
-        $query['ProjectId']   = $request->projectId;
-        $query['RegionId']    = $request->regionId;
-        $req                  = new OpenApiRequest([
+        $query = [];
+        if (!Utils::isUnset($request->description)) {
+            $query['Description'] = $request->description;
+        }
+        if (!Utils::isUnset($request->name)) {
+            $query['Name'] = $request->name;
+        }
+        if (!Utils::isUnset($request->projectId)) {
+            $query['ProjectId'] = $request->projectId;
+        }
+        if (!Utils::isUnset($request->regionId)) {
+            $query['RegionId'] = $request->regionId;
+        }
+        $req = new OpenApiRequest([
             'query' => OpenApiUtilClient::query($query),
         ]);
         $params = new Params([
@@ -2766,16 +3510,32 @@ class Ddi extends OpenApiClient
     public function modifyFlowProjectClusterSettingWithOptions($request, $runtime)
     {
         Utils::validateModel($request);
-        $query                 = [];
-        $query['ClusterId']    = $request->clusterId;
-        $query['DefaultQueue'] = $request->defaultQueue;
-        $query['DefaultUser']  = $request->defaultUser;
-        $query['HostList']     = $request->hostList;
-        $query['ProjectId']    = $request->projectId;
-        $query['QueueList']    = $request->queueList;
-        $query['RegionId']     = $request->regionId;
-        $query['UserList']     = $request->userList;
-        $req                   = new OpenApiRequest([
+        $query = [];
+        if (!Utils::isUnset($request->clusterId)) {
+            $query['ClusterId'] = $request->clusterId;
+        }
+        if (!Utils::isUnset($request->defaultQueue)) {
+            $query['DefaultQueue'] = $request->defaultQueue;
+        }
+        if (!Utils::isUnset($request->defaultUser)) {
+            $query['DefaultUser'] = $request->defaultUser;
+        }
+        if (!Utils::isUnset($request->hostList)) {
+            $query['HostList'] = $request->hostList;
+        }
+        if (!Utils::isUnset($request->projectId)) {
+            $query['ProjectId'] = $request->projectId;
+        }
+        if (!Utils::isUnset($request->queueList)) {
+            $query['QueueList'] = $request->queueList;
+        }
+        if (!Utils::isUnset($request->regionId)) {
+            $query['RegionId'] = $request->regionId;
+        }
+        if (!Utils::isUnset($request->userList)) {
+            $query['UserList'] = $request->userList;
+        }
+        $req = new OpenApiRequest([
             'query' => OpenApiUtilClient::query($query),
         ]);
         $params = new Params([
@@ -2814,11 +3574,17 @@ class Ddi extends OpenApiClient
     public function modifyFlowVariableCollectionWithOptions($request, $runtime)
     {
         Utils::validateModel($request);
-        $query                    = [];
-        $query['Data']            = $request->data;
-        $query['RegionId']        = $request->regionId;
-        $query['ResourceGroupId'] = $request->resourceGroupId;
-        $req                      = new OpenApiRequest([
+        $query = [];
+        if (!Utils::isUnset($request->data)) {
+            $query['Data'] = $request->data;
+        }
+        if (!Utils::isUnset($request->regionId)) {
+            $query['RegionId'] = $request->regionId;
+        }
+        if (!Utils::isUnset($request->resourceGroupId)) {
+            $query['ResourceGroupId'] = $request->resourceGroupId;
+        }
+        $req = new OpenApiRequest([
             'query' => OpenApiUtilClient::query($query),
         ]);
         $params = new Params([
@@ -2857,12 +3623,20 @@ class Ddi extends OpenApiClient
     public function releaseClusterWithOptions($request, $runtime)
     {
         Utils::validateModel($request);
-        $query                    = [];
-        $query['ForceRelease']    = $request->forceRelease;
-        $query['Id']              = $request->id;
-        $query['RegionId']        = $request->regionId;
-        $query['ResourceOwnerId'] = $request->resourceOwnerId;
-        $req                      = new OpenApiRequest([
+        $query = [];
+        if (!Utils::isUnset($request->forceRelease)) {
+            $query['ForceRelease'] = $request->forceRelease;
+        }
+        if (!Utils::isUnset($request->id)) {
+            $query['Id'] = $request->id;
+        }
+        if (!Utils::isUnset($request->regionId)) {
+            $query['RegionId'] = $request->regionId;
+        }
+        if (!Utils::isUnset($request->resourceOwnerId)) {
+            $query['ResourceOwnerId'] = $request->resourceOwnerId;
+        }
+        $req = new OpenApiRequest([
             'query' => OpenApiUtilClient::query($query),
         ]);
         $params = new Params([
@@ -2901,12 +3675,20 @@ class Ddi extends OpenApiClient
     public function rerunFlowWithOptions($request, $runtime)
     {
         Utils::validateModel($request);
-        $query                   = [];
-        $query['FlowInstanceId'] = $request->flowInstanceId;
-        $query['ProjectId']      = $request->projectId;
-        $query['ReRunFail']      = $request->reRunFail;
-        $query['RegionId']       = $request->regionId;
-        $req                     = new OpenApiRequest([
+        $query = [];
+        if (!Utils::isUnset($request->flowInstanceId)) {
+            $query['FlowInstanceId'] = $request->flowInstanceId;
+        }
+        if (!Utils::isUnset($request->projectId)) {
+            $query['ProjectId'] = $request->projectId;
+        }
+        if (!Utils::isUnset($request->reRunFail)) {
+            $query['ReRunFail'] = $request->reRunFail;
+        }
+        if (!Utils::isUnset($request->regionId)) {
+            $query['RegionId'] = $request->regionId;
+        }
+        $req = new OpenApiRequest([
             'query' => OpenApiUtilClient::query($query),
         ]);
         $params = new Params([
@@ -2945,14 +3727,26 @@ class Ddi extends OpenApiClient
     public function restoreFlowEntitySnapshotWithOptions($request, $runtime)
     {
         Utils::validateModel($request);
-        $query                    = [];
-        $query['EntityId']        = $request->entityId;
-        $query['EntityType']      = $request->entityType;
-        $query['OperatorId']      = $request->operatorId;
-        $query['RegionId']        = $request->regionId;
-        $query['ResourceOwnerId'] = $request->resourceOwnerId;
-        $query['Revision']        = $request->revision;
-        $req                      = new OpenApiRequest([
+        $query = [];
+        if (!Utils::isUnset($request->entityId)) {
+            $query['EntityId'] = $request->entityId;
+        }
+        if (!Utils::isUnset($request->entityType)) {
+            $query['EntityType'] = $request->entityType;
+        }
+        if (!Utils::isUnset($request->operatorId)) {
+            $query['OperatorId'] = $request->operatorId;
+        }
+        if (!Utils::isUnset($request->regionId)) {
+            $query['RegionId'] = $request->regionId;
+        }
+        if (!Utils::isUnset($request->resourceOwnerId)) {
+            $query['ResourceOwnerId'] = $request->resourceOwnerId;
+        }
+        if (!Utils::isUnset($request->revision)) {
+            $query['Revision'] = $request->revision;
+        }
+        $req = new OpenApiRequest([
             'query' => OpenApiUtilClient::query($query),
         ]);
         $params = new Params([
@@ -2991,11 +3785,17 @@ class Ddi extends OpenApiClient
     public function resumeFlowWithOptions($request, $runtime)
     {
         Utils::validateModel($request);
-        $query                   = [];
-        $query['FlowInstanceId'] = $request->flowInstanceId;
-        $query['ProjectId']      = $request->projectId;
-        $query['RegionId']       = $request->regionId;
-        $req                     = new OpenApiRequest([
+        $query = [];
+        if (!Utils::isUnset($request->flowInstanceId)) {
+            $query['FlowInstanceId'] = $request->flowInstanceId;
+        }
+        if (!Utils::isUnset($request->projectId)) {
+            $query['ProjectId'] = $request->projectId;
+        }
+        if (!Utils::isUnset($request->regionId)) {
+            $query['RegionId'] = $request->regionId;
+        }
+        $req = new OpenApiRequest([
             'query' => OpenApiUtilClient::query($query),
         ]);
         $params = new Params([
@@ -3034,11 +3834,17 @@ class Ddi extends OpenApiClient
     public function startFlowWithOptions($request, $runtime)
     {
         Utils::validateModel($request);
-        $query                   = [];
-        $query['FlowInstanceId'] = $request->flowInstanceId;
-        $query['ProjectId']      = $request->projectId;
-        $query['RegionId']       = $request->regionId;
-        $req                     = new OpenApiRequest([
+        $query = [];
+        if (!Utils::isUnset($request->flowInstanceId)) {
+            $query['FlowInstanceId'] = $request->flowInstanceId;
+        }
+        if (!Utils::isUnset($request->projectId)) {
+            $query['ProjectId'] = $request->projectId;
+        }
+        if (!Utils::isUnset($request->regionId)) {
+            $query['RegionId'] = $request->regionId;
+        }
+        $req = new OpenApiRequest([
             'query' => OpenApiUtilClient::query($query),
         ]);
         $params = new Params([
@@ -3077,12 +3883,20 @@ class Ddi extends OpenApiClient
     public function submitFlowWithOptions($request, $runtime)
     {
         Utils::validateModel($request);
-        $query              = [];
-        $query['Conf']      = $request->conf;
-        $query['FlowId']    = $request->flowId;
-        $query['ProjectId'] = $request->projectId;
-        $query['RegionId']  = $request->regionId;
-        $req                = new OpenApiRequest([
+        $query = [];
+        if (!Utils::isUnset($request->conf)) {
+            $query['Conf'] = $request->conf;
+        }
+        if (!Utils::isUnset($request->flowId)) {
+            $query['FlowId'] = $request->flowId;
+        }
+        if (!Utils::isUnset($request->projectId)) {
+            $query['ProjectId'] = $request->projectId;
+        }
+        if (!Utils::isUnset($request->regionId)) {
+            $query['RegionId'] = $request->regionId;
+        }
+        $req = new OpenApiRequest([
             'query' => OpenApiUtilClient::query($query),
         ]);
         $params = new Params([
@@ -3121,14 +3935,26 @@ class Ddi extends OpenApiClient
     public function submitFlowJobWithOptions($request, $runtime)
     {
         Utils::validateModel($request);
-        $query              = [];
-        $query['ClusterId'] = $request->clusterId;
-        $query['Conf']      = $request->conf;
-        $query['HostName']  = $request->hostName;
-        $query['JobId']     = $request->jobId;
-        $query['ProjectId'] = $request->projectId;
-        $query['RegionId']  = $request->regionId;
-        $req                = new OpenApiRequest([
+        $query = [];
+        if (!Utils::isUnset($request->clusterId)) {
+            $query['ClusterId'] = $request->clusterId;
+        }
+        if (!Utils::isUnset($request->conf)) {
+            $query['Conf'] = $request->conf;
+        }
+        if (!Utils::isUnset($request->hostName)) {
+            $query['HostName'] = $request->hostName;
+        }
+        if (!Utils::isUnset($request->jobId)) {
+            $query['JobId'] = $request->jobId;
+        }
+        if (!Utils::isUnset($request->projectId)) {
+            $query['ProjectId'] = $request->projectId;
+        }
+        if (!Utils::isUnset($request->regionId)) {
+            $query['RegionId'] = $request->regionId;
+        }
+        $req = new OpenApiRequest([
             'query' => OpenApiUtilClient::query($query),
         ]);
         $params = new Params([
@@ -3167,11 +3993,17 @@ class Ddi extends OpenApiClient
     public function suspendFlowWithOptions($request, $runtime)
     {
         Utils::validateModel($request);
-        $query                   = [];
-        $query['FlowInstanceId'] = $request->flowInstanceId;
-        $query['ProjectId']      = $request->projectId;
-        $query['RegionId']       = $request->regionId;
-        $req                     = new OpenApiRequest([
+        $query = [];
+        if (!Utils::isUnset($request->flowInstanceId)) {
+            $query['FlowInstanceId'] = $request->flowInstanceId;
+        }
+        if (!Utils::isUnset($request->projectId)) {
+            $query['ProjectId'] = $request->projectId;
+        }
+        if (!Utils::isUnset($request->regionId)) {
+            $query['RegionId'] = $request->regionId;
+        }
+        $req = new OpenApiRequest([
             'query' => OpenApiUtilClient::query($query),
         ]);
         $params = new Params([

@@ -9,11 +9,15 @@ use AlibabaCloud\Tea\Model;
 class resourceList extends Model
 {
     /**
+     * @description 保留参数。
+     *
      * @var string
      */
     public $alias;
 
     /**
+     * @description 保留参数。
+     *
      * @var string
      */
     public $path;

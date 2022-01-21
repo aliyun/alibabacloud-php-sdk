@@ -9,16 +9,22 @@ use AlibabaCloud\Tea\Model;
 class ListFlowClusterAllRequest extends Model
 {
     /**
+     * @description 产品类型。固定值DATABRICKS_INSIGHT。
+     *
      * @var string
      */
     public $productType;
 
     /**
+     * @description 地域ID。您可以调用DescribeRegions查看最新的阿里云地域列表。
+     *
      * @var string
      */
     public $regionId;
 
     /**
+     * @description 资源组ID。您可以调用ListResourceGroups查看资源组ID。
+     *
      * @var string
      */
     public $resourceGroupId;

@@ -14,26 +14,36 @@ class CreateFlowProjectRequest extends Model
     public $clientToken;
 
     /**
+     * @description 项目描述
+     *
      * @var string
      */
     public $description;
 
     /**
+     * @description 项目名称
+     *
      * @var string
      */
     public $name;
 
     /**
+     * @description 产品类型，固定值DATABRICKS_DATAINSIGHT
+     *
      * @var string
      */
     public $productType;
 
     /**
+     * @description 地域ID
+     *
      * @var string
      */
     public $regionId;
 
     /**
+     * @description 资源组ID
+     *
      * @var string
      */
     public $resourceGroupId;

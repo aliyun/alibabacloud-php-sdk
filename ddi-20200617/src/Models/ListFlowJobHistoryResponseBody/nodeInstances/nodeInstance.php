@@ -9,131 +9,183 @@ use AlibabaCloud\Tea\Model;
 class nodeInstance extends Model
 {
     /**
+     * @description 集群ID。
+     *
      * @var string
      */
     public $clusterId;
 
     /**
+     * @description 运行结束时间。
+     *
      * @var int
      */
     public $endTime;
 
     /**
+     * @description 环境变量设置。
+     *
      * @var string
      */
     public $envConf;
 
     /**
+     * @description 启动器的application的ID。
+     *
      * @var string
      */
     public $externalId;
 
     /**
+     * @description 外部信息。例如，运行作业的错误诊断信息。
+     *
      * @var string
      */
     public $externalInfo;
 
     /**
+     * @description 实例对应的Container的状态：SUBMITTED, RUNNING, SUCCESS, FAIL, KILL_FAIL, KILL_SUCCESS
+     *
      * @var string
      */
     public $externalStatus;
 
     /**
+     * @description 失败策略，可能的取值：CONTINUE（提过本次作业），STOP（停止作业）
+     *
      * @var string
      */
     public $failAct;
 
     /**
+     * @description 创建时间。
+     *
      * @var int
      */
     public $gmtCreate;
 
     /**
+     * @description 创建时间。
+     *
      * @var int
      */
     public $gmtModified;
 
     /**
+     * @description 保留参数。
+     *
      * @var string
      */
     public $hostName;
 
     /**
+     * @description 作业实例ID。
+     *
      * @var string
      */
     public $id;
 
     /**
+     * @description 作业ID。
+     *
      * @var string
      */
     public $jobId;
 
     /**
+     * @description 作业名称。
+     *
      * @var string
      */
     public $jobName;
 
     /**
+     * @description 作业内容。
+     *
      * @var string
      */
     public $jobParams;
 
     /**
+     * @description 作业类型。
+     *
      * @var string
      */
     public $jobType;
 
     /**
+     * @description 最大重试次数。
+     *
      * @var int
      */
     public $maxRetry;
 
     /**
+     * @description 保留参数。
+     *
      * @var string
      */
     public $nodeName;
 
     /**
+     * @description 参数设置。
+     *
      * @var string
      */
     public $paramConf;
 
     /**
+     * @description 项目ID。
+     *
      * @var string
      */
     public $projectId;
 
     /**
+     * @description 重试次数。
+     *
      * @var int
      */
     public $retries;
 
     /**
+     * @description 重试间隔 0-300（秒）。
+     *
      * @var int
      */
     public $retryInterval;
 
     /**
+     * @description 运行配置，取值如下：priority（优先级），userName（任务的Linux提交用户），memory（内存，单位为MB），cores（核数）
+     *
      * @var string
      */
     public $runConf;
 
     /**
+     * @description 运行开始时间。
+     *
      * @var int
      */
     public $startTime;
 
     /**
+     * @description 实例的执行状态：PREP：准备启动，SUBMITTING：提交中，RUNNING：运行中DONE：已完成，OK：执行成功，FAILED：执行失败，KILLED：已终止，KILL_FAILED：终止失败，START_RETRY：开始重试
+     *
      * @var string
      */
     public $status;
 
     /**
+     * @description 节点类型：JOB：作业，CLUSTER：集群，START：开始，END：结束
+     *
      * @var string
      */
     public $type;
 
     /**
+     * @description 是否结束。
+     *
      * @var bool
      */
     public $pending;

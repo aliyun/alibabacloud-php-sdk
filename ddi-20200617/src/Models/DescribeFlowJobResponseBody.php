@@ -10,111 +10,155 @@ use AlibabaCloud\Tea\Model;
 class DescribeFlowJobResponseBody extends Model
 {
     /**
+     * @description 是否临时查询。
+     *
      * @var string
      */
     public $adhoc;
 
     /**
+     * @description 报警配置。
+     *
      * @var string
      */
     public $alertConf;
 
     /**
+     * @description 作业所在目录ID。
+     *
      * @var string
      */
     public $categoryId;
 
     /**
+     * @description 自定义变量。
+     *
      * @var string
      */
     public $customVariables;
 
     /**
+     * @description 作业的描述。
+     *
      * @var string
      */
     public $description;
 
     /**
+     * @description 保留参数。
+     *
      * @var string
      */
     public $editLockDetail;
 
     /**
+     * @description 环境变量设置。
+     *
      * @var string
      */
     public $envConf;
 
     /**
+     * @description 失败策略，可能的取值：CONTINUE（提过本次作业），STOP（停止作业）
+     *
      * @var string
      */
     public $failAct;
 
     /**
+     * @description 创建时间。
+     *
      * @var int
      */
     public $gmtCreate;
 
     /**
+     * @description 最后修改时间。
+     *
      * @var int
      */
     public $gmtModified;
 
     /**
+     * @description 作业ID。
+     *
      * @var string
      */
     public $id;
 
     /**
+     * @description Knox的用户密码，执行Zeppelin Notebook时必须提供。
+     *
      * @var string
      */
     public $knoxPassword;
 
     /**
+     * @description Knox的用户名，执行Zeppelin Notebook时必须提供。
+     *
      * @var string
      */
     public $knoxUser;
 
     /**
+     * @description 最后一次执行的实例ID。
+     *
      * @var string
      */
     public $lastInstanceId;
 
     /**
+     * @description 最大重试次数。
+     *
      * @var int
      */
     public $maxRetry;
 
     /**
+     * @description 保留参数。
+     *
      * @var int
      */
     public $maxRunningTimeSec;
 
     /**
+     * @description 模型模式，取值如下：  YARN：将作业包装成一个Launcher提交至YARN中执行，LOCAL：作业直接在机器上以进程方式运行。
+     *
      * @var string
      */
     public $mode;
 
     /**
+     * @description 监控配置，仅SPARK_STREAMING类型作业支持监控配置。
+     *
      * @var string
      */
     public $monitorConf;
 
     /**
+     * @description 作业名称。
+     *
      * @var string
      */
     public $name;
 
     /**
+     * @description 参数设置。
+     *
      * @var string
      */
     public $paramConf;
 
     /**
+     * @description 作业内容。
+     *
      * @var string
      */
     public $params;
 
     /**
+     * @description 请求ID。
+     *
      * @var string
      */
     public $requestId;
@@ -125,21 +169,29 @@ class DescribeFlowJobResponseBody extends Model
     public $resourceList;
 
     /**
+     * @description 重试间隔 0~300（秒）。
+     *
      * @var int
      */
     public $retryInterval;
 
     /**
+     * @description 重试策略，保留参数。
+     *
      * @var string
      */
     public $retryPolicy;
 
     /**
+     * @description 运行配置，取值如下：priority（优先级），userName（任务的Linux提交用户），memory（内存，单位为MB），cores（核数）
+     *
      * @var string
      */
     public $runConf;
 
     /**
+     * @description 作业的类型，可能的取值有：SPARK，SPARK_STREAMING，ZEPPELIN
+     *
      * @var string
      */
     public $type;

@@ -11,76 +11,106 @@ use AlibabaCloud\Tea\Model;
 class clusterInfo extends Model
 {
     /**
+     * @description 付费类型。PostPaid: 按量付费，PrePaid：包年包月集群。
+     *
      * @var string
      */
     public $chargeType;
 
     /**
+     * @description 资源。
+     *
      * @var string
      */
     public $createResource;
 
     /**
+     * @description 创建时间。
+     *
      * @var int
      */
     public $createTime;
 
     /**
+     * @description 过期时间。
+     *
      * @var int
      */
     public $expiredTime;
 
     /**
+     * @description 集群失败原因。
+     *
      * @var failReason
      */
     public $failReason;
 
     /**
+     * @description 是否有未完成订单。
+     *
      * @var bool
      */
     public $hasUncompletedOrder;
 
     /**
+     * @description 集群ID。
+     *
      * @var string
      */
     public $id;
 
     /**
+     * @description 保留字段。
+     *
      * @var string
      */
     public $k8sClusterId;
 
     /**
+     * @description 集群名字。
+     *
      * @var string
      */
     public $name;
 
     /**
+     * @description 订单列表
+     *
      * @var string
      */
     public $orderList;
 
     /**
+     * @description 订单任务信息。
+     *
      * @var orderTaskInfo
      */
     public $orderTaskInfo;
 
     /**
+     * @description 包年包月时间（包月数有：1、2、3、4、5、6、7、8、9、12、24、36）。ChargeType=PrePaid 时，必填。
+     *
      * @var int
      */
     public $period;
 
     /**
+     * @description 运行时间，单位：秒。
+     *
      * @var int
      */
     public $runningTime;
 
     /**
+     * @description 集群状态。
+     *
      * @var string
      */
     public $status;
 
     /**
+     * @description 集群类型。
+     *
      * @var string
      */
     public $type;
