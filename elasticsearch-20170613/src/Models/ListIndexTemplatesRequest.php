@@ -12,8 +12,20 @@ class ListIndexTemplatesRequest extends Model
      * @var string
      */
     public $indexTemplate;
+
+    /**
+     * @var int
+     */
+    public $page;
+
+    /**
+     * @var int
+     */
+    public $size;
     protected $_name = [
         'indexTemplate' => 'indexTemplate',
+        'page'          => 'page',
+        'size'          => 'size',
     ];
 
     public function validate()
@@ -25,6 +37,12 @@ class ListIndexTemplatesRequest extends Model
         $res = [];
         if (null !== $this->indexTemplate) {
             $res['indexTemplate'] = $this->indexTemplate;
+        }
+        if (null !== $this->page) {
+            $res['page'] = $this->page;
+        }
+        if (null !== $this->size) {
+            $res['size'] = $this->size;
         }
 
         return $res;
@@ -40,6 +58,12 @@ class ListIndexTemplatesRequest extends Model
         $model = new self();
         if (isset($map['indexTemplate'])) {
             $model->indexTemplate = $map['indexTemplate'];
+        }
+        if (isset($map['page'])) {
+            $model->page = $map['page'];
+        }
+        if (isset($map['size'])) {
+            $model->size = $map['size'];
         }
 
         return $model;

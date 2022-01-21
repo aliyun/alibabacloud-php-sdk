@@ -5013,6 +5013,12 @@ class Elasticsearch extends OpenApiClient
         if (!Utils::isUnset($request->indexTemplate)) {
             $query['indexTemplate'] = $request->indexTemplate;
         }
+        if (!Utils::isUnset($request->page)) {
+            $query['page'] = $request->page;
+        }
+        if (!Utils::isUnset($request->size)) {
+            $query['size'] = $request->size;
+        }
         $req = new OpenApiRequest([
             'headers' => $headers,
             'query'   => OpenApiUtilClient::query($query),
@@ -7022,6 +7028,7 @@ class Elasticsearch extends OpenApiClient
         $req = new OpenApiRequest([
             'headers' => $headers,
             'query'   => OpenApiUtilClient::query($query),
+            'body'    => Utils::toArray($request->body),
         ]);
         $params = new Params([
             'action'      => 'ShrinkNode',
@@ -7355,6 +7362,7 @@ class Elasticsearch extends OpenApiClient
         $req = new OpenApiRequest([
             'headers' => $headers,
             'query'   => OpenApiUtilClient::query($query),
+            'body'    => Utils::toArray($request->body),
         ]);
         $params = new Params([
             'action'      => 'TransferNode',
@@ -9632,6 +9640,7 @@ class Elasticsearch extends OpenApiClient
         $req = new OpenApiRequest([
             'headers' => $headers,
             'query'   => OpenApiUtilClient::query($query),
+            'body'    => Utils::toArray($request->body),
         ]);
         $params = new Params([
             'action'      => 'ValidateShrinkNodes',
@@ -9730,6 +9739,7 @@ class Elasticsearch extends OpenApiClient
         $req = new OpenApiRequest([
             'headers' => $headers,
             'query'   => OpenApiUtilClient::query($query),
+            'body'    => Utils::toArray($request->body),
         ]);
         $params = new Params([
             'action'      => 'ValidateTransferableNodes',
