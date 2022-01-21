@@ -11,15 +11,15 @@ class DescribeLogMonitorAttributeRequest extends Model
     /**
      * @var string
      */
-    public $regionId;
+    public $metricName;
 
     /**
      * @var string
      */
-    public $metricName;
+    public $regionId;
     protected $_name = [
-        'regionId'   => 'RegionId',
         'metricName' => 'MetricName',
+        'regionId'   => 'RegionId',
     ];
 
     public function validate()
@@ -29,11 +29,11 @@ class DescribeLogMonitorAttributeRequest extends Model
     public function toMap()
     {
         $res = [];
-        if (null !== $this->regionId) {
-            $res['RegionId'] = $this->regionId;
-        }
         if (null !== $this->metricName) {
             $res['MetricName'] = $this->metricName;
+        }
+        if (null !== $this->regionId) {
+            $res['RegionId'] = $this->regionId;
         }
 
         return $res;
@@ -47,11 +47,11 @@ class DescribeLogMonitorAttributeRequest extends Model
     public static function fromMap($map = [])
     {
         $model = new self();
-        if (isset($map['RegionId'])) {
-            $model->regionId = $map['RegionId'];
-        }
         if (isset($map['MetricName'])) {
             $model->metricName = $map['MetricName'];
+        }
+        if (isset($map['RegionId'])) {
+            $model->regionId = $map['RegionId'];
         }
 
         return $model;

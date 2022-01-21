@@ -15,6 +15,11 @@ class DescribeCustomEventHistogramResponseBody extends Model
     public $code;
 
     /**
+     * @var eventHistograms
+     */
+    public $eventHistograms;
+
+    /**
      * @var string
      */
     public $message;
@@ -28,17 +33,12 @@ class DescribeCustomEventHistogramResponseBody extends Model
      * @var string
      */
     public $success;
-
-    /**
-     * @var eventHistograms
-     */
-    public $eventHistograms;
     protected $_name = [
         'code'            => 'Code',
+        'eventHistograms' => 'EventHistograms',
         'message'         => 'Message',
         'requestId'       => 'RequestId',
         'success'         => 'Success',
-        'eventHistograms' => 'EventHistograms',
     ];
 
     public function validate()
@@ -51,6 +51,9 @@ class DescribeCustomEventHistogramResponseBody extends Model
         if (null !== $this->code) {
             $res['Code'] = $this->code;
         }
+        if (null !== $this->eventHistograms) {
+            $res['EventHistograms'] = null !== $this->eventHistograms ? $this->eventHistograms->toMap() : null;
+        }
         if (null !== $this->message) {
             $res['Message'] = $this->message;
         }
@@ -59,9 +62,6 @@ class DescribeCustomEventHistogramResponseBody extends Model
         }
         if (null !== $this->success) {
             $res['Success'] = $this->success;
-        }
-        if (null !== $this->eventHistograms) {
-            $res['EventHistograms'] = null !== $this->eventHistograms ? $this->eventHistograms->toMap() : null;
         }
 
         return $res;
@@ -78,6 +78,9 @@ class DescribeCustomEventHistogramResponseBody extends Model
         if (isset($map['Code'])) {
             $model->code = $map['Code'];
         }
+        if (isset($map['EventHistograms'])) {
+            $model->eventHistograms = eventHistograms::fromMap($map['EventHistograms']);
+        }
         if (isset($map['Message'])) {
             $model->message = $map['Message'];
         }
@@ -86,9 +89,6 @@ class DescribeCustomEventHistogramResponseBody extends Model
         }
         if (isset($map['Success'])) {
             $model->success = $map['Success'];
-        }
-        if (isset($map['EventHistograms'])) {
-            $model->eventHistograms = eventHistograms::fromMap($map['EventHistograms']);
         }
 
         return $model;

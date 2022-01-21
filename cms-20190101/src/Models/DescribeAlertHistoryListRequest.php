@@ -9,6 +9,41 @@ use AlibabaCloud\Tea\Model;
 class DescribeAlertHistoryListRequest extends Model
 {
     /**
+     * @var bool
+     */
+    public $ascending;
+
+    /**
+     * @var string
+     */
+    public $endTime;
+
+    /**
+     * @var string
+     */
+    public $groupId;
+
+    /**
+     * @var string
+     */
+    public $metricName;
+
+    /**
+     * @var string
+     */
+    public $namespace;
+
+    /**
+     * @var int
+     */
+    public $page;
+
+    /**
+     * @var int
+     */
+    public $pageSize;
+
+    /**
      * @var string
      */
     public $regionId;
@@ -26,22 +61,7 @@ class DescribeAlertHistoryListRequest extends Model
     /**
      * @var string
      */
-    public $namespace;
-
-    /**
-     * @var string
-     */
-    public $metricName;
-
-    /**
-     * @var string
-     */
-    public $groupId;
-
-    /**
-     * @var string
-     */
-    public $status;
+    public $startTime;
 
     /**
      * @var string
@@ -49,43 +69,23 @@ class DescribeAlertHistoryListRequest extends Model
     public $state;
 
     /**
-     * @var bool
-     */
-    public $ascending;
-
-    /**
      * @var string
      */
-    public $startTime;
-
-    /**
-     * @var string
-     */
-    public $endTime;
-
-    /**
-     * @var int
-     */
-    public $pageSize;
-
-    /**
-     * @var int
-     */
-    public $page;
+    public $status;
     protected $_name = [
+        'ascending'  => 'Ascending',
+        'endTime'    => 'EndTime',
+        'groupId'    => 'GroupId',
+        'metricName' => 'MetricName',
+        'namespace'  => 'Namespace',
+        'page'       => 'Page',
+        'pageSize'   => 'PageSize',
         'regionId'   => 'RegionId',
         'ruleId'     => 'RuleId',
         'ruleName'   => 'RuleName',
-        'namespace'  => 'Namespace',
-        'metricName' => 'MetricName',
-        'groupId'    => 'GroupId',
-        'status'     => 'Status',
-        'state'      => 'State',
-        'ascending'  => 'Ascending',
         'startTime'  => 'StartTime',
-        'endTime'    => 'EndTime',
-        'pageSize'   => 'PageSize',
-        'page'       => 'Page',
+        'state'      => 'State',
+        'status'     => 'Status',
     ];
 
     public function validate()
@@ -95,6 +95,27 @@ class DescribeAlertHistoryListRequest extends Model
     public function toMap()
     {
         $res = [];
+        if (null !== $this->ascending) {
+            $res['Ascending'] = $this->ascending;
+        }
+        if (null !== $this->endTime) {
+            $res['EndTime'] = $this->endTime;
+        }
+        if (null !== $this->groupId) {
+            $res['GroupId'] = $this->groupId;
+        }
+        if (null !== $this->metricName) {
+            $res['MetricName'] = $this->metricName;
+        }
+        if (null !== $this->namespace) {
+            $res['Namespace'] = $this->namespace;
+        }
+        if (null !== $this->page) {
+            $res['Page'] = $this->page;
+        }
+        if (null !== $this->pageSize) {
+            $res['PageSize'] = $this->pageSize;
+        }
         if (null !== $this->regionId) {
             $res['RegionId'] = $this->regionId;
         }
@@ -104,35 +125,14 @@ class DescribeAlertHistoryListRequest extends Model
         if (null !== $this->ruleName) {
             $res['RuleName'] = $this->ruleName;
         }
-        if (null !== $this->namespace) {
-            $res['Namespace'] = $this->namespace;
-        }
-        if (null !== $this->metricName) {
-            $res['MetricName'] = $this->metricName;
-        }
-        if (null !== $this->groupId) {
-            $res['GroupId'] = $this->groupId;
-        }
-        if (null !== $this->status) {
-            $res['Status'] = $this->status;
+        if (null !== $this->startTime) {
+            $res['StartTime'] = $this->startTime;
         }
         if (null !== $this->state) {
             $res['State'] = $this->state;
         }
-        if (null !== $this->ascending) {
-            $res['Ascending'] = $this->ascending;
-        }
-        if (null !== $this->startTime) {
-            $res['StartTime'] = $this->startTime;
-        }
-        if (null !== $this->endTime) {
-            $res['EndTime'] = $this->endTime;
-        }
-        if (null !== $this->pageSize) {
-            $res['PageSize'] = $this->pageSize;
-        }
-        if (null !== $this->page) {
-            $res['Page'] = $this->page;
+        if (null !== $this->status) {
+            $res['Status'] = $this->status;
         }
 
         return $res;
@@ -146,6 +146,27 @@ class DescribeAlertHistoryListRequest extends Model
     public static function fromMap($map = [])
     {
         $model = new self();
+        if (isset($map['Ascending'])) {
+            $model->ascending = $map['Ascending'];
+        }
+        if (isset($map['EndTime'])) {
+            $model->endTime = $map['EndTime'];
+        }
+        if (isset($map['GroupId'])) {
+            $model->groupId = $map['GroupId'];
+        }
+        if (isset($map['MetricName'])) {
+            $model->metricName = $map['MetricName'];
+        }
+        if (isset($map['Namespace'])) {
+            $model->namespace = $map['Namespace'];
+        }
+        if (isset($map['Page'])) {
+            $model->page = $map['Page'];
+        }
+        if (isset($map['PageSize'])) {
+            $model->pageSize = $map['PageSize'];
+        }
         if (isset($map['RegionId'])) {
             $model->regionId = $map['RegionId'];
         }
@@ -155,35 +176,14 @@ class DescribeAlertHistoryListRequest extends Model
         if (isset($map['RuleName'])) {
             $model->ruleName = $map['RuleName'];
         }
-        if (isset($map['Namespace'])) {
-            $model->namespace = $map['Namespace'];
-        }
-        if (isset($map['MetricName'])) {
-            $model->metricName = $map['MetricName'];
-        }
-        if (isset($map['GroupId'])) {
-            $model->groupId = $map['GroupId'];
-        }
-        if (isset($map['Status'])) {
-            $model->status = $map['Status'];
+        if (isset($map['StartTime'])) {
+            $model->startTime = $map['StartTime'];
         }
         if (isset($map['State'])) {
             $model->state = $map['State'];
         }
-        if (isset($map['Ascending'])) {
-            $model->ascending = $map['Ascending'];
-        }
-        if (isset($map['StartTime'])) {
-            $model->startTime = $map['StartTime'];
-        }
-        if (isset($map['EndTime'])) {
-            $model->endTime = $map['EndTime'];
-        }
-        if (isset($map['PageSize'])) {
-            $model->pageSize = $map['PageSize'];
-        }
-        if (isset($map['Page'])) {
-            $model->page = $map['Page'];
+        if (isset($map['Status'])) {
+            $model->status = $map['Status'];
         }
 
         return $model;

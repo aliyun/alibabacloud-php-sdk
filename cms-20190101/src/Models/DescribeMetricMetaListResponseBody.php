@@ -25,9 +25,9 @@ class DescribeMetricMetaListResponseBody extends Model
     public $requestId;
 
     /**
-     * @var string
+     * @var resources
      */
-    public $totalCount;
+    public $resources;
 
     /**
      * @var bool
@@ -35,16 +35,16 @@ class DescribeMetricMetaListResponseBody extends Model
     public $success;
 
     /**
-     * @var resources
+     * @var string
      */
-    public $resources;
+    public $totalCount;
     protected $_name = [
         'code'       => 'Code',
         'message'    => 'Message',
         'requestId'  => 'RequestId',
-        'totalCount' => 'TotalCount',
-        'success'    => 'Success',
         'resources'  => 'Resources',
+        'success'    => 'Success',
+        'totalCount' => 'TotalCount',
     ];
 
     public function validate()
@@ -63,14 +63,14 @@ class DescribeMetricMetaListResponseBody extends Model
         if (null !== $this->requestId) {
             $res['RequestId'] = $this->requestId;
         }
-        if (null !== $this->totalCount) {
-            $res['TotalCount'] = $this->totalCount;
+        if (null !== $this->resources) {
+            $res['Resources'] = null !== $this->resources ? $this->resources->toMap() : null;
         }
         if (null !== $this->success) {
             $res['Success'] = $this->success;
         }
-        if (null !== $this->resources) {
-            $res['Resources'] = null !== $this->resources ? $this->resources->toMap() : null;
+        if (null !== $this->totalCount) {
+            $res['TotalCount'] = $this->totalCount;
         }
 
         return $res;
@@ -93,14 +93,14 @@ class DescribeMetricMetaListResponseBody extends Model
         if (isset($map['RequestId'])) {
             $model->requestId = $map['RequestId'];
         }
-        if (isset($map['TotalCount'])) {
-            $model->totalCount = $map['TotalCount'];
+        if (isset($map['Resources'])) {
+            $model->resources = resources::fromMap($map['Resources']);
         }
         if (isset($map['Success'])) {
             $model->success = $map['Success'];
         }
-        if (isset($map['Resources'])) {
-            $model->resources = resources::fromMap($map['Resources']);
+        if (isset($map['TotalCount'])) {
+            $model->totalCount = $map['TotalCount'];
         }
 
         return $model;

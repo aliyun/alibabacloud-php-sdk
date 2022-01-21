@@ -11,7 +11,7 @@ class DeleteMonitorGroupNotifyPolicyRequest extends Model
     /**
      * @var string
      */
-    public $regionId;
+    public $groupId;
 
     /**
      * @var string
@@ -21,11 +21,11 @@ class DeleteMonitorGroupNotifyPolicyRequest extends Model
     /**
      * @var string
      */
-    public $groupId;
+    public $regionId;
     protected $_name = [
-        'regionId'   => 'RegionId',
-        'policyType' => 'PolicyType',
         'groupId'    => 'GroupId',
+        'policyType' => 'PolicyType',
+        'regionId'   => 'RegionId',
     ];
 
     public function validate()
@@ -35,14 +35,14 @@ class DeleteMonitorGroupNotifyPolicyRequest extends Model
     public function toMap()
     {
         $res = [];
-        if (null !== $this->regionId) {
-            $res['RegionId'] = $this->regionId;
+        if (null !== $this->groupId) {
+            $res['GroupId'] = $this->groupId;
         }
         if (null !== $this->policyType) {
             $res['PolicyType'] = $this->policyType;
         }
-        if (null !== $this->groupId) {
-            $res['GroupId'] = $this->groupId;
+        if (null !== $this->regionId) {
+            $res['RegionId'] = $this->regionId;
         }
 
         return $res;
@@ -56,14 +56,14 @@ class DeleteMonitorGroupNotifyPolicyRequest extends Model
     public static function fromMap($map = [])
     {
         $model = new self();
-        if (isset($map['RegionId'])) {
-            $model->regionId = $map['RegionId'];
+        if (isset($map['GroupId'])) {
+            $model->groupId = $map['GroupId'];
         }
         if (isset($map['PolicyType'])) {
             $model->policyType = $map['PolicyType'];
         }
-        if (isset($map['GroupId'])) {
-            $model->groupId = $map['GroupId'];
+        if (isset($map['RegionId'])) {
+            $model->regionId = $map['RegionId'];
         }
 
         return $model;

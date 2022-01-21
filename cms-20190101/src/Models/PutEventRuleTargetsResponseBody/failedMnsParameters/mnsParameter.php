@@ -9,11 +9,6 @@ use AlibabaCloud\Tea\Model;
 class mnsParameter extends Model
 {
     /**
-     * @var string
-     */
-    public $queue;
-
-    /**
      * @var int
      */
     public $id;
@@ -21,10 +16,15 @@ class mnsParameter extends Model
     /**
      * @var string
      */
+    public $queue;
+
+    /**
+     * @var string
+     */
     public $region;
     protected $_name = [
-        'queue'  => 'Queue',
         'id'     => 'Id',
+        'queue'  => 'Queue',
         'region' => 'Region',
     ];
 
@@ -35,11 +35,11 @@ class mnsParameter extends Model
     public function toMap()
     {
         $res = [];
-        if (null !== $this->queue) {
-            $res['Queue'] = $this->queue;
-        }
         if (null !== $this->id) {
             $res['Id'] = $this->id;
+        }
+        if (null !== $this->queue) {
+            $res['Queue'] = $this->queue;
         }
         if (null !== $this->region) {
             $res['Region'] = $this->region;
@@ -56,11 +56,11 @@ class mnsParameter extends Model
     public static function fromMap($map = [])
     {
         $model = new self();
-        if (isset($map['Queue'])) {
-            $model->queue = $map['Queue'];
-        }
         if (isset($map['Id'])) {
             $model->id = $map['Id'];
+        }
+        if (isset($map['Queue'])) {
+            $model->queue = $map['Queue'];
         }
         if (isset($map['Region'])) {
             $model->region = $map['Region'];

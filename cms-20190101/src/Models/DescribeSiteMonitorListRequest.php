@@ -11,21 +11,6 @@ class DescribeSiteMonitorListRequest extends Model
     /**
      * @var string
      */
-    public $regionId;
-
-    /**
-     * @var string
-     */
-    public $taskId;
-
-    /**
-     * @var string
-     */
-    public $taskType;
-
-    /**
-     * @var string
-     */
     public $keyword;
 
     /**
@@ -37,13 +22,28 @@ class DescribeSiteMonitorListRequest extends Model
      * @var int
      */
     public $pageSize;
+
+    /**
+     * @var string
+     */
+    public $regionId;
+
+    /**
+     * @var string
+     */
+    public $taskId;
+
+    /**
+     * @var string
+     */
+    public $taskType;
     protected $_name = [
-        'regionId' => 'RegionId',
-        'taskId'   => 'TaskId',
-        'taskType' => 'TaskType',
         'keyword'  => 'Keyword',
         'page'     => 'Page',
         'pageSize' => 'PageSize',
+        'regionId' => 'RegionId',
+        'taskId'   => 'TaskId',
+        'taskType' => 'TaskType',
     ];
 
     public function validate()
@@ -53,15 +53,6 @@ class DescribeSiteMonitorListRequest extends Model
     public function toMap()
     {
         $res = [];
-        if (null !== $this->regionId) {
-            $res['RegionId'] = $this->regionId;
-        }
-        if (null !== $this->taskId) {
-            $res['TaskId'] = $this->taskId;
-        }
-        if (null !== $this->taskType) {
-            $res['TaskType'] = $this->taskType;
-        }
         if (null !== $this->keyword) {
             $res['Keyword'] = $this->keyword;
         }
@@ -70,6 +61,15 @@ class DescribeSiteMonitorListRequest extends Model
         }
         if (null !== $this->pageSize) {
             $res['PageSize'] = $this->pageSize;
+        }
+        if (null !== $this->regionId) {
+            $res['RegionId'] = $this->regionId;
+        }
+        if (null !== $this->taskId) {
+            $res['TaskId'] = $this->taskId;
+        }
+        if (null !== $this->taskType) {
+            $res['TaskType'] = $this->taskType;
         }
 
         return $res;
@@ -83,15 +83,6 @@ class DescribeSiteMonitorListRequest extends Model
     public static function fromMap($map = [])
     {
         $model = new self();
-        if (isset($map['RegionId'])) {
-            $model->regionId = $map['RegionId'];
-        }
-        if (isset($map['TaskId'])) {
-            $model->taskId = $map['TaskId'];
-        }
-        if (isset($map['TaskType'])) {
-            $model->taskType = $map['TaskType'];
-        }
         if (isset($map['Keyword'])) {
             $model->keyword = $map['Keyword'];
         }
@@ -100,6 +91,15 @@ class DescribeSiteMonitorListRequest extends Model
         }
         if (isset($map['PageSize'])) {
             $model->pageSize = $map['PageSize'];
+        }
+        if (isset($map['RegionId'])) {
+            $model->regionId = $map['RegionId'];
+        }
+        if (isset($map['TaskId'])) {
+            $model->taskId = $map['TaskId'];
+        }
+        if (isset($map['TaskType'])) {
+            $model->taskType = $map['TaskType'];
         }
 
         return $model;

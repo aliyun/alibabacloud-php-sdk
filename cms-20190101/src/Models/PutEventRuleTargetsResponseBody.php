@@ -17,6 +17,26 @@ class PutEventRuleTargetsResponseBody extends Model
     public $code;
 
     /**
+     * @var failedContactParameters
+     */
+    public $failedContactParameters;
+
+    /**
+     * @var failedFcParameters
+     */
+    public $failedFcParameters;
+
+    /**
+     * @var failedMnsParameters
+     */
+    public $failedMnsParameters;
+
+    /**
+     * @var string
+     */
+    public $failedParameterCount;
+
+    /**
      * @var string
      */
     public $message;
@@ -30,35 +50,15 @@ class PutEventRuleTargetsResponseBody extends Model
      * @var bool
      */
     public $success;
-
-    /**
-     * @var string
-     */
-    public $failedParameterCount;
-
-    /**
-     * @var failedContactParameters
-     */
-    public $failedContactParameters;
-
-    /**
-     * @var failedMnsParameters
-     */
-    public $failedMnsParameters;
-
-    /**
-     * @var failedFcParameters
-     */
-    public $failedFcParameters;
     protected $_name = [
         'code'                    => 'Code',
+        'failedContactParameters' => 'FailedContactParameters',
+        'failedFcParameters'      => 'FailedFcParameters',
+        'failedMnsParameters'     => 'FailedMnsParameters',
+        'failedParameterCount'    => 'FailedParameterCount',
         'message'                 => 'Message',
         'requestId'               => 'RequestId',
         'success'                 => 'Success',
-        'failedParameterCount'    => 'FailedParameterCount',
-        'failedContactParameters' => 'FailedContactParameters',
-        'failedMnsParameters'     => 'FailedMnsParameters',
-        'failedFcParameters'      => 'FailedFcParameters',
     ];
 
     public function validate()
@@ -71,6 +71,18 @@ class PutEventRuleTargetsResponseBody extends Model
         if (null !== $this->code) {
             $res['Code'] = $this->code;
         }
+        if (null !== $this->failedContactParameters) {
+            $res['FailedContactParameters'] = null !== $this->failedContactParameters ? $this->failedContactParameters->toMap() : null;
+        }
+        if (null !== $this->failedFcParameters) {
+            $res['FailedFcParameters'] = null !== $this->failedFcParameters ? $this->failedFcParameters->toMap() : null;
+        }
+        if (null !== $this->failedMnsParameters) {
+            $res['FailedMnsParameters'] = null !== $this->failedMnsParameters ? $this->failedMnsParameters->toMap() : null;
+        }
+        if (null !== $this->failedParameterCount) {
+            $res['FailedParameterCount'] = $this->failedParameterCount;
+        }
         if (null !== $this->message) {
             $res['Message'] = $this->message;
         }
@@ -79,18 +91,6 @@ class PutEventRuleTargetsResponseBody extends Model
         }
         if (null !== $this->success) {
             $res['Success'] = $this->success;
-        }
-        if (null !== $this->failedParameterCount) {
-            $res['FailedParameterCount'] = $this->failedParameterCount;
-        }
-        if (null !== $this->failedContactParameters) {
-            $res['FailedContactParameters'] = null !== $this->failedContactParameters ? $this->failedContactParameters->toMap() : null;
-        }
-        if (null !== $this->failedMnsParameters) {
-            $res['FailedMnsParameters'] = null !== $this->failedMnsParameters ? $this->failedMnsParameters->toMap() : null;
-        }
-        if (null !== $this->failedFcParameters) {
-            $res['FailedFcParameters'] = null !== $this->failedFcParameters ? $this->failedFcParameters->toMap() : null;
         }
 
         return $res;
@@ -107,6 +107,18 @@ class PutEventRuleTargetsResponseBody extends Model
         if (isset($map['Code'])) {
             $model->code = $map['Code'];
         }
+        if (isset($map['FailedContactParameters'])) {
+            $model->failedContactParameters = failedContactParameters::fromMap($map['FailedContactParameters']);
+        }
+        if (isset($map['FailedFcParameters'])) {
+            $model->failedFcParameters = failedFcParameters::fromMap($map['FailedFcParameters']);
+        }
+        if (isset($map['FailedMnsParameters'])) {
+            $model->failedMnsParameters = failedMnsParameters::fromMap($map['FailedMnsParameters']);
+        }
+        if (isset($map['FailedParameterCount'])) {
+            $model->failedParameterCount = $map['FailedParameterCount'];
+        }
         if (isset($map['Message'])) {
             $model->message = $map['Message'];
         }
@@ -115,18 +127,6 @@ class PutEventRuleTargetsResponseBody extends Model
         }
         if (isset($map['Success'])) {
             $model->success = $map['Success'];
-        }
-        if (isset($map['FailedParameterCount'])) {
-            $model->failedParameterCount = $map['FailedParameterCount'];
-        }
-        if (isset($map['FailedContactParameters'])) {
-            $model->failedContactParameters = failedContactParameters::fromMap($map['FailedContactParameters']);
-        }
-        if (isset($map['FailedMnsParameters'])) {
-            $model->failedMnsParameters = failedMnsParameters::fromMap($map['FailedMnsParameters']);
-        }
-        if (isset($map['FailedFcParameters'])) {
-            $model->failedFcParameters = failedFcParameters::fromMap($map['FailedFcParameters']);
         }
 
         return $model;

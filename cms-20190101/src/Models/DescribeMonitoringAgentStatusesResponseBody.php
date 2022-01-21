@@ -20,6 +20,11 @@ class DescribeMonitoringAgentStatusesResponseBody extends Model
     public $message;
 
     /**
+     * @var nodeStatusList
+     */
+    public $nodeStatusList;
+
+    /**
      * @var string
      */
     public $requestId;
@@ -28,17 +33,12 @@ class DescribeMonitoringAgentStatusesResponseBody extends Model
      * @var bool
      */
     public $success;
-
-    /**
-     * @var nodeStatusList
-     */
-    public $nodeStatusList;
     protected $_name = [
         'code'           => 'Code',
         'message'        => 'Message',
+        'nodeStatusList' => 'NodeStatusList',
         'requestId'      => 'RequestId',
         'success'        => 'Success',
-        'nodeStatusList' => 'NodeStatusList',
     ];
 
     public function validate()
@@ -54,14 +54,14 @@ class DescribeMonitoringAgentStatusesResponseBody extends Model
         if (null !== $this->message) {
             $res['Message'] = $this->message;
         }
+        if (null !== $this->nodeStatusList) {
+            $res['NodeStatusList'] = null !== $this->nodeStatusList ? $this->nodeStatusList->toMap() : null;
+        }
         if (null !== $this->requestId) {
             $res['RequestId'] = $this->requestId;
         }
         if (null !== $this->success) {
             $res['Success'] = $this->success;
-        }
-        if (null !== $this->nodeStatusList) {
-            $res['NodeStatusList'] = null !== $this->nodeStatusList ? $this->nodeStatusList->toMap() : null;
         }
 
         return $res;
@@ -81,14 +81,14 @@ class DescribeMonitoringAgentStatusesResponseBody extends Model
         if (isset($map['Message'])) {
             $model->message = $map['Message'];
         }
+        if (isset($map['NodeStatusList'])) {
+            $model->nodeStatusList = nodeStatusList::fromMap($map['NodeStatusList']);
+        }
         if (isset($map['RequestId'])) {
             $model->requestId = $map['RequestId'];
         }
         if (isset($map['Success'])) {
             $model->success = $map['Success'];
-        }
-        if (isset($map['NodeStatusList'])) {
-            $model->nodeStatusList = nodeStatusList::fromMap($map['NodeStatusList']);
         }
 
         return $model;

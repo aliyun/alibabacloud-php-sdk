@@ -9,9 +9,9 @@ use AlibabaCloud\Tea\Model;
 class nodeStatus extends Model
 {
     /**
-     * @var string
+     * @var bool
      */
-    public $status;
+    public $autoInstall;
 
     /**
      * @var string
@@ -19,13 +19,13 @@ class nodeStatus extends Model
     public $instanceId;
 
     /**
-     * @var bool
+     * @var string
      */
-    public $autoInstall;
+    public $status;
     protected $_name = [
-        'status'      => 'Status',
-        'instanceId'  => 'InstanceId',
         'autoInstall' => 'AutoInstall',
+        'instanceId'  => 'InstanceId',
+        'status'      => 'Status',
     ];
 
     public function validate()
@@ -35,14 +35,14 @@ class nodeStatus extends Model
     public function toMap()
     {
         $res = [];
-        if (null !== $this->status) {
-            $res['Status'] = $this->status;
+        if (null !== $this->autoInstall) {
+            $res['AutoInstall'] = $this->autoInstall;
         }
         if (null !== $this->instanceId) {
             $res['InstanceId'] = $this->instanceId;
         }
-        if (null !== $this->autoInstall) {
-            $res['AutoInstall'] = $this->autoInstall;
+        if (null !== $this->status) {
+            $res['Status'] = $this->status;
         }
 
         return $res;
@@ -56,14 +56,14 @@ class nodeStatus extends Model
     public static function fromMap($map = [])
     {
         $model = new self();
-        if (isset($map['Status'])) {
-            $model->status = $map['Status'];
+        if (isset($map['AutoInstall'])) {
+            $model->autoInstall = $map['AutoInstall'];
         }
         if (isset($map['InstanceId'])) {
             $model->instanceId = $map['InstanceId'];
         }
-        if (isset($map['AutoInstall'])) {
-            $model->autoInstall = $map['AutoInstall'];
+        if (isset($map['Status'])) {
+            $model->status = $map['Status'];
         }
 
         return $model;

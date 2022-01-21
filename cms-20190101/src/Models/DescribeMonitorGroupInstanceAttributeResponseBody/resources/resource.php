@@ -14,7 +14,12 @@ class resource extends Model
     /**
      * @var string
      */
-    public $instanceName;
+    public $category;
+
+    /**
+     * @var string
+     */
+    public $desc;
 
     /**
      * @var string
@@ -24,12 +29,12 @@ class resource extends Model
     /**
      * @var string
      */
-    public $category;
+    public $instanceId;
 
     /**
      * @var string
      */
-    public $instanceId;
+    public $instanceName;
 
     /**
      * @var string
@@ -37,9 +42,9 @@ class resource extends Model
     public $networkType;
 
     /**
-     * @var string
+     * @var region
      */
-    public $desc;
+    public $region;
 
     /**
      * @var tags
@@ -47,23 +52,18 @@ class resource extends Model
     public $tags;
 
     /**
-     * @var region
-     */
-    public $region;
-
-    /**
      * @var vpc
      */
     public $vpc;
     protected $_name = [
-        'instanceName' => 'InstanceName',
-        'dimension'    => 'Dimension',
         'category'     => 'Category',
-        'instanceId'   => 'InstanceId',
-        'networkType'  => 'NetworkType',
         'desc'         => 'Desc',
-        'tags'         => 'Tags',
+        'dimension'    => 'Dimension',
+        'instanceId'   => 'InstanceId',
+        'instanceName' => 'InstanceName',
+        'networkType'  => 'NetworkType',
         'region'       => 'Region',
+        'tags'         => 'Tags',
         'vpc'          => 'Vpc',
     ];
 
@@ -74,29 +74,29 @@ class resource extends Model
     public function toMap()
     {
         $res = [];
-        if (null !== $this->instanceName) {
-            $res['InstanceName'] = $this->instanceName;
-        }
-        if (null !== $this->dimension) {
-            $res['Dimension'] = $this->dimension;
-        }
         if (null !== $this->category) {
             $res['Category'] = $this->category;
-        }
-        if (null !== $this->instanceId) {
-            $res['InstanceId'] = $this->instanceId;
-        }
-        if (null !== $this->networkType) {
-            $res['NetworkType'] = $this->networkType;
         }
         if (null !== $this->desc) {
             $res['Desc'] = $this->desc;
         }
-        if (null !== $this->tags) {
-            $res['Tags'] = null !== $this->tags ? $this->tags->toMap() : null;
+        if (null !== $this->dimension) {
+            $res['Dimension'] = $this->dimension;
+        }
+        if (null !== $this->instanceId) {
+            $res['InstanceId'] = $this->instanceId;
+        }
+        if (null !== $this->instanceName) {
+            $res['InstanceName'] = $this->instanceName;
+        }
+        if (null !== $this->networkType) {
+            $res['NetworkType'] = $this->networkType;
         }
         if (null !== $this->region) {
             $res['Region'] = null !== $this->region ? $this->region->toMap() : null;
+        }
+        if (null !== $this->tags) {
+            $res['Tags'] = null !== $this->tags ? $this->tags->toMap() : null;
         }
         if (null !== $this->vpc) {
             $res['Vpc'] = null !== $this->vpc ? $this->vpc->toMap() : null;
@@ -113,29 +113,29 @@ class resource extends Model
     public static function fromMap($map = [])
     {
         $model = new self();
-        if (isset($map['InstanceName'])) {
-            $model->instanceName = $map['InstanceName'];
-        }
-        if (isset($map['Dimension'])) {
-            $model->dimension = $map['Dimension'];
-        }
         if (isset($map['Category'])) {
             $model->category = $map['Category'];
-        }
-        if (isset($map['InstanceId'])) {
-            $model->instanceId = $map['InstanceId'];
-        }
-        if (isset($map['NetworkType'])) {
-            $model->networkType = $map['NetworkType'];
         }
         if (isset($map['Desc'])) {
             $model->desc = $map['Desc'];
         }
-        if (isset($map['Tags'])) {
-            $model->tags = tags::fromMap($map['Tags']);
+        if (isset($map['Dimension'])) {
+            $model->dimension = $map['Dimension'];
+        }
+        if (isset($map['InstanceId'])) {
+            $model->instanceId = $map['InstanceId'];
+        }
+        if (isset($map['InstanceName'])) {
+            $model->instanceName = $map['InstanceName'];
+        }
+        if (isset($map['NetworkType'])) {
+            $model->networkType = $map['NetworkType'];
         }
         if (isset($map['Region'])) {
             $model->region = region::fromMap($map['Region']);
+        }
+        if (isset($map['Tags'])) {
+            $model->tags = tags::fromMap($map['Tags']);
         }
         if (isset($map['Vpc'])) {
             $model->vpc = vpc::fromMap($map['Vpc']);

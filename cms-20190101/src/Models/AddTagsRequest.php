@@ -10,6 +10,11 @@ use AlibabaCloud\Tea\Model;
 class AddTagsRequest extends Model
 {
     /**
+     * @var string[]
+     */
+    public $groupIds;
+
+    /**
      * @var string
      */
     public $regionId;
@@ -18,15 +23,10 @@ class AddTagsRequest extends Model
      * @var tag[]
      */
     public $tag;
-
-    /**
-     * @var string[]
-     */
-    public $groupIds;
     protected $_name = [
+        'groupIds' => 'GroupIds',
         'regionId' => 'RegionId',
         'tag'      => 'Tag',
-        'groupIds' => 'GroupIds',
     ];
 
     public function validate()
@@ -36,6 +36,9 @@ class AddTagsRequest extends Model
     public function toMap()
     {
         $res = [];
+        if (null !== $this->groupIds) {
+            $res['GroupIds'] = $this->groupIds;
+        }
         if (null !== $this->regionId) {
             $res['RegionId'] = $this->regionId;
         }
@@ -47,9 +50,6 @@ class AddTagsRequest extends Model
                     $res['Tag'][$n++] = null !== $item ? $item->toMap() : $item;
                 }
             }
-        }
-        if (null !== $this->groupIds) {
-            $res['GroupIds'] = $this->groupIds;
         }
 
         return $res;
@@ -63,6 +63,11 @@ class AddTagsRequest extends Model
     public static function fromMap($map = [])
     {
         $model = new self();
+        if (isset($map['GroupIds'])) {
+            if (!empty($map['GroupIds'])) {
+                $model->groupIds = $map['GroupIds'];
+            }
+        }
         if (isset($map['RegionId'])) {
             $model->regionId = $map['RegionId'];
         }
@@ -73,11 +78,6 @@ class AddTagsRequest extends Model
                 foreach ($map['Tag'] as $item) {
                     $model->tag[$n++] = null !== $item ? tag::fromMap($item) : $item;
                 }
-            }
-        }
-        if (isset($map['GroupIds'])) {
-            if (!empty($map['GroupIds'])) {
-                $model->groupIds = $map['GroupIds'];
             }
         }
 

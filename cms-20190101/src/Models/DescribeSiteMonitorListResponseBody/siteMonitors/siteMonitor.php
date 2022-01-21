@@ -12,22 +12,7 @@ class siteMonitor extends Model
     /**
      * @var string
      */
-    public $taskType;
-
-    /**
-     * @var string
-     */
-    public $updateTime;
-
-    /**
-     * @var string
-     */
-    public $interval;
-
-    /**
-     * @var string
-     */
-    public $taskState;
+    public $address;
 
     /**
      * @var string
@@ -37,12 +22,12 @@ class siteMonitor extends Model
     /**
      * @var string
      */
-    public $taskName;
+    public $interval;
 
     /**
-     * @var string
+     * @var optionsJson
      */
-    public $address;
+    public $optionsJson;
 
     /**
      * @var string
@@ -50,19 +35,34 @@ class siteMonitor extends Model
     public $taskId;
 
     /**
-     * @var optionsJson
+     * @var string
      */
-    public $optionsJson;
+    public $taskName;
+
+    /**
+     * @var string
+     */
+    public $taskState;
+
+    /**
+     * @var string
+     */
+    public $taskType;
+
+    /**
+     * @var string
+     */
+    public $updateTime;
     protected $_name = [
+        'address'     => 'Address',
+        'createTime'  => 'CreateTime',
+        'interval'    => 'Interval',
+        'optionsJson' => 'OptionsJson',
+        'taskId'      => 'TaskId',
+        'taskName'    => 'TaskName',
+        'taskState'   => 'TaskState',
         'taskType'    => 'TaskType',
         'updateTime'  => 'UpdateTime',
-        'interval'    => 'Interval',
-        'taskState'   => 'TaskState',
-        'createTime'  => 'CreateTime',
-        'taskName'    => 'TaskName',
-        'address'     => 'Address',
-        'taskId'      => 'TaskId',
-        'optionsJson' => 'OptionsJson',
     ];
 
     public function validate()
@@ -72,32 +72,32 @@ class siteMonitor extends Model
     public function toMap()
     {
         $res = [];
+        if (null !== $this->address) {
+            $res['Address'] = $this->address;
+        }
+        if (null !== $this->createTime) {
+            $res['CreateTime'] = $this->createTime;
+        }
+        if (null !== $this->interval) {
+            $res['Interval'] = $this->interval;
+        }
+        if (null !== $this->optionsJson) {
+            $res['OptionsJson'] = null !== $this->optionsJson ? $this->optionsJson->toMap() : null;
+        }
+        if (null !== $this->taskId) {
+            $res['TaskId'] = $this->taskId;
+        }
+        if (null !== $this->taskName) {
+            $res['TaskName'] = $this->taskName;
+        }
+        if (null !== $this->taskState) {
+            $res['TaskState'] = $this->taskState;
+        }
         if (null !== $this->taskType) {
             $res['TaskType'] = $this->taskType;
         }
         if (null !== $this->updateTime) {
             $res['UpdateTime'] = $this->updateTime;
-        }
-        if (null !== $this->interval) {
-            $res['Interval'] = $this->interval;
-        }
-        if (null !== $this->taskState) {
-            $res['TaskState'] = $this->taskState;
-        }
-        if (null !== $this->createTime) {
-            $res['CreateTime'] = $this->createTime;
-        }
-        if (null !== $this->taskName) {
-            $res['TaskName'] = $this->taskName;
-        }
-        if (null !== $this->address) {
-            $res['Address'] = $this->address;
-        }
-        if (null !== $this->taskId) {
-            $res['TaskId'] = $this->taskId;
-        }
-        if (null !== $this->optionsJson) {
-            $res['OptionsJson'] = null !== $this->optionsJson ? $this->optionsJson->toMap() : null;
         }
 
         return $res;
@@ -111,32 +111,32 @@ class siteMonitor extends Model
     public static function fromMap($map = [])
     {
         $model = new self();
+        if (isset($map['Address'])) {
+            $model->address = $map['Address'];
+        }
+        if (isset($map['CreateTime'])) {
+            $model->createTime = $map['CreateTime'];
+        }
+        if (isset($map['Interval'])) {
+            $model->interval = $map['Interval'];
+        }
+        if (isset($map['OptionsJson'])) {
+            $model->optionsJson = optionsJson::fromMap($map['OptionsJson']);
+        }
+        if (isset($map['TaskId'])) {
+            $model->taskId = $map['TaskId'];
+        }
+        if (isset($map['TaskName'])) {
+            $model->taskName = $map['TaskName'];
+        }
+        if (isset($map['TaskState'])) {
+            $model->taskState = $map['TaskState'];
+        }
         if (isset($map['TaskType'])) {
             $model->taskType = $map['TaskType'];
         }
         if (isset($map['UpdateTime'])) {
             $model->updateTime = $map['UpdateTime'];
-        }
-        if (isset($map['Interval'])) {
-            $model->interval = $map['Interval'];
-        }
-        if (isset($map['TaskState'])) {
-            $model->taskState = $map['TaskState'];
-        }
-        if (isset($map['CreateTime'])) {
-            $model->createTime = $map['CreateTime'];
-        }
-        if (isset($map['TaskName'])) {
-            $model->taskName = $map['TaskName'];
-        }
-        if (isset($map['Address'])) {
-            $model->address = $map['Address'];
-        }
-        if (isset($map['TaskId'])) {
-            $model->taskId = $map['TaskId'];
-        }
-        if (isset($map['OptionsJson'])) {
-            $model->optionsJson = optionsJson::fromMap($map['OptionsJson']);
         }
 
         return $model;

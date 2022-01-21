@@ -11,12 +11,12 @@ class warn extends Model
     /**
      * @var string
      */
-    public $statistics;
+    public $comparisonOperator;
 
     /**
      * @var string
      */
-    public $comparisonOperator;
+    public $statistics;
 
     /**
      * @var string
@@ -28,8 +28,8 @@ class warn extends Model
      */
     public $times;
     protected $_name = [
-        'statistics'         => 'Statistics',
         'comparisonOperator' => 'ComparisonOperator',
+        'statistics'         => 'Statistics',
         'threshold'          => 'Threshold',
         'times'              => 'Times',
     ];
@@ -41,11 +41,11 @@ class warn extends Model
     public function toMap()
     {
         $res = [];
-        if (null !== $this->statistics) {
-            $res['Statistics'] = $this->statistics;
-        }
         if (null !== $this->comparisonOperator) {
             $res['ComparisonOperator'] = $this->comparisonOperator;
+        }
+        if (null !== $this->statistics) {
+            $res['Statistics'] = $this->statistics;
         }
         if (null !== $this->threshold) {
             $res['Threshold'] = $this->threshold;
@@ -65,11 +65,11 @@ class warn extends Model
     public static function fromMap($map = [])
     {
         $model = new self();
-        if (isset($map['Statistics'])) {
-            $model->statistics = $map['Statistics'];
-        }
         if (isset($map['ComparisonOperator'])) {
             $model->comparisonOperator = $map['ComparisonOperator'];
+        }
+        if (isset($map['Statistics'])) {
+            $model->statistics = $map['Statistics'];
         }
         if (isset($map['Threshold'])) {
             $model->threshold = $map['Threshold'];

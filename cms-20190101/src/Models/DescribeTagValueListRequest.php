@@ -9,11 +9,6 @@ use AlibabaCloud\Tea\Model;
 class DescribeTagValueListRequest extends Model
 {
     /**
-     * @var string
-     */
-    public $regionId;
-
-    /**
      * @var int
      */
     public $pageNumber;
@@ -26,11 +21,16 @@ class DescribeTagValueListRequest extends Model
     /**
      * @var string
      */
+    public $regionId;
+
+    /**
+     * @var string
+     */
     public $tagKey;
     protected $_name = [
-        'regionId'   => 'RegionId',
         'pageNumber' => 'PageNumber',
         'pageSize'   => 'PageSize',
+        'regionId'   => 'RegionId',
         'tagKey'     => 'TagKey',
     ];
 
@@ -41,14 +41,14 @@ class DescribeTagValueListRequest extends Model
     public function toMap()
     {
         $res = [];
-        if (null !== $this->regionId) {
-            $res['RegionId'] = $this->regionId;
-        }
         if (null !== $this->pageNumber) {
             $res['PageNumber'] = $this->pageNumber;
         }
         if (null !== $this->pageSize) {
             $res['PageSize'] = $this->pageSize;
+        }
+        if (null !== $this->regionId) {
+            $res['RegionId'] = $this->regionId;
         }
         if (null !== $this->tagKey) {
             $res['TagKey'] = $this->tagKey;
@@ -65,14 +65,14 @@ class DescribeTagValueListRequest extends Model
     public static function fromMap($map = [])
     {
         $model = new self();
-        if (isset($map['RegionId'])) {
-            $model->regionId = $map['RegionId'];
-        }
         if (isset($map['PageNumber'])) {
             $model->pageNumber = $map['PageNumber'];
         }
         if (isset($map['PageSize'])) {
             $model->pageSize = $map['PageSize'];
+        }
+        if (isset($map['RegionId'])) {
+            $model->regionId = $map['RegionId'];
         }
         if (isset($map['TagKey'])) {
             $model->tagKey = $map['TagKey'];

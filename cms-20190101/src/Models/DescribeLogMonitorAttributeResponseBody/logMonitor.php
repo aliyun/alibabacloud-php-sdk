@@ -11,24 +11,24 @@ use AlibabaCloud\Tea\Model;
 class logMonitor extends Model
 {
     /**
-     * @var string
+     * @var aggregates[]
      */
-    public $valueFilterRelation;
+    public $aggregates;
 
     /**
-     * @var string
+     * @var int
      */
-    public $slsLogstore;
-
-    /**
-     * @var string
-     */
-    public $metricName;
+    public $gmtCreate;
 
     /**
      * @var int
      */
     public $groupId;
+
+    /**
+     * @var string[]
+     */
+    public $groupbys;
 
     /**
      * @var int
@@ -43,12 +43,12 @@ class logMonitor extends Model
     /**
      * @var string
      */
-    public $slsRegionId;
+    public $metricName;
 
     /**
-     * @var int
+     * @var string
      */
-    public $gmtCreate;
+    public $slsLogstore;
 
     /**
      * @var string
@@ -56,14 +56,9 @@ class logMonitor extends Model
     public $slsProject;
 
     /**
-     * @var aggregates[]
+     * @var string
      */
-    public $aggregates;
-
-    /**
-     * @var valueFilter[]
-     */
-    public $valueFilter;
+    public $slsRegionId;
 
     /**
      * @var string[]
@@ -71,23 +66,28 @@ class logMonitor extends Model
     public $tumblingwindows;
 
     /**
-     * @var string[]
+     * @var valueFilter[]
      */
-    public $groupbys;
+    public $valueFilter;
+
+    /**
+     * @var string
+     */
+    public $valueFilterRelation;
     protected $_name = [
-        'valueFilterRelation' => 'ValueFilterRelation',
-        'slsLogstore'         => 'SlsLogstore',
-        'metricName'          => 'MetricName',
+        'aggregates'          => 'Aggregates',
+        'gmtCreate'           => 'GmtCreate',
         'groupId'             => 'GroupId',
+        'groupbys'            => 'Groupbys',
         'logId'               => 'LogId',
         'metricExpress'       => 'MetricExpress',
-        'slsRegionId'         => 'SlsRegionId',
-        'gmtCreate'           => 'GmtCreate',
+        'metricName'          => 'MetricName',
+        'slsLogstore'         => 'SlsLogstore',
         'slsProject'          => 'SlsProject',
-        'aggregates'          => 'Aggregates',
-        'valueFilter'         => 'ValueFilter',
+        'slsRegionId'         => 'SlsRegionId',
         'tumblingwindows'     => 'Tumblingwindows',
-        'groupbys'            => 'Groupbys',
+        'valueFilter'         => 'ValueFilter',
+        'valueFilterRelation' => 'ValueFilterRelation',
     ];
 
     public function validate()
@@ -97,33 +97,6 @@ class logMonitor extends Model
     public function toMap()
     {
         $res = [];
-        if (null !== $this->valueFilterRelation) {
-            $res['ValueFilterRelation'] = $this->valueFilterRelation;
-        }
-        if (null !== $this->slsLogstore) {
-            $res['SlsLogstore'] = $this->slsLogstore;
-        }
-        if (null !== $this->metricName) {
-            $res['MetricName'] = $this->metricName;
-        }
-        if (null !== $this->groupId) {
-            $res['GroupId'] = $this->groupId;
-        }
-        if (null !== $this->logId) {
-            $res['LogId'] = $this->logId;
-        }
-        if (null !== $this->metricExpress) {
-            $res['MetricExpress'] = $this->metricExpress;
-        }
-        if (null !== $this->slsRegionId) {
-            $res['SlsRegionId'] = $this->slsRegionId;
-        }
-        if (null !== $this->gmtCreate) {
-            $res['GmtCreate'] = $this->gmtCreate;
-        }
-        if (null !== $this->slsProject) {
-            $res['SlsProject'] = $this->slsProject;
-        }
         if (null !== $this->aggregates) {
             $res['Aggregates'] = [];
             if (null !== $this->aggregates && \is_array($this->aggregates)) {
@@ -132,6 +105,36 @@ class logMonitor extends Model
                     $res['Aggregates'][$n++] = null !== $item ? $item->toMap() : $item;
                 }
             }
+        }
+        if (null !== $this->gmtCreate) {
+            $res['GmtCreate'] = $this->gmtCreate;
+        }
+        if (null !== $this->groupId) {
+            $res['GroupId'] = $this->groupId;
+        }
+        if (null !== $this->groupbys) {
+            $res['Groupbys'] = $this->groupbys;
+        }
+        if (null !== $this->logId) {
+            $res['LogId'] = $this->logId;
+        }
+        if (null !== $this->metricExpress) {
+            $res['MetricExpress'] = $this->metricExpress;
+        }
+        if (null !== $this->metricName) {
+            $res['MetricName'] = $this->metricName;
+        }
+        if (null !== $this->slsLogstore) {
+            $res['SlsLogstore'] = $this->slsLogstore;
+        }
+        if (null !== $this->slsProject) {
+            $res['SlsProject'] = $this->slsProject;
+        }
+        if (null !== $this->slsRegionId) {
+            $res['SlsRegionId'] = $this->slsRegionId;
+        }
+        if (null !== $this->tumblingwindows) {
+            $res['Tumblingwindows'] = $this->tumblingwindows;
         }
         if (null !== $this->valueFilter) {
             $res['ValueFilter'] = [];
@@ -142,11 +145,8 @@ class logMonitor extends Model
                 }
             }
         }
-        if (null !== $this->tumblingwindows) {
-            $res['Tumblingwindows'] = $this->tumblingwindows;
-        }
-        if (null !== $this->groupbys) {
-            $res['Groupbys'] = $this->groupbys;
+        if (null !== $this->valueFilterRelation) {
+            $res['ValueFilterRelation'] = $this->valueFilterRelation;
         }
 
         return $res;
@@ -160,33 +160,6 @@ class logMonitor extends Model
     public static function fromMap($map = [])
     {
         $model = new self();
-        if (isset($map['ValueFilterRelation'])) {
-            $model->valueFilterRelation = $map['ValueFilterRelation'];
-        }
-        if (isset($map['SlsLogstore'])) {
-            $model->slsLogstore = $map['SlsLogstore'];
-        }
-        if (isset($map['MetricName'])) {
-            $model->metricName = $map['MetricName'];
-        }
-        if (isset($map['GroupId'])) {
-            $model->groupId = $map['GroupId'];
-        }
-        if (isset($map['LogId'])) {
-            $model->logId = $map['LogId'];
-        }
-        if (isset($map['MetricExpress'])) {
-            $model->metricExpress = $map['MetricExpress'];
-        }
-        if (isset($map['SlsRegionId'])) {
-            $model->slsRegionId = $map['SlsRegionId'];
-        }
-        if (isset($map['GmtCreate'])) {
-            $model->gmtCreate = $map['GmtCreate'];
-        }
-        if (isset($map['SlsProject'])) {
-            $model->slsProject = $map['SlsProject'];
-        }
         if (isset($map['Aggregates'])) {
             if (!empty($map['Aggregates'])) {
                 $model->aggregates = [];
@@ -194,6 +167,40 @@ class logMonitor extends Model
                 foreach ($map['Aggregates'] as $item) {
                     $model->aggregates[$n++] = null !== $item ? aggregates::fromMap($item) : $item;
                 }
+            }
+        }
+        if (isset($map['GmtCreate'])) {
+            $model->gmtCreate = $map['GmtCreate'];
+        }
+        if (isset($map['GroupId'])) {
+            $model->groupId = $map['GroupId'];
+        }
+        if (isset($map['Groupbys'])) {
+            if (!empty($map['Groupbys'])) {
+                $model->groupbys = $map['Groupbys'];
+            }
+        }
+        if (isset($map['LogId'])) {
+            $model->logId = $map['LogId'];
+        }
+        if (isset($map['MetricExpress'])) {
+            $model->metricExpress = $map['MetricExpress'];
+        }
+        if (isset($map['MetricName'])) {
+            $model->metricName = $map['MetricName'];
+        }
+        if (isset($map['SlsLogstore'])) {
+            $model->slsLogstore = $map['SlsLogstore'];
+        }
+        if (isset($map['SlsProject'])) {
+            $model->slsProject = $map['SlsProject'];
+        }
+        if (isset($map['SlsRegionId'])) {
+            $model->slsRegionId = $map['SlsRegionId'];
+        }
+        if (isset($map['Tumblingwindows'])) {
+            if (!empty($map['Tumblingwindows'])) {
+                $model->tumblingwindows = $map['Tumblingwindows'];
             }
         }
         if (isset($map['ValueFilter'])) {
@@ -205,15 +212,8 @@ class logMonitor extends Model
                 }
             }
         }
-        if (isset($map['Tumblingwindows'])) {
-            if (!empty($map['Tumblingwindows'])) {
-                $model->tumblingwindows = $map['Tumblingwindows'];
-            }
-        }
-        if (isset($map['Groupbys'])) {
-            if (!empty($map['Groupbys'])) {
-                $model->groupbys = $map['Groupbys'];
-            }
+        if (isset($map['ValueFilterRelation'])) {
+            $model->valueFilterRelation = $map['ValueFilterRelation'];
         }
 
         return $model;

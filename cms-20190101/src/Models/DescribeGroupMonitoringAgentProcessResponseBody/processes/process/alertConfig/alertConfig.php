@@ -16,17 +16,7 @@ class alertConfig extends Model
     /**
      * @var string
      */
-    public $silenceTime;
-
-    /**
-     * @var string
-     */
-    public $webhook;
-
-    /**
-     * @var string
-     */
-    public $times;
+    public $effectiveInterval;
 
     /**
      * @var string
@@ -41,7 +31,12 @@ class alertConfig extends Model
     /**
      * @var string
      */
-    public $effectiveInterval;
+    public $silenceTime;
+
+    /**
+     * @var string
+     */
+    public $statistics;
 
     /**
      * @var string
@@ -51,17 +46,22 @@ class alertConfig extends Model
     /**
      * @var string
      */
-    public $statistics;
+    public $times;
+
+    /**
+     * @var string
+     */
+    public $webhook;
     protected $_name = [
         'comparisonOperator'  => 'ComparisonOperator',
-        'silenceTime'         => 'SilenceTime',
-        'webhook'             => 'Webhook',
-        'times'               => 'Times',
+        'effectiveInterval'   => 'EffectiveInterval',
         'escalationsLevel'    => 'EscalationsLevel',
         'noEffectiveInterval' => 'NoEffectiveInterval',
-        'effectiveInterval'   => 'EffectiveInterval',
-        'threshold'           => 'Threshold',
+        'silenceTime'         => 'SilenceTime',
         'statistics'          => 'Statistics',
+        'threshold'           => 'Threshold',
+        'times'               => 'Times',
+        'webhook'             => 'Webhook',
     ];
 
     public function validate()
@@ -74,14 +74,8 @@ class alertConfig extends Model
         if (null !== $this->comparisonOperator) {
             $res['ComparisonOperator'] = $this->comparisonOperator;
         }
-        if (null !== $this->silenceTime) {
-            $res['SilenceTime'] = $this->silenceTime;
-        }
-        if (null !== $this->webhook) {
-            $res['Webhook'] = $this->webhook;
-        }
-        if (null !== $this->times) {
-            $res['Times'] = $this->times;
+        if (null !== $this->effectiveInterval) {
+            $res['EffectiveInterval'] = $this->effectiveInterval;
         }
         if (null !== $this->escalationsLevel) {
             $res['EscalationsLevel'] = $this->escalationsLevel;
@@ -89,14 +83,20 @@ class alertConfig extends Model
         if (null !== $this->noEffectiveInterval) {
             $res['NoEffectiveInterval'] = $this->noEffectiveInterval;
         }
-        if (null !== $this->effectiveInterval) {
-            $res['EffectiveInterval'] = $this->effectiveInterval;
+        if (null !== $this->silenceTime) {
+            $res['SilenceTime'] = $this->silenceTime;
+        }
+        if (null !== $this->statistics) {
+            $res['Statistics'] = $this->statistics;
         }
         if (null !== $this->threshold) {
             $res['Threshold'] = $this->threshold;
         }
-        if (null !== $this->statistics) {
-            $res['Statistics'] = $this->statistics;
+        if (null !== $this->times) {
+            $res['Times'] = $this->times;
+        }
+        if (null !== $this->webhook) {
+            $res['Webhook'] = $this->webhook;
         }
 
         return $res;
@@ -113,14 +113,8 @@ class alertConfig extends Model
         if (isset($map['ComparisonOperator'])) {
             $model->comparisonOperator = $map['ComparisonOperator'];
         }
-        if (isset($map['SilenceTime'])) {
-            $model->silenceTime = $map['SilenceTime'];
-        }
-        if (isset($map['Webhook'])) {
-            $model->webhook = $map['Webhook'];
-        }
-        if (isset($map['Times'])) {
-            $model->times = $map['Times'];
+        if (isset($map['EffectiveInterval'])) {
+            $model->effectiveInterval = $map['EffectiveInterval'];
         }
         if (isset($map['EscalationsLevel'])) {
             $model->escalationsLevel = $map['EscalationsLevel'];
@@ -128,14 +122,20 @@ class alertConfig extends Model
         if (isset($map['NoEffectiveInterval'])) {
             $model->noEffectiveInterval = $map['NoEffectiveInterval'];
         }
-        if (isset($map['EffectiveInterval'])) {
-            $model->effectiveInterval = $map['EffectiveInterval'];
+        if (isset($map['SilenceTime'])) {
+            $model->silenceTime = $map['SilenceTime'];
+        }
+        if (isset($map['Statistics'])) {
+            $model->statistics = $map['Statistics'];
         }
         if (isset($map['Threshold'])) {
             $model->threshold = $map['Threshold'];
         }
-        if (isset($map['Statistics'])) {
-            $model->statistics = $map['Statistics'];
+        if (isset($map['Times'])) {
+            $model->times = $map['Times'];
+        }
+        if (isset($map['Webhook'])) {
+            $model->webhook = $map['Webhook'];
         }
 
         return $model;

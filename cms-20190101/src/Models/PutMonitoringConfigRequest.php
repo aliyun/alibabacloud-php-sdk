@@ -9,11 +9,6 @@ use AlibabaCloud\Tea\Model;
 class PutMonitoringConfigRequest extends Model
 {
     /**
-     * @var string
-     */
-    public $regionId;
-
-    /**
      * @var bool
      */
     public $autoInstall;
@@ -22,10 +17,15 @@ class PutMonitoringConfigRequest extends Model
      * @var bool
      */
     public $enableInstallAgentNewECS;
+
+    /**
+     * @var string
+     */
+    public $regionId;
     protected $_name = [
-        'regionId'                 => 'RegionId',
         'autoInstall'              => 'AutoInstall',
         'enableInstallAgentNewECS' => 'EnableInstallAgentNewECS',
+        'regionId'                 => 'RegionId',
     ];
 
     public function validate()
@@ -35,14 +35,14 @@ class PutMonitoringConfigRequest extends Model
     public function toMap()
     {
         $res = [];
-        if (null !== $this->regionId) {
-            $res['RegionId'] = $this->regionId;
-        }
         if (null !== $this->autoInstall) {
             $res['AutoInstall'] = $this->autoInstall;
         }
         if (null !== $this->enableInstallAgentNewECS) {
             $res['EnableInstallAgentNewECS'] = $this->enableInstallAgentNewECS;
+        }
+        if (null !== $this->regionId) {
+            $res['RegionId'] = $this->regionId;
         }
 
         return $res;
@@ -56,14 +56,14 @@ class PutMonitoringConfigRequest extends Model
     public static function fromMap($map = [])
     {
         $model = new self();
-        if (isset($map['RegionId'])) {
-            $model->regionId = $map['RegionId'];
-        }
         if (isset($map['AutoInstall'])) {
             $model->autoInstall = $map['AutoInstall'];
         }
         if (isset($map['EnableInstallAgentNewECS'])) {
             $model->enableInstallAgentNewECS = $map['EnableInstallAgentNewECS'];
+        }
+        if (isset($map['RegionId'])) {
+            $model->regionId = $map['RegionId'];
         }
 
         return $model;

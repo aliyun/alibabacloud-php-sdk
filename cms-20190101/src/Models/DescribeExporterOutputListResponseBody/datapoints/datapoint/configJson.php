@@ -21,23 +21,17 @@ class configJson extends Model
     /**
      * @var string
      */
-    public $project;
-
-    /**
-     * @var string
-     */
     public $logstore;
 
     /**
      * @var string
      */
-    public $as;
+    public $project;
     protected $_name = [
         'ak'       => 'ak',
         'endpoint' => 'endpoint',
-        'project'  => 'project',
         'logstore' => 'logstore',
-        'as'       => 'as',
+        'project'  => 'project',
     ];
 
     public function validate()
@@ -53,14 +47,11 @@ class configJson extends Model
         if (null !== $this->endpoint) {
             $res['endpoint'] = $this->endpoint;
         }
-        if (null !== $this->project) {
-            $res['project'] = $this->project;
-        }
         if (null !== $this->logstore) {
             $res['logstore'] = $this->logstore;
         }
-        if (null !== $this->as) {
-            $res['as'] = $this->as;
+        if (null !== $this->project) {
+            $res['project'] = $this->project;
         }
 
         return $res;
@@ -80,14 +71,11 @@ class configJson extends Model
         if (isset($map['endpoint'])) {
             $model->endpoint = $map['endpoint'];
         }
-        if (isset($map['project'])) {
-            $model->project = $map['project'];
-        }
         if (isset($map['logstore'])) {
             $model->logstore = $map['logstore'];
         }
-        if (isset($map['as'])) {
-            $model->as = $map['as'];
+        if (isset($map['project'])) {
+            $model->project = $map['project'];
         }
 
         return $model;

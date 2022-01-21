@@ -17,25 +17,25 @@ class escalations extends Model
     public $critical;
 
     /**
-     * @var warn
-     */
-    public $warn;
-
-    /**
      * @var info
      */
     public $info;
+
+    /**
+     * @var warn
+     */
+    public $warn;
     protected $_name = [
         'critical' => 'Critical',
-        'warn'     => 'Warn',
         'info'     => 'Info',
+        'warn'     => 'Warn',
     ];
 
     public function validate()
     {
         Model::validateRequired('critical', $this->critical, true);
-        Model::validateRequired('warn', $this->warn, true);
         Model::validateRequired('info', $this->info, true);
+        Model::validateRequired('warn', $this->warn, true);
     }
 
     public function toMap()
@@ -44,11 +44,11 @@ class escalations extends Model
         if (null !== $this->critical) {
             $res['Critical'] = null !== $this->critical ? $this->critical->toMap() : null;
         }
-        if (null !== $this->warn) {
-            $res['Warn'] = null !== $this->warn ? $this->warn->toMap() : null;
-        }
         if (null !== $this->info) {
             $res['Info'] = null !== $this->info ? $this->info->toMap() : null;
+        }
+        if (null !== $this->warn) {
+            $res['Warn'] = null !== $this->warn ? $this->warn->toMap() : null;
         }
 
         return $res;
@@ -65,11 +65,11 @@ class escalations extends Model
         if (isset($map['Critical'])) {
             $model->critical = critical::fromMap($map['Critical']);
         }
-        if (isset($map['Warn'])) {
-            $model->warn = warn::fromMap($map['Warn']);
-        }
         if (isset($map['Info'])) {
             $model->info = info::fromMap($map['Info']);
+        }
+        if (isset($map['Warn'])) {
+            $model->warn = warn::fromMap($map['Warn']);
         }
 
         return $model;

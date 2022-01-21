@@ -12,16 +12,6 @@ class DescribeSiteMonitorListResponseBody extends Model
     /**
      * @var string
      */
-    public $requestId;
-
-    /**
-     * @var string
-     */
-    public $success;
-
-    /**
-     * @var string
-     */
     public $code;
 
     /**
@@ -40,23 +30,33 @@ class DescribeSiteMonitorListResponseBody extends Model
     public $pageSize;
 
     /**
-     * @var int
+     * @var string
      */
-    public $totalCount;
+    public $requestId;
 
     /**
      * @var siteMonitors
      */
     public $siteMonitors;
+
+    /**
+     * @var string
+     */
+    public $success;
+
+    /**
+     * @var int
+     */
+    public $totalCount;
     protected $_name = [
-        'requestId'    => 'RequestId',
-        'success'      => 'Success',
         'code'         => 'Code',
         'message'      => 'Message',
         'pageNumber'   => 'PageNumber',
         'pageSize'     => 'PageSize',
-        'totalCount'   => 'TotalCount',
+        'requestId'    => 'RequestId',
         'siteMonitors' => 'SiteMonitors',
+        'success'      => 'Success',
+        'totalCount'   => 'TotalCount',
     ];
 
     public function validate()
@@ -66,12 +66,6 @@ class DescribeSiteMonitorListResponseBody extends Model
     public function toMap()
     {
         $res = [];
-        if (null !== $this->requestId) {
-            $res['RequestId'] = $this->requestId;
-        }
-        if (null !== $this->success) {
-            $res['Success'] = $this->success;
-        }
         if (null !== $this->code) {
             $res['Code'] = $this->code;
         }
@@ -84,11 +78,17 @@ class DescribeSiteMonitorListResponseBody extends Model
         if (null !== $this->pageSize) {
             $res['PageSize'] = $this->pageSize;
         }
-        if (null !== $this->totalCount) {
-            $res['TotalCount'] = $this->totalCount;
+        if (null !== $this->requestId) {
+            $res['RequestId'] = $this->requestId;
         }
         if (null !== $this->siteMonitors) {
             $res['SiteMonitors'] = null !== $this->siteMonitors ? $this->siteMonitors->toMap() : null;
+        }
+        if (null !== $this->success) {
+            $res['Success'] = $this->success;
+        }
+        if (null !== $this->totalCount) {
+            $res['TotalCount'] = $this->totalCount;
         }
 
         return $res;
@@ -102,12 +102,6 @@ class DescribeSiteMonitorListResponseBody extends Model
     public static function fromMap($map = [])
     {
         $model = new self();
-        if (isset($map['RequestId'])) {
-            $model->requestId = $map['RequestId'];
-        }
-        if (isset($map['Success'])) {
-            $model->success = $map['Success'];
-        }
         if (isset($map['Code'])) {
             $model->code = $map['Code'];
         }
@@ -120,11 +114,17 @@ class DescribeSiteMonitorListResponseBody extends Model
         if (isset($map['PageSize'])) {
             $model->pageSize = $map['PageSize'];
         }
-        if (isset($map['TotalCount'])) {
-            $model->totalCount = $map['TotalCount'];
+        if (isset($map['RequestId'])) {
+            $model->requestId = $map['RequestId'];
         }
         if (isset($map['SiteMonitors'])) {
             $model->siteMonitors = siteMonitors::fromMap($map['SiteMonitors']);
+        }
+        if (isset($map['Success'])) {
+            $model->success = $map['Success'];
+        }
+        if (isset($map['TotalCount'])) {
+            $model->totalCount = $map['TotalCount'];
         }
 
         return $model;

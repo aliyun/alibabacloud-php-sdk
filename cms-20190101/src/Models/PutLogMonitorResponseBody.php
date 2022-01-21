@@ -16,6 +16,11 @@ class PutLogMonitorResponseBody extends Model
     /**
      * @var string
      */
+    public $logId;
+
+    /**
+     * @var string
+     */
     public $message;
 
     /**
@@ -24,19 +29,14 @@ class PutLogMonitorResponseBody extends Model
     public $requestId;
 
     /**
-     * @var string
-     */
-    public $logId;
-
-    /**
      * @var bool
      */
     public $success;
     protected $_name = [
         'code'      => 'Code',
+        'logId'     => 'LogId',
         'message'   => 'Message',
         'requestId' => 'RequestId',
-        'logId'     => 'LogId',
         'success'   => 'Success',
     ];
 
@@ -50,14 +50,14 @@ class PutLogMonitorResponseBody extends Model
         if (null !== $this->code) {
             $res['Code'] = $this->code;
         }
+        if (null !== $this->logId) {
+            $res['LogId'] = $this->logId;
+        }
         if (null !== $this->message) {
             $res['Message'] = $this->message;
         }
         if (null !== $this->requestId) {
             $res['RequestId'] = $this->requestId;
-        }
-        if (null !== $this->logId) {
-            $res['LogId'] = $this->logId;
         }
         if (null !== $this->success) {
             $res['Success'] = $this->success;
@@ -77,14 +77,14 @@ class PutLogMonitorResponseBody extends Model
         if (isset($map['Code'])) {
             $model->code = $map['Code'];
         }
+        if (isset($map['LogId'])) {
+            $model->logId = $map['LogId'];
+        }
         if (isset($map['Message'])) {
             $model->message = $map['Message'];
         }
         if (isset($map['RequestId'])) {
             $model->requestId = $map['RequestId'];
-        }
-        if (isset($map['LogId'])) {
-            $model->logId = $map['LogId'];
         }
         if (isset($map['Success'])) {
             $model->success = $map['Success'];

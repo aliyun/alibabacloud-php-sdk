@@ -12,17 +12,12 @@ class PutEventRuleRequest extends Model
     /**
      * @var string
      */
-    public $regionId;
+    public $description;
 
     /**
-     * @var string
+     * @var eventPattern[]
      */
-    public $ruleName;
-
-    /**
-     * @var string
-     */
-    public $groupId;
+    public $eventPattern;
 
     /**
      * @var string
@@ -32,25 +27,36 @@ class PutEventRuleRequest extends Model
     /**
      * @var string
      */
-    public $description;
+    public $groupId;
+
+    /**
+     * @var string
+     */
+    public $regionId;
+
+    /**
+     * @var string
+     */
+    public $ruleName;
+
+    /**
+     * @var int
+     */
+    public $silenceTime;
 
     /**
      * @var string
      */
     public $state;
-
-    /**
-     * @var eventPattern[]
-     */
-    public $eventPattern;
     protected $_name = [
+        'description'  => 'Description',
+        'eventPattern' => 'EventPattern',
+        'eventType'    => 'EventType',
+        'groupId'      => 'GroupId',
         'regionId'     => 'RegionId',
         'ruleName'     => 'RuleName',
-        'groupId'      => 'GroupId',
-        'eventType'    => 'EventType',
-        'description'  => 'Description',
+        'silenceTime'  => 'SilenceTime',
         'state'        => 'State',
-        'eventPattern' => 'EventPattern',
     ];
 
     public function validate()
@@ -60,23 +66,8 @@ class PutEventRuleRequest extends Model
     public function toMap()
     {
         $res = [];
-        if (null !== $this->regionId) {
-            $res['RegionId'] = $this->regionId;
-        }
-        if (null !== $this->ruleName) {
-            $res['RuleName'] = $this->ruleName;
-        }
-        if (null !== $this->groupId) {
-            $res['GroupId'] = $this->groupId;
-        }
-        if (null !== $this->eventType) {
-            $res['EventType'] = $this->eventType;
-        }
         if (null !== $this->description) {
             $res['Description'] = $this->description;
-        }
-        if (null !== $this->state) {
-            $res['State'] = $this->state;
         }
         if (null !== $this->eventPattern) {
             $res['EventPattern'] = [];
@@ -86,6 +77,24 @@ class PutEventRuleRequest extends Model
                     $res['EventPattern'][$n++] = null !== $item ? $item->toMap() : $item;
                 }
             }
+        }
+        if (null !== $this->eventType) {
+            $res['EventType'] = $this->eventType;
+        }
+        if (null !== $this->groupId) {
+            $res['GroupId'] = $this->groupId;
+        }
+        if (null !== $this->regionId) {
+            $res['RegionId'] = $this->regionId;
+        }
+        if (null !== $this->ruleName) {
+            $res['RuleName'] = $this->ruleName;
+        }
+        if (null !== $this->silenceTime) {
+            $res['SilenceTime'] = $this->silenceTime;
+        }
+        if (null !== $this->state) {
+            $res['State'] = $this->state;
         }
 
         return $res;
@@ -99,23 +108,8 @@ class PutEventRuleRequest extends Model
     public static function fromMap($map = [])
     {
         $model = new self();
-        if (isset($map['RegionId'])) {
-            $model->regionId = $map['RegionId'];
-        }
-        if (isset($map['RuleName'])) {
-            $model->ruleName = $map['RuleName'];
-        }
-        if (isset($map['GroupId'])) {
-            $model->groupId = $map['GroupId'];
-        }
-        if (isset($map['EventType'])) {
-            $model->eventType = $map['EventType'];
-        }
         if (isset($map['Description'])) {
             $model->description = $map['Description'];
-        }
-        if (isset($map['State'])) {
-            $model->state = $map['State'];
         }
         if (isset($map['EventPattern'])) {
             if (!empty($map['EventPattern'])) {
@@ -125,6 +119,24 @@ class PutEventRuleRequest extends Model
                     $model->eventPattern[$n++] = null !== $item ? eventPattern::fromMap($item) : $item;
                 }
             }
+        }
+        if (isset($map['EventType'])) {
+            $model->eventType = $map['EventType'];
+        }
+        if (isset($map['GroupId'])) {
+            $model->groupId = $map['GroupId'];
+        }
+        if (isset($map['RegionId'])) {
+            $model->regionId = $map['RegionId'];
+        }
+        if (isset($map['RuleName'])) {
+            $model->ruleName = $map['RuleName'];
+        }
+        if (isset($map['SilenceTime'])) {
+            $model->silenceTime = $map['SilenceTime'];
+        }
+        if (isset($map['State'])) {
+            $model->state = $map['State'];
         }
 
         return $model;

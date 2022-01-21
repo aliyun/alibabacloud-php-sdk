@@ -10,11 +10,6 @@ use AlibabaCloud\Tea\Model;
 class PutMonitorGroupDynamicRuleRequest extends Model
 {
     /**
-     * @var string
-     */
-    public $regionId;
-
-    /**
      * @var int
      */
     public $groupId;
@@ -23,10 +18,15 @@ class PutMonitorGroupDynamicRuleRequest extends Model
      * @var groupRules[]
      */
     public $groupRules;
+
+    /**
+     * @var string
+     */
+    public $regionId;
     protected $_name = [
-        'regionId'   => 'RegionId',
         'groupId'    => 'GroupId',
         'groupRules' => 'GroupRules',
+        'regionId'   => 'RegionId',
     ];
 
     public function validate()
@@ -36,9 +36,6 @@ class PutMonitorGroupDynamicRuleRequest extends Model
     public function toMap()
     {
         $res = [];
-        if (null !== $this->regionId) {
-            $res['RegionId'] = $this->regionId;
-        }
         if (null !== $this->groupId) {
             $res['GroupId'] = $this->groupId;
         }
@@ -50,6 +47,9 @@ class PutMonitorGroupDynamicRuleRequest extends Model
                     $res['GroupRules'][$n++] = null !== $item ? $item->toMap() : $item;
                 }
             }
+        }
+        if (null !== $this->regionId) {
+            $res['RegionId'] = $this->regionId;
         }
 
         return $res;
@@ -63,9 +63,6 @@ class PutMonitorGroupDynamicRuleRequest extends Model
     public static function fromMap($map = [])
     {
         $model = new self();
-        if (isset($map['RegionId'])) {
-            $model->regionId = $map['RegionId'];
-        }
         if (isset($map['GroupId'])) {
             $model->groupId = $map['GroupId'];
         }
@@ -77,6 +74,9 @@ class PutMonitorGroupDynamicRuleRequest extends Model
                     $model->groupRules[$n++] = null !== $item ? groupRules::fromMap($item) : $item;
                 }
             }
+        }
+        if (isset($map['RegionId'])) {
+            $model->regionId = $map['RegionId'];
         }
 
         return $model;

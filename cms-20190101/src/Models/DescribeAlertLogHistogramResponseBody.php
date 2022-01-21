@@ -10,6 +10,11 @@ use AlibabaCloud\Tea\Model;
 class DescribeAlertLogHistogramResponseBody extends Model
 {
     /**
+     * @var alertLogHistogramList[]
+     */
+    public $alertLogHistogramList;
+
+    /**
      * @var string
      */
     public $code;
@@ -28,17 +33,12 @@ class DescribeAlertLogHistogramResponseBody extends Model
      * @var bool
      */
     public $success;
-
-    /**
-     * @var alertLogHistogramList[]
-     */
-    public $alertLogHistogramList;
     protected $_name = [
+        'alertLogHistogramList' => 'AlertLogHistogramList',
         'code'                  => 'Code',
         'message'               => 'Message',
         'requestId'             => 'RequestId',
         'success'               => 'Success',
-        'alertLogHistogramList' => 'AlertLogHistogramList',
     ];
 
     public function validate()
@@ -48,6 +48,15 @@ class DescribeAlertLogHistogramResponseBody extends Model
     public function toMap()
     {
         $res = [];
+        if (null !== $this->alertLogHistogramList) {
+            $res['AlertLogHistogramList'] = [];
+            if (null !== $this->alertLogHistogramList && \is_array($this->alertLogHistogramList)) {
+                $n = 0;
+                foreach ($this->alertLogHistogramList as $item) {
+                    $res['AlertLogHistogramList'][$n++] = null !== $item ? $item->toMap() : $item;
+                }
+            }
+        }
         if (null !== $this->code) {
             $res['Code'] = $this->code;
         }
@@ -59,15 +68,6 @@ class DescribeAlertLogHistogramResponseBody extends Model
         }
         if (null !== $this->success) {
             $res['Success'] = $this->success;
-        }
-        if (null !== $this->alertLogHistogramList) {
-            $res['AlertLogHistogramList'] = [];
-            if (null !== $this->alertLogHistogramList && \is_array($this->alertLogHistogramList)) {
-                $n = 0;
-                foreach ($this->alertLogHistogramList as $item) {
-                    $res['AlertLogHistogramList'][$n++] = null !== $item ? $item->toMap() : $item;
-                }
-            }
         }
 
         return $res;
@@ -81,6 +81,15 @@ class DescribeAlertLogHistogramResponseBody extends Model
     public static function fromMap($map = [])
     {
         $model = new self();
+        if (isset($map['AlertLogHistogramList'])) {
+            if (!empty($map['AlertLogHistogramList'])) {
+                $model->alertLogHistogramList = [];
+                $n                            = 0;
+                foreach ($map['AlertLogHistogramList'] as $item) {
+                    $model->alertLogHistogramList[$n++] = null !== $item ? alertLogHistogramList::fromMap($item) : $item;
+                }
+            }
+        }
         if (isset($map['Code'])) {
             $model->code = $map['Code'];
         }
@@ -92,15 +101,6 @@ class DescribeAlertLogHistogramResponseBody extends Model
         }
         if (isset($map['Success'])) {
             $model->success = $map['Success'];
-        }
-        if (isset($map['AlertLogHistogramList'])) {
-            if (!empty($map['AlertLogHistogramList'])) {
-                $model->alertLogHistogramList = [];
-                $n                            = 0;
-                foreach ($map['AlertLogHistogramList'] as $item) {
-                    $model->alertLogHistogramList[$n++] = null !== $item ? alertLogHistogramList::fromMap($item) : $item;
-                }
-            }
         }
 
         return $model;

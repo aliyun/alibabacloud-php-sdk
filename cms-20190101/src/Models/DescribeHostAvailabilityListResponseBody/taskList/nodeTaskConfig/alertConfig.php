@@ -12,12 +12,22 @@ class alertConfig extends Model
     /**
      * @var int
      */
-    public $silenceTime;
+    public $endTime;
+
+    /**
+     * @var escalationList
+     */
+    public $escalationList;
 
     /**
      * @var int
      */
-    public $endTime;
+    public $notifyType;
+
+    /**
+     * @var int
+     */
+    public $silenceTime;
 
     /**
      * @var int
@@ -28,23 +38,13 @@ class alertConfig extends Model
      * @var string
      */
     public $webHook;
-
-    /**
-     * @var int
-     */
-    public $notifyType;
-
-    /**
-     * @var escalationList
-     */
-    public $escalationList;
     protected $_name = [
-        'silenceTime'    => 'SilenceTime',
         'endTime'        => 'EndTime',
+        'escalationList' => 'EscalationList',
+        'notifyType'     => 'NotifyType',
+        'silenceTime'    => 'SilenceTime',
         'startTime'      => 'StartTime',
         'webHook'        => 'WebHook',
-        'notifyType'     => 'NotifyType',
-        'escalationList' => 'EscalationList',
     ];
 
     public function validate()
@@ -54,23 +54,23 @@ class alertConfig extends Model
     public function toMap()
     {
         $res = [];
-        if (null !== $this->silenceTime) {
-            $res['SilenceTime'] = $this->silenceTime;
-        }
         if (null !== $this->endTime) {
             $res['EndTime'] = $this->endTime;
+        }
+        if (null !== $this->escalationList) {
+            $res['EscalationList'] = null !== $this->escalationList ? $this->escalationList->toMap() : null;
+        }
+        if (null !== $this->notifyType) {
+            $res['NotifyType'] = $this->notifyType;
+        }
+        if (null !== $this->silenceTime) {
+            $res['SilenceTime'] = $this->silenceTime;
         }
         if (null !== $this->startTime) {
             $res['StartTime'] = $this->startTime;
         }
         if (null !== $this->webHook) {
             $res['WebHook'] = $this->webHook;
-        }
-        if (null !== $this->notifyType) {
-            $res['NotifyType'] = $this->notifyType;
-        }
-        if (null !== $this->escalationList) {
-            $res['EscalationList'] = null !== $this->escalationList ? $this->escalationList->toMap() : null;
         }
 
         return $res;
@@ -84,23 +84,23 @@ class alertConfig extends Model
     public static function fromMap($map = [])
     {
         $model = new self();
-        if (isset($map['SilenceTime'])) {
-            $model->silenceTime = $map['SilenceTime'];
-        }
         if (isset($map['EndTime'])) {
             $model->endTime = $map['EndTime'];
+        }
+        if (isset($map['EscalationList'])) {
+            $model->escalationList = escalationList::fromMap($map['EscalationList']);
+        }
+        if (isset($map['NotifyType'])) {
+            $model->notifyType = $map['NotifyType'];
+        }
+        if (isset($map['SilenceTime'])) {
+            $model->silenceTime = $map['SilenceTime'];
         }
         if (isset($map['StartTime'])) {
             $model->startTime = $map['StartTime'];
         }
         if (isset($map['WebHook'])) {
             $model->webHook = $map['WebHook'];
-        }
-        if (isset($map['NotifyType'])) {
-            $model->notifyType = $map['NotifyType'];
-        }
-        if (isset($map['EscalationList'])) {
-            $model->escalationList = escalationList::fromMap($map['EscalationList']);
         }
 
         return $model;

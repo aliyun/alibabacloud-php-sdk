@@ -14,6 +14,11 @@ class CreateMonitorGroupResponseBody extends Model
     public $code;
 
     /**
+     * @var int
+     */
+    public $groupId;
+
+    /**
      * @var string
      */
     public $message;
@@ -24,19 +29,14 @@ class CreateMonitorGroupResponseBody extends Model
     public $requestId;
 
     /**
-     * @var int
-     */
-    public $groupId;
-
-    /**
      * @var bool
      */
     public $success;
     protected $_name = [
         'code'      => 'Code',
+        'groupId'   => 'GroupId',
         'message'   => 'Message',
         'requestId' => 'RequestId',
-        'groupId'   => 'GroupId',
         'success'   => 'Success',
     ];
 
@@ -50,14 +50,14 @@ class CreateMonitorGroupResponseBody extends Model
         if (null !== $this->code) {
             $res['Code'] = $this->code;
         }
+        if (null !== $this->groupId) {
+            $res['GroupId'] = $this->groupId;
+        }
         if (null !== $this->message) {
             $res['Message'] = $this->message;
         }
         if (null !== $this->requestId) {
             $res['RequestId'] = $this->requestId;
-        }
-        if (null !== $this->groupId) {
-            $res['GroupId'] = $this->groupId;
         }
         if (null !== $this->success) {
             $res['Success'] = $this->success;
@@ -77,14 +77,14 @@ class CreateMonitorGroupResponseBody extends Model
         if (isset($map['Code'])) {
             $model->code = $map['Code'];
         }
+        if (isset($map['GroupId'])) {
+            $model->groupId = $map['GroupId'];
+        }
         if (isset($map['Message'])) {
             $model->message = $map['Message'];
         }
         if (isset($map['RequestId'])) {
             $model->requestId = $map['RequestId'];
-        }
-        if (isset($map['GroupId'])) {
-            $model->groupId = $map['GroupId'];
         }
         if (isset($map['Success'])) {
             $model->success = $map['Success'];

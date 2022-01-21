@@ -20,6 +20,11 @@ class DescribeMonitorGroupCategoriesResponseBody extends Model
     public $message;
 
     /**
+     * @var monitorGroupCategories
+     */
+    public $monitorGroupCategories;
+
+    /**
      * @var string
      */
     public $requestId;
@@ -28,17 +33,12 @@ class DescribeMonitorGroupCategoriesResponseBody extends Model
      * @var bool
      */
     public $success;
-
-    /**
-     * @var monitorGroupCategories
-     */
-    public $monitorGroupCategories;
     protected $_name = [
         'code'                   => 'Code',
         'message'                => 'Message',
+        'monitorGroupCategories' => 'MonitorGroupCategories',
         'requestId'              => 'RequestId',
         'success'                => 'Success',
-        'monitorGroupCategories' => 'MonitorGroupCategories',
     ];
 
     public function validate()
@@ -54,14 +54,14 @@ class DescribeMonitorGroupCategoriesResponseBody extends Model
         if (null !== $this->message) {
             $res['Message'] = $this->message;
         }
+        if (null !== $this->monitorGroupCategories) {
+            $res['MonitorGroupCategories'] = null !== $this->monitorGroupCategories ? $this->monitorGroupCategories->toMap() : null;
+        }
         if (null !== $this->requestId) {
             $res['RequestId'] = $this->requestId;
         }
         if (null !== $this->success) {
             $res['Success'] = $this->success;
-        }
-        if (null !== $this->monitorGroupCategories) {
-            $res['MonitorGroupCategories'] = null !== $this->monitorGroupCategories ? $this->monitorGroupCategories->toMap() : null;
         }
 
         return $res;
@@ -81,14 +81,14 @@ class DescribeMonitorGroupCategoriesResponseBody extends Model
         if (isset($map['Message'])) {
             $model->message = $map['Message'];
         }
+        if (isset($map['MonitorGroupCategories'])) {
+            $model->monitorGroupCategories = monitorGroupCategories::fromMap($map['MonitorGroupCategories']);
+        }
         if (isset($map['RequestId'])) {
             $model->requestId = $map['RequestId'];
         }
         if (isset($map['Success'])) {
             $model->success = $map['Success'];
-        }
-        if (isset($map['MonitorGroupCategories'])) {
-            $model->monitorGroupCategories = monitorGroupCategories::fromMap($map['MonitorGroupCategories']);
         }
 
         return $model;

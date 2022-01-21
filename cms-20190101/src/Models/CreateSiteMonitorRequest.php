@@ -11,32 +11,17 @@ class CreateSiteMonitorRequest extends Model
     /**
      * @var string
      */
-    public $regionId;
-
-    /**
-     * @var string
-     */
     public $address;
 
     /**
      * @var string
      */
-    public $taskType;
-
-    /**
-     * @var string
-     */
-    public $taskName;
+    public $alertIds;
 
     /**
      * @var string
      */
     public $interval;
-
-    /**
-     * @var string
-     */
-    public $intervalUnit;
 
     /**
      * @var string
@@ -51,17 +36,26 @@ class CreateSiteMonitorRequest extends Model
     /**
      * @var string
      */
-    public $alertIds;
+    public $regionId;
+
+    /**
+     * @var string
+     */
+    public $taskName;
+
+    /**
+     * @var string
+     */
+    public $taskType;
     protected $_name = [
-        'regionId'     => 'RegionId',
-        'address'      => 'Address',
-        'taskType'     => 'TaskType',
-        'taskName'     => 'TaskName',
-        'interval'     => 'Interval',
-        'intervalUnit' => 'IntervalUnit',
-        'ispCities'    => 'IspCities',
-        'optionsJson'  => 'OptionsJson',
-        'alertIds'     => 'AlertIds',
+        'address'     => 'Address',
+        'alertIds'    => 'AlertIds',
+        'interval'    => 'Interval',
+        'ispCities'   => 'IspCities',
+        'optionsJson' => 'OptionsJson',
+        'regionId'    => 'RegionId',
+        'taskName'    => 'TaskName',
+        'taskType'    => 'TaskType',
     ];
 
     public function validate()
@@ -71,23 +65,14 @@ class CreateSiteMonitorRequest extends Model
     public function toMap()
     {
         $res = [];
-        if (null !== $this->regionId) {
-            $res['RegionId'] = $this->regionId;
-        }
         if (null !== $this->address) {
             $res['Address'] = $this->address;
         }
-        if (null !== $this->taskType) {
-            $res['TaskType'] = $this->taskType;
-        }
-        if (null !== $this->taskName) {
-            $res['TaskName'] = $this->taskName;
+        if (null !== $this->alertIds) {
+            $res['AlertIds'] = $this->alertIds;
         }
         if (null !== $this->interval) {
             $res['Interval'] = $this->interval;
-        }
-        if (null !== $this->intervalUnit) {
-            $res['IntervalUnit'] = $this->intervalUnit;
         }
         if (null !== $this->ispCities) {
             $res['IspCities'] = $this->ispCities;
@@ -95,8 +80,14 @@ class CreateSiteMonitorRequest extends Model
         if (null !== $this->optionsJson) {
             $res['OptionsJson'] = $this->optionsJson;
         }
-        if (null !== $this->alertIds) {
-            $res['AlertIds'] = $this->alertIds;
+        if (null !== $this->regionId) {
+            $res['RegionId'] = $this->regionId;
+        }
+        if (null !== $this->taskName) {
+            $res['TaskName'] = $this->taskName;
+        }
+        if (null !== $this->taskType) {
+            $res['TaskType'] = $this->taskType;
         }
 
         return $res;
@@ -110,23 +101,14 @@ class CreateSiteMonitorRequest extends Model
     public static function fromMap($map = [])
     {
         $model = new self();
-        if (isset($map['RegionId'])) {
-            $model->regionId = $map['RegionId'];
-        }
         if (isset($map['Address'])) {
             $model->address = $map['Address'];
         }
-        if (isset($map['TaskType'])) {
-            $model->taskType = $map['TaskType'];
-        }
-        if (isset($map['TaskName'])) {
-            $model->taskName = $map['TaskName'];
+        if (isset($map['AlertIds'])) {
+            $model->alertIds = $map['AlertIds'];
         }
         if (isset($map['Interval'])) {
             $model->interval = $map['Interval'];
-        }
-        if (isset($map['IntervalUnit'])) {
-            $model->intervalUnit = $map['IntervalUnit'];
         }
         if (isset($map['IspCities'])) {
             $model->ispCities = $map['IspCities'];
@@ -134,8 +116,14 @@ class CreateSiteMonitorRequest extends Model
         if (isset($map['OptionsJson'])) {
             $model->optionsJson = $map['OptionsJson'];
         }
-        if (isset($map['AlertIds'])) {
-            $model->alertIds = $map['AlertIds'];
+        if (isset($map['RegionId'])) {
+            $model->regionId = $map['RegionId'];
+        }
+        if (isset($map['TaskName'])) {
+            $model->taskName = $map['TaskName'];
+        }
+        if (isset($map['TaskType'])) {
+            $model->taskType = $map['TaskType'];
         }
 
         return $model;

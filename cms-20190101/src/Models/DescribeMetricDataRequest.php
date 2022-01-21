@@ -11,32 +11,12 @@ class DescribeMetricDataRequest extends Model
     /**
      * @var string
      */
-    public $namespace;
-
-    /**
-     * @var string
-     */
-    public $metricName;
-
-    /**
-     * @var string
-     */
-    public $period;
-
-    /**
-     * @var string
-     */
-    public $startTime;
+    public $dimensions;
 
     /**
      * @var string
      */
     public $endTime;
-
-    /**
-     * @var string
-     */
-    public $dimensions;
 
     /**
      * @var string
@@ -51,17 +31,37 @@ class DescribeMetricDataRequest extends Model
     /**
      * @var string
      */
+    public $metricName;
+
+    /**
+     * @var string
+     */
+    public $namespace;
+
+    /**
+     * @var string
+     */
+    public $period;
+
+    /**
+     * @var string
+     */
     public $regionId;
+
+    /**
+     * @var string
+     */
+    public $startTime;
     protected $_name = [
-        'namespace'  => 'Namespace',
-        'metricName' => 'MetricName',
-        'period'     => 'Period',
-        'startTime'  => 'StartTime',
-        'endTime'    => 'EndTime',
         'dimensions' => 'Dimensions',
+        'endTime'    => 'EndTime',
         'express'    => 'Express',
         'length'     => 'Length',
+        'metricName' => 'MetricName',
+        'namespace'  => 'Namespace',
+        'period'     => 'Period',
         'regionId'   => 'RegionId',
+        'startTime'  => 'StartTime',
     ];
 
     public function validate()
@@ -71,23 +71,11 @@ class DescribeMetricDataRequest extends Model
     public function toMap()
     {
         $res = [];
-        if (null !== $this->namespace) {
-            $res['Namespace'] = $this->namespace;
-        }
-        if (null !== $this->metricName) {
-            $res['MetricName'] = $this->metricName;
-        }
-        if (null !== $this->period) {
-            $res['Period'] = $this->period;
-        }
-        if (null !== $this->startTime) {
-            $res['StartTime'] = $this->startTime;
+        if (null !== $this->dimensions) {
+            $res['Dimensions'] = $this->dimensions;
         }
         if (null !== $this->endTime) {
             $res['EndTime'] = $this->endTime;
-        }
-        if (null !== $this->dimensions) {
-            $res['Dimensions'] = $this->dimensions;
         }
         if (null !== $this->express) {
             $res['Express'] = $this->express;
@@ -95,8 +83,20 @@ class DescribeMetricDataRequest extends Model
         if (null !== $this->length) {
             $res['Length'] = $this->length;
         }
+        if (null !== $this->metricName) {
+            $res['MetricName'] = $this->metricName;
+        }
+        if (null !== $this->namespace) {
+            $res['Namespace'] = $this->namespace;
+        }
+        if (null !== $this->period) {
+            $res['Period'] = $this->period;
+        }
         if (null !== $this->regionId) {
             $res['RegionId'] = $this->regionId;
+        }
+        if (null !== $this->startTime) {
+            $res['StartTime'] = $this->startTime;
         }
 
         return $res;
@@ -110,23 +110,11 @@ class DescribeMetricDataRequest extends Model
     public static function fromMap($map = [])
     {
         $model = new self();
-        if (isset($map['Namespace'])) {
-            $model->namespace = $map['Namespace'];
-        }
-        if (isset($map['MetricName'])) {
-            $model->metricName = $map['MetricName'];
-        }
-        if (isset($map['Period'])) {
-            $model->period = $map['Period'];
-        }
-        if (isset($map['StartTime'])) {
-            $model->startTime = $map['StartTime'];
+        if (isset($map['Dimensions'])) {
+            $model->dimensions = $map['Dimensions'];
         }
         if (isset($map['EndTime'])) {
             $model->endTime = $map['EndTime'];
-        }
-        if (isset($map['Dimensions'])) {
-            $model->dimensions = $map['Dimensions'];
         }
         if (isset($map['Express'])) {
             $model->express = $map['Express'];
@@ -134,8 +122,20 @@ class DescribeMetricDataRequest extends Model
         if (isset($map['Length'])) {
             $model->length = $map['Length'];
         }
+        if (isset($map['MetricName'])) {
+            $model->metricName = $map['MetricName'];
+        }
+        if (isset($map['Namespace'])) {
+            $model->namespace = $map['Namespace'];
+        }
+        if (isset($map['Period'])) {
+            $model->period = $map['Period'];
+        }
         if (isset($map['RegionId'])) {
             $model->regionId = $map['RegionId'];
+        }
+        if (isset($map['StartTime'])) {
+            $model->startTime = $map['StartTime'];
         }
 
         return $model;

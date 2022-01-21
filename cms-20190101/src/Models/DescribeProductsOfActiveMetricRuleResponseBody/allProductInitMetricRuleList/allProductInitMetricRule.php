@@ -10,17 +10,17 @@ use AlibabaCloud\Tea\Model;
 class allProductInitMetricRule extends Model
 {
     /**
-     * @var string
-     */
-    public $product;
-
-    /**
      * @var alertInitConfigList
      */
     public $alertInitConfigList;
+
+    /**
+     * @var string
+     */
+    public $product;
     protected $_name = [
-        'product'             => 'Product',
         'alertInitConfigList' => 'AlertInitConfigList',
+        'product'             => 'Product',
     ];
 
     public function validate()
@@ -30,11 +30,11 @@ class allProductInitMetricRule extends Model
     public function toMap()
     {
         $res = [];
-        if (null !== $this->product) {
-            $res['Product'] = $this->product;
-        }
         if (null !== $this->alertInitConfigList) {
             $res['AlertInitConfigList'] = null !== $this->alertInitConfigList ? $this->alertInitConfigList->toMap() : null;
+        }
+        if (null !== $this->product) {
+            $res['Product'] = $this->product;
         }
 
         return $res;
@@ -48,11 +48,11 @@ class allProductInitMetricRule extends Model
     public static function fromMap($map = [])
     {
         $model = new self();
-        if (isset($map['Product'])) {
-            $model->product = $map['Product'];
-        }
         if (isset($map['AlertInitConfigList'])) {
             $model->alertInitConfigList = alertInitConfigList::fromMap($map['AlertInitConfigList']);
+        }
+        if (isset($map['Product'])) {
+            $model->product = $map['Product'];
         }
 
         return $model;

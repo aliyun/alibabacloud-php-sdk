@@ -11,11 +11,6 @@ class fcParameter extends Model
     /**
      * @var string
      */
-    public $serviceName;
-
-    /**
-     * @var string
-     */
     public $functionName;
 
     /**
@@ -27,11 +22,16 @@ class fcParameter extends Model
      * @var string
      */
     public $region;
+
+    /**
+     * @var string
+     */
+    public $serviceName;
     protected $_name = [
-        'serviceName'  => 'ServiceName',
         'functionName' => 'FunctionName',
         'id'           => 'Id',
         'region'       => 'Region',
+        'serviceName'  => 'ServiceName',
     ];
 
     public function validate()
@@ -41,9 +41,6 @@ class fcParameter extends Model
     public function toMap()
     {
         $res = [];
-        if (null !== $this->serviceName) {
-            $res['ServiceName'] = $this->serviceName;
-        }
         if (null !== $this->functionName) {
             $res['FunctionName'] = $this->functionName;
         }
@@ -52,6 +49,9 @@ class fcParameter extends Model
         }
         if (null !== $this->region) {
             $res['Region'] = $this->region;
+        }
+        if (null !== $this->serviceName) {
+            $res['ServiceName'] = $this->serviceName;
         }
 
         return $res;
@@ -65,9 +65,6 @@ class fcParameter extends Model
     public static function fromMap($map = [])
     {
         $model = new self();
-        if (isset($map['ServiceName'])) {
-            $model->serviceName = $map['ServiceName'];
-        }
         if (isset($map['FunctionName'])) {
             $model->functionName = $map['FunctionName'];
         }
@@ -76,6 +73,9 @@ class fcParameter extends Model
         }
         if (isset($map['Region'])) {
             $model->region = $map['Region'];
+        }
+        if (isset($map['ServiceName'])) {
+            $model->serviceName = $map['ServiceName'];
         }
 
         return $model;

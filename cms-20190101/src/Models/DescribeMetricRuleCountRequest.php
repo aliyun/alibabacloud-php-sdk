@@ -11,7 +11,7 @@ class DescribeMetricRuleCountRequest extends Model
     /**
      * @var string
      */
-    public $regionId;
+    public $metricName;
 
     /**
      * @var string
@@ -21,11 +21,11 @@ class DescribeMetricRuleCountRequest extends Model
     /**
      * @var string
      */
-    public $metricName;
+    public $regionId;
     protected $_name = [
-        'regionId'   => 'RegionId',
-        'namespace'  => 'Namespace',
         'metricName' => 'MetricName',
+        'namespace'  => 'Namespace',
+        'regionId'   => 'RegionId',
     ];
 
     public function validate()
@@ -35,14 +35,14 @@ class DescribeMetricRuleCountRequest extends Model
     public function toMap()
     {
         $res = [];
-        if (null !== $this->regionId) {
-            $res['RegionId'] = $this->regionId;
+        if (null !== $this->metricName) {
+            $res['MetricName'] = $this->metricName;
         }
         if (null !== $this->namespace) {
             $res['Namespace'] = $this->namespace;
         }
-        if (null !== $this->metricName) {
-            $res['MetricName'] = $this->metricName;
+        if (null !== $this->regionId) {
+            $res['RegionId'] = $this->regionId;
         }
 
         return $res;
@@ -56,14 +56,14 @@ class DescribeMetricRuleCountRequest extends Model
     public static function fromMap($map = [])
     {
         $model = new self();
-        if (isset($map['RegionId'])) {
-            $model->regionId = $map['RegionId'];
+        if (isset($map['MetricName'])) {
+            $model->metricName = $map['MetricName'];
         }
         if (isset($map['Namespace'])) {
             $model->namespace = $map['Namespace'];
         }
-        if (isset($map['MetricName'])) {
-            $model->metricName = $map['MetricName'];
+        if (isset($map['RegionId'])) {
+            $model->regionId = $map['RegionId'];
         }
 
         return $model;

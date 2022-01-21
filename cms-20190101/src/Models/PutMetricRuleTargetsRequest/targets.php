@@ -11,20 +11,20 @@ class targets extends Model
     /**
      * @var string
      */
-    public $id;
+    public $arn;
 
     /**
      * @var string
      */
-    public $arn;
+    public $id;
 
     /**
      * @var string
      */
     public $level;
     protected $_name = [
-        'id'    => 'Id',
         'arn'   => 'Arn',
+        'id'    => 'Id',
         'level' => 'Level',
     ];
 
@@ -35,11 +35,11 @@ class targets extends Model
     public function toMap()
     {
         $res = [];
-        if (null !== $this->id) {
-            $res['Id'] = $this->id;
-        }
         if (null !== $this->arn) {
             $res['Arn'] = $this->arn;
+        }
+        if (null !== $this->id) {
+            $res['Id'] = $this->id;
         }
         if (null !== $this->level) {
             $res['Level'] = $this->level;
@@ -56,11 +56,11 @@ class targets extends Model
     public static function fromMap($map = [])
     {
         $model = new self();
-        if (isset($map['Id'])) {
-            $model->id = $map['Id'];
-        }
         if (isset($map['Arn'])) {
             $model->arn = $map['Arn'];
+        }
+        if (isset($map['Id'])) {
+            $model->id = $map['Id'];
         }
         if (isset($map['Level'])) {
             $model->level = $map['Level'];

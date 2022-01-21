@@ -4,6 +4,7 @@
 
 namespace AlibabaCloud\SDK\Cms\V20190101\Models;
 
+use AlibabaCloud\SDK\Cms\V20190101\Models\PutGroupMetricRuleResponseBody\result;
 use AlibabaCloud\Tea\Model;
 
 class PutGroupMetricRuleResponseBody extends Model
@@ -24,6 +25,11 @@ class PutGroupMetricRuleResponseBody extends Model
     public $requestId;
 
     /**
+     * @var result
+     */
+    public $result;
+
+    /**
      * @var bool
      */
     public $success;
@@ -31,6 +37,7 @@ class PutGroupMetricRuleResponseBody extends Model
         'code'      => 'Code',
         'message'   => 'Message',
         'requestId' => 'RequestId',
+        'result'    => 'Result',
         'success'   => 'Success',
     ];
 
@@ -49,6 +56,9 @@ class PutGroupMetricRuleResponseBody extends Model
         }
         if (null !== $this->requestId) {
             $res['RequestId'] = $this->requestId;
+        }
+        if (null !== $this->result) {
+            $res['Result'] = null !== $this->result ? $this->result->toMap() : null;
         }
         if (null !== $this->success) {
             $res['Success'] = $this->success;
@@ -73,6 +83,9 @@ class PutGroupMetricRuleResponseBody extends Model
         }
         if (isset($map['RequestId'])) {
             $model->requestId = $map['RequestId'];
+        }
+        if (isset($map['Result'])) {
+            $model->result = result::fromMap($map['Result']);
         }
         if (isset($map['Success'])) {
             $model->success = $map['Success'];

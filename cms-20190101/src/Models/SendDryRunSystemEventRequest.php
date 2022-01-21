@@ -11,12 +11,7 @@ class SendDryRunSystemEventRequest extends Model
     /**
      * @var string
      */
-    public $regionId;
-
-    /**
-     * @var string
-     */
-    public $product;
+    public $eventContent;
 
     /**
      * @var string
@@ -31,13 +26,18 @@ class SendDryRunSystemEventRequest extends Model
     /**
      * @var string
      */
-    public $eventContent;
+    public $product;
+
+    /**
+     * @var string
+     */
+    public $regionId;
     protected $_name = [
-        'regionId'     => 'RegionId',
-        'product'      => 'Product',
+        'eventContent' => 'EventContent',
         'eventName'    => 'EventName',
         'groupId'      => 'GroupId',
-        'eventContent' => 'EventContent',
+        'product'      => 'Product',
+        'regionId'     => 'RegionId',
     ];
 
     public function validate()
@@ -47,11 +47,8 @@ class SendDryRunSystemEventRequest extends Model
     public function toMap()
     {
         $res = [];
-        if (null !== $this->regionId) {
-            $res['RegionId'] = $this->regionId;
-        }
-        if (null !== $this->product) {
-            $res['Product'] = $this->product;
+        if (null !== $this->eventContent) {
+            $res['EventContent'] = $this->eventContent;
         }
         if (null !== $this->eventName) {
             $res['EventName'] = $this->eventName;
@@ -59,8 +56,11 @@ class SendDryRunSystemEventRequest extends Model
         if (null !== $this->groupId) {
             $res['GroupId'] = $this->groupId;
         }
-        if (null !== $this->eventContent) {
-            $res['EventContent'] = $this->eventContent;
+        if (null !== $this->product) {
+            $res['Product'] = $this->product;
+        }
+        if (null !== $this->regionId) {
+            $res['RegionId'] = $this->regionId;
         }
 
         return $res;
@@ -74,11 +74,8 @@ class SendDryRunSystemEventRequest extends Model
     public static function fromMap($map = [])
     {
         $model = new self();
-        if (isset($map['RegionId'])) {
-            $model->regionId = $map['RegionId'];
-        }
-        if (isset($map['Product'])) {
-            $model->product = $map['Product'];
+        if (isset($map['EventContent'])) {
+            $model->eventContent = $map['EventContent'];
         }
         if (isset($map['EventName'])) {
             $model->eventName = $map['EventName'];
@@ -86,8 +83,11 @@ class SendDryRunSystemEventRequest extends Model
         if (isset($map['GroupId'])) {
             $model->groupId = $map['GroupId'];
         }
-        if (isset($map['EventContent'])) {
-            $model->eventContent = $map['EventContent'];
+        if (isset($map['Product'])) {
+            $model->product = $map['Product'];
+        }
+        if (isset($map['RegionId'])) {
+            $model->regionId = $map['RegionId'];
         }
 
         return $model;

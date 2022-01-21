@@ -12,6 +12,16 @@ class result extends Model
     /**
      * @var string
      */
+    public $description;
+
+    /**
+     * @var eventPattern
+     */
+    public $eventPattern;
+
+    /**
+     * @var string
+     */
     public $eventType;
 
     /**
@@ -27,24 +37,14 @@ class result extends Model
     /**
      * @var string
      */
-    public $description;
-
-    /**
-     * @var string
-     */
     public $state;
-
-    /**
-     * @var eventPattern
-     */
-    public $eventPattern;
     protected $_name = [
+        'description'  => 'Description',
+        'eventPattern' => 'EventPattern',
         'eventType'    => 'EventType',
         'groupId'      => 'GroupId',
         'name'         => 'Name',
-        'description'  => 'Description',
         'state'        => 'State',
-        'eventPattern' => 'EventPattern',
     ];
 
     public function validate()
@@ -54,6 +54,12 @@ class result extends Model
     public function toMap()
     {
         $res = [];
+        if (null !== $this->description) {
+            $res['Description'] = $this->description;
+        }
+        if (null !== $this->eventPattern) {
+            $res['EventPattern'] = null !== $this->eventPattern ? $this->eventPattern->toMap() : null;
+        }
         if (null !== $this->eventType) {
             $res['EventType'] = $this->eventType;
         }
@@ -63,14 +69,8 @@ class result extends Model
         if (null !== $this->name) {
             $res['Name'] = $this->name;
         }
-        if (null !== $this->description) {
-            $res['Description'] = $this->description;
-        }
         if (null !== $this->state) {
             $res['State'] = $this->state;
-        }
-        if (null !== $this->eventPattern) {
-            $res['EventPattern'] = null !== $this->eventPattern ? $this->eventPattern->toMap() : null;
         }
 
         return $res;
@@ -84,6 +84,12 @@ class result extends Model
     public static function fromMap($map = [])
     {
         $model = new self();
+        if (isset($map['Description'])) {
+            $model->description = $map['Description'];
+        }
+        if (isset($map['EventPattern'])) {
+            $model->eventPattern = eventPattern::fromMap($map['EventPattern']);
+        }
         if (isset($map['EventType'])) {
             $model->eventType = $map['EventType'];
         }
@@ -93,14 +99,8 @@ class result extends Model
         if (isset($map['Name'])) {
             $model->name = $map['Name'];
         }
-        if (isset($map['Description'])) {
-            $model->description = $map['Description'];
-        }
         if (isset($map['State'])) {
             $model->state = $map['State'];
-        }
-        if (isset($map['EventPattern'])) {
-            $model->eventPattern = eventPattern::fromMap($map['EventPattern']);
         }
 
         return $model;

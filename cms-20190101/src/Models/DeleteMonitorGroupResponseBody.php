@@ -15,6 +15,11 @@ class DeleteMonitorGroupResponseBody extends Model
     public $code;
 
     /**
+     * @var group
+     */
+    public $group;
+
+    /**
      * @var string
      */
     public $message;
@@ -28,17 +33,12 @@ class DeleteMonitorGroupResponseBody extends Model
      * @var bool
      */
     public $success;
-
-    /**
-     * @var group
-     */
-    public $group;
     protected $_name = [
         'code'      => 'Code',
+        'group'     => 'Group',
         'message'   => 'Message',
         'requestId' => 'RequestId',
         'success'   => 'Success',
-        'group'     => 'Group',
     ];
 
     public function validate()
@@ -51,6 +51,9 @@ class DeleteMonitorGroupResponseBody extends Model
         if (null !== $this->code) {
             $res['Code'] = $this->code;
         }
+        if (null !== $this->group) {
+            $res['Group'] = null !== $this->group ? $this->group->toMap() : null;
+        }
         if (null !== $this->message) {
             $res['Message'] = $this->message;
         }
@@ -59,9 +62,6 @@ class DeleteMonitorGroupResponseBody extends Model
         }
         if (null !== $this->success) {
             $res['Success'] = $this->success;
-        }
-        if (null !== $this->group) {
-            $res['Group'] = null !== $this->group ? $this->group->toMap() : null;
         }
 
         return $res;
@@ -78,6 +78,9 @@ class DeleteMonitorGroupResponseBody extends Model
         if (isset($map['Code'])) {
             $model->code = $map['Code'];
         }
+        if (isset($map['Group'])) {
+            $model->group = group::fromMap($map['Group']);
+        }
         if (isset($map['Message'])) {
             $model->message = $map['Message'];
         }
@@ -86,9 +89,6 @@ class DeleteMonitorGroupResponseBody extends Model
         }
         if (isset($map['Success'])) {
             $model->success = $map['Success'];
-        }
-        if (isset($map['Group'])) {
-            $model->group = group::fromMap($map['Group']);
         }
 
         return $model;

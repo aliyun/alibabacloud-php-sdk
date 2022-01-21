@@ -9,6 +9,11 @@ use AlibabaCloud\Tea\Model;
 class DescribeSiteMonitorAttributeRequest extends Model
 {
     /**
+     * @var bool
+     */
+    public $includeAlert;
+
+    /**
      * @var string
      */
     public $regionId;
@@ -17,15 +22,10 @@ class DescribeSiteMonitorAttributeRequest extends Model
      * @var string
      */
     public $taskId;
-
-    /**
-     * @var bool
-     */
-    public $includeAlert;
     protected $_name = [
+        'includeAlert' => 'IncludeAlert',
         'regionId'     => 'RegionId',
         'taskId'       => 'TaskId',
-        'includeAlert' => 'IncludeAlert',
     ];
 
     public function validate()
@@ -35,14 +35,14 @@ class DescribeSiteMonitorAttributeRequest extends Model
     public function toMap()
     {
         $res = [];
+        if (null !== $this->includeAlert) {
+            $res['IncludeAlert'] = $this->includeAlert;
+        }
         if (null !== $this->regionId) {
             $res['RegionId'] = $this->regionId;
         }
         if (null !== $this->taskId) {
             $res['TaskId'] = $this->taskId;
-        }
-        if (null !== $this->includeAlert) {
-            $res['IncludeAlert'] = $this->includeAlert;
         }
 
         return $res;
@@ -56,14 +56,14 @@ class DescribeSiteMonitorAttributeRequest extends Model
     public static function fromMap($map = [])
     {
         $model = new self();
+        if (isset($map['IncludeAlert'])) {
+            $model->includeAlert = $map['IncludeAlert'];
+        }
         if (isset($map['RegionId'])) {
             $model->regionId = $map['RegionId'];
         }
         if (isset($map['TaskId'])) {
             $model->taskId = $map['TaskId'];
-        }
-        if (isset($map['IncludeAlert'])) {
-            $model->includeAlert = $map['IncludeAlert'];
         }
 
         return $model;

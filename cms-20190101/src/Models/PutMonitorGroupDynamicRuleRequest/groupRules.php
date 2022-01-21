@@ -12,21 +12,21 @@ class groupRules extends Model
     /**
      * @var string
      */
+    public $category;
+
+    /**
+     * @var string
+     */
     public $filterRelation;
 
     /**
      * @var filters[]
      */
     public $filters;
-
-    /**
-     * @var string
-     */
-    public $category;
     protected $_name = [
+        'category'       => 'Category',
         'filterRelation' => 'FilterRelation',
         'filters'        => 'Filters',
-        'category'       => 'Category',
     ];
 
     public function validate()
@@ -36,6 +36,9 @@ class groupRules extends Model
     public function toMap()
     {
         $res = [];
+        if (null !== $this->category) {
+            $res['Category'] = $this->category;
+        }
         if (null !== $this->filterRelation) {
             $res['FilterRelation'] = $this->filterRelation;
         }
@@ -47,9 +50,6 @@ class groupRules extends Model
                     $res['Filters'][$n++] = null !== $item ? $item->toMap() : $item;
                 }
             }
-        }
-        if (null !== $this->category) {
-            $res['Category'] = $this->category;
         }
 
         return $res;
@@ -63,6 +63,9 @@ class groupRules extends Model
     public static function fromMap($map = [])
     {
         $model = new self();
+        if (isset($map['Category'])) {
+            $model->category = $map['Category'];
+        }
         if (isset($map['FilterRelation'])) {
             $model->filterRelation = $map['FilterRelation'];
         }
@@ -74,9 +77,6 @@ class groupRules extends Model
                     $model->filters[$n++] = null !== $item ? filters::fromMap($item) : $item;
                 }
             }
-        }
-        if (isset($map['Category'])) {
-            $model->category = $map['Category'];
         }
 
         return $model;

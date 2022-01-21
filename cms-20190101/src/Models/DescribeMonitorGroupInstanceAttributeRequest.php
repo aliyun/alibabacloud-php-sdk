@@ -11,12 +11,22 @@ class DescribeMonitorGroupInstanceAttributeRequest extends Model
     /**
      * @var string
      */
-    public $regionId;
+    public $category;
 
     /**
      * @var int
      */
     public $groupId;
+
+    /**
+     * @var string
+     */
+    public $instanceIds;
+
+    /**
+     * @var string
+     */
+    public $keyword;
 
     /**
      * @var int
@@ -29,33 +39,23 @@ class DescribeMonitorGroupInstanceAttributeRequest extends Model
     public $pageSize;
 
     /**
+     * @var string
+     */
+    public $regionId;
+
+    /**
      * @var bool
      */
     public $total;
-
-    /**
-     * @var string
-     */
-    public $category;
-
-    /**
-     * @var string
-     */
-    public $keyword;
-
-    /**
-     * @var string
-     */
-    public $instanceIds;
     protected $_name = [
-        'regionId'    => 'RegionId',
+        'category'    => 'Category',
         'groupId'     => 'GroupId',
+        'instanceIds' => 'InstanceIds',
+        'keyword'     => 'Keyword',
         'pageNumber'  => 'PageNumber',
         'pageSize'    => 'PageSize',
+        'regionId'    => 'RegionId',
         'total'       => 'Total',
-        'category'    => 'Category',
-        'keyword'     => 'Keyword',
-        'instanceIds' => 'InstanceIds',
     ];
 
     public function validate()
@@ -65,11 +65,17 @@ class DescribeMonitorGroupInstanceAttributeRequest extends Model
     public function toMap()
     {
         $res = [];
-        if (null !== $this->regionId) {
-            $res['RegionId'] = $this->regionId;
+        if (null !== $this->category) {
+            $res['Category'] = $this->category;
         }
         if (null !== $this->groupId) {
             $res['GroupId'] = $this->groupId;
+        }
+        if (null !== $this->instanceIds) {
+            $res['InstanceIds'] = $this->instanceIds;
+        }
+        if (null !== $this->keyword) {
+            $res['Keyword'] = $this->keyword;
         }
         if (null !== $this->pageNumber) {
             $res['PageNumber'] = $this->pageNumber;
@@ -77,17 +83,11 @@ class DescribeMonitorGroupInstanceAttributeRequest extends Model
         if (null !== $this->pageSize) {
             $res['PageSize'] = $this->pageSize;
         }
+        if (null !== $this->regionId) {
+            $res['RegionId'] = $this->regionId;
+        }
         if (null !== $this->total) {
             $res['Total'] = $this->total;
-        }
-        if (null !== $this->category) {
-            $res['Category'] = $this->category;
-        }
-        if (null !== $this->keyword) {
-            $res['Keyword'] = $this->keyword;
-        }
-        if (null !== $this->instanceIds) {
-            $res['InstanceIds'] = $this->instanceIds;
         }
 
         return $res;
@@ -101,11 +101,17 @@ class DescribeMonitorGroupInstanceAttributeRequest extends Model
     public static function fromMap($map = [])
     {
         $model = new self();
-        if (isset($map['RegionId'])) {
-            $model->regionId = $map['RegionId'];
+        if (isset($map['Category'])) {
+            $model->category = $map['Category'];
         }
         if (isset($map['GroupId'])) {
             $model->groupId = $map['GroupId'];
+        }
+        if (isset($map['InstanceIds'])) {
+            $model->instanceIds = $map['InstanceIds'];
+        }
+        if (isset($map['Keyword'])) {
+            $model->keyword = $map['Keyword'];
         }
         if (isset($map['PageNumber'])) {
             $model->pageNumber = $map['PageNumber'];
@@ -113,17 +119,11 @@ class DescribeMonitorGroupInstanceAttributeRequest extends Model
         if (isset($map['PageSize'])) {
             $model->pageSize = $map['PageSize'];
         }
+        if (isset($map['RegionId'])) {
+            $model->regionId = $map['RegionId'];
+        }
         if (isset($map['Total'])) {
             $model->total = $map['Total'];
-        }
-        if (isset($map['Category'])) {
-            $model->category = $map['Category'];
-        }
-        if (isset($map['Keyword'])) {
-            $model->keyword = $map['Keyword'];
-        }
-        if (isset($map['InstanceIds'])) {
-            $model->instanceIds = $map['InstanceIds'];
         }
 
         return $model;

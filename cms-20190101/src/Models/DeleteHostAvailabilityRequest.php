@@ -9,17 +9,17 @@ use AlibabaCloud\Tea\Model;
 class DeleteHostAvailabilityRequest extends Model
 {
     /**
-     * @var string
-     */
-    public $regionId;
-
-    /**
      * @var int[]
      */
     public $id;
+
+    /**
+     * @var string
+     */
+    public $regionId;
     protected $_name = [
-        'regionId' => 'RegionId',
         'id'       => 'Id',
+        'regionId' => 'RegionId',
     ];
 
     public function validate()
@@ -29,11 +29,11 @@ class DeleteHostAvailabilityRequest extends Model
     public function toMap()
     {
         $res = [];
-        if (null !== $this->regionId) {
-            $res['RegionId'] = $this->regionId;
-        }
         if (null !== $this->id) {
             $res['Id'] = $this->id;
+        }
+        if (null !== $this->regionId) {
+            $res['RegionId'] = $this->regionId;
         }
 
         return $res;
@@ -47,13 +47,13 @@ class DeleteHostAvailabilityRequest extends Model
     public static function fromMap($map = [])
     {
         $model = new self();
-        if (isset($map['RegionId'])) {
-            $model->regionId = $map['RegionId'];
-        }
         if (isset($map['Id'])) {
             if (!empty($map['Id'])) {
                 $model->id = $map['Id'];
             }
+        }
+        if (isset($map['RegionId'])) {
+            $model->regionId = $map['RegionId'];
         }
 
         return $model;

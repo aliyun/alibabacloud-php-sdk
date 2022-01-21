@@ -20,6 +20,11 @@ class DescribeMonitoringAgentProcessesResponseBody extends Model
     public $message;
 
     /**
+     * @var nodeProcesses
+     */
+    public $nodeProcesses;
+
+    /**
      * @var string
      */
     public $requestId;
@@ -28,17 +33,12 @@ class DescribeMonitoringAgentProcessesResponseBody extends Model
      * @var bool
      */
     public $success;
-
-    /**
-     * @var nodeProcesses
-     */
-    public $nodeProcesses;
     protected $_name = [
         'code'          => 'Code',
         'message'       => 'Message',
+        'nodeProcesses' => 'NodeProcesses',
         'requestId'     => 'RequestId',
         'success'       => 'Success',
-        'nodeProcesses' => 'NodeProcesses',
     ];
 
     public function validate()
@@ -54,14 +54,14 @@ class DescribeMonitoringAgentProcessesResponseBody extends Model
         if (null !== $this->message) {
             $res['Message'] = $this->message;
         }
+        if (null !== $this->nodeProcesses) {
+            $res['NodeProcesses'] = null !== $this->nodeProcesses ? $this->nodeProcesses->toMap() : null;
+        }
         if (null !== $this->requestId) {
             $res['RequestId'] = $this->requestId;
         }
         if (null !== $this->success) {
             $res['Success'] = $this->success;
-        }
-        if (null !== $this->nodeProcesses) {
-            $res['NodeProcesses'] = null !== $this->nodeProcesses ? $this->nodeProcesses->toMap() : null;
         }
 
         return $res;
@@ -81,14 +81,14 @@ class DescribeMonitoringAgentProcessesResponseBody extends Model
         if (isset($map['Message'])) {
             $model->message = $map['Message'];
         }
+        if (isset($map['NodeProcesses'])) {
+            $model->nodeProcesses = nodeProcesses::fromMap($map['NodeProcesses']);
+        }
         if (isset($map['RequestId'])) {
             $model->requestId = $map['RequestId'];
         }
         if (isset($map['Success'])) {
             $model->success = $map['Success'];
-        }
-        if (isset($map['NodeProcesses'])) {
-            $model->nodeProcesses = nodeProcesses::fromMap($map['NodeProcesses']);
         }
 
         return $model;

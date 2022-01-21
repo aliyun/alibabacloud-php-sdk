@@ -25,20 +25,20 @@ class DescribeMetricRuleTemplateAttributeResponseBody extends Model
     public $requestId;
 
     /**
-     * @var bool
-     */
-    public $success;
-
-    /**
      * @var resource
      */
     public $resource;
+
+    /**
+     * @var bool
+     */
+    public $success;
     protected $_name = [
         'code'      => 'Code',
         'message'   => 'Message',
         'requestId' => 'RequestId',
-        'success'   => 'Success',
         'resource'  => 'Resource',
+        'success'   => 'Success',
     ];
 
     public function validate()
@@ -57,11 +57,11 @@ class DescribeMetricRuleTemplateAttributeResponseBody extends Model
         if (null !== $this->requestId) {
             $res['RequestId'] = $this->requestId;
         }
-        if (null !== $this->success) {
-            $res['Success'] = $this->success;
-        }
         if (null !== $this->resource) {
             $res['Resource'] = null !== $this->resource ? $this->resource->toMap() : null;
+        }
+        if (null !== $this->success) {
+            $res['Success'] = $this->success;
         }
 
         return $res;
@@ -84,11 +84,11 @@ class DescribeMetricRuleTemplateAttributeResponseBody extends Model
         if (isset($map['RequestId'])) {
             $model->requestId = $map['RequestId'];
         }
-        if (isset($map['Success'])) {
-            $model->success = $map['Success'];
-        }
         if (isset($map['Resource'])) {
             $model->resource = resource::fromMap($map['Resource']);
+        }
+        if (isset($map['Success'])) {
+            $model->success = $map['Success'];
         }
 
         return $model;

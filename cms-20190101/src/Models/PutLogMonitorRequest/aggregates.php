@@ -11,21 +11,21 @@ class aggregates extends Model
     /**
      * @var string
      */
+    public $alias;
+
+    /**
+     * @var string
+     */
     public $fieldName;
 
     /**
      * @var string
      */
     public $function;
-
-    /**
-     * @var string
-     */
-    public $alias;
     protected $_name = [
+        'alias'     => 'Alias',
         'fieldName' => 'FieldName',
         'function'  => 'Function',
-        'alias'     => 'Alias',
     ];
 
     public function validate()
@@ -35,14 +35,14 @@ class aggregates extends Model
     public function toMap()
     {
         $res = [];
+        if (null !== $this->alias) {
+            $res['Alias'] = $this->alias;
+        }
         if (null !== $this->fieldName) {
             $res['FieldName'] = $this->fieldName;
         }
         if (null !== $this->function) {
             $res['Function'] = $this->function;
-        }
-        if (null !== $this->alias) {
-            $res['Alias'] = $this->alias;
         }
 
         return $res;
@@ -56,14 +56,14 @@ class aggregates extends Model
     public static function fromMap($map = [])
     {
         $model = new self();
+        if (isset($map['Alias'])) {
+            $model->alias = $map['Alias'];
+        }
         if (isset($map['FieldName'])) {
             $model->fieldName = $map['FieldName'];
         }
         if (isset($map['Function'])) {
             $model->function = $map['Function'];
-        }
-        if (isset($map['Alias'])) {
-            $model->alias = $map['Alias'];
         }
 
         return $model;

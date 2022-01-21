@@ -11,12 +11,12 @@ class eventInfo extends Model
     /**
      * @var string
      */
-    public $eventName;
+    public $content;
 
     /**
      * @var string
      */
-    public $time;
+    public $eventName;
 
     /**
      * @var string
@@ -26,12 +26,12 @@ class eventInfo extends Model
     /**
      * @var string
      */
-    public $content;
+    public $time;
     protected $_name = [
-        'eventName' => 'EventName',
-        'time'      => 'Time',
-        'groupId'   => 'GroupId',
         'content'   => 'Content',
+        'eventName' => 'EventName',
+        'groupId'   => 'GroupId',
+        'time'      => 'Time',
     ];
 
     public function validate()
@@ -41,17 +41,17 @@ class eventInfo extends Model
     public function toMap()
     {
         $res = [];
+        if (null !== $this->content) {
+            $res['Content'] = $this->content;
+        }
         if (null !== $this->eventName) {
             $res['EventName'] = $this->eventName;
-        }
-        if (null !== $this->time) {
-            $res['Time'] = $this->time;
         }
         if (null !== $this->groupId) {
             $res['GroupId'] = $this->groupId;
         }
-        if (null !== $this->content) {
-            $res['Content'] = $this->content;
+        if (null !== $this->time) {
+            $res['Time'] = $this->time;
         }
 
         return $res;
@@ -65,17 +65,17 @@ class eventInfo extends Model
     public static function fromMap($map = [])
     {
         $model = new self();
+        if (isset($map['Content'])) {
+            $model->content = $map['Content'];
+        }
         if (isset($map['EventName'])) {
             $model->eventName = $map['EventName'];
-        }
-        if (isset($map['Time'])) {
-            $model->time = $map['Time'];
         }
         if (isset($map['GroupId'])) {
             $model->groupId = $map['GroupId'];
         }
-        if (isset($map['Content'])) {
-            $model->content = $map['Content'];
+        if (isset($map['Time'])) {
+            $model->time = $map['Time'];
         }
 
         return $model;

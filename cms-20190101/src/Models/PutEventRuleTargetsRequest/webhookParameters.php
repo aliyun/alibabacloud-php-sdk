@@ -11,12 +11,7 @@ class webhookParameters extends Model
     /**
      * @var string
      */
-    public $protocol;
-
-    /**
-     * @var string
-     */
-    public $url;
+    public $id;
 
     /**
      * @var string
@@ -26,12 +21,17 @@ class webhookParameters extends Model
     /**
      * @var string
      */
-    public $id;
+    public $protocol;
+
+    /**
+     * @var string
+     */
+    public $url;
     protected $_name = [
+        'id'       => 'Id',
+        'method'   => 'Method',
         'protocol' => 'Protocol',
         'url'      => 'Url',
-        'method'   => 'Method',
-        'id'       => 'Id',
     ];
 
     public function validate()
@@ -41,17 +41,17 @@ class webhookParameters extends Model
     public function toMap()
     {
         $res = [];
+        if (null !== $this->id) {
+            $res['Id'] = $this->id;
+        }
+        if (null !== $this->method) {
+            $res['Method'] = $this->method;
+        }
         if (null !== $this->protocol) {
             $res['Protocol'] = $this->protocol;
         }
         if (null !== $this->url) {
             $res['Url'] = $this->url;
-        }
-        if (null !== $this->method) {
-            $res['Method'] = $this->method;
-        }
-        if (null !== $this->id) {
-            $res['Id'] = $this->id;
         }
 
         return $res;
@@ -65,17 +65,17 @@ class webhookParameters extends Model
     public static function fromMap($map = [])
     {
         $model = new self();
+        if (isset($map['Id'])) {
+            $model->id = $map['Id'];
+        }
+        if (isset($map['Method'])) {
+            $model->method = $map['Method'];
+        }
         if (isset($map['Protocol'])) {
             $model->protocol = $map['Protocol'];
         }
         if (isset($map['Url'])) {
             $model->url = $map['Url'];
-        }
-        if (isset($map['Method'])) {
-            $model->method = $map['Method'];
-        }
-        if (isset($map['Id'])) {
-            $model->id = $map['Id'];
         }
 
         return $model;

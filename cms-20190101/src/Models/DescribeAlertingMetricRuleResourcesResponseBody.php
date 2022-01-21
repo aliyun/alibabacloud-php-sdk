@@ -25,9 +25,9 @@ class DescribeAlertingMetricRuleResourcesResponseBody extends Model
     public $requestId;
 
     /**
-     * @var int
+     * @var resources
      */
-    public $total;
+    public $resources;
 
     /**
      * @var bool
@@ -35,16 +35,16 @@ class DescribeAlertingMetricRuleResourcesResponseBody extends Model
     public $success;
 
     /**
-     * @var resources
+     * @var int
      */
-    public $resources;
+    public $total;
     protected $_name = [
         'code'      => 'Code',
         'message'   => 'Message',
         'requestId' => 'RequestId',
-        'total'     => 'Total',
-        'success'   => 'Success',
         'resources' => 'Resources',
+        'success'   => 'Success',
+        'total'     => 'Total',
     ];
 
     public function validate()
@@ -63,14 +63,14 @@ class DescribeAlertingMetricRuleResourcesResponseBody extends Model
         if (null !== $this->requestId) {
             $res['RequestId'] = $this->requestId;
         }
-        if (null !== $this->total) {
-            $res['Total'] = $this->total;
+        if (null !== $this->resources) {
+            $res['Resources'] = null !== $this->resources ? $this->resources->toMap() : null;
         }
         if (null !== $this->success) {
             $res['Success'] = $this->success;
         }
-        if (null !== $this->resources) {
-            $res['Resources'] = null !== $this->resources ? $this->resources->toMap() : null;
+        if (null !== $this->total) {
+            $res['Total'] = $this->total;
         }
 
         return $res;
@@ -93,14 +93,14 @@ class DescribeAlertingMetricRuleResourcesResponseBody extends Model
         if (isset($map['RequestId'])) {
             $model->requestId = $map['RequestId'];
         }
-        if (isset($map['Total'])) {
-            $model->total = $map['Total'];
+        if (isset($map['Resources'])) {
+            $model->resources = resources::fromMap($map['Resources']);
         }
         if (isset($map['Success'])) {
             $model->success = $map['Success'];
         }
-        if (isset($map['Resources'])) {
-            $model->resources = resources::fromMap($map['Resources']);
+        if (isset($map['Total'])) {
+            $model->total = $map['Total'];
         }
 
         return $model;

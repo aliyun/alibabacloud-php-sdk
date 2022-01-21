@@ -17,12 +17,12 @@ class alertTemplates extends Model
     /**
      * @var string
      */
-    public $metricName;
+    public $category;
 
     /**
      * @var string
      */
-    public $webhook;
+    public $metricName;
 
     /**
      * @var string
@@ -47,16 +47,16 @@ class alertTemplates extends Model
     /**
      * @var string
      */
-    public $category;
+    public $webhook;
     protected $_name = [
         'escalations' => 'Escalations',
+        'category'    => 'Category',
         'metricName'  => 'MetricName',
-        'webhook'     => 'Webhook',
         'namespace'   => 'Namespace',
         'period'      => 'Period',
         'ruleName'    => 'RuleName',
         'selector'    => 'Selector',
-        'category'    => 'Category',
+        'webhook'     => 'Webhook',
     ];
 
     public function validate()
@@ -70,11 +70,11 @@ class alertTemplates extends Model
         if (null !== $this->escalations) {
             $res['Escalations'] = null !== $this->escalations ? $this->escalations->toMap() : null;
         }
+        if (null !== $this->category) {
+            $res['Category'] = $this->category;
+        }
         if (null !== $this->metricName) {
             $res['MetricName'] = $this->metricName;
-        }
-        if (null !== $this->webhook) {
-            $res['Webhook'] = $this->webhook;
         }
         if (null !== $this->namespace) {
             $res['Namespace'] = $this->namespace;
@@ -88,8 +88,8 @@ class alertTemplates extends Model
         if (null !== $this->selector) {
             $res['Selector'] = $this->selector;
         }
-        if (null !== $this->category) {
-            $res['Category'] = $this->category;
+        if (null !== $this->webhook) {
+            $res['Webhook'] = $this->webhook;
         }
 
         return $res;
@@ -106,11 +106,11 @@ class alertTemplates extends Model
         if (isset($map['Escalations'])) {
             $model->escalations = escalations::fromMap($map['Escalations']);
         }
+        if (isset($map['Category'])) {
+            $model->category = $map['Category'];
+        }
         if (isset($map['MetricName'])) {
             $model->metricName = $map['MetricName'];
-        }
-        if (isset($map['Webhook'])) {
-            $model->webhook = $map['Webhook'];
         }
         if (isset($map['Namespace'])) {
             $model->namespace = $map['Namespace'];
@@ -124,8 +124,8 @@ class alertTemplates extends Model
         if (isset($map['Selector'])) {
             $model->selector = $map['Selector'];
         }
-        if (isset($map['Category'])) {
-            $model->category = $map['Category'];
+        if (isset($map['Webhook'])) {
+            $model->webhook = $map['Webhook'];
         }
 
         return $model;

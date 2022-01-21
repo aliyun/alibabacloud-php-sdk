@@ -7,12 +7,33 @@ namespace AlibabaCloud\SDK\Cms\V20190101\Models;
 use AlibabaCloud\SDK\Cms\V20190101\Models\PutEventRuleTargetsRequest\contactParameters;
 use AlibabaCloud\SDK\Cms\V20190101\Models\PutEventRuleTargetsRequest\fcParameters;
 use AlibabaCloud\SDK\Cms\V20190101\Models\PutEventRuleTargetsRequest\mnsParameters;
+use AlibabaCloud\SDK\Cms\V20190101\Models\PutEventRuleTargetsRequest\openApiParameters;
 use AlibabaCloud\SDK\Cms\V20190101\Models\PutEventRuleTargetsRequest\slsParameters;
 use AlibabaCloud\SDK\Cms\V20190101\Models\PutEventRuleTargetsRequest\webhookParameters;
 use AlibabaCloud\Tea\Model;
 
 class PutEventRuleTargetsRequest extends Model
 {
+    /**
+     * @var contactParameters[]
+     */
+    public $contactParameters;
+
+    /**
+     * @var fcParameters[]
+     */
+    public $fcParameters;
+
+    /**
+     * @var mnsParameters[]
+     */
+    public $mnsParameters;
+
+    /**
+     * @var openApiParameters[]
+     */
+    public $openApiParameters;
+
     /**
      * @var string
      */
@@ -24,37 +45,23 @@ class PutEventRuleTargetsRequest extends Model
     public $ruleName;
 
     /**
-     * @var fcParameters[]
+     * @var slsParameters[]
      */
-    public $fcParameters;
-
-    /**
-     * @var contactParameters[]
-     */
-    public $contactParameters;
-
-    /**
-     * @var mnsParameters[]
-     */
-    public $mnsParameters;
+    public $slsParameters;
 
     /**
      * @var webhookParameters[]
      */
     public $webhookParameters;
-
-    /**
-     * @var slsParameters[]
-     */
-    public $slsParameters;
     protected $_name = [
+        'contactParameters' => 'ContactParameters',
+        'fcParameters'      => 'FcParameters',
+        'mnsParameters'     => 'MnsParameters',
+        'openApiParameters' => 'OpenApiParameters',
         'regionId'          => 'RegionId',
         'ruleName'          => 'RuleName',
-        'fcParameters'      => 'FcParameters',
-        'contactParameters' => 'ContactParameters',
-        'mnsParameters'     => 'MnsParameters',
-        'webhookParameters' => 'WebhookParameters',
         'slsParameters'     => 'SlsParameters',
+        'webhookParameters' => 'WebhookParameters',
     ];
 
     public function validate()
@@ -64,11 +71,14 @@ class PutEventRuleTargetsRequest extends Model
     public function toMap()
     {
         $res = [];
-        if (null !== $this->regionId) {
-            $res['RegionId'] = $this->regionId;
-        }
-        if (null !== $this->ruleName) {
-            $res['RuleName'] = $this->ruleName;
+        if (null !== $this->contactParameters) {
+            $res['ContactParameters'] = [];
+            if (null !== $this->contactParameters && \is_array($this->contactParameters)) {
+                $n = 0;
+                foreach ($this->contactParameters as $item) {
+                    $res['ContactParameters'][$n++] = null !== $item ? $item->toMap() : $item;
+                }
+            }
         }
         if (null !== $this->fcParameters) {
             $res['FcParameters'] = [];
@@ -76,15 +86,6 @@ class PutEventRuleTargetsRequest extends Model
                 $n = 0;
                 foreach ($this->fcParameters as $item) {
                     $res['FcParameters'][$n++] = null !== $item ? $item->toMap() : $item;
-                }
-            }
-        }
-        if (null !== $this->contactParameters) {
-            $res['ContactParameters'] = [];
-            if (null !== $this->contactParameters && \is_array($this->contactParameters)) {
-                $n = 0;
-                foreach ($this->contactParameters as $item) {
-                    $res['ContactParameters'][$n++] = null !== $item ? $item->toMap() : $item;
                 }
             }
         }
@@ -97,14 +98,20 @@ class PutEventRuleTargetsRequest extends Model
                 }
             }
         }
-        if (null !== $this->webhookParameters) {
-            $res['WebhookParameters'] = [];
-            if (null !== $this->webhookParameters && \is_array($this->webhookParameters)) {
+        if (null !== $this->openApiParameters) {
+            $res['OpenApiParameters'] = [];
+            if (null !== $this->openApiParameters && \is_array($this->openApiParameters)) {
                 $n = 0;
-                foreach ($this->webhookParameters as $item) {
-                    $res['WebhookParameters'][$n++] = null !== $item ? $item->toMap() : $item;
+                foreach ($this->openApiParameters as $item) {
+                    $res['OpenApiParameters'][$n++] = null !== $item ? $item->toMap() : $item;
                 }
             }
+        }
+        if (null !== $this->regionId) {
+            $res['RegionId'] = $this->regionId;
+        }
+        if (null !== $this->ruleName) {
+            $res['RuleName'] = $this->ruleName;
         }
         if (null !== $this->slsParameters) {
             $res['SlsParameters'] = [];
@@ -112,6 +119,15 @@ class PutEventRuleTargetsRequest extends Model
                 $n = 0;
                 foreach ($this->slsParameters as $item) {
                     $res['SlsParameters'][$n++] = null !== $item ? $item->toMap() : $item;
+                }
+            }
+        }
+        if (null !== $this->webhookParameters) {
+            $res['WebhookParameters'] = [];
+            if (null !== $this->webhookParameters && \is_array($this->webhookParameters)) {
+                $n = 0;
+                foreach ($this->webhookParameters as $item) {
+                    $res['WebhookParameters'][$n++] = null !== $item ? $item->toMap() : $item;
                 }
             }
         }
@@ -127,11 +143,14 @@ class PutEventRuleTargetsRequest extends Model
     public static function fromMap($map = [])
     {
         $model = new self();
-        if (isset($map['RegionId'])) {
-            $model->regionId = $map['RegionId'];
-        }
-        if (isset($map['RuleName'])) {
-            $model->ruleName = $map['RuleName'];
+        if (isset($map['ContactParameters'])) {
+            if (!empty($map['ContactParameters'])) {
+                $model->contactParameters = [];
+                $n                        = 0;
+                foreach ($map['ContactParameters'] as $item) {
+                    $model->contactParameters[$n++] = null !== $item ? contactParameters::fromMap($item) : $item;
+                }
+            }
         }
         if (isset($map['FcParameters'])) {
             if (!empty($map['FcParameters'])) {
@@ -139,15 +158,6 @@ class PutEventRuleTargetsRequest extends Model
                 $n                   = 0;
                 foreach ($map['FcParameters'] as $item) {
                     $model->fcParameters[$n++] = null !== $item ? fcParameters::fromMap($item) : $item;
-                }
-            }
-        }
-        if (isset($map['ContactParameters'])) {
-            if (!empty($map['ContactParameters'])) {
-                $model->contactParameters = [];
-                $n                        = 0;
-                foreach ($map['ContactParameters'] as $item) {
-                    $model->contactParameters[$n++] = null !== $item ? contactParameters::fromMap($item) : $item;
                 }
             }
         }
@@ -160,14 +170,20 @@ class PutEventRuleTargetsRequest extends Model
                 }
             }
         }
-        if (isset($map['WebhookParameters'])) {
-            if (!empty($map['WebhookParameters'])) {
-                $model->webhookParameters = [];
+        if (isset($map['OpenApiParameters'])) {
+            if (!empty($map['OpenApiParameters'])) {
+                $model->openApiParameters = [];
                 $n                        = 0;
-                foreach ($map['WebhookParameters'] as $item) {
-                    $model->webhookParameters[$n++] = null !== $item ? webhookParameters::fromMap($item) : $item;
+                foreach ($map['OpenApiParameters'] as $item) {
+                    $model->openApiParameters[$n++] = null !== $item ? openApiParameters::fromMap($item) : $item;
                 }
             }
+        }
+        if (isset($map['RegionId'])) {
+            $model->regionId = $map['RegionId'];
+        }
+        if (isset($map['RuleName'])) {
+            $model->ruleName = $map['RuleName'];
         }
         if (isset($map['SlsParameters'])) {
             if (!empty($map['SlsParameters'])) {
@@ -175,6 +191,15 @@ class PutEventRuleTargetsRequest extends Model
                 $n                    = 0;
                 foreach ($map['SlsParameters'] as $item) {
                     $model->slsParameters[$n++] = null !== $item ? slsParameters::fromMap($item) : $item;
+                }
+            }
+        }
+        if (isset($map['WebhookParameters'])) {
+            if (!empty($map['WebhookParameters'])) {
+                $model->webhookParameters = [];
+                $n                        = 0;
+                foreach ($map['WebhookParameters'] as $item) {
+                    $model->webhookParameters[$n++] = null !== $item ? webhookParameters::fromMap($item) : $item;
                 }
             }
         }

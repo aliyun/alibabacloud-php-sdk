@@ -10,14 +10,14 @@ use AlibabaCloud\Tea\Model;
 class ModifyMetricRuleTemplateRequest extends Model
 {
     /**
-     * @var string
+     * @var alertTemplates[]
      */
-    public $regionId;
+    public $alertTemplates;
 
     /**
-     * @var int
+     * @var string
      */
-    public $templateId;
+    public $description;
 
     /**
      * @var string
@@ -27,7 +27,7 @@ class ModifyMetricRuleTemplateRequest extends Model
     /**
      * @var string
      */
-    public $description;
+    public $regionId;
 
     /**
      * @var int
@@ -35,16 +35,16 @@ class ModifyMetricRuleTemplateRequest extends Model
     public $restVersion;
 
     /**
-     * @var alertTemplates[]
+     * @var int
      */
-    public $alertTemplates;
+    public $templateId;
     protected $_name = [
-        'regionId'       => 'RegionId',
-        'templateId'     => 'TemplateId',
-        'name'           => 'Name',
-        'description'    => 'Description',
-        'restVersion'    => 'RestVersion',
         'alertTemplates' => 'AlertTemplates',
+        'description'    => 'Description',
+        'name'           => 'Name',
+        'regionId'       => 'RegionId',
+        'restVersion'    => 'RestVersion',
+        'templateId'     => 'TemplateId',
     ];
 
     public function validate()
@@ -54,21 +54,6 @@ class ModifyMetricRuleTemplateRequest extends Model
     public function toMap()
     {
         $res = [];
-        if (null !== $this->regionId) {
-            $res['RegionId'] = $this->regionId;
-        }
-        if (null !== $this->templateId) {
-            $res['TemplateId'] = $this->templateId;
-        }
-        if (null !== $this->name) {
-            $res['Name'] = $this->name;
-        }
-        if (null !== $this->description) {
-            $res['Description'] = $this->description;
-        }
-        if (null !== $this->restVersion) {
-            $res['RestVersion'] = $this->restVersion;
-        }
         if (null !== $this->alertTemplates) {
             $res['AlertTemplates'] = [];
             if (null !== $this->alertTemplates && \is_array($this->alertTemplates)) {
@@ -77,6 +62,21 @@ class ModifyMetricRuleTemplateRequest extends Model
                     $res['AlertTemplates'][$n++] = null !== $item ? $item->toMap() : $item;
                 }
             }
+        }
+        if (null !== $this->description) {
+            $res['Description'] = $this->description;
+        }
+        if (null !== $this->name) {
+            $res['Name'] = $this->name;
+        }
+        if (null !== $this->regionId) {
+            $res['RegionId'] = $this->regionId;
+        }
+        if (null !== $this->restVersion) {
+            $res['RestVersion'] = $this->restVersion;
+        }
+        if (null !== $this->templateId) {
+            $res['TemplateId'] = $this->templateId;
         }
 
         return $res;
@@ -90,21 +90,6 @@ class ModifyMetricRuleTemplateRequest extends Model
     public static function fromMap($map = [])
     {
         $model = new self();
-        if (isset($map['RegionId'])) {
-            $model->regionId = $map['RegionId'];
-        }
-        if (isset($map['TemplateId'])) {
-            $model->templateId = $map['TemplateId'];
-        }
-        if (isset($map['Name'])) {
-            $model->name = $map['Name'];
-        }
-        if (isset($map['Description'])) {
-            $model->description = $map['Description'];
-        }
-        if (isset($map['RestVersion'])) {
-            $model->restVersion = $map['RestVersion'];
-        }
         if (isset($map['AlertTemplates'])) {
             if (!empty($map['AlertTemplates'])) {
                 $model->alertTemplates = [];
@@ -113,6 +98,21 @@ class ModifyMetricRuleTemplateRequest extends Model
                     $model->alertTemplates[$n++] = null !== $item ? alertTemplates::fromMap($item) : $item;
                 }
             }
+        }
+        if (isset($map['Description'])) {
+            $model->description = $map['Description'];
+        }
+        if (isset($map['Name'])) {
+            $model->name = $map['Name'];
+        }
+        if (isset($map['RegionId'])) {
+            $model->regionId = $map['RegionId'];
+        }
+        if (isset($map['RestVersion'])) {
+            $model->restVersion = $map['RestVersion'];
+        }
+        if (isset($map['TemplateId'])) {
+            $model->templateId = $map['TemplateId'];
         }
 
         return $model;

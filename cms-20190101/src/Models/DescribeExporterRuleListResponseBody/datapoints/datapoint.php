@@ -10,9 +10,9 @@ use AlibabaCloud\Tea\Model;
 class datapoint extends Model
 {
     /**
-     * @var string
+     * @var int
      */
-    public $metricName;
+    public $createTime;
 
     /**
      * @var string
@@ -22,12 +22,12 @@ class datapoint extends Model
     /**
      * @var string
      */
-    public $targetWindows;
+    public $dimension;
 
     /**
-     * @var int
+     * @var dstName
      */
-    public $createTime;
+    public $dstName;
 
     /**
      * @var bool
@@ -37,7 +37,7 @@ class datapoint extends Model
     /**
      * @var string
      */
-    public $dimension;
+    public $metricName;
 
     /**
      * @var string
@@ -50,19 +50,19 @@ class datapoint extends Model
     public $ruleName;
 
     /**
-     * @var dstName
+     * @var string
      */
-    public $dstName;
+    public $targetWindows;
     protected $_name = [
-        'metricName'    => 'MetricName',
-        'describe'      => 'Describe',
-        'targetWindows' => 'TargetWindows',
         'createTime'    => 'CreateTime',
-        'enabled'       => 'Enabled',
+        'describe'      => 'Describe',
         'dimension'     => 'Dimension',
+        'dstName'       => 'DstName',
+        'enabled'       => 'Enabled',
+        'metricName'    => 'MetricName',
         'namespace'     => 'Namespace',
         'ruleName'      => 'RuleName',
-        'dstName'       => 'DstName',
+        'targetWindows' => 'TargetWindows',
     ];
 
     public function validate()
@@ -72,23 +72,23 @@ class datapoint extends Model
     public function toMap()
     {
         $res = [];
-        if (null !== $this->metricName) {
-            $res['MetricName'] = $this->metricName;
+        if (null !== $this->createTime) {
+            $res['CreateTime'] = $this->createTime;
         }
         if (null !== $this->describe) {
             $res['Describe'] = $this->describe;
         }
-        if (null !== $this->targetWindows) {
-            $res['TargetWindows'] = $this->targetWindows;
+        if (null !== $this->dimension) {
+            $res['Dimension'] = $this->dimension;
         }
-        if (null !== $this->createTime) {
-            $res['CreateTime'] = $this->createTime;
+        if (null !== $this->dstName) {
+            $res['DstName'] = null !== $this->dstName ? $this->dstName->toMap() : null;
         }
         if (null !== $this->enabled) {
             $res['Enabled'] = $this->enabled;
         }
-        if (null !== $this->dimension) {
-            $res['Dimension'] = $this->dimension;
+        if (null !== $this->metricName) {
+            $res['MetricName'] = $this->metricName;
         }
         if (null !== $this->namespace) {
             $res['Namespace'] = $this->namespace;
@@ -96,8 +96,8 @@ class datapoint extends Model
         if (null !== $this->ruleName) {
             $res['RuleName'] = $this->ruleName;
         }
-        if (null !== $this->dstName) {
-            $res['DstName'] = null !== $this->dstName ? $this->dstName->toMap() : null;
+        if (null !== $this->targetWindows) {
+            $res['TargetWindows'] = $this->targetWindows;
         }
 
         return $res;
@@ -111,23 +111,23 @@ class datapoint extends Model
     public static function fromMap($map = [])
     {
         $model = new self();
-        if (isset($map['MetricName'])) {
-            $model->metricName = $map['MetricName'];
+        if (isset($map['CreateTime'])) {
+            $model->createTime = $map['CreateTime'];
         }
         if (isset($map['Describe'])) {
             $model->describe = $map['Describe'];
         }
-        if (isset($map['TargetWindows'])) {
-            $model->targetWindows = $map['TargetWindows'];
+        if (isset($map['Dimension'])) {
+            $model->dimension = $map['Dimension'];
         }
-        if (isset($map['CreateTime'])) {
-            $model->createTime = $map['CreateTime'];
+        if (isset($map['DstName'])) {
+            $model->dstName = dstName::fromMap($map['DstName']);
         }
         if (isset($map['Enabled'])) {
             $model->enabled = $map['Enabled'];
         }
-        if (isset($map['Dimension'])) {
-            $model->dimension = $map['Dimension'];
+        if (isset($map['MetricName'])) {
+            $model->metricName = $map['MetricName'];
         }
         if (isset($map['Namespace'])) {
             $model->namespace = $map['Namespace'];
@@ -135,8 +135,8 @@ class datapoint extends Model
         if (isset($map['RuleName'])) {
             $model->ruleName = $map['RuleName'];
         }
-        if (isset($map['DstName'])) {
-            $model->dstName = dstName::fromMap($map['DstName']);
+        if (isset($map['TargetWindows'])) {
+            $model->targetWindows = $map['TargetWindows'];
         }
 
         return $model;

@@ -14,18 +14,18 @@ class escalation extends Model
     public $expression;
 
     /**
-     * @var int
-     */
-    public $times;
-
-    /**
      * @var string
      */
     public $level;
+
+    /**
+     * @var int
+     */
+    public $times;
     protected $_name = [
         'expression' => 'Expression',
-        'times'      => 'Times',
         'level'      => 'Level',
+        'times'      => 'Times',
     ];
 
     public function validate()
@@ -38,11 +38,11 @@ class escalation extends Model
         if (null !== $this->expression) {
             $res['Expression'] = $this->expression;
         }
-        if (null !== $this->times) {
-            $res['Times'] = $this->times;
-        }
         if (null !== $this->level) {
             $res['Level'] = $this->level;
+        }
+        if (null !== $this->times) {
+            $res['Times'] = $this->times;
         }
 
         return $res;
@@ -59,11 +59,11 @@ class escalation extends Model
         if (isset($map['Expression'])) {
             $model->expression = $map['Expression'];
         }
-        if (isset($map['Times'])) {
-            $model->times = $map['Times'];
-        }
         if (isset($map['Level'])) {
             $model->level = $map['Level'];
+        }
+        if (isset($map['Times'])) {
+            $model->times = $map['Times'];
         }
 
         return $model;

@@ -11,15 +11,15 @@ class DescribeProductResourceTagKeyListRequest extends Model
     /**
      * @var string
      */
-    public $regionId;
+    public $nextToken;
 
     /**
      * @var string
      */
-    public $nextToken;
+    public $regionId;
     protected $_name = [
-        'regionId'  => 'RegionId',
         'nextToken' => 'NextToken',
+        'regionId'  => 'RegionId',
     ];
 
     public function validate()
@@ -29,11 +29,11 @@ class DescribeProductResourceTagKeyListRequest extends Model
     public function toMap()
     {
         $res = [];
-        if (null !== $this->regionId) {
-            $res['RegionId'] = $this->regionId;
-        }
         if (null !== $this->nextToken) {
             $res['NextToken'] = $this->nextToken;
+        }
+        if (null !== $this->regionId) {
+            $res['RegionId'] = $this->regionId;
         }
 
         return $res;
@@ -47,11 +47,11 @@ class DescribeProductResourceTagKeyListRequest extends Model
     public static function fromMap($map = [])
     {
         $model = new self();
-        if (isset($map['RegionId'])) {
-            $model->regionId = $map['RegionId'];
-        }
         if (isset($map['NextToken'])) {
             $model->nextToken = $map['NextToken'];
+        }
+        if (isset($map['RegionId'])) {
+            $model->regionId = $map['RegionId'];
         }
 
         return $model;

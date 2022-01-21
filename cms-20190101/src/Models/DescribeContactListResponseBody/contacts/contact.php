@@ -12,14 +12,19 @@ use AlibabaCloud\Tea\Model;
 class contact extends Model
 {
     /**
-     * @var int
+     * @var channels
      */
-    public $updateTime;
+    public $channels;
 
     /**
-     * @var string
+     * @var channelsState
      */
-    public $name;
+    public $channelsState;
+
+    /**
+     * @var contactGroups
+     */
+    public $contactGroups;
 
     /**
      * @var int
@@ -29,36 +34,31 @@ class contact extends Model
     /**
      * @var string
      */
+    public $desc;
+
+    /**
+     * @var string
+     */
     public $lang;
 
     /**
      * @var string
      */
-    public $desc;
+    public $name;
 
     /**
-     * @var contactGroups
+     * @var int
      */
-    public $contactGroups;
-
-    /**
-     * @var channels
-     */
-    public $channels;
-
-    /**
-     * @var channelsState
-     */
-    public $channelsState;
+    public $updateTime;
     protected $_name = [
-        'updateTime'    => 'UpdateTime',
-        'name'          => 'Name',
-        'createTime'    => 'CreateTime',
-        'lang'          => 'Lang',
-        'desc'          => 'Desc',
-        'contactGroups' => 'ContactGroups',
         'channels'      => 'Channels',
         'channelsState' => 'ChannelsState',
+        'contactGroups' => 'ContactGroups',
+        'createTime'    => 'CreateTime',
+        'desc'          => 'Desc',
+        'lang'          => 'Lang',
+        'name'          => 'Name',
+        'updateTime'    => 'UpdateTime',
     ];
 
     public function validate()
@@ -68,29 +68,29 @@ class contact extends Model
     public function toMap()
     {
         $res = [];
-        if (null !== $this->updateTime) {
-            $res['UpdateTime'] = $this->updateTime;
-        }
-        if (null !== $this->name) {
-            $res['Name'] = $this->name;
-        }
-        if (null !== $this->createTime) {
-            $res['CreateTime'] = $this->createTime;
-        }
-        if (null !== $this->lang) {
-            $res['Lang'] = $this->lang;
-        }
-        if (null !== $this->desc) {
-            $res['Desc'] = $this->desc;
-        }
-        if (null !== $this->contactGroups) {
-            $res['ContactGroups'] = null !== $this->contactGroups ? $this->contactGroups->toMap() : null;
-        }
         if (null !== $this->channels) {
             $res['Channels'] = null !== $this->channels ? $this->channels->toMap() : null;
         }
         if (null !== $this->channelsState) {
             $res['ChannelsState'] = null !== $this->channelsState ? $this->channelsState->toMap() : null;
+        }
+        if (null !== $this->contactGroups) {
+            $res['ContactGroups'] = null !== $this->contactGroups ? $this->contactGroups->toMap() : null;
+        }
+        if (null !== $this->createTime) {
+            $res['CreateTime'] = $this->createTime;
+        }
+        if (null !== $this->desc) {
+            $res['Desc'] = $this->desc;
+        }
+        if (null !== $this->lang) {
+            $res['Lang'] = $this->lang;
+        }
+        if (null !== $this->name) {
+            $res['Name'] = $this->name;
+        }
+        if (null !== $this->updateTime) {
+            $res['UpdateTime'] = $this->updateTime;
         }
 
         return $res;
@@ -104,29 +104,29 @@ class contact extends Model
     public static function fromMap($map = [])
     {
         $model = new self();
-        if (isset($map['UpdateTime'])) {
-            $model->updateTime = $map['UpdateTime'];
-        }
-        if (isset($map['Name'])) {
-            $model->name = $map['Name'];
-        }
-        if (isset($map['CreateTime'])) {
-            $model->createTime = $map['CreateTime'];
-        }
-        if (isset($map['Lang'])) {
-            $model->lang = $map['Lang'];
-        }
-        if (isset($map['Desc'])) {
-            $model->desc = $map['Desc'];
-        }
-        if (isset($map['ContactGroups'])) {
-            $model->contactGroups = contactGroups::fromMap($map['ContactGroups']);
-        }
         if (isset($map['Channels'])) {
             $model->channels = channels::fromMap($map['Channels']);
         }
         if (isset($map['ChannelsState'])) {
             $model->channelsState = channelsState::fromMap($map['ChannelsState']);
+        }
+        if (isset($map['ContactGroups'])) {
+            $model->contactGroups = contactGroups::fromMap($map['ContactGroups']);
+        }
+        if (isset($map['CreateTime'])) {
+            $model->createTime = $map['CreateTime'];
+        }
+        if (isset($map['Desc'])) {
+            $model->desc = $map['Desc'];
+        }
+        if (isset($map['Lang'])) {
+            $model->lang = $map['Lang'];
+        }
+        if (isset($map['Name'])) {
+            $model->name = $map['Name'];
+        }
+        if (isset($map['UpdateTime'])) {
+            $model->updateTime = $map['UpdateTime'];
         }
 
         return $model;

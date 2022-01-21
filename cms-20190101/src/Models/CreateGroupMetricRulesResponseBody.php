@@ -25,20 +25,20 @@ class CreateGroupMetricRulesResponseBody extends Model
     public $requestId;
 
     /**
-     * @var bool
-     */
-    public $success;
-
-    /**
      * @var resources
      */
     public $resources;
+
+    /**
+     * @var bool
+     */
+    public $success;
     protected $_name = [
         'code'      => 'Code',
         'message'   => 'Message',
         'requestId' => 'RequestId',
-        'success'   => 'Success',
         'resources' => 'Resources',
+        'success'   => 'Success',
     ];
 
     public function validate()
@@ -57,11 +57,11 @@ class CreateGroupMetricRulesResponseBody extends Model
         if (null !== $this->requestId) {
             $res['RequestId'] = $this->requestId;
         }
-        if (null !== $this->success) {
-            $res['Success'] = $this->success;
-        }
         if (null !== $this->resources) {
             $res['Resources'] = null !== $this->resources ? $this->resources->toMap() : null;
+        }
+        if (null !== $this->success) {
+            $res['Success'] = $this->success;
         }
 
         return $res;
@@ -84,11 +84,11 @@ class CreateGroupMetricRulesResponseBody extends Model
         if (isset($map['RequestId'])) {
             $model->requestId = $map['RequestId'];
         }
-        if (isset($map['Success'])) {
-            $model->success = $map['Success'];
-        }
         if (isset($map['Resources'])) {
             $model->resources = resources::fromMap($map['Resources']);
+        }
+        if (isset($map['Success'])) {
+            $model->success = $map['Success'];
         }
 
         return $model;

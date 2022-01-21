@@ -25,11 +25,6 @@ class DescribeHostAvailabilityListResponseBody extends Model
     public $requestId;
 
     /**
-     * @var int
-     */
-    public $total;
-
-    /**
      * @var bool
      */
     public $success;
@@ -38,13 +33,18 @@ class DescribeHostAvailabilityListResponseBody extends Model
      * @var taskList
      */
     public $taskList;
+
+    /**
+     * @var int
+     */
+    public $total;
     protected $_name = [
         'code'      => 'Code',
         'message'   => 'Message',
         'requestId' => 'RequestId',
-        'total'     => 'Total',
         'success'   => 'Success',
         'taskList'  => 'TaskList',
+        'total'     => 'Total',
     ];
 
     public function validate()
@@ -63,14 +63,14 @@ class DescribeHostAvailabilityListResponseBody extends Model
         if (null !== $this->requestId) {
             $res['RequestId'] = $this->requestId;
         }
-        if (null !== $this->total) {
-            $res['Total'] = $this->total;
-        }
         if (null !== $this->success) {
             $res['Success'] = $this->success;
         }
         if (null !== $this->taskList) {
             $res['TaskList'] = null !== $this->taskList ? $this->taskList->toMap() : null;
+        }
+        if (null !== $this->total) {
+            $res['Total'] = $this->total;
         }
 
         return $res;
@@ -93,14 +93,14 @@ class DescribeHostAvailabilityListResponseBody extends Model
         if (isset($map['RequestId'])) {
             $model->requestId = $map['RequestId'];
         }
-        if (isset($map['Total'])) {
-            $model->total = $map['Total'];
-        }
         if (isset($map['Success'])) {
             $model->success = $map['Success'];
         }
         if (isset($map['TaskList'])) {
             $model->taskList = taskList::fromMap($map['TaskList']);
+        }
+        if (isset($map['Total'])) {
+            $model->total = $map['Total'];
         }
 
         return $model;

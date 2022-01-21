@@ -14,32 +14,12 @@ class resource extends Model
     /**
      * @var string
      */
-    public $type;
-
-    /**
-     * @var string
-     */
-    public $groupFounderTagValue;
-
-    /**
-     * @var string
-     */
     public $bindUrl;
 
     /**
-     * @var string
+     * @var contactGroups
      */
-    public $groupName;
-
-    /**
-     * @var int
-     */
-    public $groupId;
-
-    /**
-     * @var string
-     */
-    public $serviceId;
+    public $contactGroups;
 
     /**
      * @var string
@@ -52,19 +32,34 @@ class resource extends Model
     public $gmtCreate;
 
     /**
-     * @var string
-     */
-    public $groupFounderTagKey;
-
-    /**
      * @var int
      */
     public $gmtModified;
 
     /**
-     * @var contactGroups
+     * @var string
      */
-    public $contactGroups;
+    public $groupFounderTagKey;
+
+    /**
+     * @var string
+     */
+    public $groupFounderTagValue;
+
+    /**
+     * @var int
+     */
+    public $groupId;
+
+    /**
+     * @var string
+     */
+    public $groupName;
+
+    /**
+     * @var string
+     */
+    public $serviceId;
 
     /**
      * @var tags
@@ -75,20 +70,25 @@ class resource extends Model
      * @var templateIds
      */
     public $templateIds;
+
+    /**
+     * @var string
+     */
+    public $type;
     protected $_name = [
-        'type'                 => 'Type',
-        'groupFounderTagValue' => 'GroupFounderTagValue',
         'bindUrl'              => 'BindUrl',
-        'groupName'            => 'GroupName',
-        'groupId'              => 'GroupId',
-        'serviceId'            => 'ServiceId',
+        'contactGroups'        => 'ContactGroups',
         'dynamicTagRuleId'     => 'DynamicTagRuleId',
         'gmtCreate'            => 'GmtCreate',
-        'groupFounderTagKey'   => 'GroupFounderTagKey',
         'gmtModified'          => 'GmtModified',
-        'contactGroups'        => 'ContactGroups',
+        'groupFounderTagKey'   => 'GroupFounderTagKey',
+        'groupFounderTagValue' => 'GroupFounderTagValue',
+        'groupId'              => 'GroupId',
+        'groupName'            => 'GroupName',
+        'serviceId'            => 'ServiceId',
         'tags'                 => 'Tags',
         'templateIds'          => 'TemplateIds',
+        'type'                 => 'Type',
     ];
 
     public function validate()
@@ -98,23 +98,11 @@ class resource extends Model
     public function toMap()
     {
         $res = [];
-        if (null !== $this->type) {
-            $res['Type'] = $this->type;
-        }
-        if (null !== $this->groupFounderTagValue) {
-            $res['GroupFounderTagValue'] = $this->groupFounderTagValue;
-        }
         if (null !== $this->bindUrl) {
             $res['BindUrl'] = $this->bindUrl;
         }
-        if (null !== $this->groupName) {
-            $res['GroupName'] = $this->groupName;
-        }
-        if (null !== $this->groupId) {
-            $res['GroupId'] = $this->groupId;
-        }
-        if (null !== $this->serviceId) {
-            $res['ServiceId'] = $this->serviceId;
+        if (null !== $this->contactGroups) {
+            $res['ContactGroups'] = null !== $this->contactGroups ? $this->contactGroups->toMap() : null;
         }
         if (null !== $this->dynamicTagRuleId) {
             $res['DynamicTagRuleId'] = $this->dynamicTagRuleId;
@@ -122,20 +110,32 @@ class resource extends Model
         if (null !== $this->gmtCreate) {
             $res['GmtCreate'] = $this->gmtCreate;
         }
-        if (null !== $this->groupFounderTagKey) {
-            $res['GroupFounderTagKey'] = $this->groupFounderTagKey;
-        }
         if (null !== $this->gmtModified) {
             $res['GmtModified'] = $this->gmtModified;
         }
-        if (null !== $this->contactGroups) {
-            $res['ContactGroups'] = null !== $this->contactGroups ? $this->contactGroups->toMap() : null;
+        if (null !== $this->groupFounderTagKey) {
+            $res['GroupFounderTagKey'] = $this->groupFounderTagKey;
+        }
+        if (null !== $this->groupFounderTagValue) {
+            $res['GroupFounderTagValue'] = $this->groupFounderTagValue;
+        }
+        if (null !== $this->groupId) {
+            $res['GroupId'] = $this->groupId;
+        }
+        if (null !== $this->groupName) {
+            $res['GroupName'] = $this->groupName;
+        }
+        if (null !== $this->serviceId) {
+            $res['ServiceId'] = $this->serviceId;
         }
         if (null !== $this->tags) {
             $res['Tags'] = null !== $this->tags ? $this->tags->toMap() : null;
         }
         if (null !== $this->templateIds) {
             $res['TemplateIds'] = null !== $this->templateIds ? $this->templateIds->toMap() : null;
+        }
+        if (null !== $this->type) {
+            $res['Type'] = $this->type;
         }
 
         return $res;
@@ -149,23 +149,11 @@ class resource extends Model
     public static function fromMap($map = [])
     {
         $model = new self();
-        if (isset($map['Type'])) {
-            $model->type = $map['Type'];
-        }
-        if (isset($map['GroupFounderTagValue'])) {
-            $model->groupFounderTagValue = $map['GroupFounderTagValue'];
-        }
         if (isset($map['BindUrl'])) {
             $model->bindUrl = $map['BindUrl'];
         }
-        if (isset($map['GroupName'])) {
-            $model->groupName = $map['GroupName'];
-        }
-        if (isset($map['GroupId'])) {
-            $model->groupId = $map['GroupId'];
-        }
-        if (isset($map['ServiceId'])) {
-            $model->serviceId = $map['ServiceId'];
+        if (isset($map['ContactGroups'])) {
+            $model->contactGroups = contactGroups::fromMap($map['ContactGroups']);
         }
         if (isset($map['DynamicTagRuleId'])) {
             $model->dynamicTagRuleId = $map['DynamicTagRuleId'];
@@ -173,20 +161,32 @@ class resource extends Model
         if (isset($map['GmtCreate'])) {
             $model->gmtCreate = $map['GmtCreate'];
         }
-        if (isset($map['GroupFounderTagKey'])) {
-            $model->groupFounderTagKey = $map['GroupFounderTagKey'];
-        }
         if (isset($map['GmtModified'])) {
             $model->gmtModified = $map['GmtModified'];
         }
-        if (isset($map['ContactGroups'])) {
-            $model->contactGroups = contactGroups::fromMap($map['ContactGroups']);
+        if (isset($map['GroupFounderTagKey'])) {
+            $model->groupFounderTagKey = $map['GroupFounderTagKey'];
+        }
+        if (isset($map['GroupFounderTagValue'])) {
+            $model->groupFounderTagValue = $map['GroupFounderTagValue'];
+        }
+        if (isset($map['GroupId'])) {
+            $model->groupId = $map['GroupId'];
+        }
+        if (isset($map['GroupName'])) {
+            $model->groupName = $map['GroupName'];
+        }
+        if (isset($map['ServiceId'])) {
+            $model->serviceId = $map['ServiceId'];
         }
         if (isset($map['Tags'])) {
             $model->tags = tags::fromMap($map['Tags']);
         }
         if (isset($map['TemplateIds'])) {
             $model->templateIds = templateIds::fromMap($map['TemplateIds']);
+        }
+        if (isset($map['Type'])) {
+            $model->type = $map['Type'];
         }
 
         return $model;

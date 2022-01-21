@@ -12,6 +12,11 @@ use AlibabaCloud\Tea\Model;
 class escalations extends Model
 {
     /**
+     * @var critical
+     */
+    public $critical;
+
+    /**
      * @var info
      */
     public $info;
@@ -20,15 +25,10 @@ class escalations extends Model
      * @var warn
      */
     public $warn;
-
-    /**
-     * @var critical
-     */
-    public $critical;
     protected $_name = [
+        'critical' => 'Critical',
         'info'     => 'Info',
         'warn'     => 'Warn',
-        'critical' => 'Critical',
     ];
 
     public function validate()
@@ -38,14 +38,14 @@ class escalations extends Model
     public function toMap()
     {
         $res = [];
+        if (null !== $this->critical) {
+            $res['Critical'] = null !== $this->critical ? $this->critical->toMap() : null;
+        }
         if (null !== $this->info) {
             $res['Info'] = null !== $this->info ? $this->info->toMap() : null;
         }
         if (null !== $this->warn) {
             $res['Warn'] = null !== $this->warn ? $this->warn->toMap() : null;
-        }
-        if (null !== $this->critical) {
-            $res['Critical'] = null !== $this->critical ? $this->critical->toMap() : null;
         }
 
         return $res;
@@ -59,14 +59,14 @@ class escalations extends Model
     public static function fromMap($map = [])
     {
         $model = new self();
+        if (isset($map['Critical'])) {
+            $model->critical = critical::fromMap($map['Critical']);
+        }
         if (isset($map['Info'])) {
             $model->info = info::fromMap($map['Info']);
         }
         if (isset($map['Warn'])) {
             $model->warn = warn::fromMap($map['Warn']);
-        }
-        if (isset($map['Critical'])) {
-            $model->critical = critical::fromMap($map['Critical']);
         }
 
         return $model;

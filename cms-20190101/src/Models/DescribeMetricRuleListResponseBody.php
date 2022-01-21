@@ -10,6 +10,11 @@ use AlibabaCloud\Tea\Model;
 class DescribeMetricRuleListResponseBody extends Model
 {
     /**
+     * @var alarms
+     */
+    public $alarms;
+
+    /**
      * @var int
      */
     public $code;
@@ -25,26 +30,21 @@ class DescribeMetricRuleListResponseBody extends Model
     public $requestId;
 
     /**
-     * @var string
-     */
-    public $total;
-
-    /**
      * @var bool
      */
     public $success;
 
     /**
-     * @var alarms
+     * @var string
      */
-    public $alarms;
+    public $total;
     protected $_name = [
+        'alarms'    => 'Alarms',
         'code'      => 'Code',
         'message'   => 'Message',
         'requestId' => 'RequestId',
-        'total'     => 'Total',
         'success'   => 'Success',
-        'alarms'    => 'Alarms',
+        'total'     => 'Total',
     ];
 
     public function validate()
@@ -54,6 +54,9 @@ class DescribeMetricRuleListResponseBody extends Model
     public function toMap()
     {
         $res = [];
+        if (null !== $this->alarms) {
+            $res['Alarms'] = null !== $this->alarms ? $this->alarms->toMap() : null;
+        }
         if (null !== $this->code) {
             $res['Code'] = $this->code;
         }
@@ -63,14 +66,11 @@ class DescribeMetricRuleListResponseBody extends Model
         if (null !== $this->requestId) {
             $res['RequestId'] = $this->requestId;
         }
-        if (null !== $this->total) {
-            $res['Total'] = $this->total;
-        }
         if (null !== $this->success) {
             $res['Success'] = $this->success;
         }
-        if (null !== $this->alarms) {
-            $res['Alarms'] = null !== $this->alarms ? $this->alarms->toMap() : null;
+        if (null !== $this->total) {
+            $res['Total'] = $this->total;
         }
 
         return $res;
@@ -84,6 +84,9 @@ class DescribeMetricRuleListResponseBody extends Model
     public static function fromMap($map = [])
     {
         $model = new self();
+        if (isset($map['Alarms'])) {
+            $model->alarms = alarms::fromMap($map['Alarms']);
+        }
         if (isset($map['Code'])) {
             $model->code = $map['Code'];
         }
@@ -93,14 +96,11 @@ class DescribeMetricRuleListResponseBody extends Model
         if (isset($map['RequestId'])) {
             $model->requestId = $map['RequestId'];
         }
-        if (isset($map['Total'])) {
-            $model->total = $map['Total'];
-        }
         if (isset($map['Success'])) {
             $model->success = $map['Success'];
         }
-        if (isset($map['Alarms'])) {
-            $model->alarms = alarms::fromMap($map['Alarms']);
+        if (isset($map['Total'])) {
+            $model->total = $map['Total'];
         }
 
         return $model;

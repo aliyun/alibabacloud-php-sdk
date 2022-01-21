@@ -11,12 +11,12 @@ class resource extends Model
     /**
      * @var string
      */
-    public $metricName;
+    public $description;
 
     /**
      * @var string
      */
-    public $description;
+    public $dimensions;
 
     /**
      * @var string
@@ -26,12 +26,7 @@ class resource extends Model
     /**
      * @var string
      */
-    public $unit;
-
-    /**
-     * @var string
-     */
-    public $dimensions;
+    public $metricName;
 
     /**
      * @var string
@@ -47,15 +42,20 @@ class resource extends Model
      * @var string
      */
     public $statistics;
+
+    /**
+     * @var string
+     */
+    public $unit;
     protected $_name = [
-        'metricName'  => 'MetricName',
         'description' => 'Description',
-        'labels'      => 'Labels',
-        'unit'        => 'Unit',
         'dimensions'  => 'Dimensions',
+        'labels'      => 'Labels',
+        'metricName'  => 'MetricName',
         'namespace'   => 'Namespace',
         'periods'     => 'Periods',
         'statistics'  => 'Statistics',
+        'unit'        => 'Unit',
     ];
 
     public function validate()
@@ -65,20 +65,17 @@ class resource extends Model
     public function toMap()
     {
         $res = [];
-        if (null !== $this->metricName) {
-            $res['MetricName'] = $this->metricName;
-        }
         if (null !== $this->description) {
             $res['Description'] = $this->description;
+        }
+        if (null !== $this->dimensions) {
+            $res['Dimensions'] = $this->dimensions;
         }
         if (null !== $this->labels) {
             $res['Labels'] = $this->labels;
         }
-        if (null !== $this->unit) {
-            $res['Unit'] = $this->unit;
-        }
-        if (null !== $this->dimensions) {
-            $res['Dimensions'] = $this->dimensions;
+        if (null !== $this->metricName) {
+            $res['MetricName'] = $this->metricName;
         }
         if (null !== $this->namespace) {
             $res['Namespace'] = $this->namespace;
@@ -88,6 +85,9 @@ class resource extends Model
         }
         if (null !== $this->statistics) {
             $res['Statistics'] = $this->statistics;
+        }
+        if (null !== $this->unit) {
+            $res['Unit'] = $this->unit;
         }
 
         return $res;
@@ -101,20 +101,17 @@ class resource extends Model
     public static function fromMap($map = [])
     {
         $model = new self();
-        if (isset($map['MetricName'])) {
-            $model->metricName = $map['MetricName'];
-        }
         if (isset($map['Description'])) {
             $model->description = $map['Description'];
+        }
+        if (isset($map['Dimensions'])) {
+            $model->dimensions = $map['Dimensions'];
         }
         if (isset($map['Labels'])) {
             $model->labels = $map['Labels'];
         }
-        if (isset($map['Unit'])) {
-            $model->unit = $map['Unit'];
-        }
-        if (isset($map['Dimensions'])) {
-            $model->dimensions = $map['Dimensions'];
+        if (isset($map['MetricName'])) {
+            $model->metricName = $map['MetricName'];
         }
         if (isset($map['Namespace'])) {
             $model->namespace = $map['Namespace'];
@@ -124,6 +121,9 @@ class resource extends Model
         }
         if (isset($map['Statistics'])) {
             $model->statistics = $map['Statistics'];
+        }
+        if (isset($map['Unit'])) {
+            $model->unit = $map['Unit'];
         }
 
         return $model;

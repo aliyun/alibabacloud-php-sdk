@@ -11,17 +11,12 @@ class alertConfig extends Model
     /**
      * @var int
      */
-    public $notifyType;
-
-    /**
-     * @var int
-     */
-    public $startTime;
-
-    /**
-     * @var int
-     */
     public $endTime;
+
+    /**
+     * @var int
+     */
+    public $notifyType;
 
     /**
      * @var int
@@ -29,14 +24,19 @@ class alertConfig extends Model
     public $silenceTime;
 
     /**
+     * @var int
+     */
+    public $startTime;
+
+    /**
      * @var string
      */
     public $webHook;
     protected $_name = [
-        'notifyType'  => 'NotifyType',
-        'startTime'   => 'StartTime',
         'endTime'     => 'EndTime',
+        'notifyType'  => 'NotifyType',
         'silenceTime' => 'SilenceTime',
+        'startTime'   => 'StartTime',
         'webHook'     => 'WebHook',
     ];
 
@@ -47,17 +47,17 @@ class alertConfig extends Model
     public function toMap()
     {
         $res = [];
-        if (null !== $this->notifyType) {
-            $res['NotifyType'] = $this->notifyType;
-        }
-        if (null !== $this->startTime) {
-            $res['StartTime'] = $this->startTime;
-        }
         if (null !== $this->endTime) {
             $res['EndTime'] = $this->endTime;
         }
+        if (null !== $this->notifyType) {
+            $res['NotifyType'] = $this->notifyType;
+        }
         if (null !== $this->silenceTime) {
             $res['SilenceTime'] = $this->silenceTime;
+        }
+        if (null !== $this->startTime) {
+            $res['StartTime'] = $this->startTime;
         }
         if (null !== $this->webHook) {
             $res['WebHook'] = $this->webHook;
@@ -74,17 +74,17 @@ class alertConfig extends Model
     public static function fromMap($map = [])
     {
         $model = new self();
-        if (isset($map['NotifyType'])) {
-            $model->notifyType = $map['NotifyType'];
-        }
-        if (isset($map['StartTime'])) {
-            $model->startTime = $map['StartTime'];
-        }
         if (isset($map['EndTime'])) {
             $model->endTime = $map['EndTime'];
         }
+        if (isset($map['NotifyType'])) {
+            $model->notifyType = $map['NotifyType'];
+        }
         if (isset($map['SilenceTime'])) {
             $model->silenceTime = $map['SilenceTime'];
+        }
+        if (isset($map['StartTime'])) {
+            $model->startTime = $map['StartTime'];
         }
         if (isset($map['WebHook'])) {
             $model->webHook = $map['WebHook'];

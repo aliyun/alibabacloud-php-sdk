@@ -15,6 +15,11 @@ class DescribeContactListByContactGroupResponseBody extends Model
     public $code;
 
     /**
+     * @var contacts
+     */
+    public $contacts;
+
+    /**
      * @var string
      */
     public $message;
@@ -28,17 +33,12 @@ class DescribeContactListByContactGroupResponseBody extends Model
      * @var bool
      */
     public $success;
-
-    /**
-     * @var contacts
-     */
-    public $contacts;
     protected $_name = [
         'code'      => 'Code',
+        'contacts'  => 'Contacts',
         'message'   => 'Message',
         'requestId' => 'RequestId',
         'success'   => 'Success',
-        'contacts'  => 'Contacts',
     ];
 
     public function validate()
@@ -51,6 +51,9 @@ class DescribeContactListByContactGroupResponseBody extends Model
         if (null !== $this->code) {
             $res['Code'] = $this->code;
         }
+        if (null !== $this->contacts) {
+            $res['Contacts'] = null !== $this->contacts ? $this->contacts->toMap() : null;
+        }
         if (null !== $this->message) {
             $res['Message'] = $this->message;
         }
@@ -59,9 +62,6 @@ class DescribeContactListByContactGroupResponseBody extends Model
         }
         if (null !== $this->success) {
             $res['Success'] = $this->success;
-        }
-        if (null !== $this->contacts) {
-            $res['Contacts'] = null !== $this->contacts ? $this->contacts->toMap() : null;
         }
 
         return $res;
@@ -78,6 +78,9 @@ class DescribeContactListByContactGroupResponseBody extends Model
         if (isset($map['Code'])) {
             $model->code = $map['Code'];
         }
+        if (isset($map['Contacts'])) {
+            $model->contacts = contacts::fromMap($map['Contacts']);
+        }
         if (isset($map['Message'])) {
             $model->message = $map['Message'];
         }
@@ -86,9 +89,6 @@ class DescribeContactListByContactGroupResponseBody extends Model
         }
         if (isset($map['Success'])) {
             $model->success = $map['Success'];
-        }
-        if (isset($map['Contacts'])) {
-            $model->contacts = contacts::fromMap($map['Contacts']);
         }
 
         return $model;

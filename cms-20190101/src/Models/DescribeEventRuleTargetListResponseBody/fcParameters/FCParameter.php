@@ -11,17 +11,12 @@ class FCParameter extends Model
     /**
      * @var string
      */
-    public $serviceName;
+    public $arn;
 
     /**
      * @var string
      */
     public $functionName;
-
-    /**
-     * @var string
-     */
-    public $arn;
 
     /**
      * @var string
@@ -32,12 +27,17 @@ class FCParameter extends Model
      * @var string
      */
     public $region;
+
+    /**
+     * @var string
+     */
+    public $serviceName;
     protected $_name = [
-        'serviceName'  => 'ServiceName',
-        'functionName' => 'FunctionName',
         'arn'          => 'Arn',
+        'functionName' => 'FunctionName',
         'id'           => 'Id',
         'region'       => 'Region',
+        'serviceName'  => 'ServiceName',
     ];
 
     public function validate()
@@ -47,20 +47,20 @@ class FCParameter extends Model
     public function toMap()
     {
         $res = [];
-        if (null !== $this->serviceName) {
-            $res['ServiceName'] = $this->serviceName;
+        if (null !== $this->arn) {
+            $res['Arn'] = $this->arn;
         }
         if (null !== $this->functionName) {
             $res['FunctionName'] = $this->functionName;
-        }
-        if (null !== $this->arn) {
-            $res['Arn'] = $this->arn;
         }
         if (null !== $this->id) {
             $res['Id'] = $this->id;
         }
         if (null !== $this->region) {
             $res['Region'] = $this->region;
+        }
+        if (null !== $this->serviceName) {
+            $res['ServiceName'] = $this->serviceName;
         }
 
         return $res;
@@ -74,20 +74,20 @@ class FCParameter extends Model
     public static function fromMap($map = [])
     {
         $model = new self();
-        if (isset($map['ServiceName'])) {
-            $model->serviceName = $map['ServiceName'];
+        if (isset($map['Arn'])) {
+            $model->arn = $map['Arn'];
         }
         if (isset($map['FunctionName'])) {
             $model->functionName = $map['FunctionName'];
-        }
-        if (isset($map['Arn'])) {
-            $model->arn = $map['Arn'];
         }
         if (isset($map['Id'])) {
             $model->id = $map['Id'];
         }
         if (isset($map['Region'])) {
             $model->region = $map['Region'];
+        }
+        if (isset($map['ServiceName'])) {
+            $model->serviceName = $map['ServiceName'];
         }
 
         return $model;

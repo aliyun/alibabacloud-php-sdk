@@ -24,6 +24,8 @@ use AlibabaCloud\SDK\Cms\V20190101\Models\CreateGroupMonitoringAgentProcessReque
 use AlibabaCloud\SDK\Cms\V20190101\Models\CreateGroupMonitoringAgentProcessResponse;
 use AlibabaCloud\SDK\Cms\V20190101\Models\CreateHostAvailabilityRequest;
 use AlibabaCloud\SDK\Cms\V20190101\Models\CreateHostAvailabilityResponse;
+use AlibabaCloud\SDK\Cms\V20190101\Models\CreateInstantSiteMonitorRequest;
+use AlibabaCloud\SDK\Cms\V20190101\Models\CreateInstantSiteMonitorResponse;
 use AlibabaCloud\SDK\Cms\V20190101\Models\CreateMetricRuleResourcesRequest;
 use AlibabaCloud\SDK\Cms\V20190101\Models\CreateMetricRuleResourcesResponse;
 use AlibabaCloud\SDK\Cms\V20190101\Models\CreateMetricRuleTemplateRequest;
@@ -182,12 +184,16 @@ use AlibabaCloud\SDK\Cms\V20190101\Models\DescribeProductsOfActiveMetricRuleRequ
 use AlibabaCloud\SDK\Cms\V20190101\Models\DescribeProductsOfActiveMetricRuleResponse;
 use AlibabaCloud\SDK\Cms\V20190101\Models\DescribeProjectMetaRequest;
 use AlibabaCloud\SDK\Cms\V20190101\Models\DescribeProjectMetaResponse;
+use AlibabaCloud\SDK\Cms\V20190101\Models\DescribeSiteInstantMonitorLogRequest;
+use AlibabaCloud\SDK\Cms\V20190101\Models\DescribeSiteInstantMonitorLogResponse;
 use AlibabaCloud\SDK\Cms\V20190101\Models\DescribeSiteMonitorAttributeRequest;
 use AlibabaCloud\SDK\Cms\V20190101\Models\DescribeSiteMonitorAttributeResponse;
 use AlibabaCloud\SDK\Cms\V20190101\Models\DescribeSiteMonitorDataRequest;
 use AlibabaCloud\SDK\Cms\V20190101\Models\DescribeSiteMonitorDataResponse;
 use AlibabaCloud\SDK\Cms\V20190101\Models\DescribeSiteMonitorListRequest;
 use AlibabaCloud\SDK\Cms\V20190101\Models\DescribeSiteMonitorListResponse;
+use AlibabaCloud\SDK\Cms\V20190101\Models\DescribeSiteMonitorLogRequest;
+use AlibabaCloud\SDK\Cms\V20190101\Models\DescribeSiteMonitorLogResponse;
 use AlibabaCloud\SDK\Cms\V20190101\Models\DescribeSiteMonitorQuotaRequest;
 use AlibabaCloud\SDK\Cms\V20190101\Models\DescribeSiteMonitorQuotaResponse;
 use AlibabaCloud\SDK\Cms\V20190101\Models\DescribeSiteMonitorStatisticsRequest;
@@ -263,6 +269,8 @@ use AlibabaCloud\SDK\Cms\V20190101\Models\PutExporterRuleRequest;
 use AlibabaCloud\SDK\Cms\V20190101\Models\PutExporterRuleResponse;
 use AlibabaCloud\SDK\Cms\V20190101\Models\PutGroupMetricRuleRequest;
 use AlibabaCloud\SDK\Cms\V20190101\Models\PutGroupMetricRuleResponse;
+use AlibabaCloud\SDK\Cms\V20190101\Models\PutHybridMonitorMetricDataRequest;
+use AlibabaCloud\SDK\Cms\V20190101\Models\PutHybridMonitorMetricDataResponse;
 use AlibabaCloud\SDK\Cms\V20190101\Models\PutLogMonitorRequest;
 use AlibabaCloud\SDK\Cms\V20190101\Models\PutLogMonitorResponse;
 use AlibabaCloud\SDK\Cms\V20190101\Models\PutMetricRuleTargetsRequest;
@@ -284,6 +292,7 @@ use AlibabaCloud\SDK\Cms\V20190101\Models\UninstallMonitoringAgentResponse;
 use AlibabaCloud\Tea\Utils\Utils;
 use AlibabaCloud\Tea\Utils\Utils\RuntimeOptions;
 use Darabonba\OpenApi\Models\OpenApiRequest;
+use Darabonba\OpenApi\Models\Params;
 use Darabonba\OpenApi\OpenApiClient;
 
 class Cms extends OpenApiClient
@@ -328,11 +337,29 @@ class Cms extends OpenApiClient
     public function addTagsWithOptions($request, $runtime)
     {
         Utils::validateModel($request);
+        $query = [];
+        if (!Utils::isUnset($request->groupIds)) {
+            $query['GroupIds'] = $request->groupIds;
+        }
+        if (!Utils::isUnset($request->tag)) {
+            $query['Tag'] = $request->tag;
+        }
         $req = new OpenApiRequest([
-            'body' => Utils::toMap($request),
+            'query' => OpenApiUtilClient::query($query),
+        ]);
+        $params = new Params([
+            'action'      => 'AddTags',
+            'version'     => '2019-01-01',
+            'protocol'    => 'HTTPS',
+            'pathname'    => '/',
+            'method'      => 'POST',
+            'authType'    => 'AK',
+            'style'       => 'RPC',
+            'reqBodyType' => 'formData',
+            'bodyType'    => 'json',
         ]);
 
-        return AddTagsResponse::fromMap($this->doRPCRequest('AddTags', '2019-01-01', 'HTTPS', 'POST', 'AK', 'json', $req, $runtime));
+        return AddTagsResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
@@ -356,11 +383,47 @@ class Cms extends OpenApiClient
     public function applyMetricRuleTemplateWithOptions($request, $runtime)
     {
         Utils::validateModel($request);
+        $query = [];
+        if (!Utils::isUnset($request->applyMode)) {
+            $query['ApplyMode'] = $request->applyMode;
+        }
+        if (!Utils::isUnset($request->enableEndTime)) {
+            $query['EnableEndTime'] = $request->enableEndTime;
+        }
+        if (!Utils::isUnset($request->enableStartTime)) {
+            $query['EnableStartTime'] = $request->enableStartTime;
+        }
+        if (!Utils::isUnset($request->groupId)) {
+            $query['GroupId'] = $request->groupId;
+        }
+        if (!Utils::isUnset($request->notifyLevel)) {
+            $query['NotifyLevel'] = $request->notifyLevel;
+        }
+        if (!Utils::isUnset($request->silenceTime)) {
+            $query['SilenceTime'] = $request->silenceTime;
+        }
+        if (!Utils::isUnset($request->templateIds)) {
+            $query['TemplateIds'] = $request->templateIds;
+        }
+        if (!Utils::isUnset($request->webhook)) {
+            $query['Webhook'] = $request->webhook;
+        }
         $req = new OpenApiRequest([
-            'body' => Utils::toMap($request),
+            'query' => OpenApiUtilClient::query($query),
+        ]);
+        $params = new Params([
+            'action'      => 'ApplyMetricRuleTemplate',
+            'version'     => '2019-01-01',
+            'protocol'    => 'HTTPS',
+            'pathname'    => '/',
+            'method'      => 'POST',
+            'authType'    => 'AK',
+            'style'       => 'RPC',
+            'reqBodyType' => 'formData',
+            'bodyType'    => 'json',
         ]);
 
-        return ApplyMetricRuleTemplateResponse::fromMap($this->doRPCRequest('ApplyMetricRuleTemplate', '2019-01-01', 'HTTPS', 'POST', 'AK', 'json', $req, $runtime));
+        return ApplyMetricRuleTemplateResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
@@ -384,11 +447,41 @@ class Cms extends OpenApiClient
     public function createCmsCallNumOrderWithOptions($request, $runtime)
     {
         Utils::validateModel($request);
+        $query = [];
+        if (!Utils::isUnset($request->autoPay)) {
+            $query['AutoPay'] = $request->autoPay;
+        }
+        if (!Utils::isUnset($request->autoRenewPeriod)) {
+            $query['AutoRenewPeriod'] = $request->autoRenewPeriod;
+        }
+        if (!Utils::isUnset($request->autoUseCoupon)) {
+            $query['AutoUseCoupon'] = $request->autoUseCoupon;
+        }
+        if (!Utils::isUnset($request->period)) {
+            $query['Period'] = $request->period;
+        }
+        if (!Utils::isUnset($request->periodUnit)) {
+            $query['PeriodUnit'] = $request->periodUnit;
+        }
+        if (!Utils::isUnset($request->phoneCount)) {
+            $query['PhoneCount'] = $request->phoneCount;
+        }
         $req = new OpenApiRequest([
-            'body' => Utils::toMap($request),
+            'query' => OpenApiUtilClient::query($query),
+        ]);
+        $params = new Params([
+            'action'      => 'CreateCmsCallNumOrder',
+            'version'     => '2019-01-01',
+            'protocol'    => 'HTTPS',
+            'pathname'    => '/',
+            'method'      => 'POST',
+            'authType'    => 'AK',
+            'style'       => 'RPC',
+            'reqBodyType' => 'formData',
+            'bodyType'    => 'json',
         ]);
 
-        return CreateCmsCallNumOrderResponse::fromMap($this->doRPCRequest('CreateCmsCallNumOrder', '2019-01-01', 'HTTPS', 'POST', 'AK', 'json', $req, $runtime));
+        return CreateCmsCallNumOrderResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
@@ -412,11 +505,74 @@ class Cms extends OpenApiClient
     public function createCmsOrderWithOptions($request, $runtime)
     {
         Utils::validateModel($request);
+        $query = [];
+        if (!Utils::isUnset($request->apiCount)) {
+            $query['ApiCount'] = $request->apiCount;
+        }
+        if (!Utils::isUnset($request->autoPay)) {
+            $query['AutoPay'] = $request->autoPay;
+        }
+        if (!Utils::isUnset($request->autoRenewPeriod)) {
+            $query['AutoRenewPeriod'] = $request->autoRenewPeriod;
+        }
+        if (!Utils::isUnset($request->autoUseCoupon)) {
+            $query['AutoUseCoupon'] = $request->autoUseCoupon;
+        }
+        if (!Utils::isUnset($request->customTimeSeries)) {
+            $query['CustomTimeSeries'] = $request->customTimeSeries;
+        }
+        if (!Utils::isUnset($request->eventStoreNum)) {
+            $query['EventStoreNum'] = $request->eventStoreNum;
+        }
+        if (!Utils::isUnset($request->eventStoreTime)) {
+            $query['EventStoreTime'] = $request->eventStoreTime;
+        }
+        if (!Utils::isUnset($request->logMonitorStream)) {
+            $query['LogMonitorStream'] = $request->logMonitorStream;
+        }
+        if (!Utils::isUnset($request->payType)) {
+            $query['PayType'] = $request->payType;
+        }
+        if (!Utils::isUnset($request->period)) {
+            $query['Period'] = $request->period;
+        }
+        if (!Utils::isUnset($request->periodUnit)) {
+            $query['PeriodUnit'] = $request->periodUnit;
+        }
+        if (!Utils::isUnset($request->phoneCount)) {
+            $query['PhoneCount'] = $request->phoneCount;
+        }
+        if (!Utils::isUnset($request->siteEcsNum)) {
+            $query['SiteEcsNum'] = $request->siteEcsNum;
+        }
+        if (!Utils::isUnset($request->siteOperatorNum)) {
+            $query['SiteOperatorNum'] = $request->siteOperatorNum;
+        }
+        if (!Utils::isUnset($request->siteTaskNum)) {
+            $query['SiteTaskNum'] = $request->siteTaskNum;
+        }
+        if (!Utils::isUnset($request->smsCount)) {
+            $query['SmsCount'] = $request->smsCount;
+        }
+        if (!Utils::isUnset($request->suggestType)) {
+            $query['SuggestType'] = $request->suggestType;
+        }
         $req = new OpenApiRequest([
-            'body' => Utils::toMap($request),
+            'query' => OpenApiUtilClient::query($query),
+        ]);
+        $params = new Params([
+            'action'      => 'CreateCmsOrder',
+            'version'     => '2019-01-01',
+            'protocol'    => 'HTTPS',
+            'pathname'    => '/',
+            'method'      => 'POST',
+            'authType'    => 'AK',
+            'style'       => 'RPC',
+            'reqBodyType' => 'formData',
+            'bodyType'    => 'json',
         ]);
 
-        return CreateCmsOrderResponse::fromMap($this->doRPCRequest('CreateCmsOrder', '2019-01-01', 'HTTPS', 'POST', 'AK', 'json', $req, $runtime));
+        return CreateCmsOrderResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
@@ -440,11 +596,41 @@ class Cms extends OpenApiClient
     public function createCmsSmspackageOrderWithOptions($request, $runtime)
     {
         Utils::validateModel($request);
+        $query = [];
+        if (!Utils::isUnset($request->autoPay)) {
+            $query['AutoPay'] = $request->autoPay;
+        }
+        if (!Utils::isUnset($request->autoRenewPeriod)) {
+            $query['AutoRenewPeriod'] = $request->autoRenewPeriod;
+        }
+        if (!Utils::isUnset($request->autoUseCoupon)) {
+            $query['AutoUseCoupon'] = $request->autoUseCoupon;
+        }
+        if (!Utils::isUnset($request->period)) {
+            $query['Period'] = $request->period;
+        }
+        if (!Utils::isUnset($request->periodUnit)) {
+            $query['PeriodUnit'] = $request->periodUnit;
+        }
+        if (!Utils::isUnset($request->smsCount)) {
+            $query['SmsCount'] = $request->smsCount;
+        }
         $req = new OpenApiRequest([
-            'body' => Utils::toMap($request),
+            'query' => OpenApiUtilClient::query($query),
+        ]);
+        $params = new Params([
+            'action'      => 'CreateCmsSmspackageOrder',
+            'version'     => '2019-01-01',
+            'protocol'    => 'HTTPS',
+            'pathname'    => '/',
+            'method'      => 'POST',
+            'authType'    => 'AK',
+            'style'       => 'RPC',
+            'reqBodyType' => 'formData',
+            'bodyType'    => 'json',
         ]);
 
-        return CreateCmsSmspackageOrderResponse::fromMap($this->doRPCRequest('CreateCmsSmspackageOrder', '2019-01-01', 'HTTPS', 'POST', 'AK', 'json', $req, $runtime));
+        return CreateCmsSmspackageOrderResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
@@ -468,11 +654,47 @@ class Cms extends OpenApiClient
     public function createDynamicTagGroupWithOptions($request, $runtime)
     {
         Utils::validateModel($request);
+        $query = [];
+        if (!Utils::isUnset($request->contactGroupList)) {
+            $query['ContactGroupList'] = $request->contactGroupList;
+        }
+        if (!Utils::isUnset($request->enableInstallAgent)) {
+            $query['EnableInstallAgent'] = $request->enableInstallAgent;
+        }
+        if (!Utils::isUnset($request->enableSubscribeEvent)) {
+            $query['EnableSubscribeEvent'] = $request->enableSubscribeEvent;
+        }
+        if (!Utils::isUnset($request->matchExpress)) {
+            $query['MatchExpress'] = $request->matchExpress;
+        }
+        if (!Utils::isUnset($request->matchExpressFilterRelation)) {
+            $query['MatchExpressFilterRelation'] = $request->matchExpressFilterRelation;
+        }
+        if (!Utils::isUnset($request->tagKey)) {
+            $query['TagKey'] = $request->tagKey;
+        }
+        if (!Utils::isUnset($request->tagRegionId)) {
+            $query['TagRegionId'] = $request->tagRegionId;
+        }
+        if (!Utils::isUnset($request->templateIdList)) {
+            $query['TemplateIdList'] = $request->templateIdList;
+        }
         $req = new OpenApiRequest([
-            'body' => Utils::toMap($request),
+            'query' => OpenApiUtilClient::query($query),
+        ]);
+        $params = new Params([
+            'action'      => 'CreateDynamicTagGroup',
+            'version'     => '2019-01-01',
+            'protocol'    => 'HTTPS',
+            'pathname'    => '/',
+            'method'      => 'POST',
+            'authType'    => 'AK',
+            'style'       => 'RPC',
+            'reqBodyType' => 'formData',
+            'bodyType'    => 'json',
         ]);
 
-        return CreateDynamicTagGroupResponse::fromMap($this->doRPCRequest('CreateDynamicTagGroup', '2019-01-01', 'HTTPS', 'POST', 'AK', 'json', $req, $runtime));
+        return CreateDynamicTagGroupResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
@@ -496,11 +718,29 @@ class Cms extends OpenApiClient
     public function createGroupMetricRulesWithOptions($request, $runtime)
     {
         Utils::validateModel($request);
+        $query = [];
+        if (!Utils::isUnset($request->groupId)) {
+            $query['GroupId'] = $request->groupId;
+        }
+        if (!Utils::isUnset($request->groupMetricRules)) {
+            $query['GroupMetricRules'] = $request->groupMetricRules;
+        }
         $req = new OpenApiRequest([
-            'body' => Utils::toMap($request),
+            'query' => OpenApiUtilClient::query($query),
+        ]);
+        $params = new Params([
+            'action'      => 'CreateGroupMetricRules',
+            'version'     => '2019-01-01',
+            'protocol'    => 'HTTPS',
+            'pathname'    => '/',
+            'method'      => 'POST',
+            'authType'    => 'AK',
+            'style'       => 'RPC',
+            'reqBodyType' => 'formData',
+            'bodyType'    => 'json',
         ]);
 
-        return CreateGroupMetricRulesResponse::fromMap($this->doRPCRequest('CreateGroupMetricRules', '2019-01-01', 'HTTPS', 'POST', 'AK', 'json', $req, $runtime));
+        return CreateGroupMetricRulesResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
@@ -524,11 +764,38 @@ class Cms extends OpenApiClient
     public function createGroupMonitoringAgentProcessWithOptions($request, $runtime)
     {
         Utils::validateModel($request);
+        $query = [];
+        if (!Utils::isUnset($request->alertConfig)) {
+            $query['AlertConfig'] = $request->alertConfig;
+        }
+        if (!Utils::isUnset($request->groupId)) {
+            $query['GroupId'] = $request->groupId;
+        }
+        if (!Utils::isUnset($request->matchExpress)) {
+            $query['MatchExpress'] = $request->matchExpress;
+        }
+        if (!Utils::isUnset($request->matchExpressFilterRelation)) {
+            $query['MatchExpressFilterRelation'] = $request->matchExpressFilterRelation;
+        }
+        if (!Utils::isUnset($request->processName)) {
+            $query['ProcessName'] = $request->processName;
+        }
         $req = new OpenApiRequest([
-            'body' => Utils::toMap($request),
+            'query' => OpenApiUtilClient::query($query),
+        ]);
+        $params = new Params([
+            'action'      => 'CreateGroupMonitoringAgentProcess',
+            'version'     => '2019-01-01',
+            'protocol'    => 'HTTPS',
+            'pathname'    => '/',
+            'method'      => 'POST',
+            'authType'    => 'AK',
+            'style'       => 'RPC',
+            'reqBodyType' => 'formData',
+            'bodyType'    => 'json',
         ]);
 
-        return CreateGroupMonitoringAgentProcessResponse::fromMap($this->doRPCRequest('CreateGroupMonitoringAgentProcess', '2019-01-01', 'HTTPS', 'POST', 'AK', 'json', $req, $runtime));
+        return CreateGroupMonitoringAgentProcessResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
@@ -552,11 +819,47 @@ class Cms extends OpenApiClient
     public function createHostAvailabilityWithOptions($request, $runtime)
     {
         Utils::validateModel($request);
+        $query = [];
+        if (!Utils::isUnset($request->alertConfigEscalationList)) {
+            $query['AlertConfigEscalationList'] = $request->alertConfigEscalationList;
+        }
+        if (!Utils::isUnset($request->groupId)) {
+            $query['GroupId'] = $request->groupId;
+        }
+        if (!Utils::isUnset($request->instanceList)) {
+            $query['InstanceList'] = $request->instanceList;
+        }
+        if (!Utils::isUnset($request->taskName)) {
+            $query['TaskName'] = $request->taskName;
+        }
+        if (!Utils::isUnset($request->taskScope)) {
+            $query['TaskScope'] = $request->taskScope;
+        }
+        if (!Utils::isUnset($request->taskType)) {
+            $query['TaskType'] = $request->taskType;
+        }
+        if (!Utils::isUnset($request->alertConfig)) {
+            $query['AlertConfig'] = $request->alertConfig;
+        }
+        if (!Utils::isUnset($request->taskOption)) {
+            $query['TaskOption'] = $request->taskOption;
+        }
         $req = new OpenApiRequest([
-            'body' => Utils::toMap($request),
+            'query' => OpenApiUtilClient::query($query),
+        ]);
+        $params = new Params([
+            'action'      => 'CreateHostAvailability',
+            'version'     => '2019-01-01',
+            'protocol'    => 'HTTPS',
+            'pathname'    => '/',
+            'method'      => 'POST',
+            'authType'    => 'AK',
+            'style'       => 'RPC',
+            'reqBodyType' => 'formData',
+            'bodyType'    => 'json',
         ]);
 
-        return CreateHostAvailabilityResponse::fromMap($this->doRPCRequest('CreateHostAvailability', '2019-01-01', 'HTTPS', 'POST', 'AK', 'json', $req, $runtime));
+        return CreateHostAvailabilityResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
@@ -572,6 +875,64 @@ class Cms extends OpenApiClient
     }
 
     /**
+     * @param CreateInstantSiteMonitorRequest $request
+     * @param RuntimeOptions                  $runtime
+     *
+     * @return CreateInstantSiteMonitorResponse
+     */
+    public function createInstantSiteMonitorWithOptions($request, $runtime)
+    {
+        Utils::validateModel($request);
+        $query = [];
+        if (!Utils::isUnset($request->address)) {
+            $query['Address'] = $request->address;
+        }
+        if (!Utils::isUnset($request->ispCities)) {
+            $query['IspCities'] = $request->ispCities;
+        }
+        if (!Utils::isUnset($request->optionsJson)) {
+            $query['OptionsJson'] = $request->optionsJson;
+        }
+        if (!Utils::isUnset($request->randomIspCity)) {
+            $query['RandomIspCity'] = $request->randomIspCity;
+        }
+        if (!Utils::isUnset($request->taskName)) {
+            $query['TaskName'] = $request->taskName;
+        }
+        if (!Utils::isUnset($request->taskType)) {
+            $query['TaskType'] = $request->taskType;
+        }
+        $req = new OpenApiRequest([
+            'query' => OpenApiUtilClient::query($query),
+        ]);
+        $params = new Params([
+            'action'      => 'CreateInstantSiteMonitor',
+            'version'     => '2019-01-01',
+            'protocol'    => 'HTTPS',
+            'pathname'    => '/',
+            'method'      => 'POST',
+            'authType'    => 'AK',
+            'style'       => 'RPC',
+            'reqBodyType' => 'formData',
+            'bodyType'    => 'json',
+        ]);
+
+        return CreateInstantSiteMonitorResponse::fromMap($this->callApi($params, $req, $runtime));
+    }
+
+    /**
+     * @param CreateInstantSiteMonitorRequest $request
+     *
+     * @return CreateInstantSiteMonitorResponse
+     */
+    public function createInstantSiteMonitor($request)
+    {
+        $runtime = new RuntimeOptions([]);
+
+        return $this->createInstantSiteMonitorWithOptions($request, $runtime);
+    }
+
+    /**
      * @param CreateMetricRuleResourcesRequest $request
      * @param RuntimeOptions                   $runtime
      *
@@ -580,11 +941,32 @@ class Cms extends OpenApiClient
     public function createMetricRuleResourcesWithOptions($request, $runtime)
     {
         Utils::validateModel($request);
+        $query = [];
+        if (!Utils::isUnset($request->overwrite)) {
+            $query['Overwrite'] = $request->overwrite;
+        }
+        if (!Utils::isUnset($request->resources)) {
+            $query['Resources'] = $request->resources;
+        }
+        if (!Utils::isUnset($request->ruleId)) {
+            $query['RuleId'] = $request->ruleId;
+        }
         $req = new OpenApiRequest([
-            'body' => Utils::toMap($request),
+            'query' => OpenApiUtilClient::query($query),
+        ]);
+        $params = new Params([
+            'action'      => 'CreateMetricRuleResources',
+            'version'     => '2019-01-01',
+            'protocol'    => 'HTTPS',
+            'pathname'    => '/',
+            'method'      => 'POST',
+            'authType'    => 'AK',
+            'style'       => 'RPC',
+            'reqBodyType' => 'formData',
+            'bodyType'    => 'json',
         ]);
 
-        return CreateMetricRuleResourcesResponse::fromMap($this->doRPCRequest('CreateMetricRuleResources', '2019-01-01', 'HTTPS', 'POST', 'AK', 'json', $req, $runtime));
+        return CreateMetricRuleResourcesResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
@@ -608,11 +990,32 @@ class Cms extends OpenApiClient
     public function createMetricRuleTemplateWithOptions($request, $runtime)
     {
         Utils::validateModel($request);
+        $query = [];
+        if (!Utils::isUnset($request->alertTemplates)) {
+            $query['AlertTemplates'] = $request->alertTemplates;
+        }
+        if (!Utils::isUnset($request->description)) {
+            $query['Description'] = $request->description;
+        }
+        if (!Utils::isUnset($request->name)) {
+            $query['Name'] = $request->name;
+        }
         $req = new OpenApiRequest([
-            'body' => Utils::toMap($request),
+            'query' => OpenApiUtilClient::query($query),
+        ]);
+        $params = new Params([
+            'action'      => 'CreateMetricRuleTemplate',
+            'version'     => '2019-01-01',
+            'protocol'    => 'HTTPS',
+            'pathname'    => '/',
+            'method'      => 'POST',
+            'authType'    => 'AK',
+            'style'       => 'RPC',
+            'reqBodyType' => 'formData',
+            'bodyType'    => 'json',
         ]);
 
-        return CreateMetricRuleTemplateResponse::fromMap($this->doRPCRequest('CreateMetricRuleTemplate', '2019-01-01', 'HTTPS', 'POST', 'AK', 'json', $req, $runtime));
+        return CreateMetricRuleTemplateResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
@@ -636,11 +1039,32 @@ class Cms extends OpenApiClient
     public function createMonitorAgentProcessWithOptions($request, $runtime)
     {
         Utils::validateModel($request);
+        $query = [];
+        if (!Utils::isUnset($request->instanceId)) {
+            $query['InstanceId'] = $request->instanceId;
+        }
+        if (!Utils::isUnset($request->processName)) {
+            $query['ProcessName'] = $request->processName;
+        }
+        if (!Utils::isUnset($request->processUser)) {
+            $query['ProcessUser'] = $request->processUser;
+        }
         $req = new OpenApiRequest([
-            'body' => Utils::toMap($request),
+            'query' => OpenApiUtilClient::query($query),
+        ]);
+        $params = new Params([
+            'action'      => 'CreateMonitorAgentProcess',
+            'version'     => '2019-01-01',
+            'protocol'    => 'HTTPS',
+            'pathname'    => '/',
+            'method'      => 'POST',
+            'authType'    => 'AK',
+            'style'       => 'RPC',
+            'reqBodyType' => 'formData',
+            'bodyType'    => 'json',
         ]);
 
-        return CreateMonitorAgentProcessResponse::fromMap($this->doRPCRequest('CreateMonitorAgentProcess', '2019-01-01', 'HTTPS', 'POST', 'AK', 'json', $req, $runtime));
+        return CreateMonitorAgentProcessResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
@@ -664,11 +1088,29 @@ class Cms extends OpenApiClient
     public function createMonitorGroupWithOptions($request, $runtime)
     {
         Utils::validateModel($request);
+        $query = [];
+        if (!Utils::isUnset($request->contactGroups)) {
+            $query['ContactGroups'] = $request->contactGroups;
+        }
+        if (!Utils::isUnset($request->groupName)) {
+            $query['GroupName'] = $request->groupName;
+        }
         $req = new OpenApiRequest([
-            'body' => Utils::toMap($request),
+            'query' => OpenApiUtilClient::query($query),
+        ]);
+        $params = new Params([
+            'action'      => 'CreateMonitorGroup',
+            'version'     => '2019-01-01',
+            'protocol'    => 'HTTPS',
+            'pathname'    => '/',
+            'method'      => 'POST',
+            'authType'    => 'AK',
+            'style'       => 'RPC',
+            'reqBodyType' => 'formData',
+            'bodyType'    => 'json',
         ]);
 
-        return CreateMonitorGroupResponse::fromMap($this->doRPCRequest('CreateMonitorGroup', '2019-01-01', 'HTTPS', 'POST', 'AK', 'json', $req, $runtime));
+        return CreateMonitorGroupResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
@@ -692,11 +1134,41 @@ class Cms extends OpenApiClient
     public function createMonitorGroupByResourceGroupIdWithOptions($request, $runtime)
     {
         Utils::validateModel($request);
+        $query = [];
+        if (!Utils::isUnset($request->contactGroupList)) {
+            $query['ContactGroupList'] = $request->contactGroupList;
+        }
+        if (!Utils::isUnset($request->enableInstallAgent)) {
+            $query['EnableInstallAgent'] = $request->enableInstallAgent;
+        }
+        if (!Utils::isUnset($request->enableSubscribeEvent)) {
+            $query['EnableSubscribeEvent'] = $request->enableSubscribeEvent;
+        }
+        if (!Utils::isUnset($request->regionId)) {
+            $query['RegionId'] = $request->regionId;
+        }
+        if (!Utils::isUnset($request->resourceGroupId)) {
+            $query['ResourceGroupId'] = $request->resourceGroupId;
+        }
+        if (!Utils::isUnset($request->resourceGroupName)) {
+            $query['ResourceGroupName'] = $request->resourceGroupName;
+        }
         $req = new OpenApiRequest([
-            'body' => Utils::toMap($request),
+            'query' => OpenApiUtilClient::query($query),
+        ]);
+        $params = new Params([
+            'action'      => 'CreateMonitorGroupByResourceGroupId',
+            'version'     => '2019-01-01',
+            'protocol'    => 'HTTPS',
+            'pathname'    => '/',
+            'method'      => 'POST',
+            'authType'    => 'AK',
+            'style'       => 'RPC',
+            'reqBodyType' => 'formData',
+            'bodyType'    => 'json',
         ]);
 
-        return CreateMonitorGroupByResourceGroupIdResponse::fromMap($this->doRPCRequest('CreateMonitorGroupByResourceGroupId', '2019-01-01', 'HTTPS', 'POST', 'AK', 'json', $req, $runtime));
+        return CreateMonitorGroupByResourceGroupIdResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
@@ -720,11 +1192,29 @@ class Cms extends OpenApiClient
     public function createMonitorGroupInstancesWithOptions($request, $runtime)
     {
         Utils::validateModel($request);
+        $query = [];
+        if (!Utils::isUnset($request->groupId)) {
+            $query['GroupId'] = $request->groupId;
+        }
+        if (!Utils::isUnset($request->instances)) {
+            $query['Instances'] = $request->instances;
+        }
         $req = new OpenApiRequest([
-            'body' => Utils::toMap($request),
+            'query' => OpenApiUtilClient::query($query),
+        ]);
+        $params = new Params([
+            'action'      => 'CreateMonitorGroupInstances',
+            'version'     => '2019-01-01',
+            'protocol'    => 'HTTPS',
+            'pathname'    => '/',
+            'method'      => 'POST',
+            'authType'    => 'AK',
+            'style'       => 'RPC',
+            'reqBodyType' => 'formData',
+            'bodyType'    => 'json',
         ]);
 
-        return CreateMonitorGroupInstancesResponse::fromMap($this->doRPCRequest('CreateMonitorGroupInstances', '2019-01-01', 'HTTPS', 'POST', 'AK', 'json', $req, $runtime));
+        return CreateMonitorGroupInstancesResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
@@ -748,11 +1238,35 @@ class Cms extends OpenApiClient
     public function createMonitorGroupNotifyPolicyWithOptions($request, $runtime)
     {
         Utils::validateModel($request);
+        $query = [];
+        if (!Utils::isUnset($request->endTime)) {
+            $query['EndTime'] = $request->endTime;
+        }
+        if (!Utils::isUnset($request->groupId)) {
+            $query['GroupId'] = $request->groupId;
+        }
+        if (!Utils::isUnset($request->policyType)) {
+            $query['PolicyType'] = $request->policyType;
+        }
+        if (!Utils::isUnset($request->startTime)) {
+            $query['StartTime'] = $request->startTime;
+        }
         $req = new OpenApiRequest([
-            'body' => Utils::toMap($request),
+            'query' => OpenApiUtilClient::query($query),
+        ]);
+        $params = new Params([
+            'action'      => 'CreateMonitorGroupNotifyPolicy',
+            'version'     => '2019-01-01',
+            'protocol'    => 'HTTPS',
+            'pathname'    => '/',
+            'method'      => 'POST',
+            'authType'    => 'AK',
+            'style'       => 'RPC',
+            'reqBodyType' => 'formData',
+            'bodyType'    => 'json',
         ]);
 
-        return CreateMonitorGroupNotifyPolicyResponse::fromMap($this->doRPCRequest('CreateMonitorGroupNotifyPolicy', '2019-01-01', 'HTTPS', 'POST', 'AK', 'json', $req, $runtime));
+        return CreateMonitorGroupNotifyPolicyResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
@@ -776,11 +1290,32 @@ class Cms extends OpenApiClient
     public function createMonitoringAgentProcessWithOptions($request, $runtime)
     {
         Utils::validateModel($request);
+        $query = [];
+        if (!Utils::isUnset($request->instanceId)) {
+            $query['InstanceId'] = $request->instanceId;
+        }
+        if (!Utils::isUnset($request->processName)) {
+            $query['ProcessName'] = $request->processName;
+        }
+        if (!Utils::isUnset($request->processUser)) {
+            $query['ProcessUser'] = $request->processUser;
+        }
         $req = new OpenApiRequest([
-            'body' => Utils::toMap($request),
+            'query' => OpenApiUtilClient::query($query),
+        ]);
+        $params = new Params([
+            'action'      => 'CreateMonitoringAgentProcess',
+            'version'     => '2019-01-01',
+            'protocol'    => 'HTTPS',
+            'pathname'    => '/',
+            'method'      => 'POST',
+            'authType'    => 'AK',
+            'style'       => 'RPC',
+            'reqBodyType' => 'formData',
+            'bodyType'    => 'json',
         ]);
 
-        return CreateMonitoringAgentProcessResponse::fromMap($this->doRPCRequest('CreateMonitoringAgentProcess', '2019-01-01', 'HTTPS', 'POST', 'AK', 'json', $req, $runtime));
+        return CreateMonitoringAgentProcessResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
@@ -804,11 +1339,44 @@ class Cms extends OpenApiClient
     public function createSiteMonitorWithOptions($request, $runtime)
     {
         Utils::validateModel($request);
+        $query = [];
+        if (!Utils::isUnset($request->address)) {
+            $query['Address'] = $request->address;
+        }
+        if (!Utils::isUnset($request->alertIds)) {
+            $query['AlertIds'] = $request->alertIds;
+        }
+        if (!Utils::isUnset($request->interval)) {
+            $query['Interval'] = $request->interval;
+        }
+        if (!Utils::isUnset($request->ispCities)) {
+            $query['IspCities'] = $request->ispCities;
+        }
+        if (!Utils::isUnset($request->optionsJson)) {
+            $query['OptionsJson'] = $request->optionsJson;
+        }
+        if (!Utils::isUnset($request->taskName)) {
+            $query['TaskName'] = $request->taskName;
+        }
+        if (!Utils::isUnset($request->taskType)) {
+            $query['TaskType'] = $request->taskType;
+        }
         $req = new OpenApiRequest([
-            'body' => Utils::toMap($request),
+            'query' => OpenApiUtilClient::query($query),
+        ]);
+        $params = new Params([
+            'action'      => 'CreateSiteMonitor',
+            'version'     => '2019-01-01',
+            'protocol'    => 'HTTPS',
+            'pathname'    => '/',
+            'method'      => 'POST',
+            'authType'    => 'AK',
+            'style'       => 'RPC',
+            'reqBodyType' => 'formData',
+            'bodyType'    => 'json',
         ]);
 
-        return CreateSiteMonitorResponse::fromMap($this->doRPCRequest('CreateSiteMonitor', '2019-01-01', 'HTTPS', 'POST', 'AK', 'json', $req, $runtime));
+        return CreateSiteMonitorResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
@@ -832,11 +1400,26 @@ class Cms extends OpenApiClient
     public function deleteContactWithOptions($request, $runtime)
     {
         Utils::validateModel($request);
+        $query = [];
+        if (!Utils::isUnset($request->contactName)) {
+            $query['ContactName'] = $request->contactName;
+        }
         $req = new OpenApiRequest([
-            'body' => Utils::toMap($request),
+            'query' => OpenApiUtilClient::query($query),
+        ]);
+        $params = new Params([
+            'action'      => 'DeleteContact',
+            'version'     => '2019-01-01',
+            'protocol'    => 'HTTPS',
+            'pathname'    => '/',
+            'method'      => 'POST',
+            'authType'    => 'AK',
+            'style'       => 'RPC',
+            'reqBodyType' => 'formData',
+            'bodyType'    => 'json',
         ]);
 
-        return DeleteContactResponse::fromMap($this->doRPCRequest('DeleteContact', '2019-01-01', 'HTTPS', 'POST', 'AK', 'json', $req, $runtime));
+        return DeleteContactResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
@@ -860,11 +1443,26 @@ class Cms extends OpenApiClient
     public function deleteContactGroupWithOptions($request, $runtime)
     {
         Utils::validateModel($request);
+        $query = [];
+        if (!Utils::isUnset($request->contactGroupName)) {
+            $query['ContactGroupName'] = $request->contactGroupName;
+        }
         $req = new OpenApiRequest([
-            'body' => Utils::toMap($request),
+            'query' => OpenApiUtilClient::query($query),
+        ]);
+        $params = new Params([
+            'action'      => 'DeleteContactGroup',
+            'version'     => '2019-01-01',
+            'protocol'    => 'HTTPS',
+            'pathname'    => '/',
+            'method'      => 'POST',
+            'authType'    => 'AK',
+            'style'       => 'RPC',
+            'reqBodyType' => 'formData',
+            'bodyType'    => 'json',
         ]);
 
-        return DeleteContactGroupResponse::fromMap($this->doRPCRequest('DeleteContactGroup', '2019-01-01', 'HTTPS', 'POST', 'AK', 'json', $req, $runtime));
+        return DeleteContactGroupResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
@@ -888,11 +1486,35 @@ class Cms extends OpenApiClient
     public function deleteCustomMetricWithOptions($request, $runtime)
     {
         Utils::validateModel($request);
+        $query = [];
+        if (!Utils::isUnset($request->groupId)) {
+            $query['GroupId'] = $request->groupId;
+        }
+        if (!Utils::isUnset($request->md5)) {
+            $query['Md5'] = $request->md5;
+        }
+        if (!Utils::isUnset($request->metricName)) {
+            $query['MetricName'] = $request->metricName;
+        }
+        if (!Utils::isUnset($request->UUID)) {
+            $query['UUID'] = $request->UUID;
+        }
         $req = new OpenApiRequest([
-            'body' => Utils::toMap($request),
+            'query' => OpenApiUtilClient::query($query),
+        ]);
+        $params = new Params([
+            'action'      => 'DeleteCustomMetric',
+            'version'     => '2019-01-01',
+            'protocol'    => 'HTTPS',
+            'pathname'    => '/',
+            'method'      => 'POST',
+            'authType'    => 'AK',
+            'style'       => 'RPC',
+            'reqBodyType' => 'formData',
+            'bodyType'    => 'json',
         ]);
 
-        return DeleteCustomMetricResponse::fromMap($this->doRPCRequest('DeleteCustomMetric', '2019-01-01', 'HTTPS', 'POST', 'AK', 'json', $req, $runtime));
+        return DeleteCustomMetricResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
@@ -916,11 +1538,26 @@ class Cms extends OpenApiClient
     public function deleteDynamicTagGroupWithOptions($request, $runtime)
     {
         Utils::validateModel($request);
+        $query = [];
+        if (!Utils::isUnset($request->dynamicTagRuleId)) {
+            $query['DynamicTagRuleId'] = $request->dynamicTagRuleId;
+        }
         $req = new OpenApiRequest([
-            'body' => Utils::toMap($request),
+            'query' => OpenApiUtilClient::query($query),
+        ]);
+        $params = new Params([
+            'action'      => 'DeleteDynamicTagGroup',
+            'version'     => '2019-01-01',
+            'protocol'    => 'HTTPS',
+            'pathname'    => '/',
+            'method'      => 'POST',
+            'authType'    => 'AK',
+            'style'       => 'RPC',
+            'reqBodyType' => 'formData',
+            'bodyType'    => 'json',
         ]);
 
-        return DeleteDynamicTagGroupResponse::fromMap($this->doRPCRequest('DeleteDynamicTagGroup', '2019-01-01', 'HTTPS', 'POST', 'AK', 'json', $req, $runtime));
+        return DeleteDynamicTagGroupResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
@@ -936,34 +1573,6 @@ class Cms extends OpenApiClient
     }
 
     /**
-     * @param DeleteEventRulesRequest $request
-     * @param RuntimeOptions          $runtime
-     *
-     * @return DeleteEventRulesResponse
-     */
-    public function deleteEventRulesWithOptions($request, $runtime)
-    {
-        Utils::validateModel($request);
-        $req = new OpenApiRequest([
-            'body' => Utils::toMap($request),
-        ]);
-
-        return DeleteEventRulesResponse::fromMap($this->doRPCRequest('DeleteEventRules', '2019-01-01', 'HTTPS', 'POST', 'AK', 'json', $req, $runtime));
-    }
-
-    /**
-     * @param DeleteEventRulesRequest $request
-     *
-     * @return DeleteEventRulesResponse
-     */
-    public function deleteEventRules($request)
-    {
-        $runtime = new RuntimeOptions([]);
-
-        return $this->deleteEventRulesWithOptions($request, $runtime);
-    }
-
-    /**
      * @param DeleteEventRuleTargetsRequest $request
      * @param RuntimeOptions                $runtime
      *
@@ -972,11 +1581,29 @@ class Cms extends OpenApiClient
     public function deleteEventRuleTargetsWithOptions($request, $runtime)
     {
         Utils::validateModel($request);
+        $query = [];
+        if (!Utils::isUnset($request->ids)) {
+            $query['Ids'] = $request->ids;
+        }
+        if (!Utils::isUnset($request->ruleName)) {
+            $query['RuleName'] = $request->ruleName;
+        }
         $req = new OpenApiRequest([
-            'body' => Utils::toMap($request),
+            'query' => OpenApiUtilClient::query($query),
+        ]);
+        $params = new Params([
+            'action'      => 'DeleteEventRuleTargets',
+            'version'     => '2019-01-01',
+            'protocol'    => 'HTTPS',
+            'pathname'    => '/',
+            'method'      => 'POST',
+            'authType'    => 'AK',
+            'style'       => 'RPC',
+            'reqBodyType' => 'formData',
+            'bodyType'    => 'json',
         ]);
 
-        return DeleteEventRuleTargetsResponse::fromMap($this->doRPCRequest('DeleteEventRuleTargets', '2019-01-01', 'HTTPS', 'POST', 'AK', 'json', $req, $runtime));
+        return DeleteEventRuleTargetsResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
@@ -992,6 +1619,49 @@ class Cms extends OpenApiClient
     }
 
     /**
+     * @param DeleteEventRulesRequest $request
+     * @param RuntimeOptions          $runtime
+     *
+     * @return DeleteEventRulesResponse
+     */
+    public function deleteEventRulesWithOptions($request, $runtime)
+    {
+        Utils::validateModel($request);
+        $query = [];
+        if (!Utils::isUnset($request->ruleNames)) {
+            $query['RuleNames'] = $request->ruleNames;
+        }
+        $req = new OpenApiRequest([
+            'query' => OpenApiUtilClient::query($query),
+        ]);
+        $params = new Params([
+            'action'      => 'DeleteEventRules',
+            'version'     => '2019-01-01',
+            'protocol'    => 'HTTPS',
+            'pathname'    => '/',
+            'method'      => 'POST',
+            'authType'    => 'AK',
+            'style'       => 'RPC',
+            'reqBodyType' => 'formData',
+            'bodyType'    => 'json',
+        ]);
+
+        return DeleteEventRulesResponse::fromMap($this->callApi($params, $req, $runtime));
+    }
+
+    /**
+     * @param DeleteEventRulesRequest $request
+     *
+     * @return DeleteEventRulesResponse
+     */
+    public function deleteEventRules($request)
+    {
+        $runtime = new RuntimeOptions([]);
+
+        return $this->deleteEventRulesWithOptions($request, $runtime);
+    }
+
+    /**
      * @param DeleteExporterOutputRequest $request
      * @param RuntimeOptions              $runtime
      *
@@ -1000,11 +1670,26 @@ class Cms extends OpenApiClient
     public function deleteExporterOutputWithOptions($request, $runtime)
     {
         Utils::validateModel($request);
+        $query = [];
+        if (!Utils::isUnset($request->destName)) {
+            $query['DestName'] = $request->destName;
+        }
         $req = new OpenApiRequest([
-            'body' => Utils::toMap($request),
+            'query' => OpenApiUtilClient::query($query),
+        ]);
+        $params = new Params([
+            'action'      => 'DeleteExporterOutput',
+            'version'     => '2019-01-01',
+            'protocol'    => 'HTTPS',
+            'pathname'    => '/',
+            'method'      => 'POST',
+            'authType'    => 'AK',
+            'style'       => 'RPC',
+            'reqBodyType' => 'formData',
+            'bodyType'    => 'json',
         ]);
 
-        return DeleteExporterOutputResponse::fromMap($this->doRPCRequest('DeleteExporterOutput', '2019-01-01', 'HTTPS', 'POST', 'AK', 'json', $req, $runtime));
+        return DeleteExporterOutputResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
@@ -1028,11 +1713,26 @@ class Cms extends OpenApiClient
     public function deleteExporterRuleWithOptions($request, $runtime)
     {
         Utils::validateModel($request);
+        $query = [];
+        if (!Utils::isUnset($request->ruleName)) {
+            $query['RuleName'] = $request->ruleName;
+        }
         $req = new OpenApiRequest([
-            'body' => Utils::toMap($request),
+            'query' => OpenApiUtilClient::query($query),
+        ]);
+        $params = new Params([
+            'action'      => 'DeleteExporterRule',
+            'version'     => '2019-01-01',
+            'protocol'    => 'HTTPS',
+            'pathname'    => '/',
+            'method'      => 'POST',
+            'authType'    => 'AK',
+            'style'       => 'RPC',
+            'reqBodyType' => 'formData',
+            'bodyType'    => 'json',
         ]);
 
-        return DeleteExporterRuleResponse::fromMap($this->doRPCRequest('DeleteExporterRule', '2019-01-01', 'HTTPS', 'POST', 'AK', 'json', $req, $runtime));
+        return DeleteExporterRuleResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
@@ -1056,11 +1756,29 @@ class Cms extends OpenApiClient
     public function deleteGroupMonitoringAgentProcessWithOptions($request, $runtime)
     {
         Utils::validateModel($request);
+        $query = [];
+        if (!Utils::isUnset($request->groupId)) {
+            $query['GroupId'] = $request->groupId;
+        }
+        if (!Utils::isUnset($request->id)) {
+            $query['Id'] = $request->id;
+        }
         $req = new OpenApiRequest([
-            'body' => Utils::toMap($request),
+            'query' => OpenApiUtilClient::query($query),
+        ]);
+        $params = new Params([
+            'action'      => 'DeleteGroupMonitoringAgentProcess',
+            'version'     => '2019-01-01',
+            'protocol'    => 'HTTPS',
+            'pathname'    => '/',
+            'method'      => 'POST',
+            'authType'    => 'AK',
+            'style'       => 'RPC',
+            'reqBodyType' => 'formData',
+            'bodyType'    => 'json',
         ]);
 
-        return DeleteGroupMonitoringAgentProcessResponse::fromMap($this->doRPCRequest('DeleteGroupMonitoringAgentProcess', '2019-01-01', 'HTTPS', 'POST', 'AK', 'json', $req, $runtime));
+        return DeleteGroupMonitoringAgentProcessResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
@@ -1084,11 +1802,26 @@ class Cms extends OpenApiClient
     public function deleteHostAvailabilityWithOptions($request, $runtime)
     {
         Utils::validateModel($request);
+        $query = [];
+        if (!Utils::isUnset($request->id)) {
+            $query['Id'] = $request->id;
+        }
         $req = new OpenApiRequest([
-            'body' => Utils::toMap($request),
+            'query' => OpenApiUtilClient::query($query),
+        ]);
+        $params = new Params([
+            'action'      => 'DeleteHostAvailability',
+            'version'     => '2019-01-01',
+            'protocol'    => 'HTTPS',
+            'pathname'    => '/',
+            'method'      => 'POST',
+            'authType'    => 'AK',
+            'style'       => 'RPC',
+            'reqBodyType' => 'formData',
+            'bodyType'    => 'json',
         ]);
 
-        return DeleteHostAvailabilityResponse::fromMap($this->doRPCRequest('DeleteHostAvailability', '2019-01-01', 'HTTPS', 'POST', 'AK', 'json', $req, $runtime));
+        return DeleteHostAvailabilityResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
@@ -1112,11 +1845,26 @@ class Cms extends OpenApiClient
     public function deleteLogMonitorWithOptions($request, $runtime)
     {
         Utils::validateModel($request);
+        $query = [];
+        if (!Utils::isUnset($request->logId)) {
+            $query['LogId'] = $request->logId;
+        }
         $req = new OpenApiRequest([
-            'body' => Utils::toMap($request),
+            'query' => OpenApiUtilClient::query($query),
+        ]);
+        $params = new Params([
+            'action'      => 'DeleteLogMonitor',
+            'version'     => '2019-01-01',
+            'protocol'    => 'HTTPS',
+            'pathname'    => '/',
+            'method'      => 'POST',
+            'authType'    => 'AK',
+            'style'       => 'RPC',
+            'reqBodyType' => 'formData',
+            'bodyType'    => 'json',
         ]);
 
-        return DeleteLogMonitorResponse::fromMap($this->doRPCRequest('DeleteLogMonitor', '2019-01-01', 'HTTPS', 'POST', 'AK', 'json', $req, $runtime));
+        return DeleteLogMonitorResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
@@ -1140,11 +1888,29 @@ class Cms extends OpenApiClient
     public function deleteMetricRuleResourcesWithOptions($request, $runtime)
     {
         Utils::validateModel($request);
+        $query = [];
+        if (!Utils::isUnset($request->resources)) {
+            $query['Resources'] = $request->resources;
+        }
+        if (!Utils::isUnset($request->ruleId)) {
+            $query['RuleId'] = $request->ruleId;
+        }
         $req = new OpenApiRequest([
-            'body' => Utils::toMap($request),
+            'query' => OpenApiUtilClient::query($query),
+        ]);
+        $params = new Params([
+            'action'      => 'DeleteMetricRuleResources',
+            'version'     => '2019-01-01',
+            'protocol'    => 'HTTPS',
+            'pathname'    => '/',
+            'method'      => 'POST',
+            'authType'    => 'AK',
+            'style'       => 'RPC',
+            'reqBodyType' => 'formData',
+            'bodyType'    => 'json',
         ]);
 
-        return DeleteMetricRuleResourcesResponse::fromMap($this->doRPCRequest('DeleteMetricRuleResources', '2019-01-01', 'HTTPS', 'POST', 'AK', 'json', $req, $runtime));
+        return DeleteMetricRuleResourcesResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
@@ -1160,34 +1926,6 @@ class Cms extends OpenApiClient
     }
 
     /**
-     * @param DeleteMetricRulesRequest $request
-     * @param RuntimeOptions           $runtime
-     *
-     * @return DeleteMetricRulesResponse
-     */
-    public function deleteMetricRulesWithOptions($request, $runtime)
-    {
-        Utils::validateModel($request);
-        $req = new OpenApiRequest([
-            'body' => Utils::toMap($request),
-        ]);
-
-        return DeleteMetricRulesResponse::fromMap($this->doRPCRequest('DeleteMetricRules', '2019-01-01', 'HTTPS', 'POST', 'AK', 'json', $req, $runtime));
-    }
-
-    /**
-     * @param DeleteMetricRulesRequest $request
-     *
-     * @return DeleteMetricRulesResponse
-     */
-    public function deleteMetricRules($request)
-    {
-        $runtime = new RuntimeOptions([]);
-
-        return $this->deleteMetricRulesWithOptions($request, $runtime);
-    }
-
-    /**
      * @param DeleteMetricRuleTargetsRequest $request
      * @param RuntimeOptions                 $runtime
      *
@@ -1196,11 +1934,29 @@ class Cms extends OpenApiClient
     public function deleteMetricRuleTargetsWithOptions($request, $runtime)
     {
         Utils::validateModel($request);
+        $query = [];
+        if (!Utils::isUnset($request->ruleId)) {
+            $query['RuleId'] = $request->ruleId;
+        }
+        if (!Utils::isUnset($request->targetIds)) {
+            $query['TargetIds'] = $request->targetIds;
+        }
         $req = new OpenApiRequest([
-            'body' => Utils::toMap($request),
+            'query' => OpenApiUtilClient::query($query),
+        ]);
+        $params = new Params([
+            'action'      => 'DeleteMetricRuleTargets',
+            'version'     => '2019-01-01',
+            'protocol'    => 'HTTPS',
+            'pathname'    => '/',
+            'method'      => 'POST',
+            'authType'    => 'AK',
+            'style'       => 'RPC',
+            'reqBodyType' => 'formData',
+            'bodyType'    => 'json',
         ]);
 
-        return DeleteMetricRuleTargetsResponse::fromMap($this->doRPCRequest('DeleteMetricRuleTargets', '2019-01-01', 'HTTPS', 'POST', 'AK', 'json', $req, $runtime));
+        return DeleteMetricRuleTargetsResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
@@ -1224,11 +1980,26 @@ class Cms extends OpenApiClient
     public function deleteMetricRuleTemplateWithOptions($request, $runtime)
     {
         Utils::validateModel($request);
+        $query = [];
+        if (!Utils::isUnset($request->templateId)) {
+            $query['TemplateId'] = $request->templateId;
+        }
         $req = new OpenApiRequest([
-            'body' => Utils::toMap($request),
+            'query' => OpenApiUtilClient::query($query),
+        ]);
+        $params = new Params([
+            'action'      => 'DeleteMetricRuleTemplate',
+            'version'     => '2019-01-01',
+            'protocol'    => 'HTTPS',
+            'pathname'    => '/',
+            'method'      => 'POST',
+            'authType'    => 'AK',
+            'style'       => 'RPC',
+            'reqBodyType' => 'formData',
+            'bodyType'    => 'json',
         ]);
 
-        return DeleteMetricRuleTemplateResponse::fromMap($this->doRPCRequest('DeleteMetricRuleTemplate', '2019-01-01', 'HTTPS', 'POST', 'AK', 'json', $req, $runtime));
+        return DeleteMetricRuleTemplateResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
@@ -1244,6 +2015,49 @@ class Cms extends OpenApiClient
     }
 
     /**
+     * @param DeleteMetricRulesRequest $request
+     * @param RuntimeOptions           $runtime
+     *
+     * @return DeleteMetricRulesResponse
+     */
+    public function deleteMetricRulesWithOptions($request, $runtime)
+    {
+        Utils::validateModel($request);
+        $query = [];
+        if (!Utils::isUnset($request->id)) {
+            $query['Id'] = $request->id;
+        }
+        $req = new OpenApiRequest([
+            'query' => OpenApiUtilClient::query($query),
+        ]);
+        $params = new Params([
+            'action'      => 'DeleteMetricRules',
+            'version'     => '2019-01-01',
+            'protocol'    => 'HTTPS',
+            'pathname'    => '/',
+            'method'      => 'POST',
+            'authType'    => 'AK',
+            'style'       => 'RPC',
+            'reqBodyType' => 'formData',
+            'bodyType'    => 'json',
+        ]);
+
+        return DeleteMetricRulesResponse::fromMap($this->callApi($params, $req, $runtime));
+    }
+
+    /**
+     * @param DeleteMetricRulesRequest $request
+     *
+     * @return DeleteMetricRulesResponse
+     */
+    public function deleteMetricRules($request)
+    {
+        $runtime = new RuntimeOptions([]);
+
+        return $this->deleteMetricRulesWithOptions($request, $runtime);
+    }
+
+    /**
      * @param DeleteMonitorGroupRequest $request
      * @param RuntimeOptions            $runtime
      *
@@ -1252,11 +2066,26 @@ class Cms extends OpenApiClient
     public function deleteMonitorGroupWithOptions($request, $runtime)
     {
         Utils::validateModel($request);
+        $query = [];
+        if (!Utils::isUnset($request->groupId)) {
+            $query['GroupId'] = $request->groupId;
+        }
         $req = new OpenApiRequest([
-            'body' => Utils::toMap($request),
+            'query' => OpenApiUtilClient::query($query),
+        ]);
+        $params = new Params([
+            'action'      => 'DeleteMonitorGroup',
+            'version'     => '2019-01-01',
+            'protocol'    => 'HTTPS',
+            'pathname'    => '/',
+            'method'      => 'POST',
+            'authType'    => 'AK',
+            'style'       => 'RPC',
+            'reqBodyType' => 'formData',
+            'bodyType'    => 'json',
         ]);
 
-        return DeleteMonitorGroupResponse::fromMap($this->doRPCRequest('DeleteMonitorGroup', '2019-01-01', 'HTTPS', 'POST', 'AK', 'json', $req, $runtime));
+        return DeleteMonitorGroupResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
@@ -1280,11 +2109,29 @@ class Cms extends OpenApiClient
     public function deleteMonitorGroupDynamicRuleWithOptions($request, $runtime)
     {
         Utils::validateModel($request);
+        $query = [];
+        if (!Utils::isUnset($request->category)) {
+            $query['Category'] = $request->category;
+        }
+        if (!Utils::isUnset($request->groupId)) {
+            $query['GroupId'] = $request->groupId;
+        }
         $req = new OpenApiRequest([
-            'body' => Utils::toMap($request),
+            'query' => OpenApiUtilClient::query($query),
+        ]);
+        $params = new Params([
+            'action'      => 'DeleteMonitorGroupDynamicRule',
+            'version'     => '2019-01-01',
+            'protocol'    => 'HTTPS',
+            'pathname'    => '/',
+            'method'      => 'POST',
+            'authType'    => 'AK',
+            'style'       => 'RPC',
+            'reqBodyType' => 'formData',
+            'bodyType'    => 'json',
         ]);
 
-        return DeleteMonitorGroupDynamicRuleResponse::fromMap($this->doRPCRequest('DeleteMonitorGroupDynamicRule', '2019-01-01', 'HTTPS', 'POST', 'AK', 'json', $req, $runtime));
+        return DeleteMonitorGroupDynamicRuleResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
@@ -1308,11 +2155,32 @@ class Cms extends OpenApiClient
     public function deleteMonitorGroupInstancesWithOptions($request, $runtime)
     {
         Utils::validateModel($request);
+        $query = [];
+        if (!Utils::isUnset($request->category)) {
+            $query['Category'] = $request->category;
+        }
+        if (!Utils::isUnset($request->groupId)) {
+            $query['GroupId'] = $request->groupId;
+        }
+        if (!Utils::isUnset($request->instanceIdList)) {
+            $query['InstanceIdList'] = $request->instanceIdList;
+        }
         $req = new OpenApiRequest([
-            'body' => Utils::toMap($request),
+            'query' => OpenApiUtilClient::query($query),
+        ]);
+        $params = new Params([
+            'action'      => 'DeleteMonitorGroupInstances',
+            'version'     => '2019-01-01',
+            'protocol'    => 'HTTPS',
+            'pathname'    => '/',
+            'method'      => 'POST',
+            'authType'    => 'AK',
+            'style'       => 'RPC',
+            'reqBodyType' => 'formData',
+            'bodyType'    => 'json',
         ]);
 
-        return DeleteMonitorGroupInstancesResponse::fromMap($this->doRPCRequest('DeleteMonitorGroupInstances', '2019-01-01', 'HTTPS', 'POST', 'AK', 'json', $req, $runtime));
+        return DeleteMonitorGroupInstancesResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
@@ -1336,11 +2204,29 @@ class Cms extends OpenApiClient
     public function deleteMonitorGroupNotifyPolicyWithOptions($request, $runtime)
     {
         Utils::validateModel($request);
+        $query = [];
+        if (!Utils::isUnset($request->groupId)) {
+            $query['GroupId'] = $request->groupId;
+        }
+        if (!Utils::isUnset($request->policyType)) {
+            $query['PolicyType'] = $request->policyType;
+        }
         $req = new OpenApiRequest([
-            'body' => Utils::toMap($request),
+            'query' => OpenApiUtilClient::query($query),
+        ]);
+        $params = new Params([
+            'action'      => 'DeleteMonitorGroupNotifyPolicy',
+            'version'     => '2019-01-01',
+            'protocol'    => 'HTTPS',
+            'pathname'    => '/',
+            'method'      => 'POST',
+            'authType'    => 'AK',
+            'style'       => 'RPC',
+            'reqBodyType' => 'formData',
+            'bodyType'    => 'json',
         ]);
 
-        return DeleteMonitorGroupNotifyPolicyResponse::fromMap($this->doRPCRequest('DeleteMonitorGroupNotifyPolicy', '2019-01-01', 'HTTPS', 'POST', 'AK', 'json', $req, $runtime));
+        return DeleteMonitorGroupNotifyPolicyResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
@@ -1364,11 +2250,32 @@ class Cms extends OpenApiClient
     public function deleteMonitoringAgentProcessWithOptions($request, $runtime)
     {
         Utils::validateModel($request);
+        $query = [];
+        if (!Utils::isUnset($request->instanceId)) {
+            $query['InstanceId'] = $request->instanceId;
+        }
+        if (!Utils::isUnset($request->processId)) {
+            $query['ProcessId'] = $request->processId;
+        }
+        if (!Utils::isUnset($request->processName)) {
+            $query['ProcessName'] = $request->processName;
+        }
         $req = new OpenApiRequest([
-            'body' => Utils::toMap($request),
+            'query' => OpenApiUtilClient::query($query),
+        ]);
+        $params = new Params([
+            'action'      => 'DeleteMonitoringAgentProcess',
+            'version'     => '2019-01-01',
+            'protocol'    => 'HTTPS',
+            'pathname'    => '/',
+            'method'      => 'POST',
+            'authType'    => 'AK',
+            'style'       => 'RPC',
+            'reqBodyType' => 'formData',
+            'bodyType'    => 'json',
         ]);
 
-        return DeleteMonitoringAgentProcessResponse::fromMap($this->doRPCRequest('DeleteMonitoringAgentProcess', '2019-01-01', 'HTTPS', 'POST', 'AK', 'json', $req, $runtime));
+        return DeleteMonitoringAgentProcessResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
@@ -1392,11 +2299,29 @@ class Cms extends OpenApiClient
     public function deleteSiteMonitorsWithOptions($request, $runtime)
     {
         Utils::validateModel($request);
+        $query = [];
+        if (!Utils::isUnset($request->isDeleteAlarms)) {
+            $query['IsDeleteAlarms'] = $request->isDeleteAlarms;
+        }
+        if (!Utils::isUnset($request->taskIds)) {
+            $query['TaskIds'] = $request->taskIds;
+        }
         $req = new OpenApiRequest([
-            'body' => Utils::toMap($request),
+            'query' => OpenApiUtilClient::query($query),
+        ]);
+        $params = new Params([
+            'action'      => 'DeleteSiteMonitors',
+            'version'     => '2019-01-01',
+            'protocol'    => 'HTTPS',
+            'pathname'    => '/',
+            'method'      => 'POST',
+            'authType'    => 'AK',
+            'style'       => 'RPC',
+            'reqBodyType' => 'formData',
+            'bodyType'    => 'json',
         ]);
 
-        return DeleteSiteMonitorsResponse::fromMap($this->doRPCRequest('DeleteSiteMonitors', '2019-01-01', 'HTTPS', 'POST', 'AK', 'json', $req, $runtime));
+        return DeleteSiteMonitorsResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
@@ -1422,10 +2347,21 @@ class Cms extends OpenApiClient
         Utils::validateModel($request);
         $query = OpenApiUtilClient::query(Utils::toMap($request));
         $req   = new OpenApiRequest([
-            'query' => $query,
+            'query' => OpenApiUtilClient::query($query),
+        ]);
+        $params = new Params([
+            'action'      => 'DescribeActiveMetricRuleList',
+            'version'     => '2019-01-01',
+            'protocol'    => 'HTTPS',
+            'pathname'    => '/',
+            'method'      => 'GET',
+            'authType'    => 'AK',
+            'style'       => 'RPC',
+            'reqBodyType' => 'formData',
+            'bodyType'    => 'json',
         ]);
 
-        return DescribeActiveMetricRuleListResponse::fromMap($this->doRPCRequest('DescribeActiveMetricRuleList', '2019-01-01', 'HTTPS', 'GET', 'AK', 'json', $req, $runtime));
+        return DescribeActiveMetricRuleListResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
@@ -1449,11 +2385,59 @@ class Cms extends OpenApiClient
     public function describeAlertHistoryListWithOptions($request, $runtime)
     {
         Utils::validateModel($request);
+        $query = [];
+        if (!Utils::isUnset($request->ascending)) {
+            $query['Ascending'] = $request->ascending;
+        }
+        if (!Utils::isUnset($request->endTime)) {
+            $query['EndTime'] = $request->endTime;
+        }
+        if (!Utils::isUnset($request->groupId)) {
+            $query['GroupId'] = $request->groupId;
+        }
+        if (!Utils::isUnset($request->metricName)) {
+            $query['MetricName'] = $request->metricName;
+        }
+        if (!Utils::isUnset($request->namespace_)) {
+            $query['Namespace'] = $request->namespace_;
+        }
+        if (!Utils::isUnset($request->page)) {
+            $query['Page'] = $request->page;
+        }
+        if (!Utils::isUnset($request->pageSize)) {
+            $query['PageSize'] = $request->pageSize;
+        }
+        if (!Utils::isUnset($request->ruleId)) {
+            $query['RuleId'] = $request->ruleId;
+        }
+        if (!Utils::isUnset($request->ruleName)) {
+            $query['RuleName'] = $request->ruleName;
+        }
+        if (!Utils::isUnset($request->startTime)) {
+            $query['StartTime'] = $request->startTime;
+        }
+        if (!Utils::isUnset($request->state)) {
+            $query['State'] = $request->state;
+        }
+        if (!Utils::isUnset($request->status)) {
+            $query['Status'] = $request->status;
+        }
         $req = new OpenApiRequest([
-            'body' => Utils::toMap($request),
+            'query' => OpenApiUtilClient::query($query),
+        ]);
+        $params = new Params([
+            'action'      => 'DescribeAlertHistoryList',
+            'version'     => '2019-01-01',
+            'protocol'    => 'HTTPS',
+            'pathname'    => '/',
+            'method'      => 'POST',
+            'authType'    => 'AK',
+            'style'       => 'RPC',
+            'reqBodyType' => 'formData',
+            'bodyType'    => 'json',
         ]);
 
-        return DescribeAlertHistoryListResponse::fromMap($this->doRPCRequest('DescribeAlertHistoryList', '2019-01-01', 'HTTPS', 'POST', 'AK', 'json', $req, $runtime));
+        return DescribeAlertHistoryListResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
@@ -1469,35 +2453,6 @@ class Cms extends OpenApiClient
     }
 
     /**
-     * @param DescribeAlertingMetricRuleResourcesRequest $request
-     * @param RuntimeOptions                             $runtime
-     *
-     * @return DescribeAlertingMetricRuleResourcesResponse
-     */
-    public function describeAlertingMetricRuleResourcesWithOptions($request, $runtime)
-    {
-        Utils::validateModel($request);
-        $query = OpenApiUtilClient::query(Utils::toMap($request));
-        $req   = new OpenApiRequest([
-            'query' => $query,
-        ]);
-
-        return DescribeAlertingMetricRuleResourcesResponse::fromMap($this->doRPCRequest('DescribeAlertingMetricRuleResources', '2019-01-01', 'HTTPS', 'GET', 'AK', 'json', $req, $runtime));
-    }
-
-    /**
-     * @param DescribeAlertingMetricRuleResourcesRequest $request
-     *
-     * @return DescribeAlertingMetricRuleResourcesResponse
-     */
-    public function describeAlertingMetricRuleResources($request)
-    {
-        $runtime = new RuntimeOptions([]);
-
-        return $this->describeAlertingMetricRuleResourcesWithOptions($request, $runtime);
-    }
-
-    /**
      * @param DescribeAlertLogCountRequest $request
      * @param RuntimeOptions               $runtime
      *
@@ -1506,11 +2461,68 @@ class Cms extends OpenApiClient
     public function describeAlertLogCountWithOptions($request, $runtime)
     {
         Utils::validateModel($request);
+        $query = [];
+        if (!Utils::isUnset($request->contactGroup)) {
+            $query['ContactGroup'] = $request->contactGroup;
+        }
+        if (!Utils::isUnset($request->endTime)) {
+            $query['EndTime'] = $request->endTime;
+        }
+        if (!Utils::isUnset($request->groupBy)) {
+            $query['GroupBy'] = $request->groupBy;
+        }
+        if (!Utils::isUnset($request->groupId)) {
+            $query['GroupId'] = $request->groupId;
+        }
+        if (!Utils::isUnset($request->lastMin)) {
+            $query['LastMin'] = $request->lastMin;
+        }
+        if (!Utils::isUnset($request->level)) {
+            $query['Level'] = $request->level;
+        }
+        if (!Utils::isUnset($request->metricName)) {
+            $query['MetricName'] = $request->metricName;
+        }
+        if (!Utils::isUnset($request->namespace_)) {
+            $query['Namespace'] = $request->namespace_;
+        }
+        if (!Utils::isUnset($request->pageNumber)) {
+            $query['PageNumber'] = $request->pageNumber;
+        }
+        if (!Utils::isUnset($request->pageSize)) {
+            $query['PageSize'] = $request->pageSize;
+        }
+        if (!Utils::isUnset($request->product)) {
+            $query['Product'] = $request->product;
+        }
+        if (!Utils::isUnset($request->ruleName)) {
+            $query['RuleName'] = $request->ruleName;
+        }
+        if (!Utils::isUnset($request->searchKey)) {
+            $query['SearchKey'] = $request->searchKey;
+        }
+        if (!Utils::isUnset($request->sendStatus)) {
+            $query['SendStatus'] = $request->sendStatus;
+        }
+        if (!Utils::isUnset($request->startTime)) {
+            $query['StartTime'] = $request->startTime;
+        }
         $req = new OpenApiRequest([
-            'body' => Utils::toMap($request),
+            'query' => OpenApiUtilClient::query($query),
+        ]);
+        $params = new Params([
+            'action'      => 'DescribeAlertLogCount',
+            'version'     => '2019-01-01',
+            'protocol'    => 'HTTPS',
+            'pathname'    => '/',
+            'method'      => 'POST',
+            'authType'    => 'AK',
+            'style'       => 'RPC',
+            'reqBodyType' => 'formData',
+            'bodyType'    => 'json',
         ]);
 
-        return DescribeAlertLogCountResponse::fromMap($this->doRPCRequest('DescribeAlertLogCount', '2019-01-01', 'HTTPS', 'POST', 'AK', 'json', $req, $runtime));
+        return DescribeAlertLogCountResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
@@ -1534,11 +2546,68 @@ class Cms extends OpenApiClient
     public function describeAlertLogHistogramWithOptions($request, $runtime)
     {
         Utils::validateModel($request);
+        $query = [];
+        if (!Utils::isUnset($request->contactGroup)) {
+            $query['ContactGroup'] = $request->contactGroup;
+        }
+        if (!Utils::isUnset($request->endTime)) {
+            $query['EndTime'] = $request->endTime;
+        }
+        if (!Utils::isUnset($request->groupBy)) {
+            $query['GroupBy'] = $request->groupBy;
+        }
+        if (!Utils::isUnset($request->groupId)) {
+            $query['GroupId'] = $request->groupId;
+        }
+        if (!Utils::isUnset($request->lastMin)) {
+            $query['LastMin'] = $request->lastMin;
+        }
+        if (!Utils::isUnset($request->level)) {
+            $query['Level'] = $request->level;
+        }
+        if (!Utils::isUnset($request->metricName)) {
+            $query['MetricName'] = $request->metricName;
+        }
+        if (!Utils::isUnset($request->namespace_)) {
+            $query['Namespace'] = $request->namespace_;
+        }
+        if (!Utils::isUnset($request->pageNumber)) {
+            $query['PageNumber'] = $request->pageNumber;
+        }
+        if (!Utils::isUnset($request->pageSize)) {
+            $query['PageSize'] = $request->pageSize;
+        }
+        if (!Utils::isUnset($request->product)) {
+            $query['Product'] = $request->product;
+        }
+        if (!Utils::isUnset($request->ruleName)) {
+            $query['RuleName'] = $request->ruleName;
+        }
+        if (!Utils::isUnset($request->searchKey)) {
+            $query['SearchKey'] = $request->searchKey;
+        }
+        if (!Utils::isUnset($request->sendStatus)) {
+            $query['SendStatus'] = $request->sendStatus;
+        }
+        if (!Utils::isUnset($request->startTime)) {
+            $query['StartTime'] = $request->startTime;
+        }
         $req = new OpenApiRequest([
-            'body' => Utils::toMap($request),
+            'query' => OpenApiUtilClient::query($query),
+        ]);
+        $params = new Params([
+            'action'      => 'DescribeAlertLogHistogram',
+            'version'     => '2019-01-01',
+            'protocol'    => 'HTTPS',
+            'pathname'    => '/',
+            'method'      => 'POST',
+            'authType'    => 'AK',
+            'style'       => 'RPC',
+            'reqBodyType' => 'formData',
+            'bodyType'    => 'json',
         ]);
 
-        return DescribeAlertLogHistogramResponse::fromMap($this->doRPCRequest('DescribeAlertLogHistogram', '2019-01-01', 'HTTPS', 'POST', 'AK', 'json', $req, $runtime));
+        return DescribeAlertLogHistogramResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
@@ -1562,11 +2631,71 @@ class Cms extends OpenApiClient
     public function describeAlertLogListWithOptions($request, $runtime)
     {
         Utils::validateModel($request);
+        $query = [];
+        if (!Utils::isUnset($request->contactGroup)) {
+            $query['ContactGroup'] = $request->contactGroup;
+        }
+        if (!Utils::isUnset($request->endTime)) {
+            $query['EndTime'] = $request->endTime;
+        }
+        if (!Utils::isUnset($request->groupBy)) {
+            $query['GroupBy'] = $request->groupBy;
+        }
+        if (!Utils::isUnset($request->groupId)) {
+            $query['GroupId'] = $request->groupId;
+        }
+        if (!Utils::isUnset($request->lastMin)) {
+            $query['LastMin'] = $request->lastMin;
+        }
+        if (!Utils::isUnset($request->level)) {
+            $query['Level'] = $request->level;
+        }
+        if (!Utils::isUnset($request->metricName)) {
+            $query['MetricName'] = $request->metricName;
+        }
+        if (!Utils::isUnset($request->namespace_)) {
+            $query['Namespace'] = $request->namespace_;
+        }
+        if (!Utils::isUnset($request->pageNumber)) {
+            $query['PageNumber'] = $request->pageNumber;
+        }
+        if (!Utils::isUnset($request->pageSize)) {
+            $query['PageSize'] = $request->pageSize;
+        }
+        if (!Utils::isUnset($request->product)) {
+            $query['Product'] = $request->product;
+        }
+        if (!Utils::isUnset($request->ruleId)) {
+            $query['RuleId'] = $request->ruleId;
+        }
+        if (!Utils::isUnset($request->ruleName)) {
+            $query['RuleName'] = $request->ruleName;
+        }
+        if (!Utils::isUnset($request->searchKey)) {
+            $query['SearchKey'] = $request->searchKey;
+        }
+        if (!Utils::isUnset($request->sendStatus)) {
+            $query['SendStatus'] = $request->sendStatus;
+        }
+        if (!Utils::isUnset($request->startTime)) {
+            $query['StartTime'] = $request->startTime;
+        }
         $req = new OpenApiRequest([
-            'body' => Utils::toMap($request),
+            'query' => OpenApiUtilClient::query($query),
+        ]);
+        $params = new Params([
+            'action'      => 'DescribeAlertLogList',
+            'version'     => '2019-01-01',
+            'protocol'    => 'HTTPS',
+            'pathname'    => '/',
+            'method'      => 'POST',
+            'authType'    => 'AK',
+            'style'       => 'RPC',
+            'reqBodyType' => 'formData',
+            'bodyType'    => 'json',
         ]);
 
-        return DescribeAlertLogListResponse::fromMap($this->doRPCRequest('DescribeAlertLogList', '2019-01-01', 'HTTPS', 'POST', 'AK', 'json', $req, $runtime));
+        return DescribeAlertLogListResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
@@ -1582,6 +2711,46 @@ class Cms extends OpenApiClient
     }
 
     /**
+     * @param DescribeAlertingMetricRuleResourcesRequest $request
+     * @param RuntimeOptions                             $runtime
+     *
+     * @return DescribeAlertingMetricRuleResourcesResponse
+     */
+    public function describeAlertingMetricRuleResourcesWithOptions($request, $runtime)
+    {
+        Utils::validateModel($request);
+        $query = OpenApiUtilClient::query(Utils::toMap($request));
+        $req   = new OpenApiRequest([
+            'query' => OpenApiUtilClient::query($query),
+        ]);
+        $params = new Params([
+            'action'      => 'DescribeAlertingMetricRuleResources',
+            'version'     => '2019-01-01',
+            'protocol'    => 'HTTPS',
+            'pathname'    => '/',
+            'method'      => 'GET',
+            'authType'    => 'AK',
+            'style'       => 'RPC',
+            'reqBodyType' => 'formData',
+            'bodyType'    => 'json',
+        ]);
+
+        return DescribeAlertingMetricRuleResourcesResponse::fromMap($this->callApi($params, $req, $runtime));
+    }
+
+    /**
+     * @param DescribeAlertingMetricRuleResourcesRequest $request
+     *
+     * @return DescribeAlertingMetricRuleResourcesResponse
+     */
+    public function describeAlertingMetricRuleResources($request)
+    {
+        $runtime = new RuntimeOptions([]);
+
+        return $this->describeAlertingMetricRuleResourcesWithOptions($request, $runtime);
+    }
+
+    /**
      * @param DescribeContactGroupListRequest $request
      * @param RuntimeOptions                  $runtime
      *
@@ -1590,11 +2759,29 @@ class Cms extends OpenApiClient
     public function describeContactGroupListWithOptions($request, $runtime)
     {
         Utils::validateModel($request);
+        $query = [];
+        if (!Utils::isUnset($request->pageNumber)) {
+            $query['PageNumber'] = $request->pageNumber;
+        }
+        if (!Utils::isUnset($request->pageSize)) {
+            $query['PageSize'] = $request->pageSize;
+        }
         $req = new OpenApiRequest([
-            'body' => Utils::toMap($request),
+            'query' => OpenApiUtilClient::query($query),
+        ]);
+        $params = new Params([
+            'action'      => 'DescribeContactGroupList',
+            'version'     => '2019-01-01',
+            'protocol'    => 'HTTPS',
+            'pathname'    => '/',
+            'method'      => 'POST',
+            'authType'    => 'AK',
+            'style'       => 'RPC',
+            'reqBodyType' => 'formData',
+            'bodyType'    => 'json',
         ]);
 
-        return DescribeContactGroupListResponse::fromMap($this->doRPCRequest('DescribeContactGroupList', '2019-01-01', 'HTTPS', 'POST', 'AK', 'json', $req, $runtime));
+        return DescribeContactGroupListResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
@@ -1618,11 +2805,38 @@ class Cms extends OpenApiClient
     public function describeContactListWithOptions($request, $runtime)
     {
         Utils::validateModel($request);
+        $query = [];
+        if (!Utils::isUnset($request->chanelType)) {
+            $query['ChanelType'] = $request->chanelType;
+        }
+        if (!Utils::isUnset($request->chanelValue)) {
+            $query['ChanelValue'] = $request->chanelValue;
+        }
+        if (!Utils::isUnset($request->contactName)) {
+            $query['ContactName'] = $request->contactName;
+        }
+        if (!Utils::isUnset($request->pageNumber)) {
+            $query['PageNumber'] = $request->pageNumber;
+        }
+        if (!Utils::isUnset($request->pageSize)) {
+            $query['PageSize'] = $request->pageSize;
+        }
         $req = new OpenApiRequest([
-            'body' => Utils::toMap($request),
+            'query' => OpenApiUtilClient::query($query),
+        ]);
+        $params = new Params([
+            'action'      => 'DescribeContactList',
+            'version'     => '2019-01-01',
+            'protocol'    => 'HTTPS',
+            'pathname'    => '/',
+            'method'      => 'POST',
+            'authType'    => 'AK',
+            'style'       => 'RPC',
+            'reqBodyType' => 'formData',
+            'bodyType'    => 'json',
         ]);
 
-        return DescribeContactListResponse::fromMap($this->doRPCRequest('DescribeContactList', '2019-01-01', 'HTTPS', 'POST', 'AK', 'json', $req, $runtime));
+        return DescribeContactListResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
@@ -1646,11 +2860,26 @@ class Cms extends OpenApiClient
     public function describeContactListByContactGroupWithOptions($request, $runtime)
     {
         Utils::validateModel($request);
+        $query = [];
+        if (!Utils::isUnset($request->contactGroupName)) {
+            $query['ContactGroupName'] = $request->contactGroupName;
+        }
         $req = new OpenApiRequest([
-            'body' => Utils::toMap($request),
+            'query' => OpenApiUtilClient::query($query),
+        ]);
+        $params = new Params([
+            'action'      => 'DescribeContactListByContactGroup',
+            'version'     => '2019-01-01',
+            'protocol'    => 'HTTPS',
+            'pathname'    => '/',
+            'method'      => 'POST',
+            'authType'    => 'AK',
+            'style'       => 'RPC',
+            'reqBodyType' => 'formData',
+            'bodyType'    => 'json',
         ]);
 
-        return DescribeContactListByContactGroupResponse::fromMap($this->doRPCRequest('DescribeContactListByContactGroup', '2019-01-01', 'HTTPS', 'POST', 'AK', 'json', $req, $runtime));
+        return DescribeContactListByContactGroupResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
@@ -1674,11 +2903,47 @@ class Cms extends OpenApiClient
     public function describeCustomEventAttributeWithOptions($request, $runtime)
     {
         Utils::validateModel($request);
+        $query = [];
+        if (!Utils::isUnset($request->endTime)) {
+            $query['EndTime'] = $request->endTime;
+        }
+        if (!Utils::isUnset($request->eventId)) {
+            $query['EventId'] = $request->eventId;
+        }
+        if (!Utils::isUnset($request->groupId)) {
+            $query['GroupId'] = $request->groupId;
+        }
+        if (!Utils::isUnset($request->name)) {
+            $query['Name'] = $request->name;
+        }
+        if (!Utils::isUnset($request->pageNumber)) {
+            $query['PageNumber'] = $request->pageNumber;
+        }
+        if (!Utils::isUnset($request->pageSize)) {
+            $query['PageSize'] = $request->pageSize;
+        }
+        if (!Utils::isUnset($request->searchKeywords)) {
+            $query['SearchKeywords'] = $request->searchKeywords;
+        }
+        if (!Utils::isUnset($request->startTime)) {
+            $query['StartTime'] = $request->startTime;
+        }
         $req = new OpenApiRequest([
-            'body' => Utils::toMap($request),
+            'query' => OpenApiUtilClient::query($query),
+        ]);
+        $params = new Params([
+            'action'      => 'DescribeCustomEventAttribute',
+            'version'     => '2019-01-01',
+            'protocol'    => 'HTTPS',
+            'pathname'    => '/',
+            'method'      => 'POST',
+            'authType'    => 'AK',
+            'style'       => 'RPC',
+            'reqBodyType' => 'formData',
+            'bodyType'    => 'json',
         ]);
 
-        return DescribeCustomEventAttributeResponse::fromMap($this->doRPCRequest('DescribeCustomEventAttribute', '2019-01-01', 'HTTPS', 'POST', 'AK', 'json', $req, $runtime));
+        return DescribeCustomEventAttributeResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
@@ -1702,11 +2967,41 @@ class Cms extends OpenApiClient
     public function describeCustomEventCountWithOptions($request, $runtime)
     {
         Utils::validateModel($request);
+        $query = [];
+        if (!Utils::isUnset($request->endTime)) {
+            $query['EndTime'] = $request->endTime;
+        }
+        if (!Utils::isUnset($request->eventId)) {
+            $query['EventId'] = $request->eventId;
+        }
+        if (!Utils::isUnset($request->groupId)) {
+            $query['GroupId'] = $request->groupId;
+        }
+        if (!Utils::isUnset($request->name)) {
+            $query['Name'] = $request->name;
+        }
+        if (!Utils::isUnset($request->searchKeywords)) {
+            $query['SearchKeywords'] = $request->searchKeywords;
+        }
+        if (!Utils::isUnset($request->startTime)) {
+            $query['StartTime'] = $request->startTime;
+        }
         $req = new OpenApiRequest([
-            'body' => Utils::toMap($request),
+            'query' => OpenApiUtilClient::query($query),
+        ]);
+        $params = new Params([
+            'action'      => 'DescribeCustomEventCount',
+            'version'     => '2019-01-01',
+            'protocol'    => 'HTTPS',
+            'pathname'    => '/',
+            'method'      => 'POST',
+            'authType'    => 'AK',
+            'style'       => 'RPC',
+            'reqBodyType' => 'formData',
+            'bodyType'    => 'json',
         ]);
 
-        return DescribeCustomEventCountResponse::fromMap($this->doRPCRequest('DescribeCustomEventCount', '2019-01-01', 'HTTPS', 'POST', 'AK', 'json', $req, $runtime));
+        return DescribeCustomEventCountResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
@@ -1730,11 +3025,44 @@ class Cms extends OpenApiClient
     public function describeCustomEventHistogramWithOptions($request, $runtime)
     {
         Utils::validateModel($request);
+        $query = [];
+        if (!Utils::isUnset($request->endTime)) {
+            $query['EndTime'] = $request->endTime;
+        }
+        if (!Utils::isUnset($request->eventId)) {
+            $query['EventId'] = $request->eventId;
+        }
+        if (!Utils::isUnset($request->groupId)) {
+            $query['GroupId'] = $request->groupId;
+        }
+        if (!Utils::isUnset($request->level)) {
+            $query['Level'] = $request->level;
+        }
+        if (!Utils::isUnset($request->name)) {
+            $query['Name'] = $request->name;
+        }
+        if (!Utils::isUnset($request->searchKeywords)) {
+            $query['SearchKeywords'] = $request->searchKeywords;
+        }
+        if (!Utils::isUnset($request->startTime)) {
+            $query['StartTime'] = $request->startTime;
+        }
         $req = new OpenApiRequest([
-            'body' => Utils::toMap($request),
+            'query' => OpenApiUtilClient::query($query),
+        ]);
+        $params = new Params([
+            'action'      => 'DescribeCustomEventHistogram',
+            'version'     => '2019-01-01',
+            'protocol'    => 'HTTPS',
+            'pathname'    => '/',
+            'method'      => 'POST',
+            'authType'    => 'AK',
+            'style'       => 'RPC',
+            'reqBodyType' => 'formData',
+            'bodyType'    => 'json',
         ]);
 
-        return DescribeCustomEventHistogramResponse::fromMap($this->doRPCRequest('DescribeCustomEventHistogram', '2019-01-01', 'HTTPS', 'POST', 'AK', 'json', $req, $runtime));
+        return DescribeCustomEventHistogramResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
@@ -1758,11 +3086,41 @@ class Cms extends OpenApiClient
     public function describeCustomMetricListWithOptions($request, $runtime)
     {
         Utils::validateModel($request);
+        $query = [];
+        if (!Utils::isUnset($request->dimension)) {
+            $query['Dimension'] = $request->dimension;
+        }
+        if (!Utils::isUnset($request->groupId)) {
+            $query['GroupId'] = $request->groupId;
+        }
+        if (!Utils::isUnset($request->md5)) {
+            $query['Md5'] = $request->md5;
+        }
+        if (!Utils::isUnset($request->metricName)) {
+            $query['MetricName'] = $request->metricName;
+        }
+        if (!Utils::isUnset($request->pageNumber)) {
+            $query['PageNumber'] = $request->pageNumber;
+        }
+        if (!Utils::isUnset($request->pageSize)) {
+            $query['PageSize'] = $request->pageSize;
+        }
         $req = new OpenApiRequest([
-            'body' => Utils::toMap($request),
+            'query' => OpenApiUtilClient::query($query),
+        ]);
+        $params = new Params([
+            'action'      => 'DescribeCustomMetricList',
+            'version'     => '2019-01-01',
+            'protocol'    => 'HTTPS',
+            'pathname'    => '/',
+            'method'      => 'POST',
+            'authType'    => 'AK',
+            'style'       => 'RPC',
+            'reqBodyType' => 'formData',
+            'bodyType'    => 'json',
         ]);
 
-        return DescribeCustomMetricListResponse::fromMap($this->doRPCRequest('DescribeCustomMetricList', '2019-01-01', 'HTTPS', 'POST', 'AK', 'json', $req, $runtime));
+        return DescribeCustomMetricListResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
@@ -1786,11 +3144,38 @@ class Cms extends OpenApiClient
     public function describeDynamicTagRuleListWithOptions($request, $runtime)
     {
         Utils::validateModel($request);
+        $query = [];
+        if (!Utils::isUnset($request->pageNumber)) {
+            $query['PageNumber'] = $request->pageNumber;
+        }
+        if (!Utils::isUnset($request->pageSize)) {
+            $query['PageSize'] = $request->pageSize;
+        }
+        if (!Utils::isUnset($request->tagKey)) {
+            $query['TagKey'] = $request->tagKey;
+        }
+        if (!Utils::isUnset($request->tagRegionId)) {
+            $query['TagRegionId'] = $request->tagRegionId;
+        }
+        if (!Utils::isUnset($request->tagValue)) {
+            $query['TagValue'] = $request->tagValue;
+        }
         $req = new OpenApiRequest([
-            'body' => Utils::toMap($request),
+            'query' => OpenApiUtilClient::query($query),
+        ]);
+        $params = new Params([
+            'action'      => 'DescribeDynamicTagRuleList',
+            'version'     => '2019-01-01',
+            'protocol'    => 'HTTPS',
+            'pathname'    => '/',
+            'method'      => 'POST',
+            'authType'    => 'AK',
+            'style'       => 'RPC',
+            'reqBodyType' => 'formData',
+            'bodyType'    => 'json',
         ]);
 
-        return DescribeDynamicTagRuleListResponse::fromMap($this->doRPCRequest('DescribeDynamicTagRuleList', '2019-01-01', 'HTTPS', 'POST', 'AK', 'json', $req, $runtime));
+        return DescribeDynamicTagRuleListResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
@@ -1814,11 +3199,26 @@ class Cms extends OpenApiClient
     public function describeEventRuleAttributeWithOptions($request, $runtime)
     {
         Utils::validateModel($request);
+        $query = [];
+        if (!Utils::isUnset($request->ruleName)) {
+            $query['RuleName'] = $request->ruleName;
+        }
         $req = new OpenApiRequest([
-            'body' => Utils::toMap($request),
+            'query' => OpenApiUtilClient::query($query),
+        ]);
+        $params = new Params([
+            'action'      => 'DescribeEventRuleAttribute',
+            'version'     => '2019-01-01',
+            'protocol'    => 'HTTPS',
+            'pathname'    => '/',
+            'method'      => 'POST',
+            'authType'    => 'AK',
+            'style'       => 'RPC',
+            'reqBodyType' => 'formData',
+            'bodyType'    => 'json',
         ]);
 
-        return DescribeEventRuleAttributeResponse::fromMap($this->doRPCRequest('DescribeEventRuleAttribute', '2019-01-01', 'HTTPS', 'POST', 'AK', 'json', $req, $runtime));
+        return DescribeEventRuleAttributeResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
@@ -1842,11 +3242,35 @@ class Cms extends OpenApiClient
     public function describeEventRuleListWithOptions($request, $runtime)
     {
         Utils::validateModel($request);
+        $query = [];
+        if (!Utils::isUnset($request->groupId)) {
+            $query['GroupId'] = $request->groupId;
+        }
+        if (!Utils::isUnset($request->namePrefix)) {
+            $query['NamePrefix'] = $request->namePrefix;
+        }
+        if (!Utils::isUnset($request->pageNumber)) {
+            $query['PageNumber'] = $request->pageNumber;
+        }
+        if (!Utils::isUnset($request->pageSize)) {
+            $query['PageSize'] = $request->pageSize;
+        }
         $req = new OpenApiRequest([
-            'body' => Utils::toMap($request),
+            'query' => OpenApiUtilClient::query($query),
+        ]);
+        $params = new Params([
+            'action'      => 'DescribeEventRuleList',
+            'version'     => '2019-01-01',
+            'protocol'    => 'HTTPS',
+            'pathname'    => '/',
+            'method'      => 'POST',
+            'authType'    => 'AK',
+            'style'       => 'RPC',
+            'reqBodyType' => 'formData',
+            'bodyType'    => 'json',
         ]);
 
-        return DescribeEventRuleListResponse::fromMap($this->doRPCRequest('DescribeEventRuleList', '2019-01-01', 'HTTPS', 'POST', 'AK', 'json', $req, $runtime));
+        return DescribeEventRuleListResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
@@ -1870,11 +3294,26 @@ class Cms extends OpenApiClient
     public function describeEventRuleTargetListWithOptions($request, $runtime)
     {
         Utils::validateModel($request);
+        $query = [];
+        if (!Utils::isUnset($request->ruleName)) {
+            $query['RuleName'] = $request->ruleName;
+        }
         $req = new OpenApiRequest([
-            'body' => Utils::toMap($request),
+            'query' => OpenApiUtilClient::query($query),
+        ]);
+        $params = new Params([
+            'action'      => 'DescribeEventRuleTargetList',
+            'version'     => '2019-01-01',
+            'protocol'    => 'HTTPS',
+            'pathname'    => '/',
+            'method'      => 'POST',
+            'authType'    => 'AK',
+            'style'       => 'RPC',
+            'reqBodyType' => 'formData',
+            'bodyType'    => 'json',
         ]);
 
-        return DescribeEventRuleTargetListResponse::fromMap($this->doRPCRequest('DescribeEventRuleTargetList', '2019-01-01', 'HTTPS', 'POST', 'AK', 'json', $req, $runtime));
+        return DescribeEventRuleTargetListResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
@@ -1898,11 +3337,29 @@ class Cms extends OpenApiClient
     public function describeExporterOutputListWithOptions($request, $runtime)
     {
         Utils::validateModel($request);
+        $query = [];
+        if (!Utils::isUnset($request->pageNumber)) {
+            $query['PageNumber'] = $request->pageNumber;
+        }
+        if (!Utils::isUnset($request->pageSize)) {
+            $query['PageSize'] = $request->pageSize;
+        }
         $req = new OpenApiRequest([
-            'body' => Utils::toMap($request),
+            'query' => OpenApiUtilClient::query($query),
+        ]);
+        $params = new Params([
+            'action'      => 'DescribeExporterOutputList',
+            'version'     => '2019-01-01',
+            'protocol'    => 'HTTPS',
+            'pathname'    => '/',
+            'method'      => 'POST',
+            'authType'    => 'AK',
+            'style'       => 'RPC',
+            'reqBodyType' => 'formData',
+            'bodyType'    => 'json',
         ]);
 
-        return DescribeExporterOutputListResponse::fromMap($this->doRPCRequest('DescribeExporterOutputList', '2019-01-01', 'HTTPS', 'POST', 'AK', 'json', $req, $runtime));
+        return DescribeExporterOutputListResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
@@ -1926,11 +3383,29 @@ class Cms extends OpenApiClient
     public function describeExporterRuleListWithOptions($request, $runtime)
     {
         Utils::validateModel($request);
+        $query = [];
+        if (!Utils::isUnset($request->pageNumber)) {
+            $query['PageNumber'] = $request->pageNumber;
+        }
+        if (!Utils::isUnset($request->pageSize)) {
+            $query['PageSize'] = $request->pageSize;
+        }
         $req = new OpenApiRequest([
-            'body' => Utils::toMap($request),
+            'query' => OpenApiUtilClient::query($query),
+        ]);
+        $params = new Params([
+            'action'      => 'DescribeExporterRuleList',
+            'version'     => '2019-01-01',
+            'protocol'    => 'HTTPS',
+            'pathname'    => '/',
+            'method'      => 'POST',
+            'authType'    => 'AK',
+            'style'       => 'RPC',
+            'reqBodyType' => 'formData',
+            'bodyType'    => 'json',
         ]);
 
-        return DescribeExporterRuleListResponse::fromMap($this->doRPCRequest('DescribeExporterRuleList', '2019-01-01', 'HTTPS', 'POST', 'AK', 'json', $req, $runtime));
+        return DescribeExporterRuleListResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
@@ -1954,11 +3429,35 @@ class Cms extends OpenApiClient
     public function describeGroupMonitoringAgentProcessWithOptions($request, $runtime)
     {
         Utils::validateModel($request);
+        $query = [];
+        if (!Utils::isUnset($request->groupId)) {
+            $query['GroupId'] = $request->groupId;
+        }
+        if (!Utils::isUnset($request->pageNumber)) {
+            $query['PageNumber'] = $request->pageNumber;
+        }
+        if (!Utils::isUnset($request->pageSize)) {
+            $query['PageSize'] = $request->pageSize;
+        }
+        if (!Utils::isUnset($request->processName)) {
+            $query['ProcessName'] = $request->processName;
+        }
         $req = new OpenApiRequest([
-            'body' => Utils::toMap($request),
+            'query' => OpenApiUtilClient::query($query),
+        ]);
+        $params = new Params([
+            'action'      => 'DescribeGroupMonitoringAgentProcess',
+            'version'     => '2019-01-01',
+            'protocol'    => 'HTTPS',
+            'pathname'    => '/',
+            'method'      => 'POST',
+            'authType'    => 'AK',
+            'style'       => 'RPC',
+            'reqBodyType' => 'formData',
+            'bodyType'    => 'json',
         ]);
 
-        return DescribeGroupMonitoringAgentProcessResponse::fromMap($this->doRPCRequest('DescribeGroupMonitoringAgentProcess', '2019-01-01', 'HTTPS', 'POST', 'AK', 'json', $req, $runtime));
+        return DescribeGroupMonitoringAgentProcessResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
@@ -1982,11 +3481,41 @@ class Cms extends OpenApiClient
     public function describeHostAvailabilityListWithOptions($request, $runtime)
     {
         Utils::validateModel($request);
+        $query = [];
+        if (!Utils::isUnset($request->groupId)) {
+            $query['GroupId'] = $request->groupId;
+        }
+        if (!Utils::isUnset($request->id)) {
+            $query['Id'] = $request->id;
+        }
+        if (!Utils::isUnset($request->ids)) {
+            $query['Ids'] = $request->ids;
+        }
+        if (!Utils::isUnset($request->pageNumber)) {
+            $query['PageNumber'] = $request->pageNumber;
+        }
+        if (!Utils::isUnset($request->pageSize)) {
+            $query['PageSize'] = $request->pageSize;
+        }
+        if (!Utils::isUnset($request->taskName)) {
+            $query['TaskName'] = $request->taskName;
+        }
         $req = new OpenApiRequest([
-            'body' => Utils::toMap($request),
+            'query' => OpenApiUtilClient::query($query),
+        ]);
+        $params = new Params([
+            'action'      => 'DescribeHostAvailabilityList',
+            'version'     => '2019-01-01',
+            'protocol'    => 'HTTPS',
+            'pathname'    => '/',
+            'method'      => 'POST',
+            'authType'    => 'AK',
+            'style'       => 'RPC',
+            'reqBodyType' => 'formData',
+            'bodyType'    => 'json',
         ]);
 
-        return DescribeHostAvailabilityListResponse::fromMap($this->doRPCRequest('DescribeHostAvailabilityList', '2019-01-01', 'HTTPS', 'POST', 'AK', 'json', $req, $runtime));
+        return DescribeHostAvailabilityListResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
@@ -2012,10 +3541,21 @@ class Cms extends OpenApiClient
         Utils::validateModel($request);
         $query = OpenApiUtilClient::query(Utils::toMap($request));
         $req   = new OpenApiRequest([
-            'query' => $query,
+            'query' => OpenApiUtilClient::query($query),
+        ]);
+        $params = new Params([
+            'action'      => 'DescribeLogMonitorAttribute',
+            'version'     => '2019-01-01',
+            'protocol'    => 'HTTPS',
+            'pathname'    => '/',
+            'method'      => 'GET',
+            'authType'    => 'AK',
+            'style'       => 'RPC',
+            'reqBodyType' => 'formData',
+            'bodyType'    => 'json',
         ]);
 
-        return DescribeLogMonitorAttributeResponse::fromMap($this->doRPCRequest('DescribeLogMonitorAttribute', '2019-01-01', 'HTTPS', 'GET', 'AK', 'json', $req, $runtime));
+        return DescribeLogMonitorAttributeResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
@@ -2039,11 +3579,35 @@ class Cms extends OpenApiClient
     public function describeLogMonitorListWithOptions($request, $runtime)
     {
         Utils::validateModel($request);
+        $query = [];
+        if (!Utils::isUnset($request->groupId)) {
+            $query['GroupId'] = $request->groupId;
+        }
+        if (!Utils::isUnset($request->pageNumber)) {
+            $query['PageNumber'] = $request->pageNumber;
+        }
+        if (!Utils::isUnset($request->pageSize)) {
+            $query['PageSize'] = $request->pageSize;
+        }
+        if (!Utils::isUnset($request->searchValue)) {
+            $query['SearchValue'] = $request->searchValue;
+        }
         $req = new OpenApiRequest([
-            'body' => Utils::toMap($request),
+            'query' => OpenApiUtilClient::query($query),
+        ]);
+        $params = new Params([
+            'action'      => 'DescribeLogMonitorList',
+            'version'     => '2019-01-01',
+            'protocol'    => 'HTTPS',
+            'pathname'    => '/',
+            'method'      => 'POST',
+            'authType'    => 'AK',
+            'style'       => 'RPC',
+            'reqBodyType' => 'formData',
+            'bodyType'    => 'json',
         ]);
 
-        return DescribeLogMonitorListResponse::fromMap($this->doRPCRequest('DescribeLogMonitorList', '2019-01-01', 'HTTPS', 'POST', 'AK', 'json', $req, $runtime));
+        return DescribeLogMonitorListResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
@@ -2067,11 +3631,47 @@ class Cms extends OpenApiClient
     public function describeMetricDataWithOptions($request, $runtime)
     {
         Utils::validateModel($request);
+        $query = [];
+        if (!Utils::isUnset($request->dimensions)) {
+            $query['Dimensions'] = $request->dimensions;
+        }
+        if (!Utils::isUnset($request->endTime)) {
+            $query['EndTime'] = $request->endTime;
+        }
+        if (!Utils::isUnset($request->express)) {
+            $query['Express'] = $request->express;
+        }
+        if (!Utils::isUnset($request->length)) {
+            $query['Length'] = $request->length;
+        }
+        if (!Utils::isUnset($request->metricName)) {
+            $query['MetricName'] = $request->metricName;
+        }
+        if (!Utils::isUnset($request->namespace_)) {
+            $query['Namespace'] = $request->namespace_;
+        }
+        if (!Utils::isUnset($request->period)) {
+            $query['Period'] = $request->period;
+        }
+        if (!Utils::isUnset($request->startTime)) {
+            $query['StartTime'] = $request->startTime;
+        }
         $req = new OpenApiRequest([
-            'body' => Utils::toMap($request),
+            'query' => OpenApiUtilClient::query($query),
+        ]);
+        $params = new Params([
+            'action'      => 'DescribeMetricData',
+            'version'     => '2019-01-01',
+            'protocol'    => 'HTTPS',
+            'pathname'    => '/',
+            'method'      => 'POST',
+            'authType'    => 'AK',
+            'style'       => 'RPC',
+            'reqBodyType' => 'formData',
+            'bodyType'    => 'json',
         ]);
 
-        return DescribeMetricDataResponse::fromMap($this->doRPCRequest('DescribeMetricData', '2019-01-01', 'HTTPS', 'POST', 'AK', 'json', $req, $runtime));
+        return DescribeMetricDataResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
@@ -2095,11 +3695,50 @@ class Cms extends OpenApiClient
     public function describeMetricLastWithOptions($request, $runtime)
     {
         Utils::validateModel($request);
+        $query = [];
+        if (!Utils::isUnset($request->dimensions)) {
+            $query['Dimensions'] = $request->dimensions;
+        }
+        if (!Utils::isUnset($request->endTime)) {
+            $query['EndTime'] = $request->endTime;
+        }
+        if (!Utils::isUnset($request->express)) {
+            $query['Express'] = $request->express;
+        }
+        if (!Utils::isUnset($request->length)) {
+            $query['Length'] = $request->length;
+        }
+        if (!Utils::isUnset($request->metricName)) {
+            $query['MetricName'] = $request->metricName;
+        }
+        if (!Utils::isUnset($request->namespace_)) {
+            $query['Namespace'] = $request->namespace_;
+        }
+        if (!Utils::isUnset($request->nextToken)) {
+            $query['NextToken'] = $request->nextToken;
+        }
+        if (!Utils::isUnset($request->period)) {
+            $query['Period'] = $request->period;
+        }
+        if (!Utils::isUnset($request->startTime)) {
+            $query['StartTime'] = $request->startTime;
+        }
         $req = new OpenApiRequest([
-            'body' => Utils::toMap($request),
+            'query' => OpenApiUtilClient::query($query),
+        ]);
+        $params = new Params([
+            'action'      => 'DescribeMetricLast',
+            'version'     => '2019-01-01',
+            'protocol'    => 'HTTPS',
+            'pathname'    => '/',
+            'method'      => 'POST',
+            'authType'    => 'AK',
+            'style'       => 'RPC',
+            'reqBodyType' => 'formData',
+            'bodyType'    => 'json',
         ]);
 
-        return DescribeMetricLastResponse::fromMap($this->doRPCRequest('DescribeMetricLast', '2019-01-01', 'HTTPS', 'POST', 'AK', 'json', $req, $runtime));
+        return DescribeMetricLastResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
@@ -2123,11 +3762,50 @@ class Cms extends OpenApiClient
     public function describeMetricListWithOptions($request, $runtime)
     {
         Utils::validateModel($request);
+        $query = [];
+        if (!Utils::isUnset($request->dimensions)) {
+            $query['Dimensions'] = $request->dimensions;
+        }
+        if (!Utils::isUnset($request->endTime)) {
+            $query['EndTime'] = $request->endTime;
+        }
+        if (!Utils::isUnset($request->express)) {
+            $query['Express'] = $request->express;
+        }
+        if (!Utils::isUnset($request->length)) {
+            $query['Length'] = $request->length;
+        }
+        if (!Utils::isUnset($request->metricName)) {
+            $query['MetricName'] = $request->metricName;
+        }
+        if (!Utils::isUnset($request->namespace_)) {
+            $query['Namespace'] = $request->namespace_;
+        }
+        if (!Utils::isUnset($request->nextToken)) {
+            $query['NextToken'] = $request->nextToken;
+        }
+        if (!Utils::isUnset($request->period)) {
+            $query['Period'] = $request->period;
+        }
+        if (!Utils::isUnset($request->startTime)) {
+            $query['StartTime'] = $request->startTime;
+        }
         $req = new OpenApiRequest([
-            'body' => Utils::toMap($request),
+            'query' => OpenApiUtilClient::query($query),
+        ]);
+        $params = new Params([
+            'action'      => 'DescribeMetricList',
+            'version'     => '2019-01-01',
+            'protocol'    => 'HTTPS',
+            'pathname'    => '/',
+            'method'      => 'POST',
+            'authType'    => 'AK',
+            'style'       => 'RPC',
+            'reqBodyType' => 'formData',
+            'bodyType'    => 'json',
         ]);
 
-        return DescribeMetricListResponse::fromMap($this->doRPCRequest('DescribeMetricList', '2019-01-01', 'HTTPS', 'POST', 'AK', 'json', $req, $runtime));
+        return DescribeMetricListResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
@@ -2151,11 +3829,38 @@ class Cms extends OpenApiClient
     public function describeMetricMetaListWithOptions($request, $runtime)
     {
         Utils::validateModel($request);
+        $query = [];
+        if (!Utils::isUnset($request->labels)) {
+            $query['Labels'] = $request->labels;
+        }
+        if (!Utils::isUnset($request->metricName)) {
+            $query['MetricName'] = $request->metricName;
+        }
+        if (!Utils::isUnset($request->namespace_)) {
+            $query['Namespace'] = $request->namespace_;
+        }
+        if (!Utils::isUnset($request->pageNumber)) {
+            $query['PageNumber'] = $request->pageNumber;
+        }
+        if (!Utils::isUnset($request->pageSize)) {
+            $query['PageSize'] = $request->pageSize;
+        }
         $req = new OpenApiRequest([
-            'body' => Utils::toMap($request),
+            'query' => OpenApiUtilClient::query($query),
+        ]);
+        $params = new Params([
+            'action'      => 'DescribeMetricMetaList',
+            'version'     => '2019-01-01',
+            'protocol'    => 'HTTPS',
+            'pathname'    => '/',
+            'method'      => 'POST',
+            'authType'    => 'AK',
+            'style'       => 'RPC',
+            'reqBodyType' => 'formData',
+            'bodyType'    => 'json',
         ]);
 
-        return DescribeMetricMetaListResponse::fromMap($this->doRPCRequest('DescribeMetricMetaList', '2019-01-01', 'HTTPS', 'POST', 'AK', 'json', $req, $runtime));
+        return DescribeMetricMetaListResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
@@ -2181,10 +3886,21 @@ class Cms extends OpenApiClient
         Utils::validateModel($request);
         $query = OpenApiUtilClient::query(Utils::toMap($request));
         $req   = new OpenApiRequest([
-            'query' => $query,
+            'query' => OpenApiUtilClient::query($query),
+        ]);
+        $params = new Params([
+            'action'      => 'DescribeMetricRuleCount',
+            'version'     => '2019-01-01',
+            'protocol'    => 'HTTPS',
+            'pathname'    => '/',
+            'method'      => 'GET',
+            'authType'    => 'AK',
+            'style'       => 'RPC',
+            'reqBodyType' => 'formData',
+            'bodyType'    => 'json',
         ]);
 
-        return DescribeMetricRuleCountResponse::fromMap($this->doRPCRequest('DescribeMetricRuleCount', '2019-01-01', 'HTTPS', 'GET', 'AK', 'json', $req, $runtime));
+        return DescribeMetricRuleCountResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
@@ -2208,11 +3924,53 @@ class Cms extends OpenApiClient
     public function describeMetricRuleListWithOptions($request, $runtime)
     {
         Utils::validateModel($request);
+        $query = [];
+        if (!Utils::isUnset($request->alertState)) {
+            $query['AlertState'] = $request->alertState;
+        }
+        if (!Utils::isUnset($request->dimensions)) {
+            $query['Dimensions'] = $request->dimensions;
+        }
+        if (!Utils::isUnset($request->enableState)) {
+            $query['EnableState'] = $request->enableState;
+        }
+        if (!Utils::isUnset($request->groupId)) {
+            $query['GroupId'] = $request->groupId;
+        }
+        if (!Utils::isUnset($request->metricName)) {
+            $query['MetricName'] = $request->metricName;
+        }
+        if (!Utils::isUnset($request->namespace_)) {
+            $query['Namespace'] = $request->namespace_;
+        }
+        if (!Utils::isUnset($request->page)) {
+            $query['Page'] = $request->page;
+        }
+        if (!Utils::isUnset($request->pageSize)) {
+            $query['PageSize'] = $request->pageSize;
+        }
+        if (!Utils::isUnset($request->ruleIds)) {
+            $query['RuleIds'] = $request->ruleIds;
+        }
+        if (!Utils::isUnset($request->ruleName)) {
+            $query['RuleName'] = $request->ruleName;
+        }
         $req = new OpenApiRequest([
-            'body' => Utils::toMap($request),
+            'query' => OpenApiUtilClient::query($query),
+        ]);
+        $params = new Params([
+            'action'      => 'DescribeMetricRuleList',
+            'version'     => '2019-01-01',
+            'protocol'    => 'HTTPS',
+            'pathname'    => '/',
+            'method'      => 'POST',
+            'authType'    => 'AK',
+            'style'       => 'RPC',
+            'reqBodyType' => 'formData',
+            'bodyType'    => 'json',
         ]);
 
-        return DescribeMetricRuleListResponse::fromMap($this->doRPCRequest('DescribeMetricRuleList', '2019-01-01', 'HTTPS', 'POST', 'AK', 'json', $req, $runtime));
+        return DescribeMetricRuleListResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
@@ -2236,11 +3994,26 @@ class Cms extends OpenApiClient
     public function describeMetricRuleTargetsWithOptions($request, $runtime)
     {
         Utils::validateModel($request);
+        $query = [];
+        if (!Utils::isUnset($request->ruleId)) {
+            $query['RuleId'] = $request->ruleId;
+        }
         $req = new OpenApiRequest([
-            'body' => Utils::toMap($request),
+            'query' => OpenApiUtilClient::query($query),
+        ]);
+        $params = new Params([
+            'action'      => 'DescribeMetricRuleTargets',
+            'version'     => '2019-01-01',
+            'protocol'    => 'HTTPS',
+            'pathname'    => '/',
+            'method'      => 'POST',
+            'authType'    => 'AK',
+            'style'       => 'RPC',
+            'reqBodyType' => 'formData',
+            'bodyType'    => 'json',
         ]);
 
-        return DescribeMetricRuleTargetsResponse::fromMap($this->doRPCRequest('DescribeMetricRuleTargets', '2019-01-01', 'HTTPS', 'POST', 'AK', 'json', $req, $runtime));
+        return DescribeMetricRuleTargetsResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
@@ -2264,11 +4037,29 @@ class Cms extends OpenApiClient
     public function describeMetricRuleTemplateAttributeWithOptions($request, $runtime)
     {
         Utils::validateModel($request);
+        $query = [];
+        if (!Utils::isUnset($request->name)) {
+            $query['Name'] = $request->name;
+        }
+        if (!Utils::isUnset($request->templateId)) {
+            $query['TemplateId'] = $request->templateId;
+        }
         $req = new OpenApiRequest([
-            'body' => Utils::toMap($request),
+            'query' => OpenApiUtilClient::query($query),
+        ]);
+        $params = new Params([
+            'action'      => 'DescribeMetricRuleTemplateAttribute',
+            'version'     => '2019-01-01',
+            'protocol'    => 'HTTPS',
+            'pathname'    => '/',
+            'method'      => 'POST',
+            'authType'    => 'AK',
+            'style'       => 'RPC',
+            'reqBodyType' => 'formData',
+            'bodyType'    => 'json',
         ]);
 
-        return DescribeMetricRuleTemplateAttributeResponse::fromMap($this->doRPCRequest('DescribeMetricRuleTemplateAttribute', '2019-01-01', 'HTTPS', 'POST', 'AK', 'json', $req, $runtime));
+        return DescribeMetricRuleTemplateAttributeResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
@@ -2292,11 +4083,41 @@ class Cms extends OpenApiClient
     public function describeMetricRuleTemplateListWithOptions($request, $runtime)
     {
         Utils::validateModel($request);
+        $query = [];
+        if (!Utils::isUnset($request->history)) {
+            $query['History'] = $request->history;
+        }
+        if (!Utils::isUnset($request->keyword)) {
+            $query['Keyword'] = $request->keyword;
+        }
+        if (!Utils::isUnset($request->name)) {
+            $query['Name'] = $request->name;
+        }
+        if (!Utils::isUnset($request->pageNumber)) {
+            $query['PageNumber'] = $request->pageNumber;
+        }
+        if (!Utils::isUnset($request->pageSize)) {
+            $query['PageSize'] = $request->pageSize;
+        }
+        if (!Utils::isUnset($request->templateId)) {
+            $query['TemplateId'] = $request->templateId;
+        }
         $req = new OpenApiRequest([
-            'body' => Utils::toMap($request),
+            'query' => OpenApiUtilClient::query($query),
+        ]);
+        $params = new Params([
+            'action'      => 'DescribeMetricRuleTemplateList',
+            'version'     => '2019-01-01',
+            'protocol'    => 'HTTPS',
+            'pathname'    => '/',
+            'method'      => 'POST',
+            'authType'    => 'AK',
+            'style'       => 'RPC',
+            'reqBodyType' => 'formData',
+            'bodyType'    => 'json',
         ]);
 
-        return DescribeMetricRuleTemplateListResponse::fromMap($this->doRPCRequest('DescribeMetricRuleTemplateList', '2019-01-01', 'HTTPS', 'POST', 'AK', 'json', $req, $runtime));
+        return DescribeMetricRuleTemplateListResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
@@ -2320,11 +4141,53 @@ class Cms extends OpenApiClient
     public function describeMetricTopWithOptions($request, $runtime)
     {
         Utils::validateModel($request);
+        $query = [];
+        if (!Utils::isUnset($request->dimensions)) {
+            $query['Dimensions'] = $request->dimensions;
+        }
+        if (!Utils::isUnset($request->endTime)) {
+            $query['EndTime'] = $request->endTime;
+        }
+        if (!Utils::isUnset($request->express)) {
+            $query['Express'] = $request->express;
+        }
+        if (!Utils::isUnset($request->length)) {
+            $query['Length'] = $request->length;
+        }
+        if (!Utils::isUnset($request->metricName)) {
+            $query['MetricName'] = $request->metricName;
+        }
+        if (!Utils::isUnset($request->namespace_)) {
+            $query['Namespace'] = $request->namespace_;
+        }
+        if (!Utils::isUnset($request->orderDesc)) {
+            $query['OrderDesc'] = $request->orderDesc;
+        }
+        if (!Utils::isUnset($request->orderby)) {
+            $query['Orderby'] = $request->orderby;
+        }
+        if (!Utils::isUnset($request->period)) {
+            $query['Period'] = $request->period;
+        }
+        if (!Utils::isUnset($request->startTime)) {
+            $query['StartTime'] = $request->startTime;
+        }
         $req = new OpenApiRequest([
-            'body' => Utils::toMap($request),
+            'query' => OpenApiUtilClient::query($query),
+        ]);
+        $params = new Params([
+            'action'      => 'DescribeMetricTop',
+            'version'     => '2019-01-01',
+            'protocol'    => 'HTTPS',
+            'pathname'    => '/',
+            'method'      => 'POST',
+            'authType'    => 'AK',
+            'style'       => 'RPC',
+            'reqBodyType' => 'formData',
+            'bodyType'    => 'json',
         ]);
 
-        return DescribeMetricTopResponse::fromMap($this->doRPCRequest('DescribeMetricTop', '2019-01-01', 'HTTPS', 'POST', 'AK', 'json', $req, $runtime));
+        return DescribeMetricTopResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
@@ -2348,11 +4211,26 @@ class Cms extends OpenApiClient
     public function describeMonitorGroupCategoriesWithOptions($request, $runtime)
     {
         Utils::validateModel($request);
+        $query = [];
+        if (!Utils::isUnset($request->groupId)) {
+            $query['GroupId'] = $request->groupId;
+        }
         $req = new OpenApiRequest([
-            'body' => Utils::toMap($request),
+            'query' => OpenApiUtilClient::query($query),
+        ]);
+        $params = new Params([
+            'action'      => 'DescribeMonitorGroupCategories',
+            'version'     => '2019-01-01',
+            'protocol'    => 'HTTPS',
+            'pathname'    => '/',
+            'method'      => 'POST',
+            'authType'    => 'AK',
+            'style'       => 'RPC',
+            'reqBodyType' => 'formData',
+            'bodyType'    => 'json',
         ]);
 
-        return DescribeMonitorGroupCategoriesResponse::fromMap($this->doRPCRequest('DescribeMonitorGroupCategories', '2019-01-01', 'HTTPS', 'POST', 'AK', 'json', $req, $runtime));
+        return DescribeMonitorGroupCategoriesResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
@@ -2376,11 +4254,26 @@ class Cms extends OpenApiClient
     public function describeMonitorGroupDynamicRulesWithOptions($request, $runtime)
     {
         Utils::validateModel($request);
+        $query = [];
+        if (!Utils::isUnset($request->groupId)) {
+            $query['GroupId'] = $request->groupId;
+        }
         $req = new OpenApiRequest([
-            'body' => Utils::toMap($request),
+            'query' => OpenApiUtilClient::query($query),
+        ]);
+        $params = new Params([
+            'action'      => 'DescribeMonitorGroupDynamicRules',
+            'version'     => '2019-01-01',
+            'protocol'    => 'HTTPS',
+            'pathname'    => '/',
+            'method'      => 'POST',
+            'authType'    => 'AK',
+            'style'       => 'RPC',
+            'reqBodyType' => 'formData',
+            'bodyType'    => 'json',
         ]);
 
-        return DescribeMonitorGroupDynamicRulesResponse::fromMap($this->doRPCRequest('DescribeMonitorGroupDynamicRules', '2019-01-01', 'HTTPS', 'POST', 'AK', 'json', $req, $runtime));
+        return DescribeMonitorGroupDynamicRulesResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
@@ -2404,11 +4297,44 @@ class Cms extends OpenApiClient
     public function describeMonitorGroupInstanceAttributeWithOptions($request, $runtime)
     {
         Utils::validateModel($request);
+        $query = [];
+        if (!Utils::isUnset($request->category)) {
+            $query['Category'] = $request->category;
+        }
+        if (!Utils::isUnset($request->groupId)) {
+            $query['GroupId'] = $request->groupId;
+        }
+        if (!Utils::isUnset($request->instanceIds)) {
+            $query['InstanceIds'] = $request->instanceIds;
+        }
+        if (!Utils::isUnset($request->keyword)) {
+            $query['Keyword'] = $request->keyword;
+        }
+        if (!Utils::isUnset($request->pageNumber)) {
+            $query['PageNumber'] = $request->pageNumber;
+        }
+        if (!Utils::isUnset($request->pageSize)) {
+            $query['PageSize'] = $request->pageSize;
+        }
+        if (!Utils::isUnset($request->total)) {
+            $query['Total'] = $request->total;
+        }
         $req = new OpenApiRequest([
-            'body' => Utils::toMap($request),
+            'query' => OpenApiUtilClient::query($query),
+        ]);
+        $params = new Params([
+            'action'      => 'DescribeMonitorGroupInstanceAttribute',
+            'version'     => '2019-01-01',
+            'protocol'    => 'HTTPS',
+            'pathname'    => '/',
+            'method'      => 'POST',
+            'authType'    => 'AK',
+            'style'       => 'RPC',
+            'reqBodyType' => 'formData',
+            'bodyType'    => 'json',
         ]);
 
-        return DescribeMonitorGroupInstanceAttributeResponse::fromMap($this->doRPCRequest('DescribeMonitorGroupInstanceAttribute', '2019-01-01', 'HTTPS', 'POST', 'AK', 'json', $req, $runtime));
+        return DescribeMonitorGroupInstanceAttributeResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
@@ -2432,11 +4358,41 @@ class Cms extends OpenApiClient
     public function describeMonitorGroupInstancesWithOptions($request, $runtime)
     {
         Utils::validateModel($request);
+        $query = [];
+        if (!Utils::isUnset($request->category)) {
+            $query['Category'] = $request->category;
+        }
+        if (!Utils::isUnset($request->groupId)) {
+            $query['GroupId'] = $request->groupId;
+        }
+        if (!Utils::isUnset($request->instanceIds)) {
+            $query['InstanceIds'] = $request->instanceIds;
+        }
+        if (!Utils::isUnset($request->keyword)) {
+            $query['Keyword'] = $request->keyword;
+        }
+        if (!Utils::isUnset($request->pageNumber)) {
+            $query['PageNumber'] = $request->pageNumber;
+        }
+        if (!Utils::isUnset($request->pageSize)) {
+            $query['PageSize'] = $request->pageSize;
+        }
         $req = new OpenApiRequest([
-            'body' => Utils::toMap($request),
+            'query' => OpenApiUtilClient::query($query),
+        ]);
+        $params = new Params([
+            'action'      => 'DescribeMonitorGroupInstances',
+            'version'     => '2019-01-01',
+            'protocol'    => 'HTTPS',
+            'pathname'    => '/',
+            'method'      => 'POST',
+            'authType'    => 'AK',
+            'style'       => 'RPC',
+            'reqBodyType' => 'formData',
+            'bodyType'    => 'json',
         ]);
 
-        return DescribeMonitorGroupInstancesResponse::fromMap($this->doRPCRequest('DescribeMonitorGroupInstances', '2019-01-01', 'HTTPS', 'POST', 'AK', 'json', $req, $runtime));
+        return DescribeMonitorGroupInstancesResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
@@ -2460,11 +4416,35 @@ class Cms extends OpenApiClient
     public function describeMonitorGroupNotifyPolicyListWithOptions($request, $runtime)
     {
         Utils::validateModel($request);
+        $query = [];
+        if (!Utils::isUnset($request->groupId)) {
+            $query['GroupId'] = $request->groupId;
+        }
+        if (!Utils::isUnset($request->pageNumber)) {
+            $query['PageNumber'] = $request->pageNumber;
+        }
+        if (!Utils::isUnset($request->pageSize)) {
+            $query['PageSize'] = $request->pageSize;
+        }
+        if (!Utils::isUnset($request->policyType)) {
+            $query['PolicyType'] = $request->policyType;
+        }
         $req = new OpenApiRequest([
-            'body' => Utils::toMap($request),
+            'query' => OpenApiUtilClient::query($query),
+        ]);
+        $params = new Params([
+            'action'      => 'DescribeMonitorGroupNotifyPolicyList',
+            'version'     => '2019-01-01',
+            'protocol'    => 'HTTPS',
+            'pathname'    => '/',
+            'method'      => 'POST',
+            'authType'    => 'AK',
+            'style'       => 'RPC',
+            'reqBodyType' => 'formData',
+            'bodyType'    => 'json',
         ]);
 
-        return DescribeMonitorGroupNotifyPolicyListResponse::fromMap($this->doRPCRequest('DescribeMonitorGroupNotifyPolicyList', '2019-01-01', 'HTTPS', 'POST', 'AK', 'json', $req, $runtime));
+        return DescribeMonitorGroupNotifyPolicyListResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
@@ -2488,11 +4468,62 @@ class Cms extends OpenApiClient
     public function describeMonitorGroupsWithOptions($request, $runtime)
     {
         Utils::validateModel($request);
+        $query = [];
+        if (!Utils::isUnset($request->dynamicTagRuleId)) {
+            $query['DynamicTagRuleId'] = $request->dynamicTagRuleId;
+        }
+        if (!Utils::isUnset($request->groupFounderTagKey)) {
+            $query['GroupFounderTagKey'] = $request->groupFounderTagKey;
+        }
+        if (!Utils::isUnset($request->groupFounderTagValue)) {
+            $query['GroupFounderTagValue'] = $request->groupFounderTagValue;
+        }
+        if (!Utils::isUnset($request->groupId)) {
+            $query['GroupId'] = $request->groupId;
+        }
+        if (!Utils::isUnset($request->groupName)) {
+            $query['GroupName'] = $request->groupName;
+        }
+        if (!Utils::isUnset($request->includeTemplateHistory)) {
+            $query['IncludeTemplateHistory'] = $request->includeTemplateHistory;
+        }
+        if (!Utils::isUnset($request->instanceId)) {
+            $query['InstanceId'] = $request->instanceId;
+        }
+        if (!Utils::isUnset($request->keyword)) {
+            $query['Keyword'] = $request->keyword;
+        }
+        if (!Utils::isUnset($request->pageNumber)) {
+            $query['PageNumber'] = $request->pageNumber;
+        }
+        if (!Utils::isUnset($request->pageSize)) {
+            $query['PageSize'] = $request->pageSize;
+        }
+        if (!Utils::isUnset($request->selectContactGroups)) {
+            $query['SelectContactGroups'] = $request->selectContactGroups;
+        }
+        if (!Utils::isUnset($request->tag)) {
+            $query['Tag'] = $request->tag;
+        }
+        if (!Utils::isUnset($request->type)) {
+            $query['Type'] = $request->type;
+        }
         $req = new OpenApiRequest([
-            'body' => Utils::toMap($request),
+            'query' => OpenApiUtilClient::query($query),
+        ]);
+        $params = new Params([
+            'action'      => 'DescribeMonitorGroups',
+            'version'     => '2019-01-01',
+            'protocol'    => 'HTTPS',
+            'pathname'    => '/',
+            'method'      => 'POST',
+            'authType'    => 'AK',
+            'style'       => 'RPC',
+            'reqBodyType' => 'formData',
+            'bodyType'    => 'json',
         ]);
 
-        return DescribeMonitorGroupsResponse::fromMap($this->doRPCRequest('DescribeMonitorGroups', '2019-01-01', 'HTTPS', 'POST', 'AK', 'json', $req, $runtime));
+        return DescribeMonitorGroupsResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
@@ -2508,6 +4539,49 @@ class Cms extends OpenApiClient
     }
 
     /**
+     * @param DescribeMonitorResourceQuotaAttributeRequest $request
+     * @param RuntimeOptions                               $runtime
+     *
+     * @return DescribeMonitorResourceQuotaAttributeResponse
+     */
+    public function describeMonitorResourceQuotaAttributeWithOptions($request, $runtime)
+    {
+        Utils::validateModel($request);
+        $query = [];
+        if (!Utils::isUnset($request->showUsed)) {
+            $query['ShowUsed'] = $request->showUsed;
+        }
+        $req = new OpenApiRequest([
+            'query' => OpenApiUtilClient::query($query),
+        ]);
+        $params = new Params([
+            'action'      => 'DescribeMonitorResourceQuotaAttribute',
+            'version'     => '2019-01-01',
+            'protocol'    => 'HTTPS',
+            'pathname'    => '/',
+            'method'      => 'POST',
+            'authType'    => 'AK',
+            'style'       => 'RPC',
+            'reqBodyType' => 'formData',
+            'bodyType'    => 'json',
+        ]);
+
+        return DescribeMonitorResourceQuotaAttributeResponse::fromMap($this->callApi($params, $req, $runtime));
+    }
+
+    /**
+     * @param DescribeMonitorResourceQuotaAttributeRequest $request
+     *
+     * @return DescribeMonitorResourceQuotaAttributeResponse
+     */
+    public function describeMonitorResourceQuotaAttribute($request)
+    {
+        $runtime = new RuntimeOptions([]);
+
+        return $this->describeMonitorResourceQuotaAttributeWithOptions($request, $runtime);
+    }
+
+    /**
      * @param DescribeMonitoringAgentAccessKeyRequest $request
      * @param RuntimeOptions                          $runtime
      *
@@ -2516,11 +4590,20 @@ class Cms extends OpenApiClient
     public function describeMonitoringAgentAccessKeyWithOptions($request, $runtime)
     {
         Utils::validateModel($request);
-        $req = new OpenApiRequest([
-            'body' => Utils::toMap($request),
+        $req    = new OpenApiRequest([]);
+        $params = new Params([
+            'action'      => 'DescribeMonitoringAgentAccessKey',
+            'version'     => '2019-01-01',
+            'protocol'    => 'HTTPS',
+            'pathname'    => '/',
+            'method'      => 'POST',
+            'authType'    => 'AK',
+            'style'       => 'RPC',
+            'reqBodyType' => 'formData',
+            'bodyType'    => 'json',
         ]);
 
-        return DescribeMonitoringAgentAccessKeyResponse::fromMap($this->doRPCRequest('DescribeMonitoringAgentAccessKey', '2019-01-01', 'HTTPS', 'POST', 'AK', 'json', $req, $runtime));
+        return DescribeMonitoringAgentAccessKeyResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
@@ -2544,11 +4627,20 @@ class Cms extends OpenApiClient
     public function describeMonitoringAgentConfigWithOptions($request, $runtime)
     {
         Utils::validateModel($request);
-        $req = new OpenApiRequest([
-            'body' => Utils::toMap($request),
+        $req    = new OpenApiRequest([]);
+        $params = new Params([
+            'action'      => 'DescribeMonitoringAgentConfig',
+            'version'     => '2019-01-01',
+            'protocol'    => 'HTTPS',
+            'pathname'    => '/',
+            'method'      => 'POST',
+            'authType'    => 'AK',
+            'style'       => 'RPC',
+            'reqBodyType' => 'formData',
+            'bodyType'    => 'json',
         ]);
 
-        return DescribeMonitoringAgentConfigResponse::fromMap($this->doRPCRequest('DescribeMonitoringAgentConfig', '2019-01-01', 'HTTPS', 'POST', 'AK', 'json', $req, $runtime));
+        return DescribeMonitoringAgentConfigResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
@@ -2572,11 +4664,50 @@ class Cms extends OpenApiClient
     public function describeMonitoringAgentHostsWithOptions($request, $runtime)
     {
         Utils::validateModel($request);
+        $query = [];
+        if (!Utils::isUnset($request->aliyunHost)) {
+            $query['AliyunHost'] = $request->aliyunHost;
+        }
+        if (!Utils::isUnset($request->hostName)) {
+            $query['HostName'] = $request->hostName;
+        }
+        if (!Utils::isUnset($request->instanceIds)) {
+            $query['InstanceIds'] = $request->instanceIds;
+        }
+        if (!Utils::isUnset($request->instanceRegionId)) {
+            $query['InstanceRegionId'] = $request->instanceRegionId;
+        }
+        if (!Utils::isUnset($request->keyWord)) {
+            $query['KeyWord'] = $request->keyWord;
+        }
+        if (!Utils::isUnset($request->pageNumber)) {
+            $query['PageNumber'] = $request->pageNumber;
+        }
+        if (!Utils::isUnset($request->pageSize)) {
+            $query['PageSize'] = $request->pageSize;
+        }
+        if (!Utils::isUnset($request->serialNumbers)) {
+            $query['SerialNumbers'] = $request->serialNumbers;
+        }
+        if (!Utils::isUnset($request->status)) {
+            $query['Status'] = $request->status;
+        }
         $req = new OpenApiRequest([
-            'body' => Utils::toMap($request),
+            'query' => OpenApiUtilClient::query($query),
+        ]);
+        $params = new Params([
+            'action'      => 'DescribeMonitoringAgentHosts',
+            'version'     => '2019-01-01',
+            'protocol'    => 'HTTPS',
+            'pathname'    => '/',
+            'method'      => 'POST',
+            'authType'    => 'AK',
+            'style'       => 'RPC',
+            'reqBodyType' => 'formData',
+            'bodyType'    => 'json',
         ]);
 
-        return DescribeMonitoringAgentHostsResponse::fromMap($this->doRPCRequest('DescribeMonitoringAgentHosts', '2019-01-01', 'HTTPS', 'POST', 'AK', 'json', $req, $runtime));
+        return DescribeMonitoringAgentHostsResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
@@ -2600,11 +4731,26 @@ class Cms extends OpenApiClient
     public function describeMonitoringAgentProcessesWithOptions($request, $runtime)
     {
         Utils::validateModel($request);
+        $query = [];
+        if (!Utils::isUnset($request->instanceId)) {
+            $query['InstanceId'] = $request->instanceId;
+        }
         $req = new OpenApiRequest([
-            'body' => Utils::toMap($request),
+            'query' => OpenApiUtilClient::query($query),
+        ]);
+        $params = new Params([
+            'action'      => 'DescribeMonitoringAgentProcesses',
+            'version'     => '2019-01-01',
+            'protocol'    => 'HTTPS',
+            'pathname'    => '/',
+            'method'      => 'POST',
+            'authType'    => 'AK',
+            'style'       => 'RPC',
+            'reqBodyType' => 'formData',
+            'bodyType'    => 'json',
         ]);
 
-        return DescribeMonitoringAgentProcessesResponse::fromMap($this->doRPCRequest('DescribeMonitoringAgentProcesses', '2019-01-01', 'HTTPS', 'POST', 'AK', 'json', $req, $runtime));
+        return DescribeMonitoringAgentProcessesResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
@@ -2628,11 +4774,26 @@ class Cms extends OpenApiClient
     public function describeMonitoringAgentStatusesWithOptions($request, $runtime)
     {
         Utils::validateModel($request);
+        $query = [];
+        if (!Utils::isUnset($request->instanceIds)) {
+            $query['InstanceIds'] = $request->instanceIds;
+        }
         $req = new OpenApiRequest([
-            'body' => Utils::toMap($request),
+            'query' => OpenApiUtilClient::query($query),
+        ]);
+        $params = new Params([
+            'action'      => 'DescribeMonitoringAgentStatuses',
+            'version'     => '2019-01-01',
+            'protocol'    => 'HTTPS',
+            'pathname'    => '/',
+            'method'      => 'POST',
+            'authType'    => 'AK',
+            'style'       => 'RPC',
+            'reqBodyType' => 'formData',
+            'bodyType'    => 'json',
         ]);
 
-        return DescribeMonitoringAgentStatusesResponse::fromMap($this->doRPCRequest('DescribeMonitoringAgentStatuses', '2019-01-01', 'HTTPS', 'POST', 'AK', 'json', $req, $runtime));
+        return DescribeMonitoringAgentStatusesResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
@@ -2656,11 +4817,20 @@ class Cms extends OpenApiClient
     public function describeMonitoringConfigWithOptions($request, $runtime)
     {
         Utils::validateModel($request);
-        $req = new OpenApiRequest([
-            'body' => Utils::toMap($request),
+        $req    = new OpenApiRequest([]);
+        $params = new Params([
+            'action'      => 'DescribeMonitoringConfig',
+            'version'     => '2019-01-01',
+            'protocol'    => 'HTTPS',
+            'pathname'    => '/',
+            'method'      => 'POST',
+            'authType'    => 'AK',
+            'style'       => 'RPC',
+            'reqBodyType' => 'formData',
+            'bodyType'    => 'json',
         ]);
 
-        return DescribeMonitoringConfigResponse::fromMap($this->doRPCRequest('DescribeMonitoringConfig', '2019-01-01', 'HTTPS', 'POST', 'AK', 'json', $req, $runtime));
+        return DescribeMonitoringConfigResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
@@ -2676,34 +4846,6 @@ class Cms extends OpenApiClient
     }
 
     /**
-     * @param DescribeMonitorResourceQuotaAttributeRequest $request
-     * @param RuntimeOptions                               $runtime
-     *
-     * @return DescribeMonitorResourceQuotaAttributeResponse
-     */
-    public function describeMonitorResourceQuotaAttributeWithOptions($request, $runtime)
-    {
-        Utils::validateModel($request);
-        $req = new OpenApiRequest([
-            'body' => Utils::toMap($request),
-        ]);
-
-        return DescribeMonitorResourceQuotaAttributeResponse::fromMap($this->doRPCRequest('DescribeMonitorResourceQuotaAttribute', '2019-01-01', 'HTTPS', 'POST', 'AK', 'json', $req, $runtime));
-    }
-
-    /**
-     * @param DescribeMonitorResourceQuotaAttributeRequest $request
-     *
-     * @return DescribeMonitorResourceQuotaAttributeResponse
-     */
-    public function describeMonitorResourceQuotaAttribute($request)
-    {
-        $runtime = new RuntimeOptions([]);
-
-        return $this->describeMonitorResourceQuotaAttributeWithOptions($request, $runtime);
-    }
-
-    /**
      * @param DescribeProductResourceTagKeyListRequest $request
      * @param RuntimeOptions                           $runtime
      *
@@ -2712,11 +4854,26 @@ class Cms extends OpenApiClient
     public function describeProductResourceTagKeyListWithOptions($request, $runtime)
     {
         Utils::validateModel($request);
+        $query = [];
+        if (!Utils::isUnset($request->nextToken)) {
+            $query['NextToken'] = $request->nextToken;
+        }
         $req = new OpenApiRequest([
-            'body' => Utils::toMap($request),
+            'query' => OpenApiUtilClient::query($query),
+        ]);
+        $params = new Params([
+            'action'      => 'DescribeProductResourceTagKeyList',
+            'version'     => '2019-01-01',
+            'protocol'    => 'HTTPS',
+            'pathname'    => '/',
+            'method'      => 'POST',
+            'authType'    => 'AK',
+            'style'       => 'RPC',
+            'reqBodyType' => 'formData',
+            'bodyType'    => 'json',
         ]);
 
-        return DescribeProductResourceTagKeyListResponse::fromMap($this->doRPCRequest('DescribeProductResourceTagKeyList', '2019-01-01', 'HTTPS', 'POST', 'AK', 'json', $req, $runtime));
+        return DescribeProductResourceTagKeyListResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
@@ -2740,11 +4897,20 @@ class Cms extends OpenApiClient
     public function describeProductsOfActiveMetricRuleWithOptions($request, $runtime)
     {
         Utils::validateModel($request);
-        $req = new OpenApiRequest([
-            'body' => Utils::toMap($request),
+        $req    = new OpenApiRequest([]);
+        $params = new Params([
+            'action'      => 'DescribeProductsOfActiveMetricRule',
+            'version'     => '2019-01-01',
+            'protocol'    => 'HTTPS',
+            'pathname'    => '/',
+            'method'      => 'POST',
+            'authType'    => 'AK',
+            'style'       => 'RPC',
+            'reqBodyType' => 'formData',
+            'bodyType'    => 'json',
         ]);
 
-        return DescribeProductsOfActiveMetricRuleResponse::fromMap($this->doRPCRequest('DescribeProductsOfActiveMetricRule', '2019-01-01', 'HTTPS', 'POST', 'AK', 'json', $req, $runtime));
+        return DescribeProductsOfActiveMetricRuleResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
@@ -2768,11 +4934,32 @@ class Cms extends OpenApiClient
     public function describeProjectMetaWithOptions($request, $runtime)
     {
         Utils::validateModel($request);
+        $query = [];
+        if (!Utils::isUnset($request->labels)) {
+            $query['Labels'] = $request->labels;
+        }
+        if (!Utils::isUnset($request->pageNumber)) {
+            $query['PageNumber'] = $request->pageNumber;
+        }
+        if (!Utils::isUnset($request->pageSize)) {
+            $query['PageSize'] = $request->pageSize;
+        }
         $req = new OpenApiRequest([
-            'body' => Utils::toMap($request),
+            'query' => OpenApiUtilClient::query($query),
+        ]);
+        $params = new Params([
+            'action'      => 'DescribeProjectMeta',
+            'version'     => '2019-01-01',
+            'protocol'    => 'HTTPS',
+            'pathname'    => '/',
+            'method'      => 'POST',
+            'authType'    => 'AK',
+            'style'       => 'RPC',
+            'reqBodyType' => 'formData',
+            'bodyType'    => 'json',
         ]);
 
-        return DescribeProjectMetaResponse::fromMap($this->doRPCRequest('DescribeProjectMeta', '2019-01-01', 'HTTPS', 'POST', 'AK', 'json', $req, $runtime));
+        return DescribeProjectMetaResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
@@ -2788,6 +4975,67 @@ class Cms extends OpenApiClient
     }
 
     /**
+     * @param DescribeSiteInstantMonitorLogRequest $request
+     * @param RuntimeOptions                       $runtime
+     *
+     * @return DescribeSiteInstantMonitorLogResponse
+     */
+    public function describeSiteInstantMonitorLogWithOptions($request, $runtime)
+    {
+        Utils::validateModel($request);
+        $query = [];
+        if (!Utils::isUnset($request->endTime)) {
+            $query['EndTime'] = $request->endTime;
+        }
+        if (!Utils::isUnset($request->filter)) {
+            $query['Filter'] = $request->filter;
+        }
+        if (!Utils::isUnset($request->length)) {
+            $query['Length'] = $request->length;
+        }
+        if (!Utils::isUnset($request->metricName)) {
+            $query['MetricName'] = $request->metricName;
+        }
+        if (!Utils::isUnset($request->nextToken)) {
+            $query['NextToken'] = $request->nextToken;
+        }
+        if (!Utils::isUnset($request->startTime)) {
+            $query['StartTime'] = $request->startTime;
+        }
+        if (!Utils::isUnset($request->taskIds)) {
+            $query['TaskIds'] = $request->taskIds;
+        }
+        $req = new OpenApiRequest([
+            'query' => OpenApiUtilClient::query($query),
+        ]);
+        $params = new Params([
+            'action'      => 'DescribeSiteInstantMonitorLog',
+            'version'     => '2019-01-01',
+            'protocol'    => 'HTTPS',
+            'pathname'    => '/',
+            'method'      => 'POST',
+            'authType'    => 'AK',
+            'style'       => 'RPC',
+            'reqBodyType' => 'formData',
+            'bodyType'    => 'json',
+        ]);
+
+        return DescribeSiteInstantMonitorLogResponse::fromMap($this->callApi($params, $req, $runtime));
+    }
+
+    /**
+     * @param DescribeSiteInstantMonitorLogRequest $request
+     *
+     * @return DescribeSiteInstantMonitorLogResponse
+     */
+    public function describeSiteInstantMonitorLog($request)
+    {
+        $runtime = new RuntimeOptions([]);
+
+        return $this->describeSiteInstantMonitorLogWithOptions($request, $runtime);
+    }
+
+    /**
      * @param DescribeSiteMonitorAttributeRequest $request
      * @param RuntimeOptions                      $runtime
      *
@@ -2796,11 +5044,29 @@ class Cms extends OpenApiClient
     public function describeSiteMonitorAttributeWithOptions($request, $runtime)
     {
         Utils::validateModel($request);
+        $query = [];
+        if (!Utils::isUnset($request->includeAlert)) {
+            $query['IncludeAlert'] = $request->includeAlert;
+        }
+        if (!Utils::isUnset($request->taskId)) {
+            $query['TaskId'] = $request->taskId;
+        }
         $req = new OpenApiRequest([
-            'body' => Utils::toMap($request),
+            'query' => OpenApiUtilClient::query($query),
+        ]);
+        $params = new Params([
+            'action'      => 'DescribeSiteMonitorAttribute',
+            'version'     => '2019-01-01',
+            'protocol'    => 'HTTPS',
+            'pathname'    => '/',
+            'method'      => 'POST',
+            'authType'    => 'AK',
+            'style'       => 'RPC',
+            'reqBodyType' => 'formData',
+            'bodyType'    => 'json',
         ]);
 
-        return DescribeSiteMonitorAttributeResponse::fromMap($this->doRPCRequest('DescribeSiteMonitorAttribute', '2019-01-01', 'HTTPS', 'POST', 'AK', 'json', $req, $runtime));
+        return DescribeSiteMonitorAttributeResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
@@ -2824,11 +5090,47 @@ class Cms extends OpenApiClient
     public function describeSiteMonitorDataWithOptions($request, $runtime)
     {
         Utils::validateModel($request);
+        $query = [];
+        if (!Utils::isUnset($request->endTime)) {
+            $query['EndTime'] = $request->endTime;
+        }
+        if (!Utils::isUnset($request->length)) {
+            $query['Length'] = $request->length;
+        }
+        if (!Utils::isUnset($request->metricName)) {
+            $query['MetricName'] = $request->metricName;
+        }
+        if (!Utils::isUnset($request->nextToken)) {
+            $query['NextToken'] = $request->nextToken;
+        }
+        if (!Utils::isUnset($request->period)) {
+            $query['Period'] = $request->period;
+        }
+        if (!Utils::isUnset($request->startTime)) {
+            $query['StartTime'] = $request->startTime;
+        }
+        if (!Utils::isUnset($request->taskId)) {
+            $query['TaskId'] = $request->taskId;
+        }
+        if (!Utils::isUnset($request->type)) {
+            $query['Type'] = $request->type;
+        }
         $req = new OpenApiRequest([
-            'body' => Utils::toMap($request),
+            'query' => OpenApiUtilClient::query($query),
+        ]);
+        $params = new Params([
+            'action'      => 'DescribeSiteMonitorData',
+            'version'     => '2019-01-01',
+            'protocol'    => 'HTTPS',
+            'pathname'    => '/',
+            'method'      => 'POST',
+            'authType'    => 'AK',
+            'style'       => 'RPC',
+            'reqBodyType' => 'formData',
+            'bodyType'    => 'json',
         ]);
 
-        return DescribeSiteMonitorDataResponse::fromMap($this->doRPCRequest('DescribeSiteMonitorData', '2019-01-01', 'HTTPS', 'POST', 'AK', 'json', $req, $runtime));
+        return DescribeSiteMonitorDataResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
@@ -2852,11 +5154,38 @@ class Cms extends OpenApiClient
     public function describeSiteMonitorListWithOptions($request, $runtime)
     {
         Utils::validateModel($request);
+        $query = [];
+        if (!Utils::isUnset($request->keyword)) {
+            $query['Keyword'] = $request->keyword;
+        }
+        if (!Utils::isUnset($request->page)) {
+            $query['Page'] = $request->page;
+        }
+        if (!Utils::isUnset($request->pageSize)) {
+            $query['PageSize'] = $request->pageSize;
+        }
+        if (!Utils::isUnset($request->taskId)) {
+            $query['TaskId'] = $request->taskId;
+        }
+        if (!Utils::isUnset($request->taskType)) {
+            $query['TaskType'] = $request->taskType;
+        }
         $req = new OpenApiRequest([
-            'body' => Utils::toMap($request),
+            'query' => OpenApiUtilClient::query($query),
+        ]);
+        $params = new Params([
+            'action'      => 'DescribeSiteMonitorList',
+            'version'     => '2019-01-01',
+            'protocol'    => 'HTTPS',
+            'pathname'    => '/',
+            'method'      => 'POST',
+            'authType'    => 'AK',
+            'style'       => 'RPC',
+            'reqBodyType' => 'formData',
+            'bodyType'    => 'json',
         ]);
 
-        return DescribeSiteMonitorListResponse::fromMap($this->doRPCRequest('DescribeSiteMonitorList', '2019-01-01', 'HTTPS', 'POST', 'AK', 'json', $req, $runtime));
+        return DescribeSiteMonitorListResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
@@ -2872,6 +5201,73 @@ class Cms extends OpenApiClient
     }
 
     /**
+     * @param DescribeSiteMonitorLogRequest $request
+     * @param RuntimeOptions                $runtime
+     *
+     * @return DescribeSiteMonitorLogResponse
+     */
+    public function describeSiteMonitorLogWithOptions($request, $runtime)
+    {
+        Utils::validateModel($request);
+        $query = [];
+        if (!Utils::isUnset($request->city)) {
+            $query['City'] = $request->city;
+        }
+        if (!Utils::isUnset($request->endTime)) {
+            $query['EndTime'] = $request->endTime;
+        }
+        if (!Utils::isUnset($request->filter)) {
+            $query['Filter'] = $request->filter;
+        }
+        if (!Utils::isUnset($request->isp)) {
+            $query['Isp'] = $request->isp;
+        }
+        if (!Utils::isUnset($request->length)) {
+            $query['Length'] = $request->length;
+        }
+        if (!Utils::isUnset($request->metricName)) {
+            $query['MetricName'] = $request->metricName;
+        }
+        if (!Utils::isUnset($request->nextToken)) {
+            $query['NextToken'] = $request->nextToken;
+        }
+        if (!Utils::isUnset($request->startTime)) {
+            $query['StartTime'] = $request->startTime;
+        }
+        if (!Utils::isUnset($request->taskIds)) {
+            $query['TaskIds'] = $request->taskIds;
+        }
+        $req = new OpenApiRequest([
+            'query' => OpenApiUtilClient::query($query),
+        ]);
+        $params = new Params([
+            'action'      => 'DescribeSiteMonitorLog',
+            'version'     => '2019-01-01',
+            'protocol'    => 'HTTPS',
+            'pathname'    => '/',
+            'method'      => 'POST',
+            'authType'    => 'AK',
+            'style'       => 'RPC',
+            'reqBodyType' => 'formData',
+            'bodyType'    => 'json',
+        ]);
+
+        return DescribeSiteMonitorLogResponse::fromMap($this->callApi($params, $req, $runtime));
+    }
+
+    /**
+     * @param DescribeSiteMonitorLogRequest $request
+     *
+     * @return DescribeSiteMonitorLogResponse
+     */
+    public function describeSiteMonitorLog($request)
+    {
+        $runtime = new RuntimeOptions([]);
+
+        return $this->describeSiteMonitorLogWithOptions($request, $runtime);
+    }
+
+    /**
      * @param DescribeSiteMonitorQuotaRequest $request
      * @param RuntimeOptions                  $runtime
      *
@@ -2880,11 +5276,20 @@ class Cms extends OpenApiClient
     public function describeSiteMonitorQuotaWithOptions($request, $runtime)
     {
         Utils::validateModel($request);
-        $req = new OpenApiRequest([
-            'body' => Utils::toMap($request),
+        $req    = new OpenApiRequest([]);
+        $params = new Params([
+            'action'      => 'DescribeSiteMonitorQuota',
+            'version'     => '2019-01-01',
+            'protocol'    => 'HTTPS',
+            'pathname'    => '/',
+            'method'      => 'POST',
+            'authType'    => 'AK',
+            'style'       => 'RPC',
+            'reqBodyType' => 'formData',
+            'bodyType'    => 'json',
         ]);
 
-        return DescribeSiteMonitorQuotaResponse::fromMap($this->doRPCRequest('DescribeSiteMonitorQuota', '2019-01-01', 'HTTPS', 'POST', 'AK', 'json', $req, $runtime));
+        return DescribeSiteMonitorQuotaResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
@@ -2908,11 +5313,35 @@ class Cms extends OpenApiClient
     public function describeSiteMonitorStatisticsWithOptions($request, $runtime)
     {
         Utils::validateModel($request);
+        $query = [];
+        if (!Utils::isUnset($request->metricName)) {
+            $query['MetricName'] = $request->metricName;
+        }
+        if (!Utils::isUnset($request->startTime)) {
+            $query['StartTime'] = $request->startTime;
+        }
+        if (!Utils::isUnset($request->taskId)) {
+            $query['TaskId'] = $request->taskId;
+        }
+        if (!Utils::isUnset($request->timeRange)) {
+            $query['TimeRange'] = $request->timeRange;
+        }
         $req = new OpenApiRequest([
-            'body' => Utils::toMap($request),
+            'query' => OpenApiUtilClient::query($query),
+        ]);
+        $params = new Params([
+            'action'      => 'DescribeSiteMonitorStatistics',
+            'version'     => '2019-01-01',
+            'protocol'    => 'HTTPS',
+            'pathname'    => '/',
+            'method'      => 'POST',
+            'authType'    => 'AK',
+            'style'       => 'RPC',
+            'reqBodyType' => 'formData',
+            'bodyType'    => 'json',
         ]);
 
-        return DescribeSiteMonitorStatisticsResponse::fromMap($this->doRPCRequest('DescribeSiteMonitorStatistics', '2019-01-01', 'HTTPS', 'POST', 'AK', 'json', $req, $runtime));
+        return DescribeSiteMonitorStatisticsResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
@@ -2936,11 +5365,56 @@ class Cms extends OpenApiClient
     public function describeSystemEventAttributeWithOptions($request, $runtime)
     {
         Utils::validateModel($request);
+        $query = [];
+        if (!Utils::isUnset($request->endTime)) {
+            $query['EndTime'] = $request->endTime;
+        }
+        if (!Utils::isUnset($request->eventType)) {
+            $query['EventType'] = $request->eventType;
+        }
+        if (!Utils::isUnset($request->groupId)) {
+            $query['GroupId'] = $request->groupId;
+        }
+        if (!Utils::isUnset($request->level)) {
+            $query['Level'] = $request->level;
+        }
+        if (!Utils::isUnset($request->name)) {
+            $query['Name'] = $request->name;
+        }
+        if (!Utils::isUnset($request->pageNumber)) {
+            $query['PageNumber'] = $request->pageNumber;
+        }
+        if (!Utils::isUnset($request->pageSize)) {
+            $query['PageSize'] = $request->pageSize;
+        }
+        if (!Utils::isUnset($request->product)) {
+            $query['Product'] = $request->product;
+        }
+        if (!Utils::isUnset($request->searchKeywords)) {
+            $query['SearchKeywords'] = $request->searchKeywords;
+        }
+        if (!Utils::isUnset($request->startTime)) {
+            $query['StartTime'] = $request->startTime;
+        }
+        if (!Utils::isUnset($request->status)) {
+            $query['Status'] = $request->status;
+        }
         $req = new OpenApiRequest([
-            'body' => Utils::toMap($request),
+            'query' => OpenApiUtilClient::query($query),
+        ]);
+        $params = new Params([
+            'action'      => 'DescribeSystemEventAttribute',
+            'version'     => '2019-01-01',
+            'protocol'    => 'HTTPS',
+            'pathname'    => '/',
+            'method'      => 'POST',
+            'authType'    => 'AK',
+            'style'       => 'RPC',
+            'reqBodyType' => 'formData',
+            'bodyType'    => 'json',
         ]);
 
-        return DescribeSystemEventAttributeResponse::fromMap($this->doRPCRequest('DescribeSystemEventAttribute', '2019-01-01', 'HTTPS', 'POST', 'AK', 'json', $req, $runtime));
+        return DescribeSystemEventAttributeResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
@@ -2964,11 +5438,50 @@ class Cms extends OpenApiClient
     public function describeSystemEventCountWithOptions($request, $runtime)
     {
         Utils::validateModel($request);
+        $query = [];
+        if (!Utils::isUnset($request->endTime)) {
+            $query['EndTime'] = $request->endTime;
+        }
+        if (!Utils::isUnset($request->eventType)) {
+            $query['EventType'] = $request->eventType;
+        }
+        if (!Utils::isUnset($request->groupId)) {
+            $query['GroupId'] = $request->groupId;
+        }
+        if (!Utils::isUnset($request->level)) {
+            $query['Level'] = $request->level;
+        }
+        if (!Utils::isUnset($request->name)) {
+            $query['Name'] = $request->name;
+        }
+        if (!Utils::isUnset($request->product)) {
+            $query['Product'] = $request->product;
+        }
+        if (!Utils::isUnset($request->searchKeywords)) {
+            $query['SearchKeywords'] = $request->searchKeywords;
+        }
+        if (!Utils::isUnset($request->startTime)) {
+            $query['StartTime'] = $request->startTime;
+        }
+        if (!Utils::isUnset($request->status)) {
+            $query['Status'] = $request->status;
+        }
         $req = new OpenApiRequest([
-            'body' => Utils::toMap($request),
+            'query' => OpenApiUtilClient::query($query),
+        ]);
+        $params = new Params([
+            'action'      => 'DescribeSystemEventCount',
+            'version'     => '2019-01-01',
+            'protocol'    => 'HTTPS',
+            'pathname'    => '/',
+            'method'      => 'POST',
+            'authType'    => 'AK',
+            'style'       => 'RPC',
+            'reqBodyType' => 'formData',
+            'bodyType'    => 'json',
         ]);
 
-        return DescribeSystemEventCountResponse::fromMap($this->doRPCRequest('DescribeSystemEventCount', '2019-01-01', 'HTTPS', 'POST', 'AK', 'json', $req, $runtime));
+        return DescribeSystemEventCountResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
@@ -2992,11 +5505,50 @@ class Cms extends OpenApiClient
     public function describeSystemEventHistogramWithOptions($request, $runtime)
     {
         Utils::validateModel($request);
+        $query = [];
+        if (!Utils::isUnset($request->endTime)) {
+            $query['EndTime'] = $request->endTime;
+        }
+        if (!Utils::isUnset($request->eventType)) {
+            $query['EventType'] = $request->eventType;
+        }
+        if (!Utils::isUnset($request->groupId)) {
+            $query['GroupId'] = $request->groupId;
+        }
+        if (!Utils::isUnset($request->level)) {
+            $query['Level'] = $request->level;
+        }
+        if (!Utils::isUnset($request->name)) {
+            $query['Name'] = $request->name;
+        }
+        if (!Utils::isUnset($request->product)) {
+            $query['Product'] = $request->product;
+        }
+        if (!Utils::isUnset($request->searchKeywords)) {
+            $query['SearchKeywords'] = $request->searchKeywords;
+        }
+        if (!Utils::isUnset($request->startTime)) {
+            $query['StartTime'] = $request->startTime;
+        }
+        if (!Utils::isUnset($request->status)) {
+            $query['Status'] = $request->status;
+        }
         $req = new OpenApiRequest([
-            'body' => Utils::toMap($request),
+            'query' => OpenApiUtilClient::query($query),
+        ]);
+        $params = new Params([
+            'action'      => 'DescribeSystemEventHistogram',
+            'version'     => '2019-01-01',
+            'protocol'    => 'HTTPS',
+            'pathname'    => '/',
+            'method'      => 'POST',
+            'authType'    => 'AK',
+            'style'       => 'RPC',
+            'reqBodyType' => 'formData',
+            'bodyType'    => 'json',
         ]);
 
-        return DescribeSystemEventHistogramResponse::fromMap($this->doRPCRequest('DescribeSystemEventHistogram', '2019-01-01', 'HTTPS', 'POST', 'AK', 'json', $req, $runtime));
+        return DescribeSystemEventHistogramResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
@@ -3020,11 +5572,29 @@ class Cms extends OpenApiClient
     public function describeTagKeyListWithOptions($request, $runtime)
     {
         Utils::validateModel($request);
+        $query = [];
+        if (!Utils::isUnset($request->pageNumber)) {
+            $query['PageNumber'] = $request->pageNumber;
+        }
+        if (!Utils::isUnset($request->pageSize)) {
+            $query['PageSize'] = $request->pageSize;
+        }
         $req = new OpenApiRequest([
-            'body' => Utils::toMap($request),
+            'query' => OpenApiUtilClient::query($query),
+        ]);
+        $params = new Params([
+            'action'      => 'DescribeTagKeyList',
+            'version'     => '2019-01-01',
+            'protocol'    => 'HTTPS',
+            'pathname'    => '/',
+            'method'      => 'POST',
+            'authType'    => 'AK',
+            'style'       => 'RPC',
+            'reqBodyType' => 'formData',
+            'bodyType'    => 'json',
         ]);
 
-        return DescribeTagKeyListResponse::fromMap($this->doRPCRequest('DescribeTagKeyList', '2019-01-01', 'HTTPS', 'POST', 'AK', 'json', $req, $runtime));
+        return DescribeTagKeyListResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
@@ -3048,11 +5618,32 @@ class Cms extends OpenApiClient
     public function describeTagValueListWithOptions($request, $runtime)
     {
         Utils::validateModel($request);
+        $query = [];
+        if (!Utils::isUnset($request->pageNumber)) {
+            $query['PageNumber'] = $request->pageNumber;
+        }
+        if (!Utils::isUnset($request->pageSize)) {
+            $query['PageSize'] = $request->pageSize;
+        }
+        if (!Utils::isUnset($request->tagKey)) {
+            $query['TagKey'] = $request->tagKey;
+        }
         $req = new OpenApiRequest([
-            'body' => Utils::toMap($request),
+            'query' => OpenApiUtilClient::query($query),
+        ]);
+        $params = new Params([
+            'action'      => 'DescribeTagValueList',
+            'version'     => '2019-01-01',
+            'protocol'    => 'HTTPS',
+            'pathname'    => '/',
+            'method'      => 'POST',
+            'authType'    => 'AK',
+            'style'       => 'RPC',
+            'reqBodyType' => 'formData',
+            'bodyType'    => 'json',
         ]);
 
-        return DescribeTagValueListResponse::fromMap($this->doRPCRequest('DescribeTagValueList', '2019-01-01', 'HTTPS', 'POST', 'AK', 'json', $req, $runtime));
+        return DescribeTagValueListResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
@@ -3076,11 +5667,26 @@ class Cms extends OpenApiClient
     public function describeUnhealthyHostAvailabilityWithOptions($request, $runtime)
     {
         Utils::validateModel($request);
+        $query = [];
+        if (!Utils::isUnset($request->id)) {
+            $query['Id'] = $request->id;
+        }
         $req = new OpenApiRequest([
-            'body' => Utils::toMap($request),
+            'query' => OpenApiUtilClient::query($query),
+        ]);
+        $params = new Params([
+            'action'      => 'DescribeUnhealthyHostAvailability',
+            'version'     => '2019-01-01',
+            'protocol'    => 'HTTPS',
+            'pathname'    => '/',
+            'method'      => 'POST',
+            'authType'    => 'AK',
+            'style'       => 'RPC',
+            'reqBodyType' => 'formData',
+            'bodyType'    => 'json',
         ]);
 
-        return DescribeUnhealthyHostAvailabilityResponse::fromMap($this->doRPCRequest('DescribeUnhealthyHostAvailability', '2019-01-01', 'HTTPS', 'POST', 'AK', 'json', $req, $runtime));
+        return DescribeUnhealthyHostAvailabilityResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
@@ -3104,11 +5710,26 @@ class Cms extends OpenApiClient
     public function disableActiveMetricRuleWithOptions($request, $runtime)
     {
         Utils::validateModel($request);
+        $query = [];
+        if (!Utils::isUnset($request->product)) {
+            $query['Product'] = $request->product;
+        }
         $req = new OpenApiRequest([
-            'body' => Utils::toMap($request),
+            'query' => OpenApiUtilClient::query($query),
+        ]);
+        $params = new Params([
+            'action'      => 'DisableActiveMetricRule',
+            'version'     => '2019-01-01',
+            'protocol'    => 'HTTPS',
+            'pathname'    => '/',
+            'method'      => 'POST',
+            'authType'    => 'AK',
+            'style'       => 'RPC',
+            'reqBodyType' => 'formData',
+            'bodyType'    => 'json',
         ]);
 
-        return DisableActiveMetricRuleResponse::fromMap($this->doRPCRequest('DisableActiveMetricRule', '2019-01-01', 'HTTPS', 'POST', 'AK', 'json', $req, $runtime));
+        return DisableActiveMetricRuleResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
@@ -3132,11 +5753,26 @@ class Cms extends OpenApiClient
     public function disableEventRulesWithOptions($request, $runtime)
     {
         Utils::validateModel($request);
+        $query = [];
+        if (!Utils::isUnset($request->ruleNames)) {
+            $query['RuleNames'] = $request->ruleNames;
+        }
         $req = new OpenApiRequest([
-            'body' => Utils::toMap($request),
+            'query' => OpenApiUtilClient::query($query),
+        ]);
+        $params = new Params([
+            'action'      => 'DisableEventRules',
+            'version'     => '2019-01-01',
+            'protocol'    => 'HTTPS',
+            'pathname'    => '/',
+            'method'      => 'POST',
+            'authType'    => 'AK',
+            'style'       => 'RPC',
+            'reqBodyType' => 'formData',
+            'bodyType'    => 'json',
         ]);
 
-        return DisableEventRulesResponse::fromMap($this->doRPCRequest('DisableEventRules', '2019-01-01', 'HTTPS', 'POST', 'AK', 'json', $req, $runtime));
+        return DisableEventRulesResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
@@ -3160,11 +5796,26 @@ class Cms extends OpenApiClient
     public function disableHostAvailabilityWithOptions($request, $runtime)
     {
         Utils::validateModel($request);
+        $query = [];
+        if (!Utils::isUnset($request->id)) {
+            $query['Id'] = $request->id;
+        }
         $req = new OpenApiRequest([
-            'body' => Utils::toMap($request),
+            'query' => OpenApiUtilClient::query($query),
+        ]);
+        $params = new Params([
+            'action'      => 'DisableHostAvailability',
+            'version'     => '2019-01-01',
+            'protocol'    => 'HTTPS',
+            'pathname'    => '/',
+            'method'      => 'POST',
+            'authType'    => 'AK',
+            'style'       => 'RPC',
+            'reqBodyType' => 'formData',
+            'bodyType'    => 'json',
         ]);
 
-        return DisableHostAvailabilityResponse::fromMap($this->doRPCRequest('DisableHostAvailability', '2019-01-01', 'HTTPS', 'POST', 'AK', 'json', $req, $runtime));
+        return DisableHostAvailabilityResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
@@ -3188,11 +5839,26 @@ class Cms extends OpenApiClient
     public function disableMetricRulesWithOptions($request, $runtime)
     {
         Utils::validateModel($request);
+        $query = [];
+        if (!Utils::isUnset($request->ruleId)) {
+            $query['RuleId'] = $request->ruleId;
+        }
         $req = new OpenApiRequest([
-            'body' => Utils::toMap($request),
+            'query' => OpenApiUtilClient::query($query),
+        ]);
+        $params = new Params([
+            'action'      => 'DisableMetricRules',
+            'version'     => '2019-01-01',
+            'protocol'    => 'HTTPS',
+            'pathname'    => '/',
+            'method'      => 'POST',
+            'authType'    => 'AK',
+            'style'       => 'RPC',
+            'reqBodyType' => 'formData',
+            'bodyType'    => 'json',
         ]);
 
-        return DisableMetricRulesResponse::fromMap($this->doRPCRequest('DisableMetricRules', '2019-01-01', 'HTTPS', 'POST', 'AK', 'json', $req, $runtime));
+        return DisableMetricRulesResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
@@ -3216,11 +5882,26 @@ class Cms extends OpenApiClient
     public function disableSiteMonitorsWithOptions($request, $runtime)
     {
         Utils::validateModel($request);
+        $query = [];
+        if (!Utils::isUnset($request->taskIds)) {
+            $query['TaskIds'] = $request->taskIds;
+        }
         $req = new OpenApiRequest([
-            'body' => Utils::toMap($request),
+            'query' => OpenApiUtilClient::query($query),
+        ]);
+        $params = new Params([
+            'action'      => 'DisableSiteMonitors',
+            'version'     => '2019-01-01',
+            'protocol'    => 'HTTPS',
+            'pathname'    => '/',
+            'method'      => 'POST',
+            'authType'    => 'AK',
+            'style'       => 'RPC',
+            'reqBodyType' => 'formData',
+            'bodyType'    => 'json',
         ]);
 
-        return DisableSiteMonitorsResponse::fromMap($this->doRPCRequest('DisableSiteMonitors', '2019-01-01', 'HTTPS', 'POST', 'AK', 'json', $req, $runtime));
+        return DisableSiteMonitorsResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
@@ -3244,11 +5925,26 @@ class Cms extends OpenApiClient
     public function enableActiveMetricRuleWithOptions($request, $runtime)
     {
         Utils::validateModel($request);
+        $query = [];
+        if (!Utils::isUnset($request->product)) {
+            $query['Product'] = $request->product;
+        }
         $req = new OpenApiRequest([
-            'body' => Utils::toMap($request),
+            'query' => OpenApiUtilClient::query($query),
+        ]);
+        $params = new Params([
+            'action'      => 'EnableActiveMetricRule',
+            'version'     => '2019-01-01',
+            'protocol'    => 'HTTPS',
+            'pathname'    => '/',
+            'method'      => 'POST',
+            'authType'    => 'AK',
+            'style'       => 'RPC',
+            'reqBodyType' => 'formData',
+            'bodyType'    => 'json',
         ]);
 
-        return EnableActiveMetricRuleResponse::fromMap($this->doRPCRequest('EnableActiveMetricRule', '2019-01-01', 'HTTPS', 'POST', 'AK', 'json', $req, $runtime));
+        return EnableActiveMetricRuleResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
@@ -3272,11 +5968,26 @@ class Cms extends OpenApiClient
     public function enableEventRulesWithOptions($request, $runtime)
     {
         Utils::validateModel($request);
+        $query = [];
+        if (!Utils::isUnset($request->ruleNames)) {
+            $query['RuleNames'] = $request->ruleNames;
+        }
         $req = new OpenApiRequest([
-            'body' => Utils::toMap($request),
+            'query' => OpenApiUtilClient::query($query),
+        ]);
+        $params = new Params([
+            'action'      => 'EnableEventRules',
+            'version'     => '2019-01-01',
+            'protocol'    => 'HTTPS',
+            'pathname'    => '/',
+            'method'      => 'POST',
+            'authType'    => 'AK',
+            'style'       => 'RPC',
+            'reqBodyType' => 'formData',
+            'bodyType'    => 'json',
         ]);
 
-        return EnableEventRulesResponse::fromMap($this->doRPCRequest('EnableEventRules', '2019-01-01', 'HTTPS', 'POST', 'AK', 'json', $req, $runtime));
+        return EnableEventRulesResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
@@ -3300,11 +6011,26 @@ class Cms extends OpenApiClient
     public function enableHostAvailabilityWithOptions($request, $runtime)
     {
         Utils::validateModel($request);
+        $query = [];
+        if (!Utils::isUnset($request->id)) {
+            $query['Id'] = $request->id;
+        }
         $req = new OpenApiRequest([
-            'body' => Utils::toMap($request),
+            'query' => OpenApiUtilClient::query($query),
+        ]);
+        $params = new Params([
+            'action'      => 'EnableHostAvailability',
+            'version'     => '2019-01-01',
+            'protocol'    => 'HTTPS',
+            'pathname'    => '/',
+            'method'      => 'POST',
+            'authType'    => 'AK',
+            'style'       => 'RPC',
+            'reqBodyType' => 'formData',
+            'bodyType'    => 'json',
         ]);
 
-        return EnableHostAvailabilityResponse::fromMap($this->doRPCRequest('EnableHostAvailability', '2019-01-01', 'HTTPS', 'POST', 'AK', 'json', $req, $runtime));
+        return EnableHostAvailabilityResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
@@ -3328,11 +6054,26 @@ class Cms extends OpenApiClient
     public function enableMetricRulesWithOptions($request, $runtime)
     {
         Utils::validateModel($request);
+        $query = [];
+        if (!Utils::isUnset($request->ruleId)) {
+            $query['RuleId'] = $request->ruleId;
+        }
         $req = new OpenApiRequest([
-            'body' => Utils::toMap($request),
+            'query' => OpenApiUtilClient::query($query),
+        ]);
+        $params = new Params([
+            'action'      => 'EnableMetricRules',
+            'version'     => '2019-01-01',
+            'protocol'    => 'HTTPS',
+            'pathname'    => '/',
+            'method'      => 'POST',
+            'authType'    => 'AK',
+            'style'       => 'RPC',
+            'reqBodyType' => 'formData',
+            'bodyType'    => 'json',
         ]);
 
-        return EnableMetricRulesResponse::fromMap($this->doRPCRequest('EnableMetricRules', '2019-01-01', 'HTTPS', 'POST', 'AK', 'json', $req, $runtime));
+        return EnableMetricRulesResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
@@ -3356,11 +6097,26 @@ class Cms extends OpenApiClient
     public function enableSiteMonitorsWithOptions($request, $runtime)
     {
         Utils::validateModel($request);
+        $query = [];
+        if (!Utils::isUnset($request->taskIds)) {
+            $query['TaskIds'] = $request->taskIds;
+        }
         $req = new OpenApiRequest([
-            'body' => Utils::toMap($request),
+            'query' => OpenApiUtilClient::query($query),
+        ]);
+        $params = new Params([
+            'action'      => 'EnableSiteMonitors',
+            'version'     => '2019-01-01',
+            'protocol'    => 'HTTPS',
+            'pathname'    => '/',
+            'method'      => 'POST',
+            'authType'    => 'AK',
+            'style'       => 'RPC',
+            'reqBodyType' => 'formData',
+            'bodyType'    => 'json',
         ]);
 
-        return EnableSiteMonitorsResponse::fromMap($this->doRPCRequest('EnableSiteMonitors', '2019-01-01', 'HTTPS', 'POST', 'AK', 'json', $req, $runtime));
+        return EnableSiteMonitorsResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
@@ -3384,11 +6140,32 @@ class Cms extends OpenApiClient
     public function installMonitoringAgentWithOptions($request, $runtime)
     {
         Utils::validateModel($request);
+        $query = [];
+        if (!Utils::isUnset($request->force)) {
+            $query['Force'] = $request->force;
+        }
+        if (!Utils::isUnset($request->installCommand)) {
+            $query['InstallCommand'] = $request->installCommand;
+        }
+        if (!Utils::isUnset($request->instanceIds)) {
+            $query['InstanceIds'] = $request->instanceIds;
+        }
         $req = new OpenApiRequest([
-            'body' => Utils::toMap($request),
+            'query' => OpenApiUtilClient::query($query),
+        ]);
+        $params = new Params([
+            'action'      => 'InstallMonitoringAgent',
+            'version'     => '2019-01-01',
+            'protocol'    => 'HTTPS',
+            'pathname'    => '/',
+            'method'      => 'POST',
+            'authType'    => 'AK',
+            'style'       => 'RPC',
+            'reqBodyType' => 'formData',
+            'bodyType'    => 'json',
         ]);
 
-        return InstallMonitoringAgentResponse::fromMap($this->doRPCRequest('InstallMonitoringAgent', '2019-01-01', 'HTTPS', 'POST', 'AK', 'json', $req, $runtime));
+        return InstallMonitoringAgentResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
@@ -3412,11 +6189,35 @@ class Cms extends OpenApiClient
     public function modifyGroupMonitoringAgentProcessWithOptions($request, $runtime)
     {
         Utils::validateModel($request);
+        $query = [];
+        if (!Utils::isUnset($request->alertConfig)) {
+            $query['AlertConfig'] = $request->alertConfig;
+        }
+        if (!Utils::isUnset($request->groupId)) {
+            $query['GroupId'] = $request->groupId;
+        }
+        if (!Utils::isUnset($request->id)) {
+            $query['Id'] = $request->id;
+        }
+        if (!Utils::isUnset($request->matchExpressFilterRelation)) {
+            $query['MatchExpressFilterRelation'] = $request->matchExpressFilterRelation;
+        }
         $req = new OpenApiRequest([
-            'body' => Utils::toMap($request),
+            'query' => OpenApiUtilClient::query($query),
+        ]);
+        $params = new Params([
+            'action'      => 'ModifyGroupMonitoringAgentProcess',
+            'version'     => '2019-01-01',
+            'protocol'    => 'HTTPS',
+            'pathname'    => '/',
+            'method'      => 'POST',
+            'authType'    => 'AK',
+            'style'       => 'RPC',
+            'reqBodyType' => 'formData',
+            'bodyType'    => 'json',
         ]);
 
-        return ModifyGroupMonitoringAgentProcessResponse::fromMap($this->doRPCRequest('ModifyGroupMonitoringAgentProcess', '2019-01-01', 'HTTPS', 'POST', 'AK', 'json', $req, $runtime));
+        return ModifyGroupMonitoringAgentProcessResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
@@ -3440,11 +6241,47 @@ class Cms extends OpenApiClient
     public function modifyHostAvailabilityWithOptions($request, $runtime)
     {
         Utils::validateModel($request);
+        $query = [];
+        if (!Utils::isUnset($request->alertConfigEscalationList)) {
+            $query['AlertConfigEscalationList'] = $request->alertConfigEscalationList;
+        }
+        if (!Utils::isUnset($request->groupId)) {
+            $query['GroupId'] = $request->groupId;
+        }
+        if (!Utils::isUnset($request->id)) {
+            $query['Id'] = $request->id;
+        }
+        if (!Utils::isUnset($request->instanceList)) {
+            $query['InstanceList'] = $request->instanceList;
+        }
+        if (!Utils::isUnset($request->taskName)) {
+            $query['TaskName'] = $request->taskName;
+        }
+        if (!Utils::isUnset($request->taskScope)) {
+            $query['TaskScope'] = $request->taskScope;
+        }
+        if (!Utils::isUnset($request->alertConfig)) {
+            $query['AlertConfig'] = $request->alertConfig;
+        }
+        if (!Utils::isUnset($request->taskOption)) {
+            $query['TaskOption'] = $request->taskOption;
+        }
         $req = new OpenApiRequest([
-            'body' => Utils::toMap($request),
+            'query' => OpenApiUtilClient::query($query),
+        ]);
+        $params = new Params([
+            'action'      => 'ModifyHostAvailability',
+            'version'     => '2019-01-01',
+            'protocol'    => 'HTTPS',
+            'pathname'    => '/',
+            'method'      => 'POST',
+            'authType'    => 'AK',
+            'style'       => 'RPC',
+            'reqBodyType' => 'formData',
+            'bodyType'    => 'json',
         ]);
 
-        return ModifyHostAvailabilityResponse::fromMap($this->doRPCRequest('ModifyHostAvailability', '2019-01-01', 'HTTPS', 'POST', 'AK', 'json', $req, $runtime));
+        return ModifyHostAvailabilityResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
@@ -3468,11 +6305,29 @@ class Cms extends OpenApiClient
     public function modifyHostInfoWithOptions($request, $runtime)
     {
         Utils::validateModel($request);
+        $query = [];
+        if (!Utils::isUnset($request->hostName)) {
+            $query['HostName'] = $request->hostName;
+        }
+        if (!Utils::isUnset($request->instanceId)) {
+            $query['InstanceId'] = $request->instanceId;
+        }
         $req = new OpenApiRequest([
-            'body' => Utils::toMap($request),
+            'query' => OpenApiUtilClient::query($query),
+        ]);
+        $params = new Params([
+            'action'      => 'ModifyHostInfo',
+            'version'     => '2019-01-01',
+            'protocol'    => 'HTTPS',
+            'pathname'    => '/',
+            'method'      => 'POST',
+            'authType'    => 'AK',
+            'style'       => 'RPC',
+            'reqBodyType' => 'formData',
+            'bodyType'    => 'json',
         ]);
 
-        return ModifyHostInfoResponse::fromMap($this->doRPCRequest('ModifyHostInfo', '2019-01-01', 'HTTPS', 'POST', 'AK', 'json', $req, $runtime));
+        return ModifyHostInfoResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
@@ -3496,11 +6351,38 @@ class Cms extends OpenApiClient
     public function modifyMetricRuleTemplateWithOptions($request, $runtime)
     {
         Utils::validateModel($request);
+        $query = [];
+        if (!Utils::isUnset($request->alertTemplates)) {
+            $query['AlertTemplates'] = $request->alertTemplates;
+        }
+        if (!Utils::isUnset($request->description)) {
+            $query['Description'] = $request->description;
+        }
+        if (!Utils::isUnset($request->name)) {
+            $query['Name'] = $request->name;
+        }
+        if (!Utils::isUnset($request->restVersion)) {
+            $query['RestVersion'] = $request->restVersion;
+        }
+        if (!Utils::isUnset($request->templateId)) {
+            $query['TemplateId'] = $request->templateId;
+        }
         $req = new OpenApiRequest([
-            'body' => Utils::toMap($request),
+            'query' => OpenApiUtilClient::query($query),
+        ]);
+        $params = new Params([
+            'action'      => 'ModifyMetricRuleTemplate',
+            'version'     => '2019-01-01',
+            'protocol'    => 'HTTPS',
+            'pathname'    => '/',
+            'method'      => 'POST',
+            'authType'    => 'AK',
+            'style'       => 'RPC',
+            'reqBodyType' => 'formData',
+            'bodyType'    => 'json',
         ]);
 
-        return ModifyMetricRuleTemplateResponse::fromMap($this->doRPCRequest('ModifyMetricRuleTemplate', '2019-01-01', 'HTTPS', 'POST', 'AK', 'json', $req, $runtime));
+        return ModifyMetricRuleTemplateResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
@@ -3524,11 +6406,32 @@ class Cms extends OpenApiClient
     public function modifyMonitorGroupWithOptions($request, $runtime)
     {
         Utils::validateModel($request);
+        $query = [];
+        if (!Utils::isUnset($request->contactGroups)) {
+            $query['ContactGroups'] = $request->contactGroups;
+        }
+        if (!Utils::isUnset($request->groupId)) {
+            $query['GroupId'] = $request->groupId;
+        }
+        if (!Utils::isUnset($request->groupName)) {
+            $query['GroupName'] = $request->groupName;
+        }
         $req = new OpenApiRequest([
-            'body' => Utils::toMap($request),
+            'query' => OpenApiUtilClient::query($query),
+        ]);
+        $params = new Params([
+            'action'      => 'ModifyMonitorGroup',
+            'version'     => '2019-01-01',
+            'protocol'    => 'HTTPS',
+            'pathname'    => '/',
+            'method'      => 'POST',
+            'authType'    => 'AK',
+            'style'       => 'RPC',
+            'reqBodyType' => 'formData',
+            'bodyType'    => 'json',
         ]);
 
-        return ModifyMonitorGroupResponse::fromMap($this->doRPCRequest('ModifyMonitorGroup', '2019-01-01', 'HTTPS', 'POST', 'AK', 'json', $req, $runtime));
+        return ModifyMonitorGroupResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
@@ -3552,11 +6455,29 @@ class Cms extends OpenApiClient
     public function modifyMonitorGroupInstancesWithOptions($request, $runtime)
     {
         Utils::validateModel($request);
+        $query = [];
+        if (!Utils::isUnset($request->groupId)) {
+            $query['GroupId'] = $request->groupId;
+        }
+        if (!Utils::isUnset($request->instances)) {
+            $query['Instances'] = $request->instances;
+        }
         $req = new OpenApiRequest([
-            'body' => Utils::toMap($request),
+            'query' => OpenApiUtilClient::query($query),
+        ]);
+        $params = new Params([
+            'action'      => 'ModifyMonitorGroupInstances',
+            'version'     => '2019-01-01',
+            'protocol'    => 'HTTPS',
+            'pathname'    => '/',
+            'method'      => 'POST',
+            'authType'    => 'AK',
+            'style'       => 'RPC',
+            'reqBodyType' => 'formData',
+            'bodyType'    => 'json',
         ]);
 
-        return ModifyMonitorGroupInstancesResponse::fromMap($this->doRPCRequest('ModifyMonitorGroupInstances', '2019-01-01', 'HTTPS', 'POST', 'AK', 'json', $req, $runtime));
+        return ModifyMonitorGroupInstancesResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
@@ -3580,11 +6501,47 @@ class Cms extends OpenApiClient
     public function modifySiteMonitorWithOptions($request, $runtime)
     {
         Utils::validateModel($request);
+        $query = [];
+        if (!Utils::isUnset($request->address)) {
+            $query['Address'] = $request->address;
+        }
+        if (!Utils::isUnset($request->alertIds)) {
+            $query['AlertIds'] = $request->alertIds;
+        }
+        if (!Utils::isUnset($request->interval)) {
+            $query['Interval'] = $request->interval;
+        }
+        if (!Utils::isUnset($request->intervalUnit)) {
+            $query['IntervalUnit'] = $request->intervalUnit;
+        }
+        if (!Utils::isUnset($request->ispCities)) {
+            $query['IspCities'] = $request->ispCities;
+        }
+        if (!Utils::isUnset($request->optionsJson)) {
+            $query['OptionsJson'] = $request->optionsJson;
+        }
+        if (!Utils::isUnset($request->taskId)) {
+            $query['TaskId'] = $request->taskId;
+        }
+        if (!Utils::isUnset($request->taskName)) {
+            $query['TaskName'] = $request->taskName;
+        }
         $req = new OpenApiRequest([
-            'body' => Utils::toMap($request),
+            'query' => OpenApiUtilClient::query($query),
+        ]);
+        $params = new Params([
+            'action'      => 'ModifySiteMonitor',
+            'version'     => '2019-01-01',
+            'protocol'    => 'HTTPS',
+            'pathname'    => '/',
+            'method'      => 'POST',
+            'authType'    => 'AK',
+            'style'       => 'RPC',
+            'reqBodyType' => 'formData',
+            'bodyType'    => 'json',
         ]);
 
-        return ModifySiteMonitorResponse::fromMap($this->doRPCRequest('ModifySiteMonitor', '2019-01-01', 'HTTPS', 'POST', 'AK', 'json', $req, $runtime));
+        return ModifySiteMonitorResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
@@ -3606,9 +6563,20 @@ class Cms extends OpenApiClient
      */
     public function openCmsServiceWithOptions($runtime)
     {
-        $req = new OpenApiRequest([]);
+        $req    = new OpenApiRequest([]);
+        $params = new Params([
+            'action'      => 'OpenCmsService',
+            'version'     => '2019-01-01',
+            'protocol'    => 'HTTPS',
+            'pathname'    => '/',
+            'method'      => 'POST',
+            'authType'    => 'AK',
+            'style'       => 'RPC',
+            'reqBodyType' => 'formData',
+            'bodyType'    => 'json',
+        ]);
 
-        return OpenCmsServiceResponse::fromMap($this->doRPCRequest('OpenCmsService', '2019-01-01', 'HTTPS', 'POST', 'AK', 'json', $req, $runtime));
+        return OpenCmsServiceResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
@@ -3630,11 +6598,35 @@ class Cms extends OpenApiClient
     public function putContactWithOptions($request, $runtime)
     {
         Utils::validateModel($request);
+        $query = [];
+        if (!Utils::isUnset($request->contactName)) {
+            $query['ContactName'] = $request->contactName;
+        }
+        if (!Utils::isUnset($request->describe)) {
+            $query['Describe'] = $request->describe;
+        }
+        if (!Utils::isUnset($request->lang)) {
+            $query['Lang'] = $request->lang;
+        }
+        if (!Utils::isUnset($request->channels)) {
+            $query['Channels'] = $request->channels;
+        }
         $req = new OpenApiRequest([
-            'body' => Utils::toMap($request),
+            'query' => OpenApiUtilClient::query($query),
+        ]);
+        $params = new Params([
+            'action'      => 'PutContact',
+            'version'     => '2019-01-01',
+            'protocol'    => 'HTTPS',
+            'pathname'    => '/',
+            'method'      => 'POST',
+            'authType'    => 'AK',
+            'style'       => 'RPC',
+            'reqBodyType' => 'formData',
+            'bodyType'    => 'json',
         ]);
 
-        return PutContactResponse::fromMap($this->doRPCRequest('PutContact', '2019-01-01', 'HTTPS', 'POST', 'AK', 'json', $req, $runtime));
+        return PutContactResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
@@ -3658,11 +6650,35 @@ class Cms extends OpenApiClient
     public function putContactGroupWithOptions($request, $runtime)
     {
         Utils::validateModel($request);
+        $query = [];
+        if (!Utils::isUnset($request->contactGroupName)) {
+            $query['ContactGroupName'] = $request->contactGroupName;
+        }
+        if (!Utils::isUnset($request->contactNames)) {
+            $query['ContactNames'] = $request->contactNames;
+        }
+        if (!Utils::isUnset($request->describe)) {
+            $query['Describe'] = $request->describe;
+        }
+        if (!Utils::isUnset($request->enableSubscribed)) {
+            $query['EnableSubscribed'] = $request->enableSubscribed;
+        }
         $req = new OpenApiRequest([
-            'body' => Utils::toMap($request),
+            'query' => OpenApiUtilClient::query($query),
+        ]);
+        $params = new Params([
+            'action'      => 'PutContactGroup',
+            'version'     => '2019-01-01',
+            'protocol'    => 'HTTPS',
+            'pathname'    => '/',
+            'method'      => 'POST',
+            'authType'    => 'AK',
+            'style'       => 'RPC',
+            'reqBodyType' => 'formData',
+            'bodyType'    => 'json',
         ]);
 
-        return PutContactGroupResponse::fromMap($this->doRPCRequest('PutContactGroup', '2019-01-01', 'HTTPS', 'POST', 'AK', 'json', $req, $runtime));
+        return PutContactGroupResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
@@ -3686,11 +6702,26 @@ class Cms extends OpenApiClient
     public function putCustomEventWithOptions($request, $runtime)
     {
         Utils::validateModel($request);
+        $query = [];
+        if (!Utils::isUnset($request->eventInfo)) {
+            $query['EventInfo'] = $request->eventInfo;
+        }
         $req = new OpenApiRequest([
-            'body' => Utils::toMap($request),
+            'query' => OpenApiUtilClient::query($query),
+        ]);
+        $params = new Params([
+            'action'      => 'PutCustomEvent',
+            'version'     => '2019-01-01',
+            'protocol'    => 'HTTPS',
+            'pathname'    => '/',
+            'method'      => 'POST',
+            'authType'    => 'AK',
+            'style'       => 'RPC',
+            'reqBodyType' => 'formData',
+            'bodyType'    => 'json',
         ]);
 
-        return PutCustomEventResponse::fromMap($this->doRPCRequest('PutCustomEvent', '2019-01-01', 'HTTPS', 'POST', 'AK', 'json', $req, $runtime));
+        return PutCustomEventResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
@@ -3714,11 +6745,56 @@ class Cms extends OpenApiClient
     public function putCustomEventRuleWithOptions($request, $runtime)
     {
         Utils::validateModel($request);
+        $query = [];
+        if (!Utils::isUnset($request->contactGroups)) {
+            $query['ContactGroups'] = $request->contactGroups;
+        }
+        if (!Utils::isUnset($request->effectiveInterval)) {
+            $query['EffectiveInterval'] = $request->effectiveInterval;
+        }
+        if (!Utils::isUnset($request->emailSubject)) {
+            $query['EmailSubject'] = $request->emailSubject;
+        }
+        if (!Utils::isUnset($request->eventName)) {
+            $query['EventName'] = $request->eventName;
+        }
+        if (!Utils::isUnset($request->groupId)) {
+            $query['GroupId'] = $request->groupId;
+        }
+        if (!Utils::isUnset($request->level)) {
+            $query['Level'] = $request->level;
+        }
+        if (!Utils::isUnset($request->period)) {
+            $query['Period'] = $request->period;
+        }
+        if (!Utils::isUnset($request->ruleId)) {
+            $query['RuleId'] = $request->ruleId;
+        }
+        if (!Utils::isUnset($request->ruleName)) {
+            $query['RuleName'] = $request->ruleName;
+        }
+        if (!Utils::isUnset($request->threshold)) {
+            $query['Threshold'] = $request->threshold;
+        }
+        if (!Utils::isUnset($request->webhook)) {
+            $query['Webhook'] = $request->webhook;
+        }
         $req = new OpenApiRequest([
-            'body' => Utils::toMap($request),
+            'query' => OpenApiUtilClient::query($query),
+        ]);
+        $params = new Params([
+            'action'      => 'PutCustomEventRule',
+            'version'     => '2019-01-01',
+            'protocol'    => 'HTTPS',
+            'pathname'    => '/',
+            'method'      => 'POST',
+            'authType'    => 'AK',
+            'style'       => 'RPC',
+            'reqBodyType' => 'formData',
+            'bodyType'    => 'json',
         ]);
 
-        return PutCustomEventRuleResponse::fromMap($this->doRPCRequest('PutCustomEventRule', '2019-01-01', 'HTTPS', 'POST', 'AK', 'json', $req, $runtime));
+        return PutCustomEventRuleResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
@@ -3742,11 +6818,26 @@ class Cms extends OpenApiClient
     public function putCustomMetricWithOptions($request, $runtime)
     {
         Utils::validateModel($request);
+        $query = [];
+        if (!Utils::isUnset($request->metricList)) {
+            $query['MetricList'] = $request->metricList;
+        }
         $req = new OpenApiRequest([
-            'body' => Utils::toMap($request),
+            'query' => OpenApiUtilClient::query($query),
+        ]);
+        $params = new Params([
+            'action'      => 'PutCustomMetric',
+            'version'     => '2019-01-01',
+            'protocol'    => 'HTTPS',
+            'pathname'    => '/',
+            'method'      => 'POST',
+            'authType'    => 'AK',
+            'style'       => 'RPC',
+            'reqBodyType' => 'formData',
+            'bodyType'    => 'json',
         ]);
 
-        return PutCustomMetricResponse::fromMap($this->doRPCRequest('PutCustomMetric', '2019-01-01', 'HTTPS', 'POST', 'AK', 'json', $req, $runtime));
+        return PutCustomMetricResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
@@ -3770,11 +6861,71 @@ class Cms extends OpenApiClient
     public function putCustomMetricRuleWithOptions($request, $runtime)
     {
         Utils::validateModel($request);
+        $query = [];
+        if (!Utils::isUnset($request->comparisonOperator)) {
+            $query['ComparisonOperator'] = $request->comparisonOperator;
+        }
+        if (!Utils::isUnset($request->contactGroups)) {
+            $query['ContactGroups'] = $request->contactGroups;
+        }
+        if (!Utils::isUnset($request->effectiveInterval)) {
+            $query['EffectiveInterval'] = $request->effectiveInterval;
+        }
+        if (!Utils::isUnset($request->emailSubject)) {
+            $query['EmailSubject'] = $request->emailSubject;
+        }
+        if (!Utils::isUnset($request->evaluationCount)) {
+            $query['EvaluationCount'] = $request->evaluationCount;
+        }
+        if (!Utils::isUnset($request->groupId)) {
+            $query['GroupId'] = $request->groupId;
+        }
+        if (!Utils::isUnset($request->level)) {
+            $query['Level'] = $request->level;
+        }
+        if (!Utils::isUnset($request->metricName)) {
+            $query['MetricName'] = $request->metricName;
+        }
+        if (!Utils::isUnset($request->period)) {
+            $query['Period'] = $request->period;
+        }
+        if (!Utils::isUnset($request->resources)) {
+            $query['Resources'] = $request->resources;
+        }
+        if (!Utils::isUnset($request->ruleId)) {
+            $query['RuleId'] = $request->ruleId;
+        }
+        if (!Utils::isUnset($request->ruleName)) {
+            $query['RuleName'] = $request->ruleName;
+        }
+        if (!Utils::isUnset($request->silenceTime)) {
+            $query['SilenceTime'] = $request->silenceTime;
+        }
+        if (!Utils::isUnset($request->statistics)) {
+            $query['Statistics'] = $request->statistics;
+        }
+        if (!Utils::isUnset($request->threshold)) {
+            $query['Threshold'] = $request->threshold;
+        }
+        if (!Utils::isUnset($request->webhook)) {
+            $query['Webhook'] = $request->webhook;
+        }
         $req = new OpenApiRequest([
-            'body' => Utils::toMap($request),
+            'query' => OpenApiUtilClient::query($query),
+        ]);
+        $params = new Params([
+            'action'      => 'PutCustomMetricRule',
+            'version'     => '2019-01-01',
+            'protocol'    => 'HTTPS',
+            'pathname'    => '/',
+            'method'      => 'POST',
+            'authType'    => 'AK',
+            'style'       => 'RPC',
+            'reqBodyType' => 'formData',
+            'bodyType'    => 'json',
         ]);
 
-        return PutCustomMetricRuleResponse::fromMap($this->doRPCRequest('PutCustomMetricRule', '2019-01-01', 'HTTPS', 'POST', 'AK', 'json', $req, $runtime));
+        return PutCustomMetricRuleResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
@@ -3798,11 +6949,44 @@ class Cms extends OpenApiClient
     public function putEventRuleWithOptions($request, $runtime)
     {
         Utils::validateModel($request);
+        $query = [];
+        if (!Utils::isUnset($request->description)) {
+            $query['Description'] = $request->description;
+        }
+        if (!Utils::isUnset($request->eventPattern)) {
+            $query['EventPattern'] = $request->eventPattern;
+        }
+        if (!Utils::isUnset($request->eventType)) {
+            $query['EventType'] = $request->eventType;
+        }
+        if (!Utils::isUnset($request->groupId)) {
+            $query['GroupId'] = $request->groupId;
+        }
+        if (!Utils::isUnset($request->ruleName)) {
+            $query['RuleName'] = $request->ruleName;
+        }
+        if (!Utils::isUnset($request->silenceTime)) {
+            $query['SilenceTime'] = $request->silenceTime;
+        }
+        if (!Utils::isUnset($request->state)) {
+            $query['State'] = $request->state;
+        }
         $req = new OpenApiRequest([
-            'body' => Utils::toMap($request),
+            'query' => OpenApiUtilClient::query($query),
+        ]);
+        $params = new Params([
+            'action'      => 'PutEventRule',
+            'version'     => '2019-01-01',
+            'protocol'    => 'HTTPS',
+            'pathname'    => '/',
+            'method'      => 'POST',
+            'authType'    => 'AK',
+            'style'       => 'RPC',
+            'reqBodyType' => 'formData',
+            'bodyType'    => 'json',
         ]);
 
-        return PutEventRuleResponse::fromMap($this->doRPCRequest('PutEventRule', '2019-01-01', 'HTTPS', 'POST', 'AK', 'json', $req, $runtime));
+        return PutEventRuleResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
@@ -3826,11 +7010,44 @@ class Cms extends OpenApiClient
     public function putEventRuleTargetsWithOptions($request, $runtime)
     {
         Utils::validateModel($request);
+        $query = [];
+        if (!Utils::isUnset($request->contactParameters)) {
+            $query['ContactParameters'] = $request->contactParameters;
+        }
+        if (!Utils::isUnset($request->fcParameters)) {
+            $query['FcParameters'] = $request->fcParameters;
+        }
+        if (!Utils::isUnset($request->mnsParameters)) {
+            $query['MnsParameters'] = $request->mnsParameters;
+        }
+        if (!Utils::isUnset($request->openApiParameters)) {
+            $query['OpenApiParameters'] = $request->openApiParameters;
+        }
+        if (!Utils::isUnset($request->ruleName)) {
+            $query['RuleName'] = $request->ruleName;
+        }
+        if (!Utils::isUnset($request->slsParameters)) {
+            $query['SlsParameters'] = $request->slsParameters;
+        }
+        if (!Utils::isUnset($request->webhookParameters)) {
+            $query['WebhookParameters'] = $request->webhookParameters;
+        }
         $req = new OpenApiRequest([
-            'body' => Utils::toMap($request),
+            'query' => OpenApiUtilClient::query($query),
+        ]);
+        $params = new Params([
+            'action'      => 'PutEventRuleTargets',
+            'version'     => '2019-01-01',
+            'protocol'    => 'HTTPS',
+            'pathname'    => '/',
+            'method'      => 'POST',
+            'authType'    => 'AK',
+            'style'       => 'RPC',
+            'reqBodyType' => 'formData',
+            'bodyType'    => 'json',
         ]);
 
-        return PutEventRuleTargetsResponse::fromMap($this->doRPCRequest('PutEventRuleTargets', '2019-01-01', 'HTTPS', 'POST', 'AK', 'json', $req, $runtime));
+        return PutEventRuleTargetsResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
@@ -3854,11 +7071,35 @@ class Cms extends OpenApiClient
     public function putExporterOutputWithOptions($request, $runtime)
     {
         Utils::validateModel($request);
+        $query = [];
+        if (!Utils::isUnset($request->configJson)) {
+            $query['ConfigJson'] = $request->configJson;
+        }
+        if (!Utils::isUnset($request->desc)) {
+            $query['Desc'] = $request->desc;
+        }
+        if (!Utils::isUnset($request->destName)) {
+            $query['DestName'] = $request->destName;
+        }
+        if (!Utils::isUnset($request->destType)) {
+            $query['DestType'] = $request->destType;
+        }
         $req = new OpenApiRequest([
-            'body' => Utils::toMap($request),
+            'query' => OpenApiUtilClient::query($query),
+        ]);
+        $params = new Params([
+            'action'      => 'PutExporterOutput',
+            'version'     => '2019-01-01',
+            'protocol'    => 'HTTPS',
+            'pathname'    => '/',
+            'method'      => 'POST',
+            'authType'    => 'AK',
+            'style'       => 'RPC',
+            'reqBodyType' => 'formData',
+            'bodyType'    => 'json',
         ]);
 
-        return PutExporterOutputResponse::fromMap($this->doRPCRequest('PutExporterOutput', '2019-01-01', 'HTTPS', 'POST', 'AK', 'json', $req, $runtime));
+        return PutExporterOutputResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
@@ -3882,11 +7123,41 @@ class Cms extends OpenApiClient
     public function putExporterRuleWithOptions($request, $runtime)
     {
         Utils::validateModel($request);
+        $query = [];
+        if (!Utils::isUnset($request->describe)) {
+            $query['Describe'] = $request->describe;
+        }
+        if (!Utils::isUnset($request->dstNames)) {
+            $query['DstNames'] = $request->dstNames;
+        }
+        if (!Utils::isUnset($request->metricName)) {
+            $query['MetricName'] = $request->metricName;
+        }
+        if (!Utils::isUnset($request->namespace_)) {
+            $query['Namespace'] = $request->namespace_;
+        }
+        if (!Utils::isUnset($request->ruleName)) {
+            $query['RuleName'] = $request->ruleName;
+        }
+        if (!Utils::isUnset($request->targetWindows)) {
+            $query['TargetWindows'] = $request->targetWindows;
+        }
         $req = new OpenApiRequest([
-            'body' => Utils::toMap($request),
+            'query' => OpenApiUtilClient::query($query),
+        ]);
+        $params = new Params([
+            'action'      => 'PutExporterRule',
+            'version'     => '2019-01-01',
+            'protocol'    => 'HTTPS',
+            'pathname'    => '/',
+            'method'      => 'POST',
+            'authType'    => 'AK',
+            'style'       => 'RPC',
+            'reqBodyType' => 'formData',
+            'bodyType'    => 'json',
         ]);
 
-        return PutExporterRuleResponse::fromMap($this->doRPCRequest('PutExporterRule', '2019-01-01', 'HTTPS', 'POST', 'AK', 'json', $req, $runtime));
+        return PutExporterRuleResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
@@ -3910,11 +7181,77 @@ class Cms extends OpenApiClient
     public function putGroupMetricRuleWithOptions($request, $runtime)
     {
         Utils::validateModel($request);
+        $query = [];
+        if (!Utils::isUnset($request->category)) {
+            $query['Category'] = $request->category;
+        }
+        if (!Utils::isUnset($request->contactGroups)) {
+            $query['ContactGroups'] = $request->contactGroups;
+        }
+        if (!Utils::isUnset($request->dimensions)) {
+            $query['Dimensions'] = $request->dimensions;
+        }
+        if (!Utils::isUnset($request->effectiveInterval)) {
+            $query['EffectiveInterval'] = $request->effectiveInterval;
+        }
+        if (!Utils::isUnset($request->emailSubject)) {
+            $query['EmailSubject'] = $request->emailSubject;
+        }
+        if (!Utils::isUnset($request->extraDimensionJson)) {
+            $query['ExtraDimensionJson'] = $request->extraDimensionJson;
+        }
+        if (!Utils::isUnset($request->groupId)) {
+            $query['GroupId'] = $request->groupId;
+        }
+        if (!Utils::isUnset($request->interval)) {
+            $query['Interval'] = $request->interval;
+        }
+        if (!Utils::isUnset($request->metricName)) {
+            $query['MetricName'] = $request->metricName;
+        }
+        if (!Utils::isUnset($request->namespace_)) {
+            $query['Namespace'] = $request->namespace_;
+        }
+        if (!Utils::isUnset($request->noDataPolicy)) {
+            $query['NoDataPolicy'] = $request->noDataPolicy;
+        }
+        if (!Utils::isUnset($request->noEffectiveInterval)) {
+            $query['NoEffectiveInterval'] = $request->noEffectiveInterval;
+        }
+        if (!Utils::isUnset($request->period)) {
+            $query['Period'] = $request->period;
+        }
+        if (!Utils::isUnset($request->ruleId)) {
+            $query['RuleId'] = $request->ruleId;
+        }
+        if (!Utils::isUnset($request->ruleName)) {
+            $query['RuleName'] = $request->ruleName;
+        }
+        if (!Utils::isUnset($request->silenceTime)) {
+            $query['SilenceTime'] = $request->silenceTime;
+        }
+        if (!Utils::isUnset($request->webhook)) {
+            $query['Webhook'] = $request->webhook;
+        }
+        if (!Utils::isUnset($request->escalations)) {
+            $query['Escalations'] = $request->escalations;
+        }
         $req = new OpenApiRequest([
-            'body' => Utils::toMap($request),
+            'query' => OpenApiUtilClient::query($query),
+        ]);
+        $params = new Params([
+            'action'      => 'PutGroupMetricRule',
+            'version'     => '2019-01-01',
+            'protocol'    => 'HTTPS',
+            'pathname'    => '/',
+            'method'      => 'POST',
+            'authType'    => 'AK',
+            'style'       => 'RPC',
+            'reqBodyType' => 'formData',
+            'bodyType'    => 'json',
         ]);
 
-        return PutGroupMetricRuleResponse::fromMap($this->doRPCRequest('PutGroupMetricRule', '2019-01-01', 'HTTPS', 'POST', 'AK', 'json', $req, $runtime));
+        return PutGroupMetricRuleResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
@@ -3930,6 +7267,52 @@ class Cms extends OpenApiClient
     }
 
     /**
+     * @param PutHybridMonitorMetricDataRequest $request
+     * @param RuntimeOptions                    $runtime
+     *
+     * @return PutHybridMonitorMetricDataResponse
+     */
+    public function putHybridMonitorMetricDataWithOptions($request, $runtime)
+    {
+        Utils::validateModel($request);
+        $query = [];
+        if (!Utils::isUnset($request->metricList)) {
+            $query['MetricList'] = $request->metricList;
+        }
+        if (!Utils::isUnset($request->namespace_)) {
+            $query['Namespace'] = $request->namespace_;
+        }
+        $req = new OpenApiRequest([
+            'query' => OpenApiUtilClient::query($query),
+        ]);
+        $params = new Params([
+            'action'      => 'PutHybridMonitorMetricData',
+            'version'     => '2019-01-01',
+            'protocol'    => 'HTTPS',
+            'pathname'    => '/',
+            'method'      => 'POST',
+            'authType'    => 'AK',
+            'style'       => 'RPC',
+            'reqBodyType' => 'formData',
+            'bodyType'    => 'json',
+        ]);
+
+        return PutHybridMonitorMetricDataResponse::fromMap($this->callApi($params, $req, $runtime));
+    }
+
+    /**
+     * @param PutHybridMonitorMetricDataRequest $request
+     *
+     * @return PutHybridMonitorMetricDataResponse
+     */
+    public function putHybridMonitorMetricData($request)
+    {
+        $runtime = new RuntimeOptions([]);
+
+        return $this->putHybridMonitorMetricDataWithOptions($request, $runtime);
+    }
+
+    /**
      * @param PutLogMonitorRequest $request
      * @param RuntimeOptions       $runtime
      *
@@ -3938,11 +7321,62 @@ class Cms extends OpenApiClient
     public function putLogMonitorWithOptions($request, $runtime)
     {
         Utils::validateModel($request);
+        $query = [];
+        if (!Utils::isUnset($request->aggregates)) {
+            $query['Aggregates'] = $request->aggregates;
+        }
+        if (!Utils::isUnset($request->groupId)) {
+            $query['GroupId'] = $request->groupId;
+        }
+        if (!Utils::isUnset($request->groupbys)) {
+            $query['Groupbys'] = $request->groupbys;
+        }
+        if (!Utils::isUnset($request->logId)) {
+            $query['LogId'] = $request->logId;
+        }
+        if (!Utils::isUnset($request->metricExpress)) {
+            $query['MetricExpress'] = $request->metricExpress;
+        }
+        if (!Utils::isUnset($request->metricName)) {
+            $query['MetricName'] = $request->metricName;
+        }
+        if (!Utils::isUnset($request->slsLogstore)) {
+            $query['SlsLogstore'] = $request->slsLogstore;
+        }
+        if (!Utils::isUnset($request->slsProject)) {
+            $query['SlsProject'] = $request->slsProject;
+        }
+        if (!Utils::isUnset($request->slsRegionId)) {
+            $query['SlsRegionId'] = $request->slsRegionId;
+        }
+        if (!Utils::isUnset($request->tumblingwindows)) {
+            $query['Tumblingwindows'] = $request->tumblingwindows;
+        }
+        if (!Utils::isUnset($request->unit)) {
+            $query['Unit'] = $request->unit;
+        }
+        if (!Utils::isUnset($request->valueFilter)) {
+            $query['ValueFilter'] = $request->valueFilter;
+        }
+        if (!Utils::isUnset($request->valueFilterRelation)) {
+            $query['ValueFilterRelation'] = $request->valueFilterRelation;
+        }
         $req = new OpenApiRequest([
-            'body' => Utils::toMap($request),
+            'query' => OpenApiUtilClient::query($query),
+        ]);
+        $params = new Params([
+            'action'      => 'PutLogMonitor',
+            'version'     => '2019-01-01',
+            'protocol'    => 'HTTPS',
+            'pathname'    => '/',
+            'method'      => 'POST',
+            'authType'    => 'AK',
+            'style'       => 'RPC',
+            'reqBodyType' => 'formData',
+            'bodyType'    => 'json',
         ]);
 
-        return PutLogMonitorResponse::fromMap($this->doRPCRequest('PutLogMonitor', '2019-01-01', 'HTTPS', 'POST', 'AK', 'json', $req, $runtime));
+        return PutLogMonitorResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
@@ -3966,11 +7400,29 @@ class Cms extends OpenApiClient
     public function putMetricRuleTargetsWithOptions($request, $runtime)
     {
         Utils::validateModel($request);
+        $query = [];
+        if (!Utils::isUnset($request->ruleId)) {
+            $query['RuleId'] = $request->ruleId;
+        }
+        if (!Utils::isUnset($request->targets)) {
+            $query['Targets'] = $request->targets;
+        }
         $req = new OpenApiRequest([
-            'body' => Utils::toMap($request),
+            'query' => OpenApiUtilClient::query($query),
+        ]);
+        $params = new Params([
+            'action'      => 'PutMetricRuleTargets',
+            'version'     => '2019-01-01',
+            'protocol'    => 'HTTPS',
+            'pathname'    => '/',
+            'method'      => 'POST',
+            'authType'    => 'AK',
+            'style'       => 'RPC',
+            'reqBodyType' => 'formData',
+            'bodyType'    => 'json',
         ]);
 
-        return PutMetricRuleTargetsResponse::fromMap($this->doRPCRequest('PutMetricRuleTargets', '2019-01-01', 'HTTPS', 'POST', 'AK', 'json', $req, $runtime));
+        return PutMetricRuleTargetsResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
@@ -3994,11 +7446,29 @@ class Cms extends OpenApiClient
     public function putMonitorGroupDynamicRuleWithOptions($request, $runtime)
     {
         Utils::validateModel($request);
+        $query = [];
+        if (!Utils::isUnset($request->groupId)) {
+            $query['GroupId'] = $request->groupId;
+        }
+        if (!Utils::isUnset($request->groupRules)) {
+            $query['GroupRules'] = $request->groupRules;
+        }
         $req = new OpenApiRequest([
-            'body' => Utils::toMap($request),
+            'query' => OpenApiUtilClient::query($query),
+        ]);
+        $params = new Params([
+            'action'      => 'PutMonitorGroupDynamicRule',
+            'version'     => '2019-01-01',
+            'protocol'    => 'HTTPS',
+            'pathname'    => '/',
+            'method'      => 'POST',
+            'authType'    => 'AK',
+            'style'       => 'RPC',
+            'reqBodyType' => 'formData',
+            'bodyType'    => 'json',
         ]);
 
-        return PutMonitorGroupDynamicRuleResponse::fromMap($this->doRPCRequest('PutMonitorGroupDynamicRule', '2019-01-01', 'HTTPS', 'POST', 'AK', 'json', $req, $runtime));
+        return PutMonitorGroupDynamicRuleResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
@@ -4022,11 +7492,29 @@ class Cms extends OpenApiClient
     public function putMonitoringConfigWithOptions($request, $runtime)
     {
         Utils::validateModel($request);
+        $query = [];
+        if (!Utils::isUnset($request->autoInstall)) {
+            $query['AutoInstall'] = $request->autoInstall;
+        }
+        if (!Utils::isUnset($request->enableInstallAgentNewECS)) {
+            $query['EnableInstallAgentNewECS'] = $request->enableInstallAgentNewECS;
+        }
         $req = new OpenApiRequest([
-            'body' => Utils::toMap($request),
+            'query' => OpenApiUtilClient::query($query),
+        ]);
+        $params = new Params([
+            'action'      => 'PutMonitoringConfig',
+            'version'     => '2019-01-01',
+            'protocol'    => 'HTTPS',
+            'pathname'    => '/',
+            'method'      => 'POST',
+            'authType'    => 'AK',
+            'style'       => 'RPC',
+            'reqBodyType' => 'formData',
+            'bodyType'    => 'json',
         ]);
 
-        return PutMonitoringConfigResponse::fromMap($this->doRPCRequest('PutMonitoringConfig', '2019-01-01', 'HTTPS', 'POST', 'AK', 'json', $req, $runtime));
+        return PutMonitoringConfigResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
@@ -4050,11 +7538,71 @@ class Cms extends OpenApiClient
     public function putResourceMetricRuleWithOptions($request, $runtime)
     {
         Utils::validateModel($request);
+        $query = [];
+        if (!Utils::isUnset($request->contactGroups)) {
+            $query['ContactGroups'] = $request->contactGroups;
+        }
+        if (!Utils::isUnset($request->effectiveInterval)) {
+            $query['EffectiveInterval'] = $request->effectiveInterval;
+        }
+        if (!Utils::isUnset($request->emailSubject)) {
+            $query['EmailSubject'] = $request->emailSubject;
+        }
+        if (!Utils::isUnset($request->interval)) {
+            $query['Interval'] = $request->interval;
+        }
+        if (!Utils::isUnset($request->labels)) {
+            $query['Labels'] = $request->labels;
+        }
+        if (!Utils::isUnset($request->metricName)) {
+            $query['MetricName'] = $request->metricName;
+        }
+        if (!Utils::isUnset($request->namespace_)) {
+            $query['Namespace'] = $request->namespace_;
+        }
+        if (!Utils::isUnset($request->noDataPolicy)) {
+            $query['NoDataPolicy'] = $request->noDataPolicy;
+        }
+        if (!Utils::isUnset($request->noEffectiveInterval)) {
+            $query['NoEffectiveInterval'] = $request->noEffectiveInterval;
+        }
+        if (!Utils::isUnset($request->period)) {
+            $query['Period'] = $request->period;
+        }
+        if (!Utils::isUnset($request->resources)) {
+            $query['Resources'] = $request->resources;
+        }
+        if (!Utils::isUnset($request->ruleId)) {
+            $query['RuleId'] = $request->ruleId;
+        }
+        if (!Utils::isUnset($request->ruleName)) {
+            $query['RuleName'] = $request->ruleName;
+        }
+        if (!Utils::isUnset($request->silenceTime)) {
+            $query['SilenceTime'] = $request->silenceTime;
+        }
+        if (!Utils::isUnset($request->webhook)) {
+            $query['Webhook'] = $request->webhook;
+        }
+        if (!Utils::isUnset($request->escalations)) {
+            $query['Escalations'] = $request->escalations;
+        }
         $req = new OpenApiRequest([
-            'body' => Utils::toMap($request),
+            'query' => OpenApiUtilClient::query($query),
+        ]);
+        $params = new Params([
+            'action'      => 'PutResourceMetricRule',
+            'version'     => '2019-01-01',
+            'protocol'    => 'HTTPS',
+            'pathname'    => '/',
+            'method'      => 'POST',
+            'authType'    => 'AK',
+            'style'       => 'RPC',
+            'reqBodyType' => 'formData',
+            'bodyType'    => 'json',
         ]);
 
-        return PutResourceMetricRuleResponse::fromMap($this->doRPCRequest('PutResourceMetricRule', '2019-01-01', 'HTTPS', 'POST', 'AK', 'json', $req, $runtime));
+        return PutResourceMetricRuleResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
@@ -4078,11 +7626,26 @@ class Cms extends OpenApiClient
     public function putResourceMetricRulesWithOptions($request, $runtime)
     {
         Utils::validateModel($request);
+        $query = [];
+        if (!Utils::isUnset($request->rules)) {
+            $query['Rules'] = $request->rules;
+        }
         $req = new OpenApiRequest([
-            'body' => Utils::toMap($request),
+            'query' => OpenApiUtilClient::query($query),
+        ]);
+        $params = new Params([
+            'action'      => 'PutResourceMetricRules',
+            'version'     => '2019-01-01',
+            'protocol'    => 'HTTPS',
+            'pathname'    => '/',
+            'method'      => 'POST',
+            'authType'    => 'AK',
+            'style'       => 'RPC',
+            'reqBodyType' => 'formData',
+            'bodyType'    => 'json',
         ]);
 
-        return PutResourceMetricRulesResponse::fromMap($this->doRPCRequest('PutResourceMetricRules', '2019-01-01', 'HTTPS', 'POST', 'AK', 'json', $req, $runtime));
+        return PutResourceMetricRulesResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
@@ -4106,11 +7669,29 @@ class Cms extends OpenApiClient
     public function removeTagsWithOptions($request, $runtime)
     {
         Utils::validateModel($request);
+        $query = [];
+        if (!Utils::isUnset($request->groupIds)) {
+            $query['GroupIds'] = $request->groupIds;
+        }
+        if (!Utils::isUnset($request->tag)) {
+            $query['Tag'] = $request->tag;
+        }
         $req = new OpenApiRequest([
-            'body' => Utils::toMap($request),
+            'query' => OpenApiUtilClient::query($query),
+        ]);
+        $params = new Params([
+            'action'      => 'RemoveTags',
+            'version'     => '2019-01-01',
+            'protocol'    => 'HTTPS',
+            'pathname'    => '/',
+            'method'      => 'POST',
+            'authType'    => 'AK',
+            'style'       => 'RPC',
+            'reqBodyType' => 'formData',
+            'bodyType'    => 'json',
         ]);
 
-        return RemoveTagsResponse::fromMap($this->doRPCRequest('RemoveTags', '2019-01-01', 'HTTPS', 'POST', 'AK', 'json', $req, $runtime));
+        return RemoveTagsResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
@@ -4134,11 +7715,35 @@ class Cms extends OpenApiClient
     public function sendDryRunSystemEventWithOptions($request, $runtime)
     {
         Utils::validateModel($request);
+        $query = [];
+        if (!Utils::isUnset($request->eventContent)) {
+            $query['EventContent'] = $request->eventContent;
+        }
+        if (!Utils::isUnset($request->eventName)) {
+            $query['EventName'] = $request->eventName;
+        }
+        if (!Utils::isUnset($request->groupId)) {
+            $query['GroupId'] = $request->groupId;
+        }
+        if (!Utils::isUnset($request->product)) {
+            $query['Product'] = $request->product;
+        }
         $req = new OpenApiRequest([
-            'body' => Utils::toMap($request),
+            'query' => OpenApiUtilClient::query($query),
+        ]);
+        $params = new Params([
+            'action'      => 'SendDryRunSystemEvent',
+            'version'     => '2019-01-01',
+            'protocol'    => 'HTTPS',
+            'pathname'    => '/',
+            'method'      => 'POST',
+            'authType'    => 'AK',
+            'style'       => 'RPC',
+            'reqBodyType' => 'formData',
+            'bodyType'    => 'json',
         ]);
 
-        return SendDryRunSystemEventResponse::fromMap($this->doRPCRequest('SendDryRunSystemEvent', '2019-01-01', 'HTTPS', 'POST', 'AK', 'json', $req, $runtime));
+        return SendDryRunSystemEventResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
@@ -4162,11 +7767,26 @@ class Cms extends OpenApiClient
     public function uninstallMonitoringAgentWithOptions($request, $runtime)
     {
         Utils::validateModel($request);
+        $query = [];
+        if (!Utils::isUnset($request->instanceId)) {
+            $query['InstanceId'] = $request->instanceId;
+        }
         $req = new OpenApiRequest([
-            'body' => Utils::toMap($request),
+            'query' => OpenApiUtilClient::query($query),
+        ]);
+        $params = new Params([
+            'action'      => 'UninstallMonitoringAgent',
+            'version'     => '2019-01-01',
+            'protocol'    => 'HTTPS',
+            'pathname'    => '/',
+            'method'      => 'POST',
+            'authType'    => 'AK',
+            'style'       => 'RPC',
+            'reqBodyType' => 'formData',
+            'bodyType'    => 'json',
         ]);
 
-        return UninstallMonitoringAgentResponse::fromMap($this->doRPCRequest('UninstallMonitoringAgent', '2019-01-01', 'HTTPS', 'POST', 'AK', 'json', $req, $runtime));
+        return UninstallMonitoringAgentResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**

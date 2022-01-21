@@ -11,7 +11,7 @@ class DeleteMonitorGroupInstancesRequest extends Model
     /**
      * @var string
      */
-    public $regionId;
+    public $category;
 
     /**
      * @var int
@@ -26,12 +26,12 @@ class DeleteMonitorGroupInstancesRequest extends Model
     /**
      * @var string
      */
-    public $category;
+    public $regionId;
     protected $_name = [
-        'regionId'       => 'RegionId',
+        'category'       => 'Category',
         'groupId'        => 'GroupId',
         'instanceIdList' => 'InstanceIdList',
-        'category'       => 'Category',
+        'regionId'       => 'RegionId',
     ];
 
     public function validate()
@@ -41,8 +41,8 @@ class DeleteMonitorGroupInstancesRequest extends Model
     public function toMap()
     {
         $res = [];
-        if (null !== $this->regionId) {
-            $res['RegionId'] = $this->regionId;
+        if (null !== $this->category) {
+            $res['Category'] = $this->category;
         }
         if (null !== $this->groupId) {
             $res['GroupId'] = $this->groupId;
@@ -50,8 +50,8 @@ class DeleteMonitorGroupInstancesRequest extends Model
         if (null !== $this->instanceIdList) {
             $res['InstanceIdList'] = $this->instanceIdList;
         }
-        if (null !== $this->category) {
-            $res['Category'] = $this->category;
+        if (null !== $this->regionId) {
+            $res['RegionId'] = $this->regionId;
         }
 
         return $res;
@@ -65,8 +65,8 @@ class DeleteMonitorGroupInstancesRequest extends Model
     public static function fromMap($map = [])
     {
         $model = new self();
-        if (isset($map['RegionId'])) {
-            $model->regionId = $map['RegionId'];
+        if (isset($map['Category'])) {
+            $model->category = $map['Category'];
         }
         if (isset($map['GroupId'])) {
             $model->groupId = $map['GroupId'];
@@ -74,8 +74,8 @@ class DeleteMonitorGroupInstancesRequest extends Model
         if (isset($map['InstanceIdList'])) {
             $model->instanceIdList = $map['InstanceIdList'];
         }
-        if (isset($map['Category'])) {
-            $model->category = $map['Category'];
+        if (isset($map['RegionId'])) {
+            $model->regionId = $map['RegionId'];
         }
 
         return $model;

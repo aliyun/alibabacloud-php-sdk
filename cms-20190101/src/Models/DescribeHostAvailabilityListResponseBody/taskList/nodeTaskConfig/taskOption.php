@@ -11,32 +11,12 @@ class taskOption extends Model
     /**
      * @var string
      */
+    public $httpKeyword;
+
+    /**
+     * @var string
+     */
     public $httpMethod;
-
-    /**
-     * @var int
-     */
-    public $interval;
-
-    /**
-     * @var string
-     */
-    public $httpURI;
-
-    /**
-     * @var string
-     */
-    public $telnetOrPingHost;
-
-    /**
-     * @var string
-     */
-    public $httpResponseCharset;
-
-    /**
-     * @var string
-     */
-    public $httpPostContent;
 
     /**
      * @var bool
@@ -46,16 +26,36 @@ class taskOption extends Model
     /**
      * @var string
      */
-    public $httpKeyword;
+    public $httpPostContent;
+
+    /**
+     * @var string
+     */
+    public $httpResponseCharset;
+
+    /**
+     * @var string
+     */
+    public $httpURI;
+
+    /**
+     * @var int
+     */
+    public $interval;
+
+    /**
+     * @var string
+     */
+    public $telnetOrPingHost;
     protected $_name = [
-        'httpMethod'          => 'HttpMethod',
-        'interval'            => 'Interval',
-        'httpURI'             => 'HttpURI',
-        'telnetOrPingHost'    => 'TelnetOrPingHost',
-        'httpResponseCharset' => 'HttpResponseCharset',
-        'httpPostContent'     => 'HttpPostContent',
-        'httpNegative'        => 'HttpNegative',
         'httpKeyword'         => 'HttpKeyword',
+        'httpMethod'          => 'HttpMethod',
+        'httpNegative'        => 'HttpNegative',
+        'httpPostContent'     => 'HttpPostContent',
+        'httpResponseCharset' => 'HttpResponseCharset',
+        'httpURI'             => 'HttpURI',
+        'interval'            => 'Interval',
+        'telnetOrPingHost'    => 'TelnetOrPingHost',
     ];
 
     public function validate()
@@ -65,29 +65,29 @@ class taskOption extends Model
     public function toMap()
     {
         $res = [];
+        if (null !== $this->httpKeyword) {
+            $res['HttpKeyword'] = $this->httpKeyword;
+        }
         if (null !== $this->httpMethod) {
             $res['HttpMethod'] = $this->httpMethod;
-        }
-        if (null !== $this->interval) {
-            $res['Interval'] = $this->interval;
-        }
-        if (null !== $this->httpURI) {
-            $res['HttpURI'] = $this->httpURI;
-        }
-        if (null !== $this->telnetOrPingHost) {
-            $res['TelnetOrPingHost'] = $this->telnetOrPingHost;
-        }
-        if (null !== $this->httpResponseCharset) {
-            $res['HttpResponseCharset'] = $this->httpResponseCharset;
-        }
-        if (null !== $this->httpPostContent) {
-            $res['HttpPostContent'] = $this->httpPostContent;
         }
         if (null !== $this->httpNegative) {
             $res['HttpNegative'] = $this->httpNegative;
         }
-        if (null !== $this->httpKeyword) {
-            $res['HttpKeyword'] = $this->httpKeyword;
+        if (null !== $this->httpPostContent) {
+            $res['HttpPostContent'] = $this->httpPostContent;
+        }
+        if (null !== $this->httpResponseCharset) {
+            $res['HttpResponseCharset'] = $this->httpResponseCharset;
+        }
+        if (null !== $this->httpURI) {
+            $res['HttpURI'] = $this->httpURI;
+        }
+        if (null !== $this->interval) {
+            $res['Interval'] = $this->interval;
+        }
+        if (null !== $this->telnetOrPingHost) {
+            $res['TelnetOrPingHost'] = $this->telnetOrPingHost;
         }
 
         return $res;
@@ -101,29 +101,29 @@ class taskOption extends Model
     public static function fromMap($map = [])
     {
         $model = new self();
+        if (isset($map['HttpKeyword'])) {
+            $model->httpKeyword = $map['HttpKeyword'];
+        }
         if (isset($map['HttpMethod'])) {
             $model->httpMethod = $map['HttpMethod'];
-        }
-        if (isset($map['Interval'])) {
-            $model->interval = $map['Interval'];
-        }
-        if (isset($map['HttpURI'])) {
-            $model->httpURI = $map['HttpURI'];
-        }
-        if (isset($map['TelnetOrPingHost'])) {
-            $model->telnetOrPingHost = $map['TelnetOrPingHost'];
-        }
-        if (isset($map['HttpResponseCharset'])) {
-            $model->httpResponseCharset = $map['HttpResponseCharset'];
-        }
-        if (isset($map['HttpPostContent'])) {
-            $model->httpPostContent = $map['HttpPostContent'];
         }
         if (isset($map['HttpNegative'])) {
             $model->httpNegative = $map['HttpNegative'];
         }
-        if (isset($map['HttpKeyword'])) {
-            $model->httpKeyword = $map['HttpKeyword'];
+        if (isset($map['HttpPostContent'])) {
+            $model->httpPostContent = $map['HttpPostContent'];
+        }
+        if (isset($map['HttpResponseCharset'])) {
+            $model->httpResponseCharset = $map['HttpResponseCharset'];
+        }
+        if (isset($map['HttpURI'])) {
+            $model->httpURI = $map['HttpURI'];
+        }
+        if (isset($map['Interval'])) {
+            $model->interval = $map['Interval'];
+        }
+        if (isset($map['TelnetOrPingHost'])) {
+            $model->telnetOrPingHost = $map['TelnetOrPingHost'];
         }
 
         return $model;

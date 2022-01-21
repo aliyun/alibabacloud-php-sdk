@@ -16,17 +16,17 @@ class resource extends Model
     /**
      * @var string
      */
-    public $preCondition;
-
-    /**
-     * @var string
-     */
     public $expression;
 
     /**
      * @var int
      */
-    public $times;
+    public $level;
+
+    /**
+     * @var string
+     */
+    public $preCondition;
 
     /**
      * @var string
@@ -41,15 +41,15 @@ class resource extends Model
     /**
      * @var int
      */
-    public $level;
+    public $times;
     protected $_name = [
         'comparisonOperator' => 'ComparisonOperator',
-        'preCondition'       => 'PreCondition',
         'expression'         => 'Expression',
-        'times'              => 'Times',
+        'level'              => 'Level',
+        'preCondition'       => 'PreCondition',
         'tag'                => 'Tag',
         'threshold'          => 'Threshold',
-        'level'              => 'Level',
+        'times'              => 'Times',
     ];
 
     public function validate()
@@ -62,14 +62,14 @@ class resource extends Model
         if (null !== $this->comparisonOperator) {
             $res['ComparisonOperator'] = $this->comparisonOperator;
         }
-        if (null !== $this->preCondition) {
-            $res['PreCondition'] = $this->preCondition;
-        }
         if (null !== $this->expression) {
             $res['Expression'] = $this->expression;
         }
-        if (null !== $this->times) {
-            $res['Times'] = $this->times;
+        if (null !== $this->level) {
+            $res['Level'] = $this->level;
+        }
+        if (null !== $this->preCondition) {
+            $res['PreCondition'] = $this->preCondition;
         }
         if (null !== $this->tag) {
             $res['Tag'] = $this->tag;
@@ -77,8 +77,8 @@ class resource extends Model
         if (null !== $this->threshold) {
             $res['Threshold'] = $this->threshold;
         }
-        if (null !== $this->level) {
-            $res['Level'] = $this->level;
+        if (null !== $this->times) {
+            $res['Times'] = $this->times;
         }
 
         return $res;
@@ -95,14 +95,14 @@ class resource extends Model
         if (isset($map['ComparisonOperator'])) {
             $model->comparisonOperator = $map['ComparisonOperator'];
         }
-        if (isset($map['PreCondition'])) {
-            $model->preCondition = $map['PreCondition'];
-        }
         if (isset($map['Expression'])) {
             $model->expression = $map['Expression'];
         }
-        if (isset($map['Times'])) {
-            $model->times = $map['Times'];
+        if (isset($map['Level'])) {
+            $model->level = $map['Level'];
+        }
+        if (isset($map['PreCondition'])) {
+            $model->preCondition = $map['PreCondition'];
         }
         if (isset($map['Tag'])) {
             $model->tag = $map['Tag'];
@@ -110,8 +110,8 @@ class resource extends Model
         if (isset($map['Threshold'])) {
             $model->threshold = $map['Threshold'];
         }
-        if (isset($map['Level'])) {
-            $model->level = $map['Level'];
+        if (isset($map['Times'])) {
+            $model->times = $map['Times'];
         }
 
         return $model;

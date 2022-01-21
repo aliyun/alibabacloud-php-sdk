@@ -11,7 +11,7 @@ class webhookParameter extends Model
     /**
      * @var string
      */
-    public $url;
+    public $id;
 
     /**
      * @var string
@@ -26,12 +26,12 @@ class webhookParameter extends Model
     /**
      * @var string
      */
-    public $id;
+    public $url;
     protected $_name = [
-        'url'      => 'Url',
+        'id'       => 'Id',
         'method'   => 'Method',
         'protocol' => 'Protocol',
-        'id'       => 'Id',
+        'url'      => 'Url',
     ];
 
     public function validate()
@@ -41,8 +41,8 @@ class webhookParameter extends Model
     public function toMap()
     {
         $res = [];
-        if (null !== $this->url) {
-            $res['Url'] = $this->url;
+        if (null !== $this->id) {
+            $res['Id'] = $this->id;
         }
         if (null !== $this->method) {
             $res['Method'] = $this->method;
@@ -50,8 +50,8 @@ class webhookParameter extends Model
         if (null !== $this->protocol) {
             $res['Protocol'] = $this->protocol;
         }
-        if (null !== $this->id) {
-            $res['Id'] = $this->id;
+        if (null !== $this->url) {
+            $res['Url'] = $this->url;
         }
 
         return $res;
@@ -65,8 +65,8 @@ class webhookParameter extends Model
     public static function fromMap($map = [])
     {
         $model = new self();
-        if (isset($map['Url'])) {
-            $model->url = $map['Url'];
+        if (isset($map['Id'])) {
+            $model->id = $map['Id'];
         }
         if (isset($map['Method'])) {
             $model->method = $map['Method'];
@@ -74,8 +74,8 @@ class webhookParameter extends Model
         if (isset($map['Protocol'])) {
             $model->protocol = $map['Protocol'];
         }
-        if (isset($map['Id'])) {
-            $model->id = $map['Id'];
+        if (isset($map['Url'])) {
+            $model->url = $map['Url'];
         }
 
         return $model;

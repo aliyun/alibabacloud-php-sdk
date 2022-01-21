@@ -20,6 +20,11 @@ class DescribeMetricRuleCountResponseBody extends Model
     public $message;
 
     /**
+     * @var metricRuleCount
+     */
+    public $metricRuleCount;
+
+    /**
      * @var string
      */
     public $requestId;
@@ -28,17 +33,12 @@ class DescribeMetricRuleCountResponseBody extends Model
      * @var bool
      */
     public $success;
-
-    /**
-     * @var metricRuleCount
-     */
-    public $metricRuleCount;
     protected $_name = [
         'code'            => 'Code',
         'message'         => 'Message',
+        'metricRuleCount' => 'MetricRuleCount',
         'requestId'       => 'RequestId',
         'success'         => 'Success',
-        'metricRuleCount' => 'MetricRuleCount',
     ];
 
     public function validate()
@@ -54,14 +54,14 @@ class DescribeMetricRuleCountResponseBody extends Model
         if (null !== $this->message) {
             $res['Message'] = $this->message;
         }
+        if (null !== $this->metricRuleCount) {
+            $res['MetricRuleCount'] = null !== $this->metricRuleCount ? $this->metricRuleCount->toMap() : null;
+        }
         if (null !== $this->requestId) {
             $res['RequestId'] = $this->requestId;
         }
         if (null !== $this->success) {
             $res['Success'] = $this->success;
-        }
-        if (null !== $this->metricRuleCount) {
-            $res['MetricRuleCount'] = null !== $this->metricRuleCount ? $this->metricRuleCount->toMap() : null;
         }
 
         return $res;
@@ -81,14 +81,14 @@ class DescribeMetricRuleCountResponseBody extends Model
         if (isset($map['Message'])) {
             $model->message = $map['Message'];
         }
+        if (isset($map['MetricRuleCount'])) {
+            $model->metricRuleCount = metricRuleCount::fromMap($map['MetricRuleCount']);
+        }
         if (isset($map['RequestId'])) {
             $model->requestId = $map['RequestId'];
         }
         if (isset($map['Success'])) {
             $model->success = $map['Success'];
-        }
-        if (isset($map['MetricRuleCount'])) {
-            $model->metricRuleCount = metricRuleCount::fromMap($map['MetricRuleCount']);
         }
 
         return $model;

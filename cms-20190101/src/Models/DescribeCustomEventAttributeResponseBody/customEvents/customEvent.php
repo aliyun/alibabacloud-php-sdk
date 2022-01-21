@@ -11,12 +11,7 @@ class customEvent extends Model
     /**
      * @var string
      */
-    public $time;
-
-    /**
-     * @var string
-     */
-    public $name;
+    public $content;
 
     /**
      * @var string
@@ -26,18 +21,23 @@ class customEvent extends Model
     /**
      * @var string
      */
-    public $content;
+    public $id;
 
     /**
      * @var string
      */
-    public $id;
+    public $name;
+
+    /**
+     * @var string
+     */
+    public $time;
     protected $_name = [
-        'time'    => 'Time',
-        'name'    => 'Name',
-        'groupId' => 'GroupId',
         'content' => 'Content',
+        'groupId' => 'GroupId',
         'id'      => 'Id',
+        'name'    => 'Name',
+        'time'    => 'Time',
     ];
 
     public function validate()
@@ -47,20 +47,20 @@ class customEvent extends Model
     public function toMap()
     {
         $res = [];
-        if (null !== $this->time) {
-            $res['Time'] = $this->time;
-        }
-        if (null !== $this->name) {
-            $res['Name'] = $this->name;
+        if (null !== $this->content) {
+            $res['Content'] = $this->content;
         }
         if (null !== $this->groupId) {
             $res['GroupId'] = $this->groupId;
         }
-        if (null !== $this->content) {
-            $res['Content'] = $this->content;
-        }
         if (null !== $this->id) {
             $res['Id'] = $this->id;
+        }
+        if (null !== $this->name) {
+            $res['Name'] = $this->name;
+        }
+        if (null !== $this->time) {
+            $res['Time'] = $this->time;
         }
 
         return $res;
@@ -74,20 +74,20 @@ class customEvent extends Model
     public static function fromMap($map = [])
     {
         $model = new self();
-        if (isset($map['Time'])) {
-            $model->time = $map['Time'];
-        }
-        if (isset($map['Name'])) {
-            $model->name = $map['Name'];
+        if (isset($map['Content'])) {
+            $model->content = $map['Content'];
         }
         if (isset($map['GroupId'])) {
             $model->groupId = $map['GroupId'];
         }
-        if (isset($map['Content'])) {
-            $model->content = $map['Content'];
-        }
         if (isset($map['Id'])) {
             $model->id = $map['Id'];
+        }
+        if (isset($map['Name'])) {
+            $model->name = $map['Name'];
+        }
+        if (isset($map['Time'])) {
+            $model->time = $map['Time'];
         }
 
         return $model;

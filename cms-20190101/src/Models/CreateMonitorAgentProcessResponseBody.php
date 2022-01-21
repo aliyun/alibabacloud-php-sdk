@@ -14,6 +14,11 @@ class CreateMonitorAgentProcessResponseBody extends Model
     public $code;
 
     /**
+     * @var int
+     */
+    public $id;
+
+    /**
      * @var string
      */
     public $message;
@@ -27,17 +32,12 @@ class CreateMonitorAgentProcessResponseBody extends Model
      * @var bool
      */
     public $success;
-
-    /**
-     * @var int
-     */
-    public $id;
     protected $_name = [
         'code'      => 'Code',
+        'id'        => 'Id',
         'message'   => 'Message',
         'requestId' => 'RequestId',
         'success'   => 'Success',
-        'id'        => 'Id',
     ];
 
     public function validate()
@@ -50,6 +50,9 @@ class CreateMonitorAgentProcessResponseBody extends Model
         if (null !== $this->code) {
             $res['Code'] = $this->code;
         }
+        if (null !== $this->id) {
+            $res['Id'] = $this->id;
+        }
         if (null !== $this->message) {
             $res['Message'] = $this->message;
         }
@@ -58,9 +61,6 @@ class CreateMonitorAgentProcessResponseBody extends Model
         }
         if (null !== $this->success) {
             $res['Success'] = $this->success;
-        }
-        if (null !== $this->id) {
-            $res['Id'] = $this->id;
         }
 
         return $res;
@@ -77,6 +77,9 @@ class CreateMonitorAgentProcessResponseBody extends Model
         if (isset($map['Code'])) {
             $model->code = $map['Code'];
         }
+        if (isset($map['Id'])) {
+            $model->id = $map['Id'];
+        }
         if (isset($map['Message'])) {
             $model->message = $map['Message'];
         }
@@ -85,9 +88,6 @@ class CreateMonitorAgentProcessResponseBody extends Model
         }
         if (isset($map['Success'])) {
             $model->success = $map['Success'];
-        }
-        if (isset($map['Id'])) {
-            $model->id = $map['Id'];
         }
 
         return $model;

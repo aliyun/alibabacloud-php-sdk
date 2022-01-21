@@ -12,51 +12,6 @@ class DescribeMonitorGroupsRequest extends Model
     /**
      * @var string
      */
-    public $regionId;
-
-    /**
-     * @var bool
-     */
-    public $selectContactGroups;
-
-    /**
-     * @var int
-     */
-    public $pageNumber;
-
-    /**
-     * @var int
-     */
-    public $pageSize;
-
-    /**
-     * @var string
-     */
-    public $keyword;
-
-    /**
-     * @var string
-     */
-    public $instanceId;
-
-    /**
-     * @var string
-     */
-    public $groupName;
-
-    /**
-     * @var bool
-     */
-    public $includeTemplateHistory;
-
-    /**
-     * @var string
-     */
-    public $type;
-
-    /**
-     * @var string
-     */
     public $dynamicTagRuleId;
 
     /**
@@ -75,24 +30,69 @@ class DescribeMonitorGroupsRequest extends Model
     public $groupId;
 
     /**
+     * @var string
+     */
+    public $groupName;
+
+    /**
+     * @var bool
+     */
+    public $includeTemplateHistory;
+
+    /**
+     * @var string
+     */
+    public $instanceId;
+
+    /**
+     * @var string
+     */
+    public $keyword;
+
+    /**
+     * @var int
+     */
+    public $pageNumber;
+
+    /**
+     * @var int
+     */
+    public $pageSize;
+
+    /**
+     * @var string
+     */
+    public $regionId;
+
+    /**
+     * @var bool
+     */
+    public $selectContactGroups;
+
+    /**
      * @var tag[]
      */
     public $tag;
+
+    /**
+     * @var string
+     */
+    public $type;
     protected $_name = [
-        'regionId'               => 'RegionId',
-        'selectContactGroups'    => 'SelectContactGroups',
-        'pageNumber'             => 'PageNumber',
-        'pageSize'               => 'PageSize',
-        'keyword'                => 'Keyword',
-        'instanceId'             => 'InstanceId',
-        'groupName'              => 'GroupName',
-        'includeTemplateHistory' => 'IncludeTemplateHistory',
-        'type'                   => 'Type',
         'dynamicTagRuleId'       => 'DynamicTagRuleId',
         'groupFounderTagKey'     => 'GroupFounderTagKey',
         'groupFounderTagValue'   => 'GroupFounderTagValue',
         'groupId'                => 'GroupId',
+        'groupName'              => 'GroupName',
+        'includeTemplateHistory' => 'IncludeTemplateHistory',
+        'instanceId'             => 'InstanceId',
+        'keyword'                => 'Keyword',
+        'pageNumber'             => 'PageNumber',
+        'pageSize'               => 'PageSize',
+        'regionId'               => 'RegionId',
+        'selectContactGroups'    => 'SelectContactGroups',
         'tag'                    => 'Tag',
+        'type'                   => 'Type',
     ];
 
     public function validate()
@@ -102,33 +102,6 @@ class DescribeMonitorGroupsRequest extends Model
     public function toMap()
     {
         $res = [];
-        if (null !== $this->regionId) {
-            $res['RegionId'] = $this->regionId;
-        }
-        if (null !== $this->selectContactGroups) {
-            $res['SelectContactGroups'] = $this->selectContactGroups;
-        }
-        if (null !== $this->pageNumber) {
-            $res['PageNumber'] = $this->pageNumber;
-        }
-        if (null !== $this->pageSize) {
-            $res['PageSize'] = $this->pageSize;
-        }
-        if (null !== $this->keyword) {
-            $res['Keyword'] = $this->keyword;
-        }
-        if (null !== $this->instanceId) {
-            $res['InstanceId'] = $this->instanceId;
-        }
-        if (null !== $this->groupName) {
-            $res['GroupName'] = $this->groupName;
-        }
-        if (null !== $this->includeTemplateHistory) {
-            $res['IncludeTemplateHistory'] = $this->includeTemplateHistory;
-        }
-        if (null !== $this->type) {
-            $res['Type'] = $this->type;
-        }
         if (null !== $this->dynamicTagRuleId) {
             $res['DynamicTagRuleId'] = $this->dynamicTagRuleId;
         }
@@ -141,6 +114,30 @@ class DescribeMonitorGroupsRequest extends Model
         if (null !== $this->groupId) {
             $res['GroupId'] = $this->groupId;
         }
+        if (null !== $this->groupName) {
+            $res['GroupName'] = $this->groupName;
+        }
+        if (null !== $this->includeTemplateHistory) {
+            $res['IncludeTemplateHistory'] = $this->includeTemplateHistory;
+        }
+        if (null !== $this->instanceId) {
+            $res['InstanceId'] = $this->instanceId;
+        }
+        if (null !== $this->keyword) {
+            $res['Keyword'] = $this->keyword;
+        }
+        if (null !== $this->pageNumber) {
+            $res['PageNumber'] = $this->pageNumber;
+        }
+        if (null !== $this->pageSize) {
+            $res['PageSize'] = $this->pageSize;
+        }
+        if (null !== $this->regionId) {
+            $res['RegionId'] = $this->regionId;
+        }
+        if (null !== $this->selectContactGroups) {
+            $res['SelectContactGroups'] = $this->selectContactGroups;
+        }
         if (null !== $this->tag) {
             $res['Tag'] = [];
             if (null !== $this->tag && \is_array($this->tag)) {
@@ -149,6 +146,9 @@ class DescribeMonitorGroupsRequest extends Model
                     $res['Tag'][$n++] = null !== $item ? $item->toMap() : $item;
                 }
             }
+        }
+        if (null !== $this->type) {
+            $res['Type'] = $this->type;
         }
 
         return $res;
@@ -162,33 +162,6 @@ class DescribeMonitorGroupsRequest extends Model
     public static function fromMap($map = [])
     {
         $model = new self();
-        if (isset($map['RegionId'])) {
-            $model->regionId = $map['RegionId'];
-        }
-        if (isset($map['SelectContactGroups'])) {
-            $model->selectContactGroups = $map['SelectContactGroups'];
-        }
-        if (isset($map['PageNumber'])) {
-            $model->pageNumber = $map['PageNumber'];
-        }
-        if (isset($map['PageSize'])) {
-            $model->pageSize = $map['PageSize'];
-        }
-        if (isset($map['Keyword'])) {
-            $model->keyword = $map['Keyword'];
-        }
-        if (isset($map['InstanceId'])) {
-            $model->instanceId = $map['InstanceId'];
-        }
-        if (isset($map['GroupName'])) {
-            $model->groupName = $map['GroupName'];
-        }
-        if (isset($map['IncludeTemplateHistory'])) {
-            $model->includeTemplateHistory = $map['IncludeTemplateHistory'];
-        }
-        if (isset($map['Type'])) {
-            $model->type = $map['Type'];
-        }
         if (isset($map['DynamicTagRuleId'])) {
             $model->dynamicTagRuleId = $map['DynamicTagRuleId'];
         }
@@ -201,6 +174,30 @@ class DescribeMonitorGroupsRequest extends Model
         if (isset($map['GroupId'])) {
             $model->groupId = $map['GroupId'];
         }
+        if (isset($map['GroupName'])) {
+            $model->groupName = $map['GroupName'];
+        }
+        if (isset($map['IncludeTemplateHistory'])) {
+            $model->includeTemplateHistory = $map['IncludeTemplateHistory'];
+        }
+        if (isset($map['InstanceId'])) {
+            $model->instanceId = $map['InstanceId'];
+        }
+        if (isset($map['Keyword'])) {
+            $model->keyword = $map['Keyword'];
+        }
+        if (isset($map['PageNumber'])) {
+            $model->pageNumber = $map['PageNumber'];
+        }
+        if (isset($map['PageSize'])) {
+            $model->pageSize = $map['PageSize'];
+        }
+        if (isset($map['RegionId'])) {
+            $model->regionId = $map['RegionId'];
+        }
+        if (isset($map['SelectContactGroups'])) {
+            $model->selectContactGroups = $map['SelectContactGroups'];
+        }
         if (isset($map['Tag'])) {
             if (!empty($map['Tag'])) {
                 $model->tag = [];
@@ -209,6 +206,9 @@ class DescribeMonitorGroupsRequest extends Model
                     $model->tag[$n++] = null !== $item ? tag::fromMap($item) : $item;
                 }
             }
+        }
+        if (isset($map['Type'])) {
+            $model->type = $map['Type'];
         }
 
         return $model;

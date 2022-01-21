@@ -11,21 +11,21 @@ class alertLogHistogramList extends Model
     /**
      * @var int
      */
+    public $count;
+
+    /**
+     * @var int
+     */
     public $from;
 
     /**
      * @var int
      */
     public $to;
-
-    /**
-     * @var int
-     */
-    public $count;
     protected $_name = [
+        'count' => 'Count',
         'from'  => 'From',
         'to'    => 'To',
-        'count' => 'Count',
     ];
 
     public function validate()
@@ -35,14 +35,14 @@ class alertLogHistogramList extends Model
     public function toMap()
     {
         $res = [];
+        if (null !== $this->count) {
+            $res['Count'] = $this->count;
+        }
         if (null !== $this->from) {
             $res['From'] = $this->from;
         }
         if (null !== $this->to) {
             $res['To'] = $this->to;
-        }
-        if (null !== $this->count) {
-            $res['Count'] = $this->count;
         }
 
         return $res;
@@ -56,14 +56,14 @@ class alertLogHistogramList extends Model
     public static function fromMap($map = [])
     {
         $model = new self();
+        if (isset($map['Count'])) {
+            $model->count = $map['Count'];
+        }
         if (isset($map['From'])) {
             $model->from = $map['From'];
         }
         if (isset($map['To'])) {
             $model->to = $map['To'];
-        }
-        if (isset($map['Count'])) {
-            $model->count = $map['Count'];
         }
 
         return $model;

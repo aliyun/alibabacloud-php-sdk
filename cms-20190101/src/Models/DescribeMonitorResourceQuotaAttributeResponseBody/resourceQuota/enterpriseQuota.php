@@ -11,15 +11,15 @@ class enterpriseQuota extends Model
     /**
      * @var string
      */
-    public $suitInfo;
+    public $instanceId;
 
     /**
      * @var string
      */
-    public $instanceId;
+    public $suitInfo;
     protected $_name = [
-        'suitInfo'   => 'SuitInfo',
         'instanceId' => 'InstanceId',
+        'suitInfo'   => 'SuitInfo',
     ];
 
     public function validate()
@@ -29,11 +29,11 @@ class enterpriseQuota extends Model
     public function toMap()
     {
         $res = [];
-        if (null !== $this->suitInfo) {
-            $res['SuitInfo'] = $this->suitInfo;
-        }
         if (null !== $this->instanceId) {
             $res['InstanceId'] = $this->instanceId;
+        }
+        if (null !== $this->suitInfo) {
+            $res['SuitInfo'] = $this->suitInfo;
         }
 
         return $res;
@@ -47,11 +47,11 @@ class enterpriseQuota extends Model
     public static function fromMap($map = [])
     {
         $model = new self();
-        if (isset($map['SuitInfo'])) {
-            $model->suitInfo = $map['SuitInfo'];
-        }
         if (isset($map['InstanceId'])) {
             $model->instanceId = $map['InstanceId'];
+        }
+        if (isset($map['SuitInfo'])) {
+            $model->suitInfo = $map['SuitInfo'];
         }
 
         return $model;

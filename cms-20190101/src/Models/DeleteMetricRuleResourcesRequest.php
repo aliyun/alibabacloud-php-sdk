@@ -11,15 +11,15 @@ class DeleteMetricRuleResourcesRequest extends Model
     /**
      * @var string
      */
-    public $ruleId;
+    public $resources;
 
     /**
      * @var string
      */
-    public $resources;
+    public $ruleId;
     protected $_name = [
-        'ruleId'    => 'RuleId',
         'resources' => 'Resources',
+        'ruleId'    => 'RuleId',
     ];
 
     public function validate()
@@ -29,11 +29,11 @@ class DeleteMetricRuleResourcesRequest extends Model
     public function toMap()
     {
         $res = [];
-        if (null !== $this->ruleId) {
-            $res['RuleId'] = $this->ruleId;
-        }
         if (null !== $this->resources) {
             $res['Resources'] = $this->resources;
+        }
+        if (null !== $this->ruleId) {
+            $res['RuleId'] = $this->ruleId;
         }
 
         return $res;
@@ -47,11 +47,11 @@ class DeleteMetricRuleResourcesRequest extends Model
     public static function fromMap($map = [])
     {
         $model = new self();
-        if (isset($map['RuleId'])) {
-            $model->ruleId = $map['RuleId'];
-        }
         if (isset($map['Resources'])) {
             $model->resources = $map['Resources'];
+        }
+        if (isset($map['RuleId'])) {
+            $model->ruleId = $map['RuleId'];
         }
 
         return $model;

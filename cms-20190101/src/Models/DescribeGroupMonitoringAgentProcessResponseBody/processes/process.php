@@ -11,14 +11,9 @@ use AlibabaCloud\Tea\Model;
 class process extends Model
 {
     /**
-     * @var string
+     * @var alertConfig
      */
-    public $processName;
-
-    /**
-     * @var string
-     */
-    public $matchExpressFilterRelation;
+    public $alertConfig;
 
     /**
      * @var string
@@ -36,16 +31,21 @@ class process extends Model
     public $matchExpress;
 
     /**
-     * @var alertConfig
+     * @var string
      */
-    public $alertConfig;
+    public $matchExpressFilterRelation;
+
+    /**
+     * @var string
+     */
+    public $processName;
     protected $_name = [
-        'processName'                => 'ProcessName',
-        'matchExpressFilterRelation' => 'MatchExpressFilterRelation',
+        'alertConfig'                => 'AlertConfig',
         'groupId'                    => 'GroupId',
         'id'                         => 'Id',
         'matchExpress'               => 'MatchExpress',
-        'alertConfig'                => 'AlertConfig',
+        'matchExpressFilterRelation' => 'MatchExpressFilterRelation',
+        'processName'                => 'ProcessName',
     ];
 
     public function validate()
@@ -55,11 +55,8 @@ class process extends Model
     public function toMap()
     {
         $res = [];
-        if (null !== $this->processName) {
-            $res['ProcessName'] = $this->processName;
-        }
-        if (null !== $this->matchExpressFilterRelation) {
-            $res['MatchExpressFilterRelation'] = $this->matchExpressFilterRelation;
+        if (null !== $this->alertConfig) {
+            $res['AlertConfig'] = null !== $this->alertConfig ? $this->alertConfig->toMap() : null;
         }
         if (null !== $this->groupId) {
             $res['GroupId'] = $this->groupId;
@@ -70,8 +67,11 @@ class process extends Model
         if (null !== $this->matchExpress) {
             $res['MatchExpress'] = null !== $this->matchExpress ? $this->matchExpress->toMap() : null;
         }
-        if (null !== $this->alertConfig) {
-            $res['AlertConfig'] = null !== $this->alertConfig ? $this->alertConfig->toMap() : null;
+        if (null !== $this->matchExpressFilterRelation) {
+            $res['MatchExpressFilterRelation'] = $this->matchExpressFilterRelation;
+        }
+        if (null !== $this->processName) {
+            $res['ProcessName'] = $this->processName;
         }
 
         return $res;
@@ -85,11 +85,8 @@ class process extends Model
     public static function fromMap($map = [])
     {
         $model = new self();
-        if (isset($map['ProcessName'])) {
-            $model->processName = $map['ProcessName'];
-        }
-        if (isset($map['MatchExpressFilterRelation'])) {
-            $model->matchExpressFilterRelation = $map['MatchExpressFilterRelation'];
+        if (isset($map['AlertConfig'])) {
+            $model->alertConfig = alertConfig::fromMap($map['AlertConfig']);
         }
         if (isset($map['GroupId'])) {
             $model->groupId = $map['GroupId'];
@@ -100,8 +97,11 @@ class process extends Model
         if (isset($map['MatchExpress'])) {
             $model->matchExpress = matchExpress::fromMap($map['MatchExpress']);
         }
-        if (isset($map['AlertConfig'])) {
-            $model->alertConfig = alertConfig::fromMap($map['AlertConfig']);
+        if (isset($map['MatchExpressFilterRelation'])) {
+            $model->matchExpressFilterRelation = $map['MatchExpressFilterRelation'];
+        }
+        if (isset($map['ProcessName'])) {
+            $model->processName = $map['ProcessName'];
         }
 
         return $model;

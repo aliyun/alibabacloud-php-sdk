@@ -11,21 +11,21 @@ class CreateMetricRuleResourcesRequest extends Model
     /**
      * @var string
      */
-    public $ruleId;
-
-    /**
-     * @var string
-     */
     public $overwrite;
 
     /**
      * @var string
      */
     public $resources;
+
+    /**
+     * @var string
+     */
+    public $ruleId;
     protected $_name = [
-        'ruleId'    => 'RuleId',
         'overwrite' => 'Overwrite',
         'resources' => 'Resources',
+        'ruleId'    => 'RuleId',
     ];
 
     public function validate()
@@ -35,14 +35,14 @@ class CreateMetricRuleResourcesRequest extends Model
     public function toMap()
     {
         $res = [];
-        if (null !== $this->ruleId) {
-            $res['RuleId'] = $this->ruleId;
-        }
         if (null !== $this->overwrite) {
             $res['Overwrite'] = $this->overwrite;
         }
         if (null !== $this->resources) {
             $res['Resources'] = $this->resources;
+        }
+        if (null !== $this->ruleId) {
+            $res['RuleId'] = $this->ruleId;
         }
 
         return $res;
@@ -56,14 +56,14 @@ class CreateMetricRuleResourcesRequest extends Model
     public static function fromMap($map = [])
     {
         $model = new self();
-        if (isset($map['RuleId'])) {
-            $model->ruleId = $map['RuleId'];
-        }
         if (isset($map['Overwrite'])) {
             $model->overwrite = $map['Overwrite'];
         }
         if (isset($map['Resources'])) {
             $model->resources = $map['Resources'];
+        }
+        if (isset($map['RuleId'])) {
+            $model->ruleId = $map['RuleId'];
         }
 
         return $model;

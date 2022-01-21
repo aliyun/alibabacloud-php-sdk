@@ -11,15 +11,15 @@ class vpc extends Model
     /**
      * @var string
      */
-    public $vswitchInstanceId;
+    public $vpcInstanceId;
 
     /**
      * @var string
      */
-    public $vpcInstanceId;
+    public $vswitchInstanceId;
     protected $_name = [
-        'vswitchInstanceId' => 'VswitchInstanceId',
         'vpcInstanceId'     => 'VpcInstanceId',
+        'vswitchInstanceId' => 'VswitchInstanceId',
     ];
 
     public function validate()
@@ -29,11 +29,11 @@ class vpc extends Model
     public function toMap()
     {
         $res = [];
-        if (null !== $this->vswitchInstanceId) {
-            $res['VswitchInstanceId'] = $this->vswitchInstanceId;
-        }
         if (null !== $this->vpcInstanceId) {
             $res['VpcInstanceId'] = $this->vpcInstanceId;
+        }
+        if (null !== $this->vswitchInstanceId) {
+            $res['VswitchInstanceId'] = $this->vswitchInstanceId;
         }
 
         return $res;
@@ -47,11 +47,11 @@ class vpc extends Model
     public static function fromMap($map = [])
     {
         $model = new self();
-        if (isset($map['VswitchInstanceId'])) {
-            $model->vswitchInstanceId = $map['VswitchInstanceId'];
-        }
         if (isset($map['VpcInstanceId'])) {
             $model->vpcInstanceId = $map['VpcInstanceId'];
+        }
+        if (isset($map['VswitchInstanceId'])) {
+            $model->vswitchInstanceId = $map['VswitchInstanceId'];
         }
 
         return $model;

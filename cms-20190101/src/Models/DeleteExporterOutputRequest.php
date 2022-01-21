@@ -11,15 +11,15 @@ class DeleteExporterOutputRequest extends Model
     /**
      * @var string
      */
-    public $regionId;
+    public $destName;
 
     /**
      * @var string
      */
-    public $destName;
+    public $regionId;
     protected $_name = [
-        'regionId' => 'RegionId',
         'destName' => 'DestName',
+        'regionId' => 'RegionId',
     ];
 
     public function validate()
@@ -29,11 +29,11 @@ class DeleteExporterOutputRequest extends Model
     public function toMap()
     {
         $res = [];
-        if (null !== $this->regionId) {
-            $res['RegionId'] = $this->regionId;
-        }
         if (null !== $this->destName) {
             $res['DestName'] = $this->destName;
+        }
+        if (null !== $this->regionId) {
+            $res['RegionId'] = $this->regionId;
         }
 
         return $res;
@@ -47,11 +47,11 @@ class DeleteExporterOutputRequest extends Model
     public static function fromMap($map = [])
     {
         $model = new self();
-        if (isset($map['RegionId'])) {
-            $model->regionId = $map['RegionId'];
-        }
         if (isset($map['DestName'])) {
             $model->destName = $map['DestName'];
+        }
+        if (isset($map['RegionId'])) {
+            $model->regionId = $map['RegionId'];
         }
 
         return $model;

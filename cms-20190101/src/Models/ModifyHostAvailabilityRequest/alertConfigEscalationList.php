@@ -11,12 +11,17 @@ class alertConfigEscalationList extends Model
     /**
      * @var string
      */
+    public $aggregate;
+
+    /**
+     * @var string
+     */
     public $metricName;
 
     /**
      * @var string
      */
-    public $value;
+    public $operator;
 
     /**
      * @var int
@@ -26,18 +31,13 @@ class alertConfigEscalationList extends Model
     /**
      * @var string
      */
-    public $operator;
-
-    /**
-     * @var string
-     */
-    public $aggregate;
+    public $value;
     protected $_name = [
-        'metricName' => 'MetricName',
-        'value'      => 'Value',
-        'times'      => 'Times',
-        'operator'   => 'Operator',
         'aggregate'  => 'Aggregate',
+        'metricName' => 'MetricName',
+        'operator'   => 'Operator',
+        'times'      => 'Times',
+        'value'      => 'Value',
     ];
 
     public function validate()
@@ -47,20 +47,20 @@ class alertConfigEscalationList extends Model
     public function toMap()
     {
         $res = [];
+        if (null !== $this->aggregate) {
+            $res['Aggregate'] = $this->aggregate;
+        }
         if (null !== $this->metricName) {
             $res['MetricName'] = $this->metricName;
-        }
-        if (null !== $this->value) {
-            $res['Value'] = $this->value;
-        }
-        if (null !== $this->times) {
-            $res['Times'] = $this->times;
         }
         if (null !== $this->operator) {
             $res['Operator'] = $this->operator;
         }
-        if (null !== $this->aggregate) {
-            $res['Aggregate'] = $this->aggregate;
+        if (null !== $this->times) {
+            $res['Times'] = $this->times;
+        }
+        if (null !== $this->value) {
+            $res['Value'] = $this->value;
         }
 
         return $res;
@@ -74,20 +74,20 @@ class alertConfigEscalationList extends Model
     public static function fromMap($map = [])
     {
         $model = new self();
+        if (isset($map['Aggregate'])) {
+            $model->aggregate = $map['Aggregate'];
+        }
         if (isset($map['MetricName'])) {
             $model->metricName = $map['MetricName'];
-        }
-        if (isset($map['Value'])) {
-            $model->value = $map['Value'];
-        }
-        if (isset($map['Times'])) {
-            $model->times = $map['Times'];
         }
         if (isset($map['Operator'])) {
             $model->operator = $map['Operator'];
         }
-        if (isset($map['Aggregate'])) {
-            $model->aggregate = $map['Aggregate'];
+        if (isset($map['Times'])) {
+            $model->times = $map['Times'];
+        }
+        if (isset($map['Value'])) {
+            $model->value = $map['Value'];
         }
 
         return $model;

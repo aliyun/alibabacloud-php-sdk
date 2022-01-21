@@ -12,21 +12,21 @@ class CreateMonitorGroupInstancesRequest extends Model
     /**
      * @var string
      */
-    public $regionId;
-
-    /**
-     * @var string
-     */
     public $groupId;
 
     /**
      * @var instances[]
      */
     public $instances;
+
+    /**
+     * @var string
+     */
+    public $regionId;
     protected $_name = [
-        'regionId'  => 'RegionId',
         'groupId'   => 'GroupId',
         'instances' => 'Instances',
+        'regionId'  => 'RegionId',
     ];
 
     public function validate()
@@ -36,9 +36,6 @@ class CreateMonitorGroupInstancesRequest extends Model
     public function toMap()
     {
         $res = [];
-        if (null !== $this->regionId) {
-            $res['RegionId'] = $this->regionId;
-        }
         if (null !== $this->groupId) {
             $res['GroupId'] = $this->groupId;
         }
@@ -50,6 +47,9 @@ class CreateMonitorGroupInstancesRequest extends Model
                     $res['Instances'][$n++] = null !== $item ? $item->toMap() : $item;
                 }
             }
+        }
+        if (null !== $this->regionId) {
+            $res['RegionId'] = $this->regionId;
         }
 
         return $res;
@@ -63,9 +63,6 @@ class CreateMonitorGroupInstancesRequest extends Model
     public static function fromMap($map = [])
     {
         $model = new self();
-        if (isset($map['RegionId'])) {
-            $model->regionId = $map['RegionId'];
-        }
         if (isset($map['GroupId'])) {
             $model->groupId = $map['GroupId'];
         }
@@ -77,6 +74,9 @@ class CreateMonitorGroupInstancesRequest extends Model
                     $model->instances[$n++] = null !== $item ? instances::fromMap($item) : $item;
                 }
             }
+        }
+        if (isset($map['RegionId'])) {
+            $model->regionId = $map['RegionId'];
         }
 
         return $model;

@@ -21,14 +21,14 @@ class DescribeSiteMonitorAttributeResponseBody extends Model
     public $message;
 
     /**
+     * @var metricRules
+     */
+    public $metricRules;
+
+    /**
      * @var string
      */
     public $requestId;
-
-    /**
-     * @var bool
-     */
-    public $success;
 
     /**
      * @var siteMonitors
@@ -36,16 +36,16 @@ class DescribeSiteMonitorAttributeResponseBody extends Model
     public $siteMonitors;
 
     /**
-     * @var metricRules
+     * @var bool
      */
-    public $metricRules;
+    public $success;
     protected $_name = [
         'code'         => 'Code',
         'message'      => 'Message',
-        'requestId'    => 'RequestId',
-        'success'      => 'Success',
-        'siteMonitors' => 'SiteMonitors',
         'metricRules'  => 'MetricRules',
+        'requestId'    => 'RequestId',
+        'siteMonitors' => 'SiteMonitors',
+        'success'      => 'Success',
     ];
 
     public function validate()
@@ -61,17 +61,17 @@ class DescribeSiteMonitorAttributeResponseBody extends Model
         if (null !== $this->message) {
             $res['Message'] = $this->message;
         }
+        if (null !== $this->metricRules) {
+            $res['MetricRules'] = null !== $this->metricRules ? $this->metricRules->toMap() : null;
+        }
         if (null !== $this->requestId) {
             $res['RequestId'] = $this->requestId;
-        }
-        if (null !== $this->success) {
-            $res['Success'] = $this->success;
         }
         if (null !== $this->siteMonitors) {
             $res['SiteMonitors'] = null !== $this->siteMonitors ? $this->siteMonitors->toMap() : null;
         }
-        if (null !== $this->metricRules) {
-            $res['MetricRules'] = null !== $this->metricRules ? $this->metricRules->toMap() : null;
+        if (null !== $this->success) {
+            $res['Success'] = $this->success;
         }
 
         return $res;
@@ -91,17 +91,17 @@ class DescribeSiteMonitorAttributeResponseBody extends Model
         if (isset($map['Message'])) {
             $model->message = $map['Message'];
         }
+        if (isset($map['MetricRules'])) {
+            $model->metricRules = metricRules::fromMap($map['MetricRules']);
+        }
         if (isset($map['RequestId'])) {
             $model->requestId = $map['RequestId'];
-        }
-        if (isset($map['Success'])) {
-            $model->success = $map['Success'];
         }
         if (isset($map['SiteMonitors'])) {
             $model->siteMonitors = siteMonitors::fromMap($map['SiteMonitors']);
         }
-        if (isset($map['MetricRules'])) {
-            $model->metricRules = metricRules::fromMap($map['MetricRules']);
+        if (isset($map['Success'])) {
+            $model->success = $map['Success'];
         }
 
         return $model;

@@ -16,6 +16,16 @@ class CreateSiteMonitorResponseBody extends Model
     public $code;
 
     /**
+     * @var createResultList
+     */
+    public $createResultList;
+
+    /**
+     * @var data
+     */
+    public $data;
+
+    /**
      * @var string
      */
     public $message;
@@ -29,23 +39,13 @@ class CreateSiteMonitorResponseBody extends Model
      * @var string
      */
     public $success;
-
-    /**
-     * @var data
-     */
-    public $data;
-
-    /**
-     * @var createResultList
-     */
-    public $createResultList;
     protected $_name = [
         'code'             => 'Code',
+        'createResultList' => 'CreateResultList',
+        'data'             => 'Data',
         'message'          => 'Message',
         'requestId'        => 'RequestId',
         'success'          => 'Success',
-        'data'             => 'Data',
-        'createResultList' => 'CreateResultList',
     ];
 
     public function validate()
@@ -58,6 +58,12 @@ class CreateSiteMonitorResponseBody extends Model
         if (null !== $this->code) {
             $res['Code'] = $this->code;
         }
+        if (null !== $this->createResultList) {
+            $res['CreateResultList'] = null !== $this->createResultList ? $this->createResultList->toMap() : null;
+        }
+        if (null !== $this->data) {
+            $res['Data'] = null !== $this->data ? $this->data->toMap() : null;
+        }
         if (null !== $this->message) {
             $res['Message'] = $this->message;
         }
@@ -66,12 +72,6 @@ class CreateSiteMonitorResponseBody extends Model
         }
         if (null !== $this->success) {
             $res['Success'] = $this->success;
-        }
-        if (null !== $this->data) {
-            $res['Data'] = null !== $this->data ? $this->data->toMap() : null;
-        }
-        if (null !== $this->createResultList) {
-            $res['CreateResultList'] = null !== $this->createResultList ? $this->createResultList->toMap() : null;
         }
 
         return $res;
@@ -88,6 +88,12 @@ class CreateSiteMonitorResponseBody extends Model
         if (isset($map['Code'])) {
             $model->code = $map['Code'];
         }
+        if (isset($map['CreateResultList'])) {
+            $model->createResultList = createResultList::fromMap($map['CreateResultList']);
+        }
+        if (isset($map['Data'])) {
+            $model->data = data::fromMap($map['Data']);
+        }
         if (isset($map['Message'])) {
             $model->message = $map['Message'];
         }
@@ -96,12 +102,6 @@ class CreateSiteMonitorResponseBody extends Model
         }
         if (isset($map['Success'])) {
             $model->success = $map['Success'];
-        }
-        if (isset($map['Data'])) {
-            $model->data = data::fromMap($map['Data']);
-        }
-        if (isset($map['CreateResultList'])) {
-            $model->createResultList = createResultList::fromMap($map['CreateResultList']);
         }
 
         return $model;

@@ -10,9 +10,9 @@ use AlibabaCloud\Tea\Model;
 class datapoint extends Model
 {
     /**
-     * @var string
+     * @var configJson
      */
-    public $destType;
+    public $configJson;
 
     /**
      * @var int
@@ -25,14 +25,14 @@ class datapoint extends Model
     public $destName;
 
     /**
-     * @var configJson
+     * @var string
      */
-    public $configJson;
+    public $destType;
     protected $_name = [
-        'destType'   => 'DestType',
+        'configJson' => 'ConfigJson',
         'createTime' => 'CreateTime',
         'destName'   => 'DestName',
-        'configJson' => 'ConfigJson',
+        'destType'   => 'DestType',
     ];
 
     public function validate()
@@ -42,8 +42,8 @@ class datapoint extends Model
     public function toMap()
     {
         $res = [];
-        if (null !== $this->destType) {
-            $res['DestType'] = $this->destType;
+        if (null !== $this->configJson) {
+            $res['ConfigJson'] = null !== $this->configJson ? $this->configJson->toMap() : null;
         }
         if (null !== $this->createTime) {
             $res['CreateTime'] = $this->createTime;
@@ -51,8 +51,8 @@ class datapoint extends Model
         if (null !== $this->destName) {
             $res['DestName'] = $this->destName;
         }
-        if (null !== $this->configJson) {
-            $res['ConfigJson'] = null !== $this->configJson ? $this->configJson->toMap() : null;
+        if (null !== $this->destType) {
+            $res['DestType'] = $this->destType;
         }
 
         return $res;
@@ -66,8 +66,8 @@ class datapoint extends Model
     public static function fromMap($map = [])
     {
         $model = new self();
-        if (isset($map['DestType'])) {
-            $model->destType = $map['DestType'];
+        if (isset($map['ConfigJson'])) {
+            $model->configJson = configJson::fromMap($map['ConfigJson']);
         }
         if (isset($map['CreateTime'])) {
             $model->createTime = $map['CreateTime'];
@@ -75,8 +75,8 @@ class datapoint extends Model
         if (isset($map['DestName'])) {
             $model->destName = $map['DestName'];
         }
-        if (isset($map['ConfigJson'])) {
-            $model->configJson = configJson::fromMap($map['ConfigJson']);
+        if (isset($map['DestType'])) {
+            $model->destType = $map['DestType'];
         }
 
         return $model;

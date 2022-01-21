@@ -9,23 +9,29 @@ use AlibabaCloud\Tea\Model;
 class InstallMonitoringAgentRequest extends Model
 {
     /**
-     * @var string
-     */
-    public $regionId;
-
-    /**
      * @var bool
      */
     public $force;
 
     /**
+     * @var string
+     */
+    public $installCommand;
+
+    /**
      * @var string[]
      */
     public $instanceIds;
+
+    /**
+     * @var string
+     */
+    public $regionId;
     protected $_name = [
-        'regionId'    => 'RegionId',
-        'force'       => 'Force',
-        'instanceIds' => 'InstanceIds',
+        'force'          => 'Force',
+        'installCommand' => 'InstallCommand',
+        'instanceIds'    => 'InstanceIds',
+        'regionId'       => 'RegionId',
     ];
 
     public function validate()
@@ -35,14 +41,17 @@ class InstallMonitoringAgentRequest extends Model
     public function toMap()
     {
         $res = [];
-        if (null !== $this->regionId) {
-            $res['RegionId'] = $this->regionId;
-        }
         if (null !== $this->force) {
             $res['Force'] = $this->force;
         }
+        if (null !== $this->installCommand) {
+            $res['InstallCommand'] = $this->installCommand;
+        }
         if (null !== $this->instanceIds) {
             $res['InstanceIds'] = $this->instanceIds;
+        }
+        if (null !== $this->regionId) {
+            $res['RegionId'] = $this->regionId;
         }
 
         return $res;
@@ -56,16 +65,19 @@ class InstallMonitoringAgentRequest extends Model
     public static function fromMap($map = [])
     {
         $model = new self();
-        if (isset($map['RegionId'])) {
-            $model->regionId = $map['RegionId'];
-        }
         if (isset($map['Force'])) {
             $model->force = $map['Force'];
+        }
+        if (isset($map['InstallCommand'])) {
+            $model->installCommand = $map['InstallCommand'];
         }
         if (isset($map['InstanceIds'])) {
             if (!empty($map['InstanceIds'])) {
                 $model->instanceIds = $map['InstanceIds'];
             }
+        }
+        if (isset($map['RegionId'])) {
+            $model->regionId = $map['RegionId'];
         }
 
         return $model;

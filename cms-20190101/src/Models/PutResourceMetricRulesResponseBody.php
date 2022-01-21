@@ -15,6 +15,11 @@ class PutResourceMetricRulesResponseBody extends Model
     public $code;
 
     /**
+     * @var failedListResult
+     */
+    public $failedListResult;
+
+    /**
      * @var string
      */
     public $message;
@@ -28,17 +33,12 @@ class PutResourceMetricRulesResponseBody extends Model
      * @var bool
      */
     public $success;
-
-    /**
-     * @var failedListResult
-     */
-    public $failedListResult;
     protected $_name = [
         'code'             => 'Code',
+        'failedListResult' => 'FailedListResult',
         'message'          => 'Message',
         'requestId'        => 'RequestId',
         'success'          => 'Success',
-        'failedListResult' => 'FailedListResult',
     ];
 
     public function validate()
@@ -51,6 +51,9 @@ class PutResourceMetricRulesResponseBody extends Model
         if (null !== $this->code) {
             $res['Code'] = $this->code;
         }
+        if (null !== $this->failedListResult) {
+            $res['FailedListResult'] = null !== $this->failedListResult ? $this->failedListResult->toMap() : null;
+        }
         if (null !== $this->message) {
             $res['Message'] = $this->message;
         }
@@ -59,9 +62,6 @@ class PutResourceMetricRulesResponseBody extends Model
         }
         if (null !== $this->success) {
             $res['Success'] = $this->success;
-        }
-        if (null !== $this->failedListResult) {
-            $res['FailedListResult'] = null !== $this->failedListResult ? $this->failedListResult->toMap() : null;
         }
 
         return $res;
@@ -78,6 +78,9 @@ class PutResourceMetricRulesResponseBody extends Model
         if (isset($map['Code'])) {
             $model->code = $map['Code'];
         }
+        if (isset($map['FailedListResult'])) {
+            $model->failedListResult = failedListResult::fromMap($map['FailedListResult']);
+        }
         if (isset($map['Message'])) {
             $model->message = $map['Message'];
         }
@@ -86,9 +89,6 @@ class PutResourceMetricRulesResponseBody extends Model
         }
         if (isset($map['Success'])) {
             $model->success = $map['Success'];
-        }
-        if (isset($map['FailedListResult'])) {
-            $model->failedListResult = failedListResult::fromMap($map['FailedListResult']);
         }
 
         return $model;

@@ -10,6 +10,11 @@ use AlibabaCloud\Tea\Model;
 class template extends Model
 {
     /**
+     * @var applyHistories
+     */
+    public $applyHistories;
+
+    /**
      * @var string
      */
     public $description;
@@ -18,6 +23,11 @@ class template extends Model
      * @var int
      */
     public $gmtCreate;
+
+    /**
+     * @var int
+     */
+    public $gmtModified;
 
     /**
      * @var string
@@ -32,25 +42,15 @@ class template extends Model
     /**
      * @var int
      */
-    public $gmtModified;
-
-    /**
-     * @var int
-     */
     public $templateId;
-
-    /**
-     * @var applyHistories
-     */
-    public $applyHistories;
     protected $_name = [
+        'applyHistories' => 'ApplyHistories',
         'description'    => 'Description',
         'gmtCreate'      => 'GmtCreate',
+        'gmtModified'    => 'GmtModified',
         'name'           => 'Name',
         'restVersion'    => 'RestVersion',
-        'gmtModified'    => 'GmtModified',
         'templateId'     => 'TemplateId',
-        'applyHistories' => 'ApplyHistories',
     ];
 
     public function validate()
@@ -60,11 +60,17 @@ class template extends Model
     public function toMap()
     {
         $res = [];
+        if (null !== $this->applyHistories) {
+            $res['ApplyHistories'] = null !== $this->applyHistories ? $this->applyHistories->toMap() : null;
+        }
         if (null !== $this->description) {
             $res['Description'] = $this->description;
         }
         if (null !== $this->gmtCreate) {
             $res['GmtCreate'] = $this->gmtCreate;
+        }
+        if (null !== $this->gmtModified) {
+            $res['GmtModified'] = $this->gmtModified;
         }
         if (null !== $this->name) {
             $res['Name'] = $this->name;
@@ -72,14 +78,8 @@ class template extends Model
         if (null !== $this->restVersion) {
             $res['RestVersion'] = $this->restVersion;
         }
-        if (null !== $this->gmtModified) {
-            $res['GmtModified'] = $this->gmtModified;
-        }
         if (null !== $this->templateId) {
             $res['TemplateId'] = $this->templateId;
-        }
-        if (null !== $this->applyHistories) {
-            $res['ApplyHistories'] = null !== $this->applyHistories ? $this->applyHistories->toMap() : null;
         }
 
         return $res;
@@ -93,11 +93,17 @@ class template extends Model
     public static function fromMap($map = [])
     {
         $model = new self();
+        if (isset($map['ApplyHistories'])) {
+            $model->applyHistories = applyHistories::fromMap($map['ApplyHistories']);
+        }
         if (isset($map['Description'])) {
             $model->description = $map['Description'];
         }
         if (isset($map['GmtCreate'])) {
             $model->gmtCreate = $map['GmtCreate'];
+        }
+        if (isset($map['GmtModified'])) {
+            $model->gmtModified = $map['GmtModified'];
         }
         if (isset($map['Name'])) {
             $model->name = $map['Name'];
@@ -105,14 +111,8 @@ class template extends Model
         if (isset($map['RestVersion'])) {
             $model->restVersion = $map['RestVersion'];
         }
-        if (isset($map['GmtModified'])) {
-            $model->gmtModified = $map['GmtModified'];
-        }
         if (isset($map['TemplateId'])) {
             $model->templateId = $map['TemplateId'];
-        }
-        if (isset($map['ApplyHistories'])) {
-            $model->applyHistories = applyHistories::fromMap($map['ApplyHistories']);
         }
 
         return $model;

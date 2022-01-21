@@ -12,24 +12,34 @@ use AlibabaCloud\Tea\Model;
 class CreateHostAvailabilityRequest extends Model
 {
     /**
-     * @var taskOption
-     */
-    public $taskOption;
-
-    /**
      * @var alertConfig
      */
     public $alertConfig;
 
     /**
-     * @var string
+     * @var taskOption
      */
-    public $regionId;
+    public $taskOption;
+
+    /**
+     * @var alertConfigEscalationList[]
+     */
+    public $alertConfigEscalationList;
 
     /**
      * @var int
      */
     public $groupId;
+
+    /**
+     * @var string[]
+     */
+    public $instanceList;
+
+    /**
+     * @var string
+     */
+    public $regionId;
 
     /**
      * @var string
@@ -45,26 +55,16 @@ class CreateHostAvailabilityRequest extends Model
      * @var string
      */
     public $taskType;
-
-    /**
-     * @var alertConfigEscalationList[]
-     */
-    public $alertConfigEscalationList;
-
-    /**
-     * @var string[]
-     */
-    public $instanceList;
     protected $_name = [
-        'taskOption'                => 'TaskOption',
         'alertConfig'               => 'AlertConfig',
-        'regionId'                  => 'RegionId',
+        'taskOption'                => 'TaskOption',
+        'alertConfigEscalationList' => 'AlertConfigEscalationList',
         'groupId'                   => 'GroupId',
+        'instanceList'              => 'InstanceList',
+        'regionId'                  => 'RegionId',
         'taskName'                  => 'TaskName',
         'taskScope'                 => 'TaskScope',
         'taskType'                  => 'TaskType',
-        'alertConfigEscalationList' => 'AlertConfigEscalationList',
-        'instanceList'              => 'InstanceList',
     ];
 
     public function validate()
@@ -74,26 +74,11 @@ class CreateHostAvailabilityRequest extends Model
     public function toMap()
     {
         $res = [];
-        if (null !== $this->taskOption) {
-            $res['TaskOption'] = null !== $this->taskOption ? $this->taskOption->toMap() : null;
-        }
         if (null !== $this->alertConfig) {
             $res['AlertConfig'] = null !== $this->alertConfig ? $this->alertConfig->toMap() : null;
         }
-        if (null !== $this->regionId) {
-            $res['RegionId'] = $this->regionId;
-        }
-        if (null !== $this->groupId) {
-            $res['GroupId'] = $this->groupId;
-        }
-        if (null !== $this->taskName) {
-            $res['TaskName'] = $this->taskName;
-        }
-        if (null !== $this->taskScope) {
-            $res['TaskScope'] = $this->taskScope;
-        }
-        if (null !== $this->taskType) {
-            $res['TaskType'] = $this->taskType;
+        if (null !== $this->taskOption) {
+            $res['TaskOption'] = null !== $this->taskOption ? $this->taskOption->toMap() : null;
         }
         if (null !== $this->alertConfigEscalationList) {
             $res['AlertConfigEscalationList'] = [];
@@ -104,8 +89,23 @@ class CreateHostAvailabilityRequest extends Model
                 }
             }
         }
+        if (null !== $this->groupId) {
+            $res['GroupId'] = $this->groupId;
+        }
         if (null !== $this->instanceList) {
             $res['InstanceList'] = $this->instanceList;
+        }
+        if (null !== $this->regionId) {
+            $res['RegionId'] = $this->regionId;
+        }
+        if (null !== $this->taskName) {
+            $res['TaskName'] = $this->taskName;
+        }
+        if (null !== $this->taskScope) {
+            $res['TaskScope'] = $this->taskScope;
+        }
+        if (null !== $this->taskType) {
+            $res['TaskType'] = $this->taskType;
         }
 
         return $res;
@@ -119,26 +119,11 @@ class CreateHostAvailabilityRequest extends Model
     public static function fromMap($map = [])
     {
         $model = new self();
-        if (isset($map['TaskOption'])) {
-            $model->taskOption = taskOption::fromMap($map['TaskOption']);
-        }
         if (isset($map['AlertConfig'])) {
             $model->alertConfig = alertConfig::fromMap($map['AlertConfig']);
         }
-        if (isset($map['RegionId'])) {
-            $model->regionId = $map['RegionId'];
-        }
-        if (isset($map['GroupId'])) {
-            $model->groupId = $map['GroupId'];
-        }
-        if (isset($map['TaskName'])) {
-            $model->taskName = $map['TaskName'];
-        }
-        if (isset($map['TaskScope'])) {
-            $model->taskScope = $map['TaskScope'];
-        }
-        if (isset($map['TaskType'])) {
-            $model->taskType = $map['TaskType'];
+        if (isset($map['TaskOption'])) {
+            $model->taskOption = taskOption::fromMap($map['TaskOption']);
         }
         if (isset($map['AlertConfigEscalationList'])) {
             if (!empty($map['AlertConfigEscalationList'])) {
@@ -149,10 +134,25 @@ class CreateHostAvailabilityRequest extends Model
                 }
             }
         }
+        if (isset($map['GroupId'])) {
+            $model->groupId = $map['GroupId'];
+        }
         if (isset($map['InstanceList'])) {
             if (!empty($map['InstanceList'])) {
                 $model->instanceList = $map['InstanceList'];
             }
+        }
+        if (isset($map['RegionId'])) {
+            $model->regionId = $map['RegionId'];
+        }
+        if (isset($map['TaskName'])) {
+            $model->taskName = $map['TaskName'];
+        }
+        if (isset($map['TaskScope'])) {
+            $model->taskScope = $map['TaskScope'];
+        }
+        if (isset($map['TaskType'])) {
+            $model->taskType = $map['TaskType'];
         }
 
         return $model;

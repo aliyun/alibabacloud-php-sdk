@@ -11,12 +11,42 @@ class metricRule extends Model
     /**
      * @var string
      */
-    public $metricName;
+    public $actionEnable;
+
+    /**
+     * @var string
+     */
+    public $alarmActions;
+
+    /**
+     * @var string
+     */
+    public $comparisonOperator;
+
+    /**
+     * @var string
+     */
+    public $dimensions;
 
     /**
      * @var string
      */
     public $evaluationCount;
+
+    /**
+     * @var string
+     */
+    public $expression;
+
+    /**
+     * @var string
+     */
+    public $level;
+
+    /**
+     * @var string
+     */
+    public $metricName;
 
     /**
      * @var string
@@ -31,7 +61,7 @@ class metricRule extends Model
     /**
      * @var string
      */
-    public $alarmActions;
+    public $period;
 
     /**
      * @var string
@@ -46,64 +76,34 @@ class metricRule extends Model
     /**
      * @var string
      */
-    public $period;
-
-    /**
-     * @var string
-     */
-    public $comparisonOperator;
-
-    /**
-     * @var string
-     */
-    public $expression;
-
-    /**
-     * @var string
-     */
-    public $dimensions;
-
-    /**
-     * @var string
-     */
     public $stateValue;
 
     /**
      * @var string
      */
-    public $actionEnable;
-
-    /**
-     * @var string
-     */
-    public $level;
+    public $statistics;
 
     /**
      * @var string
      */
     public $threshold;
-
-    /**
-     * @var string
-     */
-    public $statistics;
     protected $_name = [
-        'metricName'         => 'MetricName',
+        'actionEnable'       => 'ActionEnable',
+        'alarmActions'       => 'AlarmActions',
+        'comparisonOperator' => 'ComparisonOperator',
+        'dimensions'         => 'Dimensions',
         'evaluationCount'    => 'EvaluationCount',
+        'expression'         => 'Expression',
+        'level'              => 'Level',
+        'metricName'         => 'MetricName',
         'namespace'          => 'Namespace',
         'okActions'          => 'OkActions',
-        'alarmActions'       => 'AlarmActions',
+        'period'             => 'Period',
         'ruleId'             => 'RuleId',
         'ruleName'           => 'RuleName',
-        'period'             => 'Period',
-        'comparisonOperator' => 'ComparisonOperator',
-        'expression'         => 'Expression',
-        'dimensions'         => 'Dimensions',
         'stateValue'         => 'StateValue',
-        'actionEnable'       => 'ActionEnable',
-        'level'              => 'Level',
-        'threshold'          => 'Threshold',
         'statistics'         => 'Statistics',
+        'threshold'          => 'Threshold',
     ];
 
     public function validate()
@@ -113,11 +113,29 @@ class metricRule extends Model
     public function toMap()
     {
         $res = [];
-        if (null !== $this->metricName) {
-            $res['MetricName'] = $this->metricName;
+        if (null !== $this->actionEnable) {
+            $res['ActionEnable'] = $this->actionEnable;
+        }
+        if (null !== $this->alarmActions) {
+            $res['AlarmActions'] = $this->alarmActions;
+        }
+        if (null !== $this->comparisonOperator) {
+            $res['ComparisonOperator'] = $this->comparisonOperator;
+        }
+        if (null !== $this->dimensions) {
+            $res['Dimensions'] = $this->dimensions;
         }
         if (null !== $this->evaluationCount) {
             $res['EvaluationCount'] = $this->evaluationCount;
+        }
+        if (null !== $this->expression) {
+            $res['Expression'] = $this->expression;
+        }
+        if (null !== $this->level) {
+            $res['Level'] = $this->level;
+        }
+        if (null !== $this->metricName) {
+            $res['MetricName'] = $this->metricName;
         }
         if (null !== $this->namespace) {
             $res['Namespace'] = $this->namespace;
@@ -125,8 +143,8 @@ class metricRule extends Model
         if (null !== $this->okActions) {
             $res['OkActions'] = $this->okActions;
         }
-        if (null !== $this->alarmActions) {
-            $res['AlarmActions'] = $this->alarmActions;
+        if (null !== $this->period) {
+            $res['Period'] = $this->period;
         }
         if (null !== $this->ruleId) {
             $res['RuleId'] = $this->ruleId;
@@ -134,32 +152,14 @@ class metricRule extends Model
         if (null !== $this->ruleName) {
             $res['RuleName'] = $this->ruleName;
         }
-        if (null !== $this->period) {
-            $res['Period'] = $this->period;
-        }
-        if (null !== $this->comparisonOperator) {
-            $res['ComparisonOperator'] = $this->comparisonOperator;
-        }
-        if (null !== $this->expression) {
-            $res['Expression'] = $this->expression;
-        }
-        if (null !== $this->dimensions) {
-            $res['Dimensions'] = $this->dimensions;
-        }
         if (null !== $this->stateValue) {
             $res['StateValue'] = $this->stateValue;
         }
-        if (null !== $this->actionEnable) {
-            $res['ActionEnable'] = $this->actionEnable;
-        }
-        if (null !== $this->level) {
-            $res['Level'] = $this->level;
+        if (null !== $this->statistics) {
+            $res['Statistics'] = $this->statistics;
         }
         if (null !== $this->threshold) {
             $res['Threshold'] = $this->threshold;
-        }
-        if (null !== $this->statistics) {
-            $res['Statistics'] = $this->statistics;
         }
 
         return $res;
@@ -173,11 +173,29 @@ class metricRule extends Model
     public static function fromMap($map = [])
     {
         $model = new self();
-        if (isset($map['MetricName'])) {
-            $model->metricName = $map['MetricName'];
+        if (isset($map['ActionEnable'])) {
+            $model->actionEnable = $map['ActionEnable'];
+        }
+        if (isset($map['AlarmActions'])) {
+            $model->alarmActions = $map['AlarmActions'];
+        }
+        if (isset($map['ComparisonOperator'])) {
+            $model->comparisonOperator = $map['ComparisonOperator'];
+        }
+        if (isset($map['Dimensions'])) {
+            $model->dimensions = $map['Dimensions'];
         }
         if (isset($map['EvaluationCount'])) {
             $model->evaluationCount = $map['EvaluationCount'];
+        }
+        if (isset($map['Expression'])) {
+            $model->expression = $map['Expression'];
+        }
+        if (isset($map['Level'])) {
+            $model->level = $map['Level'];
+        }
+        if (isset($map['MetricName'])) {
+            $model->metricName = $map['MetricName'];
         }
         if (isset($map['Namespace'])) {
             $model->namespace = $map['Namespace'];
@@ -185,8 +203,8 @@ class metricRule extends Model
         if (isset($map['OkActions'])) {
             $model->okActions = $map['OkActions'];
         }
-        if (isset($map['AlarmActions'])) {
-            $model->alarmActions = $map['AlarmActions'];
+        if (isset($map['Period'])) {
+            $model->period = $map['Period'];
         }
         if (isset($map['RuleId'])) {
             $model->ruleId = $map['RuleId'];
@@ -194,32 +212,14 @@ class metricRule extends Model
         if (isset($map['RuleName'])) {
             $model->ruleName = $map['RuleName'];
         }
-        if (isset($map['Period'])) {
-            $model->period = $map['Period'];
-        }
-        if (isset($map['ComparisonOperator'])) {
-            $model->comparisonOperator = $map['ComparisonOperator'];
-        }
-        if (isset($map['Expression'])) {
-            $model->expression = $map['Expression'];
-        }
-        if (isset($map['Dimensions'])) {
-            $model->dimensions = $map['Dimensions'];
-        }
         if (isset($map['StateValue'])) {
             $model->stateValue = $map['StateValue'];
         }
-        if (isset($map['ActionEnable'])) {
-            $model->actionEnable = $map['ActionEnable'];
-        }
-        if (isset($map['Level'])) {
-            $model->level = $map['Level'];
+        if (isset($map['Statistics'])) {
+            $model->statistics = $map['Statistics'];
         }
         if (isset($map['Threshold'])) {
             $model->threshold = $map['Threshold'];
-        }
-        if (isset($map['Statistics'])) {
-            $model->statistics = $map['Statistics'];
         }
 
         return $model;

@@ -10,9 +10,14 @@ use AlibabaCloud\Tea\Model;
 class CreateMetricRuleTemplateRequest extends Model
 {
     /**
+     * @var alertTemplates[]
+     */
+    public $alertTemplates;
+
+    /**
      * @var string
      */
-    public $regionId;
+    public $description;
 
     /**
      * @var string
@@ -22,17 +27,12 @@ class CreateMetricRuleTemplateRequest extends Model
     /**
      * @var string
      */
-    public $description;
-
-    /**
-     * @var alertTemplates[]
-     */
-    public $alertTemplates;
+    public $regionId;
     protected $_name = [
-        'regionId'       => 'RegionId',
-        'name'           => 'Name',
-        'description'    => 'Description',
         'alertTemplates' => 'AlertTemplates',
+        'description'    => 'Description',
+        'name'           => 'Name',
+        'regionId'       => 'RegionId',
     ];
 
     public function validate()
@@ -42,15 +42,6 @@ class CreateMetricRuleTemplateRequest extends Model
     public function toMap()
     {
         $res = [];
-        if (null !== $this->regionId) {
-            $res['RegionId'] = $this->regionId;
-        }
-        if (null !== $this->name) {
-            $res['Name'] = $this->name;
-        }
-        if (null !== $this->description) {
-            $res['Description'] = $this->description;
-        }
         if (null !== $this->alertTemplates) {
             $res['AlertTemplates'] = [];
             if (null !== $this->alertTemplates && \is_array($this->alertTemplates)) {
@@ -59,6 +50,15 @@ class CreateMetricRuleTemplateRequest extends Model
                     $res['AlertTemplates'][$n++] = null !== $item ? $item->toMap() : $item;
                 }
             }
+        }
+        if (null !== $this->description) {
+            $res['Description'] = $this->description;
+        }
+        if (null !== $this->name) {
+            $res['Name'] = $this->name;
+        }
+        if (null !== $this->regionId) {
+            $res['RegionId'] = $this->regionId;
         }
 
         return $res;
@@ -72,15 +72,6 @@ class CreateMetricRuleTemplateRequest extends Model
     public static function fromMap($map = [])
     {
         $model = new self();
-        if (isset($map['RegionId'])) {
-            $model->regionId = $map['RegionId'];
-        }
-        if (isset($map['Name'])) {
-            $model->name = $map['Name'];
-        }
-        if (isset($map['Description'])) {
-            $model->description = $map['Description'];
-        }
         if (isset($map['AlertTemplates'])) {
             if (!empty($map['AlertTemplates'])) {
                 $model->alertTemplates = [];
@@ -89,6 +80,15 @@ class CreateMetricRuleTemplateRequest extends Model
                     $model->alertTemplates[$n++] = null !== $item ? alertTemplates::fromMap($item) : $item;
                 }
             }
+        }
+        if (isset($map['Description'])) {
+            $model->description = $map['Description'];
+        }
+        if (isset($map['Name'])) {
+            $model->name = $map['Name'];
+        }
+        if (isset($map['RegionId'])) {
+            $model->regionId = $map['RegionId'];
         }
 
         return $model;

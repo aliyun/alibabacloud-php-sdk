@@ -16,16 +16,16 @@ class webhookList extends Model
     /**
      * @var string
      */
-    public $url;
+    public $message;
 
     /**
      * @var string
      */
-    public $message;
+    public $url;
     protected $_name = [
         'code'    => 'code',
-        'url'     => 'url',
         'message' => 'message',
+        'url'     => 'url',
     ];
 
     public function validate()
@@ -38,11 +38,11 @@ class webhookList extends Model
         if (null !== $this->code) {
             $res['code'] = $this->code;
         }
-        if (null !== $this->url) {
-            $res['url'] = $this->url;
-        }
         if (null !== $this->message) {
             $res['message'] = $this->message;
+        }
+        if (null !== $this->url) {
+            $res['url'] = $this->url;
         }
 
         return $res;
@@ -59,11 +59,11 @@ class webhookList extends Model
         if (isset($map['code'])) {
             $model->code = $map['code'];
         }
-        if (isset($map['url'])) {
-            $model->url = $map['url'];
-        }
         if (isset($map['message'])) {
             $model->message = $map['message'];
+        }
+        if (isset($map['url'])) {
+            $model->url = $map['url'];
         }
 
         return $model;

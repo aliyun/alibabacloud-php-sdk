@@ -16,7 +16,7 @@ class ispCity extends Model
     /**
      * @var string
      */
-    public $ispName;
+    public $cityName;
 
     /**
      * @var string
@@ -26,12 +26,12 @@ class ispCity extends Model
     /**
      * @var string
      */
-    public $cityName;
+    public $ispName;
     protected $_name = [
         'city'     => 'City',
-        'ispName'  => 'IspName',
-        'isp'      => 'Isp',
         'cityName' => 'CityName',
+        'isp'      => 'Isp',
+        'ispName'  => 'IspName',
     ];
 
     public function validate()
@@ -44,14 +44,14 @@ class ispCity extends Model
         if (null !== $this->city) {
             $res['City'] = $this->city;
         }
-        if (null !== $this->ispName) {
-            $res['IspName'] = $this->ispName;
+        if (null !== $this->cityName) {
+            $res['CityName'] = $this->cityName;
         }
         if (null !== $this->isp) {
             $res['Isp'] = $this->isp;
         }
-        if (null !== $this->cityName) {
-            $res['CityName'] = $this->cityName;
+        if (null !== $this->ispName) {
+            $res['IspName'] = $this->ispName;
         }
 
         return $res;
@@ -68,14 +68,14 @@ class ispCity extends Model
         if (isset($map['City'])) {
             $model->city = $map['City'];
         }
-        if (isset($map['IspName'])) {
-            $model->ispName = $map['IspName'];
+        if (isset($map['CityName'])) {
+            $model->cityName = $map['CityName'];
         }
         if (isset($map['Isp'])) {
             $model->isp = $map['Isp'];
         }
-        if (isset($map['CityName'])) {
-            $model->cityName = $map['CityName'];
+        if (isset($map['IspName'])) {
+            $model->ispName = $map['IspName'];
         }
 
         return $model;

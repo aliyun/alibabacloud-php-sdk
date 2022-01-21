@@ -9,14 +9,19 @@ use AlibabaCloud\Tea\Model;
 class CreateMonitorGroupByResourceGroupIdRequest extends Model
 {
     /**
-     * @var bool
+     * @var string[]
      */
-    public $enableSubscribeEvent;
+    public $contactGroupList;
 
     /**
      * @var bool
      */
     public $enableInstallAgent;
+
+    /**
+     * @var bool
+     */
+    public $enableSubscribeEvent;
 
     /**
      * @var string
@@ -32,18 +37,13 @@ class CreateMonitorGroupByResourceGroupIdRequest extends Model
      * @var string
      */
     public $resourceGroupName;
-
-    /**
-     * @var string[]
-     */
-    public $contactGroupList;
     protected $_name = [
-        'enableSubscribeEvent' => 'EnableSubscribeEvent',
+        'contactGroupList'     => 'ContactGroupList',
         'enableInstallAgent'   => 'EnableInstallAgent',
+        'enableSubscribeEvent' => 'EnableSubscribeEvent',
         'regionId'             => 'RegionId',
         'resourceGroupId'      => 'ResourceGroupId',
         'resourceGroupName'    => 'ResourceGroupName',
-        'contactGroupList'     => 'ContactGroupList',
     ];
 
     public function validate()
@@ -53,11 +53,14 @@ class CreateMonitorGroupByResourceGroupIdRequest extends Model
     public function toMap()
     {
         $res = [];
-        if (null !== $this->enableSubscribeEvent) {
-            $res['EnableSubscribeEvent'] = $this->enableSubscribeEvent;
+        if (null !== $this->contactGroupList) {
+            $res['ContactGroupList'] = $this->contactGroupList;
         }
         if (null !== $this->enableInstallAgent) {
             $res['EnableInstallAgent'] = $this->enableInstallAgent;
+        }
+        if (null !== $this->enableSubscribeEvent) {
+            $res['EnableSubscribeEvent'] = $this->enableSubscribeEvent;
         }
         if (null !== $this->regionId) {
             $res['RegionId'] = $this->regionId;
@@ -67,9 +70,6 @@ class CreateMonitorGroupByResourceGroupIdRequest extends Model
         }
         if (null !== $this->resourceGroupName) {
             $res['ResourceGroupName'] = $this->resourceGroupName;
-        }
-        if (null !== $this->contactGroupList) {
-            $res['ContactGroupList'] = $this->contactGroupList;
         }
 
         return $res;
@@ -83,11 +83,16 @@ class CreateMonitorGroupByResourceGroupIdRequest extends Model
     public static function fromMap($map = [])
     {
         $model = new self();
-        if (isset($map['EnableSubscribeEvent'])) {
-            $model->enableSubscribeEvent = $map['EnableSubscribeEvent'];
+        if (isset($map['ContactGroupList'])) {
+            if (!empty($map['ContactGroupList'])) {
+                $model->contactGroupList = $map['ContactGroupList'];
+            }
         }
         if (isset($map['EnableInstallAgent'])) {
             $model->enableInstallAgent = $map['EnableInstallAgent'];
+        }
+        if (isset($map['EnableSubscribeEvent'])) {
+            $model->enableSubscribeEvent = $map['EnableSubscribeEvent'];
         }
         if (isset($map['RegionId'])) {
             $model->regionId = $map['RegionId'];
@@ -97,11 +102,6 @@ class CreateMonitorGroupByResourceGroupIdRequest extends Model
         }
         if (isset($map['ResourceGroupName'])) {
             $model->resourceGroupName = $map['ResourceGroupName'];
-        }
-        if (isset($map['ContactGroupList'])) {
-            if (!empty($map['ContactGroupList'])) {
-                $model->contactGroupList = $map['ContactGroupList'];
-            }
         }
 
         return $model;

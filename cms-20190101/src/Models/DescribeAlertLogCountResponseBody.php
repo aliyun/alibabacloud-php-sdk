@@ -10,6 +10,11 @@ use AlibabaCloud\Tea\Model;
 class DescribeAlertLogCountResponseBody extends Model
 {
     /**
+     * @var alertLogCount[]
+     */
+    public $alertLogCount;
+
+    /**
      * @var string
      */
     public $code;
@@ -28,17 +33,12 @@ class DescribeAlertLogCountResponseBody extends Model
      * @var bool
      */
     public $success;
-
-    /**
-     * @var alertLogCount[]
-     */
-    public $alertLogCount;
     protected $_name = [
+        'alertLogCount' => 'AlertLogCount',
         'code'          => 'Code',
         'message'       => 'Message',
         'requestId'     => 'RequestId',
         'success'       => 'Success',
-        'alertLogCount' => 'AlertLogCount',
     ];
 
     public function validate()
@@ -48,6 +48,15 @@ class DescribeAlertLogCountResponseBody extends Model
     public function toMap()
     {
         $res = [];
+        if (null !== $this->alertLogCount) {
+            $res['AlertLogCount'] = [];
+            if (null !== $this->alertLogCount && \is_array($this->alertLogCount)) {
+                $n = 0;
+                foreach ($this->alertLogCount as $item) {
+                    $res['AlertLogCount'][$n++] = null !== $item ? $item->toMap() : $item;
+                }
+            }
+        }
         if (null !== $this->code) {
             $res['Code'] = $this->code;
         }
@@ -59,15 +68,6 @@ class DescribeAlertLogCountResponseBody extends Model
         }
         if (null !== $this->success) {
             $res['Success'] = $this->success;
-        }
-        if (null !== $this->alertLogCount) {
-            $res['AlertLogCount'] = [];
-            if (null !== $this->alertLogCount && \is_array($this->alertLogCount)) {
-                $n = 0;
-                foreach ($this->alertLogCount as $item) {
-                    $res['AlertLogCount'][$n++] = null !== $item ? $item->toMap() : $item;
-                }
-            }
         }
 
         return $res;
@@ -81,6 +81,15 @@ class DescribeAlertLogCountResponseBody extends Model
     public static function fromMap($map = [])
     {
         $model = new self();
+        if (isset($map['AlertLogCount'])) {
+            if (!empty($map['AlertLogCount'])) {
+                $model->alertLogCount = [];
+                $n                    = 0;
+                foreach ($map['AlertLogCount'] as $item) {
+                    $model->alertLogCount[$n++] = null !== $item ? alertLogCount::fromMap($item) : $item;
+                }
+            }
+        }
         if (isset($map['Code'])) {
             $model->code = $map['Code'];
         }
@@ -92,15 +101,6 @@ class DescribeAlertLogCountResponseBody extends Model
         }
         if (isset($map['Success'])) {
             $model->success = $map['Success'];
-        }
-        if (isset($map['AlertLogCount'])) {
-            if (!empty($map['AlertLogCount'])) {
-                $model->alertLogCount = [];
-                $n                    = 0;
-                foreach ($map['AlertLogCount'] as $item) {
-                    $model->alertLogCount[$n++] = null !== $item ? alertLogCount::fromMap($item) : $item;
-                }
-            }
         }
 
         return $model;

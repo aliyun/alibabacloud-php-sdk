@@ -11,11 +11,6 @@ class instances extends Model
     /**
      * @var string
      */
-    public $instanceName;
-
-    /**
-     * @var string
-     */
     public $category;
 
     /**
@@ -26,11 +21,16 @@ class instances extends Model
     /**
      * @var string
      */
+    public $instanceName;
+
+    /**
+     * @var string
+     */
     public $regionId;
     protected $_name = [
-        'instanceName' => 'InstanceName',
         'category'     => 'Category',
         'instanceId'   => 'InstanceId',
+        'instanceName' => 'InstanceName',
         'regionId'     => 'RegionId',
     ];
 
@@ -41,14 +41,14 @@ class instances extends Model
     public function toMap()
     {
         $res = [];
-        if (null !== $this->instanceName) {
-            $res['InstanceName'] = $this->instanceName;
-        }
         if (null !== $this->category) {
             $res['Category'] = $this->category;
         }
         if (null !== $this->instanceId) {
             $res['InstanceId'] = $this->instanceId;
+        }
+        if (null !== $this->instanceName) {
+            $res['InstanceName'] = $this->instanceName;
         }
         if (null !== $this->regionId) {
             $res['RegionId'] = $this->regionId;
@@ -65,14 +65,14 @@ class instances extends Model
     public static function fromMap($map = [])
     {
         $model = new self();
-        if (isset($map['InstanceName'])) {
-            $model->instanceName = $map['InstanceName'];
-        }
         if (isset($map['Category'])) {
             $model->category = $map['Category'];
         }
         if (isset($map['InstanceId'])) {
             $model->instanceId = $map['InstanceId'];
+        }
+        if (isset($map['InstanceName'])) {
+            $model->instanceName = $map['InstanceName'];
         }
         if (isset($map['RegionId'])) {
             $model->regionId = $map['RegionId'];

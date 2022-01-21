@@ -12,16 +12,6 @@ class DescribeGroupMonitoringAgentProcessResponseBody extends Model
     /**
      * @var string
      */
-    public $requestId;
-
-    /**
-     * @var bool
-     */
-    public $success;
-
-    /**
-     * @var string
-     */
     public $code;
 
     /**
@@ -40,23 +30,33 @@ class DescribeGroupMonitoringAgentProcessResponseBody extends Model
     public $pageSize;
 
     /**
-     * @var string
-     */
-    public $total;
-
-    /**
      * @var processes
      */
     public $processes;
+
+    /**
+     * @var string
+     */
+    public $requestId;
+
+    /**
+     * @var bool
+     */
+    public $success;
+
+    /**
+     * @var string
+     */
+    public $total;
     protected $_name = [
-        'requestId'  => 'RequestId',
-        'success'    => 'Success',
         'code'       => 'Code',
         'message'    => 'Message',
         'pageNumber' => 'PageNumber',
         'pageSize'   => 'PageSize',
-        'total'      => 'Total',
         'processes'  => 'Processes',
+        'requestId'  => 'RequestId',
+        'success'    => 'Success',
+        'total'      => 'Total',
     ];
 
     public function validate()
@@ -66,12 +66,6 @@ class DescribeGroupMonitoringAgentProcessResponseBody extends Model
     public function toMap()
     {
         $res = [];
-        if (null !== $this->requestId) {
-            $res['RequestId'] = $this->requestId;
-        }
-        if (null !== $this->success) {
-            $res['Success'] = $this->success;
-        }
         if (null !== $this->code) {
             $res['Code'] = $this->code;
         }
@@ -84,11 +78,17 @@ class DescribeGroupMonitoringAgentProcessResponseBody extends Model
         if (null !== $this->pageSize) {
             $res['PageSize'] = $this->pageSize;
         }
-        if (null !== $this->total) {
-            $res['Total'] = $this->total;
-        }
         if (null !== $this->processes) {
             $res['Processes'] = null !== $this->processes ? $this->processes->toMap() : null;
+        }
+        if (null !== $this->requestId) {
+            $res['RequestId'] = $this->requestId;
+        }
+        if (null !== $this->success) {
+            $res['Success'] = $this->success;
+        }
+        if (null !== $this->total) {
+            $res['Total'] = $this->total;
         }
 
         return $res;
@@ -102,12 +102,6 @@ class DescribeGroupMonitoringAgentProcessResponseBody extends Model
     public static function fromMap($map = [])
     {
         $model = new self();
-        if (isset($map['RequestId'])) {
-            $model->requestId = $map['RequestId'];
-        }
-        if (isset($map['Success'])) {
-            $model->success = $map['Success'];
-        }
         if (isset($map['Code'])) {
             $model->code = $map['Code'];
         }
@@ -120,11 +114,17 @@ class DescribeGroupMonitoringAgentProcessResponseBody extends Model
         if (isset($map['PageSize'])) {
             $model->pageSize = $map['PageSize'];
         }
-        if (isset($map['Total'])) {
-            $model->total = $map['Total'];
-        }
         if (isset($map['Processes'])) {
             $model->processes = processes::fromMap($map['Processes']);
+        }
+        if (isset($map['RequestId'])) {
+            $model->requestId = $map['RequestId'];
+        }
+        if (isset($map['Success'])) {
+            $model->success = $map['Success'];
+        }
+        if (isset($map['Total'])) {
+            $model->total = $map['Total'];
         }
 
         return $model;

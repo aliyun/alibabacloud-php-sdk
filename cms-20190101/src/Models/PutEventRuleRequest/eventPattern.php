@@ -9,19 +9,14 @@ use AlibabaCloud\Tea\Model;
 class eventPattern extends Model
 {
     /**
+     * @var string
+     */
+    public $customFilters;
+
+    /**
      * @var string[]
      */
     public $eventTypeList;
-
-    /**
-     * @var string[]
-     */
-    public $statusList;
-
-    /**
-     * @var string
-     */
-    public $product;
 
     /**
      * @var string[]
@@ -32,12 +27,23 @@ class eventPattern extends Model
      * @var string[]
      */
     public $nameList;
+
+    /**
+     * @var string
+     */
+    public $product;
+
+    /**
+     * @var string[]
+     */
+    public $statusList;
     protected $_name = [
+        'customFilters' => 'CustomFilters',
         'eventTypeList' => 'EventTypeList',
-        'statusList'    => 'StatusList',
-        'product'       => 'Product',
         'levelList'     => 'LevelList',
         'nameList'      => 'NameList',
+        'product'       => 'Product',
+        'statusList'    => 'StatusList',
     ];
 
     public function validate()
@@ -47,20 +53,23 @@ class eventPattern extends Model
     public function toMap()
     {
         $res = [];
+        if (null !== $this->customFilters) {
+            $res['CustomFilters'] = $this->customFilters;
+        }
         if (null !== $this->eventTypeList) {
             $res['EventTypeList'] = $this->eventTypeList;
-        }
-        if (null !== $this->statusList) {
-            $res['StatusList'] = $this->statusList;
-        }
-        if (null !== $this->product) {
-            $res['Product'] = $this->product;
         }
         if (null !== $this->levelList) {
             $res['LevelList'] = $this->levelList;
         }
         if (null !== $this->nameList) {
             $res['NameList'] = $this->nameList;
+        }
+        if (null !== $this->product) {
+            $res['Product'] = $this->product;
+        }
+        if (null !== $this->statusList) {
+            $res['StatusList'] = $this->statusList;
         }
 
         return $res;
@@ -74,18 +83,13 @@ class eventPattern extends Model
     public static function fromMap($map = [])
     {
         $model = new self();
+        if (isset($map['CustomFilters'])) {
+            $model->customFilters = $map['CustomFilters'];
+        }
         if (isset($map['EventTypeList'])) {
             if (!empty($map['EventTypeList'])) {
                 $model->eventTypeList = $map['EventTypeList'];
             }
-        }
-        if (isset($map['StatusList'])) {
-            if (!empty($map['StatusList'])) {
-                $model->statusList = $map['StatusList'];
-            }
-        }
-        if (isset($map['Product'])) {
-            $model->product = $map['Product'];
         }
         if (isset($map['LevelList'])) {
             if (!empty($map['LevelList'])) {
@@ -95,6 +99,14 @@ class eventPattern extends Model
         if (isset($map['NameList'])) {
             if (!empty($map['NameList'])) {
                 $model->nameList = $map['NameList'];
+            }
+        }
+        if (isset($map['Product'])) {
+            $model->product = $map['Product'];
+        }
+        if (isset($map['StatusList'])) {
+            if (!empty($map['StatusList'])) {
+                $model->statusList = $map['StatusList'];
             }
         }
 

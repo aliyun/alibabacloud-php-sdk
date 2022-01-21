@@ -15,6 +15,11 @@ class DescribeCustomEventAttributeResponseBody extends Model
     public $code;
 
     /**
+     * @var customEvents
+     */
+    public $customEvents;
+
+    /**
      * @var string
      */
     public $message;
@@ -28,17 +33,12 @@ class DescribeCustomEventAttributeResponseBody extends Model
      * @var string
      */
     public $success;
-
-    /**
-     * @var customEvents
-     */
-    public $customEvents;
     protected $_name = [
         'code'         => 'Code',
+        'customEvents' => 'CustomEvents',
         'message'      => 'Message',
         'requestId'    => 'RequestId',
         'success'      => 'Success',
-        'customEvents' => 'CustomEvents',
     ];
 
     public function validate()
@@ -51,6 +51,9 @@ class DescribeCustomEventAttributeResponseBody extends Model
         if (null !== $this->code) {
             $res['Code'] = $this->code;
         }
+        if (null !== $this->customEvents) {
+            $res['CustomEvents'] = null !== $this->customEvents ? $this->customEvents->toMap() : null;
+        }
         if (null !== $this->message) {
             $res['Message'] = $this->message;
         }
@@ -59,9 +62,6 @@ class DescribeCustomEventAttributeResponseBody extends Model
         }
         if (null !== $this->success) {
             $res['Success'] = $this->success;
-        }
-        if (null !== $this->customEvents) {
-            $res['CustomEvents'] = null !== $this->customEvents ? $this->customEvents->toMap() : null;
         }
 
         return $res;
@@ -78,6 +78,9 @@ class DescribeCustomEventAttributeResponseBody extends Model
         if (isset($map['Code'])) {
             $model->code = $map['Code'];
         }
+        if (isset($map['CustomEvents'])) {
+            $model->customEvents = customEvents::fromMap($map['CustomEvents']);
+        }
         if (isset($map['Message'])) {
             $model->message = $map['Message'];
         }
@@ -86,9 +89,6 @@ class DescribeCustomEventAttributeResponseBody extends Model
         }
         if (isset($map['Success'])) {
             $model->success = $map['Success'];
-        }
-        if (isset($map['CustomEvents'])) {
-            $model->customEvents = customEvents::fromMap($map['CustomEvents']);
         }
 
         return $model;

@@ -11,15 +11,15 @@ class groupbys extends Model
     /**
      * @var string
      */
-    public $fieldName;
+    public $alias;
 
     /**
      * @var string
      */
-    public $alias;
+    public $fieldName;
     protected $_name = [
-        'fieldName' => 'FieldName',
         'alias'     => 'Alias',
+        'fieldName' => 'FieldName',
     ];
 
     public function validate()
@@ -29,11 +29,11 @@ class groupbys extends Model
     public function toMap()
     {
         $res = [];
-        if (null !== $this->fieldName) {
-            $res['FieldName'] = $this->fieldName;
-        }
         if (null !== $this->alias) {
             $res['Alias'] = $this->alias;
+        }
+        if (null !== $this->fieldName) {
+            $res['FieldName'] = $this->fieldName;
         }
 
         return $res;
@@ -47,11 +47,11 @@ class groupbys extends Model
     public static function fromMap($map = [])
     {
         $model = new self();
-        if (isset($map['FieldName'])) {
-            $model->fieldName = $map['FieldName'];
-        }
         if (isset($map['Alias'])) {
             $model->alias = $map['Alias'];
+        }
+        if (isset($map['FieldName'])) {
+            $model->fieldName = $map['FieldName'];
         }
 
         return $model;

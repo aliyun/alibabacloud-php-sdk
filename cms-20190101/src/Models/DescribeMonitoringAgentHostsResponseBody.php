@@ -12,17 +12,12 @@ class DescribeMonitoringAgentHostsResponseBody extends Model
     /**
      * @var string
      */
-    public $requestId;
-
-    /**
-     * @var bool
-     */
-    public $success;
-
-    /**
-     * @var string
-     */
     public $code;
+
+    /**
+     * @var hosts
+     */
+    public $hosts;
 
     /**
      * @var string
@@ -45,24 +40,29 @@ class DescribeMonitoringAgentHostsResponseBody extends Model
     public $pageTotal;
 
     /**
+     * @var string
+     */
+    public $requestId;
+
+    /**
+     * @var bool
+     */
+    public $success;
+
+    /**
      * @var int
      */
     public $total;
-
-    /**
-     * @var hosts
-     */
-    public $hosts;
     protected $_name = [
-        'requestId'  => 'RequestId',
-        'success'    => 'Success',
         'code'       => 'Code',
+        'hosts'      => 'Hosts',
         'message'    => 'Message',
         'pageNumber' => 'PageNumber',
         'pageSize'   => 'PageSize',
         'pageTotal'  => 'PageTotal',
+        'requestId'  => 'RequestId',
+        'success'    => 'Success',
         'total'      => 'Total',
-        'hosts'      => 'Hosts',
     ];
 
     public function validate()
@@ -72,14 +72,11 @@ class DescribeMonitoringAgentHostsResponseBody extends Model
     public function toMap()
     {
         $res = [];
-        if (null !== $this->requestId) {
-            $res['RequestId'] = $this->requestId;
-        }
-        if (null !== $this->success) {
-            $res['Success'] = $this->success;
-        }
         if (null !== $this->code) {
             $res['Code'] = $this->code;
+        }
+        if (null !== $this->hosts) {
+            $res['Hosts'] = null !== $this->hosts ? $this->hosts->toMap() : null;
         }
         if (null !== $this->message) {
             $res['Message'] = $this->message;
@@ -93,11 +90,14 @@ class DescribeMonitoringAgentHostsResponseBody extends Model
         if (null !== $this->pageTotal) {
             $res['PageTotal'] = $this->pageTotal;
         }
+        if (null !== $this->requestId) {
+            $res['RequestId'] = $this->requestId;
+        }
+        if (null !== $this->success) {
+            $res['Success'] = $this->success;
+        }
         if (null !== $this->total) {
             $res['Total'] = $this->total;
-        }
-        if (null !== $this->hosts) {
-            $res['Hosts'] = null !== $this->hosts ? $this->hosts->toMap() : null;
         }
 
         return $res;
@@ -111,14 +111,11 @@ class DescribeMonitoringAgentHostsResponseBody extends Model
     public static function fromMap($map = [])
     {
         $model = new self();
-        if (isset($map['RequestId'])) {
-            $model->requestId = $map['RequestId'];
-        }
-        if (isset($map['Success'])) {
-            $model->success = $map['Success'];
-        }
         if (isset($map['Code'])) {
             $model->code = $map['Code'];
+        }
+        if (isset($map['Hosts'])) {
+            $model->hosts = hosts::fromMap($map['Hosts']);
         }
         if (isset($map['Message'])) {
             $model->message = $map['Message'];
@@ -132,11 +129,14 @@ class DescribeMonitoringAgentHostsResponseBody extends Model
         if (isset($map['PageTotal'])) {
             $model->pageTotal = $map['PageTotal'];
         }
+        if (isset($map['RequestId'])) {
+            $model->requestId = $map['RequestId'];
+        }
+        if (isset($map['Success'])) {
+            $model->success = $map['Success'];
+        }
         if (isset($map['Total'])) {
             $model->total = $map['Total'];
-        }
-        if (isset($map['Hosts'])) {
-            $model->hosts = hosts::fromMap($map['Hosts']);
         }
 
         return $model;

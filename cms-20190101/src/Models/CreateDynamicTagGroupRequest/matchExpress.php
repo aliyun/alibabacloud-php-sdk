@@ -11,15 +11,15 @@ class matchExpress extends Model
     /**
      * @var string
      */
-    public $tagValueMatchFunction;
+    public $tagValue;
 
     /**
      * @var string
      */
-    public $tagValue;
+    public $tagValueMatchFunction;
     protected $_name = [
-        'tagValueMatchFunction' => 'TagValueMatchFunction',
         'tagValue'              => 'TagValue',
+        'tagValueMatchFunction' => 'TagValueMatchFunction',
     ];
 
     public function validate()
@@ -29,11 +29,11 @@ class matchExpress extends Model
     public function toMap()
     {
         $res = [];
-        if (null !== $this->tagValueMatchFunction) {
-            $res['TagValueMatchFunction'] = $this->tagValueMatchFunction;
-        }
         if (null !== $this->tagValue) {
             $res['TagValue'] = $this->tagValue;
+        }
+        if (null !== $this->tagValueMatchFunction) {
+            $res['TagValueMatchFunction'] = $this->tagValueMatchFunction;
         }
 
         return $res;
@@ -47,11 +47,11 @@ class matchExpress extends Model
     public static function fromMap($map = [])
     {
         $model = new self();
-        if (isset($map['TagValueMatchFunction'])) {
-            $model->tagValueMatchFunction = $map['TagValueMatchFunction'];
-        }
         if (isset($map['TagValue'])) {
             $model->tagValue = $map['TagValue'];
+        }
+        if (isset($map['TagValueMatchFunction'])) {
+            $model->tagValueMatchFunction = $map['TagValueMatchFunction'];
         }
 
         return $model;

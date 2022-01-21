@@ -20,14 +20,14 @@ class DescribeMonitorGroupNotifyPolicyListResponseBody extends Model
     public $message;
 
     /**
+     * @var notifyPolicyList
+     */
+    public $notifyPolicyList;
+
+    /**
      * @var string
      */
     public $requestId;
-
-    /**
-     * @var int
-     */
-    public $total;
 
     /**
      * @var string
@@ -35,16 +35,16 @@ class DescribeMonitorGroupNotifyPolicyListResponseBody extends Model
     public $success;
 
     /**
-     * @var notifyPolicyList
+     * @var int
      */
-    public $notifyPolicyList;
+    public $total;
     protected $_name = [
         'code'             => 'Code',
         'message'          => 'Message',
-        'requestId'        => 'RequestId',
-        'total'            => 'Total',
-        'success'          => 'Success',
         'notifyPolicyList' => 'NotifyPolicyList',
+        'requestId'        => 'RequestId',
+        'success'          => 'Success',
+        'total'            => 'Total',
     ];
 
     public function validate()
@@ -60,17 +60,17 @@ class DescribeMonitorGroupNotifyPolicyListResponseBody extends Model
         if (null !== $this->message) {
             $res['Message'] = $this->message;
         }
+        if (null !== $this->notifyPolicyList) {
+            $res['NotifyPolicyList'] = null !== $this->notifyPolicyList ? $this->notifyPolicyList->toMap() : null;
+        }
         if (null !== $this->requestId) {
             $res['RequestId'] = $this->requestId;
-        }
-        if (null !== $this->total) {
-            $res['Total'] = $this->total;
         }
         if (null !== $this->success) {
             $res['Success'] = $this->success;
         }
-        if (null !== $this->notifyPolicyList) {
-            $res['NotifyPolicyList'] = null !== $this->notifyPolicyList ? $this->notifyPolicyList->toMap() : null;
+        if (null !== $this->total) {
+            $res['Total'] = $this->total;
         }
 
         return $res;
@@ -90,17 +90,17 @@ class DescribeMonitorGroupNotifyPolicyListResponseBody extends Model
         if (isset($map['Message'])) {
             $model->message = $map['Message'];
         }
+        if (isset($map['NotifyPolicyList'])) {
+            $model->notifyPolicyList = notifyPolicyList::fromMap($map['NotifyPolicyList']);
+        }
         if (isset($map['RequestId'])) {
             $model->requestId = $map['RequestId'];
-        }
-        if (isset($map['Total'])) {
-            $model->total = $map['Total'];
         }
         if (isset($map['Success'])) {
             $model->success = $map['Success'];
         }
-        if (isset($map['NotifyPolicyList'])) {
-            $model->notifyPolicyList = notifyPolicyList::fromMap($map['NotifyPolicyList']);
+        if (isset($map['Total'])) {
+            $model->total = $map['Total'];
         }
 
         return $model;

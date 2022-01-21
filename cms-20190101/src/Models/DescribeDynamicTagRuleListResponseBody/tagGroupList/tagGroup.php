@@ -4,6 +4,7 @@
 
 namespace AlibabaCloud\SDK\Cms\V20190101\Models\DescribeDynamicTagRuleListResponseBody\tagGroupList;
 
+use AlibabaCloud\SDK\Cms\V20190101\Models\DescribeDynamicTagRuleListResponseBody\tagGroupList\tagGroup\contactGroupList;
 use AlibabaCloud\SDK\Cms\V20190101\Models\DescribeDynamicTagRuleListResponseBody\tagGroupList\tagGroup\matchExpress;
 use AlibabaCloud\SDK\Cms\V20190101\Models\DescribeDynamicTagRuleListResponseBody\tagGroupList\tagGroup\templateIdList;
 use AlibabaCloud\Tea\Model;
@@ -11,9 +12,19 @@ use AlibabaCloud\Tea\Model;
 class tagGroup extends Model
 {
     /**
+     * @var contactGroupList
+     */
+    public $contactGroupList;
+
+    /**
      * @var string
      */
-    public $status;
+    public $dynamicTagRuleId;
+
+    /**
+     * @var matchExpress
+     */
+    public $matchExpress;
 
     /**
      * @var string
@@ -28,29 +39,25 @@ class tagGroup extends Model
     /**
      * @var string
      */
-    public $tagKey;
+    public $status;
 
     /**
      * @var string
      */
-    public $dynamicTagRuleId;
-
-    /**
-     * @var matchExpress
-     */
-    public $matchExpress;
+    public $tagKey;
 
     /**
      * @var templateIdList
      */
     public $templateIdList;
     protected $_name = [
-        'status'                     => 'Status',
-        'matchExpressFilterRelation' => 'MatchExpressFilterRelation',
-        'regionId'                   => 'RegionId',
-        'tagKey'                     => 'TagKey',
+        'contactGroupList'           => 'ContactGroupList',
         'dynamicTagRuleId'           => 'DynamicTagRuleId',
         'matchExpress'               => 'MatchExpress',
+        'matchExpressFilterRelation' => 'MatchExpressFilterRelation',
+        'regionId'                   => 'RegionId',
+        'status'                     => 'Status',
+        'tagKey'                     => 'TagKey',
         'templateIdList'             => 'TemplateIdList',
     ];
 
@@ -61,8 +68,14 @@ class tagGroup extends Model
     public function toMap()
     {
         $res = [];
-        if (null !== $this->status) {
-            $res['Status'] = $this->status;
+        if (null !== $this->contactGroupList) {
+            $res['ContactGroupList'] = null !== $this->contactGroupList ? $this->contactGroupList->toMap() : null;
+        }
+        if (null !== $this->dynamicTagRuleId) {
+            $res['DynamicTagRuleId'] = $this->dynamicTagRuleId;
+        }
+        if (null !== $this->matchExpress) {
+            $res['MatchExpress'] = null !== $this->matchExpress ? $this->matchExpress->toMap() : null;
         }
         if (null !== $this->matchExpressFilterRelation) {
             $res['MatchExpressFilterRelation'] = $this->matchExpressFilterRelation;
@@ -70,14 +83,11 @@ class tagGroup extends Model
         if (null !== $this->regionId) {
             $res['RegionId'] = $this->regionId;
         }
+        if (null !== $this->status) {
+            $res['Status'] = $this->status;
+        }
         if (null !== $this->tagKey) {
             $res['TagKey'] = $this->tagKey;
-        }
-        if (null !== $this->dynamicTagRuleId) {
-            $res['DynamicTagRuleId'] = $this->dynamicTagRuleId;
-        }
-        if (null !== $this->matchExpress) {
-            $res['MatchExpress'] = null !== $this->matchExpress ? $this->matchExpress->toMap() : null;
         }
         if (null !== $this->templateIdList) {
             $res['TemplateIdList'] = null !== $this->templateIdList ? $this->templateIdList->toMap() : null;
@@ -94,8 +104,14 @@ class tagGroup extends Model
     public static function fromMap($map = [])
     {
         $model = new self();
-        if (isset($map['Status'])) {
-            $model->status = $map['Status'];
+        if (isset($map['ContactGroupList'])) {
+            $model->contactGroupList = contactGroupList::fromMap($map['ContactGroupList']);
+        }
+        if (isset($map['DynamicTagRuleId'])) {
+            $model->dynamicTagRuleId = $map['DynamicTagRuleId'];
+        }
+        if (isset($map['MatchExpress'])) {
+            $model->matchExpress = matchExpress::fromMap($map['MatchExpress']);
         }
         if (isset($map['MatchExpressFilterRelation'])) {
             $model->matchExpressFilterRelation = $map['MatchExpressFilterRelation'];
@@ -103,14 +119,11 @@ class tagGroup extends Model
         if (isset($map['RegionId'])) {
             $model->regionId = $map['RegionId'];
         }
+        if (isset($map['Status'])) {
+            $model->status = $map['Status'];
+        }
         if (isset($map['TagKey'])) {
             $model->tagKey = $map['TagKey'];
-        }
-        if (isset($map['DynamicTagRuleId'])) {
-            $model->dynamicTagRuleId = $map['DynamicTagRuleId'];
-        }
-        if (isset($map['MatchExpress'])) {
-            $model->matchExpress = matchExpress::fromMap($map['MatchExpress']);
         }
         if (isset($map['TemplateIdList'])) {
             $model->templateIdList = templateIdList::fromMap($map['TemplateIdList']);

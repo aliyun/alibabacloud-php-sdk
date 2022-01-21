@@ -14,6 +14,11 @@ class PutContactGroupRequest extends Model
     public $contactGroupName;
 
     /**
+     * @var string[]
+     */
+    public $contactNames;
+
+    /**
      * @var string
      */
     public $describe;
@@ -22,16 +27,11 @@ class PutContactGroupRequest extends Model
      * @var bool
      */
     public $enableSubscribed;
-
-    /**
-     * @var string[]
-     */
-    public $contactNames;
     protected $_name = [
         'contactGroupName' => 'ContactGroupName',
+        'contactNames'     => 'ContactNames',
         'describe'         => 'Describe',
         'enableSubscribed' => 'EnableSubscribed',
-        'contactNames'     => 'ContactNames',
     ];
 
     public function validate()
@@ -44,14 +44,14 @@ class PutContactGroupRequest extends Model
         if (null !== $this->contactGroupName) {
             $res['ContactGroupName'] = $this->contactGroupName;
         }
+        if (null !== $this->contactNames) {
+            $res['ContactNames'] = $this->contactNames;
+        }
         if (null !== $this->describe) {
             $res['Describe'] = $this->describe;
         }
         if (null !== $this->enableSubscribed) {
             $res['EnableSubscribed'] = $this->enableSubscribed;
-        }
-        if (null !== $this->contactNames) {
-            $res['ContactNames'] = $this->contactNames;
         }
 
         return $res;
@@ -68,16 +68,16 @@ class PutContactGroupRequest extends Model
         if (isset($map['ContactGroupName'])) {
             $model->contactGroupName = $map['ContactGroupName'];
         }
+        if (isset($map['ContactNames'])) {
+            if (!empty($map['ContactNames'])) {
+                $model->contactNames = $map['ContactNames'];
+            }
+        }
         if (isset($map['Describe'])) {
             $model->describe = $map['Describe'];
         }
         if (isset($map['EnableSubscribed'])) {
             $model->enableSubscribed = $map['EnableSubscribed'];
-        }
-        if (isset($map['ContactNames'])) {
-            if (!empty($map['ContactNames'])) {
-                $model->contactNames = $map['ContactNames'];
-            }
         }
 
         return $model;

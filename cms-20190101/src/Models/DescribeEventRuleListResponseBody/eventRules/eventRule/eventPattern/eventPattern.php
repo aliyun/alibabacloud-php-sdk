@@ -5,6 +5,7 @@
 namespace AlibabaCloud\SDK\Cms\V20190101\Models\DescribeEventRuleListResponseBody\eventRules\eventRule\eventPattern;
 
 use AlibabaCloud\SDK\Cms\V20190101\Models\DescribeEventRuleListResponseBody\eventRules\eventRule\eventPattern\eventPattern\eventTypeList;
+use AlibabaCloud\SDK\Cms\V20190101\Models\DescribeEventRuleListResponseBody\eventRules\eventRule\eventPattern\eventPattern\keywordFilter;
 use AlibabaCloud\SDK\Cms\V20190101\Models\DescribeEventRuleListResponseBody\eventRules\eventRule\eventPattern\eventPattern\levelList;
 use AlibabaCloud\SDK\Cms\V20190101\Models\DescribeEventRuleListResponseBody\eventRules\eventRule\eventPattern\eventPattern\nameList;
 use AlibabaCloud\Tea\Model;
@@ -14,12 +15,7 @@ class eventPattern extends Model
     /**
      * @var string
      */
-    public $product;
-
-    /**
-     * @var levelList
-     */
-    public $levelList;
+    public $customFilters;
 
     /**
      * @var eventTypeList
@@ -27,14 +23,31 @@ class eventPattern extends Model
     public $eventTypeList;
 
     /**
+     * @var keywordFilter
+     */
+    public $keywordFilter;
+
+    /**
+     * @var levelList
+     */
+    public $levelList;
+
+    /**
      * @var nameList
      */
     public $nameList;
+
+    /**
+     * @var string
+     */
+    public $product;
     protected $_name = [
-        'product'       => 'Product',
-        'levelList'     => 'LevelList',
+        'customFilters' => 'CustomFilters',
         'eventTypeList' => 'EventTypeList',
+        'keywordFilter' => 'KeywordFilter',
+        'levelList'     => 'LevelList',
         'nameList'      => 'NameList',
+        'product'       => 'Product',
     ];
 
     public function validate()
@@ -44,17 +57,23 @@ class eventPattern extends Model
     public function toMap()
     {
         $res = [];
-        if (null !== $this->product) {
-            $res['Product'] = $this->product;
-        }
-        if (null !== $this->levelList) {
-            $res['LevelList'] = null !== $this->levelList ? $this->levelList->toMap() : null;
+        if (null !== $this->customFilters) {
+            $res['CustomFilters'] = $this->customFilters;
         }
         if (null !== $this->eventTypeList) {
             $res['EventTypeList'] = null !== $this->eventTypeList ? $this->eventTypeList->toMap() : null;
         }
+        if (null !== $this->keywordFilter) {
+            $res['KeywordFilter'] = null !== $this->keywordFilter ? $this->keywordFilter->toMap() : null;
+        }
+        if (null !== $this->levelList) {
+            $res['LevelList'] = null !== $this->levelList ? $this->levelList->toMap() : null;
+        }
         if (null !== $this->nameList) {
             $res['NameList'] = null !== $this->nameList ? $this->nameList->toMap() : null;
+        }
+        if (null !== $this->product) {
+            $res['Product'] = $this->product;
         }
 
         return $res;
@@ -68,17 +87,23 @@ class eventPattern extends Model
     public static function fromMap($map = [])
     {
         $model = new self();
-        if (isset($map['Product'])) {
-            $model->product = $map['Product'];
-        }
-        if (isset($map['LevelList'])) {
-            $model->levelList = levelList::fromMap($map['LevelList']);
+        if (isset($map['CustomFilters'])) {
+            $model->customFilters = $map['CustomFilters'];
         }
         if (isset($map['EventTypeList'])) {
             $model->eventTypeList = eventTypeList::fromMap($map['EventTypeList']);
         }
+        if (isset($map['KeywordFilter'])) {
+            $model->keywordFilter = keywordFilter::fromMap($map['KeywordFilter']);
+        }
+        if (isset($map['LevelList'])) {
+            $model->levelList = levelList::fromMap($map['LevelList']);
+        }
         if (isset($map['NameList'])) {
             $model->nameList = nameList::fromMap($map['NameList']);
+        }
+        if (isset($map['Product'])) {
+            $model->product = $map['Product'];
         }
 
         return $model;

@@ -25,11 +25,6 @@ class DescribeMetricRuleTemplateListResponseBody extends Model
     public $requestId;
 
     /**
-     * @var int
-     */
-    public $total;
-
-    /**
      * @var bool
      */
     public $success;
@@ -38,13 +33,18 @@ class DescribeMetricRuleTemplateListResponseBody extends Model
      * @var templates
      */
     public $templates;
+
+    /**
+     * @var int
+     */
+    public $total;
     protected $_name = [
         'code'      => 'Code',
         'message'   => 'Message',
         'requestId' => 'RequestId',
-        'total'     => 'Total',
         'success'   => 'Success',
         'templates' => 'Templates',
+        'total'     => 'Total',
     ];
 
     public function validate()
@@ -63,14 +63,14 @@ class DescribeMetricRuleTemplateListResponseBody extends Model
         if (null !== $this->requestId) {
             $res['RequestId'] = $this->requestId;
         }
-        if (null !== $this->total) {
-            $res['Total'] = $this->total;
-        }
         if (null !== $this->success) {
             $res['Success'] = $this->success;
         }
         if (null !== $this->templates) {
             $res['Templates'] = null !== $this->templates ? $this->templates->toMap() : null;
+        }
+        if (null !== $this->total) {
+            $res['Total'] = $this->total;
         }
 
         return $res;
@@ -93,14 +93,14 @@ class DescribeMetricRuleTemplateListResponseBody extends Model
         if (isset($map['RequestId'])) {
             $model->requestId = $map['RequestId'];
         }
-        if (isset($map['Total'])) {
-            $model->total = $map['Total'];
-        }
         if (isset($map['Success'])) {
             $model->success = $map['Success'];
         }
         if (isset($map['Templates'])) {
             $model->templates = templates::fromMap($map['Templates']);
+        }
+        if (isset($map['Total'])) {
+            $model->total = $map['Total'];
         }
 
         return $model;

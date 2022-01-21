@@ -9,9 +9,9 @@ use AlibabaCloud\Tea\Model;
 class DescribeHostAvailabilityListRequest extends Model
 {
     /**
-     * @var string
+     * @var int
      */
-    public $regionId;
+    public $groupId;
 
     /**
      * @var int
@@ -21,7 +21,7 @@ class DescribeHostAvailabilityListRequest extends Model
     /**
      * @var string
      */
-    public $taskName;
+    public $ids;
 
     /**
      * @var int
@@ -34,16 +34,22 @@ class DescribeHostAvailabilityListRequest extends Model
     public $pageSize;
 
     /**
-     * @var int
+     * @var string
      */
-    public $groupId;
+    public $regionId;
+
+    /**
+     * @var string
+     */
+    public $taskName;
     protected $_name = [
-        'regionId'   => 'RegionId',
+        'groupId'    => 'GroupId',
         'id'         => 'Id',
-        'taskName'   => 'TaskName',
+        'ids'        => 'Ids',
         'pageNumber' => 'PageNumber',
         'pageSize'   => 'PageSize',
-        'groupId'    => 'GroupId',
+        'regionId'   => 'RegionId',
+        'taskName'   => 'TaskName',
     ];
 
     public function validate()
@@ -53,14 +59,14 @@ class DescribeHostAvailabilityListRequest extends Model
     public function toMap()
     {
         $res = [];
-        if (null !== $this->regionId) {
-            $res['RegionId'] = $this->regionId;
+        if (null !== $this->groupId) {
+            $res['GroupId'] = $this->groupId;
         }
         if (null !== $this->id) {
             $res['Id'] = $this->id;
         }
-        if (null !== $this->taskName) {
-            $res['TaskName'] = $this->taskName;
+        if (null !== $this->ids) {
+            $res['Ids'] = $this->ids;
         }
         if (null !== $this->pageNumber) {
             $res['PageNumber'] = $this->pageNumber;
@@ -68,8 +74,11 @@ class DescribeHostAvailabilityListRequest extends Model
         if (null !== $this->pageSize) {
             $res['PageSize'] = $this->pageSize;
         }
-        if (null !== $this->groupId) {
-            $res['GroupId'] = $this->groupId;
+        if (null !== $this->regionId) {
+            $res['RegionId'] = $this->regionId;
+        }
+        if (null !== $this->taskName) {
+            $res['TaskName'] = $this->taskName;
         }
 
         return $res;
@@ -83,14 +92,14 @@ class DescribeHostAvailabilityListRequest extends Model
     public static function fromMap($map = [])
     {
         $model = new self();
-        if (isset($map['RegionId'])) {
-            $model->regionId = $map['RegionId'];
+        if (isset($map['GroupId'])) {
+            $model->groupId = $map['GroupId'];
         }
         if (isset($map['Id'])) {
             $model->id = $map['Id'];
         }
-        if (isset($map['TaskName'])) {
-            $model->taskName = $map['TaskName'];
+        if (isset($map['Ids'])) {
+            $model->ids = $map['Ids'];
         }
         if (isset($map['PageNumber'])) {
             $model->pageNumber = $map['PageNumber'];
@@ -98,8 +107,11 @@ class DescribeHostAvailabilityListRequest extends Model
         if (isset($map['PageSize'])) {
             $model->pageSize = $map['PageSize'];
         }
-        if (isset($map['GroupId'])) {
-            $model->groupId = $map['GroupId'];
+        if (isset($map['RegionId'])) {
+            $model->regionId = $map['RegionId'];
+        }
+        if (isset($map['TaskName'])) {
+            $model->taskName = $map['TaskName'];
         }
 
         return $model;

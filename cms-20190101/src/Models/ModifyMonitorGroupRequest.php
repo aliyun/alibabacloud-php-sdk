@@ -11,7 +11,7 @@ class ModifyMonitorGroupRequest extends Model
     /**
      * @var string
      */
-    public $regionId;
+    public $contactGroups;
 
     /**
      * @var string
@@ -26,12 +26,12 @@ class ModifyMonitorGroupRequest extends Model
     /**
      * @var string
      */
-    public $contactGroups;
+    public $regionId;
     protected $_name = [
-        'regionId'      => 'RegionId',
+        'contactGroups' => 'ContactGroups',
         'groupId'       => 'GroupId',
         'groupName'     => 'GroupName',
-        'contactGroups' => 'ContactGroups',
+        'regionId'      => 'RegionId',
     ];
 
     public function validate()
@@ -41,8 +41,8 @@ class ModifyMonitorGroupRequest extends Model
     public function toMap()
     {
         $res = [];
-        if (null !== $this->regionId) {
-            $res['RegionId'] = $this->regionId;
+        if (null !== $this->contactGroups) {
+            $res['ContactGroups'] = $this->contactGroups;
         }
         if (null !== $this->groupId) {
             $res['GroupId'] = $this->groupId;
@@ -50,8 +50,8 @@ class ModifyMonitorGroupRequest extends Model
         if (null !== $this->groupName) {
             $res['GroupName'] = $this->groupName;
         }
-        if (null !== $this->contactGroups) {
-            $res['ContactGroups'] = $this->contactGroups;
+        if (null !== $this->regionId) {
+            $res['RegionId'] = $this->regionId;
         }
 
         return $res;
@@ -65,8 +65,8 @@ class ModifyMonitorGroupRequest extends Model
     public static function fromMap($map = [])
     {
         $model = new self();
-        if (isset($map['RegionId'])) {
-            $model->regionId = $map['RegionId'];
+        if (isset($map['ContactGroups'])) {
+            $model->contactGroups = $map['ContactGroups'];
         }
         if (isset($map['GroupId'])) {
             $model->groupId = $map['GroupId'];
@@ -74,8 +74,8 @@ class ModifyMonitorGroupRequest extends Model
         if (isset($map['GroupName'])) {
             $model->groupName = $map['GroupName'];
         }
-        if (isset($map['ContactGroups'])) {
-            $model->contactGroups = $map['ContactGroups'];
+        if (isset($map['RegionId'])) {
+            $model->regionId = $map['RegionId'];
         }
 
         return $model;

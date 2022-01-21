@@ -16,22 +16,22 @@ class fcParameters extends Model
     /**
      * @var string
      */
+    public $id;
+
+    /**
+     * @var string
+     */
     public $region;
 
     /**
      * @var string
      */
     public $serviceName;
-
-    /**
-     * @var string
-     */
-    public $id;
     protected $_name = [
         'functionName' => 'FunctionName',
+        'id'           => 'Id',
         'region'       => 'Region',
         'serviceName'  => 'ServiceName',
-        'id'           => 'Id',
     ];
 
     public function validate()
@@ -44,14 +44,14 @@ class fcParameters extends Model
         if (null !== $this->functionName) {
             $res['FunctionName'] = $this->functionName;
         }
+        if (null !== $this->id) {
+            $res['Id'] = $this->id;
+        }
         if (null !== $this->region) {
             $res['Region'] = $this->region;
         }
         if (null !== $this->serviceName) {
             $res['ServiceName'] = $this->serviceName;
-        }
-        if (null !== $this->id) {
-            $res['Id'] = $this->id;
         }
 
         return $res;
@@ -68,14 +68,14 @@ class fcParameters extends Model
         if (isset($map['FunctionName'])) {
             $model->functionName = $map['FunctionName'];
         }
+        if (isset($map['Id'])) {
+            $model->id = $map['Id'];
+        }
         if (isset($map['Region'])) {
             $model->region = $map['Region'];
         }
         if (isset($map['ServiceName'])) {
             $model->serviceName = $map['ServiceName'];
-        }
-        if (isset($map['Id'])) {
-            $model->id = $map['Id'];
         }
 
         return $model;

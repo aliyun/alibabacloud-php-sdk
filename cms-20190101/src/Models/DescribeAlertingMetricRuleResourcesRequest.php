@@ -11,17 +11,17 @@ class DescribeAlertingMetricRuleResourcesRequest extends Model
     /**
      * @var string
      */
-    public $regionId;
-
-    /**
-     * @var string
-     */
-    public $ruleId;
+    public $dimensions;
 
     /**
      * @var string
      */
     public $groupId;
+
+    /**
+     * @var string
+     */
+    public $namespace;
 
     /**
      * @var int
@@ -36,20 +36,20 @@ class DescribeAlertingMetricRuleResourcesRequest extends Model
     /**
      * @var string
      */
-    public $namespace;
+    public $regionId;
 
     /**
      * @var string
      */
-    public $dimensions;
+    public $ruleId;
     protected $_name = [
-        'regionId'   => 'RegionId',
-        'ruleId'     => 'RuleId',
+        'dimensions' => 'Dimensions',
         'groupId'    => 'GroupId',
+        'namespace'  => 'Namespace',
         'page'       => 'Page',
         'pageSize'   => 'PageSize',
-        'namespace'  => 'Namespace',
-        'dimensions' => 'Dimensions',
+        'regionId'   => 'RegionId',
+        'ruleId'     => 'RuleId',
     ];
 
     public function validate()
@@ -59,14 +59,14 @@ class DescribeAlertingMetricRuleResourcesRequest extends Model
     public function toMap()
     {
         $res = [];
-        if (null !== $this->regionId) {
-            $res['RegionId'] = $this->regionId;
-        }
-        if (null !== $this->ruleId) {
-            $res['RuleId'] = $this->ruleId;
+        if (null !== $this->dimensions) {
+            $res['Dimensions'] = $this->dimensions;
         }
         if (null !== $this->groupId) {
             $res['GroupId'] = $this->groupId;
+        }
+        if (null !== $this->namespace) {
+            $res['Namespace'] = $this->namespace;
         }
         if (null !== $this->page) {
             $res['Page'] = $this->page;
@@ -74,11 +74,11 @@ class DescribeAlertingMetricRuleResourcesRequest extends Model
         if (null !== $this->pageSize) {
             $res['PageSize'] = $this->pageSize;
         }
-        if (null !== $this->namespace) {
-            $res['Namespace'] = $this->namespace;
+        if (null !== $this->regionId) {
+            $res['RegionId'] = $this->regionId;
         }
-        if (null !== $this->dimensions) {
-            $res['Dimensions'] = $this->dimensions;
+        if (null !== $this->ruleId) {
+            $res['RuleId'] = $this->ruleId;
         }
 
         return $res;
@@ -92,14 +92,14 @@ class DescribeAlertingMetricRuleResourcesRequest extends Model
     public static function fromMap($map = [])
     {
         $model = new self();
-        if (isset($map['RegionId'])) {
-            $model->regionId = $map['RegionId'];
-        }
-        if (isset($map['RuleId'])) {
-            $model->ruleId = $map['RuleId'];
+        if (isset($map['Dimensions'])) {
+            $model->dimensions = $map['Dimensions'];
         }
         if (isset($map['GroupId'])) {
             $model->groupId = $map['GroupId'];
+        }
+        if (isset($map['Namespace'])) {
+            $model->namespace = $map['Namespace'];
         }
         if (isset($map['Page'])) {
             $model->page = $map['Page'];
@@ -107,11 +107,11 @@ class DescribeAlertingMetricRuleResourcesRequest extends Model
         if (isset($map['PageSize'])) {
             $model->pageSize = $map['PageSize'];
         }
-        if (isset($map['Namespace'])) {
-            $model->namespace = $map['Namespace'];
+        if (isset($map['RegionId'])) {
+            $model->regionId = $map['RegionId'];
         }
-        if (isset($map['Dimensions'])) {
-            $model->dimensions = $map['Dimensions'];
+        if (isset($map['RuleId'])) {
+            $model->ruleId = $map['RuleId'];
         }
 
         return $model;

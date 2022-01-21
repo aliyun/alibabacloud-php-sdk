@@ -16,7 +16,7 @@ class critical extends Model
     /**
      * @var string
      */
-    public $times;
+    public $statistics;
 
     /**
      * @var string
@@ -26,12 +26,12 @@ class critical extends Model
     /**
      * @var string
      */
-    public $statistics;
+    public $times;
     protected $_name = [
         'comparisonOperator' => 'ComparisonOperator',
-        'times'              => 'Times',
-        'threshold'          => 'Threshold',
         'statistics'         => 'Statistics',
+        'threshold'          => 'Threshold',
+        'times'              => 'Times',
     ];
 
     public function validate()
@@ -44,14 +44,14 @@ class critical extends Model
         if (null !== $this->comparisonOperator) {
             $res['ComparisonOperator'] = $this->comparisonOperator;
         }
-        if (null !== $this->times) {
-            $res['Times'] = $this->times;
+        if (null !== $this->statistics) {
+            $res['Statistics'] = $this->statistics;
         }
         if (null !== $this->threshold) {
             $res['Threshold'] = $this->threshold;
         }
-        if (null !== $this->statistics) {
-            $res['Statistics'] = $this->statistics;
+        if (null !== $this->times) {
+            $res['Times'] = $this->times;
         }
 
         return $res;
@@ -68,14 +68,14 @@ class critical extends Model
         if (isset($map['ComparisonOperator'])) {
             $model->comparisonOperator = $map['ComparisonOperator'];
         }
-        if (isset($map['Times'])) {
-            $model->times = $map['Times'];
+        if (isset($map['Statistics'])) {
+            $model->statistics = $map['Statistics'];
         }
         if (isset($map['Threshold'])) {
             $model->threshold = $map['Threshold'];
         }
-        if (isset($map['Statistics'])) {
-            $model->statistics = $map['Statistics'];
+        if (isset($map['Times'])) {
+            $model->times = $map['Times'];
         }
 
         return $model;

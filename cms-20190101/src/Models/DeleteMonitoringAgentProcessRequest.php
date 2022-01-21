@@ -11,12 +11,12 @@ class DeleteMonitoringAgentProcessRequest extends Model
     /**
      * @var string
      */
-    public $regionId;
+    public $instanceId;
 
     /**
      * @var string
      */
-    public $instanceId;
+    public $processId;
 
     /**
      * @var string
@@ -26,12 +26,12 @@ class DeleteMonitoringAgentProcessRequest extends Model
     /**
      * @var string
      */
-    public $processId;
+    public $regionId;
     protected $_name = [
-        'regionId'    => 'RegionId',
         'instanceId'  => 'InstanceId',
-        'processName' => 'ProcessName',
         'processId'   => 'ProcessId',
+        'processName' => 'ProcessName',
+        'regionId'    => 'RegionId',
     ];
 
     public function validate()
@@ -41,17 +41,17 @@ class DeleteMonitoringAgentProcessRequest extends Model
     public function toMap()
     {
         $res = [];
-        if (null !== $this->regionId) {
-            $res['RegionId'] = $this->regionId;
-        }
         if (null !== $this->instanceId) {
             $res['InstanceId'] = $this->instanceId;
+        }
+        if (null !== $this->processId) {
+            $res['ProcessId'] = $this->processId;
         }
         if (null !== $this->processName) {
             $res['ProcessName'] = $this->processName;
         }
-        if (null !== $this->processId) {
-            $res['ProcessId'] = $this->processId;
+        if (null !== $this->regionId) {
+            $res['RegionId'] = $this->regionId;
         }
 
         return $res;
@@ -65,17 +65,17 @@ class DeleteMonitoringAgentProcessRequest extends Model
     public static function fromMap($map = [])
     {
         $model = new self();
-        if (isset($map['RegionId'])) {
-            $model->regionId = $map['RegionId'];
-        }
         if (isset($map['InstanceId'])) {
             $model->instanceId = $map['InstanceId'];
+        }
+        if (isset($map['ProcessId'])) {
+            $model->processId = $map['ProcessId'];
         }
         if (isset($map['ProcessName'])) {
             $model->processName = $map['ProcessName'];
         }
-        if (isset($map['ProcessId'])) {
-            $model->processId = $map['ProcessId'];
+        if (isset($map['RegionId'])) {
+            $model->regionId = $map['RegionId'];
         }
 
         return $model;

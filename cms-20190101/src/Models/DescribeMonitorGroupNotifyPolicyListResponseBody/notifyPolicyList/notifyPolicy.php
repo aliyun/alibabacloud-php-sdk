@@ -16,7 +16,12 @@ class notifyPolicy extends Model
     /**
      * @var string
      */
-    public $type;
+    public $groupId;
+
+    /**
+     * @var string
+     */
+    public $id;
 
     /**
      * @var int
@@ -26,18 +31,13 @@ class notifyPolicy extends Model
     /**
      * @var string
      */
-    public $groupId;
-
-    /**
-     * @var string
-     */
-    public $id;
+    public $type;
     protected $_name = [
         'endTime'   => 'EndTime',
-        'type'      => 'Type',
-        'startTime' => 'StartTime',
         'groupId'   => 'GroupId',
         'id'        => 'Id',
+        'startTime' => 'StartTime',
+        'type'      => 'Type',
     ];
 
     public function validate()
@@ -50,17 +50,17 @@ class notifyPolicy extends Model
         if (null !== $this->endTime) {
             $res['EndTime'] = $this->endTime;
         }
-        if (null !== $this->type) {
-            $res['Type'] = $this->type;
-        }
-        if (null !== $this->startTime) {
-            $res['StartTime'] = $this->startTime;
-        }
         if (null !== $this->groupId) {
             $res['GroupId'] = $this->groupId;
         }
         if (null !== $this->id) {
             $res['Id'] = $this->id;
+        }
+        if (null !== $this->startTime) {
+            $res['StartTime'] = $this->startTime;
+        }
+        if (null !== $this->type) {
+            $res['Type'] = $this->type;
         }
 
         return $res;
@@ -77,17 +77,17 @@ class notifyPolicy extends Model
         if (isset($map['EndTime'])) {
             $model->endTime = $map['EndTime'];
         }
-        if (isset($map['Type'])) {
-            $model->type = $map['Type'];
-        }
-        if (isset($map['StartTime'])) {
-            $model->startTime = $map['StartTime'];
-        }
         if (isset($map['GroupId'])) {
             $model->groupId = $map['GroupId'];
         }
         if (isset($map['Id'])) {
             $model->id = $map['Id'];
+        }
+        if (isset($map['StartTime'])) {
+            $model->startTime = $map['StartTime'];
+        }
+        if (isset($map['Type'])) {
+            $model->type = $map['Type'];
         }
 
         return $model;

@@ -10,6 +10,11 @@ use AlibabaCloud\Tea\Model;
 class resource extends Model
 {
     /**
+     * @var alertTemplates
+     */
+    public $alertTemplates;
+
+    /**
      * @var string
      */
     public $description;
@@ -28,17 +33,12 @@ class resource extends Model
      * @var string
      */
     public $templateId;
-
-    /**
-     * @var alertTemplates
-     */
-    public $alertTemplates;
     protected $_name = [
+        'alertTemplates' => 'AlertTemplates',
         'description'    => 'Description',
         'name'           => 'Name',
         'restVersion'    => 'RestVersion',
         'templateId'     => 'TemplateId',
-        'alertTemplates' => 'AlertTemplates',
     ];
 
     public function validate()
@@ -48,6 +48,9 @@ class resource extends Model
     public function toMap()
     {
         $res = [];
+        if (null !== $this->alertTemplates) {
+            $res['AlertTemplates'] = null !== $this->alertTemplates ? $this->alertTemplates->toMap() : null;
+        }
         if (null !== $this->description) {
             $res['Description'] = $this->description;
         }
@@ -59,9 +62,6 @@ class resource extends Model
         }
         if (null !== $this->templateId) {
             $res['TemplateId'] = $this->templateId;
-        }
-        if (null !== $this->alertTemplates) {
-            $res['AlertTemplates'] = null !== $this->alertTemplates ? $this->alertTemplates->toMap() : null;
         }
 
         return $res;
@@ -75,6 +75,9 @@ class resource extends Model
     public static function fromMap($map = [])
     {
         $model = new self();
+        if (isset($map['AlertTemplates'])) {
+            $model->alertTemplates = alertTemplates::fromMap($map['AlertTemplates']);
+        }
         if (isset($map['Description'])) {
             $model->description = $map['Description'];
         }
@@ -86,9 +89,6 @@ class resource extends Model
         }
         if (isset($map['TemplateId'])) {
             $model->templateId = $map['TemplateId'];
-        }
-        if (isset($map['AlertTemplates'])) {
-            $model->alertTemplates = alertTemplates::fromMap($map['AlertTemplates']);
         }
 
         return $model;

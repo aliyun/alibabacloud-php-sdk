@@ -11,16 +11,6 @@ class PutExporterOutputRequest extends Model
     /**
      * @var string
      */
-    public $regionId;
-
-    /**
-     * @var string
-     */
-    public $destName;
-
-    /**
-     * @var string
-     */
     public $configJson;
 
     /**
@@ -31,13 +21,23 @@ class PutExporterOutputRequest extends Model
     /**
      * @var string
      */
+    public $destName;
+
+    /**
+     * @var string
+     */
     public $destType;
+
+    /**
+     * @var string
+     */
+    public $regionId;
     protected $_name = [
-        'regionId'   => 'RegionId',
-        'destName'   => 'DestName',
         'configJson' => 'ConfigJson',
         'desc'       => 'Desc',
+        'destName'   => 'DestName',
         'destType'   => 'DestType',
+        'regionId'   => 'RegionId',
     ];
 
     public function validate()
@@ -47,20 +47,20 @@ class PutExporterOutputRequest extends Model
     public function toMap()
     {
         $res = [];
-        if (null !== $this->regionId) {
-            $res['RegionId'] = $this->regionId;
-        }
-        if (null !== $this->destName) {
-            $res['DestName'] = $this->destName;
-        }
         if (null !== $this->configJson) {
             $res['ConfigJson'] = $this->configJson;
         }
         if (null !== $this->desc) {
             $res['Desc'] = $this->desc;
         }
+        if (null !== $this->destName) {
+            $res['DestName'] = $this->destName;
+        }
         if (null !== $this->destType) {
             $res['DestType'] = $this->destType;
+        }
+        if (null !== $this->regionId) {
+            $res['RegionId'] = $this->regionId;
         }
 
         return $res;
@@ -74,20 +74,20 @@ class PutExporterOutputRequest extends Model
     public static function fromMap($map = [])
     {
         $model = new self();
-        if (isset($map['RegionId'])) {
-            $model->regionId = $map['RegionId'];
-        }
-        if (isset($map['DestName'])) {
-            $model->destName = $map['DestName'];
-        }
         if (isset($map['ConfigJson'])) {
             $model->configJson = $map['ConfigJson'];
         }
         if (isset($map['Desc'])) {
             $model->desc = $map['Desc'];
         }
+        if (isset($map['DestName'])) {
+            $model->destName = $map['DestName'];
+        }
         if (isset($map['DestType'])) {
             $model->destType = $map['DestType'];
+        }
+        if (isset($map['RegionId'])) {
+            $model->regionId = $map['RegionId'];
         }
 
         return $model;

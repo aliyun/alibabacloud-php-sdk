@@ -11,15 +11,15 @@ class DescribeMonitoringAgentStatusesRequest extends Model
     /**
      * @var string
      */
-    public $regionId;
+    public $instanceIds;
 
     /**
      * @var string
      */
-    public $instanceIds;
+    public $regionId;
     protected $_name = [
-        'regionId'    => 'RegionId',
         'instanceIds' => 'InstanceIds',
+        'regionId'    => 'RegionId',
     ];
 
     public function validate()
@@ -29,11 +29,11 @@ class DescribeMonitoringAgentStatusesRequest extends Model
     public function toMap()
     {
         $res = [];
-        if (null !== $this->regionId) {
-            $res['RegionId'] = $this->regionId;
-        }
         if (null !== $this->instanceIds) {
             $res['InstanceIds'] = $this->instanceIds;
+        }
+        if (null !== $this->regionId) {
+            $res['RegionId'] = $this->regionId;
         }
 
         return $res;
@@ -47,11 +47,11 @@ class DescribeMonitoringAgentStatusesRequest extends Model
     public static function fromMap($map = [])
     {
         $model = new self();
-        if (isset($map['RegionId'])) {
-            $model->regionId = $map['RegionId'];
-        }
         if (isset($map['InstanceIds'])) {
             $model->instanceIds = $map['InstanceIds'];
+        }
+        if (isset($map['RegionId'])) {
+            $model->regionId = $map['RegionId'];
         }
 
         return $model;

@@ -11,22 +11,7 @@ class DescribeMetricTopRequest extends Model
     /**
      * @var string
      */
-    public $period;
-
-    /**
-     * @var string
-     */
-    public $namespace;
-
-    /**
-     * @var string
-     */
-    public $metricName;
-
-    /**
-     * @var string
-     */
-    public $startTime;
+    public $dimensions;
 
     /**
      * @var string
@@ -36,17 +21,7 @@ class DescribeMetricTopRequest extends Model
     /**
      * @var string
      */
-    public $dimensions;
-
-    /**
-     * @var string
-     */
-    public $orderby;
-
-    /**
-     * @var string
-     */
-    public $orderDesc;
+    public $express;
 
     /**
      * @var string
@@ -56,24 +31,49 @@ class DescribeMetricTopRequest extends Model
     /**
      * @var string
      */
-    public $express;
+    public $metricName;
+
+    /**
+     * @var string
+     */
+    public $namespace;
+
+    /**
+     * @var string
+     */
+    public $orderDesc;
+
+    /**
+     * @var string
+     */
+    public $orderby;
+
+    /**
+     * @var string
+     */
+    public $period;
 
     /**
      * @var string
      */
     public $regionId;
+
+    /**
+     * @var string
+     */
+    public $startTime;
     protected $_name = [
-        'period'     => 'Period',
-        'namespace'  => 'Namespace',
-        'metricName' => 'MetricName',
-        'startTime'  => 'StartTime',
-        'endTime'    => 'EndTime',
         'dimensions' => 'Dimensions',
-        'orderby'    => 'Orderby',
-        'orderDesc'  => 'OrderDesc',
-        'length'     => 'Length',
+        'endTime'    => 'EndTime',
         'express'    => 'Express',
+        'length'     => 'Length',
+        'metricName' => 'MetricName',
+        'namespace'  => 'Namespace',
+        'orderDesc'  => 'OrderDesc',
+        'orderby'    => 'Orderby',
+        'period'     => 'Period',
         'regionId'   => 'RegionId',
+        'startTime'  => 'StartTime',
     ];
 
     public function validate()
@@ -83,38 +83,38 @@ class DescribeMetricTopRequest extends Model
     public function toMap()
     {
         $res = [];
-        if (null !== $this->period) {
-            $res['Period'] = $this->period;
-        }
-        if (null !== $this->namespace) {
-            $res['Namespace'] = $this->namespace;
-        }
-        if (null !== $this->metricName) {
-            $res['MetricName'] = $this->metricName;
-        }
-        if (null !== $this->startTime) {
-            $res['StartTime'] = $this->startTime;
+        if (null !== $this->dimensions) {
+            $res['Dimensions'] = $this->dimensions;
         }
         if (null !== $this->endTime) {
             $res['EndTime'] = $this->endTime;
         }
-        if (null !== $this->dimensions) {
-            $res['Dimensions'] = $this->dimensions;
-        }
-        if (null !== $this->orderby) {
-            $res['Orderby'] = $this->orderby;
-        }
-        if (null !== $this->orderDesc) {
-            $res['OrderDesc'] = $this->orderDesc;
+        if (null !== $this->express) {
+            $res['Express'] = $this->express;
         }
         if (null !== $this->length) {
             $res['Length'] = $this->length;
         }
-        if (null !== $this->express) {
-            $res['Express'] = $this->express;
+        if (null !== $this->metricName) {
+            $res['MetricName'] = $this->metricName;
+        }
+        if (null !== $this->namespace) {
+            $res['Namespace'] = $this->namespace;
+        }
+        if (null !== $this->orderDesc) {
+            $res['OrderDesc'] = $this->orderDesc;
+        }
+        if (null !== $this->orderby) {
+            $res['Orderby'] = $this->orderby;
+        }
+        if (null !== $this->period) {
+            $res['Period'] = $this->period;
         }
         if (null !== $this->regionId) {
             $res['RegionId'] = $this->regionId;
+        }
+        if (null !== $this->startTime) {
+            $res['StartTime'] = $this->startTime;
         }
 
         return $res;
@@ -128,38 +128,38 @@ class DescribeMetricTopRequest extends Model
     public static function fromMap($map = [])
     {
         $model = new self();
-        if (isset($map['Period'])) {
-            $model->period = $map['Period'];
-        }
-        if (isset($map['Namespace'])) {
-            $model->namespace = $map['Namespace'];
-        }
-        if (isset($map['MetricName'])) {
-            $model->metricName = $map['MetricName'];
-        }
-        if (isset($map['StartTime'])) {
-            $model->startTime = $map['StartTime'];
+        if (isset($map['Dimensions'])) {
+            $model->dimensions = $map['Dimensions'];
         }
         if (isset($map['EndTime'])) {
             $model->endTime = $map['EndTime'];
         }
-        if (isset($map['Dimensions'])) {
-            $model->dimensions = $map['Dimensions'];
-        }
-        if (isset($map['Orderby'])) {
-            $model->orderby = $map['Orderby'];
-        }
-        if (isset($map['OrderDesc'])) {
-            $model->orderDesc = $map['OrderDesc'];
+        if (isset($map['Express'])) {
+            $model->express = $map['Express'];
         }
         if (isset($map['Length'])) {
             $model->length = $map['Length'];
         }
-        if (isset($map['Express'])) {
-            $model->express = $map['Express'];
+        if (isset($map['MetricName'])) {
+            $model->metricName = $map['MetricName'];
+        }
+        if (isset($map['Namespace'])) {
+            $model->namespace = $map['Namespace'];
+        }
+        if (isset($map['OrderDesc'])) {
+            $model->orderDesc = $map['OrderDesc'];
+        }
+        if (isset($map['Orderby'])) {
+            $model->orderby = $map['Orderby'];
+        }
+        if (isset($map['Period'])) {
+            $model->period = $map['Period'];
         }
         if (isset($map['RegionId'])) {
             $model->regionId = $map['RegionId'];
+        }
+        if (isset($map['StartTime'])) {
+            $model->startTime = $map['StartTime'];
         }
 
         return $model;

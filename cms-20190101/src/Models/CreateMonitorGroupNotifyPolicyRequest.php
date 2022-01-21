@@ -9,9 +9,14 @@ use AlibabaCloud\Tea\Model;
 class CreateMonitorGroupNotifyPolicyRequest extends Model
 {
     /**
+     * @var int
+     */
+    public $endTime;
+
+    /**
      * @var string
      */
-    public $regionId;
+    public $groupId;
 
     /**
      * @var string
@@ -21,23 +26,18 @@ class CreateMonitorGroupNotifyPolicyRequest extends Model
     /**
      * @var string
      */
-    public $groupId;
+    public $regionId;
 
     /**
      * @var int
      */
     public $startTime;
-
-    /**
-     * @var int
-     */
-    public $endTime;
     protected $_name = [
-        'regionId'   => 'RegionId',
-        'policyType' => 'PolicyType',
-        'groupId'    => 'GroupId',
-        'startTime'  => 'StartTime',
         'endTime'    => 'EndTime',
+        'groupId'    => 'GroupId',
+        'policyType' => 'PolicyType',
+        'regionId'   => 'RegionId',
+        'startTime'  => 'StartTime',
     ];
 
     public function validate()
@@ -47,20 +47,20 @@ class CreateMonitorGroupNotifyPolicyRequest extends Model
     public function toMap()
     {
         $res = [];
-        if (null !== $this->regionId) {
-            $res['RegionId'] = $this->regionId;
-        }
-        if (null !== $this->policyType) {
-            $res['PolicyType'] = $this->policyType;
+        if (null !== $this->endTime) {
+            $res['EndTime'] = $this->endTime;
         }
         if (null !== $this->groupId) {
             $res['GroupId'] = $this->groupId;
         }
+        if (null !== $this->policyType) {
+            $res['PolicyType'] = $this->policyType;
+        }
+        if (null !== $this->regionId) {
+            $res['RegionId'] = $this->regionId;
+        }
         if (null !== $this->startTime) {
             $res['StartTime'] = $this->startTime;
-        }
-        if (null !== $this->endTime) {
-            $res['EndTime'] = $this->endTime;
         }
 
         return $res;
@@ -74,20 +74,20 @@ class CreateMonitorGroupNotifyPolicyRequest extends Model
     public static function fromMap($map = [])
     {
         $model = new self();
-        if (isset($map['RegionId'])) {
-            $model->regionId = $map['RegionId'];
-        }
-        if (isset($map['PolicyType'])) {
-            $model->policyType = $map['PolicyType'];
+        if (isset($map['EndTime'])) {
+            $model->endTime = $map['EndTime'];
         }
         if (isset($map['GroupId'])) {
             $model->groupId = $map['GroupId'];
         }
+        if (isset($map['PolicyType'])) {
+            $model->policyType = $map['PolicyType'];
+        }
+        if (isset($map['RegionId'])) {
+            $model->regionId = $map['RegionId'];
+        }
         if (isset($map['StartTime'])) {
             $model->startTime = $map['StartTime'];
-        }
-        if (isset($map['EndTime'])) {
-            $model->endTime = $map['EndTime'];
         }
 
         return $model;

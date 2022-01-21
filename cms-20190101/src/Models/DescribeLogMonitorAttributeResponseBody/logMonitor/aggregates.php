@@ -11,12 +11,12 @@ class aggregates extends Model
     /**
      * @var string
      */
-    public $max;
+    public $alias;
 
     /**
      * @var string
      */
-    public $min;
+    public $fieldName;
 
     /**
      * @var string
@@ -26,18 +26,18 @@ class aggregates extends Model
     /**
      * @var string
      */
-    public $alias;
+    public $max;
 
     /**
      * @var string
      */
-    public $fieldName;
+    public $min;
     protected $_name = [
-        'max'       => 'Max',
-        'min'       => 'Min',
-        'function'  => 'Function',
         'alias'     => 'Alias',
         'fieldName' => 'FieldName',
+        'function'  => 'Function',
+        'max'       => 'Max',
+        'min'       => 'Min',
     ];
 
     public function validate()
@@ -47,20 +47,20 @@ class aggregates extends Model
     public function toMap()
     {
         $res = [];
-        if (null !== $this->max) {
-            $res['Max'] = $this->max;
-        }
-        if (null !== $this->min) {
-            $res['Min'] = $this->min;
-        }
-        if (null !== $this->function) {
-            $res['Function'] = $this->function;
-        }
         if (null !== $this->alias) {
             $res['Alias'] = $this->alias;
         }
         if (null !== $this->fieldName) {
             $res['FieldName'] = $this->fieldName;
+        }
+        if (null !== $this->function) {
+            $res['Function'] = $this->function;
+        }
+        if (null !== $this->max) {
+            $res['Max'] = $this->max;
+        }
+        if (null !== $this->min) {
+            $res['Min'] = $this->min;
         }
 
         return $res;
@@ -74,20 +74,20 @@ class aggregates extends Model
     public static function fromMap($map = [])
     {
         $model = new self();
-        if (isset($map['Max'])) {
-            $model->max = $map['Max'];
-        }
-        if (isset($map['Min'])) {
-            $model->min = $map['Min'];
-        }
-        if (isset($map['Function'])) {
-            $model->function = $map['Function'];
-        }
         if (isset($map['Alias'])) {
             $model->alias = $map['Alias'];
         }
         if (isset($map['FieldName'])) {
             $model->fieldName = $map['FieldName'];
+        }
+        if (isset($map['Function'])) {
+            $model->function = $map['Function'];
+        }
+        if (isset($map['Max'])) {
+            $model->max = $map['Max'];
+        }
+        if (isset($map['Min'])) {
+            $model->min = $map['Min'];
         }
 
         return $model;

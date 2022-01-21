@@ -11,20 +11,20 @@ class DescribeMetricRuleTemplateAttributeRequest extends Model
     /**
      * @var string
      */
-    public $regionId;
+    public $name;
 
     /**
      * @var string
      */
-    public $name;
+    public $regionId;
 
     /**
      * @var string
      */
     public $templateId;
     protected $_name = [
-        'regionId'   => 'RegionId',
         'name'       => 'Name',
+        'regionId'   => 'RegionId',
         'templateId' => 'TemplateId',
     ];
 
@@ -35,11 +35,11 @@ class DescribeMetricRuleTemplateAttributeRequest extends Model
     public function toMap()
     {
         $res = [];
-        if (null !== $this->regionId) {
-            $res['RegionId'] = $this->regionId;
-        }
         if (null !== $this->name) {
             $res['Name'] = $this->name;
+        }
+        if (null !== $this->regionId) {
+            $res['RegionId'] = $this->regionId;
         }
         if (null !== $this->templateId) {
             $res['TemplateId'] = $this->templateId;
@@ -56,11 +56,11 @@ class DescribeMetricRuleTemplateAttributeRequest extends Model
     public static function fromMap($map = [])
     {
         $model = new self();
-        if (isset($map['RegionId'])) {
-            $model->regionId = $map['RegionId'];
-        }
         if (isset($map['Name'])) {
             $model->name = $map['Name'];
+        }
+        if (isset($map['RegionId'])) {
+            $model->regionId = $map['RegionId'];
         }
         if (isset($map['TemplateId'])) {
             $model->templateId = $map['TemplateId'];

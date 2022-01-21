@@ -14,6 +14,11 @@ class resource extends Model
     public $category;
 
     /**
+     * @var int
+     */
+    public $id;
+
+    /**
      * @var string
      */
     public $instanceId;
@@ -24,19 +29,14 @@ class resource extends Model
     public $instanceName;
 
     /**
-     * @var int
-     */
-    public $id;
-
-    /**
      * @var string
      */
     public $regionId;
     protected $_name = [
         'category'     => 'Category',
+        'id'           => 'Id',
         'instanceId'   => 'InstanceId',
         'instanceName' => 'InstanceName',
-        'id'           => 'Id',
         'regionId'     => 'RegionId',
     ];
 
@@ -50,14 +50,14 @@ class resource extends Model
         if (null !== $this->category) {
             $res['Category'] = $this->category;
         }
+        if (null !== $this->id) {
+            $res['Id'] = $this->id;
+        }
         if (null !== $this->instanceId) {
             $res['InstanceId'] = $this->instanceId;
         }
         if (null !== $this->instanceName) {
             $res['InstanceName'] = $this->instanceName;
-        }
-        if (null !== $this->id) {
-            $res['Id'] = $this->id;
         }
         if (null !== $this->regionId) {
             $res['RegionId'] = $this->regionId;
@@ -77,14 +77,14 @@ class resource extends Model
         if (isset($map['Category'])) {
             $model->category = $map['Category'];
         }
+        if (isset($map['Id'])) {
+            $model->id = $map['Id'];
+        }
         if (isset($map['InstanceId'])) {
             $model->instanceId = $map['InstanceId'];
         }
         if (isset($map['InstanceName'])) {
             $model->instanceName = $map['InstanceName'];
-        }
-        if (isset($map['Id'])) {
-            $model->id = $map['Id'];
         }
         if (isset($map['RegionId'])) {
             $model->regionId = $map['RegionId'];

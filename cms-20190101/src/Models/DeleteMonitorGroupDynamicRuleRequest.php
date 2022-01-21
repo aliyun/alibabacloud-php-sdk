@@ -11,7 +11,7 @@ class DeleteMonitorGroupDynamicRuleRequest extends Model
     /**
      * @var string
      */
-    public $regionId;
+    public $category;
 
     /**
      * @var int
@@ -21,11 +21,11 @@ class DeleteMonitorGroupDynamicRuleRequest extends Model
     /**
      * @var string
      */
-    public $category;
+    public $regionId;
     protected $_name = [
-        'regionId' => 'RegionId',
-        'groupId'  => 'GroupId',
         'category' => 'Category',
+        'groupId'  => 'GroupId',
+        'regionId' => 'RegionId',
     ];
 
     public function validate()
@@ -35,14 +35,14 @@ class DeleteMonitorGroupDynamicRuleRequest extends Model
     public function toMap()
     {
         $res = [];
-        if (null !== $this->regionId) {
-            $res['RegionId'] = $this->regionId;
+        if (null !== $this->category) {
+            $res['Category'] = $this->category;
         }
         if (null !== $this->groupId) {
             $res['GroupId'] = $this->groupId;
         }
-        if (null !== $this->category) {
-            $res['Category'] = $this->category;
+        if (null !== $this->regionId) {
+            $res['RegionId'] = $this->regionId;
         }
 
         return $res;
@@ -56,14 +56,14 @@ class DeleteMonitorGroupDynamicRuleRequest extends Model
     public static function fromMap($map = [])
     {
         $model = new self();
-        if (isset($map['RegionId'])) {
-            $model->regionId = $map['RegionId'];
+        if (isset($map['Category'])) {
+            $model->category = $map['Category'];
         }
         if (isset($map['GroupId'])) {
             $model->groupId = $map['GroupId'];
         }
-        if (isset($map['Category'])) {
-            $model->category = $map['Category'];
+        if (isset($map['RegionId'])) {
+            $model->regionId = $map['RegionId'];
         }
 
         return $model;

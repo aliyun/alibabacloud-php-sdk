@@ -10,17 +10,17 @@ use AlibabaCloud\Tea\Model;
 class PutCustomEventRequest extends Model
 {
     /**
-     * @var string
-     */
-    public $regionId;
-
-    /**
      * @var eventInfo[]
      */
     public $eventInfo;
+
+    /**
+     * @var string
+     */
+    public $regionId;
     protected $_name = [
-        'regionId'  => 'RegionId',
         'eventInfo' => 'EventInfo',
+        'regionId'  => 'RegionId',
     ];
 
     public function validate()
@@ -30,9 +30,6 @@ class PutCustomEventRequest extends Model
     public function toMap()
     {
         $res = [];
-        if (null !== $this->regionId) {
-            $res['RegionId'] = $this->regionId;
-        }
         if (null !== $this->eventInfo) {
             $res['EventInfo'] = [];
             if (null !== $this->eventInfo && \is_array($this->eventInfo)) {
@@ -41,6 +38,9 @@ class PutCustomEventRequest extends Model
                     $res['EventInfo'][$n++] = null !== $item ? $item->toMap() : $item;
                 }
             }
+        }
+        if (null !== $this->regionId) {
+            $res['RegionId'] = $this->regionId;
         }
 
         return $res;
@@ -54,9 +54,6 @@ class PutCustomEventRequest extends Model
     public static function fromMap($map = [])
     {
         $model = new self();
-        if (isset($map['RegionId'])) {
-            $model->regionId = $map['RegionId'];
-        }
         if (isset($map['EventInfo'])) {
             if (!empty($map['EventInfo'])) {
                 $model->eventInfo = [];
@@ -65,6 +62,9 @@ class PutCustomEventRequest extends Model
                     $model->eventInfo[$n++] = null !== $item ? eventInfo::fromMap($item) : $item;
                 }
             }
+        }
+        if (isset($map['RegionId'])) {
+            $model->regionId = $map['RegionId'];
         }
 
         return $model;

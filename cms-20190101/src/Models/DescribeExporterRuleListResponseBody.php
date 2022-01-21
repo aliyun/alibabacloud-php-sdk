@@ -12,17 +12,12 @@ class DescribeExporterRuleListResponseBody extends Model
     /**
      * @var string
      */
-    public $requestId;
-
-    /**
-     * @var bool
-     */
-    public $success;
-
-    /**
-     * @var string
-     */
     public $code;
+
+    /**
+     * @var datapoints
+     */
+    public $datapoints;
 
     /**
      * @var string
@@ -35,22 +30,27 @@ class DescribeExporterRuleListResponseBody extends Model
     public $pageNumber;
 
     /**
+     * @var string
+     */
+    public $requestId;
+
+    /**
+     * @var bool
+     */
+    public $success;
+
+    /**
      * @var int
      */
     public $total;
-
-    /**
-     * @var datapoints
-     */
-    public $datapoints;
     protected $_name = [
-        'requestId'  => 'RequestId',
-        'success'    => 'Success',
         'code'       => 'Code',
+        'datapoints' => 'Datapoints',
         'message'    => 'Message',
         'pageNumber' => 'PageNumber',
+        'requestId'  => 'RequestId',
+        'success'    => 'Success',
         'total'      => 'Total',
-        'datapoints' => 'Datapoints',
     ];
 
     public function validate()
@@ -60,14 +60,11 @@ class DescribeExporterRuleListResponseBody extends Model
     public function toMap()
     {
         $res = [];
-        if (null !== $this->requestId) {
-            $res['RequestId'] = $this->requestId;
-        }
-        if (null !== $this->success) {
-            $res['Success'] = $this->success;
-        }
         if (null !== $this->code) {
             $res['Code'] = $this->code;
+        }
+        if (null !== $this->datapoints) {
+            $res['Datapoints'] = null !== $this->datapoints ? $this->datapoints->toMap() : null;
         }
         if (null !== $this->message) {
             $res['Message'] = $this->message;
@@ -75,11 +72,14 @@ class DescribeExporterRuleListResponseBody extends Model
         if (null !== $this->pageNumber) {
             $res['PageNumber'] = $this->pageNumber;
         }
+        if (null !== $this->requestId) {
+            $res['RequestId'] = $this->requestId;
+        }
+        if (null !== $this->success) {
+            $res['Success'] = $this->success;
+        }
         if (null !== $this->total) {
             $res['Total'] = $this->total;
-        }
-        if (null !== $this->datapoints) {
-            $res['Datapoints'] = null !== $this->datapoints ? $this->datapoints->toMap() : null;
         }
 
         return $res;
@@ -93,14 +93,11 @@ class DescribeExporterRuleListResponseBody extends Model
     public static function fromMap($map = [])
     {
         $model = new self();
-        if (isset($map['RequestId'])) {
-            $model->requestId = $map['RequestId'];
-        }
-        if (isset($map['Success'])) {
-            $model->success = $map['Success'];
-        }
         if (isset($map['Code'])) {
             $model->code = $map['Code'];
+        }
+        if (isset($map['Datapoints'])) {
+            $model->datapoints = datapoints::fromMap($map['Datapoints']);
         }
         if (isset($map['Message'])) {
             $model->message = $map['Message'];
@@ -108,11 +105,14 @@ class DescribeExporterRuleListResponseBody extends Model
         if (isset($map['PageNumber'])) {
             $model->pageNumber = $map['PageNumber'];
         }
+        if (isset($map['RequestId'])) {
+            $model->requestId = $map['RequestId'];
+        }
+        if (isset($map['Success'])) {
+            $model->success = $map['Success'];
+        }
         if (isset($map['Total'])) {
             $model->total = $map['Total'];
-        }
-        if (isset($map['Datapoints'])) {
-            $model->datapoints = datapoints::fromMap($map['Datapoints']);
         }
 
         return $model;

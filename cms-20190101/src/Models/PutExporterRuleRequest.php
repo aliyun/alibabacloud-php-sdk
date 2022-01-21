@@ -11,6 +11,26 @@ class PutExporterRuleRequest extends Model
     /**
      * @var string
      */
+    public $describe;
+
+    /**
+     * @var string[]
+     */
+    public $dstNames;
+
+    /**
+     * @var string
+     */
+    public $metricName;
+
+    /**
+     * @var string
+     */
+    public $namespace;
+
+    /**
+     * @var string
+     */
     public $regionId;
 
     /**
@@ -21,35 +41,15 @@ class PutExporterRuleRequest extends Model
     /**
      * @var string
      */
-    public $namespace;
-
-    /**
-     * @var string
-     */
-    public $metricName;
-
-    /**
-     * @var string
-     */
     public $targetWindows;
-
-    /**
-     * @var string
-     */
-    public $describe;
-
-    /**
-     * @var string[]
-     */
-    public $dstNames;
     protected $_name = [
-        'regionId'      => 'RegionId',
-        'ruleName'      => 'RuleName',
-        'namespace'     => 'Namespace',
-        'metricName'    => 'MetricName',
-        'targetWindows' => 'TargetWindows',
         'describe'      => 'Describe',
         'dstNames'      => 'DstNames',
+        'metricName'    => 'MetricName',
+        'namespace'     => 'Namespace',
+        'regionId'      => 'RegionId',
+        'ruleName'      => 'RuleName',
+        'targetWindows' => 'TargetWindows',
     ];
 
     public function validate()
@@ -59,26 +59,26 @@ class PutExporterRuleRequest extends Model
     public function toMap()
     {
         $res = [];
+        if (null !== $this->describe) {
+            $res['Describe'] = $this->describe;
+        }
+        if (null !== $this->dstNames) {
+            $res['DstNames'] = $this->dstNames;
+        }
+        if (null !== $this->metricName) {
+            $res['MetricName'] = $this->metricName;
+        }
+        if (null !== $this->namespace) {
+            $res['Namespace'] = $this->namespace;
+        }
         if (null !== $this->regionId) {
             $res['RegionId'] = $this->regionId;
         }
         if (null !== $this->ruleName) {
             $res['RuleName'] = $this->ruleName;
         }
-        if (null !== $this->namespace) {
-            $res['Namespace'] = $this->namespace;
-        }
-        if (null !== $this->metricName) {
-            $res['MetricName'] = $this->metricName;
-        }
         if (null !== $this->targetWindows) {
             $res['TargetWindows'] = $this->targetWindows;
-        }
-        if (null !== $this->describe) {
-            $res['Describe'] = $this->describe;
-        }
-        if (null !== $this->dstNames) {
-            $res['DstNames'] = $this->dstNames;
         }
 
         return $res;
@@ -92,21 +92,6 @@ class PutExporterRuleRequest extends Model
     public static function fromMap($map = [])
     {
         $model = new self();
-        if (isset($map['RegionId'])) {
-            $model->regionId = $map['RegionId'];
-        }
-        if (isset($map['RuleName'])) {
-            $model->ruleName = $map['RuleName'];
-        }
-        if (isset($map['Namespace'])) {
-            $model->namespace = $map['Namespace'];
-        }
-        if (isset($map['MetricName'])) {
-            $model->metricName = $map['MetricName'];
-        }
-        if (isset($map['TargetWindows'])) {
-            $model->targetWindows = $map['TargetWindows'];
-        }
         if (isset($map['Describe'])) {
             $model->describe = $map['Describe'];
         }
@@ -114,6 +99,21 @@ class PutExporterRuleRequest extends Model
             if (!empty($map['DstNames'])) {
                 $model->dstNames = $map['DstNames'];
             }
+        }
+        if (isset($map['MetricName'])) {
+            $model->metricName = $map['MetricName'];
+        }
+        if (isset($map['Namespace'])) {
+            $model->namespace = $map['Namespace'];
+        }
+        if (isset($map['RegionId'])) {
+            $model->regionId = $map['RegionId'];
+        }
+        if (isset($map['RuleName'])) {
+            $model->ruleName = $map['RuleName'];
+        }
+        if (isset($map['TargetWindows'])) {
+            $model->targetWindows = $map['TargetWindows'];
         }
 
         return $model;

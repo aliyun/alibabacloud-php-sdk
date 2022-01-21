@@ -9,14 +9,9 @@ use AlibabaCloud\Tea\Model;
 class DescribeMetricRuleTemplateListRequest extends Model
 {
     /**
-     * @var string
+     * @var bool
      */
-    public $regionId;
-
-    /**
-     * @var string
-     */
-    public $name;
+    public $history;
 
     /**
      * @var string
@@ -24,9 +19,9 @@ class DescribeMetricRuleTemplateListRequest extends Model
     public $keyword;
 
     /**
-     * @var int
+     * @var string
      */
-    public $templateId;
+    public $name;
 
     /**
      * @var int
@@ -39,17 +34,22 @@ class DescribeMetricRuleTemplateListRequest extends Model
     public $pageSize;
 
     /**
-     * @var bool
+     * @var string
      */
-    public $history;
+    public $regionId;
+
+    /**
+     * @var int
+     */
+    public $templateId;
     protected $_name = [
-        'regionId'   => 'RegionId',
-        'name'       => 'Name',
+        'history'    => 'History',
         'keyword'    => 'Keyword',
-        'templateId' => 'TemplateId',
+        'name'       => 'Name',
         'pageNumber' => 'PageNumber',
         'pageSize'   => 'PageSize',
-        'history'    => 'History',
+        'regionId'   => 'RegionId',
+        'templateId' => 'TemplateId',
     ];
 
     public function validate()
@@ -59,17 +59,14 @@ class DescribeMetricRuleTemplateListRequest extends Model
     public function toMap()
     {
         $res = [];
-        if (null !== $this->regionId) {
-            $res['RegionId'] = $this->regionId;
-        }
-        if (null !== $this->name) {
-            $res['Name'] = $this->name;
+        if (null !== $this->history) {
+            $res['History'] = $this->history;
         }
         if (null !== $this->keyword) {
             $res['Keyword'] = $this->keyword;
         }
-        if (null !== $this->templateId) {
-            $res['TemplateId'] = $this->templateId;
+        if (null !== $this->name) {
+            $res['Name'] = $this->name;
         }
         if (null !== $this->pageNumber) {
             $res['PageNumber'] = $this->pageNumber;
@@ -77,8 +74,11 @@ class DescribeMetricRuleTemplateListRequest extends Model
         if (null !== $this->pageSize) {
             $res['PageSize'] = $this->pageSize;
         }
-        if (null !== $this->history) {
-            $res['History'] = $this->history;
+        if (null !== $this->regionId) {
+            $res['RegionId'] = $this->regionId;
+        }
+        if (null !== $this->templateId) {
+            $res['TemplateId'] = $this->templateId;
         }
 
         return $res;
@@ -92,17 +92,14 @@ class DescribeMetricRuleTemplateListRequest extends Model
     public static function fromMap($map = [])
     {
         $model = new self();
-        if (isset($map['RegionId'])) {
-            $model->regionId = $map['RegionId'];
-        }
-        if (isset($map['Name'])) {
-            $model->name = $map['Name'];
+        if (isset($map['History'])) {
+            $model->history = $map['History'];
         }
         if (isset($map['Keyword'])) {
             $model->keyword = $map['Keyword'];
         }
-        if (isset($map['TemplateId'])) {
-            $model->templateId = $map['TemplateId'];
+        if (isset($map['Name'])) {
+            $model->name = $map['Name'];
         }
         if (isset($map['PageNumber'])) {
             $model->pageNumber = $map['PageNumber'];
@@ -110,8 +107,11 @@ class DescribeMetricRuleTemplateListRequest extends Model
         if (isset($map['PageSize'])) {
             $model->pageSize = $map['PageSize'];
         }
-        if (isset($map['History'])) {
-            $model->history = $map['History'];
+        if (isset($map['RegionId'])) {
+            $model->regionId = $map['RegionId'];
+        }
+        if (isset($map['TemplateId'])) {
+            $model->templateId = $map['TemplateId'];
         }
 
         return $model;

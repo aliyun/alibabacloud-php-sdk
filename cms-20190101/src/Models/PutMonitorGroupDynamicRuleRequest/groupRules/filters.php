@@ -11,7 +11,7 @@ class filters extends Model
     /**
      * @var string
      */
-    public $value;
+    public $function;
 
     /**
      * @var string
@@ -21,11 +21,11 @@ class filters extends Model
     /**
      * @var string
      */
-    public $function;
+    public $value;
     protected $_name = [
-        'value'    => 'Value',
-        'name'     => 'Name',
         'function' => 'Function',
+        'name'     => 'Name',
+        'value'    => 'Value',
     ];
 
     public function validate()
@@ -35,14 +35,14 @@ class filters extends Model
     public function toMap()
     {
         $res = [];
-        if (null !== $this->value) {
-            $res['Value'] = $this->value;
+        if (null !== $this->function) {
+            $res['Function'] = $this->function;
         }
         if (null !== $this->name) {
             $res['Name'] = $this->name;
         }
-        if (null !== $this->function) {
-            $res['Function'] = $this->function;
+        if (null !== $this->value) {
+            $res['Value'] = $this->value;
         }
 
         return $res;
@@ -56,14 +56,14 @@ class filters extends Model
     public static function fromMap($map = [])
     {
         $model = new self();
-        if (isset($map['Value'])) {
-            $model->value = $map['Value'];
+        if (isset($map['Function'])) {
+            $model->function = $map['Function'];
         }
         if (isset($map['Name'])) {
             $model->name = $map['Name'];
         }
-        if (isset($map['Function'])) {
-            $model->function = $map['Function'];
+        if (isset($map['Value'])) {
+            $model->value = $map['Value'];
         }
 
         return $model;

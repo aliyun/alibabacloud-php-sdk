@@ -10,19 +10,9 @@ use AlibabaCloud\Tea\Model;
 class logMonitorList extends Model
 {
     /**
-     * @var string
+     * @var int
      */
-    public $valueFilterRelation;
-
-    /**
-     * @var string
-     */
-    public $slsLogstore;
-
-    /**
-     * @var string
-     */
-    public $metricName;
+    public $gmtCreate;
 
     /**
      * @var int
@@ -37,12 +27,12 @@ class logMonitorList extends Model
     /**
      * @var string
      */
-    public $slsRegionId;
+    public $metricName;
 
     /**
-     * @var int
+     * @var string
      */
-    public $gmtCreate;
+    public $slsLogstore;
 
     /**
      * @var string
@@ -50,19 +40,29 @@ class logMonitorList extends Model
     public $slsProject;
 
     /**
+     * @var string
+     */
+    public $slsRegionId;
+
+    /**
      * @var valueFilter[]
      */
     public $valueFilter;
+
+    /**
+     * @var string
+     */
+    public $valueFilterRelation;
     protected $_name = [
-        'valueFilterRelation' => 'ValueFilterRelation',
-        'slsLogstore'         => 'SlsLogstore',
-        'metricName'          => 'MetricName',
+        'gmtCreate'           => 'GmtCreate',
         'groupId'             => 'GroupId',
         'logId'               => 'LogId',
-        'slsRegionId'         => 'SlsRegionId',
-        'gmtCreate'           => 'GmtCreate',
+        'metricName'          => 'MetricName',
+        'slsLogstore'         => 'SlsLogstore',
         'slsProject'          => 'SlsProject',
+        'slsRegionId'         => 'SlsRegionId',
         'valueFilter'         => 'ValueFilter',
+        'valueFilterRelation' => 'ValueFilterRelation',
     ];
 
     public function validate()
@@ -72,14 +72,8 @@ class logMonitorList extends Model
     public function toMap()
     {
         $res = [];
-        if (null !== $this->valueFilterRelation) {
-            $res['ValueFilterRelation'] = $this->valueFilterRelation;
-        }
-        if (null !== $this->slsLogstore) {
-            $res['SlsLogstore'] = $this->slsLogstore;
-        }
-        if (null !== $this->metricName) {
-            $res['MetricName'] = $this->metricName;
+        if (null !== $this->gmtCreate) {
+            $res['GmtCreate'] = $this->gmtCreate;
         }
         if (null !== $this->groupId) {
             $res['GroupId'] = $this->groupId;
@@ -87,14 +81,17 @@ class logMonitorList extends Model
         if (null !== $this->logId) {
             $res['LogId'] = $this->logId;
         }
-        if (null !== $this->slsRegionId) {
-            $res['SlsRegionId'] = $this->slsRegionId;
+        if (null !== $this->metricName) {
+            $res['MetricName'] = $this->metricName;
         }
-        if (null !== $this->gmtCreate) {
-            $res['GmtCreate'] = $this->gmtCreate;
+        if (null !== $this->slsLogstore) {
+            $res['SlsLogstore'] = $this->slsLogstore;
         }
         if (null !== $this->slsProject) {
             $res['SlsProject'] = $this->slsProject;
+        }
+        if (null !== $this->slsRegionId) {
+            $res['SlsRegionId'] = $this->slsRegionId;
         }
         if (null !== $this->valueFilter) {
             $res['ValueFilter'] = [];
@@ -104,6 +101,9 @@ class logMonitorList extends Model
                     $res['ValueFilter'][$n++] = null !== $item ? $item->toMap() : $item;
                 }
             }
+        }
+        if (null !== $this->valueFilterRelation) {
+            $res['ValueFilterRelation'] = $this->valueFilterRelation;
         }
 
         return $res;
@@ -117,14 +117,8 @@ class logMonitorList extends Model
     public static function fromMap($map = [])
     {
         $model = new self();
-        if (isset($map['ValueFilterRelation'])) {
-            $model->valueFilterRelation = $map['ValueFilterRelation'];
-        }
-        if (isset($map['SlsLogstore'])) {
-            $model->slsLogstore = $map['SlsLogstore'];
-        }
-        if (isset($map['MetricName'])) {
-            $model->metricName = $map['MetricName'];
+        if (isset($map['GmtCreate'])) {
+            $model->gmtCreate = $map['GmtCreate'];
         }
         if (isset($map['GroupId'])) {
             $model->groupId = $map['GroupId'];
@@ -132,14 +126,17 @@ class logMonitorList extends Model
         if (isset($map['LogId'])) {
             $model->logId = $map['LogId'];
         }
-        if (isset($map['SlsRegionId'])) {
-            $model->slsRegionId = $map['SlsRegionId'];
+        if (isset($map['MetricName'])) {
+            $model->metricName = $map['MetricName'];
         }
-        if (isset($map['GmtCreate'])) {
-            $model->gmtCreate = $map['GmtCreate'];
+        if (isset($map['SlsLogstore'])) {
+            $model->slsLogstore = $map['SlsLogstore'];
         }
         if (isset($map['SlsProject'])) {
             $model->slsProject = $map['SlsProject'];
+        }
+        if (isset($map['SlsRegionId'])) {
+            $model->slsRegionId = $map['SlsRegionId'];
         }
         if (isset($map['ValueFilter'])) {
             if (!empty($map['ValueFilter'])) {
@@ -149,6 +146,9 @@ class logMonitorList extends Model
                     $model->valueFilter[$n++] = null !== $item ? valueFilter::fromMap($item) : $item;
                 }
             }
+        }
+        if (isset($map['ValueFilterRelation'])) {
+            $model->valueFilterRelation = $map['ValueFilterRelation'];
         }
 
         return $model;

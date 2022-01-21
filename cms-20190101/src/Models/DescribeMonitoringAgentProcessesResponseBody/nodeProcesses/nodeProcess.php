@@ -11,12 +11,7 @@ class nodeProcess extends Model
     /**
      * @var string
      */
-    public $processName;
-
-    /**
-     * @var int
-     */
-    public $processId;
+    public $command;
 
     /**
      * @var string
@@ -26,24 +21,29 @@ class nodeProcess extends Model
     /**
      * @var string
      */
-    public $command;
+    public $instanceId;
+
+    /**
+     * @var int
+     */
+    public $processId;
+
+    /**
+     * @var string
+     */
+    public $processName;
 
     /**
      * @var string
      */
     public $processUser;
-
-    /**
-     * @var string
-     */
-    public $instanceId;
     protected $_name = [
-        'processName' => 'ProcessName',
-        'processId'   => 'ProcessId',
-        'groupId'     => 'GroupId',
         'command'     => 'Command',
-        'processUser' => 'ProcessUser',
+        'groupId'     => 'GroupId',
         'instanceId'  => 'InstanceId',
+        'processId'   => 'ProcessId',
+        'processName' => 'ProcessName',
+        'processUser' => 'ProcessUser',
     ];
 
     public function validate()
@@ -53,23 +53,23 @@ class nodeProcess extends Model
     public function toMap()
     {
         $res = [];
-        if (null !== $this->processName) {
-            $res['ProcessName'] = $this->processName;
-        }
-        if (null !== $this->processId) {
-            $res['ProcessId'] = $this->processId;
+        if (null !== $this->command) {
+            $res['Command'] = $this->command;
         }
         if (null !== $this->groupId) {
             $res['GroupId'] = $this->groupId;
         }
-        if (null !== $this->command) {
-            $res['Command'] = $this->command;
+        if (null !== $this->instanceId) {
+            $res['InstanceId'] = $this->instanceId;
+        }
+        if (null !== $this->processId) {
+            $res['ProcessId'] = $this->processId;
+        }
+        if (null !== $this->processName) {
+            $res['ProcessName'] = $this->processName;
         }
         if (null !== $this->processUser) {
             $res['ProcessUser'] = $this->processUser;
-        }
-        if (null !== $this->instanceId) {
-            $res['InstanceId'] = $this->instanceId;
         }
 
         return $res;
@@ -83,23 +83,23 @@ class nodeProcess extends Model
     public static function fromMap($map = [])
     {
         $model = new self();
-        if (isset($map['ProcessName'])) {
-            $model->processName = $map['ProcessName'];
-        }
-        if (isset($map['ProcessId'])) {
-            $model->processId = $map['ProcessId'];
+        if (isset($map['Command'])) {
+            $model->command = $map['Command'];
         }
         if (isset($map['GroupId'])) {
             $model->groupId = $map['GroupId'];
         }
-        if (isset($map['Command'])) {
-            $model->command = $map['Command'];
+        if (isset($map['InstanceId'])) {
+            $model->instanceId = $map['InstanceId'];
+        }
+        if (isset($map['ProcessId'])) {
+            $model->processId = $map['ProcessId'];
+        }
+        if (isset($map['ProcessName'])) {
+            $model->processName = $map['ProcessName'];
         }
         if (isset($map['ProcessUser'])) {
             $model->processUser = $map['ProcessUser'];
-        }
-        if (isset($map['InstanceId'])) {
-            $model->instanceId = $map['InstanceId'];
         }
 
         return $model;

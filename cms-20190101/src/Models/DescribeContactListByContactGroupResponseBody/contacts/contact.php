@@ -10,14 +10,9 @@ use AlibabaCloud\Tea\Model;
 class contact extends Model
 {
     /**
-     * @var int
+     * @var channels
      */
-    public $updateTime;
-
-    /**
-     * @var string
-     */
-    public $name;
+    public $channels;
 
     /**
      * @var int
@@ -30,15 +25,20 @@ class contact extends Model
     public $desc;
 
     /**
-     * @var channels
+     * @var string
      */
-    public $channels;
+    public $name;
+
+    /**
+     * @var int
+     */
+    public $updateTime;
     protected $_name = [
-        'updateTime' => 'UpdateTime',
-        'name'       => 'Name',
+        'channels'   => 'Channels',
         'createTime' => 'CreateTime',
         'desc'       => 'Desc',
-        'channels'   => 'Channels',
+        'name'       => 'Name',
+        'updateTime' => 'UpdateTime',
     ];
 
     public function validate()
@@ -48,11 +48,8 @@ class contact extends Model
     public function toMap()
     {
         $res = [];
-        if (null !== $this->updateTime) {
-            $res['UpdateTime'] = $this->updateTime;
-        }
-        if (null !== $this->name) {
-            $res['Name'] = $this->name;
+        if (null !== $this->channels) {
+            $res['Channels'] = null !== $this->channels ? $this->channels->toMap() : null;
         }
         if (null !== $this->createTime) {
             $res['CreateTime'] = $this->createTime;
@@ -60,8 +57,11 @@ class contact extends Model
         if (null !== $this->desc) {
             $res['Desc'] = $this->desc;
         }
-        if (null !== $this->channels) {
-            $res['Channels'] = null !== $this->channels ? $this->channels->toMap() : null;
+        if (null !== $this->name) {
+            $res['Name'] = $this->name;
+        }
+        if (null !== $this->updateTime) {
+            $res['UpdateTime'] = $this->updateTime;
         }
 
         return $res;
@@ -75,11 +75,8 @@ class contact extends Model
     public static function fromMap($map = [])
     {
         $model = new self();
-        if (isset($map['UpdateTime'])) {
-            $model->updateTime = $map['UpdateTime'];
-        }
-        if (isset($map['Name'])) {
-            $model->name = $map['Name'];
+        if (isset($map['Channels'])) {
+            $model->channels = channels::fromMap($map['Channels']);
         }
         if (isset($map['CreateTime'])) {
             $model->createTime = $map['CreateTime'];
@@ -87,8 +84,11 @@ class contact extends Model
         if (isset($map['Desc'])) {
             $model->desc = $map['Desc'];
         }
-        if (isset($map['Channels'])) {
-            $model->channels = channels::fromMap($map['Channels']);
+        if (isset($map['Name'])) {
+            $model->name = $map['Name'];
+        }
+        if (isset($map['UpdateTime'])) {
+            $model->updateTime = $map['UpdateTime'];
         }
 
         return $model;

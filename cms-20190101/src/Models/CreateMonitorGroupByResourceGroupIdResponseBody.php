@@ -14,6 +14,11 @@ class CreateMonitorGroupByResourceGroupIdResponseBody extends Model
     public $code;
 
     /**
+     * @var int
+     */
+    public $id;
+
+    /**
      * @var string
      */
     public $message;
@@ -29,6 +34,7 @@ class CreateMonitorGroupByResourceGroupIdResponseBody extends Model
     public $success;
     protected $_name = [
         'code'      => 'Code',
+        'id'        => 'Id',
         'message'   => 'Message',
         'requestId' => 'RequestId',
         'success'   => 'Success',
@@ -43,6 +49,9 @@ class CreateMonitorGroupByResourceGroupIdResponseBody extends Model
         $res = [];
         if (null !== $this->code) {
             $res['Code'] = $this->code;
+        }
+        if (null !== $this->id) {
+            $res['Id'] = $this->id;
         }
         if (null !== $this->message) {
             $res['Message'] = $this->message;
@@ -67,6 +76,9 @@ class CreateMonitorGroupByResourceGroupIdResponseBody extends Model
         $model = new self();
         if (isset($map['Code'])) {
             $model->code = $map['Code'];
+        }
+        if (isset($map['Id'])) {
+            $model->id = $map['Id'];
         }
         if (isset($map['Message'])) {
             $model->message = $map['Message'];

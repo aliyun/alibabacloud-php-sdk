@@ -15,6 +15,11 @@ class DescribeContactListResponseBody extends Model
     public $code;
 
     /**
+     * @var contacts
+     */
+    public $contacts;
+
+    /**
      * @var string
      */
     public $message;
@@ -25,26 +30,21 @@ class DescribeContactListResponseBody extends Model
     public $requestId;
 
     /**
-     * @var int
-     */
-    public $total;
-
-    /**
      * @var bool
      */
     public $success;
 
     /**
-     * @var contacts
+     * @var int
      */
-    public $contacts;
+    public $total;
     protected $_name = [
         'code'      => 'Code',
+        'contacts'  => 'Contacts',
         'message'   => 'Message',
         'requestId' => 'RequestId',
-        'total'     => 'Total',
         'success'   => 'Success',
-        'contacts'  => 'Contacts',
+        'total'     => 'Total',
     ];
 
     public function validate()
@@ -57,20 +57,20 @@ class DescribeContactListResponseBody extends Model
         if (null !== $this->code) {
             $res['Code'] = $this->code;
         }
+        if (null !== $this->contacts) {
+            $res['Contacts'] = null !== $this->contacts ? $this->contacts->toMap() : null;
+        }
         if (null !== $this->message) {
             $res['Message'] = $this->message;
         }
         if (null !== $this->requestId) {
             $res['RequestId'] = $this->requestId;
         }
-        if (null !== $this->total) {
-            $res['Total'] = $this->total;
-        }
         if (null !== $this->success) {
             $res['Success'] = $this->success;
         }
-        if (null !== $this->contacts) {
-            $res['Contacts'] = null !== $this->contacts ? $this->contacts->toMap() : null;
+        if (null !== $this->total) {
+            $res['Total'] = $this->total;
         }
 
         return $res;
@@ -87,20 +87,20 @@ class DescribeContactListResponseBody extends Model
         if (isset($map['Code'])) {
             $model->code = $map['Code'];
         }
+        if (isset($map['Contacts'])) {
+            $model->contacts = contacts::fromMap($map['Contacts']);
+        }
         if (isset($map['Message'])) {
             $model->message = $map['Message'];
         }
         if (isset($map['RequestId'])) {
             $model->requestId = $map['RequestId'];
         }
-        if (isset($map['Total'])) {
-            $model->total = $map['Total'];
-        }
         if (isset($map['Success'])) {
             $model->success = $map['Success'];
         }
-        if (isset($map['Contacts'])) {
-            $model->contacts = contacts::fromMap($map['Contacts']);
+        if (isset($map['Total'])) {
+            $model->total = $map['Total'];
         }
 
         return $model;

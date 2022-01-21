@@ -10,6 +10,31 @@ use AlibabaCloud\Tea\Model;
 class CreateDynamicTagGroupRequest extends Model
 {
     /**
+     * @var string[]
+     */
+    public $contactGroupList;
+
+    /**
+     * @var bool
+     */
+    public $enableInstallAgent;
+
+    /**
+     * @var bool
+     */
+    public $enableSubscribeEvent;
+
+    /**
+     * @var matchExpress[]
+     */
+    public $matchExpress;
+
+    /**
+     * @var string
+     */
+    public $matchExpressFilterRelation;
+
+    /**
      * @var string
      */
     public $regionId;
@@ -20,42 +45,23 @@ class CreateDynamicTagGroupRequest extends Model
     public $tagKey;
 
     /**
-     * @var bool
-     */
-    public $enableSubscribeEvent;
-
-    /**
-     * @var bool
-     */
-    public $enableInstallAgent;
-
-    /**
      * @var string
      */
-    public $matchExpressFilterRelation;
-
-    /**
-     * @var matchExpress[]
-     */
-    public $matchExpress;
-
-    /**
-     * @var string[]
-     */
-    public $contactGroupList;
+    public $tagRegionId;
 
     /**
      * @var string[]
      */
     public $templateIdList;
     protected $_name = [
+        'contactGroupList'           => 'ContactGroupList',
+        'enableInstallAgent'         => 'EnableInstallAgent',
+        'enableSubscribeEvent'       => 'EnableSubscribeEvent',
+        'matchExpress'               => 'MatchExpress',
+        'matchExpressFilterRelation' => 'MatchExpressFilterRelation',
         'regionId'                   => 'RegionId',
         'tagKey'                     => 'TagKey',
-        'enableSubscribeEvent'       => 'EnableSubscribeEvent',
-        'enableInstallAgent'         => 'EnableInstallAgent',
-        'matchExpressFilterRelation' => 'MatchExpressFilterRelation',
-        'matchExpress'               => 'MatchExpress',
-        'contactGroupList'           => 'ContactGroupList',
+        'tagRegionId'                => 'TagRegionId',
         'templateIdList'             => 'TemplateIdList',
     ];
 
@@ -66,20 +72,14 @@ class CreateDynamicTagGroupRequest extends Model
     public function toMap()
     {
         $res = [];
-        if (null !== $this->regionId) {
-            $res['RegionId'] = $this->regionId;
-        }
-        if (null !== $this->tagKey) {
-            $res['TagKey'] = $this->tagKey;
-        }
-        if (null !== $this->enableSubscribeEvent) {
-            $res['EnableSubscribeEvent'] = $this->enableSubscribeEvent;
+        if (null !== $this->contactGroupList) {
+            $res['ContactGroupList'] = $this->contactGroupList;
         }
         if (null !== $this->enableInstallAgent) {
             $res['EnableInstallAgent'] = $this->enableInstallAgent;
         }
-        if (null !== $this->matchExpressFilterRelation) {
-            $res['MatchExpressFilterRelation'] = $this->matchExpressFilterRelation;
+        if (null !== $this->enableSubscribeEvent) {
+            $res['EnableSubscribeEvent'] = $this->enableSubscribeEvent;
         }
         if (null !== $this->matchExpress) {
             $res['MatchExpress'] = [];
@@ -90,8 +90,17 @@ class CreateDynamicTagGroupRequest extends Model
                 }
             }
         }
-        if (null !== $this->contactGroupList) {
-            $res['ContactGroupList'] = $this->contactGroupList;
+        if (null !== $this->matchExpressFilterRelation) {
+            $res['MatchExpressFilterRelation'] = $this->matchExpressFilterRelation;
+        }
+        if (null !== $this->regionId) {
+            $res['RegionId'] = $this->regionId;
+        }
+        if (null !== $this->tagKey) {
+            $res['TagKey'] = $this->tagKey;
+        }
+        if (null !== $this->tagRegionId) {
+            $res['TagRegionId'] = $this->tagRegionId;
         }
         if (null !== $this->templateIdList) {
             $res['TemplateIdList'] = $this->templateIdList;
@@ -108,20 +117,16 @@ class CreateDynamicTagGroupRequest extends Model
     public static function fromMap($map = [])
     {
         $model = new self();
-        if (isset($map['RegionId'])) {
-            $model->regionId = $map['RegionId'];
-        }
-        if (isset($map['TagKey'])) {
-            $model->tagKey = $map['TagKey'];
-        }
-        if (isset($map['EnableSubscribeEvent'])) {
-            $model->enableSubscribeEvent = $map['EnableSubscribeEvent'];
+        if (isset($map['ContactGroupList'])) {
+            if (!empty($map['ContactGroupList'])) {
+                $model->contactGroupList = $map['ContactGroupList'];
+            }
         }
         if (isset($map['EnableInstallAgent'])) {
             $model->enableInstallAgent = $map['EnableInstallAgent'];
         }
-        if (isset($map['MatchExpressFilterRelation'])) {
-            $model->matchExpressFilterRelation = $map['MatchExpressFilterRelation'];
+        if (isset($map['EnableSubscribeEvent'])) {
+            $model->enableSubscribeEvent = $map['EnableSubscribeEvent'];
         }
         if (isset($map['MatchExpress'])) {
             if (!empty($map['MatchExpress'])) {
@@ -132,10 +137,17 @@ class CreateDynamicTagGroupRequest extends Model
                 }
             }
         }
-        if (isset($map['ContactGroupList'])) {
-            if (!empty($map['ContactGroupList'])) {
-                $model->contactGroupList = $map['ContactGroupList'];
-            }
+        if (isset($map['MatchExpressFilterRelation'])) {
+            $model->matchExpressFilterRelation = $map['MatchExpressFilterRelation'];
+        }
+        if (isset($map['RegionId'])) {
+            $model->regionId = $map['RegionId'];
+        }
+        if (isset($map['TagKey'])) {
+            $model->tagKey = $map['TagKey'];
+        }
+        if (isset($map['TagRegionId'])) {
+            $model->tagRegionId = $map['TagRegionId'];
         }
         if (isset($map['TemplateIdList'])) {
             if (!empty($map['TemplateIdList'])) {

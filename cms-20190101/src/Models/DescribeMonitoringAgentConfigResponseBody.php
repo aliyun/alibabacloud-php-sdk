@@ -9,29 +9,9 @@ use AlibabaCloud\Tea\Model;
 class DescribeMonitoringAgentConfigResponseBody extends Model
 {
     /**
-     * @var string
-     */
-    public $enableActiveAlert;
-
-    /**
-     * @var string
-     */
-    public $requestId;
-
-    /**
      * @var bool
      */
     public $autoInstall;
-
-    /**
-     * @var bool
-     */
-    public $success;
-
-    /**
-     * @var bool
-     */
-    public $enableInstallAgentNewECS;
 
     /**
      * @var string
@@ -41,15 +21,35 @@ class DescribeMonitoringAgentConfigResponseBody extends Model
     /**
      * @var string
      */
+    public $enableActiveAlert;
+
+    /**
+     * @var bool
+     */
+    public $enableInstallAgentNewECS;
+
+    /**
+     * @var string
+     */
     public $message;
+
+    /**
+     * @var string
+     */
+    public $requestId;
+
+    /**
+     * @var bool
+     */
+    public $success;
     protected $_name = [
-        'enableActiveAlert'        => 'EnableActiveAlert',
-        'requestId'                => 'RequestId',
         'autoInstall'              => 'AutoInstall',
-        'success'                  => 'Success',
-        'enableInstallAgentNewECS' => 'EnableInstallAgentNewECS',
         'code'                     => 'Code',
+        'enableActiveAlert'        => 'EnableActiveAlert',
+        'enableInstallAgentNewECS' => 'EnableInstallAgentNewECS',
         'message'                  => 'Message',
+        'requestId'                => 'RequestId',
+        'success'                  => 'Success',
     ];
 
     public function validate()
@@ -59,26 +59,26 @@ class DescribeMonitoringAgentConfigResponseBody extends Model
     public function toMap()
     {
         $res = [];
-        if (null !== $this->enableActiveAlert) {
-            $res['EnableActiveAlert'] = $this->enableActiveAlert;
-        }
-        if (null !== $this->requestId) {
-            $res['RequestId'] = $this->requestId;
-        }
         if (null !== $this->autoInstall) {
             $res['AutoInstall'] = $this->autoInstall;
-        }
-        if (null !== $this->success) {
-            $res['Success'] = $this->success;
-        }
-        if (null !== $this->enableInstallAgentNewECS) {
-            $res['EnableInstallAgentNewECS'] = $this->enableInstallAgentNewECS;
         }
         if (null !== $this->code) {
             $res['Code'] = $this->code;
         }
+        if (null !== $this->enableActiveAlert) {
+            $res['EnableActiveAlert'] = $this->enableActiveAlert;
+        }
+        if (null !== $this->enableInstallAgentNewECS) {
+            $res['EnableInstallAgentNewECS'] = $this->enableInstallAgentNewECS;
+        }
         if (null !== $this->message) {
             $res['Message'] = $this->message;
+        }
+        if (null !== $this->requestId) {
+            $res['RequestId'] = $this->requestId;
+        }
+        if (null !== $this->success) {
+            $res['Success'] = $this->success;
         }
 
         return $res;
@@ -92,26 +92,26 @@ class DescribeMonitoringAgentConfigResponseBody extends Model
     public static function fromMap($map = [])
     {
         $model = new self();
-        if (isset($map['EnableActiveAlert'])) {
-            $model->enableActiveAlert = $map['EnableActiveAlert'];
-        }
-        if (isset($map['RequestId'])) {
-            $model->requestId = $map['RequestId'];
-        }
         if (isset($map['AutoInstall'])) {
             $model->autoInstall = $map['AutoInstall'];
-        }
-        if (isset($map['Success'])) {
-            $model->success = $map['Success'];
-        }
-        if (isset($map['EnableInstallAgentNewECS'])) {
-            $model->enableInstallAgentNewECS = $map['EnableInstallAgentNewECS'];
         }
         if (isset($map['Code'])) {
             $model->code = $map['Code'];
         }
+        if (isset($map['EnableActiveAlert'])) {
+            $model->enableActiveAlert = $map['EnableActiveAlert'];
+        }
+        if (isset($map['EnableInstallAgentNewECS'])) {
+            $model->enableInstallAgentNewECS = $map['EnableInstallAgentNewECS'];
+        }
         if (isset($map['Message'])) {
             $model->message = $map['Message'];
+        }
+        if (isset($map['RequestId'])) {
+            $model->requestId = $map['RequestId'];
+        }
+        if (isset($map['Success'])) {
+            $model->success = $map['Success'];
         }
 
         return $model;

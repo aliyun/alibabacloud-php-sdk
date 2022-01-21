@@ -9,9 +9,9 @@ use AlibabaCloud\Tea\Model;
 class DescribeLogMonitorListRequest extends Model
 {
     /**
-     * @var string
+     * @var int
      */
-    public $regionId;
+    public $groupId;
 
     /**
      * @var int
@@ -26,18 +26,18 @@ class DescribeLogMonitorListRequest extends Model
     /**
      * @var string
      */
-    public $searchValue;
+    public $regionId;
 
     /**
-     * @var int
+     * @var string
      */
-    public $groupId;
+    public $searchValue;
     protected $_name = [
-        'regionId'    => 'RegionId',
+        'groupId'     => 'GroupId',
         'pageNumber'  => 'PageNumber',
         'pageSize'    => 'PageSize',
+        'regionId'    => 'RegionId',
         'searchValue' => 'SearchValue',
-        'groupId'     => 'GroupId',
     ];
 
     public function validate()
@@ -47,8 +47,8 @@ class DescribeLogMonitorListRequest extends Model
     public function toMap()
     {
         $res = [];
-        if (null !== $this->regionId) {
-            $res['RegionId'] = $this->regionId;
+        if (null !== $this->groupId) {
+            $res['GroupId'] = $this->groupId;
         }
         if (null !== $this->pageNumber) {
             $res['PageNumber'] = $this->pageNumber;
@@ -56,11 +56,11 @@ class DescribeLogMonitorListRequest extends Model
         if (null !== $this->pageSize) {
             $res['PageSize'] = $this->pageSize;
         }
+        if (null !== $this->regionId) {
+            $res['RegionId'] = $this->regionId;
+        }
         if (null !== $this->searchValue) {
             $res['SearchValue'] = $this->searchValue;
-        }
-        if (null !== $this->groupId) {
-            $res['GroupId'] = $this->groupId;
         }
 
         return $res;
@@ -74,8 +74,8 @@ class DescribeLogMonitorListRequest extends Model
     public static function fromMap($map = [])
     {
         $model = new self();
-        if (isset($map['RegionId'])) {
-            $model->regionId = $map['RegionId'];
+        if (isset($map['GroupId'])) {
+            $model->groupId = $map['GroupId'];
         }
         if (isset($map['PageNumber'])) {
             $model->pageNumber = $map['PageNumber'];
@@ -83,11 +83,11 @@ class DescribeLogMonitorListRequest extends Model
         if (isset($map['PageSize'])) {
             $model->pageSize = $map['PageSize'];
         }
+        if (isset($map['RegionId'])) {
+            $model->regionId = $map['RegionId'];
+        }
         if (isset($map['SearchValue'])) {
             $model->searchValue = $map['SearchValue'];
-        }
-        if (isset($map['GroupId'])) {
-            $model->groupId = $map['GroupId'];
         }
 
         return $model;

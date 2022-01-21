@@ -15,6 +15,11 @@ class DescribeLogMonitorAttributeResponseBody extends Model
     public $code;
 
     /**
+     * @var logMonitor
+     */
+    public $logMonitor;
+
+    /**
      * @var string
      */
     public $message;
@@ -28,17 +33,12 @@ class DescribeLogMonitorAttributeResponseBody extends Model
      * @var bool
      */
     public $success;
-
-    /**
-     * @var logMonitor
-     */
-    public $logMonitor;
     protected $_name = [
         'code'       => 'Code',
+        'logMonitor' => 'LogMonitor',
         'message'    => 'Message',
         'requestId'  => 'RequestId',
         'success'    => 'Success',
-        'logMonitor' => 'LogMonitor',
     ];
 
     public function validate()
@@ -51,6 +51,9 @@ class DescribeLogMonitorAttributeResponseBody extends Model
         if (null !== $this->code) {
             $res['Code'] = $this->code;
         }
+        if (null !== $this->logMonitor) {
+            $res['LogMonitor'] = null !== $this->logMonitor ? $this->logMonitor->toMap() : null;
+        }
         if (null !== $this->message) {
             $res['Message'] = $this->message;
         }
@@ -59,9 +62,6 @@ class DescribeLogMonitorAttributeResponseBody extends Model
         }
         if (null !== $this->success) {
             $res['Success'] = $this->success;
-        }
-        if (null !== $this->logMonitor) {
-            $res['LogMonitor'] = null !== $this->logMonitor ? $this->logMonitor->toMap() : null;
         }
 
         return $res;
@@ -78,6 +78,9 @@ class DescribeLogMonitorAttributeResponseBody extends Model
         if (isset($map['Code'])) {
             $model->code = $map['Code'];
         }
+        if (isset($map['LogMonitor'])) {
+            $model->logMonitor = logMonitor::fromMap($map['LogMonitor']);
+        }
         if (isset($map['Message'])) {
             $model->message = $map['Message'];
         }
@@ -86,9 +89,6 @@ class DescribeLogMonitorAttributeResponseBody extends Model
         }
         if (isset($map['Success'])) {
             $model->success = $map['Success'];
-        }
-        if (isset($map['LogMonitor'])) {
-            $model->logMonitor = logMonitor::fromMap($map['LogMonitor']);
         }
 
         return $model;

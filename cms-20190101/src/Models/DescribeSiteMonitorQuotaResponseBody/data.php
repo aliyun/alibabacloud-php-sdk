@@ -9,14 +9,19 @@ use AlibabaCloud\Tea\Model;
 class data extends Model
 {
     /**
-     * @var int
-     */
-    public $siteMonitorOperatorQuotaQuota;
-
-    /**
      * @var bool
      */
     public $secondMonitor;
+
+    /**
+     * @var int
+     */
+    public $siteMonitorIdcQuota;
+
+    /**
+     * @var int
+     */
+    public $siteMonitorOperatorQuotaQuota;
 
     /**
      * @var int
@@ -32,18 +37,13 @@ class data extends Model
      * @var string
      */
     public $siteMonitorVersion;
-
-    /**
-     * @var int
-     */
-    public $siteMonitorIdcQuota;
     protected $_name = [
-        'siteMonitorOperatorQuotaQuota' => 'SiteMonitorOperatorQuotaQuota',
         'secondMonitor'                 => 'SecondMonitor',
+        'siteMonitorIdcQuota'           => 'SiteMonitorIdcQuota',
+        'siteMonitorOperatorQuotaQuota' => 'SiteMonitorOperatorQuotaQuota',
         'siteMonitorQuotaTaskUsed'      => 'SiteMonitorQuotaTaskUsed',
         'siteMonitorTaskQuota'          => 'SiteMonitorTaskQuota',
         'siteMonitorVersion'            => 'SiteMonitorVersion',
-        'siteMonitorIdcQuota'           => 'SiteMonitorIdcQuota',
     ];
 
     public function validate()
@@ -53,11 +53,14 @@ class data extends Model
     public function toMap()
     {
         $res = [];
-        if (null !== $this->siteMonitorOperatorQuotaQuota) {
-            $res['SiteMonitorOperatorQuotaQuota'] = $this->siteMonitorOperatorQuotaQuota;
-        }
         if (null !== $this->secondMonitor) {
             $res['SecondMonitor'] = $this->secondMonitor;
+        }
+        if (null !== $this->siteMonitorIdcQuota) {
+            $res['SiteMonitorIdcQuota'] = $this->siteMonitorIdcQuota;
+        }
+        if (null !== $this->siteMonitorOperatorQuotaQuota) {
+            $res['SiteMonitorOperatorQuotaQuota'] = $this->siteMonitorOperatorQuotaQuota;
         }
         if (null !== $this->siteMonitorQuotaTaskUsed) {
             $res['SiteMonitorQuotaTaskUsed'] = $this->siteMonitorQuotaTaskUsed;
@@ -67,9 +70,6 @@ class data extends Model
         }
         if (null !== $this->siteMonitorVersion) {
             $res['SiteMonitorVersion'] = $this->siteMonitorVersion;
-        }
-        if (null !== $this->siteMonitorIdcQuota) {
-            $res['SiteMonitorIdcQuota'] = $this->siteMonitorIdcQuota;
         }
 
         return $res;
@@ -83,11 +83,14 @@ class data extends Model
     public static function fromMap($map = [])
     {
         $model = new self();
-        if (isset($map['SiteMonitorOperatorQuotaQuota'])) {
-            $model->siteMonitorOperatorQuotaQuota = $map['SiteMonitorOperatorQuotaQuota'];
-        }
         if (isset($map['SecondMonitor'])) {
             $model->secondMonitor = $map['SecondMonitor'];
+        }
+        if (isset($map['SiteMonitorIdcQuota'])) {
+            $model->siteMonitorIdcQuota = $map['SiteMonitorIdcQuota'];
+        }
+        if (isset($map['SiteMonitorOperatorQuotaQuota'])) {
+            $model->siteMonitorOperatorQuotaQuota = $map['SiteMonitorOperatorQuotaQuota'];
         }
         if (isset($map['SiteMonitorQuotaTaskUsed'])) {
             $model->siteMonitorQuotaTaskUsed = $map['SiteMonitorQuotaTaskUsed'];
@@ -97,9 +100,6 @@ class data extends Model
         }
         if (isset($map['SiteMonitorVersion'])) {
             $model->siteMonitorVersion = $map['SiteMonitorVersion'];
-        }
-        if (isset($map['SiteMonitorIdcQuota'])) {
-            $model->siteMonitorIdcQuota = $map['SiteMonitorIdcQuota'];
         }
 
         return $model;

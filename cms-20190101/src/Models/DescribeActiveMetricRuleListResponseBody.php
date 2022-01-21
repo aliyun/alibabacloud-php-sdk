@@ -11,9 +11,19 @@ use AlibabaCloud\Tea\Model;
 class DescribeActiveMetricRuleListResponseBody extends Model
 {
     /**
+     * @var alertList
+     */
+    public $alertList;
+
+    /**
      * @var string
      */
     public $code;
+
+    /**
+     * @var datapoints
+     */
+    public $datapoints;
 
     /**
      * @var string
@@ -29,23 +39,13 @@ class DescribeActiveMetricRuleListResponseBody extends Model
      * @var bool
      */
     public $success;
-
-    /**
-     * @var datapoints
-     */
-    public $datapoints;
-
-    /**
-     * @var alertList
-     */
-    public $alertList;
     protected $_name = [
+        'alertList'  => 'AlertList',
         'code'       => 'Code',
+        'datapoints' => 'Datapoints',
         'message'    => 'Message',
         'requestId'  => 'RequestId',
         'success'    => 'Success',
-        'datapoints' => 'Datapoints',
-        'alertList'  => 'AlertList',
     ];
 
     public function validate()
@@ -55,8 +55,14 @@ class DescribeActiveMetricRuleListResponseBody extends Model
     public function toMap()
     {
         $res = [];
+        if (null !== $this->alertList) {
+            $res['AlertList'] = null !== $this->alertList ? $this->alertList->toMap() : null;
+        }
         if (null !== $this->code) {
             $res['Code'] = $this->code;
+        }
+        if (null !== $this->datapoints) {
+            $res['Datapoints'] = null !== $this->datapoints ? $this->datapoints->toMap() : null;
         }
         if (null !== $this->message) {
             $res['Message'] = $this->message;
@@ -66,12 +72,6 @@ class DescribeActiveMetricRuleListResponseBody extends Model
         }
         if (null !== $this->success) {
             $res['Success'] = $this->success;
-        }
-        if (null !== $this->datapoints) {
-            $res['Datapoints'] = null !== $this->datapoints ? $this->datapoints->toMap() : null;
-        }
-        if (null !== $this->alertList) {
-            $res['AlertList'] = null !== $this->alertList ? $this->alertList->toMap() : null;
         }
 
         return $res;
@@ -85,8 +85,14 @@ class DescribeActiveMetricRuleListResponseBody extends Model
     public static function fromMap($map = [])
     {
         $model = new self();
+        if (isset($map['AlertList'])) {
+            $model->alertList = alertList::fromMap($map['AlertList']);
+        }
         if (isset($map['Code'])) {
             $model->code = $map['Code'];
+        }
+        if (isset($map['Datapoints'])) {
+            $model->datapoints = datapoints::fromMap($map['Datapoints']);
         }
         if (isset($map['Message'])) {
             $model->message = $map['Message'];
@@ -96,12 +102,6 @@ class DescribeActiveMetricRuleListResponseBody extends Model
         }
         if (isset($map['Success'])) {
             $model->success = $map['Success'];
-        }
-        if (isset($map['Datapoints'])) {
-            $model->datapoints = datapoints::fromMap($map['Datapoints']);
-        }
-        if (isset($map['AlertList'])) {
-            $model->alertList = alertList::fromMap($map['AlertList']);
         }
 
         return $model;

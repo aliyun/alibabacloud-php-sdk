@@ -26,18 +26,18 @@ class contact extends Model
     /**
      * @var string
      */
-    public $success;
+    public $ruleId;
 
     /**
      * @var string
      */
-    public $ruleId;
+    public $success;
     protected $_name = [
         'code'      => 'Code',
         'message'   => 'Message',
         'requestId' => 'RequestId',
-        'success'   => 'Success',
         'ruleId'    => 'RuleId',
+        'success'   => 'Success',
     ];
 
     public function validate()
@@ -56,11 +56,11 @@ class contact extends Model
         if (null !== $this->requestId) {
             $res['RequestId'] = $this->requestId;
         }
-        if (null !== $this->success) {
-            $res['Success'] = $this->success;
-        }
         if (null !== $this->ruleId) {
             $res['RuleId'] = $this->ruleId;
+        }
+        if (null !== $this->success) {
+            $res['Success'] = $this->success;
         }
 
         return $res;
@@ -83,11 +83,11 @@ class contact extends Model
         if (isset($map['RequestId'])) {
             $model->requestId = $map['RequestId'];
         }
-        if (isset($map['Success'])) {
-            $model->success = $map['Success'];
-        }
         if (isset($map['RuleId'])) {
             $model->ruleId = $map['RuleId'];
+        }
+        if (isset($map['Success'])) {
+            $model->success = $map['Success'];
         }
 
         return $model;

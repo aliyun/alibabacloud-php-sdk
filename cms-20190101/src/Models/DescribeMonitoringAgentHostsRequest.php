@@ -9,14 +9,9 @@ use AlibabaCloud\Tea\Model;
 class DescribeMonitoringAgentHostsRequest extends Model
 {
     /**
-     * @var string
+     * @var bool
      */
-    public $regionId;
-
-    /**
-     * @var string
-     */
-    public $keyWord;
+    public $aliyunHost;
 
     /**
      * @var string
@@ -31,7 +26,12 @@ class DescribeMonitoringAgentHostsRequest extends Model
     /**
      * @var string
      */
-    public $serialNumbers;
+    public $instanceRegionId;
+
+    /**
+     * @var string
+     */
+    public $keyWord;
 
     /**
      * @var int
@@ -46,27 +46,27 @@ class DescribeMonitoringAgentHostsRequest extends Model
     /**
      * @var string
      */
-    public $instanceRegionId;
+    public $regionId;
 
     /**
-     * @var bool
+     * @var string
      */
-    public $aliyunHost;
+    public $serialNumbers;
 
     /**
      * @var string
      */
     public $status;
     protected $_name = [
-        'regionId'         => 'RegionId',
-        'keyWord'          => 'KeyWord',
+        'aliyunHost'       => 'AliyunHost',
         'hostName'         => 'HostName',
         'instanceIds'      => 'InstanceIds',
-        'serialNumbers'    => 'SerialNumbers',
+        'instanceRegionId' => 'InstanceRegionId',
+        'keyWord'          => 'KeyWord',
         'pageNumber'       => 'PageNumber',
         'pageSize'         => 'PageSize',
-        'instanceRegionId' => 'InstanceRegionId',
-        'aliyunHost'       => 'AliyunHost',
+        'regionId'         => 'RegionId',
+        'serialNumbers'    => 'SerialNumbers',
         'status'           => 'Status',
     ];
 
@@ -77,11 +77,8 @@ class DescribeMonitoringAgentHostsRequest extends Model
     public function toMap()
     {
         $res = [];
-        if (null !== $this->regionId) {
-            $res['RegionId'] = $this->regionId;
-        }
-        if (null !== $this->keyWord) {
-            $res['KeyWord'] = $this->keyWord;
+        if (null !== $this->aliyunHost) {
+            $res['AliyunHost'] = $this->aliyunHost;
         }
         if (null !== $this->hostName) {
             $res['HostName'] = $this->hostName;
@@ -89,8 +86,11 @@ class DescribeMonitoringAgentHostsRequest extends Model
         if (null !== $this->instanceIds) {
             $res['InstanceIds'] = $this->instanceIds;
         }
-        if (null !== $this->serialNumbers) {
-            $res['SerialNumbers'] = $this->serialNumbers;
+        if (null !== $this->instanceRegionId) {
+            $res['InstanceRegionId'] = $this->instanceRegionId;
+        }
+        if (null !== $this->keyWord) {
+            $res['KeyWord'] = $this->keyWord;
         }
         if (null !== $this->pageNumber) {
             $res['PageNumber'] = $this->pageNumber;
@@ -98,11 +98,11 @@ class DescribeMonitoringAgentHostsRequest extends Model
         if (null !== $this->pageSize) {
             $res['PageSize'] = $this->pageSize;
         }
-        if (null !== $this->instanceRegionId) {
-            $res['InstanceRegionId'] = $this->instanceRegionId;
+        if (null !== $this->regionId) {
+            $res['RegionId'] = $this->regionId;
         }
-        if (null !== $this->aliyunHost) {
-            $res['AliyunHost'] = $this->aliyunHost;
+        if (null !== $this->serialNumbers) {
+            $res['SerialNumbers'] = $this->serialNumbers;
         }
         if (null !== $this->status) {
             $res['Status'] = $this->status;
@@ -119,11 +119,8 @@ class DescribeMonitoringAgentHostsRequest extends Model
     public static function fromMap($map = [])
     {
         $model = new self();
-        if (isset($map['RegionId'])) {
-            $model->regionId = $map['RegionId'];
-        }
-        if (isset($map['KeyWord'])) {
-            $model->keyWord = $map['KeyWord'];
+        if (isset($map['AliyunHost'])) {
+            $model->aliyunHost = $map['AliyunHost'];
         }
         if (isset($map['HostName'])) {
             $model->hostName = $map['HostName'];
@@ -131,8 +128,11 @@ class DescribeMonitoringAgentHostsRequest extends Model
         if (isset($map['InstanceIds'])) {
             $model->instanceIds = $map['InstanceIds'];
         }
-        if (isset($map['SerialNumbers'])) {
-            $model->serialNumbers = $map['SerialNumbers'];
+        if (isset($map['InstanceRegionId'])) {
+            $model->instanceRegionId = $map['InstanceRegionId'];
+        }
+        if (isset($map['KeyWord'])) {
+            $model->keyWord = $map['KeyWord'];
         }
         if (isset($map['PageNumber'])) {
             $model->pageNumber = $map['PageNumber'];
@@ -140,11 +140,11 @@ class DescribeMonitoringAgentHostsRequest extends Model
         if (isset($map['PageSize'])) {
             $model->pageSize = $map['PageSize'];
         }
-        if (isset($map['InstanceRegionId'])) {
-            $model->instanceRegionId = $map['InstanceRegionId'];
+        if (isset($map['RegionId'])) {
+            $model->regionId = $map['RegionId'];
         }
-        if (isset($map['AliyunHost'])) {
-            $model->aliyunHost = $map['AliyunHost'];
+        if (isset($map['SerialNumbers'])) {
+            $model->serialNumbers = $map['SerialNumbers'];
         }
         if (isset($map['Status'])) {
             $model->status = $map['Status'];

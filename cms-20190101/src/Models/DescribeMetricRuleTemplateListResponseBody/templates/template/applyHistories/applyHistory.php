@@ -11,21 +11,21 @@ class applyHistory extends Model
     /**
      * @var int
      */
+    public $applyTime;
+
+    /**
+     * @var int
+     */
     public $groupId;
 
     /**
      * @var string
      */
     public $groupName;
-
-    /**
-     * @var int
-     */
-    public $applyTime;
     protected $_name = [
+        'applyTime' => 'ApplyTime',
         'groupId'   => 'GroupId',
         'groupName' => 'GroupName',
-        'applyTime' => 'ApplyTime',
     ];
 
     public function validate()
@@ -35,14 +35,14 @@ class applyHistory extends Model
     public function toMap()
     {
         $res = [];
+        if (null !== $this->applyTime) {
+            $res['ApplyTime'] = $this->applyTime;
+        }
         if (null !== $this->groupId) {
             $res['GroupId'] = $this->groupId;
         }
         if (null !== $this->groupName) {
             $res['GroupName'] = $this->groupName;
-        }
-        if (null !== $this->applyTime) {
-            $res['ApplyTime'] = $this->applyTime;
         }
 
         return $res;
@@ -56,14 +56,14 @@ class applyHistory extends Model
     public static function fromMap($map = [])
     {
         $model = new self();
+        if (isset($map['ApplyTime'])) {
+            $model->applyTime = $map['ApplyTime'];
+        }
         if (isset($map['GroupId'])) {
             $model->groupId = $map['GroupId'];
         }
         if (isset($map['GroupName'])) {
             $model->groupName = $map['GroupName'];
-        }
-        if (isset($map['ApplyTime'])) {
-            $model->applyTime = $map['ApplyTime'];
         }
 
         return $model;

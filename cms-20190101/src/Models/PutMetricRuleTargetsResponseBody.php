@@ -15,6 +15,11 @@ class PutMetricRuleTargetsResponseBody extends Model
     public $code;
 
     /**
+     * @var failData
+     */
+    public $failData;
+
+    /**
      * @var string
      */
     public $message;
@@ -28,17 +33,12 @@ class PutMetricRuleTargetsResponseBody extends Model
      * @var bool
      */
     public $success;
-
-    /**
-     * @var failData
-     */
-    public $failData;
     protected $_name = [
         'code'      => 'Code',
+        'failData'  => 'FailData',
         'message'   => 'Message',
         'requestId' => 'RequestId',
         'success'   => 'Success',
-        'failData'  => 'FailData',
     ];
 
     public function validate()
@@ -51,6 +51,9 @@ class PutMetricRuleTargetsResponseBody extends Model
         if (null !== $this->code) {
             $res['Code'] = $this->code;
         }
+        if (null !== $this->failData) {
+            $res['FailData'] = null !== $this->failData ? $this->failData->toMap() : null;
+        }
         if (null !== $this->message) {
             $res['Message'] = $this->message;
         }
@@ -59,9 +62,6 @@ class PutMetricRuleTargetsResponseBody extends Model
         }
         if (null !== $this->success) {
             $res['Success'] = $this->success;
-        }
-        if (null !== $this->failData) {
-            $res['FailData'] = null !== $this->failData ? $this->failData->toMap() : null;
         }
 
         return $res;
@@ -78,6 +78,9 @@ class PutMetricRuleTargetsResponseBody extends Model
         if (isset($map['Code'])) {
             $model->code = $map['Code'];
         }
+        if (isset($map['FailData'])) {
+            $model->failData = failData::fromMap($map['FailData']);
+        }
         if (isset($map['Message'])) {
             $model->message = $map['Message'];
         }
@@ -86,9 +89,6 @@ class PutMetricRuleTargetsResponseBody extends Model
         }
         if (isset($map['Success'])) {
             $model->success = $map['Success'];
-        }
-        if (isset($map['FailData'])) {
-            $model->failData = failData::fromMap($map['FailData']);
         }
 
         return $model;

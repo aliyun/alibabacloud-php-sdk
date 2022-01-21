@@ -19,9 +19,9 @@ class alertResults extends Model
     public $message;
 
     /**
-     * @var bool
+     * @var string
      */
-    public $success;
+    public $ruleId;
 
     /**
      * @var string
@@ -29,15 +29,15 @@ class alertResults extends Model
     public $ruleName;
 
     /**
-     * @var string
+     * @var bool
      */
-    public $ruleId;
+    public $success;
     protected $_name = [
         'code'     => 'Code',
         'message'  => 'Message',
-        'success'  => 'Success',
-        'ruleName' => 'RuleName',
         'ruleId'   => 'RuleId',
+        'ruleName' => 'RuleName',
+        'success'  => 'Success',
     ];
 
     public function validate()
@@ -53,14 +53,14 @@ class alertResults extends Model
         if (null !== $this->message) {
             $res['Message'] = $this->message;
         }
-        if (null !== $this->success) {
-            $res['Success'] = $this->success;
+        if (null !== $this->ruleId) {
+            $res['RuleId'] = $this->ruleId;
         }
         if (null !== $this->ruleName) {
             $res['RuleName'] = $this->ruleName;
         }
-        if (null !== $this->ruleId) {
-            $res['RuleId'] = $this->ruleId;
+        if (null !== $this->success) {
+            $res['Success'] = $this->success;
         }
 
         return $res;
@@ -80,14 +80,14 @@ class alertResults extends Model
         if (isset($map['Message'])) {
             $model->message = $map['Message'];
         }
-        if (isset($map['Success'])) {
-            $model->success = $map['Success'];
+        if (isset($map['RuleId'])) {
+            $model->ruleId = $map['RuleId'];
         }
         if (isset($map['RuleName'])) {
             $model->ruleName = $map['RuleName'];
         }
-        if (isset($map['RuleId'])) {
-            $model->ruleId = $map['RuleId'];
+        if (isset($map['Success'])) {
+            $model->success = $map['Success'];
         }
 
         return $model;

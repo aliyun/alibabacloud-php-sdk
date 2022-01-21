@@ -25,20 +25,20 @@ class DescribeEventRuleAttributeResponseBody extends Model
     public $requestId;
 
     /**
-     * @var bool
-     */
-    public $success;
-
-    /**
      * @var result
      */
     public $result;
+
+    /**
+     * @var bool
+     */
+    public $success;
     protected $_name = [
         'code'      => 'Code',
         'message'   => 'Message',
         'requestId' => 'RequestId',
-        'success'   => 'Success',
         'result'    => 'Result',
+        'success'   => 'Success',
     ];
 
     public function validate()
@@ -57,11 +57,11 @@ class DescribeEventRuleAttributeResponseBody extends Model
         if (null !== $this->requestId) {
             $res['RequestId'] = $this->requestId;
         }
-        if (null !== $this->success) {
-            $res['Success'] = $this->success;
-        }
         if (null !== $this->result) {
             $res['Result'] = null !== $this->result ? $this->result->toMap() : null;
+        }
+        if (null !== $this->success) {
+            $res['Success'] = $this->success;
         }
 
         return $res;
@@ -84,11 +84,11 @@ class DescribeEventRuleAttributeResponseBody extends Model
         if (isset($map['RequestId'])) {
             $model->requestId = $map['RequestId'];
         }
-        if (isset($map['Success'])) {
-            $model->success = $map['Success'];
-        }
         if (isset($map['Result'])) {
             $model->result = result::fromMap($map['Result']);
+        }
+        if (isset($map['Success'])) {
+            $model->success = $map['Success'];
         }
 
         return $model;

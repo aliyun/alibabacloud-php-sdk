@@ -10,17 +10,17 @@ use AlibabaCloud\Tea\Model;
 class PutCustomMetricRequest extends Model
 {
     /**
-     * @var string
-     */
-    public $regionId;
-
-    /**
      * @var metricList[]
      */
     public $metricList;
+
+    /**
+     * @var string
+     */
+    public $regionId;
     protected $_name = [
-        'regionId'   => 'RegionId',
         'metricList' => 'MetricList',
+        'regionId'   => 'RegionId',
     ];
 
     public function validate()
@@ -30,9 +30,6 @@ class PutCustomMetricRequest extends Model
     public function toMap()
     {
         $res = [];
-        if (null !== $this->regionId) {
-            $res['RegionId'] = $this->regionId;
-        }
         if (null !== $this->metricList) {
             $res['MetricList'] = [];
             if (null !== $this->metricList && \is_array($this->metricList)) {
@@ -41,6 +38,9 @@ class PutCustomMetricRequest extends Model
                     $res['MetricList'][$n++] = null !== $item ? $item->toMap() : $item;
                 }
             }
+        }
+        if (null !== $this->regionId) {
+            $res['RegionId'] = $this->regionId;
         }
 
         return $res;
@@ -54,9 +54,6 @@ class PutCustomMetricRequest extends Model
     public static function fromMap($map = [])
     {
         $model = new self();
-        if (isset($map['RegionId'])) {
-            $model->regionId = $map['RegionId'];
-        }
         if (isset($map['MetricList'])) {
             if (!empty($map['MetricList'])) {
                 $model->metricList = [];
@@ -65,6 +62,9 @@ class PutCustomMetricRequest extends Model
                     $model->metricList[$n++] = null !== $item ? metricList::fromMap($item) : $item;
                 }
             }
+        }
+        if (isset($map['RegionId'])) {
+            $model->regionId = $map['RegionId'];
         }
 
         return $model;
