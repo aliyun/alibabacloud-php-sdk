@@ -218,10 +218,14 @@ use AlibabaCloud\SDK\Dmsenterprise\V20181101\Models\ListWorkFlowTemplatesRequest
 use AlibabaCloud\SDK\Dmsenterprise\V20181101\Models\ListWorkFlowTemplatesResponse;
 use AlibabaCloud\SDK\Dmsenterprise\V20181101\Models\ModifyDataCorrectExecSQLRequest;
 use AlibabaCloud\SDK\Dmsenterprise\V20181101\Models\ModifyDataCorrectExecSQLResponse;
+use AlibabaCloud\SDK\Dmsenterprise\V20181101\Models\PauseDataCorrectSQLJobRequest;
+use AlibabaCloud\SDK\Dmsenterprise\V20181101\Models\PauseDataCorrectSQLJobResponse;
 use AlibabaCloud\SDK\Dmsenterprise\V20181101\Models\RegisterInstanceRequest;
 use AlibabaCloud\SDK\Dmsenterprise\V20181101\Models\RegisterInstanceResponse;
 use AlibabaCloud\SDK\Dmsenterprise\V20181101\Models\RegisterUserRequest;
 use AlibabaCloud\SDK\Dmsenterprise\V20181101\Models\RegisterUserResponse;
+use AlibabaCloud\SDK\Dmsenterprise\V20181101\Models\RestartDataCorrectSQLJobRequest;
+use AlibabaCloud\SDK\Dmsenterprise\V20181101\Models\RestartDataCorrectSQLJobResponse;
 use AlibabaCloud\SDK\Dmsenterprise\V20181101\Models\RetryDataCorrectPreCheckRequest;
 use AlibabaCloud\SDK\Dmsenterprise\V20181101\Models\RetryDataCorrectPreCheckResponse;
 use AlibabaCloud\SDK\Dmsenterprise\V20181101\Models\RevokeUserPermissionRequest;
@@ -5435,6 +5439,58 @@ class Dmsenterprise extends OpenApiClient
     }
 
     /**
+     * @param PauseDataCorrectSQLJobRequest $request
+     * @param RuntimeOptions                $runtime
+     *
+     * @return PauseDataCorrectSQLJobResponse
+     */
+    public function pauseDataCorrectSQLJobWithOptions($request, $runtime)
+    {
+        Utils::validateModel($request);
+        $query = [];
+        if (!Utils::isUnset($request->jobId)) {
+            $query['JobId'] = $request->jobId;
+        }
+        if (!Utils::isUnset($request->orderId)) {
+            $query['OrderId'] = $request->orderId;
+        }
+        if (!Utils::isUnset($request->tid)) {
+            $query['Tid'] = $request->tid;
+        }
+        if (!Utils::isUnset($request->type)) {
+            $query['Type'] = $request->type;
+        }
+        $req = new OpenApiRequest([
+            'query' => OpenApiUtilClient::query($query),
+        ]);
+        $params = new Params([
+            'action'      => 'PauseDataCorrectSQLJob',
+            'version'     => '2018-11-01',
+            'protocol'    => 'HTTPS',
+            'pathname'    => '/',
+            'method'      => 'POST',
+            'authType'    => 'AK',
+            'style'       => 'RPC',
+            'reqBodyType' => 'formData',
+            'bodyType'    => 'json',
+        ]);
+
+        return PauseDataCorrectSQLJobResponse::fromMap($this->callApi($params, $req, $runtime));
+    }
+
+    /**
+     * @param PauseDataCorrectSQLJobRequest $request
+     *
+     * @return PauseDataCorrectSQLJobResponse
+     */
+    public function pauseDataCorrectSQLJob($request)
+    {
+        $runtime = new RuntimeOptions([]);
+
+        return $this->pauseDataCorrectSQLJobWithOptions($request, $runtime);
+    }
+
+    /**
      * @param RegisterInstanceRequest $request
      * @param RuntimeOptions          $runtime
      *
@@ -5593,6 +5649,58 @@ class Dmsenterprise extends OpenApiClient
         $runtime = new RuntimeOptions([]);
 
         return $this->registerUserWithOptions($request, $runtime);
+    }
+
+    /**
+     * @param RestartDataCorrectSQLJobRequest $request
+     * @param RuntimeOptions                  $runtime
+     *
+     * @return RestartDataCorrectSQLJobResponse
+     */
+    public function restartDataCorrectSQLJobWithOptions($request, $runtime)
+    {
+        Utils::validateModel($request);
+        $query = [];
+        if (!Utils::isUnset($request->jobId)) {
+            $query['JobId'] = $request->jobId;
+        }
+        if (!Utils::isUnset($request->orderId)) {
+            $query['OrderId'] = $request->orderId;
+        }
+        if (!Utils::isUnset($request->tid)) {
+            $query['Tid'] = $request->tid;
+        }
+        if (!Utils::isUnset($request->type)) {
+            $query['Type'] = $request->type;
+        }
+        $req = new OpenApiRequest([
+            'query' => OpenApiUtilClient::query($query),
+        ]);
+        $params = new Params([
+            'action'      => 'RestartDataCorrectSQLJob',
+            'version'     => '2018-11-01',
+            'protocol'    => 'HTTPS',
+            'pathname'    => '/',
+            'method'      => 'POST',
+            'authType'    => 'AK',
+            'style'       => 'RPC',
+            'reqBodyType' => 'formData',
+            'bodyType'    => 'json',
+        ]);
+
+        return RestartDataCorrectSQLJobResponse::fromMap($this->callApi($params, $req, $runtime));
+    }
+
+    /**
+     * @param RestartDataCorrectSQLJobRequest $request
+     *
+     * @return RestartDataCorrectSQLJobResponse
+     */
+    public function restartDataCorrectSQLJob($request)
+    {
+        $runtime = new RuntimeOptions([]);
+
+        return $this->restartDataCorrectSQLJobWithOptions($request, $runtime);
     }
 
     /**

@@ -37,6 +37,11 @@ class preCheckSQLList extends Model
      * @var string
      */
     public $sqlType;
+
+    /**
+     * @var string
+     */
+    public $tableNames;
     protected $_name = [
         'affectRows'        => 'AffectRows',
         'checkSQL'          => 'CheckSQL',
@@ -44,6 +49,7 @@ class preCheckSQLList extends Model
         'SQLReviewQueryKey' => 'SQLReviewQueryKey',
         'sqlReviewStatus'   => 'SqlReviewStatus',
         'sqlType'           => 'SqlType',
+        'tableNames'        => 'TableNames',
     ];
 
     public function validate()
@@ -70,6 +76,9 @@ class preCheckSQLList extends Model
         }
         if (null !== $this->sqlType) {
             $res['SqlType'] = $this->sqlType;
+        }
+        if (null !== $this->tableNames) {
+            $res['TableNames'] = $this->tableNames;
         }
 
         return $res;
@@ -100,6 +109,9 @@ class preCheckSQLList extends Model
         }
         if (isset($map['SqlType'])) {
             $model->sqlType = $map['SqlType'];
+        }
+        if (isset($map['TableNames'])) {
+            $model->tableNames = $map['TableNames'];
         }
 
         return $model;
