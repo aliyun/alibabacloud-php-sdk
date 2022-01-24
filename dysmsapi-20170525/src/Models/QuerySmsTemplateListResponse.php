@@ -6,7 +6,7 @@ namespace AlibabaCloud\SDK\Dysmsapi\V20170525\Models;
 
 use AlibabaCloud\Tea\Model;
 
-class GetMediaResourceIdResponse extends Model
+class QuerySmsTemplateListResponse extends Model
 {
     /**
      * @var string[]
@@ -14,7 +14,7 @@ class GetMediaResourceIdResponse extends Model
     public $headers;
 
     /**
-     * @var GetMediaResourceIdResponseBody
+     * @var QuerySmsTemplateListResponseBody
      */
     public $body;
     protected $_name = [
@@ -44,7 +44,7 @@ class GetMediaResourceIdResponse extends Model
     /**
      * @param array $map
      *
-     * @return GetMediaResourceIdResponse
+     * @return QuerySmsTemplateListResponse
      */
     public static function fromMap($map = [])
     {
@@ -53,7 +53,7 @@ class GetMediaResourceIdResponse extends Model
             $model->headers = $map['headers'];
         }
         if (isset($map['body'])) {
-            $model->body = GetMediaResourceIdResponseBody::fromMap($map['body']);
+            $model->body = QuerySmsTemplateListResponseBody::fromMap($map['body']);
         }
 
         return $model;

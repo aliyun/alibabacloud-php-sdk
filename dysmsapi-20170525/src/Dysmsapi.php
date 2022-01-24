@@ -12,38 +12,34 @@ use AlibabaCloud\SDK\Dysmsapi\V20170525\Models\AddSmsSignRequest;
 use AlibabaCloud\SDK\Dysmsapi\V20170525\Models\AddSmsSignResponse;
 use AlibabaCloud\SDK\Dysmsapi\V20170525\Models\AddSmsTemplateRequest;
 use AlibabaCloud\SDK\Dysmsapi\V20170525\Models\AddSmsTemplateResponse;
-use AlibabaCloud\SDK\Dysmsapi\V20170525\Models\CreateCardSmsTemplateRequest;
-use AlibabaCloud\SDK\Dysmsapi\V20170525\Models\CreateCardSmsTemplateResponse;
-use AlibabaCloud\SDK\Dysmsapi\V20170525\Models\CreateCardSmsTemplateShrinkRequest;
 use AlibabaCloud\SDK\Dysmsapi\V20170525\Models\DeleteShortUrlRequest;
 use AlibabaCloud\SDK\Dysmsapi\V20170525\Models\DeleteShortUrlResponse;
 use AlibabaCloud\SDK\Dysmsapi\V20170525\Models\DeleteSmsSignRequest;
 use AlibabaCloud\SDK\Dysmsapi\V20170525\Models\DeleteSmsSignResponse;
 use AlibabaCloud\SDK\Dysmsapi\V20170525\Models\DeleteSmsTemplateRequest;
 use AlibabaCloud\SDK\Dysmsapi\V20170525\Models\DeleteSmsTemplateResponse;
-use AlibabaCloud\SDK\Dysmsapi\V20170525\Models\GetMediaResourceIdRequest;
-use AlibabaCloud\SDK\Dysmsapi\V20170525\Models\GetMediaResourceIdResponse;
-use AlibabaCloud\SDK\Dysmsapi\V20170525\Models\GetOSSInfoForCardTemplateResponse;
 use AlibabaCloud\SDK\Dysmsapi\V20170525\Models\ListTagResourcesRequest;
 use AlibabaCloud\SDK\Dysmsapi\V20170525\Models\ListTagResourcesResponse;
 use AlibabaCloud\SDK\Dysmsapi\V20170525\Models\ModifySmsSignRequest;
 use AlibabaCloud\SDK\Dysmsapi\V20170525\Models\ModifySmsSignResponse;
 use AlibabaCloud\SDK\Dysmsapi\V20170525\Models\ModifySmsTemplateRequest;
 use AlibabaCloud\SDK\Dysmsapi\V20170525\Models\ModifySmsTemplateResponse;
-use AlibabaCloud\SDK\Dysmsapi\V20170525\Models\QueryCardSmsTemplateRequest;
-use AlibabaCloud\SDK\Dysmsapi\V20170525\Models\QueryCardSmsTemplateResponse;
 use AlibabaCloud\SDK\Dysmsapi\V20170525\Models\QuerySendDetailsRequest;
 use AlibabaCloud\SDK\Dysmsapi\V20170525\Models\QuerySendDetailsResponse;
+use AlibabaCloud\SDK\Dysmsapi\V20170525\Models\QuerySendStatisticsRequest;
+use AlibabaCloud\SDK\Dysmsapi\V20170525\Models\QuerySendStatisticsResponse;
 use AlibabaCloud\SDK\Dysmsapi\V20170525\Models\QueryShortUrlRequest;
 use AlibabaCloud\SDK\Dysmsapi\V20170525\Models\QueryShortUrlResponse;
+use AlibabaCloud\SDK\Dysmsapi\V20170525\Models\QuerySmsSignListRequest;
+use AlibabaCloud\SDK\Dysmsapi\V20170525\Models\QuerySmsSignListResponse;
 use AlibabaCloud\SDK\Dysmsapi\V20170525\Models\QuerySmsSignRequest;
 use AlibabaCloud\SDK\Dysmsapi\V20170525\Models\QuerySmsSignResponse;
+use AlibabaCloud\SDK\Dysmsapi\V20170525\Models\QuerySmsTemplateListRequest;
+use AlibabaCloud\SDK\Dysmsapi\V20170525\Models\QuerySmsTemplateListResponse;
 use AlibabaCloud\SDK\Dysmsapi\V20170525\Models\QuerySmsTemplateRequest;
 use AlibabaCloud\SDK\Dysmsapi\V20170525\Models\QuerySmsTemplateResponse;
 use AlibabaCloud\SDK\Dysmsapi\V20170525\Models\SendBatchSmsRequest;
 use AlibabaCloud\SDK\Dysmsapi\V20170525\Models\SendBatchSmsResponse;
-use AlibabaCloud\SDK\Dysmsapi\V20170525\Models\SendCardSmsRequest;
-use AlibabaCloud\SDK\Dysmsapi\V20170525\Models\SendCardSmsResponse;
 use AlibabaCloud\SDK\Dysmsapi\V20170525\Models\SendSmsRequest;
 use AlibabaCloud\SDK\Dysmsapi\V20170525\Models\SendSmsResponse;
 use AlibabaCloud\SDK\Dysmsapi\V20170525\Models\TagResourcesRequest;
@@ -104,13 +100,29 @@ class Dysmsapi extends OpenApiClient
     public function addShortUrlWithOptions($request, $runtime)
     {
         Utils::validateModel($request);
-        $query                         = [];
-        $query['OwnerId']              = $request->ownerId;
-        $query['ResourceOwnerAccount'] = $request->resourceOwnerAccount;
-        $query['ResourceOwnerId']      = $request->resourceOwnerId;
-        $req                           = new OpenApiRequest([
+        $query = [];
+        if (!Utils::isUnset($request->ownerId)) {
+            $query['OwnerId'] = $request->ownerId;
+        }
+        if (!Utils::isUnset($request->resourceOwnerAccount)) {
+            $query['ResourceOwnerAccount'] = $request->resourceOwnerAccount;
+        }
+        if (!Utils::isUnset($request->resourceOwnerId)) {
+            $query['ResourceOwnerId'] = $request->resourceOwnerId;
+        }
+        $body = [];
+        if (!Utils::isUnset($request->effectiveDays)) {
+            $body['EffectiveDays'] = $request->effectiveDays;
+        }
+        if (!Utils::isUnset($request->shortUrlName)) {
+            $body['ShortUrlName'] = $request->shortUrlName;
+        }
+        if (!Utils::isUnset($request->sourceUrl)) {
+            $body['SourceUrl'] = $request->sourceUrl;
+        }
+        $req = new OpenApiRequest([
             'query' => OpenApiUtilClient::query($query),
-            'body'  => Utils::toMap($request),
+            'body'  => OpenApiUtilClient::parseToMap($body),
         ]);
         $params = new Params([
             'action'      => 'AddShortUrl',
@@ -148,16 +160,32 @@ class Dysmsapi extends OpenApiClient
     public function addSmsSignWithOptions($request, $runtime)
     {
         Utils::validateModel($request);
-        $query                         = [];
-        $query['OwnerId']              = $request->ownerId;
-        $query['Remark']               = $request->remark;
-        $query['ResourceOwnerAccount'] = $request->resourceOwnerAccount;
-        $query['ResourceOwnerId']      = $request->resourceOwnerId;
-        $query['SignName']             = $request->signName;
-        $query['SignSource']           = $request->signSource;
-        $req                           = new OpenApiRequest([
+        $query = [];
+        if (!Utils::isUnset($request->ownerId)) {
+            $query['OwnerId'] = $request->ownerId;
+        }
+        if (!Utils::isUnset($request->remark)) {
+            $query['Remark'] = $request->remark;
+        }
+        if (!Utils::isUnset($request->resourceOwnerAccount)) {
+            $query['ResourceOwnerAccount'] = $request->resourceOwnerAccount;
+        }
+        if (!Utils::isUnset($request->resourceOwnerId)) {
+            $query['ResourceOwnerId'] = $request->resourceOwnerId;
+        }
+        if (!Utils::isUnset($request->signName)) {
+            $query['SignName'] = $request->signName;
+        }
+        if (!Utils::isUnset($request->signSource)) {
+            $query['SignSource'] = $request->signSource;
+        }
+        $body = [];
+        if (!Utils::isUnset($request->signFileList)) {
+            $body['SignFileList'] = $request->signFileList;
+        }
+        $req = new OpenApiRequest([
             'query' => OpenApiUtilClient::query($query),
-            'body'  => Utils::toMap($request),
+            'body'  => OpenApiUtilClient::parseToMap($body),
         ]);
         $params = new Params([
             'action'      => 'AddSmsSign',
@@ -195,17 +223,30 @@ class Dysmsapi extends OpenApiClient
     public function addSmsTemplateWithOptions($request, $runtime)
     {
         Utils::validateModel($request);
-        $query                         = [];
-        $query['OwnerId']              = $request->ownerId;
-        $query['Remark']               = $request->remark;
-        $query['ResourceOwnerAccount'] = $request->resourceOwnerAccount;
-        $query['ResourceOwnerId']      = $request->resourceOwnerId;
-        $query['TemplateContent']      = $request->templateContent;
-        $query['TemplateName']         = $request->templateName;
-        $query['TemplateType']         = $request->templateType;
-        $req                           = new OpenApiRequest([
+        $query = [];
+        if (!Utils::isUnset($request->ownerId)) {
+            $query['OwnerId'] = $request->ownerId;
+        }
+        if (!Utils::isUnset($request->remark)) {
+            $query['Remark'] = $request->remark;
+        }
+        if (!Utils::isUnset($request->resourceOwnerAccount)) {
+            $query['ResourceOwnerAccount'] = $request->resourceOwnerAccount;
+        }
+        if (!Utils::isUnset($request->resourceOwnerId)) {
+            $query['ResourceOwnerId'] = $request->resourceOwnerId;
+        }
+        if (!Utils::isUnset($request->templateContent)) {
+            $query['TemplateContent'] = $request->templateContent;
+        }
+        if (!Utils::isUnset($request->templateName)) {
+            $query['TemplateName'] = $request->templateName;
+        }
+        if (!Utils::isUnset($request->templateType)) {
+            $query['TemplateType'] = $request->templateType;
+        }
+        $req = new OpenApiRequest([
             'query' => OpenApiUtilClient::query($query),
-            'body'  => Utils::toMap($request),
         ]);
         $params = new Params([
             'action'      => 'AddSmsTemplate',
@@ -215,7 +256,7 @@ class Dysmsapi extends OpenApiClient
             'method'      => 'POST',
             'authType'    => 'AK',
             'style'       => 'RPC',
-            'reqBodyType' => 'json',
+            'reqBodyType' => 'formData',
             'bodyType'    => 'json',
         ]);
 
@@ -235,55 +276,6 @@ class Dysmsapi extends OpenApiClient
     }
 
     /**
-     * @param CreateCardSmsTemplateRequest $tmpReq
-     * @param RuntimeOptions               $runtime
-     *
-     * @return CreateCardSmsTemplateResponse
-     */
-    public function createCardSmsTemplateWithOptions($tmpReq, $runtime)
-    {
-        Utils::validateModel($tmpReq);
-        $request = new CreateCardSmsTemplateShrinkRequest([]);
-        OpenApiUtilClient::convert($tmpReq, $request);
-        if (!Utils::isUnset($tmpReq->template)) {
-            $request->templateShrink = OpenApiUtilClient::arrayToStringWithSpecifiedStyle($tmpReq->template, 'Template', 'json');
-        }
-        $query                 = [];
-        $query['Memo']         = $request->memo;
-        $query['Template']     = $request->templateShrink;
-        $query['TemplateName'] = $request->templateName;
-        $req                   = new OpenApiRequest([
-            'query' => OpenApiUtilClient::query($query),
-            'body'  => Utils::toMap($request),
-        ]);
-        $params = new Params([
-            'action'      => 'CreateCardSmsTemplate',
-            'version'     => '2017-05-25',
-            'protocol'    => 'HTTPS',
-            'pathname'    => '/',
-            'method'      => 'POST',
-            'authType'    => 'AK',
-            'style'       => 'RPC',
-            'reqBodyType' => 'json',
-            'bodyType'    => 'json',
-        ]);
-
-        return CreateCardSmsTemplateResponse::fromMap($this->callApi($params, $req, $runtime));
-    }
-
-    /**
-     * @param CreateCardSmsTemplateRequest $request
-     *
-     * @return CreateCardSmsTemplateResponse
-     */
-    public function createCardSmsTemplate($request)
-    {
-        $runtime = new RuntimeOptions([]);
-
-        return $this->createCardSmsTemplateWithOptions($request, $runtime);
-    }
-
-    /**
      * @param DeleteShortUrlRequest $request
      * @param RuntimeOptions        $runtime
      *
@@ -292,13 +284,23 @@ class Dysmsapi extends OpenApiClient
     public function deleteShortUrlWithOptions($request, $runtime)
     {
         Utils::validateModel($request);
-        $query                         = [];
-        $query['OwnerId']              = $request->ownerId;
-        $query['ResourceOwnerAccount'] = $request->resourceOwnerAccount;
-        $query['ResourceOwnerId']      = $request->resourceOwnerId;
-        $req                           = new OpenApiRequest([
+        $query = [];
+        if (!Utils::isUnset($request->ownerId)) {
+            $query['OwnerId'] = $request->ownerId;
+        }
+        if (!Utils::isUnset($request->resourceOwnerAccount)) {
+            $query['ResourceOwnerAccount'] = $request->resourceOwnerAccount;
+        }
+        if (!Utils::isUnset($request->resourceOwnerId)) {
+            $query['ResourceOwnerId'] = $request->resourceOwnerId;
+        }
+        $body = [];
+        if (!Utils::isUnset($request->sourceUrl)) {
+            $body['SourceUrl'] = $request->sourceUrl;
+        }
+        $req = new OpenApiRequest([
             'query' => OpenApiUtilClient::query($query),
-            'body'  => Utils::toMap($request),
+            'body'  => OpenApiUtilClient::parseToMap($body),
         ]);
         $params = new Params([
             'action'      => 'DeleteShortUrl',
@@ -336,14 +338,21 @@ class Dysmsapi extends OpenApiClient
     public function deleteSmsSignWithOptions($request, $runtime)
     {
         Utils::validateModel($request);
-        $query                         = [];
-        $query['OwnerId']              = $request->ownerId;
-        $query['ResourceOwnerAccount'] = $request->resourceOwnerAccount;
-        $query['ResourceOwnerId']      = $request->resourceOwnerId;
-        $query['SignName']             = $request->signName;
-        $req                           = new OpenApiRequest([
+        $query = [];
+        if (!Utils::isUnset($request->ownerId)) {
+            $query['OwnerId'] = $request->ownerId;
+        }
+        if (!Utils::isUnset($request->resourceOwnerAccount)) {
+            $query['ResourceOwnerAccount'] = $request->resourceOwnerAccount;
+        }
+        if (!Utils::isUnset($request->resourceOwnerId)) {
+            $query['ResourceOwnerId'] = $request->resourceOwnerId;
+        }
+        if (!Utils::isUnset($request->signName)) {
+            $query['SignName'] = $request->signName;
+        }
+        $req = new OpenApiRequest([
             'query' => OpenApiUtilClient::query($query),
-            'body'  => Utils::toMap($request),
         ]);
         $params = new Params([
             'action'      => 'DeleteSmsSign',
@@ -353,7 +362,7 @@ class Dysmsapi extends OpenApiClient
             'method'      => 'POST',
             'authType'    => 'AK',
             'style'       => 'RPC',
-            'reqBodyType' => 'json',
+            'reqBodyType' => 'formData',
             'bodyType'    => 'json',
         ]);
 
@@ -381,14 +390,21 @@ class Dysmsapi extends OpenApiClient
     public function deleteSmsTemplateWithOptions($request, $runtime)
     {
         Utils::validateModel($request);
-        $query                         = [];
-        $query['OwnerId']              = $request->ownerId;
-        $query['ResourceOwnerAccount'] = $request->resourceOwnerAccount;
-        $query['ResourceOwnerId']      = $request->resourceOwnerId;
-        $query['TemplateCode']         = $request->templateCode;
-        $req                           = new OpenApiRequest([
+        $query = [];
+        if (!Utils::isUnset($request->ownerId)) {
+            $query['OwnerId'] = $request->ownerId;
+        }
+        if (!Utils::isUnset($request->resourceOwnerAccount)) {
+            $query['ResourceOwnerAccount'] = $request->resourceOwnerAccount;
+        }
+        if (!Utils::isUnset($request->resourceOwnerId)) {
+            $query['ResourceOwnerId'] = $request->resourceOwnerId;
+        }
+        if (!Utils::isUnset($request->templateCode)) {
+            $query['TemplateCode'] = $request->templateCode;
+        }
+        $req = new OpenApiRequest([
             'query' => OpenApiUtilClient::query($query),
-            'body'  => Utils::toMap($request),
         ]);
         $params = new Params([
             'action'      => 'DeleteSmsTemplate',
@@ -398,7 +414,7 @@ class Dysmsapi extends OpenApiClient
             'method'      => 'POST',
             'authType'    => 'AK',
             'style'       => 'RPC',
-            'reqBodyType' => 'json',
+            'reqBodyType' => 'formData',
             'bodyType'    => 'json',
         ]);
 
@@ -418,85 +434,6 @@ class Dysmsapi extends OpenApiClient
     }
 
     /**
-     * @param GetMediaResourceIdRequest $request
-     * @param RuntimeOptions            $runtime
-     *
-     * @return GetMediaResourceIdResponse
-     */
-    public function getMediaResourceIdWithOptions($request, $runtime)
-    {
-        Utils::validateModel($request);
-        $query                 = [];
-        $query['ExtendInfo']   = $request->extendInfo;
-        $query['FileSize']     = $request->fileSize;
-        $query['Memo']         = $request->memo;
-        $query['OssKey']       = $request->ossKey;
-        $query['ResourceType'] = $request->resourceType;
-        $req                   = new OpenApiRequest([
-            'query' => OpenApiUtilClient::query($query),
-            'body'  => Utils::toMap($request),
-        ]);
-        $params = new Params([
-            'action'      => 'GetMediaResourceId',
-            'version'     => '2017-05-25',
-            'protocol'    => 'HTTPS',
-            'pathname'    => '/',
-            'method'      => 'POST',
-            'authType'    => 'AK',
-            'style'       => 'RPC',
-            'reqBodyType' => 'json',
-            'bodyType'    => 'json',
-        ]);
-
-        return GetMediaResourceIdResponse::fromMap($this->callApi($params, $req, $runtime));
-    }
-
-    /**
-     * @param GetMediaResourceIdRequest $request
-     *
-     * @return GetMediaResourceIdResponse
-     */
-    public function getMediaResourceId($request)
-    {
-        $runtime = new RuntimeOptions([]);
-
-        return $this->getMediaResourceIdWithOptions($request, $runtime);
-    }
-
-    /**
-     * @param RuntimeOptions $runtime
-     *
-     * @return GetOSSInfoForCardTemplateResponse
-     */
-    public function getOSSInfoForCardTemplateWithOptions($runtime)
-    {
-        $req    = new OpenApiRequest([]);
-        $params = new Params([
-            'action'      => 'GetOSSInfoForCardTemplate',
-            'version'     => '2017-05-25',
-            'protocol'    => 'HTTPS',
-            'pathname'    => '/',
-            'method'      => 'POST',
-            'authType'    => 'AK',
-            'style'       => 'RPC',
-            'reqBodyType' => 'json',
-            'bodyType'    => 'json',
-        ]);
-
-        return GetOSSInfoForCardTemplateResponse::fromMap($this->callApi($params, $req, $runtime));
-    }
-
-    /**
-     * @return GetOSSInfoForCardTemplateResponse
-     */
-    public function getOSSInfoForCardTemplate()
-    {
-        $runtime = new RuntimeOptions([]);
-
-        return $this->getOSSInfoForCardTemplateWithOptions($runtime);
-    }
-
-    /**
      * @param ListTagResourcesRequest $request
      * @param RuntimeOptions          $runtime
      *
@@ -505,20 +442,39 @@ class Dysmsapi extends OpenApiClient
     public function listTagResourcesWithOptions($request, $runtime)
     {
         Utils::validateModel($request);
-        $query                         = [];
-        $query['NextToken']            = $request->nextToken;
-        $query['OwnerId']              = $request->ownerId;
-        $query['PageSize']             = $request->pageSize;
-        $query['ProdCode']             = $request->prodCode;
-        $query['RegionId']             = $request->regionId;
-        $query['ResourceId']           = $request->resourceId;
-        $query['ResourceOwnerAccount'] = $request->resourceOwnerAccount;
-        $query['ResourceOwnerId']      = $request->resourceOwnerId;
-        $query['ResourceType']         = $request->resourceType;
-        $query['Tag']                  = $request->tag;
-        $req                           = new OpenApiRequest([
+        $query = [];
+        if (!Utils::isUnset($request->nextToken)) {
+            $query['NextToken'] = $request->nextToken;
+        }
+        if (!Utils::isUnset($request->ownerId)) {
+            $query['OwnerId'] = $request->ownerId;
+        }
+        if (!Utils::isUnset($request->pageSize)) {
+            $query['PageSize'] = $request->pageSize;
+        }
+        if (!Utils::isUnset($request->prodCode)) {
+            $query['ProdCode'] = $request->prodCode;
+        }
+        if (!Utils::isUnset($request->regionId)) {
+            $query['RegionId'] = $request->regionId;
+        }
+        if (!Utils::isUnset($request->resourceId)) {
+            $query['ResourceId'] = $request->resourceId;
+        }
+        if (!Utils::isUnset($request->resourceOwnerAccount)) {
+            $query['ResourceOwnerAccount'] = $request->resourceOwnerAccount;
+        }
+        if (!Utils::isUnset($request->resourceOwnerId)) {
+            $query['ResourceOwnerId'] = $request->resourceOwnerId;
+        }
+        if (!Utils::isUnset($request->resourceType)) {
+            $query['ResourceType'] = $request->resourceType;
+        }
+        if (!Utils::isUnset($request->tag)) {
+            $query['Tag'] = $request->tag;
+        }
+        $req = new OpenApiRequest([
             'query' => OpenApiUtilClient::query($query),
-            'body'  => Utils::toMap($request),
         ]);
         $params = new Params([
             'action'      => 'ListTagResources',
@@ -528,7 +484,7 @@ class Dysmsapi extends OpenApiClient
             'method'      => 'POST',
             'authType'    => 'AK',
             'style'       => 'RPC',
-            'reqBodyType' => 'json',
+            'reqBodyType' => 'formData',
             'bodyType'    => 'json',
         ]);
 
@@ -556,16 +512,32 @@ class Dysmsapi extends OpenApiClient
     public function modifySmsSignWithOptions($request, $runtime)
     {
         Utils::validateModel($request);
-        $query                         = [];
-        $query['OwnerId']              = $request->ownerId;
-        $query['Remark']               = $request->remark;
-        $query['ResourceOwnerAccount'] = $request->resourceOwnerAccount;
-        $query['ResourceOwnerId']      = $request->resourceOwnerId;
-        $query['SignName']             = $request->signName;
-        $query['SignSource']           = $request->signSource;
-        $req                           = new OpenApiRequest([
+        $query = [];
+        if (!Utils::isUnset($request->ownerId)) {
+            $query['OwnerId'] = $request->ownerId;
+        }
+        if (!Utils::isUnset($request->remark)) {
+            $query['Remark'] = $request->remark;
+        }
+        if (!Utils::isUnset($request->resourceOwnerAccount)) {
+            $query['ResourceOwnerAccount'] = $request->resourceOwnerAccount;
+        }
+        if (!Utils::isUnset($request->resourceOwnerId)) {
+            $query['ResourceOwnerId'] = $request->resourceOwnerId;
+        }
+        if (!Utils::isUnset($request->signName)) {
+            $query['SignName'] = $request->signName;
+        }
+        if (!Utils::isUnset($request->signSource)) {
+            $query['SignSource'] = $request->signSource;
+        }
+        $body = [];
+        if (!Utils::isUnset($request->signFileList)) {
+            $body['SignFileList'] = $request->signFileList;
+        }
+        $req = new OpenApiRequest([
             'query' => OpenApiUtilClient::query($query),
-            'body'  => Utils::toMap($request),
+            'body'  => OpenApiUtilClient::parseToMap($body),
         ]);
         $params = new Params([
             'action'      => 'ModifySmsSign',
@@ -603,18 +575,33 @@ class Dysmsapi extends OpenApiClient
     public function modifySmsTemplateWithOptions($request, $runtime)
     {
         Utils::validateModel($request);
-        $query                         = [];
-        $query['OwnerId']              = $request->ownerId;
-        $query['Remark']               = $request->remark;
-        $query['ResourceOwnerAccount'] = $request->resourceOwnerAccount;
-        $query['ResourceOwnerId']      = $request->resourceOwnerId;
-        $query['TemplateCode']         = $request->templateCode;
-        $query['TemplateContent']      = $request->templateContent;
-        $query['TemplateName']         = $request->templateName;
-        $query['TemplateType']         = $request->templateType;
-        $req                           = new OpenApiRequest([
+        $query = [];
+        if (!Utils::isUnset($request->ownerId)) {
+            $query['OwnerId'] = $request->ownerId;
+        }
+        if (!Utils::isUnset($request->remark)) {
+            $query['Remark'] = $request->remark;
+        }
+        if (!Utils::isUnset($request->resourceOwnerAccount)) {
+            $query['ResourceOwnerAccount'] = $request->resourceOwnerAccount;
+        }
+        if (!Utils::isUnset($request->resourceOwnerId)) {
+            $query['ResourceOwnerId'] = $request->resourceOwnerId;
+        }
+        if (!Utils::isUnset($request->templateCode)) {
+            $query['TemplateCode'] = $request->templateCode;
+        }
+        if (!Utils::isUnset($request->templateContent)) {
+            $query['TemplateContent'] = $request->templateContent;
+        }
+        if (!Utils::isUnset($request->templateName)) {
+            $query['TemplateName'] = $request->templateName;
+        }
+        if (!Utils::isUnset($request->templateType)) {
+            $query['TemplateType'] = $request->templateType;
+        }
+        $req = new OpenApiRequest([
             'query' => OpenApiUtilClient::query($query),
-            'body'  => Utils::toMap($request),
         ]);
         $params = new Params([
             'action'      => 'ModifySmsTemplate',
@@ -624,7 +611,7 @@ class Dysmsapi extends OpenApiClient
             'method'      => 'POST',
             'authType'    => 'AK',
             'style'       => 'RPC',
-            'reqBodyType' => 'json',
+            'reqBodyType' => 'formData',
             'bodyType'    => 'json',
         ]);
 
@@ -644,48 +631,6 @@ class Dysmsapi extends OpenApiClient
     }
 
     /**
-     * @param QueryCardSmsTemplateRequest $request
-     * @param RuntimeOptions              $runtime
-     *
-     * @return QueryCardSmsTemplateResponse
-     */
-    public function queryCardSmsTemplateWithOptions($request, $runtime)
-    {
-        Utils::validateModel($request);
-        $query                 = [];
-        $query['TemplateCode'] = $request->templateCode;
-        $req                   = new OpenApiRequest([
-            'query' => OpenApiUtilClient::query($query),
-            'body'  => Utils::toMap($request),
-        ]);
-        $params = new Params([
-            'action'      => 'QueryCardSmsTemplate',
-            'version'     => '2017-05-25',
-            'protocol'    => 'HTTPS',
-            'pathname'    => '/',
-            'method'      => 'POST',
-            'authType'    => 'AK',
-            'style'       => 'RPC',
-            'reqBodyType' => 'json',
-            'bodyType'    => 'json',
-        ]);
-
-        return QueryCardSmsTemplateResponse::fromMap($this->callApi($params, $req, $runtime));
-    }
-
-    /**
-     * @param QueryCardSmsTemplateRequest $request
-     *
-     * @return QueryCardSmsTemplateResponse
-     */
-    public function queryCardSmsTemplate($request)
-    {
-        $runtime = new RuntimeOptions([]);
-
-        return $this->queryCardSmsTemplateWithOptions($request, $runtime);
-    }
-
-    /**
      * @param QuerySendDetailsRequest $request
      * @param RuntimeOptions          $runtime
      *
@@ -694,18 +639,33 @@ class Dysmsapi extends OpenApiClient
     public function querySendDetailsWithOptions($request, $runtime)
     {
         Utils::validateModel($request);
-        $query                         = [];
-        $query['BizId']                = $request->bizId;
-        $query['CurrentPage']          = $request->currentPage;
-        $query['OwnerId']              = $request->ownerId;
-        $query['PageSize']             = $request->pageSize;
-        $query['PhoneNumber']          = $request->phoneNumber;
-        $query['ResourceOwnerAccount'] = $request->resourceOwnerAccount;
-        $query['ResourceOwnerId']      = $request->resourceOwnerId;
-        $query['SendDate']             = $request->sendDate;
-        $req                           = new OpenApiRequest([
+        $query = [];
+        if (!Utils::isUnset($request->bizId)) {
+            $query['BizId'] = $request->bizId;
+        }
+        if (!Utils::isUnset($request->currentPage)) {
+            $query['CurrentPage'] = $request->currentPage;
+        }
+        if (!Utils::isUnset($request->ownerId)) {
+            $query['OwnerId'] = $request->ownerId;
+        }
+        if (!Utils::isUnset($request->pageSize)) {
+            $query['PageSize'] = $request->pageSize;
+        }
+        if (!Utils::isUnset($request->phoneNumber)) {
+            $query['PhoneNumber'] = $request->phoneNumber;
+        }
+        if (!Utils::isUnset($request->resourceOwnerAccount)) {
+            $query['ResourceOwnerAccount'] = $request->resourceOwnerAccount;
+        }
+        if (!Utils::isUnset($request->resourceOwnerId)) {
+            $query['ResourceOwnerId'] = $request->resourceOwnerId;
+        }
+        if (!Utils::isUnset($request->sendDate)) {
+            $query['SendDate'] = $request->sendDate;
+        }
+        $req = new OpenApiRequest([
             'query' => OpenApiUtilClient::query($query),
-            'body'  => Utils::toMap($request),
         ]);
         $params = new Params([
             'action'      => 'QuerySendDetails',
@@ -715,7 +675,7 @@ class Dysmsapi extends OpenApiClient
             'method'      => 'POST',
             'authType'    => 'AK',
             'style'       => 'RPC',
-            'reqBodyType' => 'json',
+            'reqBodyType' => 'formData',
             'bodyType'    => 'json',
         ]);
 
@@ -735,6 +695,70 @@ class Dysmsapi extends OpenApiClient
     }
 
     /**
+     * @param QuerySendStatisticsRequest $request
+     * @param RuntimeOptions             $runtime
+     *
+     * @return QuerySendStatisticsResponse
+     */
+    public function querySendStatisticsWithOptions($request, $runtime)
+    {
+        Utils::validateModel($request);
+        $query = [];
+        if (!Utils::isUnset($request->endDate)) {
+            $query['EndDate'] = $request->endDate;
+        }
+        if (!Utils::isUnset($request->isGlobe)) {
+            $query['IsGlobe'] = $request->isGlobe;
+        }
+        if (!Utils::isUnset($request->ownerId)) {
+            $query['OwnerId'] = $request->ownerId;
+        }
+        if (!Utils::isUnset($request->pageIndex)) {
+            $query['PageIndex'] = $request->pageIndex;
+        }
+        if (!Utils::isUnset($request->pageSize)) {
+            $query['PageSize'] = $request->pageSize;
+        }
+        if (!Utils::isUnset($request->resourceOwnerAccount)) {
+            $query['ResourceOwnerAccount'] = $request->resourceOwnerAccount;
+        }
+        if (!Utils::isUnset($request->resourceOwnerId)) {
+            $query['ResourceOwnerId'] = $request->resourceOwnerId;
+        }
+        if (!Utils::isUnset($request->startDate)) {
+            $query['StartDate'] = $request->startDate;
+        }
+        $req = new OpenApiRequest([
+            'query' => OpenApiUtilClient::query($query),
+        ]);
+        $params = new Params([
+            'action'      => 'QuerySendStatistics',
+            'version'     => '2017-05-25',
+            'protocol'    => 'HTTPS',
+            'pathname'    => '/',
+            'method'      => 'POST',
+            'authType'    => 'AK',
+            'style'       => 'RPC',
+            'reqBodyType' => 'formData',
+            'bodyType'    => 'json',
+        ]);
+
+        return QuerySendStatisticsResponse::fromMap($this->callApi($params, $req, $runtime));
+    }
+
+    /**
+     * @param QuerySendStatisticsRequest $request
+     *
+     * @return QuerySendStatisticsResponse
+     */
+    public function querySendStatistics($request)
+    {
+        $runtime = new RuntimeOptions([]);
+
+        return $this->querySendStatisticsWithOptions($request, $runtime);
+    }
+
+    /**
      * @param QueryShortUrlRequest $request
      * @param RuntimeOptions       $runtime
      *
@@ -743,13 +767,23 @@ class Dysmsapi extends OpenApiClient
     public function queryShortUrlWithOptions($request, $runtime)
     {
         Utils::validateModel($request);
-        $query                         = [];
-        $query['OwnerId']              = $request->ownerId;
-        $query['ResourceOwnerAccount'] = $request->resourceOwnerAccount;
-        $query['ResourceOwnerId']      = $request->resourceOwnerId;
-        $req                           = new OpenApiRequest([
+        $query = [];
+        if (!Utils::isUnset($request->ownerId)) {
+            $query['OwnerId'] = $request->ownerId;
+        }
+        if (!Utils::isUnset($request->resourceOwnerAccount)) {
+            $query['ResourceOwnerAccount'] = $request->resourceOwnerAccount;
+        }
+        if (!Utils::isUnset($request->resourceOwnerId)) {
+            $query['ResourceOwnerId'] = $request->resourceOwnerId;
+        }
+        $body = [];
+        if (!Utils::isUnset($request->shortUrl)) {
+            $body['ShortUrl'] = $request->shortUrl;
+        }
+        $req = new OpenApiRequest([
             'query' => OpenApiUtilClient::query($query),
-            'body'  => Utils::toMap($request),
+            'body'  => OpenApiUtilClient::parseToMap($body),
         ]);
         $params = new Params([
             'action'      => 'QueryShortUrl',
@@ -787,14 +821,21 @@ class Dysmsapi extends OpenApiClient
     public function querySmsSignWithOptions($request, $runtime)
     {
         Utils::validateModel($request);
-        $query                         = [];
-        $query['OwnerId']              = $request->ownerId;
-        $query['ResourceOwnerAccount'] = $request->resourceOwnerAccount;
-        $query['ResourceOwnerId']      = $request->resourceOwnerId;
-        $query['SignName']             = $request->signName;
-        $req                           = new OpenApiRequest([
+        $query = [];
+        if (!Utils::isUnset($request->ownerId)) {
+            $query['OwnerId'] = $request->ownerId;
+        }
+        if (!Utils::isUnset($request->resourceOwnerAccount)) {
+            $query['ResourceOwnerAccount'] = $request->resourceOwnerAccount;
+        }
+        if (!Utils::isUnset($request->resourceOwnerId)) {
+            $query['ResourceOwnerId'] = $request->resourceOwnerId;
+        }
+        if (!Utils::isUnset($request->signName)) {
+            $query['SignName'] = $request->signName;
+        }
+        $req = new OpenApiRequest([
             'query' => OpenApiUtilClient::query($query),
-            'body'  => Utils::toMap($request),
         ]);
         $params = new Params([
             'action'      => 'QuerySmsSign',
@@ -804,7 +845,7 @@ class Dysmsapi extends OpenApiClient
             'method'      => 'POST',
             'authType'    => 'AK',
             'style'       => 'RPC',
-            'reqBodyType' => 'json',
+            'reqBodyType' => 'formData',
             'bodyType'    => 'json',
         ]);
 
@@ -824,6 +865,61 @@ class Dysmsapi extends OpenApiClient
     }
 
     /**
+     * @param QuerySmsSignListRequest $request
+     * @param RuntimeOptions          $runtime
+     *
+     * @return QuerySmsSignListResponse
+     */
+    public function querySmsSignListWithOptions($request, $runtime)
+    {
+        Utils::validateModel($request);
+        $query = [];
+        if (!Utils::isUnset($request->ownerId)) {
+            $query['OwnerId'] = $request->ownerId;
+        }
+        if (!Utils::isUnset($request->pageIndex)) {
+            $query['PageIndex'] = $request->pageIndex;
+        }
+        if (!Utils::isUnset($request->pageSize)) {
+            $query['PageSize'] = $request->pageSize;
+        }
+        if (!Utils::isUnset($request->resourceOwnerAccount)) {
+            $query['ResourceOwnerAccount'] = $request->resourceOwnerAccount;
+        }
+        if (!Utils::isUnset($request->resourceOwnerId)) {
+            $query['ResourceOwnerId'] = $request->resourceOwnerId;
+        }
+        $req = new OpenApiRequest([
+            'query' => OpenApiUtilClient::query($query),
+        ]);
+        $params = new Params([
+            'action'      => 'QuerySmsSignList',
+            'version'     => '2017-05-25',
+            'protocol'    => 'HTTPS',
+            'pathname'    => '/',
+            'method'      => 'POST',
+            'authType'    => 'AK',
+            'style'       => 'RPC',
+            'reqBodyType' => 'formData',
+            'bodyType'    => 'json',
+        ]);
+
+        return QuerySmsSignListResponse::fromMap($this->callApi($params, $req, $runtime));
+    }
+
+    /**
+     * @param QuerySmsSignListRequest $request
+     *
+     * @return QuerySmsSignListResponse
+     */
+    public function querySmsSignList($request)
+    {
+        $runtime = new RuntimeOptions([]);
+
+        return $this->querySmsSignListWithOptions($request, $runtime);
+    }
+
+    /**
      * @param QuerySmsTemplateRequest $request
      * @param RuntimeOptions          $runtime
      *
@@ -832,14 +928,21 @@ class Dysmsapi extends OpenApiClient
     public function querySmsTemplateWithOptions($request, $runtime)
     {
         Utils::validateModel($request);
-        $query                         = [];
-        $query['OwnerId']              = $request->ownerId;
-        $query['ResourceOwnerAccount'] = $request->resourceOwnerAccount;
-        $query['ResourceOwnerId']      = $request->resourceOwnerId;
-        $query['TemplateCode']         = $request->templateCode;
-        $req                           = new OpenApiRequest([
+        $query = [];
+        if (!Utils::isUnset($request->ownerId)) {
+            $query['OwnerId'] = $request->ownerId;
+        }
+        if (!Utils::isUnset($request->resourceOwnerAccount)) {
+            $query['ResourceOwnerAccount'] = $request->resourceOwnerAccount;
+        }
+        if (!Utils::isUnset($request->resourceOwnerId)) {
+            $query['ResourceOwnerId'] = $request->resourceOwnerId;
+        }
+        if (!Utils::isUnset($request->templateCode)) {
+            $query['TemplateCode'] = $request->templateCode;
+        }
+        $req = new OpenApiRequest([
             'query' => OpenApiUtilClient::query($query),
-            'body'  => Utils::toMap($request),
         ]);
         $params = new Params([
             'action'      => 'QuerySmsTemplate',
@@ -849,7 +952,7 @@ class Dysmsapi extends OpenApiClient
             'method'      => 'POST',
             'authType'    => 'AK',
             'style'       => 'RPC',
-            'reqBodyType' => 'json',
+            'reqBodyType' => 'formData',
             'bodyType'    => 'json',
         ]);
 
@@ -869,6 +972,61 @@ class Dysmsapi extends OpenApiClient
     }
 
     /**
+     * @param QuerySmsTemplateListRequest $request
+     * @param RuntimeOptions              $runtime
+     *
+     * @return QuerySmsTemplateListResponse
+     */
+    public function querySmsTemplateListWithOptions($request, $runtime)
+    {
+        Utils::validateModel($request);
+        $query = [];
+        if (!Utils::isUnset($request->ownerId)) {
+            $query['OwnerId'] = $request->ownerId;
+        }
+        if (!Utils::isUnset($request->pageIndex)) {
+            $query['PageIndex'] = $request->pageIndex;
+        }
+        if (!Utils::isUnset($request->pageSize)) {
+            $query['PageSize'] = $request->pageSize;
+        }
+        if (!Utils::isUnset($request->resourceOwnerAccount)) {
+            $query['ResourceOwnerAccount'] = $request->resourceOwnerAccount;
+        }
+        if (!Utils::isUnset($request->resourceOwnerId)) {
+            $query['ResourceOwnerId'] = $request->resourceOwnerId;
+        }
+        $req = new OpenApiRequest([
+            'query' => OpenApiUtilClient::query($query),
+        ]);
+        $params = new Params([
+            'action'      => 'QuerySmsTemplateList',
+            'version'     => '2017-05-25',
+            'protocol'    => 'HTTPS',
+            'pathname'    => '/',
+            'method'      => 'POST',
+            'authType'    => 'AK',
+            'style'       => 'RPC',
+            'reqBodyType' => 'formData',
+            'bodyType'    => 'json',
+        ]);
+
+        return QuerySmsTemplateListResponse::fromMap($this->callApi($params, $req, $runtime));
+    }
+
+    /**
+     * @param QuerySmsTemplateListRequest $request
+     *
+     * @return QuerySmsTemplateListResponse
+     */
+    public function querySmsTemplateList($request)
+    {
+        $runtime = new RuntimeOptions([]);
+
+        return $this->querySmsTemplateListWithOptions($request, $runtime);
+    }
+
+    /**
      * @param SendBatchSmsRequest $request
      * @param RuntimeOptions      $runtime
      *
@@ -877,18 +1035,33 @@ class Dysmsapi extends OpenApiClient
     public function sendBatchSmsWithOptions($request, $runtime)
     {
         Utils::validateModel($request);
-        $query                         = [];
-        $query['OwnerId']              = $request->ownerId;
-        $query['PhoneNumberJson']      = $request->phoneNumberJson;
-        $query['ResourceOwnerAccount'] = $request->resourceOwnerAccount;
-        $query['ResourceOwnerId']      = $request->resourceOwnerId;
-        $query['SignNameJson']         = $request->signNameJson;
-        $query['SmsUpExtendCodeJson']  = $request->smsUpExtendCodeJson;
-        $query['TemplateCode']         = $request->templateCode;
-        $query['TemplateParamJson']    = $request->templateParamJson;
-        $req                           = new OpenApiRequest([
+        $query = [];
+        if (!Utils::isUnset($request->ownerId)) {
+            $query['OwnerId'] = $request->ownerId;
+        }
+        if (!Utils::isUnset($request->phoneNumberJson)) {
+            $query['PhoneNumberJson'] = $request->phoneNumberJson;
+        }
+        if (!Utils::isUnset($request->resourceOwnerAccount)) {
+            $query['ResourceOwnerAccount'] = $request->resourceOwnerAccount;
+        }
+        if (!Utils::isUnset($request->resourceOwnerId)) {
+            $query['ResourceOwnerId'] = $request->resourceOwnerId;
+        }
+        if (!Utils::isUnset($request->signNameJson)) {
+            $query['SignNameJson'] = $request->signNameJson;
+        }
+        if (!Utils::isUnset($request->smsUpExtendCodeJson)) {
+            $query['SmsUpExtendCodeJson'] = $request->smsUpExtendCodeJson;
+        }
+        if (!Utils::isUnset($request->templateCode)) {
+            $query['TemplateCode'] = $request->templateCode;
+        }
+        if (!Utils::isUnset($request->templateParamJson)) {
+            $query['TemplateParamJson'] = $request->templateParamJson;
+        }
+        $req = new OpenApiRequest([
             'query' => OpenApiUtilClient::query($query),
-            'body'  => Utils::toMap($request),
         ]);
         $params = new Params([
             'action'      => 'SendBatchSms',
@@ -898,7 +1071,7 @@ class Dysmsapi extends OpenApiClient
             'method'      => 'POST',
             'authType'    => 'AK',
             'style'       => 'RPC',
-            'reqBodyType' => 'json',
+            'reqBodyType' => 'formData',
             'bodyType'    => 'json',
         ]);
 
@@ -918,57 +1091,6 @@ class Dysmsapi extends OpenApiClient
     }
 
     /**
-     * @param SendCardSmsRequest $request
-     * @param RuntimeOptions     $runtime
-     *
-     * @return SendCardSmsResponse
-     */
-    public function sendCardSmsWithOptions($request, $runtime)
-    {
-        Utils::validateModel($request);
-        $query                         = [];
-        $query['CardObjects']          = $request->cardObjects;
-        $query['CardTemplateCode']     = $request->cardTemplateCode;
-        $query['DigitalTemplateCode']  = $request->digitalTemplateCode;
-        $query['DigitalTemplateParam'] = $request->digitalTemplateParam;
-        $query['FallbackType']         = $request->fallbackType;
-        $query['OutId']                = $request->outId;
-        $query['SignName']             = $request->signName;
-        $query['SmsTemplateCode']      = $request->smsTemplateCode;
-        $query['SmsTemplateParam']     = $request->smsTemplateParam;
-        $query['SmsUpExtendCode']      = $request->smsUpExtendCode;
-        $req                           = new OpenApiRequest([
-            'query' => OpenApiUtilClient::query($query),
-            'body'  => Utils::toMap($request),
-        ]);
-        $params = new Params([
-            'action'      => 'SendCardSms',
-            'version'     => '2017-05-25',
-            'protocol'    => 'HTTPS',
-            'pathname'    => '/',
-            'method'      => 'POST',
-            'authType'    => 'AK',
-            'style'       => 'RPC',
-            'reqBodyType' => 'json',
-            'bodyType'    => 'json',
-        ]);
-
-        return SendCardSmsResponse::fromMap($this->callApi($params, $req, $runtime));
-    }
-
-    /**
-     * @param SendCardSmsRequest $request
-     *
-     * @return SendCardSmsResponse
-     */
-    public function sendCardSms($request)
-    {
-        $runtime = new RuntimeOptions([]);
-
-        return $this->sendCardSmsWithOptions($request, $runtime);
-    }
-
-    /**
      * @param SendSmsRequest $request
      * @param RuntimeOptions $runtime
      *
@@ -977,19 +1099,36 @@ class Dysmsapi extends OpenApiClient
     public function sendSmsWithOptions($request, $runtime)
     {
         Utils::validateModel($request);
-        $query                         = [];
-        $query['OutId']                = $request->outId;
-        $query['OwnerId']              = $request->ownerId;
-        $query['PhoneNumbers']         = $request->phoneNumbers;
-        $query['ResourceOwnerAccount'] = $request->resourceOwnerAccount;
-        $query['ResourceOwnerId']      = $request->resourceOwnerId;
-        $query['SignName']             = $request->signName;
-        $query['SmsUpExtendCode']      = $request->smsUpExtendCode;
-        $query['TemplateCode']         = $request->templateCode;
-        $query['TemplateParam']        = $request->templateParam;
-        $req                           = new OpenApiRequest([
+        $query = [];
+        if (!Utils::isUnset($request->outId)) {
+            $query['OutId'] = $request->outId;
+        }
+        if (!Utils::isUnset($request->ownerId)) {
+            $query['OwnerId'] = $request->ownerId;
+        }
+        if (!Utils::isUnset($request->phoneNumbers)) {
+            $query['PhoneNumbers'] = $request->phoneNumbers;
+        }
+        if (!Utils::isUnset($request->resourceOwnerAccount)) {
+            $query['ResourceOwnerAccount'] = $request->resourceOwnerAccount;
+        }
+        if (!Utils::isUnset($request->resourceOwnerId)) {
+            $query['ResourceOwnerId'] = $request->resourceOwnerId;
+        }
+        if (!Utils::isUnset($request->signName)) {
+            $query['SignName'] = $request->signName;
+        }
+        if (!Utils::isUnset($request->smsUpExtendCode)) {
+            $query['SmsUpExtendCode'] = $request->smsUpExtendCode;
+        }
+        if (!Utils::isUnset($request->templateCode)) {
+            $query['TemplateCode'] = $request->templateCode;
+        }
+        if (!Utils::isUnset($request->templateParam)) {
+            $query['TemplateParam'] = $request->templateParam;
+        }
+        $req = new OpenApiRequest([
             'query' => OpenApiUtilClient::query($query),
-            'body'  => Utils::toMap($request),
         ]);
         $params = new Params([
             'action'      => 'SendSms',
@@ -999,7 +1138,7 @@ class Dysmsapi extends OpenApiClient
             'method'      => 'POST',
             'authType'    => 'AK',
             'style'       => 'RPC',
-            'reqBodyType' => 'json',
+            'reqBodyType' => 'formData',
             'bodyType'    => 'json',
         ]);
 
@@ -1027,18 +1166,33 @@ class Dysmsapi extends OpenApiClient
     public function tagResourcesWithOptions($request, $runtime)
     {
         Utils::validateModel($request);
-        $query                         = [];
-        $query['OwnerId']              = $request->ownerId;
-        $query['ProdCode']             = $request->prodCode;
-        $query['RegionId']             = $request->regionId;
-        $query['ResourceId']           = $request->resourceId;
-        $query['ResourceOwnerAccount'] = $request->resourceOwnerAccount;
-        $query['ResourceOwnerId']      = $request->resourceOwnerId;
-        $query['ResourceType']         = $request->resourceType;
-        $query['Tag']                  = $request->tag;
-        $req                           = new OpenApiRequest([
+        $query = [];
+        if (!Utils::isUnset($request->ownerId)) {
+            $query['OwnerId'] = $request->ownerId;
+        }
+        if (!Utils::isUnset($request->prodCode)) {
+            $query['ProdCode'] = $request->prodCode;
+        }
+        if (!Utils::isUnset($request->regionId)) {
+            $query['RegionId'] = $request->regionId;
+        }
+        if (!Utils::isUnset($request->resourceId)) {
+            $query['ResourceId'] = $request->resourceId;
+        }
+        if (!Utils::isUnset($request->resourceOwnerAccount)) {
+            $query['ResourceOwnerAccount'] = $request->resourceOwnerAccount;
+        }
+        if (!Utils::isUnset($request->resourceOwnerId)) {
+            $query['ResourceOwnerId'] = $request->resourceOwnerId;
+        }
+        if (!Utils::isUnset($request->resourceType)) {
+            $query['ResourceType'] = $request->resourceType;
+        }
+        if (!Utils::isUnset($request->tag)) {
+            $query['Tag'] = $request->tag;
+        }
+        $req = new OpenApiRequest([
             'query' => OpenApiUtilClient::query($query),
-            'body'  => Utils::toMap($request),
         ]);
         $params = new Params([
             'action'      => 'TagResources',
@@ -1048,7 +1202,7 @@ class Dysmsapi extends OpenApiClient
             'method'      => 'POST',
             'authType'    => 'AK',
             'style'       => 'RPC',
-            'reqBodyType' => 'json',
+            'reqBodyType' => 'formData',
             'bodyType'    => 'json',
         ]);
 
@@ -1076,19 +1230,36 @@ class Dysmsapi extends OpenApiClient
     public function untagResourcesWithOptions($request, $runtime)
     {
         Utils::validateModel($request);
-        $query                         = [];
-        $query['All']                  = $request->all;
-        $query['OwnerId']              = $request->ownerId;
-        $query['ProdCode']             = $request->prodCode;
-        $query['RegionId']             = $request->regionId;
-        $query['ResourceId']           = $request->resourceId;
-        $query['ResourceOwnerAccount'] = $request->resourceOwnerAccount;
-        $query['ResourceOwnerId']      = $request->resourceOwnerId;
-        $query['ResourceType']         = $request->resourceType;
-        $query['TagKey']               = $request->tagKey;
-        $req                           = new OpenApiRequest([
+        $query = [];
+        if (!Utils::isUnset($request->all)) {
+            $query['All'] = $request->all;
+        }
+        if (!Utils::isUnset($request->ownerId)) {
+            $query['OwnerId'] = $request->ownerId;
+        }
+        if (!Utils::isUnset($request->prodCode)) {
+            $query['ProdCode'] = $request->prodCode;
+        }
+        if (!Utils::isUnset($request->regionId)) {
+            $query['RegionId'] = $request->regionId;
+        }
+        if (!Utils::isUnset($request->resourceId)) {
+            $query['ResourceId'] = $request->resourceId;
+        }
+        if (!Utils::isUnset($request->resourceOwnerAccount)) {
+            $query['ResourceOwnerAccount'] = $request->resourceOwnerAccount;
+        }
+        if (!Utils::isUnset($request->resourceOwnerId)) {
+            $query['ResourceOwnerId'] = $request->resourceOwnerId;
+        }
+        if (!Utils::isUnset($request->resourceType)) {
+            $query['ResourceType'] = $request->resourceType;
+        }
+        if (!Utils::isUnset($request->tagKey)) {
+            $query['TagKey'] = $request->tagKey;
+        }
+        $req = new OpenApiRequest([
             'query' => OpenApiUtilClient::query($query),
-            'body'  => Utils::toMap($request),
         ]);
         $params = new Params([
             'action'      => 'UntagResources',
@@ -1098,7 +1269,7 @@ class Dysmsapi extends OpenApiClient
             'method'      => 'POST',
             'authType'    => 'AK',
             'style'       => 'RPC',
-            'reqBodyType' => 'json',
+            'reqBodyType' => 'formData',
             'bodyType'    => 'json',
         ]);
 
