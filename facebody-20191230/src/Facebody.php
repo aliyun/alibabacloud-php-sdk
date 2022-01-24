@@ -70,9 +70,6 @@ use AlibabaCloud\SDK\Facebody\V20191230\Models\DetectIPCPedestrianRequest;
 use AlibabaCloud\SDK\Facebody\V20191230\Models\DetectIPCPedestrianResponse;
 use AlibabaCloud\SDK\Facebody\V20191230\Models\DetectLivingFaceRequest;
 use AlibabaCloud\SDK\Facebody\V20191230\Models\DetectLivingFaceResponse;
-use AlibabaCloud\SDK\Facebody\V20191230\Models\DetectMaskAdvanceRequest;
-use AlibabaCloud\SDK\Facebody\V20191230\Models\DetectMaskRequest;
-use AlibabaCloud\SDK\Facebody\V20191230\Models\DetectMaskResponse;
 use AlibabaCloud\SDK\Facebody\V20191230\Models\DetectPedestrianAdvanceRequest;
 use AlibabaCloud\SDK\Facebody\V20191230\Models\DetectPedestrianIntrusionAdvanceRequest;
 use AlibabaCloud\SDK\Facebody\V20191230\Models\DetectPedestrianIntrusionRequest;
@@ -237,8 +234,21 @@ class Facebody extends OpenApiClient
         if (!Utils::isUnset($tmpReq->images)) {
             $request->imagesShrink = OpenApiUtilClient::arrayToStringWithSpecifiedStyle($tmpReq->images, 'Images', 'json');
         }
+        $body = [];
+        if (!Utils::isUnset($request->dbId)) {
+            $body['DbId'] = $request->dbId;
+        }
+        if (!Utils::isUnset($request->extraData)) {
+            $body['ExtraData'] = $request->extraData;
+        }
+        if (!Utils::isUnset($request->imagesShrink)) {
+            $body['Images'] = $request->imagesShrink;
+        }
+        if (!Utils::isUnset($request->personId)) {
+            $body['PersonId'] = $request->personId;
+        }
         $req = new OpenApiRequest([
-            'body' => Utils::toMap($request),
+            'body' => OpenApiUtilClient::parseToMap($body),
         ]);
         $params = new Params([
             'action'      => 'AddBodyTrace',
@@ -276,8 +286,30 @@ class Facebody extends OpenApiClient
     public function addFaceWithOptions($request, $runtime)
     {
         Utils::validateModel($request);
+        $body = [];
+        if (!Utils::isUnset($request->dbName)) {
+            $body['DbName'] = $request->dbName;
+        }
+        if (!Utils::isUnset($request->entityId)) {
+            $body['EntityId'] = $request->entityId;
+        }
+        if (!Utils::isUnset($request->extraData)) {
+            $body['ExtraData'] = $request->extraData;
+        }
+        if (!Utils::isUnset($request->imageUrl)) {
+            $body['ImageUrl'] = $request->imageUrl;
+        }
+        if (!Utils::isUnset($request->qualityScoreThreshold)) {
+            $body['QualityScoreThreshold'] = $request->qualityScoreThreshold;
+        }
+        if (!Utils::isUnset($request->similarityScoreThresholdBetweenEntity)) {
+            $body['SimilarityScoreThresholdBetweenEntity'] = $request->similarityScoreThresholdBetweenEntity;
+        }
+        if (!Utils::isUnset($request->similarityScoreThresholdInEntity)) {
+            $body['SimilarityScoreThresholdInEntity'] = $request->similarityScoreThresholdInEntity;
+        }
         $req = new OpenApiRequest([
-            'body' => Utils::toMap($request),
+            'body' => OpenApiUtilClient::parseToMap($body),
         ]);
         $params = new Params([
             'action'      => 'AddFace',
@@ -393,8 +425,18 @@ class Facebody extends OpenApiClient
     public function addFaceEntityWithOptions($request, $runtime)
     {
         Utils::validateModel($request);
+        $body = [];
+        if (!Utils::isUnset($request->dbName)) {
+            $body['DbName'] = $request->dbName;
+        }
+        if (!Utils::isUnset($request->entityId)) {
+            $body['EntityId'] = $request->entityId;
+        }
+        if (!Utils::isUnset($request->labels)) {
+            $body['Labels'] = $request->labels;
+        }
         $req = new OpenApiRequest([
-            'body' => Utils::toMap($request),
+            'body' => OpenApiUtilClient::parseToMap($body),
         ]);
         $params = new Params([
             'action'      => 'AddFaceEntity',
@@ -432,8 +474,15 @@ class Facebody extends OpenApiClient
     public function addFaceImageTemplateWithOptions($request, $runtime)
     {
         Utils::validateModel($request);
+        $body = [];
+        if (!Utils::isUnset($request->imageURL)) {
+            $body['ImageURL'] = $request->imageURL;
+        }
+        if (!Utils::isUnset($request->userId)) {
+            $body['UserId'] = $request->userId;
+        }
         $req = new OpenApiRequest([
-            'body' => Utils::toMap($request),
+            'body' => OpenApiUtilClient::parseToMap($body),
         ]);
         $params = new Params([
             'action'      => 'AddFaceImageTemplate',
@@ -554,8 +603,27 @@ class Facebody extends OpenApiClient
         if (!Utils::isUnset($tmpReq->faces)) {
             $request->facesShrink = OpenApiUtilClient::arrayToStringWithSpecifiedStyle($tmpReq->faces, 'Faces', 'json');
         }
+        $body = [];
+        if (!Utils::isUnset($request->dbName)) {
+            $body['DbName'] = $request->dbName;
+        }
+        if (!Utils::isUnset($request->entityId)) {
+            $body['EntityId'] = $request->entityId;
+        }
+        if (!Utils::isUnset($request->facesShrink)) {
+            $body['Faces'] = $request->facesShrink;
+        }
+        if (!Utils::isUnset($request->qualityScoreThreshold)) {
+            $body['QualityScoreThreshold'] = $request->qualityScoreThreshold;
+        }
+        if (!Utils::isUnset($request->similarityScoreThresholdBetweenEntity)) {
+            $body['SimilarityScoreThresholdBetweenEntity'] = $request->similarityScoreThresholdBetweenEntity;
+        }
+        if (!Utils::isUnset($request->similarityScoreThresholdInEntity)) {
+            $body['SimilarityScoreThresholdInEntity'] = $request->similarityScoreThresholdInEntity;
+        }
         $req = new OpenApiRequest([
-            'body' => Utils::toMap($request),
+            'body' => OpenApiUtilClient::parseToMap($body),
         ]);
         $params = new Params([
             'action'      => 'BatchAddFaces',
@@ -607,8 +675,45 @@ class Facebody extends OpenApiClient
         if (!Utils::isUnset($tmpReq->poseList)) {
             $request->poseListShrink = OpenApiUtilClient::arrayToStringWithSpecifiedStyle($tmpReq->poseList, 'PoseList', 'json');
         }
+        $body = [];
+        if (!Utils::isUnset($request->ageRangeShrink)) {
+            $body['AgeRange'] = $request->ageRangeShrink;
+        }
+        if (!Utils::isUnset($request->bodyBoxesShrink)) {
+            $body['BodyBoxes'] = $request->bodyBoxesShrink;
+        }
+        if (!Utils::isUnset($request->custom)) {
+            $body['Custom'] = $request->custom;
+        }
+        if (!Utils::isUnset($request->faceListShrink)) {
+            $body['FaceList'] = $request->faceListShrink;
+        }
+        if (!Utils::isUnset($request->femaleLiquifyDegree)) {
+            $body['FemaleLiquifyDegree'] = $request->femaleLiquifyDegree;
+        }
+        if (!Utils::isUnset($request->imageURL)) {
+            $body['ImageURL'] = $request->imageURL;
+        }
+        if (!Utils::isUnset($request->isPregnant)) {
+            $body['IsPregnant'] = $request->isPregnant;
+        }
+        if (!Utils::isUnset($request->lengthenDegree)) {
+            $body['LengthenDegree'] = $request->lengthenDegree;
+        }
+        if (!Utils::isUnset($request->maleLiquifyDegree)) {
+            $body['MaleLiquifyDegree'] = $request->maleLiquifyDegree;
+        }
+        if (!Utils::isUnset($request->originalHeight)) {
+            $body['OriginalHeight'] = $request->originalHeight;
+        }
+        if (!Utils::isUnset($request->originalWidth)) {
+            $body['OriginalWidth'] = $request->originalWidth;
+        }
+        if (!Utils::isUnset($request->poseListShrink)) {
+            $body['PoseList'] = $request->poseListShrink;
+        }
         $req = new OpenApiRequest([
-            'body' => Utils::toMap($request),
+            'body' => OpenApiUtilClient::parseToMap($body),
         ]);
         $params = new Params([
             'action'      => 'BeautifyBody',
@@ -724,8 +829,12 @@ class Facebody extends OpenApiClient
     public function blurFaceWithOptions($request, $runtime)
     {
         Utils::validateModel($request);
+        $body = [];
+        if (!Utils::isUnset($request->imageURL)) {
+            $body['ImageURL'] = $request->imageURL;
+        }
         $req = new OpenApiRequest([
-            'body' => Utils::toMap($request),
+            'body' => OpenApiUtilClient::parseToMap($body),
         ]);
         $params = new Params([
             'action'      => 'BlurFace',
@@ -841,8 +950,12 @@ class Facebody extends OpenApiClient
     public function bodyPostureWithOptions($request, $runtime)
     {
         Utils::validateModel($request);
+        $body = [];
+        if (!Utils::isUnset($request->imageURL)) {
+            $body['ImageURL'] = $request->imageURL;
+        }
         $req = new OpenApiRequest([
-            'body' => Utils::toMap($request),
+            'body' => OpenApiUtilClient::parseToMap($body),
         ]);
         $params = new Params([
             'action'      => 'BodyPosture',
@@ -958,8 +1071,24 @@ class Facebody extends OpenApiClient
     public function compareFaceWithOptions($request, $runtime)
     {
         Utils::validateModel($request);
+        $body = [];
+        if (!Utils::isUnset($request->imageDataA)) {
+            $body['ImageDataA'] = $request->imageDataA;
+        }
+        if (!Utils::isUnset($request->imageDataB)) {
+            $body['ImageDataB'] = $request->imageDataB;
+        }
+        if (!Utils::isUnset($request->imageURLA)) {
+            $body['ImageURLA'] = $request->imageURLA;
+        }
+        if (!Utils::isUnset($request->imageURLB)) {
+            $body['ImageURLB'] = $request->imageURLB;
+        }
+        if (!Utils::isUnset($request->qualityScoreThreshold)) {
+            $body['QualityScoreThreshold'] = $request->qualityScoreThreshold;
+        }
         $req = new OpenApiRequest([
-            'body' => Utils::toMap($request),
+            'body' => OpenApiUtilClient::parseToMap($body),
         ]);
         $params = new Params([
             'action'      => 'CompareFace',
@@ -997,8 +1126,15 @@ class Facebody extends OpenApiClient
     public function countCrowdWithOptions($request, $runtime)
     {
         Utils::validateModel($request);
+        $body = [];
+        if (!Utils::isUnset($request->imageURL)) {
+            $body['ImageURL'] = $request->imageURL;
+        }
+        if (!Utils::isUnset($request->isShow)) {
+            $body['IsShow'] = $request->isShow;
+        }
         $req = new OpenApiRequest([
-            'body' => Utils::toMap($request),
+            'body' => OpenApiUtilClient::parseToMap($body),
         ]);
         $params = new Params([
             'action'      => 'CountCrowd',
@@ -1114,8 +1250,12 @@ class Facebody extends OpenApiClient
     public function createBodyDbWithOptions($request, $runtime)
     {
         Utils::validateModel($request);
+        $body = [];
+        if (!Utils::isUnset($request->name)) {
+            $body['Name'] = $request->name;
+        }
         $req = new OpenApiRequest([
-            'body' => Utils::toMap($request),
+            'body' => OpenApiUtilClient::parseToMap($body),
         ]);
         $params = new Params([
             'action'      => 'CreateBodyDb',
@@ -1153,8 +1293,15 @@ class Facebody extends OpenApiClient
     public function createBodyPersonWithOptions($request, $runtime)
     {
         Utils::validateModel($request);
+        $body = [];
+        if (!Utils::isUnset($request->dbId)) {
+            $body['DbId'] = $request->dbId;
+        }
+        if (!Utils::isUnset($request->name)) {
+            $body['Name'] = $request->name;
+        }
         $req = new OpenApiRequest([
-            'body' => Utils::toMap($request),
+            'body' => OpenApiUtilClient::parseToMap($body),
         ]);
         $params = new Params([
             'action'      => 'CreateBodyPerson',
@@ -1192,8 +1339,12 @@ class Facebody extends OpenApiClient
     public function createFaceDbWithOptions($request, $runtime)
     {
         Utils::validateModel($request);
+        $body = [];
+        if (!Utils::isUnset($request->name)) {
+            $body['Name'] = $request->name;
+        }
         $req = new OpenApiRequest([
-            'body' => Utils::toMap($request),
+            'body' => OpenApiUtilClient::parseToMap($body),
         ]);
         $params = new Params([
             'action'      => 'CreateFaceDb',
@@ -1231,8 +1382,12 @@ class Facebody extends OpenApiClient
     public function deleteBodyDbWithOptions($request, $runtime)
     {
         Utils::validateModel($request);
+        $body = [];
+        if (!Utils::isUnset($request->id)) {
+            $body['Id'] = $request->id;
+        }
         $req = new OpenApiRequest([
-            'body' => Utils::toMap($request),
+            'body' => OpenApiUtilClient::parseToMap($body),
         ]);
         $params = new Params([
             'action'      => 'DeleteBodyDb',
@@ -1270,8 +1425,15 @@ class Facebody extends OpenApiClient
     public function deleteBodyPersonWithOptions($request, $runtime)
     {
         Utils::validateModel($request);
+        $body = [];
+        if (!Utils::isUnset($request->dbId)) {
+            $body['DbId'] = $request->dbId;
+        }
+        if (!Utils::isUnset($request->personId)) {
+            $body['PersonId'] = $request->personId;
+        }
         $req = new OpenApiRequest([
-            'body' => Utils::toMap($request),
+            'body' => OpenApiUtilClient::parseToMap($body),
         ]);
         $params = new Params([
             'action'      => 'DeleteBodyPerson',
@@ -1309,8 +1471,15 @@ class Facebody extends OpenApiClient
     public function deleteFaceWithOptions($request, $runtime)
     {
         Utils::validateModel($request);
+        $body = [];
+        if (!Utils::isUnset($request->dbName)) {
+            $body['DbName'] = $request->dbName;
+        }
+        if (!Utils::isUnset($request->faceId)) {
+            $body['FaceId'] = $request->faceId;
+        }
         $req = new OpenApiRequest([
-            'body' => Utils::toMap($request),
+            'body' => OpenApiUtilClient::parseToMap($body),
         ]);
         $params = new Params([
             'action'      => 'DeleteFace',
@@ -1348,8 +1517,12 @@ class Facebody extends OpenApiClient
     public function deleteFaceDbWithOptions($request, $runtime)
     {
         Utils::validateModel($request);
+        $body = [];
+        if (!Utils::isUnset($request->name)) {
+            $body['Name'] = $request->name;
+        }
         $req = new OpenApiRequest([
-            'body' => Utils::toMap($request),
+            'body' => OpenApiUtilClient::parseToMap($body),
         ]);
         $params = new Params([
             'action'      => 'DeleteFaceDb',
@@ -1387,8 +1560,15 @@ class Facebody extends OpenApiClient
     public function deleteFaceEntityWithOptions($request, $runtime)
     {
         Utils::validateModel($request);
+        $body = [];
+        if (!Utils::isUnset($request->dbName)) {
+            $body['DbName'] = $request->dbName;
+        }
+        if (!Utils::isUnset($request->entityId)) {
+            $body['EntityId'] = $request->entityId;
+        }
         $req = new OpenApiRequest([
-            'body' => Utils::toMap($request),
+            'body' => OpenApiUtilClient::parseToMap($body),
         ]);
         $params = new Params([
             'action'      => 'DeleteFaceEntity',
@@ -1426,8 +1606,15 @@ class Facebody extends OpenApiClient
     public function deleteFaceImageTemplateWithOptions($request, $runtime)
     {
         Utils::validateModel($request);
+        $body = [];
+        if (!Utils::isUnset($request->templateId)) {
+            $body['TemplateId'] = $request->templateId;
+        }
+        if (!Utils::isUnset($request->userId)) {
+            $body['UserId'] = $request->userId;
+        }
         $req = new OpenApiRequest([
-            'body' => Utils::toMap($request),
+            'body' => OpenApiUtilClient::parseToMap($body),
         ]);
         $params = new Params([
             'action'      => 'DeleteFaceImageTemplate',
@@ -1465,8 +1652,12 @@ class Facebody extends OpenApiClient
     public function detectBodyCountWithOptions($request, $runtime)
     {
         Utils::validateModel($request);
+        $body = [];
+        if (!Utils::isUnset($request->imageURL)) {
+            $body['ImageURL'] = $request->imageURL;
+        }
         $req = new OpenApiRequest([
-            'body' => Utils::toMap($request),
+            'body' => OpenApiUtilClient::parseToMap($body),
         ]);
         $params = new Params([
             'action'      => 'DetectBodyCount',
@@ -1582,8 +1773,12 @@ class Facebody extends OpenApiClient
     public function detectCelebrityWithOptions($request, $runtime)
     {
         Utils::validateModel($request);
+        $body = [];
+        if (!Utils::isUnset($request->imageURL)) {
+            $body['ImageURL'] = $request->imageURL;
+        }
         $req = new OpenApiRequest([
-            'body' => Utils::toMap($request),
+            'body' => OpenApiUtilClient::parseToMap($body),
         ]);
         $params = new Params([
             'action'      => 'DetectCelebrity',
@@ -1699,8 +1894,12 @@ class Facebody extends OpenApiClient
     public function detectChefCapWithOptions($request, $runtime)
     {
         Utils::validateModel($request);
+        $body = [];
+        if (!Utils::isUnset($request->imageURL)) {
+            $body['ImageURL'] = $request->imageURL;
+        }
         $req = new OpenApiRequest([
-            'body' => Utils::toMap($request),
+            'body' => OpenApiUtilClient::parseToMap($body),
         ]);
         $params = new Params([
             'action'      => 'DetectChefCap',
@@ -1816,8 +2015,24 @@ class Facebody extends OpenApiClient
     public function detectFaceWithOptions($request, $runtime)
     {
         Utils::validateModel($request);
+        $body = [];
+        if (!Utils::isUnset($request->imageURL)) {
+            $body['ImageURL'] = $request->imageURL;
+        }
+        if (!Utils::isUnset($request->landmark)) {
+            $body['Landmark'] = $request->landmark;
+        }
+        if (!Utils::isUnset($request->maxFaceNumber)) {
+            $body['MaxFaceNumber'] = $request->maxFaceNumber;
+        }
+        if (!Utils::isUnset($request->pose)) {
+            $body['Pose'] = $request->pose;
+        }
+        if (!Utils::isUnset($request->quality)) {
+            $body['Quality'] = $request->quality;
+        }
         $req = new OpenApiRequest([
-            'body' => Utils::toMap($request),
+            'body' => OpenApiUtilClient::parseToMap($body),
         ]);
         $params = new Params([
             'action'      => 'DetectFace',
@@ -1933,8 +2148,21 @@ class Facebody extends OpenApiClient
     public function detectIPCPedestrianWithOptions($request, $runtime)
     {
         Utils::validateModel($request);
+        $body = [];
+        if (!Utils::isUnset($request->height)) {
+            $body['Height'] = $request->height;
+        }
+        if (!Utils::isUnset($request->imageData)) {
+            $body['ImageData'] = $request->imageData;
+        }
+        if (!Utils::isUnset($request->imageURL)) {
+            $body['ImageURL'] = $request->imageURL;
+        }
+        if (!Utils::isUnset($request->width)) {
+            $body['Width'] = $request->width;
+        }
         $req = new OpenApiRequest([
-            'body' => Utils::toMap($request),
+            'body' => OpenApiUtilClient::parseToMap($body),
         ]);
         $params = new Params([
             'action'      => 'DetectIPCPedestrian',
@@ -2050,8 +2278,12 @@ class Facebody extends OpenApiClient
     public function detectLivingFaceWithOptions($request, $runtime)
     {
         Utils::validateModel($request);
+        $body = [];
+        if (!Utils::isUnset($request->tasks)) {
+            $body['Tasks'] = $request->tasks;
+        }
         $req = new OpenApiRequest([
-            'body' => Utils::toMap($request),
+            'body' => OpenApiUtilClient::parseToMap($body),
         ]);
         $params = new Params([
             'action'      => 'DetectLivingFace',
@@ -2081,123 +2313,6 @@ class Facebody extends OpenApiClient
     }
 
     /**
-     * @param DetectMaskRequest $request
-     * @param RuntimeOptions    $runtime
-     *
-     * @return DetectMaskResponse
-     */
-    public function detectMaskWithOptions($request, $runtime)
-    {
-        Utils::validateModel($request);
-        $req = new OpenApiRequest([
-            'body' => Utils::toMap($request),
-        ]);
-        $params = new Params([
-            'action'      => 'DetectMask',
-            'version'     => '2019-12-30',
-            'protocol'    => 'HTTPS',
-            'pathname'    => '/',
-            'method'      => 'POST',
-            'authType'    => 'AK',
-            'style'       => 'RPC',
-            'reqBodyType' => 'formData',
-            'bodyType'    => 'json',
-        ]);
-
-        return DetectMaskResponse::fromMap($this->callApi($params, $req, $runtime));
-    }
-
-    /**
-     * @param DetectMaskRequest $request
-     *
-     * @return DetectMaskResponse
-     */
-    public function detectMask($request)
-    {
-        $runtime = new RuntimeOptions([]);
-
-        return $this->detectMaskWithOptions($request, $runtime);
-    }
-
-    /**
-     * @param DetectMaskAdvanceRequest $request
-     * @param RuntimeOptions           $runtime
-     *
-     * @return DetectMaskResponse
-     */
-    public function detectMaskAdvance($request, $runtime)
-    {
-        // Step 0: init client
-        $accessKeyId          = $this->_credential->getAccessKeyId();
-        $accessKeySecret      = $this->_credential->getAccessKeySecret();
-        $securityToken        = $this->_credential->getSecurityToken();
-        $credentialType       = $this->_credential->getType();
-        $openPlatformEndpoint = $this->_openPlatformEndpoint;
-        if (Utils::isUnset($openPlatformEndpoint)) {
-            $openPlatformEndpoint = 'openplatform.aliyuncs.com';
-        }
-        if (Utils::isUnset($credentialType)) {
-            $credentialType = 'access_key';
-        }
-        $authConfig = new Config([
-            'accessKeyId'     => $accessKeyId,
-            'accessKeySecret' => $accessKeySecret,
-            'securityToken'   => $securityToken,
-            'type'            => $credentialType,
-            'endpoint'        => $openPlatformEndpoint,
-            'protocol'        => $this->_protocol,
-            'regionId'        => $this->_regionId,
-        ]);
-        $authClient  = new OpenPlatform($authConfig);
-        $authRequest = new AuthorizeFileUploadRequest([
-            'product'  => 'facebody',
-            'regionId' => $this->_regionId,
-        ]);
-        $authResponse = new AuthorizeFileUploadResponse([]);
-        $ossConfig    = new \AlibabaCloud\SDK\OSS\OSS\Config([
-            'accessKeySecret' => $accessKeySecret,
-            'type'            => 'access_key',
-            'protocol'        => $this->_protocol,
-            'regionId'        => $this->_regionId,
-        ]);
-        $ossClient     = null;
-        $fileObj       = new FileField([]);
-        $ossHeader     = new header([]);
-        $uploadRequest = new PostObjectRequest([]);
-        $ossRuntime    = new \AlibabaCloud\Tea\OSSUtils\OSSUtils\RuntimeOptions([]);
-        OpenApiUtilClient::convert($runtime, $ossRuntime);
-        $detectMaskReq = new DetectMaskRequest([]);
-        OpenApiUtilClient::convert($request, $detectMaskReq);
-        if (!Utils::isUnset($request->imageURLObject)) {
-            $authResponse           = $authClient->authorizeFileUploadWithOptions($authRequest, $runtime);
-            $ossConfig->accessKeyId = $authResponse->accessKeyId;
-            $ossConfig->endpoint    = OpenApiUtilClient::getEndpoint($authResponse->endpoint, $authResponse->useAccelerate, $this->_endpointType);
-            $ossClient              = new OSS($ossConfig);
-            $fileObj                = new FileField([
-                'filename'    => $authResponse->objectKey,
-                'content'     => $request->imageURLObject,
-                'contentType' => '',
-            ]);
-            $ossHeader = new header([
-                'accessKeyId'         => $authResponse->accessKeyId,
-                'policy'              => $authResponse->encodedPolicy,
-                'signature'           => $authResponse->signature,
-                'key'                 => $authResponse->objectKey,
-                'file'                => $fileObj,
-                'successActionStatus' => '201',
-            ]);
-            $uploadRequest = new PostObjectRequest([
-                'bucketName' => $authResponse->bucket,
-                'header'     => $ossHeader,
-            ]);
-            $ossClient->postObject($uploadRequest, $ossRuntime);
-            $detectMaskReq->imageURL = 'http://' . $authResponse->bucket . '.' . $authResponse->endpoint . '/' . $authResponse->objectKey . '';
-        }
-
-        return $this->detectMaskWithOptions($detectMaskReq, $runtime);
-    }
-
-    /**
      * @param DetectPedestrianRequest $request
      * @param RuntimeOptions          $runtime
      *
@@ -2206,8 +2321,12 @@ class Facebody extends OpenApiClient
     public function detectPedestrianWithOptions($request, $runtime)
     {
         Utils::validateModel($request);
+        $body = [];
+        if (!Utils::isUnset($request->imageURL)) {
+            $body['ImageURL'] = $request->imageURL;
+        }
         $req = new OpenApiRequest([
-            'body' => Utils::toMap($request),
+            'body' => OpenApiUtilClient::parseToMap($body),
         ]);
         $params = new Params([
             'action'      => 'DetectPedestrian',
@@ -2328,8 +2447,18 @@ class Facebody extends OpenApiClient
         if (!Utils::isUnset($tmpReq->detectRegion)) {
             $request->detectRegionShrink = OpenApiUtilClient::arrayToStringWithSpecifiedStyle($tmpReq->detectRegion, 'DetectRegion', 'json');
         }
+        $body = [];
+        if (!Utils::isUnset($request->detectRegionShrink)) {
+            $body['DetectRegion'] = $request->detectRegionShrink;
+        }
+        if (!Utils::isUnset($request->imageURL)) {
+            $body['ImageURL'] = $request->imageURL;
+        }
+        if (!Utils::isUnset($request->regionType)) {
+            $body['RegionType'] = $request->regionType;
+        }
         $req = new OpenApiRequest([
-            'body' => Utils::toMap($request),
+            'body' => OpenApiUtilClient::parseToMap($body),
         ]);
         $params = new Params([
             'action'      => 'DetectPedestrianIntrusion',
@@ -2445,8 +2574,12 @@ class Facebody extends OpenApiClient
     public function detectVideoLivingFaceWithOptions($request, $runtime)
     {
         Utils::validateModel($request);
+        $body = [];
+        if (!Utils::isUnset($request->videoUrl)) {
+            $body['VideoUrl'] = $request->videoUrl;
+        }
         $req = new OpenApiRequest([
-            'body' => Utils::toMap($request),
+            'body' => OpenApiUtilClient::parseToMap($body),
         ]);
         $params = new Params([
             'action'      => 'DetectVideoLivingFace',
@@ -2562,8 +2695,12 @@ class Facebody extends OpenApiClient
     public function enhanceFaceWithOptions($request, $runtime)
     {
         Utils::validateModel($request);
+        $body = [];
+        if (!Utils::isUnset($request->imageURL)) {
+            $body['ImageURL'] = $request->imageURL;
+        }
         $req = new OpenApiRequest([
-            'body' => Utils::toMap($request),
+            'body' => OpenApiUtilClient::parseToMap($body),
         ]);
         $params = new Params([
             'action'      => 'EnhanceFace',
@@ -2679,8 +2816,15 @@ class Facebody extends OpenApiClient
     public function extractFingerPrintWithOptions($request, $runtime)
     {
         Utils::validateModel($request);
+        $body = [];
+        if (!Utils::isUnset($request->imageData)) {
+            $body['ImageData'] = $request->imageData;
+        }
+        if (!Utils::isUnset($request->imageURL)) {
+            $body['ImageURL'] = $request->imageURL;
+        }
         $req = new OpenApiRequest([
-            'body' => Utils::toMap($request),
+            'body' => OpenApiUtilClient::parseToMap($body),
         ]);
         $params = new Params([
             'action'      => 'ExtractFingerPrint',
@@ -2796,8 +2940,18 @@ class Facebody extends OpenApiClient
     public function extractPedestrianFeatureAttrWithOptions($request, $runtime)
     {
         Utils::validateModel($request);
+        $body = [];
+        if (!Utils::isUnset($request->imageURL)) {
+            $body['ImageURL'] = $request->imageURL;
+        }
+        if (!Utils::isUnset($request->mode)) {
+            $body['Mode'] = $request->mode;
+        }
+        if (!Utils::isUnset($request->serviceVersion)) {
+            $body['ServiceVersion'] = $request->serviceVersion;
+        }
         $req = new OpenApiRequest([
-            'body' => Utils::toMap($request),
+            'body' => OpenApiUtilClient::parseToMap($body),
         ]);
         $params = new Params([
             'action'      => 'ExtractPedestrianFeatureAttr',
@@ -2913,8 +3067,18 @@ class Facebody extends OpenApiClient
     public function extractPedestrianFeatureAttributeWithOptions($request, $runtime)
     {
         Utils::validateModel($request);
+        $body = [];
+        if (!Utils::isUnset($request->imageURL)) {
+            $body['ImageURL'] = $request->imageURL;
+        }
+        if (!Utils::isUnset($request->mode)) {
+            $body['Mode'] = $request->mode;
+        }
+        if (!Utils::isUnset($request->urlList)) {
+            $body['UrlList'] = $request->urlList;
+        }
         $req = new OpenApiRequest([
-            'body' => Utils::toMap($request),
+            'body' => OpenApiUtilClient::parseToMap($body),
         ]);
         $params = new Params([
             'action'      => 'ExtractPedestrianFeatureAttribute',
@@ -2952,8 +3116,21 @@ class Facebody extends OpenApiClient
     public function faceBeautyWithOptions($request, $runtime)
     {
         Utils::validateModel($request);
+        $body = [];
+        if (!Utils::isUnset($request->imageURL)) {
+            $body['ImageURL'] = $request->imageURL;
+        }
+        if (!Utils::isUnset($request->sharp)) {
+            $body['Sharp'] = $request->sharp;
+        }
+        if (!Utils::isUnset($request->smooth)) {
+            $body['Smooth'] = $request->smooth;
+        }
+        if (!Utils::isUnset($request->white)) {
+            $body['White'] = $request->white;
+        }
         $req = new OpenApiRequest([
-            'body' => Utils::toMap($request),
+            'body' => OpenApiUtilClient::parseToMap($body),
         ]);
         $params = new Params([
             'action'      => 'FaceBeauty',
@@ -3069,8 +3246,18 @@ class Facebody extends OpenApiClient
     public function faceFilterWithOptions($request, $runtime)
     {
         Utils::validateModel($request);
+        $body = [];
+        if (!Utils::isUnset($request->imageURL)) {
+            $body['ImageURL'] = $request->imageURL;
+        }
+        if (!Utils::isUnset($request->resourceType)) {
+            $body['ResourceType'] = $request->resourceType;
+        }
+        if (!Utils::isUnset($request->strength)) {
+            $body['Strength'] = $request->strength;
+        }
         $req = new OpenApiRequest([
-            'body' => Utils::toMap($request),
+            'body' => OpenApiUtilClient::parseToMap($body),
         ]);
         $params = new Params([
             'action'      => 'FaceFilter',
@@ -3186,8 +3373,21 @@ class Facebody extends OpenApiClient
     public function faceMakeupWithOptions($request, $runtime)
     {
         Utils::validateModel($request);
+        $body = [];
+        if (!Utils::isUnset($request->imageURL)) {
+            $body['ImageURL'] = $request->imageURL;
+        }
+        if (!Utils::isUnset($request->makeupType)) {
+            $body['MakeupType'] = $request->makeupType;
+        }
+        if (!Utils::isUnset($request->resourceType)) {
+            $body['ResourceType'] = $request->resourceType;
+        }
+        if (!Utils::isUnset($request->strength)) {
+            $body['Strength'] = $request->strength;
+        }
         $req = new OpenApiRequest([
-            'body' => Utils::toMap($request),
+            'body' => OpenApiUtilClient::parseToMap($body),
         ]);
         $params = new Params([
             'action'      => 'FaceMakeup',
@@ -3303,8 +3503,18 @@ class Facebody extends OpenApiClient
     public function faceTidyupWithOptions($request, $runtime)
     {
         Utils::validateModel($request);
+        $body = [];
+        if (!Utils::isUnset($request->imageURL)) {
+            $body['ImageURL'] = $request->imageURL;
+        }
+        if (!Utils::isUnset($request->shapeType)) {
+            $body['ShapeType'] = $request->shapeType;
+        }
+        if (!Utils::isUnset($request->strength)) {
+            $body['Strength'] = $request->strength;
+        }
         $req = new OpenApiRequest([
-            'body' => Utils::toMap($request),
+            'body' => OpenApiUtilClient::parseToMap($body),
         ]);
         $params = new Params([
             'action'      => 'FaceTidyup',
@@ -3420,8 +3630,18 @@ class Facebody extends OpenApiClient
     public function genRealPersonVerificationTokenWithOptions($request, $runtime)
     {
         Utils::validateModel($request);
+        $body = [];
+        if (!Utils::isUnset($request->certificateName)) {
+            $body['CertificateName'] = $request->certificateName;
+        }
+        if (!Utils::isUnset($request->certificateNumber)) {
+            $body['CertificateNumber'] = $request->certificateNumber;
+        }
+        if (!Utils::isUnset($request->metaInfo)) {
+            $body['MetaInfo'] = $request->metaInfo;
+        }
         $req = new OpenApiRequest([
-            'body' => Utils::toMap($request),
+            'body' => OpenApiUtilClient::parseToMap($body),
         ]);
         $params = new Params([
             'action'      => 'GenRealPersonVerificationToken',
@@ -3459,12 +3679,15 @@ class Facebody extends OpenApiClient
     public function generateHumanAnimeStyleWithOptions($request, $runtime)
     {
         Utils::validateModel($request);
-        $query             = [];
-        $query['AlgoType'] = $request->algoType;
-        $query['ImageURL'] = $request->imageURL;
-        $req               = new OpenApiRequest([
+        $query = [];
+        if (!Utils::isUnset($request->algoType)) {
+            $query['AlgoType'] = $request->algoType;
+        }
+        if (!Utils::isUnset($request->imageURL)) {
+            $query['ImageURL'] = $request->imageURL;
+        }
+        $req = new OpenApiRequest([
             'query' => OpenApiUtilClient::query($query),
-            'body'  => Utils::toMap($request),
         ]);
         $params = new Params([
             'action'      => 'GenerateHumanAnimeStyle',
@@ -3474,7 +3697,7 @@ class Facebody extends OpenApiClient
             'method'      => 'POST',
             'authType'    => 'AK',
             'style'       => 'RPC',
-            'reqBodyType' => 'json',
+            'reqBodyType' => 'formData',
             'bodyType'    => 'json',
         ]);
 
@@ -3580,8 +3803,15 @@ class Facebody extends OpenApiClient
     public function generateHumanSketchStyleWithOptions($request, $runtime)
     {
         Utils::validateModel($request);
+        $body = [];
+        if (!Utils::isUnset($request->imageURL)) {
+            $body['ImageURL'] = $request->imageURL;
+        }
+        if (!Utils::isUnset($request->returnType)) {
+            $body['ReturnType'] = $request->returnType;
+        }
         $req = new OpenApiRequest([
-            'body' => Utils::toMap($request),
+            'body' => OpenApiUtilClient::parseToMap($body),
         ]);
         $params = new Params([
             'action'      => 'GenerateHumanSketchStyle',
@@ -3709,7 +3939,7 @@ class Facebody extends OpenApiClient
             'method'      => 'GET',
             'authType'    => 'AK',
             'style'       => 'RPC',
-            'reqBodyType' => 'json',
+            'reqBodyType' => 'formData',
             'bodyType'    => 'json',
         ]);
 
@@ -3737,8 +3967,15 @@ class Facebody extends OpenApiClient
     public function getFaceEntityWithOptions($request, $runtime)
     {
         Utils::validateModel($request);
+        $body = [];
+        if (!Utils::isUnset($request->dbName)) {
+            $body['DbName'] = $request->dbName;
+        }
+        if (!Utils::isUnset($request->entityId)) {
+            $body['EntityId'] = $request->entityId;
+        }
         $req = new OpenApiRequest([
-            'body' => Utils::toMap($request),
+            'body' => OpenApiUtilClient::parseToMap($body),
         ]);
         $params = new Params([
             'action'      => 'GetFaceEntity',
@@ -3776,8 +4013,15 @@ class Facebody extends OpenApiClient
     public function getRealPersonVerificationResultWithOptions($request, $runtime)
     {
         Utils::validateModel($request);
+        $body = [];
+        if (!Utils::isUnset($request->materialHash)) {
+            $body['MaterialHash'] = $request->materialHash;
+        }
+        if (!Utils::isUnset($request->verificationToken)) {
+            $body['VerificationToken'] = $request->verificationToken;
+        }
         $req = new OpenApiRequest([
-            'body' => Utils::toMap($request),
+            'body' => OpenApiUtilClient::parseToMap($body),
         ]);
         $params = new Params([
             'action'      => 'GetRealPersonVerificationResult',
@@ -3815,8 +4059,12 @@ class Facebody extends OpenApiClient
     public function handPostureWithOptions($request, $runtime)
     {
         Utils::validateModel($request);
+        $body = [];
+        if (!Utils::isUnset($request->imageURL)) {
+            $body['ImageURL'] = $request->imageURL;
+        }
         $req = new OpenApiRequest([
-            'body' => Utils::toMap($request),
+            'body' => OpenApiUtilClient::parseToMap($body),
         ]);
         $params = new Params([
             'action'      => 'HandPosture',
@@ -3932,8 +4180,15 @@ class Facebody extends OpenApiClient
     public function liquifyFaceWithOptions($request, $runtime)
     {
         Utils::validateModel($request);
+        $body = [];
+        if (!Utils::isUnset($request->imageURL)) {
+            $body['ImageURL'] = $request->imageURL;
+        }
+        if (!Utils::isUnset($request->slimDegree)) {
+            $body['SlimDegree'] = $request->slimDegree;
+        }
         $req = new OpenApiRequest([
-            'body' => Utils::toMap($request),
+            'body' => OpenApiUtilClient::parseToMap($body),
         ]);
         $params = new Params([
             'action'      => 'LiquifyFace',
@@ -4061,7 +4316,7 @@ class Facebody extends OpenApiClient
             'method'      => 'GET',
             'authType'    => 'AK',
             'style'       => 'RPC',
-            'reqBodyType' => 'json',
+            'reqBodyType' => 'formData',
             'bodyType'    => 'json',
         ]);
 
@@ -4101,7 +4356,7 @@ class Facebody extends OpenApiClient
             'method'      => 'GET',
             'authType'    => 'AK',
             'style'       => 'RPC',
-            'reqBodyType' => 'json',
+            'reqBodyType' => 'formData',
             'bodyType'    => 'json',
         ]);
 
@@ -4136,7 +4391,7 @@ class Facebody extends OpenApiClient
             'method'      => 'POST',
             'authType'    => 'AK',
             'style'       => 'RPC',
-            'reqBodyType' => 'json',
+            'reqBodyType' => 'formData',
             'bodyType'    => 'json',
         ]);
 
@@ -4162,8 +4417,30 @@ class Facebody extends OpenApiClient
     public function listFaceEntitiesWithOptions($request, $runtime)
     {
         Utils::validateModel($request);
+        $body = [];
+        if (!Utils::isUnset($request->dbName)) {
+            $body['DbName'] = $request->dbName;
+        }
+        if (!Utils::isUnset($request->entityIdPrefix)) {
+            $body['EntityIdPrefix'] = $request->entityIdPrefix;
+        }
+        if (!Utils::isUnset($request->labels)) {
+            $body['Labels'] = $request->labels;
+        }
+        if (!Utils::isUnset($request->limit)) {
+            $body['Limit'] = $request->limit;
+        }
+        if (!Utils::isUnset($request->offset)) {
+            $body['Offset'] = $request->offset;
+        }
+        if (!Utils::isUnset($request->order)) {
+            $body['Order'] = $request->order;
+        }
+        if (!Utils::isUnset($request->token)) {
+            $body['Token'] = $request->token;
+        }
         $req = new OpenApiRequest([
-            'body' => Utils::toMap($request),
+            'body' => OpenApiUtilClient::parseToMap($body),
         ]);
         $params = new Params([
             'action'      => 'ListFaceEntities',
@@ -4201,8 +4478,18 @@ class Facebody extends OpenApiClient
     public function mergeImageFaceWithOptions($request, $runtime)
     {
         Utils::validateModel($request);
+        $body = [];
+        if (!Utils::isUnset($request->imageURL)) {
+            $body['ImageURL'] = $request->imageURL;
+        }
+        if (!Utils::isUnset($request->templateId)) {
+            $body['TemplateId'] = $request->templateId;
+        }
+        if (!Utils::isUnset($request->userId)) {
+            $body['UserId'] = $request->userId;
+        }
         $req = new OpenApiRequest([
-            'body' => Utils::toMap($request),
+            'body' => OpenApiUtilClient::parseToMap($body),
         ]);
         $params = new Params([
             'action'      => 'MergeImageFace',
@@ -4318,8 +4605,15 @@ class Facebody extends OpenApiClient
     public function monitorExaminationWithOptions($request, $runtime)
     {
         Utils::validateModel($request);
+        $body = [];
+        if (!Utils::isUnset($request->imageURL)) {
+            $body['ImageURL'] = $request->imageURL;
+        }
+        if (!Utils::isUnset($request->type)) {
+            $body['Type'] = $request->type;
+        }
         $req = new OpenApiRequest([
-            'body' => Utils::toMap($request),
+            'body' => OpenApiUtilClient::parseToMap($body),
         ]);
         $params = new Params([
             'action'      => 'MonitorExamination',
@@ -4435,8 +4729,12 @@ class Facebody extends OpenApiClient
     public function pedestrianDetectAttributeWithOptions($request, $runtime)
     {
         Utils::validateModel($request);
+        $body = [];
+        if (!Utils::isUnset($request->imageURL)) {
+            $body['ImageURL'] = $request->imageURL;
+        }
         $req = new OpenApiRequest([
-            'body' => Utils::toMap($request),
+            'body' => OpenApiUtilClient::parseToMap($body),
         ]);
         $params = new Params([
             'action'      => 'PedestrianDetectAttribute',
@@ -4564,7 +4862,7 @@ class Facebody extends OpenApiClient
             'method'      => 'GET',
             'authType'    => 'AK',
             'style'       => 'RPC',
-            'reqBodyType' => 'json',
+            'reqBodyType' => 'formData',
             'bodyType'    => 'json',
         ]);
 
@@ -4592,8 +4890,21 @@ class Facebody extends OpenApiClient
     public function recognizeActionWithOptions($request, $runtime)
     {
         Utils::validateModel($request);
+        $body = [];
+        if (!Utils::isUnset($request->type)) {
+            $body['Type'] = $request->type;
+        }
+        if (!Utils::isUnset($request->URLList)) {
+            $body['URLList'] = $request->URLList;
+        }
+        if (!Utils::isUnset($request->videoData)) {
+            $body['VideoData'] = $request->videoData;
+        }
+        if (!Utils::isUnset($request->videoUrl)) {
+            $body['VideoUrl'] = $request->videoUrl;
+        }
         $req = new OpenApiRequest([
-            'body' => Utils::toMap($request),
+            'body' => OpenApiUtilClient::parseToMap($body),
         ]);
         $params = new Params([
             'action'      => 'RecognizeAction',
@@ -4631,8 +4942,12 @@ class Facebody extends OpenApiClient
     public function recognizeExpressionWithOptions($request, $runtime)
     {
         Utils::validateModel($request);
+        $body = [];
+        if (!Utils::isUnset($request->imageURL)) {
+            $body['ImageURL'] = $request->imageURL;
+        }
         $req = new OpenApiRequest([
-            'body' => Utils::toMap($request),
+            'body' => OpenApiUtilClient::parseToMap($body),
         ]);
         $params = new Params([
             'action'      => 'RecognizeExpression',
@@ -4748,8 +5063,39 @@ class Facebody extends OpenApiClient
     public function recognizeFaceWithOptions($request, $runtime)
     {
         Utils::validateModel($request);
+        $body = [];
+        if (!Utils::isUnset($request->age)) {
+            $body['Age'] = $request->age;
+        }
+        if (!Utils::isUnset($request->beauty)) {
+            $body['Beauty'] = $request->beauty;
+        }
+        if (!Utils::isUnset($request->expression)) {
+            $body['Expression'] = $request->expression;
+        }
+        if (!Utils::isUnset($request->gender)) {
+            $body['Gender'] = $request->gender;
+        }
+        if (!Utils::isUnset($request->glass)) {
+            $body['Glass'] = $request->glass;
+        }
+        if (!Utils::isUnset($request->hat)) {
+            $body['Hat'] = $request->hat;
+        }
+        if (!Utils::isUnset($request->imageURL)) {
+            $body['ImageURL'] = $request->imageURL;
+        }
+        if (!Utils::isUnset($request->mask)) {
+            $body['Mask'] = $request->mask;
+        }
+        if (!Utils::isUnset($request->maxFaceNumber)) {
+            $body['MaxFaceNumber'] = $request->maxFaceNumber;
+        }
+        if (!Utils::isUnset($request->quality)) {
+            $body['Quality'] = $request->quality;
+        }
         $req = new OpenApiRequest([
-            'body' => Utils::toMap($request),
+            'body' => OpenApiUtilClient::parseToMap($body),
         ]);
         $params = new Params([
             'action'      => 'RecognizeFace',
@@ -4865,8 +5211,18 @@ class Facebody extends OpenApiClient
     public function recognizeHandGestureWithOptions($request, $runtime)
     {
         Utils::validateModel($request);
+        $body = [];
+        if (!Utils::isUnset($request->appId)) {
+            $body['AppId'] = $request->appId;
+        }
+        if (!Utils::isUnset($request->gestureType)) {
+            $body['GestureType'] = $request->gestureType;
+        }
+        if (!Utils::isUnset($request->imageURL)) {
+            $body['ImageURL'] = $request->imageURL;
+        }
         $req = new OpenApiRequest([
-            'body' => Utils::toMap($request),
+            'body' => OpenApiUtilClient::parseToMap($body),
         ]);
         $params = new Params([
             'action'      => 'RecognizeHandGesture',
@@ -4982,8 +5338,12 @@ class Facebody extends OpenApiClient
     public function recognizePublicFaceWithOptions($request, $runtime)
     {
         Utils::validateModel($request);
+        $body = [];
+        if (!Utils::isUnset($request->task)) {
+            $body['Task'] = $request->task;
+        }
         $req = new OpenApiRequest([
-            'body' => Utils::toMap($request),
+            'body' => OpenApiUtilClient::parseToMap($body),
         ]);
         $params = new Params([
             'action'      => 'RecognizePublicFace',
@@ -5021,8 +5381,18 @@ class Facebody extends OpenApiClient
     public function retouchBodyWithOptions($request, $runtime)
     {
         Utils::validateModel($request);
+        $body = [];
+        if (!Utils::isUnset($request->imageURL)) {
+            $body['ImageURL'] = $request->imageURL;
+        }
+        if (!Utils::isUnset($request->lengthenDegree)) {
+            $body['LengthenDegree'] = $request->lengthenDegree;
+        }
+        if (!Utils::isUnset($request->slimDegree)) {
+            $body['SlimDegree'] = $request->slimDegree;
+        }
         $req = new OpenApiRequest([
-            'body' => Utils::toMap($request),
+            'body' => OpenApiUtilClient::parseToMap($body),
         ]);
         $params = new Params([
             'action'      => 'RetouchBody',
@@ -5138,8 +5508,18 @@ class Facebody extends OpenApiClient
     public function retouchSkinWithOptions($request, $runtime)
     {
         Utils::validateModel($request);
+        $body = [];
+        if (!Utils::isUnset($request->imageURL)) {
+            $body['ImageURL'] = $request->imageURL;
+        }
+        if (!Utils::isUnset($request->retouchDegree)) {
+            $body['RetouchDegree'] = $request->retouchDegree;
+        }
+        if (!Utils::isUnset($request->whiteningDegree)) {
+            $body['WhiteningDegree'] = $request->whiteningDegree;
+        }
         $req = new OpenApiRequest([
-            'body' => Utils::toMap($request),
+            'body' => OpenApiUtilClient::parseToMap($body),
         ]);
         $params = new Params([
             'action'      => 'RetouchSkin',
@@ -5260,8 +5640,21 @@ class Facebody extends OpenApiClient
         if (!Utils::isUnset($tmpReq->images)) {
             $request->imagesShrink = OpenApiUtilClient::arrayToStringWithSpecifiedStyle($tmpReq->images, 'Images', 'json');
         }
+        $body = [];
+        if (!Utils::isUnset($request->dbId)) {
+            $body['DbId'] = $request->dbId;
+        }
+        if (!Utils::isUnset($request->imagesShrink)) {
+            $body['Images'] = $request->imagesShrink;
+        }
+        if (!Utils::isUnset($request->limit)) {
+            $body['Limit'] = $request->limit;
+        }
+        if (!Utils::isUnset($request->minScore)) {
+            $body['MinScore'] = $request->minScore;
+        }
         $req = new OpenApiRequest([
-            'body' => Utils::toMap($request),
+            'body' => OpenApiUtilClient::parseToMap($body),
         ]);
         $params = new Params([
             'action'      => 'SearchBodyTrace',
@@ -5299,8 +5692,27 @@ class Facebody extends OpenApiClient
     public function searchFaceWithOptions($request, $runtime)
     {
         Utils::validateModel($request);
+        $body = [];
+        if (!Utils::isUnset($request->dbName)) {
+            $body['DbName'] = $request->dbName;
+        }
+        if (!Utils::isUnset($request->dbNames)) {
+            $body['DbNames'] = $request->dbNames;
+        }
+        if (!Utils::isUnset($request->imageUrl)) {
+            $body['ImageUrl'] = $request->imageUrl;
+        }
+        if (!Utils::isUnset($request->limit)) {
+            $body['Limit'] = $request->limit;
+        }
+        if (!Utils::isUnset($request->maxFaceNum)) {
+            $body['MaxFaceNum'] = $request->maxFaceNum;
+        }
+        if (!Utils::isUnset($request->qualityScoreThreshold)) {
+            $body['QualityScoreThreshold'] = $request->qualityScoreThreshold;
+        }
         $req = new OpenApiRequest([
-            'body' => Utils::toMap($request),
+            'body' => OpenApiUtilClient::parseToMap($body),
         ]);
         $params = new Params([
             'action'      => 'SearchFace',
@@ -5416,8 +5828,24 @@ class Facebody extends OpenApiClient
     public function swapFacialFeaturesWithOptions($request, $runtime)
     {
         Utils::validateModel($request);
+        $body = [];
+        if (!Utils::isUnset($request->editPart)) {
+            $body['EditPart'] = $request->editPart;
+        }
+        if (!Utils::isUnset($request->sourceImageData)) {
+            $body['SourceImageData'] = $request->sourceImageData;
+        }
+        if (!Utils::isUnset($request->sourceImageURL)) {
+            $body['SourceImageURL'] = $request->sourceImageURL;
+        }
+        if (!Utils::isUnset($request->targetImageData)) {
+            $body['TargetImageData'] = $request->targetImageData;
+        }
+        if (!Utils::isUnset($request->targetImageURL)) {
+            $body['TargetImageURL'] = $request->targetImageURL;
+        }
         $req = new OpenApiRequest([
-            'body' => Utils::toMap($request),
+            'body' => OpenApiUtilClient::parseToMap($body),
         ]);
         $params = new Params([
             'action'      => 'SwapFacialFeatures',
@@ -5455,8 +5883,18 @@ class Facebody extends OpenApiClient
     public function updateFaceEntityWithOptions($request, $runtime)
     {
         Utils::validateModel($request);
+        $body = [];
+        if (!Utils::isUnset($request->dbName)) {
+            $body['DbName'] = $request->dbName;
+        }
+        if (!Utils::isUnset($request->entityId)) {
+            $body['EntityId'] = $request->entityId;
+        }
+        if (!Utils::isUnset($request->labels)) {
+            $body['Labels'] = $request->labels;
+        }
         $req = new OpenApiRequest([
-            'body' => Utils::toMap($request),
+            'body' => OpenApiUtilClient::parseToMap($body),
         ]);
         $params = new Params([
             'action'      => 'UpdateFaceEntity',
@@ -5494,8 +5932,21 @@ class Facebody extends OpenApiClient
     public function verifyFaceMaskWithOptions($request, $runtime)
     {
         Utils::validateModel($request);
+        $body = [];
+        if (!Utils::isUnset($request->imageData)) {
+            $body['ImageData'] = $request->imageData;
+        }
+        if (!Utils::isUnset($request->imageURL)) {
+            $body['ImageURL'] = $request->imageURL;
+        }
+        if (!Utils::isUnset($request->refData)) {
+            $body['RefData'] = $request->refData;
+        }
+        if (!Utils::isUnset($request->refUrl)) {
+            $body['RefUrl'] = $request->refUrl;
+        }
         $req = new OpenApiRequest([
-            'body' => Utils::toMap($request),
+            'body' => OpenApiUtilClient::parseToMap($body),
         ]);
         $params = new Params([
             'action'      => 'VerifyFaceMask',
