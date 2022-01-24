@@ -4,6 +4,7 @@
 
 namespace AlibabaCloud\SDK\CloudAPI\V20160714\Models;
 
+use AlibabaCloud\SDK\CloudAPI\V20160714\Models\DescribeApiHistoryResponseBody\backendConfig;
 use AlibabaCloud\SDK\CloudAPI\V20160714\Models\DescribeApiHistoryResponseBody\constantParameters;
 use AlibabaCloud\SDK\CloudAPI\V20160714\Models\DescribeApiHistoryResponseBody\customSystemParameters;
 use AlibabaCloud\SDK\CloudAPI\V20160714\Models\DescribeApiHistoryResponseBody\errorCodeSamples;
@@ -43,6 +44,16 @@ class DescribeApiHistoryResponseBody extends Model
      * @var string
      */
     public $authType;
+
+    /**
+     * @var backendConfig
+     */
+    public $backendConfig;
+
+    /**
+     * @var bool
+     */
+    public $backendEnable;
 
     /**
      * @var constantParameters
@@ -189,6 +200,8 @@ class DescribeApiHistoryResponseBody extends Model
         'apiName'                => 'ApiName',
         'appCodeAuthType'        => 'AppCodeAuthType',
         'authType'               => 'AuthType',
+        'backendConfig'          => 'BackendConfig',
+        'backendEnable'          => 'BackendEnable',
         'constantParameters'     => 'ConstantParameters',
         'customSystemParameters' => 'CustomSystemParameters',
         'deployedTime'           => 'DeployedTime',
@@ -240,6 +253,12 @@ class DescribeApiHistoryResponseBody extends Model
         }
         if (null !== $this->authType) {
             $res['AuthType'] = $this->authType;
+        }
+        if (null !== $this->backendConfig) {
+            $res['BackendConfig'] = null !== $this->backendConfig ? $this->backendConfig->toMap() : null;
+        }
+        if (null !== $this->backendEnable) {
+            $res['BackendEnable'] = $this->backendEnable;
         }
         if (null !== $this->constantParameters) {
             $res['ConstantParameters'] = null !== $this->constantParameters ? $this->constantParameters->toMap() : null;
@@ -351,6 +370,12 @@ class DescribeApiHistoryResponseBody extends Model
         }
         if (isset($map['AuthType'])) {
             $model->authType = $map['AuthType'];
+        }
+        if (isset($map['BackendConfig'])) {
+            $model->backendConfig = backendConfig::fromMap($map['BackendConfig']);
+        }
+        if (isset($map['BackendEnable'])) {
+            $model->backendEnable = $map['BackendEnable'];
         }
         if (isset($map['ConstantParameters'])) {
             $model->constantParameters = constantParameters::fromMap($map['ConstantParameters']);

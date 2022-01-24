@@ -26,6 +26,10 @@ use AlibabaCloud\SDK\CloudAPI\V20160714\Models\CreateApiStageVariableRequest;
 use AlibabaCloud\SDK\CloudAPI\V20160714\Models\CreateApiStageVariableResponse;
 use AlibabaCloud\SDK\CloudAPI\V20160714\Models\CreateAppRequest;
 use AlibabaCloud\SDK\CloudAPI\V20160714\Models\CreateAppResponse;
+use AlibabaCloud\SDK\CloudAPI\V20160714\Models\CreateBackendModelRequest;
+use AlibabaCloud\SDK\CloudAPI\V20160714\Models\CreateBackendModelResponse;
+use AlibabaCloud\SDK\CloudAPI\V20160714\Models\CreateBackendRequest;
+use AlibabaCloud\SDK\CloudAPI\V20160714\Models\CreateBackendResponse;
 use AlibabaCloud\SDK\CloudAPI\V20160714\Models\CreateInstanceRequest;
 use AlibabaCloud\SDK\CloudAPI\V20160714\Models\CreateInstanceResponse;
 use AlibabaCloud\SDK\CloudAPI\V20160714\Models\CreateIntranetDomainRequest;
@@ -54,6 +58,10 @@ use AlibabaCloud\SDK\CloudAPI\V20160714\Models\DeleteApiStageVariableRequest;
 use AlibabaCloud\SDK\CloudAPI\V20160714\Models\DeleteApiStageVariableResponse;
 use AlibabaCloud\SDK\CloudAPI\V20160714\Models\DeleteAppRequest;
 use AlibabaCloud\SDK\CloudAPI\V20160714\Models\DeleteAppResponse;
+use AlibabaCloud\SDK\CloudAPI\V20160714\Models\DeleteBackendModelRequest;
+use AlibabaCloud\SDK\CloudAPI\V20160714\Models\DeleteBackendModelResponse;
+use AlibabaCloud\SDK\CloudAPI\V20160714\Models\DeleteBackendRequest;
+use AlibabaCloud\SDK\CloudAPI\V20160714\Models\DeleteBackendResponse;
 use AlibabaCloud\SDK\CloudAPI\V20160714\Models\DeleteDomainCertificateRequest;
 use AlibabaCloud\SDK\CloudAPI\V20160714\Models\DeleteDomainCertificateResponse;
 use AlibabaCloud\SDK\CloudAPI\V20160714\Models\DeleteDomainRequest;
@@ -102,6 +110,8 @@ use AlibabaCloud\SDK\CloudAPI\V20160714\Models\DescribeApiRequest;
 use AlibabaCloud\SDK\CloudAPI\V20160714\Models\DescribeApiResponse;
 use AlibabaCloud\SDK\CloudAPI\V20160714\Models\DescribeApisByAppRequest;
 use AlibabaCloud\SDK\CloudAPI\V20160714\Models\DescribeApisByAppResponse;
+use AlibabaCloud\SDK\CloudAPI\V20160714\Models\DescribeApisByBackendRequest;
+use AlibabaCloud\SDK\CloudAPI\V20160714\Models\DescribeApisByBackendResponse;
 use AlibabaCloud\SDK\CloudAPI\V20160714\Models\DescribeApisByIpControlRequest;
 use AlibabaCloud\SDK\CloudAPI\V20160714\Models\DescribeApisByIpControlResponse;
 use AlibabaCloud\SDK\CloudAPI\V20160714\Models\DescribeApisBySignatureRequest;
@@ -128,6 +138,10 @@ use AlibabaCloud\SDK\CloudAPI\V20160714\Models\DescribeAuthorizedApisRequest;
 use AlibabaCloud\SDK\CloudAPI\V20160714\Models\DescribeAuthorizedApisResponse;
 use AlibabaCloud\SDK\CloudAPI\V20160714\Models\DescribeAuthorizedAppsRequest;
 use AlibabaCloud\SDK\CloudAPI\V20160714\Models\DescribeAuthorizedAppsResponse;
+use AlibabaCloud\SDK\CloudAPI\V20160714\Models\DescribeBackendInfoRequest;
+use AlibabaCloud\SDK\CloudAPI\V20160714\Models\DescribeBackendInfoResponse;
+use AlibabaCloud\SDK\CloudAPI\V20160714\Models\DescribeBackendListRequest;
+use AlibabaCloud\SDK\CloudAPI\V20160714\Models\DescribeBackendListResponse;
 use AlibabaCloud\SDK\CloudAPI\V20160714\Models\DescribeDeployApiTaskRequest;
 use AlibabaCloud\SDK\CloudAPI\V20160714\Models\DescribeDeployApiTaskResponse;
 use AlibabaCloud\SDK\CloudAPI\V20160714\Models\DescribeDeployedApiRequest;
@@ -174,6 +188,8 @@ use AlibabaCloud\SDK\CloudAPI\V20160714\Models\DescribeTrafficControlsByApiReque
 use AlibabaCloud\SDK\CloudAPI\V20160714\Models\DescribeTrafficControlsByApiResponse;
 use AlibabaCloud\SDK\CloudAPI\V20160714\Models\DescribeTrafficControlsRequest;
 use AlibabaCloud\SDK\CloudAPI\V20160714\Models\DescribeTrafficControlsResponse;
+use AlibabaCloud\SDK\CloudAPI\V20160714\Models\DescribeUpdateBackendTaskRequest;
+use AlibabaCloud\SDK\CloudAPI\V20160714\Models\DescribeUpdateBackendTaskResponse;
 use AlibabaCloud\SDK\CloudAPI\V20160714\Models\DescribeUpdateVpcInfoTaskRequest;
 use AlibabaCloud\SDK\CloudAPI\V20160714\Models\DescribeUpdateVpcInfoTaskResponse;
 use AlibabaCloud\SDK\CloudAPI\V20160714\Models\DescribeVpcAccessesRequest;
@@ -196,6 +212,10 @@ use AlibabaCloud\SDK\CloudAPI\V20160714\Models\ModifyApiRequest;
 use AlibabaCloud\SDK\CloudAPI\V20160714\Models\ModifyApiResponse;
 use AlibabaCloud\SDK\CloudAPI\V20160714\Models\ModifyAppRequest;
 use AlibabaCloud\SDK\CloudAPI\V20160714\Models\ModifyAppResponse;
+use AlibabaCloud\SDK\CloudAPI\V20160714\Models\ModifyBackendModelRequest;
+use AlibabaCloud\SDK\CloudAPI\V20160714\Models\ModifyBackendModelResponse;
+use AlibabaCloud\SDK\CloudAPI\V20160714\Models\ModifyBackendRequest;
+use AlibabaCloud\SDK\CloudAPI\V20160714\Models\ModifyBackendResponse;
 use AlibabaCloud\SDK\CloudAPI\V20160714\Models\ModifyInstanceSpecRequest;
 use AlibabaCloud\SDK\CloudAPI\V20160714\Models\ModifyInstanceSpecResponse;
 use AlibabaCloud\SDK\CloudAPI\V20160714\Models\ModifyIpControlPolicyItemRequest;
@@ -667,6 +687,12 @@ class CloudAPI extends OpenApiClient
         if (!Utils::isUnset($request->authType)) {
             $query['AuthType'] = $request->authType;
         }
+        if (!Utils::isUnset($request->backendEnable)) {
+            $query['BackendEnable'] = $request->backendEnable;
+        }
+        if (!Utils::isUnset($request->backendId)) {
+            $query['BackendId'] = $request->backendId;
+        }
         if (!Utils::isUnset($request->constantParameters)) {
             $query['ConstantParameters'] = $request->constantParameters;
         }
@@ -932,6 +958,116 @@ class CloudAPI extends OpenApiClient
         $runtime = new RuntimeOptions([]);
 
         return $this->createAppWithOptions($request, $runtime);
+    }
+
+    /**
+     * @param CreateBackendRequest $request
+     * @param RuntimeOptions       $runtime
+     *
+     * @return CreateBackendResponse
+     */
+    public function createBackendWithOptions($request, $runtime)
+    {
+        Utils::validateModel($request);
+        $query = [];
+        if (!Utils::isUnset($request->backendName)) {
+            $query['BackendName'] = $request->backendName;
+        }
+        if (!Utils::isUnset($request->backendType)) {
+            $query['BackendType'] = $request->backendType;
+        }
+        if (!Utils::isUnset($request->description)) {
+            $query['Description'] = $request->description;
+        }
+        if (!Utils::isUnset($request->securityToken)) {
+            $query['SecurityToken'] = $request->securityToken;
+        }
+        $req = new OpenApiRequest([
+            'query' => OpenApiUtilClient::query($query),
+        ]);
+        $params = new Params([
+            'action'      => 'CreateBackend',
+            'version'     => '2016-07-14',
+            'protocol'    => 'HTTPS',
+            'pathname'    => '/',
+            'method'      => 'POST',
+            'authType'    => 'AK',
+            'style'       => 'RPC',
+            'reqBodyType' => 'formData',
+            'bodyType'    => 'json',
+        ]);
+
+        return CreateBackendResponse::fromMap($this->callApi($params, $req, $runtime));
+    }
+
+    /**
+     * @param CreateBackendRequest $request
+     *
+     * @return CreateBackendResponse
+     */
+    public function createBackend($request)
+    {
+        $runtime = new RuntimeOptions([]);
+
+        return $this->createBackendWithOptions($request, $runtime);
+    }
+
+    /**
+     * @param CreateBackendModelRequest $request
+     * @param RuntimeOptions            $runtime
+     *
+     * @return CreateBackendModelResponse
+     */
+    public function createBackendModelWithOptions($request, $runtime)
+    {
+        Utils::validateModel($request);
+        $query = [];
+        if (!Utils::isUnset($request->backendId)) {
+            $query['BackendId'] = $request->backendId;
+        }
+        if (!Utils::isUnset($request->backendModelData)) {
+            $query['BackendModelData'] = $request->backendModelData;
+        }
+        if (!Utils::isUnset($request->backendType)) {
+            $query['BackendType'] = $request->backendType;
+        }
+        if (!Utils::isUnset($request->description)) {
+            $query['Description'] = $request->description;
+        }
+        if (!Utils::isUnset($request->securityToken)) {
+            $query['SecurityToken'] = $request->securityToken;
+        }
+        if (!Utils::isUnset($request->stageName)) {
+            $query['StageName'] = $request->stageName;
+        }
+        $req = new OpenApiRequest([
+            'query' => OpenApiUtilClient::query($query),
+        ]);
+        $params = new Params([
+            'action'      => 'CreateBackendModel',
+            'version'     => '2016-07-14',
+            'protocol'    => 'HTTPS',
+            'pathname'    => '/',
+            'method'      => 'POST',
+            'authType'    => 'AK',
+            'style'       => 'RPC',
+            'reqBodyType' => 'formData',
+            'bodyType'    => 'json',
+        ]);
+
+        return CreateBackendModelResponse::fromMap($this->callApi($params, $req, $runtime));
+    }
+
+    /**
+     * @param CreateBackendModelRequest $request
+     *
+     * @return CreateBackendModelResponse
+     */
+    public function createBackendModel($request)
+    {
+        $runtime = new RuntimeOptions([]);
+
+        return $this->createBackendModelWithOptions($request, $runtime);
     }
 
     /**
@@ -1672,6 +1808,104 @@ class CloudAPI extends OpenApiClient
         $runtime = new RuntimeOptions([]);
 
         return $this->deleteAppWithOptions($request, $runtime);
+    }
+
+    /**
+     * @param DeleteBackendRequest $request
+     * @param RuntimeOptions       $runtime
+     *
+     * @return DeleteBackendResponse
+     */
+    public function deleteBackendWithOptions($request, $runtime)
+    {
+        Utils::validateModel($request);
+        $query = [];
+        if (!Utils::isUnset($request->backendId)) {
+            $query['BackendId'] = $request->backendId;
+        }
+        if (!Utils::isUnset($request->securityToken)) {
+            $query['SecurityToken'] = $request->securityToken;
+        }
+        $req = new OpenApiRequest([
+            'query' => OpenApiUtilClient::query($query),
+        ]);
+        $params = new Params([
+            'action'      => 'DeleteBackend',
+            'version'     => '2016-07-14',
+            'protocol'    => 'HTTPS',
+            'pathname'    => '/',
+            'method'      => 'POST',
+            'authType'    => 'AK',
+            'style'       => 'RPC',
+            'reqBodyType' => 'formData',
+            'bodyType'    => 'json',
+        ]);
+
+        return DeleteBackendResponse::fromMap($this->callApi($params, $req, $runtime));
+    }
+
+    /**
+     * @param DeleteBackendRequest $request
+     *
+     * @return DeleteBackendResponse
+     */
+    public function deleteBackend($request)
+    {
+        $runtime = new RuntimeOptions([]);
+
+        return $this->deleteBackendWithOptions($request, $runtime);
+    }
+
+    /**
+     * @param DeleteBackendModelRequest $request
+     * @param RuntimeOptions            $runtime
+     *
+     * @return DeleteBackendModelResponse
+     */
+    public function deleteBackendModelWithOptions($request, $runtime)
+    {
+        Utils::validateModel($request);
+        $query = [];
+        if (!Utils::isUnset($request->backendId)) {
+            $query['BackendId'] = $request->backendId;
+        }
+        if (!Utils::isUnset($request->backendModelId)) {
+            $query['BackendModelId'] = $request->backendModelId;
+        }
+        if (!Utils::isUnset($request->securityToken)) {
+            $query['SecurityToken'] = $request->securityToken;
+        }
+        if (!Utils::isUnset($request->stageName)) {
+            $query['StageName'] = $request->stageName;
+        }
+        $req = new OpenApiRequest([
+            'query' => OpenApiUtilClient::query($query),
+        ]);
+        $params = new Params([
+            'action'      => 'DeleteBackendModel',
+            'version'     => '2016-07-14',
+            'protocol'    => 'HTTPS',
+            'pathname'    => '/',
+            'method'      => 'POST',
+            'authType'    => 'AK',
+            'style'       => 'RPC',
+            'reqBodyType' => 'formData',
+            'bodyType'    => 'json',
+        ]);
+
+        return DeleteBackendModelResponse::fromMap($this->callApi($params, $req, $runtime));
+    }
+
+    /**
+     * @param DeleteBackendModelRequest $request
+     *
+     * @return DeleteBackendModelResponse
+     */
+    public function deleteBackendModel($request)
+    {
+        $runtime = new RuntimeOptions([]);
+
+        return $this->deleteBackendModelWithOptions($request, $runtime);
     }
 
     /**
@@ -3164,6 +3398,61 @@ class CloudAPI extends OpenApiClient
     }
 
     /**
+     * @param DescribeApisByBackendRequest $request
+     * @param RuntimeOptions               $runtime
+     *
+     * @return DescribeApisByBackendResponse
+     */
+    public function describeApisByBackendWithOptions($request, $runtime)
+    {
+        Utils::validateModel($request);
+        $query = [];
+        if (!Utils::isUnset($request->backendId)) {
+            $query['BackendId'] = $request->backendId;
+        }
+        if (!Utils::isUnset($request->pageNumber)) {
+            $query['PageNumber'] = $request->pageNumber;
+        }
+        if (!Utils::isUnset($request->pageSize)) {
+            $query['PageSize'] = $request->pageSize;
+        }
+        if (!Utils::isUnset($request->securityToken)) {
+            $query['SecurityToken'] = $request->securityToken;
+        }
+        if (!Utils::isUnset($request->stageName)) {
+            $query['StageName'] = $request->stageName;
+        }
+        $req = new OpenApiRequest([
+            'query' => OpenApiUtilClient::query($query),
+        ]);
+        $params = new Params([
+            'action'      => 'DescribeApisByBackend',
+            'version'     => '2016-07-14',
+            'protocol'    => 'HTTPS',
+            'pathname'    => '/',
+            'method'      => 'POST',
+            'authType'    => 'AK',
+            'style'       => 'RPC',
+            'reqBodyType' => 'formData',
+            'bodyType'    => 'json',
+        ]);
+
+        return DescribeApisByBackendResponse::fromMap($this->callApi($params, $req, $runtime));
+    }
+
+    /**
+     * @param DescribeApisByBackendRequest $request
+     *
+     * @return DescribeApisByBackendResponse
+     */
+    public function describeApisByBackend($request)
+    {
+        $runtime = new RuntimeOptions([]);
+
+        return $this->describeApisByBackendWithOptions($request, $runtime);
+    }
+
+    /**
      * @param DescribeApisByIpControlRequest $request
      * @param RuntimeOptions                 $runtime
      *
@@ -3656,6 +3945,107 @@ class CloudAPI extends OpenApiClient
         $runtime = new RuntimeOptions([]);
 
         return $this->describeAuthorizedAppsWithOptions($request, $runtime);
+    }
+
+    /**
+     * @param DescribeBackendInfoRequest $request
+     * @param RuntimeOptions             $runtime
+     *
+     * @return DescribeBackendInfoResponse
+     */
+    public function describeBackendInfoWithOptions($request, $runtime)
+    {
+        Utils::validateModel($request);
+        $query = [];
+        if (!Utils::isUnset($request->backendId)) {
+            $query['BackendId'] = $request->backendId;
+        }
+        if (!Utils::isUnset($request->securityToken)) {
+            $query['SecurityToken'] = $request->securityToken;
+        }
+        $req = new OpenApiRequest([
+            'query' => OpenApiUtilClient::query($query),
+        ]);
+        $params = new Params([
+            'action'      => 'DescribeBackendInfo',
+            'version'     => '2016-07-14',
+            'protocol'    => 'HTTPS',
+            'pathname'    => '/',
+            'method'      => 'POST',
+            'authType'    => 'AK',
+            'style'       => 'RPC',
+            'reqBodyType' => 'formData',
+            'bodyType'    => 'json',
+        ]);
+
+        return DescribeBackendInfoResponse::fromMap($this->callApi($params, $req, $runtime));
+    }
+
+    /**
+     * @param DescribeBackendInfoRequest $request
+     *
+     * @return DescribeBackendInfoResponse
+     */
+    public function describeBackendInfo($request)
+    {
+        $runtime = new RuntimeOptions([]);
+
+        return $this->describeBackendInfoWithOptions($request, $runtime);
+    }
+
+    /**
+     * @param DescribeBackendListRequest $request
+     * @param RuntimeOptions             $runtime
+     *
+     * @return DescribeBackendListResponse
+     */
+    public function describeBackendListWithOptions($request, $runtime)
+    {
+        Utils::validateModel($request);
+        $query = [];
+        if (!Utils::isUnset($request->backendName)) {
+            $query['BackendName'] = $request->backendName;
+        }
+        if (!Utils::isUnset($request->backendType)) {
+            $query['BackendType'] = $request->backendType;
+        }
+        if (!Utils::isUnset($request->pageNumber)) {
+            $query['PageNumber'] = $request->pageNumber;
+        }
+        if (!Utils::isUnset($request->pageSize)) {
+            $query['PageSize'] = $request->pageSize;
+        }
+        if (!Utils::isUnset($request->securityToken)) {
+            $query['SecurityToken'] = $request->securityToken;
+        }
+        $req = new OpenApiRequest([
+            'query' => OpenApiUtilClient::query($query),
+        ]);
+        $params = new Params([
+            'action'      => 'DescribeBackendList',
+            'version'     => '2016-07-14',
+            'protocol'    => 'HTTPS',
+            'pathname'    => '/',
+            'method'      => 'POST',
+            'authType'    => 'AK',
+            'style'       => 'RPC',
+            'reqBodyType' => 'formData',
+            'bodyType'    => 'json',
+        ]);
+
+        return DescribeBackendListResponse::fromMap($this->callApi($params, $req, $runtime));
+    }
+
+    /**
+     * @param DescribeBackendListRequest $request
+     *
+     * @return DescribeBackendListResponse
+     */
+    public function describeBackendList($request)
+    {
+        $runtime = new RuntimeOptions([]);
+
+        return $this->describeBackendListWithOptions($request, $runtime);
     }
 
     /**
@@ -4873,6 +5263,52 @@ class CloudAPI extends OpenApiClient
     }
 
     /**
+     * @param DescribeUpdateBackendTaskRequest $request
+     * @param RuntimeOptions                   $runtime
+     *
+     * @return DescribeUpdateBackendTaskResponse
+     */
+    public function describeUpdateBackendTaskWithOptions($request, $runtime)
+    {
+        Utils::validateModel($request);
+        $query = [];
+        if (!Utils::isUnset($request->operationUid)) {
+            $query['OperationUid'] = $request->operationUid;
+        }
+        if (!Utils::isUnset($request->securityToken)) {
+            $query['SecurityToken'] = $request->securityToken;
+        }
+        $req = new OpenApiRequest([
+            'query' => OpenApiUtilClient::query($query),
+        ]);
+        $params = new Params([
+            'action'      => 'DescribeUpdateBackendTask',
+            'version'     => '2016-07-14',
+            'protocol'    => 'HTTPS',
+            'pathname'    => '/',
+            'method'      => 'POST',
+            'authType'    => 'AK',
+            'style'       => 'RPC',
+            'reqBodyType' => 'formData',
+            'bodyType'    => 'json',
+        ]);
+
+        return DescribeUpdateBackendTaskResponse::fromMap($this->callApi($params, $req, $runtime));
+    }
+
+    /**
+     * @param DescribeUpdateBackendTaskRequest $request
+     *
+     * @return DescribeUpdateBackendTaskResponse
+     */
+    public function describeUpdateBackendTask($request)
+    {
+        $runtime = new RuntimeOptions([]);
+
+        return $this->describeUpdateBackendTaskWithOptions($request, $runtime);
+    }
+
+    /**
      * @param DescribeUpdateVpcInfoTaskRequest $request
      * @param RuntimeOptions                   $runtime
      *
@@ -5238,6 +5674,12 @@ class CloudAPI extends OpenApiClient
         if (!Utils::isUnset($request->authType)) {
             $query['AuthType'] = $request->authType;
         }
+        if (!Utils::isUnset($request->backendEnable)) {
+            $query['BackendEnable'] = $request->backendEnable;
+        }
+        if (!Utils::isUnset($request->backendId)) {
+            $query['BackendId'] = $request->backendId;
+        }
         if (!Utils::isUnset($request->constantParameters)) {
             $query['ConstantParameters'] = $request->constantParameters;
         }
@@ -5512,6 +5954,122 @@ class CloudAPI extends OpenApiClient
         $runtime = new RuntimeOptions([]);
 
         return $this->modifyAppWithOptions($request, $runtime);
+    }
+
+    /**
+     * @param ModifyBackendRequest $request
+     * @param RuntimeOptions       $runtime
+     *
+     * @return ModifyBackendResponse
+     */
+    public function modifyBackendWithOptions($request, $runtime)
+    {
+        Utils::validateModel($request);
+        $query = [];
+        if (!Utils::isUnset($request->backendId)) {
+            $query['BackendId'] = $request->backendId;
+        }
+        if (!Utils::isUnset($request->backendName)) {
+            $query['BackendName'] = $request->backendName;
+        }
+        if (!Utils::isUnset($request->backendType)) {
+            $query['BackendType'] = $request->backendType;
+        }
+        if (!Utils::isUnset($request->description)) {
+            $query['Description'] = $request->description;
+        }
+        if (!Utils::isUnset($request->securityToken)) {
+            $query['SecurityToken'] = $request->securityToken;
+        }
+        $req = new OpenApiRequest([
+            'query' => OpenApiUtilClient::query($query),
+        ]);
+        $params = new Params([
+            'action'      => 'ModifyBackend',
+            'version'     => '2016-07-14',
+            'protocol'    => 'HTTPS',
+            'pathname'    => '/',
+            'method'      => 'POST',
+            'authType'    => 'AK',
+            'style'       => 'RPC',
+            'reqBodyType' => 'formData',
+            'bodyType'    => 'json',
+        ]);
+
+        return ModifyBackendResponse::fromMap($this->callApi($params, $req, $runtime));
+    }
+
+    /**
+     * @param ModifyBackendRequest $request
+     *
+     * @return ModifyBackendResponse
+     */
+    public function modifyBackend($request)
+    {
+        $runtime = new RuntimeOptions([]);
+
+        return $this->modifyBackendWithOptions($request, $runtime);
+    }
+
+    /**
+     * @param ModifyBackendModelRequest $request
+     * @param RuntimeOptions            $runtime
+     *
+     * @return ModifyBackendModelResponse
+     */
+    public function modifyBackendModelWithOptions($request, $runtime)
+    {
+        Utils::validateModel($request);
+        $query = [];
+        if (!Utils::isUnset($request->backendId)) {
+            $query['BackendId'] = $request->backendId;
+        }
+        if (!Utils::isUnset($request->backendModelData)) {
+            $query['BackendModelData'] = $request->backendModelData;
+        }
+        if (!Utils::isUnset($request->backendModelId)) {
+            $query['BackendModelId'] = $request->backendModelId;
+        }
+        if (!Utils::isUnset($request->backendType)) {
+            $query['BackendType'] = $request->backendType;
+        }
+        if (!Utils::isUnset($request->description)) {
+            $query['Description'] = $request->description;
+        }
+        if (!Utils::isUnset($request->securityToken)) {
+            $query['SecurityToken'] = $request->securityToken;
+        }
+        if (!Utils::isUnset($request->stageName)) {
+            $query['StageName'] = $request->stageName;
+        }
+        $req = new OpenApiRequest([
+            'query' => OpenApiUtilClient::query($query),
+        ]);
+        $params = new Params([
+            'action'      => 'ModifyBackendModel',
+            'version'     => '2016-07-14',
+            'protocol'    => 'HTTPS',
+            'pathname'    => '/',
+            'method'      => 'POST',
+            'authType'    => 'AK',
+            'style'       => 'RPC',
+            'reqBodyType' => 'formData',
+            'bodyType'    => 'json',
+        ]);
+
+        return ModifyBackendModelResponse::fromMap($this->callApi($params, $req, $runtime));
+    }
+
+    /**
+     * @param ModifyBackendModelRequest $request
+     *
+     * @return ModifyBackendModelResponse
+     */
+    public function modifyBackendModel($request)
+    {
+        $runtime = new RuntimeOptions([]);
+
+        return $this->modifyBackendModelWithOptions($request, $runtime);
     }
 
     /**

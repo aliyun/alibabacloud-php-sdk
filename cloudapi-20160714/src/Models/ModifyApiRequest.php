@@ -34,6 +34,16 @@ class ModifyApiRequest extends Model
     public $authType;
 
     /**
+     * @var bool
+     */
+    public $backendEnable;
+
+    /**
+     * @var string
+     */
+    public $backendId;
+
+    /**
      * @var string
      */
     public $constantParameters;
@@ -143,6 +153,8 @@ class ModifyApiRequest extends Model
         'apiName'              => 'ApiName',
         'appCodeAuthType'      => 'AppCodeAuthType',
         'authType'             => 'AuthType',
+        'backendEnable'        => 'BackendEnable',
+        'backendId'            => 'BackendId',
         'constantParameters'   => 'ConstantParameters',
         'description'          => 'Description',
         'disableInternet'      => 'DisableInternet',
@@ -187,6 +199,12 @@ class ModifyApiRequest extends Model
         }
         if (null !== $this->authType) {
             $res['AuthType'] = $this->authType;
+        }
+        if (null !== $this->backendEnable) {
+            $res['BackendEnable'] = $this->backendEnable;
+        }
+        if (null !== $this->backendId) {
+            $res['BackendId'] = $this->backendId;
         }
         if (null !== $this->constantParameters) {
             $res['ConstantParameters'] = $this->constantParameters;
@@ -277,6 +295,12 @@ class ModifyApiRequest extends Model
         }
         if (isset($map['AuthType'])) {
             $model->authType = $map['AuthType'];
+        }
+        if (isset($map['BackendEnable'])) {
+            $model->backendEnable = $map['BackendEnable'];
+        }
+        if (isset($map['BackendId'])) {
+            $model->backendId = $map['BackendId'];
         }
         if (isset($map['ConstantParameters'])) {
             $model->constantParameters = $map['ConstantParameters'];
