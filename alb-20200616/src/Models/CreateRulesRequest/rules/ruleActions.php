@@ -9,6 +9,8 @@ use AlibabaCloud\SDK\Alb\V20200616\Models\CreateRulesRequest\rules\ruleActions\f
 use AlibabaCloud\SDK\Alb\V20200616\Models\CreateRulesRequest\rules\ruleActions\insertHeaderConfig;
 use AlibabaCloud\SDK\Alb\V20200616\Models\CreateRulesRequest\rules\ruleActions\redirectConfig;
 use AlibabaCloud\SDK\Alb\V20200616\Models\CreateRulesRequest\rules\ruleActions\rewriteConfig;
+use AlibabaCloud\SDK\Alb\V20200616\Models\CreateRulesRequest\rules\ruleActions\trafficLimitConfig;
+use AlibabaCloud\SDK\Alb\V20200616\Models\CreateRulesRequest\rules\ruleActions\trafficMirrorConfig;
 use AlibabaCloud\Tea\Model;
 
 class ruleActions extends Model
@@ -56,6 +58,20 @@ class ruleActions extends Model
     public $rewriteConfig;
 
     /**
+     * @description 流量限速
+     *
+     * @var trafficLimitConfig
+     */
+    public $trafficLimitConfig;
+
+    /**
+     * @description 流量镜像
+     *
+     * @var trafficMirrorConfig
+     */
+    public $trafficMirrorConfig;
+
+    /**
      * @description 转发规则动作类型
      *
      * @var string
@@ -68,6 +84,8 @@ class ruleActions extends Model
         'order'               => 'Order',
         'redirectConfig'      => 'RedirectConfig',
         'rewriteConfig'       => 'RewriteConfig',
+        'trafficLimitConfig'  => 'TrafficLimitConfig',
+        'trafficMirrorConfig' => 'TrafficMirrorConfig',
         'type'                => 'Type',
     ];
 
@@ -95,6 +113,12 @@ class ruleActions extends Model
         }
         if (null !== $this->rewriteConfig) {
             $res['RewriteConfig'] = null !== $this->rewriteConfig ? $this->rewriteConfig->toMap() : null;
+        }
+        if (null !== $this->trafficLimitConfig) {
+            $res['TrafficLimitConfig'] = null !== $this->trafficLimitConfig ? $this->trafficLimitConfig->toMap() : null;
+        }
+        if (null !== $this->trafficMirrorConfig) {
+            $res['TrafficMirrorConfig'] = null !== $this->trafficMirrorConfig ? $this->trafficMirrorConfig->toMap() : null;
         }
         if (null !== $this->type) {
             $res['Type'] = $this->type;
@@ -128,6 +152,12 @@ class ruleActions extends Model
         }
         if (isset($map['RewriteConfig'])) {
             $model->rewriteConfig = rewriteConfig::fromMap($map['RewriteConfig']);
+        }
+        if (isset($map['TrafficLimitConfig'])) {
+            $model->trafficLimitConfig = trafficLimitConfig::fromMap($map['TrafficLimitConfig']);
+        }
+        if (isset($map['TrafficMirrorConfig'])) {
+            $model->trafficMirrorConfig = trafficMirrorConfig::fromMap($map['TrafficMirrorConfig']);
         }
         if (isset($map['Type'])) {
             $model->type = $map['Type'];

@@ -67,6 +67,13 @@ class CreateServerGroupRequest extends Model
     public $serverGroupType;
 
     /**
+     * @description 服务器名称
+     *
+     * @var string
+     */
+    public $serviceName;
+
+    /**
      * @description 会话保持配置
      *
      * @var stickySessionConfig
@@ -88,6 +95,7 @@ class CreateServerGroupRequest extends Model
         'scheduler'           => 'Scheduler',
         'serverGroupName'     => 'ServerGroupName',
         'serverGroupType'     => 'ServerGroupType',
+        'serviceName'         => 'ServiceName',
         'stickySessionConfig' => 'StickySessionConfig',
         'vpcId'               => 'VpcId',
     ];
@@ -122,6 +130,9 @@ class CreateServerGroupRequest extends Model
         }
         if (null !== $this->serverGroupType) {
             $res['ServerGroupType'] = $this->serverGroupType;
+        }
+        if (null !== $this->serviceName) {
+            $res['ServiceName'] = $this->serviceName;
         }
         if (null !== $this->stickySessionConfig) {
             $res['StickySessionConfig'] = null !== $this->stickySessionConfig ? $this->stickySessionConfig->toMap() : null;
@@ -164,6 +175,9 @@ class CreateServerGroupRequest extends Model
         }
         if (isset($map['ServerGroupType'])) {
             $model->serverGroupType = $map['ServerGroupType'];
+        }
+        if (isset($map['ServiceName'])) {
+            $model->serviceName = $map['ServiceName'];
         }
         if (isset($map['StickySessionConfig'])) {
             $model->stickySessionConfig = stickySessionConfig::fromMap($map['StickySessionConfig']);

@@ -11,6 +11,7 @@ use AlibabaCloud\SDK\Alb\V20200616\Models\CreateRulesRequest\rules\ruleCondition
 use AlibabaCloud\SDK\Alb\V20200616\Models\CreateRulesRequest\rules\ruleConditions\pathConfig;
 use AlibabaCloud\SDK\Alb\V20200616\Models\CreateRulesRequest\rules\ruleConditions\queryStringConfig;
 use AlibabaCloud\SDK\Alb\V20200616\Models\CreateRulesRequest\rules\ruleConditions\responseHeaderConfig;
+use AlibabaCloud\SDK\Alb\V20200616\Models\CreateRulesRequest\rules\ruleConditions\sourceIpConfig;
 use AlibabaCloud\Tea\Model;
 
 class ruleConditions extends Model
@@ -65,6 +66,13 @@ class ruleConditions extends Model
     public $responseHeaderConfig;
 
     /**
+     * @description 基于源IP业务流量匹配
+     *
+     * @var sourceIpConfig
+     */
+    public $sourceIpConfig;
+
+    /**
      * @description 条件类型
      *
      * @var string
@@ -78,6 +86,7 @@ class ruleConditions extends Model
         'pathConfig'           => 'PathConfig',
         'queryStringConfig'    => 'QueryStringConfig',
         'responseHeaderConfig' => 'ResponseHeaderConfig',
+        'sourceIpConfig'       => 'SourceIpConfig',
         'type'                 => 'Type',
     ];
 
@@ -108,6 +117,9 @@ class ruleConditions extends Model
         }
         if (null !== $this->responseHeaderConfig) {
             $res['ResponseHeaderConfig'] = null !== $this->responseHeaderConfig ? $this->responseHeaderConfig->toMap() : null;
+        }
+        if (null !== $this->sourceIpConfig) {
+            $res['SourceIpConfig'] = null !== $this->sourceIpConfig ? $this->sourceIpConfig->toMap() : null;
         }
         if (null !== $this->type) {
             $res['Type'] = $this->type;
@@ -144,6 +156,9 @@ class ruleConditions extends Model
         }
         if (isset($map['ResponseHeaderConfig'])) {
             $model->responseHeaderConfig = responseHeaderConfig::fromMap($map['ResponseHeaderConfig']);
+        }
+        if (isset($map['SourceIpConfig'])) {
+            $model->sourceIpConfig = sourceIpConfig::fromMap($map['SourceIpConfig']);
         }
         if (isset($map['Type'])) {
             $model->type = $map['Type'];

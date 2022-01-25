@@ -4,11 +4,19 @@
 
 namespace AlibabaCloud\SDK\Alb\V20200616\Models\UpdateRuleAttributeRequest\ruleActions;
 
+use AlibabaCloud\SDK\Alb\V20200616\Models\UpdateRuleAttributeRequest\ruleActions\forwardGroupConfig\serverGroupStickySession;
 use AlibabaCloud\SDK\Alb\V20200616\Models\UpdateRuleAttributeRequest\ruleActions\forwardGroupConfig\serverGroupTuples;
 use AlibabaCloud\Tea\Model;
 
 class forwardGroupConfig extends Model
 {
+    /**
+     * @description 服务器组之间会话保持
+     *
+     * @var serverGroupStickySession
+     */
+    public $serverGroupStickySession;
+
     /**
      * @description 转发到的目的服务器组列表
      *
@@ -16,7 +24,8 @@ class forwardGroupConfig extends Model
      */
     public $serverGroupTuples;
     protected $_name = [
-        'serverGroupTuples' => 'ServerGroupTuples',
+        'serverGroupStickySession' => 'ServerGroupStickySession',
+        'serverGroupTuples'        => 'ServerGroupTuples',
     ];
 
     public function validate()
@@ -26,6 +35,9 @@ class forwardGroupConfig extends Model
     public function toMap()
     {
         $res = [];
+        if (null !== $this->serverGroupStickySession) {
+            $res['ServerGroupStickySession'] = null !== $this->serverGroupStickySession ? $this->serverGroupStickySession->toMap() : null;
+        }
         if (null !== $this->serverGroupTuples) {
             $res['ServerGroupTuples'] = [];
             if (null !== $this->serverGroupTuples && \is_array($this->serverGroupTuples)) {
@@ -47,6 +59,9 @@ class forwardGroupConfig extends Model
     public static function fromMap($map = [])
     {
         $model = new self();
+        if (isset($map['ServerGroupStickySession'])) {
+            $model->serverGroupStickySession = serverGroupStickySession::fromMap($map['ServerGroupStickySession']);
+        }
         if (isset($map['ServerGroupTuples'])) {
             if (!empty($map['ServerGroupTuples'])) {
                 $model->serverGroupTuples = [];

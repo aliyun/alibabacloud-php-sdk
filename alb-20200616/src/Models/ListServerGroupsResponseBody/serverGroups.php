@@ -89,6 +89,13 @@ class serverGroups extends Model
     public $serverGroupType;
 
     /**
+     * @description 服务器名称
+     *
+     * @var string
+     */
+    public $serviceName;
+
+    /**
      * @description 会话保持配置
      *
      * @var stickySessionConfig
@@ -127,6 +134,7 @@ class serverGroups extends Model
         'serverGroupName'          => 'ServerGroupName',
         'serverGroupStatus'        => 'ServerGroupStatus',
         'serverGroupType'          => 'ServerGroupType',
+        'serviceName'              => 'ServiceName',
         'stickySessionConfig'      => 'StickySessionConfig',
         'tags'                     => 'Tags',
         'upstreamKeepaliveEnabled' => 'UpstreamKeepaliveEnabled',
@@ -172,6 +180,9 @@ class serverGroups extends Model
         }
         if (null !== $this->serverGroupType) {
             $res['ServerGroupType'] = $this->serverGroupType;
+        }
+        if (null !== $this->serviceName) {
+            $res['ServiceName'] = $this->serviceName;
         }
         if (null !== $this->stickySessionConfig) {
             $res['StickySessionConfig'] = null !== $this->stickySessionConfig ? $this->stickySessionConfig->toMap() : null;
@@ -235,6 +246,9 @@ class serverGroups extends Model
         }
         if (isset($map['ServerGroupType'])) {
             $model->serverGroupType = $map['ServerGroupType'];
+        }
+        if (isset($map['ServiceName'])) {
+            $model->serviceName = $map['ServiceName'];
         }
         if (isset($map['StickySessionConfig'])) {
             $model->stickySessionConfig = stickySessionConfig::fromMap($map['StickySessionConfig']);

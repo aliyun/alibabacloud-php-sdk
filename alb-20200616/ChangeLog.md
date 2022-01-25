@@ -1,3 +1,6 @@
+2022-01-25 Version: 1.0.0
+- Support Latest APIs.
+
 2021-12-23 Version: 1.0.6
 - Support latest feature.
 

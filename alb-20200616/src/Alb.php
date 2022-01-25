@@ -198,12 +198,20 @@ class Alb extends OpenApiClient
     public function addEntriesToAclWithOptions($request, $runtime)
     {
         Utils::validateModel($request);
-        $query                = [];
-        $query['AclEntries']  = $request->aclEntries;
-        $query['AclId']       = $request->aclId;
-        $query['ClientToken'] = $request->clientToken;
-        $query['DryRun']      = $request->dryRun;
-        $req                  = new OpenApiRequest([
+        $query = [];
+        if (!Utils::isUnset($request->aclEntries)) {
+            $query['AclEntries'] = $request->aclEntries;
+        }
+        if (!Utils::isUnset($request->aclId)) {
+            $query['AclId'] = $request->aclId;
+        }
+        if (!Utils::isUnset($request->clientToken)) {
+            $query['ClientToken'] = $request->clientToken;
+        }
+        if (!Utils::isUnset($request->dryRun)) {
+            $query['DryRun'] = $request->dryRun;
+        }
+        $req = new OpenApiRequest([
             'query' => OpenApiUtilClient::query($query),
         ]);
         $params = new Params([
@@ -242,12 +250,20 @@ class Alb extends OpenApiClient
     public function addServersToServerGroupWithOptions($request, $runtime)
     {
         Utils::validateModel($request);
-        $query                  = [];
-        $query['ClientToken']   = $request->clientToken;
-        $query['DryRun']        = $request->dryRun;
-        $query['ServerGroupId'] = $request->serverGroupId;
-        $query['Servers']       = $request->servers;
-        $req                    = new OpenApiRequest([
+        $query = [];
+        if (!Utils::isUnset($request->clientToken)) {
+            $query['ClientToken'] = $request->clientToken;
+        }
+        if (!Utils::isUnset($request->dryRun)) {
+            $query['DryRun'] = $request->dryRun;
+        }
+        if (!Utils::isUnset($request->serverGroupId)) {
+            $query['ServerGroupId'] = $request->serverGroupId;
+        }
+        if (!Utils::isUnset($request->servers)) {
+            $query['Servers'] = $request->servers;
+        }
+        $req = new OpenApiRequest([
             'query' => OpenApiUtilClient::query($query),
         ]);
         $params = new Params([
@@ -286,12 +302,20 @@ class Alb extends OpenApiClient
     public function applyHealthCheckTemplateToServerGroupWithOptions($request, $runtime)
     {
         Utils::validateModel($request);
-        $query                          = [];
-        $query['ClientToken']           = $request->clientToken;
-        $query['DryRun']                = $request->dryRun;
-        $query['HealthCheckTemplateId'] = $request->healthCheckTemplateId;
-        $query['ServerGroupId']         = $request->serverGroupId;
-        $req                            = new OpenApiRequest([
+        $query = [];
+        if (!Utils::isUnset($request->clientToken)) {
+            $query['ClientToken'] = $request->clientToken;
+        }
+        if (!Utils::isUnset($request->dryRun)) {
+            $query['DryRun'] = $request->dryRun;
+        }
+        if (!Utils::isUnset($request->healthCheckTemplateId)) {
+            $query['HealthCheckTemplateId'] = $request->healthCheckTemplateId;
+        }
+        if (!Utils::isUnset($request->serverGroupId)) {
+            $query['ServerGroupId'] = $request->serverGroupId;
+        }
+        $req = new OpenApiRequest([
             'query' => OpenApiUtilClient::query($query),
         ]);
         $params = new Params([
@@ -330,13 +354,23 @@ class Alb extends OpenApiClient
     public function associateAclsWithListenerWithOptions($request, $runtime)
     {
         Utils::validateModel($request);
-        $query                = [];
-        $query['AclIds']      = $request->aclIds;
-        $query['AclType']     = $request->aclType;
-        $query['ClientToken'] = $request->clientToken;
-        $query['DryRun']      = $request->dryRun;
-        $query['ListenerId']  = $request->listenerId;
-        $req                  = new OpenApiRequest([
+        $query = [];
+        if (!Utils::isUnset($request->aclIds)) {
+            $query['AclIds'] = $request->aclIds;
+        }
+        if (!Utils::isUnset($request->aclType)) {
+            $query['AclType'] = $request->aclType;
+        }
+        if (!Utils::isUnset($request->clientToken)) {
+            $query['ClientToken'] = $request->clientToken;
+        }
+        if (!Utils::isUnset($request->dryRun)) {
+            $query['DryRun'] = $request->dryRun;
+        }
+        if (!Utils::isUnset($request->listenerId)) {
+            $query['ListenerId'] = $request->listenerId;
+        }
+        $req = new OpenApiRequest([
             'query' => OpenApiUtilClient::query($query),
         ]);
         $params = new Params([
@@ -375,12 +409,20 @@ class Alb extends OpenApiClient
     public function associateAdditionalCertificatesWithListenerWithOptions($request, $runtime)
     {
         Utils::validateModel($request);
-        $query                 = [];
-        $query['Certificates'] = $request->certificates;
-        $query['ClientToken']  = $request->clientToken;
-        $query['DryRun']       = $request->dryRun;
-        $query['ListenerId']   = $request->listenerId;
-        $req                   = new OpenApiRequest([
+        $query = [];
+        if (!Utils::isUnset($request->certificates)) {
+            $query['Certificates'] = $request->certificates;
+        }
+        if (!Utils::isUnset($request->clientToken)) {
+            $query['ClientToken'] = $request->clientToken;
+        }
+        if (!Utils::isUnset($request->dryRun)) {
+            $query['DryRun'] = $request->dryRun;
+        }
+        if (!Utils::isUnset($request->listenerId)) {
+            $query['ListenerId'] = $request->listenerId;
+        }
+        $req = new OpenApiRequest([
             'query' => OpenApiUtilClient::query($query),
         ]);
         $params = new Params([
@@ -419,13 +461,23 @@ class Alb extends OpenApiClient
     public function attachCommonBandwidthPackageToLoadBalancerWithOptions($request, $runtime)
     {
         Utils::validateModel($request);
-        $query                       = [];
-        $query['BandwidthPackageId'] = $request->bandwidthPackageId;
-        $query['ClientToken']        = $request->clientToken;
-        $query['DryRun']             = $request->dryRun;
-        $query['LoadBalancerId']     = $request->loadBalancerId;
-        $query['RegionId']           = $request->regionId;
-        $req                         = new OpenApiRequest([
+        $query = [];
+        if (!Utils::isUnset($request->bandwidthPackageId)) {
+            $query['BandwidthPackageId'] = $request->bandwidthPackageId;
+        }
+        if (!Utils::isUnset($request->clientToken)) {
+            $query['ClientToken'] = $request->clientToken;
+        }
+        if (!Utils::isUnset($request->dryRun)) {
+            $query['DryRun'] = $request->dryRun;
+        }
+        if (!Utils::isUnset($request->loadBalancerId)) {
+            $query['LoadBalancerId'] = $request->loadBalancerId;
+        }
+        if (!Utils::isUnset($request->regionId)) {
+            $query['RegionId'] = $request->regionId;
+        }
+        $req = new OpenApiRequest([
             'query' => OpenApiUtilClient::query($query),
         ]);
         $params = new Params([
@@ -464,12 +516,20 @@ class Alb extends OpenApiClient
     public function createAclWithOptions($request, $runtime)
     {
         Utils::validateModel($request);
-        $query                    = [];
-        $query['AclName']         = $request->aclName;
-        $query['ClientToken']     = $request->clientToken;
-        $query['DryRun']          = $request->dryRun;
-        $query['ResourceGroupId'] = $request->resourceGroupId;
-        $req                      = new OpenApiRequest([
+        $query = [];
+        if (!Utils::isUnset($request->aclName)) {
+            $query['AclName'] = $request->aclName;
+        }
+        if (!Utils::isUnset($request->clientToken)) {
+            $query['ClientToken'] = $request->clientToken;
+        }
+        if (!Utils::isUnset($request->dryRun)) {
+            $query['DryRun'] = $request->dryRun;
+        }
+        if (!Utils::isUnset($request->resourceGroupId)) {
+            $query['ResourceGroupId'] = $request->resourceGroupId;
+        }
+        $req = new OpenApiRequest([
             'query' => OpenApiUtilClient::query($query),
         ]);
         $params = new Params([
@@ -508,22 +568,50 @@ class Alb extends OpenApiClient
     public function createHealthCheckTemplateWithOptions($request, $runtime)
     {
         Utils::validateModel($request);
-        $query                            = [];
-        $query['ClientToken']             = $request->clientToken;
-        $query['DryRun']                  = $request->dryRun;
-        $query['HealthCheckCodes']        = $request->healthCheckCodes;
-        $query['HealthCheckConnectPort']  = $request->healthCheckConnectPort;
-        $query['HealthCheckHost']         = $request->healthCheckHost;
-        $query['HealthCheckHttpVersion']  = $request->healthCheckHttpVersion;
-        $query['HealthCheckInterval']     = $request->healthCheckInterval;
-        $query['HealthCheckMethod']       = $request->healthCheckMethod;
-        $query['HealthCheckPath']         = $request->healthCheckPath;
-        $query['HealthCheckProtocol']     = $request->healthCheckProtocol;
-        $query['HealthCheckTemplateName'] = $request->healthCheckTemplateName;
-        $query['HealthCheckTimeout']      = $request->healthCheckTimeout;
-        $query['HealthyThreshold']        = $request->healthyThreshold;
-        $query['UnhealthyThreshold']      = $request->unhealthyThreshold;
-        $req                              = new OpenApiRequest([
+        $query = [];
+        if (!Utils::isUnset($request->clientToken)) {
+            $query['ClientToken'] = $request->clientToken;
+        }
+        if (!Utils::isUnset($request->dryRun)) {
+            $query['DryRun'] = $request->dryRun;
+        }
+        if (!Utils::isUnset($request->healthCheckCodes)) {
+            $query['HealthCheckCodes'] = $request->healthCheckCodes;
+        }
+        if (!Utils::isUnset($request->healthCheckConnectPort)) {
+            $query['HealthCheckConnectPort'] = $request->healthCheckConnectPort;
+        }
+        if (!Utils::isUnset($request->healthCheckHost)) {
+            $query['HealthCheckHost'] = $request->healthCheckHost;
+        }
+        if (!Utils::isUnset($request->healthCheckHttpVersion)) {
+            $query['HealthCheckHttpVersion'] = $request->healthCheckHttpVersion;
+        }
+        if (!Utils::isUnset($request->healthCheckInterval)) {
+            $query['HealthCheckInterval'] = $request->healthCheckInterval;
+        }
+        if (!Utils::isUnset($request->healthCheckMethod)) {
+            $query['HealthCheckMethod'] = $request->healthCheckMethod;
+        }
+        if (!Utils::isUnset($request->healthCheckPath)) {
+            $query['HealthCheckPath'] = $request->healthCheckPath;
+        }
+        if (!Utils::isUnset($request->healthCheckProtocol)) {
+            $query['HealthCheckProtocol'] = $request->healthCheckProtocol;
+        }
+        if (!Utils::isUnset($request->healthCheckTemplateName)) {
+            $query['HealthCheckTemplateName'] = $request->healthCheckTemplateName;
+        }
+        if (!Utils::isUnset($request->healthCheckTimeout)) {
+            $query['HealthCheckTimeout'] = $request->healthCheckTimeout;
+        }
+        if (!Utils::isUnset($request->healthyThreshold)) {
+            $query['HealthyThreshold'] = $request->healthyThreshold;
+        }
+        if (!Utils::isUnset($request->unhealthyThreshold)) {
+            $query['UnhealthyThreshold'] = $request->unhealthyThreshold;
+        }
+        $req = new OpenApiRequest([
             'query' => OpenApiUtilClient::query($query),
         ]);
         $params = new Params([
@@ -562,25 +650,59 @@ class Alb extends OpenApiClient
     public function createListenerWithOptions($request, $runtime)
     {
         Utils::validateModel($request);
-        $query                        = [];
-        $query['CaCertificates']      = $request->caCertificates;
-        $query['CaEnabled']           = $request->caEnabled;
-        $query['Certificates']        = $request->certificates;
-        $query['ClientToken']         = $request->clientToken;
-        $query['DefaultActions']      = $request->defaultActions;
-        $query['DryRun']              = $request->dryRun;
-        $query['GzipEnabled']         = $request->gzipEnabled;
-        $query['Http2Enabled']        = $request->http2Enabled;
-        $query['IdleTimeout']         = $request->idleTimeout;
-        $query['ListenerDescription'] = $request->listenerDescription;
-        $query['ListenerPort']        = $request->listenerPort;
-        $query['ListenerProtocol']    = $request->listenerProtocol;
-        $query['LoadBalancerId']      = $request->loadBalancerId;
-        $query['QuicConfig']          = $request->quicConfig;
-        $query['RequestTimeout']      = $request->requestTimeout;
-        $query['SecurityPolicyId']    = $request->securityPolicyId;
-        $query['XForwardedForConfig'] = $request->XForwardedForConfig;
-        $req                          = new OpenApiRequest([
+        $query = [];
+        if (!Utils::isUnset($request->caCertificates)) {
+            $query['CaCertificates'] = $request->caCertificates;
+        }
+        if (!Utils::isUnset($request->caEnabled)) {
+            $query['CaEnabled'] = $request->caEnabled;
+        }
+        if (!Utils::isUnset($request->certificates)) {
+            $query['Certificates'] = $request->certificates;
+        }
+        if (!Utils::isUnset($request->clientToken)) {
+            $query['ClientToken'] = $request->clientToken;
+        }
+        if (!Utils::isUnset($request->defaultActions)) {
+            $query['DefaultActions'] = $request->defaultActions;
+        }
+        if (!Utils::isUnset($request->dryRun)) {
+            $query['DryRun'] = $request->dryRun;
+        }
+        if (!Utils::isUnset($request->gzipEnabled)) {
+            $query['GzipEnabled'] = $request->gzipEnabled;
+        }
+        if (!Utils::isUnset($request->http2Enabled)) {
+            $query['Http2Enabled'] = $request->http2Enabled;
+        }
+        if (!Utils::isUnset($request->idleTimeout)) {
+            $query['IdleTimeout'] = $request->idleTimeout;
+        }
+        if (!Utils::isUnset($request->listenerDescription)) {
+            $query['ListenerDescription'] = $request->listenerDescription;
+        }
+        if (!Utils::isUnset($request->listenerPort)) {
+            $query['ListenerPort'] = $request->listenerPort;
+        }
+        if (!Utils::isUnset($request->listenerProtocol)) {
+            $query['ListenerProtocol'] = $request->listenerProtocol;
+        }
+        if (!Utils::isUnset($request->loadBalancerId)) {
+            $query['LoadBalancerId'] = $request->loadBalancerId;
+        }
+        if (!Utils::isUnset($request->quicConfig)) {
+            $query['QuicConfig'] = $request->quicConfig;
+        }
+        if (!Utils::isUnset($request->requestTimeout)) {
+            $query['RequestTimeout'] = $request->requestTimeout;
+        }
+        if (!Utils::isUnset($request->securityPolicyId)) {
+            $query['SecurityPolicyId'] = $request->securityPolicyId;
+        }
+        if (!Utils::isUnset($request->XForwardedForConfig)) {
+            $query['XForwardedForConfig'] = $request->XForwardedForConfig;
+        }
+        $req = new OpenApiRequest([
             'query' => OpenApiUtilClient::query($query),
         ]);
         $params = new Params([
@@ -619,20 +741,44 @@ class Alb extends OpenApiClient
     public function createLoadBalancerWithOptions($request, $runtime)
     {
         Utils::validateModel($request);
-        $query                                 = [];
-        $query['AddressAllocatedMode']         = $request->addressAllocatedMode;
-        $query['AddressType']                  = $request->addressType;
-        $query['ClientToken']                  = $request->clientToken;
-        $query['DeletionProtectionEnabled']    = $request->deletionProtectionEnabled;
-        $query['DryRun']                       = $request->dryRun;
-        $query['LoadBalancerBillingConfig']    = $request->loadBalancerBillingConfig;
-        $query['LoadBalancerEdition']          = $request->loadBalancerEdition;
-        $query['LoadBalancerName']             = $request->loadBalancerName;
-        $query['ModificationProtectionConfig'] = $request->modificationProtectionConfig;
-        $query['ResourceGroupId']              = $request->resourceGroupId;
-        $query['VpcId']                        = $request->vpcId;
-        $query['ZoneMappings']                 = $request->zoneMappings;
-        $req                                   = new OpenApiRequest([
+        $query = [];
+        if (!Utils::isUnset($request->addressAllocatedMode)) {
+            $query['AddressAllocatedMode'] = $request->addressAllocatedMode;
+        }
+        if (!Utils::isUnset($request->addressType)) {
+            $query['AddressType'] = $request->addressType;
+        }
+        if (!Utils::isUnset($request->clientToken)) {
+            $query['ClientToken'] = $request->clientToken;
+        }
+        if (!Utils::isUnset($request->deletionProtectionEnabled)) {
+            $query['DeletionProtectionEnabled'] = $request->deletionProtectionEnabled;
+        }
+        if (!Utils::isUnset($request->dryRun)) {
+            $query['DryRun'] = $request->dryRun;
+        }
+        if (!Utils::isUnset($request->loadBalancerBillingConfig)) {
+            $query['LoadBalancerBillingConfig'] = $request->loadBalancerBillingConfig;
+        }
+        if (!Utils::isUnset($request->loadBalancerEdition)) {
+            $query['LoadBalancerEdition'] = $request->loadBalancerEdition;
+        }
+        if (!Utils::isUnset($request->loadBalancerName)) {
+            $query['LoadBalancerName'] = $request->loadBalancerName;
+        }
+        if (!Utils::isUnset($request->modificationProtectionConfig)) {
+            $query['ModificationProtectionConfig'] = $request->modificationProtectionConfig;
+        }
+        if (!Utils::isUnset($request->resourceGroupId)) {
+            $query['ResourceGroupId'] = $request->resourceGroupId;
+        }
+        if (!Utils::isUnset($request->vpcId)) {
+            $query['VpcId'] = $request->vpcId;
+        }
+        if (!Utils::isUnset($request->zoneMappings)) {
+            $query['ZoneMappings'] = $request->zoneMappings;
+        }
+        $req = new OpenApiRequest([
             'query' => OpenApiUtilClient::query($query),
         ]);
         $params = new Params([
@@ -671,15 +817,29 @@ class Alb extends OpenApiClient
     public function createRuleWithOptions($request, $runtime)
     {
         Utils::validateModel($request);
-        $query                   = [];
-        $query['ClientToken']    = $request->clientToken;
-        $query['DryRun']         = $request->dryRun;
-        $query['ListenerId']     = $request->listenerId;
-        $query['Priority']       = $request->priority;
-        $query['RuleActions']    = $request->ruleActions;
-        $query['RuleConditions'] = $request->ruleConditions;
-        $query['RuleName']       = $request->ruleName;
-        $req                     = new OpenApiRequest([
+        $query = [];
+        if (!Utils::isUnset($request->clientToken)) {
+            $query['ClientToken'] = $request->clientToken;
+        }
+        if (!Utils::isUnset($request->dryRun)) {
+            $query['DryRun'] = $request->dryRun;
+        }
+        if (!Utils::isUnset($request->listenerId)) {
+            $query['ListenerId'] = $request->listenerId;
+        }
+        if (!Utils::isUnset($request->priority)) {
+            $query['Priority'] = $request->priority;
+        }
+        if (!Utils::isUnset($request->ruleActions)) {
+            $query['RuleActions'] = $request->ruleActions;
+        }
+        if (!Utils::isUnset($request->ruleConditions)) {
+            $query['RuleConditions'] = $request->ruleConditions;
+        }
+        if (!Utils::isUnset($request->ruleName)) {
+            $query['RuleName'] = $request->ruleName;
+        }
+        $req = new OpenApiRequest([
             'query' => OpenApiUtilClient::query($query),
         ]);
         $params = new Params([
@@ -718,12 +878,20 @@ class Alb extends OpenApiClient
     public function createRulesWithOptions($request, $runtime)
     {
         Utils::validateModel($request);
-        $query                = [];
-        $query['ClientToken'] = $request->clientToken;
-        $query['DryRun']      = $request->dryRun;
-        $query['ListenerId']  = $request->listenerId;
-        $query['Rules']       = $request->rules;
-        $req                  = new OpenApiRequest([
+        $query = [];
+        if (!Utils::isUnset($request->clientToken)) {
+            $query['ClientToken'] = $request->clientToken;
+        }
+        if (!Utils::isUnset($request->dryRun)) {
+            $query['DryRun'] = $request->dryRun;
+        }
+        if (!Utils::isUnset($request->listenerId)) {
+            $query['ListenerId'] = $request->listenerId;
+        }
+        if (!Utils::isUnset($request->rules)) {
+            $query['Rules'] = $request->rules;
+        }
+        $req = new OpenApiRequest([
             'query' => OpenApiUtilClient::query($query),
         ]);
         $params = new Params([
@@ -762,14 +930,26 @@ class Alb extends OpenApiClient
     public function createSecurityPolicyWithOptions($request, $runtime)
     {
         Utils::validateModel($request);
-        $query                       = [];
-        $query['Ciphers']            = $request->ciphers;
-        $query['ClientToken']        = $request->clientToken;
-        $query['DryRun']             = $request->dryRun;
-        $query['ResourceGroupId']    = $request->resourceGroupId;
-        $query['SecurityPolicyName'] = $request->securityPolicyName;
-        $query['TLSVersions']        = $request->TLSVersions;
-        $req                         = new OpenApiRequest([
+        $query = [];
+        if (!Utils::isUnset($request->ciphers)) {
+            $query['Ciphers'] = $request->ciphers;
+        }
+        if (!Utils::isUnset($request->clientToken)) {
+            $query['ClientToken'] = $request->clientToken;
+        }
+        if (!Utils::isUnset($request->dryRun)) {
+            $query['DryRun'] = $request->dryRun;
+        }
+        if (!Utils::isUnset($request->resourceGroupId)) {
+            $query['ResourceGroupId'] = $request->resourceGroupId;
+        }
+        if (!Utils::isUnset($request->securityPolicyName)) {
+            $query['SecurityPolicyName'] = $request->securityPolicyName;
+        }
+        if (!Utils::isUnset($request->TLSVersions)) {
+            $query['TLSVersions'] = $request->TLSVersions;
+        }
+        $req = new OpenApiRequest([
             'query' => OpenApiUtilClient::query($query),
         ]);
         $params = new Params([
@@ -808,18 +988,41 @@ class Alb extends OpenApiClient
     public function createServerGroupWithOptions($request, $runtime)
     {
         Utils::validateModel($request);
-        $query                        = [];
-        $query['ClientToken']         = $request->clientToken;
-        $query['DryRun']              = $request->dryRun;
-        $query['HealthCheckConfig']   = $request->healthCheckConfig;
-        $query['Protocol']            = $request->protocol;
-        $query['ResourceGroupId']     = $request->resourceGroupId;
-        $query['Scheduler']           = $request->scheduler;
-        $query['ServerGroupName']     = $request->serverGroupName;
-        $query['ServerGroupType']     = $request->serverGroupType;
-        $query['StickySessionConfig'] = $request->stickySessionConfig;
-        $query['VpcId']               = $request->vpcId;
-        $req                          = new OpenApiRequest([
+        $query = [];
+        if (!Utils::isUnset($request->clientToken)) {
+            $query['ClientToken'] = $request->clientToken;
+        }
+        if (!Utils::isUnset($request->dryRun)) {
+            $query['DryRun'] = $request->dryRun;
+        }
+        if (!Utils::isUnset($request->healthCheckConfig)) {
+            $query['HealthCheckConfig'] = $request->healthCheckConfig;
+        }
+        if (!Utils::isUnset($request->protocol)) {
+            $query['Protocol'] = $request->protocol;
+        }
+        if (!Utils::isUnset($request->resourceGroupId)) {
+            $query['ResourceGroupId'] = $request->resourceGroupId;
+        }
+        if (!Utils::isUnset($request->scheduler)) {
+            $query['Scheduler'] = $request->scheduler;
+        }
+        if (!Utils::isUnset($request->serverGroupName)) {
+            $query['ServerGroupName'] = $request->serverGroupName;
+        }
+        if (!Utils::isUnset($request->serverGroupType)) {
+            $query['ServerGroupType'] = $request->serverGroupType;
+        }
+        if (!Utils::isUnset($request->serviceName)) {
+            $query['ServiceName'] = $request->serviceName;
+        }
+        if (!Utils::isUnset($request->stickySessionConfig)) {
+            $query['StickySessionConfig'] = $request->stickySessionConfig;
+        }
+        if (!Utils::isUnset($request->vpcId)) {
+            $query['VpcId'] = $request->vpcId;
+        }
+        $req = new OpenApiRequest([
             'query' => OpenApiUtilClient::query($query),
         ]);
         $params = new Params([
@@ -858,11 +1061,17 @@ class Alb extends OpenApiClient
     public function deleteAclWithOptions($request, $runtime)
     {
         Utils::validateModel($request);
-        $query                = [];
-        $query['AclId']       = $request->aclId;
-        $query['ClientToken'] = $request->clientToken;
-        $query['DryRun']      = $request->dryRun;
-        $req                  = new OpenApiRequest([
+        $query = [];
+        if (!Utils::isUnset($request->aclId)) {
+            $query['AclId'] = $request->aclId;
+        }
+        if (!Utils::isUnset($request->clientToken)) {
+            $query['ClientToken'] = $request->clientToken;
+        }
+        if (!Utils::isUnset($request->dryRun)) {
+            $query['DryRun'] = $request->dryRun;
+        }
+        $req = new OpenApiRequest([
             'query' => OpenApiUtilClient::query($query),
         ]);
         $params = new Params([
@@ -901,11 +1110,17 @@ class Alb extends OpenApiClient
     public function deleteHealthCheckTemplatesWithOptions($request, $runtime)
     {
         Utils::validateModel($request);
-        $query                           = [];
-        $query['ClientToken']            = $request->clientToken;
-        $query['DryRun']                 = $request->dryRun;
-        $query['HealthCheckTemplateIds'] = $request->healthCheckTemplateIds;
-        $req                             = new OpenApiRequest([
+        $query = [];
+        if (!Utils::isUnset($request->clientToken)) {
+            $query['ClientToken'] = $request->clientToken;
+        }
+        if (!Utils::isUnset($request->dryRun)) {
+            $query['DryRun'] = $request->dryRun;
+        }
+        if (!Utils::isUnset($request->healthCheckTemplateIds)) {
+            $query['HealthCheckTemplateIds'] = $request->healthCheckTemplateIds;
+        }
+        $req = new OpenApiRequest([
             'query' => OpenApiUtilClient::query($query),
         ]);
         $params = new Params([
@@ -944,11 +1159,17 @@ class Alb extends OpenApiClient
     public function deleteListenerWithOptions($request, $runtime)
     {
         Utils::validateModel($request);
-        $query                = [];
-        $query['ClientToken'] = $request->clientToken;
-        $query['DryRun']      = $request->dryRun;
-        $query['ListenerId']  = $request->listenerId;
-        $req                  = new OpenApiRequest([
+        $query = [];
+        if (!Utils::isUnset($request->clientToken)) {
+            $query['ClientToken'] = $request->clientToken;
+        }
+        if (!Utils::isUnset($request->dryRun)) {
+            $query['DryRun'] = $request->dryRun;
+        }
+        if (!Utils::isUnset($request->listenerId)) {
+            $query['ListenerId'] = $request->listenerId;
+        }
+        $req = new OpenApiRequest([
             'query' => OpenApiUtilClient::query($query),
         ]);
         $params = new Params([
@@ -987,11 +1208,17 @@ class Alb extends OpenApiClient
     public function deleteLoadBalancerWithOptions($request, $runtime)
     {
         Utils::validateModel($request);
-        $query                   = [];
-        $query['ClientToken']    = $request->clientToken;
-        $query['DryRun']         = $request->dryRun;
-        $query['LoadBalancerId'] = $request->loadBalancerId;
-        $req                     = new OpenApiRequest([
+        $query = [];
+        if (!Utils::isUnset($request->clientToken)) {
+            $query['ClientToken'] = $request->clientToken;
+        }
+        if (!Utils::isUnset($request->dryRun)) {
+            $query['DryRun'] = $request->dryRun;
+        }
+        if (!Utils::isUnset($request->loadBalancerId)) {
+            $query['LoadBalancerId'] = $request->loadBalancerId;
+        }
+        $req = new OpenApiRequest([
             'query' => OpenApiUtilClient::query($query),
         ]);
         $params = new Params([
@@ -1030,11 +1257,17 @@ class Alb extends OpenApiClient
     public function deleteRuleWithOptions($request, $runtime)
     {
         Utils::validateModel($request);
-        $query                = [];
-        $query['ClientToken'] = $request->clientToken;
-        $query['DryRun']      = $request->dryRun;
-        $query['RuleId']      = $request->ruleId;
-        $req                  = new OpenApiRequest([
+        $query = [];
+        if (!Utils::isUnset($request->clientToken)) {
+            $query['ClientToken'] = $request->clientToken;
+        }
+        if (!Utils::isUnset($request->dryRun)) {
+            $query['DryRun'] = $request->dryRun;
+        }
+        if (!Utils::isUnset($request->ruleId)) {
+            $query['RuleId'] = $request->ruleId;
+        }
+        $req = new OpenApiRequest([
             'query' => OpenApiUtilClient::query($query),
         ]);
         $params = new Params([
@@ -1073,11 +1306,17 @@ class Alb extends OpenApiClient
     public function deleteRulesWithOptions($request, $runtime)
     {
         Utils::validateModel($request);
-        $query                = [];
-        $query['ClientToken'] = $request->clientToken;
-        $query['DryRun']      = $request->dryRun;
-        $query['RuleIds']     = $request->ruleIds;
-        $req                  = new OpenApiRequest([
+        $query = [];
+        if (!Utils::isUnset($request->clientToken)) {
+            $query['ClientToken'] = $request->clientToken;
+        }
+        if (!Utils::isUnset($request->dryRun)) {
+            $query['DryRun'] = $request->dryRun;
+        }
+        if (!Utils::isUnset($request->ruleIds)) {
+            $query['RuleIds'] = $request->ruleIds;
+        }
+        $req = new OpenApiRequest([
             'query' => OpenApiUtilClient::query($query),
         ]);
         $params = new Params([
@@ -1116,11 +1355,17 @@ class Alb extends OpenApiClient
     public function deleteSecurityPolicyWithOptions($request, $runtime)
     {
         Utils::validateModel($request);
-        $query                     = [];
-        $query['ClientToken']      = $request->clientToken;
-        $query['DryRun']           = $request->dryRun;
-        $query['SecurityPolicyId'] = $request->securityPolicyId;
-        $req                       = new OpenApiRequest([
+        $query = [];
+        if (!Utils::isUnset($request->clientToken)) {
+            $query['ClientToken'] = $request->clientToken;
+        }
+        if (!Utils::isUnset($request->dryRun)) {
+            $query['DryRun'] = $request->dryRun;
+        }
+        if (!Utils::isUnset($request->securityPolicyId)) {
+            $query['SecurityPolicyId'] = $request->securityPolicyId;
+        }
+        $req = new OpenApiRequest([
             'query' => OpenApiUtilClient::query($query),
         ]);
         $params = new Params([
@@ -1159,11 +1404,17 @@ class Alb extends OpenApiClient
     public function deleteServerGroupWithOptions($request, $runtime)
     {
         Utils::validateModel($request);
-        $query                  = [];
-        $query['ClientToken']   = $request->clientToken;
-        $query['DryRun']        = $request->dryRun;
-        $query['ServerGroupId'] = $request->serverGroupId;
-        $req                    = new OpenApiRequest([
+        $query = [];
+        if (!Utils::isUnset($request->clientToken)) {
+            $query['ClientToken'] = $request->clientToken;
+        }
+        if (!Utils::isUnset($request->dryRun)) {
+            $query['DryRun'] = $request->dryRun;
+        }
+        if (!Utils::isUnset($request->serverGroupId)) {
+            $query['ServerGroupId'] = $request->serverGroupId;
+        }
+        $req = new OpenApiRequest([
             'query' => OpenApiUtilClient::query($query),
         ]);
         $params = new Params([
@@ -1202,9 +1453,11 @@ class Alb extends OpenApiClient
     public function describeRegionsWithOptions($request, $runtime)
     {
         Utils::validateModel($request);
-        $query                   = [];
-        $query['AcceptLanguage'] = $request->acceptLanguage;
-        $req                     = new OpenApiRequest([
+        $query = [];
+        if (!Utils::isUnset($request->acceptLanguage)) {
+            $query['AcceptLanguage'] = $request->acceptLanguage;
+        }
+        $req = new OpenApiRequest([
             'query' => OpenApiUtilClient::query($query),
         ]);
         $params = new Params([
@@ -1276,13 +1529,23 @@ class Alb extends OpenApiClient
     public function detachCommonBandwidthPackageFromLoadBalancerWithOptions($request, $runtime)
     {
         Utils::validateModel($request);
-        $query                       = [];
-        $query['BandwidthPackageId'] = $request->bandwidthPackageId;
-        $query['ClientToken']        = $request->clientToken;
-        $query['DryRun']             = $request->dryRun;
-        $query['LoadBalancerId']     = $request->loadBalancerId;
-        $query['RegionId']           = $request->regionId;
-        $req                         = new OpenApiRequest([
+        $query = [];
+        if (!Utils::isUnset($request->bandwidthPackageId)) {
+            $query['BandwidthPackageId'] = $request->bandwidthPackageId;
+        }
+        if (!Utils::isUnset($request->clientToken)) {
+            $query['ClientToken'] = $request->clientToken;
+        }
+        if (!Utils::isUnset($request->dryRun)) {
+            $query['DryRun'] = $request->dryRun;
+        }
+        if (!Utils::isUnset($request->loadBalancerId)) {
+            $query['LoadBalancerId'] = $request->loadBalancerId;
+        }
+        if (!Utils::isUnset($request->regionId)) {
+            $query['RegionId'] = $request->regionId;
+        }
+        $req = new OpenApiRequest([
             'query' => OpenApiUtilClient::query($query),
         ]);
         $params = new Params([
@@ -1321,11 +1584,17 @@ class Alb extends OpenApiClient
     public function disableDeletionProtectionWithOptions($request, $runtime)
     {
         Utils::validateModel($request);
-        $query                = [];
-        $query['ClientToken'] = $request->clientToken;
-        $query['DryRun']      = $request->dryRun;
-        $query['ResourceId']  = $request->resourceId;
-        $req                  = new OpenApiRequest([
+        $query = [];
+        if (!Utils::isUnset($request->clientToken)) {
+            $query['ClientToken'] = $request->clientToken;
+        }
+        if (!Utils::isUnset($request->dryRun)) {
+            $query['DryRun'] = $request->dryRun;
+        }
+        if (!Utils::isUnset($request->resourceId)) {
+            $query['ResourceId'] = $request->resourceId;
+        }
+        $req = new OpenApiRequest([
             'query' => OpenApiUtilClient::query($query),
         ]);
         $params = new Params([
@@ -1364,11 +1633,17 @@ class Alb extends OpenApiClient
     public function disableLoadBalancerAccessLogWithOptions($request, $runtime)
     {
         Utils::validateModel($request);
-        $query                   = [];
-        $query['ClientToken']    = $request->clientToken;
-        $query['DryRun']         = $request->dryRun;
-        $query['LoadBalancerId'] = $request->loadBalancerId;
-        $req                     = new OpenApiRequest([
+        $query = [];
+        if (!Utils::isUnset($request->clientToken)) {
+            $query['ClientToken'] = $request->clientToken;
+        }
+        if (!Utils::isUnset($request->dryRun)) {
+            $query['DryRun'] = $request->dryRun;
+        }
+        if (!Utils::isUnset($request->loadBalancerId)) {
+            $query['LoadBalancerId'] = $request->loadBalancerId;
+        }
+        $req = new OpenApiRequest([
             'query' => OpenApiUtilClient::query($query),
         ]);
         $params = new Params([
@@ -1407,12 +1682,20 @@ class Alb extends OpenApiClient
     public function dissociateAclsFromListenerWithOptions($request, $runtime)
     {
         Utils::validateModel($request);
-        $query                = [];
-        $query['AclIds']      = $request->aclIds;
-        $query['ClientToken'] = $request->clientToken;
-        $query['DryRun']      = $request->dryRun;
-        $query['ListenerId']  = $request->listenerId;
-        $req                  = new OpenApiRequest([
+        $query = [];
+        if (!Utils::isUnset($request->aclIds)) {
+            $query['AclIds'] = $request->aclIds;
+        }
+        if (!Utils::isUnset($request->clientToken)) {
+            $query['ClientToken'] = $request->clientToken;
+        }
+        if (!Utils::isUnset($request->dryRun)) {
+            $query['DryRun'] = $request->dryRun;
+        }
+        if (!Utils::isUnset($request->listenerId)) {
+            $query['ListenerId'] = $request->listenerId;
+        }
+        $req = new OpenApiRequest([
             'query' => OpenApiUtilClient::query($query),
         ]);
         $params = new Params([
@@ -1451,12 +1734,20 @@ class Alb extends OpenApiClient
     public function dissociateAdditionalCertificatesFromListenerWithOptions($request, $runtime)
     {
         Utils::validateModel($request);
-        $query                 = [];
-        $query['Certificates'] = $request->certificates;
-        $query['ClientToken']  = $request->clientToken;
-        $query['DryRun']       = $request->dryRun;
-        $query['ListenerId']   = $request->listenerId;
-        $req                   = new OpenApiRequest([
+        $query = [];
+        if (!Utils::isUnset($request->certificates)) {
+            $query['Certificates'] = $request->certificates;
+        }
+        if (!Utils::isUnset($request->clientToken)) {
+            $query['ClientToken'] = $request->clientToken;
+        }
+        if (!Utils::isUnset($request->dryRun)) {
+            $query['DryRun'] = $request->dryRun;
+        }
+        if (!Utils::isUnset($request->listenerId)) {
+            $query['ListenerId'] = $request->listenerId;
+        }
+        $req = new OpenApiRequest([
             'query' => OpenApiUtilClient::query($query),
         ]);
         $params = new Params([
@@ -1495,11 +1786,17 @@ class Alb extends OpenApiClient
     public function enableDeletionProtectionWithOptions($request, $runtime)
     {
         Utils::validateModel($request);
-        $query                = [];
-        $query['ClientToken'] = $request->clientToken;
-        $query['DryRun']      = $request->dryRun;
-        $query['ResourceId']  = $request->resourceId;
-        $req                  = new OpenApiRequest([
+        $query = [];
+        if (!Utils::isUnset($request->clientToken)) {
+            $query['ClientToken'] = $request->clientToken;
+        }
+        if (!Utils::isUnset($request->dryRun)) {
+            $query['DryRun'] = $request->dryRun;
+        }
+        if (!Utils::isUnset($request->resourceId)) {
+            $query['ResourceId'] = $request->resourceId;
+        }
+        $req = new OpenApiRequest([
             'query' => OpenApiUtilClient::query($query),
         ]);
         $params = new Params([
@@ -1538,13 +1835,23 @@ class Alb extends OpenApiClient
     public function enableLoadBalancerAccessLogWithOptions($request, $runtime)
     {
         Utils::validateModel($request);
-        $query                   = [];
-        $query['ClientToken']    = $request->clientToken;
-        $query['DryRun']         = $request->dryRun;
-        $query['LoadBalancerId'] = $request->loadBalancerId;
-        $query['LogProject']     = $request->logProject;
-        $query['LogStore']       = $request->logStore;
-        $req                     = new OpenApiRequest([
+        $query = [];
+        if (!Utils::isUnset($request->clientToken)) {
+            $query['ClientToken'] = $request->clientToken;
+        }
+        if (!Utils::isUnset($request->dryRun)) {
+            $query['DryRun'] = $request->dryRun;
+        }
+        if (!Utils::isUnset($request->loadBalancerId)) {
+            $query['LoadBalancerId'] = $request->loadBalancerId;
+        }
+        if (!Utils::isUnset($request->logProject)) {
+            $query['LogProject'] = $request->logProject;
+        }
+        if (!Utils::isUnset($request->logStore)) {
+            $query['LogStore'] = $request->logStore;
+        }
+        $req = new OpenApiRequest([
             'query' => OpenApiUtilClient::query($query),
         ]);
         $params = new Params([
@@ -1583,9 +1890,11 @@ class Alb extends OpenApiClient
     public function getHealthCheckTemplateAttributeWithOptions($request, $runtime)
     {
         Utils::validateModel($request);
-        $query                          = [];
-        $query['HealthCheckTemplateId'] = $request->healthCheckTemplateId;
-        $req                            = new OpenApiRequest([
+        $query = [];
+        if (!Utils::isUnset($request->healthCheckTemplateId)) {
+            $query['HealthCheckTemplateId'] = $request->healthCheckTemplateId;
+        }
+        $req = new OpenApiRequest([
             'query' => OpenApiUtilClient::query($query),
         ]);
         $params = new Params([
@@ -1624,9 +1933,11 @@ class Alb extends OpenApiClient
     public function getListenerAttributeWithOptions($request, $runtime)
     {
         Utils::validateModel($request);
-        $query               = [];
-        $query['ListenerId'] = $request->listenerId;
-        $req                 = new OpenApiRequest([
+        $query = [];
+        if (!Utils::isUnset($request->listenerId)) {
+            $query['ListenerId'] = $request->listenerId;
+        }
+        $req = new OpenApiRequest([
             'query' => OpenApiUtilClient::query($query),
         ]);
         $params = new Params([
@@ -1665,12 +1976,20 @@ class Alb extends OpenApiClient
     public function getListenerHealthStatusWithOptions($request, $runtime)
     {
         Utils::validateModel($request);
-        $query                = [];
-        $query['IncludeRule'] = $request->includeRule;
-        $query['ListenerId']  = $request->listenerId;
-        $query['MaxResults']  = $request->maxResults;
-        $query['NextToken']   = $request->nextToken;
-        $req                  = new OpenApiRequest([
+        $query = [];
+        if (!Utils::isUnset($request->includeRule)) {
+            $query['IncludeRule'] = $request->includeRule;
+        }
+        if (!Utils::isUnset($request->listenerId)) {
+            $query['ListenerId'] = $request->listenerId;
+        }
+        if (!Utils::isUnset($request->maxResults)) {
+            $query['MaxResults'] = $request->maxResults;
+        }
+        if (!Utils::isUnset($request->nextToken)) {
+            $query['NextToken'] = $request->nextToken;
+        }
+        $req = new OpenApiRequest([
             'query' => OpenApiUtilClient::query($query),
         ]);
         $params = new Params([
@@ -1709,9 +2028,11 @@ class Alb extends OpenApiClient
     public function getLoadBalancerAttributeWithOptions($request, $runtime)
     {
         Utils::validateModel($request);
-        $query                   = [];
-        $query['LoadBalancerId'] = $request->loadBalancerId;
-        $req                     = new OpenApiRequest([
+        $query = [];
+        if (!Utils::isUnset($request->loadBalancerId)) {
+            $query['LoadBalancerId'] = $request->loadBalancerId;
+        }
+        $req = new OpenApiRequest([
             'query' => OpenApiUtilClient::query($query),
         ]);
         $params = new Params([
@@ -1750,11 +2071,17 @@ class Alb extends OpenApiClient
     public function listAclEntriesWithOptions($request, $runtime)
     {
         Utils::validateModel($request);
-        $query               = [];
-        $query['AclId']      = $request->aclId;
-        $query['MaxResults'] = $request->maxResults;
-        $query['NextToken']  = $request->nextToken;
-        $req                 = new OpenApiRequest([
+        $query = [];
+        if (!Utils::isUnset($request->aclId)) {
+            $query['AclId'] = $request->aclId;
+        }
+        if (!Utils::isUnset($request->maxResults)) {
+            $query['MaxResults'] = $request->maxResults;
+        }
+        if (!Utils::isUnset($request->nextToken)) {
+            $query['NextToken'] = $request->nextToken;
+        }
+        $req = new OpenApiRequest([
             'query' => OpenApiUtilClient::query($query),
         ]);
         $params = new Params([
@@ -1793,9 +2120,11 @@ class Alb extends OpenApiClient
     public function listAclRelationsWithOptions($request, $runtime)
     {
         Utils::validateModel($request);
-        $query           = [];
-        $query['AclIds'] = $request->aclIds;
-        $req             = new OpenApiRequest([
+        $query = [];
+        if (!Utils::isUnset($request->aclIds)) {
+            $query['AclIds'] = $request->aclIds;
+        }
+        $req = new OpenApiRequest([
             'query' => OpenApiUtilClient::query($query),
         ]);
         $params = new Params([
@@ -1834,13 +2163,23 @@ class Alb extends OpenApiClient
     public function listAclsWithOptions($request, $runtime)
     {
         Utils::validateModel($request);
-        $query                    = [];
-        $query['AclIds']          = $request->aclIds;
-        $query['AclNames']        = $request->aclNames;
-        $query['MaxResults']      = $request->maxResults;
-        $query['NextToken']       = $request->nextToken;
-        $query['ResourceGroupId'] = $request->resourceGroupId;
-        $req                      = new OpenApiRequest([
+        $query = [];
+        if (!Utils::isUnset($request->aclIds)) {
+            $query['AclIds'] = $request->aclIds;
+        }
+        if (!Utils::isUnset($request->aclNames)) {
+            $query['AclNames'] = $request->aclNames;
+        }
+        if (!Utils::isUnset($request->maxResults)) {
+            $query['MaxResults'] = $request->maxResults;
+        }
+        if (!Utils::isUnset($request->nextToken)) {
+            $query['NextToken'] = $request->nextToken;
+        }
+        if (!Utils::isUnset($request->resourceGroupId)) {
+            $query['ResourceGroupId'] = $request->resourceGroupId;
+        }
+        $req = new OpenApiRequest([
             'query' => OpenApiUtilClient::query($query),
         ]);
         $params = new Params([
@@ -1879,16 +2218,32 @@ class Alb extends OpenApiClient
     public function listAsynJobsWithOptions($request, $runtime)
     {
         Utils::validateModel($request);
-        $query                 = [];
-        $query['ApiName']      = $request->apiName;
-        $query['BeginTime']    = $request->beginTime;
-        $query['EndTime']      = $request->endTime;
-        $query['JobIds']       = $request->jobIds;
-        $query['MaxResults']   = $request->maxResults;
-        $query['NextToken']    = $request->nextToken;
-        $query['ResourceIds']  = $request->resourceIds;
-        $query['ResourceType'] = $request->resourceType;
-        $req                   = new OpenApiRequest([
+        $query = [];
+        if (!Utils::isUnset($request->apiName)) {
+            $query['ApiName'] = $request->apiName;
+        }
+        if (!Utils::isUnset($request->beginTime)) {
+            $query['BeginTime'] = $request->beginTime;
+        }
+        if (!Utils::isUnset($request->endTime)) {
+            $query['EndTime'] = $request->endTime;
+        }
+        if (!Utils::isUnset($request->jobIds)) {
+            $query['JobIds'] = $request->jobIds;
+        }
+        if (!Utils::isUnset($request->maxResults)) {
+            $query['MaxResults'] = $request->maxResults;
+        }
+        if (!Utils::isUnset($request->nextToken)) {
+            $query['NextToken'] = $request->nextToken;
+        }
+        if (!Utils::isUnset($request->resourceIds)) {
+            $query['ResourceIds'] = $request->resourceIds;
+        }
+        if (!Utils::isUnset($request->resourceType)) {
+            $query['ResourceType'] = $request->resourceType;
+        }
+        $req = new OpenApiRequest([
             'query' => OpenApiUtilClient::query($query),
         ]);
         $params = new Params([
@@ -1927,12 +2282,20 @@ class Alb extends OpenApiClient
     public function listHealthCheckTemplatesWithOptions($request, $runtime)
     {
         Utils::validateModel($request);
-        $query                             = [];
-        $query['HealthCheckTemplateIds']   = $request->healthCheckTemplateIds;
-        $query['HealthCheckTemplateNames'] = $request->healthCheckTemplateNames;
-        $query['MaxResults']               = $request->maxResults;
-        $query['NextToken']                = $request->nextToken;
-        $req                               = new OpenApiRequest([
+        $query = [];
+        if (!Utils::isUnset($request->healthCheckTemplateIds)) {
+            $query['HealthCheckTemplateIds'] = $request->healthCheckTemplateIds;
+        }
+        if (!Utils::isUnset($request->healthCheckTemplateNames)) {
+            $query['HealthCheckTemplateNames'] = $request->healthCheckTemplateNames;
+        }
+        if (!Utils::isUnset($request->maxResults)) {
+            $query['MaxResults'] = $request->maxResults;
+        }
+        if (!Utils::isUnset($request->nextToken)) {
+            $query['NextToken'] = $request->nextToken;
+        }
+        $req = new OpenApiRequest([
             'query' => OpenApiUtilClient::query($query),
         ]);
         $params = new Params([
@@ -1971,12 +2334,20 @@ class Alb extends OpenApiClient
     public function listListenerCertificatesWithOptions($request, $runtime)
     {
         Utils::validateModel($request);
-        $query                    = [];
-        $query['CertificateType'] = $request->certificateType;
-        $query['ListenerId']      = $request->listenerId;
-        $query['MaxResults']      = $request->maxResults;
-        $query['NextToken']       = $request->nextToken;
-        $req                      = new OpenApiRequest([
+        $query = [];
+        if (!Utils::isUnset($request->certificateType)) {
+            $query['CertificateType'] = $request->certificateType;
+        }
+        if (!Utils::isUnset($request->listenerId)) {
+            $query['ListenerId'] = $request->listenerId;
+        }
+        if (!Utils::isUnset($request->maxResults)) {
+            $query['MaxResults'] = $request->maxResults;
+        }
+        if (!Utils::isUnset($request->nextToken)) {
+            $query['NextToken'] = $request->nextToken;
+        }
+        $req = new OpenApiRequest([
             'query' => OpenApiUtilClient::query($query),
         ]);
         $params = new Params([
@@ -2015,13 +2386,23 @@ class Alb extends OpenApiClient
     public function listListenersWithOptions($request, $runtime)
     {
         Utils::validateModel($request);
-        $query                     = [];
-        $query['ListenerIds']      = $request->listenerIds;
-        $query['ListenerProtocol'] = $request->listenerProtocol;
-        $query['LoadBalancerIds']  = $request->loadBalancerIds;
-        $query['MaxResults']       = $request->maxResults;
-        $query['NextToken']        = $request->nextToken;
-        $req                       = new OpenApiRequest([
+        $query = [];
+        if (!Utils::isUnset($request->listenerIds)) {
+            $query['ListenerIds'] = $request->listenerIds;
+        }
+        if (!Utils::isUnset($request->listenerProtocol)) {
+            $query['ListenerProtocol'] = $request->listenerProtocol;
+        }
+        if (!Utils::isUnset($request->loadBalancerIds)) {
+            $query['LoadBalancerIds'] = $request->loadBalancerIds;
+        }
+        if (!Utils::isUnset($request->maxResults)) {
+            $query['MaxResults'] = $request->maxResults;
+        }
+        if (!Utils::isUnset($request->nextToken)) {
+            $query['NextToken'] = $request->nextToken;
+        }
+        $req = new OpenApiRequest([
             'query' => OpenApiUtilClient::query($query),
         ]);
         $params = new Params([
@@ -2060,20 +2441,44 @@ class Alb extends OpenApiClient
     public function listLoadBalancersWithOptions($request, $runtime)
     {
         Utils::validateModel($request);
-        $query                                = [];
-        $query['AddressType']                 = $request->addressType;
-        $query['LoadBalancerBussinessStatus'] = $request->loadBalancerBussinessStatus;
-        $query['LoadBalancerIds']             = $request->loadBalancerIds;
-        $query['LoadBalancerNames']           = $request->loadBalancerNames;
-        $query['LoadBalancerStatus']          = $request->loadBalancerStatus;
-        $query['MaxResults']                  = $request->maxResults;
-        $query['NextToken']                   = $request->nextToken;
-        $query['PayType']                     = $request->payType;
-        $query['ResourceGroupId']             = $request->resourceGroupId;
-        $query['Tag']                         = $request->tag;
-        $query['VpcIds']                      = $request->vpcIds;
-        $query['ZoneId']                      = $request->zoneId;
-        $req                                  = new OpenApiRequest([
+        $query = [];
+        if (!Utils::isUnset($request->addressType)) {
+            $query['AddressType'] = $request->addressType;
+        }
+        if (!Utils::isUnset($request->loadBalancerBussinessStatus)) {
+            $query['LoadBalancerBussinessStatus'] = $request->loadBalancerBussinessStatus;
+        }
+        if (!Utils::isUnset($request->loadBalancerIds)) {
+            $query['LoadBalancerIds'] = $request->loadBalancerIds;
+        }
+        if (!Utils::isUnset($request->loadBalancerNames)) {
+            $query['LoadBalancerNames'] = $request->loadBalancerNames;
+        }
+        if (!Utils::isUnset($request->loadBalancerStatus)) {
+            $query['LoadBalancerStatus'] = $request->loadBalancerStatus;
+        }
+        if (!Utils::isUnset($request->maxResults)) {
+            $query['MaxResults'] = $request->maxResults;
+        }
+        if (!Utils::isUnset($request->nextToken)) {
+            $query['NextToken'] = $request->nextToken;
+        }
+        if (!Utils::isUnset($request->payType)) {
+            $query['PayType'] = $request->payType;
+        }
+        if (!Utils::isUnset($request->resourceGroupId)) {
+            $query['ResourceGroupId'] = $request->resourceGroupId;
+        }
+        if (!Utils::isUnset($request->tag)) {
+            $query['Tag'] = $request->tag;
+        }
+        if (!Utils::isUnset($request->vpcIds)) {
+            $query['VpcIds'] = $request->vpcIds;
+        }
+        if (!Utils::isUnset($request->zoneId)) {
+            $query['ZoneId'] = $request->zoneId;
+        }
+        $req = new OpenApiRequest([
             'query' => OpenApiUtilClient::query($query),
         ]);
         $params = new Params([
@@ -2112,13 +2517,23 @@ class Alb extends OpenApiClient
     public function listRulesWithOptions($request, $runtime)
     {
         Utils::validateModel($request);
-        $query                    = [];
-        $query['ListenerIds']     = $request->listenerIds;
-        $query['LoadBalancerIds'] = $request->loadBalancerIds;
-        $query['MaxResults']      = $request->maxResults;
-        $query['NextToken']       = $request->nextToken;
-        $query['RuleIds']         = $request->ruleIds;
-        $req                      = new OpenApiRequest([
+        $query = [];
+        if (!Utils::isUnset($request->listenerIds)) {
+            $query['ListenerIds'] = $request->listenerIds;
+        }
+        if (!Utils::isUnset($request->loadBalancerIds)) {
+            $query['LoadBalancerIds'] = $request->loadBalancerIds;
+        }
+        if (!Utils::isUnset($request->maxResults)) {
+            $query['MaxResults'] = $request->maxResults;
+        }
+        if (!Utils::isUnset($request->nextToken)) {
+            $query['NextToken'] = $request->nextToken;
+        }
+        if (!Utils::isUnset($request->ruleIds)) {
+            $query['RuleIds'] = $request->ruleIds;
+        }
+        $req = new OpenApiRequest([
             'query' => OpenApiUtilClient::query($query),
         ]);
         $params = new Params([
@@ -2157,13 +2572,23 @@ class Alb extends OpenApiClient
     public function listSecurityPoliciesWithOptions($request, $runtime)
     {
         Utils::validateModel($request);
-        $query                        = [];
-        $query['MaxResults']          = $request->maxResults;
-        $query['NextToken']           = $request->nextToken;
-        $query['ResourceGroupId']     = $request->resourceGroupId;
-        $query['SecurityPolicyIds']   = $request->securityPolicyIds;
-        $query['SecurityPolicyNames'] = $request->securityPolicyNames;
-        $req                          = new OpenApiRequest([
+        $query = [];
+        if (!Utils::isUnset($request->maxResults)) {
+            $query['MaxResults'] = $request->maxResults;
+        }
+        if (!Utils::isUnset($request->nextToken)) {
+            $query['NextToken'] = $request->nextToken;
+        }
+        if (!Utils::isUnset($request->resourceGroupId)) {
+            $query['ResourceGroupId'] = $request->resourceGroupId;
+        }
+        if (!Utils::isUnset($request->securityPolicyIds)) {
+            $query['SecurityPolicyIds'] = $request->securityPolicyIds;
+        }
+        if (!Utils::isUnset($request->securityPolicyNames)) {
+            $query['SecurityPolicyNames'] = $request->securityPolicyNames;
+        }
+        $req = new OpenApiRequest([
             'query' => OpenApiUtilClient::query($query),
         ]);
         $params = new Params([
@@ -2202,9 +2627,11 @@ class Alb extends OpenApiClient
     public function listSecurityPolicyRelationsWithOptions($request, $runtime)
     {
         Utils::validateModel($request);
-        $query                      = [];
-        $query['SecurityPolicyIds'] = $request->securityPolicyIds;
-        $req                        = new OpenApiRequest([
+        $query = [];
+        if (!Utils::isUnset($request->securityPolicyIds)) {
+            $query['SecurityPolicyIds'] = $request->securityPolicyIds;
+        }
+        $req = new OpenApiRequest([
             'query' => OpenApiUtilClient::query($query),
         ]);
         $params = new Params([
@@ -2243,13 +2670,23 @@ class Alb extends OpenApiClient
     public function listServerGroupServersWithOptions($request, $runtime)
     {
         Utils::validateModel($request);
-        $query                  = [];
-        $query['MaxResults']    = $request->maxResults;
-        $query['NextToken']     = $request->nextToken;
-        $query['ServerGroupId'] = $request->serverGroupId;
-        $query['ServerIds']     = $request->serverIds;
-        $query['Tag']           = $request->tag;
-        $req                    = new OpenApiRequest([
+        $query = [];
+        if (!Utils::isUnset($request->maxResults)) {
+            $query['MaxResults'] = $request->maxResults;
+        }
+        if (!Utils::isUnset($request->nextToken)) {
+            $query['NextToken'] = $request->nextToken;
+        }
+        if (!Utils::isUnset($request->serverGroupId)) {
+            $query['ServerGroupId'] = $request->serverGroupId;
+        }
+        if (!Utils::isUnset($request->serverIds)) {
+            $query['ServerIds'] = $request->serverIds;
+        }
+        if (!Utils::isUnset($request->tag)) {
+            $query['Tag'] = $request->tag;
+        }
+        $req = new OpenApiRequest([
             'query' => OpenApiUtilClient::query($query),
         ]);
         $params = new Params([
@@ -2288,15 +2725,29 @@ class Alb extends OpenApiClient
     public function listServerGroupsWithOptions($request, $runtime)
     {
         Utils::validateModel($request);
-        $query                     = [];
-        $query['MaxResults']       = $request->maxResults;
-        $query['NextToken']        = $request->nextToken;
-        $query['ResourceGroupId']  = $request->resourceGroupId;
-        $query['ServerGroupIds']   = $request->serverGroupIds;
-        $query['ServerGroupNames'] = $request->serverGroupNames;
-        $query['Tag']              = $request->tag;
-        $query['VpcId']            = $request->vpcId;
-        $req                       = new OpenApiRequest([
+        $query = [];
+        if (!Utils::isUnset($request->maxResults)) {
+            $query['MaxResults'] = $request->maxResults;
+        }
+        if (!Utils::isUnset($request->nextToken)) {
+            $query['NextToken'] = $request->nextToken;
+        }
+        if (!Utils::isUnset($request->resourceGroupId)) {
+            $query['ResourceGroupId'] = $request->resourceGroupId;
+        }
+        if (!Utils::isUnset($request->serverGroupIds)) {
+            $query['ServerGroupIds'] = $request->serverGroupIds;
+        }
+        if (!Utils::isUnset($request->serverGroupNames)) {
+            $query['ServerGroupNames'] = $request->serverGroupNames;
+        }
+        if (!Utils::isUnset($request->tag)) {
+            $query['Tag'] = $request->tag;
+        }
+        if (!Utils::isUnset($request->vpcId)) {
+            $query['VpcId'] = $request->vpcId;
+        }
+        $req = new OpenApiRequest([
             'query' => OpenApiUtilClient::query($query),
         ]);
         $params = new Params([
@@ -2368,13 +2819,23 @@ class Alb extends OpenApiClient
     public function listTagKeysWithOptions($request, $runtime)
     {
         Utils::validateModel($request);
-        $query                 = [];
-        $query['Category']     = $request->category;
-        $query['Keyword']      = $request->keyword;
-        $query['MaxResults']   = $request->maxResults;
-        $query['NextToken']    = $request->nextToken;
-        $query['ResourceType'] = $request->resourceType;
-        $req                   = new OpenApiRequest([
+        $query = [];
+        if (!Utils::isUnset($request->category)) {
+            $query['Category'] = $request->category;
+        }
+        if (!Utils::isUnset($request->keyword)) {
+            $query['Keyword'] = $request->keyword;
+        }
+        if (!Utils::isUnset($request->maxResults)) {
+            $query['MaxResults'] = $request->maxResults;
+        }
+        if (!Utils::isUnset($request->nextToken)) {
+            $query['NextToken'] = $request->nextToken;
+        }
+        if (!Utils::isUnset($request->resourceType)) {
+            $query['ResourceType'] = $request->resourceType;
+        }
+        $req = new OpenApiRequest([
             'query' => OpenApiUtilClient::query($query),
         ]);
         $params = new Params([
@@ -2413,13 +2874,23 @@ class Alb extends OpenApiClient
     public function listTagResourcesWithOptions($request, $runtime)
     {
         Utils::validateModel($request);
-        $query                 = [];
-        $query['MaxResults']   = $request->maxResults;
-        $query['NextToken']    = $request->nextToken;
-        $query['ResourceId']   = $request->resourceId;
-        $query['ResourceType'] = $request->resourceType;
-        $query['Tag']          = $request->tag;
-        $req                   = new OpenApiRequest([
+        $query = [];
+        if (!Utils::isUnset($request->maxResults)) {
+            $query['MaxResults'] = $request->maxResults;
+        }
+        if (!Utils::isUnset($request->nextToken)) {
+            $query['NextToken'] = $request->nextToken;
+        }
+        if (!Utils::isUnset($request->resourceId)) {
+            $query['ResourceId'] = $request->resourceId;
+        }
+        if (!Utils::isUnset($request->resourceType)) {
+            $query['ResourceType'] = $request->resourceType;
+        }
+        if (!Utils::isUnset($request->tag)) {
+            $query['Tag'] = $request->tag;
+        }
+        $req = new OpenApiRequest([
             'query' => OpenApiUtilClient::query($query),
         ]);
         $params = new Params([
@@ -2458,13 +2929,23 @@ class Alb extends OpenApiClient
     public function listTagValuesWithOptions($request, $runtime)
     {
         Utils::validateModel($request);
-        $query                 = [];
-        $query['MaxResults']   = $request->maxResults;
-        $query['NextToken']    = $request->nextToken;
-        $query['ResourceId']   = $request->resourceId;
-        $query['ResourceType'] = $request->resourceType;
-        $query['TagKey']       = $request->tagKey;
-        $req                   = new OpenApiRequest([
+        $query = [];
+        if (!Utils::isUnset($request->maxResults)) {
+            $query['MaxResults'] = $request->maxResults;
+        }
+        if (!Utils::isUnset($request->nextToken)) {
+            $query['NextToken'] = $request->nextToken;
+        }
+        if (!Utils::isUnset($request->resourceId)) {
+            $query['ResourceId'] = $request->resourceId;
+        }
+        if (!Utils::isUnset($request->resourceType)) {
+            $query['ResourceType'] = $request->resourceType;
+        }
+        if (!Utils::isUnset($request->tagKey)) {
+            $query['TagKey'] = $request->tagKey;
+        }
+        $req = new OpenApiRequest([
             'query' => OpenApiUtilClient::query($query),
         ]);
         $params = new Params([
@@ -2503,11 +2984,17 @@ class Alb extends OpenApiClient
     public function moveResourceGroupWithOptions($request, $runtime)
     {
         Utils::validateModel($request);
-        $query                       = [];
-        $query['NewResourceGroupId'] = $request->newResourceGroupId;
-        $query['ResourceId']         = $request->resourceId;
-        $query['ResourceType']       = $request->resourceType;
-        $req                         = new OpenApiRequest([
+        $query = [];
+        if (!Utils::isUnset($request->newResourceGroupId)) {
+            $query['NewResourceGroupId'] = $request->newResourceGroupId;
+        }
+        if (!Utils::isUnset($request->resourceId)) {
+            $query['ResourceId'] = $request->resourceId;
+        }
+        if (!Utils::isUnset($request->resourceType)) {
+            $query['ResourceType'] = $request->resourceType;
+        }
+        $req = new OpenApiRequest([
             'query' => OpenApiUtilClient::query($query),
         ]);
         $params = new Params([
@@ -2546,12 +3033,20 @@ class Alb extends OpenApiClient
     public function removeEntriesFromAclWithOptions($request, $runtime)
     {
         Utils::validateModel($request);
-        $query                = [];
-        $query['AclId']       = $request->aclId;
-        $query['ClientToken'] = $request->clientToken;
-        $query['DryRun']      = $request->dryRun;
-        $query['Entries']     = $request->entries;
-        $req                  = new OpenApiRequest([
+        $query = [];
+        if (!Utils::isUnset($request->aclId)) {
+            $query['AclId'] = $request->aclId;
+        }
+        if (!Utils::isUnset($request->clientToken)) {
+            $query['ClientToken'] = $request->clientToken;
+        }
+        if (!Utils::isUnset($request->dryRun)) {
+            $query['DryRun'] = $request->dryRun;
+        }
+        if (!Utils::isUnset($request->entries)) {
+            $query['Entries'] = $request->entries;
+        }
+        $req = new OpenApiRequest([
             'query' => OpenApiUtilClient::query($query),
         ]);
         $params = new Params([
@@ -2590,12 +3085,20 @@ class Alb extends OpenApiClient
     public function removeServersFromServerGroupWithOptions($request, $runtime)
     {
         Utils::validateModel($request);
-        $query                  = [];
-        $query['ClientToken']   = $request->clientToken;
-        $query['DryRun']        = $request->dryRun;
-        $query['ServerGroupId'] = $request->serverGroupId;
-        $query['Servers']       = $request->servers;
-        $req                    = new OpenApiRequest([
+        $query = [];
+        if (!Utils::isUnset($request->clientToken)) {
+            $query['ClientToken'] = $request->clientToken;
+        }
+        if (!Utils::isUnset($request->dryRun)) {
+            $query['DryRun'] = $request->dryRun;
+        }
+        if (!Utils::isUnset($request->serverGroupId)) {
+            $query['ServerGroupId'] = $request->serverGroupId;
+        }
+        if (!Utils::isUnset($request->servers)) {
+            $query['Servers'] = $request->servers;
+        }
+        $req = new OpenApiRequest([
             'query' => OpenApiUtilClient::query($query),
         ]);
         $params = new Params([
@@ -2634,13 +3137,23 @@ class Alb extends OpenApiClient
     public function replaceServersInServerGroupWithOptions($request, $runtime)
     {
         Utils::validateModel($request);
-        $query                   = [];
-        $query['AddedServers']   = $request->addedServers;
-        $query['ClientToken']    = $request->clientToken;
-        $query['DryRun']         = $request->dryRun;
-        $query['RemovedServers'] = $request->removedServers;
-        $query['ServerGroupId']  = $request->serverGroupId;
-        $req                     = new OpenApiRequest([
+        $query = [];
+        if (!Utils::isUnset($request->addedServers)) {
+            $query['AddedServers'] = $request->addedServers;
+        }
+        if (!Utils::isUnset($request->clientToken)) {
+            $query['ClientToken'] = $request->clientToken;
+        }
+        if (!Utils::isUnset($request->dryRun)) {
+            $query['DryRun'] = $request->dryRun;
+        }
+        if (!Utils::isUnset($request->removedServers)) {
+            $query['RemovedServers'] = $request->removedServers;
+        }
+        if (!Utils::isUnset($request->serverGroupId)) {
+            $query['ServerGroupId'] = $request->serverGroupId;
+        }
+        $req = new OpenApiRequest([
             'query' => OpenApiUtilClient::query($query),
         ]);
         $params = new Params([
@@ -2679,11 +3192,17 @@ class Alb extends OpenApiClient
     public function startListenerWithOptions($request, $runtime)
     {
         Utils::validateModel($request);
-        $query                = [];
-        $query['ClientToken'] = $request->clientToken;
-        $query['DryRun']      = $request->dryRun;
-        $query['ListenerId']  = $request->listenerId;
-        $req                  = new OpenApiRequest([
+        $query = [];
+        if (!Utils::isUnset($request->clientToken)) {
+            $query['ClientToken'] = $request->clientToken;
+        }
+        if (!Utils::isUnset($request->dryRun)) {
+            $query['DryRun'] = $request->dryRun;
+        }
+        if (!Utils::isUnset($request->listenerId)) {
+            $query['ListenerId'] = $request->listenerId;
+        }
+        $req = new OpenApiRequest([
             'query' => OpenApiUtilClient::query($query),
         ]);
         $params = new Params([
@@ -2722,11 +3241,17 @@ class Alb extends OpenApiClient
     public function stopListenerWithOptions($request, $runtime)
     {
         Utils::validateModel($request);
-        $query                = [];
-        $query['ClientToken'] = $request->clientToken;
-        $query['DryRun']      = $request->dryRun;
-        $query['ListenerId']  = $request->listenerId;
-        $req                  = new OpenApiRequest([
+        $query = [];
+        if (!Utils::isUnset($request->clientToken)) {
+            $query['ClientToken'] = $request->clientToken;
+        }
+        if (!Utils::isUnset($request->dryRun)) {
+            $query['DryRun'] = $request->dryRun;
+        }
+        if (!Utils::isUnset($request->listenerId)) {
+            $query['ListenerId'] = $request->listenerId;
+        }
+        $req = new OpenApiRequest([
             'query' => OpenApiUtilClient::query($query),
         ]);
         $params = new Params([
@@ -2765,11 +3290,17 @@ class Alb extends OpenApiClient
     public function tagResourcesWithOptions($request, $runtime)
     {
         Utils::validateModel($request);
-        $query                 = [];
-        $query['ResourceId']   = $request->resourceId;
-        $query['ResourceType'] = $request->resourceType;
-        $query['Tag']          = $request->tag;
-        $req                   = new OpenApiRequest([
+        $query = [];
+        if (!Utils::isUnset($request->resourceId)) {
+            $query['ResourceId'] = $request->resourceId;
+        }
+        if (!Utils::isUnset($request->resourceType)) {
+            $query['ResourceType'] = $request->resourceType;
+        }
+        if (!Utils::isUnset($request->tag)) {
+            $query['Tag'] = $request->tag;
+        }
+        $req = new OpenApiRequest([
             'query' => OpenApiUtilClient::query($query),
         ]);
         $params = new Params([
@@ -2808,12 +3339,20 @@ class Alb extends OpenApiClient
     public function unTagResourcesWithOptions($request, $runtime)
     {
         Utils::validateModel($request);
-        $query                 = [];
-        $query['ResourceId']   = $request->resourceId;
-        $query['ResourceType'] = $request->resourceType;
-        $query['Tag']          = $request->tag;
-        $query['TagKey']       = $request->tagKey;
-        $req                   = new OpenApiRequest([
+        $query = [];
+        if (!Utils::isUnset($request->resourceId)) {
+            $query['ResourceId'] = $request->resourceId;
+        }
+        if (!Utils::isUnset($request->resourceType)) {
+            $query['ResourceType'] = $request->resourceType;
+        }
+        if (!Utils::isUnset($request->tag)) {
+            $query['Tag'] = $request->tag;
+        }
+        if (!Utils::isUnset($request->tagKey)) {
+            $query['TagKey'] = $request->tagKey;
+        }
+        $req = new OpenApiRequest([
             'query' => OpenApiUtilClient::query($query),
         ]);
         $params = new Params([
@@ -2852,12 +3391,20 @@ class Alb extends OpenApiClient
     public function updateAclAttributeWithOptions($request, $runtime)
     {
         Utils::validateModel($request);
-        $query                = [];
-        $query['AclId']       = $request->aclId;
-        $query['AclName']     = $request->aclName;
-        $query['ClientToken'] = $request->clientToken;
-        $query['DryRun']      = $request->dryRun;
-        $req                  = new OpenApiRequest([
+        $query = [];
+        if (!Utils::isUnset($request->aclId)) {
+            $query['AclId'] = $request->aclId;
+        }
+        if (!Utils::isUnset($request->aclName)) {
+            $query['AclName'] = $request->aclName;
+        }
+        if (!Utils::isUnset($request->clientToken)) {
+            $query['ClientToken'] = $request->clientToken;
+        }
+        if (!Utils::isUnset($request->dryRun)) {
+            $query['DryRun'] = $request->dryRun;
+        }
+        $req = new OpenApiRequest([
             'query' => OpenApiUtilClient::query($query),
         ]);
         $params = new Params([
@@ -2896,23 +3443,53 @@ class Alb extends OpenApiClient
     public function updateHealthCheckTemplateAttributeWithOptions($request, $runtime)
     {
         Utils::validateModel($request);
-        $query                            = [];
-        $query['ClientToken']             = $request->clientToken;
-        $query['DryRun']                  = $request->dryRun;
-        $query['HealthCheckCodes']        = $request->healthCheckCodes;
-        $query['HealthCheckConnectPort']  = $request->healthCheckConnectPort;
-        $query['HealthCheckHost']         = $request->healthCheckHost;
-        $query['HealthCheckHttpVersion']  = $request->healthCheckHttpVersion;
-        $query['HealthCheckInterval']     = $request->healthCheckInterval;
-        $query['HealthCheckMethod']       = $request->healthCheckMethod;
-        $query['HealthCheckPath']         = $request->healthCheckPath;
-        $query['HealthCheckProtocol']     = $request->healthCheckProtocol;
-        $query['HealthCheckTemplateId']   = $request->healthCheckTemplateId;
-        $query['HealthCheckTemplateName'] = $request->healthCheckTemplateName;
-        $query['HealthCheckTimeout']      = $request->healthCheckTimeout;
-        $query['HealthyThreshold']        = $request->healthyThreshold;
-        $query['UnhealthyThreshold']      = $request->unhealthyThreshold;
-        $req                              = new OpenApiRequest([
+        $query = [];
+        if (!Utils::isUnset($request->clientToken)) {
+            $query['ClientToken'] = $request->clientToken;
+        }
+        if (!Utils::isUnset($request->dryRun)) {
+            $query['DryRun'] = $request->dryRun;
+        }
+        if (!Utils::isUnset($request->healthCheckCodes)) {
+            $query['HealthCheckCodes'] = $request->healthCheckCodes;
+        }
+        if (!Utils::isUnset($request->healthCheckConnectPort)) {
+            $query['HealthCheckConnectPort'] = $request->healthCheckConnectPort;
+        }
+        if (!Utils::isUnset($request->healthCheckHost)) {
+            $query['HealthCheckHost'] = $request->healthCheckHost;
+        }
+        if (!Utils::isUnset($request->healthCheckHttpVersion)) {
+            $query['HealthCheckHttpVersion'] = $request->healthCheckHttpVersion;
+        }
+        if (!Utils::isUnset($request->healthCheckInterval)) {
+            $query['HealthCheckInterval'] = $request->healthCheckInterval;
+        }
+        if (!Utils::isUnset($request->healthCheckMethod)) {
+            $query['HealthCheckMethod'] = $request->healthCheckMethod;
+        }
+        if (!Utils::isUnset($request->healthCheckPath)) {
+            $query['HealthCheckPath'] = $request->healthCheckPath;
+        }
+        if (!Utils::isUnset($request->healthCheckProtocol)) {
+            $query['HealthCheckProtocol'] = $request->healthCheckProtocol;
+        }
+        if (!Utils::isUnset($request->healthCheckTemplateId)) {
+            $query['HealthCheckTemplateId'] = $request->healthCheckTemplateId;
+        }
+        if (!Utils::isUnset($request->healthCheckTemplateName)) {
+            $query['HealthCheckTemplateName'] = $request->healthCheckTemplateName;
+        }
+        if (!Utils::isUnset($request->healthCheckTimeout)) {
+            $query['HealthCheckTimeout'] = $request->healthCheckTimeout;
+        }
+        if (!Utils::isUnset($request->healthyThreshold)) {
+            $query['HealthyThreshold'] = $request->healthyThreshold;
+        }
+        if (!Utils::isUnset($request->unhealthyThreshold)) {
+            $query['UnhealthyThreshold'] = $request->unhealthyThreshold;
+        }
+        $req = new OpenApiRequest([
             'query' => OpenApiUtilClient::query($query),
         ]);
         $params = new Params([
@@ -2951,23 +3528,53 @@ class Alb extends OpenApiClient
     public function updateListenerAttributeWithOptions($request, $runtime)
     {
         Utils::validateModel($request);
-        $query                        = [];
-        $query['CaCertificates']      = $request->caCertificates;
-        $query['CaEnabled']           = $request->caEnabled;
-        $query['Certificates']        = $request->certificates;
-        $query['ClientToken']         = $request->clientToken;
-        $query['DefaultActions']      = $request->defaultActions;
-        $query['DryRun']              = $request->dryRun;
-        $query['GzipEnabled']         = $request->gzipEnabled;
-        $query['Http2Enabled']        = $request->http2Enabled;
-        $query['IdleTimeout']         = $request->idleTimeout;
-        $query['ListenerDescription'] = $request->listenerDescription;
-        $query['ListenerId']          = $request->listenerId;
-        $query['QuicConfig']          = $request->quicConfig;
-        $query['RequestTimeout']      = $request->requestTimeout;
-        $query['SecurityPolicyId']    = $request->securityPolicyId;
-        $query['XForwardedForConfig'] = $request->XForwardedForConfig;
-        $req                          = new OpenApiRequest([
+        $query = [];
+        if (!Utils::isUnset($request->caCertificates)) {
+            $query['CaCertificates'] = $request->caCertificates;
+        }
+        if (!Utils::isUnset($request->caEnabled)) {
+            $query['CaEnabled'] = $request->caEnabled;
+        }
+        if (!Utils::isUnset($request->certificates)) {
+            $query['Certificates'] = $request->certificates;
+        }
+        if (!Utils::isUnset($request->clientToken)) {
+            $query['ClientToken'] = $request->clientToken;
+        }
+        if (!Utils::isUnset($request->defaultActions)) {
+            $query['DefaultActions'] = $request->defaultActions;
+        }
+        if (!Utils::isUnset($request->dryRun)) {
+            $query['DryRun'] = $request->dryRun;
+        }
+        if (!Utils::isUnset($request->gzipEnabled)) {
+            $query['GzipEnabled'] = $request->gzipEnabled;
+        }
+        if (!Utils::isUnset($request->http2Enabled)) {
+            $query['Http2Enabled'] = $request->http2Enabled;
+        }
+        if (!Utils::isUnset($request->idleTimeout)) {
+            $query['IdleTimeout'] = $request->idleTimeout;
+        }
+        if (!Utils::isUnset($request->listenerDescription)) {
+            $query['ListenerDescription'] = $request->listenerDescription;
+        }
+        if (!Utils::isUnset($request->listenerId)) {
+            $query['ListenerId'] = $request->listenerId;
+        }
+        if (!Utils::isUnset($request->quicConfig)) {
+            $query['QuicConfig'] = $request->quicConfig;
+        }
+        if (!Utils::isUnset($request->requestTimeout)) {
+            $query['RequestTimeout'] = $request->requestTimeout;
+        }
+        if (!Utils::isUnset($request->securityPolicyId)) {
+            $query['SecurityPolicyId'] = $request->securityPolicyId;
+        }
+        if (!Utils::isUnset($request->XForwardedForConfig)) {
+            $query['XForwardedForConfig'] = $request->XForwardedForConfig;
+        }
+        $req = new OpenApiRequest([
             'query' => OpenApiUtilClient::query($query),
         ]);
         $params = new Params([
@@ -3006,13 +3613,23 @@ class Alb extends OpenApiClient
     public function updateListenerLogConfigWithOptions($request, $runtime)
     {
         Utils::validateModel($request);
-        $query                                            = [];
-        $query['AccessLogRecordCustomizedHeadersEnabled'] = $request->accessLogRecordCustomizedHeadersEnabled;
-        $query['AccessLogTracingConfig']                  = $request->accessLogTracingConfig;
-        $query['ClientToken']                             = $request->clientToken;
-        $query['DryRun']                                  = $request->dryRun;
-        $query['ListenerId']                              = $request->listenerId;
-        $req                                              = new OpenApiRequest([
+        $query = [];
+        if (!Utils::isUnset($request->accessLogRecordCustomizedHeadersEnabled)) {
+            $query['AccessLogRecordCustomizedHeadersEnabled'] = $request->accessLogRecordCustomizedHeadersEnabled;
+        }
+        if (!Utils::isUnset($request->accessLogTracingConfig)) {
+            $query['AccessLogTracingConfig'] = $request->accessLogTracingConfig;
+        }
+        if (!Utils::isUnset($request->clientToken)) {
+            $query['ClientToken'] = $request->clientToken;
+        }
+        if (!Utils::isUnset($request->dryRun)) {
+            $query['DryRun'] = $request->dryRun;
+        }
+        if (!Utils::isUnset($request->listenerId)) {
+            $query['ListenerId'] = $request->listenerId;
+        }
+        $req = new OpenApiRequest([
             'query' => OpenApiUtilClient::query($query),
         ]);
         $params = new Params([
@@ -3051,13 +3668,23 @@ class Alb extends OpenApiClient
     public function updateLoadBalancerAddressTypeConfigWithOptions($request, $runtime)
     {
         Utils::validateModel($request);
-        $query                   = [];
-        $query['AddressType']    = $request->addressType;
-        $query['ClientToken']    = $request->clientToken;
-        $query['DryRun']         = $request->dryRun;
-        $query['LoadBalancerId'] = $request->loadBalancerId;
-        $query['ZoneMappings']   = $request->zoneMappings;
-        $req                     = new OpenApiRequest([
+        $query = [];
+        if (!Utils::isUnset($request->addressType)) {
+            $query['AddressType'] = $request->addressType;
+        }
+        if (!Utils::isUnset($request->clientToken)) {
+            $query['ClientToken'] = $request->clientToken;
+        }
+        if (!Utils::isUnset($request->dryRun)) {
+            $query['DryRun'] = $request->dryRun;
+        }
+        if (!Utils::isUnset($request->loadBalancerId)) {
+            $query['LoadBalancerId'] = $request->loadBalancerId;
+        }
+        if (!Utils::isUnset($request->zoneMappings)) {
+            $query['ZoneMappings'] = $request->zoneMappings;
+        }
+        $req = new OpenApiRequest([
             'query' => OpenApiUtilClient::query($query),
         ]);
         $params = new Params([
@@ -3096,13 +3723,23 @@ class Alb extends OpenApiClient
     public function updateLoadBalancerAttributeWithOptions($request, $runtime)
     {
         Utils::validateModel($request);
-        $query                                 = [];
-        $query['ClientToken']                  = $request->clientToken;
-        $query['DryRun']                       = $request->dryRun;
-        $query['LoadBalancerId']               = $request->loadBalancerId;
-        $query['LoadBalancerName']             = $request->loadBalancerName;
-        $query['ModificationProtectionConfig'] = $request->modificationProtectionConfig;
-        $req                                   = new OpenApiRequest([
+        $query = [];
+        if (!Utils::isUnset($request->clientToken)) {
+            $query['ClientToken'] = $request->clientToken;
+        }
+        if (!Utils::isUnset($request->dryRun)) {
+            $query['DryRun'] = $request->dryRun;
+        }
+        if (!Utils::isUnset($request->loadBalancerId)) {
+            $query['LoadBalancerId'] = $request->loadBalancerId;
+        }
+        if (!Utils::isUnset($request->loadBalancerName)) {
+            $query['LoadBalancerName'] = $request->loadBalancerName;
+        }
+        if (!Utils::isUnset($request->modificationProtectionConfig)) {
+            $query['ModificationProtectionConfig'] = $request->modificationProtectionConfig;
+        }
+        $req = new OpenApiRequest([
             'query' => OpenApiUtilClient::query($query),
         ]);
         $params = new Params([
@@ -3141,12 +3778,20 @@ class Alb extends OpenApiClient
     public function updateLoadBalancerEditionWithOptions($request, $runtime)
     {
         Utils::validateModel($request);
-        $query                        = [];
-        $query['ClientToken']         = $request->clientToken;
-        $query['DryRun']              = $request->dryRun;
-        $query['LoadBalancerEdition'] = $request->loadBalancerEdition;
-        $query['LoadBalancerId']      = $request->loadBalancerId;
-        $req                          = new OpenApiRequest([
+        $query = [];
+        if (!Utils::isUnset($request->clientToken)) {
+            $query['ClientToken'] = $request->clientToken;
+        }
+        if (!Utils::isUnset($request->dryRun)) {
+            $query['DryRun'] = $request->dryRun;
+        }
+        if (!Utils::isUnset($request->loadBalancerEdition)) {
+            $query['LoadBalancerEdition'] = $request->loadBalancerEdition;
+        }
+        if (!Utils::isUnset($request->loadBalancerId)) {
+            $query['LoadBalancerId'] = $request->loadBalancerId;
+        }
+        $req = new OpenApiRequest([
             'query' => OpenApiUtilClient::query($query),
         ]);
         $params = new Params([
@@ -3185,12 +3830,20 @@ class Alb extends OpenApiClient
     public function updateLoadBalancerZonesWithOptions($request, $runtime)
     {
         Utils::validateModel($request);
-        $query                   = [];
-        $query['ClientToken']    = $request->clientToken;
-        $query['DryRun']         = $request->dryRun;
-        $query['LoadBalancerId'] = $request->loadBalancerId;
-        $query['ZoneMappings']   = $request->zoneMappings;
-        $req                     = new OpenApiRequest([
+        $query = [];
+        if (!Utils::isUnset($request->clientToken)) {
+            $query['ClientToken'] = $request->clientToken;
+        }
+        if (!Utils::isUnset($request->dryRun)) {
+            $query['DryRun'] = $request->dryRun;
+        }
+        if (!Utils::isUnset($request->loadBalancerId)) {
+            $query['LoadBalancerId'] = $request->loadBalancerId;
+        }
+        if (!Utils::isUnset($request->zoneMappings)) {
+            $query['ZoneMappings'] = $request->zoneMappings;
+        }
+        $req = new OpenApiRequest([
             'query' => OpenApiUtilClient::query($query),
         ]);
         $params = new Params([
@@ -3229,15 +3882,29 @@ class Alb extends OpenApiClient
     public function updateRuleAttributeWithOptions($request, $runtime)
     {
         Utils::validateModel($request);
-        $query                   = [];
-        $query['ClientToken']    = $request->clientToken;
-        $query['DryRun']         = $request->dryRun;
-        $query['Priority']       = $request->priority;
-        $query['RuleActions']    = $request->ruleActions;
-        $query['RuleConditions'] = $request->ruleConditions;
-        $query['RuleId']         = $request->ruleId;
-        $query['RuleName']       = $request->ruleName;
-        $req                     = new OpenApiRequest([
+        $query = [];
+        if (!Utils::isUnset($request->clientToken)) {
+            $query['ClientToken'] = $request->clientToken;
+        }
+        if (!Utils::isUnset($request->dryRun)) {
+            $query['DryRun'] = $request->dryRun;
+        }
+        if (!Utils::isUnset($request->priority)) {
+            $query['Priority'] = $request->priority;
+        }
+        if (!Utils::isUnset($request->ruleActions)) {
+            $query['RuleActions'] = $request->ruleActions;
+        }
+        if (!Utils::isUnset($request->ruleConditions)) {
+            $query['RuleConditions'] = $request->ruleConditions;
+        }
+        if (!Utils::isUnset($request->ruleId)) {
+            $query['RuleId'] = $request->ruleId;
+        }
+        if (!Utils::isUnset($request->ruleName)) {
+            $query['RuleName'] = $request->ruleName;
+        }
+        $req = new OpenApiRequest([
             'query' => OpenApiUtilClient::query($query),
         ]);
         $params = new Params([
@@ -3276,11 +3943,17 @@ class Alb extends OpenApiClient
     public function updateRulesAttributeWithOptions($request, $runtime)
     {
         Utils::validateModel($request);
-        $query                = [];
-        $query['ClientToken'] = $request->clientToken;
-        $query['DryRun']      = $request->dryRun;
-        $query['Rules']       = $request->rules;
-        $req                  = new OpenApiRequest([
+        $query = [];
+        if (!Utils::isUnset($request->clientToken)) {
+            $query['ClientToken'] = $request->clientToken;
+        }
+        if (!Utils::isUnset($request->dryRun)) {
+            $query['DryRun'] = $request->dryRun;
+        }
+        if (!Utils::isUnset($request->rules)) {
+            $query['Rules'] = $request->rules;
+        }
+        $req = new OpenApiRequest([
             'query' => OpenApiUtilClient::query($query),
         ]);
         $params = new Params([
@@ -3319,14 +3992,26 @@ class Alb extends OpenApiClient
     public function updateSecurityPolicyAttributeWithOptions($request, $runtime)
     {
         Utils::validateModel($request);
-        $query                       = [];
-        $query['Ciphers']            = $request->ciphers;
-        $query['ClientToken']        = $request->clientToken;
-        $query['DryRun']             = $request->dryRun;
-        $query['SecurityPolicyId']   = $request->securityPolicyId;
-        $query['SecurityPolicyName'] = $request->securityPolicyName;
-        $query['TLSVersions']        = $request->TLSVersions;
-        $req                         = new OpenApiRequest([
+        $query = [];
+        if (!Utils::isUnset($request->ciphers)) {
+            $query['Ciphers'] = $request->ciphers;
+        }
+        if (!Utils::isUnset($request->clientToken)) {
+            $query['ClientToken'] = $request->clientToken;
+        }
+        if (!Utils::isUnset($request->dryRun)) {
+            $query['DryRun'] = $request->dryRun;
+        }
+        if (!Utils::isUnset($request->securityPolicyId)) {
+            $query['SecurityPolicyId'] = $request->securityPolicyId;
+        }
+        if (!Utils::isUnset($request->securityPolicyName)) {
+            $query['SecurityPolicyName'] = $request->securityPolicyName;
+        }
+        if (!Utils::isUnset($request->TLSVersions)) {
+            $query['TLSVersions'] = $request->TLSVersions;
+        }
+        $req = new OpenApiRequest([
             'query' => OpenApiUtilClient::query($query),
         ]);
         $params = new Params([
@@ -3365,15 +4050,32 @@ class Alb extends OpenApiClient
     public function updateServerGroupAttributeWithOptions($request, $runtime)
     {
         Utils::validateModel($request);
-        $query                        = [];
-        $query['ClientToken']         = $request->clientToken;
-        $query['DryRun']              = $request->dryRun;
-        $query['HealthCheckConfig']   = $request->healthCheckConfig;
-        $query['Scheduler']           = $request->scheduler;
-        $query['ServerGroupId']       = $request->serverGroupId;
-        $query['ServerGroupName']     = $request->serverGroupName;
-        $query['StickySessionConfig'] = $request->stickySessionConfig;
-        $req                          = new OpenApiRequest([
+        $query = [];
+        if (!Utils::isUnset($request->clientToken)) {
+            $query['ClientToken'] = $request->clientToken;
+        }
+        if (!Utils::isUnset($request->dryRun)) {
+            $query['DryRun'] = $request->dryRun;
+        }
+        if (!Utils::isUnset($request->healthCheckConfig)) {
+            $query['HealthCheckConfig'] = $request->healthCheckConfig;
+        }
+        if (!Utils::isUnset($request->scheduler)) {
+            $query['Scheduler'] = $request->scheduler;
+        }
+        if (!Utils::isUnset($request->serverGroupId)) {
+            $query['ServerGroupId'] = $request->serverGroupId;
+        }
+        if (!Utils::isUnset($request->serverGroupName)) {
+            $query['ServerGroupName'] = $request->serverGroupName;
+        }
+        if (!Utils::isUnset($request->serviceName)) {
+            $query['ServiceName'] = $request->serviceName;
+        }
+        if (!Utils::isUnset($request->stickySessionConfig)) {
+            $query['StickySessionConfig'] = $request->stickySessionConfig;
+        }
+        $req = new OpenApiRequest([
             'query' => OpenApiUtilClient::query($query),
         ]);
         $params = new Params([
@@ -3412,12 +4114,20 @@ class Alb extends OpenApiClient
     public function updateServerGroupServersAttributeWithOptions($request, $runtime)
     {
         Utils::validateModel($request);
-        $query                  = [];
-        $query['ClientToken']   = $request->clientToken;
-        $query['DryRun']        = $request->dryRun;
-        $query['ServerGroupId'] = $request->serverGroupId;
-        $query['Servers']       = $request->servers;
-        $req                    = new OpenApiRequest([
+        $query = [];
+        if (!Utils::isUnset($request->clientToken)) {
+            $query['ClientToken'] = $request->clientToken;
+        }
+        if (!Utils::isUnset($request->dryRun)) {
+            $query['DryRun'] = $request->dryRun;
+        }
+        if (!Utils::isUnset($request->serverGroupId)) {
+            $query['ServerGroupId'] = $request->serverGroupId;
+        }
+        if (!Utils::isUnset($request->servers)) {
+            $query['Servers'] = $request->servers;
+        }
+        $req = new OpenApiRequest([
             'query' => OpenApiUtilClient::query($query),
         ]);
         $params = new Params([
