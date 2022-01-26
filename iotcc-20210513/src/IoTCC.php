@@ -52,6 +52,8 @@ use AlibabaCloud\SDK\IoTCC\V20210513\Models\EnableIoTCloudConnectorAccessLogRequ
 use AlibabaCloud\SDK\IoTCC\V20210513\Models\EnableIoTCloudConnectorAccessLogResponse;
 use AlibabaCloud\SDK\IoTCC\V20210513\Models\GetConnectionPoolIpOperationResultRequest;
 use AlibabaCloud\SDK\IoTCC\V20210513\Models\GetConnectionPoolIpOperationResultResponse;
+use AlibabaCloud\SDK\IoTCC\V20210513\Models\GetDiagnoseResultForSingleCardRequest;
+use AlibabaCloud\SDK\IoTCC\V20210513\Models\GetDiagnoseResultForSingleCardResponse;
 use AlibabaCloud\SDK\IoTCC\V20210513\Models\GetIoTCloudConnectorAccessLogRequest;
 use AlibabaCloud\SDK\IoTCC\V20210513\Models\GetIoTCloudConnectorAccessLogResponse;
 use AlibabaCloud\SDK\IoTCC\V20210513\Models\GetStsInfoAndOssPathRequest;
@@ -68,6 +70,8 @@ use AlibabaCloud\SDK\IoTCC\V20210513\Models\ListConnectionPoolIpsRequest;
 use AlibabaCloud\SDK\IoTCC\V20210513\Models\ListConnectionPoolIpsResponse;
 use AlibabaCloud\SDK\IoTCC\V20210513\Models\ListConnectionPoolsRequest;
 use AlibabaCloud\SDK\IoTCC\V20210513\Models\ListConnectionPoolsResponse;
+use AlibabaCloud\SDK\IoTCC\V20210513\Models\ListDiagnoseInfoForSingleCardRequest;
+use AlibabaCloud\SDK\IoTCC\V20210513\Models\ListDiagnoseInfoForSingleCardResponse;
 use AlibabaCloud\SDK\IoTCC\V20210513\Models\ListGroupAuthorizationRulesRequest;
 use AlibabaCloud\SDK\IoTCC\V20210513\Models\ListGroupAuthorizationRulesResponse;
 use AlibabaCloud\SDK\IoTCC\V20210513\Models\ListIoTCloudConnectorAvailableZonesRequest;
@@ -86,6 +90,8 @@ use AlibabaCloud\SDK\IoTCC\V20210513\Models\OpenIoTCloudConnectorServiceRequest;
 use AlibabaCloud\SDK\IoTCC\V20210513\Models\OpenIoTCloudConnectorServiceResponse;
 use AlibabaCloud\SDK\IoTCC\V20210513\Models\RemoveIoTCloudConnectorFromGroupRequest;
 use AlibabaCloud\SDK\IoTCC\V20210513\Models\RemoveIoTCloudConnectorFromGroupResponse;
+use AlibabaCloud\SDK\IoTCC\V20210513\Models\SubmitDiagnoseTaskForSingleCardRequest;
+use AlibabaCloud\SDK\IoTCC\V20210513\Models\SubmitDiagnoseTaskForSingleCardResponse;
 use AlibabaCloud\SDK\IoTCC\V20210513\Models\UpdateAuthorizationRuleAttributeRequest;
 use AlibabaCloud\SDK\IoTCC\V20210513\Models\UpdateAuthorizationRuleAttributeResponse;
 use AlibabaCloud\SDK\IoTCC\V20210513\Models\UpdateConnectionPoolAttributeRequest;
@@ -1480,6 +1486,52 @@ class IoTCC extends OpenApiClient
     }
 
     /**
+     * @param GetDiagnoseResultForSingleCardRequest $request
+     * @param RuntimeOptions                        $runtime
+     *
+     * @return GetDiagnoseResultForSingleCardResponse
+     */
+    public function getDiagnoseResultForSingleCardWithOptions($request, $runtime)
+    {
+        Utils::validateModel($request);
+        $query = [];
+        if (!Utils::isUnset($request->diagnoseTaskId)) {
+            $query['DiagnoseTaskId'] = $request->diagnoseTaskId;
+        }
+        if (!Utils::isUnset($request->regionId)) {
+            $query['RegionId'] = $request->regionId;
+        }
+        $req = new OpenApiRequest([
+            'query' => OpenApiUtilClient::query($query),
+        ]);
+        $params = new Params([
+            'action'      => 'GetDiagnoseResultForSingleCard',
+            'version'     => '2021-05-13',
+            'protocol'    => 'HTTPS',
+            'pathname'    => '/',
+            'method'      => 'POST',
+            'authType'    => 'AK',
+            'style'       => 'RPC',
+            'reqBodyType' => 'formData',
+            'bodyType'    => 'json',
+        ]);
+
+        return GetDiagnoseResultForSingleCardResponse::fromMap($this->callApi($params, $req, $runtime));
+    }
+
+    /**
+     * @param GetDiagnoseResultForSingleCardRequest $request
+     *
+     * @return GetDiagnoseResultForSingleCardResponse
+     */
+    public function getDiagnoseResultForSingleCard($request)
+    {
+        $runtime = new RuntimeOptions([]);
+
+        return $this->getDiagnoseResultForSingleCardWithOptions($request, $runtime);
+    }
+
+    /**
      * @param GetIoTCloudConnectorAccessLogRequest $request
      * @param RuntimeOptions                       $runtime
      *
@@ -1938,6 +1990,64 @@ class IoTCC extends OpenApiClient
         $runtime = new RuntimeOptions([]);
 
         return $this->listConnectionPoolsWithOptions($request, $runtime);
+    }
+
+    /**
+     * @param ListDiagnoseInfoForSingleCardRequest $request
+     * @param RuntimeOptions                       $runtime
+     *
+     * @return ListDiagnoseInfoForSingleCardResponse
+     */
+    public function listDiagnoseInfoForSingleCardWithOptions($request, $runtime)
+    {
+        Utils::validateModel($request);
+        $query = [];
+        if (!Utils::isUnset($request->ioTCloudConnectorId)) {
+            $query['IoTCloudConnectorId'] = $request->ioTCloudConnectorId;
+        }
+        if (!Utils::isUnset($request->maxResults)) {
+            $query['MaxResults'] = $request->maxResults;
+        }
+        if (!Utils::isUnset($request->nextToken)) {
+            $query['NextToken'] = $request->nextToken;
+        }
+        if (!Utils::isUnset($request->regionId)) {
+            $query['RegionId'] = $request->regionId;
+        }
+        if (!Utils::isUnset($request->source)) {
+            $query['Source'] = $request->source;
+        }
+        if (!Utils::isUnset($request->sourceType)) {
+            $query['SourceType'] = $request->sourceType;
+        }
+        $req = new OpenApiRequest([
+            'query' => OpenApiUtilClient::query($query),
+        ]);
+        $params = new Params([
+            'action'      => 'ListDiagnoseInfoForSingleCard',
+            'version'     => '2021-05-13',
+            'protocol'    => 'HTTPS',
+            'pathname'    => '/',
+            'method'      => 'POST',
+            'authType'    => 'AK',
+            'style'       => 'RPC',
+            'reqBodyType' => 'formData',
+            'bodyType'    => 'json',
+        ]);
+
+        return ListDiagnoseInfoForSingleCardResponse::fromMap($this->callApi($params, $req, $runtime));
+    }
+
+    /**
+     * @param ListDiagnoseInfoForSingleCardRequest $request
+     *
+     * @return ListDiagnoseInfoForSingleCardResponse
+     */
+    public function listDiagnoseInfoForSingleCard($request)
+    {
+        $runtime = new RuntimeOptions([]);
+
+        return $this->listDiagnoseInfoForSingleCardWithOptions($request, $runtime);
     }
 
     /**
@@ -2460,6 +2570,73 @@ class IoTCC extends OpenApiClient
         $runtime = new RuntimeOptions([]);
 
         return $this->removeIoTCloudConnectorFromGroupWithOptions($request, $runtime);
+    }
+
+    /**
+     * @param SubmitDiagnoseTaskForSingleCardRequest $request
+     * @param RuntimeOptions                         $runtime
+     *
+     * @return SubmitDiagnoseTaskForSingleCardResponse
+     */
+    public function submitDiagnoseTaskForSingleCardWithOptions($request, $runtime)
+    {
+        Utils::validateModel($request);
+        $query = [];
+        if (!Utils::isUnset($request->beginTime)) {
+            $query['BeginTime'] = $request->beginTime;
+        }
+        if (!Utils::isUnset($request->destination)) {
+            $query['Destination'] = $request->destination;
+        }
+        if (!Utils::isUnset($request->destinationType)) {
+            $query['DestinationType'] = $request->destinationType;
+        }
+        if (!Utils::isUnset($request->endTime)) {
+            $query['EndTime'] = $request->endTime;
+        }
+        if (!Utils::isUnset($request->ioTCloudConnectorId)) {
+            $query['IoTCloudConnectorId'] = $request->ioTCloudConnectorId;
+        }
+        if (!Utils::isUnset($request->regionId)) {
+            $query['RegionId'] = $request->regionId;
+        }
+        if (!Utils::isUnset($request->resourceUid)) {
+            $query['ResourceUid'] = $request->resourceUid;
+        }
+        if (!Utils::isUnset($request->source)) {
+            $query['Source'] = $request->source;
+        }
+        if (!Utils::isUnset($request->sourceType)) {
+            $query['SourceType'] = $request->sourceType;
+        }
+        $req = new OpenApiRequest([
+            'query' => OpenApiUtilClient::query($query),
+        ]);
+        $params = new Params([
+            'action'      => 'SubmitDiagnoseTaskForSingleCard',
+            'version'     => '2021-05-13',
+            'protocol'    => 'HTTPS',
+            'pathname'    => '/',
+            'method'      => 'POST',
+            'authType'    => 'AK',
+            'style'       => 'RPC',
+            'reqBodyType' => 'formData',
+            'bodyType'    => 'json',
+        ]);
+
+        return SubmitDiagnoseTaskForSingleCardResponse::fromMap($this->callApi($params, $req, $runtime));
+    }
+
+    /**
+     * @param SubmitDiagnoseTaskForSingleCardRequest $request
+     *
+     * @return SubmitDiagnoseTaskForSingleCardResponse
+     */
+    public function submitDiagnoseTaskForSingleCard($request)
+    {
+        $runtime = new RuntimeOptions([]);
+
+        return $this->submitDiagnoseTaskForSingleCardWithOptions($request, $runtime);
     }
 
     /**
