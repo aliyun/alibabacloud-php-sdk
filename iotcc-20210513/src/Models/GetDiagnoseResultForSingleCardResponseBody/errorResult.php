@@ -11,7 +11,7 @@ class errorResult extends Model
     /**
      * @var string
      */
-    public $errorDes;
+    public $errorDesc;
 
     /**
      * @var string
@@ -28,7 +28,7 @@ class errorResult extends Model
      */
     public $errorSuggestion;
     protected $_name = [
-        'errorDes'        => 'ErrorDes',
+        'errorDesc'       => 'ErrorDesc',
         'errorLevel'      => 'ErrorLevel',
         'errorPart'       => 'ErrorPart',
         'errorSuggestion' => 'ErrorSuggestion',
@@ -41,8 +41,8 @@ class errorResult extends Model
     public function toMap()
     {
         $res = [];
-        if (null !== $this->errorDes) {
-            $res['ErrorDes'] = $this->errorDes;
+        if (null !== $this->errorDesc) {
+            $res['ErrorDesc'] = $this->errorDesc;
         }
         if (null !== $this->errorLevel) {
             $res['ErrorLevel'] = $this->errorLevel;
@@ -65,8 +65,8 @@ class errorResult extends Model
     public static function fromMap($map = [])
     {
         $model = new self();
-        if (isset($map['ErrorDes'])) {
-            $model->errorDes = $map['ErrorDes'];
+        if (isset($map['ErrorDesc'])) {
+            $model->errorDesc = $map['ErrorDesc'];
         }
         if (isset($map['ErrorLevel'])) {
             $model->errorLevel = $map['ErrorLevel'];
