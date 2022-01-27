@@ -26,6 +26,11 @@ class diagnoseInfo extends Model
     /**
      * @var int
      */
+    public $diagnoseTime;
+
+    /**
+     * @var int
+     */
     public $endTime;
 
     /**
@@ -42,14 +47,21 @@ class diagnoseInfo extends Model
      * @var string
      */
     public $status;
+
+    /**
+     * @var string
+     */
+    public $taskId;
     protected $_name = [
         'beginTime'           => 'BeginTime',
         'cardIp'              => 'CardIp',
         'destination'         => 'Destination',
+        'diagnoseTime'        => 'DiagnoseTime',
         'endTime'             => 'EndTime',
         'iccid'               => 'Iccid',
         'ioTCloudConnectorId' => 'IoTCloudConnectorId',
         'status'              => 'Status',
+        'taskId'              => 'TaskId',
     ];
 
     public function validate()
@@ -68,6 +80,9 @@ class diagnoseInfo extends Model
         if (null !== $this->destination) {
             $res['Destination'] = $this->destination;
         }
+        if (null !== $this->diagnoseTime) {
+            $res['DiagnoseTime'] = $this->diagnoseTime;
+        }
         if (null !== $this->endTime) {
             $res['EndTime'] = $this->endTime;
         }
@@ -79,6 +94,9 @@ class diagnoseInfo extends Model
         }
         if (null !== $this->status) {
             $res['Status'] = $this->status;
+        }
+        if (null !== $this->taskId) {
+            $res['TaskId'] = $this->taskId;
         }
 
         return $res;
@@ -101,6 +119,9 @@ class diagnoseInfo extends Model
         if (isset($map['Destination'])) {
             $model->destination = $map['Destination'];
         }
+        if (isset($map['DiagnoseTime'])) {
+            $model->diagnoseTime = $map['DiagnoseTime'];
+        }
         if (isset($map['EndTime'])) {
             $model->endTime = $map['EndTime'];
         }
@@ -112,6 +133,9 @@ class diagnoseInfo extends Model
         }
         if (isset($map['Status'])) {
             $model->status = $map['Status'];
+        }
+        if (isset($map['TaskId'])) {
+            $model->taskId = $map['TaskId'];
         }
 
         return $model;
