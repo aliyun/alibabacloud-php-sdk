@@ -4,11 +4,17 @@
 
 namespace AlibabaCloud\SDK\Servicemesh\V20200111\Models;
 
+use AlibabaCloud\SDK\Servicemesh\V20200111\Models\GetRegisteredServiceEndpointsResponseBody\endPointSlice;
 use AlibabaCloud\SDK\Servicemesh\V20200111\Models\GetRegisteredServiceEndpointsResponseBody\serviceEndpoints;
 use AlibabaCloud\Tea\Model;
 
 class GetRegisteredServiceEndpointsResponseBody extends Model
 {
+    /**
+     * @var endPointSlice
+     */
+    public $endPointSlice;
+
     /**
      * @var string
      */
@@ -19,6 +25,7 @@ class GetRegisteredServiceEndpointsResponseBody extends Model
      */
     public $serviceEndpoints;
     protected $_name = [
+        'endPointSlice'    => 'EndPointSlice',
         'requestId'        => 'RequestId',
         'serviceEndpoints' => 'ServiceEndpoints',
     ];
@@ -30,6 +37,9 @@ class GetRegisteredServiceEndpointsResponseBody extends Model
     public function toMap()
     {
         $res = [];
+        if (null !== $this->endPointSlice) {
+            $res['EndPointSlice'] = null !== $this->endPointSlice ? $this->endPointSlice->toMap() : null;
+        }
         if (null !== $this->requestId) {
             $res['RequestId'] = $this->requestId;
         }
@@ -54,6 +64,9 @@ class GetRegisteredServiceEndpointsResponseBody extends Model
     public static function fromMap($map = [])
     {
         $model = new self();
+        if (isset($map['EndPointSlice'])) {
+            $model->endPointSlice = endPointSlice::fromMap($map['EndPointSlice']);
+        }
         if (isset($map['RequestId'])) {
             $model->requestId = $map['RequestId'];
         }

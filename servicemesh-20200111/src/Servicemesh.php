@@ -24,8 +24,12 @@ use AlibabaCloud\SDK\Servicemesh\V20200111\Models\DeleteServiceMeshRequest;
 use AlibabaCloud\SDK\Servicemesh\V20200111\Models\DeleteServiceMeshResponse;
 use AlibabaCloud\SDK\Servicemesh\V20200111\Models\DescribeAlertActionPoliciesRequest;
 use AlibabaCloud\SDK\Servicemesh\V20200111\Models\DescribeAlertActionPoliciesResponse;
+use AlibabaCloud\SDK\Servicemesh\V20200111\Models\DescribeASMGatewayImportedServicesRequest;
+use AlibabaCloud\SDK\Servicemesh\V20200111\Models\DescribeASMGatewayImportedServicesResponse;
 use AlibabaCloud\SDK\Servicemesh\V20200111\Models\DescribeAvailableNacosInstancesRequest;
 use AlibabaCloud\SDK\Servicemesh\V20200111\Models\DescribeAvailableNacosInstancesResponse;
+use AlibabaCloud\SDK\Servicemesh\V20200111\Models\DescribeCCMVersionRequest;
+use AlibabaCloud\SDK\Servicemesh\V20200111\Models\DescribeCCMVersionResponse;
 use AlibabaCloud\SDK\Servicemesh\V20200111\Models\DescribeCensRequest;
 use AlibabaCloud\SDK\Servicemesh\V20200111\Models\DescribeCensResponse;
 use AlibabaCloud\SDK\Servicemesh\V20200111\Models\DescribeClusterGrafanaRequest;
@@ -46,10 +50,14 @@ use AlibabaCloud\SDK\Servicemesh\V20200111\Models\DescribeGuestClusterNamespaces
 use AlibabaCloud\SDK\Servicemesh\V20200111\Models\DescribeGuestClusterNamespacesResponse;
 use AlibabaCloud\SDK\Servicemesh\V20200111\Models\DescribeGuestClusterPodsRequest;
 use AlibabaCloud\SDK\Servicemesh\V20200111\Models\DescribeGuestClusterPodsResponse;
+use AlibabaCloud\SDK\Servicemesh\V20200111\Models\DescribeImportedServicesDetailRequest;
+use AlibabaCloud\SDK\Servicemesh\V20200111\Models\DescribeImportedServicesDetailResponse;
 use AlibabaCloud\SDK\Servicemesh\V20200111\Models\DescribeIngressGatewaysRequest;
 use AlibabaCloud\SDK\Servicemesh\V20200111\Models\DescribeIngressGatewaysResponse;
 use AlibabaCloud\SDK\Servicemesh\V20200111\Models\DescribeNamespaceScopeSidecarConfigRequest;
 use AlibabaCloud\SDK\Servicemesh\V20200111\Models\DescribeNamespaceScopeSidecarConfigResponse;
+use AlibabaCloud\SDK\Servicemesh\V20200111\Models\DescribeNodesInstanceTypeRequest;
+use AlibabaCloud\SDK\Servicemesh\V20200111\Models\DescribeNodesInstanceTypeResponse;
 use AlibabaCloud\SDK\Servicemesh\V20200111\Models\DescribeRegionsRequest;
 use AlibabaCloud\SDK\Servicemesh\V20200111\Models\DescribeRegionsResponse;
 use AlibabaCloud\SDK\Servicemesh\V20200111\Models\DescribeServiceMeshDetailRequest;
@@ -67,6 +75,8 @@ use AlibabaCloud\SDK\Servicemesh\V20200111\Models\DescribeServiceMeshVMsRequest;
 use AlibabaCloud\SDK\Servicemesh\V20200111\Models\DescribeServiceMeshVMsResponse;
 use AlibabaCloud\SDK\Servicemesh\V20200111\Models\DescribeUpgradeVersionRequest;
 use AlibabaCloud\SDK\Servicemesh\V20200111\Models\DescribeUpgradeVersionResponse;
+use AlibabaCloud\SDK\Servicemesh\V20200111\Models\DescribeUsersWithPermissionsRequest;
+use AlibabaCloud\SDK\Servicemesh\V20200111\Models\DescribeUsersWithPermissionsResponse;
 use AlibabaCloud\SDK\Servicemesh\V20200111\Models\DescribeVersionsResponse;
 use AlibabaCloud\SDK\Servicemesh\V20200111\Models\DescribeVMsInServiceMeshRequest;
 use AlibabaCloud\SDK\Servicemesh\V20200111\Models\DescribeVMsInServiceMeshResponse;
@@ -128,6 +138,8 @@ use AlibabaCloud\SDK\Servicemesh\V20200111\Models\RunDiagnosisResponse;
 use AlibabaCloud\SDK\Servicemesh\V20200111\Models\SetServiceRegistrySourceRequest;
 use AlibabaCloud\SDK\Servicemesh\V20200111\Models\SetServiceRegistrySourceResponse;
 use AlibabaCloud\SDK\Servicemesh\V20200111\Models\SetServiceRegistrySourceShrinkRequest;
+use AlibabaCloud\SDK\Servicemesh\V20200111\Models\UpdateASMGatewayImportedServicesRequest;
+use AlibabaCloud\SDK\Servicemesh\V20200111\Models\UpdateASMGatewayImportedServicesResponse;
 use AlibabaCloud\SDK\Servicemesh\V20200111\Models\UpdateControlPlaneLogAlertActionPolicyRequest;
 use AlibabaCloud\SDK\Servicemesh\V20200111\Models\UpdateControlPlaneLogAlertActionPolicyResponse;
 use AlibabaCloud\SDK\Servicemesh\V20200111\Models\UpdateControlPlaneLogConfigRequest;
@@ -733,6 +745,55 @@ class Servicemesh extends OpenApiClient
     }
 
     /**
+     * @param DescribeASMGatewayImportedServicesRequest $request
+     * @param RuntimeOptions                            $runtime
+     *
+     * @return DescribeASMGatewayImportedServicesResponse
+     */
+    public function describeASMGatewayImportedServicesWithOptions($request, $runtime)
+    {
+        Utils::validateModel($request);
+        $body = [];
+        if (!Utils::isUnset($request->ASMGatewayName)) {
+            $body['ASMGatewayName'] = $request->ASMGatewayName;
+        }
+        if (!Utils::isUnset($request->serviceMeshId)) {
+            $body['ServiceMeshId'] = $request->serviceMeshId;
+        }
+        if (!Utils::isUnset($request->serviceNamespace)) {
+            $body['ServiceNamespace'] = $request->serviceNamespace;
+        }
+        $req = new OpenApiRequest([
+            'body' => OpenApiUtilClient::parseToMap($body),
+        ]);
+        $params = new Params([
+            'action'      => 'DescribeASMGatewayImportedServices',
+            'version'     => '2020-01-11',
+            'protocol'    => 'HTTPS',
+            'pathname'    => '/',
+            'method'      => 'POST',
+            'authType'    => 'AK',
+            'style'       => 'RPC',
+            'reqBodyType' => 'formData',
+            'bodyType'    => 'json',
+        ]);
+
+        return DescribeASMGatewayImportedServicesResponse::fromMap($this->callApi($params, $req, $runtime));
+    }
+
+    /**
+     * @param DescribeASMGatewayImportedServicesRequest $request
+     *
+     * @return DescribeASMGatewayImportedServicesResponse
+     */
+    public function describeASMGatewayImportedServices($request)
+    {
+        $runtime = new RuntimeOptions([]);
+
+        return $this->describeASMGatewayImportedServicesWithOptions($request, $runtime);
+    }
+
+    /**
      * @param DescribeAlertActionPoliciesRequest $request
      * @param RuntimeOptions                     $runtime
      *
@@ -819,6 +880,49 @@ class Servicemesh extends OpenApiClient
         $runtime = new RuntimeOptions([]);
 
         return $this->describeAvailableNacosInstancesWithOptions($request, $runtime);
+    }
+
+    /**
+     * @param DescribeCCMVersionRequest $request
+     * @param RuntimeOptions            $runtime
+     *
+     * @return DescribeCCMVersionResponse
+     */
+    public function describeCCMVersionWithOptions($request, $runtime)
+    {
+        Utils::validateModel($request);
+        $query = [];
+        if (!Utils::isUnset($request->serviceMeshId)) {
+            $query['ServiceMeshId'] = $request->serviceMeshId;
+        }
+        $req = new OpenApiRequest([
+            'query' => OpenApiUtilClient::query($query),
+        ]);
+        $params = new Params([
+            'action'      => 'DescribeCCMVersion',
+            'version'     => '2020-01-11',
+            'protocol'    => 'HTTPS',
+            'pathname'    => '/',
+            'method'      => 'POST',
+            'authType'    => 'AK',
+            'style'       => 'RPC',
+            'reqBodyType' => 'formData',
+            'bodyType'    => 'json',
+        ]);
+
+        return DescribeCCMVersionResponse::fromMap($this->callApi($params, $req, $runtime));
+    }
+
+    /**
+     * @param DescribeCCMVersionRequest $request
+     *
+     * @return DescribeCCMVersionResponse
+     */
+    public function describeCCMVersion($request)
+    {
+        $runtime = new RuntimeOptions([]);
+
+        return $this->describeCCMVersionWithOptions($request, $runtime);
     }
 
     /**
@@ -1276,6 +1380,55 @@ class Servicemesh extends OpenApiClient
     }
 
     /**
+     * @param DescribeImportedServicesDetailRequest $request
+     * @param RuntimeOptions                        $runtime
+     *
+     * @return DescribeImportedServicesDetailResponse
+     */
+    public function describeImportedServicesDetailWithOptions($request, $runtime)
+    {
+        Utils::validateModel($request);
+        $body = [];
+        if (!Utils::isUnset($request->ASMGatewayName)) {
+            $body['ASMGatewayName'] = $request->ASMGatewayName;
+        }
+        if (!Utils::isUnset($request->serviceMeshId)) {
+            $body['ServiceMeshId'] = $request->serviceMeshId;
+        }
+        if (!Utils::isUnset($request->serviceNamespace)) {
+            $body['ServiceNamespace'] = $request->serviceNamespace;
+        }
+        $req = new OpenApiRequest([
+            'body' => OpenApiUtilClient::parseToMap($body),
+        ]);
+        $params = new Params([
+            'action'      => 'DescribeImportedServicesDetail',
+            'version'     => '2020-01-11',
+            'protocol'    => 'HTTPS',
+            'pathname'    => '/',
+            'method'      => 'POST',
+            'authType'    => 'AK',
+            'style'       => 'RPC',
+            'reqBodyType' => 'formData',
+            'bodyType'    => 'json',
+        ]);
+
+        return DescribeImportedServicesDetailResponse::fromMap($this->callApi($params, $req, $runtime));
+    }
+
+    /**
+     * @param DescribeImportedServicesDetailRequest $request
+     *
+     * @return DescribeImportedServicesDetailResponse
+     */
+    public function describeImportedServicesDetail($request)
+    {
+        $runtime = new RuntimeOptions([]);
+
+        return $this->describeImportedServicesDetailWithOptions($request, $runtime);
+    }
+
+    /**
      * @param DescribeIngressGatewaysRequest $request
      * @param RuntimeOptions                 $runtime
      *
@@ -1359,6 +1512,49 @@ class Servicemesh extends OpenApiClient
         $runtime = new RuntimeOptions([]);
 
         return $this->describeNamespaceScopeSidecarConfigWithOptions($request, $runtime);
+    }
+
+    /**
+     * @param DescribeNodesInstanceTypeRequest $request
+     * @param RuntimeOptions                   $runtime
+     *
+     * @return DescribeNodesInstanceTypeResponse
+     */
+    public function describeNodesInstanceTypeWithOptions($request, $runtime)
+    {
+        Utils::validateModel($request);
+        $body = [];
+        if (!Utils::isUnset($request->serviceMeshId)) {
+            $body['ServiceMeshId'] = $request->serviceMeshId;
+        }
+        $req = new OpenApiRequest([
+            'body' => OpenApiUtilClient::parseToMap($body),
+        ]);
+        $params = new Params([
+            'action'      => 'DescribeNodesInstanceType',
+            'version'     => '2020-01-11',
+            'protocol'    => 'HTTPS',
+            'pathname'    => '/',
+            'method'      => 'POST',
+            'authType'    => 'AK',
+            'style'       => 'RPC',
+            'reqBodyType' => 'formData',
+            'bodyType'    => 'json',
+        ]);
+
+        return DescribeNodesInstanceTypeResponse::fromMap($this->callApi($params, $req, $runtime));
+    }
+
+    /**
+     * @param DescribeNodesInstanceTypeRequest $request
+     *
+     * @return DescribeNodesInstanceTypeResponse
+     */
+    public function describeNodesInstanceType($request)
+    {
+        $runtime = new RuntimeOptions([]);
+
+        return $this->describeNodesInstanceTypeWithOptions($request, $runtime);
     }
 
     /**
@@ -1760,6 +1956,49 @@ class Servicemesh extends OpenApiClient
         $runtime = new RuntimeOptions([]);
 
         return $this->describeUpgradeVersionWithOptions($request, $runtime);
+    }
+
+    /**
+     * @param DescribeUsersWithPermissionsRequest $request
+     * @param RuntimeOptions                      $runtime
+     *
+     * @return DescribeUsersWithPermissionsResponse
+     */
+    public function describeUsersWithPermissionsWithOptions($request, $runtime)
+    {
+        Utils::validateModel($request);
+        $body = [];
+        if (!Utils::isUnset($request->userType)) {
+            $body['UserType'] = $request->userType;
+        }
+        $req = new OpenApiRequest([
+            'body' => OpenApiUtilClient::parseToMap($body),
+        ]);
+        $params = new Params([
+            'action'      => 'DescribeUsersWithPermissions',
+            'version'     => '2020-01-11',
+            'protocol'    => 'HTTPS',
+            'pathname'    => '/',
+            'method'      => 'POST',
+            'authType'    => 'AK',
+            'style'       => 'RPC',
+            'reqBodyType' => 'formData',
+            'bodyType'    => 'json',
+        ]);
+
+        return DescribeUsersWithPermissionsResponse::fromMap($this->callApi($params, $req, $runtime));
+    }
+
+    /**
+     * @param DescribeUsersWithPermissionsRequest $request
+     *
+     * @return DescribeUsersWithPermissionsResponse
+     */
+    public function describeUsersWithPermissions($request)
+    {
+        $runtime = new RuntimeOptions([]);
+
+        return $this->describeUsersWithPermissionsWithOptions($request, $runtime);
     }
 
     /**
@@ -2295,18 +2534,24 @@ class Servicemesh extends OpenApiClient
     public function getRegisteredServiceEndpointsWithOptions($request, $runtime)
     {
         Utils::validateModel($request);
-        $query = [];
+        $body = [];
+        if (!Utils::isUnset($request->clusterIds)) {
+            $body['ClusterIds'] = $request->clusterIds;
+        }
         if (!Utils::isUnset($request->name)) {
-            $query['Name'] = $request->name;
+            $body['Name'] = $request->name;
         }
         if (!Utils::isUnset($request->namespace_)) {
-            $query['Namespace'] = $request->namespace_;
+            $body['Namespace'] = $request->namespace_;
         }
         if (!Utils::isUnset($request->serviceMeshId)) {
-            $query['ServiceMeshId'] = $request->serviceMeshId;
+            $body['ServiceMeshId'] = $request->serviceMeshId;
+        }
+        if (!Utils::isUnset($request->serviceType)) {
+            $body['ServiceType'] = $request->serviceType;
         }
         $req = new OpenApiRequest([
-            'query' => OpenApiUtilClient::query($query),
+            'body' => OpenApiUtilClient::parseToMap($body),
         ]);
         $params = new Params([
             'action'      => 'GetRegisteredServiceEndpoints',
@@ -2388,14 +2633,31 @@ class Servicemesh extends OpenApiClient
     {
         Utils::validateModel($request);
         $query = [];
-        if (!Utils::isUnset($request->namespace_)) {
-            $query['Namespace'] = $request->namespace_;
-        }
         if (!Utils::isUnset($request->serviceMeshId)) {
             $query['ServiceMeshId'] = $request->serviceMeshId;
         }
+        $body = [];
+        if (!Utils::isUnset($request->guestClusters)) {
+            $body['GuestClusters'] = $request->guestClusters;
+        }
+        if (!Utils::isUnset($request->guestLimits)) {
+            $body['GuestLimits'] = $request->guestLimits;
+        }
+        if (!Utils::isUnset($request->guestMarkers)) {
+            $body['GuestMarkers'] = $request->guestMarkers;
+        }
+        if (!Utils::isUnset($request->meshLimit)) {
+            $body['MeshLimit'] = $request->meshLimit;
+        }
+        if (!Utils::isUnset($request->meshMarker)) {
+            $body['MeshMarker'] = $request->meshMarker;
+        }
+        if (!Utils::isUnset($request->namespace_)) {
+            $body['Namespace'] = $request->namespace_;
+        }
         $req = new OpenApiRequest([
             'query' => OpenApiUtilClient::query($query),
+            'body'  => OpenApiUtilClient::parseToMap($body),
         ]);
         $params = new Params([
             'action'      => 'GetRegisteredServices',
@@ -3150,6 +3412,58 @@ class Servicemesh extends OpenApiClient
         $runtime = new RuntimeOptions([]);
 
         return $this->setServiceRegistrySourceWithOptions($request, $runtime);
+    }
+
+    /**
+     * @param UpdateASMGatewayImportedServicesRequest $request
+     * @param RuntimeOptions                          $runtime
+     *
+     * @return UpdateASMGatewayImportedServicesResponse
+     */
+    public function updateASMGatewayImportedServicesWithOptions($request, $runtime)
+    {
+        Utils::validateModel($request);
+        $body = [];
+        if (!Utils::isUnset($request->ASMGatewayName)) {
+            $body['ASMGatewayName'] = $request->ASMGatewayName;
+        }
+        if (!Utils::isUnset($request->serviceMeshId)) {
+            $body['ServiceMeshId'] = $request->serviceMeshId;
+        }
+        if (!Utils::isUnset($request->serviceNames)) {
+            $body['ServiceNames'] = $request->serviceNames;
+        }
+        if (!Utils::isUnset($request->serviceNamespace)) {
+            $body['ServiceNamespace'] = $request->serviceNamespace;
+        }
+        $req = new OpenApiRequest([
+            'body' => OpenApiUtilClient::parseToMap($body),
+        ]);
+        $params = new Params([
+            'action'      => 'UpdateASMGatewayImportedServices',
+            'version'     => '2020-01-11',
+            'protocol'    => 'HTTPS',
+            'pathname'    => '/',
+            'method'      => 'POST',
+            'authType'    => 'AK',
+            'style'       => 'RPC',
+            'reqBodyType' => 'formData',
+            'bodyType'    => 'json',
+        ]);
+
+        return UpdateASMGatewayImportedServicesResponse::fromMap($this->callApi($params, $req, $runtime));
+    }
+
+    /**
+     * @param UpdateASMGatewayImportedServicesRequest $request
+     *
+     * @return UpdateASMGatewayImportedServicesResponse
+     */
+    public function updateASMGatewayImportedServices($request)
+    {
+        $runtime = new RuntimeOptions([]);
+
+        return $this->updateASMGatewayImportedServicesWithOptions($request, $runtime);
     }
 
     /**

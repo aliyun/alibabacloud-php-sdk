@@ -11,6 +11,11 @@ class GetRegisteredServiceEndpointsRequest extends Model
     /**
      * @var string
      */
+    public $clusterIds;
+
+    /**
+     * @var string
+     */
     public $name;
 
     /**
@@ -22,10 +27,17 @@ class GetRegisteredServiceEndpointsRequest extends Model
      * @var string
      */
     public $serviceMeshId;
+
+    /**
+     * @var string
+     */
+    public $serviceType;
     protected $_name = [
+        'clusterIds'    => 'ClusterIds',
         'name'          => 'Name',
         'namespace'     => 'Namespace',
         'serviceMeshId' => 'ServiceMeshId',
+        'serviceType'   => 'ServiceType',
     ];
 
     public function validate()
@@ -35,6 +47,9 @@ class GetRegisteredServiceEndpointsRequest extends Model
     public function toMap()
     {
         $res = [];
+        if (null !== $this->clusterIds) {
+            $res['ClusterIds'] = $this->clusterIds;
+        }
         if (null !== $this->name) {
             $res['Name'] = $this->name;
         }
@@ -43,6 +58,9 @@ class GetRegisteredServiceEndpointsRequest extends Model
         }
         if (null !== $this->serviceMeshId) {
             $res['ServiceMeshId'] = $this->serviceMeshId;
+        }
+        if (null !== $this->serviceType) {
+            $res['ServiceType'] = $this->serviceType;
         }
 
         return $res;
@@ -56,6 +74,9 @@ class GetRegisteredServiceEndpointsRequest extends Model
     public static function fromMap($map = [])
     {
         $model = new self();
+        if (isset($map['ClusterIds'])) {
+            $model->clusterIds = $map['ClusterIds'];
+        }
         if (isset($map['Name'])) {
             $model->name = $map['Name'];
         }
@@ -64,6 +85,9 @@ class GetRegisteredServiceEndpointsRequest extends Model
         }
         if (isset($map['ServiceMeshId'])) {
             $model->serviceMeshId = $map['ServiceMeshId'];
+        }
+        if (isset($map['ServiceType'])) {
+            $model->serviceType = $map['ServiceType'];
         }
 
         return $model;
