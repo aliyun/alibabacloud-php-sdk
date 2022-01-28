@@ -663,6 +663,9 @@ class Dds extends OpenApiClient
         if (!Utils::isUnset($request->engineVersion)) {
             $query['EngineVersion'] = $request->engineVersion;
         }
+        if (!Utils::isUnset($request->hiddenZoneId)) {
+            $query['HiddenZoneId'] = $request->hiddenZoneId;
+        }
         if (!Utils::isUnset($request->networkType)) {
             $query['NetworkType'] = $request->networkType;
         }
@@ -695,6 +698,9 @@ class Dds extends OpenApiClient
         }
         if (!Utils::isUnset($request->restoreTime)) {
             $query['RestoreTime'] = $request->restoreTime;
+        }
+        if (!Utils::isUnset($request->secondaryZoneId)) {
+            $query['SecondaryZoneId'] = $request->secondaryZoneId;
         }
         if (!Utils::isUnset($request->securityIPList)) {
             $query['SecurityIPList'] = $request->securityIPList;
@@ -2704,6 +2710,9 @@ class Dds extends OpenApiClient
         if (!Utils::isUnset($request->ownerId)) {
             $query['OwnerId'] = $request->ownerId;
         }
+        if (!Utils::isUnset($request->regionId)) {
+            $query['RegionId'] = $request->regionId;
+        }
         if (!Utils::isUnset($request->resourceGroupId)) {
             $query['ResourceGroupId'] = $request->resourceGroupId;
         }
@@ -4583,6 +4592,9 @@ class Dds extends OpenApiClient
     {
         Utils::validateModel($request);
         $query = [];
+        if (!Utils::isUnset($request->auditLogSwitchSource)) {
+            $query['AuditLogSwitchSource'] = $request->auditLogSwitchSource;
+        }
         if (!Utils::isUnset($request->auditStatus)) {
             $query['AuditStatus'] = $request->auditStatus;
         }
@@ -4603,6 +4615,9 @@ class Dds extends OpenApiClient
         }
         if (!Utils::isUnset($request->securityToken)) {
             $query['SecurityToken'] = $request->securityToken;
+        }
+        if (!Utils::isUnset($request->serviceType)) {
+            $query['ServiceType'] = $request->serviceType;
         }
         if (!Utils::isUnset($request->storagePeriod)) {
             $query['StoragePeriod'] = $request->storagePeriod;

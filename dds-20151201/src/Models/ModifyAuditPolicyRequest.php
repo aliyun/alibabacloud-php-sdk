@@ -11,6 +11,11 @@ class ModifyAuditPolicyRequest extends Model
     /**
      * @var string
      */
+    public $auditLogSwitchSource;
+
+    /**
+     * @var string
+     */
     public $auditStatus;
 
     /**
@@ -44,10 +49,16 @@ class ModifyAuditPolicyRequest extends Model
     public $securityToken;
 
     /**
+     * @var string
+     */
+    public $serviceType;
+
+    /**
      * @var int
      */
     public $storagePeriod;
     protected $_name = [
+        'auditLogSwitchSource' => 'AuditLogSwitchSource',
         'auditStatus'          => 'AuditStatus',
         'DBInstanceId'         => 'DBInstanceId',
         'ownerAccount'         => 'OwnerAccount',
@@ -55,6 +66,7 @@ class ModifyAuditPolicyRequest extends Model
         'resourceOwnerAccount' => 'ResourceOwnerAccount',
         'resourceOwnerId'      => 'ResourceOwnerId',
         'securityToken'        => 'SecurityToken',
+        'serviceType'          => 'ServiceType',
         'storagePeriod'        => 'StoragePeriod',
     ];
 
@@ -65,6 +77,9 @@ class ModifyAuditPolicyRequest extends Model
     public function toMap()
     {
         $res = [];
+        if (null !== $this->auditLogSwitchSource) {
+            $res['AuditLogSwitchSource'] = $this->auditLogSwitchSource;
+        }
         if (null !== $this->auditStatus) {
             $res['AuditStatus'] = $this->auditStatus;
         }
@@ -86,6 +101,9 @@ class ModifyAuditPolicyRequest extends Model
         if (null !== $this->securityToken) {
             $res['SecurityToken'] = $this->securityToken;
         }
+        if (null !== $this->serviceType) {
+            $res['ServiceType'] = $this->serviceType;
+        }
         if (null !== $this->storagePeriod) {
             $res['StoragePeriod'] = $this->storagePeriod;
         }
@@ -101,6 +119,9 @@ class ModifyAuditPolicyRequest extends Model
     public static function fromMap($map = [])
     {
         $model = new self();
+        if (isset($map['AuditLogSwitchSource'])) {
+            $model->auditLogSwitchSource = $map['AuditLogSwitchSource'];
+        }
         if (isset($map['AuditStatus'])) {
             $model->auditStatus = $map['AuditStatus'];
         }
@@ -121,6 +142,9 @@ class ModifyAuditPolicyRequest extends Model
         }
         if (isset($map['SecurityToken'])) {
             $model->securityToken = $map['SecurityToken'];
+        }
+        if (isset($map['ServiceType'])) {
+            $model->serviceType = $map['ServiceType'];
         }
         if (isset($map['StoragePeriod'])) {
             $model->storagePeriod = $map['StoragePeriod'];
