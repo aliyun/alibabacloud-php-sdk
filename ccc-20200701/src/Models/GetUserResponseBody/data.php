@@ -11,6 +11,21 @@ class data extends Model
     /**
      * @var string
      */
+    public $deviceExt;
+
+    /**
+     * @var string
+     */
+    public $deviceId;
+
+    /**
+     * @var string
+     */
+    public $deviceState;
+
+    /**
+     * @var string
+     */
     public $displayName;
 
     /**
@@ -58,6 +73,9 @@ class data extends Model
      */
     public $workMode;
     protected $_name = [
+        'deviceExt'   => 'DeviceExt',
+        'deviceId'    => 'DeviceId',
+        'deviceState' => 'DeviceState',
         'displayName' => 'DisplayName',
         'email'       => 'Email',
         'extension'   => 'Extension',
@@ -77,6 +95,15 @@ class data extends Model
     public function toMap()
     {
         $res = [];
+        if (null !== $this->deviceExt) {
+            $res['DeviceExt'] = $this->deviceExt;
+        }
+        if (null !== $this->deviceId) {
+            $res['DeviceId'] = $this->deviceId;
+        }
+        if (null !== $this->deviceState) {
+            $res['DeviceState'] = $this->deviceState;
+        }
         if (null !== $this->displayName) {
             $res['DisplayName'] = $this->displayName;
         }
@@ -119,6 +146,15 @@ class data extends Model
     public static function fromMap($map = [])
     {
         $model = new self();
+        if (isset($map['DeviceExt'])) {
+            $model->deviceExt = $map['DeviceExt'];
+        }
+        if (isset($map['DeviceId'])) {
+            $model->deviceId = $map['DeviceId'];
+        }
+        if (isset($map['DeviceState'])) {
+            $model->deviceState = $map['DeviceState'];
+        }
         if (isset($map['DisplayName'])) {
             $model->displayName = $map['DisplayName'];
         }

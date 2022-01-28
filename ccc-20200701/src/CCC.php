@@ -51,6 +51,8 @@ use AlibabaCloud\SDK\CCC\V20200701\Models\GetCallDetailRecordRequest;
 use AlibabaCloud\SDK\CCC\V20200701\Models\GetCallDetailRecordResponse;
 use AlibabaCloud\SDK\CCC\V20200701\Models\GetCampaignRequest;
 use AlibabaCloud\SDK\CCC\V20200701\Models\GetCampaignResponse;
+use AlibabaCloud\SDK\CCC\V20200701\Models\GetCaseFileUploadUrlRequest;
+use AlibabaCloud\SDK\CCC\V20200701\Models\GetCaseFileUploadUrlResponse;
 use AlibabaCloud\SDK\CCC\V20200701\Models\GetHistoricalCallerReportRequest;
 use AlibabaCloud\SDK\CCC\V20200701\Models\GetHistoricalCallerReportResponse;
 use AlibabaCloud\SDK\CCC\V20200701\Models\GetHistoricalInstanceReportRequest;
@@ -183,6 +185,8 @@ use AlibabaCloud\SDK\CCC\V20200701\Models\ReadyForServiceRequest;
 use AlibabaCloud\SDK\CCC\V20200701\Models\ReadyForServiceResponse;
 use AlibabaCloud\SDK\CCC\V20200701\Models\RegisterDeviceRequest;
 use AlibabaCloud\SDK\CCC\V20200701\Models\RegisterDeviceResponse;
+use AlibabaCloud\SDK\CCC\V20200701\Models\RegisterDevicesRequest;
+use AlibabaCloud\SDK\CCC\V20200701\Models\RegisterDevicesResponse;
 use AlibabaCloud\SDK\CCC\V20200701\Models\ReleaseCallRequest;
 use AlibabaCloud\SDK\CCC\V20200701\Models\ReleaseCallResponse;
 use AlibabaCloud\SDK\CCC\V20200701\Models\RemovePersonalNumbersFromUserRequest;
@@ -1485,6 +1489,52 @@ class CCC extends OpenApiClient
         $runtime = new RuntimeOptions([]);
 
         return $this->getCampaignWithOptions($request, $runtime);
+    }
+
+    /**
+     * @param GetCaseFileUploadUrlRequest $request
+     * @param RuntimeOptions              $runtime
+     *
+     * @return GetCaseFileUploadUrlResponse
+     */
+    public function getCaseFileUploadUrlWithOptions($request, $runtime)
+    {
+        Utils::validateModel($request);
+        $query = [];
+        if (!Utils::isUnset($request->fileName)) {
+            $query['FileName'] = $request->fileName;
+        }
+        if (!Utils::isUnset($request->instanceId)) {
+            $query['InstanceId'] = $request->instanceId;
+        }
+        $req = new OpenApiRequest([
+            'query' => OpenApiUtilClient::query($query),
+        ]);
+        $params = new Params([
+            'action'      => 'GetCaseFileUploadUrl',
+            'version'     => '2020-07-01',
+            'protocol'    => 'HTTPS',
+            'pathname'    => '/',
+            'method'      => 'POST',
+            'authType'    => 'AK',
+            'style'       => 'RPC',
+            'reqBodyType' => 'formData',
+            'bodyType'    => 'json',
+        ]);
+
+        return GetCaseFileUploadUrlResponse::fromMap($this->callApi($params, $req, $runtime));
+    }
+
+    /**
+     * @param GetCaseFileUploadUrlRequest $request
+     *
+     * @return GetCaseFileUploadUrlResponse
+     */
+    public function getCaseFileUploadUrl($request)
+    {
+        $runtime = new RuntimeOptions([]);
+
+        return $this->getCaseFileUploadUrlWithOptions($request, $runtime);
     }
 
     /**
@@ -4948,6 +4998,58 @@ class CCC extends OpenApiClient
         $runtime = new RuntimeOptions([]);
 
         return $this->registerDeviceWithOptions($request, $runtime);
+    }
+
+    /**
+     * @param RegisterDevicesRequest $request
+     * @param RuntimeOptions         $runtime
+     *
+     * @return RegisterDevicesResponse
+     */
+    public function registerDevicesWithOptions($request, $runtime)
+    {
+        Utils::validateModel($request);
+        $query = [];
+        if (!Utils::isUnset($request->deviceId)) {
+            $query['DeviceId'] = $request->deviceId;
+        }
+        if (!Utils::isUnset($request->instanceId)) {
+            $query['InstanceId'] = $request->instanceId;
+        }
+        if (!Utils::isUnset($request->password)) {
+            $query['Password'] = $request->password;
+        }
+        if (!Utils::isUnset($request->userIdListJson)) {
+            $query['UserIdListJson'] = $request->userIdListJson;
+        }
+        $req = new OpenApiRequest([
+            'query' => OpenApiUtilClient::query($query),
+        ]);
+        $params = new Params([
+            'action'      => 'RegisterDevices',
+            'version'     => '2020-07-01',
+            'protocol'    => 'HTTPS',
+            'pathname'    => '/',
+            'method'      => 'POST',
+            'authType'    => 'AK',
+            'style'       => 'RPC',
+            'reqBodyType' => 'formData',
+            'bodyType'    => 'json',
+        ]);
+
+        return RegisterDevicesResponse::fromMap($this->callApi($params, $req, $runtime));
+    }
+
+    /**
+     * @param RegisterDevicesRequest $request
+     *
+     * @return RegisterDevicesResponse
+     */
+    public function registerDevices($request)
+    {
+        $runtime = new RuntimeOptions([]);
+
+        return $this->registerDevicesWithOptions($request, $runtime);
     }
 
     /**

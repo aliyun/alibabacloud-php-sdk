@@ -13,6 +13,21 @@ class list_ extends Model
     /**
      * @var string
      */
+    public $deviceExt;
+
+    /**
+     * @var string
+     */
+    public $deviceId;
+
+    /**
+     * @var string
+     */
+    public $deviceState;
+
+    /**
+     * @var string
+     */
     public $displayId;
 
     /**
@@ -24,6 +39,11 @@ class list_ extends Model
      * @var string
      */
     public $email;
+
+    /**
+     * @var string
+     */
+    public $extension;
 
     /**
      * @var string
@@ -75,9 +95,13 @@ class list_ extends Model
      */
     public $workMode;
     protected $_name = [
+        'deviceExt'                  => 'DeviceExt',
+        'deviceId'                   => 'DeviceId',
+        'deviceState'                => 'DeviceState',
         'displayId'                  => 'DisplayId',
         'displayName'                => 'DisplayName',
         'email'                      => 'Email',
+        'extension'                  => 'Extension',
         'loginName'                  => 'LoginName',
         'mobile'                     => 'Mobile',
         'personalOutboundNumberList' => 'PersonalOutboundNumberList',
@@ -97,6 +121,15 @@ class list_ extends Model
     public function toMap()
     {
         $res = [];
+        if (null !== $this->deviceExt) {
+            $res['DeviceExt'] = $this->deviceExt;
+        }
+        if (null !== $this->deviceId) {
+            $res['DeviceId'] = $this->deviceId;
+        }
+        if (null !== $this->deviceState) {
+            $res['DeviceState'] = $this->deviceState;
+        }
         if (null !== $this->displayId) {
             $res['DisplayId'] = $this->displayId;
         }
@@ -105,6 +138,9 @@ class list_ extends Model
         }
         if (null !== $this->email) {
             $res['Email'] = $this->email;
+        }
+        if (null !== $this->extension) {
+            $res['Extension'] = $this->extension;
         }
         if (null !== $this->loginName) {
             $res['LoginName'] = $this->loginName;
@@ -160,6 +196,15 @@ class list_ extends Model
     public static function fromMap($map = [])
     {
         $model = new self();
+        if (isset($map['DeviceExt'])) {
+            $model->deviceExt = $map['DeviceExt'];
+        }
+        if (isset($map['DeviceId'])) {
+            $model->deviceId = $map['DeviceId'];
+        }
+        if (isset($map['DeviceState'])) {
+            $model->deviceState = $map['DeviceState'];
+        }
         if (isset($map['DisplayId'])) {
             $model->displayId = $map['DisplayId'];
         }
@@ -168,6 +213,9 @@ class list_ extends Model
         }
         if (isset($map['Email'])) {
             $model->email = $map['Email'];
+        }
+        if (isset($map['Extension'])) {
+            $model->extension = $map['Extension'];
         }
         if (isset($map['LoginName'])) {
             $model->loginName = $map['LoginName'];

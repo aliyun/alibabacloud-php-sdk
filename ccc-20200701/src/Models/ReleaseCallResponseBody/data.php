@@ -16,11 +16,17 @@ class data extends Model
     public $callContext;
 
     /**
+     * @var int
+     */
+    public $contextId;
+
+    /**
      * @var userContext
      */
     public $userContext;
     protected $_name = [
         'callContext' => 'CallContext',
+        'contextId'   => 'ContextId',
         'userContext' => 'UserContext',
     ];
 
@@ -33,6 +39,9 @@ class data extends Model
         $res = [];
         if (null !== $this->callContext) {
             $res['CallContext'] = null !== $this->callContext ? $this->callContext->toMap() : null;
+        }
+        if (null !== $this->contextId) {
+            $res['ContextId'] = $this->contextId;
         }
         if (null !== $this->userContext) {
             $res['UserContext'] = null !== $this->userContext ? $this->userContext->toMap() : null;
@@ -51,6 +60,9 @@ class data extends Model
         $model = new self();
         if (isset($map['CallContext'])) {
             $model->callContext = callContext::fromMap($map['CallContext']);
+        }
+        if (isset($map['ContextId'])) {
+            $model->contextId = $map['ContextId'];
         }
         if (isset($map['UserContext'])) {
             $model->userContext = userContext::fromMap($map['UserContext']);
