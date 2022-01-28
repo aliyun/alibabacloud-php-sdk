@@ -11,7 +11,7 @@ class DescribeUserBandWidthDataRequest extends Model
     /**
      * @var string
      */
-    public $version;
+    public $endTime;
 
     /**
      * @var string
@@ -26,12 +26,7 @@ class DescribeUserBandWidthDataRequest extends Model
     /**
      * @var string
      */
-    public $startTime;
-
-    /**
-     * @var string
-     */
-    public $endTime;
+    public $isp;
 
     /**
      * @var string
@@ -41,15 +36,20 @@ class DescribeUserBandWidthDataRequest extends Model
     /**
      * @var string
      */
-    public $isp;
+    public $startTime;
+
+    /**
+     * @var string
+     */
+    public $version;
     protected $_name = [
-        'version'     => 'Version',
+        'endTime'     => 'EndTime',
         'ensRegionId' => 'EnsRegionId',
         'instanceId'  => 'InstanceId',
-        'startTime'   => 'StartTime',
-        'endTime'     => 'EndTime',
-        'period'      => 'Period',
         'isp'         => 'Isp',
+        'period'      => 'Period',
+        'startTime'   => 'StartTime',
+        'version'     => 'Version',
     ];
 
     public function validate()
@@ -59,8 +59,8 @@ class DescribeUserBandWidthDataRequest extends Model
     public function toMap()
     {
         $res = [];
-        if (null !== $this->version) {
-            $res['Version'] = $this->version;
+        if (null !== $this->endTime) {
+            $res['EndTime'] = $this->endTime;
         }
         if (null !== $this->ensRegionId) {
             $res['EnsRegionId'] = $this->ensRegionId;
@@ -68,17 +68,17 @@ class DescribeUserBandWidthDataRequest extends Model
         if (null !== $this->instanceId) {
             $res['InstanceId'] = $this->instanceId;
         }
-        if (null !== $this->startTime) {
-            $res['StartTime'] = $this->startTime;
-        }
-        if (null !== $this->endTime) {
-            $res['EndTime'] = $this->endTime;
+        if (null !== $this->isp) {
+            $res['Isp'] = $this->isp;
         }
         if (null !== $this->period) {
             $res['Period'] = $this->period;
         }
-        if (null !== $this->isp) {
-            $res['Isp'] = $this->isp;
+        if (null !== $this->startTime) {
+            $res['StartTime'] = $this->startTime;
+        }
+        if (null !== $this->version) {
+            $res['Version'] = $this->version;
         }
 
         return $res;
@@ -92,8 +92,8 @@ class DescribeUserBandWidthDataRequest extends Model
     public static function fromMap($map = [])
     {
         $model = new self();
-        if (isset($map['Version'])) {
-            $model->version = $map['Version'];
+        if (isset($map['EndTime'])) {
+            $model->endTime = $map['EndTime'];
         }
         if (isset($map['EnsRegionId'])) {
             $model->ensRegionId = $map['EnsRegionId'];
@@ -101,17 +101,17 @@ class DescribeUserBandWidthDataRequest extends Model
         if (isset($map['InstanceId'])) {
             $model->instanceId = $map['InstanceId'];
         }
-        if (isset($map['StartTime'])) {
-            $model->startTime = $map['StartTime'];
-        }
-        if (isset($map['EndTime'])) {
-            $model->endTime = $map['EndTime'];
+        if (isset($map['Isp'])) {
+            $model->isp = $map['Isp'];
         }
         if (isset($map['Period'])) {
             $model->period = $map['Period'];
         }
-        if (isset($map['Isp'])) {
-            $model->isp = $map['Isp'];
+        if (isset($map['StartTime'])) {
+            $model->startTime = $map['StartTime'];
+        }
+        if (isset($map['Version'])) {
+            $model->version = $map['Version'];
         }
 
         return $model;

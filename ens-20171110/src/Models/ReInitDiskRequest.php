@@ -11,21 +11,21 @@ class ReInitDiskRequest extends Model
     /**
      * @var string
      */
-    public $version;
-
-    /**
-     * @var string
-     */
     public $diskId;
 
     /**
      * @var string
      */
     public $imageId;
+
+    /**
+     * @var string
+     */
+    public $version;
     protected $_name = [
-        'version' => 'Version',
         'diskId'  => 'DiskId',
         'imageId' => 'ImageId',
+        'version' => 'Version',
     ];
 
     public function validate()
@@ -35,14 +35,14 @@ class ReInitDiskRequest extends Model
     public function toMap()
     {
         $res = [];
-        if (null !== $this->version) {
-            $res['Version'] = $this->version;
-        }
         if (null !== $this->diskId) {
             $res['DiskId'] = $this->diskId;
         }
         if (null !== $this->imageId) {
             $res['ImageId'] = $this->imageId;
+        }
+        if (null !== $this->version) {
+            $res['Version'] = $this->version;
         }
 
         return $res;
@@ -56,14 +56,14 @@ class ReInitDiskRequest extends Model
     public static function fromMap($map = [])
     {
         $model = new self();
-        if (isset($map['Version'])) {
-            $model->version = $map['Version'];
-        }
         if (isset($map['DiskId'])) {
             $model->diskId = $map['DiskId'];
         }
         if (isset($map['ImageId'])) {
             $model->imageId = $map['ImageId'];
+        }
+        if (isset($map['Version'])) {
+            $model->version = $map['Version'];
         }
 
         return $model;

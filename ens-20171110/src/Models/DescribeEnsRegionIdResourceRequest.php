@@ -11,17 +11,12 @@ class DescribeEnsRegionIdResourceRequest extends Model
     /**
      * @var string
      */
-    public $version;
-
-    /**
-     * @var string
-     */
-    public $startTime;
-
-    /**
-     * @var string
-     */
     public $endTime;
+
+    /**
+     * @var string
+     */
+    public $isp;
 
     /**
      * @var string
@@ -41,15 +36,14 @@ class DescribeEnsRegionIdResourceRequest extends Model
     /**
      * @var string
      */
-    public $isp;
+    public $startTime;
     protected $_name = [
-        'version'       => 'Version',
-        'startTime'     => 'StartTime',
         'endTime'       => 'EndTime',
+        'isp'           => 'Isp',
         'orderByParams' => 'OrderByParams',
         'pageNumber'    => 'PageNumber',
         'pageSize'      => 'PageSize',
-        'isp'           => 'Isp',
+        'startTime'     => 'StartTime',
     ];
 
     public function validate()
@@ -59,14 +53,11 @@ class DescribeEnsRegionIdResourceRequest extends Model
     public function toMap()
     {
         $res = [];
-        if (null !== $this->version) {
-            $res['Version'] = $this->version;
-        }
-        if (null !== $this->startTime) {
-            $res['StartTime'] = $this->startTime;
-        }
         if (null !== $this->endTime) {
             $res['EndTime'] = $this->endTime;
+        }
+        if (null !== $this->isp) {
+            $res['Isp'] = $this->isp;
         }
         if (null !== $this->orderByParams) {
             $res['OrderByParams'] = $this->orderByParams;
@@ -77,8 +68,8 @@ class DescribeEnsRegionIdResourceRequest extends Model
         if (null !== $this->pageSize) {
             $res['PageSize'] = $this->pageSize;
         }
-        if (null !== $this->isp) {
-            $res['Isp'] = $this->isp;
+        if (null !== $this->startTime) {
+            $res['StartTime'] = $this->startTime;
         }
 
         return $res;
@@ -92,14 +83,11 @@ class DescribeEnsRegionIdResourceRequest extends Model
     public static function fromMap($map = [])
     {
         $model = new self();
-        if (isset($map['Version'])) {
-            $model->version = $map['Version'];
-        }
-        if (isset($map['StartTime'])) {
-            $model->startTime = $map['StartTime'];
-        }
         if (isset($map['EndTime'])) {
             $model->endTime = $map['EndTime'];
+        }
+        if (isset($map['Isp'])) {
+            $model->isp = $map['Isp'];
         }
         if (isset($map['OrderByParams'])) {
             $model->orderByParams = $map['OrderByParams'];
@@ -110,8 +98,8 @@ class DescribeEnsRegionIdResourceRequest extends Model
         if (isset($map['PageSize'])) {
             $model->pageSize = $map['PageSize'];
         }
-        if (isset($map['Isp'])) {
-            $model->isp = $map['Isp'];
+        if (isset($map['StartTime'])) {
+            $model->startTime = $map['StartTime'];
         }
 
         return $model;

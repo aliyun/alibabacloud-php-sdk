@@ -11,21 +11,21 @@ class AttachEnsInstancesRequest extends Model
     /**
      * @var string
      */
-    public $version;
-
-    /**
-     * @var string
-     */
     public $instanceId;
 
     /**
      * @var string
      */
     public $scripts;
+
+    /**
+     * @var string
+     */
+    public $version;
     protected $_name = [
-        'version'    => 'Version',
         'instanceId' => 'InstanceId',
         'scripts'    => 'Scripts',
+        'version'    => 'Version',
     ];
 
     public function validate()
@@ -35,14 +35,14 @@ class AttachEnsInstancesRequest extends Model
     public function toMap()
     {
         $res = [];
-        if (null !== $this->version) {
-            $res['Version'] = $this->version;
-        }
         if (null !== $this->instanceId) {
             $res['InstanceId'] = $this->instanceId;
         }
         if (null !== $this->scripts) {
             $res['Scripts'] = $this->scripts;
+        }
+        if (null !== $this->version) {
+            $res['Version'] = $this->version;
         }
 
         return $res;
@@ -56,14 +56,14 @@ class AttachEnsInstancesRequest extends Model
     public static function fromMap($map = [])
     {
         $model = new self();
-        if (isset($map['Version'])) {
-            $model->version = $map['Version'];
-        }
         if (isset($map['InstanceId'])) {
             $model->instanceId = $map['InstanceId'];
         }
         if (isset($map['Scripts'])) {
             $model->scripts = $map['Scripts'];
+        }
+        if (isset($map['Version'])) {
+            $model->version = $map['Version'];
         }
 
         return $model;

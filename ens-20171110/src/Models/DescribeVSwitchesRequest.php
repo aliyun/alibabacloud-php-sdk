@@ -11,22 +11,17 @@ class DescribeVSwitchesRequest extends Model
     /**
      * @var string
      */
-    public $version;
-
-    /**
-     * @var string
-     */
     public $ensRegionId;
 
     /**
      * @var string
      */
-    public $vSwitchId;
+    public $networkId;
 
     /**
      * @var string
      */
-    public $vSwitchName;
+    public $orderByParams;
 
     /**
      * @var int
@@ -41,15 +36,26 @@ class DescribeVSwitchesRequest extends Model
     /**
      * @var string
      */
-    public $orderByParams;
+    public $vSwitchId;
+
+    /**
+     * @var string
+     */
+    public $vSwitchName;
+
+    /**
+     * @var string
+     */
+    public $version;
     protected $_name = [
-        'version'       => 'Version',
         'ensRegionId'   => 'EnsRegionId',
-        'vSwitchId'     => 'VSwitchId',
-        'vSwitchName'   => 'VSwitchName',
+        'networkId'     => 'NetworkId',
+        'orderByParams' => 'OrderByParams',
         'pageNumber'    => 'PageNumber',
         'pageSize'      => 'PageSize',
-        'orderByParams' => 'OrderByParams',
+        'vSwitchId'     => 'VSwitchId',
+        'vSwitchName'   => 'VSwitchName',
+        'version'       => 'Version',
     ];
 
     public function validate()
@@ -59,17 +65,14 @@ class DescribeVSwitchesRequest extends Model
     public function toMap()
     {
         $res = [];
-        if (null !== $this->version) {
-            $res['Version'] = $this->version;
-        }
         if (null !== $this->ensRegionId) {
             $res['EnsRegionId'] = $this->ensRegionId;
         }
-        if (null !== $this->vSwitchId) {
-            $res['VSwitchId'] = $this->vSwitchId;
+        if (null !== $this->networkId) {
+            $res['NetworkId'] = $this->networkId;
         }
-        if (null !== $this->vSwitchName) {
-            $res['VSwitchName'] = $this->vSwitchName;
+        if (null !== $this->orderByParams) {
+            $res['OrderByParams'] = $this->orderByParams;
         }
         if (null !== $this->pageNumber) {
             $res['PageNumber'] = $this->pageNumber;
@@ -77,8 +80,14 @@ class DescribeVSwitchesRequest extends Model
         if (null !== $this->pageSize) {
             $res['PageSize'] = $this->pageSize;
         }
-        if (null !== $this->orderByParams) {
-            $res['OrderByParams'] = $this->orderByParams;
+        if (null !== $this->vSwitchId) {
+            $res['VSwitchId'] = $this->vSwitchId;
+        }
+        if (null !== $this->vSwitchName) {
+            $res['VSwitchName'] = $this->vSwitchName;
+        }
+        if (null !== $this->version) {
+            $res['Version'] = $this->version;
         }
 
         return $res;
@@ -92,17 +101,14 @@ class DescribeVSwitchesRequest extends Model
     public static function fromMap($map = [])
     {
         $model = new self();
-        if (isset($map['Version'])) {
-            $model->version = $map['Version'];
-        }
         if (isset($map['EnsRegionId'])) {
             $model->ensRegionId = $map['EnsRegionId'];
         }
-        if (isset($map['VSwitchId'])) {
-            $model->vSwitchId = $map['VSwitchId'];
+        if (isset($map['NetworkId'])) {
+            $model->networkId = $map['NetworkId'];
         }
-        if (isset($map['VSwitchName'])) {
-            $model->vSwitchName = $map['VSwitchName'];
+        if (isset($map['OrderByParams'])) {
+            $model->orderByParams = $map['OrderByParams'];
         }
         if (isset($map['PageNumber'])) {
             $model->pageNumber = $map['PageNumber'];
@@ -110,8 +116,14 @@ class DescribeVSwitchesRequest extends Model
         if (isset($map['PageSize'])) {
             $model->pageSize = $map['PageSize'];
         }
-        if (isset($map['OrderByParams'])) {
-            $model->orderByParams = $map['OrderByParams'];
+        if (isset($map['VSwitchId'])) {
+            $model->vSwitchId = $map['VSwitchId'];
+        }
+        if (isset($map['VSwitchName'])) {
+            $model->vSwitchName = $map['VSwitchName'];
+        }
+        if (isset($map['Version'])) {
+            $model->version = $map['Version'];
         }
 
         return $model;

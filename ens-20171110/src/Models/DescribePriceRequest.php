@@ -11,19 +11,19 @@ use AlibabaCloud\Tea\Model;
 class DescribePriceRequest extends Model
 {
     /**
-     * @var systemDisk
-     */
-    public $systemDisk;
-
-    /**
      * @var dataDisk[]
      */
     public $dataDisk;
 
     /**
+     * @var systemDisk
+     */
+    public $systemDisk;
+
+    /**
      * @var string
      */
-    public $version;
+    public $ensRegionId;
 
     /**
      * @var string
@@ -33,7 +33,7 @@ class DescribePriceRequest extends Model
     /**
      * @var string
      */
-    public $ensRegionId;
+    public $internetChargeType;
 
     /**
      * @var int
@@ -48,16 +48,16 @@ class DescribePriceRequest extends Model
     /**
      * @var string
      */
-    public $internetChargeType;
+    public $version;
     protected $_name = [
-        'systemDisk'         => 'SystemDisk',
         'dataDisk'           => 'DataDisk',
-        'version'            => 'Version',
-        'instanceType'       => 'InstanceType',
+        'systemDisk'         => 'SystemDisk',
         'ensRegionId'        => 'EnsRegionId',
+        'instanceType'       => 'InstanceType',
+        'internetChargeType' => 'InternetChargeType',
         'period'             => 'Period',
         'quantity'           => 'Quantity',
-        'internetChargeType' => 'InternetChargeType',
+        'version'            => 'Version',
     ];
 
     public function validate()
@@ -67,9 +67,6 @@ class DescribePriceRequest extends Model
     public function toMap()
     {
         $res = [];
-        if (null !== $this->systemDisk) {
-            $res['SystemDisk'] = null !== $this->systemDisk ? $this->systemDisk->toMap() : null;
-        }
         if (null !== $this->dataDisk) {
             $res['DataDisk'] = [];
             if (null !== $this->dataDisk && \is_array($this->dataDisk)) {
@@ -79,14 +76,17 @@ class DescribePriceRequest extends Model
                 }
             }
         }
-        if (null !== $this->version) {
-            $res['Version'] = $this->version;
+        if (null !== $this->systemDisk) {
+            $res['SystemDisk'] = null !== $this->systemDisk ? $this->systemDisk->toMap() : null;
+        }
+        if (null !== $this->ensRegionId) {
+            $res['EnsRegionId'] = $this->ensRegionId;
         }
         if (null !== $this->instanceType) {
             $res['InstanceType'] = $this->instanceType;
         }
-        if (null !== $this->ensRegionId) {
-            $res['EnsRegionId'] = $this->ensRegionId;
+        if (null !== $this->internetChargeType) {
+            $res['InternetChargeType'] = $this->internetChargeType;
         }
         if (null !== $this->period) {
             $res['Period'] = $this->period;
@@ -94,8 +94,8 @@ class DescribePriceRequest extends Model
         if (null !== $this->quantity) {
             $res['Quantity'] = $this->quantity;
         }
-        if (null !== $this->internetChargeType) {
-            $res['InternetChargeType'] = $this->internetChargeType;
+        if (null !== $this->version) {
+            $res['Version'] = $this->version;
         }
 
         return $res;
@@ -109,9 +109,6 @@ class DescribePriceRequest extends Model
     public static function fromMap($map = [])
     {
         $model = new self();
-        if (isset($map['SystemDisk'])) {
-            $model->systemDisk = systemDisk::fromMap($map['SystemDisk']);
-        }
         if (isset($map['DataDisk'])) {
             if (!empty($map['DataDisk'])) {
                 $model->dataDisk = [];
@@ -121,14 +118,17 @@ class DescribePriceRequest extends Model
                 }
             }
         }
-        if (isset($map['Version'])) {
-            $model->version = $map['Version'];
+        if (isset($map['SystemDisk'])) {
+            $model->systemDisk = systemDisk::fromMap($map['SystemDisk']);
+        }
+        if (isset($map['EnsRegionId'])) {
+            $model->ensRegionId = $map['EnsRegionId'];
         }
         if (isset($map['InstanceType'])) {
             $model->instanceType = $map['InstanceType'];
         }
-        if (isset($map['EnsRegionId'])) {
-            $model->ensRegionId = $map['EnsRegionId'];
+        if (isset($map['InternetChargeType'])) {
+            $model->internetChargeType = $map['InternetChargeType'];
         }
         if (isset($map['Period'])) {
             $model->period = $map['Period'];
@@ -136,8 +136,8 @@ class DescribePriceRequest extends Model
         if (isset($map['Quantity'])) {
             $model->quantity = $map['Quantity'];
         }
-        if (isset($map['InternetChargeType'])) {
-            $model->internetChargeType = $map['InternetChargeType'];
+        if (isset($map['Version'])) {
+            $model->version = $map['Version'];
         }
 
         return $model;

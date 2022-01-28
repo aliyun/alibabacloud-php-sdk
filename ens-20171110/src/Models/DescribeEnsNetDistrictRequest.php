@@ -11,7 +11,7 @@ class DescribeEnsNetDistrictRequest extends Model
     /**
      * @var string
      */
-    public $version;
+    public $netDistrictCode;
 
     /**
      * @var string
@@ -21,11 +21,11 @@ class DescribeEnsNetDistrictRequest extends Model
     /**
      * @var string
      */
-    public $netDistrictCode;
+    public $version;
     protected $_name = [
-        'version'         => 'Version',
-        'netLevelCode'    => 'NetLevelCode',
         'netDistrictCode' => 'NetDistrictCode',
+        'netLevelCode'    => 'NetLevelCode',
+        'version'         => 'Version',
     ];
 
     public function validate()
@@ -35,14 +35,14 @@ class DescribeEnsNetDistrictRequest extends Model
     public function toMap()
     {
         $res = [];
-        if (null !== $this->version) {
-            $res['Version'] = $this->version;
+        if (null !== $this->netDistrictCode) {
+            $res['NetDistrictCode'] = $this->netDistrictCode;
         }
         if (null !== $this->netLevelCode) {
             $res['NetLevelCode'] = $this->netLevelCode;
         }
-        if (null !== $this->netDistrictCode) {
-            $res['NetDistrictCode'] = $this->netDistrictCode;
+        if (null !== $this->version) {
+            $res['Version'] = $this->version;
         }
 
         return $res;
@@ -56,14 +56,14 @@ class DescribeEnsNetDistrictRequest extends Model
     public static function fromMap($map = [])
     {
         $model = new self();
-        if (isset($map['Version'])) {
-            $model->version = $map['Version'];
+        if (isset($map['NetDistrictCode'])) {
+            $model->netDistrictCode = $map['NetDistrictCode'];
         }
         if (isset($map['NetLevelCode'])) {
             $model->netLevelCode = $map['NetLevelCode'];
         }
-        if (isset($map['NetDistrictCode'])) {
-            $model->netDistrictCode = $map['NetDistrictCode'];
+        if (isset($map['Version'])) {
+            $model->version = $map['Version'];
         }
 
         return $model;

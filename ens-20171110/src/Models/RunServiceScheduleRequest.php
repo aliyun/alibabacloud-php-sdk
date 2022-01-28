@@ -16,17 +16,12 @@ class RunServiceScheduleRequest extends Model
     /**
      * @var string
      */
-    public $uuid;
-
-    /**
-     * @var string
-     */
     public $clientIp;
 
     /**
      * @var string
      */
-    public $serviceAction;
+    public $directorys;
 
     /**
      * @var string
@@ -41,7 +36,12 @@ class RunServiceScheduleRequest extends Model
     /**
      * @var string
      */
-    public $directorys;
+    public $scheduleStrategy;
+
+    /**
+     * @var string
+     */
+    public $serviceAction;
 
     /**
      * @var string
@@ -51,17 +51,17 @@ class RunServiceScheduleRequest extends Model
     /**
      * @var string
      */
-    public $scheduleStrategy;
+    public $uuid;
     protected $_name = [
         'appId'            => 'AppId',
-        'uuid'             => 'Uuid',
         'clientIp'         => 'ClientIp',
-        'serviceAction'    => 'ServiceAction',
+        'directorys'       => 'Directorys',
         'podConfigName'    => 'PodConfigName',
         'preLockedTimeout' => 'PreLockedTimeout',
-        'directorys'       => 'Directorys',
-        'serviceCommands'  => 'ServiceCommands',
         'scheduleStrategy' => 'ScheduleStrategy',
+        'serviceAction'    => 'ServiceAction',
+        'serviceCommands'  => 'ServiceCommands',
+        'uuid'             => 'Uuid',
     ];
 
     public function validate()
@@ -74,14 +74,11 @@ class RunServiceScheduleRequest extends Model
         if (null !== $this->appId) {
             $res['AppId'] = $this->appId;
         }
-        if (null !== $this->uuid) {
-            $res['Uuid'] = $this->uuid;
-        }
         if (null !== $this->clientIp) {
             $res['ClientIp'] = $this->clientIp;
         }
-        if (null !== $this->serviceAction) {
-            $res['ServiceAction'] = $this->serviceAction;
+        if (null !== $this->directorys) {
+            $res['Directorys'] = $this->directorys;
         }
         if (null !== $this->podConfigName) {
             $res['PodConfigName'] = $this->podConfigName;
@@ -89,14 +86,17 @@ class RunServiceScheduleRequest extends Model
         if (null !== $this->preLockedTimeout) {
             $res['PreLockedTimeout'] = $this->preLockedTimeout;
         }
-        if (null !== $this->directorys) {
-            $res['Directorys'] = $this->directorys;
+        if (null !== $this->scheduleStrategy) {
+            $res['ScheduleStrategy'] = $this->scheduleStrategy;
+        }
+        if (null !== $this->serviceAction) {
+            $res['ServiceAction'] = $this->serviceAction;
         }
         if (null !== $this->serviceCommands) {
             $res['ServiceCommands'] = $this->serviceCommands;
         }
-        if (null !== $this->scheduleStrategy) {
-            $res['ScheduleStrategy'] = $this->scheduleStrategy;
+        if (null !== $this->uuid) {
+            $res['Uuid'] = $this->uuid;
         }
 
         return $res;
@@ -113,14 +113,11 @@ class RunServiceScheduleRequest extends Model
         if (isset($map['AppId'])) {
             $model->appId = $map['AppId'];
         }
-        if (isset($map['Uuid'])) {
-            $model->uuid = $map['Uuid'];
-        }
         if (isset($map['ClientIp'])) {
             $model->clientIp = $map['ClientIp'];
         }
-        if (isset($map['ServiceAction'])) {
-            $model->serviceAction = $map['ServiceAction'];
+        if (isset($map['Directorys'])) {
+            $model->directorys = $map['Directorys'];
         }
         if (isset($map['PodConfigName'])) {
             $model->podConfigName = $map['PodConfigName'];
@@ -128,14 +125,17 @@ class RunServiceScheduleRequest extends Model
         if (isset($map['PreLockedTimeout'])) {
             $model->preLockedTimeout = $map['PreLockedTimeout'];
         }
-        if (isset($map['Directorys'])) {
-            $model->directorys = $map['Directorys'];
+        if (isset($map['ScheduleStrategy'])) {
+            $model->scheduleStrategy = $map['ScheduleStrategy'];
+        }
+        if (isset($map['ServiceAction'])) {
+            $model->serviceAction = $map['ServiceAction'];
         }
         if (isset($map['ServiceCommands'])) {
             $model->serviceCommands = $map['ServiceCommands'];
         }
-        if (isset($map['ScheduleStrategy'])) {
-            $model->scheduleStrategy = $map['ScheduleStrategy'];
+        if (isset($map['Uuid'])) {
+            $model->uuid = $map['Uuid'];
         }
 
         return $model;

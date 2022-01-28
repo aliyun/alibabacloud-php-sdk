@@ -11,15 +11,15 @@ class DeleteKeyPairsRequest extends Model
     /**
      * @var string
      */
-    public $version;
+    public $keyPairName;
 
     /**
      * @var string
      */
-    public $keyPairName;
+    public $version;
     protected $_name = [
-        'version'     => 'Version',
         'keyPairName' => 'KeyPairName',
+        'version'     => 'Version',
     ];
 
     public function validate()
@@ -29,11 +29,11 @@ class DeleteKeyPairsRequest extends Model
     public function toMap()
     {
         $res = [];
-        if (null !== $this->version) {
-            $res['Version'] = $this->version;
-        }
         if (null !== $this->keyPairName) {
             $res['KeyPairName'] = $this->keyPairName;
+        }
+        if (null !== $this->version) {
+            $res['Version'] = $this->version;
         }
 
         return $res;
@@ -47,11 +47,11 @@ class DeleteKeyPairsRequest extends Model
     public static function fromMap($map = [])
     {
         $model = new self();
-        if (isset($map['Version'])) {
-            $model->version = $map['Version'];
-        }
         if (isset($map['KeyPairName'])) {
             $model->keyPairName = $map['KeyPairName'];
+        }
+        if (isset($map['Version'])) {
+            $model->version = $map['Version'];
         }
 
         return $model;

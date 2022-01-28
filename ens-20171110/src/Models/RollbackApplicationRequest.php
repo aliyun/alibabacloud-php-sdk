@@ -19,19 +19,19 @@ class RollbackApplicationRequest extends Model
     public $fromAppVersion;
 
     /**
-     * @var string
-     */
-    public $toAppVersion;
-
-    /**
      * @var int
      */
     public $timeout;
+
+    /**
+     * @var string
+     */
+    public $toAppVersion;
     protected $_name = [
         'appId'          => 'AppId',
         'fromAppVersion' => 'FromAppVersion',
-        'toAppVersion'   => 'ToAppVersion',
         'timeout'        => 'Timeout',
+        'toAppVersion'   => 'ToAppVersion',
     ];
 
     public function validate()
@@ -47,11 +47,11 @@ class RollbackApplicationRequest extends Model
         if (null !== $this->fromAppVersion) {
             $res['FromAppVersion'] = $this->fromAppVersion;
         }
-        if (null !== $this->toAppVersion) {
-            $res['ToAppVersion'] = $this->toAppVersion;
-        }
         if (null !== $this->timeout) {
             $res['Timeout'] = $this->timeout;
+        }
+        if (null !== $this->toAppVersion) {
+            $res['ToAppVersion'] = $this->toAppVersion;
         }
 
         return $res;
@@ -71,11 +71,11 @@ class RollbackApplicationRequest extends Model
         if (isset($map['FromAppVersion'])) {
             $model->fromAppVersion = $map['FromAppVersion'];
         }
-        if (isset($map['ToAppVersion'])) {
-            $model->toAppVersion = $map['ToAppVersion'];
-        }
         if (isset($map['Timeout'])) {
             $model->timeout = $map['Timeout'];
+        }
+        if (isset($map['ToAppVersion'])) {
+            $model->toAppVersion = $map['ToAppVersion'];
         }
 
         return $model;

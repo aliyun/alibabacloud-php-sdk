@@ -16,16 +16,16 @@ class DescribeServcieScheduleRequest extends Model
     /**
      * @var string
      */
-    public $uuid;
+    public $podConfigName;
 
     /**
      * @var string
      */
-    public $podConfigName;
+    public $uuid;
     protected $_name = [
         'appId'         => 'AppId',
-        'uuid'          => 'Uuid',
         'podConfigName' => 'PodConfigName',
+        'uuid'          => 'Uuid',
     ];
 
     public function validate()
@@ -38,11 +38,11 @@ class DescribeServcieScheduleRequest extends Model
         if (null !== $this->appId) {
             $res['AppId'] = $this->appId;
         }
-        if (null !== $this->uuid) {
-            $res['Uuid'] = $this->uuid;
-        }
         if (null !== $this->podConfigName) {
             $res['PodConfigName'] = $this->podConfigName;
+        }
+        if (null !== $this->uuid) {
+            $res['Uuid'] = $this->uuid;
         }
 
         return $res;
@@ -59,11 +59,11 @@ class DescribeServcieScheduleRequest extends Model
         if (isset($map['AppId'])) {
             $model->appId = $map['AppId'];
         }
-        if (isset($map['Uuid'])) {
-            $model->uuid = $map['Uuid'];
-        }
         if (isset($map['PodConfigName'])) {
             $model->podConfigName = $map['PodConfigName'];
+        }
+        if (isset($map['Uuid'])) {
+            $model->uuid = $map['Uuid'];
         }
 
         return $model;

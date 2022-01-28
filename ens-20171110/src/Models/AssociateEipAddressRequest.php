@@ -11,7 +11,7 @@ class AssociateEipAddressRequest extends Model
     /**
      * @var string
      */
-    public $version;
+    public $eip;
 
     /**
      * @var string
@@ -21,17 +21,17 @@ class AssociateEipAddressRequest extends Model
     /**
      * @var string
      */
-    public $eip;
+    public $instanceIdInternetIp;
 
     /**
      * @var string
      */
-    public $instanceIdInternetIp;
+    public $version;
     protected $_name = [
-        'version'              => 'Version',
-        'ensRegionId'          => 'EnsRegionId',
         'eip'                  => 'Eip',
+        'ensRegionId'          => 'EnsRegionId',
         'instanceIdInternetIp' => 'InstanceIdInternetIp',
+        'version'              => 'Version',
     ];
 
     public function validate()
@@ -41,17 +41,17 @@ class AssociateEipAddressRequest extends Model
     public function toMap()
     {
         $res = [];
-        if (null !== $this->version) {
-            $res['Version'] = $this->version;
+        if (null !== $this->eip) {
+            $res['Eip'] = $this->eip;
         }
         if (null !== $this->ensRegionId) {
             $res['EnsRegionId'] = $this->ensRegionId;
         }
-        if (null !== $this->eip) {
-            $res['Eip'] = $this->eip;
-        }
         if (null !== $this->instanceIdInternetIp) {
             $res['InstanceIdInternetIp'] = $this->instanceIdInternetIp;
+        }
+        if (null !== $this->version) {
+            $res['Version'] = $this->version;
         }
 
         return $res;
@@ -65,17 +65,17 @@ class AssociateEipAddressRequest extends Model
     public static function fromMap($map = [])
     {
         $model = new self();
-        if (isset($map['Version'])) {
-            $model->version = $map['Version'];
+        if (isset($map['Eip'])) {
+            $model->eip = $map['Eip'];
         }
         if (isset($map['EnsRegionId'])) {
             $model->ensRegionId = $map['EnsRegionId'];
         }
-        if (isset($map['Eip'])) {
-            $model->eip = $map['Eip'];
-        }
         if (isset($map['InstanceIdInternetIp'])) {
             $model->instanceIdInternetIp = $map['InstanceIdInternetIp'];
+        }
+        if (isset($map['Version'])) {
+            $model->version = $map['Version'];
         }
 
         return $model;

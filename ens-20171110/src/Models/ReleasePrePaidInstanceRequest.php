@@ -11,15 +11,15 @@ class ReleasePrePaidInstanceRequest extends Model
     /**
      * @var string
      */
-    public $version;
+    public $instanceId;
 
     /**
      * @var string
      */
-    public $instanceId;
+    public $version;
     protected $_name = [
-        'version'    => 'Version',
         'instanceId' => 'InstanceId',
+        'version'    => 'Version',
     ];
 
     public function validate()
@@ -29,11 +29,11 @@ class ReleasePrePaidInstanceRequest extends Model
     public function toMap()
     {
         $res = [];
-        if (null !== $this->version) {
-            $res['Version'] = $this->version;
-        }
         if (null !== $this->instanceId) {
             $res['InstanceId'] = $this->instanceId;
+        }
+        if (null !== $this->version) {
+            $res['Version'] = $this->version;
         }
 
         return $res;
@@ -47,11 +47,11 @@ class ReleasePrePaidInstanceRequest extends Model
     public static function fromMap($map = [])
     {
         $model = new self();
-        if (isset($map['Version'])) {
-            $model->version = $map['Version'];
-        }
         if (isset($map['InstanceId'])) {
             $model->instanceId = $map['InstanceId'];
+        }
+        if (isset($map['Version'])) {
+            $model->version = $map['Version'];
         }
 
         return $model;

@@ -11,20 +11,20 @@ class ModifyImageSharePermissionRequest extends Model
     /**
      * @var string
      */
-    public $imageId;
+    public $addAccounts;
 
     /**
      * @var string
      */
-    public $addAccounts;
+    public $imageId;
 
     /**
      * @var string
      */
     public $removeAccounts;
     protected $_name = [
-        'imageId'        => 'ImageId',
         'addAccounts'    => 'AddAccounts',
+        'imageId'        => 'ImageId',
         'removeAccounts' => 'RemoveAccounts',
     ];
 
@@ -35,11 +35,11 @@ class ModifyImageSharePermissionRequest extends Model
     public function toMap()
     {
         $res = [];
-        if (null !== $this->imageId) {
-            $res['ImageId'] = $this->imageId;
-        }
         if (null !== $this->addAccounts) {
             $res['AddAccounts'] = $this->addAccounts;
+        }
+        if (null !== $this->imageId) {
+            $res['ImageId'] = $this->imageId;
         }
         if (null !== $this->removeAccounts) {
             $res['RemoveAccounts'] = $this->removeAccounts;
@@ -56,11 +56,11 @@ class ModifyImageSharePermissionRequest extends Model
     public static function fromMap($map = [])
     {
         $model = new self();
-        if (isset($map['ImageId'])) {
-            $model->imageId = $map['ImageId'];
-        }
         if (isset($map['AddAccounts'])) {
             $model->addAccounts = $map['AddAccounts'];
+        }
+        if (isset($map['ImageId'])) {
+            $model->imageId = $map['ImageId'];
         }
         if (isset($map['RemoveAccounts'])) {
             $model->removeAccounts = $map['RemoveAccounts'];

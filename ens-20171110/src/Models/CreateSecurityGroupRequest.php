@@ -11,15 +11,21 @@ class CreateSecurityGroupRequest extends Model
     /**
      * @var string
      */
-    public $version;
+    public $description;
 
     /**
      * @var string
      */
     public $securityGroupName;
+
+    /**
+     * @var string
+     */
+    public $version;
     protected $_name = [
-        'version'           => 'Version',
+        'description'       => 'Description',
         'securityGroupName' => 'SecurityGroupName',
+        'version'           => 'Version',
     ];
 
     public function validate()
@@ -29,11 +35,14 @@ class CreateSecurityGroupRequest extends Model
     public function toMap()
     {
         $res = [];
-        if (null !== $this->version) {
-            $res['Version'] = $this->version;
+        if (null !== $this->description) {
+            $res['Description'] = $this->description;
         }
         if (null !== $this->securityGroupName) {
             $res['SecurityGroupName'] = $this->securityGroupName;
+        }
+        if (null !== $this->version) {
+            $res['Version'] = $this->version;
         }
 
         return $res;
@@ -47,11 +56,14 @@ class CreateSecurityGroupRequest extends Model
     public static function fromMap($map = [])
     {
         $model = new self();
-        if (isset($map['Version'])) {
-            $model->version = $map['Version'];
+        if (isset($map['Description'])) {
+            $model->description = $map['Description'];
         }
         if (isset($map['SecurityGroupName'])) {
             $model->securityGroupName = $map['SecurityGroupName'];
+        }
+        if (isset($map['Version'])) {
+            $model->version = $map['Version'];
         }
 
         return $model;

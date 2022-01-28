@@ -26,12 +26,12 @@ class DescribeDataPushResultRequest extends Model
     /**
      * @var string
      */
-    public $minDate;
+    public $maxDate;
 
     /**
      * @var string
      */
-    public $maxDate;
+    public $minDate;
 
     /**
      * @var int
@@ -51,8 +51,8 @@ class DescribeDataPushResultRequest extends Model
         'appId'        => 'AppId',
         'dataNames'    => 'DataNames',
         'dataVersions' => 'DataVersions',
-        'minDate'      => 'MinDate',
         'maxDate'      => 'MaxDate',
+        'minDate'      => 'MinDate',
         'pageNumber'   => 'PageNumber',
         'pageSize'     => 'PageSize',
         'regionIds'    => 'RegionIds',
@@ -74,11 +74,11 @@ class DescribeDataPushResultRequest extends Model
         if (null !== $this->dataVersions) {
             $res['DataVersions'] = $this->dataVersions;
         }
-        if (null !== $this->minDate) {
-            $res['MinDate'] = $this->minDate;
-        }
         if (null !== $this->maxDate) {
             $res['MaxDate'] = $this->maxDate;
+        }
+        if (null !== $this->minDate) {
+            $res['MinDate'] = $this->minDate;
         }
         if (null !== $this->pageNumber) {
             $res['PageNumber'] = $this->pageNumber;
@@ -110,11 +110,11 @@ class DescribeDataPushResultRequest extends Model
         if (isset($map['DataVersions'])) {
             $model->dataVersions = $map['DataVersions'];
         }
-        if (isset($map['MinDate'])) {
-            $model->minDate = $map['MinDate'];
-        }
         if (isset($map['MaxDate'])) {
             $model->maxDate = $map['MaxDate'];
+        }
+        if (isset($map['MinDate'])) {
+            $model->minDate = $map['MinDate'];
         }
         if (isset($map['PageNumber'])) {
             $model->pageNumber = $map['PageNumber'];

@@ -16,20 +16,6 @@ class GetVmListResponseBody extends Model
     public $code;
 
     /**
-     * @description Id of the request
-     *
-     * @var string
-     */
-    public $requestId;
-
-    /**
-     * @description 返回信息
-     *
-     * @var string
-     */
-    public $msg;
-
-    /**
      * @description 业务数据
      *
      * @var string
@@ -40,12 +26,26 @@ class GetVmListResponseBody extends Model
      * @var string
      */
     public $desc;
+
+    /**
+     * @description 返回信息
+     *
+     * @var string
+     */
+    public $msg;
+
+    /**
+     * @description Id of the request
+     *
+     * @var string
+     */
+    public $requestId;
     protected $_name = [
         'code'      => 'Code',
-        'requestId' => 'RequestId',
-        'msg'       => 'Msg',
         'data'      => 'Data',
         'desc'      => 'Desc',
+        'msg'       => 'Msg',
+        'requestId' => 'RequestId',
     ];
 
     public function validate()
@@ -58,17 +58,17 @@ class GetVmListResponseBody extends Model
         if (null !== $this->code) {
             $res['Code'] = $this->code;
         }
-        if (null !== $this->requestId) {
-            $res['RequestId'] = $this->requestId;
-        }
-        if (null !== $this->msg) {
-            $res['Msg'] = $this->msg;
-        }
         if (null !== $this->data) {
             $res['Data'] = $this->data;
         }
         if (null !== $this->desc) {
             $res['Desc'] = $this->desc;
+        }
+        if (null !== $this->msg) {
+            $res['Msg'] = $this->msg;
+        }
+        if (null !== $this->requestId) {
+            $res['RequestId'] = $this->requestId;
         }
 
         return $res;
@@ -85,17 +85,17 @@ class GetVmListResponseBody extends Model
         if (isset($map['Code'])) {
             $model->code = $map['Code'];
         }
-        if (isset($map['RequestId'])) {
-            $model->requestId = $map['RequestId'];
-        }
-        if (isset($map['Msg'])) {
-            $model->msg = $map['Msg'];
-        }
         if (isset($map['Data'])) {
             $model->data = $map['Data'];
         }
         if (isset($map['Desc'])) {
             $model->desc = $map['Desc'];
+        }
+        if (isset($map['Msg'])) {
+            $model->msg = $map['Msg'];
+        }
+        if (isset($map['RequestId'])) {
+            $model->requestId = $map['RequestId'];
         }
 
         return $model;

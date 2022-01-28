@@ -11,7 +11,12 @@ class DescribeEpnBandWidthDataRequest extends Model
     /**
      * @var string
      */
-    public $version;
+    public $EPNInstanceId;
+
+    /**
+     * @var string
+     */
+    public $endTime;
 
     /**
      * @var string
@@ -26,21 +31,6 @@ class DescribeEpnBandWidthDataRequest extends Model
     /**
      * @var string
      */
-    public $startTime;
-
-    /**
-     * @var string
-     */
-    public $endTime;
-
-    /**
-     * @var string
-     */
-    public $period;
-
-    /**
-     * @var string
-     */
     public $isp;
 
     /**
@@ -51,17 +41,27 @@ class DescribeEpnBandWidthDataRequest extends Model
     /**
      * @var string
      */
-    public $EPNInstanceId;
+    public $period;
+
+    /**
+     * @var string
+     */
+    public $startTime;
+
+    /**
+     * @var string
+     */
+    public $version;
     protected $_name = [
-        'version'         => 'Version',
+        'EPNInstanceId'   => 'EPNInstanceId',
+        'endTime'         => 'EndTime',
         'ensRegionId'     => 'EnsRegionId',
         'instanceId'      => 'InstanceId',
-        'startTime'       => 'StartTime',
-        'endTime'         => 'EndTime',
-        'period'          => 'Period',
         'isp'             => 'Isp',
         'networkingModel' => 'NetworkingModel',
-        'EPNInstanceId'   => 'EPNInstanceId',
+        'period'          => 'Period',
+        'startTime'       => 'StartTime',
+        'version'         => 'Version',
     ];
 
     public function validate()
@@ -71,8 +71,11 @@ class DescribeEpnBandWidthDataRequest extends Model
     public function toMap()
     {
         $res = [];
-        if (null !== $this->version) {
-            $res['Version'] = $this->version;
+        if (null !== $this->EPNInstanceId) {
+            $res['EPNInstanceId'] = $this->EPNInstanceId;
+        }
+        if (null !== $this->endTime) {
+            $res['EndTime'] = $this->endTime;
         }
         if (null !== $this->ensRegionId) {
             $res['EnsRegionId'] = $this->ensRegionId;
@@ -80,23 +83,20 @@ class DescribeEpnBandWidthDataRequest extends Model
         if (null !== $this->instanceId) {
             $res['InstanceId'] = $this->instanceId;
         }
-        if (null !== $this->startTime) {
-            $res['StartTime'] = $this->startTime;
-        }
-        if (null !== $this->endTime) {
-            $res['EndTime'] = $this->endTime;
-        }
-        if (null !== $this->period) {
-            $res['Period'] = $this->period;
-        }
         if (null !== $this->isp) {
             $res['Isp'] = $this->isp;
         }
         if (null !== $this->networkingModel) {
             $res['NetworkingModel'] = $this->networkingModel;
         }
-        if (null !== $this->EPNInstanceId) {
-            $res['EPNInstanceId'] = $this->EPNInstanceId;
+        if (null !== $this->period) {
+            $res['Period'] = $this->period;
+        }
+        if (null !== $this->startTime) {
+            $res['StartTime'] = $this->startTime;
+        }
+        if (null !== $this->version) {
+            $res['Version'] = $this->version;
         }
 
         return $res;
@@ -110,8 +110,11 @@ class DescribeEpnBandWidthDataRequest extends Model
     public static function fromMap($map = [])
     {
         $model = new self();
-        if (isset($map['Version'])) {
-            $model->version = $map['Version'];
+        if (isset($map['EPNInstanceId'])) {
+            $model->EPNInstanceId = $map['EPNInstanceId'];
+        }
+        if (isset($map['EndTime'])) {
+            $model->endTime = $map['EndTime'];
         }
         if (isset($map['EnsRegionId'])) {
             $model->ensRegionId = $map['EnsRegionId'];
@@ -119,23 +122,20 @@ class DescribeEpnBandWidthDataRequest extends Model
         if (isset($map['InstanceId'])) {
             $model->instanceId = $map['InstanceId'];
         }
-        if (isset($map['StartTime'])) {
-            $model->startTime = $map['StartTime'];
-        }
-        if (isset($map['EndTime'])) {
-            $model->endTime = $map['EndTime'];
-        }
-        if (isset($map['Period'])) {
-            $model->period = $map['Period'];
-        }
         if (isset($map['Isp'])) {
             $model->isp = $map['Isp'];
         }
         if (isset($map['NetworkingModel'])) {
             $model->networkingModel = $map['NetworkingModel'];
         }
-        if (isset($map['EPNInstanceId'])) {
-            $model->EPNInstanceId = $map['EPNInstanceId'];
+        if (isset($map['Period'])) {
+            $model->period = $map['Period'];
+        }
+        if (isset($map['StartTime'])) {
+            $model->startTime = $map['StartTime'];
+        }
+        if (isset($map['Version'])) {
+            $model->version = $map['Version'];
         }
 
         return $model;

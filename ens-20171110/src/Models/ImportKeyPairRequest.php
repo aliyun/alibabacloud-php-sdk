@@ -11,21 +11,21 @@ class ImportKeyPairRequest extends Model
     /**
      * @var string
      */
-    public $version;
-
-    /**
-     * @var string
-     */
     public $keyPairName;
 
     /**
      * @var string
      */
     public $publicKeyBody;
+
+    /**
+     * @var string
+     */
+    public $version;
     protected $_name = [
-        'version'       => 'Version',
         'keyPairName'   => 'KeyPairName',
         'publicKeyBody' => 'PublicKeyBody',
+        'version'       => 'Version',
     ];
 
     public function validate()
@@ -35,14 +35,14 @@ class ImportKeyPairRequest extends Model
     public function toMap()
     {
         $res = [];
-        if (null !== $this->version) {
-            $res['Version'] = $this->version;
-        }
         if (null !== $this->keyPairName) {
             $res['KeyPairName'] = $this->keyPairName;
         }
         if (null !== $this->publicKeyBody) {
             $res['PublicKeyBody'] = $this->publicKeyBody;
+        }
+        if (null !== $this->version) {
+            $res['Version'] = $this->version;
         }
 
         return $res;
@@ -56,14 +56,14 @@ class ImportKeyPairRequest extends Model
     public static function fromMap($map = [])
     {
         $model = new self();
-        if (isset($map['Version'])) {
-            $model->version = $map['Version'];
-        }
         if (isset($map['KeyPairName'])) {
             $model->keyPairName = $map['KeyPairName'];
         }
         if (isset($map['PublicKeyBody'])) {
             $model->publicKeyBody = $map['PublicKeyBody'];
+        }
+        if (isset($map['Version'])) {
+            $model->version = $map['Version'];
         }
 
         return $model;

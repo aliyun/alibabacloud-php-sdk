@@ -11,14 +11,8 @@ class DescribeSecurityGroupAttributeRequest extends Model
     /**
      * @var string
      */
-    public $version;
-
-    /**
-     * @var string
-     */
     public $securityGroupId;
     protected $_name = [
-        'version'         => 'Version',
         'securityGroupId' => 'SecurityGroupId',
     ];
 
@@ -29,9 +23,6 @@ class DescribeSecurityGroupAttributeRequest extends Model
     public function toMap()
     {
         $res = [];
-        if (null !== $this->version) {
-            $res['Version'] = $this->version;
-        }
         if (null !== $this->securityGroupId) {
             $res['SecurityGroupId'] = $this->securityGroupId;
         }
@@ -47,9 +38,6 @@ class DescribeSecurityGroupAttributeRequest extends Model
     public static function fromMap($map = [])
     {
         $model = new self();
-        if (isset($map['Version'])) {
-            $model->version = $map['Version'];
-        }
         if (isset($map['SecurityGroupId'])) {
             $model->securityGroupId = $map['SecurityGroupId'];
         }

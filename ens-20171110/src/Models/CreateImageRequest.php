@@ -11,17 +11,7 @@ class CreateImageRequest extends Model
     /**
      * @var string
      */
-    public $product;
-
-    /**
-     * @var string
-     */
-    public $version;
-
-    /**
-     * @var string
-     */
-    public $instanceId;
+    public $deleteAfterImageUpload;
 
     /**
      * @var string
@@ -31,13 +21,17 @@ class CreateImageRequest extends Model
     /**
      * @var string
      */
-    public $deleteAfterImageUpload;
+    public $instanceId;
+
+    /**
+     * @var string
+     */
+    public $product;
     protected $_name = [
-        'product'                => 'product',
-        'version'                => 'Version',
-        'instanceId'             => 'InstanceId',
-        'imageName'              => 'ImageName',
         'deleteAfterImageUpload' => 'DeleteAfterImageUpload',
+        'imageName'              => 'ImageName',
+        'instanceId'             => 'InstanceId',
+        'product'                => 'product',
     ];
 
     public function validate()
@@ -47,20 +41,17 @@ class CreateImageRequest extends Model
     public function toMap()
     {
         $res = [];
-        if (null !== $this->product) {
-            $res['product'] = $this->product;
-        }
-        if (null !== $this->version) {
-            $res['Version'] = $this->version;
-        }
-        if (null !== $this->instanceId) {
-            $res['InstanceId'] = $this->instanceId;
+        if (null !== $this->deleteAfterImageUpload) {
+            $res['DeleteAfterImageUpload'] = $this->deleteAfterImageUpload;
         }
         if (null !== $this->imageName) {
             $res['ImageName'] = $this->imageName;
         }
-        if (null !== $this->deleteAfterImageUpload) {
-            $res['DeleteAfterImageUpload'] = $this->deleteAfterImageUpload;
+        if (null !== $this->instanceId) {
+            $res['InstanceId'] = $this->instanceId;
+        }
+        if (null !== $this->product) {
+            $res['product'] = $this->product;
         }
 
         return $res;
@@ -74,20 +65,17 @@ class CreateImageRequest extends Model
     public static function fromMap($map = [])
     {
         $model = new self();
-        if (isset($map['product'])) {
-            $model->product = $map['product'];
-        }
-        if (isset($map['Version'])) {
-            $model->version = $map['Version'];
-        }
-        if (isset($map['InstanceId'])) {
-            $model->instanceId = $map['InstanceId'];
+        if (isset($map['DeleteAfterImageUpload'])) {
+            $model->deleteAfterImageUpload = $map['DeleteAfterImageUpload'];
         }
         if (isset($map['ImageName'])) {
             $model->imageName = $map['ImageName'];
         }
-        if (isset($map['DeleteAfterImageUpload'])) {
-            $model->deleteAfterImageUpload = $map['DeleteAfterImageUpload'];
+        if (isset($map['InstanceId'])) {
+            $model->instanceId = $map['InstanceId'];
+        }
+        if (isset($map['product'])) {
+            $model->product = $map['product'];
         }
 
         return $model;

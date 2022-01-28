@@ -16,16 +16,16 @@ class CheckQuotaRequest extends Model
     /**
      * @var string
      */
-    public $resourceAttribute;
+    public $groupUuid;
 
     /**
      * @var string
      */
-    public $groupUuid;
+    public $resourceAttribute;
     protected $_name = [
         'aliUid'            => 'AliUid',
-        'resourceAttribute' => 'ResourceAttribute',
         'groupUuid'         => 'GroupUuid',
+        'resourceAttribute' => 'ResourceAttribute',
     ];
 
     public function validate()
@@ -38,11 +38,11 @@ class CheckQuotaRequest extends Model
         if (null !== $this->aliUid) {
             $res['AliUid'] = $this->aliUid;
         }
-        if (null !== $this->resourceAttribute) {
-            $res['ResourceAttribute'] = $this->resourceAttribute;
-        }
         if (null !== $this->groupUuid) {
             $res['GroupUuid'] = $this->groupUuid;
+        }
+        if (null !== $this->resourceAttribute) {
+            $res['ResourceAttribute'] = $this->resourceAttribute;
         }
 
         return $res;
@@ -59,11 +59,11 @@ class CheckQuotaRequest extends Model
         if (isset($map['AliUid'])) {
             $model->aliUid = $map['AliUid'];
         }
-        if (isset($map['ResourceAttribute'])) {
-            $model->resourceAttribute = $map['ResourceAttribute'];
-        }
         if (isset($map['GroupUuid'])) {
             $model->groupUuid = $map['GroupUuid'];
+        }
+        if (isset($map['ResourceAttribute'])) {
+            $model->resourceAttribute = $map['ResourceAttribute'];
         }
 
         return $model;

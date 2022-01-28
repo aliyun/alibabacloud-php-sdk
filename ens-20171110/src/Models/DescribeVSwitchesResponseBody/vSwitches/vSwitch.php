@@ -21,12 +21,22 @@ class vSwitch extends Model
     /**
      * @var string
      */
+    public $description;
+
+    /**
+     * @var string
+     */
     public $ensRegionId;
 
     /**
      * @var int
      */
     public $freeIpCount;
+
+    /**
+     * @var string
+     */
+    public $networkId;
 
     /**
      * @var string
@@ -45,8 +55,10 @@ class vSwitch extends Model
     protected $_name = [
         'cidrBlock'   => 'CidrBlock',
         'createdTime' => 'CreatedTime',
+        'description' => 'Description',
         'ensRegionId' => 'EnsRegionId',
         'freeIpCount' => 'FreeIpCount',
+        'networkId'   => 'NetworkId',
         'status'      => 'Status',
         'vSwitchId'   => 'VSwitchId',
         'vSwitchName' => 'VSwitchName',
@@ -65,11 +77,17 @@ class vSwitch extends Model
         if (null !== $this->createdTime) {
             $res['CreatedTime'] = $this->createdTime;
         }
+        if (null !== $this->description) {
+            $res['Description'] = $this->description;
+        }
         if (null !== $this->ensRegionId) {
             $res['EnsRegionId'] = $this->ensRegionId;
         }
         if (null !== $this->freeIpCount) {
             $res['FreeIpCount'] = $this->freeIpCount;
+        }
+        if (null !== $this->networkId) {
+            $res['NetworkId'] = $this->networkId;
         }
         if (null !== $this->status) {
             $res['Status'] = $this->status;
@@ -98,11 +116,17 @@ class vSwitch extends Model
         if (isset($map['CreatedTime'])) {
             $model->createdTime = $map['CreatedTime'];
         }
+        if (isset($map['Description'])) {
+            $model->description = $map['Description'];
+        }
         if (isset($map['EnsRegionId'])) {
             $model->ensRegionId = $map['EnsRegionId'];
         }
         if (isset($map['FreeIpCount'])) {
             $model->freeIpCount = $map['FreeIpCount'];
+        }
+        if (isset($map['NetworkId'])) {
+            $model->networkId = $map['NetworkId'];
         }
         if (isset($map['Status'])) {
             $model->status = $map['Status'];

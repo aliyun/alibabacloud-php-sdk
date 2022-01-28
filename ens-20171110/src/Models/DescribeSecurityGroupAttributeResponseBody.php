@@ -10,6 +10,11 @@ use AlibabaCloud\Tea\Model;
 class DescribeSecurityGroupAttributeResponseBody extends Model
 {
     /**
+     * @var string
+     */
+    public $description;
+
+    /**
      * @var permissions
      */
     public $permissions;
@@ -23,10 +28,17 @@ class DescribeSecurityGroupAttributeResponseBody extends Model
      * @var string
      */
     public $securityGroupId;
+
+    /**
+     * @var string
+     */
+    public $securityGroupName;
     protected $_name = [
-        'permissions'     => 'Permissions',
-        'requestId'       => 'RequestId',
-        'securityGroupId' => 'SecurityGroupId',
+        'description'       => 'Description',
+        'permissions'       => 'Permissions',
+        'requestId'         => 'RequestId',
+        'securityGroupId'   => 'SecurityGroupId',
+        'securityGroupName' => 'SecurityGroupName',
     ];
 
     public function validate()
@@ -36,6 +48,9 @@ class DescribeSecurityGroupAttributeResponseBody extends Model
     public function toMap()
     {
         $res = [];
+        if (null !== $this->description) {
+            $res['Description'] = $this->description;
+        }
         if (null !== $this->permissions) {
             $res['Permissions'] = null !== $this->permissions ? $this->permissions->toMap() : null;
         }
@@ -44,6 +59,9 @@ class DescribeSecurityGroupAttributeResponseBody extends Model
         }
         if (null !== $this->securityGroupId) {
             $res['SecurityGroupId'] = $this->securityGroupId;
+        }
+        if (null !== $this->securityGroupName) {
+            $res['SecurityGroupName'] = $this->securityGroupName;
         }
 
         return $res;
@@ -57,6 +75,9 @@ class DescribeSecurityGroupAttributeResponseBody extends Model
     public static function fromMap($map = [])
     {
         $model = new self();
+        if (isset($map['Description'])) {
+            $model->description = $map['Description'];
+        }
         if (isset($map['Permissions'])) {
             $model->permissions = permissions::fromMap($map['Permissions']);
         }
@@ -65,6 +86,9 @@ class DescribeSecurityGroupAttributeResponseBody extends Model
         }
         if (isset($map['SecurityGroupId'])) {
             $model->securityGroupId = $map['SecurityGroupId'];
+        }
+        if (isset($map['SecurityGroupName'])) {
+            $model->securityGroupName = $map['SecurityGroupName'];
         }
 
         return $model;

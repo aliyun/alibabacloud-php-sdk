@@ -11,7 +11,12 @@ class ModifyImageAttributeRequest extends Model
     /**
      * @var string
      */
-    public $product;
+    public $imageId;
+
+    /**
+     * @var string
+     */
+    public $imageName;
 
     /**
      * @var string
@@ -21,17 +26,12 @@ class ModifyImageAttributeRequest extends Model
     /**
      * @var string
      */
-    public $imageId;
-
-    /**
-     * @var string
-     */
-    public $imageName;
+    public $product;
     protected $_name = [
-        'product'   => 'product',
-        'version'   => 'Version',
         'imageId'   => 'ImageId',
         'imageName' => 'ImageName',
+        'version'   => 'Version',
+        'product'   => 'product',
     ];
 
     public function validate()
@@ -41,17 +41,17 @@ class ModifyImageAttributeRequest extends Model
     public function toMap()
     {
         $res = [];
-        if (null !== $this->product) {
-            $res['product'] = $this->product;
-        }
-        if (null !== $this->version) {
-            $res['Version'] = $this->version;
-        }
         if (null !== $this->imageId) {
             $res['ImageId'] = $this->imageId;
         }
         if (null !== $this->imageName) {
             $res['ImageName'] = $this->imageName;
+        }
+        if (null !== $this->version) {
+            $res['Version'] = $this->version;
+        }
+        if (null !== $this->product) {
+            $res['product'] = $this->product;
         }
 
         return $res;
@@ -65,17 +65,17 @@ class ModifyImageAttributeRequest extends Model
     public static function fromMap($map = [])
     {
         $model = new self();
-        if (isset($map['product'])) {
-            $model->product = $map['product'];
-        }
-        if (isset($map['Version'])) {
-            $model->version = $map['Version'];
-        }
         if (isset($map['ImageId'])) {
             $model->imageId = $map['ImageId'];
         }
         if (isset($map['ImageName'])) {
             $model->imageName = $map['ImageName'];
+        }
+        if (isset($map['Version'])) {
+            $model->version = $map['Version'];
+        }
+        if (isset($map['product'])) {
+            $model->product = $map['product'];
         }
 
         return $model;

@@ -11,7 +11,12 @@ class CreateVSwitchRequest extends Model
     /**
      * @var string
      */
-    public $version;
+    public $cidrBlock;
+
+    /**
+     * @var string
+     */
+    public $description;
 
     /**
      * @var string
@@ -21,17 +26,24 @@ class CreateVSwitchRequest extends Model
     /**
      * @var string
      */
-    public $cidrBlock;
+    public $networkId;
 
     /**
      * @var string
      */
     public $vSwitchName;
+
+    /**
+     * @var string
+     */
+    public $version;
     protected $_name = [
-        'version'     => 'Version',
-        'ensRegionId' => 'EnsRegionId',
         'cidrBlock'   => 'CidrBlock',
+        'description' => 'Description',
+        'ensRegionId' => 'EnsRegionId',
+        'networkId'   => 'NetworkId',
         'vSwitchName' => 'VSwitchName',
+        'version'     => 'Version',
     ];
 
     public function validate()
@@ -41,17 +53,23 @@ class CreateVSwitchRequest extends Model
     public function toMap()
     {
         $res = [];
-        if (null !== $this->version) {
-            $res['Version'] = $this->version;
+        if (null !== $this->cidrBlock) {
+            $res['CidrBlock'] = $this->cidrBlock;
+        }
+        if (null !== $this->description) {
+            $res['Description'] = $this->description;
         }
         if (null !== $this->ensRegionId) {
             $res['EnsRegionId'] = $this->ensRegionId;
         }
-        if (null !== $this->cidrBlock) {
-            $res['CidrBlock'] = $this->cidrBlock;
+        if (null !== $this->networkId) {
+            $res['NetworkId'] = $this->networkId;
         }
         if (null !== $this->vSwitchName) {
             $res['VSwitchName'] = $this->vSwitchName;
+        }
+        if (null !== $this->version) {
+            $res['Version'] = $this->version;
         }
 
         return $res;
@@ -65,17 +83,23 @@ class CreateVSwitchRequest extends Model
     public static function fromMap($map = [])
     {
         $model = new self();
-        if (isset($map['Version'])) {
-            $model->version = $map['Version'];
+        if (isset($map['CidrBlock'])) {
+            $model->cidrBlock = $map['CidrBlock'];
+        }
+        if (isset($map['Description'])) {
+            $model->description = $map['Description'];
         }
         if (isset($map['EnsRegionId'])) {
             $model->ensRegionId = $map['EnsRegionId'];
         }
-        if (isset($map['CidrBlock'])) {
-            $model->cidrBlock = $map['CidrBlock'];
+        if (isset($map['NetworkId'])) {
+            $model->networkId = $map['NetworkId'];
         }
         if (isset($map['VSwitchName'])) {
             $model->vSwitchName = $map['VSwitchName'];
+        }
+        if (isset($map['Version'])) {
+            $model->version = $map['Version'];
         }
 
         return $model;

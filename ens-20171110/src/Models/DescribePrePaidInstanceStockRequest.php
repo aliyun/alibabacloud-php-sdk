@@ -9,21 +9,6 @@ use AlibabaCloud\Tea\Model;
 class DescribePrePaidInstanceStockRequest extends Model
 {
     /**
-     * @var string
-     */
-    public $version;
-
-    /**
-     * @var string
-     */
-    public $ensRegionId;
-
-    /**
-     * @var int
-     */
-    public $systemDiskSize;
-
-    /**
      * @var int
      */
     public $dataDiskSize;
@@ -31,13 +16,28 @@ class DescribePrePaidInstanceStockRequest extends Model
     /**
      * @var string
      */
+    public $ensRegionId;
+
+    /**
+     * @var string
+     */
     public $instanceSpec;
+
+    /**
+     * @var int
+     */
+    public $systemDiskSize;
+
+    /**
+     * @var string
+     */
+    public $version;
     protected $_name = [
-        'version'        => 'Version',
-        'ensRegionId'    => 'EnsRegionId',
-        'systemDiskSize' => 'SystemDiskSize',
         'dataDiskSize'   => 'DataDiskSize',
+        'ensRegionId'    => 'EnsRegionId',
         'instanceSpec'   => 'InstanceSpec',
+        'systemDiskSize' => 'SystemDiskSize',
+        'version'        => 'Version',
     ];
 
     public function validate()
@@ -47,20 +47,20 @@ class DescribePrePaidInstanceStockRequest extends Model
     public function toMap()
     {
         $res = [];
-        if (null !== $this->version) {
-            $res['Version'] = $this->version;
+        if (null !== $this->dataDiskSize) {
+            $res['DataDiskSize'] = $this->dataDiskSize;
         }
         if (null !== $this->ensRegionId) {
             $res['EnsRegionId'] = $this->ensRegionId;
         }
+        if (null !== $this->instanceSpec) {
+            $res['InstanceSpec'] = $this->instanceSpec;
+        }
         if (null !== $this->systemDiskSize) {
             $res['SystemDiskSize'] = $this->systemDiskSize;
         }
-        if (null !== $this->dataDiskSize) {
-            $res['DataDiskSize'] = $this->dataDiskSize;
-        }
-        if (null !== $this->instanceSpec) {
-            $res['InstanceSpec'] = $this->instanceSpec;
+        if (null !== $this->version) {
+            $res['Version'] = $this->version;
         }
 
         return $res;
@@ -74,20 +74,20 @@ class DescribePrePaidInstanceStockRequest extends Model
     public static function fromMap($map = [])
     {
         $model = new self();
-        if (isset($map['Version'])) {
-            $model->version = $map['Version'];
+        if (isset($map['DataDiskSize'])) {
+            $model->dataDiskSize = $map['DataDiskSize'];
         }
         if (isset($map['EnsRegionId'])) {
             $model->ensRegionId = $map['EnsRegionId'];
         }
+        if (isset($map['InstanceSpec'])) {
+            $model->instanceSpec = $map['InstanceSpec'];
+        }
         if (isset($map['SystemDiskSize'])) {
             $model->systemDiskSize = $map['SystemDiskSize'];
         }
-        if (isset($map['DataDiskSize'])) {
-            $model->dataDiskSize = $map['DataDiskSize'];
-        }
-        if (isset($map['InstanceSpec'])) {
-            $model->instanceSpec = $map['InstanceSpec'];
+        if (isset($map['Version'])) {
+            $model->version = $map['Version'];
         }
 
         return $model;

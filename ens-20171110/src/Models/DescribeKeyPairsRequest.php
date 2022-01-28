@@ -11,11 +11,6 @@ class DescribeKeyPairsRequest extends Model
     /**
      * @var string
      */
-    public $version;
-
-    /**
-     * @var string
-     */
     public $keyPairName;
 
     /**
@@ -27,11 +22,16 @@ class DescribeKeyPairsRequest extends Model
      * @var string
      */
     public $pageSize;
+
+    /**
+     * @var string
+     */
+    public $version;
     protected $_name = [
-        'version'     => 'Version',
         'keyPairName' => 'KeyPairName',
         'pageNumber'  => 'PageNumber',
         'pageSize'    => 'PageSize',
+        'version'     => 'Version',
     ];
 
     public function validate()
@@ -41,9 +41,6 @@ class DescribeKeyPairsRequest extends Model
     public function toMap()
     {
         $res = [];
-        if (null !== $this->version) {
-            $res['Version'] = $this->version;
-        }
         if (null !== $this->keyPairName) {
             $res['KeyPairName'] = $this->keyPairName;
         }
@@ -52,6 +49,9 @@ class DescribeKeyPairsRequest extends Model
         }
         if (null !== $this->pageSize) {
             $res['PageSize'] = $this->pageSize;
+        }
+        if (null !== $this->version) {
+            $res['Version'] = $this->version;
         }
 
         return $res;
@@ -65,9 +65,6 @@ class DescribeKeyPairsRequest extends Model
     public static function fromMap($map = [])
     {
         $model = new self();
-        if (isset($map['Version'])) {
-            $model->version = $map['Version'];
-        }
         if (isset($map['KeyPairName'])) {
             $model->keyPairName = $map['KeyPairName'];
         }
@@ -76,6 +73,9 @@ class DescribeKeyPairsRequest extends Model
         }
         if (isset($map['PageSize'])) {
             $model->pageSize = $map['PageSize'];
+        }
+        if (isset($map['Version'])) {
+            $model->version = $map['Version'];
         }
 
         return $model;

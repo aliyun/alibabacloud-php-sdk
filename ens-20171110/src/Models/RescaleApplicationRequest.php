@@ -16,12 +16,12 @@ class RescaleApplicationRequest extends Model
     /**
      * @var string
      */
-    public $rescaleType;
+    public $rescaleLevel;
 
     /**
      * @var string
      */
-    public $rescaleLevel;
+    public $rescaleType;
 
     /**
      * @var string
@@ -29,21 +29,21 @@ class RescaleApplicationRequest extends Model
     public $resourceSelector;
 
     /**
-     * @var string
-     */
-    public $toAppVersion;
-
-    /**
      * @var int
      */
     public $timeout;
+
+    /**
+     * @var string
+     */
+    public $toAppVersion;
     protected $_name = [
         'appId'            => 'AppId',
-        'rescaleType'      => 'RescaleType',
         'rescaleLevel'     => 'RescaleLevel',
+        'rescaleType'      => 'RescaleType',
         'resourceSelector' => 'ResourceSelector',
-        'toAppVersion'     => 'ToAppVersion',
         'timeout'          => 'Timeout',
+        'toAppVersion'     => 'ToAppVersion',
     ];
 
     public function validate()
@@ -56,20 +56,20 @@ class RescaleApplicationRequest extends Model
         if (null !== $this->appId) {
             $res['AppId'] = $this->appId;
         }
-        if (null !== $this->rescaleType) {
-            $res['RescaleType'] = $this->rescaleType;
-        }
         if (null !== $this->rescaleLevel) {
             $res['RescaleLevel'] = $this->rescaleLevel;
+        }
+        if (null !== $this->rescaleType) {
+            $res['RescaleType'] = $this->rescaleType;
         }
         if (null !== $this->resourceSelector) {
             $res['ResourceSelector'] = $this->resourceSelector;
         }
-        if (null !== $this->toAppVersion) {
-            $res['ToAppVersion'] = $this->toAppVersion;
-        }
         if (null !== $this->timeout) {
             $res['Timeout'] = $this->timeout;
+        }
+        if (null !== $this->toAppVersion) {
+            $res['ToAppVersion'] = $this->toAppVersion;
         }
 
         return $res;
@@ -86,20 +86,20 @@ class RescaleApplicationRequest extends Model
         if (isset($map['AppId'])) {
             $model->appId = $map['AppId'];
         }
-        if (isset($map['RescaleType'])) {
-            $model->rescaleType = $map['RescaleType'];
-        }
         if (isset($map['RescaleLevel'])) {
             $model->rescaleLevel = $map['RescaleLevel'];
+        }
+        if (isset($map['RescaleType'])) {
+            $model->rescaleType = $map['RescaleType'];
         }
         if (isset($map['ResourceSelector'])) {
             $model->resourceSelector = $map['ResourceSelector'];
         }
-        if (isset($map['ToAppVersion'])) {
-            $model->toAppVersion = $map['ToAppVersion'];
-        }
         if (isset($map['Timeout'])) {
             $model->timeout = $map['Timeout'];
+        }
+        if (isset($map['ToAppVersion'])) {
+            $model->toAppVersion = $map['ToAppVersion'];
         }
 
         return $model;

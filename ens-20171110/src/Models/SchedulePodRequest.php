@@ -16,27 +16,12 @@ class SchedulePodRequest extends Model
     /**
      * @var string
      */
-    public $groupUuid;
-
-    /**
-     * @var string
-     */
-    public $workloadUuid;
-
-    /**
-     * @var string
-     */
-    public $tenant;
-
-    /**
-     * @var string
-     */
-    public $regions;
-
-    /**
-     * @var string
-     */
     public $areaCodes;
+
+    /**
+     * @var string
+     */
+    public $groupUuid;
 
     /**
      * @var string
@@ -46,28 +31,43 @@ class SchedulePodRequest extends Model
     /**
      * @var string
      */
-    public $requirements;
-
-    /**
-     * @var string
-     */
     public $labels;
 
     /**
      * @var string
      */
+    public $regions;
+
+    /**
+     * @var string
+     */
+    public $requirements;
+
+    /**
+     * @var string
+     */
     public $resourceAttribute;
+
+    /**
+     * @var string
+     */
+    public $tenant;
+
+    /**
+     * @var string
+     */
+    public $workloadUuid;
     protected $_name = [
         'aliUid'            => 'AliUid',
-        'groupUuid'         => 'GroupUuid',
-        'workloadUuid'      => 'WorkloadUuid',
-        'tenant'            => 'Tenant',
-        'regions'           => 'Regions',
         'areaCodes'         => 'AreaCodes',
+        'groupUuid'         => 'GroupUuid',
         'isps'              => 'Isps',
-        'requirements'      => 'Requirements',
         'labels'            => 'Labels',
+        'regions'           => 'Regions',
+        'requirements'      => 'Requirements',
         'resourceAttribute' => 'ResourceAttribute',
+        'tenant'            => 'Tenant',
+        'workloadUuid'      => 'WorkloadUuid',
     ];
 
     public function validate()
@@ -80,32 +80,32 @@ class SchedulePodRequest extends Model
         if (null !== $this->aliUid) {
             $res['AliUid'] = $this->aliUid;
         }
-        if (null !== $this->groupUuid) {
-            $res['GroupUuid'] = $this->groupUuid;
-        }
-        if (null !== $this->workloadUuid) {
-            $res['WorkloadUuid'] = $this->workloadUuid;
-        }
-        if (null !== $this->tenant) {
-            $res['Tenant'] = $this->tenant;
-        }
-        if (null !== $this->regions) {
-            $res['Regions'] = $this->regions;
-        }
         if (null !== $this->areaCodes) {
             $res['AreaCodes'] = $this->areaCodes;
+        }
+        if (null !== $this->groupUuid) {
+            $res['GroupUuid'] = $this->groupUuid;
         }
         if (null !== $this->isps) {
             $res['Isps'] = $this->isps;
         }
-        if (null !== $this->requirements) {
-            $res['Requirements'] = $this->requirements;
-        }
         if (null !== $this->labels) {
             $res['Labels'] = $this->labels;
         }
+        if (null !== $this->regions) {
+            $res['Regions'] = $this->regions;
+        }
+        if (null !== $this->requirements) {
+            $res['Requirements'] = $this->requirements;
+        }
         if (null !== $this->resourceAttribute) {
             $res['ResourceAttribute'] = $this->resourceAttribute;
+        }
+        if (null !== $this->tenant) {
+            $res['Tenant'] = $this->tenant;
+        }
+        if (null !== $this->workloadUuid) {
+            $res['WorkloadUuid'] = $this->workloadUuid;
         }
 
         return $res;
@@ -122,32 +122,32 @@ class SchedulePodRequest extends Model
         if (isset($map['AliUid'])) {
             $model->aliUid = $map['AliUid'];
         }
-        if (isset($map['GroupUuid'])) {
-            $model->groupUuid = $map['GroupUuid'];
-        }
-        if (isset($map['WorkloadUuid'])) {
-            $model->workloadUuid = $map['WorkloadUuid'];
-        }
-        if (isset($map['Tenant'])) {
-            $model->tenant = $map['Tenant'];
-        }
-        if (isset($map['Regions'])) {
-            $model->regions = $map['Regions'];
-        }
         if (isset($map['AreaCodes'])) {
             $model->areaCodes = $map['AreaCodes'];
+        }
+        if (isset($map['GroupUuid'])) {
+            $model->groupUuid = $map['GroupUuid'];
         }
         if (isset($map['Isps'])) {
             $model->isps = $map['Isps'];
         }
-        if (isset($map['Requirements'])) {
-            $model->requirements = $map['Requirements'];
-        }
         if (isset($map['Labels'])) {
             $model->labels = $map['Labels'];
         }
+        if (isset($map['Regions'])) {
+            $model->regions = $map['Regions'];
+        }
+        if (isset($map['Requirements'])) {
+            $model->requirements = $map['Requirements'];
+        }
         if (isset($map['ResourceAttribute'])) {
             $model->resourceAttribute = $map['ResourceAttribute'];
+        }
+        if (isset($map['Tenant'])) {
+            $model->tenant = $map['Tenant'];
+        }
+        if (isset($map['WorkloadUuid'])) {
+            $model->workloadUuid = $map['WorkloadUuid'];
         }
 
         return $model;

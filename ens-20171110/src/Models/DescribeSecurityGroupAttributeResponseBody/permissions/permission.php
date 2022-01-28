@@ -16,6 +16,11 @@ class permission extends Model
     /**
      * @var string
      */
+    public $description;
+
+    /**
+     * @var string
+     */
     public $destCidrIp;
 
     /**
@@ -54,6 +59,7 @@ class permission extends Model
     public $sourcePortRange;
     protected $_name = [
         'creationTime'    => 'CreationTime',
+        'description'     => 'Description',
         'destCidrIp'      => 'DestCidrIp',
         'direction'       => 'Direction',
         'ipProtocol'      => 'IpProtocol',
@@ -73,6 +79,9 @@ class permission extends Model
         $res = [];
         if (null !== $this->creationTime) {
             $res['CreationTime'] = $this->creationTime;
+        }
+        if (null !== $this->description) {
+            $res['Description'] = $this->description;
         }
         if (null !== $this->destCidrIp) {
             $res['DestCidrIp'] = $this->destCidrIp;
@@ -112,6 +121,9 @@ class permission extends Model
         $model = new self();
         if (isset($map['CreationTime'])) {
             $model->creationTime = $map['CreationTime'];
+        }
+        if (isset($map['Description'])) {
+            $model->description = $map['Description'];
         }
         if (isset($map['DestCidrIp'])) {
             $model->destCidrIp = $map['DestCidrIp'];

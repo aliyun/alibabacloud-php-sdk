@@ -11,7 +11,17 @@ class PreCreateEnsServiceRequest extends Model
     /**
      * @var string
      */
-    public $version;
+    public $bandwidthType;
+
+    /**
+     * @var string
+     */
+    public $buyResourcesDetail;
+
+    /**
+     * @var string
+     */
+    public $dataDiskSize;
 
     /**
      * @var string
@@ -26,32 +36,12 @@ class PreCreateEnsServiceRequest extends Model
     /**
      * @var string
      */
-    public $instanceSpec;
-
-    /**
-     * @var string
-     */
-    public $systemDiskSize;
-
-    /**
-     * @var string
-     */
-    public $dataDiskSize;
-
-    /**
-     * @var string
-     */
-    public $bandwidthType;
-
-    /**
-     * @var string
-     */
     public $instanceBandwithdLimit;
 
     /**
      * @var string
      */
-    public $password;
+    public $instanceSpec;
 
     /**
      * @var string
@@ -61,17 +51,12 @@ class PreCreateEnsServiceRequest extends Model
     /**
      * @var string
      */
-    public $userData;
-
-    /**
-     * @var string
-     */
     public $netLevel;
 
     /**
      * @var string
      */
-    public $schedulingStrategy;
+    public $password;
 
     /**
      * @var string
@@ -81,23 +66,38 @@ class PreCreateEnsServiceRequest extends Model
     /**
      * @var string
      */
-    public $buyResourcesDetail;
+    public $schedulingStrategy;
+
+    /**
+     * @var string
+     */
+    public $systemDiskSize;
+
+    /**
+     * @var string
+     */
+    public $userData;
+
+    /**
+     * @var string
+     */
+    public $version;
     protected $_name = [
-        'version'                 => 'Version',
+        'bandwidthType'           => 'BandwidthType',
+        'buyResourcesDetail'      => 'BuyResourcesDetail',
+        'dataDiskSize'            => 'DataDiskSize',
         'ensServiceName'          => 'EnsServiceName',
         'imageId'                 => 'ImageId',
-        'instanceSpec'            => 'InstanceSpec',
-        'systemDiskSize'          => 'SystemDiskSize',
-        'dataDiskSize'            => 'DataDiskSize',
-        'bandwidthType'           => 'BandwidthType',
         'instanceBandwithdLimit'  => 'InstanceBandwithdLimit',
-        'password'                => 'Password',
+        'instanceSpec'            => 'InstanceSpec',
         'keyPairName'             => 'KeyPairName',
-        'userData'                => 'UserData',
         'netLevel'                => 'NetLevel',
-        'schedulingStrategy'      => 'SchedulingStrategy',
+        'password'                => 'Password',
         'schedulingPriceStrategy' => 'SchedulingPriceStrategy',
-        'buyResourcesDetail'      => 'BuyResourcesDetail',
+        'schedulingStrategy'      => 'SchedulingStrategy',
+        'systemDiskSize'          => 'SystemDiskSize',
+        'userData'                => 'UserData',
+        'version'                 => 'Version',
     ];
 
     public function validate()
@@ -107,8 +107,14 @@ class PreCreateEnsServiceRequest extends Model
     public function toMap()
     {
         $res = [];
-        if (null !== $this->version) {
-            $res['Version'] = $this->version;
+        if (null !== $this->bandwidthType) {
+            $res['BandwidthType'] = $this->bandwidthType;
+        }
+        if (null !== $this->buyResourcesDetail) {
+            $res['BuyResourcesDetail'] = $this->buyResourcesDetail;
+        }
+        if (null !== $this->dataDiskSize) {
+            $res['DataDiskSize'] = $this->dataDiskSize;
         }
         if (null !== $this->ensServiceName) {
             $res['EnsServiceName'] = $this->ensServiceName;
@@ -116,41 +122,35 @@ class PreCreateEnsServiceRequest extends Model
         if (null !== $this->imageId) {
             $res['ImageId'] = $this->imageId;
         }
-        if (null !== $this->instanceSpec) {
-            $res['InstanceSpec'] = $this->instanceSpec;
-        }
-        if (null !== $this->systemDiskSize) {
-            $res['SystemDiskSize'] = $this->systemDiskSize;
-        }
-        if (null !== $this->dataDiskSize) {
-            $res['DataDiskSize'] = $this->dataDiskSize;
-        }
-        if (null !== $this->bandwidthType) {
-            $res['BandwidthType'] = $this->bandwidthType;
-        }
         if (null !== $this->instanceBandwithdLimit) {
             $res['InstanceBandwithdLimit'] = $this->instanceBandwithdLimit;
         }
-        if (null !== $this->password) {
-            $res['Password'] = $this->password;
+        if (null !== $this->instanceSpec) {
+            $res['InstanceSpec'] = $this->instanceSpec;
         }
         if (null !== $this->keyPairName) {
             $res['KeyPairName'] = $this->keyPairName;
         }
-        if (null !== $this->userData) {
-            $res['UserData'] = $this->userData;
-        }
         if (null !== $this->netLevel) {
             $res['NetLevel'] = $this->netLevel;
         }
-        if (null !== $this->schedulingStrategy) {
-            $res['SchedulingStrategy'] = $this->schedulingStrategy;
+        if (null !== $this->password) {
+            $res['Password'] = $this->password;
         }
         if (null !== $this->schedulingPriceStrategy) {
             $res['SchedulingPriceStrategy'] = $this->schedulingPriceStrategy;
         }
-        if (null !== $this->buyResourcesDetail) {
-            $res['BuyResourcesDetail'] = $this->buyResourcesDetail;
+        if (null !== $this->schedulingStrategy) {
+            $res['SchedulingStrategy'] = $this->schedulingStrategy;
+        }
+        if (null !== $this->systemDiskSize) {
+            $res['SystemDiskSize'] = $this->systemDiskSize;
+        }
+        if (null !== $this->userData) {
+            $res['UserData'] = $this->userData;
+        }
+        if (null !== $this->version) {
+            $res['Version'] = $this->version;
         }
 
         return $res;
@@ -164,8 +164,14 @@ class PreCreateEnsServiceRequest extends Model
     public static function fromMap($map = [])
     {
         $model = new self();
-        if (isset($map['Version'])) {
-            $model->version = $map['Version'];
+        if (isset($map['BandwidthType'])) {
+            $model->bandwidthType = $map['BandwidthType'];
+        }
+        if (isset($map['BuyResourcesDetail'])) {
+            $model->buyResourcesDetail = $map['BuyResourcesDetail'];
+        }
+        if (isset($map['DataDiskSize'])) {
+            $model->dataDiskSize = $map['DataDiskSize'];
         }
         if (isset($map['EnsServiceName'])) {
             $model->ensServiceName = $map['EnsServiceName'];
@@ -173,41 +179,35 @@ class PreCreateEnsServiceRequest extends Model
         if (isset($map['ImageId'])) {
             $model->imageId = $map['ImageId'];
         }
-        if (isset($map['InstanceSpec'])) {
-            $model->instanceSpec = $map['InstanceSpec'];
-        }
-        if (isset($map['SystemDiskSize'])) {
-            $model->systemDiskSize = $map['SystemDiskSize'];
-        }
-        if (isset($map['DataDiskSize'])) {
-            $model->dataDiskSize = $map['DataDiskSize'];
-        }
-        if (isset($map['BandwidthType'])) {
-            $model->bandwidthType = $map['BandwidthType'];
-        }
         if (isset($map['InstanceBandwithdLimit'])) {
             $model->instanceBandwithdLimit = $map['InstanceBandwithdLimit'];
         }
-        if (isset($map['Password'])) {
-            $model->password = $map['Password'];
+        if (isset($map['InstanceSpec'])) {
+            $model->instanceSpec = $map['InstanceSpec'];
         }
         if (isset($map['KeyPairName'])) {
             $model->keyPairName = $map['KeyPairName'];
         }
-        if (isset($map['UserData'])) {
-            $model->userData = $map['UserData'];
-        }
         if (isset($map['NetLevel'])) {
             $model->netLevel = $map['NetLevel'];
         }
-        if (isset($map['SchedulingStrategy'])) {
-            $model->schedulingStrategy = $map['SchedulingStrategy'];
+        if (isset($map['Password'])) {
+            $model->password = $map['Password'];
         }
         if (isset($map['SchedulingPriceStrategy'])) {
             $model->schedulingPriceStrategy = $map['SchedulingPriceStrategy'];
         }
-        if (isset($map['BuyResourcesDetail'])) {
-            $model->buyResourcesDetail = $map['BuyResourcesDetail'];
+        if (isset($map['SchedulingStrategy'])) {
+            $model->schedulingStrategy = $map['SchedulingStrategy'];
+        }
+        if (isset($map['SystemDiskSize'])) {
+            $model->systemDiskSize = $map['SystemDiskSize'];
+        }
+        if (isset($map['UserData'])) {
+            $model->userData = $map['UserData'];
+        }
+        if (isset($map['Version'])) {
+            $model->version = $map['Version'];
         }
 
         return $model;

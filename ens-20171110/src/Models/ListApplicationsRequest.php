@@ -11,17 +11,27 @@ class ListApplicationsRequest extends Model
     /**
      * @var string
      */
-    public $clusterNames;
-
-    /**
-     * @var string
-     */
     public $appVersions;
 
     /**
      * @var string
      */
+    public $clusterNames;
+
+    /**
+     * @var string
+     */
     public $level;
+
+    /**
+     * @var string
+     */
+    public $maxDate;
+
+    /**
+     * @var string
+     */
+    public $minDate;
 
     /**
      * @var string
@@ -37,25 +47,15 @@ class ListApplicationsRequest extends Model
      * @var int
      */
     public $pageSize;
-
-    /**
-     * @var string
-     */
-    public $minDate;
-
-    /**
-     * @var string
-     */
-    public $maxDate;
     protected $_name = [
-        'clusterNames'     => 'ClusterNames',
         'appVersions'      => 'AppVersions',
+        'clusterNames'     => 'ClusterNames',
         'level'            => 'Level',
+        'maxDate'          => 'MaxDate',
+        'minDate'          => 'MinDate',
         'outAppInfoParams' => 'OutAppInfoParams',
         'pageNumber'       => 'PageNumber',
         'pageSize'         => 'PageSize',
-        'minDate'          => 'MinDate',
-        'maxDate'          => 'MaxDate',
     ];
 
     public function validate()
@@ -65,14 +65,20 @@ class ListApplicationsRequest extends Model
     public function toMap()
     {
         $res = [];
-        if (null !== $this->clusterNames) {
-            $res['ClusterNames'] = $this->clusterNames;
-        }
         if (null !== $this->appVersions) {
             $res['AppVersions'] = $this->appVersions;
         }
+        if (null !== $this->clusterNames) {
+            $res['ClusterNames'] = $this->clusterNames;
+        }
         if (null !== $this->level) {
             $res['Level'] = $this->level;
+        }
+        if (null !== $this->maxDate) {
+            $res['MaxDate'] = $this->maxDate;
+        }
+        if (null !== $this->minDate) {
+            $res['MinDate'] = $this->minDate;
         }
         if (null !== $this->outAppInfoParams) {
             $res['OutAppInfoParams'] = $this->outAppInfoParams;
@@ -82,12 +88,6 @@ class ListApplicationsRequest extends Model
         }
         if (null !== $this->pageSize) {
             $res['PageSize'] = $this->pageSize;
-        }
-        if (null !== $this->minDate) {
-            $res['MinDate'] = $this->minDate;
-        }
-        if (null !== $this->maxDate) {
-            $res['MaxDate'] = $this->maxDate;
         }
 
         return $res;
@@ -101,14 +101,20 @@ class ListApplicationsRequest extends Model
     public static function fromMap($map = [])
     {
         $model = new self();
-        if (isset($map['ClusterNames'])) {
-            $model->clusterNames = $map['ClusterNames'];
-        }
         if (isset($map['AppVersions'])) {
             $model->appVersions = $map['AppVersions'];
         }
+        if (isset($map['ClusterNames'])) {
+            $model->clusterNames = $map['ClusterNames'];
+        }
         if (isset($map['Level'])) {
             $model->level = $map['Level'];
+        }
+        if (isset($map['MaxDate'])) {
+            $model->maxDate = $map['MaxDate'];
+        }
+        if (isset($map['MinDate'])) {
+            $model->minDate = $map['MinDate'];
         }
         if (isset($map['OutAppInfoParams'])) {
             $model->outAppInfoParams = $map['OutAppInfoParams'];
@@ -118,12 +124,6 @@ class ListApplicationsRequest extends Model
         }
         if (isset($map['PageSize'])) {
             $model->pageSize = $map['PageSize'];
-        }
-        if (isset($map['MinDate'])) {
-            $model->minDate = $map['MinDate'];
-        }
-        if (isset($map['MaxDate'])) {
-            $model->maxDate = $map['MaxDate'];
         }
 
         return $model;

@@ -9,16 +9,6 @@ use AlibabaCloud\Tea\Model;
 class DescribeSecurityGroupsRequest extends Model
 {
     /**
-     * @var string
-     */
-    public $version;
-
-    /**
-     * @var string
-     */
-    public $securityGroupId;
-
-    /**
      * @var int
      */
     public $pageNumber;
@@ -31,13 +21,23 @@ class DescribeSecurityGroupsRequest extends Model
     /**
      * @var string
      */
+    public $securityGroupId;
+
+    /**
+     * @var string
+     */
     public $securityGroupName;
+
+    /**
+     * @var string
+     */
+    public $version;
     protected $_name = [
-        'version'           => 'Version',
-        'securityGroupId'   => 'SecurityGroupId',
         'pageNumber'        => 'PageNumber',
         'pageSize'          => 'PageSize',
+        'securityGroupId'   => 'SecurityGroupId',
         'securityGroupName' => 'SecurityGroupName',
+        'version'           => 'Version',
     ];
 
     public function validate()
@@ -47,20 +47,20 @@ class DescribeSecurityGroupsRequest extends Model
     public function toMap()
     {
         $res = [];
-        if (null !== $this->version) {
-            $res['Version'] = $this->version;
-        }
-        if (null !== $this->securityGroupId) {
-            $res['SecurityGroupId'] = $this->securityGroupId;
-        }
         if (null !== $this->pageNumber) {
             $res['PageNumber'] = $this->pageNumber;
         }
         if (null !== $this->pageSize) {
             $res['PageSize'] = $this->pageSize;
         }
+        if (null !== $this->securityGroupId) {
+            $res['SecurityGroupId'] = $this->securityGroupId;
+        }
         if (null !== $this->securityGroupName) {
             $res['SecurityGroupName'] = $this->securityGroupName;
+        }
+        if (null !== $this->version) {
+            $res['Version'] = $this->version;
         }
 
         return $res;
@@ -74,20 +74,20 @@ class DescribeSecurityGroupsRequest extends Model
     public static function fromMap($map = [])
     {
         $model = new self();
-        if (isset($map['Version'])) {
-            $model->version = $map['Version'];
-        }
-        if (isset($map['SecurityGroupId'])) {
-            $model->securityGroupId = $map['SecurityGroupId'];
-        }
         if (isset($map['PageNumber'])) {
             $model->pageNumber = $map['PageNumber'];
         }
         if (isset($map['PageSize'])) {
             $model->pageSize = $map['PageSize'];
         }
+        if (isset($map['SecurityGroupId'])) {
+            $model->securityGroupId = $map['SecurityGroupId'];
+        }
         if (isset($map['SecurityGroupName'])) {
             $model->securityGroupName = $map['SecurityGroupName'];
+        }
+        if (isset($map['Version'])) {
+            $model->version = $map['Version'];
         }
 
         return $model;

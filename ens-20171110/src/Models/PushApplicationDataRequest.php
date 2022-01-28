@@ -11,27 +11,27 @@ class PushApplicationDataRequest extends Model
     /**
      * @var string
      */
+    public $appId;
+
+    /**
+     * @var string
+     */
     public $data;
 
     /**
      * @var string
      */
-    public $appId;
+    public $pushStrategy;
 
     /**
      * @var int
      */
     public $timeout;
-
-    /**
-     * @var string
-     */
-    public $pushStrategy;
     protected $_name = [
-        'data'         => 'Data',
         'appId'        => 'AppId',
-        'timeout'      => 'Timeout',
+        'data'         => 'Data',
         'pushStrategy' => 'PushStrategy',
+        'timeout'      => 'Timeout',
     ];
 
     public function validate()
@@ -41,17 +41,17 @@ class PushApplicationDataRequest extends Model
     public function toMap()
     {
         $res = [];
-        if (null !== $this->data) {
-            $res['Data'] = $this->data;
-        }
         if (null !== $this->appId) {
             $res['AppId'] = $this->appId;
         }
-        if (null !== $this->timeout) {
-            $res['Timeout'] = $this->timeout;
+        if (null !== $this->data) {
+            $res['Data'] = $this->data;
         }
         if (null !== $this->pushStrategy) {
             $res['PushStrategy'] = $this->pushStrategy;
+        }
+        if (null !== $this->timeout) {
+            $res['Timeout'] = $this->timeout;
         }
 
         return $res;
@@ -65,17 +65,17 @@ class PushApplicationDataRequest extends Model
     public static function fromMap($map = [])
     {
         $model = new self();
-        if (isset($map['Data'])) {
-            $model->data = $map['Data'];
-        }
         if (isset($map['AppId'])) {
             $model->appId = $map['AppId'];
         }
-        if (isset($map['Timeout'])) {
-            $model->timeout = $map['Timeout'];
+        if (isset($map['Data'])) {
+            $model->data = $map['Data'];
         }
         if (isset($map['PushStrategy'])) {
             $model->pushStrategy = $map['PushStrategy'];
+        }
+        if (isset($map['Timeout'])) {
+            $model->timeout = $map['Timeout'];
         }
 
         return $model;

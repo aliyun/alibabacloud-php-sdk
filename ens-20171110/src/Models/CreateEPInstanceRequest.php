@@ -11,12 +11,12 @@ class CreateEPInstanceRequest extends Model
     /**
      * @var string
      */
-    public $EPNInstanceType;
+    public $EPNInstanceName;
 
     /**
      * @var string
      */
-    public $EPNInstanceName;
+    public $EPNInstanceType;
 
     /**
      * @var string
@@ -24,20 +24,20 @@ class CreateEPInstanceRequest extends Model
     public $internetChargeType;
 
     /**
-     * @var string
-     */
-    public $networkingModel;
-
-    /**
      * @var int
      */
     public $internetMaxBandwidthOut;
+
+    /**
+     * @var string
+     */
+    public $networkingModel;
     protected $_name = [
-        'EPNInstanceType'         => 'EPNInstanceType',
         'EPNInstanceName'         => 'EPNInstanceName',
+        'EPNInstanceType'         => 'EPNInstanceType',
         'internetChargeType'      => 'InternetChargeType',
-        'networkingModel'         => 'NetworkingModel',
         'internetMaxBandwidthOut' => 'InternetMaxBandwidthOut',
+        'networkingModel'         => 'NetworkingModel',
     ];
 
     public function validate()
@@ -47,20 +47,20 @@ class CreateEPInstanceRequest extends Model
     public function toMap()
     {
         $res = [];
-        if (null !== $this->EPNInstanceType) {
-            $res['EPNInstanceType'] = $this->EPNInstanceType;
-        }
         if (null !== $this->EPNInstanceName) {
             $res['EPNInstanceName'] = $this->EPNInstanceName;
+        }
+        if (null !== $this->EPNInstanceType) {
+            $res['EPNInstanceType'] = $this->EPNInstanceType;
         }
         if (null !== $this->internetChargeType) {
             $res['InternetChargeType'] = $this->internetChargeType;
         }
-        if (null !== $this->networkingModel) {
-            $res['NetworkingModel'] = $this->networkingModel;
-        }
         if (null !== $this->internetMaxBandwidthOut) {
             $res['InternetMaxBandwidthOut'] = $this->internetMaxBandwidthOut;
+        }
+        if (null !== $this->networkingModel) {
+            $res['NetworkingModel'] = $this->networkingModel;
         }
 
         return $res;
@@ -74,20 +74,20 @@ class CreateEPInstanceRequest extends Model
     public static function fromMap($map = [])
     {
         $model = new self();
-        if (isset($map['EPNInstanceType'])) {
-            $model->EPNInstanceType = $map['EPNInstanceType'];
-        }
         if (isset($map['EPNInstanceName'])) {
             $model->EPNInstanceName = $map['EPNInstanceName'];
+        }
+        if (isset($map['EPNInstanceType'])) {
+            $model->EPNInstanceType = $map['EPNInstanceType'];
         }
         if (isset($map['InternetChargeType'])) {
             $model->internetChargeType = $map['InternetChargeType'];
         }
-        if (isset($map['NetworkingModel'])) {
-            $model->networkingModel = $map['NetworkingModel'];
-        }
         if (isset($map['InternetMaxBandwidthOut'])) {
             $model->internetMaxBandwidthOut = $map['InternetMaxBandwidthOut'];
+        }
+        if (isset($map['NetworkingModel'])) {
+            $model->networkingModel = $map['NetworkingModel'];
         }
 
         return $model;

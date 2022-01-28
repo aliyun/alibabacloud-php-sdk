@@ -16,7 +16,7 @@ class DeleteVmResponseBody extends Model
     /**
      * @var string
      */
-    public $msg;
+    public $data;
 
     /**
      * @var string
@@ -26,7 +26,7 @@ class DeleteVmResponseBody extends Model
     /**
      * @var string
      */
-    public $data;
+    public $msg;
 
     /**
      * @var string
@@ -34,9 +34,9 @@ class DeleteVmResponseBody extends Model
     public $requestId;
     protected $_name = [
         'code'      => 'Code',
-        'msg'       => 'Msg',
-        'desc'      => 'Desc',
         'data'      => 'Data',
+        'desc'      => 'Desc',
+        'msg'       => 'Msg',
         'requestId' => 'RequestId',
     ];
 
@@ -50,14 +50,14 @@ class DeleteVmResponseBody extends Model
         if (null !== $this->code) {
             $res['Code'] = $this->code;
         }
-        if (null !== $this->msg) {
-            $res['Msg'] = $this->msg;
+        if (null !== $this->data) {
+            $res['Data'] = $this->data;
         }
         if (null !== $this->desc) {
             $res['Desc'] = $this->desc;
         }
-        if (null !== $this->data) {
-            $res['Data'] = $this->data;
+        if (null !== $this->msg) {
+            $res['Msg'] = $this->msg;
         }
         if (null !== $this->requestId) {
             $res['RequestId'] = $this->requestId;
@@ -77,14 +77,14 @@ class DeleteVmResponseBody extends Model
         if (isset($map['Code'])) {
             $model->code = $map['Code'];
         }
-        if (isset($map['Msg'])) {
-            $model->msg = $map['Msg'];
+        if (isset($map['Data'])) {
+            $model->data = $map['Data'];
         }
         if (isset($map['Desc'])) {
             $model->desc = $map['Desc'];
         }
-        if (isset($map['Data'])) {
-            $model->data = $map['Data'];
+        if (isset($map['Msg'])) {
+            $model->msg = $map['Msg'];
         }
         if (isset($map['RequestId'])) {
             $model->requestId = $map['RequestId'];

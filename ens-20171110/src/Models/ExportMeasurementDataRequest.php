@@ -11,7 +11,7 @@ class ExportMeasurementDataRequest extends Model
     /**
      * @var string
      */
-    public $version;
+    public $endDate;
 
     /**
      * @var string
@@ -21,11 +21,11 @@ class ExportMeasurementDataRequest extends Model
     /**
      * @var string
      */
-    public $endDate;
+    public $version;
     protected $_name = [
-        'version'   => 'Version',
-        'startDate' => 'StartDate',
         'endDate'   => 'EndDate',
+        'startDate' => 'StartDate',
+        'version'   => 'Version',
     ];
 
     public function validate()
@@ -35,14 +35,14 @@ class ExportMeasurementDataRequest extends Model
     public function toMap()
     {
         $res = [];
-        if (null !== $this->version) {
-            $res['Version'] = $this->version;
+        if (null !== $this->endDate) {
+            $res['EndDate'] = $this->endDate;
         }
         if (null !== $this->startDate) {
             $res['StartDate'] = $this->startDate;
         }
-        if (null !== $this->endDate) {
-            $res['EndDate'] = $this->endDate;
+        if (null !== $this->version) {
+            $res['Version'] = $this->version;
         }
 
         return $res;
@@ -56,14 +56,14 @@ class ExportMeasurementDataRequest extends Model
     public static function fromMap($map = [])
     {
         $model = new self();
-        if (isset($map['Version'])) {
-            $model->version = $map['Version'];
+        if (isset($map['EndDate'])) {
+            $model->endDate = $map['EndDate'];
         }
         if (isset($map['StartDate'])) {
             $model->startDate = $map['StartDate'];
         }
-        if (isset($map['EndDate'])) {
-            $model->endDate = $map['EndDate'];
+        if (isset($map['Version'])) {
+            $model->version = $map['Version'];
         }
 
         return $model;

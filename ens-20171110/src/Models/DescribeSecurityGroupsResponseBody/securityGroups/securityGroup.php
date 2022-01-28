@@ -16,6 +16,16 @@ class securityGroup extends Model
     /**
      * @var string
      */
+    public $description;
+
+    /**
+     * @var int
+     */
+    public $instanceCount;
+
+    /**
+     * @var string
+     */
     public $securityGroupId;
 
     /**
@@ -24,6 +34,8 @@ class securityGroup extends Model
     public $securityGroupName;
     protected $_name = [
         'creationTime'      => 'CreationTime',
+        'description'       => 'Description',
+        'instanceCount'     => 'InstanceCount',
         'securityGroupId'   => 'SecurityGroupId',
         'securityGroupName' => 'SecurityGroupName',
     ];
@@ -37,6 +49,12 @@ class securityGroup extends Model
         $res = [];
         if (null !== $this->creationTime) {
             $res['CreationTime'] = $this->creationTime;
+        }
+        if (null !== $this->description) {
+            $res['Description'] = $this->description;
+        }
+        if (null !== $this->instanceCount) {
+            $res['InstanceCount'] = $this->instanceCount;
         }
         if (null !== $this->securityGroupId) {
             $res['SecurityGroupId'] = $this->securityGroupId;
@@ -58,6 +76,12 @@ class securityGroup extends Model
         $model = new self();
         if (isset($map['CreationTime'])) {
             $model->creationTime = $map['CreationTime'];
+        }
+        if (isset($map['Description'])) {
+            $model->description = $map['Description'];
+        }
+        if (isset($map['InstanceCount'])) {
+            $model->instanceCount = $map['InstanceCount'];
         }
         if (isset($map['SecurityGroupId'])) {
             $model->securityGroupId = $map['SecurityGroupId'];

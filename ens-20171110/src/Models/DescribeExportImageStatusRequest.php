@@ -11,15 +11,15 @@ class DescribeExportImageStatusRequest extends Model
     /**
      * @var string
      */
-    public $version;
+    public $imageId;
 
     /**
      * @var string
      */
-    public $imageId;
+    public $version;
     protected $_name = [
-        'version' => 'Version',
         'imageId' => 'ImageId',
+        'version' => 'Version',
     ];
 
     public function validate()
@@ -29,11 +29,11 @@ class DescribeExportImageStatusRequest extends Model
     public function toMap()
     {
         $res = [];
-        if (null !== $this->version) {
-            $res['Version'] = $this->version;
-        }
         if (null !== $this->imageId) {
             $res['ImageId'] = $this->imageId;
+        }
+        if (null !== $this->version) {
+            $res['Version'] = $this->version;
         }
 
         return $res;
@@ -47,11 +47,11 @@ class DescribeExportImageStatusRequest extends Model
     public static function fromMap($map = [])
     {
         $model = new self();
-        if (isset($map['Version'])) {
-            $model->version = $map['Version'];
-        }
         if (isset($map['ImageId'])) {
             $model->imageId = $map['ImageId'];
+        }
+        if (isset($map['Version'])) {
+            $model->version = $map['Version'];
         }
 
         return $model;

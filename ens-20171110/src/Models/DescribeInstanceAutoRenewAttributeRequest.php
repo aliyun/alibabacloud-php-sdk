@@ -11,21 +11,21 @@ class DescribeInstanceAutoRenewAttributeRequest extends Model
     /**
      * @var string
      */
-    public $version;
-
-    /**
-     * @var string
-     */
     public $instanceIds;
 
     /**
      * @var int
      */
     public $ownerId;
+
+    /**
+     * @var string
+     */
+    public $version;
     protected $_name = [
-        'version'     => 'Version',
         'instanceIds' => 'InstanceIds',
         'ownerId'     => 'OwnerId',
+        'version'     => 'Version',
     ];
 
     public function validate()
@@ -35,14 +35,14 @@ class DescribeInstanceAutoRenewAttributeRequest extends Model
     public function toMap()
     {
         $res = [];
-        if (null !== $this->version) {
-            $res['Version'] = $this->version;
-        }
         if (null !== $this->instanceIds) {
             $res['InstanceIds'] = $this->instanceIds;
         }
         if (null !== $this->ownerId) {
             $res['OwnerId'] = $this->ownerId;
+        }
+        if (null !== $this->version) {
+            $res['Version'] = $this->version;
         }
 
         return $res;
@@ -56,14 +56,14 @@ class DescribeInstanceAutoRenewAttributeRequest extends Model
     public static function fromMap($map = [])
     {
         $model = new self();
-        if (isset($map['Version'])) {
-            $model->version = $map['Version'];
-        }
         if (isset($map['InstanceIds'])) {
             $model->instanceIds = $map['InstanceIds'];
         }
         if (isset($map['OwnerId'])) {
             $model->ownerId = $map['OwnerId'];
+        }
+        if (isset($map['Version'])) {
+            $model->version = $map['Version'];
         }
 
         return $model;

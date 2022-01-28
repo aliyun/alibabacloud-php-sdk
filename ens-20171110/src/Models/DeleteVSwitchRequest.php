@@ -11,15 +11,15 @@ class DeleteVSwitchRequest extends Model
     /**
      * @var string
      */
-    public $version;
+    public $vSwitchId;
 
     /**
      * @var string
      */
-    public $vSwitchId;
+    public $version;
     protected $_name = [
-        'version'   => 'Version',
         'vSwitchId' => 'VSwitchId',
+        'version'   => 'Version',
     ];
 
     public function validate()
@@ -29,11 +29,11 @@ class DeleteVSwitchRequest extends Model
     public function toMap()
     {
         $res = [];
-        if (null !== $this->version) {
-            $res['Version'] = $this->version;
-        }
         if (null !== $this->vSwitchId) {
             $res['VSwitchId'] = $this->vSwitchId;
+        }
+        if (null !== $this->version) {
+            $res['Version'] = $this->version;
         }
 
         return $res;
@@ -47,11 +47,11 @@ class DeleteVSwitchRequest extends Model
     public static function fromMap($map = [])
     {
         $model = new self();
-        if (isset($map['Version'])) {
-            $model->version = $map['Version'];
-        }
         if (isset($map['VSwitchId'])) {
             $model->vSwitchId = $map['VSwitchId'];
+        }
+        if (isset($map['Version'])) {
+            $model->version = $map['Version'];
         }
 
         return $model;

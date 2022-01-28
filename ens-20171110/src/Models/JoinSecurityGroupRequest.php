@@ -11,7 +11,7 @@ class JoinSecurityGroupRequest extends Model
     /**
      * @var string
      */
-    public $version;
+    public $instanceId;
 
     /**
      * @var string
@@ -21,11 +21,11 @@ class JoinSecurityGroupRequest extends Model
     /**
      * @var string
      */
-    public $instanceId;
+    public $version;
     protected $_name = [
-        'version'         => 'Version',
-        'securityGroupId' => 'SecurityGroupId',
         'instanceId'      => 'InstanceId',
+        'securityGroupId' => 'SecurityGroupId',
+        'version'         => 'Version',
     ];
 
     public function validate()
@@ -35,14 +35,14 @@ class JoinSecurityGroupRequest extends Model
     public function toMap()
     {
         $res = [];
-        if (null !== $this->version) {
-            $res['Version'] = $this->version;
+        if (null !== $this->instanceId) {
+            $res['InstanceId'] = $this->instanceId;
         }
         if (null !== $this->securityGroupId) {
             $res['SecurityGroupId'] = $this->securityGroupId;
         }
-        if (null !== $this->instanceId) {
-            $res['InstanceId'] = $this->instanceId;
+        if (null !== $this->version) {
+            $res['Version'] = $this->version;
         }
 
         return $res;
@@ -56,14 +56,14 @@ class JoinSecurityGroupRequest extends Model
     public static function fromMap($map = [])
     {
         $model = new self();
-        if (isset($map['Version'])) {
-            $model->version = $map['Version'];
+        if (isset($map['InstanceId'])) {
+            $model->instanceId = $map['InstanceId'];
         }
         if (isset($map['SecurityGroupId'])) {
             $model->securityGroupId = $map['SecurityGroupId'];
         }
-        if (isset($map['InstanceId'])) {
-            $model->instanceId = $map['InstanceId'];
+        if (isset($map['Version'])) {
+            $model->version = $map['Version'];
         }
 
         return $model;

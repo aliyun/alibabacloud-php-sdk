@@ -11,7 +11,7 @@ class DescribeEipAddressesRequest extends Model
     /**
      * @var string
      */
-    public $version;
+    public $eips;
 
     /**
      * @var string
@@ -21,11 +21,11 @@ class DescribeEipAddressesRequest extends Model
     /**
      * @var string
      */
-    public $eips;
+    public $version;
     protected $_name = [
-        'version'     => 'Version',
-        'ensRegionId' => 'EnsRegionId',
         'eips'        => 'Eips',
+        'ensRegionId' => 'EnsRegionId',
+        'version'     => 'Version',
     ];
 
     public function validate()
@@ -35,14 +35,14 @@ class DescribeEipAddressesRequest extends Model
     public function toMap()
     {
         $res = [];
-        if (null !== $this->version) {
-            $res['Version'] = $this->version;
+        if (null !== $this->eips) {
+            $res['Eips'] = $this->eips;
         }
         if (null !== $this->ensRegionId) {
             $res['EnsRegionId'] = $this->ensRegionId;
         }
-        if (null !== $this->eips) {
-            $res['Eips'] = $this->eips;
+        if (null !== $this->version) {
+            $res['Version'] = $this->version;
         }
 
         return $res;
@@ -56,14 +56,14 @@ class DescribeEipAddressesRequest extends Model
     public static function fromMap($map = [])
     {
         $model = new self();
-        if (isset($map['Version'])) {
-            $model->version = $map['Version'];
+        if (isset($map['Eips'])) {
+            $model->eips = $map['Eips'];
         }
         if (isset($map['EnsRegionId'])) {
             $model->ensRegionId = $map['EnsRegionId'];
         }
-        if (isset($map['Eips'])) {
-            $model->eips = $map['Eips'];
+        if (isset($map['Version'])) {
+            $model->version = $map['Version'];
         }
 
         return $model;

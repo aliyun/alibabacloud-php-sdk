@@ -19,19 +19,19 @@ class ModifyEpnInstanceRequest extends Model
     public $EPNInstanceName;
 
     /**
-     * @var string
-     */
-    public $networkingModel;
-
-    /**
      * @var int
      */
     public $internetMaxBandwidthOut;
+
+    /**
+     * @var string
+     */
+    public $networkingModel;
     protected $_name = [
         'EPNInstanceId'           => 'EPNInstanceId',
         'EPNInstanceName'         => 'EPNInstanceName',
-        'networkingModel'         => 'NetworkingModel',
         'internetMaxBandwidthOut' => 'InternetMaxBandwidthOut',
+        'networkingModel'         => 'NetworkingModel',
     ];
 
     public function validate()
@@ -47,11 +47,11 @@ class ModifyEpnInstanceRequest extends Model
         if (null !== $this->EPNInstanceName) {
             $res['EPNInstanceName'] = $this->EPNInstanceName;
         }
-        if (null !== $this->networkingModel) {
-            $res['NetworkingModel'] = $this->networkingModel;
-        }
         if (null !== $this->internetMaxBandwidthOut) {
             $res['InternetMaxBandwidthOut'] = $this->internetMaxBandwidthOut;
+        }
+        if (null !== $this->networkingModel) {
+            $res['NetworkingModel'] = $this->networkingModel;
         }
 
         return $res;
@@ -71,11 +71,11 @@ class ModifyEpnInstanceRequest extends Model
         if (isset($map['EPNInstanceName'])) {
             $model->EPNInstanceName = $map['EPNInstanceName'];
         }
-        if (isset($map['NetworkingModel'])) {
-            $model->networkingModel = $map['NetworkingModel'];
-        }
         if (isset($map['InternetMaxBandwidthOut'])) {
             $model->internetMaxBandwidthOut = $map['InternetMaxBandwidthOut'];
+        }
+        if (isset($map['NetworkingModel'])) {
+            $model->networkingModel = $map['NetworkingModel'];
         }
 
         return $model;

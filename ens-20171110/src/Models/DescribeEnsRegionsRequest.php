@@ -11,15 +11,15 @@ class DescribeEnsRegionsRequest extends Model
     /**
      * @var string
      */
-    public $version;
+    public $ensRegionId;
 
     /**
      * @var string
      */
-    public $ensRegionId;
+    public $version;
     protected $_name = [
-        'version'     => 'Version',
         'ensRegionId' => 'EnsRegionId',
+        'version'     => 'Version',
     ];
 
     public function validate()
@@ -29,11 +29,11 @@ class DescribeEnsRegionsRequest extends Model
     public function toMap()
     {
         $res = [];
-        if (null !== $this->version) {
-            $res['Version'] = $this->version;
-        }
         if (null !== $this->ensRegionId) {
             $res['EnsRegionId'] = $this->ensRegionId;
+        }
+        if (null !== $this->version) {
+            $res['Version'] = $this->version;
         }
 
         return $res;
@@ -47,11 +47,11 @@ class DescribeEnsRegionsRequest extends Model
     public static function fromMap($map = [])
     {
         $model = new self();
-        if (isset($map['Version'])) {
-            $model->version = $map['Version'];
-        }
         if (isset($map['EnsRegionId'])) {
             $model->ensRegionId = $map['EnsRegionId'];
+        }
+        if (isset($map['Version'])) {
+            $model->version = $map['Version'];
         }
 
         return $model;

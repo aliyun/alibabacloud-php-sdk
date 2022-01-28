@@ -11,21 +11,21 @@ class CreateEnsServiceRequest extends Model
     /**
      * @var string
      */
-    public $version;
-
-    /**
-     * @var string
-     */
     public $ensServiceId;
 
     /**
      * @var string
      */
     public $orderType;
+
+    /**
+     * @var string
+     */
+    public $version;
     protected $_name = [
-        'version'      => 'Version',
         'ensServiceId' => 'EnsServiceId',
         'orderType'    => 'OrderType',
+        'version'      => 'Version',
     ];
 
     public function validate()
@@ -35,14 +35,14 @@ class CreateEnsServiceRequest extends Model
     public function toMap()
     {
         $res = [];
-        if (null !== $this->version) {
-            $res['Version'] = $this->version;
-        }
         if (null !== $this->ensServiceId) {
             $res['EnsServiceId'] = $this->ensServiceId;
         }
         if (null !== $this->orderType) {
             $res['OrderType'] = $this->orderType;
+        }
+        if (null !== $this->version) {
+            $res['Version'] = $this->version;
         }
 
         return $res;
@@ -56,14 +56,14 @@ class CreateEnsServiceRequest extends Model
     public static function fromMap($map = [])
     {
         $model = new self();
-        if (isset($map['Version'])) {
-            $model->version = $map['Version'];
-        }
         if (isset($map['EnsServiceId'])) {
             $model->ensServiceId = $map['EnsServiceId'];
         }
         if (isset($map['OrderType'])) {
             $model->orderType = $map['OrderType'];
+        }
+        if (isset($map['Version'])) {
+            $model->version = $map['Version'];
         }
 
         return $model;

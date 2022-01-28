@@ -11,7 +11,7 @@ class RebootInstanceRequest extends Model
     /**
      * @var string
      */
-    public $version;
+    public $forceStop;
 
     /**
      * @var string
@@ -21,11 +21,11 @@ class RebootInstanceRequest extends Model
     /**
      * @var string
      */
-    public $forceStop;
+    public $version;
     protected $_name = [
-        'version'    => 'Version',
-        'instanceId' => 'InstanceId',
         'forceStop'  => 'ForceStop',
+        'instanceId' => 'InstanceId',
+        'version'    => 'Version',
     ];
 
     public function validate()
@@ -35,14 +35,14 @@ class RebootInstanceRequest extends Model
     public function toMap()
     {
         $res = [];
-        if (null !== $this->version) {
-            $res['Version'] = $this->version;
+        if (null !== $this->forceStop) {
+            $res['ForceStop'] = $this->forceStop;
         }
         if (null !== $this->instanceId) {
             $res['InstanceId'] = $this->instanceId;
         }
-        if (null !== $this->forceStop) {
-            $res['ForceStop'] = $this->forceStop;
+        if (null !== $this->version) {
+            $res['Version'] = $this->version;
         }
 
         return $res;
@@ -56,14 +56,14 @@ class RebootInstanceRequest extends Model
     public static function fromMap($map = [])
     {
         $model = new self();
-        if (isset($map['Version'])) {
-            $model->version = $map['Version'];
+        if (isset($map['ForceStop'])) {
+            $model->forceStop = $map['ForceStop'];
         }
         if (isset($map['InstanceId'])) {
             $model->instanceId = $map['InstanceId'];
         }
-        if (isset($map['ForceStop'])) {
-            $model->forceStop = $map['ForceStop'];
+        if (isset($map['Version'])) {
+            $model->version = $map['Version'];
         }
 
         return $model;

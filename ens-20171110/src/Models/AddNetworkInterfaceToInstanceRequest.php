@@ -9,6 +9,11 @@ use AlibabaCloud\Tea\Model;
 class AddNetworkInterfaceToInstanceRequest extends Model
 {
     /**
+     * @var bool
+     */
+    public $autoStart;
+
+    /**
      * @var string
      */
     public $instanceId;
@@ -18,6 +23,7 @@ class AddNetworkInterfaceToInstanceRequest extends Model
      */
     public $networks;
     protected $_name = [
+        'autoStart'  => 'AutoStart',
         'instanceId' => 'InstanceId',
         'networks'   => 'Networks',
     ];
@@ -29,6 +35,9 @@ class AddNetworkInterfaceToInstanceRequest extends Model
     public function toMap()
     {
         $res = [];
+        if (null !== $this->autoStart) {
+            $res['AutoStart'] = $this->autoStart;
+        }
         if (null !== $this->instanceId) {
             $res['InstanceId'] = $this->instanceId;
         }
@@ -47,6 +56,9 @@ class AddNetworkInterfaceToInstanceRequest extends Model
     public static function fromMap($map = [])
     {
         $model = new self();
+        if (isset($map['AutoStart'])) {
+            $model->autoStart = $map['AutoStart'];
+        }
         if (isset($map['InstanceId'])) {
             $model->instanceId = $map['InstanceId'];
         }

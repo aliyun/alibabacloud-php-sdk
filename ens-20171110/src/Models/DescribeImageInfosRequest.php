@@ -11,15 +11,15 @@ class DescribeImageInfosRequest extends Model
     /**
      * @var string
      */
-    public $version;
+    public $osType;
 
     /**
      * @var string
      */
-    public $osType;
+    public $version;
     protected $_name = [
-        'version' => 'Version',
         'osType'  => 'OsType',
+        'version' => 'Version',
     ];
 
     public function validate()
@@ -29,11 +29,11 @@ class DescribeImageInfosRequest extends Model
     public function toMap()
     {
         $res = [];
-        if (null !== $this->version) {
-            $res['Version'] = $this->version;
-        }
         if (null !== $this->osType) {
             $res['OsType'] = $this->osType;
+        }
+        if (null !== $this->version) {
+            $res['Version'] = $this->version;
         }
 
         return $res;
@@ -47,11 +47,11 @@ class DescribeImageInfosRequest extends Model
     public static function fromMap($map = [])
     {
         $model = new self();
-        if (isset($map['Version'])) {
-            $model->version = $map['Version'];
-        }
         if (isset($map['OsType'])) {
             $model->osType = $map['OsType'];
+        }
+        if (isset($map['Version'])) {
+            $model->version = $map['Version'];
         }
 
         return $model;

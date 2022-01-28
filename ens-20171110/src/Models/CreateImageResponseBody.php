@@ -14,11 +14,19 @@ class CreateImageResponseBody extends Model
     public $code;
 
     /**
+     * @description 镜像ID
+     *
+     * @var string
+     */
+    public $imageId;
+
+    /**
      * @var string
      */
     public $requestId;
     protected $_name = [
         'code'      => 'Code',
+        'imageId'   => 'ImageId',
         'requestId' => 'RequestId',
     ];
 
@@ -31,6 +39,9 @@ class CreateImageResponseBody extends Model
         $res = [];
         if (null !== $this->code) {
             $res['Code'] = $this->code;
+        }
+        if (null !== $this->imageId) {
+            $res['ImageId'] = $this->imageId;
         }
         if (null !== $this->requestId) {
             $res['RequestId'] = $this->requestId;
@@ -49,6 +60,9 @@ class CreateImageResponseBody extends Model
         $model = new self();
         if (isset($map['Code'])) {
             $model->code = $map['Code'];
+        }
+        if (isset($map['ImageId'])) {
+            $model->imageId = $map['ImageId'];
         }
         if (isset($map['RequestId'])) {
             $model->requestId = $map['RequestId'];
