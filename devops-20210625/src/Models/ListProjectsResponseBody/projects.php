@@ -2,21 +2,21 @@
 
 // This file is auto-generated, don't edit it. Thanks.
 
-namespace AlibabaCloud\SDK\Devops\V20210625\Models\CreateProjectResponseBody;
+namespace AlibabaCloud\SDK\Devops\V20210625\Models\ListProjectsResponseBody;
 
 use AlibabaCloud\Tea\Model;
 
-class project extends Model
+class projects extends Model
 {
     /**
-     * @description 空间大类id
+     * @description 类型
      *
      * @var string
      */
     public $categoryIdentifier;
 
     /**
-     * @description 创建人id
+     * @description 创建人
      *
      * @var string
      */
@@ -28,6 +28,13 @@ class project extends Model
      * @var string
      */
     public $customCode;
+
+    /**
+     * @description 删除时间
+     *
+     * @var int
+     */
+    public $deleteTime;
 
     /**
      * @description 描述信息
@@ -44,14 +51,7 @@ class project extends Model
     public $gmtCreate;
 
     /**
-     * @description 修改时间
-     *
-     * @var int
-     */
-    public $gmtModified;
-
-    /**
-     * @description 图标
+     * @description 项目封面
      *
      * @var string
      */
@@ -65,18 +65,11 @@ class project extends Model
     public $identifier;
 
     /**
-     * @description 项目状态
+     * @description 逻辑状态
      *
      * @var string
      */
     public $logicalStatus;
-
-    /**
-     * @description 修改人
-     *
-     * @var string
-     */
-    public $modifier;
 
     /**
      * @description 项目名称
@@ -86,25 +79,11 @@ class project extends Model
     public $name;
 
     /**
-     * @description 企业id
-     *
-     * @var string
-     */
-    public $organizationIdentifier;
-
-    /**
-     * @description 可见范围
+     * @description 公开还是私有
      *
      * @var string
      */
     public $scope;
-
-    /**
-     * @description 状态id
-     *
-     * @var string
-     */
-    public $statusIdentifier;
 
     /**
      * @description 状态阶段
@@ -114,28 +93,25 @@ class project extends Model
     public $statusStageIdentifier;
 
     /**
-     * @description 空间小类id
+     * @description 类型id
      *
      * @var string
      */
     public $typeIdentifier;
     protected $_name = [
-        'categoryIdentifier'     => 'categoryIdentifier',
-        'creator'                => 'creator',
-        'customCode'             => 'customCode',
-        'description'            => 'description',
-        'gmtCreate'              => 'gmtCreate',
-        'gmtModified'            => 'gmtModified',
-        'icon'                   => 'icon',
-        'identifier'             => 'identifier',
-        'logicalStatus'          => 'logicalStatus',
-        'modifier'               => 'modifier',
-        'name'                   => 'name',
-        'organizationIdentifier' => 'organizationIdentifier',
-        'scope'                  => 'scope',
-        'statusIdentifier'       => 'statusIdentifier',
-        'statusStageIdentifier'  => 'statusStageIdentifier',
-        'typeIdentifier'         => 'typeIdentifier',
+        'categoryIdentifier'    => 'categoryIdentifier',
+        'creator'               => 'creator',
+        'customCode'            => 'customCode',
+        'deleteTime'            => 'deleteTime',
+        'description'           => 'description',
+        'gmtCreate'             => 'gmtCreate',
+        'icon'                  => 'icon',
+        'identifier'            => 'identifier',
+        'logicalStatus'         => 'logicalStatus',
+        'name'                  => 'name',
+        'scope'                 => 'scope',
+        'statusStageIdentifier' => 'statusStageIdentifier',
+        'typeIdentifier'        => 'typeIdentifier',
     ];
 
     public function validate()
@@ -154,14 +130,14 @@ class project extends Model
         if (null !== $this->customCode) {
             $res['customCode'] = $this->customCode;
         }
+        if (null !== $this->deleteTime) {
+            $res['deleteTime'] = $this->deleteTime;
+        }
         if (null !== $this->description) {
             $res['description'] = $this->description;
         }
         if (null !== $this->gmtCreate) {
             $res['gmtCreate'] = $this->gmtCreate;
-        }
-        if (null !== $this->gmtModified) {
-            $res['gmtModified'] = $this->gmtModified;
         }
         if (null !== $this->icon) {
             $res['icon'] = $this->icon;
@@ -172,20 +148,11 @@ class project extends Model
         if (null !== $this->logicalStatus) {
             $res['logicalStatus'] = $this->logicalStatus;
         }
-        if (null !== $this->modifier) {
-            $res['modifier'] = $this->modifier;
-        }
         if (null !== $this->name) {
             $res['name'] = $this->name;
         }
-        if (null !== $this->organizationIdentifier) {
-            $res['organizationIdentifier'] = $this->organizationIdentifier;
-        }
         if (null !== $this->scope) {
             $res['scope'] = $this->scope;
-        }
-        if (null !== $this->statusIdentifier) {
-            $res['statusIdentifier'] = $this->statusIdentifier;
         }
         if (null !== $this->statusStageIdentifier) {
             $res['statusStageIdentifier'] = $this->statusStageIdentifier;
@@ -200,7 +167,7 @@ class project extends Model
     /**
      * @param array $map
      *
-     * @return project
+     * @return projects
      */
     public static function fromMap($map = [])
     {
@@ -214,14 +181,14 @@ class project extends Model
         if (isset($map['customCode'])) {
             $model->customCode = $map['customCode'];
         }
+        if (isset($map['deleteTime'])) {
+            $model->deleteTime = $map['deleteTime'];
+        }
         if (isset($map['description'])) {
             $model->description = $map['description'];
         }
         if (isset($map['gmtCreate'])) {
             $model->gmtCreate = $map['gmtCreate'];
-        }
-        if (isset($map['gmtModified'])) {
-            $model->gmtModified = $map['gmtModified'];
         }
         if (isset($map['icon'])) {
             $model->icon = $map['icon'];
@@ -232,20 +199,11 @@ class project extends Model
         if (isset($map['logicalStatus'])) {
             $model->logicalStatus = $map['logicalStatus'];
         }
-        if (isset($map['modifier'])) {
-            $model->modifier = $map['modifier'];
-        }
         if (isset($map['name'])) {
             $model->name = $map['name'];
         }
-        if (isset($map['organizationIdentifier'])) {
-            $model->organizationIdentifier = $map['organizationIdentifier'];
-        }
         if (isset($map['scope'])) {
             $model->scope = $map['scope'];
-        }
-        if (isset($map['statusIdentifier'])) {
-            $model->statusIdentifier = $map['statusIdentifier'];
         }
         if (isset($map['statusStageIdentifier'])) {
             $model->statusStageIdentifier = $map['statusStageIdentifier'];

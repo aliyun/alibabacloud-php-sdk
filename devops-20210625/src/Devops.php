@@ -21,6 +21,8 @@ use AlibabaCloud\SDK\Devops\V20210625\Models\CreateSprintResponse;
 use AlibabaCloud\SDK\Devops\V20210625\Models\CreateSshKeyResponse;
 use AlibabaCloud\SDK\Devops\V20210625\Models\CreateVariableGroupRequest;
 use AlibabaCloud\SDK\Devops\V20210625\Models\CreateVariableGroupResponse;
+use AlibabaCloud\SDK\Devops\V20210625\Models\CreateWorkitemRequest;
+use AlibabaCloud\SDK\Devops\V20210625\Models\CreateWorkitemResponse;
 use AlibabaCloud\SDK\Devops\V20210625\Models\CreateWorkspaceRequest;
 use AlibabaCloud\SDK\Devops\V20210625\Models\CreateWorkspaceResponse;
 use AlibabaCloud\SDK\Devops\V20210625\Models\DeleteFlowTagGroupResponse;
@@ -46,6 +48,7 @@ use AlibabaCloud\SDK\Devops\V20210625\Models\GetPipelineRunResponse;
 use AlibabaCloud\SDK\Devops\V20210625\Models\GetPipelineScanReportUrlRequest;
 use AlibabaCloud\SDK\Devops\V20210625\Models\GetPipelineScanReportUrlResponse;
 use AlibabaCloud\SDK\Devops\V20210625\Models\GetProjectInfoResponse;
+use AlibabaCloud\SDK\Devops\V20210625\Models\GetSprintInfoResponse;
 use AlibabaCloud\SDK\Devops\V20210625\Models\GetVariableGroupResponse;
 use AlibabaCloud\SDK\Devops\V20210625\Models\GetVMDeployOrderResponse;
 use AlibabaCloud\SDK\Devops\V20210625\Models\GetWorkItemActivityResponse;
@@ -68,11 +71,23 @@ use AlibabaCloud\SDK\Devops\V20210625\Models\ListPipelinesRequest;
 use AlibabaCloud\SDK\Devops\V20210625\Models\ListPipelinesResponse;
 use AlibabaCloud\SDK\Devops\V20210625\Models\ListProjectMembersRequest;
 use AlibabaCloud\SDK\Devops\V20210625\Models\ListProjectMembersResponse;
+use AlibabaCloud\SDK\Devops\V20210625\Models\ListProjectsRequest;
+use AlibabaCloud\SDK\Devops\V20210625\Models\ListProjectsResponse;
+use AlibabaCloud\SDK\Devops\V20210625\Models\ListProjectTemplatesRequest;
+use AlibabaCloud\SDK\Devops\V20210625\Models\ListProjectTemplatesResponse;
+use AlibabaCloud\SDK\Devops\V20210625\Models\ListProjectWorkitemTypesRequest;
+use AlibabaCloud\SDK\Devops\V20210625\Models\ListProjectWorkitemTypesResponse;
 use AlibabaCloud\SDK\Devops\V20210625\Models\ListResourceMembersResponse;
 use AlibabaCloud\SDK\Devops\V20210625\Models\ListServiceConnectionsRequest;
 use AlibabaCloud\SDK\Devops\V20210625\Models\ListServiceConnectionsResponse;
+use AlibabaCloud\SDK\Devops\V20210625\Models\ListSprintsRequest;
+use AlibabaCloud\SDK\Devops\V20210625\Models\ListSprintsResponse;
 use AlibabaCloud\SDK\Devops\V20210625\Models\ListVariableGroupsRequest;
 use AlibabaCloud\SDK\Devops\V20210625\Models\ListVariableGroupsResponse;
+use AlibabaCloud\SDK\Devops\V20210625\Models\ListWorkItemAllFieldsRequest;
+use AlibabaCloud\SDK\Devops\V20210625\Models\ListWorkItemAllFieldsResponse;
+use AlibabaCloud\SDK\Devops\V20210625\Models\ListWorkItemWorkFlowStatusRequest;
+use AlibabaCloud\SDK\Devops\V20210625\Models\ListWorkItemWorkFlowStatusResponse;
 use AlibabaCloud\SDK\Devops\V20210625\Models\ListWorkspacesRequest;
 use AlibabaCloud\SDK\Devops\V20210625\Models\ListWorkspacesResponse;
 use AlibabaCloud\SDK\Devops\V20210625\Models\ListWorkspacesShrinkRequest;
@@ -601,6 +616,94 @@ class Devops extends OpenApiClient
     }
 
     /**
+     * @param string                $organizationId
+     * @param CreateWorkitemRequest $request
+     *
+     * @return CreateWorkitemResponse
+     */
+    public function createWorkitem($organizationId, $request)
+    {
+        $runtime = new RuntimeOptions([]);
+        $headers = [];
+
+        return $this->createWorkitemWithOptions($organizationId, $request, $headers, $runtime);
+    }
+
+    /**
+     * @param string                $organizationId
+     * @param CreateWorkitemRequest $request
+     * @param string[]              $headers
+     * @param RuntimeOptions        $runtime
+     *
+     * @return CreateWorkitemResponse
+     */
+    public function createWorkitemWithOptions($organizationId, $request, $headers, $runtime)
+    {
+        Utils::validateModel($request);
+        $organizationId = OpenApiUtilClient::getEncodeParam($organizationId);
+        $body           = [];
+        if (!Utils::isUnset($request->assignedTo)) {
+            $body['assignedTo'] = $request->assignedTo;
+        }
+        if (!Utils::isUnset($request->category)) {
+            $body['category'] = $request->category;
+        }
+        if (!Utils::isUnset($request->description)) {
+            $body['description'] = $request->description;
+        }
+        if (!Utils::isUnset($request->descriptionFormat)) {
+            $body['descriptionFormat'] = $request->descriptionFormat;
+        }
+        if (!Utils::isUnset($request->fieldValueList)) {
+            $body['fieldValueList'] = $request->fieldValueList;
+        }
+        if (!Utils::isUnset($request->participant)) {
+            $body['participant'] = $request->participant;
+        }
+        if (!Utils::isUnset($request->space)) {
+            $body['space'] = $request->space;
+        }
+        if (!Utils::isUnset($request->spaceIdentifier)) {
+            $body['spaceIdentifier'] = $request->spaceIdentifier;
+        }
+        if (!Utils::isUnset($request->spaceType)) {
+            $body['spaceType'] = $request->spaceType;
+        }
+        if (!Utils::isUnset($request->sprint)) {
+            $body['sprint'] = $request->sprint;
+        }
+        if (!Utils::isUnset($request->subject)) {
+            $body['subject'] = $request->subject;
+        }
+        if (!Utils::isUnset($request->tracker)) {
+            $body['tracker'] = $request->tracker;
+        }
+        if (!Utils::isUnset($request->verifier)) {
+            $body['verifier'] = $request->verifier;
+        }
+        if (!Utils::isUnset($request->workitemType)) {
+            $body['workitemType'] = $request->workitemType;
+        }
+        $req = new OpenApiRequest([
+            'headers' => $headers,
+            'body'    => OpenApiUtilClient::parseToMap($body),
+        ]);
+        $params = new Params([
+            'action'      => 'CreateWorkitem',
+            'version'     => '2021-06-25',
+            'protocol'    => 'HTTPS',
+            'pathname'    => '/organization/' . $organizationId . '/workitems/create',
+            'method'      => 'POST',
+            'authType'    => 'AK',
+            'style'       => 'ROA',
+            'reqBodyType' => 'json',
+            'bodyType'    => 'json',
+        ]);
+
+        return CreateWorkitemResponse::fromMap($this->callApi($params, $req, $runtime));
+    }
+
+    /**
      * @param CreateWorkspaceRequest $request
      *
      * @return CreateWorkspaceResponse
@@ -845,46 +948,43 @@ class Devops extends OpenApiClient
 
     /**
      * @param string               $organizationId
-     * @param string               $projectId
      * @param DeleteProjectRequest $request
      *
      * @return DeleteProjectResponse
      */
-    public function deleteProject($organizationId, $projectId, $request)
+    public function deleteProject($organizationId, $request)
     {
         $runtime = new RuntimeOptions([]);
         $headers = [];
 
-        return $this->deleteProjectWithOptions($organizationId, $projectId, $request, $headers, $runtime);
+        return $this->deleteProjectWithOptions($organizationId, $request, $headers, $runtime);
     }
 
     /**
      * @param string               $organizationId
-     * @param string               $projectId
      * @param DeleteProjectRequest $request
      * @param string[]             $headers
      * @param RuntimeOptions       $runtime
      *
      * @return DeleteProjectResponse
      */
-    public function deleteProjectWithOptions($organizationId, $projectId, $request, $headers, $runtime)
+    public function deleteProjectWithOptions($organizationId, $request, $headers, $runtime)
     {
         Utils::validateModel($request);
         $organizationId = OpenApiUtilClient::getEncodeParam($organizationId);
-        $projectId      = OpenApiUtilClient::getEncodeParam($projectId);
-        $body           = [];
-        if (!Utils::isUnset($request->projectId)) {
-            $body['projectId'] = $request->projectId;
+        $query          = [];
+        if (!Utils::isUnset($request->identifier)) {
+            $query['identifier'] = $request->identifier;
         }
         $req = new OpenApiRequest([
             'headers' => $headers,
-            'body'    => OpenApiUtilClient::parseToMap($body),
+            'query'   => OpenApiUtilClient::query($query),
         ]);
         $params = new Params([
             'action'      => 'DeleteProject',
             'version'     => '2021-06-25',
             'protocol'    => 'HTTPS',
-            'pathname'    => '/organization/' . $organizationId . '/projects/' . $projectId . '/delete',
+            'pathname'    => '/organization/' . $organizationId . '/projects/delete',
             'method'      => 'DELETE',
             'authType'    => 'AK',
             'style'       => 'ROA',
@@ -1515,6 +1615,50 @@ class Devops extends OpenApiClient
         ]);
 
         return GetProjectInfoResponse::fromMap($this->callApi($params, $req, $runtime));
+    }
+
+    /**
+     * @param string $organizationId
+     * @param string $sprintId
+     *
+     * @return GetSprintInfoResponse
+     */
+    public function getSprintInfo($organizationId, $sprintId)
+    {
+        $runtime = new RuntimeOptions([]);
+        $headers = [];
+
+        return $this->getSprintInfoWithOptions($organizationId, $sprintId, $headers, $runtime);
+    }
+
+    /**
+     * @param string         $organizationId
+     * @param string         $sprintId
+     * @param string[]       $headers
+     * @param RuntimeOptions $runtime
+     *
+     * @return GetSprintInfoResponse
+     */
+    public function getSprintInfoWithOptions($organizationId, $sprintId, $headers, $runtime)
+    {
+        $organizationId = OpenApiUtilClient::getEncodeParam($organizationId);
+        $sprintId       = OpenApiUtilClient::getEncodeParam($sprintId);
+        $req            = new OpenApiRequest([
+            'headers' => $headers,
+        ]);
+        $params = new Params([
+            'action'      => 'GetSprintInfo',
+            'version'     => '2021-06-25',
+            'protocol'    => 'HTTPS',
+            'pathname'    => '/organization/' . $organizationId . '/sprints/' . $sprintId . '/getSprintinfo',
+            'method'      => 'GET',
+            'authType'    => 'AK',
+            'style'       => 'ROA',
+            'reqBodyType' => 'json',
+            'bodyType'    => 'json',
+        ]);
+
+        return GetSprintInfoResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
@@ -2282,6 +2426,174 @@ class Devops extends OpenApiClient
     }
 
     /**
+     * @param string                      $organizationId
+     * @param ListProjectTemplatesRequest $request
+     *
+     * @return ListProjectTemplatesResponse
+     */
+    public function listProjectTemplates($organizationId, $request)
+    {
+        $runtime = new RuntimeOptions([]);
+        $headers = [];
+
+        return $this->listProjectTemplatesWithOptions($organizationId, $request, $headers, $runtime);
+    }
+
+    /**
+     * @param string                      $organizationId
+     * @param ListProjectTemplatesRequest $request
+     * @param string[]                    $headers
+     * @param RuntimeOptions              $runtime
+     *
+     * @return ListProjectTemplatesResponse
+     */
+    public function listProjectTemplatesWithOptions($organizationId, $request, $headers, $runtime)
+    {
+        Utils::validateModel($request);
+        $organizationId = OpenApiUtilClient::getEncodeParam($organizationId);
+        $query          = [];
+        if (!Utils::isUnset($request->category)) {
+            $query['category'] = $request->category;
+        }
+        $req = new OpenApiRequest([
+            'headers' => $headers,
+            'query'   => OpenApiUtilClient::query($query),
+        ]);
+        $params = new Params([
+            'action'      => 'ListProjectTemplates',
+            'version'     => '2021-06-25',
+            'protocol'    => 'HTTPS',
+            'pathname'    => '/organization/' . $organizationId . '/projects/listTemplates',
+            'method'      => 'GET',
+            'authType'    => 'AK',
+            'style'       => 'ROA',
+            'reqBodyType' => 'json',
+            'bodyType'    => 'json',
+        ]);
+
+        return ListProjectTemplatesResponse::fromMap($this->callApi($params, $req, $runtime));
+    }
+
+    /**
+     * @param string                          $organizationId
+     * @param string                          $projectId
+     * @param ListProjectWorkitemTypesRequest $request
+     *
+     * @return ListProjectWorkitemTypesResponse
+     */
+    public function listProjectWorkitemTypes($organizationId, $projectId, $request)
+    {
+        $runtime = new RuntimeOptions([]);
+        $headers = [];
+
+        return $this->listProjectWorkitemTypesWithOptions($organizationId, $projectId, $request, $headers, $runtime);
+    }
+
+    /**
+     * @param string                          $organizationId
+     * @param string                          $projectId
+     * @param ListProjectWorkitemTypesRequest $request
+     * @param string[]                        $headers
+     * @param RuntimeOptions                  $runtime
+     *
+     * @return ListProjectWorkitemTypesResponse
+     */
+    public function listProjectWorkitemTypesWithOptions($organizationId, $projectId, $request, $headers, $runtime)
+    {
+        Utils::validateModel($request);
+        $organizationId = OpenApiUtilClient::getEncodeParam($organizationId);
+        $projectId      = OpenApiUtilClient::getEncodeParam($projectId);
+        $query          = [];
+        if (!Utils::isUnset($request->category)) {
+            $query['category'] = $request->category;
+        }
+        if (!Utils::isUnset($request->spaceType)) {
+            $query['spaceType'] = $request->spaceType;
+        }
+        $req = new OpenApiRequest([
+            'headers' => $headers,
+            'query'   => OpenApiUtilClient::query($query),
+        ]);
+        $params = new Params([
+            'action'      => 'ListProjectWorkitemTypes',
+            'version'     => '2021-06-25',
+            'protocol'    => 'HTTPS',
+            'pathname'    => '/organization/' . $organizationId . '/projects/' . $projectId . '/getWorkitemType',
+            'method'      => 'GET',
+            'authType'    => 'AK',
+            'style'       => 'ROA',
+            'reqBodyType' => 'json',
+            'bodyType'    => 'json',
+        ]);
+
+        return ListProjectWorkitemTypesResponse::fromMap($this->callApi($params, $req, $runtime));
+    }
+
+    /**
+     * @param string              $organizationId
+     * @param ListProjectsRequest $request
+     *
+     * @return ListProjectsResponse
+     */
+    public function listProjects($organizationId, $request)
+    {
+        $runtime = new RuntimeOptions([]);
+        $headers = [];
+
+        return $this->listProjectsWithOptions($organizationId, $request, $headers, $runtime);
+    }
+
+    /**
+     * @param string              $organizationId
+     * @param ListProjectsRequest $request
+     * @param string[]            $headers
+     * @param RuntimeOptions      $runtime
+     *
+     * @return ListProjectsResponse
+     */
+    public function listProjectsWithOptions($organizationId, $request, $headers, $runtime)
+    {
+        Utils::validateModel($request);
+        $organizationId = OpenApiUtilClient::getEncodeParam($organizationId);
+        $query          = [];
+        if (!Utils::isUnset($request->category)) {
+            $query['category'] = $request->category;
+        }
+        if (!Utils::isUnset($request->conditions)) {
+            $query['conditions'] = $request->conditions;
+        }
+        if (!Utils::isUnset($request->extraConditions)) {
+            $query['extraConditions'] = $request->extraConditions;
+        }
+        if (!Utils::isUnset($request->maxResults)) {
+            $query['maxResults'] = $request->maxResults;
+        }
+        if (!Utils::isUnset($request->nextToken)) {
+            $query['nextToken'] = $request->nextToken;
+        }
+        if (!Utils::isUnset($request->scope)) {
+            $query['scope'] = $request->scope;
+        }
+        $req = new OpenApiRequest([
+            'headers' => $headers,
+            'query'   => OpenApiUtilClient::query($query),
+        ]);
+        $params = new Params([
+            'action'      => 'ListProjects',
+            'version'     => '2021-06-25',
+            'protocol'    => 'HTTPS',
+            'pathname'    => '/organization/' . $organizationId . '/listProjects',
+            'method'      => 'GET',
+            'authType'    => 'AK',
+            'style'       => 'ROA',
+            'reqBodyType' => 'json',
+            'bodyType'    => 'json',
+        ]);
+
+        return ListProjectsResponse::fromMap($this->callApi($params, $req, $runtime));
+    }
+
+    /**
      * @param string $organizationId
      * @param string $resourceType
      * @param string $resourceId
@@ -2378,6 +2690,64 @@ class Devops extends OpenApiClient
     }
 
     /**
+     * @param string             $organizationId
+     * @param ListSprintsRequest $request
+     *
+     * @return ListSprintsResponse
+     */
+    public function listSprints($organizationId, $request)
+    {
+        $runtime = new RuntimeOptions([]);
+        $headers = [];
+
+        return $this->listSprintsWithOptions($organizationId, $request, $headers, $runtime);
+    }
+
+    /**
+     * @param string             $organizationId
+     * @param ListSprintsRequest $request
+     * @param string[]           $headers
+     * @param RuntimeOptions     $runtime
+     *
+     * @return ListSprintsResponse
+     */
+    public function listSprintsWithOptions($organizationId, $request, $headers, $runtime)
+    {
+        Utils::validateModel($request);
+        $organizationId = OpenApiUtilClient::getEncodeParam($organizationId);
+        $query          = [];
+        if (!Utils::isUnset($request->maxResults)) {
+            $query['maxResults'] = $request->maxResults;
+        }
+        if (!Utils::isUnset($request->nextToken)) {
+            $query['nextToken'] = $request->nextToken;
+        }
+        if (!Utils::isUnset($request->spaceIdentifier)) {
+            $query['spaceIdentifier'] = $request->spaceIdentifier;
+        }
+        if (!Utils::isUnset($request->spaceType)) {
+            $query['spaceType'] = $request->spaceType;
+        }
+        $req = new OpenApiRequest([
+            'headers' => $headers,
+            'query'   => OpenApiUtilClient::query($query),
+        ]);
+        $params = new Params([
+            'action'      => 'ListSprints',
+            'version'     => '2021-06-25',
+            'protocol'    => 'HTTPS',
+            'pathname'    => '/organization/' . $organizationId . '/sprints/list',
+            'method'      => 'GET',
+            'authType'    => 'AK',
+            'style'       => 'ROA',
+            'reqBodyType' => 'json',
+            'bodyType'    => 'json',
+        ]);
+
+        return ListSprintsResponse::fromMap($this->callApi($params, $req, $runtime));
+    }
+
+    /**
      * @param string                    $organizationId
      * @param ListVariableGroupsRequest $request
      *
@@ -2433,6 +2803,119 @@ class Devops extends OpenApiClient
         ]);
 
         return ListVariableGroupsResponse::fromMap($this->callApi($params, $req, $runtime));
+    }
+
+    /**
+     * @param string                       $organizationId
+     * @param ListWorkItemAllFieldsRequest $request
+     *
+     * @return ListWorkItemAllFieldsResponse
+     */
+    public function listWorkItemAllFields($organizationId, $request)
+    {
+        $runtime = new RuntimeOptions([]);
+        $headers = [];
+
+        return $this->listWorkItemAllFieldsWithOptions($organizationId, $request, $headers, $runtime);
+    }
+
+    /**
+     * @param string                       $organizationId
+     * @param ListWorkItemAllFieldsRequest $request
+     * @param string[]                     $headers
+     * @param RuntimeOptions               $runtime
+     *
+     * @return ListWorkItemAllFieldsResponse
+     */
+    public function listWorkItemAllFieldsWithOptions($organizationId, $request, $headers, $runtime)
+    {
+        Utils::validateModel($request);
+        $organizationId = OpenApiUtilClient::getEncodeParam($organizationId);
+        $query          = [];
+        if (!Utils::isUnset($request->spaceIdentifier)) {
+            $query['spaceIdentifier'] = $request->spaceIdentifier;
+        }
+        if (!Utils::isUnset($request->spaceType)) {
+            $query['spaceType'] = $request->spaceType;
+        }
+        if (!Utils::isUnset($request->workitemTypeIdentifier)) {
+            $query['workitemTypeIdentifier'] = $request->workitemTypeIdentifier;
+        }
+        $req = new OpenApiRequest([
+            'headers' => $headers,
+            'query'   => OpenApiUtilClient::query($query),
+        ]);
+        $params = new Params([
+            'action'      => 'ListWorkItemAllFields',
+            'version'     => '2021-06-25',
+            'protocol'    => 'HTTPS',
+            'pathname'    => '/organization/' . $organizationId . '/workitems/fields/listAll',
+            'method'      => 'GET',
+            'authType'    => 'AK',
+            'style'       => 'ROA',
+            'reqBodyType' => 'json',
+            'bodyType'    => 'json',
+        ]);
+
+        return ListWorkItemAllFieldsResponse::fromMap($this->callApi($params, $req, $runtime));
+    }
+
+    /**
+     * @param string                            $organizationId
+     * @param ListWorkItemWorkFlowStatusRequest $request
+     *
+     * @return ListWorkItemWorkFlowStatusResponse
+     */
+    public function listWorkItemWorkFlowStatus($organizationId, $request)
+    {
+        $runtime = new RuntimeOptions([]);
+        $headers = [];
+
+        return $this->listWorkItemWorkFlowStatusWithOptions($organizationId, $request, $headers, $runtime);
+    }
+
+    /**
+     * @param string                            $organizationId
+     * @param ListWorkItemWorkFlowStatusRequest $request
+     * @param string[]                          $headers
+     * @param RuntimeOptions                    $runtime
+     *
+     * @return ListWorkItemWorkFlowStatusResponse
+     */
+    public function listWorkItemWorkFlowStatusWithOptions($organizationId, $request, $headers, $runtime)
+    {
+        Utils::validateModel($request);
+        $organizationId = OpenApiUtilClient::getEncodeParam($organizationId);
+        $query          = [];
+        if (!Utils::isUnset($request->spaceIdentifier)) {
+            $query['spaceIdentifier'] = $request->spaceIdentifier;
+        }
+        if (!Utils::isUnset($request->spaceType)) {
+            $query['spaceType'] = $request->spaceType;
+        }
+        if (!Utils::isUnset($request->workitemCategoryIdentifier)) {
+            $query['workitemCategoryIdentifier'] = $request->workitemCategoryIdentifier;
+        }
+        if (!Utils::isUnset($request->workitemTypeIdentifier)) {
+            $query['workitemTypeIdentifier'] = $request->workitemTypeIdentifier;
+        }
+        $req = new OpenApiRequest([
+            'headers' => $headers,
+            'query'   => OpenApiUtilClient::query($query),
+        ]);
+        $params = new Params([
+            'action'      => 'ListWorkItemWorkFlowStatus',
+            'version'     => '2021-06-25',
+            'protocol'    => 'HTTPS',
+            'pathname'    => '/organization/' . $organizationId . '/workitems/workflow/listWorkflowStatus',
+            'method'      => 'GET',
+            'authType'    => 'AK',
+            'style'       => 'ROA',
+            'reqBodyType' => 'json',
+            'bodyType'    => 'json',
+        ]);
+
+        return ListWorkItemWorkFlowStatusResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
