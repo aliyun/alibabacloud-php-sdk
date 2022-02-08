@@ -639,11 +639,23 @@ class Polardbx extends OpenApiClient
         if (!Utils::isUnset($request->primaryDBInstanceName)) {
             $query['PrimaryDBInstanceName'] = $request->primaryDBInstanceName;
         }
+        if (!Utils::isUnset($request->primaryZone)) {
+            $query['PrimaryZone'] = $request->primaryZone;
+        }
         if (!Utils::isUnset($request->regionId)) {
             $query['RegionId'] = $request->regionId;
         }
         if (!Utils::isUnset($request->resourceGroupId)) {
             $query['ResourceGroupId'] = $request->resourceGroupId;
+        }
+        if (!Utils::isUnset($request->secondaryZone)) {
+            $query['SecondaryZone'] = $request->secondaryZone;
+        }
+        if (!Utils::isUnset($request->tertiaryZone)) {
+            $query['TertiaryZone'] = $request->tertiaryZone;
+        }
+        if (!Utils::isUnset($request->topologyType)) {
+            $query['TopologyType'] = $request->topologyType;
         }
         if (!Utils::isUnset($request->usedTime)) {
             $query['UsedTime'] = $request->usedTime;
@@ -2529,6 +2541,9 @@ class Polardbx extends OpenApiClient
         }
         if (!Utils::isUnset($request->regionId)) {
             $query['RegionId'] = $request->regionId;
+        }
+        if (!Utils::isUnset($request->resourceGroupId)) {
+            $query['ResourceGroupId'] = $request->resourceGroupId;
         }
         $req = new OpenApiRequest([
             'query' => OpenApiUtilClient::query($query),

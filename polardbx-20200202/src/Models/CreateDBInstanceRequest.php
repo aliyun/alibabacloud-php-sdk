@@ -61,12 +61,32 @@ class CreateDBInstanceRequest extends Model
     /**
      * @var string
      */
+    public $primaryZone;
+
+    /**
+     * @var string
+     */
     public $regionId;
 
     /**
      * @var string
      */
     public $resourceGroupId;
+
+    /**
+     * @var string
+     */
+    public $secondaryZone;
+
+    /**
+     * @var string
+     */
+    public $tertiaryZone;
+
+    /**
+     * @var string
+     */
+    public $topologyType;
 
     /**
      * @var int
@@ -98,8 +118,12 @@ class CreateDBInstanceRequest extends Model
         'payType'               => 'PayType',
         'period'                => 'Period',
         'primaryDBInstanceName' => 'PrimaryDBInstanceName',
+        'primaryZone'           => 'PrimaryZone',
         'regionId'              => 'RegionId',
         'resourceGroupId'       => 'ResourceGroupId',
+        'secondaryZone'         => 'SecondaryZone',
+        'tertiaryZone'          => 'TertiaryZone',
+        'topologyType'          => 'TopologyType',
         'usedTime'              => 'UsedTime',
         'VPCId'                 => 'VPCId',
         'vSwitchId'             => 'VSwitchId',
@@ -143,11 +167,23 @@ class CreateDBInstanceRequest extends Model
         if (null !== $this->primaryDBInstanceName) {
             $res['PrimaryDBInstanceName'] = $this->primaryDBInstanceName;
         }
+        if (null !== $this->primaryZone) {
+            $res['PrimaryZone'] = $this->primaryZone;
+        }
         if (null !== $this->regionId) {
             $res['RegionId'] = $this->regionId;
         }
         if (null !== $this->resourceGroupId) {
             $res['ResourceGroupId'] = $this->resourceGroupId;
+        }
+        if (null !== $this->secondaryZone) {
+            $res['SecondaryZone'] = $this->secondaryZone;
+        }
+        if (null !== $this->tertiaryZone) {
+            $res['TertiaryZone'] = $this->tertiaryZone;
+        }
+        if (null !== $this->topologyType) {
+            $res['TopologyType'] = $this->topologyType;
         }
         if (null !== $this->usedTime) {
             $res['UsedTime'] = $this->usedTime;
@@ -203,11 +239,23 @@ class CreateDBInstanceRequest extends Model
         if (isset($map['PrimaryDBInstanceName'])) {
             $model->primaryDBInstanceName = $map['PrimaryDBInstanceName'];
         }
+        if (isset($map['PrimaryZone'])) {
+            $model->primaryZone = $map['PrimaryZone'];
+        }
         if (isset($map['RegionId'])) {
             $model->regionId = $map['RegionId'];
         }
         if (isset($map['ResourceGroupId'])) {
             $model->resourceGroupId = $map['ResourceGroupId'];
+        }
+        if (isset($map['SecondaryZone'])) {
+            $model->secondaryZone = $map['SecondaryZone'];
+        }
+        if (isset($map['TertiaryZone'])) {
+            $model->tertiaryZone = $map['TertiaryZone'];
+        }
+        if (isset($map['TopologyType'])) {
+            $model->topologyType = $map['TopologyType'];
         }
         if (isset($map['UsedTime'])) {
             $model->usedTime = $map['UsedTime'];

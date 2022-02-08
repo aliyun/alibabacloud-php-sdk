@@ -4,11 +4,27 @@
 
 namespace AlibabaCloud\SDK\Polardbx\V20200202\Models\DescribeDBInstanceTopologyResponseBody\data\logicInstanceTopology;
 
+use AlibabaCloud\SDK\Polardbx\V20200202\Models\DescribeDBInstanceTopologyResponseBody\data\logicInstanceTopology\items\azoneRoleList;
 use AlibabaCloud\SDK\Polardbx\V20200202\Models\DescribeDBInstanceTopologyResponseBody\data\logicInstanceTopology\items\connectionIp;
 use AlibabaCloud\Tea\Model;
 
 class items extends Model
 {
+    /**
+     * @var bool
+     */
+    public $activated;
+
+    /**
+     * @var string
+     */
+    public $azone;
+
+    /**
+     * @var azoneRoleList[]
+     */
+    public $azoneRoleList;
+
     /**
      * @var string
      */
@@ -98,7 +114,20 @@ class items extends Model
      * @var int
      */
     public $maxIops;
+
+    /**
+     * @var string
+     */
+    public $region;
+
+    /**
+     * @var string
+     */
+    public $role;
     protected $_name = [
+        'activated'                   => 'Activated',
+        'azone'                       => 'Azone',
+        'azoneRoleList'               => 'AzoneRoleList',
         'characterType'               => 'CharacterType',
         'connectionIp'                => 'ConnectionIp',
         'DBInstanceConnType'          => 'DBInstanceConnType',
@@ -117,6 +146,8 @@ class items extends Model
         'maintainStartTime'           => 'MaintainStartTime',
         'maxConnections'              => 'MaxConnections',
         'maxIops'                     => 'MaxIops',
+        'region'                      => 'Region',
+        'role'                        => 'Role',
     ];
 
     public function validate()
@@ -126,6 +157,21 @@ class items extends Model
     public function toMap()
     {
         $res = [];
+        if (null !== $this->activated) {
+            $res['Activated'] = $this->activated;
+        }
+        if (null !== $this->azone) {
+            $res['Azone'] = $this->azone;
+        }
+        if (null !== $this->azoneRoleList) {
+            $res['AzoneRoleList'] = [];
+            if (null !== $this->azoneRoleList && \is_array($this->azoneRoleList)) {
+                $n = 0;
+                foreach ($this->azoneRoleList as $item) {
+                    $res['AzoneRoleList'][$n++] = null !== $item ? $item->toMap() : $item;
+                }
+            }
+        }
         if (null !== $this->characterType) {
             $res['CharacterType'] = $this->characterType;
         }
@@ -186,6 +232,12 @@ class items extends Model
         if (null !== $this->maxIops) {
             $res['MaxIops'] = $this->maxIops;
         }
+        if (null !== $this->region) {
+            $res['Region'] = $this->region;
+        }
+        if (null !== $this->role) {
+            $res['Role'] = $this->role;
+        }
 
         return $res;
     }
@@ -198,6 +250,21 @@ class items extends Model
     public static function fromMap($map = [])
     {
         $model = new self();
+        if (isset($map['Activated'])) {
+            $model->activated = $map['Activated'];
+        }
+        if (isset($map['Azone'])) {
+            $model->azone = $map['Azone'];
+        }
+        if (isset($map['AzoneRoleList'])) {
+            if (!empty($map['AzoneRoleList'])) {
+                $model->azoneRoleList = [];
+                $n                    = 0;
+                foreach ($map['AzoneRoleList'] as $item) {
+                    $model->azoneRoleList[$n++] = null !== $item ? azoneRoleList::fromMap($item) : $item;
+                }
+            }
+        }
         if (isset($map['CharacterType'])) {
             $model->characterType = $map['CharacterType'];
         }
@@ -257,6 +324,12 @@ class items extends Model
         }
         if (isset($map['MaxIops'])) {
             $model->maxIops = $map['MaxIops'];
+        }
+        if (isset($map['Region'])) {
+            $model->region = $map['Region'];
+        }
+        if (isset($map['Role'])) {
+            $model->role = $map['Role'];
         }
 
         return $model;
