@@ -344,8 +344,14 @@ class Market extends OpenApiClient
         if (!Utils::isUnset($request->content)) {
             $query['Content'] = $request->content;
         }
+        if (!Utils::isUnset($request->customerLabels)) {
+            $query['CustomerLabels'] = $request->customerLabels;
+        }
         if (!Utils::isUnset($request->orderId)) {
             $query['OrderId'] = $request->orderId;
+        }
+        if (!Utils::isUnset($request->packageVersion)) {
+            $query['PackageVersion'] = $request->packageVersion;
         }
         if (!Utils::isUnset($request->requestId)) {
             $query['RequestId'] = $request->requestId;

@@ -31,6 +31,11 @@ class DescribeRateResponseBody extends Model
     /**
      * @var string
      */
+    public $customerLabels;
+
+    /**
+     * @var string
+     */
     public $explaintion;
 
     /**
@@ -71,6 +76,11 @@ class DescribeRateResponseBody extends Model
     /**
      * @var string
      */
+    public $packageVersion;
+
+    /**
+     * @var string
+     */
     public $productId;
 
     /**
@@ -92,6 +102,7 @@ class DescribeRateResponseBody extends Model
         'additionalExplaintion'    => 'AdditionalExplaintion',
         'aliUid'                   => 'AliUid',
         'content'                  => 'Content',
+        'customerLabels'           => 'CustomerLabels',
         'explaintion'              => 'Explaintion',
         'gmtAdditional'            => 'GmtAdditional',
         'gmtAdditionalExplaintion' => 'GmtAdditionalExplaintion',
@@ -100,6 +111,7 @@ class DescribeRateResponseBody extends Model
         'id'                       => 'Id',
         'instanceId'               => 'InstanceId',
         'orderId'                  => 'OrderId',
+        'packageVersion'           => 'PackageVersion',
         'productId'                => 'ProductId',
         'requestId'                => 'RequestId',
         'score'                    => 'Score',
@@ -125,6 +137,9 @@ class DescribeRateResponseBody extends Model
         if (null !== $this->content) {
             $res['Content'] = $this->content;
         }
+        if (null !== $this->customerLabels) {
+            $res['CustomerLabels'] = $this->customerLabels;
+        }
         if (null !== $this->explaintion) {
             $res['Explaintion'] = $this->explaintion;
         }
@@ -148,6 +163,9 @@ class DescribeRateResponseBody extends Model
         }
         if (null !== $this->orderId) {
             $res['OrderId'] = $this->orderId;
+        }
+        if (null !== $this->packageVersion) {
+            $res['PackageVersion'] = $this->packageVersion;
         }
         if (null !== $this->productId) {
             $res['ProductId'] = $this->productId;
@@ -185,6 +203,9 @@ class DescribeRateResponseBody extends Model
         if (isset($map['Content'])) {
             $model->content = $map['Content'];
         }
+        if (isset($map['CustomerLabels'])) {
+            $model->customerLabels = $map['CustomerLabels'];
+        }
         if (isset($map['Explaintion'])) {
             $model->explaintion = $map['Explaintion'];
         }
@@ -208,6 +229,9 @@ class DescribeRateResponseBody extends Model
         }
         if (isset($map['OrderId'])) {
             $model->orderId = $map['OrderId'];
+        }
+        if (isset($map['PackageVersion'])) {
+            $model->packageVersion = $map['PackageVersion'];
         }
         if (isset($map['ProductId'])) {
             $model->productId = $map['ProductId'];

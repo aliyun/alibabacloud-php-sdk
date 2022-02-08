@@ -16,7 +16,17 @@ class CreateRateRequest extends Model
     /**
      * @var string
      */
+    public $customerLabels;
+
+    /**
+     * @var string
+     */
     public $orderId;
+
+    /**
+     * @var string
+     */
+    public $packageVersion;
 
     /**
      * @var string
@@ -28,10 +38,12 @@ class CreateRateRequest extends Model
      */
     public $score;
     protected $_name = [
-        'content'   => 'Content',
-        'orderId'   => 'OrderId',
-        'requestId' => 'RequestId',
-        'score'     => 'Score',
+        'content'        => 'Content',
+        'customerLabels' => 'CustomerLabels',
+        'orderId'        => 'OrderId',
+        'packageVersion' => 'PackageVersion',
+        'requestId'      => 'RequestId',
+        'score'          => 'Score',
     ];
 
     public function validate()
@@ -44,8 +56,14 @@ class CreateRateRequest extends Model
         if (null !== $this->content) {
             $res['Content'] = $this->content;
         }
+        if (null !== $this->customerLabels) {
+            $res['CustomerLabels'] = $this->customerLabels;
+        }
         if (null !== $this->orderId) {
             $res['OrderId'] = $this->orderId;
+        }
+        if (null !== $this->packageVersion) {
+            $res['PackageVersion'] = $this->packageVersion;
         }
         if (null !== $this->requestId) {
             $res['RequestId'] = $this->requestId;
@@ -68,8 +86,14 @@ class CreateRateRequest extends Model
         if (isset($map['Content'])) {
             $model->content = $map['Content'];
         }
+        if (isset($map['CustomerLabels'])) {
+            $model->customerLabels = $map['CustomerLabels'];
+        }
         if (isset($map['OrderId'])) {
             $model->orderId = $map['OrderId'];
+        }
+        if (isset($map['PackageVersion'])) {
+            $model->packageVersion = $map['PackageVersion'];
         }
         if (isset($map['RequestId'])) {
             $model->requestId = $map['RequestId'];
