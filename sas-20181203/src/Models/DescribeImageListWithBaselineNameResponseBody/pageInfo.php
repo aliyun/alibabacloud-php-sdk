@@ -2,7 +2,7 @@
 
 // This file is auto-generated, don't edit it. Thanks.
 
-namespace AlibabaCloud\SDK\Sas\V20181203\Models\DescribeUniBackupPoliciesResponseBody;
+namespace AlibabaCloud\SDK\Sas\V20181203\Models\DescribeImageListWithBaselineNameResponseBody;
 
 use AlibabaCloud\Tea\Model;
 

@@ -34,6 +34,11 @@ class DescribeCloudCenterInstancesRequest extends Model
     public $machineTypes;
 
     /**
+     * @var bool
+     */
+    public $noGroupTrace;
+
+    /**
      * @var int
      */
     public $pageSize;
@@ -48,6 +53,7 @@ class DescribeCloudCenterInstancesRequest extends Model
         'importance'   => 'Importance',
         'logicalExp'   => 'LogicalExp',
         'machineTypes' => 'MachineTypes',
+        'noGroupTrace' => 'NoGroupTrace',
         'pageSize'     => 'PageSize',
         'regionId'     => 'RegionId',
     ];
@@ -73,6 +79,9 @@ class DescribeCloudCenterInstancesRequest extends Model
         }
         if (null !== $this->machineTypes) {
             $res['MachineTypes'] = $this->machineTypes;
+        }
+        if (null !== $this->noGroupTrace) {
+            $res['NoGroupTrace'] = $this->noGroupTrace;
         }
         if (null !== $this->pageSize) {
             $res['PageSize'] = $this->pageSize;
@@ -106,6 +115,9 @@ class DescribeCloudCenterInstancesRequest extends Model
         }
         if (isset($map['MachineTypes'])) {
             $model->machineTypes = $map['MachineTypes'];
+        }
+        if (isset($map['NoGroupTrace'])) {
+            $model->noGroupTrace = $map['NoGroupTrace'];
         }
         if (isset($map['PageSize'])) {
             $model->pageSize = $map['PageSize'];

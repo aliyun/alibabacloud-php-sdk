@@ -11,6 +11,11 @@ class DescribePropertyScaDetailRequest extends Model
     /**
      * @var string
      */
+    public $biz;
+
+    /**
+     * @var string
+     */
     public $bizType;
 
     /**
@@ -36,12 +41,42 @@ class DescribePropertyScaDetailRequest extends Model
     /**
      * @var string
      */
+    public $pid;
+
+    /**
+     * @var string
+     */
+    public $port;
+
+    /**
+     * @var int
+     */
+    public $processStartedEnd;
+
+    /**
+     * @var int
+     */
+    public $processStartedStart;
+
+    /**
+     * @var string
+     */
     public $remark;
 
     /**
      * @var string
      */
     public $scaName;
+
+    /**
+     * @var string
+     */
+    public $scaNamePattern;
+
+    /**
+     * @var string
+     */
+    public $scaVersion;
 
     /**
      * @var string
@@ -66,20 +101,33 @@ class DescribePropertyScaDetailRequest extends Model
     /**
      * @var string
      */
+    public $user;
+
+    /**
+     * @var string
+     */
     public $uuid;
     protected $_name = [
-        'bizType'       => 'BizType',
-        'currentPage'   => 'CurrentPage',
-        'lang'          => 'Lang',
-        'name'          => 'Name',
-        'pageSize'      => 'PageSize',
-        'remark'        => 'Remark',
-        'scaName'       => 'ScaName',
-        'searchInfo'    => 'SearchInfo',
-        'searchInfoSub' => 'SearchInfoSub',
-        'searchItem'    => 'SearchItem',
-        'searchItemSub' => 'SearchItemSub',
-        'uuid'          => 'Uuid',
+        'biz'                 => 'Biz',
+        'bizType'             => 'BizType',
+        'currentPage'         => 'CurrentPage',
+        'lang'                => 'Lang',
+        'name'                => 'Name',
+        'pageSize'            => 'PageSize',
+        'pid'                 => 'Pid',
+        'port'                => 'Port',
+        'processStartedEnd'   => 'ProcessStartedEnd',
+        'processStartedStart' => 'ProcessStartedStart',
+        'remark'              => 'Remark',
+        'scaName'             => 'ScaName',
+        'scaNamePattern'      => 'ScaNamePattern',
+        'scaVersion'          => 'ScaVersion',
+        'searchInfo'          => 'SearchInfo',
+        'searchInfoSub'       => 'SearchInfoSub',
+        'searchItem'          => 'SearchItem',
+        'searchItemSub'       => 'SearchItemSub',
+        'user'                => 'User',
+        'uuid'                => 'Uuid',
     ];
 
     public function validate()
@@ -89,6 +137,9 @@ class DescribePropertyScaDetailRequest extends Model
     public function toMap()
     {
         $res = [];
+        if (null !== $this->biz) {
+            $res['Biz'] = $this->biz;
+        }
         if (null !== $this->bizType) {
             $res['BizType'] = $this->bizType;
         }
@@ -104,11 +155,29 @@ class DescribePropertyScaDetailRequest extends Model
         if (null !== $this->pageSize) {
             $res['PageSize'] = $this->pageSize;
         }
+        if (null !== $this->pid) {
+            $res['Pid'] = $this->pid;
+        }
+        if (null !== $this->port) {
+            $res['Port'] = $this->port;
+        }
+        if (null !== $this->processStartedEnd) {
+            $res['ProcessStartedEnd'] = $this->processStartedEnd;
+        }
+        if (null !== $this->processStartedStart) {
+            $res['ProcessStartedStart'] = $this->processStartedStart;
+        }
         if (null !== $this->remark) {
             $res['Remark'] = $this->remark;
         }
         if (null !== $this->scaName) {
             $res['ScaName'] = $this->scaName;
+        }
+        if (null !== $this->scaNamePattern) {
+            $res['ScaNamePattern'] = $this->scaNamePattern;
+        }
+        if (null !== $this->scaVersion) {
+            $res['ScaVersion'] = $this->scaVersion;
         }
         if (null !== $this->searchInfo) {
             $res['SearchInfo'] = $this->searchInfo;
@@ -121,6 +190,9 @@ class DescribePropertyScaDetailRequest extends Model
         }
         if (null !== $this->searchItemSub) {
             $res['SearchItemSub'] = $this->searchItemSub;
+        }
+        if (null !== $this->user) {
+            $res['User'] = $this->user;
         }
         if (null !== $this->uuid) {
             $res['Uuid'] = $this->uuid;
@@ -137,6 +209,9 @@ class DescribePropertyScaDetailRequest extends Model
     public static function fromMap($map = [])
     {
         $model = new self();
+        if (isset($map['Biz'])) {
+            $model->biz = $map['Biz'];
+        }
         if (isset($map['BizType'])) {
             $model->bizType = $map['BizType'];
         }
@@ -152,11 +227,29 @@ class DescribePropertyScaDetailRequest extends Model
         if (isset($map['PageSize'])) {
             $model->pageSize = $map['PageSize'];
         }
+        if (isset($map['Pid'])) {
+            $model->pid = $map['Pid'];
+        }
+        if (isset($map['Port'])) {
+            $model->port = $map['Port'];
+        }
+        if (isset($map['ProcessStartedEnd'])) {
+            $model->processStartedEnd = $map['ProcessStartedEnd'];
+        }
+        if (isset($map['ProcessStartedStart'])) {
+            $model->processStartedStart = $map['ProcessStartedStart'];
+        }
         if (isset($map['Remark'])) {
             $model->remark = $map['Remark'];
         }
         if (isset($map['ScaName'])) {
             $model->scaName = $map['ScaName'];
+        }
+        if (isset($map['ScaNamePattern'])) {
+            $model->scaNamePattern = $map['ScaNamePattern'];
+        }
+        if (isset($map['ScaVersion'])) {
+            $model->scaVersion = $map['ScaVersion'];
         }
         if (isset($map['SearchInfo'])) {
             $model->searchInfo = $map['SearchInfo'];
@@ -169,6 +262,9 @@ class DescribePropertyScaDetailRequest extends Model
         }
         if (isset($map['SearchItemSub'])) {
             $model->searchItemSub = $map['SearchItemSub'];
+        }
+        if (isset($map['User'])) {
+            $model->user = $map['User'];
         }
         if (isset($map['Uuid'])) {
             $model->uuid = $map['Uuid'];

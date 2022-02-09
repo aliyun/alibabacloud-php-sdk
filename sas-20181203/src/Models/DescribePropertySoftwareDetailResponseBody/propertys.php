@@ -24,6 +24,11 @@ class propertys extends Model
     public $installTime;
 
     /**
+     * @var int
+     */
+    public $installTimeDt;
+
+    /**
      * @var string
      */
     public $instanceId;
@@ -71,6 +76,7 @@ class propertys extends Model
         'create'          => 'Create',
         'createTimestamp' => 'CreateTimestamp',
         'installTime'     => 'InstallTime',
+        'installTimeDt'   => 'InstallTimeDt',
         'instanceId'      => 'InstanceId',
         'instanceName'    => 'InstanceName',
         'internetIp'      => 'InternetIp',
@@ -97,6 +103,9 @@ class propertys extends Model
         }
         if (null !== $this->installTime) {
             $res['InstallTime'] = $this->installTime;
+        }
+        if (null !== $this->installTimeDt) {
+            $res['InstallTimeDt'] = $this->installTimeDt;
         }
         if (null !== $this->instanceId) {
             $res['InstanceId'] = $this->instanceId;
@@ -145,6 +154,9 @@ class propertys extends Model
         }
         if (isset($map['InstallTime'])) {
             $model->installTime = $map['InstallTime'];
+        }
+        if (isset($map['InstallTimeDt'])) {
+            $model->installTimeDt = $map['InstallTimeDt'];
         }
         if (isset($map['InstanceId'])) {
             $model->instanceId = $map['InstanceId'];

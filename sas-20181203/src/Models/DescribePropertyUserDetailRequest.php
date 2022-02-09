@@ -21,6 +21,16 @@ class DescribePropertyUserDetailRequest extends Model
     /**
      * @var int
      */
+    public $lastLoginTimeEnd;
+
+    /**
+     * @var int
+     */
+    public $lastLoginTimeStart;
+
+    /**
+     * @var int
+     */
     public $pageSize;
 
     /**
@@ -38,12 +48,14 @@ class DescribePropertyUserDetailRequest extends Model
      */
     public $uuid;
     protected $_name = [
-        'currentPage' => 'CurrentPage',
-        'isRoot'      => 'IsRoot',
-        'pageSize'    => 'PageSize',
-        'remark'      => 'Remark',
-        'user'        => 'User',
-        'uuid'        => 'Uuid',
+        'currentPage'        => 'CurrentPage',
+        'isRoot'             => 'IsRoot',
+        'lastLoginTimeEnd'   => 'LastLoginTimeEnd',
+        'lastLoginTimeStart' => 'LastLoginTimeStart',
+        'pageSize'           => 'PageSize',
+        'remark'             => 'Remark',
+        'user'               => 'User',
+        'uuid'               => 'Uuid',
     ];
 
     public function validate()
@@ -58,6 +70,12 @@ class DescribePropertyUserDetailRequest extends Model
         }
         if (null !== $this->isRoot) {
             $res['IsRoot'] = $this->isRoot;
+        }
+        if (null !== $this->lastLoginTimeEnd) {
+            $res['LastLoginTimeEnd'] = $this->lastLoginTimeEnd;
+        }
+        if (null !== $this->lastLoginTimeStart) {
+            $res['LastLoginTimeStart'] = $this->lastLoginTimeStart;
         }
         if (null !== $this->pageSize) {
             $res['PageSize'] = $this->pageSize;
@@ -88,6 +106,12 @@ class DescribePropertyUserDetailRequest extends Model
         }
         if (isset($map['IsRoot'])) {
             $model->isRoot = $map['IsRoot'];
+        }
+        if (isset($map['LastLoginTimeEnd'])) {
+            $model->lastLoginTimeEnd = $map['LastLoginTimeEnd'];
+        }
+        if (isset($map['LastLoginTimeStart'])) {
+            $model->lastLoginTimeStart = $map['LastLoginTimeStart'];
         }
         if (isset($map['PageSize'])) {
             $model->pageSize = $map['PageSize'];

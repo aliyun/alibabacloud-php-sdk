@@ -29,6 +29,16 @@ class DescribePropertyProcDetailRequest extends Model
     public $pageSize;
 
     /**
+     * @var int
+     */
+    public $procTimeEnd;
+
+    /**
+     * @var int
+     */
+    public $procTimeStart;
+
+    /**
      * @var string
      */
     public $remark;
@@ -43,13 +53,15 @@ class DescribePropertyProcDetailRequest extends Model
      */
     public $uuid;
     protected $_name = [
-        'cmdline'     => 'Cmdline',
-        'currentPage' => 'CurrentPage',
-        'name'        => 'Name',
-        'pageSize'    => 'PageSize',
-        'remark'      => 'Remark',
-        'user'        => 'User',
-        'uuid'        => 'Uuid',
+        'cmdline'       => 'Cmdline',
+        'currentPage'   => 'CurrentPage',
+        'name'          => 'Name',
+        'pageSize'      => 'PageSize',
+        'procTimeEnd'   => 'ProcTimeEnd',
+        'procTimeStart' => 'ProcTimeStart',
+        'remark'        => 'Remark',
+        'user'          => 'User',
+        'uuid'          => 'Uuid',
     ];
 
     public function validate()
@@ -70,6 +82,12 @@ class DescribePropertyProcDetailRequest extends Model
         }
         if (null !== $this->pageSize) {
             $res['PageSize'] = $this->pageSize;
+        }
+        if (null !== $this->procTimeEnd) {
+            $res['ProcTimeEnd'] = $this->procTimeEnd;
+        }
+        if (null !== $this->procTimeStart) {
+            $res['ProcTimeStart'] = $this->procTimeStart;
         }
         if (null !== $this->remark) {
             $res['Remark'] = $this->remark;
@@ -103,6 +121,12 @@ class DescribePropertyProcDetailRequest extends Model
         }
         if (isset($map['PageSize'])) {
             $model->pageSize = $map['PageSize'];
+        }
+        if (isset($map['ProcTimeEnd'])) {
+            $model->procTimeEnd = $map['ProcTimeEnd'];
+        }
+        if (isset($map['ProcTimeStart'])) {
+            $model->procTimeStart = $map['ProcTimeStart'];
         }
         if (isset($map['Remark'])) {
             $model->remark = $map['Remark'];

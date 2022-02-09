@@ -6,7 +6,7 @@ namespace AlibabaCloud\SDK\Sas\V20181203\Models;
 
 use AlibabaCloud\Tea\Model;
 
-class ExportWarningResponse extends Model
+class DescribeImageBaselineCheckSummaryResponse extends Model
 {
     /**
      * @var string[]
@@ -14,7 +14,7 @@ class ExportWarningResponse extends Model
     public $headers;
 
     /**
-     * @var ExportWarningResponseBody
+     * @var DescribeImageBaselineCheckSummaryResponseBody
      */
     public $body;
     protected $_name = [
@@ -44,7 +44,7 @@ class ExportWarningResponse extends Model
     /**
      * @param array $map
      *
-     * @return ExportWarningResponse
+     * @return DescribeImageBaselineCheckSummaryResponse
      */
     public static function fromMap($map = [])
     {
@@ -53,7 +53,7 @@ class ExportWarningResponse extends Model
             $model->headers = $map['headers'];
         }
         if (isset($map['body'])) {
-            $model->body = ExportWarningResponseBody::fromMap($map['body']);
+            $model->body = DescribeImageBaselineCheckSummaryResponseBody::fromMap($map['body']);
         }
 
         return $model;

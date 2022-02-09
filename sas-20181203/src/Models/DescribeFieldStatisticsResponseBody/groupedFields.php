@@ -31,6 +31,11 @@ class groupedFields extends Model
     /**
      * @var int
      */
+    public $huaweiInstanceCount;
+
+    /**
+     * @var int
+     */
     public $idcInstanceCount;
 
     /**
@@ -102,6 +107,7 @@ class groupedFields extends Model
         'exposedInstanceCount'     => 'ExposedInstanceCount',
         'generalAssetCount'        => 'GeneralAssetCount',
         'groupCount'               => 'GroupCount',
+        'huaweiInstanceCount'      => 'HuaweiInstanceCount',
         'idcInstanceCount'         => 'IdcInstanceCount',
         'importantAssetCount'      => 'ImportantAssetCount',
         'instanceCount'            => 'InstanceCount',
@@ -136,6 +142,9 @@ class groupedFields extends Model
         }
         if (null !== $this->groupCount) {
             $res['GroupCount'] = $this->groupCount;
+        }
+        if (null !== $this->huaweiInstanceCount) {
+            $res['HuaweiInstanceCount'] = $this->huaweiInstanceCount;
         }
         if (null !== $this->idcInstanceCount) {
             $res['IdcInstanceCount'] = $this->idcInstanceCount;
@@ -202,6 +211,9 @@ class groupedFields extends Model
         }
         if (isset($map['GroupCount'])) {
             $model->groupCount = $map['GroupCount'];
+        }
+        if (isset($map['HuaweiInstanceCount'])) {
+            $model->huaweiInstanceCount = $map['HuaweiInstanceCount'];
         }
         if (isset($map['IdcInstanceCount'])) {
             $model->idcInstanceCount = $map['IdcInstanceCount'];

@@ -54,9 +54,34 @@ class propertys extends Model
     public $ip;
 
     /**
+     * @var int
+     */
+    public $isCouldLogin;
+
+    /**
+     * @var int
+     */
+    public $isPasswdExpired;
+
+    /**
+     * @var int
+     */
+    public $isPasswdLocked;
+
+    /**
      * @var string
      */
     public $isRoot;
+
+    /**
+     * @var int
+     */
+    public $isSudoer;
+
+    /**
+     * @var int
+     */
+    public $isUserExpired;
 
     /**
      * @var string
@@ -67,6 +92,11 @@ class propertys extends Model
      * @var string
      */
     public $lastLoginTime;
+
+    /**
+     * @var int
+     */
+    public $lastLoginTimeDt;
 
     /**
      * @var int
@@ -102,9 +132,15 @@ class propertys extends Model
         'internetIp'             => 'InternetIp',
         'intranetIp'             => 'IntranetIp',
         'ip'                     => 'Ip',
+        'isCouldLogin'           => 'IsCouldLogin',
+        'isPasswdExpired'        => 'IsPasswdExpired',
+        'isPasswdLocked'         => 'IsPasswdLocked',
         'isRoot'                 => 'IsRoot',
+        'isSudoer'               => 'IsSudoer',
+        'isUserExpired'          => 'IsUserExpired',
         'lastLoginIp'            => 'LastLoginIp',
         'lastLoginTime'          => 'LastLoginTime',
+        'lastLoginTimeDt'        => 'LastLoginTimeDt',
         'lastLoginTimestamp'     => 'LastLoginTimestamp',
         'passwordExpirationDate' => 'PasswordExpirationDate',
         'status'                 => 'Status',
@@ -146,14 +182,32 @@ class propertys extends Model
         if (null !== $this->ip) {
             $res['Ip'] = $this->ip;
         }
+        if (null !== $this->isCouldLogin) {
+            $res['IsCouldLogin'] = $this->isCouldLogin;
+        }
+        if (null !== $this->isPasswdExpired) {
+            $res['IsPasswdExpired'] = $this->isPasswdExpired;
+        }
+        if (null !== $this->isPasswdLocked) {
+            $res['IsPasswdLocked'] = $this->isPasswdLocked;
+        }
         if (null !== $this->isRoot) {
             $res['IsRoot'] = $this->isRoot;
+        }
+        if (null !== $this->isSudoer) {
+            $res['IsSudoer'] = $this->isSudoer;
+        }
+        if (null !== $this->isUserExpired) {
+            $res['IsUserExpired'] = $this->isUserExpired;
         }
         if (null !== $this->lastLoginIp) {
             $res['LastLoginIp'] = $this->lastLoginIp;
         }
         if (null !== $this->lastLoginTime) {
             $res['LastLoginTime'] = $this->lastLoginTime;
+        }
+        if (null !== $this->lastLoginTimeDt) {
+            $res['LastLoginTimeDt'] = $this->lastLoginTimeDt;
         }
         if (null !== $this->lastLoginTimestamp) {
             $res['LastLoginTimestamp'] = $this->lastLoginTimestamp;
@@ -211,14 +265,32 @@ class propertys extends Model
         if (isset($map['Ip'])) {
             $model->ip = $map['Ip'];
         }
+        if (isset($map['IsCouldLogin'])) {
+            $model->isCouldLogin = $map['IsCouldLogin'];
+        }
+        if (isset($map['IsPasswdExpired'])) {
+            $model->isPasswdExpired = $map['IsPasswdExpired'];
+        }
+        if (isset($map['IsPasswdLocked'])) {
+            $model->isPasswdLocked = $map['IsPasswdLocked'];
+        }
         if (isset($map['IsRoot'])) {
             $model->isRoot = $map['IsRoot'];
+        }
+        if (isset($map['IsSudoer'])) {
+            $model->isSudoer = $map['IsSudoer'];
+        }
+        if (isset($map['IsUserExpired'])) {
+            $model->isUserExpired = $map['IsUserExpired'];
         }
         if (isset($map['LastLoginIp'])) {
             $model->lastLoginIp = $map['LastLoginIp'];
         }
         if (isset($map['LastLoginTime'])) {
             $model->lastLoginTime = $map['LastLoginTime'];
+        }
+        if (isset($map['LastLoginTimeDt'])) {
+            $model->lastLoginTimeDt = $map['LastLoginTimeDt'];
         }
         if (isset($map['LastLoginTimestamp'])) {
             $model->lastLoginTimestamp = $map['LastLoginTimestamp'];

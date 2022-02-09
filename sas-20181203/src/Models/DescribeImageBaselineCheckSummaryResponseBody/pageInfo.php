@@ -2,21 +2,21 @@
 
 // This file is auto-generated, don't edit it. Thanks.
 
-namespace AlibabaCloud\SDK\Sas\V20181203\Models;
+namespace AlibabaCloud\SDK\Sas\V20181203\Models\DescribeImageBaselineCheckSummaryResponseBody;
 
 use AlibabaCloud\Tea\Model;
 
-class DescribeVulListPageRequest extends Model
+class pageInfo extends Model
 {
     /**
      * @var int
      */
-    public $currentPage;
+    public $count;
 
     /**
-     * @var string
+     * @var int
      */
-    public $cveId;
+    public $currentPage;
 
     /**
      * @var int
@@ -24,20 +24,14 @@ class DescribeVulListPageRequest extends Model
     public $pageSize;
 
     /**
-     * @var string
+     * @var int
      */
-    public $sourceIp;
-
-    /**
-     * @var string
-     */
-    public $vulNameLike;
+    public $totalCount;
     protected $_name = [
+        'count'       => 'Count',
         'currentPage' => 'CurrentPage',
-        'cveId'       => 'CveId',
         'pageSize'    => 'PageSize',
-        'sourceIp'    => 'SourceIp',
-        'vulNameLike' => 'VulNameLike',
+        'totalCount'  => 'TotalCount',
     ];
 
     public function validate()
@@ -47,20 +41,17 @@ class DescribeVulListPageRequest extends Model
     public function toMap()
     {
         $res = [];
+        if (null !== $this->count) {
+            $res['Count'] = $this->count;
+        }
         if (null !== $this->currentPage) {
             $res['CurrentPage'] = $this->currentPage;
-        }
-        if (null !== $this->cveId) {
-            $res['CveId'] = $this->cveId;
         }
         if (null !== $this->pageSize) {
             $res['PageSize'] = $this->pageSize;
         }
-        if (null !== $this->sourceIp) {
-            $res['SourceIp'] = $this->sourceIp;
-        }
-        if (null !== $this->vulNameLike) {
-            $res['VulNameLike'] = $this->vulNameLike;
+        if (null !== $this->totalCount) {
+            $res['TotalCount'] = $this->totalCount;
         }
 
         return $res;
@@ -69,25 +60,22 @@ class DescribeVulListPageRequest extends Model
     /**
      * @param array $map
      *
-     * @return DescribeVulListPageRequest
+     * @return pageInfo
      */
     public static function fromMap($map = [])
     {
         $model = new self();
+        if (isset($map['Count'])) {
+            $model->count = $map['Count'];
+        }
         if (isset($map['CurrentPage'])) {
             $model->currentPage = $map['CurrentPage'];
-        }
-        if (isset($map['CveId'])) {
-            $model->cveId = $map['CveId'];
         }
         if (isset($map['PageSize'])) {
             $model->pageSize = $map['PageSize'];
         }
-        if (isset($map['SourceIp'])) {
-            $model->sourceIp = $map['SourceIp'];
-        }
-        if (isset($map['VulNameLike'])) {
-            $model->vulNameLike = $map['VulNameLike'];
+        if (isset($map['TotalCount'])) {
+            $model->totalCount = $map['TotalCount'];
         }
 
         return $model;

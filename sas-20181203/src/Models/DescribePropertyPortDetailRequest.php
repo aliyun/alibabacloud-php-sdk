@@ -9,6 +9,11 @@ use AlibabaCloud\Tea\Model;
 class DescribePropertyPortDetailRequest extends Model
 {
     /**
+     * @var string
+     */
+    public $bindIp;
+
+    /**
      * @var int
      */
     public $currentPage;
@@ -38,6 +43,7 @@ class DescribePropertyPortDetailRequest extends Model
      */
     public $uuid;
     protected $_name = [
+        'bindIp'      => 'BindIp',
         'currentPage' => 'CurrentPage',
         'pageSize'    => 'PageSize',
         'port'        => 'Port',
@@ -53,6 +59,9 @@ class DescribePropertyPortDetailRequest extends Model
     public function toMap()
     {
         $res = [];
+        if (null !== $this->bindIp) {
+            $res['BindIp'] = $this->bindIp;
+        }
         if (null !== $this->currentPage) {
             $res['CurrentPage'] = $this->currentPage;
         }
@@ -83,6 +92,9 @@ class DescribePropertyPortDetailRequest extends Model
     public static function fromMap($map = [])
     {
         $model = new self();
+        if (isset($map['BindIp'])) {
+            $model->bindIp = $map['BindIp'];
+        }
         if (isset($map['CurrentPage'])) {
             $model->currentPage = $map['CurrentPage'];
         }

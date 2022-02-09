@@ -14,6 +14,16 @@ class DescribePropertySoftwareDetailRequest extends Model
     public $currentPage;
 
     /**
+     * @var int
+     */
+    public $installTimeEnd;
+
+    /**
+     * @var int
+     */
+    public $installTimeStart;
+
+    /**
      * @var string
      */
     public $name;
@@ -43,13 +53,15 @@ class DescribePropertySoftwareDetailRequest extends Model
      */
     public $uuid;
     protected $_name = [
-        'currentPage'     => 'CurrentPage',
-        'name'            => 'Name',
-        'pageSize'        => 'PageSize',
-        'path'            => 'Path',
-        'remark'          => 'Remark',
-        'softwareVersion' => 'SoftwareVersion',
-        'uuid'            => 'Uuid',
+        'currentPage'      => 'CurrentPage',
+        'installTimeEnd'   => 'InstallTimeEnd',
+        'installTimeStart' => 'InstallTimeStart',
+        'name'             => 'Name',
+        'pageSize'         => 'PageSize',
+        'path'             => 'Path',
+        'remark'           => 'Remark',
+        'softwareVersion'  => 'SoftwareVersion',
+        'uuid'             => 'Uuid',
     ];
 
     public function validate()
@@ -61,6 +73,12 @@ class DescribePropertySoftwareDetailRequest extends Model
         $res = [];
         if (null !== $this->currentPage) {
             $res['CurrentPage'] = $this->currentPage;
+        }
+        if (null !== $this->installTimeEnd) {
+            $res['InstallTimeEnd'] = $this->installTimeEnd;
+        }
+        if (null !== $this->installTimeStart) {
+            $res['InstallTimeStart'] = $this->installTimeStart;
         }
         if (null !== $this->name) {
             $res['Name'] = $this->name;
@@ -94,6 +112,12 @@ class DescribePropertySoftwareDetailRequest extends Model
         $model = new self();
         if (isset($map['CurrentPage'])) {
             $model->currentPage = $map['CurrentPage'];
+        }
+        if (isset($map['InstallTimeEnd'])) {
+            $model->installTimeEnd = $map['InstallTimeEnd'];
+        }
+        if (isset($map['InstallTimeStart'])) {
+            $model->installTimeStart = $map['InstallTimeStart'];
         }
         if (isset($map['Name'])) {
             $model->name = $map['Name'];

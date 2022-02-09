@@ -49,6 +49,11 @@ class propertys extends Model
     public $intranetIp;
 
     /**
+     * @var int
+     */
+    public $isPackage;
+
+    /**
      * @var string
      */
     public $md5;
@@ -79,6 +84,16 @@ class propertys extends Model
     public $startTime;
 
     /**
+     * @var int
+     */
+    public $startTimeDt;
+
+    /**
+     * @var string
+     */
+    public $state;
+
+    /**
      * @var string
      */
     public $user;
@@ -96,12 +111,15 @@ class propertys extends Model
         'instanceName'    => 'InstanceName',
         'internetIp'      => 'InternetIp',
         'intranetIp'      => 'IntranetIp',
+        'isPackage'       => 'IsPackage',
         'md5'             => 'Md5',
         'name'            => 'Name',
         'path'            => 'Path',
         'pid'             => 'Pid',
         'pname'           => 'Pname',
         'startTime'       => 'StartTime',
+        'startTimeDt'     => 'StartTimeDt',
+        'state'           => 'State',
         'user'            => 'User',
         'uuid'            => 'Uuid',
     ];
@@ -137,6 +155,9 @@ class propertys extends Model
         if (null !== $this->intranetIp) {
             $res['IntranetIp'] = $this->intranetIp;
         }
+        if (null !== $this->isPackage) {
+            $res['IsPackage'] = $this->isPackage;
+        }
         if (null !== $this->md5) {
             $res['Md5'] = $this->md5;
         }
@@ -154,6 +175,12 @@ class propertys extends Model
         }
         if (null !== $this->startTime) {
             $res['StartTime'] = $this->startTime;
+        }
+        if (null !== $this->startTimeDt) {
+            $res['StartTimeDt'] = $this->startTimeDt;
+        }
+        if (null !== $this->state) {
+            $res['State'] = $this->state;
         }
         if (null !== $this->user) {
             $res['User'] = $this->user;
@@ -197,6 +224,9 @@ class propertys extends Model
         if (isset($map['IntranetIp'])) {
             $model->intranetIp = $map['IntranetIp'];
         }
+        if (isset($map['IsPackage'])) {
+            $model->isPackage = $map['IsPackage'];
+        }
         if (isset($map['Md5'])) {
             $model->md5 = $map['Md5'];
         }
@@ -214,6 +244,12 @@ class propertys extends Model
         }
         if (isset($map['StartTime'])) {
             $model->startTime = $map['StartTime'];
+        }
+        if (isset($map['StartTimeDt'])) {
+            $model->startTimeDt = $map['StartTimeDt'];
+        }
+        if (isset($map['State'])) {
+            $model->state = $map['State'];
         }
         if (isset($map['User'])) {
             $model->user = $map['User'];
