@@ -10,6 +10,13 @@ use GuzzleHttp\Psr7\Stream;
 class RecognizeIdcardRequest extends Model
 {
     /**
+     * @description 是否需要图案检测功能，默认不需要
+     *
+     * @var bool
+     */
+    public $outputFigure;
+
+    /**
      * @description 图片链接（长度不超 2048，不支持 base64）
      *
      * @var string
@@ -23,8 +30,9 @@ class RecognizeIdcardRequest extends Model
      */
     public $body;
     protected $_name = [
-        'url'  => 'Url',
-        'body' => 'body',
+        'outputFigure' => 'OutputFigure',
+        'url'          => 'Url',
+        'body'         => 'body',
     ];
 
     public function validate()
@@ -34,6 +42,9 @@ class RecognizeIdcardRequest extends Model
     public function toMap()
     {
         $res = [];
+        if (null !== $this->outputFigure) {
+            $res['OutputFigure'] = $this->outputFigure;
+        }
         if (null !== $this->url) {
             $res['Url'] = $this->url;
         }
@@ -52,6 +63,9 @@ class RecognizeIdcardRequest extends Model
     public static function fromMap($map = [])
     {
         $model = new self();
+        if (isset($map['OutputFigure'])) {
+            $model->outputFigure = $map['OutputFigure'];
+        }
         if (isset($map['Url'])) {
             $model->url = $map['Url'];
         }

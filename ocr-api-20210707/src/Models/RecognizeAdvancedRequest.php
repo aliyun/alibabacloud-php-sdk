@@ -24,6 +24,13 @@ class RecognizeAdvancedRequest extends Model
     public $needSortPage;
 
     /**
+     * @description 是否需要去除印章功能，默认不需要。true：需要 false：不需要
+     *
+     * @var bool
+     */
+    public $noStamp;
+
+    /**
      * @description 是否输出单字识别结果
      *
      * @var bool
@@ -31,11 +38,32 @@ class RecognizeAdvancedRequest extends Model
     public $outputCharInfo;
 
     /**
+     * @description 是否需要图案检测功能，默认不需要。true：需要 false：不需要
+     *
+     * @var bool
+     */
+    public $outputFigure;
+
+    /**
      * @description 是否输出表格识别结果，包含单元格信息
      *
      * @var bool
      */
     public $outputTable;
+
+    /**
+     * @description 是否需要分段功能，默认不需要。true：需要 false：不需要
+     *
+     * @var bool
+     */
+    public $paragraph;
+
+    /**
+     * @description 是否需要成行返回功能，默认不需要
+     *
+     * @var bool
+     */
+    public $row;
 
     /**
      * @description 图片链接（长度不超 2048，不支持 base64）
@@ -53,8 +81,12 @@ class RecognizeAdvancedRequest extends Model
     protected $_name = [
         'needRotate'     => 'NeedRotate',
         'needSortPage'   => 'NeedSortPage',
+        'noStamp'        => 'NoStamp',
         'outputCharInfo' => 'OutputCharInfo',
+        'outputFigure'   => 'OutputFigure',
         'outputTable'    => 'OutputTable',
+        'paragraph'      => 'Paragraph',
+        'row'            => 'Row',
         'url'            => 'Url',
         'body'           => 'body',
     ];
@@ -72,11 +104,23 @@ class RecognizeAdvancedRequest extends Model
         if (null !== $this->needSortPage) {
             $res['NeedSortPage'] = $this->needSortPage;
         }
+        if (null !== $this->noStamp) {
+            $res['NoStamp'] = $this->noStamp;
+        }
         if (null !== $this->outputCharInfo) {
             $res['OutputCharInfo'] = $this->outputCharInfo;
         }
+        if (null !== $this->outputFigure) {
+            $res['OutputFigure'] = $this->outputFigure;
+        }
         if (null !== $this->outputTable) {
             $res['OutputTable'] = $this->outputTable;
+        }
+        if (null !== $this->paragraph) {
+            $res['Paragraph'] = $this->paragraph;
+        }
+        if (null !== $this->row) {
+            $res['Row'] = $this->row;
         }
         if (null !== $this->url) {
             $res['Url'] = $this->url;
@@ -102,11 +146,23 @@ class RecognizeAdvancedRequest extends Model
         if (isset($map['NeedSortPage'])) {
             $model->needSortPage = $map['NeedSortPage'];
         }
+        if (isset($map['NoStamp'])) {
+            $model->noStamp = $map['NoStamp'];
+        }
         if (isset($map['OutputCharInfo'])) {
             $model->outputCharInfo = $map['OutputCharInfo'];
         }
+        if (isset($map['OutputFigure'])) {
+            $model->outputFigure = $map['OutputFigure'];
+        }
         if (isset($map['OutputTable'])) {
             $model->outputTable = $map['OutputTable'];
+        }
+        if (isset($map['Paragraph'])) {
+            $model->paragraph = $map['Paragraph'];
+        }
+        if (isset($map['Row'])) {
+            $model->row = $map['Row'];
         }
         if (isset($map['Url'])) {
             $model->url = $map['Url'];

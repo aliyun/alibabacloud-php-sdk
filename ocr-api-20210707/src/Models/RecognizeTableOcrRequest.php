@@ -10,6 +10,27 @@ use GuzzleHttp\Psr7\Stream;
 class RecognizeTableOcrRequest extends Model
 {
     /**
+     * @description 是否无线条
+     *
+     * @var bool
+     */
+    public $lineLess;
+
+    /**
+     * @description 是否需要自动旋转功能，默认需要
+     *
+     * @var bool
+     */
+    public $needRotate;
+
+    /**
+     * @description 是否跳过表格识别，如果没有检测到表格，可以设置"skip_detection":true
+     *
+     * @var bool
+     */
+    public $skipDetection;
+
+    /**
      * @description 图片链接（长度不超 2048，不支持 base64）
      *
      * @var string
@@ -23,8 +44,11 @@ class RecognizeTableOcrRequest extends Model
      */
     public $body;
     protected $_name = [
-        'url'  => 'Url',
-        'body' => 'body',
+        'lineLess'      => 'LineLess',
+        'needRotate'    => 'NeedRotate',
+        'skipDetection' => 'SkipDetection',
+        'url'           => 'Url',
+        'body'          => 'body',
     ];
 
     public function validate()
@@ -34,6 +58,15 @@ class RecognizeTableOcrRequest extends Model
     public function toMap()
     {
         $res = [];
+        if (null !== $this->lineLess) {
+            $res['LineLess'] = $this->lineLess;
+        }
+        if (null !== $this->needRotate) {
+            $res['NeedRotate'] = $this->needRotate;
+        }
+        if (null !== $this->skipDetection) {
+            $res['SkipDetection'] = $this->skipDetection;
+        }
         if (null !== $this->url) {
             $res['Url'] = $this->url;
         }
@@ -52,6 +85,15 @@ class RecognizeTableOcrRequest extends Model
     public static function fromMap($map = [])
     {
         $model = new self();
+        if (isset($map['LineLess'])) {
+            $model->lineLess = $map['LineLess'];
+        }
+        if (isset($map['NeedRotate'])) {
+            $model->needRotate = $map['NeedRotate'];
+        }
+        if (isset($map['SkipDetection'])) {
+            $model->skipDetection = $map['SkipDetection'];
+        }
         if (isset($map['Url'])) {
             $model->url = $map['Url'];
         }

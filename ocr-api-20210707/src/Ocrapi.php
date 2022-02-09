@@ -16,18 +16,28 @@ use AlibabaCloud\SDK\Ocrapi\V20210707\Models\RecognizeBankCardRequest;
 use AlibabaCloud\SDK\Ocrapi\V20210707\Models\RecognizeBankCardResponse;
 use AlibabaCloud\SDK\Ocrapi\V20210707\Models\RecognizeBasicRequest;
 use AlibabaCloud\SDK\Ocrapi\V20210707\Models\RecognizeBasicResponse;
+use AlibabaCloud\SDK\Ocrapi\V20210707\Models\RecognizeBatchRecognizeRequest;
+use AlibabaCloud\SDK\Ocrapi\V20210707\Models\RecognizeBatchRecognizeResponse;
 use AlibabaCloud\SDK\Ocrapi\V20210707\Models\RecognizeBirthCertificationRequest;
 use AlibabaCloud\SDK\Ocrapi\V20210707\Models\RecognizeBirthCertificationResponse;
 use AlibabaCloud\SDK\Ocrapi\V20210707\Models\RecognizeBusinessLicenseRequest;
 use AlibabaCloud\SDK\Ocrapi\V20210707\Models\RecognizeBusinessLicenseResponse;
+use AlibabaCloud\SDK\Ocrapi\V20210707\Models\RecognizeBusShipTicketRequest;
+use AlibabaCloud\SDK\Ocrapi\V20210707\Models\RecognizeBusShipTicketResponse;
 use AlibabaCloud\SDK\Ocrapi\V20210707\Models\RecognizeCarInvoiceRequest;
 use AlibabaCloud\SDK\Ocrapi\V20210707\Models\RecognizeCarInvoiceResponse;
 use AlibabaCloud\SDK\Ocrapi\V20210707\Models\RecognizeCarNumberRequest;
 use AlibabaCloud\SDK\Ocrapi\V20210707\Models\RecognizeCarNumberResponse;
 use AlibabaCloud\SDK\Ocrapi\V20210707\Models\RecognizeCarVinCodeRequest;
 use AlibabaCloud\SDK\Ocrapi\V20210707\Models\RecognizeCarVinCodeResponse;
+use AlibabaCloud\SDK\Ocrapi\V20210707\Models\RecognizeChinesePassportRequest;
+use AlibabaCloud\SDK\Ocrapi\V20210707\Models\RecognizeChinesePassportResponse;
+use AlibabaCloud\SDK\Ocrapi\V20210707\Models\RecognizeCommonPrintedInvoiceRequest;
+use AlibabaCloud\SDK\Ocrapi\V20210707\Models\RecognizeCommonPrintedInvoiceResponse;
 use AlibabaCloud\SDK\Ocrapi\V20210707\Models\RecognizeCtwoMedicalDeviceManageLicenseRequest;
 use AlibabaCloud\SDK\Ocrapi\V20210707\Models\RecognizeCtwoMedicalDeviceManageLicenseResponse;
+use AlibabaCloud\SDK\Ocrapi\V20210707\Models\RecognizeDeleteExcelRecordRequest;
+use AlibabaCloud\SDK\Ocrapi\V20210707\Models\RecognizeDeleteExcelRecordResponse;
 use AlibabaCloud\SDK\Ocrapi\V20210707\Models\RecognizeDrivingLicenseRequest;
 use AlibabaCloud\SDK\Ocrapi\V20210707\Models\RecognizeDrivingLicenseResponse;
 use AlibabaCloud\SDK\Ocrapi\V20210707\Models\RecognizeEduFormulaRequest;
@@ -46,6 +56,14 @@ use AlibabaCloud\SDK\Ocrapi\V20210707\Models\RecognizeEnglishRequest;
 use AlibabaCloud\SDK\Ocrapi\V20210707\Models\RecognizeEnglishResponse;
 use AlibabaCloud\SDK\Ocrapi\V20210707\Models\RecognizeEstateCertificationRequest;
 use AlibabaCloud\SDK\Ocrapi\V20210707\Models\RecognizeEstateCertificationResponse;
+use AlibabaCloud\SDK\Ocrapi\V20210707\Models\RecognizeExcelExportRequest;
+use AlibabaCloud\SDK\Ocrapi\V20210707\Models\RecognizeExcelExportResponse;
+use AlibabaCloud\SDK\Ocrapi\V20210707\Models\RecognizeExcelRecordRequest;
+use AlibabaCloud\SDK\Ocrapi\V20210707\Models\RecognizeExcelRecordResponse;
+use AlibabaCloud\SDK\Ocrapi\V20210707\Models\RecognizeExitEntryPermitToHKRequest;
+use AlibabaCloud\SDK\Ocrapi\V20210707\Models\RecognizeExitEntryPermitToHKResponse;
+use AlibabaCloud\SDK\Ocrapi\V20210707\Models\RecognizeExitEntryPermitToMainlandRequest;
+use AlibabaCloud\SDK\Ocrapi\V20210707\Models\RecognizeExitEntryPermitToMainlandResponse;
 use AlibabaCloud\SDK\Ocrapi\V20210707\Models\RecognizeFoodManageLicenseRequest;
 use AlibabaCloud\SDK\Ocrapi\V20210707\Models\RecognizeFoodManageLicenseResponse;
 use AlibabaCloud\SDK\Ocrapi\V20210707\Models\RecognizeFoodProduceLicenseRequest;
@@ -79,22 +97,36 @@ use AlibabaCloud\SDK\Ocrapi\V20210707\Models\RecognizePassportRequest;
 use AlibabaCloud\SDK\Ocrapi\V20210707\Models\RecognizePassportResponse;
 use AlibabaCloud\SDK\Ocrapi\V20210707\Models\RecognizeQuotaInvoiceRequest;
 use AlibabaCloud\SDK\Ocrapi\V20210707\Models\RecognizeQuotaInvoiceResponse;
+use AlibabaCloud\SDK\Ocrapi\V20210707\Models\RecognizeRideHailingItineraryRequest;
+use AlibabaCloud\SDK\Ocrapi\V20210707\Models\RecognizeRideHailingItineraryResponse;
 use AlibabaCloud\SDK\Ocrapi\V20210707\Models\RecognizeRollTicketRequest;
 use AlibabaCloud\SDK\Ocrapi\V20210707\Models\RecognizeRollTicketResponse;
 use AlibabaCloud\SDK\Ocrapi\V20210707\Models\RecognizeRussianRequest;
 use AlibabaCloud\SDK\Ocrapi\V20210707\Models\RecognizeRussianResponse;
+use AlibabaCloud\SDK\Ocrapi\V20210707\Models\RecognizeSocialSecurityCardRequest;
+use AlibabaCloud\SDK\Ocrapi\V20210707\Models\RecognizeSocialSecurityCardResponse;
 use AlibabaCloud\SDK\Ocrapi\V20210707\Models\RecognizeTableOcrRequest;
 use AlibabaCloud\SDK\Ocrapi\V20210707\Models\RecognizeTableOcrResponse;
+use AlibabaCloud\SDK\Ocrapi\V20210707\Models\RecognizeTaxClearanceCertificateRequest;
+use AlibabaCloud\SDK\Ocrapi\V20210707\Models\RecognizeTaxClearanceCertificateResponse;
 use AlibabaCloud\SDK\Ocrapi\V20210707\Models\RecognizeTaxiInvoiceRequest;
 use AlibabaCloud\SDK\Ocrapi\V20210707\Models\RecognizeTaxiInvoiceResponse;
 use AlibabaCloud\SDK\Ocrapi\V20210707\Models\RecognizeThaiRequest;
 use AlibabaCloud\SDK\Ocrapi\V20210707\Models\RecognizeThaiResponse;
+use AlibabaCloud\SDK\Ocrapi\V20210707\Models\RecognizeTollInvoiceRequest;
+use AlibabaCloud\SDK\Ocrapi\V20210707\Models\RecognizeTollInvoiceResponse;
 use AlibabaCloud\SDK\Ocrapi\V20210707\Models\RecognizeTradeMarkCertificationRequest;
 use AlibabaCloud\SDK\Ocrapi\V20210707\Models\RecognizeTradeMarkCertificationResponse;
 use AlibabaCloud\SDK\Ocrapi\V20210707\Models\RecognizeTrainInvoiceRequest;
 use AlibabaCloud\SDK\Ocrapi\V20210707\Models\RecognizeTrainInvoiceResponse;
+use AlibabaCloud\SDK\Ocrapi\V20210707\Models\RecognizeUsedCarInvoiceRequest;
+use AlibabaCloud\SDK\Ocrapi\V20210707\Models\RecognizeUsedCarInvoiceResponse;
+use AlibabaCloud\SDK\Ocrapi\V20210707\Models\RecognizeVehicleCertificationRequest;
+use AlibabaCloud\SDK\Ocrapi\V20210707\Models\RecognizeVehicleCertificationResponse;
 use AlibabaCloud\SDK\Ocrapi\V20210707\Models\RecognizeVehicleLicenseRequest;
 use AlibabaCloud\SDK\Ocrapi\V20210707\Models\RecognizeVehicleLicenseResponse;
+use AlibabaCloud\SDK\Ocrapi\V20210707\Models\RecognizeVehicleRegistrationRequest;
+use AlibabaCloud\SDK\Ocrapi\V20210707\Models\RecognizeVehicleRegistrationResponse;
 use AlibabaCloud\SDK\Ocrapi\V20210707\Models\RecognizeWaybillRequest;
 use AlibabaCloud\SDK\Ocrapi\V20210707\Models\RecognizeWaybillResponse;
 use AlibabaCloud\Tea\Utils\Utils;
@@ -145,15 +177,37 @@ class Ocrapi extends OpenApiClient
     public function recognizeAdvancedWithOptions($request, $runtime)
     {
         Utils::validateModel($request);
-        $query                   = [];
-        $query['NeedRotate']     = $request->needRotate;
-        $query['NeedSortPage']   = $request->needSortPage;
-        $query['OutputCharInfo'] = $request->outputCharInfo;
-        $query['OutputTable']    = $request->outputTable;
-        $query['Url']            = $request->url;
-        $req                     = new OpenApiRequest([
+        $query = [];
+        if (!Utils::isUnset($request->needRotate)) {
+            $query['NeedRotate'] = $request->needRotate;
+        }
+        if (!Utils::isUnset($request->needSortPage)) {
+            $query['NeedSortPage'] = $request->needSortPage;
+        }
+        if (!Utils::isUnset($request->noStamp)) {
+            $query['NoStamp'] = $request->noStamp;
+        }
+        if (!Utils::isUnset($request->outputCharInfo)) {
+            $query['OutputCharInfo'] = $request->outputCharInfo;
+        }
+        if (!Utils::isUnset($request->outputFigure)) {
+            $query['OutputFigure'] = $request->outputFigure;
+        }
+        if (!Utils::isUnset($request->outputTable)) {
+            $query['OutputTable'] = $request->outputTable;
+        }
+        if (!Utils::isUnset($request->paragraph)) {
+            $query['Paragraph'] = $request->paragraph;
+        }
+        if (!Utils::isUnset($request->row)) {
+            $query['Row'] = $request->row;
+        }
+        if (!Utils::isUnset($request->url)) {
+            $query['Url'] = $request->url;
+        }
+        $req = new OpenApiRequest([
             'query'  => OpenApiUtilClient::query($query),
-            'body'   => Utils::toMap($request),
+            'body'   => $request->body,
             'stream' => $request->body,
         ]);
         $params = new Params([
@@ -164,7 +218,7 @@ class Ocrapi extends OpenApiClient
             'method'      => 'POST',
             'authType'    => 'AK',
             'style'       => 'RPC',
-            'reqBodyType' => 'json',
+            'reqBodyType' => 'formData',
             'bodyType'    => 'json',
         ]);
 
@@ -192,11 +246,13 @@ class Ocrapi extends OpenApiClient
     public function recognizeAirItineraryWithOptions($request, $runtime)
     {
         Utils::validateModel($request);
-        $query        = [];
-        $query['Url'] = $request->url;
-        $req          = new OpenApiRequest([
+        $query = [];
+        if (!Utils::isUnset($request->url)) {
+            $query['Url'] = $request->url;
+        }
+        $req = new OpenApiRequest([
             'query'  => OpenApiUtilClient::query($query),
-            'body'   => Utils::toMap($request),
+            'body'   => $request->body,
             'stream' => $request->body,
         ]);
         $params = new Params([
@@ -207,7 +263,7 @@ class Ocrapi extends OpenApiClient
             'method'      => 'POST',
             'authType'    => 'AK',
             'style'       => 'RPC',
-            'reqBodyType' => 'json',
+            'reqBodyType' => 'formData',
             'bodyType'    => 'json',
         ]);
 
@@ -235,11 +291,13 @@ class Ocrapi extends OpenApiClient
     public function recognizeBankAccountLicenseWithOptions($request, $runtime)
     {
         Utils::validateModel($request);
-        $query        = [];
-        $query['Url'] = $request->url;
-        $req          = new OpenApiRequest([
+        $query = [];
+        if (!Utils::isUnset($request->url)) {
+            $query['Url'] = $request->url;
+        }
+        $req = new OpenApiRequest([
             'query'  => OpenApiUtilClient::query($query),
-            'body'   => Utils::toMap($request),
+            'body'   => $request->body,
             'stream' => $request->body,
         ]);
         $params = new Params([
@@ -250,7 +308,7 @@ class Ocrapi extends OpenApiClient
             'method'      => 'POST',
             'authType'    => 'AK',
             'style'       => 'RPC',
-            'reqBodyType' => 'json',
+            'reqBodyType' => 'formData',
             'bodyType'    => 'json',
         ]);
 
@@ -278,11 +336,13 @@ class Ocrapi extends OpenApiClient
     public function recognizeBankCardWithOptions($request, $runtime)
     {
         Utils::validateModel($request);
-        $query        = [];
-        $query['Url'] = $request->url;
-        $req          = new OpenApiRequest([
+        $query = [];
+        if (!Utils::isUnset($request->url)) {
+            $query['Url'] = $request->url;
+        }
+        $req = new OpenApiRequest([
             'query'  => OpenApiUtilClient::query($query),
-            'body'   => Utils::toMap($request),
+            'body'   => $request->body,
             'stream' => $request->body,
         ]);
         $params = new Params([
@@ -293,7 +353,7 @@ class Ocrapi extends OpenApiClient
             'method'      => 'POST',
             'authType'    => 'AK',
             'style'       => 'RPC',
-            'reqBodyType' => 'json',
+            'reqBodyType' => 'formData',
             'bodyType'    => 'json',
         ]);
 
@@ -321,11 +381,13 @@ class Ocrapi extends OpenApiClient
     public function recognizeBasicWithOptions($request, $runtime)
     {
         Utils::validateModel($request);
-        $query        = [];
-        $query['Url'] = $request->url;
-        $req          = new OpenApiRequest([
+        $query = [];
+        if (!Utils::isUnset($request->url)) {
+            $query['Url'] = $request->url;
+        }
+        $req = new OpenApiRequest([
             'query'  => OpenApiUtilClient::query($query),
-            'body'   => Utils::toMap($request),
+            'body'   => $request->body,
             'stream' => $request->body,
         ]);
         $params = new Params([
@@ -336,7 +398,7 @@ class Ocrapi extends OpenApiClient
             'method'      => 'POST',
             'authType'    => 'AK',
             'style'       => 'RPC',
-            'reqBodyType' => 'json',
+            'reqBodyType' => 'formData',
             'bodyType'    => 'json',
         ]);
 
@@ -356,6 +418,70 @@ class Ocrapi extends OpenApiClient
     }
 
     /**
+     * @param RecognizeBatchRecognizeRequest $request
+     * @param RuntimeOptions                 $runtime
+     *
+     * @return RecognizeBatchRecognizeResponse
+     */
+    public function recognizeBatchRecognizeWithOptions($request, $runtime)
+    {
+        Utils::validateModel($request);
+        $query = [];
+        if (!Utils::isUnset($request->imageName)) {
+            $query['ImageName'] = $request->imageName;
+        }
+        if (!Utils::isUnset($request->imageOp)) {
+            $query['ImageOp'] = $request->imageOp;
+        }
+        if (!Utils::isUnset($request->imageOssKey)) {
+            $query['ImageOssKey'] = $request->imageOssKey;
+        }
+        if (!Utils::isUnset($request->needRotate)) {
+            $query['NeedRotate'] = $request->needRotate;
+        }
+        if (!Utils::isUnset($request->needSortPage)) {
+            $query['NeedSortPage'] = $request->needSortPage;
+        }
+        if (!Utils::isUnset($request->outputCharInfo)) {
+            $query['OutputCharInfo'] = $request->outputCharInfo;
+        }
+        if (!Utils::isUnset($request->outputTable)) {
+            $query['OutputTable'] = $request->outputTable;
+        }
+        if (!Utils::isUnset($request->url)) {
+            $query['Url'] = $request->url;
+        }
+        $req = new OpenApiRequest([
+            'query' => OpenApiUtilClient::query($query),
+        ]);
+        $params = new Params([
+            'action'      => 'RecognizeBatchRecognize',
+            'version'     => '2021-07-07',
+            'protocol'    => 'HTTPS',
+            'pathname'    => '/',
+            'method'      => 'POST',
+            'authType'    => 'AK',
+            'style'       => 'RPC',
+            'reqBodyType' => 'formData',
+            'bodyType'    => 'json',
+        ]);
+
+        return RecognizeBatchRecognizeResponse::fromMap($this->callApi($params, $req, $runtime));
+    }
+
+    /**
+     * @param RecognizeBatchRecognizeRequest $request
+     *
+     * @return RecognizeBatchRecognizeResponse
+     */
+    public function recognizeBatchRecognize($request)
+    {
+        $runtime = new RuntimeOptions([]);
+
+        return $this->recognizeBatchRecognizeWithOptions($request, $runtime);
+    }
+
+    /**
      * @param RecognizeBirthCertificationRequest $request
      * @param RuntimeOptions                     $runtime
      *
@@ -364,11 +490,13 @@ class Ocrapi extends OpenApiClient
     public function recognizeBirthCertificationWithOptions($request, $runtime)
     {
         Utils::validateModel($request);
-        $query        = [];
-        $query['Url'] = $request->url;
-        $req          = new OpenApiRequest([
+        $query = [];
+        if (!Utils::isUnset($request->url)) {
+            $query['Url'] = $request->url;
+        }
+        $req = new OpenApiRequest([
             'query'  => OpenApiUtilClient::query($query),
-            'body'   => Utils::toMap($request),
+            'body'   => $request->body,
             'stream' => $request->body,
         ]);
         $params = new Params([
@@ -379,7 +507,7 @@ class Ocrapi extends OpenApiClient
             'method'      => 'POST',
             'authType'    => 'AK',
             'style'       => 'RPC',
-            'reqBodyType' => 'json',
+            'reqBodyType' => 'formData',
             'bodyType'    => 'json',
         ]);
 
@@ -399,6 +527,51 @@ class Ocrapi extends OpenApiClient
     }
 
     /**
+     * @param RecognizeBusShipTicketRequest $request
+     * @param RuntimeOptions                $runtime
+     *
+     * @return RecognizeBusShipTicketResponse
+     */
+    public function recognizeBusShipTicketWithOptions($request, $runtime)
+    {
+        Utils::validateModel($request);
+        $query = [];
+        if (!Utils::isUnset($request->url)) {
+            $query['Url'] = $request->url;
+        }
+        $req = new OpenApiRequest([
+            'query'  => OpenApiUtilClient::query($query),
+            'body'   => $request->body,
+            'stream' => $request->body,
+        ]);
+        $params = new Params([
+            'action'      => 'RecognizeBusShipTicket',
+            'version'     => '2021-07-07',
+            'protocol'    => 'HTTPS',
+            'pathname'    => '/',
+            'method'      => 'POST',
+            'authType'    => 'AK',
+            'style'       => 'RPC',
+            'reqBodyType' => 'formData',
+            'bodyType'    => 'json',
+        ]);
+
+        return RecognizeBusShipTicketResponse::fromMap($this->callApi($params, $req, $runtime));
+    }
+
+    /**
+     * @param RecognizeBusShipTicketRequest $request
+     *
+     * @return RecognizeBusShipTicketResponse
+     */
+    public function recognizeBusShipTicket($request)
+    {
+        $runtime = new RuntimeOptions([]);
+
+        return $this->recognizeBusShipTicketWithOptions($request, $runtime);
+    }
+
+    /**
      * @param RecognizeBusinessLicenseRequest $request
      * @param RuntimeOptions                  $runtime
      *
@@ -407,11 +580,13 @@ class Ocrapi extends OpenApiClient
     public function recognizeBusinessLicenseWithOptions($request, $runtime)
     {
         Utils::validateModel($request);
-        $query        = [];
-        $query['Url'] = $request->url;
-        $req          = new OpenApiRequest([
+        $query = [];
+        if (!Utils::isUnset($request->url)) {
+            $query['Url'] = $request->url;
+        }
+        $req = new OpenApiRequest([
             'query'  => OpenApiUtilClient::query($query),
-            'body'   => Utils::toMap($request),
+            'body'   => $request->body,
             'stream' => $request->body,
         ]);
         $params = new Params([
@@ -422,7 +597,7 @@ class Ocrapi extends OpenApiClient
             'method'      => 'POST',
             'authType'    => 'AK',
             'style'       => 'RPC',
-            'reqBodyType' => 'json',
+            'reqBodyType' => 'formData',
             'bodyType'    => 'json',
         ]);
 
@@ -450,11 +625,13 @@ class Ocrapi extends OpenApiClient
     public function recognizeCarInvoiceWithOptions($request, $runtime)
     {
         Utils::validateModel($request);
-        $query        = [];
-        $query['Url'] = $request->url;
-        $req          = new OpenApiRequest([
+        $query = [];
+        if (!Utils::isUnset($request->url)) {
+            $query['Url'] = $request->url;
+        }
+        $req = new OpenApiRequest([
             'query'  => OpenApiUtilClient::query($query),
-            'body'   => Utils::toMap($request),
+            'body'   => $request->body,
             'stream' => $request->body,
         ]);
         $params = new Params([
@@ -465,7 +642,7 @@ class Ocrapi extends OpenApiClient
             'method'      => 'POST',
             'authType'    => 'AK',
             'style'       => 'RPC',
-            'reqBodyType' => 'json',
+            'reqBodyType' => 'formData',
             'bodyType'    => 'json',
         ]);
 
@@ -493,11 +670,13 @@ class Ocrapi extends OpenApiClient
     public function recognizeCarNumberWithOptions($request, $runtime)
     {
         Utils::validateModel($request);
-        $query        = [];
-        $query['Url'] = $request->url;
-        $req          = new OpenApiRequest([
+        $query = [];
+        if (!Utils::isUnset($request->url)) {
+            $query['Url'] = $request->url;
+        }
+        $req = new OpenApiRequest([
             'query'  => OpenApiUtilClient::query($query),
-            'body'   => Utils::toMap($request),
+            'body'   => $request->body,
             'stream' => $request->body,
         ]);
         $params = new Params([
@@ -508,7 +687,7 @@ class Ocrapi extends OpenApiClient
             'method'      => 'POST',
             'authType'    => 'AK',
             'style'       => 'RPC',
-            'reqBodyType' => 'json',
+            'reqBodyType' => 'formData',
             'bodyType'    => 'json',
         ]);
 
@@ -536,11 +715,13 @@ class Ocrapi extends OpenApiClient
     public function recognizeCarVinCodeWithOptions($request, $runtime)
     {
         Utils::validateModel($request);
-        $query        = [];
-        $query['Url'] = $request->url;
-        $req          = new OpenApiRequest([
+        $query = [];
+        if (!Utils::isUnset($request->url)) {
+            $query['Url'] = $request->url;
+        }
+        $req = new OpenApiRequest([
             'query'  => OpenApiUtilClient::query($query),
-            'body'   => Utils::toMap($request),
+            'body'   => $request->body,
             'stream' => $request->body,
         ]);
         $params = new Params([
@@ -551,7 +732,7 @@ class Ocrapi extends OpenApiClient
             'method'      => 'POST',
             'authType'    => 'AK',
             'style'       => 'RPC',
-            'reqBodyType' => 'json',
+            'reqBodyType' => 'formData',
             'bodyType'    => 'json',
         ]);
 
@@ -571,6 +752,99 @@ class Ocrapi extends OpenApiClient
     }
 
     /**
+     * @param RecognizeChinesePassportRequest $request
+     * @param RuntimeOptions                  $runtime
+     *
+     * @return RecognizeChinesePassportResponse
+     */
+    public function recognizeChinesePassportWithOptions($request, $runtime)
+    {
+        Utils::validateModel($request);
+        $query = [];
+        if (!Utils::isUnset($request->outputFigure)) {
+            $query['OutputFigure'] = $request->outputFigure;
+        }
+        if (!Utils::isUnset($request->url)) {
+            $query['Url'] = $request->url;
+        }
+        $req = new OpenApiRequest([
+            'query'  => OpenApiUtilClient::query($query),
+            'body'   => $request->body,
+            'stream' => $request->body,
+        ]);
+        $params = new Params([
+            'action'      => 'RecognizeChinesePassport',
+            'version'     => '2021-07-07',
+            'protocol'    => 'HTTPS',
+            'pathname'    => '/',
+            'method'      => 'POST',
+            'authType'    => 'AK',
+            'style'       => 'RPC',
+            'reqBodyType' => 'formData',
+            'bodyType'    => 'json',
+        ]);
+
+        return RecognizeChinesePassportResponse::fromMap($this->callApi($params, $req, $runtime));
+    }
+
+    /**
+     * @param RecognizeChinesePassportRequest $request
+     *
+     * @return RecognizeChinesePassportResponse
+     */
+    public function recognizeChinesePassport($request)
+    {
+        $runtime = new RuntimeOptions([]);
+
+        return $this->recognizeChinesePassportWithOptions($request, $runtime);
+    }
+
+    /**
+     * @param RecognizeCommonPrintedInvoiceRequest $request
+     * @param RuntimeOptions                       $runtime
+     *
+     * @return RecognizeCommonPrintedInvoiceResponse
+     */
+    public function recognizeCommonPrintedInvoiceWithOptions($request, $runtime)
+    {
+        Utils::validateModel($request);
+        $query = [];
+        if (!Utils::isUnset($request->url)) {
+            $query['Url'] = $request->url;
+        }
+        $req = new OpenApiRequest([
+            'query'  => OpenApiUtilClient::query($query),
+            'body'   => $request->body,
+            'stream' => $request->body,
+        ]);
+        $params = new Params([
+            'action'      => 'RecognizeCommonPrintedInvoice',
+            'version'     => '2021-07-07',
+            'protocol'    => 'HTTPS',
+            'pathname'    => '/',
+            'method'      => 'POST',
+            'authType'    => 'AK',
+            'style'       => 'RPC',
+            'reqBodyType' => 'formData',
+            'bodyType'    => 'json',
+        ]);
+
+        return RecognizeCommonPrintedInvoiceResponse::fromMap($this->callApi($params, $req, $runtime));
+    }
+
+    /**
+     * @param RecognizeCommonPrintedInvoiceRequest $request
+     *
+     * @return RecognizeCommonPrintedInvoiceResponse
+     */
+    public function recognizeCommonPrintedInvoice($request)
+    {
+        $runtime = new RuntimeOptions([]);
+
+        return $this->recognizeCommonPrintedInvoiceWithOptions($request, $runtime);
+    }
+
+    /**
      * @param RecognizeCtwoMedicalDeviceManageLicenseRequest $request
      * @param RuntimeOptions                                 $runtime
      *
@@ -579,11 +853,13 @@ class Ocrapi extends OpenApiClient
     public function recognizeCtwoMedicalDeviceManageLicenseWithOptions($request, $runtime)
     {
         Utils::validateModel($request);
-        $query        = [];
-        $query['Url'] = $request->url;
-        $req          = new OpenApiRequest([
+        $query = [];
+        if (!Utils::isUnset($request->url)) {
+            $query['Url'] = $request->url;
+        }
+        $req = new OpenApiRequest([
             'query'  => OpenApiUtilClient::query($query),
-            'body'   => Utils::toMap($request),
+            'body'   => $request->body,
             'stream' => $request->body,
         ]);
         $params = new Params([
@@ -594,7 +870,7 @@ class Ocrapi extends OpenApiClient
             'method'      => 'POST',
             'authType'    => 'AK',
             'style'       => 'RPC',
-            'reqBodyType' => 'json',
+            'reqBodyType' => 'formData',
             'bodyType'    => 'json',
         ]);
 
@@ -614,6 +890,49 @@ class Ocrapi extends OpenApiClient
     }
 
     /**
+     * @param RecognizeDeleteExcelRecordRequest $request
+     * @param RuntimeOptions                    $runtime
+     *
+     * @return RecognizeDeleteExcelRecordResponse
+     */
+    public function recognizeDeleteExcelRecordWithOptions($request, $runtime)
+    {
+        Utils::validateModel($request);
+        $query = [];
+        if (!Utils::isUnset($request->id)) {
+            $query['Id'] = $request->id;
+        }
+        $req = new OpenApiRequest([
+            'query' => OpenApiUtilClient::query($query),
+        ]);
+        $params = new Params([
+            'action'      => 'RecognizeDeleteExcelRecord',
+            'version'     => '2021-07-07',
+            'protocol'    => 'HTTPS',
+            'pathname'    => '/',
+            'method'      => 'POST',
+            'authType'    => 'AK',
+            'style'       => 'RPC',
+            'reqBodyType' => 'formData',
+            'bodyType'    => 'json',
+        ]);
+
+        return RecognizeDeleteExcelRecordResponse::fromMap($this->callApi($params, $req, $runtime));
+    }
+
+    /**
+     * @param RecognizeDeleteExcelRecordRequest $request
+     *
+     * @return RecognizeDeleteExcelRecordResponse
+     */
+    public function recognizeDeleteExcelRecord($request)
+    {
+        $runtime = new RuntimeOptions([]);
+
+        return $this->recognizeDeleteExcelRecordWithOptions($request, $runtime);
+    }
+
+    /**
      * @param RecognizeDrivingLicenseRequest $request
      * @param RuntimeOptions                 $runtime
      *
@@ -622,11 +941,13 @@ class Ocrapi extends OpenApiClient
     public function recognizeDrivingLicenseWithOptions($request, $runtime)
     {
         Utils::validateModel($request);
-        $query        = [];
-        $query['Url'] = $request->url;
-        $req          = new OpenApiRequest([
+        $query = [];
+        if (!Utils::isUnset($request->url)) {
+            $query['Url'] = $request->url;
+        }
+        $req = new OpenApiRequest([
             'query'  => OpenApiUtilClient::query($query),
-            'body'   => Utils::toMap($request),
+            'body'   => $request->body,
             'stream' => $request->body,
         ]);
         $params = new Params([
@@ -637,7 +958,7 @@ class Ocrapi extends OpenApiClient
             'method'      => 'POST',
             'authType'    => 'AK',
             'style'       => 'RPC',
-            'reqBodyType' => 'json',
+            'reqBodyType' => 'formData',
             'bodyType'    => 'json',
         ]);
 
@@ -665,11 +986,13 @@ class Ocrapi extends OpenApiClient
     public function recognizeEduFormulaWithOptions($request, $runtime)
     {
         Utils::validateModel($request);
-        $query        = [];
-        $query['Url'] = $request->url;
-        $req          = new OpenApiRequest([
+        $query = [];
+        if (!Utils::isUnset($request->url)) {
+            $query['Url'] = $request->url;
+        }
+        $req = new OpenApiRequest([
             'query'  => OpenApiUtilClient::query($query),
-            'body'   => Utils::toMap($request),
+            'body'   => $request->body,
             'stream' => $request->body,
         ]);
         $params = new Params([
@@ -680,7 +1003,7 @@ class Ocrapi extends OpenApiClient
             'method'      => 'POST',
             'authType'    => 'AK',
             'style'       => 'RPC',
-            'reqBodyType' => 'json',
+            'reqBodyType' => 'formData',
             'bodyType'    => 'json',
         ]);
 
@@ -708,11 +1031,13 @@ class Ocrapi extends OpenApiClient
     public function recognizeEduOralCalculationWithOptions($request, $runtime)
     {
         Utils::validateModel($request);
-        $query        = [];
-        $query['Url'] = $request->url;
-        $req          = new OpenApiRequest([
+        $query = [];
+        if (!Utils::isUnset($request->url)) {
+            $query['Url'] = $request->url;
+        }
+        $req = new OpenApiRequest([
             'query'  => OpenApiUtilClient::query($query),
-            'body'   => Utils::toMap($request),
+            'body'   => $request->body,
             'stream' => $request->body,
         ]);
         $params = new Params([
@@ -723,7 +1048,7 @@ class Ocrapi extends OpenApiClient
             'method'      => 'POST',
             'authType'    => 'AK',
             'style'       => 'RPC',
-            'reqBodyType' => 'json',
+            'reqBodyType' => 'formData',
             'bodyType'    => 'json',
         ]);
 
@@ -751,14 +1076,22 @@ class Ocrapi extends OpenApiClient
     public function recognizeEduPaperCutWithOptions($request, $runtime)
     {
         Utils::validateModel($request);
-        $query              = [];
-        $query['CutType']   = $request->cutType;
-        $query['ImageType'] = $request->imageType;
-        $query['Subject']   = $request->subject;
-        $query['Url']       = $request->url;
-        $req                = new OpenApiRequest([
+        $query = [];
+        if (!Utils::isUnset($request->cutType)) {
+            $query['CutType'] = $request->cutType;
+        }
+        if (!Utils::isUnset($request->imageType)) {
+            $query['ImageType'] = $request->imageType;
+        }
+        if (!Utils::isUnset($request->subject)) {
+            $query['Subject'] = $request->subject;
+        }
+        if (!Utils::isUnset($request->url)) {
+            $query['Url'] = $request->url;
+        }
+        $req = new OpenApiRequest([
             'query'  => OpenApiUtilClient::query($query),
-            'body'   => Utils::toMap($request),
+            'body'   => $request->body,
             'stream' => $request->body,
         ]);
         $params = new Params([
@@ -769,7 +1102,7 @@ class Ocrapi extends OpenApiClient
             'method'      => 'POST',
             'authType'    => 'AK',
             'style'       => 'RPC',
-            'reqBodyType' => 'json',
+            'reqBodyType' => 'formData',
             'bodyType'    => 'json',
         ]);
 
@@ -797,14 +1130,22 @@ class Ocrapi extends OpenApiClient
     public function recognizeEduPaperOcrWithOptions($request, $runtime)
     {
         Utils::validateModel($request);
-        $query                   = [];
-        $query['ImageType']      = $request->imageType;
-        $query['OutputOricoord'] = $request->outputOricoord;
-        $query['Subject']        = $request->subject;
-        $query['Url']            = $request->url;
-        $req                     = new OpenApiRequest([
+        $query = [];
+        if (!Utils::isUnset($request->imageType)) {
+            $query['ImageType'] = $request->imageType;
+        }
+        if (!Utils::isUnset($request->outputOricoord)) {
+            $query['OutputOricoord'] = $request->outputOricoord;
+        }
+        if (!Utils::isUnset($request->subject)) {
+            $query['Subject'] = $request->subject;
+        }
+        if (!Utils::isUnset($request->url)) {
+            $query['Url'] = $request->url;
+        }
+        $req = new OpenApiRequest([
             'query'  => OpenApiUtilClient::query($query),
-            'body'   => Utils::toMap($request),
+            'body'   => $request->body,
             'stream' => $request->body,
         ]);
         $params = new Params([
@@ -815,7 +1156,7 @@ class Ocrapi extends OpenApiClient
             'method'      => 'POST',
             'authType'    => 'AK',
             'style'       => 'RPC',
-            'reqBodyType' => 'json',
+            'reqBodyType' => 'formData',
             'bodyType'    => 'json',
         ]);
 
@@ -843,12 +1184,19 @@ class Ocrapi extends OpenApiClient
     public function recognizeEduPaperStructedWithOptions($request, $runtime)
     {
         Utils::validateModel($request);
-        $query               = [];
-        $query['NeedRotate'] = $request->needRotate;
-        $query['Url']        = $request->url;
-        $req                 = new OpenApiRequest([
+        $query = [];
+        if (!Utils::isUnset($request->needRotate)) {
+            $query['NeedRotate'] = $request->needRotate;
+        }
+        if (!Utils::isUnset($request->subject)) {
+            $query['Subject'] = $request->subject;
+        }
+        if (!Utils::isUnset($request->url)) {
+            $query['Url'] = $request->url;
+        }
+        $req = new OpenApiRequest([
             'query'  => OpenApiUtilClient::query($query),
-            'body'   => Utils::toMap($request),
+            'body'   => $request->body,
             'stream' => $request->body,
         ]);
         $params = new Params([
@@ -859,7 +1207,7 @@ class Ocrapi extends OpenApiClient
             'method'      => 'POST',
             'authType'    => 'AK',
             'style'       => 'RPC',
-            'reqBodyType' => 'json',
+            'reqBodyType' => 'formData',
             'bodyType'    => 'json',
         ]);
 
@@ -887,12 +1235,16 @@ class Ocrapi extends OpenApiClient
     public function recognizeEduQuestionOcrWithOptions($request, $runtime)
     {
         Utils::validateModel($request);
-        $query               = [];
-        $query['NeedRotate'] = $request->needRotate;
-        $query['Url']        = $request->url;
-        $req                 = new OpenApiRequest([
+        $query = [];
+        if (!Utils::isUnset($request->needRotate)) {
+            $query['NeedRotate'] = $request->needRotate;
+        }
+        if (!Utils::isUnset($request->url)) {
+            $query['Url'] = $request->url;
+        }
+        $req = new OpenApiRequest([
             'query'  => OpenApiUtilClient::query($query),
-            'body'   => Utils::toMap($request),
+            'body'   => $request->body,
             'stream' => $request->body,
         ]);
         $params = new Params([
@@ -903,7 +1255,7 @@ class Ocrapi extends OpenApiClient
             'method'      => 'POST',
             'authType'    => 'AK',
             'style'       => 'RPC',
-            'reqBodyType' => 'json',
+            'reqBodyType' => 'formData',
             'bodyType'    => 'json',
         ]);
 
@@ -931,13 +1283,19 @@ class Ocrapi extends OpenApiClient
     public function recognizeEnglishWithOptions($request, $runtime)
     {
         Utils::validateModel($request);
-        $query                = [];
-        $query['NeedRotate']  = $request->needRotate;
-        $query['OutputTable'] = $request->outputTable;
-        $query['Url']         = $request->url;
-        $req                  = new OpenApiRequest([
+        $query = [];
+        if (!Utils::isUnset($request->needRotate)) {
+            $query['NeedRotate'] = $request->needRotate;
+        }
+        if (!Utils::isUnset($request->outputTable)) {
+            $query['OutputTable'] = $request->outputTable;
+        }
+        if (!Utils::isUnset($request->url)) {
+            $query['Url'] = $request->url;
+        }
+        $req = new OpenApiRequest([
             'query'  => OpenApiUtilClient::query($query),
-            'body'   => Utils::toMap($request),
+            'body'   => $request->body,
             'stream' => $request->body,
         ]);
         $params = new Params([
@@ -948,7 +1306,7 @@ class Ocrapi extends OpenApiClient
             'method'      => 'POST',
             'authType'    => 'AK',
             'style'       => 'RPC',
-            'reqBodyType' => 'json',
+            'reqBodyType' => 'formData',
             'bodyType'    => 'json',
         ]);
 
@@ -976,11 +1334,13 @@ class Ocrapi extends OpenApiClient
     public function recognizeEstateCertificationWithOptions($request, $runtime)
     {
         Utils::validateModel($request);
-        $query        = [];
-        $query['Url'] = $request->url;
-        $req          = new OpenApiRequest([
+        $query = [];
+        if (!Utils::isUnset($request->url)) {
+            $query['Url'] = $request->url;
+        }
+        $req = new OpenApiRequest([
             'query'  => OpenApiUtilClient::query($query),
-            'body'   => Utils::toMap($request),
+            'body'   => $request->body,
             'stream' => $request->body,
         ]);
         $params = new Params([
@@ -991,7 +1351,7 @@ class Ocrapi extends OpenApiClient
             'method'      => 'POST',
             'authType'    => 'AK',
             'style'       => 'RPC',
-            'reqBodyType' => 'json',
+            'reqBodyType' => 'formData',
             'bodyType'    => 'json',
         ]);
 
@@ -1011,6 +1371,203 @@ class Ocrapi extends OpenApiClient
     }
 
     /**
+     * @param RecognizeExcelExportRequest $request
+     * @param RuntimeOptions              $runtime
+     *
+     * @return RecognizeExcelExportResponse
+     */
+    public function recognizeExcelExportWithOptions($request, $runtime)
+    {
+        Utils::validateModel($request);
+        $query = [];
+        if (!Utils::isUnset($request->fileName)) {
+            $query['FileName'] = $request->fileName;
+        }
+        if (!Utils::isUnset($request->imageOp)) {
+            $query['ImageOp'] = $request->imageOp;
+        }
+        if (!Utils::isUnset($request->ocrImageCount)) {
+            $query['OcrImageCount'] = $request->ocrImageCount;
+        }
+        if (!Utils::isUnset($request->ocrResult)) {
+            $query['OcrResult'] = $request->ocrResult;
+        }
+        if (!Utils::isUnset($request->ocrType)) {
+            $query['OcrType'] = $request->ocrType;
+        }
+        $req = new OpenApiRequest([
+            'query' => OpenApiUtilClient::query($query),
+        ]);
+        $params = new Params([
+            'action'      => 'RecognizeExcelExport',
+            'version'     => '2021-07-07',
+            'protocol'    => 'HTTPS',
+            'pathname'    => '/',
+            'method'      => 'POST',
+            'authType'    => 'AK',
+            'style'       => 'RPC',
+            'reqBodyType' => 'formData',
+            'bodyType'    => 'json',
+        ]);
+
+        return RecognizeExcelExportResponse::fromMap($this->callApi($params, $req, $runtime));
+    }
+
+    /**
+     * @param RecognizeExcelExportRequest $request
+     *
+     * @return RecognizeExcelExportResponse
+     */
+    public function recognizeExcelExport($request)
+    {
+        $runtime = new RuntimeOptions([]);
+
+        return $this->recognizeExcelExportWithOptions($request, $runtime);
+    }
+
+    /**
+     * @param RecognizeExcelRecordRequest $request
+     * @param RuntimeOptions              $runtime
+     *
+     * @return RecognizeExcelRecordResponse
+     */
+    public function recognizeExcelRecordWithOptions($request, $runtime)
+    {
+        Utils::validateModel($request);
+        $query = [];
+        if (!Utils::isUnset($request->currPage)) {
+            $query['CurrPage'] = $request->currPage;
+        }
+        if (!Utils::isUnset($request->pageSize)) {
+            $query['PageSize'] = $request->pageSize;
+        }
+        $req = new OpenApiRequest([
+            'query' => OpenApiUtilClient::query($query),
+        ]);
+        $params = new Params([
+            'action'      => 'RecognizeExcelRecord',
+            'version'     => '2021-07-07',
+            'protocol'    => 'HTTPS',
+            'pathname'    => '/',
+            'method'      => 'POST',
+            'authType'    => 'AK',
+            'style'       => 'RPC',
+            'reqBodyType' => 'formData',
+            'bodyType'    => 'json',
+        ]);
+
+        return RecognizeExcelRecordResponse::fromMap($this->callApi($params, $req, $runtime));
+    }
+
+    /**
+     * @param RecognizeExcelRecordRequest $request
+     *
+     * @return RecognizeExcelRecordResponse
+     */
+    public function recognizeExcelRecord($request)
+    {
+        $runtime = new RuntimeOptions([]);
+
+        return $this->recognizeExcelRecordWithOptions($request, $runtime);
+    }
+
+    /**
+     * @param RecognizeExitEntryPermitToHKRequest $request
+     * @param RuntimeOptions                      $runtime
+     *
+     * @return RecognizeExitEntryPermitToHKResponse
+     */
+    public function recognizeExitEntryPermitToHKWithOptions($request, $runtime)
+    {
+        Utils::validateModel($request);
+        $query = [];
+        if (!Utils::isUnset($request->outputFigure)) {
+            $query['OutputFigure'] = $request->outputFigure;
+        }
+        if (!Utils::isUnset($request->url)) {
+            $query['Url'] = $request->url;
+        }
+        $req = new OpenApiRequest([
+            'query'  => OpenApiUtilClient::query($query),
+            'body'   => $request->body,
+            'stream' => $request->body,
+        ]);
+        $params = new Params([
+            'action'      => 'RecognizeExitEntryPermitToHK',
+            'version'     => '2021-07-07',
+            'protocol'    => 'HTTPS',
+            'pathname'    => '/',
+            'method'      => 'POST',
+            'authType'    => 'AK',
+            'style'       => 'RPC',
+            'reqBodyType' => 'formData',
+            'bodyType'    => 'json',
+        ]);
+
+        return RecognizeExitEntryPermitToHKResponse::fromMap($this->callApi($params, $req, $runtime));
+    }
+
+    /**
+     * @param RecognizeExitEntryPermitToHKRequest $request
+     *
+     * @return RecognizeExitEntryPermitToHKResponse
+     */
+    public function recognizeExitEntryPermitToHK($request)
+    {
+        $runtime = new RuntimeOptions([]);
+
+        return $this->recognizeExitEntryPermitToHKWithOptions($request, $runtime);
+    }
+
+    /**
+     * @param RecognizeExitEntryPermitToMainlandRequest $request
+     * @param RuntimeOptions                            $runtime
+     *
+     * @return RecognizeExitEntryPermitToMainlandResponse
+     */
+    public function recognizeExitEntryPermitToMainlandWithOptions($request, $runtime)
+    {
+        Utils::validateModel($request);
+        $query = [];
+        if (!Utils::isUnset($request->outputFigure)) {
+            $query['OutputFigure'] = $request->outputFigure;
+        }
+        if (!Utils::isUnset($request->url)) {
+            $query['Url'] = $request->url;
+        }
+        $req = new OpenApiRequest([
+            'query'  => OpenApiUtilClient::query($query),
+            'body'   => $request->body,
+            'stream' => $request->body,
+        ]);
+        $params = new Params([
+            'action'      => 'RecognizeExitEntryPermitToMainland',
+            'version'     => '2021-07-07',
+            'protocol'    => 'HTTPS',
+            'pathname'    => '/',
+            'method'      => 'POST',
+            'authType'    => 'AK',
+            'style'       => 'RPC',
+            'reqBodyType' => 'formData',
+            'bodyType'    => 'json',
+        ]);
+
+        return RecognizeExitEntryPermitToMainlandResponse::fromMap($this->callApi($params, $req, $runtime));
+    }
+
+    /**
+     * @param RecognizeExitEntryPermitToMainlandRequest $request
+     *
+     * @return RecognizeExitEntryPermitToMainlandResponse
+     */
+    public function recognizeExitEntryPermitToMainland($request)
+    {
+        $runtime = new RuntimeOptions([]);
+
+        return $this->recognizeExitEntryPermitToMainlandWithOptions($request, $runtime);
+    }
+
+    /**
      * @param RecognizeFoodManageLicenseRequest $request
      * @param RuntimeOptions                    $runtime
      *
@@ -1019,11 +1576,13 @@ class Ocrapi extends OpenApiClient
     public function recognizeFoodManageLicenseWithOptions($request, $runtime)
     {
         Utils::validateModel($request);
-        $query        = [];
-        $query['Url'] = $request->url;
-        $req          = new OpenApiRequest([
+        $query = [];
+        if (!Utils::isUnset($request->url)) {
+            $query['Url'] = $request->url;
+        }
+        $req = new OpenApiRequest([
             'query'  => OpenApiUtilClient::query($query),
-            'body'   => Utils::toMap($request),
+            'body'   => $request->body,
             'stream' => $request->body,
         ]);
         $params = new Params([
@@ -1034,7 +1593,7 @@ class Ocrapi extends OpenApiClient
             'method'      => 'POST',
             'authType'    => 'AK',
             'style'       => 'RPC',
-            'reqBodyType' => 'json',
+            'reqBodyType' => 'formData',
             'bodyType'    => 'json',
         ]);
 
@@ -1062,11 +1621,13 @@ class Ocrapi extends OpenApiClient
     public function recognizeFoodProduceLicenseWithOptions($request, $runtime)
     {
         Utils::validateModel($request);
-        $query        = [];
-        $query['Url'] = $request->url;
-        $req          = new OpenApiRequest([
+        $query = [];
+        if (!Utils::isUnset($request->url)) {
+            $query['Url'] = $request->url;
+        }
+        $req = new OpenApiRequest([
             'query'  => OpenApiUtilClient::query($query),
-            'body'   => Utils::toMap($request),
+            'body'   => $request->body,
             'stream' => $request->body,
         ]);
         $params = new Params([
@@ -1077,7 +1638,7 @@ class Ocrapi extends OpenApiClient
             'method'      => 'POST',
             'authType'    => 'AK',
             'style'       => 'RPC',
-            'reqBodyType' => 'json',
+            'reqBodyType' => 'formData',
             'bodyType'    => 'json',
         ]);
 
@@ -1105,11 +1666,13 @@ class Ocrapi extends OpenApiClient
     public function recognizeGeneralWithOptions($request, $runtime)
     {
         Utils::validateModel($request);
-        $query        = [];
-        $query['Url'] = $request->url;
-        $req          = new OpenApiRequest([
+        $query = [];
+        if (!Utils::isUnset($request->url)) {
+            $query['Url'] = $request->url;
+        }
+        $req = new OpenApiRequest([
             'query'  => OpenApiUtilClient::query($query),
-            'body'   => Utils::toMap($request),
+            'body'   => $request->body,
             'stream' => $request->body,
         ]);
         $params = new Params([
@@ -1120,7 +1683,7 @@ class Ocrapi extends OpenApiClient
             'method'      => 'POST',
             'authType'    => 'AK',
             'style'       => 'RPC',
-            'reqBodyType' => 'json',
+            'reqBodyType' => 'formData',
             'bodyType'    => 'json',
         ]);
 
@@ -1148,15 +1711,25 @@ class Ocrapi extends OpenApiClient
     public function recognizeHandwritingWithOptions($request, $runtime)
     {
         Utils::validateModel($request);
-        $query                   = [];
-        $query['NeedRotate']     = $request->needRotate;
-        $query['NeedSortPage']   = $request->needSortPage;
-        $query['OutputCharInfo'] = $request->outputCharInfo;
-        $query['OutputTable']    = $request->outputTable;
-        $query['Url']            = $request->url;
-        $req                     = new OpenApiRequest([
+        $query = [];
+        if (!Utils::isUnset($request->needRotate)) {
+            $query['NeedRotate'] = $request->needRotate;
+        }
+        if (!Utils::isUnset($request->needSortPage)) {
+            $query['NeedSortPage'] = $request->needSortPage;
+        }
+        if (!Utils::isUnset($request->outputCharInfo)) {
+            $query['OutputCharInfo'] = $request->outputCharInfo;
+        }
+        if (!Utils::isUnset($request->outputTable)) {
+            $query['OutputTable'] = $request->outputTable;
+        }
+        if (!Utils::isUnset($request->url)) {
+            $query['Url'] = $request->url;
+        }
+        $req = new OpenApiRequest([
             'query'  => OpenApiUtilClient::query($query),
-            'body'   => Utils::toMap($request),
+            'body'   => $request->body,
             'stream' => $request->body,
         ]);
         $params = new Params([
@@ -1167,7 +1740,7 @@ class Ocrapi extends OpenApiClient
             'method'      => 'POST',
             'authType'    => 'AK',
             'style'       => 'RPC',
-            'reqBodyType' => 'json',
+            'reqBodyType' => 'formData',
             'bodyType'    => 'json',
         ]);
 
@@ -1195,11 +1768,13 @@ class Ocrapi extends OpenApiClient
     public function recognizeHouseholdWithOptions($request, $runtime)
     {
         Utils::validateModel($request);
-        $query        = [];
-        $query['Url'] = $request->url;
-        $req          = new OpenApiRequest([
+        $query = [];
+        if (!Utils::isUnset($request->url)) {
+            $query['Url'] = $request->url;
+        }
+        $req = new OpenApiRequest([
             'query'  => OpenApiUtilClient::query($query),
-            'body'   => Utils::toMap($request),
+            'body'   => $request->body,
             'stream' => $request->body,
         ]);
         $params = new Params([
@@ -1210,7 +1785,7 @@ class Ocrapi extends OpenApiClient
             'method'      => 'POST',
             'authType'    => 'AK',
             'style'       => 'RPC',
-            'reqBodyType' => 'json',
+            'reqBodyType' => 'formData',
             'bodyType'    => 'json',
         ]);
 
@@ -1238,11 +1813,16 @@ class Ocrapi extends OpenApiClient
     public function recognizeIdcardWithOptions($request, $runtime)
     {
         Utils::validateModel($request);
-        $query        = [];
-        $query['Url'] = $request->url;
-        $req          = new OpenApiRequest([
+        $query = [];
+        if (!Utils::isUnset($request->outputFigure)) {
+            $query['OutputFigure'] = $request->outputFigure;
+        }
+        if (!Utils::isUnset($request->url)) {
+            $query['Url'] = $request->url;
+        }
+        $req = new OpenApiRequest([
             'query'  => OpenApiUtilClient::query($query),
-            'body'   => Utils::toMap($request),
+            'body'   => $request->body,
             'stream' => $request->body,
         ]);
         $params = new Params([
@@ -1253,7 +1833,7 @@ class Ocrapi extends OpenApiClient
             'method'      => 'POST',
             'authType'    => 'AK',
             'style'       => 'RPC',
-            'reqBodyType' => 'json',
+            'reqBodyType' => 'formData',
             'bodyType'    => 'json',
         ]);
 
@@ -1281,11 +1861,13 @@ class Ocrapi extends OpenApiClient
     public function recognizeInvoiceWithOptions($request, $runtime)
     {
         Utils::validateModel($request);
-        $query        = [];
-        $query['Url'] = $request->url;
-        $req          = new OpenApiRequest([
+        $query = [];
+        if (!Utils::isUnset($request->url)) {
+            $query['Url'] = $request->url;
+        }
+        $req = new OpenApiRequest([
             'query'  => OpenApiUtilClient::query($query),
-            'body'   => Utils::toMap($request),
+            'body'   => $request->body,
             'stream' => $request->body,
         ]);
         $params = new Params([
@@ -1296,7 +1878,7 @@ class Ocrapi extends OpenApiClient
             'method'      => 'POST',
             'authType'    => 'AK',
             'style'       => 'RPC',
-            'reqBodyType' => 'json',
+            'reqBodyType' => 'formData',
             'bodyType'    => 'json',
         ]);
 
@@ -1324,14 +1906,22 @@ class Ocrapi extends OpenApiClient
     public function recognizeJanpaneseWithOptions($request, $runtime)
     {
         Utils::validateModel($request);
-        $query                   = [];
-        $query['NeedRotate']     = $request->needRotate;
-        $query['OutputCharInfo'] = $request->outputCharInfo;
-        $query['OutputTable']    = $request->outputTable;
-        $query['Url']            = $request->url;
-        $req                     = new OpenApiRequest([
+        $query = [];
+        if (!Utils::isUnset($request->needRotate)) {
+            $query['NeedRotate'] = $request->needRotate;
+        }
+        if (!Utils::isUnset($request->outputCharInfo)) {
+            $query['OutputCharInfo'] = $request->outputCharInfo;
+        }
+        if (!Utils::isUnset($request->outputTable)) {
+            $query['OutputTable'] = $request->outputTable;
+        }
+        if (!Utils::isUnset($request->url)) {
+            $query['Url'] = $request->url;
+        }
+        $req = new OpenApiRequest([
             'query'  => OpenApiUtilClient::query($query),
-            'body'   => Utils::toMap($request),
+            'body'   => $request->body,
             'stream' => $request->body,
         ]);
         $params = new Params([
@@ -1342,7 +1932,7 @@ class Ocrapi extends OpenApiClient
             'method'      => 'POST',
             'authType'    => 'AK',
             'style'       => 'RPC',
-            'reqBodyType' => 'json',
+            'reqBodyType' => 'formData',
             'bodyType'    => 'json',
         ]);
 
@@ -1370,14 +1960,22 @@ class Ocrapi extends OpenApiClient
     public function recognizeKoreanWithOptions($request, $runtime)
     {
         Utils::validateModel($request);
-        $query                   = [];
-        $query['NeedRotate']     = $request->needRotate;
-        $query['OutputCharInfo'] = $request->outputCharInfo;
-        $query['OutputTable']    = $request->outputTable;
-        $query['Url']            = $request->url;
-        $req                     = new OpenApiRequest([
+        $query = [];
+        if (!Utils::isUnset($request->needRotate)) {
+            $query['NeedRotate'] = $request->needRotate;
+        }
+        if (!Utils::isUnset($request->outputCharInfo)) {
+            $query['OutputCharInfo'] = $request->outputCharInfo;
+        }
+        if (!Utils::isUnset($request->outputTable)) {
+            $query['OutputTable'] = $request->outputTable;
+        }
+        if (!Utils::isUnset($request->url)) {
+            $query['Url'] = $request->url;
+        }
+        $req = new OpenApiRequest([
             'query'  => OpenApiUtilClient::query($query),
-            'body'   => Utils::toMap($request),
+            'body'   => $request->body,
             'stream' => $request->body,
         ]);
         $params = new Params([
@@ -1388,7 +1986,7 @@ class Ocrapi extends OpenApiClient
             'method'      => 'POST',
             'authType'    => 'AK',
             'style'       => 'RPC',
-            'reqBodyType' => 'json',
+            'reqBodyType' => 'formData',
             'bodyType'    => 'json',
         ]);
 
@@ -1416,14 +2014,22 @@ class Ocrapi extends OpenApiClient
     public function recognizeLatinWithOptions($request, $runtime)
     {
         Utils::validateModel($request);
-        $query                   = [];
-        $query['NeedRotate']     = $request->needRotate;
-        $query['OutputCharInfo'] = $request->outputCharInfo;
-        $query['OutputTable']    = $request->outputTable;
-        $query['Url']            = $request->url;
-        $req                     = new OpenApiRequest([
+        $query = [];
+        if (!Utils::isUnset($request->needRotate)) {
+            $query['NeedRotate'] = $request->needRotate;
+        }
+        if (!Utils::isUnset($request->outputCharInfo)) {
+            $query['OutputCharInfo'] = $request->outputCharInfo;
+        }
+        if (!Utils::isUnset($request->outputTable)) {
+            $query['OutputTable'] = $request->outputTable;
+        }
+        if (!Utils::isUnset($request->url)) {
+            $query['Url'] = $request->url;
+        }
+        $req = new OpenApiRequest([
             'query'  => OpenApiUtilClient::query($query),
-            'body'   => Utils::toMap($request),
+            'body'   => $request->body,
             'stream' => $request->body,
         ]);
         $params = new Params([
@@ -1434,7 +2040,7 @@ class Ocrapi extends OpenApiClient
             'method'      => 'POST',
             'authType'    => 'AK',
             'style'       => 'RPC',
-            'reqBodyType' => 'json',
+            'reqBodyType' => 'formData',
             'bodyType'    => 'json',
         ]);
 
@@ -1462,11 +2068,13 @@ class Ocrapi extends OpenApiClient
     public function recognizeMedicalDeviceManageLicenseWithOptions($request, $runtime)
     {
         Utils::validateModel($request);
-        $query        = [];
-        $query['Url'] = $request->url;
-        $req          = new OpenApiRequest([
+        $query = [];
+        if (!Utils::isUnset($request->url)) {
+            $query['Url'] = $request->url;
+        }
+        $req = new OpenApiRequest([
             'query'  => OpenApiUtilClient::query($query),
-            'body'   => Utils::toMap($request),
+            'body'   => $request->body,
             'stream' => $request->body,
         ]);
         $params = new Params([
@@ -1477,7 +2085,7 @@ class Ocrapi extends OpenApiClient
             'method'      => 'POST',
             'authType'    => 'AK',
             'style'       => 'RPC',
-            'reqBodyType' => 'json',
+            'reqBodyType' => 'formData',
             'bodyType'    => 'json',
         ]);
 
@@ -1505,11 +2113,13 @@ class Ocrapi extends OpenApiClient
     public function recognizeMedicalDeviceProduceLicenseWithOptions($request, $runtime)
     {
         Utils::validateModel($request);
-        $query        = [];
-        $query['Url'] = $request->url;
-        $req          = new OpenApiRequest([
+        $query = [];
+        if (!Utils::isUnset($request->url)) {
+            $query['Url'] = $request->url;
+        }
+        $req = new OpenApiRequest([
             'query'  => OpenApiUtilClient::query($query),
-            'body'   => Utils::toMap($request),
+            'body'   => $request->body,
             'stream' => $request->body,
         ]);
         $params = new Params([
@@ -1520,7 +2130,7 @@ class Ocrapi extends OpenApiClient
             'method'      => 'POST',
             'authType'    => 'AK',
             'style'       => 'RPC',
-            'reqBodyType' => 'json',
+            'reqBodyType' => 'formData',
             'bodyType'    => 'json',
         ]);
 
@@ -1548,11 +2158,13 @@ class Ocrapi extends OpenApiClient
     public function recognizeMixedInvoicesWithOptions($request, $runtime)
     {
         Utils::validateModel($request);
-        $query        = [];
-        $query['Url'] = $request->url;
-        $req          = new OpenApiRequest([
+        $query = [];
+        if (!Utils::isUnset($request->url)) {
+            $query['Url'] = $request->url;
+        }
+        $req = new OpenApiRequest([
             'query'  => OpenApiUtilClient::query($query),
-            'body'   => Utils::toMap($request),
+            'body'   => $request->body,
             'stream' => $request->body,
         ]);
         $params = new Params([
@@ -1563,7 +2175,7 @@ class Ocrapi extends OpenApiClient
             'method'      => 'POST',
             'authType'    => 'AK',
             'style'       => 'RPC',
-            'reqBodyType' => 'json',
+            'reqBodyType' => 'formData',
             'bodyType'    => 'json',
         ]);
 
@@ -1596,16 +2208,28 @@ class Ocrapi extends OpenApiClient
         if (!Utils::isUnset($tmpReq->languages)) {
             $request->languagesShrink = OpenApiUtilClient::arrayToStringWithSpecifiedStyle($tmpReq->languages, 'Languages', 'simple');
         }
-        $query                   = [];
-        $query['Languages']      = $request->languagesShrink;
-        $query['NeedRotate']     = $request->needRotate;
-        $query['NeedSortPage']   = $request->needSortPage;
-        $query['OutputCharInfo'] = $request->outputCharInfo;
-        $query['OutputTable']    = $request->outputTable;
-        $query['Url']            = $request->url;
-        $req                     = new OpenApiRequest([
+        $query = [];
+        if (!Utils::isUnset($request->languagesShrink)) {
+            $query['Languages'] = $request->languagesShrink;
+        }
+        if (!Utils::isUnset($request->needRotate)) {
+            $query['NeedRotate'] = $request->needRotate;
+        }
+        if (!Utils::isUnset($request->needSortPage)) {
+            $query['NeedSortPage'] = $request->needSortPage;
+        }
+        if (!Utils::isUnset($request->outputCharInfo)) {
+            $query['OutputCharInfo'] = $request->outputCharInfo;
+        }
+        if (!Utils::isUnset($request->outputTable)) {
+            $query['OutputTable'] = $request->outputTable;
+        }
+        if (!Utils::isUnset($request->url)) {
+            $query['Url'] = $request->url;
+        }
+        $req = new OpenApiRequest([
             'query'  => OpenApiUtilClient::query($query),
-            'body'   => Utils::toMap($request),
+            'body'   => $request->body,
             'stream' => $request->body,
         ]);
         $params = new Params([
@@ -1616,7 +2240,7 @@ class Ocrapi extends OpenApiClient
             'method'      => 'POST',
             'authType'    => 'AK',
             'style'       => 'RPC',
-            'reqBodyType' => 'json',
+            'reqBodyType' => 'formData',
             'bodyType'    => 'json',
         ]);
 
@@ -1644,11 +2268,13 @@ class Ocrapi extends OpenApiClient
     public function recognizePassportWithOptions($request, $runtime)
     {
         Utils::validateModel($request);
-        $query        = [];
-        $query['Url'] = $request->url;
-        $req          = new OpenApiRequest([
+        $query = [];
+        if (!Utils::isUnset($request->url)) {
+            $query['Url'] = $request->url;
+        }
+        $req = new OpenApiRequest([
             'query'  => OpenApiUtilClient::query($query),
-            'body'   => Utils::toMap($request),
+            'body'   => $request->body,
             'stream' => $request->body,
         ]);
         $params = new Params([
@@ -1659,7 +2285,7 @@ class Ocrapi extends OpenApiClient
             'method'      => 'POST',
             'authType'    => 'AK',
             'style'       => 'RPC',
-            'reqBodyType' => 'json',
+            'reqBodyType' => 'formData',
             'bodyType'    => 'json',
         ]);
 
@@ -1687,11 +2313,13 @@ class Ocrapi extends OpenApiClient
     public function recognizeQuotaInvoiceWithOptions($request, $runtime)
     {
         Utils::validateModel($request);
-        $query        = [];
-        $query['Url'] = $request->url;
-        $req          = new OpenApiRequest([
+        $query = [];
+        if (!Utils::isUnset($request->url)) {
+            $query['Url'] = $request->url;
+        }
+        $req = new OpenApiRequest([
             'query'  => OpenApiUtilClient::query($query),
-            'body'   => Utils::toMap($request),
+            'body'   => $request->body,
             'stream' => $request->body,
         ]);
         $params = new Params([
@@ -1702,7 +2330,7 @@ class Ocrapi extends OpenApiClient
             'method'      => 'POST',
             'authType'    => 'AK',
             'style'       => 'RPC',
-            'reqBodyType' => 'json',
+            'reqBodyType' => 'formData',
             'bodyType'    => 'json',
         ]);
 
@@ -1722,6 +2350,51 @@ class Ocrapi extends OpenApiClient
     }
 
     /**
+     * @param RecognizeRideHailingItineraryRequest $request
+     * @param RuntimeOptions                       $runtime
+     *
+     * @return RecognizeRideHailingItineraryResponse
+     */
+    public function recognizeRideHailingItineraryWithOptions($request, $runtime)
+    {
+        Utils::validateModel($request);
+        $query = [];
+        if (!Utils::isUnset($request->url)) {
+            $query['Url'] = $request->url;
+        }
+        $req = new OpenApiRequest([
+            'query'  => OpenApiUtilClient::query($query),
+            'body'   => $request->body,
+            'stream' => $request->body,
+        ]);
+        $params = new Params([
+            'action'      => 'RecognizeRideHailingItinerary',
+            'version'     => '2021-07-07',
+            'protocol'    => 'HTTPS',
+            'pathname'    => '/',
+            'method'      => 'POST',
+            'authType'    => 'AK',
+            'style'       => 'RPC',
+            'reqBodyType' => 'formData',
+            'bodyType'    => 'json',
+        ]);
+
+        return RecognizeRideHailingItineraryResponse::fromMap($this->callApi($params, $req, $runtime));
+    }
+
+    /**
+     * @param RecognizeRideHailingItineraryRequest $request
+     *
+     * @return RecognizeRideHailingItineraryResponse
+     */
+    public function recognizeRideHailingItinerary($request)
+    {
+        $runtime = new RuntimeOptions([]);
+
+        return $this->recognizeRideHailingItineraryWithOptions($request, $runtime);
+    }
+
+    /**
      * @param RecognizeRollTicketRequest $request
      * @param RuntimeOptions             $runtime
      *
@@ -1730,11 +2403,13 @@ class Ocrapi extends OpenApiClient
     public function recognizeRollTicketWithOptions($request, $runtime)
     {
         Utils::validateModel($request);
-        $query        = [];
-        $query['Url'] = $request->url;
-        $req          = new OpenApiRequest([
+        $query = [];
+        if (!Utils::isUnset($request->url)) {
+            $query['Url'] = $request->url;
+        }
+        $req = new OpenApiRequest([
             'query'  => OpenApiUtilClient::query($query),
-            'body'   => Utils::toMap($request),
+            'body'   => $request->body,
             'stream' => $request->body,
         ]);
         $params = new Params([
@@ -1745,7 +2420,7 @@ class Ocrapi extends OpenApiClient
             'method'      => 'POST',
             'authType'    => 'AK',
             'style'       => 'RPC',
-            'reqBodyType' => 'json',
+            'reqBodyType' => 'formData',
             'bodyType'    => 'json',
         ]);
 
@@ -1773,14 +2448,22 @@ class Ocrapi extends OpenApiClient
     public function recognizeRussianWithOptions($request, $runtime)
     {
         Utils::validateModel($request);
-        $query                   = [];
-        $query['NeedRotate']     = $request->needRotate;
-        $query['OutputCharInfo'] = $request->outputCharInfo;
-        $query['OutputTable']    = $request->outputTable;
-        $query['Url']            = $request->url;
-        $req                     = new OpenApiRequest([
+        $query = [];
+        if (!Utils::isUnset($request->needRotate)) {
+            $query['NeedRotate'] = $request->needRotate;
+        }
+        if (!Utils::isUnset($request->outputCharInfo)) {
+            $query['OutputCharInfo'] = $request->outputCharInfo;
+        }
+        if (!Utils::isUnset($request->outputTable)) {
+            $query['OutputTable'] = $request->outputTable;
+        }
+        if (!Utils::isUnset($request->url)) {
+            $query['Url'] = $request->url;
+        }
+        $req = new OpenApiRequest([
             'query'  => OpenApiUtilClient::query($query),
-            'body'   => Utils::toMap($request),
+            'body'   => $request->body,
             'stream' => $request->body,
         ]);
         $params = new Params([
@@ -1791,7 +2474,7 @@ class Ocrapi extends OpenApiClient
             'method'      => 'POST',
             'authType'    => 'AK',
             'style'       => 'RPC',
-            'reqBodyType' => 'json',
+            'reqBodyType' => 'formData',
             'bodyType'    => 'json',
         ]);
 
@@ -1811,6 +2494,51 @@ class Ocrapi extends OpenApiClient
     }
 
     /**
+     * @param RecognizeSocialSecurityCardRequest $request
+     * @param RuntimeOptions                     $runtime
+     *
+     * @return RecognizeSocialSecurityCardResponse
+     */
+    public function recognizeSocialSecurityCardWithOptions($request, $runtime)
+    {
+        Utils::validateModel($request);
+        $query = [];
+        if (!Utils::isUnset($request->url)) {
+            $query['Url'] = $request->url;
+        }
+        $req = new OpenApiRequest([
+            'query'  => OpenApiUtilClient::query($query),
+            'body'   => $request->body,
+            'stream' => $request->body,
+        ]);
+        $params = new Params([
+            'action'      => 'RecognizeSocialSecurityCard',
+            'version'     => '2021-07-07',
+            'protocol'    => 'HTTPS',
+            'pathname'    => '/',
+            'method'      => 'POST',
+            'authType'    => 'AK',
+            'style'       => 'RPC',
+            'reqBodyType' => 'formData',
+            'bodyType'    => 'json',
+        ]);
+
+        return RecognizeSocialSecurityCardResponse::fromMap($this->callApi($params, $req, $runtime));
+    }
+
+    /**
+     * @param RecognizeSocialSecurityCardRequest $request
+     *
+     * @return RecognizeSocialSecurityCardResponse
+     */
+    public function recognizeSocialSecurityCard($request)
+    {
+        $runtime = new RuntimeOptions([]);
+
+        return $this->recognizeSocialSecurityCardWithOptions($request, $runtime);
+    }
+
+    /**
      * @param RecognizeTableOcrRequest $request
      * @param RuntimeOptions           $runtime
      *
@@ -1819,11 +2547,22 @@ class Ocrapi extends OpenApiClient
     public function recognizeTableOcrWithOptions($request, $runtime)
     {
         Utils::validateModel($request);
-        $query        = [];
-        $query['Url'] = $request->url;
-        $req          = new OpenApiRequest([
+        $query = [];
+        if (!Utils::isUnset($request->lineLess)) {
+            $query['LineLess'] = $request->lineLess;
+        }
+        if (!Utils::isUnset($request->needRotate)) {
+            $query['NeedRotate'] = $request->needRotate;
+        }
+        if (!Utils::isUnset($request->skipDetection)) {
+            $query['SkipDetection'] = $request->skipDetection;
+        }
+        if (!Utils::isUnset($request->url)) {
+            $query['Url'] = $request->url;
+        }
+        $req = new OpenApiRequest([
             'query'  => OpenApiUtilClient::query($query),
-            'body'   => Utils::toMap($request),
+            'body'   => $request->body,
             'stream' => $request->body,
         ]);
         $params = new Params([
@@ -1834,7 +2573,7 @@ class Ocrapi extends OpenApiClient
             'method'      => 'POST',
             'authType'    => 'AK',
             'style'       => 'RPC',
-            'reqBodyType' => 'json',
+            'reqBodyType' => 'formData',
             'bodyType'    => 'json',
         ]);
 
@@ -1854,6 +2593,51 @@ class Ocrapi extends OpenApiClient
     }
 
     /**
+     * @param RecognizeTaxClearanceCertificateRequest $request
+     * @param RuntimeOptions                          $runtime
+     *
+     * @return RecognizeTaxClearanceCertificateResponse
+     */
+    public function recognizeTaxClearanceCertificateWithOptions($request, $runtime)
+    {
+        Utils::validateModel($request);
+        $query = [];
+        if (!Utils::isUnset($request->url)) {
+            $query['Url'] = $request->url;
+        }
+        $req = new OpenApiRequest([
+            'query'  => OpenApiUtilClient::query($query),
+            'body'   => $request->body,
+            'stream' => $request->body,
+        ]);
+        $params = new Params([
+            'action'      => 'RecognizeTaxClearanceCertificate',
+            'version'     => '2021-07-07',
+            'protocol'    => 'HTTPS',
+            'pathname'    => '/',
+            'method'      => 'POST',
+            'authType'    => 'AK',
+            'style'       => 'RPC',
+            'reqBodyType' => 'formData',
+            'bodyType'    => 'json',
+        ]);
+
+        return RecognizeTaxClearanceCertificateResponse::fromMap($this->callApi($params, $req, $runtime));
+    }
+
+    /**
+     * @param RecognizeTaxClearanceCertificateRequest $request
+     *
+     * @return RecognizeTaxClearanceCertificateResponse
+     */
+    public function recognizeTaxClearanceCertificate($request)
+    {
+        $runtime = new RuntimeOptions([]);
+
+        return $this->recognizeTaxClearanceCertificateWithOptions($request, $runtime);
+    }
+
+    /**
      * @param RecognizeTaxiInvoiceRequest $request
      * @param RuntimeOptions              $runtime
      *
@@ -1862,11 +2646,13 @@ class Ocrapi extends OpenApiClient
     public function recognizeTaxiInvoiceWithOptions($request, $runtime)
     {
         Utils::validateModel($request);
-        $query        = [];
-        $query['Url'] = $request->url;
-        $req          = new OpenApiRequest([
+        $query = [];
+        if (!Utils::isUnset($request->url)) {
+            $query['Url'] = $request->url;
+        }
+        $req = new OpenApiRequest([
             'query'  => OpenApiUtilClient::query($query),
-            'body'   => Utils::toMap($request),
+            'body'   => $request->body,
             'stream' => $request->body,
         ]);
         $params = new Params([
@@ -1877,7 +2663,7 @@ class Ocrapi extends OpenApiClient
             'method'      => 'POST',
             'authType'    => 'AK',
             'style'       => 'RPC',
-            'reqBodyType' => 'json',
+            'reqBodyType' => 'formData',
             'bodyType'    => 'json',
         ]);
 
@@ -1905,14 +2691,22 @@ class Ocrapi extends OpenApiClient
     public function recognizeThaiWithOptions($request, $runtime)
     {
         Utils::validateModel($request);
-        $query                   = [];
-        $query['NeedRotate']     = $request->needRotate;
-        $query['OutputCharInfo'] = $request->outputCharInfo;
-        $query['OutputTable']    = $request->outputTable;
-        $query['Url']            = $request->url;
-        $req                     = new OpenApiRequest([
+        $query = [];
+        if (!Utils::isUnset($request->needRotate)) {
+            $query['NeedRotate'] = $request->needRotate;
+        }
+        if (!Utils::isUnset($request->outputCharInfo)) {
+            $query['OutputCharInfo'] = $request->outputCharInfo;
+        }
+        if (!Utils::isUnset($request->outputTable)) {
+            $query['OutputTable'] = $request->outputTable;
+        }
+        if (!Utils::isUnset($request->url)) {
+            $query['Url'] = $request->url;
+        }
+        $req = new OpenApiRequest([
             'query'  => OpenApiUtilClient::query($query),
-            'body'   => Utils::toMap($request),
+            'body'   => $request->body,
             'stream' => $request->body,
         ]);
         $params = new Params([
@@ -1923,7 +2717,7 @@ class Ocrapi extends OpenApiClient
             'method'      => 'POST',
             'authType'    => 'AK',
             'style'       => 'RPC',
-            'reqBodyType' => 'json',
+            'reqBodyType' => 'formData',
             'bodyType'    => 'json',
         ]);
 
@@ -1943,6 +2737,51 @@ class Ocrapi extends OpenApiClient
     }
 
     /**
+     * @param RecognizeTollInvoiceRequest $request
+     * @param RuntimeOptions              $runtime
+     *
+     * @return RecognizeTollInvoiceResponse
+     */
+    public function recognizeTollInvoiceWithOptions($request, $runtime)
+    {
+        Utils::validateModel($request);
+        $query = [];
+        if (!Utils::isUnset($request->url)) {
+            $query['Url'] = $request->url;
+        }
+        $req = new OpenApiRequest([
+            'query'  => OpenApiUtilClient::query($query),
+            'body'   => $request->body,
+            'stream' => $request->body,
+        ]);
+        $params = new Params([
+            'action'      => 'RecognizeTollInvoice',
+            'version'     => '2021-07-07',
+            'protocol'    => 'HTTPS',
+            'pathname'    => '/',
+            'method'      => 'POST',
+            'authType'    => 'AK',
+            'style'       => 'RPC',
+            'reqBodyType' => 'formData',
+            'bodyType'    => 'json',
+        ]);
+
+        return RecognizeTollInvoiceResponse::fromMap($this->callApi($params, $req, $runtime));
+    }
+
+    /**
+     * @param RecognizeTollInvoiceRequest $request
+     *
+     * @return RecognizeTollInvoiceResponse
+     */
+    public function recognizeTollInvoice($request)
+    {
+        $runtime = new RuntimeOptions([]);
+
+        return $this->recognizeTollInvoiceWithOptions($request, $runtime);
+    }
+
+    /**
      * @param RecognizeTradeMarkCertificationRequest $request
      * @param RuntimeOptions                         $runtime
      *
@@ -1951,11 +2790,13 @@ class Ocrapi extends OpenApiClient
     public function recognizeTradeMarkCertificationWithOptions($request, $runtime)
     {
         Utils::validateModel($request);
-        $query        = [];
-        $query['Url'] = $request->url;
-        $req          = new OpenApiRequest([
+        $query = [];
+        if (!Utils::isUnset($request->url)) {
+            $query['Url'] = $request->url;
+        }
+        $req = new OpenApiRequest([
             'query'  => OpenApiUtilClient::query($query),
-            'body'   => Utils::toMap($request),
+            'body'   => $request->body,
             'stream' => $request->body,
         ]);
         $params = new Params([
@@ -1966,7 +2807,7 @@ class Ocrapi extends OpenApiClient
             'method'      => 'POST',
             'authType'    => 'AK',
             'style'       => 'RPC',
-            'reqBodyType' => 'json',
+            'reqBodyType' => 'formData',
             'bodyType'    => 'json',
         ]);
 
@@ -1994,11 +2835,13 @@ class Ocrapi extends OpenApiClient
     public function recognizeTrainInvoiceWithOptions($request, $runtime)
     {
         Utils::validateModel($request);
-        $query        = [];
-        $query['Url'] = $request->url;
-        $req          = new OpenApiRequest([
+        $query = [];
+        if (!Utils::isUnset($request->url)) {
+            $query['Url'] = $request->url;
+        }
+        $req = new OpenApiRequest([
             'query'  => OpenApiUtilClient::query($query),
-            'body'   => Utils::toMap($request),
+            'body'   => $request->body,
             'stream' => $request->body,
         ]);
         $params = new Params([
@@ -2009,7 +2852,7 @@ class Ocrapi extends OpenApiClient
             'method'      => 'POST',
             'authType'    => 'AK',
             'style'       => 'RPC',
-            'reqBodyType' => 'json',
+            'reqBodyType' => 'formData',
             'bodyType'    => 'json',
         ]);
 
@@ -2029,6 +2872,96 @@ class Ocrapi extends OpenApiClient
     }
 
     /**
+     * @param RecognizeUsedCarInvoiceRequest $request
+     * @param RuntimeOptions                 $runtime
+     *
+     * @return RecognizeUsedCarInvoiceResponse
+     */
+    public function recognizeUsedCarInvoiceWithOptions($request, $runtime)
+    {
+        Utils::validateModel($request);
+        $query = [];
+        if (!Utils::isUnset($request->url)) {
+            $query['Url'] = $request->url;
+        }
+        $req = new OpenApiRequest([
+            'query'  => OpenApiUtilClient::query($query),
+            'body'   => $request->body,
+            'stream' => $request->body,
+        ]);
+        $params = new Params([
+            'action'      => 'RecognizeUsedCarInvoice',
+            'version'     => '2021-07-07',
+            'protocol'    => 'HTTPS',
+            'pathname'    => '/',
+            'method'      => 'POST',
+            'authType'    => 'AK',
+            'style'       => 'RPC',
+            'reqBodyType' => 'formData',
+            'bodyType'    => 'json',
+        ]);
+
+        return RecognizeUsedCarInvoiceResponse::fromMap($this->callApi($params, $req, $runtime));
+    }
+
+    /**
+     * @param RecognizeUsedCarInvoiceRequest $request
+     *
+     * @return RecognizeUsedCarInvoiceResponse
+     */
+    public function recognizeUsedCarInvoice($request)
+    {
+        $runtime = new RuntimeOptions([]);
+
+        return $this->recognizeUsedCarInvoiceWithOptions($request, $runtime);
+    }
+
+    /**
+     * @param RecognizeVehicleCertificationRequest $request
+     * @param RuntimeOptions                       $runtime
+     *
+     * @return RecognizeVehicleCertificationResponse
+     */
+    public function recognizeVehicleCertificationWithOptions($request, $runtime)
+    {
+        Utils::validateModel($request);
+        $query = [];
+        if (!Utils::isUnset($request->url)) {
+            $query['Url'] = $request->url;
+        }
+        $req = new OpenApiRequest([
+            'query'  => OpenApiUtilClient::query($query),
+            'body'   => $request->body,
+            'stream' => $request->body,
+        ]);
+        $params = new Params([
+            'action'      => 'RecognizeVehicleCertification',
+            'version'     => '2021-07-07',
+            'protocol'    => 'HTTPS',
+            'pathname'    => '/',
+            'method'      => 'POST',
+            'authType'    => 'AK',
+            'style'       => 'RPC',
+            'reqBodyType' => 'formData',
+            'bodyType'    => 'json',
+        ]);
+
+        return RecognizeVehicleCertificationResponse::fromMap($this->callApi($params, $req, $runtime));
+    }
+
+    /**
+     * @param RecognizeVehicleCertificationRequest $request
+     *
+     * @return RecognizeVehicleCertificationResponse
+     */
+    public function recognizeVehicleCertification($request)
+    {
+        $runtime = new RuntimeOptions([]);
+
+        return $this->recognizeVehicleCertificationWithOptions($request, $runtime);
+    }
+
+    /**
      * @param RecognizeVehicleLicenseRequest $request
      * @param RuntimeOptions                 $runtime
      *
@@ -2037,11 +2970,13 @@ class Ocrapi extends OpenApiClient
     public function recognizeVehicleLicenseWithOptions($request, $runtime)
     {
         Utils::validateModel($request);
-        $query        = [];
-        $query['Url'] = $request->url;
-        $req          = new OpenApiRequest([
+        $query = [];
+        if (!Utils::isUnset($request->url)) {
+            $query['Url'] = $request->url;
+        }
+        $req = new OpenApiRequest([
             'query'  => OpenApiUtilClient::query($query),
-            'body'   => Utils::toMap($request),
+            'body'   => $request->body,
             'stream' => $request->body,
         ]);
         $params = new Params([
@@ -2052,7 +2987,7 @@ class Ocrapi extends OpenApiClient
             'method'      => 'POST',
             'authType'    => 'AK',
             'style'       => 'RPC',
-            'reqBodyType' => 'json',
+            'reqBodyType' => 'formData',
             'bodyType'    => 'json',
         ]);
 
@@ -2072,6 +3007,51 @@ class Ocrapi extends OpenApiClient
     }
 
     /**
+     * @param RecognizeVehicleRegistrationRequest $request
+     * @param RuntimeOptions                      $runtime
+     *
+     * @return RecognizeVehicleRegistrationResponse
+     */
+    public function recognizeVehicleRegistrationWithOptions($request, $runtime)
+    {
+        Utils::validateModel($request);
+        $query = [];
+        if (!Utils::isUnset($request->url)) {
+            $query['Url'] = $request->url;
+        }
+        $req = new OpenApiRequest([
+            'query'  => OpenApiUtilClient::query($query),
+            'body'   => $request->body,
+            'stream' => $request->body,
+        ]);
+        $params = new Params([
+            'action'      => 'RecognizeVehicleRegistration',
+            'version'     => '2021-07-07',
+            'protocol'    => 'HTTPS',
+            'pathname'    => '/',
+            'method'      => 'POST',
+            'authType'    => 'AK',
+            'style'       => 'RPC',
+            'reqBodyType' => 'formData',
+            'bodyType'    => 'json',
+        ]);
+
+        return RecognizeVehicleRegistrationResponse::fromMap($this->callApi($params, $req, $runtime));
+    }
+
+    /**
+     * @param RecognizeVehicleRegistrationRequest $request
+     *
+     * @return RecognizeVehicleRegistrationResponse
+     */
+    public function recognizeVehicleRegistration($request)
+    {
+        $runtime = new RuntimeOptions([]);
+
+        return $this->recognizeVehicleRegistrationWithOptions($request, $runtime);
+    }
+
+    /**
      * @param RecognizeWaybillRequest $request
      * @param RuntimeOptions          $runtime
      *
@@ -2080,11 +3060,13 @@ class Ocrapi extends OpenApiClient
     public function recognizeWaybillWithOptions($request, $runtime)
     {
         Utils::validateModel($request);
-        $query        = [];
-        $query['Url'] = $request->url;
-        $req          = new OpenApiRequest([
+        $query = [];
+        if (!Utils::isUnset($request->url)) {
+            $query['Url'] = $request->url;
+        }
+        $req = new OpenApiRequest([
             'query'  => OpenApiUtilClient::query($query),
-            'body'   => Utils::toMap($request),
+            'body'   => $request->body,
             'stream' => $request->body,
         ]);
         $params = new Params([
@@ -2095,7 +3077,7 @@ class Ocrapi extends OpenApiClient
             'method'      => 'POST',
             'authType'    => 'AK',
             'style'       => 'RPC',
-            'reqBodyType' => 'json',
+            'reqBodyType' => 'formData',
             'bodyType'    => 'json',
         ]);
 
