@@ -9,6 +9,21 @@ use AlibabaCloud\Tea\Model;
 class DeleteDBClusterRequest extends Model
 {
     /**
+     * @var string
+     */
+    public $backupRetentionPolicyOnClusterDeletion;
+
+    /**
+     * @var string
+     */
+    public $DBClusterId;
+
+    /**
+     * @var string
+     */
+    public $ownerAccount;
+
+    /**
      * @var int
      */
     public $ownerId;
@@ -22,28 +37,13 @@ class DeleteDBClusterRequest extends Model
      * @var int
      */
     public $resourceOwnerId;
-
-    /**
-     * @var string
-     */
-    public $ownerAccount;
-
-    /**
-     * @var string
-     */
-    public $DBClusterId;
-
-    /**
-     * @var string
-     */
-    public $backupRetentionPolicyOnClusterDeletion;
     protected $_name = [
+        'backupRetentionPolicyOnClusterDeletion' => 'BackupRetentionPolicyOnClusterDeletion',
+        'DBClusterId'                            => 'DBClusterId',
+        'ownerAccount'                           => 'OwnerAccount',
         'ownerId'                                => 'OwnerId',
         'resourceOwnerAccount'                   => 'ResourceOwnerAccount',
         'resourceOwnerId'                        => 'ResourceOwnerId',
-        'ownerAccount'                           => 'OwnerAccount',
-        'DBClusterId'                            => 'DBClusterId',
-        'backupRetentionPolicyOnClusterDeletion' => 'BackupRetentionPolicyOnClusterDeletion',
     ];
 
     public function validate()
@@ -53,6 +53,15 @@ class DeleteDBClusterRequest extends Model
     public function toMap()
     {
         $res = [];
+        if (null !== $this->backupRetentionPolicyOnClusterDeletion) {
+            $res['BackupRetentionPolicyOnClusterDeletion'] = $this->backupRetentionPolicyOnClusterDeletion;
+        }
+        if (null !== $this->DBClusterId) {
+            $res['DBClusterId'] = $this->DBClusterId;
+        }
+        if (null !== $this->ownerAccount) {
+            $res['OwnerAccount'] = $this->ownerAccount;
+        }
         if (null !== $this->ownerId) {
             $res['OwnerId'] = $this->ownerId;
         }
@@ -61,15 +70,6 @@ class DeleteDBClusterRequest extends Model
         }
         if (null !== $this->resourceOwnerId) {
             $res['ResourceOwnerId'] = $this->resourceOwnerId;
-        }
-        if (null !== $this->ownerAccount) {
-            $res['OwnerAccount'] = $this->ownerAccount;
-        }
-        if (null !== $this->DBClusterId) {
-            $res['DBClusterId'] = $this->DBClusterId;
-        }
-        if (null !== $this->backupRetentionPolicyOnClusterDeletion) {
-            $res['BackupRetentionPolicyOnClusterDeletion'] = $this->backupRetentionPolicyOnClusterDeletion;
         }
 
         return $res;
@@ -83,6 +83,15 @@ class DeleteDBClusterRequest extends Model
     public static function fromMap($map = [])
     {
         $model = new self();
+        if (isset($map['BackupRetentionPolicyOnClusterDeletion'])) {
+            $model->backupRetentionPolicyOnClusterDeletion = $map['BackupRetentionPolicyOnClusterDeletion'];
+        }
+        if (isset($map['DBClusterId'])) {
+            $model->DBClusterId = $map['DBClusterId'];
+        }
+        if (isset($map['OwnerAccount'])) {
+            $model->ownerAccount = $map['OwnerAccount'];
+        }
         if (isset($map['OwnerId'])) {
             $model->ownerId = $map['OwnerId'];
         }
@@ -91,15 +100,6 @@ class DeleteDBClusterRequest extends Model
         }
         if (isset($map['ResourceOwnerId'])) {
             $model->resourceOwnerId = $map['ResourceOwnerId'];
-        }
-        if (isset($map['OwnerAccount'])) {
-            $model->ownerAccount = $map['OwnerAccount'];
-        }
-        if (isset($map['DBClusterId'])) {
-            $model->DBClusterId = $map['DBClusterId'];
-        }
-        if (isset($map['BackupRetentionPolicyOnClusterDeletion'])) {
-            $model->backupRetentionPolicyOnClusterDeletion = $map['BackupRetentionPolicyOnClusterDeletion'];
         }
 
         return $model;

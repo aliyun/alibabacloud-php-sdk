@@ -14,19 +14,14 @@ class DBNodes extends Model
     public $creationTime;
 
     /**
-     * @var int
+     * @var string
      */
-    public $failoverPriority;
-
-    /**
-     * @var int
-     */
-    public $maxIOPS;
+    public $DBNodeClass;
 
     /**
      * @var string
      */
-    public $DBNodeClass;
+    public $DBNodeId;
 
     /**
      * @var string
@@ -36,7 +31,22 @@ class DBNodes extends Model
     /**
      * @var string
      */
-    public $zoneId;
+    public $DBNodeStatus;
+
+    /**
+     * @var int
+     */
+    public $failoverPriority;
+
+    /**
+     * @var string
+     */
+    public $hotReplicaMode;
+
+    /**
+     * @var string
+     */
+    public $imciSwitch;
 
     /**
      * @var int
@@ -44,24 +54,26 @@ class DBNodes extends Model
     public $maxConnections;
 
     /**
-     * @var string
+     * @var int
      */
-    public $DBNodeStatus;
+    public $maxIOPS;
 
     /**
      * @var string
      */
-    public $DBNodeId;
+    public $zoneId;
     protected $_name = [
         'creationTime'     => 'CreationTime',
-        'failoverPriority' => 'FailoverPriority',
-        'maxIOPS'          => 'MaxIOPS',
         'DBNodeClass'      => 'DBNodeClass',
-        'DBNodeRole'       => 'DBNodeRole',
-        'zoneId'           => 'ZoneId',
-        'maxConnections'   => 'MaxConnections',
-        'DBNodeStatus'     => 'DBNodeStatus',
         'DBNodeId'         => 'DBNodeId',
+        'DBNodeRole'       => 'DBNodeRole',
+        'DBNodeStatus'     => 'DBNodeStatus',
+        'failoverPriority' => 'FailoverPriority',
+        'hotReplicaMode'   => 'HotReplicaMode',
+        'imciSwitch'       => 'ImciSwitch',
+        'maxConnections'   => 'MaxConnections',
+        'maxIOPS'          => 'MaxIOPS',
+        'zoneId'           => 'ZoneId',
     ];
 
     public function validate()
@@ -74,29 +86,35 @@ class DBNodes extends Model
         if (null !== $this->creationTime) {
             $res['CreationTime'] = $this->creationTime;
         }
-        if (null !== $this->failoverPriority) {
-            $res['FailoverPriority'] = $this->failoverPriority;
-        }
-        if (null !== $this->maxIOPS) {
-            $res['MaxIOPS'] = $this->maxIOPS;
-        }
         if (null !== $this->DBNodeClass) {
             $res['DBNodeClass'] = $this->DBNodeClass;
+        }
+        if (null !== $this->DBNodeId) {
+            $res['DBNodeId'] = $this->DBNodeId;
         }
         if (null !== $this->DBNodeRole) {
             $res['DBNodeRole'] = $this->DBNodeRole;
         }
-        if (null !== $this->zoneId) {
-            $res['ZoneId'] = $this->zoneId;
+        if (null !== $this->DBNodeStatus) {
+            $res['DBNodeStatus'] = $this->DBNodeStatus;
+        }
+        if (null !== $this->failoverPriority) {
+            $res['FailoverPriority'] = $this->failoverPriority;
+        }
+        if (null !== $this->hotReplicaMode) {
+            $res['HotReplicaMode'] = $this->hotReplicaMode;
+        }
+        if (null !== $this->imciSwitch) {
+            $res['ImciSwitch'] = $this->imciSwitch;
         }
         if (null !== $this->maxConnections) {
             $res['MaxConnections'] = $this->maxConnections;
         }
-        if (null !== $this->DBNodeStatus) {
-            $res['DBNodeStatus'] = $this->DBNodeStatus;
+        if (null !== $this->maxIOPS) {
+            $res['MaxIOPS'] = $this->maxIOPS;
         }
-        if (null !== $this->DBNodeId) {
-            $res['DBNodeId'] = $this->DBNodeId;
+        if (null !== $this->zoneId) {
+            $res['ZoneId'] = $this->zoneId;
         }
 
         return $res;
@@ -113,29 +131,35 @@ class DBNodes extends Model
         if (isset($map['CreationTime'])) {
             $model->creationTime = $map['CreationTime'];
         }
-        if (isset($map['FailoverPriority'])) {
-            $model->failoverPriority = $map['FailoverPriority'];
-        }
-        if (isset($map['MaxIOPS'])) {
-            $model->maxIOPS = $map['MaxIOPS'];
-        }
         if (isset($map['DBNodeClass'])) {
             $model->DBNodeClass = $map['DBNodeClass'];
+        }
+        if (isset($map['DBNodeId'])) {
+            $model->DBNodeId = $map['DBNodeId'];
         }
         if (isset($map['DBNodeRole'])) {
             $model->DBNodeRole = $map['DBNodeRole'];
         }
-        if (isset($map['ZoneId'])) {
-            $model->zoneId = $map['ZoneId'];
+        if (isset($map['DBNodeStatus'])) {
+            $model->DBNodeStatus = $map['DBNodeStatus'];
+        }
+        if (isset($map['FailoverPriority'])) {
+            $model->failoverPriority = $map['FailoverPriority'];
+        }
+        if (isset($map['HotReplicaMode'])) {
+            $model->hotReplicaMode = $map['HotReplicaMode'];
+        }
+        if (isset($map['ImciSwitch'])) {
+            $model->imciSwitch = $map['ImciSwitch'];
         }
         if (isset($map['MaxConnections'])) {
             $model->maxConnections = $map['MaxConnections'];
         }
-        if (isset($map['DBNodeStatus'])) {
-            $model->DBNodeStatus = $map['DBNodeStatus'];
+        if (isset($map['MaxIOPS'])) {
+            $model->maxIOPS = $map['MaxIOPS'];
         }
-        if (isset($map['DBNodeId'])) {
-            $model->DBNodeId = $map['DBNodeId'];
+        if (isset($map['ZoneId'])) {
+            $model->zoneId = $map['ZoneId'];
         }
 
         return $model;

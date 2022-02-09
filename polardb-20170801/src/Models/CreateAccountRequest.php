@@ -9,29 +9,9 @@ use AlibabaCloud\Tea\Model;
 class CreateAccountRequest extends Model
 {
     /**
-     * @var int
-     */
-    public $ownerId;
-
-    /**
      * @var string
      */
-    public $resourceOwnerAccount;
-
-    /**
-     * @var int
-     */
-    public $resourceOwnerId;
-
-    /**
-     * @var string
-     */
-    public $ownerAccount;
-
-    /**
-     * @var string
-     */
-    public $DBClusterId;
+    public $accountDescription;
 
     /**
      * @var string
@@ -46,12 +26,22 @@ class CreateAccountRequest extends Model
     /**
      * @var string
      */
+    public $accountPrivilege;
+
+    /**
+     * @var string
+     */
     public $accountType;
 
     /**
      * @var string
      */
-    public $accountDescription;
+    public $clientToken;
+
+    /**
+     * @var string
+     */
+    public $DBClusterId;
 
     /**
      * @var string
@@ -61,25 +51,35 @@ class CreateAccountRequest extends Model
     /**
      * @var string
      */
-    public $accountPrivilege;
+    public $ownerAccount;
+
+    /**
+     * @var int
+     */
+    public $ownerId;
 
     /**
      * @var string
      */
-    public $clientToken;
+    public $resourceOwnerAccount;
+
+    /**
+     * @var int
+     */
+    public $resourceOwnerId;
     protected $_name = [
+        'accountDescription'   => 'AccountDescription',
+        'accountName'          => 'AccountName',
+        'accountPassword'      => 'AccountPassword',
+        'accountPrivilege'     => 'AccountPrivilege',
+        'accountType'          => 'AccountType',
+        'clientToken'          => 'ClientToken',
+        'DBClusterId'          => 'DBClusterId',
+        'DBName'               => 'DBName',
+        'ownerAccount'         => 'OwnerAccount',
         'ownerId'              => 'OwnerId',
         'resourceOwnerAccount' => 'ResourceOwnerAccount',
         'resourceOwnerId'      => 'ResourceOwnerId',
-        'ownerAccount'         => 'OwnerAccount',
-        'DBClusterId'          => 'DBClusterId',
-        'accountName'          => 'AccountName',
-        'accountPassword'      => 'AccountPassword',
-        'accountType'          => 'AccountType',
-        'accountDescription'   => 'AccountDescription',
-        'DBName'               => 'DBName',
-        'accountPrivilege'     => 'AccountPrivilege',
-        'clientToken'          => 'ClientToken',
     ];
 
     public function validate()
@@ -89,6 +89,33 @@ class CreateAccountRequest extends Model
     public function toMap()
     {
         $res = [];
+        if (null !== $this->accountDescription) {
+            $res['AccountDescription'] = $this->accountDescription;
+        }
+        if (null !== $this->accountName) {
+            $res['AccountName'] = $this->accountName;
+        }
+        if (null !== $this->accountPassword) {
+            $res['AccountPassword'] = $this->accountPassword;
+        }
+        if (null !== $this->accountPrivilege) {
+            $res['AccountPrivilege'] = $this->accountPrivilege;
+        }
+        if (null !== $this->accountType) {
+            $res['AccountType'] = $this->accountType;
+        }
+        if (null !== $this->clientToken) {
+            $res['ClientToken'] = $this->clientToken;
+        }
+        if (null !== $this->DBClusterId) {
+            $res['DBClusterId'] = $this->DBClusterId;
+        }
+        if (null !== $this->DBName) {
+            $res['DBName'] = $this->DBName;
+        }
+        if (null !== $this->ownerAccount) {
+            $res['OwnerAccount'] = $this->ownerAccount;
+        }
         if (null !== $this->ownerId) {
             $res['OwnerId'] = $this->ownerId;
         }
@@ -97,33 +124,6 @@ class CreateAccountRequest extends Model
         }
         if (null !== $this->resourceOwnerId) {
             $res['ResourceOwnerId'] = $this->resourceOwnerId;
-        }
-        if (null !== $this->ownerAccount) {
-            $res['OwnerAccount'] = $this->ownerAccount;
-        }
-        if (null !== $this->DBClusterId) {
-            $res['DBClusterId'] = $this->DBClusterId;
-        }
-        if (null !== $this->accountName) {
-            $res['AccountName'] = $this->accountName;
-        }
-        if (null !== $this->accountPassword) {
-            $res['AccountPassword'] = $this->accountPassword;
-        }
-        if (null !== $this->accountType) {
-            $res['AccountType'] = $this->accountType;
-        }
-        if (null !== $this->accountDescription) {
-            $res['AccountDescription'] = $this->accountDescription;
-        }
-        if (null !== $this->DBName) {
-            $res['DBName'] = $this->DBName;
-        }
-        if (null !== $this->accountPrivilege) {
-            $res['AccountPrivilege'] = $this->accountPrivilege;
-        }
-        if (null !== $this->clientToken) {
-            $res['ClientToken'] = $this->clientToken;
         }
 
         return $res;
@@ -137,6 +137,33 @@ class CreateAccountRequest extends Model
     public static function fromMap($map = [])
     {
         $model = new self();
+        if (isset($map['AccountDescription'])) {
+            $model->accountDescription = $map['AccountDescription'];
+        }
+        if (isset($map['AccountName'])) {
+            $model->accountName = $map['AccountName'];
+        }
+        if (isset($map['AccountPassword'])) {
+            $model->accountPassword = $map['AccountPassword'];
+        }
+        if (isset($map['AccountPrivilege'])) {
+            $model->accountPrivilege = $map['AccountPrivilege'];
+        }
+        if (isset($map['AccountType'])) {
+            $model->accountType = $map['AccountType'];
+        }
+        if (isset($map['ClientToken'])) {
+            $model->clientToken = $map['ClientToken'];
+        }
+        if (isset($map['DBClusterId'])) {
+            $model->DBClusterId = $map['DBClusterId'];
+        }
+        if (isset($map['DBName'])) {
+            $model->DBName = $map['DBName'];
+        }
+        if (isset($map['OwnerAccount'])) {
+            $model->ownerAccount = $map['OwnerAccount'];
+        }
         if (isset($map['OwnerId'])) {
             $model->ownerId = $map['OwnerId'];
         }
@@ -145,33 +172,6 @@ class CreateAccountRequest extends Model
         }
         if (isset($map['ResourceOwnerId'])) {
             $model->resourceOwnerId = $map['ResourceOwnerId'];
-        }
-        if (isset($map['OwnerAccount'])) {
-            $model->ownerAccount = $map['OwnerAccount'];
-        }
-        if (isset($map['DBClusterId'])) {
-            $model->DBClusterId = $map['DBClusterId'];
-        }
-        if (isset($map['AccountName'])) {
-            $model->accountName = $map['AccountName'];
-        }
-        if (isset($map['AccountPassword'])) {
-            $model->accountPassword = $map['AccountPassword'];
-        }
-        if (isset($map['AccountType'])) {
-            $model->accountType = $map['AccountType'];
-        }
-        if (isset($map['AccountDescription'])) {
-            $model->accountDescription = $map['AccountDescription'];
-        }
-        if (isset($map['DBName'])) {
-            $model->DBName = $map['DBName'];
-        }
-        if (isset($map['AccountPrivilege'])) {
-            $model->accountPrivilege = $map['AccountPrivilege'];
-        }
-        if (isset($map['ClientToken'])) {
-            $model->clientToken = $map['ClientToken'];
         }
 
         return $model;

@@ -9,17 +9,17 @@ use AlibabaCloud\Tea\Model;
 class performanceItemValue extends Model
 {
     /**
-     * @var string
-     */
-    public $value;
-
-    /**
      * @var int
      */
     public $timestamp;
+
+    /**
+     * @var string
+     */
+    public $value;
     protected $_name = [
-        'value'     => 'Value',
         'timestamp' => 'Timestamp',
+        'value'     => 'Value',
     ];
 
     public function validate()
@@ -29,11 +29,11 @@ class performanceItemValue extends Model
     public function toMap()
     {
         $res = [];
-        if (null !== $this->value) {
-            $res['Value'] = $this->value;
-        }
         if (null !== $this->timestamp) {
             $res['Timestamp'] = $this->timestamp;
+        }
+        if (null !== $this->value) {
+            $res['Value'] = $this->value;
         }
 
         return $res;
@@ -47,11 +47,11 @@ class performanceItemValue extends Model
     public static function fromMap($map = [])
     {
         $model = new self();
-        if (isset($map['Value'])) {
-            $model->value = $map['Value'];
-        }
         if (isset($map['Timestamp'])) {
             $model->timestamp = $map['Timestamp'];
+        }
+        if (isset($map['Value'])) {
+            $model->value = $map['Value'];
         }
 
         return $model;

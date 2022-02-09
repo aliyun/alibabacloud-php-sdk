@@ -9,6 +9,21 @@ use AlibabaCloud\Tea\Model;
 class CloseDBClusterMigrationRequest extends Model
 {
     /**
+     * @var bool
+     */
+    public $continueEnableBinlog;
+
+    /**
+     * @var string
+     */
+    public $DBClusterId;
+
+    /**
+     * @var string
+     */
+    public $ownerAccount;
+
+    /**
      * @var int
      */
     public $ownerId;
@@ -22,28 +37,13 @@ class CloseDBClusterMigrationRequest extends Model
      * @var int
      */
     public $resourceOwnerId;
-
-    /**
-     * @var string
-     */
-    public $ownerAccount;
-
-    /**
-     * @var string
-     */
-    public $DBClusterId;
-
-    /**
-     * @var bool
-     */
-    public $continueEnableBinlog;
     protected $_name = [
+        'continueEnableBinlog' => 'ContinueEnableBinlog',
+        'DBClusterId'          => 'DBClusterId',
+        'ownerAccount'         => 'OwnerAccount',
         'ownerId'              => 'OwnerId',
         'resourceOwnerAccount' => 'ResourceOwnerAccount',
         'resourceOwnerId'      => 'ResourceOwnerId',
-        'ownerAccount'         => 'OwnerAccount',
-        'DBClusterId'          => 'DBClusterId',
-        'continueEnableBinlog' => 'ContinueEnableBinlog',
     ];
 
     public function validate()
@@ -53,6 +53,15 @@ class CloseDBClusterMigrationRequest extends Model
     public function toMap()
     {
         $res = [];
+        if (null !== $this->continueEnableBinlog) {
+            $res['ContinueEnableBinlog'] = $this->continueEnableBinlog;
+        }
+        if (null !== $this->DBClusterId) {
+            $res['DBClusterId'] = $this->DBClusterId;
+        }
+        if (null !== $this->ownerAccount) {
+            $res['OwnerAccount'] = $this->ownerAccount;
+        }
         if (null !== $this->ownerId) {
             $res['OwnerId'] = $this->ownerId;
         }
@@ -61,15 +70,6 @@ class CloseDBClusterMigrationRequest extends Model
         }
         if (null !== $this->resourceOwnerId) {
             $res['ResourceOwnerId'] = $this->resourceOwnerId;
-        }
-        if (null !== $this->ownerAccount) {
-            $res['OwnerAccount'] = $this->ownerAccount;
-        }
-        if (null !== $this->DBClusterId) {
-            $res['DBClusterId'] = $this->DBClusterId;
-        }
-        if (null !== $this->continueEnableBinlog) {
-            $res['ContinueEnableBinlog'] = $this->continueEnableBinlog;
         }
 
         return $res;
@@ -83,6 +83,15 @@ class CloseDBClusterMigrationRequest extends Model
     public static function fromMap($map = [])
     {
         $model = new self();
+        if (isset($map['ContinueEnableBinlog'])) {
+            $model->continueEnableBinlog = $map['ContinueEnableBinlog'];
+        }
+        if (isset($map['DBClusterId'])) {
+            $model->DBClusterId = $map['DBClusterId'];
+        }
+        if (isset($map['OwnerAccount'])) {
+            $model->ownerAccount = $map['OwnerAccount'];
+        }
         if (isset($map['OwnerId'])) {
             $model->ownerId = $map['OwnerId'];
         }
@@ -91,15 +100,6 @@ class CloseDBClusterMigrationRequest extends Model
         }
         if (isset($map['ResourceOwnerId'])) {
             $model->resourceOwnerId = $map['ResourceOwnerId'];
-        }
-        if (isset($map['OwnerAccount'])) {
-            $model->ownerAccount = $map['OwnerAccount'];
-        }
-        if (isset($map['DBClusterId'])) {
-            $model->DBClusterId = $map['DBClusterId'];
-        }
-        if (isset($map['ContinueEnableBinlog'])) {
-            $model->continueEnableBinlog = $map['ContinueEnableBinlog'];
         }
 
         return $model;

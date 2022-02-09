@@ -11,7 +11,17 @@ class RemoveDBClusterFromGDNRequest extends Model
     /**
      * @var string
      */
-    public $securityToken;
+    public $DBClusterId;
+
+    /**
+     * @var string
+     */
+    public $GDNId;
+
+    /**
+     * @var string
+     */
+    public $ownerAccount;
 
     /**
      * @var int
@@ -31,25 +41,15 @@ class RemoveDBClusterFromGDNRequest extends Model
     /**
      * @var string
      */
-    public $ownerAccount;
-
-    /**
-     * @var string
-     */
-    public $DBClusterId;
-
-    /**
-     * @var string
-     */
-    public $GDNId;
+    public $securityToken;
     protected $_name = [
-        'securityToken'        => 'SecurityToken',
+        'DBClusterId'          => 'DBClusterId',
+        'GDNId'                => 'GDNId',
+        'ownerAccount'         => 'OwnerAccount',
         'ownerId'              => 'OwnerId',
         'resourceOwnerAccount' => 'ResourceOwnerAccount',
         'resourceOwnerId'      => 'ResourceOwnerId',
-        'ownerAccount'         => 'OwnerAccount',
-        'DBClusterId'          => 'DBClusterId',
-        'GDNId'                => 'GDNId',
+        'securityToken'        => 'SecurityToken',
     ];
 
     public function validate()
@@ -59,8 +59,14 @@ class RemoveDBClusterFromGDNRequest extends Model
     public function toMap()
     {
         $res = [];
-        if (null !== $this->securityToken) {
-            $res['SecurityToken'] = $this->securityToken;
+        if (null !== $this->DBClusterId) {
+            $res['DBClusterId'] = $this->DBClusterId;
+        }
+        if (null !== $this->GDNId) {
+            $res['GDNId'] = $this->GDNId;
+        }
+        if (null !== $this->ownerAccount) {
+            $res['OwnerAccount'] = $this->ownerAccount;
         }
         if (null !== $this->ownerId) {
             $res['OwnerId'] = $this->ownerId;
@@ -71,14 +77,8 @@ class RemoveDBClusterFromGDNRequest extends Model
         if (null !== $this->resourceOwnerId) {
             $res['ResourceOwnerId'] = $this->resourceOwnerId;
         }
-        if (null !== $this->ownerAccount) {
-            $res['OwnerAccount'] = $this->ownerAccount;
-        }
-        if (null !== $this->DBClusterId) {
-            $res['DBClusterId'] = $this->DBClusterId;
-        }
-        if (null !== $this->GDNId) {
-            $res['GDNId'] = $this->GDNId;
+        if (null !== $this->securityToken) {
+            $res['SecurityToken'] = $this->securityToken;
         }
 
         return $res;
@@ -92,8 +92,14 @@ class RemoveDBClusterFromGDNRequest extends Model
     public static function fromMap($map = [])
     {
         $model = new self();
-        if (isset($map['SecurityToken'])) {
-            $model->securityToken = $map['SecurityToken'];
+        if (isset($map['DBClusterId'])) {
+            $model->DBClusterId = $map['DBClusterId'];
+        }
+        if (isset($map['GDNId'])) {
+            $model->GDNId = $map['GDNId'];
+        }
+        if (isset($map['OwnerAccount'])) {
+            $model->ownerAccount = $map['OwnerAccount'];
         }
         if (isset($map['OwnerId'])) {
             $model->ownerId = $map['OwnerId'];
@@ -104,14 +110,8 @@ class RemoveDBClusterFromGDNRequest extends Model
         if (isset($map['ResourceOwnerId'])) {
             $model->resourceOwnerId = $map['ResourceOwnerId'];
         }
-        if (isset($map['OwnerAccount'])) {
-            $model->ownerAccount = $map['OwnerAccount'];
-        }
-        if (isset($map['DBClusterId'])) {
-            $model->DBClusterId = $map['DBClusterId'];
-        }
-        if (isset($map['GDNId'])) {
-            $model->GDNId = $map['GDNId'];
+        if (isset($map['SecurityToken'])) {
+            $model->securityToken = $map['SecurityToken'];
         }
 
         return $model;

@@ -11,12 +11,7 @@ class items extends Model
     /**
      * @var string
      */
-    public $SSLExpireTime;
-
-    /**
-     * @var string
-     */
-    public $SSLEnabled;
+    public $DBEndpointId;
 
     /**
      * @var string
@@ -26,12 +21,17 @@ class items extends Model
     /**
      * @var string
      */
-    public $DBEndpointId;
+    public $SSLEnabled;
+
+    /**
+     * @var string
+     */
+    public $SSLExpireTime;
     protected $_name = [
-        'SSLExpireTime'       => 'SSLExpireTime',
-        'SSLEnabled'          => 'SSLEnabled',
-        'SSLConnectionString' => 'SSLConnectionString',
         'DBEndpointId'        => 'DBEndpointId',
+        'SSLConnectionString' => 'SSLConnectionString',
+        'SSLEnabled'          => 'SSLEnabled',
+        'SSLExpireTime'       => 'SSLExpireTime',
     ];
 
     public function validate()
@@ -41,17 +41,17 @@ class items extends Model
     public function toMap()
     {
         $res = [];
-        if (null !== $this->SSLExpireTime) {
-            $res['SSLExpireTime'] = $this->SSLExpireTime;
-        }
-        if (null !== $this->SSLEnabled) {
-            $res['SSLEnabled'] = $this->SSLEnabled;
+        if (null !== $this->DBEndpointId) {
+            $res['DBEndpointId'] = $this->DBEndpointId;
         }
         if (null !== $this->SSLConnectionString) {
             $res['SSLConnectionString'] = $this->SSLConnectionString;
         }
-        if (null !== $this->DBEndpointId) {
-            $res['DBEndpointId'] = $this->DBEndpointId;
+        if (null !== $this->SSLEnabled) {
+            $res['SSLEnabled'] = $this->SSLEnabled;
+        }
+        if (null !== $this->SSLExpireTime) {
+            $res['SSLExpireTime'] = $this->SSLExpireTime;
         }
 
         return $res;
@@ -65,17 +65,17 @@ class items extends Model
     public static function fromMap($map = [])
     {
         $model = new self();
-        if (isset($map['SSLExpireTime'])) {
-            $model->SSLExpireTime = $map['SSLExpireTime'];
-        }
-        if (isset($map['SSLEnabled'])) {
-            $model->SSLEnabled = $map['SSLEnabled'];
+        if (isset($map['DBEndpointId'])) {
+            $model->DBEndpointId = $map['DBEndpointId'];
         }
         if (isset($map['SSLConnectionString'])) {
             $model->SSLConnectionString = $map['SSLConnectionString'];
         }
-        if (isset($map['DBEndpointId'])) {
-            $model->DBEndpointId = $map['DBEndpointId'];
+        if (isset($map['SSLEnabled'])) {
+            $model->SSLEnabled = $map['SSLEnabled'];
+        }
+        if (isset($map['SSLExpireTime'])) {
+            $model->SSLExpireTime = $map['SSLExpireTime'];
         }
 
         return $model;

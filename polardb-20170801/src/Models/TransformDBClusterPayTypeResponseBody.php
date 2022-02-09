@@ -9,13 +9,6 @@ use AlibabaCloud\Tea\Model;
 class TransformDBClusterPayTypeResponseBody extends Model
 {
     /**
-     * @description Id of the request
-     *
-     * @var string
-     */
-    public $requestId;
-
-    /**
      * @var string
      */
     public $chargeType;
@@ -34,12 +27,19 @@ class TransformDBClusterPayTypeResponseBody extends Model
      * @var string
      */
     public $orderId;
+
+    /**
+     * @description Id of the request
+     *
+     * @var string
+     */
+    public $requestId;
     protected $_name = [
-        'requestId'   => 'RequestId',
         'chargeType'  => 'ChargeType',
         'DBClusterId' => 'DBClusterId',
         'expiredTime' => 'ExpiredTime',
         'orderId'     => 'OrderId',
+        'requestId'   => 'RequestId',
     ];
 
     public function validate()
@@ -49,9 +49,6 @@ class TransformDBClusterPayTypeResponseBody extends Model
     public function toMap()
     {
         $res = [];
-        if (null !== $this->requestId) {
-            $res['RequestId'] = $this->requestId;
-        }
         if (null !== $this->chargeType) {
             $res['ChargeType'] = $this->chargeType;
         }
@@ -63,6 +60,9 @@ class TransformDBClusterPayTypeResponseBody extends Model
         }
         if (null !== $this->orderId) {
             $res['OrderId'] = $this->orderId;
+        }
+        if (null !== $this->requestId) {
+            $res['RequestId'] = $this->requestId;
         }
 
         return $res;
@@ -76,9 +76,6 @@ class TransformDBClusterPayTypeResponseBody extends Model
     public static function fromMap($map = [])
     {
         $model = new self();
-        if (isset($map['RequestId'])) {
-            $model->requestId = $map['RequestId'];
-        }
         if (isset($map['ChargeType'])) {
             $model->chargeType = $map['ChargeType'];
         }
@@ -90,6 +87,9 @@ class TransformDBClusterPayTypeResponseBody extends Model
         }
         if (isset($map['OrderId'])) {
             $model->orderId = $map['OrderId'];
+        }
+        if (isset($map['RequestId'])) {
+            $model->requestId = $map['RequestId'];
         }
 
         return $model;

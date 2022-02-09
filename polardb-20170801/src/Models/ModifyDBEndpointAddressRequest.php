@@ -9,24 +9,9 @@ use AlibabaCloud\Tea\Model;
 class ModifyDBEndpointAddressRequest extends Model
 {
     /**
-     * @var int
-     */
-    public $ownerId;
-
-    /**
      * @var string
      */
-    public $resourceOwnerAccount;
-
-    /**
-     * @var int
-     */
-    public $resourceOwnerId;
-
-    /**
-     * @var string
-     */
-    public $ownerAccount;
+    public $connectionStringPrefix;
 
     /**
      * @var string
@@ -46,7 +31,17 @@ class ModifyDBEndpointAddressRequest extends Model
     /**
      * @var string
      */
-    public $connectionStringPrefix;
+    public $ownerAccount;
+
+    /**
+     * @var int
+     */
+    public $ownerId;
+
+    /**
+     * @var string
+     */
+    public $port;
 
     /**
      * @var string
@@ -61,19 +56,24 @@ class ModifyDBEndpointAddressRequest extends Model
     /**
      * @var string
      */
-    public $port;
+    public $resourceOwnerAccount;
+
+    /**
+     * @var int
+     */
+    public $resourceOwnerId;
     protected $_name = [
-        'ownerId'                  => 'OwnerId',
-        'resourceOwnerAccount'     => 'ResourceOwnerAccount',
-        'resourceOwnerId'          => 'ResourceOwnerId',
-        'ownerAccount'             => 'OwnerAccount',
+        'connectionStringPrefix'   => 'ConnectionStringPrefix',
         'DBClusterId'              => 'DBClusterId',
         'DBEndpointId'             => 'DBEndpointId',
         'netType'                  => 'NetType',
-        'connectionStringPrefix'   => 'ConnectionStringPrefix',
+        'ownerAccount'             => 'OwnerAccount',
+        'ownerId'                  => 'OwnerId',
+        'port'                     => 'Port',
         'privateZoneAddressPrefix' => 'PrivateZoneAddressPrefix',
         'privateZoneName'          => 'PrivateZoneName',
-        'port'                     => 'Port',
+        'resourceOwnerAccount'     => 'ResourceOwnerAccount',
+        'resourceOwnerId'          => 'ResourceOwnerId',
     ];
 
     public function validate()
@@ -83,17 +83,8 @@ class ModifyDBEndpointAddressRequest extends Model
     public function toMap()
     {
         $res = [];
-        if (null !== $this->ownerId) {
-            $res['OwnerId'] = $this->ownerId;
-        }
-        if (null !== $this->resourceOwnerAccount) {
-            $res['ResourceOwnerAccount'] = $this->resourceOwnerAccount;
-        }
-        if (null !== $this->resourceOwnerId) {
-            $res['ResourceOwnerId'] = $this->resourceOwnerId;
-        }
-        if (null !== $this->ownerAccount) {
-            $res['OwnerAccount'] = $this->ownerAccount;
+        if (null !== $this->connectionStringPrefix) {
+            $res['ConnectionStringPrefix'] = $this->connectionStringPrefix;
         }
         if (null !== $this->DBClusterId) {
             $res['DBClusterId'] = $this->DBClusterId;
@@ -104,8 +95,14 @@ class ModifyDBEndpointAddressRequest extends Model
         if (null !== $this->netType) {
             $res['NetType'] = $this->netType;
         }
-        if (null !== $this->connectionStringPrefix) {
-            $res['ConnectionStringPrefix'] = $this->connectionStringPrefix;
+        if (null !== $this->ownerAccount) {
+            $res['OwnerAccount'] = $this->ownerAccount;
+        }
+        if (null !== $this->ownerId) {
+            $res['OwnerId'] = $this->ownerId;
+        }
+        if (null !== $this->port) {
+            $res['Port'] = $this->port;
         }
         if (null !== $this->privateZoneAddressPrefix) {
             $res['PrivateZoneAddressPrefix'] = $this->privateZoneAddressPrefix;
@@ -113,8 +110,11 @@ class ModifyDBEndpointAddressRequest extends Model
         if (null !== $this->privateZoneName) {
             $res['PrivateZoneName'] = $this->privateZoneName;
         }
-        if (null !== $this->port) {
-            $res['Port'] = $this->port;
+        if (null !== $this->resourceOwnerAccount) {
+            $res['ResourceOwnerAccount'] = $this->resourceOwnerAccount;
+        }
+        if (null !== $this->resourceOwnerId) {
+            $res['ResourceOwnerId'] = $this->resourceOwnerId;
         }
 
         return $res;
@@ -128,17 +128,8 @@ class ModifyDBEndpointAddressRequest extends Model
     public static function fromMap($map = [])
     {
         $model = new self();
-        if (isset($map['OwnerId'])) {
-            $model->ownerId = $map['OwnerId'];
-        }
-        if (isset($map['ResourceOwnerAccount'])) {
-            $model->resourceOwnerAccount = $map['ResourceOwnerAccount'];
-        }
-        if (isset($map['ResourceOwnerId'])) {
-            $model->resourceOwnerId = $map['ResourceOwnerId'];
-        }
-        if (isset($map['OwnerAccount'])) {
-            $model->ownerAccount = $map['OwnerAccount'];
+        if (isset($map['ConnectionStringPrefix'])) {
+            $model->connectionStringPrefix = $map['ConnectionStringPrefix'];
         }
         if (isset($map['DBClusterId'])) {
             $model->DBClusterId = $map['DBClusterId'];
@@ -149,8 +140,14 @@ class ModifyDBEndpointAddressRequest extends Model
         if (isset($map['NetType'])) {
             $model->netType = $map['NetType'];
         }
-        if (isset($map['ConnectionStringPrefix'])) {
-            $model->connectionStringPrefix = $map['ConnectionStringPrefix'];
+        if (isset($map['OwnerAccount'])) {
+            $model->ownerAccount = $map['OwnerAccount'];
+        }
+        if (isset($map['OwnerId'])) {
+            $model->ownerId = $map['OwnerId'];
+        }
+        if (isset($map['Port'])) {
+            $model->port = $map['Port'];
         }
         if (isset($map['PrivateZoneAddressPrefix'])) {
             $model->privateZoneAddressPrefix = $map['PrivateZoneAddressPrefix'];
@@ -158,8 +155,11 @@ class ModifyDBEndpointAddressRequest extends Model
         if (isset($map['PrivateZoneName'])) {
             $model->privateZoneName = $map['PrivateZoneName'];
         }
-        if (isset($map['Port'])) {
-            $model->port = $map['Port'];
+        if (isset($map['ResourceOwnerAccount'])) {
+            $model->resourceOwnerAccount = $map['ResourceOwnerAccount'];
+        }
+        if (isset($map['ResourceOwnerId'])) {
+            $model->resourceOwnerId = $map['ResourceOwnerId'];
         }
 
         return $model;

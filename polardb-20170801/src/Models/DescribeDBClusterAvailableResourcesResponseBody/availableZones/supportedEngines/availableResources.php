@@ -11,15 +11,15 @@ class availableResources extends Model
     /**
      * @var string
      */
-    public $DBNodeClass;
+    public $category;
 
     /**
      * @var string
      */
-    public $category;
+    public $DBNodeClass;
     protected $_name = [
-        'DBNodeClass' => 'DBNodeClass',
         'category'    => 'Category',
+        'DBNodeClass' => 'DBNodeClass',
     ];
 
     public function validate()
@@ -29,11 +29,11 @@ class availableResources extends Model
     public function toMap()
     {
         $res = [];
-        if (null !== $this->DBNodeClass) {
-            $res['DBNodeClass'] = $this->DBNodeClass;
-        }
         if (null !== $this->category) {
             $res['Category'] = $this->category;
+        }
+        if (null !== $this->DBNodeClass) {
+            $res['DBNodeClass'] = $this->DBNodeClass;
         }
 
         return $res;
@@ -47,11 +47,11 @@ class availableResources extends Model
     public static function fromMap($map = [])
     {
         $model = new self();
-        if (isset($map['DBNodeClass'])) {
-            $model->DBNodeClass = $map['DBNodeClass'];
-        }
         if (isset($map['Category'])) {
             $model->category = $map['Category'];
+        }
+        if (isset($map['DBNodeClass'])) {
+            $model->DBNodeClass = $map['DBNodeClass'];
         }
 
         return $model;

@@ -16,16 +16,16 @@ class DBClusters extends Model
     /**
      * @var string
      */
-    public $role;
+    public $regionId;
 
     /**
      * @var string
      */
-    public $regionId;
+    public $role;
     protected $_name = [
         'DBClusterId' => 'DBClusterId',
-        'role'        => 'Role',
         'regionId'    => 'RegionId',
+        'role'        => 'Role',
     ];
 
     public function validate()
@@ -38,11 +38,11 @@ class DBClusters extends Model
         if (null !== $this->DBClusterId) {
             $res['DBClusterId'] = $this->DBClusterId;
         }
-        if (null !== $this->role) {
-            $res['Role'] = $this->role;
-        }
         if (null !== $this->regionId) {
             $res['RegionId'] = $this->regionId;
+        }
+        if (null !== $this->role) {
+            $res['Role'] = $this->role;
         }
 
         return $res;
@@ -59,11 +59,11 @@ class DBClusters extends Model
         if (isset($map['DBClusterId'])) {
             $model->DBClusterId = $map['DBClusterId'];
         }
-        if (isset($map['Role'])) {
-            $model->role = $map['Role'];
-        }
         if (isset($map['RegionId'])) {
             $model->regionId = $map['RegionId'];
+        }
+        if (isset($map['Role'])) {
+            $model->role = $map['Role'];
         }
 
         return $model;

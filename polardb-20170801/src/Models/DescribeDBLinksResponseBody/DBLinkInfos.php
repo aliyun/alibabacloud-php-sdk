@@ -26,7 +26,7 @@ class DBLinkInfos extends Model
     /**
      * @var string
      */
-    public $targetDBName;
+    public $targetAccount;
 
     /**
      * @var string
@@ -36,14 +36,14 @@ class DBLinkInfos extends Model
     /**
      * @var string
      */
-    public $targetAccount;
+    public $targetDBName;
     protected $_name = [
         'DBInstanceName'       => 'DBInstanceName',
         'DBLinkName'           => 'DBLinkName',
         'sourceDBName'         => 'SourceDBName',
-        'targetDBName'         => 'TargetDBName',
-        'targetDBInstanceName' => 'TargetDBInstanceName',
         'targetAccount'        => 'TargetAccount',
+        'targetDBInstanceName' => 'TargetDBInstanceName',
+        'targetDBName'         => 'TargetDBName',
     ];
 
     public function validate()
@@ -62,14 +62,14 @@ class DBLinkInfos extends Model
         if (null !== $this->sourceDBName) {
             $res['SourceDBName'] = $this->sourceDBName;
         }
-        if (null !== $this->targetDBName) {
-            $res['TargetDBName'] = $this->targetDBName;
+        if (null !== $this->targetAccount) {
+            $res['TargetAccount'] = $this->targetAccount;
         }
         if (null !== $this->targetDBInstanceName) {
             $res['TargetDBInstanceName'] = $this->targetDBInstanceName;
         }
-        if (null !== $this->targetAccount) {
-            $res['TargetAccount'] = $this->targetAccount;
+        if (null !== $this->targetDBName) {
+            $res['TargetDBName'] = $this->targetDBName;
         }
 
         return $res;
@@ -92,14 +92,14 @@ class DBLinkInfos extends Model
         if (isset($map['SourceDBName'])) {
             $model->sourceDBName = $map['SourceDBName'];
         }
-        if (isset($map['TargetDBName'])) {
-            $model->targetDBName = $map['TargetDBName'];
+        if (isset($map['TargetAccount'])) {
+            $model->targetAccount = $map['TargetAccount'];
         }
         if (isset($map['TargetDBInstanceName'])) {
             $model->targetDBInstanceName = $map['TargetDBInstanceName'];
         }
-        if (isset($map['TargetAccount'])) {
-            $model->targetAccount = $map['TargetAccount'];
+        if (isset($map['TargetDBName'])) {
+            $model->targetDBName = $map['TargetDBName'];
         }
 
         return $model;

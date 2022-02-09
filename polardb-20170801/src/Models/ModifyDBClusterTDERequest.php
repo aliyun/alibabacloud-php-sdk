@@ -9,6 +9,26 @@ use AlibabaCloud\Tea\Model;
 class ModifyDBClusterTDERequest extends Model
 {
     /**
+     * @var string
+     */
+    public $DBClusterId;
+
+    /**
+     * @var string
+     */
+    public $encryptNewTables;
+
+    /**
+     * @var string
+     */
+    public $encryptionKey;
+
+    /**
+     * @var string
+     */
+    public $ownerAccount;
+
+    /**
      * @var int
      */
     public $ownerId;
@@ -26,42 +46,22 @@ class ModifyDBClusterTDERequest extends Model
     /**
      * @var string
      */
-    public $ownerAccount;
-
-    /**
-     * @var string
-     */
-    public $DBClusterId;
-
-    /**
-     * @var string
-     */
-    public $TDEStatus;
-
-    /**
-     * @var string
-     */
     public $roleArn;
 
     /**
      * @var string
      */
-    public $encryptionKey;
-
-    /**
-     * @var string
-     */
-    public $encryptNewTables;
+    public $TDEStatus;
     protected $_name = [
+        'DBClusterId'          => 'DBClusterId',
+        'encryptNewTables'     => 'EncryptNewTables',
+        'encryptionKey'        => 'EncryptionKey',
+        'ownerAccount'         => 'OwnerAccount',
         'ownerId'              => 'OwnerId',
         'resourceOwnerAccount' => 'ResourceOwnerAccount',
         'resourceOwnerId'      => 'ResourceOwnerId',
-        'ownerAccount'         => 'OwnerAccount',
-        'DBClusterId'          => 'DBClusterId',
-        'TDEStatus'            => 'TDEStatus',
         'roleArn'              => 'RoleArn',
-        'encryptionKey'        => 'EncryptionKey',
-        'encryptNewTables'     => 'EncryptNewTables',
+        'TDEStatus'            => 'TDEStatus',
     ];
 
     public function validate()
@@ -71,6 +71,18 @@ class ModifyDBClusterTDERequest extends Model
     public function toMap()
     {
         $res = [];
+        if (null !== $this->DBClusterId) {
+            $res['DBClusterId'] = $this->DBClusterId;
+        }
+        if (null !== $this->encryptNewTables) {
+            $res['EncryptNewTables'] = $this->encryptNewTables;
+        }
+        if (null !== $this->encryptionKey) {
+            $res['EncryptionKey'] = $this->encryptionKey;
+        }
+        if (null !== $this->ownerAccount) {
+            $res['OwnerAccount'] = $this->ownerAccount;
+        }
         if (null !== $this->ownerId) {
             $res['OwnerId'] = $this->ownerId;
         }
@@ -80,23 +92,11 @@ class ModifyDBClusterTDERequest extends Model
         if (null !== $this->resourceOwnerId) {
             $res['ResourceOwnerId'] = $this->resourceOwnerId;
         }
-        if (null !== $this->ownerAccount) {
-            $res['OwnerAccount'] = $this->ownerAccount;
-        }
-        if (null !== $this->DBClusterId) {
-            $res['DBClusterId'] = $this->DBClusterId;
-        }
-        if (null !== $this->TDEStatus) {
-            $res['TDEStatus'] = $this->TDEStatus;
-        }
         if (null !== $this->roleArn) {
             $res['RoleArn'] = $this->roleArn;
         }
-        if (null !== $this->encryptionKey) {
-            $res['EncryptionKey'] = $this->encryptionKey;
-        }
-        if (null !== $this->encryptNewTables) {
-            $res['EncryptNewTables'] = $this->encryptNewTables;
+        if (null !== $this->TDEStatus) {
+            $res['TDEStatus'] = $this->TDEStatus;
         }
 
         return $res;
@@ -110,6 +110,18 @@ class ModifyDBClusterTDERequest extends Model
     public static function fromMap($map = [])
     {
         $model = new self();
+        if (isset($map['DBClusterId'])) {
+            $model->DBClusterId = $map['DBClusterId'];
+        }
+        if (isset($map['EncryptNewTables'])) {
+            $model->encryptNewTables = $map['EncryptNewTables'];
+        }
+        if (isset($map['EncryptionKey'])) {
+            $model->encryptionKey = $map['EncryptionKey'];
+        }
+        if (isset($map['OwnerAccount'])) {
+            $model->ownerAccount = $map['OwnerAccount'];
+        }
         if (isset($map['OwnerId'])) {
             $model->ownerId = $map['OwnerId'];
         }
@@ -119,23 +131,11 @@ class ModifyDBClusterTDERequest extends Model
         if (isset($map['ResourceOwnerId'])) {
             $model->resourceOwnerId = $map['ResourceOwnerId'];
         }
-        if (isset($map['OwnerAccount'])) {
-            $model->ownerAccount = $map['OwnerAccount'];
-        }
-        if (isset($map['DBClusterId'])) {
-            $model->DBClusterId = $map['DBClusterId'];
-        }
-        if (isset($map['TDEStatus'])) {
-            $model->TDEStatus = $map['TDEStatus'];
-        }
         if (isset($map['RoleArn'])) {
             $model->roleArn = $map['RoleArn'];
         }
-        if (isset($map['EncryptionKey'])) {
-            $model->encryptionKey = $map['EncryptionKey'];
-        }
-        if (isset($map['EncryptNewTables'])) {
-            $model->encryptNewTables = $map['EncryptNewTables'];
+        if (isset($map['TDEStatus'])) {
+            $model->TDEStatus = $map['TDEStatus'];
         }
 
         return $model;

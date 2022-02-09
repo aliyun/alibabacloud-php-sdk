@@ -12,7 +12,7 @@ class DescribeDBLinksResponseBody extends Model
     /**
      * @var string
      */
-    public $requestId;
+    public $DBInstanceName;
 
     /**
      * @var DBLinkInfos[]
@@ -22,11 +22,11 @@ class DescribeDBLinksResponseBody extends Model
     /**
      * @var string
      */
-    public $DBInstanceName;
+    public $requestId;
     protected $_name = [
-        'requestId'      => 'RequestId',
-        'DBLinkInfos'    => 'DBLinkInfos',
         'DBInstanceName' => 'DBInstanceName',
+        'DBLinkInfos'    => 'DBLinkInfos',
+        'requestId'      => 'RequestId',
     ];
 
     public function validate()
@@ -36,8 +36,8 @@ class DescribeDBLinksResponseBody extends Model
     public function toMap()
     {
         $res = [];
-        if (null !== $this->requestId) {
-            $res['RequestId'] = $this->requestId;
+        if (null !== $this->DBInstanceName) {
+            $res['DBInstanceName'] = $this->DBInstanceName;
         }
         if (null !== $this->DBLinkInfos) {
             $res['DBLinkInfos'] = [];
@@ -48,8 +48,8 @@ class DescribeDBLinksResponseBody extends Model
                 }
             }
         }
-        if (null !== $this->DBInstanceName) {
-            $res['DBInstanceName'] = $this->DBInstanceName;
+        if (null !== $this->requestId) {
+            $res['RequestId'] = $this->requestId;
         }
 
         return $res;
@@ -63,8 +63,8 @@ class DescribeDBLinksResponseBody extends Model
     public static function fromMap($map = [])
     {
         $model = new self();
-        if (isset($map['RequestId'])) {
-            $model->requestId = $map['RequestId'];
+        if (isset($map['DBInstanceName'])) {
+            $model->DBInstanceName = $map['DBInstanceName'];
         }
         if (isset($map['DBLinkInfos'])) {
             if (!empty($map['DBLinkInfos'])) {
@@ -75,8 +75,8 @@ class DescribeDBLinksResponseBody extends Model
                 }
             }
         }
-        if (isset($map['DBInstanceName'])) {
-            $model->DBInstanceName = $map['DBInstanceName'];
+        if (isset($map['RequestId'])) {
+            $model->requestId = $map['RequestId'];
         }
 
         return $model;

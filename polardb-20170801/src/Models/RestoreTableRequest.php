@@ -11,7 +11,17 @@ class RestoreTableRequest extends Model
     /**
      * @var string
      */
-    public $securityToken;
+    public $backupId;
+
+    /**
+     * @var string
+     */
+    public $DBClusterId;
+
+    /**
+     * @var string
+     */
+    public $ownerAccount;
 
     /**
      * @var int
@@ -31,37 +41,27 @@ class RestoreTableRequest extends Model
     /**
      * @var string
      */
-    public $ownerAccount;
+    public $restoreTime;
 
     /**
      * @var string
      */
-    public $DBClusterId;
+    public $securityToken;
 
     /**
      * @var string
      */
     public $tableMeta;
-
-    /**
-     * @var string
-     */
-    public $backupId;
-
-    /**
-     * @var string
-     */
-    public $restoreTime;
     protected $_name = [
-        'securityToken'        => 'SecurityToken',
+        'backupId'             => 'BackupId',
+        'DBClusterId'          => 'DBClusterId',
+        'ownerAccount'         => 'OwnerAccount',
         'ownerId'              => 'OwnerId',
         'resourceOwnerAccount' => 'ResourceOwnerAccount',
         'resourceOwnerId'      => 'ResourceOwnerId',
-        'ownerAccount'         => 'OwnerAccount',
-        'DBClusterId'          => 'DBClusterId',
-        'tableMeta'            => 'TableMeta',
-        'backupId'             => 'BackupId',
         'restoreTime'          => 'RestoreTime',
+        'securityToken'        => 'SecurityToken',
+        'tableMeta'            => 'TableMeta',
     ];
 
     public function validate()
@@ -71,8 +71,14 @@ class RestoreTableRequest extends Model
     public function toMap()
     {
         $res = [];
-        if (null !== $this->securityToken) {
-            $res['SecurityToken'] = $this->securityToken;
+        if (null !== $this->backupId) {
+            $res['BackupId'] = $this->backupId;
+        }
+        if (null !== $this->DBClusterId) {
+            $res['DBClusterId'] = $this->DBClusterId;
+        }
+        if (null !== $this->ownerAccount) {
+            $res['OwnerAccount'] = $this->ownerAccount;
         }
         if (null !== $this->ownerId) {
             $res['OwnerId'] = $this->ownerId;
@@ -83,20 +89,14 @@ class RestoreTableRequest extends Model
         if (null !== $this->resourceOwnerId) {
             $res['ResourceOwnerId'] = $this->resourceOwnerId;
         }
-        if (null !== $this->ownerAccount) {
-            $res['OwnerAccount'] = $this->ownerAccount;
+        if (null !== $this->restoreTime) {
+            $res['RestoreTime'] = $this->restoreTime;
         }
-        if (null !== $this->DBClusterId) {
-            $res['DBClusterId'] = $this->DBClusterId;
+        if (null !== $this->securityToken) {
+            $res['SecurityToken'] = $this->securityToken;
         }
         if (null !== $this->tableMeta) {
             $res['TableMeta'] = $this->tableMeta;
-        }
-        if (null !== $this->backupId) {
-            $res['BackupId'] = $this->backupId;
-        }
-        if (null !== $this->restoreTime) {
-            $res['RestoreTime'] = $this->restoreTime;
         }
 
         return $res;
@@ -110,8 +110,14 @@ class RestoreTableRequest extends Model
     public static function fromMap($map = [])
     {
         $model = new self();
-        if (isset($map['SecurityToken'])) {
-            $model->securityToken = $map['SecurityToken'];
+        if (isset($map['BackupId'])) {
+            $model->backupId = $map['BackupId'];
+        }
+        if (isset($map['DBClusterId'])) {
+            $model->DBClusterId = $map['DBClusterId'];
+        }
+        if (isset($map['OwnerAccount'])) {
+            $model->ownerAccount = $map['OwnerAccount'];
         }
         if (isset($map['OwnerId'])) {
             $model->ownerId = $map['OwnerId'];
@@ -122,20 +128,14 @@ class RestoreTableRequest extends Model
         if (isset($map['ResourceOwnerId'])) {
             $model->resourceOwnerId = $map['ResourceOwnerId'];
         }
-        if (isset($map['OwnerAccount'])) {
-            $model->ownerAccount = $map['OwnerAccount'];
+        if (isset($map['RestoreTime'])) {
+            $model->restoreTime = $map['RestoreTime'];
         }
-        if (isset($map['DBClusterId'])) {
-            $model->DBClusterId = $map['DBClusterId'];
+        if (isset($map['SecurityToken'])) {
+            $model->securityToken = $map['SecurityToken'];
         }
         if (isset($map['TableMeta'])) {
             $model->tableMeta = $map['TableMeta'];
-        }
-        if (isset($map['BackupId'])) {
-            $model->backupId = $map['BackupId'];
-        }
-        if (isset($map['RestoreTime'])) {
-            $model->restoreTime = $map['RestoreTime'];
         }
 
         return $model;

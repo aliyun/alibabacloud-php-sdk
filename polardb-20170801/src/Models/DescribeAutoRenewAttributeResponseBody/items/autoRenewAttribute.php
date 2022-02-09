@@ -9,14 +9,14 @@ use AlibabaCloud\Tea\Model;
 class autoRenewAttribute extends Model
 {
     /**
-     * @var string
+     * @var bool
      */
-    public $DBClusterId;
+    public $autoRenewEnabled;
 
     /**
      * @var string
      */
-    public $periodUnit;
+    public $DBClusterId;
 
     /**
      * @var int
@@ -26,24 +26,24 @@ class autoRenewAttribute extends Model
     /**
      * @var string
      */
-    public $renewalStatus;
-
-    /**
-     * @var bool
-     */
-    public $autoRenewEnabled;
+    public $periodUnit;
 
     /**
      * @var string
      */
     public $regionId;
+
+    /**
+     * @var string
+     */
+    public $renewalStatus;
     protected $_name = [
-        'DBClusterId'      => 'DBClusterId',
-        'periodUnit'       => 'PeriodUnit',
-        'duration'         => 'Duration',
-        'renewalStatus'    => 'RenewalStatus',
         'autoRenewEnabled' => 'AutoRenewEnabled',
+        'DBClusterId'      => 'DBClusterId',
+        'duration'         => 'Duration',
+        'periodUnit'       => 'PeriodUnit',
         'regionId'         => 'RegionId',
+        'renewalStatus'    => 'RenewalStatus',
     ];
 
     public function validate()
@@ -53,23 +53,23 @@ class autoRenewAttribute extends Model
     public function toMap()
     {
         $res = [];
+        if (null !== $this->autoRenewEnabled) {
+            $res['AutoRenewEnabled'] = $this->autoRenewEnabled;
+        }
         if (null !== $this->DBClusterId) {
             $res['DBClusterId'] = $this->DBClusterId;
-        }
-        if (null !== $this->periodUnit) {
-            $res['PeriodUnit'] = $this->periodUnit;
         }
         if (null !== $this->duration) {
             $res['Duration'] = $this->duration;
         }
-        if (null !== $this->renewalStatus) {
-            $res['RenewalStatus'] = $this->renewalStatus;
-        }
-        if (null !== $this->autoRenewEnabled) {
-            $res['AutoRenewEnabled'] = $this->autoRenewEnabled;
+        if (null !== $this->periodUnit) {
+            $res['PeriodUnit'] = $this->periodUnit;
         }
         if (null !== $this->regionId) {
             $res['RegionId'] = $this->regionId;
+        }
+        if (null !== $this->renewalStatus) {
+            $res['RenewalStatus'] = $this->renewalStatus;
         }
 
         return $res;
@@ -83,23 +83,23 @@ class autoRenewAttribute extends Model
     public static function fromMap($map = [])
     {
         $model = new self();
+        if (isset($map['AutoRenewEnabled'])) {
+            $model->autoRenewEnabled = $map['AutoRenewEnabled'];
+        }
         if (isset($map['DBClusterId'])) {
             $model->DBClusterId = $map['DBClusterId'];
-        }
-        if (isset($map['PeriodUnit'])) {
-            $model->periodUnit = $map['PeriodUnit'];
         }
         if (isset($map['Duration'])) {
             $model->duration = $map['Duration'];
         }
-        if (isset($map['RenewalStatus'])) {
-            $model->renewalStatus = $map['RenewalStatus'];
-        }
-        if (isset($map['AutoRenewEnabled'])) {
-            $model->autoRenewEnabled = $map['AutoRenewEnabled'];
+        if (isset($map['PeriodUnit'])) {
+            $model->periodUnit = $map['PeriodUnit'];
         }
         if (isset($map['RegionId'])) {
             $model->regionId = $map['RegionId'];
+        }
+        if (isset($map['RenewalStatus'])) {
+            $model->renewalStatus = $map['RenewalStatus'];
         }
 
         return $model;

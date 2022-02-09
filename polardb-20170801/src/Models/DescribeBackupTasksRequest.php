@@ -9,6 +9,26 @@ use AlibabaCloud\Tea\Model;
 class DescribeBackupTasksRequest extends Model
 {
     /**
+     * @var string
+     */
+    public $backupJobId;
+
+    /**
+     * @var string
+     */
+    public $backupMode;
+
+    /**
+     * @var string
+     */
+    public $DBClusterId;
+
+    /**
+     * @var string
+     */
+    public $ownerAccount;
+
+    /**
      * @var int
      */
     public $ownerId;
@@ -22,34 +42,14 @@ class DescribeBackupTasksRequest extends Model
      * @var int
      */
     public $resourceOwnerId;
-
-    /**
-     * @var string
-     */
-    public $ownerAccount;
-
-    /**
-     * @var string
-     */
-    public $DBClusterId;
-
-    /**
-     * @var string
-     */
-    public $backupJobId;
-
-    /**
-     * @var string
-     */
-    public $backupMode;
     protected $_name = [
+        'backupJobId'          => 'BackupJobId',
+        'backupMode'           => 'BackupMode',
+        'DBClusterId'          => 'DBClusterId',
+        'ownerAccount'         => 'OwnerAccount',
         'ownerId'              => 'OwnerId',
         'resourceOwnerAccount' => 'ResourceOwnerAccount',
         'resourceOwnerId'      => 'ResourceOwnerId',
-        'ownerAccount'         => 'OwnerAccount',
-        'DBClusterId'          => 'DBClusterId',
-        'backupJobId'          => 'BackupJobId',
-        'backupMode'           => 'BackupMode',
     ];
 
     public function validate()
@@ -59,6 +59,18 @@ class DescribeBackupTasksRequest extends Model
     public function toMap()
     {
         $res = [];
+        if (null !== $this->backupJobId) {
+            $res['BackupJobId'] = $this->backupJobId;
+        }
+        if (null !== $this->backupMode) {
+            $res['BackupMode'] = $this->backupMode;
+        }
+        if (null !== $this->DBClusterId) {
+            $res['DBClusterId'] = $this->DBClusterId;
+        }
+        if (null !== $this->ownerAccount) {
+            $res['OwnerAccount'] = $this->ownerAccount;
+        }
         if (null !== $this->ownerId) {
             $res['OwnerId'] = $this->ownerId;
         }
@@ -67,18 +79,6 @@ class DescribeBackupTasksRequest extends Model
         }
         if (null !== $this->resourceOwnerId) {
             $res['ResourceOwnerId'] = $this->resourceOwnerId;
-        }
-        if (null !== $this->ownerAccount) {
-            $res['OwnerAccount'] = $this->ownerAccount;
-        }
-        if (null !== $this->DBClusterId) {
-            $res['DBClusterId'] = $this->DBClusterId;
-        }
-        if (null !== $this->backupJobId) {
-            $res['BackupJobId'] = $this->backupJobId;
-        }
-        if (null !== $this->backupMode) {
-            $res['BackupMode'] = $this->backupMode;
         }
 
         return $res;
@@ -92,6 +92,18 @@ class DescribeBackupTasksRequest extends Model
     public static function fromMap($map = [])
     {
         $model = new self();
+        if (isset($map['BackupJobId'])) {
+            $model->backupJobId = $map['BackupJobId'];
+        }
+        if (isset($map['BackupMode'])) {
+            $model->backupMode = $map['BackupMode'];
+        }
+        if (isset($map['DBClusterId'])) {
+            $model->DBClusterId = $map['DBClusterId'];
+        }
+        if (isset($map['OwnerAccount'])) {
+            $model->ownerAccount = $map['OwnerAccount'];
+        }
         if (isset($map['OwnerId'])) {
             $model->ownerId = $map['OwnerId'];
         }
@@ -100,18 +112,6 @@ class DescribeBackupTasksRequest extends Model
         }
         if (isset($map['ResourceOwnerId'])) {
             $model->resourceOwnerId = $map['ResourceOwnerId'];
-        }
-        if (isset($map['OwnerAccount'])) {
-            $model->ownerAccount = $map['OwnerAccount'];
-        }
-        if (isset($map['DBClusterId'])) {
-            $model->DBClusterId = $map['DBClusterId'];
-        }
-        if (isset($map['BackupJobId'])) {
-            $model->backupJobId = $map['BackupJobId'];
-        }
-        if (isset($map['BackupMode'])) {
-            $model->backupMode = $map['BackupMode'];
         }
 
         return $model;

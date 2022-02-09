@@ -11,15 +11,15 @@ class parameterDetail extends Model
     /**
      * @var string
      */
-    public $paramValue;
+    public $paramName;
 
     /**
      * @var string
      */
-    public $paramName;
+    public $paramValue;
     protected $_name = [
-        'paramValue' => 'ParamValue',
         'paramName'  => 'ParamName',
+        'paramValue' => 'ParamValue',
     ];
 
     public function validate()
@@ -29,11 +29,11 @@ class parameterDetail extends Model
     public function toMap()
     {
         $res = [];
-        if (null !== $this->paramValue) {
-            $res['ParamValue'] = $this->paramValue;
-        }
         if (null !== $this->paramName) {
             $res['ParamName'] = $this->paramName;
+        }
+        if (null !== $this->paramValue) {
+            $res['ParamValue'] = $this->paramValue;
         }
 
         return $res;
@@ -47,11 +47,11 @@ class parameterDetail extends Model
     public static function fromMap($map = [])
     {
         $model = new self();
-        if (isset($map['ParamValue'])) {
-            $model->paramValue = $map['ParamValue'];
-        }
         if (isset($map['ParamName'])) {
             $model->paramName = $map['ParamName'];
+        }
+        if (isset($map['ParamValue'])) {
+            $model->paramValue = $map['ParamValue'];
         }
 
         return $model;

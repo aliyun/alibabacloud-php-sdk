@@ -10,17 +10,17 @@ use AlibabaCloud\Tea\Model;
 class DescribeDBClusterEndpointsResponseBody extends Model
 {
     /**
-     * @var string
-     */
-    public $requestId;
-
-    /**
      * @var items[]
      */
     public $items;
+
+    /**
+     * @var string
+     */
+    public $requestId;
     protected $_name = [
-        'requestId' => 'RequestId',
         'items'     => 'Items',
+        'requestId' => 'RequestId',
     ];
 
     public function validate()
@@ -30,9 +30,6 @@ class DescribeDBClusterEndpointsResponseBody extends Model
     public function toMap()
     {
         $res = [];
-        if (null !== $this->requestId) {
-            $res['RequestId'] = $this->requestId;
-        }
         if (null !== $this->items) {
             $res['Items'] = [];
             if (null !== $this->items && \is_array($this->items)) {
@@ -41,6 +38,9 @@ class DescribeDBClusterEndpointsResponseBody extends Model
                     $res['Items'][$n++] = null !== $item ? $item->toMap() : $item;
                 }
             }
+        }
+        if (null !== $this->requestId) {
+            $res['RequestId'] = $this->requestId;
         }
 
         return $res;
@@ -54,9 +54,6 @@ class DescribeDBClusterEndpointsResponseBody extends Model
     public static function fromMap($map = [])
     {
         $model = new self();
-        if (isset($map['RequestId'])) {
-            $model->requestId = $map['RequestId'];
-        }
         if (isset($map['Items'])) {
             if (!empty($map['Items'])) {
                 $model->items = [];
@@ -65,6 +62,9 @@ class DescribeDBClusterEndpointsResponseBody extends Model
                     $model->items[$n++] = null !== $item ? items::fromMap($item) : $item;
                 }
             }
+        }
+        if (isset($map['RequestId'])) {
+            $model->requestId = $map['RequestId'];
         }
 
         return $model;

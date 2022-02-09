@@ -21,17 +21,17 @@ class parameter extends Model
     /**
      * @var string
      */
-    public $parameterName;
-
-    /**
-     * @var string
-     */
-    public $parameterValue;
+    public $defaultParameterValue;
 
     /**
      * @var bool
      */
     public $forceRestart;
+
+    /**
+     * @var bool
+     */
+    public $isModifiable;
 
     /**
      * @var string
@@ -41,27 +41,27 @@ class parameter extends Model
     /**
      * @var string
      */
+    public $parameterName;
+
+    /**
+     * @var string
+     */
     public $parameterStatus;
 
     /**
      * @var string
      */
-    public $defaultParameterValue;
-
-    /**
-     * @var bool
-     */
-    public $isModifiable;
+    public $parameterValue;
     protected $_name = [
         'checkingCode'          => 'CheckingCode',
         'dataType'              => 'DataType',
-        'parameterName'         => 'ParameterName',
-        'parameterValue'        => 'ParameterValue',
-        'forceRestart'          => 'ForceRestart',
-        'parameterDescription'  => 'ParameterDescription',
-        'parameterStatus'       => 'ParameterStatus',
         'defaultParameterValue' => 'DefaultParameterValue',
+        'forceRestart'          => 'ForceRestart',
         'isModifiable'          => 'IsModifiable',
+        'parameterDescription'  => 'ParameterDescription',
+        'parameterName'         => 'ParameterName',
+        'parameterStatus'       => 'ParameterStatus',
+        'parameterValue'        => 'ParameterValue',
     ];
 
     public function validate()
@@ -77,26 +77,26 @@ class parameter extends Model
         if (null !== $this->dataType) {
             $res['DataType'] = $this->dataType;
         }
-        if (null !== $this->parameterName) {
-            $res['ParameterName'] = $this->parameterName;
-        }
-        if (null !== $this->parameterValue) {
-            $res['ParameterValue'] = $this->parameterValue;
+        if (null !== $this->defaultParameterValue) {
+            $res['DefaultParameterValue'] = $this->defaultParameterValue;
         }
         if (null !== $this->forceRestart) {
             $res['ForceRestart'] = $this->forceRestart;
         }
+        if (null !== $this->isModifiable) {
+            $res['IsModifiable'] = $this->isModifiable;
+        }
         if (null !== $this->parameterDescription) {
             $res['ParameterDescription'] = $this->parameterDescription;
+        }
+        if (null !== $this->parameterName) {
+            $res['ParameterName'] = $this->parameterName;
         }
         if (null !== $this->parameterStatus) {
             $res['ParameterStatus'] = $this->parameterStatus;
         }
-        if (null !== $this->defaultParameterValue) {
-            $res['DefaultParameterValue'] = $this->defaultParameterValue;
-        }
-        if (null !== $this->isModifiable) {
-            $res['IsModifiable'] = $this->isModifiable;
+        if (null !== $this->parameterValue) {
+            $res['ParameterValue'] = $this->parameterValue;
         }
 
         return $res;
@@ -116,26 +116,26 @@ class parameter extends Model
         if (isset($map['DataType'])) {
             $model->dataType = $map['DataType'];
         }
-        if (isset($map['ParameterName'])) {
-            $model->parameterName = $map['ParameterName'];
-        }
-        if (isset($map['ParameterValue'])) {
-            $model->parameterValue = $map['ParameterValue'];
+        if (isset($map['DefaultParameterValue'])) {
+            $model->defaultParameterValue = $map['DefaultParameterValue'];
         }
         if (isset($map['ForceRestart'])) {
             $model->forceRestart = $map['ForceRestart'];
         }
+        if (isset($map['IsModifiable'])) {
+            $model->isModifiable = $map['IsModifiable'];
+        }
         if (isset($map['ParameterDescription'])) {
             $model->parameterDescription = $map['ParameterDescription'];
+        }
+        if (isset($map['ParameterName'])) {
+            $model->parameterName = $map['ParameterName'];
         }
         if (isset($map['ParameterStatus'])) {
             $model->parameterStatus = $map['ParameterStatus'];
         }
-        if (isset($map['DefaultParameterValue'])) {
-            $model->defaultParameterValue = $map['DefaultParameterValue'];
-        }
-        if (isset($map['IsModifiable'])) {
-            $model->isModifiable = $map['IsModifiable'];
+        if (isset($map['ParameterValue'])) {
+            $model->parameterValue = $map['ParameterValue'];
         }
 
         return $model;

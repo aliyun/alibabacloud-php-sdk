@@ -9,6 +9,16 @@ use AlibabaCloud\Tea\Model;
 class CancelScheduleTasksRequest extends Model
 {
     /**
+     * @var string
+     */
+    public $DBClusterId;
+
+    /**
+     * @var string
+     */
+    public $ownerAccount;
+
+    /**
      * @var int
      */
     public $ownerId;
@@ -26,23 +36,13 @@ class CancelScheduleTasksRequest extends Model
     /**
      * @var string
      */
-    public $ownerAccount;
-
-    /**
-     * @var string
-     */
-    public $DBClusterId;
-
-    /**
-     * @var string
-     */
     public $taskId;
     protected $_name = [
+        'DBClusterId'          => 'DBClusterId',
+        'ownerAccount'         => 'OwnerAccount',
         'ownerId'              => 'OwnerId',
         'resourceOwnerAccount' => 'ResourceOwnerAccount',
         'resourceOwnerId'      => 'ResourceOwnerId',
-        'ownerAccount'         => 'OwnerAccount',
-        'DBClusterId'          => 'DBClusterId',
         'taskId'               => 'TaskId',
     ];
 
@@ -53,6 +53,12 @@ class CancelScheduleTasksRequest extends Model
     public function toMap()
     {
         $res = [];
+        if (null !== $this->DBClusterId) {
+            $res['DBClusterId'] = $this->DBClusterId;
+        }
+        if (null !== $this->ownerAccount) {
+            $res['OwnerAccount'] = $this->ownerAccount;
+        }
         if (null !== $this->ownerId) {
             $res['OwnerId'] = $this->ownerId;
         }
@@ -61,12 +67,6 @@ class CancelScheduleTasksRequest extends Model
         }
         if (null !== $this->resourceOwnerId) {
             $res['ResourceOwnerId'] = $this->resourceOwnerId;
-        }
-        if (null !== $this->ownerAccount) {
-            $res['OwnerAccount'] = $this->ownerAccount;
-        }
-        if (null !== $this->DBClusterId) {
-            $res['DBClusterId'] = $this->DBClusterId;
         }
         if (null !== $this->taskId) {
             $res['TaskId'] = $this->taskId;
@@ -83,6 +83,12 @@ class CancelScheduleTasksRequest extends Model
     public static function fromMap($map = [])
     {
         $model = new self();
+        if (isset($map['DBClusterId'])) {
+            $model->DBClusterId = $map['DBClusterId'];
+        }
+        if (isset($map['OwnerAccount'])) {
+            $model->ownerAccount = $map['OwnerAccount'];
+        }
         if (isset($map['OwnerId'])) {
             $model->ownerId = $map['OwnerId'];
         }
@@ -91,12 +97,6 @@ class CancelScheduleTasksRequest extends Model
         }
         if (isset($map['ResourceOwnerId'])) {
             $model->resourceOwnerId = $map['ResourceOwnerId'];
-        }
-        if (isset($map['OwnerAccount'])) {
-            $model->ownerAccount = $map['OwnerAccount'];
-        }
-        if (isset($map['DBClusterId'])) {
-            $model->DBClusterId = $map['DBClusterId'];
         }
         if (isset($map['TaskId'])) {
             $model->taskId = $map['TaskId'];

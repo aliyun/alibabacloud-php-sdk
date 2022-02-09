@@ -11,11 +11,6 @@ use AlibabaCloud\Tea\Model;
 class DescribeGlobalDatabaseNetworkResponseBody extends Model
 {
     /**
-     * @var string
-     */
-    public $GDNStatus;
-
-    /**
      * @var connections[]
      */
     public $connections;
@@ -23,22 +18,12 @@ class DescribeGlobalDatabaseNetworkResponseBody extends Model
     /**
      * @var string
      */
-    public $DBVersion;
-
-    /**
-     * @var string
-     */
-    public $requestId;
-
-    /**
-     * @var string
-     */
-    public $GDNId;
-
-    /**
-     * @var string
-     */
     public $createTime;
+
+    /**
+     * @var DBClusters[]
+     */
+    public $DBClusters;
 
     /**
      * @var string
@@ -48,22 +33,37 @@ class DescribeGlobalDatabaseNetworkResponseBody extends Model
     /**
      * @var string
      */
+    public $DBVersion;
+
+    /**
+     * @var string
+     */
     public $GDNDescription;
 
     /**
-     * @var DBClusters[]
+     * @var string
      */
-    public $DBClusters;
+    public $GDNId;
+
+    /**
+     * @var string
+     */
+    public $GDNStatus;
+
+    /**
+     * @var string
+     */
+    public $requestId;
     protected $_name = [
-        'GDNStatus'      => 'GDNStatus',
         'connections'    => 'Connections',
-        'DBVersion'      => 'DBVersion',
-        'requestId'      => 'RequestId',
-        'GDNId'          => 'GDNId',
         'createTime'     => 'CreateTime',
-        'DBType'         => 'DBType',
-        'GDNDescription' => 'GDNDescription',
         'DBClusters'     => 'DBClusters',
+        'DBType'         => 'DBType',
+        'DBVersion'      => 'DBVersion',
+        'GDNDescription' => 'GDNDescription',
+        'GDNId'          => 'GDNId',
+        'GDNStatus'      => 'GDNStatus',
+        'requestId'      => 'RequestId',
     ];
 
     public function validate()
@@ -73,9 +73,6 @@ class DescribeGlobalDatabaseNetworkResponseBody extends Model
     public function toMap()
     {
         $res = [];
-        if (null !== $this->GDNStatus) {
-            $res['GDNStatus'] = $this->GDNStatus;
-        }
         if (null !== $this->connections) {
             $res['Connections'] = [];
             if (null !== $this->connections && \is_array($this->connections)) {
@@ -85,23 +82,8 @@ class DescribeGlobalDatabaseNetworkResponseBody extends Model
                 }
             }
         }
-        if (null !== $this->DBVersion) {
-            $res['DBVersion'] = $this->DBVersion;
-        }
-        if (null !== $this->requestId) {
-            $res['RequestId'] = $this->requestId;
-        }
-        if (null !== $this->GDNId) {
-            $res['GDNId'] = $this->GDNId;
-        }
         if (null !== $this->createTime) {
             $res['CreateTime'] = $this->createTime;
-        }
-        if (null !== $this->DBType) {
-            $res['DBType'] = $this->DBType;
-        }
-        if (null !== $this->GDNDescription) {
-            $res['GDNDescription'] = $this->GDNDescription;
         }
         if (null !== $this->DBClusters) {
             $res['DBClusters'] = [];
@@ -111,6 +93,24 @@ class DescribeGlobalDatabaseNetworkResponseBody extends Model
                     $res['DBClusters'][$n++] = null !== $item ? $item->toMap() : $item;
                 }
             }
+        }
+        if (null !== $this->DBType) {
+            $res['DBType'] = $this->DBType;
+        }
+        if (null !== $this->DBVersion) {
+            $res['DBVersion'] = $this->DBVersion;
+        }
+        if (null !== $this->GDNDescription) {
+            $res['GDNDescription'] = $this->GDNDescription;
+        }
+        if (null !== $this->GDNId) {
+            $res['GDNId'] = $this->GDNId;
+        }
+        if (null !== $this->GDNStatus) {
+            $res['GDNStatus'] = $this->GDNStatus;
+        }
+        if (null !== $this->requestId) {
+            $res['RequestId'] = $this->requestId;
         }
 
         return $res;
@@ -124,9 +124,6 @@ class DescribeGlobalDatabaseNetworkResponseBody extends Model
     public static function fromMap($map = [])
     {
         $model = new self();
-        if (isset($map['GDNStatus'])) {
-            $model->GDNStatus = $map['GDNStatus'];
-        }
         if (isset($map['Connections'])) {
             if (!empty($map['Connections'])) {
                 $model->connections = [];
@@ -136,23 +133,8 @@ class DescribeGlobalDatabaseNetworkResponseBody extends Model
                 }
             }
         }
-        if (isset($map['DBVersion'])) {
-            $model->DBVersion = $map['DBVersion'];
-        }
-        if (isset($map['RequestId'])) {
-            $model->requestId = $map['RequestId'];
-        }
-        if (isset($map['GDNId'])) {
-            $model->GDNId = $map['GDNId'];
-        }
         if (isset($map['CreateTime'])) {
             $model->createTime = $map['CreateTime'];
-        }
-        if (isset($map['DBType'])) {
-            $model->DBType = $map['DBType'];
-        }
-        if (isset($map['GDNDescription'])) {
-            $model->GDNDescription = $map['GDNDescription'];
         }
         if (isset($map['DBClusters'])) {
             if (!empty($map['DBClusters'])) {
@@ -162,6 +144,24 @@ class DescribeGlobalDatabaseNetworkResponseBody extends Model
                     $model->DBClusters[$n++] = null !== $item ? DBClusters::fromMap($item) : $item;
                 }
             }
+        }
+        if (isset($map['DBType'])) {
+            $model->DBType = $map['DBType'];
+        }
+        if (isset($map['DBVersion'])) {
+            $model->DBVersion = $map['DBVersion'];
+        }
+        if (isset($map['GDNDescription'])) {
+            $model->GDNDescription = $map['GDNDescription'];
+        }
+        if (isset($map['GDNId'])) {
+            $model->GDNId = $map['GDNId'];
+        }
+        if (isset($map['GDNStatus'])) {
+            $model->GDNStatus = $map['GDNStatus'];
+        }
+        if (isset($map['RequestId'])) {
+            $model->requestId = $map['RequestId'];
         }
 
         return $model;

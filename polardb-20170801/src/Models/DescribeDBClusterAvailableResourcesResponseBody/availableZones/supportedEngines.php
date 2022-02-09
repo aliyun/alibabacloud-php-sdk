@@ -10,17 +10,17 @@ use AlibabaCloud\Tea\Model;
 class supportedEngines extends Model
 {
     /**
-     * @var string
-     */
-    public $engine;
-
-    /**
      * @var availableResources[]
      */
     public $availableResources;
+
+    /**
+     * @var string
+     */
+    public $engine;
     protected $_name = [
-        'engine'             => 'Engine',
         'availableResources' => 'AvailableResources',
+        'engine'             => 'Engine',
     ];
 
     public function validate()
@@ -30,9 +30,6 @@ class supportedEngines extends Model
     public function toMap()
     {
         $res = [];
-        if (null !== $this->engine) {
-            $res['Engine'] = $this->engine;
-        }
         if (null !== $this->availableResources) {
             $res['AvailableResources'] = [];
             if (null !== $this->availableResources && \is_array($this->availableResources)) {
@@ -41,6 +38,9 @@ class supportedEngines extends Model
                     $res['AvailableResources'][$n++] = null !== $item ? $item->toMap() : $item;
                 }
             }
+        }
+        if (null !== $this->engine) {
+            $res['Engine'] = $this->engine;
         }
 
         return $res;
@@ -54,9 +54,6 @@ class supportedEngines extends Model
     public static function fromMap($map = [])
     {
         $model = new self();
-        if (isset($map['Engine'])) {
-            $model->engine = $map['Engine'];
-        }
         if (isset($map['AvailableResources'])) {
             if (!empty($map['AvailableResources'])) {
                 $model->availableResources = [];
@@ -65,6 +62,9 @@ class supportedEngines extends Model
                     $model->availableResources[$n++] = null !== $item ? availableResources::fromMap($item) : $item;
                 }
             }
+        }
+        if (isset($map['Engine'])) {
+            $model->engine = $map['Engine'];
         }
 
         return $model;

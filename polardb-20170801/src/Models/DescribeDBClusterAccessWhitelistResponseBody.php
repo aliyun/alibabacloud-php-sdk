@@ -11,9 +11,9 @@ use AlibabaCloud\Tea\Model;
 class DescribeDBClusterAccessWhitelistResponseBody extends Model
 {
     /**
-     * @var string
+     * @var DBClusterSecurityGroups
      */
-    public $requestId;
+    public $DBClusterSecurityGroups;
 
     /**
      * @var items
@@ -21,13 +21,13 @@ class DescribeDBClusterAccessWhitelistResponseBody extends Model
     public $items;
 
     /**
-     * @var DBClusterSecurityGroups
+     * @var string
      */
-    public $DBClusterSecurityGroups;
+    public $requestId;
     protected $_name = [
-        'requestId'               => 'RequestId',
-        'items'                   => 'Items',
         'DBClusterSecurityGroups' => 'DBClusterSecurityGroups',
+        'items'                   => 'Items',
+        'requestId'               => 'RequestId',
     ];
 
     public function validate()
@@ -37,14 +37,14 @@ class DescribeDBClusterAccessWhitelistResponseBody extends Model
     public function toMap()
     {
         $res = [];
-        if (null !== $this->requestId) {
-            $res['RequestId'] = $this->requestId;
+        if (null !== $this->DBClusterSecurityGroups) {
+            $res['DBClusterSecurityGroups'] = null !== $this->DBClusterSecurityGroups ? $this->DBClusterSecurityGroups->toMap() : null;
         }
         if (null !== $this->items) {
             $res['Items'] = null !== $this->items ? $this->items->toMap() : null;
         }
-        if (null !== $this->DBClusterSecurityGroups) {
-            $res['DBClusterSecurityGroups'] = null !== $this->DBClusterSecurityGroups ? $this->DBClusterSecurityGroups->toMap() : null;
+        if (null !== $this->requestId) {
+            $res['RequestId'] = $this->requestId;
         }
 
         return $res;
@@ -58,14 +58,14 @@ class DescribeDBClusterAccessWhitelistResponseBody extends Model
     public static function fromMap($map = [])
     {
         $model = new self();
-        if (isset($map['RequestId'])) {
-            $model->requestId = $map['RequestId'];
+        if (isset($map['DBClusterSecurityGroups'])) {
+            $model->DBClusterSecurityGroups = DBClusterSecurityGroups::fromMap($map['DBClusterSecurityGroups']);
         }
         if (isset($map['Items'])) {
             $model->items = items::fromMap($map['Items']);
         }
-        if (isset($map['DBClusterSecurityGroups'])) {
-            $model->DBClusterSecurityGroups = DBClusterSecurityGroups::fromMap($map['DBClusterSecurityGroups']);
+        if (isset($map['RequestId'])) {
+            $model->requestId = $map['RequestId'];
         }
 
         return $model;

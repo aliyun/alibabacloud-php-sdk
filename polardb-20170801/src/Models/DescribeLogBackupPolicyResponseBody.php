@@ -11,21 +11,21 @@ class DescribeLogBackupPolicyResponseBody extends Model
     /**
      * @var int
      */
+    public $enableBackupLog;
+
+    /**
+     * @var int
+     */
     public $logBackupRetentionPeriod;
 
     /**
      * @var string
      */
     public $requestId;
-
-    /**
-     * @var int
-     */
-    public $enableBackupLog;
     protected $_name = [
+        'enableBackupLog'          => 'EnableBackupLog',
         'logBackupRetentionPeriod' => 'LogBackupRetentionPeriod',
         'requestId'                => 'RequestId',
-        'enableBackupLog'          => 'EnableBackupLog',
     ];
 
     public function validate()
@@ -35,14 +35,14 @@ class DescribeLogBackupPolicyResponseBody extends Model
     public function toMap()
     {
         $res = [];
+        if (null !== $this->enableBackupLog) {
+            $res['EnableBackupLog'] = $this->enableBackupLog;
+        }
         if (null !== $this->logBackupRetentionPeriod) {
             $res['LogBackupRetentionPeriod'] = $this->logBackupRetentionPeriod;
         }
         if (null !== $this->requestId) {
             $res['RequestId'] = $this->requestId;
-        }
-        if (null !== $this->enableBackupLog) {
-            $res['EnableBackupLog'] = $this->enableBackupLog;
         }
 
         return $res;
@@ -56,14 +56,14 @@ class DescribeLogBackupPolicyResponseBody extends Model
     public static function fromMap($map = [])
     {
         $model = new self();
+        if (isset($map['EnableBackupLog'])) {
+            $model->enableBackupLog = $map['EnableBackupLog'];
+        }
         if (isset($map['LogBackupRetentionPeriod'])) {
             $model->logBackupRetentionPeriod = $map['LogBackupRetentionPeriod'];
         }
         if (isset($map['RequestId'])) {
             $model->requestId = $map['RequestId'];
-        }
-        if (isset($map['EnableBackupLog'])) {
-            $model->enableBackupLog = $map['EnableBackupLog'];
         }
 
         return $model;

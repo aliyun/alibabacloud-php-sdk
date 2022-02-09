@@ -11,15 +11,15 @@ class databasePrivileges extends Model
     /**
      * @var string
      */
-    public $DBName;
+    public $accountPrivilege;
 
     /**
      * @var string
      */
-    public $accountPrivilege;
+    public $DBName;
     protected $_name = [
-        'DBName'           => 'DBName',
         'accountPrivilege' => 'AccountPrivilege',
+        'DBName'           => 'DBName',
     ];
 
     public function validate()
@@ -29,11 +29,11 @@ class databasePrivileges extends Model
     public function toMap()
     {
         $res = [];
-        if (null !== $this->DBName) {
-            $res['DBName'] = $this->DBName;
-        }
         if (null !== $this->accountPrivilege) {
             $res['AccountPrivilege'] = $this->accountPrivilege;
+        }
+        if (null !== $this->DBName) {
+            $res['DBName'] = $this->DBName;
         }
 
         return $res;
@@ -47,11 +47,11 @@ class databasePrivileges extends Model
     public static function fromMap($map = [])
     {
         $model = new self();
-        if (isset($map['DBName'])) {
-            $model->DBName = $map['DBName'];
-        }
         if (isset($map['AccountPrivilege'])) {
             $model->accountPrivilege = $map['AccountPrivilege'];
+        }
+        if (isset($map['DBName'])) {
+            $model->DBName = $map['DBName'];
         }
 
         return $model;

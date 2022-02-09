@@ -12,7 +12,7 @@ class performanceItem extends Model
     /**
      * @var string
      */
-    public $metricName;
+    public $DBNodeId;
 
     /**
      * @var string
@@ -20,19 +20,19 @@ class performanceItem extends Model
     public $measurement;
 
     /**
+     * @var string
+     */
+    public $metricName;
+
+    /**
      * @var points
      */
     public $points;
-
-    /**
-     * @var string
-     */
-    public $DBNodeId;
     protected $_name = [
-        'metricName'  => 'MetricName',
-        'measurement' => 'Measurement',
-        'points'      => 'Points',
         'DBNodeId'    => 'DBNodeId',
+        'measurement' => 'Measurement',
+        'metricName'  => 'MetricName',
+        'points'      => 'Points',
     ];
 
     public function validate()
@@ -42,17 +42,17 @@ class performanceItem extends Model
     public function toMap()
     {
         $res = [];
-        if (null !== $this->metricName) {
-            $res['MetricName'] = $this->metricName;
+        if (null !== $this->DBNodeId) {
+            $res['DBNodeId'] = $this->DBNodeId;
         }
         if (null !== $this->measurement) {
             $res['Measurement'] = $this->measurement;
         }
+        if (null !== $this->metricName) {
+            $res['MetricName'] = $this->metricName;
+        }
         if (null !== $this->points) {
             $res['Points'] = null !== $this->points ? $this->points->toMap() : null;
-        }
-        if (null !== $this->DBNodeId) {
-            $res['DBNodeId'] = $this->DBNodeId;
         }
 
         return $res;
@@ -66,17 +66,17 @@ class performanceItem extends Model
     public static function fromMap($map = [])
     {
         $model = new self();
-        if (isset($map['MetricName'])) {
-            $model->metricName = $map['MetricName'];
+        if (isset($map['DBNodeId'])) {
+            $model->DBNodeId = $map['DBNodeId'];
         }
         if (isset($map['Measurement'])) {
             $model->measurement = $map['Measurement'];
         }
+        if (isset($map['MetricName'])) {
+            $model->metricName = $map['MetricName'];
+        }
         if (isset($map['Points'])) {
             $model->points = points::fromMap($map['Points']);
-        }
-        if (isset($map['DBNodeId'])) {
-            $model->DBNodeId = $map['DBNodeId'];
         }
 
         return $model;

@@ -11,12 +11,12 @@ class addressItems extends Model
     /**
      * @var string
      */
-    public $vSwitchId;
+    public $connectionString;
 
     /**
      * @var string
      */
-    public $connectionString;
+    public $IPAddress;
 
     /**
      * @var string
@@ -36,14 +36,14 @@ class addressItems extends Model
     /**
      * @var string
      */
-    public $IPAddress;
+    public $vSwitchId;
     protected $_name = [
-        'vSwitchId'        => 'VSwitchId',
         'connectionString' => 'ConnectionString',
+        'IPAddress'        => 'IPAddress',
         'netType'          => 'NetType',
         'port'             => 'Port',
         'VPCId'            => 'VPCId',
-        'IPAddress'        => 'IPAddress',
+        'vSwitchId'        => 'VSwitchId',
     ];
 
     public function validate()
@@ -53,11 +53,11 @@ class addressItems extends Model
     public function toMap()
     {
         $res = [];
-        if (null !== $this->vSwitchId) {
-            $res['VSwitchId'] = $this->vSwitchId;
-        }
         if (null !== $this->connectionString) {
             $res['ConnectionString'] = $this->connectionString;
+        }
+        if (null !== $this->IPAddress) {
+            $res['IPAddress'] = $this->IPAddress;
         }
         if (null !== $this->netType) {
             $res['NetType'] = $this->netType;
@@ -68,8 +68,8 @@ class addressItems extends Model
         if (null !== $this->VPCId) {
             $res['VPCId'] = $this->VPCId;
         }
-        if (null !== $this->IPAddress) {
-            $res['IPAddress'] = $this->IPAddress;
+        if (null !== $this->vSwitchId) {
+            $res['VSwitchId'] = $this->vSwitchId;
         }
 
         return $res;
@@ -83,11 +83,11 @@ class addressItems extends Model
     public static function fromMap($map = [])
     {
         $model = new self();
-        if (isset($map['VSwitchId'])) {
-            $model->vSwitchId = $map['VSwitchId'];
-        }
         if (isset($map['ConnectionString'])) {
             $model->connectionString = $map['ConnectionString'];
+        }
+        if (isset($map['IPAddress'])) {
+            $model->IPAddress = $map['IPAddress'];
         }
         if (isset($map['NetType'])) {
             $model->netType = $map['NetType'];
@@ -98,8 +98,8 @@ class addressItems extends Model
         if (isset($map['VPCId'])) {
             $model->VPCId = $map['VPCId'];
         }
-        if (isset($map['IPAddress'])) {
-            $model->IPAddress = $map['IPAddress'];
+        if (isset($map['VSwitchId'])) {
+            $model->vSwitchId = $map['VSwitchId'];
         }
 
         return $model;

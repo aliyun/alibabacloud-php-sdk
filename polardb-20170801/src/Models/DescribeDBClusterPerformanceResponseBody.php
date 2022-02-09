@@ -10,9 +10,14 @@ use AlibabaCloud\Tea\Model;
 class DescribeDBClusterPerformanceResponseBody extends Model
 {
     /**
-     * @var performanceKeys
+     * @var string
      */
-    public $performanceKeys;
+    public $DBClusterId;
+
+    /**
+     * @var string
+     */
+    public $DBType;
 
     /**
      * @var string
@@ -25,6 +30,11 @@ class DescribeDBClusterPerformanceResponseBody extends Model
     public $endTime;
 
     /**
+     * @var performanceKeys
+     */
+    public $performanceKeys;
+
+    /**
      * @var string
      */
     public $requestId;
@@ -33,24 +43,14 @@ class DescribeDBClusterPerformanceResponseBody extends Model
      * @var string
      */
     public $startTime;
-
-    /**
-     * @var string
-     */
-    public $DBClusterId;
-
-    /**
-     * @var string
-     */
-    public $DBType;
     protected $_name = [
-        'performanceKeys' => 'PerformanceKeys',
-        'DBVersion'       => 'DBVersion',
-        'endTime'         => 'EndTime',
-        'requestId'       => 'RequestId',
-        'startTime'       => 'StartTime',
         'DBClusterId'     => 'DBClusterId',
         'DBType'          => 'DBType',
+        'DBVersion'       => 'DBVersion',
+        'endTime'         => 'EndTime',
+        'performanceKeys' => 'PerformanceKeys',
+        'requestId'       => 'RequestId',
+        'startTime'       => 'StartTime',
     ];
 
     public function validate()
@@ -60,8 +60,11 @@ class DescribeDBClusterPerformanceResponseBody extends Model
     public function toMap()
     {
         $res = [];
-        if (null !== $this->performanceKeys) {
-            $res['PerformanceKeys'] = null !== $this->performanceKeys ? $this->performanceKeys->toMap() : null;
+        if (null !== $this->DBClusterId) {
+            $res['DBClusterId'] = $this->DBClusterId;
+        }
+        if (null !== $this->DBType) {
+            $res['DBType'] = $this->DBType;
         }
         if (null !== $this->DBVersion) {
             $res['DBVersion'] = $this->DBVersion;
@@ -69,17 +72,14 @@ class DescribeDBClusterPerformanceResponseBody extends Model
         if (null !== $this->endTime) {
             $res['EndTime'] = $this->endTime;
         }
+        if (null !== $this->performanceKeys) {
+            $res['PerformanceKeys'] = null !== $this->performanceKeys ? $this->performanceKeys->toMap() : null;
+        }
         if (null !== $this->requestId) {
             $res['RequestId'] = $this->requestId;
         }
         if (null !== $this->startTime) {
             $res['StartTime'] = $this->startTime;
-        }
-        if (null !== $this->DBClusterId) {
-            $res['DBClusterId'] = $this->DBClusterId;
-        }
-        if (null !== $this->DBType) {
-            $res['DBType'] = $this->DBType;
         }
 
         return $res;
@@ -93,8 +93,11 @@ class DescribeDBClusterPerformanceResponseBody extends Model
     public static function fromMap($map = [])
     {
         $model = new self();
-        if (isset($map['PerformanceKeys'])) {
-            $model->performanceKeys = performanceKeys::fromMap($map['PerformanceKeys']);
+        if (isset($map['DBClusterId'])) {
+            $model->DBClusterId = $map['DBClusterId'];
+        }
+        if (isset($map['DBType'])) {
+            $model->DBType = $map['DBType'];
         }
         if (isset($map['DBVersion'])) {
             $model->DBVersion = $map['DBVersion'];
@@ -102,17 +105,14 @@ class DescribeDBClusterPerformanceResponseBody extends Model
         if (isset($map['EndTime'])) {
             $model->endTime = $map['EndTime'];
         }
+        if (isset($map['PerformanceKeys'])) {
+            $model->performanceKeys = performanceKeys::fromMap($map['PerformanceKeys']);
+        }
         if (isset($map['RequestId'])) {
             $model->requestId = $map['RequestId'];
         }
         if (isset($map['StartTime'])) {
             $model->startTime = $map['StartTime'];
-        }
-        if (isset($map['DBClusterId'])) {
-            $model->DBClusterId = $map['DBClusterId'];
-        }
-        if (isset($map['DBType'])) {
-            $model->DBType = $map['DBType'];
         }
 
         return $model;

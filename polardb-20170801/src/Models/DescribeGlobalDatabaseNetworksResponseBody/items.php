@@ -12,22 +12,7 @@ class items extends Model
     /**
      * @var string
      */
-    public $DBVersion;
-
-    /**
-     * @var string
-     */
-    public $GDNId;
-
-    /**
-     * @var string
-     */
     public $createTime;
-
-    /**
-     * @var string
-     */
-    public $GDNStatus;
 
     /**
      * @var DBClusters[]
@@ -42,15 +27,30 @@ class items extends Model
     /**
      * @var string
      */
+    public $DBVersion;
+
+    /**
+     * @var string
+     */
     public $GDNDescription;
+
+    /**
+     * @var string
+     */
+    public $GDNId;
+
+    /**
+     * @var string
+     */
+    public $GDNStatus;
     protected $_name = [
-        'DBVersion'      => 'DBVersion',
-        'GDNId'          => 'GDNId',
         'createTime'     => 'CreateTime',
-        'GDNStatus'      => 'GDNStatus',
         'DBClusters'     => 'DBClusters',
         'DBType'         => 'DBType',
+        'DBVersion'      => 'DBVersion',
         'GDNDescription' => 'GDNDescription',
+        'GDNId'          => 'GDNId',
+        'GDNStatus'      => 'GDNStatus',
     ];
 
     public function validate()
@@ -60,17 +60,8 @@ class items extends Model
     public function toMap()
     {
         $res = [];
-        if (null !== $this->DBVersion) {
-            $res['DBVersion'] = $this->DBVersion;
-        }
-        if (null !== $this->GDNId) {
-            $res['GDNId'] = $this->GDNId;
-        }
         if (null !== $this->createTime) {
             $res['CreateTime'] = $this->createTime;
-        }
-        if (null !== $this->GDNStatus) {
-            $res['GDNStatus'] = $this->GDNStatus;
         }
         if (null !== $this->DBClusters) {
             $res['DBClusters'] = [];
@@ -84,8 +75,17 @@ class items extends Model
         if (null !== $this->DBType) {
             $res['DBType'] = $this->DBType;
         }
+        if (null !== $this->DBVersion) {
+            $res['DBVersion'] = $this->DBVersion;
+        }
         if (null !== $this->GDNDescription) {
             $res['GDNDescription'] = $this->GDNDescription;
+        }
+        if (null !== $this->GDNId) {
+            $res['GDNId'] = $this->GDNId;
+        }
+        if (null !== $this->GDNStatus) {
+            $res['GDNStatus'] = $this->GDNStatus;
         }
 
         return $res;
@@ -99,17 +99,8 @@ class items extends Model
     public static function fromMap($map = [])
     {
         $model = new self();
-        if (isset($map['DBVersion'])) {
-            $model->DBVersion = $map['DBVersion'];
-        }
-        if (isset($map['GDNId'])) {
-            $model->GDNId = $map['GDNId'];
-        }
         if (isset($map['CreateTime'])) {
             $model->createTime = $map['CreateTime'];
-        }
-        if (isset($map['GDNStatus'])) {
-            $model->GDNStatus = $map['GDNStatus'];
         }
         if (isset($map['DBClusters'])) {
             if (!empty($map['DBClusters'])) {
@@ -123,8 +114,17 @@ class items extends Model
         if (isset($map['DBType'])) {
             $model->DBType = $map['DBType'];
         }
+        if (isset($map['DBVersion'])) {
+            $model->DBVersion = $map['DBVersion'];
+        }
         if (isset($map['GDNDescription'])) {
             $model->GDNDescription = $map['GDNDescription'];
+        }
+        if (isset($map['GDNId'])) {
+            $model->GDNId = $map['GDNId'];
+        }
+        if (isset($map['GDNStatus'])) {
+            $model->GDNStatus = $map['GDNStatus'];
         }
 
         return $model;

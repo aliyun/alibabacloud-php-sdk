@@ -10,9 +10,49 @@ use AlibabaCloud\Tea\Model;
 class CreateDBNodesRequest extends Model
 {
     /**
+     * @var string
+     */
+    public $clientToken;
+
+    /**
+     * @var string
+     */
+    public $DBClusterId;
+
+    /**
+     * @var DBNode[]
+     */
+    public $DBNode;
+
+    /**
+     * @var string
+     */
+    public $endpointBindList;
+
+    /**
+     * @var string
+     */
+    public $imciSwitch;
+
+    /**
+     * @var string
+     */
+    public $ownerAccount;
+
+    /**
      * @var int
      */
     public $ownerId;
+
+    /**
+     * @var string
+     */
+    public $plannedEndTime;
+
+    /**
+     * @var string
+     */
+    public $plannedStartTime;
 
     /**
      * @var string
@@ -23,52 +63,18 @@ class CreateDBNodesRequest extends Model
      * @var int
      */
     public $resourceOwnerId;
-
-    /**
-     * @var string
-     */
-    public $ownerAccount;
-
-    /**
-     * @var string
-     */
-    public $DBClusterId;
-
-    /**
-     * @var string
-     */
-    public $clientToken;
-
-    /**
-     * @var string
-     */
-    public $endpointBindList;
-
-    /**
-     * @var string
-     */
-    public $plannedStartTime;
-
-    /**
-     * @var string
-     */
-    public $plannedEndTime;
-
-    /**
-     * @var DBNode[]
-     */
-    public $DBNode;
     protected $_name = [
+        'clientToken'          => 'ClientToken',
+        'DBClusterId'          => 'DBClusterId',
+        'DBNode'               => 'DBNode',
+        'endpointBindList'     => 'EndpointBindList',
+        'imciSwitch'           => 'ImciSwitch',
+        'ownerAccount'         => 'OwnerAccount',
         'ownerId'              => 'OwnerId',
+        'plannedEndTime'       => 'PlannedEndTime',
+        'plannedStartTime'     => 'PlannedStartTime',
         'resourceOwnerAccount' => 'ResourceOwnerAccount',
         'resourceOwnerId'      => 'ResourceOwnerId',
-        'ownerAccount'         => 'OwnerAccount',
-        'DBClusterId'          => 'DBClusterId',
-        'clientToken'          => 'ClientToken',
-        'endpointBindList'     => 'EndpointBindList',
-        'plannedStartTime'     => 'PlannedStartTime',
-        'plannedEndTime'       => 'PlannedEndTime',
-        'DBNode'               => 'DBNode',
     ];
 
     public function validate()
@@ -78,32 +84,11 @@ class CreateDBNodesRequest extends Model
     public function toMap()
     {
         $res = [];
-        if (null !== $this->ownerId) {
-            $res['OwnerId'] = $this->ownerId;
-        }
-        if (null !== $this->resourceOwnerAccount) {
-            $res['ResourceOwnerAccount'] = $this->resourceOwnerAccount;
-        }
-        if (null !== $this->resourceOwnerId) {
-            $res['ResourceOwnerId'] = $this->resourceOwnerId;
-        }
-        if (null !== $this->ownerAccount) {
-            $res['OwnerAccount'] = $this->ownerAccount;
-        }
-        if (null !== $this->DBClusterId) {
-            $res['DBClusterId'] = $this->DBClusterId;
-        }
         if (null !== $this->clientToken) {
             $res['ClientToken'] = $this->clientToken;
         }
-        if (null !== $this->endpointBindList) {
-            $res['EndpointBindList'] = $this->endpointBindList;
-        }
-        if (null !== $this->plannedStartTime) {
-            $res['PlannedStartTime'] = $this->plannedStartTime;
-        }
-        if (null !== $this->plannedEndTime) {
-            $res['PlannedEndTime'] = $this->plannedEndTime;
+        if (null !== $this->DBClusterId) {
+            $res['DBClusterId'] = $this->DBClusterId;
         }
         if (null !== $this->DBNode) {
             $res['DBNode'] = [];
@@ -113,6 +98,30 @@ class CreateDBNodesRequest extends Model
                     $res['DBNode'][$n++] = null !== $item ? $item->toMap() : $item;
                 }
             }
+        }
+        if (null !== $this->endpointBindList) {
+            $res['EndpointBindList'] = $this->endpointBindList;
+        }
+        if (null !== $this->imciSwitch) {
+            $res['ImciSwitch'] = $this->imciSwitch;
+        }
+        if (null !== $this->ownerAccount) {
+            $res['OwnerAccount'] = $this->ownerAccount;
+        }
+        if (null !== $this->ownerId) {
+            $res['OwnerId'] = $this->ownerId;
+        }
+        if (null !== $this->plannedEndTime) {
+            $res['PlannedEndTime'] = $this->plannedEndTime;
+        }
+        if (null !== $this->plannedStartTime) {
+            $res['PlannedStartTime'] = $this->plannedStartTime;
+        }
+        if (null !== $this->resourceOwnerAccount) {
+            $res['ResourceOwnerAccount'] = $this->resourceOwnerAccount;
+        }
+        if (null !== $this->resourceOwnerId) {
+            $res['ResourceOwnerId'] = $this->resourceOwnerId;
         }
 
         return $res;
@@ -126,32 +135,11 @@ class CreateDBNodesRequest extends Model
     public static function fromMap($map = [])
     {
         $model = new self();
-        if (isset($map['OwnerId'])) {
-            $model->ownerId = $map['OwnerId'];
-        }
-        if (isset($map['ResourceOwnerAccount'])) {
-            $model->resourceOwnerAccount = $map['ResourceOwnerAccount'];
-        }
-        if (isset($map['ResourceOwnerId'])) {
-            $model->resourceOwnerId = $map['ResourceOwnerId'];
-        }
-        if (isset($map['OwnerAccount'])) {
-            $model->ownerAccount = $map['OwnerAccount'];
-        }
-        if (isset($map['DBClusterId'])) {
-            $model->DBClusterId = $map['DBClusterId'];
-        }
         if (isset($map['ClientToken'])) {
             $model->clientToken = $map['ClientToken'];
         }
-        if (isset($map['EndpointBindList'])) {
-            $model->endpointBindList = $map['EndpointBindList'];
-        }
-        if (isset($map['PlannedStartTime'])) {
-            $model->plannedStartTime = $map['PlannedStartTime'];
-        }
-        if (isset($map['PlannedEndTime'])) {
-            $model->plannedEndTime = $map['PlannedEndTime'];
+        if (isset($map['DBClusterId'])) {
+            $model->DBClusterId = $map['DBClusterId'];
         }
         if (isset($map['DBNode'])) {
             if (!empty($map['DBNode'])) {
@@ -161,6 +149,30 @@ class CreateDBNodesRequest extends Model
                     $model->DBNode[$n++] = null !== $item ? DBNode::fromMap($item) : $item;
                 }
             }
+        }
+        if (isset($map['EndpointBindList'])) {
+            $model->endpointBindList = $map['EndpointBindList'];
+        }
+        if (isset($map['ImciSwitch'])) {
+            $model->imciSwitch = $map['ImciSwitch'];
+        }
+        if (isset($map['OwnerAccount'])) {
+            $model->ownerAccount = $map['OwnerAccount'];
+        }
+        if (isset($map['OwnerId'])) {
+            $model->ownerId = $map['OwnerId'];
+        }
+        if (isset($map['PlannedEndTime'])) {
+            $model->plannedEndTime = $map['PlannedEndTime'];
+        }
+        if (isset($map['PlannedStartTime'])) {
+            $model->plannedStartTime = $map['PlannedStartTime'];
+        }
+        if (isset($map['ResourceOwnerAccount'])) {
+            $model->resourceOwnerAccount = $map['ResourceOwnerAccount'];
+        }
+        if (isset($map['ResourceOwnerId'])) {
+            $model->resourceOwnerId = $map['ResourceOwnerId'];
         }
 
         return $model;

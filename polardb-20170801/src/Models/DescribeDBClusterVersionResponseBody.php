@@ -11,12 +11,17 @@ class DescribeDBClusterVersionResponseBody extends Model
     /**
      * @var string
      */
-    public $isLatestVersion;
+    public $DBClusterId;
 
     /**
      * @var string
      */
-    public $DBVersion;
+    public $DBLatestVersion;
+
+    /**
+     * @var string
+     */
+    public $DBMinorVersion;
 
     /**
      * @var string
@@ -26,7 +31,7 @@ class DescribeDBClusterVersionResponseBody extends Model
     /**
      * @var string
      */
-    public $requestId;
+    public $DBVersion;
 
     /**
      * @var string
@@ -36,12 +41,12 @@ class DescribeDBClusterVersionResponseBody extends Model
     /**
      * @var string
      */
-    public $DBClusterId;
+    public $isLatestVersion;
 
     /**
      * @var string
      */
-    public $DBMinorVersion;
+    public $proxyLatestVersion;
 
     /**
      * @var string
@@ -56,24 +61,19 @@ class DescribeDBClusterVersionResponseBody extends Model
     /**
      * @var string
      */
-    public $proxyLatestVersion;
-
-    /**
-     * @var string
-     */
-    public $DBLatestVersion;
+    public $requestId;
     protected $_name = [
-        'isLatestVersion'      => 'IsLatestVersion',
-        'DBVersion'            => 'DBVersion',
-        'DBRevisionVersion'    => 'DBRevisionVersion',
-        'requestId'            => 'RequestId',
-        'DBVersionStatus'      => 'DBVersionStatus',
         'DBClusterId'          => 'DBClusterId',
+        'DBLatestVersion'      => 'DBLatestVersion',
         'DBMinorVersion'       => 'DBMinorVersion',
+        'DBRevisionVersion'    => 'DBRevisionVersion',
+        'DBVersion'            => 'DBVersion',
+        'DBVersionStatus'      => 'DBVersionStatus',
+        'isLatestVersion'      => 'IsLatestVersion',
+        'proxyLatestVersion'   => 'ProxyLatestVersion',
         'proxyRevisionVersion' => 'ProxyRevisionVersion',
         'proxyVersionStatus'   => 'ProxyVersionStatus',
-        'proxyLatestVersion'   => 'ProxyLatestVersion',
-        'DBLatestVersion'      => 'DBLatestVersion',
+        'requestId'            => 'RequestId',
     ];
 
     public function validate()
@@ -83,26 +83,29 @@ class DescribeDBClusterVersionResponseBody extends Model
     public function toMap()
     {
         $res = [];
-        if (null !== $this->isLatestVersion) {
-            $res['IsLatestVersion'] = $this->isLatestVersion;
+        if (null !== $this->DBClusterId) {
+            $res['DBClusterId'] = $this->DBClusterId;
         }
-        if (null !== $this->DBVersion) {
-            $res['DBVersion'] = $this->DBVersion;
+        if (null !== $this->DBLatestVersion) {
+            $res['DBLatestVersion'] = $this->DBLatestVersion;
+        }
+        if (null !== $this->DBMinorVersion) {
+            $res['DBMinorVersion'] = $this->DBMinorVersion;
         }
         if (null !== $this->DBRevisionVersion) {
             $res['DBRevisionVersion'] = $this->DBRevisionVersion;
         }
-        if (null !== $this->requestId) {
-            $res['RequestId'] = $this->requestId;
+        if (null !== $this->DBVersion) {
+            $res['DBVersion'] = $this->DBVersion;
         }
         if (null !== $this->DBVersionStatus) {
             $res['DBVersionStatus'] = $this->DBVersionStatus;
         }
-        if (null !== $this->DBClusterId) {
-            $res['DBClusterId'] = $this->DBClusterId;
+        if (null !== $this->isLatestVersion) {
+            $res['IsLatestVersion'] = $this->isLatestVersion;
         }
-        if (null !== $this->DBMinorVersion) {
-            $res['DBMinorVersion'] = $this->DBMinorVersion;
+        if (null !== $this->proxyLatestVersion) {
+            $res['ProxyLatestVersion'] = $this->proxyLatestVersion;
         }
         if (null !== $this->proxyRevisionVersion) {
             $res['ProxyRevisionVersion'] = $this->proxyRevisionVersion;
@@ -110,11 +113,8 @@ class DescribeDBClusterVersionResponseBody extends Model
         if (null !== $this->proxyVersionStatus) {
             $res['ProxyVersionStatus'] = $this->proxyVersionStatus;
         }
-        if (null !== $this->proxyLatestVersion) {
-            $res['ProxyLatestVersion'] = $this->proxyLatestVersion;
-        }
-        if (null !== $this->DBLatestVersion) {
-            $res['DBLatestVersion'] = $this->DBLatestVersion;
+        if (null !== $this->requestId) {
+            $res['RequestId'] = $this->requestId;
         }
 
         return $res;
@@ -128,26 +128,29 @@ class DescribeDBClusterVersionResponseBody extends Model
     public static function fromMap($map = [])
     {
         $model = new self();
-        if (isset($map['IsLatestVersion'])) {
-            $model->isLatestVersion = $map['IsLatestVersion'];
+        if (isset($map['DBClusterId'])) {
+            $model->DBClusterId = $map['DBClusterId'];
         }
-        if (isset($map['DBVersion'])) {
-            $model->DBVersion = $map['DBVersion'];
+        if (isset($map['DBLatestVersion'])) {
+            $model->DBLatestVersion = $map['DBLatestVersion'];
+        }
+        if (isset($map['DBMinorVersion'])) {
+            $model->DBMinorVersion = $map['DBMinorVersion'];
         }
         if (isset($map['DBRevisionVersion'])) {
             $model->DBRevisionVersion = $map['DBRevisionVersion'];
         }
-        if (isset($map['RequestId'])) {
-            $model->requestId = $map['RequestId'];
+        if (isset($map['DBVersion'])) {
+            $model->DBVersion = $map['DBVersion'];
         }
         if (isset($map['DBVersionStatus'])) {
             $model->DBVersionStatus = $map['DBVersionStatus'];
         }
-        if (isset($map['DBClusterId'])) {
-            $model->DBClusterId = $map['DBClusterId'];
+        if (isset($map['IsLatestVersion'])) {
+            $model->isLatestVersion = $map['IsLatestVersion'];
         }
-        if (isset($map['DBMinorVersion'])) {
-            $model->DBMinorVersion = $map['DBMinorVersion'];
+        if (isset($map['ProxyLatestVersion'])) {
+            $model->proxyLatestVersion = $map['ProxyLatestVersion'];
         }
         if (isset($map['ProxyRevisionVersion'])) {
             $model->proxyRevisionVersion = $map['ProxyRevisionVersion'];
@@ -155,11 +158,8 @@ class DescribeDBClusterVersionResponseBody extends Model
         if (isset($map['ProxyVersionStatus'])) {
             $model->proxyVersionStatus = $map['ProxyVersionStatus'];
         }
-        if (isset($map['ProxyLatestVersion'])) {
-            $model->proxyLatestVersion = $map['ProxyLatestVersion'];
-        }
-        if (isset($map['DBLatestVersion'])) {
-            $model->DBLatestVersion = $map['DBLatestVersion'];
+        if (isset($map['RequestId'])) {
+            $model->requestId = $map['RequestId'];
         }
 
         return $model;

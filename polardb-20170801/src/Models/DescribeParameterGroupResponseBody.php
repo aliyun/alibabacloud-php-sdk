@@ -10,19 +10,19 @@ use AlibabaCloud\Tea\Model;
 class DescribeParameterGroupResponseBody extends Model
 {
     /**
+     * @var parameterGroup[]
+     */
+    public $parameterGroup;
+
+    /**
      * @description Id of the request
      *
      * @var string
      */
     public $requestId;
-
-    /**
-     * @var parameterGroup[]
-     */
-    public $parameterGroup;
     protected $_name = [
-        'requestId'      => 'RequestId',
         'parameterGroup' => 'ParameterGroup',
+        'requestId'      => 'RequestId',
     ];
 
     public function validate()
@@ -32,9 +32,6 @@ class DescribeParameterGroupResponseBody extends Model
     public function toMap()
     {
         $res = [];
-        if (null !== $this->requestId) {
-            $res['RequestId'] = $this->requestId;
-        }
         if (null !== $this->parameterGroup) {
             $res['ParameterGroup'] = [];
             if (null !== $this->parameterGroup && \is_array($this->parameterGroup)) {
@@ -43,6 +40,9 @@ class DescribeParameterGroupResponseBody extends Model
                     $res['ParameterGroup'][$n++] = null !== $item ? $item->toMap() : $item;
                 }
             }
+        }
+        if (null !== $this->requestId) {
+            $res['RequestId'] = $this->requestId;
         }
 
         return $res;
@@ -56,9 +56,6 @@ class DescribeParameterGroupResponseBody extends Model
     public static function fromMap($map = [])
     {
         $model = new self();
-        if (isset($map['RequestId'])) {
-            $model->requestId = $map['RequestId'];
-        }
         if (isset($map['ParameterGroup'])) {
             if (!empty($map['ParameterGroup'])) {
                 $model->parameterGroup = [];
@@ -67,6 +64,9 @@ class DescribeParameterGroupResponseBody extends Model
                     $model->parameterGroup[$n++] = null !== $item ? parameterGroup::fromMap($item) : $item;
                 }
             }
+        }
+        if (isset($map['RequestId'])) {
+            $model->requestId = $map['RequestId'];
         }
 
         return $model;

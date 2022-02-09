@@ -9,6 +9,26 @@ use AlibabaCloud\Tea\Model;
 class DeleteDBNodesRequest extends Model
 {
     /**
+     * @var string
+     */
+    public $clientToken;
+
+    /**
+     * @var string
+     */
+    public $DBClusterId;
+
+    /**
+     * @var string[]
+     */
+    public $DBNodeId;
+
+    /**
+     * @var string
+     */
+    public $ownerAccount;
+
+    /**
      * @var int
      */
     public $ownerId;
@@ -22,34 +42,14 @@ class DeleteDBNodesRequest extends Model
      * @var int
      */
     public $resourceOwnerId;
-
-    /**
-     * @var string
-     */
-    public $ownerAccount;
-
-    /**
-     * @var string
-     */
-    public $DBClusterId;
-
-    /**
-     * @var string
-     */
-    public $clientToken;
-
-    /**
-     * @var string[]
-     */
-    public $DBNodeId;
     protected $_name = [
+        'clientToken'          => 'ClientToken',
+        'DBClusterId'          => 'DBClusterId',
+        'DBNodeId'             => 'DBNodeId',
+        'ownerAccount'         => 'OwnerAccount',
         'ownerId'              => 'OwnerId',
         'resourceOwnerAccount' => 'ResourceOwnerAccount',
         'resourceOwnerId'      => 'ResourceOwnerId',
-        'ownerAccount'         => 'OwnerAccount',
-        'DBClusterId'          => 'DBClusterId',
-        'clientToken'          => 'ClientToken',
-        'DBNodeId'             => 'DBNodeId',
     ];
 
     public function validate()
@@ -59,6 +59,18 @@ class DeleteDBNodesRequest extends Model
     public function toMap()
     {
         $res = [];
+        if (null !== $this->clientToken) {
+            $res['ClientToken'] = $this->clientToken;
+        }
+        if (null !== $this->DBClusterId) {
+            $res['DBClusterId'] = $this->DBClusterId;
+        }
+        if (null !== $this->DBNodeId) {
+            $res['DBNodeId'] = $this->DBNodeId;
+        }
+        if (null !== $this->ownerAccount) {
+            $res['OwnerAccount'] = $this->ownerAccount;
+        }
         if (null !== $this->ownerId) {
             $res['OwnerId'] = $this->ownerId;
         }
@@ -67,18 +79,6 @@ class DeleteDBNodesRequest extends Model
         }
         if (null !== $this->resourceOwnerId) {
             $res['ResourceOwnerId'] = $this->resourceOwnerId;
-        }
-        if (null !== $this->ownerAccount) {
-            $res['OwnerAccount'] = $this->ownerAccount;
-        }
-        if (null !== $this->DBClusterId) {
-            $res['DBClusterId'] = $this->DBClusterId;
-        }
-        if (null !== $this->clientToken) {
-            $res['ClientToken'] = $this->clientToken;
-        }
-        if (null !== $this->DBNodeId) {
-            $res['DBNodeId'] = $this->DBNodeId;
         }
 
         return $res;
@@ -92,6 +92,20 @@ class DeleteDBNodesRequest extends Model
     public static function fromMap($map = [])
     {
         $model = new self();
+        if (isset($map['ClientToken'])) {
+            $model->clientToken = $map['ClientToken'];
+        }
+        if (isset($map['DBClusterId'])) {
+            $model->DBClusterId = $map['DBClusterId'];
+        }
+        if (isset($map['DBNodeId'])) {
+            if (!empty($map['DBNodeId'])) {
+                $model->DBNodeId = $map['DBNodeId'];
+            }
+        }
+        if (isset($map['OwnerAccount'])) {
+            $model->ownerAccount = $map['OwnerAccount'];
+        }
         if (isset($map['OwnerId'])) {
             $model->ownerId = $map['OwnerId'];
         }
@@ -100,20 +114,6 @@ class DeleteDBNodesRequest extends Model
         }
         if (isset($map['ResourceOwnerId'])) {
             $model->resourceOwnerId = $map['ResourceOwnerId'];
-        }
-        if (isset($map['OwnerAccount'])) {
-            $model->ownerAccount = $map['OwnerAccount'];
-        }
-        if (isset($map['DBClusterId'])) {
-            $model->DBClusterId = $map['DBClusterId'];
-        }
-        if (isset($map['ClientToken'])) {
-            $model->clientToken = $map['ClientToken'];
-        }
-        if (isset($map['DBNodeId'])) {
-            if (!empty($map['DBNodeId'])) {
-                $model->DBNodeId = $map['DBNodeId'];
-            }
         }
 
         return $model;

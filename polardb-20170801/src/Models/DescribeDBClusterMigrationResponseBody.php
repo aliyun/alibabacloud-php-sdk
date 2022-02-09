@@ -11,6 +11,11 @@ use AlibabaCloud\Tea\Model;
 class DescribeDBClusterMigrationResponseBody extends Model
 {
     /**
+     * @var string
+     */
+    public $comment;
+
+    /**
      * @var DBClusterEndpointList[]
      */
     public $DBClusterEndpointList;
@@ -18,37 +23,7 @@ class DescribeDBClusterMigrationResponseBody extends Model
     /**
      * @var string
      */
-    public $comment;
-
-    /**
-     * @var string
-     */
-    public $requestId;
-
-    /**
-     * @var string
-     */
-    public $expiredTime;
-
-    /**
-     * @var string
-     */
     public $DBClusterId;
-
-    /**
-     * @var string
-     */
-    public $topologies;
-
-    /**
-     * @var string
-     */
-    public $rdsReadWriteMode;
-
-    /**
-     * @var string
-     */
-    public $sourceRDSDBInstanceId;
 
     /**
      * @var string
@@ -63,25 +38,50 @@ class DescribeDBClusterMigrationResponseBody extends Model
     /**
      * @var string
      */
+    public $expiredTime;
+
+    /**
+     * @var string
+     */
     public $migrationStatus;
 
     /**
      * @var rdsEndpointList[]
      */
     public $rdsEndpointList;
+
+    /**
+     * @var string
+     */
+    public $rdsReadWriteMode;
+
+    /**
+     * @var string
+     */
+    public $requestId;
+
+    /**
+     * @var string
+     */
+    public $sourceRDSDBInstanceId;
+
+    /**
+     * @var string
+     */
+    public $topologies;
     protected $_name = [
-        'DBClusterEndpointList'  => 'DBClusterEndpointList',
         'comment'                => 'Comment',
-        'requestId'              => 'RequestId',
-        'expiredTime'            => 'ExpiredTime',
+        'DBClusterEndpointList'  => 'DBClusterEndpointList',
         'DBClusterId'            => 'DBClusterId',
-        'topologies'             => 'Topologies',
-        'rdsReadWriteMode'       => 'RdsReadWriteMode',
-        'sourceRDSDBInstanceId'  => 'SourceRDSDBInstanceId',
         'DBClusterReadWriteMode' => 'DBClusterReadWriteMode',
         'delayedSeconds'         => 'DelayedSeconds',
+        'expiredTime'            => 'ExpiredTime',
         'migrationStatus'        => 'MigrationStatus',
         'rdsEndpointList'        => 'RdsEndpointList',
+        'rdsReadWriteMode'       => 'RdsReadWriteMode',
+        'requestId'              => 'RequestId',
+        'sourceRDSDBInstanceId'  => 'SourceRDSDBInstanceId',
+        'topologies'             => 'Topologies',
     ];
 
     public function validate()
@@ -91,6 +91,9 @@ class DescribeDBClusterMigrationResponseBody extends Model
     public function toMap()
     {
         $res = [];
+        if (null !== $this->comment) {
+            $res['Comment'] = $this->comment;
+        }
         if (null !== $this->DBClusterEndpointList) {
             $res['DBClusterEndpointList'] = [];
             if (null !== $this->DBClusterEndpointList && \is_array($this->DBClusterEndpointList)) {
@@ -100,32 +103,17 @@ class DescribeDBClusterMigrationResponseBody extends Model
                 }
             }
         }
-        if (null !== $this->comment) {
-            $res['Comment'] = $this->comment;
-        }
-        if (null !== $this->requestId) {
-            $res['RequestId'] = $this->requestId;
-        }
-        if (null !== $this->expiredTime) {
-            $res['ExpiredTime'] = $this->expiredTime;
-        }
         if (null !== $this->DBClusterId) {
             $res['DBClusterId'] = $this->DBClusterId;
-        }
-        if (null !== $this->topologies) {
-            $res['Topologies'] = $this->topologies;
-        }
-        if (null !== $this->rdsReadWriteMode) {
-            $res['RdsReadWriteMode'] = $this->rdsReadWriteMode;
-        }
-        if (null !== $this->sourceRDSDBInstanceId) {
-            $res['SourceRDSDBInstanceId'] = $this->sourceRDSDBInstanceId;
         }
         if (null !== $this->DBClusterReadWriteMode) {
             $res['DBClusterReadWriteMode'] = $this->DBClusterReadWriteMode;
         }
         if (null !== $this->delayedSeconds) {
             $res['DelayedSeconds'] = $this->delayedSeconds;
+        }
+        if (null !== $this->expiredTime) {
+            $res['ExpiredTime'] = $this->expiredTime;
         }
         if (null !== $this->migrationStatus) {
             $res['MigrationStatus'] = $this->migrationStatus;
@@ -139,6 +127,18 @@ class DescribeDBClusterMigrationResponseBody extends Model
                 }
             }
         }
+        if (null !== $this->rdsReadWriteMode) {
+            $res['RdsReadWriteMode'] = $this->rdsReadWriteMode;
+        }
+        if (null !== $this->requestId) {
+            $res['RequestId'] = $this->requestId;
+        }
+        if (null !== $this->sourceRDSDBInstanceId) {
+            $res['SourceRDSDBInstanceId'] = $this->sourceRDSDBInstanceId;
+        }
+        if (null !== $this->topologies) {
+            $res['Topologies'] = $this->topologies;
+        }
 
         return $res;
     }
@@ -151,6 +151,9 @@ class DescribeDBClusterMigrationResponseBody extends Model
     public static function fromMap($map = [])
     {
         $model = new self();
+        if (isset($map['Comment'])) {
+            $model->comment = $map['Comment'];
+        }
         if (isset($map['DBClusterEndpointList'])) {
             if (!empty($map['DBClusterEndpointList'])) {
                 $model->DBClusterEndpointList = [];
@@ -160,32 +163,17 @@ class DescribeDBClusterMigrationResponseBody extends Model
                 }
             }
         }
-        if (isset($map['Comment'])) {
-            $model->comment = $map['Comment'];
-        }
-        if (isset($map['RequestId'])) {
-            $model->requestId = $map['RequestId'];
-        }
-        if (isset($map['ExpiredTime'])) {
-            $model->expiredTime = $map['ExpiredTime'];
-        }
         if (isset($map['DBClusterId'])) {
             $model->DBClusterId = $map['DBClusterId'];
-        }
-        if (isset($map['Topologies'])) {
-            $model->topologies = $map['Topologies'];
-        }
-        if (isset($map['RdsReadWriteMode'])) {
-            $model->rdsReadWriteMode = $map['RdsReadWriteMode'];
-        }
-        if (isset($map['SourceRDSDBInstanceId'])) {
-            $model->sourceRDSDBInstanceId = $map['SourceRDSDBInstanceId'];
         }
         if (isset($map['DBClusterReadWriteMode'])) {
             $model->DBClusterReadWriteMode = $map['DBClusterReadWriteMode'];
         }
         if (isset($map['DelayedSeconds'])) {
             $model->delayedSeconds = $map['DelayedSeconds'];
+        }
+        if (isset($map['ExpiredTime'])) {
+            $model->expiredTime = $map['ExpiredTime'];
         }
         if (isset($map['MigrationStatus'])) {
             $model->migrationStatus = $map['MigrationStatus'];
@@ -198,6 +186,18 @@ class DescribeDBClusterMigrationResponseBody extends Model
                     $model->rdsEndpointList[$n++] = null !== $item ? rdsEndpointList::fromMap($item) : $item;
                 }
             }
+        }
+        if (isset($map['RdsReadWriteMode'])) {
+            $model->rdsReadWriteMode = $map['RdsReadWriteMode'];
+        }
+        if (isset($map['RequestId'])) {
+            $model->requestId = $map['RequestId'];
+        }
+        if (isset($map['SourceRDSDBInstanceId'])) {
+            $model->sourceRDSDBInstanceId = $map['SourceRDSDBInstanceId'];
+        }
+        if (isset($map['Topologies'])) {
+            $model->topologies = $map['Topologies'];
         }
 
         return $model;

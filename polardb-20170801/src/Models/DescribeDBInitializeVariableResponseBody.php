@@ -10,9 +10,9 @@ use AlibabaCloud\Tea\Model;
 class DescribeDBInitializeVariableResponseBody extends Model
 {
     /**
-     * @var variables
+     * @var string
      */
-    public $variables;
+    public $DBType;
 
     /**
      * @var string
@@ -25,14 +25,14 @@ class DescribeDBInitializeVariableResponseBody extends Model
     public $requestId;
 
     /**
-     * @var string
+     * @var variables
      */
-    public $DBType;
+    public $variables;
     protected $_name = [
-        'variables' => 'Variables',
+        'DBType'    => 'DBType',
         'DBVersion' => 'DBVersion',
         'requestId' => 'RequestId',
-        'DBType'    => 'DBType',
+        'variables' => 'Variables',
     ];
 
     public function validate()
@@ -42,8 +42,8 @@ class DescribeDBInitializeVariableResponseBody extends Model
     public function toMap()
     {
         $res = [];
-        if (null !== $this->variables) {
-            $res['Variables'] = null !== $this->variables ? $this->variables->toMap() : null;
+        if (null !== $this->DBType) {
+            $res['DBType'] = $this->DBType;
         }
         if (null !== $this->DBVersion) {
             $res['DBVersion'] = $this->DBVersion;
@@ -51,8 +51,8 @@ class DescribeDBInitializeVariableResponseBody extends Model
         if (null !== $this->requestId) {
             $res['RequestId'] = $this->requestId;
         }
-        if (null !== $this->DBType) {
-            $res['DBType'] = $this->DBType;
+        if (null !== $this->variables) {
+            $res['Variables'] = null !== $this->variables ? $this->variables->toMap() : null;
         }
 
         return $res;
@@ -66,8 +66,8 @@ class DescribeDBInitializeVariableResponseBody extends Model
     public static function fromMap($map = [])
     {
         $model = new self();
-        if (isset($map['Variables'])) {
-            $model->variables = variables::fromMap($map['Variables']);
+        if (isset($map['DBType'])) {
+            $model->DBType = $map['DBType'];
         }
         if (isset($map['DBVersion'])) {
             $model->DBVersion = $map['DBVersion'];
@@ -75,8 +75,8 @@ class DescribeDBInitializeVariableResponseBody extends Model
         if (isset($map['RequestId'])) {
             $model->requestId = $map['RequestId'];
         }
-        if (isset($map['DBType'])) {
-            $model->DBType = $map['DBType'];
+        if (isset($map['Variables'])) {
+            $model->variables = variables::fromMap($map['Variables']);
         }
 
         return $model;

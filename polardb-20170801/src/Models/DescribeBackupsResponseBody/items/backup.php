@@ -11,12 +11,32 @@ class backup extends Model
     /**
      * @var string
      */
+    public $backupEndTime;
+
+    /**
+     * @var string
+     */
+    public $backupId;
+
+    /**
+     * @var string
+     */
+    public $backupMethod;
+
+    /**
+     * @var string
+     */
+    public $backupMode;
+
+    /**
+     * @var string
+     */
     public $backupSetSize;
 
     /**
      * @var string
      */
-    public $consistentTime;
+    public $backupStartTime;
 
     /**
      * @var string
@@ -31,22 +51,12 @@ class backup extends Model
     /**
      * @var string
      */
-    public $backupStartTime;
+    public $backupsLevel;
 
     /**
      * @var string
      */
-    public $isAvail;
-
-    /**
-     * @var string
-     */
-    public $backupEndTime;
-
-    /**
-     * @var string
-     */
-    public $backupId;
+    public $consistentTime;
 
     /**
      * @var string
@@ -56,30 +66,20 @@ class backup extends Model
     /**
      * @var string
      */
-    public $backupsLevel;
-
-    /**
-     * @var string
-     */
-    public $backupMode;
-
-    /**
-     * @var string
-     */
-    public $backupMethod;
+    public $isAvail;
     protected $_name = [
-        'backupSetSize'   => 'BackupSetSize',
-        'consistentTime'  => 'ConsistentTime',
-        'backupStatus'    => 'BackupStatus',
-        'backupType'      => 'BackupType',
-        'backupStartTime' => 'BackupStartTime',
-        'isAvail'         => 'IsAvail',
         'backupEndTime'   => 'BackupEndTime',
         'backupId'        => 'BackupId',
-        'DBClusterId'     => 'DBClusterId',
-        'backupsLevel'    => 'BackupsLevel',
-        'backupMode'      => 'BackupMode',
         'backupMethod'    => 'BackupMethod',
+        'backupMode'      => 'BackupMode',
+        'backupSetSize'   => 'BackupSetSize',
+        'backupStartTime' => 'BackupStartTime',
+        'backupStatus'    => 'BackupStatus',
+        'backupType'      => 'BackupType',
+        'backupsLevel'    => 'BackupsLevel',
+        'consistentTime'  => 'ConsistentTime',
+        'DBClusterId'     => 'DBClusterId',
+        'isAvail'         => 'IsAvail',
     ];
 
     public function validate()
@@ -89,11 +89,23 @@ class backup extends Model
     public function toMap()
     {
         $res = [];
+        if (null !== $this->backupEndTime) {
+            $res['BackupEndTime'] = $this->backupEndTime;
+        }
+        if (null !== $this->backupId) {
+            $res['BackupId'] = $this->backupId;
+        }
+        if (null !== $this->backupMethod) {
+            $res['BackupMethod'] = $this->backupMethod;
+        }
+        if (null !== $this->backupMode) {
+            $res['BackupMode'] = $this->backupMode;
+        }
         if (null !== $this->backupSetSize) {
             $res['BackupSetSize'] = $this->backupSetSize;
         }
-        if (null !== $this->consistentTime) {
-            $res['ConsistentTime'] = $this->consistentTime;
+        if (null !== $this->backupStartTime) {
+            $res['BackupStartTime'] = $this->backupStartTime;
         }
         if (null !== $this->backupStatus) {
             $res['BackupStatus'] = $this->backupStatus;
@@ -101,29 +113,17 @@ class backup extends Model
         if (null !== $this->backupType) {
             $res['BackupType'] = $this->backupType;
         }
-        if (null !== $this->backupStartTime) {
-            $res['BackupStartTime'] = $this->backupStartTime;
+        if (null !== $this->backupsLevel) {
+            $res['BackupsLevel'] = $this->backupsLevel;
         }
-        if (null !== $this->isAvail) {
-            $res['IsAvail'] = $this->isAvail;
-        }
-        if (null !== $this->backupEndTime) {
-            $res['BackupEndTime'] = $this->backupEndTime;
-        }
-        if (null !== $this->backupId) {
-            $res['BackupId'] = $this->backupId;
+        if (null !== $this->consistentTime) {
+            $res['ConsistentTime'] = $this->consistentTime;
         }
         if (null !== $this->DBClusterId) {
             $res['DBClusterId'] = $this->DBClusterId;
         }
-        if (null !== $this->backupsLevel) {
-            $res['BackupsLevel'] = $this->backupsLevel;
-        }
-        if (null !== $this->backupMode) {
-            $res['BackupMode'] = $this->backupMode;
-        }
-        if (null !== $this->backupMethod) {
-            $res['BackupMethod'] = $this->backupMethod;
+        if (null !== $this->isAvail) {
+            $res['IsAvail'] = $this->isAvail;
         }
 
         return $res;
@@ -137,11 +137,23 @@ class backup extends Model
     public static function fromMap($map = [])
     {
         $model = new self();
+        if (isset($map['BackupEndTime'])) {
+            $model->backupEndTime = $map['BackupEndTime'];
+        }
+        if (isset($map['BackupId'])) {
+            $model->backupId = $map['BackupId'];
+        }
+        if (isset($map['BackupMethod'])) {
+            $model->backupMethod = $map['BackupMethod'];
+        }
+        if (isset($map['BackupMode'])) {
+            $model->backupMode = $map['BackupMode'];
+        }
         if (isset($map['BackupSetSize'])) {
             $model->backupSetSize = $map['BackupSetSize'];
         }
-        if (isset($map['ConsistentTime'])) {
-            $model->consistentTime = $map['ConsistentTime'];
+        if (isset($map['BackupStartTime'])) {
+            $model->backupStartTime = $map['BackupStartTime'];
         }
         if (isset($map['BackupStatus'])) {
             $model->backupStatus = $map['BackupStatus'];
@@ -149,29 +161,17 @@ class backup extends Model
         if (isset($map['BackupType'])) {
             $model->backupType = $map['BackupType'];
         }
-        if (isset($map['BackupStartTime'])) {
-            $model->backupStartTime = $map['BackupStartTime'];
+        if (isset($map['BackupsLevel'])) {
+            $model->backupsLevel = $map['BackupsLevel'];
         }
-        if (isset($map['IsAvail'])) {
-            $model->isAvail = $map['IsAvail'];
-        }
-        if (isset($map['BackupEndTime'])) {
-            $model->backupEndTime = $map['BackupEndTime'];
-        }
-        if (isset($map['BackupId'])) {
-            $model->backupId = $map['BackupId'];
+        if (isset($map['ConsistentTime'])) {
+            $model->consistentTime = $map['ConsistentTime'];
         }
         if (isset($map['DBClusterId'])) {
             $model->DBClusterId = $map['DBClusterId'];
         }
-        if (isset($map['BackupsLevel'])) {
-            $model->backupsLevel = $map['BackupsLevel'];
-        }
-        if (isset($map['BackupMode'])) {
-            $model->backupMode = $map['BackupMode'];
-        }
-        if (isset($map['BackupMethod'])) {
-            $model->backupMethod = $map['BackupMethod'];
+        if (isset($map['IsAvail'])) {
+            $model->isAvail = $map['IsAvail'];
         }
 
         return $model;

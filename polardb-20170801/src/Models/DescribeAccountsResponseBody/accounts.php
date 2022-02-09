@@ -12,27 +12,7 @@ class accounts extends Model
     /**
      * @var string
      */
-    public $accountStatus;
-
-    /**
-     * @var databasePrivileges[]
-     */
-    public $databasePrivileges;
-
-    /**
-     * @var string
-     */
     public $accountDescription;
-
-    /**
-     * @var string
-     */
-    public $accountPasswordValidTime;
-
-    /**
-     * @var string
-     */
-    public $accountType;
 
     /**
      * @var string
@@ -43,14 +23,34 @@ class accounts extends Model
      * @var string
      */
     public $accountName;
+
+    /**
+     * @var string
+     */
+    public $accountPasswordValidTime;
+
+    /**
+     * @var string
+     */
+    public $accountStatus;
+
+    /**
+     * @var string
+     */
+    public $accountType;
+
+    /**
+     * @var databasePrivileges[]
+     */
+    public $databasePrivileges;
     protected $_name = [
-        'accountStatus'            => 'AccountStatus',
-        'databasePrivileges'       => 'DatabasePrivileges',
         'accountDescription'       => 'AccountDescription',
-        'accountPasswordValidTime' => 'AccountPasswordValidTime',
-        'accountType'              => 'AccountType',
         'accountLockState'         => 'AccountLockState',
         'accountName'              => 'AccountName',
+        'accountPasswordValidTime' => 'AccountPasswordValidTime',
+        'accountStatus'            => 'AccountStatus',
+        'accountType'              => 'AccountType',
+        'databasePrivileges'       => 'DatabasePrivileges',
     ];
 
     public function validate()
@@ -60,8 +60,23 @@ class accounts extends Model
     public function toMap()
     {
         $res = [];
+        if (null !== $this->accountDescription) {
+            $res['AccountDescription'] = $this->accountDescription;
+        }
+        if (null !== $this->accountLockState) {
+            $res['AccountLockState'] = $this->accountLockState;
+        }
+        if (null !== $this->accountName) {
+            $res['AccountName'] = $this->accountName;
+        }
+        if (null !== $this->accountPasswordValidTime) {
+            $res['AccountPasswordValidTime'] = $this->accountPasswordValidTime;
+        }
         if (null !== $this->accountStatus) {
             $res['AccountStatus'] = $this->accountStatus;
+        }
+        if (null !== $this->accountType) {
+            $res['AccountType'] = $this->accountType;
         }
         if (null !== $this->databasePrivileges) {
             $res['DatabasePrivileges'] = [];
@@ -71,21 +86,6 @@ class accounts extends Model
                     $res['DatabasePrivileges'][$n++] = null !== $item ? $item->toMap() : $item;
                 }
             }
-        }
-        if (null !== $this->accountDescription) {
-            $res['AccountDescription'] = $this->accountDescription;
-        }
-        if (null !== $this->accountPasswordValidTime) {
-            $res['AccountPasswordValidTime'] = $this->accountPasswordValidTime;
-        }
-        if (null !== $this->accountType) {
-            $res['AccountType'] = $this->accountType;
-        }
-        if (null !== $this->accountLockState) {
-            $res['AccountLockState'] = $this->accountLockState;
-        }
-        if (null !== $this->accountName) {
-            $res['AccountName'] = $this->accountName;
         }
 
         return $res;
@@ -99,8 +99,23 @@ class accounts extends Model
     public static function fromMap($map = [])
     {
         $model = new self();
+        if (isset($map['AccountDescription'])) {
+            $model->accountDescription = $map['AccountDescription'];
+        }
+        if (isset($map['AccountLockState'])) {
+            $model->accountLockState = $map['AccountLockState'];
+        }
+        if (isset($map['AccountName'])) {
+            $model->accountName = $map['AccountName'];
+        }
+        if (isset($map['AccountPasswordValidTime'])) {
+            $model->accountPasswordValidTime = $map['AccountPasswordValidTime'];
+        }
         if (isset($map['AccountStatus'])) {
             $model->accountStatus = $map['AccountStatus'];
+        }
+        if (isset($map['AccountType'])) {
+            $model->accountType = $map['AccountType'];
         }
         if (isset($map['DatabasePrivileges'])) {
             if (!empty($map['DatabasePrivileges'])) {
@@ -110,21 +125,6 @@ class accounts extends Model
                     $model->databasePrivileges[$n++] = null !== $item ? databasePrivileges::fromMap($item) : $item;
                 }
             }
-        }
-        if (isset($map['AccountDescription'])) {
-            $model->accountDescription = $map['AccountDescription'];
-        }
-        if (isset($map['AccountPasswordValidTime'])) {
-            $model->accountPasswordValidTime = $map['AccountPasswordValidTime'];
-        }
-        if (isset($map['AccountType'])) {
-            $model->accountType = $map['AccountType'];
-        }
-        if (isset($map['AccountLockState'])) {
-            $model->accountLockState = $map['AccountLockState'];
-        }
-        if (isset($map['AccountName'])) {
-            $model->accountName = $map['AccountName'];
         }
 
         return $model;

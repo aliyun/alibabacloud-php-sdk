@@ -11,7 +11,12 @@ class DescribeGlobalDatabaseNetworkRequest extends Model
     /**
      * @var string
      */
-    public $securityToken;
+    public $GDNId;
+
+    /**
+     * @var string
+     */
+    public $ownerAccount;
 
     /**
      * @var int
@@ -31,19 +36,14 @@ class DescribeGlobalDatabaseNetworkRequest extends Model
     /**
      * @var string
      */
-    public $ownerAccount;
-
-    /**
-     * @var string
-     */
-    public $GDNId;
+    public $securityToken;
     protected $_name = [
-        'securityToken'        => 'SecurityToken',
+        'GDNId'                => 'GDNId',
+        'ownerAccount'         => 'OwnerAccount',
         'ownerId'              => 'OwnerId',
         'resourceOwnerAccount' => 'ResourceOwnerAccount',
         'resourceOwnerId'      => 'ResourceOwnerId',
-        'ownerAccount'         => 'OwnerAccount',
-        'GDNId'                => 'GDNId',
+        'securityToken'        => 'SecurityToken',
     ];
 
     public function validate()
@@ -53,8 +53,11 @@ class DescribeGlobalDatabaseNetworkRequest extends Model
     public function toMap()
     {
         $res = [];
-        if (null !== $this->securityToken) {
-            $res['SecurityToken'] = $this->securityToken;
+        if (null !== $this->GDNId) {
+            $res['GDNId'] = $this->GDNId;
+        }
+        if (null !== $this->ownerAccount) {
+            $res['OwnerAccount'] = $this->ownerAccount;
         }
         if (null !== $this->ownerId) {
             $res['OwnerId'] = $this->ownerId;
@@ -65,11 +68,8 @@ class DescribeGlobalDatabaseNetworkRequest extends Model
         if (null !== $this->resourceOwnerId) {
             $res['ResourceOwnerId'] = $this->resourceOwnerId;
         }
-        if (null !== $this->ownerAccount) {
-            $res['OwnerAccount'] = $this->ownerAccount;
-        }
-        if (null !== $this->GDNId) {
-            $res['GDNId'] = $this->GDNId;
+        if (null !== $this->securityToken) {
+            $res['SecurityToken'] = $this->securityToken;
         }
 
         return $res;
@@ -83,8 +83,11 @@ class DescribeGlobalDatabaseNetworkRequest extends Model
     public static function fromMap($map = [])
     {
         $model = new self();
-        if (isset($map['SecurityToken'])) {
-            $model->securityToken = $map['SecurityToken'];
+        if (isset($map['GDNId'])) {
+            $model->GDNId = $map['GDNId'];
+        }
+        if (isset($map['OwnerAccount'])) {
+            $model->ownerAccount = $map['OwnerAccount'];
         }
         if (isset($map['OwnerId'])) {
             $model->ownerId = $map['OwnerId'];
@@ -95,11 +98,8 @@ class DescribeGlobalDatabaseNetworkRequest extends Model
         if (isset($map['ResourceOwnerId'])) {
             $model->resourceOwnerId = $map['ResourceOwnerId'];
         }
-        if (isset($map['OwnerAccount'])) {
-            $model->ownerAccount = $map['OwnerAccount'];
-        }
-        if (isset($map['GDNId'])) {
-            $model->GDNId = $map['GDNId'];
+        if (isset($map['SecurityToken'])) {
+            $model->securityToken = $map['SecurityToken'];
         }
 
         return $model;

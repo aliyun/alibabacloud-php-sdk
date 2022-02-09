@@ -9,17 +9,17 @@ use AlibabaCloud\Tea\Model;
 class zone extends Model
 {
     /**
-     * @var string
-     */
-    public $zoneId;
-
-    /**
      * @var bool
      */
     public $vpcEnabled;
+
+    /**
+     * @var string
+     */
+    public $zoneId;
     protected $_name = [
-        'zoneId'     => 'ZoneId',
         'vpcEnabled' => 'VpcEnabled',
+        'zoneId'     => 'ZoneId',
     ];
 
     public function validate()
@@ -29,11 +29,11 @@ class zone extends Model
     public function toMap()
     {
         $res = [];
-        if (null !== $this->zoneId) {
-            $res['ZoneId'] = $this->zoneId;
-        }
         if (null !== $this->vpcEnabled) {
             $res['VpcEnabled'] = $this->vpcEnabled;
+        }
+        if (null !== $this->zoneId) {
+            $res['ZoneId'] = $this->zoneId;
         }
 
         return $res;
@@ -47,11 +47,11 @@ class zone extends Model
     public static function fromMap($map = [])
     {
         $model = new self();
-        if (isset($map['ZoneId'])) {
-            $model->zoneId = $map['ZoneId'];
-        }
         if (isset($map['VpcEnabled'])) {
             $model->vpcEnabled = $map['VpcEnabled'];
+        }
+        if (isset($map['ZoneId'])) {
+            $model->zoneId = $map['ZoneId'];
         }
 
         return $model;

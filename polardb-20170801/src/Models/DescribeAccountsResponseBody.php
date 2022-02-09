@@ -10,6 +10,16 @@ use AlibabaCloud\Tea\Model;
 class DescribeAccountsResponseBody extends Model
 {
     /**
+     * @var accounts[]
+     */
+    public $accounts;
+
+    /**
+     * @var int
+     */
+    public $pageNumber;
+
+    /**
      * @var int
      */
     public $pageRecordCount;
@@ -18,21 +28,11 @@ class DescribeAccountsResponseBody extends Model
      * @var string
      */
     public $requestId;
-
-    /**
-     * @var int
-     */
-    public $pageNumber;
-
-    /**
-     * @var accounts[]
-     */
-    public $accounts;
     protected $_name = [
+        'accounts'        => 'Accounts',
+        'pageNumber'      => 'PageNumber',
         'pageRecordCount' => 'PageRecordCount',
         'requestId'       => 'RequestId',
-        'pageNumber'      => 'PageNumber',
-        'accounts'        => 'Accounts',
     ];
 
     public function validate()
@@ -42,15 +42,6 @@ class DescribeAccountsResponseBody extends Model
     public function toMap()
     {
         $res = [];
-        if (null !== $this->pageRecordCount) {
-            $res['PageRecordCount'] = $this->pageRecordCount;
-        }
-        if (null !== $this->requestId) {
-            $res['RequestId'] = $this->requestId;
-        }
-        if (null !== $this->pageNumber) {
-            $res['PageNumber'] = $this->pageNumber;
-        }
         if (null !== $this->accounts) {
             $res['Accounts'] = [];
             if (null !== $this->accounts && \is_array($this->accounts)) {
@@ -59,6 +50,15 @@ class DescribeAccountsResponseBody extends Model
                     $res['Accounts'][$n++] = null !== $item ? $item->toMap() : $item;
                 }
             }
+        }
+        if (null !== $this->pageNumber) {
+            $res['PageNumber'] = $this->pageNumber;
+        }
+        if (null !== $this->pageRecordCount) {
+            $res['PageRecordCount'] = $this->pageRecordCount;
+        }
+        if (null !== $this->requestId) {
+            $res['RequestId'] = $this->requestId;
         }
 
         return $res;
@@ -72,15 +72,6 @@ class DescribeAccountsResponseBody extends Model
     public static function fromMap($map = [])
     {
         $model = new self();
-        if (isset($map['PageRecordCount'])) {
-            $model->pageRecordCount = $map['PageRecordCount'];
-        }
-        if (isset($map['RequestId'])) {
-            $model->requestId = $map['RequestId'];
-        }
-        if (isset($map['PageNumber'])) {
-            $model->pageNumber = $map['PageNumber'];
-        }
         if (isset($map['Accounts'])) {
             if (!empty($map['Accounts'])) {
                 $model->accounts = [];
@@ -89,6 +80,15 @@ class DescribeAccountsResponseBody extends Model
                     $model->accounts[$n++] = null !== $item ? accounts::fromMap($item) : $item;
                 }
             }
+        }
+        if (isset($map['PageNumber'])) {
+            $model->pageNumber = $map['PageNumber'];
+        }
+        if (isset($map['PageRecordCount'])) {
+            $model->pageRecordCount = $map['PageRecordCount'];
+        }
+        if (isset($map['RequestId'])) {
+            $model->requestId = $map['RequestId'];
         }
 
         return $model;

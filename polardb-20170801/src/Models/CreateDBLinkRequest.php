@@ -9,24 +9,9 @@ use AlibabaCloud\Tea\Model;
 class CreateDBLinkRequest extends Model
 {
     /**
-     * @var int
-     */
-    public $ownerId;
-
-    /**
      * @var string
      */
-    public $resourceOwnerAccount;
-
-    /**
-     * @var int
-     */
-    public $resourceOwnerId;
-
-    /**
-     * @var string
-     */
-    public $ownerAccount;
+    public $clientToken;
 
     /**
      * @var string
@@ -41,7 +26,32 @@ class CreateDBLinkRequest extends Model
     /**
      * @var string
      */
-    public $targetDBInstanceName;
+    public $ownerAccount;
+
+    /**
+     * @var int
+     */
+    public $ownerId;
+
+    /**
+     * @var string
+     */
+    public $regionId;
+
+    /**
+     * @var string
+     */
+    public $resourceOwnerAccount;
+
+    /**
+     * @var int
+     */
+    public $resourceOwnerId;
+
+    /**
+     * @var string
+     */
+    public $sourceDBName;
 
     /**
      * @var string
@@ -51,7 +61,7 @@ class CreateDBLinkRequest extends Model
     /**
      * @var string
      */
-    public $targetDBPasswd;
+    public $targetDBInstanceName;
 
     /**
      * @var string
@@ -61,7 +71,7 @@ class CreateDBLinkRequest extends Model
     /**
      * @var string
      */
-    public $sourceDBName;
+    public $targetDBPasswd;
 
     /**
      * @var string
@@ -77,33 +87,23 @@ class CreateDBLinkRequest extends Model
      * @var string
      */
     public $vpcId;
-
-    /**
-     * @var string
-     */
-    public $regionId;
-
-    /**
-     * @var string
-     */
-    public $clientToken;
     protected $_name = [
-        'ownerId'              => 'OwnerId',
-        'resourceOwnerAccount' => 'ResourceOwnerAccount',
-        'resourceOwnerId'      => 'ResourceOwnerId',
-        'ownerAccount'         => 'OwnerAccount',
+        'clientToken'          => 'ClientToken',
         'DBClusterId'          => 'DBClusterId',
         'DBLinkName'           => 'DBLinkName',
-        'targetDBInstanceName' => 'TargetDBInstanceName',
-        'targetDBAccount'      => 'TargetDBAccount',
-        'targetDBPasswd'       => 'TargetDBPasswd',
-        'targetDBName'         => 'TargetDBName',
+        'ownerAccount'         => 'OwnerAccount',
+        'ownerId'              => 'OwnerId',
+        'regionId'             => 'RegionId',
+        'resourceOwnerAccount' => 'ResourceOwnerAccount',
+        'resourceOwnerId'      => 'ResourceOwnerId',
         'sourceDBName'         => 'SourceDBName',
+        'targetDBAccount'      => 'TargetDBAccount',
+        'targetDBInstanceName' => 'TargetDBInstanceName',
+        'targetDBName'         => 'TargetDBName',
+        'targetDBPasswd'       => 'TargetDBPasswd',
         'targetIp'             => 'TargetIp',
         'targetPort'           => 'TargetPort',
         'vpcId'                => 'VpcId',
-        'regionId'             => 'RegionId',
-        'clientToken'          => 'ClientToken',
     ];
 
     public function validate()
@@ -113,17 +113,8 @@ class CreateDBLinkRequest extends Model
     public function toMap()
     {
         $res = [];
-        if (null !== $this->ownerId) {
-            $res['OwnerId'] = $this->ownerId;
-        }
-        if (null !== $this->resourceOwnerAccount) {
-            $res['ResourceOwnerAccount'] = $this->resourceOwnerAccount;
-        }
-        if (null !== $this->resourceOwnerId) {
-            $res['ResourceOwnerId'] = $this->resourceOwnerId;
-        }
-        if (null !== $this->ownerAccount) {
-            $res['OwnerAccount'] = $this->ownerAccount;
+        if (null !== $this->clientToken) {
+            $res['ClientToken'] = $this->clientToken;
         }
         if (null !== $this->DBClusterId) {
             $res['DBClusterId'] = $this->DBClusterId;
@@ -131,20 +122,35 @@ class CreateDBLinkRequest extends Model
         if (null !== $this->DBLinkName) {
             $res['DBLinkName'] = $this->DBLinkName;
         }
-        if (null !== $this->targetDBInstanceName) {
-            $res['TargetDBInstanceName'] = $this->targetDBInstanceName;
+        if (null !== $this->ownerAccount) {
+            $res['OwnerAccount'] = $this->ownerAccount;
+        }
+        if (null !== $this->ownerId) {
+            $res['OwnerId'] = $this->ownerId;
+        }
+        if (null !== $this->regionId) {
+            $res['RegionId'] = $this->regionId;
+        }
+        if (null !== $this->resourceOwnerAccount) {
+            $res['ResourceOwnerAccount'] = $this->resourceOwnerAccount;
+        }
+        if (null !== $this->resourceOwnerId) {
+            $res['ResourceOwnerId'] = $this->resourceOwnerId;
+        }
+        if (null !== $this->sourceDBName) {
+            $res['SourceDBName'] = $this->sourceDBName;
         }
         if (null !== $this->targetDBAccount) {
             $res['TargetDBAccount'] = $this->targetDBAccount;
         }
-        if (null !== $this->targetDBPasswd) {
-            $res['TargetDBPasswd'] = $this->targetDBPasswd;
+        if (null !== $this->targetDBInstanceName) {
+            $res['TargetDBInstanceName'] = $this->targetDBInstanceName;
         }
         if (null !== $this->targetDBName) {
             $res['TargetDBName'] = $this->targetDBName;
         }
-        if (null !== $this->sourceDBName) {
-            $res['SourceDBName'] = $this->sourceDBName;
+        if (null !== $this->targetDBPasswd) {
+            $res['TargetDBPasswd'] = $this->targetDBPasswd;
         }
         if (null !== $this->targetIp) {
             $res['TargetIp'] = $this->targetIp;
@@ -154,12 +160,6 @@ class CreateDBLinkRequest extends Model
         }
         if (null !== $this->vpcId) {
             $res['VpcId'] = $this->vpcId;
-        }
-        if (null !== $this->regionId) {
-            $res['RegionId'] = $this->regionId;
-        }
-        if (null !== $this->clientToken) {
-            $res['ClientToken'] = $this->clientToken;
         }
 
         return $res;
@@ -173,17 +173,8 @@ class CreateDBLinkRequest extends Model
     public static function fromMap($map = [])
     {
         $model = new self();
-        if (isset($map['OwnerId'])) {
-            $model->ownerId = $map['OwnerId'];
-        }
-        if (isset($map['ResourceOwnerAccount'])) {
-            $model->resourceOwnerAccount = $map['ResourceOwnerAccount'];
-        }
-        if (isset($map['ResourceOwnerId'])) {
-            $model->resourceOwnerId = $map['ResourceOwnerId'];
-        }
-        if (isset($map['OwnerAccount'])) {
-            $model->ownerAccount = $map['OwnerAccount'];
+        if (isset($map['ClientToken'])) {
+            $model->clientToken = $map['ClientToken'];
         }
         if (isset($map['DBClusterId'])) {
             $model->DBClusterId = $map['DBClusterId'];
@@ -191,20 +182,35 @@ class CreateDBLinkRequest extends Model
         if (isset($map['DBLinkName'])) {
             $model->DBLinkName = $map['DBLinkName'];
         }
-        if (isset($map['TargetDBInstanceName'])) {
-            $model->targetDBInstanceName = $map['TargetDBInstanceName'];
+        if (isset($map['OwnerAccount'])) {
+            $model->ownerAccount = $map['OwnerAccount'];
+        }
+        if (isset($map['OwnerId'])) {
+            $model->ownerId = $map['OwnerId'];
+        }
+        if (isset($map['RegionId'])) {
+            $model->regionId = $map['RegionId'];
+        }
+        if (isset($map['ResourceOwnerAccount'])) {
+            $model->resourceOwnerAccount = $map['ResourceOwnerAccount'];
+        }
+        if (isset($map['ResourceOwnerId'])) {
+            $model->resourceOwnerId = $map['ResourceOwnerId'];
+        }
+        if (isset($map['SourceDBName'])) {
+            $model->sourceDBName = $map['SourceDBName'];
         }
         if (isset($map['TargetDBAccount'])) {
             $model->targetDBAccount = $map['TargetDBAccount'];
         }
-        if (isset($map['TargetDBPasswd'])) {
-            $model->targetDBPasswd = $map['TargetDBPasswd'];
+        if (isset($map['TargetDBInstanceName'])) {
+            $model->targetDBInstanceName = $map['TargetDBInstanceName'];
         }
         if (isset($map['TargetDBName'])) {
             $model->targetDBName = $map['TargetDBName'];
         }
-        if (isset($map['SourceDBName'])) {
-            $model->sourceDBName = $map['SourceDBName'];
+        if (isset($map['TargetDBPasswd'])) {
+            $model->targetDBPasswd = $map['TargetDBPasswd'];
         }
         if (isset($map['TargetIp'])) {
             $model->targetIp = $map['TargetIp'];
@@ -214,12 +220,6 @@ class CreateDBLinkRequest extends Model
         }
         if (isset($map['VpcId'])) {
             $model->vpcId = $map['VpcId'];
-        }
-        if (isset($map['RegionId'])) {
-            $model->regionId = $map['RegionId'];
-        }
-        if (isset($map['ClientToken'])) {
-            $model->clientToken = $map['ClientToken'];
         }
 
         return $model;

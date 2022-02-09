@@ -11,11 +11,6 @@ use AlibabaCloud\Tea\Model;
 class DescribeDBClusterAttributeResponseBody extends Model
 {
     /**
-     * @var int
-     */
-    public $deletionLock;
-
-    /**
      * @var string
      */
     public $category;
@@ -23,87 +18,7 @@ class DescribeDBClusterAttributeResponseBody extends Model
     /**
      * @var string
      */
-    public $resourceGroupId;
-
-    /**
-     * @var int
-     */
-    public $dataLevel1BackupChainSize;
-
-    /**
-     * @var string
-     */
-    public $DBClusterId;
-
-    /**
-     * @var string
-     */
-    public $DBType;
-
-    /**
-     * @var string
-     */
-    public $DBClusterNetworkType;
-
-    /**
-     * @var bool
-     */
-    public $isLatestVersion;
-
-    /**
-     * @var int
-     */
-    public $storageMax;
-
-    /**
-     * @var string
-     */
-    public $DBVersion;
-
-    /**
-     * @var DBNodes[]
-     */
-    public $DBNodes;
-
-    /**
-     * @var string
-     */
-    public $zoneIds;
-
-    /**
-     * @var string
-     */
-    public $maintainTime;
-
-    /**
-     * @var string
-     */
-    public $engine;
-
-    /**
-     * @var tags[]
-     */
-    public $tags;
-
-    /**
-     * @var string
-     */
-    public $requestId;
-
-    /**
-     * @var string
-     */
-    public $VPCId;
-
-    /**
-     * @var string
-     */
-    public $DBClusterStatus;
-
-    /**
-     * @var string
-     */
-    public $vSwitchId;
+    public $creationTime;
 
     /**
      * @var string
@@ -113,22 +28,32 @@ class DescribeDBClusterAttributeResponseBody extends Model
     /**
      * @var string
      */
-    public $expired;
+    public $DBClusterId;
 
     /**
      * @var string
      */
-    public $payType;
+    public $DBClusterNetworkType;
 
     /**
      * @var string
      */
-    public $lockMode;
+    public $DBClusterStatus;
 
     /**
-     * @var int
+     * @var DBNodes[]
      */
-    public $storageUsed;
+    public $DBNodes;
+
+    /**
+     * @var string
+     */
+    public $DBType;
+
+    /**
+     * @var string
+     */
+    public $DBVersion;
 
     /**
      * @var string
@@ -136,19 +61,19 @@ class DescribeDBClusterAttributeResponseBody extends Model
     public $DBVersionStatus;
 
     /**
-     * @var string
+     * @var int
      */
-    public $creationTime;
+    public $dataLevel1BackupChainSize;
 
     /**
      * @var int
      */
-    public $SQLSize;
+    public $deletionLock;
 
     /**
      * @var string
      */
-    public $regionId;
+    public $engine;
 
     /**
      * @var string
@@ -158,38 +83,143 @@ class DescribeDBClusterAttributeResponseBody extends Model
     /**
      * @var string
      */
+    public $expired;
+
+    /**
+     * @var bool
+     */
+    public $isLatestVersion;
+
+    /**
+     * @var bool
+     */
+    public $isProxyLatestVersion;
+
+    /**
+     * @var string
+     */
+    public $lockMode;
+
+    /**
+     * @var string
+     */
+    public $maintainTime;
+
+    /**
+     * @var string
+     */
+    public $payType;
+
+    /**
+     * @var string
+     */
+    public $proxyCpuCores;
+
+    /**
+     * @var string
+     */
+    public $proxyStatus;
+
+    /**
+     * @var string
+     */
+    public $proxyType;
+
+    /**
+     * @var string
+     */
+    public $regionId;
+
+    /**
+     * @var string
+     */
+    public $requestId;
+
+    /**
+     * @var string
+     */
+    public $resourceGroupId;
+
+    /**
+     * @var int
+     */
+    public $SQLSize;
+
+    /**
+     * @var int
+     */
+    public $storageMax;
+
+    /**
+     * @var string
+     */
+    public $storageType;
+
+    /**
+     * @var int
+     */
+    public $storageUsed;
+
+    /**
+     * @var string
+     */
     public $subCategory;
+
+    /**
+     * @var tags[]
+     */
+    public $tags;
+
+    /**
+     * @var string
+     */
+    public $VPCId;
+
+    /**
+     * @var string
+     */
+    public $vSwitchId;
+
+    /**
+     * @var string
+     */
+    public $zoneIds;
     protected $_name = [
-        'deletionLock'              => 'DeletionLock',
         'category'                  => 'Category',
-        'resourceGroupId'           => 'ResourceGroupId',
-        'dataLevel1BackupChainSize' => 'DataLevel1BackupChainSize',
-        'DBClusterId'               => 'DBClusterId',
-        'DBType'                    => 'DBType',
-        'DBClusterNetworkType'      => 'DBClusterNetworkType',
-        'isLatestVersion'           => 'IsLatestVersion',
-        'storageMax'                => 'StorageMax',
-        'DBVersion'                 => 'DBVersion',
-        'DBNodes'                   => 'DBNodes',
-        'zoneIds'                   => 'ZoneIds',
-        'maintainTime'              => 'MaintainTime',
-        'engine'                    => 'Engine',
-        'tags'                      => 'Tags',
-        'requestId'                 => 'RequestId',
-        'VPCId'                     => 'VPCId',
-        'DBClusterStatus'           => 'DBClusterStatus',
-        'vSwitchId'                 => 'VSwitchId',
-        'DBClusterDescription'      => 'DBClusterDescription',
-        'expired'                   => 'Expired',
-        'payType'                   => 'PayType',
-        'lockMode'                  => 'LockMode',
-        'storageUsed'               => 'StorageUsed',
-        'DBVersionStatus'           => 'DBVersionStatus',
         'creationTime'              => 'CreationTime',
-        'SQLSize'                   => 'SQLSize',
-        'regionId'                  => 'RegionId',
+        'DBClusterDescription'      => 'DBClusterDescription',
+        'DBClusterId'               => 'DBClusterId',
+        'DBClusterNetworkType'      => 'DBClusterNetworkType',
+        'DBClusterStatus'           => 'DBClusterStatus',
+        'DBNodes'                   => 'DBNodes',
+        'DBType'                    => 'DBType',
+        'DBVersion'                 => 'DBVersion',
+        'DBVersionStatus'           => 'DBVersionStatus',
+        'dataLevel1BackupChainSize' => 'DataLevel1BackupChainSize',
+        'deletionLock'              => 'DeletionLock',
+        'engine'                    => 'Engine',
         'expireTime'                => 'ExpireTime',
+        'expired'                   => 'Expired',
+        'isLatestVersion'           => 'IsLatestVersion',
+        'isProxyLatestVersion'      => 'IsProxyLatestVersion',
+        'lockMode'                  => 'LockMode',
+        'maintainTime'              => 'MaintainTime',
+        'payType'                   => 'PayType',
+        'proxyCpuCores'             => 'ProxyCpuCores',
+        'proxyStatus'               => 'ProxyStatus',
+        'proxyType'                 => 'ProxyType',
+        'regionId'                  => 'RegionId',
+        'requestId'                 => 'RequestId',
+        'resourceGroupId'           => 'ResourceGroupId',
+        'SQLSize'                   => 'SQLSize',
+        'storageMax'                => 'StorageMax',
+        'storageType'               => 'StorageType',
+        'storageUsed'               => 'StorageUsed',
         'subCategory'               => 'SubCategory',
+        'tags'                      => 'Tags',
+        'VPCId'                     => 'VPCId',
+        'vSwitchId'                 => 'VSwitchId',
+        'zoneIds'                   => 'ZoneIds',
     ];
 
     public function validate()
@@ -199,35 +229,23 @@ class DescribeDBClusterAttributeResponseBody extends Model
     public function toMap()
     {
         $res = [];
-        if (null !== $this->deletionLock) {
-            $res['DeletionLock'] = $this->deletionLock;
-        }
         if (null !== $this->category) {
             $res['Category'] = $this->category;
         }
-        if (null !== $this->resourceGroupId) {
-            $res['ResourceGroupId'] = $this->resourceGroupId;
+        if (null !== $this->creationTime) {
+            $res['CreationTime'] = $this->creationTime;
         }
-        if (null !== $this->dataLevel1BackupChainSize) {
-            $res['DataLevel1BackupChainSize'] = $this->dataLevel1BackupChainSize;
+        if (null !== $this->DBClusterDescription) {
+            $res['DBClusterDescription'] = $this->DBClusterDescription;
         }
         if (null !== $this->DBClusterId) {
             $res['DBClusterId'] = $this->DBClusterId;
         }
-        if (null !== $this->DBType) {
-            $res['DBType'] = $this->DBType;
-        }
         if (null !== $this->DBClusterNetworkType) {
             $res['DBClusterNetworkType'] = $this->DBClusterNetworkType;
         }
-        if (null !== $this->isLatestVersion) {
-            $res['IsLatestVersion'] = $this->isLatestVersion;
-        }
-        if (null !== $this->storageMax) {
-            $res['StorageMax'] = $this->storageMax;
-        }
-        if (null !== $this->DBVersion) {
-            $res['DBVersion'] = $this->DBVersion;
+        if (null !== $this->DBClusterStatus) {
+            $res['DBClusterStatus'] = $this->DBClusterStatus;
         }
         if (null !== $this->DBNodes) {
             $res['DBNodes'] = [];
@@ -238,14 +256,77 @@ class DescribeDBClusterAttributeResponseBody extends Model
                 }
             }
         }
-        if (null !== $this->zoneIds) {
-            $res['ZoneIds'] = $this->zoneIds;
+        if (null !== $this->DBType) {
+            $res['DBType'] = $this->DBType;
+        }
+        if (null !== $this->DBVersion) {
+            $res['DBVersion'] = $this->DBVersion;
+        }
+        if (null !== $this->DBVersionStatus) {
+            $res['DBVersionStatus'] = $this->DBVersionStatus;
+        }
+        if (null !== $this->dataLevel1BackupChainSize) {
+            $res['DataLevel1BackupChainSize'] = $this->dataLevel1BackupChainSize;
+        }
+        if (null !== $this->deletionLock) {
+            $res['DeletionLock'] = $this->deletionLock;
+        }
+        if (null !== $this->engine) {
+            $res['Engine'] = $this->engine;
+        }
+        if (null !== $this->expireTime) {
+            $res['ExpireTime'] = $this->expireTime;
+        }
+        if (null !== $this->expired) {
+            $res['Expired'] = $this->expired;
+        }
+        if (null !== $this->isLatestVersion) {
+            $res['IsLatestVersion'] = $this->isLatestVersion;
+        }
+        if (null !== $this->isProxyLatestVersion) {
+            $res['IsProxyLatestVersion'] = $this->isProxyLatestVersion;
+        }
+        if (null !== $this->lockMode) {
+            $res['LockMode'] = $this->lockMode;
         }
         if (null !== $this->maintainTime) {
             $res['MaintainTime'] = $this->maintainTime;
         }
-        if (null !== $this->engine) {
-            $res['Engine'] = $this->engine;
+        if (null !== $this->payType) {
+            $res['PayType'] = $this->payType;
+        }
+        if (null !== $this->proxyCpuCores) {
+            $res['ProxyCpuCores'] = $this->proxyCpuCores;
+        }
+        if (null !== $this->proxyStatus) {
+            $res['ProxyStatus'] = $this->proxyStatus;
+        }
+        if (null !== $this->proxyType) {
+            $res['ProxyType'] = $this->proxyType;
+        }
+        if (null !== $this->regionId) {
+            $res['RegionId'] = $this->regionId;
+        }
+        if (null !== $this->requestId) {
+            $res['RequestId'] = $this->requestId;
+        }
+        if (null !== $this->resourceGroupId) {
+            $res['ResourceGroupId'] = $this->resourceGroupId;
+        }
+        if (null !== $this->SQLSize) {
+            $res['SQLSize'] = $this->SQLSize;
+        }
+        if (null !== $this->storageMax) {
+            $res['StorageMax'] = $this->storageMax;
+        }
+        if (null !== $this->storageType) {
+            $res['StorageType'] = $this->storageType;
+        }
+        if (null !== $this->storageUsed) {
+            $res['StorageUsed'] = $this->storageUsed;
+        }
+        if (null !== $this->subCategory) {
+            $res['SubCategory'] = $this->subCategory;
         }
         if (null !== $this->tags) {
             $res['Tags'] = [];
@@ -256,50 +337,14 @@ class DescribeDBClusterAttributeResponseBody extends Model
                 }
             }
         }
-        if (null !== $this->requestId) {
-            $res['RequestId'] = $this->requestId;
-        }
         if (null !== $this->VPCId) {
             $res['VPCId'] = $this->VPCId;
-        }
-        if (null !== $this->DBClusterStatus) {
-            $res['DBClusterStatus'] = $this->DBClusterStatus;
         }
         if (null !== $this->vSwitchId) {
             $res['VSwitchId'] = $this->vSwitchId;
         }
-        if (null !== $this->DBClusterDescription) {
-            $res['DBClusterDescription'] = $this->DBClusterDescription;
-        }
-        if (null !== $this->expired) {
-            $res['Expired'] = $this->expired;
-        }
-        if (null !== $this->payType) {
-            $res['PayType'] = $this->payType;
-        }
-        if (null !== $this->lockMode) {
-            $res['LockMode'] = $this->lockMode;
-        }
-        if (null !== $this->storageUsed) {
-            $res['StorageUsed'] = $this->storageUsed;
-        }
-        if (null !== $this->DBVersionStatus) {
-            $res['DBVersionStatus'] = $this->DBVersionStatus;
-        }
-        if (null !== $this->creationTime) {
-            $res['CreationTime'] = $this->creationTime;
-        }
-        if (null !== $this->SQLSize) {
-            $res['SQLSize'] = $this->SQLSize;
-        }
-        if (null !== $this->regionId) {
-            $res['RegionId'] = $this->regionId;
-        }
-        if (null !== $this->expireTime) {
-            $res['ExpireTime'] = $this->expireTime;
-        }
-        if (null !== $this->subCategory) {
-            $res['SubCategory'] = $this->subCategory;
+        if (null !== $this->zoneIds) {
+            $res['ZoneIds'] = $this->zoneIds;
         }
 
         return $res;
@@ -313,35 +358,23 @@ class DescribeDBClusterAttributeResponseBody extends Model
     public static function fromMap($map = [])
     {
         $model = new self();
-        if (isset($map['DeletionLock'])) {
-            $model->deletionLock = $map['DeletionLock'];
-        }
         if (isset($map['Category'])) {
             $model->category = $map['Category'];
         }
-        if (isset($map['ResourceGroupId'])) {
-            $model->resourceGroupId = $map['ResourceGroupId'];
+        if (isset($map['CreationTime'])) {
+            $model->creationTime = $map['CreationTime'];
         }
-        if (isset($map['DataLevel1BackupChainSize'])) {
-            $model->dataLevel1BackupChainSize = $map['DataLevel1BackupChainSize'];
+        if (isset($map['DBClusterDescription'])) {
+            $model->DBClusterDescription = $map['DBClusterDescription'];
         }
         if (isset($map['DBClusterId'])) {
             $model->DBClusterId = $map['DBClusterId'];
         }
-        if (isset($map['DBType'])) {
-            $model->DBType = $map['DBType'];
-        }
         if (isset($map['DBClusterNetworkType'])) {
             $model->DBClusterNetworkType = $map['DBClusterNetworkType'];
         }
-        if (isset($map['IsLatestVersion'])) {
-            $model->isLatestVersion = $map['IsLatestVersion'];
-        }
-        if (isset($map['StorageMax'])) {
-            $model->storageMax = $map['StorageMax'];
-        }
-        if (isset($map['DBVersion'])) {
-            $model->DBVersion = $map['DBVersion'];
+        if (isset($map['DBClusterStatus'])) {
+            $model->DBClusterStatus = $map['DBClusterStatus'];
         }
         if (isset($map['DBNodes'])) {
             if (!empty($map['DBNodes'])) {
@@ -352,14 +385,77 @@ class DescribeDBClusterAttributeResponseBody extends Model
                 }
             }
         }
-        if (isset($map['ZoneIds'])) {
-            $model->zoneIds = $map['ZoneIds'];
+        if (isset($map['DBType'])) {
+            $model->DBType = $map['DBType'];
+        }
+        if (isset($map['DBVersion'])) {
+            $model->DBVersion = $map['DBVersion'];
+        }
+        if (isset($map['DBVersionStatus'])) {
+            $model->DBVersionStatus = $map['DBVersionStatus'];
+        }
+        if (isset($map['DataLevel1BackupChainSize'])) {
+            $model->dataLevel1BackupChainSize = $map['DataLevel1BackupChainSize'];
+        }
+        if (isset($map['DeletionLock'])) {
+            $model->deletionLock = $map['DeletionLock'];
+        }
+        if (isset($map['Engine'])) {
+            $model->engine = $map['Engine'];
+        }
+        if (isset($map['ExpireTime'])) {
+            $model->expireTime = $map['ExpireTime'];
+        }
+        if (isset($map['Expired'])) {
+            $model->expired = $map['Expired'];
+        }
+        if (isset($map['IsLatestVersion'])) {
+            $model->isLatestVersion = $map['IsLatestVersion'];
+        }
+        if (isset($map['IsProxyLatestVersion'])) {
+            $model->isProxyLatestVersion = $map['IsProxyLatestVersion'];
+        }
+        if (isset($map['LockMode'])) {
+            $model->lockMode = $map['LockMode'];
         }
         if (isset($map['MaintainTime'])) {
             $model->maintainTime = $map['MaintainTime'];
         }
-        if (isset($map['Engine'])) {
-            $model->engine = $map['Engine'];
+        if (isset($map['PayType'])) {
+            $model->payType = $map['PayType'];
+        }
+        if (isset($map['ProxyCpuCores'])) {
+            $model->proxyCpuCores = $map['ProxyCpuCores'];
+        }
+        if (isset($map['ProxyStatus'])) {
+            $model->proxyStatus = $map['ProxyStatus'];
+        }
+        if (isset($map['ProxyType'])) {
+            $model->proxyType = $map['ProxyType'];
+        }
+        if (isset($map['RegionId'])) {
+            $model->regionId = $map['RegionId'];
+        }
+        if (isset($map['RequestId'])) {
+            $model->requestId = $map['RequestId'];
+        }
+        if (isset($map['ResourceGroupId'])) {
+            $model->resourceGroupId = $map['ResourceGroupId'];
+        }
+        if (isset($map['SQLSize'])) {
+            $model->SQLSize = $map['SQLSize'];
+        }
+        if (isset($map['StorageMax'])) {
+            $model->storageMax = $map['StorageMax'];
+        }
+        if (isset($map['StorageType'])) {
+            $model->storageType = $map['StorageType'];
+        }
+        if (isset($map['StorageUsed'])) {
+            $model->storageUsed = $map['StorageUsed'];
+        }
+        if (isset($map['SubCategory'])) {
+            $model->subCategory = $map['SubCategory'];
         }
         if (isset($map['Tags'])) {
             if (!empty($map['Tags'])) {
@@ -370,50 +466,14 @@ class DescribeDBClusterAttributeResponseBody extends Model
                 }
             }
         }
-        if (isset($map['RequestId'])) {
-            $model->requestId = $map['RequestId'];
-        }
         if (isset($map['VPCId'])) {
             $model->VPCId = $map['VPCId'];
-        }
-        if (isset($map['DBClusterStatus'])) {
-            $model->DBClusterStatus = $map['DBClusterStatus'];
         }
         if (isset($map['VSwitchId'])) {
             $model->vSwitchId = $map['VSwitchId'];
         }
-        if (isset($map['DBClusterDescription'])) {
-            $model->DBClusterDescription = $map['DBClusterDescription'];
-        }
-        if (isset($map['Expired'])) {
-            $model->expired = $map['Expired'];
-        }
-        if (isset($map['PayType'])) {
-            $model->payType = $map['PayType'];
-        }
-        if (isset($map['LockMode'])) {
-            $model->lockMode = $map['LockMode'];
-        }
-        if (isset($map['StorageUsed'])) {
-            $model->storageUsed = $map['StorageUsed'];
-        }
-        if (isset($map['DBVersionStatus'])) {
-            $model->DBVersionStatus = $map['DBVersionStatus'];
-        }
-        if (isset($map['CreationTime'])) {
-            $model->creationTime = $map['CreationTime'];
-        }
-        if (isset($map['SQLSize'])) {
-            $model->SQLSize = $map['SQLSize'];
-        }
-        if (isset($map['RegionId'])) {
-            $model->regionId = $map['RegionId'];
-        }
-        if (isset($map['ExpireTime'])) {
-            $model->expireTime = $map['ExpireTime'];
-        }
-        if (isset($map['SubCategory'])) {
-            $model->subCategory = $map['SubCategory'];
+        if (isset($map['ZoneIds'])) {
+            $model->zoneIds = $map['ZoneIds'];
         }
 
         return $model;

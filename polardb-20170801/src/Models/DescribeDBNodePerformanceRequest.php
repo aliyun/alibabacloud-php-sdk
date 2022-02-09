@@ -11,7 +11,17 @@ class DescribeDBNodePerformanceRequest extends Model
     /**
      * @var string
      */
+    public $DBClusterId;
+
+    /**
+     * @var string
+     */
     public $DBNodeId;
+
+    /**
+     * @var string
+     */
+    public $endTime;
 
     /**
      * @var string
@@ -22,22 +32,12 @@ class DescribeDBNodePerformanceRequest extends Model
      * @var string
      */
     public $startTime;
-
-    /**
-     * @var string
-     */
-    public $endTime;
-
-    /**
-     * @var string
-     */
-    public $DBClusterId;
     protected $_name = [
+        'DBClusterId' => 'DBClusterId',
         'DBNodeId'    => 'DBNodeId',
+        'endTime'     => 'EndTime',
         'key'         => 'Key',
         'startTime'   => 'StartTime',
-        'endTime'     => 'EndTime',
-        'DBClusterId' => 'DBClusterId',
     ];
 
     public function validate()
@@ -47,20 +47,20 @@ class DescribeDBNodePerformanceRequest extends Model
     public function toMap()
     {
         $res = [];
+        if (null !== $this->DBClusterId) {
+            $res['DBClusterId'] = $this->DBClusterId;
+        }
         if (null !== $this->DBNodeId) {
             $res['DBNodeId'] = $this->DBNodeId;
+        }
+        if (null !== $this->endTime) {
+            $res['EndTime'] = $this->endTime;
         }
         if (null !== $this->key) {
             $res['Key'] = $this->key;
         }
         if (null !== $this->startTime) {
             $res['StartTime'] = $this->startTime;
-        }
-        if (null !== $this->endTime) {
-            $res['EndTime'] = $this->endTime;
-        }
-        if (null !== $this->DBClusterId) {
-            $res['DBClusterId'] = $this->DBClusterId;
         }
 
         return $res;
@@ -74,20 +74,20 @@ class DescribeDBNodePerformanceRequest extends Model
     public static function fromMap($map = [])
     {
         $model = new self();
+        if (isset($map['DBClusterId'])) {
+            $model->DBClusterId = $map['DBClusterId'];
+        }
         if (isset($map['DBNodeId'])) {
             $model->DBNodeId = $map['DBNodeId'];
+        }
+        if (isset($map['EndTime'])) {
+            $model->endTime = $map['EndTime'];
         }
         if (isset($map['Key'])) {
             $model->key = $map['Key'];
         }
         if (isset($map['StartTime'])) {
             $model->startTime = $map['StartTime'];
-        }
-        if (isset($map['EndTime'])) {
-            $model->endTime = $map['EndTime'];
-        }
-        if (isset($map['DBClusterId'])) {
-            $model->DBClusterId = $map['DBClusterId'];
         }
 
         return $model;

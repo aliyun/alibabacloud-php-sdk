@@ -9,6 +9,26 @@ use AlibabaCloud\Tea\Model;
 class ModifyDBClusterSSLRequest extends Model
 {
     /**
+     * @var string
+     */
+    public $DBClusterId;
+
+    /**
+     * @var string
+     */
+    public $DBEndpointId;
+
+    /**
+     * @var string
+     */
+    public $netType;
+
+    /**
+     * @var string
+     */
+    public $ownerAccount;
+
+    /**
      * @var int
      */
     public $ownerId;
@@ -26,42 +46,22 @@ class ModifyDBClusterSSLRequest extends Model
     /**
      * @var string
      */
-    public $ownerAccount;
-
-    /**
-     * @var string
-     */
-    public $DBClusterId;
+    public $SSLAutoRotate;
 
     /**
      * @var string
      */
     public $SSLEnabled;
-
-    /**
-     * @var string
-     */
-    public $DBEndpointId;
-
-    /**
-     * @var string
-     */
-    public $netType;
-
-    /**
-     * @var string
-     */
-    public $SSLAutoRotate;
     protected $_name = [
+        'DBClusterId'          => 'DBClusterId',
+        'DBEndpointId'         => 'DBEndpointId',
+        'netType'              => 'NetType',
+        'ownerAccount'         => 'OwnerAccount',
         'ownerId'              => 'OwnerId',
         'resourceOwnerAccount' => 'ResourceOwnerAccount',
         'resourceOwnerId'      => 'ResourceOwnerId',
-        'ownerAccount'         => 'OwnerAccount',
-        'DBClusterId'          => 'DBClusterId',
-        'SSLEnabled'           => 'SSLEnabled',
-        'DBEndpointId'         => 'DBEndpointId',
-        'netType'              => 'NetType',
         'SSLAutoRotate'        => 'SSLAutoRotate',
+        'SSLEnabled'           => 'SSLEnabled',
     ];
 
     public function validate()
@@ -71,6 +71,18 @@ class ModifyDBClusterSSLRequest extends Model
     public function toMap()
     {
         $res = [];
+        if (null !== $this->DBClusterId) {
+            $res['DBClusterId'] = $this->DBClusterId;
+        }
+        if (null !== $this->DBEndpointId) {
+            $res['DBEndpointId'] = $this->DBEndpointId;
+        }
+        if (null !== $this->netType) {
+            $res['NetType'] = $this->netType;
+        }
+        if (null !== $this->ownerAccount) {
+            $res['OwnerAccount'] = $this->ownerAccount;
+        }
         if (null !== $this->ownerId) {
             $res['OwnerId'] = $this->ownerId;
         }
@@ -80,23 +92,11 @@ class ModifyDBClusterSSLRequest extends Model
         if (null !== $this->resourceOwnerId) {
             $res['ResourceOwnerId'] = $this->resourceOwnerId;
         }
-        if (null !== $this->ownerAccount) {
-            $res['OwnerAccount'] = $this->ownerAccount;
-        }
-        if (null !== $this->DBClusterId) {
-            $res['DBClusterId'] = $this->DBClusterId;
+        if (null !== $this->SSLAutoRotate) {
+            $res['SSLAutoRotate'] = $this->SSLAutoRotate;
         }
         if (null !== $this->SSLEnabled) {
             $res['SSLEnabled'] = $this->SSLEnabled;
-        }
-        if (null !== $this->DBEndpointId) {
-            $res['DBEndpointId'] = $this->DBEndpointId;
-        }
-        if (null !== $this->netType) {
-            $res['NetType'] = $this->netType;
-        }
-        if (null !== $this->SSLAutoRotate) {
-            $res['SSLAutoRotate'] = $this->SSLAutoRotate;
         }
 
         return $res;
@@ -110,6 +110,18 @@ class ModifyDBClusterSSLRequest extends Model
     public static function fromMap($map = [])
     {
         $model = new self();
+        if (isset($map['DBClusterId'])) {
+            $model->DBClusterId = $map['DBClusterId'];
+        }
+        if (isset($map['DBEndpointId'])) {
+            $model->DBEndpointId = $map['DBEndpointId'];
+        }
+        if (isset($map['NetType'])) {
+            $model->netType = $map['NetType'];
+        }
+        if (isset($map['OwnerAccount'])) {
+            $model->ownerAccount = $map['OwnerAccount'];
+        }
         if (isset($map['OwnerId'])) {
             $model->ownerId = $map['OwnerId'];
         }
@@ -119,23 +131,11 @@ class ModifyDBClusterSSLRequest extends Model
         if (isset($map['ResourceOwnerId'])) {
             $model->resourceOwnerId = $map['ResourceOwnerId'];
         }
-        if (isset($map['OwnerAccount'])) {
-            $model->ownerAccount = $map['OwnerAccount'];
-        }
-        if (isset($map['DBClusterId'])) {
-            $model->DBClusterId = $map['DBClusterId'];
+        if (isset($map['SSLAutoRotate'])) {
+            $model->SSLAutoRotate = $map['SSLAutoRotate'];
         }
         if (isset($map['SSLEnabled'])) {
             $model->SSLEnabled = $map['SSLEnabled'];
-        }
-        if (isset($map['DBEndpointId'])) {
-            $model->DBEndpointId = $map['DBEndpointId'];
-        }
-        if (isset($map['NetType'])) {
-            $model->netType = $map['NetType'];
-        }
-        if (isset($map['SSLAutoRotate'])) {
-            $model->SSLAutoRotate = $map['SSLAutoRotate'];
         }
 
         return $model;

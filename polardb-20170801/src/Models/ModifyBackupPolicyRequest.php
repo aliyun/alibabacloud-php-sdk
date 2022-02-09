@@ -9,39 +9,19 @@ use AlibabaCloud\Tea\Model;
 class ModifyBackupPolicyRequest extends Model
 {
     /**
-     * @var int
+     * @var string
      */
-    public $ownerId;
+    public $backupFrequency;
 
     /**
      * @var string
      */
-    public $resourceOwnerAccount;
-
-    /**
-     * @var int
-     */
-    public $resourceOwnerId;
-
-    /**
-     * @var string
-     */
-    public $ownerAccount;
+    public $backupRetentionPolicyOnClusterDeletion;
 
     /**
      * @var string
      */
     public $DBClusterId;
-
-    /**
-     * @var string
-     */
-    public $preferredBackupTime;
-
-    /**
-     * @var string
-     */
-    public $preferredBackupPeriod;
 
     /**
      * @var string
@@ -56,24 +36,44 @@ class ModifyBackupPolicyRequest extends Model
     /**
      * @var string
      */
-    public $backupRetentionPolicyOnClusterDeletion;
+    public $ownerAccount;
+
+    /**
+     * @var int
+     */
+    public $ownerId;
 
     /**
      * @var string
      */
-    public $backupFrequency;
+    public $preferredBackupPeriod;
+
+    /**
+     * @var string
+     */
+    public $preferredBackupTime;
+
+    /**
+     * @var string
+     */
+    public $resourceOwnerAccount;
+
+    /**
+     * @var int
+     */
+    public $resourceOwnerId;
     protected $_name = [
-        'ownerId'                                => 'OwnerId',
-        'resourceOwnerAccount'                   => 'ResourceOwnerAccount',
-        'resourceOwnerId'                        => 'ResourceOwnerId',
-        'ownerAccount'                           => 'OwnerAccount',
+        'backupFrequency'                        => 'BackupFrequency',
+        'backupRetentionPolicyOnClusterDeletion' => 'BackupRetentionPolicyOnClusterDeletion',
         'DBClusterId'                            => 'DBClusterId',
-        'preferredBackupTime'                    => 'PreferredBackupTime',
-        'preferredBackupPeriod'                  => 'PreferredBackupPeriod',
         'dataLevel1BackupRetentionPeriod'        => 'DataLevel1BackupRetentionPeriod',
         'dataLevel2BackupRetentionPeriod'        => 'DataLevel2BackupRetentionPeriod',
-        'backupRetentionPolicyOnClusterDeletion' => 'BackupRetentionPolicyOnClusterDeletion',
-        'backupFrequency'                        => 'BackupFrequency',
+        'ownerAccount'                           => 'OwnerAccount',
+        'ownerId'                                => 'OwnerId',
+        'preferredBackupPeriod'                  => 'PreferredBackupPeriod',
+        'preferredBackupTime'                    => 'PreferredBackupTime',
+        'resourceOwnerAccount'                   => 'ResourceOwnerAccount',
+        'resourceOwnerId'                        => 'ResourceOwnerId',
     ];
 
     public function validate()
@@ -83,26 +83,14 @@ class ModifyBackupPolicyRequest extends Model
     public function toMap()
     {
         $res = [];
-        if (null !== $this->ownerId) {
-            $res['OwnerId'] = $this->ownerId;
+        if (null !== $this->backupFrequency) {
+            $res['BackupFrequency'] = $this->backupFrequency;
         }
-        if (null !== $this->resourceOwnerAccount) {
-            $res['ResourceOwnerAccount'] = $this->resourceOwnerAccount;
-        }
-        if (null !== $this->resourceOwnerId) {
-            $res['ResourceOwnerId'] = $this->resourceOwnerId;
-        }
-        if (null !== $this->ownerAccount) {
-            $res['OwnerAccount'] = $this->ownerAccount;
+        if (null !== $this->backupRetentionPolicyOnClusterDeletion) {
+            $res['BackupRetentionPolicyOnClusterDeletion'] = $this->backupRetentionPolicyOnClusterDeletion;
         }
         if (null !== $this->DBClusterId) {
             $res['DBClusterId'] = $this->DBClusterId;
-        }
-        if (null !== $this->preferredBackupTime) {
-            $res['PreferredBackupTime'] = $this->preferredBackupTime;
-        }
-        if (null !== $this->preferredBackupPeriod) {
-            $res['PreferredBackupPeriod'] = $this->preferredBackupPeriod;
         }
         if (null !== $this->dataLevel1BackupRetentionPeriod) {
             $res['DataLevel1BackupRetentionPeriod'] = $this->dataLevel1BackupRetentionPeriod;
@@ -110,11 +98,23 @@ class ModifyBackupPolicyRequest extends Model
         if (null !== $this->dataLevel2BackupRetentionPeriod) {
             $res['DataLevel2BackupRetentionPeriod'] = $this->dataLevel2BackupRetentionPeriod;
         }
-        if (null !== $this->backupRetentionPolicyOnClusterDeletion) {
-            $res['BackupRetentionPolicyOnClusterDeletion'] = $this->backupRetentionPolicyOnClusterDeletion;
+        if (null !== $this->ownerAccount) {
+            $res['OwnerAccount'] = $this->ownerAccount;
         }
-        if (null !== $this->backupFrequency) {
-            $res['BackupFrequency'] = $this->backupFrequency;
+        if (null !== $this->ownerId) {
+            $res['OwnerId'] = $this->ownerId;
+        }
+        if (null !== $this->preferredBackupPeriod) {
+            $res['PreferredBackupPeriod'] = $this->preferredBackupPeriod;
+        }
+        if (null !== $this->preferredBackupTime) {
+            $res['PreferredBackupTime'] = $this->preferredBackupTime;
+        }
+        if (null !== $this->resourceOwnerAccount) {
+            $res['ResourceOwnerAccount'] = $this->resourceOwnerAccount;
+        }
+        if (null !== $this->resourceOwnerId) {
+            $res['ResourceOwnerId'] = $this->resourceOwnerId;
         }
 
         return $res;
@@ -128,26 +128,14 @@ class ModifyBackupPolicyRequest extends Model
     public static function fromMap($map = [])
     {
         $model = new self();
-        if (isset($map['OwnerId'])) {
-            $model->ownerId = $map['OwnerId'];
+        if (isset($map['BackupFrequency'])) {
+            $model->backupFrequency = $map['BackupFrequency'];
         }
-        if (isset($map['ResourceOwnerAccount'])) {
-            $model->resourceOwnerAccount = $map['ResourceOwnerAccount'];
-        }
-        if (isset($map['ResourceOwnerId'])) {
-            $model->resourceOwnerId = $map['ResourceOwnerId'];
-        }
-        if (isset($map['OwnerAccount'])) {
-            $model->ownerAccount = $map['OwnerAccount'];
+        if (isset($map['BackupRetentionPolicyOnClusterDeletion'])) {
+            $model->backupRetentionPolicyOnClusterDeletion = $map['BackupRetentionPolicyOnClusterDeletion'];
         }
         if (isset($map['DBClusterId'])) {
             $model->DBClusterId = $map['DBClusterId'];
-        }
-        if (isset($map['PreferredBackupTime'])) {
-            $model->preferredBackupTime = $map['PreferredBackupTime'];
-        }
-        if (isset($map['PreferredBackupPeriod'])) {
-            $model->preferredBackupPeriod = $map['PreferredBackupPeriod'];
         }
         if (isset($map['DataLevel1BackupRetentionPeriod'])) {
             $model->dataLevel1BackupRetentionPeriod = $map['DataLevel1BackupRetentionPeriod'];
@@ -155,11 +143,23 @@ class ModifyBackupPolicyRequest extends Model
         if (isset($map['DataLevel2BackupRetentionPeriod'])) {
             $model->dataLevel2BackupRetentionPeriod = $map['DataLevel2BackupRetentionPeriod'];
         }
-        if (isset($map['BackupRetentionPolicyOnClusterDeletion'])) {
-            $model->backupRetentionPolicyOnClusterDeletion = $map['BackupRetentionPolicyOnClusterDeletion'];
+        if (isset($map['OwnerAccount'])) {
+            $model->ownerAccount = $map['OwnerAccount'];
         }
-        if (isset($map['BackupFrequency'])) {
-            $model->backupFrequency = $map['BackupFrequency'];
+        if (isset($map['OwnerId'])) {
+            $model->ownerId = $map['OwnerId'];
+        }
+        if (isset($map['PreferredBackupPeriod'])) {
+            $model->preferredBackupPeriod = $map['PreferredBackupPeriod'];
+        }
+        if (isset($map['PreferredBackupTime'])) {
+            $model->preferredBackupTime = $map['PreferredBackupTime'];
+        }
+        if (isset($map['ResourceOwnerAccount'])) {
+            $model->resourceOwnerAccount = $map['ResourceOwnerAccount'];
+        }
+        if (isset($map['ResourceOwnerId'])) {
+            $model->resourceOwnerId = $map['ResourceOwnerId'];
         }
 
         return $model;

@@ -9,6 +9,16 @@ use AlibabaCloud\Tea\Model;
 class RestartDBNodeRequest extends Model
 {
     /**
+     * @var string
+     */
+    public $DBNodeId;
+
+    /**
+     * @var string
+     */
+    public $ownerAccount;
+
+    /**
      * @var int
      */
     public $ownerId;
@@ -22,22 +32,12 @@ class RestartDBNodeRequest extends Model
      * @var int
      */
     public $resourceOwnerId;
-
-    /**
-     * @var string
-     */
-    public $ownerAccount;
-
-    /**
-     * @var string
-     */
-    public $DBNodeId;
     protected $_name = [
+        'DBNodeId'             => 'DBNodeId',
+        'ownerAccount'         => 'OwnerAccount',
         'ownerId'              => 'OwnerId',
         'resourceOwnerAccount' => 'ResourceOwnerAccount',
         'resourceOwnerId'      => 'ResourceOwnerId',
-        'ownerAccount'         => 'OwnerAccount',
-        'DBNodeId'             => 'DBNodeId',
     ];
 
     public function validate()
@@ -47,6 +47,12 @@ class RestartDBNodeRequest extends Model
     public function toMap()
     {
         $res = [];
+        if (null !== $this->DBNodeId) {
+            $res['DBNodeId'] = $this->DBNodeId;
+        }
+        if (null !== $this->ownerAccount) {
+            $res['OwnerAccount'] = $this->ownerAccount;
+        }
         if (null !== $this->ownerId) {
             $res['OwnerId'] = $this->ownerId;
         }
@@ -55,12 +61,6 @@ class RestartDBNodeRequest extends Model
         }
         if (null !== $this->resourceOwnerId) {
             $res['ResourceOwnerId'] = $this->resourceOwnerId;
-        }
-        if (null !== $this->ownerAccount) {
-            $res['OwnerAccount'] = $this->ownerAccount;
-        }
-        if (null !== $this->DBNodeId) {
-            $res['DBNodeId'] = $this->DBNodeId;
         }
 
         return $res;
@@ -74,6 +74,12 @@ class RestartDBNodeRequest extends Model
     public static function fromMap($map = [])
     {
         $model = new self();
+        if (isset($map['DBNodeId'])) {
+            $model->DBNodeId = $map['DBNodeId'];
+        }
+        if (isset($map['OwnerAccount'])) {
+            $model->ownerAccount = $map['OwnerAccount'];
+        }
         if (isset($map['OwnerId'])) {
             $model->ownerId = $map['OwnerId'];
         }
@@ -82,12 +88,6 @@ class RestartDBNodeRequest extends Model
         }
         if (isset($map['ResourceOwnerId'])) {
             $model->resourceOwnerId = $map['ResourceOwnerId'];
-        }
-        if (isset($map['OwnerAccount'])) {
-            $model->ownerAccount = $map['OwnerAccount'];
-        }
-        if (isset($map['DBNodeId'])) {
-            $model->DBNodeId = $map['DBNodeId'];
         }
 
         return $model;

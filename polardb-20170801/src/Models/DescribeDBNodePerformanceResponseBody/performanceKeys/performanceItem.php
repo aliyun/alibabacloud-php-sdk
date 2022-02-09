@@ -12,20 +12,20 @@ class performanceItem extends Model
     /**
      * @var string
      */
-    public $metricName;
+    public $measurement;
 
     /**
      * @var string
      */
-    public $measurement;
+    public $metricName;
 
     /**
      * @var points
      */
     public $points;
     protected $_name = [
-        'metricName'  => 'MetricName',
         'measurement' => 'Measurement',
+        'metricName'  => 'MetricName',
         'points'      => 'Points',
     ];
 
@@ -36,11 +36,11 @@ class performanceItem extends Model
     public function toMap()
     {
         $res = [];
-        if (null !== $this->metricName) {
-            $res['MetricName'] = $this->metricName;
-        }
         if (null !== $this->measurement) {
             $res['Measurement'] = $this->measurement;
+        }
+        if (null !== $this->metricName) {
+            $res['MetricName'] = $this->metricName;
         }
         if (null !== $this->points) {
             $res['Points'] = null !== $this->points ? $this->points->toMap() : null;
@@ -57,11 +57,11 @@ class performanceItem extends Model
     public static function fromMap($map = [])
     {
         $model = new self();
-        if (isset($map['MetricName'])) {
-            $model->metricName = $map['MetricName'];
-        }
         if (isset($map['Measurement'])) {
             $model->measurement = $map['Measurement'];
+        }
+        if (isset($map['MetricName'])) {
+            $model->metricName = $map['MetricName'];
         }
         if (isset($map['Points'])) {
             $model->points = points::fromMap($map['Points']);

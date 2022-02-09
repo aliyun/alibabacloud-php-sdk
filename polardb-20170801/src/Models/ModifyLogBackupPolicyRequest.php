@@ -9,6 +9,21 @@ use AlibabaCloud\Tea\Model;
 class ModifyLogBackupPolicyRequest extends Model
 {
     /**
+     * @var string
+     */
+    public $DBClusterId;
+
+    /**
+     * @var string
+     */
+    public $logBackupRetentionPeriod;
+
+    /**
+     * @var string
+     */
+    public $ownerAccount;
+
+    /**
      * @var int
      */
     public $ownerId;
@@ -22,28 +37,13 @@ class ModifyLogBackupPolicyRequest extends Model
      * @var int
      */
     public $resourceOwnerId;
-
-    /**
-     * @var string
-     */
-    public $ownerAccount;
-
-    /**
-     * @var string
-     */
-    public $DBClusterId;
-
-    /**
-     * @var string
-     */
-    public $logBackupRetentionPeriod;
     protected $_name = [
+        'DBClusterId'              => 'DBClusterId',
+        'logBackupRetentionPeriod' => 'LogBackupRetentionPeriod',
+        'ownerAccount'             => 'OwnerAccount',
         'ownerId'                  => 'OwnerId',
         'resourceOwnerAccount'     => 'ResourceOwnerAccount',
         'resourceOwnerId'          => 'ResourceOwnerId',
-        'ownerAccount'             => 'OwnerAccount',
-        'DBClusterId'              => 'DBClusterId',
-        'logBackupRetentionPeriod' => 'LogBackupRetentionPeriod',
     ];
 
     public function validate()
@@ -53,6 +53,15 @@ class ModifyLogBackupPolicyRequest extends Model
     public function toMap()
     {
         $res = [];
+        if (null !== $this->DBClusterId) {
+            $res['DBClusterId'] = $this->DBClusterId;
+        }
+        if (null !== $this->logBackupRetentionPeriod) {
+            $res['LogBackupRetentionPeriod'] = $this->logBackupRetentionPeriod;
+        }
+        if (null !== $this->ownerAccount) {
+            $res['OwnerAccount'] = $this->ownerAccount;
+        }
         if (null !== $this->ownerId) {
             $res['OwnerId'] = $this->ownerId;
         }
@@ -61,15 +70,6 @@ class ModifyLogBackupPolicyRequest extends Model
         }
         if (null !== $this->resourceOwnerId) {
             $res['ResourceOwnerId'] = $this->resourceOwnerId;
-        }
-        if (null !== $this->ownerAccount) {
-            $res['OwnerAccount'] = $this->ownerAccount;
-        }
-        if (null !== $this->DBClusterId) {
-            $res['DBClusterId'] = $this->DBClusterId;
-        }
-        if (null !== $this->logBackupRetentionPeriod) {
-            $res['LogBackupRetentionPeriod'] = $this->logBackupRetentionPeriod;
         }
 
         return $res;
@@ -83,6 +83,15 @@ class ModifyLogBackupPolicyRequest extends Model
     public static function fromMap($map = [])
     {
         $model = new self();
+        if (isset($map['DBClusterId'])) {
+            $model->DBClusterId = $map['DBClusterId'];
+        }
+        if (isset($map['LogBackupRetentionPeriod'])) {
+            $model->logBackupRetentionPeriod = $map['LogBackupRetentionPeriod'];
+        }
+        if (isset($map['OwnerAccount'])) {
+            $model->ownerAccount = $map['OwnerAccount'];
+        }
         if (isset($map['OwnerId'])) {
             $model->ownerId = $map['OwnerId'];
         }
@@ -91,15 +100,6 @@ class ModifyLogBackupPolicyRequest extends Model
         }
         if (isset($map['ResourceOwnerId'])) {
             $model->resourceOwnerId = $map['ResourceOwnerId'];
-        }
-        if (isset($map['OwnerAccount'])) {
-            $model->ownerAccount = $map['OwnerAccount'];
-        }
-        if (isset($map['DBClusterId'])) {
-            $model->DBClusterId = $map['DBClusterId'];
-        }
-        if (isset($map['LogBackupRetentionPeriod'])) {
-            $model->logBackupRetentionPeriod = $map['LogBackupRetentionPeriod'];
         }
 
         return $model;

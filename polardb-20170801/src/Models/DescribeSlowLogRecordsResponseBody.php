@@ -10,9 +10,24 @@ use AlibabaCloud\Tea\Model;
 class DescribeSlowLogRecordsResponseBody extends Model
 {
     /**
+     * @var string
+     */
+    public $DBClusterId;
+
+    /**
+     * @var string
+     */
+    public $engine;
+
+    /**
+     * @var items
+     */
+    public $items;
+
+    /**
      * @var int
      */
-    public $totalRecordCount;
+    public $pageNumber;
 
     /**
      * @var int
@@ -27,30 +42,15 @@ class DescribeSlowLogRecordsResponseBody extends Model
     /**
      * @var int
      */
-    public $pageNumber;
-
-    /**
-     * @var string
-     */
-    public $DBClusterId;
-
-    /**
-     * @var items
-     */
-    public $items;
-
-    /**
-     * @var string
-     */
-    public $engine;
+    public $totalRecordCount;
     protected $_name = [
-        'totalRecordCount' => 'TotalRecordCount',
+        'DBClusterId'      => 'DBClusterId',
+        'engine'           => 'Engine',
+        'items'            => 'Items',
+        'pageNumber'       => 'PageNumber',
         'pageRecordCount'  => 'PageRecordCount',
         'requestId'        => 'RequestId',
-        'pageNumber'       => 'PageNumber',
-        'DBClusterId'      => 'DBClusterId',
-        'items'            => 'Items',
-        'engine'           => 'Engine',
+        'totalRecordCount' => 'TotalRecordCount',
     ];
 
     public function validate()
@@ -60,8 +60,17 @@ class DescribeSlowLogRecordsResponseBody extends Model
     public function toMap()
     {
         $res = [];
-        if (null !== $this->totalRecordCount) {
-            $res['TotalRecordCount'] = $this->totalRecordCount;
+        if (null !== $this->DBClusterId) {
+            $res['DBClusterId'] = $this->DBClusterId;
+        }
+        if (null !== $this->engine) {
+            $res['Engine'] = $this->engine;
+        }
+        if (null !== $this->items) {
+            $res['Items'] = null !== $this->items ? $this->items->toMap() : null;
+        }
+        if (null !== $this->pageNumber) {
+            $res['PageNumber'] = $this->pageNumber;
         }
         if (null !== $this->pageRecordCount) {
             $res['PageRecordCount'] = $this->pageRecordCount;
@@ -69,17 +78,8 @@ class DescribeSlowLogRecordsResponseBody extends Model
         if (null !== $this->requestId) {
             $res['RequestId'] = $this->requestId;
         }
-        if (null !== $this->pageNumber) {
-            $res['PageNumber'] = $this->pageNumber;
-        }
-        if (null !== $this->DBClusterId) {
-            $res['DBClusterId'] = $this->DBClusterId;
-        }
-        if (null !== $this->items) {
-            $res['Items'] = null !== $this->items ? $this->items->toMap() : null;
-        }
-        if (null !== $this->engine) {
-            $res['Engine'] = $this->engine;
+        if (null !== $this->totalRecordCount) {
+            $res['TotalRecordCount'] = $this->totalRecordCount;
         }
 
         return $res;
@@ -93,8 +93,17 @@ class DescribeSlowLogRecordsResponseBody extends Model
     public static function fromMap($map = [])
     {
         $model = new self();
-        if (isset($map['TotalRecordCount'])) {
-            $model->totalRecordCount = $map['TotalRecordCount'];
+        if (isset($map['DBClusterId'])) {
+            $model->DBClusterId = $map['DBClusterId'];
+        }
+        if (isset($map['Engine'])) {
+            $model->engine = $map['Engine'];
+        }
+        if (isset($map['Items'])) {
+            $model->items = items::fromMap($map['Items']);
+        }
+        if (isset($map['PageNumber'])) {
+            $model->pageNumber = $map['PageNumber'];
         }
         if (isset($map['PageRecordCount'])) {
             $model->pageRecordCount = $map['PageRecordCount'];
@@ -102,17 +111,8 @@ class DescribeSlowLogRecordsResponseBody extends Model
         if (isset($map['RequestId'])) {
             $model->requestId = $map['RequestId'];
         }
-        if (isset($map['PageNumber'])) {
-            $model->pageNumber = $map['PageNumber'];
-        }
-        if (isset($map['DBClusterId'])) {
-            $model->DBClusterId = $map['DBClusterId'];
-        }
-        if (isset($map['Items'])) {
-            $model->items = items::fromMap($map['Items']);
-        }
-        if (isset($map['Engine'])) {
-            $model->engine = $map['Engine'];
+        if (isset($map['TotalRecordCount'])) {
+            $model->totalRecordCount = $map['TotalRecordCount'];
         }
 
         return $model;

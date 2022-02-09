@@ -10,29 +10,29 @@ use AlibabaCloud\Tea\Model;
 class DescribeDatabasesResponseBody extends Model
 {
     /**
-     * @var int
-     */
-    public $pageRecordCount;
-
-    /**
      * @var databases
      */
     public $databases;
 
     /**
-     * @var string
+     * @var int
      */
-    public $requestId;
+    public $pageNumber;
 
     /**
      * @var int
      */
-    public $pageNumber;
+    public $pageRecordCount;
+
+    /**
+     * @var string
+     */
+    public $requestId;
     protected $_name = [
-        'pageRecordCount' => 'PageRecordCount',
         'databases'       => 'Databases',
-        'requestId'       => 'RequestId',
         'pageNumber'      => 'PageNumber',
+        'pageRecordCount' => 'PageRecordCount',
+        'requestId'       => 'RequestId',
     ];
 
     public function validate()
@@ -42,17 +42,17 @@ class DescribeDatabasesResponseBody extends Model
     public function toMap()
     {
         $res = [];
-        if (null !== $this->pageRecordCount) {
-            $res['PageRecordCount'] = $this->pageRecordCount;
-        }
         if (null !== $this->databases) {
             $res['Databases'] = null !== $this->databases ? $this->databases->toMap() : null;
         }
-        if (null !== $this->requestId) {
-            $res['RequestId'] = $this->requestId;
-        }
         if (null !== $this->pageNumber) {
             $res['PageNumber'] = $this->pageNumber;
+        }
+        if (null !== $this->pageRecordCount) {
+            $res['PageRecordCount'] = $this->pageRecordCount;
+        }
+        if (null !== $this->requestId) {
+            $res['RequestId'] = $this->requestId;
         }
 
         return $res;
@@ -66,17 +66,17 @@ class DescribeDatabasesResponseBody extends Model
     public static function fromMap($map = [])
     {
         $model = new self();
-        if (isset($map['PageRecordCount'])) {
-            $model->pageRecordCount = $map['PageRecordCount'];
-        }
         if (isset($map['Databases'])) {
             $model->databases = databases::fromMap($map['Databases']);
         }
-        if (isset($map['RequestId'])) {
-            $model->requestId = $map['RequestId'];
-        }
         if (isset($map['PageNumber'])) {
             $model->pageNumber = $map['PageNumber'];
+        }
+        if (isset($map['PageRecordCount'])) {
+            $model->pageRecordCount = $map['PageRecordCount'];
+        }
+        if (isset($map['RequestId'])) {
+            $model->requestId = $map['RequestId'];
         }
 
         return $model;

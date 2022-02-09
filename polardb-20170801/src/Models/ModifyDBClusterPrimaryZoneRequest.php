@@ -9,9 +9,34 @@ use AlibabaCloud\Tea\Model;
 class ModifyDBClusterPrimaryZoneRequest extends Model
 {
     /**
+     * @var string
+     */
+    public $DBClusterId;
+
+    /**
+     * @var bool
+     */
+    public $fromTimeService;
+
+    /**
+     * @var string
+     */
+    public $ownerAccount;
+
+    /**
      * @var int
      */
     public $ownerId;
+
+    /**
+     * @var string
+     */
+    public $plannedEndTime;
+
+    /**
+     * @var string
+     */
+    public $plannedStartTime;
 
     /**
      * @var string
@@ -26,48 +51,23 @@ class ModifyDBClusterPrimaryZoneRequest extends Model
     /**
      * @var string
      */
-    public $ownerAccount;
-
-    /**
-     * @var string
-     */
-    public $DBClusterId;
-
-    /**
-     * @var string
-     */
-    public $zoneId;
-
-    /**
-     * @var string
-     */
     public $vSwitchId;
 
     /**
      * @var string
      */
-    public $plannedStartTime;
-
-    /**
-     * @var string
-     */
-    public $plannedEndTime;
-
-    /**
-     * @var bool
-     */
-    public $fromTimeService;
+    public $zoneId;
     protected $_name = [
+        'DBClusterId'          => 'DBClusterId',
+        'fromTimeService'      => 'FromTimeService',
+        'ownerAccount'         => 'OwnerAccount',
         'ownerId'              => 'OwnerId',
+        'plannedEndTime'       => 'PlannedEndTime',
+        'plannedStartTime'     => 'PlannedStartTime',
         'resourceOwnerAccount' => 'ResourceOwnerAccount',
         'resourceOwnerId'      => 'ResourceOwnerId',
-        'ownerAccount'         => 'OwnerAccount',
-        'DBClusterId'          => 'DBClusterId',
-        'zoneId'               => 'ZoneId',
         'vSwitchId'            => 'VSwitchId',
-        'plannedStartTime'     => 'PlannedStartTime',
-        'plannedEndTime'       => 'PlannedEndTime',
-        'fromTimeService'      => 'FromTimeService',
+        'zoneId'               => 'ZoneId',
     ];
 
     public function validate()
@@ -77,8 +77,23 @@ class ModifyDBClusterPrimaryZoneRequest extends Model
     public function toMap()
     {
         $res = [];
+        if (null !== $this->DBClusterId) {
+            $res['DBClusterId'] = $this->DBClusterId;
+        }
+        if (null !== $this->fromTimeService) {
+            $res['FromTimeService'] = $this->fromTimeService;
+        }
+        if (null !== $this->ownerAccount) {
+            $res['OwnerAccount'] = $this->ownerAccount;
+        }
         if (null !== $this->ownerId) {
             $res['OwnerId'] = $this->ownerId;
+        }
+        if (null !== $this->plannedEndTime) {
+            $res['PlannedEndTime'] = $this->plannedEndTime;
+        }
+        if (null !== $this->plannedStartTime) {
+            $res['PlannedStartTime'] = $this->plannedStartTime;
         }
         if (null !== $this->resourceOwnerAccount) {
             $res['ResourceOwnerAccount'] = $this->resourceOwnerAccount;
@@ -86,26 +101,11 @@ class ModifyDBClusterPrimaryZoneRequest extends Model
         if (null !== $this->resourceOwnerId) {
             $res['ResourceOwnerId'] = $this->resourceOwnerId;
         }
-        if (null !== $this->ownerAccount) {
-            $res['OwnerAccount'] = $this->ownerAccount;
-        }
-        if (null !== $this->DBClusterId) {
-            $res['DBClusterId'] = $this->DBClusterId;
-        }
-        if (null !== $this->zoneId) {
-            $res['ZoneId'] = $this->zoneId;
-        }
         if (null !== $this->vSwitchId) {
             $res['VSwitchId'] = $this->vSwitchId;
         }
-        if (null !== $this->plannedStartTime) {
-            $res['PlannedStartTime'] = $this->plannedStartTime;
-        }
-        if (null !== $this->plannedEndTime) {
-            $res['PlannedEndTime'] = $this->plannedEndTime;
-        }
-        if (null !== $this->fromTimeService) {
-            $res['FromTimeService'] = $this->fromTimeService;
+        if (null !== $this->zoneId) {
+            $res['ZoneId'] = $this->zoneId;
         }
 
         return $res;
@@ -119,8 +119,23 @@ class ModifyDBClusterPrimaryZoneRequest extends Model
     public static function fromMap($map = [])
     {
         $model = new self();
+        if (isset($map['DBClusterId'])) {
+            $model->DBClusterId = $map['DBClusterId'];
+        }
+        if (isset($map['FromTimeService'])) {
+            $model->fromTimeService = $map['FromTimeService'];
+        }
+        if (isset($map['OwnerAccount'])) {
+            $model->ownerAccount = $map['OwnerAccount'];
+        }
         if (isset($map['OwnerId'])) {
             $model->ownerId = $map['OwnerId'];
+        }
+        if (isset($map['PlannedEndTime'])) {
+            $model->plannedEndTime = $map['PlannedEndTime'];
+        }
+        if (isset($map['PlannedStartTime'])) {
+            $model->plannedStartTime = $map['PlannedStartTime'];
         }
         if (isset($map['ResourceOwnerAccount'])) {
             $model->resourceOwnerAccount = $map['ResourceOwnerAccount'];
@@ -128,26 +143,11 @@ class ModifyDBClusterPrimaryZoneRequest extends Model
         if (isset($map['ResourceOwnerId'])) {
             $model->resourceOwnerId = $map['ResourceOwnerId'];
         }
-        if (isset($map['OwnerAccount'])) {
-            $model->ownerAccount = $map['OwnerAccount'];
-        }
-        if (isset($map['DBClusterId'])) {
-            $model->DBClusterId = $map['DBClusterId'];
-        }
-        if (isset($map['ZoneId'])) {
-            $model->zoneId = $map['ZoneId'];
-        }
         if (isset($map['VSwitchId'])) {
             $model->vSwitchId = $map['VSwitchId'];
         }
-        if (isset($map['PlannedStartTime'])) {
-            $model->plannedStartTime = $map['PlannedStartTime'];
-        }
-        if (isset($map['PlannedEndTime'])) {
-            $model->plannedEndTime = $map['PlannedEndTime'];
-        }
-        if (isset($map['FromTimeService'])) {
-            $model->fromTimeService = $map['FromTimeService'];
+        if (isset($map['ZoneId'])) {
+            $model->zoneId = $map['ZoneId'];
         }
 
         return $model;
