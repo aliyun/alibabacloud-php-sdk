@@ -21,6 +21,16 @@ class ecsLabelInfo extends Model
     /**
      * @var string
      */
+    public $status;
+
+    /**
+     * @var string
+     */
+    public $zoneId;
+
+    /**
+     * @var string
+     */
     public $label;
 
     /**
@@ -30,6 +40,8 @@ class ecsLabelInfo extends Model
     protected $_name = [
         'instanceTypeFamily' => 'InstanceTypeFamily',
         'OSName'             => 'OSName',
+        'status'             => 'Status',
+        'zoneId'             => 'ZoneId',
         'label'              => 'label',
         'value'              => 'value',
     ];
@@ -46,6 +58,12 @@ class ecsLabelInfo extends Model
         }
         if (null !== $this->OSName) {
             $res['OSName'] = $this->OSName;
+        }
+        if (null !== $this->status) {
+            $res['Status'] = $this->status;
+        }
+        if (null !== $this->zoneId) {
+            $res['ZoneId'] = $this->zoneId;
         }
         if (null !== $this->label) {
             $res['label'] = $this->label;
@@ -70,6 +88,12 @@ class ecsLabelInfo extends Model
         }
         if (isset($map['OSName'])) {
             $model->OSName = $map['OSName'];
+        }
+        if (isset($map['Status'])) {
+            $model->status = $map['Status'];
+        }
+        if (isset($map['ZoneId'])) {
+            $model->zoneId = $map['ZoneId'];
         }
         if (isset($map['label'])) {
             $model->label = $map['label'];
