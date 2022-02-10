@@ -11,6 +11,20 @@ use AlibabaCloud\Tea\Model;
 class GatewayOption extends Model
 {
     /**
+     * @description 是否禁用http
+     *
+     * @var bool
+     */
+    public $disableHttp2Alpn;
+
+    /**
+     * @description 是否开启硬件加速
+     *
+     * @var bool
+     */
+    public $enableHardwareAcceleration;
+
+    /**
      * @description 日志配置详情
      *
      * @var logConfigDetails
@@ -24,8 +38,10 @@ class GatewayOption extends Model
      */
     public $traceDetails;
     protected $_name = [
-        'logConfigDetails' => 'LogConfigDetails',
-        'traceDetails'     => 'TraceDetails',
+        'disableHttp2Alpn'           => 'DisableHttp2Alpn',
+        'enableHardwareAcceleration' => 'EnableHardwareAcceleration',
+        'logConfigDetails'           => 'LogConfigDetails',
+        'traceDetails'               => 'TraceDetails',
     ];
 
     public function validate()
@@ -35,6 +51,12 @@ class GatewayOption extends Model
     public function toMap()
     {
         $res = [];
+        if (null !== $this->disableHttp2Alpn) {
+            $res['DisableHttp2Alpn'] = $this->disableHttp2Alpn;
+        }
+        if (null !== $this->enableHardwareAcceleration) {
+            $res['EnableHardwareAcceleration'] = $this->enableHardwareAcceleration;
+        }
         if (null !== $this->logConfigDetails) {
             $res['LogConfigDetails'] = null !== $this->logConfigDetails ? $this->logConfigDetails->toMap() : null;
         }
@@ -53,6 +75,12 @@ class GatewayOption extends Model
     public static function fromMap($map = [])
     {
         $model = new self();
+        if (isset($map['DisableHttp2Alpn'])) {
+            $model->disableHttp2Alpn = $map['DisableHttp2Alpn'];
+        }
+        if (isset($map['EnableHardwareAcceleration'])) {
+            $model->enableHardwareAcceleration = $map['EnableHardwareAcceleration'];
+        }
         if (isset($map['LogConfigDetails'])) {
             $model->logConfigDetails = logConfigDetails::fromMap($map['LogConfigDetails']);
         }
