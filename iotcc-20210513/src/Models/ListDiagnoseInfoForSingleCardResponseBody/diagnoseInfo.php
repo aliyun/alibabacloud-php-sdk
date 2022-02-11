@@ -24,6 +24,11 @@ class diagnoseInfo extends Model
     public $destination;
 
     /**
+     * @var string
+     */
+    public $destinationType;
+
+    /**
      * @var int
      */
     public $diagnoseTime;
@@ -46,6 +51,16 @@ class diagnoseInfo extends Model
     /**
      * @var string
      */
+    public $source;
+
+    /**
+     * @var string
+     */
+    public $sourceType;
+
+    /**
+     * @var string
+     */
     public $status;
 
     /**
@@ -56,10 +71,13 @@ class diagnoseInfo extends Model
         'beginTime'           => 'BeginTime',
         'cardIp'              => 'CardIp',
         'destination'         => 'Destination',
+        'destinationType'     => 'DestinationType',
         'diagnoseTime'        => 'DiagnoseTime',
         'endTime'             => 'EndTime',
         'iccid'               => 'Iccid',
         'ioTCloudConnectorId' => 'IoTCloudConnectorId',
+        'source'              => 'Source',
+        'sourceType'          => 'SourceType',
         'status'              => 'Status',
         'taskId'              => 'TaskId',
     ];
@@ -80,6 +98,9 @@ class diagnoseInfo extends Model
         if (null !== $this->destination) {
             $res['Destination'] = $this->destination;
         }
+        if (null !== $this->destinationType) {
+            $res['DestinationType'] = $this->destinationType;
+        }
         if (null !== $this->diagnoseTime) {
             $res['DiagnoseTime'] = $this->diagnoseTime;
         }
@@ -91,6 +112,12 @@ class diagnoseInfo extends Model
         }
         if (null !== $this->ioTCloudConnectorId) {
             $res['IoTCloudConnectorId'] = $this->ioTCloudConnectorId;
+        }
+        if (null !== $this->source) {
+            $res['Source'] = $this->source;
+        }
+        if (null !== $this->sourceType) {
+            $res['SourceType'] = $this->sourceType;
         }
         if (null !== $this->status) {
             $res['Status'] = $this->status;
@@ -119,6 +146,9 @@ class diagnoseInfo extends Model
         if (isset($map['Destination'])) {
             $model->destination = $map['Destination'];
         }
+        if (isset($map['DestinationType'])) {
+            $model->destinationType = $map['DestinationType'];
+        }
         if (isset($map['DiagnoseTime'])) {
             $model->diagnoseTime = $map['DiagnoseTime'];
         }
@@ -130,6 +160,12 @@ class diagnoseInfo extends Model
         }
         if (isset($map['IoTCloudConnectorId'])) {
             $model->ioTCloudConnectorId = $map['IoTCloudConnectorId'];
+        }
+        if (isset($map['Source'])) {
+            $model->source = $map['Source'];
+        }
+        if (isset($map['SourceType'])) {
+            $model->sourceType = $map['SourceType'];
         }
         if (isset($map['Status'])) {
             $model->status = $map['Status'];
