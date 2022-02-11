@@ -12,6 +12,8 @@ use AlibabaCloud\SDK\Vod\V20170321\Models\AddCategoryRequest;
 use AlibabaCloud\SDK\Vod\V20170321\Models\AddCategoryResponse;
 use AlibabaCloud\SDK\Vod\V20170321\Models\AddEditingProjectRequest;
 use AlibabaCloud\SDK\Vod\V20170321\Models\AddEditingProjectResponse;
+use AlibabaCloud\SDK\Vod\V20170321\Models\AddFileInfoRequest;
+use AlibabaCloud\SDK\Vod\V20170321\Models\AddFileInfoResponse;
 use AlibabaCloud\SDK\Vod\V20170321\Models\AddTranscodeTemplateGroupRequest;
 use AlibabaCloud\SDK\Vod\V20170321\Models\AddTranscodeTemplateGroupResponse;
 use AlibabaCloud\SDK\Vod\V20170321\Models\AddVodDomainRequest;
@@ -58,6 +60,8 @@ use AlibabaCloud\SDK\Vod\V20170321\Models\DeleteEditingProjectRequest;
 use AlibabaCloud\SDK\Vod\V20170321\Models\DeleteEditingProjectResponse;
 use AlibabaCloud\SDK\Vod\V20170321\Models\DeleteImageRequest;
 use AlibabaCloud\SDK\Vod\V20170321\Models\DeleteImageResponse;
+use AlibabaCloud\SDK\Vod\V20170321\Models\DeleteMediaInfoRequest;
+use AlibabaCloud\SDK\Vod\V20170321\Models\DeleteMediaInfoResponse;
 use AlibabaCloud\SDK\Vod\V20170321\Models\DeleteMessageCallbackRequest;
 use AlibabaCloud\SDK\Vod\V20170321\Models\DeleteMessageCallbackResponse;
 use AlibabaCloud\SDK\Vod\V20170321\Models\DeleteMezzaninesRequest;
@@ -228,6 +232,8 @@ use AlibabaCloud\SDK\Vod\V20170321\Models\ListVodTemplateRequest;
 use AlibabaCloud\SDK\Vod\V20170321\Models\ListVodTemplateResponse;
 use AlibabaCloud\SDK\Vod\V20170321\Models\ListWatermarkRequest;
 use AlibabaCloud\SDK\Vod\V20170321\Models\ListWatermarkResponse;
+use AlibabaCloud\SDK\Vod\V20170321\Models\ModifyMediaInfoRequest;
+use AlibabaCloud\SDK\Vod\V20170321\Models\ModifyMediaInfoResponse;
 use AlibabaCloud\SDK\Vod\V20170321\Models\MoveAppResourceRequest;
 use AlibabaCloud\SDK\Vod\V20170321\Models\MoveAppResourceResponse;
 use AlibabaCloud\SDK\Vod\V20170321\Models\PreloadVodObjectCachesRequest;
@@ -416,11 +422,17 @@ class Vod extends OpenApiClient
     public function addAITemplateWithOptions($request, $runtime)
     {
         Utils::validateModel($request);
-        $query                   = [];
-        $query['TemplateConfig'] = $request->templateConfig;
-        $query['TemplateName']   = $request->templateName;
-        $query['TemplateType']   = $request->templateType;
-        $req                     = new OpenApiRequest([
+        $query = [];
+        if (!Utils::isUnset($request->templateConfig)) {
+            $query['TemplateConfig'] = $request->templateConfig;
+        }
+        if (!Utils::isUnset($request->templateName)) {
+            $query['TemplateName'] = $request->templateName;
+        }
+        if (!Utils::isUnset($request->templateType)) {
+            $query['TemplateType'] = $request->templateType;
+        }
+        $req = new OpenApiRequest([
             'query' => OpenApiUtilClient::query($query),
         ]);
         $params = new Params([
@@ -459,11 +471,17 @@ class Vod extends OpenApiClient
     public function addCategoryWithOptions($request, $runtime)
     {
         Utils::validateModel($request);
-        $query             = [];
-        $query['CateName'] = $request->cateName;
-        $query['ParentId'] = $request->parentId;
-        $query['Type']     = $request->type;
-        $req               = new OpenApiRequest([
+        $query = [];
+        if (!Utils::isUnset($request->cateName)) {
+            $query['CateName'] = $request->cateName;
+        }
+        if (!Utils::isUnset($request->parentId)) {
+            $query['ParentId'] = $request->parentId;
+        }
+        if (!Utils::isUnset($request->type)) {
+            $query['Type'] = $request->type;
+        }
+        $req = new OpenApiRequest([
             'query' => OpenApiUtilClient::query($query),
         ]);
         $params = new Params([
@@ -502,17 +520,35 @@ class Vod extends OpenApiClient
     public function addEditingProjectWithOptions($request, $runtime)
     {
         Utils::validateModel($request);
-        $query                         = [];
-        $query['CoverURL']             = $request->coverURL;
-        $query['Description']          = $request->description;
-        $query['Division']             = $request->division;
-        $query['OwnerAccount']         = $request->ownerAccount;
-        $query['OwnerId']              = $request->ownerId;
-        $query['ResourceOwnerAccount'] = $request->resourceOwnerAccount;
-        $query['ResourceOwnerId']      = $request->resourceOwnerId;
-        $query['Timeline']             = $request->timeline;
-        $query['Title']                = $request->title;
-        $req                           = new OpenApiRequest([
+        $query = [];
+        if (!Utils::isUnset($request->coverURL)) {
+            $query['CoverURL'] = $request->coverURL;
+        }
+        if (!Utils::isUnset($request->description)) {
+            $query['Description'] = $request->description;
+        }
+        if (!Utils::isUnset($request->division)) {
+            $query['Division'] = $request->division;
+        }
+        if (!Utils::isUnset($request->ownerAccount)) {
+            $query['OwnerAccount'] = $request->ownerAccount;
+        }
+        if (!Utils::isUnset($request->ownerId)) {
+            $query['OwnerId'] = $request->ownerId;
+        }
+        if (!Utils::isUnset($request->resourceOwnerAccount)) {
+            $query['ResourceOwnerAccount'] = $request->resourceOwnerAccount;
+        }
+        if (!Utils::isUnset($request->resourceOwnerId)) {
+            $query['ResourceOwnerId'] = $request->resourceOwnerId;
+        }
+        if (!Utils::isUnset($request->timeline)) {
+            $query['Timeline'] = $request->timeline;
+        }
+        if (!Utils::isUnset($request->title)) {
+            $query['Title'] = $request->title;
+        }
+        $req = new OpenApiRequest([
             'query' => OpenApiUtilClient::query($query),
         ]);
         $params = new Params([
@@ -543,6 +579,64 @@ class Vod extends OpenApiClient
     }
 
     /**
+     * @param AddFileInfoRequest $request
+     * @param RuntimeOptions     $runtime
+     *
+     * @return AddFileInfoResponse
+     */
+    public function addFileInfoWithOptions($request, $runtime)
+    {
+        Utils::validateModel($request);
+        $query = [];
+        if (!Utils::isUnset($request->appId)) {
+            $query['AppId'] = $request->appId;
+        }
+        if (!Utils::isUnset($request->businessType)) {
+            $query['BusinessType'] = $request->businessType;
+        }
+        if (!Utils::isUnset($request->fileType)) {
+            $query['FileType'] = $request->fileType;
+        }
+        if (!Utils::isUnset($request->fileUrl)) {
+            $query['FileUrl'] = $request->fileUrl;
+        }
+        if (!Utils::isUnset($request->filename)) {
+            $query['Filename'] = $request->filename;
+        }
+        if (!Utils::isUnset($request->mediaId)) {
+            $query['MediaId'] = $request->mediaId;
+        }
+        $req = new OpenApiRequest([
+            'query' => OpenApiUtilClient::query($query),
+        ]);
+        $params = new Params([
+            'action'      => 'AddFileInfo',
+            'version'     => '2017-03-21',
+            'protocol'    => 'HTTPS',
+            'pathname'    => '/',
+            'method'      => 'POST',
+            'authType'    => 'AK',
+            'style'       => 'RPC',
+            'reqBodyType' => 'formData',
+            'bodyType'    => 'json',
+        ]);
+
+        return AddFileInfoResponse::fromMap($this->callApi($params, $req, $runtime));
+    }
+
+    /**
+     * @param AddFileInfoRequest $request
+     *
+     * @return AddFileInfoResponse
+     */
+    public function addFileInfo($request)
+    {
+        $runtime = new RuntimeOptions([]);
+
+        return $this->addFileInfoWithOptions($request, $runtime);
+    }
+
+    /**
      * @param AddTranscodeTemplateGroupRequest $request
      * @param RuntimeOptions                   $runtime
      *
@@ -551,12 +645,20 @@ class Vod extends OpenApiClient
     public function addTranscodeTemplateGroupWithOptions($request, $runtime)
     {
         Utils::validateModel($request);
-        $query                             = [];
-        $query['AppId']                    = $request->appId;
-        $query['Name']                     = $request->name;
-        $query['TranscodeTemplateGroupId'] = $request->transcodeTemplateGroupId;
-        $query['TranscodeTemplateList']    = $request->transcodeTemplateList;
-        $req                               = new OpenApiRequest([
+        $query = [];
+        if (!Utils::isUnset($request->appId)) {
+            $query['AppId'] = $request->appId;
+        }
+        if (!Utils::isUnset($request->name)) {
+            $query['Name'] = $request->name;
+        }
+        if (!Utils::isUnset($request->transcodeTemplateGroupId)) {
+            $query['TranscodeTemplateGroupId'] = $request->transcodeTemplateGroupId;
+        }
+        if (!Utils::isUnset($request->transcodeTemplateList)) {
+            $query['TranscodeTemplateList'] = $request->transcodeTemplateList;
+        }
+        $req = new OpenApiRequest([
             'query' => OpenApiUtilClient::query($query),
         ]);
         $params = new Params([
@@ -595,16 +697,32 @@ class Vod extends OpenApiClient
     public function addVodDomainWithOptions($request, $runtime)
     {
         Utils::validateModel($request);
-        $query                   = [];
-        $query['CheckUrl']       = $request->checkUrl;
-        $query['DomainName']     = $request->domainName;
-        $query['OwnerAccount']   = $request->ownerAccount;
-        $query['OwnerId']        = $request->ownerId;
-        $query['Scope']          = $request->scope;
-        $query['SecurityToken']  = $request->securityToken;
-        $query['Sources']        = $request->sources;
-        $query['TopLevelDomain'] = $request->topLevelDomain;
-        $req                     = new OpenApiRequest([
+        $query = [];
+        if (!Utils::isUnset($request->checkUrl)) {
+            $query['CheckUrl'] = $request->checkUrl;
+        }
+        if (!Utils::isUnset($request->domainName)) {
+            $query['DomainName'] = $request->domainName;
+        }
+        if (!Utils::isUnset($request->ownerAccount)) {
+            $query['OwnerAccount'] = $request->ownerAccount;
+        }
+        if (!Utils::isUnset($request->ownerId)) {
+            $query['OwnerId'] = $request->ownerId;
+        }
+        if (!Utils::isUnset($request->scope)) {
+            $query['Scope'] = $request->scope;
+        }
+        if (!Utils::isUnset($request->securityToken)) {
+            $query['SecurityToken'] = $request->securityToken;
+        }
+        if (!Utils::isUnset($request->sources)) {
+            $query['Sources'] = $request->sources;
+        }
+        if (!Utils::isUnset($request->topLevelDomain)) {
+            $query['TopLevelDomain'] = $request->topLevelDomain;
+        }
+        $req = new OpenApiRequest([
             'query' => OpenApiUtilClient::query($query),
         ]);
         $params = new Params([
@@ -643,12 +761,20 @@ class Vod extends OpenApiClient
     public function addVodTemplateWithOptions($request, $runtime)
     {
         Utils::validateModel($request);
-        $query                   = [];
-        $query['AppId']          = $request->appId;
-        $query['Name']           = $request->name;
-        $query['TemplateConfig'] = $request->templateConfig;
-        $query['TemplateType']   = $request->templateType;
-        $req                     = new OpenApiRequest([
+        $query = [];
+        if (!Utils::isUnset($request->appId)) {
+            $query['AppId'] = $request->appId;
+        }
+        if (!Utils::isUnset($request->name)) {
+            $query['Name'] = $request->name;
+        }
+        if (!Utils::isUnset($request->templateConfig)) {
+            $query['TemplateConfig'] = $request->templateConfig;
+        }
+        if (!Utils::isUnset($request->templateType)) {
+            $query['TemplateType'] = $request->templateType;
+        }
+        $req = new OpenApiRequest([
             'query' => OpenApiUtilClient::query($query),
         ]);
         $params = new Params([
@@ -687,13 +813,23 @@ class Vod extends OpenApiClient
     public function addWatermarkWithOptions($request, $runtime)
     {
         Utils::validateModel($request);
-        $query                    = [];
-        $query['AppId']           = $request->appId;
-        $query['FileUrl']         = $request->fileUrl;
-        $query['Name']            = $request->name;
-        $query['Type']            = $request->type;
-        $query['WatermarkConfig'] = $request->watermarkConfig;
-        $req                      = new OpenApiRequest([
+        $query = [];
+        if (!Utils::isUnset($request->appId)) {
+            $query['AppId'] = $request->appId;
+        }
+        if (!Utils::isUnset($request->fileUrl)) {
+            $query['FileUrl'] = $request->fileUrl;
+        }
+        if (!Utils::isUnset($request->name)) {
+            $query['Name'] = $request->name;
+        }
+        if (!Utils::isUnset($request->type)) {
+            $query['Type'] = $request->type;
+        }
+        if (!Utils::isUnset($request->watermarkConfig)) {
+            $query['WatermarkConfig'] = $request->watermarkConfig;
+        }
+        $req = new OpenApiRequest([
             'query' => OpenApiUtilClient::query($query),
         ]);
         $params = new Params([
@@ -732,12 +868,20 @@ class Vod extends OpenApiClient
     public function attachAppPolicyToIdentityWithOptions($request, $runtime)
     {
         Utils::validateModel($request);
-        $query                 = [];
-        $query['AppId']        = $request->appId;
-        $query['IdentityName'] = $request->identityName;
-        $query['IdentityType'] = $request->identityType;
-        $query['PolicyNames']  = $request->policyNames;
-        $req                   = new OpenApiRequest([
+        $query = [];
+        if (!Utils::isUnset($request->appId)) {
+            $query['AppId'] = $request->appId;
+        }
+        if (!Utils::isUnset($request->identityName)) {
+            $query['IdentityName'] = $request->identityName;
+        }
+        if (!Utils::isUnset($request->identityType)) {
+            $query['IdentityType'] = $request->identityType;
+        }
+        if (!Utils::isUnset($request->policyNames)) {
+            $query['PolicyNames'] = $request->policyNames;
+        }
+        $req = new OpenApiRequest([
             'query' => OpenApiUtilClient::query($query),
         ]);
         $params = new Params([
@@ -776,13 +920,23 @@ class Vod extends OpenApiClient
     public function batchSetVodDomainConfigsWithOptions($request, $runtime)
     {
         Utils::validateModel($request);
-        $query                  = [];
-        $query['DomainNames']   = $request->domainNames;
-        $query['Functions']     = $request->functions;
-        $query['OwnerAccount']  = $request->ownerAccount;
-        $query['OwnerId']       = $request->ownerId;
-        $query['SecurityToken'] = $request->securityToken;
-        $req                    = new OpenApiRequest([
+        $query = [];
+        if (!Utils::isUnset($request->domainNames)) {
+            $query['DomainNames'] = $request->domainNames;
+        }
+        if (!Utils::isUnset($request->functions)) {
+            $query['Functions'] = $request->functions;
+        }
+        if (!Utils::isUnset($request->ownerAccount)) {
+            $query['OwnerAccount'] = $request->ownerAccount;
+        }
+        if (!Utils::isUnset($request->ownerId)) {
+            $query['OwnerId'] = $request->ownerId;
+        }
+        if (!Utils::isUnset($request->securityToken)) {
+            $query['SecurityToken'] = $request->securityToken;
+        }
+        $req = new OpenApiRequest([
             'query' => OpenApiUtilClient::query($query),
         ]);
         $params = new Params([
@@ -821,11 +975,17 @@ class Vod extends OpenApiClient
     public function batchStartVodDomainWithOptions($request, $runtime)
     {
         Utils::validateModel($request);
-        $query                  = [];
-        $query['DomainNames']   = $request->domainNames;
-        $query['OwnerId']       = $request->ownerId;
-        $query['SecurityToken'] = $request->securityToken;
-        $req                    = new OpenApiRequest([
+        $query = [];
+        if (!Utils::isUnset($request->domainNames)) {
+            $query['DomainNames'] = $request->domainNames;
+        }
+        if (!Utils::isUnset($request->ownerId)) {
+            $query['OwnerId'] = $request->ownerId;
+        }
+        if (!Utils::isUnset($request->securityToken)) {
+            $query['SecurityToken'] = $request->securityToken;
+        }
+        $req = new OpenApiRequest([
             'query' => OpenApiUtilClient::query($query),
         ]);
         $params = new Params([
@@ -864,11 +1024,17 @@ class Vod extends OpenApiClient
     public function batchStopVodDomainWithOptions($request, $runtime)
     {
         Utils::validateModel($request);
-        $query                  = [];
-        $query['DomainNames']   = $request->domainNames;
-        $query['OwnerId']       = $request->ownerId;
-        $query['SecurityToken'] = $request->securityToken;
-        $req                    = new OpenApiRequest([
+        $query = [];
+        if (!Utils::isUnset($request->domainNames)) {
+            $query['DomainNames'] = $request->domainNames;
+        }
+        if (!Utils::isUnset($request->ownerId)) {
+            $query['OwnerId'] = $request->ownerId;
+        }
+        if (!Utils::isUnset($request->securityToken)) {
+            $query['SecurityToken'] = $request->securityToken;
+        }
+        $req = new OpenApiRequest([
             'query' => OpenApiUtilClient::query($query),
         ]);
         $params = new Params([
@@ -907,10 +1073,14 @@ class Vod extends OpenApiClient
     public function cancelUrlUploadJobsWithOptions($request, $runtime)
     {
         Utils::validateModel($request);
-        $query               = [];
-        $query['JobIds']     = $request->jobIds;
-        $query['UploadUrls'] = $request->uploadUrls;
-        $req                 = new OpenApiRequest([
+        $query = [];
+        if (!Utils::isUnset($request->jobIds)) {
+            $query['JobIds'] = $request->jobIds;
+        }
+        if (!Utils::isUnset($request->uploadUrls)) {
+            $query['UploadUrls'] = $request->uploadUrls;
+        }
+        $req = new OpenApiRequest([
             'query' => OpenApiUtilClient::query($query),
         ]);
         $params = new Params([
@@ -949,10 +1119,14 @@ class Vod extends OpenApiClient
     public function createAppInfoWithOptions($request, $runtime)
     {
         Utils::validateModel($request);
-        $query                = [];
-        $query['AppName']     = $request->appName;
-        $query['Description'] = $request->description;
-        $req                  = new OpenApiRequest([
+        $query = [];
+        if (!Utils::isUnset($request->appName)) {
+            $query['AppName'] = $request->appName;
+        }
+        if (!Utils::isUnset($request->description)) {
+            $query['Description'] = $request->description;
+        }
+        $req = new OpenApiRequest([
             'query' => OpenApiUtilClient::query($query),
         ]);
         $params = new Params([
@@ -991,9 +1165,11 @@ class Vod extends OpenApiClient
     public function createAuditWithOptions($request, $runtime)
     {
         Utils::validateModel($request);
-        $query                 = [];
-        $query['AuditContent'] = $request->auditContent;
-        $req                   = new OpenApiRequest([
+        $query = [];
+        if (!Utils::isUnset($request->auditContent)) {
+            $query['AuditContent'] = $request->auditContent;
+        }
+        $req = new OpenApiRequest([
             'query' => OpenApiUtilClient::query($query),
         ]);
         $params = new Params([
@@ -1032,19 +1208,41 @@ class Vod extends OpenApiClient
     public function createUploadAttachedMediaWithOptions($request, $runtime)
     {
         Utils::validateModel($request);
-        $query                    = [];
-        $query['AppId']           = $request->appId;
-        $query['BusinessType']    = $request->businessType;
-        $query['CateIds']         = $request->cateIds;
-        $query['Description']     = $request->description;
-        $query['FileName']        = $request->fileName;
-        $query['FileSize']        = $request->fileSize;
-        $query['MediaExt']        = $request->mediaExt;
-        $query['StorageLocation'] = $request->storageLocation;
-        $query['Tags']            = $request->tags;
-        $query['Title']           = $request->title;
-        $query['UserData']        = $request->userData;
-        $req                      = new OpenApiRequest([
+        $query = [];
+        if (!Utils::isUnset($request->appId)) {
+            $query['AppId'] = $request->appId;
+        }
+        if (!Utils::isUnset($request->businessType)) {
+            $query['BusinessType'] = $request->businessType;
+        }
+        if (!Utils::isUnset($request->cateIds)) {
+            $query['CateIds'] = $request->cateIds;
+        }
+        if (!Utils::isUnset($request->description)) {
+            $query['Description'] = $request->description;
+        }
+        if (!Utils::isUnset($request->fileName)) {
+            $query['FileName'] = $request->fileName;
+        }
+        if (!Utils::isUnset($request->fileSize)) {
+            $query['FileSize'] = $request->fileSize;
+        }
+        if (!Utils::isUnset($request->mediaExt)) {
+            $query['MediaExt'] = $request->mediaExt;
+        }
+        if (!Utils::isUnset($request->storageLocation)) {
+            $query['StorageLocation'] = $request->storageLocation;
+        }
+        if (!Utils::isUnset($request->tags)) {
+            $query['Tags'] = $request->tags;
+        }
+        if (!Utils::isUnset($request->title)) {
+            $query['Title'] = $request->title;
+        }
+        if (!Utils::isUnset($request->userData)) {
+            $query['UserData'] = $request->userData;
+        }
+        $req = new OpenApiRequest([
             'query' => OpenApiUtilClient::query($query),
         ]);
         $params = new Params([
@@ -1083,17 +1281,35 @@ class Vod extends OpenApiClient
     public function createUploadImageWithOptions($request, $runtime)
     {
         Utils::validateModel($request);
-        $query                    = [];
-        $query['AppId']           = $request->appId;
-        $query['CateId']          = $request->cateId;
-        $query['Description']     = $request->description;
-        $query['ImageExt']        = $request->imageExt;
-        $query['ImageType']       = $request->imageType;
-        $query['StorageLocation'] = $request->storageLocation;
-        $query['Tags']            = $request->tags;
-        $query['Title']           = $request->title;
-        $query['UserData']        = $request->userData;
-        $req                      = new OpenApiRequest([
+        $query = [];
+        if (!Utils::isUnset($request->appId)) {
+            $query['AppId'] = $request->appId;
+        }
+        if (!Utils::isUnset($request->cateId)) {
+            $query['CateId'] = $request->cateId;
+        }
+        if (!Utils::isUnset($request->description)) {
+            $query['Description'] = $request->description;
+        }
+        if (!Utils::isUnset($request->imageExt)) {
+            $query['ImageExt'] = $request->imageExt;
+        }
+        if (!Utils::isUnset($request->imageType)) {
+            $query['ImageType'] = $request->imageType;
+        }
+        if (!Utils::isUnset($request->storageLocation)) {
+            $query['StorageLocation'] = $request->storageLocation;
+        }
+        if (!Utils::isUnset($request->tags)) {
+            $query['Tags'] = $request->tags;
+        }
+        if (!Utils::isUnset($request->title)) {
+            $query['Title'] = $request->title;
+        }
+        if (!Utils::isUnset($request->userData)) {
+            $query['UserData'] = $request->userData;
+        }
+        $req = new OpenApiRequest([
             'query' => OpenApiUtilClient::query($query),
         ]);
         $params = new Params([
@@ -1132,20 +1348,44 @@ class Vod extends OpenApiClient
     public function createUploadVideoWithOptions($request, $runtime)
     {
         Utils::validateModel($request);
-        $query                    = [];
-        $query['AppId']           = $request->appId;
-        $query['CateId']          = $request->cateId;
-        $query['CoverURL']        = $request->coverURL;
-        $query['Description']     = $request->description;
-        $query['FileName']        = $request->fileName;
-        $query['FileSize']        = $request->fileSize;
-        $query['StorageLocation'] = $request->storageLocation;
-        $query['Tags']            = $request->tags;
-        $query['TemplateGroupId'] = $request->templateGroupId;
-        $query['Title']           = $request->title;
-        $query['UserData']        = $request->userData;
-        $query['WorkflowId']      = $request->workflowId;
-        $req                      = new OpenApiRequest([
+        $query = [];
+        if (!Utils::isUnset($request->appId)) {
+            $query['AppId'] = $request->appId;
+        }
+        if (!Utils::isUnset($request->cateId)) {
+            $query['CateId'] = $request->cateId;
+        }
+        if (!Utils::isUnset($request->coverURL)) {
+            $query['CoverURL'] = $request->coverURL;
+        }
+        if (!Utils::isUnset($request->description)) {
+            $query['Description'] = $request->description;
+        }
+        if (!Utils::isUnset($request->fileName)) {
+            $query['FileName'] = $request->fileName;
+        }
+        if (!Utils::isUnset($request->fileSize)) {
+            $query['FileSize'] = $request->fileSize;
+        }
+        if (!Utils::isUnset($request->storageLocation)) {
+            $query['StorageLocation'] = $request->storageLocation;
+        }
+        if (!Utils::isUnset($request->tags)) {
+            $query['Tags'] = $request->tags;
+        }
+        if (!Utils::isUnset($request->templateGroupId)) {
+            $query['TemplateGroupId'] = $request->templateGroupId;
+        }
+        if (!Utils::isUnset($request->title)) {
+            $query['Title'] = $request->title;
+        }
+        if (!Utils::isUnset($request->userData)) {
+            $query['UserData'] = $request->userData;
+        }
+        if (!Utils::isUnset($request->workflowId)) {
+            $query['WorkflowId'] = $request->workflowId;
+        }
+        $req = new OpenApiRequest([
             'query' => OpenApiUtilClient::query($query),
         ]);
         $params = new Params([
@@ -1224,9 +1464,11 @@ class Vod extends OpenApiClient
     public function deleteAIImageInfosWithOptions($request, $runtime)
     {
         Utils::validateModel($request);
-        $query                   = [];
-        $query['AIImageInfoIds'] = $request->AIImageInfoIds;
-        $req                     = new OpenApiRequest([
+        $query = [];
+        if (!Utils::isUnset($request->AIImageInfoIds)) {
+            $query['AIImageInfoIds'] = $request->AIImageInfoIds;
+        }
+        $req = new OpenApiRequest([
             'query' => OpenApiUtilClient::query($query),
         ]);
         $params = new Params([
@@ -1265,9 +1507,11 @@ class Vod extends OpenApiClient
     public function deleteAITemplateWithOptions($request, $runtime)
     {
         Utils::validateModel($request);
-        $query               = [];
-        $query['TemplateId'] = $request->templateId;
-        $req                 = new OpenApiRequest([
+        $query = [];
+        if (!Utils::isUnset($request->templateId)) {
+            $query['TemplateId'] = $request->templateId;
+        }
+        $req = new OpenApiRequest([
             'query' => OpenApiUtilClient::query($query),
         ]);
         $params = new Params([
@@ -1306,9 +1550,11 @@ class Vod extends OpenApiClient
     public function deleteAppInfoWithOptions($request, $runtime)
     {
         Utils::validateModel($request);
-        $query          = [];
-        $query['AppId'] = $request->appId;
-        $req            = new OpenApiRequest([
+        $query = [];
+        if (!Utils::isUnset($request->appId)) {
+            $query['AppId'] = $request->appId;
+        }
+        $req = new OpenApiRequest([
             'query' => OpenApiUtilClient::query($query),
         ]);
         $params = new Params([
@@ -1347,9 +1593,11 @@ class Vod extends OpenApiClient
     public function deleteAttachedMediaWithOptions($request, $runtime)
     {
         Utils::validateModel($request);
-        $query             = [];
-        $query['MediaIds'] = $request->mediaIds;
-        $req               = new OpenApiRequest([
+        $query = [];
+        if (!Utils::isUnset($request->mediaIds)) {
+            $query['MediaIds'] = $request->mediaIds;
+        }
+        $req = new OpenApiRequest([
             'query' => OpenApiUtilClient::query($query),
         ]);
         $params = new Params([
@@ -1388,9 +1636,11 @@ class Vod extends OpenApiClient
     public function deleteCategoryWithOptions($request, $runtime)
     {
         Utils::validateModel($request);
-        $query           = [];
-        $query['CateId'] = $request->cateId;
-        $req             = new OpenApiRequest([
+        $query = [];
+        if (!Utils::isUnset($request->cateId)) {
+            $query['CateId'] = $request->cateId;
+        }
+        $req = new OpenApiRequest([
             'query' => OpenApiUtilClient::query($query),
         ]);
         $params = new Params([
@@ -1429,10 +1679,14 @@ class Vod extends OpenApiClient
     public function deleteDynamicImageWithOptions($request, $runtime)
     {
         Utils::validateModel($request);
-        $query                    = [];
-        $query['DynamicImageIds'] = $request->dynamicImageIds;
-        $query['VideoId']         = $request->videoId;
-        $req                      = new OpenApiRequest([
+        $query = [];
+        if (!Utils::isUnset($request->dynamicImageIds)) {
+            $query['DynamicImageIds'] = $request->dynamicImageIds;
+        }
+        if (!Utils::isUnset($request->videoId)) {
+            $query['VideoId'] = $request->videoId;
+        }
+        $req = new OpenApiRequest([
             'query' => OpenApiUtilClient::query($query),
         ]);
         $params = new Params([
@@ -1471,13 +1725,23 @@ class Vod extends OpenApiClient
     public function deleteEditingProjectWithOptions($request, $runtime)
     {
         Utils::validateModel($request);
-        $query                         = [];
-        $query['OwnerAccount']         = $request->ownerAccount;
-        $query['OwnerId']              = $request->ownerId;
-        $query['ProjectIds']           = $request->projectIds;
-        $query['ResourceOwnerAccount'] = $request->resourceOwnerAccount;
-        $query['ResourceOwnerId']      = $request->resourceOwnerId;
-        $req                           = new OpenApiRequest([
+        $query = [];
+        if (!Utils::isUnset($request->ownerAccount)) {
+            $query['OwnerAccount'] = $request->ownerAccount;
+        }
+        if (!Utils::isUnset($request->ownerId)) {
+            $query['OwnerId'] = $request->ownerId;
+        }
+        if (!Utils::isUnset($request->projectIds)) {
+            $query['ProjectIds'] = $request->projectIds;
+        }
+        if (!Utils::isUnset($request->resourceOwnerAccount)) {
+            $query['ResourceOwnerAccount'] = $request->resourceOwnerAccount;
+        }
+        if (!Utils::isUnset($request->resourceOwnerId)) {
+            $query['ResourceOwnerId'] = $request->resourceOwnerId;
+        }
+        $req = new OpenApiRequest([
             'query' => OpenApiUtilClient::query($query),
         ]);
         $params = new Params([
@@ -1516,13 +1780,23 @@ class Vod extends OpenApiClient
     public function deleteImageWithOptions($request, $runtime)
     {
         Utils::validateModel($request);
-        $query                    = [];
-        $query['DeleteImageType'] = $request->deleteImageType;
-        $query['ImageIds']        = $request->imageIds;
-        $query['ImageType']       = $request->imageType;
-        $query['ImageURLs']       = $request->imageURLs;
-        $query['VideoId']         = $request->videoId;
-        $req                      = new OpenApiRequest([
+        $query = [];
+        if (!Utils::isUnset($request->deleteImageType)) {
+            $query['DeleteImageType'] = $request->deleteImageType;
+        }
+        if (!Utils::isUnset($request->imageIds)) {
+            $query['ImageIds'] = $request->imageIds;
+        }
+        if (!Utils::isUnset($request->imageType)) {
+            $query['ImageType'] = $request->imageType;
+        }
+        if (!Utils::isUnset($request->imageURLs)) {
+            $query['ImageURLs'] = $request->imageURLs;
+        }
+        if (!Utils::isUnset($request->videoId)) {
+            $query['VideoId'] = $request->videoId;
+        }
+        $req = new OpenApiRequest([
             'query' => OpenApiUtilClient::query($query),
         ]);
         $params = new Params([
@@ -1553,6 +1827,52 @@ class Vod extends OpenApiClient
     }
 
     /**
+     * @param DeleteMediaInfoRequest $request
+     * @param RuntimeOptions         $runtime
+     *
+     * @return DeleteMediaInfoResponse
+     */
+    public function deleteMediaInfoWithOptions($request, $runtime)
+    {
+        Utils::validateModel($request);
+        $query = [];
+        if (!Utils::isUnset($request->appId)) {
+            $query['AppId'] = $request->appId;
+        }
+        if (!Utils::isUnset($request->mediaId)) {
+            $query['MediaId'] = $request->mediaId;
+        }
+        $req = new OpenApiRequest([
+            'query' => OpenApiUtilClient::query($query),
+        ]);
+        $params = new Params([
+            'action'      => 'DeleteMediaInfo',
+            'version'     => '2017-03-21',
+            'protocol'    => 'HTTPS',
+            'pathname'    => '/',
+            'method'      => 'POST',
+            'authType'    => 'AK',
+            'style'       => 'RPC',
+            'reqBodyType' => 'formData',
+            'bodyType'    => 'json',
+        ]);
+
+        return DeleteMediaInfoResponse::fromMap($this->callApi($params, $req, $runtime));
+    }
+
+    /**
+     * @param DeleteMediaInfoRequest $request
+     *
+     * @return DeleteMediaInfoResponse
+     */
+    public function deleteMediaInfo($request)
+    {
+        $runtime = new RuntimeOptions([]);
+
+        return $this->deleteMediaInfoWithOptions($request, $runtime);
+    }
+
+    /**
      * @param DeleteMessageCallbackRequest $request
      * @param RuntimeOptions               $runtime
      *
@@ -1561,10 +1881,14 @@ class Vod extends OpenApiClient
     public function deleteMessageCallbackWithOptions($request, $runtime)
     {
         Utils::validateModel($request);
-        $query                 = [];
-        $query['AppId']        = $request->appId;
-        $query['OwnerAccount'] = $request->ownerAccount;
-        $req                   = new OpenApiRequest([
+        $query = [];
+        if (!Utils::isUnset($request->appId)) {
+            $query['AppId'] = $request->appId;
+        }
+        if (!Utils::isUnset($request->ownerAccount)) {
+            $query['OwnerAccount'] = $request->ownerAccount;
+        }
+        $req = new OpenApiRequest([
             'query' => OpenApiUtilClient::query($query),
         ]);
         $params = new Params([
@@ -1603,10 +1927,14 @@ class Vod extends OpenApiClient
     public function deleteMezzaninesWithOptions($request, $runtime)
     {
         Utils::validateModel($request);
-        $query             = [];
-        $query['Force']    = $request->force;
-        $query['VideoIds'] = $request->videoIds;
-        $req               = new OpenApiRequest([
+        $query = [];
+        if (!Utils::isUnset($request->force)) {
+            $query['Force'] = $request->force;
+        }
+        if (!Utils::isUnset($request->videoIds)) {
+            $query['VideoIds'] = $request->videoIds;
+        }
+        $req = new OpenApiRequest([
             'query' => OpenApiUtilClient::query($query),
         ]);
         $params = new Params([
@@ -1645,11 +1973,17 @@ class Vod extends OpenApiClient
     public function deleteMultipartUploadWithOptions($request, $runtime)
     {
         Utils::validateModel($request);
-        $query                 = [];
-        $query['MediaId']      = $request->mediaId;
-        $query['MediaType']    = $request->mediaType;
-        $query['OwnerAccount'] = $request->ownerAccount;
-        $req                   = new OpenApiRequest([
+        $query = [];
+        if (!Utils::isUnset($request->mediaId)) {
+            $query['MediaId'] = $request->mediaId;
+        }
+        if (!Utils::isUnset($request->mediaType)) {
+            $query['MediaType'] = $request->mediaType;
+        }
+        if (!Utils::isUnset($request->ownerAccount)) {
+            $query['OwnerAccount'] = $request->ownerAccount;
+        }
+        $req = new OpenApiRequest([
             'query' => OpenApiUtilClient::query($query),
         ]);
         $params = new Params([
@@ -1688,10 +2022,14 @@ class Vod extends OpenApiClient
     public function deleteStreamWithOptions($request, $runtime)
     {
         Utils::validateModel($request);
-        $query            = [];
-        $query['JobIds']  = $request->jobIds;
-        $query['VideoId'] = $request->videoId;
-        $req              = new OpenApiRequest([
+        $query = [];
+        if (!Utils::isUnset($request->jobIds)) {
+            $query['JobIds'] = $request->jobIds;
+        }
+        if (!Utils::isUnset($request->videoId)) {
+            $query['VideoId'] = $request->videoId;
+        }
+        $req = new OpenApiRequest([
             'query' => OpenApiUtilClient::query($query),
         ]);
         $params = new Params([
@@ -1730,11 +2068,17 @@ class Vod extends OpenApiClient
     public function deleteTranscodeTemplateGroupWithOptions($request, $runtime)
     {
         Utils::validateModel($request);
-        $query                             = [];
-        $query['ForceDelGroup']            = $request->forceDelGroup;
-        $query['TranscodeTemplateGroupId'] = $request->transcodeTemplateGroupId;
-        $query['TranscodeTemplateIds']     = $request->transcodeTemplateIds;
-        $req                               = new OpenApiRequest([
+        $query = [];
+        if (!Utils::isUnset($request->forceDelGroup)) {
+            $query['ForceDelGroup'] = $request->forceDelGroup;
+        }
+        if (!Utils::isUnset($request->transcodeTemplateGroupId)) {
+            $query['TranscodeTemplateGroupId'] = $request->transcodeTemplateGroupId;
+        }
+        if (!Utils::isUnset($request->transcodeTemplateIds)) {
+            $query['TranscodeTemplateIds'] = $request->transcodeTemplateIds;
+        }
+        $req = new OpenApiRequest([
             'query' => OpenApiUtilClient::query($query),
         ]);
         $params = new Params([
@@ -1773,9 +2117,11 @@ class Vod extends OpenApiClient
     public function deleteVideoWithOptions($request, $runtime)
     {
         Utils::validateModel($request);
-        $query             = [];
-        $query['VideoIds'] = $request->videoIds;
-        $req               = new OpenApiRequest([
+        $query = [];
+        if (!Utils::isUnset($request->videoIds)) {
+            $query['VideoIds'] = $request->videoIds;
+        }
+        $req = new OpenApiRequest([
             'query' => OpenApiUtilClient::query($query),
         ]);
         $params = new Params([
@@ -1814,12 +2160,20 @@ class Vod extends OpenApiClient
     public function deleteVodDomainWithOptions($request, $runtime)
     {
         Utils::validateModel($request);
-        $query                  = [];
-        $query['DomainName']    = $request->domainName;
-        $query['OwnerAccount']  = $request->ownerAccount;
-        $query['OwnerId']       = $request->ownerId;
-        $query['SecurityToken'] = $request->securityToken;
-        $req                    = new OpenApiRequest([
+        $query = [];
+        if (!Utils::isUnset($request->domainName)) {
+            $query['DomainName'] = $request->domainName;
+        }
+        if (!Utils::isUnset($request->ownerAccount)) {
+            $query['OwnerAccount'] = $request->ownerAccount;
+        }
+        if (!Utils::isUnset($request->ownerId)) {
+            $query['OwnerId'] = $request->ownerId;
+        }
+        if (!Utils::isUnset($request->securityToken)) {
+            $query['SecurityToken'] = $request->securityToken;
+        }
+        $req = new OpenApiRequest([
             'query' => OpenApiUtilClient::query($query),
         ]);
         $params = new Params([
@@ -1898,12 +2252,20 @@ class Vod extends OpenApiClient
     public function deleteVodSpecificConfigWithOptions($request, $runtime)
     {
         Utils::validateModel($request);
-        $query                  = [];
-        $query['ConfigId']      = $request->configId;
-        $query['DomainName']    = $request->domainName;
-        $query['OwnerId']       = $request->ownerId;
-        $query['SecurityToken'] = $request->securityToken;
-        $req                    = new OpenApiRequest([
+        $query = [];
+        if (!Utils::isUnset($request->configId)) {
+            $query['ConfigId'] = $request->configId;
+        }
+        if (!Utils::isUnset($request->domainName)) {
+            $query['DomainName'] = $request->domainName;
+        }
+        if (!Utils::isUnset($request->ownerId)) {
+            $query['OwnerId'] = $request->ownerId;
+        }
+        if (!Utils::isUnset($request->securityToken)) {
+            $query['SecurityToken'] = $request->securityToken;
+        }
+        $req = new OpenApiRequest([
             'query' => OpenApiUtilClient::query($query),
         ]);
         $params = new Params([
@@ -1942,9 +2304,11 @@ class Vod extends OpenApiClient
     public function deleteVodTemplateWithOptions($request, $runtime)
     {
         Utils::validateModel($request);
-        $query                  = [];
-        $query['VodTemplateId'] = $request->vodTemplateId;
-        $req                    = new OpenApiRequest([
+        $query = [];
+        if (!Utils::isUnset($request->vodTemplateId)) {
+            $query['VodTemplateId'] = $request->vodTemplateId;
+        }
+        $req = new OpenApiRequest([
             'query' => OpenApiUtilClient::query($query),
         ]);
         $params = new Params([
@@ -1983,9 +2347,11 @@ class Vod extends OpenApiClient
     public function deleteWatermarkWithOptions($request, $runtime)
     {
         Utils::validateModel($request);
-        $query                = [];
-        $query['WatermarkId'] = $request->watermarkId;
-        $req                  = new OpenApiRequest([
+        $query = [];
+        if (!Utils::isUnset($request->watermarkId)) {
+            $query['WatermarkId'] = $request->watermarkId;
+        }
+        $req = new OpenApiRequest([
             'query' => OpenApiUtilClient::query($query),
         ]);
         $params = new Params([
@@ -2024,12 +2390,20 @@ class Vod extends OpenApiClient
     public function describePlayTopVideosWithOptions($request, $runtime)
     {
         Utils::validateModel($request);
-        $query             = [];
-        $query['BizDate']  = $request->bizDate;
-        $query['OwnerId']  = $request->ownerId;
-        $query['PageNo']   = $request->pageNo;
-        $query['PageSize'] = $request->pageSize;
-        $req               = new OpenApiRequest([
+        $query = [];
+        if (!Utils::isUnset($request->bizDate)) {
+            $query['BizDate'] = $request->bizDate;
+        }
+        if (!Utils::isUnset($request->ownerId)) {
+            $query['OwnerId'] = $request->ownerId;
+        }
+        if (!Utils::isUnset($request->pageNo)) {
+            $query['PageNo'] = $request->pageNo;
+        }
+        if (!Utils::isUnset($request->pageSize)) {
+            $query['PageSize'] = $request->pageSize;
+        }
+        $req = new OpenApiRequest([
             'query' => OpenApiUtilClient::query($query),
         ]);
         $params = new Params([
@@ -2068,11 +2442,17 @@ class Vod extends OpenApiClient
     public function describePlayUserAvgWithOptions($request, $runtime)
     {
         Utils::validateModel($request);
-        $query              = [];
-        $query['EndTime']   = $request->endTime;
-        $query['OwnerId']   = $request->ownerId;
-        $query['StartTime'] = $request->startTime;
-        $req                = new OpenApiRequest([
+        $query = [];
+        if (!Utils::isUnset($request->endTime)) {
+            $query['EndTime'] = $request->endTime;
+        }
+        if (!Utils::isUnset($request->ownerId)) {
+            $query['OwnerId'] = $request->ownerId;
+        }
+        if (!Utils::isUnset($request->startTime)) {
+            $query['StartTime'] = $request->startTime;
+        }
+        $req = new OpenApiRequest([
             'query' => OpenApiUtilClient::query($query),
         ]);
         $params = new Params([
@@ -2111,11 +2491,17 @@ class Vod extends OpenApiClient
     public function describePlayUserTotalWithOptions($request, $runtime)
     {
         Utils::validateModel($request);
-        $query              = [];
-        $query['EndTime']   = $request->endTime;
-        $query['OwnerId']   = $request->ownerId;
-        $query['StartTime'] = $request->startTime;
-        $req                = new OpenApiRequest([
+        $query = [];
+        if (!Utils::isUnset($request->endTime)) {
+            $query['EndTime'] = $request->endTime;
+        }
+        if (!Utils::isUnset($request->ownerId)) {
+            $query['OwnerId'] = $request->ownerId;
+        }
+        if (!Utils::isUnset($request->startTime)) {
+            $query['StartTime'] = $request->startTime;
+        }
+        $req = new OpenApiRequest([
             'query' => OpenApiUtilClient::query($query),
         ]);
         $params = new Params([
@@ -2154,12 +2540,20 @@ class Vod extends OpenApiClient
     public function describePlayVideoStatisWithOptions($request, $runtime)
     {
         Utils::validateModel($request);
-        $query              = [];
-        $query['EndTime']   = $request->endTime;
-        $query['OwnerId']   = $request->ownerId;
-        $query['StartTime'] = $request->startTime;
-        $query['VideoId']   = $request->videoId;
-        $req                = new OpenApiRequest([
+        $query = [];
+        if (!Utils::isUnset($request->endTime)) {
+            $query['EndTime'] = $request->endTime;
+        }
+        if (!Utils::isUnset($request->ownerId)) {
+            $query['OwnerId'] = $request->ownerId;
+        }
+        if (!Utils::isUnset($request->startTime)) {
+            $query['StartTime'] = $request->startTime;
+        }
+        if (!Utils::isUnset($request->videoId)) {
+            $query['VideoId'] = $request->videoId;
+        }
+        $req = new OpenApiRequest([
             'query' => OpenApiUtilClient::query($query),
         ]);
         $params = new Params([
@@ -2198,13 +2592,23 @@ class Vod extends OpenApiClient
     public function describeVodAIDataWithOptions($request, $runtime)
     {
         Utils::validateModel($request);
-        $query              = [];
-        $query['AIType']    = $request->AIType;
-        $query['EndTime']   = $request->endTime;
-        $query['OwnerId']   = $request->ownerId;
-        $query['Region']    = $request->region;
-        $query['StartTime'] = $request->startTime;
-        $req                = new OpenApiRequest([
+        $query = [];
+        if (!Utils::isUnset($request->AIType)) {
+            $query['AIType'] = $request->AIType;
+        }
+        if (!Utils::isUnset($request->endTime)) {
+            $query['EndTime'] = $request->endTime;
+        }
+        if (!Utils::isUnset($request->ownerId)) {
+            $query['OwnerId'] = $request->ownerId;
+        }
+        if (!Utils::isUnset($request->region)) {
+            $query['Region'] = $request->region;
+        }
+        if (!Utils::isUnset($request->startTime)) {
+            $query['StartTime'] = $request->startTime;
+        }
+        $req = new OpenApiRequest([
             'query' => OpenApiUtilClient::query($query),
         ]);
         $params = new Params([
@@ -2243,11 +2647,17 @@ class Vod extends OpenApiClient
     public function describeVodCertificateListWithOptions($request, $runtime)
     {
         Utils::validateModel($request);
-        $query                  = [];
-        $query['DomainName']    = $request->domainName;
-        $query['OwnerId']       = $request->ownerId;
-        $query['SecurityToken'] = $request->securityToken;
-        $req                    = new OpenApiRequest([
+        $query = [];
+        if (!Utils::isUnset($request->domainName)) {
+            $query['DomainName'] = $request->domainName;
+        }
+        if (!Utils::isUnset($request->ownerId)) {
+            $query['OwnerId'] = $request->ownerId;
+        }
+        if (!Utils::isUnset($request->securityToken)) {
+            $query['SecurityToken'] = $request->securityToken;
+        }
+        $req = new OpenApiRequest([
             'query' => OpenApiUtilClient::query($query),
         ]);
         $params = new Params([
@@ -2286,15 +2696,29 @@ class Vod extends OpenApiClient
     public function describeVodDomainBpsDataWithOptions($request, $runtime)
     {
         Utils::validateModel($request);
-        $query                   = [];
-        $query['DomainName']     = $request->domainName;
-        $query['EndTime']        = $request->endTime;
-        $query['Interval']       = $request->interval;
-        $query['IspNameEn']      = $request->ispNameEn;
-        $query['LocationNameEn'] = $request->locationNameEn;
-        $query['OwnerId']        = $request->ownerId;
-        $query['StartTime']      = $request->startTime;
-        $req                     = new OpenApiRequest([
+        $query = [];
+        if (!Utils::isUnset($request->domainName)) {
+            $query['DomainName'] = $request->domainName;
+        }
+        if (!Utils::isUnset($request->endTime)) {
+            $query['EndTime'] = $request->endTime;
+        }
+        if (!Utils::isUnset($request->interval)) {
+            $query['Interval'] = $request->interval;
+        }
+        if (!Utils::isUnset($request->ispNameEn)) {
+            $query['IspNameEn'] = $request->ispNameEn;
+        }
+        if (!Utils::isUnset($request->locationNameEn)) {
+            $query['LocationNameEn'] = $request->locationNameEn;
+        }
+        if (!Utils::isUnset($request->ownerId)) {
+            $query['OwnerId'] = $request->ownerId;
+        }
+        if (!Utils::isUnset($request->startTime)) {
+            $query['StartTime'] = $request->startTime;
+        }
+        $req = new OpenApiRequest([
             'query' => OpenApiUtilClient::query($query),
         ]);
         $params = new Params([
@@ -2333,10 +2757,14 @@ class Vod extends OpenApiClient
     public function describeVodDomainCertificateInfoWithOptions($request, $runtime)
     {
         Utils::validateModel($request);
-        $query               = [];
-        $query['DomainName'] = $request->domainName;
-        $query['OwnerId']    = $request->ownerId;
-        $req                 = new OpenApiRequest([
+        $query = [];
+        if (!Utils::isUnset($request->domainName)) {
+            $query['DomainName'] = $request->domainName;
+        }
+        if (!Utils::isUnset($request->ownerId)) {
+            $query['OwnerId'] = $request->ownerId;
+        }
+        $req = new OpenApiRequest([
             'query' => OpenApiUtilClient::query($query),
         ]);
         $params = new Params([
@@ -2375,12 +2803,20 @@ class Vod extends OpenApiClient
     public function describeVodDomainConfigsWithOptions($request, $runtime)
     {
         Utils::validateModel($request);
-        $query                  = [];
-        $query['DomainName']    = $request->domainName;
-        $query['FunctionNames'] = $request->functionNames;
-        $query['OwnerId']       = $request->ownerId;
-        $query['SecurityToken'] = $request->securityToken;
-        $req                    = new OpenApiRequest([
+        $query = [];
+        if (!Utils::isUnset($request->domainName)) {
+            $query['DomainName'] = $request->domainName;
+        }
+        if (!Utils::isUnset($request->functionNames)) {
+            $query['FunctionNames'] = $request->functionNames;
+        }
+        if (!Utils::isUnset($request->ownerId)) {
+            $query['OwnerId'] = $request->ownerId;
+        }
+        if (!Utils::isUnset($request->securityToken)) {
+            $query['SecurityToken'] = $request->securityToken;
+        }
+        $req = new OpenApiRequest([
             'query' => OpenApiUtilClient::query($query),
         ]);
         $params = new Params([
@@ -2419,11 +2855,17 @@ class Vod extends OpenApiClient
     public function describeVodDomainDetailWithOptions($request, $runtime)
     {
         Utils::validateModel($request);
-        $query                  = [];
-        $query['DomainName']    = $request->domainName;
-        $query['OwnerId']       = $request->ownerId;
-        $query['SecurityToken'] = $request->securityToken;
-        $req                    = new OpenApiRequest([
+        $query = [];
+        if (!Utils::isUnset($request->domainName)) {
+            $query['DomainName'] = $request->domainName;
+        }
+        if (!Utils::isUnset($request->ownerId)) {
+            $query['OwnerId'] = $request->ownerId;
+        }
+        if (!Utils::isUnset($request->securityToken)) {
+            $query['SecurityToken'] = $request->securityToken;
+        }
+        $req = new OpenApiRequest([
             'query' => OpenApiUtilClient::query($query),
         ]);
         $params = new Params([
@@ -2462,14 +2904,26 @@ class Vod extends OpenApiClient
     public function describeVodDomainLogWithOptions($request, $runtime)
     {
         Utils::validateModel($request);
-        $query               = [];
-        $query['DomainName'] = $request->domainName;
-        $query['EndTime']    = $request->endTime;
-        $query['OwnerId']    = $request->ownerId;
-        $query['PageNumber'] = $request->pageNumber;
-        $query['PageSize']   = $request->pageSize;
-        $query['StartTime']  = $request->startTime;
-        $req                 = new OpenApiRequest([
+        $query = [];
+        if (!Utils::isUnset($request->domainName)) {
+            $query['DomainName'] = $request->domainName;
+        }
+        if (!Utils::isUnset($request->endTime)) {
+            $query['EndTime'] = $request->endTime;
+        }
+        if (!Utils::isUnset($request->ownerId)) {
+            $query['OwnerId'] = $request->ownerId;
+        }
+        if (!Utils::isUnset($request->pageNumber)) {
+            $query['PageNumber'] = $request->pageNumber;
+        }
+        if (!Utils::isUnset($request->pageSize)) {
+            $query['PageSize'] = $request->pageSize;
+        }
+        if (!Utils::isUnset($request->startTime)) {
+            $query['StartTime'] = $request->startTime;
+        }
+        $req = new OpenApiRequest([
             'query' => OpenApiUtilClient::query($query),
         ]);
         $params = new Params([
@@ -2548,13 +3002,23 @@ class Vod extends OpenApiClient
     public function describeVodDomainSrcBpsDataWithOptions($request, $runtime)
     {
         Utils::validateModel($request);
-        $query               = [];
-        $query['DomainName'] = $request->domainName;
-        $query['EndTime']    = $request->endTime;
-        $query['Interval']   = $request->interval;
-        $query['OwnerId']    = $request->ownerId;
-        $query['StartTime']  = $request->startTime;
-        $req                 = new OpenApiRequest([
+        $query = [];
+        if (!Utils::isUnset($request->domainName)) {
+            $query['DomainName'] = $request->domainName;
+        }
+        if (!Utils::isUnset($request->endTime)) {
+            $query['EndTime'] = $request->endTime;
+        }
+        if (!Utils::isUnset($request->interval)) {
+            $query['Interval'] = $request->interval;
+        }
+        if (!Utils::isUnset($request->ownerId)) {
+            $query['OwnerId'] = $request->ownerId;
+        }
+        if (!Utils::isUnset($request->startTime)) {
+            $query['StartTime'] = $request->startTime;
+        }
+        $req = new OpenApiRequest([
             'query' => OpenApiUtilClient::query($query),
         ]);
         $params = new Params([
@@ -2593,13 +3057,23 @@ class Vod extends OpenApiClient
     public function describeVodDomainSrcTrafficDataWithOptions($request, $runtime)
     {
         Utils::validateModel($request);
-        $query               = [];
-        $query['DomainName'] = $request->domainName;
-        $query['EndTime']    = $request->endTime;
-        $query['Interval']   = $request->interval;
-        $query['OwnerId']    = $request->ownerId;
-        $query['StartTime']  = $request->startTime;
-        $req                 = new OpenApiRequest([
+        $query = [];
+        if (!Utils::isUnset($request->domainName)) {
+            $query['DomainName'] = $request->domainName;
+        }
+        if (!Utils::isUnset($request->endTime)) {
+            $query['EndTime'] = $request->endTime;
+        }
+        if (!Utils::isUnset($request->interval)) {
+            $query['Interval'] = $request->interval;
+        }
+        if (!Utils::isUnset($request->ownerId)) {
+            $query['OwnerId'] = $request->ownerId;
+        }
+        if (!Utils::isUnset($request->startTime)) {
+            $query['StartTime'] = $request->startTime;
+        }
+        $req = new OpenApiRequest([
             'query' => OpenApiUtilClient::query($query),
         ]);
         $params = new Params([
@@ -2638,15 +3112,29 @@ class Vod extends OpenApiClient
     public function describeVodDomainTrafficDataWithOptions($request, $runtime)
     {
         Utils::validateModel($request);
-        $query                   = [];
-        $query['DomainName']     = $request->domainName;
-        $query['EndTime']        = $request->endTime;
-        $query['Interval']       = $request->interval;
-        $query['IspNameEn']      = $request->ispNameEn;
-        $query['LocationNameEn'] = $request->locationNameEn;
-        $query['OwnerId']        = $request->ownerId;
-        $query['StartTime']      = $request->startTime;
-        $req                     = new OpenApiRequest([
+        $query = [];
+        if (!Utils::isUnset($request->domainName)) {
+            $query['DomainName'] = $request->domainName;
+        }
+        if (!Utils::isUnset($request->endTime)) {
+            $query['EndTime'] = $request->endTime;
+        }
+        if (!Utils::isUnset($request->interval)) {
+            $query['Interval'] = $request->interval;
+        }
+        if (!Utils::isUnset($request->ispNameEn)) {
+            $query['IspNameEn'] = $request->ispNameEn;
+        }
+        if (!Utils::isUnset($request->locationNameEn)) {
+            $query['LocationNameEn'] = $request->locationNameEn;
+        }
+        if (!Utils::isUnset($request->ownerId)) {
+            $query['OwnerId'] = $request->ownerId;
+        }
+        if (!Utils::isUnset($request->startTime)) {
+            $query['StartTime'] = $request->startTime;
+        }
+        $req = new OpenApiRequest([
             'query' => OpenApiUtilClient::query($query),
         ]);
         $params = new Params([
@@ -2685,15 +3173,29 @@ class Vod extends OpenApiClient
     public function describeVodDomainUsageDataWithOptions($request, $runtime)
     {
         Utils::validateModel($request);
-        $query               = [];
-        $query['Area']       = $request->area;
-        $query['DomainName'] = $request->domainName;
-        $query['EndTime']    = $request->endTime;
-        $query['Field']      = $request->field;
-        $query['OwnerId']    = $request->ownerId;
-        $query['StartTime']  = $request->startTime;
-        $query['Type']       = $request->type;
-        $req                 = new OpenApiRequest([
+        $query = [];
+        if (!Utils::isUnset($request->area)) {
+            $query['Area'] = $request->area;
+        }
+        if (!Utils::isUnset($request->domainName)) {
+            $query['DomainName'] = $request->domainName;
+        }
+        if (!Utils::isUnset($request->endTime)) {
+            $query['EndTime'] = $request->endTime;
+        }
+        if (!Utils::isUnset($request->field)) {
+            $query['Field'] = $request->field;
+        }
+        if (!Utils::isUnset($request->ownerId)) {
+            $query['OwnerId'] = $request->ownerId;
+        }
+        if (!Utils::isUnset($request->startTime)) {
+            $query['StartTime'] = $request->startTime;
+        }
+        if (!Utils::isUnset($request->type)) {
+            $query['Type'] = $request->type;
+        }
+        $req = new OpenApiRequest([
             'query' => OpenApiUtilClient::query($query),
         ]);
         $params = new Params([
@@ -2732,10 +3234,14 @@ class Vod extends OpenApiClient
     public function describeVodRefreshQuotaWithOptions($request, $runtime)
     {
         Utils::validateModel($request);
-        $query                  = [];
-        $query['OwnerId']       = $request->ownerId;
-        $query['SecurityToken'] = $request->securityToken;
-        $req                    = new OpenApiRequest([
+        $query = [];
+        if (!Utils::isUnset($request->ownerId)) {
+            $query['OwnerId'] = $request->ownerId;
+        }
+        if (!Utils::isUnset($request->securityToken)) {
+            $query['SecurityToken'] = $request->securityToken;
+        }
+        $req = new OpenApiRequest([
             'query' => OpenApiUtilClient::query($query),
         ]);
         $params = new Params([
@@ -2774,19 +3280,41 @@ class Vod extends OpenApiClient
     public function describeVodRefreshTasksWithOptions($request, $runtime)
     {
         Utils::validateModel($request);
-        $query                  = [];
-        $query['DomainName']    = $request->domainName;
-        $query['EndTime']       = $request->endTime;
-        $query['ObjectPath']    = $request->objectPath;
-        $query['ObjectType']    = $request->objectType;
-        $query['OwnerId']       = $request->ownerId;
-        $query['PageNumber']    = $request->pageNumber;
-        $query['PageSize']      = $request->pageSize;
-        $query['SecurityToken'] = $request->securityToken;
-        $query['StartTime']     = $request->startTime;
-        $query['Status']        = $request->status;
-        $query['TaskId']        = $request->taskId;
-        $req                    = new OpenApiRequest([
+        $query = [];
+        if (!Utils::isUnset($request->domainName)) {
+            $query['DomainName'] = $request->domainName;
+        }
+        if (!Utils::isUnset($request->endTime)) {
+            $query['EndTime'] = $request->endTime;
+        }
+        if (!Utils::isUnset($request->objectPath)) {
+            $query['ObjectPath'] = $request->objectPath;
+        }
+        if (!Utils::isUnset($request->objectType)) {
+            $query['ObjectType'] = $request->objectType;
+        }
+        if (!Utils::isUnset($request->ownerId)) {
+            $query['OwnerId'] = $request->ownerId;
+        }
+        if (!Utils::isUnset($request->pageNumber)) {
+            $query['PageNumber'] = $request->pageNumber;
+        }
+        if (!Utils::isUnset($request->pageSize)) {
+            $query['PageSize'] = $request->pageSize;
+        }
+        if (!Utils::isUnset($request->securityToken)) {
+            $query['SecurityToken'] = $request->securityToken;
+        }
+        if (!Utils::isUnset($request->startTime)) {
+            $query['StartTime'] = $request->startTime;
+        }
+        if (!Utils::isUnset($request->status)) {
+            $query['Status'] = $request->status;
+        }
+        if (!Utils::isUnset($request->taskId)) {
+            $query['TaskId'] = $request->taskId;
+        }
+        $req = new OpenApiRequest([
             'query' => OpenApiUtilClient::query($query),
         ]);
         $params = new Params([
@@ -2825,14 +3353,26 @@ class Vod extends OpenApiClient
     public function describeVodStorageDataWithOptions($request, $runtime)
     {
         Utils::validateModel($request);
-        $query                = [];
-        $query['EndTime']     = $request->endTime;
-        $query['OwnerId']     = $request->ownerId;
-        $query['Region']      = $request->region;
-        $query['StartTime']   = $request->startTime;
-        $query['Storage']     = $request->storage;
-        $query['StorageType'] = $request->storageType;
-        $req                  = new OpenApiRequest([
+        $query = [];
+        if (!Utils::isUnset($request->endTime)) {
+            $query['EndTime'] = $request->endTime;
+        }
+        if (!Utils::isUnset($request->ownerId)) {
+            $query['OwnerId'] = $request->ownerId;
+        }
+        if (!Utils::isUnset($request->region)) {
+            $query['Region'] = $request->region;
+        }
+        if (!Utils::isUnset($request->startTime)) {
+            $query['StartTime'] = $request->startTime;
+        }
+        if (!Utils::isUnset($request->storage)) {
+            $query['Storage'] = $request->storage;
+        }
+        if (!Utils::isUnset($request->storageType)) {
+            $query['StorageType'] = $request->storageType;
+        }
+        $req = new OpenApiRequest([
             'query' => OpenApiUtilClient::query($query),
         ]);
         $params = new Params([
@@ -2871,12 +3411,20 @@ class Vod extends OpenApiClient
     public function describeVodTagResourcesWithOptions($request, $runtime)
     {
         Utils::validateModel($request);
-        $query                 = [];
-        $query['OwnerId']      = $request->ownerId;
-        $query['ResourceId']   = $request->resourceId;
-        $query['ResourceType'] = $request->resourceType;
-        $query['Tag']          = $request->tag;
-        $req                   = new OpenApiRequest([
+        $query = [];
+        if (!Utils::isUnset($request->ownerId)) {
+            $query['OwnerId'] = $request->ownerId;
+        }
+        if (!Utils::isUnset($request->resourceId)) {
+            $query['ResourceId'] = $request->resourceId;
+        }
+        if (!Utils::isUnset($request->resourceType)) {
+            $query['ResourceType'] = $request->resourceType;
+        }
+        if (!Utils::isUnset($request->tag)) {
+            $query['Tag'] = $request->tag;
+        }
+        $req = new OpenApiRequest([
             'query' => OpenApiUtilClient::query($query),
         ]);
         $params = new Params([
@@ -2915,15 +3463,29 @@ class Vod extends OpenApiClient
     public function describeVodTranscodeDataWithOptions($request, $runtime)
     {
         Utils::validateModel($request);
-        $query                  = [];
-        $query['EndTime']       = $request->endTime;
-        $query['Interval']      = $request->interval;
-        $query['OwnerId']       = $request->ownerId;
-        $query['Region']        = $request->region;
-        $query['Specification'] = $request->specification;
-        $query['StartTime']     = $request->startTime;
-        $query['Storage']       = $request->storage;
-        $req                    = new OpenApiRequest([
+        $query = [];
+        if (!Utils::isUnset($request->endTime)) {
+            $query['EndTime'] = $request->endTime;
+        }
+        if (!Utils::isUnset($request->interval)) {
+            $query['Interval'] = $request->interval;
+        }
+        if (!Utils::isUnset($request->ownerId)) {
+            $query['OwnerId'] = $request->ownerId;
+        }
+        if (!Utils::isUnset($request->region)) {
+            $query['Region'] = $request->region;
+        }
+        if (!Utils::isUnset($request->specification)) {
+            $query['Specification'] = $request->specification;
+        }
+        if (!Utils::isUnset($request->startTime)) {
+            $query['StartTime'] = $request->startTime;
+        }
+        if (!Utils::isUnset($request->storage)) {
+            $query['Storage'] = $request->storage;
+        }
+        $req = new OpenApiRequest([
             'query' => OpenApiUtilClient::query($query),
         ]);
         $params = new Params([
@@ -2962,16 +3524,32 @@ class Vod extends OpenApiClient
     public function describeVodUserDomainsWithOptions($request, $runtime)
     {
         Utils::validateModel($request);
-        $query                     = [];
-        $query['DomainName']       = $request->domainName;
-        $query['DomainSearchType'] = $request->domainSearchType;
-        $query['DomainStatus']     = $request->domainStatus;
-        $query['OwnerId']          = $request->ownerId;
-        $query['PageNumber']       = $request->pageNumber;
-        $query['PageSize']         = $request->pageSize;
-        $query['SecurityToken']    = $request->securityToken;
-        $query['Tag']              = $request->tag;
-        $req                       = new OpenApiRequest([
+        $query = [];
+        if (!Utils::isUnset($request->domainName)) {
+            $query['DomainName'] = $request->domainName;
+        }
+        if (!Utils::isUnset($request->domainSearchType)) {
+            $query['DomainSearchType'] = $request->domainSearchType;
+        }
+        if (!Utils::isUnset($request->domainStatus)) {
+            $query['DomainStatus'] = $request->domainStatus;
+        }
+        if (!Utils::isUnset($request->ownerId)) {
+            $query['OwnerId'] = $request->ownerId;
+        }
+        if (!Utils::isUnset($request->pageNumber)) {
+            $query['PageNumber'] = $request->pageNumber;
+        }
+        if (!Utils::isUnset($request->pageSize)) {
+            $query['PageSize'] = $request->pageSize;
+        }
+        if (!Utils::isUnset($request->securityToken)) {
+            $query['SecurityToken'] = $request->securityToken;
+        }
+        if (!Utils::isUnset($request->tag)) {
+            $query['Tag'] = $request->tag;
+        }
+        $req = new OpenApiRequest([
             'query' => OpenApiUtilClient::query($query),
         ]);
         $params = new Params([
@@ -3010,9 +3588,11 @@ class Vod extends OpenApiClient
     public function describeVodUserTagsWithOptions($request, $runtime)
     {
         Utils::validateModel($request);
-        $query            = [];
-        $query['OwnerId'] = $request->ownerId;
-        $req              = new OpenApiRequest([
+        $query = [];
+        if (!Utils::isUnset($request->ownerId)) {
+            $query['OwnerId'] = $request->ownerId;
+        }
+        $req = new OpenApiRequest([
             'query' => OpenApiUtilClient::query($query),
         ]);
         $params = new Params([
@@ -3051,10 +3631,14 @@ class Vod extends OpenApiClient
     public function describeVodVerifyContentWithOptions($request, $runtime)
     {
         Utils::validateModel($request);
-        $query               = [];
-        $query['DomainName'] = $request->domainName;
-        $query['OwnerId']    = $request->ownerId;
-        $req                 = new OpenApiRequest([
+        $query = [];
+        if (!Utils::isUnset($request->domainName)) {
+            $query['DomainName'] = $request->domainName;
+        }
+        if (!Utils::isUnset($request->ownerId)) {
+            $query['OwnerId'] = $request->ownerId;
+        }
+        $req = new OpenApiRequest([
             'query' => OpenApiUtilClient::query($query),
         ]);
         $params = new Params([
@@ -3093,12 +3677,20 @@ class Vod extends OpenApiClient
     public function detachAppPolicyFromIdentityWithOptions($request, $runtime)
     {
         Utils::validateModel($request);
-        $query                 = [];
-        $query['AppId']        = $request->appId;
-        $query['IdentityName'] = $request->identityName;
-        $query['IdentityType'] = $request->identityType;
-        $query['PolicyNames']  = $request->policyNames;
-        $req                   = new OpenApiRequest([
+        $query = [];
+        if (!Utils::isUnset($request->appId)) {
+            $query['AppId'] = $request->appId;
+        }
+        if (!Utils::isUnset($request->identityName)) {
+            $query['IdentityName'] = $request->identityName;
+        }
+        if (!Utils::isUnset($request->identityType)) {
+            $query['IdentityType'] = $request->identityType;
+        }
+        if (!Utils::isUnset($request->policyNames)) {
+            $query['PolicyNames'] = $request->policyNames;
+        }
+        $req = new OpenApiRequest([
             'query' => OpenApiUtilClient::query($query),
         ]);
         $params = new Params([
@@ -3217,13 +3809,23 @@ class Vod extends OpenApiClient
     public function getAIImageJobsWithOptions($request, $runtime)
     {
         Utils::validateModel($request);
-        $query                         = [];
-        $query['JobIds']               = $request->jobIds;
-        $query['OwnerAccount']         = $request->ownerAccount;
-        $query['OwnerId']              = $request->ownerId;
-        $query['ResourceOwnerAccount'] = $request->resourceOwnerAccount;
-        $query['ResourceOwnerId']      = $request->resourceOwnerId;
-        $req                           = new OpenApiRequest([
+        $query = [];
+        if (!Utils::isUnset($request->jobIds)) {
+            $query['JobIds'] = $request->jobIds;
+        }
+        if (!Utils::isUnset($request->ownerAccount)) {
+            $query['OwnerAccount'] = $request->ownerAccount;
+        }
+        if (!Utils::isUnset($request->ownerId)) {
+            $query['OwnerId'] = $request->ownerId;
+        }
+        if (!Utils::isUnset($request->resourceOwnerAccount)) {
+            $query['ResourceOwnerAccount'] = $request->resourceOwnerAccount;
+        }
+        if (!Utils::isUnset($request->resourceOwnerId)) {
+            $query['ResourceOwnerId'] = $request->resourceOwnerId;
+        }
+        $req = new OpenApiRequest([
             'query' => OpenApiUtilClient::query($query),
         ]);
         $params = new Params([
@@ -3262,9 +3864,11 @@ class Vod extends OpenApiClient
     public function getAIMediaAuditJobWithOptions($request, $runtime)
     {
         Utils::validateModel($request);
-        $query          = [];
-        $query['JobId'] = $request->jobId;
-        $req            = new OpenApiRequest([
+        $query = [];
+        if (!Utils::isUnset($request->jobId)) {
+            $query['JobId'] = $request->jobId;
+        }
+        $req = new OpenApiRequest([
             'query' => OpenApiUtilClient::query($query),
         ]);
         $params = new Params([
@@ -3303,9 +3907,11 @@ class Vod extends OpenApiClient
     public function getAITemplateWithOptions($request, $runtime)
     {
         Utils::validateModel($request);
-        $query               = [];
-        $query['TemplateId'] = $request->templateId;
-        $req                 = new OpenApiRequest([
+        $query = [];
+        if (!Utils::isUnset($request->templateId)) {
+            $query['TemplateId'] = $request->templateId;
+        }
+        $req = new OpenApiRequest([
             'query' => OpenApiUtilClient::query($query),
         ]);
         $params = new Params([
@@ -3344,13 +3950,23 @@ class Vod extends OpenApiClient
     public function getAIVideoTagResultWithOptions($request, $runtime)
     {
         Utils::validateModel($request);
-        $query                         = [];
-        $query['MediaId']              = $request->mediaId;
-        $query['OwnerAccount']         = $request->ownerAccount;
-        $query['OwnerId']              = $request->ownerId;
-        $query['ResourceOwnerAccount'] = $request->resourceOwnerAccount;
-        $query['ResourceOwnerId']      = $request->resourceOwnerId;
-        $req                           = new OpenApiRequest([
+        $query = [];
+        if (!Utils::isUnset($request->mediaId)) {
+            $query['MediaId'] = $request->mediaId;
+        }
+        if (!Utils::isUnset($request->ownerAccount)) {
+            $query['OwnerAccount'] = $request->ownerAccount;
+        }
+        if (!Utils::isUnset($request->ownerId)) {
+            $query['OwnerId'] = $request->ownerId;
+        }
+        if (!Utils::isUnset($request->resourceOwnerAccount)) {
+            $query['ResourceOwnerAccount'] = $request->resourceOwnerAccount;
+        }
+        if (!Utils::isUnset($request->resourceOwnerId)) {
+            $query['ResourceOwnerId'] = $request->resourceOwnerId;
+        }
+        $req = new OpenApiRequest([
             'query' => OpenApiUtilClient::query($query),
         ]);
         $params = new Params([
@@ -3389,9 +4005,11 @@ class Vod extends OpenApiClient
     public function getAppInfosWithOptions($request, $runtime)
     {
         Utils::validateModel($request);
-        $query           = [];
-        $query['AppIds'] = $request->appIds;
-        $req             = new OpenApiRequest([
+        $query = [];
+        if (!Utils::isUnset($request->appIds)) {
+            $query['AppIds'] = $request->appIds;
+        }
+        $req = new OpenApiRequest([
             'query' => OpenApiUtilClient::query($query),
         ]);
         $params = new Params([
@@ -3430,11 +4048,17 @@ class Vod extends OpenApiClient
     public function getAttachedMediaInfoWithOptions($request, $runtime)
     {
         Utils::validateModel($request);
-        $query                = [];
-        $query['AuthTimeout'] = $request->authTimeout;
-        $query['MediaIds']    = $request->mediaIds;
-        $query['OutputType']  = $request->outputType;
-        $req                  = new OpenApiRequest([
+        $query = [];
+        if (!Utils::isUnset($request->authTimeout)) {
+            $query['AuthTimeout'] = $request->authTimeout;
+        }
+        if (!Utils::isUnset($request->mediaIds)) {
+            $query['MediaIds'] = $request->mediaIds;
+        }
+        if (!Utils::isUnset($request->outputType)) {
+            $query['OutputType'] = $request->outputType;
+        }
+        $req = new OpenApiRequest([
             'query' => OpenApiUtilClient::query($query),
         ]);
         $params = new Params([
@@ -3473,12 +4097,20 @@ class Vod extends OpenApiClient
     public function getAuditHistoryWithOptions($request, $runtime)
     {
         Utils::validateModel($request);
-        $query             = [];
-        $query['PageNo']   = $request->pageNo;
-        $query['PageSize'] = $request->pageSize;
-        $query['SortBy']   = $request->sortBy;
-        $query['VideoId']  = $request->videoId;
-        $req               = new OpenApiRequest([
+        $query = [];
+        if (!Utils::isUnset($request->pageNo)) {
+            $query['PageNo'] = $request->pageNo;
+        }
+        if (!Utils::isUnset($request->pageSize)) {
+            $query['PageSize'] = $request->pageSize;
+        }
+        if (!Utils::isUnset($request->sortBy)) {
+            $query['SortBy'] = $request->sortBy;
+        }
+        if (!Utils::isUnset($request->videoId)) {
+            $query['VideoId'] = $request->videoId;
+        }
+        $req = new OpenApiRequest([
             'query' => OpenApiUtilClient::query($query),
         ]);
         $params = new Params([
@@ -3517,13 +4149,23 @@ class Vod extends OpenApiClient
     public function getCategoriesWithOptions($request, $runtime)
     {
         Utils::validateModel($request);
-        $query             = [];
-        $query['CateId']   = $request->cateId;
-        $query['PageNo']   = $request->pageNo;
-        $query['PageSize'] = $request->pageSize;
-        $query['SortBy']   = $request->sortBy;
-        $query['Type']     = $request->type;
-        $req               = new OpenApiRequest([
+        $query = [];
+        if (!Utils::isUnset($request->cateId)) {
+            $query['CateId'] = $request->cateId;
+        }
+        if (!Utils::isUnset($request->pageNo)) {
+            $query['PageNo'] = $request->pageNo;
+        }
+        if (!Utils::isUnset($request->pageSize)) {
+            $query['PageSize'] = $request->pageSize;
+        }
+        if (!Utils::isUnset($request->sortBy)) {
+            $query['SortBy'] = $request->sortBy;
+        }
+        if (!Utils::isUnset($request->type)) {
+            $query['Type'] = $request->type;
+        }
+        $req = new OpenApiRequest([
             'query' => OpenApiUtilClient::query($query),
         ]);
         $params = new Params([
@@ -3562,9 +4204,11 @@ class Vod extends OpenApiClient
     public function getDefaultAITemplateWithOptions($request, $runtime)
     {
         Utils::validateModel($request);
-        $query                 = [];
-        $query['TemplateType'] = $request->templateType;
-        $req                   = new OpenApiRequest([
+        $query = [];
+        if (!Utils::isUnset($request->templateType)) {
+            $query['TemplateType'] = $request->templateType;
+        }
+        $req = new OpenApiRequest([
             'query' => OpenApiUtilClient::query($query),
         ]);
         $params = new Params([
@@ -3603,13 +4247,23 @@ class Vod extends OpenApiClient
     public function getEditingProjectWithOptions($request, $runtime)
     {
         Utils::validateModel($request);
-        $query                         = [];
-        $query['OwnerAccount']         = $request->ownerAccount;
-        $query['OwnerId']              = $request->ownerId;
-        $query['ProjectId']            = $request->projectId;
-        $query['ResourceOwnerAccount'] = $request->resourceOwnerAccount;
-        $query['ResourceOwnerId']      = $request->resourceOwnerId;
-        $req                           = new OpenApiRequest([
+        $query = [];
+        if (!Utils::isUnset($request->ownerAccount)) {
+            $query['OwnerAccount'] = $request->ownerAccount;
+        }
+        if (!Utils::isUnset($request->ownerId)) {
+            $query['OwnerId'] = $request->ownerId;
+        }
+        if (!Utils::isUnset($request->projectId)) {
+            $query['ProjectId'] = $request->projectId;
+        }
+        if (!Utils::isUnset($request->resourceOwnerAccount)) {
+            $query['ResourceOwnerAccount'] = $request->resourceOwnerAccount;
+        }
+        if (!Utils::isUnset($request->resourceOwnerId)) {
+            $query['ResourceOwnerId'] = $request->resourceOwnerId;
+        }
+        $req = new OpenApiRequest([
             'query' => OpenApiUtilClient::query($query),
         ]);
         $params = new Params([
@@ -3648,15 +4302,29 @@ class Vod extends OpenApiClient
     public function getEditingProjectMaterialsWithOptions($request, $runtime)
     {
         Utils::validateModel($request);
-        $query                         = [];
-        $query['MaterialType']         = $request->materialType;
-        $query['OwnerAccount']         = $request->ownerAccount;
-        $query['OwnerId']              = $request->ownerId;
-        $query['ProjectId']            = $request->projectId;
-        $query['ResourceOwnerAccount'] = $request->resourceOwnerAccount;
-        $query['ResourceOwnerId']      = $request->resourceOwnerId;
-        $query['Type']                 = $request->type;
-        $req                           = new OpenApiRequest([
+        $query = [];
+        if (!Utils::isUnset($request->materialType)) {
+            $query['MaterialType'] = $request->materialType;
+        }
+        if (!Utils::isUnset($request->ownerAccount)) {
+            $query['OwnerAccount'] = $request->ownerAccount;
+        }
+        if (!Utils::isUnset($request->ownerId)) {
+            $query['OwnerId'] = $request->ownerId;
+        }
+        if (!Utils::isUnset($request->projectId)) {
+            $query['ProjectId'] = $request->projectId;
+        }
+        if (!Utils::isUnset($request->resourceOwnerAccount)) {
+            $query['ResourceOwnerAccount'] = $request->resourceOwnerAccount;
+        }
+        if (!Utils::isUnset($request->resourceOwnerId)) {
+            $query['ResourceOwnerId'] = $request->resourceOwnerId;
+        }
+        if (!Utils::isUnset($request->type)) {
+            $query['Type'] = $request->type;
+        }
+        $req = new OpenApiRequest([
             'query' => OpenApiUtilClient::query($query),
         ]);
         $params = new Params([
@@ -3695,11 +4363,17 @@ class Vod extends OpenApiClient
     public function getImageInfoWithOptions($request, $runtime)
     {
         Utils::validateModel($request);
-        $query                = [];
-        $query['AuthTimeout'] = $request->authTimeout;
-        $query['ImageId']     = $request->imageId;
-        $query['OutputType']  = $request->outputType;
-        $req                  = new OpenApiRequest([
+        $query = [];
+        if (!Utils::isUnset($request->authTimeout)) {
+            $query['AuthTimeout'] = $request->authTimeout;
+        }
+        if (!Utils::isUnset($request->imageId)) {
+            $query['ImageId'] = $request->imageId;
+        }
+        if (!Utils::isUnset($request->outputType)) {
+            $query['OutputType'] = $request->outputType;
+        }
+        $req = new OpenApiRequest([
             'query' => OpenApiUtilClient::query($query),
         ]);
         $params = new Params([
@@ -3738,14 +4412,26 @@ class Vod extends OpenApiClient
     public function getMediaAuditAudioResultDetailWithOptions($request, $runtime)
     {
         Utils::validateModel($request);
-        $query                         = [];
-        $query['MediaId']              = $request->mediaId;
-        $query['OwnerAccount']         = $request->ownerAccount;
-        $query['OwnerId']              = $request->ownerId;
-        $query['PageNo']               = $request->pageNo;
-        $query['ResourceOwnerAccount'] = $request->resourceOwnerAccount;
-        $query['ResourceOwnerId']      = $request->resourceOwnerId;
-        $req                           = new OpenApiRequest([
+        $query = [];
+        if (!Utils::isUnset($request->mediaId)) {
+            $query['MediaId'] = $request->mediaId;
+        }
+        if (!Utils::isUnset($request->ownerAccount)) {
+            $query['OwnerAccount'] = $request->ownerAccount;
+        }
+        if (!Utils::isUnset($request->ownerId)) {
+            $query['OwnerId'] = $request->ownerId;
+        }
+        if (!Utils::isUnset($request->pageNo)) {
+            $query['PageNo'] = $request->pageNo;
+        }
+        if (!Utils::isUnset($request->resourceOwnerAccount)) {
+            $query['ResourceOwnerAccount'] = $request->resourceOwnerAccount;
+        }
+        if (!Utils::isUnset($request->resourceOwnerId)) {
+            $query['ResourceOwnerId'] = $request->resourceOwnerId;
+        }
+        $req = new OpenApiRequest([
             'query' => OpenApiUtilClient::query($query),
         ]);
         $params = new Params([
@@ -3784,9 +4470,11 @@ class Vod extends OpenApiClient
     public function getMediaAuditResultWithOptions($request, $runtime)
     {
         Utils::validateModel($request);
-        $query            = [];
-        $query['MediaId'] = $request->mediaId;
-        $req              = new OpenApiRequest([
+        $query = [];
+        if (!Utils::isUnset($request->mediaId)) {
+            $query['MediaId'] = $request->mediaId;
+        }
+        $req = new OpenApiRequest([
             'query' => OpenApiUtilClient::query($query),
         ]);
         $params = new Params([
@@ -3825,10 +4513,14 @@ class Vod extends OpenApiClient
     public function getMediaAuditResultDetailWithOptions($request, $runtime)
     {
         Utils::validateModel($request);
-        $query            = [];
-        $query['MediaId'] = $request->mediaId;
-        $query['PageNo']  = $request->pageNo;
-        $req              = new OpenApiRequest([
+        $query = [];
+        if (!Utils::isUnset($request->mediaId)) {
+            $query['MediaId'] = $request->mediaId;
+        }
+        if (!Utils::isUnset($request->pageNo)) {
+            $query['PageNo'] = $request->pageNo;
+        }
+        $req = new OpenApiRequest([
             'query' => OpenApiUtilClient::query($query),
         ]);
         $params = new Params([
@@ -3867,9 +4559,11 @@ class Vod extends OpenApiClient
     public function getMediaAuditResultTimelineWithOptions($request, $runtime)
     {
         Utils::validateModel($request);
-        $query            = [];
-        $query['MediaId'] = $request->mediaId;
-        $req              = new OpenApiRequest([
+        $query = [];
+        if (!Utils::isUnset($request->mediaId)) {
+            $query['MediaId'] = $request->mediaId;
+        }
+        $req = new OpenApiRequest([
             'query' => OpenApiUtilClient::query($query),
         ]);
         $params = new Params([
@@ -3908,13 +4602,23 @@ class Vod extends OpenApiClient
     public function getMediaDNAResultWithOptions($request, $runtime)
     {
         Utils::validateModel($request);
-        $query                         = [];
-        $query['MediaId']              = $request->mediaId;
-        $query['OwnerAccount']         = $request->ownerAccount;
-        $query['OwnerId']              = $request->ownerId;
-        $query['ResourceOwnerAccount'] = $request->resourceOwnerAccount;
-        $query['ResourceOwnerId']      = $request->resourceOwnerId;
-        $req                           = new OpenApiRequest([
+        $query = [];
+        if (!Utils::isUnset($request->mediaId)) {
+            $query['MediaId'] = $request->mediaId;
+        }
+        if (!Utils::isUnset($request->ownerAccount)) {
+            $query['OwnerAccount'] = $request->ownerAccount;
+        }
+        if (!Utils::isUnset($request->ownerId)) {
+            $query['OwnerId'] = $request->ownerId;
+        }
+        if (!Utils::isUnset($request->resourceOwnerAccount)) {
+            $query['ResourceOwnerAccount'] = $request->resourceOwnerAccount;
+        }
+        if (!Utils::isUnset($request->resourceOwnerId)) {
+            $query['ResourceOwnerId'] = $request->resourceOwnerId;
+        }
+        $req = new OpenApiRequest([
             'query' => OpenApiUtilClient::query($query),
         ]);
         $params = new Params([
@@ -3953,10 +4657,14 @@ class Vod extends OpenApiClient
     public function getMessageCallbackWithOptions($request, $runtime)
     {
         Utils::validateModel($request);
-        $query                 = [];
-        $query['AppId']        = $request->appId;
-        $query['OwnerAccount'] = $request->ownerAccount;
-        $req                   = new OpenApiRequest([
+        $query = [];
+        if (!Utils::isUnset($request->appId)) {
+            $query['AppId'] = $request->appId;
+        }
+        if (!Utils::isUnset($request->ownerAccount)) {
+            $query['OwnerAccount'] = $request->ownerAccount;
+        }
+        $req = new OpenApiRequest([
             'query' => OpenApiUtilClient::query($query),
         ]);
         $params = new Params([
@@ -3995,12 +4703,20 @@ class Vod extends OpenApiClient
     public function getMezzanineInfoWithOptions($request, $runtime)
     {
         Utils::validateModel($request);
-        $query                 = [];
-        $query['AdditionType'] = $request->additionType;
-        $query['AuthTimeout']  = $request->authTimeout;
-        $query['OutputType']   = $request->outputType;
-        $query['VideoId']      = $request->videoId;
-        $req                   = new OpenApiRequest([
+        $query = [];
+        if (!Utils::isUnset($request->additionType)) {
+            $query['AdditionType'] = $request->additionType;
+        }
+        if (!Utils::isUnset($request->authTimeout)) {
+            $query['AuthTimeout'] = $request->authTimeout;
+        }
+        if (!Utils::isUnset($request->outputType)) {
+            $query['OutputType'] = $request->outputType;
+        }
+        if (!Utils::isUnset($request->videoId)) {
+            $query['VideoId'] = $request->videoId;
+        }
+        $req = new OpenApiRequest([
             'query' => OpenApiUtilClient::query($query),
         ]);
         $params = new Params([
@@ -4039,18 +4755,38 @@ class Vod extends OpenApiClient
     public function getPlayInfoWithOptions($request, $runtime)
     {
         Utils::validateModel($request);
-        $query                 = [];
-        $query['AdditionType'] = $request->additionType;
-        $query['AuthTimeout']  = $request->authTimeout;
-        $query['Definition']   = $request->definition;
-        $query['Formats']      = $request->formats;
-        $query['OutputType']   = $request->outputType;
-        $query['PlayConfig']   = $request->playConfig;
-        $query['ReAuthInfo']   = $request->reAuthInfo;
-        $query['ResultType']   = $request->resultType;
-        $query['StreamType']   = $request->streamType;
-        $query['VideoId']      = $request->videoId;
-        $req                   = new OpenApiRequest([
+        $query = [];
+        if (!Utils::isUnset($request->additionType)) {
+            $query['AdditionType'] = $request->additionType;
+        }
+        if (!Utils::isUnset($request->authTimeout)) {
+            $query['AuthTimeout'] = $request->authTimeout;
+        }
+        if (!Utils::isUnset($request->definition)) {
+            $query['Definition'] = $request->definition;
+        }
+        if (!Utils::isUnset($request->formats)) {
+            $query['Formats'] = $request->formats;
+        }
+        if (!Utils::isUnset($request->outputType)) {
+            $query['OutputType'] = $request->outputType;
+        }
+        if (!Utils::isUnset($request->playConfig)) {
+            $query['PlayConfig'] = $request->playConfig;
+        }
+        if (!Utils::isUnset($request->reAuthInfo)) {
+            $query['ReAuthInfo'] = $request->reAuthInfo;
+        }
+        if (!Utils::isUnset($request->resultType)) {
+            $query['ResultType'] = $request->resultType;
+        }
+        if (!Utils::isUnset($request->streamType)) {
+            $query['StreamType'] = $request->streamType;
+        }
+        if (!Utils::isUnset($request->videoId)) {
+            $query['VideoId'] = $request->videoId;
+        }
+        $req = new OpenApiRequest([
             'query' => OpenApiUtilClient::query($query),
         ]);
         $params = new Params([
@@ -4089,9 +4825,11 @@ class Vod extends OpenApiClient
     public function getTranscodeSummaryWithOptions($request, $runtime)
     {
         Utils::validateModel($request);
-        $query             = [];
-        $query['VideoIds'] = $request->videoIds;
-        $req               = new OpenApiRequest([
+        $query = [];
+        if (!Utils::isUnset($request->videoIds)) {
+            $query['VideoIds'] = $request->videoIds;
+        }
+        $req = new OpenApiRequest([
             'query' => OpenApiUtilClient::query($query),
         ]);
         $params = new Params([
@@ -4130,9 +4868,11 @@ class Vod extends OpenApiClient
     public function getTranscodeTaskWithOptions($request, $runtime)
     {
         Utils::validateModel($request);
-        $query                    = [];
-        $query['TranscodeTaskId'] = $request->transcodeTaskId;
-        $req                      = new OpenApiRequest([
+        $query = [];
+        if (!Utils::isUnset($request->transcodeTaskId)) {
+            $query['TranscodeTaskId'] = $request->transcodeTaskId;
+        }
+        $req = new OpenApiRequest([
             'query' => OpenApiUtilClient::query($query),
         ]);
         $params = new Params([
@@ -4171,9 +4911,11 @@ class Vod extends OpenApiClient
     public function getTranscodeTemplateGroupWithOptions($request, $runtime)
     {
         Utils::validateModel($request);
-        $query                             = [];
-        $query['TranscodeTemplateGroupId'] = $request->transcodeTemplateGroupId;
-        $req                               = new OpenApiRequest([
+        $query = [];
+        if (!Utils::isUnset($request->transcodeTemplateGroupId)) {
+            $query['TranscodeTemplateGroupId'] = $request->transcodeTemplateGroupId;
+        }
+        $req = new OpenApiRequest([
             'query' => OpenApiUtilClient::query($query),
         ]);
         $params = new Params([
@@ -4212,10 +4954,14 @@ class Vod extends OpenApiClient
     public function getURLUploadInfosWithOptions($request, $runtime)
     {
         Utils::validateModel($request);
-        $query               = [];
-        $query['JobIds']     = $request->jobIds;
-        $query['UploadURLs'] = $request->uploadURLs;
-        $req                 = new OpenApiRequest([
+        $query = [];
+        if (!Utils::isUnset($request->jobIds)) {
+            $query['JobIds'] = $request->jobIds;
+        }
+        if (!Utils::isUnset($request->uploadURLs)) {
+            $query['UploadURLs'] = $request->uploadURLs;
+        }
+        $req = new OpenApiRequest([
             'query' => OpenApiUtilClient::query($query),
         ]);
         $params = new Params([
@@ -4254,10 +5000,14 @@ class Vod extends OpenApiClient
     public function getUploadDetailsWithOptions($request, $runtime)
     {
         Utils::validateModel($request);
-        $query              = [];
-        $query['MediaIds']  = $request->mediaIds;
-        $query['MediaType'] = $request->mediaType;
-        $req                = new OpenApiRequest([
+        $query = [];
+        if (!Utils::isUnset($request->mediaIds)) {
+            $query['MediaIds'] = $request->mediaIds;
+        }
+        if (!Utils::isUnset($request->mediaType)) {
+            $query['MediaType'] = $request->mediaType;
+        }
+        $req = new OpenApiRequest([
             'query' => OpenApiUtilClient::query($query),
         ]);
         $params = new Params([
@@ -4296,9 +5046,11 @@ class Vod extends OpenApiClient
     public function getVideoInfoWithOptions($request, $runtime)
     {
         Utils::validateModel($request);
-        $query            = [];
-        $query['VideoId'] = $request->videoId;
-        $req              = new OpenApiRequest([
+        $query = [];
+        if (!Utils::isUnset($request->videoId)) {
+            $query['VideoId'] = $request->videoId;
+        }
+        $req = new OpenApiRequest([
             'query' => OpenApiUtilClient::query($query),
         ]);
         $params = new Params([
@@ -4337,9 +5089,11 @@ class Vod extends OpenApiClient
     public function getVideoInfosWithOptions($request, $runtime)
     {
         Utils::validateModel($request);
-        $query             = [];
-        $query['VideoIds'] = $request->videoIds;
-        $req               = new OpenApiRequest([
+        $query = [];
+        if (!Utils::isUnset($request->videoIds)) {
+            $query['VideoIds'] = $request->videoIds;
+        }
+        $req = new OpenApiRequest([
             'query' => OpenApiUtilClient::query($query),
         ]);
         $params = new Params([
@@ -4378,16 +5132,32 @@ class Vod extends OpenApiClient
     public function getVideoListWithOptions($request, $runtime)
     {
         Utils::validateModel($request);
-        $query                    = [];
-        $query['CateId']          = $request->cateId;
-        $query['EndTime']         = $request->endTime;
-        $query['PageNo']          = $request->pageNo;
-        $query['PageSize']        = $request->pageSize;
-        $query['SortBy']          = $request->sortBy;
-        $query['StartTime']       = $request->startTime;
-        $query['Status']          = $request->status;
-        $query['StorageLocation'] = $request->storageLocation;
-        $req                      = new OpenApiRequest([
+        $query = [];
+        if (!Utils::isUnset($request->cateId)) {
+            $query['CateId'] = $request->cateId;
+        }
+        if (!Utils::isUnset($request->endTime)) {
+            $query['EndTime'] = $request->endTime;
+        }
+        if (!Utils::isUnset($request->pageNo)) {
+            $query['PageNo'] = $request->pageNo;
+        }
+        if (!Utils::isUnset($request->pageSize)) {
+            $query['PageSize'] = $request->pageSize;
+        }
+        if (!Utils::isUnset($request->sortBy)) {
+            $query['SortBy'] = $request->sortBy;
+        }
+        if (!Utils::isUnset($request->startTime)) {
+            $query['StartTime'] = $request->startTime;
+        }
+        if (!Utils::isUnset($request->status)) {
+            $query['Status'] = $request->status;
+        }
+        if (!Utils::isUnset($request->storageLocation)) {
+            $query['StorageLocation'] = $request->storageLocation;
+        }
+        $req = new OpenApiRequest([
             'query' => OpenApiUtilClient::query($query),
         ]);
         $params = new Params([
@@ -4426,11 +5196,17 @@ class Vod extends OpenApiClient
     public function getVideoPlayAuthWithOptions($request, $runtime)
     {
         Utils::validateModel($request);
-        $query                    = [];
-        $query['ApiVersion']      = $request->apiVersion;
-        $query['AuthInfoTimeout'] = $request->authInfoTimeout;
-        $query['VideoId']         = $request->videoId;
-        $req                      = new OpenApiRequest([
+        $query = [];
+        if (!Utils::isUnset($request->apiVersion)) {
+            $query['ApiVersion'] = $request->apiVersion;
+        }
+        if (!Utils::isUnset($request->authInfoTimeout)) {
+            $query['AuthInfoTimeout'] = $request->authInfoTimeout;
+        }
+        if (!Utils::isUnset($request->videoId)) {
+            $query['VideoId'] = $request->videoId;
+        }
+        $req = new OpenApiRequest([
             'query' => OpenApiUtilClient::query($query),
         ]);
         $params = new Params([
@@ -4469,9 +5245,11 @@ class Vod extends OpenApiClient
     public function getVodTemplateWithOptions($request, $runtime)
     {
         Utils::validateModel($request);
-        $query                  = [];
-        $query['VodTemplateId'] = $request->vodTemplateId;
-        $req                    = new OpenApiRequest([
+        $query = [];
+        if (!Utils::isUnset($request->vodTemplateId)) {
+            $query['VodTemplateId'] = $request->vodTemplateId;
+        }
+        $req = new OpenApiRequest([
             'query' => OpenApiUtilClient::query($query),
         ]);
         $params = new Params([
@@ -4510,9 +5288,11 @@ class Vod extends OpenApiClient
     public function getWatermarkWithOptions($request, $runtime)
     {
         Utils::validateModel($request);
-        $query                = [];
-        $query['WatermarkId'] = $request->watermarkId;
-        $req                  = new OpenApiRequest([
+        $query = [];
+        if (!Utils::isUnset($request->watermarkId)) {
+            $query['WatermarkId'] = $request->watermarkId;
+        }
+        $req = new OpenApiRequest([
             'query' => OpenApiUtilClient::query($query),
         ]);
         $params = new Params([
@@ -4551,9 +5331,11 @@ class Vod extends OpenApiClient
     public function listAIImageInfoWithOptions($request, $runtime)
     {
         Utils::validateModel($request);
-        $query            = [];
-        $query['VideoId'] = $request->videoId;
-        $req              = new OpenApiRequest([
+        $query = [];
+        if (!Utils::isUnset($request->videoId)) {
+            $query['VideoId'] = $request->videoId;
+        }
+        $req = new OpenApiRequest([
             'query' => OpenApiUtilClient::query($query),
         ]);
         $params = new Params([
@@ -4592,13 +5374,23 @@ class Vod extends OpenApiClient
     public function listAIJobWithOptions($request, $runtime)
     {
         Utils::validateModel($request);
-        $query                         = [];
-        $query['JobIds']               = $request->jobIds;
-        $query['OwnerAccount']         = $request->ownerAccount;
-        $query['OwnerId']              = $request->ownerId;
-        $query['ResourceOwnerAccount'] = $request->resourceOwnerAccount;
-        $query['ResourceOwnerId']      = $request->resourceOwnerId;
-        $req                           = new OpenApiRequest([
+        $query = [];
+        if (!Utils::isUnset($request->jobIds)) {
+            $query['JobIds'] = $request->jobIds;
+        }
+        if (!Utils::isUnset($request->ownerAccount)) {
+            $query['OwnerAccount'] = $request->ownerAccount;
+        }
+        if (!Utils::isUnset($request->ownerId)) {
+            $query['OwnerId'] = $request->ownerId;
+        }
+        if (!Utils::isUnset($request->resourceOwnerAccount)) {
+            $query['ResourceOwnerAccount'] = $request->resourceOwnerAccount;
+        }
+        if (!Utils::isUnset($request->resourceOwnerId)) {
+            $query['ResourceOwnerId'] = $request->resourceOwnerId;
+        }
+        $req = new OpenApiRequest([
             'query' => OpenApiUtilClient::query($query),
         ]);
         $params = new Params([
@@ -4637,9 +5429,11 @@ class Vod extends OpenApiClient
     public function listAITemplateWithOptions($request, $runtime)
     {
         Utils::validateModel($request);
-        $query                 = [];
-        $query['TemplateType'] = $request->templateType;
-        $req                   = new OpenApiRequest([
+        $query = [];
+        if (!Utils::isUnset($request->templateType)) {
+            $query['TemplateType'] = $request->templateType;
+        }
+        $req = new OpenApiRequest([
             'query' => OpenApiUtilClient::query($query),
         ]);
         $params = new Params([
@@ -4678,11 +5472,17 @@ class Vod extends OpenApiClient
     public function listAppInfoWithOptions($request, $runtime)
     {
         Utils::validateModel($request);
-        $query             = [];
-        $query['PageNo']   = $request->pageNo;
-        $query['PageSize'] = $request->pageSize;
-        $query['Status']   = $request->status;
-        $req               = new OpenApiRequest([
+        $query = [];
+        if (!Utils::isUnset($request->pageNo)) {
+            $query['PageNo'] = $request->pageNo;
+        }
+        if (!Utils::isUnset($request->pageSize)) {
+            $query['PageSize'] = $request->pageSize;
+        }
+        if (!Utils::isUnset($request->status)) {
+            $query['Status'] = $request->status;
+        }
+        $req = new OpenApiRequest([
             'query' => OpenApiUtilClient::query($query),
         ]);
         $params = new Params([
@@ -4721,11 +5521,17 @@ class Vod extends OpenApiClient
     public function listAppPoliciesForIdentityWithOptions($request, $runtime)
     {
         Utils::validateModel($request);
-        $query                 = [];
-        $query['AppId']        = $request->appId;
-        $query['IdentityName'] = $request->identityName;
-        $query['IdentityType'] = $request->identityType;
-        $req                   = new OpenApiRequest([
+        $query = [];
+        if (!Utils::isUnset($request->appId)) {
+            $query['AppId'] = $request->appId;
+        }
+        if (!Utils::isUnset($request->identityName)) {
+            $query['IdentityName'] = $request->identityName;
+        }
+        if (!Utils::isUnset($request->identityType)) {
+            $query['IdentityType'] = $request->identityType;
+        }
+        $req = new OpenApiRequest([
             'query' => OpenApiUtilClient::query($query),
         ]);
         $params = new Params([
@@ -4764,9 +5570,11 @@ class Vod extends OpenApiClient
     public function listAuditSecurityIpWithOptions($request, $runtime)
     {
         Utils::validateModel($request);
-        $query                      = [];
-        $query['SecurityGroupName'] = $request->securityGroupName;
-        $req                        = new OpenApiRequest([
+        $query = [];
+        if (!Utils::isUnset($request->securityGroupName)) {
+            $query['SecurityGroupName'] = $request->securityGroupName;
+        }
+        $req = new OpenApiRequest([
             'query' => OpenApiUtilClient::query($query),
         ]);
         $params = new Params([
@@ -4805,9 +5613,11 @@ class Vod extends OpenApiClient
     public function listDynamicImageWithOptions($request, $runtime)
     {
         Utils::validateModel($request);
-        $query            = [];
-        $query['VideoId'] = $request->videoId;
-        $req              = new OpenApiRequest([
+        $query = [];
+        if (!Utils::isUnset($request->videoId)) {
+            $query['VideoId'] = $request->videoId;
+        }
+        $req = new OpenApiRequest([
             'query' => OpenApiUtilClient::query($query),
         ]);
         $params = new Params([
@@ -4846,16 +5656,32 @@ class Vod extends OpenApiClient
     public function listLiveRecordVideoWithOptions($request, $runtime)
     {
         Utils::validateModel($request);
-        $query               = [];
-        $query['AppName']    = $request->appName;
-        $query['DomainName'] = $request->domainName;
-        $query['EndTime']    = $request->endTime;
-        $query['PageNo']     = $request->pageNo;
-        $query['PageSize']   = $request->pageSize;
-        $query['SortBy']     = $request->sortBy;
-        $query['StartTime']  = $request->startTime;
-        $query['StreamName'] = $request->streamName;
-        $req                 = new OpenApiRequest([
+        $query = [];
+        if (!Utils::isUnset($request->appName)) {
+            $query['AppName'] = $request->appName;
+        }
+        if (!Utils::isUnset($request->domainName)) {
+            $query['DomainName'] = $request->domainName;
+        }
+        if (!Utils::isUnset($request->endTime)) {
+            $query['EndTime'] = $request->endTime;
+        }
+        if (!Utils::isUnset($request->pageNo)) {
+            $query['PageNo'] = $request->pageNo;
+        }
+        if (!Utils::isUnset($request->pageSize)) {
+            $query['PageSize'] = $request->pageSize;
+        }
+        if (!Utils::isUnset($request->sortBy)) {
+            $query['SortBy'] = $request->sortBy;
+        }
+        if (!Utils::isUnset($request->startTime)) {
+            $query['StartTime'] = $request->startTime;
+        }
+        if (!Utils::isUnset($request->streamName)) {
+            $query['StreamName'] = $request->streamName;
+        }
+        $req = new OpenApiRequest([
             'query' => OpenApiUtilClient::query($query),
         ]);
         $params = new Params([
@@ -4894,13 +5720,23 @@ class Vod extends OpenApiClient
     public function listMediaDNADeleteJobWithOptions($request, $runtime)
     {
         Utils::validateModel($request);
-        $query                         = [];
-        $query['JobIds']               = $request->jobIds;
-        $query['OwnerAccount']         = $request->ownerAccount;
-        $query['OwnerId']              = $request->ownerId;
-        $query['ResourceOwnerAccount'] = $request->resourceOwnerAccount;
-        $query['ResourceOwnerId']      = $request->resourceOwnerId;
-        $req                           = new OpenApiRequest([
+        $query = [];
+        if (!Utils::isUnset($request->jobIds)) {
+            $query['JobIds'] = $request->jobIds;
+        }
+        if (!Utils::isUnset($request->ownerAccount)) {
+            $query['OwnerAccount'] = $request->ownerAccount;
+        }
+        if (!Utils::isUnset($request->ownerId)) {
+            $query['OwnerId'] = $request->ownerId;
+        }
+        if (!Utils::isUnset($request->resourceOwnerAccount)) {
+            $query['ResourceOwnerAccount'] = $request->resourceOwnerAccount;
+        }
+        if (!Utils::isUnset($request->resourceOwnerId)) {
+            $query['ResourceOwnerId'] = $request->resourceOwnerId;
+        }
+        $req = new OpenApiRequest([
             'query' => OpenApiUtilClient::query($query),
         ]);
         $params = new Params([
@@ -4939,13 +5775,23 @@ class Vod extends OpenApiClient
     public function listSnapshotsWithOptions($request, $runtime)
     {
         Utils::validateModel($request);
-        $query                 = [];
-        $query['AuthTimeout']  = $request->authTimeout;
-        $query['PageNo']       = $request->pageNo;
-        $query['PageSize']     = $request->pageSize;
-        $query['SnapshotType'] = $request->snapshotType;
-        $query['VideoId']      = $request->videoId;
-        $req                   = new OpenApiRequest([
+        $query = [];
+        if (!Utils::isUnset($request->authTimeout)) {
+            $query['AuthTimeout'] = $request->authTimeout;
+        }
+        if (!Utils::isUnset($request->pageNo)) {
+            $query['PageNo'] = $request->pageNo;
+        }
+        if (!Utils::isUnset($request->pageSize)) {
+            $query['PageSize'] = $request->pageSize;
+        }
+        if (!Utils::isUnset($request->snapshotType)) {
+            $query['SnapshotType'] = $request->snapshotType;
+        }
+        if (!Utils::isUnset($request->videoId)) {
+            $query['VideoId'] = $request->videoId;
+        }
+        $req = new OpenApiRequest([
             'query' => OpenApiUtilClient::query($query),
         ]);
         $params = new Params([
@@ -4984,13 +5830,23 @@ class Vod extends OpenApiClient
     public function listTranscodeTaskWithOptions($request, $runtime)
     {
         Utils::validateModel($request);
-        $query              = [];
-        $query['EndTime']   = $request->endTime;
-        $query['PageNo']    = $request->pageNo;
-        $query['PageSize']  = $request->pageSize;
-        $query['StartTime'] = $request->startTime;
-        $query['VideoId']   = $request->videoId;
-        $req                = new OpenApiRequest([
+        $query = [];
+        if (!Utils::isUnset($request->endTime)) {
+            $query['EndTime'] = $request->endTime;
+        }
+        if (!Utils::isUnset($request->pageNo)) {
+            $query['PageNo'] = $request->pageNo;
+        }
+        if (!Utils::isUnset($request->pageSize)) {
+            $query['PageSize'] = $request->pageSize;
+        }
+        if (!Utils::isUnset($request->startTime)) {
+            $query['StartTime'] = $request->startTime;
+        }
+        if (!Utils::isUnset($request->videoId)) {
+            $query['VideoId'] = $request->videoId;
+        }
+        $req = new OpenApiRequest([
             'query' => OpenApiUtilClient::query($query),
         ]);
         $params = new Params([
@@ -5029,9 +5885,11 @@ class Vod extends OpenApiClient
     public function listTranscodeTemplateGroupWithOptions($request, $runtime)
     {
         Utils::validateModel($request);
-        $query          = [];
-        $query['AppId'] = $request->appId;
-        $req            = new OpenApiRequest([
+        $query = [];
+        if (!Utils::isUnset($request->appId)) {
+            $query['AppId'] = $request->appId;
+        }
+        $req = new OpenApiRequest([
             'query' => OpenApiUtilClient::query($query),
         ]);
         $params = new Params([
@@ -5150,10 +6008,14 @@ class Vod extends OpenApiClient
     public function listVodTemplateWithOptions($request, $runtime)
     {
         Utils::validateModel($request);
-        $query                 = [];
-        $query['AppId']        = $request->appId;
-        $query['TemplateType'] = $request->templateType;
-        $req                   = new OpenApiRequest([
+        $query = [];
+        if (!Utils::isUnset($request->appId)) {
+            $query['AppId'] = $request->appId;
+        }
+        if (!Utils::isUnset($request->templateType)) {
+            $query['TemplateType'] = $request->templateType;
+        }
+        $req = new OpenApiRequest([
             'query' => OpenApiUtilClient::query($query),
         ]);
         $params = new Params([
@@ -5192,9 +6054,11 @@ class Vod extends OpenApiClient
     public function listWatermarkWithOptions($request, $runtime)
     {
         Utils::validateModel($request);
-        $query          = [];
-        $query['AppId'] = $request->appId;
-        $req            = new OpenApiRequest([
+        $query = [];
+        if (!Utils::isUnset($request->appId)) {
+            $query['AppId'] = $request->appId;
+        }
+        $req = new OpenApiRequest([
             'query' => OpenApiUtilClient::query($query),
         ]);
         $params = new Params([
@@ -5225,6 +6089,85 @@ class Vod extends OpenApiClient
     }
 
     /**
+     * @param ModifyMediaInfoRequest $request
+     * @param RuntimeOptions         $runtime
+     *
+     * @return ModifyMediaInfoResponse
+     */
+    public function modifyMediaInfoWithOptions($request, $runtime)
+    {
+        Utils::validateModel($request);
+        $query = [];
+        if (!Utils::isUnset($request->aiLabelUrl)) {
+            $query['AiLabelUrl'] = $request->aiLabelUrl;
+        }
+        if (!Utils::isUnset($request->appId)) {
+            $query['AppId'] = $request->appId;
+        }
+        if (!Utils::isUnset($request->businessType)) {
+            $query['BusinessType'] = $request->businessType;
+        }
+        if (!Utils::isUnset($request->cateId)) {
+            $query['CateId'] = $request->cateId;
+        }
+        if (!Utils::isUnset($request->description)) {
+            $query['Description'] = $request->description;
+        }
+        if (!Utils::isUnset($request->dynamicData)) {
+            $query['DynamicData'] = $request->dynamicData;
+        }
+        if (!Utils::isUnset($request->entityId)) {
+            $query['EntityId'] = $request->entityId;
+        }
+        if (!Utils::isUnset($request->label)) {
+            $query['Label'] = $request->label;
+        }
+        if (!Utils::isUnset($request->mediaId)) {
+            $query['MediaId'] = $request->mediaId;
+        }
+        if (!Utils::isUnset($request->mediaType)) {
+            $query['MediaType'] = $request->mediaType;
+        }
+        if (!Utils::isUnset($request->source)) {
+            $query['Source'] = $request->source;
+        }
+        if (!Utils::isUnset($request->tags)) {
+            $query['Tags'] = $request->tags;
+        }
+        if (!Utils::isUnset($request->title)) {
+            $query['Title'] = $request->title;
+        }
+        $req = new OpenApiRequest([
+            'query' => OpenApiUtilClient::query($query),
+        ]);
+        $params = new Params([
+            'action'      => 'ModifyMediaInfo',
+            'version'     => '2017-03-21',
+            'protocol'    => 'HTTPS',
+            'pathname'    => '/',
+            'method'      => 'POST',
+            'authType'    => 'AK',
+            'style'       => 'RPC',
+            'reqBodyType' => 'formData',
+            'bodyType'    => 'json',
+        ]);
+
+        return ModifyMediaInfoResponse::fromMap($this->callApi($params, $req, $runtime));
+    }
+
+    /**
+     * @param ModifyMediaInfoRequest $request
+     *
+     * @return ModifyMediaInfoResponse
+     */
+    public function modifyMediaInfo($request)
+    {
+        $runtime = new RuntimeOptions([]);
+
+        return $this->modifyMediaInfoWithOptions($request, $runtime);
+    }
+
+    /**
      * @param MoveAppResourceRequest $request
      * @param RuntimeOptions         $runtime
      *
@@ -5233,11 +6176,17 @@ class Vod extends OpenApiClient
     public function moveAppResourceWithOptions($request, $runtime)
     {
         Utils::validateModel($request);
-        $query                 = [];
-        $query['ResourceIds']  = $request->resourceIds;
-        $query['ResourceType'] = $request->resourceType;
-        $query['TargetAppId']  = $request->targetAppId;
-        $req                   = new OpenApiRequest([
+        $query = [];
+        if (!Utils::isUnset($request->resourceIds)) {
+            $query['ResourceIds'] = $request->resourceIds;
+        }
+        if (!Utils::isUnset($request->resourceType)) {
+            $query['ResourceType'] = $request->resourceType;
+        }
+        if (!Utils::isUnset($request->targetAppId)) {
+            $query['TargetAppId'] = $request->targetAppId;
+        }
+        $req = new OpenApiRequest([
             'query' => OpenApiUtilClient::query($query),
         ]);
         $params = new Params([
@@ -5276,11 +6225,17 @@ class Vod extends OpenApiClient
     public function preloadVodObjectCachesWithOptions($request, $runtime)
     {
         Utils::validateModel($request);
-        $query                  = [];
-        $query['ObjectPath']    = $request->objectPath;
-        $query['OwnerId']       = $request->ownerId;
-        $query['SecurityToken'] = $request->securityToken;
-        $req                    = new OpenApiRequest([
+        $query = [];
+        if (!Utils::isUnset($request->objectPath)) {
+            $query['ObjectPath'] = $request->objectPath;
+        }
+        if (!Utils::isUnset($request->ownerId)) {
+            $query['OwnerId'] = $request->ownerId;
+        }
+        if (!Utils::isUnset($request->securityToken)) {
+            $query['SecurityToken'] = $request->securityToken;
+        }
+        $req = new OpenApiRequest([
             'query' => OpenApiUtilClient::query($query),
         ]);
         $params = new Params([
@@ -5319,19 +6274,41 @@ class Vod extends OpenApiClient
     public function produceEditingProjectVideoWithOptions($request, $runtime)
     {
         Utils::validateModel($request);
-        $query                         = [];
-        $query['CoverURL']             = $request->coverURL;
-        $query['Description']          = $request->description;
-        $query['MediaMetadata']        = $request->mediaMetadata;
-        $query['OwnerId']              = $request->ownerId;
-        $query['ProduceConfig']        = $request->produceConfig;
-        $query['ProjectId']            = $request->projectId;
-        $query['ResourceOwnerAccount'] = $request->resourceOwnerAccount;
-        $query['ResourceOwnerId']      = $request->resourceOwnerId;
-        $query['Timeline']             = $request->timeline;
-        $query['Title']                = $request->title;
-        $query['UserData']             = $request->userData;
-        $req                           = new OpenApiRequest([
+        $query = [];
+        if (!Utils::isUnset($request->coverURL)) {
+            $query['CoverURL'] = $request->coverURL;
+        }
+        if (!Utils::isUnset($request->description)) {
+            $query['Description'] = $request->description;
+        }
+        if (!Utils::isUnset($request->mediaMetadata)) {
+            $query['MediaMetadata'] = $request->mediaMetadata;
+        }
+        if (!Utils::isUnset($request->ownerId)) {
+            $query['OwnerId'] = $request->ownerId;
+        }
+        if (!Utils::isUnset($request->produceConfig)) {
+            $query['ProduceConfig'] = $request->produceConfig;
+        }
+        if (!Utils::isUnset($request->projectId)) {
+            $query['ProjectId'] = $request->projectId;
+        }
+        if (!Utils::isUnset($request->resourceOwnerAccount)) {
+            $query['ResourceOwnerAccount'] = $request->resourceOwnerAccount;
+        }
+        if (!Utils::isUnset($request->resourceOwnerId)) {
+            $query['ResourceOwnerId'] = $request->resourceOwnerId;
+        }
+        if (!Utils::isUnset($request->timeline)) {
+            $query['Timeline'] = $request->timeline;
+        }
+        if (!Utils::isUnset($request->title)) {
+            $query['Title'] = $request->title;
+        }
+        if (!Utils::isUnset($request->userData)) {
+            $query['UserData'] = $request->userData;
+        }
+        $req = new OpenApiRequest([
             'query' => OpenApiUtilClient::query($query),
         ]);
         $params = new Params([
@@ -5370,12 +6347,20 @@ class Vod extends OpenApiClient
     public function refreshUploadVideoWithOptions($request, $runtime)
     {
         Utils::validateModel($request);
-        $query                         = [];
-        $query['OwnerId']              = $request->ownerId;
-        $query['ResourceOwnerAccount'] = $request->resourceOwnerAccount;
-        $query['ResourceOwnerId']      = $request->resourceOwnerId;
-        $query['VideoId']              = $request->videoId;
-        $req                           = new OpenApiRequest([
+        $query = [];
+        if (!Utils::isUnset($request->ownerId)) {
+            $query['OwnerId'] = $request->ownerId;
+        }
+        if (!Utils::isUnset($request->resourceOwnerAccount)) {
+            $query['ResourceOwnerAccount'] = $request->resourceOwnerAccount;
+        }
+        if (!Utils::isUnset($request->resourceOwnerId)) {
+            $query['ResourceOwnerId'] = $request->resourceOwnerId;
+        }
+        if (!Utils::isUnset($request->videoId)) {
+            $query['VideoId'] = $request->videoId;
+        }
+        $req = new OpenApiRequest([
             'query' => OpenApiUtilClient::query($query),
         ]);
         $params = new Params([
@@ -5414,12 +6399,20 @@ class Vod extends OpenApiClient
     public function refreshVodObjectCachesWithOptions($request, $runtime)
     {
         Utils::validateModel($request);
-        $query                  = [];
-        $query['ObjectPath']    = $request->objectPath;
-        $query['ObjectType']    = $request->objectType;
-        $query['OwnerId']       = $request->ownerId;
-        $query['SecurityToken'] = $request->securityToken;
-        $req                    = new OpenApiRequest([
+        $query = [];
+        if (!Utils::isUnset($request->objectPath)) {
+            $query['ObjectPath'] = $request->objectPath;
+        }
+        if (!Utils::isUnset($request->objectType)) {
+            $query['ObjectType'] = $request->objectType;
+        }
+        if (!Utils::isUnset($request->ownerId)) {
+            $query['OwnerId'] = $request->ownerId;
+        }
+        if (!Utils::isUnset($request->securityToken)) {
+            $query['SecurityToken'] = $request->securityToken;
+        }
+        $req = new OpenApiRequest([
             'query' => OpenApiUtilClient::query($query),
         ]);
         $params = new Params([
@@ -5458,12 +6451,20 @@ class Vod extends OpenApiClient
     public function registerMediaWithOptions($request, $runtime)
     {
         Utils::validateModel($request);
-        $query                      = [];
-        $query['RegisterMetadatas'] = $request->registerMetadatas;
-        $query['TemplateGroupId']   = $request->templateGroupId;
-        $query['UserData']          = $request->userData;
-        $query['WorkflowId']        = $request->workflowId;
-        $req                        = new OpenApiRequest([
+        $query = [];
+        if (!Utils::isUnset($request->registerMetadatas)) {
+            $query['RegisterMetadatas'] = $request->registerMetadatas;
+        }
+        if (!Utils::isUnset($request->templateGroupId)) {
+            $query['TemplateGroupId'] = $request->templateGroupId;
+        }
+        if (!Utils::isUnset($request->userData)) {
+            $query['UserData'] = $request->userData;
+        }
+        if (!Utils::isUnset($request->workflowId)) {
+            $query['WorkflowId'] = $request->workflowId;
+        }
+        $req = new OpenApiRequest([
             'query' => OpenApiUtilClient::query($query),
         ]);
         $params = new Params([
@@ -5502,19 +6503,41 @@ class Vod extends OpenApiClient
     public function searchEditingProjectWithOptions($request, $runtime)
     {
         Utils::validateModel($request);
-        $query                         = [];
-        $query['EndTime']              = $request->endTime;
-        $query['OwnerAccount']         = $request->ownerAccount;
-        $query['OwnerId']              = $request->ownerId;
-        $query['PageNo']               = $request->pageNo;
-        $query['PageSize']             = $request->pageSize;
-        $query['ResourceOwnerAccount'] = $request->resourceOwnerAccount;
-        $query['ResourceOwnerId']      = $request->resourceOwnerId;
-        $query['SortBy']               = $request->sortBy;
-        $query['StartTime']            = $request->startTime;
-        $query['Status']               = $request->status;
-        $query['Title']                = $request->title;
-        $req                           = new OpenApiRequest([
+        $query = [];
+        if (!Utils::isUnset($request->endTime)) {
+            $query['EndTime'] = $request->endTime;
+        }
+        if (!Utils::isUnset($request->ownerAccount)) {
+            $query['OwnerAccount'] = $request->ownerAccount;
+        }
+        if (!Utils::isUnset($request->ownerId)) {
+            $query['OwnerId'] = $request->ownerId;
+        }
+        if (!Utils::isUnset($request->pageNo)) {
+            $query['PageNo'] = $request->pageNo;
+        }
+        if (!Utils::isUnset($request->pageSize)) {
+            $query['PageSize'] = $request->pageSize;
+        }
+        if (!Utils::isUnset($request->resourceOwnerAccount)) {
+            $query['ResourceOwnerAccount'] = $request->resourceOwnerAccount;
+        }
+        if (!Utils::isUnset($request->resourceOwnerId)) {
+            $query['ResourceOwnerId'] = $request->resourceOwnerId;
+        }
+        if (!Utils::isUnset($request->sortBy)) {
+            $query['SortBy'] = $request->sortBy;
+        }
+        if (!Utils::isUnset($request->startTime)) {
+            $query['StartTime'] = $request->startTime;
+        }
+        if (!Utils::isUnset($request->status)) {
+            $query['Status'] = $request->status;
+        }
+        if (!Utils::isUnset($request->title)) {
+            $query['Title'] = $request->title;
+        }
+        $req = new OpenApiRequest([
             'query' => OpenApiUtilClient::query($query),
         ]);
         $params = new Params([
@@ -5553,15 +6576,29 @@ class Vod extends OpenApiClient
     public function searchMediaWithOptions($request, $runtime)
     {
         Utils::validateModel($request);
-        $query                = [];
-        $query['Fields']      = $request->fields;
-        $query['Match']       = $request->match;
-        $query['PageNo']      = $request->pageNo;
-        $query['PageSize']    = $request->pageSize;
-        $query['ScrollToken'] = $request->scrollToken;
-        $query['SearchType']  = $request->searchType;
-        $query['SortBy']      = $request->sortBy;
-        $req                  = new OpenApiRequest([
+        $query = [];
+        if (!Utils::isUnset($request->fields)) {
+            $query['Fields'] = $request->fields;
+        }
+        if (!Utils::isUnset($request->match)) {
+            $query['Match'] = $request->match;
+        }
+        if (!Utils::isUnset($request->pageNo)) {
+            $query['PageNo'] = $request->pageNo;
+        }
+        if (!Utils::isUnset($request->pageSize)) {
+            $query['PageSize'] = $request->pageSize;
+        }
+        if (!Utils::isUnset($request->scrollToken)) {
+            $query['ScrollToken'] = $request->scrollToken;
+        }
+        if (!Utils::isUnset($request->searchType)) {
+            $query['SearchType'] = $request->searchType;
+        }
+        if (!Utils::isUnset($request->sortBy)) {
+            $query['SortBy'] = $request->sortBy;
+        }
+        $req = new OpenApiRequest([
             'query' => OpenApiUtilClient::query($query),
         ]);
         $params = new Params([
@@ -5600,11 +6637,17 @@ class Vod extends OpenApiClient
     public function setAuditSecurityIpWithOptions($request, $runtime)
     {
         Utils::validateModel($request);
-        $query                      = [];
-        $query['Ips']               = $request->ips;
-        $query['OperateMode']       = $request->operateMode;
-        $query['SecurityGroupName'] = $request->securityGroupName;
-        $req                        = new OpenApiRequest([
+        $query = [];
+        if (!Utils::isUnset($request->ips)) {
+            $query['Ips'] = $request->ips;
+        }
+        if (!Utils::isUnset($request->operateMode)) {
+            $query['OperateMode'] = $request->operateMode;
+        }
+        if (!Utils::isUnset($request->securityGroupName)) {
+            $query['SecurityGroupName'] = $request->securityGroupName;
+        }
+        $req = new OpenApiRequest([
             'query' => OpenApiUtilClient::query($query),
         ]);
         $params = new Params([
@@ -5643,15 +6686,29 @@ class Vod extends OpenApiClient
     public function setCrossdomainContentWithOptions($request, $runtime)
     {
         Utils::validateModel($request);
-        $query                         = [];
-        $query['Content']              = $request->content;
-        $query['OwnerAccount']         = $request->ownerAccount;
-        $query['OwnerId']              = $request->ownerId;
-        $query['ResourceOwnerAccount'] = $request->resourceOwnerAccount;
-        $query['ResourceOwnerId']      = $request->resourceOwnerId;
-        $query['ResourceRealOwnerId']  = $request->resourceRealOwnerId;
-        $query['StorageLocation']      = $request->storageLocation;
-        $req                           = new OpenApiRequest([
+        $query = [];
+        if (!Utils::isUnset($request->content)) {
+            $query['Content'] = $request->content;
+        }
+        if (!Utils::isUnset($request->ownerAccount)) {
+            $query['OwnerAccount'] = $request->ownerAccount;
+        }
+        if (!Utils::isUnset($request->ownerId)) {
+            $query['OwnerId'] = $request->ownerId;
+        }
+        if (!Utils::isUnset($request->resourceOwnerAccount)) {
+            $query['ResourceOwnerAccount'] = $request->resourceOwnerAccount;
+        }
+        if (!Utils::isUnset($request->resourceOwnerId)) {
+            $query['ResourceOwnerId'] = $request->resourceOwnerId;
+        }
+        if (!Utils::isUnset($request->resourceRealOwnerId)) {
+            $query['ResourceRealOwnerId'] = $request->resourceRealOwnerId;
+        }
+        if (!Utils::isUnset($request->storageLocation)) {
+            $query['StorageLocation'] = $request->storageLocation;
+        }
+        $req = new OpenApiRequest([
             'query' => OpenApiUtilClient::query($query),
         ]);
         $params = new Params([
@@ -5690,9 +6747,11 @@ class Vod extends OpenApiClient
     public function setDefaultAITemplateWithOptions($request, $runtime)
     {
         Utils::validateModel($request);
-        $query               = [];
-        $query['TemplateId'] = $request->templateId;
-        $req                 = new OpenApiRequest([
+        $query = [];
+        if (!Utils::isUnset($request->templateId)) {
+            $query['TemplateId'] = $request->templateId;
+        }
+        $req = new OpenApiRequest([
             'query' => OpenApiUtilClient::query($query),
         ]);
         $params = new Params([
@@ -5731,9 +6790,11 @@ class Vod extends OpenApiClient
     public function setDefaultTranscodeTemplateGroupWithOptions($request, $runtime)
     {
         Utils::validateModel($request);
-        $query                             = [];
-        $query['TranscodeTemplateGroupId'] = $request->transcodeTemplateGroupId;
-        $req                               = new OpenApiRequest([
+        $query = [];
+        if (!Utils::isUnset($request->transcodeTemplateGroupId)) {
+            $query['TranscodeTemplateGroupId'] = $request->transcodeTemplateGroupId;
+        }
+        $req = new OpenApiRequest([
             'query' => OpenApiUtilClient::query($query),
         ]);
         $params = new Params([
@@ -5772,9 +6833,11 @@ class Vod extends OpenApiClient
     public function setDefaultWatermarkWithOptions($request, $runtime)
     {
         Utils::validateModel($request);
-        $query                = [];
-        $query['WatermarkId'] = $request->watermarkId;
-        $req                  = new OpenApiRequest([
+        $query = [];
+        if (!Utils::isUnset($request->watermarkId)) {
+            $query['WatermarkId'] = $request->watermarkId;
+        }
+        $req = new OpenApiRequest([
             'query' => OpenApiUtilClient::query($query),
         ]);
         $params = new Params([
@@ -5813,14 +6876,26 @@ class Vod extends OpenApiClient
     public function setEditingProjectMaterialsWithOptions($request, $runtime)
     {
         Utils::validateModel($request);
-        $query                         = [];
-        $query['MaterialIds']          = $request->materialIds;
-        $query['OwnerAccount']         = $request->ownerAccount;
-        $query['OwnerId']              = $request->ownerId;
-        $query['ProjectId']            = $request->projectId;
-        $query['ResourceOwnerAccount'] = $request->resourceOwnerAccount;
-        $query['ResourceOwnerId']      = $request->resourceOwnerId;
-        $req                           = new OpenApiRequest([
+        $query = [];
+        if (!Utils::isUnset($request->materialIds)) {
+            $query['MaterialIds'] = $request->materialIds;
+        }
+        if (!Utils::isUnset($request->ownerAccount)) {
+            $query['OwnerAccount'] = $request->ownerAccount;
+        }
+        if (!Utils::isUnset($request->ownerId)) {
+            $query['OwnerId'] = $request->ownerId;
+        }
+        if (!Utils::isUnset($request->projectId)) {
+            $query['ProjectId'] = $request->projectId;
+        }
+        if (!Utils::isUnset($request->resourceOwnerAccount)) {
+            $query['ResourceOwnerAccount'] = $request->resourceOwnerAccount;
+        }
+        if (!Utils::isUnset($request->resourceOwnerId)) {
+            $query['ResourceOwnerId'] = $request->resourceOwnerId;
+        }
+        $req = new OpenApiRequest([
             'query' => OpenApiUtilClient::query($query),
         ]);
         $params = new Params([
@@ -5859,17 +6934,35 @@ class Vod extends OpenApiClient
     public function setMessageCallbackWithOptions($request, $runtime)
     {
         Utils::validateModel($request);
-        $query                  = [];
-        $query['AppId']         = $request->appId;
-        $query['AuthKey']       = $request->authKey;
-        $query['AuthSwitch']    = $request->authSwitch;
-        $query['CallbackType']  = $request->callbackType;
-        $query['CallbackURL']   = $request->callbackURL;
-        $query['EventTypeList'] = $request->eventTypeList;
-        $query['MnsEndpoint']   = $request->mnsEndpoint;
-        $query['MnsQueueName']  = $request->mnsQueueName;
-        $query['OwnerAccount']  = $request->ownerAccount;
-        $req                    = new OpenApiRequest([
+        $query = [];
+        if (!Utils::isUnset($request->appId)) {
+            $query['AppId'] = $request->appId;
+        }
+        if (!Utils::isUnset($request->authKey)) {
+            $query['AuthKey'] = $request->authKey;
+        }
+        if (!Utils::isUnset($request->authSwitch)) {
+            $query['AuthSwitch'] = $request->authSwitch;
+        }
+        if (!Utils::isUnset($request->callbackType)) {
+            $query['CallbackType'] = $request->callbackType;
+        }
+        if (!Utils::isUnset($request->callbackURL)) {
+            $query['CallbackURL'] = $request->callbackURL;
+        }
+        if (!Utils::isUnset($request->eventTypeList)) {
+            $query['EventTypeList'] = $request->eventTypeList;
+        }
+        if (!Utils::isUnset($request->mnsEndpoint)) {
+            $query['MnsEndpoint'] = $request->mnsEndpoint;
+        }
+        if (!Utils::isUnset($request->mnsQueueName)) {
+            $query['MnsQueueName'] = $request->mnsQueueName;
+        }
+        if (!Utils::isUnset($request->ownerAccount)) {
+            $query['OwnerAccount'] = $request->ownerAccount;
+        }
+        $req = new OpenApiRequest([
             'query' => OpenApiUtilClient::query($query),
         ]);
         $params = new Params([
@@ -5908,15 +7001,29 @@ class Vod extends OpenApiClient
     public function setVodDomainCertificateWithOptions($request, $runtime)
     {
         Utils::validateModel($request);
-        $query                  = [];
-        $query['CertName']      = $request->certName;
-        $query['DomainName']    = $request->domainName;
-        $query['OwnerId']       = $request->ownerId;
-        $query['SSLPri']        = $request->SSLPri;
-        $query['SSLProtocol']   = $request->SSLProtocol;
-        $query['SSLPub']        = $request->SSLPub;
-        $query['SecurityToken'] = $request->securityToken;
-        $req                    = new OpenApiRequest([
+        $query = [];
+        if (!Utils::isUnset($request->certName)) {
+            $query['CertName'] = $request->certName;
+        }
+        if (!Utils::isUnset($request->domainName)) {
+            $query['DomainName'] = $request->domainName;
+        }
+        if (!Utils::isUnset($request->ownerId)) {
+            $query['OwnerId'] = $request->ownerId;
+        }
+        if (!Utils::isUnset($request->SSLPri)) {
+            $query['SSLPri'] = $request->SSLPri;
+        }
+        if (!Utils::isUnset($request->SSLProtocol)) {
+            $query['SSLProtocol'] = $request->SSLProtocol;
+        }
+        if (!Utils::isUnset($request->SSLPub)) {
+            $query['SSLPub'] = $request->SSLPub;
+        }
+        if (!Utils::isUnset($request->securityToken)) {
+            $query['SecurityToken'] = $request->securityToken;
+        }
+        $req = new OpenApiRequest([
             'query' => OpenApiUtilClient::query($query),
         ]);
         $params = new Params([
@@ -5955,15 +7062,29 @@ class Vod extends OpenApiClient
     public function submitAIImageAuditJobWithOptions($request, $runtime)
     {
         Utils::validateModel($request);
-        $query                            = [];
-        $query['MediaAuditConfiguration'] = $request->mediaAuditConfiguration;
-        $query['MediaId']                 = $request->mediaId;
-        $query['OwnerAccount']            = $request->ownerAccount;
-        $query['OwnerId']                 = $request->ownerId;
-        $query['ResourceOwnerAccount']    = $request->resourceOwnerAccount;
-        $query['ResourceOwnerId']         = $request->resourceOwnerId;
-        $query['TemplateId']              = $request->templateId;
-        $req                              = new OpenApiRequest([
+        $query = [];
+        if (!Utils::isUnset($request->mediaAuditConfiguration)) {
+            $query['MediaAuditConfiguration'] = $request->mediaAuditConfiguration;
+        }
+        if (!Utils::isUnset($request->mediaId)) {
+            $query['MediaId'] = $request->mediaId;
+        }
+        if (!Utils::isUnset($request->ownerAccount)) {
+            $query['OwnerAccount'] = $request->ownerAccount;
+        }
+        if (!Utils::isUnset($request->ownerId)) {
+            $query['OwnerId'] = $request->ownerId;
+        }
+        if (!Utils::isUnset($request->resourceOwnerAccount)) {
+            $query['ResourceOwnerAccount'] = $request->resourceOwnerAccount;
+        }
+        if (!Utils::isUnset($request->resourceOwnerId)) {
+            $query['ResourceOwnerId'] = $request->resourceOwnerId;
+        }
+        if (!Utils::isUnset($request->templateId)) {
+            $query['TemplateId'] = $request->templateId;
+        }
+        $req = new OpenApiRequest([
             'query' => OpenApiUtilClient::query($query),
         ]);
         $params = new Params([
@@ -6002,16 +7123,32 @@ class Vod extends OpenApiClient
     public function submitAIImageJobWithOptions($request, $runtime)
     {
         Utils::validateModel($request);
-        $query                         = [];
-        $query['AIPipelineId']         = $request->AIPipelineId;
-        $query['AITemplateId']         = $request->AITemplateId;
-        $query['OwnerAccount']         = $request->ownerAccount;
-        $query['OwnerId']              = $request->ownerId;
-        $query['ResourceOwnerAccount'] = $request->resourceOwnerAccount;
-        $query['ResourceOwnerId']      = $request->resourceOwnerId;
-        $query['UserData']             = $request->userData;
-        $query['VideoId']              = $request->videoId;
-        $req                           = new OpenApiRequest([
+        $query = [];
+        if (!Utils::isUnset($request->AIPipelineId)) {
+            $query['AIPipelineId'] = $request->AIPipelineId;
+        }
+        if (!Utils::isUnset($request->AITemplateId)) {
+            $query['AITemplateId'] = $request->AITemplateId;
+        }
+        if (!Utils::isUnset($request->ownerAccount)) {
+            $query['OwnerAccount'] = $request->ownerAccount;
+        }
+        if (!Utils::isUnset($request->ownerId)) {
+            $query['OwnerId'] = $request->ownerId;
+        }
+        if (!Utils::isUnset($request->resourceOwnerAccount)) {
+            $query['ResourceOwnerAccount'] = $request->resourceOwnerAccount;
+        }
+        if (!Utils::isUnset($request->resourceOwnerId)) {
+            $query['ResourceOwnerId'] = $request->resourceOwnerId;
+        }
+        if (!Utils::isUnset($request->userData)) {
+            $query['UserData'] = $request->userData;
+        }
+        if (!Utils::isUnset($request->videoId)) {
+            $query['VideoId'] = $request->videoId;
+        }
+        $req = new OpenApiRequest([
             'query' => OpenApiUtilClient::query($query),
         ]);
         $params = new Params([
@@ -6050,16 +7187,32 @@ class Vod extends OpenApiClient
     public function submitAIJobWithOptions($request, $runtime)
     {
         Utils::validateModel($request);
-        $query                         = [];
-        $query['Config']               = $request->config;
-        $query['MediaId']              = $request->mediaId;
-        $query['OwnerAccount']         = $request->ownerAccount;
-        $query['OwnerId']              = $request->ownerId;
-        $query['ResourceOwnerAccount'] = $request->resourceOwnerAccount;
-        $query['ResourceOwnerId']      = $request->resourceOwnerId;
-        $query['Types']                = $request->types;
-        $query['UserData']             = $request->userData;
-        $req                           = new OpenApiRequest([
+        $query = [];
+        if (!Utils::isUnset($request->config)) {
+            $query['Config'] = $request->config;
+        }
+        if (!Utils::isUnset($request->mediaId)) {
+            $query['MediaId'] = $request->mediaId;
+        }
+        if (!Utils::isUnset($request->ownerAccount)) {
+            $query['OwnerAccount'] = $request->ownerAccount;
+        }
+        if (!Utils::isUnset($request->ownerId)) {
+            $query['OwnerId'] = $request->ownerId;
+        }
+        if (!Utils::isUnset($request->resourceOwnerAccount)) {
+            $query['ResourceOwnerAccount'] = $request->resourceOwnerAccount;
+        }
+        if (!Utils::isUnset($request->resourceOwnerId)) {
+            $query['ResourceOwnerId'] = $request->resourceOwnerId;
+        }
+        if (!Utils::isUnset($request->types)) {
+            $query['Types'] = $request->types;
+        }
+        if (!Utils::isUnset($request->userData)) {
+            $query['UserData'] = $request->userData;
+        }
+        $req = new OpenApiRequest([
             'query' => OpenApiUtilClient::query($query),
         ]);
         $params = new Params([
@@ -6098,13 +7251,23 @@ class Vod extends OpenApiClient
     public function submitAIMediaAuditJobWithOptions($request, $runtime)
     {
         Utils::validateModel($request);
-        $query                            = [];
-        $query['MediaAuditConfiguration'] = $request->mediaAuditConfiguration;
-        $query['MediaId']                 = $request->mediaId;
-        $query['MediaType']               = $request->mediaType;
-        $query['TemplateId']              = $request->templateId;
-        $query['UserData']                = $request->userData;
-        $req                              = new OpenApiRequest([
+        $query = [];
+        if (!Utils::isUnset($request->mediaAuditConfiguration)) {
+            $query['MediaAuditConfiguration'] = $request->mediaAuditConfiguration;
+        }
+        if (!Utils::isUnset($request->mediaId)) {
+            $query['MediaId'] = $request->mediaId;
+        }
+        if (!Utils::isUnset($request->mediaType)) {
+            $query['MediaType'] = $request->mediaType;
+        }
+        if (!Utils::isUnset($request->templateId)) {
+            $query['TemplateId'] = $request->templateId;
+        }
+        if (!Utils::isUnset($request->userData)) {
+            $query['UserData'] = $request->userData;
+        }
+        $req = new OpenApiRequest([
             'query' => OpenApiUtilClient::query($query),
         ]);
         $params = new Params([
@@ -6143,11 +7306,17 @@ class Vod extends OpenApiClient
     public function submitDynamicImageJobWithOptions($request, $runtime)
     {
         Utils::validateModel($request);
-        $query                           = [];
-        $query['DynamicImageTemplateId'] = $request->dynamicImageTemplateId;
-        $query['OverrideParams']         = $request->overrideParams;
-        $query['VideoId']                = $request->videoId;
-        $req                             = new OpenApiRequest([
+        $query = [];
+        if (!Utils::isUnset($request->dynamicImageTemplateId)) {
+            $query['DynamicImageTemplateId'] = $request->dynamicImageTemplateId;
+        }
+        if (!Utils::isUnset($request->overrideParams)) {
+            $query['OverrideParams'] = $request->overrideParams;
+        }
+        if (!Utils::isUnset($request->videoId)) {
+            $query['VideoId'] = $request->videoId;
+        }
+        $req = new OpenApiRequest([
             'query' => OpenApiUtilClient::query($query),
         ]);
         $params = new Params([
@@ -6186,21 +7355,47 @@ class Vod extends OpenApiClient
     public function submitLiveEditingWithOptions($request, $runtime)
     {
         Utils::validateModel($request);
-        $query                         = [];
-        $query['AppName']              = $request->appName;
-        $query['Clips']                = $request->clips;
-        $query['CoverURL']             = $request->coverURL;
-        $query['Description']          = $request->description;
-        $query['DomainName']           = $request->domainName;
-        $query['MediaMetadata']        = $request->mediaMetadata;
-        $query['OwnerId']              = $request->ownerId;
-        $query['ProduceConfig']        = $request->produceConfig;
-        $query['ResourceOwnerAccount'] = $request->resourceOwnerAccount;
-        $query['ResourceOwnerId']      = $request->resourceOwnerId;
-        $query['StreamName']           = $request->streamName;
-        $query['Title']                = $request->title;
-        $query['UserData']             = $request->userData;
-        $req                           = new OpenApiRequest([
+        $query = [];
+        if (!Utils::isUnset($request->appName)) {
+            $query['AppName'] = $request->appName;
+        }
+        if (!Utils::isUnset($request->clips)) {
+            $query['Clips'] = $request->clips;
+        }
+        if (!Utils::isUnset($request->coverURL)) {
+            $query['CoverURL'] = $request->coverURL;
+        }
+        if (!Utils::isUnset($request->description)) {
+            $query['Description'] = $request->description;
+        }
+        if (!Utils::isUnset($request->domainName)) {
+            $query['DomainName'] = $request->domainName;
+        }
+        if (!Utils::isUnset($request->mediaMetadata)) {
+            $query['MediaMetadata'] = $request->mediaMetadata;
+        }
+        if (!Utils::isUnset($request->ownerId)) {
+            $query['OwnerId'] = $request->ownerId;
+        }
+        if (!Utils::isUnset($request->produceConfig)) {
+            $query['ProduceConfig'] = $request->produceConfig;
+        }
+        if (!Utils::isUnset($request->resourceOwnerAccount)) {
+            $query['ResourceOwnerAccount'] = $request->resourceOwnerAccount;
+        }
+        if (!Utils::isUnset($request->resourceOwnerId)) {
+            $query['ResourceOwnerId'] = $request->resourceOwnerId;
+        }
+        if (!Utils::isUnset($request->streamName)) {
+            $query['StreamName'] = $request->streamName;
+        }
+        if (!Utils::isUnset($request->title)) {
+            $query['Title'] = $request->title;
+        }
+        if (!Utils::isUnset($request->userData)) {
+            $query['UserData'] = $request->userData;
+        }
+        $req = new OpenApiRequest([
             'query' => OpenApiUtilClient::query($query),
         ]);
         $params = new Params([
@@ -6239,13 +7434,23 @@ class Vod extends OpenApiClient
     public function submitMediaDNADeleteJobWithOptions($request, $runtime)
     {
         Utils::validateModel($request);
-        $query                         = [];
-        $query['MediaId']              = $request->mediaId;
-        $query['OwnerAccount']         = $request->ownerAccount;
-        $query['OwnerId']              = $request->ownerId;
-        $query['ResourceOwnerAccount'] = $request->resourceOwnerAccount;
-        $query['ResourceOwnerId']      = $request->resourceOwnerId;
-        $req                           = new OpenApiRequest([
+        $query = [];
+        if (!Utils::isUnset($request->mediaId)) {
+            $query['MediaId'] = $request->mediaId;
+        }
+        if (!Utils::isUnset($request->ownerAccount)) {
+            $query['OwnerAccount'] = $request->ownerAccount;
+        }
+        if (!Utils::isUnset($request->ownerId)) {
+            $query['OwnerId'] = $request->ownerId;
+        }
+        if (!Utils::isUnset($request->resourceOwnerAccount)) {
+            $query['ResourceOwnerAccount'] = $request->resourceOwnerAccount;
+        }
+        if (!Utils::isUnset($request->resourceOwnerId)) {
+            $query['ResourceOwnerId'] = $request->resourceOwnerId;
+        }
+        $req = new OpenApiRequest([
             'query' => OpenApiUtilClient::query($query),
         ]);
         $params = new Params([
@@ -6284,10 +7489,14 @@ class Vod extends OpenApiClient
     public function submitPreprocessJobsWithOptions($request, $runtime)
     {
         Utils::validateModel($request);
-        $query                   = [];
-        $query['PreprocessType'] = $request->preprocessType;
-        $query['VideoId']        = $request->videoId;
-        $req                     = new OpenApiRequest([
+        $query = [];
+        if (!Utils::isUnset($request->preprocessType)) {
+            $query['PreprocessType'] = $request->preprocessType;
+        }
+        if (!Utils::isUnset($request->videoId)) {
+            $query['VideoId'] = $request->videoId;
+        }
+        $req = new OpenApiRequest([
             'query' => OpenApiUtilClient::query($query),
         ]);
         $params = new Params([
@@ -6326,17 +7535,35 @@ class Vod extends OpenApiClient
     public function submitSnapshotJobWithOptions($request, $runtime)
     {
         Utils::validateModel($request);
-        $query                         = [];
-        $query['Count']                = $request->count;
-        $query['Height']               = $request->height;
-        $query['Interval']             = $request->interval;
-        $query['SnapshotTemplateId']   = $request->snapshotTemplateId;
-        $query['SpecifiedOffsetTime']  = $request->specifiedOffsetTime;
-        $query['SpriteSnapshotConfig'] = $request->spriteSnapshotConfig;
-        $query['UserData']             = $request->userData;
-        $query['VideoId']              = $request->videoId;
-        $query['Width']                = $request->width;
-        $req                           = new OpenApiRequest([
+        $query = [];
+        if (!Utils::isUnset($request->count)) {
+            $query['Count'] = $request->count;
+        }
+        if (!Utils::isUnset($request->height)) {
+            $query['Height'] = $request->height;
+        }
+        if (!Utils::isUnset($request->interval)) {
+            $query['Interval'] = $request->interval;
+        }
+        if (!Utils::isUnset($request->snapshotTemplateId)) {
+            $query['SnapshotTemplateId'] = $request->snapshotTemplateId;
+        }
+        if (!Utils::isUnset($request->specifiedOffsetTime)) {
+            $query['SpecifiedOffsetTime'] = $request->specifiedOffsetTime;
+        }
+        if (!Utils::isUnset($request->spriteSnapshotConfig)) {
+            $query['SpriteSnapshotConfig'] = $request->spriteSnapshotConfig;
+        }
+        if (!Utils::isUnset($request->userData)) {
+            $query['UserData'] = $request->userData;
+        }
+        if (!Utils::isUnset($request->videoId)) {
+            $query['VideoId'] = $request->videoId;
+        }
+        if (!Utils::isUnset($request->width)) {
+            $query['Width'] = $request->width;
+        }
+        $req = new OpenApiRequest([
             'query' => OpenApiUtilClient::query($query),
         ]);
         $params = new Params([
@@ -6375,15 +7602,29 @@ class Vod extends OpenApiClient
     public function submitTranscodeJobsWithOptions($request, $runtime)
     {
         Utils::validateModel($request);
-        $query                    = [];
-        $query['EncryptConfig']   = $request->encryptConfig;
-        $query['OverrideParams']  = $request->overrideParams;
-        $query['PipelineId']      = $request->pipelineId;
-        $query['Priority']        = $request->priority;
-        $query['TemplateGroupId'] = $request->templateGroupId;
-        $query['UserData']        = $request->userData;
-        $query['VideoId']         = $request->videoId;
-        $req                      = new OpenApiRequest([
+        $query = [];
+        if (!Utils::isUnset($request->encryptConfig)) {
+            $query['EncryptConfig'] = $request->encryptConfig;
+        }
+        if (!Utils::isUnset($request->overrideParams)) {
+            $query['OverrideParams'] = $request->overrideParams;
+        }
+        if (!Utils::isUnset($request->pipelineId)) {
+            $query['PipelineId'] = $request->pipelineId;
+        }
+        if (!Utils::isUnset($request->priority)) {
+            $query['Priority'] = $request->priority;
+        }
+        if (!Utils::isUnset($request->templateGroupId)) {
+            $query['TemplateGroupId'] = $request->templateGroupId;
+        }
+        if (!Utils::isUnset($request->userData)) {
+            $query['UserData'] = $request->userData;
+        }
+        if (!Utils::isUnset($request->videoId)) {
+            $query['VideoId'] = $request->videoId;
+        }
+        $req = new OpenApiRequest([
             'query' => OpenApiUtilClient::query($query),
         ]);
         $params = new Params([
@@ -6422,10 +7663,14 @@ class Vod extends OpenApiClient
     public function submitWorkflowJobWithOptions($request, $runtime)
     {
         Utils::validateModel($request);
-        $query               = [];
-        $query['MediaId']    = $request->mediaId;
-        $query['WorkflowId'] = $request->workflowId;
-        $req                 = new OpenApiRequest([
+        $query = [];
+        if (!Utils::isUnset($request->mediaId)) {
+            $query['MediaId'] = $request->mediaId;
+        }
+        if (!Utils::isUnset($request->workflowId)) {
+            $query['WorkflowId'] = $request->workflowId;
+        }
+        $req = new OpenApiRequest([
             'query' => OpenApiUtilClient::query($query),
         ]);
         $params = new Params([
@@ -6464,12 +7709,20 @@ class Vod extends OpenApiClient
     public function tagVodResourcesWithOptions($request, $runtime)
     {
         Utils::validateModel($request);
-        $query                 = [];
-        $query['OwnerId']      = $request->ownerId;
-        $query['ResourceId']   = $request->resourceId;
-        $query['ResourceType'] = $request->resourceType;
-        $query['Tag']          = $request->tag;
-        $req                   = new OpenApiRequest([
+        $query = [];
+        if (!Utils::isUnset($request->ownerId)) {
+            $query['OwnerId'] = $request->ownerId;
+        }
+        if (!Utils::isUnset($request->resourceId)) {
+            $query['ResourceId'] = $request->resourceId;
+        }
+        if (!Utils::isUnset($request->resourceType)) {
+            $query['ResourceType'] = $request->resourceType;
+        }
+        if (!Utils::isUnset($request->tag)) {
+            $query['Tag'] = $request->tag;
+        }
+        $req = new OpenApiRequest([
             'query' => OpenApiUtilClient::query($query),
         ]);
         $params = new Params([
@@ -6508,13 +7761,23 @@ class Vod extends OpenApiClient
     public function unTagVodResourcesWithOptions($request, $runtime)
     {
         Utils::validateModel($request);
-        $query                 = [];
-        $query['All']          = $request->all;
-        $query['OwnerId']      = $request->ownerId;
-        $query['ResourceId']   = $request->resourceId;
-        $query['ResourceType'] = $request->resourceType;
-        $query['TagKey']       = $request->tagKey;
-        $req                   = new OpenApiRequest([
+        $query = [];
+        if (!Utils::isUnset($request->all)) {
+            $query['All'] = $request->all;
+        }
+        if (!Utils::isUnset($request->ownerId)) {
+            $query['OwnerId'] = $request->ownerId;
+        }
+        if (!Utils::isUnset($request->resourceId)) {
+            $query['ResourceId'] = $request->resourceId;
+        }
+        if (!Utils::isUnset($request->resourceType)) {
+            $query['ResourceType'] = $request->resourceType;
+        }
+        if (!Utils::isUnset($request->tagKey)) {
+            $query['TagKey'] = $request->tagKey;
+        }
+        $req = new OpenApiRequest([
             'query' => OpenApiUtilClient::query($query),
         ]);
         $params = new Params([
@@ -6553,11 +7816,17 @@ class Vod extends OpenApiClient
     public function updateAITemplateWithOptions($request, $runtime)
     {
         Utils::validateModel($request);
-        $query                   = [];
-        $query['TemplateConfig'] = $request->templateConfig;
-        $query['TemplateId']     = $request->templateId;
-        $query['TemplateName']   = $request->templateName;
-        $req                     = new OpenApiRequest([
+        $query = [];
+        if (!Utils::isUnset($request->templateConfig)) {
+            $query['TemplateConfig'] = $request->templateConfig;
+        }
+        if (!Utils::isUnset($request->templateId)) {
+            $query['TemplateId'] = $request->templateId;
+        }
+        if (!Utils::isUnset($request->templateName)) {
+            $query['TemplateName'] = $request->templateName;
+        }
+        $req = new OpenApiRequest([
             'query' => OpenApiUtilClient::query($query),
         ]);
         $params = new Params([
@@ -6596,12 +7865,20 @@ class Vod extends OpenApiClient
     public function updateAppInfoWithOptions($request, $runtime)
     {
         Utils::validateModel($request);
-        $query                = [];
-        $query['AppId']       = $request->appId;
-        $query['AppName']     = $request->appName;
-        $query['Description'] = $request->description;
-        $query['Status']      = $request->status;
-        $req                  = new OpenApiRequest([
+        $query = [];
+        if (!Utils::isUnset($request->appId)) {
+            $query['AppId'] = $request->appId;
+        }
+        if (!Utils::isUnset($request->appName)) {
+            $query['AppName'] = $request->appName;
+        }
+        if (!Utils::isUnset($request->description)) {
+            $query['Description'] = $request->description;
+        }
+        if (!Utils::isUnset($request->status)) {
+            $query['Status'] = $request->status;
+        }
+        $req = new OpenApiRequest([
             'query' => OpenApiUtilClient::query($query),
         ]);
         $params = new Params([
@@ -6640,9 +7917,11 @@ class Vod extends OpenApiClient
     public function updateAttachedMediaInfosWithOptions($request, $runtime)
     {
         Utils::validateModel($request);
-        $query                  = [];
-        $query['UpdateContent'] = $request->updateContent;
-        $req                    = new OpenApiRequest([
+        $query = [];
+        if (!Utils::isUnset($request->updateContent)) {
+            $query['UpdateContent'] = $request->updateContent;
+        }
+        $req = new OpenApiRequest([
             'query' => OpenApiUtilClient::query($query),
         ]);
         $params = new Params([
@@ -6681,10 +7960,14 @@ class Vod extends OpenApiClient
     public function updateCategoryWithOptions($request, $runtime)
     {
         Utils::validateModel($request);
-        $query             = [];
-        $query['CateId']   = $request->cateId;
-        $query['CateName'] = $request->cateName;
-        $req               = new OpenApiRequest([
+        $query = [];
+        if (!Utils::isUnset($request->cateId)) {
+            $query['CateId'] = $request->cateId;
+        }
+        if (!Utils::isUnset($request->cateName)) {
+            $query['CateName'] = $request->cateName;
+        }
+        $req = new OpenApiRequest([
             'query' => OpenApiUtilClient::query($query),
         ]);
         $params = new Params([
@@ -6723,17 +8006,35 @@ class Vod extends OpenApiClient
     public function updateEditingProjectWithOptions($request, $runtime)
     {
         Utils::validateModel($request);
-        $query                         = [];
-        $query['CoverURL']             = $request->coverURL;
-        $query['Description']          = $request->description;
-        $query['OwnerAccount']         = $request->ownerAccount;
-        $query['OwnerId']              = $request->ownerId;
-        $query['ProjectId']            = $request->projectId;
-        $query['ResourceOwnerAccount'] = $request->resourceOwnerAccount;
-        $query['ResourceOwnerId']      = $request->resourceOwnerId;
-        $query['Timeline']             = $request->timeline;
-        $query['Title']                = $request->title;
-        $req                           = new OpenApiRequest([
+        $query = [];
+        if (!Utils::isUnset($request->coverURL)) {
+            $query['CoverURL'] = $request->coverURL;
+        }
+        if (!Utils::isUnset($request->description)) {
+            $query['Description'] = $request->description;
+        }
+        if (!Utils::isUnset($request->ownerAccount)) {
+            $query['OwnerAccount'] = $request->ownerAccount;
+        }
+        if (!Utils::isUnset($request->ownerId)) {
+            $query['OwnerId'] = $request->ownerId;
+        }
+        if (!Utils::isUnset($request->projectId)) {
+            $query['ProjectId'] = $request->projectId;
+        }
+        if (!Utils::isUnset($request->resourceOwnerAccount)) {
+            $query['ResourceOwnerAccount'] = $request->resourceOwnerAccount;
+        }
+        if (!Utils::isUnset($request->resourceOwnerId)) {
+            $query['ResourceOwnerId'] = $request->resourceOwnerId;
+        }
+        if (!Utils::isUnset($request->timeline)) {
+            $query['Timeline'] = $request->timeline;
+        }
+        if (!Utils::isUnset($request->title)) {
+            $query['Title'] = $request->title;
+        }
+        $req = new OpenApiRequest([
             'query' => OpenApiUtilClient::query($query),
         ]);
         $params = new Params([
@@ -6772,9 +8073,11 @@ class Vod extends OpenApiClient
     public function updateImageInfosWithOptions($request, $runtime)
     {
         Utils::validateModel($request);
-        $query                  = [];
-        $query['UpdateContent'] = $request->updateContent;
-        $req                    = new OpenApiRequest([
+        $query = [];
+        if (!Utils::isUnset($request->updateContent)) {
+            $query['UpdateContent'] = $request->updateContent;
+        }
+        $req = new OpenApiRequest([
             'query' => OpenApiUtilClient::query($query),
         ]);
         $params = new Params([
@@ -6813,10 +8116,14 @@ class Vod extends OpenApiClient
     public function updateStreamInfoWithOptions($request, $runtime)
     {
         Utils::validateModel($request);
-        $query            = [];
-        $query['JobId']   = $request->jobId;
-        $query['MediaId'] = $request->mediaId;
-        $req              = new OpenApiRequest([
+        $query = [];
+        if (!Utils::isUnset($request->jobId)) {
+            $query['JobId'] = $request->jobId;
+        }
+        if (!Utils::isUnset($request->mediaId)) {
+            $query['MediaId'] = $request->mediaId;
+        }
+        $req = new OpenApiRequest([
             'query' => OpenApiUtilClient::query($query),
         ]);
         $params = new Params([
@@ -6855,12 +8162,20 @@ class Vod extends OpenApiClient
     public function updateTranscodeTemplateGroupWithOptions($request, $runtime)
     {
         Utils::validateModel($request);
-        $query                             = [];
-        $query['Locked']                   = $request->locked;
-        $query['Name']                     = $request->name;
-        $query['TranscodeTemplateGroupId'] = $request->transcodeTemplateGroupId;
-        $query['TranscodeTemplateList']    = $request->transcodeTemplateList;
-        $req                               = new OpenApiRequest([
+        $query = [];
+        if (!Utils::isUnset($request->locked)) {
+            $query['Locked'] = $request->locked;
+        }
+        if (!Utils::isUnset($request->name)) {
+            $query['Name'] = $request->name;
+        }
+        if (!Utils::isUnset($request->transcodeTemplateGroupId)) {
+            $query['TranscodeTemplateGroupId'] = $request->transcodeTemplateGroupId;
+        }
+        if (!Utils::isUnset($request->transcodeTemplateList)) {
+            $query['TranscodeTemplateList'] = $request->transcodeTemplateList;
+        }
+        $req = new OpenApiRequest([
             'query' => OpenApiUtilClient::query($query),
         ]);
         $params = new Params([
@@ -6899,14 +8214,26 @@ class Vod extends OpenApiClient
     public function updateVideoInfoWithOptions($request, $runtime)
     {
         Utils::validateModel($request);
-        $query                = [];
-        $query['CateId']      = $request->cateId;
-        $query['CoverURL']    = $request->coverURL;
-        $query['Description'] = $request->description;
-        $query['Tags']        = $request->tags;
-        $query['Title']       = $request->title;
-        $query['VideoId']     = $request->videoId;
-        $req                  = new OpenApiRequest([
+        $query = [];
+        if (!Utils::isUnset($request->cateId)) {
+            $query['CateId'] = $request->cateId;
+        }
+        if (!Utils::isUnset($request->coverURL)) {
+            $query['CoverURL'] = $request->coverURL;
+        }
+        if (!Utils::isUnset($request->description)) {
+            $query['Description'] = $request->description;
+        }
+        if (!Utils::isUnset($request->tags)) {
+            $query['Tags'] = $request->tags;
+        }
+        if (!Utils::isUnset($request->title)) {
+            $query['Title'] = $request->title;
+        }
+        if (!Utils::isUnset($request->videoId)) {
+            $query['VideoId'] = $request->videoId;
+        }
+        $req = new OpenApiRequest([
             'query' => OpenApiUtilClient::query($query),
         ]);
         $params = new Params([
@@ -6945,9 +8272,11 @@ class Vod extends OpenApiClient
     public function updateVideoInfosWithOptions($request, $runtime)
     {
         Utils::validateModel($request);
-        $query                  = [];
-        $query['UpdateContent'] = $request->updateContent;
-        $req                    = new OpenApiRequest([
+        $query = [];
+        if (!Utils::isUnset($request->updateContent)) {
+            $query['UpdateContent'] = $request->updateContent;
+        }
+        $req = new OpenApiRequest([
             'query' => OpenApiUtilClient::query($query),
         ]);
         $params = new Params([
@@ -6986,13 +8315,23 @@ class Vod extends OpenApiClient
     public function updateVodDomainWithOptions($request, $runtime)
     {
         Utils::validateModel($request);
-        $query                   = [];
-        $query['DomainName']     = $request->domainName;
-        $query['OwnerId']        = $request->ownerId;
-        $query['SecurityToken']  = $request->securityToken;
-        $query['Sources']        = $request->sources;
-        $query['TopLevelDomain'] = $request->topLevelDomain;
-        $req                     = new OpenApiRequest([
+        $query = [];
+        if (!Utils::isUnset($request->domainName)) {
+            $query['DomainName'] = $request->domainName;
+        }
+        if (!Utils::isUnset($request->ownerId)) {
+            $query['OwnerId'] = $request->ownerId;
+        }
+        if (!Utils::isUnset($request->securityToken)) {
+            $query['SecurityToken'] = $request->securityToken;
+        }
+        if (!Utils::isUnset($request->sources)) {
+            $query['Sources'] = $request->sources;
+        }
+        if (!Utils::isUnset($request->topLevelDomain)) {
+            $query['TopLevelDomain'] = $request->topLevelDomain;
+        }
+        $req = new OpenApiRequest([
             'query' => OpenApiUtilClient::query($query),
         ]);
         $params = new Params([
@@ -7031,11 +8370,17 @@ class Vod extends OpenApiClient
     public function updateVodTemplateWithOptions($request, $runtime)
     {
         Utils::validateModel($request);
-        $query                   = [];
-        $query['Name']           = $request->name;
-        $query['TemplateConfig'] = $request->templateConfig;
-        $query['VodTemplateId']  = $request->vodTemplateId;
-        $req                     = new OpenApiRequest([
+        $query = [];
+        if (!Utils::isUnset($request->name)) {
+            $query['Name'] = $request->name;
+        }
+        if (!Utils::isUnset($request->templateConfig)) {
+            $query['TemplateConfig'] = $request->templateConfig;
+        }
+        if (!Utils::isUnset($request->vodTemplateId)) {
+            $query['VodTemplateId'] = $request->vodTemplateId;
+        }
+        $req = new OpenApiRequest([
             'query' => OpenApiUtilClient::query($query),
         ]);
         $params = new Params([
@@ -7074,11 +8419,17 @@ class Vod extends OpenApiClient
     public function updateWatermarkWithOptions($request, $runtime)
     {
         Utils::validateModel($request);
-        $query                    = [];
-        $query['Name']            = $request->name;
-        $query['WatermarkConfig'] = $request->watermarkConfig;
-        $query['WatermarkId']     = $request->watermarkId;
-        $req                      = new OpenApiRequest([
+        $query = [];
+        if (!Utils::isUnset($request->name)) {
+            $query['Name'] = $request->name;
+        }
+        if (!Utils::isUnset($request->watermarkConfig)) {
+            $query['WatermarkConfig'] = $request->watermarkConfig;
+        }
+        if (!Utils::isUnset($request->watermarkId)) {
+            $query['WatermarkId'] = $request->watermarkId;
+        }
+        $req = new OpenApiRequest([
             'query' => OpenApiUtilClient::query($query),
         ]);
         $params = new Params([
@@ -7117,15 +8468,29 @@ class Vod extends OpenApiClient
     public function uploadMediaByURLWithOptions($request, $runtime)
     {
         Utils::validateModel($request);
-        $query                    = [];
-        $query['AppId']           = $request->appId;
-        $query['StorageLocation'] = $request->storageLocation;
-        $query['TemplateGroupId'] = $request->templateGroupId;
-        $query['UploadMetadatas'] = $request->uploadMetadatas;
-        $query['UploadURLs']      = $request->uploadURLs;
-        $query['UserData']        = $request->userData;
-        $query['WorkflowId']      = $request->workflowId;
-        $req                      = new OpenApiRequest([
+        $query = [];
+        if (!Utils::isUnset($request->appId)) {
+            $query['AppId'] = $request->appId;
+        }
+        if (!Utils::isUnset($request->storageLocation)) {
+            $query['StorageLocation'] = $request->storageLocation;
+        }
+        if (!Utils::isUnset($request->templateGroupId)) {
+            $query['TemplateGroupId'] = $request->templateGroupId;
+        }
+        if (!Utils::isUnset($request->uploadMetadatas)) {
+            $query['UploadMetadatas'] = $request->uploadMetadatas;
+        }
+        if (!Utils::isUnset($request->uploadURLs)) {
+            $query['UploadURLs'] = $request->uploadURLs;
+        }
+        if (!Utils::isUnset($request->userData)) {
+            $query['UserData'] = $request->userData;
+        }
+        if (!Utils::isUnset($request->workflowId)) {
+            $query['WorkflowId'] = $request->workflowId;
+        }
+        $req = new OpenApiRequest([
             'query' => OpenApiUtilClient::query($query),
         ]);
         $params = new Params([
@@ -7164,14 +8529,26 @@ class Vod extends OpenApiClient
     public function uploadStreamByURLWithOptions($request, $runtime)
     {
         Utils::validateModel($request);
-        $query                  = [];
-        $query['Definition']    = $request->definition;
-        $query['FileExtension'] = $request->fileExtension;
-        $query['HDRType']       = $request->HDRType;
-        $query['MediaId']       = $request->mediaId;
-        $query['StreamURL']     = $request->streamURL;
-        $query['UserData']      = $request->userData;
-        $req                    = new OpenApiRequest([
+        $query = [];
+        if (!Utils::isUnset($request->definition)) {
+            $query['Definition'] = $request->definition;
+        }
+        if (!Utils::isUnset($request->fileExtension)) {
+            $query['FileExtension'] = $request->fileExtension;
+        }
+        if (!Utils::isUnset($request->HDRType)) {
+            $query['HDRType'] = $request->HDRType;
+        }
+        if (!Utils::isUnset($request->mediaId)) {
+            $query['MediaId'] = $request->mediaId;
+        }
+        if (!Utils::isUnset($request->streamURL)) {
+            $query['StreamURL'] = $request->streamURL;
+        }
+        if (!Utils::isUnset($request->userData)) {
+            $query['UserData'] = $request->userData;
+        }
+        $req = new OpenApiRequest([
             'query' => OpenApiUtilClient::query($query),
         ]);
         $params = new Params([
@@ -7210,11 +8587,17 @@ class Vod extends OpenApiClient
     public function verifyVodDomainOwnerWithOptions($request, $runtime)
     {
         Utils::validateModel($request);
-        $query               = [];
-        $query['DomainName'] = $request->domainName;
-        $query['OwnerId']    = $request->ownerId;
-        $query['VerifyType'] = $request->verifyType;
-        $req                 = new OpenApiRequest([
+        $query = [];
+        if (!Utils::isUnset($request->domainName)) {
+            $query['DomainName'] = $request->domainName;
+        }
+        if (!Utils::isUnset($request->ownerId)) {
+            $query['OwnerId'] = $request->ownerId;
+        }
+        if (!Utils::isUnset($request->verifyType)) {
+            $query['VerifyType'] = $request->verifyType;
+        }
+        $req = new OpenApiRequest([
             'query' => OpenApiUtilClient::query($query),
         ]);
         $params = new Params([

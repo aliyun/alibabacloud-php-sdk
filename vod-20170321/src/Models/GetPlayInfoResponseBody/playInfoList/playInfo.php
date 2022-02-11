@@ -9,6 +9,13 @@ use AlibabaCloud\Tea\Model;
 class playInfo extends Model
 {
     /**
+     * @description 颜色位深
+     *
+     * @var int
+     */
+    public $bitDepth;
+
+    /**
      * @var string
      */
     public $bitrate;
@@ -110,6 +117,7 @@ class playInfo extends Model
      */
     public $width;
     protected $_name = [
+        'bitDepth'         => 'BitDepth',
         'bitrate'          => 'Bitrate',
         'creationTime'     => 'CreationTime',
         'definition'       => 'Definition',
@@ -139,6 +147,9 @@ class playInfo extends Model
     public function toMap()
     {
         $res = [];
+        if (null !== $this->bitDepth) {
+            $res['BitDepth'] = $this->bitDepth;
+        }
         if (null !== $this->bitrate) {
             $res['Bitrate'] = $this->bitrate;
         }
@@ -211,6 +222,9 @@ class playInfo extends Model
     public static function fromMap($map = [])
     {
         $model = new self();
+        if (isset($map['BitDepth'])) {
+            $model->bitDepth = $map['BitDepth'];
+        }
         if (isset($map['Bitrate'])) {
             $model->bitrate = $map['Bitrate'];
         }
