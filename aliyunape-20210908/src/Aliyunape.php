@@ -8,6 +8,8 @@ use AlibabaCloud\Endpoint\Endpoint;
 use AlibabaCloud\OpenApiUtil\OpenApiUtilClient;
 use AlibabaCloud\SDK\Aliyunape\V20210908\Models\ApeInnerCommonApiRequest;
 use AlibabaCloud\SDK\Aliyunape\V20210908\Models\ApeInnerCommonApiResponse;
+use AlibabaCloud\SDK\Aliyunape\V20210908\Models\ApeProvinceStationRefRequest;
+use AlibabaCloud\SDK\Aliyunape\V20210908\Models\ApeProvinceStationRefResponse;
 use AlibabaCloud\SDK\Aliyunape\V20210908\Models\HistoricalRequest;
 use AlibabaCloud\SDK\Aliyunape\V20210908\Models\HistoricalResponse;
 use AlibabaCloud\SDK\Aliyunape\V20210908\Models\StationDayRequest;
@@ -78,7 +80,7 @@ class Aliyunape extends OpenApiClient
             'method'      => 'GET',
             'authType'    => 'AK',
             'style'       => 'RPC',
-            'reqBodyType' => 'json',
+            'reqBodyType' => 'formData',
             'bodyType'    => 'json',
         ]);
 
@@ -98,6 +100,76 @@ class Aliyunape extends OpenApiClient
     }
 
     /**
+     * @param ApeProvinceStationRefRequest $request
+     * @param RuntimeOptions               $runtime
+     *
+     * @return ApeProvinceStationRefResponse
+     */
+    public function apeProvinceStationRefWithOptions($request, $runtime)
+    {
+        Utils::validateModel($request);
+        $query = [];
+        if (!Utils::isUnset($request->adcode)) {
+            $query['Adcode'] = $request->adcode;
+        }
+        if (!Utils::isUnset($request->appName)) {
+            $query['AppName'] = $request->appName;
+        }
+        if (!Utils::isUnset($request->city)) {
+            $query['City'] = $request->city;
+        }
+        if (!Utils::isUnset($request->cnty)) {
+            $query['Cnty'] = $request->cnty;
+        }
+        if (!Utils::isUnset($request->country)) {
+            $query['Country'] = $request->country;
+        }
+        if (!Utils::isUnset($request->offset)) {
+            $query['Offset'] = $request->offset;
+        }
+        if (!Utils::isUnset($request->pageSize)) {
+            $query['PageSize'] = $request->pageSize;
+        }
+        if (!Utils::isUnset($request->provinceCode)) {
+            $query['ProvinceCode'] = $request->provinceCode;
+        }
+        if (!Utils::isUnset($request->provinceName)) {
+            $query['ProvinceName'] = $request->provinceName;
+        }
+        if (!Utils::isUnset($request->stationName)) {
+            $query['StationName'] = $request->stationName;
+        }
+        $req = new OpenApiRequest([
+            'query' => OpenApiUtilClient::query($query),
+        ]);
+        $params = new Params([
+            'action'      => 'ApeProvinceStationRef',
+            'version'     => '2021-09-08',
+            'protocol'    => 'HTTPS',
+            'pathname'    => '/',
+            'method'      => 'POST',
+            'authType'    => 'AK',
+            'style'       => 'RPC',
+            'reqBodyType' => 'formData',
+            'bodyType'    => 'json',
+        ]);
+
+        return ApeProvinceStationRefResponse::fromMap($this->callApi($params, $req, $runtime));
+    }
+
+    /**
+     * @param ApeProvinceStationRefRequest $request
+     *
+     * @return ApeProvinceStationRefResponse
+     */
+    public function apeProvinceStationRef($request)
+    {
+        $runtime = new RuntimeOptions([]);
+
+        return $this->apeProvinceStationRefWithOptions($request, $runtime);
+    }
+
+    /**
      * @param HistoricalRequest $request
      * @param RuntimeOptions    $runtime
      *
@@ -106,16 +178,27 @@ class Aliyunape extends OpenApiClient
     public function historicalWithOptions($request, $runtime)
     {
         Utils::validateModel($request);
-        $query              = [];
-        $query['EndTime']   = $request->endTime;
-        $query['OrderId']   = $request->orderId;
-        $query['PageNum']   = $request->pageNum;
-        $query['PageSize']  = $request->pageSize;
-        $query['StartTime'] = $request->startTime;
-        $query['Station']   = $request->station;
-        $req                = new OpenApiRequest([
+        $query = [];
+        if (!Utils::isUnset($request->endTime)) {
+            $query['EndTime'] = $request->endTime;
+        }
+        if (!Utils::isUnset($request->orderId)) {
+            $query['OrderId'] = $request->orderId;
+        }
+        if (!Utils::isUnset($request->pageNum)) {
+            $query['PageNum'] = $request->pageNum;
+        }
+        if (!Utils::isUnset($request->pageSize)) {
+            $query['PageSize'] = $request->pageSize;
+        }
+        if (!Utils::isUnset($request->startTime)) {
+            $query['StartTime'] = $request->startTime;
+        }
+        if (!Utils::isUnset($request->station)) {
+            $query['Station'] = $request->station;
+        }
+        $req = new OpenApiRequest([
             'query' => OpenApiUtilClient::query($query),
-            'body'  => Utils::toMap($request),
         ]);
         $params = new Params([
             'action'      => 'Historical',
@@ -125,7 +208,7 @@ class Aliyunape extends OpenApiClient
             'method'      => 'POST',
             'authType'    => 'AK',
             'style'       => 'RPC',
-            'reqBodyType' => 'json',
+            'reqBodyType' => 'formData',
             'bodyType'    => 'json',
         ]);
 
@@ -153,13 +236,18 @@ class Aliyunape extends OpenApiClient
     public function stationDayWithOptions($request, $runtime)
     {
         Utils::validateModel($request);
-        $query                  = [];
-        $query['OrderId']       = $request->orderId;
-        $query['StartForecast'] = $request->startForecast;
-        $query['Station']       = $request->station;
-        $req                    = new OpenApiRequest([
+        $query = [];
+        if (!Utils::isUnset($request->orderId)) {
+            $query['OrderId'] = $request->orderId;
+        }
+        if (!Utils::isUnset($request->startForecast)) {
+            $query['StartForecast'] = $request->startForecast;
+        }
+        if (!Utils::isUnset($request->station)) {
+            $query['Station'] = $request->station;
+        }
+        $req = new OpenApiRequest([
             'query' => OpenApiUtilClient::query($query),
-            'body'  => Utils::toMap($request),
         ]);
         $params = new Params([
             'action'      => 'StationDay',
@@ -169,7 +257,7 @@ class Aliyunape extends OpenApiClient
             'method'      => 'POST',
             'authType'    => 'AK',
             'style'       => 'RPC',
-            'reqBodyType' => 'json',
+            'reqBodyType' => 'formData',
             'bodyType'    => 'json',
         ]);
 
@@ -197,14 +285,21 @@ class Aliyunape extends OpenApiClient
     public function weatherforecastWithOptions($request, $runtime)
     {
         Utils::validateModel($request);
-        $query                  = [];
-        $query['Lat']           = $request->lat;
-        $query['Lon']           = $request->lon;
-        $query['OrderId']       = $request->orderId;
-        $query['StartForecast'] = $request->startForecast;
-        $req                    = new OpenApiRequest([
+        $query = [];
+        if (!Utils::isUnset($request->lat)) {
+            $query['Lat'] = $request->lat;
+        }
+        if (!Utils::isUnset($request->lon)) {
+            $query['Lon'] = $request->lon;
+        }
+        if (!Utils::isUnset($request->orderId)) {
+            $query['OrderId'] = $request->orderId;
+        }
+        if (!Utils::isUnset($request->startForecast)) {
+            $query['StartForecast'] = $request->startForecast;
+        }
+        $req = new OpenApiRequest([
             'query' => OpenApiUtilClient::query($query),
-            'body'  => Utils::toMap($request),
         ]);
         $params = new Params([
             'action'      => 'Weatherforecast',
@@ -214,7 +309,7 @@ class Aliyunape extends OpenApiClient
             'method'      => 'POST',
             'authType'    => 'AK',
             'style'       => 'RPC',
-            'reqBodyType' => 'json',
+            'reqBodyType' => 'formData',
             'bodyType'    => 'json',
         ]);
 
@@ -242,14 +337,21 @@ class Aliyunape extends OpenApiClient
     public function weatherforecastTimeWithOptions($request, $runtime)
     {
         Utils::validateModel($request);
-        $query            = [];
-        $query['CurHour'] = $request->curHour;
-        $query['Lat']     = $request->lat;
-        $query['Lon']     = $request->lon;
-        $query['OrderId'] = $request->orderId;
-        $req              = new OpenApiRequest([
+        $query = [];
+        if (!Utils::isUnset($request->curHour)) {
+            $query['CurHour'] = $request->curHour;
+        }
+        if (!Utils::isUnset($request->lat)) {
+            $query['Lat'] = $request->lat;
+        }
+        if (!Utils::isUnset($request->lon)) {
+            $query['Lon'] = $request->lon;
+        }
+        if (!Utils::isUnset($request->orderId)) {
+            $query['OrderId'] = $request->orderId;
+        }
+        $req = new OpenApiRequest([
             'query' => OpenApiUtilClient::query($query),
-            'body'  => Utils::toMap($request),
         ]);
         $params = new Params([
             'action'      => 'WeatherforecastTime',
@@ -259,7 +361,7 @@ class Aliyunape extends OpenApiClient
             'method'      => 'POST',
             'authType'    => 'AK',
             'style'       => 'RPC',
-            'reqBodyType' => 'json',
+            'reqBodyType' => 'formData',
             'bodyType'    => 'json',
         ]);
 
@@ -287,14 +389,21 @@ class Aliyunape extends OpenApiClient
     public function weathermonitorWithOptions($request, $runtime)
     {
         Utils::validateModel($request);
-        $query             = [];
-        $query['CurHour']  = $request->curHour;
-        $query['OrderId']  = $request->orderId;
-        $query['PageNum']  = $request->pageNum;
-        $query['PageSize'] = $request->pageSize;
-        $req               = new OpenApiRequest([
+        $query = [];
+        if (!Utils::isUnset($request->curHour)) {
+            $query['CurHour'] = $request->curHour;
+        }
+        if (!Utils::isUnset($request->orderId)) {
+            $query['OrderId'] = $request->orderId;
+        }
+        if (!Utils::isUnset($request->pageNum)) {
+            $query['PageNum'] = $request->pageNum;
+        }
+        if (!Utils::isUnset($request->pageSize)) {
+            $query['PageSize'] = $request->pageSize;
+        }
+        $req = new OpenApiRequest([
             'query' => OpenApiUtilClient::query($query),
-            'body'  => Utils::toMap($request),
         ]);
         $params = new Params([
             'action'      => 'Weathermonitor',
@@ -304,7 +413,7 @@ class Aliyunape extends OpenApiClient
             'method'      => 'POST',
             'authType'    => 'AK',
             'style'       => 'RPC',
-            'reqBodyType' => 'json',
+            'reqBodyType' => 'formData',
             'bodyType'    => 'json',
         ]);
 
