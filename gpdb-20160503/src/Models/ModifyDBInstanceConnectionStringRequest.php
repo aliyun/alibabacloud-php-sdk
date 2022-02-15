@@ -11,27 +11,27 @@ class ModifyDBInstanceConnectionStringRequest extends Model
     /**
      * @var string
      */
-    public $DBInstanceId;
-
-    /**
-     * @var string
-     */
     public $connectionStringPrefix;
 
     /**
      * @var string
      */
-    public $port;
+    public $currentConnectionString;
 
     /**
      * @var string
      */
-    public $currentConnectionString;
+    public $DBInstanceId;
+
+    /**
+     * @var string
+     */
+    public $port;
     protected $_name = [
-        'DBInstanceId'            => 'DBInstanceId',
         'connectionStringPrefix'  => 'ConnectionStringPrefix',
-        'port'                    => 'Port',
         'currentConnectionString' => 'CurrentConnectionString',
+        'DBInstanceId'            => 'DBInstanceId',
+        'port'                    => 'Port',
     ];
 
     public function validate()
@@ -41,17 +41,17 @@ class ModifyDBInstanceConnectionStringRequest extends Model
     public function toMap()
     {
         $res = [];
-        if (null !== $this->DBInstanceId) {
-            $res['DBInstanceId'] = $this->DBInstanceId;
-        }
         if (null !== $this->connectionStringPrefix) {
             $res['ConnectionStringPrefix'] = $this->connectionStringPrefix;
         }
-        if (null !== $this->port) {
-            $res['Port'] = $this->port;
-        }
         if (null !== $this->currentConnectionString) {
             $res['CurrentConnectionString'] = $this->currentConnectionString;
+        }
+        if (null !== $this->DBInstanceId) {
+            $res['DBInstanceId'] = $this->DBInstanceId;
+        }
+        if (null !== $this->port) {
+            $res['Port'] = $this->port;
         }
 
         return $res;
@@ -65,17 +65,17 @@ class ModifyDBInstanceConnectionStringRequest extends Model
     public static function fromMap($map = [])
     {
         $model = new self();
-        if (isset($map['DBInstanceId'])) {
-            $model->DBInstanceId = $map['DBInstanceId'];
-        }
         if (isset($map['ConnectionStringPrefix'])) {
             $model->connectionStringPrefix = $map['ConnectionStringPrefix'];
         }
-        if (isset($map['Port'])) {
-            $model->port = $map['Port'];
-        }
         if (isset($map['CurrentConnectionString'])) {
             $model->currentConnectionString = $map['CurrentConnectionString'];
+        }
+        if (isset($map['DBInstanceId'])) {
+            $model->DBInstanceId = $map['DBInstanceId'];
+        }
+        if (isset($map['Port'])) {
+            $model->port = $map['Port'];
         }
 
         return $model;

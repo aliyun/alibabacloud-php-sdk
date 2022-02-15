@@ -12,20 +12,20 @@ class series extends Model
     /**
      * @var string
      */
-    public $role;
+    public $name;
 
     /**
      * @var string
      */
-    public $name;
+    public $role;
 
     /**
      * @var values[]
      */
     public $values;
     protected $_name = [
-        'role'   => 'Role',
         'name'   => 'Name',
+        'role'   => 'Role',
         'values' => 'Values',
     ];
 
@@ -36,11 +36,11 @@ class series extends Model
     public function toMap()
     {
         $res = [];
-        if (null !== $this->role) {
-            $res['Role'] = $this->role;
-        }
         if (null !== $this->name) {
             $res['Name'] = $this->name;
+        }
+        if (null !== $this->role) {
+            $res['Role'] = $this->role;
         }
         if (null !== $this->values) {
             $res['Values'] = [];
@@ -63,11 +63,11 @@ class series extends Model
     public static function fromMap($map = [])
     {
         $model = new self();
-        if (isset($map['Role'])) {
-            $model->role = $map['Role'];
-        }
         if (isset($map['Name'])) {
             $model->name = $map['Name'];
+        }
+        if (isset($map['Role'])) {
+            $model->role = $map['Role'];
         }
         if (isset($map['Values'])) {
             if (!empty($map['Values'])) {

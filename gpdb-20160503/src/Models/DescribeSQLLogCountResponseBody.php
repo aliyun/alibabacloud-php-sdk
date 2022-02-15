@@ -12,7 +12,17 @@ class DescribeSQLLogCountResponseBody extends Model
     /**
      * @var string
      */
+    public $DBClusterId;
+
+    /**
+     * @var string
+     */
     public $endTime;
+
+    /**
+     * @var items[]
+     */
+    public $items;
 
     /**
      * @var string
@@ -23,22 +33,12 @@ class DescribeSQLLogCountResponseBody extends Model
      * @var string
      */
     public $startTime;
-
-    /**
-     * @var string
-     */
-    public $DBClusterId;
-
-    /**
-     * @var items[]
-     */
-    public $items;
     protected $_name = [
+        'DBClusterId' => 'DBClusterId',
         'endTime'     => 'EndTime',
+        'items'       => 'Items',
         'requestId'   => 'RequestId',
         'startTime'   => 'StartTime',
-        'DBClusterId' => 'DBClusterId',
-        'items'       => 'Items',
     ];
 
     public function validate()
@@ -48,17 +48,11 @@ class DescribeSQLLogCountResponseBody extends Model
     public function toMap()
     {
         $res = [];
-        if (null !== $this->endTime) {
-            $res['EndTime'] = $this->endTime;
-        }
-        if (null !== $this->requestId) {
-            $res['RequestId'] = $this->requestId;
-        }
-        if (null !== $this->startTime) {
-            $res['StartTime'] = $this->startTime;
-        }
         if (null !== $this->DBClusterId) {
             $res['DBClusterId'] = $this->DBClusterId;
+        }
+        if (null !== $this->endTime) {
+            $res['EndTime'] = $this->endTime;
         }
         if (null !== $this->items) {
             $res['Items'] = [];
@@ -68,6 +62,12 @@ class DescribeSQLLogCountResponseBody extends Model
                     $res['Items'][$n++] = null !== $item ? $item->toMap() : $item;
                 }
             }
+        }
+        if (null !== $this->requestId) {
+            $res['RequestId'] = $this->requestId;
+        }
+        if (null !== $this->startTime) {
+            $res['StartTime'] = $this->startTime;
         }
 
         return $res;
@@ -81,17 +81,11 @@ class DescribeSQLLogCountResponseBody extends Model
     public static function fromMap($map = [])
     {
         $model = new self();
-        if (isset($map['EndTime'])) {
-            $model->endTime = $map['EndTime'];
-        }
-        if (isset($map['RequestId'])) {
-            $model->requestId = $map['RequestId'];
-        }
-        if (isset($map['StartTime'])) {
-            $model->startTime = $map['StartTime'];
-        }
         if (isset($map['DBClusterId'])) {
             $model->DBClusterId = $map['DBClusterId'];
+        }
+        if (isset($map['EndTime'])) {
+            $model->endTime = $map['EndTime'];
         }
         if (isset($map['Items'])) {
             if (!empty($map['Items'])) {
@@ -101,6 +95,12 @@ class DescribeSQLLogCountResponseBody extends Model
                     $model->items[$n++] = null !== $item ? items::fromMap($item) : $item;
                 }
             }
+        }
+        if (isset($map['RequestId'])) {
+            $model->requestId = $map['RequestId'];
+        }
+        if (isset($map['StartTime'])) {
+            $model->startTime = $map['StartTime'];
         }
 
         return $model;

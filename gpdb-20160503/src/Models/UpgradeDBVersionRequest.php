@@ -9,6 +9,21 @@ use AlibabaCloud\Tea\Model;
 class UpgradeDBVersionRequest extends Model
 {
     /**
+     * @var string
+     */
+    public $DBInstanceId;
+
+    /**
+     * @var string
+     */
+    public $majorVersion;
+
+    /**
+     * @var string
+     */
+    public $minorVersion;
+
+    /**
      * @var int
      */
     public $ownerId;
@@ -21,35 +36,20 @@ class UpgradeDBVersionRequest extends Model
     /**
      * @var string
      */
-    public $DBInstanceId;
-
-    /**
-     * @var string
-     */
-    public $minorVersion;
-
-    /**
-     * @var string
-     */
-    public $majorVersion;
+    public $switchTime;
 
     /**
      * @var string
      */
     public $switchTimeMode;
-
-    /**
-     * @var string
-     */
-    public $switchTime;
     protected $_name = [
+        'DBInstanceId'   => 'DBInstanceId',
+        'majorVersion'   => 'MajorVersion',
+        'minorVersion'   => 'MinorVersion',
         'ownerId'        => 'OwnerId',
         'regionId'       => 'RegionId',
-        'DBInstanceId'   => 'DBInstanceId',
-        'minorVersion'   => 'MinorVersion',
-        'majorVersion'   => 'MajorVersion',
-        'switchTimeMode' => 'SwitchTimeMode',
         'switchTime'     => 'SwitchTime',
+        'switchTimeMode' => 'SwitchTimeMode',
     ];
 
     public function validate()
@@ -59,26 +59,26 @@ class UpgradeDBVersionRequest extends Model
     public function toMap()
     {
         $res = [];
+        if (null !== $this->DBInstanceId) {
+            $res['DBInstanceId'] = $this->DBInstanceId;
+        }
+        if (null !== $this->majorVersion) {
+            $res['MajorVersion'] = $this->majorVersion;
+        }
+        if (null !== $this->minorVersion) {
+            $res['MinorVersion'] = $this->minorVersion;
+        }
         if (null !== $this->ownerId) {
             $res['OwnerId'] = $this->ownerId;
         }
         if (null !== $this->regionId) {
             $res['RegionId'] = $this->regionId;
         }
-        if (null !== $this->DBInstanceId) {
-            $res['DBInstanceId'] = $this->DBInstanceId;
-        }
-        if (null !== $this->minorVersion) {
-            $res['MinorVersion'] = $this->minorVersion;
-        }
-        if (null !== $this->majorVersion) {
-            $res['MajorVersion'] = $this->majorVersion;
+        if (null !== $this->switchTime) {
+            $res['SwitchTime'] = $this->switchTime;
         }
         if (null !== $this->switchTimeMode) {
             $res['SwitchTimeMode'] = $this->switchTimeMode;
-        }
-        if (null !== $this->switchTime) {
-            $res['SwitchTime'] = $this->switchTime;
         }
 
         return $res;
@@ -92,26 +92,26 @@ class UpgradeDBVersionRequest extends Model
     public static function fromMap($map = [])
     {
         $model = new self();
+        if (isset($map['DBInstanceId'])) {
+            $model->DBInstanceId = $map['DBInstanceId'];
+        }
+        if (isset($map['MajorVersion'])) {
+            $model->majorVersion = $map['MajorVersion'];
+        }
+        if (isset($map['MinorVersion'])) {
+            $model->minorVersion = $map['MinorVersion'];
+        }
         if (isset($map['OwnerId'])) {
             $model->ownerId = $map['OwnerId'];
         }
         if (isset($map['RegionId'])) {
             $model->regionId = $map['RegionId'];
         }
-        if (isset($map['DBInstanceId'])) {
-            $model->DBInstanceId = $map['DBInstanceId'];
-        }
-        if (isset($map['MinorVersion'])) {
-            $model->minorVersion = $map['MinorVersion'];
-        }
-        if (isset($map['MajorVersion'])) {
-            $model->majorVersion = $map['MajorVersion'];
+        if (isset($map['SwitchTime'])) {
+            $model->switchTime = $map['SwitchTime'];
         }
         if (isset($map['SwitchTimeMode'])) {
             $model->switchTimeMode = $map['SwitchTimeMode'];
-        }
-        if (isset($map['SwitchTime'])) {
-            $model->switchTime = $map['SwitchTime'];
         }
 
         return $model;

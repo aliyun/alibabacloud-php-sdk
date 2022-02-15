@@ -10,17 +10,17 @@ use AlibabaCloud\Tea\Model;
 class resources extends Model
 {
     /**
-     * @var string
-     */
-    public $zoneId;
-
-    /**
      * @var supportedEngines[]
      */
     public $supportedEngines;
+
+    /**
+     * @var string
+     */
+    public $zoneId;
     protected $_name = [
-        'zoneId'           => 'ZoneId',
         'supportedEngines' => 'SupportedEngines',
+        'zoneId'           => 'ZoneId',
     ];
 
     public function validate()
@@ -30,9 +30,6 @@ class resources extends Model
     public function toMap()
     {
         $res = [];
-        if (null !== $this->zoneId) {
-            $res['ZoneId'] = $this->zoneId;
-        }
         if (null !== $this->supportedEngines) {
             $res['SupportedEngines'] = [];
             if (null !== $this->supportedEngines && \is_array($this->supportedEngines)) {
@@ -41,6 +38,9 @@ class resources extends Model
                     $res['SupportedEngines'][$n++] = null !== $item ? $item->toMap() : $item;
                 }
             }
+        }
+        if (null !== $this->zoneId) {
+            $res['ZoneId'] = $this->zoneId;
         }
 
         return $res;
@@ -54,9 +54,6 @@ class resources extends Model
     public static function fromMap($map = [])
     {
         $model = new self();
-        if (isset($map['ZoneId'])) {
-            $model->zoneId = $map['ZoneId'];
-        }
         if (isset($map['SupportedEngines'])) {
             if (!empty($map['SupportedEngines'])) {
                 $model->supportedEngines = [];
@@ -65,6 +62,9 @@ class resources extends Model
                     $model->supportedEngines[$n++] = null !== $item ? supportedEngines::fromMap($item) : $item;
                 }
             }
+        }
+        if (isset($map['ZoneId'])) {
+            $model->zoneId = $map['ZoneId'];
         }
 
         return $model;

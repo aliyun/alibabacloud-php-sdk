@@ -9,14 +9,14 @@ use AlibabaCloud\Tea\Model;
 class DescribeSQLLogsOnSliceRequest extends Model
 {
     /**
-     * @var int
+     * @var string
      */
-    public $pageSize;
+    public $DBInstanceId;
 
     /**
-     * @var int
+     * @var string
      */
-    public $pageNumber;
+    public $executeState;
 
     /**
      * @var string
@@ -29,14 +29,14 @@ class DescribeSQLLogsOnSliceRequest extends Model
     public $minExecuteCost;
 
     /**
-     * @var string
+     * @var int
      */
-    public $executeState;
+    public $pageNumber;
 
     /**
-     * @var string
+     * @var int
      */
-    public $DBInstanceId;
+    public $pageSize;
 
     /**
      * @var string
@@ -48,12 +48,12 @@ class DescribeSQLLogsOnSliceRequest extends Model
      */
     public $sliceId;
     protected $_name = [
-        'pageSize'       => 'PageSize',
-        'pageNumber'     => 'PageNumber',
+        'DBInstanceId'   => 'DBInstanceId',
+        'executeState'   => 'ExecuteState',
         'maxExecuteCost' => 'MaxExecuteCost',
         'minExecuteCost' => 'MinExecuteCost',
-        'executeState'   => 'ExecuteState',
-        'DBInstanceId'   => 'DBInstanceId',
+        'pageNumber'     => 'PageNumber',
+        'pageSize'       => 'PageSize',
         'queryId'        => 'QueryId',
         'sliceId'        => 'SliceId',
     ];
@@ -65,11 +65,11 @@ class DescribeSQLLogsOnSliceRequest extends Model
     public function toMap()
     {
         $res = [];
-        if (null !== $this->pageSize) {
-            $res['PageSize'] = $this->pageSize;
+        if (null !== $this->DBInstanceId) {
+            $res['DBInstanceId'] = $this->DBInstanceId;
         }
-        if (null !== $this->pageNumber) {
-            $res['PageNumber'] = $this->pageNumber;
+        if (null !== $this->executeState) {
+            $res['ExecuteState'] = $this->executeState;
         }
         if (null !== $this->maxExecuteCost) {
             $res['MaxExecuteCost'] = $this->maxExecuteCost;
@@ -77,11 +77,11 @@ class DescribeSQLLogsOnSliceRequest extends Model
         if (null !== $this->minExecuteCost) {
             $res['MinExecuteCost'] = $this->minExecuteCost;
         }
-        if (null !== $this->executeState) {
-            $res['ExecuteState'] = $this->executeState;
+        if (null !== $this->pageNumber) {
+            $res['PageNumber'] = $this->pageNumber;
         }
-        if (null !== $this->DBInstanceId) {
-            $res['DBInstanceId'] = $this->DBInstanceId;
+        if (null !== $this->pageSize) {
+            $res['PageSize'] = $this->pageSize;
         }
         if (null !== $this->queryId) {
             $res['QueryId'] = $this->queryId;
@@ -101,11 +101,11 @@ class DescribeSQLLogsOnSliceRequest extends Model
     public static function fromMap($map = [])
     {
         $model = new self();
-        if (isset($map['PageSize'])) {
-            $model->pageSize = $map['PageSize'];
+        if (isset($map['DBInstanceId'])) {
+            $model->DBInstanceId = $map['DBInstanceId'];
         }
-        if (isset($map['PageNumber'])) {
-            $model->pageNumber = $map['PageNumber'];
+        if (isset($map['ExecuteState'])) {
+            $model->executeState = $map['ExecuteState'];
         }
         if (isset($map['MaxExecuteCost'])) {
             $model->maxExecuteCost = $map['MaxExecuteCost'];
@@ -113,11 +113,11 @@ class DescribeSQLLogsOnSliceRequest extends Model
         if (isset($map['MinExecuteCost'])) {
             $model->minExecuteCost = $map['MinExecuteCost'];
         }
-        if (isset($map['ExecuteState'])) {
-            $model->executeState = $map['ExecuteState'];
+        if (isset($map['PageNumber'])) {
+            $model->pageNumber = $map['PageNumber'];
         }
-        if (isset($map['DBInstanceId'])) {
-            $model->DBInstanceId = $map['DBInstanceId'];
+        if (isset($map['PageSize'])) {
+            $model->pageSize = $map['PageSize'];
         }
         if (isset($map['QueryId'])) {
             $model->queryId = $map['QueryId'];

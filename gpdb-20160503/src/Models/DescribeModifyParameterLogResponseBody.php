@@ -10,17 +10,17 @@ use AlibabaCloud\Tea\Model;
 class DescribeModifyParameterLogResponseBody extends Model
 {
     /**
-     * @var string
-     */
-    public $requestId;
-
-    /**
      * @var changelogs[]
      */
     public $changelogs;
+
+    /**
+     * @var string
+     */
+    public $requestId;
     protected $_name = [
-        'requestId'  => 'RequestId',
         'changelogs' => 'Changelogs',
+        'requestId'  => 'RequestId',
     ];
 
     public function validate()
@@ -30,9 +30,6 @@ class DescribeModifyParameterLogResponseBody extends Model
     public function toMap()
     {
         $res = [];
-        if (null !== $this->requestId) {
-            $res['RequestId'] = $this->requestId;
-        }
         if (null !== $this->changelogs) {
             $res['Changelogs'] = [];
             if (null !== $this->changelogs && \is_array($this->changelogs)) {
@@ -41,6 +38,9 @@ class DescribeModifyParameterLogResponseBody extends Model
                     $res['Changelogs'][$n++] = null !== $item ? $item->toMap() : $item;
                 }
             }
+        }
+        if (null !== $this->requestId) {
+            $res['RequestId'] = $this->requestId;
         }
 
         return $res;
@@ -54,9 +54,6 @@ class DescribeModifyParameterLogResponseBody extends Model
     public static function fromMap($map = [])
     {
         $model = new self();
-        if (isset($map['RequestId'])) {
-            $model->requestId = $map['RequestId'];
-        }
         if (isset($map['Changelogs'])) {
             if (!empty($map['Changelogs'])) {
                 $model->changelogs = [];
@@ -65,6 +62,9 @@ class DescribeModifyParameterLogResponseBody extends Model
                     $model->changelogs[$n++] = null !== $item ? changelogs::fromMap($item) : $item;
                 }
             }
+        }
+        if (isset($map['RequestId'])) {
+            $model->requestId = $map['RequestId'];
         }
 
         return $model;

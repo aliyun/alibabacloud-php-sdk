@@ -9,49 +9,19 @@ use AlibabaCloud\Tea\Model;
 class CreateECSDBInstanceRequest extends Model
 {
     /**
-     * @var int
+     * @var string
      */
-    public $ownerId;
+    public $backupId;
 
     /**
      * @var string
      */
-    public $regionId;
+    public $clientToken;
 
     /**
      * @var string
      */
-    public $zoneId;
-
-    /**
-     * @var string
-     */
-    public $engineVersion;
-
-    /**
-     * @var string
-     */
-    public $engine;
-
-    /**
-     * @var string
-     */
-    public $instanceSpec;
-
-    /**
-     * @var int
-     */
-    public $segNodeNum;
-
-    /**
-     * @var string
-     */
-    public $segStorageType;
-
-    /**
-     * @var int
-     */
-    public $storageSize;
+    public $DBInstanceCategory;
 
     /**
      * @var string
@@ -61,7 +31,42 @@ class CreateECSDBInstanceRequest extends Model
     /**
      * @var string
      */
-    public $securityIPList;
+    public $encryptionKey;
+
+    /**
+     * @var string
+     */
+    public $encryptionType;
+
+    /**
+     * @var string
+     */
+    public $engine;
+
+    /**
+     * @var string
+     */
+    public $engineVersion;
+
+    /**
+     * @var string
+     */
+    public $instanceNetworkType;
+
+    /**
+     * @var string
+     */
+    public $instanceSpec;
+
+    /**
+     * @var int
+     */
+    public $masterNodeNum;
+
+    /**
+     * @var int
+     */
+    public $ownerId;
 
     /**
      * @var string
@@ -76,17 +81,42 @@ class CreateECSDBInstanceRequest extends Model
     /**
      * @var string
      */
+    public $privateIpAddress;
+
+    /**
+     * @var string
+     */
+    public $regionId;
+
+    /**
+     * @var string
+     */
+    public $securityIPList;
+
+    /**
+     * @var int
+     */
+    public $segNodeNum;
+
+    /**
+     * @var string
+     */
+    public $segStorageType;
+
+    /**
+     * @var string
+     */
+    public $srcDbInstanceName;
+
+    /**
+     * @var int
+     */
+    public $storageSize;
+
+    /**
+     * @var string
+     */
     public $usedTime;
-
-    /**
-     * @var string
-     */
-    public $clientToken;
-
-    /**
-     * @var string
-     */
-    public $instanceNetworkType;
 
     /**
      * @var string
@@ -101,63 +131,33 @@ class CreateECSDBInstanceRequest extends Model
     /**
      * @var string
      */
-    public $privateIpAddress;
-
-    /**
-     * @var string
-     */
-    public $encryptionKey;
-
-    /**
-     * @var string
-     */
-    public $encryptionType;
-
-    /**
-     * @var int
-     */
-    public $masterNodeNum;
-
-    /**
-     * @var string
-     */
-    public $srcDbInstanceName;
-
-    /**
-     * @var string
-     */
-    public $backupId;
-
-    /**
-     * @var string
-     */
-    public $DBInstanceCategory;
+    public $zoneId;
     protected $_name = [
-        'ownerId'               => 'OwnerId',
-        'regionId'              => 'RegionId',
-        'zoneId'                => 'ZoneId',
-        'engineVersion'         => 'EngineVersion',
-        'engine'                => 'Engine',
-        'instanceSpec'          => 'InstanceSpec',
-        'segNodeNum'            => 'SegNodeNum',
-        'segStorageType'        => 'SegStorageType',
-        'storageSize'           => 'StorageSize',
-        'DBInstanceDescription' => 'DBInstanceDescription',
-        'securityIPList'        => 'SecurityIPList',
-        'payType'               => 'PayType',
-        'period'                => 'Period',
-        'usedTime'              => 'UsedTime',
+        'backupId'              => 'BackupId',
         'clientToken'           => 'ClientToken',
-        'instanceNetworkType'   => 'InstanceNetworkType',
-        'VPCId'                 => 'VPCId',
-        'vSwitchId'             => 'VSwitchId',
-        'privateIpAddress'      => 'PrivateIpAddress',
+        'DBInstanceCategory'    => 'DBInstanceCategory',
+        'DBInstanceDescription' => 'DBInstanceDescription',
         'encryptionKey'         => 'EncryptionKey',
         'encryptionType'        => 'EncryptionType',
+        'engine'                => 'Engine',
+        'engineVersion'         => 'EngineVersion',
+        'instanceNetworkType'   => 'InstanceNetworkType',
+        'instanceSpec'          => 'InstanceSpec',
         'masterNodeNum'         => 'MasterNodeNum',
+        'ownerId'               => 'OwnerId',
+        'payType'               => 'PayType',
+        'period'                => 'Period',
+        'privateIpAddress'      => 'PrivateIpAddress',
+        'regionId'              => 'RegionId',
+        'securityIPList'        => 'SecurityIPList',
+        'segNodeNum'            => 'SegNodeNum',
+        'segStorageType'        => 'SegStorageType',
         'srcDbInstanceName'     => 'SrcDbInstanceName',
-        'backupId'              => 'BackupId',
-        'DBInstanceCategory'    => 'DBInstanceCategory',
+        'storageSize'           => 'StorageSize',
+        'usedTime'              => 'UsedTime',
+        'VPCId'                 => 'VPCId',
+        'vSwitchId'             => 'VSwitchId',
+        'zoneId'                => 'ZoneId',
     ];
 
     public function validate()
@@ -167,62 +167,17 @@ class CreateECSDBInstanceRequest extends Model
     public function toMap()
     {
         $res = [];
-        if (null !== $this->ownerId) {
-            $res['OwnerId'] = $this->ownerId;
-        }
-        if (null !== $this->regionId) {
-            $res['RegionId'] = $this->regionId;
-        }
-        if (null !== $this->zoneId) {
-            $res['ZoneId'] = $this->zoneId;
-        }
-        if (null !== $this->engineVersion) {
-            $res['EngineVersion'] = $this->engineVersion;
-        }
-        if (null !== $this->engine) {
-            $res['Engine'] = $this->engine;
-        }
-        if (null !== $this->instanceSpec) {
-            $res['InstanceSpec'] = $this->instanceSpec;
-        }
-        if (null !== $this->segNodeNum) {
-            $res['SegNodeNum'] = $this->segNodeNum;
-        }
-        if (null !== $this->segStorageType) {
-            $res['SegStorageType'] = $this->segStorageType;
-        }
-        if (null !== $this->storageSize) {
-            $res['StorageSize'] = $this->storageSize;
-        }
-        if (null !== $this->DBInstanceDescription) {
-            $res['DBInstanceDescription'] = $this->DBInstanceDescription;
-        }
-        if (null !== $this->securityIPList) {
-            $res['SecurityIPList'] = $this->securityIPList;
-        }
-        if (null !== $this->payType) {
-            $res['PayType'] = $this->payType;
-        }
-        if (null !== $this->period) {
-            $res['Period'] = $this->period;
-        }
-        if (null !== $this->usedTime) {
-            $res['UsedTime'] = $this->usedTime;
+        if (null !== $this->backupId) {
+            $res['BackupId'] = $this->backupId;
         }
         if (null !== $this->clientToken) {
             $res['ClientToken'] = $this->clientToken;
         }
-        if (null !== $this->instanceNetworkType) {
-            $res['InstanceNetworkType'] = $this->instanceNetworkType;
+        if (null !== $this->DBInstanceCategory) {
+            $res['DBInstanceCategory'] = $this->DBInstanceCategory;
         }
-        if (null !== $this->VPCId) {
-            $res['VPCId'] = $this->VPCId;
-        }
-        if (null !== $this->vSwitchId) {
-            $res['VSwitchId'] = $this->vSwitchId;
-        }
-        if (null !== $this->privateIpAddress) {
-            $res['PrivateIpAddress'] = $this->privateIpAddress;
+        if (null !== $this->DBInstanceDescription) {
+            $res['DBInstanceDescription'] = $this->DBInstanceDescription;
         }
         if (null !== $this->encryptionKey) {
             $res['EncryptionKey'] = $this->encryptionKey;
@@ -230,17 +185,62 @@ class CreateECSDBInstanceRequest extends Model
         if (null !== $this->encryptionType) {
             $res['EncryptionType'] = $this->encryptionType;
         }
+        if (null !== $this->engine) {
+            $res['Engine'] = $this->engine;
+        }
+        if (null !== $this->engineVersion) {
+            $res['EngineVersion'] = $this->engineVersion;
+        }
+        if (null !== $this->instanceNetworkType) {
+            $res['InstanceNetworkType'] = $this->instanceNetworkType;
+        }
+        if (null !== $this->instanceSpec) {
+            $res['InstanceSpec'] = $this->instanceSpec;
+        }
         if (null !== $this->masterNodeNum) {
             $res['MasterNodeNum'] = $this->masterNodeNum;
+        }
+        if (null !== $this->ownerId) {
+            $res['OwnerId'] = $this->ownerId;
+        }
+        if (null !== $this->payType) {
+            $res['PayType'] = $this->payType;
+        }
+        if (null !== $this->period) {
+            $res['Period'] = $this->period;
+        }
+        if (null !== $this->privateIpAddress) {
+            $res['PrivateIpAddress'] = $this->privateIpAddress;
+        }
+        if (null !== $this->regionId) {
+            $res['RegionId'] = $this->regionId;
+        }
+        if (null !== $this->securityIPList) {
+            $res['SecurityIPList'] = $this->securityIPList;
+        }
+        if (null !== $this->segNodeNum) {
+            $res['SegNodeNum'] = $this->segNodeNum;
+        }
+        if (null !== $this->segStorageType) {
+            $res['SegStorageType'] = $this->segStorageType;
         }
         if (null !== $this->srcDbInstanceName) {
             $res['SrcDbInstanceName'] = $this->srcDbInstanceName;
         }
-        if (null !== $this->backupId) {
-            $res['BackupId'] = $this->backupId;
+        if (null !== $this->storageSize) {
+            $res['StorageSize'] = $this->storageSize;
         }
-        if (null !== $this->DBInstanceCategory) {
-            $res['DBInstanceCategory'] = $this->DBInstanceCategory;
+        if (null !== $this->usedTime) {
+            $res['UsedTime'] = $this->usedTime;
+        }
+        if (null !== $this->VPCId) {
+            $res['VPCId'] = $this->VPCId;
+        }
+        if (null !== $this->vSwitchId) {
+            $res['VSwitchId'] = $this->vSwitchId;
+        }
+        if (null !== $this->zoneId) {
+            $res['ZoneId'] = $this->zoneId;
         }
 
         return $res;
@@ -254,62 +254,17 @@ class CreateECSDBInstanceRequest extends Model
     public static function fromMap($map = [])
     {
         $model = new self();
-        if (isset($map['OwnerId'])) {
-            $model->ownerId = $map['OwnerId'];
-        }
-        if (isset($map['RegionId'])) {
-            $model->regionId = $map['RegionId'];
-        }
-        if (isset($map['ZoneId'])) {
-            $model->zoneId = $map['ZoneId'];
-        }
-        if (isset($map['EngineVersion'])) {
-            $model->engineVersion = $map['EngineVersion'];
-        }
-        if (isset($map['Engine'])) {
-            $model->engine = $map['Engine'];
-        }
-        if (isset($map['InstanceSpec'])) {
-            $model->instanceSpec = $map['InstanceSpec'];
-        }
-        if (isset($map['SegNodeNum'])) {
-            $model->segNodeNum = $map['SegNodeNum'];
-        }
-        if (isset($map['SegStorageType'])) {
-            $model->segStorageType = $map['SegStorageType'];
-        }
-        if (isset($map['StorageSize'])) {
-            $model->storageSize = $map['StorageSize'];
-        }
-        if (isset($map['DBInstanceDescription'])) {
-            $model->DBInstanceDescription = $map['DBInstanceDescription'];
-        }
-        if (isset($map['SecurityIPList'])) {
-            $model->securityIPList = $map['SecurityIPList'];
-        }
-        if (isset($map['PayType'])) {
-            $model->payType = $map['PayType'];
-        }
-        if (isset($map['Period'])) {
-            $model->period = $map['Period'];
-        }
-        if (isset($map['UsedTime'])) {
-            $model->usedTime = $map['UsedTime'];
+        if (isset($map['BackupId'])) {
+            $model->backupId = $map['BackupId'];
         }
         if (isset($map['ClientToken'])) {
             $model->clientToken = $map['ClientToken'];
         }
-        if (isset($map['InstanceNetworkType'])) {
-            $model->instanceNetworkType = $map['InstanceNetworkType'];
+        if (isset($map['DBInstanceCategory'])) {
+            $model->DBInstanceCategory = $map['DBInstanceCategory'];
         }
-        if (isset($map['VPCId'])) {
-            $model->VPCId = $map['VPCId'];
-        }
-        if (isset($map['VSwitchId'])) {
-            $model->vSwitchId = $map['VSwitchId'];
-        }
-        if (isset($map['PrivateIpAddress'])) {
-            $model->privateIpAddress = $map['PrivateIpAddress'];
+        if (isset($map['DBInstanceDescription'])) {
+            $model->DBInstanceDescription = $map['DBInstanceDescription'];
         }
         if (isset($map['EncryptionKey'])) {
             $model->encryptionKey = $map['EncryptionKey'];
@@ -317,17 +272,62 @@ class CreateECSDBInstanceRequest extends Model
         if (isset($map['EncryptionType'])) {
             $model->encryptionType = $map['EncryptionType'];
         }
+        if (isset($map['Engine'])) {
+            $model->engine = $map['Engine'];
+        }
+        if (isset($map['EngineVersion'])) {
+            $model->engineVersion = $map['EngineVersion'];
+        }
+        if (isset($map['InstanceNetworkType'])) {
+            $model->instanceNetworkType = $map['InstanceNetworkType'];
+        }
+        if (isset($map['InstanceSpec'])) {
+            $model->instanceSpec = $map['InstanceSpec'];
+        }
         if (isset($map['MasterNodeNum'])) {
             $model->masterNodeNum = $map['MasterNodeNum'];
+        }
+        if (isset($map['OwnerId'])) {
+            $model->ownerId = $map['OwnerId'];
+        }
+        if (isset($map['PayType'])) {
+            $model->payType = $map['PayType'];
+        }
+        if (isset($map['Period'])) {
+            $model->period = $map['Period'];
+        }
+        if (isset($map['PrivateIpAddress'])) {
+            $model->privateIpAddress = $map['PrivateIpAddress'];
+        }
+        if (isset($map['RegionId'])) {
+            $model->regionId = $map['RegionId'];
+        }
+        if (isset($map['SecurityIPList'])) {
+            $model->securityIPList = $map['SecurityIPList'];
+        }
+        if (isset($map['SegNodeNum'])) {
+            $model->segNodeNum = $map['SegNodeNum'];
+        }
+        if (isset($map['SegStorageType'])) {
+            $model->segStorageType = $map['SegStorageType'];
         }
         if (isset($map['SrcDbInstanceName'])) {
             $model->srcDbInstanceName = $map['SrcDbInstanceName'];
         }
-        if (isset($map['BackupId'])) {
-            $model->backupId = $map['BackupId'];
+        if (isset($map['StorageSize'])) {
+            $model->storageSize = $map['StorageSize'];
         }
-        if (isset($map['DBInstanceCategory'])) {
-            $model->DBInstanceCategory = $map['DBInstanceCategory'];
+        if (isset($map['UsedTime'])) {
+            $model->usedTime = $map['UsedTime'];
+        }
+        if (isset($map['VPCId'])) {
+            $model->VPCId = $map['VPCId'];
+        }
+        if (isset($map['VSwitchId'])) {
+            $model->vSwitchId = $map['VSwitchId'];
+        }
+        if (isset($map['ZoneId'])) {
+            $model->zoneId = $map['ZoneId'];
         }
 
         return $model;

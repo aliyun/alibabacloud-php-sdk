@@ -9,6 +9,21 @@ use AlibabaCloud\Tea\Model;
 class items extends Model
 {
     /**
+     * @var string
+     */
+    public $backupId;
+
+    /**
+     * @var string
+     */
+    public $DBInstanceId;
+
+    /**
+     * @var string
+     */
+    public $logFileName;
+
+    /**
      * @var int
      */
     public $logFileSize;
@@ -22,28 +37,13 @@ class items extends Model
      * @var string
      */
     public $segmentName;
-
-    /**
-     * @var string
-     */
-    public $logFileName;
-
-    /**
-     * @var string
-     */
-    public $DBInstanceId;
-
-    /**
-     * @var string
-     */
-    public $backupId;
     protected $_name = [
+        'backupId'     => 'BackupId',
+        'DBInstanceId' => 'DBInstanceId',
+        'logFileName'  => 'LogFileName',
         'logFileSize'  => 'LogFileSize',
         'logTime'      => 'LogTime',
         'segmentName'  => 'SegmentName',
-        'logFileName'  => 'LogFileName',
-        'DBInstanceId' => 'DBInstanceId',
-        'backupId'     => 'BackupId',
     ];
 
     public function validate()
@@ -53,6 +53,15 @@ class items extends Model
     public function toMap()
     {
         $res = [];
+        if (null !== $this->backupId) {
+            $res['BackupId'] = $this->backupId;
+        }
+        if (null !== $this->DBInstanceId) {
+            $res['DBInstanceId'] = $this->DBInstanceId;
+        }
+        if (null !== $this->logFileName) {
+            $res['LogFileName'] = $this->logFileName;
+        }
         if (null !== $this->logFileSize) {
             $res['LogFileSize'] = $this->logFileSize;
         }
@@ -61,15 +70,6 @@ class items extends Model
         }
         if (null !== $this->segmentName) {
             $res['SegmentName'] = $this->segmentName;
-        }
-        if (null !== $this->logFileName) {
-            $res['LogFileName'] = $this->logFileName;
-        }
-        if (null !== $this->DBInstanceId) {
-            $res['DBInstanceId'] = $this->DBInstanceId;
-        }
-        if (null !== $this->backupId) {
-            $res['BackupId'] = $this->backupId;
         }
 
         return $res;
@@ -83,6 +83,15 @@ class items extends Model
     public static function fromMap($map = [])
     {
         $model = new self();
+        if (isset($map['BackupId'])) {
+            $model->backupId = $map['BackupId'];
+        }
+        if (isset($map['DBInstanceId'])) {
+            $model->DBInstanceId = $map['DBInstanceId'];
+        }
+        if (isset($map['LogFileName'])) {
+            $model->logFileName = $map['LogFileName'];
+        }
         if (isset($map['LogFileSize'])) {
             $model->logFileSize = $map['LogFileSize'];
         }
@@ -91,15 +100,6 @@ class items extends Model
         }
         if (isset($map['SegmentName'])) {
             $model->segmentName = $map['SegmentName'];
-        }
-        if (isset($map['LogFileName'])) {
-            $model->logFileName = $map['LogFileName'];
-        }
-        if (isset($map['DBInstanceId'])) {
-            $model->DBInstanceId = $map['DBInstanceId'];
-        }
-        if (isset($map['BackupId'])) {
-            $model->backupId = $map['BackupId'];
         }
 
         return $model;

@@ -11,7 +11,7 @@ class ReleaseInstancePublicConnectionRequest extends Model
     /**
      * @var string
      */
-    public $DBInstanceId;
+    public $addressType;
 
     /**
      * @var string
@@ -21,11 +21,11 @@ class ReleaseInstancePublicConnectionRequest extends Model
     /**
      * @var string
      */
-    public $addressType;
+    public $DBInstanceId;
     protected $_name = [
-        'DBInstanceId'            => 'DBInstanceId',
-        'currentConnectionString' => 'CurrentConnectionString',
         'addressType'             => 'AddressType',
+        'currentConnectionString' => 'CurrentConnectionString',
+        'DBInstanceId'            => 'DBInstanceId',
     ];
 
     public function validate()
@@ -35,14 +35,14 @@ class ReleaseInstancePublicConnectionRequest extends Model
     public function toMap()
     {
         $res = [];
-        if (null !== $this->DBInstanceId) {
-            $res['DBInstanceId'] = $this->DBInstanceId;
+        if (null !== $this->addressType) {
+            $res['AddressType'] = $this->addressType;
         }
         if (null !== $this->currentConnectionString) {
             $res['CurrentConnectionString'] = $this->currentConnectionString;
         }
-        if (null !== $this->addressType) {
-            $res['AddressType'] = $this->addressType;
+        if (null !== $this->DBInstanceId) {
+            $res['DBInstanceId'] = $this->DBInstanceId;
         }
 
         return $res;
@@ -56,14 +56,14 @@ class ReleaseInstancePublicConnectionRequest extends Model
     public static function fromMap($map = [])
     {
         $model = new self();
-        if (isset($map['DBInstanceId'])) {
-            $model->DBInstanceId = $map['DBInstanceId'];
+        if (isset($map['AddressType'])) {
+            $model->addressType = $map['AddressType'];
         }
         if (isset($map['CurrentConnectionString'])) {
             $model->currentConnectionString = $map['CurrentConnectionString'];
         }
-        if (isset($map['AddressType'])) {
-            $model->addressType = $map['AddressType'];
+        if (isset($map['DBInstanceId'])) {
+            $model->DBInstanceId = $map['DBInstanceId'];
         }
 
         return $model;

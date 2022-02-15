@@ -21,23 +21,23 @@ class ModifyDBInstanceNetworkTypeRequest extends Model
     /**
      * @var string
      */
+    public $privateIpAddress;
+
+    /**
+     * @var string
+     */
     public $VPCId;
 
     /**
      * @var string
      */
     public $vSwitchId;
-
-    /**
-     * @var string
-     */
-    public $privateIpAddress;
     protected $_name = [
         'DBInstanceId'        => 'DBInstanceId',
         'instanceNetworkType' => 'InstanceNetworkType',
+        'privateIpAddress'    => 'PrivateIpAddress',
         'VPCId'               => 'VPCId',
         'vSwitchId'           => 'VSwitchId',
-        'privateIpAddress'    => 'PrivateIpAddress',
     ];
 
     public function validate()
@@ -53,14 +53,14 @@ class ModifyDBInstanceNetworkTypeRequest extends Model
         if (null !== $this->instanceNetworkType) {
             $res['InstanceNetworkType'] = $this->instanceNetworkType;
         }
+        if (null !== $this->privateIpAddress) {
+            $res['PrivateIpAddress'] = $this->privateIpAddress;
+        }
         if (null !== $this->VPCId) {
             $res['VPCId'] = $this->VPCId;
         }
         if (null !== $this->vSwitchId) {
             $res['VSwitchId'] = $this->vSwitchId;
-        }
-        if (null !== $this->privateIpAddress) {
-            $res['PrivateIpAddress'] = $this->privateIpAddress;
         }
 
         return $res;
@@ -80,14 +80,14 @@ class ModifyDBInstanceNetworkTypeRequest extends Model
         if (isset($map['InstanceNetworkType'])) {
             $model->instanceNetworkType = $map['InstanceNetworkType'];
         }
+        if (isset($map['PrivateIpAddress'])) {
+            $model->privateIpAddress = $map['PrivateIpAddress'];
+        }
         if (isset($map['VPCId'])) {
             $model->VPCId = $map['VPCId'];
         }
         if (isset($map['VSwitchId'])) {
             $model->vSwitchId = $map['VSwitchId'];
-        }
-        if (isset($map['PrivateIpAddress'])) {
-            $model->privateIpAddress = $map['PrivateIpAddress'];
         }
 
         return $model;

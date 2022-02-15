@@ -11,15 +11,15 @@ class DescribeSQLCollectorPolicyResponseBody extends Model
     /**
      * @var string
      */
-    public $SQLCollectorStatus;
+    public $requestId;
 
     /**
      * @var string
      */
-    public $requestId;
+    public $SQLCollectorStatus;
     protected $_name = [
-        'SQLCollectorStatus' => 'SQLCollectorStatus',
         'requestId'          => 'RequestId',
+        'SQLCollectorStatus' => 'SQLCollectorStatus',
     ];
 
     public function validate()
@@ -29,11 +29,11 @@ class DescribeSQLCollectorPolicyResponseBody extends Model
     public function toMap()
     {
         $res = [];
-        if (null !== $this->SQLCollectorStatus) {
-            $res['SQLCollectorStatus'] = $this->SQLCollectorStatus;
-        }
         if (null !== $this->requestId) {
             $res['RequestId'] = $this->requestId;
+        }
+        if (null !== $this->SQLCollectorStatus) {
+            $res['SQLCollectorStatus'] = $this->SQLCollectorStatus;
         }
 
         return $res;
@@ -47,11 +47,11 @@ class DescribeSQLCollectorPolicyResponseBody extends Model
     public static function fromMap($map = [])
     {
         $model = new self();
-        if (isset($map['SQLCollectorStatus'])) {
-            $model->SQLCollectorStatus = $map['SQLCollectorStatus'];
-        }
         if (isset($map['RequestId'])) {
             $model->requestId = $map['RequestId'];
+        }
+        if (isset($map['SQLCollectorStatus'])) {
+            $model->SQLCollectorStatus = $map['SQLCollectorStatus'];
         }
 
         return $model;

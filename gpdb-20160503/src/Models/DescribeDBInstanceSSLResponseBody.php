@@ -11,6 +11,16 @@ class DescribeDBInstanceSSLResponseBody extends Model
     /**
      * @var string
      */
+    public $certCommonName;
+
+    /**
+     * @var string
+     */
+    public $DBInstanceId;
+
+    /**
+     * @var string
+     */
     public $DBInstanceName;
 
     /**
@@ -26,23 +36,13 @@ class DescribeDBInstanceSSLResponseBody extends Model
     /**
      * @var string
      */
-    public $DBInstanceId;
-
-    /**
-     * @var string
-     */
-    public $certCommonName;
-
-    /**
-     * @var string
-     */
     public $SSLExpiredTime;
     protected $_name = [
+        'certCommonName' => 'CertCommonName',
+        'DBInstanceId'   => 'DBInstanceId',
         'DBInstanceName' => 'DBInstanceName',
         'requestId'      => 'RequestId',
         'SSLEnabled'     => 'SSLEnabled',
-        'DBInstanceId'   => 'DBInstanceId',
-        'certCommonName' => 'CertCommonName',
         'SSLExpiredTime' => 'SSLExpiredTime',
     ];
 
@@ -53,6 +53,12 @@ class DescribeDBInstanceSSLResponseBody extends Model
     public function toMap()
     {
         $res = [];
+        if (null !== $this->certCommonName) {
+            $res['CertCommonName'] = $this->certCommonName;
+        }
+        if (null !== $this->DBInstanceId) {
+            $res['DBInstanceId'] = $this->DBInstanceId;
+        }
         if (null !== $this->DBInstanceName) {
             $res['DBInstanceName'] = $this->DBInstanceName;
         }
@@ -61,12 +67,6 @@ class DescribeDBInstanceSSLResponseBody extends Model
         }
         if (null !== $this->SSLEnabled) {
             $res['SSLEnabled'] = $this->SSLEnabled;
-        }
-        if (null !== $this->DBInstanceId) {
-            $res['DBInstanceId'] = $this->DBInstanceId;
-        }
-        if (null !== $this->certCommonName) {
-            $res['CertCommonName'] = $this->certCommonName;
         }
         if (null !== $this->SSLExpiredTime) {
             $res['SSLExpiredTime'] = $this->SSLExpiredTime;
@@ -83,6 +83,12 @@ class DescribeDBInstanceSSLResponseBody extends Model
     public static function fromMap($map = [])
     {
         $model = new self();
+        if (isset($map['CertCommonName'])) {
+            $model->certCommonName = $map['CertCommonName'];
+        }
+        if (isset($map['DBInstanceId'])) {
+            $model->DBInstanceId = $map['DBInstanceId'];
+        }
         if (isset($map['DBInstanceName'])) {
             $model->DBInstanceName = $map['DBInstanceName'];
         }
@@ -91,12 +97,6 @@ class DescribeDBInstanceSSLResponseBody extends Model
         }
         if (isset($map['SSLEnabled'])) {
             $model->SSLEnabled = $map['SSLEnabled'];
-        }
-        if (isset($map['DBInstanceId'])) {
-            $model->DBInstanceId = $map['DBInstanceId'];
-        }
-        if (isset($map['CertCommonName'])) {
-            $model->certCommonName = $map['CertCommonName'];
         }
         if (isset($map['SSLExpiredTime'])) {
             $model->SSLExpiredTime = $map['SSLExpiredTime'];

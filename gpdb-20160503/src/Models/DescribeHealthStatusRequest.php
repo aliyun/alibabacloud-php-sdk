@@ -6,7 +6,7 @@ namespace AlibabaCloud\SDK\Gpdb\V20160503\Models;
 
 use AlibabaCloud\Tea\Model;
 
-class DescribeDBInstancePerformanceRequest extends Model
+class DescribeHealthStatusRequest extends Model
 {
     /**
      * @var string
@@ -17,21 +17,9 @@ class DescribeDBInstancePerformanceRequest extends Model
      * @var string
      */
     public $key;
-
-    /**
-     * @var string
-     */
-    public $startTime;
-
-    /**
-     * @var string
-     */
-    public $endTime;
     protected $_name = [
         'DBInstanceId' => 'DBInstanceId',
         'key'          => 'Key',
-        'startTime'    => 'StartTime',
-        'endTime'      => 'EndTime',
     ];
 
     public function validate()
@@ -47,12 +35,6 @@ class DescribeDBInstancePerformanceRequest extends Model
         if (null !== $this->key) {
             $res['Key'] = $this->key;
         }
-        if (null !== $this->startTime) {
-            $res['StartTime'] = $this->startTime;
-        }
-        if (null !== $this->endTime) {
-            $res['EndTime'] = $this->endTime;
-        }
 
         return $res;
     }
@@ -60,7 +42,7 @@ class DescribeDBInstancePerformanceRequest extends Model
     /**
      * @param array $map
      *
-     * @return DescribeDBInstancePerformanceRequest
+     * @return DescribeHealthStatusRequest
      */
     public static function fromMap($map = [])
     {
@@ -70,12 +52,6 @@ class DescribeDBInstancePerformanceRequest extends Model
         }
         if (isset($map['Key'])) {
             $model->key = $map['Key'];
-        }
-        if (isset($map['StartTime'])) {
-            $model->startTime = $map['StartTime'];
-        }
-        if (isset($map['EndTime'])) {
-            $model->endTime = $map['EndTime'];
         }
 
         return $model;

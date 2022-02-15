@@ -11,12 +11,7 @@ class changelogs extends Model
     /**
      * @var string
      */
-    public $parameterValueAfter;
-
-    /**
-     * @var string
-     */
-    public $parameterValueBefore;
+    public $effectTime;
 
     /**
      * @var string
@@ -31,13 +26,18 @@ class changelogs extends Model
     /**
      * @var string
      */
-    public $effectTime;
+    public $parameterValueAfter;
+
+    /**
+     * @var string
+     */
+    public $parameterValueBefore;
     protected $_name = [
-        'parameterValueAfter'  => 'ParameterValueAfter',
-        'parameterValueBefore' => 'ParameterValueBefore',
+        'effectTime'           => 'EffectTime',
         'parameterName'        => 'ParameterName',
         'parameterValid'       => 'ParameterValid',
-        'effectTime'           => 'EffectTime',
+        'parameterValueAfter'  => 'ParameterValueAfter',
+        'parameterValueBefore' => 'ParameterValueBefore',
     ];
 
     public function validate()
@@ -47,11 +47,8 @@ class changelogs extends Model
     public function toMap()
     {
         $res = [];
-        if (null !== $this->parameterValueAfter) {
-            $res['ParameterValueAfter'] = $this->parameterValueAfter;
-        }
-        if (null !== $this->parameterValueBefore) {
-            $res['ParameterValueBefore'] = $this->parameterValueBefore;
+        if (null !== $this->effectTime) {
+            $res['EffectTime'] = $this->effectTime;
         }
         if (null !== $this->parameterName) {
             $res['ParameterName'] = $this->parameterName;
@@ -59,8 +56,11 @@ class changelogs extends Model
         if (null !== $this->parameterValid) {
             $res['ParameterValid'] = $this->parameterValid;
         }
-        if (null !== $this->effectTime) {
-            $res['EffectTime'] = $this->effectTime;
+        if (null !== $this->parameterValueAfter) {
+            $res['ParameterValueAfter'] = $this->parameterValueAfter;
+        }
+        if (null !== $this->parameterValueBefore) {
+            $res['ParameterValueBefore'] = $this->parameterValueBefore;
         }
 
         return $res;
@@ -74,11 +74,8 @@ class changelogs extends Model
     public static function fromMap($map = [])
     {
         $model = new self();
-        if (isset($map['ParameterValueAfter'])) {
-            $model->parameterValueAfter = $map['ParameterValueAfter'];
-        }
-        if (isset($map['ParameterValueBefore'])) {
-            $model->parameterValueBefore = $map['ParameterValueBefore'];
+        if (isset($map['EffectTime'])) {
+            $model->effectTime = $map['EffectTime'];
         }
         if (isset($map['ParameterName'])) {
             $model->parameterName = $map['ParameterName'];
@@ -86,8 +83,11 @@ class changelogs extends Model
         if (isset($map['ParameterValid'])) {
             $model->parameterValid = $map['ParameterValid'];
         }
-        if (isset($map['EffectTime'])) {
-            $model->effectTime = $map['EffectTime'];
+        if (isset($map['ParameterValueAfter'])) {
+            $model->parameterValueAfter = $map['ParameterValueAfter'];
+        }
+        if (isset($map['ParameterValueBefore'])) {
+            $model->parameterValueBefore = $map['ParameterValueBefore'];
         }
 
         return $model;

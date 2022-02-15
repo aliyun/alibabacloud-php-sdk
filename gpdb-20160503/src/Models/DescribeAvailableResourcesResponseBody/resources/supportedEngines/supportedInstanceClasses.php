@@ -13,11 +13,6 @@ class supportedInstanceClasses extends Model
     /**
      * @var string
      */
-    public $storageType;
-
-    /**
-     * @var string
-     */
     public $description;
 
     /**
@@ -39,13 +34,18 @@ class supportedInstanceClasses extends Model
      * @var storageSize
      */
     public $storageSize;
+
+    /**
+     * @var string
+     */
+    public $storageType;
     protected $_name = [
-        'storageType'   => 'StorageType',
         'description'   => 'Description',
         'displayClass'  => 'DisplayClass',
         'instanceClass' => 'InstanceClass',
         'nodeCount'     => 'NodeCount',
         'storageSize'   => 'StorageSize',
+        'storageType'   => 'StorageType',
     ];
 
     public function validate()
@@ -55,9 +55,6 @@ class supportedInstanceClasses extends Model
     public function toMap()
     {
         $res = [];
-        if (null !== $this->storageType) {
-            $res['StorageType'] = $this->storageType;
-        }
         if (null !== $this->description) {
             $res['Description'] = $this->description;
         }
@@ -73,6 +70,9 @@ class supportedInstanceClasses extends Model
         if (null !== $this->storageSize) {
             $res['StorageSize'] = null !== $this->storageSize ? $this->storageSize->toMap() : null;
         }
+        if (null !== $this->storageType) {
+            $res['StorageType'] = $this->storageType;
+        }
 
         return $res;
     }
@@ -85,9 +85,6 @@ class supportedInstanceClasses extends Model
     public static function fromMap($map = [])
     {
         $model = new self();
-        if (isset($map['StorageType'])) {
-            $model->storageType = $map['StorageType'];
-        }
         if (isset($map['Description'])) {
             $model->description = $map['Description'];
         }
@@ -102,6 +99,9 @@ class supportedInstanceClasses extends Model
         }
         if (isset($map['StorageSize'])) {
             $model->storageSize = storageSize::fromMap($map['StorageSize']);
+        }
+        if (isset($map['StorageType'])) {
+            $model->storageType = $map['StorageType'];
         }
 
         return $model;

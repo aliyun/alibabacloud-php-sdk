@@ -16,12 +16,12 @@ class DescribeLogBackupsRequest extends Model
     /**
      * @var string
      */
-    public $startTime;
+    public $endTime;
 
     /**
-     * @var string
+     * @var int
      */
-    public $endTime;
+    public $pageNumber;
 
     /**
      * @var int
@@ -29,15 +29,15 @@ class DescribeLogBackupsRequest extends Model
     public $pageSize;
 
     /**
-     * @var int
+     * @var string
      */
-    public $pageNumber;
+    public $startTime;
     protected $_name = [
         'DBInstanceId' => 'DBInstanceId',
-        'startTime'    => 'StartTime',
         'endTime'      => 'EndTime',
-        'pageSize'     => 'PageSize',
         'pageNumber'   => 'PageNumber',
+        'pageSize'     => 'PageSize',
+        'startTime'    => 'StartTime',
     ];
 
     public function validate()
@@ -50,17 +50,17 @@ class DescribeLogBackupsRequest extends Model
         if (null !== $this->DBInstanceId) {
             $res['DBInstanceId'] = $this->DBInstanceId;
         }
-        if (null !== $this->startTime) {
-            $res['StartTime'] = $this->startTime;
-        }
         if (null !== $this->endTime) {
             $res['EndTime'] = $this->endTime;
+        }
+        if (null !== $this->pageNumber) {
+            $res['PageNumber'] = $this->pageNumber;
         }
         if (null !== $this->pageSize) {
             $res['PageSize'] = $this->pageSize;
         }
-        if (null !== $this->pageNumber) {
-            $res['PageNumber'] = $this->pageNumber;
+        if (null !== $this->startTime) {
+            $res['StartTime'] = $this->startTime;
         }
 
         return $res;
@@ -77,17 +77,17 @@ class DescribeLogBackupsRequest extends Model
         if (isset($map['DBInstanceId'])) {
             $model->DBInstanceId = $map['DBInstanceId'];
         }
-        if (isset($map['StartTime'])) {
-            $model->startTime = $map['StartTime'];
-        }
         if (isset($map['EndTime'])) {
             $model->endTime = $map['EndTime'];
+        }
+        if (isset($map['PageNumber'])) {
+            $model->pageNumber = $map['PageNumber'];
         }
         if (isset($map['PageSize'])) {
             $model->pageSize = $map['PageSize'];
         }
-        if (isset($map['PageNumber'])) {
-            $model->pageNumber = $map['PageNumber'];
+        if (isset($map['StartTime'])) {
+            $model->startTime = $map['StartTime'];
         }
 
         return $model;

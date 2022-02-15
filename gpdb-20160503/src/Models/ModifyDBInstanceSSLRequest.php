@@ -11,20 +11,20 @@ class ModifyDBInstanceSSLRequest extends Model
     /**
      * @var string
      */
-    public $DBInstanceId;
+    public $connectionString;
 
     /**
      * @var string
      */
-    public $connectionString;
+    public $DBInstanceId;
 
     /**
      * @var int
      */
     public $SSLEnabled;
     protected $_name = [
-        'DBInstanceId'     => 'DBInstanceId',
         'connectionString' => 'ConnectionString',
+        'DBInstanceId'     => 'DBInstanceId',
         'SSLEnabled'       => 'SSLEnabled',
     ];
 
@@ -35,11 +35,11 @@ class ModifyDBInstanceSSLRequest extends Model
     public function toMap()
     {
         $res = [];
-        if (null !== $this->DBInstanceId) {
-            $res['DBInstanceId'] = $this->DBInstanceId;
-        }
         if (null !== $this->connectionString) {
             $res['ConnectionString'] = $this->connectionString;
+        }
+        if (null !== $this->DBInstanceId) {
+            $res['DBInstanceId'] = $this->DBInstanceId;
         }
         if (null !== $this->SSLEnabled) {
             $res['SSLEnabled'] = $this->SSLEnabled;
@@ -56,11 +56,11 @@ class ModifyDBInstanceSSLRequest extends Model
     public static function fromMap($map = [])
     {
         $model = new self();
-        if (isset($map['DBInstanceId'])) {
-            $model->DBInstanceId = $map['DBInstanceId'];
-        }
         if (isset($map['ConnectionString'])) {
             $model->connectionString = $map['ConnectionString'];
+        }
+        if (isset($map['DBInstanceId'])) {
+            $model->DBInstanceId = $map['DBInstanceId'];
         }
         if (isset($map['SSLEnabled'])) {
             $model->SSLEnabled = $map['SSLEnabled'];

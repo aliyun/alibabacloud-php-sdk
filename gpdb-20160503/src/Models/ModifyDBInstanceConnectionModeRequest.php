@@ -11,15 +11,15 @@ class ModifyDBInstanceConnectionModeRequest extends Model
     /**
      * @var string
      */
-    public $DBInstanceId;
+    public $connectionMode;
 
     /**
      * @var string
      */
-    public $connectionMode;
+    public $DBInstanceId;
     protected $_name = [
-        'DBInstanceId'   => 'DBInstanceId',
         'connectionMode' => 'ConnectionMode',
+        'DBInstanceId'   => 'DBInstanceId',
     ];
 
     public function validate()
@@ -29,11 +29,11 @@ class ModifyDBInstanceConnectionModeRequest extends Model
     public function toMap()
     {
         $res = [];
-        if (null !== $this->DBInstanceId) {
-            $res['DBInstanceId'] = $this->DBInstanceId;
-        }
         if (null !== $this->connectionMode) {
             $res['ConnectionMode'] = $this->connectionMode;
+        }
+        if (null !== $this->DBInstanceId) {
+            $res['DBInstanceId'] = $this->DBInstanceId;
         }
 
         return $res;
@@ -47,11 +47,11 @@ class ModifyDBInstanceConnectionModeRequest extends Model
     public static function fromMap($map = [])
     {
         $model = new self();
-        if (isset($map['DBInstanceId'])) {
-            $model->DBInstanceId = $map['DBInstanceId'];
-        }
         if (isset($map['ConnectionMode'])) {
             $model->connectionMode = $map['ConnectionMode'];
+        }
+        if (isset($map['DBInstanceId'])) {
+            $model->DBInstanceId = $map['DBInstanceId'];
         }
 
         return $model;

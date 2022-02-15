@@ -11,15 +11,15 @@ class ModifyDBInstanceDescriptionRequest extends Model
     /**
      * @var string
      */
-    public $DBInstanceId;
+    public $DBInstanceDescription;
 
     /**
      * @var string
      */
-    public $DBInstanceDescription;
+    public $DBInstanceId;
     protected $_name = [
-        'DBInstanceId'          => 'DBInstanceId',
         'DBInstanceDescription' => 'DBInstanceDescription',
+        'DBInstanceId'          => 'DBInstanceId',
     ];
 
     public function validate()
@@ -29,11 +29,11 @@ class ModifyDBInstanceDescriptionRequest extends Model
     public function toMap()
     {
         $res = [];
-        if (null !== $this->DBInstanceId) {
-            $res['DBInstanceId'] = $this->DBInstanceId;
-        }
         if (null !== $this->DBInstanceDescription) {
             $res['DBInstanceDescription'] = $this->DBInstanceDescription;
+        }
+        if (null !== $this->DBInstanceId) {
+            $res['DBInstanceId'] = $this->DBInstanceId;
         }
 
         return $res;
@@ -47,11 +47,11 @@ class ModifyDBInstanceDescriptionRequest extends Model
     public static function fromMap($map = [])
     {
         $model = new self();
-        if (isset($map['DBInstanceId'])) {
-            $model->DBInstanceId = $map['DBInstanceId'];
-        }
         if (isset($map['DBInstanceDescription'])) {
             $model->DBInstanceDescription = $map['DBInstanceDescription'];
+        }
+        if (isset($map['DBInstanceId'])) {
+            $model->DBInstanceId = $map['DBInstanceId'];
         }
 
         return $model;

@@ -11,15 +11,15 @@ class DBInstanceClass extends Model
     /**
      * @var string
      */
-    public $value;
+    public $text;
 
     /**
      * @var string
      */
-    public $text;
+    public $value;
     protected $_name = [
-        'value' => 'Value',
         'text'  => 'Text',
+        'value' => 'Value',
     ];
 
     public function validate()
@@ -29,11 +29,11 @@ class DBInstanceClass extends Model
     public function toMap()
     {
         $res = [];
-        if (null !== $this->value) {
-            $res['Value'] = $this->value;
-        }
         if (null !== $this->text) {
             $res['Text'] = $this->text;
+        }
+        if (null !== $this->value) {
+            $res['Value'] = $this->value;
         }
 
         return $res;
@@ -47,11 +47,11 @@ class DBInstanceClass extends Model
     public static function fromMap($map = [])
     {
         $model = new self();
-        if (isset($map['Value'])) {
-            $model->value = $map['Value'];
-        }
         if (isset($map['Text'])) {
             $model->text = $map['Text'];
+        }
+        if (isset($map['Value'])) {
+            $model->value = $map['Value'];
         }
 
         return $model;

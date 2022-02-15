@@ -9,16 +9,6 @@ use AlibabaCloud\Tea\Model;
 class UpgradeDBInstanceRequest extends Model
 {
     /**
-     * @var int
-     */
-    public $ownerId;
-
-    /**
-     * @var string
-     */
-    public $regionId;
-
-    /**
      * @var string
      */
     public $DBInstanceClass;
@@ -34,16 +24,26 @@ class UpgradeDBInstanceRequest extends Model
     public $DBInstanceId;
 
     /**
+     * @var int
+     */
+    public $ownerId;
+
+    /**
      * @var string
      */
     public $payType;
+
+    /**
+     * @var string
+     */
+    public $regionId;
     protected $_name = [
-        'ownerId'              => 'OwnerId',
-        'regionId'             => 'RegionId',
         'DBInstanceClass'      => 'DBInstanceClass',
         'DBInstanceGroupCount' => 'DBInstanceGroupCount',
         'DBInstanceId'         => 'DBInstanceId',
+        'ownerId'              => 'OwnerId',
         'payType'              => 'PayType',
+        'regionId'             => 'RegionId',
     ];
 
     public function validate()
@@ -53,12 +53,6 @@ class UpgradeDBInstanceRequest extends Model
     public function toMap()
     {
         $res = [];
-        if (null !== $this->ownerId) {
-            $res['OwnerId'] = $this->ownerId;
-        }
-        if (null !== $this->regionId) {
-            $res['RegionId'] = $this->regionId;
-        }
         if (null !== $this->DBInstanceClass) {
             $res['DBInstanceClass'] = $this->DBInstanceClass;
         }
@@ -68,8 +62,14 @@ class UpgradeDBInstanceRequest extends Model
         if (null !== $this->DBInstanceId) {
             $res['DBInstanceId'] = $this->DBInstanceId;
         }
+        if (null !== $this->ownerId) {
+            $res['OwnerId'] = $this->ownerId;
+        }
         if (null !== $this->payType) {
             $res['PayType'] = $this->payType;
+        }
+        if (null !== $this->regionId) {
+            $res['RegionId'] = $this->regionId;
         }
 
         return $res;
@@ -83,12 +83,6 @@ class UpgradeDBInstanceRequest extends Model
     public static function fromMap($map = [])
     {
         $model = new self();
-        if (isset($map['OwnerId'])) {
-            $model->ownerId = $map['OwnerId'];
-        }
-        if (isset($map['RegionId'])) {
-            $model->regionId = $map['RegionId'];
-        }
         if (isset($map['DBInstanceClass'])) {
             $model->DBInstanceClass = $map['DBInstanceClass'];
         }
@@ -98,8 +92,14 @@ class UpgradeDBInstanceRequest extends Model
         if (isset($map['DBInstanceId'])) {
             $model->DBInstanceId = $map['DBInstanceId'];
         }
+        if (isset($map['OwnerId'])) {
+            $model->ownerId = $map['OwnerId'];
+        }
         if (isset($map['PayType'])) {
             $model->payType = $map['PayType'];
+        }
+        if (isset($map['RegionId'])) {
+            $model->regionId = $map['RegionId'];
         }
 
         return $model;

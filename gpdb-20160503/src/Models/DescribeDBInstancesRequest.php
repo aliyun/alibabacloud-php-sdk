@@ -10,14 +10,9 @@ use AlibabaCloud\Tea\Model;
 class DescribeDBInstancesRequest extends Model
 {
     /**
-     * @var int
+     * @var string[]
      */
-    public $ownerId;
-
-    /**
-     * @var string
-     */
-    public $regionId;
+    public $DBInstanceCategories;
 
     /**
      * @var string
@@ -27,32 +22,12 @@ class DescribeDBInstancesRequest extends Model
     /**
      * @var string
      */
-    public $instanceNetworkType;
-
-    /**
-     * @var string
-     */
     public $DBInstanceIds;
-
-    /**
-     * @var int
-     */
-    public $pageSize;
-
-    /**
-     * @var int
-     */
-    public $pageNumber;
-
-    /**
-     * @var tag[]
-     */
-    public $tag;
 
     /**
      * @var string[]
      */
-    public $instanceDeployTypes;
+    public $DBInstanceModes;
 
     /**
      * @var string[]
@@ -62,19 +37,50 @@ class DescribeDBInstancesRequest extends Model
     /**
      * @var string[]
      */
-    public $DBInstanceCategories;
+    public $instanceDeployTypes;
+
+    /**
+     * @var string
+     */
+    public $instanceNetworkType;
+
+    /**
+     * @var int
+     */
+    public $ownerId;
+
+    /**
+     * @var int
+     */
+    public $pageNumber;
+
+    /**
+     * @var int
+     */
+    public $pageSize;
+
+    /**
+     * @var string
+     */
+    public $regionId;
+
+    /**
+     * @var tag[]
+     */
+    public $tag;
     protected $_name = [
-        'ownerId'               => 'OwnerId',
-        'regionId'              => 'RegionId',
-        'DBInstanceDescription' => 'DBInstanceDescription',
-        'instanceNetworkType'   => 'InstanceNetworkType',
-        'DBInstanceIds'         => 'DBInstanceIds',
-        'pageSize'              => 'PageSize',
-        'pageNumber'            => 'PageNumber',
-        'tag'                   => 'Tag',
-        'instanceDeployTypes'   => 'InstanceDeployTypes',
-        'DBInstanceStatuses'    => 'DBInstanceStatuses',
         'DBInstanceCategories'  => 'DBInstanceCategories',
+        'DBInstanceDescription' => 'DBInstanceDescription',
+        'DBInstanceIds'         => 'DBInstanceIds',
+        'DBInstanceModes'       => 'DBInstanceModes',
+        'DBInstanceStatuses'    => 'DBInstanceStatuses',
+        'instanceDeployTypes'   => 'InstanceDeployTypes',
+        'instanceNetworkType'   => 'InstanceNetworkType',
+        'ownerId'               => 'OwnerId',
+        'pageNumber'            => 'PageNumber',
+        'pageSize'              => 'PageSize',
+        'regionId'              => 'RegionId',
+        'tag'                   => 'Tag',
     ];
 
     public function validate()
@@ -84,26 +90,38 @@ class DescribeDBInstancesRequest extends Model
     public function toMap()
     {
         $res = [];
-        if (null !== $this->ownerId) {
-            $res['OwnerId'] = $this->ownerId;
-        }
-        if (null !== $this->regionId) {
-            $res['RegionId'] = $this->regionId;
+        if (null !== $this->DBInstanceCategories) {
+            $res['DBInstanceCategories'] = $this->DBInstanceCategories;
         }
         if (null !== $this->DBInstanceDescription) {
             $res['DBInstanceDescription'] = $this->DBInstanceDescription;
         }
+        if (null !== $this->DBInstanceIds) {
+            $res['DBInstanceIds'] = $this->DBInstanceIds;
+        }
+        if (null !== $this->DBInstanceModes) {
+            $res['DBInstanceModes'] = $this->DBInstanceModes;
+        }
+        if (null !== $this->DBInstanceStatuses) {
+            $res['DBInstanceStatuses'] = $this->DBInstanceStatuses;
+        }
+        if (null !== $this->instanceDeployTypes) {
+            $res['InstanceDeployTypes'] = $this->instanceDeployTypes;
+        }
         if (null !== $this->instanceNetworkType) {
             $res['InstanceNetworkType'] = $this->instanceNetworkType;
         }
-        if (null !== $this->DBInstanceIds) {
-            $res['DBInstanceIds'] = $this->DBInstanceIds;
+        if (null !== $this->ownerId) {
+            $res['OwnerId'] = $this->ownerId;
+        }
+        if (null !== $this->pageNumber) {
+            $res['PageNumber'] = $this->pageNumber;
         }
         if (null !== $this->pageSize) {
             $res['PageSize'] = $this->pageSize;
         }
-        if (null !== $this->pageNumber) {
-            $res['PageNumber'] = $this->pageNumber;
+        if (null !== $this->regionId) {
+            $res['RegionId'] = $this->regionId;
         }
         if (null !== $this->tag) {
             $res['Tag'] = [];
@@ -113,15 +131,6 @@ class DescribeDBInstancesRequest extends Model
                     $res['Tag'][$n++] = null !== $item ? $item->toMap() : $item;
                 }
             }
-        }
-        if (null !== $this->instanceDeployTypes) {
-            $res['InstanceDeployTypes'] = $this->instanceDeployTypes;
-        }
-        if (null !== $this->DBInstanceStatuses) {
-            $res['DBInstanceStatuses'] = $this->DBInstanceStatuses;
-        }
-        if (null !== $this->DBInstanceCategories) {
-            $res['DBInstanceCategories'] = $this->DBInstanceCategories;
         }
 
         return $res;
@@ -135,26 +144,46 @@ class DescribeDBInstancesRequest extends Model
     public static function fromMap($map = [])
     {
         $model = new self();
-        if (isset($map['OwnerId'])) {
-            $model->ownerId = $map['OwnerId'];
-        }
-        if (isset($map['RegionId'])) {
-            $model->regionId = $map['RegionId'];
+        if (isset($map['DBInstanceCategories'])) {
+            if (!empty($map['DBInstanceCategories'])) {
+                $model->DBInstanceCategories = $map['DBInstanceCategories'];
+            }
         }
         if (isset($map['DBInstanceDescription'])) {
             $model->DBInstanceDescription = $map['DBInstanceDescription'];
         }
+        if (isset($map['DBInstanceIds'])) {
+            $model->DBInstanceIds = $map['DBInstanceIds'];
+        }
+        if (isset($map['DBInstanceModes'])) {
+            if (!empty($map['DBInstanceModes'])) {
+                $model->DBInstanceModes = $map['DBInstanceModes'];
+            }
+        }
+        if (isset($map['DBInstanceStatuses'])) {
+            if (!empty($map['DBInstanceStatuses'])) {
+                $model->DBInstanceStatuses = $map['DBInstanceStatuses'];
+            }
+        }
+        if (isset($map['InstanceDeployTypes'])) {
+            if (!empty($map['InstanceDeployTypes'])) {
+                $model->instanceDeployTypes = $map['InstanceDeployTypes'];
+            }
+        }
         if (isset($map['InstanceNetworkType'])) {
             $model->instanceNetworkType = $map['InstanceNetworkType'];
         }
-        if (isset($map['DBInstanceIds'])) {
-            $model->DBInstanceIds = $map['DBInstanceIds'];
+        if (isset($map['OwnerId'])) {
+            $model->ownerId = $map['OwnerId'];
+        }
+        if (isset($map['PageNumber'])) {
+            $model->pageNumber = $map['PageNumber'];
         }
         if (isset($map['PageSize'])) {
             $model->pageSize = $map['PageSize'];
         }
-        if (isset($map['PageNumber'])) {
-            $model->pageNumber = $map['PageNumber'];
+        if (isset($map['RegionId'])) {
+            $model->regionId = $map['RegionId'];
         }
         if (isset($map['Tag'])) {
             if (!empty($map['Tag'])) {
@@ -163,21 +192,6 @@ class DescribeDBInstancesRequest extends Model
                 foreach ($map['Tag'] as $item) {
                     $model->tag[$n++] = null !== $item ? tag::fromMap($item) : $item;
                 }
-            }
-        }
-        if (isset($map['InstanceDeployTypes'])) {
-            if (!empty($map['InstanceDeployTypes'])) {
-                $model->instanceDeployTypes = $map['InstanceDeployTypes'];
-            }
-        }
-        if (isset($map['DBInstanceStatuses'])) {
-            if (!empty($map['DBInstanceStatuses'])) {
-                $model->DBInstanceStatuses = $map['DBInstanceStatuses'];
-            }
-        }
-        if (isset($map['DBInstanceCategories'])) {
-            if (!empty($map['DBInstanceCategories'])) {
-                $model->DBInstanceCategories = $map['DBInstanceCategories'];
             }
         }
 

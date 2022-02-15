@@ -11,7 +11,12 @@ class DescribeResourceUsageResponseBody extends Model
     /**
      * @var int
      */
-    public $diskUsed;
+    public $backupSize;
+
+    /**
+     * @var string
+     */
+    public $DBInstanceId;
 
     /**
      * @var int
@@ -19,14 +24,14 @@ class DescribeResourceUsageResponseBody extends Model
     public $dataSize;
 
     /**
-     * @var string
-     */
-    public $requestId;
-
-    /**
      * @var int
      */
-    public $backupSize;
+    public $diskUsed;
+
+    /**
+     * @var string
+     */
+    public $engine;
 
     /**
      * @var int
@@ -36,20 +41,15 @@ class DescribeResourceUsageResponseBody extends Model
     /**
      * @var string
      */
-    public $DBInstanceId;
-
-    /**
-     * @var string
-     */
-    public $engine;
+    public $requestId;
     protected $_name = [
-        'diskUsed'     => 'DiskUsed',
-        'dataSize'     => 'DataSize',
-        'requestId'    => 'RequestId',
         'backupSize'   => 'BackupSize',
-        'logSize'      => 'LogSize',
         'DBInstanceId' => 'DBInstanceId',
+        'dataSize'     => 'DataSize',
+        'diskUsed'     => 'DiskUsed',
         'engine'       => 'Engine',
+        'logSize'      => 'LogSize',
+        'requestId'    => 'RequestId',
     ];
 
     public function validate()
@@ -59,26 +59,26 @@ class DescribeResourceUsageResponseBody extends Model
     public function toMap()
     {
         $res = [];
-        if (null !== $this->diskUsed) {
-            $res['DiskUsed'] = $this->diskUsed;
-        }
-        if (null !== $this->dataSize) {
-            $res['DataSize'] = $this->dataSize;
-        }
-        if (null !== $this->requestId) {
-            $res['RequestId'] = $this->requestId;
-        }
         if (null !== $this->backupSize) {
             $res['BackupSize'] = $this->backupSize;
-        }
-        if (null !== $this->logSize) {
-            $res['LogSize'] = $this->logSize;
         }
         if (null !== $this->DBInstanceId) {
             $res['DBInstanceId'] = $this->DBInstanceId;
         }
+        if (null !== $this->dataSize) {
+            $res['DataSize'] = $this->dataSize;
+        }
+        if (null !== $this->diskUsed) {
+            $res['DiskUsed'] = $this->diskUsed;
+        }
         if (null !== $this->engine) {
             $res['Engine'] = $this->engine;
+        }
+        if (null !== $this->logSize) {
+            $res['LogSize'] = $this->logSize;
+        }
+        if (null !== $this->requestId) {
+            $res['RequestId'] = $this->requestId;
         }
 
         return $res;
@@ -92,26 +92,26 @@ class DescribeResourceUsageResponseBody extends Model
     public static function fromMap($map = [])
     {
         $model = new self();
-        if (isset($map['DiskUsed'])) {
-            $model->diskUsed = $map['DiskUsed'];
-        }
-        if (isset($map['DataSize'])) {
-            $model->dataSize = $map['DataSize'];
-        }
-        if (isset($map['RequestId'])) {
-            $model->requestId = $map['RequestId'];
-        }
         if (isset($map['BackupSize'])) {
             $model->backupSize = $map['BackupSize'];
-        }
-        if (isset($map['LogSize'])) {
-            $model->logSize = $map['LogSize'];
         }
         if (isset($map['DBInstanceId'])) {
             $model->DBInstanceId = $map['DBInstanceId'];
         }
+        if (isset($map['DataSize'])) {
+            $model->dataSize = $map['DataSize'];
+        }
+        if (isset($map['DiskUsed'])) {
+            $model->diskUsed = $map['DiskUsed'];
+        }
         if (isset($map['Engine'])) {
             $model->engine = $map['Engine'];
+        }
+        if (isset($map['LogSize'])) {
+            $model->logSize = $map['LogSize'];
+        }
+        if (isset($map['RequestId'])) {
+            $model->requestId = $map['RequestId'];
         }
 
         return $model;

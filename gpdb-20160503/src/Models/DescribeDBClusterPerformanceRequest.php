@@ -16,22 +16,34 @@ class DescribeDBClusterPerformanceRequest extends Model
     /**
      * @var string
      */
+    public $endTime;
+
+    /**
+     * @var string
+     */
     public $key;
 
     /**
      * @var string
      */
-    public $startTime;
+    public $nodeType;
 
     /**
      * @var string
      */
-    public $endTime;
+    public $nodes;
+
+    /**
+     * @var string
+     */
+    public $startTime;
     protected $_name = [
         'DBInstanceId' => 'DBInstanceId',
-        'key'          => 'Key',
-        'startTime'    => 'StartTime',
         'endTime'      => 'EndTime',
+        'key'          => 'Key',
+        'nodeType'     => 'NodeType',
+        'nodes'        => 'Nodes',
+        'startTime'    => 'StartTime',
     ];
 
     public function validate()
@@ -44,14 +56,20 @@ class DescribeDBClusterPerformanceRequest extends Model
         if (null !== $this->DBInstanceId) {
             $res['DBInstanceId'] = $this->DBInstanceId;
         }
+        if (null !== $this->endTime) {
+            $res['EndTime'] = $this->endTime;
+        }
         if (null !== $this->key) {
             $res['Key'] = $this->key;
         }
+        if (null !== $this->nodeType) {
+            $res['NodeType'] = $this->nodeType;
+        }
+        if (null !== $this->nodes) {
+            $res['Nodes'] = $this->nodes;
+        }
         if (null !== $this->startTime) {
             $res['StartTime'] = $this->startTime;
-        }
-        if (null !== $this->endTime) {
-            $res['EndTime'] = $this->endTime;
         }
 
         return $res;
@@ -68,14 +86,20 @@ class DescribeDBClusterPerformanceRequest extends Model
         if (isset($map['DBInstanceId'])) {
             $model->DBInstanceId = $map['DBInstanceId'];
         }
+        if (isset($map['EndTime'])) {
+            $model->endTime = $map['EndTime'];
+        }
         if (isset($map['Key'])) {
             $model->key = $map['Key'];
         }
+        if (isset($map['NodeType'])) {
+            $model->nodeType = $map['NodeType'];
+        }
+        if (isset($map['Nodes'])) {
+            $model->nodes = $map['Nodes'];
+        }
         if (isset($map['StartTime'])) {
             $model->startTime = $map['StartTime'];
-        }
-        if (isset($map['EndTime'])) {
-            $model->endTime = $map['EndTime'];
         }
 
         return $model;

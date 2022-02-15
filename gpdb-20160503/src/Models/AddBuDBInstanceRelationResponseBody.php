@@ -11,21 +11,21 @@ class AddBuDBInstanceRelationResponseBody extends Model
     /**
      * @var string
      */
+    public $businessUnit;
+
+    /**
+     * @var string
+     */
     public $DBInstanceName;
 
     /**
      * @var string
      */
     public $requestId;
-
-    /**
-     * @var string
-     */
-    public $businessUnit;
     protected $_name = [
+        'businessUnit'   => 'BusinessUnit',
         'DBInstanceName' => 'DBInstanceName',
         'requestId'      => 'RequestId',
-        'businessUnit'   => 'BusinessUnit',
     ];
 
     public function validate()
@@ -35,14 +35,14 @@ class AddBuDBInstanceRelationResponseBody extends Model
     public function toMap()
     {
         $res = [];
+        if (null !== $this->businessUnit) {
+            $res['BusinessUnit'] = $this->businessUnit;
+        }
         if (null !== $this->DBInstanceName) {
             $res['DBInstanceName'] = $this->DBInstanceName;
         }
         if (null !== $this->requestId) {
             $res['RequestId'] = $this->requestId;
-        }
-        if (null !== $this->businessUnit) {
-            $res['BusinessUnit'] = $this->businessUnit;
         }
 
         return $res;
@@ -56,14 +56,14 @@ class AddBuDBInstanceRelationResponseBody extends Model
     public static function fromMap($map = [])
     {
         $model = new self();
+        if (isset($map['BusinessUnit'])) {
+            $model->businessUnit = $map['BusinessUnit'];
+        }
         if (isset($map['DBInstanceName'])) {
             $model->DBInstanceName = $map['DBInstanceName'];
         }
         if (isset($map['RequestId'])) {
             $model->requestId = $map['RequestId'];
-        }
-        if (isset($map['BusinessUnit'])) {
-            $model->businessUnit = $map['BusinessUnit'];
         }
 
         return $model;

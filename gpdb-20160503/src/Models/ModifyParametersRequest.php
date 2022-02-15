@@ -14,18 +14,18 @@ class ModifyParametersRequest extends Model
     public $DBInstanceId;
 
     /**
-     * @var string
-     */
-    public $parameters;
-
-    /**
      * @var bool
      */
     public $forceRestartInstance;
+
+    /**
+     * @var string
+     */
+    public $parameters;
     protected $_name = [
         'DBInstanceId'         => 'DBInstanceId',
-        'parameters'           => 'Parameters',
         'forceRestartInstance' => 'ForceRestartInstance',
+        'parameters'           => 'Parameters',
     ];
 
     public function validate()
@@ -38,11 +38,11 @@ class ModifyParametersRequest extends Model
         if (null !== $this->DBInstanceId) {
             $res['DBInstanceId'] = $this->DBInstanceId;
         }
-        if (null !== $this->parameters) {
-            $res['Parameters'] = $this->parameters;
-        }
         if (null !== $this->forceRestartInstance) {
             $res['ForceRestartInstance'] = $this->forceRestartInstance;
+        }
+        if (null !== $this->parameters) {
+            $res['Parameters'] = $this->parameters;
         }
 
         return $res;
@@ -59,11 +59,11 @@ class ModifyParametersRequest extends Model
         if (isset($map['DBInstanceId'])) {
             $model->DBInstanceId = $map['DBInstanceId'];
         }
-        if (isset($map['Parameters'])) {
-            $model->parameters = $map['Parameters'];
-        }
         if (isset($map['ForceRestartInstance'])) {
             $model->forceRestartInstance = $map['ForceRestartInstance'];
+        }
+        if (isset($map['Parameters'])) {
+            $model->parameters = $map['Parameters'];
         }
 
         return $model;

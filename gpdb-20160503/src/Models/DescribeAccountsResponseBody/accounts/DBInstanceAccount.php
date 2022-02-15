@@ -16,7 +16,7 @@ class DBInstanceAccount extends Model
     /**
      * @var string
      */
-    public $DBInstanceId;
+    public $accountName;
 
     /**
      * @var string
@@ -26,12 +26,12 @@ class DBInstanceAccount extends Model
     /**
      * @var string
      */
-    public $accountName;
+    public $DBInstanceId;
     protected $_name = [
         'accountDescription' => 'AccountDescription',
-        'DBInstanceId'       => 'DBInstanceId',
-        'accountStatus'      => 'AccountStatus',
         'accountName'        => 'AccountName',
+        'accountStatus'      => 'AccountStatus',
+        'DBInstanceId'       => 'DBInstanceId',
     ];
 
     public function validate()
@@ -44,14 +44,14 @@ class DBInstanceAccount extends Model
         if (null !== $this->accountDescription) {
             $res['AccountDescription'] = $this->accountDescription;
         }
-        if (null !== $this->DBInstanceId) {
-            $res['DBInstanceId'] = $this->DBInstanceId;
+        if (null !== $this->accountName) {
+            $res['AccountName'] = $this->accountName;
         }
         if (null !== $this->accountStatus) {
             $res['AccountStatus'] = $this->accountStatus;
         }
-        if (null !== $this->accountName) {
-            $res['AccountName'] = $this->accountName;
+        if (null !== $this->DBInstanceId) {
+            $res['DBInstanceId'] = $this->DBInstanceId;
         }
 
         return $res;
@@ -68,14 +68,14 @@ class DBInstanceAccount extends Model
         if (isset($map['AccountDescription'])) {
             $model->accountDescription = $map['AccountDescription'];
         }
-        if (isset($map['DBInstanceId'])) {
-            $model->DBInstanceId = $map['DBInstanceId'];
+        if (isset($map['AccountName'])) {
+            $model->accountName = $map['AccountName'];
         }
         if (isset($map['AccountStatus'])) {
             $model->accountStatus = $map['AccountStatus'];
         }
-        if (isset($map['AccountName'])) {
-            $model->accountName = $map['AccountName'];
+        if (isset($map['DBInstanceId'])) {
+            $model->DBInstanceId = $map['DBInstanceId'];
         }
 
         return $model;

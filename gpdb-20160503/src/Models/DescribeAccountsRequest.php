@@ -11,15 +11,15 @@ class DescribeAccountsRequest extends Model
     /**
      * @var string
      */
-    public $DBInstanceId;
+    public $accountName;
 
     /**
      * @var string
      */
-    public $accountName;
+    public $DBInstanceId;
     protected $_name = [
-        'DBInstanceId' => 'DBInstanceId',
         'accountName'  => 'AccountName',
+        'DBInstanceId' => 'DBInstanceId',
     ];
 
     public function validate()
@@ -29,11 +29,11 @@ class DescribeAccountsRequest extends Model
     public function toMap()
     {
         $res = [];
-        if (null !== $this->DBInstanceId) {
-            $res['DBInstanceId'] = $this->DBInstanceId;
-        }
         if (null !== $this->accountName) {
             $res['AccountName'] = $this->accountName;
+        }
+        if (null !== $this->DBInstanceId) {
+            $res['DBInstanceId'] = $this->DBInstanceId;
         }
 
         return $res;
@@ -47,11 +47,11 @@ class DescribeAccountsRequest extends Model
     public static function fromMap($map = [])
     {
         $model = new self();
-        if (isset($map['DBInstanceId'])) {
-            $model->DBInstanceId = $map['DBInstanceId'];
-        }
         if (isset($map['AccountName'])) {
             $model->accountName = $map['AccountName'];
+        }
+        if (isset($map['DBInstanceId'])) {
+            $model->DBInstanceId = $map['DBInstanceId'];
         }
 
         return $model;

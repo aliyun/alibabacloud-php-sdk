@@ -11,12 +11,17 @@ class DescribeSpecificationRequest extends Model
     /**
      * @var int
      */
-    public $ownerId;
+    public $cpuCores;
 
     /**
      * @var string
      */
     public $DBInstanceId;
+
+    /**
+     * @var int
+     */
+    public $ownerId;
 
     /**
      * @var string
@@ -26,17 +31,12 @@ class DescribeSpecificationRequest extends Model
     /**
      * @var int
      */
-    public $cpuCores;
-
-    /**
-     * @var int
-     */
     public $totalNodeNum;
     protected $_name = [
-        'ownerId'      => 'OwnerId',
-        'DBInstanceId' => 'DBInstanceId',
-        'storageType'  => 'StorageType',
         'cpuCores'     => 'CpuCores',
+        'DBInstanceId' => 'DBInstanceId',
+        'ownerId'      => 'OwnerId',
+        'storageType'  => 'StorageType',
         'totalNodeNum' => 'TotalNodeNum',
     ];
 
@@ -47,17 +47,17 @@ class DescribeSpecificationRequest extends Model
     public function toMap()
     {
         $res = [];
-        if (null !== $this->ownerId) {
-            $res['OwnerId'] = $this->ownerId;
+        if (null !== $this->cpuCores) {
+            $res['CpuCores'] = $this->cpuCores;
         }
         if (null !== $this->DBInstanceId) {
             $res['DBInstanceId'] = $this->DBInstanceId;
         }
+        if (null !== $this->ownerId) {
+            $res['OwnerId'] = $this->ownerId;
+        }
         if (null !== $this->storageType) {
             $res['StorageType'] = $this->storageType;
-        }
-        if (null !== $this->cpuCores) {
-            $res['CpuCores'] = $this->cpuCores;
         }
         if (null !== $this->totalNodeNum) {
             $res['TotalNodeNum'] = $this->totalNodeNum;
@@ -74,17 +74,17 @@ class DescribeSpecificationRequest extends Model
     public static function fromMap($map = [])
     {
         $model = new self();
-        if (isset($map['OwnerId'])) {
-            $model->ownerId = $map['OwnerId'];
+        if (isset($map['CpuCores'])) {
+            $model->cpuCores = $map['CpuCores'];
         }
         if (isset($map['DBInstanceId'])) {
             $model->DBInstanceId = $map['DBInstanceId'];
         }
+        if (isset($map['OwnerId'])) {
+            $model->ownerId = $map['OwnerId'];
+        }
         if (isset($map['StorageType'])) {
             $model->storageType = $map['StorageType'];
-        }
-        if (isset($map['CpuCores'])) {
-            $model->cpuCores = $map['CpuCores'];
         }
         if (isset($map['TotalNodeNum'])) {
             $model->totalNodeNum = $map['TotalNodeNum'];

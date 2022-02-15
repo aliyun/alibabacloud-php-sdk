@@ -10,17 +10,17 @@ use AlibabaCloud\Tea\Model;
 class DescribeRdsVpcsResponseBody extends Model
 {
     /**
-     * @var vpcs
-     */
-    public $vpcs;
-
-    /**
      * @var string
      */
     public $requestId;
+
+    /**
+     * @var vpcs
+     */
+    public $vpcs;
     protected $_name = [
-        'vpcs'      => 'Vpcs',
         'requestId' => 'RequestId',
+        'vpcs'      => 'Vpcs',
     ];
 
     public function validate()
@@ -30,11 +30,11 @@ class DescribeRdsVpcsResponseBody extends Model
     public function toMap()
     {
         $res = [];
-        if (null !== $this->vpcs) {
-            $res['Vpcs'] = null !== $this->vpcs ? $this->vpcs->toMap() : null;
-        }
         if (null !== $this->requestId) {
             $res['RequestId'] = $this->requestId;
+        }
+        if (null !== $this->vpcs) {
+            $res['Vpcs'] = null !== $this->vpcs ? $this->vpcs->toMap() : null;
         }
 
         return $res;
@@ -48,11 +48,11 @@ class DescribeRdsVpcsResponseBody extends Model
     public static function fromMap($map = [])
     {
         $model = new self();
-        if (isset($map['Vpcs'])) {
-            $model->vpcs = vpcs::fromMap($map['Vpcs']);
-        }
         if (isset($map['RequestId'])) {
             $model->requestId = $map['RequestId'];
+        }
+        if (isset($map['Vpcs'])) {
+            $model->vpcs = vpcs::fromMap($map['Vpcs']);
         }
 
         return $model;

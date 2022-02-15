@@ -12,22 +12,12 @@ class vpc extends Model
     /**
      * @var string
      */
-    public $status;
+    public $aliUid;
 
     /**
      * @var string
      */
-    public $vpcName;
-
-    /**
-     * @var string
-     */
-    public $vpcId;
-
-    /**
-     * @var bool
-     */
-    public $isDefault;
+    public $bid;
 
     /**
      * @var string
@@ -37,17 +27,27 @@ class vpc extends Model
     /**
      * @var string
      */
-    public $regionNo;
-
-    /**
-     * @var string
-     */
     public $gmtCreate;
 
     /**
      * @var string
      */
-    public $aliUid;
+    public $gmtModified;
+
+    /**
+     * @var bool
+     */
+    public $isDefault;
+
+    /**
+     * @var string
+     */
+    public $regionNo;
+
+    /**
+     * @var string
+     */
+    public $status;
 
     /**
      * @var vSwitchs[]
@@ -57,24 +57,24 @@ class vpc extends Model
     /**
      * @var string
      */
-    public $gmtModified;
+    public $vpcId;
 
     /**
      * @var string
      */
-    public $bid;
+    public $vpcName;
     protected $_name = [
-        'status'      => 'Status',
-        'vpcName'     => 'VpcName',
-        'vpcId'       => 'VpcId',
-        'isDefault'   => 'IsDefault',
-        'cidrBlock'   => 'CidrBlock',
-        'regionNo'    => 'RegionNo',
-        'gmtCreate'   => 'GmtCreate',
         'aliUid'      => 'AliUid',
-        'vSwitchs'    => 'VSwitchs',
-        'gmtModified' => 'GmtModified',
         'bid'         => 'Bid',
+        'cidrBlock'   => 'CidrBlock',
+        'gmtCreate'   => 'GmtCreate',
+        'gmtModified' => 'GmtModified',
+        'isDefault'   => 'IsDefault',
+        'regionNo'    => 'RegionNo',
+        'status'      => 'Status',
+        'vSwitchs'    => 'VSwitchs',
+        'vpcId'       => 'VpcId',
+        'vpcName'     => 'VpcName',
     ];
 
     public function validate()
@@ -84,29 +84,29 @@ class vpc extends Model
     public function toMap()
     {
         $res = [];
-        if (null !== $this->status) {
-            $res['Status'] = $this->status;
+        if (null !== $this->aliUid) {
+            $res['AliUid'] = $this->aliUid;
         }
-        if (null !== $this->vpcName) {
-            $res['VpcName'] = $this->vpcName;
-        }
-        if (null !== $this->vpcId) {
-            $res['VpcId'] = $this->vpcId;
-        }
-        if (null !== $this->isDefault) {
-            $res['IsDefault'] = $this->isDefault;
+        if (null !== $this->bid) {
+            $res['Bid'] = $this->bid;
         }
         if (null !== $this->cidrBlock) {
             $res['CidrBlock'] = $this->cidrBlock;
         }
-        if (null !== $this->regionNo) {
-            $res['RegionNo'] = $this->regionNo;
-        }
         if (null !== $this->gmtCreate) {
             $res['GmtCreate'] = $this->gmtCreate;
         }
-        if (null !== $this->aliUid) {
-            $res['AliUid'] = $this->aliUid;
+        if (null !== $this->gmtModified) {
+            $res['GmtModified'] = $this->gmtModified;
+        }
+        if (null !== $this->isDefault) {
+            $res['IsDefault'] = $this->isDefault;
+        }
+        if (null !== $this->regionNo) {
+            $res['RegionNo'] = $this->regionNo;
+        }
+        if (null !== $this->status) {
+            $res['Status'] = $this->status;
         }
         if (null !== $this->vSwitchs) {
             $res['VSwitchs'] = [];
@@ -117,11 +117,11 @@ class vpc extends Model
                 }
             }
         }
-        if (null !== $this->gmtModified) {
-            $res['GmtModified'] = $this->gmtModified;
+        if (null !== $this->vpcId) {
+            $res['VpcId'] = $this->vpcId;
         }
-        if (null !== $this->bid) {
-            $res['Bid'] = $this->bid;
+        if (null !== $this->vpcName) {
+            $res['VpcName'] = $this->vpcName;
         }
 
         return $res;
@@ -135,29 +135,29 @@ class vpc extends Model
     public static function fromMap($map = [])
     {
         $model = new self();
-        if (isset($map['Status'])) {
-            $model->status = $map['Status'];
+        if (isset($map['AliUid'])) {
+            $model->aliUid = $map['AliUid'];
         }
-        if (isset($map['VpcName'])) {
-            $model->vpcName = $map['VpcName'];
-        }
-        if (isset($map['VpcId'])) {
-            $model->vpcId = $map['VpcId'];
-        }
-        if (isset($map['IsDefault'])) {
-            $model->isDefault = $map['IsDefault'];
+        if (isset($map['Bid'])) {
+            $model->bid = $map['Bid'];
         }
         if (isset($map['CidrBlock'])) {
             $model->cidrBlock = $map['CidrBlock'];
         }
-        if (isset($map['RegionNo'])) {
-            $model->regionNo = $map['RegionNo'];
-        }
         if (isset($map['GmtCreate'])) {
             $model->gmtCreate = $map['GmtCreate'];
         }
-        if (isset($map['AliUid'])) {
-            $model->aliUid = $map['AliUid'];
+        if (isset($map['GmtModified'])) {
+            $model->gmtModified = $map['GmtModified'];
+        }
+        if (isset($map['IsDefault'])) {
+            $model->isDefault = $map['IsDefault'];
+        }
+        if (isset($map['RegionNo'])) {
+            $model->regionNo = $map['RegionNo'];
+        }
+        if (isset($map['Status'])) {
+            $model->status = $map['Status'];
         }
         if (isset($map['VSwitchs'])) {
             if (!empty($map['VSwitchs'])) {
@@ -168,11 +168,11 @@ class vpc extends Model
                 }
             }
         }
-        if (isset($map['GmtModified'])) {
-            $model->gmtModified = $map['GmtModified'];
+        if (isset($map['VpcId'])) {
+            $model->vpcId = $map['VpcId'];
         }
-        if (isset($map['Bid'])) {
-            $model->bid = $map['Bid'];
+        if (isset($map['VpcName'])) {
+            $model->vpcName = $map['VpcName'];
         }
 
         return $model;

@@ -6,7 +6,7 @@ namespace AlibabaCloud\SDK\Gpdb\V20160503\Models;
 
 use AlibabaCloud\Tea\Model;
 
-class DescribeDBInstancePerformanceResponse extends Model
+class DescribeHealthStatusResponse extends Model
 {
     /**
      * @var string[]
@@ -14,7 +14,7 @@ class DescribeDBInstancePerformanceResponse extends Model
     public $headers;
 
     /**
-     * @var DescribeDBInstancePerformanceResponseBody
+     * @var DescribeHealthStatusResponseBody
      */
     public $body;
     protected $_name = [
@@ -44,7 +44,7 @@ class DescribeDBInstancePerformanceResponse extends Model
     /**
      * @param array $map
      *
-     * @return DescribeDBInstancePerformanceResponse
+     * @return DescribeHealthStatusResponse
      */
     public static function fromMap($map = [])
     {
@@ -53,7 +53,7 @@ class DescribeDBInstancePerformanceResponse extends Model
             $model->headers = $map['headers'];
         }
         if (isset($map['body'])) {
-            $model->body = DescribeDBInstancePerformanceResponseBody::fromMap($map['body']);
+            $model->body = DescribeHealthStatusResponseBody::fromMap($map['body']);
         }
 
         return $model;

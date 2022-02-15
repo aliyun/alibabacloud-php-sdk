@@ -11,12 +11,12 @@ class UpgradeDBVersionResponseBody extends Model
     /**
      * @var string
      */
-    public $DBInstanceName;
+    public $DBInstanceId;
 
     /**
      * @var string
      */
-    public $DBInstanceId;
+    public $DBInstanceName;
 
     /**
      * @var string
@@ -28,8 +28,8 @@ class UpgradeDBVersionResponseBody extends Model
      */
     public $taskId;
     protected $_name = [
-        'DBInstanceName' => 'DBInstanceName',
         'DBInstanceId'   => 'DBInstanceId',
+        'DBInstanceName' => 'DBInstanceName',
         'requestId'      => 'RequestId',
         'taskId'         => 'TaskId',
     ];
@@ -41,11 +41,11 @@ class UpgradeDBVersionResponseBody extends Model
     public function toMap()
     {
         $res = [];
-        if (null !== $this->DBInstanceName) {
-            $res['DBInstanceName'] = $this->DBInstanceName;
-        }
         if (null !== $this->DBInstanceId) {
             $res['DBInstanceId'] = $this->DBInstanceId;
+        }
+        if (null !== $this->DBInstanceName) {
+            $res['DBInstanceName'] = $this->DBInstanceName;
         }
         if (null !== $this->requestId) {
             $res['RequestId'] = $this->requestId;
@@ -65,11 +65,11 @@ class UpgradeDBVersionResponseBody extends Model
     public static function fromMap($map = [])
     {
         $model = new self();
-        if (isset($map['DBInstanceName'])) {
-            $model->DBInstanceName = $map['DBInstanceName'];
-        }
         if (isset($map['DBInstanceId'])) {
             $model->DBInstanceId = $map['DBInstanceId'];
+        }
+        if (isset($map['DBInstanceName'])) {
+            $model->DBInstanceName = $map['DBInstanceName'];
         }
         if (isset($map['RequestId'])) {
             $model->requestId = $map['RequestId'];

@@ -9,19 +9,9 @@ use AlibabaCloud\Tea\Model;
 class CreateAccountRequest extends Model
 {
     /**
-     * @var int
-     */
-    public $ownerId;
-
-    /**
      * @var string
      */
-    public $DBInstanceId;
-
-    /**
-     * @var string
-     */
-    public $databaseName;
+    public $accountDescription;
 
     /**
      * @var string
@@ -36,14 +26,24 @@ class CreateAccountRequest extends Model
     /**
      * @var string
      */
-    public $accountDescription;
+    public $DBInstanceId;
+
+    /**
+     * @var string
+     */
+    public $databaseName;
+
+    /**
+     * @var int
+     */
+    public $ownerId;
     protected $_name = [
-        'ownerId'            => 'OwnerId',
-        'DBInstanceId'       => 'DBInstanceId',
-        'databaseName'       => 'DatabaseName',
+        'accountDescription' => 'AccountDescription',
         'accountName'        => 'AccountName',
         'accountPassword'    => 'AccountPassword',
-        'accountDescription' => 'AccountDescription',
+        'DBInstanceId'       => 'DBInstanceId',
+        'databaseName'       => 'DatabaseName',
+        'ownerId'            => 'OwnerId',
     ];
 
     public function validate()
@@ -53,14 +53,8 @@ class CreateAccountRequest extends Model
     public function toMap()
     {
         $res = [];
-        if (null !== $this->ownerId) {
-            $res['OwnerId'] = $this->ownerId;
-        }
-        if (null !== $this->DBInstanceId) {
-            $res['DBInstanceId'] = $this->DBInstanceId;
-        }
-        if (null !== $this->databaseName) {
-            $res['DatabaseName'] = $this->databaseName;
+        if (null !== $this->accountDescription) {
+            $res['AccountDescription'] = $this->accountDescription;
         }
         if (null !== $this->accountName) {
             $res['AccountName'] = $this->accountName;
@@ -68,8 +62,14 @@ class CreateAccountRequest extends Model
         if (null !== $this->accountPassword) {
             $res['AccountPassword'] = $this->accountPassword;
         }
-        if (null !== $this->accountDescription) {
-            $res['AccountDescription'] = $this->accountDescription;
+        if (null !== $this->DBInstanceId) {
+            $res['DBInstanceId'] = $this->DBInstanceId;
+        }
+        if (null !== $this->databaseName) {
+            $res['DatabaseName'] = $this->databaseName;
+        }
+        if (null !== $this->ownerId) {
+            $res['OwnerId'] = $this->ownerId;
         }
 
         return $res;
@@ -83,14 +83,8 @@ class CreateAccountRequest extends Model
     public static function fromMap($map = [])
     {
         $model = new self();
-        if (isset($map['OwnerId'])) {
-            $model->ownerId = $map['OwnerId'];
-        }
-        if (isset($map['DBInstanceId'])) {
-            $model->DBInstanceId = $map['DBInstanceId'];
-        }
-        if (isset($map['DatabaseName'])) {
-            $model->databaseName = $map['DatabaseName'];
+        if (isset($map['AccountDescription'])) {
+            $model->accountDescription = $map['AccountDescription'];
         }
         if (isset($map['AccountName'])) {
             $model->accountName = $map['AccountName'];
@@ -98,8 +92,14 @@ class CreateAccountRequest extends Model
         if (isset($map['AccountPassword'])) {
             $model->accountPassword = $map['AccountPassword'];
         }
-        if (isset($map['AccountDescription'])) {
-            $model->accountDescription = $map['AccountDescription'];
+        if (isset($map['DBInstanceId'])) {
+            $model->DBInstanceId = $map['DBInstanceId'];
+        }
+        if (isset($map['DatabaseName'])) {
+            $model->databaseName = $map['DatabaseName'];
+        }
+        if (isset($map['OwnerId'])) {
+            $model->ownerId = $map['OwnerId'];
         }
 
         return $model;

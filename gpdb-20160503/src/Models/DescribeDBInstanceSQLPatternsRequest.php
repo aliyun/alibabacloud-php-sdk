@@ -16,22 +16,7 @@ class DescribeDBInstanceSQLPatternsRequest extends Model
     /**
      * @var string
      */
-    public $queryKeywords;
-
-    /**
-     * @var string
-     */
-    public $startTime;
-
-    /**
-     * @var string
-     */
     public $database;
-
-    /**
-     * @var string
-     */
-    public $user;
 
     /**
      * @var string
@@ -41,15 +26,30 @@ class DescribeDBInstanceSQLPatternsRequest extends Model
     /**
      * @var string
      */
+    public $queryKeywords;
+
+    /**
+     * @var string
+     */
     public $sourceIP;
+
+    /**
+     * @var string
+     */
+    public $startTime;
+
+    /**
+     * @var string
+     */
+    public $user;
     protected $_name = [
         'DBInstanceId'  => 'DBInstanceId',
-        'queryKeywords' => 'QueryKeywords',
-        'startTime'     => 'StartTime',
         'database'      => 'Database',
-        'user'          => 'User',
         'endTime'       => 'EndTime',
+        'queryKeywords' => 'QueryKeywords',
         'sourceIP'      => 'SourceIP',
+        'startTime'     => 'StartTime',
+        'user'          => 'User',
     ];
 
     public function validate()
@@ -62,23 +62,23 @@ class DescribeDBInstanceSQLPatternsRequest extends Model
         if (null !== $this->DBInstanceId) {
             $res['DBInstanceId'] = $this->DBInstanceId;
         }
-        if (null !== $this->queryKeywords) {
-            $res['QueryKeywords'] = $this->queryKeywords;
-        }
-        if (null !== $this->startTime) {
-            $res['StartTime'] = $this->startTime;
-        }
         if (null !== $this->database) {
             $res['Database'] = $this->database;
-        }
-        if (null !== $this->user) {
-            $res['User'] = $this->user;
         }
         if (null !== $this->endTime) {
             $res['EndTime'] = $this->endTime;
         }
+        if (null !== $this->queryKeywords) {
+            $res['QueryKeywords'] = $this->queryKeywords;
+        }
         if (null !== $this->sourceIP) {
             $res['SourceIP'] = $this->sourceIP;
+        }
+        if (null !== $this->startTime) {
+            $res['StartTime'] = $this->startTime;
+        }
+        if (null !== $this->user) {
+            $res['User'] = $this->user;
         }
 
         return $res;
@@ -95,23 +95,23 @@ class DescribeDBInstanceSQLPatternsRequest extends Model
         if (isset($map['DBInstanceId'])) {
             $model->DBInstanceId = $map['DBInstanceId'];
         }
-        if (isset($map['QueryKeywords'])) {
-            $model->queryKeywords = $map['QueryKeywords'];
-        }
-        if (isset($map['StartTime'])) {
-            $model->startTime = $map['StartTime'];
-        }
         if (isset($map['Database'])) {
             $model->database = $map['Database'];
-        }
-        if (isset($map['User'])) {
-            $model->user = $map['User'];
         }
         if (isset($map['EndTime'])) {
             $model->endTime = $map['EndTime'];
         }
+        if (isset($map['QueryKeywords'])) {
+            $model->queryKeywords = $map['QueryKeywords'];
+        }
         if (isset($map['SourceIP'])) {
             $model->sourceIP = $map['SourceIP'];
+        }
+        if (isset($map['StartTime'])) {
+            $model->startTime = $map['StartTime'];
+        }
+        if (isset($map['User'])) {
+            $model->user = $map['User'];
         }
 
         return $model;

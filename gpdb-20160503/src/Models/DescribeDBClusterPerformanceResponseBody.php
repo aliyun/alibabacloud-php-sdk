@@ -12,12 +12,17 @@ class DescribeDBClusterPerformanceResponseBody extends Model
     /**
      * @var string
      */
-    public $endTime;
+    public $DBClusterId;
 
     /**
      * @var string
      */
-    public $startTime;
+    public $endTime;
+
+    /**
+     * @var performanceKeys[]
+     */
+    public $performanceKeys;
 
     /**
      * @var string
@@ -27,18 +32,13 @@ class DescribeDBClusterPerformanceResponseBody extends Model
     /**
      * @var string
      */
-    public $DBClusterId;
-
-    /**
-     * @var performanceKeys[]
-     */
-    public $performanceKeys;
+    public $startTime;
     protected $_name = [
-        'endTime'         => 'EndTime',
-        'startTime'       => 'StartTime',
-        'requestId'       => 'RequestId',
         'DBClusterId'     => 'DBClusterId',
+        'endTime'         => 'EndTime',
         'performanceKeys' => 'PerformanceKeys',
+        'requestId'       => 'RequestId',
+        'startTime'       => 'StartTime',
     ];
 
     public function validate()
@@ -48,17 +48,11 @@ class DescribeDBClusterPerformanceResponseBody extends Model
     public function toMap()
     {
         $res = [];
-        if (null !== $this->endTime) {
-            $res['EndTime'] = $this->endTime;
-        }
-        if (null !== $this->startTime) {
-            $res['StartTime'] = $this->startTime;
-        }
-        if (null !== $this->requestId) {
-            $res['RequestId'] = $this->requestId;
-        }
         if (null !== $this->DBClusterId) {
             $res['DBClusterId'] = $this->DBClusterId;
+        }
+        if (null !== $this->endTime) {
+            $res['EndTime'] = $this->endTime;
         }
         if (null !== $this->performanceKeys) {
             $res['PerformanceKeys'] = [];
@@ -68,6 +62,12 @@ class DescribeDBClusterPerformanceResponseBody extends Model
                     $res['PerformanceKeys'][$n++] = null !== $item ? $item->toMap() : $item;
                 }
             }
+        }
+        if (null !== $this->requestId) {
+            $res['RequestId'] = $this->requestId;
+        }
+        if (null !== $this->startTime) {
+            $res['StartTime'] = $this->startTime;
         }
 
         return $res;
@@ -81,17 +81,11 @@ class DescribeDBClusterPerformanceResponseBody extends Model
     public static function fromMap($map = [])
     {
         $model = new self();
-        if (isset($map['EndTime'])) {
-            $model->endTime = $map['EndTime'];
-        }
-        if (isset($map['StartTime'])) {
-            $model->startTime = $map['StartTime'];
-        }
-        if (isset($map['RequestId'])) {
-            $model->requestId = $map['RequestId'];
-        }
         if (isset($map['DBClusterId'])) {
             $model->DBClusterId = $map['DBClusterId'];
+        }
+        if (isset($map['EndTime'])) {
+            $model->endTime = $map['EndTime'];
         }
         if (isset($map['PerformanceKeys'])) {
             if (!empty($map['PerformanceKeys'])) {
@@ -101,6 +95,12 @@ class DescribeDBClusterPerformanceResponseBody extends Model
                     $model->performanceKeys[$n++] = null !== $item ? performanceKeys::fromMap($item) : $item;
                 }
             }
+        }
+        if (isset($map['RequestId'])) {
+            $model->requestId = $map['RequestId'];
+        }
+        if (isset($map['StartTime'])) {
+            $model->startTime = $map['StartTime'];
         }
 
         return $model;

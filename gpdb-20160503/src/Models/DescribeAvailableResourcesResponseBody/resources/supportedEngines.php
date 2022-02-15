@@ -12,20 +12,20 @@ class supportedEngines extends Model
     /**
      * @var string
      */
-    public $supportedEngineVersion;
+    public $mode;
 
     /**
      * @var string
      */
-    public $mode;
+    public $supportedEngineVersion;
 
     /**
      * @var supportedInstanceClasses[]
      */
     public $supportedInstanceClasses;
     protected $_name = [
-        'supportedEngineVersion'   => 'SupportedEngineVersion',
         'mode'                     => 'Mode',
+        'supportedEngineVersion'   => 'SupportedEngineVersion',
         'supportedInstanceClasses' => 'SupportedInstanceClasses',
     ];
 
@@ -36,11 +36,11 @@ class supportedEngines extends Model
     public function toMap()
     {
         $res = [];
-        if (null !== $this->supportedEngineVersion) {
-            $res['SupportedEngineVersion'] = $this->supportedEngineVersion;
-        }
         if (null !== $this->mode) {
             $res['Mode'] = $this->mode;
+        }
+        if (null !== $this->supportedEngineVersion) {
+            $res['SupportedEngineVersion'] = $this->supportedEngineVersion;
         }
         if (null !== $this->supportedInstanceClasses) {
             $res['SupportedInstanceClasses'] = [];
@@ -63,11 +63,11 @@ class supportedEngines extends Model
     public static function fromMap($map = [])
     {
         $model = new self();
-        if (isset($map['SupportedEngineVersion'])) {
-            $model->supportedEngineVersion = $map['SupportedEngineVersion'];
-        }
         if (isset($map['Mode'])) {
             $model->mode = $map['Mode'];
+        }
+        if (isset($map['SupportedEngineVersion'])) {
+            $model->supportedEngineVersion = $map['SupportedEngineVersion'];
         }
         if (isset($map['SupportedInstanceClasses'])) {
             if (!empty($map['SupportedInstanceClasses'])) {

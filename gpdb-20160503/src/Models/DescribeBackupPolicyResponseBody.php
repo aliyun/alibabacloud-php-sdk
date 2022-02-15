@@ -14,9 +14,9 @@ class DescribeBackupPolicyResponseBody extends Model
     public $backupRetentionPeriod;
 
     /**
-     * @var string
+     * @var bool
      */
-    public $requestId;
+    public $enableRecoveryPoint;
 
     /**
      * @var string
@@ -34,16 +34,16 @@ class DescribeBackupPolicyResponseBody extends Model
     public $recoveryPointPeriod;
 
     /**
-     * @var bool
+     * @var string
      */
-    public $enableRecoveryPoint;
+    public $requestId;
     protected $_name = [
         'backupRetentionPeriod' => 'BackupRetentionPeriod',
-        'requestId'             => 'RequestId',
+        'enableRecoveryPoint'   => 'EnableRecoveryPoint',
         'preferredBackupPeriod' => 'PreferredBackupPeriod',
         'preferredBackupTime'   => 'PreferredBackupTime',
         'recoveryPointPeriod'   => 'RecoveryPointPeriod',
-        'enableRecoveryPoint'   => 'EnableRecoveryPoint',
+        'requestId'             => 'RequestId',
     ];
 
     public function validate()
@@ -56,8 +56,8 @@ class DescribeBackupPolicyResponseBody extends Model
         if (null !== $this->backupRetentionPeriod) {
             $res['BackupRetentionPeriod'] = $this->backupRetentionPeriod;
         }
-        if (null !== $this->requestId) {
-            $res['RequestId'] = $this->requestId;
+        if (null !== $this->enableRecoveryPoint) {
+            $res['EnableRecoveryPoint'] = $this->enableRecoveryPoint;
         }
         if (null !== $this->preferredBackupPeriod) {
             $res['PreferredBackupPeriod'] = $this->preferredBackupPeriod;
@@ -68,8 +68,8 @@ class DescribeBackupPolicyResponseBody extends Model
         if (null !== $this->recoveryPointPeriod) {
             $res['RecoveryPointPeriod'] = $this->recoveryPointPeriod;
         }
-        if (null !== $this->enableRecoveryPoint) {
-            $res['EnableRecoveryPoint'] = $this->enableRecoveryPoint;
+        if (null !== $this->requestId) {
+            $res['RequestId'] = $this->requestId;
         }
 
         return $res;
@@ -86,8 +86,8 @@ class DescribeBackupPolicyResponseBody extends Model
         if (isset($map['BackupRetentionPeriod'])) {
             $model->backupRetentionPeriod = $map['BackupRetentionPeriod'];
         }
-        if (isset($map['RequestId'])) {
-            $model->requestId = $map['RequestId'];
+        if (isset($map['EnableRecoveryPoint'])) {
+            $model->enableRecoveryPoint = $map['EnableRecoveryPoint'];
         }
         if (isset($map['PreferredBackupPeriod'])) {
             $model->preferredBackupPeriod = $map['PreferredBackupPeriod'];
@@ -98,8 +98,8 @@ class DescribeBackupPolicyResponseBody extends Model
         if (isset($map['RecoveryPointPeriod'])) {
             $model->recoveryPointPeriod = $map['RecoveryPointPeriod'];
         }
-        if (isset($map['EnableRecoveryPoint'])) {
-            $model->enableRecoveryPoint = $map['EnableRecoveryPoint'];
+        if (isset($map['RequestId'])) {
+            $model->requestId = $map['RequestId'];
         }
 
         return $model;

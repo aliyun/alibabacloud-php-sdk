@@ -10,17 +10,17 @@ use AlibabaCloud\Tea\Model;
 class DescribeUserEncryptionKeyListResponseBody extends Model
 {
     /**
-     * @var string
-     */
-    public $requestId;
-
-    /**
      * @var kmsKeys[]
      */
     public $kmsKeys;
+
+    /**
+     * @var string
+     */
+    public $requestId;
     protected $_name = [
-        'requestId' => 'RequestId',
         'kmsKeys'   => 'KmsKeys',
+        'requestId' => 'RequestId',
     ];
 
     public function validate()
@@ -30,9 +30,6 @@ class DescribeUserEncryptionKeyListResponseBody extends Model
     public function toMap()
     {
         $res = [];
-        if (null !== $this->requestId) {
-            $res['RequestId'] = $this->requestId;
-        }
         if (null !== $this->kmsKeys) {
             $res['KmsKeys'] = [];
             if (null !== $this->kmsKeys && \is_array($this->kmsKeys)) {
@@ -41,6 +38,9 @@ class DescribeUserEncryptionKeyListResponseBody extends Model
                     $res['KmsKeys'][$n++] = null !== $item ? $item->toMap() : $item;
                 }
             }
+        }
+        if (null !== $this->requestId) {
+            $res['RequestId'] = $this->requestId;
         }
 
         return $res;
@@ -54,9 +54,6 @@ class DescribeUserEncryptionKeyListResponseBody extends Model
     public static function fromMap($map = [])
     {
         $model = new self();
-        if (isset($map['RequestId'])) {
-            $model->requestId = $map['RequestId'];
-        }
         if (isset($map['KmsKeys'])) {
             if (!empty($map['KmsKeys'])) {
                 $model->kmsKeys = [];
@@ -65,6 +62,9 @@ class DescribeUserEncryptionKeyListResponseBody extends Model
                     $model->kmsKeys[$n++] = null !== $item ? kmsKeys::fromMap($item) : $item;
                 }
             }
+        }
+        if (isset($map['RequestId'])) {
+            $model->requestId = $map['RequestId'];
         }
 
         return $model;

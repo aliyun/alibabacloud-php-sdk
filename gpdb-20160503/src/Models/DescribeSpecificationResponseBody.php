@@ -12,11 +12,6 @@ use AlibabaCloud\Tea\Model;
 class DescribeSpecificationResponseBody extends Model
 {
     /**
-     * @var string
-     */
-    public $requestId;
-
-    /**
      * @var DBInstanceClass[]
      */
     public $DBInstanceClass;
@@ -27,13 +22,18 @@ class DescribeSpecificationResponseBody extends Model
     public $DBInstanceGroupCount;
 
     /**
+     * @var string
+     */
+    public $requestId;
+
+    /**
      * @var storageNotice[]
      */
     public $storageNotice;
     protected $_name = [
-        'requestId'            => 'RequestId',
         'DBInstanceClass'      => 'DBInstanceClass',
         'DBInstanceGroupCount' => 'DBInstanceGroupCount',
+        'requestId'            => 'RequestId',
         'storageNotice'        => 'StorageNotice',
     ];
 
@@ -44,9 +44,6 @@ class DescribeSpecificationResponseBody extends Model
     public function toMap()
     {
         $res = [];
-        if (null !== $this->requestId) {
-            $res['RequestId'] = $this->requestId;
-        }
         if (null !== $this->DBInstanceClass) {
             $res['DBInstanceClass'] = [];
             if (null !== $this->DBInstanceClass && \is_array($this->DBInstanceClass)) {
@@ -64,6 +61,9 @@ class DescribeSpecificationResponseBody extends Model
                     $res['DBInstanceGroupCount'][$n++] = null !== $item ? $item->toMap() : $item;
                 }
             }
+        }
+        if (null !== $this->requestId) {
+            $res['RequestId'] = $this->requestId;
         }
         if (null !== $this->storageNotice) {
             $res['StorageNotice'] = [];
@@ -86,9 +86,6 @@ class DescribeSpecificationResponseBody extends Model
     public static function fromMap($map = [])
     {
         $model = new self();
-        if (isset($map['RequestId'])) {
-            $model->requestId = $map['RequestId'];
-        }
         if (isset($map['DBInstanceClass'])) {
             if (!empty($map['DBInstanceClass'])) {
                 $model->DBInstanceClass = [];
@@ -106,6 +103,9 @@ class DescribeSpecificationResponseBody extends Model
                     $model->DBInstanceGroupCount[$n++] = null !== $item ? DBInstanceGroupCount::fromMap($item) : $item;
                 }
             }
+        }
+        if (isset($map['RequestId'])) {
+            $model->requestId = $map['RequestId'];
         }
         if (isset($map['StorageNotice'])) {
             if (!empty($map['StorageNotice'])) {
