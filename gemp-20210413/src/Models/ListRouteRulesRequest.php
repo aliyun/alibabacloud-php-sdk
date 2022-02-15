@@ -30,6 +30,13 @@ class ListRouteRulesRequest extends Model
     public $pageSize;
 
     /**
+     * @description 路由类型：0触发事件 1仅触发报警 r
+     *
+     * @var int
+     */
+    public $routeType;
+
+    /**
      * @description 规则名称
      *
      * @var int[]
@@ -46,6 +53,7 @@ class ListRouteRulesRequest extends Model
         'clientToken' => 'clientToken',
         'pageNumber'  => 'pageNumber',
         'pageSize'    => 'pageSize',
+        'routeType'   => 'routeType',
         'ruleName'    => 'ruleName',
         'serviceName' => 'serviceName',
     ];
@@ -65,6 +73,9 @@ class ListRouteRulesRequest extends Model
         }
         if (null !== $this->pageSize) {
             $res['pageSize'] = $this->pageSize;
+        }
+        if (null !== $this->routeType) {
+            $res['routeType'] = $this->routeType;
         }
         if (null !== $this->ruleName) {
             $res['ruleName'] = $this->ruleName;
@@ -92,6 +103,9 @@ class ListRouteRulesRequest extends Model
         }
         if (isset($map['pageSize'])) {
             $model->pageSize = $map['pageSize'];
+        }
+        if (isset($map['routeType'])) {
+            $model->routeType = $map['routeType'];
         }
         if (isset($map['ruleName'])) {
             $model->ruleName = $map['ruleName'];

@@ -10,6 +10,13 @@ use AlibabaCloud\Tea\Model;
 class eventRouteChildRules extends Model
 {
     /**
+     * @description 子条件计算关系，0-与，1-或
+     *
+     * @var int
+     */
+    public $childConditionRelation;
+
+    /**
      * @description 子规则ID
      *
      * @var int
@@ -17,6 +24,8 @@ class eventRouteChildRules extends Model
     public $childRouteRuleId;
 
     /**
+     * @description 条件
+     *
      * @var conditions[]
      */
     public $conditions;
@@ -56,6 +65,7 @@ class eventRouteChildRules extends Model
      */
     public $parentRuleId;
     protected $_name = [
+        'childConditionRelation'     => 'childConditionRelation',
         'childRouteRuleId'           => 'childRouteRuleId',
         'conditions'                 => 'conditions',
         'isValidChildRule'           => 'isValidChildRule',
@@ -72,6 +82,9 @@ class eventRouteChildRules extends Model
     public function toMap()
     {
         $res = [];
+        if (null !== $this->childConditionRelation) {
+            $res['childConditionRelation'] = $this->childConditionRelation;
+        }
         if (null !== $this->childRouteRuleId) {
             $res['childRouteRuleId'] = $this->childRouteRuleId;
         }
@@ -111,6 +124,9 @@ class eventRouteChildRules extends Model
     public static function fromMap($map = [])
     {
         $model = new self();
+        if (isset($map['childConditionRelation'])) {
+            $model->childConditionRelation = $map['childConditionRelation'];
+        }
         if (isset($map['childRouteRuleId'])) {
             $model->childRouteRuleId = $map['childRouteRuleId'];
         }

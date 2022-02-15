@@ -5,6 +5,7 @@
 namespace AlibabaCloud\SDK\GEMP\V20210413\Models\ListIncidentDetailEscalationPlansResponseBody\data;
 
 use AlibabaCloud\SDK\GEMP\V20210413\Models\ListIncidentDetailEscalationPlansResponseBody\data\unFinishEscalationPlan\noticeObjectList;
+use AlibabaCloud\SDK\GEMP\V20210413\Models\ListIncidentDetailEscalationPlansResponseBody\data\unFinishEscalationPlan\serviceGroupList;
 use AlibabaCloud\Tea\Model;
 
 class unFinishEscalationPlan extends Model
@@ -38,6 +39,13 @@ class unFinishEscalationPlan extends Model
     public $noticeTime;
 
     /**
+     * @description 消息群
+     *
+     * @var serviceGroupList[]
+     */
+    public $serviceGroupList;
+
+    /**
      * @description 开始时间
      *
      * @var int
@@ -55,6 +63,7 @@ class unFinishEscalationPlan extends Model
         'noticeChannels'     => 'noticeChannels',
         'noticeObjectList'   => 'noticeObjectList',
         'noticeTime'         => 'noticeTime',
+        'serviceGroupList'   => 'serviceGroupList',
         'startTime'          => 'startTime',
         'status'             => 'status',
     ];
@@ -83,6 +92,15 @@ class unFinishEscalationPlan extends Model
         }
         if (null !== $this->noticeTime) {
             $res['noticeTime'] = $this->noticeTime;
+        }
+        if (null !== $this->serviceGroupList) {
+            $res['serviceGroupList'] = [];
+            if (null !== $this->serviceGroupList && \is_array($this->serviceGroupList)) {
+                $n = 0;
+                foreach ($this->serviceGroupList as $item) {
+                    $res['serviceGroupList'][$n++] = null !== $item ? $item->toMap() : $item;
+                }
+            }
         }
         if (null !== $this->startTime) {
             $res['startTime'] = $this->startTime;
@@ -121,6 +139,15 @@ class unFinishEscalationPlan extends Model
         }
         if (isset($map['noticeTime'])) {
             $model->noticeTime = $map['noticeTime'];
+        }
+        if (isset($map['serviceGroupList'])) {
+            if (!empty($map['serviceGroupList'])) {
+                $model->serviceGroupList = [];
+                $n                       = 0;
+                foreach ($map['serviceGroupList'] as $item) {
+                    $model->serviceGroupList[$n++] = null !== $item ? serviceGroupList::fromMap($item) : $item;
+                }
+            }
         }
         if (isset($map['startTime'])) {
             $model->startTime = $map['startTime'];

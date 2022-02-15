@@ -31,6 +31,13 @@ class data extends Model
     public $assignObjectType;
 
     /**
+     * @description 子规则关系，0与，1或
+     *
+     * @var string
+     */
+    public $childRuleRelation;
+
+    /**
      * @description 创建时间
      *
      * @var string
@@ -138,6 +145,7 @@ class data extends Model
         'assignObjectId'       => 'assignObjectId',
         'assignObjectName'     => 'assignObjectName',
         'assignObjectType'     => 'assignObjectType',
+        'childRuleRelation'    => 'childRuleRelation',
         'createTime'           => 'createTime',
         'effection'            => 'effection',
         'enableStatus'         => 'enableStatus',
@@ -170,6 +178,9 @@ class data extends Model
         }
         if (null !== $this->assignObjectType) {
             $res['assignObjectType'] = $this->assignObjectType;
+        }
+        if (null !== $this->childRuleRelation) {
+            $res['childRuleRelation'] = $this->childRuleRelation;
         }
         if (null !== $this->createTime) {
             $res['createTime'] = $this->createTime;
@@ -242,6 +253,9 @@ class data extends Model
         }
         if (isset($map['assignObjectType'])) {
             $model->assignObjectType = $map['assignObjectType'];
+        }
+        if (isset($map['childRuleRelation'])) {
+            $model->childRuleRelation = $map['childRuleRelation'];
         }
         if (isset($map['createTime'])) {
             $model->createTime = $map['createTime'];

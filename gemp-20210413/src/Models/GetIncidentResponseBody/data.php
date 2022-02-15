@@ -107,6 +107,13 @@ class data extends Model
     public $isUpgrade;
 
     /**
+     * @description 通知渠道
+     *
+     * @var string[]
+     */
+    public $notifyChannels;
+
+    /**
      * @description 故障Id
      *
      * @var int
@@ -126,6 +133,20 @@ class data extends Model
      * @var string
      */
     public $relatedServiceDescription;
+
+    /**
+     * @description 关联服服务id
+     *
+     * @var int
+     */
+    public $relatedServiceGroupId;
+
+    /**
+     * @description 关联服务组名称
+     *
+     * @var string
+     */
+    public $relatedServiceGroupName;
 
     /**
      * @description 关联服务ID
@@ -169,9 +190,12 @@ class data extends Model
         'incidentTitle'             => 'incidentTitle',
         'isManual'                  => 'isManual',
         'isUpgrade'                 => 'isUpgrade',
+        'notifyChannels'            => 'notifyChannels',
         'problemId'                 => 'problemId',
         'problemNumber'             => 'problemNumber',
         'relatedServiceDescription' => 'relatedServiceDescription',
+        'relatedServiceGroupId'     => 'relatedServiceGroupId',
+        'relatedServiceGroupName'   => 'relatedServiceGroupName',
         'relatedServiceId'          => 'relatedServiceId',
         'relatedServiceName'        => 'relatedServiceName',
         'routeRuleId'               => 'routeRuleId',
@@ -227,6 +251,9 @@ class data extends Model
         if (null !== $this->isUpgrade) {
             $res['isUpgrade'] = $this->isUpgrade;
         }
+        if (null !== $this->notifyChannels) {
+            $res['notifyChannels'] = $this->notifyChannels;
+        }
         if (null !== $this->problemId) {
             $res['problemId'] = $this->problemId;
         }
@@ -235,6 +262,12 @@ class data extends Model
         }
         if (null !== $this->relatedServiceDescription) {
             $res['relatedServiceDescription'] = $this->relatedServiceDescription;
+        }
+        if (null !== $this->relatedServiceGroupId) {
+            $res['relatedServiceGroupId'] = $this->relatedServiceGroupId;
+        }
+        if (null !== $this->relatedServiceGroupName) {
+            $res['relatedServiceGroupName'] = $this->relatedServiceGroupName;
         }
         if (null !== $this->relatedServiceId) {
             $res['relatedServiceId'] = $this->relatedServiceId;
@@ -302,6 +335,11 @@ class data extends Model
         if (isset($map['isUpgrade'])) {
             $model->isUpgrade = $map['isUpgrade'];
         }
+        if (isset($map['notifyChannels'])) {
+            if (!empty($map['notifyChannels'])) {
+                $model->notifyChannels = $map['notifyChannels'];
+            }
+        }
         if (isset($map['problemId'])) {
             $model->problemId = $map['problemId'];
         }
@@ -310,6 +348,12 @@ class data extends Model
         }
         if (isset($map['relatedServiceDescription'])) {
             $model->relatedServiceDescription = $map['relatedServiceDescription'];
+        }
+        if (isset($map['relatedServiceGroupId'])) {
+            $model->relatedServiceGroupId = $map['relatedServiceGroupId'];
+        }
+        if (isset($map['relatedServiceGroupName'])) {
+            $model->relatedServiceGroupName = $map['relatedServiceGroupName'];
         }
         if (isset($map['relatedServiceId'])) {
             $model->relatedServiceId = $map['relatedServiceId'];

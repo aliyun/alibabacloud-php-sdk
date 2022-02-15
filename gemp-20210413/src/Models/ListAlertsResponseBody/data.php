@@ -23,6 +23,13 @@ class data extends Model
     public $alertLevel;
 
     /**
+     * @description 报警编号
+     *
+     * @var string
+     */
+    public $alertNumber;
+
+    /**
      * @description 报警源
      *
      * @var string
@@ -58,6 +65,13 @@ class data extends Model
     public $routeRuleId;
 
     /**
+     * @description 流转规则名字
+     *
+     * @var string
+     */
+    public $routeRuleName;
+
+    /**
      * @description 收敛量
      *
      * @var int
@@ -73,11 +87,13 @@ class data extends Model
     protected $_name = [
         'alertId'            => 'alertId',
         'alertLevel'         => 'alertLevel',
+        'alertNumber'        => 'alertNumber',
         'alertSourceName'    => 'alertSourceName',
         'createTime'         => 'createTime',
         'firstEventTime'     => 'firstEventTime',
         'relatedServiceName' => 'relatedServiceName',
         'routeRuleId'        => 'routeRuleId',
+        'routeRuleName'      => 'routeRuleName',
         'sourceEventCount'   => 'sourceEventCount',
         'title'              => 'title',
     ];
@@ -95,6 +111,9 @@ class data extends Model
         if (null !== $this->alertLevel) {
             $res['alertLevel'] = $this->alertLevel;
         }
+        if (null !== $this->alertNumber) {
+            $res['alertNumber'] = $this->alertNumber;
+        }
         if (null !== $this->alertSourceName) {
             $res['alertSourceName'] = $this->alertSourceName;
         }
@@ -109,6 +128,9 @@ class data extends Model
         }
         if (null !== $this->routeRuleId) {
             $res['routeRuleId'] = $this->routeRuleId;
+        }
+        if (null !== $this->routeRuleName) {
+            $res['routeRuleName'] = $this->routeRuleName;
         }
         if (null !== $this->sourceEventCount) {
             $res['sourceEventCount'] = $this->sourceEventCount;
@@ -134,6 +156,9 @@ class data extends Model
         if (isset($map['alertLevel'])) {
             $model->alertLevel = $map['alertLevel'];
         }
+        if (isset($map['alertNumber'])) {
+            $model->alertNumber = $map['alertNumber'];
+        }
         if (isset($map['alertSourceName'])) {
             $model->alertSourceName = $map['alertSourceName'];
         }
@@ -148,6 +173,9 @@ class data extends Model
         }
         if (isset($map['routeRuleId'])) {
             $model->routeRuleId = $map['routeRuleId'];
+        }
+        if (isset($map['routeRuleName'])) {
+            $model->routeRuleName = $map['routeRuleName'];
         }
         if (isset($map['sourceEventCount'])) {
             $model->sourceEventCount = $map['sourceEventCount'];

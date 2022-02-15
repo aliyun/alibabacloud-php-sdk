@@ -16,6 +16,13 @@ class data extends Model
     public $escalationIncidentCount;
 
     /**
+     * @description 事件完结数
+     *
+     * @var int
+     */
+    public $finishIncidentCount;
+
+    /**
      * @description 完结率
      *
      * @var string
@@ -72,6 +79,7 @@ class data extends Model
     public $unFinishEscalationIncidentCount;
     protected $_name = [
         'escalationIncidentCount'               => 'escalationIncidentCount',
+        'finishIncidentCount'                   => 'finishIncidentCount',
         'finishProportion'                      => 'finishProportion',
         'incidentCount'                         => 'incidentCount',
         'meanTimeToAcknowledge'                 => 'meanTimeToAcknowledge',
@@ -91,6 +99,9 @@ class data extends Model
         $res = [];
         if (null !== $this->escalationIncidentCount) {
             $res['escalationIncidentCount'] = $this->escalationIncidentCount;
+        }
+        if (null !== $this->finishIncidentCount) {
+            $res['finishIncidentCount'] = $this->finishIncidentCount;
         }
         if (null !== $this->finishProportion) {
             $res['finishProportion'] = $this->finishProportion;
@@ -130,6 +141,9 @@ class data extends Model
         $model = new self();
         if (isset($map['escalationIncidentCount'])) {
             $model->escalationIncidentCount = $map['escalationIncidentCount'];
+        }
+        if (isset($map['finishIncidentCount'])) {
+            $model->finishIncidentCount = $map['finishIncidentCount'];
         }
         if (isset($map['finishProportion'])) {
             $model->finishProportion = $map['finishProportion'];

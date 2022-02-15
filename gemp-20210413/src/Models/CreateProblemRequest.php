@@ -86,6 +86,13 @@ class CreateProblemRequest extends Model
     public $progressSummary;
 
     /**
+     * @description 进展摘要富文本id
+     *
+     * @var int
+     */
+    public $progressSummaryRichTextId;
+
+    /**
      * @description 恢复时间
      *
      * @var string
@@ -106,20 +113,21 @@ class CreateProblemRequest extends Model
      */
     public $serviceGroupIds;
     protected $_name = [
-        'affectServiceIds'  => 'affectServiceIds',
-        'clientToken'       => 'clientToken',
-        'discoverTime'      => 'discoverTime',
-        'incidentId'        => 'incidentId',
-        'mainHandlerId'     => 'mainHandlerId',
-        'preliminaryReason' => 'preliminaryReason',
-        'problemLevel'      => 'problemLevel',
-        'problemName'       => 'problemName',
-        'problemNotifyType' => 'problemNotifyType',
-        'problemStatus'     => 'problemStatus',
-        'progressSummary'   => 'progressSummary',
-        'recoveryTime'      => 'recoveryTime',
-        'relatedServiceId'  => 'relatedServiceId',
-        'serviceGroupIds'   => 'serviceGroupIds',
+        'affectServiceIds'          => 'affectServiceIds',
+        'clientToken'               => 'clientToken',
+        'discoverTime'              => 'discoverTime',
+        'incidentId'                => 'incidentId',
+        'mainHandlerId'             => 'mainHandlerId',
+        'preliminaryReason'         => 'preliminaryReason',
+        'problemLevel'              => 'problemLevel',
+        'problemName'               => 'problemName',
+        'problemNotifyType'         => 'problemNotifyType',
+        'problemStatus'             => 'problemStatus',
+        'progressSummary'           => 'progressSummary',
+        'progressSummaryRichTextId' => 'progressSummaryRichTextId',
+        'recoveryTime'              => 'recoveryTime',
+        'relatedServiceId'          => 'relatedServiceId',
+        'serviceGroupIds'           => 'serviceGroupIds',
     ];
 
     public function validate()
@@ -161,6 +169,9 @@ class CreateProblemRequest extends Model
         }
         if (null !== $this->progressSummary) {
             $res['progressSummary'] = $this->progressSummary;
+        }
+        if (null !== $this->progressSummaryRichTextId) {
+            $res['progressSummaryRichTextId'] = $this->progressSummaryRichTextId;
         }
         if (null !== $this->recoveryTime) {
             $res['recoveryTime'] = $this->recoveryTime;
@@ -217,6 +228,9 @@ class CreateProblemRequest extends Model
         }
         if (isset($map['progressSummary'])) {
             $model->progressSummary = $map['progressSummary'];
+        }
+        if (isset($map['progressSummaryRichTextId'])) {
+            $model->progressSummaryRichTextId = $map['progressSummaryRichTextId'];
         }
         if (isset($map['recoveryTime'])) {
             $model->recoveryTime = $map['recoveryTime'];

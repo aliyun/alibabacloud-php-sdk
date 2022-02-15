@@ -77,6 +77,13 @@ class ListIncidentsRequest extends Model
      * @var int
      */
     public $relationServiceId;
+
+    /**
+     * @description 流转规则名字
+     *
+     * @var string
+     */
+    public $ruleName;
     protected $_name = [
         'clientToken'       => 'clientToken',
         'createEndTime'     => 'createEndTime',
@@ -88,6 +95,7 @@ class ListIncidentsRequest extends Model
         'pageNumber'        => 'pageNumber',
         'pageSize'          => 'pageSize',
         'relationServiceId' => 'relationServiceId',
+        'ruleName'          => 'ruleName',
     ];
 
     public function validate()
@@ -126,6 +134,9 @@ class ListIncidentsRequest extends Model
         }
         if (null !== $this->relationServiceId) {
             $res['relationServiceId'] = $this->relationServiceId;
+        }
+        if (null !== $this->ruleName) {
+            $res['ruleName'] = $this->ruleName;
         }
 
         return $res;
@@ -168,6 +179,9 @@ class ListIncidentsRequest extends Model
         }
         if (isset($map['relationServiceId'])) {
             $model->relationServiceId = $map['relationServiceId'];
+        }
+        if (isset($map['ruleName'])) {
+            $model->ruleName = $map['ruleName'];
         }
 
         return $model;

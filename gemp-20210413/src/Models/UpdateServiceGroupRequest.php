@@ -4,6 +4,7 @@
 
 namespace AlibabaCloud\SDK\GEMP\V20210413\Models;
 
+use AlibabaCloud\SDK\GEMP\V20210413\Models\UpdateServiceGroupRequest\monitorSourceTemplates;
 use AlibabaCloud\Tea\Model;
 
 class UpdateServiceGroupRequest extends Model
@@ -21,6 +22,13 @@ class UpdateServiceGroupRequest extends Model
      * @var string
      */
     public $enableWebhook;
+
+    /**
+     * @description 监控源模版列表
+     *
+     * @var monitorSourceTemplates[]
+     */
+    public $monitorSourceTemplates;
 
     /**
      * @description 服务描述
@@ -66,6 +74,7 @@ class UpdateServiceGroupRequest extends Model
     protected $_name = [
         'clientToken'             => 'clientToken',
         'enableWebhook'           => 'enableWebhook',
+        'monitorSourceTemplates'  => 'monitorSourceTemplates',
         'serviceGroupDescription' => 'serviceGroupDescription',
         'serviceGroupId'          => 'serviceGroupId',
         'serviceGroupName'        => 'serviceGroupName',
@@ -86,6 +95,15 @@ class UpdateServiceGroupRequest extends Model
         }
         if (null !== $this->enableWebhook) {
             $res['enableWebhook'] = $this->enableWebhook;
+        }
+        if (null !== $this->monitorSourceTemplates) {
+            $res['monitorSourceTemplates'] = [];
+            if (null !== $this->monitorSourceTemplates && \is_array($this->monitorSourceTemplates)) {
+                $n = 0;
+                foreach ($this->monitorSourceTemplates as $item) {
+                    $res['monitorSourceTemplates'][$n++] = null !== $item ? $item->toMap() : $item;
+                }
+            }
         }
         if (null !== $this->serviceGroupDescription) {
             $res['serviceGroupDescription'] = $this->serviceGroupDescription;
@@ -122,6 +140,15 @@ class UpdateServiceGroupRequest extends Model
         }
         if (isset($map['enableWebhook'])) {
             $model->enableWebhook = $map['enableWebhook'];
+        }
+        if (isset($map['monitorSourceTemplates'])) {
+            if (!empty($map['monitorSourceTemplates'])) {
+                $model->monitorSourceTemplates = [];
+                $n                             = 0;
+                foreach ($map['monitorSourceTemplates'] as $item) {
+                    $model->monitorSourceTemplates[$n++] = null !== $item ? monitorSourceTemplates::fromMap($item) : $item;
+                }
+            }
         }
         if (isset($map['serviceGroupDescription'])) {
             $model->serviceGroupDescription = $map['serviceGroupDescription'];

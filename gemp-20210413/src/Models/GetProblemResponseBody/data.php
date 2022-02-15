@@ -171,6 +171,13 @@ class data extends Model
     public $progressSummary;
 
     /**
+     * @description 进展摘要富文本id
+     *
+     * @var int
+     */
+    public $progressSummaryRichTextId;
+
+    /**
      * @description 恢复时间
      *
      * @var string
@@ -241,6 +248,7 @@ class data extends Model
         'problemNumber'               => 'problemNumber',
         'problemStatus'               => 'problemStatus',
         'progressSummary'             => 'progressSummary',
+        'progressSummaryRichTextId'   => 'progressSummaryRichTextId',
         'recoveryTime'                => 'recoveryTime',
         'relatedServiceId'            => 'relatedServiceId',
         'replayProblemOperateLogs'    => 'replayProblemOperateLogs',
@@ -346,6 +354,9 @@ class data extends Model
         }
         if (null !== $this->progressSummary) {
             $res['progressSummary'] = $this->progressSummary;
+        }
+        if (null !== $this->progressSummaryRichTextId) {
+            $res['progressSummaryRichTextId'] = $this->progressSummaryRichTextId;
         }
         if (null !== $this->recoveryTime) {
             $res['recoveryTime'] = $this->recoveryTime;
@@ -493,6 +504,9 @@ class data extends Model
         }
         if (isset($map['progressSummary'])) {
             $model->progressSummary = $map['progressSummary'];
+        }
+        if (isset($map['progressSummaryRichTextId'])) {
+            $model->progressSummaryRichTextId = $map['progressSummaryRichTextId'];
         }
         if (isset($map['recoveryTime'])) {
             $model->recoveryTime = $map['recoveryTime'];

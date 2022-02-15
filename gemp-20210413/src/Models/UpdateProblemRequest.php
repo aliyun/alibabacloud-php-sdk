@@ -58,6 +58,13 @@ class UpdateProblemRequest extends Model
     public $progressSummary;
 
     /**
+     * @description 进展摘要富文本id
+     *
+     * @var int
+     */
+    public $progressSummaryRichTextId;
+
+    /**
      * @description 所属服务
      *
      * @var int
@@ -71,15 +78,16 @@ class UpdateProblemRequest extends Model
      */
     public $serviceGroupIds;
     protected $_name = [
-        'feedback'          => 'feedback',
-        'level'             => 'level',
-        'mainHandlerId'     => 'mainHandlerId',
-        'preliminaryReason' => 'preliminaryReason',
-        'problemId'         => 'problemId',
-        'problemName'       => 'problemName',
-        'progressSummary'   => 'progressSummary',
-        'relatedServiceId'  => 'relatedServiceId',
-        'serviceGroupIds'   => 'serviceGroupIds',
+        'feedback'                  => 'feedback',
+        'level'                     => 'level',
+        'mainHandlerId'             => 'mainHandlerId',
+        'preliminaryReason'         => 'preliminaryReason',
+        'problemId'                 => 'problemId',
+        'problemName'               => 'problemName',
+        'progressSummary'           => 'progressSummary',
+        'progressSummaryRichTextId' => 'progressSummaryRichTextId',
+        'relatedServiceId'          => 'relatedServiceId',
+        'serviceGroupIds'           => 'serviceGroupIds',
     ];
 
     public function validate()
@@ -109,6 +117,9 @@ class UpdateProblemRequest extends Model
         }
         if (null !== $this->progressSummary) {
             $res['progressSummary'] = $this->progressSummary;
+        }
+        if (null !== $this->progressSummaryRichTextId) {
+            $res['progressSummaryRichTextId'] = $this->progressSummaryRichTextId;
         }
         if (null !== $this->relatedServiceId) {
             $res['relatedServiceId'] = $this->relatedServiceId;
@@ -148,6 +159,9 @@ class UpdateProblemRequest extends Model
         }
         if (isset($map['progressSummary'])) {
             $model->progressSummary = $map['progressSummary'];
+        }
+        if (isset($map['progressSummaryRichTextId'])) {
+            $model->progressSummaryRichTextId = $map['progressSummaryRichTextId'];
         }
         if (isset($map['relatedServiceId'])) {
             $model->relatedServiceId = $map['relatedServiceId'];

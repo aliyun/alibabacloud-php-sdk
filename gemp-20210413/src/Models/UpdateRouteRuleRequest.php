@@ -24,6 +24,13 @@ class UpdateRouteRuleRequest extends Model
     public $assignObjectType;
 
     /**
+     * @description AND
+     *
+     * @var string
+     */
+    public $childRuleRelation;
+
+    /**
      * @description 幂等号
      *
      * @var string
@@ -107,20 +114,21 @@ class UpdateRouteRuleRequest extends Model
      */
     public $timeWindowUnit;
     protected $_name = [
-        'assignObjectId'   => 'assignObjectId',
-        'assignObjectType' => 'assignObjectType',
-        'clientToken'      => 'clientToken',
-        'effection'        => 'effection',
-        'incidentLevel'    => 'incidentLevel',
-        'matchCount'       => 'matchCount',
-        'notifyChannels'   => 'notifyChannels',
-        'relatedServiceId' => 'relatedServiceId',
-        'routeChildRules'  => 'routeChildRules',
-        'routeRuleId'      => 'routeRuleId',
-        'routeType'        => 'routeType',
-        'ruleName'         => 'ruleName',
-        'timeWindow'       => 'timeWindow',
-        'timeWindowUnit'   => 'timeWindowUnit',
+        'assignObjectId'    => 'assignObjectId',
+        'assignObjectType'  => 'assignObjectType',
+        'childRuleRelation' => 'childRuleRelation',
+        'clientToken'       => 'clientToken',
+        'effection'         => 'effection',
+        'incidentLevel'     => 'incidentLevel',
+        'matchCount'        => 'matchCount',
+        'notifyChannels'    => 'notifyChannels',
+        'relatedServiceId'  => 'relatedServiceId',
+        'routeChildRules'   => 'routeChildRules',
+        'routeRuleId'       => 'routeRuleId',
+        'routeType'         => 'routeType',
+        'ruleName'          => 'ruleName',
+        'timeWindow'        => 'timeWindow',
+        'timeWindowUnit'    => 'timeWindowUnit',
     ];
 
     public function validate()
@@ -135,6 +143,9 @@ class UpdateRouteRuleRequest extends Model
         }
         if (null !== $this->assignObjectType) {
             $res['assignObjectType'] = $this->assignObjectType;
+        }
+        if (null !== $this->childRuleRelation) {
+            $res['childRuleRelation'] = $this->childRuleRelation;
         }
         if (null !== $this->clientToken) {
             $res['clientToken'] = $this->clientToken;
@@ -195,6 +206,9 @@ class UpdateRouteRuleRequest extends Model
         }
         if (isset($map['assignObjectType'])) {
             $model->assignObjectType = $map['assignObjectType'];
+        }
+        if (isset($map['childRuleRelation'])) {
+            $model->childRuleRelation = $map['childRuleRelation'];
         }
         if (isset($map['clientToken'])) {
             $model->clientToken = $map['clientToken'];

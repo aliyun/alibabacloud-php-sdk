@@ -58,6 +58,13 @@ class ListAlertsRequest extends Model
     public $relatedServiceId;
 
     /**
+     * @description 流转规则名字
+     *
+     * @var string
+     */
+    public $ruleName;
+
+    /**
      * @description 开始时间
      *
      * @var string
@@ -71,6 +78,7 @@ class ListAlertsRequest extends Model
         'pageNumber'       => 'pageNumber',
         'pageSize'         => 'pageSize',
         'relatedServiceId' => 'relatedServiceId',
+        'ruleName'         => 'ruleName',
         'startTime'        => 'startTime',
     ];
 
@@ -101,6 +109,9 @@ class ListAlertsRequest extends Model
         }
         if (null !== $this->relatedServiceId) {
             $res['relatedServiceId'] = $this->relatedServiceId;
+        }
+        if (null !== $this->ruleName) {
+            $res['ruleName'] = $this->ruleName;
         }
         if (null !== $this->startTime) {
             $res['startTime'] = $this->startTime;
@@ -137,6 +148,9 @@ class ListAlertsRequest extends Model
         }
         if (isset($map['relatedServiceId'])) {
             $model->relatedServiceId = $map['relatedServiceId'];
+        }
+        if (isset($map['ruleName'])) {
+            $model->ruleName = $map['ruleName'];
         }
         if (isset($map['startTime'])) {
             $model->startTime = $map['startTime'];

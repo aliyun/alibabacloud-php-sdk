@@ -58,6 +58,13 @@ class data extends Model
     public $matchCount;
 
     /**
+     * @description 监控源名称
+     *
+     * @var string
+     */
+    public $monitorSourceNames;
+
+    /**
      * @description 关联服务ID
      *
      * @var int
@@ -127,6 +134,7 @@ class data extends Model
         'enableStatus'       => 'enableStatus',
         'incidentLevel'      => 'incidentLevel',
         'matchCount'         => 'matchCount',
+        'monitorSourceNames' => 'monitorSourceNames',
         'relatedServiceId'   => 'relatedServiceId',
         'relatedServiceName' => 'relatedServiceName',
         'routeRuleId'        => 'routeRuleId',
@@ -165,6 +173,9 @@ class data extends Model
         }
         if (null !== $this->matchCount) {
             $res['matchCount'] = $this->matchCount;
+        }
+        if (null !== $this->monitorSourceNames) {
+            $res['monitorSourceNames'] = $this->monitorSourceNames;
         }
         if (null !== $this->relatedServiceId) {
             $res['relatedServiceId'] = $this->relatedServiceId;
@@ -225,6 +236,9 @@ class data extends Model
         }
         if (isset($map['matchCount'])) {
             $model->matchCount = $map['matchCount'];
+        }
+        if (isset($map['monitorSourceNames'])) {
+            $model->monitorSourceNames = $map['monitorSourceNames'];
         }
         if (isset($map['relatedServiceId'])) {
             $model->relatedServiceId = $map['relatedServiceId'];

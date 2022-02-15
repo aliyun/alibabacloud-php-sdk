@@ -105,6 +105,8 @@ class data extends Model
     public $routeRuleId;
 
     /**
+     * @description 流转规则
+     *
      * @var string
      */
     public $routeRuleName;

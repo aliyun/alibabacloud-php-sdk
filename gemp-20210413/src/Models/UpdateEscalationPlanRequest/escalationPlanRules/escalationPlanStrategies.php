@@ -9,6 +9,13 @@ use AlibabaCloud\Tea\Model;
 class escalationPlanStrategies extends Model
 {
     /**
+     * @description 是否支持群通知
+     *
+     * @var bool
+     */
+    public $enableWebhook;
+
+    /**
      * @description 通知渠道
      *
      * @var string[]
@@ -28,10 +35,19 @@ class escalationPlanStrategies extends Model
      * @var int
      */
     public $noticeTime;
+
+    /**
+     * @description 服务组id
+     *
+     * @var int[]
+     */
+    public $serviceGroupIds;
     protected $_name = [
-        'noticeChannels' => 'noticeChannels',
-        'noticeObjects'  => 'noticeObjects',
-        'noticeTime'     => 'noticeTime',
+        'enableWebhook'   => 'enableWebhook',
+        'noticeChannels'  => 'noticeChannels',
+        'noticeObjects'   => 'noticeObjects',
+        'noticeTime'      => 'noticeTime',
+        'serviceGroupIds' => 'serviceGroupIds',
     ];
 
     public function validate()
@@ -41,6 +57,9 @@ class escalationPlanStrategies extends Model
     public function toMap()
     {
         $res = [];
+        if (null !== $this->enableWebhook) {
+            $res['enableWebhook'] = $this->enableWebhook;
+        }
         if (null !== $this->noticeChannels) {
             $res['noticeChannels'] = $this->noticeChannels;
         }
@@ -49,6 +68,9 @@ class escalationPlanStrategies extends Model
         }
         if (null !== $this->noticeTime) {
             $res['noticeTime'] = $this->noticeTime;
+        }
+        if (null !== $this->serviceGroupIds) {
+            $res['serviceGroupIds'] = $this->serviceGroupIds;
         }
 
         return $res;
@@ -62,6 +84,9 @@ class escalationPlanStrategies extends Model
     public static function fromMap($map = [])
     {
         $model = new self();
+        if (isset($map['enableWebhook'])) {
+            $model->enableWebhook = $map['enableWebhook'];
+        }
         if (isset($map['noticeChannels'])) {
             if (!empty($map['noticeChannels'])) {
                 $model->noticeChannels = $map['noticeChannels'];
@@ -74,6 +99,11 @@ class escalationPlanStrategies extends Model
         }
         if (isset($map['noticeTime'])) {
             $model->noticeTime = $map['noticeTime'];
+        }
+        if (isset($map['serviceGroupIds'])) {
+            if (!empty($map['serviceGroupIds'])) {
+                $model->serviceGroupIds = $map['serviceGroupIds'];
+            }
         }
 
         return $model;

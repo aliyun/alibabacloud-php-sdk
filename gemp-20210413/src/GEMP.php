@@ -34,6 +34,8 @@ use AlibabaCloud\SDK\GEMP\V20210413\Models\CreateProblemTimelineRequest;
 use AlibabaCloud\SDK\GEMP\V20210413\Models\CreateProblemTimelineResponse;
 use AlibabaCloud\SDK\GEMP\V20210413\Models\CreateProblemTimelinesRequest;
 use AlibabaCloud\SDK\GEMP\V20210413\Models\CreateProblemTimelinesResponse;
+use AlibabaCloud\SDK\GEMP\V20210413\Models\CreateRichTextRequest;
+use AlibabaCloud\SDK\GEMP\V20210413\Models\CreateRichTextResponse;
 use AlibabaCloud\SDK\GEMP\V20210413\Models\CreateRouteRuleRequest;
 use AlibabaCloud\SDK\GEMP\V20210413\Models\CreateRouteRuleResponse;
 use AlibabaCloud\SDK\GEMP\V20210413\Models\CreateServiceGroupRequest;
@@ -100,6 +102,10 @@ use AlibabaCloud\SDK\GEMP\V20210413\Models\FinishIncidentRequest;
 use AlibabaCloud\SDK\GEMP\V20210413\Models\FinishIncidentResponse;
 use AlibabaCloud\SDK\GEMP\V20210413\Models\FinishProblemRequest;
 use AlibabaCloud\SDK\GEMP\V20210413\Models\FinishProblemResponse;
+use AlibabaCloud\SDK\GEMP\V20210413\Models\GeneratePictureLinkRequest;
+use AlibabaCloud\SDK\GEMP\V20210413\Models\GeneratePictureLinkResponse;
+use AlibabaCloud\SDK\GEMP\V20210413\Models\GeneratePictureUploadSignRequest;
+use AlibabaCloud\SDK\GEMP\V20210413\Models\GeneratePictureUploadSignResponse;
 use AlibabaCloud\SDK\GEMP\V20210413\Models\GenerateProblemPictureLinkRequest;
 use AlibabaCloud\SDK\GEMP\V20210413\Models\GenerateProblemPictureLinkResponse;
 use AlibabaCloud\SDK\GEMP\V20210413\Models\GenerateProblemPictureUploadSignRequest;
@@ -128,6 +134,8 @@ use AlibabaCloud\SDK\GEMP\V20210413\Models\GetProblemRequest;
 use AlibabaCloud\SDK\GEMP\V20210413\Models\GetProblemResponse;
 use AlibabaCloud\SDK\GEMP\V20210413\Models\GetResourceStatisticsRequest;
 use AlibabaCloud\SDK\GEMP\V20210413\Models\GetResourceStatisticsResponse;
+use AlibabaCloud\SDK\GEMP\V20210413\Models\GetRichTextRequest;
+use AlibabaCloud\SDK\GEMP\V20210413\Models\GetRichTextResponse;
 use AlibabaCloud\SDK\GEMP\V20210413\Models\GetRouteRuleRequest;
 use AlibabaCloud\SDK\GEMP\V20210413\Models\GetRouteRuleResponse;
 use AlibabaCloud\SDK\GEMP\V20210413\Models\GetServiceGroupPersonSchedulingRequest;
@@ -198,6 +206,8 @@ use AlibabaCloud\SDK\GEMP\V20210413\Models\ListProblemTimeLinesRequest;
 use AlibabaCloud\SDK\GEMP\V20210413\Models\ListProblemTimeLinesResponse;
 use AlibabaCloud\SDK\GEMP\V20210413\Models\ListRouteRulesRequest;
 use AlibabaCloud\SDK\GEMP\V20210413\Models\ListRouteRulesResponse;
+use AlibabaCloud\SDK\GEMP\V20210413\Models\ListServiceGroupMonitorSourceTemplatesRequest;
+use AlibabaCloud\SDK\GEMP\V20210413\Models\ListServiceGroupMonitorSourceTemplatesResponse;
 use AlibabaCloud\SDK\GEMP\V20210413\Models\ListServiceGroupsRequest;
 use AlibabaCloud\SDK\GEMP\V20210413\Models\ListServiceGroupsResponse;
 use AlibabaCloud\SDK\GEMP\V20210413\Models\ListServicesRequest;
@@ -210,6 +220,8 @@ use AlibabaCloud\SDK\GEMP\V20210413\Models\ListSubscriptionServiceGroupsRequest;
 use AlibabaCloud\SDK\GEMP\V20210413\Models\ListSubscriptionServiceGroupsResponse;
 use AlibabaCloud\SDK\GEMP\V20210413\Models\ListSubscriptionsRequest;
 use AlibabaCloud\SDK\GEMP\V20210413\Models\ListSubscriptionsResponse;
+use AlibabaCloud\SDK\GEMP\V20210413\Models\ListTrendForSourceEventRequest;
+use AlibabaCloud\SDK\GEMP\V20210413\Models\ListTrendForSourceEventResponse;
 use AlibabaCloud\SDK\GEMP\V20210413\Models\ListUserSerivceGroupsRequest;
 use AlibabaCloud\SDK\GEMP\V20210413\Models\ListUserSerivceGroupsResponse;
 use AlibabaCloud\SDK\GEMP\V20210413\Models\ListUsersRequest;
@@ -244,6 +256,8 @@ use AlibabaCloud\SDK\GEMP\V20210413\Models\UpdateProblemRequest;
 use AlibabaCloud\SDK\GEMP\V20210413\Models\UpdateProblemResponse;
 use AlibabaCloud\SDK\GEMP\V20210413\Models\UpdateProblemTimelineRequest;
 use AlibabaCloud\SDK\GEMP\V20210413\Models\UpdateProblemTimelineResponse;
+use AlibabaCloud\SDK\GEMP\V20210413\Models\UpdateRichTextRequest;
+use AlibabaCloud\SDK\GEMP\V20210413\Models\UpdateRichTextResponse;
 use AlibabaCloud\SDK\GEMP\V20210413\Models\UpdateRouteRuleRequest;
 use AlibabaCloud\SDK\GEMP\V20210413\Models\UpdateRouteRuleResponse;
 use AlibabaCloud\SDK\GEMP\V20210413\Models\UpdateServiceGroupRequest;
@@ -260,9 +274,12 @@ use AlibabaCloud\SDK\GEMP\V20210413\Models\UpdateUserGuideStatusRequest;
 use AlibabaCloud\SDK\GEMP\V20210413\Models\UpdateUserGuideStatusResponse;
 use AlibabaCloud\SDK\GEMP\V20210413\Models\UpdateUserRequest;
 use AlibabaCloud\SDK\GEMP\V20210413\Models\UpdateUserResponse;
+use AlibabaCloud\SDK\GEMP\V20210413\Models\VerifyRouteRuleRequest;
+use AlibabaCloud\SDK\GEMP\V20210413\Models\VerifyRouteRuleResponse;
 use AlibabaCloud\Tea\Utils\Utils;
 use AlibabaCloud\Tea\Utils\Utils\RuntimeOptions;
 use Darabonba\OpenApi\Models\OpenApiRequest;
+use Darabonba\OpenApi\Models\Params;
 use Darabonba\OpenApi\OpenApiClient;
 
 class GEMP extends OpenApiClient
@@ -323,17 +340,28 @@ class GEMP extends OpenApiClient
         Utils::validateModel($request);
         $body = [];
         if (!Utils::isUnset($request->problemId)) {
-            @$body['problemId'] = $request->problemId;
+            $body['problemId'] = $request->problemId;
         }
         if (!Utils::isUnset($request->serviceGroupIds)) {
-            @$body['serviceGroupIds'] = $request->serviceGroupIds;
+            $body['serviceGroupIds'] = $request->serviceGroupIds;
         }
         $req = new OpenApiRequest([
             'headers' => $headers,
             'body'    => OpenApiUtilClient::parseToMap($body),
         ]);
+        $params = new Params([
+            'action'      => 'AddProblemServiceGroup',
+            'version'     => '2021-04-13',
+            'protocol'    => 'HTTPS',
+            'pathname'    => '/problem/addServiceGroup',
+            'method'      => 'POST',
+            'authType'    => 'AK',
+            'style'       => 'ROA',
+            'reqBodyType' => 'json',
+            'bodyType'    => 'json',
+        ]);
 
-        return AddProblemServiceGroupResponse::fromMap($this->doROARequest('AddProblemServiceGroup', '2021-04-13', 'HTTPS', 'POST', 'AK', '/problem/addServiceGroup', 'json', $req, $runtime));
+        return AddProblemServiceGroupResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
@@ -361,26 +389,37 @@ class GEMP extends OpenApiClient
         Utils::validateModel($request);
         $body = [];
         if (!Utils::isUnset($request->cancelReason)) {
-            @$body['cancelReason'] = $request->cancelReason;
+            $body['cancelReason'] = $request->cancelReason;
         }
         if (!Utils::isUnset($request->cancelReasonDescription)) {
-            @$body['cancelReasonDescription'] = $request->cancelReasonDescription;
+            $body['cancelReasonDescription'] = $request->cancelReasonDescription;
         }
         if (!Utils::isUnset($request->clientToken)) {
-            @$body['clientToken'] = $request->clientToken;
+            $body['clientToken'] = $request->clientToken;
         }
         if (!Utils::isUnset($request->problemId)) {
-            @$body['problemId'] = $request->problemId;
+            $body['problemId'] = $request->problemId;
         }
         if (!Utils::isUnset($request->problemNotifyType)) {
-            @$body['problemNotifyType'] = $request->problemNotifyType;
+            $body['problemNotifyType'] = $request->problemNotifyType;
         }
         $req = new OpenApiRequest([
             'headers' => $headers,
             'body'    => OpenApiUtilClient::parseToMap($body),
         ]);
+        $params = new Params([
+            'action'      => 'CancelProblem',
+            'version'     => '2021-04-13',
+            'protocol'    => 'HTTPS',
+            'pathname'    => '/problem/cancel',
+            'method'      => 'POST',
+            'authType'    => 'AK',
+            'style'       => 'ROA',
+            'reqBodyType' => 'json',
+            'bodyType'    => 'json',
+        ]);
 
-        return CancelProblemResponse::fromMap($this->doROARequest('CancelProblem', '2021-04-13', 'HTTPS', 'POST', 'AK', '/problem/cancel', 'json', $req, $runtime));
+        return CancelProblemResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
@@ -408,20 +447,31 @@ class GEMP extends OpenApiClient
         Utils::validateModel($request);
         $body = [];
         if (!Utils::isUnset($request->clientToken)) {
-            @$body['clientToken'] = $request->clientToken;
+            $body['clientToken'] = $request->clientToken;
         }
         if (!Utils::isUnset($request->webhook)) {
-            @$body['webhook'] = $request->webhook;
+            $body['webhook'] = $request->webhook;
         }
         if (!Utils::isUnset($request->webhookType)) {
-            @$body['webhookType'] = $request->webhookType;
+            $body['webhookType'] = $request->webhookType;
         }
         $req = new OpenApiRequest([
             'headers' => $headers,
             'body'    => OpenApiUtilClient::parseToMap($body),
         ]);
+        $params = new Params([
+            'action'      => 'CheckWebhook',
+            'version'     => '2021-04-13',
+            'protocol'    => 'HTTPS',
+            'pathname'    => '/services/check/webhook',
+            'method'      => 'POST',
+            'authType'    => 'AK',
+            'style'       => 'ROA',
+            'reqBodyType' => 'json',
+            'bodyType'    => 'json',
+        ]);
 
-        return CheckWebhookResponse::fromMap($this->doROARequest('CheckWebhook', '2021-04-13', 'HTTPS', 'POST', 'AK', '/services/check/webhook', 'json', $req, $runtime));
+        return CheckWebhookResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
@@ -449,17 +499,28 @@ class GEMP extends OpenApiClient
         Utils::validateModel($request);
         $body = [];
         if (!Utils::isUnset($request->clientToken)) {
-            @$body['clientToken'] = $request->clientToken;
+            $body['clientToken'] = $request->clientToken;
         }
         if (!Utils::isUnset($request->integrationConfigId)) {
-            @$body['integrationConfigId'] = $request->integrationConfigId;
+            $body['integrationConfigId'] = $request->integrationConfigId;
         }
         $req = new OpenApiRequest([
             'headers' => $headers,
             'body'    => OpenApiUtilClient::parseToMap($body),
         ]);
+        $params = new Params([
+            'action'      => 'ConfirmIntegrationConfig',
+            'version'     => '2021-04-13',
+            'protocol'    => 'HTTPS',
+            'pathname'    => '/integrationConfig/confirm',
+            'method'      => 'POST',
+            'authType'    => 'AK',
+            'style'       => 'ROA',
+            'reqBodyType' => 'json',
+            'bodyType'    => 'json',
+        ]);
 
-        return ConfirmIntegrationConfigResponse::fromMap($this->doROARequest('ConfirmIntegrationConfig', '2021-04-13', 'HTTPS', 'POST', 'AK', '/integrationConfig/confirm', 'json', $req, $runtime));
+        return ConfirmIntegrationConfigResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
@@ -487,26 +548,37 @@ class GEMP extends OpenApiClient
         Utils::validateModel($request);
         $body = [];
         if (!Utils::isUnset($request->clientToken)) {
-            @$body['clientToken'] = $request->clientToken;
+            $body['clientToken'] = $request->clientToken;
         }
         if (!Utils::isUnset($request->escalationPlanDescription)) {
-            @$body['escalationPlanDescription'] = $request->escalationPlanDescription;
+            $body['escalationPlanDescription'] = $request->escalationPlanDescription;
         }
         if (!Utils::isUnset($request->escalationPlanName)) {
-            @$body['escalationPlanName'] = $request->escalationPlanName;
+            $body['escalationPlanName'] = $request->escalationPlanName;
         }
         if (!Utils::isUnset($request->escalationPlanRules)) {
-            @$body['escalationPlanRules'] = $request->escalationPlanRules;
+            $body['escalationPlanRules'] = $request->escalationPlanRules;
         }
         if (!Utils::isUnset($request->escalationPlanScopeObjects)) {
-            @$body['escalationPlanScopeObjects'] = $request->escalationPlanScopeObjects;
+            $body['escalationPlanScopeObjects'] = $request->escalationPlanScopeObjects;
         }
         $req = new OpenApiRequest([
             'headers' => $headers,
             'body'    => OpenApiUtilClient::parseToMap($body),
         ]);
+        $params = new Params([
+            'action'      => 'CreateEscalationPlan',
+            'version'     => '2021-04-13',
+            'protocol'    => 'HTTPS',
+            'pathname'    => '/escalationPlan/create',
+            'method'      => 'POST',
+            'authType'    => 'AK',
+            'style'       => 'ROA',
+            'reqBodyType' => 'json',
+            'bodyType'    => 'json',
+        ]);
 
-        return CreateEscalationPlanResponse::fromMap($this->doROARequest('CreateEscalationPlan', '2021-04-13', 'HTTPS', 'POST', 'AK', '/escalationPlan/create', 'json', $req, $runtime));
+        return CreateEscalationPlanResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
@@ -534,38 +606,49 @@ class GEMP extends OpenApiClient
         Utils::validateModel($request);
         $body = [];
         if (!Utils::isUnset($request->assignUserId)) {
-            @$body['assignUserId'] = $request->assignUserId;
+            $body['assignUserId'] = $request->assignUserId;
         }
         if (!Utils::isUnset($request->channels)) {
-            @$body['channels'] = $request->channels;
+            $body['channels'] = $request->channels;
         }
         if (!Utils::isUnset($request->clientToken)) {
-            @$body['clientToken'] = $request->clientToken;
+            $body['clientToken'] = $request->clientToken;
         }
         if (!Utils::isUnset($request->effect)) {
-            @$body['effect'] = $request->effect;
+            $body['effect'] = $request->effect;
         }
         if (!Utils::isUnset($request->incidentDescription)) {
-            @$body['incidentDescription'] = $request->incidentDescription;
+            $body['incidentDescription'] = $request->incidentDescription;
         }
         if (!Utils::isUnset($request->incidentLevel)) {
-            @$body['incidentLevel'] = $request->incidentLevel;
+            $body['incidentLevel'] = $request->incidentLevel;
         }
         if (!Utils::isUnset($request->incidentTitle)) {
-            @$body['incidentTitle'] = $request->incidentTitle;
+            $body['incidentTitle'] = $request->incidentTitle;
         }
         if (!Utils::isUnset($request->relatedServiceId)) {
-            @$body['relatedServiceId'] = $request->relatedServiceId;
+            $body['relatedServiceId'] = $request->relatedServiceId;
         }
         if (!Utils::isUnset($request->serviceGroupId)) {
-            @$body['serviceGroupId'] = $request->serviceGroupId;
+            $body['serviceGroupId'] = $request->serviceGroupId;
         }
         $req = new OpenApiRequest([
             'headers' => $headers,
             'body'    => OpenApiUtilClient::parseToMap($body),
         ]);
+        $params = new Params([
+            'action'      => 'CreateIncident',
+            'version'     => '2021-04-13',
+            'protocol'    => 'HTTPS',
+            'pathname'    => '/incident/manualSave',
+            'method'      => 'POST',
+            'authType'    => 'AK',
+            'style'       => 'ROA',
+            'reqBodyType' => 'json',
+            'bodyType'    => 'json',
+        ]);
 
-        return CreateIncidentResponse::fromMap($this->doROARequest('CreateIncident', '2021-04-13', 'HTTPS', 'POST', 'AK', '/incident/manualSave', 'json', $req, $runtime));
+        return CreateIncidentResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
@@ -593,20 +676,31 @@ class GEMP extends OpenApiClient
         Utils::validateModel($request);
         $body = [];
         if (!Utils::isUnset($request->clientToken)) {
-            @$body['clientToken'] = $request->clientToken;
+            $body['clientToken'] = $request->clientToken;
         }
         if (!Utils::isUnset($request->description)) {
-            @$body['description'] = $request->description;
+            $body['description'] = $request->description;
         }
         if (!Utils::isUnset($request->incidentId)) {
-            @$body['incidentId'] = $request->incidentId;
+            $body['incidentId'] = $request->incidentId;
         }
         $req = new OpenApiRequest([
             'headers' => $headers,
             'body'    => OpenApiUtilClient::parseToMap($body),
         ]);
+        $params = new Params([
+            'action'      => 'CreateIncidentSubtotal',
+            'version'     => '2021-04-13',
+            'protocol'    => 'HTTPS',
+            'pathname'    => '/incident/save/subtotal',
+            'method'      => 'POST',
+            'authType'    => 'AK',
+            'style'       => 'ROA',
+            'reqBodyType' => 'json',
+            'bodyType'    => 'json',
+        ]);
 
-        return CreateIncidentSubtotalResponse::fromMap($this->doROARequest('CreateIncidentSubtotal', '2021-04-13', 'HTTPS', 'POST', 'AK', '/incident/save/subtotal', 'json', $req, $runtime));
+        return CreateIncidentSubtotalResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
@@ -634,17 +728,28 @@ class GEMP extends OpenApiClient
         Utils::validateModel($request);
         $body = [];
         if (!Utils::isUnset($request->clientToken)) {
-            @$body['clientToken'] = $request->clientToken;
+            $body['clientToken'] = $request->clientToken;
         }
         if (!Utils::isUnset($request->monitorSourceId)) {
-            @$body['monitorSourceId'] = $request->monitorSourceId;
+            $body['monitorSourceId'] = $request->monitorSourceId;
         }
         $req = new OpenApiRequest([
             'headers' => $headers,
             'body'    => OpenApiUtilClient::parseToMap($body),
         ]);
+        $params = new Params([
+            'action'      => 'CreateIntegrationConfig',
+            'version'     => '2021-04-13',
+            'protocol'    => 'HTTPS',
+            'pathname'    => '/integrationConfig/create',
+            'method'      => 'POST',
+            'authType'    => 'AK',
+            'style'       => 'ROA',
+            'reqBodyType' => 'json',
+            'bodyType'    => 'json',
+        ]);
 
-        return CreateIntegrationConfigResponse::fromMap($this->doROARequest('CreateIntegrationConfig', '2021-04-13', 'HTTPS', 'POST', 'AK', '/integrationConfig/create', 'json', $req, $runtime));
+        return CreateIntegrationConfigResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
@@ -672,53 +777,67 @@ class GEMP extends OpenApiClient
         Utils::validateModel($request);
         $body = [];
         if (!Utils::isUnset($request->affectServiceIds)) {
-            @$body['affectServiceIds'] = $request->affectServiceIds;
+            $body['affectServiceIds'] = $request->affectServiceIds;
         }
         if (!Utils::isUnset($request->clientToken)) {
-            @$body['clientToken'] = $request->clientToken;
+            $body['clientToken'] = $request->clientToken;
         }
         if (!Utils::isUnset($request->discoverTime)) {
-            @$body['discoverTime'] = $request->discoverTime;
+            $body['discoverTime'] = $request->discoverTime;
         }
         if (!Utils::isUnset($request->incidentId)) {
-            @$body['incidentId'] = $request->incidentId;
+            $body['incidentId'] = $request->incidentId;
         }
         if (!Utils::isUnset($request->mainHandlerId)) {
-            @$body['mainHandlerId'] = $request->mainHandlerId;
+            $body['mainHandlerId'] = $request->mainHandlerId;
         }
         if (!Utils::isUnset($request->preliminaryReason)) {
-            @$body['preliminaryReason'] = $request->preliminaryReason;
+            $body['preliminaryReason'] = $request->preliminaryReason;
         }
         if (!Utils::isUnset($request->problemLevel)) {
-            @$body['problemLevel'] = $request->problemLevel;
+            $body['problemLevel'] = $request->problemLevel;
         }
         if (!Utils::isUnset($request->problemName)) {
-            @$body['problemName'] = $request->problemName;
+            $body['problemName'] = $request->problemName;
         }
         if (!Utils::isUnset($request->problemNotifyType)) {
-            @$body['problemNotifyType'] = $request->problemNotifyType;
+            $body['problemNotifyType'] = $request->problemNotifyType;
         }
         if (!Utils::isUnset($request->problemStatus)) {
-            @$body['problemStatus'] = $request->problemStatus;
+            $body['problemStatus'] = $request->problemStatus;
         }
         if (!Utils::isUnset($request->progressSummary)) {
-            @$body['progressSummary'] = $request->progressSummary;
+            $body['progressSummary'] = $request->progressSummary;
+        }
+        if (!Utils::isUnset($request->progressSummaryRichTextId)) {
+            $body['progressSummaryRichTextId'] = $request->progressSummaryRichTextId;
         }
         if (!Utils::isUnset($request->recoveryTime)) {
-            @$body['recoveryTime'] = $request->recoveryTime;
+            $body['recoveryTime'] = $request->recoveryTime;
         }
         if (!Utils::isUnset($request->relatedServiceId)) {
-            @$body['relatedServiceId'] = $request->relatedServiceId;
+            $body['relatedServiceId'] = $request->relatedServiceId;
         }
         if (!Utils::isUnset($request->serviceGroupIds)) {
-            @$body['serviceGroupIds'] = $request->serviceGroupIds;
+            $body['serviceGroupIds'] = $request->serviceGroupIds;
         }
         $req = new OpenApiRequest([
             'headers' => $headers,
             'body'    => OpenApiUtilClient::parseToMap($body),
         ]);
+        $params = new Params([
+            'action'      => 'CreateProblem',
+            'version'     => '2021-04-13',
+            'protocol'    => 'HTTPS',
+            'pathname'    => '/problem/upgrade',
+            'method'      => 'POST',
+            'authType'    => 'AK',
+            'style'       => 'ROA',
+            'reqBodyType' => 'json',
+            'bodyType'    => 'json',
+        ]);
 
-        return CreateProblemResponse::fromMap($this->doROARequest('CreateProblem', '2021-04-13', 'HTTPS', 'POST', 'AK', '/problem/upgrade', 'json', $req, $runtime));
+        return CreateProblemResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
@@ -746,32 +865,43 @@ class GEMP extends OpenApiClient
         Utils::validateModel($request);
         $body = [];
         if (!Utils::isUnset($request->clientToken)) {
-            @$body['clientToken'] = $request->clientToken;
+            $body['clientToken'] = $request->clientToken;
         }
         if (!Utils::isUnset($request->description)) {
-            @$body['description'] = $request->description;
+            $body['description'] = $request->description;
         }
         if (!Utils::isUnset($request->level)) {
-            @$body['level'] = $request->level;
+            $body['level'] = $request->level;
         }
         if (!Utils::isUnset($request->pictureUrl)) {
-            @$body['pictureUrl'] = $request->pictureUrl;
+            $body['pictureUrl'] = $request->pictureUrl;
         }
         if (!Utils::isUnset($request->problemId)) {
-            @$body['problemId'] = $request->problemId;
+            $body['problemId'] = $request->problemId;
         }
         if (!Utils::isUnset($request->serviceId)) {
-            @$body['serviceId'] = $request->serviceId;
+            $body['serviceId'] = $request->serviceId;
         }
         if (!Utils::isUnset($request->status)) {
-            @$body['status'] = $request->status;
+            $body['status'] = $request->status;
         }
         $req = new OpenApiRequest([
             'headers' => $headers,
             'body'    => OpenApiUtilClient::parseToMap($body),
         ]);
+        $params = new Params([
+            'action'      => 'CreateProblemEffectionService',
+            'version'     => '2021-04-13',
+            'protocol'    => 'HTTPS',
+            'pathname'    => '/problem/process/effectionService/create',
+            'method'      => 'POST',
+            'authType'    => 'AK',
+            'style'       => 'ROA',
+            'reqBodyType' => 'json',
+            'bodyType'    => 'json',
+        ]);
 
-        return CreateProblemEffectionServiceResponse::fromMap($this->doROARequest('CreateProblemEffectionService', '2021-04-13', 'HTTPS', 'POST', 'AK', '/problem/process/effectionService/create', 'json', $req, $runtime));
+        return CreateProblemEffectionServiceResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
@@ -799,41 +929,52 @@ class GEMP extends OpenApiClient
         Utils::validateModel($request);
         $body = [];
         if (!Utils::isUnset($request->checkStandard)) {
-            @$body['checkStandard'] = $request->checkStandard;
+            $body['checkStandard'] = $request->checkStandard;
         }
         if (!Utils::isUnset($request->checkUserId)) {
-            @$body['checkUserId'] = $request->checkUserId;
+            $body['checkUserId'] = $request->checkUserId;
         }
         if (!Utils::isUnset($request->clientToken)) {
-            @$body['clientToken'] = $request->clientToken;
+            $body['clientToken'] = $request->clientToken;
         }
         if (!Utils::isUnset($request->content)) {
-            @$body['content'] = $request->content;
+            $body['content'] = $request->content;
         }
         if (!Utils::isUnset($request->directorId)) {
-            @$body['directorId'] = $request->directorId;
+            $body['directorId'] = $request->directorId;
         }
         if (!Utils::isUnset($request->planFinishTime)) {
-            @$body['planFinishTime'] = $request->planFinishTime;
+            $body['planFinishTime'] = $request->planFinishTime;
         }
         if (!Utils::isUnset($request->problemId)) {
-            @$body['problemId'] = $request->problemId;
+            $body['problemId'] = $request->problemId;
         }
         if (!Utils::isUnset($request->stalkerId)) {
-            @$body['stalkerId'] = $request->stalkerId;
+            $body['stalkerId'] = $request->stalkerId;
         }
         if (!Utils::isUnset($request->status)) {
-            @$body['status'] = $request->status;
+            $body['status'] = $request->status;
         }
         if (!Utils::isUnset($request->type)) {
-            @$body['type'] = $request->type;
+            $body['type'] = $request->type;
         }
         $req = new OpenApiRequest([
             'headers' => $headers,
             'body'    => OpenApiUtilClient::parseToMap($body),
         ]);
+        $params = new Params([
+            'action'      => 'CreateProblemMeasure',
+            'version'     => '2021-04-13',
+            'protocol'    => 'HTTPS',
+            'pathname'    => '/problem/improvement/measure/save',
+            'method'      => 'POST',
+            'authType'    => 'AK',
+            'style'       => 'ROA',
+            'reqBodyType' => 'json',
+            'bodyType'    => 'json',
+        ]);
 
-        return CreateProblemMeasureResponse::fromMap($this->doROARequest('CreateProblemMeasure', '2021-04-13', 'HTTPS', 'POST', 'AK', '/problem/improvement/measure/save', 'json', $req, $runtime));
+        return CreateProblemMeasureResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
@@ -861,20 +1002,31 @@ class GEMP extends OpenApiClient
         Utils::validateModel($request);
         $body = [];
         if (!Utils::isUnset($request->clientToken)) {
-            @$body['clientToken'] = $request->clientToken;
+            $body['clientToken'] = $request->clientToken;
         }
         if (!Utils::isUnset($request->description)) {
-            @$body['description'] = $request->description;
+            $body['description'] = $request->description;
         }
         if (!Utils::isUnset($request->problemId)) {
-            @$body['problemId'] = $request->problemId;
+            $body['problemId'] = $request->problemId;
         }
         $req = new OpenApiRequest([
             'headers' => $headers,
             'body'    => OpenApiUtilClient::parseToMap($body),
         ]);
+        $params = new Params([
+            'action'      => 'CreateProblemSubtotal',
+            'version'     => '2021-04-13',
+            'protocol'    => 'HTTPS',
+            'pathname'    => '/problem/save/subtotal',
+            'method'      => 'POST',
+            'authType'    => 'AK',
+            'style'       => 'ROA',
+            'reqBodyType' => 'json',
+            'bodyType'    => 'json',
+        ]);
 
-        return CreateProblemSubtotalResponse::fromMap($this->doROARequest('CreateProblemSubtotal', '2021-04-13', 'HTTPS', 'POST', 'AK', '/problem/save/subtotal', 'json', $req, $runtime));
+        return CreateProblemSubtotalResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
@@ -902,26 +1054,37 @@ class GEMP extends OpenApiClient
         Utils::validateModel($request);
         $body = [];
         if (!Utils::isUnset($request->clientToken)) {
-            @$body['clientToken'] = $request->clientToken;
+            $body['clientToken'] = $request->clientToken;
         }
         if (!Utils::isUnset($request->content)) {
-            @$body['content'] = $request->content;
+            $body['content'] = $request->content;
         }
         if (!Utils::isUnset($request->keyNode)) {
-            @$body['keyNode'] = $request->keyNode;
+            $body['keyNode'] = $request->keyNode;
         }
         if (!Utils::isUnset($request->problemId)) {
-            @$body['problemId'] = $request->problemId;
+            $body['problemId'] = $request->problemId;
         }
         if (!Utils::isUnset($request->time)) {
-            @$body['time'] = $request->time;
+            $body['time'] = $request->time;
         }
         $req = new OpenApiRequest([
             'headers' => $headers,
             'body'    => OpenApiUtilClient::parseToMap($body),
         ]);
+        $params = new Params([
+            'action'      => 'CreateProblemTimeline',
+            'version'     => '2021-04-13',
+            'protocol'    => 'HTTPS',
+            'pathname'    => '/problem/process/timeline/create',
+            'method'      => 'POST',
+            'authType'    => 'AK',
+            'style'       => 'ROA',
+            'reqBodyType' => 'json',
+            'bodyType'    => 'json',
+        ]);
 
-        return CreateProblemTimelineResponse::fromMap($this->doROARequest('CreateProblemTimeline', '2021-04-13', 'HTTPS', 'POST', 'AK', '/problem/process/timeline/create', 'json', $req, $runtime));
+        return CreateProblemTimelineResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
@@ -949,20 +1112,83 @@ class GEMP extends OpenApiClient
         Utils::validateModel($request);
         $body = [];
         if (!Utils::isUnset($request->clientToken)) {
-            @$body['clientToken'] = $request->clientToken;
+            $body['clientToken'] = $request->clientToken;
         }
         if (!Utils::isUnset($request->problemId)) {
-            @$body['problemId'] = $request->problemId;
+            $body['problemId'] = $request->problemId;
         }
         if (!Utils::isUnset($request->timelineNodes)) {
-            @$body['timelineNodes'] = $request->timelineNodes;
+            $body['timelineNodes'] = $request->timelineNodes;
         }
         $req = new OpenApiRequest([
             'headers' => $headers,
             'body'    => OpenApiUtilClient::parseToMap($body),
         ]);
+        $params = new Params([
+            'action'      => 'CreateProblemTimelines',
+            'version'     => '2021-04-13',
+            'protocol'    => 'HTTPS',
+            'pathname'    => '/problem/process/timeline/batchCreate',
+            'method'      => 'POST',
+            'authType'    => 'AK',
+            'style'       => 'ROA',
+            'reqBodyType' => 'json',
+            'bodyType'    => 'json',
+        ]);
 
-        return CreateProblemTimelinesResponse::fromMap($this->doROARequest('CreateProblemTimelines', '2021-04-13', 'HTTPS', 'POST', 'AK', '/problem/process/timeline/batchCreate', 'json', $req, $runtime));
+        return CreateProblemTimelinesResponse::fromMap($this->callApi($params, $req, $runtime));
+    }
+
+    /**
+     * @param CreateRichTextRequest $request
+     *
+     * @return CreateRichTextResponse
+     */
+    public function createRichText($request)
+    {
+        $runtime = new RuntimeOptions([]);
+        $headers = [];
+
+        return $this->createRichTextWithOptions($request, $headers, $runtime);
+    }
+
+    /**
+     * @param CreateRichTextRequest $request
+     * @param string[]              $headers
+     * @param RuntimeOptions        $runtime
+     *
+     * @return CreateRichTextResponse
+     */
+    public function createRichTextWithOptions($request, $headers, $runtime)
+    {
+        Utils::validateModel($request);
+        $body = [];
+        if (!Utils::isUnset($request->instanceId)) {
+            $body['instanceId'] = $request->instanceId;
+        }
+        if (!Utils::isUnset($request->instanceType)) {
+            $body['instanceType'] = $request->instanceType;
+        }
+        if (!Utils::isUnset($request->richText)) {
+            $body['richText'] = $request->richText;
+        }
+        $req = new OpenApiRequest([
+            'headers' => $headers,
+            'body'    => OpenApiUtilClient::parseToMap($body),
+        ]);
+        $params = new Params([
+            'action'      => 'CreateRichText',
+            'version'     => '2021-04-13',
+            'protocol'    => 'HTTPS',
+            'pathname'    => '/rich/create',
+            'method'      => 'POST',
+            'authType'    => 'AK',
+            'style'       => 'ROA',
+            'reqBodyType' => 'json',
+            'bodyType'    => 'json',
+        ]);
+
+        return CreateRichTextResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
@@ -990,53 +1216,67 @@ class GEMP extends OpenApiClient
         Utils::validateModel($request);
         $body = [];
         if (!Utils::isUnset($request->assignObjectId)) {
-            @$body['assignObjectId'] = $request->assignObjectId;
+            $body['assignObjectId'] = $request->assignObjectId;
         }
         if (!Utils::isUnset($request->assignObjectType)) {
-            @$body['assignObjectType'] = $request->assignObjectType;
+            $body['assignObjectType'] = $request->assignObjectType;
+        }
+        if (!Utils::isUnset($request->childRuleRelation)) {
+            $body['childRuleRelation'] = $request->childRuleRelation;
         }
         if (!Utils::isUnset($request->clientToken)) {
-            @$body['clientToken'] = $request->clientToken;
+            $body['clientToken'] = $request->clientToken;
         }
         if (!Utils::isUnset($request->effection)) {
-            @$body['effection'] = $request->effection;
+            $body['effection'] = $request->effection;
         }
         if (!Utils::isUnset($request->enableStatus)) {
-            @$body['enableStatus'] = $request->enableStatus;
+            $body['enableStatus'] = $request->enableStatus;
         }
         if (!Utils::isUnset($request->incidentLevel)) {
-            @$body['incidentLevel'] = $request->incidentLevel;
+            $body['incidentLevel'] = $request->incidentLevel;
         }
         if (!Utils::isUnset($request->matchCount)) {
-            @$body['matchCount'] = $request->matchCount;
+            $body['matchCount'] = $request->matchCount;
         }
         if (!Utils::isUnset($request->notifyChannels)) {
-            @$body['notifyChannels'] = $request->notifyChannels;
+            $body['notifyChannels'] = $request->notifyChannels;
         }
         if (!Utils::isUnset($request->relatedServiceId)) {
-            @$body['relatedServiceId'] = $request->relatedServiceId;
+            $body['relatedServiceId'] = $request->relatedServiceId;
         }
         if (!Utils::isUnset($request->routeChildRules)) {
-            @$body['routeChildRules'] = $request->routeChildRules;
+            $body['routeChildRules'] = $request->routeChildRules;
         }
         if (!Utils::isUnset($request->routeType)) {
-            @$body['routeType'] = $request->routeType;
+            $body['routeType'] = $request->routeType;
         }
         if (!Utils::isUnset($request->ruleName)) {
-            @$body['ruleName'] = $request->ruleName;
+            $body['ruleName'] = $request->ruleName;
         }
         if (!Utils::isUnset($request->timeWindow)) {
-            @$body['timeWindow'] = $request->timeWindow;
+            $body['timeWindow'] = $request->timeWindow;
         }
         if (!Utils::isUnset($request->timeWindowUnit)) {
-            @$body['timeWindowUnit'] = $request->timeWindowUnit;
+            $body['timeWindowUnit'] = $request->timeWindowUnit;
         }
         $req = new OpenApiRequest([
             'headers' => $headers,
             'body'    => OpenApiUtilClient::parseToMap($body),
         ]);
+        $params = new Params([
+            'action'      => 'CreateRouteRule',
+            'version'     => '2021-04-13',
+            'protocol'    => 'HTTPS',
+            'pathname'    => '/routeRule/save',
+            'method'      => 'POST',
+            'authType'    => 'AK',
+            'style'       => 'ROA',
+            'reqBodyType' => 'json',
+            'bodyType'    => 'json',
+        ]);
 
-        return CreateRouteRuleResponse::fromMap($this->doROARequest('CreateRouteRule', '2021-04-13', 'HTTPS', 'POST', 'AK', '/routeRule/save', 'json', $req, $runtime));
+        return CreateRouteRuleResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
@@ -1064,20 +1304,31 @@ class GEMP extends OpenApiClient
         Utils::validateModel($request);
         $body = [];
         if (!Utils::isUnset($request->clientToken)) {
-            @$body['clientToken'] = $request->clientToken;
+            $body['clientToken'] = $request->clientToken;
         }
         if (!Utils::isUnset($request->serviceDescription)) {
-            @$body['serviceDescription'] = $request->serviceDescription;
+            $body['serviceDescription'] = $request->serviceDescription;
         }
         if (!Utils::isUnset($request->serviceName)) {
-            @$body['serviceName'] = $request->serviceName;
+            $body['serviceName'] = $request->serviceName;
         }
         $req = new OpenApiRequest([
             'headers' => $headers,
             'body'    => OpenApiUtilClient::parseToMap($body),
         ]);
+        $params = new Params([
+            'action'      => 'CreateService',
+            'version'     => '2021-04-13',
+            'protocol'    => 'HTTPS',
+            'pathname'    => '/services/save',
+            'method'      => 'POST',
+            'authType'    => 'AK',
+            'style'       => 'ROA',
+            'reqBodyType' => 'json',
+            'bodyType'    => 'json',
+        ]);
 
-        return CreateServiceResponse::fromMap($this->doROARequest('CreateService', '2021-04-13', 'HTTPS', 'POST', 'AK', '/services/save', 'json', $req, $runtime));
+        return CreateServiceResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
@@ -1105,32 +1356,46 @@ class GEMP extends OpenApiClient
         Utils::validateModel($request);
         $body = [];
         if (!Utils::isUnset($request->clientToken)) {
-            @$body['clientToken'] = $request->clientToken;
+            $body['clientToken'] = $request->clientToken;
         }
         if (!Utils::isUnset($request->enableWebhook)) {
-            @$body['enableWebhook'] = $request->enableWebhook;
+            $body['enableWebhook'] = $request->enableWebhook;
+        }
+        if (!Utils::isUnset($request->monitorSourceTemplates)) {
+            $body['monitorSourceTemplates'] = $request->monitorSourceTemplates;
         }
         if (!Utils::isUnset($request->serviceGroupDescription)) {
-            @$body['serviceGroupDescription'] = $request->serviceGroupDescription;
+            $body['serviceGroupDescription'] = $request->serviceGroupDescription;
         }
         if (!Utils::isUnset($request->serviceGroupName)) {
-            @$body['serviceGroupName'] = $request->serviceGroupName;
+            $body['serviceGroupName'] = $request->serviceGroupName;
         }
         if (!Utils::isUnset($request->userIds)) {
-            @$body['userIds'] = $request->userIds;
+            $body['userIds'] = $request->userIds;
         }
         if (!Utils::isUnset($request->webhookLink)) {
-            @$body['webhookLink'] = $request->webhookLink;
+            $body['webhookLink'] = $request->webhookLink;
         }
         if (!Utils::isUnset($request->webhookType)) {
-            @$body['webhookType'] = $request->webhookType;
+            $body['webhookType'] = $request->webhookType;
         }
         $req = new OpenApiRequest([
             'headers' => $headers,
             'body'    => OpenApiUtilClient::parseToMap($body),
         ]);
+        $params = new Params([
+            'action'      => 'CreateServiceGroup',
+            'version'     => '2021-04-13',
+            'protocol'    => 'HTTPS',
+            'pathname'    => '/services/group/insert',
+            'method'      => 'POST',
+            'authType'    => 'AK',
+            'style'       => 'ROA',
+            'reqBodyType' => 'json',
+            'bodyType'    => 'json',
+        ]);
 
-        return CreateServiceGroupResponse::fromMap($this->doROARequest('CreateServiceGroup', '2021-04-13', 'HTTPS', 'POST', 'AK', '/services/group/insert', 'json', $req, $runtime));
+        return CreateServiceGroupResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
@@ -1158,26 +1423,37 @@ class GEMP extends OpenApiClient
         Utils::validateModel($request);
         $body = [];
         if (!Utils::isUnset($request->clientToken)) {
-            @$body['clientToken'] = $request->clientToken;
+            $body['clientToken'] = $request->clientToken;
         }
         if (!Utils::isUnset($request->fastScheduling)) {
-            @$body['fastScheduling'] = $request->fastScheduling;
+            $body['fastScheduling'] = $request->fastScheduling;
         }
         if (!Utils::isUnset($request->fineScheduling)) {
-            @$body['fineScheduling'] = $request->fineScheduling;
+            $body['fineScheduling'] = $request->fineScheduling;
         }
         if (!Utils::isUnset($request->schedulingWay)) {
-            @$body['schedulingWay'] = $request->schedulingWay;
+            $body['schedulingWay'] = $request->schedulingWay;
         }
         if (!Utils::isUnset($request->serviceGroupId)) {
-            @$body['serviceGroupId'] = $request->serviceGroupId;
+            $body['serviceGroupId'] = $request->serviceGroupId;
         }
         $req = new OpenApiRequest([
             'headers' => $headers,
             'body'    => OpenApiUtilClient::parseToMap($body),
         ]);
+        $params = new Params([
+            'action'      => 'CreateServiceGroupScheduling',
+            'version'     => '2021-04-13',
+            'protocol'    => 'HTTPS',
+            'pathname'    => '/services/group/scheduling/save',
+            'method'      => 'POST',
+            'authType'    => 'AK',
+            'style'       => 'ROA',
+            'reqBodyType' => 'json',
+            'bodyType'    => 'json',
+        ]);
 
-        return CreateServiceGroupSchedulingResponse::fromMap($this->doROARequest('CreateServiceGroupScheduling', '2021-04-13', 'HTTPS', 'POST', 'AK', '/services/group/scheduling/save', 'json', $req, $runtime));
+        return CreateServiceGroupSchedulingResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
@@ -1205,44 +1481,55 @@ class GEMP extends OpenApiClient
         Utils::validateModel($request);
         $body = [];
         if (!Utils::isUnset($request->clientToken)) {
-            @$body['clientToken'] = $request->clientToken;
+            $body['clientToken'] = $request->clientToken;
         }
         if (!Utils::isUnset($request->endTime)) {
-            @$body['endTime'] = $request->endTime;
+            $body['endTime'] = $request->endTime;
         }
         if (!Utils::isUnset($request->expiredType)) {
-            @$body['expiredType'] = $request->expiredType;
+            $body['expiredType'] = $request->expiredType;
         }
         if (!Utils::isUnset($request->notifyObjectList)) {
-            @$body['notifyObjectList'] = $request->notifyObjectList;
+            $body['notifyObjectList'] = $request->notifyObjectList;
         }
         if (!Utils::isUnset($request->notifyObjectType)) {
-            @$body['notifyObjectType'] = $request->notifyObjectType;
+            $body['notifyObjectType'] = $request->notifyObjectType;
         }
         if (!Utils::isUnset($request->notifyStrategyList)) {
-            @$body['notifyStrategyList'] = $request->notifyStrategyList;
+            $body['notifyStrategyList'] = $request->notifyStrategyList;
         }
         if (!Utils::isUnset($request->period)) {
-            @$body['period'] = $request->period;
+            $body['period'] = $request->period;
         }
         if (!Utils::isUnset($request->scope)) {
-            @$body['scope'] = $request->scope;
+            $body['scope'] = $request->scope;
         }
         if (!Utils::isUnset($request->scopeObjectList)) {
-            @$body['scopeObjectList'] = $request->scopeObjectList;
+            $body['scopeObjectList'] = $request->scopeObjectList;
         }
         if (!Utils::isUnset($request->startTime)) {
-            @$body['startTime'] = $request->startTime;
+            $body['startTime'] = $request->startTime;
         }
         if (!Utils::isUnset($request->subscriptionTitle)) {
-            @$body['subscriptionTitle'] = $request->subscriptionTitle;
+            $body['subscriptionTitle'] = $request->subscriptionTitle;
         }
         $req = new OpenApiRequest([
             'headers' => $headers,
             'body'    => OpenApiUtilClient::parseToMap($body),
         ]);
+        $params = new Params([
+            'action'      => 'CreateSubscription',
+            'version'     => '2021-04-13',
+            'protocol'    => 'HTTPS',
+            'pathname'    => '/notify/subscription/create',
+            'method'      => 'POST',
+            'authType'    => 'AK',
+            'style'       => 'ROA',
+            'reqBodyType' => 'json',
+            'bodyType'    => 'json',
+        ]);
 
-        return CreateSubscriptionResponse::fromMap($this->doROARequest('CreateSubscription', '2021-04-13', 'HTTPS', 'POST', 'AK', '/notify/subscription/create', 'json', $req, $runtime));
+        return CreateSubscriptionResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
@@ -1270,17 +1557,28 @@ class GEMP extends OpenApiClient
         Utils::validateModel($request);
         $body = [];
         if (!Utils::isUnset($request->channel)) {
-            @$body['channel'] = $request->channel;
+            $body['channel'] = $request->channel;
         }
         if (!Utils::isUnset($request->clientToken)) {
-            @$body['clientToken'] = $request->clientToken;
+            $body['clientToken'] = $request->clientToken;
         }
         $req = new OpenApiRequest([
             'headers' => $headers,
             'body'    => OpenApiUtilClient::parseToMap($body),
         ]);
+        $params = new Params([
+            'action'      => 'CreateTenantApplication',
+            'version'     => '2021-04-13',
+            'protocol'    => 'HTTPS',
+            'pathname'    => '/mobileApp/create',
+            'method'      => 'POST',
+            'authType'    => 'AK',
+            'style'       => 'ROA',
+            'reqBodyType' => 'json',
+            'bodyType'    => 'json',
+        ]);
 
-        return CreateTenantApplicationResponse::fromMap($this->doROARequest('CreateTenantApplication', '2021-04-13', 'HTTPS', 'POST', 'AK', '/mobileApp/create', 'json', $req, $runtime));
+        return CreateTenantApplicationResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
@@ -1308,26 +1606,37 @@ class GEMP extends OpenApiClient
         Utils::validateModel($request);
         $body = [];
         if (!Utils::isUnset($request->clientToken)) {
-            @$body['clientToken'] = $request->clientToken;
+            $body['clientToken'] = $request->clientToken;
         }
         if (!Utils::isUnset($request->email)) {
-            @$body['email'] = $request->email;
+            $body['email'] = $request->email;
         }
         if (!Utils::isUnset($request->phone)) {
-            @$body['phone'] = $request->phone;
+            $body['phone'] = $request->phone;
         }
         if (!Utils::isUnset($request->ramId)) {
-            @$body['ramId'] = $request->ramId;
+            $body['ramId'] = $request->ramId;
         }
         if (!Utils::isUnset($request->username)) {
-            @$body['username'] = $request->username;
+            $body['username'] = $request->username;
         }
         $req = new OpenApiRequest([
             'headers' => $headers,
             'body'    => OpenApiUtilClient::parseToMap($body),
         ]);
+        $params = new Params([
+            'action'      => 'CreateUser',
+            'version'     => '2021-04-13',
+            'protocol'    => 'HTTPS',
+            'pathname'    => '/user/create',
+            'method'      => 'POST',
+            'authType'    => 'AK',
+            'style'       => 'ROA',
+            'reqBodyType' => 'json',
+            'bodyType'    => 'json',
+        ]);
 
-        return CreateUserResponse::fromMap($this->doROARequest('CreateUser', '2021-04-13', 'HTTPS', 'POST', 'AK', '/user/create', 'json', $req, $runtime));
+        return CreateUserResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
@@ -1355,17 +1664,28 @@ class GEMP extends OpenApiClient
         Utils::validateModel($request);
         $body = [];
         if (!Utils::isUnset($request->clientToken)) {
-            @$body['clientToken'] = $request->clientToken;
+            $body['clientToken'] = $request->clientToken;
         }
         if (!Utils::isUnset($request->escalationPlanId)) {
-            @$body['escalationPlanId'] = $request->escalationPlanId;
+            $body['escalationPlanId'] = $request->escalationPlanId;
         }
         $req = new OpenApiRequest([
             'headers' => $headers,
             'body'    => OpenApiUtilClient::parseToMap($body),
         ]);
+        $params = new Params([
+            'action'      => 'DeleteEscalationPlan',
+            'version'     => '2021-04-13',
+            'protocol'    => 'HTTPS',
+            'pathname'    => '/escalationPlan/delete',
+            'method'      => 'POST',
+            'authType'    => 'AK',
+            'style'       => 'ROA',
+            'reqBodyType' => 'json',
+            'bodyType'    => 'json',
+        ]);
 
-        return DeleteEscalationPlanResponse::fromMap($this->doROARequest('DeleteEscalationPlan', '2021-04-13', 'HTTPS', 'POST', 'AK', '/escalationPlan/delete', 'json', $req, $runtime));
+        return DeleteEscalationPlanResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
@@ -1393,17 +1713,28 @@ class GEMP extends OpenApiClient
         Utils::validateModel($request);
         $body = [];
         if (!Utils::isUnset($request->clientToken)) {
-            @$body['clientToken'] = $request->clientToken;
+            $body['clientToken'] = $request->clientToken;
         }
         if (!Utils::isUnset($request->incidentId)) {
-            @$body['incidentId'] = $request->incidentId;
+            $body['incidentId'] = $request->incidentId;
         }
         $req = new OpenApiRequest([
             'headers' => $headers,
             'body'    => OpenApiUtilClient::parseToMap($body),
         ]);
+        $params = new Params([
+            'action'      => 'DeleteIncident',
+            'version'     => '2021-04-13',
+            'protocol'    => 'HTTPS',
+            'pathname'    => '/incident/delete',
+            'method'      => 'POST',
+            'authType'    => 'AK',
+            'style'       => 'ROA',
+            'reqBodyType' => 'json',
+            'bodyType'    => 'json',
+        ]);
 
-        return DeleteIncidentResponse::fromMap($this->doROARequest('DeleteIncident', '2021-04-13', 'HTTPS', 'POST', 'AK', '/incident/delete', 'json', $req, $runtime));
+        return DeleteIncidentResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
@@ -1431,17 +1762,28 @@ class GEMP extends OpenApiClient
         Utils::validateModel($request);
         $body = [];
         if (!Utils::isUnset($request->clientToken)) {
-            @$body['clientToken'] = $request->clientToken;
+            $body['clientToken'] = $request->clientToken;
         }
         if (!Utils::isUnset($request->integrationConfigId)) {
-            @$body['integrationConfigId'] = $request->integrationConfigId;
+            $body['integrationConfigId'] = $request->integrationConfigId;
         }
         $req = new OpenApiRequest([
             'headers' => $headers,
             'body'    => OpenApiUtilClient::parseToMap($body),
         ]);
+        $params = new Params([
+            'action'      => 'DeleteIntegrationConfig',
+            'version'     => '2021-04-13',
+            'protocol'    => 'HTTPS',
+            'pathname'    => '/integrationConfig/delete',
+            'method'      => 'POST',
+            'authType'    => 'AK',
+            'style'       => 'ROA',
+            'reqBodyType' => 'json',
+            'bodyType'    => 'json',
+        ]);
 
-        return DeleteIntegrationConfigResponse::fromMap($this->doROARequest('DeleteIntegrationConfig', '2021-04-13', 'HTTPS', 'POST', 'AK', '/integrationConfig/delete', 'json', $req, $runtime));
+        return DeleteIntegrationConfigResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
@@ -1469,17 +1811,28 @@ class GEMP extends OpenApiClient
         Utils::validateModel($request);
         $body = [];
         if (!Utils::isUnset($request->clientToken)) {
-            @$body['clientToken'] = $request->clientToken;
+            $body['clientToken'] = $request->clientToken;
         }
         if (!Utils::isUnset($request->problemId)) {
-            @$body['problemId'] = $request->problemId;
+            $body['problemId'] = $request->problemId;
         }
         $req = new OpenApiRequest([
             'headers' => $headers,
             'body'    => OpenApiUtilClient::parseToMap($body),
         ]);
+        $params = new Params([
+            'action'      => 'DeleteProblem',
+            'version'     => '2021-04-13',
+            'protocol'    => 'HTTPS',
+            'pathname'    => '/problem/delete',
+            'method'      => 'POST',
+            'authType'    => 'AK',
+            'style'       => 'ROA',
+            'reqBodyType' => 'json',
+            'bodyType'    => 'json',
+        ]);
 
-        return DeleteProblemResponse::fromMap($this->doROARequest('DeleteProblem', '2021-04-13', 'HTTPS', 'POST', 'AK', '/problem/delete', 'json', $req, $runtime));
+        return DeleteProblemResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
@@ -1507,20 +1860,31 @@ class GEMP extends OpenApiClient
         Utils::validateModel($request);
         $body = [];
         if (!Utils::isUnset($request->clientToken)) {
-            @$body['clientToken'] = $request->clientToken;
+            $body['clientToken'] = $request->clientToken;
         }
         if (!Utils::isUnset($request->effectionServiceId)) {
-            @$body['effectionServiceId'] = $request->effectionServiceId;
+            $body['effectionServiceId'] = $request->effectionServiceId;
         }
         if (!Utils::isUnset($request->problemId)) {
-            @$body['problemId'] = $request->problemId;
+            $body['problemId'] = $request->problemId;
         }
         $req = new OpenApiRequest([
             'headers' => $headers,
             'body'    => OpenApiUtilClient::parseToMap($body),
         ]);
+        $params = new Params([
+            'action'      => 'DeleteProblemEffectionService',
+            'version'     => '2021-04-13',
+            'protocol'    => 'HTTPS',
+            'pathname'    => '/problem/process/effectionService/delete',
+            'method'      => 'POST',
+            'authType'    => 'AK',
+            'style'       => 'ROA',
+            'reqBodyType' => 'json',
+            'bodyType'    => 'json',
+        ]);
 
-        return DeleteProblemEffectionServiceResponse::fromMap($this->doROARequest('DeleteProblemEffectionService', '2021-04-13', 'HTTPS', 'POST', 'AK', '/problem/process/effectionService/delete', 'json', $req, $runtime));
+        return DeleteProblemEffectionServiceResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
@@ -1548,20 +1912,31 @@ class GEMP extends OpenApiClient
         Utils::validateModel($request);
         $body = [];
         if (!Utils::isUnset($request->clientToken)) {
-            @$body['clientToken'] = $request->clientToken;
+            $body['clientToken'] = $request->clientToken;
         }
         if (!Utils::isUnset($request->measureId)) {
-            @$body['measureId'] = $request->measureId;
+            $body['measureId'] = $request->measureId;
         }
         if (!Utils::isUnset($request->problemId)) {
-            @$body['problemId'] = $request->problemId;
+            $body['problemId'] = $request->problemId;
         }
         $req = new OpenApiRequest([
             'headers' => $headers,
             'body'    => OpenApiUtilClient::parseToMap($body),
         ]);
+        $params = new Params([
+            'action'      => 'DeleteProblemMeasure',
+            'version'     => '2021-04-13',
+            'protocol'    => 'HTTPS',
+            'pathname'    => '/problem/improvement/measure/delete',
+            'method'      => 'POST',
+            'authType'    => 'AK',
+            'style'       => 'ROA',
+            'reqBodyType' => 'json',
+            'bodyType'    => 'json',
+        ]);
 
-        return DeleteProblemMeasureResponse::fromMap($this->doROARequest('DeleteProblemMeasure', '2021-04-13', 'HTTPS', 'POST', 'AK', '/problem/improvement/measure/delete', 'json', $req, $runtime));
+        return DeleteProblemMeasureResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
@@ -1589,20 +1964,31 @@ class GEMP extends OpenApiClient
         Utils::validateModel($request);
         $body = [];
         if (!Utils::isUnset($request->clientToken)) {
-            @$body['clientToken'] = $request->clientToken;
+            $body['clientToken'] = $request->clientToken;
         }
         if (!Utils::isUnset($request->problemId)) {
-            @$body['problemId'] = $request->problemId;
+            $body['problemId'] = $request->problemId;
         }
         if (!Utils::isUnset($request->problemTimelineId)) {
-            @$body['problemTimelineId'] = $request->problemTimelineId;
+            $body['problemTimelineId'] = $request->problemTimelineId;
         }
         $req = new OpenApiRequest([
             'headers' => $headers,
             'body'    => OpenApiUtilClient::parseToMap($body),
         ]);
+        $params = new Params([
+            'action'      => 'DeleteProblemTimeline',
+            'version'     => '2021-04-13',
+            'protocol'    => 'HTTPS',
+            'pathname'    => '/problem/process/timeline/delete',
+            'method'      => 'POST',
+            'authType'    => 'AK',
+            'style'       => 'ROA',
+            'reqBodyType' => 'json',
+            'bodyType'    => 'json',
+        ]);
 
-        return DeleteProblemTimelineResponse::fromMap($this->doROARequest('DeleteProblemTimeline', '2021-04-13', 'HTTPS', 'POST', 'AK', '/problem/process/timeline/delete', 'json', $req, $runtime));
+        return DeleteProblemTimelineResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
@@ -1630,17 +2016,28 @@ class GEMP extends OpenApiClient
         Utils::validateModel($request);
         $body = [];
         if (!Utils::isUnset($request->clientToken)) {
-            @$body['clientToken'] = $request->clientToken;
+            $body['clientToken'] = $request->clientToken;
         }
         if (!Utils::isUnset($request->routeRuleId)) {
-            @$body['routeRuleId'] = $request->routeRuleId;
+            $body['routeRuleId'] = $request->routeRuleId;
         }
         $req = new OpenApiRequest([
             'headers' => $headers,
             'body'    => OpenApiUtilClient::parseToMap($body),
         ]);
+        $params = new Params([
+            'action'      => 'DeleteRouteRule',
+            'version'     => '2021-04-13',
+            'protocol'    => 'HTTPS',
+            'pathname'    => '/routeRule/delete',
+            'method'      => 'POST',
+            'authType'    => 'AK',
+            'style'       => 'ROA',
+            'reqBodyType' => 'json',
+            'bodyType'    => 'json',
+        ]);
 
-        return DeleteRouteRuleResponse::fromMap($this->doROARequest('DeleteRouteRule', '2021-04-13', 'HTTPS', 'POST', 'AK', '/routeRule/delete', 'json', $req, $runtime));
+        return DeleteRouteRuleResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
@@ -1668,17 +2065,28 @@ class GEMP extends OpenApiClient
         Utils::validateModel($request);
         $body = [];
         if (!Utils::isUnset($request->clientToken)) {
-            @$body['clientToken'] = $request->clientToken;
+            $body['clientToken'] = $request->clientToken;
         }
         if (!Utils::isUnset($request->serviceId)) {
-            @$body['serviceId'] = $request->serviceId;
+            $body['serviceId'] = $request->serviceId;
         }
         $req = new OpenApiRequest([
             'headers' => $headers,
             'body'    => OpenApiUtilClient::parseToMap($body),
         ]);
+        $params = new Params([
+            'action'      => 'DeleteService',
+            'version'     => '2021-04-13',
+            'protocol'    => 'HTTPS',
+            'pathname'    => '/services/delete',
+            'method'      => 'POST',
+            'authType'    => 'AK',
+            'style'       => 'ROA',
+            'reqBodyType' => 'json',
+            'bodyType'    => 'json',
+        ]);
 
-        return DeleteServiceResponse::fromMap($this->doROARequest('DeleteService', '2021-04-13', 'HTTPS', 'POST', 'AK', '/services/delete', 'json', $req, $runtime));
+        return DeleteServiceResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
@@ -1706,17 +2114,28 @@ class GEMP extends OpenApiClient
         Utils::validateModel($request);
         $body = [];
         if (!Utils::isUnset($request->clientToken)) {
-            @$body['clientToken'] = $request->clientToken;
+            $body['clientToken'] = $request->clientToken;
         }
         if (!Utils::isUnset($request->serviceGroupId)) {
-            @$body['serviceGroupId'] = $request->serviceGroupId;
+            $body['serviceGroupId'] = $request->serviceGroupId;
         }
         $req = new OpenApiRequest([
             'headers' => $headers,
             'body'    => OpenApiUtilClient::parseToMap($body),
         ]);
+        $params = new Params([
+            'action'      => 'DeleteServiceGroup',
+            'version'     => '2021-04-13',
+            'protocol'    => 'HTTPS',
+            'pathname'    => '/services/group/delete',
+            'method'      => 'POST',
+            'authType'    => 'AK',
+            'style'       => 'ROA',
+            'reqBodyType' => 'json',
+            'bodyType'    => 'json',
+        ]);
 
-        return DeleteServiceGroupResponse::fromMap($this->doROARequest('DeleteServiceGroup', '2021-04-13', 'HTTPS', 'POST', 'AK', '/services/group/delete', 'json', $req, $runtime));
+        return DeleteServiceGroupResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
@@ -1744,26 +2163,37 @@ class GEMP extends OpenApiClient
         Utils::validateModel($request);
         $body = [];
         if (!Utils::isUnset($request->clientToken)) {
-            @$body['clientToken'] = $request->clientToken;
+            $body['clientToken'] = $request->clientToken;
         }
         if (!Utils::isUnset($request->newUserId)) {
-            @$body['newUserId'] = $request->newUserId;
+            $body['newUserId'] = $request->newUserId;
         }
         if (!Utils::isUnset($request->oldUserId)) {
-            @$body['oldUserId'] = $request->oldUserId;
+            $body['oldUserId'] = $request->oldUserId;
         }
         if (!Utils::isUnset($request->removeUser)) {
-            @$body['removeUser'] = $request->removeUser;
+            $body['removeUser'] = $request->removeUser;
         }
         if (!Utils::isUnset($request->serviceGroupId)) {
-            @$body['serviceGroupId'] = $request->serviceGroupId;
+            $body['serviceGroupId'] = $request->serviceGroupId;
         }
         $req = new OpenApiRequest([
             'headers' => $headers,
             'body'    => OpenApiUtilClient::parseToMap($body),
         ]);
+        $params = new Params([
+            'action'      => 'DeleteServiceGroupUser',
+            'version'     => '2021-04-13',
+            'protocol'    => 'HTTPS',
+            'pathname'    => '/services/group/deleteServiceGroupUser',
+            'method'      => 'POST',
+            'authType'    => 'AK',
+            'style'       => 'ROA',
+            'reqBodyType' => 'json',
+            'bodyType'    => 'json',
+        ]);
 
-        return DeleteServiceGroupUserResponse::fromMap($this->doROARequest('DeleteServiceGroupUser', '2021-04-13', 'HTTPS', 'POST', 'AK', '/services/group/deleteServiceGroupUser', 'json', $req, $runtime));
+        return DeleteServiceGroupUserResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
@@ -1791,14 +2221,25 @@ class GEMP extends OpenApiClient
         Utils::validateModel($request);
         $body = [];
         if (!Utils::isUnset($request->subscriptionId)) {
-            @$body['subscriptionId'] = $request->subscriptionId;
+            $body['subscriptionId'] = $request->subscriptionId;
         }
         $req = new OpenApiRequest([
             'headers' => $headers,
             'body'    => OpenApiUtilClient::parseToMap($body),
         ]);
+        $params = new Params([
+            'action'      => 'DeleteSubscription',
+            'version'     => '2021-04-13',
+            'protocol'    => 'HTTPS',
+            'pathname'    => '/notify/subscription/delete',
+            'method'      => 'POST',
+            'authType'    => 'AK',
+            'style'       => 'ROA',
+            'reqBodyType' => 'json',
+            'bodyType'    => 'json',
+        ]);
 
-        return DeleteSubscriptionResponse::fromMap($this->doROARequest('DeleteSubscription', '2021-04-13', 'HTTPS', 'POST', 'AK', '/notify/subscription/delete', 'json', $req, $runtime));
+        return DeleteSubscriptionResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
@@ -1826,17 +2267,28 @@ class GEMP extends OpenApiClient
         Utils::validateModel($request);
         $body = [];
         if (!Utils::isUnset($request->clientToken)) {
-            @$body['clientToken'] = $request->clientToken;
+            $body['clientToken'] = $request->clientToken;
         }
         if (!Utils::isUnset($request->userId)) {
-            @$body['userId'] = $request->userId;
+            $body['userId'] = $request->userId;
         }
         $req = new OpenApiRequest([
             'headers' => $headers,
             'body'    => OpenApiUtilClient::parseToMap($body),
         ]);
+        $params = new Params([
+            'action'      => 'DeleteUser',
+            'version'     => '2021-04-13',
+            'protocol'    => 'HTTPS',
+            'pathname'    => '/user/delete',
+            'method'      => 'POST',
+            'authType'    => 'AK',
+            'style'       => 'ROA',
+            'reqBodyType' => 'json',
+            'bodyType'    => 'json',
+        ]);
 
-        return DeleteUserResponse::fromMap($this->doROARequest('DeleteUser', '2021-04-13', 'HTTPS', 'POST', 'AK', '/user/delete', 'json', $req, $runtime));
+        return DeleteUserResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
@@ -1864,20 +2316,31 @@ class GEMP extends OpenApiClient
         Utils::validateModel($request);
         $body = [];
         if (!Utils::isUnset($request->assignUserId)) {
-            @$body['assignUserId'] = $request->assignUserId;
+            $body['assignUserId'] = $request->assignUserId;
         }
         if (!Utils::isUnset($request->clientToken)) {
-            @$body['clientToken'] = $request->clientToken;
+            $body['clientToken'] = $request->clientToken;
         }
         if (!Utils::isUnset($request->incidentId)) {
-            @$body['incidentId'] = $request->incidentId;
+            $body['incidentId'] = $request->incidentId;
         }
         $req = new OpenApiRequest([
             'headers' => $headers,
             'body'    => OpenApiUtilClient::parseToMap($body),
         ]);
+        $params = new Params([
+            'action'      => 'DeliverIncident',
+            'version'     => '2021-04-13',
+            'protocol'    => 'HTTPS',
+            'pathname'    => '/incident/deliver',
+            'method'      => 'POST',
+            'authType'    => 'AK',
+            'style'       => 'ROA',
+            'reqBodyType' => 'json',
+            'bodyType'    => 'json',
+        ]);
 
-        return DeliverIncidentResponse::fromMap($this->doROARequest('DeliverIncident', '2021-04-13', 'HTTPS', 'POST', 'AK', '/incident/deliver', 'json', $req, $runtime));
+        return DeliverIncidentResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
@@ -1905,17 +2368,28 @@ class GEMP extends OpenApiClient
         Utils::validateModel($request);
         $body = [];
         if (!Utils::isUnset($request->clientToken)) {
-            @$body['clientToken'] = $request->clientToken;
+            $body['clientToken'] = $request->clientToken;
         }
         if (!Utils::isUnset($request->escalationPlanId)) {
-            @$body['escalationPlanId'] = $request->escalationPlanId;
+            $body['escalationPlanId'] = $request->escalationPlanId;
         }
         $req = new OpenApiRequest([
             'headers' => $headers,
             'body'    => OpenApiUtilClient::parseToMap($body),
         ]);
+        $params = new Params([
+            'action'      => 'DisableEscalationPlan',
+            'version'     => '2021-04-13',
+            'protocol'    => 'HTTPS',
+            'pathname'    => '/escalationPlan/disable',
+            'method'      => 'POST',
+            'authType'    => 'AK',
+            'style'       => 'ROA',
+            'reqBodyType' => 'json',
+            'bodyType'    => 'json',
+        ]);
 
-        return DisableEscalationPlanResponse::fromMap($this->doROARequest('DisableEscalationPlan', '2021-04-13', 'HTTPS', 'POST', 'AK', '/escalationPlan/disable', 'json', $req, $runtime));
+        return DisableEscalationPlanResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
@@ -1943,17 +2417,28 @@ class GEMP extends OpenApiClient
         Utils::validateModel($request);
         $body = [];
         if (!Utils::isUnset($request->clientToken)) {
-            @$body['clientToken'] = $request->clientToken;
+            $body['clientToken'] = $request->clientToken;
         }
         if (!Utils::isUnset($request->integrationConfigId)) {
-            @$body['integrationConfigId'] = $request->integrationConfigId;
+            $body['integrationConfigId'] = $request->integrationConfigId;
         }
         $req = new OpenApiRequest([
             'headers' => $headers,
             'body'    => OpenApiUtilClient::parseToMap($body),
         ]);
+        $params = new Params([
+            'action'      => 'DisableIntegrationConfig',
+            'version'     => '2021-04-13',
+            'protocol'    => 'HTTPS',
+            'pathname'    => '/integrationConfig/disable',
+            'method'      => 'POST',
+            'authType'    => 'AK',
+            'style'       => 'ROA',
+            'reqBodyType' => 'json',
+            'bodyType'    => 'json',
+        ]);
 
-        return DisableIntegrationConfigResponse::fromMap($this->doROARequest('DisableIntegrationConfig', '2021-04-13', 'HTTPS', 'POST', 'AK', '/integrationConfig/disable', 'json', $req, $runtime));
+        return DisableIntegrationConfigResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
@@ -1981,17 +2466,28 @@ class GEMP extends OpenApiClient
         Utils::validateModel($request);
         $body = [];
         if (!Utils::isUnset($request->clientToken)) {
-            @$body['clientToken'] = $request->clientToken;
+            $body['clientToken'] = $request->clientToken;
         }
         if (!Utils::isUnset($request->routeRuleId)) {
-            @$body['routeRuleId'] = $request->routeRuleId;
+            $body['routeRuleId'] = $request->routeRuleId;
         }
         $req = new OpenApiRequest([
             'headers' => $headers,
             'body'    => OpenApiUtilClient::parseToMap($body),
         ]);
+        $params = new Params([
+            'action'      => 'DisableRouteRule',
+            'version'     => '2021-04-13',
+            'protocol'    => 'HTTPS',
+            'pathname'    => '/routeRule/disable',
+            'method'      => 'POST',
+            'authType'    => 'AK',
+            'style'       => 'ROA',
+            'reqBodyType' => 'json',
+            'bodyType'    => 'json',
+        ]);
 
-        return DisableRouteRuleResponse::fromMap($this->doROARequest('DisableRouteRule', '2021-04-13', 'HTTPS', 'POST', 'AK', '/routeRule/disable', 'json', $req, $runtime));
+        return DisableRouteRuleResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
@@ -2019,17 +2515,28 @@ class GEMP extends OpenApiClient
         Utils::validateModel($request);
         $body = [];
         if (!Utils::isUnset($request->clientToken)) {
-            @$body['clientToken'] = $request->clientToken;
+            $body['clientToken'] = $request->clientToken;
         }
         if (!Utils::isUnset($request->serviceGroupId)) {
-            @$body['serviceGroupId'] = $request->serviceGroupId;
+            $body['serviceGroupId'] = $request->serviceGroupId;
         }
         $req = new OpenApiRequest([
             'headers' => $headers,
             'body'    => OpenApiUtilClient::parseToMap($body),
         ]);
+        $params = new Params([
+            'action'      => 'DisableServiceGroupWebhook',
+            'version'     => '2021-04-13',
+            'protocol'    => 'HTTPS',
+            'pathname'    => '/services/group/disableWebhook',
+            'method'      => 'POST',
+            'authType'    => 'AK',
+            'style'       => 'ROA',
+            'reqBodyType' => 'json',
+            'bodyType'    => 'json',
+        ]);
 
-        return DisableServiceGroupWebhookResponse::fromMap($this->doROARequest('DisableServiceGroupWebhook', '2021-04-13', 'HTTPS', 'POST', 'AK', '/services/group/disableWebhook', 'json', $req, $runtime));
+        return DisableServiceGroupWebhookResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
@@ -2057,14 +2564,25 @@ class GEMP extends OpenApiClient
         Utils::validateModel($request);
         $body = [];
         if (!Utils::isUnset($request->subscriptionId)) {
-            @$body['subscriptionId'] = $request->subscriptionId;
+            $body['subscriptionId'] = $request->subscriptionId;
         }
         $req = new OpenApiRequest([
             'headers' => $headers,
             'body'    => OpenApiUtilClient::parseToMap($body),
         ]);
+        $params = new Params([
+            'action'      => 'DisableSubscription',
+            'version'     => '2021-04-13',
+            'protocol'    => 'HTTPS',
+            'pathname'    => '/notify/subscription/doDisable',
+            'method'      => 'POST',
+            'authType'    => 'AK',
+            'style'       => 'ROA',
+            'reqBodyType' => 'json',
+            'bodyType'    => 'json',
+        ]);
 
-        return DisableSubscriptionResponse::fromMap($this->doROARequest('DisableSubscription', '2021-04-13', 'HTTPS', 'POST', 'AK', '/notify/subscription/doDisable', 'json', $req, $runtime));
+        return DisableSubscriptionResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
@@ -2092,17 +2610,28 @@ class GEMP extends OpenApiClient
         Utils::validateModel($request);
         $body = [];
         if (!Utils::isUnset($request->clientToken)) {
-            @$body['clientToken'] = $request->clientToken;
+            $body['clientToken'] = $request->clientToken;
         }
         if (!Utils::isUnset($request->escalationPlanId)) {
-            @$body['escalationPlanId'] = $request->escalationPlanId;
+            $body['escalationPlanId'] = $request->escalationPlanId;
         }
         $req = new OpenApiRequest([
             'headers' => $headers,
             'body'    => OpenApiUtilClient::parseToMap($body),
         ]);
+        $params = new Params([
+            'action'      => 'EnableEscalationPlan',
+            'version'     => '2021-04-13',
+            'protocol'    => 'HTTPS',
+            'pathname'    => '/escalationPlan/enable',
+            'method'      => 'POST',
+            'authType'    => 'AK',
+            'style'       => 'ROA',
+            'reqBodyType' => 'json',
+            'bodyType'    => 'json',
+        ]);
 
-        return EnableEscalationPlanResponse::fromMap($this->doROARequest('EnableEscalationPlan', '2021-04-13', 'HTTPS', 'POST', 'AK', '/escalationPlan/enable', 'json', $req, $runtime));
+        return EnableEscalationPlanResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
@@ -2130,17 +2659,28 @@ class GEMP extends OpenApiClient
         Utils::validateModel($request);
         $body = [];
         if (!Utils::isUnset($request->clientToken)) {
-            @$body['clientToken'] = $request->clientToken;
+            $body['clientToken'] = $request->clientToken;
         }
         if (!Utils::isUnset($request->integrationConfigId)) {
-            @$body['integrationConfigId'] = $request->integrationConfigId;
+            $body['integrationConfigId'] = $request->integrationConfigId;
         }
         $req = new OpenApiRequest([
             'headers' => $headers,
             'body'    => OpenApiUtilClient::parseToMap($body),
         ]);
+        $params = new Params([
+            'action'      => 'EnableIntegrationConfig',
+            'version'     => '2021-04-13',
+            'protocol'    => 'HTTPS',
+            'pathname'    => '/integrationConfig/enable',
+            'method'      => 'POST',
+            'authType'    => 'AK',
+            'style'       => 'ROA',
+            'reqBodyType' => 'json',
+            'bodyType'    => 'json',
+        ]);
 
-        return EnableIntegrationConfigResponse::fromMap($this->doROARequest('EnableIntegrationConfig', '2021-04-13', 'HTTPS', 'POST', 'AK', '/integrationConfig/enable', 'json', $req, $runtime));
+        return EnableIntegrationConfigResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
@@ -2168,17 +2708,28 @@ class GEMP extends OpenApiClient
         Utils::validateModel($request);
         $body = [];
         if (!Utils::isUnset($request->clientToken)) {
-            @$body['clientToken'] = $request->clientToken;
+            $body['clientToken'] = $request->clientToken;
         }
         if (!Utils::isUnset($request->routeRuleId)) {
-            @$body['routeRuleId'] = $request->routeRuleId;
+            $body['routeRuleId'] = $request->routeRuleId;
         }
         $req = new OpenApiRequest([
             'headers' => $headers,
             'body'    => OpenApiUtilClient::parseToMap($body),
         ]);
+        $params = new Params([
+            'action'      => 'EnableRouteRule',
+            'version'     => '2021-04-13',
+            'protocol'    => 'HTTPS',
+            'pathname'    => '/routeRule/enable',
+            'method'      => 'POST',
+            'authType'    => 'AK',
+            'style'       => 'ROA',
+            'reqBodyType' => 'json',
+            'bodyType'    => 'json',
+        ]);
 
-        return EnableRouteRuleResponse::fromMap($this->doROARequest('EnableRouteRule', '2021-04-13', 'HTTPS', 'POST', 'AK', '/routeRule/enable', 'json', $req, $runtime));
+        return EnableRouteRuleResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
@@ -2206,17 +2757,28 @@ class GEMP extends OpenApiClient
         Utils::validateModel($request);
         $body = [];
         if (!Utils::isUnset($request->clientToken)) {
-            @$body['clientToken'] = $request->clientToken;
+            $body['clientToken'] = $request->clientToken;
         }
         if (!Utils::isUnset($request->serviceGroupId)) {
-            @$body['serviceGroupId'] = $request->serviceGroupId;
+            $body['serviceGroupId'] = $request->serviceGroupId;
         }
         $req = new OpenApiRequest([
             'headers' => $headers,
             'body'    => OpenApiUtilClient::parseToMap($body),
         ]);
+        $params = new Params([
+            'action'      => 'EnableServiceGroupWebhook',
+            'version'     => '2021-04-13',
+            'protocol'    => 'HTTPS',
+            'pathname'    => '/services/group/enableWebhook',
+            'method'      => 'POST',
+            'authType'    => 'AK',
+            'style'       => 'ROA',
+            'reqBodyType' => 'json',
+            'bodyType'    => 'json',
+        ]);
 
-        return EnableServiceGroupWebhookResponse::fromMap($this->doROARequest('EnableServiceGroupWebhook', '2021-04-13', 'HTTPS', 'POST', 'AK', '/services/group/enableWebhook', 'json', $req, $runtime));
+        return EnableServiceGroupWebhookResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
@@ -2244,14 +2806,25 @@ class GEMP extends OpenApiClient
         Utils::validateModel($request);
         $body = [];
         if (!Utils::isUnset($request->subscriptionId)) {
-            @$body['subscriptionId'] = $request->subscriptionId;
+            $body['subscriptionId'] = $request->subscriptionId;
         }
         $req = new OpenApiRequest([
             'headers' => $headers,
             'body'    => OpenApiUtilClient::parseToMap($body),
         ]);
+        $params = new Params([
+            'action'      => 'EnableSubscription',
+            'version'     => '2021-04-13',
+            'protocol'    => 'HTTPS',
+            'pathname'    => '/notify/subscription/enable',
+            'method'      => 'POST',
+            'authType'    => 'AK',
+            'style'       => 'ROA',
+            'reqBodyType' => 'json',
+            'bodyType'    => 'json',
+        ]);
 
-        return EnableSubscriptionResponse::fromMap($this->doROARequest('EnableSubscription', '2021-04-13', 'HTTPS', 'POST', 'AK', '/notify/subscription/enable', 'json', $req, $runtime));
+        return EnableSubscriptionResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
@@ -2279,29 +2852,40 @@ class GEMP extends OpenApiClient
         Utils::validateModel($request);
         $body = [];
         if (!Utils::isUnset($request->clientToken)) {
-            @$body['clientToken'] = $request->clientToken;
+            $body['clientToken'] = $request->clientToken;
         }
         if (!Utils::isUnset($request->incidentFinishReason)) {
-            @$body['incidentFinishReason'] = $request->incidentFinishReason;
+            $body['incidentFinishReason'] = $request->incidentFinishReason;
         }
         if (!Utils::isUnset($request->incidentFinishReasonDescription)) {
-            @$body['incidentFinishReasonDescription'] = $request->incidentFinishReasonDescription;
+            $body['incidentFinishReasonDescription'] = $request->incidentFinishReasonDescription;
         }
         if (!Utils::isUnset($request->incidentFinishSolution)) {
-            @$body['incidentFinishSolution'] = $request->incidentFinishSolution;
+            $body['incidentFinishSolution'] = $request->incidentFinishSolution;
         }
         if (!Utils::isUnset($request->incidentFinishSolutionDescription)) {
-            @$body['incidentFinishSolutionDescription'] = $request->incidentFinishSolutionDescription;
+            $body['incidentFinishSolutionDescription'] = $request->incidentFinishSolutionDescription;
         }
         if (!Utils::isUnset($request->incidentIds)) {
-            @$body['incidentIds'] = $request->incidentIds;
+            $body['incidentIds'] = $request->incidentIds;
         }
         $req = new OpenApiRequest([
             'headers' => $headers,
             'body'    => OpenApiUtilClient::parseToMap($body),
         ]);
+        $params = new Params([
+            'action'      => 'FinishIncident',
+            'version'     => '2021-04-13',
+            'protocol'    => 'HTTPS',
+            'pathname'    => '/incident/finish',
+            'method'      => 'POST',
+            'authType'    => 'AK',
+            'style'       => 'ROA',
+            'reqBodyType' => 'json',
+            'bodyType'    => 'json',
+        ]);
 
-        return FinishIncidentResponse::fromMap($this->doROARequest('FinishIncident', '2021-04-13', 'HTTPS', 'POST', 'AK', '/incident/finish', 'json', $req, $runtime));
+        return FinishIncidentResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
@@ -2329,17 +2913,129 @@ class GEMP extends OpenApiClient
         Utils::validateModel($request);
         $body = [];
         if (!Utils::isUnset($request->clientToken)) {
-            @$body['clientToken'] = $request->clientToken;
+            $body['clientToken'] = $request->clientToken;
         }
         if (!Utils::isUnset($request->problemId)) {
-            @$body['problemId'] = $request->problemId;
+            $body['problemId'] = $request->problemId;
         }
         $req = new OpenApiRequest([
             'headers' => $headers,
             'body'    => OpenApiUtilClient::parseToMap($body),
         ]);
+        $params = new Params([
+            'action'      => 'FinishProblem',
+            'version'     => '2021-04-13',
+            'protocol'    => 'HTTPS',
+            'pathname'    => '/problem/finish',
+            'method'      => 'POST',
+            'authType'    => 'AK',
+            'style'       => 'ROA',
+            'reqBodyType' => 'json',
+            'bodyType'    => 'json',
+        ]);
 
-        return FinishProblemResponse::fromMap($this->doROARequest('FinishProblem', '2021-04-13', 'HTTPS', 'POST', 'AK', '/problem/finish', 'json', $req, $runtime));
+        return FinishProblemResponse::fromMap($this->callApi($params, $req, $runtime));
+    }
+
+    /**
+     * @param GeneratePictureLinkRequest $request
+     *
+     * @return GeneratePictureLinkResponse
+     */
+    public function generatePictureLink($request)
+    {
+        $runtime = new RuntimeOptions([]);
+        $headers = [];
+
+        return $this->generatePictureLinkWithOptions($request, $headers, $runtime);
+    }
+
+    /**
+     * @param GeneratePictureLinkRequest $request
+     * @param string[]                   $headers
+     * @param RuntimeOptions             $runtime
+     *
+     * @return GeneratePictureLinkResponse
+     */
+    public function generatePictureLinkWithOptions($request, $headers, $runtime)
+    {
+        Utils::validateModel($request);
+        $body = [];
+        if (!Utils::isUnset($request->keys)) {
+            $body['keys'] = $request->keys;
+        }
+        if (!Utils::isUnset($request->problemId)) {
+            $body['problemId'] = $request->problemId;
+        }
+        $req = new OpenApiRequest([
+            'headers' => $headers,
+            'body'    => OpenApiUtilClient::parseToMap($body),
+        ]);
+        $params = new Params([
+            'action'      => 'GeneratePictureLink',
+            'version'     => '2021-04-13',
+            'protocol'    => 'HTTPS',
+            'pathname'    => '/rich/oss/getPictureLink',
+            'method'      => 'POST',
+            'authType'    => 'AK',
+            'style'       => 'ROA',
+            'reqBodyType' => 'json',
+            'bodyType'    => 'json',
+        ]);
+
+        return GeneratePictureLinkResponse::fromMap($this->callApi($params, $req, $runtime));
+    }
+
+    /**
+     * @param GeneratePictureUploadSignRequest $request
+     *
+     * @return GeneratePictureUploadSignResponse
+     */
+    public function generatePictureUploadSign($request)
+    {
+        $runtime = new RuntimeOptions([]);
+        $headers = [];
+
+        return $this->generatePictureUploadSignWithOptions($request, $headers, $runtime);
+    }
+
+    /**
+     * @param GeneratePictureUploadSignRequest $request
+     * @param string[]                         $headers
+     * @param RuntimeOptions                   $runtime
+     *
+     * @return GeneratePictureUploadSignResponse
+     */
+    public function generatePictureUploadSignWithOptions($request, $headers, $runtime)
+    {
+        Utils::validateModel($request);
+        $body = [];
+        if (!Utils::isUnset($request->files)) {
+            $body['files'] = $request->files;
+        }
+        if (!Utils::isUnset($request->instanceId)) {
+            $body['instanceId'] = $request->instanceId;
+        }
+        if (!Utils::isUnset($request->instanceType)) {
+            $body['instanceType'] = $request->instanceType;
+        }
+        $req = new OpenApiRequest([
+            'headers' => $headers,
+            'body'    => OpenApiUtilClient::parseToMap($body),
+        ]);
+        $params = new Params([
+            'action'      => 'GeneratePictureUploadSign',
+            'version'     => '2021-04-13',
+            'protocol'    => 'HTTPS',
+            'pathname'    => '/rich/oss/generatePostPolicy',
+            'method'      => 'POST',
+            'authType'    => 'AK',
+            'style'       => 'ROA',
+            'reqBodyType' => 'json',
+            'bodyType'    => 'json',
+        ]);
+
+        return GeneratePictureUploadSignResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
@@ -2367,17 +3063,28 @@ class GEMP extends OpenApiClient
         Utils::validateModel($request);
         $body = [];
         if (!Utils::isUnset($request->keys)) {
-            @$body['keys'] = $request->keys;
+            $body['keys'] = $request->keys;
         }
         if (!Utils::isUnset($request->problemId)) {
-            @$body['problemId'] = $request->problemId;
+            $body['problemId'] = $request->problemId;
         }
         $req = new OpenApiRequest([
             'headers' => $headers,
             'body'    => OpenApiUtilClient::parseToMap($body),
         ]);
+        $params = new Params([
+            'action'      => 'GenerateProblemPictureLink',
+            'version'     => '2021-04-13',
+            'protocol'    => 'HTTPS',
+            'pathname'    => '/problem/process/oss/getPresignedLink',
+            'method'      => 'POST',
+            'authType'    => 'AK',
+            'style'       => 'ROA',
+            'reqBodyType' => 'json',
+            'bodyType'    => 'json',
+        ]);
 
-        return GenerateProblemPictureLinkResponse::fromMap($this->doROARequest('GenerateProblemPictureLink', '2021-04-13', 'HTTPS', 'POST', 'AK', '/problem/process/oss/getPresignedLink', 'json', $req, $runtime));
+        return GenerateProblemPictureLinkResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
@@ -2405,23 +3112,34 @@ class GEMP extends OpenApiClient
         Utils::validateModel($request);
         $body = [];
         if (!Utils::isUnset($request->fileName)) {
-            @$body['fileName'] = $request->fileName;
+            $body['fileName'] = $request->fileName;
         }
         if (!Utils::isUnset($request->fileSize)) {
-            @$body['fileSize'] = $request->fileSize;
+            $body['fileSize'] = $request->fileSize;
         }
         if (!Utils::isUnset($request->fileType)) {
-            @$body['fileType'] = $request->fileType;
+            $body['fileType'] = $request->fileType;
         }
         if (!Utils::isUnset($request->problemId)) {
-            @$body['problemId'] = $request->problemId;
+            $body['problemId'] = $request->problemId;
         }
         $req = new OpenApiRequest([
             'headers' => $headers,
             'body'    => OpenApiUtilClient::parseToMap($body),
         ]);
+        $params = new Params([
+            'action'      => 'GenerateProblemPictureUploadSign',
+            'version'     => '2021-04-13',
+            'protocol'    => 'HTTPS',
+            'pathname'    => '/problem/process/oss/generatePostPolicy',
+            'method'      => 'POST',
+            'authType'    => 'AK',
+            'style'       => 'ROA',
+            'reqBodyType' => 'json',
+            'bodyType'    => 'json',
+        ]);
 
-        return GenerateProblemPictureUploadSignResponse::fromMap($this->doROARequest('GenerateProblemPictureUploadSign', '2021-04-13', 'HTTPS', 'POST', 'AK', '/problem/process/oss/generatePostPolicy', 'json', $req, $runtime));
+        return GenerateProblemPictureUploadSignResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
@@ -2449,17 +3167,28 @@ class GEMP extends OpenApiClient
         Utils::validateModel($request);
         $body = [];
         if (!Utils::isUnset($request->clientToken)) {
-            @$body['clientToken'] = $request->clientToken;
+            $body['clientToken'] = $request->clientToken;
         }
         if (!Utils::isUnset($request->escalationPlanId)) {
-            @$body['escalationPlanId'] = $request->escalationPlanId;
+            $body['escalationPlanId'] = $request->escalationPlanId;
         }
         $req = new OpenApiRequest([
             'headers' => $headers,
             'body'    => OpenApiUtilClient::parseToMap($body),
         ]);
+        $params = new Params([
+            'action'      => 'GetEscalationPlan',
+            'version'     => '2021-04-13',
+            'protocol'    => 'HTTPS',
+            'pathname'    => '/escalationPlan/detail',
+            'method'      => 'POST',
+            'authType'    => 'AK',
+            'style'       => 'ROA',
+            'reqBodyType' => 'json',
+            'bodyType'    => 'json',
+        ]);
 
-        return GetEscalationPlanResponse::fromMap($this->doROARequest('GetEscalationPlan', '2021-04-13', 'HTTPS', 'POST', 'AK', '/escalationPlan/detail', 'json', $req, $runtime));
+        return GetEscalationPlanResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
@@ -2487,14 +3216,25 @@ class GEMP extends OpenApiClient
         Utils::validateModel($request);
         $body = [];
         if (!Utils::isUnset($request->monitorSourceId)) {
-            @$body['monitorSourceId'] = $request->monitorSourceId;
+            $body['monitorSourceId'] = $request->monitorSourceId;
         }
         $req = new OpenApiRequest([
             'headers' => $headers,
             'body'    => OpenApiUtilClient::parseToMap($body),
         ]);
+        $params = new Params([
+            'action'      => 'GetEvent',
+            'version'     => '2021-04-13',
+            'protocol'    => 'HTTPS',
+            'pathname'    => '/events/getLastTimeEvent',
+            'method'      => 'POST',
+            'authType'    => 'AK',
+            'style'       => 'ROA',
+            'reqBodyType' => 'json',
+            'bodyType'    => 'json',
+        ]);
 
-        return GetEventResponse::fromMap($this->doROARequest('GetEvent', '2021-04-13', 'HTTPS', 'POST', 'AK', '/events/getLastTimeEvent', 'json', $req, $runtime));
+        return GetEventResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
@@ -2522,14 +3262,25 @@ class GEMP extends OpenApiClient
         Utils::validateModel($request);
         $body = [];
         if (!Utils::isUnset($request->clientToken)) {
-            @$body['clientToken'] = $request->clientToken;
+            $body['clientToken'] = $request->clientToken;
         }
         $req = new OpenApiRequest([
             'headers' => $headers,
             'body'    => OpenApiUtilClient::parseToMap($body),
         ]);
+        $params = new Params([
+            'action'      => 'GetHomePageGuidance',
+            'version'     => '2021-04-13',
+            'protocol'    => 'HTTPS',
+            'pathname'    => '/guidance/detail',
+            'method'      => 'POST',
+            'authType'    => 'AK',
+            'style'       => 'ROA',
+            'reqBodyType' => 'json',
+            'bodyType'    => 'json',
+        ]);
 
-        return GetHomePageGuidanceResponse::fromMap($this->doROARequest('GetHomePageGuidance', '2021-04-13', 'HTTPS', 'POST', 'AK', '/guidance/detail', 'json', $req, $runtime));
+        return GetHomePageGuidanceResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
@@ -2557,17 +3308,28 @@ class GEMP extends OpenApiClient
         Utils::validateModel($request);
         $body = [];
         if (!Utils::isUnset($request->clientToken)) {
-            @$body['clientToken'] = $request->clientToken;
+            $body['clientToken'] = $request->clientToken;
         }
         if (!Utils::isUnset($request->incidentId)) {
-            @$body['incidentId'] = $request->incidentId;
+            $body['incidentId'] = $request->incidentId;
         }
         $req = new OpenApiRequest([
             'headers' => $headers,
             'body'    => OpenApiUtilClient::parseToMap($body),
         ]);
+        $params = new Params([
+            'action'      => 'GetIncident',
+            'version'     => '2021-04-13',
+            'protocol'    => 'HTTPS',
+            'pathname'    => '/incident/detail',
+            'method'      => 'POST',
+            'authType'    => 'AK',
+            'style'       => 'ROA',
+            'reqBodyType' => 'json',
+            'bodyType'    => 'json',
+        ]);
 
-        return GetIncidentResponse::fromMap($this->doROARequest('GetIncident', '2021-04-13', 'HTTPS', 'POST', 'AK', '/incident/detail', 'json', $req, $runtime));
+        return GetIncidentResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
@@ -2595,14 +3357,25 @@ class GEMP extends OpenApiClient
         Utils::validateModel($request);
         $body = [];
         if (!Utils::isUnset($request->clientToken)) {
-            @$body['clientToken'] = $request->clientToken;
+            $body['clientToken'] = $request->clientToken;
         }
         $req = new OpenApiRequest([
             'headers' => $headers,
             'body'    => OpenApiUtilClient::parseToMap($body),
         ]);
+        $params = new Params([
+            'action'      => 'GetIncidentStatistics',
+            'version'     => '2021-04-13',
+            'protocol'    => 'HTTPS',
+            'pathname'    => '/incident/count',
+            'method'      => 'POST',
+            'authType'    => 'AK',
+            'style'       => 'ROA',
+            'reqBodyType' => 'json',
+            'bodyType'    => 'json',
+        ]);
 
-        return GetIncidentStatisticsResponse::fromMap($this->doROARequest('GetIncidentStatistics', '2021-04-13', 'HTTPS', 'POST', 'AK', '/incident/count', 'json', $req, $runtime));
+        return GetIncidentStatisticsResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
@@ -2630,17 +3403,28 @@ class GEMP extends OpenApiClient
         Utils::validateModel($request);
         $body = [];
         if (!Utils::isUnset($request->clientToken)) {
-            @$body['clientToken'] = $request->clientToken;
+            $body['clientToken'] = $request->clientToken;
         }
         if (!Utils::isUnset($request->incidentIds)) {
-            @$body['incidentIds'] = $request->incidentIds;
+            $body['incidentIds'] = $request->incidentIds;
         }
         $req = new OpenApiRequest([
             'headers' => $headers,
             'body'    => OpenApiUtilClient::parseToMap($body),
         ]);
+        $params = new Params([
+            'action'      => 'GetIncidentSubtotalCount',
+            'version'     => '2021-04-13',
+            'protocol'    => 'HTTPS',
+            'pathname'    => '/incident/subtotal/count',
+            'method'      => 'POST',
+            'authType'    => 'AK',
+            'style'       => 'ROA',
+            'reqBodyType' => 'json',
+            'bodyType'    => 'json',
+        ]);
 
-        return GetIncidentSubtotalCountResponse::fromMap($this->doROARequest('GetIncidentSubtotalCount', '2021-04-13', 'HTTPS', 'POST', 'AK', '/incident/subtotal/count', 'json', $req, $runtime));
+        return GetIncidentSubtotalCountResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
@@ -2668,17 +3452,28 @@ class GEMP extends OpenApiClient
         Utils::validateModel($request);
         $body = [];
         if (!Utils::isUnset($request->clientToken)) {
-            @$body['clientToken'] = $request->clientToken;
+            $body['clientToken'] = $request->clientToken;
         }
         if (!Utils::isUnset($request->integrationConfigId)) {
-            @$body['integrationConfigId'] = $request->integrationConfigId;
+            $body['integrationConfigId'] = $request->integrationConfigId;
         }
         $req = new OpenApiRequest([
             'headers' => $headers,
             'body'    => OpenApiUtilClient::parseToMap($body),
         ]);
+        $params = new Params([
+            'action'      => 'GetIntegrationConfig',
+            'version'     => '2021-04-13',
+            'protocol'    => 'HTTPS',
+            'pathname'    => '/integrationConfig/detail',
+            'method'      => 'POST',
+            'authType'    => 'AK',
+            'style'       => 'ROA',
+            'reqBodyType' => 'json',
+            'bodyType'    => 'json',
+        ]);
 
-        return GetIntegrationConfigResponse::fromMap($this->doROARequest('GetIntegrationConfig', '2021-04-13', 'HTTPS', 'POST', 'AK', '/integrationConfig/detail', 'json', $req, $runtime));
+        return GetIntegrationConfigResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
@@ -2706,17 +3501,28 @@ class GEMP extends OpenApiClient
         Utils::validateModel($request);
         $body = [];
         if (!Utils::isUnset($request->clientToken)) {
-            @$body['clientToken'] = $request->clientToken;
+            $body['clientToken'] = $request->clientToken;
         }
         if (!Utils::isUnset($request->problemId)) {
-            @$body['problemId'] = $request->problemId;
+            $body['problemId'] = $request->problemId;
         }
         $req = new OpenApiRequest([
             'headers' => $headers,
             'body'    => OpenApiUtilClient::parseToMap($body),
         ]);
+        $params = new Params([
+            'action'      => 'GetProblem',
+            'version'     => '2021-04-13',
+            'protocol'    => 'HTTPS',
+            'pathname'    => '/problem/detail',
+            'method'      => 'POST',
+            'authType'    => 'AK',
+            'style'       => 'ROA',
+            'reqBodyType' => 'json',
+            'bodyType'    => 'json',
+        ]);
 
-        return GetProblemResponse::fromMap($this->doROARequest('GetProblem', '2021-04-13', 'HTTPS', 'POST', 'AK', '/problem/detail', 'json', $req, $runtime));
+        return GetProblemResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
@@ -2744,20 +3550,31 @@ class GEMP extends OpenApiClient
         Utils::validateModel($request);
         $body = [];
         if (!Utils::isUnset($request->clientToken)) {
-            @$body['clientToken'] = $request->clientToken;
+            $body['clientToken'] = $request->clientToken;
         }
         if (!Utils::isUnset($request->effectionServiceId)) {
-            @$body['effectionServiceId'] = $request->effectionServiceId;
+            $body['effectionServiceId'] = $request->effectionServiceId;
         }
         if (!Utils::isUnset($request->problemId)) {
-            @$body['problemId'] = $request->problemId;
+            $body['problemId'] = $request->problemId;
         }
         $req = new OpenApiRequest([
             'headers' => $headers,
             'body'    => OpenApiUtilClient::parseToMap($body),
         ]);
+        $params = new Params([
+            'action'      => 'GetProblemEffectionService',
+            'version'     => '2021-04-13',
+            'protocol'    => 'HTTPS',
+            'pathname'    => '/problem/process/effectionService/detail',
+            'method'      => 'POST',
+            'authType'    => 'AK',
+            'style'       => 'ROA',
+            'reqBodyType' => 'json',
+            'bodyType'    => 'json',
+        ]);
 
-        return GetProblemEffectionServiceResponse::fromMap($this->doROARequest('GetProblemEffectionService', '2021-04-13', 'HTTPS', 'POST', 'AK', '/problem/process/effectionService/detail', 'json', $req, $runtime));
+        return GetProblemEffectionServiceResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
@@ -2785,17 +3602,28 @@ class GEMP extends OpenApiClient
         Utils::validateModel($request);
         $body = [];
         if (!Utils::isUnset($request->clientToken)) {
-            @$body['clientToken'] = $request->clientToken;
+            $body['clientToken'] = $request->clientToken;
         }
         if (!Utils::isUnset($request->problemId)) {
-            @$body['problemId'] = $request->problemId;
+            $body['problemId'] = $request->problemId;
         }
         $req = new OpenApiRequest([
             'headers' => $headers,
             'body'    => OpenApiUtilClient::parseToMap($body),
         ]);
+        $params = new Params([
+            'action'      => 'GetProblemImprovement',
+            'version'     => '2021-04-13',
+            'protocol'    => 'HTTPS',
+            'pathname'    => '/problem/improvement/detail',
+            'method'      => 'POST',
+            'authType'    => 'AK',
+            'style'       => 'ROA',
+            'reqBodyType' => 'json',
+            'bodyType'    => 'json',
+        ]);
 
-        return GetProblemImprovementResponse::fromMap($this->doROARequest('GetProblemImprovement', '2021-04-13', 'HTTPS', 'POST', 'AK', '/problem/improvement/detail', 'json', $req, $runtime));
+        return GetProblemImprovementResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
@@ -2823,35 +3651,46 @@ class GEMP extends OpenApiClient
         Utils::validateModel($request);
         $body = [];
         if (!Utils::isUnset($request->clientToken)) {
-            @$body['clientToken'] = $request->clientToken;
+            $body['clientToken'] = $request->clientToken;
         }
         if (!Utils::isUnset($request->effectServiceIds)) {
-            @$body['effectServiceIds'] = $request->effectServiceIds;
+            $body['effectServiceIds'] = $request->effectServiceIds;
         }
         if (!Utils::isUnset($request->incidentId)) {
-            @$body['incidentId'] = $request->incidentId;
+            $body['incidentId'] = $request->incidentId;
         }
         if (!Utils::isUnset($request->problemId)) {
-            @$body['problemId'] = $request->problemId;
+            $body['problemId'] = $request->problemId;
         }
         if (!Utils::isUnset($request->problemLevel)) {
-            @$body['problemLevel'] = $request->problemLevel;
+            $body['problemLevel'] = $request->problemLevel;
         }
         if (!Utils::isUnset($request->problemNotifyType)) {
-            @$body['problemNotifyType'] = $request->problemNotifyType;
+            $body['problemNotifyType'] = $request->problemNotifyType;
         }
         if (!Utils::isUnset($request->relatedServiceId)) {
-            @$body['relatedServiceId'] = $request->relatedServiceId;
+            $body['relatedServiceId'] = $request->relatedServiceId;
         }
         if (!Utils::isUnset($request->serviceGroupIds)) {
-            @$body['serviceGroupIds'] = $request->serviceGroupIds;
+            $body['serviceGroupIds'] = $request->serviceGroupIds;
         }
         $req = new OpenApiRequest([
             'headers' => $headers,
             'body'    => OpenApiUtilClient::parseToMap($body),
         ]);
+        $params = new Params([
+            'action'      => 'GetProblemPreview',
+            'version'     => '2021-04-13',
+            'protocol'    => 'HTTPS',
+            'pathname'    => '/problem/preview',
+            'method'      => 'POST',
+            'authType'    => 'AK',
+            'style'       => 'ROA',
+            'reqBodyType' => 'json',
+            'bodyType'    => 'json',
+        ]);
 
-        return GetProblemPreviewResponse::fromMap($this->doROARequest('GetProblemPreview', '2021-04-13', 'HTTPS', 'POST', 'AK', '/problem/preview', 'json', $req, $runtime));
+        return GetProblemPreviewResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
@@ -2879,14 +3718,77 @@ class GEMP extends OpenApiClient
         Utils::validateModel($request);
         $body = [];
         if (!Utils::isUnset($request->clientToken)) {
-            @$body['clientToken'] = $request->clientToken;
+            $body['clientToken'] = $request->clientToken;
         }
         $req = new OpenApiRequest([
             'headers' => $headers,
             'body'    => OpenApiUtilClient::parseToMap($body),
         ]);
+        $params = new Params([
+            'action'      => 'GetResourceStatistics',
+            'version'     => '2021-04-13',
+            'protocol'    => 'HTTPS',
+            'pathname'    => '/config/resource/count',
+            'method'      => 'POST',
+            'authType'    => 'AK',
+            'style'       => 'ROA',
+            'reqBodyType' => 'json',
+            'bodyType'    => 'json',
+        ]);
 
-        return GetResourceStatisticsResponse::fromMap($this->doROARequest('GetResourceStatistics', '2021-04-13', 'HTTPS', 'POST', 'AK', '/config/resource/count', 'json', $req, $runtime));
+        return GetResourceStatisticsResponse::fromMap($this->callApi($params, $req, $runtime));
+    }
+
+    /**
+     * @param GetRichTextRequest $request
+     *
+     * @return GetRichTextResponse
+     */
+    public function getRichText($request)
+    {
+        $runtime = new RuntimeOptions([]);
+        $headers = [];
+
+        return $this->getRichTextWithOptions($request, $headers, $runtime);
+    }
+
+    /**
+     * @param GetRichTextRequest $request
+     * @param string[]           $headers
+     * @param RuntimeOptions     $runtime
+     *
+     * @return GetRichTextResponse
+     */
+    public function getRichTextWithOptions($request, $headers, $runtime)
+    {
+        Utils::validateModel($request);
+        $body = [];
+        if (!Utils::isUnset($request->instanceId)) {
+            $body['instanceId'] = $request->instanceId;
+        }
+        if (!Utils::isUnset($request->instanceType)) {
+            $body['instanceType'] = $request->instanceType;
+        }
+        if (!Utils::isUnset($request->richTextId)) {
+            $body['richTextId'] = $request->richTextId;
+        }
+        $req = new OpenApiRequest([
+            'headers' => $headers,
+            'body'    => OpenApiUtilClient::parseToMap($body),
+        ]);
+        $params = new Params([
+            'action'      => 'GetRichText',
+            'version'     => '2021-04-13',
+            'protocol'    => 'HTTPS',
+            'pathname'    => '/rich/detail',
+            'method'      => 'POST',
+            'authType'    => 'AK',
+            'style'       => 'ROA',
+            'reqBodyType' => 'json',
+            'bodyType'    => 'json',
+        ]);
+
+        return GetRichTextResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
@@ -2914,17 +3816,28 @@ class GEMP extends OpenApiClient
         Utils::validateModel($request);
         $body = [];
         if (!Utils::isUnset($request->clientToken)) {
-            @$body['clientToken'] = $request->clientToken;
+            $body['clientToken'] = $request->clientToken;
         }
         if (!Utils::isUnset($request->routeRuleId)) {
-            @$body['routeRuleId'] = $request->routeRuleId;
+            $body['routeRuleId'] = $request->routeRuleId;
         }
         $req = new OpenApiRequest([
             'headers' => $headers,
             'body'    => OpenApiUtilClient::parseToMap($body),
         ]);
+        $params = new Params([
+            'action'      => 'GetRouteRule',
+            'version'     => '2021-04-13',
+            'protocol'    => 'HTTPS',
+            'pathname'    => '/routeRule/detail',
+            'method'      => 'POST',
+            'authType'    => 'AK',
+            'style'       => 'ROA',
+            'reqBodyType' => 'json',
+            'bodyType'    => 'json',
+        ]);
 
-        return GetRouteRuleResponse::fromMap($this->doROARequest('GetRouteRule', '2021-04-13', 'HTTPS', 'POST', 'AK', '/routeRule/detail', 'json', $req, $runtime));
+        return GetRouteRuleResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
@@ -2952,17 +3865,28 @@ class GEMP extends OpenApiClient
         Utils::validateModel($request);
         $body = [];
         if (!Utils::isUnset($request->clientToken)) {
-            @$body['clientToken'] = $request->clientToken;
+            $body['clientToken'] = $request->clientToken;
         }
         if (!Utils::isUnset($request->serviceId)) {
-            @$body['serviceId'] = $request->serviceId;
+            $body['serviceId'] = $request->serviceId;
         }
         $req = new OpenApiRequest([
             'headers' => $headers,
             'body'    => OpenApiUtilClient::parseToMap($body),
         ]);
+        $params = new Params([
+            'action'      => 'GetService',
+            'version'     => '2021-04-13',
+            'protocol'    => 'HTTPS',
+            'pathname'    => '/services/detail',
+            'method'      => 'POST',
+            'authType'    => 'AK',
+            'style'       => 'ROA',
+            'reqBodyType' => 'json',
+            'bodyType'    => 'json',
+        ]);
 
-        return GetServiceResponse::fromMap($this->doROARequest('GetService', '2021-04-13', 'HTTPS', 'POST', 'AK', '/services/detail', 'json', $req, $runtime));
+        return GetServiceResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
@@ -2990,17 +3914,28 @@ class GEMP extends OpenApiClient
         Utils::validateModel($request);
         $body = [];
         if (!Utils::isUnset($request->clientToken)) {
-            @$body['clientToken'] = $request->clientToken;
+            $body['clientToken'] = $request->clientToken;
         }
         if (!Utils::isUnset($request->serviceGroupId)) {
-            @$body['serviceGroupId'] = $request->serviceGroupId;
+            $body['serviceGroupId'] = $request->serviceGroupId;
         }
         $req = new OpenApiRequest([
             'headers' => $headers,
             'body'    => OpenApiUtilClient::parseToMap($body),
         ]);
+        $params = new Params([
+            'action'      => 'GetServiceGroup',
+            'version'     => '2021-04-13',
+            'protocol'    => 'HTTPS',
+            'pathname'    => '/services/group/detail',
+            'method'      => 'POST',
+            'authType'    => 'AK',
+            'style'       => 'ROA',
+            'reqBodyType' => 'json',
+            'bodyType'    => 'json',
+        ]);
 
-        return GetServiceGroupResponse::fromMap($this->doROARequest('GetServiceGroup', '2021-04-13', 'HTTPS', 'POST', 'AK', '/services/group/detail', 'json', $req, $runtime));
+        return GetServiceGroupResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
@@ -3028,26 +3963,37 @@ class GEMP extends OpenApiClient
         Utils::validateModel($request);
         $body = [];
         if (!Utils::isUnset($request->clientToken)) {
-            @$body['clientToken'] = $request->clientToken;
+            $body['clientToken'] = $request->clientToken;
         }
         if (!Utils::isUnset($request->endTime)) {
-            @$body['endTime'] = $request->endTime;
+            $body['endTime'] = $request->endTime;
         }
         if (!Utils::isUnset($request->serviceGroupId)) {
-            @$body['serviceGroupId'] = $request->serviceGroupId;
+            $body['serviceGroupId'] = $request->serviceGroupId;
         }
         if (!Utils::isUnset($request->startTime)) {
-            @$body['startTime'] = $request->startTime;
+            $body['startTime'] = $request->startTime;
         }
         if (!Utils::isUnset($request->userId)) {
-            @$body['userId'] = $request->userId;
+            $body['userId'] = $request->userId;
         }
         $req = new OpenApiRequest([
             'headers' => $headers,
             'body'    => OpenApiUtilClient::parseToMap($body),
         ]);
+        $params = new Params([
+            'action'      => 'GetServiceGroupPersonScheduling',
+            'version'     => '2021-04-13',
+            'protocol'    => 'HTTPS',
+            'pathname'    => '/services/group/scheduling/user/getScheduling',
+            'method'      => 'POST',
+            'authType'    => 'AK',
+            'style'       => 'ROA',
+            'reqBodyType' => 'json',
+            'bodyType'    => 'json',
+        ]);
 
-        return GetServiceGroupPersonSchedulingResponse::fromMap($this->doROARequest('GetServiceGroupPersonScheduling', '2021-04-13', 'HTTPS', 'POST', 'AK', '/services/group/scheduling/user/getScheduling', 'json', $req, $runtime));
+        return GetServiceGroupPersonSchedulingResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
@@ -3075,17 +4021,28 @@ class GEMP extends OpenApiClient
         Utils::validateModel($request);
         $body = [];
         if (!Utils::isUnset($request->clientToken)) {
-            @$body['clientToken'] = $request->clientToken;
+            $body['clientToken'] = $request->clientToken;
         }
         if (!Utils::isUnset($request->serviceGroupId)) {
-            @$body['serviceGroupId'] = $request->serviceGroupId;
+            $body['serviceGroupId'] = $request->serviceGroupId;
         }
         $req = new OpenApiRequest([
             'headers' => $headers,
             'body'    => OpenApiUtilClient::parseToMap($body),
         ]);
+        $params = new Params([
+            'action'      => 'GetServiceGroupScheduling',
+            'version'     => '2021-04-13',
+            'protocol'    => 'HTTPS',
+            'pathname'    => '/services/group/scheduling/detail',
+            'method'      => 'POST',
+            'authType'    => 'AK',
+            'style'       => 'ROA',
+            'reqBodyType' => 'json',
+            'bodyType'    => 'json',
+        ]);
 
-        return GetServiceGroupSchedulingResponse::fromMap($this->doROARequest('GetServiceGroupScheduling', '2021-04-13', 'HTTPS', 'POST', 'AK', '/services/group/scheduling/detail', 'json', $req, $runtime));
+        return GetServiceGroupSchedulingResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
@@ -3113,32 +4070,43 @@ class GEMP extends OpenApiClient
         Utils::validateModel($request);
         $body = [];
         if (!Utils::isUnset($request->clientToken)) {
-            @$body['clientToken'] = $request->clientToken;
+            $body['clientToken'] = $request->clientToken;
         }
         if (!Utils::isUnset($request->endTime)) {
-            @$body['endTime'] = $request->endTime;
+            $body['endTime'] = $request->endTime;
         }
         if (!Utils::isUnset($request->fastScheduling)) {
-            @$body['fastScheduling'] = $request->fastScheduling;
+            $body['fastScheduling'] = $request->fastScheduling;
         }
         if (!Utils::isUnset($request->fineScheduling)) {
-            @$body['fineScheduling'] = $request->fineScheduling;
+            $body['fineScheduling'] = $request->fineScheduling;
         }
         if (!Utils::isUnset($request->schedulingWay)) {
-            @$body['schedulingWay'] = $request->schedulingWay;
+            $body['schedulingWay'] = $request->schedulingWay;
         }
         if (!Utils::isUnset($request->serviceGroupId)) {
-            @$body['serviceGroupId'] = $request->serviceGroupId;
+            $body['serviceGroupId'] = $request->serviceGroupId;
         }
         if (!Utils::isUnset($request->startTime)) {
-            @$body['startTime'] = $request->startTime;
+            $body['startTime'] = $request->startTime;
         }
         $req = new OpenApiRequest([
             'headers' => $headers,
             'body'    => OpenApiUtilClient::parseToMap($body),
         ]);
+        $params = new Params([
+            'action'      => 'GetServiceGroupSchedulingPreview',
+            'version'     => '2021-04-13',
+            'protocol'    => 'HTTPS',
+            'pathname'    => '/services/group/scheduling/preview',
+            'method'      => 'POST',
+            'authType'    => 'AK',
+            'style'       => 'ROA',
+            'reqBodyType' => 'json',
+            'bodyType'    => 'json',
+        ]);
 
-        return GetServiceGroupSchedulingPreviewResponse::fromMap($this->doROARequest('GetServiceGroupSchedulingPreview', '2021-04-13', 'HTTPS', 'POST', 'AK', '/services/group/scheduling/preview', 'json', $req, $runtime));
+        return GetServiceGroupSchedulingPreviewResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
@@ -3166,20 +4134,31 @@ class GEMP extends OpenApiClient
         Utils::validateModel($request);
         $body = [];
         if (!Utils::isUnset($request->clientToken)) {
-            @$body['clientToken'] = $request->clientToken;
+            $body['clientToken'] = $request->clientToken;
         }
         if (!Utils::isUnset($request->serviceGroupId)) {
-            @$body['serviceGroupId'] = $request->serviceGroupId;
+            $body['serviceGroupId'] = $request->serviceGroupId;
         }
         if (!Utils::isUnset($request->userId)) {
-            @$body['userId'] = $request->userId;
+            $body['userId'] = $request->userId;
         }
         $req = new OpenApiRequest([
             'headers' => $headers,
             'body'    => OpenApiUtilClient::parseToMap($body),
         ]);
+        $params = new Params([
+            'action'      => 'GetServiceGroupSpecialPersonScheduling',
+            'version'     => '2021-04-13',
+            'protocol'    => 'HTTPS',
+            'pathname'    => '/services/group/scheduling/getUserScheduling',
+            'method'      => 'POST',
+            'authType'    => 'AK',
+            'style'       => 'ROA',
+            'reqBodyType' => 'json',
+            'bodyType'    => 'json',
+        ]);
 
-        return GetServiceGroupSpecialPersonSchedulingResponse::fromMap($this->doROARequest('GetServiceGroupSpecialPersonScheduling', '2021-04-13', 'HTTPS', 'POST', 'AK', '/services/group/scheduling/getUserScheduling', 'json', $req, $runtime));
+        return GetServiceGroupSpecialPersonSchedulingResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
@@ -3207,29 +4186,40 @@ class GEMP extends OpenApiClient
         Utils::validateModel($request);
         $body = [];
         if (!Utils::isUnset($request->clientToken)) {
-            @$body['clientToken'] = $request->clientToken;
+            $body['clientToken'] = $request->clientToken;
         }
         if (!Utils::isUnset($request->createTime)) {
-            @$body['createTime'] = $request->createTime;
+            $body['createTime'] = $request->createTime;
         }
         if (!Utils::isUnset($request->events)) {
-            @$body['events'] = $request->events;
+            $body['events'] = $request->events;
         }
         if (!Utils::isUnset($request->incidentId)) {
-            @$body['incidentId'] = $request->incidentId;
+            $body['incidentId'] = $request->incidentId;
         }
         if (!Utils::isUnset($request->incidentTitle)) {
-            @$body['incidentTitle'] = $request->incidentTitle;
+            $body['incidentTitle'] = $request->incidentTitle;
         }
         if (!Utils::isUnset($request->relatedServiceId)) {
-            @$body['relatedServiceId'] = $request->relatedServiceId;
+            $body['relatedServiceId'] = $request->relatedServiceId;
         }
         $req = new OpenApiRequest([
             'headers' => $headers,
             'body'    => OpenApiUtilClient::parseToMap($body),
         ]);
+        $params = new Params([
+            'action'      => 'GetSimilarIncidentStatistics',
+            'version'     => '2021-04-13',
+            'protocol'    => 'HTTPS',
+            'pathname'    => '/incident/similarIncident/statistics',
+            'method'      => 'POST',
+            'authType'    => 'AK',
+            'style'       => 'ROA',
+            'reqBodyType' => 'json',
+            'bodyType'    => 'json',
+        ]);
 
-        return GetSimilarIncidentStatisticsResponse::fromMap($this->doROARequest('GetSimilarIncidentStatistics', '2021-04-13', 'HTTPS', 'POST', 'AK', '/incident/similarIncident/statistics', 'json', $req, $runtime));
+        return GetSimilarIncidentStatisticsResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
@@ -3257,14 +4247,25 @@ class GEMP extends OpenApiClient
         Utils::validateModel($request);
         $body = [];
         if (!Utils::isUnset($request->subscriptionId)) {
-            @$body['subscriptionId'] = $request->subscriptionId;
+            $body['subscriptionId'] = $request->subscriptionId;
         }
         $req = new OpenApiRequest([
             'headers' => $headers,
             'body'    => OpenApiUtilClient::parseToMap($body),
         ]);
+        $params = new Params([
+            'action'      => 'GetSubscription',
+            'version'     => '2021-04-13',
+            'protocol'    => 'HTTPS',
+            'pathname'    => '/notify/subscription/detail',
+            'method'      => 'POST',
+            'authType'    => 'AK',
+            'style'       => 'ROA',
+            'reqBodyType' => 'json',
+            'bodyType'    => 'json',
+        ]);
 
-        return GetSubscriptionResponse::fromMap($this->doROARequest('GetSubscription', '2021-04-13', 'HTTPS', 'POST', 'AK', '/notify/subscription/detail', 'json', $req, $runtime));
+        return GetSubscriptionResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
@@ -3292,14 +4293,25 @@ class GEMP extends OpenApiClient
         Utils::validateModel($request);
         $body = [];
         if (!Utils::isUnset($request->clientToken)) {
-            @$body['clientToken'] = $request->clientToken;
+            $body['clientToken'] = $request->clientToken;
         }
         $req = new OpenApiRequest([
             'headers' => $headers,
             'body'    => OpenApiUtilClient::parseToMap($body),
         ]);
+        $params = new Params([
+            'action'      => 'GetTenantApplication',
+            'version'     => '2021-04-13',
+            'protocol'    => 'HTTPS',
+            'pathname'    => '/mobileApp/detail',
+            'method'      => 'POST',
+            'authType'    => 'AK',
+            'style'       => 'ROA',
+            'reqBodyType' => 'json',
+            'bodyType'    => 'json',
+        ]);
 
-        return GetTenantApplicationResponse::fromMap($this->doROARequest('GetTenantApplication', '2021-04-13', 'HTTPS', 'POST', 'AK', '/mobileApp/detail', 'json', $req, $runtime));
+        return GetTenantApplicationResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
@@ -3327,17 +4339,28 @@ class GEMP extends OpenApiClient
         Utils::validateModel($request);
         $body = [];
         if (!Utils::isUnset($request->clientToken)) {
-            @$body['clientToken'] = $request->clientToken;
+            $body['clientToken'] = $request->clientToken;
         }
         if (!Utils::isUnset($request->userId)) {
-            @$body['userId'] = $request->userId;
+            $body['userId'] = $request->userId;
         }
         $req = new OpenApiRequest([
             'headers' => $headers,
             'body'    => OpenApiUtilClient::parseToMap($body),
         ]);
+        $params = new Params([
+            'action'      => 'GetUser',
+            'version'     => '2021-04-13',
+            'protocol'    => 'HTTPS',
+            'pathname'    => '/user/getUser',
+            'method'      => 'POST',
+            'authType'    => 'AK',
+            'style'       => 'ROA',
+            'reqBodyType' => 'json',
+            'bodyType'    => 'json',
+        ]);
 
-        return GetUserResponse::fromMap($this->doROARequest('GetUser', '2021-04-13', 'HTTPS', 'POST', 'AK', '/user/getUser', 'json', $req, $runtime));
+        return GetUserResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
@@ -3365,14 +4388,25 @@ class GEMP extends OpenApiClient
         Utils::validateModel($request);
         $body = [];
         if (!Utils::isUnset($request->clientToken)) {
-            @$body['clientToken'] = $request->clientToken;
+            $body['clientToken'] = $request->clientToken;
         }
         $req = new OpenApiRequest([
             'headers' => $headers,
             'body'    => OpenApiUtilClient::parseToMap($body),
         ]);
+        $params = new Params([
+            'action'      => 'GetUserGuideStatus',
+            'version'     => '2021-04-13',
+            'protocol'    => 'HTTPS',
+            'pathname'    => '/user/guide/status',
+            'method'      => 'POST',
+            'authType'    => 'AK',
+            'style'       => 'ROA',
+            'reqBodyType' => 'json',
+            'bodyType'    => 'json',
+        ]);
 
-        return GetUserGuideStatusResponse::fromMap($this->doROARequest('GetUserGuideStatus', '2021-04-13', 'HTTPS', 'POST', 'AK', '/user/guide/status', 'json', $req, $runtime));
+        return GetUserGuideStatusResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
@@ -3400,35 +4434,49 @@ class GEMP extends OpenApiClient
         Utils::validateModel($request);
         $body = [];
         if (!Utils::isUnset($request->alertLevel)) {
-            @$body['alertLevel'] = $request->alertLevel;
+            $body['alertLevel'] = $request->alertLevel;
         }
         if (!Utils::isUnset($request->alertName)) {
-            @$body['alertName'] = $request->alertName;
+            $body['alertName'] = $request->alertName;
         }
         if (!Utils::isUnset($request->alertSourceName)) {
-            @$body['alertSourceName'] = $request->alertSourceName;
+            $body['alertSourceName'] = $request->alertSourceName;
         }
         if (!Utils::isUnset($request->endTime)) {
-            @$body['endTime'] = $request->endTime;
+            $body['endTime'] = $request->endTime;
         }
         if (!Utils::isUnset($request->pageNumber)) {
-            @$body['pageNumber'] = $request->pageNumber;
+            $body['pageNumber'] = $request->pageNumber;
         }
         if (!Utils::isUnset($request->pageSize)) {
-            @$body['pageSize'] = $request->pageSize;
+            $body['pageSize'] = $request->pageSize;
         }
         if (!Utils::isUnset($request->relatedServiceId)) {
-            @$body['relatedServiceId'] = $request->relatedServiceId;
+            $body['relatedServiceId'] = $request->relatedServiceId;
+        }
+        if (!Utils::isUnset($request->ruleName)) {
+            $body['ruleName'] = $request->ruleName;
         }
         if (!Utils::isUnset($request->startTime)) {
-            @$body['startTime'] = $request->startTime;
+            $body['startTime'] = $request->startTime;
         }
         $req = new OpenApiRequest([
             'headers' => $headers,
             'body'    => OpenApiUtilClient::parseToMap($body),
         ]);
+        $params = new Params([
+            'action'      => 'ListAlerts',
+            'version'     => '2021-04-13',
+            'protocol'    => 'HTTPS',
+            'pathname'    => '/alerts/list',
+            'method'      => 'POST',
+            'authType'    => 'AK',
+            'style'       => 'ROA',
+            'reqBodyType' => 'json',
+            'bodyType'    => 'json',
+        ]);
 
-        return ListAlertsResponse::fromMap($this->doROARequest('ListAlerts', '2021-04-13', 'HTTPS', 'POST', 'AK', '/alerts/list', 'json', $req, $runtime));
+        return ListAlertsResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
@@ -3456,20 +4504,31 @@ class GEMP extends OpenApiClient
         Utils::validateModel($request);
         $body = [];
         if (!Utils::isUnset($request->clientToken)) {
-            @$body['clientToken'] = $request->clientToken;
+            $body['clientToken'] = $request->clientToken;
         }
         if (!Utils::isUnset($request->endTime)) {
-            @$body['endTime'] = $request->endTime;
+            $body['endTime'] = $request->endTime;
         }
         if (!Utils::isUnset($request->startTime)) {
-            @$body['startTime'] = $request->startTime;
+            $body['startTime'] = $request->startTime;
         }
         $req = new OpenApiRequest([
             'headers' => $headers,
             'body'    => OpenApiUtilClient::parseToMap($body),
         ]);
+        $params = new Params([
+            'action'      => 'ListChartDataForServiceGroup',
+            'version'     => '2021-04-13',
+            'protocol'    => 'HTTPS',
+            'pathname'    => '/statistics/chartDataForServiceGroup/',
+            'method'      => 'POST',
+            'authType'    => 'AK',
+            'style'       => 'ROA',
+            'reqBodyType' => 'json',
+            'bodyType'    => 'json',
+        ]);
 
-        return ListChartDataForServiceGroupResponse::fromMap($this->doROARequest('ListChartDataForServiceGroup', '2021-04-13', 'HTTPS', 'POST', 'AK', '/statistics/chartDataForServiceGroup/', 'json', $req, $runtime));
+        return ListChartDataForServiceGroupResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
@@ -3497,20 +4556,31 @@ class GEMP extends OpenApiClient
         Utils::validateModel($request);
         $body = [];
         if (!Utils::isUnset($request->clientToken)) {
-            @$body['clientToken'] = $request->clientToken;
+            $body['clientToken'] = $request->clientToken;
         }
         if (!Utils::isUnset($request->endTime)) {
-            @$body['endTime'] = $request->endTime;
+            $body['endTime'] = $request->endTime;
         }
         if (!Utils::isUnset($request->startTime)) {
-            @$body['startTime'] = $request->startTime;
+            $body['startTime'] = $request->startTime;
         }
         $req = new OpenApiRequest([
             'headers' => $headers,
             'body'    => OpenApiUtilClient::parseToMap($body),
         ]);
+        $params = new Params([
+            'action'      => 'ListChartDataForUser',
+            'version'     => '2021-04-13',
+            'protocol'    => 'HTTPS',
+            'pathname'    => '/statistics/chartDataForUser/',
+            'method'      => 'POST',
+            'authType'    => 'AK',
+            'style'       => 'ROA',
+            'reqBodyType' => 'json',
+            'bodyType'    => 'json',
+        ]);
 
-        return ListChartDataForUserResponse::fromMap($this->doROARequest('ListChartDataForUser', '2021-04-13', 'HTTPS', 'POST', 'AK', '/statistics/chartDataForUser/', 'json', $req, $runtime));
+        return ListChartDataForUserResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
@@ -3538,14 +4608,25 @@ class GEMP extends OpenApiClient
         Utils::validateModel($request);
         $body = [];
         if (!Utils::isUnset($request->clientToken)) {
-            @$body['clientToken'] = $request->clientToken;
+            $body['clientToken'] = $request->clientToken;
         }
         $req = new OpenApiRequest([
             'headers' => $headers,
             'body'    => OpenApiUtilClient::parseToMap($body),
         ]);
+        $params = new Params([
+            'action'      => 'ListConfigs',
+            'version'     => '2021-04-13',
+            'protocol'    => 'HTTPS',
+            'pathname'    => '/config/all',
+            'method'      => 'POST',
+            'authType'    => 'AK',
+            'style'       => 'ROA',
+            'reqBodyType' => 'json',
+            'bodyType'    => 'json',
+        ]);
 
-        return ListConfigsResponse::fromMap($this->doROARequest('ListConfigs', '2021-04-13', 'HTTPS', 'POST', 'AK', '/config/all', 'json', $req, $runtime));
+        return ListConfigsResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
@@ -3573,20 +4654,31 @@ class GEMP extends OpenApiClient
         Utils::validateModel($request);
         $body = [];
         if (!Utils::isUnset($request->endTime)) {
-            @$body['endTime'] = $request->endTime;
+            $body['endTime'] = $request->endTime;
         }
         if (!Utils::isUnset($request->serviceGroupName)) {
-            @$body['serviceGroupName'] = $request->serviceGroupName;
+            $body['serviceGroupName'] = $request->serviceGroupName;
         }
         if (!Utils::isUnset($request->startTime)) {
-            @$body['startTime'] = $request->startTime;
+            $body['startTime'] = $request->startTime;
         }
         $req = new OpenApiRequest([
             'headers' => $headers,
             'body'    => OpenApiUtilClient::parseToMap($body),
         ]);
+        $params = new Params([
+            'action'      => 'ListDataReportForServiceGroup',
+            'version'     => '2021-04-13',
+            'protocol'    => 'HTTPS',
+            'pathname'    => '/statistics/listDataReportForServiceGroup',
+            'method'      => 'POST',
+            'authType'    => 'AK',
+            'style'       => 'ROA',
+            'reqBodyType' => 'json',
+            'bodyType'    => 'json',
+        ]);
 
-        return ListDataReportForServiceGroupResponse::fromMap($this->doROARequest('ListDataReportForServiceGroup', '2021-04-13', 'HTTPS', 'POST', 'AK', '/statistics/listDataReportForServiceGroup', 'json', $req, $runtime));
+        return ListDataReportForServiceGroupResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
@@ -3614,23 +4706,34 @@ class GEMP extends OpenApiClient
         Utils::validateModel($request);
         $body = [];
         if (!Utils::isUnset($request->endTime)) {
-            @$body['endTime'] = $request->endTime;
+            $body['endTime'] = $request->endTime;
         }
         if (!Utils::isUnset($request->pageNumber)) {
-            @$body['pageNumber'] = $request->pageNumber;
+            $body['pageNumber'] = $request->pageNumber;
         }
         if (!Utils::isUnset($request->pageSize)) {
-            @$body['pageSize'] = $request->pageSize;
+            $body['pageSize'] = $request->pageSize;
         }
         if (!Utils::isUnset($request->startTime)) {
-            @$body['startTime'] = $request->startTime;
+            $body['startTime'] = $request->startTime;
         }
         $req = new OpenApiRequest([
             'headers' => $headers,
             'body'    => OpenApiUtilClient::parseToMap($body),
         ]);
+        $params = new Params([
+            'action'      => 'ListDataReportForUser',
+            'version'     => '2021-04-13',
+            'protocol'    => 'HTTPS',
+            'pathname'    => '/statistics/listDataReportForUser',
+            'method'      => 'POST',
+            'authType'    => 'AK',
+            'style'       => 'ROA',
+            'reqBodyType' => 'json',
+            'bodyType'    => 'json',
+        ]);
 
-        return ListDataReportForUserResponse::fromMap($this->doROARequest('ListDataReportForUser', '2021-04-13', 'HTTPS', 'POST', 'AK', '/statistics/listDataReportForUser', 'json', $req, $runtime));
+        return ListDataReportForUserResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
@@ -3658,14 +4761,25 @@ class GEMP extends OpenApiClient
         Utils::validateModel($request);
         $body = [];
         if (!Utils::isUnset($request->clientToken)) {
-            @$body['clientToken'] = $request->clientToken;
+            $body['clientToken'] = $request->clientToken;
         }
         $req = new OpenApiRequest([
             'headers' => $headers,
             'body'    => OpenApiUtilClient::parseToMap($body),
         ]);
+        $params = new Params([
+            'action'      => 'ListDictionaries',
+            'version'     => '2021-04-13',
+            'protocol'    => 'HTTPS',
+            'pathname'    => '/dict/list',
+            'method'      => 'POST',
+            'authType'    => 'AK',
+            'style'       => 'ROA',
+            'reqBodyType' => 'json',
+            'bodyType'    => 'json',
+        ]);
 
-        return ListDictionariesResponse::fromMap($this->doROARequest('ListDictionaries', '2021-04-13', 'HTTPS', 'POST', 'AK', '/dict/list', 'json', $req, $runtime));
+        return ListDictionariesResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
@@ -3693,14 +4807,25 @@ class GEMP extends OpenApiClient
         Utils::validateModel($request);
         $body = [];
         if (!Utils::isUnset($request->clientToken)) {
-            @$body['clientToken'] = $request->clientToken;
+            $body['clientToken'] = $request->clientToken;
         }
         $req = new OpenApiRequest([
             'headers' => $headers,
             'body'    => OpenApiUtilClient::parseToMap($body),
         ]);
+        $params = new Params([
+            'action'      => 'ListEscalationPlanServices',
+            'version'     => '2021-04-13',
+            'protocol'    => 'HTTPS',
+            'pathname'    => '/escalationPlan/services',
+            'method'      => 'POST',
+            'authType'    => 'AK',
+            'style'       => 'ROA',
+            'reqBodyType' => 'json',
+            'bodyType'    => 'json',
+        ]);
 
-        return ListEscalationPlanServicesResponse::fromMap($this->doROARequest('ListEscalationPlanServices', '2021-04-13', 'HTTPS', 'POST', 'AK', '/escalationPlan/services', 'json', $req, $runtime));
+        return ListEscalationPlanServicesResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
@@ -3728,26 +4853,37 @@ class GEMP extends OpenApiClient
         Utils::validateModel($request);
         $body = [];
         if (!Utils::isUnset($request->clientToken)) {
-            @$body['clientToken'] = $request->clientToken;
+            $body['clientToken'] = $request->clientToken;
         }
         if (!Utils::isUnset($request->escalationPlanName)) {
-            @$body['escalationPlanName'] = $request->escalationPlanName;
+            $body['escalationPlanName'] = $request->escalationPlanName;
         }
         if (!Utils::isUnset($request->pageNumber)) {
-            @$body['pageNumber'] = $request->pageNumber;
+            $body['pageNumber'] = $request->pageNumber;
         }
         if (!Utils::isUnset($request->pageSize)) {
-            @$body['pageSize'] = $request->pageSize;
+            $body['pageSize'] = $request->pageSize;
         }
         if (!Utils::isUnset($request->serviceName)) {
-            @$body['serviceName'] = $request->serviceName;
+            $body['serviceName'] = $request->serviceName;
         }
         $req = new OpenApiRequest([
             'headers' => $headers,
             'body'    => OpenApiUtilClient::parseToMap($body),
         ]);
+        $params = new Params([
+            'action'      => 'ListEscalationPlans',
+            'version'     => '2021-04-13',
+            'protocol'    => 'HTTPS',
+            'pathname'    => '/escalationPlan/list',
+            'method'      => 'POST',
+            'authType'    => 'AK',
+            'style'       => 'ROA',
+            'reqBodyType' => 'json',
+            'bodyType'    => 'json',
+        ]);
 
-        return ListEscalationPlansResponse::fromMap($this->doROARequest('ListEscalationPlans', '2021-04-13', 'HTTPS', 'POST', 'AK', '/escalationPlan/list', 'json', $req, $runtime));
+        return ListEscalationPlansResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
@@ -3775,17 +4911,28 @@ class GEMP extends OpenApiClient
         Utils::validateModel($request);
         $body = [];
         if (!Utils::isUnset($request->clientToken)) {
-            @$body['clientToken'] = $request->clientToken;
+            $body['clientToken'] = $request->clientToken;
         }
         if (!Utils::isUnset($request->incidentId)) {
-            @$body['incidentId'] = $request->incidentId;
+            $body['incidentId'] = $request->incidentId;
         }
         $req = new OpenApiRequest([
             'headers' => $headers,
             'body'    => OpenApiUtilClient::parseToMap($body),
         ]);
+        $params = new Params([
+            'action'      => 'ListIncidentDetailEscalationPlans',
+            'version'     => '2021-04-13',
+            'protocol'    => 'HTTPS',
+            'pathname'    => '/incident/detail/escalation',
+            'method'      => 'POST',
+            'authType'    => 'AK',
+            'style'       => 'ROA',
+            'reqBodyType' => 'json',
+            'bodyType'    => 'json',
+        ]);
 
-        return ListIncidentDetailEscalationPlansResponse::fromMap($this->doROARequest('ListIncidentDetailEscalationPlans', '2021-04-13', 'HTTPS', 'POST', 'AK', '/incident/detail/escalation', 'json', $req, $runtime));
+        return ListIncidentDetailEscalationPlansResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
@@ -3813,23 +4960,34 @@ class GEMP extends OpenApiClient
         Utils::validateModel($request);
         $body = [];
         if (!Utils::isUnset($request->clientToken)) {
-            @$body['clientToken'] = $request->clientToken;
+            $body['clientToken'] = $request->clientToken;
         }
         if (!Utils::isUnset($request->incidentId)) {
-            @$body['incidentId'] = $request->incidentId;
+            $body['incidentId'] = $request->incidentId;
         }
         if (!Utils::isUnset($request->pageNumber)) {
-            @$body['pageNumber'] = $request->pageNumber;
+            $body['pageNumber'] = $request->pageNumber;
         }
         if (!Utils::isUnset($request->pageSize)) {
-            @$body['pageSize'] = $request->pageSize;
+            $body['pageSize'] = $request->pageSize;
         }
         $req = new OpenApiRequest([
             'headers' => $headers,
             'body'    => OpenApiUtilClient::parseToMap($body),
         ]);
+        $params = new Params([
+            'action'      => 'ListIncidentDetailTimelines',
+            'version'     => '2021-04-13',
+            'protocol'    => 'HTTPS',
+            'pathname'    => '/incident/detail/timeline',
+            'method'      => 'POST',
+            'authType'    => 'AK',
+            'style'       => 'ROA',
+            'reqBodyType' => 'json',
+            'bodyType'    => 'json',
+        ]);
 
-        return ListIncidentDetailTimelinesResponse::fromMap($this->doROARequest('ListIncidentDetailTimelines', '2021-04-13', 'HTTPS', 'POST', 'AK', '/incident/detail/timeline', 'json', $req, $runtime));
+        return ListIncidentDetailTimelinesResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
@@ -3857,17 +5015,28 @@ class GEMP extends OpenApiClient
         Utils::validateModel($request);
         $body = [];
         if (!Utils::isUnset($request->clientToken)) {
-            @$body['clientToken'] = $request->clientToken;
+            $body['clientToken'] = $request->clientToken;
         }
         if (!Utils::isUnset($request->incidentId)) {
-            @$body['incidentId'] = $request->incidentId;
+            $body['incidentId'] = $request->incidentId;
         }
         $req = new OpenApiRequest([
             'headers' => $headers,
             'body'    => OpenApiUtilClient::parseToMap($body),
         ]);
+        $params = new Params([
+            'action'      => 'ListIncidentSubtotals',
+            'version'     => '2021-04-13',
+            'protocol'    => 'HTTPS',
+            'pathname'    => '/incident/list/subtotal',
+            'method'      => 'POST',
+            'authType'    => 'AK',
+            'style'       => 'ROA',
+            'reqBodyType' => 'json',
+            'bodyType'    => 'json',
+        ]);
 
-        return ListIncidentSubtotalsResponse::fromMap($this->doROARequest('ListIncidentSubtotals', '2021-04-13', 'HTTPS', 'POST', 'AK', '/incident/list/subtotal', 'json', $req, $runtime));
+        return ListIncidentSubtotalsResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
@@ -3895,20 +5064,31 @@ class GEMP extends OpenApiClient
         Utils::validateModel($request);
         $body = [];
         if (!Utils::isUnset($request->clientToken)) {
-            @$body['clientToken'] = $request->clientToken;
+            $body['clientToken'] = $request->clientToken;
         }
         if (!Utils::isUnset($request->pageNumber)) {
-            @$body['pageNumber'] = $request->pageNumber;
+            $body['pageNumber'] = $request->pageNumber;
         }
         if (!Utils::isUnset($request->pageSize)) {
-            @$body['pageSize'] = $request->pageSize;
+            $body['pageSize'] = $request->pageSize;
         }
         $req = new OpenApiRequest([
             'headers' => $headers,
             'body'    => OpenApiUtilClient::parseToMap($body),
         ]);
+        $params = new Params([
+            'action'      => 'ListIncidentTimelines',
+            'version'     => '2021-04-13',
+            'protocol'    => 'HTTPS',
+            'pathname'    => '/incident/timeline',
+            'method'      => 'POST',
+            'authType'    => 'AK',
+            'style'       => 'ROA',
+            'reqBodyType' => 'json',
+            'bodyType'    => 'json',
+        ]);
 
-        return ListIncidentTimelinesResponse::fromMap($this->doROARequest('ListIncidentTimelines', '2021-04-13', 'HTTPS', 'POST', 'AK', '/incident/timeline', 'json', $req, $runtime));
+        return ListIncidentTimelinesResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
@@ -3936,41 +5116,55 @@ class GEMP extends OpenApiClient
         Utils::validateModel($request);
         $body = [];
         if (!Utils::isUnset($request->clientToken)) {
-            @$body['clientToken'] = $request->clientToken;
+            $body['clientToken'] = $request->clientToken;
         }
         if (!Utils::isUnset($request->createEndTime)) {
-            @$body['createEndTime'] = $request->createEndTime;
+            $body['createEndTime'] = $request->createEndTime;
         }
         if (!Utils::isUnset($request->createStartTime)) {
-            @$body['createStartTime'] = $request->createStartTime;
+            $body['createStartTime'] = $request->createStartTime;
         }
         if (!Utils::isUnset($request->effect)) {
-            @$body['effect'] = $request->effect;
+            $body['effect'] = $request->effect;
         }
         if (!Utils::isUnset($request->incidentLevel)) {
-            @$body['incidentLevel'] = $request->incidentLevel;
+            $body['incidentLevel'] = $request->incidentLevel;
         }
         if (!Utils::isUnset($request->incidentStatus)) {
-            @$body['incidentStatus'] = $request->incidentStatus;
+            $body['incidentStatus'] = $request->incidentStatus;
         }
         if (!Utils::isUnset($request->me)) {
-            @$body['me'] = $request->me;
+            $body['me'] = $request->me;
         }
         if (!Utils::isUnset($request->pageNumber)) {
-            @$body['pageNumber'] = $request->pageNumber;
+            $body['pageNumber'] = $request->pageNumber;
         }
         if (!Utils::isUnset($request->pageSize)) {
-            @$body['pageSize'] = $request->pageSize;
+            $body['pageSize'] = $request->pageSize;
         }
         if (!Utils::isUnset($request->relationServiceId)) {
-            @$body['relationServiceId'] = $request->relationServiceId;
+            $body['relationServiceId'] = $request->relationServiceId;
+        }
+        if (!Utils::isUnset($request->ruleName)) {
+            $body['ruleName'] = $request->ruleName;
         }
         $req = new OpenApiRequest([
             'headers' => $headers,
             'body'    => OpenApiUtilClient::parseToMap($body),
         ]);
+        $params = new Params([
+            'action'      => 'ListIncidents',
+            'version'     => '2021-04-13',
+            'protocol'    => 'HTTPS',
+            'pathname'    => '/incident/list',
+            'method'      => 'POST',
+            'authType'    => 'AK',
+            'style'       => 'ROA',
+            'reqBodyType' => 'json',
+            'bodyType'    => 'json',
+        ]);
 
-        return ListIncidentsResponse::fromMap($this->doROARequest('ListIncidents', '2021-04-13', 'HTTPS', 'POST', 'AK', '/incident/list', 'json', $req, $runtime));
+        return ListIncidentsResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
@@ -3998,23 +5192,34 @@ class GEMP extends OpenApiClient
         Utils::validateModel($request);
         $body = [];
         if (!Utils::isUnset($request->clientToken)) {
-            @$body['clientToken'] = $request->clientToken;
+            $body['clientToken'] = $request->clientToken;
         }
         if (!Utils::isUnset($request->integrationConfigId)) {
-            @$body['integrationConfigId'] = $request->integrationConfigId;
+            $body['integrationConfigId'] = $request->integrationConfigId;
         }
         if (!Utils::isUnset($request->pageNumber)) {
-            @$body['pageNumber'] = $request->pageNumber;
+            $body['pageNumber'] = $request->pageNumber;
         }
         if (!Utils::isUnset($request->pageSize)) {
-            @$body['pageSize'] = $request->pageSize;
+            $body['pageSize'] = $request->pageSize;
         }
         $req = new OpenApiRequest([
             'headers' => $headers,
             'body'    => OpenApiUtilClient::parseToMap($body),
         ]);
+        $params = new Params([
+            'action'      => 'ListIntegrationConfigTimelines',
+            'version'     => '2021-04-13',
+            'protocol'    => 'HTTPS',
+            'pathname'    => '/integrationConfig/timeline',
+            'method'      => 'POST',
+            'authType'    => 'AK',
+            'style'       => 'ROA',
+            'reqBodyType' => 'json',
+            'bodyType'    => 'json',
+        ]);
 
-        return ListIntegrationConfigTimelinesResponse::fromMap($this->doROARequest('ListIntegrationConfigTimelines', '2021-04-13', 'HTTPS', 'POST', 'AK', '/integrationConfig/timeline', 'json', $req, $runtime));
+        return ListIntegrationConfigTimelinesResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
@@ -4042,17 +5247,28 @@ class GEMP extends OpenApiClient
         Utils::validateModel($request);
         $body = [];
         if (!Utils::isUnset($request->clientToken)) {
-            @$body['clientToken'] = $request->clientToken;
+            $body['clientToken'] = $request->clientToken;
         }
         if (!Utils::isUnset($request->monitorSourceName)) {
-            @$body['monitorSourceName'] = $request->monitorSourceName;
+            $body['monitorSourceName'] = $request->monitorSourceName;
         }
         $req = new OpenApiRequest([
             'headers' => $headers,
             'body'    => OpenApiUtilClient::parseToMap($body),
         ]);
+        $params = new Params([
+            'action'      => 'ListIntegrationConfigs',
+            'version'     => '2021-04-13',
+            'protocol'    => 'HTTPS',
+            'pathname'    => '/integrationConfig/list',
+            'method'      => 'POST',
+            'authType'    => 'AK',
+            'style'       => 'ROA',
+            'reqBodyType' => 'json',
+            'bodyType'    => 'json',
+        ]);
 
-        return ListIntegrationConfigsResponse::fromMap($this->doROARequest('ListIntegrationConfigs', '2021-04-13', 'HTTPS', 'POST', 'AK', '/integrationConfig/list', 'json', $req, $runtime));
+        return ListIntegrationConfigsResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
@@ -4080,14 +5296,25 @@ class GEMP extends OpenApiClient
         Utils::validateModel($request);
         $body = [];
         if (!Utils::isUnset($request->clientToken)) {
-            @$body['clientToken'] = $request->clientToken;
+            $body['clientToken'] = $request->clientToken;
         }
         $req = new OpenApiRequest([
             'headers' => $headers,
             'body'    => OpenApiUtilClient::parseToMap($body),
         ]);
+        $params = new Params([
+            'action'      => 'ListMonitorSources',
+            'version'     => '2021-04-13',
+            'protocol'    => 'HTTPS',
+            'pathname'    => '/monitorSource/list',
+            'method'      => 'POST',
+            'authType'    => 'AK',
+            'style'       => 'ROA',
+            'reqBodyType' => 'json',
+            'bodyType'    => 'json',
+        ]);
 
-        return ListMonitorSourcesResponse::fromMap($this->doROARequest('ListMonitorSources', '2021-04-13', 'HTTPS', 'POST', 'AK', '/monitorSource/list', 'json', $req, $runtime));
+        return ListMonitorSourcesResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
@@ -4115,26 +5342,37 @@ class GEMP extends OpenApiClient
         Utils::validateModel($request);
         $body = [];
         if (!Utils::isUnset($request->clientToken)) {
-            @$body['clientToken'] = $request->clientToken;
+            $body['clientToken'] = $request->clientToken;
         }
         if (!Utils::isUnset($request->createTimeSort)) {
-            @$body['createTimeSort'] = $request->createTimeSort;
+            $body['createTimeSort'] = $request->createTimeSort;
         }
         if (!Utils::isUnset($request->pageNumber)) {
-            @$body['pageNumber'] = $request->pageNumber;
+            $body['pageNumber'] = $request->pageNumber;
         }
         if (!Utils::isUnset($request->pageSize)) {
-            @$body['pageSize'] = $request->pageSize;
+            $body['pageSize'] = $request->pageSize;
         }
         if (!Utils::isUnset($request->problemId)) {
-            @$body['problemId'] = $request->problemId;
+            $body['problemId'] = $request->problemId;
         }
         $req = new OpenApiRequest([
             'headers' => $headers,
             'body'    => OpenApiUtilClient::parseToMap($body),
         ]);
+        $params = new Params([
+            'action'      => 'ListProblemDetailOperations',
+            'version'     => '2021-04-13',
+            'protocol'    => 'HTTPS',
+            'pathname'    => '/problem/detail/operations',
+            'method'      => 'POST',
+            'authType'    => 'AK',
+            'style'       => 'ROA',
+            'reqBodyType' => 'json',
+            'bodyType'    => 'json',
+        ]);
 
-        return ListProblemDetailOperationsResponse::fromMap($this->doROARequest('ListProblemDetailOperations', '2021-04-13', 'HTTPS', 'POST', 'AK', '/problem/detail/operations', 'json', $req, $runtime));
+        return ListProblemDetailOperationsResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
@@ -4162,20 +5400,31 @@ class GEMP extends OpenApiClient
         Utils::validateModel($request);
         $body = [];
         if (!Utils::isUnset($request->clientToken)) {
-            @$body['clientToken'] = $request->clientToken;
+            $body['clientToken'] = $request->clientToken;
         }
         if (!Utils::isUnset($request->pageNumber)) {
-            @$body['pageNumber'] = $request->pageNumber;
+            $body['pageNumber'] = $request->pageNumber;
         }
         if (!Utils::isUnset($request->pageSize)) {
-            @$body['pageSize'] = $request->pageSize;
+            $body['pageSize'] = $request->pageSize;
         }
         $req = new OpenApiRequest([
             'headers' => $headers,
             'body'    => OpenApiUtilClient::parseToMap($body),
         ]);
+        $params = new Params([
+            'action'      => 'ListProblemOperations',
+            'version'     => '2021-04-13',
+            'protocol'    => 'HTTPS',
+            'pathname'    => '/problem/operations',
+            'method'      => 'POST',
+            'authType'    => 'AK',
+            'style'       => 'ROA',
+            'reqBodyType' => 'json',
+            'bodyType'    => 'json',
+        ]);
 
-        return ListProblemOperationsResponse::fromMap($this->doROARequest('ListProblemOperations', '2021-04-13', 'HTTPS', 'POST', 'AK', '/problem/operations', 'json', $req, $runtime));
+        return ListProblemOperationsResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
@@ -4203,17 +5452,28 @@ class GEMP extends OpenApiClient
         Utils::validateModel($request);
         $body = [];
         if (!Utils::isUnset($request->clientToken)) {
-            @$body['clientToken'] = $request->clientToken;
+            $body['clientToken'] = $request->clientToken;
         }
         if (!Utils::isUnset($request->problemId)) {
-            @$body['problemId'] = $request->problemId;
+            $body['problemId'] = $request->problemId;
         }
         $req = new OpenApiRequest([
             'headers' => $headers,
             'body'    => OpenApiUtilClient::parseToMap($body),
         ]);
+        $params = new Params([
+            'action'      => 'ListProblemSubtotals',
+            'version'     => '2021-04-13',
+            'protocol'    => 'HTTPS',
+            'pathname'    => '/problem/list/subtotal',
+            'method'      => 'POST',
+            'authType'    => 'AK',
+            'style'       => 'ROA',
+            'reqBodyType' => 'json',
+            'bodyType'    => 'json',
+        ]);
 
-        return ListProblemSubtotalsResponse::fromMap($this->doROARequest('ListProblemSubtotals', '2021-04-13', 'HTTPS', 'POST', 'AK', '/problem/list/subtotal', 'json', $req, $runtime));
+        return ListProblemSubtotalsResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
@@ -4241,17 +5501,28 @@ class GEMP extends OpenApiClient
         Utils::validateModel($request);
         $body = [];
         if (!Utils::isUnset($request->clientToken)) {
-            @$body['clientToken'] = $request->clientToken;
+            $body['clientToken'] = $request->clientToken;
         }
         if (!Utils::isUnset($request->problemId)) {
-            @$body['problemId'] = $request->problemId;
+            $body['problemId'] = $request->problemId;
         }
         $req = new OpenApiRequest([
             'headers' => $headers,
             'body'    => OpenApiUtilClient::parseToMap($body),
         ]);
+        $params = new Params([
+            'action'      => 'ListProblemTimeLines',
+            'version'     => '2021-04-13',
+            'protocol'    => 'HTTPS',
+            'pathname'    => '/problem/detail/timeLines',
+            'method'      => 'POST',
+            'authType'    => 'AK',
+            'style'       => 'ROA',
+            'reqBodyType' => 'json',
+            'bodyType'    => 'json',
+        ]);
 
-        return ListProblemTimeLinesResponse::fromMap($this->doROARequest('ListProblemTimeLines', '2021-04-13', 'HTTPS', 'POST', 'AK', '/problem/detail/timeLines', 'json', $req, $runtime));
+        return ListProblemTimeLinesResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
@@ -4279,53 +5550,64 @@ class GEMP extends OpenApiClient
         Utils::validateModel($request);
         $body = [];
         if (!Utils::isUnset($request->affectServiceId)) {
-            @$body['affectServiceId'] = $request->affectServiceId;
+            $body['affectServiceId'] = $request->affectServiceId;
         }
         if (!Utils::isUnset($request->clientToken)) {
-            @$body['clientToken'] = $request->clientToken;
+            $body['clientToken'] = $request->clientToken;
         }
         if (!Utils::isUnset($request->discoveryEndTime)) {
-            @$body['discoveryEndTime'] = $request->discoveryEndTime;
+            $body['discoveryEndTime'] = $request->discoveryEndTime;
         }
         if (!Utils::isUnset($request->discoveryStartTime)) {
-            @$body['discoveryStartTime'] = $request->discoveryStartTime;
+            $body['discoveryStartTime'] = $request->discoveryStartTime;
         }
         if (!Utils::isUnset($request->mainHandlerId)) {
-            @$body['mainHandlerId'] = $request->mainHandlerId;
+            $body['mainHandlerId'] = $request->mainHandlerId;
         }
         if (!Utils::isUnset($request->pageNumber)) {
-            @$body['pageNumber'] = $request->pageNumber;
+            $body['pageNumber'] = $request->pageNumber;
         }
         if (!Utils::isUnset($request->pageSize)) {
-            @$body['pageSize'] = $request->pageSize;
+            $body['pageSize'] = $request->pageSize;
         }
         if (!Utils::isUnset($request->problemLevel)) {
-            @$body['problemLevel'] = $request->problemLevel;
+            $body['problemLevel'] = $request->problemLevel;
         }
         if (!Utils::isUnset($request->problemStatus)) {
-            @$body['problemStatus'] = $request->problemStatus;
+            $body['problemStatus'] = $request->problemStatus;
         }
         if (!Utils::isUnset($request->queryType)) {
-            @$body['queryType'] = $request->queryType;
+            $body['queryType'] = $request->queryType;
         }
         if (!Utils::isUnset($request->repeaterId)) {
-            @$body['repeaterId'] = $request->repeaterId;
+            $body['repeaterId'] = $request->repeaterId;
         }
         if (!Utils::isUnset($request->restoreEndTime)) {
-            @$body['restoreEndTime'] = $request->restoreEndTime;
+            $body['restoreEndTime'] = $request->restoreEndTime;
         }
         if (!Utils::isUnset($request->restoreStartTime)) {
-            @$body['restoreStartTime'] = $request->restoreStartTime;
+            $body['restoreStartTime'] = $request->restoreStartTime;
         }
         if (!Utils::isUnset($request->serviceGroupId)) {
-            @$body['serviceGroupId'] = $request->serviceGroupId;
+            $body['serviceGroupId'] = $request->serviceGroupId;
         }
         $req = new OpenApiRequest([
             'headers' => $headers,
             'body'    => OpenApiUtilClient::parseToMap($body),
         ]);
+        $params = new Params([
+            'action'      => 'ListProblems',
+            'version'     => '2021-04-13',
+            'protocol'    => 'HTTPS',
+            'pathname'    => '/problem/listProblems',
+            'method'      => 'POST',
+            'authType'    => 'AK',
+            'style'       => 'ROA',
+            'reqBodyType' => 'json',
+            'bodyType'    => 'json',
+        ]);
 
-        return ListProblemsResponse::fromMap($this->doROARequest('ListProblems', '2021-04-13', 'HTTPS', 'POST', 'AK', '/problem/listProblems', 'json', $req, $runtime));
+        return ListProblemsResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
@@ -4353,26 +5635,92 @@ class GEMP extends OpenApiClient
         Utils::validateModel($request);
         $body = [];
         if (!Utils::isUnset($request->clientToken)) {
-            @$body['clientToken'] = $request->clientToken;
+            $body['clientToken'] = $request->clientToken;
         }
         if (!Utils::isUnset($request->pageNumber)) {
-            @$body['pageNumber'] = $request->pageNumber;
+            $body['pageNumber'] = $request->pageNumber;
         }
         if (!Utils::isUnset($request->pageSize)) {
-            @$body['pageSize'] = $request->pageSize;
+            $body['pageSize'] = $request->pageSize;
+        }
+        if (!Utils::isUnset($request->routeType)) {
+            $body['routeType'] = $request->routeType;
         }
         if (!Utils::isUnset($request->ruleName)) {
-            @$body['ruleName'] = $request->ruleName;
+            $body['ruleName'] = $request->ruleName;
         }
         if (!Utils::isUnset($request->serviceName)) {
-            @$body['serviceName'] = $request->serviceName;
+            $body['serviceName'] = $request->serviceName;
         }
         $req = new OpenApiRequest([
             'headers' => $headers,
             'body'    => OpenApiUtilClient::parseToMap($body),
         ]);
+        $params = new Params([
+            'action'      => 'ListRouteRules',
+            'version'     => '2021-04-13',
+            'protocol'    => 'HTTPS',
+            'pathname'    => '/routeRule/list',
+            'method'      => 'POST',
+            'authType'    => 'AK',
+            'style'       => 'ROA',
+            'reqBodyType' => 'json',
+            'bodyType'    => 'json',
+        ]);
 
-        return ListRouteRulesResponse::fromMap($this->doROARequest('ListRouteRules', '2021-04-13', 'HTTPS', 'POST', 'AK', '/routeRule/list', 'json', $req, $runtime));
+        return ListRouteRulesResponse::fromMap($this->callApi($params, $req, $runtime));
+    }
+
+    /**
+     * @param ListServiceGroupMonitorSourceTemplatesRequest $request
+     *
+     * @return ListServiceGroupMonitorSourceTemplatesResponse
+     */
+    public function listServiceGroupMonitorSourceTemplates($request)
+    {
+        $runtime = new RuntimeOptions([]);
+        $headers = [];
+
+        return $this->listServiceGroupMonitorSourceTemplatesWithOptions($request, $headers, $runtime);
+    }
+
+    /**
+     * @param ListServiceGroupMonitorSourceTemplatesRequest $request
+     * @param string[]                                      $headers
+     * @param RuntimeOptions                                $runtime
+     *
+     * @return ListServiceGroupMonitorSourceTemplatesResponse
+     */
+    public function listServiceGroupMonitorSourceTemplatesWithOptions($request, $headers, $runtime)
+    {
+        Utils::validateModel($request);
+        $body = [];
+        if (!Utils::isUnset($request->clientToken)) {
+            $body['clientToken'] = $request->clientToken;
+        }
+        if (!Utils::isUnset($request->requestId)) {
+            $body['requestId'] = $request->requestId;
+        }
+        if (!Utils::isUnset($request->serviceGroupId)) {
+            $body['serviceGroupId'] = $request->serviceGroupId;
+        }
+        $req = new OpenApiRequest([
+            'headers' => $headers,
+            'body'    => OpenApiUtilClient::parseToMap($body),
+        ]);
+        $params = new Params([
+            'action'      => 'ListServiceGroupMonitorSourceTemplates',
+            'version'     => '2021-04-13',
+            'protocol'    => 'HTTPS',
+            'pathname'    => '/services/group/listServiceGroupMonitorSourceTemplates',
+            'method'      => 'POST',
+            'authType'    => 'AK',
+            'style'       => 'ROA',
+            'reqBodyType' => 'json',
+            'bodyType'    => 'json',
+        ]);
+
+        return ListServiceGroupMonitorSourceTemplatesResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
@@ -4400,35 +5748,46 @@ class GEMP extends OpenApiClient
         Utils::validateModel($request);
         $body = [];
         if (!Utils::isUnset($request->clientToken)) {
-            @$body['clientToken'] = $request->clientToken;
+            $body['clientToken'] = $request->clientToken;
         }
         if (!Utils::isUnset($request->isScheduled)) {
-            @$body['isScheduled'] = $request->isScheduled;
+            $body['isScheduled'] = $request->isScheduled;
         }
         if (!Utils::isUnset($request->orderByScheduleStatus)) {
-            @$body['orderByScheduleStatus'] = $request->orderByScheduleStatus;
+            $body['orderByScheduleStatus'] = $request->orderByScheduleStatus;
         }
         if (!Utils::isUnset($request->pageNumber)) {
-            @$body['pageNumber'] = $request->pageNumber;
+            $body['pageNumber'] = $request->pageNumber;
         }
         if (!Utils::isUnset($request->pageSize)) {
-            @$body['pageSize'] = $request->pageSize;
+            $body['pageSize'] = $request->pageSize;
         }
         if (!Utils::isUnset($request->queryName)) {
-            @$body['queryName'] = $request->queryName;
+            $body['queryName'] = $request->queryName;
         }
         if (!Utils::isUnset($request->queryType)) {
-            @$body['queryType'] = $request->queryType;
+            $body['queryType'] = $request->queryType;
         }
         if (!Utils::isUnset($request->userId)) {
-            @$body['userId'] = $request->userId;
+            $body['userId'] = $request->userId;
         }
         $req = new OpenApiRequest([
             'headers' => $headers,
             'body'    => OpenApiUtilClient::parseToMap($body),
         ]);
+        $params = new Params([
+            'action'      => 'ListServiceGroups',
+            'version'     => '2021-04-13',
+            'protocol'    => 'HTTPS',
+            'pathname'    => '/services/group/list',
+            'method'      => 'POST',
+            'authType'    => 'AK',
+            'style'       => 'ROA',
+            'reqBodyType' => 'json',
+            'bodyType'    => 'json',
+        ]);
 
-        return ListServiceGroupsResponse::fromMap($this->doROARequest('ListServiceGroups', '2021-04-13', 'HTTPS', 'POST', 'AK', '/services/group/list', 'json', $req, $runtime));
+        return ListServiceGroupsResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
@@ -4456,23 +5815,34 @@ class GEMP extends OpenApiClient
         Utils::validateModel($request);
         $body = [];
         if (!Utils::isUnset($request->clientToken)) {
-            @$body['clientToken'] = $request->clientToken;
+            $body['clientToken'] = $request->clientToken;
         }
         if (!Utils::isUnset($request->pageNumber)) {
-            @$body['pageNumber'] = $request->pageNumber;
+            $body['pageNumber'] = $request->pageNumber;
         }
         if (!Utils::isUnset($request->pageSize)) {
-            @$body['pageSize'] = $request->pageSize;
+            $body['pageSize'] = $request->pageSize;
         }
         if (!Utils::isUnset($request->serviceName)) {
-            @$body['serviceName'] = $request->serviceName;
+            $body['serviceName'] = $request->serviceName;
         }
         $req = new OpenApiRequest([
             'headers' => $headers,
             'body'    => OpenApiUtilClient::parseToMap($body),
         ]);
+        $params = new Params([
+            'action'      => 'ListServices',
+            'version'     => '2021-04-13',
+            'protocol'    => 'HTTPS',
+            'pathname'    => '/services/list',
+            'method'      => 'POST',
+            'authType'    => 'AK',
+            'style'       => 'ROA',
+            'reqBodyType' => 'json',
+            'bodyType'    => 'json',
+        ]);
 
-        return ListServicesResponse::fromMap($this->doROARequest('ListServices', '2021-04-13', 'HTTPS', 'POST', 'AK', '/services/list', 'json', $req, $runtime));
+        return ListServicesResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
@@ -4500,38 +5870,49 @@ class GEMP extends OpenApiClient
         Utils::validateModel($request);
         $body = [];
         if (!Utils::isUnset($request->clientToken)) {
-            @$body['clientToken'] = $request->clientToken;
+            $body['clientToken'] = $request->clientToken;
         }
         if (!Utils::isUnset($request->endTime)) {
-            @$body['endTime'] = $request->endTime;
+            $body['endTime'] = $request->endTime;
         }
         if (!Utils::isUnset($request->instanceId)) {
-            @$body['instanceId'] = $request->instanceId;
+            $body['instanceId'] = $request->instanceId;
         }
         if (!Utils::isUnset($request->instanceType)) {
-            @$body['instanceType'] = $request->instanceType;
+            $body['instanceType'] = $request->instanceType;
         }
         if (!Utils::isUnset($request->pageNumber)) {
-            @$body['pageNumber'] = $request->pageNumber;
+            $body['pageNumber'] = $request->pageNumber;
         }
         if (!Utils::isUnset($request->pageSize)) {
-            @$body['pageSize'] = $request->pageSize;
+            $body['pageSize'] = $request->pageSize;
         }
         if (!Utils::isUnset($request->startRowKey)) {
-            @$body['startRowKey'] = $request->startRowKey;
+            $body['startRowKey'] = $request->startRowKey;
         }
         if (!Utils::isUnset($request->startTime)) {
-            @$body['startTime'] = $request->startTime;
+            $body['startTime'] = $request->startTime;
         }
         if (!Utils::isUnset($request->stopRowKey)) {
-            @$body['stopRowKey'] = $request->stopRowKey;
+            $body['stopRowKey'] = $request->stopRowKey;
         }
         $req = new OpenApiRequest([
             'headers' => $headers,
             'body'    => OpenApiUtilClient::parseToMap($body),
         ]);
+        $params = new Params([
+            'action'      => 'ListSourceEvents',
+            'version'     => '2021-04-13',
+            'protocol'    => 'HTTPS',
+            'pathname'    => '/events/listOriginalEvent',
+            'method'      => 'POST',
+            'authType'    => 'AK',
+            'style'       => 'ROA',
+            'reqBodyType' => 'json',
+            'bodyType'    => 'json',
+        ]);
 
-        return ListSourceEventsResponse::fromMap($this->doROARequest('ListSourceEvents', '2021-04-13', 'HTTPS', 'POST', 'AK', '/events/listOriginalEvent', 'json', $req, $runtime));
+        return ListSourceEventsResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
@@ -4559,14 +5940,25 @@ class GEMP extends OpenApiClient
         Utils::validateModel($request);
         $body = [];
         if (!Utils::isUnset($request->monitorSourceId)) {
-            @$body['monitorSourceId'] = $request->monitorSourceId;
+            $body['monitorSourceId'] = $request->monitorSourceId;
         }
         $req = new OpenApiRequest([
             'headers' => $headers,
             'body'    => OpenApiUtilClient::parseToMap($body),
         ]);
+        $params = new Params([
+            'action'      => 'ListSourceEventsForMonitorSource',
+            'version'     => '2021-04-13',
+            'protocol'    => 'HTTPS',
+            'pathname'    => '/events/queryLastestEvents',
+            'method'      => 'POST',
+            'authType'    => 'AK',
+            'style'       => 'ROA',
+            'reqBodyType' => 'json',
+            'bodyType'    => 'json',
+        ]);
 
-        return ListSourceEventsForMonitorSourceResponse::fromMap($this->doROARequest('ListSourceEventsForMonitorSource', '2021-04-13', 'HTTPS', 'POST', 'AK', '/events/queryLastestEvents', 'json', $req, $runtime));
+        return ListSourceEventsForMonitorSourceResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
@@ -4594,17 +5986,28 @@ class GEMP extends OpenApiClient
         Utils::validateModel($request);
         $body = [];
         if (!Utils::isUnset($request->clientToken)) {
-            @$body['clientToken'] = $request->clientToken;
+            $body['clientToken'] = $request->clientToken;
         }
         if (!Utils::isUnset($request->serviceIds)) {
-            @$body['serviceIds'] = $request->serviceIds;
+            $body['serviceIds'] = $request->serviceIds;
         }
         $req = new OpenApiRequest([
             'headers' => $headers,
             'body'    => OpenApiUtilClient::parseToMap($body),
         ]);
+        $params = new Params([
+            'action'      => 'ListSubscriptionServiceGroups',
+            'version'     => '2021-04-13',
+            'protocol'    => 'HTTPS',
+            'pathname'    => '/problem/serviceGroup/list',
+            'method'      => 'POST',
+            'authType'    => 'AK',
+            'style'       => 'ROA',
+            'reqBodyType' => 'json',
+            'bodyType'    => 'json',
+        ]);
 
-        return ListSubscriptionServiceGroupsResponse::fromMap($this->doROARequest('ListSubscriptionServiceGroups', '2021-04-13', 'HTTPS', 'POST', 'AK', '/problem/serviceGroup/list', 'json', $req, $runtime));
+        return ListSubscriptionServiceGroupsResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
@@ -4632,35 +6035,107 @@ class GEMP extends OpenApiClient
         Utils::validateModel($request);
         $body = [];
         if (!Utils::isUnset($request->clientToken)) {
-            @$body['clientToken'] = $request->clientToken;
+            $body['clientToken'] = $request->clientToken;
         }
         if (!Utils::isUnset($request->notifyObject)) {
-            @$body['notifyObject'] = $request->notifyObject;
+            $body['notifyObject'] = $request->notifyObject;
         }
         if (!Utils::isUnset($request->notifyObjectType)) {
-            @$body['notifyObjectType'] = $request->notifyObjectType;
+            $body['notifyObjectType'] = $request->notifyObjectType;
         }
         if (!Utils::isUnset($request->pageNumber)) {
-            @$body['pageNumber'] = $request->pageNumber;
+            $body['pageNumber'] = $request->pageNumber;
         }
         if (!Utils::isUnset($request->pageSize)) {
-            @$body['pageSize'] = $request->pageSize;
+            $body['pageSize'] = $request->pageSize;
         }
         if (!Utils::isUnset($request->scope)) {
-            @$body['scope'] = $request->scope;
+            $body['scope'] = $request->scope;
         }
         if (!Utils::isUnset($request->scopeObject)) {
-            @$body['scopeObject'] = $request->scopeObject;
+            $body['scopeObject'] = $request->scopeObject;
         }
         if (!Utils::isUnset($request->subscriptionTitle)) {
-            @$body['subscriptionTitle'] = $request->subscriptionTitle;
+            $body['subscriptionTitle'] = $request->subscriptionTitle;
         }
         $req = new OpenApiRequest([
             'headers' => $headers,
             'body'    => OpenApiUtilClient::parseToMap($body),
         ]);
+        $params = new Params([
+            'action'      => 'ListSubscriptions',
+            'version'     => '2021-04-13',
+            'protocol'    => 'HTTPS',
+            'pathname'    => '/notify/subscription/list',
+            'method'      => 'POST',
+            'authType'    => 'AK',
+            'style'       => 'ROA',
+            'reqBodyType' => 'json',
+            'bodyType'    => 'json',
+        ]);
 
-        return ListSubscriptionsResponse::fromMap($this->doROARequest('ListSubscriptions', '2021-04-13', 'HTTPS', 'POST', 'AK', '/notify/subscription/list', 'json', $req, $runtime));
+        return ListSubscriptionsResponse::fromMap($this->callApi($params, $req, $runtime));
+    }
+
+    /**
+     * @param ListTrendForSourceEventRequest $request
+     *
+     * @return ListTrendForSourceEventResponse
+     */
+    public function listTrendForSourceEvent($request)
+    {
+        $runtime = new RuntimeOptions([]);
+        $headers = [];
+
+        return $this->listTrendForSourceEventWithOptions($request, $headers, $runtime);
+    }
+
+    /**
+     * @param ListTrendForSourceEventRequest $request
+     * @param string[]                       $headers
+     * @param RuntimeOptions                 $runtime
+     *
+     * @return ListTrendForSourceEventResponse
+     */
+    public function listTrendForSourceEventWithOptions($request, $headers, $runtime)
+    {
+        Utils::validateModel($request);
+        $body = [];
+        if (!Utils::isUnset($request->endTime)) {
+            $body['endTime'] = $request->endTime;
+        }
+        if (!Utils::isUnset($request->instanceId)) {
+            $body['instanceId'] = $request->instanceId;
+        }
+        if (!Utils::isUnset($request->instanceType)) {
+            $body['instanceType'] = $request->instanceType;
+        }
+        if (!Utils::isUnset($request->requestId)) {
+            $body['requestId'] = $request->requestId;
+        }
+        if (!Utils::isUnset($request->startTime)) {
+            $body['startTime'] = $request->startTime;
+        }
+        if (!Utils::isUnset($request->timeUnit)) {
+            $body['timeUnit'] = $request->timeUnit;
+        }
+        $req = new OpenApiRequest([
+            'headers' => $headers,
+            'body'    => OpenApiUtilClient::parseToMap($body),
+        ]);
+        $params = new Params([
+            'action'      => 'ListTrendForSourceEvent',
+            'version'     => '2021-04-13',
+            'protocol'    => 'HTTPS',
+            'pathname'    => '/events/querySourceEventTrend',
+            'method'      => 'POST',
+            'authType'    => 'AK',
+            'style'       => 'ROA',
+            'reqBodyType' => 'json',
+            'bodyType'    => 'json',
+        ]);
+
+        return ListTrendForSourceEventResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
@@ -4688,17 +6163,28 @@ class GEMP extends OpenApiClient
         Utils::validateModel($request);
         $body = [];
         if (!Utils::isUnset($request->clientToken)) {
-            @$body['clientToken'] = $request->clientToken;
+            $body['clientToken'] = $request->clientToken;
         }
         if (!Utils::isUnset($request->userId)) {
-            @$body['userId'] = $request->userId;
+            $body['userId'] = $request->userId;
         }
         $req = new OpenApiRequest([
             'headers' => $headers,
             'body'    => OpenApiUtilClient::parseToMap($body),
         ]);
+        $params = new Params([
+            'action'      => 'ListUserSerivceGroups',
+            'version'     => '2021-04-13',
+            'protocol'    => 'HTTPS',
+            'pathname'    => '/user/preview/detail',
+            'method'      => 'POST',
+            'authType'    => 'AK',
+            'style'       => 'ROA',
+            'reqBodyType' => 'json',
+            'bodyType'    => 'json',
+        ]);
 
-        return ListUserSerivceGroupsResponse::fromMap($this->doROARequest('ListUserSerivceGroups', '2021-04-13', 'HTTPS', 'POST', 'AK', '/user/preview/detail', 'json', $req, $runtime));
+        return ListUserSerivceGroupsResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
@@ -4726,35 +6212,46 @@ class GEMP extends OpenApiClient
         Utils::validateModel($request);
         $body = [];
         if (!Utils::isUnset($request->clientToken)) {
-            @$body['clientToken'] = $request->clientToken;
+            $body['clientToken'] = $request->clientToken;
         }
         if (!Utils::isUnset($request->pageNumber)) {
-            @$body['pageNumber'] = $request->pageNumber;
+            $body['pageNumber'] = $request->pageNumber;
         }
         if (!Utils::isUnset($request->pageSize)) {
-            @$body['pageSize'] = $request->pageSize;
+            $body['pageSize'] = $request->pageSize;
         }
         if (!Utils::isUnset($request->phone)) {
-            @$body['phone'] = $request->phone;
+            $body['phone'] = $request->phone;
         }
         if (!Utils::isUnset($request->ramId)) {
-            @$body['ramId'] = $request->ramId;
+            $body['ramId'] = $request->ramId;
         }
         if (!Utils::isUnset($request->scene)) {
-            @$body['scene'] = $request->scene;
+            $body['scene'] = $request->scene;
         }
         if (!Utils::isUnset($request->synergyChannel)) {
-            @$body['synergyChannel'] = $request->synergyChannel;
+            $body['synergyChannel'] = $request->synergyChannel;
         }
         if (!Utils::isUnset($request->username)) {
-            @$body['username'] = $request->username;
+            $body['username'] = $request->username;
         }
         $req = new OpenApiRequest([
             'headers' => $headers,
             'body'    => OpenApiUtilClient::parseToMap($body),
         ]);
+        $params = new Params([
+            'action'      => 'ListUsers',
+            'version'     => '2021-04-13',
+            'protocol'    => 'HTTPS',
+            'pathname'    => '/user/list',
+            'method'      => 'POST',
+            'authType'    => 'AK',
+            'style'       => 'ROA',
+            'reqBodyType' => 'json',
+            'bodyType'    => 'json',
+        ]);
 
-        return ListUsersResponse::fromMap($this->doROARequest('ListUsers', '2021-04-13', 'HTTPS', 'POST', 'AK', '/user/list', 'json', $req, $runtime));
+        return ListUsersResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
@@ -4782,20 +6279,31 @@ class GEMP extends OpenApiClient
         Utils::validateModel($request);
         $body = [];
         if (!Utils::isUnset($request->problemId)) {
-            @$body['problemId'] = $request->problemId;
+            $body['problemId'] = $request->problemId;
         }
         if (!Utils::isUnset($request->problemNotifyType)) {
-            @$body['problemNotifyType'] = $request->problemNotifyType;
+            $body['problemNotifyType'] = $request->problemNotifyType;
         }
         if (!Utils::isUnset($request->recoveryTime)) {
-            @$body['recoveryTime'] = $request->recoveryTime;
+            $body['recoveryTime'] = $request->recoveryTime;
         }
         $req = new OpenApiRequest([
             'headers' => $headers,
             'body'    => OpenApiUtilClient::parseToMap($body),
         ]);
+        $params = new Params([
+            'action'      => 'RecoverProblem',
+            'version'     => '2021-04-13',
+            'protocol'    => 'HTTPS',
+            'pathname'    => '/problem/recovery',
+            'method'      => 'POST',
+            'authType'    => 'AK',
+            'style'       => 'ROA',
+            'reqBodyType' => 'json',
+            'bodyType'    => 'json',
+        ]);
 
-        return RecoverProblemResponse::fromMap($this->doROARequest('RecoverProblem', '2021-04-13', 'HTTPS', 'POST', 'AK', '/problem/recovery', 'json', $req, $runtime));
+        return RecoverProblemResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
@@ -4823,17 +6331,28 @@ class GEMP extends OpenApiClient
         Utils::validateModel($request);
         $body = [];
         if (!Utils::isUnset($request->clientToken)) {
-            @$body['clientToken'] = $request->clientToken;
+            $body['clientToken'] = $request->clientToken;
         }
         if (!Utils::isUnset($request->integrationConfigId)) {
-            @$body['integrationConfigId'] = $request->integrationConfigId;
+            $body['integrationConfigId'] = $request->integrationConfigId;
         }
         $req = new OpenApiRequest([
             'headers' => $headers,
             'body'    => OpenApiUtilClient::parseToMap($body),
         ]);
+        $params = new Params([
+            'action'      => 'RefreshIntegrationConfigKey',
+            'version'     => '2021-04-13',
+            'protocol'    => 'HTTPS',
+            'pathname'    => '/integrationConfig/refreshKey',
+            'method'      => 'POST',
+            'authType'    => 'AK',
+            'style'       => 'ROA',
+            'reqBodyType' => 'json',
+            'bodyType'    => 'json',
+        ]);
 
-        return RefreshIntegrationConfigKeyResponse::fromMap($this->doROARequest('RefreshIntegrationConfigKey', '2021-04-13', 'HTTPS', 'POST', 'AK', '/integrationConfig/refreshKey', 'json', $req, $runtime));
+        return RefreshIntegrationConfigKeyResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
@@ -4861,17 +6380,28 @@ class GEMP extends OpenApiClient
         Utils::validateModel($request);
         $body = [];
         if (!Utils::isUnset($request->problemId)) {
-            @$body['problemId'] = $request->problemId;
+            $body['problemId'] = $request->problemId;
         }
         if (!Utils::isUnset($request->serviceGroupIds)) {
-            @$body['serviceGroupIds'] = $request->serviceGroupIds;
+            $body['serviceGroupIds'] = $request->serviceGroupIds;
         }
         $req = new OpenApiRequest([
             'headers' => $headers,
             'body'    => OpenApiUtilClient::parseToMap($body),
         ]);
+        $params = new Params([
+            'action'      => 'RemoveProblemServiceGroup',
+            'version'     => '2021-04-13',
+            'protocol'    => 'HTTPS',
+            'pathname'    => '/problem/removeServiceGroup',
+            'method'      => 'POST',
+            'authType'    => 'AK',
+            'style'       => 'ROA',
+            'reqBodyType' => 'json',
+            'bodyType'    => 'json',
+        ]);
 
-        return RemoveProblemServiceGroupResponse::fromMap($this->doROARequest('RemoveProblemServiceGroup', '2021-04-13', 'HTTPS', 'POST', 'AK', '/problem/removeServiceGroup', 'json', $req, $runtime));
+        return RemoveProblemServiceGroupResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
@@ -4899,20 +6429,31 @@ class GEMP extends OpenApiClient
         Utils::validateModel($request);
         $body = [];
         if (!Utils::isUnset($request->clientToken)) {
-            @$body['clientToken'] = $request->clientToken;
+            $body['clientToken'] = $request->clientToken;
         }
         if (!Utils::isUnset($request->problemId)) {
-            @$body['problemId'] = $request->problemId;
+            $body['problemId'] = $request->problemId;
         }
         if (!Utils::isUnset($request->replayDutyUserId)) {
-            @$body['replayDutyUserId'] = $request->replayDutyUserId;
+            $body['replayDutyUserId'] = $request->replayDutyUserId;
         }
         $req = new OpenApiRequest([
             'headers' => $headers,
             'body'    => OpenApiUtilClient::parseToMap($body),
         ]);
+        $params = new Params([
+            'action'      => 'ReplayProblem',
+            'version'     => '2021-04-13',
+            'protocol'    => 'HTTPS',
+            'pathname'    => '/problem/replay',
+            'method'      => 'POST',
+            'authType'    => 'AK',
+            'style'       => 'ROA',
+            'reqBodyType' => 'json',
+            'bodyType'    => 'json',
+        ]);
 
-        return ReplayProblemResponse::fromMap($this->doROARequest('ReplayProblem', '2021-04-13', 'HTTPS', 'POST', 'AK', '/problem/replay', 'json', $req, $runtime));
+        return ReplayProblemResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
@@ -4940,17 +6481,28 @@ class GEMP extends OpenApiClient
         Utils::validateModel($request);
         $body = [];
         if (!Utils::isUnset($request->clientToken)) {
-            @$body['clientToken'] = $request->clientToken;
+            $body['clientToken'] = $request->clientToken;
         }
         if (!Utils::isUnset($request->incidentIds)) {
-            @$body['incidentIds'] = $request->incidentIds;
+            $body['incidentIds'] = $request->incidentIds;
         }
         $req = new OpenApiRequest([
             'headers' => $headers,
             'body'    => OpenApiUtilClient::parseToMap($body),
         ]);
+        $params = new Params([
+            'action'      => 'RespondIncident',
+            'version'     => '2021-04-13',
+            'protocol'    => 'HTTPS',
+            'pathname'    => '/incident/response',
+            'method'      => 'POST',
+            'authType'    => 'AK',
+            'style'       => 'ROA',
+            'reqBodyType' => 'json',
+            'bodyType'    => 'json',
+        ]);
 
-        return RespondIncidentResponse::fromMap($this->doROARequest('RespondIncident', '2021-04-13', 'HTTPS', 'POST', 'AK', '/incident/response', 'json', $req, $runtime));
+        return RespondIncidentResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
@@ -4978,20 +6530,31 @@ class GEMP extends OpenApiClient
         Utils::validateModel($request);
         $body = [];
         if (!Utils::isUnset($request->clientToken)) {
-            @$body['clientToken'] = $request->clientToken;
+            $body['clientToken'] = $request->clientToken;
         }
         if (!Utils::isUnset($request->problemId)) {
-            @$body['problemId'] = $request->problemId;
+            $body['problemId'] = $request->problemId;
         }
         if (!Utils::isUnset($request->problemNotifyType)) {
-            @$body['problemNotifyType'] = $request->problemNotifyType;
+            $body['problemNotifyType'] = $request->problemNotifyType;
         }
         $req = new OpenApiRequest([
             'headers' => $headers,
             'body'    => OpenApiUtilClient::parseToMap($body),
         ]);
+        $params = new Params([
+            'action'      => 'RevokeProblemRecovery',
+            'version'     => '2021-04-13',
+            'protocol'    => 'HTTPS',
+            'pathname'    => '/problem/revoke',
+            'method'      => 'POST',
+            'authType'    => 'AK',
+            'style'       => 'ROA',
+            'reqBodyType' => 'json',
+            'bodyType'    => 'json',
+        ]);
 
-        return RevokeProblemRecoveryResponse::fromMap($this->doROARequest('RevokeProblemRecovery', '2021-04-13', 'HTTPS', 'POST', 'AK', '/problem/revoke', 'json', $req, $runtime));
+        return RevokeProblemRecoveryResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
@@ -5019,29 +6582,40 @@ class GEMP extends OpenApiClient
         Utils::validateModel($request);
         $body = [];
         if (!Utils::isUnset($request->clientToken)) {
-            @$body['clientToken'] = $request->clientToken;
+            $body['clientToken'] = $request->clientToken;
         }
         if (!Utils::isUnset($request->escalationPlanDescription)) {
-            @$body['escalationPlanDescription'] = $request->escalationPlanDescription;
+            $body['escalationPlanDescription'] = $request->escalationPlanDescription;
         }
         if (!Utils::isUnset($request->escalationPlanId)) {
-            @$body['escalationPlanId'] = $request->escalationPlanId;
+            $body['escalationPlanId'] = $request->escalationPlanId;
         }
         if (!Utils::isUnset($request->escalationPlanName)) {
-            @$body['escalationPlanName'] = $request->escalationPlanName;
+            $body['escalationPlanName'] = $request->escalationPlanName;
         }
         if (!Utils::isUnset($request->escalationPlanRules)) {
-            @$body['escalationPlanRules'] = $request->escalationPlanRules;
+            $body['escalationPlanRules'] = $request->escalationPlanRules;
         }
         if (!Utils::isUnset($request->escalationPlanScopeObjects)) {
-            @$body['escalationPlanScopeObjects'] = $request->escalationPlanScopeObjects;
+            $body['escalationPlanScopeObjects'] = $request->escalationPlanScopeObjects;
         }
         $req = new OpenApiRequest([
             'headers' => $headers,
             'body'    => OpenApiUtilClient::parseToMap($body),
         ]);
+        $params = new Params([
+            'action'      => 'UpdateEscalationPlan',
+            'version'     => '2021-04-13',
+            'protocol'    => 'HTTPS',
+            'pathname'    => '/escalationPlan/update',
+            'method'      => 'POST',
+            'authType'    => 'AK',
+            'style'       => 'ROA',
+            'reqBodyType' => 'json',
+            'bodyType'    => 'json',
+        ]);
 
-        return UpdateEscalationPlanResponse::fromMap($this->doROARequest('UpdateEscalationPlan', '2021-04-13', 'HTTPS', 'POST', 'AK', '/escalationPlan/update', 'json', $req, $runtime));
+        return UpdateEscalationPlanResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
@@ -5069,26 +6643,37 @@ class GEMP extends OpenApiClient
         Utils::validateModel($request);
         $body = [];
         if (!Utils::isUnset($request->clientToken)) {
-            @$body['clientToken'] = $request->clientToken;
+            $body['clientToken'] = $request->clientToken;
         }
         if (!Utils::isUnset($request->effect)) {
-            @$body['effect'] = $request->effect;
+            $body['effect'] = $request->effect;
         }
         if (!Utils::isUnset($request->incidentId)) {
-            @$body['incidentId'] = $request->incidentId;
+            $body['incidentId'] = $request->incidentId;
         }
         if (!Utils::isUnset($request->incidentLevel)) {
-            @$body['incidentLevel'] = $request->incidentLevel;
+            $body['incidentLevel'] = $request->incidentLevel;
         }
         if (!Utils::isUnset($request->incidentTitle)) {
-            @$body['incidentTitle'] = $request->incidentTitle;
+            $body['incidentTitle'] = $request->incidentTitle;
         }
         $req = new OpenApiRequest([
             'headers' => $headers,
             'body'    => OpenApiUtilClient::parseToMap($body),
         ]);
+        $params = new Params([
+            'action'      => 'UpdateIncident',
+            'version'     => '2021-04-13',
+            'protocol'    => 'HTTPS',
+            'pathname'    => '/incident/update',
+            'method'      => 'POST',
+            'authType'    => 'AK',
+            'style'       => 'ROA',
+            'reqBodyType' => 'json',
+            'bodyType'    => 'json',
+        ]);
 
-        return UpdateIncidentResponse::fromMap($this->doROARequest('UpdateIncident', '2021-04-13', 'HTTPS', 'POST', 'AK', '/incident/update', 'json', $req, $runtime));
+        return UpdateIncidentResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
@@ -5116,20 +6701,31 @@ class GEMP extends OpenApiClient
         Utils::validateModel($request);
         $body = [];
         if (!Utils::isUnset($request->accessKey)) {
-            @$body['accessKey'] = $request->accessKey;
+            $body['accessKey'] = $request->accessKey;
         }
         if (!Utils::isUnset($request->clientToken)) {
-            @$body['clientToken'] = $request->clientToken;
+            $body['clientToken'] = $request->clientToken;
         }
         if (!Utils::isUnset($request->integrationConfigId)) {
-            @$body['integrationConfigId'] = $request->integrationConfigId;
+            $body['integrationConfigId'] = $request->integrationConfigId;
         }
         $req = new OpenApiRequest([
             'headers' => $headers,
             'body'    => OpenApiUtilClient::parseToMap($body),
         ]);
+        $params = new Params([
+            'action'      => 'UpdateIntegrationConfig',
+            'version'     => '2021-04-13',
+            'protocol'    => 'HTTPS',
+            'pathname'    => '/integrationConfig/update',
+            'method'      => 'POST',
+            'authType'    => 'AK',
+            'style'       => 'ROA',
+            'reqBodyType' => 'json',
+            'bodyType'    => 'json',
+        ]);
 
-        return UpdateIntegrationConfigResponse::fromMap($this->doROARequest('UpdateIntegrationConfig', '2021-04-13', 'HTTPS', 'POST', 'AK', '/integrationConfig/update', 'json', $req, $runtime));
+        return UpdateIntegrationConfigResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
@@ -5157,38 +6753,52 @@ class GEMP extends OpenApiClient
         Utils::validateModel($request);
         $body = [];
         if (!Utils::isUnset($request->feedback)) {
-            @$body['feedback'] = $request->feedback;
+            $body['feedback'] = $request->feedback;
         }
         if (!Utils::isUnset($request->level)) {
-            @$body['level'] = $request->level;
+            $body['level'] = $request->level;
         }
         if (!Utils::isUnset($request->mainHandlerId)) {
-            @$body['mainHandlerId'] = $request->mainHandlerId;
+            $body['mainHandlerId'] = $request->mainHandlerId;
         }
         if (!Utils::isUnset($request->preliminaryReason)) {
-            @$body['preliminaryReason'] = $request->preliminaryReason;
+            $body['preliminaryReason'] = $request->preliminaryReason;
         }
         if (!Utils::isUnset($request->problemId)) {
-            @$body['problemId'] = $request->problemId;
+            $body['problemId'] = $request->problemId;
         }
         if (!Utils::isUnset($request->problemName)) {
-            @$body['problemName'] = $request->problemName;
+            $body['problemName'] = $request->problemName;
         }
         if (!Utils::isUnset($request->progressSummary)) {
-            @$body['progressSummary'] = $request->progressSummary;
+            $body['progressSummary'] = $request->progressSummary;
+        }
+        if (!Utils::isUnset($request->progressSummaryRichTextId)) {
+            $body['progressSummaryRichTextId'] = $request->progressSummaryRichTextId;
         }
         if (!Utils::isUnset($request->relatedServiceId)) {
-            @$body['relatedServiceId'] = $request->relatedServiceId;
+            $body['relatedServiceId'] = $request->relatedServiceId;
         }
         if (!Utils::isUnset($request->serviceGroupIds)) {
-            @$body['serviceGroupIds'] = $request->serviceGroupIds;
+            $body['serviceGroupIds'] = $request->serviceGroupIds;
         }
         $req = new OpenApiRequest([
             'headers' => $headers,
             'body'    => OpenApiUtilClient::parseToMap($body),
         ]);
+        $params = new Params([
+            'action'      => 'UpdateProblem',
+            'version'     => '2021-04-13',
+            'protocol'    => 'HTTPS',
+            'pathname'    => '/problem/update',
+            'method'      => 'POST',
+            'authType'    => 'AK',
+            'style'       => 'ROA',
+            'reqBodyType' => 'json',
+            'bodyType'    => 'json',
+        ]);
 
-        return UpdateProblemResponse::fromMap($this->doROARequest('UpdateProblem', '2021-04-13', 'HTTPS', 'POST', 'AK', '/problem/update', 'json', $req, $runtime));
+        return UpdateProblemResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
@@ -5216,35 +6826,46 @@ class GEMP extends OpenApiClient
         Utils::validateModel($request);
         $body = [];
         if (!Utils::isUnset($request->clientToken)) {
-            @$body['clientToken'] = $request->clientToken;
+            $body['clientToken'] = $request->clientToken;
         }
         if (!Utils::isUnset($request->description)) {
-            @$body['description'] = $request->description;
+            $body['description'] = $request->description;
         }
         if (!Utils::isUnset($request->effectionServiceId)) {
-            @$body['effectionServiceId'] = $request->effectionServiceId;
+            $body['effectionServiceId'] = $request->effectionServiceId;
         }
         if (!Utils::isUnset($request->level)) {
-            @$body['level'] = $request->level;
+            $body['level'] = $request->level;
         }
         if (!Utils::isUnset($request->picUrl)) {
-            @$body['picUrl'] = $request->picUrl;
+            $body['picUrl'] = $request->picUrl;
         }
         if (!Utils::isUnset($request->problemId)) {
-            @$body['problemId'] = $request->problemId;
+            $body['problemId'] = $request->problemId;
         }
         if (!Utils::isUnset($request->serviceId)) {
-            @$body['serviceId'] = $request->serviceId;
+            $body['serviceId'] = $request->serviceId;
         }
         if (!Utils::isUnset($request->status)) {
-            @$body['status'] = $request->status;
+            $body['status'] = $request->status;
         }
         $req = new OpenApiRequest([
             'headers' => $headers,
             'body'    => OpenApiUtilClient::parseToMap($body),
         ]);
+        $params = new Params([
+            'action'      => 'UpdateProblemEffectionService',
+            'version'     => '2021-04-13',
+            'protocol'    => 'HTTPS',
+            'pathname'    => '/problem/process/effectionService/update',
+            'method'      => 'POST',
+            'authType'    => 'AK',
+            'style'       => 'ROA',
+            'reqBodyType' => 'json',
+            'bodyType'    => 'json',
+        ]);
 
-        return UpdateProblemEffectionServiceResponse::fromMap($this->doROARequest('UpdateProblemEffectionService', '2021-04-13', 'HTTPS', 'POST', 'AK', '/problem/process/effectionService/update', 'json', $req, $runtime));
+        return UpdateProblemEffectionServiceResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
@@ -5272,56 +6893,67 @@ class GEMP extends OpenApiClient
         Utils::validateModel($request);
         $body = [];
         if (!Utils::isUnset($request->clientToken)) {
-            @$body['clientToken'] = $request->clientToken;
+            $body['clientToken'] = $request->clientToken;
         }
         if (!Utils::isUnset($request->discoverSource)) {
-            @$body['discoverSource'] = $request->discoverSource;
+            $body['discoverSource'] = $request->discoverSource;
         }
         if (!Utils::isUnset($request->dutyDepartmentId)) {
-            @$body['dutyDepartmentId'] = $request->dutyDepartmentId;
+            $body['dutyDepartmentId'] = $request->dutyDepartmentId;
         }
         if (!Utils::isUnset($request->dutyDepartmentName)) {
-            @$body['dutyDepartmentName'] = $request->dutyDepartmentName;
+            $body['dutyDepartmentName'] = $request->dutyDepartmentName;
         }
         if (!Utils::isUnset($request->dutyUserId)) {
-            @$body['dutyUserId'] = $request->dutyUserId;
+            $body['dutyUserId'] = $request->dutyUserId;
         }
         if (!Utils::isUnset($request->injectionMode)) {
-            @$body['injectionMode'] = $request->injectionMode;
+            $body['injectionMode'] = $request->injectionMode;
         }
         if (!Utils::isUnset($request->monitorSourceName)) {
-            @$body['monitorSourceName'] = $request->monitorSourceName;
+            $body['monitorSourceName'] = $request->monitorSourceName;
         }
         if (!Utils::isUnset($request->problemId)) {
-            @$body['problemId'] = $request->problemId;
+            $body['problemId'] = $request->problemId;
         }
         if (!Utils::isUnset($request->problemReason)) {
-            @$body['problemReason'] = $request->problemReason;
+            $body['problemReason'] = $request->problemReason;
         }
         if (!Utils::isUnset($request->recentActivity)) {
-            @$body['recentActivity'] = $request->recentActivity;
+            $body['recentActivity'] = $request->recentActivity;
         }
         if (!Utils::isUnset($request->recoveryMode)) {
-            @$body['recoveryMode'] = $request->recoveryMode;
+            $body['recoveryMode'] = $request->recoveryMode;
         }
         if (!Utils::isUnset($request->relationChanges)) {
-            @$body['relationChanges'] = $request->relationChanges;
+            $body['relationChanges'] = $request->relationChanges;
         }
         if (!Utils::isUnset($request->remark)) {
-            @$body['remark'] = $request->remark;
+            $body['remark'] = $request->remark;
         }
         if (!Utils::isUnset($request->replayDutyUserId)) {
-            @$body['replayDutyUserId'] = $request->replayDutyUserId;
+            $body['replayDutyUserId'] = $request->replayDutyUserId;
         }
         if (!Utils::isUnset($request->userReport)) {
-            @$body['userReport'] = $request->userReport;
+            $body['userReport'] = $request->userReport;
         }
         $req = new OpenApiRequest([
             'headers' => $headers,
             'body'    => OpenApiUtilClient::parseToMap($body),
         ]);
+        $params = new Params([
+            'action'      => 'UpdateProblemImprovement',
+            'version'     => '2021-04-13',
+            'protocol'    => 'HTTPS',
+            'pathname'    => '/problem/improvement/update',
+            'method'      => 'POST',
+            'authType'    => 'AK',
+            'style'       => 'ROA',
+            'reqBodyType' => 'json',
+            'bodyType'    => 'json',
+        ]);
 
-        return UpdateProblemImprovementResponse::fromMap($this->doROARequest('UpdateProblemImprovement', '2021-04-13', 'HTTPS', 'POST', 'AK', '/problem/improvement/update', 'json', $req, $runtime));
+        return UpdateProblemImprovementResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
@@ -5349,44 +6981,55 @@ class GEMP extends OpenApiClient
         Utils::validateModel($request);
         $body = [];
         if (!Utils::isUnset($request->checkStandard)) {
-            @$body['checkStandard'] = $request->checkStandard;
+            $body['checkStandard'] = $request->checkStandard;
         }
         if (!Utils::isUnset($request->checkUserId)) {
-            @$body['checkUserId'] = $request->checkUserId;
+            $body['checkUserId'] = $request->checkUserId;
         }
         if (!Utils::isUnset($request->clientToken)) {
-            @$body['clientToken'] = $request->clientToken;
+            $body['clientToken'] = $request->clientToken;
         }
         if (!Utils::isUnset($request->content)) {
-            @$body['content'] = $request->content;
+            $body['content'] = $request->content;
         }
         if (!Utils::isUnset($request->directorId)) {
-            @$body['directorId'] = $request->directorId;
+            $body['directorId'] = $request->directorId;
         }
         if (!Utils::isUnset($request->measureId)) {
-            @$body['measureId'] = $request->measureId;
+            $body['measureId'] = $request->measureId;
         }
         if (!Utils::isUnset($request->planFinishTime)) {
-            @$body['planFinishTime'] = $request->planFinishTime;
+            $body['planFinishTime'] = $request->planFinishTime;
         }
         if (!Utils::isUnset($request->problemId)) {
-            @$body['problemId'] = $request->problemId;
+            $body['problemId'] = $request->problemId;
         }
         if (!Utils::isUnset($request->stalkerId)) {
-            @$body['stalkerId'] = $request->stalkerId;
+            $body['stalkerId'] = $request->stalkerId;
         }
         if (!Utils::isUnset($request->status)) {
-            @$body['status'] = $request->status;
+            $body['status'] = $request->status;
         }
         if (!Utils::isUnset($request->type)) {
-            @$body['type'] = $request->type;
+            $body['type'] = $request->type;
         }
         $req = new OpenApiRequest([
             'headers' => $headers,
             'body'    => OpenApiUtilClient::parseToMap($body),
         ]);
+        $params = new Params([
+            'action'      => 'UpdateProblemMeasure',
+            'version'     => '2021-04-13',
+            'protocol'    => 'HTTPS',
+            'pathname'    => '/problem/improvement/measure/update',
+            'method'      => 'POST',
+            'authType'    => 'AK',
+            'style'       => 'ROA',
+            'reqBodyType' => 'json',
+            'bodyType'    => 'json',
+        ]);
 
-        return UpdateProblemMeasureResponse::fromMap($this->doROARequest('UpdateProblemMeasure', '2021-04-13', 'HTTPS', 'POST', 'AK', '/problem/improvement/measure/update', 'json', $req, $runtime));
+        return UpdateProblemMeasureResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
@@ -5414,20 +7057,31 @@ class GEMP extends OpenApiClient
         Utils::validateModel($request);
         $body = [];
         if (!Utils::isUnset($request->clientToken)) {
-            @$body['clientToken'] = $request->clientToken;
+            $body['clientToken'] = $request->clientToken;
         }
         if (!Utils::isUnset($request->problemId)) {
-            @$body['problemId'] = $request->problemId;
+            $body['problemId'] = $request->problemId;
         }
         if (!Utils::isUnset($request->problemNotifyType)) {
-            @$body['problemNotifyType'] = $request->problemNotifyType;
+            $body['problemNotifyType'] = $request->problemNotifyType;
         }
         $req = new OpenApiRequest([
             'headers' => $headers,
             'body'    => OpenApiUtilClient::parseToMap($body),
         ]);
+        $params = new Params([
+            'action'      => 'UpdateProblemNotice',
+            'version'     => '2021-04-13',
+            'protocol'    => 'HTTPS',
+            'pathname'    => '/problem/notify',
+            'method'      => 'POST',
+            'authType'    => 'AK',
+            'style'       => 'ROA',
+            'reqBodyType' => 'json',
+            'bodyType'    => 'json',
+        ]);
 
-        return UpdateProblemNoticeResponse::fromMap($this->doROARequest('UpdateProblemNotice', '2021-04-13', 'HTTPS', 'POST', 'AK', '/problem/notify', 'json', $req, $runtime));
+        return UpdateProblemNoticeResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
@@ -5455,29 +7109,95 @@ class GEMP extends OpenApiClient
         Utils::validateModel($request);
         $body = [];
         if (!Utils::isUnset($request->clientToken)) {
-            @$body['clientToken'] = $request->clientToken;
+            $body['clientToken'] = $request->clientToken;
         }
         if (!Utils::isUnset($request->content)) {
-            @$body['content'] = $request->content;
+            $body['content'] = $request->content;
         }
         if (!Utils::isUnset($request->keyNode)) {
-            @$body['keyNode'] = $request->keyNode;
+            $body['keyNode'] = $request->keyNode;
         }
         if (!Utils::isUnset($request->problemId)) {
-            @$body['problemId'] = $request->problemId;
+            $body['problemId'] = $request->problemId;
         }
         if (!Utils::isUnset($request->problemTimelineId)) {
-            @$body['problemTimelineId'] = $request->problemTimelineId;
+            $body['problemTimelineId'] = $request->problemTimelineId;
         }
         if (!Utils::isUnset($request->time)) {
-            @$body['time'] = $request->time;
+            $body['time'] = $request->time;
         }
         $req = new OpenApiRequest([
             'headers' => $headers,
             'body'    => OpenApiUtilClient::parseToMap($body),
         ]);
+        $params = new Params([
+            'action'      => 'UpdateProblemTimeline',
+            'version'     => '2021-04-13',
+            'protocol'    => 'HTTPS',
+            'pathname'    => '/problem/process/timeline/update',
+            'method'      => 'POST',
+            'authType'    => 'AK',
+            'style'       => 'ROA',
+            'reqBodyType' => 'json',
+            'bodyType'    => 'json',
+        ]);
 
-        return UpdateProblemTimelineResponse::fromMap($this->doROARequest('UpdateProblemTimeline', '2021-04-13', 'HTTPS', 'POST', 'AK', '/problem/process/timeline/update', 'json', $req, $runtime));
+        return UpdateProblemTimelineResponse::fromMap($this->callApi($params, $req, $runtime));
+    }
+
+    /**
+     * @param UpdateRichTextRequest $request
+     *
+     * @return UpdateRichTextResponse
+     */
+    public function updateRichText($request)
+    {
+        $runtime = new RuntimeOptions([]);
+        $headers = [];
+
+        return $this->updateRichTextWithOptions($request, $headers, $runtime);
+    }
+
+    /**
+     * @param UpdateRichTextRequest $request
+     * @param string[]              $headers
+     * @param RuntimeOptions        $runtime
+     *
+     * @return UpdateRichTextResponse
+     */
+    public function updateRichTextWithOptions($request, $headers, $runtime)
+    {
+        Utils::validateModel($request);
+        $body = [];
+        if (!Utils::isUnset($request->instanceId)) {
+            $body['instanceId'] = $request->instanceId;
+        }
+        if (!Utils::isUnset($request->instanceType)) {
+            $body['instanceType'] = $request->instanceType;
+        }
+        if (!Utils::isUnset($request->richText)) {
+            $body['richText'] = $request->richText;
+        }
+        if (!Utils::isUnset($request->richTextId)) {
+            $body['richTextId'] = $request->richTextId;
+        }
+        $req = new OpenApiRequest([
+            'headers' => $headers,
+            'body'    => OpenApiUtilClient::parseToMap($body),
+        ]);
+        $params = new Params([
+            'action'      => 'UpdateRichText',
+            'version'     => '2021-04-13',
+            'protocol'    => 'HTTPS',
+            'pathname'    => '/rich/update',
+            'method'      => 'POST',
+            'authType'    => 'AK',
+            'style'       => 'ROA',
+            'reqBodyType' => 'json',
+            'bodyType'    => 'json',
+        ]);
+
+        return UpdateRichTextResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
@@ -5505,53 +7225,67 @@ class GEMP extends OpenApiClient
         Utils::validateModel($request);
         $body = [];
         if (!Utils::isUnset($request->assignObjectId)) {
-            @$body['assignObjectId'] = $request->assignObjectId;
+            $body['assignObjectId'] = $request->assignObjectId;
         }
         if (!Utils::isUnset($request->assignObjectType)) {
-            @$body['assignObjectType'] = $request->assignObjectType;
+            $body['assignObjectType'] = $request->assignObjectType;
+        }
+        if (!Utils::isUnset($request->childRuleRelation)) {
+            $body['childRuleRelation'] = $request->childRuleRelation;
         }
         if (!Utils::isUnset($request->clientToken)) {
-            @$body['clientToken'] = $request->clientToken;
+            $body['clientToken'] = $request->clientToken;
         }
         if (!Utils::isUnset($request->effection)) {
-            @$body['effection'] = $request->effection;
+            $body['effection'] = $request->effection;
         }
         if (!Utils::isUnset($request->incidentLevel)) {
-            @$body['incidentLevel'] = $request->incidentLevel;
+            $body['incidentLevel'] = $request->incidentLevel;
         }
         if (!Utils::isUnset($request->matchCount)) {
-            @$body['matchCount'] = $request->matchCount;
+            $body['matchCount'] = $request->matchCount;
         }
         if (!Utils::isUnset($request->notifyChannels)) {
-            @$body['notifyChannels'] = $request->notifyChannels;
+            $body['notifyChannels'] = $request->notifyChannels;
         }
         if (!Utils::isUnset($request->relatedServiceId)) {
-            @$body['relatedServiceId'] = $request->relatedServiceId;
+            $body['relatedServiceId'] = $request->relatedServiceId;
         }
         if (!Utils::isUnset($request->routeChildRules)) {
-            @$body['routeChildRules'] = $request->routeChildRules;
+            $body['routeChildRules'] = $request->routeChildRules;
         }
         if (!Utils::isUnset($request->routeRuleId)) {
-            @$body['routeRuleId'] = $request->routeRuleId;
+            $body['routeRuleId'] = $request->routeRuleId;
         }
         if (!Utils::isUnset($request->routeType)) {
-            @$body['routeType'] = $request->routeType;
+            $body['routeType'] = $request->routeType;
         }
         if (!Utils::isUnset($request->ruleName)) {
-            @$body['ruleName'] = $request->ruleName;
+            $body['ruleName'] = $request->ruleName;
         }
         if (!Utils::isUnset($request->timeWindow)) {
-            @$body['timeWindow'] = $request->timeWindow;
+            $body['timeWindow'] = $request->timeWindow;
         }
         if (!Utils::isUnset($request->timeWindowUnit)) {
-            @$body['timeWindowUnit'] = $request->timeWindowUnit;
+            $body['timeWindowUnit'] = $request->timeWindowUnit;
         }
         $req = new OpenApiRequest([
             'headers' => $headers,
             'body'    => OpenApiUtilClient::parseToMap($body),
         ]);
+        $params = new Params([
+            'action'      => 'UpdateRouteRule',
+            'version'     => '2021-04-13',
+            'protocol'    => 'HTTPS',
+            'pathname'    => '/routeRule/edit',
+            'method'      => 'POST',
+            'authType'    => 'AK',
+            'style'       => 'ROA',
+            'reqBodyType' => 'json',
+            'bodyType'    => 'json',
+        ]);
 
-        return UpdateRouteRuleResponse::fromMap($this->doROARequest('UpdateRouteRule', '2021-04-13', 'HTTPS', 'POST', 'AK', '/routeRule/edit', 'json', $req, $runtime));
+        return UpdateRouteRuleResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
@@ -5579,23 +7313,34 @@ class GEMP extends OpenApiClient
         Utils::validateModel($request);
         $body = [];
         if (!Utils::isUnset($request->clientToken)) {
-            @$body['clientToken'] = $request->clientToken;
+            $body['clientToken'] = $request->clientToken;
         }
         if (!Utils::isUnset($request->serviceDescription)) {
-            @$body['serviceDescription'] = $request->serviceDescription;
+            $body['serviceDescription'] = $request->serviceDescription;
         }
         if (!Utils::isUnset($request->serviceId)) {
-            @$body['serviceId'] = $request->serviceId;
+            $body['serviceId'] = $request->serviceId;
         }
         if (!Utils::isUnset($request->serviceName)) {
-            @$body['serviceName'] = $request->serviceName;
+            $body['serviceName'] = $request->serviceName;
         }
         $req = new OpenApiRequest([
             'headers' => $headers,
             'body'    => OpenApiUtilClient::parseToMap($body),
         ]);
+        $params = new Params([
+            'action'      => 'UpdateService',
+            'version'     => '2021-04-13',
+            'protocol'    => 'HTTPS',
+            'pathname'    => '/services/update',
+            'method'      => 'POST',
+            'authType'    => 'AK',
+            'style'       => 'ROA',
+            'reqBodyType' => 'json',
+            'bodyType'    => 'json',
+        ]);
 
-        return UpdateServiceResponse::fromMap($this->doROARequest('UpdateService', '2021-04-13', 'HTTPS', 'POST', 'AK', '/services/update', 'json', $req, $runtime));
+        return UpdateServiceResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
@@ -5623,35 +7368,49 @@ class GEMP extends OpenApiClient
         Utils::validateModel($request);
         $body = [];
         if (!Utils::isUnset($request->clientToken)) {
-            @$body['clientToken'] = $request->clientToken;
+            $body['clientToken'] = $request->clientToken;
         }
         if (!Utils::isUnset($request->enableWebhook)) {
-            @$body['enableWebhook'] = $request->enableWebhook;
+            $body['enableWebhook'] = $request->enableWebhook;
+        }
+        if (!Utils::isUnset($request->monitorSourceTemplates)) {
+            $body['monitorSourceTemplates'] = $request->monitorSourceTemplates;
         }
         if (!Utils::isUnset($request->serviceGroupDescription)) {
-            @$body['serviceGroupDescription'] = $request->serviceGroupDescription;
+            $body['serviceGroupDescription'] = $request->serviceGroupDescription;
         }
         if (!Utils::isUnset($request->serviceGroupId)) {
-            @$body['serviceGroupId'] = $request->serviceGroupId;
+            $body['serviceGroupId'] = $request->serviceGroupId;
         }
         if (!Utils::isUnset($request->serviceGroupName)) {
-            @$body['serviceGroupName'] = $request->serviceGroupName;
+            $body['serviceGroupName'] = $request->serviceGroupName;
         }
         if (!Utils::isUnset($request->userIds)) {
-            @$body['userIds'] = $request->userIds;
+            $body['userIds'] = $request->userIds;
         }
         if (!Utils::isUnset($request->webhookLink)) {
-            @$body['webhookLink'] = $request->webhookLink;
+            $body['webhookLink'] = $request->webhookLink;
         }
         if (!Utils::isUnset($request->webhookType)) {
-            @$body['webhookType'] = $request->webhookType;
+            $body['webhookType'] = $request->webhookType;
         }
         $req = new OpenApiRequest([
             'headers' => $headers,
             'body'    => OpenApiUtilClient::parseToMap($body),
         ]);
+        $params = new Params([
+            'action'      => 'UpdateServiceGroup',
+            'version'     => '2021-04-13',
+            'protocol'    => 'HTTPS',
+            'pathname'    => '/services/group/modify',
+            'method'      => 'POST',
+            'authType'    => 'AK',
+            'style'       => 'ROA',
+            'reqBodyType' => 'json',
+            'bodyType'    => 'json',
+        ]);
 
-        return UpdateServiceGroupResponse::fromMap($this->doROARequest('UpdateServiceGroup', '2021-04-13', 'HTTPS', 'POST', 'AK', '/services/group/modify', 'json', $req, $runtime));
+        return UpdateServiceGroupResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
@@ -5679,26 +7438,37 @@ class GEMP extends OpenApiClient
         Utils::validateModel($request);
         $body = [];
         if (!Utils::isUnset($request->clientToken)) {
-            @$body['clientToken'] = $request->clientToken;
+            $body['clientToken'] = $request->clientToken;
         }
         if (!Utils::isUnset($request->fastScheduling)) {
-            @$body['fastScheduling'] = $request->fastScheduling;
+            $body['fastScheduling'] = $request->fastScheduling;
         }
         if (!Utils::isUnset($request->fineScheduling)) {
-            @$body['fineScheduling'] = $request->fineScheduling;
+            $body['fineScheduling'] = $request->fineScheduling;
         }
         if (!Utils::isUnset($request->schedulingWay)) {
-            @$body['schedulingWay'] = $request->schedulingWay;
+            $body['schedulingWay'] = $request->schedulingWay;
         }
         if (!Utils::isUnset($request->serviceGroupId)) {
-            @$body['serviceGroupId'] = $request->serviceGroupId;
+            $body['serviceGroupId'] = $request->serviceGroupId;
         }
         $req = new OpenApiRequest([
             'headers' => $headers,
             'body'    => OpenApiUtilClient::parseToMap($body),
         ]);
+        $params = new Params([
+            'action'      => 'UpdateServiceGroupScheduling',
+            'version'     => '2021-04-13',
+            'protocol'    => 'HTTPS',
+            'pathname'    => '/services/group/scheduling/update',
+            'method'      => 'POST',
+            'authType'    => 'AK',
+            'style'       => 'ROA',
+            'reqBodyType' => 'json',
+            'bodyType'    => 'json',
+        ]);
 
-        return UpdateServiceGroupSchedulingResponse::fromMap($this->doROARequest('UpdateServiceGroupScheduling', '2021-04-13', 'HTTPS', 'POST', 'AK', '/services/group/scheduling/update', 'json', $req, $runtime));
+        return UpdateServiceGroupSchedulingResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
@@ -5726,23 +7496,34 @@ class GEMP extends OpenApiClient
         Utils::validateModel($request);
         $body = [];
         if (!Utils::isUnset($request->clientToken)) {
-            @$body['clientToken'] = $request->clientToken;
+            $body['clientToken'] = $request->clientToken;
         }
         if (!Utils::isUnset($request->schedulingDate)) {
-            @$body['schedulingDate'] = $request->schedulingDate;
+            $body['schedulingDate'] = $request->schedulingDate;
         }
         if (!Utils::isUnset($request->schedulingSpecialDays)) {
-            @$body['schedulingSpecialDays'] = $request->schedulingSpecialDays;
+            $body['schedulingSpecialDays'] = $request->schedulingSpecialDays;
         }
         if (!Utils::isUnset($request->serviceGroupId)) {
-            @$body['serviceGroupId'] = $request->serviceGroupId;
+            $body['serviceGroupId'] = $request->serviceGroupId;
         }
         $req = new OpenApiRequest([
             'headers' => $headers,
             'body'    => OpenApiUtilClient::parseToMap($body),
         ]);
+        $params = new Params([
+            'action'      => 'UpdateServiceGroupSpecialDayScheduling',
+            'version'     => '2021-04-13',
+            'protocol'    => 'HTTPS',
+            'pathname'    => '/services/group/scheduling/updateSpecialDayScheduling',
+            'method'      => 'POST',
+            'authType'    => 'AK',
+            'style'       => 'ROA',
+            'reqBodyType' => 'json',
+            'bodyType'    => 'json',
+        ]);
 
-        return UpdateServiceGroupSpecialDaySchedulingResponse::fromMap($this->doROARequest('UpdateServiceGroupSpecialDayScheduling', '2021-04-13', 'HTTPS', 'POST', 'AK', '/services/group/scheduling/updateSpecialDayScheduling', 'json', $req, $runtime));
+        return UpdateServiceGroupSpecialDaySchedulingResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
@@ -5770,44 +7551,55 @@ class GEMP extends OpenApiClient
         Utils::validateModel($request);
         $body = [];
         if (!Utils::isUnset($request->endTime)) {
-            @$body['endTime'] = $request->endTime;
+            $body['endTime'] = $request->endTime;
         }
         if (!Utils::isUnset($request->expiredType)) {
-            @$body['expiredType'] = $request->expiredType;
+            $body['expiredType'] = $request->expiredType;
         }
         if (!Utils::isUnset($request->notifyObjectList)) {
-            @$body['notifyObjectList'] = $request->notifyObjectList;
+            $body['notifyObjectList'] = $request->notifyObjectList;
         }
         if (!Utils::isUnset($request->notifyObjectType)) {
-            @$body['notifyObjectType'] = $request->notifyObjectType;
+            $body['notifyObjectType'] = $request->notifyObjectType;
         }
         if (!Utils::isUnset($request->notifyStrategyList)) {
-            @$body['notifyStrategyList'] = $request->notifyStrategyList;
+            $body['notifyStrategyList'] = $request->notifyStrategyList;
         }
         if (!Utils::isUnset($request->period)) {
-            @$body['period'] = $request->period;
+            $body['period'] = $request->period;
         }
         if (!Utils::isUnset($request->scope)) {
-            @$body['scope'] = $request->scope;
+            $body['scope'] = $request->scope;
         }
         if (!Utils::isUnset($request->scopeObjectList)) {
-            @$body['scopeObjectList'] = $request->scopeObjectList;
+            $body['scopeObjectList'] = $request->scopeObjectList;
         }
         if (!Utils::isUnset($request->startTime)) {
-            @$body['startTime'] = $request->startTime;
+            $body['startTime'] = $request->startTime;
         }
         if (!Utils::isUnset($request->subscriptionId)) {
-            @$body['subscriptionId'] = $request->subscriptionId;
+            $body['subscriptionId'] = $request->subscriptionId;
         }
         if (!Utils::isUnset($request->subscriptionTitle)) {
-            @$body['subscriptionTitle'] = $request->subscriptionTitle;
+            $body['subscriptionTitle'] = $request->subscriptionTitle;
         }
         $req = new OpenApiRequest([
             'headers' => $headers,
             'body'    => OpenApiUtilClient::parseToMap($body),
         ]);
+        $params = new Params([
+            'action'      => 'UpdateSubscription',
+            'version'     => '2021-04-13',
+            'protocol'    => 'HTTPS',
+            'pathname'    => '/notify/subscription/update',
+            'method'      => 'POST',
+            'authType'    => 'AK',
+            'style'       => 'ROA',
+            'reqBodyType' => 'json',
+            'bodyType'    => 'json',
+        ]);
 
-        return UpdateSubscriptionResponse::fromMap($this->doROARequest('UpdateSubscription', '2021-04-13', 'HTTPS', 'POST', 'AK', '/notify/subscription/update', 'json', $req, $runtime));
+        return UpdateSubscriptionResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
@@ -5835,29 +7627,40 @@ class GEMP extends OpenApiClient
         Utils::validateModel($request);
         $body = [];
         if (!Utils::isUnset($request->clientToken)) {
-            @$body['clientToken'] = $request->clientToken;
+            $body['clientToken'] = $request->clientToken;
         }
         if (!Utils::isUnset($request->email)) {
-            @$body['email'] = $request->email;
+            $body['email'] = $request->email;
         }
         if (!Utils::isUnset($request->phone)) {
-            @$body['phone'] = $request->phone;
+            $body['phone'] = $request->phone;
         }
         if (!Utils::isUnset($request->ramId)) {
-            @$body['ramId'] = $request->ramId;
+            $body['ramId'] = $request->ramId;
         }
         if (!Utils::isUnset($request->userId)) {
-            @$body['userId'] = $request->userId;
+            $body['userId'] = $request->userId;
         }
         if (!Utils::isUnset($request->username)) {
-            @$body['username'] = $request->username;
+            $body['username'] = $request->username;
         }
         $req = new OpenApiRequest([
             'headers' => $headers,
             'body'    => OpenApiUtilClient::parseToMap($body),
         ]);
+        $params = new Params([
+            'action'      => 'UpdateUser',
+            'version'     => '2021-04-13',
+            'protocol'    => 'HTTPS',
+            'pathname'    => '/user/update',
+            'method'      => 'POST',
+            'authType'    => 'AK',
+            'style'       => 'ROA',
+            'reqBodyType' => 'json',
+            'bodyType'    => 'json',
+        ]);
 
-        return UpdateUserResponse::fromMap($this->doROARequest('UpdateUser', '2021-04-13', 'HTTPS', 'POST', 'AK', '/user/update', 'json', $req, $runtime));
+        return UpdateUserResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
@@ -5885,16 +7688,76 @@ class GEMP extends OpenApiClient
         Utils::validateModel($request);
         $body = [];
         if (!Utils::isUnset($request->clientToken)) {
-            @$body['clientToken'] = $request->clientToken;
+            $body['clientToken'] = $request->clientToken;
         }
         if (!Utils::isUnset($request->guideAction)) {
-            @$body['guideAction'] = $request->guideAction;
+            $body['guideAction'] = $request->guideAction;
         }
         $req = new OpenApiRequest([
             'headers' => $headers,
             'body'    => OpenApiUtilClient::parseToMap($body),
         ]);
+        $params = new Params([
+            'action'      => 'UpdateUserGuideStatus',
+            'version'     => '2021-04-13',
+            'protocol'    => 'HTTPS',
+            'pathname'    => '/user/update/guide/status',
+            'method'      => 'POST',
+            'authType'    => 'AK',
+            'style'       => 'ROA',
+            'reqBodyType' => 'json',
+            'bodyType'    => 'json',
+        ]);
 
-        return UpdateUserGuideStatusResponse::fromMap($this->doROARequest('UpdateUserGuideStatus', '2021-04-13', 'HTTPS', 'POST', 'AK', '/user/update/guide/status', 'json', $req, $runtime));
+        return UpdateUserGuideStatusResponse::fromMap($this->callApi($params, $req, $runtime));
+    }
+
+    /**
+     * @param VerifyRouteRuleRequest $request
+     *
+     * @return VerifyRouteRuleResponse
+     */
+    public function verifyRouteRule($request)
+    {
+        $runtime = new RuntimeOptions([]);
+        $headers = [];
+
+        return $this->verifyRouteRuleWithOptions($request, $headers, $runtime);
+    }
+
+    /**
+     * @param VerifyRouteRuleRequest $request
+     * @param string[]               $headers
+     * @param RuntimeOptions         $runtime
+     *
+     * @return VerifyRouteRuleResponse
+     */
+    public function verifyRouteRuleWithOptions($request, $headers, $runtime)
+    {
+        Utils::validateModel($request);
+        $body = [];
+        if (!Utils::isUnset($request->routeRuleId)) {
+            $body['routeRuleId'] = $request->routeRuleId;
+        }
+        if (!Utils::isUnset($request->testSourceEvents)) {
+            $body['testSourceEvents'] = $request->testSourceEvents;
+        }
+        $req = new OpenApiRequest([
+            'headers' => $headers,
+            'body'    => OpenApiUtilClient::parseToMap($body),
+        ]);
+        $params = new Params([
+            'action'      => 'VerifyRouteRule',
+            'version'     => '2021-04-13',
+            'protocol'    => 'HTTPS',
+            'pathname'    => '/routeRule/verify',
+            'method'      => 'POST',
+            'authType'    => 'AK',
+            'style'       => 'ROA',
+            'reqBodyType' => 'json',
+            'bodyType'    => 'json',
+        ]);
+
+        return VerifyRouteRuleResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 }
