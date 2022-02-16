@@ -24,8 +24,6 @@ use AlibabaCloud\SDK\Gpdb\V20160503\Models\DeleteDatabaseRequest;
 use AlibabaCloud\SDK\Gpdb\V20160503\Models\DeleteDatabaseResponse;
 use AlibabaCloud\SDK\Gpdb\V20160503\Models\DeleteDBInstanceRequest;
 use AlibabaCloud\SDK\Gpdb\V20160503\Models\DeleteDBInstanceResponse;
-use AlibabaCloud\SDK\Gpdb\V20160503\Models\DeleteInstanceSPInfoRequest;
-use AlibabaCloud\SDK\Gpdb\V20160503\Models\DeleteInstanceSPInfoResponse;
 use AlibabaCloud\SDK\Gpdb\V20160503\Models\DescribeAccountsRequest;
 use AlibabaCloud\SDK\Gpdb\V20160503\Models\DescribeAccountsResponse;
 use AlibabaCloud\SDK\Gpdb\V20160503\Models\DescribeAvailableResourcesRequest;
@@ -38,8 +36,6 @@ use AlibabaCloud\SDK\Gpdb\V20160503\Models\DescribeDataShareInstancesRequest;
 use AlibabaCloud\SDK\Gpdb\V20160503\Models\DescribeDataShareInstancesResponse;
 use AlibabaCloud\SDK\Gpdb\V20160503\Models\DescribeDBClusterNodeRequest;
 use AlibabaCloud\SDK\Gpdb\V20160503\Models\DescribeDBClusterNodeResponse;
-use AlibabaCloud\SDK\Gpdb\V20160503\Models\DescribeDBClusterNodesRequest;
-use AlibabaCloud\SDK\Gpdb\V20160503\Models\DescribeDBClusterNodesResponse;
 use AlibabaCloud\SDK\Gpdb\V20160503\Models\DescribeDBClusterPerformanceRequest;
 use AlibabaCloud\SDK\Gpdb\V20160503\Models\DescribeDBClusterPerformanceResponse;
 use AlibabaCloud\SDK\Gpdb\V20160503\Models\DescribeDBInstanceAttributeRequest;
@@ -50,6 +46,8 @@ use AlibabaCloud\SDK\Gpdb\V20160503\Models\DescribeDBInstanceNetInfoRequest;
 use AlibabaCloud\SDK\Gpdb\V20160503\Models\DescribeDBInstanceNetInfoResponse;
 use AlibabaCloud\SDK\Gpdb\V20160503\Models\DescribeDBInstanceOnECSAttributeRequest;
 use AlibabaCloud\SDK\Gpdb\V20160503\Models\DescribeDBInstanceOnECSAttributeResponse;
+use AlibabaCloud\SDK\Gpdb\V20160503\Models\DescribeDBInstancePerformanceRequest;
+use AlibabaCloud\SDK\Gpdb\V20160503\Models\DescribeDBInstancePerformanceResponse;
 use AlibabaCloud\SDK\Gpdb\V20160503\Models\DescribeDBInstanceSQLPatternsRequest;
 use AlibabaCloud\SDK\Gpdb\V20160503\Models\DescribeDBInstanceSQLPatternsResponse;
 use AlibabaCloud\SDK\Gpdb\V20160503\Models\DescribeDBInstancesRequest;
@@ -89,8 +87,6 @@ use AlibabaCloud\SDK\Gpdb\V20160503\Models\DescribeSQLLogFilesRequest;
 use AlibabaCloud\SDK\Gpdb\V20160503\Models\DescribeSQLLogFilesResponse;
 use AlibabaCloud\SDK\Gpdb\V20160503\Models\DescribeSQLLogRecordsRequest;
 use AlibabaCloud\SDK\Gpdb\V20160503\Models\DescribeSQLLogRecordsResponse;
-use AlibabaCloud\SDK\Gpdb\V20160503\Models\DescribeSQLLogRequest;
-use AlibabaCloud\SDK\Gpdb\V20160503\Models\DescribeSQLLogResponse;
 use AlibabaCloud\SDK\Gpdb\V20160503\Models\DescribeSQLLogsOnSliceRequest;
 use AlibabaCloud\SDK\Gpdb\V20160503\Models\DescribeSQLLogsOnSliceResponse;
 use AlibabaCloud\SDK\Gpdb\V20160503\Models\DescribeSQLLogsRequest;
@@ -779,52 +775,6 @@ class Gpdb extends OpenApiClient
     }
 
     /**
-     * @param DeleteInstanceSPInfoRequest $request
-     * @param RuntimeOptions              $runtime
-     *
-     * @return DeleteInstanceSPInfoResponse
-     */
-    public function deleteInstanceSPInfoWithOptions($request, $runtime)
-    {
-        Utils::validateModel($request);
-        $query = [];
-        if (!Utils::isUnset($request->DBInstanceId)) {
-            $query['DBInstanceId'] = $request->DBInstanceId;
-        }
-        if (!Utils::isUnset($request->DBInstanceInfos)) {
-            $query['DBInstanceInfos'] = $request->DBInstanceInfos;
-        }
-        $req = new OpenApiRequest([
-            'query' => OpenApiUtilClient::query($query),
-        ]);
-        $params = new Params([
-            'action'      => 'DeleteInstanceSPInfo',
-            'version'     => '2016-05-03',
-            'protocol'    => 'HTTPS',
-            'pathname'    => '/',
-            'method'      => 'POST',
-            'authType'    => 'AK',
-            'style'       => 'RPC',
-            'reqBodyType' => 'formData',
-            'bodyType'    => 'json',
-        ]);
-
-        return DeleteInstanceSPInfoResponse::fromMap($this->callApi($params, $req, $runtime));
-    }
-
-    /**
-     * @param DeleteInstanceSPInfoRequest $request
-     *
-     * @return DeleteInstanceSPInfoResponse
-     */
-    public function deleteInstanceSPInfo($request)
-    {
-        $runtime = new RuntimeOptions([]);
-
-        return $this->deleteInstanceSPInfoWithOptions($request, $runtime);
-    }
-
-    /**
      * @param DescribeAccountsRequest $request
      * @param RuntimeOptions          $runtime
      *
@@ -1006,52 +956,6 @@ class Gpdb extends OpenApiClient
         $runtime = new RuntimeOptions([]);
 
         return $this->describeDBClusterNodeWithOptions($request, $runtime);
-    }
-
-    /**
-     * @param DescribeDBClusterNodesRequest $request
-     * @param RuntimeOptions                $runtime
-     *
-     * @return DescribeDBClusterNodesResponse
-     */
-    public function describeDBClusterNodesWithOptions($request, $runtime)
-    {
-        Utils::validateModel($request);
-        $query = [];
-        if (!Utils::isUnset($request->DBInstanceId)) {
-            $query['DBInstanceId'] = $request->DBInstanceId;
-        }
-        if (!Utils::isUnset($request->nodeType)) {
-            $query['NodeType'] = $request->nodeType;
-        }
-        $req = new OpenApiRequest([
-            'query' => OpenApiUtilClient::query($query),
-        ]);
-        $params = new Params([
-            'action'      => 'DescribeDBClusterNodes',
-            'version'     => '2016-05-03',
-            'protocol'    => 'HTTPS',
-            'pathname'    => '/',
-            'method'      => 'POST',
-            'authType'    => 'AK',
-            'style'       => 'RPC',
-            'reqBodyType' => 'formData',
-            'bodyType'    => 'json',
-        ]);
-
-        return DescribeDBClusterNodesResponse::fromMap($this->callApi($params, $req, $runtime));
-    }
-
-    /**
-     * @param DescribeDBClusterNodesRequest $request
-     *
-     * @return DescribeDBClusterNodesResponse
-     */
-    public function describeDBClusterNodes($request)
-    {
-        $runtime = new RuntimeOptions([]);
-
-        return $this->describeDBClusterNodesWithOptions($request, $runtime);
     }
 
     /**
@@ -1288,6 +1192,58 @@ class Gpdb extends OpenApiClient
         $runtime = new RuntimeOptions([]);
 
         return $this->describeDBInstanceOnECSAttributeWithOptions($request, $runtime);
+    }
+
+    /**
+     * @param DescribeDBInstancePerformanceRequest $request
+     * @param RuntimeOptions                       $runtime
+     *
+     * @return DescribeDBInstancePerformanceResponse
+     */
+    public function describeDBInstancePerformanceWithOptions($request, $runtime)
+    {
+        Utils::validateModel($request);
+        $query = [];
+        if (!Utils::isUnset($request->DBInstanceId)) {
+            $query['DBInstanceId'] = $request->DBInstanceId;
+        }
+        if (!Utils::isUnset($request->endTime)) {
+            $query['EndTime'] = $request->endTime;
+        }
+        if (!Utils::isUnset($request->key)) {
+            $query['Key'] = $request->key;
+        }
+        if (!Utils::isUnset($request->startTime)) {
+            $query['StartTime'] = $request->startTime;
+        }
+        $req = new OpenApiRequest([
+            'query' => OpenApiUtilClient::query($query),
+        ]);
+        $params = new Params([
+            'action'      => 'DescribeDBInstancePerformance',
+            'version'     => '2016-05-03',
+            'protocol'    => 'HTTPS',
+            'pathname'    => '/',
+            'method'      => 'POST',
+            'authType'    => 'AK',
+            'style'       => 'RPC',
+            'reqBodyType' => 'formData',
+            'bodyType'    => 'json',
+        ]);
+
+        return DescribeDBInstancePerformanceResponse::fromMap($this->callApi($params, $req, $runtime));
+    }
+
+    /**
+     * @param DescribeDBInstancePerformanceRequest $request
+     *
+     * @return DescribeDBInstancePerformanceResponse
+     */
+    public function describeDBInstancePerformance($request)
+    {
+        $runtime = new RuntimeOptions([]);
+
+        return $this->describeDBInstancePerformanceWithOptions($request, $runtime);
     }
 
     /**
@@ -2051,52 +2007,6 @@ class Gpdb extends OpenApiClient
         $runtime = new RuntimeOptions([]);
 
         return $this->describeSQLCollectorPolicyWithOptions($request, $runtime);
-    }
-
-    /**
-     * @param DescribeSQLLogRequest $request
-     * @param RuntimeOptions        $runtime
-     *
-     * @return DescribeSQLLogResponse
-     */
-    public function describeSQLLogWithOptions($request, $runtime)
-    {
-        Utils::validateModel($request);
-        $query = [];
-        if (!Utils::isUnset($request->DBInstanceId)) {
-            $query['DBInstanceId'] = $request->DBInstanceId;
-        }
-        if (!Utils::isUnset($request->queryId)) {
-            $query['QueryId'] = $request->queryId;
-        }
-        $req = new OpenApiRequest([
-            'query' => OpenApiUtilClient::query($query),
-        ]);
-        $params = new Params([
-            'action'      => 'DescribeSQLLog',
-            'version'     => '2016-05-03',
-            'protocol'    => 'HTTPS',
-            'pathname'    => '/',
-            'method'      => 'POST',
-            'authType'    => 'AK',
-            'style'       => 'RPC',
-            'reqBodyType' => 'formData',
-            'bodyType'    => 'json',
-        ]);
-
-        return DescribeSQLLogResponse::fromMap($this->callApi($params, $req, $runtime));
-    }
-
-    /**
-     * @param DescribeSQLLogRequest $request
-     *
-     * @return DescribeSQLLogResponse
-     */
-    public function describeSQLLog($request)
-    {
-        $runtime = new RuntimeOptions([]);
-
-        return $this->describeSQLLogWithOptions($request, $runtime);
     }
 
     /**
