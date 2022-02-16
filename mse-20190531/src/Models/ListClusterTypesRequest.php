@@ -14,11 +14,19 @@ class ListClusterTypesRequest extends Model
     public $acceptLanguage;
 
     /**
+     * @description 网络连接类型
+     *
+     * @var string
+     */
+    public $connectType;
+
+    /**
      * @var string
      */
     public $regionId;
     protected $_name = [
         'acceptLanguage' => 'AcceptLanguage',
+        'connectType'    => 'ConnectType',
         'regionId'       => 'RegionId',
     ];
 
@@ -31,6 +39,9 @@ class ListClusterTypesRequest extends Model
         $res = [];
         if (null !== $this->acceptLanguage) {
             $res['AcceptLanguage'] = $this->acceptLanguage;
+        }
+        if (null !== $this->connectType) {
+            $res['ConnectType'] = $this->connectType;
         }
         if (null !== $this->regionId) {
             $res['RegionId'] = $this->regionId;
@@ -49,6 +60,9 @@ class ListClusterTypesRequest extends Model
         $model = new self();
         if (isset($map['AcceptLanguage'])) {
             $model->acceptLanguage = $map['AcceptLanguage'];
+        }
+        if (isset($map['ConnectType'])) {
+            $model->connectType = $map['ConnectType'];
         }
         if (isset($map['RegionId'])) {
             $model->regionId = $map['RegionId'];

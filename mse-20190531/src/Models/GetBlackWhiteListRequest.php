@@ -19,6 +19,11 @@ class GetBlackWhiteListRequest extends Model
     public $gatewayUniqueId;
 
     /**
+     * @var bool
+     */
+    public $isWhite;
+
+    /**
      * @var string
      */
     public $resourceType;
@@ -30,6 +35,7 @@ class GetBlackWhiteListRequest extends Model
     protected $_name = [
         'acceptLanguage'  => 'AcceptLanguage',
         'gatewayUniqueId' => 'GatewayUniqueId',
+        'isWhite'         => 'IsWhite',
         'resourceType'    => 'ResourceType',
         'type'            => 'Type',
     ];
@@ -46,6 +52,9 @@ class GetBlackWhiteListRequest extends Model
         }
         if (null !== $this->gatewayUniqueId) {
             $res['GatewayUniqueId'] = $this->gatewayUniqueId;
+        }
+        if (null !== $this->isWhite) {
+            $res['IsWhite'] = $this->isWhite;
         }
         if (null !== $this->resourceType) {
             $res['ResourceType'] = $this->resourceType;
@@ -70,6 +79,9 @@ class GetBlackWhiteListRequest extends Model
         }
         if (isset($map['GatewayUniqueId'])) {
             $model->gatewayUniqueId = $map['GatewayUniqueId'];
+        }
+        if (isset($map['IsWhite'])) {
+            $model->isWhite = $map['IsWhite'];
         }
         if (isset($map['ResourceType'])) {
             $model->resourceType = $map['ResourceType'];

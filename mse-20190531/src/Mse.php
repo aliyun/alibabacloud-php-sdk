@@ -3285,6 +3285,9 @@ class Mse extends OpenApiClient
         if (!Utils::isUnset($request->acceptLanguage)) {
             $query['AcceptLanguage'] = $request->acceptLanguage;
         }
+        if (!Utils::isUnset($request->connectType)) {
+            $query['ConnectType'] = $request->connectType;
+        }
         if (!Utils::isUnset($request->regionId)) {
             $query['RegionId'] = $request->regionId;
         }
@@ -4343,6 +4346,9 @@ class Mse extends OpenApiClient
         if (!Utils::isUnset($request->acceptLanguage)) {
             $query['AcceptLanguage'] = $request->acceptLanguage;
         }
+        if (!Utils::isUnset($request->connectType)) {
+            $query['ConnectType'] = $request->connectType;
+        }
         $req = new OpenApiRequest([
             'query' => OpenApiUtilClient::query($query),
         ]);
@@ -4925,6 +4931,9 @@ class Mse extends OpenApiClient
         }
         if (!Utils::isUnset($request->id)) {
             $query['Id'] = $request->id;
+        }
+        if (!Utils::isUnset($request->isWhite)) {
+            $query['IsWhite'] = $request->isWhite;
         }
         if (!Utils::isUnset($request->resourceType)) {
             $query['ResourceType'] = $request->resourceType;

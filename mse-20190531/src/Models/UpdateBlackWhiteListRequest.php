@@ -29,6 +29,11 @@ class UpdateBlackWhiteListRequest extends Model
     public $id;
 
     /**
+     * @var bool
+     */
+    public $isWhite;
+
+    /**
      * @var string
      */
     public $resourceType;
@@ -47,6 +52,7 @@ class UpdateBlackWhiteListRequest extends Model
         'content'         => 'Content',
         'gatewayUniqueId' => 'GatewayUniqueId',
         'id'              => 'Id',
+        'isWhite'         => 'IsWhite',
         'resourceType'    => 'ResourceType',
         'status'          => 'Status',
         'type'            => 'Type',
@@ -70,6 +76,9 @@ class UpdateBlackWhiteListRequest extends Model
         }
         if (null !== $this->id) {
             $res['Id'] = $this->id;
+        }
+        if (null !== $this->isWhite) {
+            $res['IsWhite'] = $this->isWhite;
         }
         if (null !== $this->resourceType) {
             $res['ResourceType'] = $this->resourceType;
@@ -103,6 +112,9 @@ class UpdateBlackWhiteListRequest extends Model
         }
         if (isset($map['Id'])) {
             $model->id = $map['Id'];
+        }
+        if (isset($map['IsWhite'])) {
+            $model->isWhite = $map['IsWhite'];
         }
         if (isset($map['ResourceType'])) {
             $model->resourceType = $map['ResourceType'];

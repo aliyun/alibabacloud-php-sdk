@@ -12,8 +12,16 @@ class QueryClusterSpecificationRequest extends Model
      * @var string
      */
     public $acceptLanguage;
+
+    /**
+     * @description 网络连接类型
+     *
+     * @var string
+     */
+    public $connectType;
     protected $_name = [
         'acceptLanguage' => 'AcceptLanguage',
+        'connectType'    => 'ConnectType',
     ];
 
     public function validate()
@@ -25,6 +33,9 @@ class QueryClusterSpecificationRequest extends Model
         $res = [];
         if (null !== $this->acceptLanguage) {
             $res['AcceptLanguage'] = $this->acceptLanguage;
+        }
+        if (null !== $this->connectType) {
+            $res['ConnectType'] = $this->connectType;
         }
 
         return $res;
@@ -40,6 +51,9 @@ class QueryClusterSpecificationRequest extends Model
         $model = new self();
         if (isset($map['AcceptLanguage'])) {
             $model->acceptLanguage = $map['AcceptLanguage'];
+        }
+        if (isset($map['ConnectType'])) {
+            $model->connectType = $map['ConnectType'];
         }
 
         return $model;
