@@ -43,7 +43,7 @@ class GetDiagnoseResultForSingleCardResponseBody extends Model
     /**
      * @var string
      */
-    public $iccid;
+    public $iccId;
 
     /**
      * @var string
@@ -66,7 +66,7 @@ class GetDiagnoseResultForSingleCardResponseBody extends Model
         'diagnoseItem'        => 'DiagnoseItem',
         'endTime'             => 'EndTime',
         'errorResult'         => 'ErrorResult',
-        'iccid'               => 'Iccid',
+        'iccId'               => 'IccId',
         'ioTCloudConnectorId' => 'IoTCloudConnectorId',
         'requestId'           => 'RequestId',
         'status'              => 'Status',
@@ -109,8 +109,8 @@ class GetDiagnoseResultForSingleCardResponseBody extends Model
                 }
             }
         }
-        if (null !== $this->iccid) {
-            $res['Iccid'] = $this->iccid;
+        if (null !== $this->iccId) {
+            $res['IccId'] = $this->iccId;
         }
         if (null !== $this->ioTCloudConnectorId) {
             $res['IoTCloudConnectorId'] = $this->ioTCloudConnectorId;
@@ -163,8 +163,8 @@ class GetDiagnoseResultForSingleCardResponseBody extends Model
                 }
             }
         }
-        if (isset($map['Iccid'])) {
-            $model->iccid = $map['Iccid'];
+        if (isset($map['IccId'])) {
+            $model->iccId = $map['IccId'];
         }
         if (isset($map['IoTCloudConnectorId'])) {
             $model->ioTCloudConnectorId = $map['IoTCloudConnectorId'];

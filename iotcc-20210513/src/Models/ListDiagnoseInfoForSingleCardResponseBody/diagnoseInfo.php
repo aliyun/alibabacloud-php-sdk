@@ -41,7 +41,7 @@ class diagnoseInfo extends Model
     /**
      * @var string
      */
-    public $iccid;
+    public $iccId;
 
     /**
      * @var string
@@ -74,7 +74,7 @@ class diagnoseInfo extends Model
         'destinationType'     => 'DestinationType',
         'diagnoseTime'        => 'DiagnoseTime',
         'endTime'             => 'EndTime',
-        'iccid'               => 'Iccid',
+        'iccId'               => 'IccId',
         'ioTCloudConnectorId' => 'IoTCloudConnectorId',
         'source'              => 'Source',
         'sourceType'          => 'SourceType',
@@ -107,8 +107,8 @@ class diagnoseInfo extends Model
         if (null !== $this->endTime) {
             $res['EndTime'] = $this->endTime;
         }
-        if (null !== $this->iccid) {
-            $res['Iccid'] = $this->iccid;
+        if (null !== $this->iccId) {
+            $res['IccId'] = $this->iccId;
         }
         if (null !== $this->ioTCloudConnectorId) {
             $res['IoTCloudConnectorId'] = $this->ioTCloudConnectorId;
@@ -155,8 +155,8 @@ class diagnoseInfo extends Model
         if (isset($map['EndTime'])) {
             $model->endTime = $map['EndTime'];
         }
-        if (isset($map['Iccid'])) {
-            $model->iccid = $map['Iccid'];
+        if (isset($map['IccId'])) {
+            $model->iccId = $map['IccId'];
         }
         if (isset($map['IoTCloudConnectorId'])) {
             $model->ioTCloudConnectorId = $map['IoTCloudConnectorId'];

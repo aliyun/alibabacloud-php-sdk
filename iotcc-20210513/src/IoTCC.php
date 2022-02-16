@@ -18,8 +18,12 @@ use AlibabaCloud\SDK\IoTCC\V20210513\Models\CreateAuthorizationRuleRequest;
 use AlibabaCloud\SDK\IoTCC\V20210513\Models\CreateAuthorizationRuleResponse;
 use AlibabaCloud\SDK\IoTCC\V20210513\Models\CreateConnectionPoolRequest;
 use AlibabaCloud\SDK\IoTCC\V20210513\Models\CreateConnectionPoolResponse;
+use AlibabaCloud\SDK\IoTCC\V20210513\Models\CreateDNSServiceRuleRequest;
+use AlibabaCloud\SDK\IoTCC\V20210513\Models\CreateDNSServiceRuleResponse;
 use AlibabaCloud\SDK\IoTCC\V20210513\Models\CreateGroupAuthorizationRuleRequest;
 use AlibabaCloud\SDK\IoTCC\V20210513\Models\CreateGroupAuthorizationRuleResponse;
+use AlibabaCloud\SDK\IoTCC\V20210513\Models\CreateGroupDNSServiceRuleRequest;
+use AlibabaCloud\SDK\IoTCC\V20210513\Models\CreateGroupDNSServiceRuleResponse;
 use AlibabaCloud\SDK\IoTCC\V20210513\Models\CreateIoTCloudConnectorGroupRequest;
 use AlibabaCloud\SDK\IoTCC\V20210513\Models\CreateIoTCloudConnectorGroupResponse;
 use AlibabaCloud\SDK\IoTCC\V20210513\Models\CreateIoTCloudConnectorRequest;
@@ -32,8 +36,12 @@ use AlibabaCloud\SDK\IoTCC\V20210513\Models\DeleteAuthorizationRuleRequest;
 use AlibabaCloud\SDK\IoTCC\V20210513\Models\DeleteAuthorizationRuleResponse;
 use AlibabaCloud\SDK\IoTCC\V20210513\Models\DeleteConnectionPoolRequest;
 use AlibabaCloud\SDK\IoTCC\V20210513\Models\DeleteConnectionPoolResponse;
+use AlibabaCloud\SDK\IoTCC\V20210513\Models\DeleteDNSServiceRuleRequest;
+use AlibabaCloud\SDK\IoTCC\V20210513\Models\DeleteDNSServiceRuleResponse;
 use AlibabaCloud\SDK\IoTCC\V20210513\Models\DeleteGroupAuthorizationRuleRequest;
 use AlibabaCloud\SDK\IoTCC\V20210513\Models\DeleteGroupAuthorizationRuleResponse;
+use AlibabaCloud\SDK\IoTCC\V20210513\Models\DeleteGroupDNSServiceRuleRequest;
+use AlibabaCloud\SDK\IoTCC\V20210513\Models\DeleteGroupDNSServiceRuleResponse;
 use AlibabaCloud\SDK\IoTCC\V20210513\Models\DeleteIoTCloudConnectorGroupRequest;
 use AlibabaCloud\SDK\IoTCC\V20210513\Models\DeleteIoTCloudConnectorGroupResponse;
 use AlibabaCloud\SDK\IoTCC\V20210513\Models\DeleteIoTCloudConnectorRequest;
@@ -72,8 +80,12 @@ use AlibabaCloud\SDK\IoTCC\V20210513\Models\ListConnectionPoolsRequest;
 use AlibabaCloud\SDK\IoTCC\V20210513\Models\ListConnectionPoolsResponse;
 use AlibabaCloud\SDK\IoTCC\V20210513\Models\ListDiagnoseInfoForSingleCardRequest;
 use AlibabaCloud\SDK\IoTCC\V20210513\Models\ListDiagnoseInfoForSingleCardResponse;
+use AlibabaCloud\SDK\IoTCC\V20210513\Models\ListDNSServiceRulesRequest;
+use AlibabaCloud\SDK\IoTCC\V20210513\Models\ListDNSServiceRulesResponse;
 use AlibabaCloud\SDK\IoTCC\V20210513\Models\ListGroupAuthorizationRulesRequest;
 use AlibabaCloud\SDK\IoTCC\V20210513\Models\ListGroupAuthorizationRulesResponse;
+use AlibabaCloud\SDK\IoTCC\V20210513\Models\ListGroupDNSServiceRulesRequest;
+use AlibabaCloud\SDK\IoTCC\V20210513\Models\ListGroupDNSServiceRulesResponse;
 use AlibabaCloud\SDK\IoTCC\V20210513\Models\ListIoTCloudConnectorAvailableZonesRequest;
 use AlibabaCloud\SDK\IoTCC\V20210513\Models\ListIoTCloudConnectorAvailableZonesResponse;
 use AlibabaCloud\SDK\IoTCC\V20210513\Models\ListIoTCloudConnectorGroupsRequest;
@@ -86,6 +98,10 @@ use AlibabaCloud\SDK\IoTCC\V20210513\Models\ListServiceEntriesRequest;
 use AlibabaCloud\SDK\IoTCC\V20210513\Models\ListServiceEntriesResponse;
 use AlibabaCloud\SDK\IoTCC\V20210513\Models\ListServiceRequest;
 use AlibabaCloud\SDK\IoTCC\V20210513\Models\ListServiceResponse;
+use AlibabaCloud\SDK\IoTCC\V20210513\Models\MoveAuthorizationRuleToDNSServiceRequest;
+use AlibabaCloud\SDK\IoTCC\V20210513\Models\MoveAuthorizationRuleToDNSServiceResponse;
+use AlibabaCloud\SDK\IoTCC\V20210513\Models\MoveGroupAuthorizationRuleToDNSServiceRequest;
+use AlibabaCloud\SDK\IoTCC\V20210513\Models\MoveGroupAuthorizationRuleToDNSServiceResponse;
 use AlibabaCloud\SDK\IoTCC\V20210513\Models\OpenIoTCloudConnectorServiceRequest;
 use AlibabaCloud\SDK\IoTCC\V20210513\Models\OpenIoTCloudConnectorServiceResponse;
 use AlibabaCloud\SDK\IoTCC\V20210513\Models\RemoveIoTCloudConnectorFromGroupRequest;
@@ -96,8 +112,12 @@ use AlibabaCloud\SDK\IoTCC\V20210513\Models\UpdateAuthorizationRuleAttributeRequ
 use AlibabaCloud\SDK\IoTCC\V20210513\Models\UpdateAuthorizationRuleAttributeResponse;
 use AlibabaCloud\SDK\IoTCC\V20210513\Models\UpdateConnectionPoolAttributeRequest;
 use AlibabaCloud\SDK\IoTCC\V20210513\Models\UpdateConnectionPoolAttributeResponse;
+use AlibabaCloud\SDK\IoTCC\V20210513\Models\UpdateDNSServiceRuleAttributeRequest;
+use AlibabaCloud\SDK\IoTCC\V20210513\Models\UpdateDNSServiceRuleAttributeResponse;
 use AlibabaCloud\SDK\IoTCC\V20210513\Models\UpdateGroupAuthorizationRuleAttributeRequest;
 use AlibabaCloud\SDK\IoTCC\V20210513\Models\UpdateGroupAuthorizationRuleAttributeResponse;
+use AlibabaCloud\SDK\IoTCC\V20210513\Models\UpdateGroupDNSServiceRuleAttributeRequest;
+use AlibabaCloud\SDK\IoTCC\V20210513\Models\UpdateGroupDNSServiceRuleAttributeResponse;
 use AlibabaCloud\SDK\IoTCC\V20210513\Models\UpdateIoTCloudConnectorAttributeRequest;
 use AlibabaCloud\SDK\IoTCC\V20210513\Models\UpdateIoTCloudConnectorAttributeResponse;
 use AlibabaCloud\SDK\IoTCC\V20210513\Models\UpdateIoTCloudConnectorGroupAttributeRequest;
@@ -512,6 +532,73 @@ class IoTCC extends OpenApiClient
     }
 
     /**
+     * @param CreateDNSServiceRuleRequest $request
+     * @param RuntimeOptions              $runtime
+     *
+     * @return CreateDNSServiceRuleResponse
+     */
+    public function createDNSServiceRuleWithOptions($request, $runtime)
+    {
+        Utils::validateModel($request);
+        $query = [];
+        if (!Utils::isUnset($request->authorizationRuleDescription)) {
+            $query['AuthorizationRuleDescription'] = $request->authorizationRuleDescription;
+        }
+        if (!Utils::isUnset($request->authorizationRuleName)) {
+            $query['AuthorizationRuleName'] = $request->authorizationRuleName;
+        }
+        if (!Utils::isUnset($request->clientToken)) {
+            $query['ClientToken'] = $request->clientToken;
+        }
+        if (!Utils::isUnset($request->destination)) {
+            $query['Destination'] = $request->destination;
+        }
+        if (!Utils::isUnset($request->dryRun)) {
+            $query['DryRun'] = $request->dryRun;
+        }
+        if (!Utils::isUnset($request->ioTCloudConnectorId)) {
+            $query['IoTCloudConnectorId'] = $request->ioTCloudConnectorId;
+        }
+        if (!Utils::isUnset($request->regionId)) {
+            $query['RegionId'] = $request->regionId;
+        }
+        if (!Utils::isUnset($request->serviceType)) {
+            $query['ServiceType'] = $request->serviceType;
+        }
+        if (!Utils::isUnset($request->source)) {
+            $query['Source'] = $request->source;
+        }
+        $req = new OpenApiRequest([
+            'query' => OpenApiUtilClient::query($query),
+        ]);
+        $params = new Params([
+            'action'      => 'CreateDNSServiceRule',
+            'version'     => '2021-05-13',
+            'protocol'    => 'HTTPS',
+            'pathname'    => '/',
+            'method'      => 'POST',
+            'authType'    => 'AK',
+            'style'       => 'RPC',
+            'reqBodyType' => 'formData',
+            'bodyType'    => 'json',
+        ]);
+
+        return CreateDNSServiceRuleResponse::fromMap($this->callApi($params, $req, $runtime));
+    }
+
+    /**
+     * @param CreateDNSServiceRuleRequest $request
+     *
+     * @return CreateDNSServiceRuleResponse
+     */
+    public function createDNSServiceRule($request)
+    {
+        $runtime = new RuntimeOptions([]);
+
+        return $this->createDNSServiceRuleWithOptions($request, $runtime);
+    }
+
+    /**
      * @param CreateGroupAuthorizationRuleRequest $request
      * @param RuntimeOptions                      $runtime
      *
@@ -579,6 +666,73 @@ class IoTCC extends OpenApiClient
         $runtime = new RuntimeOptions([]);
 
         return $this->createGroupAuthorizationRuleWithOptions($request, $runtime);
+    }
+
+    /**
+     * @param CreateGroupDNSServiceRuleRequest $request
+     * @param RuntimeOptions                   $runtime
+     *
+     * @return CreateGroupDNSServiceRuleResponse
+     */
+    public function createGroupDNSServiceRuleWithOptions($request, $runtime)
+    {
+        Utils::validateModel($request);
+        $query = [];
+        if (!Utils::isUnset($request->clientToken)) {
+            $query['ClientToken'] = $request->clientToken;
+        }
+        if (!Utils::isUnset($request->DNSServiceRuleDescription)) {
+            $query['DNSServiceRuleDescription'] = $request->DNSServiceRuleDescription;
+        }
+        if (!Utils::isUnset($request->DNSServiceRuleName)) {
+            $query['DNSServiceRuleName'] = $request->DNSServiceRuleName;
+        }
+        if (!Utils::isUnset($request->destination)) {
+            $query['Destination'] = $request->destination;
+        }
+        if (!Utils::isUnset($request->dryRun)) {
+            $query['DryRun'] = $request->dryRun;
+        }
+        if (!Utils::isUnset($request->ioTCloudConnectorGroupId)) {
+            $query['IoTCloudConnectorGroupId'] = $request->ioTCloudConnectorGroupId;
+        }
+        if (!Utils::isUnset($request->regionId)) {
+            $query['RegionId'] = $request->regionId;
+        }
+        if (!Utils::isUnset($request->serviceType)) {
+            $query['ServiceType'] = $request->serviceType;
+        }
+        if (!Utils::isUnset($request->source)) {
+            $query['Source'] = $request->source;
+        }
+        $req = new OpenApiRequest([
+            'query' => OpenApiUtilClient::query($query),
+        ]);
+        $params = new Params([
+            'action'      => 'CreateGroupDNSServiceRule',
+            'version'     => '2021-05-13',
+            'protocol'    => 'HTTPS',
+            'pathname'    => '/',
+            'method'      => 'POST',
+            'authType'    => 'AK',
+            'style'       => 'RPC',
+            'reqBodyType' => 'formData',
+            'bodyType'    => 'json',
+        ]);
+
+        return CreateGroupDNSServiceRuleResponse::fromMap($this->callApi($params, $req, $runtime));
+    }
+
+    /**
+     * @param CreateGroupDNSServiceRuleRequest $request
+     *
+     * @return CreateGroupDNSServiceRuleResponse
+     */
+    public function createGroupDNSServiceRule($request)
+    {
+        $runtime = new RuntimeOptions([]);
+
+        return $this->createGroupDNSServiceRuleWithOptions($request, $runtime);
     }
 
     /**
@@ -939,6 +1093,61 @@ class IoTCC extends OpenApiClient
     }
 
     /**
+     * @param DeleteDNSServiceRuleRequest $request
+     * @param RuntimeOptions              $runtime
+     *
+     * @return DeleteDNSServiceRuleResponse
+     */
+    public function deleteDNSServiceRuleWithOptions($request, $runtime)
+    {
+        Utils::validateModel($request);
+        $query = [];
+        if (!Utils::isUnset($request->clientToken)) {
+            $query['ClientToken'] = $request->clientToken;
+        }
+        if (!Utils::isUnset($request->DNSServiceRuleId)) {
+            $query['DNSServiceRuleId'] = $request->DNSServiceRuleId;
+        }
+        if (!Utils::isUnset($request->dryRun)) {
+            $query['DryRun'] = $request->dryRun;
+        }
+        if (!Utils::isUnset($request->ioTCloudConnectorId)) {
+            $query['IoTCloudConnectorId'] = $request->ioTCloudConnectorId;
+        }
+        if (!Utils::isUnset($request->regionId)) {
+            $query['RegionId'] = $request->regionId;
+        }
+        $req = new OpenApiRequest([
+            'query' => OpenApiUtilClient::query($query),
+        ]);
+        $params = new Params([
+            'action'      => 'DeleteDNSServiceRule',
+            'version'     => '2021-05-13',
+            'protocol'    => 'HTTPS',
+            'pathname'    => '/',
+            'method'      => 'POST',
+            'authType'    => 'AK',
+            'style'       => 'RPC',
+            'reqBodyType' => 'formData',
+            'bodyType'    => 'json',
+        ]);
+
+        return DeleteDNSServiceRuleResponse::fromMap($this->callApi($params, $req, $runtime));
+    }
+
+    /**
+     * @param DeleteDNSServiceRuleRequest $request
+     *
+     * @return DeleteDNSServiceRuleResponse
+     */
+    public function deleteDNSServiceRule($request)
+    {
+        $runtime = new RuntimeOptions([]);
+
+        return $this->deleteDNSServiceRuleWithOptions($request, $runtime);
+    }
+
+    /**
      * @param DeleteGroupAuthorizationRuleRequest $request
      * @param RuntimeOptions                      $runtime
      *
@@ -991,6 +1200,61 @@ class IoTCC extends OpenApiClient
         $runtime = new RuntimeOptions([]);
 
         return $this->deleteGroupAuthorizationRuleWithOptions($request, $runtime);
+    }
+
+    /**
+     * @param DeleteGroupDNSServiceRuleRequest $request
+     * @param RuntimeOptions                   $runtime
+     *
+     * @return DeleteGroupDNSServiceRuleResponse
+     */
+    public function deleteGroupDNSServiceRuleWithOptions($request, $runtime)
+    {
+        Utils::validateModel($request);
+        $query = [];
+        if (!Utils::isUnset($request->clientToken)) {
+            $query['ClientToken'] = $request->clientToken;
+        }
+        if (!Utils::isUnset($request->DNSServiceRuleId)) {
+            $query['DNSServiceRuleId'] = $request->DNSServiceRuleId;
+        }
+        if (!Utils::isUnset($request->dryRun)) {
+            $query['DryRun'] = $request->dryRun;
+        }
+        if (!Utils::isUnset($request->ioTCloudConnectorGroupId)) {
+            $query['IoTCloudConnectorGroupId'] = $request->ioTCloudConnectorGroupId;
+        }
+        if (!Utils::isUnset($request->regionId)) {
+            $query['RegionId'] = $request->regionId;
+        }
+        $req = new OpenApiRequest([
+            'query' => OpenApiUtilClient::query($query),
+        ]);
+        $params = new Params([
+            'action'      => 'DeleteGroupDNSServiceRule',
+            'version'     => '2021-05-13',
+            'protocol'    => 'HTTPS',
+            'pathname'    => '/',
+            'method'      => 'POST',
+            'authType'    => 'AK',
+            'style'       => 'RPC',
+            'reqBodyType' => 'formData',
+            'bodyType'    => 'json',
+        ]);
+
+        return DeleteGroupDNSServiceRuleResponse::fromMap($this->callApi($params, $req, $runtime));
+    }
+
+    /**
+     * @param DeleteGroupDNSServiceRuleRequest $request
+     *
+     * @return DeleteGroupDNSServiceRuleResponse
+     */
+    public function deleteGroupDNSServiceRule($request)
+    {
+        $runtime = new RuntimeOptions([]);
+
+        return $this->deleteGroupDNSServiceRuleWithOptions($request, $runtime);
     }
 
     /**
@@ -1993,6 +2257,76 @@ class IoTCC extends OpenApiClient
     }
 
     /**
+     * @param ListDNSServiceRulesRequest $request
+     * @param RuntimeOptions             $runtime
+     *
+     * @return ListDNSServiceRulesResponse
+     */
+    public function listDNSServiceRulesWithOptions($request, $runtime)
+    {
+        Utils::validateModel($request);
+        $query = [];
+        if (!Utils::isUnset($request->DNSServiceRuleIds)) {
+            $query['DNSServiceRuleIds'] = $request->DNSServiceRuleIds;
+        }
+        if (!Utils::isUnset($request->DNSServiceRuleName)) {
+            $query['DNSServiceRuleName'] = $request->DNSServiceRuleName;
+        }
+        if (!Utils::isUnset($request->DNSServiceRuleStatus)) {
+            $query['DNSServiceRuleStatus'] = $request->DNSServiceRuleStatus;
+        }
+        if (!Utils::isUnset($request->destination)) {
+            $query['Destination'] = $request->destination;
+        }
+        if (!Utils::isUnset($request->ioTCloudConnectorId)) {
+            $query['IoTCloudConnectorId'] = $request->ioTCloudConnectorId;
+        }
+        if (!Utils::isUnset($request->maxResults)) {
+            $query['MaxResults'] = $request->maxResults;
+        }
+        if (!Utils::isUnset($request->nextToken)) {
+            $query['NextToken'] = $request->nextToken;
+        }
+        if (!Utils::isUnset($request->regionId)) {
+            $query['RegionId'] = $request->regionId;
+        }
+        if (!Utils::isUnset($request->serviceType)) {
+            $query['ServiceType'] = $request->serviceType;
+        }
+        if (!Utils::isUnset($request->source)) {
+            $query['Source'] = $request->source;
+        }
+        $req = new OpenApiRequest([
+            'query' => OpenApiUtilClient::query($query),
+        ]);
+        $params = new Params([
+            'action'      => 'ListDNSServiceRules',
+            'version'     => '2021-05-13',
+            'protocol'    => 'HTTPS',
+            'pathname'    => '/',
+            'method'      => 'POST',
+            'authType'    => 'AK',
+            'style'       => 'RPC',
+            'reqBodyType' => 'formData',
+            'bodyType'    => 'json',
+        ]);
+
+        return ListDNSServiceRulesResponse::fromMap($this->callApi($params, $req, $runtime));
+    }
+
+    /**
+     * @param ListDNSServiceRulesRequest $request
+     *
+     * @return ListDNSServiceRulesResponse
+     */
+    public function listDNSServiceRules($request)
+    {
+        $runtime = new RuntimeOptions([]);
+
+        return $this->listDNSServiceRulesWithOptions($request, $runtime);
+    }
+
+    /**
      * @param ListDiagnoseInfoForSingleCardRequest $request
      * @param RuntimeOptions                       $runtime
      *
@@ -2118,6 +2452,76 @@ class IoTCC extends OpenApiClient
         $runtime = new RuntimeOptions([]);
 
         return $this->listGroupAuthorizationRulesWithOptions($request, $runtime);
+    }
+
+    /**
+     * @param ListGroupDNSServiceRulesRequest $request
+     * @param RuntimeOptions                  $runtime
+     *
+     * @return ListGroupDNSServiceRulesResponse
+     */
+    public function listGroupDNSServiceRulesWithOptions($request, $runtime)
+    {
+        Utils::validateModel($request);
+        $query = [];
+        if (!Utils::isUnset($request->DNSServiceRuleIds)) {
+            $query['DNSServiceRuleIds'] = $request->DNSServiceRuleIds;
+        }
+        if (!Utils::isUnset($request->DNSServiceRuleName)) {
+            $query['DNSServiceRuleName'] = $request->DNSServiceRuleName;
+        }
+        if (!Utils::isUnset($request->DNSServiceRuleStatus)) {
+            $query['DNSServiceRuleStatus'] = $request->DNSServiceRuleStatus;
+        }
+        if (!Utils::isUnset($request->destination)) {
+            $query['Destination'] = $request->destination;
+        }
+        if (!Utils::isUnset($request->ioTCloudConnectorGroupId)) {
+            $query['IoTCloudConnectorGroupId'] = $request->ioTCloudConnectorGroupId;
+        }
+        if (!Utils::isUnset($request->maxResults)) {
+            $query['MaxResults'] = $request->maxResults;
+        }
+        if (!Utils::isUnset($request->nextToken)) {
+            $query['NextToken'] = $request->nextToken;
+        }
+        if (!Utils::isUnset($request->regionId)) {
+            $query['RegionId'] = $request->regionId;
+        }
+        if (!Utils::isUnset($request->serviceType)) {
+            $query['ServiceType'] = $request->serviceType;
+        }
+        if (!Utils::isUnset($request->source)) {
+            $query['Source'] = $request->source;
+        }
+        $req = new OpenApiRequest([
+            'query' => OpenApiUtilClient::query($query),
+        ]);
+        $params = new Params([
+            'action'      => 'ListGroupDNSServiceRules',
+            'version'     => '2021-05-13',
+            'protocol'    => 'HTTPS',
+            'pathname'    => '/',
+            'method'      => 'POST',
+            'authType'    => 'AK',
+            'style'       => 'RPC',
+            'reqBodyType' => 'formData',
+            'bodyType'    => 'json',
+        ]);
+
+        return ListGroupDNSServiceRulesResponse::fromMap($this->callApi($params, $req, $runtime));
+    }
+
+    /**
+     * @param ListGroupDNSServiceRulesRequest $request
+     *
+     * @return ListGroupDNSServiceRulesResponse
+     */
+    public function listGroupDNSServiceRules($request)
+    {
+        $runtime = new RuntimeOptions([]);
+
+        return $this->listGroupDNSServiceRulesWithOptions($request, $runtime);
     }
 
     /**
@@ -2475,6 +2879,116 @@ class IoTCC extends OpenApiClient
     }
 
     /**
+     * @param MoveAuthorizationRuleToDNSServiceRequest $request
+     * @param RuntimeOptions                           $runtime
+     *
+     * @return MoveAuthorizationRuleToDNSServiceResponse
+     */
+    public function moveAuthorizationRuleToDNSServiceWithOptions($request, $runtime)
+    {
+        Utils::validateModel($request);
+        $query = [];
+        if (!Utils::isUnset($request->authorizationRuleId)) {
+            $query['AuthorizationRuleId'] = $request->authorizationRuleId;
+        }
+        if (!Utils::isUnset($request->clientToken)) {
+            $query['ClientToken'] = $request->clientToken;
+        }
+        if (!Utils::isUnset($request->dryRun)) {
+            $query['DryRun'] = $request->dryRun;
+        }
+        if (!Utils::isUnset($request->ioTCloudConnectorId)) {
+            $query['IoTCloudConnectorId'] = $request->ioTCloudConnectorId;
+        }
+        if (!Utils::isUnset($request->regionId)) {
+            $query['RegionId'] = $request->regionId;
+        }
+        $req = new OpenApiRequest([
+            'query' => OpenApiUtilClient::query($query),
+        ]);
+        $params = new Params([
+            'action'      => 'MoveAuthorizationRuleToDNSService',
+            'version'     => '2021-05-13',
+            'protocol'    => 'HTTPS',
+            'pathname'    => '/',
+            'method'      => 'POST',
+            'authType'    => 'AK',
+            'style'       => 'RPC',
+            'reqBodyType' => 'formData',
+            'bodyType'    => 'json',
+        ]);
+
+        return MoveAuthorizationRuleToDNSServiceResponse::fromMap($this->callApi($params, $req, $runtime));
+    }
+
+    /**
+     * @param MoveAuthorizationRuleToDNSServiceRequest $request
+     *
+     * @return MoveAuthorizationRuleToDNSServiceResponse
+     */
+    public function moveAuthorizationRuleToDNSService($request)
+    {
+        $runtime = new RuntimeOptions([]);
+
+        return $this->moveAuthorizationRuleToDNSServiceWithOptions($request, $runtime);
+    }
+
+    /**
+     * @param MoveGroupAuthorizationRuleToDNSServiceRequest $request
+     * @param RuntimeOptions                                $runtime
+     *
+     * @return MoveGroupAuthorizationRuleToDNSServiceResponse
+     */
+    public function moveGroupAuthorizationRuleToDNSServiceWithOptions($request, $runtime)
+    {
+        Utils::validateModel($request);
+        $query = [];
+        if (!Utils::isUnset($request->authorizationRuleId)) {
+            $query['AuthorizationRuleId'] = $request->authorizationRuleId;
+        }
+        if (!Utils::isUnset($request->clientToken)) {
+            $query['ClientToken'] = $request->clientToken;
+        }
+        if (!Utils::isUnset($request->dryRun)) {
+            $query['DryRun'] = $request->dryRun;
+        }
+        if (!Utils::isUnset($request->ioTCloudConnectorGroupId)) {
+            $query['IoTCloudConnectorGroupId'] = $request->ioTCloudConnectorGroupId;
+        }
+        if (!Utils::isUnset($request->regionId)) {
+            $query['RegionId'] = $request->regionId;
+        }
+        $req = new OpenApiRequest([
+            'query' => OpenApiUtilClient::query($query),
+        ]);
+        $params = new Params([
+            'action'      => 'MoveGroupAuthorizationRuleToDNSService',
+            'version'     => '2021-05-13',
+            'protocol'    => 'HTTPS',
+            'pathname'    => '/',
+            'method'      => 'POST',
+            'authType'    => 'AK',
+            'style'       => 'RPC',
+            'reqBodyType' => 'formData',
+            'bodyType'    => 'json',
+        ]);
+
+        return MoveGroupAuthorizationRuleToDNSServiceResponse::fromMap($this->callApi($params, $req, $runtime));
+    }
+
+    /**
+     * @param MoveGroupAuthorizationRuleToDNSServiceRequest $request
+     *
+     * @return MoveGroupAuthorizationRuleToDNSServiceResponse
+     */
+    public function moveGroupAuthorizationRuleToDNSService($request)
+    {
+        $runtime = new RuntimeOptions([]);
+
+        return $this->moveGroupAuthorizationRuleToDNSServiceWithOptions($request, $runtime);
+    }
+
+    /**
      * @param OpenIoTCloudConnectorServiceRequest $request
      * @param RuntimeOptions                      $runtime
      *
@@ -2780,6 +3294,76 @@ class IoTCC extends OpenApiClient
     }
 
     /**
+     * @param UpdateDNSServiceRuleAttributeRequest $request
+     * @param RuntimeOptions                       $runtime
+     *
+     * @return UpdateDNSServiceRuleAttributeResponse
+     */
+    public function updateDNSServiceRuleAttributeWithOptions($request, $runtime)
+    {
+        Utils::validateModel($request);
+        $query = [];
+        if (!Utils::isUnset($request->authorizationRuleDescription)) {
+            $query['AuthorizationRuleDescription'] = $request->authorizationRuleDescription;
+        }
+        if (!Utils::isUnset($request->authorizationRuleName)) {
+            $query['AuthorizationRuleName'] = $request->authorizationRuleName;
+        }
+        if (!Utils::isUnset($request->clientToken)) {
+            $query['ClientToken'] = $request->clientToken;
+        }
+        if (!Utils::isUnset($request->DNSServiceRuleId)) {
+            $query['DNSServiceRuleId'] = $request->DNSServiceRuleId;
+        }
+        if (!Utils::isUnset($request->destination)) {
+            $query['Destination'] = $request->destination;
+        }
+        if (!Utils::isUnset($request->dryRun)) {
+            $query['DryRun'] = $request->dryRun;
+        }
+        if (!Utils::isUnset($request->ioTCloudConnectorId)) {
+            $query['IoTCloudConnectorId'] = $request->ioTCloudConnectorId;
+        }
+        if (!Utils::isUnset($request->regionId)) {
+            $query['RegionId'] = $request->regionId;
+        }
+        if (!Utils::isUnset($request->serviceType)) {
+            $query['ServiceType'] = $request->serviceType;
+        }
+        if (!Utils::isUnset($request->source)) {
+            $query['Source'] = $request->source;
+        }
+        $req = new OpenApiRequest([
+            'query' => OpenApiUtilClient::query($query),
+        ]);
+        $params = new Params([
+            'action'      => 'UpdateDNSServiceRuleAttribute',
+            'version'     => '2021-05-13',
+            'protocol'    => 'HTTPS',
+            'pathname'    => '/',
+            'method'      => 'POST',
+            'authType'    => 'AK',
+            'style'       => 'RPC',
+            'reqBodyType' => 'formData',
+            'bodyType'    => 'json',
+        ]);
+
+        return UpdateDNSServiceRuleAttributeResponse::fromMap($this->callApi($params, $req, $runtime));
+    }
+
+    /**
+     * @param UpdateDNSServiceRuleAttributeRequest $request
+     *
+     * @return UpdateDNSServiceRuleAttributeResponse
+     */
+    public function updateDNSServiceRuleAttribute($request)
+    {
+        $runtime = new RuntimeOptions([]);
+
+        return $this->updateDNSServiceRuleAttributeWithOptions($request, $runtime);
+    }
+
+    /**
      * @param UpdateGroupAuthorizationRuleAttributeRequest $request
      * @param RuntimeOptions                               $runtime
      *
@@ -2850,6 +3434,76 @@ class IoTCC extends OpenApiClient
         $runtime = new RuntimeOptions([]);
 
         return $this->updateGroupAuthorizationRuleAttributeWithOptions($request, $runtime);
+    }
+
+    /**
+     * @param UpdateGroupDNSServiceRuleAttributeRequest $request
+     * @param RuntimeOptions                            $runtime
+     *
+     * @return UpdateGroupDNSServiceRuleAttributeResponse
+     */
+    public function updateGroupDNSServiceRuleAttributeWithOptions($request, $runtime)
+    {
+        Utils::validateModel($request);
+        $query = [];
+        if (!Utils::isUnset($request->clientToken)) {
+            $query['ClientToken'] = $request->clientToken;
+        }
+        if (!Utils::isUnset($request->DNSServiceRuleDescription)) {
+            $query['DNSServiceRuleDescription'] = $request->DNSServiceRuleDescription;
+        }
+        if (!Utils::isUnset($request->DNSServiceRuleId)) {
+            $query['DNSServiceRuleId'] = $request->DNSServiceRuleId;
+        }
+        if (!Utils::isUnset($request->DNSServiceRuleName)) {
+            $query['DNSServiceRuleName'] = $request->DNSServiceRuleName;
+        }
+        if (!Utils::isUnset($request->destination)) {
+            $query['Destination'] = $request->destination;
+        }
+        if (!Utils::isUnset($request->dryRun)) {
+            $query['DryRun'] = $request->dryRun;
+        }
+        if (!Utils::isUnset($request->ioTCloudConnectorGroupId)) {
+            $query['IoTCloudConnectorGroupId'] = $request->ioTCloudConnectorGroupId;
+        }
+        if (!Utils::isUnset($request->regionId)) {
+            $query['RegionId'] = $request->regionId;
+        }
+        if (!Utils::isUnset($request->serviceType)) {
+            $query['ServiceType'] = $request->serviceType;
+        }
+        if (!Utils::isUnset($request->source)) {
+            $query['Source'] = $request->source;
+        }
+        $req = new OpenApiRequest([
+            'query' => OpenApiUtilClient::query($query),
+        ]);
+        $params = new Params([
+            'action'      => 'UpdateGroupDNSServiceRuleAttribute',
+            'version'     => '2021-05-13',
+            'protocol'    => 'HTTPS',
+            'pathname'    => '/',
+            'method'      => 'POST',
+            'authType'    => 'AK',
+            'style'       => 'RPC',
+            'reqBodyType' => 'formData',
+            'bodyType'    => 'json',
+        ]);
+
+        return UpdateGroupDNSServiceRuleAttributeResponse::fromMap($this->callApi($params, $req, $runtime));
+    }
+
+    /**
+     * @param UpdateGroupDNSServiceRuleAttributeRequest $request
+     *
+     * @return UpdateGroupDNSServiceRuleAttributeResponse
+     */
+    public function updateGroupDNSServiceRuleAttribute($request)
+    {
+        $runtime = new RuntimeOptions([]);
+
+        return $this->updateGroupDNSServiceRuleAttributeWithOptions($request, $runtime);
     }
 
     /**
