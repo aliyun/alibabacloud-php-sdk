@@ -14,6 +14,8 @@ use AlibabaCloud\SDK\Servicemesh\V20200111\Models\AddMeshTagToEcsRequest;
 use AlibabaCloud\SDK\Servicemesh\V20200111\Models\AddMeshTagToEcsResponse;
 use AlibabaCloud\SDK\Servicemesh\V20200111\Models\AddVMIntoServiceMeshRequest;
 use AlibabaCloud\SDK\Servicemesh\V20200111\Models\AddVMIntoServiceMeshResponse;
+use AlibabaCloud\SDK\Servicemesh\V20200111\Models\CreateASMGatewayRequest;
+use AlibabaCloud\SDK\Servicemesh\V20200111\Models\CreateASMGatewayResponse;
 use AlibabaCloud\SDK\Servicemesh\V20200111\Models\CreateExtensionProviderRequest;
 use AlibabaCloud\SDK\Servicemesh\V20200111\Models\CreateExtensionProviderResponse;
 use AlibabaCloud\SDK\Servicemesh\V20200111\Models\CreateServiceMeshRequest;
@@ -140,6 +142,8 @@ use AlibabaCloud\SDK\Servicemesh\V20200111\Models\SetServiceRegistrySourceRespon
 use AlibabaCloud\SDK\Servicemesh\V20200111\Models\SetServiceRegistrySourceShrinkRequest;
 use AlibabaCloud\SDK\Servicemesh\V20200111\Models\UpdateASMGatewayImportedServicesRequest;
 use AlibabaCloud\SDK\Servicemesh\V20200111\Models\UpdateASMGatewayImportedServicesResponse;
+use AlibabaCloud\SDK\Servicemesh\V20200111\Models\UpdateASMGatewayRequest;
+use AlibabaCloud\SDK\Servicemesh\V20200111\Models\UpdateASMGatewayResponse;
 use AlibabaCloud\SDK\Servicemesh\V20200111\Models\UpdateControlPlaneLogAlertActionPolicyRequest;
 use AlibabaCloud\SDK\Servicemesh\V20200111\Models\UpdateControlPlaneLogAlertActionPolicyResponse;
 use AlibabaCloud\SDK\Servicemesh\V20200111\Models\UpdateControlPlaneLogConfigRequest;
@@ -384,6 +388,55 @@ class Servicemesh extends OpenApiClient
         $runtime = new RuntimeOptions([]);
 
         return $this->addVMIntoServiceMeshWithOptions($request, $runtime);
+    }
+
+    /**
+     * @param CreateASMGatewayRequest $request
+     * @param RuntimeOptions          $runtime
+     *
+     * @return CreateASMGatewayResponse
+     */
+    public function createASMGatewayWithOptions($request, $runtime)
+    {
+        Utils::validateModel($request);
+        $body = [];
+        if (!Utils::isUnset($request->body)) {
+            $body['Body'] = $request->body;
+        }
+        if (!Utils::isUnset($request->istioGatewayName)) {
+            $body['IstioGatewayName'] = $request->istioGatewayName;
+        }
+        if (!Utils::isUnset($request->serviceMeshId)) {
+            $body['ServiceMeshId'] = $request->serviceMeshId;
+        }
+        $req = new OpenApiRequest([
+            'body' => OpenApiUtilClient::parseToMap($body),
+        ]);
+        $params = new Params([
+            'action'      => 'CreateASMGateway',
+            'version'     => '2020-01-11',
+            'protocol'    => 'HTTPS',
+            'pathname'    => '/',
+            'method'      => 'POST',
+            'authType'    => 'AK',
+            'style'       => 'RPC',
+            'reqBodyType' => 'formData',
+            'bodyType'    => 'json',
+        ]);
+
+        return CreateASMGatewayResponse::fromMap($this->callApi($params, $req, $runtime));
+    }
+
+    /**
+     * @param CreateASMGatewayRequest $request
+     *
+     * @return CreateASMGatewayResponse
+     */
+    public function createASMGateway($request)
+    {
+        $runtime = new RuntimeOptions([]);
+
+        return $this->createASMGatewayWithOptions($request, $runtime);
     }
 
     /**
@@ -3412,6 +3465,55 @@ class Servicemesh extends OpenApiClient
         $runtime = new RuntimeOptions([]);
 
         return $this->setServiceRegistrySourceWithOptions($request, $runtime);
+    }
+
+    /**
+     * @param UpdateASMGatewayRequest $request
+     * @param RuntimeOptions          $runtime
+     *
+     * @return UpdateASMGatewayResponse
+     */
+    public function updateASMGatewayWithOptions($request, $runtime)
+    {
+        Utils::validateModel($request);
+        $body = [];
+        if (!Utils::isUnset($request->body)) {
+            $body['Body'] = $request->body;
+        }
+        if (!Utils::isUnset($request->istioGatewayName)) {
+            $body['IstioGatewayName'] = $request->istioGatewayName;
+        }
+        if (!Utils::isUnset($request->serviceMeshId)) {
+            $body['ServiceMeshId'] = $request->serviceMeshId;
+        }
+        $req = new OpenApiRequest([
+            'body' => OpenApiUtilClient::parseToMap($body),
+        ]);
+        $params = new Params([
+            'action'      => 'UpdateASMGateway',
+            'version'     => '2020-01-11',
+            'protocol'    => 'HTTPS',
+            'pathname'    => '/',
+            'method'      => 'POST',
+            'authType'    => 'AK',
+            'style'       => 'RPC',
+            'reqBodyType' => 'formData',
+            'bodyType'    => 'json',
+        ]);
+
+        return UpdateASMGatewayResponse::fromMap($this->callApi($params, $req, $runtime));
+    }
+
+    /**
+     * @param UpdateASMGatewayRequest $request
+     *
+     * @return UpdateASMGatewayResponse
+     */
+    public function updateASMGateway($request)
+    {
+        $runtime = new RuntimeOptions([]);
+
+        return $this->updateASMGatewayWithOptions($request, $runtime);
     }
 
     /**
