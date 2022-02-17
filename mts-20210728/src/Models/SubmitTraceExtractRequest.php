@@ -23,6 +23,13 @@ class SubmitTraceExtractRequest extends Model
     public $input;
 
     /**
+     * @description url链接
+     *
+     * @var string
+     */
+    public $url;
+
+    /**
      * @description 用户数据
      *
      * @var string
@@ -31,6 +38,7 @@ class SubmitTraceExtractRequest extends Model
     protected $_name = [
         'callBack' => 'CallBack',
         'input'    => 'Input',
+        'url'      => 'Url',
         'userData' => 'UserData',
     ];
 
@@ -46,6 +54,9 @@ class SubmitTraceExtractRequest extends Model
         }
         if (null !== $this->input) {
             $res['Input'] = $this->input;
+        }
+        if (null !== $this->url) {
+            $res['Url'] = $this->url;
         }
         if (null !== $this->userData) {
             $res['UserData'] = $this->userData;
@@ -67,6 +78,9 @@ class SubmitTraceExtractRequest extends Model
         }
         if (isset($map['Input'])) {
             $model->input = $map['Input'];
+        }
+        if (isset($map['Url'])) {
+            $model->url = $map['Url'];
         }
         if (isset($map['UserData'])) {
             $model->userData = $map['UserData'];

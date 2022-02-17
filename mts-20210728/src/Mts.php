@@ -467,6 +467,9 @@ class Mts extends OpenApiClient
         if (!Utils::isUnset($request->input)) {
             $body['Input'] = $request->input;
         }
+        if (!Utils::isUnset($request->url)) {
+            $body['Url'] = $request->url;
+        }
         if (!Utils::isUnset($request->userData)) {
             $body['UserData'] = $request->userData;
         }
@@ -656,6 +659,12 @@ class Mts extends OpenApiClient
         if (!Utils::isUnset($request->output)) {
             $body['Output'] = $request->output;
         }
+        if (!Utils::isUnset($request->startTime)) {
+            $body['StartTime'] = $request->startTime;
+        }
+        if (!Utils::isUnset($request->totalTime)) {
+            $body['TotalTime'] = $request->totalTime;
+        }
         if (!Utils::isUnset($request->url)) {
             $body['Url'] = $request->url;
         }
@@ -710,6 +719,9 @@ class Mts extends OpenApiClient
         }
         if (!Utils::isUnset($request->input)) {
             $body['Input'] = $request->input;
+        }
+        if (!Utils::isUnset($request->url)) {
+            $body['Url'] = $request->url;
         }
         if (!Utils::isUnset($request->userData)) {
             $body['UserData'] = $request->userData;

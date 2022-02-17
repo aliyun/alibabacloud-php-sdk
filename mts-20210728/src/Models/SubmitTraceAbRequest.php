@@ -37,6 +37,20 @@ class SubmitTraceAbRequest extends Model
     public $output;
 
     /**
+     * @description 嵌入水印开始时间
+     *
+     * @var int
+     */
+    public $startTime;
+
+    /**
+     * @description 嵌入水印总时长
+     *
+     * @var int
+     */
+    public $totalTime;
+
+    /**
      * @description 外部url链接(Input和url二选一)
      *
      * @var string
@@ -50,12 +64,14 @@ class SubmitTraceAbRequest extends Model
      */
     public $userData;
     protected $_name = [
-        'callBack' => 'CallBack',
-        'input'    => 'Input',
-        'level'    => 'Level',
-        'output'   => 'Output',
-        'url'      => 'Url',
-        'userData' => 'UserData',
+        'callBack'  => 'CallBack',
+        'input'     => 'Input',
+        'level'     => 'Level',
+        'output'    => 'Output',
+        'startTime' => 'StartTime',
+        'totalTime' => 'TotalTime',
+        'url'       => 'Url',
+        'userData'  => 'UserData',
     ];
 
     public function validate()
@@ -76,6 +92,12 @@ class SubmitTraceAbRequest extends Model
         }
         if (null !== $this->output) {
             $res['Output'] = $this->output;
+        }
+        if (null !== $this->startTime) {
+            $res['StartTime'] = $this->startTime;
+        }
+        if (null !== $this->totalTime) {
+            $res['TotalTime'] = $this->totalTime;
         }
         if (null !== $this->url) {
             $res['Url'] = $this->url;
@@ -106,6 +128,12 @@ class SubmitTraceAbRequest extends Model
         }
         if (isset($map['Output'])) {
             $model->output = $map['Output'];
+        }
+        if (isset($map['StartTime'])) {
+            $model->startTime = $map['StartTime'];
+        }
+        if (isset($map['TotalTime'])) {
+            $model->totalTime = $map['TotalTime'];
         }
         if (isset($map['Url'])) {
             $model->url = $map['Url'];
