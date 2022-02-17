@@ -26,6 +26,8 @@ use AlibabaCloud\SDK\Cdn\V20180510\Models\BatchUpdateCdnDomainRequest;
 use AlibabaCloud\SDK\Cdn\V20180510\Models\BatchUpdateCdnDomainResponse;
 use AlibabaCloud\SDK\Cdn\V20180510\Models\CreateCdnCertificateSigningRequestRequest;
 use AlibabaCloud\SDK\Cdn\V20180510\Models\CreateCdnCertificateSigningRequestResponse;
+use AlibabaCloud\SDK\Cdn\V20180510\Models\CreateCdnComputeDomainRequest;
+use AlibabaCloud\SDK\Cdn\V20180510\Models\CreateCdnComputeDomainResponse;
 use AlibabaCloud\SDK\Cdn\V20180510\Models\CreateCdnDeliverTaskRequest;
 use AlibabaCloud\SDK\Cdn\V20180510\Models\CreateCdnDeliverTaskResponse;
 use AlibabaCloud\SDK\Cdn\V20180510\Models\CreateCdnSubTaskRequest;
@@ -64,6 +66,8 @@ use AlibabaCloud\SDK\Cdn\V20180510\Models\DescribeCdnCertificateDetailRequest;
 use AlibabaCloud\SDK\Cdn\V20180510\Models\DescribeCdnCertificateDetailResponse;
 use AlibabaCloud\SDK\Cdn\V20180510\Models\DescribeCdnCertificateListRequest;
 use AlibabaCloud\SDK\Cdn\V20180510\Models\DescribeCdnCertificateListResponse;
+use AlibabaCloud\SDK\Cdn\V20180510\Models\DescribeCdnComputeUserDomainRequest;
+use AlibabaCloud\SDK\Cdn\V20180510\Models\DescribeCdnComputeUserDomainResponse;
 use AlibabaCloud\SDK\Cdn\V20180510\Models\DescribeCdnDeletedDomainsRequest;
 use AlibabaCloud\SDK\Cdn\V20180510\Models\DescribeCdnDeletedDomainsResponse;
 use AlibabaCloud\SDK\Cdn\V20180510\Models\DescribeCdnDeliverListRequest;
@@ -1020,6 +1024,55 @@ class Cdn extends OpenApiClient
     }
 
     /**
+     * @param CreateCdnComputeDomainRequest $request
+     * @param RuntimeOptions                $runtime
+     *
+     * @return CreateCdnComputeDomainResponse
+     */
+    public function createCdnComputeDomainWithOptions($request, $runtime)
+    {
+        Utils::validateModel($request);
+        $query = [];
+        if (!Utils::isUnset($request->coverage)) {
+            $query['Coverage'] = $request->coverage;
+        }
+        if (!Utils::isUnset($request->domainName)) {
+            $query['DomainName'] = $request->domainName;
+        }
+        if (!Utils::isUnset($request->ownerId)) {
+            $query['OwnerId'] = $request->ownerId;
+        }
+        $req = new OpenApiRequest([
+            'query' => OpenApiUtilClient::query($query),
+        ]);
+        $params = new Params([
+            'action'      => 'CreateCdnComputeDomain',
+            'version'     => '2018-05-10',
+            'protocol'    => 'HTTPS',
+            'pathname'    => '/',
+            'method'      => 'POST',
+            'authType'    => 'AK',
+            'style'       => 'RPC',
+            'reqBodyType' => 'formData',
+            'bodyType'    => 'json',
+        ]);
+
+        return CreateCdnComputeDomainResponse::fromMap($this->callApi($params, $req, $runtime));
+    }
+
+    /**
+     * @param CreateCdnComputeDomainRequest $request
+     *
+     * @return CreateCdnComputeDomainResponse
+     */
+    public function createCdnComputeDomain($request)
+    {
+        $runtime = new RuntimeOptions([]);
+
+        return $this->createCdnComputeDomainWithOptions($request, $runtime);
+    }
+
+    /**
      * @param CreateCdnDeliverTaskRequest $request
      * @param RuntimeOptions              $runtime
      *
@@ -1946,6 +1999,55 @@ class Cdn extends OpenApiClient
         $runtime = new RuntimeOptions([]);
 
         return $this->describeCdnCertificateListWithOptions($request, $runtime);
+    }
+
+    /**
+     * @param DescribeCdnComputeUserDomainRequest $request
+     * @param RuntimeOptions                      $runtime
+     *
+     * @return DescribeCdnComputeUserDomainResponse
+     */
+    public function describeCdnComputeUserDomainWithOptions($request, $runtime)
+    {
+        Utils::validateModel($request);
+        $query = [];
+        if (!Utils::isUnset($request->ownerId)) {
+            $query['OwnerId'] = $request->ownerId;
+        }
+        if (!Utils::isUnset($request->pageNumber)) {
+            $query['PageNumber'] = $request->pageNumber;
+        }
+        if (!Utils::isUnset($request->pageSize)) {
+            $query['PageSize'] = $request->pageSize;
+        }
+        $req = new OpenApiRequest([
+            'query' => OpenApiUtilClient::query($query),
+        ]);
+        $params = new Params([
+            'action'      => 'DescribeCdnComputeUserDomain',
+            'version'     => '2018-05-10',
+            'protocol'    => 'HTTPS',
+            'pathname'    => '/',
+            'method'      => 'POST',
+            'authType'    => 'AK',
+            'style'       => 'RPC',
+            'reqBodyType' => 'formData',
+            'bodyType'    => 'json',
+        ]);
+
+        return DescribeCdnComputeUserDomainResponse::fromMap($this->callApi($params, $req, $runtime));
+    }
+
+    /**
+     * @param DescribeCdnComputeUserDomainRequest $request
+     *
+     * @return DescribeCdnComputeUserDomainResponse
+     */
+    public function describeCdnComputeUserDomain($request)
+    {
+        $runtime = new RuntimeOptions([]);
+
+        return $this->describeCdnComputeUserDomainWithOptions($request, $runtime);
     }
 
     /**
