@@ -31,6 +31,11 @@ class authorizationRules extends Model
     /**
      * @var string
      */
+    public $authorizationRuleType;
+
+    /**
+     * @var string
+     */
     public $destination;
 
     /**
@@ -57,6 +62,7 @@ class authorizationRules extends Model
         'authorizationRuleId'          => 'AuthorizationRuleId',
         'authorizationRuleName'        => 'AuthorizationRuleName',
         'authorizationRuleStatus'      => 'AuthorizationRuleStatus',
+        'authorizationRuleType'        => 'AuthorizationRuleType',
         'destination'                  => 'Destination',
         'destinationType'              => 'DestinationType',
         'ioTCloudConnectorId'          => 'IoTCloudConnectorId',
@@ -82,6 +88,9 @@ class authorizationRules extends Model
         }
         if (null !== $this->authorizationRuleStatus) {
             $res['AuthorizationRuleStatus'] = $this->authorizationRuleStatus;
+        }
+        if (null !== $this->authorizationRuleType) {
+            $res['AuthorizationRuleType'] = $this->authorizationRuleType;
         }
         if (null !== $this->destination) {
             $res['Destination'] = $this->destination;
@@ -121,6 +130,9 @@ class authorizationRules extends Model
         }
         if (isset($map['AuthorizationRuleStatus'])) {
             $model->authorizationRuleStatus = $map['AuthorizationRuleStatus'];
+        }
+        if (isset($map['AuthorizationRuleType'])) {
+            $model->authorizationRuleType = $map['AuthorizationRuleType'];
         }
         if (isset($map['Destination'])) {
             $model->destination = $map['Destination'];

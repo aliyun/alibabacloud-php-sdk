@@ -11,12 +11,12 @@ class CreateDNSServiceRuleRequest extends Model
     /**
      * @var string
      */
-    public $authorizationRuleDescription;
+    public $clientToken;
 
     /**
      * @var string
      */
-    public $clientToken;
+    public $DNSServiceRuleDescription;
 
     /**
      * @var string
@@ -53,15 +53,15 @@ class CreateDNSServiceRuleRequest extends Model
      */
     public $source;
     protected $_name = [
-        'authorizationRuleDescription' => 'AuthorizationRuleDescription',
-        'clientToken'                  => 'ClientToken',
-        'DNSServiceRuleName'           => 'DNSServiceRuleName',
-        'destination'                  => 'Destination',
-        'dryRun'                       => 'DryRun',
-        'ioTCloudConnectorId'          => 'IoTCloudConnectorId',
-        'regionId'                     => 'RegionId',
-        'serviceType'                  => 'ServiceType',
-        'source'                       => 'Source',
+        'clientToken'               => 'ClientToken',
+        'DNSServiceRuleDescription' => 'DNSServiceRuleDescription',
+        'DNSServiceRuleName'        => 'DNSServiceRuleName',
+        'destination'               => 'Destination',
+        'dryRun'                    => 'DryRun',
+        'ioTCloudConnectorId'       => 'IoTCloudConnectorId',
+        'regionId'                  => 'RegionId',
+        'serviceType'               => 'ServiceType',
+        'source'                    => 'Source',
     ];
 
     public function validate()
@@ -71,11 +71,11 @@ class CreateDNSServiceRuleRequest extends Model
     public function toMap()
     {
         $res = [];
-        if (null !== $this->authorizationRuleDescription) {
-            $res['AuthorizationRuleDescription'] = $this->authorizationRuleDescription;
-        }
         if (null !== $this->clientToken) {
             $res['ClientToken'] = $this->clientToken;
+        }
+        if (null !== $this->DNSServiceRuleDescription) {
+            $res['DNSServiceRuleDescription'] = $this->DNSServiceRuleDescription;
         }
         if (null !== $this->DNSServiceRuleName) {
             $res['DNSServiceRuleName'] = $this->DNSServiceRuleName;
@@ -110,11 +110,11 @@ class CreateDNSServiceRuleRequest extends Model
     public static function fromMap($map = [])
     {
         $model = new self();
-        if (isset($map['AuthorizationRuleDescription'])) {
-            $model->authorizationRuleDescription = $map['AuthorizationRuleDescription'];
-        }
         if (isset($map['ClientToken'])) {
             $model->clientToken = $map['ClientToken'];
+        }
+        if (isset($map['DNSServiceRuleDescription'])) {
+            $model->DNSServiceRuleDescription = $map['DNSServiceRuleDescription'];
         }
         if (isset($map['DNSServiceRuleName'])) {
             $model->DNSServiceRuleName = $map['DNSServiceRuleName'];

@@ -541,11 +541,11 @@ class IoTCC extends OpenApiClient
     {
         Utils::validateModel($request);
         $query = [];
-        if (!Utils::isUnset($request->authorizationRuleDescription)) {
-            $query['AuthorizationRuleDescription'] = $request->authorizationRuleDescription;
-        }
         if (!Utils::isUnset($request->clientToken)) {
             $query['ClientToken'] = $request->clientToken;
+        }
+        if (!Utils::isUnset($request->DNSServiceRuleDescription)) {
+            $query['DNSServiceRuleDescription'] = $request->DNSServiceRuleDescription;
         }
         if (!Utils::isUnset($request->DNSServiceRuleName)) {
             $query['DNSServiceRuleName'] = $request->DNSServiceRuleName;
@@ -2025,6 +2025,9 @@ class IoTCC extends OpenApiClient
         if (!Utils::isUnset($request->authorizationRuleStatus)) {
             $query['AuthorizationRuleStatus'] = $request->authorizationRuleStatus;
         }
+        if (!Utils::isUnset($request->authorizationRuleType)) {
+            $query['AuthorizationRuleType'] = $request->authorizationRuleType;
+        }
         if (!Utils::isUnset($request->destination)) {
             $query['Destination'] = $request->destination;
         }
@@ -3303,9 +3306,6 @@ class IoTCC extends OpenApiClient
     {
         Utils::validateModel($request);
         $query = [];
-        if (!Utils::isUnset($request->authorizationRuleName)) {
-            $query['AuthorizationRuleName'] = $request->authorizationRuleName;
-        }
         if (!Utils::isUnset($request->clientToken)) {
             $query['ClientToken'] = $request->clientToken;
         }
@@ -3314,6 +3314,9 @@ class IoTCC extends OpenApiClient
         }
         if (!Utils::isUnset($request->DNSServiceRuleId)) {
             $query['DNSServiceRuleId'] = $request->DNSServiceRuleId;
+        }
+        if (!Utils::isUnset($request->DNSServiceRuleName)) {
+            $query['DNSServiceRuleName'] = $request->DNSServiceRuleName;
         }
         if (!Utils::isUnset($request->destination)) {
             $query['Destination'] = $request->destination;

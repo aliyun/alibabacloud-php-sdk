@@ -24,6 +24,11 @@ class ListAuthorizationRulesRequest extends Model
     public $authorizationRuleStatus;
 
     /**
+     * @var string
+     */
+    public $authorizationRuleType;
+
+    /**
      * @var string[]
      */
     public $destination;
@@ -61,6 +66,7 @@ class ListAuthorizationRulesRequest extends Model
         'authorizationRuleIds'    => 'AuthorizationRuleIds',
         'authorizationRuleName'   => 'AuthorizationRuleName',
         'authorizationRuleStatus' => 'AuthorizationRuleStatus',
+        'authorizationRuleType'   => 'AuthorizationRuleType',
         'destination'             => 'Destination',
         'destinationType'         => 'DestinationType',
         'ioTCloudConnectorId'     => 'IoTCloudConnectorId',
@@ -85,6 +91,9 @@ class ListAuthorizationRulesRequest extends Model
         }
         if (null !== $this->authorizationRuleStatus) {
             $res['AuthorizationRuleStatus'] = $this->authorizationRuleStatus;
+        }
+        if (null !== $this->authorizationRuleType) {
+            $res['AuthorizationRuleType'] = $this->authorizationRuleType;
         }
         if (null !== $this->destination) {
             $res['Destination'] = $this->destination;
@@ -133,6 +142,9 @@ class ListAuthorizationRulesRequest extends Model
             if (!empty($map['AuthorizationRuleStatus'])) {
                 $model->authorizationRuleStatus = $map['AuthorizationRuleStatus'];
             }
+        }
+        if (isset($map['AuthorizationRuleType'])) {
+            $model->authorizationRuleType = $map['AuthorizationRuleType'];
         }
         if (isset($map['Destination'])) {
             if (!empty($map['Destination'])) {

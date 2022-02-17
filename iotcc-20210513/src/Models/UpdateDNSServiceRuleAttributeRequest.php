@@ -11,11 +11,6 @@ class UpdateDNSServiceRuleAttributeRequest extends Model
     /**
      * @var string
      */
-    public $authorizationRuleName;
-
-    /**
-     * @var string
-     */
     public $clientToken;
 
     /**
@@ -27,6 +22,11 @@ class UpdateDNSServiceRuleAttributeRequest extends Model
      * @var string
      */
     public $DNSServiceRuleId;
+
+    /**
+     * @var string
+     */
+    public $DNSServiceRuleName;
 
     /**
      * @var string
@@ -58,10 +58,10 @@ class UpdateDNSServiceRuleAttributeRequest extends Model
      */
     public $source;
     protected $_name = [
-        'authorizationRuleName'     => 'AuthorizationRuleName',
         'clientToken'               => 'ClientToken',
         'DNSServiceRuleDescription' => 'DNSServiceRuleDescription',
         'DNSServiceRuleId'          => 'DNSServiceRuleId',
+        'DNSServiceRuleName'        => 'DNSServiceRuleName',
         'destination'               => 'Destination',
         'dryRun'                    => 'DryRun',
         'ioTCloudConnectorId'       => 'IoTCloudConnectorId',
@@ -77,9 +77,6 @@ class UpdateDNSServiceRuleAttributeRequest extends Model
     public function toMap()
     {
         $res = [];
-        if (null !== $this->authorizationRuleName) {
-            $res['AuthorizationRuleName'] = $this->authorizationRuleName;
-        }
         if (null !== $this->clientToken) {
             $res['ClientToken'] = $this->clientToken;
         }
@@ -88,6 +85,9 @@ class UpdateDNSServiceRuleAttributeRequest extends Model
         }
         if (null !== $this->DNSServiceRuleId) {
             $res['DNSServiceRuleId'] = $this->DNSServiceRuleId;
+        }
+        if (null !== $this->DNSServiceRuleName) {
+            $res['DNSServiceRuleName'] = $this->DNSServiceRuleName;
         }
         if (null !== $this->destination) {
             $res['Destination'] = $this->destination;
@@ -119,9 +119,6 @@ class UpdateDNSServiceRuleAttributeRequest extends Model
     public static function fromMap($map = [])
     {
         $model = new self();
-        if (isset($map['AuthorizationRuleName'])) {
-            $model->authorizationRuleName = $map['AuthorizationRuleName'];
-        }
         if (isset($map['ClientToken'])) {
             $model->clientToken = $map['ClientToken'];
         }
@@ -130,6 +127,9 @@ class UpdateDNSServiceRuleAttributeRequest extends Model
         }
         if (isset($map['DNSServiceRuleId'])) {
             $model->DNSServiceRuleId = $map['DNSServiceRuleId'];
+        }
+        if (isset($map['DNSServiceRuleName'])) {
+            $model->DNSServiceRuleName = $map['DNSServiceRuleName'];
         }
         if (isset($map['Destination'])) {
             $model->destination = $map['Destination'];
