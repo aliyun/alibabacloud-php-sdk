@@ -4,6 +4,7 @@
 
 namespace AlibabaCloud\SDK\Cms\V20190101\Models\DescribeAlertingMetricRuleResourcesResponseBody\resources\resource\escalation;
 
+use AlibabaCloud\SDK\Cms\V20190101\Models\DescribeAlertingMetricRuleResourcesResponseBody\resources\resource\escalation\resource\expressionList;
 use AlibabaCloud\Tea\Model;
 
 class resource extends Model
@@ -17,6 +18,16 @@ class resource extends Model
      * @var string
      */
     public $expression;
+
+    /**
+     * @var expressionList
+     */
+    public $expressionList;
+
+    /**
+     * @var string
+     */
+    public $expressionListJoin;
 
     /**
      * @var int
@@ -45,6 +56,8 @@ class resource extends Model
     protected $_name = [
         'comparisonOperator' => 'ComparisonOperator',
         'expression'         => 'Expression',
+        'expressionList'     => 'ExpressionList',
+        'expressionListJoin' => 'ExpressionListJoin',
         'level'              => 'Level',
         'preCondition'       => 'PreCondition',
         'tag'                => 'Tag',
@@ -64,6 +77,12 @@ class resource extends Model
         }
         if (null !== $this->expression) {
             $res['Expression'] = $this->expression;
+        }
+        if (null !== $this->expressionList) {
+            $res['ExpressionList'] = null !== $this->expressionList ? $this->expressionList->toMap() : null;
+        }
+        if (null !== $this->expressionListJoin) {
+            $res['ExpressionListJoin'] = $this->expressionListJoin;
         }
         if (null !== $this->level) {
             $res['Level'] = $this->level;
@@ -97,6 +116,12 @@ class resource extends Model
         }
         if (isset($map['Expression'])) {
             $model->expression = $map['Expression'];
+        }
+        if (isset($map['ExpressionList'])) {
+            $model->expressionList = expressionList::fromMap($map['ExpressionList']);
+        }
+        if (isset($map['ExpressionListJoin'])) {
+            $model->expressionListJoin = $map['ExpressionListJoin'];
         }
         if (isset($map['Level'])) {
             $model->level = $map['Level'];

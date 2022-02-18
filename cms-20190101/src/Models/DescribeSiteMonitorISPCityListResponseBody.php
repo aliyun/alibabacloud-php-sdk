@@ -4,9 +4,10 @@
 
 namespace AlibabaCloud\SDK\Cms\V20190101\Models;
 
+use AlibabaCloud\SDK\Cms\V20190101\Models\DescribeSiteMonitorISPCityListResponseBody\ispCityList;
 use AlibabaCloud\Tea\Model;
 
-class DescribeSiteInstantMonitorLogResponseBody extends Model
+class DescribeSiteMonitorISPCityListResponseBody extends Model
 {
     /**
      * @var string
@@ -14,19 +15,14 @@ class DescribeSiteInstantMonitorLogResponseBody extends Model
     public $code;
 
     /**
-     * @var string
+     * @var ispCityList
      */
-    public $data;
+    public $ispCityList;
 
     /**
      * @var string
      */
     public $message;
-
-    /**
-     * @var string
-     */
-    public $nextToken;
 
     /**
      * @var string
@@ -38,12 +34,11 @@ class DescribeSiteInstantMonitorLogResponseBody extends Model
      */
     public $success;
     protected $_name = [
-        'code'      => 'Code',
-        'data'      => 'Data',
-        'message'   => 'Message',
-        'nextToken' => 'NextToken',
-        'requestId' => 'RequestId',
-        'success'   => 'Success',
+        'code'        => 'Code',
+        'ispCityList' => 'IspCityList',
+        'message'     => 'Message',
+        'requestId'   => 'RequestId',
+        'success'     => 'Success',
     ];
 
     public function validate()
@@ -56,14 +51,11 @@ class DescribeSiteInstantMonitorLogResponseBody extends Model
         if (null !== $this->code) {
             $res['Code'] = $this->code;
         }
-        if (null !== $this->data) {
-            $res['Data'] = $this->data;
+        if (null !== $this->ispCityList) {
+            $res['IspCityList'] = null !== $this->ispCityList ? $this->ispCityList->toMap() : null;
         }
         if (null !== $this->message) {
             $res['Message'] = $this->message;
-        }
-        if (null !== $this->nextToken) {
-            $res['NextToken'] = $this->nextToken;
         }
         if (null !== $this->requestId) {
             $res['RequestId'] = $this->requestId;
@@ -78,7 +70,7 @@ class DescribeSiteInstantMonitorLogResponseBody extends Model
     /**
      * @param array $map
      *
-     * @return DescribeSiteInstantMonitorLogResponseBody
+     * @return DescribeSiteMonitorISPCityListResponseBody
      */
     public static function fromMap($map = [])
     {
@@ -86,14 +78,11 @@ class DescribeSiteInstantMonitorLogResponseBody extends Model
         if (isset($map['Code'])) {
             $model->code = $map['Code'];
         }
-        if (isset($map['Data'])) {
-            $model->data = $map['Data'];
+        if (isset($map['IspCityList'])) {
+            $model->ispCityList = ispCityList::fromMap($map['IspCityList']);
         }
         if (isset($map['Message'])) {
             $model->message = $map['Message'];
-        }
-        if (isset($map['NextToken'])) {
-            $model->nextToken = $map['NextToken'];
         }
         if (isset($map['RequestId'])) {
             $model->requestId = $map['RequestId'];

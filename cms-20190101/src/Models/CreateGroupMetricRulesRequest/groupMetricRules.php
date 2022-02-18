@@ -22,6 +22,11 @@ class groupMetricRules extends Model
     /**
      * @var string
      */
+    public $contactGroups;
+
+    /**
+     * @var string
+     */
     public $dimensions;
 
     /**
@@ -86,6 +91,7 @@ class groupMetricRules extends Model
     protected $_name = [
         'escalations'         => 'Escalations',
         'category'            => 'Category',
+        'contactGroups'       => 'ContactGroups',
         'dimensions'          => 'Dimensions',
         'effectiveInterval'   => 'EffectiveInterval',
         'emailSubject'        => 'EmailSubject',
@@ -114,6 +120,9 @@ class groupMetricRules extends Model
         }
         if (null !== $this->category) {
             $res['Category'] = $this->category;
+        }
+        if (null !== $this->contactGroups) {
+            $res['ContactGroups'] = $this->contactGroups;
         }
         if (null !== $this->dimensions) {
             $res['Dimensions'] = $this->dimensions;
@@ -171,6 +180,9 @@ class groupMetricRules extends Model
         }
         if (isset($map['Category'])) {
             $model->category = $map['Category'];
+        }
+        if (isset($map['ContactGroups'])) {
+            $model->contactGroups = $map['ContactGroups'];
         }
         if (isset($map['Dimensions'])) {
             $model->dimensions = $map['Dimensions'];

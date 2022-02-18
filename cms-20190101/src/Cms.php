@@ -184,12 +184,12 @@ use AlibabaCloud\SDK\Cms\V20190101\Models\DescribeProductsOfActiveMetricRuleRequ
 use AlibabaCloud\SDK\Cms\V20190101\Models\DescribeProductsOfActiveMetricRuleResponse;
 use AlibabaCloud\SDK\Cms\V20190101\Models\DescribeProjectMetaRequest;
 use AlibabaCloud\SDK\Cms\V20190101\Models\DescribeProjectMetaResponse;
-use AlibabaCloud\SDK\Cms\V20190101\Models\DescribeSiteInstantMonitorLogRequest;
-use AlibabaCloud\SDK\Cms\V20190101\Models\DescribeSiteInstantMonitorLogResponse;
 use AlibabaCloud\SDK\Cms\V20190101\Models\DescribeSiteMonitorAttributeRequest;
 use AlibabaCloud\SDK\Cms\V20190101\Models\DescribeSiteMonitorAttributeResponse;
 use AlibabaCloud\SDK\Cms\V20190101\Models\DescribeSiteMonitorDataRequest;
 use AlibabaCloud\SDK\Cms\V20190101\Models\DescribeSiteMonitorDataResponse;
+use AlibabaCloud\SDK\Cms\V20190101\Models\DescribeSiteMonitorISPCityListRequest;
+use AlibabaCloud\SDK\Cms\V20190101\Models\DescribeSiteMonitorISPCityListResponse;
 use AlibabaCloud\SDK\Cms\V20190101\Models\DescribeSiteMonitorListRequest;
 use AlibabaCloud\SDK\Cms\V20190101\Models\DescribeSiteMonitorListResponse;
 use AlibabaCloud\SDK\Cms\V20190101\Models\DescribeSiteMonitorLogRequest;
@@ -204,6 +204,8 @@ use AlibabaCloud\SDK\Cms\V20190101\Models\DescribeSystemEventCountRequest;
 use AlibabaCloud\SDK\Cms\V20190101\Models\DescribeSystemEventCountResponse;
 use AlibabaCloud\SDK\Cms\V20190101\Models\DescribeSystemEventHistogramRequest;
 use AlibabaCloud\SDK\Cms\V20190101\Models\DescribeSystemEventHistogramResponse;
+use AlibabaCloud\SDK\Cms\V20190101\Models\DescribeSystemEventMetaListRequest;
+use AlibabaCloud\SDK\Cms\V20190101\Models\DescribeSystemEventMetaListResponse;
 use AlibabaCloud\SDK\Cms\V20190101\Models\DescribeTagKeyListRequest;
 use AlibabaCloud\SDK\Cms\V20190101\Models\DescribeTagKeyListResponse;
 use AlibabaCloud\SDK\Cms\V20190101\Models\DescribeTagValueListRequest;
@@ -3934,6 +3936,9 @@ class Cms extends OpenApiClient
         if (!Utils::isUnset($request->enableState)) {
             $query['EnableState'] = $request->enableState;
         }
+        if (!Utils::isUnset($request->groupBy)) {
+            $query['GroupBy'] = $request->groupBy;
+        }
         if (!Utils::isUnset($request->groupId)) {
             $query['GroupId'] = $request->groupId;
         }
@@ -4975,67 +4980,6 @@ class Cms extends OpenApiClient
     }
 
     /**
-     * @param DescribeSiteInstantMonitorLogRequest $request
-     * @param RuntimeOptions                       $runtime
-     *
-     * @return DescribeSiteInstantMonitorLogResponse
-     */
-    public function describeSiteInstantMonitorLogWithOptions($request, $runtime)
-    {
-        Utils::validateModel($request);
-        $query = [];
-        if (!Utils::isUnset($request->endTime)) {
-            $query['EndTime'] = $request->endTime;
-        }
-        if (!Utils::isUnset($request->filter)) {
-            $query['Filter'] = $request->filter;
-        }
-        if (!Utils::isUnset($request->length)) {
-            $query['Length'] = $request->length;
-        }
-        if (!Utils::isUnset($request->metricName)) {
-            $query['MetricName'] = $request->metricName;
-        }
-        if (!Utils::isUnset($request->nextToken)) {
-            $query['NextToken'] = $request->nextToken;
-        }
-        if (!Utils::isUnset($request->startTime)) {
-            $query['StartTime'] = $request->startTime;
-        }
-        if (!Utils::isUnset($request->taskIds)) {
-            $query['TaskIds'] = $request->taskIds;
-        }
-        $req = new OpenApiRequest([
-            'query' => OpenApiUtilClient::query($query),
-        ]);
-        $params = new Params([
-            'action'      => 'DescribeSiteInstantMonitorLog',
-            'version'     => '2019-01-01',
-            'protocol'    => 'HTTPS',
-            'pathname'    => '/',
-            'method'      => 'POST',
-            'authType'    => 'AK',
-            'style'       => 'RPC',
-            'reqBodyType' => 'formData',
-            'bodyType'    => 'json',
-        ]);
-
-        return DescribeSiteInstantMonitorLogResponse::fromMap($this->callApi($params, $req, $runtime));
-    }
-
-    /**
-     * @param DescribeSiteInstantMonitorLogRequest $request
-     *
-     * @return DescribeSiteInstantMonitorLogResponse
-     */
-    public function describeSiteInstantMonitorLog($request)
-    {
-        $runtime = new RuntimeOptions([]);
-
-        return $this->describeSiteInstantMonitorLogWithOptions($request, $runtime);
-    }
-
-    /**
      * @param DescribeSiteMonitorAttributeRequest $request
      * @param RuntimeOptions                      $runtime
      *
@@ -5143,6 +5087,58 @@ class Cms extends OpenApiClient
         $runtime = new RuntimeOptions([]);
 
         return $this->describeSiteMonitorDataWithOptions($request, $runtime);
+    }
+
+    /**
+     * @param DescribeSiteMonitorISPCityListRequest $request
+     * @param RuntimeOptions                        $runtime
+     *
+     * @return DescribeSiteMonitorISPCityListResponse
+     */
+    public function describeSiteMonitorISPCityListWithOptions($request, $runtime)
+    {
+        Utils::validateModel($request);
+        $query = [];
+        if (!Utils::isUnset($request->city)) {
+            $query['City'] = $request->city;
+        }
+        if (!Utils::isUnset($request->IPV4)) {
+            $query['IPV4'] = $request->IPV4;
+        }
+        if (!Utils::isUnset($request->IPV6)) {
+            $query['IPV6'] = $request->IPV6;
+        }
+        if (!Utils::isUnset($request->isp)) {
+            $query['Isp'] = $request->isp;
+        }
+        $req = new OpenApiRequest([
+            'query' => OpenApiUtilClient::query($query),
+        ]);
+        $params = new Params([
+            'action'      => 'DescribeSiteMonitorISPCityList',
+            'version'     => '2019-01-01',
+            'protocol'    => 'HTTPS',
+            'pathname'    => '/',
+            'method'      => 'POST',
+            'authType'    => 'AK',
+            'style'       => 'RPC',
+            'reqBodyType' => 'formData',
+            'bodyType'    => 'json',
+        ]);
+
+        return DescribeSiteMonitorISPCityListResponse::fromMap($this->callApi($params, $req, $runtime));
+    }
+
+    /**
+     * @param DescribeSiteMonitorISPCityListRequest $request
+     *
+     * @return DescribeSiteMonitorISPCityListResponse
+     */
+    public function describeSiteMonitorISPCityList($request)
+    {
+        $runtime = new RuntimeOptions([]);
+
+        return $this->describeSiteMonitorISPCityListWithOptions($request, $runtime);
     }
 
     /**
@@ -5561,6 +5557,43 @@ class Cms extends OpenApiClient
         $runtime = new RuntimeOptions([]);
 
         return $this->describeSystemEventHistogramWithOptions($request, $runtime);
+    }
+
+    /**
+     * @param DescribeSystemEventMetaListRequest $request
+     * @param RuntimeOptions                     $runtime
+     *
+     * @return DescribeSystemEventMetaListResponse
+     */
+    public function describeSystemEventMetaListWithOptions($request, $runtime)
+    {
+        Utils::validateModel($request);
+        $req    = new OpenApiRequest([]);
+        $params = new Params([
+            'action'      => 'DescribeSystemEventMetaList',
+            'version'     => '2019-01-01',
+            'protocol'    => 'HTTPS',
+            'pathname'    => '/',
+            'method'      => 'POST',
+            'authType'    => 'AK',
+            'style'       => 'RPC',
+            'reqBodyType' => 'formData',
+            'bodyType'    => 'json',
+        ]);
+
+        return DescribeSystemEventMetaListResponse::fromMap($this->callApi($params, $req, $runtime));
+    }
+
+    /**
+     * @param DescribeSystemEventMetaListRequest $request
+     *
+     * @return DescribeSystemEventMetaListResponse
+     */
+    public function describeSystemEventMetaList($request)
+    {
+        $runtime = new RuntimeOptions([]);
+
+        return $this->describeSystemEventMetaListWithOptions($request, $runtime);
     }
 
     /**

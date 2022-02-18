@@ -26,6 +26,11 @@ class DescribeMetricRuleListRequest extends Model
     /**
      * @var string
      */
+    public $groupBy;
+
+    /**
+     * @var string
+     */
     public $groupId;
 
     /**
@@ -66,6 +71,7 @@ class DescribeMetricRuleListRequest extends Model
         'alertState'  => 'AlertState',
         'dimensions'  => 'Dimensions',
         'enableState' => 'EnableState',
+        'groupBy'     => 'GroupBy',
         'groupId'     => 'GroupId',
         'metricName'  => 'MetricName',
         'namespace'   => 'Namespace',
@@ -91,6 +97,9 @@ class DescribeMetricRuleListRequest extends Model
         }
         if (null !== $this->enableState) {
             $res['EnableState'] = $this->enableState;
+        }
+        if (null !== $this->groupBy) {
+            $res['GroupBy'] = $this->groupBy;
         }
         if (null !== $this->groupId) {
             $res['GroupId'] = $this->groupId;
@@ -136,6 +145,9 @@ class DescribeMetricRuleListRequest extends Model
         }
         if (isset($map['EnableState'])) {
             $model->enableState = $map['EnableState'];
+        }
+        if (isset($map['GroupBy'])) {
+            $model->groupBy = $map['GroupBy'];
         }
         if (isset($map['GroupId'])) {
             $model->groupId = $map['GroupId'];

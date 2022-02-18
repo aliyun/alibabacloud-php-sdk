@@ -6,7 +6,7 @@ namespace AlibabaCloud\SDK\Cms\V20190101\Models;
 
 use AlibabaCloud\Tea\Model;
 
-class DescribeSiteInstantMonitorLogResponse extends Model
+class DescribeSystemEventMetaListResponse extends Model
 {
     /**
      * @var string[]
@@ -14,7 +14,7 @@ class DescribeSiteInstantMonitorLogResponse extends Model
     public $headers;
 
     /**
-     * @var DescribeSiteInstantMonitorLogResponseBody
+     * @var DescribeSystemEventMetaListResponseBody
      */
     public $body;
     protected $_name = [
@@ -44,7 +44,7 @@ class DescribeSiteInstantMonitorLogResponse extends Model
     /**
      * @param array $map
      *
-     * @return DescribeSiteInstantMonitorLogResponse
+     * @return DescribeSystemEventMetaListResponse
      */
     public static function fromMap($map = [])
     {
@@ -53,7 +53,7 @@ class DescribeSiteInstantMonitorLogResponse extends Model
             $model->headers = $map['headers'];
         }
         if (isset($map['body'])) {
-            $model->body = DescribeSiteInstantMonitorLogResponseBody::fromMap($map['body']);
+            $model->body = DescribeSystemEventMetaListResponseBody::fromMap($map['body']);
         }
 
         return $model;

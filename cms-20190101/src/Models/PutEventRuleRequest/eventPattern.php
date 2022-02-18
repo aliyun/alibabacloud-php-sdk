@@ -34,6 +34,11 @@ class eventPattern extends Model
     public $product;
 
     /**
+     * @var string
+     */
+    public $SQLFilter;
+
+    /**
      * @var string[]
      */
     public $statusList;
@@ -43,6 +48,7 @@ class eventPattern extends Model
         'levelList'     => 'LevelList',
         'nameList'      => 'NameList',
         'product'       => 'Product',
+        'SQLFilter'     => 'SQLFilter',
         'statusList'    => 'StatusList',
     ];
 
@@ -67,6 +73,9 @@ class eventPattern extends Model
         }
         if (null !== $this->product) {
             $res['Product'] = $this->product;
+        }
+        if (null !== $this->SQLFilter) {
+            $res['SQLFilter'] = $this->SQLFilter;
         }
         if (null !== $this->statusList) {
             $res['StatusList'] = $this->statusList;
@@ -103,6 +112,9 @@ class eventPattern extends Model
         }
         if (isset($map['Product'])) {
             $model->product = $map['Product'];
+        }
+        if (isset($map['SQLFilter'])) {
+            $model->SQLFilter = $map['SQLFilter'];
         }
         if (isset($map['StatusList'])) {
             if (!empty($map['StatusList'])) {

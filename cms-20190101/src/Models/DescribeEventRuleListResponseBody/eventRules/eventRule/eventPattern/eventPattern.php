@@ -41,6 +41,11 @@ class eventPattern extends Model
      * @var string
      */
     public $product;
+
+    /**
+     * @var string
+     */
+    public $SQLFilter;
     protected $_name = [
         'customFilters' => 'CustomFilters',
         'eventTypeList' => 'EventTypeList',
@@ -48,6 +53,7 @@ class eventPattern extends Model
         'levelList'     => 'LevelList',
         'nameList'      => 'NameList',
         'product'       => 'Product',
+        'SQLFilter'     => 'SQLFilter',
     ];
 
     public function validate()
@@ -74,6 +80,9 @@ class eventPattern extends Model
         }
         if (null !== $this->product) {
             $res['Product'] = $this->product;
+        }
+        if (null !== $this->SQLFilter) {
+            $res['SQLFilter'] = $this->SQLFilter;
         }
 
         return $res;
@@ -104,6 +113,9 @@ class eventPattern extends Model
         }
         if (isset($map['Product'])) {
             $model->product = $map['Product'];
+        }
+        if (isset($map['SQLFilter'])) {
+            $model->SQLFilter = $map['SQLFilter'];
         }
 
         return $model;
