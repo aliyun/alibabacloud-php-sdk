@@ -4,12 +4,13 @@
 
 namespace AlibabaCloud\SDK\Mse\V20190531\Models;
 
+use AlibabaCloud\SDK\Mse\V20190531\Models\QueryMonitorResponseBody\data;
 use AlibabaCloud\Tea\Model;
 
 class QueryMonitorResponseBody extends Model
 {
     /**
-     * @var string
+     * @var data[]
      */
     public $data;
 
@@ -48,7 +49,13 @@ class QueryMonitorResponseBody extends Model
     {
         $res = [];
         if (null !== $this->data) {
-            $res['Data'] = $this->data;
+            $res['Data'] = [];
+            if (null !== $this->data && \is_array($this->data)) {
+                $n = 0;
+                foreach ($this->data as $item) {
+                    $res['Data'][$n++] = null !== $item ? $item->toMap() : $item;
+                }
+            }
         }
         if (null !== $this->errorCode) {
             $res['ErrorCode'] = $this->errorCode;
@@ -75,7 +82,13 @@ class QueryMonitorResponseBody extends Model
     {
         $model = new self();
         if (isset($map['Data'])) {
-            $model->data = $map['Data'];
+            if (!empty($map['Data'])) {
+                $model->data = [];
+                $n           = 0;
+                foreach ($map['Data'] as $item) {
+                    $model->data[$n++] = null !== $item ? data::fromMap($item) : $item;
+                }
+            }
         }
         if (isset($map['ErrorCode'])) {
             $model->errorCode = $map['ErrorCode'];
