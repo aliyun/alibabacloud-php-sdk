@@ -16,11 +16,11 @@ class DeployPolicyInstanceRequest extends Model
     public $action;
 
     /**
-     * @description 策略实例实施范围
+     * @description 策略实例实施范围（限定命名空间）。默认 [] 代表集群所有命名空间。
      *
-     * @var string
+     * @var string[]
      */
-    public $namespace;
+    public $namespaces;
 
     /**
      * @description 当前规则实例的配置参数
@@ -30,7 +30,7 @@ class DeployPolicyInstanceRequest extends Model
     public $parameters;
     protected $_name = [
         'action'     => 'action',
-        'namespace'  => 'namespace',
+        'namespaces' => 'namespaces',
         'parameters' => 'parameters',
     ];
 
@@ -44,8 +44,8 @@ class DeployPolicyInstanceRequest extends Model
         if (null !== $this->action) {
             $res['action'] = $this->action;
         }
-        if (null !== $this->namespace) {
-            $res['namespace'] = $this->namespace;
+        if (null !== $this->namespaces) {
+            $res['namespaces'] = $this->namespaces;
         }
         if (null !== $this->parameters) {
             $res['parameters'] = $this->parameters;
@@ -65,8 +65,10 @@ class DeployPolicyInstanceRequest extends Model
         if (isset($map['action'])) {
             $model->action = $map['action'];
         }
-        if (isset($map['namespace'])) {
-            $model->namespace = $map['namespace'];
+        if (isset($map['namespaces'])) {
+            if (!empty($map['namespaces'])) {
+                $model->namespaces = $map['namespaces'];
+            }
         }
         if (isset($map['parameters'])) {
             $model->parameters = $map['parameters'];

@@ -127,6 +127,8 @@ use AlibabaCloud\SDK\CS\V20151215\Models\PauseComponentUpgradeResponse;
 use AlibabaCloud\SDK\CS\V20151215\Models\RemoveClusterNodesRequest;
 use AlibabaCloud\SDK\CS\V20151215\Models\RemoveClusterNodesResponse;
 use AlibabaCloud\SDK\CS\V20151215\Models\RemoveWorkflowResponse;
+use AlibabaCloud\SDK\CS\V20151215\Models\RepairClusterNodePoolRequest;
+use AlibabaCloud\SDK\CS\V20151215\Models\RepairClusterNodePoolResponse;
 use AlibabaCloud\SDK\CS\V20151215\Models\ResumeComponentUpgradeResponse;
 use AlibabaCloud\SDK\CS\V20151215\Models\ResumeUpgradeClusterResponse;
 use AlibabaCloud\SDK\CS\V20151215\Models\ScaleClusterNodePoolRequest;
@@ -1519,8 +1521,8 @@ class CS extends OpenApiClient
         if (!Utils::isUnset($request->action)) {
             $body['action'] = $request->action;
         }
-        if (!Utils::isUnset($request->namespace_)) {
-            $body['namespace'] = $request->namespace_;
+        if (!Utils::isUnset($request->namespaces)) {
+            $body['namespaces'] = $request->namespaces;
         }
         if (!Utils::isUnset($request->parameters)) {
             $body['parameters'] = $request->parameters;
@@ -4203,6 +4205,58 @@ class CS extends OpenApiClient
         ]);
 
         return RemoveWorkflowResponse::fromMap($this->callApi($params, $req, $runtime));
+    }
+
+    /**
+     * @param string                       $clusterId
+     * @param string                       $nodepoolId
+     * @param RepairClusterNodePoolRequest $request
+     *
+     * @return RepairClusterNodePoolResponse
+     */
+    public function repairClusterNodePool($clusterId, $nodepoolId, $request)
+    {
+        $runtime = new RuntimeOptions([]);
+        $headers = [];
+
+        return $this->repairClusterNodePoolWithOptions($clusterId, $nodepoolId, $request, $headers, $runtime);
+    }
+
+    /**
+     * @param string                       $clusterId
+     * @param string                       $nodepoolId
+     * @param RepairClusterNodePoolRequest $request
+     * @param string[]                     $headers
+     * @param RuntimeOptions               $runtime
+     *
+     * @return RepairClusterNodePoolResponse
+     */
+    public function repairClusterNodePoolWithOptions($clusterId, $nodepoolId, $request, $headers, $runtime)
+    {
+        Utils::validateModel($request);
+        $clusterId  = OpenApiUtilClient::getEncodeParam($clusterId);
+        $nodepoolId = OpenApiUtilClient::getEncodeParam($nodepoolId);
+        $body       = [];
+        if (!Utils::isUnset($request->nodes)) {
+            $body['nodes'] = $request->nodes;
+        }
+        $req = new OpenApiRequest([
+            'headers' => $headers,
+            'body'    => OpenApiUtilClient::parseToMap($body),
+        ]);
+        $params = new Params([
+            'action'      => 'RepairClusterNodePool',
+            'version'     => '2015-12-15',
+            'protocol'    => 'HTTPS',
+            'pathname'    => '/clusters/' . $clusterId . '/nodepools/' . $nodepoolId . '/repair',
+            'method'      => 'POST',
+            'authType'    => 'AK',
+            'style'       => 'ROA',
+            'reqBodyType' => 'json',
+            'bodyType'    => 'json',
+        ]);
+
+        return RepairClusterNodePoolResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
