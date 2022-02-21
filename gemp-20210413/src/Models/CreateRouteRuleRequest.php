@@ -96,7 +96,7 @@ class CreateRouteRuleRequest extends Model
     /**
      * @description 规则名称
      *
-     * @var int[]
+     * @var string
      */
     public $ruleName;
 
