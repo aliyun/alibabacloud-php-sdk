@@ -11,12 +11,22 @@ class liveStreamOnlineInfo extends Model
     /**
      * @var string
      */
-    public $publishTime;
+    public $appName;
 
     /**
      * @var string
      */
-    public $appName;
+    public $domainName;
+
+    /**
+     * @var string
+     */
+    public $publishDomain;
+
+    /**
+     * @var string
+     */
+    public $publishTime;
 
     /**
      * @var string
@@ -31,17 +41,7 @@ class liveStreamOnlineInfo extends Model
     /**
      * @var string
      */
-    public $transcoded;
-
-    /**
-     * @var string
-     */
     public $streamName;
-
-    /**
-     * @var string
-     */
-    public $domainName;
 
     /**
      * @var string
@@ -51,17 +51,17 @@ class liveStreamOnlineInfo extends Model
     /**
      * @var string
      */
-    public $publishDomain;
+    public $transcoded;
     protected $_name = [
-        'publishTime'   => 'PublishTime',
         'appName'       => 'AppName',
+        'domainName'    => 'DomainName',
+        'publishDomain' => 'PublishDomain',
+        'publishTime'   => 'PublishTime',
         'publishType'   => 'PublishType',
         'publishUrl'    => 'PublishUrl',
-        'transcoded'    => 'Transcoded',
         'streamName'    => 'StreamName',
-        'domainName'    => 'DomainName',
         'transcodeId'   => 'TranscodeId',
-        'publishDomain' => 'PublishDomain',
+        'transcoded'    => 'Transcoded',
     ];
 
     public function validate()
@@ -71,11 +71,17 @@ class liveStreamOnlineInfo extends Model
     public function toMap()
     {
         $res = [];
-        if (null !== $this->publishTime) {
-            $res['PublishTime'] = $this->publishTime;
-        }
         if (null !== $this->appName) {
             $res['AppName'] = $this->appName;
+        }
+        if (null !== $this->domainName) {
+            $res['DomainName'] = $this->domainName;
+        }
+        if (null !== $this->publishDomain) {
+            $res['PublishDomain'] = $this->publishDomain;
+        }
+        if (null !== $this->publishTime) {
+            $res['PublishTime'] = $this->publishTime;
         }
         if (null !== $this->publishType) {
             $res['PublishType'] = $this->publishType;
@@ -83,20 +89,14 @@ class liveStreamOnlineInfo extends Model
         if (null !== $this->publishUrl) {
             $res['PublishUrl'] = $this->publishUrl;
         }
-        if (null !== $this->transcoded) {
-            $res['Transcoded'] = $this->transcoded;
-        }
         if (null !== $this->streamName) {
             $res['StreamName'] = $this->streamName;
-        }
-        if (null !== $this->domainName) {
-            $res['DomainName'] = $this->domainName;
         }
         if (null !== $this->transcodeId) {
             $res['TranscodeId'] = $this->transcodeId;
         }
-        if (null !== $this->publishDomain) {
-            $res['PublishDomain'] = $this->publishDomain;
+        if (null !== $this->transcoded) {
+            $res['Transcoded'] = $this->transcoded;
         }
 
         return $res;
@@ -110,11 +110,17 @@ class liveStreamOnlineInfo extends Model
     public static function fromMap($map = [])
     {
         $model = new self();
-        if (isset($map['PublishTime'])) {
-            $model->publishTime = $map['PublishTime'];
-        }
         if (isset($map['AppName'])) {
             $model->appName = $map['AppName'];
+        }
+        if (isset($map['DomainName'])) {
+            $model->domainName = $map['DomainName'];
+        }
+        if (isset($map['PublishDomain'])) {
+            $model->publishDomain = $map['PublishDomain'];
+        }
+        if (isset($map['PublishTime'])) {
+            $model->publishTime = $map['PublishTime'];
         }
         if (isset($map['PublishType'])) {
             $model->publishType = $map['PublishType'];
@@ -122,20 +128,14 @@ class liveStreamOnlineInfo extends Model
         if (isset($map['PublishUrl'])) {
             $model->publishUrl = $map['PublishUrl'];
         }
-        if (isset($map['Transcoded'])) {
-            $model->transcoded = $map['Transcoded'];
-        }
         if (isset($map['StreamName'])) {
             $model->streamName = $map['StreamName'];
-        }
-        if (isset($map['DomainName'])) {
-            $model->domainName = $map['DomainName'];
         }
         if (isset($map['TranscodeId'])) {
             $model->transcodeId = $map['TranscodeId'];
         }
-        if (isset($map['PublishDomain'])) {
-            $model->publishDomain = $map['PublishDomain'];
+        if (isset($map['Transcoded'])) {
+            $model->transcoded = $map['Transcoded'];
         }
 
         return $model;

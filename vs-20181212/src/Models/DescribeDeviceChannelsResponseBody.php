@@ -10,6 +10,16 @@ use AlibabaCloud\Tea\Model;
 class DescribeDeviceChannelsResponseBody extends Model
 {
     /**
+     * @var channels[]
+     */
+    public $channels;
+
+    /**
+     * @var int
+     */
+    public $pageCount;
+
+    /**
      * @var int
      */
     public $pageNum;
@@ -28,23 +38,13 @@ class DescribeDeviceChannelsResponseBody extends Model
      * @var int
      */
     public $totalCount;
-
-    /**
-     * @var int
-     */
-    public $pageCount;
-
-    /**
-     * @var channels[]
-     */
-    public $channels;
     protected $_name = [
+        'channels'   => 'Channels',
+        'pageCount'  => 'PageCount',
         'pageNum'    => 'PageNum',
         'pageSize'   => 'PageSize',
         'requestId'  => 'RequestId',
         'totalCount' => 'TotalCount',
-        'pageCount'  => 'PageCount',
-        'channels'   => 'Channels',
     ];
 
     public function validate()
@@ -54,6 +54,18 @@ class DescribeDeviceChannelsResponseBody extends Model
     public function toMap()
     {
         $res = [];
+        if (null !== $this->channels) {
+            $res['Channels'] = [];
+            if (null !== $this->channels && \is_array($this->channels)) {
+                $n = 0;
+                foreach ($this->channels as $item) {
+                    $res['Channels'][$n++] = null !== $item ? $item->toMap() : $item;
+                }
+            }
+        }
+        if (null !== $this->pageCount) {
+            $res['PageCount'] = $this->pageCount;
+        }
         if (null !== $this->pageNum) {
             $res['PageNum'] = $this->pageNum;
         }
@@ -65,18 +77,6 @@ class DescribeDeviceChannelsResponseBody extends Model
         }
         if (null !== $this->totalCount) {
             $res['TotalCount'] = $this->totalCount;
-        }
-        if (null !== $this->pageCount) {
-            $res['PageCount'] = $this->pageCount;
-        }
-        if (null !== $this->channels) {
-            $res['Channels'] = [];
-            if (null !== $this->channels && \is_array($this->channels)) {
-                $n = 0;
-                foreach ($this->channels as $item) {
-                    $res['Channels'][$n++] = null !== $item ? $item->toMap() : $item;
-                }
-            }
         }
 
         return $res;
@@ -90,6 +90,18 @@ class DescribeDeviceChannelsResponseBody extends Model
     public static function fromMap($map = [])
     {
         $model = new self();
+        if (isset($map['Channels'])) {
+            if (!empty($map['Channels'])) {
+                $model->channels = [];
+                $n               = 0;
+                foreach ($map['Channels'] as $item) {
+                    $model->channels[$n++] = null !== $item ? channels::fromMap($item) : $item;
+                }
+            }
+        }
+        if (isset($map['PageCount'])) {
+            $model->pageCount = $map['PageCount'];
+        }
         if (isset($map['PageNum'])) {
             $model->pageNum = $map['PageNum'];
         }
@@ -101,18 +113,6 @@ class DescribeDeviceChannelsResponseBody extends Model
         }
         if (isset($map['TotalCount'])) {
             $model->totalCount = $map['TotalCount'];
-        }
-        if (isset($map['PageCount'])) {
-            $model->pageCount = $map['PageCount'];
-        }
-        if (isset($map['Channels'])) {
-            if (!empty($map['Channels'])) {
-                $model->channels = [];
-                $n               = 0;
-                foreach ($map['Channels'] as $item) {
-                    $model->channels[$n++] = null !== $item ? channels::fromMap($item) : $item;
-                }
-            }
         }
 
         return $model;

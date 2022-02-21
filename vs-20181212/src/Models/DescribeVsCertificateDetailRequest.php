@@ -9,17 +9,17 @@ use AlibabaCloud\Tea\Model;
 class DescribeVsCertificateDetailRequest extends Model
 {
     /**
-     * @var int
-     */
-    public $ownerId;
-
-    /**
      * @var string
      */
     public $certName;
+
+    /**
+     * @var int
+     */
+    public $ownerId;
     protected $_name = [
-        'ownerId'  => 'OwnerId',
         'certName' => 'CertName',
+        'ownerId'  => 'OwnerId',
     ];
 
     public function validate()
@@ -29,11 +29,11 @@ class DescribeVsCertificateDetailRequest extends Model
     public function toMap()
     {
         $res = [];
-        if (null !== $this->ownerId) {
-            $res['OwnerId'] = $this->ownerId;
-        }
         if (null !== $this->certName) {
             $res['CertName'] = $this->certName;
+        }
+        if (null !== $this->ownerId) {
+            $res['OwnerId'] = $this->ownerId;
         }
 
         return $res;
@@ -47,11 +47,11 @@ class DescribeVsCertificateDetailRequest extends Model
     public static function fromMap($map = [])
     {
         $model = new self();
-        if (isset($map['OwnerId'])) {
-            $model->ownerId = $map['OwnerId'];
-        }
         if (isset($map['CertName'])) {
             $model->certName = $map['CertName'];
+        }
+        if (isset($map['OwnerId'])) {
+            $model->ownerId = $map['OwnerId'];
         }
 
         return $model;

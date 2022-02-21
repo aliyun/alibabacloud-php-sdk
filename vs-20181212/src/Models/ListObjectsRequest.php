@@ -9,14 +9,14 @@ use AlibabaCloud\Tea\Model;
 class ListObjectsRequest extends Model
 {
     /**
-     * @var int
+     * @var string
      */
-    public $ownerId;
+    public $bucketName;
 
     /**
      * @var string
      */
-    public $bucketName;
+    public $continuationToken;
 
     /**
      * @var string
@@ -39,6 +39,11 @@ class ListObjectsRequest extends Model
     public $maxKeys;
 
     /**
+     * @var int
+     */
+    public $ownerId;
+
+    /**
      * @var string
      */
     public $prefix;
@@ -46,21 +51,16 @@ class ListObjectsRequest extends Model
     /**
      * @var string
      */
-    public $continuationToken;
-
-    /**
-     * @var string
-     */
     public $startAfter;
     protected $_name = [
-        'ownerId'           => 'OwnerId',
         'bucketName'        => 'BucketName',
+        'continuationToken' => 'ContinuationToken',
         'delimiter'         => 'Delimiter',
         'encodingType'      => 'EncodingType',
         'marker'            => 'Marker',
         'maxKeys'           => 'MaxKeys',
+        'ownerId'           => 'OwnerId',
         'prefix'            => 'Prefix',
-        'continuationToken' => 'ContinuationToken',
         'startAfter'        => 'StartAfter',
     ];
 
@@ -71,11 +71,11 @@ class ListObjectsRequest extends Model
     public function toMap()
     {
         $res = [];
-        if (null !== $this->ownerId) {
-            $res['OwnerId'] = $this->ownerId;
-        }
         if (null !== $this->bucketName) {
             $res['BucketName'] = $this->bucketName;
+        }
+        if (null !== $this->continuationToken) {
+            $res['ContinuationToken'] = $this->continuationToken;
         }
         if (null !== $this->delimiter) {
             $res['Delimiter'] = $this->delimiter;
@@ -89,11 +89,11 @@ class ListObjectsRequest extends Model
         if (null !== $this->maxKeys) {
             $res['MaxKeys'] = $this->maxKeys;
         }
+        if (null !== $this->ownerId) {
+            $res['OwnerId'] = $this->ownerId;
+        }
         if (null !== $this->prefix) {
             $res['Prefix'] = $this->prefix;
-        }
-        if (null !== $this->continuationToken) {
-            $res['ContinuationToken'] = $this->continuationToken;
         }
         if (null !== $this->startAfter) {
             $res['StartAfter'] = $this->startAfter;
@@ -110,11 +110,11 @@ class ListObjectsRequest extends Model
     public static function fromMap($map = [])
     {
         $model = new self();
-        if (isset($map['OwnerId'])) {
-            $model->ownerId = $map['OwnerId'];
-        }
         if (isset($map['BucketName'])) {
             $model->bucketName = $map['BucketName'];
+        }
+        if (isset($map['ContinuationToken'])) {
+            $model->continuationToken = $map['ContinuationToken'];
         }
         if (isset($map['Delimiter'])) {
             $model->delimiter = $map['Delimiter'];
@@ -128,11 +128,11 @@ class ListObjectsRequest extends Model
         if (isset($map['MaxKeys'])) {
             $model->maxKeys = $map['MaxKeys'];
         }
+        if (isset($map['OwnerId'])) {
+            $model->ownerId = $map['OwnerId'];
+        }
         if (isset($map['Prefix'])) {
             $model->prefix = $map['Prefix'];
-        }
-        if (isset($map['ContinuationToken'])) {
-            $model->continuationToken = $map['ContinuationToken'];
         }
         if (isset($map['StartAfter'])) {
             $model->startAfter = $map['StartAfter'];

@@ -9,24 +9,19 @@ use AlibabaCloud\Tea\Model;
 class ListDeviceRecordsRequest extends Model
 {
     /**
-     * @var int
-     */
-    public $ownerId;
-
-    /**
      * @var string
      */
     public $deviceId;
 
     /**
-     * @var string
+     * @var int
      */
-    public $streamId;
+    public $ownerId;
 
     /**
-     * @var string
+     * @var int
      */
-    public $searchCriteria;
+    public $pageNum;
 
     /**
      * @var int
@@ -34,16 +29,21 @@ class ListDeviceRecordsRequest extends Model
     public $pageSize;
 
     /**
-     * @var int
+     * @var string
      */
-    public $pageNum;
+    public $searchCriteria;
+
+    /**
+     * @var string
+     */
+    public $streamId;
     protected $_name = [
-        'ownerId'        => 'OwnerId',
         'deviceId'       => 'DeviceId',
-        'streamId'       => 'StreamId',
-        'searchCriteria' => 'SearchCriteria',
-        'pageSize'       => 'PageSize',
+        'ownerId'        => 'OwnerId',
         'pageNum'        => 'PageNum',
+        'pageSize'       => 'PageSize',
+        'searchCriteria' => 'SearchCriteria',
+        'streamId'       => 'StreamId',
     ];
 
     public function validate()
@@ -53,23 +53,23 @@ class ListDeviceRecordsRequest extends Model
     public function toMap()
     {
         $res = [];
-        if (null !== $this->ownerId) {
-            $res['OwnerId'] = $this->ownerId;
-        }
         if (null !== $this->deviceId) {
             $res['DeviceId'] = $this->deviceId;
         }
-        if (null !== $this->streamId) {
-            $res['StreamId'] = $this->streamId;
+        if (null !== $this->ownerId) {
+            $res['OwnerId'] = $this->ownerId;
         }
-        if (null !== $this->searchCriteria) {
-            $res['SearchCriteria'] = $this->searchCriteria;
+        if (null !== $this->pageNum) {
+            $res['PageNum'] = $this->pageNum;
         }
         if (null !== $this->pageSize) {
             $res['PageSize'] = $this->pageSize;
         }
-        if (null !== $this->pageNum) {
-            $res['PageNum'] = $this->pageNum;
+        if (null !== $this->searchCriteria) {
+            $res['SearchCriteria'] = $this->searchCriteria;
+        }
+        if (null !== $this->streamId) {
+            $res['StreamId'] = $this->streamId;
         }
 
         return $res;
@@ -83,23 +83,23 @@ class ListDeviceRecordsRequest extends Model
     public static function fromMap($map = [])
     {
         $model = new self();
-        if (isset($map['OwnerId'])) {
-            $model->ownerId = $map['OwnerId'];
-        }
         if (isset($map['DeviceId'])) {
             $model->deviceId = $map['DeviceId'];
         }
-        if (isset($map['StreamId'])) {
-            $model->streamId = $map['StreamId'];
+        if (isset($map['OwnerId'])) {
+            $model->ownerId = $map['OwnerId'];
         }
-        if (isset($map['SearchCriteria'])) {
-            $model->searchCriteria = $map['SearchCriteria'];
+        if (isset($map['PageNum'])) {
+            $model->pageNum = $map['PageNum'];
         }
         if (isset($map['PageSize'])) {
             $model->pageSize = $map['PageSize'];
         }
-        if (isset($map['PageNum'])) {
-            $model->pageNum = $map['PageNum'];
+        if (isset($map['SearchCriteria'])) {
+            $model->searchCriteria = $map['SearchCriteria'];
+        }
+        if (isset($map['StreamId'])) {
+            $model->streamId = $map['StreamId'];
         }
 
         return $model;

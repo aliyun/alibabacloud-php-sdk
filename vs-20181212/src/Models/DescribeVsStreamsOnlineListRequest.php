@@ -9,9 +9,9 @@ use AlibabaCloud\Tea\Model;
 class DescribeVsStreamsOnlineListRequest extends Model
 {
     /**
-     * @var int
+     * @var string
      */
-    public $ownerId;
+    public $appName;
 
     /**
      * @var string
@@ -21,17 +21,17 @@ class DescribeVsStreamsOnlineListRequest extends Model
     /**
      * @var string
      */
-    public $appName;
+    public $endTime;
 
     /**
      * @var string
      */
-    public $streamName;
+    public $orderBy;
 
     /**
      * @var int
      */
-    public $pageSize;
+    public $ownerId;
 
     /**
      * @var int
@@ -39,19 +39,9 @@ class DescribeVsStreamsOnlineListRequest extends Model
     public $pageNum;
 
     /**
-     * @var string
+     * @var int
      */
-    public $streamType;
-
-    /**
-     * @var string
-     */
-    public $startTime;
-
-    /**
-     * @var string
-     */
-    public $endTime;
+    public $pageSize;
 
     /**
      * @var string
@@ -61,19 +51,29 @@ class DescribeVsStreamsOnlineListRequest extends Model
     /**
      * @var string
      */
-    public $orderBy;
+    public $startTime;
+
+    /**
+     * @var string
+     */
+    public $streamName;
+
+    /**
+     * @var string
+     */
+    public $streamType;
     protected $_name = [
-        'ownerId'    => 'OwnerId',
-        'domainName' => 'DomainName',
         'appName'    => 'AppName',
-        'streamName' => 'StreamName',
-        'pageSize'   => 'PageSize',
-        'pageNum'    => 'PageNum',
-        'streamType' => 'StreamType',
-        'startTime'  => 'StartTime',
+        'domainName' => 'DomainName',
         'endTime'    => 'EndTime',
-        'queryType'  => 'QueryType',
         'orderBy'    => 'OrderBy',
+        'ownerId'    => 'OwnerId',
+        'pageNum'    => 'PageNum',
+        'pageSize'   => 'PageSize',
+        'queryType'  => 'QueryType',
+        'startTime'  => 'StartTime',
+        'streamName' => 'StreamName',
+        'streamType' => 'StreamType',
     ];
 
     public function validate()
@@ -83,38 +83,38 @@ class DescribeVsStreamsOnlineListRequest extends Model
     public function toMap()
     {
         $res = [];
-        if (null !== $this->ownerId) {
-            $res['OwnerId'] = $this->ownerId;
+        if (null !== $this->appName) {
+            $res['AppName'] = $this->appName;
         }
         if (null !== $this->domainName) {
             $res['DomainName'] = $this->domainName;
         }
-        if (null !== $this->appName) {
-            $res['AppName'] = $this->appName;
+        if (null !== $this->endTime) {
+            $res['EndTime'] = $this->endTime;
         }
-        if (null !== $this->streamName) {
-            $res['StreamName'] = $this->streamName;
+        if (null !== $this->orderBy) {
+            $res['OrderBy'] = $this->orderBy;
         }
-        if (null !== $this->pageSize) {
-            $res['PageSize'] = $this->pageSize;
+        if (null !== $this->ownerId) {
+            $res['OwnerId'] = $this->ownerId;
         }
         if (null !== $this->pageNum) {
             $res['PageNum'] = $this->pageNum;
         }
-        if (null !== $this->streamType) {
-            $res['StreamType'] = $this->streamType;
-        }
-        if (null !== $this->startTime) {
-            $res['StartTime'] = $this->startTime;
-        }
-        if (null !== $this->endTime) {
-            $res['EndTime'] = $this->endTime;
+        if (null !== $this->pageSize) {
+            $res['PageSize'] = $this->pageSize;
         }
         if (null !== $this->queryType) {
             $res['QueryType'] = $this->queryType;
         }
-        if (null !== $this->orderBy) {
-            $res['OrderBy'] = $this->orderBy;
+        if (null !== $this->startTime) {
+            $res['StartTime'] = $this->startTime;
+        }
+        if (null !== $this->streamName) {
+            $res['StreamName'] = $this->streamName;
+        }
+        if (null !== $this->streamType) {
+            $res['StreamType'] = $this->streamType;
         }
 
         return $res;
@@ -128,38 +128,38 @@ class DescribeVsStreamsOnlineListRequest extends Model
     public static function fromMap($map = [])
     {
         $model = new self();
-        if (isset($map['OwnerId'])) {
-            $model->ownerId = $map['OwnerId'];
+        if (isset($map['AppName'])) {
+            $model->appName = $map['AppName'];
         }
         if (isset($map['DomainName'])) {
             $model->domainName = $map['DomainName'];
         }
-        if (isset($map['AppName'])) {
-            $model->appName = $map['AppName'];
+        if (isset($map['EndTime'])) {
+            $model->endTime = $map['EndTime'];
         }
-        if (isset($map['StreamName'])) {
-            $model->streamName = $map['StreamName'];
+        if (isset($map['OrderBy'])) {
+            $model->orderBy = $map['OrderBy'];
         }
-        if (isset($map['PageSize'])) {
-            $model->pageSize = $map['PageSize'];
+        if (isset($map['OwnerId'])) {
+            $model->ownerId = $map['OwnerId'];
         }
         if (isset($map['PageNum'])) {
             $model->pageNum = $map['PageNum'];
         }
-        if (isset($map['StreamType'])) {
-            $model->streamType = $map['StreamType'];
-        }
-        if (isset($map['StartTime'])) {
-            $model->startTime = $map['StartTime'];
-        }
-        if (isset($map['EndTime'])) {
-            $model->endTime = $map['EndTime'];
+        if (isset($map['PageSize'])) {
+            $model->pageSize = $map['PageSize'];
         }
         if (isset($map['QueryType'])) {
             $model->queryType = $map['QueryType'];
         }
-        if (isset($map['OrderBy'])) {
-            $model->orderBy = $map['OrderBy'];
+        if (isset($map['StartTime'])) {
+            $model->startTime = $map['StartTime'];
+        }
+        if (isset($map['StreamName'])) {
+            $model->streamName = $map['StreamName'];
+        }
+        if (isset($map['StreamType'])) {
+            $model->streamType = $map['StreamType'];
         }
 
         return $model;

@@ -11,17 +11,7 @@ class UnbindTemplateResponseBody extends Model
     /**
      * @var string
      */
-    public $templateType;
-
-    /**
-     * @var string
-     */
     public $instanceId;
-
-    /**
-     * @var string
-     */
-    public $requestId;
 
     /**
      * @var string
@@ -31,13 +21,23 @@ class UnbindTemplateResponseBody extends Model
     /**
      * @var string
      */
+    public $requestId;
+
+    /**
+     * @var string
+     */
     public $templateId;
+
+    /**
+     * @var string
+     */
+    public $templateType;
     protected $_name = [
-        'templateType' => 'TemplateType',
         'instanceId'   => 'InstanceId',
-        'requestId'    => 'RequestId',
         'instanceType' => 'InstanceType',
+        'requestId'    => 'RequestId',
         'templateId'   => 'TemplateId',
+        'templateType' => 'TemplateType',
     ];
 
     public function validate()
@@ -47,20 +47,20 @@ class UnbindTemplateResponseBody extends Model
     public function toMap()
     {
         $res = [];
-        if (null !== $this->templateType) {
-            $res['TemplateType'] = $this->templateType;
-        }
         if (null !== $this->instanceId) {
             $res['InstanceId'] = $this->instanceId;
-        }
-        if (null !== $this->requestId) {
-            $res['RequestId'] = $this->requestId;
         }
         if (null !== $this->instanceType) {
             $res['InstanceType'] = $this->instanceType;
         }
+        if (null !== $this->requestId) {
+            $res['RequestId'] = $this->requestId;
+        }
         if (null !== $this->templateId) {
             $res['TemplateId'] = $this->templateId;
+        }
+        if (null !== $this->templateType) {
+            $res['TemplateType'] = $this->templateType;
         }
 
         return $res;
@@ -74,20 +74,20 @@ class UnbindTemplateResponseBody extends Model
     public static function fromMap($map = [])
     {
         $model = new self();
-        if (isset($map['TemplateType'])) {
-            $model->templateType = $map['TemplateType'];
-        }
         if (isset($map['InstanceId'])) {
             $model->instanceId = $map['InstanceId'];
-        }
-        if (isset($map['RequestId'])) {
-            $model->requestId = $map['RequestId'];
         }
         if (isset($map['InstanceType'])) {
             $model->instanceType = $map['InstanceType'];
         }
+        if (isset($map['RequestId'])) {
+            $model->requestId = $map['RequestId'];
+        }
         if (isset($map['TemplateId'])) {
             $model->templateId = $map['TemplateId'];
+        }
+        if (isset($map['TemplateType'])) {
+            $model->templateType = $map['TemplateType'];
         }
 
         return $model;

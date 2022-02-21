@@ -9,11 +9,6 @@ use AlibabaCloud\Tea\Model;
 class UpdateBucketInfoRequest extends Model
 {
     /**
-     * @var int
-     */
-    public $ownerId;
-
-    /**
      * @var string
      */
     public $bucketName;
@@ -22,10 +17,15 @@ class UpdateBucketInfoRequest extends Model
      * @var string
      */
     public $comment;
+
+    /**
+     * @var int
+     */
+    public $ownerId;
     protected $_name = [
-        'ownerId'    => 'OwnerId',
         'bucketName' => 'BucketName',
         'comment'    => 'Comment',
+        'ownerId'    => 'OwnerId',
     ];
 
     public function validate()
@@ -35,14 +35,14 @@ class UpdateBucketInfoRequest extends Model
     public function toMap()
     {
         $res = [];
-        if (null !== $this->ownerId) {
-            $res['OwnerId'] = $this->ownerId;
-        }
         if (null !== $this->bucketName) {
             $res['BucketName'] = $this->bucketName;
         }
         if (null !== $this->comment) {
             $res['Comment'] = $this->comment;
+        }
+        if (null !== $this->ownerId) {
+            $res['OwnerId'] = $this->ownerId;
         }
 
         return $res;
@@ -56,14 +56,14 @@ class UpdateBucketInfoRequest extends Model
     public static function fromMap($map = [])
     {
         $model = new self();
-        if (isset($map['OwnerId'])) {
-            $model->ownerId = $map['OwnerId'];
-        }
         if (isset($map['BucketName'])) {
             $model->bucketName = $map['BucketName'];
         }
         if (isset($map['Comment'])) {
             $model->comment = $map['Comment'];
+        }
+        if (isset($map['OwnerId'])) {
+            $model->ownerId = $map['OwnerId'];
         }
 
         return $model;

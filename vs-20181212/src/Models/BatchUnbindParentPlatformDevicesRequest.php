@@ -9,6 +9,11 @@ use AlibabaCloud\Tea\Model;
 class BatchUnbindParentPlatformDevicesRequest extends Model
 {
     /**
+     * @var string
+     */
+    public $deviceId;
+
+    /**
      * @var int
      */
     public $ownerId;
@@ -17,15 +22,10 @@ class BatchUnbindParentPlatformDevicesRequest extends Model
      * @var string
      */
     public $parentPlatformId;
-
-    /**
-     * @var string
-     */
-    public $deviceId;
     protected $_name = [
+        'deviceId'         => 'DeviceId',
         'ownerId'          => 'OwnerId',
         'parentPlatformId' => 'ParentPlatformId',
-        'deviceId'         => 'DeviceId',
     ];
 
     public function validate()
@@ -35,14 +35,14 @@ class BatchUnbindParentPlatformDevicesRequest extends Model
     public function toMap()
     {
         $res = [];
+        if (null !== $this->deviceId) {
+            $res['DeviceId'] = $this->deviceId;
+        }
         if (null !== $this->ownerId) {
             $res['OwnerId'] = $this->ownerId;
         }
         if (null !== $this->parentPlatformId) {
             $res['ParentPlatformId'] = $this->parentPlatformId;
-        }
-        if (null !== $this->deviceId) {
-            $res['DeviceId'] = $this->deviceId;
         }
 
         return $res;
@@ -56,14 +56,14 @@ class BatchUnbindParentPlatformDevicesRequest extends Model
     public static function fromMap($map = [])
     {
         $model = new self();
+        if (isset($map['DeviceId'])) {
+            $model->deviceId = $map['DeviceId'];
+        }
         if (isset($map['OwnerId'])) {
             $model->ownerId = $map['OwnerId'];
         }
         if (isset($map['ParentPlatformId'])) {
             $model->parentPlatformId = $map['ParentPlatformId'];
-        }
-        if (isset($map['DeviceId'])) {
-            $model->deviceId = $map['DeviceId'];
         }
 
         return $model;

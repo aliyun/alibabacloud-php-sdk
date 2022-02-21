@@ -9,19 +9,9 @@ use AlibabaCloud\Tea\Model;
 class BindTemplateRequest extends Model
 {
     /**
-     * @var int
+     * @var bool
      */
-    public $ownerId;
-
-    /**
-     * @var string
-     */
-    public $templateId;
-
-    /**
-     * @var string
-     */
-    public $templateType;
+    public $applyAll;
 
     /**
      * @var string
@@ -34,22 +24,32 @@ class BindTemplateRequest extends Model
     public $instanceType;
 
     /**
-     * @var bool
+     * @var int
      */
-    public $applyAll;
+    public $ownerId;
 
     /**
      * @var bool
      */
     public $replace;
+
+    /**
+     * @var string
+     */
+    public $templateId;
+
+    /**
+     * @var string
+     */
+    public $templateType;
     protected $_name = [
-        'ownerId'      => 'OwnerId',
-        'templateId'   => 'TemplateId',
-        'templateType' => 'TemplateType',
+        'applyAll'     => 'ApplyAll',
         'instanceId'   => 'InstanceId',
         'instanceType' => 'InstanceType',
-        'applyAll'     => 'ApplyAll',
+        'ownerId'      => 'OwnerId',
         'replace'      => 'Replace',
+        'templateId'   => 'TemplateId',
+        'templateType' => 'TemplateType',
     ];
 
     public function validate()
@@ -59,14 +59,8 @@ class BindTemplateRequest extends Model
     public function toMap()
     {
         $res = [];
-        if (null !== $this->ownerId) {
-            $res['OwnerId'] = $this->ownerId;
-        }
-        if (null !== $this->templateId) {
-            $res['TemplateId'] = $this->templateId;
-        }
-        if (null !== $this->templateType) {
-            $res['TemplateType'] = $this->templateType;
+        if (null !== $this->applyAll) {
+            $res['ApplyAll'] = $this->applyAll;
         }
         if (null !== $this->instanceId) {
             $res['InstanceId'] = $this->instanceId;
@@ -74,11 +68,17 @@ class BindTemplateRequest extends Model
         if (null !== $this->instanceType) {
             $res['InstanceType'] = $this->instanceType;
         }
-        if (null !== $this->applyAll) {
-            $res['ApplyAll'] = $this->applyAll;
+        if (null !== $this->ownerId) {
+            $res['OwnerId'] = $this->ownerId;
         }
         if (null !== $this->replace) {
             $res['Replace'] = $this->replace;
+        }
+        if (null !== $this->templateId) {
+            $res['TemplateId'] = $this->templateId;
+        }
+        if (null !== $this->templateType) {
+            $res['TemplateType'] = $this->templateType;
         }
 
         return $res;
@@ -92,14 +92,8 @@ class BindTemplateRequest extends Model
     public static function fromMap($map = [])
     {
         $model = new self();
-        if (isset($map['OwnerId'])) {
-            $model->ownerId = $map['OwnerId'];
-        }
-        if (isset($map['TemplateId'])) {
-            $model->templateId = $map['TemplateId'];
-        }
-        if (isset($map['TemplateType'])) {
-            $model->templateType = $map['TemplateType'];
+        if (isset($map['ApplyAll'])) {
+            $model->applyAll = $map['ApplyAll'];
         }
         if (isset($map['InstanceId'])) {
             $model->instanceId = $map['InstanceId'];
@@ -107,11 +101,17 @@ class BindTemplateRequest extends Model
         if (isset($map['InstanceType'])) {
             $model->instanceType = $map['InstanceType'];
         }
-        if (isset($map['ApplyAll'])) {
-            $model->applyAll = $map['ApplyAll'];
+        if (isset($map['OwnerId'])) {
+            $model->ownerId = $map['OwnerId'];
         }
         if (isset($map['Replace'])) {
             $model->replace = $map['Replace'];
+        }
+        if (isset($map['TemplateId'])) {
+            $model->templateId = $map['TemplateId'];
+        }
+        if (isset($map['TemplateType'])) {
+            $model->templateType = $map['TemplateType'];
         }
 
         return $model;

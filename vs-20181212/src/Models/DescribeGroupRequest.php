@@ -9,11 +9,6 @@ use AlibabaCloud\Tea\Model;
 class DescribeGroupRequest extends Model
 {
     /**
-     * @var int
-     */
-    public $ownerId;
-
-    /**
      * @var string
      */
     public $id;
@@ -22,10 +17,15 @@ class DescribeGroupRequest extends Model
      * @var bool
      */
     public $includeStats;
+
+    /**
+     * @var int
+     */
+    public $ownerId;
     protected $_name = [
-        'ownerId'      => 'OwnerId',
         'id'           => 'Id',
         'includeStats' => 'IncludeStats',
+        'ownerId'      => 'OwnerId',
     ];
 
     public function validate()
@@ -35,14 +35,14 @@ class DescribeGroupRequest extends Model
     public function toMap()
     {
         $res = [];
-        if (null !== $this->ownerId) {
-            $res['OwnerId'] = $this->ownerId;
-        }
         if (null !== $this->id) {
             $res['Id'] = $this->id;
         }
         if (null !== $this->includeStats) {
             $res['IncludeStats'] = $this->includeStats;
+        }
+        if (null !== $this->ownerId) {
+            $res['OwnerId'] = $this->ownerId;
         }
 
         return $res;
@@ -56,14 +56,14 @@ class DescribeGroupRequest extends Model
     public static function fromMap($map = [])
     {
         $model = new self();
-        if (isset($map['OwnerId'])) {
-            $model->ownerId = $map['OwnerId'];
-        }
         if (isset($map['Id'])) {
             $model->id = $map['Id'];
         }
         if (isset($map['IncludeStats'])) {
             $model->includeStats = $map['IncludeStats'];
+        }
+        if (isset($map['OwnerId'])) {
+            $model->ownerId = $map['OwnerId'];
         }
 
         return $model;

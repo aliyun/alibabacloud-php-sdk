@@ -9,19 +9,9 @@ use AlibabaCloud\Tea\Model;
 class ModifyDeviceChannelsRequest extends Model
 {
     /**
-     * @var int
-     */
-    public $ownerId;
-
-    /**
      * @var string
      */
-    public $id;
-
-    /**
-     * @var string
-     */
-    public $dsn;
+    public $channels;
 
     /**
      * @var string
@@ -31,13 +21,23 @@ class ModifyDeviceChannelsRequest extends Model
     /**
      * @var string
      */
-    public $channels;
+    public $dsn;
+
+    /**
+     * @var string
+     */
+    public $id;
+
+    /**
+     * @var int
+     */
+    public $ownerId;
     protected $_name = [
-        'ownerId'      => 'OwnerId',
-        'id'           => 'Id',
-        'dsn'          => 'Dsn',
-        'deviceStatus' => 'DeviceStatus',
         'channels'     => 'Channels',
+        'deviceStatus' => 'DeviceStatus',
+        'dsn'          => 'Dsn',
+        'id'           => 'Id',
+        'ownerId'      => 'OwnerId',
     ];
 
     public function validate()
@@ -47,20 +47,20 @@ class ModifyDeviceChannelsRequest extends Model
     public function toMap()
     {
         $res = [];
-        if (null !== $this->ownerId) {
-            $res['OwnerId'] = $this->ownerId;
-        }
-        if (null !== $this->id) {
-            $res['Id'] = $this->id;
-        }
-        if (null !== $this->dsn) {
-            $res['Dsn'] = $this->dsn;
+        if (null !== $this->channels) {
+            $res['Channels'] = $this->channels;
         }
         if (null !== $this->deviceStatus) {
             $res['DeviceStatus'] = $this->deviceStatus;
         }
-        if (null !== $this->channels) {
-            $res['Channels'] = $this->channels;
+        if (null !== $this->dsn) {
+            $res['Dsn'] = $this->dsn;
+        }
+        if (null !== $this->id) {
+            $res['Id'] = $this->id;
+        }
+        if (null !== $this->ownerId) {
+            $res['OwnerId'] = $this->ownerId;
         }
 
         return $res;
@@ -74,20 +74,20 @@ class ModifyDeviceChannelsRequest extends Model
     public static function fromMap($map = [])
     {
         $model = new self();
-        if (isset($map['OwnerId'])) {
-            $model->ownerId = $map['OwnerId'];
-        }
-        if (isset($map['Id'])) {
-            $model->id = $map['Id'];
-        }
-        if (isset($map['Dsn'])) {
-            $model->dsn = $map['Dsn'];
+        if (isset($map['Channels'])) {
+            $model->channels = $map['Channels'];
         }
         if (isset($map['DeviceStatus'])) {
             $model->deviceStatus = $map['DeviceStatus'];
         }
-        if (isset($map['Channels'])) {
-            $model->channels = $map['Channels'];
+        if (isset($map['Dsn'])) {
+            $model->dsn = $map['Dsn'];
+        }
+        if (isset($map['Id'])) {
+            $model->id = $map['Id'];
+        }
+        if (isset($map['OwnerId'])) {
+            $model->ownerId = $map['OwnerId'];
         }
 
         return $model;

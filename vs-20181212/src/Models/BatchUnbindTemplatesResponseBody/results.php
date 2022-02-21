@@ -16,11 +16,6 @@ class results extends Model
     /**
      * @var string
      */
-    public $templateType;
-
-    /**
-     * @var string
-     */
     public $instanceId;
 
     /**
@@ -32,12 +27,17 @@ class results extends Model
      * @var string
      */
     public $templateId;
+
+    /**
+     * @var string
+     */
+    public $templateType;
     protected $_name = [
         'error'        => 'Error',
-        'templateType' => 'TemplateType',
         'instanceId'   => 'InstanceId',
         'instanceType' => 'InstanceType',
         'templateId'   => 'TemplateId',
+        'templateType' => 'TemplateType',
     ];
 
     public function validate()
@@ -50,9 +50,6 @@ class results extends Model
         if (null !== $this->error) {
             $res['Error'] = $this->error;
         }
-        if (null !== $this->templateType) {
-            $res['TemplateType'] = $this->templateType;
-        }
         if (null !== $this->instanceId) {
             $res['InstanceId'] = $this->instanceId;
         }
@@ -61,6 +58,9 @@ class results extends Model
         }
         if (null !== $this->templateId) {
             $res['TemplateId'] = $this->templateId;
+        }
+        if (null !== $this->templateType) {
+            $res['TemplateType'] = $this->templateType;
         }
 
         return $res;
@@ -77,9 +77,6 @@ class results extends Model
         if (isset($map['Error'])) {
             $model->error = $map['Error'];
         }
-        if (isset($map['TemplateType'])) {
-            $model->templateType = $map['TemplateType'];
-        }
         if (isset($map['InstanceId'])) {
             $model->instanceId = $map['InstanceId'];
         }
@@ -88,6 +85,9 @@ class results extends Model
         }
         if (isset($map['TemplateId'])) {
             $model->templateId = $map['TemplateId'];
+        }
+        if (isset($map['TemplateType'])) {
+            $model->templateType = $map['TemplateType'];
         }
 
         return $model;

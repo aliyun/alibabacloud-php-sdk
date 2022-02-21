@@ -10,6 +10,16 @@ use AlibabaCloud\Tea\Model;
 class DescribePurchasedDevicesResponseBody extends Model
 {
     /**
+     * @var devices[]
+     */
+    public $devices;
+
+    /**
+     * @var int
+     */
+    public $pageCount;
+
+    /**
      * @var int
      */
     public $pageNum;
@@ -28,23 +38,13 @@ class DescribePurchasedDevicesResponseBody extends Model
      * @var int
      */
     public $totalCount;
-
-    /**
-     * @var int
-     */
-    public $pageCount;
-
-    /**
-     * @var devices[]
-     */
-    public $devices;
     protected $_name = [
+        'devices'    => 'Devices',
+        'pageCount'  => 'PageCount',
         'pageNum'    => 'PageNum',
         'pageSize'   => 'PageSize',
         'requestId'  => 'RequestId',
         'totalCount' => 'TotalCount',
-        'pageCount'  => 'PageCount',
-        'devices'    => 'Devices',
     ];
 
     public function validate()
@@ -54,6 +54,18 @@ class DescribePurchasedDevicesResponseBody extends Model
     public function toMap()
     {
         $res = [];
+        if (null !== $this->devices) {
+            $res['Devices'] = [];
+            if (null !== $this->devices && \is_array($this->devices)) {
+                $n = 0;
+                foreach ($this->devices as $item) {
+                    $res['Devices'][$n++] = null !== $item ? $item->toMap() : $item;
+                }
+            }
+        }
+        if (null !== $this->pageCount) {
+            $res['PageCount'] = $this->pageCount;
+        }
         if (null !== $this->pageNum) {
             $res['PageNum'] = $this->pageNum;
         }
@@ -65,18 +77,6 @@ class DescribePurchasedDevicesResponseBody extends Model
         }
         if (null !== $this->totalCount) {
             $res['TotalCount'] = $this->totalCount;
-        }
-        if (null !== $this->pageCount) {
-            $res['PageCount'] = $this->pageCount;
-        }
-        if (null !== $this->devices) {
-            $res['Devices'] = [];
-            if (null !== $this->devices && \is_array($this->devices)) {
-                $n = 0;
-                foreach ($this->devices as $item) {
-                    $res['Devices'][$n++] = null !== $item ? $item->toMap() : $item;
-                }
-            }
         }
 
         return $res;
@@ -90,6 +90,18 @@ class DescribePurchasedDevicesResponseBody extends Model
     public static function fromMap($map = [])
     {
         $model = new self();
+        if (isset($map['Devices'])) {
+            if (!empty($map['Devices'])) {
+                $model->devices = [];
+                $n              = 0;
+                foreach ($map['Devices'] as $item) {
+                    $model->devices[$n++] = null !== $item ? devices::fromMap($item) : $item;
+                }
+            }
+        }
+        if (isset($map['PageCount'])) {
+            $model->pageCount = $map['PageCount'];
+        }
         if (isset($map['PageNum'])) {
             $model->pageNum = $map['PageNum'];
         }
@@ -101,18 +113,6 @@ class DescribePurchasedDevicesResponseBody extends Model
         }
         if (isset($map['TotalCount'])) {
             $model->totalCount = $map['TotalCount'];
-        }
-        if (isset($map['PageCount'])) {
-            $model->pageCount = $map['PageCount'];
-        }
-        if (isset($map['Devices'])) {
-            if (!empty($map['Devices'])) {
-                $model->devices = [];
-                $n              = 0;
-                foreach ($map['Devices'] as $item) {
-                    $model->devices[$n++] = null !== $item ? devices::fromMap($item) : $item;
-                }
-            }
         }
 
         return $model;

@@ -12,17 +12,17 @@ class DescribeVsStreamsPublishListResponseBody extends Model
     /**
      * @var int
      */
-    public $totalPage;
-
-    /**
-     * @var int
-     */
     public $pageNum;
 
     /**
      * @var int
      */
     public $pageSize;
+
+    /**
+     * @var publishInfo
+     */
+    public $publishInfo;
 
     /**
      * @var string
@@ -35,16 +35,16 @@ class DescribeVsStreamsPublishListResponseBody extends Model
     public $totalNum;
 
     /**
-     * @var publishInfo
+     * @var int
      */
-    public $publishInfo;
+    public $totalPage;
     protected $_name = [
-        'totalPage'   => 'TotalPage',
         'pageNum'     => 'PageNum',
         'pageSize'    => 'PageSize',
+        'publishInfo' => 'PublishInfo',
         'requestId'   => 'RequestId',
         'totalNum'    => 'TotalNum',
-        'publishInfo' => 'PublishInfo',
+        'totalPage'   => 'TotalPage',
     ];
 
     public function validate()
@@ -54,14 +54,14 @@ class DescribeVsStreamsPublishListResponseBody extends Model
     public function toMap()
     {
         $res = [];
-        if (null !== $this->totalPage) {
-            $res['TotalPage'] = $this->totalPage;
-        }
         if (null !== $this->pageNum) {
             $res['PageNum'] = $this->pageNum;
         }
         if (null !== $this->pageSize) {
             $res['PageSize'] = $this->pageSize;
+        }
+        if (null !== $this->publishInfo) {
+            $res['PublishInfo'] = null !== $this->publishInfo ? $this->publishInfo->toMap() : null;
         }
         if (null !== $this->requestId) {
             $res['RequestId'] = $this->requestId;
@@ -69,8 +69,8 @@ class DescribeVsStreamsPublishListResponseBody extends Model
         if (null !== $this->totalNum) {
             $res['TotalNum'] = $this->totalNum;
         }
-        if (null !== $this->publishInfo) {
-            $res['PublishInfo'] = null !== $this->publishInfo ? $this->publishInfo->toMap() : null;
+        if (null !== $this->totalPage) {
+            $res['TotalPage'] = $this->totalPage;
         }
 
         return $res;
@@ -84,14 +84,14 @@ class DescribeVsStreamsPublishListResponseBody extends Model
     public static function fromMap($map = [])
     {
         $model = new self();
-        if (isset($map['TotalPage'])) {
-            $model->totalPage = $map['TotalPage'];
-        }
         if (isset($map['PageNum'])) {
             $model->pageNum = $map['PageNum'];
         }
         if (isset($map['PageSize'])) {
             $model->pageSize = $map['PageSize'];
+        }
+        if (isset($map['PublishInfo'])) {
+            $model->publishInfo = publishInfo::fromMap($map['PublishInfo']);
         }
         if (isset($map['RequestId'])) {
             $model->requestId = $map['RequestId'];
@@ -99,8 +99,8 @@ class DescribeVsStreamsPublishListResponseBody extends Model
         if (isset($map['TotalNum'])) {
             $model->totalNum = $map['TotalNum'];
         }
-        if (isset($map['PublishInfo'])) {
-            $model->publishInfo = publishInfo::fromMap($map['PublishInfo']);
+        if (isset($map['TotalPage'])) {
+            $model->totalPage = $map['TotalPage'];
         }
 
         return $model;

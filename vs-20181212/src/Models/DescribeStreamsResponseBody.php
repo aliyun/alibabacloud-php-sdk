@@ -12,6 +12,11 @@ class DescribeStreamsResponseBody extends Model
     /**
      * @var int
      */
+    public $pageCount;
+
+    /**
+     * @var int
+     */
     public $pageNum;
 
     /**
@@ -25,26 +30,21 @@ class DescribeStreamsResponseBody extends Model
     public $requestId;
 
     /**
-     * @var int
-     */
-    public $totalCount;
-
-    /**
-     * @var int
-     */
-    public $pageCount;
-
-    /**
      * @var streams[]
      */
     public $streams;
+
+    /**
+     * @var int
+     */
+    public $totalCount;
     protected $_name = [
+        'pageCount'  => 'PageCount',
         'pageNum'    => 'PageNum',
         'pageSize'   => 'PageSize',
         'requestId'  => 'RequestId',
-        'totalCount' => 'TotalCount',
-        'pageCount'  => 'PageCount',
         'streams'    => 'Streams',
+        'totalCount' => 'TotalCount',
     ];
 
     public function validate()
@@ -54,6 +54,9 @@ class DescribeStreamsResponseBody extends Model
     public function toMap()
     {
         $res = [];
+        if (null !== $this->pageCount) {
+            $res['PageCount'] = $this->pageCount;
+        }
         if (null !== $this->pageNum) {
             $res['PageNum'] = $this->pageNum;
         }
@@ -63,12 +66,6 @@ class DescribeStreamsResponseBody extends Model
         if (null !== $this->requestId) {
             $res['RequestId'] = $this->requestId;
         }
-        if (null !== $this->totalCount) {
-            $res['TotalCount'] = $this->totalCount;
-        }
-        if (null !== $this->pageCount) {
-            $res['PageCount'] = $this->pageCount;
-        }
         if (null !== $this->streams) {
             $res['Streams'] = [];
             if (null !== $this->streams && \is_array($this->streams)) {
@@ -77,6 +74,9 @@ class DescribeStreamsResponseBody extends Model
                     $res['Streams'][$n++] = null !== $item ? $item->toMap() : $item;
                 }
             }
+        }
+        if (null !== $this->totalCount) {
+            $res['TotalCount'] = $this->totalCount;
         }
 
         return $res;
@@ -90,6 +90,9 @@ class DescribeStreamsResponseBody extends Model
     public static function fromMap($map = [])
     {
         $model = new self();
+        if (isset($map['PageCount'])) {
+            $model->pageCount = $map['PageCount'];
+        }
         if (isset($map['PageNum'])) {
             $model->pageNum = $map['PageNum'];
         }
@@ -99,12 +102,6 @@ class DescribeStreamsResponseBody extends Model
         if (isset($map['RequestId'])) {
             $model->requestId = $map['RequestId'];
         }
-        if (isset($map['TotalCount'])) {
-            $model->totalCount = $map['TotalCount'];
-        }
-        if (isset($map['PageCount'])) {
-            $model->pageCount = $map['PageCount'];
-        }
         if (isset($map['Streams'])) {
             if (!empty($map['Streams'])) {
                 $model->streams = [];
@@ -113,6 +110,9 @@ class DescribeStreamsResponseBody extends Model
                     $model->streams[$n++] = null !== $item ? streams::fromMap($item) : $item;
                 }
             }
+        }
+        if (isset($map['TotalCount'])) {
+            $model->totalCount = $map['TotalCount'];
         }
 
         return $model;

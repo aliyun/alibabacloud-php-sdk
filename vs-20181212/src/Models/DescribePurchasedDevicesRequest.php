@@ -9,9 +9,9 @@ use AlibabaCloud\Tea\Model;
 class DescribePurchasedDevicesRequest extends Model
 {
     /**
-     * @var int
+     * @var string
      */
-    public $ownerId;
+    public $groupId;
 
     /**
      * @var string
@@ -24,24 +24,19 @@ class DescribePurchasedDevicesRequest extends Model
     public $name;
 
     /**
-     * @var string
+     * @var int
      */
-    public $type;
+    public $ownerId;
 
     /**
-     * @var string
+     * @var int
      */
-    public $subType;
+    public $pageNum;
 
     /**
-     * @var string
+     * @var int
      */
-    public $groupId;
-
-    /**
-     * @var string
-     */
-    public $vendor;
+    public $pageSize;
 
     /**
      * @var string
@@ -54,26 +49,31 @@ class DescribePurchasedDevicesRequest extends Model
     public $sortDirection;
 
     /**
-     * @var int
+     * @var string
      */
-    public $pageSize;
+    public $subType;
 
     /**
-     * @var int
+     * @var string
      */
-    public $pageNum;
+    public $type;
+
+    /**
+     * @var string
+     */
+    public $vendor;
     protected $_name = [
-        'ownerId'       => 'OwnerId',
+        'groupId'       => 'GroupId',
         'id'            => 'Id',
         'name'          => 'Name',
-        'type'          => 'Type',
-        'subType'       => 'SubType',
-        'groupId'       => 'GroupId',
-        'vendor'        => 'Vendor',
+        'ownerId'       => 'OwnerId',
+        'pageNum'       => 'PageNum',
+        'pageSize'      => 'PageSize',
         'sortBy'        => 'SortBy',
         'sortDirection' => 'SortDirection',
-        'pageSize'      => 'PageSize',
-        'pageNum'       => 'PageNum',
+        'subType'       => 'SubType',
+        'type'          => 'Type',
+        'vendor'        => 'Vendor',
     ];
 
     public function validate()
@@ -83,8 +83,8 @@ class DescribePurchasedDevicesRequest extends Model
     public function toMap()
     {
         $res = [];
-        if (null !== $this->ownerId) {
-            $res['OwnerId'] = $this->ownerId;
+        if (null !== $this->groupId) {
+            $res['GroupId'] = $this->groupId;
         }
         if (null !== $this->id) {
             $res['Id'] = $this->id;
@@ -92,17 +92,14 @@ class DescribePurchasedDevicesRequest extends Model
         if (null !== $this->name) {
             $res['Name'] = $this->name;
         }
-        if (null !== $this->type) {
-            $res['Type'] = $this->type;
+        if (null !== $this->ownerId) {
+            $res['OwnerId'] = $this->ownerId;
         }
-        if (null !== $this->subType) {
-            $res['SubType'] = $this->subType;
+        if (null !== $this->pageNum) {
+            $res['PageNum'] = $this->pageNum;
         }
-        if (null !== $this->groupId) {
-            $res['GroupId'] = $this->groupId;
-        }
-        if (null !== $this->vendor) {
-            $res['Vendor'] = $this->vendor;
+        if (null !== $this->pageSize) {
+            $res['PageSize'] = $this->pageSize;
         }
         if (null !== $this->sortBy) {
             $res['SortBy'] = $this->sortBy;
@@ -110,11 +107,14 @@ class DescribePurchasedDevicesRequest extends Model
         if (null !== $this->sortDirection) {
             $res['SortDirection'] = $this->sortDirection;
         }
-        if (null !== $this->pageSize) {
-            $res['PageSize'] = $this->pageSize;
+        if (null !== $this->subType) {
+            $res['SubType'] = $this->subType;
         }
-        if (null !== $this->pageNum) {
-            $res['PageNum'] = $this->pageNum;
+        if (null !== $this->type) {
+            $res['Type'] = $this->type;
+        }
+        if (null !== $this->vendor) {
+            $res['Vendor'] = $this->vendor;
         }
 
         return $res;
@@ -128,8 +128,8 @@ class DescribePurchasedDevicesRequest extends Model
     public static function fromMap($map = [])
     {
         $model = new self();
-        if (isset($map['OwnerId'])) {
-            $model->ownerId = $map['OwnerId'];
+        if (isset($map['GroupId'])) {
+            $model->groupId = $map['GroupId'];
         }
         if (isset($map['Id'])) {
             $model->id = $map['Id'];
@@ -137,17 +137,14 @@ class DescribePurchasedDevicesRequest extends Model
         if (isset($map['Name'])) {
             $model->name = $map['Name'];
         }
-        if (isset($map['Type'])) {
-            $model->type = $map['Type'];
+        if (isset($map['OwnerId'])) {
+            $model->ownerId = $map['OwnerId'];
         }
-        if (isset($map['SubType'])) {
-            $model->subType = $map['SubType'];
+        if (isset($map['PageNum'])) {
+            $model->pageNum = $map['PageNum'];
         }
-        if (isset($map['GroupId'])) {
-            $model->groupId = $map['GroupId'];
-        }
-        if (isset($map['Vendor'])) {
-            $model->vendor = $map['Vendor'];
+        if (isset($map['PageSize'])) {
+            $model->pageSize = $map['PageSize'];
         }
         if (isset($map['SortBy'])) {
             $model->sortBy = $map['SortBy'];
@@ -155,11 +152,14 @@ class DescribePurchasedDevicesRequest extends Model
         if (isset($map['SortDirection'])) {
             $model->sortDirection = $map['SortDirection'];
         }
-        if (isset($map['PageSize'])) {
-            $model->pageSize = $map['PageSize'];
+        if (isset($map['SubType'])) {
+            $model->subType = $map['SubType'];
         }
-        if (isset($map['PageNum'])) {
-            $model->pageNum = $map['PageNum'];
+        if (isset($map['Type'])) {
+            $model->type = $map['Type'];
+        }
+        if (isset($map['Vendor'])) {
+            $model->vendor = $map['Vendor'];
         }
 
         return $model;

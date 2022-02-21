@@ -9,16 +9,6 @@ use AlibabaCloud\Tea\Model;
 class ForbidVsStreamRequest extends Model
 {
     /**
-     * @var int
-     */
-    public $ownerId;
-
-    /**
-     * @var string
-     */
-    public $domainName;
-
-    /**
      * @var string
      */
     public $appName;
@@ -26,7 +16,12 @@ class ForbidVsStreamRequest extends Model
     /**
      * @var string
      */
-    public $streamName;
+    public $controlStreamAction;
+
+    /**
+     * @var string
+     */
+    public $domainName;
 
     /**
      * @var string
@@ -39,23 +34,28 @@ class ForbidVsStreamRequest extends Model
     public $oneshot;
 
     /**
-     * @var string
+     * @var int
      */
-    public $controlStreamAction;
+    public $ownerId;
 
     /**
      * @var string
      */
     public $resumeTime;
+
+    /**
+     * @var string
+     */
+    public $streamName;
     protected $_name = [
-        'ownerId'             => 'OwnerId',
-        'domainName'          => 'DomainName',
         'appName'             => 'AppName',
-        'streamName'          => 'StreamName',
+        'controlStreamAction' => 'ControlStreamAction',
+        'domainName'          => 'DomainName',
         'liveStreamType'      => 'LiveStreamType',
         'oneshot'             => 'Oneshot',
-        'controlStreamAction' => 'ControlStreamAction',
+        'ownerId'             => 'OwnerId',
         'resumeTime'          => 'ResumeTime',
+        'streamName'          => 'StreamName',
     ];
 
     public function validate()
@@ -65,17 +65,14 @@ class ForbidVsStreamRequest extends Model
     public function toMap()
     {
         $res = [];
-        if (null !== $this->ownerId) {
-            $res['OwnerId'] = $this->ownerId;
-        }
-        if (null !== $this->domainName) {
-            $res['DomainName'] = $this->domainName;
-        }
         if (null !== $this->appName) {
             $res['AppName'] = $this->appName;
         }
-        if (null !== $this->streamName) {
-            $res['StreamName'] = $this->streamName;
+        if (null !== $this->controlStreamAction) {
+            $res['ControlStreamAction'] = $this->controlStreamAction;
+        }
+        if (null !== $this->domainName) {
+            $res['DomainName'] = $this->domainName;
         }
         if (null !== $this->liveStreamType) {
             $res['LiveStreamType'] = $this->liveStreamType;
@@ -83,11 +80,14 @@ class ForbidVsStreamRequest extends Model
         if (null !== $this->oneshot) {
             $res['Oneshot'] = $this->oneshot;
         }
-        if (null !== $this->controlStreamAction) {
-            $res['ControlStreamAction'] = $this->controlStreamAction;
+        if (null !== $this->ownerId) {
+            $res['OwnerId'] = $this->ownerId;
         }
         if (null !== $this->resumeTime) {
             $res['ResumeTime'] = $this->resumeTime;
+        }
+        if (null !== $this->streamName) {
+            $res['StreamName'] = $this->streamName;
         }
 
         return $res;
@@ -101,17 +101,14 @@ class ForbidVsStreamRequest extends Model
     public static function fromMap($map = [])
     {
         $model = new self();
-        if (isset($map['OwnerId'])) {
-            $model->ownerId = $map['OwnerId'];
-        }
-        if (isset($map['DomainName'])) {
-            $model->domainName = $map['DomainName'];
-        }
         if (isset($map['AppName'])) {
             $model->appName = $map['AppName'];
         }
-        if (isset($map['StreamName'])) {
-            $model->streamName = $map['StreamName'];
+        if (isset($map['ControlStreamAction'])) {
+            $model->controlStreamAction = $map['ControlStreamAction'];
+        }
+        if (isset($map['DomainName'])) {
+            $model->domainName = $map['DomainName'];
         }
         if (isset($map['LiveStreamType'])) {
             $model->liveStreamType = $map['LiveStreamType'];
@@ -119,11 +116,14 @@ class ForbidVsStreamRequest extends Model
         if (isset($map['Oneshot'])) {
             $model->oneshot = $map['Oneshot'];
         }
-        if (isset($map['ControlStreamAction'])) {
-            $model->controlStreamAction = $map['ControlStreamAction'];
+        if (isset($map['OwnerId'])) {
+            $model->ownerId = $map['OwnerId'];
         }
         if (isset($map['ResumeTime'])) {
             $model->resumeTime = $map['ResumeTime'];
+        }
+        if (isset($map['StreamName'])) {
+            $model->streamName = $map['StreamName'];
         }
 
         return $model;

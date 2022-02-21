@@ -9,14 +9,24 @@ use AlibabaCloud\Tea\Model;
 class DescribeParentPlatformDevicesRequest extends Model
 {
     /**
+     * @var string
+     */
+    public $id;
+
+    /**
      * @var int
      */
     public $ownerId;
 
     /**
-     * @var string
+     * @var int
      */
-    public $id;
+    public $pageNum;
+
+    /**
+     * @var int
+     */
+    public $pageSize;
 
     /**
      * @var string
@@ -27,23 +37,13 @@ class DescribeParentPlatformDevicesRequest extends Model
      * @var string
      */
     public $sortDirection;
-
-    /**
-     * @var int
-     */
-    public $pageSize;
-
-    /**
-     * @var int
-     */
-    public $pageNum;
     protected $_name = [
-        'ownerId'       => 'OwnerId',
         'id'            => 'Id',
+        'ownerId'       => 'OwnerId',
+        'pageNum'       => 'PageNum',
+        'pageSize'      => 'PageSize',
         'sortBy'        => 'SortBy',
         'sortDirection' => 'SortDirection',
-        'pageSize'      => 'PageSize',
-        'pageNum'       => 'PageNum',
     ];
 
     public function validate()
@@ -53,23 +53,23 @@ class DescribeParentPlatformDevicesRequest extends Model
     public function toMap()
     {
         $res = [];
+        if (null !== $this->id) {
+            $res['Id'] = $this->id;
+        }
         if (null !== $this->ownerId) {
             $res['OwnerId'] = $this->ownerId;
         }
-        if (null !== $this->id) {
-            $res['Id'] = $this->id;
+        if (null !== $this->pageNum) {
+            $res['PageNum'] = $this->pageNum;
+        }
+        if (null !== $this->pageSize) {
+            $res['PageSize'] = $this->pageSize;
         }
         if (null !== $this->sortBy) {
             $res['SortBy'] = $this->sortBy;
         }
         if (null !== $this->sortDirection) {
             $res['SortDirection'] = $this->sortDirection;
-        }
-        if (null !== $this->pageSize) {
-            $res['PageSize'] = $this->pageSize;
-        }
-        if (null !== $this->pageNum) {
-            $res['PageNum'] = $this->pageNum;
         }
 
         return $res;
@@ -83,23 +83,23 @@ class DescribeParentPlatformDevicesRequest extends Model
     public static function fromMap($map = [])
     {
         $model = new self();
+        if (isset($map['Id'])) {
+            $model->id = $map['Id'];
+        }
         if (isset($map['OwnerId'])) {
             $model->ownerId = $map['OwnerId'];
         }
-        if (isset($map['Id'])) {
-            $model->id = $map['Id'];
+        if (isset($map['PageNum'])) {
+            $model->pageNum = $map['PageNum'];
+        }
+        if (isset($map['PageSize'])) {
+            $model->pageSize = $map['PageSize'];
         }
         if (isset($map['SortBy'])) {
             $model->sortBy = $map['SortBy'];
         }
         if (isset($map['SortDirection'])) {
             $model->sortDirection = $map['SortDirection'];
-        }
-        if (isset($map['PageSize'])) {
-            $model->pageSize = $map['PageSize'];
-        }
-        if (isset($map['PageNum'])) {
-            $model->pageNum = $map['PageNum'];
         }
 
         return $model;

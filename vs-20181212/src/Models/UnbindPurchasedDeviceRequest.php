@@ -9,17 +9,17 @@ use AlibabaCloud\Tea\Model;
 class UnbindPurchasedDeviceRequest extends Model
 {
     /**
-     * @var int
-     */
-    public $ownerId;
-
-    /**
      * @var string
      */
     public $deviceId;
+
+    /**
+     * @var int
+     */
+    public $ownerId;
     protected $_name = [
-        'ownerId'  => 'OwnerId',
         'deviceId' => 'DeviceId',
+        'ownerId'  => 'OwnerId',
     ];
 
     public function validate()
@@ -29,11 +29,11 @@ class UnbindPurchasedDeviceRequest extends Model
     public function toMap()
     {
         $res = [];
-        if (null !== $this->ownerId) {
-            $res['OwnerId'] = $this->ownerId;
-        }
         if (null !== $this->deviceId) {
             $res['DeviceId'] = $this->deviceId;
+        }
+        if (null !== $this->ownerId) {
+            $res['OwnerId'] = $this->ownerId;
         }
 
         return $res;
@@ -47,11 +47,11 @@ class UnbindPurchasedDeviceRequest extends Model
     public static function fromMap($map = [])
     {
         $model = new self();
-        if (isset($map['OwnerId'])) {
-            $model->ownerId = $map['OwnerId'];
-        }
         if (isset($map['DeviceId'])) {
             $model->deviceId = $map['DeviceId'];
+        }
+        if (isset($map['OwnerId'])) {
+            $model->ownerId = $map['OwnerId'];
         }
 
         return $model;

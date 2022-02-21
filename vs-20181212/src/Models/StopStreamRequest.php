@@ -9,11 +9,6 @@ use AlibabaCloud\Tea\Model;
 class StopStreamRequest extends Model
 {
     /**
-     * @var int
-     */
-    public $ownerId;
-
-    /**
      * @var string
      */
     public $id;
@@ -24,13 +19,18 @@ class StopStreamRequest extends Model
     public $name;
 
     /**
+     * @var int
+     */
+    public $ownerId;
+
+    /**
      * @var string
      */
     public $startTime;
     protected $_name = [
-        'ownerId'   => 'OwnerId',
         'id'        => 'Id',
         'name'      => 'Name',
+        'ownerId'   => 'OwnerId',
         'startTime' => 'StartTime',
     ];
 
@@ -41,14 +41,14 @@ class StopStreamRequest extends Model
     public function toMap()
     {
         $res = [];
-        if (null !== $this->ownerId) {
-            $res['OwnerId'] = $this->ownerId;
-        }
         if (null !== $this->id) {
             $res['Id'] = $this->id;
         }
         if (null !== $this->name) {
             $res['Name'] = $this->name;
+        }
+        if (null !== $this->ownerId) {
+            $res['OwnerId'] = $this->ownerId;
         }
         if (null !== $this->startTime) {
             $res['StartTime'] = $this->startTime;
@@ -65,14 +65,14 @@ class StopStreamRequest extends Model
     public static function fromMap($map = [])
     {
         $model = new self();
-        if (isset($map['OwnerId'])) {
-            $model->ownerId = $map['OwnerId'];
-        }
         if (isset($map['Id'])) {
             $model->id = $map['Id'];
         }
         if (isset($map['Name'])) {
             $model->name = $map['Name'];
+        }
+        if (isset($map['OwnerId'])) {
+            $model->ownerId = $map['OwnerId'];
         }
         if (isset($map['StartTime'])) {
             $model->startTime = $map['StartTime'];

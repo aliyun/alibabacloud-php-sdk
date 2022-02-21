@@ -9,9 +9,9 @@ use AlibabaCloud\Tea\Model;
 class ModifyDirectoryRequest extends Model
 {
     /**
-     * @var int
+     * @var string
      */
-    public $ownerId;
+    public $description;
 
     /**
      * @var string
@@ -24,14 +24,14 @@ class ModifyDirectoryRequest extends Model
     public $name;
 
     /**
-     * @var string
+     * @var int
      */
-    public $description;
+    public $ownerId;
     protected $_name = [
-        'ownerId'     => 'OwnerId',
+        'description' => 'Description',
         'id'          => 'Id',
         'name'        => 'Name',
-        'description' => 'Description',
+        'ownerId'     => 'OwnerId',
     ];
 
     public function validate()
@@ -41,8 +41,8 @@ class ModifyDirectoryRequest extends Model
     public function toMap()
     {
         $res = [];
-        if (null !== $this->ownerId) {
-            $res['OwnerId'] = $this->ownerId;
+        if (null !== $this->description) {
+            $res['Description'] = $this->description;
         }
         if (null !== $this->id) {
             $res['Id'] = $this->id;
@@ -50,8 +50,8 @@ class ModifyDirectoryRequest extends Model
         if (null !== $this->name) {
             $res['Name'] = $this->name;
         }
-        if (null !== $this->description) {
-            $res['Description'] = $this->description;
+        if (null !== $this->ownerId) {
+            $res['OwnerId'] = $this->ownerId;
         }
 
         return $res;
@@ -65,8 +65,8 @@ class ModifyDirectoryRequest extends Model
     public static function fromMap($map = [])
     {
         $model = new self();
-        if (isset($map['OwnerId'])) {
-            $model->ownerId = $map['OwnerId'];
+        if (isset($map['Description'])) {
+            $model->description = $map['Description'];
         }
         if (isset($map['Id'])) {
             $model->id = $map['Id'];
@@ -74,8 +74,8 @@ class ModifyDirectoryRequest extends Model
         if (isset($map['Name'])) {
             $model->name = $map['Name'];
         }
-        if (isset($map['Description'])) {
-            $model->description = $map['Description'];
+        if (isset($map['OwnerId'])) {
+            $model->ownerId = $map['OwnerId'];
         }
 
         return $model;

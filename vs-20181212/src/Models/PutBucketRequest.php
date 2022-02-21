@@ -9,9 +9,9 @@ use AlibabaCloud\Tea\Model;
 class PutBucketRequest extends Model
 {
     /**
-     * @var int
+     * @var string
      */
-    public $ownerId;
+    public $bucketAcl;
 
     /**
      * @var string
@@ -21,12 +21,12 @@ class PutBucketRequest extends Model
     /**
      * @var string
      */
-    public $endpoint;
+    public $comment;
 
     /**
      * @var string
      */
-    public $comment;
+    public $dataRedundancyType;
 
     /**
      * @var string
@@ -36,12 +36,12 @@ class PutBucketRequest extends Model
     /**
      * @var string
      */
-    public $bucketAcl;
+    public $endpoint;
 
     /**
-     * @var string
+     * @var int
      */
-    public $storageClass;
+    public $ownerId;
 
     /**
      * @var string
@@ -51,17 +51,17 @@ class PutBucketRequest extends Model
     /**
      * @var string
      */
-    public $dataRedundancyType;
+    public $storageClass;
     protected $_name = [
-        'ownerId'            => 'OwnerId',
-        'bucketName'         => 'BucketName',
-        'endpoint'           => 'Endpoint',
-        'comment'            => 'Comment',
-        'dispatcherType'     => 'DispatcherType',
         'bucketAcl'          => 'BucketAcl',
-        'storageClass'       => 'StorageClass',
-        'resourceType'       => 'ResourceType',
+        'bucketName'         => 'BucketName',
+        'comment'            => 'Comment',
         'dataRedundancyType' => 'DataRedundancyType',
+        'dispatcherType'     => 'DispatcherType',
+        'endpoint'           => 'Endpoint',
+        'ownerId'            => 'OwnerId',
+        'resourceType'       => 'ResourceType',
+        'storageClass'       => 'StorageClass',
     ];
 
     public function validate()
@@ -71,32 +71,32 @@ class PutBucketRequest extends Model
     public function toMap()
     {
         $res = [];
-        if (null !== $this->ownerId) {
-            $res['OwnerId'] = $this->ownerId;
+        if (null !== $this->bucketAcl) {
+            $res['BucketAcl'] = $this->bucketAcl;
         }
         if (null !== $this->bucketName) {
             $res['BucketName'] = $this->bucketName;
         }
-        if (null !== $this->endpoint) {
-            $res['Endpoint'] = $this->endpoint;
-        }
         if (null !== $this->comment) {
             $res['Comment'] = $this->comment;
+        }
+        if (null !== $this->dataRedundancyType) {
+            $res['DataRedundancyType'] = $this->dataRedundancyType;
         }
         if (null !== $this->dispatcherType) {
             $res['DispatcherType'] = $this->dispatcherType;
         }
-        if (null !== $this->bucketAcl) {
-            $res['BucketAcl'] = $this->bucketAcl;
+        if (null !== $this->endpoint) {
+            $res['Endpoint'] = $this->endpoint;
         }
-        if (null !== $this->storageClass) {
-            $res['StorageClass'] = $this->storageClass;
+        if (null !== $this->ownerId) {
+            $res['OwnerId'] = $this->ownerId;
         }
         if (null !== $this->resourceType) {
             $res['ResourceType'] = $this->resourceType;
         }
-        if (null !== $this->dataRedundancyType) {
-            $res['DataRedundancyType'] = $this->dataRedundancyType;
+        if (null !== $this->storageClass) {
+            $res['StorageClass'] = $this->storageClass;
         }
 
         return $res;
@@ -110,32 +110,32 @@ class PutBucketRequest extends Model
     public static function fromMap($map = [])
     {
         $model = new self();
-        if (isset($map['OwnerId'])) {
-            $model->ownerId = $map['OwnerId'];
+        if (isset($map['BucketAcl'])) {
+            $model->bucketAcl = $map['BucketAcl'];
         }
         if (isset($map['BucketName'])) {
             $model->bucketName = $map['BucketName'];
         }
-        if (isset($map['Endpoint'])) {
-            $model->endpoint = $map['Endpoint'];
-        }
         if (isset($map['Comment'])) {
             $model->comment = $map['Comment'];
+        }
+        if (isset($map['DataRedundancyType'])) {
+            $model->dataRedundancyType = $map['DataRedundancyType'];
         }
         if (isset($map['DispatcherType'])) {
             $model->dispatcherType = $map['DispatcherType'];
         }
-        if (isset($map['BucketAcl'])) {
-            $model->bucketAcl = $map['BucketAcl'];
+        if (isset($map['Endpoint'])) {
+            $model->endpoint = $map['Endpoint'];
         }
-        if (isset($map['StorageClass'])) {
-            $model->storageClass = $map['StorageClass'];
+        if (isset($map['OwnerId'])) {
+            $model->ownerId = $map['OwnerId'];
         }
         if (isset($map['ResourceType'])) {
             $model->resourceType = $map['ResourceType'];
         }
-        if (isset($map['DataRedundancyType'])) {
-            $model->dataRedundancyType = $map['DataRedundancyType'];
+        if (isset($map['StorageClass'])) {
+            $model->storageClass = $map['StorageClass'];
         }
 
         return $model;

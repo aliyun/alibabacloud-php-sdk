@@ -11,17 +11,7 @@ class DescribeVodStreamURLResponseBody extends Model
     /**
      * @var string
      */
-    public $url;
-
-    /**
-     * @var string
-     */
     public $outProtocol;
-
-    /**
-     * @var string
-     */
-    public $requestId;
 
     /**
      * @var int
@@ -31,13 +21,23 @@ class DescribeVodStreamURLResponseBody extends Model
     /**
      * @var string
      */
+    public $requestId;
+
+    /**
+     * @var string
+     */
     public $txId;
+
+    /**
+     * @var string
+     */
+    public $url;
     protected $_name = [
-        'url'         => 'Url',
         'outProtocol' => 'OutProtocol',
-        'requestId'   => 'RequestId',
         'port'        => 'Port',
+        'requestId'   => 'RequestId',
         'txId'        => 'TxId',
+        'url'         => 'Url',
     ];
 
     public function validate()
@@ -47,20 +47,20 @@ class DescribeVodStreamURLResponseBody extends Model
     public function toMap()
     {
         $res = [];
-        if (null !== $this->url) {
-            $res['Url'] = $this->url;
-        }
         if (null !== $this->outProtocol) {
             $res['OutProtocol'] = $this->outProtocol;
-        }
-        if (null !== $this->requestId) {
-            $res['RequestId'] = $this->requestId;
         }
         if (null !== $this->port) {
             $res['Port'] = $this->port;
         }
+        if (null !== $this->requestId) {
+            $res['RequestId'] = $this->requestId;
+        }
         if (null !== $this->txId) {
             $res['TxId'] = $this->txId;
+        }
+        if (null !== $this->url) {
+            $res['Url'] = $this->url;
         }
 
         return $res;
@@ -74,20 +74,20 @@ class DescribeVodStreamURLResponseBody extends Model
     public static function fromMap($map = [])
     {
         $model = new self();
-        if (isset($map['Url'])) {
-            $model->url = $map['Url'];
-        }
         if (isset($map['OutProtocol'])) {
             $model->outProtocol = $map['OutProtocol'];
-        }
-        if (isset($map['RequestId'])) {
-            $model->requestId = $map['RequestId'];
         }
         if (isset($map['Port'])) {
             $model->port = $map['Port'];
         }
+        if (isset($map['RequestId'])) {
+            $model->requestId = $map['RequestId'];
+        }
         if (isset($map['TxId'])) {
             $model->txId = $map['TxId'];
+        }
+        if (isset($map['Url'])) {
+            $model->url = $map['Url'];
         }
 
         return $model;

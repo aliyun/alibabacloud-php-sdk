@@ -9,19 +9,14 @@ use AlibabaCloud\Tea\Model;
 class UploadDeviceRecordRequest extends Model
 {
     /**
-     * @var int
-     */
-    public $ownerId;
-
-    /**
      * @var string
      */
     public $deviceId;
 
     /**
-     * @var string
+     * @var int
      */
-    public $streamId;
+    public $ownerId;
 
     /**
      * @var string
@@ -31,7 +26,7 @@ class UploadDeviceRecordRequest extends Model
     /**
      * @var string
      */
-    public $uploadType;
+    public $streamId;
 
     /**
      * @var string
@@ -47,15 +42,20 @@ class UploadDeviceRecordRequest extends Model
      * @var string
      */
     public $uploadParams;
+
+    /**
+     * @var string
+     */
+    public $uploadType;
     protected $_name = [
-        'ownerId'        => 'OwnerId',
         'deviceId'       => 'DeviceId',
-        'streamId'       => 'StreamId',
+        'ownerId'        => 'OwnerId',
         'searchCriteria' => 'SearchCriteria',
-        'uploadType'     => 'UploadType',
+        'streamId'       => 'StreamId',
         'uploadId'       => 'UploadId',
         'uploadMode'     => 'UploadMode',
         'uploadParams'   => 'UploadParams',
+        'uploadType'     => 'UploadType',
     ];
 
     public function validate()
@@ -65,20 +65,17 @@ class UploadDeviceRecordRequest extends Model
     public function toMap()
     {
         $res = [];
-        if (null !== $this->ownerId) {
-            $res['OwnerId'] = $this->ownerId;
-        }
         if (null !== $this->deviceId) {
             $res['DeviceId'] = $this->deviceId;
         }
-        if (null !== $this->streamId) {
-            $res['StreamId'] = $this->streamId;
+        if (null !== $this->ownerId) {
+            $res['OwnerId'] = $this->ownerId;
         }
         if (null !== $this->searchCriteria) {
             $res['SearchCriteria'] = $this->searchCriteria;
         }
-        if (null !== $this->uploadType) {
-            $res['UploadType'] = $this->uploadType;
+        if (null !== $this->streamId) {
+            $res['StreamId'] = $this->streamId;
         }
         if (null !== $this->uploadId) {
             $res['UploadId'] = $this->uploadId;
@@ -88,6 +85,9 @@ class UploadDeviceRecordRequest extends Model
         }
         if (null !== $this->uploadParams) {
             $res['UploadParams'] = $this->uploadParams;
+        }
+        if (null !== $this->uploadType) {
+            $res['UploadType'] = $this->uploadType;
         }
 
         return $res;
@@ -101,20 +101,17 @@ class UploadDeviceRecordRequest extends Model
     public static function fromMap($map = [])
     {
         $model = new self();
-        if (isset($map['OwnerId'])) {
-            $model->ownerId = $map['OwnerId'];
-        }
         if (isset($map['DeviceId'])) {
             $model->deviceId = $map['DeviceId'];
         }
-        if (isset($map['StreamId'])) {
-            $model->streamId = $map['StreamId'];
+        if (isset($map['OwnerId'])) {
+            $model->ownerId = $map['OwnerId'];
         }
         if (isset($map['SearchCriteria'])) {
             $model->searchCriteria = $map['SearchCriteria'];
         }
-        if (isset($map['UploadType'])) {
-            $model->uploadType = $map['UploadType'];
+        if (isset($map['StreamId'])) {
+            $model->streamId = $map['StreamId'];
         }
         if (isset($map['UploadId'])) {
             $model->uploadId = $map['UploadId'];
@@ -124,6 +121,9 @@ class UploadDeviceRecordRequest extends Model
         }
         if (isset($map['UploadParams'])) {
             $model->uploadParams = $map['UploadParams'];
+        }
+        if (isset($map['UploadType'])) {
+            $model->uploadType = $map['UploadType'];
         }
 
         return $model;

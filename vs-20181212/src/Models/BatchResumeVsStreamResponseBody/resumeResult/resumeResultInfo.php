@@ -10,9 +10,9 @@ use AlibabaCloud\Tea\Model;
 class resumeResultInfo extends Model
 {
     /**
-     * @var string
+     * @var channels
      */
-    public $result;
+    public $channels;
 
     /**
      * @var int
@@ -25,14 +25,14 @@ class resumeResultInfo extends Model
     public $detail;
 
     /**
-     * @var channels
+     * @var string
      */
-    public $channels;
+    public $result;
     protected $_name = [
-        'result'   => 'Result',
+        'channels' => 'Channels',
         'count'    => 'Count',
         'detail'   => 'Detail',
-        'channels' => 'Channels',
+        'result'   => 'Result',
     ];
 
     public function validate()
@@ -42,8 +42,8 @@ class resumeResultInfo extends Model
     public function toMap()
     {
         $res = [];
-        if (null !== $this->result) {
-            $res['Result'] = $this->result;
+        if (null !== $this->channels) {
+            $res['Channels'] = null !== $this->channels ? $this->channels->toMap() : null;
         }
         if (null !== $this->count) {
             $res['Count'] = $this->count;
@@ -51,8 +51,8 @@ class resumeResultInfo extends Model
         if (null !== $this->detail) {
             $res['Detail'] = $this->detail;
         }
-        if (null !== $this->channels) {
-            $res['Channels'] = null !== $this->channels ? $this->channels->toMap() : null;
+        if (null !== $this->result) {
+            $res['Result'] = $this->result;
         }
 
         return $res;
@@ -66,8 +66,8 @@ class resumeResultInfo extends Model
     public static function fromMap($map = [])
     {
         $model = new self();
-        if (isset($map['Result'])) {
-            $model->result = $map['Result'];
+        if (isset($map['Channels'])) {
+            $model->channels = channels::fromMap($map['Channels']);
         }
         if (isset($map['Count'])) {
             $model->count = $map['Count'];
@@ -75,8 +75,8 @@ class resumeResultInfo extends Model
         if (isset($map['Detail'])) {
             $model->detail = $map['Detail'];
         }
-        if (isset($map['Channels'])) {
-            $model->channels = channels::fromMap($map['Channels']);
+        if (isset($map['Result'])) {
+            $model->result = $map['Result'];
         }
 
         return $model;

@@ -10,17 +10,17 @@ use AlibabaCloud\Tea\Model;
 class DescribeVsUpPeakPublishStreamDataResponseBody extends Model
 {
     /**
-     * @var string
-     */
-    public $requestId;
-
-    /**
      * @var describeVsUpPeakPublishStreamDatas
      */
     public $describeVsUpPeakPublishStreamDatas;
+
+    /**
+     * @var string
+     */
+    public $requestId;
     protected $_name = [
-        'requestId'                          => 'RequestId',
         'describeVsUpPeakPublishStreamDatas' => 'DescribeVsUpPeakPublishStreamDatas',
+        'requestId'                          => 'RequestId',
     ];
 
     public function validate()
@@ -30,11 +30,11 @@ class DescribeVsUpPeakPublishStreamDataResponseBody extends Model
     public function toMap()
     {
         $res = [];
-        if (null !== $this->requestId) {
-            $res['RequestId'] = $this->requestId;
-        }
         if (null !== $this->describeVsUpPeakPublishStreamDatas) {
             $res['DescribeVsUpPeakPublishStreamDatas'] = null !== $this->describeVsUpPeakPublishStreamDatas ? $this->describeVsUpPeakPublishStreamDatas->toMap() : null;
+        }
+        if (null !== $this->requestId) {
+            $res['RequestId'] = $this->requestId;
         }
 
         return $res;
@@ -48,11 +48,11 @@ class DescribeVsUpPeakPublishStreamDataResponseBody extends Model
     public static function fromMap($map = [])
     {
         $model = new self();
-        if (isset($map['RequestId'])) {
-            $model->requestId = $map['RequestId'];
-        }
         if (isset($map['DescribeVsUpPeakPublishStreamDatas'])) {
             $model->describeVsUpPeakPublishStreamDatas = describeVsUpPeakPublishStreamDatas::fromMap($map['DescribeVsUpPeakPublishStreamDatas']);
+        }
+        if (isset($map['RequestId'])) {
+            $model->requestId = $map['RequestId'];
         }
 
         return $model;

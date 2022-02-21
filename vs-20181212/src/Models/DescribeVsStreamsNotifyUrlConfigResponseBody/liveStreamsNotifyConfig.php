@@ -11,12 +11,12 @@ class liveStreamsNotifyConfig extends Model
     /**
      * @var string
      */
-    public $authType;
+    public $authKey;
 
     /**
      * @var string
      */
-    public $authKey;
+    public $authType;
 
     /**
      * @var string
@@ -28,8 +28,8 @@ class liveStreamsNotifyConfig extends Model
      */
     public $notifyUrl;
     protected $_name = [
-        'authType'   => 'AuthType',
         'authKey'    => 'AuthKey',
+        'authType'   => 'AuthType',
         'domainName' => 'DomainName',
         'notifyUrl'  => 'NotifyUrl',
     ];
@@ -41,11 +41,11 @@ class liveStreamsNotifyConfig extends Model
     public function toMap()
     {
         $res = [];
-        if (null !== $this->authType) {
-            $res['AuthType'] = $this->authType;
-        }
         if (null !== $this->authKey) {
             $res['AuthKey'] = $this->authKey;
+        }
+        if (null !== $this->authType) {
+            $res['AuthType'] = $this->authType;
         }
         if (null !== $this->domainName) {
             $res['DomainName'] = $this->domainName;
@@ -65,11 +65,11 @@ class liveStreamsNotifyConfig extends Model
     public static function fromMap($map = [])
     {
         $model = new self();
-        if (isset($map['AuthType'])) {
-            $model->authType = $map['AuthType'];
-        }
         if (isset($map['AuthKey'])) {
             $model->authKey = $map['AuthKey'];
+        }
+        if (isset($map['AuthType'])) {
+            $model->authType = $map['AuthType'];
         }
         if (isset($map['DomainName'])) {
             $model->domainName = $map['DomainName'];

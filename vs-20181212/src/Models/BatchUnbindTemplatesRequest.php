@@ -9,6 +9,16 @@ use AlibabaCloud\Tea\Model;
 class BatchUnbindTemplatesRequest extends Model
 {
     /**
+     * @var string
+     */
+    public $instanceId;
+
+    /**
+     * @var string
+     */
+    public $instanceType;
+
+    /**
      * @var int
      */
     public $ownerId;
@@ -22,22 +32,12 @@ class BatchUnbindTemplatesRequest extends Model
      * @var string
      */
     public $templateType;
-
-    /**
-     * @var string
-     */
-    public $instanceId;
-
-    /**
-     * @var string
-     */
-    public $instanceType;
     protected $_name = [
+        'instanceId'   => 'InstanceId',
+        'instanceType' => 'InstanceType',
         'ownerId'      => 'OwnerId',
         'templateId'   => 'TemplateId',
         'templateType' => 'TemplateType',
-        'instanceId'   => 'InstanceId',
-        'instanceType' => 'InstanceType',
     ];
 
     public function validate()
@@ -47,6 +47,12 @@ class BatchUnbindTemplatesRequest extends Model
     public function toMap()
     {
         $res = [];
+        if (null !== $this->instanceId) {
+            $res['InstanceId'] = $this->instanceId;
+        }
+        if (null !== $this->instanceType) {
+            $res['InstanceType'] = $this->instanceType;
+        }
         if (null !== $this->ownerId) {
             $res['OwnerId'] = $this->ownerId;
         }
@@ -55,12 +61,6 @@ class BatchUnbindTemplatesRequest extends Model
         }
         if (null !== $this->templateType) {
             $res['TemplateType'] = $this->templateType;
-        }
-        if (null !== $this->instanceId) {
-            $res['InstanceId'] = $this->instanceId;
-        }
-        if (null !== $this->instanceType) {
-            $res['InstanceType'] = $this->instanceType;
         }
 
         return $res;
@@ -74,6 +74,12 @@ class BatchUnbindTemplatesRequest extends Model
     public static function fromMap($map = [])
     {
         $model = new self();
+        if (isset($map['InstanceId'])) {
+            $model->instanceId = $map['InstanceId'];
+        }
+        if (isset($map['InstanceType'])) {
+            $model->instanceType = $map['InstanceType'];
+        }
         if (isset($map['OwnerId'])) {
             $model->ownerId = $map['OwnerId'];
         }
@@ -82,12 +88,6 @@ class BatchUnbindTemplatesRequest extends Model
         }
         if (isset($map['TemplateType'])) {
             $model->templateType = $map['TemplateType'];
-        }
-        if (isset($map['InstanceId'])) {
-            $model->instanceId = $map['InstanceId'];
-        }
-        if (isset($map['InstanceType'])) {
-            $model->instanceType = $map['InstanceType'];
         }
 
         return $model;

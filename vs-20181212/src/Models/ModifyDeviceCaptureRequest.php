@@ -9,11 +9,6 @@ use AlibabaCloud\Tea\Model;
 class ModifyDeviceCaptureRequest extends Model
 {
     /**
-     * @var int
-     */
-    public $ownerId;
-
-    /**
      * @var string
      */
     public $id;
@@ -26,11 +21,16 @@ class ModifyDeviceCaptureRequest extends Model
     /**
      * @var int
      */
+    public $ownerId;
+
+    /**
+     * @var int
+     */
     public $video;
     protected $_name = [
-        'ownerId' => 'OwnerId',
         'id'      => 'Id',
         'image'   => 'Image',
+        'ownerId' => 'OwnerId',
         'video'   => 'Video',
     ];
 
@@ -41,14 +41,14 @@ class ModifyDeviceCaptureRequest extends Model
     public function toMap()
     {
         $res = [];
-        if (null !== $this->ownerId) {
-            $res['OwnerId'] = $this->ownerId;
-        }
         if (null !== $this->id) {
             $res['Id'] = $this->id;
         }
         if (null !== $this->image) {
             $res['Image'] = $this->image;
+        }
+        if (null !== $this->ownerId) {
+            $res['OwnerId'] = $this->ownerId;
         }
         if (null !== $this->video) {
             $res['Video'] = $this->video;
@@ -65,14 +65,14 @@ class ModifyDeviceCaptureRequest extends Model
     public static function fromMap($map = [])
     {
         $model = new self();
-        if (isset($map['OwnerId'])) {
-            $model->ownerId = $map['OwnerId'];
-        }
         if (isset($map['Id'])) {
             $model->id = $map['Id'];
         }
         if (isset($map['Image'])) {
             $model->image = $map['Image'];
+        }
+        if (isset($map['OwnerId'])) {
+            $model->ownerId = $map['OwnerId'];
         }
         if (isset($map['Video'])) {
             $model->video = $map['Video'];

@@ -9,11 +9,6 @@ use AlibabaCloud\Tea\Model;
 class CreateDeviceSnapshotRequest extends Model
 {
     /**
-     * @var int
-     */
-    public $ownerId;
-
-    /**
      * @var string
      */
     public $deviceId;
@@ -21,23 +16,28 @@ class CreateDeviceSnapshotRequest extends Model
     /**
      * @var string
      */
-    public $streamId;
+    public $mode;
 
     /**
-     * @var string
+     * @var int
      */
-    public $mode;
+    public $ownerId;
 
     /**
      * @var string
      */
     public $snapshotConfig;
+
+    /**
+     * @var string
+     */
+    public $streamId;
     protected $_name = [
-        'ownerId'        => 'OwnerId',
         'deviceId'       => 'DeviceId',
-        'streamId'       => 'StreamId',
         'mode'           => 'Mode',
+        'ownerId'        => 'OwnerId',
         'snapshotConfig' => 'SnapshotConfig',
+        'streamId'       => 'StreamId',
     ];
 
     public function validate()
@@ -47,20 +47,20 @@ class CreateDeviceSnapshotRequest extends Model
     public function toMap()
     {
         $res = [];
-        if (null !== $this->ownerId) {
-            $res['OwnerId'] = $this->ownerId;
-        }
         if (null !== $this->deviceId) {
             $res['DeviceId'] = $this->deviceId;
-        }
-        if (null !== $this->streamId) {
-            $res['StreamId'] = $this->streamId;
         }
         if (null !== $this->mode) {
             $res['Mode'] = $this->mode;
         }
+        if (null !== $this->ownerId) {
+            $res['OwnerId'] = $this->ownerId;
+        }
         if (null !== $this->snapshotConfig) {
             $res['SnapshotConfig'] = $this->snapshotConfig;
+        }
+        if (null !== $this->streamId) {
+            $res['StreamId'] = $this->streamId;
         }
 
         return $res;
@@ -74,20 +74,20 @@ class CreateDeviceSnapshotRequest extends Model
     public static function fromMap($map = [])
     {
         $model = new self();
-        if (isset($map['OwnerId'])) {
-            $model->ownerId = $map['OwnerId'];
-        }
         if (isset($map['DeviceId'])) {
             $model->deviceId = $map['DeviceId'];
-        }
-        if (isset($map['StreamId'])) {
-            $model->streamId = $map['StreamId'];
         }
         if (isset($map['Mode'])) {
             $model->mode = $map['Mode'];
         }
+        if (isset($map['OwnerId'])) {
+            $model->ownerId = $map['OwnerId'];
+        }
         if (isset($map['SnapshotConfig'])) {
             $model->snapshotConfig = $map['SnapshotConfig'];
+        }
+        if (isset($map['StreamId'])) {
+            $model->streamId = $map['StreamId'];
         }
 
         return $model;

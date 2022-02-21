@@ -9,9 +9,9 @@ use AlibabaCloud\Tea\Model;
 class DescribeStreamURLResponseBody extends Model
 {
     /**
-     * @var string
+     * @var int
      */
-    public $url;
+    public $expireTime;
 
     /**
      * @var string
@@ -19,13 +19,13 @@ class DescribeStreamURLResponseBody extends Model
     public $requestId;
 
     /**
-     * @var int
+     * @var string
      */
-    public $expireTime;
+    public $url;
     protected $_name = [
-        'url'        => 'Url',
-        'requestId'  => 'RequestId',
         'expireTime' => 'ExpireTime',
+        'requestId'  => 'RequestId',
+        'url'        => 'Url',
     ];
 
     public function validate()
@@ -35,14 +35,14 @@ class DescribeStreamURLResponseBody extends Model
     public function toMap()
     {
         $res = [];
-        if (null !== $this->url) {
-            $res['Url'] = $this->url;
+        if (null !== $this->expireTime) {
+            $res['ExpireTime'] = $this->expireTime;
         }
         if (null !== $this->requestId) {
             $res['RequestId'] = $this->requestId;
         }
-        if (null !== $this->expireTime) {
-            $res['ExpireTime'] = $this->expireTime;
+        if (null !== $this->url) {
+            $res['Url'] = $this->url;
         }
 
         return $res;
@@ -56,14 +56,14 @@ class DescribeStreamURLResponseBody extends Model
     public static function fromMap($map = [])
     {
         $model = new self();
-        if (isset($map['Url'])) {
-            $model->url = $map['Url'];
+        if (isset($map['ExpireTime'])) {
+            $model->expireTime = $map['ExpireTime'];
         }
         if (isset($map['RequestId'])) {
             $model->requestId = $map['RequestId'];
         }
-        if (isset($map['ExpireTime'])) {
-            $model->expireTime = $map['ExpireTime'];
+        if (isset($map['Url'])) {
+            $model->url = $map['Url'];
         }
 
         return $model;

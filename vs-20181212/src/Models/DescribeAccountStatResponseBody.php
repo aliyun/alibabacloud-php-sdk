@@ -11,12 +11,17 @@ class DescribeAccountStatResponseBody extends Model
     /**
      * @var int
      */
-    public $templateNum;
+    public $groupLimit;
 
     /**
      * @var int
      */
-    public $groupLimit;
+    public $groupNum;
+
+    /**
+     * @var string
+     */
+    public $id;
 
     /**
      * @var string
@@ -31,19 +36,14 @@ class DescribeAccountStatResponseBody extends Model
     /**
      * @var int
      */
-    public $groupNum;
-
-    /**
-     * @var string
-     */
-    public $id;
+    public $templateNum;
     protected $_name = [
-        'templateNum'   => 'TemplateNum',
         'groupLimit'    => 'GroupLimit',
-        'requestId'     => 'RequestId',
-        'templateLimit' => 'TemplateLimit',
         'groupNum'      => 'GroupNum',
         'id'            => 'Id',
+        'requestId'     => 'RequestId',
+        'templateLimit' => 'TemplateLimit',
+        'templateNum'   => 'TemplateNum',
     ];
 
     public function validate()
@@ -53,11 +53,14 @@ class DescribeAccountStatResponseBody extends Model
     public function toMap()
     {
         $res = [];
-        if (null !== $this->templateNum) {
-            $res['TemplateNum'] = $this->templateNum;
-        }
         if (null !== $this->groupLimit) {
             $res['GroupLimit'] = $this->groupLimit;
+        }
+        if (null !== $this->groupNum) {
+            $res['GroupNum'] = $this->groupNum;
+        }
+        if (null !== $this->id) {
+            $res['Id'] = $this->id;
         }
         if (null !== $this->requestId) {
             $res['RequestId'] = $this->requestId;
@@ -65,11 +68,8 @@ class DescribeAccountStatResponseBody extends Model
         if (null !== $this->templateLimit) {
             $res['TemplateLimit'] = $this->templateLimit;
         }
-        if (null !== $this->groupNum) {
-            $res['GroupNum'] = $this->groupNum;
-        }
-        if (null !== $this->id) {
-            $res['Id'] = $this->id;
+        if (null !== $this->templateNum) {
+            $res['TemplateNum'] = $this->templateNum;
         }
 
         return $res;
@@ -83,11 +83,14 @@ class DescribeAccountStatResponseBody extends Model
     public static function fromMap($map = [])
     {
         $model = new self();
-        if (isset($map['TemplateNum'])) {
-            $model->templateNum = $map['TemplateNum'];
-        }
         if (isset($map['GroupLimit'])) {
             $model->groupLimit = $map['GroupLimit'];
+        }
+        if (isset($map['GroupNum'])) {
+            $model->groupNum = $map['GroupNum'];
+        }
+        if (isset($map['Id'])) {
+            $model->id = $map['Id'];
         }
         if (isset($map['RequestId'])) {
             $model->requestId = $map['RequestId'];
@@ -95,11 +98,8 @@ class DescribeAccountStatResponseBody extends Model
         if (isset($map['TemplateLimit'])) {
             $model->templateLimit = $map['TemplateLimit'];
         }
-        if (isset($map['GroupNum'])) {
-            $model->groupNum = $map['GroupNum'];
-        }
-        if (isset($map['Id'])) {
-            $model->id = $map['Id'];
+        if (isset($map['TemplateNum'])) {
+            $model->templateNum = $map['TemplateNum'];
         }
 
         return $model;

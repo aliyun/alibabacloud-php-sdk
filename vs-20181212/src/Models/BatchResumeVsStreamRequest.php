@@ -9,9 +9,14 @@ use AlibabaCloud\Tea\Model;
 class BatchResumeVsStreamRequest extends Model
 {
     /**
-     * @var int
+     * @var string
      */
-    public $ownerId;
+    public $channel;
+
+    /**
+     * @var string
+     */
+    public $controlStreamAction;
 
     /**
      * @var string
@@ -21,23 +26,18 @@ class BatchResumeVsStreamRequest extends Model
     /**
      * @var string
      */
-    public $channel;
-
-    /**
-     * @var string
-     */
     public $liveStreamType;
 
     /**
-     * @var string
+     * @var int
      */
-    public $controlStreamAction;
+    public $ownerId;
     protected $_name = [
-        'ownerId'             => 'OwnerId',
-        'domainName'          => 'DomainName',
         'channel'             => 'Channel',
-        'liveStreamType'      => 'LiveStreamType',
         'controlStreamAction' => 'ControlStreamAction',
+        'domainName'          => 'DomainName',
+        'liveStreamType'      => 'LiveStreamType',
+        'ownerId'             => 'OwnerId',
     ];
 
     public function validate()
@@ -47,20 +47,20 @@ class BatchResumeVsStreamRequest extends Model
     public function toMap()
     {
         $res = [];
-        if (null !== $this->ownerId) {
-            $res['OwnerId'] = $this->ownerId;
+        if (null !== $this->channel) {
+            $res['Channel'] = $this->channel;
+        }
+        if (null !== $this->controlStreamAction) {
+            $res['ControlStreamAction'] = $this->controlStreamAction;
         }
         if (null !== $this->domainName) {
             $res['DomainName'] = $this->domainName;
         }
-        if (null !== $this->channel) {
-            $res['Channel'] = $this->channel;
-        }
         if (null !== $this->liveStreamType) {
             $res['LiveStreamType'] = $this->liveStreamType;
         }
-        if (null !== $this->controlStreamAction) {
-            $res['ControlStreamAction'] = $this->controlStreamAction;
+        if (null !== $this->ownerId) {
+            $res['OwnerId'] = $this->ownerId;
         }
 
         return $res;
@@ -74,20 +74,20 @@ class BatchResumeVsStreamRequest extends Model
     public static function fromMap($map = [])
     {
         $model = new self();
-        if (isset($map['OwnerId'])) {
-            $model->ownerId = $map['OwnerId'];
+        if (isset($map['Channel'])) {
+            $model->channel = $map['Channel'];
+        }
+        if (isset($map['ControlStreamAction'])) {
+            $model->controlStreamAction = $map['ControlStreamAction'];
         }
         if (isset($map['DomainName'])) {
             $model->domainName = $map['DomainName'];
         }
-        if (isset($map['Channel'])) {
-            $model->channel = $map['Channel'];
-        }
         if (isset($map['LiveStreamType'])) {
             $model->liveStreamType = $map['LiveStreamType'];
         }
-        if (isset($map['ControlStreamAction'])) {
-            $model->controlStreamAction = $map['ControlStreamAction'];
+        if (isset($map['OwnerId'])) {
+            $model->ownerId = $map['OwnerId'];
         }
 
         return $model;

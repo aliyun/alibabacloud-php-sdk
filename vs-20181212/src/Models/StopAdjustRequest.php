@@ -9,9 +9,9 @@ use AlibabaCloud\Tea\Model;
 class StopAdjustRequest extends Model
 {
     /**
-     * @var int
+     * @var bool
      */
-    public $ownerId;
+    public $focus;
 
     /**
      * @var string
@@ -24,20 +24,14 @@ class StopAdjustRequest extends Model
     public $iris;
 
     /**
-     * @var bool
+     * @var int
      */
-    public $focus;
-
-    /**
-     * @var string
-     */
-    public $subProtocol;
+    public $ownerId;
     protected $_name = [
-        'ownerId'     => 'OwnerId',
-        'id'          => 'Id',
-        'iris'        => 'Iris',
-        'focus'       => 'Focus',
-        'subProtocol' => 'SubProtocol',
+        'focus'   => 'Focus',
+        'id'      => 'Id',
+        'iris'    => 'Iris',
+        'ownerId' => 'OwnerId',
     ];
 
     public function validate()
@@ -47,8 +41,8 @@ class StopAdjustRequest extends Model
     public function toMap()
     {
         $res = [];
-        if (null !== $this->ownerId) {
-            $res['OwnerId'] = $this->ownerId;
+        if (null !== $this->focus) {
+            $res['Focus'] = $this->focus;
         }
         if (null !== $this->id) {
             $res['Id'] = $this->id;
@@ -56,11 +50,8 @@ class StopAdjustRequest extends Model
         if (null !== $this->iris) {
             $res['Iris'] = $this->iris;
         }
-        if (null !== $this->focus) {
-            $res['Focus'] = $this->focus;
-        }
-        if (null !== $this->subProtocol) {
-            $res['SubProtocol'] = $this->subProtocol;
+        if (null !== $this->ownerId) {
+            $res['OwnerId'] = $this->ownerId;
         }
 
         return $res;
@@ -74,8 +65,8 @@ class StopAdjustRequest extends Model
     public static function fromMap($map = [])
     {
         $model = new self();
-        if (isset($map['OwnerId'])) {
-            $model->ownerId = $map['OwnerId'];
+        if (isset($map['Focus'])) {
+            $model->focus = $map['Focus'];
         }
         if (isset($map['Id'])) {
             $model->id = $map['Id'];
@@ -83,11 +74,8 @@ class StopAdjustRequest extends Model
         if (isset($map['Iris'])) {
             $model->iris = $map['Iris'];
         }
-        if (isset($map['Focus'])) {
-            $model->focus = $map['Focus'];
-        }
-        if (isset($map['SubProtocol'])) {
-            $model->subProtocol = $map['SubProtocol'];
+        if (isset($map['OwnerId'])) {
+            $model->ownerId = $map['OwnerId'];
         }
 
         return $model;

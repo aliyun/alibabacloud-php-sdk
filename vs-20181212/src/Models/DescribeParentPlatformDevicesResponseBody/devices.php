@@ -11,11 +11,6 @@ class devices extends Model
     /**
      * @var string
      */
-    public $parentId;
-
-    /**
-     * @var string
-     */
     public $gbId;
 
     /**
@@ -26,18 +21,23 @@ class devices extends Model
     /**
      * @var string
      */
+    public $id;
+
+    /**
+     * @var string
+     */
     public $name;
 
     /**
      * @var string
      */
-    public $id;
+    public $parentId;
     protected $_name = [
-        'parentId' => 'ParentId',
         'gbId'     => 'GbId',
         'groupId'  => 'GroupId',
-        'name'     => 'Name',
         'id'       => 'Id',
+        'name'     => 'Name',
+        'parentId' => 'ParentId',
     ];
 
     public function validate()
@@ -47,20 +47,20 @@ class devices extends Model
     public function toMap()
     {
         $res = [];
-        if (null !== $this->parentId) {
-            $res['ParentId'] = $this->parentId;
-        }
         if (null !== $this->gbId) {
             $res['GbId'] = $this->gbId;
         }
         if (null !== $this->groupId) {
             $res['GroupId'] = $this->groupId;
         }
+        if (null !== $this->id) {
+            $res['Id'] = $this->id;
+        }
         if (null !== $this->name) {
             $res['Name'] = $this->name;
         }
-        if (null !== $this->id) {
-            $res['Id'] = $this->id;
+        if (null !== $this->parentId) {
+            $res['ParentId'] = $this->parentId;
         }
 
         return $res;
@@ -74,20 +74,20 @@ class devices extends Model
     public static function fromMap($map = [])
     {
         $model = new self();
-        if (isset($map['ParentId'])) {
-            $model->parentId = $map['ParentId'];
-        }
         if (isset($map['GbId'])) {
             $model->gbId = $map['GbId'];
         }
         if (isset($map['GroupId'])) {
             $model->groupId = $map['GroupId'];
         }
+        if (isset($map['Id'])) {
+            $model->id = $map['Id'];
+        }
         if (isset($map['Name'])) {
             $model->name = $map['Name'];
         }
-        if (isset($map['Id'])) {
-            $model->id = $map['Id'];
+        if (isset($map['ParentId'])) {
+            $model->parentId = $map['ParentId'];
         }
 
         return $model;

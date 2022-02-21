@@ -16,10 +16,16 @@ class dataModule extends Model
     /**
      * @var string
      */
+    public $streamCountValue;
+
+    /**
+     * @var string
+     */
     public $timeStamp;
     protected $_name = [
-        'recordValue' => 'RecordValue',
-        'timeStamp'   => 'TimeStamp',
+        'recordValue'      => 'RecordValue',
+        'streamCountValue' => 'StreamCountValue',
+        'timeStamp'        => 'TimeStamp',
     ];
 
     public function validate()
@@ -31,6 +37,9 @@ class dataModule extends Model
         $res = [];
         if (null !== $this->recordValue) {
             $res['RecordValue'] = $this->recordValue;
+        }
+        if (null !== $this->streamCountValue) {
+            $res['StreamCountValue'] = $this->streamCountValue;
         }
         if (null !== $this->timeStamp) {
             $res['TimeStamp'] = $this->timeStamp;
@@ -49,6 +58,9 @@ class dataModule extends Model
         $model = new self();
         if (isset($map['RecordValue'])) {
             $model->recordValue = $map['RecordValue'];
+        }
+        if (isset($map['StreamCountValue'])) {
+            $model->streamCountValue = $map['StreamCountValue'];
         }
         if (isset($map['TimeStamp'])) {
             $model->timeStamp = $map['TimeStamp'];

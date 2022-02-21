@@ -16,16 +16,16 @@ class streams extends Model
     /**
      * @var string
      */
-    public $name;
+    public $id;
 
     /**
      * @var string
      */
-    public $id;
+    public $name;
     protected $_name = [
         'error' => 'Error',
-        'name'  => 'Name',
         'id'    => 'Id',
+        'name'  => 'Name',
     ];
 
     public function validate()
@@ -38,11 +38,11 @@ class streams extends Model
         if (null !== $this->error) {
             $res['Error'] = $this->error;
         }
-        if (null !== $this->name) {
-            $res['Name'] = $this->name;
-        }
         if (null !== $this->id) {
             $res['Id'] = $this->id;
+        }
+        if (null !== $this->name) {
+            $res['Name'] = $this->name;
         }
 
         return $res;
@@ -59,11 +59,11 @@ class streams extends Model
         if (isset($map['Error'])) {
             $model->error = $map['Error'];
         }
-        if (isset($map['Name'])) {
-            $model->name = $map['Name'];
-        }
         if (isset($map['Id'])) {
             $model->id = $map['Id'];
+        }
+        if (isset($map['Name'])) {
+            $model->name = $map['Name'];
         }
 
         return $model;

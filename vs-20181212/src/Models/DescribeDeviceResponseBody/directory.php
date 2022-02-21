@@ -11,7 +11,7 @@ class directory extends Model
     /**
      * @var string
      */
-    public $parentId;
+    public $createdTime;
 
     /**
      * @var string
@@ -26,24 +26,24 @@ class directory extends Model
     /**
      * @var string
      */
+    public $id;
+
+    /**
+     * @var string
+     */
     public $name;
 
     /**
      * @var string
      */
-    public $createdTime;
-
-    /**
-     * @var string
-     */
-    public $id;
+    public $parentId;
     protected $_name = [
-        'parentId'    => 'ParentId',
+        'createdTime' => 'CreatedTime',
         'description' => 'Description',
         'groupId'     => 'GroupId',
-        'name'        => 'Name',
-        'createdTime' => 'CreatedTime',
         'id'          => 'Id',
+        'name'        => 'Name',
+        'parentId'    => 'ParentId',
     ];
 
     public function validate()
@@ -53,8 +53,8 @@ class directory extends Model
     public function toMap()
     {
         $res = [];
-        if (null !== $this->parentId) {
-            $res['ParentId'] = $this->parentId;
+        if (null !== $this->createdTime) {
+            $res['CreatedTime'] = $this->createdTime;
         }
         if (null !== $this->description) {
             $res['Description'] = $this->description;
@@ -62,14 +62,14 @@ class directory extends Model
         if (null !== $this->groupId) {
             $res['GroupId'] = $this->groupId;
         }
+        if (null !== $this->id) {
+            $res['Id'] = $this->id;
+        }
         if (null !== $this->name) {
             $res['Name'] = $this->name;
         }
-        if (null !== $this->createdTime) {
-            $res['CreatedTime'] = $this->createdTime;
-        }
-        if (null !== $this->id) {
-            $res['Id'] = $this->id;
+        if (null !== $this->parentId) {
+            $res['ParentId'] = $this->parentId;
         }
 
         return $res;
@@ -83,8 +83,8 @@ class directory extends Model
     public static function fromMap($map = [])
     {
         $model = new self();
-        if (isset($map['ParentId'])) {
-            $model->parentId = $map['ParentId'];
+        if (isset($map['CreatedTime'])) {
+            $model->createdTime = $map['CreatedTime'];
         }
         if (isset($map['Description'])) {
             $model->description = $map['Description'];
@@ -92,14 +92,14 @@ class directory extends Model
         if (isset($map['GroupId'])) {
             $model->groupId = $map['GroupId'];
         }
+        if (isset($map['Id'])) {
+            $model->id = $map['Id'];
+        }
         if (isset($map['Name'])) {
             $model->name = $map['Name'];
         }
-        if (isset($map['CreatedTime'])) {
-            $model->createdTime = $map['CreatedTime'];
-        }
-        if (isset($map['Id'])) {
-            $model->id = $map['Id'];
+        if (isset($map['ParentId'])) {
+            $model->parentId = $map['ParentId'];
         }
 
         return $model;

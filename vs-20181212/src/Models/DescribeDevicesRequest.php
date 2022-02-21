@@ -9,39 +9,14 @@ use AlibabaCloud\Tea\Model;
 class DescribeDevicesRequest extends Model
 {
     /**
-     * @var int
-     */
-    public $ownerId;
-
-    /**
-     * @var string
-     */
-    public $id;
-
-    /**
-     * @var string
-     */
-    public $name;
-
-    /**
-     * @var string
-     */
-    public $type;
-
-    /**
-     * @var string
-     */
-    public $groupId;
-
-    /**
-     * @var string
-     */
-    public $parentId;
-
-    /**
      * @var string
      */
     public $directoryId;
+
+    /**
+     * @var string
+     */
+    public $dsn;
 
     /**
      * @var string
@@ -51,12 +26,47 @@ class DescribeDevicesRequest extends Model
     /**
      * @var string
      */
-    public $status;
+    public $groupId;
 
     /**
      * @var string
      */
-    public $vendor;
+    public $id;
+
+    /**
+     * @var bool
+     */
+    public $includeDirectory;
+
+    /**
+     * @var bool
+     */
+    public $includeStats;
+
+    /**
+     * @var string
+     */
+    public $name;
+
+    /**
+     * @var int
+     */
+    public $ownerId;
+
+    /**
+     * @var int
+     */
+    public $pageNum;
+
+    /**
+     * @var int
+     */
+    public $pageSize;
+
+    /**
+     * @var string
+     */
+    public $parentId;
 
     /**
      * @var string
@@ -69,41 +79,37 @@ class DescribeDevicesRequest extends Model
     public $sortDirection;
 
     /**
-     * @var int
+     * @var string
      */
-    public $pageSize;
+    public $status;
 
     /**
-     * @var int
+     * @var string
      */
-    public $pageNum;
+    public $type;
 
     /**
-     * @var bool
+     * @var string
      */
-    public $includeStats;
-
-    /**
-     * @var bool
-     */
-    public $includeDirectory;
+    public $vendor;
     protected $_name = [
-        'ownerId'          => 'OwnerId',
-        'id'               => 'Id',
-        'name'             => 'Name',
-        'type'             => 'Type',
-        'groupId'          => 'GroupId',
-        'parentId'         => 'ParentId',
         'directoryId'      => 'DirectoryId',
+        'dsn'              => 'Dsn',
         'gbId'             => 'GbId',
-        'status'           => 'Status',
-        'vendor'           => 'Vendor',
+        'groupId'          => 'GroupId',
+        'id'               => 'Id',
+        'includeDirectory' => 'IncludeDirectory',
+        'includeStats'     => 'IncludeStats',
+        'name'             => 'Name',
+        'ownerId'          => 'OwnerId',
+        'pageNum'          => 'PageNum',
+        'pageSize'         => 'PageSize',
+        'parentId'         => 'ParentId',
         'sortBy'           => 'SortBy',
         'sortDirection'    => 'SortDirection',
-        'pageSize'         => 'PageSize',
-        'pageNum'          => 'PageNum',
-        'includeStats'     => 'IncludeStats',
-        'includeDirectory' => 'IncludeDirectory',
+        'status'           => 'Status',
+        'type'             => 'Type',
+        'vendor'           => 'Vendor',
     ];
 
     public function validate()
@@ -113,35 +119,41 @@ class DescribeDevicesRequest extends Model
     public function toMap()
     {
         $res = [];
-        if (null !== $this->ownerId) {
-            $res['OwnerId'] = $this->ownerId;
-        }
-        if (null !== $this->id) {
-            $res['Id'] = $this->id;
-        }
-        if (null !== $this->name) {
-            $res['Name'] = $this->name;
-        }
-        if (null !== $this->type) {
-            $res['Type'] = $this->type;
-        }
-        if (null !== $this->groupId) {
-            $res['GroupId'] = $this->groupId;
-        }
-        if (null !== $this->parentId) {
-            $res['ParentId'] = $this->parentId;
-        }
         if (null !== $this->directoryId) {
             $res['DirectoryId'] = $this->directoryId;
+        }
+        if (null !== $this->dsn) {
+            $res['Dsn'] = $this->dsn;
         }
         if (null !== $this->gbId) {
             $res['GbId'] = $this->gbId;
         }
-        if (null !== $this->status) {
-            $res['Status'] = $this->status;
+        if (null !== $this->groupId) {
+            $res['GroupId'] = $this->groupId;
         }
-        if (null !== $this->vendor) {
-            $res['Vendor'] = $this->vendor;
+        if (null !== $this->id) {
+            $res['Id'] = $this->id;
+        }
+        if (null !== $this->includeDirectory) {
+            $res['IncludeDirectory'] = $this->includeDirectory;
+        }
+        if (null !== $this->includeStats) {
+            $res['IncludeStats'] = $this->includeStats;
+        }
+        if (null !== $this->name) {
+            $res['Name'] = $this->name;
+        }
+        if (null !== $this->ownerId) {
+            $res['OwnerId'] = $this->ownerId;
+        }
+        if (null !== $this->pageNum) {
+            $res['PageNum'] = $this->pageNum;
+        }
+        if (null !== $this->pageSize) {
+            $res['PageSize'] = $this->pageSize;
+        }
+        if (null !== $this->parentId) {
+            $res['ParentId'] = $this->parentId;
         }
         if (null !== $this->sortBy) {
             $res['SortBy'] = $this->sortBy;
@@ -149,17 +161,14 @@ class DescribeDevicesRequest extends Model
         if (null !== $this->sortDirection) {
             $res['SortDirection'] = $this->sortDirection;
         }
-        if (null !== $this->pageSize) {
-            $res['PageSize'] = $this->pageSize;
+        if (null !== $this->status) {
+            $res['Status'] = $this->status;
         }
-        if (null !== $this->pageNum) {
-            $res['PageNum'] = $this->pageNum;
+        if (null !== $this->type) {
+            $res['Type'] = $this->type;
         }
-        if (null !== $this->includeStats) {
-            $res['IncludeStats'] = $this->includeStats;
-        }
-        if (null !== $this->includeDirectory) {
-            $res['IncludeDirectory'] = $this->includeDirectory;
+        if (null !== $this->vendor) {
+            $res['Vendor'] = $this->vendor;
         }
 
         return $res;
@@ -173,35 +182,41 @@ class DescribeDevicesRequest extends Model
     public static function fromMap($map = [])
     {
         $model = new self();
-        if (isset($map['OwnerId'])) {
-            $model->ownerId = $map['OwnerId'];
-        }
-        if (isset($map['Id'])) {
-            $model->id = $map['Id'];
-        }
-        if (isset($map['Name'])) {
-            $model->name = $map['Name'];
-        }
-        if (isset($map['Type'])) {
-            $model->type = $map['Type'];
-        }
-        if (isset($map['GroupId'])) {
-            $model->groupId = $map['GroupId'];
-        }
-        if (isset($map['ParentId'])) {
-            $model->parentId = $map['ParentId'];
-        }
         if (isset($map['DirectoryId'])) {
             $model->directoryId = $map['DirectoryId'];
+        }
+        if (isset($map['Dsn'])) {
+            $model->dsn = $map['Dsn'];
         }
         if (isset($map['GbId'])) {
             $model->gbId = $map['GbId'];
         }
-        if (isset($map['Status'])) {
-            $model->status = $map['Status'];
+        if (isset($map['GroupId'])) {
+            $model->groupId = $map['GroupId'];
         }
-        if (isset($map['Vendor'])) {
-            $model->vendor = $map['Vendor'];
+        if (isset($map['Id'])) {
+            $model->id = $map['Id'];
+        }
+        if (isset($map['IncludeDirectory'])) {
+            $model->includeDirectory = $map['IncludeDirectory'];
+        }
+        if (isset($map['IncludeStats'])) {
+            $model->includeStats = $map['IncludeStats'];
+        }
+        if (isset($map['Name'])) {
+            $model->name = $map['Name'];
+        }
+        if (isset($map['OwnerId'])) {
+            $model->ownerId = $map['OwnerId'];
+        }
+        if (isset($map['PageNum'])) {
+            $model->pageNum = $map['PageNum'];
+        }
+        if (isset($map['PageSize'])) {
+            $model->pageSize = $map['PageSize'];
+        }
+        if (isset($map['ParentId'])) {
+            $model->parentId = $map['ParentId'];
         }
         if (isset($map['SortBy'])) {
             $model->sortBy = $map['SortBy'];
@@ -209,17 +224,14 @@ class DescribeDevicesRequest extends Model
         if (isset($map['SortDirection'])) {
             $model->sortDirection = $map['SortDirection'];
         }
-        if (isset($map['PageSize'])) {
-            $model->pageSize = $map['PageSize'];
+        if (isset($map['Status'])) {
+            $model->status = $map['Status'];
         }
-        if (isset($map['PageNum'])) {
-            $model->pageNum = $map['PageNum'];
+        if (isset($map['Type'])) {
+            $model->type = $map['Type'];
         }
-        if (isset($map['IncludeStats'])) {
-            $model->includeStats = $map['IncludeStats'];
-        }
-        if (isset($map['IncludeDirectory'])) {
-            $model->includeDirectory = $map['IncludeDirectory'];
+        if (isset($map['Vendor'])) {
+            $model->vendor = $map['Vendor'];
         }
 
         return $model;

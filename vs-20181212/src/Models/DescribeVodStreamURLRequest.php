@@ -16,16 +16,16 @@ class DescribeVodStreamURLRequest extends Model
     /**
      * @var string
      */
-    public $url;
+    public $txId;
 
     /**
      * @var string
      */
-    public $txId;
+    public $url;
     protected $_name = [
         'ownerId' => 'OwnerId',
-        'url'     => 'Url',
         'txId'    => 'TxId',
+        'url'     => 'Url',
     ];
 
     public function validate()
@@ -38,11 +38,11 @@ class DescribeVodStreamURLRequest extends Model
         if (null !== $this->ownerId) {
             $res['OwnerId'] = $this->ownerId;
         }
-        if (null !== $this->url) {
-            $res['Url'] = $this->url;
-        }
         if (null !== $this->txId) {
             $res['TxId'] = $this->txId;
+        }
+        if (null !== $this->url) {
+            $res['Url'] = $this->url;
         }
 
         return $res;
@@ -59,11 +59,11 @@ class DescribeVodStreamURLRequest extends Model
         if (isset($map['OwnerId'])) {
             $model->ownerId = $map['OwnerId'];
         }
-        if (isset($map['Url'])) {
-            $model->url = $map['Url'];
-        }
         if (isset($map['TxId'])) {
             $model->txId = $map['TxId'];
+        }
+        if (isset($map['Url'])) {
+            $model->url = $map['Url'];
         }
 
         return $model;

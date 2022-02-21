@@ -19,11 +19,6 @@ class CreateGroupResponseBody extends Model
     public $gbIp;
 
     /**
-     * @var string
-     */
-    public $requestId;
-
-    /**
      * @var int
      */
     public $gbPort;
@@ -32,12 +27,17 @@ class CreateGroupResponseBody extends Model
      * @var string
      */
     public $id;
+
+    /**
+     * @var string
+     */
+    public $requestId;
     protected $_name = [
         'gbId'      => 'GbId',
         'gbIp'      => 'GbIp',
-        'requestId' => 'RequestId',
         'gbPort'    => 'GbPort',
         'id'        => 'Id',
+        'requestId' => 'RequestId',
     ];
 
     public function validate()
@@ -53,14 +53,14 @@ class CreateGroupResponseBody extends Model
         if (null !== $this->gbIp) {
             $res['GbIp'] = $this->gbIp;
         }
-        if (null !== $this->requestId) {
-            $res['RequestId'] = $this->requestId;
-        }
         if (null !== $this->gbPort) {
             $res['GbPort'] = $this->gbPort;
         }
         if (null !== $this->id) {
             $res['Id'] = $this->id;
+        }
+        if (null !== $this->requestId) {
+            $res['RequestId'] = $this->requestId;
         }
 
         return $res;
@@ -80,14 +80,14 @@ class CreateGroupResponseBody extends Model
         if (isset($map['GbIp'])) {
             $model->gbIp = $map['GbIp'];
         }
-        if (isset($map['RequestId'])) {
-            $model->requestId = $map['RequestId'];
-        }
         if (isset($map['GbPort'])) {
             $model->gbPort = $map['GbPort'];
         }
         if (isset($map['Id'])) {
             $model->id = $map['Id'];
+        }
+        if (isset($map['RequestId'])) {
+            $model->requestId = $map['RequestId'];
         }
 
         return $model;

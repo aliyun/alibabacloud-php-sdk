@@ -11,15 +11,15 @@ class dataModule extends Model
     /**
      * @var string
      */
-    public $trafficValue;
+    public $timeStamp;
 
     /**
      * @var string
      */
-    public $timeStamp;
+    public $trafficValue;
     protected $_name = [
-        'trafficValue' => 'TrafficValue',
         'timeStamp'    => 'TimeStamp',
+        'trafficValue' => 'TrafficValue',
     ];
 
     public function validate()
@@ -29,11 +29,11 @@ class dataModule extends Model
     public function toMap()
     {
         $res = [];
-        if (null !== $this->trafficValue) {
-            $res['TrafficValue'] = $this->trafficValue;
-        }
         if (null !== $this->timeStamp) {
             $res['TimeStamp'] = $this->timeStamp;
+        }
+        if (null !== $this->trafficValue) {
+            $res['TrafficValue'] = $this->trafficValue;
         }
 
         return $res;
@@ -47,11 +47,11 @@ class dataModule extends Model
     public static function fromMap($map = [])
     {
         $model = new self();
-        if (isset($map['TrafficValue'])) {
-            $model->trafficValue = $map['TrafficValue'];
-        }
         if (isset($map['TimeStamp'])) {
             $model->timeStamp = $map['TimeStamp'];
+        }
+        if (isset($map['TrafficValue'])) {
+            $model->trafficValue = $map['TrafficValue'];
         }
 
         return $model;

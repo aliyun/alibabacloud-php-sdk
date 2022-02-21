@@ -12,6 +12,11 @@ class DescribeTemplatesResponseBody extends Model
     /**
      * @var int
      */
+    public $pageCount;
+
+    /**
+     * @var int
+     */
     public $pageNum;
 
     /**
@@ -25,26 +30,21 @@ class DescribeTemplatesResponseBody extends Model
     public $requestId;
 
     /**
-     * @var int
-     */
-    public $totalCount;
-
-    /**
-     * @var int
-     */
-    public $pageCount;
-
-    /**
      * @var templates[]
      */
     public $templates;
+
+    /**
+     * @var int
+     */
+    public $totalCount;
     protected $_name = [
+        'pageCount'  => 'PageCount',
         'pageNum'    => 'PageNum',
         'pageSize'   => 'PageSize',
         'requestId'  => 'RequestId',
-        'totalCount' => 'TotalCount',
-        'pageCount'  => 'PageCount',
         'templates'  => 'Templates',
+        'totalCount' => 'TotalCount',
     ];
 
     public function validate()
@@ -54,6 +54,9 @@ class DescribeTemplatesResponseBody extends Model
     public function toMap()
     {
         $res = [];
+        if (null !== $this->pageCount) {
+            $res['PageCount'] = $this->pageCount;
+        }
         if (null !== $this->pageNum) {
             $res['PageNum'] = $this->pageNum;
         }
@@ -63,12 +66,6 @@ class DescribeTemplatesResponseBody extends Model
         if (null !== $this->requestId) {
             $res['RequestId'] = $this->requestId;
         }
-        if (null !== $this->totalCount) {
-            $res['TotalCount'] = $this->totalCount;
-        }
-        if (null !== $this->pageCount) {
-            $res['PageCount'] = $this->pageCount;
-        }
         if (null !== $this->templates) {
             $res['Templates'] = [];
             if (null !== $this->templates && \is_array($this->templates)) {
@@ -77,6 +74,9 @@ class DescribeTemplatesResponseBody extends Model
                     $res['Templates'][$n++] = null !== $item ? $item->toMap() : $item;
                 }
             }
+        }
+        if (null !== $this->totalCount) {
+            $res['TotalCount'] = $this->totalCount;
         }
 
         return $res;
@@ -90,6 +90,9 @@ class DescribeTemplatesResponseBody extends Model
     public static function fromMap($map = [])
     {
         $model = new self();
+        if (isset($map['PageCount'])) {
+            $model->pageCount = $map['PageCount'];
+        }
         if (isset($map['PageNum'])) {
             $model->pageNum = $map['PageNum'];
         }
@@ -99,12 +102,6 @@ class DescribeTemplatesResponseBody extends Model
         if (isset($map['RequestId'])) {
             $model->requestId = $map['RequestId'];
         }
-        if (isset($map['TotalCount'])) {
-            $model->totalCount = $map['TotalCount'];
-        }
-        if (isset($map['PageCount'])) {
-            $model->pageCount = $map['PageCount'];
-        }
         if (isset($map['Templates'])) {
             if (!empty($map['Templates'])) {
                 $model->templates = [];
@@ -113,6 +110,9 @@ class DescribeTemplatesResponseBody extends Model
                     $model->templates[$n++] = null !== $item ? templates::fromMap($item) : $item;
                 }
             }
+        }
+        if (isset($map['TotalCount'])) {
+            $model->totalCount = $map['TotalCount'];
         }
 
         return $model;

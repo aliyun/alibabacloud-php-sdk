@@ -12,17 +12,17 @@ class ListObjectsResponseBody extends Model
     /**
      * @var string
      */
-    public $marker;
+    public $bucketName;
 
     /**
-     * @var int
+     * @var string[]
      */
-    public $maxKeys;
+    public $commonPrefixes;
 
     /**
-     * @var string
+     * @var contents[]
      */
-    public $prefix;
+    public $contents;
 
     /**
      * @var string
@@ -32,32 +32,12 @@ class ListObjectsResponseBody extends Model
     /**
      * @var string
      */
-    public $nextContinuationToken;
-
-    /**
-     * @var string
-     */
-    public $encodingType;
-
-    /**
-     * @var string
-     */
-    public $nextMarker;
-
-    /**
-     * @var string
-     */
     public $delimiter;
 
     /**
      * @var string
      */
-    public $requestId;
-
-    /**
-     * @var string
-     */
-    public $bucketName;
+    public $encodingType;
 
     /**
      * @var bool
@@ -70,29 +50,49 @@ class ListObjectsResponseBody extends Model
     public $keyCount;
 
     /**
-     * @var string[]
+     * @var string
      */
-    public $commonPrefixes;
+    public $marker;
 
     /**
-     * @var contents[]
+     * @var int
      */
-    public $contents;
+    public $maxKeys;
+
+    /**
+     * @var string
+     */
+    public $nextContinuationToken;
+
+    /**
+     * @var string
+     */
+    public $nextMarker;
+
+    /**
+     * @var string
+     */
+    public $prefix;
+
+    /**
+     * @var string
+     */
+    public $requestId;
     protected $_name = [
-        'marker'                => 'Marker',
-        'maxKeys'               => 'MaxKeys',
-        'prefix'                => 'Prefix',
-        'continuationToken'     => 'ContinuationToken',
-        'nextContinuationToken' => 'NextContinuationToken',
-        'encodingType'          => 'EncodingType',
-        'nextMarker'            => 'NextMarker',
-        'delimiter'             => 'Delimiter',
-        'requestId'             => 'RequestId',
         'bucketName'            => 'BucketName',
-        'isTruncated'           => 'IsTruncated',
-        'keyCount'              => 'KeyCount',
         'commonPrefixes'        => 'CommonPrefixes',
         'contents'              => 'Contents',
+        'continuationToken'     => 'ContinuationToken',
+        'delimiter'             => 'Delimiter',
+        'encodingType'          => 'EncodingType',
+        'isTruncated'           => 'IsTruncated',
+        'keyCount'              => 'KeyCount',
+        'marker'                => 'Marker',
+        'maxKeys'               => 'MaxKeys',
+        'nextContinuationToken' => 'NextContinuationToken',
+        'nextMarker'            => 'NextMarker',
+        'prefix'                => 'Prefix',
+        'requestId'             => 'RequestId',
     ];
 
     public function validate()
@@ -102,41 +102,8 @@ class ListObjectsResponseBody extends Model
     public function toMap()
     {
         $res = [];
-        if (null !== $this->marker) {
-            $res['Marker'] = $this->marker;
-        }
-        if (null !== $this->maxKeys) {
-            $res['MaxKeys'] = $this->maxKeys;
-        }
-        if (null !== $this->prefix) {
-            $res['Prefix'] = $this->prefix;
-        }
-        if (null !== $this->continuationToken) {
-            $res['ContinuationToken'] = $this->continuationToken;
-        }
-        if (null !== $this->nextContinuationToken) {
-            $res['NextContinuationToken'] = $this->nextContinuationToken;
-        }
-        if (null !== $this->encodingType) {
-            $res['EncodingType'] = $this->encodingType;
-        }
-        if (null !== $this->nextMarker) {
-            $res['NextMarker'] = $this->nextMarker;
-        }
-        if (null !== $this->delimiter) {
-            $res['Delimiter'] = $this->delimiter;
-        }
-        if (null !== $this->requestId) {
-            $res['RequestId'] = $this->requestId;
-        }
         if (null !== $this->bucketName) {
             $res['BucketName'] = $this->bucketName;
-        }
-        if (null !== $this->isTruncated) {
-            $res['IsTruncated'] = $this->isTruncated;
-        }
-        if (null !== $this->keyCount) {
-            $res['KeyCount'] = $this->keyCount;
         }
         if (null !== $this->commonPrefixes) {
             $res['CommonPrefixes'] = $this->commonPrefixes;
@@ -150,6 +117,39 @@ class ListObjectsResponseBody extends Model
                 }
             }
         }
+        if (null !== $this->continuationToken) {
+            $res['ContinuationToken'] = $this->continuationToken;
+        }
+        if (null !== $this->delimiter) {
+            $res['Delimiter'] = $this->delimiter;
+        }
+        if (null !== $this->encodingType) {
+            $res['EncodingType'] = $this->encodingType;
+        }
+        if (null !== $this->isTruncated) {
+            $res['IsTruncated'] = $this->isTruncated;
+        }
+        if (null !== $this->keyCount) {
+            $res['KeyCount'] = $this->keyCount;
+        }
+        if (null !== $this->marker) {
+            $res['Marker'] = $this->marker;
+        }
+        if (null !== $this->maxKeys) {
+            $res['MaxKeys'] = $this->maxKeys;
+        }
+        if (null !== $this->nextContinuationToken) {
+            $res['NextContinuationToken'] = $this->nextContinuationToken;
+        }
+        if (null !== $this->nextMarker) {
+            $res['NextMarker'] = $this->nextMarker;
+        }
+        if (null !== $this->prefix) {
+            $res['Prefix'] = $this->prefix;
+        }
+        if (null !== $this->requestId) {
+            $res['RequestId'] = $this->requestId;
+        }
 
         return $res;
     }
@@ -162,41 +162,8 @@ class ListObjectsResponseBody extends Model
     public static function fromMap($map = [])
     {
         $model = new self();
-        if (isset($map['Marker'])) {
-            $model->marker = $map['Marker'];
-        }
-        if (isset($map['MaxKeys'])) {
-            $model->maxKeys = $map['MaxKeys'];
-        }
-        if (isset($map['Prefix'])) {
-            $model->prefix = $map['Prefix'];
-        }
-        if (isset($map['ContinuationToken'])) {
-            $model->continuationToken = $map['ContinuationToken'];
-        }
-        if (isset($map['NextContinuationToken'])) {
-            $model->nextContinuationToken = $map['NextContinuationToken'];
-        }
-        if (isset($map['EncodingType'])) {
-            $model->encodingType = $map['EncodingType'];
-        }
-        if (isset($map['NextMarker'])) {
-            $model->nextMarker = $map['NextMarker'];
-        }
-        if (isset($map['Delimiter'])) {
-            $model->delimiter = $map['Delimiter'];
-        }
-        if (isset($map['RequestId'])) {
-            $model->requestId = $map['RequestId'];
-        }
         if (isset($map['BucketName'])) {
             $model->bucketName = $map['BucketName'];
-        }
-        if (isset($map['IsTruncated'])) {
-            $model->isTruncated = $map['IsTruncated'];
-        }
-        if (isset($map['KeyCount'])) {
-            $model->keyCount = $map['KeyCount'];
         }
         if (isset($map['CommonPrefixes'])) {
             if (!empty($map['CommonPrefixes'])) {
@@ -211,6 +178,39 @@ class ListObjectsResponseBody extends Model
                     $model->contents[$n++] = null !== $item ? contents::fromMap($item) : $item;
                 }
             }
+        }
+        if (isset($map['ContinuationToken'])) {
+            $model->continuationToken = $map['ContinuationToken'];
+        }
+        if (isset($map['Delimiter'])) {
+            $model->delimiter = $map['Delimiter'];
+        }
+        if (isset($map['EncodingType'])) {
+            $model->encodingType = $map['EncodingType'];
+        }
+        if (isset($map['IsTruncated'])) {
+            $model->isTruncated = $map['IsTruncated'];
+        }
+        if (isset($map['KeyCount'])) {
+            $model->keyCount = $map['KeyCount'];
+        }
+        if (isset($map['Marker'])) {
+            $model->marker = $map['Marker'];
+        }
+        if (isset($map['MaxKeys'])) {
+            $model->maxKeys = $map['MaxKeys'];
+        }
+        if (isset($map['NextContinuationToken'])) {
+            $model->nextContinuationToken = $map['NextContinuationToken'];
+        }
+        if (isset($map['NextMarker'])) {
+            $model->nextMarker = $map['NextMarker'];
+        }
+        if (isset($map['Prefix'])) {
+            $model->prefix = $map['Prefix'];
+        }
+        if (isset($map['RequestId'])) {
+            $model->requestId = $map['RequestId'];
         }
 
         return $model;

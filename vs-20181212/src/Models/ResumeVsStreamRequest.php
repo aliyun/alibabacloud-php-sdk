@@ -9,9 +9,14 @@ use AlibabaCloud\Tea\Model;
 class ResumeVsStreamRequest extends Model
 {
     /**
-     * @var int
+     * @var string
      */
-    public $ownerId;
+    public $appName;
+
+    /**
+     * @var string
+     */
+    public $controlStreamAction;
 
     /**
      * @var string
@@ -21,29 +26,24 @@ class ResumeVsStreamRequest extends Model
     /**
      * @var string
      */
-    public $appName;
+    public $liveStreamType;
+
+    /**
+     * @var int
+     */
+    public $ownerId;
 
     /**
      * @var string
      */
     public $streamName;
-
-    /**
-     * @var string
-     */
-    public $liveStreamType;
-
-    /**
-     * @var string
-     */
-    public $controlStreamAction;
     protected $_name = [
-        'ownerId'             => 'OwnerId',
-        'domainName'          => 'DomainName',
         'appName'             => 'AppName',
-        'streamName'          => 'StreamName',
-        'liveStreamType'      => 'LiveStreamType',
         'controlStreamAction' => 'ControlStreamAction',
+        'domainName'          => 'DomainName',
+        'liveStreamType'      => 'LiveStreamType',
+        'ownerId'             => 'OwnerId',
+        'streamName'          => 'StreamName',
     ];
 
     public function validate()
@@ -53,23 +53,23 @@ class ResumeVsStreamRequest extends Model
     public function toMap()
     {
         $res = [];
-        if (null !== $this->ownerId) {
-            $res['OwnerId'] = $this->ownerId;
+        if (null !== $this->appName) {
+            $res['AppName'] = $this->appName;
+        }
+        if (null !== $this->controlStreamAction) {
+            $res['ControlStreamAction'] = $this->controlStreamAction;
         }
         if (null !== $this->domainName) {
             $res['DomainName'] = $this->domainName;
         }
-        if (null !== $this->appName) {
-            $res['AppName'] = $this->appName;
-        }
-        if (null !== $this->streamName) {
-            $res['StreamName'] = $this->streamName;
-        }
         if (null !== $this->liveStreamType) {
             $res['LiveStreamType'] = $this->liveStreamType;
         }
-        if (null !== $this->controlStreamAction) {
-            $res['ControlStreamAction'] = $this->controlStreamAction;
+        if (null !== $this->ownerId) {
+            $res['OwnerId'] = $this->ownerId;
+        }
+        if (null !== $this->streamName) {
+            $res['StreamName'] = $this->streamName;
         }
 
         return $res;
@@ -83,23 +83,23 @@ class ResumeVsStreamRequest extends Model
     public static function fromMap($map = [])
     {
         $model = new self();
-        if (isset($map['OwnerId'])) {
-            $model->ownerId = $map['OwnerId'];
+        if (isset($map['AppName'])) {
+            $model->appName = $map['AppName'];
+        }
+        if (isset($map['ControlStreamAction'])) {
+            $model->controlStreamAction = $map['ControlStreamAction'];
         }
         if (isset($map['DomainName'])) {
             $model->domainName = $map['DomainName'];
         }
-        if (isset($map['AppName'])) {
-            $model->appName = $map['AppName'];
-        }
-        if (isset($map['StreamName'])) {
-            $model->streamName = $map['StreamName'];
-        }
         if (isset($map['LiveStreamType'])) {
             $model->liveStreamType = $map['LiveStreamType'];
         }
-        if (isset($map['ControlStreamAction'])) {
-            $model->controlStreamAction = $map['ControlStreamAction'];
+        if (isset($map['OwnerId'])) {
+            $model->ownerId = $map['OwnerId'];
+        }
+        if (isset($map['StreamName'])) {
+            $model->streamName = $map['StreamName'];
         }
 
         return $model;

@@ -9,9 +9,9 @@ use AlibabaCloud\Tea\Model;
 class CreateDeviceAlarmResponseBody extends Model
 {
     /**
-     * @var string
+     * @var int
      */
-    public $url;
+    public $alarmDelay;
 
     /**
      * @var string
@@ -19,25 +19,25 @@ class CreateDeviceAlarmResponseBody extends Model
     public $alarmId;
 
     /**
-     * @var string
-     */
-    public $requestId;
-
-    /**
      * @var int
      */
     public $expire;
 
     /**
-     * @var int
+     * @var string
      */
-    public $alarmDelay;
+    public $requestId;
+
+    /**
+     * @var string
+     */
+    public $url;
     protected $_name = [
-        'url'        => 'Url',
-        'alarmId'    => 'AlarmId',
-        'requestId'  => 'RequestId',
-        'expire'     => 'Expire',
         'alarmDelay' => 'AlarmDelay',
+        'alarmId'    => 'AlarmId',
+        'expire'     => 'Expire',
+        'requestId'  => 'RequestId',
+        'url'        => 'Url',
     ];
 
     public function validate()
@@ -47,20 +47,20 @@ class CreateDeviceAlarmResponseBody extends Model
     public function toMap()
     {
         $res = [];
-        if (null !== $this->url) {
-            $res['Url'] = $this->url;
+        if (null !== $this->alarmDelay) {
+            $res['AlarmDelay'] = $this->alarmDelay;
         }
         if (null !== $this->alarmId) {
             $res['AlarmId'] = $this->alarmId;
         }
-        if (null !== $this->requestId) {
-            $res['RequestId'] = $this->requestId;
-        }
         if (null !== $this->expire) {
             $res['Expire'] = $this->expire;
         }
-        if (null !== $this->alarmDelay) {
-            $res['AlarmDelay'] = $this->alarmDelay;
+        if (null !== $this->requestId) {
+            $res['RequestId'] = $this->requestId;
+        }
+        if (null !== $this->url) {
+            $res['Url'] = $this->url;
         }
 
         return $res;
@@ -74,20 +74,20 @@ class CreateDeviceAlarmResponseBody extends Model
     public static function fromMap($map = [])
     {
         $model = new self();
-        if (isset($map['Url'])) {
-            $model->url = $map['Url'];
+        if (isset($map['AlarmDelay'])) {
+            $model->alarmDelay = $map['AlarmDelay'];
         }
         if (isset($map['AlarmId'])) {
             $model->alarmId = $map['AlarmId'];
         }
-        if (isset($map['RequestId'])) {
-            $model->requestId = $map['RequestId'];
-        }
         if (isset($map['Expire'])) {
             $model->expire = $map['Expire'];
         }
-        if (isset($map['AlarmDelay'])) {
-            $model->alarmDelay = $map['AlarmDelay'];
+        if (isset($map['RequestId'])) {
+            $model->requestId = $map['RequestId'];
+        }
+        if (isset($map['Url'])) {
+            $model->url = $map['Url'];
         }
 
         return $model;

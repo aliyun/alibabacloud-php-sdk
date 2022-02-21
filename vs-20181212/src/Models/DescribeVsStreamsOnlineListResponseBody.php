@@ -10,9 +10,9 @@ use AlibabaCloud\Tea\Model;
 class DescribeVsStreamsOnlineListResponseBody extends Model
 {
     /**
-     * @var int
+     * @var onlineInfo
      */
-    public $totalPage;
+    public $onlineInfo;
 
     /**
      * @var int
@@ -35,16 +35,16 @@ class DescribeVsStreamsOnlineListResponseBody extends Model
     public $totalNum;
 
     /**
-     * @var onlineInfo
+     * @var int
      */
-    public $onlineInfo;
+    public $totalPage;
     protected $_name = [
-        'totalPage'  => 'TotalPage',
+        'onlineInfo' => 'OnlineInfo',
         'pageNum'    => 'PageNum',
         'pageSize'   => 'PageSize',
         'requestId'  => 'RequestId',
         'totalNum'   => 'TotalNum',
-        'onlineInfo' => 'OnlineInfo',
+        'totalPage'  => 'TotalPage',
     ];
 
     public function validate()
@@ -54,8 +54,8 @@ class DescribeVsStreamsOnlineListResponseBody extends Model
     public function toMap()
     {
         $res = [];
-        if (null !== $this->totalPage) {
-            $res['TotalPage'] = $this->totalPage;
+        if (null !== $this->onlineInfo) {
+            $res['OnlineInfo'] = null !== $this->onlineInfo ? $this->onlineInfo->toMap() : null;
         }
         if (null !== $this->pageNum) {
             $res['PageNum'] = $this->pageNum;
@@ -69,8 +69,8 @@ class DescribeVsStreamsOnlineListResponseBody extends Model
         if (null !== $this->totalNum) {
             $res['TotalNum'] = $this->totalNum;
         }
-        if (null !== $this->onlineInfo) {
-            $res['OnlineInfo'] = null !== $this->onlineInfo ? $this->onlineInfo->toMap() : null;
+        if (null !== $this->totalPage) {
+            $res['TotalPage'] = $this->totalPage;
         }
 
         return $res;
@@ -84,8 +84,8 @@ class DescribeVsStreamsOnlineListResponseBody extends Model
     public static function fromMap($map = [])
     {
         $model = new self();
-        if (isset($map['TotalPage'])) {
-            $model->totalPage = $map['TotalPage'];
+        if (isset($map['OnlineInfo'])) {
+            $model->onlineInfo = onlineInfo::fromMap($map['OnlineInfo']);
         }
         if (isset($map['PageNum'])) {
             $model->pageNum = $map['PageNum'];
@@ -99,8 +99,8 @@ class DescribeVsStreamsOnlineListResponseBody extends Model
         if (isset($map['TotalNum'])) {
             $model->totalNum = $map['TotalNum'];
         }
-        if (isset($map['OnlineInfo'])) {
-            $model->onlineInfo = onlineInfo::fromMap($map['OnlineInfo']);
+        if (isset($map['TotalPage'])) {
+            $model->totalPage = $map['TotalPage'];
         }
 
         return $model;

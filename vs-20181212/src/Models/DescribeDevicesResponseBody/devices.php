@@ -13,42 +13,12 @@ class devices extends Model
     /**
      * @var string
      */
-    public $type;
-
-    /**
-     * @var string
-     */
-    public $status;
-
-    /**
-     * @var string
-     */
     public $alarmMethod;
 
     /**
-     * @var string
+     * @var bool
      */
-    public $dsn;
-
-    /**
-     * @var int
-     */
-    public $port;
-
-    /**
-     * @var int
-     */
-    public $posInterval;
-
-    /**
-     * @var string
-     */
-    public $parentId;
-
-    /**
-     * @var string
-     */
-    public $password;
+    public $autoDirectory;
 
     /**
      * @var bool
@@ -56,24 +26,9 @@ class devices extends Model
     public $autoPos;
 
     /**
-     * @var string
-     */
-    public $params;
-
-    /**
-     * @var string
-     */
-    public $description;
-
-    /**
      * @var bool
      */
-    public $enabled;
-
-    /**
-     * @var string
-     */
-    public $name;
+    public $autoStart;
 
     /**
      * @var string
@@ -88,37 +43,27 @@ class devices extends Model
     /**
      * @var string
      */
+    public $description;
+
+    /**
+     * @var directory
+     */
+    public $directory;
+
+    /**
+     * @var string
+     */
     public $directoryId;
 
     /**
      * @var string
      */
-    public $registeredTime;
-
-    /**
-     * @var string
-     */
-    public $protocol;
-
-    /**
-     * @var string
-     */
-    public $ip;
-
-    /**
-     * @var string
-     */
-    public $url;
+    public $dsn;
 
     /**
      * @var bool
      */
-    public $autoStart;
-
-    /**
-     * @var string
-     */
-    public $vendor;
+    public $enabled;
 
     /**
      * @var string
@@ -133,7 +78,12 @@ class devices extends Model
     /**
      * @var string
      */
-    public $longitude;
+    public $id;
+
+    /**
+     * @var string
+     */
+    public $ip;
 
     /**
      * @var string
@@ -143,12 +93,47 @@ class devices extends Model
     /**
      * @var string
      */
-    public $id;
+    public $longitude;
 
     /**
      * @var string
      */
-    public $username;
+    public $name;
+
+    /**
+     * @var string
+     */
+    public $params;
+
+    /**
+     * @var string
+     */
+    public $parentId;
+
+    /**
+     * @var string
+     */
+    public $password;
+
+    /**
+     * @var int
+     */
+    public $port;
+
+    /**
+     * @var int
+     */
+    public $posInterval;
+
+    /**
+     * @var string
+     */
+    public $protocol;
+
+    /**
+     * @var string
+     */
+    public $registeredTime;
 
     /**
      * @var stats
@@ -156,40 +141,61 @@ class devices extends Model
     public $stats;
 
     /**
-     * @var directory
+     * @var string
      */
-    public $directory;
+    public $status;
+
+    /**
+     * @var string
+     */
+    public $type;
+
+    /**
+     * @var string
+     */
+    public $url;
+
+    /**
+     * @var string
+     */
+    public $username;
+
+    /**
+     * @var string
+     */
+    public $vendor;
     protected $_name = [
-        'type'            => 'Type',
-        'status'          => 'Status',
         'alarmMethod'     => 'AlarmMethod',
-        'dsn'             => 'Dsn',
-        'port'            => 'Port',
-        'posInterval'     => 'PosInterval',
-        'parentId'        => 'ParentId',
-        'password'        => 'Password',
+        'autoDirectory'   => 'AutoDirectory',
         'autoPos'         => 'AutoPos',
-        'params'          => 'Params',
-        'description'     => 'Description',
-        'enabled'         => 'Enabled',
-        'name'            => 'Name',
+        'autoStart'       => 'AutoStart',
         'channelSyncTime' => 'ChannelSyncTime',
         'createdTime'     => 'CreatedTime',
+        'description'     => 'Description',
+        'directory'       => 'Directory',
         'directoryId'     => 'DirectoryId',
-        'registeredTime'  => 'RegisteredTime',
-        'protocol'        => 'Protocol',
-        'ip'              => 'Ip',
-        'url'             => 'Url',
-        'autoStart'       => 'AutoStart',
-        'vendor'          => 'Vendor',
+        'dsn'             => 'Dsn',
+        'enabled'         => 'Enabled',
         'gbId'            => 'GbId',
         'groupId'         => 'GroupId',
-        'longitude'       => 'Longitude',
-        'latitude'        => 'Latitude',
         'id'              => 'Id',
-        'username'        => 'Username',
+        'ip'              => 'Ip',
+        'latitude'        => 'Latitude',
+        'longitude'       => 'Longitude',
+        'name'            => 'Name',
+        'params'          => 'Params',
+        'parentId'        => 'ParentId',
+        'password'        => 'Password',
+        'port'            => 'Port',
+        'posInterval'     => 'PosInterval',
+        'protocol'        => 'Protocol',
+        'registeredTime'  => 'RegisteredTime',
         'stats'           => 'Stats',
-        'directory'       => 'Directory',
+        'status'          => 'Status',
+        'type'            => 'Type',
+        'url'             => 'Url',
+        'username'        => 'Username',
+        'vendor'          => 'Vendor',
     ];
 
     public function validate()
@@ -199,44 +205,17 @@ class devices extends Model
     public function toMap()
     {
         $res = [];
-        if (null !== $this->type) {
-            $res['Type'] = $this->type;
-        }
-        if (null !== $this->status) {
-            $res['Status'] = $this->status;
-        }
         if (null !== $this->alarmMethod) {
             $res['AlarmMethod'] = $this->alarmMethod;
         }
-        if (null !== $this->dsn) {
-            $res['Dsn'] = $this->dsn;
-        }
-        if (null !== $this->port) {
-            $res['Port'] = $this->port;
-        }
-        if (null !== $this->posInterval) {
-            $res['PosInterval'] = $this->posInterval;
-        }
-        if (null !== $this->parentId) {
-            $res['ParentId'] = $this->parentId;
-        }
-        if (null !== $this->password) {
-            $res['Password'] = $this->password;
+        if (null !== $this->autoDirectory) {
+            $res['AutoDirectory'] = $this->autoDirectory;
         }
         if (null !== $this->autoPos) {
             $res['AutoPos'] = $this->autoPos;
         }
-        if (null !== $this->params) {
-            $res['Params'] = $this->params;
-        }
-        if (null !== $this->description) {
-            $res['Description'] = $this->description;
-        }
-        if (null !== $this->enabled) {
-            $res['Enabled'] = $this->enabled;
-        }
-        if (null !== $this->name) {
-            $res['Name'] = $this->name;
+        if (null !== $this->autoStart) {
+            $res['AutoStart'] = $this->autoStart;
         }
         if (null !== $this->channelSyncTime) {
             $res['ChannelSyncTime'] = $this->channelSyncTime;
@@ -244,26 +223,20 @@ class devices extends Model
         if (null !== $this->createdTime) {
             $res['CreatedTime'] = $this->createdTime;
         }
+        if (null !== $this->description) {
+            $res['Description'] = $this->description;
+        }
+        if (null !== $this->directory) {
+            $res['Directory'] = null !== $this->directory ? $this->directory->toMap() : null;
+        }
         if (null !== $this->directoryId) {
             $res['DirectoryId'] = $this->directoryId;
         }
-        if (null !== $this->registeredTime) {
-            $res['RegisteredTime'] = $this->registeredTime;
+        if (null !== $this->dsn) {
+            $res['Dsn'] = $this->dsn;
         }
-        if (null !== $this->protocol) {
-            $res['Protocol'] = $this->protocol;
-        }
-        if (null !== $this->ip) {
-            $res['Ip'] = $this->ip;
-        }
-        if (null !== $this->url) {
-            $res['Url'] = $this->url;
-        }
-        if (null !== $this->autoStart) {
-            $res['AutoStart'] = $this->autoStart;
-        }
-        if (null !== $this->vendor) {
-            $res['Vendor'] = $this->vendor;
+        if (null !== $this->enabled) {
+            $res['Enabled'] = $this->enabled;
         }
         if (null !== $this->gbId) {
             $res['GbId'] = $this->gbId;
@@ -271,23 +244,59 @@ class devices extends Model
         if (null !== $this->groupId) {
             $res['GroupId'] = $this->groupId;
         }
-        if (null !== $this->longitude) {
-            $res['Longitude'] = $this->longitude;
+        if (null !== $this->id) {
+            $res['Id'] = $this->id;
+        }
+        if (null !== $this->ip) {
+            $res['Ip'] = $this->ip;
         }
         if (null !== $this->latitude) {
             $res['Latitude'] = $this->latitude;
         }
-        if (null !== $this->id) {
-            $res['Id'] = $this->id;
+        if (null !== $this->longitude) {
+            $res['Longitude'] = $this->longitude;
         }
-        if (null !== $this->username) {
-            $res['Username'] = $this->username;
+        if (null !== $this->name) {
+            $res['Name'] = $this->name;
+        }
+        if (null !== $this->params) {
+            $res['Params'] = $this->params;
+        }
+        if (null !== $this->parentId) {
+            $res['ParentId'] = $this->parentId;
+        }
+        if (null !== $this->password) {
+            $res['Password'] = $this->password;
+        }
+        if (null !== $this->port) {
+            $res['Port'] = $this->port;
+        }
+        if (null !== $this->posInterval) {
+            $res['PosInterval'] = $this->posInterval;
+        }
+        if (null !== $this->protocol) {
+            $res['Protocol'] = $this->protocol;
+        }
+        if (null !== $this->registeredTime) {
+            $res['RegisteredTime'] = $this->registeredTime;
         }
         if (null !== $this->stats) {
             $res['Stats'] = null !== $this->stats ? $this->stats->toMap() : null;
         }
-        if (null !== $this->directory) {
-            $res['Directory'] = null !== $this->directory ? $this->directory->toMap() : null;
+        if (null !== $this->status) {
+            $res['Status'] = $this->status;
+        }
+        if (null !== $this->type) {
+            $res['Type'] = $this->type;
+        }
+        if (null !== $this->url) {
+            $res['Url'] = $this->url;
+        }
+        if (null !== $this->username) {
+            $res['Username'] = $this->username;
+        }
+        if (null !== $this->vendor) {
+            $res['Vendor'] = $this->vendor;
         }
 
         return $res;
@@ -301,44 +310,17 @@ class devices extends Model
     public static function fromMap($map = [])
     {
         $model = new self();
-        if (isset($map['Type'])) {
-            $model->type = $map['Type'];
-        }
-        if (isset($map['Status'])) {
-            $model->status = $map['Status'];
-        }
         if (isset($map['AlarmMethod'])) {
             $model->alarmMethod = $map['AlarmMethod'];
         }
-        if (isset($map['Dsn'])) {
-            $model->dsn = $map['Dsn'];
-        }
-        if (isset($map['Port'])) {
-            $model->port = $map['Port'];
-        }
-        if (isset($map['PosInterval'])) {
-            $model->posInterval = $map['PosInterval'];
-        }
-        if (isset($map['ParentId'])) {
-            $model->parentId = $map['ParentId'];
-        }
-        if (isset($map['Password'])) {
-            $model->password = $map['Password'];
+        if (isset($map['AutoDirectory'])) {
+            $model->autoDirectory = $map['AutoDirectory'];
         }
         if (isset($map['AutoPos'])) {
             $model->autoPos = $map['AutoPos'];
         }
-        if (isset($map['Params'])) {
-            $model->params = $map['Params'];
-        }
-        if (isset($map['Description'])) {
-            $model->description = $map['Description'];
-        }
-        if (isset($map['Enabled'])) {
-            $model->enabled = $map['Enabled'];
-        }
-        if (isset($map['Name'])) {
-            $model->name = $map['Name'];
+        if (isset($map['AutoStart'])) {
+            $model->autoStart = $map['AutoStart'];
         }
         if (isset($map['ChannelSyncTime'])) {
             $model->channelSyncTime = $map['ChannelSyncTime'];
@@ -346,26 +328,20 @@ class devices extends Model
         if (isset($map['CreatedTime'])) {
             $model->createdTime = $map['CreatedTime'];
         }
+        if (isset($map['Description'])) {
+            $model->description = $map['Description'];
+        }
+        if (isset($map['Directory'])) {
+            $model->directory = directory::fromMap($map['Directory']);
+        }
         if (isset($map['DirectoryId'])) {
             $model->directoryId = $map['DirectoryId'];
         }
-        if (isset($map['RegisteredTime'])) {
-            $model->registeredTime = $map['RegisteredTime'];
+        if (isset($map['Dsn'])) {
+            $model->dsn = $map['Dsn'];
         }
-        if (isset($map['Protocol'])) {
-            $model->protocol = $map['Protocol'];
-        }
-        if (isset($map['Ip'])) {
-            $model->ip = $map['Ip'];
-        }
-        if (isset($map['Url'])) {
-            $model->url = $map['Url'];
-        }
-        if (isset($map['AutoStart'])) {
-            $model->autoStart = $map['AutoStart'];
-        }
-        if (isset($map['Vendor'])) {
-            $model->vendor = $map['Vendor'];
+        if (isset($map['Enabled'])) {
+            $model->enabled = $map['Enabled'];
         }
         if (isset($map['GbId'])) {
             $model->gbId = $map['GbId'];
@@ -373,23 +349,59 @@ class devices extends Model
         if (isset($map['GroupId'])) {
             $model->groupId = $map['GroupId'];
         }
-        if (isset($map['Longitude'])) {
-            $model->longitude = $map['Longitude'];
+        if (isset($map['Id'])) {
+            $model->id = $map['Id'];
+        }
+        if (isset($map['Ip'])) {
+            $model->ip = $map['Ip'];
         }
         if (isset($map['Latitude'])) {
             $model->latitude = $map['Latitude'];
         }
-        if (isset($map['Id'])) {
-            $model->id = $map['Id'];
+        if (isset($map['Longitude'])) {
+            $model->longitude = $map['Longitude'];
         }
-        if (isset($map['Username'])) {
-            $model->username = $map['Username'];
+        if (isset($map['Name'])) {
+            $model->name = $map['Name'];
+        }
+        if (isset($map['Params'])) {
+            $model->params = $map['Params'];
+        }
+        if (isset($map['ParentId'])) {
+            $model->parentId = $map['ParentId'];
+        }
+        if (isset($map['Password'])) {
+            $model->password = $map['Password'];
+        }
+        if (isset($map['Port'])) {
+            $model->port = $map['Port'];
+        }
+        if (isset($map['PosInterval'])) {
+            $model->posInterval = $map['PosInterval'];
+        }
+        if (isset($map['Protocol'])) {
+            $model->protocol = $map['Protocol'];
+        }
+        if (isset($map['RegisteredTime'])) {
+            $model->registeredTime = $map['RegisteredTime'];
         }
         if (isset($map['Stats'])) {
             $model->stats = stats::fromMap($map['Stats']);
         }
-        if (isset($map['Directory'])) {
-            $model->directory = directory::fromMap($map['Directory']);
+        if (isset($map['Status'])) {
+            $model->status = $map['Status'];
+        }
+        if (isset($map['Type'])) {
+            $model->type = $map['Type'];
+        }
+        if (isset($map['Url'])) {
+            $model->url = $map['Url'];
+        }
+        if (isset($map['Username'])) {
+            $model->username = $map['Username'];
+        }
+        if (isset($map['Vendor'])) {
+            $model->vendor = $map['Vendor'];
         }
 
         return $model;

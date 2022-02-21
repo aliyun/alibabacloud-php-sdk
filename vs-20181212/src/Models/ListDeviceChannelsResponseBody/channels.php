@@ -16,7 +16,7 @@ class channels extends Model
     /**
      * @var string
      */
-    public $params;
+    public $deviceId;
 
     /**
      * @var string
@@ -31,13 +31,13 @@ class channels extends Model
     /**
      * @var string
      */
-    public $deviceId;
+    public $params;
     protected $_name = [
         'channelId'    => 'ChannelId',
-        'params'       => 'Params',
+        'deviceId'     => 'DeviceId',
         'deviceStatus' => 'DeviceStatus',
         'name'         => 'Name',
-        'deviceId'     => 'DeviceId',
+        'params'       => 'Params',
     ];
 
     public function validate()
@@ -50,8 +50,8 @@ class channels extends Model
         if (null !== $this->channelId) {
             $res['ChannelId'] = $this->channelId;
         }
-        if (null !== $this->params) {
-            $res['Params'] = $this->params;
+        if (null !== $this->deviceId) {
+            $res['DeviceId'] = $this->deviceId;
         }
         if (null !== $this->deviceStatus) {
             $res['DeviceStatus'] = $this->deviceStatus;
@@ -59,8 +59,8 @@ class channels extends Model
         if (null !== $this->name) {
             $res['Name'] = $this->name;
         }
-        if (null !== $this->deviceId) {
-            $res['DeviceId'] = $this->deviceId;
+        if (null !== $this->params) {
+            $res['Params'] = $this->params;
         }
 
         return $res;
@@ -77,8 +77,8 @@ class channels extends Model
         if (isset($map['ChannelId'])) {
             $model->channelId = $map['ChannelId'];
         }
-        if (isset($map['Params'])) {
-            $model->params = $map['Params'];
+        if (isset($map['DeviceId'])) {
+            $model->deviceId = $map['DeviceId'];
         }
         if (isset($map['DeviceStatus'])) {
             $model->deviceStatus = $map['DeviceStatus'];
@@ -86,8 +86,8 @@ class channels extends Model
         if (isset($map['Name'])) {
             $model->name = $map['Name'];
         }
-        if (isset($map['DeviceId'])) {
-            $model->deviceId = $map['DeviceId'];
+        if (isset($map['Params'])) {
+            $model->params = $map['Params'];
         }
 
         return $model;

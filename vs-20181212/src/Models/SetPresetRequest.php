@@ -9,6 +9,11 @@ use AlibabaCloud\Tea\Model;
 class SetPresetRequest extends Model
 {
     /**
+     * @var string
+     */
+    public $id;
+
+    /**
      * @var int
      */
     public $ownerId;
@@ -16,22 +21,11 @@ class SetPresetRequest extends Model
     /**
      * @var string
      */
-    public $id;
-
-    /**
-     * @var string
-     */
     public $presetId;
-
-    /**
-     * @var string
-     */
-    public $subProtocol;
     protected $_name = [
-        'ownerId'     => 'OwnerId',
-        'id'          => 'Id',
-        'presetId'    => 'PresetId',
-        'subProtocol' => 'SubProtocol',
+        'id'       => 'Id',
+        'ownerId'  => 'OwnerId',
+        'presetId' => 'PresetId',
     ];
 
     public function validate()
@@ -41,17 +35,14 @@ class SetPresetRequest extends Model
     public function toMap()
     {
         $res = [];
-        if (null !== $this->ownerId) {
-            $res['OwnerId'] = $this->ownerId;
-        }
         if (null !== $this->id) {
             $res['Id'] = $this->id;
         }
+        if (null !== $this->ownerId) {
+            $res['OwnerId'] = $this->ownerId;
+        }
         if (null !== $this->presetId) {
             $res['PresetId'] = $this->presetId;
-        }
-        if (null !== $this->subProtocol) {
-            $res['SubProtocol'] = $this->subProtocol;
         }
 
         return $res;
@@ -65,17 +56,14 @@ class SetPresetRequest extends Model
     public static function fromMap($map = [])
     {
         $model = new self();
-        if (isset($map['OwnerId'])) {
-            $model->ownerId = $map['OwnerId'];
-        }
         if (isset($map['Id'])) {
             $model->id = $map['Id'];
         }
+        if (isset($map['OwnerId'])) {
+            $model->ownerId = $map['OwnerId'];
+        }
         if (isset($map['PresetId'])) {
             $model->presetId = $map['PresetId'];
-        }
-        if (isset($map['SubProtocol'])) {
-            $model->subProtocol = $map['SubProtocol'];
         }
 
         return $model;

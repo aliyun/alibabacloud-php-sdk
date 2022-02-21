@@ -9,9 +9,9 @@ use AlibabaCloud\Tea\Model;
 class AddDeviceRequest extends Model
 {
     /**
-     * @var int
+     * @var string
      */
-    public $ownerId;
+    public $config;
 
     /**
      * @var string
@@ -19,19 +19,19 @@ class AddDeviceRequest extends Model
     public $groupId;
 
     /**
-     * @var string
+     * @var int
      */
-    public $protocol;
+    public $ownerId;
 
     /**
      * @var string
      */
-    public $config;
+    public $protocol;
     protected $_name = [
-        'ownerId'  => 'OwnerId',
-        'groupId'  => 'GroupId',
-        'protocol' => 'Protocol',
         'config'   => 'Config',
+        'groupId'  => 'GroupId',
+        'ownerId'  => 'OwnerId',
+        'protocol' => 'Protocol',
     ];
 
     public function validate()
@@ -41,17 +41,17 @@ class AddDeviceRequest extends Model
     public function toMap()
     {
         $res = [];
-        if (null !== $this->ownerId) {
-            $res['OwnerId'] = $this->ownerId;
+        if (null !== $this->config) {
+            $res['Config'] = $this->config;
         }
         if (null !== $this->groupId) {
             $res['GroupId'] = $this->groupId;
         }
+        if (null !== $this->ownerId) {
+            $res['OwnerId'] = $this->ownerId;
+        }
         if (null !== $this->protocol) {
             $res['Protocol'] = $this->protocol;
-        }
-        if (null !== $this->config) {
-            $res['Config'] = $this->config;
         }
 
         return $res;
@@ -65,17 +65,17 @@ class AddDeviceRequest extends Model
     public static function fromMap($map = [])
     {
         $model = new self();
-        if (isset($map['OwnerId'])) {
-            $model->ownerId = $map['OwnerId'];
+        if (isset($map['Config'])) {
+            $model->config = $map['Config'];
         }
         if (isset($map['GroupId'])) {
             $model->groupId = $map['GroupId'];
         }
+        if (isset($map['OwnerId'])) {
+            $model->ownerId = $map['OwnerId'];
+        }
         if (isset($map['Protocol'])) {
             $model->protocol = $map['Protocol'];
-        }
-        if (isset($map['Config'])) {
-            $model->config = $map['Config'];
         }
 
         return $model;

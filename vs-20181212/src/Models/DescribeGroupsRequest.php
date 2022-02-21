@@ -9,11 +9,6 @@ use AlibabaCloud\Tea\Model;
 class DescribeGroupsRequest extends Model
 {
     /**
-     * @var int
-     */
-    public $ownerId;
-
-    /**
      * @var string
      */
     public $id;
@@ -21,22 +16,37 @@ class DescribeGroupsRequest extends Model
     /**
      * @var string
      */
+    public $inProtocol;
+
+    /**
+     * @var bool
+     */
+    public $includeStats;
+
+    /**
+     * @var string
+     */
     public $name;
+
+    /**
+     * @var int
+     */
+    public $ownerId;
+
+    /**
+     * @var int
+     */
+    public $pageNum;
+
+    /**
+     * @var int
+     */
+    public $pageSize;
 
     /**
      * @var string
      */
     public $region;
-
-    /**
-     * @var string
-     */
-    public $inProtocol;
-
-    /**
-     * @var string
-     */
-    public $status;
 
     /**
      * @var string
@@ -49,31 +59,21 @@ class DescribeGroupsRequest extends Model
     public $sortDirection;
 
     /**
-     * @var int
+     * @var string
      */
-    public $pageSize;
-
-    /**
-     * @var int
-     */
-    public $pageNum;
-
-    /**
-     * @var bool
-     */
-    public $includeStats;
+    public $status;
     protected $_name = [
-        'ownerId'       => 'OwnerId',
         'id'            => 'Id',
-        'name'          => 'Name',
-        'region'        => 'Region',
         'inProtocol'    => 'InProtocol',
-        'status'        => 'Status',
+        'includeStats'  => 'IncludeStats',
+        'name'          => 'Name',
+        'ownerId'       => 'OwnerId',
+        'pageNum'       => 'PageNum',
+        'pageSize'      => 'PageSize',
+        'region'        => 'Region',
         'sortBy'        => 'SortBy',
         'sortDirection' => 'SortDirection',
-        'pageSize'      => 'PageSize',
-        'pageNum'       => 'PageNum',
-        'includeStats'  => 'IncludeStats',
+        'status'        => 'Status',
     ];
 
     public function validate()
@@ -83,23 +83,29 @@ class DescribeGroupsRequest extends Model
     public function toMap()
     {
         $res = [];
-        if (null !== $this->ownerId) {
-            $res['OwnerId'] = $this->ownerId;
-        }
         if (null !== $this->id) {
             $res['Id'] = $this->id;
-        }
-        if (null !== $this->name) {
-            $res['Name'] = $this->name;
-        }
-        if (null !== $this->region) {
-            $res['Region'] = $this->region;
         }
         if (null !== $this->inProtocol) {
             $res['InProtocol'] = $this->inProtocol;
         }
-        if (null !== $this->status) {
-            $res['Status'] = $this->status;
+        if (null !== $this->includeStats) {
+            $res['IncludeStats'] = $this->includeStats;
+        }
+        if (null !== $this->name) {
+            $res['Name'] = $this->name;
+        }
+        if (null !== $this->ownerId) {
+            $res['OwnerId'] = $this->ownerId;
+        }
+        if (null !== $this->pageNum) {
+            $res['PageNum'] = $this->pageNum;
+        }
+        if (null !== $this->pageSize) {
+            $res['PageSize'] = $this->pageSize;
+        }
+        if (null !== $this->region) {
+            $res['Region'] = $this->region;
         }
         if (null !== $this->sortBy) {
             $res['SortBy'] = $this->sortBy;
@@ -107,14 +113,8 @@ class DescribeGroupsRequest extends Model
         if (null !== $this->sortDirection) {
             $res['SortDirection'] = $this->sortDirection;
         }
-        if (null !== $this->pageSize) {
-            $res['PageSize'] = $this->pageSize;
-        }
-        if (null !== $this->pageNum) {
-            $res['PageNum'] = $this->pageNum;
-        }
-        if (null !== $this->includeStats) {
-            $res['IncludeStats'] = $this->includeStats;
+        if (null !== $this->status) {
+            $res['Status'] = $this->status;
         }
 
         return $res;
@@ -128,23 +128,29 @@ class DescribeGroupsRequest extends Model
     public static function fromMap($map = [])
     {
         $model = new self();
-        if (isset($map['OwnerId'])) {
-            $model->ownerId = $map['OwnerId'];
-        }
         if (isset($map['Id'])) {
             $model->id = $map['Id'];
-        }
-        if (isset($map['Name'])) {
-            $model->name = $map['Name'];
-        }
-        if (isset($map['Region'])) {
-            $model->region = $map['Region'];
         }
         if (isset($map['InProtocol'])) {
             $model->inProtocol = $map['InProtocol'];
         }
-        if (isset($map['Status'])) {
-            $model->status = $map['Status'];
+        if (isset($map['IncludeStats'])) {
+            $model->includeStats = $map['IncludeStats'];
+        }
+        if (isset($map['Name'])) {
+            $model->name = $map['Name'];
+        }
+        if (isset($map['OwnerId'])) {
+            $model->ownerId = $map['OwnerId'];
+        }
+        if (isset($map['PageNum'])) {
+            $model->pageNum = $map['PageNum'];
+        }
+        if (isset($map['PageSize'])) {
+            $model->pageSize = $map['PageSize'];
+        }
+        if (isset($map['Region'])) {
+            $model->region = $map['Region'];
         }
         if (isset($map['SortBy'])) {
             $model->sortBy = $map['SortBy'];
@@ -152,14 +158,8 @@ class DescribeGroupsRequest extends Model
         if (isset($map['SortDirection'])) {
             $model->sortDirection = $map['SortDirection'];
         }
-        if (isset($map['PageSize'])) {
-            $model->pageSize = $map['PageSize'];
-        }
-        if (isset($map['PageNum'])) {
-            $model->pageNum = $map['PageNum'];
-        }
-        if (isset($map['IncludeStats'])) {
-            $model->includeStats = $map['IncludeStats'];
+        if (isset($map['Status'])) {
+            $model->status = $map['Status'];
         }
 
         return $model;

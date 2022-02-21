@@ -9,11 +9,6 @@ use AlibabaCloud\Tea\Model;
 class ListDeviceChannelsRequest extends Model
 {
     /**
-     * @var int
-     */
-    public $ownerId;
-
-    /**
      * @var string
      */
     public $deviceId;
@@ -21,17 +16,22 @@ class ListDeviceChannelsRequest extends Model
     /**
      * @var int
      */
-    public $pageSize;
+    public $ownerId;
 
     /**
      * @var int
      */
     public $pageNum;
+
+    /**
+     * @var int
+     */
+    public $pageSize;
     protected $_name = [
-        'ownerId'  => 'OwnerId',
         'deviceId' => 'DeviceId',
-        'pageSize' => 'PageSize',
+        'ownerId'  => 'OwnerId',
         'pageNum'  => 'PageNum',
+        'pageSize' => 'PageSize',
     ];
 
     public function validate()
@@ -41,17 +41,17 @@ class ListDeviceChannelsRequest extends Model
     public function toMap()
     {
         $res = [];
-        if (null !== $this->ownerId) {
-            $res['OwnerId'] = $this->ownerId;
-        }
         if (null !== $this->deviceId) {
             $res['DeviceId'] = $this->deviceId;
         }
-        if (null !== $this->pageSize) {
-            $res['PageSize'] = $this->pageSize;
+        if (null !== $this->ownerId) {
+            $res['OwnerId'] = $this->ownerId;
         }
         if (null !== $this->pageNum) {
             $res['PageNum'] = $this->pageNum;
+        }
+        if (null !== $this->pageSize) {
+            $res['PageSize'] = $this->pageSize;
         }
 
         return $res;
@@ -65,17 +65,17 @@ class ListDeviceChannelsRequest extends Model
     public static function fromMap($map = [])
     {
         $model = new self();
-        if (isset($map['OwnerId'])) {
-            $model->ownerId = $map['OwnerId'];
-        }
         if (isset($map['DeviceId'])) {
             $model->deviceId = $map['DeviceId'];
         }
-        if (isset($map['PageSize'])) {
-            $model->pageSize = $map['PageSize'];
+        if (isset($map['OwnerId'])) {
+            $model->ownerId = $map['OwnerId'];
         }
         if (isset($map['PageNum'])) {
             $model->pageNum = $map['PageNum'];
+        }
+        if (isset($map['PageSize'])) {
+            $model->pageSize = $map['PageSize'];
         }
 
         return $model;

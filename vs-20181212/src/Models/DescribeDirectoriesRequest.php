@@ -9,14 +9,29 @@ use AlibabaCloud\Tea\Model;
 class DescribeDirectoriesRequest extends Model
 {
     /**
+     * @var string
+     */
+    public $groupId;
+
+    /**
+     * @var bool
+     */
+    public $noPagination;
+
+    /**
      * @var int
      */
     public $ownerId;
 
     /**
-     * @var string
+     * @var int
      */
-    public $groupId;
+    public $pageNum;
+
+    /**
+     * @var int
+     */
+    public $pageSize;
 
     /**
      * @var string
@@ -32,30 +47,15 @@ class DescribeDirectoriesRequest extends Model
      * @var string
      */
     public $sortDirection;
-
-    /**
-     * @var int
-     */
-    public $pageSize;
-
-    /**
-     * @var int
-     */
-    public $pageNum;
-
-    /**
-     * @var bool
-     */
-    public $noPagination;
     protected $_name = [
-        'ownerId'       => 'OwnerId',
         'groupId'       => 'GroupId',
+        'noPagination'  => 'NoPagination',
+        'ownerId'       => 'OwnerId',
+        'pageNum'       => 'PageNum',
+        'pageSize'      => 'PageSize',
         'parentId'      => 'ParentId',
         'sortBy'        => 'SortBy',
         'sortDirection' => 'SortDirection',
-        'pageSize'      => 'PageSize',
-        'pageNum'       => 'PageNum',
-        'noPagination'  => 'NoPagination',
     ];
 
     public function validate()
@@ -65,11 +65,20 @@ class DescribeDirectoriesRequest extends Model
     public function toMap()
     {
         $res = [];
+        if (null !== $this->groupId) {
+            $res['GroupId'] = $this->groupId;
+        }
+        if (null !== $this->noPagination) {
+            $res['NoPagination'] = $this->noPagination;
+        }
         if (null !== $this->ownerId) {
             $res['OwnerId'] = $this->ownerId;
         }
-        if (null !== $this->groupId) {
-            $res['GroupId'] = $this->groupId;
+        if (null !== $this->pageNum) {
+            $res['PageNum'] = $this->pageNum;
+        }
+        if (null !== $this->pageSize) {
+            $res['PageSize'] = $this->pageSize;
         }
         if (null !== $this->parentId) {
             $res['ParentId'] = $this->parentId;
@@ -79,15 +88,6 @@ class DescribeDirectoriesRequest extends Model
         }
         if (null !== $this->sortDirection) {
             $res['SortDirection'] = $this->sortDirection;
-        }
-        if (null !== $this->pageSize) {
-            $res['PageSize'] = $this->pageSize;
-        }
-        if (null !== $this->pageNum) {
-            $res['PageNum'] = $this->pageNum;
-        }
-        if (null !== $this->noPagination) {
-            $res['NoPagination'] = $this->noPagination;
         }
 
         return $res;
@@ -101,11 +101,20 @@ class DescribeDirectoriesRequest extends Model
     public static function fromMap($map = [])
     {
         $model = new self();
+        if (isset($map['GroupId'])) {
+            $model->groupId = $map['GroupId'];
+        }
+        if (isset($map['NoPagination'])) {
+            $model->noPagination = $map['NoPagination'];
+        }
         if (isset($map['OwnerId'])) {
             $model->ownerId = $map['OwnerId'];
         }
-        if (isset($map['GroupId'])) {
-            $model->groupId = $map['GroupId'];
+        if (isset($map['PageNum'])) {
+            $model->pageNum = $map['PageNum'];
+        }
+        if (isset($map['PageSize'])) {
+            $model->pageSize = $map['PageSize'];
         }
         if (isset($map['ParentId'])) {
             $model->parentId = $map['ParentId'];
@@ -115,15 +124,6 @@ class DescribeDirectoriesRequest extends Model
         }
         if (isset($map['SortDirection'])) {
             $model->sortDirection = $map['SortDirection'];
-        }
-        if (isset($map['PageSize'])) {
-            $model->pageSize = $map['PageSize'];
-        }
-        if (isset($map['PageNum'])) {
-            $model->pageNum = $map['PageNum'];
-        }
-        if (isset($map['NoPagination'])) {
-            $model->noPagination = $map['NoPagination'];
         }
 
         return $model;

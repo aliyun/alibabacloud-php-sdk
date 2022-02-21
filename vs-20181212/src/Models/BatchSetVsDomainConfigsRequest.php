@@ -9,11 +9,6 @@ use AlibabaCloud\Tea\Model;
 class BatchSetVsDomainConfigsRequest extends Model
 {
     /**
-     * @var int
-     */
-    public $ownerId;
-
-    /**
      * @var string
      */
     public $domainNames;
@@ -22,10 +17,15 @@ class BatchSetVsDomainConfigsRequest extends Model
      * @var string
      */
     public $functions;
+
+    /**
+     * @var int
+     */
+    public $ownerId;
     protected $_name = [
-        'ownerId'     => 'OwnerId',
         'domainNames' => 'DomainNames',
         'functions'   => 'Functions',
+        'ownerId'     => 'OwnerId',
     ];
 
     public function validate()
@@ -35,14 +35,14 @@ class BatchSetVsDomainConfigsRequest extends Model
     public function toMap()
     {
         $res = [];
-        if (null !== $this->ownerId) {
-            $res['OwnerId'] = $this->ownerId;
-        }
         if (null !== $this->domainNames) {
             $res['DomainNames'] = $this->domainNames;
         }
         if (null !== $this->functions) {
             $res['Functions'] = $this->functions;
+        }
+        if (null !== $this->ownerId) {
+            $res['OwnerId'] = $this->ownerId;
         }
 
         return $res;
@@ -56,14 +56,14 @@ class BatchSetVsDomainConfigsRequest extends Model
     public static function fromMap($map = [])
     {
         $model = new self();
-        if (isset($map['OwnerId'])) {
-            $model->ownerId = $map['OwnerId'];
-        }
         if (isset($map['DomainNames'])) {
             $model->domainNames = $map['DomainNames'];
         }
         if (isset($map['Functions'])) {
             $model->functions = $map['Functions'];
+        }
+        if (isset($map['OwnerId'])) {
+            $model->ownerId = $map['OwnerId'];
         }
 
         return $model;

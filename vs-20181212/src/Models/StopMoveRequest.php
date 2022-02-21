@@ -9,14 +9,14 @@ use AlibabaCloud\Tea\Model;
 class StopMoveRequest extends Model
 {
     /**
-     * @var int
-     */
-    public $ownerId;
-
-    /**
      * @var string
      */
     public $id;
+
+    /**
+     * @var int
+     */
+    public $ownerId;
 
     /**
      * @var bool
@@ -32,18 +32,12 @@ class StopMoveRequest extends Model
      * @var bool
      */
     public $zoom;
-
-    /**
-     * @var string
-     */
-    public $subProtocol;
     protected $_name = [
-        'ownerId'     => 'OwnerId',
-        'id'          => 'Id',
-        'pan'         => 'Pan',
-        'tilt'        => 'Tilt',
-        'zoom'        => 'Zoom',
-        'subProtocol' => 'SubProtocol',
+        'id'      => 'Id',
+        'ownerId' => 'OwnerId',
+        'pan'     => 'Pan',
+        'tilt'    => 'Tilt',
+        'zoom'    => 'Zoom',
     ];
 
     public function validate()
@@ -53,11 +47,11 @@ class StopMoveRequest extends Model
     public function toMap()
     {
         $res = [];
-        if (null !== $this->ownerId) {
-            $res['OwnerId'] = $this->ownerId;
-        }
         if (null !== $this->id) {
             $res['Id'] = $this->id;
+        }
+        if (null !== $this->ownerId) {
+            $res['OwnerId'] = $this->ownerId;
         }
         if (null !== $this->pan) {
             $res['Pan'] = $this->pan;
@@ -67,9 +61,6 @@ class StopMoveRequest extends Model
         }
         if (null !== $this->zoom) {
             $res['Zoom'] = $this->zoom;
-        }
-        if (null !== $this->subProtocol) {
-            $res['SubProtocol'] = $this->subProtocol;
         }
 
         return $res;
@@ -83,11 +74,11 @@ class StopMoveRequest extends Model
     public static function fromMap($map = [])
     {
         $model = new self();
-        if (isset($map['OwnerId'])) {
-            $model->ownerId = $map['OwnerId'];
-        }
         if (isset($map['Id'])) {
             $model->id = $map['Id'];
+        }
+        if (isset($map['OwnerId'])) {
+            $model->ownerId = $map['OwnerId'];
         }
         if (isset($map['Pan'])) {
             $model->pan = $map['Pan'];
@@ -97,9 +88,6 @@ class StopMoveRequest extends Model
         }
         if (isset($map['Zoom'])) {
             $model->zoom = $map['Zoom'];
-        }
-        if (isset($map['SubProtocol'])) {
-            $model->subProtocol = $map['SubProtocol'];
         }
 
         return $model;

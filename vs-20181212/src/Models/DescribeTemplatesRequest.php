@@ -9,11 +9,6 @@ use AlibabaCloud\Tea\Model;
 class DescribeTemplatesRequest extends Model
 {
     /**
-     * @var int
-     */
-    public $ownerId;
-
-    /**
      * @var string
      */
     public $id;
@@ -21,12 +16,22 @@ class DescribeTemplatesRequest extends Model
     /**
      * @var string
      */
-    public $type;
+    public $instanceId;
 
     /**
-     * @var string
+     * @var int
      */
-    public $instanceId;
+    public $ownerId;
+
+    /**
+     * @var int
+     */
+    public $pageNum;
+
+    /**
+     * @var int
+     */
+    public $pageSize;
 
     /**
      * @var string
@@ -39,23 +44,18 @@ class DescribeTemplatesRequest extends Model
     public $sortDirection;
 
     /**
-     * @var int
+     * @var string
      */
-    public $pageSize;
-
-    /**
-     * @var int
-     */
-    public $pageNum;
+    public $type;
     protected $_name = [
-        'ownerId'       => 'OwnerId',
         'id'            => 'Id',
-        'type'          => 'Type',
         'instanceId'    => 'InstanceId',
+        'ownerId'       => 'OwnerId',
+        'pageNum'       => 'PageNum',
+        'pageSize'      => 'PageSize',
         'sortBy'        => 'SortBy',
         'sortDirection' => 'SortDirection',
-        'pageSize'      => 'PageSize',
-        'pageNum'       => 'PageNum',
+        'type'          => 'Type',
     ];
 
     public function validate()
@@ -65,17 +65,20 @@ class DescribeTemplatesRequest extends Model
     public function toMap()
     {
         $res = [];
-        if (null !== $this->ownerId) {
-            $res['OwnerId'] = $this->ownerId;
-        }
         if (null !== $this->id) {
             $res['Id'] = $this->id;
         }
-        if (null !== $this->type) {
-            $res['Type'] = $this->type;
-        }
         if (null !== $this->instanceId) {
             $res['InstanceId'] = $this->instanceId;
+        }
+        if (null !== $this->ownerId) {
+            $res['OwnerId'] = $this->ownerId;
+        }
+        if (null !== $this->pageNum) {
+            $res['PageNum'] = $this->pageNum;
+        }
+        if (null !== $this->pageSize) {
+            $res['PageSize'] = $this->pageSize;
         }
         if (null !== $this->sortBy) {
             $res['SortBy'] = $this->sortBy;
@@ -83,11 +86,8 @@ class DescribeTemplatesRequest extends Model
         if (null !== $this->sortDirection) {
             $res['SortDirection'] = $this->sortDirection;
         }
-        if (null !== $this->pageSize) {
-            $res['PageSize'] = $this->pageSize;
-        }
-        if (null !== $this->pageNum) {
-            $res['PageNum'] = $this->pageNum;
+        if (null !== $this->type) {
+            $res['Type'] = $this->type;
         }
 
         return $res;
@@ -101,17 +101,20 @@ class DescribeTemplatesRequest extends Model
     public static function fromMap($map = [])
     {
         $model = new self();
-        if (isset($map['OwnerId'])) {
-            $model->ownerId = $map['OwnerId'];
-        }
         if (isset($map['Id'])) {
             $model->id = $map['Id'];
         }
-        if (isset($map['Type'])) {
-            $model->type = $map['Type'];
-        }
         if (isset($map['InstanceId'])) {
             $model->instanceId = $map['InstanceId'];
+        }
+        if (isset($map['OwnerId'])) {
+            $model->ownerId = $map['OwnerId'];
+        }
+        if (isset($map['PageNum'])) {
+            $model->pageNum = $map['PageNum'];
+        }
+        if (isset($map['PageSize'])) {
+            $model->pageSize = $map['PageSize'];
         }
         if (isset($map['SortBy'])) {
             $model->sortBy = $map['SortBy'];
@@ -119,11 +122,8 @@ class DescribeTemplatesRequest extends Model
         if (isset($map['SortDirection'])) {
             $model->sortDirection = $map['SortDirection'];
         }
-        if (isset($map['PageSize'])) {
-            $model->pageSize = $map['PageSize'];
-        }
-        if (isset($map['PageNum'])) {
-            $model->pageNum = $map['PageNum'];
+        if (isset($map['Type'])) {
+            $model->type = $map['Type'];
         }
 
         return $model;

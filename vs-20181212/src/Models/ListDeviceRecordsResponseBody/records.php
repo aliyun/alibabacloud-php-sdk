@@ -14,9 +14,14 @@ class records extends Model
     public $endTime;
 
     /**
+     * @var int
+     */
+    public $fileSize;
+
+    /**
      * @var string
      */
-    public $startTime;
+    public $filename;
 
     /**
      * @var string
@@ -26,18 +31,13 @@ class records extends Model
     /**
      * @var string
      */
-    public $filename;
-
-    /**
-     * @var int
-     */
-    public $fileSize;
+    public $startTime;
     protected $_name = [
         'endTime'    => 'EndTime',
-        'startTime'  => 'StartTime',
-        'recordType' => 'RecordType',
-        'filename'   => 'Filename',
         'fileSize'   => 'FileSize',
+        'filename'   => 'Filename',
+        'recordType' => 'RecordType',
+        'startTime'  => 'StartTime',
     ];
 
     public function validate()
@@ -50,17 +50,17 @@ class records extends Model
         if (null !== $this->endTime) {
             $res['EndTime'] = $this->endTime;
         }
-        if (null !== $this->startTime) {
-            $res['StartTime'] = $this->startTime;
-        }
-        if (null !== $this->recordType) {
-            $res['RecordType'] = $this->recordType;
+        if (null !== $this->fileSize) {
+            $res['FileSize'] = $this->fileSize;
         }
         if (null !== $this->filename) {
             $res['Filename'] = $this->filename;
         }
-        if (null !== $this->fileSize) {
-            $res['FileSize'] = $this->fileSize;
+        if (null !== $this->recordType) {
+            $res['RecordType'] = $this->recordType;
+        }
+        if (null !== $this->startTime) {
+            $res['StartTime'] = $this->startTime;
         }
 
         return $res;
@@ -77,17 +77,17 @@ class records extends Model
         if (isset($map['EndTime'])) {
             $model->endTime = $map['EndTime'];
         }
-        if (isset($map['StartTime'])) {
-            $model->startTime = $map['StartTime'];
-        }
-        if (isset($map['RecordType'])) {
-            $model->recordType = $map['RecordType'];
+        if (isset($map['FileSize'])) {
+            $model->fileSize = $map['FileSize'];
         }
         if (isset($map['Filename'])) {
             $model->filename = $map['Filename'];
         }
-        if (isset($map['FileSize'])) {
-            $model->fileSize = $map['FileSize'];
+        if (isset($map['RecordType'])) {
+            $model->recordType = $map['RecordType'];
+        }
+        if (isset($map['StartTime'])) {
+            $model->startTime = $map['StartTime'];
         }
 
         return $model;

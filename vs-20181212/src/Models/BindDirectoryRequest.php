@@ -9,9 +9,9 @@ use AlibabaCloud\Tea\Model;
 class BindDirectoryRequest extends Model
 {
     /**
-     * @var int
+     * @var string
      */
-    public $ownerId;
+    public $deviceId;
 
     /**
      * @var string
@@ -19,13 +19,13 @@ class BindDirectoryRequest extends Model
     public $directoryId;
 
     /**
-     * @var string
+     * @var int
      */
-    public $deviceId;
+    public $ownerId;
     protected $_name = [
-        'ownerId'     => 'OwnerId',
-        'directoryId' => 'DirectoryId',
         'deviceId'    => 'DeviceId',
+        'directoryId' => 'DirectoryId',
+        'ownerId'     => 'OwnerId',
     ];
 
     public function validate()
@@ -35,14 +35,14 @@ class BindDirectoryRequest extends Model
     public function toMap()
     {
         $res = [];
-        if (null !== $this->ownerId) {
-            $res['OwnerId'] = $this->ownerId;
+        if (null !== $this->deviceId) {
+            $res['DeviceId'] = $this->deviceId;
         }
         if (null !== $this->directoryId) {
             $res['DirectoryId'] = $this->directoryId;
         }
-        if (null !== $this->deviceId) {
-            $res['DeviceId'] = $this->deviceId;
+        if (null !== $this->ownerId) {
+            $res['OwnerId'] = $this->ownerId;
         }
 
         return $res;
@@ -56,14 +56,14 @@ class BindDirectoryRequest extends Model
     public static function fromMap($map = [])
     {
         $model = new self();
-        if (isset($map['OwnerId'])) {
-            $model->ownerId = $map['OwnerId'];
+        if (isset($map['DeviceId'])) {
+            $model->deviceId = $map['DeviceId'];
         }
         if (isset($map['DirectoryId'])) {
             $model->directoryId = $map['DirectoryId'];
         }
-        if (isset($map['DeviceId'])) {
-            $model->deviceId = $map['DeviceId'];
+        if (isset($map['OwnerId'])) {
+            $model->ownerId = $map['OwnerId'];
         }
 
         return $model;

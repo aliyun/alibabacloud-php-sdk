@@ -9,6 +9,11 @@ use AlibabaCloud\Tea\Model;
 class StopTransferStreamRequest extends Model
 {
     /**
+     * @var string
+     */
+    public $id;
+
+    /**
      * @var int
      */
     public $ownerId;
@@ -16,15 +21,10 @@ class StopTransferStreamRequest extends Model
     /**
      * @var string
      */
-    public $id;
-
-    /**
-     * @var string
-     */
     public $transcode;
     protected $_name = [
-        'ownerId'   => 'OwnerId',
         'id'        => 'Id',
+        'ownerId'   => 'OwnerId',
         'transcode' => 'Transcode',
     ];
 
@@ -35,11 +35,11 @@ class StopTransferStreamRequest extends Model
     public function toMap()
     {
         $res = [];
-        if (null !== $this->ownerId) {
-            $res['OwnerId'] = $this->ownerId;
-        }
         if (null !== $this->id) {
             $res['Id'] = $this->id;
+        }
+        if (null !== $this->ownerId) {
+            $res['OwnerId'] = $this->ownerId;
         }
         if (null !== $this->transcode) {
             $res['Transcode'] = $this->transcode;
@@ -56,11 +56,11 @@ class StopTransferStreamRequest extends Model
     public static function fromMap($map = [])
     {
         $model = new self();
-        if (isset($map['OwnerId'])) {
-            $model->ownerId = $map['OwnerId'];
-        }
         if (isset($map['Id'])) {
             $model->id = $map['Id'];
+        }
+        if (isset($map['OwnerId'])) {
+            $model->ownerId = $map['OwnerId'];
         }
         if (isset($map['Transcode'])) {
             $model->transcode = $map['Transcode'];

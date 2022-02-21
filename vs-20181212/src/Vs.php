@@ -5,8 +5,15 @@
 namespace AlibabaCloud\SDK\Vs\V20181212;
 
 use AlibabaCloud\Endpoint\Endpoint;
+use AlibabaCloud\OpenApiUtil\OpenApiUtilClient;
 use AlibabaCloud\SDK\Vs\V20181212\Models\AddDeviceRequest;
 use AlibabaCloud\SDK\Vs\V20181212\Models\AddDeviceResponse;
+use AlibabaCloud\SDK\Vs\V20181212\Models\AddRegisteredDeviceRequest;
+use AlibabaCloud\SDK\Vs\V20181212\Models\AddRegisteredDeviceResponse;
+use AlibabaCloud\SDK\Vs\V20181212\Models\AddRegisteredVendorRequest;
+use AlibabaCloud\SDK\Vs\V20181212\Models\AddRegisteredVendorResponse;
+use AlibabaCloud\SDK\Vs\V20181212\Models\AddRenderingDeviceInternetPortsRequest;
+use AlibabaCloud\SDK\Vs\V20181212\Models\AddRenderingDeviceInternetPortsResponse;
 use AlibabaCloud\SDK\Vs\V20181212\Models\AddVsPullStreamInfoConfigRequest;
 use AlibabaCloud\SDK\Vs\V20181212\Models\AddVsPullStreamInfoConfigResponse;
 use AlibabaCloud\SDK\Vs\V20181212\Models\BatchBindDirectoriesRequest;
@@ -55,10 +62,16 @@ use AlibabaCloud\SDK\Vs\V20181212\Models\BindPurchasedDeviceRequest;
 use AlibabaCloud\SDK\Vs\V20181212\Models\BindPurchasedDeviceResponse;
 use AlibabaCloud\SDK\Vs\V20181212\Models\BindTemplateRequest;
 use AlibabaCloud\SDK\Vs\V20181212\Models\BindTemplateResponse;
+use AlibabaCloud\SDK\Vs\V20181212\Models\CaptureDeviceSnapshotRequest;
+use AlibabaCloud\SDK\Vs\V20181212\Models\CaptureDeviceSnapshotResponse;
 use AlibabaCloud\SDK\Vs\V20181212\Models\ContinuousAdjustRequest;
 use AlibabaCloud\SDK\Vs\V20181212\Models\ContinuousAdjustResponse;
 use AlibabaCloud\SDK\Vs\V20181212\Models\ContinuousMoveRequest;
 use AlibabaCloud\SDK\Vs\V20181212\Models\ContinuousMoveResponse;
+use AlibabaCloud\SDK\Vs\V20181212\Models\CreateAIConfigRequest;
+use AlibabaCloud\SDK\Vs\V20181212\Models\CreateAIConfigResponse;
+use AlibabaCloud\SDK\Vs\V20181212\Models\CreateClusterRequest;
+use AlibabaCloud\SDK\Vs\V20181212\Models\CreateClusterResponse;
 use AlibabaCloud\SDK\Vs\V20181212\Models\CreateDeviceAlarmRequest;
 use AlibabaCloud\SDK\Vs\V20181212\Models\CreateDeviceAlarmResponse;
 use AlibabaCloud\SDK\Vs\V20181212\Models\CreateDeviceRequest;
@@ -71,12 +84,18 @@ use AlibabaCloud\SDK\Vs\V20181212\Models\CreateGroupRequest;
 use AlibabaCloud\SDK\Vs\V20181212\Models\CreateGroupResponse;
 use AlibabaCloud\SDK\Vs\V20181212\Models\CreateParentPlatformRequest;
 use AlibabaCloud\SDK\Vs\V20181212\Models\CreateParentPlatformResponse;
+use AlibabaCloud\SDK\Vs\V20181212\Models\CreateRenderingDeviceRequest;
+use AlibabaCloud\SDK\Vs\V20181212\Models\CreateRenderingDeviceResponse;
 use AlibabaCloud\SDK\Vs\V20181212\Models\CreateStreamSnapshotRequest;
 use AlibabaCloud\SDK\Vs\V20181212\Models\CreateStreamSnapshotResponse;
 use AlibabaCloud\SDK\Vs\V20181212\Models\CreateTemplateRequest;
 use AlibabaCloud\SDK\Vs\V20181212\Models\CreateTemplateResponse;
+use AlibabaCloud\SDK\Vs\V20181212\Models\DeleteAIConfigRequest;
+use AlibabaCloud\SDK\Vs\V20181212\Models\DeleteAIConfigResponse;
 use AlibabaCloud\SDK\Vs\V20181212\Models\DeleteBucketRequest;
 use AlibabaCloud\SDK\Vs\V20181212\Models\DeleteBucketResponse;
+use AlibabaCloud\SDK\Vs\V20181212\Models\DeleteClusterRequest;
+use AlibabaCloud\SDK\Vs\V20181212\Models\DeleteClusterResponse;
 use AlibabaCloud\SDK\Vs\V20181212\Models\DeleteDeviceRequest;
 use AlibabaCloud\SDK\Vs\V20181212\Models\DeleteDeviceResponse;
 use AlibabaCloud\SDK\Vs\V20181212\Models\DeleteDirectoryRequest;
@@ -87,6 +106,12 @@ use AlibabaCloud\SDK\Vs\V20181212\Models\DeleteParentPlatformRequest;
 use AlibabaCloud\SDK\Vs\V20181212\Models\DeleteParentPlatformResponse;
 use AlibabaCloud\SDK\Vs\V20181212\Models\DeletePresetRequest;
 use AlibabaCloud\SDK\Vs\V20181212\Models\DeletePresetResponse;
+use AlibabaCloud\SDK\Vs\V20181212\Models\DeletePurchasedDeviceRequest;
+use AlibabaCloud\SDK\Vs\V20181212\Models\DeletePurchasedDeviceResponse;
+use AlibabaCloud\SDK\Vs\V20181212\Models\DeleteRenderingDeviceInternetPortsRequest;
+use AlibabaCloud\SDK\Vs\V20181212\Models\DeleteRenderingDeviceInternetPortsResponse;
+use AlibabaCloud\SDK\Vs\V20181212\Models\DeleteRenderingDevicesRequest;
+use AlibabaCloud\SDK\Vs\V20181212\Models\DeleteRenderingDevicesResponse;
 use AlibabaCloud\SDK\Vs\V20181212\Models\DeleteTemplateRequest;
 use AlibabaCloud\SDK\Vs\V20181212\Models\DeleteTemplateResponse;
 use AlibabaCloud\SDK\Vs\V20181212\Models\DeleteVsPullStreamInfoConfigRequest;
@@ -95,6 +120,20 @@ use AlibabaCloud\SDK\Vs\V20181212\Models\DeleteVsStreamsNotifyUrlConfigRequest;
 use AlibabaCloud\SDK\Vs\V20181212\Models\DeleteVsStreamsNotifyUrlConfigResponse;
 use AlibabaCloud\SDK\Vs\V20181212\Models\DescribeAccountStatRequest;
 use AlibabaCloud\SDK\Vs\V20181212\Models\DescribeAccountStatResponse;
+use AlibabaCloud\SDK\Vs\V20181212\Models\DescribeAIConfigListRequest;
+use AlibabaCloud\SDK\Vs\V20181212\Models\DescribeAIConfigListResponse;
+use AlibabaCloud\SDK\Vs\V20181212\Models\DescribeAIConfigRequest;
+use AlibabaCloud\SDK\Vs\V20181212\Models\DescribeAIConfigResponse;
+use AlibabaCloud\SDK\Vs\V20181212\Models\DescribeAIEventListRequest;
+use AlibabaCloud\SDK\Vs\V20181212\Models\DescribeAIEventListResponse;
+use AlibabaCloud\SDK\Vs\V20181212\Models\DescribeClusterDevicesRequest;
+use AlibabaCloud\SDK\Vs\V20181212\Models\DescribeClusterDevicesResponse;
+use AlibabaCloud\SDK\Vs\V20181212\Models\DescribeClusterRequest;
+use AlibabaCloud\SDK\Vs\V20181212\Models\DescribeClusterResponse;
+use AlibabaCloud\SDK\Vs\V20181212\Models\DescribeClustersRequest;
+use AlibabaCloud\SDK\Vs\V20181212\Models\DescribeClustersResponse;
+use AlibabaCloud\SDK\Vs\V20181212\Models\DescribeContainerInstanceIdRequest;
+use AlibabaCloud\SDK\Vs\V20181212\Models\DescribeContainerInstanceIdResponse;
 use AlibabaCloud\SDK\Vs\V20181212\Models\DescribeDeviceChannelsRequest;
 use AlibabaCloud\SDK\Vs\V20181212\Models\DescribeDeviceChannelsResponse;
 use AlibabaCloud\SDK\Vs\V20181212\Models\DescribeDeviceGatewayRequest;
@@ -109,10 +148,14 @@ use AlibabaCloud\SDK\Vs\V20181212\Models\DescribeDirectoriesRequest;
 use AlibabaCloud\SDK\Vs\V20181212\Models\DescribeDirectoriesResponse;
 use AlibabaCloud\SDK\Vs\V20181212\Models\DescribeDirectoryRequest;
 use AlibabaCloud\SDK\Vs\V20181212\Models\DescribeDirectoryResponse;
+use AlibabaCloud\SDK\Vs\V20181212\Models\DescribeExternalStreamURLRequest;
+use AlibabaCloud\SDK\Vs\V20181212\Models\DescribeExternalStreamURLResponse;
 use AlibabaCloud\SDK\Vs\V20181212\Models\DescribeGroupRequest;
 use AlibabaCloud\SDK\Vs\V20181212\Models\DescribeGroupResponse;
 use AlibabaCloud\SDK\Vs\V20181212\Models\DescribeGroupsRequest;
 use AlibabaCloud\SDK\Vs\V20181212\Models\DescribeGroupsResponse;
+use AlibabaCloud\SDK\Vs\V20181212\Models\DescribeNodeDevicesInfoRequest;
+use AlibabaCloud\SDK\Vs\V20181212\Models\DescribeNodeDevicesInfoResponse;
 use AlibabaCloud\SDK\Vs\V20181212\Models\DescribeParentPlatformDevicesRequest;
 use AlibabaCloud\SDK\Vs\V20181212\Models\DescribeParentPlatformDevicesResponse;
 use AlibabaCloud\SDK\Vs\V20181212\Models\DescribeParentPlatformRequest;
@@ -127,6 +170,8 @@ use AlibabaCloud\SDK\Vs\V20181212\Models\DescribePurchasedDevicesRequest;
 use AlibabaCloud\SDK\Vs\V20181212\Models\DescribePurchasedDevicesResponse;
 use AlibabaCloud\SDK\Vs\V20181212\Models\DescribeRecordsRequest;
 use AlibabaCloud\SDK\Vs\V20181212\Models\DescribeRecordsResponse;
+use AlibabaCloud\SDK\Vs\V20181212\Models\DescribeRenderingDevicesRequest;
+use AlibabaCloud\SDK\Vs\V20181212\Models\DescribeRenderingDevicesResponse;
 use AlibabaCloud\SDK\Vs\V20181212\Models\DescribeStreamRequest;
 use AlibabaCloud\SDK\Vs\V20181212\Models\DescribeStreamResponse;
 use AlibabaCloud\SDK\Vs\V20181212\Models\DescribeStreamsRequest;
@@ -145,6 +190,8 @@ use AlibabaCloud\SDK\Vs\V20181212\Models\DescribeVsCertificateDetailRequest;
 use AlibabaCloud\SDK\Vs\V20181212\Models\DescribeVsCertificateDetailResponse;
 use AlibabaCloud\SDK\Vs\V20181212\Models\DescribeVsCertificateListRequest;
 use AlibabaCloud\SDK\Vs\V20181212\Models\DescribeVsCertificateListResponse;
+use AlibabaCloud\SDK\Vs\V20181212\Models\DescribeVsDevicesDataRequest;
+use AlibabaCloud\SDK\Vs\V20181212\Models\DescribeVsDevicesDataResponse;
 use AlibabaCloud\SDK\Vs\V20181212\Models\DescribeVsDomainBpsDataRequest;
 use AlibabaCloud\SDK\Vs\V20181212\Models\DescribeVsDomainBpsDataResponse;
 use AlibabaCloud\SDK\Vs\V20181212\Models\DescribeVsDomainCertificateInfoRequest;
@@ -153,6 +200,8 @@ use AlibabaCloud\SDK\Vs\V20181212\Models\DescribeVsDomainConfigsRequest;
 use AlibabaCloud\SDK\Vs\V20181212\Models\DescribeVsDomainConfigsResponse;
 use AlibabaCloud\SDK\Vs\V20181212\Models\DescribeVsDomainDetailRequest;
 use AlibabaCloud\SDK\Vs\V20181212\Models\DescribeVsDomainDetailResponse;
+use AlibabaCloud\SDK\Vs\V20181212\Models\DescribeVsDomainOnlineUserNumRequest;
+use AlibabaCloud\SDK\Vs\V20181212\Models\DescribeVsDomainOnlineUserNumResponse;
 use AlibabaCloud\SDK\Vs\V20181212\Models\DescribeVsDomainPvDataRequest;
 use AlibabaCloud\SDK\Vs\V20181212\Models\DescribeVsDomainPvDataResponse;
 use AlibabaCloud\SDK\Vs\V20181212\Models\DescribeVsDomainPvUvDataRequest;
@@ -171,8 +220,12 @@ use AlibabaCloud\SDK\Vs\V20181212\Models\DescribeVsDomainTrafficDataRequest;
 use AlibabaCloud\SDK\Vs\V20181212\Models\DescribeVsDomainTrafficDataResponse;
 use AlibabaCloud\SDK\Vs\V20181212\Models\DescribeVsDomainUvDataRequest;
 use AlibabaCloud\SDK\Vs\V20181212\Models\DescribeVsDomainUvDataResponse;
+use AlibabaCloud\SDK\Vs\V20181212\Models\DescribeVsPullStreamConfigRequest;
+use AlibabaCloud\SDK\Vs\V20181212\Models\DescribeVsPullStreamConfigResponse;
 use AlibabaCloud\SDK\Vs\V20181212\Models\DescribeVsPullStreamInfoConfigRequest;
 use AlibabaCloud\SDK\Vs\V20181212\Models\DescribeVsPullStreamInfoConfigResponse;
+use AlibabaCloud\SDK\Vs\V20181212\Models\DescribeVsStorageTrafficUsageDataRequest;
+use AlibabaCloud\SDK\Vs\V20181212\Models\DescribeVsStorageTrafficUsageDataResponse;
 use AlibabaCloud\SDK\Vs\V20181212\Models\DescribeVsStorageUsageDataRequest;
 use AlibabaCloud\SDK\Vs\V20181212\Models\DescribeVsStorageUsageDataResponse;
 use AlibabaCloud\SDK\Vs\V20181212\Models\DescribeVsStreamsNotifyUrlConfigRequest;
@@ -191,6 +244,8 @@ use AlibabaCloud\SDK\Vs\V20181212\Models\ForbidVsStreamRequest;
 use AlibabaCloud\SDK\Vs\V20181212\Models\ForbidVsStreamResponse;
 use AlibabaCloud\SDK\Vs\V20181212\Models\GetBucketInfoRequest;
 use AlibabaCloud\SDK\Vs\V20181212\Models\GetBucketInfoResponse;
+use AlibabaCloud\SDK\Vs\V20181212\Models\GetObjectTotalRequest;
+use AlibabaCloud\SDK\Vs\V20181212\Models\GetObjectTotalResponse;
 use AlibabaCloud\SDK\Vs\V20181212\Models\GotoPresetRequest;
 use AlibabaCloud\SDK\Vs\V20181212\Models\GotoPresetResponse;
 use AlibabaCloud\SDK\Vs\V20181212\Models\ListBucketsRequest;
@@ -215,13 +270,19 @@ use AlibabaCloud\SDK\Vs\V20181212\Models\ModifyGroupRequest;
 use AlibabaCloud\SDK\Vs\V20181212\Models\ModifyGroupResponse;
 use AlibabaCloud\SDK\Vs\V20181212\Models\ModifyParentPlatformRequest;
 use AlibabaCloud\SDK\Vs\V20181212\Models\ModifyParentPlatformResponse;
+use AlibabaCloud\SDK\Vs\V20181212\Models\ModifyPurchasedDeviceRequest;
+use AlibabaCloud\SDK\Vs\V20181212\Models\ModifyPurchasedDeviceResponse;
 use AlibabaCloud\SDK\Vs\V20181212\Models\ModifyTemplateRequest;
 use AlibabaCloud\SDK\Vs\V20181212\Models\ModifyTemplateResponse;
 use AlibabaCloud\SDK\Vs\V20181212\Models\OpenVsServiceResponse;
+use AlibabaCloud\SDK\Vs\V20181212\Models\OperateRenderingDevicesRequest;
+use AlibabaCloud\SDK\Vs\V20181212\Models\OperateRenderingDevicesResponse;
 use AlibabaCloud\SDK\Vs\V20181212\Models\PrepareUploadRequest;
 use AlibabaCloud\SDK\Vs\V20181212\Models\PrepareUploadResponse;
 use AlibabaCloud\SDK\Vs\V20181212\Models\PutBucketRequest;
 use AlibabaCloud\SDK\Vs\V20181212\Models\PutBucketResponse;
+use AlibabaCloud\SDK\Vs\V20181212\Models\ResetRenderingDevicesRequest;
+use AlibabaCloud\SDK\Vs\V20181212\Models\ResetRenderingDevicesResponse;
 use AlibabaCloud\SDK\Vs\V20181212\Models\ResumeVsStreamRequest;
 use AlibabaCloud\SDK\Vs\V20181212\Models\ResumeVsStreamResponse;
 use AlibabaCloud\SDK\Vs\V20181212\Models\SetPresetRequest;
@@ -246,6 +307,8 @@ use AlibabaCloud\SDK\Vs\V20181212\Models\StopDeviceRequest;
 use AlibabaCloud\SDK\Vs\V20181212\Models\StopDeviceResponse;
 use AlibabaCloud\SDK\Vs\V20181212\Models\StopMoveRequest;
 use AlibabaCloud\SDK\Vs\V20181212\Models\StopMoveResponse;
+use AlibabaCloud\SDK\Vs\V20181212\Models\StopParentPlatformRequest;
+use AlibabaCloud\SDK\Vs\V20181212\Models\StopParentPlatformResponse;
 use AlibabaCloud\SDK\Vs\V20181212\Models\StopRecordStreamRequest;
 use AlibabaCloud\SDK\Vs\V20181212\Models\StopRecordStreamResponse;
 use AlibabaCloud\SDK\Vs\V20181212\Models\StopStreamRequest;
@@ -266,15 +329,26 @@ use AlibabaCloud\SDK\Vs\V20181212\Models\UnbindTemplateRequest;
 use AlibabaCloud\SDK\Vs\V20181212\Models\UnbindTemplateResponse;
 use AlibabaCloud\SDK\Vs\V20181212\Models\UnlockDeviceRequest;
 use AlibabaCloud\SDK\Vs\V20181212\Models\UnlockDeviceResponse;
+use AlibabaCloud\SDK\Vs\V20181212\Models\UpdateAIConfigRequest;
+use AlibabaCloud\SDK\Vs\V20181212\Models\UpdateAIConfigResponse;
 use AlibabaCloud\SDK\Vs\V20181212\Models\UpdateBucketInfoRequest;
 use AlibabaCloud\SDK\Vs\V20181212\Models\UpdateBucketInfoResponse;
+use AlibabaCloud\SDK\Vs\V20181212\Models\UpdateClusterRequest;
+use AlibabaCloud\SDK\Vs\V20181212\Models\UpdateClusterResponse;
+use AlibabaCloud\SDK\Vs\V20181212\Models\UpdateRenderingDeviceSpecRequest;
+use AlibabaCloud\SDK\Vs\V20181212\Models\UpdateRenderingDeviceSpecResponse;
 use AlibabaCloud\SDK\Vs\V20181212\Models\UpdateVsPullStreamInfoConfigRequest;
 use AlibabaCloud\SDK\Vs\V20181212\Models\UpdateVsPullStreamInfoConfigResponse;
+use AlibabaCloud\SDK\Vs\V20181212\Models\UpgradeRenderingDevicesHostOSRequest;
+use AlibabaCloud\SDK\Vs\V20181212\Models\UpgradeRenderingDevicesHostOSResponse;
+use AlibabaCloud\SDK\Vs\V20181212\Models\UpgradeRenderingDevicesImageRequest;
+use AlibabaCloud\SDK\Vs\V20181212\Models\UpgradeRenderingDevicesImageResponse;
 use AlibabaCloud\SDK\Vs\V20181212\Models\UploadDeviceRecordRequest;
 use AlibabaCloud\SDK\Vs\V20181212\Models\UploadDeviceRecordResponse;
 use AlibabaCloud\Tea\Utils\Utils;
 use AlibabaCloud\Tea\Utils\Utils\RuntimeOptions;
 use Darabonba\OpenApi\Models\OpenApiRequest;
+use Darabonba\OpenApi\Models\Params;
 use Darabonba\OpenApi\OpenApiClient;
 
 class Vs extends OpenApiClient
@@ -319,11 +393,35 @@ class Vs extends OpenApiClient
     public function addDeviceWithOptions($request, $runtime)
     {
         Utils::validateModel($request);
+        $query = [];
+        if (!Utils::isUnset($request->config)) {
+            $query['Config'] = $request->config;
+        }
+        if (!Utils::isUnset($request->groupId)) {
+            $query['GroupId'] = $request->groupId;
+        }
+        if (!Utils::isUnset($request->ownerId)) {
+            $query['OwnerId'] = $request->ownerId;
+        }
+        if (!Utils::isUnset($request->protocol)) {
+            $query['Protocol'] = $request->protocol;
+        }
         $req = new OpenApiRequest([
-            'body' => Utils::toMap($request),
+            'query' => OpenApiUtilClient::query($query),
+        ]);
+        $params = new Params([
+            'action'      => 'AddDevice',
+            'version'     => '2018-12-12',
+            'protocol'    => 'HTTPS',
+            'pathname'    => '/',
+            'method'      => 'POST',
+            'authType'    => 'AK',
+            'style'       => 'RPC',
+            'reqBodyType' => 'formData',
+            'bodyType'    => 'json',
         ]);
 
-        return AddDeviceResponse::fromMap($this->doRPCRequest('AddDevice', '2018-12-12', 'HTTPS', 'POST', 'AK', 'json', $req, $runtime));
+        return AddDeviceResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
@@ -339,6 +437,165 @@ class Vs extends OpenApiClient
     }
 
     /**
+     * @param AddRegisteredDeviceRequest $request
+     * @param RuntimeOptions             $runtime
+     *
+     * @return AddRegisteredDeviceResponse
+     */
+    public function addRegisteredDeviceWithOptions($request, $runtime)
+    {
+        Utils::validateModel($request);
+        $query = [];
+        if (!Utils::isUnset($request->dsn)) {
+            $query['Dsn'] = $request->dsn;
+        }
+        if (!Utils::isUnset($request->ownerId)) {
+            $query['OwnerId'] = $request->ownerId;
+        }
+        if (!Utils::isUnset($request->registerCode)) {
+            $query['RegisterCode'] = $request->registerCode;
+        }
+        if (!Utils::isUnset($request->secretKey)) {
+            $query['SecretKey'] = $request->secretKey;
+        }
+        if (!Utils::isUnset($request->vendor)) {
+            $query['Vendor'] = $request->vendor;
+        }
+        $req = new OpenApiRequest([
+            'query' => OpenApiUtilClient::query($query),
+        ]);
+        $params = new Params([
+            'action'      => 'AddRegisteredDevice',
+            'version'     => '2018-12-12',
+            'protocol'    => 'HTTPS',
+            'pathname'    => '/',
+            'method'      => 'POST',
+            'authType'    => 'AK',
+            'style'       => 'RPC',
+            'reqBodyType' => 'formData',
+            'bodyType'    => 'json',
+        ]);
+
+        return AddRegisteredDeviceResponse::fromMap($this->callApi($params, $req, $runtime));
+    }
+
+    /**
+     * @param AddRegisteredDeviceRequest $request
+     *
+     * @return AddRegisteredDeviceResponse
+     */
+    public function addRegisteredDevice($request)
+    {
+        $runtime = new RuntimeOptions([]);
+
+        return $this->addRegisteredDeviceWithOptions($request, $runtime);
+    }
+
+    /**
+     * @param AddRegisteredVendorRequest $request
+     * @param RuntimeOptions             $runtime
+     *
+     * @return AddRegisteredVendorResponse
+     */
+    public function addRegisteredVendorWithOptions($request, $runtime)
+    {
+        Utils::validateModel($request);
+        $query = [];
+        if (!Utils::isUnset($request->description)) {
+            $query['Description'] = $request->description;
+        }
+        if (!Utils::isUnset($request->name)) {
+            $query['Name'] = $request->name;
+        }
+        if (!Utils::isUnset($request->ownerId)) {
+            $query['OwnerId'] = $request->ownerId;
+        }
+        $req = new OpenApiRequest([
+            'query' => OpenApiUtilClient::query($query),
+        ]);
+        $params = new Params([
+            'action'      => 'AddRegisteredVendor',
+            'version'     => '2018-12-12',
+            'protocol'    => 'HTTPS',
+            'pathname'    => '/',
+            'method'      => 'POST',
+            'authType'    => 'AK',
+            'style'       => 'RPC',
+            'reqBodyType' => 'formData',
+            'bodyType'    => 'json',
+        ]);
+
+        return AddRegisteredVendorResponse::fromMap($this->callApi($params, $req, $runtime));
+    }
+
+    /**
+     * @param AddRegisteredVendorRequest $request
+     *
+     * @return AddRegisteredVendorResponse
+     */
+    public function addRegisteredVendor($request)
+    {
+        $runtime = new RuntimeOptions([]);
+
+        return $this->addRegisteredVendorWithOptions($request, $runtime);
+    }
+
+    /**
+     * @param AddRenderingDeviceInternetPortsRequest $request
+     * @param RuntimeOptions                         $runtime
+     *
+     * @return AddRenderingDeviceInternetPortsResponse
+     */
+    public function addRenderingDeviceInternetPortsWithOptions($request, $runtime)
+    {
+        Utils::validateModel($request);
+        $query = [];
+        if (!Utils::isUnset($request->ISP)) {
+            $query['ISP'] = $request->ISP;
+        }
+        if (!Utils::isUnset($request->instanceIds)) {
+            $query['InstanceIds'] = $request->instanceIds;
+        }
+        if (!Utils::isUnset($request->internalPort)) {
+            $query['InternalPort'] = $request->internalPort;
+        }
+        if (!Utils::isUnset($request->ipProtocol)) {
+            $query['IpProtocol'] = $request->ipProtocol;
+        }
+        if (!Utils::isUnset($request->ownerId)) {
+            $query['OwnerId'] = $request->ownerId;
+        }
+        $req = new OpenApiRequest([
+            'query' => OpenApiUtilClient::query($query),
+        ]);
+        $params = new Params([
+            'action'      => 'AddRenderingDeviceInternetPorts',
+            'version'     => '2018-12-12',
+            'protocol'    => 'HTTPS',
+            'pathname'    => '/',
+            'method'      => 'POST',
+            'authType'    => 'AK',
+            'style'       => 'RPC',
+            'reqBodyType' => 'formData',
+            'bodyType'    => 'json',
+        ]);
+
+        return AddRenderingDeviceInternetPortsResponse::fromMap($this->callApi($params, $req, $runtime));
+    }
+
+    /**
+     * @param AddRenderingDeviceInternetPortsRequest $request
+     *
+     * @return AddRenderingDeviceInternetPortsResponse
+     */
+    public function addRenderingDeviceInternetPorts($request)
+    {
+        $runtime = new RuntimeOptions([]);
+
+        return $this->addRenderingDeviceInternetPortsWithOptions($request, $runtime);
+    }
+
+    /**
      * @param AddVsPullStreamInfoConfigRequest $request
      * @param RuntimeOptions                   $runtime
      *
@@ -347,11 +604,47 @@ class Vs extends OpenApiClient
     public function addVsPullStreamInfoConfigWithOptions($request, $runtime)
     {
         Utils::validateModel($request);
+        $query = [];
+        if (!Utils::isUnset($request->always)) {
+            $query['Always'] = $request->always;
+        }
+        if (!Utils::isUnset($request->appName)) {
+            $query['AppName'] = $request->appName;
+        }
+        if (!Utils::isUnset($request->domainName)) {
+            $query['DomainName'] = $request->domainName;
+        }
+        if (!Utils::isUnset($request->endTime)) {
+            $query['EndTime'] = $request->endTime;
+        }
+        if (!Utils::isUnset($request->ownerId)) {
+            $query['OwnerId'] = $request->ownerId;
+        }
+        if (!Utils::isUnset($request->sourceUrl)) {
+            $query['SourceUrl'] = $request->sourceUrl;
+        }
+        if (!Utils::isUnset($request->startTime)) {
+            $query['StartTime'] = $request->startTime;
+        }
+        if (!Utils::isUnset($request->streamName)) {
+            $query['StreamName'] = $request->streamName;
+        }
         $req = new OpenApiRequest([
-            'body' => Utils::toMap($request),
+            'query' => OpenApiUtilClient::query($query),
+        ]);
+        $params = new Params([
+            'action'      => 'AddVsPullStreamInfoConfig',
+            'version'     => '2018-12-12',
+            'protocol'    => 'HTTPS',
+            'pathname'    => '/',
+            'method'      => 'POST',
+            'authType'    => 'AK',
+            'style'       => 'RPC',
+            'reqBodyType' => 'formData',
+            'bodyType'    => 'json',
         ]);
 
-        return AddVsPullStreamInfoConfigResponse::fromMap($this->doRPCRequest('AddVsPullStreamInfoConfig', '2018-12-12', 'HTTPS', 'POST', 'AK', 'json', $req, $runtime));
+        return AddVsPullStreamInfoConfigResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
@@ -375,11 +668,32 @@ class Vs extends OpenApiClient
     public function batchBindDirectoriesWithOptions($request, $runtime)
     {
         Utils::validateModel($request);
+        $query = [];
+        if (!Utils::isUnset($request->deviceId)) {
+            $query['DeviceId'] = $request->deviceId;
+        }
+        if (!Utils::isUnset($request->directoryId)) {
+            $query['DirectoryId'] = $request->directoryId;
+        }
+        if (!Utils::isUnset($request->ownerId)) {
+            $query['OwnerId'] = $request->ownerId;
+        }
         $req = new OpenApiRequest([
-            'body' => Utils::toMap($request),
+            'query' => OpenApiUtilClient::query($query),
+        ]);
+        $params = new Params([
+            'action'      => 'BatchBindDirectories',
+            'version'     => '2018-12-12',
+            'protocol'    => 'HTTPS',
+            'pathname'    => '/',
+            'method'      => 'POST',
+            'authType'    => 'AK',
+            'style'       => 'RPC',
+            'reqBodyType' => 'formData',
+            'bodyType'    => 'json',
         ]);
 
-        return BatchBindDirectoriesResponse::fromMap($this->doRPCRequest('BatchBindDirectories', '2018-12-12', 'HTTPS', 'POST', 'AK', 'json', $req, $runtime));
+        return BatchBindDirectoriesResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
@@ -403,11 +717,32 @@ class Vs extends OpenApiClient
     public function batchBindParentPlatformDevicesWithOptions($request, $runtime)
     {
         Utils::validateModel($request);
+        $query = [];
+        if (!Utils::isUnset($request->deviceId)) {
+            $query['DeviceId'] = $request->deviceId;
+        }
+        if (!Utils::isUnset($request->ownerId)) {
+            $query['OwnerId'] = $request->ownerId;
+        }
+        if (!Utils::isUnset($request->parentPlatformId)) {
+            $query['ParentPlatformId'] = $request->parentPlatformId;
+        }
         $req = new OpenApiRequest([
-            'body' => Utils::toMap($request),
+            'query' => OpenApiUtilClient::query($query),
+        ]);
+        $params = new Params([
+            'action'      => 'BatchBindParentPlatformDevices',
+            'version'     => '2018-12-12',
+            'protocol'    => 'HTTPS',
+            'pathname'    => '/',
+            'method'      => 'POST',
+            'authType'    => 'AK',
+            'style'       => 'RPC',
+            'reqBodyType' => 'formData',
+            'bodyType'    => 'json',
         ]);
 
-        return BatchBindParentPlatformDevicesResponse::fromMap($this->doRPCRequest('BatchBindParentPlatformDevices', '2018-12-12', 'HTTPS', 'POST', 'AK', 'json', $req, $runtime));
+        return BatchBindParentPlatformDevicesResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
@@ -431,11 +766,35 @@ class Vs extends OpenApiClient
     public function batchBindPurchasedDevicesWithOptions($request, $runtime)
     {
         Utils::validateModel($request);
+        $query = [];
+        if (!Utils::isUnset($request->deviceId)) {
+            $query['DeviceId'] = $request->deviceId;
+        }
+        if (!Utils::isUnset($request->groupId)) {
+            $query['GroupId'] = $request->groupId;
+        }
+        if (!Utils::isUnset($request->ownerId)) {
+            $query['OwnerId'] = $request->ownerId;
+        }
+        if (!Utils::isUnset($request->region)) {
+            $query['Region'] = $request->region;
+        }
         $req = new OpenApiRequest([
-            'body' => Utils::toMap($request),
+            'query' => OpenApiUtilClient::query($query),
+        ]);
+        $params = new Params([
+            'action'      => 'BatchBindPurchasedDevices',
+            'version'     => '2018-12-12',
+            'protocol'    => 'HTTPS',
+            'pathname'    => '/',
+            'method'      => 'POST',
+            'authType'    => 'AK',
+            'style'       => 'RPC',
+            'reqBodyType' => 'formData',
+            'bodyType'    => 'json',
         ]);
 
-        return BatchBindPurchasedDevicesResponse::fromMap($this->doRPCRequest('BatchBindPurchasedDevices', '2018-12-12', 'HTTPS', 'POST', 'AK', 'json', $req, $runtime));
+        return BatchBindPurchasedDevicesResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
@@ -459,11 +818,41 @@ class Vs extends OpenApiClient
     public function batchBindTemplateWithOptions($request, $runtime)
     {
         Utils::validateModel($request);
+        $query = [];
+        if (!Utils::isUnset($request->applyAll)) {
+            $query['ApplyAll'] = $request->applyAll;
+        }
+        if (!Utils::isUnset($request->instanceId)) {
+            $query['InstanceId'] = $request->instanceId;
+        }
+        if (!Utils::isUnset($request->instanceType)) {
+            $query['InstanceType'] = $request->instanceType;
+        }
+        if (!Utils::isUnset($request->ownerId)) {
+            $query['OwnerId'] = $request->ownerId;
+        }
+        if (!Utils::isUnset($request->replace)) {
+            $query['Replace'] = $request->replace;
+        }
+        if (!Utils::isUnset($request->templateId)) {
+            $query['TemplateId'] = $request->templateId;
+        }
         $req = new OpenApiRequest([
-            'body' => Utils::toMap($request),
+            'query' => OpenApiUtilClient::query($query),
+        ]);
+        $params = new Params([
+            'action'      => 'BatchBindTemplate',
+            'version'     => '2018-12-12',
+            'protocol'    => 'HTTPS',
+            'pathname'    => '/',
+            'method'      => 'POST',
+            'authType'    => 'AK',
+            'style'       => 'RPC',
+            'reqBodyType' => 'formData',
+            'bodyType'    => 'json',
         ]);
 
-        return BatchBindTemplateResponse::fromMap($this->doRPCRequest('BatchBindTemplate', '2018-12-12', 'HTTPS', 'POST', 'AK', 'json', $req, $runtime));
+        return BatchBindTemplateResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
@@ -487,11 +876,44 @@ class Vs extends OpenApiClient
     public function batchBindTemplatesWithOptions($request, $runtime)
     {
         Utils::validateModel($request);
+        $query = [];
+        if (!Utils::isUnset($request->applyAll)) {
+            $query['ApplyAll'] = $request->applyAll;
+        }
+        if (!Utils::isUnset($request->instanceId)) {
+            $query['InstanceId'] = $request->instanceId;
+        }
+        if (!Utils::isUnset($request->instanceType)) {
+            $query['InstanceType'] = $request->instanceType;
+        }
+        if (!Utils::isUnset($request->ownerId)) {
+            $query['OwnerId'] = $request->ownerId;
+        }
+        if (!Utils::isUnset($request->replace)) {
+            $query['Replace'] = $request->replace;
+        }
+        if (!Utils::isUnset($request->templateId)) {
+            $query['TemplateId'] = $request->templateId;
+        }
+        if (!Utils::isUnset($request->templateType)) {
+            $query['TemplateType'] = $request->templateType;
+        }
         $req = new OpenApiRequest([
-            'body' => Utils::toMap($request),
+            'query' => OpenApiUtilClient::query($query),
+        ]);
+        $params = new Params([
+            'action'      => 'BatchBindTemplates',
+            'version'     => '2018-12-12',
+            'protocol'    => 'HTTPS',
+            'pathname'    => '/',
+            'method'      => 'POST',
+            'authType'    => 'AK',
+            'style'       => 'RPC',
+            'reqBodyType' => 'formData',
+            'bodyType'    => 'json',
         ]);
 
-        return BatchBindTemplatesResponse::fromMap($this->doRPCRequest('BatchBindTemplates', '2018-12-12', 'HTTPS', 'POST', 'AK', 'json', $req, $runtime));
+        return BatchBindTemplatesResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
@@ -515,11 +937,29 @@ class Vs extends OpenApiClient
     public function batchDeleteDevicesWithOptions($request, $runtime)
     {
         Utils::validateModel($request);
+        $query = [];
+        if (!Utils::isUnset($request->id)) {
+            $query['Id'] = $request->id;
+        }
+        if (!Utils::isUnset($request->ownerId)) {
+            $query['OwnerId'] = $request->ownerId;
+        }
         $req = new OpenApiRequest([
-            'body' => Utils::toMap($request),
+            'query' => OpenApiUtilClient::query($query),
+        ]);
+        $params = new Params([
+            'action'      => 'BatchDeleteDevices',
+            'version'     => '2018-12-12',
+            'protocol'    => 'HTTPS',
+            'pathname'    => '/',
+            'method'      => 'POST',
+            'authType'    => 'AK',
+            'style'       => 'RPC',
+            'reqBodyType' => 'formData',
+            'bodyType'    => 'json',
         ]);
 
-        return BatchDeleteDevicesResponse::fromMap($this->doRPCRequest('BatchDeleteDevices', '2018-12-12', 'HTTPS', 'POST', 'AK', 'json', $req, $runtime));
+        return BatchDeleteDevicesResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
@@ -543,11 +983,32 @@ class Vs extends OpenApiClient
     public function batchDeleteVsDomainConfigsWithOptions($request, $runtime)
     {
         Utils::validateModel($request);
+        $query = [];
+        if (!Utils::isUnset($request->domainNames)) {
+            $query['DomainNames'] = $request->domainNames;
+        }
+        if (!Utils::isUnset($request->functionNames)) {
+            $query['FunctionNames'] = $request->functionNames;
+        }
+        if (!Utils::isUnset($request->ownerId)) {
+            $query['OwnerId'] = $request->ownerId;
+        }
         $req = new OpenApiRequest([
-            'body' => Utils::toMap($request),
+            'query' => OpenApiUtilClient::query($query),
+        ]);
+        $params = new Params([
+            'action'      => 'BatchDeleteVsDomainConfigs',
+            'version'     => '2018-12-12',
+            'protocol'    => 'HTTPS',
+            'pathname'    => '/',
+            'method'      => 'POST',
+            'authType'    => 'AK',
+            'style'       => 'RPC',
+            'reqBodyType' => 'formData',
+            'bodyType'    => 'json',
         ]);
 
-        return BatchDeleteVsDomainConfigsResponse::fromMap($this->doRPCRequest('BatchDeleteVsDomainConfigs', '2018-12-12', 'HTTPS', 'POST', 'AK', 'json', $req, $runtime));
+        return BatchDeleteVsDomainConfigsResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
@@ -571,11 +1032,44 @@ class Vs extends OpenApiClient
     public function batchForbidVsStreamWithOptions($request, $runtime)
     {
         Utils::validateModel($request);
+        $query = [];
+        if (!Utils::isUnset($request->channel)) {
+            $query['Channel'] = $request->channel;
+        }
+        if (!Utils::isUnset($request->controlStreamAction)) {
+            $query['ControlStreamAction'] = $request->controlStreamAction;
+        }
+        if (!Utils::isUnset($request->domainName)) {
+            $query['DomainName'] = $request->domainName;
+        }
+        if (!Utils::isUnset($request->liveStreamType)) {
+            $query['LiveStreamType'] = $request->liveStreamType;
+        }
+        if (!Utils::isUnset($request->oneshot)) {
+            $query['Oneshot'] = $request->oneshot;
+        }
+        if (!Utils::isUnset($request->ownerId)) {
+            $query['OwnerId'] = $request->ownerId;
+        }
+        if (!Utils::isUnset($request->resumeTime)) {
+            $query['ResumeTime'] = $request->resumeTime;
+        }
         $req = new OpenApiRequest([
-            'body' => Utils::toMap($request),
+            'query' => OpenApiUtilClient::query($query),
+        ]);
+        $params = new Params([
+            'action'      => 'BatchForbidVsStream',
+            'version'     => '2018-12-12',
+            'protocol'    => 'HTTPS',
+            'pathname'    => '/',
+            'method'      => 'POST',
+            'authType'    => 'AK',
+            'style'       => 'RPC',
+            'reqBodyType' => 'formData',
+            'bodyType'    => 'json',
         ]);
 
-        return BatchForbidVsStreamResponse::fromMap($this->doRPCRequest('BatchForbidVsStream', '2018-12-12', 'HTTPS', 'POST', 'AK', 'json', $req, $runtime));
+        return BatchForbidVsStreamResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
@@ -599,11 +1093,38 @@ class Vs extends OpenApiClient
     public function batchResumeVsStreamWithOptions($request, $runtime)
     {
         Utils::validateModel($request);
+        $query = [];
+        if (!Utils::isUnset($request->channel)) {
+            $query['Channel'] = $request->channel;
+        }
+        if (!Utils::isUnset($request->controlStreamAction)) {
+            $query['ControlStreamAction'] = $request->controlStreamAction;
+        }
+        if (!Utils::isUnset($request->domainName)) {
+            $query['DomainName'] = $request->domainName;
+        }
+        if (!Utils::isUnset($request->liveStreamType)) {
+            $query['LiveStreamType'] = $request->liveStreamType;
+        }
+        if (!Utils::isUnset($request->ownerId)) {
+            $query['OwnerId'] = $request->ownerId;
+        }
         $req = new OpenApiRequest([
-            'body' => Utils::toMap($request),
+            'query' => OpenApiUtilClient::query($query),
+        ]);
+        $params = new Params([
+            'action'      => 'BatchResumeVsStream',
+            'version'     => '2018-12-12',
+            'protocol'    => 'HTTPS',
+            'pathname'    => '/',
+            'method'      => 'POST',
+            'authType'    => 'AK',
+            'style'       => 'RPC',
+            'reqBodyType' => 'formData',
+            'bodyType'    => 'json',
         ]);
 
-        return BatchResumeVsStreamResponse::fromMap($this->doRPCRequest('BatchResumeVsStream', '2018-12-12', 'HTTPS', 'POST', 'AK', 'json', $req, $runtime));
+        return BatchResumeVsStreamResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
@@ -627,11 +1148,32 @@ class Vs extends OpenApiClient
     public function batchSetVsDomainConfigsWithOptions($request, $runtime)
     {
         Utils::validateModel($request);
+        $query = [];
+        if (!Utils::isUnset($request->domainNames)) {
+            $query['DomainNames'] = $request->domainNames;
+        }
+        if (!Utils::isUnset($request->functions)) {
+            $query['Functions'] = $request->functions;
+        }
+        if (!Utils::isUnset($request->ownerId)) {
+            $query['OwnerId'] = $request->ownerId;
+        }
         $req = new OpenApiRequest([
-            'body' => Utils::toMap($request),
+            'query' => OpenApiUtilClient::query($query),
+        ]);
+        $params = new Params([
+            'action'      => 'BatchSetVsDomainConfigs',
+            'version'     => '2018-12-12',
+            'protocol'    => 'HTTPS',
+            'pathname'    => '/',
+            'method'      => 'POST',
+            'authType'    => 'AK',
+            'style'       => 'RPC',
+            'reqBodyType' => 'formData',
+            'bodyType'    => 'json',
         ]);
 
-        return BatchSetVsDomainConfigsResponse::fromMap($this->doRPCRequest('BatchSetVsDomainConfigs', '2018-12-12', 'HTTPS', 'POST', 'AK', 'json', $req, $runtime));
+        return BatchSetVsDomainConfigsResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
@@ -655,11 +1197,29 @@ class Vs extends OpenApiClient
     public function batchStartDevicesWithOptions($request, $runtime)
     {
         Utils::validateModel($request);
+        $query = [];
+        if (!Utils::isUnset($request->id)) {
+            $query['Id'] = $request->id;
+        }
+        if (!Utils::isUnset($request->ownerId)) {
+            $query['OwnerId'] = $request->ownerId;
+        }
         $req = new OpenApiRequest([
-            'body' => Utils::toMap($request),
+            'query' => OpenApiUtilClient::query($query),
+        ]);
+        $params = new Params([
+            'action'      => 'BatchStartDevices',
+            'version'     => '2018-12-12',
+            'protocol'    => 'HTTPS',
+            'pathname'    => '/',
+            'method'      => 'POST',
+            'authType'    => 'AK',
+            'style'       => 'RPC',
+            'reqBodyType' => 'formData',
+            'bodyType'    => 'json',
         ]);
 
-        return BatchStartDevicesResponse::fromMap($this->doRPCRequest('BatchStartDevices', '2018-12-12', 'HTTPS', 'POST', 'AK', 'json', $req, $runtime));
+        return BatchStartDevicesResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
@@ -683,11 +1243,29 @@ class Vs extends OpenApiClient
     public function batchStartStreamsWithOptions($request, $runtime)
     {
         Utils::validateModel($request);
+        $query = [];
+        if (!Utils::isUnset($request->id)) {
+            $query['Id'] = $request->id;
+        }
+        if (!Utils::isUnset($request->ownerId)) {
+            $query['OwnerId'] = $request->ownerId;
+        }
         $req = new OpenApiRequest([
-            'body' => Utils::toMap($request),
+            'query' => OpenApiUtilClient::query($query),
+        ]);
+        $params = new Params([
+            'action'      => 'BatchStartStreams',
+            'version'     => '2018-12-12',
+            'protocol'    => 'HTTPS',
+            'pathname'    => '/',
+            'method'      => 'POST',
+            'authType'    => 'AK',
+            'style'       => 'RPC',
+            'reqBodyType' => 'formData',
+            'bodyType'    => 'json',
         ]);
 
-        return BatchStartStreamsResponse::fromMap($this->doRPCRequest('BatchStartStreams', '2018-12-12', 'HTTPS', 'POST', 'AK', 'json', $req, $runtime));
+        return BatchStartStreamsResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
@@ -711,11 +1289,32 @@ class Vs extends OpenApiClient
     public function batchStopDevicesWithOptions($request, $runtime)
     {
         Utils::validateModel($request);
+        $query = [];
+        if (!Utils::isUnset($request->id)) {
+            $query['Id'] = $request->id;
+        }
+        if (!Utils::isUnset($request->ownerId)) {
+            $query['OwnerId'] = $request->ownerId;
+        }
+        if (!Utils::isUnset($request->startTime)) {
+            $query['StartTime'] = $request->startTime;
+        }
         $req = new OpenApiRequest([
-            'body' => Utils::toMap($request),
+            'query' => OpenApiUtilClient::query($query),
+        ]);
+        $params = new Params([
+            'action'      => 'BatchStopDevices',
+            'version'     => '2018-12-12',
+            'protocol'    => 'HTTPS',
+            'pathname'    => '/',
+            'method'      => 'POST',
+            'authType'    => 'AK',
+            'style'       => 'RPC',
+            'reqBodyType' => 'formData',
+            'bodyType'    => 'json',
         ]);
 
-        return BatchStopDevicesResponse::fromMap($this->doRPCRequest('BatchStopDevices', '2018-12-12', 'HTTPS', 'POST', 'AK', 'json', $req, $runtime));
+        return BatchStopDevicesResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
@@ -739,11 +1338,32 @@ class Vs extends OpenApiClient
     public function batchStopStreamsWithOptions($request, $runtime)
     {
         Utils::validateModel($request);
+        $query = [];
+        if (!Utils::isUnset($request->id)) {
+            $query['Id'] = $request->id;
+        }
+        if (!Utils::isUnset($request->ownerId)) {
+            $query['OwnerId'] = $request->ownerId;
+        }
+        if (!Utils::isUnset($request->startTime)) {
+            $query['StartTime'] = $request->startTime;
+        }
         $req = new OpenApiRequest([
-            'body' => Utils::toMap($request),
+            'query' => OpenApiUtilClient::query($query),
+        ]);
+        $params = new Params([
+            'action'      => 'BatchStopStreams',
+            'version'     => '2018-12-12',
+            'protocol'    => 'HTTPS',
+            'pathname'    => '/',
+            'method'      => 'POST',
+            'authType'    => 'AK',
+            'style'       => 'RPC',
+            'reqBodyType' => 'formData',
+            'bodyType'    => 'json',
         ]);
 
-        return BatchStopStreamsResponse::fromMap($this->doRPCRequest('BatchStopStreams', '2018-12-12', 'HTTPS', 'POST', 'AK', 'json', $req, $runtime));
+        return BatchStopStreamsResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
@@ -767,11 +1387,32 @@ class Vs extends OpenApiClient
     public function batchUnbindDirectoriesWithOptions($request, $runtime)
     {
         Utils::validateModel($request);
+        $query = [];
+        if (!Utils::isUnset($request->deviceId)) {
+            $query['DeviceId'] = $request->deviceId;
+        }
+        if (!Utils::isUnset($request->directoryId)) {
+            $query['DirectoryId'] = $request->directoryId;
+        }
+        if (!Utils::isUnset($request->ownerId)) {
+            $query['OwnerId'] = $request->ownerId;
+        }
         $req = new OpenApiRequest([
-            'body' => Utils::toMap($request),
+            'query' => OpenApiUtilClient::query($query),
+        ]);
+        $params = new Params([
+            'action'      => 'BatchUnbindDirectories',
+            'version'     => '2018-12-12',
+            'protocol'    => 'HTTPS',
+            'pathname'    => '/',
+            'method'      => 'POST',
+            'authType'    => 'AK',
+            'style'       => 'RPC',
+            'reqBodyType' => 'formData',
+            'bodyType'    => 'json',
         ]);
 
-        return BatchUnbindDirectoriesResponse::fromMap($this->doRPCRequest('BatchUnbindDirectories', '2018-12-12', 'HTTPS', 'POST', 'AK', 'json', $req, $runtime));
+        return BatchUnbindDirectoriesResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
@@ -795,11 +1436,32 @@ class Vs extends OpenApiClient
     public function batchUnbindParentPlatformDevicesWithOptions($request, $runtime)
     {
         Utils::validateModel($request);
+        $query = [];
+        if (!Utils::isUnset($request->deviceId)) {
+            $query['DeviceId'] = $request->deviceId;
+        }
+        if (!Utils::isUnset($request->ownerId)) {
+            $query['OwnerId'] = $request->ownerId;
+        }
+        if (!Utils::isUnset($request->parentPlatformId)) {
+            $query['ParentPlatformId'] = $request->parentPlatformId;
+        }
         $req = new OpenApiRequest([
-            'body' => Utils::toMap($request),
+            'query' => OpenApiUtilClient::query($query),
+        ]);
+        $params = new Params([
+            'action'      => 'BatchUnbindParentPlatformDevices',
+            'version'     => '2018-12-12',
+            'protocol'    => 'HTTPS',
+            'pathname'    => '/',
+            'method'      => 'POST',
+            'authType'    => 'AK',
+            'style'       => 'RPC',
+            'reqBodyType' => 'formData',
+            'bodyType'    => 'json',
         ]);
 
-        return BatchUnbindParentPlatformDevicesResponse::fromMap($this->doRPCRequest('BatchUnbindParentPlatformDevices', '2018-12-12', 'HTTPS', 'POST', 'AK', 'json', $req, $runtime));
+        return BatchUnbindParentPlatformDevicesResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
@@ -823,11 +1485,29 @@ class Vs extends OpenApiClient
     public function batchUnbindPurchasedDevicesWithOptions($request, $runtime)
     {
         Utils::validateModel($request);
+        $query = [];
+        if (!Utils::isUnset($request->deviceId)) {
+            $query['DeviceId'] = $request->deviceId;
+        }
+        if (!Utils::isUnset($request->ownerId)) {
+            $query['OwnerId'] = $request->ownerId;
+        }
         $req = new OpenApiRequest([
-            'body' => Utils::toMap($request),
+            'query' => OpenApiUtilClient::query($query),
+        ]);
+        $params = new Params([
+            'action'      => 'BatchUnbindPurchasedDevices',
+            'version'     => '2018-12-12',
+            'protocol'    => 'HTTPS',
+            'pathname'    => '/',
+            'method'      => 'POST',
+            'authType'    => 'AK',
+            'style'       => 'RPC',
+            'reqBodyType' => 'formData',
+            'bodyType'    => 'json',
         ]);
 
-        return BatchUnbindPurchasedDevicesResponse::fromMap($this->doRPCRequest('BatchUnbindPurchasedDevices', '2018-12-12', 'HTTPS', 'POST', 'AK', 'json', $req, $runtime));
+        return BatchUnbindPurchasedDevicesResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
@@ -851,11 +1531,38 @@ class Vs extends OpenApiClient
     public function batchUnbindTemplateWithOptions($request, $runtime)
     {
         Utils::validateModel($request);
+        $query = [];
+        if (!Utils::isUnset($request->instanceId)) {
+            $query['InstanceId'] = $request->instanceId;
+        }
+        if (!Utils::isUnset($request->instanceType)) {
+            $query['InstanceType'] = $request->instanceType;
+        }
+        if (!Utils::isUnset($request->ownerId)) {
+            $query['OwnerId'] = $request->ownerId;
+        }
+        if (!Utils::isUnset($request->templateId)) {
+            $query['TemplateId'] = $request->templateId;
+        }
+        if (!Utils::isUnset($request->templateType)) {
+            $query['TemplateType'] = $request->templateType;
+        }
         $req = new OpenApiRequest([
-            'body' => Utils::toMap($request),
+            'query' => OpenApiUtilClient::query($query),
+        ]);
+        $params = new Params([
+            'action'      => 'BatchUnbindTemplate',
+            'version'     => '2018-12-12',
+            'protocol'    => 'HTTPS',
+            'pathname'    => '/',
+            'method'      => 'POST',
+            'authType'    => 'AK',
+            'style'       => 'RPC',
+            'reqBodyType' => 'formData',
+            'bodyType'    => 'json',
         ]);
 
-        return BatchUnbindTemplateResponse::fromMap($this->doRPCRequest('BatchUnbindTemplate', '2018-12-12', 'HTTPS', 'POST', 'AK', 'json', $req, $runtime));
+        return BatchUnbindTemplateResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
@@ -879,11 +1586,38 @@ class Vs extends OpenApiClient
     public function batchUnbindTemplatesWithOptions($request, $runtime)
     {
         Utils::validateModel($request);
+        $query = [];
+        if (!Utils::isUnset($request->instanceId)) {
+            $query['InstanceId'] = $request->instanceId;
+        }
+        if (!Utils::isUnset($request->instanceType)) {
+            $query['InstanceType'] = $request->instanceType;
+        }
+        if (!Utils::isUnset($request->ownerId)) {
+            $query['OwnerId'] = $request->ownerId;
+        }
+        if (!Utils::isUnset($request->templateId)) {
+            $query['TemplateId'] = $request->templateId;
+        }
+        if (!Utils::isUnset($request->templateType)) {
+            $query['TemplateType'] = $request->templateType;
+        }
         $req = new OpenApiRequest([
-            'body' => Utils::toMap($request),
+            'query' => OpenApiUtilClient::query($query),
+        ]);
+        $params = new Params([
+            'action'      => 'BatchUnbindTemplates',
+            'version'     => '2018-12-12',
+            'protocol'    => 'HTTPS',
+            'pathname'    => '/',
+            'method'      => 'POST',
+            'authType'    => 'AK',
+            'style'       => 'RPC',
+            'reqBodyType' => 'formData',
+            'bodyType'    => 'json',
         ]);
 
-        return BatchUnbindTemplatesResponse::fromMap($this->doRPCRequest('BatchUnbindTemplates', '2018-12-12', 'HTTPS', 'POST', 'AK', 'json', $req, $runtime));
+        return BatchUnbindTemplatesResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
@@ -907,11 +1641,32 @@ class Vs extends OpenApiClient
     public function bindDirectoryWithOptions($request, $runtime)
     {
         Utils::validateModel($request);
+        $query = [];
+        if (!Utils::isUnset($request->deviceId)) {
+            $query['DeviceId'] = $request->deviceId;
+        }
+        if (!Utils::isUnset($request->directoryId)) {
+            $query['DirectoryId'] = $request->directoryId;
+        }
+        if (!Utils::isUnset($request->ownerId)) {
+            $query['OwnerId'] = $request->ownerId;
+        }
         $req = new OpenApiRequest([
-            'body' => Utils::toMap($request),
+            'query' => OpenApiUtilClient::query($query),
+        ]);
+        $params = new Params([
+            'action'      => 'BindDirectory',
+            'version'     => '2018-12-12',
+            'protocol'    => 'HTTPS',
+            'pathname'    => '/',
+            'method'      => 'POST',
+            'authType'    => 'AK',
+            'style'       => 'RPC',
+            'reqBodyType' => 'formData',
+            'bodyType'    => 'json',
         ]);
 
-        return BindDirectoryResponse::fromMap($this->doRPCRequest('BindDirectory', '2018-12-12', 'HTTPS', 'POST', 'AK', 'json', $req, $runtime));
+        return BindDirectoryResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
@@ -935,11 +1690,32 @@ class Vs extends OpenApiClient
     public function bindParentPlatformDeviceWithOptions($request, $runtime)
     {
         Utils::validateModel($request);
+        $query = [];
+        if (!Utils::isUnset($request->deviceId)) {
+            $query['DeviceId'] = $request->deviceId;
+        }
+        if (!Utils::isUnset($request->ownerId)) {
+            $query['OwnerId'] = $request->ownerId;
+        }
+        if (!Utils::isUnset($request->parentPlatformId)) {
+            $query['ParentPlatformId'] = $request->parentPlatformId;
+        }
         $req = new OpenApiRequest([
-            'body' => Utils::toMap($request),
+            'query' => OpenApiUtilClient::query($query),
+        ]);
+        $params = new Params([
+            'action'      => 'BindParentPlatformDevice',
+            'version'     => '2018-12-12',
+            'protocol'    => 'HTTPS',
+            'pathname'    => '/',
+            'method'      => 'POST',
+            'authType'    => 'AK',
+            'style'       => 'RPC',
+            'reqBodyType' => 'formData',
+            'bodyType'    => 'json',
         ]);
 
-        return BindParentPlatformDeviceResponse::fromMap($this->doRPCRequest('BindParentPlatformDevice', '2018-12-12', 'HTTPS', 'POST', 'AK', 'json', $req, $runtime));
+        return BindParentPlatformDeviceResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
@@ -963,11 +1739,35 @@ class Vs extends OpenApiClient
     public function bindPurchasedDeviceWithOptions($request, $runtime)
     {
         Utils::validateModel($request);
+        $query = [];
+        if (!Utils::isUnset($request->deviceId)) {
+            $query['DeviceId'] = $request->deviceId;
+        }
+        if (!Utils::isUnset($request->groupId)) {
+            $query['GroupId'] = $request->groupId;
+        }
+        if (!Utils::isUnset($request->ownerId)) {
+            $query['OwnerId'] = $request->ownerId;
+        }
+        if (!Utils::isUnset($request->region)) {
+            $query['Region'] = $request->region;
+        }
         $req = new OpenApiRequest([
-            'body' => Utils::toMap($request),
+            'query' => OpenApiUtilClient::query($query),
+        ]);
+        $params = new Params([
+            'action'      => 'BindPurchasedDevice',
+            'version'     => '2018-12-12',
+            'protocol'    => 'HTTPS',
+            'pathname'    => '/',
+            'method'      => 'POST',
+            'authType'    => 'AK',
+            'style'       => 'RPC',
+            'reqBodyType' => 'formData',
+            'bodyType'    => 'json',
         ]);
 
-        return BindPurchasedDeviceResponse::fromMap($this->doRPCRequest('BindPurchasedDevice', '2018-12-12', 'HTTPS', 'POST', 'AK', 'json', $req, $runtime));
+        return BindPurchasedDeviceResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
@@ -991,11 +1791,44 @@ class Vs extends OpenApiClient
     public function bindTemplateWithOptions($request, $runtime)
     {
         Utils::validateModel($request);
+        $query = [];
+        if (!Utils::isUnset($request->applyAll)) {
+            $query['ApplyAll'] = $request->applyAll;
+        }
+        if (!Utils::isUnset($request->instanceId)) {
+            $query['InstanceId'] = $request->instanceId;
+        }
+        if (!Utils::isUnset($request->instanceType)) {
+            $query['InstanceType'] = $request->instanceType;
+        }
+        if (!Utils::isUnset($request->ownerId)) {
+            $query['OwnerId'] = $request->ownerId;
+        }
+        if (!Utils::isUnset($request->replace)) {
+            $query['Replace'] = $request->replace;
+        }
+        if (!Utils::isUnset($request->templateId)) {
+            $query['TemplateId'] = $request->templateId;
+        }
+        if (!Utils::isUnset($request->templateType)) {
+            $query['TemplateType'] = $request->templateType;
+        }
         $req = new OpenApiRequest([
-            'body' => Utils::toMap($request),
+            'query' => OpenApiUtilClient::query($query),
+        ]);
+        $params = new Params([
+            'action'      => 'BindTemplate',
+            'version'     => '2018-12-12',
+            'protocol'    => 'HTTPS',
+            'pathname'    => '/',
+            'method'      => 'POST',
+            'authType'    => 'AK',
+            'style'       => 'RPC',
+            'reqBodyType' => 'formData',
+            'bodyType'    => 'json',
         ]);
 
-        return BindTemplateResponse::fromMap($this->doRPCRequest('BindTemplate', '2018-12-12', 'HTTPS', 'POST', 'AK', 'json', $req, $runtime));
+        return BindTemplateResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
@@ -1011,6 +1844,61 @@ class Vs extends OpenApiClient
     }
 
     /**
+     * @param CaptureDeviceSnapshotRequest $request
+     * @param RuntimeOptions               $runtime
+     *
+     * @return CaptureDeviceSnapshotResponse
+     */
+    public function captureDeviceSnapshotWithOptions($request, $runtime)
+    {
+        Utils::validateModel($request);
+        $query = [];
+        if (!Utils::isUnset($request->deviceId)) {
+            $query['DeviceId'] = $request->deviceId;
+        }
+        if (!Utils::isUnset($request->mode)) {
+            $query['Mode'] = $request->mode;
+        }
+        if (!Utils::isUnset($request->ownerId)) {
+            $query['OwnerId'] = $request->ownerId;
+        }
+        if (!Utils::isUnset($request->snapshotConfig)) {
+            $query['SnapshotConfig'] = $request->snapshotConfig;
+        }
+        if (!Utils::isUnset($request->streamId)) {
+            $query['StreamId'] = $request->streamId;
+        }
+        $req = new OpenApiRequest([
+            'query' => OpenApiUtilClient::query($query),
+        ]);
+        $params = new Params([
+            'action'      => 'CaptureDeviceSnapshot',
+            'version'     => '2018-12-12',
+            'protocol'    => 'HTTPS',
+            'pathname'    => '/',
+            'method'      => 'POST',
+            'authType'    => 'AK',
+            'style'       => 'RPC',
+            'reqBodyType' => 'formData',
+            'bodyType'    => 'json',
+        ]);
+
+        return CaptureDeviceSnapshotResponse::fromMap($this->callApi($params, $req, $runtime));
+    }
+
+    /**
+     * @param CaptureDeviceSnapshotRequest $request
+     *
+     * @return CaptureDeviceSnapshotResponse
+     */
+    public function captureDeviceSnapshot($request)
+    {
+        $runtime = new RuntimeOptions([]);
+
+        return $this->captureDeviceSnapshotWithOptions($request, $runtime);
+    }
+
+    /**
      * @param ContinuousAdjustRequest $request
      * @param RuntimeOptions          $runtime
      *
@@ -1019,11 +1907,35 @@ class Vs extends OpenApiClient
     public function continuousAdjustWithOptions($request, $runtime)
     {
         Utils::validateModel($request);
+        $query = [];
+        if (!Utils::isUnset($request->focus)) {
+            $query['Focus'] = $request->focus;
+        }
+        if (!Utils::isUnset($request->id)) {
+            $query['Id'] = $request->id;
+        }
+        if (!Utils::isUnset($request->iris)) {
+            $query['Iris'] = $request->iris;
+        }
+        if (!Utils::isUnset($request->ownerId)) {
+            $query['OwnerId'] = $request->ownerId;
+        }
         $req = new OpenApiRequest([
-            'body' => Utils::toMap($request),
+            'query' => OpenApiUtilClient::query($query),
+        ]);
+        $params = new Params([
+            'action'      => 'ContinuousAdjust',
+            'version'     => '2018-12-12',
+            'protocol'    => 'HTTPS',
+            'pathname'    => '/',
+            'method'      => 'POST',
+            'authType'    => 'AK',
+            'style'       => 'RPC',
+            'reqBodyType' => 'formData',
+            'bodyType'    => 'json',
         ]);
 
-        return ContinuousAdjustResponse::fromMap($this->doRPCRequest('ContinuousAdjust', '2018-12-12', 'HTTPS', 'POST', 'AK', 'json', $req, $runtime));
+        return ContinuousAdjustResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
@@ -1047,11 +1959,38 @@ class Vs extends OpenApiClient
     public function continuousMoveWithOptions($request, $runtime)
     {
         Utils::validateModel($request);
+        $query = [];
+        if (!Utils::isUnset($request->id)) {
+            $query['Id'] = $request->id;
+        }
+        if (!Utils::isUnset($request->ownerId)) {
+            $query['OwnerId'] = $request->ownerId;
+        }
+        if (!Utils::isUnset($request->pan)) {
+            $query['Pan'] = $request->pan;
+        }
+        if (!Utils::isUnset($request->tilt)) {
+            $query['Tilt'] = $request->tilt;
+        }
+        if (!Utils::isUnset($request->zoom)) {
+            $query['Zoom'] = $request->zoom;
+        }
         $req = new OpenApiRequest([
-            'body' => Utils::toMap($request),
+            'query' => OpenApiUtilClient::query($query),
+        ]);
+        $params = new Params([
+            'action'      => 'ContinuousMove',
+            'version'     => '2018-12-12',
+            'protocol'    => 'HTTPS',
+            'pathname'    => '/',
+            'method'      => 'POST',
+            'authType'    => 'AK',
+            'style'       => 'RPC',
+            'reqBodyType' => 'formData',
+            'bodyType'    => 'json',
         ]);
 
-        return ContinuousMoveResponse::fromMap($this->doRPCRequest('ContinuousMove', '2018-12-12', 'HTTPS', 'POST', 'AK', 'json', $req, $runtime));
+        return ContinuousMoveResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
@@ -1067,6 +2006,134 @@ class Vs extends OpenApiClient
     }
 
     /**
+     * @param CreateAIConfigRequest $request
+     * @param RuntimeOptions        $runtime
+     *
+     * @return CreateAIConfigResponse
+     */
+    public function createAIConfigWithOptions($request, $runtime)
+    {
+        Utils::validateModel($request);
+        $query = [];
+        if (!Utils::isUnset($request->captureInterval)) {
+            $query['CaptureInterval'] = $request->captureInterval;
+        }
+        if (!Utils::isUnset($request->configs)) {
+            $query['Configs'] = $request->configs;
+        }
+        if (!Utils::isUnset($request->description)) {
+            $query['Description'] = $request->description;
+        }
+        if (!Utils::isUnset($request->endTime)) {
+            $query['EndTime'] = $request->endTime;
+        }
+        if (!Utils::isUnset($request->features)) {
+            $query['Features'] = $request->features;
+        }
+        if (!Utils::isUnset($request->instanceId)) {
+            $query['InstanceId'] = $request->instanceId;
+        }
+        if (!Utils::isUnset($request->instanceType)) {
+            $query['InstanceType'] = $request->instanceType;
+        }
+        if (!Utils::isUnset($request->ownerId)) {
+            $query['OwnerId'] = $request->ownerId;
+        }
+        if (!Utils::isUnset($request->startTime)) {
+            $query['StartTime'] = $request->startTime;
+        }
+        if (!Utils::isUnset($request->status)) {
+            $query['Status'] = $request->status;
+        }
+        $req = new OpenApiRequest([
+            'query' => OpenApiUtilClient::query($query),
+        ]);
+        $params = new Params([
+            'action'      => 'CreateAIConfig',
+            'version'     => '2018-12-12',
+            'protocol'    => 'HTTPS',
+            'pathname'    => '/',
+            'method'      => 'POST',
+            'authType'    => 'AK',
+            'style'       => 'RPC',
+            'reqBodyType' => 'formData',
+            'bodyType'    => 'json',
+        ]);
+
+        return CreateAIConfigResponse::fromMap($this->callApi($params, $req, $runtime));
+    }
+
+    /**
+     * @param CreateAIConfigRequest $request
+     *
+     * @return CreateAIConfigResponse
+     */
+    public function createAIConfig($request)
+    {
+        $runtime = new RuntimeOptions([]);
+
+        return $this->createAIConfigWithOptions($request, $runtime);
+    }
+
+    /**
+     * @param CreateClusterRequest $request
+     * @param RuntimeOptions       $runtime
+     *
+     * @return CreateClusterResponse
+     */
+    public function createClusterWithOptions($request, $runtime)
+    {
+        Utils::validateModel($request);
+        $query = [];
+        if (!Utils::isUnset($request->description)) {
+            $query['Description'] = $request->description;
+        }
+        if (!Utils::isUnset($request->internalPorts)) {
+            $query['InternalPorts'] = $request->internalPorts;
+        }
+        if (!Utils::isUnset($request->maintainTime)) {
+            $query['MaintainTime'] = $request->maintainTime;
+        }
+        if (!Utils::isUnset($request->name)) {
+            $query['Name'] = $request->name;
+        }
+        if (!Utils::isUnset($request->ownerId)) {
+            $query['OwnerId'] = $request->ownerId;
+        }
+        if (!Utils::isUnset($request->securityGroupId)) {
+            $query['SecurityGroupId'] = $request->securityGroupId;
+        }
+        $req = new OpenApiRequest([
+            'query' => OpenApiUtilClient::query($query),
+        ]);
+        $params = new Params([
+            'action'      => 'CreateCluster',
+            'version'     => '2018-12-12',
+            'protocol'    => 'HTTPS',
+            'pathname'    => '/',
+            'method'      => 'POST',
+            'authType'    => 'AK',
+            'style'       => 'RPC',
+            'reqBodyType' => 'formData',
+            'bodyType'    => 'json',
+        ]);
+
+        return CreateClusterResponse::fromMap($this->callApi($params, $req, $runtime));
+    }
+
+    /**
+     * @param CreateClusterRequest $request
+     *
+     * @return CreateClusterResponse
+     */
+    public function createCluster($request)
+    {
+        $runtime = new RuntimeOptions([]);
+
+        return $this->createClusterWithOptions($request, $runtime);
+    }
+
+    /**
      * @param CreateDeviceRequest $request
      * @param RuntimeOptions      $runtime
      *
@@ -1075,11 +2142,89 @@ class Vs extends OpenApiClient
     public function createDeviceWithOptions($request, $runtime)
     {
         Utils::validateModel($request);
+        $query = [];
+        if (!Utils::isUnset($request->alarmMethod)) {
+            $query['AlarmMethod'] = $request->alarmMethod;
+        }
+        if (!Utils::isUnset($request->autoPos)) {
+            $query['AutoPos'] = $request->autoPos;
+        }
+        if (!Utils::isUnset($request->autoStart)) {
+            $query['AutoStart'] = $request->autoStart;
+        }
+        if (!Utils::isUnset($request->description)) {
+            $query['Description'] = $request->description;
+        }
+        if (!Utils::isUnset($request->directoryId)) {
+            $query['DirectoryId'] = $request->directoryId;
+        }
+        if (!Utils::isUnset($request->dsn)) {
+            $query['Dsn'] = $request->dsn;
+        }
+        if (!Utils::isUnset($request->gbId)) {
+            $query['GbId'] = $request->gbId;
+        }
+        if (!Utils::isUnset($request->groupId)) {
+            $query['GroupId'] = $request->groupId;
+        }
+        if (!Utils::isUnset($request->ip)) {
+            $query['Ip'] = $request->ip;
+        }
+        if (!Utils::isUnset($request->latitude)) {
+            $query['Latitude'] = $request->latitude;
+        }
+        if (!Utils::isUnset($request->longitude)) {
+            $query['Longitude'] = $request->longitude;
+        }
+        if (!Utils::isUnset($request->name)) {
+            $query['Name'] = $request->name;
+        }
+        if (!Utils::isUnset($request->ownerId)) {
+            $query['OwnerId'] = $request->ownerId;
+        }
+        if (!Utils::isUnset($request->params)) {
+            $query['Params'] = $request->params;
+        }
+        if (!Utils::isUnset($request->parentId)) {
+            $query['ParentId'] = $request->parentId;
+        }
+        if (!Utils::isUnset($request->password)) {
+            $query['Password'] = $request->password;
+        }
+        if (!Utils::isUnset($request->port)) {
+            $query['Port'] = $request->port;
+        }
+        if (!Utils::isUnset($request->posInterval)) {
+            $query['PosInterval'] = $request->posInterval;
+        }
+        if (!Utils::isUnset($request->type)) {
+            $query['Type'] = $request->type;
+        }
+        if (!Utils::isUnset($request->url)) {
+            $query['Url'] = $request->url;
+        }
+        if (!Utils::isUnset($request->username)) {
+            $query['Username'] = $request->username;
+        }
+        if (!Utils::isUnset($request->vendor)) {
+            $query['Vendor'] = $request->vendor;
+        }
         $req = new OpenApiRequest([
-            'body' => Utils::toMap($request),
+            'query' => OpenApiUtilClient::query($query),
+        ]);
+        $params = new Params([
+            'action'      => 'CreateDevice',
+            'version'     => '2018-12-12',
+            'protocol'    => 'HTTPS',
+            'pathname'    => '/',
+            'method'      => 'POST',
+            'authType'    => 'AK',
+            'style'       => 'RPC',
+            'reqBodyType' => 'formData',
+            'bodyType'    => 'json',
         ]);
 
-        return CreateDeviceResponse::fromMap($this->doRPCRequest('CreateDevice', '2018-12-12', 'HTTPS', 'POST', 'AK', 'json', $req, $runtime));
+        return CreateDeviceResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
@@ -1103,11 +2248,50 @@ class Vs extends OpenApiClient
     public function createDeviceAlarmWithOptions($request, $runtime)
     {
         Utils::validateModel($request);
+        $query = [];
+        if (!Utils::isUnset($request->alarm)) {
+            $query['Alarm'] = $request->alarm;
+        }
+        if (!Utils::isUnset($request->channelId)) {
+            $query['ChannelId'] = $request->channelId;
+        }
+        if (!Utils::isUnset($request->endTime)) {
+            $query['EndTime'] = $request->endTime;
+        }
+        if (!Utils::isUnset($request->expire)) {
+            $query['Expire'] = $request->expire;
+        }
+        if (!Utils::isUnset($request->id)) {
+            $query['Id'] = $request->id;
+        }
+        if (!Utils::isUnset($request->objectType)) {
+            $query['ObjectType'] = $request->objectType;
+        }
+        if (!Utils::isUnset($request->ownerId)) {
+            $query['OwnerId'] = $request->ownerId;
+        }
+        if (!Utils::isUnset($request->startTime)) {
+            $query['StartTime'] = $request->startTime;
+        }
+        if (!Utils::isUnset($request->subAlarm)) {
+            $query['SubAlarm'] = $request->subAlarm;
+        }
         $req = new OpenApiRequest([
-            'body' => Utils::toMap($request),
+            'query' => OpenApiUtilClient::query($query),
+        ]);
+        $params = new Params([
+            'action'      => 'CreateDeviceAlarm',
+            'version'     => '2018-12-12',
+            'protocol'    => 'HTTPS',
+            'pathname'    => '/',
+            'method'      => 'POST',
+            'authType'    => 'AK',
+            'style'       => 'RPC',
+            'reqBodyType' => 'formData',
+            'bodyType'    => 'json',
         ]);
 
-        return CreateDeviceAlarmResponse::fromMap($this->doRPCRequest('CreateDeviceAlarm', '2018-12-12', 'HTTPS', 'POST', 'AK', 'json', $req, $runtime));
+        return CreateDeviceAlarmResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
@@ -1131,11 +2315,38 @@ class Vs extends OpenApiClient
     public function createDeviceSnapshotWithOptions($request, $runtime)
     {
         Utils::validateModel($request);
+        $query = [];
+        if (!Utils::isUnset($request->deviceId)) {
+            $query['DeviceId'] = $request->deviceId;
+        }
+        if (!Utils::isUnset($request->mode)) {
+            $query['Mode'] = $request->mode;
+        }
+        if (!Utils::isUnset($request->ownerId)) {
+            $query['OwnerId'] = $request->ownerId;
+        }
+        if (!Utils::isUnset($request->snapshotConfig)) {
+            $query['SnapshotConfig'] = $request->snapshotConfig;
+        }
+        if (!Utils::isUnset($request->streamId)) {
+            $query['StreamId'] = $request->streamId;
+        }
         $req = new OpenApiRequest([
-            'body' => Utils::toMap($request),
+            'query' => OpenApiUtilClient::query($query),
+        ]);
+        $params = new Params([
+            'action'      => 'CreateDeviceSnapshot',
+            'version'     => '2018-12-12',
+            'protocol'    => 'HTTPS',
+            'pathname'    => '/',
+            'method'      => 'POST',
+            'authType'    => 'AK',
+            'style'       => 'RPC',
+            'reqBodyType' => 'formData',
+            'bodyType'    => 'json',
         ]);
 
-        return CreateDeviceSnapshotResponse::fromMap($this->doRPCRequest('CreateDeviceSnapshot', '2018-12-12', 'HTTPS', 'POST', 'AK', 'json', $req, $runtime));
+        return CreateDeviceSnapshotResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
@@ -1159,11 +2370,38 @@ class Vs extends OpenApiClient
     public function createDirectoryWithOptions($request, $runtime)
     {
         Utils::validateModel($request);
+        $query = [];
+        if (!Utils::isUnset($request->description)) {
+            $query['Description'] = $request->description;
+        }
+        if (!Utils::isUnset($request->groupId)) {
+            $query['GroupId'] = $request->groupId;
+        }
+        if (!Utils::isUnset($request->name)) {
+            $query['Name'] = $request->name;
+        }
+        if (!Utils::isUnset($request->ownerId)) {
+            $query['OwnerId'] = $request->ownerId;
+        }
+        if (!Utils::isUnset($request->parentId)) {
+            $query['ParentId'] = $request->parentId;
+        }
         $req = new OpenApiRequest([
-            'body' => Utils::toMap($request),
+            'query' => OpenApiUtilClient::query($query),
+        ]);
+        $params = new Params([
+            'action'      => 'CreateDirectory',
+            'version'     => '2018-12-12',
+            'protocol'    => 'HTTPS',
+            'pathname'    => '/',
+            'method'      => 'POST',
+            'authType'    => 'AK',
+            'style'       => 'RPC',
+            'reqBodyType' => 'formData',
+            'bodyType'    => 'json',
         ]);
 
-        return CreateDirectoryResponse::fromMap($this->doRPCRequest('CreateDirectory', '2018-12-12', 'HTTPS', 'POST', 'AK', 'json', $req, $runtime));
+        return CreateDirectoryResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
@@ -1187,11 +2425,56 @@ class Vs extends OpenApiClient
     public function createGroupWithOptions($request, $runtime)
     {
         Utils::validateModel($request);
+        $query = [];
+        if (!Utils::isUnset($request->app)) {
+            $query['App'] = $request->app;
+        }
+        if (!Utils::isUnset($request->callback)) {
+            $query['Callback'] = $request->callback;
+        }
+        if (!Utils::isUnset($request->description)) {
+            $query['Description'] = $request->description;
+        }
+        if (!Utils::isUnset($request->inProtocol)) {
+            $query['InProtocol'] = $request->inProtocol;
+        }
+        if (!Utils::isUnset($request->lazyPull)) {
+            $query['LazyPull'] = $request->lazyPull;
+        }
+        if (!Utils::isUnset($request->name)) {
+            $query['Name'] = $request->name;
+        }
+        if (!Utils::isUnset($request->outProtocol)) {
+            $query['OutProtocol'] = $request->outProtocol;
+        }
+        if (!Utils::isUnset($request->ownerId)) {
+            $query['OwnerId'] = $request->ownerId;
+        }
+        if (!Utils::isUnset($request->playDomain)) {
+            $query['PlayDomain'] = $request->playDomain;
+        }
+        if (!Utils::isUnset($request->pushDomain)) {
+            $query['PushDomain'] = $request->pushDomain;
+        }
+        if (!Utils::isUnset($request->region)) {
+            $query['Region'] = $request->region;
+        }
         $req = new OpenApiRequest([
-            'body' => Utils::toMap($request),
+            'query' => OpenApiUtilClient::query($query),
+        ]);
+        $params = new Params([
+            'action'      => 'CreateGroup',
+            'version'     => '2018-12-12',
+            'protocol'    => 'HTTPS',
+            'pathname'    => '/',
+            'method'      => 'POST',
+            'authType'    => 'AK',
+            'style'       => 'RPC',
+            'reqBodyType' => 'formData',
+            'bodyType'    => 'json',
         ]);
 
-        return CreateGroupResponse::fromMap($this->doRPCRequest('CreateGroup', '2018-12-12', 'HTTPS', 'POST', 'AK', 'json', $req, $runtime));
+        return CreateGroupResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
@@ -1215,11 +2498,56 @@ class Vs extends OpenApiClient
     public function createParentPlatformWithOptions($request, $runtime)
     {
         Utils::validateModel($request);
+        $query = [];
+        if (!Utils::isUnset($request->autoStart)) {
+            $query['AutoStart'] = $request->autoStart;
+        }
+        if (!Utils::isUnset($request->clientAuth)) {
+            $query['ClientAuth'] = $request->clientAuth;
+        }
+        if (!Utils::isUnset($request->clientPassword)) {
+            $query['ClientPassword'] = $request->clientPassword;
+        }
+        if (!Utils::isUnset($request->clientUsername)) {
+            $query['ClientUsername'] = $request->clientUsername;
+        }
+        if (!Utils::isUnset($request->description)) {
+            $query['Description'] = $request->description;
+        }
+        if (!Utils::isUnset($request->gbId)) {
+            $query['GbId'] = $request->gbId;
+        }
+        if (!Utils::isUnset($request->ip)) {
+            $query['Ip'] = $request->ip;
+        }
+        if (!Utils::isUnset($request->name)) {
+            $query['Name'] = $request->name;
+        }
+        if (!Utils::isUnset($request->ownerId)) {
+            $query['OwnerId'] = $request->ownerId;
+        }
+        if (!Utils::isUnset($request->port)) {
+            $query['Port'] = $request->port;
+        }
+        if (!Utils::isUnset($request->protocol)) {
+            $query['Protocol'] = $request->protocol;
+        }
         $req = new OpenApiRequest([
-            'body' => Utils::toMap($request),
+            'query' => OpenApiUtilClient::query($query),
+        ]);
+        $params = new Params([
+            'action'      => 'CreateParentPlatform',
+            'version'     => '2018-12-12',
+            'protocol'    => 'HTTPS',
+            'pathname'    => '/',
+            'method'      => 'POST',
+            'authType'    => 'AK',
+            'style'       => 'RPC',
+            'reqBodyType' => 'formData',
+            'bodyType'    => 'json',
         ]);
 
-        return CreateParentPlatformResponse::fromMap($this->doRPCRequest('CreateParentPlatform', '2018-12-12', 'HTTPS', 'POST', 'AK', 'json', $req, $runtime));
+        return CreateParentPlatformResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
@@ -1235,6 +2563,94 @@ class Vs extends OpenApiClient
     }
 
     /**
+     * @param CreateRenderingDeviceRequest $request
+     * @param RuntimeOptions               $runtime
+     *
+     * @return CreateRenderingDeviceResponse
+     */
+    public function createRenderingDeviceWithOptions($request, $runtime)
+    {
+        Utils::validateModel($request);
+        $query = [];
+        if (!Utils::isUnset($request->autoRenew)) {
+            $query['AutoRenew'] = $request->autoRenew;
+        }
+        if (!Utils::isUnset($request->autoRenewPeriod)) {
+            $query['AutoRenewPeriod'] = $request->autoRenewPeriod;
+        }
+        if (!Utils::isUnset($request->clusterId)) {
+            $query['ClusterId'] = $request->clusterId;
+        }
+        if (!Utils::isUnset($request->count)) {
+            $query['Count'] = $request->count;
+        }
+        if (!Utils::isUnset($request->description)) {
+            $query['Description'] = $request->description;
+        }
+        if (!Utils::isUnset($request->edgeNodeName)) {
+            $query['EdgeNodeName'] = $request->edgeNodeName;
+        }
+        if (!Utils::isUnset($request->ISP)) {
+            $query['ISP'] = $request->ISP;
+        }
+        if (!Utils::isUnset($request->imageId)) {
+            $query['ImageId'] = $request->imageId;
+        }
+        if (!Utils::isUnset($request->instanceChargeType)) {
+            $query['InstanceChargeType'] = $request->instanceChargeType;
+        }
+        if (!Utils::isUnset($request->instanceName)) {
+            $query['InstanceName'] = $request->instanceName;
+        }
+        if (!Utils::isUnset($request->ownerId)) {
+            $query['OwnerId'] = $request->ownerId;
+        }
+        if (!Utils::isUnset($request->password)) {
+            $query['Password'] = $request->password;
+        }
+        if (!Utils::isUnset($request->period)) {
+            $query['Period'] = $request->period;
+        }
+        if (!Utils::isUnset($request->periodUnit)) {
+            $query['PeriodUnit'] = $request->periodUnit;
+        }
+        if (!Utils::isUnset($request->securityGroupId)) {
+            $query['SecurityGroupId'] = $request->securityGroupId;
+        }
+        if (!Utils::isUnset($request->specification)) {
+            $query['Specification'] = $request->specification;
+        }
+        $req = new OpenApiRequest([
+            'query' => OpenApiUtilClient::query($query),
+        ]);
+        $params = new Params([
+            'action'      => 'CreateRenderingDevice',
+            'version'     => '2018-12-12',
+            'protocol'    => 'HTTPS',
+            'pathname'    => '/',
+            'method'      => 'POST',
+            'authType'    => 'AK',
+            'style'       => 'RPC',
+            'reqBodyType' => 'formData',
+            'bodyType'    => 'json',
+        ]);
+
+        return CreateRenderingDeviceResponse::fromMap($this->callApi($params, $req, $runtime));
+    }
+
+    /**
+     * @param CreateRenderingDeviceRequest $request
+     *
+     * @return CreateRenderingDeviceResponse
+     */
+    public function createRenderingDevice($request)
+    {
+        $runtime = new RuntimeOptions([]);
+
+        return $this->createRenderingDeviceWithOptions($request, $runtime);
+    }
+
+    /**
      * @param CreateStreamSnapshotRequest $request
      * @param RuntimeOptions              $runtime
      *
@@ -1243,11 +2659,32 @@ class Vs extends OpenApiClient
     public function createStreamSnapshotWithOptions($request, $runtime)
     {
         Utils::validateModel($request);
+        $query = [];
+        if (!Utils::isUnset($request->id)) {
+            $query['Id'] = $request->id;
+        }
+        if (!Utils::isUnset($request->location)) {
+            $query['Location'] = $request->location;
+        }
+        if (!Utils::isUnset($request->ownerId)) {
+            $query['OwnerId'] = $request->ownerId;
+        }
         $req = new OpenApiRequest([
-            'body' => Utils::toMap($request),
+            'query' => OpenApiUtilClient::query($query),
+        ]);
+        $params = new Params([
+            'action'      => 'CreateStreamSnapshot',
+            'version'     => '2018-12-12',
+            'protocol'    => 'HTTPS',
+            'pathname'    => '/',
+            'method'      => 'POST',
+            'authType'    => 'AK',
+            'style'       => 'RPC',
+            'reqBodyType' => 'formData',
+            'bodyType'    => 'json',
         ]);
 
-        return CreateStreamSnapshotResponse::fromMap($this->doRPCRequest('CreateStreamSnapshot', '2018-12-12', 'HTTPS', 'POST', 'AK', 'json', $req, $runtime));
+        return CreateStreamSnapshotResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
@@ -1271,11 +2708,86 @@ class Vs extends OpenApiClient
     public function createTemplateWithOptions($request, $runtime)
     {
         Utils::validateModel($request);
+        $query = [];
+        if (!Utils::isUnset($request->callback)) {
+            $query['Callback'] = $request->callback;
+        }
+        if (!Utils::isUnset($request->description)) {
+            $query['Description'] = $request->description;
+        }
+        if (!Utils::isUnset($request->fileFormat)) {
+            $query['FileFormat'] = $request->fileFormat;
+        }
+        if (!Utils::isUnset($request->flv)) {
+            $query['Flv'] = $request->flv;
+        }
+        if (!Utils::isUnset($request->hlsM3u8)) {
+            $query['HlsM3u8'] = $request->hlsM3u8;
+        }
+        if (!Utils::isUnset($request->hlsTs)) {
+            $query['HlsTs'] = $request->hlsTs;
+        }
+        if (!Utils::isUnset($request->interval)) {
+            $query['Interval'] = $request->interval;
+        }
+        if (!Utils::isUnset($request->jpgOnDemand)) {
+            $query['JpgOnDemand'] = $request->jpgOnDemand;
+        }
+        if (!Utils::isUnset($request->jpgOverwrite)) {
+            $query['JpgOverwrite'] = $request->jpgOverwrite;
+        }
+        if (!Utils::isUnset($request->jpgSequence)) {
+            $query['JpgSequence'] = $request->jpgSequence;
+        }
+        if (!Utils::isUnset($request->mp4)) {
+            $query['Mp4'] = $request->mp4;
+        }
+        if (!Utils::isUnset($request->name)) {
+            $query['Name'] = $request->name;
+        }
+        if (!Utils::isUnset($request->ossBucket)) {
+            $query['OssBucket'] = $request->ossBucket;
+        }
+        if (!Utils::isUnset($request->ossEndpoint)) {
+            $query['OssEndpoint'] = $request->ossEndpoint;
+        }
+        if (!Utils::isUnset($request->ossFilePrefix)) {
+            $query['OssFilePrefix'] = $request->ossFilePrefix;
+        }
+        if (!Utils::isUnset($request->ownerId)) {
+            $query['OwnerId'] = $request->ownerId;
+        }
+        if (!Utils::isUnset($request->region)) {
+            $query['Region'] = $request->region;
+        }
+        if (!Utils::isUnset($request->retention)) {
+            $query['Retention'] = $request->retention;
+        }
+        if (!Utils::isUnset($request->transConfigsJSON)) {
+            $query['TransConfigsJSON'] = $request->transConfigsJSON;
+        }
+        if (!Utils::isUnset($request->trigger)) {
+            $query['Trigger'] = $request->trigger;
+        }
+        if (!Utils::isUnset($request->type)) {
+            $query['Type'] = $request->type;
+        }
         $req = new OpenApiRequest([
-            'body' => Utils::toMap($request),
+            'query' => OpenApiUtilClient::query($query),
+        ]);
+        $params = new Params([
+            'action'      => 'CreateTemplate',
+            'version'     => '2018-12-12',
+            'protocol'    => 'HTTPS',
+            'pathname'    => '/',
+            'method'      => 'POST',
+            'authType'    => 'AK',
+            'style'       => 'RPC',
+            'reqBodyType' => 'formData',
+            'bodyType'    => 'json',
         ]);
 
-        return CreateTemplateResponse::fromMap($this->doRPCRequest('CreateTemplate', '2018-12-12', 'HTTPS', 'POST', 'AK', 'json', $req, $runtime));
+        return CreateTemplateResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
@@ -1291,6 +2803,52 @@ class Vs extends OpenApiClient
     }
 
     /**
+     * @param DeleteAIConfigRequest $request
+     * @param RuntimeOptions        $runtime
+     *
+     * @return DeleteAIConfigResponse
+     */
+    public function deleteAIConfigWithOptions($request, $runtime)
+    {
+        Utils::validateModel($request);
+        $query = [];
+        if (!Utils::isUnset($request->configId)) {
+            $query['ConfigId'] = $request->configId;
+        }
+        if (!Utils::isUnset($request->ownerId)) {
+            $query['OwnerId'] = $request->ownerId;
+        }
+        $req = new OpenApiRequest([
+            'query' => OpenApiUtilClient::query($query),
+        ]);
+        $params = new Params([
+            'action'      => 'DeleteAIConfig',
+            'version'     => '2018-12-12',
+            'protocol'    => 'HTTPS',
+            'pathname'    => '/',
+            'method'      => 'POST',
+            'authType'    => 'AK',
+            'style'       => 'RPC',
+            'reqBodyType' => 'formData',
+            'bodyType'    => 'json',
+        ]);
+
+        return DeleteAIConfigResponse::fromMap($this->callApi($params, $req, $runtime));
+    }
+
+    /**
+     * @param DeleteAIConfigRequest $request
+     *
+     * @return DeleteAIConfigResponse
+     */
+    public function deleteAIConfig($request)
+    {
+        $runtime = new RuntimeOptions([]);
+
+        return $this->deleteAIConfigWithOptions($request, $runtime);
+    }
+
+    /**
      * @param DeleteBucketRequest $request
      * @param RuntimeOptions      $runtime
      *
@@ -1299,11 +2857,29 @@ class Vs extends OpenApiClient
     public function deleteBucketWithOptions($request, $runtime)
     {
         Utils::validateModel($request);
+        $query = [];
+        if (!Utils::isUnset($request->bucketName)) {
+            $query['BucketName'] = $request->bucketName;
+        }
+        if (!Utils::isUnset($request->ownerId)) {
+            $query['OwnerId'] = $request->ownerId;
+        }
         $req = new OpenApiRequest([
-            'body' => Utils::toMap($request),
+            'query' => OpenApiUtilClient::query($query),
+        ]);
+        $params = new Params([
+            'action'      => 'DeleteBucket',
+            'version'     => '2018-12-12',
+            'protocol'    => 'HTTPS',
+            'pathname'    => '/',
+            'method'      => 'POST',
+            'authType'    => 'AK',
+            'style'       => 'RPC',
+            'reqBodyType' => 'formData',
+            'bodyType'    => 'json',
         ]);
 
-        return DeleteBucketResponse::fromMap($this->doRPCRequest('DeleteBucket', '2018-12-12', 'HTTPS', 'POST', 'AK', 'json', $req, $runtime));
+        return DeleteBucketResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
@@ -1319,6 +2895,52 @@ class Vs extends OpenApiClient
     }
 
     /**
+     * @param DeleteClusterRequest $request
+     * @param RuntimeOptions       $runtime
+     *
+     * @return DeleteClusterResponse
+     */
+    public function deleteClusterWithOptions($request, $runtime)
+    {
+        Utils::validateModel($request);
+        $query = [];
+        if (!Utils::isUnset($request->clusterId)) {
+            $query['ClusterId'] = $request->clusterId;
+        }
+        if (!Utils::isUnset($request->ownerId)) {
+            $query['OwnerId'] = $request->ownerId;
+        }
+        $req = new OpenApiRequest([
+            'query' => OpenApiUtilClient::query($query),
+        ]);
+        $params = new Params([
+            'action'      => 'DeleteCluster',
+            'version'     => '2018-12-12',
+            'protocol'    => 'HTTPS',
+            'pathname'    => '/',
+            'method'      => 'POST',
+            'authType'    => 'AK',
+            'style'       => 'RPC',
+            'reqBodyType' => 'formData',
+            'bodyType'    => 'json',
+        ]);
+
+        return DeleteClusterResponse::fromMap($this->callApi($params, $req, $runtime));
+    }
+
+    /**
+     * @param DeleteClusterRequest $request
+     *
+     * @return DeleteClusterResponse
+     */
+    public function deleteCluster($request)
+    {
+        $runtime = new RuntimeOptions([]);
+
+        return $this->deleteClusterWithOptions($request, $runtime);
+    }
+
+    /**
      * @param DeleteDeviceRequest $request
      * @param RuntimeOptions      $runtime
      *
@@ -1327,11 +2949,29 @@ class Vs extends OpenApiClient
     public function deleteDeviceWithOptions($request, $runtime)
     {
         Utils::validateModel($request);
+        $query = [];
+        if (!Utils::isUnset($request->id)) {
+            $query['Id'] = $request->id;
+        }
+        if (!Utils::isUnset($request->ownerId)) {
+            $query['OwnerId'] = $request->ownerId;
+        }
         $req = new OpenApiRequest([
-            'body' => Utils::toMap($request),
+            'query' => OpenApiUtilClient::query($query),
+        ]);
+        $params = new Params([
+            'action'      => 'DeleteDevice',
+            'version'     => '2018-12-12',
+            'protocol'    => 'HTTPS',
+            'pathname'    => '/',
+            'method'      => 'POST',
+            'authType'    => 'AK',
+            'style'       => 'RPC',
+            'reqBodyType' => 'formData',
+            'bodyType'    => 'json',
         ]);
 
-        return DeleteDeviceResponse::fromMap($this->doRPCRequest('DeleteDevice', '2018-12-12', 'HTTPS', 'POST', 'AK', 'json', $req, $runtime));
+        return DeleteDeviceResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
@@ -1355,11 +2995,29 @@ class Vs extends OpenApiClient
     public function deleteDirectoryWithOptions($request, $runtime)
     {
         Utils::validateModel($request);
+        $query = [];
+        if (!Utils::isUnset($request->id)) {
+            $query['Id'] = $request->id;
+        }
+        if (!Utils::isUnset($request->ownerId)) {
+            $query['OwnerId'] = $request->ownerId;
+        }
         $req = new OpenApiRequest([
-            'body' => Utils::toMap($request),
+            'query' => OpenApiUtilClient::query($query),
+        ]);
+        $params = new Params([
+            'action'      => 'DeleteDirectory',
+            'version'     => '2018-12-12',
+            'protocol'    => 'HTTPS',
+            'pathname'    => '/',
+            'method'      => 'POST',
+            'authType'    => 'AK',
+            'style'       => 'RPC',
+            'reqBodyType' => 'formData',
+            'bodyType'    => 'json',
         ]);
 
-        return DeleteDirectoryResponse::fromMap($this->doRPCRequest('DeleteDirectory', '2018-12-12', 'HTTPS', 'POST', 'AK', 'json', $req, $runtime));
+        return DeleteDirectoryResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
@@ -1383,11 +3041,29 @@ class Vs extends OpenApiClient
     public function deleteGroupWithOptions($request, $runtime)
     {
         Utils::validateModel($request);
+        $query = [];
+        if (!Utils::isUnset($request->id)) {
+            $query['Id'] = $request->id;
+        }
+        if (!Utils::isUnset($request->ownerId)) {
+            $query['OwnerId'] = $request->ownerId;
+        }
         $req = new OpenApiRequest([
-            'body' => Utils::toMap($request),
+            'query' => OpenApiUtilClient::query($query),
+        ]);
+        $params = new Params([
+            'action'      => 'DeleteGroup',
+            'version'     => '2018-12-12',
+            'protocol'    => 'HTTPS',
+            'pathname'    => '/',
+            'method'      => 'POST',
+            'authType'    => 'AK',
+            'style'       => 'RPC',
+            'reqBodyType' => 'formData',
+            'bodyType'    => 'json',
         ]);
 
-        return DeleteGroupResponse::fromMap($this->doRPCRequest('DeleteGroup', '2018-12-12', 'HTTPS', 'POST', 'AK', 'json', $req, $runtime));
+        return DeleteGroupResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
@@ -1411,11 +3087,29 @@ class Vs extends OpenApiClient
     public function deleteParentPlatformWithOptions($request, $runtime)
     {
         Utils::validateModel($request);
+        $query = [];
+        if (!Utils::isUnset($request->id)) {
+            $query['Id'] = $request->id;
+        }
+        if (!Utils::isUnset($request->ownerId)) {
+            $query['OwnerId'] = $request->ownerId;
+        }
         $req = new OpenApiRequest([
-            'body' => Utils::toMap($request),
+            'query' => OpenApiUtilClient::query($query),
+        ]);
+        $params = new Params([
+            'action'      => 'DeleteParentPlatform',
+            'version'     => '2018-12-12',
+            'protocol'    => 'HTTPS',
+            'pathname'    => '/',
+            'method'      => 'POST',
+            'authType'    => 'AK',
+            'style'       => 'RPC',
+            'reqBodyType' => 'formData',
+            'bodyType'    => 'json',
         ]);
 
-        return DeleteParentPlatformResponse::fromMap($this->doRPCRequest('DeleteParentPlatform', '2018-12-12', 'HTTPS', 'POST', 'AK', 'json', $req, $runtime));
+        return DeleteParentPlatformResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
@@ -1439,11 +3133,32 @@ class Vs extends OpenApiClient
     public function deletePresetWithOptions($request, $runtime)
     {
         Utils::validateModel($request);
+        $query = [];
+        if (!Utils::isUnset($request->id)) {
+            $query['Id'] = $request->id;
+        }
+        if (!Utils::isUnset($request->ownerId)) {
+            $query['OwnerId'] = $request->ownerId;
+        }
+        if (!Utils::isUnset($request->presetId)) {
+            $query['PresetId'] = $request->presetId;
+        }
         $req = new OpenApiRequest([
-            'body' => Utils::toMap($request),
+            'query' => OpenApiUtilClient::query($query),
+        ]);
+        $params = new Params([
+            'action'      => 'DeletePreset',
+            'version'     => '2018-12-12',
+            'protocol'    => 'HTTPS',
+            'pathname'    => '/',
+            'method'      => 'POST',
+            'authType'    => 'AK',
+            'style'       => 'RPC',
+            'reqBodyType' => 'formData',
+            'bodyType'    => 'json',
         ]);
 
-        return DeletePresetResponse::fromMap($this->doRPCRequest('DeletePreset', '2018-12-12', 'HTTPS', 'POST', 'AK', 'json', $req, $runtime));
+        return DeletePresetResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
@@ -1459,6 +3174,153 @@ class Vs extends OpenApiClient
     }
 
     /**
+     * @param DeletePurchasedDeviceRequest $request
+     * @param RuntimeOptions               $runtime
+     *
+     * @return DeletePurchasedDeviceResponse
+     */
+    public function deletePurchasedDeviceWithOptions($request, $runtime)
+    {
+        Utils::validateModel($request);
+        $query = [];
+        if (!Utils::isUnset($request->id)) {
+            $query['Id'] = $request->id;
+        }
+        if (!Utils::isUnset($request->ownerId)) {
+            $query['OwnerId'] = $request->ownerId;
+        }
+        $req = new OpenApiRequest([
+            'query' => OpenApiUtilClient::query($query),
+        ]);
+        $params = new Params([
+            'action'      => 'DeletePurchasedDevice',
+            'version'     => '2018-12-12',
+            'protocol'    => 'HTTPS',
+            'pathname'    => '/',
+            'method'      => 'POST',
+            'authType'    => 'AK',
+            'style'       => 'RPC',
+            'reqBodyType' => 'formData',
+            'bodyType'    => 'json',
+        ]);
+
+        return DeletePurchasedDeviceResponse::fromMap($this->callApi($params, $req, $runtime));
+    }
+
+    /**
+     * @param DeletePurchasedDeviceRequest $request
+     *
+     * @return DeletePurchasedDeviceResponse
+     */
+    public function deletePurchasedDevice($request)
+    {
+        $runtime = new RuntimeOptions([]);
+
+        return $this->deletePurchasedDeviceWithOptions($request, $runtime);
+    }
+
+    /**
+     * @param DeleteRenderingDeviceInternetPortsRequest $request
+     * @param RuntimeOptions                            $runtime
+     *
+     * @return DeleteRenderingDeviceInternetPortsResponse
+     */
+    public function deleteRenderingDeviceInternetPortsWithOptions($request, $runtime)
+    {
+        Utils::validateModel($request);
+        $query = [];
+        if (!Utils::isUnset($request->ISP)) {
+            $query['ISP'] = $request->ISP;
+        }
+        if (!Utils::isUnset($request->instanceIds)) {
+            $query['InstanceIds'] = $request->instanceIds;
+        }
+        if (!Utils::isUnset($request->internalPort)) {
+            $query['InternalPort'] = $request->internalPort;
+        }
+        if (!Utils::isUnset($request->ipProtocol)) {
+            $query['IpProtocol'] = $request->ipProtocol;
+        }
+        if (!Utils::isUnset($request->ownerId)) {
+            $query['OwnerId'] = $request->ownerId;
+        }
+        $req = new OpenApiRequest([
+            'query' => OpenApiUtilClient::query($query),
+        ]);
+        $params = new Params([
+            'action'      => 'DeleteRenderingDeviceInternetPorts',
+            'version'     => '2018-12-12',
+            'protocol'    => 'HTTPS',
+            'pathname'    => '/',
+            'method'      => 'POST',
+            'authType'    => 'AK',
+            'style'       => 'RPC',
+            'reqBodyType' => 'formData',
+            'bodyType'    => 'json',
+        ]);
+
+        return DeleteRenderingDeviceInternetPortsResponse::fromMap($this->callApi($params, $req, $runtime));
+    }
+
+    /**
+     * @param DeleteRenderingDeviceInternetPortsRequest $request
+     *
+     * @return DeleteRenderingDeviceInternetPortsResponse
+     */
+    public function deleteRenderingDeviceInternetPorts($request)
+    {
+        $runtime = new RuntimeOptions([]);
+
+        return $this->deleteRenderingDeviceInternetPortsWithOptions($request, $runtime);
+    }
+
+    /**
+     * @param DeleteRenderingDevicesRequest $request
+     * @param RuntimeOptions                $runtime
+     *
+     * @return DeleteRenderingDevicesResponse
+     */
+    public function deleteRenderingDevicesWithOptions($request, $runtime)
+    {
+        Utils::validateModel($request);
+        $query = [];
+        if (!Utils::isUnset($request->instanceIds)) {
+            $query['InstanceIds'] = $request->instanceIds;
+        }
+        if (!Utils::isUnset($request->ownerId)) {
+            $query['OwnerId'] = $request->ownerId;
+        }
+        $req = new OpenApiRequest([
+            'query' => OpenApiUtilClient::query($query),
+        ]);
+        $params = new Params([
+            'action'      => 'DeleteRenderingDevices',
+            'version'     => '2018-12-12',
+            'protocol'    => 'HTTPS',
+            'pathname'    => '/',
+            'method'      => 'POST',
+            'authType'    => 'AK',
+            'style'       => 'RPC',
+            'reqBodyType' => 'formData',
+            'bodyType'    => 'json',
+        ]);
+
+        return DeleteRenderingDevicesResponse::fromMap($this->callApi($params, $req, $runtime));
+    }
+
+    /**
+     * @param DeleteRenderingDevicesRequest $request
+     *
+     * @return DeleteRenderingDevicesResponse
+     */
+    public function deleteRenderingDevices($request)
+    {
+        $runtime = new RuntimeOptions([]);
+
+        return $this->deleteRenderingDevicesWithOptions($request, $runtime);
+    }
+
+    /**
      * @param DeleteTemplateRequest $request
      * @param RuntimeOptions        $runtime
      *
@@ -1467,11 +3329,29 @@ class Vs extends OpenApiClient
     public function deleteTemplateWithOptions($request, $runtime)
     {
         Utils::validateModel($request);
+        $query = [];
+        if (!Utils::isUnset($request->id)) {
+            $query['Id'] = $request->id;
+        }
+        if (!Utils::isUnset($request->ownerId)) {
+            $query['OwnerId'] = $request->ownerId;
+        }
         $req = new OpenApiRequest([
-            'body' => Utils::toMap($request),
+            'query' => OpenApiUtilClient::query($query),
+        ]);
+        $params = new Params([
+            'action'      => 'DeleteTemplate',
+            'version'     => '2018-12-12',
+            'protocol'    => 'HTTPS',
+            'pathname'    => '/',
+            'method'      => 'POST',
+            'authType'    => 'AK',
+            'style'       => 'RPC',
+            'reqBodyType' => 'formData',
+            'bodyType'    => 'json',
         ]);
 
-        return DeleteTemplateResponse::fromMap($this->doRPCRequest('DeleteTemplate', '2018-12-12', 'HTTPS', 'POST', 'AK', 'json', $req, $runtime));
+        return DeleteTemplateResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
@@ -1495,11 +3375,35 @@ class Vs extends OpenApiClient
     public function deleteVsPullStreamInfoConfigWithOptions($request, $runtime)
     {
         Utils::validateModel($request);
+        $query = [];
+        if (!Utils::isUnset($request->appName)) {
+            $query['AppName'] = $request->appName;
+        }
+        if (!Utils::isUnset($request->domainName)) {
+            $query['DomainName'] = $request->domainName;
+        }
+        if (!Utils::isUnset($request->ownerId)) {
+            $query['OwnerId'] = $request->ownerId;
+        }
+        if (!Utils::isUnset($request->streamName)) {
+            $query['StreamName'] = $request->streamName;
+        }
         $req = new OpenApiRequest([
-            'body' => Utils::toMap($request),
+            'query' => OpenApiUtilClient::query($query),
+        ]);
+        $params = new Params([
+            'action'      => 'DeleteVsPullStreamInfoConfig',
+            'version'     => '2018-12-12',
+            'protocol'    => 'HTTPS',
+            'pathname'    => '/',
+            'method'      => 'POST',
+            'authType'    => 'AK',
+            'style'       => 'RPC',
+            'reqBodyType' => 'formData',
+            'bodyType'    => 'json',
         ]);
 
-        return DeleteVsPullStreamInfoConfigResponse::fromMap($this->doRPCRequest('DeleteVsPullStreamInfoConfig', '2018-12-12', 'HTTPS', 'POST', 'AK', 'json', $req, $runtime));
+        return DeleteVsPullStreamInfoConfigResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
@@ -1523,11 +3427,29 @@ class Vs extends OpenApiClient
     public function deleteVsStreamsNotifyUrlConfigWithOptions($request, $runtime)
     {
         Utils::validateModel($request);
+        $query = [];
+        if (!Utils::isUnset($request->domainName)) {
+            $query['DomainName'] = $request->domainName;
+        }
+        if (!Utils::isUnset($request->ownerId)) {
+            $query['OwnerId'] = $request->ownerId;
+        }
         $req = new OpenApiRequest([
-            'body' => Utils::toMap($request),
+            'query' => OpenApiUtilClient::query($query),
+        ]);
+        $params = new Params([
+            'action'      => 'DeleteVsStreamsNotifyUrlConfig',
+            'version'     => '2018-12-12',
+            'protocol'    => 'HTTPS',
+            'pathname'    => '/',
+            'method'      => 'POST',
+            'authType'    => 'AK',
+            'style'       => 'RPC',
+            'reqBodyType' => 'formData',
+            'bodyType'    => 'json',
         ]);
 
-        return DeleteVsStreamsNotifyUrlConfigResponse::fromMap($this->doRPCRequest('DeleteVsStreamsNotifyUrlConfig', '2018-12-12', 'HTTPS', 'POST', 'AK', 'json', $req, $runtime));
+        return DeleteVsStreamsNotifyUrlConfigResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
@@ -1543,6 +3465,141 @@ class Vs extends OpenApiClient
     }
 
     /**
+     * @param DescribeAIConfigRequest $request
+     * @param RuntimeOptions          $runtime
+     *
+     * @return DescribeAIConfigResponse
+     */
+    public function describeAIConfigWithOptions($request, $runtime)
+    {
+        Utils::validateModel($request);
+        $query = [];
+        if (!Utils::isUnset($request->configId)) {
+            $query['ConfigId'] = $request->configId;
+        }
+        if (!Utils::isUnset($request->ownerId)) {
+            $query['OwnerId'] = $request->ownerId;
+        }
+        $req = new OpenApiRequest([
+            'query' => OpenApiUtilClient::query($query),
+        ]);
+        $params = new Params([
+            'action'      => 'DescribeAIConfig',
+            'version'     => '2018-12-12',
+            'protocol'    => 'HTTPS',
+            'pathname'    => '/',
+            'method'      => 'POST',
+            'authType'    => 'AK',
+            'style'       => 'RPC',
+            'reqBodyType' => 'formData',
+            'bodyType'    => 'json',
+        ]);
+
+        return DescribeAIConfigResponse::fromMap($this->callApi($params, $req, $runtime));
+    }
+
+    /**
+     * @param DescribeAIConfigRequest $request
+     *
+     * @return DescribeAIConfigResponse
+     */
+    public function describeAIConfig($request)
+    {
+        $runtime = new RuntimeOptions([]);
+
+        return $this->describeAIConfigWithOptions($request, $runtime);
+    }
+
+    /**
+     * @param DescribeAIConfigListRequest $request
+     * @param RuntimeOptions              $runtime
+     *
+     * @return DescribeAIConfigListResponse
+     */
+    public function describeAIConfigListWithOptions($request, $runtime)
+    {
+        Utils::validateModel($request);
+        $query = [];
+        if (!Utils::isUnset($request->ownerId)) {
+            $query['OwnerId'] = $request->ownerId;
+        }
+        if (!Utils::isUnset($request->pageNo)) {
+            $query['PageNo'] = $request->pageNo;
+        }
+        if (!Utils::isUnset($request->pageSize)) {
+            $query['PageSize'] = $request->pageSize;
+        }
+        $req = new OpenApiRequest([
+            'query' => OpenApiUtilClient::query($query),
+        ]);
+        $params = new Params([
+            'action'      => 'DescribeAIConfigList',
+            'version'     => '2018-12-12',
+            'protocol'    => 'HTTPS',
+            'pathname'    => '/',
+            'method'      => 'POST',
+            'authType'    => 'AK',
+            'style'       => 'RPC',
+            'reqBodyType' => 'formData',
+            'bodyType'    => 'json',
+        ]);
+
+        return DescribeAIConfigListResponse::fromMap($this->callApi($params, $req, $runtime));
+    }
+
+    /**
+     * @param DescribeAIConfigListRequest $request
+     *
+     * @return DescribeAIConfigListResponse
+     */
+    public function describeAIConfigList($request)
+    {
+        $runtime = new RuntimeOptions([]);
+
+        return $this->describeAIConfigListWithOptions($request, $runtime);
+    }
+
+    /**
+     * @param DescribeAIEventListRequest $request
+     * @param RuntimeOptions             $runtime
+     *
+     * @return DescribeAIEventListResponse
+     */
+    public function describeAIEventListWithOptions($request, $runtime)
+    {
+        Utils::validateModel($request);
+        $query = OpenApiUtilClient::query(Utils::toMap($request));
+        $req   = new OpenApiRequest([
+            'query' => OpenApiUtilClient::query($query),
+        ]);
+        $params = new Params([
+            'action'      => 'DescribeAIEventList',
+            'version'     => '2018-12-12',
+            'protocol'    => 'HTTPS',
+            'pathname'    => '/',
+            'method'      => 'GET',
+            'authType'    => 'AK',
+            'style'       => 'RPC',
+            'reqBodyType' => 'formData',
+            'bodyType'    => 'json',
+        ]);
+
+        return DescribeAIEventListResponse::fromMap($this->callApi($params, $req, $runtime));
+    }
+
+    /**
+     * @param DescribeAIEventListRequest $request
+     *
+     * @return DescribeAIEventListResponse
+     */
+    public function describeAIEventList($request)
+    {
+        $runtime = new RuntimeOptions([]);
+
+        return $this->describeAIEventListWithOptions($request, $runtime);
+    }
+
+    /**
      * @param DescribeAccountStatRequest $request
      * @param RuntimeOptions             $runtime
      *
@@ -1551,11 +3608,29 @@ class Vs extends OpenApiClient
     public function describeAccountStatWithOptions($request, $runtime)
     {
         Utils::validateModel($request);
+        $query = [];
+        if (!Utils::isUnset($request->id)) {
+            $query['Id'] = $request->id;
+        }
+        if (!Utils::isUnset($request->ownerId)) {
+            $query['OwnerId'] = $request->ownerId;
+        }
         $req = new OpenApiRequest([
-            'body' => Utils::toMap($request),
+            'query' => OpenApiUtilClient::query($query),
+        ]);
+        $params = new Params([
+            'action'      => 'DescribeAccountStat',
+            'version'     => '2018-12-12',
+            'protocol'    => 'HTTPS',
+            'pathname'    => '/',
+            'method'      => 'POST',
+            'authType'    => 'AK',
+            'style'       => 'RPC',
+            'reqBodyType' => 'formData',
+            'bodyType'    => 'json',
         ]);
 
-        return DescribeAccountStatResponse::fromMap($this->doRPCRequest('DescribeAccountStat', '2018-12-12', 'HTTPS', 'POST', 'AK', 'json', $req, $runtime));
+        return DescribeAccountStatResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
@@ -1571,6 +3646,214 @@ class Vs extends OpenApiClient
     }
 
     /**
+     * @param DescribeClusterRequest $request
+     * @param RuntimeOptions         $runtime
+     *
+     * @return DescribeClusterResponse
+     */
+    public function describeClusterWithOptions($request, $runtime)
+    {
+        Utils::validateModel($request);
+        $query = [];
+        if (!Utils::isUnset($request->clusterId)) {
+            $query['ClusterId'] = $request->clusterId;
+        }
+        if (!Utils::isUnset($request->ownerId)) {
+            $query['OwnerId'] = $request->ownerId;
+        }
+        $req = new OpenApiRequest([
+            'query' => OpenApiUtilClient::query($query),
+        ]);
+        $params = new Params([
+            'action'      => 'DescribeCluster',
+            'version'     => '2018-12-12',
+            'protocol'    => 'HTTPS',
+            'pathname'    => '/',
+            'method'      => 'POST',
+            'authType'    => 'AK',
+            'style'       => 'RPC',
+            'reqBodyType' => 'formData',
+            'bodyType'    => 'json',
+        ]);
+
+        return DescribeClusterResponse::fromMap($this->callApi($params, $req, $runtime));
+    }
+
+    /**
+     * @param DescribeClusterRequest $request
+     *
+     * @return DescribeClusterResponse
+     */
+    public function describeCluster($request)
+    {
+        $runtime = new RuntimeOptions([]);
+
+        return $this->describeClusterWithOptions($request, $runtime);
+    }
+
+    /**
+     * @param DescribeClusterDevicesRequest $request
+     * @param RuntimeOptions                $runtime
+     *
+     * @return DescribeClusterDevicesResponse
+     */
+    public function describeClusterDevicesWithOptions($request, $runtime)
+    {
+        Utils::validateModel($request);
+        $query = [];
+        if (!Utils::isUnset($request->clusterId)) {
+            $query['ClusterId'] = $request->clusterId;
+        }
+        if (!Utils::isUnset($request->description)) {
+            $query['Description'] = $request->description;
+        }
+        if (!Utils::isUnset($request->edgeNodeName)) {
+            $query['EdgeNodeName'] = $request->edgeNodeName;
+        }
+        if (!Utils::isUnset($request->ownerId)) {
+            $query['OwnerId'] = $request->ownerId;
+        }
+        if (!Utils::isUnset($request->pageNo)) {
+            $query['PageNo'] = $request->pageNo;
+        }
+        if (!Utils::isUnset($request->pageSize)) {
+            $query['PageSize'] = $request->pageSize;
+        }
+        if (!Utils::isUnset($request->platform)) {
+            $query['Platform'] = $request->platform;
+        }
+        if (!Utils::isUnset($request->specification)) {
+            $query['Specification'] = $request->specification;
+        }
+        $req = new OpenApiRequest([
+            'query' => OpenApiUtilClient::query($query),
+        ]);
+        $params = new Params([
+            'action'      => 'DescribeClusterDevices',
+            'version'     => '2018-12-12',
+            'protocol'    => 'HTTPS',
+            'pathname'    => '/',
+            'method'      => 'POST',
+            'authType'    => 'AK',
+            'style'       => 'RPC',
+            'reqBodyType' => 'formData',
+            'bodyType'    => 'json',
+        ]);
+
+        return DescribeClusterDevicesResponse::fromMap($this->callApi($params, $req, $runtime));
+    }
+
+    /**
+     * @param DescribeClusterDevicesRequest $request
+     *
+     * @return DescribeClusterDevicesResponse
+     */
+    public function describeClusterDevices($request)
+    {
+        $runtime = new RuntimeOptions([]);
+
+        return $this->describeClusterDevicesWithOptions($request, $runtime);
+    }
+
+    /**
+     * @param DescribeClustersRequest $request
+     * @param RuntimeOptions          $runtime
+     *
+     * @return DescribeClustersResponse
+     */
+    public function describeClustersWithOptions($request, $runtime)
+    {
+        Utils::validateModel($request);
+        $query = [];
+        if (!Utils::isUnset($request->ownerId)) {
+            $query['OwnerId'] = $request->ownerId;
+        }
+        if (!Utils::isUnset($request->pageNo)) {
+            $query['PageNo'] = $request->pageNo;
+        }
+        if (!Utils::isUnset($request->pageSize)) {
+            $query['PageSize'] = $request->pageSize;
+        }
+        $req = new OpenApiRequest([
+            'query' => OpenApiUtilClient::query($query),
+        ]);
+        $params = new Params([
+            'action'      => 'DescribeClusters',
+            'version'     => '2018-12-12',
+            'protocol'    => 'HTTPS',
+            'pathname'    => '/',
+            'method'      => 'POST',
+            'authType'    => 'AK',
+            'style'       => 'RPC',
+            'reqBodyType' => 'formData',
+            'bodyType'    => 'json',
+        ]);
+
+        return DescribeClustersResponse::fromMap($this->callApi($params, $req, $runtime));
+    }
+
+    /**
+     * @param DescribeClustersRequest $request
+     *
+     * @return DescribeClustersResponse
+     */
+    public function describeClusters($request)
+    {
+        $runtime = new RuntimeOptions([]);
+
+        return $this->describeClustersWithOptions($request, $runtime);
+    }
+
+    /**
+     * @param DescribeContainerInstanceIdRequest $request
+     * @param RuntimeOptions                     $runtime
+     *
+     * @return DescribeContainerInstanceIdResponse
+     */
+    public function describeContainerInstanceIdWithOptions($request, $runtime)
+    {
+        Utils::validateModel($request);
+        $query = [];
+        if (!Utils::isUnset($request->nodeName)) {
+            $query['NodeName'] = $request->nodeName;
+        }
+        if (!Utils::isUnset($request->ownerId)) {
+            $query['OwnerId'] = $request->ownerId;
+        }
+        if (!Utils::isUnset($request->podIndex)) {
+            $query['PodIndex'] = $request->podIndex;
+        }
+        $req = new OpenApiRequest([
+            'query' => OpenApiUtilClient::query($query),
+        ]);
+        $params = new Params([
+            'action'      => 'DescribeContainerInstanceId',
+            'version'     => '2018-12-12',
+            'protocol'    => 'HTTPS',
+            'pathname'    => '/',
+            'method'      => 'POST',
+            'authType'    => 'AK',
+            'style'       => 'RPC',
+            'reqBodyType' => 'formData',
+            'bodyType'    => 'json',
+        ]);
+
+        return DescribeContainerInstanceIdResponse::fromMap($this->callApi($params, $req, $runtime));
+    }
+
+    /**
+     * @param DescribeContainerInstanceIdRequest $request
+     *
+     * @return DescribeContainerInstanceIdResponse
+     */
+    public function describeContainerInstanceId($request)
+    {
+        $runtime = new RuntimeOptions([]);
+
+        return $this->describeContainerInstanceIdWithOptions($request, $runtime);
+    }
+
+    /**
      * @param DescribeDeviceRequest $request
      * @param RuntimeOptions        $runtime
      *
@@ -1579,11 +3862,35 @@ class Vs extends OpenApiClient
     public function describeDeviceWithOptions($request, $runtime)
     {
         Utils::validateModel($request);
+        $query = [];
+        if (!Utils::isUnset($request->id)) {
+            $query['Id'] = $request->id;
+        }
+        if (!Utils::isUnset($request->includeDirectory)) {
+            $query['IncludeDirectory'] = $request->includeDirectory;
+        }
+        if (!Utils::isUnset($request->includeStats)) {
+            $query['IncludeStats'] = $request->includeStats;
+        }
+        if (!Utils::isUnset($request->ownerId)) {
+            $query['OwnerId'] = $request->ownerId;
+        }
         $req = new OpenApiRequest([
-            'body' => Utils::toMap($request),
+            'query' => OpenApiUtilClient::query($query),
+        ]);
+        $params = new Params([
+            'action'      => 'DescribeDevice',
+            'version'     => '2018-12-12',
+            'protocol'    => 'HTTPS',
+            'pathname'    => '/',
+            'method'      => 'POST',
+            'authType'    => 'AK',
+            'style'       => 'RPC',
+            'reqBodyType' => 'formData',
+            'bodyType'    => 'json',
         ]);
 
-        return DescribeDeviceResponse::fromMap($this->doRPCRequest('DescribeDevice', '2018-12-12', 'HTTPS', 'POST', 'AK', 'json', $req, $runtime));
+        return DescribeDeviceResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
@@ -1607,11 +3914,35 @@ class Vs extends OpenApiClient
     public function describeDeviceChannelsWithOptions($request, $runtime)
     {
         Utils::validateModel($request);
+        $query = [];
+        if (!Utils::isUnset($request->id)) {
+            $query['Id'] = $request->id;
+        }
+        if (!Utils::isUnset($request->ownerId)) {
+            $query['OwnerId'] = $request->ownerId;
+        }
+        if (!Utils::isUnset($request->pageNum)) {
+            $query['PageNum'] = $request->pageNum;
+        }
+        if (!Utils::isUnset($request->pageSize)) {
+            $query['PageSize'] = $request->pageSize;
+        }
         $req = new OpenApiRequest([
-            'body' => Utils::toMap($request),
+            'query' => OpenApiUtilClient::query($query),
+        ]);
+        $params = new Params([
+            'action'      => 'DescribeDeviceChannels',
+            'version'     => '2018-12-12',
+            'protocol'    => 'HTTPS',
+            'pathname'    => '/',
+            'method'      => 'POST',
+            'authType'    => 'AK',
+            'style'       => 'RPC',
+            'reqBodyType' => 'formData',
+            'bodyType'    => 'json',
         ]);
 
-        return DescribeDeviceChannelsResponse::fromMap($this->doRPCRequest('DescribeDeviceChannels', '2018-12-12', 'HTTPS', 'POST', 'AK', 'json', $req, $runtime));
+        return DescribeDeviceChannelsResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
@@ -1635,11 +3966,35 @@ class Vs extends OpenApiClient
     public function describeDeviceGatewayWithOptions($request, $runtime)
     {
         Utils::validateModel($request);
+        $query = [];
+        if (!Utils::isUnset($request->clientIp)) {
+            $query['ClientIp'] = $request->clientIp;
+        }
+        if (!Utils::isUnset($request->expire)) {
+            $query['Expire'] = $request->expire;
+        }
+        if (!Utils::isUnset($request->id)) {
+            $query['Id'] = $request->id;
+        }
+        if (!Utils::isUnset($request->ownerId)) {
+            $query['OwnerId'] = $request->ownerId;
+        }
         $req = new OpenApiRequest([
-            'body' => Utils::toMap($request),
+            'query' => OpenApiUtilClient::query($query),
+        ]);
+        $params = new Params([
+            'action'      => 'DescribeDeviceGateway',
+            'version'     => '2018-12-12',
+            'protocol'    => 'HTTPS',
+            'pathname'    => '/',
+            'method'      => 'POST',
+            'authType'    => 'AK',
+            'style'       => 'RPC',
+            'reqBodyType' => 'formData',
+            'bodyType'    => 'json',
         ]);
 
-        return DescribeDeviceGatewayResponse::fromMap($this->doRPCRequest('DescribeDeviceGateway', '2018-12-12', 'HTTPS', 'POST', 'AK', 'json', $req, $runtime));
+        return DescribeDeviceGatewayResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
@@ -1655,34 +4010,6 @@ class Vs extends OpenApiClient
     }
 
     /**
-     * @param DescribeDevicesRequest $request
-     * @param RuntimeOptions         $runtime
-     *
-     * @return DescribeDevicesResponse
-     */
-    public function describeDevicesWithOptions($request, $runtime)
-    {
-        Utils::validateModel($request);
-        $req = new OpenApiRequest([
-            'body' => Utils::toMap($request),
-        ]);
-
-        return DescribeDevicesResponse::fromMap($this->doRPCRequest('DescribeDevices', '2018-12-12', 'HTTPS', 'POST', 'AK', 'json', $req, $runtime));
-    }
-
-    /**
-     * @param DescribeDevicesRequest $request
-     *
-     * @return DescribeDevicesResponse
-     */
-    public function describeDevices($request)
-    {
-        $runtime = new RuntimeOptions([]);
-
-        return $this->describeDevicesWithOptions($request, $runtime);
-    }
-
-    /**
      * @param DescribeDeviceURLRequest $request
      * @param RuntimeOptions           $runtime
      *
@@ -1691,11 +4018,47 @@ class Vs extends OpenApiClient
     public function describeDeviceURLWithOptions($request, $runtime)
     {
         Utils::validateModel($request);
+        $query = [];
+        if (!Utils::isUnset($request->auth)) {
+            $query['Auth'] = $request->auth;
+        }
+        if (!Utils::isUnset($request->expire)) {
+            $query['Expire'] = $request->expire;
+        }
+        if (!Utils::isUnset($request->id)) {
+            $query['Id'] = $request->id;
+        }
+        if (!Utils::isUnset($request->mode)) {
+            $query['Mode'] = $request->mode;
+        }
+        if (!Utils::isUnset($request->outProtocol)) {
+            $query['OutProtocol'] = $request->outProtocol;
+        }
+        if (!Utils::isUnset($request->ownerId)) {
+            $query['OwnerId'] = $request->ownerId;
+        }
+        if (!Utils::isUnset($request->stream)) {
+            $query['Stream'] = $request->stream;
+        }
+        if (!Utils::isUnset($request->type)) {
+            $query['Type'] = $request->type;
+        }
         $req = new OpenApiRequest([
-            'body' => Utils::toMap($request),
+            'query' => OpenApiUtilClient::query($query),
+        ]);
+        $params = new Params([
+            'action'      => 'DescribeDeviceURL',
+            'version'     => '2018-12-12',
+            'protocol'    => 'HTTPS',
+            'pathname'    => '/',
+            'method'      => 'POST',
+            'authType'    => 'AK',
+            'style'       => 'RPC',
+            'reqBodyType' => 'formData',
+            'bodyType'    => 'json',
         ]);
 
-        return DescribeDeviceURLResponse::fromMap($this->doRPCRequest('DescribeDeviceURL', '2018-12-12', 'HTTPS', 'POST', 'AK', 'json', $req, $runtime));
+        return DescribeDeviceURLResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
@@ -1711,6 +4074,97 @@ class Vs extends OpenApiClient
     }
 
     /**
+     * @param DescribeDevicesRequest $request
+     * @param RuntimeOptions         $runtime
+     *
+     * @return DescribeDevicesResponse
+     */
+    public function describeDevicesWithOptions($request, $runtime)
+    {
+        Utils::validateModel($request);
+        $query = [];
+        if (!Utils::isUnset($request->directoryId)) {
+            $query['DirectoryId'] = $request->directoryId;
+        }
+        if (!Utils::isUnset($request->dsn)) {
+            $query['Dsn'] = $request->dsn;
+        }
+        if (!Utils::isUnset($request->gbId)) {
+            $query['GbId'] = $request->gbId;
+        }
+        if (!Utils::isUnset($request->groupId)) {
+            $query['GroupId'] = $request->groupId;
+        }
+        if (!Utils::isUnset($request->id)) {
+            $query['Id'] = $request->id;
+        }
+        if (!Utils::isUnset($request->includeDirectory)) {
+            $query['IncludeDirectory'] = $request->includeDirectory;
+        }
+        if (!Utils::isUnset($request->includeStats)) {
+            $query['IncludeStats'] = $request->includeStats;
+        }
+        if (!Utils::isUnset($request->name)) {
+            $query['Name'] = $request->name;
+        }
+        if (!Utils::isUnset($request->ownerId)) {
+            $query['OwnerId'] = $request->ownerId;
+        }
+        if (!Utils::isUnset($request->pageNum)) {
+            $query['PageNum'] = $request->pageNum;
+        }
+        if (!Utils::isUnset($request->pageSize)) {
+            $query['PageSize'] = $request->pageSize;
+        }
+        if (!Utils::isUnset($request->parentId)) {
+            $query['ParentId'] = $request->parentId;
+        }
+        if (!Utils::isUnset($request->sortBy)) {
+            $query['SortBy'] = $request->sortBy;
+        }
+        if (!Utils::isUnset($request->sortDirection)) {
+            $query['SortDirection'] = $request->sortDirection;
+        }
+        if (!Utils::isUnset($request->status)) {
+            $query['Status'] = $request->status;
+        }
+        if (!Utils::isUnset($request->type)) {
+            $query['Type'] = $request->type;
+        }
+        if (!Utils::isUnset($request->vendor)) {
+            $query['Vendor'] = $request->vendor;
+        }
+        $req = new OpenApiRequest([
+            'query' => OpenApiUtilClient::query($query),
+        ]);
+        $params = new Params([
+            'action'      => 'DescribeDevices',
+            'version'     => '2018-12-12',
+            'protocol'    => 'HTTPS',
+            'pathname'    => '/',
+            'method'      => 'POST',
+            'authType'    => 'AK',
+            'style'       => 'RPC',
+            'reqBodyType' => 'formData',
+            'bodyType'    => 'json',
+        ]);
+
+        return DescribeDevicesResponse::fromMap($this->callApi($params, $req, $runtime));
+    }
+
+    /**
+     * @param DescribeDevicesRequest $request
+     *
+     * @return DescribeDevicesResponse
+     */
+    public function describeDevices($request)
+    {
+        $runtime = new RuntimeOptions([]);
+
+        return $this->describeDevicesWithOptions($request, $runtime);
+    }
+
+    /**
      * @param DescribeDirectoriesRequest $request
      * @param RuntimeOptions             $runtime
      *
@@ -1719,11 +4173,47 @@ class Vs extends OpenApiClient
     public function describeDirectoriesWithOptions($request, $runtime)
     {
         Utils::validateModel($request);
+        $query = [];
+        if (!Utils::isUnset($request->groupId)) {
+            $query['GroupId'] = $request->groupId;
+        }
+        if (!Utils::isUnset($request->noPagination)) {
+            $query['NoPagination'] = $request->noPagination;
+        }
+        if (!Utils::isUnset($request->ownerId)) {
+            $query['OwnerId'] = $request->ownerId;
+        }
+        if (!Utils::isUnset($request->pageNum)) {
+            $query['PageNum'] = $request->pageNum;
+        }
+        if (!Utils::isUnset($request->pageSize)) {
+            $query['PageSize'] = $request->pageSize;
+        }
+        if (!Utils::isUnset($request->parentId)) {
+            $query['ParentId'] = $request->parentId;
+        }
+        if (!Utils::isUnset($request->sortBy)) {
+            $query['SortBy'] = $request->sortBy;
+        }
+        if (!Utils::isUnset($request->sortDirection)) {
+            $query['SortDirection'] = $request->sortDirection;
+        }
         $req = new OpenApiRequest([
-            'body' => Utils::toMap($request),
+            'query' => OpenApiUtilClient::query($query),
+        ]);
+        $params = new Params([
+            'action'      => 'DescribeDirectories',
+            'version'     => '2018-12-12',
+            'protocol'    => 'HTTPS',
+            'pathname'    => '/',
+            'method'      => 'POST',
+            'authType'    => 'AK',
+            'style'       => 'RPC',
+            'reqBodyType' => 'formData',
+            'bodyType'    => 'json',
         ]);
 
-        return DescribeDirectoriesResponse::fromMap($this->doRPCRequest('DescribeDirectories', '2018-12-12', 'HTTPS', 'POST', 'AK', 'json', $req, $runtime));
+        return DescribeDirectoriesResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
@@ -1747,11 +4237,29 @@ class Vs extends OpenApiClient
     public function describeDirectoryWithOptions($request, $runtime)
     {
         Utils::validateModel($request);
+        $query = [];
+        if (!Utils::isUnset($request->id)) {
+            $query['Id'] = $request->id;
+        }
+        if (!Utils::isUnset($request->ownerId)) {
+            $query['OwnerId'] = $request->ownerId;
+        }
         $req = new OpenApiRequest([
-            'body' => Utils::toMap($request),
+            'query' => OpenApiUtilClient::query($query),
+        ]);
+        $params = new Params([
+            'action'      => 'DescribeDirectory',
+            'version'     => '2018-12-12',
+            'protocol'    => 'HTTPS',
+            'pathname'    => '/',
+            'method'      => 'POST',
+            'authType'    => 'AK',
+            'style'       => 'RPC',
+            'reqBodyType' => 'formData',
+            'bodyType'    => 'json',
         ]);
 
-        return DescribeDirectoryResponse::fromMap($this->doRPCRequest('DescribeDirectory', '2018-12-12', 'HTTPS', 'POST', 'AK', 'json', $req, $runtime));
+        return DescribeDirectoryResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
@@ -1767,6 +4275,61 @@ class Vs extends OpenApiClient
     }
 
     /**
+     * @param DescribeExternalStreamURLRequest $request
+     * @param RuntimeOptions                   $runtime
+     *
+     * @return DescribeExternalStreamURLResponse
+     */
+    public function describeExternalStreamURLWithOptions($request, $runtime)
+    {
+        Utils::validateModel($request);
+        $query = [];
+        if (!Utils::isUnset($request->kind)) {
+            $query['Kind'] = $request->kind;
+        }
+        if (!Utils::isUnset($request->ownerId)) {
+            $query['OwnerId'] = $request->ownerId;
+        }
+        if (!Utils::isUnset($request->profile)) {
+            $query['Profile'] = $request->profile;
+        }
+        if (!Utils::isUnset($request->txId)) {
+            $query['TxId'] = $request->txId;
+        }
+        if (!Utils::isUnset($request->url)) {
+            $query['Url'] = $request->url;
+        }
+        $req = new OpenApiRequest([
+            'query' => OpenApiUtilClient::query($query),
+        ]);
+        $params = new Params([
+            'action'      => 'DescribeExternalStreamURL',
+            'version'     => '2018-12-12',
+            'protocol'    => 'HTTPS',
+            'pathname'    => '/',
+            'method'      => 'POST',
+            'authType'    => 'AK',
+            'style'       => 'RPC',
+            'reqBodyType' => 'formData',
+            'bodyType'    => 'json',
+        ]);
+
+        return DescribeExternalStreamURLResponse::fromMap($this->callApi($params, $req, $runtime));
+    }
+
+    /**
+     * @param DescribeExternalStreamURLRequest $request
+     *
+     * @return DescribeExternalStreamURLResponse
+     */
+    public function describeExternalStreamURL($request)
+    {
+        $runtime = new RuntimeOptions([]);
+
+        return $this->describeExternalStreamURLWithOptions($request, $runtime);
+    }
+
+    /**
      * @param DescribeGroupRequest $request
      * @param RuntimeOptions       $runtime
      *
@@ -1775,11 +4338,32 @@ class Vs extends OpenApiClient
     public function describeGroupWithOptions($request, $runtime)
     {
         Utils::validateModel($request);
+        $query = [];
+        if (!Utils::isUnset($request->id)) {
+            $query['Id'] = $request->id;
+        }
+        if (!Utils::isUnset($request->includeStats)) {
+            $query['IncludeStats'] = $request->includeStats;
+        }
+        if (!Utils::isUnset($request->ownerId)) {
+            $query['OwnerId'] = $request->ownerId;
+        }
         $req = new OpenApiRequest([
-            'body' => Utils::toMap($request),
+            'query' => OpenApiUtilClient::query($query),
+        ]);
+        $params = new Params([
+            'action'      => 'DescribeGroup',
+            'version'     => '2018-12-12',
+            'protocol'    => 'HTTPS',
+            'pathname'    => '/',
+            'method'      => 'POST',
+            'authType'    => 'AK',
+            'style'       => 'RPC',
+            'reqBodyType' => 'formData',
+            'bodyType'    => 'json',
         ]);
 
-        return DescribeGroupResponse::fromMap($this->doRPCRequest('DescribeGroup', '2018-12-12', 'HTTPS', 'POST', 'AK', 'json', $req, $runtime));
+        return DescribeGroupResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
@@ -1803,11 +4387,56 @@ class Vs extends OpenApiClient
     public function describeGroupsWithOptions($request, $runtime)
     {
         Utils::validateModel($request);
+        $query = [];
+        if (!Utils::isUnset($request->id)) {
+            $query['Id'] = $request->id;
+        }
+        if (!Utils::isUnset($request->inProtocol)) {
+            $query['InProtocol'] = $request->inProtocol;
+        }
+        if (!Utils::isUnset($request->includeStats)) {
+            $query['IncludeStats'] = $request->includeStats;
+        }
+        if (!Utils::isUnset($request->name)) {
+            $query['Name'] = $request->name;
+        }
+        if (!Utils::isUnset($request->ownerId)) {
+            $query['OwnerId'] = $request->ownerId;
+        }
+        if (!Utils::isUnset($request->pageNum)) {
+            $query['PageNum'] = $request->pageNum;
+        }
+        if (!Utils::isUnset($request->pageSize)) {
+            $query['PageSize'] = $request->pageSize;
+        }
+        if (!Utils::isUnset($request->region)) {
+            $query['Region'] = $request->region;
+        }
+        if (!Utils::isUnset($request->sortBy)) {
+            $query['SortBy'] = $request->sortBy;
+        }
+        if (!Utils::isUnset($request->sortDirection)) {
+            $query['SortDirection'] = $request->sortDirection;
+        }
+        if (!Utils::isUnset($request->status)) {
+            $query['Status'] = $request->status;
+        }
         $req = new OpenApiRequest([
-            'body' => Utils::toMap($request),
+            'query' => OpenApiUtilClient::query($query),
+        ]);
+        $params = new Params([
+            'action'      => 'DescribeGroups',
+            'version'     => '2018-12-12',
+            'protocol'    => 'HTTPS',
+            'pathname'    => '/',
+            'method'      => 'POST',
+            'authType'    => 'AK',
+            'style'       => 'RPC',
+            'reqBodyType' => 'formData',
+            'bodyType'    => 'json',
         ]);
 
-        return DescribeGroupsResponse::fromMap($this->doRPCRequest('DescribeGroups', '2018-12-12', 'HTTPS', 'POST', 'AK', 'json', $req, $runtime));
+        return DescribeGroupsResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
@@ -1823,6 +4452,52 @@ class Vs extends OpenApiClient
     }
 
     /**
+     * @param DescribeNodeDevicesInfoRequest $request
+     * @param RuntimeOptions                 $runtime
+     *
+     * @return DescribeNodeDevicesInfoResponse
+     */
+    public function describeNodeDevicesInfoWithOptions($request, $runtime)
+    {
+        Utils::validateModel($request);
+        $query = [];
+        if (!Utils::isUnset($request->nodeName)) {
+            $query['NodeName'] = $request->nodeName;
+        }
+        if (!Utils::isUnset($request->ownerId)) {
+            $query['OwnerId'] = $request->ownerId;
+        }
+        $req = new OpenApiRequest([
+            'query' => OpenApiUtilClient::query($query),
+        ]);
+        $params = new Params([
+            'action'      => 'DescribeNodeDevicesInfo',
+            'version'     => '2018-12-12',
+            'protocol'    => 'HTTPS',
+            'pathname'    => '/',
+            'method'      => 'POST',
+            'authType'    => 'AK',
+            'style'       => 'RPC',
+            'reqBodyType' => 'formData',
+            'bodyType'    => 'json',
+        ]);
+
+        return DescribeNodeDevicesInfoResponse::fromMap($this->callApi($params, $req, $runtime));
+    }
+
+    /**
+     * @param DescribeNodeDevicesInfoRequest $request
+     *
+     * @return DescribeNodeDevicesInfoResponse
+     */
+    public function describeNodeDevicesInfo($request)
+    {
+        $runtime = new RuntimeOptions([]);
+
+        return $this->describeNodeDevicesInfoWithOptions($request, $runtime);
+    }
+
+    /**
      * @param DescribeParentPlatformRequest $request
      * @param RuntimeOptions                $runtime
      *
@@ -1831,11 +4506,29 @@ class Vs extends OpenApiClient
     public function describeParentPlatformWithOptions($request, $runtime)
     {
         Utils::validateModel($request);
+        $query = [];
+        if (!Utils::isUnset($request->id)) {
+            $query['Id'] = $request->id;
+        }
+        if (!Utils::isUnset($request->ownerId)) {
+            $query['OwnerId'] = $request->ownerId;
+        }
         $req = new OpenApiRequest([
-            'body' => Utils::toMap($request),
+            'query' => OpenApiUtilClient::query($query),
+        ]);
+        $params = new Params([
+            'action'      => 'DescribeParentPlatform',
+            'version'     => '2018-12-12',
+            'protocol'    => 'HTTPS',
+            'pathname'    => '/',
+            'method'      => 'POST',
+            'authType'    => 'AK',
+            'style'       => 'RPC',
+            'reqBodyType' => 'formData',
+            'bodyType'    => 'json',
         ]);
 
-        return DescribeParentPlatformResponse::fromMap($this->doRPCRequest('DescribeParentPlatform', '2018-12-12', 'HTTPS', 'POST', 'AK', 'json', $req, $runtime));
+        return DescribeParentPlatformResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
@@ -1859,11 +4552,41 @@ class Vs extends OpenApiClient
     public function describeParentPlatformDevicesWithOptions($request, $runtime)
     {
         Utils::validateModel($request);
+        $query = [];
+        if (!Utils::isUnset($request->id)) {
+            $query['Id'] = $request->id;
+        }
+        if (!Utils::isUnset($request->ownerId)) {
+            $query['OwnerId'] = $request->ownerId;
+        }
+        if (!Utils::isUnset($request->pageNum)) {
+            $query['PageNum'] = $request->pageNum;
+        }
+        if (!Utils::isUnset($request->pageSize)) {
+            $query['PageSize'] = $request->pageSize;
+        }
+        if (!Utils::isUnset($request->sortBy)) {
+            $query['SortBy'] = $request->sortBy;
+        }
+        if (!Utils::isUnset($request->sortDirection)) {
+            $query['SortDirection'] = $request->sortDirection;
+        }
         $req = new OpenApiRequest([
-            'body' => Utils::toMap($request),
+            'query' => OpenApiUtilClient::query($query),
+        ]);
+        $params = new Params([
+            'action'      => 'DescribeParentPlatformDevices',
+            'version'     => '2018-12-12',
+            'protocol'    => 'HTTPS',
+            'pathname'    => '/',
+            'method'      => 'POST',
+            'authType'    => 'AK',
+            'style'       => 'RPC',
+            'reqBodyType' => 'formData',
+            'bodyType'    => 'json',
         ]);
 
-        return DescribeParentPlatformDevicesResponse::fromMap($this->doRPCRequest('DescribeParentPlatformDevices', '2018-12-12', 'HTTPS', 'POST', 'AK', 'json', $req, $runtime));
+        return DescribeParentPlatformDevicesResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
@@ -1887,11 +4610,44 @@ class Vs extends OpenApiClient
     public function describeParentPlatformsWithOptions($request, $runtime)
     {
         Utils::validateModel($request);
+        $query = [];
+        if (!Utils::isUnset($request->gbId)) {
+            $query['GbId'] = $request->gbId;
+        }
+        if (!Utils::isUnset($request->ownerId)) {
+            $query['OwnerId'] = $request->ownerId;
+        }
+        if (!Utils::isUnset($request->pageNum)) {
+            $query['PageNum'] = $request->pageNum;
+        }
+        if (!Utils::isUnset($request->pageSize)) {
+            $query['PageSize'] = $request->pageSize;
+        }
+        if (!Utils::isUnset($request->sortBy)) {
+            $query['SortBy'] = $request->sortBy;
+        }
+        if (!Utils::isUnset($request->sortDirection)) {
+            $query['SortDirection'] = $request->sortDirection;
+        }
+        if (!Utils::isUnset($request->status)) {
+            $query['Status'] = $request->status;
+        }
         $req = new OpenApiRequest([
-            'body' => Utils::toMap($request),
+            'query' => OpenApiUtilClient::query($query),
+        ]);
+        $params = new Params([
+            'action'      => 'DescribeParentPlatforms',
+            'version'     => '2018-12-12',
+            'protocol'    => 'HTTPS',
+            'pathname'    => '/',
+            'method'      => 'POST',
+            'authType'    => 'AK',
+            'style'       => 'RPC',
+            'reqBodyType' => 'formData',
+            'bodyType'    => 'json',
         ]);
 
-        return DescribeParentPlatformsResponse::fromMap($this->doRPCRequest('DescribeParentPlatforms', '2018-12-12', 'HTTPS', 'POST', 'AK', 'json', $req, $runtime));
+        return DescribeParentPlatformsResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
@@ -1915,11 +4671,29 @@ class Vs extends OpenApiClient
     public function describePresetsWithOptions($request, $runtime)
     {
         Utils::validateModel($request);
+        $query = [];
+        if (!Utils::isUnset($request->id)) {
+            $query['Id'] = $request->id;
+        }
+        if (!Utils::isUnset($request->ownerId)) {
+            $query['OwnerId'] = $request->ownerId;
+        }
         $req = new OpenApiRequest([
-            'body' => Utils::toMap($request),
+            'query' => OpenApiUtilClient::query($query),
+        ]);
+        $params = new Params([
+            'action'      => 'DescribePresets',
+            'version'     => '2018-12-12',
+            'protocol'    => 'HTTPS',
+            'pathname'    => '/',
+            'method'      => 'POST',
+            'authType'    => 'AK',
+            'style'       => 'RPC',
+            'reqBodyType' => 'formData',
+            'bodyType'    => 'json',
         ]);
 
-        return DescribePresetsResponse::fromMap($this->doRPCRequest('DescribePresets', '2018-12-12', 'HTTPS', 'POST', 'AK', 'json', $req, $runtime));
+        return DescribePresetsResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
@@ -1943,11 +4717,29 @@ class Vs extends OpenApiClient
     public function describePurchasedDeviceWithOptions($request, $runtime)
     {
         Utils::validateModel($request);
+        $query = [];
+        if (!Utils::isUnset($request->id)) {
+            $query['Id'] = $request->id;
+        }
+        if (!Utils::isUnset($request->ownerId)) {
+            $query['OwnerId'] = $request->ownerId;
+        }
         $req = new OpenApiRequest([
-            'body' => Utils::toMap($request),
+            'query' => OpenApiUtilClient::query($query),
+        ]);
+        $params = new Params([
+            'action'      => 'DescribePurchasedDevice',
+            'version'     => '2018-12-12',
+            'protocol'    => 'HTTPS',
+            'pathname'    => '/',
+            'method'      => 'POST',
+            'authType'    => 'AK',
+            'style'       => 'RPC',
+            'reqBodyType' => 'formData',
+            'bodyType'    => 'json',
         ]);
 
-        return DescribePurchasedDeviceResponse::fromMap($this->doRPCRequest('DescribePurchasedDevice', '2018-12-12', 'HTTPS', 'POST', 'AK', 'json', $req, $runtime));
+        return DescribePurchasedDeviceResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
@@ -1971,11 +4763,56 @@ class Vs extends OpenApiClient
     public function describePurchasedDevicesWithOptions($request, $runtime)
     {
         Utils::validateModel($request);
+        $query = [];
+        if (!Utils::isUnset($request->groupId)) {
+            $query['GroupId'] = $request->groupId;
+        }
+        if (!Utils::isUnset($request->id)) {
+            $query['Id'] = $request->id;
+        }
+        if (!Utils::isUnset($request->name)) {
+            $query['Name'] = $request->name;
+        }
+        if (!Utils::isUnset($request->ownerId)) {
+            $query['OwnerId'] = $request->ownerId;
+        }
+        if (!Utils::isUnset($request->pageNum)) {
+            $query['PageNum'] = $request->pageNum;
+        }
+        if (!Utils::isUnset($request->pageSize)) {
+            $query['PageSize'] = $request->pageSize;
+        }
+        if (!Utils::isUnset($request->sortBy)) {
+            $query['SortBy'] = $request->sortBy;
+        }
+        if (!Utils::isUnset($request->sortDirection)) {
+            $query['SortDirection'] = $request->sortDirection;
+        }
+        if (!Utils::isUnset($request->subType)) {
+            $query['SubType'] = $request->subType;
+        }
+        if (!Utils::isUnset($request->type)) {
+            $query['Type'] = $request->type;
+        }
+        if (!Utils::isUnset($request->vendor)) {
+            $query['Vendor'] = $request->vendor;
+        }
         $req = new OpenApiRequest([
-            'body' => Utils::toMap($request),
+            'query' => OpenApiUtilClient::query($query),
+        ]);
+        $params = new Params([
+            'action'      => 'DescribePurchasedDevices',
+            'version'     => '2018-12-12',
+            'protocol'    => 'HTTPS',
+            'pathname'    => '/',
+            'method'      => 'POST',
+            'authType'    => 'AK',
+            'style'       => 'RPC',
+            'reqBodyType' => 'formData',
+            'bodyType'    => 'json',
         ]);
 
-        return DescribePurchasedDevicesResponse::fromMap($this->doRPCRequest('DescribePurchasedDevices', '2018-12-12', 'HTTPS', 'POST', 'AK', 'json', $req, $runtime));
+        return DescribePurchasedDevicesResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
@@ -1999,11 +4836,53 @@ class Vs extends OpenApiClient
     public function describeRecordsWithOptions($request, $runtime)
     {
         Utils::validateModel($request);
+        $query = [];
+        if (!Utils::isUnset($request->endTime)) {
+            $query['EndTime'] = $request->endTime;
+        }
+        if (!Utils::isUnset($request->ownerId)) {
+            $query['OwnerId'] = $request->ownerId;
+        }
+        if (!Utils::isUnset($request->pageNum)) {
+            $query['PageNum'] = $request->pageNum;
+        }
+        if (!Utils::isUnset($request->pageSize)) {
+            $query['PageSize'] = $request->pageSize;
+        }
+        if (!Utils::isUnset($request->privateBucket)) {
+            $query['PrivateBucket'] = $request->privateBucket;
+        }
+        if (!Utils::isUnset($request->sortBy)) {
+            $query['SortBy'] = $request->sortBy;
+        }
+        if (!Utils::isUnset($request->sortDirection)) {
+            $query['SortDirection'] = $request->sortDirection;
+        }
+        if (!Utils::isUnset($request->startTime)) {
+            $query['StartTime'] = $request->startTime;
+        }
+        if (!Utils::isUnset($request->streamId)) {
+            $query['StreamId'] = $request->streamId;
+        }
+        if (!Utils::isUnset($request->type)) {
+            $query['Type'] = $request->type;
+        }
         $req = new OpenApiRequest([
-            'body' => Utils::toMap($request),
+            'query' => OpenApiUtilClient::query($query),
+        ]);
+        $params = new Params([
+            'action'      => 'DescribeRecords',
+            'version'     => '2018-12-12',
+            'protocol'    => 'HTTPS',
+            'pathname'    => '/',
+            'method'      => 'POST',
+            'authType'    => 'AK',
+            'style'       => 'RPC',
+            'reqBodyType' => 'formData',
+            'bodyType'    => 'json',
         ]);
 
-        return DescribeRecordsResponse::fromMap($this->doRPCRequest('DescribeRecords', '2018-12-12', 'HTTPS', 'POST', 'AK', 'json', $req, $runtime));
+        return DescribeRecordsResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
@@ -2019,6 +4898,52 @@ class Vs extends OpenApiClient
     }
 
     /**
+     * @param DescribeRenderingDevicesRequest $request
+     * @param RuntimeOptions                  $runtime
+     *
+     * @return DescribeRenderingDevicesResponse
+     */
+    public function describeRenderingDevicesWithOptions($request, $runtime)
+    {
+        Utils::validateModel($request);
+        $query = [];
+        if (!Utils::isUnset($request->instanceIds)) {
+            $query['InstanceIds'] = $request->instanceIds;
+        }
+        if (!Utils::isUnset($request->ownerId)) {
+            $query['OwnerId'] = $request->ownerId;
+        }
+        $req = new OpenApiRequest([
+            'query' => OpenApiUtilClient::query($query),
+        ]);
+        $params = new Params([
+            'action'      => 'DescribeRenderingDevices',
+            'version'     => '2018-12-12',
+            'protocol'    => 'HTTPS',
+            'pathname'    => '/',
+            'method'      => 'POST',
+            'authType'    => 'AK',
+            'style'       => 'RPC',
+            'reqBodyType' => 'formData',
+            'bodyType'    => 'json',
+        ]);
+
+        return DescribeRenderingDevicesResponse::fromMap($this->callApi($params, $req, $runtime));
+    }
+
+    /**
+     * @param DescribeRenderingDevicesRequest $request
+     *
+     * @return DescribeRenderingDevicesResponse
+     */
+    public function describeRenderingDevices($request)
+    {
+        $runtime = new RuntimeOptions([]);
+
+        return $this->describeRenderingDevicesWithOptions($request, $runtime);
+    }
+
+    /**
      * @param DescribeStreamRequest $request
      * @param RuntimeOptions        $runtime
      *
@@ -2027,11 +4952,29 @@ class Vs extends OpenApiClient
     public function describeStreamWithOptions($request, $runtime)
     {
         Utils::validateModel($request);
+        $query = [];
+        if (!Utils::isUnset($request->id)) {
+            $query['Id'] = $request->id;
+        }
+        if (!Utils::isUnset($request->ownerId)) {
+            $query['OwnerId'] = $request->ownerId;
+        }
         $req = new OpenApiRequest([
-            'body' => Utils::toMap($request),
+            'query' => OpenApiUtilClient::query($query),
+        ]);
+        $params = new Params([
+            'action'      => 'DescribeStream',
+            'version'     => '2018-12-12',
+            'protocol'    => 'HTTPS',
+            'pathname'    => '/',
+            'method'      => 'POST',
+            'authType'    => 'AK',
+            'style'       => 'RPC',
+            'reqBodyType' => 'formData',
+            'bodyType'    => 'json',
         ]);
 
-        return DescribeStreamResponse::fromMap($this->doRPCRequest('DescribeStream', '2018-12-12', 'HTTPS', 'POST', 'AK', 'json', $req, $runtime));
+        return DescribeStreamResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
@@ -2047,34 +4990,6 @@ class Vs extends OpenApiClient
     }
 
     /**
-     * @param DescribeStreamsRequest $request
-     * @param RuntimeOptions         $runtime
-     *
-     * @return DescribeStreamsResponse
-     */
-    public function describeStreamsWithOptions($request, $runtime)
-    {
-        Utils::validateModel($request);
-        $req = new OpenApiRequest([
-            'body' => Utils::toMap($request),
-        ]);
-
-        return DescribeStreamsResponse::fromMap($this->doRPCRequest('DescribeStreams', '2018-12-12', 'HTTPS', 'POST', 'AK', 'json', $req, $runtime));
-    }
-
-    /**
-     * @param DescribeStreamsRequest $request
-     *
-     * @return DescribeStreamsResponse
-     */
-    public function describeStreams($request)
-    {
-        $runtime = new RuntimeOptions([]);
-
-        return $this->describeStreamsWithOptions($request, $runtime);
-    }
-
-    /**
      * @param DescribeStreamURLRequest $request
      * @param RuntimeOptions           $runtime
      *
@@ -2083,11 +4998,53 @@ class Vs extends OpenApiClient
     public function describeStreamURLWithOptions($request, $runtime)
     {
         Utils::validateModel($request);
+        $query = [];
+        if (!Utils::isUnset($request->auth)) {
+            $query['Auth'] = $request->auth;
+        }
+        if (!Utils::isUnset($request->authKey)) {
+            $query['AuthKey'] = $request->authKey;
+        }
+        if (!Utils::isUnset($request->endTime)) {
+            $query['EndTime'] = $request->endTime;
+        }
+        if (!Utils::isUnset($request->expire)) {
+            $query['Expire'] = $request->expire;
+        }
+        if (!Utils::isUnset($request->id)) {
+            $query['Id'] = $request->id;
+        }
+        if (!Utils::isUnset($request->outProtocol)) {
+            $query['OutProtocol'] = $request->outProtocol;
+        }
+        if (!Utils::isUnset($request->ownerId)) {
+            $query['OwnerId'] = $request->ownerId;
+        }
+        if (!Utils::isUnset($request->startTime)) {
+            $query['StartTime'] = $request->startTime;
+        }
+        if (!Utils::isUnset($request->transcode)) {
+            $query['Transcode'] = $request->transcode;
+        }
+        if (!Utils::isUnset($request->type)) {
+            $query['Type'] = $request->type;
+        }
         $req = new OpenApiRequest([
-            'body' => Utils::toMap($request),
+            'query' => OpenApiUtilClient::query($query),
+        ]);
+        $params = new Params([
+            'action'      => 'DescribeStreamURL',
+            'version'     => '2018-12-12',
+            'protocol'    => 'HTTPS',
+            'pathname'    => '/',
+            'method'      => 'POST',
+            'authType'    => 'AK',
+            'style'       => 'RPC',
+            'reqBodyType' => 'formData',
+            'bodyType'    => 'json',
         ]);
 
-        return DescribeStreamURLResponse::fromMap($this->doRPCRequest('DescribeStreamURL', '2018-12-12', 'HTTPS', 'POST', 'AK', 'json', $req, $runtime));
+        return DescribeStreamURLResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
@@ -2111,11 +5068,35 @@ class Vs extends OpenApiClient
     public function describeStreamVodListWithOptions($request, $runtime)
     {
         Utils::validateModel($request);
+        $query = [];
+        if (!Utils::isUnset($request->endTime)) {
+            $query['EndTime'] = $request->endTime;
+        }
+        if (!Utils::isUnset($request->id)) {
+            $query['Id'] = $request->id;
+        }
+        if (!Utils::isUnset($request->ownerId)) {
+            $query['OwnerId'] = $request->ownerId;
+        }
+        if (!Utils::isUnset($request->startTime)) {
+            $query['StartTime'] = $request->startTime;
+        }
         $req = new OpenApiRequest([
-            'body' => Utils::toMap($request),
+            'query' => OpenApiUtilClient::query($query),
+        ]);
+        $params = new Params([
+            'action'      => 'DescribeStreamVodList',
+            'version'     => '2018-12-12',
+            'protocol'    => 'HTTPS',
+            'pathname'    => '/',
+            'method'      => 'POST',
+            'authType'    => 'AK',
+            'style'       => 'RPC',
+            'reqBodyType' => 'formData',
+            'bodyType'    => 'json',
         ]);
 
-        return DescribeStreamVodListResponse::fromMap($this->doRPCRequest('DescribeStreamVodList', '2018-12-12', 'HTTPS', 'POST', 'AK', 'json', $req, $runtime));
+        return DescribeStreamVodListResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
@@ -2131,6 +5112,82 @@ class Vs extends OpenApiClient
     }
 
     /**
+     * @param DescribeStreamsRequest $request
+     * @param RuntimeOptions         $runtime
+     *
+     * @return DescribeStreamsResponse
+     */
+    public function describeStreamsWithOptions($request, $runtime)
+    {
+        Utils::validateModel($request);
+        $query = [];
+        if (!Utils::isUnset($request->app)) {
+            $query['App'] = $request->app;
+        }
+        if (!Utils::isUnset($request->deviceId)) {
+            $query['DeviceId'] = $request->deviceId;
+        }
+        if (!Utils::isUnset($request->domain)) {
+            $query['Domain'] = $request->domain;
+        }
+        if (!Utils::isUnset($request->groupId)) {
+            $query['GroupId'] = $request->groupId;
+        }
+        if (!Utils::isUnset($request->id)) {
+            $query['Id'] = $request->id;
+        }
+        if (!Utils::isUnset($request->name)) {
+            $query['Name'] = $request->name;
+        }
+        if (!Utils::isUnset($request->ownerId)) {
+            $query['OwnerId'] = $request->ownerId;
+        }
+        if (!Utils::isUnset($request->pageNum)) {
+            $query['PageNum'] = $request->pageNum;
+        }
+        if (!Utils::isUnset($request->pageSize)) {
+            $query['PageSize'] = $request->pageSize;
+        }
+        if (!Utils::isUnset($request->parentId)) {
+            $query['ParentId'] = $request->parentId;
+        }
+        if (!Utils::isUnset($request->sortBy)) {
+            $query['SortBy'] = $request->sortBy;
+        }
+        if (!Utils::isUnset($request->sortDirection)) {
+            $query['SortDirection'] = $request->sortDirection;
+        }
+        $req = new OpenApiRequest([
+            'query' => OpenApiUtilClient::query($query),
+        ]);
+        $params = new Params([
+            'action'      => 'DescribeStreams',
+            'version'     => '2018-12-12',
+            'protocol'    => 'HTTPS',
+            'pathname'    => '/',
+            'method'      => 'POST',
+            'authType'    => 'AK',
+            'style'       => 'RPC',
+            'reqBodyType' => 'formData',
+            'bodyType'    => 'json',
+        ]);
+
+        return DescribeStreamsResponse::fromMap($this->callApi($params, $req, $runtime));
+    }
+
+    /**
+     * @param DescribeStreamsRequest $request
+     *
+     * @return DescribeStreamsResponse
+     */
+    public function describeStreams($request)
+    {
+        $runtime = new RuntimeOptions([]);
+
+        return $this->describeStreamsWithOptions($request, $runtime);
+    }
+
+    /**
      * @param DescribeTemplateRequest $request
      * @param RuntimeOptions          $runtime
      *
@@ -2139,11 +5196,29 @@ class Vs extends OpenApiClient
     public function describeTemplateWithOptions($request, $runtime)
     {
         Utils::validateModel($request);
+        $query = [];
+        if (!Utils::isUnset($request->id)) {
+            $query['Id'] = $request->id;
+        }
+        if (!Utils::isUnset($request->ownerId)) {
+            $query['OwnerId'] = $request->ownerId;
+        }
         $req = new OpenApiRequest([
-            'body' => Utils::toMap($request),
+            'query' => OpenApiUtilClient::query($query),
+        ]);
+        $params = new Params([
+            'action'      => 'DescribeTemplate',
+            'version'     => '2018-12-12',
+            'protocol'    => 'HTTPS',
+            'pathname'    => '/',
+            'method'      => 'POST',
+            'authType'    => 'AK',
+            'style'       => 'RPC',
+            'reqBodyType' => 'formData',
+            'bodyType'    => 'json',
         ]);
 
-        return DescribeTemplateResponse::fromMap($this->doRPCRequest('DescribeTemplate', '2018-12-12', 'HTTPS', 'POST', 'AK', 'json', $req, $runtime));
+        return DescribeTemplateResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
@@ -2167,11 +5242,47 @@ class Vs extends OpenApiClient
     public function describeTemplatesWithOptions($request, $runtime)
     {
         Utils::validateModel($request);
+        $query = [];
+        if (!Utils::isUnset($request->id)) {
+            $query['Id'] = $request->id;
+        }
+        if (!Utils::isUnset($request->instanceId)) {
+            $query['InstanceId'] = $request->instanceId;
+        }
+        if (!Utils::isUnset($request->ownerId)) {
+            $query['OwnerId'] = $request->ownerId;
+        }
+        if (!Utils::isUnset($request->pageNum)) {
+            $query['PageNum'] = $request->pageNum;
+        }
+        if (!Utils::isUnset($request->pageSize)) {
+            $query['PageSize'] = $request->pageSize;
+        }
+        if (!Utils::isUnset($request->sortBy)) {
+            $query['SortBy'] = $request->sortBy;
+        }
+        if (!Utils::isUnset($request->sortDirection)) {
+            $query['SortDirection'] = $request->sortDirection;
+        }
+        if (!Utils::isUnset($request->type)) {
+            $query['Type'] = $request->type;
+        }
         $req = new OpenApiRequest([
-            'body' => Utils::toMap($request),
+            'query' => OpenApiUtilClient::query($query),
+        ]);
+        $params = new Params([
+            'action'      => 'DescribeTemplates',
+            'version'     => '2018-12-12',
+            'protocol'    => 'HTTPS',
+            'pathname'    => '/',
+            'method'      => 'POST',
+            'authType'    => 'AK',
+            'style'       => 'RPC',
+            'reqBodyType' => 'formData',
+            'bodyType'    => 'json',
         ]);
 
-        return DescribeTemplatesResponse::fromMap($this->doRPCRequest('DescribeTemplates', '2018-12-12', 'HTTPS', 'POST', 'AK', 'json', $req, $runtime));
+        return DescribeTemplatesResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
@@ -2195,11 +5306,32 @@ class Vs extends OpenApiClient
     public function describeVodStreamURLWithOptions($request, $runtime)
     {
         Utils::validateModel($request);
+        $query = [];
+        if (!Utils::isUnset($request->ownerId)) {
+            $query['OwnerId'] = $request->ownerId;
+        }
+        if (!Utils::isUnset($request->txId)) {
+            $query['TxId'] = $request->txId;
+        }
+        if (!Utils::isUnset($request->url)) {
+            $query['Url'] = $request->url;
+        }
         $req = new OpenApiRequest([
-            'body' => Utils::toMap($request),
+            'query' => OpenApiUtilClient::query($query),
+        ]);
+        $params = new Params([
+            'action'      => 'DescribeVodStreamURL',
+            'version'     => '2018-12-12',
+            'protocol'    => 'HTTPS',
+            'pathname'    => '/',
+            'method'      => 'POST',
+            'authType'    => 'AK',
+            'style'       => 'RPC',
+            'reqBodyType' => 'formData',
+            'bodyType'    => 'json',
         ]);
 
-        return DescribeVodStreamURLResponse::fromMap($this->doRPCRequest('DescribeVodStreamURL', '2018-12-12', 'HTTPS', 'POST', 'AK', 'json', $req, $runtime));
+        return DescribeVodStreamURLResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
@@ -2223,11 +5355,29 @@ class Vs extends OpenApiClient
     public function describeVsCertificateDetailWithOptions($request, $runtime)
     {
         Utils::validateModel($request);
+        $query = [];
+        if (!Utils::isUnset($request->certName)) {
+            $query['CertName'] = $request->certName;
+        }
+        if (!Utils::isUnset($request->ownerId)) {
+            $query['OwnerId'] = $request->ownerId;
+        }
         $req = new OpenApiRequest([
-            'body' => Utils::toMap($request),
+            'query' => OpenApiUtilClient::query($query),
+        ]);
+        $params = new Params([
+            'action'      => 'DescribeVsCertificateDetail',
+            'version'     => '2018-12-12',
+            'protocol'    => 'HTTPS',
+            'pathname'    => '/',
+            'method'      => 'POST',
+            'authType'    => 'AK',
+            'style'       => 'RPC',
+            'reqBodyType' => 'formData',
+            'bodyType'    => 'json',
         ]);
 
-        return DescribeVsCertificateDetailResponse::fromMap($this->doRPCRequest('DescribeVsCertificateDetail', '2018-12-12', 'HTTPS', 'POST', 'AK', 'json', $req, $runtime));
+        return DescribeVsCertificateDetailResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
@@ -2251,11 +5401,29 @@ class Vs extends OpenApiClient
     public function describeVsCertificateListWithOptions($request, $runtime)
     {
         Utils::validateModel($request);
+        $query = [];
+        if (!Utils::isUnset($request->domainName)) {
+            $query['DomainName'] = $request->domainName;
+        }
+        if (!Utils::isUnset($request->ownerId)) {
+            $query['OwnerId'] = $request->ownerId;
+        }
         $req = new OpenApiRequest([
-            'body' => Utils::toMap($request),
+            'query' => OpenApiUtilClient::query($query),
+        ]);
+        $params = new Params([
+            'action'      => 'DescribeVsCertificateList',
+            'version'     => '2018-12-12',
+            'protocol'    => 'HTTPS',
+            'pathname'    => '/',
+            'method'      => 'POST',
+            'authType'    => 'AK',
+            'style'       => 'RPC',
+            'reqBodyType' => 'formData',
+            'bodyType'    => 'json',
         ]);
 
-        return DescribeVsCertificateListResponse::fromMap($this->doRPCRequest('DescribeVsCertificateList', '2018-12-12', 'HTTPS', 'POST', 'AK', 'json', $req, $runtime));
+        return DescribeVsCertificateListResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
@@ -2271,6 +5439,58 @@ class Vs extends OpenApiClient
     }
 
     /**
+     * @param DescribeVsDevicesDataRequest $request
+     * @param RuntimeOptions               $runtime
+     *
+     * @return DescribeVsDevicesDataResponse
+     */
+    public function describeVsDevicesDataWithOptions($request, $runtime)
+    {
+        Utils::validateModel($request);
+        $query = [];
+        if (!Utils::isUnset($request->endTime)) {
+            $query['EndTime'] = $request->endTime;
+        }
+        if (!Utils::isUnset($request->groupId)) {
+            $query['GroupId'] = $request->groupId;
+        }
+        if (!Utils::isUnset($request->ownerId)) {
+            $query['OwnerId'] = $request->ownerId;
+        }
+        if (!Utils::isUnset($request->startTime)) {
+            $query['StartTime'] = $request->startTime;
+        }
+        $req = new OpenApiRequest([
+            'query' => OpenApiUtilClient::query($query),
+        ]);
+        $params = new Params([
+            'action'      => 'DescribeVsDevicesData',
+            'version'     => '2018-12-12',
+            'protocol'    => 'HTTPS',
+            'pathname'    => '/',
+            'method'      => 'POST',
+            'authType'    => 'AK',
+            'style'       => 'RPC',
+            'reqBodyType' => 'formData',
+            'bodyType'    => 'json',
+        ]);
+
+        return DescribeVsDevicesDataResponse::fromMap($this->callApi($params, $req, $runtime));
+    }
+
+    /**
+     * @param DescribeVsDevicesDataRequest $request
+     *
+     * @return DescribeVsDevicesDataResponse
+     */
+    public function describeVsDevicesData($request)
+    {
+        $runtime = new RuntimeOptions([]);
+
+        return $this->describeVsDevicesDataWithOptions($request, $runtime);
+    }
+
+    /**
      * @param DescribeVsDomainBpsDataRequest $request
      * @param RuntimeOptions                 $runtime
      *
@@ -2279,11 +5499,44 @@ class Vs extends OpenApiClient
     public function describeVsDomainBpsDataWithOptions($request, $runtime)
     {
         Utils::validateModel($request);
+        $query = [];
+        if (!Utils::isUnset($request->domainName)) {
+            $query['DomainName'] = $request->domainName;
+        }
+        if (!Utils::isUnset($request->endTime)) {
+            $query['EndTime'] = $request->endTime;
+        }
+        if (!Utils::isUnset($request->interval)) {
+            $query['Interval'] = $request->interval;
+        }
+        if (!Utils::isUnset($request->ispNameEn)) {
+            $query['IspNameEn'] = $request->ispNameEn;
+        }
+        if (!Utils::isUnset($request->locationNameEn)) {
+            $query['LocationNameEn'] = $request->locationNameEn;
+        }
+        if (!Utils::isUnset($request->ownerId)) {
+            $query['OwnerId'] = $request->ownerId;
+        }
+        if (!Utils::isUnset($request->startTime)) {
+            $query['StartTime'] = $request->startTime;
+        }
         $req = new OpenApiRequest([
-            'body' => Utils::toMap($request),
+            'query' => OpenApiUtilClient::query($query),
+        ]);
+        $params = new Params([
+            'action'      => 'DescribeVsDomainBpsData',
+            'version'     => '2018-12-12',
+            'protocol'    => 'HTTPS',
+            'pathname'    => '/',
+            'method'      => 'POST',
+            'authType'    => 'AK',
+            'style'       => 'RPC',
+            'reqBodyType' => 'formData',
+            'bodyType'    => 'json',
         ]);
 
-        return DescribeVsDomainBpsDataResponse::fromMap($this->doRPCRequest('DescribeVsDomainBpsData', '2018-12-12', 'HTTPS', 'POST', 'AK', 'json', $req, $runtime));
+        return DescribeVsDomainBpsDataResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
@@ -2307,11 +5560,29 @@ class Vs extends OpenApiClient
     public function describeVsDomainCertificateInfoWithOptions($request, $runtime)
     {
         Utils::validateModel($request);
+        $query = [];
+        if (!Utils::isUnset($request->domainName)) {
+            $query['DomainName'] = $request->domainName;
+        }
+        if (!Utils::isUnset($request->ownerId)) {
+            $query['OwnerId'] = $request->ownerId;
+        }
         $req = new OpenApiRequest([
-            'body' => Utils::toMap($request),
+            'query' => OpenApiUtilClient::query($query),
+        ]);
+        $params = new Params([
+            'action'      => 'DescribeVsDomainCertificateInfo',
+            'version'     => '2018-12-12',
+            'protocol'    => 'HTTPS',
+            'pathname'    => '/',
+            'method'      => 'POST',
+            'authType'    => 'AK',
+            'style'       => 'RPC',
+            'reqBodyType' => 'formData',
+            'bodyType'    => 'json',
         ]);
 
-        return DescribeVsDomainCertificateInfoResponse::fromMap($this->doRPCRequest('DescribeVsDomainCertificateInfo', '2018-12-12', 'HTTPS', 'POST', 'AK', 'json', $req, $runtime));
+        return DescribeVsDomainCertificateInfoResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
@@ -2335,11 +5606,32 @@ class Vs extends OpenApiClient
     public function describeVsDomainConfigsWithOptions($request, $runtime)
     {
         Utils::validateModel($request);
+        $query = [];
+        if (!Utils::isUnset($request->domainName)) {
+            $query['DomainName'] = $request->domainName;
+        }
+        if (!Utils::isUnset($request->functionNames)) {
+            $query['FunctionNames'] = $request->functionNames;
+        }
+        if (!Utils::isUnset($request->ownerId)) {
+            $query['OwnerId'] = $request->ownerId;
+        }
         $req = new OpenApiRequest([
-            'body' => Utils::toMap($request),
+            'query' => OpenApiUtilClient::query($query),
+        ]);
+        $params = new Params([
+            'action'      => 'DescribeVsDomainConfigs',
+            'version'     => '2018-12-12',
+            'protocol'    => 'HTTPS',
+            'pathname'    => '/',
+            'method'      => 'POST',
+            'authType'    => 'AK',
+            'style'       => 'RPC',
+            'reqBodyType' => 'formData',
+            'bodyType'    => 'json',
         ]);
 
-        return DescribeVsDomainConfigsResponse::fromMap($this->doRPCRequest('DescribeVsDomainConfigs', '2018-12-12', 'HTTPS', 'POST', 'AK', 'json', $req, $runtime));
+        return DescribeVsDomainConfigsResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
@@ -2363,11 +5655,29 @@ class Vs extends OpenApiClient
     public function describeVsDomainDetailWithOptions($request, $runtime)
     {
         Utils::validateModel($request);
+        $query = [];
+        if (!Utils::isUnset($request->domainName)) {
+            $query['DomainName'] = $request->domainName;
+        }
+        if (!Utils::isUnset($request->ownerId)) {
+            $query['OwnerId'] = $request->ownerId;
+        }
         $req = new OpenApiRequest([
-            'body' => Utils::toMap($request),
+            'query' => OpenApiUtilClient::query($query),
+        ]);
+        $params = new Params([
+            'action'      => 'DescribeVsDomainDetail',
+            'version'     => '2018-12-12',
+            'protocol'    => 'HTTPS',
+            'pathname'    => '/',
+            'method'      => 'POST',
+            'authType'    => 'AK',
+            'style'       => 'RPC',
+            'reqBodyType' => 'formData',
+            'bodyType'    => 'json',
         ]);
 
-        return DescribeVsDomainDetailResponse::fromMap($this->doRPCRequest('DescribeVsDomainDetail', '2018-12-12', 'HTTPS', 'POST', 'AK', 'json', $req, $runtime));
+        return DescribeVsDomainDetailResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
@@ -2383,6 +5693,55 @@ class Vs extends OpenApiClient
     }
 
     /**
+     * @param DescribeVsDomainOnlineUserNumRequest $request
+     * @param RuntimeOptions                       $runtime
+     *
+     * @return DescribeVsDomainOnlineUserNumResponse
+     */
+    public function describeVsDomainOnlineUserNumWithOptions($request, $runtime)
+    {
+        Utils::validateModel($request);
+        $query = [];
+        if (!Utils::isUnset($request->domainName)) {
+            $query['DomainName'] = $request->domainName;
+        }
+        if (!Utils::isUnset($request->ownerId)) {
+            $query['OwnerId'] = $request->ownerId;
+        }
+        if (!Utils::isUnset($request->queryTime)) {
+            $query['QueryTime'] = $request->queryTime;
+        }
+        $req = new OpenApiRequest([
+            'query' => OpenApiUtilClient::query($query),
+        ]);
+        $params = new Params([
+            'action'      => 'DescribeVsDomainOnlineUserNum',
+            'version'     => '2018-12-12',
+            'protocol'    => 'HTTPS',
+            'pathname'    => '/',
+            'method'      => 'POST',
+            'authType'    => 'AK',
+            'style'       => 'RPC',
+            'reqBodyType' => 'formData',
+            'bodyType'    => 'json',
+        ]);
+
+        return DescribeVsDomainOnlineUserNumResponse::fromMap($this->callApi($params, $req, $runtime));
+    }
+
+    /**
+     * @param DescribeVsDomainOnlineUserNumRequest $request
+     *
+     * @return DescribeVsDomainOnlineUserNumResponse
+     */
+    public function describeVsDomainOnlineUserNum($request)
+    {
+        $runtime = new RuntimeOptions([]);
+
+        return $this->describeVsDomainOnlineUserNumWithOptions($request, $runtime);
+    }
+
+    /**
      * @param DescribeVsDomainPvDataRequest $request
      * @param RuntimeOptions                $runtime
      *
@@ -2391,11 +5750,35 @@ class Vs extends OpenApiClient
     public function describeVsDomainPvDataWithOptions($request, $runtime)
     {
         Utils::validateModel($request);
+        $query = [];
+        if (!Utils::isUnset($request->domainName)) {
+            $query['DomainName'] = $request->domainName;
+        }
+        if (!Utils::isUnset($request->endTime)) {
+            $query['EndTime'] = $request->endTime;
+        }
+        if (!Utils::isUnset($request->ownerId)) {
+            $query['OwnerId'] = $request->ownerId;
+        }
+        if (!Utils::isUnset($request->startTime)) {
+            $query['StartTime'] = $request->startTime;
+        }
         $req = new OpenApiRequest([
-            'body' => Utils::toMap($request),
+            'query' => OpenApiUtilClient::query($query),
+        ]);
+        $params = new Params([
+            'action'      => 'DescribeVsDomainPvData',
+            'version'     => '2018-12-12',
+            'protocol'    => 'HTTPS',
+            'pathname'    => '/',
+            'method'      => 'POST',
+            'authType'    => 'AK',
+            'style'       => 'RPC',
+            'reqBodyType' => 'formData',
+            'bodyType'    => 'json',
         ]);
 
-        return DescribeVsDomainPvDataResponse::fromMap($this->doRPCRequest('DescribeVsDomainPvData', '2018-12-12', 'HTTPS', 'POST', 'AK', 'json', $req, $runtime));
+        return DescribeVsDomainPvDataResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
@@ -2419,11 +5802,35 @@ class Vs extends OpenApiClient
     public function describeVsDomainPvUvDataWithOptions($request, $runtime)
     {
         Utils::validateModel($request);
+        $query = [];
+        if (!Utils::isUnset($request->domainName)) {
+            $query['DomainName'] = $request->domainName;
+        }
+        if (!Utils::isUnset($request->endTime)) {
+            $query['EndTime'] = $request->endTime;
+        }
+        if (!Utils::isUnset($request->ownerId)) {
+            $query['OwnerId'] = $request->ownerId;
+        }
+        if (!Utils::isUnset($request->startTime)) {
+            $query['StartTime'] = $request->startTime;
+        }
         $req = new OpenApiRequest([
-            'body' => Utils::toMap($request),
+            'query' => OpenApiUtilClient::query($query),
+        ]);
+        $params = new Params([
+            'action'      => 'DescribeVsDomainPvUvData',
+            'version'     => '2018-12-12',
+            'protocol'    => 'HTTPS',
+            'pathname'    => '/',
+            'method'      => 'POST',
+            'authType'    => 'AK',
+            'style'       => 'RPC',
+            'reqBodyType' => 'formData',
+            'bodyType'    => 'json',
         ]);
 
-        return DescribeVsDomainPvUvDataResponse::fromMap($this->doRPCRequest('DescribeVsDomainPvUvData', '2018-12-12', 'HTTPS', 'POST', 'AK', 'json', $req, $runtime));
+        return DescribeVsDomainPvUvDataResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
@@ -2447,11 +5854,38 @@ class Vs extends OpenApiClient
     public function describeVsDomainRecordDataWithOptions($request, $runtime)
     {
         Utils::validateModel($request);
+        $query = [];
+        if (!Utils::isUnset($request->domainName)) {
+            $query['DomainName'] = $request->domainName;
+        }
+        if (!Utils::isUnset($request->endTime)) {
+            $query['EndTime'] = $request->endTime;
+        }
+        if (!Utils::isUnset($request->ownerId)) {
+            $query['OwnerId'] = $request->ownerId;
+        }
+        if (!Utils::isUnset($request->region)) {
+            $query['Region'] = $request->region;
+        }
+        if (!Utils::isUnset($request->startTime)) {
+            $query['StartTime'] = $request->startTime;
+        }
         $req = new OpenApiRequest([
-            'body' => Utils::toMap($request),
+            'query' => OpenApiUtilClient::query($query),
+        ]);
+        $params = new Params([
+            'action'      => 'DescribeVsDomainRecordData',
+            'version'     => '2018-12-12',
+            'protocol'    => 'HTTPS',
+            'pathname'    => '/',
+            'method'      => 'POST',
+            'authType'    => 'AK',
+            'style'       => 'RPC',
+            'reqBodyType' => 'formData',
+            'bodyType'    => 'json',
         ]);
 
-        return DescribeVsDomainRecordDataResponse::fromMap($this->doRPCRequest('DescribeVsDomainRecordData', '2018-12-12', 'HTTPS', 'POST', 'AK', 'json', $req, $runtime));
+        return DescribeVsDomainRecordDataResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
@@ -2475,11 +5909,35 @@ class Vs extends OpenApiClient
     public function describeVsDomainRegionDataWithOptions($request, $runtime)
     {
         Utils::validateModel($request);
+        $query = [];
+        if (!Utils::isUnset($request->domainName)) {
+            $query['DomainName'] = $request->domainName;
+        }
+        if (!Utils::isUnset($request->endTime)) {
+            $query['EndTime'] = $request->endTime;
+        }
+        if (!Utils::isUnset($request->ownerId)) {
+            $query['OwnerId'] = $request->ownerId;
+        }
+        if (!Utils::isUnset($request->startTime)) {
+            $query['StartTime'] = $request->startTime;
+        }
         $req = new OpenApiRequest([
-            'body' => Utils::toMap($request),
+            'query' => OpenApiUtilClient::query($query),
+        ]);
+        $params = new Params([
+            'action'      => 'DescribeVsDomainRegionData',
+            'version'     => '2018-12-12',
+            'protocol'    => 'HTTPS',
+            'pathname'    => '/',
+            'method'      => 'POST',
+            'authType'    => 'AK',
+            'style'       => 'RPC',
+            'reqBodyType' => 'formData',
+            'bodyType'    => 'json',
         ]);
 
-        return DescribeVsDomainRegionDataResponse::fromMap($this->doRPCRequest('DescribeVsDomainRegionData', '2018-12-12', 'HTTPS', 'POST', 'AK', 'json', $req, $runtime));
+        return DescribeVsDomainRegionDataResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
@@ -2503,11 +5961,44 @@ class Vs extends OpenApiClient
     public function describeVsDomainReqBpsDataWithOptions($request, $runtime)
     {
         Utils::validateModel($request);
+        $query = [];
+        if (!Utils::isUnset($request->domainName)) {
+            $query['DomainName'] = $request->domainName;
+        }
+        if (!Utils::isUnset($request->endTime)) {
+            $query['EndTime'] = $request->endTime;
+        }
+        if (!Utils::isUnset($request->interval)) {
+            $query['Interval'] = $request->interval;
+        }
+        if (!Utils::isUnset($request->ispNameEn)) {
+            $query['IspNameEn'] = $request->ispNameEn;
+        }
+        if (!Utils::isUnset($request->locationNameEn)) {
+            $query['LocationNameEn'] = $request->locationNameEn;
+        }
+        if (!Utils::isUnset($request->ownerId)) {
+            $query['OwnerId'] = $request->ownerId;
+        }
+        if (!Utils::isUnset($request->startTime)) {
+            $query['StartTime'] = $request->startTime;
+        }
         $req = new OpenApiRequest([
-            'body' => Utils::toMap($request),
+            'query' => OpenApiUtilClient::query($query),
+        ]);
+        $params = new Params([
+            'action'      => 'DescribeVsDomainReqBpsData',
+            'version'     => '2018-12-12',
+            'protocol'    => 'HTTPS',
+            'pathname'    => '/',
+            'method'      => 'POST',
+            'authType'    => 'AK',
+            'style'       => 'RPC',
+            'reqBodyType' => 'formData',
+            'bodyType'    => 'json',
         ]);
 
-        return DescribeVsDomainReqBpsDataResponse::fromMap($this->doRPCRequest('DescribeVsDomainReqBpsData', '2018-12-12', 'HTTPS', 'POST', 'AK', 'json', $req, $runtime));
+        return DescribeVsDomainReqBpsDataResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
@@ -2531,11 +6022,44 @@ class Vs extends OpenApiClient
     public function describeVsDomainReqTrafficDataWithOptions($request, $runtime)
     {
         Utils::validateModel($request);
+        $query = [];
+        if (!Utils::isUnset($request->domainName)) {
+            $query['DomainName'] = $request->domainName;
+        }
+        if (!Utils::isUnset($request->endTime)) {
+            $query['EndTime'] = $request->endTime;
+        }
+        if (!Utils::isUnset($request->interval)) {
+            $query['Interval'] = $request->interval;
+        }
+        if (!Utils::isUnset($request->ispNameEn)) {
+            $query['IspNameEn'] = $request->ispNameEn;
+        }
+        if (!Utils::isUnset($request->locationNameEn)) {
+            $query['LocationNameEn'] = $request->locationNameEn;
+        }
+        if (!Utils::isUnset($request->ownerId)) {
+            $query['OwnerId'] = $request->ownerId;
+        }
+        if (!Utils::isUnset($request->startTime)) {
+            $query['StartTime'] = $request->startTime;
+        }
         $req = new OpenApiRequest([
-            'body' => Utils::toMap($request),
+            'query' => OpenApiUtilClient::query($query),
+        ]);
+        $params = new Params([
+            'action'      => 'DescribeVsDomainReqTrafficData',
+            'version'     => '2018-12-12',
+            'protocol'    => 'HTTPS',
+            'pathname'    => '/',
+            'method'      => 'POST',
+            'authType'    => 'AK',
+            'style'       => 'RPC',
+            'reqBodyType' => 'formData',
+            'bodyType'    => 'json',
         ]);
 
-        return DescribeVsDomainReqTrafficDataResponse::fromMap($this->doRPCRequest('DescribeVsDomainReqTrafficData', '2018-12-12', 'HTTPS', 'POST', 'AK', 'json', $req, $runtime));
+        return DescribeVsDomainReqTrafficDataResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
@@ -2559,11 +6083,35 @@ class Vs extends OpenApiClient
     public function describeVsDomainSnapshotDataWithOptions($request, $runtime)
     {
         Utils::validateModel($request);
+        $query = [];
+        if (!Utils::isUnset($request->domainName)) {
+            $query['DomainName'] = $request->domainName;
+        }
+        if (!Utils::isUnset($request->endTime)) {
+            $query['EndTime'] = $request->endTime;
+        }
+        if (!Utils::isUnset($request->ownerId)) {
+            $query['OwnerId'] = $request->ownerId;
+        }
+        if (!Utils::isUnset($request->startTime)) {
+            $query['StartTime'] = $request->startTime;
+        }
         $req = new OpenApiRequest([
-            'body' => Utils::toMap($request),
+            'query' => OpenApiUtilClient::query($query),
+        ]);
+        $params = new Params([
+            'action'      => 'DescribeVsDomainSnapshotData',
+            'version'     => '2018-12-12',
+            'protocol'    => 'HTTPS',
+            'pathname'    => '/',
+            'method'      => 'POST',
+            'authType'    => 'AK',
+            'style'       => 'RPC',
+            'reqBodyType' => 'formData',
+            'bodyType'    => 'json',
         ]);
 
-        return DescribeVsDomainSnapshotDataResponse::fromMap($this->doRPCRequest('DescribeVsDomainSnapshotData', '2018-12-12', 'HTTPS', 'POST', 'AK', 'json', $req, $runtime));
+        return DescribeVsDomainSnapshotDataResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
@@ -2587,11 +6135,44 @@ class Vs extends OpenApiClient
     public function describeVsDomainTrafficDataWithOptions($request, $runtime)
     {
         Utils::validateModel($request);
+        $query = [];
+        if (!Utils::isUnset($request->domainName)) {
+            $query['DomainName'] = $request->domainName;
+        }
+        if (!Utils::isUnset($request->endTime)) {
+            $query['EndTime'] = $request->endTime;
+        }
+        if (!Utils::isUnset($request->interval)) {
+            $query['Interval'] = $request->interval;
+        }
+        if (!Utils::isUnset($request->ispNameEn)) {
+            $query['IspNameEn'] = $request->ispNameEn;
+        }
+        if (!Utils::isUnset($request->locationNameEn)) {
+            $query['LocationNameEn'] = $request->locationNameEn;
+        }
+        if (!Utils::isUnset($request->ownerId)) {
+            $query['OwnerId'] = $request->ownerId;
+        }
+        if (!Utils::isUnset($request->startTime)) {
+            $query['StartTime'] = $request->startTime;
+        }
         $req = new OpenApiRequest([
-            'body' => Utils::toMap($request),
+            'query' => OpenApiUtilClient::query($query),
+        ]);
+        $params = new Params([
+            'action'      => 'DescribeVsDomainTrafficData',
+            'version'     => '2018-12-12',
+            'protocol'    => 'HTTPS',
+            'pathname'    => '/',
+            'method'      => 'POST',
+            'authType'    => 'AK',
+            'style'       => 'RPC',
+            'reqBodyType' => 'formData',
+            'bodyType'    => 'json',
         ]);
 
-        return DescribeVsDomainTrafficDataResponse::fromMap($this->doRPCRequest('DescribeVsDomainTrafficData', '2018-12-12', 'HTTPS', 'POST', 'AK', 'json', $req, $runtime));
+        return DescribeVsDomainTrafficDataResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
@@ -2615,11 +6196,35 @@ class Vs extends OpenApiClient
     public function describeVsDomainUvDataWithOptions($request, $runtime)
     {
         Utils::validateModel($request);
+        $query = [];
+        if (!Utils::isUnset($request->domainName)) {
+            $query['DomainName'] = $request->domainName;
+        }
+        if (!Utils::isUnset($request->endTime)) {
+            $query['EndTime'] = $request->endTime;
+        }
+        if (!Utils::isUnset($request->ownerId)) {
+            $query['OwnerId'] = $request->ownerId;
+        }
+        if (!Utils::isUnset($request->startTime)) {
+            $query['StartTime'] = $request->startTime;
+        }
         $req = new OpenApiRequest([
-            'body' => Utils::toMap($request),
+            'query' => OpenApiUtilClient::query($query),
+        ]);
+        $params = new Params([
+            'action'      => 'DescribeVsDomainUvData',
+            'version'     => '2018-12-12',
+            'protocol'    => 'HTTPS',
+            'pathname'    => '/',
+            'method'      => 'POST',
+            'authType'    => 'AK',
+            'style'       => 'RPC',
+            'reqBodyType' => 'formData',
+            'bodyType'    => 'json',
         ]);
 
-        return DescribeVsDomainUvDataResponse::fromMap($this->doRPCRequest('DescribeVsDomainUvData', '2018-12-12', 'HTTPS', 'POST', 'AK', 'json', $req, $runtime));
+        return DescribeVsDomainUvDataResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
@@ -2635,6 +6240,52 @@ class Vs extends OpenApiClient
     }
 
     /**
+     * @param DescribeVsPullStreamConfigRequest $request
+     * @param RuntimeOptions                    $runtime
+     *
+     * @return DescribeVsPullStreamConfigResponse
+     */
+    public function describeVsPullStreamConfigWithOptions($request, $runtime)
+    {
+        Utils::validateModel($request);
+        $query = [];
+        if (!Utils::isUnset($request->domainName)) {
+            $query['DomainName'] = $request->domainName;
+        }
+        if (!Utils::isUnset($request->ownerId)) {
+            $query['OwnerId'] = $request->ownerId;
+        }
+        $req = new OpenApiRequest([
+            'query' => OpenApiUtilClient::query($query),
+        ]);
+        $params = new Params([
+            'action'      => 'DescribeVsPullStreamConfig',
+            'version'     => '2018-12-12',
+            'protocol'    => 'HTTPS',
+            'pathname'    => '/',
+            'method'      => 'POST',
+            'authType'    => 'AK',
+            'style'       => 'RPC',
+            'reqBodyType' => 'formData',
+            'bodyType'    => 'json',
+        ]);
+
+        return DescribeVsPullStreamConfigResponse::fromMap($this->callApi($params, $req, $runtime));
+    }
+
+    /**
+     * @param DescribeVsPullStreamConfigRequest $request
+     *
+     * @return DescribeVsPullStreamConfigResponse
+     */
+    public function describeVsPullStreamConfig($request)
+    {
+        $runtime = new RuntimeOptions([]);
+
+        return $this->describeVsPullStreamConfigWithOptions($request, $runtime);
+    }
+
+    /**
      * @param DescribeVsPullStreamInfoConfigRequest $request
      * @param RuntimeOptions                        $runtime
      *
@@ -2643,11 +6294,29 @@ class Vs extends OpenApiClient
     public function describeVsPullStreamInfoConfigWithOptions($request, $runtime)
     {
         Utils::validateModel($request);
+        $query = [];
+        if (!Utils::isUnset($request->domainName)) {
+            $query['DomainName'] = $request->domainName;
+        }
+        if (!Utils::isUnset($request->ownerId)) {
+            $query['OwnerId'] = $request->ownerId;
+        }
         $req = new OpenApiRequest([
-            'body' => Utils::toMap($request),
+            'query' => OpenApiUtilClient::query($query),
+        ]);
+        $params = new Params([
+            'action'      => 'DescribeVsPullStreamInfoConfig',
+            'version'     => '2018-12-12',
+            'protocol'    => 'HTTPS',
+            'pathname'    => '/',
+            'method'      => 'POST',
+            'authType'    => 'AK',
+            'style'       => 'RPC',
+            'reqBodyType' => 'formData',
+            'bodyType'    => 'json',
         ]);
 
-        return DescribeVsPullStreamInfoConfigResponse::fromMap($this->doRPCRequest('DescribeVsPullStreamInfoConfig', '2018-12-12', 'HTTPS', 'POST', 'AK', 'json', $req, $runtime));
+        return DescribeVsPullStreamInfoConfigResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
@@ -2663,6 +6332,64 @@ class Vs extends OpenApiClient
     }
 
     /**
+     * @param DescribeVsStorageTrafficUsageDataRequest $request
+     * @param RuntimeOptions                           $runtime
+     *
+     * @return DescribeVsStorageTrafficUsageDataResponse
+     */
+    public function describeVsStorageTrafficUsageDataWithOptions($request, $runtime)
+    {
+        Utils::validateModel($request);
+        $query = [];
+        if (!Utils::isUnset($request->bucket)) {
+            $query['Bucket'] = $request->bucket;
+        }
+        if (!Utils::isUnset($request->endTime)) {
+            $query['EndTime'] = $request->endTime;
+        }
+        if (!Utils::isUnset($request->interval)) {
+            $query['Interval'] = $request->interval;
+        }
+        if (!Utils::isUnset($request->ownerId)) {
+            $query['OwnerId'] = $request->ownerId;
+        }
+        if (!Utils::isUnset($request->splitBy)) {
+            $query['SplitBy'] = $request->splitBy;
+        }
+        if (!Utils::isUnset($request->startTime)) {
+            $query['StartTime'] = $request->startTime;
+        }
+        $req = new OpenApiRequest([
+            'query' => OpenApiUtilClient::query($query),
+        ]);
+        $params = new Params([
+            'action'      => 'DescribeVsStorageTrafficUsageData',
+            'version'     => '2018-12-12',
+            'protocol'    => 'HTTPS',
+            'pathname'    => '/',
+            'method'      => 'POST',
+            'authType'    => 'AK',
+            'style'       => 'RPC',
+            'reqBodyType' => 'formData',
+            'bodyType'    => 'json',
+        ]);
+
+        return DescribeVsStorageTrafficUsageDataResponse::fromMap($this->callApi($params, $req, $runtime));
+    }
+
+    /**
+     * @param DescribeVsStorageTrafficUsageDataRequest $request
+     *
+     * @return DescribeVsStorageTrafficUsageDataResponse
+     */
+    public function describeVsStorageTrafficUsageData($request)
+    {
+        $runtime = new RuntimeOptions([]);
+
+        return $this->describeVsStorageTrafficUsageDataWithOptions($request, $runtime);
+    }
+
+    /**
      * @param DescribeVsStorageUsageDataRequest $request
      * @param RuntimeOptions                    $runtime
      *
@@ -2671,11 +6398,41 @@ class Vs extends OpenApiClient
     public function describeVsStorageUsageDataWithOptions($request, $runtime)
     {
         Utils::validateModel($request);
+        $query = [];
+        if (!Utils::isUnset($request->bucket)) {
+            $query['Bucket'] = $request->bucket;
+        }
+        if (!Utils::isUnset($request->endTime)) {
+            $query['EndTime'] = $request->endTime;
+        }
+        if (!Utils::isUnset($request->interval)) {
+            $query['Interval'] = $request->interval;
+        }
+        if (!Utils::isUnset($request->ownerId)) {
+            $query['OwnerId'] = $request->ownerId;
+        }
+        if (!Utils::isUnset($request->splitBy)) {
+            $query['SplitBy'] = $request->splitBy;
+        }
+        if (!Utils::isUnset($request->startTime)) {
+            $query['StartTime'] = $request->startTime;
+        }
         $req = new OpenApiRequest([
-            'body' => Utils::toMap($request),
+            'query' => OpenApiUtilClient::query($query),
+        ]);
+        $params = new Params([
+            'action'      => 'DescribeVsStorageUsageData',
+            'version'     => '2018-12-12',
+            'protocol'    => 'HTTPS',
+            'pathname'    => '/',
+            'method'      => 'POST',
+            'authType'    => 'AK',
+            'style'       => 'RPC',
+            'reqBodyType' => 'formData',
+            'bodyType'    => 'json',
         ]);
 
-        return DescribeVsStorageUsageDataResponse::fromMap($this->doRPCRequest('DescribeVsStorageUsageData', '2018-12-12', 'HTTPS', 'POST', 'AK', 'json', $req, $runtime));
+        return DescribeVsStorageUsageDataResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
@@ -2699,11 +6456,29 @@ class Vs extends OpenApiClient
     public function describeVsStreamsNotifyUrlConfigWithOptions($request, $runtime)
     {
         Utils::validateModel($request);
+        $query = [];
+        if (!Utils::isUnset($request->domainName)) {
+            $query['DomainName'] = $request->domainName;
+        }
+        if (!Utils::isUnset($request->ownerId)) {
+            $query['OwnerId'] = $request->ownerId;
+        }
         $req = new OpenApiRequest([
-            'body' => Utils::toMap($request),
+            'query' => OpenApiUtilClient::query($query),
+        ]);
+        $params = new Params([
+            'action'      => 'DescribeVsStreamsNotifyUrlConfig',
+            'version'     => '2018-12-12',
+            'protocol'    => 'HTTPS',
+            'pathname'    => '/',
+            'method'      => 'POST',
+            'authType'    => 'AK',
+            'style'       => 'RPC',
+            'reqBodyType' => 'formData',
+            'bodyType'    => 'json',
         ]);
 
-        return DescribeVsStreamsNotifyUrlConfigResponse::fromMap($this->doRPCRequest('DescribeVsStreamsNotifyUrlConfig', '2018-12-12', 'HTTPS', 'POST', 'AK', 'json', $req, $runtime));
+        return DescribeVsStreamsNotifyUrlConfigResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
@@ -2727,11 +6502,56 @@ class Vs extends OpenApiClient
     public function describeVsStreamsOnlineListWithOptions($request, $runtime)
     {
         Utils::validateModel($request);
+        $query = [];
+        if (!Utils::isUnset($request->appName)) {
+            $query['AppName'] = $request->appName;
+        }
+        if (!Utils::isUnset($request->domainName)) {
+            $query['DomainName'] = $request->domainName;
+        }
+        if (!Utils::isUnset($request->endTime)) {
+            $query['EndTime'] = $request->endTime;
+        }
+        if (!Utils::isUnset($request->orderBy)) {
+            $query['OrderBy'] = $request->orderBy;
+        }
+        if (!Utils::isUnset($request->ownerId)) {
+            $query['OwnerId'] = $request->ownerId;
+        }
+        if (!Utils::isUnset($request->pageNum)) {
+            $query['PageNum'] = $request->pageNum;
+        }
+        if (!Utils::isUnset($request->pageSize)) {
+            $query['PageSize'] = $request->pageSize;
+        }
+        if (!Utils::isUnset($request->queryType)) {
+            $query['QueryType'] = $request->queryType;
+        }
+        if (!Utils::isUnset($request->startTime)) {
+            $query['StartTime'] = $request->startTime;
+        }
+        if (!Utils::isUnset($request->streamName)) {
+            $query['StreamName'] = $request->streamName;
+        }
+        if (!Utils::isUnset($request->streamType)) {
+            $query['StreamType'] = $request->streamType;
+        }
         $req = new OpenApiRequest([
-            'body' => Utils::toMap($request),
+            'query' => OpenApiUtilClient::query($query),
+        ]);
+        $params = new Params([
+            'action'      => 'DescribeVsStreamsOnlineList',
+            'version'     => '2018-12-12',
+            'protocol'    => 'HTTPS',
+            'pathname'    => '/',
+            'method'      => 'POST',
+            'authType'    => 'AK',
+            'style'       => 'RPC',
+            'reqBodyType' => 'formData',
+            'bodyType'    => 'json',
         ]);
 
-        return DescribeVsStreamsOnlineListResponse::fromMap($this->doRPCRequest('DescribeVsStreamsOnlineList', '2018-12-12', 'HTTPS', 'POST', 'AK', 'json', $req, $runtime));
+        return DescribeVsStreamsOnlineListResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
@@ -2755,11 +6575,56 @@ class Vs extends OpenApiClient
     public function describeVsStreamsPublishListWithOptions($request, $runtime)
     {
         Utils::validateModel($request);
+        $query = [];
+        if (!Utils::isUnset($request->appName)) {
+            $query['AppName'] = $request->appName;
+        }
+        if (!Utils::isUnset($request->domainName)) {
+            $query['DomainName'] = $request->domainName;
+        }
+        if (!Utils::isUnset($request->endTime)) {
+            $query['EndTime'] = $request->endTime;
+        }
+        if (!Utils::isUnset($request->orderBy)) {
+            $query['OrderBy'] = $request->orderBy;
+        }
+        if (!Utils::isUnset($request->ownerId)) {
+            $query['OwnerId'] = $request->ownerId;
+        }
+        if (!Utils::isUnset($request->pageNumber)) {
+            $query['PageNumber'] = $request->pageNumber;
+        }
+        if (!Utils::isUnset($request->pageSize)) {
+            $query['PageSize'] = $request->pageSize;
+        }
+        if (!Utils::isUnset($request->queryType)) {
+            $query['QueryType'] = $request->queryType;
+        }
+        if (!Utils::isUnset($request->startTime)) {
+            $query['StartTime'] = $request->startTime;
+        }
+        if (!Utils::isUnset($request->streamName)) {
+            $query['StreamName'] = $request->streamName;
+        }
+        if (!Utils::isUnset($request->streamType)) {
+            $query['StreamType'] = $request->streamType;
+        }
         $req = new OpenApiRequest([
-            'body' => Utils::toMap($request),
+            'query' => OpenApiUtilClient::query($query),
+        ]);
+        $params = new Params([
+            'action'      => 'DescribeVsStreamsPublishList',
+            'version'     => '2018-12-12',
+            'protocol'    => 'HTTPS',
+            'pathname'    => '/',
+            'method'      => 'POST',
+            'authType'    => 'AK',
+            'style'       => 'RPC',
+            'reqBodyType' => 'formData',
+            'bodyType'    => 'json',
         ]);
 
-        return DescribeVsStreamsPublishListResponse::fromMap($this->doRPCRequest('DescribeVsStreamsPublishList', '2018-12-12', 'HTTPS', 'POST', 'AK', 'json', $req, $runtime));
+        return DescribeVsStreamsPublishListResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
@@ -2783,11 +6648,35 @@ class Vs extends OpenApiClient
     public function describeVsTopDomainsByFlowWithOptions($request, $runtime)
     {
         Utils::validateModel($request);
+        $query = [];
+        if (!Utils::isUnset($request->endTime)) {
+            $query['EndTime'] = $request->endTime;
+        }
+        if (!Utils::isUnset($request->limit)) {
+            $query['Limit'] = $request->limit;
+        }
+        if (!Utils::isUnset($request->ownerId)) {
+            $query['OwnerId'] = $request->ownerId;
+        }
+        if (!Utils::isUnset($request->startTime)) {
+            $query['StartTime'] = $request->startTime;
+        }
         $req = new OpenApiRequest([
-            'body' => Utils::toMap($request),
+            'query' => OpenApiUtilClient::query($query),
+        ]);
+        $params = new Params([
+            'action'      => 'DescribeVsTopDomainsByFlow',
+            'version'     => '2018-12-12',
+            'protocol'    => 'HTTPS',
+            'pathname'    => '/',
+            'method'      => 'POST',
+            'authType'    => 'AK',
+            'style'       => 'RPC',
+            'reqBodyType' => 'formData',
+            'bodyType'    => 'json',
         ]);
 
-        return DescribeVsTopDomainsByFlowResponse::fromMap($this->doRPCRequest('DescribeVsTopDomainsByFlow', '2018-12-12', 'HTTPS', 'POST', 'AK', 'json', $req, $runtime));
+        return DescribeVsTopDomainsByFlowResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
@@ -2811,11 +6700,38 @@ class Vs extends OpenApiClient
     public function describeVsUpPeakPublishStreamDataWithOptions($request, $runtime)
     {
         Utils::validateModel($request);
+        $query = [];
+        if (!Utils::isUnset($request->domainName)) {
+            $query['DomainName'] = $request->domainName;
+        }
+        if (!Utils::isUnset($request->domainSwitch)) {
+            $query['DomainSwitch'] = $request->domainSwitch;
+        }
+        if (!Utils::isUnset($request->endTime)) {
+            $query['EndTime'] = $request->endTime;
+        }
+        if (!Utils::isUnset($request->ownerId)) {
+            $query['OwnerId'] = $request->ownerId;
+        }
+        if (!Utils::isUnset($request->startTime)) {
+            $query['StartTime'] = $request->startTime;
+        }
         $req = new OpenApiRequest([
-            'body' => Utils::toMap($request),
+            'query' => OpenApiUtilClient::query($query),
+        ]);
+        $params = new Params([
+            'action'      => 'DescribeVsUpPeakPublishStreamData',
+            'version'     => '2018-12-12',
+            'protocol'    => 'HTTPS',
+            'pathname'    => '/',
+            'method'      => 'POST',
+            'authType'    => 'AK',
+            'style'       => 'RPC',
+            'reqBodyType' => 'formData',
+            'bodyType'    => 'json',
         ]);
 
-        return DescribeVsUpPeakPublishStreamDataResponse::fromMap($this->doRPCRequest('DescribeVsUpPeakPublishStreamData', '2018-12-12', 'HTTPS', 'POST', 'AK', 'json', $req, $runtime));
+        return DescribeVsUpPeakPublishStreamDataResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
@@ -2839,11 +6755,29 @@ class Vs extends OpenApiClient
     public function describeVsUserResourcePackageWithOptions($request, $runtime)
     {
         Utils::validateModel($request);
+        $query = [];
+        if (!Utils::isUnset($request->ownerId)) {
+            $query['OwnerId'] = $request->ownerId;
+        }
+        if (!Utils::isUnset($request->securityToken)) {
+            $query['SecurityToken'] = $request->securityToken;
+        }
         $req = new OpenApiRequest([
-            'body' => Utils::toMap($request),
+            'query' => OpenApiUtilClient::query($query),
+        ]);
+        $params = new Params([
+            'action'      => 'DescribeVsUserResourcePackage',
+            'version'     => '2018-12-12',
+            'protocol'    => 'HTTPS',
+            'pathname'    => '/',
+            'method'      => 'POST',
+            'authType'    => 'AK',
+            'style'       => 'RPC',
+            'reqBodyType' => 'formData',
+            'bodyType'    => 'json',
         ]);
 
-        return DescribeVsUserResourcePackageResponse::fromMap($this->doRPCRequest('DescribeVsUserResourcePackage', '2018-12-12', 'HTTPS', 'POST', 'AK', 'json', $req, $runtime));
+        return DescribeVsUserResourcePackageResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
@@ -2867,11 +6801,47 @@ class Vs extends OpenApiClient
     public function forbidVsStreamWithOptions($request, $runtime)
     {
         Utils::validateModel($request);
+        $query = [];
+        if (!Utils::isUnset($request->appName)) {
+            $query['AppName'] = $request->appName;
+        }
+        if (!Utils::isUnset($request->controlStreamAction)) {
+            $query['ControlStreamAction'] = $request->controlStreamAction;
+        }
+        if (!Utils::isUnset($request->domainName)) {
+            $query['DomainName'] = $request->domainName;
+        }
+        if (!Utils::isUnset($request->liveStreamType)) {
+            $query['LiveStreamType'] = $request->liveStreamType;
+        }
+        if (!Utils::isUnset($request->oneshot)) {
+            $query['Oneshot'] = $request->oneshot;
+        }
+        if (!Utils::isUnset($request->ownerId)) {
+            $query['OwnerId'] = $request->ownerId;
+        }
+        if (!Utils::isUnset($request->resumeTime)) {
+            $query['ResumeTime'] = $request->resumeTime;
+        }
+        if (!Utils::isUnset($request->streamName)) {
+            $query['StreamName'] = $request->streamName;
+        }
         $req = new OpenApiRequest([
-            'body' => Utils::toMap($request),
+            'query' => OpenApiUtilClient::query($query),
+        ]);
+        $params = new Params([
+            'action'      => 'ForbidVsStream',
+            'version'     => '2018-12-12',
+            'protocol'    => 'HTTPS',
+            'pathname'    => '/',
+            'method'      => 'POST',
+            'authType'    => 'AK',
+            'style'       => 'RPC',
+            'reqBodyType' => 'formData',
+            'bodyType'    => 'json',
         ]);
 
-        return ForbidVsStreamResponse::fromMap($this->doRPCRequest('ForbidVsStream', '2018-12-12', 'HTTPS', 'POST', 'AK', 'json', $req, $runtime));
+        return ForbidVsStreamResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
@@ -2895,11 +6865,29 @@ class Vs extends OpenApiClient
     public function getBucketInfoWithOptions($request, $runtime)
     {
         Utils::validateModel($request);
+        $query = [];
+        if (!Utils::isUnset($request->bucketName)) {
+            $query['BucketName'] = $request->bucketName;
+        }
+        if (!Utils::isUnset($request->ownerId)) {
+            $query['OwnerId'] = $request->ownerId;
+        }
         $req = new OpenApiRequest([
-            'body' => Utils::toMap($request),
+            'query' => OpenApiUtilClient::query($query),
+        ]);
+        $params = new Params([
+            'action'      => 'GetBucketInfo',
+            'version'     => '2018-12-12',
+            'protocol'    => 'HTTPS',
+            'pathname'    => '/',
+            'method'      => 'POST',
+            'authType'    => 'AK',
+            'style'       => 'RPC',
+            'reqBodyType' => 'formData',
+            'bodyType'    => 'json',
         ]);
 
-        return GetBucketInfoResponse::fromMap($this->doRPCRequest('GetBucketInfo', '2018-12-12', 'HTTPS', 'POST', 'AK', 'json', $req, $runtime));
+        return GetBucketInfoResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
@@ -2915,6 +6903,52 @@ class Vs extends OpenApiClient
     }
 
     /**
+     * @param GetObjectTotalRequest $request
+     * @param RuntimeOptions        $runtime
+     *
+     * @return GetObjectTotalResponse
+     */
+    public function getObjectTotalWithOptions($request, $runtime)
+    {
+        Utils::validateModel($request);
+        $query = [];
+        if (!Utils::isUnset($request->bucketName)) {
+            $query['BucketName'] = $request->bucketName;
+        }
+        if (!Utils::isUnset($request->ownerId)) {
+            $query['OwnerId'] = $request->ownerId;
+        }
+        $req = new OpenApiRequest([
+            'query' => OpenApiUtilClient::query($query),
+        ]);
+        $params = new Params([
+            'action'      => 'GetObjectTotal',
+            'version'     => '2018-12-12',
+            'protocol'    => 'HTTPS',
+            'pathname'    => '/',
+            'method'      => 'POST',
+            'authType'    => 'AK',
+            'style'       => 'RPC',
+            'reqBodyType' => 'formData',
+            'bodyType'    => 'json',
+        ]);
+
+        return GetObjectTotalResponse::fromMap($this->callApi($params, $req, $runtime));
+    }
+
+    /**
+     * @param GetObjectTotalRequest $request
+     *
+     * @return GetObjectTotalResponse
+     */
+    public function getObjectTotal($request)
+    {
+        $runtime = new RuntimeOptions([]);
+
+        return $this->getObjectTotalWithOptions($request, $runtime);
+    }
+
+    /**
      * @param GotoPresetRequest $request
      * @param RuntimeOptions    $runtime
      *
@@ -2923,11 +6957,32 @@ class Vs extends OpenApiClient
     public function gotoPresetWithOptions($request, $runtime)
     {
         Utils::validateModel($request);
+        $query = [];
+        if (!Utils::isUnset($request->id)) {
+            $query['Id'] = $request->id;
+        }
+        if (!Utils::isUnset($request->ownerId)) {
+            $query['OwnerId'] = $request->ownerId;
+        }
+        if (!Utils::isUnset($request->presetId)) {
+            $query['PresetId'] = $request->presetId;
+        }
         $req = new OpenApiRequest([
-            'body' => Utils::toMap($request),
+            'query' => OpenApiUtilClient::query($query),
+        ]);
+        $params = new Params([
+            'action'      => 'GotoPreset',
+            'version'     => '2018-12-12',
+            'protocol'    => 'HTTPS',
+            'pathname'    => '/',
+            'method'      => 'POST',
+            'authType'    => 'AK',
+            'style'       => 'RPC',
+            'reqBodyType' => 'formData',
+            'bodyType'    => 'json',
         ]);
 
-        return GotoPresetResponse::fromMap($this->doRPCRequest('GotoPreset', '2018-12-12', 'HTTPS', 'POST', 'AK', 'json', $req, $runtime));
+        return GotoPresetResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
@@ -2951,11 +7006,41 @@ class Vs extends OpenApiClient
     public function listBucketsWithOptions($request, $runtime)
     {
         Utils::validateModel($request);
+        $query = [];
+        if (!Utils::isUnset($request->keyword)) {
+            $query['Keyword'] = $request->keyword;
+        }
+        if (!Utils::isUnset($request->marker)) {
+            $query['Marker'] = $request->marker;
+        }
+        if (!Utils::isUnset($request->ownerId)) {
+            $query['OwnerId'] = $request->ownerId;
+        }
+        if (!Utils::isUnset($request->pageNumber)) {
+            $query['PageNumber'] = $request->pageNumber;
+        }
+        if (!Utils::isUnset($request->pageSize)) {
+            $query['PageSize'] = $request->pageSize;
+        }
+        if (!Utils::isUnset($request->prefix)) {
+            $query['Prefix'] = $request->prefix;
+        }
         $req = new OpenApiRequest([
-            'body' => Utils::toMap($request),
+            'query' => OpenApiUtilClient::query($query),
+        ]);
+        $params = new Params([
+            'action'      => 'ListBuckets',
+            'version'     => '2018-12-12',
+            'protocol'    => 'HTTPS',
+            'pathname'    => '/',
+            'method'      => 'POST',
+            'authType'    => 'AK',
+            'style'       => 'RPC',
+            'reqBodyType' => 'formData',
+            'bodyType'    => 'json',
         ]);
 
-        return ListBucketsResponse::fromMap($this->doRPCRequest('ListBuckets', '2018-12-12', 'HTTPS', 'POST', 'AK', 'json', $req, $runtime));
+        return ListBucketsResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
@@ -2979,11 +7064,35 @@ class Vs extends OpenApiClient
     public function listDeviceChannelsWithOptions($request, $runtime)
     {
         Utils::validateModel($request);
+        $query = [];
+        if (!Utils::isUnset($request->deviceId)) {
+            $query['DeviceId'] = $request->deviceId;
+        }
+        if (!Utils::isUnset($request->ownerId)) {
+            $query['OwnerId'] = $request->ownerId;
+        }
+        if (!Utils::isUnset($request->pageNum)) {
+            $query['PageNum'] = $request->pageNum;
+        }
+        if (!Utils::isUnset($request->pageSize)) {
+            $query['PageSize'] = $request->pageSize;
+        }
         $req = new OpenApiRequest([
-            'body' => Utils::toMap($request),
+            'query' => OpenApiUtilClient::query($query),
+        ]);
+        $params = new Params([
+            'action'      => 'ListDeviceChannels',
+            'version'     => '2018-12-12',
+            'protocol'    => 'HTTPS',
+            'pathname'    => '/',
+            'method'      => 'POST',
+            'authType'    => 'AK',
+            'style'       => 'RPC',
+            'reqBodyType' => 'formData',
+            'bodyType'    => 'json',
         ]);
 
-        return ListDeviceChannelsResponse::fromMap($this->doRPCRequest('ListDeviceChannels', '2018-12-12', 'HTTPS', 'POST', 'AK', 'json', $req, $runtime));
+        return ListDeviceChannelsResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
@@ -3007,11 +7116,41 @@ class Vs extends OpenApiClient
     public function listDeviceRecordsWithOptions($request, $runtime)
     {
         Utils::validateModel($request);
+        $query = [];
+        if (!Utils::isUnset($request->deviceId)) {
+            $query['DeviceId'] = $request->deviceId;
+        }
+        if (!Utils::isUnset($request->ownerId)) {
+            $query['OwnerId'] = $request->ownerId;
+        }
+        if (!Utils::isUnset($request->pageNum)) {
+            $query['PageNum'] = $request->pageNum;
+        }
+        if (!Utils::isUnset($request->pageSize)) {
+            $query['PageSize'] = $request->pageSize;
+        }
+        if (!Utils::isUnset($request->searchCriteria)) {
+            $query['SearchCriteria'] = $request->searchCriteria;
+        }
+        if (!Utils::isUnset($request->streamId)) {
+            $query['StreamId'] = $request->streamId;
+        }
         $req = new OpenApiRequest([
-            'body' => Utils::toMap($request),
+            'query' => OpenApiUtilClient::query($query),
+        ]);
+        $params = new Params([
+            'action'      => 'ListDeviceRecords',
+            'version'     => '2018-12-12',
+            'protocol'    => 'HTTPS',
+            'pathname'    => '/',
+            'method'      => 'POST',
+            'authType'    => 'AK',
+            'style'       => 'RPC',
+            'reqBodyType' => 'formData',
+            'bodyType'    => 'json',
         ]);
 
-        return ListDeviceRecordsResponse::fromMap($this->doRPCRequest('ListDeviceRecords', '2018-12-12', 'HTTPS', 'POST', 'AK', 'json', $req, $runtime));
+        return ListDeviceRecordsResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
@@ -3035,11 +7174,50 @@ class Vs extends OpenApiClient
     public function listObjectsWithOptions($request, $runtime)
     {
         Utils::validateModel($request);
+        $query = [];
+        if (!Utils::isUnset($request->bucketName)) {
+            $query['BucketName'] = $request->bucketName;
+        }
+        if (!Utils::isUnset($request->continuationToken)) {
+            $query['ContinuationToken'] = $request->continuationToken;
+        }
+        if (!Utils::isUnset($request->delimiter)) {
+            $query['Delimiter'] = $request->delimiter;
+        }
+        if (!Utils::isUnset($request->encodingType)) {
+            $query['EncodingType'] = $request->encodingType;
+        }
+        if (!Utils::isUnset($request->marker)) {
+            $query['Marker'] = $request->marker;
+        }
+        if (!Utils::isUnset($request->maxKeys)) {
+            $query['MaxKeys'] = $request->maxKeys;
+        }
+        if (!Utils::isUnset($request->ownerId)) {
+            $query['OwnerId'] = $request->ownerId;
+        }
+        if (!Utils::isUnset($request->prefix)) {
+            $query['Prefix'] = $request->prefix;
+        }
+        if (!Utils::isUnset($request->startAfter)) {
+            $query['StartAfter'] = $request->startAfter;
+        }
         $req = new OpenApiRequest([
-            'body' => Utils::toMap($request),
+            'query' => OpenApiUtilClient::query($query),
+        ]);
+        $params = new Params([
+            'action'      => 'ListObjects',
+            'version'     => '2018-12-12',
+            'protocol'    => 'HTTPS',
+            'pathname'    => '/',
+            'method'      => 'POST',
+            'authType'    => 'AK',
+            'style'       => 'RPC',
+            'reqBodyType' => 'formData',
+            'bodyType'    => 'json',
         ]);
 
-        return ListObjectsResponse::fromMap($this->doRPCRequest('ListObjects', '2018-12-12', 'HTTPS', 'POST', 'AK', 'json', $req, $runtime));
+        return ListObjectsResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
@@ -3063,11 +7241,89 @@ class Vs extends OpenApiClient
     public function modifyDeviceWithOptions($request, $runtime)
     {
         Utils::validateModel($request);
+        $query = [];
+        if (!Utils::isUnset($request->alarmMethod)) {
+            $query['AlarmMethod'] = $request->alarmMethod;
+        }
+        if (!Utils::isUnset($request->autoPos)) {
+            $query['AutoPos'] = $request->autoPos;
+        }
+        if (!Utils::isUnset($request->autoStart)) {
+            $query['AutoStart'] = $request->autoStart;
+        }
+        if (!Utils::isUnset($request->description)) {
+            $query['Description'] = $request->description;
+        }
+        if (!Utils::isUnset($request->directoryId)) {
+            $query['DirectoryId'] = $request->directoryId;
+        }
+        if (!Utils::isUnset($request->gbId)) {
+            $query['GbId'] = $request->gbId;
+        }
+        if (!Utils::isUnset($request->groupId)) {
+            $query['GroupId'] = $request->groupId;
+        }
+        if (!Utils::isUnset($request->id)) {
+            $query['Id'] = $request->id;
+        }
+        if (!Utils::isUnset($request->ip)) {
+            $query['Ip'] = $request->ip;
+        }
+        if (!Utils::isUnset($request->latitude)) {
+            $query['Latitude'] = $request->latitude;
+        }
+        if (!Utils::isUnset($request->longitude)) {
+            $query['Longitude'] = $request->longitude;
+        }
+        if (!Utils::isUnset($request->name)) {
+            $query['Name'] = $request->name;
+        }
+        if (!Utils::isUnset($request->ownerId)) {
+            $query['OwnerId'] = $request->ownerId;
+        }
+        if (!Utils::isUnset($request->params)) {
+            $query['Params'] = $request->params;
+        }
+        if (!Utils::isUnset($request->parentId)) {
+            $query['ParentId'] = $request->parentId;
+        }
+        if (!Utils::isUnset($request->password)) {
+            $query['Password'] = $request->password;
+        }
+        if (!Utils::isUnset($request->port)) {
+            $query['Port'] = $request->port;
+        }
+        if (!Utils::isUnset($request->posInterval)) {
+            $query['PosInterval'] = $request->posInterval;
+        }
+        if (!Utils::isUnset($request->type)) {
+            $query['Type'] = $request->type;
+        }
+        if (!Utils::isUnset($request->url)) {
+            $query['Url'] = $request->url;
+        }
+        if (!Utils::isUnset($request->username)) {
+            $query['Username'] = $request->username;
+        }
+        if (!Utils::isUnset($request->vendor)) {
+            $query['Vendor'] = $request->vendor;
+        }
         $req = new OpenApiRequest([
-            'body' => Utils::toMap($request),
+            'query' => OpenApiUtilClient::query($query),
+        ]);
+        $params = new Params([
+            'action'      => 'ModifyDevice',
+            'version'     => '2018-12-12',
+            'protocol'    => 'HTTPS',
+            'pathname'    => '/',
+            'method'      => 'POST',
+            'authType'    => 'AK',
+            'style'       => 'RPC',
+            'reqBodyType' => 'formData',
+            'bodyType'    => 'json',
         ]);
 
-        return ModifyDeviceResponse::fromMap($this->doRPCRequest('ModifyDevice', '2018-12-12', 'HTTPS', 'POST', 'AK', 'json', $req, $runtime));
+        return ModifyDeviceResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
@@ -3091,11 +7347,38 @@ class Vs extends OpenApiClient
     public function modifyDeviceAlarmWithOptions($request, $runtime)
     {
         Utils::validateModel($request);
+        $query = [];
+        if (!Utils::isUnset($request->alarmId)) {
+            $query['AlarmId'] = $request->alarmId;
+        }
+        if (!Utils::isUnset($request->channelId)) {
+            $query['ChannelId'] = $request->channelId;
+        }
+        if (!Utils::isUnset($request->id)) {
+            $query['Id'] = $request->id;
+        }
+        if (!Utils::isUnset($request->ownerId)) {
+            $query['OwnerId'] = $request->ownerId;
+        }
+        if (!Utils::isUnset($request->status)) {
+            $query['Status'] = $request->status;
+        }
         $req = new OpenApiRequest([
-            'body' => Utils::toMap($request),
+            'query' => OpenApiUtilClient::query($query),
+        ]);
+        $params = new Params([
+            'action'      => 'ModifyDeviceAlarm',
+            'version'     => '2018-12-12',
+            'protocol'    => 'HTTPS',
+            'pathname'    => '/',
+            'method'      => 'POST',
+            'authType'    => 'AK',
+            'style'       => 'RPC',
+            'reqBodyType' => 'formData',
+            'bodyType'    => 'json',
         ]);
 
-        return ModifyDeviceAlarmResponse::fromMap($this->doRPCRequest('ModifyDeviceAlarm', '2018-12-12', 'HTTPS', 'POST', 'AK', 'json', $req, $runtime));
+        return ModifyDeviceAlarmResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
@@ -3119,11 +7402,35 @@ class Vs extends OpenApiClient
     public function modifyDeviceCaptureWithOptions($request, $runtime)
     {
         Utils::validateModel($request);
+        $query = [];
+        if (!Utils::isUnset($request->id)) {
+            $query['Id'] = $request->id;
+        }
+        if (!Utils::isUnset($request->image)) {
+            $query['Image'] = $request->image;
+        }
+        if (!Utils::isUnset($request->ownerId)) {
+            $query['OwnerId'] = $request->ownerId;
+        }
+        if (!Utils::isUnset($request->video)) {
+            $query['Video'] = $request->video;
+        }
         $req = new OpenApiRequest([
-            'body' => Utils::toMap($request),
+            'query' => OpenApiUtilClient::query($query),
+        ]);
+        $params = new Params([
+            'action'      => 'ModifyDeviceCapture',
+            'version'     => '2018-12-12',
+            'protocol'    => 'HTTPS',
+            'pathname'    => '/',
+            'method'      => 'POST',
+            'authType'    => 'AK',
+            'style'       => 'RPC',
+            'reqBodyType' => 'formData',
+            'bodyType'    => 'json',
         ]);
 
-        return ModifyDeviceCaptureResponse::fromMap($this->doRPCRequest('ModifyDeviceCapture', '2018-12-12', 'HTTPS', 'POST', 'AK', 'json', $req, $runtime));
+        return ModifyDeviceCaptureResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
@@ -3147,11 +7454,38 @@ class Vs extends OpenApiClient
     public function modifyDeviceChannelsWithOptions($request, $runtime)
     {
         Utils::validateModel($request);
+        $query = [];
+        if (!Utils::isUnset($request->channels)) {
+            $query['Channels'] = $request->channels;
+        }
+        if (!Utils::isUnset($request->deviceStatus)) {
+            $query['DeviceStatus'] = $request->deviceStatus;
+        }
+        if (!Utils::isUnset($request->dsn)) {
+            $query['Dsn'] = $request->dsn;
+        }
+        if (!Utils::isUnset($request->id)) {
+            $query['Id'] = $request->id;
+        }
+        if (!Utils::isUnset($request->ownerId)) {
+            $query['OwnerId'] = $request->ownerId;
+        }
         $req = new OpenApiRequest([
-            'body' => Utils::toMap($request),
+            'query' => OpenApiUtilClient::query($query),
+        ]);
+        $params = new Params([
+            'action'      => 'ModifyDeviceChannels',
+            'version'     => '2018-12-12',
+            'protocol'    => 'HTTPS',
+            'pathname'    => '/',
+            'method'      => 'POST',
+            'authType'    => 'AK',
+            'style'       => 'RPC',
+            'reqBodyType' => 'formData',
+            'bodyType'    => 'json',
         ]);
 
-        return ModifyDeviceChannelsResponse::fromMap($this->doRPCRequest('ModifyDeviceChannels', '2018-12-12', 'HTTPS', 'POST', 'AK', 'json', $req, $runtime));
+        return ModifyDeviceChannelsResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
@@ -3175,11 +7509,35 @@ class Vs extends OpenApiClient
     public function modifyDirectoryWithOptions($request, $runtime)
     {
         Utils::validateModel($request);
+        $query = [];
+        if (!Utils::isUnset($request->description)) {
+            $query['Description'] = $request->description;
+        }
+        if (!Utils::isUnset($request->id)) {
+            $query['Id'] = $request->id;
+        }
+        if (!Utils::isUnset($request->name)) {
+            $query['Name'] = $request->name;
+        }
+        if (!Utils::isUnset($request->ownerId)) {
+            $query['OwnerId'] = $request->ownerId;
+        }
         $req = new OpenApiRequest([
-            'body' => Utils::toMap($request),
+            'query' => OpenApiUtilClient::query($query),
+        ]);
+        $params = new Params([
+            'action'      => 'ModifyDirectory',
+            'version'     => '2018-12-12',
+            'protocol'    => 'HTTPS',
+            'pathname'    => '/',
+            'method'      => 'POST',
+            'authType'    => 'AK',
+            'style'       => 'RPC',
+            'reqBodyType' => 'formData',
+            'bodyType'    => 'json',
         ]);
 
-        return ModifyDirectoryResponse::fromMap($this->doRPCRequest('ModifyDirectory', '2018-12-12', 'HTTPS', 'POST', 'AK', 'json', $req, $runtime));
+        return ModifyDirectoryResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
@@ -3203,11 +7561,59 @@ class Vs extends OpenApiClient
     public function modifyGroupWithOptions($request, $runtime)
     {
         Utils::validateModel($request);
+        $query = [];
+        if (!Utils::isUnset($request->callback)) {
+            $query['Callback'] = $request->callback;
+        }
+        if (!Utils::isUnset($request->description)) {
+            $query['Description'] = $request->description;
+        }
+        if (!Utils::isUnset($request->enabled)) {
+            $query['Enabled'] = $request->enabled;
+        }
+        if (!Utils::isUnset($request->id)) {
+            $query['Id'] = $request->id;
+        }
+        if (!Utils::isUnset($request->inProtocol)) {
+            $query['InProtocol'] = $request->inProtocol;
+        }
+        if (!Utils::isUnset($request->lazyPull)) {
+            $query['LazyPull'] = $request->lazyPull;
+        }
+        if (!Utils::isUnset($request->name)) {
+            $query['Name'] = $request->name;
+        }
+        if (!Utils::isUnset($request->outProtocol)) {
+            $query['OutProtocol'] = $request->outProtocol;
+        }
+        if (!Utils::isUnset($request->ownerId)) {
+            $query['OwnerId'] = $request->ownerId;
+        }
+        if (!Utils::isUnset($request->playDomain)) {
+            $query['PlayDomain'] = $request->playDomain;
+        }
+        if (!Utils::isUnset($request->pushDomain)) {
+            $query['PushDomain'] = $request->pushDomain;
+        }
+        if (!Utils::isUnset($request->region)) {
+            $query['Region'] = $request->region;
+        }
         $req = new OpenApiRequest([
-            'body' => Utils::toMap($request),
+            'query' => OpenApiUtilClient::query($query),
+        ]);
+        $params = new Params([
+            'action'      => 'ModifyGroup',
+            'version'     => '2018-12-12',
+            'protocol'    => 'HTTPS',
+            'pathname'    => '/',
+            'method'      => 'POST',
+            'authType'    => 'AK',
+            'style'       => 'RPC',
+            'reqBodyType' => 'formData',
+            'bodyType'    => 'json',
         ]);
 
-        return ModifyGroupResponse::fromMap($this->doRPCRequest('ModifyGroup', '2018-12-12', 'HTTPS', 'POST', 'AK', 'json', $req, $runtime));
+        return ModifyGroupResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
@@ -3231,11 +7637,56 @@ class Vs extends OpenApiClient
     public function modifyParentPlatformWithOptions($request, $runtime)
     {
         Utils::validateModel($request);
+        $query = [];
+        if (!Utils::isUnset($request->autoStart)) {
+            $query['AutoStart'] = $request->autoStart;
+        }
+        if (!Utils::isUnset($request->clientAuth)) {
+            $query['ClientAuth'] = $request->clientAuth;
+        }
+        if (!Utils::isUnset($request->clientPassword)) {
+            $query['ClientPassword'] = $request->clientPassword;
+        }
+        if (!Utils::isUnset($request->clientUsername)) {
+            $query['ClientUsername'] = $request->clientUsername;
+        }
+        if (!Utils::isUnset($request->description)) {
+            $query['Description'] = $request->description;
+        }
+        if (!Utils::isUnset($request->gbId)) {
+            $query['GbId'] = $request->gbId;
+        }
+        if (!Utils::isUnset($request->id)) {
+            $query['Id'] = $request->id;
+        }
+        if (!Utils::isUnset($request->ip)) {
+            $query['Ip'] = $request->ip;
+        }
+        if (!Utils::isUnset($request->name)) {
+            $query['Name'] = $request->name;
+        }
+        if (!Utils::isUnset($request->ownerId)) {
+            $query['OwnerId'] = $request->ownerId;
+        }
+        if (!Utils::isUnset($request->port)) {
+            $query['Port'] = $request->port;
+        }
         $req = new OpenApiRequest([
-            'body' => Utils::toMap($request),
+            'query' => OpenApiUtilClient::query($query),
+        ]);
+        $params = new Params([
+            'action'      => 'ModifyParentPlatform',
+            'version'     => '2018-12-12',
+            'protocol'    => 'HTTPS',
+            'pathname'    => '/',
+            'method'      => 'POST',
+            'authType'    => 'AK',
+            'style'       => 'RPC',
+            'reqBodyType' => 'formData',
+            'bodyType'    => 'json',
         ]);
 
-        return ModifyParentPlatformResponse::fromMap($this->doRPCRequest('ModifyParentPlatform', '2018-12-12', 'HTTPS', 'POST', 'AK', 'json', $req, $runtime));
+        return ModifyParentPlatformResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
@@ -3251,6 +7702,70 @@ class Vs extends OpenApiClient
     }
 
     /**
+     * @param ModifyPurchasedDeviceRequest $request
+     * @param RuntimeOptions               $runtime
+     *
+     * @return ModifyPurchasedDeviceResponse
+     */
+    public function modifyPurchasedDeviceWithOptions($request, $runtime)
+    {
+        Utils::validateModel($request);
+        $query = [];
+        if (!Utils::isUnset($request->description)) {
+            $query['Description'] = $request->description;
+        }
+        if (!Utils::isUnset($request->id)) {
+            $query['Id'] = $request->id;
+        }
+        if (!Utils::isUnset($request->name)) {
+            $query['Name'] = $request->name;
+        }
+        if (!Utils::isUnset($request->orderId)) {
+            $query['OrderId'] = $request->orderId;
+        }
+        if (!Utils::isUnset($request->ownerId)) {
+            $query['OwnerId'] = $request->ownerId;
+        }
+        if (!Utils::isUnset($request->registerCode)) {
+            $query['RegisterCode'] = $request->registerCode;
+        }
+        if (!Utils::isUnset($request->subType)) {
+            $query['SubType'] = $request->subType;
+        }
+        if (!Utils::isUnset($request->vendor)) {
+            $query['Vendor'] = $request->vendor;
+        }
+        $req = new OpenApiRequest([
+            'query' => OpenApiUtilClient::query($query),
+        ]);
+        $params = new Params([
+            'action'      => 'ModifyPurchasedDevice',
+            'version'     => '2018-12-12',
+            'protocol'    => 'HTTPS',
+            'pathname'    => '/',
+            'method'      => 'POST',
+            'authType'    => 'AK',
+            'style'       => 'RPC',
+            'reqBodyType' => 'formData',
+            'bodyType'    => 'json',
+        ]);
+
+        return ModifyPurchasedDeviceResponse::fromMap($this->callApi($params, $req, $runtime));
+    }
+
+    /**
+     * @param ModifyPurchasedDeviceRequest $request
+     *
+     * @return ModifyPurchasedDeviceResponse
+     */
+    public function modifyPurchasedDevice($request)
+    {
+        $runtime = new RuntimeOptions([]);
+
+        return $this->modifyPurchasedDeviceWithOptions($request, $runtime);
+    }
+
+    /**
      * @param ModifyTemplateRequest $request
      * @param RuntimeOptions        $runtime
      *
@@ -3259,11 +7774,86 @@ class Vs extends OpenApiClient
     public function modifyTemplateWithOptions($request, $runtime)
     {
         Utils::validateModel($request);
+        $query = [];
+        if (!Utils::isUnset($request->callback)) {
+            $query['Callback'] = $request->callback;
+        }
+        if (!Utils::isUnset($request->description)) {
+            $query['Description'] = $request->description;
+        }
+        if (!Utils::isUnset($request->fileFormat)) {
+            $query['FileFormat'] = $request->fileFormat;
+        }
+        if (!Utils::isUnset($request->flv)) {
+            $query['Flv'] = $request->flv;
+        }
+        if (!Utils::isUnset($request->hlsM3u8)) {
+            $query['HlsM3u8'] = $request->hlsM3u8;
+        }
+        if (!Utils::isUnset($request->hlsTs)) {
+            $query['HlsTs'] = $request->hlsTs;
+        }
+        if (!Utils::isUnset($request->id)) {
+            $query['Id'] = $request->id;
+        }
+        if (!Utils::isUnset($request->interval)) {
+            $query['Interval'] = $request->interval;
+        }
+        if (!Utils::isUnset($request->jpgOnDemand)) {
+            $query['JpgOnDemand'] = $request->jpgOnDemand;
+        }
+        if (!Utils::isUnset($request->jpgOverwrite)) {
+            $query['JpgOverwrite'] = $request->jpgOverwrite;
+        }
+        if (!Utils::isUnset($request->jpgSequence)) {
+            $query['JpgSequence'] = $request->jpgSequence;
+        }
+        if (!Utils::isUnset($request->mp4)) {
+            $query['Mp4'] = $request->mp4;
+        }
+        if (!Utils::isUnset($request->name)) {
+            $query['Name'] = $request->name;
+        }
+        if (!Utils::isUnset($request->ossBucket)) {
+            $query['OssBucket'] = $request->ossBucket;
+        }
+        if (!Utils::isUnset($request->ossEndpoint)) {
+            $query['OssEndpoint'] = $request->ossEndpoint;
+        }
+        if (!Utils::isUnset($request->ossFilePrefix)) {
+            $query['OssFilePrefix'] = $request->ossFilePrefix;
+        }
+        if (!Utils::isUnset($request->ownerId)) {
+            $query['OwnerId'] = $request->ownerId;
+        }
+        if (!Utils::isUnset($request->region)) {
+            $query['Region'] = $request->region;
+        }
+        if (!Utils::isUnset($request->retention)) {
+            $query['Retention'] = $request->retention;
+        }
+        if (!Utils::isUnset($request->transConfigsJSON)) {
+            $query['TransConfigsJSON'] = $request->transConfigsJSON;
+        }
+        if (!Utils::isUnset($request->trigger)) {
+            $query['Trigger'] = $request->trigger;
+        }
         $req = new OpenApiRequest([
-            'body' => Utils::toMap($request),
+            'query' => OpenApiUtilClient::query($query),
+        ]);
+        $params = new Params([
+            'action'      => 'ModifyTemplate',
+            'version'     => '2018-12-12',
+            'protocol'    => 'HTTPS',
+            'pathname'    => '/',
+            'method'      => 'POST',
+            'authType'    => 'AK',
+            'style'       => 'RPC',
+            'reqBodyType' => 'formData',
+            'bodyType'    => 'json',
         ]);
 
-        return ModifyTemplateResponse::fromMap($this->doRPCRequest('ModifyTemplate', '2018-12-12', 'HTTPS', 'POST', 'AK', 'json', $req, $runtime));
+        return ModifyTemplateResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
@@ -3285,9 +7875,20 @@ class Vs extends OpenApiClient
      */
     public function openVsServiceWithOptions($runtime)
     {
-        $req = new OpenApiRequest([]);
+        $req    = new OpenApiRequest([]);
+        $params = new Params([
+            'action'      => 'OpenVsService',
+            'version'     => '2018-12-12',
+            'protocol'    => 'HTTPS',
+            'pathname'    => '/',
+            'method'      => 'POST',
+            'authType'    => 'AK',
+            'style'       => 'RPC',
+            'reqBodyType' => 'formData',
+            'bodyType'    => 'json',
+        ]);
 
-        return OpenVsServiceResponse::fromMap($this->doRPCRequest('OpenVsService', '2018-12-12', 'HTTPS', 'POST', 'AK', 'json', $req, $runtime));
+        return OpenVsServiceResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
@@ -3301,6 +7902,58 @@ class Vs extends OpenApiClient
     }
 
     /**
+     * @param OperateRenderingDevicesRequest $request
+     * @param RuntimeOptions                 $runtime
+     *
+     * @return OperateRenderingDevicesResponse
+     */
+    public function operateRenderingDevicesWithOptions($request, $runtime)
+    {
+        Utils::validateModel($request);
+        $query = [];
+        if (!Utils::isUnset($request->instanceIds)) {
+            $query['InstanceIds'] = $request->instanceIds;
+        }
+        if (!Utils::isUnset($request->operation)) {
+            $query['Operation'] = $request->operation;
+        }
+        if (!Utils::isUnset($request->ownerId)) {
+            $query['OwnerId'] = $request->ownerId;
+        }
+        if (!Utils::isUnset($request->podId)) {
+            $query['PodId'] = $request->podId;
+        }
+        $req = new OpenApiRequest([
+            'query' => OpenApiUtilClient::query($query),
+        ]);
+        $params = new Params([
+            'action'      => 'OperateRenderingDevices',
+            'version'     => '2018-12-12',
+            'protocol'    => 'HTTPS',
+            'pathname'    => '/',
+            'method'      => 'POST',
+            'authType'    => 'AK',
+            'style'       => 'RPC',
+            'reqBodyType' => 'formData',
+            'bodyType'    => 'json',
+        ]);
+
+        return OperateRenderingDevicesResponse::fromMap($this->callApi($params, $req, $runtime));
+    }
+
+    /**
+     * @param OperateRenderingDevicesRequest $request
+     *
+     * @return OperateRenderingDevicesResponse
+     */
+    public function operateRenderingDevices($request)
+    {
+        $runtime = new RuntimeOptions([]);
+
+        return $this->operateRenderingDevicesWithOptions($request, $runtime);
+    }
+
+    /**
      * @param PrepareUploadRequest $request
      * @param RuntimeOptions       $runtime
      *
@@ -3309,11 +7962,32 @@ class Vs extends OpenApiClient
     public function prepareUploadWithOptions($request, $runtime)
     {
         Utils::validateModel($request);
+        $query = [];
+        if (!Utils::isUnset($request->bucketName)) {
+            $query['BucketName'] = $request->bucketName;
+        }
+        if (!Utils::isUnset($request->clientIp)) {
+            $query['ClientIp'] = $request->clientIp;
+        }
+        if (!Utils::isUnset($request->ownerId)) {
+            $query['OwnerId'] = $request->ownerId;
+        }
         $req = new OpenApiRequest([
-            'body' => Utils::toMap($request),
+            'query' => OpenApiUtilClient::query($query),
+        ]);
+        $params = new Params([
+            'action'      => 'PrepareUpload',
+            'version'     => '2018-12-12',
+            'protocol'    => 'HTTPS',
+            'pathname'    => '/',
+            'method'      => 'POST',
+            'authType'    => 'AK',
+            'style'       => 'RPC',
+            'reqBodyType' => 'formData',
+            'bodyType'    => 'json',
         ]);
 
-        return PrepareUploadResponse::fromMap($this->doRPCRequest('PrepareUpload', '2018-12-12', 'HTTPS', 'POST', 'AK', 'json', $req, $runtime));
+        return PrepareUploadResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
@@ -3337,11 +8011,50 @@ class Vs extends OpenApiClient
     public function putBucketWithOptions($request, $runtime)
     {
         Utils::validateModel($request);
+        $query = [];
+        if (!Utils::isUnset($request->bucketAcl)) {
+            $query['BucketAcl'] = $request->bucketAcl;
+        }
+        if (!Utils::isUnset($request->bucketName)) {
+            $query['BucketName'] = $request->bucketName;
+        }
+        if (!Utils::isUnset($request->comment)) {
+            $query['Comment'] = $request->comment;
+        }
+        if (!Utils::isUnset($request->dataRedundancyType)) {
+            $query['DataRedundancyType'] = $request->dataRedundancyType;
+        }
+        if (!Utils::isUnset($request->dispatcherType)) {
+            $query['DispatcherType'] = $request->dispatcherType;
+        }
+        if (!Utils::isUnset($request->endpoint)) {
+            $query['Endpoint'] = $request->endpoint;
+        }
+        if (!Utils::isUnset($request->ownerId)) {
+            $query['OwnerId'] = $request->ownerId;
+        }
+        if (!Utils::isUnset($request->resourceType)) {
+            $query['ResourceType'] = $request->resourceType;
+        }
+        if (!Utils::isUnset($request->storageClass)) {
+            $query['StorageClass'] = $request->storageClass;
+        }
         $req = new OpenApiRequest([
-            'body' => Utils::toMap($request),
+            'query' => OpenApiUtilClient::query($query),
+        ]);
+        $params = new Params([
+            'action'      => 'PutBucket',
+            'version'     => '2018-12-12',
+            'protocol'    => 'HTTPS',
+            'pathname'    => '/',
+            'method'      => 'POST',
+            'authType'    => 'AK',
+            'style'       => 'RPC',
+            'reqBodyType' => 'formData',
+            'bodyType'    => 'json',
         ]);
 
-        return PutBucketResponse::fromMap($this->doRPCRequest('PutBucket', '2018-12-12', 'HTTPS', 'POST', 'AK', 'json', $req, $runtime));
+        return PutBucketResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
@@ -3357,6 +8070,58 @@ class Vs extends OpenApiClient
     }
 
     /**
+     * @param ResetRenderingDevicesRequest $request
+     * @param RuntimeOptions               $runtime
+     *
+     * @return ResetRenderingDevicesResponse
+     */
+    public function resetRenderingDevicesWithOptions($request, $runtime)
+    {
+        Utils::validateModel($request);
+        $query = [];
+        if (!Utils::isUnset($request->imageId)) {
+            $query['ImageId'] = $request->imageId;
+        }
+        if (!Utils::isUnset($request->instanceIds)) {
+            $query['InstanceIds'] = $request->instanceIds;
+        }
+        if (!Utils::isUnset($request->ownerId)) {
+            $query['OwnerId'] = $request->ownerId;
+        }
+        if (!Utils::isUnset($request->podId)) {
+            $query['PodId'] = $request->podId;
+        }
+        $req = new OpenApiRequest([
+            'query' => OpenApiUtilClient::query($query),
+        ]);
+        $params = new Params([
+            'action'      => 'ResetRenderingDevices',
+            'version'     => '2018-12-12',
+            'protocol'    => 'HTTPS',
+            'pathname'    => '/',
+            'method'      => 'POST',
+            'authType'    => 'AK',
+            'style'       => 'RPC',
+            'reqBodyType' => 'formData',
+            'bodyType'    => 'json',
+        ]);
+
+        return ResetRenderingDevicesResponse::fromMap($this->callApi($params, $req, $runtime));
+    }
+
+    /**
+     * @param ResetRenderingDevicesRequest $request
+     *
+     * @return ResetRenderingDevicesResponse
+     */
+    public function resetRenderingDevices($request)
+    {
+        $runtime = new RuntimeOptions([]);
+
+        return $this->resetRenderingDevicesWithOptions($request, $runtime);
+    }
+
+    /**
      * @param ResumeVsStreamRequest $request
      * @param RuntimeOptions        $runtime
      *
@@ -3365,11 +8130,41 @@ class Vs extends OpenApiClient
     public function resumeVsStreamWithOptions($request, $runtime)
     {
         Utils::validateModel($request);
+        $query = [];
+        if (!Utils::isUnset($request->appName)) {
+            $query['AppName'] = $request->appName;
+        }
+        if (!Utils::isUnset($request->controlStreamAction)) {
+            $query['ControlStreamAction'] = $request->controlStreamAction;
+        }
+        if (!Utils::isUnset($request->domainName)) {
+            $query['DomainName'] = $request->domainName;
+        }
+        if (!Utils::isUnset($request->liveStreamType)) {
+            $query['LiveStreamType'] = $request->liveStreamType;
+        }
+        if (!Utils::isUnset($request->ownerId)) {
+            $query['OwnerId'] = $request->ownerId;
+        }
+        if (!Utils::isUnset($request->streamName)) {
+            $query['StreamName'] = $request->streamName;
+        }
         $req = new OpenApiRequest([
-            'body' => Utils::toMap($request),
+            'query' => OpenApiUtilClient::query($query),
+        ]);
+        $params = new Params([
+            'action'      => 'ResumeVsStream',
+            'version'     => '2018-12-12',
+            'protocol'    => 'HTTPS',
+            'pathname'    => '/',
+            'method'      => 'POST',
+            'authType'    => 'AK',
+            'style'       => 'RPC',
+            'reqBodyType' => 'formData',
+            'bodyType'    => 'json',
         ]);
 
-        return ResumeVsStreamResponse::fromMap($this->doRPCRequest('ResumeVsStream', '2018-12-12', 'HTTPS', 'POST', 'AK', 'json', $req, $runtime));
+        return ResumeVsStreamResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
@@ -3393,11 +8188,32 @@ class Vs extends OpenApiClient
     public function setPresetWithOptions($request, $runtime)
     {
         Utils::validateModel($request);
+        $query = [];
+        if (!Utils::isUnset($request->id)) {
+            $query['Id'] = $request->id;
+        }
+        if (!Utils::isUnset($request->ownerId)) {
+            $query['OwnerId'] = $request->ownerId;
+        }
+        if (!Utils::isUnset($request->presetId)) {
+            $query['PresetId'] = $request->presetId;
+        }
         $req = new OpenApiRequest([
-            'body' => Utils::toMap($request),
+            'query' => OpenApiUtilClient::query($query),
+        ]);
+        $params = new Params([
+            'action'      => 'SetPreset',
+            'version'     => '2018-12-12',
+            'protocol'    => 'HTTPS',
+            'pathname'    => '/',
+            'method'      => 'POST',
+            'authType'    => 'AK',
+            'style'       => 'RPC',
+            'reqBodyType' => 'formData',
+            'bodyType'    => 'json',
         ]);
 
-        return SetPresetResponse::fromMap($this->doRPCRequest('SetPreset', '2018-12-12', 'HTTPS', 'POST', 'AK', 'json', $req, $runtime));
+        return SetPresetResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
@@ -3421,11 +8237,50 @@ class Vs extends OpenApiClient
     public function setVsDomainCertificateWithOptions($request, $runtime)
     {
         Utils::validateModel($request);
+        $query = [];
+        if (!Utils::isUnset($request->certName)) {
+            $query['CertName'] = $request->certName;
+        }
+        if (!Utils::isUnset($request->certType)) {
+            $query['CertType'] = $request->certType;
+        }
+        if (!Utils::isUnset($request->domainName)) {
+            $query['DomainName'] = $request->domainName;
+        }
+        if (!Utils::isUnset($request->forceSet)) {
+            $query['ForceSet'] = $request->forceSet;
+        }
+        if (!Utils::isUnset($request->ownerId)) {
+            $query['OwnerId'] = $request->ownerId;
+        }
+        if (!Utils::isUnset($request->region)) {
+            $query['Region'] = $request->region;
+        }
+        if (!Utils::isUnset($request->SSLPri)) {
+            $query['SSLPri'] = $request->SSLPri;
+        }
+        if (!Utils::isUnset($request->SSLProtocol)) {
+            $query['SSLProtocol'] = $request->SSLProtocol;
+        }
+        if (!Utils::isUnset($request->SSLPub)) {
+            $query['SSLPub'] = $request->SSLPub;
+        }
         $req = new OpenApiRequest([
-            'body' => Utils::toMap($request),
+            'query' => OpenApiUtilClient::query($query),
+        ]);
+        $params = new Params([
+            'action'      => 'SetVsDomainCertificate',
+            'version'     => '2018-12-12',
+            'protocol'    => 'HTTPS',
+            'pathname'    => '/',
+            'method'      => 'POST',
+            'authType'    => 'AK',
+            'style'       => 'RPC',
+            'reqBodyType' => 'formData',
+            'bodyType'    => 'json',
         ]);
 
-        return SetVsDomainCertificateResponse::fromMap($this->doRPCRequest('SetVsDomainCertificate', '2018-12-12', 'HTTPS', 'POST', 'AK', 'json', $req, $runtime));
+        return SetVsDomainCertificateResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
@@ -3449,11 +8304,38 @@ class Vs extends OpenApiClient
     public function setVsStreamsNotifyUrlConfigWithOptions($request, $runtime)
     {
         Utils::validateModel($request);
+        $query = [];
+        if (!Utils::isUnset($request->authKey)) {
+            $query['AuthKey'] = $request->authKey;
+        }
+        if (!Utils::isUnset($request->authType)) {
+            $query['AuthType'] = $request->authType;
+        }
+        if (!Utils::isUnset($request->domainName)) {
+            $query['DomainName'] = $request->domainName;
+        }
+        if (!Utils::isUnset($request->notifyUrl)) {
+            $query['NotifyUrl'] = $request->notifyUrl;
+        }
+        if (!Utils::isUnset($request->ownerId)) {
+            $query['OwnerId'] = $request->ownerId;
+        }
         $req = new OpenApiRequest([
-            'body' => Utils::toMap($request),
+            'query' => OpenApiUtilClient::query($query),
+        ]);
+        $params = new Params([
+            'action'      => 'SetVsStreamsNotifyUrlConfig',
+            'version'     => '2018-12-12',
+            'protocol'    => 'HTTPS',
+            'pathname'    => '/',
+            'method'      => 'POST',
+            'authType'    => 'AK',
+            'style'       => 'RPC',
+            'reqBodyType' => 'formData',
+            'bodyType'    => 'json',
         ]);
 
-        return SetVsStreamsNotifyUrlConfigResponse::fromMap($this->doRPCRequest('SetVsStreamsNotifyUrlConfig', '2018-12-12', 'HTTPS', 'POST', 'AK', 'json', $req, $runtime));
+        return SetVsStreamsNotifyUrlConfigResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
@@ -3477,11 +8359,29 @@ class Vs extends OpenApiClient
     public function startDeviceWithOptions($request, $runtime)
     {
         Utils::validateModel($request);
+        $query = [];
+        if (!Utils::isUnset($request->id)) {
+            $query['Id'] = $request->id;
+        }
+        if (!Utils::isUnset($request->ownerId)) {
+            $query['OwnerId'] = $request->ownerId;
+        }
         $req = new OpenApiRequest([
-            'body' => Utils::toMap($request),
+            'query' => OpenApiUtilClient::query($query),
+        ]);
+        $params = new Params([
+            'action'      => 'StartDevice',
+            'version'     => '2018-12-12',
+            'protocol'    => 'HTTPS',
+            'pathname'    => '/',
+            'method'      => 'POST',
+            'authType'    => 'AK',
+            'style'       => 'RPC',
+            'reqBodyType' => 'formData',
+            'bodyType'    => 'json',
         ]);
 
-        return StartDeviceResponse::fromMap($this->doRPCRequest('StartDevice', '2018-12-12', 'HTTPS', 'POST', 'AK', 'json', $req, $runtime));
+        return StartDeviceResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
@@ -3505,11 +8405,29 @@ class Vs extends OpenApiClient
     public function startParentPlatformWithOptions($request, $runtime)
     {
         Utils::validateModel($request);
+        $query = [];
+        if (!Utils::isUnset($request->id)) {
+            $query['Id'] = $request->id;
+        }
+        if (!Utils::isUnset($request->ownerId)) {
+            $query['OwnerId'] = $request->ownerId;
+        }
         $req = new OpenApiRequest([
-            'body' => Utils::toMap($request),
+            'query' => OpenApiUtilClient::query($query),
+        ]);
+        $params = new Params([
+            'action'      => 'StartParentPlatform',
+            'version'     => '2018-12-12',
+            'protocol'    => 'HTTPS',
+            'pathname'    => '/',
+            'method'      => 'POST',
+            'authType'    => 'AK',
+            'style'       => 'RPC',
+            'reqBodyType' => 'formData',
+            'bodyType'    => 'json',
         ]);
 
-        return StartParentPlatformResponse::fromMap($this->doRPCRequest('StartParentPlatform', '2018-12-12', 'HTTPS', 'POST', 'AK', 'json', $req, $runtime));
+        return StartParentPlatformResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
@@ -3533,11 +8451,38 @@ class Vs extends OpenApiClient
     public function startRecordStreamWithOptions($request, $runtime)
     {
         Utils::validateModel($request);
+        $query = [];
+        if (!Utils::isUnset($request->app)) {
+            $query['App'] = $request->app;
+        }
+        if (!Utils::isUnset($request->id)) {
+            $query['Id'] = $request->id;
+        }
+        if (!Utils::isUnset($request->name)) {
+            $query['Name'] = $request->name;
+        }
+        if (!Utils::isUnset($request->ownerId)) {
+            $query['OwnerId'] = $request->ownerId;
+        }
+        if (!Utils::isUnset($request->playDomain)) {
+            $query['PlayDomain'] = $request->playDomain;
+        }
         $req = new OpenApiRequest([
-            'body' => Utils::toMap($request),
+            'query' => OpenApiUtilClient::query($query),
+        ]);
+        $params = new Params([
+            'action'      => 'StartRecordStream',
+            'version'     => '2018-12-12',
+            'protocol'    => 'HTTPS',
+            'pathname'    => '/',
+            'method'      => 'POST',
+            'authType'    => 'AK',
+            'style'       => 'RPC',
+            'reqBodyType' => 'formData',
+            'bodyType'    => 'json',
         ]);
 
-        return StartRecordStreamResponse::fromMap($this->doRPCRequest('StartRecordStream', '2018-12-12', 'HTTPS', 'POST', 'AK', 'json', $req, $runtime));
+        return StartRecordStreamResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
@@ -3561,11 +8506,35 @@ class Vs extends OpenApiClient
     public function startStreamWithOptions($request, $runtime)
     {
         Utils::validateModel($request);
+        $query = [];
+        if (!Utils::isUnset($request->endTime)) {
+            $query['EndTime'] = $request->endTime;
+        }
+        if (!Utils::isUnset($request->id)) {
+            $query['Id'] = $request->id;
+        }
+        if (!Utils::isUnset($request->ownerId)) {
+            $query['OwnerId'] = $request->ownerId;
+        }
+        if (!Utils::isUnset($request->startTime)) {
+            $query['StartTime'] = $request->startTime;
+        }
         $req = new OpenApiRequest([
-            'body' => Utils::toMap($request),
+            'query' => OpenApiUtilClient::query($query),
+        ]);
+        $params = new Params([
+            'action'      => 'StartStream',
+            'version'     => '2018-12-12',
+            'protocol'    => 'HTTPS',
+            'pathname'    => '/',
+            'method'      => 'POST',
+            'authType'    => 'AK',
+            'style'       => 'RPC',
+            'reqBodyType' => 'formData',
+            'bodyType'    => 'json',
         ]);
 
-        return StartStreamResponse::fromMap($this->doRPCRequest('StartStream', '2018-12-12', 'HTTPS', 'POST', 'AK', 'json', $req, $runtime));
+        return StartStreamResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
@@ -3589,11 +8558,35 @@ class Vs extends OpenApiClient
     public function startTransferStreamWithOptions($request, $runtime)
     {
         Utils::validateModel($request);
+        $query = [];
+        if (!Utils::isUnset($request->id)) {
+            $query['Id'] = $request->id;
+        }
+        if (!Utils::isUnset($request->ownerId)) {
+            $query['OwnerId'] = $request->ownerId;
+        }
+        if (!Utils::isUnset($request->transcode)) {
+            $query['Transcode'] = $request->transcode;
+        }
+        if (!Utils::isUnset($request->url)) {
+            $query['Url'] = $request->url;
+        }
         $req = new OpenApiRequest([
-            'body' => Utils::toMap($request),
+            'query' => OpenApiUtilClient::query($query),
+        ]);
+        $params = new Params([
+            'action'      => 'StartTransferStream',
+            'version'     => '2018-12-12',
+            'protocol'    => 'HTTPS',
+            'pathname'    => '/',
+            'method'      => 'POST',
+            'authType'    => 'AK',
+            'style'       => 'RPC',
+            'reqBodyType' => 'formData',
+            'bodyType'    => 'json',
         ]);
 
-        return StartTransferStreamResponse::fromMap($this->doRPCRequest('StartTransferStream', '2018-12-12', 'HTTPS', 'POST', 'AK', 'json', $req, $runtime));
+        return StartTransferStreamResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
@@ -3617,11 +8610,35 @@ class Vs extends OpenApiClient
     public function stopAdjustWithOptions($request, $runtime)
     {
         Utils::validateModel($request);
+        $query = [];
+        if (!Utils::isUnset($request->focus)) {
+            $query['Focus'] = $request->focus;
+        }
+        if (!Utils::isUnset($request->id)) {
+            $query['Id'] = $request->id;
+        }
+        if (!Utils::isUnset($request->iris)) {
+            $query['Iris'] = $request->iris;
+        }
+        if (!Utils::isUnset($request->ownerId)) {
+            $query['OwnerId'] = $request->ownerId;
+        }
         $req = new OpenApiRequest([
-            'body' => Utils::toMap($request),
+            'query' => OpenApiUtilClient::query($query),
+        ]);
+        $params = new Params([
+            'action'      => 'StopAdjust',
+            'version'     => '2018-12-12',
+            'protocol'    => 'HTTPS',
+            'pathname'    => '/',
+            'method'      => 'POST',
+            'authType'    => 'AK',
+            'style'       => 'RPC',
+            'reqBodyType' => 'formData',
+            'bodyType'    => 'json',
         ]);
 
-        return StopAdjustResponse::fromMap($this->doRPCRequest('StopAdjust', '2018-12-12', 'HTTPS', 'POST', 'AK', 'json', $req, $runtime));
+        return StopAdjustResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
@@ -3645,11 +8662,32 @@ class Vs extends OpenApiClient
     public function stopDeviceWithOptions($request, $runtime)
     {
         Utils::validateModel($request);
+        $query = [];
+        if (!Utils::isUnset($request->id)) {
+            $query['Id'] = $request->id;
+        }
+        if (!Utils::isUnset($request->ownerId)) {
+            $query['OwnerId'] = $request->ownerId;
+        }
+        if (!Utils::isUnset($request->startTime)) {
+            $query['StartTime'] = $request->startTime;
+        }
         $req = new OpenApiRequest([
-            'body' => Utils::toMap($request),
+            'query' => OpenApiUtilClient::query($query),
+        ]);
+        $params = new Params([
+            'action'      => 'StopDevice',
+            'version'     => '2018-12-12',
+            'protocol'    => 'HTTPS',
+            'pathname'    => '/',
+            'method'      => 'POST',
+            'authType'    => 'AK',
+            'style'       => 'RPC',
+            'reqBodyType' => 'formData',
+            'bodyType'    => 'json',
         ]);
 
-        return StopDeviceResponse::fromMap($this->doRPCRequest('StopDevice', '2018-12-12', 'HTTPS', 'POST', 'AK', 'json', $req, $runtime));
+        return StopDeviceResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
@@ -3673,11 +8711,38 @@ class Vs extends OpenApiClient
     public function stopMoveWithOptions($request, $runtime)
     {
         Utils::validateModel($request);
+        $query = [];
+        if (!Utils::isUnset($request->id)) {
+            $query['Id'] = $request->id;
+        }
+        if (!Utils::isUnset($request->ownerId)) {
+            $query['OwnerId'] = $request->ownerId;
+        }
+        if (!Utils::isUnset($request->pan)) {
+            $query['Pan'] = $request->pan;
+        }
+        if (!Utils::isUnset($request->tilt)) {
+            $query['Tilt'] = $request->tilt;
+        }
+        if (!Utils::isUnset($request->zoom)) {
+            $query['Zoom'] = $request->zoom;
+        }
         $req = new OpenApiRequest([
-            'body' => Utils::toMap($request),
+            'query' => OpenApiUtilClient::query($query),
+        ]);
+        $params = new Params([
+            'action'      => 'StopMove',
+            'version'     => '2018-12-12',
+            'protocol'    => 'HTTPS',
+            'pathname'    => '/',
+            'method'      => 'POST',
+            'authType'    => 'AK',
+            'style'       => 'RPC',
+            'reqBodyType' => 'formData',
+            'bodyType'    => 'json',
         ]);
 
-        return StopMoveResponse::fromMap($this->doRPCRequest('StopMove', '2018-12-12', 'HTTPS', 'POST', 'AK', 'json', $req, $runtime));
+        return StopMoveResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
@@ -3693,6 +8758,52 @@ class Vs extends OpenApiClient
     }
 
     /**
+     * @param StopParentPlatformRequest $request
+     * @param RuntimeOptions            $runtime
+     *
+     * @return StopParentPlatformResponse
+     */
+    public function stopParentPlatformWithOptions($request, $runtime)
+    {
+        Utils::validateModel($request);
+        $query = [];
+        if (!Utils::isUnset($request->id)) {
+            $query['Id'] = $request->id;
+        }
+        if (!Utils::isUnset($request->ownerId)) {
+            $query['OwnerId'] = $request->ownerId;
+        }
+        $req = new OpenApiRequest([
+            'query' => OpenApiUtilClient::query($query),
+        ]);
+        $params = new Params([
+            'action'      => 'StopParentPlatform',
+            'version'     => '2018-12-12',
+            'protocol'    => 'HTTPS',
+            'pathname'    => '/',
+            'method'      => 'POST',
+            'authType'    => 'AK',
+            'style'       => 'RPC',
+            'reqBodyType' => 'formData',
+            'bodyType'    => 'json',
+        ]);
+
+        return StopParentPlatformResponse::fromMap($this->callApi($params, $req, $runtime));
+    }
+
+    /**
+     * @param StopParentPlatformRequest $request
+     *
+     * @return StopParentPlatformResponse
+     */
+    public function stopParentPlatform($request)
+    {
+        $runtime = new RuntimeOptions([]);
+
+        return $this->stopParentPlatformWithOptions($request, $runtime);
+    }
+
+    /**
      * @param StopRecordStreamRequest $request
      * @param RuntimeOptions          $runtime
      *
@@ -3701,11 +8812,38 @@ class Vs extends OpenApiClient
     public function stopRecordStreamWithOptions($request, $runtime)
     {
         Utils::validateModel($request);
+        $query = [];
+        if (!Utils::isUnset($request->app)) {
+            $query['App'] = $request->app;
+        }
+        if (!Utils::isUnset($request->id)) {
+            $query['Id'] = $request->id;
+        }
+        if (!Utils::isUnset($request->name)) {
+            $query['Name'] = $request->name;
+        }
+        if (!Utils::isUnset($request->ownerId)) {
+            $query['OwnerId'] = $request->ownerId;
+        }
+        if (!Utils::isUnset($request->playDomain)) {
+            $query['PlayDomain'] = $request->playDomain;
+        }
         $req = new OpenApiRequest([
-            'body' => Utils::toMap($request),
+            'query' => OpenApiUtilClient::query($query),
+        ]);
+        $params = new Params([
+            'action'      => 'StopRecordStream',
+            'version'     => '2018-12-12',
+            'protocol'    => 'HTTPS',
+            'pathname'    => '/',
+            'method'      => 'POST',
+            'authType'    => 'AK',
+            'style'       => 'RPC',
+            'reqBodyType' => 'formData',
+            'bodyType'    => 'json',
         ]);
 
-        return StopRecordStreamResponse::fromMap($this->doRPCRequest('StopRecordStream', '2018-12-12', 'HTTPS', 'POST', 'AK', 'json', $req, $runtime));
+        return StopRecordStreamResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
@@ -3729,11 +8867,35 @@ class Vs extends OpenApiClient
     public function stopStreamWithOptions($request, $runtime)
     {
         Utils::validateModel($request);
+        $query = [];
+        if (!Utils::isUnset($request->id)) {
+            $query['Id'] = $request->id;
+        }
+        if (!Utils::isUnset($request->name)) {
+            $query['Name'] = $request->name;
+        }
+        if (!Utils::isUnset($request->ownerId)) {
+            $query['OwnerId'] = $request->ownerId;
+        }
+        if (!Utils::isUnset($request->startTime)) {
+            $query['StartTime'] = $request->startTime;
+        }
         $req = new OpenApiRequest([
-            'body' => Utils::toMap($request),
+            'query' => OpenApiUtilClient::query($query),
+        ]);
+        $params = new Params([
+            'action'      => 'StopStream',
+            'version'     => '2018-12-12',
+            'protocol'    => 'HTTPS',
+            'pathname'    => '/',
+            'method'      => 'POST',
+            'authType'    => 'AK',
+            'style'       => 'RPC',
+            'reqBodyType' => 'formData',
+            'bodyType'    => 'json',
         ]);
 
-        return StopStreamResponse::fromMap($this->doRPCRequest('StopStream', '2018-12-12', 'HTTPS', 'POST', 'AK', 'json', $req, $runtime));
+        return StopStreamResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
@@ -3757,11 +8919,32 @@ class Vs extends OpenApiClient
     public function stopTransferStreamWithOptions($request, $runtime)
     {
         Utils::validateModel($request);
+        $query = [];
+        if (!Utils::isUnset($request->id)) {
+            $query['Id'] = $request->id;
+        }
+        if (!Utils::isUnset($request->ownerId)) {
+            $query['OwnerId'] = $request->ownerId;
+        }
+        if (!Utils::isUnset($request->transcode)) {
+            $query['Transcode'] = $request->transcode;
+        }
         $req = new OpenApiRequest([
-            'body' => Utils::toMap($request),
+            'query' => OpenApiUtilClient::query($query),
+        ]);
+        $params = new Params([
+            'action'      => 'StopTransferStream',
+            'version'     => '2018-12-12',
+            'protocol'    => 'HTTPS',
+            'pathname'    => '/',
+            'method'      => 'POST',
+            'authType'    => 'AK',
+            'style'       => 'RPC',
+            'reqBodyType' => 'formData',
+            'bodyType'    => 'json',
         ]);
 
-        return StopTransferStreamResponse::fromMap($this->doRPCRequest('StopTransferStream', '2018-12-12', 'HTTPS', 'POST', 'AK', 'json', $req, $runtime));
+        return StopTransferStreamResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
@@ -3785,11 +8968,29 @@ class Vs extends OpenApiClient
     public function syncCatalogsWithOptions($request, $runtime)
     {
         Utils::validateModel($request);
+        $query = [];
+        if (!Utils::isUnset($request->id)) {
+            $query['Id'] = $request->id;
+        }
+        if (!Utils::isUnset($request->ownerId)) {
+            $query['OwnerId'] = $request->ownerId;
+        }
         $req = new OpenApiRequest([
-            'body' => Utils::toMap($request),
+            'query' => OpenApiUtilClient::query($query),
+        ]);
+        $params = new Params([
+            'action'      => 'SyncCatalogs',
+            'version'     => '2018-12-12',
+            'protocol'    => 'HTTPS',
+            'pathname'    => '/',
+            'method'      => 'POST',
+            'authType'    => 'AK',
+            'style'       => 'RPC',
+            'reqBodyType' => 'formData',
+            'bodyType'    => 'json',
         ]);
 
-        return SyncCatalogsResponse::fromMap($this->doRPCRequest('SyncCatalogs', '2018-12-12', 'HTTPS', 'POST', 'AK', 'json', $req, $runtime));
+        return SyncCatalogsResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
@@ -3813,11 +9014,29 @@ class Vs extends OpenApiClient
     public function syncDeviceChannelsWithOptions($request, $runtime)
     {
         Utils::validateModel($request);
+        $query = [];
+        if (!Utils::isUnset($request->deviceId)) {
+            $query['DeviceId'] = $request->deviceId;
+        }
+        if (!Utils::isUnset($request->ownerId)) {
+            $query['OwnerId'] = $request->ownerId;
+        }
         $req = new OpenApiRequest([
-            'body' => Utils::toMap($request),
+            'query' => OpenApiUtilClient::query($query),
+        ]);
+        $params = new Params([
+            'action'      => 'SyncDeviceChannels',
+            'version'     => '2018-12-12',
+            'protocol'    => 'HTTPS',
+            'pathname'    => '/',
+            'method'      => 'POST',
+            'authType'    => 'AK',
+            'style'       => 'RPC',
+            'reqBodyType' => 'formData',
+            'bodyType'    => 'json',
         ]);
 
-        return SyncDeviceChannelsResponse::fromMap($this->doRPCRequest('SyncDeviceChannels', '2018-12-12', 'HTTPS', 'POST', 'AK', 'json', $req, $runtime));
+        return SyncDeviceChannelsResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
@@ -3841,11 +9060,32 @@ class Vs extends OpenApiClient
     public function unbindDirectoryWithOptions($request, $runtime)
     {
         Utils::validateModel($request);
+        $query = [];
+        if (!Utils::isUnset($request->deviceId)) {
+            $query['DeviceId'] = $request->deviceId;
+        }
+        if (!Utils::isUnset($request->directoryId)) {
+            $query['DirectoryId'] = $request->directoryId;
+        }
+        if (!Utils::isUnset($request->ownerId)) {
+            $query['OwnerId'] = $request->ownerId;
+        }
         $req = new OpenApiRequest([
-            'body' => Utils::toMap($request),
+            'query' => OpenApiUtilClient::query($query),
+        ]);
+        $params = new Params([
+            'action'      => 'UnbindDirectory',
+            'version'     => '2018-12-12',
+            'protocol'    => 'HTTPS',
+            'pathname'    => '/',
+            'method'      => 'POST',
+            'authType'    => 'AK',
+            'style'       => 'RPC',
+            'reqBodyType' => 'formData',
+            'bodyType'    => 'json',
         ]);
 
-        return UnbindDirectoryResponse::fromMap($this->doRPCRequest('UnbindDirectory', '2018-12-12', 'HTTPS', 'POST', 'AK', 'json', $req, $runtime));
+        return UnbindDirectoryResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
@@ -3869,11 +9109,32 @@ class Vs extends OpenApiClient
     public function unbindParentPlatformDeviceWithOptions($request, $runtime)
     {
         Utils::validateModel($request);
+        $query = [];
+        if (!Utils::isUnset($request->deviceId)) {
+            $query['DeviceId'] = $request->deviceId;
+        }
+        if (!Utils::isUnset($request->ownerId)) {
+            $query['OwnerId'] = $request->ownerId;
+        }
+        if (!Utils::isUnset($request->parentPlatformId)) {
+            $query['ParentPlatformId'] = $request->parentPlatformId;
+        }
         $req = new OpenApiRequest([
-            'body' => Utils::toMap($request),
+            'query' => OpenApiUtilClient::query($query),
+        ]);
+        $params = new Params([
+            'action'      => 'UnbindParentPlatformDevice',
+            'version'     => '2018-12-12',
+            'protocol'    => 'HTTPS',
+            'pathname'    => '/',
+            'method'      => 'POST',
+            'authType'    => 'AK',
+            'style'       => 'RPC',
+            'reqBodyType' => 'formData',
+            'bodyType'    => 'json',
         ]);
 
-        return UnbindParentPlatformDeviceResponse::fromMap($this->doRPCRequest('UnbindParentPlatformDevice', '2018-12-12', 'HTTPS', 'POST', 'AK', 'json', $req, $runtime));
+        return UnbindParentPlatformDeviceResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
@@ -3897,11 +9158,29 @@ class Vs extends OpenApiClient
     public function unbindPurchasedDeviceWithOptions($request, $runtime)
     {
         Utils::validateModel($request);
+        $query = [];
+        if (!Utils::isUnset($request->deviceId)) {
+            $query['DeviceId'] = $request->deviceId;
+        }
+        if (!Utils::isUnset($request->ownerId)) {
+            $query['OwnerId'] = $request->ownerId;
+        }
         $req = new OpenApiRequest([
-            'body' => Utils::toMap($request),
+            'query' => OpenApiUtilClient::query($query),
+        ]);
+        $params = new Params([
+            'action'      => 'UnbindPurchasedDevice',
+            'version'     => '2018-12-12',
+            'protocol'    => 'HTTPS',
+            'pathname'    => '/',
+            'method'      => 'POST',
+            'authType'    => 'AK',
+            'style'       => 'RPC',
+            'reqBodyType' => 'formData',
+            'bodyType'    => 'json',
         ]);
 
-        return UnbindPurchasedDeviceResponse::fromMap($this->doRPCRequest('UnbindPurchasedDevice', '2018-12-12', 'HTTPS', 'POST', 'AK', 'json', $req, $runtime));
+        return UnbindPurchasedDeviceResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
@@ -3925,11 +9204,38 @@ class Vs extends OpenApiClient
     public function unbindTemplateWithOptions($request, $runtime)
     {
         Utils::validateModel($request);
+        $query = [];
+        if (!Utils::isUnset($request->instanceId)) {
+            $query['InstanceId'] = $request->instanceId;
+        }
+        if (!Utils::isUnset($request->instanceType)) {
+            $query['InstanceType'] = $request->instanceType;
+        }
+        if (!Utils::isUnset($request->ownerId)) {
+            $query['OwnerId'] = $request->ownerId;
+        }
+        if (!Utils::isUnset($request->templateId)) {
+            $query['TemplateId'] = $request->templateId;
+        }
+        if (!Utils::isUnset($request->templateType)) {
+            $query['TemplateType'] = $request->templateType;
+        }
         $req = new OpenApiRequest([
-            'body' => Utils::toMap($request),
+            'query' => OpenApiUtilClient::query($query),
+        ]);
+        $params = new Params([
+            'action'      => 'UnbindTemplate',
+            'version'     => '2018-12-12',
+            'protocol'    => 'HTTPS',
+            'pathname'    => '/',
+            'method'      => 'POST',
+            'authType'    => 'AK',
+            'style'       => 'RPC',
+            'reqBodyType' => 'formData',
+            'bodyType'    => 'json',
         ]);
 
-        return UnbindTemplateResponse::fromMap($this->doRPCRequest('UnbindTemplate', '2018-12-12', 'HTTPS', 'POST', 'AK', 'json', $req, $runtime));
+        return UnbindTemplateResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
@@ -3953,11 +9259,29 @@ class Vs extends OpenApiClient
     public function unlockDeviceWithOptions($request, $runtime)
     {
         Utils::validateModel($request);
+        $query = [];
+        if (!Utils::isUnset($request->id)) {
+            $query['Id'] = $request->id;
+        }
+        if (!Utils::isUnset($request->ownerId)) {
+            $query['OwnerId'] = $request->ownerId;
+        }
         $req = new OpenApiRequest([
-            'body' => Utils::toMap($request),
+            'query' => OpenApiUtilClient::query($query),
+        ]);
+        $params = new Params([
+            'action'      => 'UnlockDevice',
+            'version'     => '2018-12-12',
+            'protocol'    => 'HTTPS',
+            'pathname'    => '/',
+            'method'      => 'POST',
+            'authType'    => 'AK',
+            'style'       => 'RPC',
+            'reqBodyType' => 'formData',
+            'bodyType'    => 'json',
         ]);
 
-        return UnlockDeviceResponse::fromMap($this->doRPCRequest('UnlockDevice', '2018-12-12', 'HTTPS', 'POST', 'AK', 'json', $req, $runtime));
+        return UnlockDeviceResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
@@ -3973,6 +9297,73 @@ class Vs extends OpenApiClient
     }
 
     /**
+     * @param UpdateAIConfigRequest $request
+     * @param RuntimeOptions        $runtime
+     *
+     * @return UpdateAIConfigResponse
+     */
+    public function updateAIConfigWithOptions($request, $runtime)
+    {
+        Utils::validateModel($request);
+        $query = [];
+        if (!Utils::isUnset($request->captureInterval)) {
+            $query['CaptureInterval'] = $request->captureInterval;
+        }
+        if (!Utils::isUnset($request->configId)) {
+            $query['ConfigId'] = $request->configId;
+        }
+        if (!Utils::isUnset($request->configs)) {
+            $query['Configs'] = $request->configs;
+        }
+        if (!Utils::isUnset($request->description)) {
+            $query['Description'] = $request->description;
+        }
+        if (!Utils::isUnset($request->endTime)) {
+            $query['EndTime'] = $request->endTime;
+        }
+        if (!Utils::isUnset($request->features)) {
+            $query['Features'] = $request->features;
+        }
+        if (!Utils::isUnset($request->ownerId)) {
+            $query['OwnerId'] = $request->ownerId;
+        }
+        if (!Utils::isUnset($request->startTime)) {
+            $query['StartTime'] = $request->startTime;
+        }
+        if (!Utils::isUnset($request->status)) {
+            $query['Status'] = $request->status;
+        }
+        $req = new OpenApiRequest([
+            'query' => OpenApiUtilClient::query($query),
+        ]);
+        $params = new Params([
+            'action'      => 'UpdateAIConfig',
+            'version'     => '2018-12-12',
+            'protocol'    => 'HTTPS',
+            'pathname'    => '/',
+            'method'      => 'POST',
+            'authType'    => 'AK',
+            'style'       => 'RPC',
+            'reqBodyType' => 'formData',
+            'bodyType'    => 'json',
+        ]);
+
+        return UpdateAIConfigResponse::fromMap($this->callApi($params, $req, $runtime));
+    }
+
+    /**
+     * @param UpdateAIConfigRequest $request
+     *
+     * @return UpdateAIConfigResponse
+     */
+    public function updateAIConfig($request)
+    {
+        $runtime = new RuntimeOptions([]);
+
+        return $this->updateAIConfigWithOptions($request, $runtime);
+    }
+
+    /**
      * @param UpdateBucketInfoRequest $request
      * @param RuntimeOptions          $runtime
      *
@@ -3981,11 +9372,32 @@ class Vs extends OpenApiClient
     public function updateBucketInfoWithOptions($request, $runtime)
     {
         Utils::validateModel($request);
+        $query = [];
+        if (!Utils::isUnset($request->bucketName)) {
+            $query['BucketName'] = $request->bucketName;
+        }
+        if (!Utils::isUnset($request->comment)) {
+            $query['Comment'] = $request->comment;
+        }
+        if (!Utils::isUnset($request->ownerId)) {
+            $query['OwnerId'] = $request->ownerId;
+        }
         $req = new OpenApiRequest([
-            'body' => Utils::toMap($request),
+            'query' => OpenApiUtilClient::query($query),
+        ]);
+        $params = new Params([
+            'action'      => 'UpdateBucketInfo',
+            'version'     => '2018-12-12',
+            'protocol'    => 'HTTPS',
+            'pathname'    => '/',
+            'method'      => 'POST',
+            'authType'    => 'AK',
+            'style'       => 'RPC',
+            'reqBodyType' => 'formData',
+            'bodyType'    => 'json',
         ]);
 
-        return UpdateBucketInfoResponse::fromMap($this->doRPCRequest('UpdateBucketInfo', '2018-12-12', 'HTTPS', 'POST', 'AK', 'json', $req, $runtime));
+        return UpdateBucketInfoResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
@@ -4001,6 +9413,137 @@ class Vs extends OpenApiClient
     }
 
     /**
+     * @param UpdateClusterRequest $request
+     * @param RuntimeOptions       $runtime
+     *
+     * @return UpdateClusterResponse
+     */
+    public function updateClusterWithOptions($request, $runtime)
+    {
+        Utils::validateModel($request);
+        $query = [];
+        if (!Utils::isUnset($request->clusterId)) {
+            $query['ClusterId'] = $request->clusterId;
+        }
+        if (!Utils::isUnset($request->description)) {
+            $query['Description'] = $request->description;
+        }
+        if (!Utils::isUnset($request->effectiveTime)) {
+            $query['EffectiveTime'] = $request->effectiveTime;
+        }
+        if (!Utils::isUnset($request->internalPorts)) {
+            $query['InternalPorts'] = $request->internalPorts;
+        }
+        if (!Utils::isUnset($request->maintainTime)) {
+            $query['MaintainTime'] = $request->maintainTime;
+        }
+        if (!Utils::isUnset($request->name)) {
+            $query['Name'] = $request->name;
+        }
+        if (!Utils::isUnset($request->ownerId)) {
+            $query['OwnerId'] = $request->ownerId;
+        }
+        if (!Utils::isUnset($request->securityGroupId)) {
+            $query['SecurityGroupId'] = $request->securityGroupId;
+        }
+        $req = new OpenApiRequest([
+            'query' => OpenApiUtilClient::query($query),
+        ]);
+        $params = new Params([
+            'action'      => 'UpdateCluster',
+            'version'     => '2018-12-12',
+            'protocol'    => 'HTTPS',
+            'pathname'    => '/',
+            'method'      => 'POST',
+            'authType'    => 'AK',
+            'style'       => 'RPC',
+            'reqBodyType' => 'formData',
+            'bodyType'    => 'json',
+        ]);
+
+        return UpdateClusterResponse::fromMap($this->callApi($params, $req, $runtime));
+    }
+
+    /**
+     * @param UpdateClusterRequest $request
+     *
+     * @return UpdateClusterResponse
+     */
+    public function updateCluster($request)
+    {
+        $runtime = new RuntimeOptions([]);
+
+        return $this->updateClusterWithOptions($request, $runtime);
+    }
+
+    /**
+     * @param UpdateRenderingDeviceSpecRequest $request
+     * @param RuntimeOptions                   $runtime
+     *
+     * @return UpdateRenderingDeviceSpecResponse
+     */
+    public function updateRenderingDeviceSpecWithOptions($request, $runtime)
+    {
+        Utils::validateModel($request);
+        $query = [];
+        if (!Utils::isUnset($request->autoRenew)) {
+            $query['AutoRenew'] = $request->autoRenew;
+        }
+        if (!Utils::isUnset($request->autoRenewPeriod)) {
+            $query['AutoRenewPeriod'] = $request->autoRenewPeriod;
+        }
+        if (!Utils::isUnset($request->description)) {
+            $query['Description'] = $request->description;
+        }
+        if (!Utils::isUnset($request->effectiveTime)) {
+            $query['EffectiveTime'] = $request->effectiveTime;
+        }
+        if (!Utils::isUnset($request->instanceIds)) {
+            $query['InstanceIds'] = $request->instanceIds;
+        }
+        if (!Utils::isUnset($request->ownerId)) {
+            $query['OwnerId'] = $request->ownerId;
+        }
+        if (!Utils::isUnset($request->period)) {
+            $query['Period'] = $request->period;
+        }
+        if (!Utils::isUnset($request->periodUnit)) {
+            $query['PeriodUnit'] = $request->periodUnit;
+        }
+        if (!Utils::isUnset($request->specification)) {
+            $query['Specification'] = $request->specification;
+        }
+        $req = new OpenApiRequest([
+            'query' => OpenApiUtilClient::query($query),
+        ]);
+        $params = new Params([
+            'action'      => 'UpdateRenderingDeviceSpec',
+            'version'     => '2018-12-12',
+            'protocol'    => 'HTTPS',
+            'pathname'    => '/',
+            'method'      => 'POST',
+            'authType'    => 'AK',
+            'style'       => 'RPC',
+            'reqBodyType' => 'formData',
+            'bodyType'    => 'json',
+        ]);
+
+        return UpdateRenderingDeviceSpecResponse::fromMap($this->callApi($params, $req, $runtime));
+    }
+
+    /**
+     * @param UpdateRenderingDeviceSpecRequest $request
+     *
+     * @return UpdateRenderingDeviceSpecResponse
+     */
+    public function updateRenderingDeviceSpec($request)
+    {
+        $runtime = new RuntimeOptions([]);
+
+        return $this->updateRenderingDeviceSpecWithOptions($request, $runtime);
+    }
+
+    /**
      * @param UpdateVsPullStreamInfoConfigRequest $request
      * @param RuntimeOptions                      $runtime
      *
@@ -4009,11 +9552,47 @@ class Vs extends OpenApiClient
     public function updateVsPullStreamInfoConfigWithOptions($request, $runtime)
     {
         Utils::validateModel($request);
+        $query = [];
+        if (!Utils::isUnset($request->always)) {
+            $query['Always'] = $request->always;
+        }
+        if (!Utils::isUnset($request->appName)) {
+            $query['AppName'] = $request->appName;
+        }
+        if (!Utils::isUnset($request->domainName)) {
+            $query['DomainName'] = $request->domainName;
+        }
+        if (!Utils::isUnset($request->endTime)) {
+            $query['EndTime'] = $request->endTime;
+        }
+        if (!Utils::isUnset($request->ownerId)) {
+            $query['OwnerId'] = $request->ownerId;
+        }
+        if (!Utils::isUnset($request->sourceUrl)) {
+            $query['SourceUrl'] = $request->sourceUrl;
+        }
+        if (!Utils::isUnset($request->startTime)) {
+            $query['StartTime'] = $request->startTime;
+        }
+        if (!Utils::isUnset($request->streamName)) {
+            $query['StreamName'] = $request->streamName;
+        }
         $req = new OpenApiRequest([
-            'body' => Utils::toMap($request),
+            'query' => OpenApiUtilClient::query($query),
+        ]);
+        $params = new Params([
+            'action'      => 'UpdateVsPullStreamInfoConfig',
+            'version'     => '2018-12-12',
+            'protocol'    => 'HTTPS',
+            'pathname'    => '/',
+            'method'      => 'POST',
+            'authType'    => 'AK',
+            'style'       => 'RPC',
+            'reqBodyType' => 'formData',
+            'bodyType'    => 'json',
         ]);
 
-        return UpdateVsPullStreamInfoConfigResponse::fromMap($this->doRPCRequest('UpdateVsPullStreamInfoConfig', '2018-12-12', 'HTTPS', 'POST', 'AK', 'json', $req, $runtime));
+        return UpdateVsPullStreamInfoConfigResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
@@ -4029,6 +9608,110 @@ class Vs extends OpenApiClient
     }
 
     /**
+     * @param UpgradeRenderingDevicesHostOSRequest $request
+     * @param RuntimeOptions                       $runtime
+     *
+     * @return UpgradeRenderingDevicesHostOSResponse
+     */
+    public function upgradeRenderingDevicesHostOSWithOptions($request, $runtime)
+    {
+        Utils::validateModel($request);
+        $query = [];
+        if (!Utils::isUnset($request->instanceIds)) {
+            $query['InstanceIds'] = $request->instanceIds;
+        }
+        if (!Utils::isUnset($request->ownerId)) {
+            $query['OwnerId'] = $request->ownerId;
+        }
+        if (!Utils::isUnset($request->romName)) {
+            $query['RomName'] = $request->romName;
+        }
+        if (!Utils::isUnset($request->romPath)) {
+            $query['RomPath'] = $request->romPath;
+        }
+        if (!Utils::isUnset($request->romVersion)) {
+            $query['RomVersion'] = $request->romVersion;
+        }
+        $req = new OpenApiRequest([
+            'query' => OpenApiUtilClient::query($query),
+        ]);
+        $params = new Params([
+            'action'      => 'UpgradeRenderingDevicesHostOS',
+            'version'     => '2018-12-12',
+            'protocol'    => 'HTTPS',
+            'pathname'    => '/',
+            'method'      => 'POST',
+            'authType'    => 'AK',
+            'style'       => 'RPC',
+            'reqBodyType' => 'formData',
+            'bodyType'    => 'json',
+        ]);
+
+        return UpgradeRenderingDevicesHostOSResponse::fromMap($this->callApi($params, $req, $runtime));
+    }
+
+    /**
+     * @param UpgradeRenderingDevicesHostOSRequest $request
+     *
+     * @return UpgradeRenderingDevicesHostOSResponse
+     */
+    public function upgradeRenderingDevicesHostOS($request)
+    {
+        $runtime = new RuntimeOptions([]);
+
+        return $this->upgradeRenderingDevicesHostOSWithOptions($request, $runtime);
+    }
+
+    /**
+     * @param UpgradeRenderingDevicesImageRequest $request
+     * @param RuntimeOptions                      $runtime
+     *
+     * @return UpgradeRenderingDevicesImageResponse
+     */
+    public function upgradeRenderingDevicesImageWithOptions($request, $runtime)
+    {
+        Utils::validateModel($request);
+        $query = [];
+        if (!Utils::isUnset($request->imageId)) {
+            $query['ImageId'] = $request->imageId;
+        }
+        if (!Utils::isUnset($request->instanceIds)) {
+            $query['InstanceIds'] = $request->instanceIds;
+        }
+        if (!Utils::isUnset($request->ownerId)) {
+            $query['OwnerId'] = $request->ownerId;
+        }
+        $req = new OpenApiRequest([
+            'query' => OpenApiUtilClient::query($query),
+        ]);
+        $params = new Params([
+            'action'      => 'UpgradeRenderingDevicesImage',
+            'version'     => '2018-12-12',
+            'protocol'    => 'HTTPS',
+            'pathname'    => '/',
+            'method'      => 'POST',
+            'authType'    => 'AK',
+            'style'       => 'RPC',
+            'reqBodyType' => 'formData',
+            'bodyType'    => 'json',
+        ]);
+
+        return UpgradeRenderingDevicesImageResponse::fromMap($this->callApi($params, $req, $runtime));
+    }
+
+    /**
+     * @param UpgradeRenderingDevicesImageRequest $request
+     *
+     * @return UpgradeRenderingDevicesImageResponse
+     */
+    public function upgradeRenderingDevicesImage($request)
+    {
+        $runtime = new RuntimeOptions([]);
+
+        return $this->upgradeRenderingDevicesImageWithOptions($request, $runtime);
+    }
+
+    /**
      * @param UploadDeviceRecordRequest $request
      * @param RuntimeOptions            $runtime
      *
@@ -4037,11 +9720,47 @@ class Vs extends OpenApiClient
     public function uploadDeviceRecordWithOptions($request, $runtime)
     {
         Utils::validateModel($request);
+        $query = [];
+        if (!Utils::isUnset($request->deviceId)) {
+            $query['DeviceId'] = $request->deviceId;
+        }
+        if (!Utils::isUnset($request->ownerId)) {
+            $query['OwnerId'] = $request->ownerId;
+        }
+        if (!Utils::isUnset($request->searchCriteria)) {
+            $query['SearchCriteria'] = $request->searchCriteria;
+        }
+        if (!Utils::isUnset($request->streamId)) {
+            $query['StreamId'] = $request->streamId;
+        }
+        if (!Utils::isUnset($request->uploadId)) {
+            $query['UploadId'] = $request->uploadId;
+        }
+        if (!Utils::isUnset($request->uploadMode)) {
+            $query['UploadMode'] = $request->uploadMode;
+        }
+        if (!Utils::isUnset($request->uploadParams)) {
+            $query['UploadParams'] = $request->uploadParams;
+        }
+        if (!Utils::isUnset($request->uploadType)) {
+            $query['UploadType'] = $request->uploadType;
+        }
         $req = new OpenApiRequest([
-            'body' => Utils::toMap($request),
+            'query' => OpenApiUtilClient::query($query),
+        ]);
+        $params = new Params([
+            'action'      => 'UploadDeviceRecord',
+            'version'     => '2018-12-12',
+            'protocol'    => 'HTTPS',
+            'pathname'    => '/',
+            'method'      => 'POST',
+            'authType'    => 'AK',
+            'style'       => 'RPC',
+            'reqBodyType' => 'formData',
+            'bodyType'    => 'json',
         ]);
 
-        return UploadDeviceRecordResponse::fromMap($this->doRPCRequest('UploadDeviceRecord', '2018-12-12', 'HTTPS', 'POST', 'AK', 'json', $req, $runtime));
+        return UploadDeviceRecordResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**

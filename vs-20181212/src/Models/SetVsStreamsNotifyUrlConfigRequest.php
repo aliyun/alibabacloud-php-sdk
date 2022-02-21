@@ -9,9 +9,14 @@ use AlibabaCloud\Tea\Model;
 class SetVsStreamsNotifyUrlConfigRequest extends Model
 {
     /**
-     * @var int
+     * @var string
      */
-    public $ownerId;
+    public $authKey;
+
+    /**
+     * @var string
+     */
+    public $authType;
 
     /**
      * @var string
@@ -24,20 +29,15 @@ class SetVsStreamsNotifyUrlConfigRequest extends Model
     public $notifyUrl;
 
     /**
-     * @var string
+     * @var int
      */
-    public $authType;
-
-    /**
-     * @var string
-     */
-    public $authKey;
+    public $ownerId;
     protected $_name = [
-        'ownerId'    => 'OwnerId',
+        'authKey'    => 'AuthKey',
+        'authType'   => 'AuthType',
         'domainName' => 'DomainName',
         'notifyUrl'  => 'NotifyUrl',
-        'authType'   => 'AuthType',
-        'authKey'    => 'AuthKey',
+        'ownerId'    => 'OwnerId',
     ];
 
     public function validate()
@@ -47,8 +47,11 @@ class SetVsStreamsNotifyUrlConfigRequest extends Model
     public function toMap()
     {
         $res = [];
-        if (null !== $this->ownerId) {
-            $res['OwnerId'] = $this->ownerId;
+        if (null !== $this->authKey) {
+            $res['AuthKey'] = $this->authKey;
+        }
+        if (null !== $this->authType) {
+            $res['AuthType'] = $this->authType;
         }
         if (null !== $this->domainName) {
             $res['DomainName'] = $this->domainName;
@@ -56,11 +59,8 @@ class SetVsStreamsNotifyUrlConfigRequest extends Model
         if (null !== $this->notifyUrl) {
             $res['NotifyUrl'] = $this->notifyUrl;
         }
-        if (null !== $this->authType) {
-            $res['AuthType'] = $this->authType;
-        }
-        if (null !== $this->authKey) {
-            $res['AuthKey'] = $this->authKey;
+        if (null !== $this->ownerId) {
+            $res['OwnerId'] = $this->ownerId;
         }
 
         return $res;
@@ -74,8 +74,11 @@ class SetVsStreamsNotifyUrlConfigRequest extends Model
     public static function fromMap($map = [])
     {
         $model = new self();
-        if (isset($map['OwnerId'])) {
-            $model->ownerId = $map['OwnerId'];
+        if (isset($map['AuthKey'])) {
+            $model->authKey = $map['AuthKey'];
+        }
+        if (isset($map['AuthType'])) {
+            $model->authType = $map['AuthType'];
         }
         if (isset($map['DomainName'])) {
             $model->domainName = $map['DomainName'];
@@ -83,11 +86,8 @@ class SetVsStreamsNotifyUrlConfigRequest extends Model
         if (isset($map['NotifyUrl'])) {
             $model->notifyUrl = $map['NotifyUrl'];
         }
-        if (isset($map['AuthType'])) {
-            $model->authType = $map['AuthType'];
-        }
-        if (isset($map['AuthKey'])) {
-            $model->authKey = $map['AuthKey'];
+        if (isset($map['OwnerId'])) {
+            $model->ownerId = $map['OwnerId'];
         }
 
         return $model;

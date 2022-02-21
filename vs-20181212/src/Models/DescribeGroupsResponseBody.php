@@ -10,6 +10,16 @@ use AlibabaCloud\Tea\Model;
 class DescribeGroupsResponseBody extends Model
 {
     /**
+     * @var groups[]
+     */
+    public $groups;
+
+    /**
+     * @var int
+     */
+    public $pageCount;
+
+    /**
      * @var int
      */
     public $pageNum;
@@ -28,23 +38,13 @@ class DescribeGroupsResponseBody extends Model
      * @var int
      */
     public $totalCount;
-
-    /**
-     * @var int
-     */
-    public $pageCount;
-
-    /**
-     * @var groups[]
-     */
-    public $groups;
     protected $_name = [
+        'groups'     => 'Groups',
+        'pageCount'  => 'PageCount',
         'pageNum'    => 'PageNum',
         'pageSize'   => 'PageSize',
         'requestId'  => 'RequestId',
         'totalCount' => 'TotalCount',
-        'pageCount'  => 'PageCount',
-        'groups'     => 'Groups',
     ];
 
     public function validate()
@@ -54,6 +54,18 @@ class DescribeGroupsResponseBody extends Model
     public function toMap()
     {
         $res = [];
+        if (null !== $this->groups) {
+            $res['Groups'] = [];
+            if (null !== $this->groups && \is_array($this->groups)) {
+                $n = 0;
+                foreach ($this->groups as $item) {
+                    $res['Groups'][$n++] = null !== $item ? $item->toMap() : $item;
+                }
+            }
+        }
+        if (null !== $this->pageCount) {
+            $res['PageCount'] = $this->pageCount;
+        }
         if (null !== $this->pageNum) {
             $res['PageNum'] = $this->pageNum;
         }
@@ -65,18 +77,6 @@ class DescribeGroupsResponseBody extends Model
         }
         if (null !== $this->totalCount) {
             $res['TotalCount'] = $this->totalCount;
-        }
-        if (null !== $this->pageCount) {
-            $res['PageCount'] = $this->pageCount;
-        }
-        if (null !== $this->groups) {
-            $res['Groups'] = [];
-            if (null !== $this->groups && \is_array($this->groups)) {
-                $n = 0;
-                foreach ($this->groups as $item) {
-                    $res['Groups'][$n++] = null !== $item ? $item->toMap() : $item;
-                }
-            }
         }
 
         return $res;
@@ -90,6 +90,18 @@ class DescribeGroupsResponseBody extends Model
     public static function fromMap($map = [])
     {
         $model = new self();
+        if (isset($map['Groups'])) {
+            if (!empty($map['Groups'])) {
+                $model->groups = [];
+                $n             = 0;
+                foreach ($map['Groups'] as $item) {
+                    $model->groups[$n++] = null !== $item ? groups::fromMap($item) : $item;
+                }
+            }
+        }
+        if (isset($map['PageCount'])) {
+            $model->pageCount = $map['PageCount'];
+        }
         if (isset($map['PageNum'])) {
             $model->pageNum = $map['PageNum'];
         }
@@ -101,18 +113,6 @@ class DescribeGroupsResponseBody extends Model
         }
         if (isset($map['TotalCount'])) {
             $model->totalCount = $map['TotalCount'];
-        }
-        if (isset($map['PageCount'])) {
-            $model->pageCount = $map['PageCount'];
-        }
-        if (isset($map['Groups'])) {
-            if (!empty($map['Groups'])) {
-                $model->groups = [];
-                $n             = 0;
-                foreach ($map['Groups'] as $item) {
-                    $model->groups[$n++] = null !== $item ? groups::fromMap($item) : $item;
-                }
-            }
         }
 
         return $model;

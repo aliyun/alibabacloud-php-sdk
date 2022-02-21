@@ -10,17 +10,17 @@ use AlibabaCloud\Tea\Model;
 class DescribeStreamVodListResponseBody extends Model
 {
     /**
-     * @var string
-     */
-    public $requestId;
-
-    /**
      * @var records[]
      */
     public $records;
+
+    /**
+     * @var string
+     */
+    public $requestId;
     protected $_name = [
-        'requestId' => 'RequestId',
         'records'   => 'Records',
+        'requestId' => 'RequestId',
     ];
 
     public function validate()
@@ -30,9 +30,6 @@ class DescribeStreamVodListResponseBody extends Model
     public function toMap()
     {
         $res = [];
-        if (null !== $this->requestId) {
-            $res['RequestId'] = $this->requestId;
-        }
         if (null !== $this->records) {
             $res['Records'] = [];
             if (null !== $this->records && \is_array($this->records)) {
@@ -41,6 +38,9 @@ class DescribeStreamVodListResponseBody extends Model
                     $res['Records'][$n++] = null !== $item ? $item->toMap() : $item;
                 }
             }
+        }
+        if (null !== $this->requestId) {
+            $res['RequestId'] = $this->requestId;
         }
 
         return $res;
@@ -54,9 +54,6 @@ class DescribeStreamVodListResponseBody extends Model
     public static function fromMap($map = [])
     {
         $model = new self();
-        if (isset($map['RequestId'])) {
-            $model->requestId = $map['RequestId'];
-        }
         if (isset($map['Records'])) {
             if (!empty($map['Records'])) {
                 $model->records = [];
@@ -65,6 +62,9 @@ class DescribeStreamVodListResponseBody extends Model
                     $model->records[$n++] = null !== $item ? records::fromMap($item) : $item;
                 }
             }
+        }
+        if (isset($map['RequestId'])) {
+            $model->requestId = $map['RequestId'];
         }
 
         return $model;

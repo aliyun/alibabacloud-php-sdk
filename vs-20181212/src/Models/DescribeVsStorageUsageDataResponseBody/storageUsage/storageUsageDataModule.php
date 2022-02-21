@@ -9,6 +9,11 @@ use AlibabaCloud\Tea\Model;
 class storageUsageDataModule extends Model
 {
     /**
+     * @var string
+     */
+    public $bucket;
+
+    /**
      * @var int
      */
     public $storageDataValue;
@@ -17,15 +22,10 @@ class storageUsageDataModule extends Model
      * @var string
      */
     public $timeStamp;
-
-    /**
-     * @var string
-     */
-    public $bucket;
     protected $_name = [
+        'bucket'           => 'Bucket',
         'storageDataValue' => 'StorageDataValue',
         'timeStamp'        => 'TimeStamp',
-        'bucket'           => 'Bucket',
     ];
 
     public function validate()
@@ -35,14 +35,14 @@ class storageUsageDataModule extends Model
     public function toMap()
     {
         $res = [];
+        if (null !== $this->bucket) {
+            $res['Bucket'] = $this->bucket;
+        }
         if (null !== $this->storageDataValue) {
             $res['StorageDataValue'] = $this->storageDataValue;
         }
         if (null !== $this->timeStamp) {
             $res['TimeStamp'] = $this->timeStamp;
-        }
-        if (null !== $this->bucket) {
-            $res['Bucket'] = $this->bucket;
         }
 
         return $res;
@@ -56,14 +56,14 @@ class storageUsageDataModule extends Model
     public static function fromMap($map = [])
     {
         $model = new self();
+        if (isset($map['Bucket'])) {
+            $model->bucket = $map['Bucket'];
+        }
         if (isset($map['StorageDataValue'])) {
             $model->storageDataValue = $map['StorageDataValue'];
         }
         if (isset($map['TimeStamp'])) {
             $model->timeStamp = $map['TimeStamp'];
-        }
-        if (isset($map['Bucket'])) {
-            $model->bucket = $map['Bucket'];
         }
 
         return $model;

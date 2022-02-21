@@ -9,14 +9,9 @@ use AlibabaCloud\Tea\Model;
 class BatchBindTemplateRequest extends Model
 {
     /**
-     * @var int
+     * @var bool
      */
-    public $ownerId;
-
-    /**
-     * @var string
-     */
-    public $templateId;
+    public $applyAll;
 
     /**
      * @var string
@@ -29,21 +24,26 @@ class BatchBindTemplateRequest extends Model
     public $instanceType;
 
     /**
-     * @var bool
+     * @var int
      */
-    public $applyAll;
+    public $ownerId;
 
     /**
      * @var bool
      */
     public $replace;
+
+    /**
+     * @var string
+     */
+    public $templateId;
     protected $_name = [
-        'ownerId'      => 'OwnerId',
-        'templateId'   => 'TemplateId',
+        'applyAll'     => 'ApplyAll',
         'instanceId'   => 'InstanceId',
         'instanceType' => 'InstanceType',
-        'applyAll'     => 'ApplyAll',
+        'ownerId'      => 'OwnerId',
         'replace'      => 'Replace',
+        'templateId'   => 'TemplateId',
     ];
 
     public function validate()
@@ -53,11 +53,8 @@ class BatchBindTemplateRequest extends Model
     public function toMap()
     {
         $res = [];
-        if (null !== $this->ownerId) {
-            $res['OwnerId'] = $this->ownerId;
-        }
-        if (null !== $this->templateId) {
-            $res['TemplateId'] = $this->templateId;
+        if (null !== $this->applyAll) {
+            $res['ApplyAll'] = $this->applyAll;
         }
         if (null !== $this->instanceId) {
             $res['InstanceId'] = $this->instanceId;
@@ -65,11 +62,14 @@ class BatchBindTemplateRequest extends Model
         if (null !== $this->instanceType) {
             $res['InstanceType'] = $this->instanceType;
         }
-        if (null !== $this->applyAll) {
-            $res['ApplyAll'] = $this->applyAll;
+        if (null !== $this->ownerId) {
+            $res['OwnerId'] = $this->ownerId;
         }
         if (null !== $this->replace) {
             $res['Replace'] = $this->replace;
+        }
+        if (null !== $this->templateId) {
+            $res['TemplateId'] = $this->templateId;
         }
 
         return $res;
@@ -83,11 +83,8 @@ class BatchBindTemplateRequest extends Model
     public static function fromMap($map = [])
     {
         $model = new self();
-        if (isset($map['OwnerId'])) {
-            $model->ownerId = $map['OwnerId'];
-        }
-        if (isset($map['TemplateId'])) {
-            $model->templateId = $map['TemplateId'];
+        if (isset($map['ApplyAll'])) {
+            $model->applyAll = $map['ApplyAll'];
         }
         if (isset($map['InstanceId'])) {
             $model->instanceId = $map['InstanceId'];
@@ -95,11 +92,14 @@ class BatchBindTemplateRequest extends Model
         if (isset($map['InstanceType'])) {
             $model->instanceType = $map['InstanceType'];
         }
-        if (isset($map['ApplyAll'])) {
-            $model->applyAll = $map['ApplyAll'];
+        if (isset($map['OwnerId'])) {
+            $model->ownerId = $map['OwnerId'];
         }
         if (isset($map['Replace'])) {
             $model->replace = $map['Replace'];
+        }
+        if (isset($map['TemplateId'])) {
+            $model->templateId = $map['TemplateId'];
         }
 
         return $model;

@@ -9,6 +9,11 @@ use AlibabaCloud\Tea\Model;
 class StartTransferStreamRequest extends Model
 {
     /**
+     * @var string
+     */
+    public $id;
+
+    /**
      * @var int
      */
     public $ownerId;
@@ -16,22 +21,17 @@ class StartTransferStreamRequest extends Model
     /**
      * @var string
      */
-    public $id;
+    public $transcode;
 
     /**
      * @var string
      */
     public $url;
-
-    /**
-     * @var string
-     */
-    public $transcode;
     protected $_name = [
-        'ownerId'   => 'OwnerId',
         'id'        => 'Id',
-        'url'       => 'Url',
+        'ownerId'   => 'OwnerId',
         'transcode' => 'Transcode',
+        'url'       => 'Url',
     ];
 
     public function validate()
@@ -41,17 +41,17 @@ class StartTransferStreamRequest extends Model
     public function toMap()
     {
         $res = [];
-        if (null !== $this->ownerId) {
-            $res['OwnerId'] = $this->ownerId;
-        }
         if (null !== $this->id) {
             $res['Id'] = $this->id;
         }
-        if (null !== $this->url) {
-            $res['Url'] = $this->url;
+        if (null !== $this->ownerId) {
+            $res['OwnerId'] = $this->ownerId;
         }
         if (null !== $this->transcode) {
             $res['Transcode'] = $this->transcode;
+        }
+        if (null !== $this->url) {
+            $res['Url'] = $this->url;
         }
 
         return $res;
@@ -65,17 +65,17 @@ class StartTransferStreamRequest extends Model
     public static function fromMap($map = [])
     {
         $model = new self();
-        if (isset($map['OwnerId'])) {
-            $model->ownerId = $map['OwnerId'];
-        }
         if (isset($map['Id'])) {
             $model->id = $map['Id'];
         }
-        if (isset($map['Url'])) {
-            $model->url = $map['Url'];
+        if (isset($map['OwnerId'])) {
+            $model->ownerId = $map['OwnerId'];
         }
         if (isset($map['Transcode'])) {
             $model->transcode = $map['Transcode'];
+        }
+        if (isset($map['Url'])) {
+            $model->url = $map['Url'];
         }
 
         return $model;

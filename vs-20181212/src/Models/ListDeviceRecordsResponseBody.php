@@ -12,12 +12,22 @@ class ListDeviceRecordsResponseBody extends Model
     /**
      * @var int
      */
+    public $pageCount;
+
+    /**
+     * @var int
+     */
     public $pageNum;
 
     /**
      * @var int
      */
     public $pageSize;
+
+    /**
+     * @var records[]
+     */
+    public $records;
 
     /**
      * @var string
@@ -28,23 +38,13 @@ class ListDeviceRecordsResponseBody extends Model
      * @var int
      */
     public $totalCount;
-
-    /**
-     * @var int
-     */
-    public $pageCount;
-
-    /**
-     * @var records[]
-     */
-    public $records;
     protected $_name = [
+        'pageCount'  => 'PageCount',
         'pageNum'    => 'PageNum',
         'pageSize'   => 'PageSize',
+        'records'    => 'Records',
         'requestId'  => 'RequestId',
         'totalCount' => 'TotalCount',
-        'pageCount'  => 'PageCount',
-        'records'    => 'Records',
     ];
 
     public function validate()
@@ -54,20 +54,14 @@ class ListDeviceRecordsResponseBody extends Model
     public function toMap()
     {
         $res = [];
+        if (null !== $this->pageCount) {
+            $res['PageCount'] = $this->pageCount;
+        }
         if (null !== $this->pageNum) {
             $res['PageNum'] = $this->pageNum;
         }
         if (null !== $this->pageSize) {
             $res['PageSize'] = $this->pageSize;
-        }
-        if (null !== $this->requestId) {
-            $res['RequestId'] = $this->requestId;
-        }
-        if (null !== $this->totalCount) {
-            $res['TotalCount'] = $this->totalCount;
-        }
-        if (null !== $this->pageCount) {
-            $res['PageCount'] = $this->pageCount;
         }
         if (null !== $this->records) {
             $res['Records'] = [];
@@ -77,6 +71,12 @@ class ListDeviceRecordsResponseBody extends Model
                     $res['Records'][$n++] = null !== $item ? $item->toMap() : $item;
                 }
             }
+        }
+        if (null !== $this->requestId) {
+            $res['RequestId'] = $this->requestId;
+        }
+        if (null !== $this->totalCount) {
+            $res['TotalCount'] = $this->totalCount;
         }
 
         return $res;
@@ -90,20 +90,14 @@ class ListDeviceRecordsResponseBody extends Model
     public static function fromMap($map = [])
     {
         $model = new self();
+        if (isset($map['PageCount'])) {
+            $model->pageCount = $map['PageCount'];
+        }
         if (isset($map['PageNum'])) {
             $model->pageNum = $map['PageNum'];
         }
         if (isset($map['PageSize'])) {
             $model->pageSize = $map['PageSize'];
-        }
-        if (isset($map['RequestId'])) {
-            $model->requestId = $map['RequestId'];
-        }
-        if (isset($map['TotalCount'])) {
-            $model->totalCount = $map['TotalCount'];
-        }
-        if (isset($map['PageCount'])) {
-            $model->pageCount = $map['PageCount'];
         }
         if (isset($map['Records'])) {
             if (!empty($map['Records'])) {
@@ -113,6 +107,12 @@ class ListDeviceRecordsResponseBody extends Model
                     $model->records[$n++] = null !== $item ? records::fromMap($item) : $item;
                 }
             }
+        }
+        if (isset($map['RequestId'])) {
+            $model->requestId = $map['RequestId'];
+        }
+        if (isset($map['TotalCount'])) {
+            $model->totalCount = $map['TotalCount'];
         }
 
         return $model;

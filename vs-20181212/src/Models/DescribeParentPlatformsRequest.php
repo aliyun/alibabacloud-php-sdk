@@ -9,19 +9,24 @@ use AlibabaCloud\Tea\Model;
 class DescribeParentPlatformsRequest extends Model
 {
     /**
-     * @var int
-     */
-    public $ownerId;
-
-    /**
      * @var string
      */
     public $gbId;
 
     /**
-     * @var string
+     * @var int
      */
-    public $status;
+    public $ownerId;
+
+    /**
+     * @var int
+     */
+    public $pageNum;
+
+    /**
+     * @var int
+     */
+    public $pageSize;
 
     /**
      * @var string
@@ -34,22 +39,17 @@ class DescribeParentPlatformsRequest extends Model
     public $sortDirection;
 
     /**
-     * @var int
+     * @var string
      */
-    public $pageSize;
-
-    /**
-     * @var int
-     */
-    public $pageNum;
+    public $status;
     protected $_name = [
-        'ownerId'       => 'OwnerId',
         'gbId'          => 'GbId',
-        'status'        => 'Status',
+        'ownerId'       => 'OwnerId',
+        'pageNum'       => 'PageNum',
+        'pageSize'      => 'PageSize',
         'sortBy'        => 'SortBy',
         'sortDirection' => 'SortDirection',
-        'pageSize'      => 'PageSize',
-        'pageNum'       => 'PageNum',
+        'status'        => 'Status',
     ];
 
     public function validate()
@@ -59,14 +59,17 @@ class DescribeParentPlatformsRequest extends Model
     public function toMap()
     {
         $res = [];
-        if (null !== $this->ownerId) {
-            $res['OwnerId'] = $this->ownerId;
-        }
         if (null !== $this->gbId) {
             $res['GbId'] = $this->gbId;
         }
-        if (null !== $this->status) {
-            $res['Status'] = $this->status;
+        if (null !== $this->ownerId) {
+            $res['OwnerId'] = $this->ownerId;
+        }
+        if (null !== $this->pageNum) {
+            $res['PageNum'] = $this->pageNum;
+        }
+        if (null !== $this->pageSize) {
+            $res['PageSize'] = $this->pageSize;
         }
         if (null !== $this->sortBy) {
             $res['SortBy'] = $this->sortBy;
@@ -74,11 +77,8 @@ class DescribeParentPlatformsRequest extends Model
         if (null !== $this->sortDirection) {
             $res['SortDirection'] = $this->sortDirection;
         }
-        if (null !== $this->pageSize) {
-            $res['PageSize'] = $this->pageSize;
-        }
-        if (null !== $this->pageNum) {
-            $res['PageNum'] = $this->pageNum;
+        if (null !== $this->status) {
+            $res['Status'] = $this->status;
         }
 
         return $res;
@@ -92,14 +92,17 @@ class DescribeParentPlatformsRequest extends Model
     public static function fromMap($map = [])
     {
         $model = new self();
-        if (isset($map['OwnerId'])) {
-            $model->ownerId = $map['OwnerId'];
-        }
         if (isset($map['GbId'])) {
             $model->gbId = $map['GbId'];
         }
-        if (isset($map['Status'])) {
-            $model->status = $map['Status'];
+        if (isset($map['OwnerId'])) {
+            $model->ownerId = $map['OwnerId'];
+        }
+        if (isset($map['PageNum'])) {
+            $model->pageNum = $map['PageNum'];
+        }
+        if (isset($map['PageSize'])) {
+            $model->pageSize = $map['PageSize'];
         }
         if (isset($map['SortBy'])) {
             $model->sortBy = $map['SortBy'];
@@ -107,11 +110,8 @@ class DescribeParentPlatformsRequest extends Model
         if (isset($map['SortDirection'])) {
             $model->sortDirection = $map['SortDirection'];
         }
-        if (isset($map['PageSize'])) {
-            $model->pageSize = $map['PageSize'];
-        }
-        if (isset($map['PageNum'])) {
-            $model->pageNum = $map['PageNum'];
+        if (isset($map['Status'])) {
+            $model->status = $map['Status'];
         }
 
         return $model;
