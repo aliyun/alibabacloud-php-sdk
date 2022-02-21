@@ -34,11 +34,6 @@ class CreateClusterRequest extends Model
     public $connectionType;
 
     /**
-     * @var int
-     */
-    public $diskCapacity;
-
-    /**
      * @var string
      */
     public $diskType;
@@ -100,7 +95,6 @@ class CreateClusterRequest extends Model
         'clusterType'             => 'ClusterType',
         'clusterVersion'          => 'ClusterVersion',
         'connectionType'          => 'ConnectionType',
-        'diskCapacity'            => 'DiskCapacity',
         'diskType'                => 'DiskType',
         'instanceCount'           => 'InstanceCount',
         'mseVersion'              => 'MseVersion',
@@ -135,9 +129,6 @@ class CreateClusterRequest extends Model
         }
         if (null !== $this->connectionType) {
             $res['ConnectionType'] = $this->connectionType;
-        }
-        if (null !== $this->diskCapacity) {
-            $res['DiskCapacity'] = $this->diskCapacity;
         }
         if (null !== $this->diskType) {
             $res['DiskType'] = $this->diskType;
@@ -198,9 +189,6 @@ class CreateClusterRequest extends Model
         }
         if (isset($map['ConnectionType'])) {
             $model->connectionType = $map['ConnectionType'];
-        }
-        if (isset($map['DiskCapacity'])) {
-            $model->diskCapacity = $map['DiskCapacity'];
         }
         if (isset($map['DiskType'])) {
             $model->diskType = $map['DiskType'];

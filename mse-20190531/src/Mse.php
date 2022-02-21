@@ -29,6 +29,8 @@ use AlibabaCloud\SDK\Mse\V20190531\Models\AddSSLCertRequest;
 use AlibabaCloud\SDK\Mse\V20190531\Models\AddSSLCertResponse;
 use AlibabaCloud\SDK\Mse\V20190531\Models\ApplyGatewayRouteRequest;
 use AlibabaCloud\SDK\Mse\V20190531\Models\ApplyGatewayRouteResponse;
+use AlibabaCloud\SDK\Mse\V20190531\Models\ApplyTagPoliciesRequest;
+use AlibabaCloud\SDK\Mse\V20190531\Models\ApplyTagPoliciesResponse;
 use AlibabaCloud\SDK\Mse\V20190531\Models\CloneNacosConfigRequest;
 use AlibabaCloud\SDK\Mse\V20190531\Models\CloneNacosConfigResponse;
 use AlibabaCloud\SDK\Mse\V20190531\Models\CreateAlarmRuleRequest;
@@ -74,6 +76,8 @@ use AlibabaCloud\SDK\Mse\V20190531\Models\DeleteNacosConfigRequest;
 use AlibabaCloud\SDK\Mse\V20190531\Models\DeleteNacosConfigResponse;
 use AlibabaCloud\SDK\Mse\V20190531\Models\DeleteNacosConfigsRequest;
 use AlibabaCloud\SDK\Mse\V20190531\Models\DeleteNacosConfigsResponse;
+use AlibabaCloud\SDK\Mse\V20190531\Models\DeleteNacosInstanceRequest;
+use AlibabaCloud\SDK\Mse\V20190531\Models\DeleteNacosInstanceResponse;
 use AlibabaCloud\SDK\Mse\V20190531\Models\DeleteNacosServiceRequest;
 use AlibabaCloud\SDK\Mse\V20190531\Models\DeleteNacosServiceResponse;
 use AlibabaCloud\SDK\Mse\V20190531\Models\DeleteServiceSourceRequest;
@@ -120,6 +124,8 @@ use AlibabaCloud\SDK\Mse\V20190531\Models\GetNacosHistoryConfigRequest;
 use AlibabaCloud\SDK\Mse\V20190531\Models\GetNacosHistoryConfigResponse;
 use AlibabaCloud\SDK\Mse\V20190531\Models\GetOverviewRequest;
 use AlibabaCloud\SDK\Mse\V20190531\Models\GetOverviewResponse;
+use AlibabaCloud\SDK\Mse\V20190531\Models\GetServiceListRequest;
+use AlibabaCloud\SDK\Mse\V20190531\Models\GetServiceListResponse;
 use AlibabaCloud\SDK\Mse\V20190531\Models\GetTagsBySwimmingLaneGroupIdRequest;
 use AlibabaCloud\SDK\Mse\V20190531\Models\GetTagsBySwimmingLaneGroupIdResponse;
 use AlibabaCloud\SDK\Mse\V20190531\Models\ImportNacosConfigRequest;
@@ -143,6 +149,8 @@ use AlibabaCloud\SDK\Mse\V20190531\Models\ListAnsServicesRequest;
 use AlibabaCloud\SDK\Mse\V20190531\Models\ListAnsServicesResponse;
 use AlibabaCloud\SDK\Mse\V20190531\Models\ListAppBySwimmingLaneGroupTagRequest;
 use AlibabaCloud\SDK\Mse\V20190531\Models\ListAppBySwimmingLaneGroupTagResponse;
+use AlibabaCloud\SDK\Mse\V20190531\Models\ListApplicationsWithTagRulesRequest;
+use AlibabaCloud\SDK\Mse\V20190531\Models\ListApplicationsWithTagRulesResponse;
 use AlibabaCloud\SDK\Mse\V20190531\Models\ListClusterConnectionTypesRequest;
 use AlibabaCloud\SDK\Mse\V20190531\Models\ListClusterConnectionTypesResponse;
 use AlibabaCloud\SDK\Mse\V20190531\Models\ListClustersRequest;
@@ -973,6 +981,67 @@ class Mse extends OpenApiClient
     }
 
     /**
+     * @param ApplyTagPoliciesRequest $request
+     * @param RuntimeOptions          $runtime
+     *
+     * @return ApplyTagPoliciesResponse
+     */
+    public function applyTagPoliciesWithOptions($request, $runtime)
+    {
+        Utils::validateModel($request);
+        $query = [];
+        if (!Utils::isUnset($request->acceptLanguage)) {
+            $query['AcceptLanguage'] = $request->acceptLanguage;
+        }
+        if (!Utils::isUnset($request->appId)) {
+            $query['AppId'] = $request->appId;
+        }
+        if (!Utils::isUnset($request->enable)) {
+            $query['Enable'] = $request->enable;
+        }
+        if (!Utils::isUnset($request->namespaceId)) {
+            $query['NamespaceId'] = $request->namespaceId;
+        }
+        if (!Utils::isUnset($request->region)) {
+            $query['Region'] = $request->region;
+        }
+        if (!Utils::isUnset($request->rules)) {
+            $query['Rules'] = $request->rules;
+        }
+        if (!Utils::isUnset($request->source)) {
+            $query['Source'] = $request->source;
+        }
+        $req = new OpenApiRequest([
+            'query' => OpenApiUtilClient::query($query),
+        ]);
+        $params = new Params([
+            'action'      => 'ApplyTagPolicies',
+            'version'     => '2019-05-31',
+            'protocol'    => 'HTTPS',
+            'pathname'    => '/',
+            'method'      => 'POST',
+            'authType'    => 'AK',
+            'style'       => 'RPC',
+            'reqBodyType' => 'formData',
+            'bodyType'    => 'json',
+        ]);
+
+        return ApplyTagPoliciesResponse::fromMap($this->callApi($params, $req, $runtime));
+    }
+
+    /**
+     * @param ApplyTagPoliciesRequest $request
+     *
+     * @return ApplyTagPoliciesResponse
+     */
+    public function applyTagPolicies($request)
+    {
+        $runtime = new RuntimeOptions([]);
+
+        return $this->applyTagPoliciesWithOptions($request, $runtime);
+    }
+
+    /**
      * @param CloneNacosConfigRequest $request
      * @param RuntimeOptions          $runtime
      *
@@ -1190,9 +1259,6 @@ class Mse extends OpenApiClient
         }
         if (!Utils::isUnset($request->connectionType)) {
             $query['ConnectionType'] = $request->connectionType;
-        }
-        if (!Utils::isUnset($request->diskCapacity)) {
-            $query['DiskCapacity'] = $request->diskCapacity;
         }
         if (!Utils::isUnset($request->diskType)) {
             $query['DiskType'] = $request->diskType;
@@ -2256,6 +2322,73 @@ class Mse extends OpenApiClient
         $runtime = new RuntimeOptions([]);
 
         return $this->deleteNacosConfigsWithOptions($request, $runtime);
+    }
+
+    /**
+     * @param DeleteNacosInstanceRequest $request
+     * @param RuntimeOptions             $runtime
+     *
+     * @return DeleteNacosInstanceResponse
+     */
+    public function deleteNacosInstanceWithOptions($request, $runtime)
+    {
+        Utils::validateModel($request);
+        $query = [];
+        if (!Utils::isUnset($request->acceptLanguage)) {
+            $query['AcceptLanguage'] = $request->acceptLanguage;
+        }
+        if (!Utils::isUnset($request->clusterName)) {
+            $query['ClusterName'] = $request->clusterName;
+        }
+        if (!Utils::isUnset($request->ephemeral)) {
+            $query['Ephemeral'] = $request->ephemeral;
+        }
+        if (!Utils::isUnset($request->groupName)) {
+            $query['GroupName'] = $request->groupName;
+        }
+        if (!Utils::isUnset($request->instanceId)) {
+            $query['InstanceId'] = $request->instanceId;
+        }
+        if (!Utils::isUnset($request->ip)) {
+            $query['Ip'] = $request->ip;
+        }
+        if (!Utils::isUnset($request->namespaceId)) {
+            $query['NamespaceId'] = $request->namespaceId;
+        }
+        if (!Utils::isUnset($request->port)) {
+            $query['Port'] = $request->port;
+        }
+        if (!Utils::isUnset($request->serviceName)) {
+            $query['ServiceName'] = $request->serviceName;
+        }
+        $req = new OpenApiRequest([
+            'query' => OpenApiUtilClient::query($query),
+        ]);
+        $params = new Params([
+            'action'      => 'DeleteNacosInstance',
+            'version'     => '2019-05-31',
+            'protocol'    => 'HTTPS',
+            'pathname'    => '/',
+            'method'      => 'POST',
+            'authType'    => 'AK',
+            'style'       => 'RPC',
+            'reqBodyType' => 'formData',
+            'bodyType'    => 'json',
+        ]);
+
+        return DeleteNacosInstanceResponse::fromMap($this->callApi($params, $req, $runtime));
+    }
+
+    /**
+     * @param DeleteNacosInstanceRequest $request
+     *
+     * @return DeleteNacosInstanceResponse
+     */
+    public function deleteNacosInstance($request)
+    {
+        $runtime = new RuntimeOptions([]);
+
+        return $this->deleteNacosInstanceWithOptions($request, $runtime);
     }
 
     /**
@@ -3350,6 +3483,64 @@ class Mse extends OpenApiClient
     }
 
     /**
+     * @param GetServiceListRequest $request
+     * @param RuntimeOptions        $runtime
+     *
+     * @return GetServiceListResponse
+     */
+    public function getServiceListWithOptions($request, $runtime)
+    {
+        Utils::validateModel($request);
+        $query = [];
+        if (!Utils::isUnset($request->acceptLanguage)) {
+            $query['AcceptLanguage'] = $request->acceptLanguage;
+        }
+        if (!Utils::isUnset($request->appId)) {
+            $query['AppId'] = $request->appId;
+        }
+        if (!Utils::isUnset($request->ip)) {
+            $query['Ip'] = $request->ip;
+        }
+        if (!Utils::isUnset($request->region)) {
+            $query['Region'] = $request->region;
+        }
+        if (!Utils::isUnset($request->serviceName)) {
+            $query['ServiceName'] = $request->serviceName;
+        }
+        if (!Utils::isUnset($request->serviceType)) {
+            $query['ServiceType'] = $request->serviceType;
+        }
+        $req = new OpenApiRequest([
+            'query' => OpenApiUtilClient::query($query),
+        ]);
+        $params = new Params([
+            'action'      => 'GetServiceList',
+            'version'     => '2019-05-31',
+            'protocol'    => 'HTTPS',
+            'pathname'    => '/',
+            'method'      => 'POST',
+            'authType'    => 'AK',
+            'style'       => 'RPC',
+            'reqBodyType' => 'formData',
+            'bodyType'    => 'json',
+        ]);
+
+        return GetServiceListResponse::fromMap($this->callApi($params, $req, $runtime));
+    }
+
+    /**
+     * @param GetServiceListRequest $request
+     *
+     * @return GetServiceListResponse
+     */
+    public function getServiceList($request)
+    {
+        $runtime = new RuntimeOptions([]);
+
+        return $this->getServiceListWithOptions($request, $runtime);
+    }
+
+    /**
      * @param GetTagsBySwimmingLaneGroupIdRequest $request
      * @param RuntimeOptions                      $runtime
      *
@@ -3837,6 +4028,46 @@ class Mse extends OpenApiClient
         $runtime = new RuntimeOptions([]);
 
         return $this->listAppBySwimmingLaneGroupTagWithOptions($request, $runtime);
+    }
+
+    /**
+     * @param ListApplicationsWithTagRulesRequest $request
+     * @param RuntimeOptions                      $runtime
+     *
+     * @return ListApplicationsWithTagRulesResponse
+     */
+    public function listApplicationsWithTagRulesWithOptions($request, $runtime)
+    {
+        Utils::validateModel($request);
+        $query = OpenApiUtilClient::query(Utils::toMap($request));
+        $req   = new OpenApiRequest([
+            'query' => OpenApiUtilClient::query($query),
+        ]);
+        $params = new Params([
+            'action'      => 'ListApplicationsWithTagRules',
+            'version'     => '2019-05-31',
+            'protocol'    => 'HTTPS',
+            'pathname'    => '/',
+            'method'      => 'GET',
+            'authType'    => 'AK',
+            'style'       => 'RPC',
+            'reqBodyType' => 'formData',
+            'bodyType'    => 'json',
+        ]);
+
+        return ListApplicationsWithTagRulesResponse::fromMap($this->callApi($params, $req, $runtime));
+    }
+
+    /**
+     * @param ListApplicationsWithTagRulesRequest $request
+     *
+     * @return ListApplicationsWithTagRulesResponse
+     */
+    public function listApplicationsWithTagRules($request)
+    {
+        $runtime = new RuntimeOptions([]);
+
+        return $this->listApplicationsWithTagRulesWithOptions($request, $runtime);
     }
 
     /**
