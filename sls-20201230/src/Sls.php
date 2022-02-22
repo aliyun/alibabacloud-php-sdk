@@ -9,7 +9,6 @@ use AlibabaCloud\SDK\Sls\V20201230\Models\CreateConsumerGroupRequest;
 use AlibabaCloud\SDK\Sls\V20201230\Models\CreateConsumerGroupResponse;
 use AlibabaCloud\SDK\Sls\V20201230\Models\CreateLogStoreRequest;
 use AlibabaCloud\SDK\Sls\V20201230\Models\CreateLogStoreResponse;
-use AlibabaCloud\SDK\Sls\V20201230\Models\CreateLogStoreShrinkRequest;
 use AlibabaCloud\SDK\Sls\V20201230\Models\CreateProjectRequest;
 use AlibabaCloud\SDK\Sls\V20201230\Models\CreateProjectResponse;
 use AlibabaCloud\SDK\Sls\V20201230\Models\CreateSavedSearchRequest;
@@ -31,10 +30,8 @@ use AlibabaCloud\SDK\Sls\V20201230\Models\UpdateConsumerGroupRequest;
 use AlibabaCloud\SDK\Sls\V20201230\Models\UpdateConsumerGroupResponse;
 use AlibabaCloud\SDK\Sls\V20201230\Models\UpdateLogStoreRequest;
 use AlibabaCloud\SDK\Sls\V20201230\Models\UpdateLogStoreResponse;
-use AlibabaCloud\SDK\Sls\V20201230\Models\UpdateLogStoreShrinkRequest;
 use AlibabaCloud\SDK\Sls\V20201230\Models\UpdateProjectRequest;
 use AlibabaCloud\SDK\Sls\V20201230\Models\UpdateProjectResponse;
-use AlibabaCloud\Tea\Tea;
 use AlibabaCloud\Tea\Utils\Utils;
 use AlibabaCloud\Tea\Utils\Utils\RuntimeOptions;
 use Darabonba\GatewaySls\Client as DarabonbaGatewaySlsClient;
@@ -118,7 +115,7 @@ class Sls extends OpenApiClient
             'authType'    => 'AK',
             'style'       => 'ROA',
             'reqBodyType' => 'json',
-            'bodyType'    => 'none',
+            'bodyType'    => 'json',
         ]);
 
         return CreateConsumerGroupResponse::fromMap($this->execute($params, $req, $runtime));
@@ -140,23 +137,18 @@ class Sls extends OpenApiClient
 
     /**
      * @param string                $project
-     * @param CreateLogStoreRequest $tmpReq
+     * @param CreateLogStoreRequest $request
      * @param string[]              $headers
      * @param RuntimeOptions        $runtime
      *
      * @return CreateLogStoreResponse
      */
-    public function createLogStoreWithOptions($project, $tmpReq, $headers, $runtime)
+    public function createLogStoreWithOptions($project, $request, $headers, $runtime)
     {
-        Utils::validateModel($tmpReq);
+        Utils::validateModel($request);
         $hostMap            = [];
         $hostMap['project'] = $project;
-        $request            = new CreateLogStoreShrinkRequest([]);
-        OpenApiUtilClient::convert($tmpReq, $request);
-        if (!Utils::isUnset($tmpReq->encryptConf)) {
-            $request->encryptConfShrink = OpenApiUtilClient::arrayToStringWithSpecifiedStyle(Tea::merge($tmpReq->encryptConf), 'encrypt_conf', 'json');
-        }
-        $body = [];
+        $body               = [];
         if (!Utils::isUnset($request->appendMeta)) {
             $body['appendMeta'] = $request->appendMeta;
         }
@@ -166,8 +158,8 @@ class Sls extends OpenApiClient
         if (!Utils::isUnset($request->enableTracking)) {
             $body['enable_tracking'] = $request->enableTracking;
         }
-        if (!Utils::isUnset($request->encryptConfShrink)) {
-            $body['encrypt_conf'] = $request->encryptConfShrink;
+        if (!Utils::isUnset($request->encryptConf)) {
+            $body['encrypt_conf'] = $request->encryptConf;
         }
         if (!Utils::isUnset($request->logstoreName)) {
             $body['logstoreName'] = $request->logstoreName;
@@ -195,7 +187,7 @@ class Sls extends OpenApiClient
             'authType'    => 'AK',
             'style'       => 'ROA',
             'reqBodyType' => 'json',
-            'bodyType'    => 'none',
+            'bodyType'    => 'json',
         ]);
 
         return CreateLogStoreResponse::fromMap($this->execute($params, $req, $runtime));
@@ -244,7 +236,7 @@ class Sls extends OpenApiClient
             'authType'    => 'AK',
             'style'       => 'ROA',
             'reqBodyType' => 'json',
-            'bodyType'    => 'none',
+            'bodyType'    => 'json',
         ]);
 
         return CreateProjectResponse::fromMap($this->execute($params, $req, $runtime));
@@ -302,7 +294,7 @@ class Sls extends OpenApiClient
             'authType'    => 'AK',
             'style'       => 'ROA',
             'reqBodyType' => 'json',
-            'bodyType'    => 'none',
+            'bodyType'    => 'json',
         ]);
 
         return CreateSavedSearchResponse::fromMap($this->execute($params, $req, $runtime));
@@ -351,7 +343,7 @@ class Sls extends OpenApiClient
             'authType'    => 'AK',
             'style'       => 'ROA',
             'reqBodyType' => 'json',
-            'bodyType'    => 'none',
+            'bodyType'    => 'json',
         ]);
 
         return DeleteConsumerGroupResponse::fromMap($this->execute($params, $req, $runtime));
@@ -394,7 +386,7 @@ class Sls extends OpenApiClient
             'authType'    => 'AK',
             'style'       => 'ROA',
             'reqBodyType' => 'json',
-            'bodyType'    => 'none',
+            'bodyType'    => 'json',
         ]);
 
         return DeleteProjectResponse::fromMap($this->execute($params, $req, $runtime));
@@ -440,7 +432,7 @@ class Sls extends OpenApiClient
             'authType'    => 'AK',
             'style'       => 'ROA',
             'reqBodyType' => 'json',
-            'bodyType'    => 'none',
+            'bodyType'    => 'json',
         ]);
 
         return DeleteSavedSearchResponse::fromMap($this->execute($params, $req, $runtime));
@@ -847,7 +839,7 @@ class Sls extends OpenApiClient
             'authType'    => 'AK',
             'style'       => 'ROA',
             'reqBodyType' => 'json',
-            'bodyType'    => 'none',
+            'bodyType'    => 'json',
         ]);
 
         return UpdateConsumerGroupResponse::fromMap($this->execute($params, $req, $runtime));
@@ -871,24 +863,19 @@ class Sls extends OpenApiClient
     /**
      * @param string                $project
      * @param string                $logstore
-     * @param UpdateLogStoreRequest $tmpReq
+     * @param UpdateLogStoreRequest $request
      * @param string[]              $headers
      * @param RuntimeOptions        $runtime
      *
      * @return UpdateLogStoreResponse
      */
-    public function updateLogStoreWithOptions($project, $logstore, $tmpReq, $headers, $runtime)
+    public function updateLogStoreWithOptions($project, $logstore, $request, $headers, $runtime)
     {
-        Utils::validateModel($tmpReq);
+        Utils::validateModel($request);
         $hostMap            = [];
         $hostMap['project'] = $project;
         $logstore           = OpenApiUtilClient::getEncodeParam($logstore);
-        $request            = new UpdateLogStoreShrinkRequest([]);
-        OpenApiUtilClient::convert($tmpReq, $request);
-        if (!Utils::isUnset($tmpReq->encryptConf)) {
-            $request->encryptConfShrink = OpenApiUtilClient::arrayToStringWithSpecifiedStyle(Tea::merge($tmpReq->encryptConf), 'encrypt_conf', 'json');
-        }
-        $body = [];
+        $body               = [];
         if (!Utils::isUnset($request->appendMeta)) {
             $body['appendMeta'] = $request->appendMeta;
         }
@@ -898,8 +885,11 @@ class Sls extends OpenApiClient
         if (!Utils::isUnset($request->enableTracking)) {
             $body['enable_tracking'] = $request->enableTracking;
         }
-        if (!Utils::isUnset($request->encryptConfShrink)) {
-            $body['encrypt_conf'] = $request->encryptConfShrink;
+        if (!Utils::isUnset($request->encryptConf)) {
+            $body['encrypt_conf'] = $request->encryptConf;
+        }
+        if (!Utils::isUnset($request->logstore)) {
+            $body['logstore'] = $request->logstore;
         }
         if (!Utils::isUnset($request->logstoreName)) {
             $body['logstoreName'] = $request->logstoreName;
@@ -927,7 +917,7 @@ class Sls extends OpenApiClient
             'authType'    => 'AK',
             'style'       => 'ROA',
             'reqBodyType' => 'json',
-            'bodyType'    => 'none',
+            'bodyType'    => 'json',
         ]);
 
         return UpdateLogStoreResponse::fromMap($this->execute($params, $req, $runtime));
@@ -978,7 +968,7 @@ class Sls extends OpenApiClient
             'authType'    => 'AK',
             'style'       => 'ROA',
             'reqBodyType' => 'json',
-            'bodyType'    => 'none',
+            'bodyType'    => 'json',
         ]);
 
         return UpdateProjectResponse::fromMap($this->execute($params, $req, $runtime));

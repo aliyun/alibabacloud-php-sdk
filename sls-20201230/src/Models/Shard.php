@@ -30,13 +30,6 @@ class Shard extends Model
     public $inclusiveBeginKey;
 
     /**
-     * @description serverIp
-     *
-     * @var string
-     */
-    public $serverIp;
-
-    /**
      * @description shard id
      *
      * @var int
@@ -53,7 +46,6 @@ class Shard extends Model
         'createTime'        => 'createTime',
         'exclusiveEndKey'   => 'exclusiveEndKey',
         'inclusiveBeginKey' => 'inclusiveBeginKey',
-        'serverIp'          => 'serverIp',
         'shardId'           => 'shardId',
         'status'            => 'status',
     ];
@@ -73,9 +65,6 @@ class Shard extends Model
         }
         if (null !== $this->inclusiveBeginKey) {
             $res['inclusiveBeginKey'] = $this->inclusiveBeginKey;
-        }
-        if (null !== $this->serverIp) {
-            $res['serverIp'] = $this->serverIp;
         }
         if (null !== $this->shardId) {
             $res['shardId'] = $this->shardId;
@@ -103,9 +92,6 @@ class Shard extends Model
         }
         if (isset($map['inclusiveBeginKey'])) {
             $model->inclusiveBeginKey = $map['inclusiveBeginKey'];
-        }
-        if (isset($map['serverIp'])) {
-            $model->serverIp = $map['serverIp'];
         }
         if (isset($map['shardId'])) {
             $model->shardId = $map['shardId'];
