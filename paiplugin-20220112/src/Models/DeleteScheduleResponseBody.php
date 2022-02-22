@@ -4,15 +4,14 @@
 
 namespace AlibabaCloud\SDK\PaiPlugin\V20220112\Models;
 
-use AlibabaCloud\SDK\PaiPlugin\V20220112\Models\SendMessageResponseBody\data;
 use AlibabaCloud\Tea\Model;
 
-class SendMessageResponseBody extends Model
+class DeleteScheduleResponseBody extends Model
 {
     /**
      * @description 返回数据
      *
-     * @var data
+     * @var string
      */
     public $data;
 
@@ -43,7 +42,7 @@ class SendMessageResponseBody extends Model
     {
         $res = [];
         if (null !== $this->data) {
-            $res['Data'] = null !== $this->data ? $this->data->toMap() : null;
+            $res['Data'] = $this->data;
         }
         if (null !== $this->errorCode) {
             $res['ErrorCode'] = $this->errorCode;
@@ -58,13 +57,13 @@ class SendMessageResponseBody extends Model
     /**
      * @param array $map
      *
-     * @return SendMessageResponseBody
+     * @return DeleteScheduleResponseBody
      */
     public static function fromMap($map = [])
     {
         $model = new self();
         if (isset($map['Data'])) {
-            $model->data = data::fromMap($map['Data']);
+            $model->data = $map['Data'];
         }
         if (isset($map['ErrorCode'])) {
             $model->errorCode = $map['ErrorCode'];

@@ -4,10 +4,10 @@
 
 namespace AlibabaCloud\SDK\PaiPlugin\V20220112\Models;
 
-use AlibabaCloud\SDK\PaiPlugin\V20220112\Models\SendMessageResponseBody\data;
+use AlibabaCloud\SDK\PaiPlugin\V20220112\Models\ListSchedulesResponseBody\data;
 use AlibabaCloud\Tea\Model;
 
-class SendMessageResponseBody extends Model
+class ListSchedulesResponseBody extends Model
 {
     /**
      * @description 返回数据
@@ -58,7 +58,7 @@ class SendMessageResponseBody extends Model
     /**
      * @param array $map
      *
-     * @return SendMessageResponseBody
+     * @return ListSchedulesResponseBody
      */
     public static function fromMap($map = [])
     {
