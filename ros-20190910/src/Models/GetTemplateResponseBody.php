@@ -27,6 +27,11 @@ class GetTemplateResponseBody extends Model
     /**
      * @var string
      */
+    public $interface;
+
+    /**
+     * @var string
+     */
     public $ownerId;
 
     /**
@@ -97,6 +102,7 @@ class GetTemplateResponseBody extends Model
         'changeSetId'     => 'ChangeSetId',
         'createTime'      => 'CreateTime',
         'description'     => 'Description',
+        'interface'       => 'Interface',
         'ownerId'         => 'OwnerId',
         'permissions'     => 'Permissions',
         'regionId'        => 'RegionId',
@@ -128,6 +134,9 @@ class GetTemplateResponseBody extends Model
         }
         if (null !== $this->description) {
             $res['Description'] = $this->description;
+        }
+        if (null !== $this->interface) {
+            $res['Interface'] = $this->interface;
         }
         if (null !== $this->ownerId) {
             $res['OwnerId'] = $this->ownerId;
@@ -197,6 +206,9 @@ class GetTemplateResponseBody extends Model
         }
         if (isset($map['Description'])) {
             $model->description = $map['Description'];
+        }
+        if (isset($map['Interface'])) {
+            $model->interface = $map['Interface'];
         }
         if (isset($map['OwnerId'])) {
             $model->ownerId = $map['OwnerId'];

@@ -38,6 +38,11 @@ class GetStackResponseBody extends Model
     public $driftDetectionTime;
 
     /**
+     * @var string
+     */
+    public $interface;
+
+    /**
      * @var log
      */
     public $log;
@@ -167,6 +172,7 @@ class GetStackResponseBody extends Model
         'description'         => 'Description',
         'disableRollback'     => 'DisableRollback',
         'driftDetectionTime'  => 'DriftDetectionTime',
+        'interface'           => 'Interface',
         'log'                 => 'Log',
         'notificationURLs'    => 'NotificationURLs',
         'outputs'             => 'Outputs',
@@ -215,6 +221,9 @@ class GetStackResponseBody extends Model
         }
         if (null !== $this->driftDetectionTime) {
             $res['DriftDetectionTime'] = $this->driftDetectionTime;
+        }
+        if (null !== $this->interface) {
+            $res['Interface'] = $this->interface;
         }
         if (null !== $this->log) {
             $res['Log'] = null !== $this->log ? $this->log->toMap() : null;
@@ -329,6 +338,9 @@ class GetStackResponseBody extends Model
         }
         if (isset($map['DriftDetectionTime'])) {
             $model->driftDetectionTime = $map['DriftDetectionTime'];
+        }
+        if (isset($map['Interface'])) {
+            $model->interface = $map['Interface'];
         }
         if (isset($map['Log'])) {
             $model->log = log::fromMap($map['Log']);
