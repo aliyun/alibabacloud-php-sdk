@@ -1142,40 +1142,40 @@ class PaiPlugin extends OpenApiClient
     public function listMessagesWithOptions($request, $headers, $runtime)
     {
         Utils::validateModel($request);
-        $body = [];
+        $query = [];
         if (!Utils::isUnset($request->datetime)) {
-            $body['Datetime'] = $request->datetime;
+            $query['Datetime'] = $request->datetime;
         }
         if (!Utils::isUnset($request->groupId)) {
-            $body['GroupId'] = $request->groupId;
+            $query['GroupId'] = $request->groupId;
         }
         if (!Utils::isUnset($request->messageId)) {
-            $body['MessageId'] = $request->messageId;
+            $query['MessageId'] = $request->messageId;
         }
         if (!Utils::isUnset($request->pageNumber)) {
-            $body['PageNumber'] = $request->pageNumber;
+            $query['PageNumber'] = $request->pageNumber;
         }
         if (!Utils::isUnset($request->pageSize)) {
-            $body['PageSize'] = $request->pageSize;
+            $query['PageSize'] = $request->pageSize;
         }
         if (!Utils::isUnset($request->phoneNumber)) {
-            $body['PhoneNumber'] = $request->phoneNumber;
+            $query['PhoneNumber'] = $request->phoneNumber;
         }
         if (!Utils::isUnset($request->requestId)) {
-            $body['RequestId'] = $request->requestId;
+            $query['RequestId'] = $request->requestId;
         }
         if (!Utils::isUnset($request->scheduleId)) {
-            $body['ScheduleId'] = $request->scheduleId;
+            $query['ScheduleId'] = $request->scheduleId;
         }
         if (!Utils::isUnset($request->signature)) {
-            $body['Signature'] = $request->signature;
+            $query['Signature'] = $request->signature;
         }
         if (!Utils::isUnset($request->templateCode)) {
-            $body['TemplateCode'] = $request->templateCode;
+            $query['TemplateCode'] = $request->templateCode;
         }
         $req = new OpenApiRequest([
             'headers' => $headers,
-            'body'    => OpenApiUtilClient::parseToMap($body),
+            'query'   => OpenApiUtilClient::query($query),
         ]);
         $params = new Params([
             'action'      => 'ListMessages',
